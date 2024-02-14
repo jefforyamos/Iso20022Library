@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General information about the corporate action event.
 /// </summary>
 [IsoId("_plKzgTi7Eeydid5dcNPKvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action General Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record CorporateActionGeneralInformation167
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
     [IsoId("_plKzhzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnEvtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CorpActnEvtId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax16Text CorporateActionEventIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CorporateActionEventIdentification { get; init; } 
+    public required System.String CorporateActionEventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CorporateActionEventIdentification { get; init; } 
     #else
@@ -76,15 +72,13 @@ public partial record CorporateActionGeneralInformation167
     /// Official and unique reference assigned by the official central body/entity within each market at the beginning of a corporate action event.
     /// </summary>
     [IsoId("_plKzjzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Official Corporate Action Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffclCorpActnEvtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OffclCorpActnEvtId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? OfficialCorporateActionEventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,15 +91,13 @@ public partial record CorporateActionGeneralInformation167
     /// Reference assigned by a court to a class action.
     /// </summary>
     [IsoId("_plKzlzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Class Action Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssActnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClssActnNb")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? ClassActionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,16 +110,15 @@ public partial record CorporateActionGeneralInformation167
     /// Type of corporate action event.
     /// </summary>
     [IsoId("_plKznzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTp")]
     #endif
+    [IsoXmlTag("EvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventType96Choice_ EventType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionEventType96Choice_ EventType { get; init; } 
+    public required CorporateActionEventType96Choice_ EventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionEventType96Choice_ EventType { get; init; } 
     #else
@@ -138,16 +129,15 @@ public partial record CorporateActionGeneralInformation167
     /// Identification of the security concerned by the corporate action.
     /// </summary>
     [IsoId("_plKzpzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -158,12 +148,11 @@ public partial record CorporateActionGeneralInformation167
     /// Fractional quantity resulting from an event which will be paid with cash in lieu.
     /// </summary>
     [IsoId("_plKzrzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fractional Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrctnlQty")]
     #endif
+    [IsoXmlTag("FrctnlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity36Choice_? FractionalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

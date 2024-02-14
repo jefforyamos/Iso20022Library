@@ -21,7 +21,7 @@ public enum AssetClassSubProductType6Code
 {
     /// <summary>
     /// Commodity of type electricity.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_61phYQnzEeWnS-yHF1QhNQ")]

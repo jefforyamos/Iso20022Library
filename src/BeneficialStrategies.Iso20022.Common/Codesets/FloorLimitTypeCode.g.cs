@@ -21,7 +21,7 @@ public enum FloorLimitTypeCode
 {
     /// <summary>
     /// Floor limit applies to credit entries.
-    /// Encoded/decoded by serializers as "CRED".
+    /// Encoded/decoded by serializers as &quot;CRED&quot;.
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_aqzT19p-Ed-ak6NoX_4Aeg_611309456")]
@@ -30,7 +30,7 @@ public enum FloorLimitTypeCode
     
     /// <summary>
     /// Floor limit applies to debit entries.
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_aq9E0Np-Ed-ak6NoX_4Aeg_612229445")]
@@ -39,7 +39,7 @@ public enum FloorLimitTypeCode
     
     /// <summary>
     /// Floor limit applies to both credit and debit entries.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_aq9E0dp-Ed-ak6NoX_4Aeg_612229462")]

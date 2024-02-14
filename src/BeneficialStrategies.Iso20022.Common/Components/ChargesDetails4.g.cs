@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money associated with a service.
 /// </summary>
 [IsoId("_qwdTMTAUEeOKib24wnHaFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charges Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ChargesDetails4
     /// Specifies the type of charges as a code or free text.
     /// </summary>
     [IsoId("_vR6FIDAUEeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsTp")]
     #endif
+    [IsoXmlTag("ChrgsTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargesType1Choice_ ChargesType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargesType1Choice_ ChargesType { get; init; } 
+    public required ChargesType1Choice_ ChargesType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargesType1Choice_ ChargesType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record ChargesDetails4
     /// Amount of money asked or paid for the charge.
     /// </summary>
     [IsoId("_rMz4BzAUEeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

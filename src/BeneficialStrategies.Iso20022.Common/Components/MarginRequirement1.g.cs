@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of expected margin required by any of the parties of the margin calculation.
 /// </summary>
 [IsoId("_Ul4kANp-Ed-ak6NoX_4Aeg_836086296")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record MarginRequirement1
     /// Amount of new margin that will be delivered to one party by the other party after rounding, threshold and minimum transfer amount are taken into account.
     /// </summary>
     [IsoId("_Ul4kAdp-Ed-ak6NoX_4Aeg_1961004215")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliver Margin Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrMrgnAmt")]
     #endif
+    [IsoXmlTag("DlvrMrgnAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DeliverMarginAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record MarginRequirement1
     /// Amount of new margin that will be recalled to one party from the other party after rounding, threshold and minimum transfer amount are taken into account.
     /// </summary>
     [IsoId("_Ul4kAtp-Ed-ak6NoX_4Aeg_-1890638845")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Margin Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrMrgnAmt")]
     #endif
+    [IsoXmlTag("RtrMrgnAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

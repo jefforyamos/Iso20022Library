@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashSettlementSystem3Choice
     /// Cash settlement system expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_Aav3xdokEeC60axPepSq7g_1625355398")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CashSettlementSystem3Choice
         /// Specifies the cash settlement system used.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CashSettlementSystem2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CashSettlementSystem2Code Value { get; init; } 
+        public required CashSettlementSystem2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CashSettlementSystem2Code Value { get; init; } 
         #else

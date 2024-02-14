@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CurrencyCriteriaDefinition1Choice.QueryName))]
     [KnownType(typeof(CurrencyCriteriaDefinition1Choice.NewCriteria))]
     [IsoId("_HxiIV5lZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Criteria Definition 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of market specific attributes define specific properties for the account.
 /// </summary>
 [IsoId("_hiu7d2liEeGaMcKyqKNRfQ_1459264987")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Securities Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,12 +52,12 @@ public partial record SystemSecuritiesAccount3
     /// Legal opening date for the securities account.
     /// </summary>
     [IsoId("_hiu7eGliEeGaMcKyqKNRfQ_-383671976")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngDt")]
     #endif
+    [IsoXmlTag("OpngDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? OpeningDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,12 +70,12 @@ public partial record SystemSecuritiesAccount3
     /// Legal closing date for the securities account.
     /// </summary>
     [IsoId("_hiu7eWliEeGaMcKyqKNRfQ_1428226249")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsgDt")]
     #endif
+    [IsoXmlTag("ClsgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ClosingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,12 +89,12 @@ public partial record SystemSecuritiesAccount3
     /// Meaning when false: Account is in Release status.
     /// </summary>
     [IsoId("_hiu7emliEeGaMcKyqKNRfQ_27345752")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hold Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldInd")]
     #endif
+    [IsoXmlTag("HldInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? HoldIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +107,12 @@ public partial record SystemSecuritiesAccount3
     /// Specifies whether the securities account can hold a negative position in a security.
     /// </summary>
     [IsoId("_hiu7e2liEeGaMcKyqKNRfQ_-1011362976")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Negative Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NegPos")]
     #endif
+    [IsoXmlTag("NegPos")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NegativePosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,12 +125,11 @@ public partial record SystemSecuritiesAccount3
     /// Specifies the type of the securities account.
     /// </summary>
     [IsoId("_hiu7fGliEeGaMcKyqKNRfQ_-568374484")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemSecuritiesAccountType1Code? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,16 +142,15 @@ public partial record SystemSecuritiesAccount3
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_hiu7fWliEeGaMcKyqKNRfQ_-118201799")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification3 AccountOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification3 AccountOwner { get; init; } 
+    public required SystemPartyIdentification3 AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification3 AccountOwner { get; init; } 
     #else
@@ -165,12 +161,11 @@ public partial record SystemSecuritiesAccount3
     /// Specifies the type of the party owning the account.
     /// </summary>
     [IsoId("_hiu7fmliEeGaMcKyqKNRfQ_230359997")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyTp")]
     #endif
+    [IsoXmlTag("PtyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyType1Code? PartyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +178,11 @@ public partial record SystemSecuritiesAccount3
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
     [IsoId("_hiu7f2liEeGaMcKyqKNRfQ_-1676748336")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Specific Attribute")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktSpcfcAttr")]
     #endif
+    [IsoXmlTag("MktSpcfcAttr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketSpecificAttribute1? MarketSpecificAttribute { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,12 +195,11 @@ public partial record SystemSecuritiesAccount3
     /// Defines the specific processing characteristics for a securities account to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
     [IsoId("_hiu7gGliEeGaMcKyqKNRfQ_954256058")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rstrctn")]
     #endif
+    [IsoXmlTag("Rstrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemRestriction1? Restriction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,15 +212,12 @@ public partial record SystemSecuritiesAccount3
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
     [IsoId("_hiu7gWliEeGaMcKyqKNRfQ_-162553441")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Investor Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndInvstrFlg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("EndInvstrFlg")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? EndInvestorFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,15 +230,12 @@ public partial record SystemSecuritiesAccount3
     /// Defines how the price is applied to the securities account.
     /// </summary>
     [IsoId("_hiu7gmliEeGaMcKyqKNRfQ_1190269281")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pricing Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricgSchme")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PricgSchme")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

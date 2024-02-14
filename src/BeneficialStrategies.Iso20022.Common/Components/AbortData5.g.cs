@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Body of the Abort Request message.
 /// </summary>
 [IsoId("_8XbowXDKEe2MCaKO5AtGsA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Abort Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record AbortData5
     /// Message identifier.
     /// </summary>
     [IsoId("_8eGRcXDKEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XchgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExchangeIdentification { get; init; } 
+    public required System.String ExchangeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExchangeIdentification { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record AbortData5
     /// Reason of aborting a transaction.
     /// </summary>
     [IsoId("_8eGRc3DKEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Abort Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AbrtRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AbrtRsn")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text AbortReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AbortReason { get; init; } 
+    public required System.String AbortReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AbortReason { get; init; } 
     #else
@@ -98,12 +92,11 @@ public partial record AbortData5
     /// To display an abort message to the Customer.
     /// </summary>
     [IsoId("_8eGRdXDKEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Output")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispOutpt")]
     #endif
+    [IsoXmlTag("DispOutpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage10? DisplayOutput { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +109,12 @@ public partial record AbortData5
     /// Outcome of the transaction at the acceptor.
     /// </summary>
     [IsoId("_8eGRd3DKEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Success")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSucss")]
     #endif
+    [IsoXmlTag("TxSucss")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TransactionSuccess { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

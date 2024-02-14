@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related specifically to counterparties.
 /// </summary>
 [IsoId("_ongJkQz1Ee2YoLD-1vFj0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Specific Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CounterpartySpecificData36
     /// Data specific to counterparties of the reported transaction/position.
     /// </summary>
     [IsoId("_ooVQAQz1Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPty")]
     #endif
+    [IsoXmlTag("CtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeCounterpartyReport20 Counterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeCounterpartyReport20 Counterparty { get; init; } 
+    public required TradeCounterpartyReport20 Counterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeCounterpartyReport20 Counterparty { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CounterpartySpecificData36
     /// Data specific to the valuation of the transaction.
     /// </summary>
     [IsoId("_ooVQAwz1Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Valtn")]
     #endif
+    [IsoXmlTag("Valtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractValuationData8? Valuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record CounterpartySpecificData36
     /// Indicates the date and time of the submission of the report to the trade repository.
     /// </summary>
     [IsoId("_ooVQBwz1Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgTmStmp")]
     #endif
+    [IsoXmlTag("RptgTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ReportingTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

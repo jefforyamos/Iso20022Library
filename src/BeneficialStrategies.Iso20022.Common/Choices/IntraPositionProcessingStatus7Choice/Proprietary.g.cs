@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus7Ch
     /// Specifies a choice of status for the processing of an intra-position movement.
     /// </summary>
     [IsoId("_4Z8pwewLEeiazoAmcoGsBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus7Ch
         /// Proprietary identification of the status related to an instruction.
         /// </summary>
         [IsoId("_y0NzcTp4EeWVrPy0StzzSg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtrySts")]
         #endif
+        [IsoXmlTag("PrtrySts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GenericIdentification30 ProprietaryStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GenericIdentification30 ProprietaryStatus { get; init; } 
+        public required GenericIdentification30 ProprietaryStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GenericIdentification30 ProprietaryStatus { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus7Ch
         /// Proprietary identification of the reason related to a proprietary status.
         /// </summary>
         [IsoId("_y0OagTp4EeWVrPy0StzzSg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryRsn")]
         #endif
+        [IsoXmlTag("PrtryRsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ProprietaryReason4? ProprietaryReason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice
     /// Report parameters.
     /// </summary>
     [IsoId("_Q6l-Atp-Ed-ak6NoX_4Aeg_-886438823")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameters")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice
         /// Financial instrument for which the fund processing passport report report is requested.
         /// </summary>
         [IsoId("_Q6c0ENp-Ed-ak6NoX_4Aeg_651660733")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmDtls")]
         #endif
+        [IsoXmlTag("FinInstrmDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrument17? FinancialInstrumentDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice
         /// Fund management company for which the report is requested.
         /// </summary>
         [IsoId("_Q6c0Edp-Ed-ak6NoX_4Aeg_-345411620")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Fund Management Company")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FndMgmtCpny")]
         #endif
+        [IsoXmlTag("FndMgmtCpny")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification2Choice_? FundManagementCompany { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice
         /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
         /// </summary>
         [IsoId("_Q6c0Etp-Ed-ak6NoX_4Aeg_-1342483973")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Date From")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtFr")]
         #endif
+        [IsoXmlTag("DtFr")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? DateFrom { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +99,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice
         /// Country where the fund has legal domicile as reflected in the ISIN classification.
         /// </summary>
         [IsoId("_Q6c0E9p-Ed-ak6NoX_4Aeg_1955410970")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Country Of Domicile")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtryOfDmcl")]
         #endif
+        [IsoXmlTag("CtryOfDmcl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CountryCode? CountryOfDomicile { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +116,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice
         /// Countries where the fund is registered for distribution.
         /// </summary>
         [IsoId("_Q6c0FNp-Ed-ak6NoX_4Aeg_958338617")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Registered Distribution Country")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RegdDstrbtnCtry")]
         #endif
+        [IsoXmlTag("RegdDstrbtnCtry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CountryCode? RegisteredDistributionCountry { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

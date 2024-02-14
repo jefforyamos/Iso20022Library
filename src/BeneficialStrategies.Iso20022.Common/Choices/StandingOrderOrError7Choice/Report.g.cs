@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError7Choice
     /// Reports either on the standing order or on a business error.
     /// </summary>
     [IsoId("_eamLEdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError7Choice
         /// Unique and unambiguous identification for the account between the account owner and the account servicer.
         /// </summary>
         [IsoId("_eb5yodcZEeqRFcf2R4bPBw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Standing Order Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StgOrdrId")]
         #endif
+        [IsoXmlTag("StgOrdrId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StandingOrderIdentification6 StandingOrderIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StandingOrderIdentification6 StandingOrderIdentification { get; init; } 
+        public required StandingOrderIdentification6 StandingOrderIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StandingOrderIdentification6 StandingOrderIdentification { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError7Choice
         /// Requested information on the standing order or business error when information has not been found.
         /// </summary>
         [IsoId("_eb5yo9cZEeqRFcf2R4bPBw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Standing Order Or Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StgOrdrOrErr")]
         #endif
+        [IsoXmlTag("StgOrdrOrErr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StandingOrderOrError8Choice_ StandingOrderOrError { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StandingOrderOrError8Choice_ StandingOrderOrError { get; init; } 
+        public required StandingOrderOrError8Choice_ StandingOrderOrError { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StandingOrderOrError8Choice_ StandingOrderOrError { get; init; } 
         #else

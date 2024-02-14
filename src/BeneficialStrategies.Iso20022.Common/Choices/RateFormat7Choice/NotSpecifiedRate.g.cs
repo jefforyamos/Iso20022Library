@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateFormat7Choice
     /// Value of the rate not specified.
     /// </summary>
     [IsoId("_8_swEfmaEeCgTOP8zvX1cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Specified Rate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RateFormat7Choice
         /// Specifies the type of rate.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NotSpcfdRate")]
         #endif
+        [IsoXmlTag("NotSpcfdRate")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RateType10Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RateType10Code Value { get; init; } 
+        public required RateType10Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RateType10Code Value { get; init; } 
         #else

@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// </summary>
 [Description(@"Scope|The ForeignExchangeTradeCaptureReportAcknowledgement message is sent by trading members to the trading system for notifying the trade capture report is received.||Usage|The acknowledgement is sent by the trading member to the trading system after they received the trade capture report. |Note that one capture acknowledgement responds to one capture report.")]
 [IsoId("_5_POYHO0EeSG-OV0nXMl5w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange Trade Capture Report Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,12 +79,11 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     /// Identifies the acknowledgement message.
     /// </summary>
     [IsoId("_BoI5cHO1EeSG-OV0nXMl5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledgement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AckId")]
     #endif
+    [IsoXmlTag("AckId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageIdentification1? AcknowledgementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,19 +96,17 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     /// Unique reference identification assigned to the trade by the instructing party. This reference will be used throughout the trade life cycle to identify the particular trade.
     /// </summary>
     [IsoId("_EnLdcHO1EeSG-OV0nXMl5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TradId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TradeIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TradeIdentification { get; init; } 
+    public required System.String TradeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TradeIdentification { get; init; } 
     #else
@@ -122,16 +117,15 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     /// Acknowlegement status of recevied trade capture report.
     /// </summary>
     [IsoId("_I7vC4HO1EeSG-OV0nXMl5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status5Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status5Code Status { get; init; } 
+    public required Status5Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status5Code Status { get; init; } 
     #else
@@ -142,12 +136,11 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     /// Reference of the acknowledge, specifies the message this acknowledge responds to.
     /// </summary>
     [IsoId("_OS-0YHO1EeSG-OV0nXMl5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReferences? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,12 +153,11 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_ankbAKHiEeS69KkQis5bYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,7 +170,7 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ForeignExchangeTradeCaptureReportAcknowledgementV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ForeignExchangeTradeCaptureReportAcknowledgementV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ForeignExchangeTradeCaptureReportAcknowledgementV01Document ToDocument()
     {
@@ -188,7 +180,7 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01 : IOut
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeCaptureReportAcknowledgementV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ForeignExchangeTradeCaptureReportAcknowledgementV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01Document : IOuterDocument<ForeignExchangeTradeCaptureReportAcknowledgementV01>
@@ -205,7 +197,7 @@ public partial record ForeignExchangeTradeCaptureReportAcknowledgementV01Documen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ForeignExchangeTradeCaptureReportAcknowledgementV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ForeignExchangeTradeCaptureReportAcknowledgementV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForeignExchangeTradeCaptureReportAcknowledgementV01 Message { get; init; }

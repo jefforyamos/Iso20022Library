@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the transaction.
 /// </summary>
 [IsoId("_vCvZEapzEeanIZ10Ka8PnA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CardPaymentEnvironment66
     /// Acquirer involved in the card payment.
     /// </summary>
     [IsoId("_vOIJsapzEeanIZ10Ka8PnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrId")]
     #endif
+    [IsoXmlTag("AcqrrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification53? AcquirerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,12 +60,11 @@ public partial record CardPaymentEnvironment66
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
     [IsoId("_vOIJs6pzEeanIZ10Ka8PnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merchant Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrchntId")]
     #endif
+    [IsoXmlTag("MrchntId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification32? MerchantIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +77,11 @@ public partial record CardPaymentEnvironment66
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
     [IsoId("_vOIJtapzEeanIZ10Ka8PnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification32? POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,12 +94,11 @@ public partial record CardPaymentEnvironment66
     /// Payment card performing the transaction.
     /// </summary>
     [IsoId("_vOIJt6pzEeanIZ10Ka8PnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Card")]
     #endif
+    [IsoXmlTag("Card")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCard27? Card { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +111,11 @@ public partial record CardPaymentEnvironment66
     /// Payment token information.
     /// </summary>
     [IsoId("_vOIJuapzEeanIZ10Ka8PnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTkn")]
     #endif
+    [IsoXmlTag("PmtTkn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentToken2? PaymentToken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

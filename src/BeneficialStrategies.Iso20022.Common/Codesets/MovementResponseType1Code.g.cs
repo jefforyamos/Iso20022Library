@@ -21,7 +21,7 @@ public enum MovementResponseType1Code
 {
     /// <summary>
     /// Response will include full details on the movements reported.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_jQ9WgO5NEeCisYr99QEiWA_-739401767")]
@@ -30,7 +30,7 @@ public enum MovementResponseType1Code
     
     /// <summary>
     /// Response will include limited details including the status on the movements reported.
-    /// Encoded/decoded by serializers as "STTS".
+    /// Encoded/decoded by serializers as &quot;STTS&quot;.
     /// </summary>
     [EnumMember(Value = "STTS")]
     [IsoId("_jQ9Wge5NEeCisYr99QEiWA_424690481")]

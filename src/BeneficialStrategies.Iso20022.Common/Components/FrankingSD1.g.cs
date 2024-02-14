@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Franking details.
 /// </summary>
 [IsoId("_UFK5bW99EeKuY41pq1-dog")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Franking SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record FrankingSD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance.
     /// </summary>
     [IsoId("_UFK5em99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record FrankingSD1
     /// Dividend / Distribution kind where the franking information apples to.
     /// </summary>
     [IsoId("_UFK5lW99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Franking Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrnkgClss")]
     #endif
+    [IsoXmlTag("FrnkgClss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FrankingClass1Code FrankingClass { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FrankingClass1Code FrankingClass { get; init; } 
+    public required FrankingClass1Code FrankingClass { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FrankingClass1Code FrankingClass { get; init; } 
     #else
@@ -92,12 +87,12 @@ public partial record FrankingSD1
     /// Indicator if the dividend is fully franked.
     /// </summary>
     [IsoId("_UFK5f299EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fully Franked Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FullyFrnkdInd")]
     #endif
+    [IsoXmlTag("FullyFrnkdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FullyFrankedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,12 @@ public partial record FrankingSD1
     /// Percentage of dividend that is franked.
     /// </summary>
     [IsoId("_UFK5i299EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Franked Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrnkdPctg")]
     #endif
+    [IsoXmlTag("FrnkdPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? FrankedPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,12 @@ public partial record FrankingSD1
     /// Percentage of dividend that is unfranked.
     /// </summary>
     [IsoId("_DSjMV7YsEeKtMMQEG6I5fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unfranked Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UfrnkdPctg")]
     #endif
+    [IsoXmlTag("UfrnkdPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? UnfrankedPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +141,12 @@ public partial record FrankingSD1
     /// The corporate tax rate for the for franking credit of the dividend.
     /// </summary>
     [IsoId("_UFK5kG99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Tax Rate For Franking Credit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpTaxRateForFrnkgCdt")]
     #endif
+    [IsoXmlTag("CorpTaxRateForFrnkgCdt")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CorporateTaxRateForFrankingCredit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +159,12 @@ public partial record FrankingSD1
     /// Cents amount of the dividend which has been franked at 30%.
     /// </summary>
     [IsoId("_UFK5cG99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Franked Amount Per Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrnkdAmtPerScty")]
     #endif
+    [IsoXmlTag("FrnkdAmtPerScty")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? FrankedAmountPerSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +177,12 @@ public partial record FrankingSD1
     /// Amount of the dividend which has been unfranked.|
     /// </summary>
     [IsoId("_UFK5dW99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unfranked Amount Per Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UfrnkdAmtPerScty")]
     #endif
+    [IsoXmlTag("UfrnkdAmtPerScty")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? UnfrankedAmountPerSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +195,12 @@ public partial record FrankingSD1
     /// Conduit foreign income (CFI) amount related to the corporate action.
     /// </summary>
     [IsoId("_UFK5hG99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conduit Foreign Income Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CndtFrgnIncmAmt")]
     #endif
+    [IsoXmlTag("CndtFrgnIncmAmt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? ConduitForeignIncomeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

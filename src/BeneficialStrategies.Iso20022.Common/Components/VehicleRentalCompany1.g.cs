@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Company in charge of a vehicle rental service.
 /// </summary>
 [IsoId("_-kUfUFymEeeve7Je9cXtkQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vehicle Rental Company")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record VehicleRentalCompany1
     /// Name of the vehicle rental company.
     /// </summary>
     [IsoId("_W9__8FynEeeve7Je9cXtkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record VehicleRentalCompany1
     /// Identification of the vehicle rental company.
     /// </summary>
     [IsoId("_itAkwFynEeeve7Je9cXtkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record VehicleRentalCompany1
     /// Address of the vehicle rental company.
     /// </summary>
     [IsoId("_05KMIFynEeeve7Je9cXtkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address1? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record VehicleRentalCompany1
     /// Contact details at vehicle rental company location.
     /// </summary>
     [IsoId("_8VFLIFynEeeve7Je9cXtkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctct")]
     #endif
+    [IsoXmlTag("Ctct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact3? Contact { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,15 +113,12 @@ public partial record VehicleRentalCompany1
     /// ISO 3166
     /// </summary>
     [IsoId("_bSv9MFyoEeeve7Je9cXtkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Ctry")]
+    [IsoSimpleType(IsoSimpleType.Min2Max3AlphaText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +131,11 @@ public partial record VehicleRentalCompany1
     /// Type of vehicle rental activity.
     /// </summary>
     [IsoId("_gQ-KsFyoEeeve7Je9cXtkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CarRentalActivity1Code? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,15 +148,13 @@ public partial record VehicleRentalCompany1
     /// Other type of vehicle rental activity. 
     /// </summary>
     [IsoId("_wFMt4FynEeeve7Je9cXtkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

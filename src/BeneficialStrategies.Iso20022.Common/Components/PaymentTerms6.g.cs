@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
 [IsoId("_ODM5MDI2-AOSNFX-3397728")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Terms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record PaymentTerms6
     /// Due date specified for the payment terms.
     /// </summary>
     [IsoId("_ODM5MDI3-AOSNFX-3397728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Due Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DueDt")]
     #endif
+    [IsoXmlTag("DueDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record PaymentTerms6
     /// Payment period specified for these payment terms.
     /// </summary>
     [IsoId("_ODM5MDI4-AOSNFX-3397728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtPrd")]
     #endif
+    [IsoXmlTag("PmtPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentPeriod1? PaymentPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +77,13 @@ public partial record PaymentTerms6
     /// Textual description of these payment terms.
     /// </summary>
     [IsoId("_ODM5MDI5-AOSNFX-3397728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,12 @@ public partial record PaymentTerms6
     /// Partial payment, expressed as a percentage, for the payment terms.
     /// </summary>
     [IsoId("_ODM5MDMw-AOSNFX-3397728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial Payment Percent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlPmtPct")]
     #endif
+    [IsoXmlTag("PrtlPmtPct")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PartialPaymentPercent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,15 +114,13 @@ public partial record PaymentTerms6
     /// Direct debit mandate identification specified for these payment terms.
     /// </summary>
     [IsoId("_ODM5MDMx-AOSNFX-3397728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direct Debit Mandate Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrctDbtMndtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DrctDbtMndtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DirectDebitMandateIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +133,12 @@ public partial record PaymentTerms6
     /// Amount used as a basis to calculate the discount amount for these payment terms.
     /// </summary>
     [IsoId("_ODM5MDMy-AOSNFX-3397728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsisAmt")]
     #endif
+    [IsoXmlTag("BsisAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? BasisAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +151,12 @@ public partial record PaymentTerms6
     /// Amount of money that results from the application of an agreed discount percentage to the basis amount and payable to the creditor.
     /// </summary>
     [IsoId("_ODM5MDMz-AOSNFX-3397729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscntAmt")]
     #endif
+    [IsoXmlTag("DscntAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? DiscountAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +169,12 @@ public partial record PaymentTerms6
     /// Percent rate used to calculate the discount for these payment terms.
     /// </summary>
     [IsoId("_ODM5MDM0-AOSNFX-3397729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Percent Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscntPctRate")]
     #endif
+    [IsoXmlTag("DscntPctRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? DiscountPercentRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +187,12 @@ public partial record PaymentTerms6
     /// Amount of money that results from the application of an agreed penalty percentage to the basis amount and payable by the creditor.
     /// </summary>
     [IsoId("_ODM5MDM1-AOSNFX-3397729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Penalty Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PnltyAmt")]
     #endif
+    [IsoXmlTag("PnltyAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? PenaltyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +205,12 @@ public partial record PaymentTerms6
     /// Percent rate used to calculate the penalty for these payment terms.
     /// </summary>
     [IsoId("_ODM5MDM2-AOSNFX-3397729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Penalty Percent Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PnltyPctRate")]
     #endif
+    [IsoXmlTag("PnltyPctRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PenaltyPercentRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

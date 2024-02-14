@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for the in repair status.
 /// </summary>
 [IsoId("_RR_KUNp-Ed-ak6NoX_4Aeg_1062766398")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("In Repair Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record InRepairStatus3
     /// Reason for the in-repair status.
     /// </summary>
     [IsoId("_RR_KUdp-Ed-ak6NoX_4Aeg_1346286799")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Reason { get; init; } 
+    public required System.String Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Reason { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record InRepairStatus3
     /// Proprietary identification of the reason for the in-repair status.
     /// </summary>
     [IsoId("_RR_KUtp-Ed-ak6NoX_4Aeg_1062766459")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
+    [IsoXmlTag("DataSrcSchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification1 DataSourceScheme { get; init; } 
+    public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification1 DataSourceScheme { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record InRepairStatus3
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_RR_KU9p-Ed-ak6NoX_4Aeg_1062766424")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Specified Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoSpcfdRsn")]
     #endif
+    [IsoXmlTag("NoSpcfdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoSpecifiedReason { get; init; } 
+    public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoSpecifiedReason { get; init; } 
     #else

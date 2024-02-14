@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information regarding the dissemination of data.
 /// </summary>
 [IsoId("_S9HpkCJmEe2zWP9pqvmqdw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Dissemination Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record DisseminationData1
     /// Trade repository generated unique and random identifier for each publicly disseminated message.
     /// </summary>
     [IsoId("_n3PTECJmEe2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dissemination Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DssmntnIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DssmntnIdr")]
+    [IsoSimpleType(IsoSimpleType.Max52Text)]
     [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax52Text DisseminationIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DisseminationIdentifier { get; init; } 
+    public required System.String DisseminationIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DisseminationIdentifier { get; init; } 
     #else
@@ -76,15 +72,13 @@ public partial record DisseminationData1
     /// Usage: OriginalDisseminationIdentifier is applicable only for action types other than New.
     /// </summary>
     [IsoId("_u_-QUCJmEe2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Dissemination Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlDssmntnIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlDssmntnIdr")]
+    [IsoSimpleType(IsoSimpleType.Max52Text)]
     [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? OriginalDisseminationIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,16 +91,16 @@ public partial record DisseminationData1
     /// Date and time, to the nearest second, that a trade repository publicly disseminates trade data.
     /// </summary>
     [IsoId("_wu1l4CJmEe2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmStmp")]
     #endif
+    [IsoXmlTag("TmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TimeStamp { get; init; } 
+    public required System.DateTime TimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TimeStamp { get; init; } 
     #else

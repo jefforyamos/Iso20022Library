@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An account servicer sends a SecuritiesStatusOrStatementQueryStatusAdvice to an account owner to advise the status of a status query or statement query previously sent by the account owner.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.|using the relevant elements in the Business Application Header.|Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information.|using the relevant elements in the Business Application Header.|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
 [IsoId("_qlTxMdtZEd-RF5yaMAVhAw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Status Or Statement Query Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02 : IOuterRe
     /// Unambiguous identification of the query as per the account owner.
     /// </summary>
     [IsoId("_qlTxNdtZEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryRef")]
     #endif
+    [IsoXmlTag("QryRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Identification1 QueryReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Identification1 QueryReference { get; init; } 
+    public required Identification1 QueryReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Identification1 QueryReference { get; init; } 
     #else
@@ -103,12 +100,11 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02 : IOuterRe
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_qlTxN9tZEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification36Choice_? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +117,11 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02 : IOuterRe
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_qlTxOdtZEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount13? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +134,11 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02 : IOuterRe
     /// Details of the request.
     /// </summary>
     [IsoId("_qlTxO9tZEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Or Statement Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsOrStmtReqd")]
     #endif
+    [IsoXmlTag("StsOrStmtReqd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusOrStatement3Choice_? StatusOrStatementRequested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,16 +151,15 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02 : IOuterRe
     /// Provides details on the processing status of the request.
     /// </summary>
     [IsoId("_qlTxPdtZEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingStatus4Choice_ ProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingStatus4Choice_ ProcessingStatus { get; init; } 
+    public required ProcessingStatus4Choice_ ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingStatus4Choice_ ProcessingStatus { get; init; } 
     #else
@@ -177,12 +170,11 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02 : IOuterRe
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_qlTxQ9tZEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -195,7 +187,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02 : IOuterRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesStatusOrStatementQueryStatusAdviceV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesStatusOrStatementQueryStatusAdviceV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesStatusOrStatementQueryStatusAdviceV02Document ToDocument()
     {
@@ -205,7 +197,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02 : IOuterRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesStatusOrStatementQueryStatusAdviceV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesStatusOrStatementQueryStatusAdviceV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02Document : IOuterDocument<SecuritiesStatusOrStatementQueryStatusAdviceV02>
@@ -222,7 +214,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV02Document : 
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesStatusOrStatementQueryStatusAdviceV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesStatusOrStatementQueryStatusAdviceV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesStatusOrStatementQueryStatusAdviceV02 Message { get; init; }

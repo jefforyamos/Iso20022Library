@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice of the securities settlement instruction status type.
 /// </summary>
 [IsoId("_X9rz1eFWEeWIA4E9cYSxxQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Transaction Status Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SettlementTransactionStatusType2
     /// Provides details on the processing status of the transaction.
     /// </summary>
     [IsoId("_YHDyQeFWEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingStatus70Choice_? ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SettlementTransactionStatusType2
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
     [IsoId("_YHDyQ-FWEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inferred Matching Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IfrrdMtchgSts")]
     #endif
+    [IsoXmlTag("IfrrdMtchgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus27Choice_? InferredMatchingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SettlementTransactionStatusType2
     /// Provides the matching status of the instruction.
     /// </summary>
     [IsoId("_YHDyReFWEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchgSts")]
     #endif
+    [IsoXmlTag("MtchgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus27Choice_? MatchingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record SettlementTransactionStatusType2
     /// Provides the settlement status of a transaction.
     /// </summary>
     [IsoId("_YHDyR-FWEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSts")]
     #endif
+    [IsoXmlTag("SttlmSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementStatus26Choice_? SettlementStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record SettlementTransactionStatusType2
     /// Defines that the transaction has been settled.
     /// </summary>
     [IsoId("_YHDySeFWEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sttld")]
     #endif
+    [IsoXmlTag("Sttld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProprietaryReason4? Settled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

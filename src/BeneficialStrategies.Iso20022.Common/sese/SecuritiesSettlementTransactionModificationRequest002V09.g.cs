@@ -44,9 +44,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|The SecuritiesSettlementTransactionModificationRequest is sent by an account owner to an account servicer. ||The account owner will generally be:|- a central securities depository participant which has an account with a central securities depository or a market infrastructure|- an investment manager which has an account with a custodian acting as accounting and/or settlement agent.||It is used to request the modification of non core business data (matching or non-matching) information in a pending or settled instruction. It can also be used for the enrichment of an incomplete transaction.||Usage|The modification must only contain the data to be modified.|The message may also be used to:|- re-send a message sent by the account owner to the account servicer,|- provide a third party with a copy of a message being sent by the account owner for information,|- re-send to a third party a copy of a message being sent by the account owner for information using the relevant elements in the Business Application Header.")]
 [IsoId("_eZPP4zi8Eeydid5dcNPKvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Settlement Transaction Modification Request 002 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -89,16 +87,15 @@ public partial record SecuritiesSettlementTransactionModificationRequest002V09 :
     /// Identifies the details of the transaction that is being modified.
     /// </summary>
     [IsoId("_eZPP7ji8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdTxDtls")]
     #endif
+    [IsoXmlTag("ModfdTxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionDetails159 ModifiedTransactionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionDetails159 ModifiedTransactionDetails { get; init; } 
+    public required TransactionDetails159 ModifiedTransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionDetails159 ModifiedTransactionDetails { get; init; } 
     #else
@@ -109,23 +106,20 @@ public partial record SecuritiesSettlementTransactionModificationRequest002V09 :
     /// Specifies the type of update requested.
     /// </summary>
     [IsoId("_eZPP8Di8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UpdTp")]
     [MinLength(1)]
     [MaxLength(3)]
-    #endif
     public ValueList<UpdateType38Choice_> UpdateType { get; init; } = new ValueList<UpdateType38Choice_>(){};
     
     
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesSettlementTransactionModificationRequest002V09Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesSettlementTransactionModificationRequest002V09Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesSettlementTransactionModificationRequest002V09Document ToDocument()
     {
@@ -135,7 +129,7 @@ public partial record SecuritiesSettlementTransactionModificationRequest002V09 :
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionModificationRequest002V09"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesSettlementTransactionModificationRequest002V09&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesSettlementTransactionModificationRequest002V09Document : IOuterDocument<SecuritiesSettlementTransactionModificationRequest002V09>
@@ -152,7 +146,7 @@ public partial record SecuritiesSettlementTransactionModificationRequest002V09Do
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesSettlementTransactionModificationRequest002V09"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesSettlementTransactionModificationRequest002V09&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSettlementTransactionModificationRequest002V09 Message { get; init; }

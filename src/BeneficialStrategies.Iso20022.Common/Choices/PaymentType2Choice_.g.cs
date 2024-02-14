@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentType2Choice.PaymentType))]
     [KnownType(typeof(PaymentType2Choice.ProprietaryPaymentType))]
     [IsoId("_RKPjk9p-Ed-ak6NoX_4Aeg_880263732")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

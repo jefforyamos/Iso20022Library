@@ -21,7 +21,7 @@ public enum UserInterface4Code
 {
     /// <summary>
     /// Cardholder display or interface.
-    /// Encoded/decoded by serializers as "CDSP".
+    /// Encoded/decoded by serializers as &quot;CDSP&quot;.
     /// </summary>
     [EnumMember(Value = "CDSP")]
     [IsoId("_y9Xb4YO_EeSWSLYdc10LRg")]
@@ -30,7 +30,7 @@ public enum UserInterface4Code
     
     /// <summary>
     /// Cardholder receipt.
-    /// Encoded/decoded by serializers as "CRCP".
+    /// Encoded/decoded by serializers as &quot;CRCP&quot;.
     /// </summary>
     [EnumMember(Value = "CRCP")]
     [IsoId("_zakVQYO_EeSWSLYdc10LRg")]
@@ -39,7 +39,7 @@ public enum UserInterface4Code
     
     /// <summary>
     /// Merchant display or interface.
-    /// Encoded/decoded by serializers as "MDSP".
+    /// Encoded/decoded by serializers as &quot;MDSP&quot;.
     /// </summary>
     [EnumMember(Value = "MDSP")]
     [IsoId("_zpBoAYO_EeSWSLYdc10LRg")]
@@ -48,7 +48,7 @@ public enum UserInterface4Code
     
     /// <summary>
     /// Merchant receipt.
-    /// Encoded/decoded by serializers as "MRCP".
+    /// Encoded/decoded by serializers as &quot;MRCP&quot;.
     /// </summary>
     [EnumMember(Value = "MRCP")]
     [IsoId("_zwx10YO_EeSWSLYdc10LRg")]
@@ -57,7 +57,7 @@ public enum UserInterface4Code
     
     /// <summary>
     /// Other interface of the cardholder, for instance e-mail or smartphone message.
-    /// Encoded/decoded by serializers as "CRDO".
+    /// Encoded/decoded by serializers as &quot;CRDO&quot;.
     /// </summary>
     [EnumMember(Value = "CRDO")]
     [IsoId("_0DQF4YO_EeSWSLYdc10LRg")]

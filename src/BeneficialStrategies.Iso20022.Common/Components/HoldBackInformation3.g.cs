@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about hold back and gating.
 /// </summary>
 [IsoId("_PwkDkawIEeaFSqx7FdVuJQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Hold Back Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record HoldBackInformation3
     /// Type of gating or a hold back.
     /// </summary>
     [IsoId("_QII2EawIEeaFSqx7FdVuJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GateHoldBack1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GateHoldBack1Code Type { get; init; } 
+    public required GateHoldBack1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GateHoldBack1Code Type { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record HoldBackInformation3
     /// Value of the redemption amount subject to gating or a hold back.
     /// </summary>
     [IsoId("_QII2E6wIEeaFSqx7FdVuJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record HoldBackInformation3
     /// Date on which the gated amount or hold back amount is expected to be released.
     /// </summary>
     [IsoId("_QII2FawIEeaFSqx7FdVuJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Release Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdRlsDt")]
     #endif
+    [IsoXmlTag("XpctdRlsDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpectedReleaseDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,11 @@ public partial record HoldBackInformation3
     /// New identification of the security.
     /// </summary>
     [IsoId("_QII2F6wIEeaFSqx7FdVuJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification25Choice_? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,15 +121,13 @@ public partial record HoldBackInformation3
     /// New name of the security.
     /// </summary>
     [IsoId("_QII2GawIEeaFSqx7FdVuJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FinInstrmNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FinancialInstrumentName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +140,11 @@ public partial record HoldBackInformation3
     /// Specifies whether or not additional redemption order instructions are required in order for the redemption to be completed.
     /// </summary>
     [IsoId("_QII2IawIEeaFSqx7FdVuJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Completion")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedCmpltn")]
     #endif
+    [IsoXmlTag("RedCmpltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RedemptionCompletion1Code? RedemptionCompletion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

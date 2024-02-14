@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentFundTransactionOutType
     /// Transaction type expressed as a code.
     /// </summary>
     [IsoId("_TMto8RMJEeSopak1K45eVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentFundTransactionOutType
         /// Specifies the type of investment fund transaction that results in a cash movement out of a fund.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestmentFundTransactionOutType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestmentFundTransactionOutType1Code Value { get; init; } 
+        public required InvestmentFundTransactionOutType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestmentFundTransactionOutType1Code Value { get; init; } 
         #else

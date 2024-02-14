@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ErrorHandling1Choice.Code))]
     [KnownType(typeof(ErrorHandling1Choice.Proprietary))]
     [IsoId("_RZI7Mdp-Ed-ak6NoX_4Aeg_-632950582")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error Handling 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

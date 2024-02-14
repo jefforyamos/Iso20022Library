@@ -21,7 +21,7 @@ public enum ExposureType13Code
 {
     /// <summary>
     /// Cross currency agreement between two parties (known as counterparties) where one stream of future interest payments is exchanged for another based on a specified principal amount.
-    /// Encoded/decoded by serializers as "CCIR".
+    /// Encoded/decoded by serializers as &quot;CCIR&quot;.
     /// </summary>
     [EnumMember(Value = "CCIR")]
     [IsoId("_Sr65cSgvEeyn17RQIQtLkQ")]
@@ -30,7 +30,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Combination of various types of trades.
-    /// Encoded/decoded by serializers as "CRPR".
+    /// Encoded/decoded by serializers as &quot;CRPR&quot;.
     /// </summary>
     [EnumMember(Value = "CRPR")]
     [IsoId("_Sr65cygvEeyn17RQIQtLkQ")]
@@ -39,7 +39,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Trading of equity.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_Sr65dSgvEeyn17RQIQtLkQ")]
@@ -48,7 +48,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Trading of equity option (also known as stock options).
-    /// Encoded/decoded by serializers as "EQPT".
+    /// Encoded/decoded by serializers as &quot;EQPT&quot;.
     /// </summary>
     [EnumMember(Value = "EQPT")]
     [IsoId("_Sr65dygvEeyn17RQIQtLkQ")]
@@ -57,7 +57,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Equity swap trades where the return of an equity is exchanged for either a fixed or a floating rate of interest.
-    /// Encoded/decoded by serializers as "EQUS".
+    /// Encoded/decoded by serializers as &quot;EQUS&quot;.
     /// </summary>
     [EnumMember(Value = "EQUS")]
     [IsoId("_Sr65eSgvEeyn17RQIQtLkQ")]
@@ -66,7 +66,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Trading of exchanged traded derivatives in general.
-    /// Encoded/decoded by serializers as "EXTD".
+    /// Encoded/decoded by serializers as &quot;EXTD&quot;.
     /// </summary>
     [EnumMember(Value = "EXTD")]
     [IsoId("_Sr65eygvEeyn17RQIQtLkQ")]
@@ -75,7 +75,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Trading of exotic option, for example, a non standard option.
-    /// Encoded/decoded by serializers as "EXPT".
+    /// Encoded/decoded by serializers as &quot;EXPT&quot;.
     /// </summary>
     [EnumMember(Value = "EXPT")]
     [IsoId("_Sr65fSgvEeyn17RQIQtLkQ")]
@@ -84,7 +84,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Trading of fixed income instruments.
-    /// Encoded/decoded by serializers as "FIXI".
+    /// Encoded/decoded by serializers as &quot;FIXI&quot;.
     /// </summary>
     [EnumMember(Value = "FIXI")]
     [IsoId("_Sr65fygvEeyn17RQIQtLkQ")]
@@ -93,7 +93,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// FX trades in general.
-    /// Encoded/decoded by serializers as "FORX".
+    /// Encoded/decoded by serializers as &quot;FORX&quot;.
     /// </summary>
     [EnumMember(Value = "FORX")]
     [IsoId("_Sr65gSgvEeyn17RQIQtLkQ")]
@@ -102,7 +102,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Forward FX trades.
-    /// Encoded/decoded by serializers as "FORW".
+    /// Encoded/decoded by serializers as &quot;FORW&quot;.
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_Sr65gygvEeyn17RQIQtLkQ")]
@@ -111,7 +111,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Agreement to buy or sell a specific amount of a commodity or financial instrument at a particular price on a stipulated future date.
-    /// Encoded/decoded by serializers as "FUTR".
+    /// Encoded/decoded by serializers as &quot;FUTR&quot;.
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("_Sr65hSgvEeyn17RQIQtLkQ")]
@@ -120,7 +120,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// A contract that grants the holder the right, but not the obligation, to buy or sell currency at a specified exchange rate during a specified period of time.
-    /// Encoded/decoded by serializers as "OPTN".
+    /// Encoded/decoded by serializers as &quot;OPTN&quot;.
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_Sr65hygvEeyn17RQIQtLkQ")]
@@ -129,7 +129,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// In support of settlement via an RTGS or other clearing system.
-    /// Encoded/decoded by serializers as "LIQU".
+    /// Encoded/decoded by serializers as &quot;LIQU&quot;.
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_Sr65iSgvEeyn17RQIQtLkQ")]
@@ -138,7 +138,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Margin lending transaction. 
-    /// Encoded/decoded by serializers as "MGLD".
+    /// Encoded/decoded by serializers as &quot;MGLD&quot;.
     /// </summary>
     [EnumMember(Value = "MGLD")]
     [IsoId("_Sr65iygvEeyn17RQIQtLkQ")]
@@ -147,7 +147,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// OTC derivatives trading.
-    /// Encoded/decoded by serializers as "OTCD".
+    /// Encoded/decoded by serializers as &quot;OTCD&quot;.
     /// </summary>
     [EnumMember(Value = "OTCD")]
     [IsoId("_Sr65jSgvEeyn17RQIQtLkQ")]
@@ -156,7 +156,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Relates to repurchase agreement trading.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_Sr65jygvEeyn17RQIQtLkQ")]
@@ -165,7 +165,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// In support of a reverse repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "RVPO".
+    /// Encoded/decoded by serializers as &quot;RVPO&quot;.
     /// </summary>
     [EnumMember(Value = "RVPO")]
     [IsoId("_Sr65kSgvEeyn17RQIQtLkQ")]
@@ -174,7 +174,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Exposure is linked to a secured loan.
-    /// Encoded/decoded by serializers as "SLOA".
+    /// Encoded/decoded by serializers as &quot;SLOA&quot;.
     /// </summary>
     [EnumMember(Value = "SLOA")]
     [IsoId("_Sr65kygvEeyn17RQIQtLkQ")]
@@ -183,7 +183,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Securities buy sell back.
-    /// Encoded/decoded by serializers as "SBSC".
+    /// Encoded/decoded by serializers as &quot;SBSC&quot;.
     /// </summary>
     [EnumMember(Value = "SBSC")]
     [IsoId("_Sr65lSgvEeyn17RQIQtLkQ")]
@@ -192,7 +192,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Combination of securities related exposure types.
-    /// Encoded/decoded by serializers as "SCRP".
+    /// Encoded/decoded by serializers as &quot;SCRP&quot;.
     /// </summary>
     [EnumMember(Value = "SCRP")]
     [IsoId("_Sr65lygvEeyn17RQIQtLkQ")]
@@ -201,7 +201,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Exposure is linked to a securities lending or borrowing activity.
-    /// Encoded/decoded by serializers as "SLEB".
+    /// Encoded/decoded by serializers as &quot;SLEB&quot;.
     /// </summary>
     [EnumMember(Value = "SLEB")]
     [IsoId("_Sr65mSgvEeyn17RQIQtLkQ")]
@@ -210,7 +210,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Short sell exposure.
-    /// Encoded/decoded by serializers as "SHSL".
+    /// Encoded/decoded by serializers as &quot;SHSL&quot;.
     /// </summary>
     [EnumMember(Value = "SHSL")]
     [IsoId("_Sr65mygvEeyn17RQIQtLkQ")]
@@ -219,7 +219,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Single currency interest rate swap.
-    /// Encoded/decoded by serializers as "SCIR".
+    /// Encoded/decoded by serializers as &quot;SCIR&quot;.
     /// </summary>
     [EnumMember(Value = "SCIR")]
     [IsoId("_Sr65nSgvEeyn17RQIQtLkQ")]
@@ -228,7 +228,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Exotic single currency interest rate swap.
-    /// Encoded/decoded by serializers as "SCIE".
+    /// Encoded/decoded by serializers as &quot;SCIE&quot;.
     /// </summary>
     [EnumMember(Value = "SCIE")]
     [IsoId("_Sr65nygvEeyn17RQIQtLkQ")]
@@ -237,7 +237,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Suggested credit line.
-    /// Encoded/decoded by serializers as "ESCL".
+    /// Encoded/decoded by serializers as &quot;ESCL&quot;.
     /// </summary>
     [EnumMember(Value = "ESCL")]
     [IsoId("_Sr65oSgvEeyn17RQIQtLkQ")]
@@ -246,7 +246,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Option on interest rate swap.
-    /// Encoded/decoded by serializers as "SWPT".
+    /// Encoded/decoded by serializers as &quot;SWPT&quot;.
     /// </summary>
     [EnumMember(Value = "SWPT")]
     [IsoId("_Sr65oygvEeyn17RQIQtLkQ")]
@@ -255,7 +255,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// To be announced (TBA) related collateral.
-    /// Encoded/decoded by serializers as "TBAS".
+    /// Encoded/decoded by serializers as &quot;TBAS&quot;.
     /// </summary>
     [EnumMember(Value = "TBAS")]
     [IsoId("_Sr65pSgvEeyn17RQIQtLkQ")]
@@ -264,7 +264,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Total credit.
-    /// Encoded/decoded by serializers as "ECRT".
+    /// Encoded/decoded by serializers as &quot;ECRT&quot;.
     /// </summary>
     [EnumMember(Value = "ECRT")]
     [IsoId("_Sr65pygvEeyn17RQIQtLkQ")]
@@ -273,7 +273,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Total credit freezing.
-    /// Encoded/decoded by serializers as "ECFR".
+    /// Encoded/decoded by serializers as &quot;ECFR&quot;.
     /// </summary>
     [EnumMember(Value = "ECFR")]
     [IsoId("_Sr65qSgvEeyn17RQIQtLkQ")]
@@ -282,7 +282,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Total marginal lending.
-    /// Encoded/decoded by serializers as "EMLO".
+    /// Encoded/decoded by serializers as &quot;EMLO&quot;.
     /// </summary>
     [EnumMember(Value = "EMLO")]
     [IsoId("_Sr65qygvEeyn17RQIQtLkQ")]
@@ -291,7 +291,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Total marginal lending interest.
-    /// Encoded/decoded by serializers as "EMLI".
+    /// Encoded/decoded by serializers as &quot;EMLI&quot;.
     /// </summary>
     [EnumMember(Value = "EMLI")]
     [IsoId("_Sr65rSgvEeyn17RQIQtLkQ")]
@@ -300,7 +300,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Total initial margin on outstanding liquidity providing open market operations.
-    /// Encoded/decoded by serializers as "EOIM".
+    /// Encoded/decoded by serializers as &quot;EOIM&quot;.
     /// </summary>
     [EnumMember(Value = "EOIM")]
     [IsoId("_Sr65rygvEeyn17RQIQtLkQ")]
@@ -309,7 +309,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Total open market credit operations interest.
-    /// Encoded/decoded by serializers as "EOMI".
+    /// Encoded/decoded by serializers as &quot;EOMI&quot;.
     /// </summary>
     [EnumMember(Value = "EOMI")]
     [IsoId("_Sr65sSgvEeyn17RQIQtLkQ")]
@@ -318,7 +318,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Trading of treasury bonds.
-    /// Encoded/decoded by serializers as "TRBD".
+    /// Encoded/decoded by serializers as &quot;TRBD&quot;.
     /// </summary>
     [EnumMember(Value = "TRBD")]
     [IsoId("_Sr65sygvEeyn17RQIQtLkQ")]
@@ -327,7 +327,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Any securities traded out beyond 3 days which include treasury notes, Japanese Governement Bonds (JGBs) and Gilts.
-    /// Encoded/decoded by serializers as "BFWD".
+    /// Encoded/decoded by serializers as &quot;BFWD&quot;.
     /// </summary>
     [EnumMember(Value = "BFWD")]
     [IsoId("_Sr65tSgvEeyn17RQIQtLkQ")]
@@ -336,7 +336,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// In support of any type of cash settlement.
-    /// Encoded/decoded by serializers as "PAYM".
+    /// Encoded/decoded by serializers as &quot;PAYM&quot;.
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_Sr65tygvEeyn17RQIQtLkQ")]
@@ -345,7 +345,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Collateral covering the initial margin requirements for OTC trades cleared through a CCP.
-    /// Encoded/decoded by serializers as "CCPC".
+    /// Encoded/decoded by serializers as &quot;CCPC&quot;.
     /// </summary>
     [EnumMember(Value = "CCPC")]
     [IsoId("_Sr65uSgvEeyn17RQIQtLkQ")]
@@ -354,7 +354,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Any good exchanged during commerce, which includes goods traded on a commodity exchange.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_Sr65uygvEeyn17RQIQtLkQ")]
@@ -363,7 +363,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Swap designed to transfer the credit exposure of fixed income products between parties.
-    /// Encoded/decoded by serializers as "CRDS".
+    /// Encoded/decoded by serializers as &quot;CRDS&quot;.
     /// </summary>
     [EnumMember(Value = "CRDS")]
     [IsoId("_Sr65vSgvEeyn17RQIQtLkQ")]
@@ -372,7 +372,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Opening of a credit line before trading.
-    /// Encoded/decoded by serializers as "CRTL".
+    /// Encoded/decoded by serializers as &quot;CRTL&quot;.
     /// </summary>
     [EnumMember(Value = "CRTL")]
     [IsoId("_Sr65vygvEeyn17RQIQtLkQ")]
@@ -381,7 +381,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Cash lending/borrowing; letter of credit; signing of master agreement.
-    /// Encoded/decoded by serializers as "CRSP".
+    /// Encoded/decoded by serializers as &quot;CRSP&quot;.
     /// </summary>
     [EnumMember(Value = "CRSP")]
     [IsoId("_Sr65wSgvEeyn17RQIQtLkQ")]
@@ -390,7 +390,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Total open market credit operations.
-    /// Encoded/decoded by serializers as "EOMO".
+    /// Encoded/decoded by serializers as &quot;EOMO&quot;.
     /// </summary>
     [EnumMember(Value = "EOMO")]
     [IsoId("_Sr65wygvEeyn17RQIQtLkQ")]
@@ -399,7 +399,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Exposures related to activity with central banks.
-    /// Encoded/decoded by serializers as "CBCO".
+    /// Encoded/decoded by serializers as &quot;CBCO&quot;.
     /// </summary>
     [EnumMember(Value = "CBCO")]
     [IsoId("_T9kukSgvEeyn17RQIQtLkQ")]
@@ -408,7 +408,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Combination of treasury related exposure types.
-    /// Encoded/decoded by serializers as "TRCP".
+    /// Encoded/decoded by serializers as &quot;TRCP&quot;.
     /// </summary>
     [EnumMember(Value = "TRCP")]
     [IsoId("_Uxk-YSgvEeyn17RQIQtLkQ")]
@@ -417,7 +417,7 @@ public enum ExposureType13Code
     
     /// <summary>
     /// Relates to uncleared derivative margin segregation. This could be for variation or initial margin.
-    /// Encoded/decoded by serializers as "UDMS".
+    /// Encoded/decoded by serializers as &quot;UDMS&quot;.
     /// </summary>
     [EnumMember(Value = "UDMS")]
     [IsoId("_VED1gSgvEeyn17RQIQtLkQ")]

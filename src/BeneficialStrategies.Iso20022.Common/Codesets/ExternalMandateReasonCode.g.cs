@@ -23,7 +23,7 @@ public enum ExternalMandateReasonCode
 {
     /// <summary>
     /// Format of the account number specified is not correct
-    /// Encoded/decoded by serializers as "AC01".
+    /// Encoded/decoded by serializers as &quot;AC01&quot;.
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_tqLkCfRYEeuLhpyIdtJzwg")]
@@ -31,8 +31,8 @@ public enum ExternalMandateReasonCode
     IncorrectAccountNumber,
     
     /// <summary>
-    /// Account number specified has been closed on the Receiver's books
-    /// Encoded/decoded by serializers as "AC04".
+    /// Account number specified has been closed on the Receiver&apos;s books
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_tqVVAPRYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "AC06".
+    /// Encoded/decoded by serializers as &quot;AC06&quot;.
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_tqVVA_RYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Transaction forbidden on this type of account (formerly NoAgreement)
-    /// Encoded/decoded by serializers as "AG01".
+    /// Encoded/decoded by serializers as &quot;AG01&quot;.
     /// </summary>
     [EnumMember(Value = "AG01")]
     [IsoId("_tqVVBvRYEeuLhpyIdtJzwg")]
@@ -59,7 +59,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver
-    /// Encoded/decoded by serializers as "AG02".
+    /// Encoded/decoded by serializers as &quot;AG02&quot;.
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_tqee8PRYEeuLhpyIdtJzwg")]
@@ -68,7 +68,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Specific transaction/message amount is greater than allowed maximum
-    /// Encoded/decoded by serializers as "AM02".
+    /// Encoded/decoded by serializers as &quot;AM02&quot;.
     /// </summary>
     [EnumMember(Value = "AM02")]
     [IsoId("_tqee8_RYEeuLhpyIdtJzwg")]
@@ -77,7 +77,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Specified message amount is a non processable currency outside of existing agreement
-    /// Encoded/decoded by serializers as "AM03".
+    /// Encoded/decoded by serializers as &quot;AM03&quot;.
     /// </summary>
     [EnumMember(Value = "AM03")]
     [IsoId("_tqee9vRYEeuLhpyIdtJzwg")]
@@ -86,7 +86,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Duplication 
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_tqoP8PRYEeuLhpyIdtJzwg")]
@@ -95,7 +95,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).
-    /// Encoded/decoded by serializers as "BE01".
+    /// Encoded/decoded by serializers as &quot;BE01&quot;.
     /// </summary>
     [EnumMember(Value = "BE01")]
     [IsoId("_tqoP8_RYEeuLhpyIdtJzwg")]
@@ -103,8 +103,8 @@ public enum ExternalMandateReasonCode
     InconsistenWithEndCustomer,
     
     /// <summary>
-    /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
-    /// Encoded/decoded by serializers as "BE04".
+    /// Specification of creditor&apos;s address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
+    /// Encoded/decoded by serializers as &quot;BE04&quot;.
     /// </summary>
     [EnumMember(Value = "BE04")]
     [IsoId("_tqoP9vRYEeuLhpyIdtJzwg")]
@@ -113,7 +113,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Party who initiated the message is not recognised by the end customer
-    /// Encoded/decoded by serializers as "BE05".
+    /// Encoded/decoded by serializers as &quot;BE05&quot;.
     /// </summary>
     [EnumMember(Value = "BE05")]
     [IsoId("_tqoP-fRYEeuLhpyIdtJzwg")]
@@ -122,7 +122,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// End customer specified is not known at associated Sort/National Bank Code or does no longer exist in the books
-    /// Encoded/decoded by serializers as "BE06".
+    /// Encoded/decoded by serializers as &quot;BE06&quot;.
     /// </summary>
     [EnumMember(Value = "BE06")]
     [IsoId("_tqyA8PRYEeuLhpyIdtJzwg")]
@@ -130,8 +130,8 @@ public enum ExternalMandateReasonCode
     UnknownEndCustomer,
     
     /// <summary>
-    /// Specification of debtor's address, which is required for payment, is missing/not correct.
-    /// Encoded/decoded by serializers as "BE07".
+    /// Specification of debtor&apos;s address, which is required for payment, is missing/not correct.
+    /// Encoded/decoded by serializers as &quot;BE07&quot;.
     /// </summary>
     [EnumMember(Value = "BE07")]
     [IsoId("_tqyA8_RYEeuLhpyIdtJzwg")]
@@ -140,7 +140,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Invalid date (eg, wrong settlement date)
-    /// Encoded/decoded by serializers as "DT01".
+    /// Encoded/decoded by serializers as &quot;DT01&quot;.
     /// </summary>
     [EnumMember(Value = "DT01")]
     [IsoId("_tqyA9vRYEeuLhpyIdtJzwg")]
@@ -149,7 +149,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// File format incomplete or invalid
-    /// Encoded/decoded by serializers as "FF01".
+    /// Encoded/decoded by serializers as &quot;FF01&quot;.
     /// </summary>
     [EnumMember(Value = "FF01")]
     [IsoId("_tq7K4PRYEeuLhpyIdtJzwg")]
@@ -158,7 +158,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// No Mandate
-    /// Encoded/decoded by serializers as "MD01".
+    /// Encoded/decoded by serializers as &quot;MD01&quot;.
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_tq7K4_RYEeuLhpyIdtJzwg")]
@@ -167,7 +167,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Mandate related information data required by the scheme is missing.
-    /// Encoded/decoded by serializers as "MD02".
+    /// Encoded/decoded by serializers as &quot;MD02&quot;.
     /// </summary>
     [EnumMember(Value = "MD02")]
     [IsoId("_tq7K5vRYEeuLhpyIdtJzwg")]
@@ -176,7 +176,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// End customer is deceased.
-    /// Encoded/decoded by serializers as "MD07".
+    /// Encoded/decoded by serializers as &quot;MD07&quot;.
     /// </summary>
     [EnumMember(Value = "MD07")]
     [IsoId("_tq7K6fRYEeuLhpyIdtJzwg")]
@@ -185,7 +185,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Receiving agent does not offer specified Mandate services
-    /// Encoded/decoded by serializers as "MD08".
+    /// Encoded/decoded by serializers as &quot;MD08&quot;.
     /// </summary>
     [EnumMember(Value = "MD08")]
     [IsoId("_trE74PRYEeuLhpyIdtJzwg")]
@@ -194,7 +194,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Account is not open to specified Mandates services
-    /// Encoded/decoded by serializers as "MD09".
+    /// Encoded/decoded by serializers as &quot;MD09&quot;.
     /// </summary>
     [EnumMember(Value = "MD09")]
     [IsoId("_trE74_RYEeuLhpyIdtJzwg")]
@@ -203,7 +203,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Account is not open to specified Mandates services for this particular creditor
-    /// Encoded/decoded by serializers as "MD10".
+    /// Encoded/decoded by serializers as &quot;MD10&quot;.
     /// </summary>
     [EnumMember(Value = "MD10")]
     [IsoId("_trE75vRYEeuLhpyIdtJzwg")]
@@ -212,7 +212,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Agent to whom the message needs to be forwarded cannot be located
-    /// Encoded/decoded by serializers as "MD11".
+    /// Encoded/decoded by serializers as &quot;MD11&quot;.
     /// </summary>
     [EnumMember(Value = "MD11")]
     [IsoId("_trE76fRYEeuLhpyIdtJzwg")]
@@ -221,7 +221,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Mandate identification is not unique to the creditor
-    /// Encoded/decoded by serializers as "MD12".
+    /// Encoded/decoded by serializers as &quot;MD12&quot;.
     /// </summary>
     [EnumMember(Value = "MD12")]
     [IsoId("_trOs4PRYEeuLhpyIdtJzwg")]
@@ -230,7 +230,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// There is a problem with the customer authentication
-    /// Encoded/decoded by serializers as "MD13".
+    /// Encoded/decoded by serializers as &quot;MD13&quot;.
     /// </summary>
     [EnumMember(Value = "MD13")]
     [IsoId("_trOs4_RYEeuLhpyIdtJzwg")]
@@ -239,7 +239,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Agent in the payment workflow is incorrect
-    /// Encoded/decoded by serializers as "MD14".
+    /// Encoded/decoded by serializers as &quot;MD14&quot;.
     /// </summary>
     [EnumMember(Value = "MD14")]
     [IsoId("_trOs5vRYEeuLhpyIdtJzwg")]
@@ -248,7 +248,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Currency of the transaction is incorrect
-    /// Encoded/decoded by serializers as "MD15".
+    /// Encoded/decoded by serializers as &quot;MD15&quot;.
     /// </summary>
     [EnumMember(Value = "MD15")]
     [IsoId("_trOs6fRYEeuLhpyIdtJzwg")]
@@ -257,7 +257,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Cancellation/amendment requested by the debtor
-    /// Encoded/decoded by serializers as "MD16".
+    /// Encoded/decoded by serializers as &quot;MD16&quot;.
     /// </summary>
     [EnumMember(Value = "MD16")]
     [IsoId("_trOs7PRYEeuLhpyIdtJzwg")]
@@ -266,7 +266,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Cancellation/amendment requested by the creditor
-    /// Encoded/decoded by serializers as "MD17".
+    /// Encoded/decoded by serializers as &quot;MD17&quot;.
     /// </summary>
     [EnumMember(Value = "MD17")]
     [IsoId("_trX20PRYEeuLhpyIdtJzwg")]
@@ -275,7 +275,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Cancellation/amendment requested by the creditor and the debtor
-    /// Encoded/decoded by serializers as "MD18".
+    /// Encoded/decoded by serializers as &quot;MD18&quot;.
     /// </summary>
     [EnumMember(Value = "MD18")]
     [IsoId("_trX20_RYEeuLhpyIdtJzwg")]
@@ -284,7 +284,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Mandate cancellation following early reimbursement of the debit by the debtor
-    /// Encoded/decoded by serializers as "MD19".
+    /// Encoded/decoded by serializers as &quot;MD19&quot;.
     /// </summary>
     [EnumMember(Value = "MD19")]
     [IsoId("_trX21vRYEeuLhpyIdtJzwg")]
@@ -293,7 +293,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Mandate cancellation following validity expiration
-    /// Encoded/decoded by serializers as "MD20".
+    /// Encoded/decoded by serializers as &quot;MD20&quot;.
     /// </summary>
     [EnumMember(Value = "MD20")]
     [IsoId("_trX22fRYEeuLhpyIdtJzwg")]
@@ -302,7 +302,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Mandate cancellation due to suspected fraud
-    /// Encoded/decoded by serializers as "MD21".
+    /// Encoded/decoded by serializers as &quot;MD21&quot;.
     /// </summary>
     [EnumMember(Value = "MD21")]
     [IsoId("_trhn0PRYEeuLhpyIdtJzwg")]
@@ -311,7 +311,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Mandate cancellation following mandate initiation cancellation
-    /// Encoded/decoded by serializers as "MD22".
+    /// Encoded/decoded by serializers as &quot;MD22&quot;.
     /// </summary>
     [EnumMember(Value = "MD22")]
     [IsoId("_trhn0_RYEeuLhpyIdtJzwg")]
@@ -320,7 +320,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Mandate cancellation following mandate amendment cancellation
-    /// Encoded/decoded by serializers as "MD23".
+    /// Encoded/decoded by serializers as &quot;MD23&quot;.
     /// </summary>
     [EnumMember(Value = "MD23")]
     [IsoId("_trhn1vRYEeuLhpyIdtJzwg")]
@@ -329,7 +329,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Reason has not been specified by end customer
-    /// Encoded/decoded by serializers as "MS02".
+    /// Encoded/decoded by serializers as &quot;MS02&quot;.
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_trhn2fRYEeuLhpyIdtJzwg")]
@@ -338,7 +338,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "MS03".
+    /// Encoded/decoded by serializers as &quot;MS03&quot;.
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_trhn3PRYEeuLhpyIdtJzwg")]
@@ -347,7 +347,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Reason is provided as narrative information in the additional reason information.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_trqxwPRYEeuLhpyIdtJzwg")]
@@ -356,7 +356,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Bank Identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
-    /// Encoded/decoded by serializers as "RC01".
+    /// Encoded/decoded by serializers as &quot;RC01&quot;.
     /// </summary>
     [EnumMember(Value = "RC01")]
     [IsoId("_trqxw_RYEeuLhpyIdtJzwg")]
@@ -365,7 +365,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Transaction reference is not unique within the message.
-    /// Encoded/decoded by serializers as "RF01".
+    /// Encoded/decoded by serializers as &quot;RF01&quot;.
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_trqxxvRYEeuLhpyIdtJzwg")]
@@ -374,7 +374,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Specification of the debtor’s account or unique identification needed for reasons of regulatory requirements is insufficient or missing
-    /// Encoded/decoded by serializers as "RR01".
+    /// Encoded/decoded by serializers as &quot;RR01&quot;.
     /// </summary>
     [EnumMember(Value = "RR01")]
     [IsoId("_tr0iwPRYEeuLhpyIdtJzwg")]
@@ -383,7 +383,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Specification of the debtor’s name and/or address needed for regulatory requirements is insufficient or missing.
-    /// Encoded/decoded by serializers as "RR02".
+    /// Encoded/decoded by serializers as &quot;RR02&quot;.
     /// </summary>
     [EnumMember(Value = "RR02")]
     [IsoId("_tr0iw_RYEeuLhpyIdtJzwg")]
@@ -392,7 +392,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Specification of the creditor’s name and/or address needed for regulatory requirements is insufficient or missing.
-    /// Encoded/decoded by serializers as "RR03".
+    /// Encoded/decoded by serializers as &quot;RR03&quot;.
     /// </summary>
     [EnumMember(Value = "RR03")]
     [IsoId("_tr0ixvRYEeuLhpyIdtJzwg")]
@@ -401,7 +401,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Regulatory Reason
-    /// Encoded/decoded by serializers as "RR04".
+    /// Encoded/decoded by serializers as &quot;RR04&quot;.
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_tr0iyfRYEeuLhpyIdtJzwg")]
@@ -410,7 +410,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Due to specific service offered by the Debtor Agent
-    /// Encoded/decoded by serializers as "SL01".
+    /// Encoded/decoded by serializers as &quot;SL01&quot;.
     /// </summary>
     [EnumMember(Value = "SL01")]
     [IsoId("_tr-TwPRYEeuLhpyIdtJzwg")]
@@ -419,7 +419,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Whitelisting service offered by the Debtor Agent; Debtor has not included the Creditor on its “Whitelist” (yet). In the Whitelist the Debtor may list all allowed Creditors to debit Debtor bank account.
-    /// Encoded/decoded by serializers as "SL11".
+    /// Encoded/decoded by serializers as &quot;SL11&quot;.
     /// </summary>
     [EnumMember(Value = "SL11")]
     [IsoId("_tr-Tw_RYEeuLhpyIdtJzwg")]
@@ -428,7 +428,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Blacklisting service offered by the Debtor Agent; Debtor included the Creditor on his “Blacklist”. In the Blacklist the Debtor may list all Creditors not allowed to debit Debtor bank account.
-    /// Encoded/decoded by serializers as "SL12".
+    /// Encoded/decoded by serializers as &quot;SL12&quot;.
     /// </summary>
     [EnumMember(Value = "SL12")]
     [IsoId("_tr-TxvRYEeuLhpyIdtJzwg")]
@@ -437,7 +437,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Due to Maximum allowed Direct Debit Transactions per period service offered by the Debtor Agent.
-    /// Encoded/decoded by serializers as "SL13".
+    /// Encoded/decoded by serializers as &quot;SL13&quot;.
     /// </summary>
     [EnumMember(Value = "SL13")]
     [IsoId("_tr-TyfRYEeuLhpyIdtJzwg")]
@@ -446,7 +446,7 @@ public enum ExternalMandateReasonCode
     
     /// <summary>
     /// Due to Maximum allowed Direct Debit Transaction amount service offered by the Debtor Agent.
-    /// Encoded/decoded by serializers as "SL14".
+    /// Encoded/decoded by serializers as &quot;SL14&quot;.
     /// </summary>
     [EnumMember(Value = "SL14")]
     [IsoId("_tr-TzPRYEeuLhpyIdtJzwg")]

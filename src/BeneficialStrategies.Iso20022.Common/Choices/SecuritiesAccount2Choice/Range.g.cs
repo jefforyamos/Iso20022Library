@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccount2Choice
     /// Range of identifications of the securities accounts.
     /// </summary>
     [IsoId("_4H1_oeGBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Range")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccount2Choice
         /// Securities account number or code at which the range starts.
         /// </summary>
         [IsoId("_4UfUgeGBEeWCAvUNsZ5u6g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("From")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Fr")]
         #endif
+        [IsoXmlTag("Fr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesAccount19 From { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesAccount19 From { get; init; } 
+        public required SecuritiesAccount19 From { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesAccount19 From { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccount2Choice
         /// Securities account number or code at which the range ends.
         /// </summary>
         [IsoId("_4UfUg-GBEeWCAvUNsZ5u6g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("To")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="To")]
         #endif
+        [IsoXmlTag("To")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesAccount19 To { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesAccount19 To { get; init; } 
+        public required SecuritiesAccount19 To { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesAccount19 To { get; init; } 
         #else

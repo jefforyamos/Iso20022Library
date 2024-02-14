@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the customer device.
 /// </summary>
 [IsoId("_zOiXAEamEeeIjf8aP9KbJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Device1
     /// Type of customer device.
     /// </summary>
     [IsoId("_AdH4MEanEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CustomerDeviceType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CustomerDeviceType1Code Type { get; init; } 
+    public required CustomerDeviceType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CustomerDeviceType1Code Type { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record Device1
     /// Other type of customer device in free text.
     /// </summary>
     [IsoId("_GtylAEanEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record Device1
     /// Preferred language set on the device
     /// </summary>
     [IsoId("_w8sUkOCTEeeWtMJGJyksMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lang")]
     #endif
+    [IsoXmlTag("Lang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? Language { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,15 +104,12 @@ public partial record Device1
     /// Phone number associated with the device.
     /// </summary>
     [IsoId("_9rh-sOCTEeeWtMJGJyksMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Phone Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhneNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PhneNb")]
+    [IsoSimpleType(IsoSimpleType.PhoneNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +122,11 @@ public partial record Device1
     /// Geographical location of the device.
     /// </summary>
     [IsoId("_IcpX4OCUEeeWtMJGJyksMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
+    [IsoXmlTag("Lctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeographicCoordinates1? Location { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,15 +139,13 @@ public partial record Device1
     /// Internet Protocol address associated with the device.
     /// </summary>
     [IsoId("_qMsK8OCUEeeWtMJGJyksMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("IP Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IPAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IPAdr")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? IPAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,15 +158,13 @@ public partial record Device1
     /// Electronic mail address associated with the device.
     /// </summary>
     [IsoId("_IxWnIOCVEeeWtMJGJyksMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Email")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Email")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Email")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Email { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

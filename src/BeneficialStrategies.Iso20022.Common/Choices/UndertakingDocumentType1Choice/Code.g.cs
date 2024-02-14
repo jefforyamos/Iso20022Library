@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UndertakingDocumentType1Choice
     /// Document type.
     /// </summary>
     [IsoId("_93jwwXltEeG7BsjMvd1mEw_2041706561")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UndertakingDocumentType1Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalUndertakingDocumentType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalUndertakingDocumentType1Code Value { get; init; } 
+        public required ExternalUndertakingDocumentType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalUndertakingDocumentType1Code Value { get; init; } 
         #else

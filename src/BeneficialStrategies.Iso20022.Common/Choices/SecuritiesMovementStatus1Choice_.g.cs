@@ -28,9 +28,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesMovementStatus1Choice.Tax))]
     [KnownType(typeof(SecuritiesMovementStatus1Choice.Wait))]
     [IsoId("_IeQt0OCzEei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Voting participation method at a general meeting.
 /// </summary>
 [IsoId("_XuYKlRrlEeyhRdHRjakS2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Specific Instruction Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SpecificInstructionRequest4
     /// Method of voting participation to the general meeting.
     /// </summary>
     [IsoId("_YC8FURrlEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtcptnMtd")]
     #endif
+    [IsoXmlTag("PrtcptnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ParticipationMethod3Choice_? ParticipationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record SpecificInstructionRequest4
     /// Indicates a request to register the securities for the meeting.
     /// </summary>
     [IsoId("_YC8FUxrlEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Registration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesRegn")]
     #endif
+    [IsoXmlTag("SctiesRegn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SecuritiesRegistration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option securities movement rate details.
 /// </summary>
 [IsoId("_1XiiZTL3EeKU9IrkkToqcw_-291091942")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionRateSD4
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1XsTYDL3EeKU9IrkkToqcw_-404931008")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record CorporateActionRateSD4
     /// Corresponding rate of the security disbursed by CSD (for an example in US, DTC The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1XsTYTL3EeKU9IrkkToqcw_-1402003361")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSD Security Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSDSctyRate")]
     #endif
+    [IsoXmlTag("CSDSctyRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RatioFormat13Choice_? CSDSecurityRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

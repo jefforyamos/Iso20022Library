@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentAccountCategory1Choice
     /// Category of investment account expressed as a code.
     /// </summary>
     [IsoId("_gXhC8BRIEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentAccountCategory1Choice
         /// Specifies the investment account category.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestmentAccountCategory1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestmentAccountCategory1Code Value { get; init; } 
+        public required InvestmentAccountCategory1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestmentAccountCategory1Code Value { get; init; } 
         #else

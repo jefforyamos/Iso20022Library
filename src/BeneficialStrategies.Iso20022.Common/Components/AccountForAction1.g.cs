@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Account to or from which a cash entry is made.
 /// </summary>
 [IsoId("_SN5Y9Np-Ed-ak6NoX_4Aeg_1820239688")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account For Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AccountForAction1
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_SN5Y9dp-Ed-ak6NoX_4Aeg_1895968865")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification4Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification4Choice_ Identification { get; init; } 
+    public required AccountIdentification4Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification4Choice_ Identification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AccountForAction1
     /// Medium of exchange of value.
     /// </summary>
     [IsoId("_SN5Y9tp-Ed-ak6NoX_4Aeg_-2095161485")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else

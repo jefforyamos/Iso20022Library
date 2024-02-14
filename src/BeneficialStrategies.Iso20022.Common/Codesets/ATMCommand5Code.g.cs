@@ -21,7 +21,7 @@ public enum ATMCommand5Code
 {
     /// <summary>
     /// Provide the ATM counters, resetting those that are applicable.
-    /// Encoded/decoded by serializers as "ABAL".
+    /// Encoded/decoded by serializers as &quot;ABAL&quot;.
     /// </summary>
     [EnumMember(Value = "ABAL")]
     [IsoId("_mQuCga47EeWRfYPBaeOY8w")]
@@ -30,7 +30,7 @@ public enum ATMCommand5Code
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CCNT".
+    /// Encoded/decoded by serializers as &quot;CCNT&quot;.
     /// </summary>
     [EnumMember(Value = "CCNT")]
     [IsoId("_mQuCg647EeWRfYPBaeOY8w")]
@@ -39,7 +39,7 @@ public enum ATMCommand5Code
     
     /// <summary>
     /// Provide the value of the ATM counters, no reinitialisation of the counters.
-    /// Encoded/decoded by serializers as "RPTC".
+    /// Encoded/decoded by serializers as &quot;RPTC&quot;.
     /// </summary>
     [EnumMember(Value = "RPTC")]
     [IsoId("_p8M1wa47EeWRfYPBaeOY8w")]

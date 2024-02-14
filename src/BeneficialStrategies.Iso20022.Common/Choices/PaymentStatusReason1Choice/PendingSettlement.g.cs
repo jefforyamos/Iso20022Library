@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice
     /// Reason why the payment status is pending (settlement).
     /// </summary>
     [IsoId("_QWOzudEdEei798TPbKJMuw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Settlement")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice
         /// Specifies the reason the transaction/instruction is pending settlement, that is, pending delivery or receipt of the financial instrument. Settlement on the instructed settlement date is still possible.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PdgSttlm")]
         #endif
+        [IsoXmlTag("PdgSttlm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingSettlement2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingSettlement2Code Value { get; init; } 
+        public required PendingSettlement2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingSettlement2Code Value { get; init; } 
         #else

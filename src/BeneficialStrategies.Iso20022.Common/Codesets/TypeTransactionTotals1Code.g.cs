@@ -21,7 +21,7 @@ public enum TypeTransactionTotals1Code
 {
     /// <summary>
     /// Debit transactions on the cardholder account.
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_TUJ9QAEcEeCQm6a_G2yO_w_-1120595523")]
@@ -30,7 +30,7 @@ public enum TypeTransactionTotals1Code
     
     /// <summary>
     /// Reversal of debit transactions (cancellation).
-    /// Encoded/decoded by serializers as "DBTR".
+    /// Encoded/decoded by serializers as &quot;DBTR&quot;.
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_TUTHIAEcEeCQm6a_G2yO_w_-2003828810")]
@@ -39,7 +39,7 @@ public enum TypeTransactionTotals1Code
     
     /// <summary>
     /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_TUTHIQEcEeCQm6a_G2yO_w_1152384112")]
@@ -48,7 +48,7 @@ public enum TypeTransactionTotals1Code
     
     /// <summary>
     /// Reversal of credit transactions (cancellation).
-    /// Encoded/decoded by serializers as "CRDR".
+    /// Encoded/decoded by serializers as &quot;CRDR&quot;.
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_TUTHIgEcEeCQm6a_G2yO_w_-1205358011")]

@@ -21,7 +21,7 @@ public enum OfferType3Code
 {
     /// <summary>
     /// Offer launched by a company, in possession of a large number of the shares (90% - 95%) of a company (generally as a result of a tender offer), in order to acquire the remaining shares of that company.
-    /// Encoded/decoded by serializers as "SQUE".
+    /// Encoded/decoded by serializers as &quot;SQUE&quot;.
     /// </summary>
     [EnumMember(Value = "SQUE")]
     [IsoId("_y1XMESHiEeOQ7qT4JUI53A")]
@@ -30,7 +30,7 @@ public enum OfferType3Code
     
     /// <summary>
     /// Exchange of Restricted to Unrestricted (or vice versa).
-    /// Encoded/decoded by serializers as "ERUN".
+    /// Encoded/decoded by serializers as &quot;ERUN&quot;.
     /// </summary>
     [EnumMember(Value = "ERUN")]
     [IsoId("_y-lZgSHiEeOQ7qT4JUI53A")]
@@ -39,7 +39,7 @@ public enum OfferType3Code
     
     /// <summary>
     /// Offer made by the offeror for a portion of the outstanding shares not already owned by the offeror.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_zEYfgSHiEeOQ7qT4JUI53A")]
@@ -48,7 +48,7 @@ public enum OfferType3Code
     
     /// <summary>
     /// Securities will be accepted in the order they have been submitted until the target number of quantity sought is reached.
-    /// Encoded/decoded by serializers as "FCFS".
+    /// Encoded/decoded by serializers as &quot;FCFS&quot;.
     /// </summary>
     [EnumMember(Value = "FCFS")]
     [IsoId("_zSqzISHiEeOQ7qT4JUI53A")]
@@ -57,7 +57,7 @@ public enum OfferType3Code
     
     /// <summary>
     /// Final or last offer to holders subject to offer conditions being reached, for example, 50 percent accepted on a tender.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_zZEWESHiEeOQ7qT4JUI53A")]
@@ -66,7 +66,7 @@ public enum OfferType3Code
     
     /// <summary>
     /// Securities holder has the right to disagree with a mandatory event. This right is not inherent in all offers and therefore must be noted in announcements only when applicable.
-    /// Encoded/decoded by serializers as "DISS".
+    /// Encoded/decoded by serializers as &quot;DISS&quot;.
     /// </summary>
     [EnumMember(Value = "DISS")]
     [IsoId("_zdrJQSHiEeOQ7qT4JUI53A")]

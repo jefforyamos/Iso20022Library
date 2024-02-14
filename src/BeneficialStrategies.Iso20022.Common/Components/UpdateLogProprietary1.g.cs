@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the old and new values for a proprietary field name.
 /// </summary>
 [IsoId("_LituOGjOEeiRg5NzP0jkQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Update Log Proprietary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record UpdateLogProprietary1
     /// Name of the field whose value has been changed.
     /// </summary>
     [IsoId("_LituOWjOEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Field Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FldNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FldNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text FieldName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FieldName { get; init; } 
+    public required System.String FieldName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FieldName { get; init; } 
     #else
@@ -76,19 +72,17 @@ public partial record UpdateLogProprietary1
     /// Value of the field before the change.
     /// </summary>
     [IsoId("_LituPmjOEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old Field Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OdFldVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OdFldVal")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text OldFieldValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OldFieldValue { get; init; } 
+    public required System.String OldFieldValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OldFieldValue { get; init; } 
     #else
@@ -99,19 +93,17 @@ public partial record UpdateLogProprietary1
     /// Value of the field after the change.
     /// </summary>
     [IsoId("_LituPGjOEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Field Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewFldVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NewFldVal")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text NewFieldValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NewFieldValue { get; init; } 
+    public required System.String NewFieldValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NewFieldValue { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum StatementBasis3Code
 {
     /// <summary>
     /// Mark-to-Market report sent after settlement. All transactions which have been initiated.
-    /// Encoded/decoded by serializers as "EOSP".
+    /// Encoded/decoded by serializers as &quot;EOSP&quot;.
     /// </summary>
     [EnumMember(Value = "EOSP")]
     [IsoId("_s7hSMcRxEeij-rSPpvD-Tw")]
@@ -30,7 +30,7 @@ public enum StatementBasis3Code
     
     /// <summary>
     /// Mark-to-market report taking into account collateral management actions which are still pending initiation and initiated transactions.
-    /// Encoded/decoded by serializers as "FUTM".
+    /// Encoded/decoded by serializers as &quot;FUTM&quot;.
     /// </summary>
     [EnumMember(Value = "FUTM")]
     [IsoId("_tDs90cRxEeij-rSPpvD-Tw")]

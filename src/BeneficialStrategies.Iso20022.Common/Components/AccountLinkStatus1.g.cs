@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Business status of the party for processing in the system.
 /// </summary>
 [IsoId("_3L62cXHeEeG8t-w1mFnmhg_-127584604")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Link Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AccountLinkStatus1
     /// Status of the account link instruction.
     /// </summary>
     [IsoId("_3L62cnHeEeG8t-w1mFnmhg_-241423670")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status6Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status6Code Status { get; init; } 
+    public required Status6Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status6Code Status { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AccountLinkStatus1
     /// Underlying reason related to the creation of a transaction.
     /// </summary>
     [IsoId("_3L62c3HeEeG8t-w1mFnmhg_-1124656957")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReasonInformation10? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

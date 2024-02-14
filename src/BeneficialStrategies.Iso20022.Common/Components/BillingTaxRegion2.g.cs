@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Tax region that levies a tax on the services in a statement.
 /// </summary>
 [IsoId("_t3QwgeDzEeim_fWj9imBTA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Tax Region")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,19 +53,17 @@ public partial record BillingTaxRegion2
     /// Specifies a particular unique zone of taxes assigned by taxing authorities. A tax region number is unique. Every account is considered to reside within a tax region, although some tax regions may not charge taxes on services.
     /// </summary>
     [IsoId("_uEFrkeDzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Region Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RgnNb")]
+    [IsoSimpleType(IsoSimpleType.Max40Text)]
     [StringLength(maximumLength: 40 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax40Text RegionNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RegionNumber { get; init; } 
+    public required System.String RegionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RegionNumber { get; init; } 
     #else
@@ -78,19 +74,17 @@ public partial record BillingTaxRegion2
     /// Name associated with a specific tax region number.
     /// </summary>
     [IsoId("_uEFrk-DzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Region Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgnNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RgnNm")]
+    [IsoSimpleType(IsoSimpleType.Max40Text)]
     [StringLength(maximumLength: 40 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax40Text RegionName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RegionName { get; init; } 
+    public required System.String RegionName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RegionName { get; init; } 
     #else
@@ -101,19 +95,17 @@ public partial record BillingTaxRegion2
     /// Specifies the financial institution’s customer tax identification number. ||Usage: |This is the number passed from the financial institution to the taxing authority to indicate the specific customer tied to the taxes calculated for this tax region and group of delivered services. It is typically the tax identification tied to a customer’s account.
     /// </summary>
     [IsoId("_uEFrleDzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Tax Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrTaxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CstmrTaxId")]
+    [IsoSimpleType(IsoSimpleType.Max40Text)]
     [StringLength(maximumLength: 40 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax40Text CustomerTaxIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CustomerTaxIdentification { get; init; } 
+    public required System.String CustomerTaxIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CustomerTaxIdentification { get; init; } 
     #else
@@ -124,12 +116,12 @@ public partial record BillingTaxRegion2
     /// Date on which the tax calculation was performed. ||Usage: |This date can be used to verify the tax rate value on the calculation date.
     /// </summary>
     [IsoId("_uEFrl-DzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Point Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtDt")]
     #endif
+    [IsoXmlTag("PtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PointDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,12 +134,11 @@ public partial record BillingTaxRegion2
     /// Tax information that relates to the sending financial institution.
     /// </summary>
     [IsoId("_uEFrmeDzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sending Financial Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndgFI")]
     #endif
+    [IsoXmlTag("SndgFI")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingTaxIdentification2? SendingFinancialInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,15 +151,13 @@ public partial record BillingTaxRegion2
     /// Unique number to be used by the customer to cross-reference between the tax region information and a tax invoice or notice.
     /// </summary>
     [IsoId("_uEFrm-DzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InvcNb")]
+    [IsoSimpleType(IsoSimpleType.Max40Text)]
     [StringLength(maximumLength: 40 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax40Text? InvoiceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -181,12 +170,11 @@ public partial record BillingTaxRegion2
     /// Tax values are based on tax calculation method C.
     /// </summary>
     [IsoId("_uEFrneDzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method C")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtdC")]
     #endif
+    [IsoXmlTag("MtdC")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingMethod4? MethodC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,16 +187,15 @@ public partial record BillingTaxRegion2
     /// Total tax amount expressed in the account’s settlement (or charging) currency. ||Usage: This total sums the individual service level taxes as calculated for each service by methods A, B and D. The sum of these amounts across all tax regions for the statement is displayed as the tax total sum in the compensation section.
     /// </summary>
     [IsoId("_uEFrn-DzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 SettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 SettlementAmount { get; init; } 
+    public required AmountAndDirection34 SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 SettlementAmount { get; init; } 
     #else
@@ -219,16 +206,15 @@ public partial record BillingTaxRegion2
     /// Total amount of all taxes for a specific customer within the tax region expressed in the tax region’s host currency. ||Usage: It is the same value as total tax amount and is included for the specific use of tax calculation methods A, B and D.
     /// </summary>
     [IsoId("_uEFroeDzEeim_fWj9imBTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Due To Region")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDueToRgn")]
     #endif
+    [IsoXmlTag("TaxDueToRgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 TaxDueToRegion { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 TaxDueToRegion { get; init; } 
+    public required AmountAndDirection34 TaxDueToRegion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 TaxDueToRegion { get; init; } 
     #else

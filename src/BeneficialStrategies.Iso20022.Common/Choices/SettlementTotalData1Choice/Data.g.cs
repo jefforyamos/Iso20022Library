@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice
     /// Aggregated data of settlement instructions.
     /// </summary>
     [IsoId("_hwwPwB2nEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,16 +57,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice
         /// Aggregated volume and value of settlement instructions settled during the period covered by the report, for financial Instruments, types of transactions, types of clients and cash transfers.
         /// </summary>
         [IsoId("_oVUHM40TEemUAO64Q252gQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settled")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sttld")]
         #endif
+        [IsoXmlTag("Sttld")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDataVolume2 Settled { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDataVolume2 Settled { get; init; } 
+        public required SettlementDataVolume2 Settled { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDataVolume2 Settled { get; init; } 
         #else
@@ -79,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice
         /// Aggregated volume and value of settlement instructions failed during the period covered by the report, for financial Instruments, types of transactions, types of clients and cash transfers.
         /// </summary>
         [IsoId("_oVUHNI0TEemUAO64Q252gQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Failed")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Faild")]
         #endif
+        [IsoXmlTag("Faild")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDataVolume2 Failed { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDataVolume2 Failed { get; init; } 
+        public required SettlementDataVolume2 Failed { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDataVolume2 Failed { get; init; } 
         #else
@@ -99,16 +95,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice
         /// Aggregated total volume and value of settlement instructions performed (settled and failed) during the period covered by the report, for financial Instruments, types of transactions, types of clients and cash transfers.
         /// </summary>
         [IsoId("_oVUHMY0TEemUAO64Q252gQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Total")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ttl")]
         #endif
+        [IsoXmlTag("Ttl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDataVolume2 Total { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDataVolume2 Total { get; init; } 
+        public required SettlementDataVolume2 Total { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDataVolume2 Total { get; init; } 
         #else
@@ -119,16 +114,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice
         /// Rate of failed settlement instructions compared to the total volume and value, of settlement instructions performed (settled and failed) during the period covered by the report.
         /// </summary>
         [IsoId("_oVUHMo0TEemUAO64Q252gQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Failed Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FaildRate")]
         #endif
+        [IsoXmlTag("FaildRate")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDataRate2 FailedRate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDataRate2 FailedRate { get; init; } 
+        public required SettlementDataRate2 FailedRate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDataRate2 FailedRate { get; init; } 
         #else

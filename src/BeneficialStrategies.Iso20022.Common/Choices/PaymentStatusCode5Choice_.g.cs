@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusCode5Choice.Settlement))]
     [KnownType(typeof(PaymentStatusCode5Choice.Proprietary))]
     [IsoId("_72FYEqMgEeCJ6YNENx4h-w_2022583428")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Status Code 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

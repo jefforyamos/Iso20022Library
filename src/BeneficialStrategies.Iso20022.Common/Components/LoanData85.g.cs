@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the transaction.
 /// </summary>
 [IsoId("_zCSKIK0mEemlgIolf65eZg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Loan Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record LoanData85
     /// Unique reference assigned to the transaction to identify the trade.
     /// </summary>
     [IsoId("_ErQzA60nEemlgIolf65eZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Trade Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnqTradIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UnqTradIdr")]
+    [IsoSimpleType(IsoSimpleType.Max52Text)]
     [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax52Text UniqueTradeIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String UniqueTradeIdentifier { get; init; } 
+    public required System.String UniqueTradeIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String UniqueTradeIdentifier { get; init; } 
     #else
@@ -76,16 +72,16 @@ public partial record LoanData85
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place. In the case of action types valuation update, collateral update, reuse update, margin update, the date for which the information contained in the report is provided.
     /// </summary>
     [IsoId("_ErQzBK0nEemlgIolf65eZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtDt")]
     #endif
+    [IsoXmlTag("EvtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EventDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly EventDate { get; init; } 
+    public required System.DateOnly EventDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly EventDate { get; init; } 
     #else
@@ -96,16 +92,16 @@ public partial record LoanData85
     /// Market value of the securities or commodities on loan or borrowed.
     /// </summary>
     [IsoId("_ErQzBa0nEemlgIolf65eZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount MarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MarketValue { get; init; } 
+    public required System.Decimal MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MarketValue { get; init; } 
     #else

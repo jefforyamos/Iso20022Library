@@ -21,7 +21,7 @@ public enum AssetClassSubProductMetal1Code
 {
     /// <summary>
     /// Commodity of type non precious metals.
-    /// Encoded/decoded by serializers as "NPRM".
+    /// Encoded/decoded by serializers as &quot;NPRM&quot;.
     /// </summary>
     [EnumMember(Value = "NPRM")]
     [IsoId("_aFAcEdDrEeS8V88MH4oPOQ")]
@@ -30,7 +30,7 @@ public enum AssetClassSubProductMetal1Code
     
     /// <summary>
     /// Commodity of type precious metals.
-    /// Encoded/decoded by serializers as "PRME".
+    /// Encoded/decoded by serializers as &quot;PRME&quot;.
     /// </summary>
     [EnumMember(Value = "PRME")]
     [IsoId("_aSQN4dDrEeS8V88MH4oPOQ")]
@@ -39,7 +39,7 @@ public enum AssetClassSubProductMetal1Code
     
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_IOVEkAFLEeaDfK-zDSyB6A")]

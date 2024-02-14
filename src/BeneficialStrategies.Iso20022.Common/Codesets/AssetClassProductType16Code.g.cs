@@ -21,7 +21,7 @@ public enum AssetClassProductType16Code
 {
     /// <summary>
     /// Index type of commodities.
-    /// Encoded/decoded by serializers as "INDX".
+    /// Encoded/decoded by serializers as &quot;INDX&quot;.
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("_aDo5gU7KEe2PGo0mhYCh1g")]

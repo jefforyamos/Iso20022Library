@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action reorganisation instruction details.
 /// </summary>
 [IsoId("_-2IqsMU2EeeWeZMpNX1JUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reorganisation Instruction Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Xpath to the element that is being extended.
     /// </summary>
     [IsoId("_u-YCocVIEeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Identifies the reorganisation transaction type.
     /// </summary>
     [IsoId("_BE5rgMU7EeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTp")]
     #endif
+    [IsoXmlTag("TxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReorganisationTransactionType1Code? TransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Unique number assigned by the depository. Transaction identification will be either the DTC instruction reference number for reorganisation instructions (VOI) or the DAM reference number for custody / reorganisation deposits.
     /// </summary>
     [IsoId("_5pl7EsU7EeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max15Text)]
     [StringLength(maximumLength: 15 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15Text? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,15 +97,12 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
     [IsoId("_5pl7E8U7EeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TxSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,15 +115,12 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Unique identifier for each customer in a transaction.
     /// </summary>
     [IsoId("_2PNpcMU8EeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrSeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CstmrSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Max9NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax9NumericText? CustomerSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,15 +133,13 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Identifies the protect itself or of that is being covered. It is required for the function types cover protect (COVR), cover protect directly to agent (COVA) and cover on behalf of another participant (COVP).
     /// </summary>
     [IsoId("_1UyhMsU_EeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtctId")]
+    [IsoSimpleType(IsoSimpleType.Max15Text)]
     [StringLength(maximumLength: 15 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15Text? ProtectIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,15 +152,13 @@ public partial record ReorganisationInstructionDetailsSD1
     /// For cover protect instructions whereby one safekeeping account is covering on behalf of another safekeeping account. The protect safekeeping account will be the account which submitted the original protect instruction.
     /// </summary>
     [IsoId("_UXzgQOZQEeewObBhnieI_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctSfkpgAcct")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtctSfkpgAcct")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax35Text? ProtectSafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,12 +172,12 @@ public partial record ReorganisationInstructionDetailsSD1
     /// cover protect on behalf of another participant transaction (COVP).
     /// </summary>
     [IsoId("_1UyhM8U_EeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctDt")]
     #endif
+    [IsoXmlTag("PrtctDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ProtectDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,12 +190,11 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
     [IsoId("_2ldv0cVIEeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesQtyDtls")]
     #endif
+    [IsoXmlTag("SctiesQtyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesQuantityDetailsSD3? SecuritiesQuantityDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -225,12 +207,12 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Warrant subscription amount entered by client when instructing on a warrant exercise instruction.
     /// </summary>
     [IsoId("_BMBAEMX_EeexPc-mfUU5zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Warrant Subscription Charge Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WarrtSbcptChrgAmt")]
     #endif
+    [IsoXmlTag("WarrtSbcptChrgAmt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? WarrantSubscriptionChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +227,12 @@ public partial record ReorganisationInstructionDetailsSD1
     /// No: participant does not accept penalties.
     /// </summary>
     [IsoId("_6QkbsMVgEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Exempt Instructions Allowed Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonXmptInstrsAllwdInd")]
     #endif
+    [IsoXmlTag("NonXmptInstrsAllwdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NonExemptInstructionsAllowedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -265,12 +247,12 @@ public partial record ReorganisationInstructionDetailsSD1
     /// No: there is not a solicitation fee.
     /// </summary>
     [IsoId("_ggU7UMVhEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Solicitation Fee Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SlctnFeeInd")]
     #endif
+    [IsoXmlTag("SlctnFeeInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SolicitationFeeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -285,12 +267,12 @@ public partial record ReorganisationInstructionDetailsSD1
     /// No: tender offer does not accept odd lots.
     /// </summary>
     [IsoId("_wdW_wMVhEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tender Odd Lot Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TndrOddLotInd")]
     #endif
+    [IsoXmlTag("TndrOddLotInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TenderOddLotIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -303,12 +285,11 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Certificate information for a given instruction.
     /// </summary>
     [IsoId("_JedFsMViEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cert")]
     #endif
+    [IsoXmlTag("Cert")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionCertificateSD1? Certificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -321,15 +302,12 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
     [IsoId("_CC8HocVoEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Reference Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrRefId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CstmrRefId")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -342,15 +320,13 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Unique identification of the transaction used by the transmitting party.
     /// </summary>
     [IsoId("_nmXFsMVoEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max6Text)]
     [StringLength(maximumLength: 6 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6Text? UserReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -363,12 +339,11 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Party contact information for the given instruction; required for voluntary offer instruction transaction (VOIT), protect transaction (PROT) and protect on behalf of another participant transaction (PROP); not required for cover protect instructions like cover protect transaction (COVR), cover protect directly to agent transaction (COVA) and cover protect on behalf of another participant transaction (COVP).
     /// </summary>
     [IsoId("_9ff8MMVoEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctPrsn")]
     #endif
+    [IsoXmlTag("CtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification5? ContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -381,12 +356,11 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Acknowledgement information relative to corporate action reorganisation instructions.
     /// </summary>
     [IsoId("_s6qwkMVrEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledgement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AckDtls")]
     #endif
+    [IsoXmlTag("AckDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionAcknowledgementSD1? AcknowledgementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -399,12 +373,11 @@ public partial record ReorganisationInstructionDetailsSD1
     /// Beneficial owner information related to CD early redemption instructions.
     /// </summary>
     [IsoId("_PtdNEMX7EeexPc-mfUU5zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deceased Beneficial Owner Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DcsdBnfclOwnrDtls")]
     #endif
+    [IsoXmlTag("DcsdBnfclOwnrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeceasedStatusSD1? DeceasedBeneficialOwnerDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

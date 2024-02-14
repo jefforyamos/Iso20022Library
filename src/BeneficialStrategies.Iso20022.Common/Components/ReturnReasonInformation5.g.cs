@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Further information on the return reason of the transaction.
 /// </summary>
 [IsoId("_TPTyptp-Ed-ak6NoX_4Aeg_335311982")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Return Reason Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReturnReasonInformation5
     /// Bank transaction code included in the original entry for the transaction.
     /// </summary>
     [IsoId("_TPTyp9p-Ed-ak6NoX_4Aeg_140703755")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Bank Transaction Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlBkTxCd")]
     #endif
+    [IsoXmlTag("OrgnlBkTxCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BankTransactionCodeStructure1? OriginalBankTransactionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ReturnReasonInformation5
     /// Party issuing the return.
     /// </summary>
     [IsoId("_TPTyqNp-Ed-ak6NoX_4Aeg_335312086")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrOrgtr")]
     #endif
+    [IsoXmlTag("RtrOrgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8? ReturnOriginator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record ReturnReasonInformation5
     /// Specifies the reason for the return.
     /// </summary>
     [IsoId("_TPdjoNp-Ed-ak6NoX_4Aeg_335312138")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrRsn")]
     #endif
+    [IsoXmlTag("RtrRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReturnReason1Choice_? ReturnReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +93,13 @@ public partial record ReturnReasonInformation5
     /// Further details on the return reason.
     /// </summary>
     [IsoId("_TPdjodp-Ed-ak6NoX_4Aeg_335312008")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Return Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRtrRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRtrRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalReturnReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

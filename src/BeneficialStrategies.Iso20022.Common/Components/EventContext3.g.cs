@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the Retailer Event message.
 /// </summary>
 [IsoId("_8m_hIS8REeu125Ip9zFcsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Event Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record EventContext3
     /// Reference to the service and functions related to the event.
     /// </summary>
     [IsoId("_8yaG8S8REeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcTp")]
     #endif
+    [IsoXmlTag("SvcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerService1Code ServiceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetailerService1Code ServiceType { get; init; } 
+    public required RetailerService1Code ServiceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetailerService1Code ServiceType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record EventContext3
     /// Identification of the Point Of Interaction.
     /// </summary>
     [IsoId("_8yaG8y8REeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Component Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpntId")]
     #endif
+    [IsoXmlTag("CmpntId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponent11? ComponentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,13 @@ public partial record EventContext3
     /// Identification of the Sale System.
     /// </summary>
     [IsoId("_8yaG9S8REeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SaleId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

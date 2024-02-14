@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide information on the original group, to which the message refers.
 /// </summary>
 [IsoId("_Plz8aNp-Ed-ak6NoX_4Aeg_160183350")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Group Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record OriginalGroupInformation23
     /// Unique identification, as assigned by the assigner, to unambiguously identify the group cancellation request.||Usage: The group cancellation request identification can be used for reconciliation or to link tasks related to the cancellation request.
     /// </summary>
     [IsoId("_Plz8adp-Ed-ak6NoX_4Aeg_1959655948")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Cancellation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpCxlId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("GrpCxlId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? GroupCancellationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,12 +69,11 @@ public partial record OriginalGroupInformation23
     /// Set of elements to uniquely and unambiguously identify an exception or an investigation workflow.
     /// </summary>
     [IsoId("_Plz8atp-Ed-ak6NoX_4Aeg_752615022")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case2? Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,19 +86,17 @@ public partial record OriginalGroupInformation23
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
     [IsoId("_Plz8a9p-Ed-ak6NoX_4Aeg_161103352")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlMsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalMessageIdentification { get; init; } 
+    public required System.String OriginalMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalMessageIdentification { get; init; } 
     #else
@@ -114,19 +107,17 @@ public partial record OriginalGroupInformation23
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
     [IsoId("_Plz8bNp-Ed-ak6NoX_4Aeg_161103413")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Name Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgNmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlMsgNmId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalMessageNameIdentification { get; init; } 
+    public required System.String OriginalMessageNameIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalMessageNameIdentification { get; init; } 
     #else
@@ -137,12 +128,12 @@ public partial record OriginalGroupInformation23
     /// Date and time at which the original message was created.
     /// </summary>
     [IsoId("_Pl9GUNp-Ed-ak6NoX_4Aeg_161103443")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlCreDtTm")]
     #endif
+    [IsoXmlTag("OrgnlCreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,15 +146,12 @@ public partial record OriginalGroupInformation23
     /// Number of individual transactions contained in the original message.
     /// </summary>
     [IsoId("_Pl9GUdp-Ed-ak6NoX_4Aeg_-1798745200")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfTxs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfTxs")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +164,12 @@ public partial record OriginalGroupInformation23
     /// Total of all individual amounts included in the message, irrespective of currencies.
     /// </summary>
     [IsoId("_Pl9GUtp-Ed-ak6NoX_4Aeg_1901473007")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Control Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrlSum")]
     #endif
+    [IsoXmlTag("CtrlSum")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ControlSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +182,12 @@ public partial record OriginalGroupInformation23
     /// Indicates whether the cancellation request applies to a whole group of transactions or to individual transactions within an original group.
     /// </summary>
     [IsoId("_Pl9GU9p-Ed-ak6NoX_4Aeg_1901473068")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Cancellation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpCxl")]
     #endif
+    [IsoXmlTag("GrpCxl")]
+    [IsoSimpleType(IsoSimpleType.GroupCancellationIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoGroupCancellationIndicator? GroupCancellation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +200,11 @@ public partial record OriginalGroupInformation23
     /// Set of elements used to provide detailed information on the cancellation reason.
     /// </summary>
     [IsoId("_Pl9GVNp-Ed-ak6NoX_4Aeg_161103598")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsnInf")]
     #endif
+    [IsoXmlTag("CxlRsnInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationReasonInformation3? CancellationReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

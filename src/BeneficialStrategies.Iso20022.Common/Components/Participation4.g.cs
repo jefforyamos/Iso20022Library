@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the level of participation to a shareholders meeting.
 /// </summary>
 [IsoId("_MWKHMV7AEeSjaerr_EM7AQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Participation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Participation4
     /// Number of rights admitted to the vote.
     /// </summary>
     [IsoId("_MyuHY17AEeSjaerr_EM7AQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Voting Rights")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfVtngRghts")]
     #endif
+    [IsoXmlTag("TtlNbOfVtngRghts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record Participation4
     /// Percentage of rights participating to the vote versus total voting rights.
     /// </summary>
     [IsoId("_MyuHZV7AEeSjaerr_EM7AQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Of Voting Rights")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgOfVtngRghts")]
     #endif
+    [IsoXmlTag("PctgOfVtngRghts")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageOfVotingRights { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record Participation4
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
     [IsoId("_MyuHZ17AEeSjaerr_EM7AQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Securities Outstanding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfSctiesOutsdng")]
     #endif
+    [IsoXmlTag("TtlNbOfSctiesOutsdng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record Participation4
     /// Date of calculation of the total number of outstanding securities.
     /// </summary>
     [IsoId("_MyuHaV7AEeSjaerr_EM7AQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnDt")]
     #endif
+    [IsoXmlTag("ClctnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CalculationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

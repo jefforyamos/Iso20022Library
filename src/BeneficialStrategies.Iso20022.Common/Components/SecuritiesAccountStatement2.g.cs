@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides system date for all of the changes occurred for an entity.
 /// </summary>
 [IsoId("_QDcSkeGBEeWCAvUNsZ5u6g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Account Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record SecuritiesAccountStatement2
     /// Date for which the statement is valid.
     /// </summary>
     [IsoId("_QPfxkeGBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysDt")]
     #endif
+    [IsoXmlTag("SysDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SystemDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly SystemDate { get; init; } 
+    public required System.DateOnly SystemDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly SystemDate { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record SecuritiesAccountStatement2
     /// Provides information on the actual change occurred to a securities account.
     /// </summary>
     [IsoId("_QPfxk-GBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chng")]
     #endif
+    [IsoXmlTag("Chng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccountReferenceDataChange2? Change { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

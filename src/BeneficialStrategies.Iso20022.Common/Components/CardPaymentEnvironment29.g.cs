@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the diagnostic exchange.
 /// </summary>
 [IsoId("_ykqVgTTZEeO5e9wx3yvd8g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardPaymentEnvironment29
     /// Acquirer involved in the card payment transaction.
     /// </summary>
     [IsoId("_zHsWgFOYEeO1RfnvbrvgKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acqrr")]
     #endif
+    [IsoXmlTag("Acqrr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Acquirer2 Acquirer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Acquirer2 Acquirer { get; init; } 
+    public required Acquirer2 Acquirer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Acquirer2 Acquirer { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record CardPaymentEnvironment29
     /// The availability of the acquirer to process transaction must be provided.
     /// </summary>
     [IsoId("_7GGXgFOYEeO1RfnvbrvgKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Availability Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrAvlbtyReqd")]
     #endif
+    [IsoXmlTag("AcqrrAvlbtyReqd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AcquirerAvailabilityRequested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record CardPaymentEnvironment29
     /// Identification of the merchant requesting the diagnostic.
     /// </summary>
     [IsoId("_yz1Z8zTZEeO5e9wx3yvd8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merchant Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrchntId")]
     #endif
+    [IsoXmlTag("MrchntId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification32? MerchantIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record CardPaymentEnvironment29
     /// Identification of the POI (Point Of Interaction) requesting the diagnostic.
     /// </summary>
     [IsoId("_yz1Z9TTZEeO5e9wx3yvd8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification32? POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,11 @@ public partial record CardPaymentEnvironment29
     /// Data related to the components of the POI (Point Of Interaction) performing the payment transactions.
     /// </summary>
     [IsoId("_6h6f8DTZEeO5e9wx3yvd8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Component")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POICmpnt")]
     #endif
+    [IsoXmlTag("POICmpnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponent4? POIComponent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

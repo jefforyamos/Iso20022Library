@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to the authentication of the card and the cardholder.
 /// </summary>
 [IsoId("_UV3EwYoaEeSirOZJBRz_nA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cardholder Authentication")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardholderAuthentication8
     /// Method and data intended to be used for this transaction to authenticate the customer or its card.
     /// </summary>
     [IsoId("_UjTq4YoaEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnMtd")]
     #endif
+    [IsoXmlTag("AuthntcnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthenticationMethod7Code AuthenticationMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthenticationMethod7Code AuthenticationMethod { get; init; } 
+    public required AuthenticationMethod7Code AuthenticationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthenticationMethod7Code AuthenticationMethod { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record CardholderAuthentication8
     /// True if an authentication token is requested to the host. This token will be provided to the ATM for further authentication.
     /// </summary>
     [IsoId("_bqLxgIobEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknReqd")]
     #endif
+    [IsoXmlTag("TknReqd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TokenRequested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record CardholderAuthentication8
     /// Value or token to be used for customer or card authentication.
     /// </summary>
     [IsoId("_UjTq44oaEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnVal")]
     #endif
+    [IsoXmlTag("AuthntcnVal")]
+    [IsoSimpleType(IsoSimpleType.Max5000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? AuthenticationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,11 @@ public partial record CardholderAuthentication8
     /// Protection of the authentication value.
     /// </summary>
     [IsoId("_UjTq5YoaEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Authentication Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdAuthntcnVal")]
     #endif
+    [IsoXmlTag("PrtctdAuthntcnVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedAuthenticationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,11 @@ public partial record CardholderAuthentication8
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
     [IsoId("_UjTq54oaEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder On Line PIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrOnLinePIN")]
     #endif
+    [IsoXmlTag("CrdhldrOnLinePIN")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLinePIN5? CardholderOnLinePIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

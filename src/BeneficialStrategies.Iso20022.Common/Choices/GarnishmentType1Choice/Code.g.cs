@@ -27,9 +27,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GarnishmentType1Choice
     /// GTPP     Garnishment from a third party payer to taxing agency.
     /// </summary>
     [IsoId("_lG0rQ4nnEeOORMXOfBk1Bw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -61,12 +59,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GarnishmentType1Choice
         /// Specifies the garnishment type as published in an external document type code list.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalGarnishmentType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalGarnishmentType1Code Value { get; init; } 
+        public required ExternalGarnishmentType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalGarnishmentType1Code Value { get; init; } 
         #else

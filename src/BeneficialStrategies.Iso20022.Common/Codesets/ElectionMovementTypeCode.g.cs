@@ -21,7 +21,7 @@ public enum ElectionMovementTypeCode
 {
     /// <summary>
     /// Election results in a change of balance type that transfers control of the securities rather than the securities themselves.
-    /// Encoded/decoded by serializers as "REST".
+    /// Encoded/decoded by serializers as &quot;REST&quot;.
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_ag-CZNp-Ed-ak6NoX_4Aeg_872869307")]
@@ -30,7 +30,7 @@ public enum ElectionMovementTypeCode
     
     /// <summary>
     /// Direct movement of resource, that is, cash or security that is directly credited to the paying agent account.
-    /// Encoded/decoded by serializers as "DRCT".
+    /// Encoded/decoded by serializers as &quot;DRCT&quot;.
     /// </summary>
     [EnumMember(Value = "DRCT")]
     [IsoId("_ag-CZdp-Ed-ak6NoX_4Aeg_872869308")]
@@ -39,7 +39,7 @@ public enum ElectionMovementTypeCode
     
     /// <summary>
     /// Election results in a change of balance type that transfers control of the securities rather than the securities themselves.
-    /// Encoded/decoded by serializers as "SEQD".
+    /// Encoded/decoded by serializers as &quot;SEQD&quot;.
     /// </summary>
     [EnumMember(Value = "SEQD")]
     [IsoId("_ag-CZtp-Ed-ak6NoX_4Aeg_-1056877029")]

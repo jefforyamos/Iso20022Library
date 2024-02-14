@@ -21,7 +21,7 @@ public enum AssetClassSubProductType39Code
 {
     /// <summary>
     /// Commodity of type ammonia.
-    /// Encoded/decoded by serializers as "AMMO".
+    /// Encoded/decoded by serializers as &quot;AMMO&quot;.
     /// </summary>
     [EnumMember(Value = "AMMO")]
     [IsoId("_OjQNoVr3EeWN79Bl6BUd3g")]

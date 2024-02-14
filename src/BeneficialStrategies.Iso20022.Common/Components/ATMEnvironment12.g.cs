@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the withdrawal transaction.
 /// </summary>
 [IsoId("_2LQFQa16EeWMg5rOByfExw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record ATMEnvironment12
     /// Acquirer of the transactions, in charge of the funds settlement with the issuer.
     /// </summary>
     [IsoId("_2XLBYa16EeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acqrr")]
     #endif
+    [IsoXmlTag("Acqrr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer7? Acquirer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +67,11 @@ public partial record ATMEnvironment12
     /// Institution in charge of managing the ATM.
     /// </summary>
     [IsoId("_2XLBY616EeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Manager")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMMgr")]
     #endif
+    [IsoXmlTag("ATMMgr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer8? ATMManager { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +84,11 @@ public partial record ATMEnvironment12
     /// Entity hosting the ATM terminal.
     /// </summary>
     [IsoId("_2XLBZa16EeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hosting Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstgNtty")]
     #endif
+    [IsoXmlTag("HstgNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminalHosting1? HostingEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,16 +101,15 @@ public partial record ATMEnvironment12
     /// ATM information.
     /// </summary>
     [IsoId("_2XLBZ616EeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATM")]
     #endif
+    [IsoXmlTag("ATM")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AutomatedTellerMachine2 ATM { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AutomatedTellerMachine2 ATM { get; init; } 
+    public required AutomatedTellerMachine2 ATM { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AutomatedTellerMachine2 ATM { get; init; } 
     #else
@@ -126,16 +120,15 @@ public partial record ATMEnvironment12
     /// Customer involved in the transaction.
     /// </summary>
     [IsoId("_2XLBaa16EeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cstmr")]
     #endif
+    [IsoXmlTag("Cstmr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCustomer5 Customer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMCustomer5 Customer { get; init; } 
+    public required ATMCustomer5 Customer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMCustomer5 Customer { get; init; } 
     #else
@@ -146,12 +139,11 @@ public partial record ATMEnvironment12
     /// Encryption of the sensitive card data.
     /// </summary>
     [IsoId("_2XLBa616EeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdCardData")]
     #endif
+    [IsoXmlTag("PrtctdCardData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedCardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +156,11 @@ public partial record ATMEnvironment12
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
     [IsoId("_2XLBba16EeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plain Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlainCardData")]
     #endif
+    [IsoXmlTag("PlainCardData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData19? PlainCardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

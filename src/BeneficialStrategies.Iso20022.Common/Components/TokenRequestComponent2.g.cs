@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to a token request or response.
 /// </summary>
 [IsoId("__Dw-0U7VEeyGi9JAv6wq7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Token Request Component")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record TokenRequestComponent2
     /// Identification of an element in a sequence.
     /// </summary>
     [IsoId("__J2_wU7VEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Sequence Counter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSeqCntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TxSeqCntr")]
+    [IsoSimpleType(IsoSimpleType.Max9NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionSequenceCounter { get; init; } 
+    public required System.String TransactionSequenceCounter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionSequenceCounter { get; init; } 
     #else
@@ -75,16 +70,15 @@ public partial record TokenRequestComponent2
     /// Environment of the transaction.
     /// </summary>
     [IsoId("__J2_w07VEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment78 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment78 Environment { get; init; } 
+    public required CardPaymentEnvironment78 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment78 Environment { get; init; } 
     #else

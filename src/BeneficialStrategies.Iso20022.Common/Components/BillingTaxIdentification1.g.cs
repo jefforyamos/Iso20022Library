@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the tax identification related to a service to be billed.
 /// </summary>
 [IsoId("_6TYLLJqlEeGSON8vddiWzQ_-2138086814")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Tax Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record BillingTaxIdentification1
     /// Value added tax (VAT) registration number as provided by the region’s local taxing authority.
     /// </summary>
     [IsoId("_6TYLLZqlEeGSON8vddiWzQ_-845733598")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("VAT Registration Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VATRegnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("VATRegnNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? VATRegistrationNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +61,13 @@ public partial record BillingTaxIdentification1
     /// Tax registration number (TRN) as provided by the tax region’s local taxing authority.
     /// </summary>
     [IsoId("_6Th8IJqlEeGSON8vddiWzQ_-832304253")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Registration Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRegnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TaxRegnNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TaxRegistrationNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +77,14 @@ public partial record BillingTaxIdentification1
     #endif
     
     /// <summary>
-    /// Specifies financial institution's contact details for the tax region. This contact works for the financial institution, not the tax region.
+    /// Specifies financial institution&apos;s contact details for the tax region. This contact works for the financial institution, not the tax region.
     /// </summary>
     [IsoId("_6Th8IZqlEeGSON8vddiWzQ_-1556028091")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Contact")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxCtct")]
     #endif
+    [IsoXmlTag("TaxCtct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactDetails3? TaxContact { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

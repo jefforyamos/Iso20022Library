@@ -21,7 +21,7 @@ public enum ProcessingPosition4Code
 {
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed after the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "AFTE".
+    /// Encoded/decoded by serializers as &quot;AFTE&quot;.
     /// </summary>
     [EnumMember(Value = "AFTE")]
     [IsoId("_DsSH0REhEeKG5rB3aM9OkQ")]
@@ -30,7 +30,7 @@ public enum ProcessingPosition4Code
     
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed before the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "BEFO".
+    /// Encoded/decoded by serializers as &quot;BEFO&quot;.
     /// </summary>
     [EnumMember(Value = "BEFO")]
     [IsoId("_D2RKQREhEeKG5rB3aM9OkQ")]
@@ -39,7 +39,7 @@ public enum ProcessingPosition4Code
     
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed with the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_EAs4oREhEeKG5rB3aM9OkQ")]

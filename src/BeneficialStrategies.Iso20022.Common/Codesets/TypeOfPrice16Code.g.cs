@@ -21,7 +21,7 @@ public enum TypeOfPrice16Code
 {
     /// <summary>
     /// Price is the current market price.
-    /// Encoded/decoded by serializers as "MRKT".
+    /// Encoded/decoded by serializers as &quot;MRKT&quot;.
     /// </summary>
     [EnumMember(Value = "MRKT")]
     [IsoId("_Yx9i49p-Ed-ak6NoX_4Aeg_-1009264882")]
@@ -30,7 +30,7 @@ public enum TypeOfPrice16Code
     
     /// <summary>
     /// Price is the estimated indicative price.
-    /// Encoded/decoded by serializers as "INDC".
+    /// Encoded/decoded by serializers as &quot;INDC&quot;.
     /// </summary>
     [EnumMember(Value = "INDC")]
     [IsoId("_Yx9i5Np-Ed-ak6NoX_4Aeg_-831146210")]

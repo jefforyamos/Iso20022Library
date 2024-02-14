@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Quantity expressed as a number and its details.
 /// </summary>
 [IsoId("_6jzzka5xEeeMy7TnJ3e__g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Unit")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record Unit9
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
     [IsoId("_6zRy8a5xEeeMy7TnJ3e__g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlUnitsNb")]
     #endif
+    [IsoXmlTag("TtlUnitsNb")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber TotalUnitsNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalUnitsNumber { get; init; } 
+    public required System.UInt64 TotalUnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalUnitsNumber { get; init; } 
     #else
@@ -71,16 +69,13 @@ public partial record Unit9
     /// Information about the units to be transferred.
     /// </summary>
     [IsoId("_6zRy865xEeeMy7TnJ3e__g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UnitDtls")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<Unit10> UnitDetails { get; init; } = new ValueList<Unit10>(){};
     
     

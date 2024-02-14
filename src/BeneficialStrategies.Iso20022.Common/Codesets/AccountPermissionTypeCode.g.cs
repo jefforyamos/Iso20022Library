@@ -21,7 +21,7 @@ public enum AccountPermissionTypeCode
 {
     /// <summary>
     /// No right to use the account.
-    /// Encoded/decoded by serializers as "NORI".
+    /// Encoded/decoded by serializers as &quot;NORI&quot;.
     /// </summary>
     [EnumMember(Value = "NORI")]
     [IsoId("_lCwnoJiuEeO4o528ngEXuw")]
@@ -30,7 +30,7 @@ public enum AccountPermissionTypeCode
     
     /// <summary>
     /// Right to use the account alone.
-    /// Encoded/decoded by serializers as "RIAL".
+    /// Encoded/decoded by serializers as &quot;RIAL&quot;.
     /// </summary>
     [EnumMember(Value = "RIAL")]
     [IsoId("_smNK8JiuEeO4o528ngEXuw")]
@@ -39,7 +39,7 @@ public enum AccountPermissionTypeCode
     
     /// <summary>
     /// Right to use the account together with another person.
-    /// Encoded/decoded by serializers as "RIWI".
+    /// Encoded/decoded by serializers as &quot;RIWI&quot;.
     /// </summary>
     [EnumMember(Value = "RIWI")]
     [IsoId("_0GHSEJiuEeO4o528ngEXuw")]

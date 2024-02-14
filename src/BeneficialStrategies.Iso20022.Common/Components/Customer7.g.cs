@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the customer in a transfer of money.
 /// </summary>
 [IsoId("_M8YtEKd1EeuEcqP2FGAFaA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Customer")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record Customer7
     /// Identification of the customer assigned by a party.
     /// </summary>
     [IsoId("_NCiYYad1EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CstmrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CustomerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +61,12 @@ public partial record Customer7
     /// Identifies the specific customer when multiple customers are associated with the same account.
     /// </summary>
     [IsoId("_wUjUgKd1EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Designation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrDsgnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CstmrDsgnt")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? CustomerDesignation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +79,11 @@ public partial record Customer7
     /// Name of the financial customer.
     /// </summary>
     [IsoId("_NCiYY6d1EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
+    [IsoXmlTag("Nm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderName3? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +96,11 @@ public partial record Customer7
     /// Address of the financial customer.
     /// </summary>
     [IsoId("_NCiYZad1EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address2? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +113,11 @@ public partial record Customer7
     /// Detail contact information of the customer.
     /// </summary>
     [IsoId("_IOj7UCbSEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctInf")]
     #endif
+    [IsoXmlTag("CtctInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact6? ContactInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +130,11 @@ public partial record Customer7
     /// Credentials of the financial customer.
     /// </summary>
     [IsoId("_NCiYZ6d1EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credentials")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Crdntls")]
     #endif
+    [IsoXmlTag("Crdntls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Credentials2? Credentials { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +147,11 @@ public partial record Customer7
     /// Nationality information (ISO 3166-1 alpha-2 or alpha-3)
     /// </summary>
     [IsoId("_QmcMQCbSEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nationality")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntlty")]
     #endif
+    [IsoXmlTag("Ntlty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISOMax3ACountryCode? Nationality { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +164,11 @@ public partial record Customer7
     /// Country of Birth information (ISO 3166-1 alpha-2 or alpha-3)
     /// </summary>
     [IsoId("_XdeVgCbSEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfBirth")]
     #endif
+    [IsoXmlTag("CtryOfBirth")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISOMax3ACountryCode? CountryOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +181,12 @@ public partial record Customer7
     /// Date of birth of the party.
     /// </summary>
     [IsoId("_NCiYa6d1EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfBirth")]
     #endif
+    [IsoXmlTag("DtOfBirth")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +199,11 @@ public partial record Customer7
     /// Contains text fields in the local language.
     /// </summary>
     [IsoId("_F3oz4MWxEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclData")]
     #endif
+    [IsoXmlTag("LclData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalData3? LocalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +216,11 @@ public partial record Customer7
     /// Additional information related to the customer.
     /// </summary>
     [IsoId("_NCiYaad1EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

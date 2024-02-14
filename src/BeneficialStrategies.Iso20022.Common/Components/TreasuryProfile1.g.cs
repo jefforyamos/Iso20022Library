@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Treasury trading profile.
 /// </summary>
 [IsoId("_BzjroCDSEeWCLu74WLgP4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Treasury Profile")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record TreasuryProfile1
     /// Execution date of treasury bond trade.
     /// </summary>
     [IsoId("_IENKUCDSEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate Date { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly Date { get; init; } 
+    public required System.DateOnly Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly Date { get; init; } 
     #else
@@ -73,16 +71,15 @@ public partial record TreasuryProfile1
     /// Type of party that performs trading operations, for example, investor or custodian.
     /// </summary>
     [IsoId("_KVaX8CDSEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trader Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradrTp")]
     #endif
+    [IsoXmlTag("TradrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyRole5Choice_ TraderType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyRole5Choice_ TraderType { get; init; } 
+    public required PartyRole5Choice_ TraderType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyRole5Choice_ TraderType { get; init; } 
     #else
@@ -93,16 +90,16 @@ public partial record TreasuryProfile1
     /// Tax rate.
     /// </summary>
     [IsoId("_79wgcCDSEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Rate { get; init; } 
+    public required System.Decimal Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Rate { get; init; } 
     #else

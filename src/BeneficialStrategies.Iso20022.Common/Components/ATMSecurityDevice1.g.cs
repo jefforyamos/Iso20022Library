@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Hardware security module of the ATM.
 /// </summary>
 [IsoId("_6LYrIIr5EeSvuOJS0mmL0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Security Device")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record ATMSecurityDevice1
     /// Hardware security module information, so called EPP for Encrypted PIN Pad.
     /// </summary>
     [IsoId("_S4L8EIr6EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Device Property")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvcPrprty")]
     #endif
+    [IsoXmlTag("DvcPrprty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMEquipment2? DeviceProperty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record ATMSecurityDevice1
     /// Configuration parameters in use by the security device.
     /// </summary>
     [IsoId("_-uw6QIr6EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Configuration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurCfgtn")]
     #endif
+    [IsoXmlTag("CurCfgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
+    public required ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
     #else
@@ -90,12 +86,11 @@ public partial record ATMSecurityDevice1
     /// Configuration parameters supported by the security device.
     /// </summary>
     [IsoId("_UjhfsIr-EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supported Configuration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpprtdCfgtn")]
     #endif
+    [IsoXmlTag("SpprtdCfgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration1? SupportedConfiguration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +103,15 @@ public partial record ATMSecurityDevice1
     /// Current status of the security device.
     /// </summary>
     [IsoId("_lPmbcIr-EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurSts")]
     #endif
+    [IsoXmlTag("CurSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMStatus2Code CurrentStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMStatus2Code CurrentStatus { get; init; } 
+    public required ATMStatus2Code CurrentStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMStatus2Code CurrentStatus { get; init; } 
     #else
@@ -128,12 +122,11 @@ public partial record ATMSecurityDevice1
     /// Incident occurring on the device.
     /// </summary>
     [IsoId("_DlxvsIr_EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incident")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Incdnt")]
     #endif
+    [IsoXmlTag("Incdnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FailureReason5Code? Incident { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ErrorHandlingCode
 {
     /// <summary>
     /// Specifies the error code when the data requested are not yet available.
-    /// Encoded/decoded by serializers as "X020".
+    /// Encoded/decoded by serializers as &quot;X020&quot;.
     /// </summary>
     [EnumMember(Value = "X020")]
     [IsoId("_aiBLQNp-Ed-ak6NoX_4Aeg_-1881551578")]
@@ -30,7 +30,7 @@ public enum ErrorHandlingCode
     
     /// <summary>
     /// Specifies the error code when the data requested generates a message size that exceed the processing capacity.
-    /// Encoded/decoded by serializers as "X030".
+    /// Encoded/decoded by serializers as &quot;X030&quot;.
     /// </summary>
     [EnumMember(Value = "X030")]
     [IsoId("_aiBLQdp-Ed-ak6NoX_4Aeg_-1825215686")]
@@ -39,7 +39,7 @@ public enum ErrorHandlingCode
     
     /// <summary>
     /// Specifies the error code when the data requested have not been found.
-    /// Encoded/decoded by serializers as "X050".
+    /// Encoded/decoded by serializers as &quot;X050&quot;.
     /// </summary>
     [EnumMember(Value = "X050")]
     [IsoId("_aiBLQtp-Ed-ak6NoX_4Aeg_-1823370699")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the cash-in and cash-out flows by party.
 /// </summary>
 [IsoId("_LVijGQatEeS3lpTattq7hg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Breakdown By Party")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BreakdownByParty3
     /// Party, for example, fund management company, for which the cash flow is being reported.
     /// </summary>
     [IsoId("_LvuksQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount42 Party { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount42 Party { get; init; } 
+    public required InvestmentAccount42 Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount42 Party { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record BreakdownByParty3
     /// Additional parameter/s applied to the cash flow by party.
     /// </summary>
     [IsoId("_LvukswatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlParams")]
     #endif
+    [IsoXmlTag("AddtlParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalParameters1? AdditionalParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record BreakdownByParty3
     /// Cash movement into the fund as a result of transactions in shares in an investment fund, for example, subscriptions or switch-ins.
     /// </summary>
     [IsoId("_LvuktQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInFcst")]
     #endif
+    [IsoXmlTag("CshInFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInForecast5? CashInForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record BreakdownByParty3
     /// Cash movement out of the fund as a result of transactions in shares in an investment fund, for example, redemptions or switch-outs.
     /// </summary>
     [IsoId("_LvuktwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Out Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshOutFcst")]
     #endif
+    [IsoXmlTag("CshOutFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOutForecast5? CashOutForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record BreakdownByParty3
     /// Net cash as a result of the cash-in and cash-out flows specified for the party.
     /// </summary>
     [IsoId("_LvukuQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Cash Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetCshFcst")]
     #endif
+    [IsoXmlTag("NetCshFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast4? NetCashForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

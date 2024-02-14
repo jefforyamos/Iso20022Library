@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockTrade1Choice
     /// Block parent or child information expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_QvuKw9p-Ed-ak6NoX_4Aeg_374907643")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockTrade1Choice
         /// Specifies whether the instruction is the parent or a children of a block trade.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BlockTrade1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BlockTrade1Code Value { get; init; } 
+        public required BlockTrade1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BlockTrade1Code Value { get; init; } 
         #else

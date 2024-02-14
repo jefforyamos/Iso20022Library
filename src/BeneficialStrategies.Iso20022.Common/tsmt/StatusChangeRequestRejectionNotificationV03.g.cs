@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The StatusChangeRequestRejectionNotification message is sent by the matching application to the submitter of a request to change the status of a transaction.|This message is used to inform about the rejection of a request to change the status of a transaction.|Usage|The StatusChangeRequestRejectionNotification message can be sent by the matching application to pass on information about the rejection of a request to change the status of a transaction that it has obtained through the receipt of a StatusChangeRequestRejection message.|In order to pass on information about the acceptance of a request to change the status of a transaction the matching application sends a StatusChangeNotification message.")]
 [IsoId("_wtWq8tE8Ed-BzquC8wXy7w_233635590")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Change Request Rejection Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     /// Identifies the notification message.
     /// </summary>
     [IsoId("_wtWq89E8Ed-BzquC8wXy7w_233635674")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
+    [IsoXmlTag("NtfctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 NotificationIdentification { get; init; } 
+    public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 NotificationIdentification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_wtWq9NE8Ed-BzquC8wXy7w_233635705")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -124,12 +120,11 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_wtWq9dE8Ed-BzquC8wXy7w_233635766")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,16 +137,15 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_wtWq9tE8Ed-BzquC8wXy7w_233635828")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 TransactionStatus { get; init; } 
+    public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 TransactionStatus { get; init; } 
     #else
@@ -162,32 +156,28 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
     [IsoId("_wtWq99E8Ed-BzquC8wXy7w_233635858")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Specifies the status that was rejected by the other party.
     /// </summary>
     [IsoId("_wtWq-NE8Ed-BzquC8wXy7w_233635621")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdStsChng")]
     #endif
+    [IsoXmlTag("RjctdStsChng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus3 RejectedStatusChange { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus3 RejectedStatusChange { get; init; } 
+    public required TransactionStatus3 RejectedStatusChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus3 RejectedStatusChange { get; init; } 
     #else
@@ -198,16 +188,15 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     /// Reason why the user cannot accept the request.
     /// </summary>
     [IsoId("_wtgb8NE8Ed-BzquC8wXy7w_233635736")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Reason2 RejectionReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Reason2 RejectionReason { get; init; } 
+    public required Reason2 RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Reason2 RejectionReason { get; init; } 
     #else
@@ -218,12 +207,11 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     /// Information on the next processing step required.
     /// </summary>
     [IsoId("_wtgb8dE8Ed-BzquC8wXy7w_233635593")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,7 +224,7 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatusChangeRequestRejectionNotificationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatusChangeRequestRejectionNotificationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatusChangeRequestRejectionNotificationV03Document ToDocument()
     {
@@ -246,7 +234,7 @@ public partial record StatusChangeRequestRejectionNotificationV03 : IOuterRecord
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusChangeRequestRejectionNotificationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatusChangeRequestRejectionNotificationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatusChangeRequestRejectionNotificationV03Document : IOuterDocument<StatusChangeRequestRejectionNotificationV03>
@@ -263,7 +251,7 @@ public partial record StatusChangeRequestRejectionNotificationV03Document : IOut
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatusChangeRequestRejectionNotificationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatusChangeRequestRejectionNotificationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusChangeRequestRejectionNotificationV03 Message { get; init; }

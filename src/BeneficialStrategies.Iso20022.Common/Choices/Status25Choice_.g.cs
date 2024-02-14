@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Status25Choice.Status))]
     [KnownType(typeof(Status25Choice.Rejected))]
     [IsoId("_EcQ-wUQTEealVdmlTDXWkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status 25 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

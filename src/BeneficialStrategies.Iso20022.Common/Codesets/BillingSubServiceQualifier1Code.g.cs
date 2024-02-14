@@ -21,7 +21,7 @@ public enum BillingSubServiceQualifier1Code
 {
     /// <summary>
     /// Subservice code contains a lockbox number which identifies the lockbox using the service.
-    /// Encoded/decoded by serializers as "LBOX".
+    /// Encoded/decoded by serializers as &quot;LBOX&quot;.
     /// </summary>
     [EnumMember(Value = "LBOX")]
     [IsoId("_6WgXpZqlEeGSON8vddiWzQ_-1508305482")]
@@ -30,7 +30,7 @@ public enum BillingSubServiceQualifier1Code
     
     /// <summary>
     /// Subservice code contains a store number which identifies the store using the service.
-    /// Encoded/decoded by serializers as "STOR".
+    /// Encoded/decoded by serializers as &quot;STOR&quot;.
     /// </summary>
     [EnumMember(Value = "STOR")]
     [IsoId("_6WgXppqlEeGSON8vddiWzQ_-430285144")]
@@ -39,7 +39,7 @@ public enum BillingSubServiceQualifier1Code
     
     /// <summary>
     /// Meaning of the subservice code is established by the trading partners.
-    /// Encoded/decoded by serializers as "BILA".
+    /// Encoded/decoded by serializers as &quot;BILA&quot;.
     /// </summary>
     [EnumMember(Value = "BILA")]
     [IsoId("_6WgXp5qlEeGSON8vddiWzQ_1036863619")]
@@ -48,7 +48,7 @@ public enum BillingSubServiceQualifier1Code
     
     /// <summary>
     /// Subservice code is an arbitrary sequence number used to uniquely identify this Service and prevent duplicate services within this statement.
-    /// Encoded/decoded by serializers as "SEQN".
+    /// Encoded/decoded by serializers as &quot;SEQN&quot;.
     /// </summary>
     [EnumMember(Value = "SEQN")]
     [IsoId("_6WgXqJqlEeGSON8vddiWzQ_620847928")]
@@ -57,7 +57,7 @@ public enum BillingSubServiceQualifier1Code
     
     /// <summary>
     /// Subservice code is the account number of a member of a relationship structure. This allows a parent statement to include the same service as rolled up from its member accounts and still avoid duplicate service identification within the statement.
-    /// Encoded/decoded by serializers as "MACT".
+    /// Encoded/decoded by serializers as &quot;MACT&quot;.
     /// </summary>
     [EnumMember(Value = "MACT")]
     [IsoId("_6WqIoJqlEeGSON8vddiWzQ_-1223021061")]

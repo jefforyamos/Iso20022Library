@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a security.
 /// </summary>
 [IsoId("_Pvjzt5JKEeuAlLVx8pyt3w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -41,15 +39,15 @@ public partial record SecurityIdentification39
     #nullable enable
     
     /// <summary>
-    /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
+    /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation&apos;s International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
     [IsoId("_Pxkl65JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ISIN")]
     #endif
+    [IsoXmlTag("ISIN")]
+    [IsoSimpleType(IsoSimpleType.ISIN2021Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISIN2021Identifier? ISIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record SecurityIdentification39
     /// Identification of a security by proprietary or domestic identification scheme.
     /// </summary>
     [IsoId("_Pxkl7ZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrId")]
     #endif
+    [IsoXmlTag("OthrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherIdentification1? OtherIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +77,13 @@ public partial record SecurityIdentification39
     /// Textual description of a security instrument.
     /// </summary>
     [IsoId("_Pxkl75JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

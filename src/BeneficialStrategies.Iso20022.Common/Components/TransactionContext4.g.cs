@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the card payment transaction
 /// </summary>
 [IsoId("_XjPhoUP_EeiFlYmBVFSxUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -42,19 +40,16 @@ public partial record TransactionContext4
     
     /// <summary>
     /// Category code related to the type of services or goods the merchant provides for the transaction.
-    /// ISO 8583:87 bit 18, ISO 8583:93 bit 18 & 26, ISO 8583:2003 bit 26
+    /// ISO 8583:87 bit 18, ISO 8583:93 bit 18 &amp; 26, ISO 8583:2003 bit 26
     /// ISO 18245
     /// </summary>
     [IsoId("_XvcKkUP_EeiFlYmBVFSxUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merchant Category Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrchntCtgyCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("MrchntCtgyCd")]
+    [IsoSimpleType(IsoSimpleType.Exact4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? MerchantCategoryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +65,12 @@ public partial record TransactionContext4
     /// Default: False.
     /// </summary>
     [IsoId("_jXFoMWzeEemD24gVaMSpeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deferred Delivery Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfrrdDlvryInd")]
     #endif
+    [IsoXmlTag("DfrrdDlvryInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DeferredDeliveryIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ public partial record TransactionContext4
     /// Identifies the transaction initiator.
     /// </summary>
     [IsoId("_qGIoMWzgEemD24gVaMSpeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInitr")]
     #endif
+    [IsoXmlTag("TxInitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionInitiator1Code? TransactionInitiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +100,11 @@ public partial record TransactionContext4
     /// Card programme or brand related to the transaction.
     /// </summary>
     [IsoId("_XvcKl0P_EeiFlYmBVFSxUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Programme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPrgrmm")]
     #endif
+    [IsoXmlTag("CardPrgrmm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardProgramme1? CardProgramme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +117,11 @@ public partial record TransactionContext4
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
     [IsoId("_XvcKmUP_EeiFlYmBVFSxUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSvc")]
     #endif
+    [IsoXmlTag("SttlmSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementService1? SettlementService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,12 +134,11 @@ public partial record TransactionContext4
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
     [IsoId("_XvcKm0P_EeiFlYmBVFSxUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcncltn")]
     #endif
+    [IsoXmlTag("Rcncltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reconciliation3? Reconciliation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +152,12 @@ public partial record TransactionContext4
     /// ISO 8583 bit 17
     /// </summary>
     [IsoId("_XvcKnUP_EeiFlYmBVFSxUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capture Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CaptrDt")]
     #endif
+    [IsoXmlTag("CaptrDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CaptureDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

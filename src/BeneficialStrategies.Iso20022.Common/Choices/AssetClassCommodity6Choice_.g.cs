@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodity6Choice.Paper))]
     [KnownType(typeof(AssetClassCommodity6Choice.Polypropylene))]
     [IsoId("_1anjQRZXEe2QNcZTDeoKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

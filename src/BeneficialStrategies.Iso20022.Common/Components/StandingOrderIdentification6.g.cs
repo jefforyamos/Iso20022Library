@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the elements used to uniquely identify a standing order.
 /// </summary>
 [IsoId("_bSDs0dcZEeqRFcf2R4bPBw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Order Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record StandingOrderIdentification6
     /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
     /// </summary>
     [IsoId("_bTVfMdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record StandingOrderIdentification6
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
     [IsoId("_bTVfM9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount40 Account { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount40 Account { get; init; } 
+    public required CashAccount40 Account { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount40 Account { get; init; } 
     #else
@@ -92,12 +87,11 @@ public partial record StandingOrderIdentification6
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_bTVfNdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

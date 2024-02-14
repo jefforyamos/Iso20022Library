@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Range of quantities.
 /// </summary>
 [IsoId("_mmgB2UD5EeW1yage4PQ__A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("From To Quantity Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record FromToQuantityRange2
     /// Lower boundary of a range of quantity values.
     /// </summary>
     [IsoId("_mxuaYUD5EeW1yage4PQ__A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrQty")]
     #endif
+    [IsoXmlTag("FrQty")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber FromQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 FromQuantity { get; init; } 
+    public required System.UInt64 FromQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 FromQuantity { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record FromToQuantityRange2
     /// Upper boundary of a range of quantity values.
     /// </summary>
     [IsoId("_mxuaY0D5EeW1yage4PQ__A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ToQty")]
     #endif
+    [IsoXmlTag("ToQty")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber ToQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ToQuantity { get; init; } 
+    public required System.UInt64 ToQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ToQuantity { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to search for business information.
 /// </summary>
 [IsoId("_51l8cZlZEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("General Business Information Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record GeneralBusinessInformationSearchCriteria1
     /// Unique and unambiguous reference assigned to a general business information system.
     /// </summary>
     [IsoId("_59y2MZlZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Ref")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record GeneralBusinessInformationSearchCriteria1
     /// Subject line of an item of general business information, summarizing the topic and intended destination of the information.
     /// </summary>
     [IsoId("_59y2M5lZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subject")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sbjt")]
     #endif
+    [IsoXmlTag("Sbjt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CharacterSearch1Choice_? Subject { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record GeneralBusinessInformationSearchCriteria1
     /// Further information about the criticality or importance of a general business information system.
     /// </summary>
     [IsoId("_59y2NZlZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qlfr")]
     #endif
+    [IsoXmlTag("Qlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InformationQualifierType1? Qualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

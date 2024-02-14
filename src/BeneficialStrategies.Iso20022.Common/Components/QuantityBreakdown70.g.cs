@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of breakdown of a quantity.
 /// </summary>
 [IsoId("_ch_a1Ti8Eeydid5dcNPKvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Quantity Breakdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record QuantityBreakdown70
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
     [IsoId("_ch_a1zi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotNb")]
     #endif
+    [IsoXmlTag("LotNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification39? LotNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record QuantityBreakdown70
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
     [IsoId("_ch_a3zi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotQty")]
     #endif
+    [IsoXmlTag("LotQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Balance23? LotQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record QuantityBreakdown70
     /// Date/time at which the lot was purchased.
     /// </summary>
     [IsoId("_ch_a5zi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotDtTm")]
     #endif
+    [IsoXmlTag("LotDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? LotDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record QuantityBreakdown70
     /// Price at which the lot was purchased.
     /// </summary>
     [IsoId("_ch_a7zi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotPric")]
     #endif
+    [IsoXmlTag("LotPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price3? LotPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record QuantityBreakdown70
     /// Specifies the type of price and information about the price.
     /// </summary>
     [IsoId("_ch_a9zi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Of Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TpOfPric")]
     #endif
+    [IsoXmlTag("TpOfPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfPrice32Choice_? TypeOfPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record QuantityBreakdown70
     /// Valuation amounts for the lot provided in the base currency of the account.
     /// </summary>
     [IsoId("_ch_a_zi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Base Currency Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctBaseCcyAmts")]
     #endif
+    [IsoXmlTag("AcctBaseCcyAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceAmounts6? AccountBaseCurrencyAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record QuantityBreakdown70
     /// Valuation amounts for the lot provided in the currency of the financial instrument.
     /// </summary>
     [IsoId("_ch_bBzi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Currency Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrmCcyAmts")]
     #endif
+    [IsoXmlTag("InstrmCcyAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceAmounts6? InstrumentCurrencyAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record QuantityBreakdown70
     /// Valuation amounts for the lot provided in a currency  other than the base currency of the account.
     /// </summary>
     [IsoId("_ch_bDzi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Reporting Currency Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrnRptgCcyAmts")]
     #endif
+    [IsoXmlTag("AltrnRptgCcyAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceAmounts6? AlternateReportingCurrencyAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

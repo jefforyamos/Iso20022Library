@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Account to or from which a cash entry is made.
 /// </summary>
 [IsoId("_RuR6kTfkEei6RvewLQWEqw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CashAccount203
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_R-QQRTfkEei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentificationAndName5 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentificationAndName5 AccountIdentification { get; init; } 
+    public required AccountIdentificationAndName5 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentificationAndName5 AccountIdentification { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record CashAccount203
     /// Party that manages the account on behalf of the account owner, that is, manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_R-QQQzfkEei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Svcr")]
     #endif
+    [IsoXmlTag("Svcr")]
+    [IsoSimpleType(IsoSimpleType.AnyBICDec2014Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICDec2014Identifier? Servicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +86,13 @@ public partial record CashAccount203
     /// Additional means of identification of the account, as designated by the account servicer in agreement with the account owner.
     /// </summary>
     [IsoId("_L0QE4Xq7EeiOK8WQjCMMvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Type Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctTpDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctTpDesc")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountTypeDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

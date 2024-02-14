@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Transaction and document identification details.
 /// </summary>
 [IsoId("_p8kywTp7EemwKdP955WBJQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction And Document Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record TransactionAndDocumentIdentification6
     /// Unambiguous identification of the transaction as known by the instructing party.
     /// </summary>
     [IsoId("_qGtmMTp7EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record TransactionAndDocumentIdentification6
     /// Unique identifier of the document (message) assigned by the sender of the document.
     /// </summary>
     [IsoId("_qGtmOTp7EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DocId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DocumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,12 +89,11 @@ public partial record TransactionAndDocumentIdentification6
     /// Date and time at which the transaction was created by the instructing party in its business application.
     /// </summary>
     [IsoId("_qGtmOzp7EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,11 @@ public partial record TransactionAndDocumentIdentification6
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
     [IsoId("_qGtmQzp7EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Duplicate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDplct")]
     #endif
+    [IsoXmlTag("CpyDplct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +123,11 @@ public partial record TransactionAndDocumentIdentification6
     /// Party that originated the message, if other than the sender.
     /// </summary>
     [IsoId("_qGtmSzp7EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgOrgtr")]
     #endif
+    [IsoXmlTag("MsgOrgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? MessageOriginator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +140,11 @@ public partial record TransactionAndDocumentIdentification6
     /// Party that is the final destination of the message, if other than the receiver.
     /// </summary>
     [IsoId("_qGtmTTp7EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRcpt")]
     #endif
+    [IsoXmlTag("MsgRcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? MessageRecipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum CollateralAccountType3Code
 {
     /// <summary>
-    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.
-    /// Encoded/decoded by serializers as "MGIN".
+    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member&apos;s customers.
+    /// Encoded/decoded by serializers as &quot;MGIN&quot;.
     /// </summary>
     [EnumMember(Value = "MGIN")]
     [IsoId("_Ce_XEVHQEeeqtLmveSCYmA")]
@@ -29,8 +29,8 @@ public enum CollateralAccountType3Code
     Margin = CollateralAccountTypeCode.Margin, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Specifies that the account is used to post collateral that covers clearing member's default risk.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Specifies that the account is used to post collateral that covers clearing member&apos;s default risk.
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_Cwzf0VHQEeeqtLmveSCYmA")]

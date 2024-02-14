@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detail the number and the volume, defined by currency amount, for use in a transaction.
 /// </summary>
 [IsoId("_paGL8WlAEeaLAKoEUNsD9g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Number And Volume")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record NumberAndVolume2
     /// Total number of specific transaction types executed on the reporting day.
     /// </summary>
     [IsoId("_pi_CMWlAEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
+    [IsoXmlTag("Nb")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumberFraction5)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumberFraction5 Number { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Number { get; init; } 
+    public required System.UInt64 Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Number { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record NumberAndVolume2
     /// Total volume of specific transactions executed on the reporting day.
     /// </summary>
     [IsoId("_pi_CM2lAEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vol")]
     #endif
+    [IsoXmlTag("Vol")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount Volume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Volume { get; init; } 
+    public required System.Decimal Volume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Volume { get; init; } 
     #else

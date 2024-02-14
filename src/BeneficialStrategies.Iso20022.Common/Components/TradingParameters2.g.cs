@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Place at which the security is traded.
 /// </summary>
 [IsoId("_-UQ6IZJMEeuAlLVx8pyt3w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trading Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record TradingParameters2
     /// Code allocated to places of trade, ie, stock exchanges, regulated markets, for example, Electronic Trading Platforms (ECN), and unregulated markets, for example, Automated Trading Systems (ATS) (MIC - ISO 3166).
     /// </summary>
     [IsoId("_-WYaAZJMEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktId")]
     #endif
+    [IsoXmlTag("MktId")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? MarketIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record TradingParameters2
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
     [IsoId("_-WYaA5JMEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Round Lot")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RndLot")]
     #endif
+    [IsoXmlTag("RndLot")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? RoundLot { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record TradingParameters2
     /// Minimum number of securities that can be traded.
     /// </summary>
     [IsoId("_-WYaBZJMEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Lot Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradLotSz")]
     #endif
+    [IsoXmlTag("TradLotSz")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? TradeLotSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,28 +94,25 @@ public partial record TradingParameters2
     /// Market(s) on which the security is listed.
     /// </summary>
     [IsoId("_-WYaB5JMEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secondary Place Of Listing")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndryPlcOfListg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ScndryPlcOfListg")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public SimpleValueList<System.String> SecondaryPlaceOfListing { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
     /// Minimum number of securities that can be traded.
     /// </summary>
     [IsoId("_-WYaCZJMEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Traded Nominal Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinTraddNmnlQty")]
     #endif
+    [IsoXmlTag("MinTraddNmnlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? MinimumTradedNominalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,12 +125,11 @@ public partial record TradingParameters2
     /// Maximum number of securities that can be traded.
     /// </summary>
     [IsoId("_-WYaC5JMEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Traded Nominal Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxTraddNmnlQty")]
     #endif
+    [IsoXmlTag("MaxTraddNmnlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? MaximumTradedNominalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,12 +142,12 @@ public partial record TradingParameters2
     /// Indicates the minimum or smallest movement (up or down) in the price allowed for the security.
     /// </summary>
     [IsoId("_-WYaDZJMEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Trading Pricing Increment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinTradgPricgIncrmt")]
     #endif
+    [IsoXmlTag("MinTradgPricgIncrmt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumTradingPricingIncrement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +160,12 @@ public partial record TradingParameters2
     /// Market(s) on which the security is listed.
     /// </summary>
     [IsoId("_-WYaFZJMEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Place Of Listing Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryPlcOfListgId")]
     #endif
+    [IsoXmlTag("PmryPlcOfListgId")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? PrimaryPlaceOfListingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

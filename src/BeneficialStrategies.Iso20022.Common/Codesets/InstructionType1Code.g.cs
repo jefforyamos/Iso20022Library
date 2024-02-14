@@ -21,7 +21,7 @@ public enum InstructionType1Code
 {
     /// <summary>
     /// Instruction to lodge a baseline.
-    /// Encoded/decoded by serializers as "LODG".
+    /// Encoded/decoded by serializers as &quot;LODG&quot;.
     /// </summary>
     [EnumMember(Value = "LODG")]
     [IsoId("_aYn-ttp-Ed-ak6NoX_4Aeg_-8888673")]
@@ -30,7 +30,7 @@ public enum InstructionType1Code
     
     /// <summary>
     /// Instruction to push full baseline information to the correspondent.
-    /// Encoded/decoded by serializers as "FPTR".
+    /// Encoded/decoded by serializers as &quot;FPTR&quot;.
     /// </summary>
     [EnumMember(Value = "FPTR")]
     [IsoId("_aYn-t9p-Ed-ak6NoX_4Aeg_-8888613")]

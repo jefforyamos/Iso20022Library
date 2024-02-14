@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the designation of a currency.
 /// </summary>
 [IsoId("_k2wBgQdzEeSPHJIdUs1USg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Designation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CurrencyDesignation1
     /// Specifies whether the currency is settled offshore or onshore.
     /// </summary>
     [IsoId("_vCZ9MAdzEeSPHJIdUs1USg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Designation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyDsgnt")]
     #endif
+    [IsoXmlTag("CcyDsgnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyDesignation1Code? CurrencyDesignation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CurrencyDesignation1
     /// Offshore location of the currency.
     /// </summary>
     [IsoId("_aIsRcAd1EeSPHJIdUs1USg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
+    [IsoXmlTag("Lctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Location { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record CurrencyDesignation1
     /// Additional information about the off-shore currency.
     /// </summary>
     [IsoId("_dhnVEAd1EeSPHJIdUs1USg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

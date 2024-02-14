@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains the reservation details
 /// </summary>
 [IsoId("_tCvU1PPiEeihCvvpsmGI2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reservation Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record ReservationDetails3
     /// Computerised reservation system used to make the reservation and purchase the ticket.
     /// </summary>
     [IsoId("_tCvU1_PiEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sys")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Sys")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? System { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +61,13 @@ public partial record ReservationDetails3
     /// Value that uniquely identifies the reservation. 
     /// </summary>
     [IsoId("_tCvU1vPiEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsvatnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RsvatnNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReservationNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,15 +80,13 @@ public partial record ReservationDetails3
     /// System code that identifies the original reservation system used to make the reservation and purchase the ticket. 
     /// </summary>
     [IsoId("_tCvU1fPiEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlSys")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlSys")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? OriginalSystem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +99,13 @@ public partial record ReservationDetails3
     /// Value that identifies the original reservation generated during the original reservation and purchase of the ticket. 
     /// </summary>
     [IsoId("_1YJEEfPjEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Reservation Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRsvatnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlRsvatnNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalReservationNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

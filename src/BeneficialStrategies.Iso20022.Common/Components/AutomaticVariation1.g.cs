@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variation parameters and triggers.
 /// </summary>
 [IsoId("_9yyli3ltEeG7BsjMvd1mEw_-1016607830")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Automatic Variation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record AutomaticVariation1
     /// Identification of the automatic variation.
     /// </summary>
     [IsoId("_9yyljHltEeG7BsjMvd1mEw_-276845926")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record AutomaticVariation1
     /// Type of variation.
     /// </summary>
     [IsoId("_9yyljXltEeG7BsjMvd1mEw_-770869744")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VariationType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VariationType1Code Type { get; init; } 
+    public required VariationType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VariationType1Code Type { get; init; } 
     #else
@@ -95,12 +90,11 @@ public partial record AutomaticVariation1
     /// Details related to the variation amount and its trigger.
     /// </summary>
     [IsoId("_9y7vcHltEeG7BsjMvd1mEw_-1036746610")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount And Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtAndTrggr")]
     #endif
+    [IsoXmlTag("AmtAndTrggr")]
     public AmountAndTrigger1? AmountAndTrigger { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _9y7vcHltEeG7BsjMvd1mEw_-1036746610
     
@@ -108,19 +102,15 @@ public partial record AutomaticVariation1
     /// Additional information related to the variation.
     /// </summary>
     [IsoId("_9y7vcXltEeG7BsjMvd1mEw_-469370329")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

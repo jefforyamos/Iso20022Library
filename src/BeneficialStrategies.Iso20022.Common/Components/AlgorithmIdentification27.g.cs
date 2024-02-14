@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cryptographic algorithms and parameters for the protection of transported keys by an asymmetric key.
 /// </summary>
 [IsoId("_Cg110aRREeeWXKXf3KjtmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Algorithm Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AlgorithmIdentification27
     /// Asymmetric encryption algorithm of a transport key.
     /// </summary>
     [IsoId("_CsS34aRREeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
+    [IsoXmlTag("Algo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Algorithm7Code Algorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Algorithm7Code Algorithm { get; init; } 
+    public required Algorithm7Code Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Algorithm7Code Algorithm { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AlgorithmIdentification27
     /// Parameters of the encryption algorithm.
     /// </summary>
     [IsoId("_CsS346RREeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Param")]
     #endif
+    [IsoXmlTag("Param")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Parameter13? Parameter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

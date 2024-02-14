@@ -21,7 +21,7 @@ public enum PartyType13Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_rR52MYp8EeS3NqNpgnMh2w")]
@@ -30,7 +30,7 @@ public enum PartyType13Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_rlIUM4p8EeS3NqNpgnMh2w")]
@@ -39,7 +39,7 @@ public enum PartyType13Code
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DLIS".
+    /// Encoded/decoded by serializers as &quot;DLIS&quot;.
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_sTWsI4p8EeS3NqNpgnMh2w")]
@@ -48,7 +48,7 @@ public enum PartyType13Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_stIeE4p8EeS3NqNpgnMh2w")]
@@ -57,7 +57,7 @@ public enum PartyType13Code
     
     /// <summary>
     /// Application on the terminal which has initiated the transaction.
-    /// Encoded/decoded by serializers as "OTRM".
+    /// Encoded/decoded by serializers as &quot;OTRM&quot;.
     /// </summary>
     [EnumMember(Value = "OTRM")]
     [IsoId("_tFbCQ4p8EeS3NqNpgnMh2w")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Party and account details.
 /// </summary>
 [IsoId("_gnKjHx5hEeWE3PufGMdJ3w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification And Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyIdentificationAndAccount117
     /// Identification of the party.
     /// </summary>
     [IsoId("_hHJqZR5hEeWE3PufGMdJ3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification71Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification71Choice_ Identification { get; init; } 
+    public required PartyIdentification71Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification71Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record PartyIdentificationAndAccount117
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
     [IsoId("_-njbkGwxEeWLq_lbZ2Mhyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LEI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LEI")]
     #endif
+    [IsoXmlTag("LEI")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record PartyIdentificationAndAccount117
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_hHJqbR5hEeWE3PufGMdJ3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +103,13 @@ public partial record PartyIdentificationAndAccount117
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
     [IsoId("_hHJqdR5hEeWE3PufGMdJ3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrcgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Diagnostic request from an acceptor.
 /// </summary>
 [IsoId("_sed_AU7SEeyGi9JAv6wq7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Diagnostic Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AcceptorDiagnosticRequest10
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_slLD8U7SEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment78 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment78 Environment { get; init; } 
+    public required CardPaymentEnvironment78 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment78 Environment { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record AcceptorDiagnosticRequest10
     /// Indicates if the availability of the acquirer must be tested.
     /// </summary>
     [IsoId("_slLD807SEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Availability Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrAvlbtyReqd")]
     #endif
+    [IsoXmlTag("AcqrrAvlbtyReqd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AcquirerAvailabilityRequested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

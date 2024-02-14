@@ -49,9 +49,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The OrderConfirmationStatusReport message is sent by an instructing party, for example, an investment manager or its authorised representative, to the executing party, for example, a transfer agent, to report the status of an order confirmation or an order confirmation amendment.|Usage|The OrderConfirmationStatusReport message is used to report on the status of one or more individual:|- subscription confirmations,|- subscription confirmation amendments,|- redemption confirmations,|- redemption confirmation amendments,|- switch order confirmations,|- switch order confirmation amendments.|One of the following statuses can be reported:|- confirmation rejected, or,|- amendment rejected, or,|- sent to next party, or,|- communication problem with next party, or,|- confirmation accepted, or,|- confirmation received.|It is likely that the OrderConfirmationStatusReport is only sent by the order instructing party to the order executing party to reject an order confirmation or to reject an order confirmation amendment, although if an intermediary party is used, the statuses sent to next party and communication problem with next party are also likely be used. The statuses confirmation accepted and confirmation received would only be used in the event the order executing party sends a RequestForOrderConfirmationStatusReport message and one of the other statuses does not apply.|If the status being reported is either confirmation rejected or amendment rejected, then a reason for the rejection must be given.|The individual order confirmation or confirmation amendment for which the status is given is identified with its order reference. The message identification of the message in which the individual order confirmation or confirmation amendment was conveyed may also be quoted in RelatedReference, but this is not recommended.")]
 [IsoId("_Aab8NTbLEead9bDRE_1DAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Order Confirmation Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -95,16 +93,15 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord<OrderConfi
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_Aab8PTbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -115,12 +112,11 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord<OrderConfi
     /// Reference to the message or communication that was previously received.
     /// </summary>
     [IsoId("_JkdC0EhAEea8pJjypp-yMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public References61Choice_? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,16 +129,15 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord<OrderConfi
     /// Status report details of an individual order confirmation.
     /// </summary>
     [IsoId("_Aab8QzbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Order Confirmation Details Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvOrdrConfDtlsRpt")]
     #endif
+    [IsoXmlTag("IndvOrdrConfDtlsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IndividualOrderConfirmationStatusAndReason2 IndividualOrderConfirmationDetailsReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IndividualOrderConfirmationStatusAndReason2 IndividualOrderConfirmationDetailsReport { get; init; } 
+    public required IndividualOrderConfirmationStatusAndReason2 IndividualOrderConfirmationDetailsReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IndividualOrderConfirmationStatusAndReason2 IndividualOrderConfirmationDetailsReport { get; init; } 
     #else
@@ -153,12 +148,11 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord<OrderConfi
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Aab8RTbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,7 +165,7 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord<OrderConfi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="OrderConfirmationStatusReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;OrderConfirmationStatusReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public OrderConfirmationStatusReportV02Document ToDocument()
     {
@@ -181,7 +175,7 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord<OrderConfi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderConfirmationStatusReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;OrderConfirmationStatusReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record OrderConfirmationStatusReportV02Document : IOuterDocument<OrderConfirmationStatusReportV02>
@@ -198,7 +192,7 @@ public partial record OrderConfirmationStatusReportV02Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="OrderConfirmationStatusReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;OrderConfirmationStatusReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderConfirmationStatusReportV02 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Security parameters of the host downloading the key.
 /// </summary>
 [IsoId("_usm58bTxEeeQy4o2AayYHg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SecurityParameters10
     /// Random value from the host.
     /// </summary>
     [IsoId("_u1uZsbTxEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstChllng")]
     #endif
+    [IsoXmlTag("HstChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? HostChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record SecurityParameters10
     /// Cryptographic key used to store in the ATM.
     /// </summary>
     [IsoId("_u1uZs7TxEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Key")]
     #endif
+    [IsoXmlTag("Key")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey12? Key { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record SecurityParameters10
     /// Element containing the signature.
     /// </summary>
     [IsoId("_u1uZtbTxEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgntrChc")]
     #endif
+    [IsoXmlTag("SgntrChc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSignature2Choice_? SignatureChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

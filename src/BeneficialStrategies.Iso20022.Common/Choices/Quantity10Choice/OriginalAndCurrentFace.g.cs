@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity10Choice
     /// Original and current value of an asset-back instrument.
     /// </summary>
     [IsoId("_WsJF5dp-Ed-ak6NoX_4Aeg_-845510532")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original And Current Face")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity10Choice
         /// Quantity expressed as an amount representing the face amount, that is, the principal of a debt instrument.
         /// </summary>
         [IsoId("_WsJF4dp-Ed-ak6NoX_4Aeg_-30588770")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Face Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FaceAmt")]
         #endif
+        [IsoXmlTag("FaceAmt")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal FaceAmount { get; init; } 
+        public required System.Decimal FaceAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal FaceAmount { get; init; } 
         #else
@@ -74,19 +72,19 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity10Choice
         #endif
         
         /// <summary>
-        /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond's principal amount.
+        /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond&apos;s principal amount.
         /// </summary>
         [IsoId("_WsJF4tp-Ed-ak6NoX_4Aeg_1660909971")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amortised Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AmtsdVal")]
         #endif
+        [IsoXmlTag("AmtsdVal")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal AmortisedValue { get; init; } 
+        public required System.Decimal AmortisedValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal AmortisedValue { get; init; } 
         #else

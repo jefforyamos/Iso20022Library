@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice
     /// Encrypted report content.
     /// </summary>
     [IsoId("_f3ucsMlWEeuJ35KoBRZFOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice
         /// Type of data protection.
         /// </summary>
         [IsoId("_fj-2MEYdEeegp_DADCe7HQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Content Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CnttTp")]
         #endif
+        [IsoXmlTag("CnttTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ContentType3Code ContentType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ContentType3Code ContentType { get; init; } 
+        public required ContentType3Code ContentType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ContentType3Code ContentType { get; init; } 
         #else
@@ -73,15 +70,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice
         #endif
         
         /// <summary>
-        /// Consists of an encrypted content of any type and encrypted content-encryption keys for one or more recipients.  The combination of the encrypted content and one encrypted content-encryption key for a recipient is a "digital   envelope" for that recipient.
+        /// Consists of an encrypted content of any type and encrypted content-encryption keys for one or more recipients.  The combination of the encrypted content and one encrypted content-encryption key for a recipient is a &quot;digital   envelope&quot; for that recipient.
         /// </summary>
         [IsoId("_sSSU0EYdEeegp_DADCe7HQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Enveloped Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EnvlpdData")]
         #endif
+        [IsoXmlTag("EnvlpdData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public EnvelopedData6? EnvelopedData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice
         /// Contains encrypted data and the attributes used to encrypt the data using the ISO 13492 methods for data encryption.  The encryption key is not included in the message with this method.
         /// </summary>
         [IsoId("_pF-HID6TEeq_lLaSkIVjTQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Encrypted Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NcrptdData")]
         #endif
+        [IsoXmlTag("NcrptdData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public EncryptedData1? EncryptedData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

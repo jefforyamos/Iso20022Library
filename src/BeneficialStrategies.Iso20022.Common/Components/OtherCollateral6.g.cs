@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the letter of credit or bank guarantee, or other collateral, posted as collateral.
 /// </summary>
 [IsoId("_010s3YFvEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record OtherCollateral6
     /// Identifies the register number of the collateral deposit assigned by the central counterparty.
     /// </summary>
     [IsoId("_1LjFIYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AsstNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AssetNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,15 +68,13 @@ public partial record OtherCollateral6
     /// Provides the unique identification of the letter of credit.
     /// </summary>
     [IsoId("_1LjFI4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Letter Of Credit Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LttrOfCdtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LttrOfCdtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LetterOfCreditIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +87,12 @@ public partial record OtherCollateral6
     /// Amount of the letter/documentary credit.
     /// </summary>
     [IsoId("_1LjFJYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Letter Of Credit Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LttrOfCdtAmt")]
     #endif
+    [IsoXmlTag("LttrOfCdtAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? LetterOfCreditAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +105,12 @@ public partial record OtherCollateral6
     /// Amount of the bank guarantee.
     /// </summary>
     [IsoId("_1LjFJ4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guarantee Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntAmt")]
     #endif
+    [IsoXmlTag("GrntAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? GuaranteeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +123,11 @@ public partial record OtherCollateral6
     /// Provides a description and an amount of another type of collateral.
     /// </summary>
     [IsoId("_1LjFKYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Type Of Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTpOfColl")]
     #endif
+    [IsoXmlTag("OthrTpOfColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherTypeOfCollateral2? OtherTypeOfCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +140,11 @@ public partial record OtherCollateral6
     /// Indicates whether the collateral is proprietarily owned or client owned.
     /// </summary>
     [IsoId("_1LjFK4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Ownership")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollOwnrsh")]
     #endif
+    [IsoXmlTag("CollOwnrsh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralOwnership2? CollateralOwnership { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +157,11 @@ public partial record OtherCollateral6
     /// Date on which the other collateral was issued.
     /// </summary>
     [IsoId("_1LjFLYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat14Choice_? IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +174,11 @@ public partial record OtherCollateral6
     /// Date on which the other collateral expires.
     /// </summary>
     [IsoId("_1LjFL4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat14Choice_? ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,12 +191,12 @@ public partial record OtherCollateral6
     /// Indicates that the collateral posted in the clearing house covers the margin until a specific timeframe.
     /// </summary>
     [IsoId("_1LjFMYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limited Coverage Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtdCvrgInd")]
     #endif
+    [IsoXmlTag("LtdCvrgInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LimitedCoverageIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,12 +209,11 @@ public partial record OtherCollateral6
     /// Party that issues the bank guarantee or letter of / documentary credit.
     /// </summary>
     [IsoId("_1LjFM4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification100Choice_? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -237,12 +226,11 @@ public partial record OtherCollateral6
     /// Quantity blocked by the central counterparty for any reasonable reason ( for example for judicial reasons). In this case the investor can not withdraw or distribute this collateral.
     /// </summary>
     [IsoId("_1LjFNYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blocked Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckdQty")]
     #endif
+    [IsoXmlTag("BlckdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? BlockedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -255,12 +243,12 @@ public partial record OtherCollateral6
     /// Valuation date of the other collateral when it was taken as collateral.
     /// </summary>
     [IsoId("_1LjFN4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -273,12 +261,12 @@ public partial record OtherCollateral6
     /// Exchange rate.
     /// </summary>
     [IsoId("_1LjFOYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRate")]
     #endif
+    [IsoXmlTag("XchgRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -291,12 +279,12 @@ public partial record OtherCollateral6
     /// Value of the collateral based on current market prices.
     /// </summary>
     [IsoId("_1LjFO4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -309,12 +297,12 @@ public partial record OtherCollateral6
     /// Haircut or valuation factor on the collateral expressed as a percentage.
     /// </summary>
     [IsoId("_1LjFPYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hrcut")]
     #endif
+    [IsoXmlTag("Hrcut")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Haircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -327,16 +315,16 @@ public partial record OtherCollateral6
     /// Value of the collateral after taking into account the haircut, if any.
     /// </summary>
     [IsoId("_1LjFP4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollVal")]
     #endif
+    [IsoXmlTag("CollVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CollateralValue { get; init; } 
+    public required System.Decimal CollateralValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CollateralValue { get; init; } 
     #else
@@ -347,12 +335,11 @@ public partial record OtherCollateral6
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
     [IsoId("_1LjFQYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgPlc")]
     #endif
+    [IsoXmlTag("SfkpgPlc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingPlaceFormat10Choice_? SafekeepingPlace { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -365,12 +352,11 @@ public partial record OtherCollateral6
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_1LjFQ4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

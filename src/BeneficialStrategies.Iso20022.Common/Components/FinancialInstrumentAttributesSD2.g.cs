@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding security that will be distributed as part of entitlement.
 /// </summary>
 [IsoId("_1RIYYjL3EeKU9IrkkToqcw_1649073602")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FinancialInstrumentAttributesSD2
     /// Security identification of the security that is being distributed as a result of a corporate action as declared by the issuer or offeror on the market.
     /// </summary>
     [IsoId("_1RIYYzL3EeKU9IrkkToqcw_805259150")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Disbursed Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdDsbrsdSctyId")]
     #endif
+    [IsoXmlTag("DclrdDsbrsdSctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification15? DeclaredDisbursedSecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record FinancialInstrumentAttributesSD2
     /// Declared disbursed security description.
     /// </summary>
     [IsoId("_1RIYZDL3EeKU9IrkkToqcw_1268382321")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Disbursed Security Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdDsbrsdSctyDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DclrdDsbrsdSctyDesc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? DeclaredDisbursedSecurityDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

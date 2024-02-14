@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Transfer cancellation status is accepted or sent to next party.
 /// </summary>
 [IsoId("_5_gzYZM6EemKz5EOjv82iQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Cancellation Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransferCancellationStatus3
     /// Status of the transfer cancellation is accepted or sent to next party.
     /// </summary>
     [IsoId("_6UCR45M6EemKz5EOjv82iQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationStatus5Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationStatus5Code Status { get; init; } 
+    public required CancellationStatus5Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationStatus5Code Status { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TransferCancellationStatus3
     /// Reason for the status.
     /// </summary>
     [IsoId("_6UCR5ZM6EemKz5EOjv82iQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

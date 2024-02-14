@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Account8Choice
     /// Account to be used for charges if different from the account for payment.
     /// </summary>
     [IsoId("_Q4z1U9p-Ed-ak6NoX_4Aeg_-1681750947")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Account")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DocumentFormat1Choice.Code))]
     [KnownType(typeof(DocumentFormat1Choice.Proprietary))]
     [IsoId("_932rtHltEeG7BsjMvd1mEw_-1666043325")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

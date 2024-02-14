@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money debited or credited on the books of an account servicer.
 /// </summary>
 [IsoId("_SUJx9tp-Ed-ak6NoX_4Aeg_-412561775")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount And Direction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record AmountAndDirection4
     /// Amount of money in the cash entry.
     /// </summary>
     [IsoId("_SUJx99p-Ed-ak6NoX_4Aeg_-1523473194")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record AmountAndDirection4
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
     [IsoId("_SUJx-Np-Ed-ak6NoX_4Aeg_-526400841")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

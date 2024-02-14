@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Withdrawal fees, accepted by the customer.
 /// </summary>
 [IsoId("_67OOka4uEeWLdt0vLARX2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record DetailedAmount18
     /// Amount value.
     /// </summary>
     [IsoId("_7HvAka4uEeWLdt0vLARX2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record DetailedAmount18
     /// Currency of the amount.
     /// </summary>
     [IsoId("_7HvAk64uEeWLdt0vLARX2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record DetailedAmount18
     /// True if amount charged to the source account.
     /// </summary>
     [IsoId("_Jz8WUK4vEeWLdt0vLARX2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Account To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgAcctTo")]
     #endif
+    [IsoXmlTag("ChrgAcctTo")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ChargeAccountTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +104,13 @@ public partial record DetailedAmount18
     /// Short description of the amount to display or print.
     /// </summary>
     [IsoId("_7HvAla4uEeWLdt0vLARX2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Labl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Labl")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Label { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

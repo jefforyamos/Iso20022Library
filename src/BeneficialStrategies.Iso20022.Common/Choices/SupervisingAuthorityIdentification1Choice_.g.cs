@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SupervisingAuthorityIdentification1Choice.ProprietaryIdentification))]
     [KnownType(typeof(SupervisingAuthorityIdentification1Choice.FullName))]
     [IsoId("_4ZQrMPH-Eeaz_YGUGLjP6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supervising Authority Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

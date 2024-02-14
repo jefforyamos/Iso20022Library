@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the transaction.
 /// </summary>
 [IsoId("_ZeCrQXuPEeSVeNXcmBQ4hQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record CardTransactionEnvironment2
     /// Acquirer identification of the transaction.
     /// </summary>
     [IsoId("_JAOYgHuQEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcqrrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AcquirerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AcquirerIdentification { get; init; } 
+    public required System.String AcquirerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AcquirerIdentification { get; init; } 
     #else
@@ -75,15 +71,13 @@ public partial record CardTransactionEnvironment2
     /// Identification of the interconnected card scheme from which the response is coming.
     /// </summary>
     [IsoId("_S9U60HuQEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Scheme Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardSchmeId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CardSchmeId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardSchemeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,15 +90,13 @@ public partial record CardTransactionEnvironment2
     /// Identification of the card acceptor performing the transaction.
     /// </summary>
     [IsoId("_Xixb8HuQEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acceptor Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AccptrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AcceptorIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,15 +109,13 @@ public partial record CardTransactionEnvironment2
     /// Identification of the card terminal performing the transaction.
     /// </summary>
     [IsoId("_b8lU0HuQEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TermnlId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TerminalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,16 +128,15 @@ public partial record CardTransactionEnvironment2
     /// Card performing the transaction.
     /// </summary>
     [IsoId("_ZrJ6N3uPEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Card")]
     #endif
+    [IsoXmlTag("Card")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCard13 Card { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentCard13 Card { get; init; } 
+    public required PaymentCard13 Card { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentCard13 Card { get; init; } 
     #else
@@ -158,12 +147,11 @@ public partial record CardTransactionEnvironment2
     /// Payment token information.
     /// </summary>
     [IsoId("_ZrJ6PXuPEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTkn")]
     #endif
+    [IsoXmlTag("PmtTkn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentToken2? PaymentToken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +164,11 @@ public partial record CardTransactionEnvironment2
     /// Postal address for delivery of goods or services.
     /// </summary>
     [IsoId("_Yi5KQHuSEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shipping Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShppgAdr")]
     #endif
+    [IsoXmlTag("ShppgAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress18? ShippingAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

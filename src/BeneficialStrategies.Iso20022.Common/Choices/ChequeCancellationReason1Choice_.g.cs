@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChequeCancellationReason1Choice.Code))]
     [KnownType(typeof(ChequeCancellationReason1Choice.Proprietary))]
     [IsoId("_kwwc-7tvEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque Cancellation Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum FundOwnership1Code
 {
     /// <summary>
     /// All shares owned.
-    /// Encoded/decoded by serializers as "YALL".
+    /// Encoded/decoded by serializers as &quot;YALL&quot;.
     /// </summary>
     [EnumMember(Value = "YALL")]
     [IsoId("_cYpsMSDYEeWCLu74WLgP4w")]
@@ -30,7 +30,7 @@ public enum FundOwnership1Code
     
     /// <summary>
     /// Not all shares owned.
-    /// Encoded/decoded by serializers as "NALL".
+    /// Encoded/decoded by serializers as &quot;NALL&quot;.
     /// </summary>
     [EnumMember(Value = "NALL")]
     [IsoId("_cfy2ASDYEeWCLu74WLgP4w")]

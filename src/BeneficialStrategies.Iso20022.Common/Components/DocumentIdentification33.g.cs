@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a document as well as the document number.
 /// </summary>
 [IsoId("_EsxJoTnaEeWLJsP1cO-amg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DocumentIdentification33
     /// Unique identifier of the document (message) assigned either by the account servicer or the account owner.
     /// </summary>
     [IsoId("_E5kPgTnaEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification3Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification3Choice_ Identification { get; init; } 
+    public required DocumentIdentification3Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification3Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DocumentIdentification33
     /// Identification of the type of document.
     /// </summary>
     [IsoId("_E5kPiTnaEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocNb")]
     #endif
+    [IsoXmlTag("DocNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentNumber5Choice_? DocumentNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

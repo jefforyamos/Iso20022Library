@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies rate details.
 /// </summary>
 [IsoId("_TWA3mNp-Ed-ak6NoX_4Aeg_1311130667")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionRate6
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
     [IsoId("_TWA3mdp-Ed-ak6NoX_4Aeg_1631591600")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Quantity For Subscribed Resultant Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlQtyForSbcbdRsltntScties")]
     #endif
+    [IsoXmlTag("AddtlQtyForSbcbdRsltntScties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RatioFormat3Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionRate6
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
     [IsoId("_TWA3mtp-Ed-ak6NoX_4Aeg_1744261193")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Quantity For Existing Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlQtyForExstgScties")]
     #endif
+    [IsoXmlTag("AddtlQtyForExstgScties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RatioFormat3Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionRate6
     /// Quantity of new securities for a given quantity of underlying securities, where the underlying securities will be exchanged or debited, for example, 2 for 1: 2 new equities credited for every 1 underlying equity debited = 2 resulting equities.
     /// </summary>
     [IsoId("_TWKokNp-Ed-ak6NoX_4Aeg_2028704129")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New To Old")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewToOd")]
     #endif
+    [IsoXmlTag("NewToOd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RatioFormat4Choice_? NewToOld { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionRate6
     /// Quantity of new equities that will be derived by the exercise of a given quantity of intermediate securities.
     /// </summary>
     [IsoId("_TWKokdp-Ed-ak6NoX_4Aeg_2053642046")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Securities To Underlying Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewSctiesToUndrlygScties")]
     #endif
+    [IsoXmlTag("NewSctiesToUndrlygScties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RatioFormat4Choice_? NewSecuritiesToUnderlyingSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

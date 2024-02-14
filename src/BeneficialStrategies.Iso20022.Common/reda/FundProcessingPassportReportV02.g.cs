@@ -29,7 +29,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// Scope
 /// A report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider, sends the FundProcessingPassportReport message to the report recipient, for, a professional investor, investment fund distributor, market data provider, regulator or other interested party to provide the key reference data for financial instruments to facilitate trading.
 /// Usage
-/// A unique FundProcessingPassportReport should be prepared for each class of unit/share (for which an individual ISIN should have been allocated), in respect of its "home" market.
+/// A unique FundProcessingPassportReport should be prepared for each class of unit/share (for which an individual ISIN should have been allocated), in respect of its &quot;home&quot; market.
 /// The FundProcessingPassportReport may be used in various models or environments:
 /// - stand alone environment, for example, initiated by the Report Provider (fund promoter, fund manager and / or reference data vendors) sent on a regular frequency, or when changes are needed.
 /// - in a request / response environment, with the InvestmentFundReportRequest, for example, initiated by report users (data vendors, professional investors, regulators or investment fund distributors) in enabling the user to control the flow and updates of information.
@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"Scope|A report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider, sends the FundProcessingPassportReport message to the report recipient, for, a professional investor, investment fund distributor, market data provider, regulator or other interested party to provide the key reference data for financial instruments to facilitate trading.|Usage|A unique FundProcessingPassportReport should be prepared for each class of unit/share (for which an individual ISIN should have been allocated), in respect of its ""home"" market.|The FundProcessingPassportReport may be used in various models or environments:|- stand alone environment, for example, initiated by the Report Provider (fund promoter, fund manager and / or reference data vendors) sent on a regular frequency, or when changes are needed.|- in a request / response environment, with the InvestmentFundReportRequest, for example, initiated by report users (data vendors, professional investors, regulators or investment fund distributors) in enabling the user to control the flow and updates of information.|- in a reference data vendor environment, for example, market infrastructure and reference data providers may collate and store all fund processing passport information centrally for access via database or regular distribution information. A reference data vendor may assume the role of both report provider and report user.")]
 [IsoId("_ZsRA2NEvEd-BzquC8wXy7w_2012426718")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Processing Passport Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord<FundProcess
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_ZsRA2dEvEd-BzquC8wXy7w_1111943337")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord<FundProcess
     ///  should provide on their investment funds in order to facilitate their trading.
     /// </summary>
     [IsoId("_ZsRA2tEvEd-BzquC8wXy7w_-23910655")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Processing Passport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FPP")]
     #endif
+    [IsoXmlTag("FPP")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundProcessingPassport1 FundProcessingPassport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FundProcessingPassport1 FundProcessingPassport { get; init; } 
+    public required FundProcessingPassport1 FundProcessingPassport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FundProcessingPassport1 FundProcessingPassport { get; init; } 
     #else
@@ -124,7 +120,7 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord<FundProcess
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FundProcessingPassportReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FundProcessingPassportReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FundProcessingPassportReportV02Document ToDocument()
     {
@@ -134,7 +130,7 @@ public partial record FundProcessingPassportReportV02 : IOuterRecord<FundProcess
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundProcessingPassportReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FundProcessingPassportReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FundProcessingPassportReportV02Document : IOuterDocument<FundProcessingPassportReportV02>
@@ -151,7 +147,7 @@ public partial record FundProcessingPassportReportV02Document : IOuterDocument<F
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FundProcessingPassportReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FundProcessingPassportReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundProcessingPassportReportV02 Message { get; init; }

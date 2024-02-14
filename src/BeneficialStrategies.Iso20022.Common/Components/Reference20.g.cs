@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional references linked to the updated interest request such the original InterestRequest identification, and optionaly the InterestResponse identification.
 /// </summary>
 [IsoId("_Qkr_cNp-Ed-ak6NoX_4Aeg_2036685643")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reference")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record Reference20
     /// Provides the reference to the interest payment request.
     /// </summary>
     [IsoId("_Qkr_cdp-Ed-ak6NoX_4Aeg_-1576527728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Payment Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstPmtReqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IntrstPmtReqId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InterestPaymentRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InterestPaymentRequestIdentification { get; init; } 
+    public required System.String InterestPaymentRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InterestPaymentRequestIdentification { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record Reference20
     /// Provides the reference to the interest payment response.
     /// </summary>
     [IsoId("_Qkr_ctp-Ed-ak6NoX_4Aeg_-1163077636")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Payment Response Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstPmtRspnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IntrstPmtRspnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InterestPaymentResponseIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

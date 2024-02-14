@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to energy derivatives attributes.
 /// </summary>
 [IsoId("_iIa_kQzwEe2YoLD-1vFj0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Energy Delivery Attribute")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record EnergyDeliveryAttribute10
     /// Time interval for each block or shape.
     /// </summary>
     [IsoId("_iJWMoQzwEe2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Interval")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryIntrvl")]
     #endif
+    [IsoXmlTag("DlvryIntrvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimePeriodDetails1? DeliveryInterval { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record EnergyDeliveryAttribute10
     /// Definition of delivery start date and end date.
     /// </summary>
     [IsoId("_iJWMowzwEe2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryDt")]
     #endif
+    [IsoXmlTag("DlvryDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod1? DeliveryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record EnergyDeliveryAttribute10
     /// Duration of the delivery period.
     /// </summary>
     [IsoId("_iJWMpwzwEe2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Duration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Drtn")]
     #endif
+    [IsoXmlTag("Drtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DurationType1Code? Duration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record EnergyDeliveryAttribute10
     /// Days of the week of the delivery.
     /// </summary>
     [IsoId("_iJWMqQzwEe2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Week Day")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WkDay")]
     #endif
+    [IsoXmlTag("WkDay")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WeekDay3Code? WeekDay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record EnergyDeliveryAttribute10
     /// Delivery capacity for each delivery interval specified.
     /// </summary>
     [IsoId("_iJWMqwzwEe2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Capacity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryCpcty")]
     #endif
+    [IsoXmlTag("DlvryCpcty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity47Choice_? DeliveryCapacity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record EnergyDeliveryAttribute10
     /// Daily or hourly quantity in MWh or kWh/d which corresponds to the underlying commodity.
     /// </summary>
     [IsoId("_iJWMrQzwEe2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyUnit")]
     #endif
+    [IsoXmlTag("QtyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnergyQuantityUnit2Choice_? QuantityUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record EnergyDeliveryAttribute10
     /// Indicates if applicable the price per quantity per delivery time interval.
     /// </summary>
     [IsoId("_iJWMrwzwEe2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Time Interval Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricTmIntrvlQty")]
     #endif
+    [IsoXmlTag("PricTmIntrvlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection106? PriceTimeIntervalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

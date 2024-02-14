@@ -20,7 +20,7 @@ public enum FundStructureCode
 {
     /// <summary>
     /// Investment fund that contains more than one investment fund class.
-    /// Encoded/decoded by serializers as "MFUN".
+    /// Encoded/decoded by serializers as &quot;MFUN&quot;.
     /// </summary>
     [EnumMember(Value = "MFUN")]
     [IsoId("_atyWZdp-Ed-ak6NoX_4Aeg_-1363507035")]
@@ -29,7 +29,7 @@ public enum FundStructureCode
     
     /// <summary>
     /// Investment fund that contains only one investment fund class.
-    /// Encoded/decoded by serializers as "SFUN".
+    /// Encoded/decoded by serializers as &quot;SFUN&quot;.
     /// </summary>
     [EnumMember(Value = "SFUN")]
     [IsoId("_atyWZtp-Ed-ak6NoX_4Aeg_-904519550")]

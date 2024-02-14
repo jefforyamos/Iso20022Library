@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the request.
 /// </summary>
 [IsoId("_746ppqMgEeCJ6YNENx4h-w_-1799961692")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receipt")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Receipt1
     /// Identification of the original request message.
     /// </summary>
     [IsoId("_746pp6MgEeCJ6YNENx4h-w_-1913800758")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgId")]
     #endif
+    [IsoXmlTag("OrgnlMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
+    public required OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Receipt1
     /// Gives the status of the request.
     /// </summary>
     [IsoId("_75DzkKMgEeCJ6YNENx4h-w_1497933251")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Handling")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqHdlg")]
     #endif
+    [IsoXmlTag("ReqHdlg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RequestHandling? RequestHandling { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

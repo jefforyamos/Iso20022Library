@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the Amendment message.
 /// </summary>
 [IsoId("_tOKj4ShBEeyhZIgCcGlTyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amendment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Amendment11
     /// Contains or describes the information pertaining to the actors interacting with the transaction.
     /// </summary>
     [IsoId("_tUWEYShBEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Environment3 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Environment3 Environment { get; init; } 
+    public required Environment3 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Environment3 Environment { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record Amendment11
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
     [IsoId("_tUWEYyhBEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Context17? Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record Amendment11
     /// Transaction details of the amendment message.
     /// </summary>
     [IsoId("_tUWEZShBEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Transaction102 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Transaction102 Transaction { get; init; } 
+    public required Transaction102 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Transaction102 Transaction { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record Amendment11
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
     [IsoId("_tUWEZyhBEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdData")]
     #endif
+    [IsoXmlTag("PrtctdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectedData1? ProtectedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record Amendment11
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
     [IsoId("_tUWEaShBEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

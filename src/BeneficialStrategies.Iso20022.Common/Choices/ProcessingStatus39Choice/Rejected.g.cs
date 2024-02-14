@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus39Choice
     /// Instruction is rejected.
     /// </summary>
     [IsoId("__u8nwCzREeOsiuMH68so7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

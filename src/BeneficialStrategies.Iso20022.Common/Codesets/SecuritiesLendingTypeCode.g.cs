@@ -21,7 +21,7 @@ public enum SecuritiesLendingTypeCode
 {
     /// <summary>
     /// Securities lending contract is new and registered.
-    /// Encoded/decoded by serializers as "NWRG".
+    /// Encoded/decoded by serializers as &quot;NWRG&quot;.
     /// </summary>
     [EnumMember(Value = "NWRG")]
     [IsoId("__wR-cNojEeC60axPepSq7g_-1240739325")]
@@ -30,7 +30,7 @@ public enum SecuritiesLendingTypeCode
     
     /// <summary>
     /// Securities lending contract is renewed.
-    /// Encoded/decoded by serializers as "RENW".
+    /// Encoded/decoded by serializers as &quot;RENW&quot;.
     /// </summary>
     [EnumMember(Value = "RENW")]
     [IsoId("__wR-cdojEeC60axPepSq7g_1485509445")]
@@ -39,7 +39,7 @@ public enum SecuritiesLendingTypeCode
     
     /// <summary>
     /// Securities lending contract is called back.
-    /// Encoded/decoded by serializers as "CABK".
+    /// Encoded/decoded by serializers as &quot;CABK&quot;.
     /// </summary>
     [EnumMember(Value = "CABK")]
     [IsoId("__wR-ctojEeC60axPepSq7g_-1557239976")]

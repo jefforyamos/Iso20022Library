@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntraBalanceOrOperationalError9Choice.Cancellations))]
     [KnownType(typeof(IntraBalanceOrOperationalError9Choice.OperationalError))]
     [IsoId("_p0siMTnfEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Balance Or Operational Error 9 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

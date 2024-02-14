@@ -21,7 +21,7 @@ public enum TrackerPaymentRejectReturnReasonCode
 {
     /// <summary>
     /// Account number is invalid or missing
-    /// Encoded/decoded by serializers as "AC01".
+    /// Encoded/decoded by serializers as &quot;AC01&quot;.
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_RcRaRvrtEemIKt9hrQ9pJw")]
@@ -29,8 +29,8 @@ public enum TrackerPaymentRejectReturnReasonCode
     IncorrectAccountNumber,
     
     /// <summary>
-    /// Account number specified has been closed on the bank of account's books.
-    /// Encoded/decoded by serializers as "AC04".
+    /// Account number specified has been closed on the bank of account&apos;s books.
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_RcRaQvrtEemIKt9hrQ9pJw")]
@@ -39,7 +39,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "AC06".
+    /// Encoded/decoded by serializers as &quot;AC06&quot;.
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_RcRaQ_rtEemIKt9hrQ9pJw")]
@@ -48,7 +48,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).
-    /// Encoded/decoded by serializers as "BE01".
+    /// Encoded/decoded by serializers as &quot;BE01&quot;.
     /// </summary>
     [EnumMember(Value = "BE01")]
     [IsoId("_RcQzNPrtEemIKt9hrQ9pJw")]
@@ -57,7 +57,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Failed to contact beneficiary.
-    /// Encoded/decoded by serializers as "NOAS".
+    /// Encoded/decoded by serializers as &quot;NOAS&quot;.
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_RcQzOvrtEemIKt9hrQ9pJw")]
@@ -65,8 +65,8 @@ public enum TrackerPaymentRejectReturnReasonCode
     NoAnswerFromCustomer,
     
     /// <summary>
-    /// Specification of the creditor's name and/or address needed for regulatory requirements is insufficient or missing.
-    /// Encoded/decoded by serializers as "RR03".
+    /// Specification of the creditor&apos;s name and/or address needed for regulatory requirements is insufficient or missing.
+    /// Encoded/decoded by serializers as &quot;RR03&quot;.
     /// </summary>
     [EnumMember(Value = "RR03")]
     [IsoId("_RcQzN_rtEemIKt9hrQ9pJw")]
@@ -75,7 +75,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Purpose is missing or invalid.
-    /// Encoded/decoded by serializers as "FF07".
+    /// Encoded/decoded by serializers as &quot;FF07&quot;.
     /// </summary>
     [EnumMember(Value = "FF07")]
     [IsoId("_RcQzOfrtEemIKt9hrQ9pJw")]
@@ -84,7 +84,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
-    /// Encoded/decoded by serializers as "RC01".
+    /// Encoded/decoded by serializers as &quot;RC01&quot;.
     /// </summary>
     [EnumMember(Value = "RC01")]
     [IsoId("_RcRaR_rtEemIKt9hrQ9pJw")]
@@ -93,7 +93,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Routing code not valid for local clearing.
-    /// Encoded/decoded by serializers as "RC08".
+    /// Encoded/decoded by serializers as &quot;RC08&quot;.
     /// </summary>
     [EnumMember(Value = "RC08")]
     [IsoId("_RcQzPPrtEemIKt9hrQ9pJw")]
@@ -102,7 +102,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Return following a cancellation request.
-    /// Encoded/decoded by serializers as "FOCR".
+    /// Encoded/decoded by serializers as &quot;FOCR&quot;.
     /// </summary>
     [EnumMember(Value = "FOCR")]
     [IsoId("_RcRaQPrtEemIKt9hrQ9pJw")]
@@ -111,7 +111,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_RcQzO_rtEemIKt9hrQ9pJw")]
@@ -120,7 +120,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Regulatory or Central Bank Reporting information missing, incomplete or invalid.
-    /// Encoded/decoded by serializers as "RR05".
+    /// Encoded/decoded by serializers as &quot;RR05&quot;.
     /// </summary>
     [EnumMember(Value = "RR05")]
     [IsoId("_RcQzNfrtEemIKt9hrQ9pJw")]
@@ -129,7 +129,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Below limit.
-    /// Encoded/decoded by serializers as "AM06".
+    /// Encoded/decoded by serializers as &quot;AM06&quot;.
     /// </summary>
     [EnumMember(Value = "AM06")]
     [IsoId("_RcQzM_rtEemIKt9hrQ9pJw")]
@@ -138,7 +138,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// At request of creditor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_RcRaRfrtEemIKt9hrQ9pJw")]
@@ -147,7 +147,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "MS03".
+    /// Encoded/decoded by serializers as &quot;MS03&quot;.
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_RcQzOPrtEemIKt9hrQ9pJw")]
@@ -156,7 +156,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// The transaction processing cannot be completed the same day.
-    /// Encoded/decoded by serializers as "G002".
+    /// Encoded/decoded by serializers as &quot;G002&quot;.
     /// </summary>
     [EnumMember(Value = "G002")]
     [IsoId("_XbGTxxd2EeqIn-BjQjNcxg")]
@@ -164,8 +164,8 @@ public enum TrackerPaymentRejectReturnReasonCode
     CreditDebitNotConfirmed,
     
     /// <summary>
-    /// In an FI to FI Customer Credit Transfer: Credit to creditor's account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.
-    /// Encoded/decoded by serializers as "G003".
+    /// In an FI to FI Customer Credit Transfer: Credit to creditor&apos;s account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.
+    /// Encoded/decoded by serializers as &quot;G003&quot;.
     /// </summary>
     [EnumMember(Value = "G003")]
     [IsoId("_XbGTyBd2EeqIn-BjQjNcxg")]
@@ -173,8 +173,8 @@ public enum TrackerPaymentRejectReturnReasonCode
     CreditPendingDocuments,
     
     /// <summary>
-    /// Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.
-    /// Encoded/decoded by serializers as "G004".
+    /// Credit to the creditor&apos;s account is pending as status Originator is waiting for funds provided via a cover.
+    /// Encoded/decoded by serializers as &quot;G004&quot;.
     /// </summary>
     [EnumMember(Value = "G004")]
     [IsoId("_XbGTyRd2EeqIn-BjQjNcxg")]
@@ -183,7 +183,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Credit Transfer has been delivered to creditor agent with transaction’s service obligations maintained.
-    /// Encoded/decoded by serializers as "G005".
+    /// Encoded/decoded by serializers as &quot;G005&quot;.
     /// </summary>
     [EnumMember(Value = "G005")]
     [IsoId("_XbGTyhd2EeqIn-BjQjNcxg")]
@@ -192,7 +192,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// Credit Transfer has been delivered to creditor agent where the transaction’s service obligations were no longer maintained.
-    /// Encoded/decoded by serializers as "G006".
+    /// Encoded/decoded by serializers as &quot;G006&quot;.
     /// </summary>
     [EnumMember(Value = "G006")]
     [IsoId("_XbGTyxd2EeqIn-BjQjNcxg")]
@@ -201,7 +201,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure maintaining the transaction’s service obligations.
-    /// Encoded/decoded by serializers as "G000".
+    /// Encoded/decoded by serializers as &quot;G000&quot;.
     /// </summary>
     [EnumMember(Value = "G000")]
     [IsoId("_XbGTzBd2EeqIn-BjQjNcxg")]
@@ -210,7 +210,7 @@ public enum TrackerPaymentRejectReturnReasonCode
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.
-    /// Encoded/decoded by serializers as "G001".
+    /// Encoded/decoded by serializers as &quot;G001&quot;.
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_XbGTzRd2EeqIn-BjQjNcxg")]

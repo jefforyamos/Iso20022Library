@@ -21,7 +21,7 @@ public enum EmissionAllowanceProductType2Code
 {
     /// <summary>
     /// Commodity attribute of type emissions allowance CER (Certified Emission Reduction).
-    /// Encoded/decoded by serializers as "CERE".
+    /// Encoded/decoded by serializers as &quot;CERE&quot;.
     /// </summary>
     [EnumMember(Value = "CERE")]
     [IsoId("_mibXEWlHEeaLAKoEUNsD9g")]
@@ -30,7 +30,7 @@ public enum EmissionAllowanceProductType2Code
     
     /// <summary>
     /// Commodity attribute of type emissions allowance ERU (European Reduction Unit).
-    /// Encoded/decoded by serializers as "ERUE".
+    /// Encoded/decoded by serializers as &quot;ERUE&quot;.
     /// </summary>
     [EnumMember(Value = "ERUE")]
     [IsoId("_m3pZIWlHEeaLAKoEUNsD9g")]
@@ -39,7 +39,7 @@ public enum EmissionAllowanceProductType2Code
     
     /// <summary>
     /// Commodity attribute of type emissions allowance EUA (European Union Allowance).
-    /// Encoded/decoded by serializers as "EUAE".
+    /// Encoded/decoded by serializers as &quot;EUAE&quot;.
     /// </summary>
     [EnumMember(Value = "EUAE")]
     [IsoId("_nHB48WlHEeaLAKoEUNsD9g")]
@@ -48,7 +48,7 @@ public enum EmissionAllowanceProductType2Code
     
     /// <summary>
     /// Commodity attribute of type emissions allowance EUAA (European Union Aviation Allowance).
-    /// Encoded/decoded by serializers as "EUAA".
+    /// Encoded/decoded by serializers as &quot;EUAA&quot;.
     /// </summary>
     [EnumMember(Value = "EUAA")]
     [IsoId("_nNFdoWlHEeaLAKoEUNsD9g")]

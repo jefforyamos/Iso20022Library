@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversal8Choice
     /// Details of the transfer out confirmation to be reversed.
     /// </summary>
     [IsoId("_-GjFwyPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Out Confirmation Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,15 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversal8Choice
         /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
         /// </summary>
         [IsoId("_-kKO1yPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Master Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MstrRef")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MstrRef")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MasterReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversal8Choice
         /// General information related to the transfer of a financial instrument.
         /// </summary>
         [IsoId("_-kKO2SPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transfer Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrfDtls")]
         #endif
+        [IsoXmlTag("TrfDtls")]
         public Transfer31? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _-kKO2SPvEeWQjryFgN2ITg
         
@@ -90,16 +85,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversal8Choice
         /// Information related to the account from which the financial instrument was withdrawn.
         /// </summary>
         [IsoId("_-kKO2yPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctDtls")]
         #endif
+        [IsoXmlTag("AcctDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestmentAccount54 AccountDetails { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestmentAccount54 AccountDetails { get; init; } 
+        public required InvestmentAccount54 AccountDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestmentAccount54 AccountDetails { get; init; } 
         #else
@@ -110,12 +104,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversal8Choice
         /// Information related to the receiving side of the transfer.
         /// </summary>
         [IsoId("_-kKO3SPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settlement Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttlmDtls")]
         #endif
+        [IsoXmlTag("SttlmDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReceiveInformation17? SettlementDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversal8Choice
         /// Additional information that can not be captured in the structured fields and/or any other specific block.
         /// </summary>
         [IsoId("_-kKO3yPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Extension")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Xtnsn")]
         #endif
+        [IsoXmlTag("Xtnsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Extension1? Extension { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

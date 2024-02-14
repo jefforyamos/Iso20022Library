@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance3Choice
     /// Closing Balance of this page only. Must be the intermediary opening balance of the next page (part of the same statement).
     /// </summary>
     [IsoId("__BaYUQgHEeSxsfb1OEDVsw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Closing Balance")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance3Choice
         /// Quantity expressed as a number, eg, a number of shares.
         /// </summary>
         [IsoId("_SoH21dp-Ed-ak6NoX_4Aeg_-1748202212")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Unit")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Unit")]
         #endif
+        [IsoXmlTag("Unit")]
+        [IsoSimpleType(IsoSimpleType.DecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoDecimalNumber Unit { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Unit { get; init; } 
+        public required System.UInt64 Unit { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Unit { get; init; } 
         #else

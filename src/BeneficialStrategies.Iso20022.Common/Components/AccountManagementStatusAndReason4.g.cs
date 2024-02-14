@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status information.
 /// </summary>
 [IsoId("_pxVPYSGaEeWKAaDJcYGKLw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Management Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AccountManagementStatusAndReason4
     /// Status of the account opening instruction or account modification instruction.
     /// </summary>
     [IsoId("_qOyAYSGaEeWKAaDJcYGKLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status20Choice_ Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status20Choice_ Status { get; init; } 
+    public required Status20Choice_ Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status20Choice_ Status { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record AccountManagementStatusAndReason4
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
     [IsoId("_qOyAYyGaEeWKAaDJcYGKLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record AccountManagementStatusAndReason4
     /// Account to which the account opening is related.
     /// </summary>
     [IsoId("_koqw0VxQEeW8MLuBzR10cg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Existing Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExstgAcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ExstgAcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ExistingAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

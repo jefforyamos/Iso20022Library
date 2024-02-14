@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCAINSD1 message extends ISO corporate action instruction message with DTCC corporate action elements not covered in the standard message.")]
 [IsoId("_1Mz5EDL3EeKU9IrkkToqcw_1438480682")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCAINSD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCAINSD1V01 : IOuterRecord<DTCCCAINSD1V01,DTCCCAINSD1V0
     /// DTC (The Depository Trust Corporation) Optional Dividend service election.
     /// </summary>
     [IsoId("_1Mz5ETL3EeKU9IrkkToqcw_-868730910")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Optional Dividend")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnlDvdd")]
     #endif
+    [IsoXmlTag("OptnlDvdd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionalDividendAccountQuantitySD1? OptionalDividend { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCAINSD1V01 : IOuterRecord<DTCCCAINSD1V01,DTCCCAINSD1V0
     /// DTC (The Depository Trust Corporation) Tax Exempt service election.
     /// </summary>
     [IsoId("_1Mz5EjL3EeKU9IrkkToqcw_1039926111")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Exempt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxXmpt")]
     #endif
+    [IsoXmlTag("TaxXmpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxExemptQuantitySD1? TaxExempt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,11 @@ public partial record DTCCCAINSD1V01 : IOuterRecord<DTCCCAINSD1V01,DTCCCAINSD1V0
     /// DTC (The Depository Trust Corporation) Foreign Currency Payment service wire payment instruction.
     /// </summary>
     [IsoId("_1Mz5EzL3EeKU9IrkkToqcw_-2087888194")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wire Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WireInstr")]
     #endif
+    [IsoXmlTag("WireInstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WireInstructionSD1? WireInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +117,11 @@ public partial record DTCCCAINSD1V01 : IOuterRecord<DTCCCAINSD1V01,DTCCCAINSD1V0
     /// DTC (The Depository Trust Corporation) Tax Relief service election.
     /// </summary>
     [IsoId("_1Mz5FDL3EeKU9IrkkToqcw_-1885590787")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Tax Relief")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCTaxRlf")]
     #endif
+    [IsoXmlTag("DTCTaxRlf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCTaxReliefSD2? DTCTaxRelief { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +134,11 @@ public partial record DTCCCAINSD1V01 : IOuterRecord<DTCCCAINSD1V01,DTCCCAINSD1V0
     /// U.S. Tax Withholding elections.
     /// </summary>
     [IsoId("_1Mz5FTL3EeKU9IrkkToqcw_-63987189")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("US Tax Withholding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="USTaxWhldg")]
     #endif
+    [IsoXmlTag("USTaxWhldg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public USTaxWithholdingSD1? USTaxWithholding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +151,11 @@ public partial record DTCCCAINSD1V01 : IOuterRecord<DTCCCAINSD1V01,DTCCCAINSD1V0
     /// DTC (The Depository Trust Corporation) Cash In Lieu service election.
     /// </summary>
     [IsoId("_1Mz5FjL3EeKU9IrkkToqcw_1321235420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Lieu")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInLieu")]
     #endif
+    [IsoXmlTag("CshInLieu")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInLieuSD1? CashInLieu { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,7 +168,7 @@ public partial record DTCCCAINSD1V01 : IOuterRecord<DTCCCAINSD1V01,DTCCCAINSD1V0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCAINSD1V01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCAINSD1V01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCAINSD1V01Document ToDocument()
     {
@@ -186,7 +178,7 @@ public partial record DTCCCAINSD1V01 : IOuterRecord<DTCCCAINSD1V01,DTCCCAINSD1V0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAINSD1V01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCAINSD1V01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCAINSD1V01Document : IOuterDocument<DTCCCAINSD1V01>
@@ -203,7 +195,7 @@ public partial record DTCCCAINSD1V01Document : IOuterDocument<DTCCCAINSD1V01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCAINSD1V01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCAINSD1V01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCAINSD1V01 Message { get; init; }

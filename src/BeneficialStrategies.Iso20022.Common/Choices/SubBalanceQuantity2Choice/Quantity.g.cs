@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity2Choice
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_QZhRRNp-Ed-ak6NoX_4Aeg_-1518979180")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

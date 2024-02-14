@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the global distribution.
 /// </summary>
 [IsoId("_UKdzVdp-Ed-ak6NoX_4Aeg_-227934218")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Global Distribution Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,16 @@ public partial record GlobalDistributionRequest1
     /// Indicates wether is message is an advice or pre-advice.
     /// </summary>
     [IsoId("_UKdzVtp-Ed-ak6NoX_4Aeg_-2123921749")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Preadvice Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PradvcInd")]
     #endif
+    [IsoXmlTag("PradvcInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PreadviceIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PreadviceIndicator { get; init; } 
+    public required System.String PreadviceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PreadviceIndicator { get; init; } 
     #else
@@ -75,19 +73,16 @@ public partial record GlobalDistributionRequest1
     /// Number identifying the available corporate action options.
     /// </summary>
     [IsoId("_UKdzV9p-Ed-ak6NoX_4Aeg_85141205")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OptnNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText OptionNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OptionNumber { get; init; } 
+    public required System.String OptionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OptionNumber { get; init; } 
     #else
@@ -98,16 +93,15 @@ public partial record GlobalDistributionRequest1
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
     [IsoId("_UKdzWNp-Ed-ak6NoX_4Aeg_85141236")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionOption1FormatChoice_ OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #else
@@ -118,16 +112,15 @@ public partial record GlobalDistributionRequest1
     /// Date on which the holders of securities are/will be recorded for the income being paid or for entitlement to the rights or offer/privilege.
     /// </summary>
     [IsoId("_UKdzWdp-Ed-ak6NoX_4Aeg_177913801")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcrdDt")]
     #endif
+    [IsoXmlTag("RcrdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat4Choice_ RecordDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat4Choice_ RecordDate { get; init; } 
+    public required DateFormat4Choice_ RecordDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat4Choice_ RecordDate { get; init; } 
     #else
@@ -138,16 +131,15 @@ public partial record GlobalDistributionRequest1
     /// Date on which securities/cash will be paid.
     /// </summary>
     [IsoId("_UKdzWtp-Ed-ak6NoX_4Aeg_221318375")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDt")]
     #endif
+    [IsoXmlTag("PmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat4Choice_ PaymentDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat4Choice_ PaymentDate { get; init; } 
+    public required DateFormat4Choice_ PaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat4Choice_ PaymentDate { get; init; } 
     #else
@@ -158,12 +150,11 @@ public partial record GlobalDistributionRequest1
     /// Provides information about the securities movement.
     /// </summary>
     [IsoId("_UKdzW9p-Ed-ak6NoX_4Aeg_1979460314")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmnt")]
     #endif
+    [IsoXmlTag("SctiesMvmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityMovement1? SecuritiesMovement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +167,11 @@ public partial record GlobalDistributionRequest1
     /// Provides information about the cash movement.
     /// </summary>
     [IsoId("_UKnkUNp-Ed-ak6NoX_4Aeg_1970224157")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshMvmnt")]
     #endif
+    [IsoXmlTag("CshMvmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashMovement1? CashMovement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

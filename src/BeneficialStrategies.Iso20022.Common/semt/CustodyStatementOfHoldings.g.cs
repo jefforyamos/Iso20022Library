@@ -27,7 +27,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// This record is an implementation of the semt.002.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// The CustodyStatementOfHoldings message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a local agent acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.
+/// The CustodyStatementOfHoldings message is sent by an account servicer to the account owner or the account owner&apos;s designated agent. The account servicer may be a local agent acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.
 /// This message reports, at a specified moment in time, the quantity and identification of financial instruments that an account servicer holds for the account owner.
 /// This message is used to reconcile the books of the account owner and the account servicer for the specified account or sub-account.
 /// This message can also report availability and/or the location of security holdings to facilitate trading and minimise settlement issues. The reporting is per financial instrument, ie, when a financial instrument is held at multiple places of safekeeping, the total holding for all locations can be provided.
@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|The CustodyStatementOfHoldings message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a local agent acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.|This message reports, at a specified moment in time, the quantity and identification of financial instruments that an account servicer holds for the account owner.|This message is used to reconcile the books of the account owner and the account servicer for the specified account or sub-account.|This message can also report availability and/or the location of security holdings to facilitate trading and minimise settlement issues. The reporting is per financial instrument, ie, when a financial instrument is held at multiple places of safekeeping, the total holding for all locations can be provided.|Usage|The CustodyStatementOfHoldings message can be sent:|- At a frequency agreed bi-laterally between the Sender and the Receiver|- As a response to a request for statement sent by the account owner.|This message can reflect all outstanding holding information or may only contain changes since the previously sent statement.|The CustodyStatementOfHoldings message can only be used to list the holdings of a single (master) account. However, it is possible to break down these holdings into one or several sub-accounts. Therefore, this message can be used to either specify holdings at|- the main account level, or|- the sub-account level.|This message can be also be used to report where the securities are safe-kept, physically or notionally. If a security is held in more than one safekeeping place, this can also be indicated.|This message must not be used to report audited positions. Audited positions are reported using the AccountingStatementOfHoldings message.|Since a SWIFT message as sent is restricted to the maximum input message length, several messages may be needed to accommodate all the information.")]
 [IsoId("_MWx4gNFSEd-BzquC8wXy7w_650597621")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Custody Statement Of Holdings")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -92,12 +90,11 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_MW7pgNFSEd-BzquC8wXy7w_1818905401")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +107,11 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_MW7pgdFSEd-BzquC8wXy7w_1810591867")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,16 +124,15 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// Pagination of the message.
     /// </summary>
     [IsoId("_MW7pgtFSEd-BzquC8wXy7w_-1884866352")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination MessagePagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination MessagePagination { get; init; } 
+    public required Pagination MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination MessagePagination { get; init; } 
     #else
@@ -148,16 +143,15 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// General information related to the custody statement of holdings.
     /// </summary>
     [IsoId("_MW7pg9FSEd-BzquC8wXy7w_500773271")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtGnlDtls")]
     #endif
+    [IsoXmlTag("StmtGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Statement3 StatementGeneralDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Statement3 StatementGeneralDetails { get; init; } 
+    public required Statement3 StatementGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Statement3 StatementGeneralDetails { get; init; } 
     #else
@@ -168,16 +162,15 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// The safekeeping or investment account.
     /// </summary>
     [IsoId("_MW7phNFSEd-BzquC8wXy7w_-1316963479")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SafekeepingAccount1 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SafekeepingAccount1 AccountDetails { get; init; } 
+    public required SafekeepingAccount1 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SafekeepingAccount1 AccountDetails { get; init; } 
     #else
@@ -188,12 +181,11 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
     [IsoId("_MW7phdFSEd-BzquC8wXy7w_-2003208951")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance For Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalForAcct")]
     #endif
+    [IsoXmlTag("BalForAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregateBalanceInformation1? BalanceForAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +198,11 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// The sub-account of the safekeeping or investment account.
     /// </summary>
     [IsoId("_MW7phtFSEd-BzquC8wXy7w_1776832052")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubAcctDtls")]
     #endif
+    [IsoXmlTag("SubAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubAccountIdentification1? SubAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +215,11 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// Value of total holdings reported.
     /// </summary>
     [IsoId("_MW7ph9FSEd-BzquC8wXy7w_1111399368")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Values")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlVals")]
     #endif
+    [IsoXmlTag("TtlVals")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalValueInPageAndStatement? TotalValues { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +232,11 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_MXEzcNFSEd-BzquC8wXy7w_-143061138")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,7 +249,7 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CustodyStatementOfHoldingsDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CustodyStatementOfHoldingsDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CustodyStatementOfHoldingsDocument ToDocument()
     {
@@ -270,7 +259,7 @@ public partial record CustodyStatementOfHoldings : IOuterRecord<CustodyStatement
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustodyStatementOfHoldings"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CustodyStatementOfHoldings&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CustodyStatementOfHoldingsDocument : IOuterDocument<CustodyStatementOfHoldings>
@@ -287,7 +276,7 @@ public partial record CustodyStatementOfHoldingsDocument : IOuterDocument<Custod
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CustodyStatementOfHoldings"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CustodyStatementOfHoldings&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CustodyStatementOfHoldings Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details on the quantity, account and other related information involved in a transaction.
 /// </summary>
 [IsoId("_8lCN0a5YEeey8N0JWnVPUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Quantity And Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record QuantityAndAccount64
     /// Quantity of financial instrument effectively settled.
     /// </summary>
     [IsoId("_8v4y-65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttldQty")]
     #endif
+    [IsoXmlTag("SttldQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity6Choice_ SettledQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity6Choice_ SettledQuantity { get; init; } 
+    public required Quantity6Choice_ SettledQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity6Choice_ SettledQuantity { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record QuantityAndAccount64
     /// Quantity of financial instrument previously settled.
     /// </summary>
     [IsoId("_8v4zA65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previously Settled Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrevslySttldQty")]
     #endif
+    [IsoXmlTag("PrevslySttldQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,11 @@ public partial record QuantityAndAccount64
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
     [IsoId("_8v4zC65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remaining To Be Settled Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmngToBeSttldQty")]
     #endif
+    [IsoXmlTag("RmngToBeSttldQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +103,11 @@ public partial record QuantityAndAccount64
     /// Amount of money previously settled.
     /// </summary>
     [IsoId("_8v4zE65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previously Settled Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrevslySttldAmt")]
     #endif
+    [IsoXmlTag("PrevslySttldAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection52? PreviouslySettledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +120,11 @@ public partial record QuantityAndAccount64
     /// Amount of money remaining to be settled.
     /// </summary>
     [IsoId("_8v4zG65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remaining To Be Settled Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmngToBeSttldAmt")]
     #endif
+    [IsoXmlTag("RmngToBeSttldAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection52? RemainingToBeSettledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,15 +137,13 @@ public partial record QuantityAndAccount64
     /// Denomination of the security to be received or delivered.
     /// </summary>
     [IsoId("_8v4zI65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denomination Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DnmtnChc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DnmtnChc")]
+    [IsoSimpleType(IsoSimpleType.Max210Text)]
     [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? DenominationChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +156,11 @@ public partial record QuantityAndAccount64
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_8v4zK65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification98? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,16 +173,15 @@ public partial record QuantityAndAccount64
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_8v4zM65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 SafekeepingAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount19 SafekeepingAccount { get; init; } 
+    public required SecuritiesAccount19 SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount19 SafekeepingAccount { get; init; } 
     #else
@@ -203,12 +192,11 @@ public partial record QuantityAndAccount64
     /// Account to or from which a cash entry is made.
     /// </summary>
     [IsoId("_8v4zO65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcct")]
     #endif
+    [IsoXmlTag("CshAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +209,11 @@ public partial record QuantityAndAccount64
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
     [IsoId("_8v4zQ65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Breakdown")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyBrkdwn")]
     #endif
+    [IsoXmlTag("QtyBrkdwn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityBreakdown47? QuantityBreakdown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +226,11 @@ public partial record QuantityAndAccount64
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
     [IsoId("_8v4zS65YEeey8N0JWnVPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgPlc")]
     #endif
+    [IsoXmlTag("SfkpgPlc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafeKeepingPlace1? SafekeepingPlace { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType34Code
 {
     /// <summary>
     /// Commodity attribute of type tanker.
-    /// Encoded/decoded by serializers as "TNKR".
+    /// Encoded/decoded by serializers as &quot;TNKR&quot;.
     /// </summary>
     [EnumMember(Value = "TNKR")]
     [IsoId("_0Dk7sbv6EeiLRYqS-r-R-A")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType34Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_2cukYbv6EeiLRYqS-r-R-A")]

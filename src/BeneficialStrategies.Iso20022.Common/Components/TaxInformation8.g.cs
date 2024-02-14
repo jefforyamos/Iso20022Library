@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details about tax paid, or to be paid, to the government in accordance with the law, including pre-defined parameters such as thresholds and type of account.
 /// </summary>
 [IsoId("_wuFOYf7IEeifc-yx3AlK3Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TaxInformation8
     /// Party on the credit side of the transaction to which the tax applies.
     /// </summary>
     [IsoId("_w6R3U_7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cdtr")]
     #endif
+    [IsoXmlTag("Cdtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxParty1? Creditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TaxInformation8
     /// Party on the debit side of the transaction to which the tax applies.
     /// </summary>
     [IsoId("_w6R3Vf7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dbtr")]
     #endif
+    [IsoXmlTag("Dbtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxParty2? Debtor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record TaxInformation8
     /// Territorial part of a country to which the tax payment is related.
     /// </summary>
     [IsoId("_w6R3V_7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Administration Zone")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdmstnZone")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdmstnZone")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdministrationZone { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,15 +95,13 @@ public partial record TaxInformation8
     /// Tax reference information that is specific to a taxing agency.
     /// </summary>
     [IsoId("_w6R3Wf7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RefNb")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? ReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,15 +114,13 @@ public partial record TaxInformation8
     /// Method used to indicate the underlying business or how the tax is paid.
     /// </summary>
     [IsoId("_w6R3W_7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Mtd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Method { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +133,12 @@ public partial record TaxInformation8
     /// Total amount of money on which the tax is based.
     /// </summary>
     [IsoId("_w6R3Xf7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Taxable Base Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTaxblBaseAmt")]
     #endif
+    [IsoXmlTag("TtlTaxblBaseAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalTaxableBaseAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +151,12 @@ public partial record TaxInformation8
     /// Total amount of money as result of the calculation of the tax.
     /// </summary>
     [IsoId("_w6R3X_7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Tax Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTaxAmt")]
     #endif
+    [IsoXmlTag("TtlTaxAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +169,12 @@ public partial record TaxInformation8
     /// Date by which tax is due.
     /// </summary>
     [IsoId("_w6R3Yf7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +187,12 @@ public partial record TaxInformation8
     /// Sequential number of the tax report.
     /// </summary>
     [IsoId("_w6R3Y_7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqNb")]
     #endif
+    [IsoXmlTag("SeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +205,11 @@ public partial record TaxInformation8
     /// Record of tax details.
     /// </summary>
     [IsoId("_w6bBQf7IEeifc-yx3AlK3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcrd")]
     #endif
+    [IsoXmlTag("Rcrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxRecord2? Record { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

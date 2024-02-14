@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Financial instrument which represents a title of ownership in a company, ie, the shareholder is entitled to a part of the company's profit - usually by payment of a dividend - and to voting rights, if any. Each company issues generally different classes of shares, eg, ordinary or common shares, which have no guaranteed amount of dividend but carry voting rights, or preferred shares, which receive dividends before ordinary shares but have no voting right.
+/// Financial instrument which represents a title of ownership in a company, ie, the shareholder is entitled to a part of the company&apos;s profit - usually by payment of a dividend - and to voting rights, if any. Each company issues generally different classes of shares, eg, ordinary or common shares, which have no guaranteed amount of dividend but carry voting rights, or preferred shares, which receive dividends before ordinary shares but have no voting right.
 /// </summary>
 [IsoId("_4YmZIeLZEeWFtOV72FbX9w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Equity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Equity3
     /// Indicates the level of priority to claim on income and assets of the company in case of the payment of dividends and in the event of a bankruptcy, for example, ordinary/common stocks, preferred stocks, subordinated debt, etc.
     /// </summary>
     [IsoId("_4jwgQeLZEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Preference To Income")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrefToIncm")]
     #endif
+    [IsoXmlTag("PrefToIncm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
+    public required PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record Equity3
     /// Date/time at which the security will no longer exist, for example, redeemable preference shares.
     /// </summary>
     [IsoId("_4jwgQ-LZEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record Equity3
     /// Nominal amount which is not paid yet.
     /// </summary>
     [IsoId("_4jwgReLZEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Paid Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonPdAmt")]
     #endif
+    [IsoXmlTag("NonPdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NonPaidAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,12 @@ public partial record Equity3
     /// Nominal value of an equity security.
     /// </summary>
     [IsoId("_4jwgR-LZEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Par Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ParVal")]
     #endif
+    [IsoXmlTag("ParVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ParValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +122,12 @@ public partial record Equity3
     /// Number of voting rights per share.
     /// </summary>
     [IsoId("_4jwgSeLZEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Voting Rights Per Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VtngRghtsPerShr")]
     #endif
+    [IsoXmlTag("VtngRghtsPerShr")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? VotingRightsPerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

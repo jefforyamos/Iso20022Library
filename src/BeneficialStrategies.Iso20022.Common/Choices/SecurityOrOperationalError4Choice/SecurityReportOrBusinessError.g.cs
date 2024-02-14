@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityOrOperationalError4Choic
     /// Provides the financial instruments details or the business error.
     /// </summary>
     [IsoId("_P5yGsZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Report Or Business Error")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
 [IsoId("_Gc9XwfpjEeCG_oUHBFcYXA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Deliver Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record DeliverInformation5
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
     [IsoId("_GdHI0fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record DeliverInformation5
     /// Indicates whether the settlement amount includes the stamp duty amount.
     /// </summary>
     [IsoId("_GdHI1fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stamp Duty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmpDty")]
     #endif
+    [IsoXmlTag("StmpDty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StampDutyType2Code? StampDuty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +84,12 @@ public partial record DeliverInformation5
     /// Deal amount.
     /// </summary>
     [IsoId("_GdHI2fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetAmt")]
     #endif
+    [IsoXmlTag("NetAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,16 +102,15 @@ public partial record DeliverInformation5
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
     [IsoId("_GdHI3fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parties Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPtiesDtls")]
     #endif
+    [IsoXmlTag("SttlmPtiesDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveringPartiesAndAccount8 SettlementPartiesDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DeliveringPartiesAndAccount8 SettlementPartiesDetails { get; init; } 
+    public required DeliveringPartiesAndAccount8 SettlementPartiesDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DeliveringPartiesAndAccount8 SettlementPartiesDetails { get; init; } 
     #else
@@ -125,12 +121,11 @@ public partial record DeliverInformation5
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
     [IsoId("_GdHI4fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgDtls")]
     #endif
+    [IsoXmlTag("ChrgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge20? ChargeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +138,11 @@ public partial record DeliverInformation5
     /// Commission related to the transfer of a financial instrument.
     /// </summary>
     [IsoId("_GdHI5fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnDtls")]
     #endif
+    [IsoXmlTag("ComssnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission12? CommissionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +155,11 @@ public partial record DeliverInformation5
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
     [IsoId("_GdHI6fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDtls")]
     #endif
+    [IsoXmlTag("TaxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax15? TaxDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +172,11 @@ public partial record DeliverInformation5
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
     [IsoId("_GdHI7fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysTrf")]
     #endif
+    [IsoXmlTag("PhysTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PhysicalTransferType1Code? PhysicalTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +189,11 @@ public partial record DeliverInformation5
     /// Parameters of a physical delivery.
     /// </summary>
     [IsoId("_GdHI8fpjEeCG_oUHBFcYXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Transfer Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysTrfDtls")]
     #endif
+    [IsoXmlTag("PhysTrfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryParameters4? PhysicalTransferDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

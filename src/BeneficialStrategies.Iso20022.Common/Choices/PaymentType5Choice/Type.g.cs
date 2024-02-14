@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentType5Choice
     /// Type, or nature, of the payment.
     /// </summary>
     [IsoId("_nQ0J4ekAEemV35DUs8L82Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentType5Choice
         /// Specifies the type, or nature, of the payment.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PaymentType4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PaymentType4Code Value { get; init; } 
+        public required PaymentType4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PaymentType4Code Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information on the status of a trade.
 /// </summary>
 [IsoId("_SvM2CgEcEeCQm6a_G2yO_w_-1369738530")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record TradeData4
     /// Party that assigned the status to the foreign exchange trade.
     /// </summary>
     [IsoId("_SvM2CwEcEeCQm6a_G2yO_w_1814317347")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsOrgtr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StsOrgtr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StatusOriginator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record TradeData4
     /// Specifies the new status of the trade.
     /// </summary>
     [IsoId("_SvM2DAEcEeCQm6a_G2yO_w_817244994")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurSts")]
     #endif
+    [IsoXmlTag("CurSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status5Choice_ CurrentStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status5Choice_ CurrentStatus { get; init; } 
+    public required Status5Choice_ CurrentStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status5Choice_ CurrentStatus { get; init; } 
     #else
@@ -93,15 +88,13 @@ public partial record TradeData4
     /// Additional information about the current status of the trade.
     /// </summary>
     [IsoId("_SvM2DQEcEeCQm6a_G2yO_w_-179827359")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Status Sub Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurStsSubTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CurStsSubTp")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CurrentStatusSubType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,16 +107,16 @@ public partial record TradeData4
     /// Specifies the date and time at which the current status was assigned to all the trades, unless overwritten by a date and time assigned to an individual trade.
     /// </summary>
     [IsoId("_SvM2DgEcEeCQm6a_G2yO_w_-1176899712")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Status Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurStsDtTm")]
     #endif
+    [IsoXmlTag("CurStsDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CurrentStatusDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CurrentStatusDateTime { get; init; } 
+    public required System.DateTime CurrentStatusDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CurrentStatusDateTime { get; init; } 
     #else
@@ -134,12 +127,11 @@ public partial record TradeData4
     /// Specifies the previous status of a trade.
     /// </summary>
     [IsoId("_SvM2DwEcEeCQm6a_G2yO_w_2120995231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsSts")]
     #endif
+    [IsoXmlTag("PrvsSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Status5Choice_? PreviousStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,15 +144,13 @@ public partial record TradeData4
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
     [IsoId("_SvV_8AEcEeCQm6a_G2yO_w_-513235469")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Status Sub Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsStsSubTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrvsStsSubTp")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? PreviousStatusSubType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,15 +163,13 @@ public partial record TradeData4
     /// Specifies the product for which the status of the confirmation is reported, unless overwritten by a product type assigned to an individual trade.
     /// </summary>
     [IsoId("_SvV_8QEcEeCQm6a_G2yO_w_126850525")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PdctTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProductType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

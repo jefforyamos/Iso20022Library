@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The DerivativesTradePositionSetReport message is sent by the trade repositories to the supervisory authority system, to report aggregated exposures between a pair of counterparties that comprise positions sets, collateral position sets, currency positions sets and currency collateral position sets.")]
 [IsoId("_CClucQ1MEeqV4s5SpzR1dQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivatives Trade Position Set Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record DerivativesTradePositionSetReportV01 : IOuterRecord<Deriva
     /// Representation of exposures between a pair of counterparties that comprise positions sets, collateral position sets, currency positions sets and currency collateral position sets.
     /// </summary>
     [IsoId("_CClucw1MEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregated Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AggtdPos")]
     #endif
+    [IsoXmlTag("AggtdPos")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PositionSetAggregated1Choice_ AggregatedPosition { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PositionSetAggregated1Choice_ AggregatedPosition { get; init; } 
+    public required PositionSetAggregated1Choice_ AggregatedPosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PositionSetAggregated1Choice_ AggregatedPosition { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record DerivativesTradePositionSetReportV01 : IOuterRecord<Deriva
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_CCludQ1MEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record DerivativesTradePositionSetReportV01 : IOuterRecord<Deriva
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DerivativesTradePositionSetReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DerivativesTradePositionSetReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DerivativesTradePositionSetReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record DerivativesTradePositionSetReportV01 : IOuterRecord<Deriva
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradePositionSetReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DerivativesTradePositionSetReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DerivativesTradePositionSetReportV01Document : IOuterDocument<DerivativesTradePositionSetReportV01>
@@ -140,7 +136,7 @@ public partial record DerivativesTradePositionSetReportV01Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DerivativesTradePositionSetReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DerivativesTradePositionSetReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativesTradePositionSetReportV01 Message { get; init; }

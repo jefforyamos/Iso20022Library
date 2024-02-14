@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for a blocked status.
 /// </summary>
 [IsoId("__e0zUV1LEeagR5I1rq5oaw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Blocked Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record BlockedStatusReason2
     /// Type of transaction for which the account has a blocked status.
     /// </summary>
     [IsoId("__4jh8V1LEeagR5I1rq5oaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTp")]
     #endif
+    [IsoXmlTag("TxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionType5Choice_ TransactionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionType5Choice_ TransactionType { get; init; } 
+    public required TransactionType5Choice_ TransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionType5Choice_ TransactionType { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record BlockedStatusReason2
     /// Indicates whether the account is blocked.
     /// </summary>
     [IsoId("_E6gY4V1MEeagR5I1rq5oaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blocked")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Blckd")]
     #endif
+    [IsoXmlTag("Blckd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Blocked { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Blocked { get; init; } 
+    public required System.String Blocked { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Blocked { get; init; } 
     #else
@@ -93,12 +90,11 @@ public partial record BlockedStatusReason2
     /// Reason for the blocked status.
     /// </summary>
     [IsoId("__4jh811LEeagR5I1rq5oaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockedReason2Choice_? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,19 +107,17 @@ public partial record BlockedStatusReason2
     /// Additional information about the blocked account status.
     /// </summary>
     [IsoId("__4jh9V1LEeagR5I1rq5oaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text AdditionalInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AdditionalInformation { get; init; } 
+    public required System.String AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AdditionalInformation { get; init; } 
     #else

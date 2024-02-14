@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount to be authorised by the issuer.
 /// </summary>
 [IsoId("_nuIgAIolEeSaAcF2oE2GNQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount And Currency")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record AmountAndCurrency1
     /// Amount value.
     /// </summary>
     [IsoId("_0LTLUIolEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record AmountAndCurrency1
     /// Currency of the amount.
     /// </summary>
     [IsoId("_4QPncIolEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

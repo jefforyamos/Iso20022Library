@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a pension policy.
 /// </summary>
 [IsoId("_BNqcEFkOEeiaQoK2-_0KTA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pension Policy")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record PensionPolicy1
     /// Reference number of the pension policy, plan or scheme.
     /// </summary>
     [IsoId("_GWv1wFkOEeiaQoK2-_0KTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Idr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Idr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identifier { get; init; } 
+    public required System.String Identifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identifier { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record PensionPolicy1
     /// Sub-identification of the pension policy, plan or scheme, such as a member reference.
     /// </summary>
     [IsoId("_KywuEFkOEeiaQoK2-_0KTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SubIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,12 +89,11 @@ public partial record PensionPolicy1
     /// Additional information about the identification of the pension policy, plan or scheme.
     /// </summary>
     [IsoId("_NllbAFkOEeiaQoK2-_0KTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

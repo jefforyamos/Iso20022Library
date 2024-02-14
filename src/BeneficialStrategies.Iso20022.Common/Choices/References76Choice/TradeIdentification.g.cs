@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References76Choice
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
     [IsoId("_diXS3Ti8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.References76Choice
         /// Specifies a character string with a maximum length of 52 characters limited to character set X, that is, a-z A-Z / - ? : ( ) . , ‘ + .
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TradId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TradId")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINXMax52Text)]
         [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINXMax52Text Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

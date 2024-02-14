@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Document that contains the information of the contract agreed between both parties.
 /// </summary>
 [IsoId("_UkjHQtp-Ed-ak6NoX_4Aeg_15886237")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Document")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record ContractDocument1
     /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
     /// </summary>
     [IsoId("_UkjHQ9p-Ed-ak6NoX_4Aeg_392681280")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Ref")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Reference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Reference { get; init; } 
+    public required System.String Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Reference { get; init; } 
     #else
@@ -74,12 +70,12 @@ public partial record ContractDocument1
     /// Signoff date of the document.
     /// </summary>
     [IsoId("_UkjHRNp-Ed-ak6NoX_4Aeg_564641730")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sign Off Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgnOffDt")]
     #endif
+    [IsoXmlTag("SgnOffDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SignOffDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +88,13 @@ public partial record ContractDocument1
     /// Identification of the version of the contract.
     /// </summary>
     [IsoId("_UkjHRdp-Ed-ak6NoX_4Aeg_618206750")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Max6Text)]
     [StringLength(maximumLength: 6 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6Text? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

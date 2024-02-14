@@ -21,7 +21,7 @@ public enum PairedReconciled1Code
 {
     /// <summary>
     /// Paired.
-    /// Encoded/decoded by serializers as "PARD".
+    /// Encoded/decoded by serializers as &quot;PARD&quot;.
     /// </summary>
     [EnumMember(Value = "PARD")]
     [IsoId("_NFpVIGJuEeiVRNxFJ2pSfQ")]
@@ -30,7 +30,7 @@ public enum PairedReconciled1Code
     
     /// <summary>
     /// Reconciled.
-    /// Encoded/decoded by serializers as "RECO".
+    /// Encoded/decoded by serializers as &quot;RECO&quot;.
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_NWlUIWJuEeiVRNxFJ2pSfQ")]

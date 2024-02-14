@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginType2Choice.Code))]
     [KnownType(typeof(MarginType2Choice.Proprietary))]
     [IsoId("_JT728I1rEeet3cKIYK84nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

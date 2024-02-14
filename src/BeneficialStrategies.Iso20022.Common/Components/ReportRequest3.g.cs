@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This component define the environment, the context and the services to be used with this message.
 /// </summary>
 [IsoId("_rRt3UQ1OEeqjM-rxn3HuXQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ReportRequest3
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_reo5AQ1OEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment75 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment75 Environment { get; init; } 
+    public required CardPaymentEnvironment75 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment75 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ReportRequest3
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
     [IsoId("_reo5Aw1OEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentContext28 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentContext28 Context { get; init; } 
+    public required CardPaymentContext28 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentContext28 Context { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ReportRequest3
     /// Define the type of service requested.
     /// </summary>
     [IsoId("_reo5BQ1OEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcCntt")]
     #endif
+    [IsoXmlTag("SvcCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerService6Code ServiceContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetailerService6Code ServiceContent { get; init; } 
+    public required RetailerService6Code ServiceContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetailerService6Code ServiceContent { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record ReportRequest3
     /// Content of the Transaction Report Request message.
     /// </summary>
     [IsoId("_reo5Bw1OEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Transaction Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptTxReq")]
     #endif
+    [IsoXmlTag("RptTxReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportTransactionRequest1? ReportTransactionRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record ReportRequest3
     /// Content of the Get Totals Request message.
     /// </summary>
     [IsoId("_reo5CQ1OEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Get Totals Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptGetTtlsReq")]
     #endif
+    [IsoXmlTag("RptGetTtlsReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportGetTotalsRequest1? ReportGetTotalsRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,11 @@ public partial record ReportRequest3
     /// Additional information incorporated as an extension to the message.
     /// </summary>
     [IsoId("_reo5Cw1OEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An account servicer sends a PortfolioTransferNotification to another account servicer to exchange transfer settlement details information during a retail or institutional client portfolio transfers.|The account servicers will typically be local agents or global custodians acting on behalf of an investment management institution, a broker/dealer or a retail client.|Usage|By exchange of transfer settlement details, it is understood the providing, by the delivering account servicer to the receiving account servicer, of the settlement details (trade date, settlement date, delivering settlement chain, quantities, etc.) of the individual transfers that will take place during a full or partial portfolio transfer. This delivering account servicer message may also include, for validation, the receiving settlement chain as provided by the client. In case the receiving settlement chain is not available to the delivering account servicer, the receiving account servicer may in return provide to the delivering account servicer the receiving settlement chain using the same message.|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information.|using the relevant elements in the Business Application Header.|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
 [IsoId("_3cVRgdtaEd-RF5yaMAVhAw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Portfolio Transfer Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record PortfolioTransferNotificationV02 : IOuterRecord<PortfolioT
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
     /// </summary>
     [IsoId("_3cVRhdtaEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination Pagination { get; init; } 
+    public required Pagination Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination Pagination { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record PortfolioTransferNotificationV02 : IOuterRecord<PortfolioT
     /// Provides general information on the notification.
     /// </summary>
     [IsoId("_3cVRh9taEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtGnlDtls")]
     #endif
+    [IsoXmlTag("StmtGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Statement19 StatementGeneralDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Statement19 StatementGeneralDetails { get; init; } 
+    public required Statement19 StatementGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Statement19 StatementGeneralDetails { get; init; } 
     #else
@@ -120,12 +116,11 @@ public partial record PortfolioTransferNotificationV02 : IOuterRecord<PortfolioT
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_3cVRidtaEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification36Choice_? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,16 +133,15 @@ public partial record PortfolioTransferNotificationV02 : IOuterRecord<PortfolioT
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_3cVRi9taEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount13 SafekeepingAccount { get; init; } 
+    public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount13 SafekeepingAccount { get; init; } 
     #else
@@ -158,12 +152,11 @@ public partial record PortfolioTransferNotificationV02 : IOuterRecord<PortfolioT
     /// Details of transfer.
     /// </summary>
     [IsoId("_3cVRjdtaEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Notification Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfNtfctnDtls")]
     #endif
+    [IsoXmlTag("TrfNtfctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTradeDetails19? TransferNotificationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,7 +169,7 @@ public partial record PortfolioTransferNotificationV02 : IOuterRecord<PortfolioT
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PortfolioTransferNotificationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PortfolioTransferNotificationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PortfolioTransferNotificationV02Document ToDocument()
     {
@@ -186,7 +179,7 @@ public partial record PortfolioTransferNotificationV02 : IOuterRecord<PortfolioT
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PortfolioTransferNotificationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PortfolioTransferNotificationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PortfolioTransferNotificationV02Document : IOuterDocument<PortfolioTransferNotificationV02>
@@ -203,7 +196,7 @@ public partial record PortfolioTransferNotificationV02Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PortfolioTransferNotificationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PortfolioTransferNotificationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PortfolioTransferNotificationV02 Message { get; init; }

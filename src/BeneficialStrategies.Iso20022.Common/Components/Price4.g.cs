@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the value and optionaly the type of price.
 /// </summary>
 [IsoId("_QeScgNp-Ed-ak6NoX_4Aeg_2016277432")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Price4
     /// Value of the price.
     /// </summary>
     [IsoId("_QeScgdp-Ed-ak6NoX_4Aeg_-1069713425")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateOrAmountChoice_ Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceRateOrAmountChoice_ Value { get; init; } 
+    public required PriceRateOrAmountChoice_ Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceRateOrAmountChoice_ Value { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Price4
     /// Specification of the price type.
     /// </summary>
     [IsoId("_QeScgtp-Ed-ak6NoX_4Aeg_61095194")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValueType7Code? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

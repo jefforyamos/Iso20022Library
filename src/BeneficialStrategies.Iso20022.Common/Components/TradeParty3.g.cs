@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies an entity involved in a trade activity.
 /// </summary>
 [IsoId("_kTob4cNREeWGDrnsYu2p6g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Party")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TradeParty3
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
     [IsoId("_kf-10cNREeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification112 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification112 PartyIdentification { get; init; } 
+    public required PartyIdentification112 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification112 PartyIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TradeParty3
     /// Legally constituted organization specified for this trade party.
     /// </summary>
     [IsoId("_kf-108NREeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Organisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglOrg")]
     #endif
+    [IsoXmlTag("LglOrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LegalOrganisation1? LegalOrganisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record TradeParty3
     /// Entity involved in an activity.
     /// </summary>
     [IsoId("_kf-11cNREeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxPty")]
     #endif
+    [IsoXmlTag("TaxPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxParty3? TaxParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

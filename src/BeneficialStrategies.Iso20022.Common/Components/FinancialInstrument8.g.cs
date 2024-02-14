@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
 [IsoId("_Scywm9p-Ed-ak6NoX_4Aeg_-221038844")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,31 +49,26 @@ public partial record FinancialInstrument8
     /// Identification of a security by an ISIN.
     /// </summary>
     [IsoId("_Sc8hkNp-Ed-ak6NoX_4Aeg_-221038808")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
     [MinLength(1)]
     [MaxLength(10)]
-    #endif
     public ValueList<SecurityIdentification3Choice_> Identification { get; init; } = new ValueList<SecurityIdentification3Choice_>(){};
     
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
     [IsoId("_Sc8hkdp-Ed-ak6NoX_4Aeg_-221038748")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,15 +81,13 @@ public partial record FinancialInstrument8
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
     [IsoId("_Sc8hktp-Ed-ak6NoX_4Aeg_-221038671")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SplmtryId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +100,11 @@ public partial record FinancialInstrument8
     /// Currency in which a security is issued or redenominated.
     /// </summary>
     [IsoId("_Sc8hk9p-Ed-ak6NoX_4Aeg_-221038611")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denomination Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DnmtnCcy")]
     #endif
+    [IsoXmlTag("DnmtnCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? DenominationCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,18 +114,16 @@ public partial record FinancialInstrument8
     #endif
     
     /// <summary>
-    /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, 'Class A', 'Class 2'.
+    /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, &apos;Class A&apos;, &apos;Class 2&apos;.
     /// </summary>
     [IsoId("_SdFrgNp-Ed-ak6NoX_4Aeg_-221038316")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Class Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClssTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClassType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +136,11 @@ public partial record FinancialInstrument8
     /// Form, ie, ownership, of the security, eg, registered or bearer.
     /// </summary>
     [IsoId("_SdFrgdp-Ed-ak6NoX_4Aeg_-221038256")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesForm")]
     #endif
+    [IsoXmlTag("SctiesForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FormOfSecurity1Code? SecuritiesForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,12 +153,11 @@ public partial record FinancialInstrument8
     /// Income policy relating to a class type, ie, if income is paid out or retained in the fund.
     /// </summary>
     [IsoId("_SdFrgtp-Ed-ak6NoX_4Aeg_-221037938")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Distribution Policy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstrbtnPlcy")]
     #endif
+    [IsoXmlTag("DstrbtnPlcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -184,16 +170,16 @@ public partial record FinancialInstrument8
     /// Indicates whether the fund has two prices.
     /// </summary>
     [IsoId("_SdFrg9p-Ed-ak6NoX_4Aeg_-221037878")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dual Fund Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DualFndInd")]
     #endif
+    [IsoXmlTag("DualFndInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator DualFundIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DualFundIndicator { get; init; } 
+    public required System.String DualFundIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DualFundIndicator { get; init; } 
     #else

@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An account servicer sends a SecuritiesSettlementTransactionStatusAdvice to an account owner to advise the status of a securities settlement transaction instruction previously sent by the account owner or the status of a settlement transaction existing in the books of the servicer for the account of the owner. The status may be a processing, pending processing, internal matching, matching and/or settlement status.|The status advice may be sent as a response to the request of the account owner or not.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.")]
 [IsoId("_UMQl0azwEeeBIMhGLpLUsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Settlement Transaction Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     /// Provides unambiguous transaction identification information.
     /// </summary>
     [IsoId("_UMQl36zwEeeBIMhGLpLUsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifications31 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifications31 TransactionIdentification { get; init; } 
+    public required TransactionIdentifications31 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifications31 TransactionIdentification { get; init; } 
     #else
@@ -108,12 +105,11 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     /// Link to another transaction - provided for information only.
     /// </summary>
     [IsoId("_UMQl4azwEeeBIMhGLpLUsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkages")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lnkgs")]
     #endif
+    [IsoXmlTag("Lnkgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Linkages41? Linkages { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +122,11 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     /// Provides details on the processing status of the transaction.
     /// </summary>
     [IsoId("_UMQl46zwEeeBIMhGLpLUsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingStatus48Choice_? ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,12 +139,11 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     /// Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
     [IsoId("_UMQl5azwEeeBIMhGLpLUsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inferred Matching Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IfrrdMtchgSts")]
     #endif
+    [IsoXmlTag("IfrrdMtchgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus24Choice_? InferredMatchingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +156,11 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     /// Provides the matching status of the instruction.
     /// </summary>
     [IsoId("_UMQl56zwEeeBIMhGLpLUsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchgSts")]
     #endif
+    [IsoXmlTag("MtchgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus24Choice_? MatchingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,12 +173,11 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     /// Provides the status of settlement of a transaction.
     /// </summary>
     [IsoId("_UMQl6azwEeeBIMhGLpLUsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSts")]
     #endif
+    [IsoXmlTag("SttlmSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementStatus17Choice_? SettlementStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,12 +190,11 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     /// Identifies the details of the transaction.
     /// </summary>
     [IsoId("_UMQl66zwEeeBIMhGLpLUsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionDetails105? TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -216,12 +207,11 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_UMQl7azwEeeBIMhGLpLUsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -234,7 +224,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesSettlementTransactionStatusAdviceV09Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesSettlementTransactionStatusAdviceV09Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesSettlementTransactionStatusAdviceV09Document ToDocument()
     {
@@ -244,7 +234,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09 : IOuterRec
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionStatusAdviceV09"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesSettlementTransactionStatusAdviceV09&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesSettlementTransactionStatusAdviceV09Document : IOuterDocument<SecuritiesSettlementTransactionStatusAdviceV09>
@@ -261,7 +251,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV09Document : I
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesSettlementTransactionStatusAdviceV09"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesSettlementTransactionStatusAdviceV09&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSettlementTransactionStatusAdviceV09 Message { get; init; }

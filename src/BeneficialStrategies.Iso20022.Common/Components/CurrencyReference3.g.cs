@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the process of a currency exchange or conversion.
 /// </summary>
 [IsoId("_oVtgQWoQEea5EcY2TpG1mw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Reference")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CurrencyReference3
     /// Currency into which an amount is to be converted in a currency conversion.
     /// </summary>
     [IsoId("_odTWAWoQEea5EcY2TpG1mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrgtCcy")]
     #endif
+    [IsoXmlTag("TrgtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode TargetCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string TargetCurrency { get; init; } 
+    public required string TargetCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string TargetCurrency { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CurrencyReference3
     /// Currency of the amount to be converted in a currency conversion.
     /// </summary>
     [IsoId("_odTWA2oQEea5EcY2TpG1mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcCcy")]
     #endif
+    [IsoXmlTag("SrcCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode SourceCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string SourceCurrency { get; init; } 
+    public required string SourceCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string SourceCurrency { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record CurrencyReference3
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
     [IsoId("_odTWBWoQEea5EcY2TpG1mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRateInf")]
     #endif
+    [IsoXmlTag("XchgRateInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeRateInformation1? ExchangeRateInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

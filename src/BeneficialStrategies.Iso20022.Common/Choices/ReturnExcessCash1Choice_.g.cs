@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReturnExcessCash1Choice.Code))]
     [KnownType(typeof(ReturnExcessCash1Choice.Proprietary))]
     [IsoId("_BGt5wALpEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Excess Cash 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

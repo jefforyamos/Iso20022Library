@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EUDividendStatusType2Choice.Code))]
     [KnownType(typeof(EUDividendStatusType2Choice.Proprietary))]
     [IsoId("_PfdboTh8EeaH-93K5JKmzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("EU Dividend Status Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

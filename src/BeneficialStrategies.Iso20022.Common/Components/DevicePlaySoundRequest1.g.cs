@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Sound Request message.
 /// </summary>
 [IsoId("_GGvxgN6-Eeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Play Sound Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record DevicePlaySoundRequest1
     /// Message response awaited by the initiator of the Request.
     /// </summary>
     [IsoId("_Qx_MMN6-Eeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnMd")]
     #endif
+    [IsoXmlTag("RspnMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseMode1Code? ResponseMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record DevicePlaySoundRequest1
     /// Requested Action: Start to play a sound, Stop to play a sound, Set the default volume.
     /// </summary>
     [IsoId("_VPocMN6-Eeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sound Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SoundActn")]
     #endif
+    [IsoXmlTag("SoundActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SoundAction1Code SoundAction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SoundAction1Code SoundAction { get; init; } 
+    public required SoundAction1Code SoundAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SoundAction1Code SoundAction { get; init; } 
     #else
@@ -89,12 +85,12 @@ public partial record DevicePlaySoundRequest1
     /// Volume of a sound, either in a pourcentage of the maximum volume, or 0 to mute.
     /// </summary>
     [IsoId("_xG7TMN6-Eeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sound Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SoundVol")]
     #endif
+    [IsoXmlTag("SoundVol")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? SoundVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record DevicePlaySoundRequest1
     /// Content of a sound to play.
     /// </summary>
     [IsoId("_z4YuMN6-Eeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sound Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SoundCntt")]
     #endif
+    [IsoXmlTag("SoundCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SoundContent1? SoundContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Resources of a legal entity or other financial construct that are available to meet cash obligations.
 /// </summary>
 [IsoId("_Ta5foLJQEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Liquid Resources")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record LiquidResources1
     /// Cash expected to be available to the CCP on each day in order to meet liquid requirements.
     /// </summary>
     [IsoId("_yq6uYESsEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Due")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshDue")]
     #endif
+    [IsoXmlTag("CshDue")]
     public LiquidResourceInformation1? CashDue { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _yq6uYESsEemM8-DVOYzdVQ
     
@@ -57,12 +54,11 @@ public partial record LiquidResources1
     /// Lines of credit with credit institutions that are contractually committed with the liquidity provider.
     /// </summary>
     [IsoId("_ADHekEStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Facilities Committed Lines Of Credit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FcltiesCmmtdLinesOfCdt")]
     #endif
+    [IsoXmlTag("FcltiesCmmtdLinesOfCdt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesCommittedLinesOfCredit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,12 +71,11 @@ public partial record LiquidResources1
     /// Repurchase agreement that are contractually committed with the liquidity provider.
     /// </summary>
     [IsoId("_GH3PQEStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Facilities Committed Repurchase Agreements")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FcltiesCmmtdRpAgrmts")]
     #endif
+    [IsoXmlTag("FcltiesCmmtdRpAgrmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesCommittedRepurchaseAgreements { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +88,11 @@ public partial record LiquidResources1
     /// FX swaps that are contractually committed with the liquidity provider.
     /// </summary>
     [IsoId("_LR_KwEStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Facilities Committed FX Swaps")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FcltiesCmmtdFxSwps")]
     #endif
+    [IsoXmlTag("FcltiesCmmtdFxSwps")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesCommittedFXSwaps { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +105,11 @@ public partial record LiquidResources1
     /// Other liquidity facilities that are contractually committed with the liquidity provider.
     /// </summary>
     [IsoId("_RIdO4EStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Facilities Other Committed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FcltiesOthrCmmtd")]
     #endif
+    [IsoXmlTag("FcltiesOthrCmmtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesOtherCommitted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +122,11 @@ public partial record LiquidResources1
     /// Liquidity facilities that are not contractually committed.
     /// </summary>
     [IsoId("_V9wJ4EStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Facilities Uncommitted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FcltiesUcmmtd")]
     #endif
+    [IsoXmlTag("FcltiesUcmmtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FacilitiesUncommitted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +139,11 @@ public partial record LiquidResources1
     /// CCPs own non cash resources.
     /// </summary>
     [IsoId("_bPLAMEStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instruments CCP")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmsCCP")]
     #endif
+    [IsoXmlTag("FinInstrmsCCP")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FinancialInstrumentsCCP { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +156,11 @@ public partial record LiquidResources1
     /// Financial instruments from CCP treasury investments of clearing members cash collateral with any of the CCPs own cash invested included.
     /// </summary>
     [IsoId("_hQgQgEStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instruments Treasury Investments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmsTrsrInvstmts")]
     #endif
+    [IsoXmlTag("FinInstrmsTrsrInvstmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FinancialInstrumentsTreasuryInvestments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +173,11 @@ public partial record LiquidResources1
     /// Financial instruments due to be delivered to the defaulting member that post-default can be used to meet liquidity needs in the event of their default.
     /// </summary>
     [IsoId("_l39j0EStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instruments Defaulters Settlement Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmsDfltrsSttlmColl")]
     #endif
+    [IsoXmlTag("FinInstrmsDfltrsSttlmColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FinancialInstrumentsDefaultersSettlementCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,12 +190,11 @@ public partial record LiquidResources1
     /// Non-cash collateral e.g. margin provided by the defaulting counterparty that can be used to meet liquidity needs in the event of their default.
     /// </summary>
     [IsoId("_qv8mcEStEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instruments Defaulters Non Cash Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmsDfltrsNonCshColl")]
     #endif
+    [IsoXmlTag("FinInstrmsDfltrsNonCshColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LiquidResourceInformation1? FinancialInstrumentsDefaultersNonCashCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

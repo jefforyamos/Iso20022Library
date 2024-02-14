@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// State of a Host.
 /// </summary>
 [IsoId("_N2O4cN6MEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Host Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record HostStatus1
     /// Identification of the Acquirer.
     /// </summary>
     [IsoId("_Teh9sN6MEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcqrrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AcquirerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AcquirerIdentification { get; init; } 
+    public required System.String AcquirerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AcquirerIdentification { get; init; } 
     #else
@@ -74,12 +70,12 @@ public partial record HostStatus1
     /// Indicate if a Host is reachable.
     /// </summary>
     [IsoId("_WWtEsN6MEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reachable")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rchbl")]
     #endif
+    [IsoXmlTag("Rchbl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? Reachable { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

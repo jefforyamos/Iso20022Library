@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification177Choice.AnyBIC))]
     [KnownType(typeof(PartyIdentification177Choice.ProprietaryIdentification))]
     [IsoId("_7X5zsdgvEeipBO1pkKK6zg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification 177 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

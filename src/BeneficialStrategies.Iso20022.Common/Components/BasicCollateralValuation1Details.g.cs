@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Basic valuation details of a collateral position.
 /// </summary>
 [IsoId("_UAL1-dp-Ed-ak6NoX_4Aeg_-606746879")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Basic Collateral Valuation 1 Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record BasicCollateralValuation1Details
     /// Haircut percentage applied to the market value of underlying assets used as collateral as a risk control measure. The institution valuating the collateral calculates the value of underlying assets based on its market value less a certain percentage (the haircut).
     /// </summary>
     [IsoId("_UAL1-tp-Ed-ak6NoX_4Aeg_-606746854")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnHrcut")]
     #endif
+    [IsoXmlTag("ValtnHrcut")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate ValuationHaircut { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ValuationHaircut { get; init; } 
+    public required System.Decimal ValuationHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ValuationHaircut { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record BasicCollateralValuation1Details
     /// Place where the valuation haircut was calculated.
     /// </summary>
     [IsoId("_UAVm8Np-Ed-ak6NoX_4Aeg_-606746837")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HrcutSrc")]
     #endif
+    [IsoXmlTag("HrcutSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification15? HaircutSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

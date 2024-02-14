@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about additional rights that can be granted for a meeting.
 /// </summary>
 [IsoId("_k8fcwa09EemDtrWpq90Ckg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Rights")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AdditionalRights3
     /// Specific rights granted to the shareholders that can be exercised at shareholders meetings, for example, the right to ask questions, the right to add items to the agenda or table draft resolutions.
     /// </summary>
     [IsoId("_lReOMa09EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Right")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRght")]
     #endif
+    [IsoXmlTag("AddtlRght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalRightCode1Choice_ AdditionalRight { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalRightCode1Choice_ AdditionalRight { get; init; } 
+    public required AdditionalRightCode1Choice_ AdditionalRight { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalRightCode1Choice_ AdditionalRight { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record AdditionalRights3
     /// Address to use over the www (HTTP) service where additional information on specific rights granted to the shareholders can be found.
     /// </summary>
     [IsoId("_lReOM609EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Right Information URL Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRghtInfURLAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRghtInfURLAdr")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? AdditionalRightInformationURLAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record AdditionalRights3
     /// Additional right granted to determine the date and time by which security holders can propose amendments or new resolutions. This deadline is set by an intermediary.
     /// </summary>
     [IsoId("_lReONa09EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Right Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRghtDdln")]
     #endif
+    [IsoXmlTag("AddtlRghtDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? AdditionalRightDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record AdditionalRights3
     /// Additional right granted to determine the date and time by which security holders can propose amendments or new resolutions. This deadline is set by the issuer.
     /// </summary>
     [IsoId("_lReON609EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Right Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRghtMktDdln")]
     #endif
+    [IsoXmlTag("AddtlRghtMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? AdditionalRightMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record AdditionalRights3
     /// Additional right granted to specify the minimum stake in share capital or cash value or number of security holders required to table resolutions.
     /// </summary>
     [IsoId("_lReOOa09EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Right Threshold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRghtThrshld")]
     #endif
+    [IsoXmlTag("AddtlRghtThrshld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalRightThreshold1Choice_? AdditionalRightThreshold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

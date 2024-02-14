@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Tax related to an investment fund order.
 /// </summary>
 [IsoId("_WKLBSNp-Ed-ak6NoX_4Aeg_-2019251269")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Tax20
     /// Type of tax applied.
     /// </summary>
     [IsoId("_WKLBSdp-Ed-ak6NoX_4Aeg_-2019251238")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxType14Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxType14Code Type { get; init; } 
+    public required TaxType14Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxType14Code Type { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record Tax20
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
     [IsoId("_WKLBStp-Ed-ak6NoX_4Aeg_-2019250906")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -93,16 +90,16 @@ public partial record Tax20
     /// Indicates whether a tax exemption applies.
     /// </summary>
     [IsoId("_WKLBS9p-Ed-ak6NoX_4Aeg_-1006152759")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exemption Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XmptnInd")]
     #endif
+    [IsoXmlTag("XmptnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ExemptionIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExemptionIndicator { get; init; } 
+    public required System.String ExemptionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExemptionIndicator { get; init; } 
     #else

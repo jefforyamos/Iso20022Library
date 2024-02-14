@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the underlying transaction.
 /// </summary>
 [IsoId("_V1ya1zqwEeWZFYSPlduMhw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Entry Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record EntryTransaction8
     /// Provides the identification of the underlying transaction.
     /// </summary>
     [IsoId("_V88LszqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionReferences3? References { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,16 @@ public partial record EntryTransaction8
     /// Amount of money in the cash transaction.
     /// </summary>
     [IsoId("_V88LtTqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -90,16 +87,15 @@ public partial record EntryTransaction8
     /// Indicates whether the transaction is a credit or a debit transaction.
     /// </summary>
     [IsoId("_V88LtzqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else
@@ -110,12 +106,11 @@ public partial record EntryTransaction8
     /// Provides detailed information on the original amount.||Usage: This component (on transaction level) should be used in case booking is for a single transaction and the original amount is different from the entry amount. It can also be used in case individual original amounts are provided in case of a batch or aggregate booking.
     /// </summary>
     [IsoId("_V88LuTqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtDtls")]
     #endif
+    [IsoXmlTag("AmtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndCurrencyExchange3? AmountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,11 @@ public partial record EntryTransaction8
     /// Indicates when the booked amount of money will become available, that is can be accessed and starts generating interest. ||Usage: This type of information is used in the US and is linked to particular instruments such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the amount of money will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
     [IsoId("_V88LuzqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Availability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Avlbty")]
     #endif
+    [IsoXmlTag("Avlbty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAvailability1? Availability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +140,11 @@ public partial record EntryTransaction8
     /// Set of elements used to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
     [IsoId("_V88LvTqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Transaction Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkTxCd")]
     #endif
+    [IsoXmlTag("BkTxCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BankTransactionCodeStructure4? BankTransactionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +158,11 @@ public partial record EntryTransaction8
     /// Usage: This component (on transaction level) can be used in case the booking is for a single transaction, and charges are included in the entry amount. It can also be used in case individual charge amounts are applied to individual transactions in case of a batch or aggregate amount booking.
     /// </summary>
     [IsoId("_V88LvzqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrgs")]
     #endif
+    [IsoXmlTag("Chrgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charges4? Charges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +175,11 @@ public partial record EntryTransaction8
     /// Provides details of the interest amount included in the entry amount.||Usage: This component (on transaction level) can be used if the booking is for a single transaction, and interest amount is included in the entry amount. It can also be used if individual interest amounts are applied to individual transactions in the case of a batch or aggregate amount booking.
     /// </summary>
     [IsoId("_V88LwTqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrst")]
     #endif
+    [IsoXmlTag("Intrst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionInterest3? Interest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,12 +192,11 @@ public partial record EntryTransaction8
     /// Set of elements used to identify the parties related to the underlying transaction.
     /// </summary>
     [IsoId("_V88LwzqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdPties")]
     #endif
+    [IsoXmlTag("RltdPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionParties3? RelatedParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,12 +209,11 @@ public partial record EntryTransaction8
     /// Set of elements used to identify the agents related to the underlying transaction.
     /// </summary>
     [IsoId("_V88LxTqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Agents")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdAgts")]
     #endif
+    [IsoXmlTag("RltdAgts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionAgents3? RelatedAgents { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -237,12 +226,11 @@ public partial record EntryTransaction8
     /// Underlying reason for the payment transaction.|Usage: Purpose is used by the end-customers, that is initiating party, (ultimate) debtor, (ultimate) creditor to provide information concerning the nature of the payment. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
     [IsoId("_V88LxzqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Purp")]
     #endif
+    [IsoXmlTag("Purp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Purpose2Choice_? Purpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -255,28 +243,24 @@ public partial record EntryTransaction8
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
     [IsoId("_V88LyTqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Remittance Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRmtInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRmtInf")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<RemittanceLocation4> RelatedRemittanceInformation { get; init; } = new ValueList<RemittanceLocation4>(){};
     
     /// <summary>
     /// Structured information that enables the matching, that is reconciliation, of a payment with the items that the payment is intended to settle, such as commercial invoices in an account receivable system.
     /// </summary>
     [IsoId("_V88LyzqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remittance Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtInf")]
     #endif
+    [IsoXmlTag("RmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemittanceInformation11? RemittanceInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -289,12 +273,11 @@ public partial record EntryTransaction8
     /// Set of elements used to identify the dates related to the underlying transactions.
     /// </summary>
     [IsoId("_V88LzTqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Dates")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdDts")]
     #endif
+    [IsoXmlTag("RltdDts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionDates2? RelatedDates { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -307,12 +290,11 @@ public partial record EntryTransaction8
     /// Set of elements used to identify the price information related to the underlying transaction.
     /// </summary>
     [IsoId("_V88LzzqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdPric")]
     #endif
+    [IsoXmlTag("RltdPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionPrice3Choice_? RelatedPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -325,12 +307,11 @@ public partial record EntryTransaction8
     /// Set of elements used to identify the related quantities, such as securities, in the underlying transaction.
     /// </summary>
     [IsoId("_V88L0TqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Quantities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdQties")]
     #endif
+    [IsoXmlTag("RltdQties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionQuantities2Choice_? RelatedQuantities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -343,12 +324,11 @@ public partial record EntryTransaction8
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
     [IsoId("_V88L0zqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -361,12 +341,11 @@ public partial record EntryTransaction8
     /// Provides details on the tax.
     /// </summary>
     [IsoId("_V88L1TqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tax")]
     #endif
+    [IsoXmlTag("Tax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxInformation3? Tax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -379,12 +358,11 @@ public partial record EntryTransaction8
     /// Provides the return information.
     /// </summary>
     [IsoId("_V88L1zqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrInf")]
     #endif
+    [IsoXmlTag("RtrInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentReturnReason2? ReturnInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -397,12 +375,11 @@ public partial record EntryTransaction8
     /// Set of elements used to identify the underlying corporate action.
     /// </summary>
     [IsoId("_V88L2TqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActn")]
     #endif
+    [IsoXmlTag("CorpActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateAction9? CorporateAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -415,12 +392,11 @@ public partial record EntryTransaction8
     /// Safekeeping or investment account. A safekeeping account is an account on which a securities entry is made. An investment account is an account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
     /// </summary>
     [IsoId("_V88L2zqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -433,12 +409,11 @@ public partial record EntryTransaction8
     /// Provides the details of a cash deposit for an amount of money in cash notes and/or coins.
     /// </summary>
     [IsoId("_V88L3TqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Deposit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshDpst")]
     #endif
+    [IsoXmlTag("CshDpst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashDeposit1? CashDeposit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -451,12 +426,11 @@ public partial record EntryTransaction8
     /// Provides the data related to the card (number, scheme), terminal (number, identification) and transactional data used to uniquely identify a card transaction.
     /// </summary>
     [IsoId("_V88L3zqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardTx")]
     #endif
+    [IsoXmlTag("CardTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardTransaction2? CardTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -469,15 +443,13 @@ public partial record EntryTransaction8
     /// Further details of the transaction.
     /// </summary>
     [IsoId("_V88L4TqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Transaction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlTxInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlTxInf")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalTransactionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -490,12 +462,11 @@ public partial record EntryTransaction8
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_V88L4zqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|This message is sent by the Market Infrastructure to the CSD to advise of the history of all the statuses, modifications, replacement and cancellation of a specific transaction during its whole life cycle when the instructing party is a direct participant to the Settlement Infrastructure.||Usage|The message may also be used to: |- re-send a message sent by the market infrastructure to the direct participant,|- provide a third party with a copy of a message being sent by the market infrastructure for information,|- re-send to a third party a copy of a message being sent by the market infrastructure for information using the relevant elements in the Business Application Header.")]
 [IsoId("_dsxygzi8Eeydid5dcNPKvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Settlement Transaction Audit Trail Report 002 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
     /// </summary>
     [IsoId("_dsyZkji8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination1 Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination1 Pagination { get; init; } 
+    public required Pagination1 Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination1 Pagination { get; init; } 
     #else
@@ -102,15 +99,13 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     /// Identification of the SecuritiesStatusQuery message sent to request this report.
     /// </summary>
     [IsoId("_dsyZlDi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("QryRef")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? QueryReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,12 +118,11 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     /// Provides unambiguous transaction identification information.
     /// </summary>
     [IsoId("_dsyZlji8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifications34? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +135,11 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_dsyZmDi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount37? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,12 +152,11 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
     [IsoId("_dsyZmji8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Chain Address Or Wallet")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckChainAdrOrWllt")]
     #endif
+    [IsoXmlTag("BlckChainAdrOrWllt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockChainAddressWallet7? BlockChainAddressOrWallet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,12 +169,11 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_dsyZnDi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification156? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -195,12 +186,11 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     ///  Provides the history of status and reasons for a pending, posted or cancelled transaction.
     /// </summary>
     [IsoId("_dsyZnji8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Trail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsTrl")]
     #endif
+    [IsoXmlTag("StsTrl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusTrail11? StatusTrail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -213,7 +203,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesSettlementTransactionAuditTrailReport002V05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesSettlementTransactionAuditTrailReport002V05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesSettlementTransactionAuditTrailReport002V05Document ToDocument()
     {
@@ -223,7 +213,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05 : IO
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionAuditTrailReport002V05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesSettlementTransactionAuditTrailReport002V05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesSettlementTransactionAuditTrailReport002V05Document : IOuterDocument<SecuritiesSettlementTransactionAuditTrailReport002V05>
@@ -240,7 +230,7 @@ public partial record SecuritiesSettlementTransactionAuditTrailReport002V05Docum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesSettlementTransactionAuditTrailReport002V05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesSettlementTransactionAuditTrailReport002V05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSettlementTransactionAuditTrailReport002V05 Message { get; init; }

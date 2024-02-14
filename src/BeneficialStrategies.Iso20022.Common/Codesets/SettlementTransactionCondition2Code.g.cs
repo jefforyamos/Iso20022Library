@@ -21,7 +21,7 @@ public enum SettlementTransactionCondition2Code
 {
     /// <summary>
     /// Transfer of ownership of the asset to another party during the closing of an option.
-    /// Encoded/decoded by serializers as "ASGN".
+    /// Encoded/decoded by serializers as &quot;ASGN&quot;.
     /// </summary>
     [EnumMember(Value = "ASGN")]
     [IsoId("_ZNExk9p-Ed-ak6NoX_4Aeg_908732481")]
@@ -30,7 +30,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Transaction is a buy to cover.
-    /// Encoded/decoded by serializers as "BUTC".
+    /// Encoded/decoded by serializers as &quot;BUTC&quot;.
     /// </summary>
     [EnumMember(Value = "BUTC")]
     [IsoId("_ZNExlNp-Ed-ak6NoX_4Aeg_-1733607307")]
@@ -39,7 +39,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Tax-exempt financial instruments are to be settled.
-    /// Encoded/decoded by serializers as "CLEN".
+    /// Encoded/decoded by serializers as &quot;CLEN&quot;.
     /// </summary>
     [EnumMember(Value = "CLEN")]
     [IsoId("_ZNExldp-Ed-ak6NoX_4Aeg_-2025565045")]
@@ -48,7 +48,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Taxable financial instruments are to be settled.
-    /// Encoded/decoded by serializers as "DIRT".
+    /// Encoded/decoded by serializers as &quot;DIRT&quot;.
     /// </summary>
     [EnumMember(Value = "DIRT")]
     [IsoId("_ZNExltp-Ed-ak6NoX_4Aeg_-1847446373")]
@@ -57,7 +57,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Matching receipt instruction not required (only for concerned international or national central securities depositories).
-    /// Encoded/decoded by serializers as "DLWM".
+    /// Encoded/decoded by serializers as &quot;DLWM&quot;.
     /// </summary>
     [EnumMember(Value = "DLWM")]
     [IsoId("_ZNExl9p-Ed-ak6NoX_4Aeg_-88339872")]
@@ -66,7 +66,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Settlement transactions relates to drawn securities.
-    /// Encoded/decoded by serializers as "DRAW".
+    /// Encoded/decoded by serializers as &quot;DRAW&quot;.
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_ZNExmNp-Ed-ak6NoX_4Aeg_1564287636")]
@@ -75,7 +75,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Settlement transaction relates to options, futures or derivatives that are exercised.
-    /// Encoded/decoded by serializers as "EXER".
+    /// Encoded/decoded by serializers as &quot;EXER&quot;.
     /// </summary>
     [EnumMember(Value = "EXER")]
     [IsoId("_ZNOikNp-Ed-ak6NoX_4Aeg_1272329898")]
@@ -84,7 +84,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Delivery will be made free of payment but a clean payment order will be sent.
-    /// Encoded/decoded by serializers as "FRCL".
+    /// Encoded/decoded by serializers as &quot;FRCL&quot;.
     /// </summary>
     [EnumMember(Value = "FRCL")]
     [IsoId("_ZNOikdp-Ed-ak6NoX_4Aeg_1450448570")]
@@ -93,7 +93,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Settlement transaction relates to options, futures or derivatives that are expired worthless.
-    /// Encoded/decoded by serializers as "KNOC".
+    /// Encoded/decoded by serializers as &quot;KNOC&quot;.
     /// </summary>
     [EnumMember(Value = "KNOC")]
     [IsoId("_ZNOiktp-Ed-ak6NoX_4Aeg_-1085412225")]
@@ -102,7 +102,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Securities are to be physically settled.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_ZNOik9p-Ed-ak6NoX_4Aeg_567215283")]
@@ -111,7 +111,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Relates to transaction on a security that is not eligible at the Central Security Depository (CSD) but for which the payment will be enacted by the central securities depository.
-    /// Encoded/decoded by serializers as "RESI".
+    /// Encoded/decoded by serializers as &quot;RESI&quot;.
     /// </summary>
     [EnumMember(Value = "RESI")]
     [IsoId("_ZNOilNp-Ed-ak6NoX_4Aeg_275257545")]
@@ -120,7 +120,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Account is used for short sale orders.
-    /// Encoded/decoded by serializers as "SHOR".
+    /// Encoded/decoded by serializers as &quot;SHOR&quot;.
     /// </summary>
     [EnumMember(Value = "SHOR")]
     [IsoId("_ZNOildp-Ed-ak6NoX_4Aeg_453376217")]
@@ -129,7 +129,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Settlement transactions to be settled with special delivery.
-    /// Encoded/decoded by serializers as "SPDL".
+    /// Encoded/decoded by serializers as &quot;SPDL&quot;.
     /// </summary>
     [EnumMember(Value = "SPDL")]
     [IsoId("_ZNOiltp-Ed-ak6NoX_4Aeg_-429857070")]
@@ -138,7 +138,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Money and financial instruments settle in different locations.
-    /// Encoded/decoded by serializers as "SPST".
+    /// Encoded/decoded by serializers as &quot;SPST&quot;.
     /// </summary>
     [EnumMember(Value = "SPST")]
     [IsoId("_ZNOil9p-Ed-ak6NoX_4Aeg_-721814808")]
@@ -147,7 +147,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Settlement transaction relates to options, futures or derivatives that have expired.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_ZNOimNp-Ed-ak6NoX_4Aeg_1215410365")]
@@ -156,7 +156,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Position to cover the pending sale will be available by contractual settlement date (accounting information).
-    /// Encoded/decoded by serializers as "PENS".
+    /// Encoded/decoded by serializers as &quot;PENS&quot;.
     /// </summary>
     [EnumMember(Value = "PENS")]
     [IsoId("_ZNOimdp-Ed-ak6NoX_4Aeg_-1426929423")]
@@ -165,7 +165,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Delivery cannot be performed until money is received.
-    /// Encoded/decoded by serializers as "UNEX".
+    /// Encoded/decoded by serializers as &quot;UNEX&quot;.
     /// </summary>
     [EnumMember(Value = "UNEX")]
     [IsoId("_ZNYTkNp-Ed-ak6NoX_4Aeg_-1067811063")]
@@ -174,7 +174,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// Securities are not be delivered but segregated following triparty collateral transaction.
-    /// Encoded/decoded by serializers as "TRIP".
+    /// Encoded/decoded by serializers as &quot;TRIP&quot;.
     /// </summary>
     [EnumMember(Value = "TRIP")]
     [IsoId("_ZNYTkdp-Ed-ak6NoX_4Aeg_-577391150")]
@@ -183,7 +183,7 @@ public enum SettlementTransactionCondition2Code
     
     /// <summary>
     /// No market claim should be automatically generated.
-    /// Encoded/decoded by serializers as "NOMC".
+    /// Encoded/decoded by serializers as &quot;NOMC&quot;.
     /// </summary>
     [EnumMember(Value = "NOMC")]
     [IsoId("_ZNYTktp-Ed-ak6NoX_4Aeg_-1819459594")]

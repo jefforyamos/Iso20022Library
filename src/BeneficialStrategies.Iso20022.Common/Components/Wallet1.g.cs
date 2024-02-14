@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Container for tenders used by the customer to perform the payment transaction.
 /// </summary>
 [IsoId("_kmWJIEanEeeIjf8aP9KbJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Wallet")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Wallet1
     /// Identification of the provider of the wallet.
     /// </summary>
     [IsoId("_LWrmQEaoEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Provider")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prvdr")]
     #endif
+    [IsoXmlTag("Prvdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Provider { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record Wallet1
     /// Additional data associated with wallet.
     /// </summary>
     [IsoId("_Xa5YkBWJEeiTbY4xN42WAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Wallet Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlWlltData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlWlltData")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AdditionalWalletData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

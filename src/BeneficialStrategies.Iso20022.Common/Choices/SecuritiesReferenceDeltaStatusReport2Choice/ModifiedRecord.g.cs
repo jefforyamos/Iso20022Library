@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
     /// Specifies data that has been modified since the previous report.
     /// </summary>
     [IsoId("_2XC94nv0EeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Record")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,15 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
         /// This identification will be used in the status advice report sent back.
         /// </summary>
         [IsoId("_G_iQlX5aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Technical Record Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TechRcrdId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TechRcrdId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
         /// Attributes and characteristics of the financial instrument.
         /// </summary>
         [IsoId("_G_iQl35aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument General Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmGnlAttrbts")]
         #endif
+        [IsoXmlTag("FinInstrmGnlAttrbts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecurityInstrumentDescription9 FinancialInstrumentGeneralAttributes { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecurityInstrumentDescription9 FinancialInstrumentGeneralAttributes { get; init; } 
+        public required SecurityInstrumentDescription9 FinancialInstrumentGeneralAttributes { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecurityInstrumentDescription9 FinancialInstrumentGeneralAttributes { get; init; } 
         #else
@@ -100,16 +95,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
         /// LEI of Issuer or trading venue operator.
         /// </summary>
         [IsoId("_G_iQmX5aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
+        [IsoXmlTag("Issr")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoLEIIdentifier Issuer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Issuer { get; init; } 
+        public required System.String Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Issuer { get; init; } 
         #else
@@ -120,12 +115,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
         /// Traded venue related attributes.
         /// </summary>
         [IsoId("_G_iQm35aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Trading Venue Related Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TradgVnRltdAttrbts")]
         #endif
+        [IsoXmlTag("TradgVnRltdAttrbts")]
         public TradingVenueAttributes1? TradingVenueRelatedAttributes { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _G_iQm35aEea2k7EBUopqxw
         
@@ -133,12 +127,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
         /// Attributes specific to debt instruments.
         /// </summary>
         [IsoId("_G_iQnX5aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debt Instrument Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DebtInstrmAttrbts")]
         #endif
+        [IsoXmlTag("DebtInstrmAttrbts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DebtInstrument2? DebtInstrumentAttributes { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,12 +144,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
         /// Attributes specific to derivative instruments.
         /// </summary>
         [IsoId("_G_iQn35aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Derivative Instrument Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DerivInstrmAttrbts")]
         #endif
+        [IsoXmlTag("DerivInstrmAttrbts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DerivativeInstrument5? DerivativeInstrumentAttributes { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +161,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
         /// Technical attributes.
         /// </summary>
         [IsoId("_G_iQoX5aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Technical Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TechAttrbts")]
         #endif
+        [IsoXmlTag("TechAttrbts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public RecordTechnicalData3? TechnicalAttributes { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

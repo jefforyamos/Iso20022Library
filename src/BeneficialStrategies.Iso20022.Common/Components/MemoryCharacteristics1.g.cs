@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics of a hardware memory module.
 /// </summary>
 [IsoId("_V7AH8Ax0EeKa_56Jbsi1RQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Memory Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record MemoryCharacteristics1
     /// Identification or name of the memory.
     /// </summary>
     [IsoId("_gEGe4Ax0EeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,16 +73,16 @@ public partial record MemoryCharacteristics1
     /// Total size of the memory unit.
     /// </summary>
     [IsoId("_mRenIAx0EeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSz")]
     #endif
+    [IsoXmlTag("TtlSz")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber TotalSize { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalSize { get; init; } 
+    public required System.UInt64 TotalSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalSize { get; init; } 
     #else
@@ -97,16 +93,16 @@ public partial record MemoryCharacteristics1
     /// Total size of the available memory.
     /// </summary>
     [IsoId("_sxTKQAx0EeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Free Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FreeSz")]
     #endif
+    [IsoXmlTag("FreeSz")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber FreeSize { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 FreeSize { get; init; } 
+    public required System.UInt64 FreeSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 FreeSize { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record MemoryCharacteristics1
     /// Memory unit of the sizes.
     /// </summary>
     [IsoId("_344isAx0EeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Unit")]
     #endif
+    [IsoXmlTag("Unit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MemoryUnit1Code Unit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MemoryUnit1Code Unit { get; init; } 
+    public required MemoryUnit1Code Unit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MemoryUnit1Code Unit { get; init; } 
     #else

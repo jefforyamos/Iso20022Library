@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BenchmarkReport1Choice.Update))]
     [KnownType(typeof(BenchmarkReport1Choice.Cancellation))]
     [IsoId("_P2VfczrWEeedCZZ8dIPp6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Benchmark Report 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

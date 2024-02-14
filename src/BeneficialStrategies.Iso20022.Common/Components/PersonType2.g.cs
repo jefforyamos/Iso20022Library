@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of customer identification requested for a person.
 /// </summary>
 [IsoId("_zudpQeH5Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Person Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,12 @@ public partial record PersonType2
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
     [IsoId("_zv3-geH5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date And Place Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtAndPlcOfBirth")]
     #endif
+    [IsoXmlTag("DtAndPlcOfBirth")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? DateAndPlaceOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +62,12 @@ public partial record PersonType2
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
     [IsoId("_1-ZrkeH5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Email Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EmailAdr")]
     #endif
+    [IsoXmlTag("EmailAdr")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? EmailAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,12 +80,11 @@ public partial record PersonType2
     /// Unique identification of a person, as assigned by an institution, using an identification scheme is requested.
     /// </summary>
     [IsoId("_zv3-g-H5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericPersonType1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

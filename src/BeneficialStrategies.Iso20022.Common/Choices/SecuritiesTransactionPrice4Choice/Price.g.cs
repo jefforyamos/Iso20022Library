@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice4Choic
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
     [IsoId("_IEZAAOI_EeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

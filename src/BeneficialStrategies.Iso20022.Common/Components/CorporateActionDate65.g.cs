@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies corporate action dates.
 /// </summary>
 [IsoId("_wZOj8bQZEeeKRKrD60ELBQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CorporateActionDate65
     /// Date/time of the posting (credit or debit) to the account.
     /// </summary>
     [IsoId("_wp1LwbQZEeeKRKrD60ELBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstngDt")]
     #endif
+    [IsoXmlTag("PstngDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ PostingDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTime2Choice_ PostingDate { get; init; } 
+    public required DateAndDateTime2Choice_ PostingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTime2Choice_ PostingDate { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CorporateActionDate65
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
     [IsoId("_wp1LybQZEeeKRKrD60ELBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record CorporateActionDate65
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
     [IsoId("_wp1L0bQZEeeKRKrD60ELBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange Rate Fixing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FXRateFxgDt")]
     #endif
+    [IsoXmlTag("FXRateFxgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? ForeignExchangeRateFixingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record CorporateActionDate65
     /// Date/time on which a payment can be made, for example, if the payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
     [IsoId("_wp1L2bQZEeeKRKrD60ELBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Earliest Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlstPmtDt")]
     #endif
+    [IsoXmlTag("EarlstPmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EarliestPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record CorporateActionDate65
     /// Date on which the distribution is due to take place (cash and/or securities).
     /// </summary>
     [IsoId("_wp1L4bQZEeeKRKrD60ELBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDt")]
     #endif
+    [IsoXmlTag("PmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? PaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Response data to a stored value request.
 /// </summary>
 [IsoId("_IGTQgXHEEe2TbaNWBpRZpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Stored Value Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record StoredValueResponse6
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
     [IsoId("_INZ-EXHEEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleTxId")]
     #endif
+    [IsoXmlTag("SaleTxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record StoredValueResponse6
     /// Unique identification of a POI transaction.
     /// </summary>
     [IsoId("_INZ-E3HEEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POITxId")]
     #endif
+    [IsoXmlTag("POITxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifier1 POITransactionIdentification { get; init; } 
+    public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record StoredValueResponse6
     /// Result of loading/reloading a stored value card.
     /// </summary>
     [IsoId("_INZ-FXHEEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rslt")]
     #endif
+    [IsoXmlTag("Rslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueData6? Result { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record StoredValueResponse6
     /// Customer or Merchant payment receipt.
     /// </summary>
     [IsoId("_INZ-F3HEEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receipt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rct")]
     #endif
+    [IsoXmlTag("Rct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentReceipt5? Receipt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

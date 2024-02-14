@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentificationOrCashPurpos
     /// Identifies the market for the settlement. This consists of the country code and the asset class. For example, if the SSI is for equities in the DTCC, the country code is ‘US’ and the classification type is ‘equity’.
     /// </summary>
     [IsoId("_kz-v4EiNEeOdL6nMHefDgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Instruction Market Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentificationOrCashPurpos
         /// Country in which the financial instrument is to be settled.
         /// </summary>
         [IsoId("_hzs3oNTPEeKvJeoOII0e7w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Country")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ctry")]
         #endif
+        [IsoXmlTag("Ctry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CountryCode Country { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Country { get; init; } 
+        public required string Country { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Country { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentificationOrCashPurpos
         /// Type of instrument covered by the SSI instruction.
         /// </summary>
         [IsoId("_rmMscNTPEeKvJeoOII0e7w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Classification Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClssfctnTp")]
         #endif
+        [IsoXmlTag("ClssfctnTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ClassificationType1Choice_ ClassificationType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ClassificationType1Choice_ ClassificationType { get; init; } 
+        public required ClassificationType1Choice_ ClassificationType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ClassificationType1Choice_ ClassificationType { get; init; } 
         #else
@@ -97,12 +93,11 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentificationOrCashPurpos
         /// Purpose of the instruction, for example, whether for regular payments, margin payments related to a collateral movement, securities settlements, securities lending.
         /// </summary>
         [IsoId("_FcKBEtQQEeKSSosHwGnjNw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settlement Purpose")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttlmPurp")]
         #endif
+        [IsoXmlTag("SttlmPurp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Purpose3Choice_? SettlementPurpose { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the inquiry response message.
 /// </summary>
 [IsoId("_gk0NkVfjEeeg8PDQoAs78Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Inquiry Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record InquiryResponse1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_gygrUVfjEeeg8PDQoAs78Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Environment15 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Environment15 Environment { get; init; } 
+    public required Environment15 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Environment15 Environment { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record InquiryResponse1
     /// Context in which the card transaction is performed.
     /// </summary>
     [IsoId("_mzS0Ed8REeeNTcLLmuYy-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Context2 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Context2 Context { get; init; } 
+    public required Context2 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Context2 Context { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record InquiryResponse1
     /// Card transaction for which an authorisation is requested.
     /// </summary>
     [IsoId("_gygrVVfjEeeg8PDQoAs78Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Transaction87 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Transaction87 Transaction { get; init; } 
+    public required Transaction87 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Transaction87 Transaction { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record InquiryResponse1
     /// Result of the inquiry processing.
     /// </summary>
     [IsoId("_xSGF8e-_EeeJbIMlSHFAag")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgRslt")]
     #endif
+    [IsoXmlTag("PrcgRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingResult5 ProcessingResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingResult5 ProcessingResult { get; init; } 
+    public required ProcessingResult5 ProcessingResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingResult5 ProcessingResult { get; init; } 
     #else
@@ -135,15 +129,12 @@ public partial record InquiryResponse1
     /// ISO 8583 bit 55
     /// </summary>
     [IsoId("_gygrV1fjEeeg8PDQoAs78Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRltdData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ICCRltdData")]
+    [IsoSimpleType(IsoSimpleType.Max10KHexBinaryText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KHexBinaryText? ICCRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +147,11 @@ public partial record InquiryResponse1
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
     [IsoId("_u0higdXwEee5XtaG1wqDfQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdData")]
     #endif
+    [IsoXmlTag("PrtctdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectedData1? ProtectedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +164,11 @@ public partial record InquiryResponse1
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
     [IsoId("_5YDqUaK5EeeQobSgLcPRvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

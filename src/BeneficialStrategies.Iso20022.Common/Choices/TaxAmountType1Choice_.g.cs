@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxAmountType1Choice.Code))]
     [KnownType(typeof(TaxAmountType1Choice.Proprietary))]
     [IsoId("_tsra0lkyEeGeoaLUQk__nA_-1905418813")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Amount Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

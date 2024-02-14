@@ -21,7 +21,7 @@ public enum BalanceType13Code
 {
     /// <summary>
     /// Balance attributed to investments at value.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_m5rEcPNBEeCuA5Tr22BnwA_937976833")]
@@ -30,7 +30,7 @@ public enum BalanceType13Code
     
     /// <summary>
     /// Balance attributed to cash and cash equivalents.
-    /// Encoded/decoded by serializers as "CASE".
+    /// Encoded/decoded by serializers as &quot;CASE&quot;.
     /// </summary>
     [EnumMember(Value = "CASE")]
     [IsoId("_m5rEcfNBEeCuA5Tr22BnwA_937976858")]
@@ -39,7 +39,7 @@ public enum BalanceType13Code
     
     /// <summary>
     /// Balance attributed to borrowings.
-    /// Encoded/decoded by serializers as "BORR".
+    /// Encoded/decoded by serializers as &quot;BORR&quot;.
     /// </summary>
     [EnumMember(Value = "BORR")]
     [IsoId("_m5rEcvNBEeCuA5Tr22BnwA_937976893")]
@@ -48,7 +48,7 @@ public enum BalanceType13Code
     
     /// <summary>
     /// Balance attributed to revenues; including dividends, interest, net realised gains/losses etc.
-    /// Encoded/decoded by serializers as "REVE".
+    /// Encoded/decoded by serializers as &quot;REVE&quot;.
     /// </summary>
     [EnumMember(Value = "REVE")]
     [IsoId("_m5rEc_NBEeCuA5Tr22BnwA_937976935")]
@@ -57,7 +57,7 @@ public enum BalanceType13Code
     
     /// <summary>
     /// Balance attributed to expenses.
-    /// Encoded/decoded by serializers as "EXPN".
+    /// Encoded/decoded by serializers as &quot;EXPN&quot;.
     /// </summary>
     [EnumMember(Value = "EXPN")]
     [IsoId("_m5rEdPNBEeCuA5Tr22BnwA_937976988")]
@@ -66,7 +66,7 @@ public enum BalanceType13Code
     
     /// <summary>
     /// Balance attributed to investor inflow/outflow (creations, cancellations, income distributions).
-    /// Encoded/decoded by serializers as "IIOF".
+    /// Encoded/decoded by serializers as &quot;IIOF&quot;.
     /// </summary>
     [EnumMember(Value = "IIOF")]
     [IsoId("_m5rEdfNBEeCuA5Tr22BnwA_481531555")]
@@ -75,7 +75,7 @@ public enum BalanceType13Code
     
     /// <summary>
     /// Balance attributed according to a different classification, which is not explictly defined.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_m50OYPNBEeCuA5Tr22BnwA_1924228507")]
@@ -84,7 +84,7 @@ public enum BalanceType13Code
     
     /// <summary>
     /// Balance attributed to payables.
-    /// Encoded/decoded by serializers as "PAYA".
+    /// Encoded/decoded by serializers as &quot;PAYA&quot;.
     /// </summary>
     [EnumMember(Value = "PAYA")]
     [IsoId("_m50OYfNBEeCuA5Tr22BnwA_236468793")]
@@ -93,7 +93,7 @@ public enum BalanceType13Code
     
     /// <summary>
     /// Balance attributed to receivables.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_m50OYvNBEeCuA5Tr22BnwA_147557580")]

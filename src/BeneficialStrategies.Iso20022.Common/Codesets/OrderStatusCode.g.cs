@@ -21,7 +21,7 @@ public enum OrderStatusCode
 {
     /// <summary>
     /// Outstanding order with no executions.
-    /// Encoded/decoded by serializers as "NEWW".
+    /// Encoded/decoded by serializers as &quot;NEWW&quot;.
     /// </summary>
     [EnumMember(Value = "NEWW")]
     [IsoId("_aSXltdp-Ed-ak6NoX_4Aeg_336257669")]
@@ -30,7 +30,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Outstanding order with executions and remaining quantity.
-    /// Encoded/decoded by serializers as "PARF".
+    /// Encoded/decoded by serializers as &quot;PARF&quot;.
     /// </summary>
     [EnumMember(Value = "PARF")]
     [IsoId("_aSXlttp-Ed-ak6NoX_4Aeg_336257670")]
@@ -39,7 +39,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order completely filled, no remaining quantity.
-    /// Encoded/decoded by serializers as "FILL".
+    /// Encoded/decoded by serializers as &quot;FILL&quot;.
     /// </summary>
     [EnumMember(Value = "FILL")]
     [IsoId("_aSXlt9p-Ed-ak6NoX_4Aeg_336257671")]
@@ -48,7 +48,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been partially filled, and is done for the day, ie, no further executions will take place today.
-    /// Encoded/decoded by serializers as "DONE".
+    /// Encoded/decoded by serializers as &quot;DONE&quot;.
     /// </summary>
     [EnumMember(Value = "DONE")]
     [IsoId("_aSXluNp-Ed-ak6NoX_4Aeg_336257672")]
@@ -57,7 +57,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Cancelled order with or without executions.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_aSXludp-Ed-ak6NoX_4Aeg_336257673")]
@@ -66,7 +66,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been replaced.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_aShWsNp-Ed-ak6NoX_4Aeg_336257674")]
@@ -75,7 +75,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_aShWsdp-Ed-ak6NoX_4Aeg_336257682")]
@@ -84,7 +84,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been stopped at the exchange. Used when guaranteeing or protecting a price and quantity.
-    /// Encoded/decoded by serializers as "STOP".
+    /// Encoded/decoded by serializers as &quot;STOP&quot;.
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_aShWstp-Ed-ak6NoX_4Aeg_336257683")]
@@ -93,7 +93,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been rejected by sell-side. NOTE: An order can be rejected subsequent to order acknowledgment, i.e. an order can pass from New to Rejected status.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_aShWs9p-Ed-ak6NoX_4Aeg_336257684")]
@@ -102,7 +102,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been placed in suspended state at the request of the client.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_aShWtNp-Ed-ak6NoX_4Aeg_336257685")]
@@ -111,7 +111,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been received by sell-side system but not yet accepted for execution. An execution message with this status will only be sent in response to a Status Request message.
-    /// Encoded/decoded by serializers as "PENN".
+    /// Encoded/decoded by serializers as &quot;PENN&quot;.
     /// </summary>
     [EnumMember(Value = "PENN")]
     [IsoId("_aShWtdp-Ed-ak6NoX_4Aeg_336257686")]
@@ -120,7 +120,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been completed for the day (either filled or done for day). Commission or currency settlement details have been calculated and reported in this execution message.
-    /// Encoded/decoded by serializers as "CALC".
+    /// Encoded/decoded by serializers as &quot;CALC&quot;.
     /// </summary>
     [EnumMember(Value = "CALC")]
     [IsoId("_aShWttp-Ed-ak6NoX_4Aeg_336257687")]
@@ -128,8 +128,8 @@ public enum OrderStatusCode
     Calculated,
     
     /// <summary>
-    /// Order has been cancelled in the broker's system due to time in force instructions.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Order has been cancelled in the broker&apos;s system due to time in force instructions.
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_aShWt9p-Ed-ak6NoX_4Aeg_336257696")]
@@ -138,7 +138,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been received and is being evaluated for pricing.
-    /// Encoded/decoded by serializers as "ACBI".
+    /// Encoded/decoded by serializers as &quot;ACBI&quot;.
     /// </summary>
     [EnumMember(Value = "ACBI")]
     [IsoId("_aShWuNp-Ed-ak6NoX_4Aeg_336257697")]
@@ -147,7 +147,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order with an Order Cancel/Replace Request pending, used to confirm receipt of an Order Cancel/Replace Request. Does not indicate that the order has been replaced.
-    /// Encoded/decoded by serializers as "PENR".
+    /// Encoded/decoded by serializers as &quot;PENR&quot;.
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_aShWudp-Ed-ak6NoX_4Aeg_336257698")]
@@ -156,7 +156,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Request for cancellation instruction for the order has been accepted and processed; the order has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_aSqgoNp-Ed-ak6NoX_4Aeg_1778081951")]
@@ -165,7 +165,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order is accepted and is ready for execution (execution is the moment when pricing is applied).
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aSqgodp-Ed-ak6NoX_4Aeg_1778082064")]
@@ -174,7 +174,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order is already executed and confirmation has been sent.
-    /// Encoded/decoded by serializers as "COSE".
+    /// Encoded/decoded by serializers as &quot;COSE&quot;.
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_aSqgotp-Ed-ak6NoX_4Aeg_1778082089")]
@@ -183,7 +183,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_aSqgo9p-Ed-ak6NoX_4Aeg_1778082124")]
@@ -192,7 +192,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aSqgpNp-Ed-ak6NoX_4Aeg_1778082141")]
@@ -201,7 +201,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order is settled. The cash is credited or debited.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_aSqgpdp-Ed-ak6NoX_4Aeg_1338641451")]
@@ -210,7 +210,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Communication problems with the next party.
-    /// Encoded/decoded by serializers as "CPNP".
+    /// Encoded/decoded by serializers as &quot;CPNP&quot;.
     /// </summary>
     [EnumMember(Value = "CPNP")]
     [IsoId("_aSqgptp-Ed-ak6NoX_4Aeg_1338641823")]
@@ -219,7 +219,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order confirmation cancellation has been sent and will be followed by a confirmation amendment, or a confirmation amendment has been sent.
-    /// Encoded/decoded by serializers as "CNFC".
+    /// Encoded/decoded by serializers as &quot;CNFC&quot;.
     /// </summary>
     [EnumMember(Value = "CNFC")]
     [IsoId("_aSqgp9p-Ed-ak6NoX_4Aeg_1338642321")]
@@ -228,7 +228,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order has been partially filled and will not be filled further.
-    /// Encoded/decoded by serializers as "DONF".
+    /// Encoded/decoded by serializers as &quot;DONF&quot;.
     /// </summary>
     [EnumMember(Value = "DONF")]
     [IsoId("_aSqgqNp-Ed-ak6NoX_4Aeg_1338642458")]
@@ -237,7 +237,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order is open.
-    /// Encoded/decoded by serializers as "OPOD".
+    /// Encoded/decoded by serializers as &quot;OPOD&quot;.
     /// </summary>
     [EnumMember(Value = "OPOD")]
     [IsoId("_aSqgqdp-Ed-ak6NoX_4Aeg_1338643157")]
@@ -246,7 +246,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order confirmation received from agent is invalid.
-    /// Encoded/decoded by serializers as "IACO".
+    /// Encoded/decoded by serializers as &quot;IACO&quot;.
     /// </summary>
     [EnumMember(Value = "IACO")]
     [IsoId("_aS0RoNp-Ed-ak6NoX_4Aeg_1338643312")]
@@ -255,7 +255,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Order is accepted and is ready for execution (execution is the moment when pricing is applied). Cash is settled, but the order is not executed.
-    /// Encoded/decoded by serializers as "CSNE".
+    /// Encoded/decoded by serializers as &quot;CSNE&quot;.
     /// </summary>
     [EnumMember(Value = "CSNE")]
     [IsoId("_aS0Rodp-Ed-ak6NoX_4Aeg_-1535100428")]
@@ -264,7 +264,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Indicates that a list has been received and the sell side is working it.
-    /// Encoded/decoded by serializers as "EXEC".
+    /// Encoded/decoded by serializers as &quot;EXEC&quot;.
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_aS0Rotp-Ed-ak6NoX_4Aeg_-27867462")]
@@ -273,7 +273,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Indicates that a cancellation request has been received and the sell side is in the process of pulling any orders that were being worked. The status of individual order can be found out from the detail repeating group.
-    /// Encoded/decoded by serializers as "CACE".
+    /// Encoded/decoded by serializers as &quot;CACE&quot;.
     /// </summary>
     [EnumMember(Value = "CACE")]
     [IsoId("_aS0Ro9p-Ed-ak6NoX_4Aeg_569382449")]
@@ -282,7 +282,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Used whenever any of the individual orders have a status that requires something to be done. For instance, an alert would be used when a buy-side firm has submitted a list that has individual stock reject that have not been addressed.
-    /// Encoded/decoded by serializers as "ALER".
+    /// Encoded/decoded by serializers as &quot;ALER&quot;.
     /// </summary>
     [EnumMember(Value = "ALER")]
     [IsoId("_aS0RpNp-Ed-ak6NoX_4Aeg_-554023409")]
@@ -291,7 +291,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Non-quote orders that are tradable.
-    /// Encoded/decoded by serializers as "ACTI".
+    /// Encoded/decoded by serializers as &quot;ACTI&quot;.
     /// </summary>
     [EnumMember(Value = "ACTI")]
     [IsoId("_WRblQGvsEe2Re-GccwOX8g")]
@@ -300,7 +300,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Quotes that can be executed.
-    /// Encoded/decoded by serializers as "FIRM".
+    /// Encoded/decoded by serializers as &quot;FIRM&quot;.
     /// </summary>
     [EnumMember(Value = "FIRM")]
     [IsoId("_amoD4GvsEe2Re-GccwOX8g")]
@@ -309,7 +309,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Used for strategy orders that are derived from implied in or implied out functionality.
-    /// Encoded/decoded by serializers as "IMPL".
+    /// Encoded/decoded by serializers as &quot;IMPL&quot;.
     /// </summary>
     [EnumMember(Value = "IMPL")]
     [IsoId("_dZYfYGvsEe2Re-GccwOX8g")]
@@ -318,7 +318,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Non-quote orders that are not tradable.
-    /// Encoded/decoded by serializers as "INAC".
+    /// Encoded/decoded by serializers as &quot;INAC&quot;.
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_gZRX8GvsEe2Re-GccwOX8g")]
@@ -327,7 +327,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Quotes that are visible but cannot be executed. Includes warrants in some trading venue.
-    /// Encoded/decoded by serializers as "INDI".
+    /// Encoded/decoded by serializers as &quot;INDI&quot;.
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_jhIgwGvsEe2Re-GccwOX8g")]
@@ -336,7 +336,7 @@ public enum OrderStatusCode
     
     /// <summary>
     /// Orders that are routed by the trading venue to other venues.
-    /// Encoded/decoded by serializers as "ROUT".
+    /// Encoded/decoded by serializers as &quot;ROUT&quot;.
     /// </summary>
     [EnumMember(Value = "ROUT")]
     [IsoId("_mcA9gGvsEe2Re-GccwOX8g")]

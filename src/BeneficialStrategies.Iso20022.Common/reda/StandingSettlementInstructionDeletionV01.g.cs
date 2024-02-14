@@ -35,19 +35,17 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// • A counterparty in a transaction, for example:
 /// 	- an investment manager (executing broker),
 /// 	- a global custodian (executing broker, prime broker)
-/// • A vendor's application communicating on behalf of an account servicer or counterparty
+/// • A vendor&apos;s application communicating on behalf of an account servicer or counterparty
 /// The receiver is:
 /// • An account owner, for example, an investment manager, hedge fund administrator or a party to which SSI operations have been outsourced
 /// • A counterparty, for example:
 /// 	- an investment manager (executing broker)
 /// 	- a global custodian (executing broker, prime broker)
-/// • A vendor's application communicating on behalf of the account owner or counterparty.
+/// • A vendor&apos;s application communicating on behalf of the account owner or counterparty.
 /// </summary>
 [Description(@"Scope|An instructing party sends the StandingSettlementInstructionDeletion message to the receiver to delete a previously sent StandingSettlementInstruction message. The message can also be used to notify a counterparty of the deletion of a standing settlement information.||Usage|The instructing party (initiator) is:|• An account servicer, for example, a global custodian or prime broker|• A counterparty in a transaction, for example:|	- an investment manager (executing broker),|	- a global custodian (executing broker, prime broker)|• A vendor's application communicating on behalf of an account servicer or counterparty|The receiver is:|• An account owner, for example, an investment manager, hedge fund administrator or a party to which SSI operations have been outsourced|• A counterparty, for example:|	- an investment manager (executing broker)|	- a global custodian (executing broker, prime broker)|• A vendor's application communicating on behalf of the account owner or counterparty.")]
 [IsoId("_n9oL6tQiEeKvJeoOII0e7w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Settlement Instruction Deletion V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -93,19 +91,17 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord<St
     /// Reference of this message.
     /// </summary>
     [IsoId("_MwZHMewmEeWkJ9nstgT-Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Reference Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRefId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgRefId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageReferenceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageReferenceIdentification { get; init; } 
+    public required System.String MessageReferenceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageReferenceIdentification { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord<St
     /// Date on which the SSI is effective.
     /// </summary>
     [IsoId("_n9oL89QiEeKvJeoOII0e7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDtDtls")]
     #endif
+    [IsoXmlTag("FctvDtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EffectiveDate1? EffectiveDateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,16 +130,15 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord<St
     /// If no account or reference is available then “NONREF” must be specified.
     /// </summary>
     [IsoId("_n9oL7dQiEeKvJeoOII0e7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification26 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification26 AccountIdentification { get; init; } 
+    public required AccountIdentification26 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification26 AccountIdentification { get; init; } 
     #else
@@ -155,16 +149,15 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord<St
     /// Identifies the market for the standing settlement instruction.
     /// </summary>
     [IsoId("_hviQYVKyEeOsJr32EK1NAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktId")]
     #endif
+    [IsoXmlTag("MktId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; } 
+    public required MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; } 
     #else
@@ -175,16 +168,15 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord<St
     /// Settlement information that helps to identify the standing settlement instruction for which the deletion is sent.
     /// </summary>
     [IsoId("_EMun4VK0EeOsJr32EK1NAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtls")]
     #endif
+    [IsoXmlTag("SttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyOrCurrency1Choice_ SettlementDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyOrCurrency1Choice_ SettlementDetails { get; init; } 
+    public required PartyOrCurrency1Choice_ SettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyOrCurrency1Choice_ SettlementDetails { get; init; } 
     #else
@@ -195,12 +187,11 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord<St
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_1CltkdT_EeKnWItMEK8CZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -213,7 +204,7 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord<St
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StandingSettlementInstructionDeletionV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StandingSettlementInstructionDeletionV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StandingSettlementInstructionDeletionV01Document ToDocument()
     {
@@ -223,7 +214,7 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord<St
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StandingSettlementInstructionDeletionV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StandingSettlementInstructionDeletionV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StandingSettlementInstructionDeletionV01Document : IOuterDocument<StandingSettlementInstructionDeletionV01>
@@ -240,7 +231,7 @@ public partial record StandingSettlementInstructionDeletionV01Document : IOuterD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StandingSettlementInstructionDeletionV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StandingSettlementInstructionDeletionV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingSettlementInstructionDeletionV01 Message { get; init; }

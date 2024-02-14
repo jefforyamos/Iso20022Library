@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to a master agreement.
 /// </summary>
 [IsoId("_eh3qwA25EeWmAKKPnqYEVQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Master Agreement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MasterAgreement1
     /// Classification of a master agreement.
     /// </summary>
     [IsoId("_aTEJ0GYUEeedgsIRl3TXQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreementType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreementType1Choice_ Type { get; init; } 
+    public required AgreementType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreementType1Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record MasterAgreement1
     /// Reference to the year of the master agreement version used for the reported trade.
     /// </summary>
     [IsoId("_hm13ow25EeWmAKKPnqYEVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.ISORestrictedYear)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISORestrictedYear? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +86,13 @@ public partial record MasterAgreement1
     /// Additional information specifying the other type of the master agreement.
     /// </summary>
     [IsoId("_ev_BEGYUEeedgsIRl3TXQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Master Agreement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrMstrAgrmtDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrMstrAgrmtDtls")]
+    [IsoSimpleType(IsoSimpleType.Max50Text)]
     [StringLength(maximumLength: 50 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax50Text? OtherMasterAgreementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

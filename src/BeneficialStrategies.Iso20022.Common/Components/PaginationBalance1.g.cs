@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Balance of a financial instrument for a specific statement page.
 /// </summary>
 [IsoId("_RFBsYNp-Ed-ak6NoX_4Aeg_389014624")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pagination Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaginationBalance1
     /// Opening balance of the financial instrument in the statement.
     /// </summary>
     [IsoId("_RFBsYdp-Ed-ak6NoX_4Aeg_777817466")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Opening Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstOpngBal")]
     #endif
+    [IsoXmlTag("FrstOpngBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? FirstOpeningBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PaginationBalance1
     /// Opening balance of this page only. It must be the interemdiary closing balance of the previous page (part of the same statement).
     /// </summary>
     [IsoId("_RFBsYtp-Ed-ak6NoX_4Aeg_777817508")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Opening Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyOpngBal")]
     #endif
+    [IsoXmlTag("IntrmyOpngBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? IntermediaryOpeningBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PaginationBalance1
     /// Closing balance of the financial instrument in the statement.
     /// </summary>
     [IsoId("_RFBsY9p-Ed-ak6NoX_4Aeg_777817561")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Closing Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlClsgBal")]
     #endif
+    [IsoXmlTag("FnlClsgBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? FinalClosingBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record PaginationBalance1
     /// Closing Balance of this page only. Must be the interemdiary opening balance of the next page (part of the same statement).
     /// </summary>
     [IsoId("_RFBsZNp-Ed-ak6NoX_4Aeg_777817933")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Closing Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyClsgBal")]
     #endif
+    [IsoXmlTag("IntrmyClsgBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? IntermediaryClosingBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

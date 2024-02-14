@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The MoneyMarketStatisticalReportStatusAdvice message is sent by the relevant competent authority to the reporting agents to provide the status on the reported transactions.")]
 [IsoId("_1P-hEaieEeWHO_l3hf2rlA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Money Market Statistical Report Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     /// Provides the status on the global report.
     /// </summary>
     [IsoId("_1P-hE6ieEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRptHdr")]
     #endif
+    [IsoXmlTag("StsRptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoneyMarketStatusReportHeader1 StatusReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MoneyMarketStatusReportHeader1 StatusReportHeader { get; init; } 
+    public required MoneyMarketStatusReportHeader1 StatusReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MoneyMarketStatusReportHeader1 StatusReportHeader { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     /// Provides the status on an individual transaction and the related reason if required.
     /// </summary>
     [IsoId("_1P-hFaieEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MoneyMarketTransactionStatus2? TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_1P-hF6ieEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MoneyMarketStatisticalReportStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MoneyMarketStatisticalReportStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MoneyMarketStatisticalReportStatusAdviceV01Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01 : IOuterRecord
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketStatisticalReportStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MoneyMarketStatisticalReportStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MoneyMarketStatisticalReportStatusAdviceV01Document : IOuterDocument<MoneyMarketStatisticalReportStatusAdviceV01>
@@ -158,7 +153,7 @@ public partial record MoneyMarketStatisticalReportStatusAdviceV01Document : IOut
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MoneyMarketStatisticalReportStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MoneyMarketStatisticalReportStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoneyMarketStatisticalReportStatusAdviceV01 Message { get; init; }

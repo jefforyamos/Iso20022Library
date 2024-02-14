@@ -21,7 +21,7 @@ public enum Response4Code
 {
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_0y2tISxQEeW0Obqrzm1X8Q")]
@@ -30,7 +30,7 @@ public enum Response4Code
     
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_040yQSxQEeW0Obqrzm1X8Q")]
@@ -39,7 +39,7 @@ public enum Response4Code
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_1HPowSxQEeW0Obqrzm1X8Q")]

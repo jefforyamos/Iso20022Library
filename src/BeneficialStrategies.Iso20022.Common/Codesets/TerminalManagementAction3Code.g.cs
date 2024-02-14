@@ -21,7 +21,7 @@ public enum TerminalManagementAction3Code
 {
     /// <summary>
     /// Request to create or add the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "CREA".
+    /// Encoded/decoded by serializers as &quot;CREA&quot;.
     /// </summary>
     [EnumMember(Value = "CREA")]
     [IsoId("_r33vIY34EeWRwov1g9WL_A")]
@@ -30,7 +30,7 @@ public enum TerminalManagementAction3Code
     
     /// <summary>
     /// Request to delete the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "DELT".
+    /// Encoded/decoded by serializers as &quot;DELT&quot;.
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_sBQUoY34EeWRwov1g9WL_A")]
@@ -39,7 +39,7 @@ public enum TerminalManagementAction3Code
     
     /// <summary>
     /// Request to update the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "UPDT".
+    /// Encoded/decoded by serializers as &quot;UPDT&quot;.
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_sMIu8Y34EeWRwov1g9WL_A")]

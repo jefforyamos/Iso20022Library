@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains the content of a report.
 /// </summary>
 [IsoId("_dItHIMlVEeuJ35KoBRZFOg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,12 @@ public partial record ReportContent1
     /// Sequence number of the report line in the report.
     /// </summary>
     [IsoId("_3xe8kMlVEeuJ35KoBRZFOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Line Sequence")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptLineSeq")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("RptLineSeq")]
+    [IsoSimpleType(IsoSimpleType.Max10NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumericText? ReportLineSequence { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +67,15 @@ public partial record ReportContent1
     /// Formatted or unformatted report content.
     /// </summary>
     [IsoId("_GZ00EMlYEeuJ35KoBRZFOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Formatted Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrmtdCntt")]
     #endif
+    [IsoXmlTag("FrmtdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportContent1Choice_ FormattedContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportContent1Choice_ FormattedContent { get; init; } 
+    public required ReportContent1Choice_ FormattedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportContent1Choice_ FormattedContent { get; init; } 
     #else

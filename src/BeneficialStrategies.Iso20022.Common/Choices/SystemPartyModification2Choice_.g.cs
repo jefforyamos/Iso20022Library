@@ -28,9 +28,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SystemPartyModification2Choice.SystemRestriction))]
     [KnownType(typeof(SystemPartyModification2Choice.MarketSpecificAttribute))]
     [IsoId("_x87oIYv-Eei289CGNqs21g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Party Modification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

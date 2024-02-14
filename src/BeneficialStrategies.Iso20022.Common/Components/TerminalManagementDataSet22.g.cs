@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to the management plan of a point of interaction (POI).
 /// </summary>
 [IsoId("_uO6AsbC7EeamYaqfhG1ZuA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Terminal Management Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TerminalManagementDataSet22
     /// Identification of the data set containing the management plan.
     /// </summary>
     [IsoId("_uZ-BMbC7EeamYaqfhG1ZuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification6 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetIdentification6 Identification { get; init; } 
+    public required DataSetIdentification6 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetIdentification6 Identification { get; init; } 
     #else
@@ -71,15 +68,12 @@ public partial record TerminalManagementDataSet22
     /// Counter to identify a single data set within the whole transfer.
     /// </summary>
     [IsoId("_uZ-BM7C7EeamYaqfhG1ZuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Counter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqCntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SeqCntr")]
+    [IsoSimpleType(IsoSimpleType.Max9NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax9NumericText? SequenceCounter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +86,11 @@ public partial record TerminalManagementDataSet22
     /// Content of the management plan.
     /// </summary>
     [IsoId("_uZ-BNbC7EeamYaqfhG1ZuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntt")]
     #endif
+    [IsoXmlTag("Cntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ManagementPlanContent6? Content { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

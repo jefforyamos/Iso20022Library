@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details related to the beneficiary.
 /// </summary>
 [IsoId("_-EXduHltEeG7BsjMvd1mEw_-57311934")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Beneficiary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Beneficiary1
     /// New beneficiary address, or new beneficiary name and address.
     /// </summary>
     [IsoId("_-EXduXltEeG7BsjMvd1mEw_-1298911644")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Address Or New Beneficiary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewAdrOrNewBnfcry")]
     #endif
+    [IsoXmlTag("NewAdrOrNewBnfcry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AddressOrParty1Choice_ NewAddressOrNewBeneficiary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AddressOrParty1Choice_ NewAddressOrNewBeneficiary { get; init; } 
+    public required AddressOrParty1Choice_ NewAddressOrNewBeneficiary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AddressOrParty1Choice_ NewAddressOrNewBeneficiary { get; init; } 
     #else
@@ -71,19 +68,15 @@ public partial record Beneficiary1
     /// Additional information concerning the amended beneficiary details.
     /// </summary>
     [IsoId("_-EhOsHltEeG7BsjMvd1mEw_1955117019")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

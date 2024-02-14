@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FractionDispositionType19Choice.Code))]
     [KnownType(typeof(FractionDispositionType19Choice.Proprietary))]
     [IsoId("_ImikQWSEEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraction Disposition Type 19 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

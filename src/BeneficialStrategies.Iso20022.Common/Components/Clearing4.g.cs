@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the clearing details.
 /// </summary>
 [IsoId("_tv6MUWpUEeSgo9vJrfSF_Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Clearing4
     /// Indicates to the clearing member whether the trade is eligible for settlement netting or not.
     /// </summary>
     [IsoId("_uM64c2pUEeSgo9vJrfSF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Netting Eligible Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmNetgElgblCd")]
     #endif
+    [IsoXmlTag("SttlmNetgElgblCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NettingEligible1Code SettlementNettingEligibleCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NettingEligible1Code SettlementNettingEligibleCode { get; init; } 
+    public required NettingEligible1Code SettlementNettingEligibleCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NettingEligible1Code SettlementNettingEligibleCode { get; init; } 
     #else
@@ -69,15 +66,14 @@ public partial record Clearing4
     
     /// <summary>
     /// Clearing organisation that will clear the trade.
-    /// Note: This field allows clearing member firm to segregate flows coming from clearing counterparty's clearing system. Indeed, clearing member firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
+    /// Note: This field allows clearing member firm to segregate flows coming from clearing counterparty&apos;s clearing system. Indeed, clearing member firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
     [IsoId("_uM64dWpUEeSgo9vJrfSF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Segment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSgmt")]
     #endif
+    [IsoXmlTag("ClrSgmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification35Choice_? ClearingSegment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,12 @@ public partial record Clearing4
     /// Indicates if the position is guaranteed or non-guaranteed by the central counterparty, that is whether the CCP has done the novation and then guarantees the trade, or not.
     /// </summary>
     [IsoId("_uM64d2pUEeSgo9vJrfSF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guaranteed Trade")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntedTrad")]
     #endif
+    [IsoXmlTag("GrntedTrad")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? GuaranteedTrade { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +104,11 @@ public partial record Clearing4
     /// In case of trades that are not guaranteed by the central counterparty (this is when the central counterparty has not done the novation), provides details such as the trade counterparty member identification or the trade counterparty clearing member identification.
     /// </summary>
     [IsoId("_uM64eWpUEeSgo9vJrfSF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Guaranteed Trade")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonGrntedTrad")]
     #endif
+    [IsoXmlTag("NonGrntedTrad")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonGuaranteedTrade3? NonGuaranteedTrade { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

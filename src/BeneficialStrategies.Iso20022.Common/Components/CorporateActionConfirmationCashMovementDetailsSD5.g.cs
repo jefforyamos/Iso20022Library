@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action confirmation cash movement details.
 /// </summary>
 [IsoId("_tUaykb-zEeeb2ZBoAlSG1Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Confirmation Cash Movement Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Xpath to the element that is being extended.
     /// </summary>
     [IsoId("_tjl3Ab-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
     [IsoId("_tjl3A7-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else
@@ -93,16 +88,15 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Specifies the type of payout associated with the event (for example: principal, long term capital gain).
     /// </summary>
     [IsoId("_tjl3C7-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payout Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyoutTp")]
     #endif
+    [IsoXmlTag("PyoutTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCPayoutType5Code PayoutType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DTCCPayoutType5Code PayoutType { get; init; } 
+    public required DTCCPayoutType5Code PayoutType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DTCCPayoutType5Code PayoutType { get; init; } 
     #else
@@ -113,12 +107,12 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Resulting cash amount concerned in this transaction.
     /// </summary>
     [IsoId("_tjl3Db-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAmt")]
     #endif
+    [IsoXmlTag("TxAmt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Transaction reason.
     /// </summary>
     [IsoId("_tjl3Fb-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsnCd")]
     #endif
+    [IsoXmlTag("RsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAdjustmentPaymentType4Code? ReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,11 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Transaction sub reason.
     /// </summary>
     [IsoId("_tjl3Hb-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubRsnCd")]
     #endif
+    [IsoXmlTag("SubRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAdjustmentPaymentSubReason2Code? SubReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,15 +159,13 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Transaction contra participant identification when shares are distributed / delivered to / from another participant.
     /// </summary>
     [IsoId("_tjl3H7-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contra Participant Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ContraPtcptNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ContraPtcptNb")]
+    [IsoSimpleType(IsoSimpleType.Max8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Date/Time on which the posting /draft of the securities took place.
     /// </summary>
     [IsoId("_tjl3J7-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstngDt")]
     #endif
+    [IsoXmlTag("PstngDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat48Choice_? PostingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,12 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Set of the DTC legacy sub reason codes representing tax rate. Used with reason codes ‘TJXD’ ‘TJXF’ ‘TJXI’ ‘TJXL’ ‘TJXR’ ‘TJXT’ ‘TJXU’ to identify the correct tax rate.
     /// </summary>
     [IsoId("_tjl3L7-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Adjustment Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxAdjstmntRate")]
     #endif
+    [IsoXmlTag("TaxAdjstmntRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxAdjustmentRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,18 +210,15 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     #endif
     
     /// <summary>
-    /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (event details, options, movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related activity types 74, and 54. If event details and cash option are sourced from the activity type 74, then activity type 74 will be in RDP reference number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP reference number based on DTCC event group (reorganization, distribution, or redemption).
+    /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (event details, options, movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related activity types 74, and 54. If event details and cash option are sourced from the activity type 74, then activity type 74 will be in RDP reference number in event details, and also on the cash option. The activity type 54 will be &quot;on&quot; the security option. Also, usage rules will specify the different layouts of the RDP reference number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>
     [IsoId("_tjl3Mb-zEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("RDP Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RDPRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("RDPRefNb")]
+    [IsoSimpleType(IsoSimpleType.Exact32AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +231,11 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD5
     /// Quantity used on adjustment transactions which when summed across all extension movements equals the relevant balance in the core message. For example, a summation of loan and borrow movements when summed which is negative will show the net total in the borrow balance in the core message. While a summation of loan and borrow movements which is positive will show in the loan balance.
     /// </summary>
     [IsoId("_Gzu5Mb_uEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxQty")]
     #endif
+    [IsoXmlTag("TxQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

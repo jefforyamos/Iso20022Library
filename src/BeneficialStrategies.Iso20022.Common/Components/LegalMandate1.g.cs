@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the legal basis of the request.
 /// </summary>
 [IsoId("_bhYnwEJ4EeGuetKibuqsKw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Legal Mandate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,22 +46,20 @@ public partial record LegalMandate1
     #nullable enable
     
     /// <summary>
-    /// Identifies the legal mandate paragraph in law which gives power to the authority's request.
+    /// Identifies the legal mandate paragraph in law which gives power to the authority&apos;s request.
     /// </summary>
     [IsoId("_ZiG61UJ8EeGuetKibuqsKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Paragraph")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prgrph")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prgrph")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Paragraph { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Paragraph { get; init; } 
+    public required System.String Paragraph { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Paragraph { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record LegalMandate1
     /// Specifies any additional information describing how or why the paragraph of law should be applied.
     /// </summary>
     [IsoId("_buerxUJ8EeGuetKibuqsKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disclaimer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dsclmr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Dsclmr")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Disclaimer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

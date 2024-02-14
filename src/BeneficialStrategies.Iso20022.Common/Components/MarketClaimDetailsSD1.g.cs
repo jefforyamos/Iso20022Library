@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification information expressed as a country of fiscal domicile and a reference.
 /// </summary>
 [IsoId("_WUMt-u0REeWLj6RCdgRMog")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Market Claim Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,19 +46,18 @@ public partial record MarketClaimDetailsSD1
     #nullable enable
     
     /// <summary>
-    /// Country in which the account owner has one's fiscal domicile.
+    /// Country in which the account owner has one&apos;s fiscal domicile.
     /// </summary>
     [IsoId("_WUMt_-0REeWLj6RCdgRMog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fiscal Domicile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FsclDmcl")]
     #endif
+    [IsoXmlTag("FsclDmcl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode FiscalDomicile { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string FiscalDomicile { get; init; } 
+    public required string FiscalDomicile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string FiscalDomicile { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record MarketClaimDetailsSD1
     /// Identification of the document assigned by the account servicer.
     /// </summary>
     [IsoId("_WUMuAO0REeWLj6RCdgRMog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctSvcrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountServicerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record MarketClaimDetailsSD1
     /// Identification of the document assigned by the account owner.
     /// </summary>
     [IsoId("_WUMt--0REeWLj6RCdgRMog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctOwnrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountOwnerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,12 @@ public partial record MarketClaimDetailsSD1
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
     [IsoId("_L6c2cO0SEeWLj6RCdgRMog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRate")]
     #endif
+    [IsoXmlTag("TaxRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,11 @@ public partial record MarketClaimDetailsSD1
     /// Quantity of securities that do not impact the taxable record date entitlement.
     /// </summary>
     [IsoId("_Z3vbQO0TEeWLj6RCdgRMog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Compensation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCompstn")]
     #endif
+    [IsoXmlTag("CshCompstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? CashCompensation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +141,11 @@ public partial record MarketClaimDetailsSD1
     /// Quantity of securities that impact the taxable record date entitlement.
     /// </summary>
     [IsoId("_7GFPcO0TEeWLj6RCdgRMog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Correction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddCrrctn")]
     #endif
+    [IsoXmlTag("DvddCrrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? DividendCorrection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

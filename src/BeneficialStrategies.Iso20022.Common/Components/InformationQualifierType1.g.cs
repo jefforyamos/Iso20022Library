@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Further qualifies the information provided in terms of its importance and its format.
 /// </summary>
 [IsoId("_59y2N5lZEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Information Qualifier Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record InformationQualifierType1
     /// Indicates whether the information is formatted.
     /// </summary>
     [IsoId("_6FzisZlZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Is Formatted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsFrmtd")]
     #endif
+    [IsoXmlTag("IsFrmtd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? IsFormatted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record InformationQualifierType1
     /// Priority of the information.
     /// </summary>
     [IsoId("_6Fzis5lZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prty")]
     #endif
+    [IsoXmlTag("Prty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority1Code? Priority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

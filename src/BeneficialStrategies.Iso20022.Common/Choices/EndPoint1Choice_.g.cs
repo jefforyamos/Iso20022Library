@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EndPoint1Choice.NumberOfPayments))]
     [KnownType(typeof(EndPoint1Choice.LastPaymentDate))]
     [IsoId("__b7DoQ2lEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Point 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the regulatory notification.
 /// </summary>
 [IsoId("_NcmF5249EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Regulatory Reporting Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record RegulatoryReportingNotification2
     /// Unique and unambiguous identification of the transaction notification.
     /// </summary>
     [IsoId("_Nl1hcW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxNtfctnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxNtfctnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionNotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionNotificationIdentification { get; init; } 
+    public required System.String TransactionNotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionNotificationIdentification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record RegulatoryReportingNotification2
     /// Party that legally owns the cash account.
     /// </summary>
     [IsoId("_Nl1hc249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification135 AccountOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification135 AccountOwner { get; init; } 
+    public required PartyIdentification135 AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification135 AccountOwner { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record RegulatoryReportingNotification2
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_Nl1hdW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcr")]
     #endif
+    [IsoXmlTag("AcctSvcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 AccountServicer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification6 AccountServicer { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification6 AccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification6 AccountServicer { get; init; } 
     #else
@@ -116,12 +110,11 @@ public partial record RegulatoryReportingNotification2
     /// Certificate against which all currency control transactions are registered.
     /// </summary>
     [IsoId("_Nl1hd249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxCert")]
     #endif
+    [IsoXmlTag("TxCert")]
     public TransactionCertificate3? TransactionCertificate { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Nl1hd249EeiU9cctagi5ow
     

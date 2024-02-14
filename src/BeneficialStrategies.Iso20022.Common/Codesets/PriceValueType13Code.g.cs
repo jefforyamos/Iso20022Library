@@ -21,7 +21,7 @@ public enum PriceValueType13Code
 {
     /// <summary>
     /// Price is not required to be specified by account owner.
-    /// Encoded/decoded by serializers as "UNSP".
+    /// Encoded/decoded by serializers as &quot;UNSP&quot;.
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_M2HEYQ-zEeuE0Pnt-OcNOA")]

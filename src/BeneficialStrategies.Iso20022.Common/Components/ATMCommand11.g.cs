@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Result of a maintenance command performed by the ATM.
 /// </summary>
 [IsoId("_QlA-MV_UEeeD0NpJQPACzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Command")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ATMCommand11
     /// Type of command to be performed by the ATM.
     /// </summary>
     [IsoId("_Qtzt0V_UEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCommand6Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMCommand6Code Type { get; init; } 
+    public required ATMCommand6Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMCommand6Code Type { get; init; } 
     #else
@@ -73,12 +70,12 @@ public partial record ATMCommand11
     /// Date time on which the command has been requested to be performed.
     /// </summary>
     [IsoId("_Qtzt01_UEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Required Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqrdDtTm")]
     #endif
+    [IsoXmlTag("ReqrdDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? RequiredDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +88,16 @@ public partial record ATMCommand11
     /// Date time on which the command has been performed.
     /// </summary>
     [IsoId("_Qtzt1V_UEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processed Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcdDtTm")]
     #endif
+    [IsoXmlTag("PrcdDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ProcessedDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ProcessedDateTime { get; init; } 
+    public required System.DateTime ProcessedDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ProcessedDateTime { get; init; } 
     #else
@@ -111,12 +108,11 @@ public partial record ATMCommand11
     /// Identification of the entity issuing the command.
     /// </summary>
     [IsoId("_Qtzt11_UEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdId")]
     #endif
+    [IsoXmlTag("CmdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,16 +125,15 @@ public partial record ATMCommand11
     /// Final result of the processed command at the ATM.
     /// </summary>
     [IsoId("_Qtzt2V_UEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rslt")]
     #endif
+    [IsoXmlTag("Rslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementActionResult2Code Result { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementActionResult2Code Result { get; init; } 
+    public required TerminalManagementActionResult2Code Result { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementActionResult2Code Result { get; init; } 
     #else
@@ -149,15 +144,13 @@ public partial record ATMCommand11
     /// Additional information on the failure to be logged for further examination.
     /// </summary>
     [IsoId("_Qtzt21_UEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Error Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlErrInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlErrInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalErrorInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

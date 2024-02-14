@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the old and new values for a market specific attribute.
 /// </summary>
 [IsoId("_8g_CI2jSEeiRg5NzP0jkQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Update Log Market Specific Attribute")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UpdateLogMarketSpecificAttribute1
     /// Old value before the update.
     /// </summary>
     [IsoId("_8g_pMWjSEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Od")]
     #endif
+    [IsoXmlTag("Od")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketSpecificAttribute1 Old { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketSpecificAttribute1 Old { get; init; } 
+    public required MarketSpecificAttribute1 Old { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketSpecificAttribute1 Old { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UpdateLogMarketSpecificAttribute1
     /// New value after the update.
     /// </summary>
     [IsoId("_8g_pMGjSEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="New")]
     #endif
+    [IsoXmlTag("New")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketSpecificAttribute1 New { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketSpecificAttribute1 New { get; init; } 
+    public required MarketSpecificAttribute1 New { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketSpecificAttribute1 New { get; init; } 
     #else

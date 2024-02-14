@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status report of a account opening instruction or account modification instruction that was previously received.
 /// </summary>
 [IsoId("_RElAd9p-Ed-ak6NoX_4Aeg_-169847202")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Management Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AccountManagementStatusAndReason1
     /// Status of the account opening instruction or account modification instruction.
     /// </summary>
     [IsoId("_REuxcNp-Ed-ak6NoX_4Aeg_-169845816")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountManagementStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountManagementStatus1Code Status { get; init; } 
+    public required AccountManagementStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountManagementStatus1Code Status { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AccountManagementStatusAndReason1
     /// Status of the order is rejected.
     /// </summary>
     [IsoId("_REuxcdp-Ed-ak6NoX_4Aeg_-168925198")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjctd")]
     #endif
+    [IsoXmlTag("Rjctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectedStatus5 Rejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectedStatus5 Rejected { get; init; } 
+    public required RejectedStatus5 Rejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectedStatus5 Rejected { get; init; } 
     #else
@@ -92,15 +88,13 @@ public partial record AccountManagementStatusAndReason1
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
     [IsoId("_REuxctp-Ed-ak6NoX_4Aeg_58059420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines commodity sub-product attributes of a freight derivative of type wet.
 /// </summary>
 [IsoId("_XxYqwU8REe2PGo0mhYCh1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Freight Commodity Wet")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FreightCommodityWet3
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
     [IsoId("_XyUe4U8REe2PGo0mhYCh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BasePdct")]
     #endif
+    [IsoXmlTag("BasePdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassProductType4Code BaseProduct { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AssetClassProductType4Code BaseProduct { get; init; } 
+    public required AssetClassProductType4Code BaseProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AssetClassProductType4Code BaseProduct { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record FreightCommodityWet3
     /// Sub-product for the underlying asset class.
     /// </summary>
     [IsoId("_XyUe408REe2PGo0mhYCh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubPdct")]
     #endif
+    [IsoXmlTag("SubPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassSubProductType32Code? SubProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record FreightCommodityWet3
     /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
     /// </summary>
     [IsoId("_XyUe5U8REe2PGo0mhYCh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Sub Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlSubPdct")]
     #endif
+    [IsoXmlTag("AddtlSubPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassDetailedSubProductType34Code? AdditionalSubProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

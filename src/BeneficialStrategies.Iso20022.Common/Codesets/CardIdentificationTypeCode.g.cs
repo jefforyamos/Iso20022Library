@@ -21,7 +21,7 @@ public enum CardIdentificationTypeCode
 {
     /// <summary>
     /// Standard card identification (card number).
-    /// Encoded/decoded by serializers as "CPAN".
+    /// Encoded/decoded by serializers as &quot;CPAN&quot;.
     /// </summary>
     [EnumMember(Value = "CPAN")]
     [IsoId("_hi4dwNthEeipuvJHTHIw9A")]
@@ -30,7 +30,7 @@ public enum CardIdentificationTypeCode
     
     /// <summary>
     /// ISO Track 2 including identification.
-    /// Encoded/decoded by serializers as "ISO2".
+    /// Encoded/decoded by serializers as &quot;ISO2&quot;.
     /// </summary>
     [EnumMember(Value = "ISO2")]
     [IsoId("_l8QRwNthEeipuvJHTHIw9A")]
@@ -39,7 +39,7 @@ public enum CardIdentificationTypeCode
     
     /// <summary>
     /// Bar-code with a specific form of identification.
-    /// Encoded/decoded by serializers as "BARC".
+    /// Encoded/decoded by serializers as &quot;BARC&quot;.
     /// </summary>
     [EnumMember(Value = "BARC")]
     [IsoId("_pbMd0NthEeipuvJHTHIw9A")]
@@ -48,7 +48,7 @@ public enum CardIdentificationTypeCode
     
     /// <summary>
     /// Account identification.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_sVH4UNthEeipuvJHTHIw9A")]
@@ -57,7 +57,7 @@ public enum CardIdentificationTypeCode
     
     /// <summary>
     /// A phone number identifies the account on which the phone card is assigned.
-    /// Encoded/decoded by serializers as "PHON".
+    /// Encoded/decoded by serializers as &quot;PHON&quot;.
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_vOcO0NthEeipuvJHTHIw9A")]
@@ -66,7 +66,7 @@ public enum CardIdentificationTypeCode
     
     /// <summary>
     /// A Universal Unique Identification code is set for identification.
-    /// Encoded/decoded by serializers as "UUID".
+    /// Encoded/decoded by serializers as &quot;UUID&quot;.
     /// </summary>
     [EnumMember(Value = "UUID")]
     [IsoId("_yacQwNthEeipuvJHTHIw9A")]
@@ -75,7 +75,7 @@ public enum CardIdentificationTypeCode
     
     /// <summary>
     /// An identification set by a privative application.
-    /// Encoded/decoded by serializers as "PRIV".
+    /// Encoded/decoded by serializers as &quot;PRIV&quot;.
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_9ra1wNthEeipuvJHTHIw9A")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition9Choice
     /// Trade conditions expressed in a coded form as published in an external list.
     /// </summary>
     [IsoId("_9iS2A5BgEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,12 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition9Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalTradeTransactionCondition1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalTradeTransactionCondition1Code Value { get; init; } 
+        public required ExternalTradeTransactionCondition1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalTradeTransactionCondition1Code Value { get; init; } 
         #else

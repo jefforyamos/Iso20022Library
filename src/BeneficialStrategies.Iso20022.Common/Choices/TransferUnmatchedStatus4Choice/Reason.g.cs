@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferUnmatchedStatus4Choice
     /// Reason for the unmatched status.
     /// </summary>
     [IsoId("_k75sI5M5EemKz5EOjv82iQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferUnmatchedStatus4Choice
         /// Specifies the reason the transaction, transfer or settlement instruction is unmatched.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TransferUnmatchedReason3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TransferUnmatchedReason3Code Value { get; init; } 
+        public required TransferUnmatchedReason3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TransferUnmatchedReason3Code Value { get; init; } 
         #else

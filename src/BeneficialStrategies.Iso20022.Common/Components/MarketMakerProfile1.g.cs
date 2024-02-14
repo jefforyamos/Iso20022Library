@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Market maker profile.
 /// </summary>
 [IsoId("_Mtd3oCDWEeWCLu74WLgP4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Market Maker Profile")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record MarketMakerProfile1
     /// Period of the contract.
     /// </summary>
     [IsoId("_WSwW4CDWEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctPrd")]
     #endif
+    [IsoXmlTag("CtrctPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodDetails1? ContractPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record MarketMakerProfile1
     /// Indicates whether the market maker is obligated to comply with the requirements of the contract it holds with the exchange or is exempt from these obligations.
     /// </summary>
     [IsoId("_YTJhUCDWEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Compliance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmplc")]
     #endif
+    [IsoXmlTag("Cmplc")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Compliance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record MarketMakerProfile1
     /// Percentage of the variation between the maximum accepted minimum and maximum value of an action.
     /// </summary>
     [IsoId("_bAeqQCDWEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxSprd")]
     #endif
+    [IsoXmlTag("MaxSprd")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? MaximumSpread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record MarketMakerProfile1
     /// Rate of discount.
     /// </summary>
     [IsoId("_cvxdoCDWEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dscnt")]
     #endif
+    [IsoXmlTag("Dscnt")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Discount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClassificationType4Choice.ClassificationFinancialInstrument))]
     [KnownType(typeof(ClassificationType4Choice.AlternateClassification))]
     [IsoId("_XQgXMtp-Ed-ak6NoX_4Aeg_322519448")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Type 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

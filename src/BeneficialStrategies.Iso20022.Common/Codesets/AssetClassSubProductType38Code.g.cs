@@ -21,7 +21,7 @@ public enum AssetClassSubProductType38Code
 {
     /// <summary>
     /// Commodity of type recovered paper.
-    /// Encoded/decoded by serializers as "RCVP".
+    /// Encoded/decoded by serializers as &quot;RCVP&quot;.
     /// </summary>
     [EnumMember(Value = "RCVP")]
     [IsoId("_9VZXV1ryEeWN79Bl6BUd3g")]

@@ -21,7 +21,7 @@ public enum SettlementDate4Code
 {
     /// <summary>
     /// Settlement is to be done when the security is issued.
-    /// Encoded/decoded by serializers as "WISS".
+    /// Encoded/decoded by serializers as &quot;WISS&quot;.
     /// </summary>
     [EnumMember(Value = "WISS")]
     [IsoId("_ZLby1tp-Ed-ak6NoX_4Aeg_1853523100")]

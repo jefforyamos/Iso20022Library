@@ -21,7 +21,7 @@ public enum NewSecuritiesIssuanceType1Code
 {
     /// <summary>
     /// Securities proceeds are not new issues.
-    /// Encoded/decoded by serializers as "EXIS".
+    /// Encoded/decoded by serializers as &quot;EXIS&quot;.
     /// </summary>
     [EnumMember(Value = "EXIS")]
     [IsoId("_hPR4URH1EeKKuerhIbkpig")]
@@ -30,7 +30,7 @@ public enum NewSecuritiesIssuanceType1Code
     
     /// <summary>
     /// Securities proceeds are newly issued.
-    /// Encoded/decoded by serializers as "NEIS".
+    /// Encoded/decoded by serializers as &quot;NEIS&quot;.
     /// </summary>
     [EnumMember(Value = "NEIS")]
     [IsoId("_hXeLARH1EeKKuerhIbkpig")]
@@ -39,7 +39,7 @@ public enum NewSecuritiesIssuanceType1Code
     
     /// <summary>
     /// Not known whether the securities proceeds are newly issued or not.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_hlxswxH1EeKKuerhIbkpig")]

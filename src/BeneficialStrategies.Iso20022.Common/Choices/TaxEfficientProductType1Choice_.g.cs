@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxEfficientProductType1Choice.Code))]
     [KnownType(typeof(TaxEfficientProductType1Choice.Proprietary))]
     [IsoId("_FKf7AE4LEeiQHa-q1Uephw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Efficient Product Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

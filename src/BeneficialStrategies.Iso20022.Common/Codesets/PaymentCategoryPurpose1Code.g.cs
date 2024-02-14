@@ -21,7 +21,7 @@ public enum PaymentCategoryPurpose1Code
 {
     /// <summary>
     /// Transaction is related to settlement of a trade, eg a foreign exchange deal or a securities transaction.
-    /// Encoded/decoded by serializers as "CORT".
+    /// Encoded/decoded by serializers as &quot;CORT&quot;.
     /// </summary>
     [EnumMember(Value = "CORT")]
     [IsoId("_ZzFBpNp-Ed-ak6NoX_4Aeg_11813796")]
@@ -30,7 +30,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of salaries.
-    /// Encoded/decoded by serializers as "SALA".
+    /// Encoded/decoded by serializers as &quot;SALA&quot;.
     /// </summary>
     [EnumMember(Value = "SALA")]
     [IsoId("_ZzFBpdp-Ed-ak6NoX_4Aeg_11813831")]
@@ -39,7 +39,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to treasury operations.
-    /// Encoded/decoded by serializers as "TREA".
+    /// Encoded/decoded by serializers as &quot;TREA&quot;.
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_ZzFBptp-Ed-ak6NoX_4Aeg_11813874")]
@@ -48,7 +48,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a general cash management instruction.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_ZzOLkNp-Ed-ak6NoX_4Aeg_11814294")]
@@ -57,7 +57,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of dividends.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_ZzOLkdp-Ed-ak6NoX_4Aeg_11814432")]
@@ -66,7 +66,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a payment to or from a government department.
-    /// Encoded/decoded by serializers as "GOVT".
+    /// Encoded/decoded by serializers as &quot;GOVT&quot;.
     /// </summary>
     [EnumMember(Value = "GOVT")]
     [IsoId("_ZzOLktp-Ed-ak6NoX_4Aeg_11814840")]
@@ -75,7 +75,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of interest.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_ZzOLk9p-Ed-ak6NoX_4Aeg_11815657")]
@@ -84,7 +84,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to the transfer of a loan to a borrower.
-    /// Encoded/decoded by serializers as "LOAN".
+    /// Encoded/decoded by serializers as &quot;LOAN&quot;.
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_ZzOLlNp-Ed-ak6NoX_4Aeg_11815735")]
@@ -93,7 +93,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of pension.
-    /// Encoded/decoded by serializers as "PENS".
+    /// Encoded/decoded by serializers as &quot;PENS&quot;.
     /// </summary>
     [EnumMember(Value = "PENS")]
     [IsoId("_ZzOLldp-Ed-ak6NoX_4Aeg_11816173")]
@@ -102,7 +102,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of securities.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ZzOLltp-Ed-ak6NoX_4Aeg_11816275")]
@@ -111,7 +111,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a social security benefit, ie payment made by a government to support individuals.
-    /// Encoded/decoded by serializers as "SSBE".
+    /// Encoded/decoded by serializers as &quot;SSBE&quot;.
     /// </summary>
     [EnumMember(Value = "SSBE")]
     [IsoId("_ZzOLl9p-Ed-ak6NoX_4Aeg_11816605")]
@@ -120,7 +120,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment to a supplier.
-    /// Encoded/decoded by serializers as "SUPP".
+    /// Encoded/decoded by serializers as &quot;SUPP&quot;.
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_ZzOLmNp-Ed-ak6NoX_4Aeg_12736929")]
@@ -129,7 +129,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of taxes.
-    /// Encoded/decoded by serializers as "TAXS".
+    /// Encoded/decoded by serializers as &quot;TAXS&quot;.
     /// </summary>
     [EnumMember(Value = "TAXS")]
     [IsoId("_ZzOLmdp-Ed-ak6NoX_4Aeg_12737259")]
@@ -138,7 +138,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to the payment of a trade transaction.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_ZzX8kNp-Ed-ak6NoX_4Aeg_12737379")]
@@ -147,7 +147,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of value added tax.
-    /// Encoded/decoded by serializers as "VATX".
+    /// Encoded/decoded by serializers as &quot;VATX&quot;.
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_ZzX8kdp-Ed-ak6NoX_4Aeg_12737800")]
@@ -156,7 +156,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to the payment of a hedging operation.
-    /// Encoded/decoded by serializers as "HEDG".
+    /// Encoded/decoded by serializers as &quot;HEDG&quot;.
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_ZzX8ktp-Ed-ak6NoX_4Aeg_12738232")]
@@ -165,7 +165,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
-    /// Encoded/decoded by serializers as "INTC".
+    /// Encoded/decoded by serializers as &quot;INTC&quot;.
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_ZzX8k9p-Ed-ak6NoX_4Aeg_12738747")]
@@ -174,7 +174,7 @@ public enum PaymentCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of withholding tax.
-    /// Encoded/decoded by serializers as "WHLD".
+    /// Encoded/decoded by serializers as &quot;WHLD&quot;.
     /// </summary>
     [EnumMember(Value = "WHLD")]
     [IsoId("_ZzX8lNp-Ed-ak6NoX_4Aeg_26591144")]

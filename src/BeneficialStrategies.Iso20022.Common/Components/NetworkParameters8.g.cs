@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters to communicate with a host.
 /// </summary>
 [IsoId("_RiyH4Q02EeqUVL7sB4m7NA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Network Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NetworkParameters8
     /// Type of proxy.
     /// </summary>
     [IsoId("_RuMGoQ02EeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetworkType2Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NetworkType2Code Type { get; init; } 
+    public required NetworkType2Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NetworkType2Code Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record NetworkParameters8
     /// Access information to the proxy.
     /// </summary>
     [IsoId("_RuMGow02EeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Access")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Accs")]
     #endif
+    [IsoXmlTag("Accs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetworkParameters7 Access { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NetworkParameters7 Access { get; init; } 
+    public required NetworkParameters7 Access { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NetworkParameters7 Access { get; init; } 
     #else

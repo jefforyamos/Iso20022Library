@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Double volume cap report.
 /// </summary>
 [IsoId("_AE700CohEeW8U9pZarPocw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Volume Cap Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record VolumeCapReport1
     /// Date or date range the report relates to.
     /// </summary>
     [IsoId("_04oOYeJBEeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPrd")]
     #endif
+    [IsoXmlTag("RptgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ReportingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record VolumeCapReport1
     /// The venue this report is in relation to specified as {MIC} (segment MIC, where available, otherwise operational MIC).
     /// </summary>
     [IsoId("_Uc9EUORREeW25oRYRCmhTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgVn")]
     #endif
+    [IsoXmlTag("TradgVn")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? TradingVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record VolumeCapReport1
     /// Volume cap data specific to a reporting period.
     /// </summary>
     [IsoId("_Jl8K8OJCEeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrmRpt")]
     #endif
+    [IsoXmlTag("InstrmRpt")]
     public VolumeCapReport2? InstrumentReport { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Jl8K8OJCEeWWKb0jFHxViQ
     

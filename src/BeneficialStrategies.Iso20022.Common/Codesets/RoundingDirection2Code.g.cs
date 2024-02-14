@@ -21,7 +21,7 @@ public enum RoundingDirection2Code
 {
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDUP".
+    /// Encoded/decoded by serializers as &quot;RDUP&quot;.
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_Y-LZ8tp-Ed-ak6NoX_4Aeg_498412566")]
@@ -30,7 +30,7 @@ public enum RoundingDirection2Code
     
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDWN".
+    /// Encoded/decoded by serializers as &quot;RDWN&quot;.
     /// </summary>
     [EnumMember(Value = "RDWN")]
     [IsoId("_Y-LZ89p-Ed-ak6NoX_4Aeg_498413939")]

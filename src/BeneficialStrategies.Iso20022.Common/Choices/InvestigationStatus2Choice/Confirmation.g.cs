@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus2Choice
     /// Specifies the status of the investigation, in a coded form.
     /// </summary>
     [IsoId("_T-P8Rdp-Ed-ak6NoX_4Aeg_523812421")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus2Choice
         /// Specifies the result of an investigation.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Conf")]
         #endif
+        [IsoXmlTag("Conf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestigationExecutionConfirmation3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestigationExecutionConfirmation3Code Value { get; init; } 
+        public required InvestigationExecutionConfirmation3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestigationExecutionConfirmation3Code Value { get; init; } 
         #else

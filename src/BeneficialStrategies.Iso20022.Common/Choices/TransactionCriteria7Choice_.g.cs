@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionCriteria7Choice.QueryName))]
     [KnownType(typeof(TransactionCriteria7Choice.NewCriteria))]
     [IsoId("_9lnxdQKxEe2rHs6fbn9-0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Criteria 7 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus60Choice
     /// Instruction has been acknowledged by the account servicer.
     /// </summary>
     [IsoId("_6P-MW5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledged Accepted")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

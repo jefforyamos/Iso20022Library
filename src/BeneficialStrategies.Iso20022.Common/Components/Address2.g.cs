@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Structured postal address.
 /// </summary>
 [IsoId("_WZgu8cWqEeuhguwJmlgagQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Address")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record Address2
     /// First line of information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
     [IsoId("_Wd6t0cWqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Line")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdrLine1")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdrLine1")]
+    [IsoSimpleType(IsoSimpleType.Max99Text)]
     [StringLength(maximumLength: 99 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax99Text? AddressLine1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +61,13 @@ public partial record Address2
     /// Second line of information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
     [IsoId("_Wd6t08WqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Line")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdrLine2")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdrLine2")]
+    [IsoSimpleType(IsoSimpleType.Max99Text)]
     [StringLength(maximumLength: 99 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax99Text? AddressLine2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,15 +80,13 @@ public partial record Address2
     /// Name of a street or thoroughfare.
     /// </summary>
     [IsoId("_Wd6t1cWqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Street Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrtNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StrtNm")]
+    [IsoSimpleType(IsoSimpleType.Max99Text)]
     [StringLength(maximumLength: 99 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax99Text? StreetName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +99,13 @@ public partial record Address2
     /// Number that identifies the position of a building on a street.
     /// </summary>
     [IsoId("_Wd6t18WqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Building Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BldgNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BldgNb")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? BuildingNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,15 +118,13 @@ public partial record Address2
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
     [IsoId("_Wd6t2cWqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Postal Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstlCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PstlCd")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? PostalCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,15 +137,13 @@ public partial record Address2
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
     [IsoId("_Wd6t28WqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Town Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TwnNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TwnNm")]
+    [IsoSimpleType(IsoSimpleType.Max50Text)]
     [StringLength(maximumLength: 50 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax50Text? TownName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,12 +157,11 @@ public partial record Address2
     /// In accordance with ISO 3166-2 or the local authority.
     /// </summary>
     [IsoId("_Wd6t3cWqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Sub Division Minor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrySubDvsnMnr")]
     #endif
+    [IsoXmlTag("CtrySubDvsnMnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISOCountrySubDivisionCode? CountrySubDivisionMinor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -190,12 +175,11 @@ public partial record Address2
     /// In accordance with ISO 3166-2 or the local authority.
     /// </summary>
     [IsoId("_Wd6t38WqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Sub Division Major")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrySubDvsnMjr")]
     #endif
+    [IsoXmlTag("CtrySubDvsnMjr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISOCountrySubDivisionCode? CountrySubDivisionMajor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -208,15 +192,13 @@ public partial record Address2
     /// Name of a major subdivision of a country, for instance county, prefecture.
     /// </summary>
     [IsoId("_VB4SwRvPEey2RdTw-AkXzg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Sub Division Major Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrySubDvsnMjrNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CtrySubDvsnMjrNm")]
+    [IsoSimpleType(IsoSimpleType.Max50Text)]
     [StringLength(maximumLength: 50 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax50Text? CountrySubDivisionMajorName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,15 +211,13 @@ public partial record Address2
     /// Name of a minor subdivision of a country, for instance county, prefecture.
     /// </summary>
     [IsoId("_b2xG8RvPEey2RdTw-AkXzg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Sub Division Minor Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrySubDvsnMnrNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CtrySubDvsnMnrNm")]
+    [IsoSimpleType(IsoSimpleType.Max50Text)]
     [StringLength(maximumLength: 50 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax50Text? CountrySubDivisionMinorName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,12 +231,11 @@ public partial record Address2
     /// In accordance with ISO 3166-1.
     /// </summary>
     [IsoId("_Wd6t4cWqEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISOMax3ACountryCode? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

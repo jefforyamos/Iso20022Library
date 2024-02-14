@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IdentificationReference11Choice.CancellationRequestIdentification))]
     [KnownType(typeof(IdentificationReference11Choice.CollateralTransactionIdentification))]
     [IsoId("_AdlJUtokEeC60axPepSq7g_197856577")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Reference 11 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

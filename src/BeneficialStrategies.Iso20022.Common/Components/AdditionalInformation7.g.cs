@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional specific modification criteria.
 /// </summary>
 [IsoId("_eaw-ReaOEd-q8fx_Zl_34A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record AdditionalInformation7
     /// Identification of the transaction as known by the account owner. Will be used in a unilateral split to provide the executing party with the account owner identification of each split transaction.
     /// </summary>
     [IsoId("_eaw-R-aOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnrTxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctOwnrTxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountOwnerTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record AdditionalInformation7
     /// Type of instrument involved in the transactions on which the modification request should apply.
     /// </summary>
     [IsoId("_eaw-SeaOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssfctnTp")]
     #endif
+    [IsoXmlTag("ClssfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClassificationType1Choice_? ClassificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record AdditionalInformation7
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_eaw-S-aOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount13? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record AdditionalInformation7
     /// Identification of the financial instrument involved in the transactions on which the modification request should apply.
     /// </summary>
     [IsoId("_eaw-TeaOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,11 @@ public partial record AdditionalInformation7
     /// Quantity of financial instrument concerned by the settlement condition modification request.
     /// </summary>
     [IsoId("_eaw-T-aOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +129,11 @@ public partial record AdditionalInformation7
     /// Date/time when the request should take effect.
     /// </summary>
     [IsoId("_eaw-UeaOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDt")]
     #endif
+    [IsoXmlTag("FctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? EffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +146,11 @@ public partial record AdditionalInformation7
     /// Date/time when the request should cease to be in effect.
     /// </summary>
     [IsoId("_eaw-U-aOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +163,11 @@ public partial record AdditionalInformation7
     /// Date/time of the release.
     /// </summary>
     [IsoId("_eaw-VeaOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cut Off Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CutOffDt")]
     #endif
+    [IsoXmlTag("CutOffDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? CutOffDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +180,11 @@ public partial record AdditionalInformation7
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
     [IsoId("_eaw-V-aOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Invstr")]
     #endif
+    [IsoXmlTag("Invstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43Choice_? Investor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +197,11 @@ public partial record AdditionalInformation7
     /// Party that, in a settlement chain interacts with the depository.
     /// </summary>
     [IsoId("_eaw-WeaOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivering Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrgPty1")]
     #endif
+    [IsoXmlTag("DlvrgPty1")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount43? DeliveringParty1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +214,11 @@ public partial record AdditionalInformation7
     /// Party that, in a settlement chain interacts with the depository.
     /// </summary>
     [IsoId("_eaw-W-aOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgPty1")]
     #endif
+    [IsoXmlTag("RcvgPty1")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount43? ReceivingParty1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum InterimFinalPaymentCode
 {
     /// <summary>
     /// Interim payment. Pending possible future payments.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_1orVsjL3EeKU9IrkkToqcw_241333812")]
@@ -30,7 +30,7 @@ public enum InterimFinalPaymentCode
     
     /// <summary>
     /// Final payment positions will be debited.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_1orVszL3EeKU9IrkkToqcw_731384259")]

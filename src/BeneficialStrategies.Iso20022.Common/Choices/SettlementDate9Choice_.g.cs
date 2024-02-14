@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementDate9Choice.Date))]
     [KnownType(typeof(SettlementDate9Choice.DateCode))]
     [IsoId("_bUxy4TqLEeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date 9 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

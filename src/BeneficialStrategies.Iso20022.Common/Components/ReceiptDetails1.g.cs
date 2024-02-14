@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the request.
 /// </summary>
 [IsoId("_RZlnI9p-Ed-ak6NoX_4Aeg_-946650708")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receipt Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ReceiptDetails1
     /// Reference of the request.
     /// </summary>
     [IsoId("_RZlnJNp-Ed-ak6NoX_4Aeg_1612827078")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReferences RelatedReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReferences RelatedReference { get; init; } 
+    public required AdditionalReferences RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReferences RelatedReference { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ReceiptDetails1
     /// Gives the status of the request.
     /// </summary>
     [IsoId("_RZlnJdp-Ed-ak6NoX_4Aeg_1612826800")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Handling")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqHdlg")]
     #endif
+    [IsoXmlTag("ReqHdlg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RequestHandling? RequestHandling { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

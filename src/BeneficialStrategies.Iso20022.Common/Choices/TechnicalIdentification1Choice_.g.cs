@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TechnicalIdentification1Choice.BICFI))]
     [KnownType(typeof(TechnicalIdentification1Choice.TechnicalAddress))]
     [IsoId("_kpB8s-5NEeCisYr99QEiWA_856915283")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

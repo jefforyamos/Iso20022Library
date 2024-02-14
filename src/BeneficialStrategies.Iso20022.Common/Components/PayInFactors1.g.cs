@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Factors used in the calculation of the pay in schedule.
 /// </summary>
 [IsoId("_S3PXsAEcEeCQm6a_G2yO_w_-1038379529")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pay In Factors")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record PayInFactors1
     /// Maximum allowed sum of short positions in all currencies, converted to base currency, during settlement.
     /// </summary>
     [IsoId("_S3PXsQEcEeCQm6a_G2yO_w_-1671491994")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregate Short Position Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AggtShrtPosLmt")]
     #endif
+    [IsoXmlTag("AggtShrtPosLmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AggregateShortPositionLimit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AggregateShortPositionLimit { get; init; } 
+    public required System.Decimal AggregateShortPositionLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AggregateShortPositionLimit { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record PayInFactors1
     /// Currency specific pay-in factors.
     /// </summary>
     [IsoId("_S3PXsgEcEeCQm6a_G2yO_w_1288597221")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Factors")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyFctrs")]
     #endif
+    [IsoXmlTag("CcyFctrs")]
     public CurrencyFactors1? CurrencyFactors { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _S3PXsgEcEeCQm6a_G2yO_w_1288597221
     

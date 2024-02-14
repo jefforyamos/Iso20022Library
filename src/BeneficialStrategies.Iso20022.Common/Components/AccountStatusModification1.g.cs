@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of change to the status of the account.
 /// </summary>
 [IsoId("_5CsP8BFBEeK3w4cPHH9eMA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Status Modification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record AccountStatusModification1
     /// Specifies the type of change.
     /// </summary>
     [IsoId("_EBnboBFCEeK3w4cPHH9eMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModCd")]
     #endif
+    [IsoXmlTag("ModCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? ModificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record AccountStatusModification1
     /// Status of the account.
     /// </summary>
     [IsoId("_IqUFEBFCEeK3w4cPHH9eMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountStatus3Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountStatus3Code Status { get; init; } 
+    public required AccountStatus3Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountStatus3Code Status { get; init; } 
     #else

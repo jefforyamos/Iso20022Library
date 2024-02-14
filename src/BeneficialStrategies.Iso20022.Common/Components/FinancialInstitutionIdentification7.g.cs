@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify a financial institution.
 /// </summary>
 [IsoId("_TFLmRNp-Ed-ak6NoX_4Aeg_-434069114")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Institution Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -41,15 +39,15 @@ public partial record FinancialInstitutionIdentification7
     #nullable enable
     
     /// <summary>
-    /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+    /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
     /// </summary>
     [IsoId("_TFLmRdp-Ed-ak6NoX_4Aeg_-434069112")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BIC")]
     #endif
+    [IsoXmlTag("BIC")]
+    [IsoSimpleType(IsoSimpleType.BICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBICIdentifier? BIC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record FinancialInstitutionIdentification7
     /// Information used to identify a member within a clearing system.
     /// </summary>
     [IsoId("_TFLmRtp-Ed-ak6NoX_4Aeg_494072236")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSysMmbId")]
     #endif
+    [IsoXmlTag("ClrSysMmbId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingSystemMemberIdentification2? ClearingSystemMemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +77,13 @@ public partial record FinancialInstitutionIdentification7
     /// Name by which an agent is known and which is usually used to identify that agent.
     /// </summary>
     [IsoId("_TFLmR9p-Ed-ak6NoX_4Aeg_-434068774")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,11 @@ public partial record FinancialInstitutionIdentification7
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
     [IsoId("_TFLmSNp-Ed-ak6NoX_4Aeg_-434068379")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Postal Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstlAdr")]
     #endif
+    [IsoXmlTag("PstlAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress6? PostalAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +113,11 @@ public partial record FinancialInstitutionIdentification7
     /// Unique identification of an agent, as assigned by an institution, using an identification scheme.
     /// </summary>
     [IsoId("_TFUwMNp-Ed-ak6NoX_4Aeg_-434068709")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericFinancialIdentification1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

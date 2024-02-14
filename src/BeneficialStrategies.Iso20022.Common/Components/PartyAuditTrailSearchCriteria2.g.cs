@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes search criteria for party audit trail query.
 /// </summary>
 [IsoId("_W5x_8Z7iEeezh9vfeoBoQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Audit Trail Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PartyAuditTrailSearchCriteria2
     /// Describes party to be queried.
     /// </summary>
     [IsoId("_XDwbUZ7iEeezh9vfeoBoQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification8? PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PartyAuditTrailSearchCriteria2
     /// Describes date period for querying information.
     /// </summary>
     [IsoId("_XDwbU57iEeezh9vfeoBoQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtPrd")]
     #endif
+    [IsoXmlTag("DtPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

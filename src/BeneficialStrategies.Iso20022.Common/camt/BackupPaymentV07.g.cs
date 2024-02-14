@@ -42,9 +42,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The BackupPayment message is sent by a member to the transaction administrator.|It is used to request a liquidity transfer from the member to another participant in the system when the user is in recovery mode.|Usage|Under very specific circumstances, the transaction administrator can accept direct input of transactions as part of its cash management functionalities. This possibility is available only when a declared incident has been reported to the transaction administrator This could be the case, for example, when the internal systems of the member are having problems sending out payments or when the continuity of the whole system is put at risk.|The purpose of the BackupPayment message is to prevent the consequences of a specific failure affecting not only the member experiencing problems but also its counterparties. Members can therefore input transactions directly in order to ensure the stability of the system and smooth exchanges.|At any time during the operating hours of the system, and under the agreed circumstances, the member can request a backup payment to be effected.|The member can request the transfer by identifying the following elements:|- party (account owner) that will receive the funds|- the financial institution that will receive the funds on behalf of the account owner|Based on the criteria received within the BackupPayment message, the transaction administrator will execute or reject the requested funds transfer.|The transaction administrator may send a Receipt message as a reply to the BackupPayment request.|To verify the outcome of the request, the member may submit a GetTransaction or GetAccount message with the appropriate search criteria.")]
 [IsoId("_jwlbMRbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Backup Payment V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -89,16 +87,15 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbMxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -109,12 +106,11 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     /// Identifies the original message identification.|This was formerly the PaymentInstructionReference.
     /// </summary>
     [IsoId("_jwlbNRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgId")]
     #endif
+    [IsoXmlTag("OrgnlMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? OriginalMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,12 +123,11 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     /// Provides details on the execution and type of payment contained in the instruction.
     /// </summary>
     [IsoId("_jwlbNxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrInf")]
     #endif
+    [IsoXmlTag("InstrInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstruction13? InstructionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,16 +140,15 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     /// Quantity of cash that the transaction administrator transfers from one account to another.
     /// </summary>
     [IsoId("_jwlbORbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transferred Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfdAmt")]
     #endif
+    [IsoXmlTag("TrfdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2Choice_ TransferredAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount2Choice_ TransferredAmount { get; init; } 
+    public required Amount2Choice_ TransferredAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount2Choice_ TransferredAmount { get; init; } 
     #else
@@ -165,16 +159,15 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     /// Party that receives an amount of money from the debtor.
     /// </summary>
     [IsoId("_jwlbOxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cdtr")]
     #endif
+    [IsoXmlTag("Cdtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemMember3 Creditor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemMember3 Creditor { get; init; } 
+    public required SystemMember3 Creditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemMember3 Creditor { get; init; } 
     #else
@@ -185,12 +178,11 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     /// Financial institution that receives the payment transaction on behalf of an account owner, or other nominated party, and credits the account.
     /// </summary>
     [IsoId("_jwlbPRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrAgt")]
     #endif
+    [IsoXmlTag("CdtrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemMember3? CreditorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +195,11 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     /// Financial institution that receives the payment transaction from the account owner, or other authorised party, and processes the instruction.
     /// </summary>
     [IsoId("_jwlbPxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAgt")]
     #endif
+    [IsoXmlTag("DbtrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemMember3? DebtorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +212,11 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlbQRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,7 +229,7 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BackupPaymentV07Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BackupPaymentV07Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BackupPaymentV07Document ToDocument()
     {
@@ -249,7 +239,7 @@ public partial record BackupPaymentV07 : IOuterRecord<BackupPaymentV07,BackupPay
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BackupPaymentV07"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BackupPaymentV07&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BackupPaymentV07Document : IOuterDocument<BackupPaymentV07>
@@ -266,7 +256,7 @@ public partial record BackupPaymentV07Document : IOuterDocument<BackupPaymentV07
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BackupPaymentV07"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BackupPaymentV07&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BackupPaymentV07 Message { get; init; }

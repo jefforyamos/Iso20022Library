@@ -21,7 +21,7 @@ public enum TradeConfirmationStatusCode
 {
     /// <summary>
     /// Trade information between Central Matching Utility(analogous to virtual matching utility) and the trading member is mismatched.
-    /// Encoded/decoded by serializers as "MISM".
+    /// Encoded/decoded by serializers as &quot;MISM&quot;.
     /// </summary>
     [EnumMember(Value = "MISM")]
     [IsoId("_WsBJgAKDEeS2H9l84F_isg")]
@@ -30,7 +30,7 @@ public enum TradeConfirmationStatusCode
     
     /// <summary>
     /// Home party has confirmed, but couterparty is unrecognized.
-    /// Encoded/decoded by serializers as "SCCN".
+    /// Encoded/decoded by serializers as &quot;SCCN&quot;.
     /// </summary>
     [EnumMember(Value = "SCCN")]
     [IsoId("_exW48AKDEeS2H9l84F_isg")]
@@ -39,7 +39,7 @@ public enum TradeConfirmationStatusCode
     
     /// <summary>
     /// Trades are confirmed by Central Matching Utility (analogous to virtual matching utility).
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_g0IB8AKDEeS2H9l84F_isg")]
@@ -48,7 +48,7 @@ public enum TradeConfirmationStatusCode
     
     /// <summary>
     /// Home party has not confirmed, but couterparty is recognized.
-    /// Encoded/decoded by serializers as "SNCC".
+    /// Encoded/decoded by serializers as &quot;SNCC&quot;.
     /// </summary>
     [EnumMember(Value = "SNCC")]
     [IsoId("_jfol8AKDEeS2H9l84F_isg")]
@@ -57,7 +57,7 @@ public enum TradeConfirmationStatusCode
     
     /// <summary>
     /// Both the two parties are not confirmed.
-    /// Encoded/decoded by serializers as "SNCN".
+    /// Encoded/decoded by serializers as &quot;SNCN&quot;.
     /// </summary>
     [EnumMember(Value = "SNCN")]
     [IsoId("_krnQ4AKDEeS2H9l84F_isg")]
@@ -66,7 +66,7 @@ public enum TradeConfirmationStatusCode
     
     /// <summary>
     /// Trades are not confirmed by Central Matching Utility(analogous to virtual matching utility).
-    /// Encoded/decoded by serializers as "UNCN".
+    /// Encoded/decoded by serializers as &quot;UNCN&quot;.
     /// </summary>
     [EnumMember(Value = "UNCN")]
     [IsoId("_ntLkcAKDEeS2H9l84F_isg")]
@@ -75,7 +75,7 @@ public enum TradeConfirmationStatusCode
     
     /// <summary>
     /// Central Matching Utility (analogous to virtual matching utility) confirms trades in contingency.
-    /// Encoded/decoded by serializers as "EMCN".
+    /// Encoded/decoded by serializers as &quot;EMCN&quot;.
     /// </summary>
     [EnumMember(Value = "EMCN")]
     [IsoId("_pGI7cAKDEeS2H9l84F_isg")]
@@ -84,7 +84,7 @@ public enum TradeConfirmationStatusCode
     
     /// <summary>
     /// Trade information of the both trading member is unmatched.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_qMxzYAKDEeS2H9l84F_isg")]
@@ -93,7 +93,7 @@ public enum TradeConfirmationStatusCode
     
     /// <summary>
     /// All current status of the trade.
-    /// Encoded/decoded by serializers as "ALST".
+    /// Encoded/decoded by serializers as &quot;ALST&quot;.
     /// </summary>
     [EnumMember(Value = "ALST")]
     [IsoId("_sBIF4AKDEeS2H9l84F_isg")]

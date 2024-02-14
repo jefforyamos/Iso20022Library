@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to an account.
 /// </summary>
 [IsoId("_MO4CgQxrEeqdx6buGpCCQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaymentAccount3
     /// Currency of a Payment Account.
     /// </summary>
     [IsoId("_MZk2oQxrEeqdx6buGpCCQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record PaymentAccount3
     /// Balance of a Payment Account
     /// </summary>
     [IsoId("_MZk2owxrEeqdx6buGpCCQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurBal")]
     #endif
+    [IsoXmlTag("CurBal")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CurrentBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record PaymentAccount3
     /// Detail of Acquirer.
     /// </summary>
     [IsoId("_MZk2pQxrEeqdx6buGpCCQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Acquirer Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtAcqrrData")]
     #endif
+    [IsoXmlTag("PmtAcqrrData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer10? PaymentAcquirerData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum DeniedReason2Code
 {
     /// <summary>
-    /// Received after the account servicer's deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_a0CvYNp-Ed-ak6NoX_4Aeg_363272993")]
@@ -30,7 +30,7 @@ public enum DeniedReason2Code
     
     /// <summary>
     /// Repo call request was denied since another call already applies.
-    /// Encoded/decoded by serializers as "DCAL".
+    /// Encoded/decoded by serializers as &quot;DCAL&quot;.
     /// </summary>
     [EnumMember(Value = "DCAL")]
     [IsoId("_a0CvYdp-Ed-ak6NoX_4Aeg_363273023")]
@@ -39,7 +39,7 @@ public enum DeniedReason2Code
     
     /// <summary>
     /// Cancellation request was denied since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "DCAN".
+    /// Encoded/decoded by serializers as &quot;DCAN&quot;.
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_a0CvYtp-Ed-ak6NoX_4Aeg_364193017")]
@@ -48,7 +48,7 @@ public enum DeniedReason2Code
     
     /// <summary>
     /// Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.
-    /// Encoded/decoded by serializers as "DFOR".
+    /// Encoded/decoded by serializers as &quot;DFOR&quot;.
     /// </summary>
     [EnumMember(Value = "DFOR")]
     [IsoId("_a0CvY9p-Ed-ak6NoX_4Aeg_364193018")]
@@ -57,7 +57,7 @@ public enum DeniedReason2Code
     
     /// <summary>
     /// Cancellation request was denied because the process of settlement is in progress.
-    /// Encoded/decoded by serializers as "DPRG".
+    /// Encoded/decoded by serializers as &quot;DPRG&quot;.
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_a0CvZNp-Ed-ak6NoX_4Aeg_364193048")]
@@ -66,7 +66,7 @@ public enum DeniedReason2Code
     
     /// <summary>
     /// Cancellation request was denied because the repo was cancelled.
-    /// Encoded/decoded by serializers as "DREP".
+    /// Encoded/decoded by serializers as &quot;DREP&quot;.
     /// </summary>
     [EnumMember(Value = "DREP")]
     [IsoId("_a0CvZdp-Ed-ak6NoX_4Aeg_364193078")]
@@ -75,7 +75,7 @@ public enum DeniedReason2Code
     
     /// <summary>
     /// Cancellation request was denied because the instruction was already settled.
-    /// Encoded/decoded by serializers as "DSET".
+    /// Encoded/decoded by serializers as &quot;DSET&quot;.
     /// </summary>
     [EnumMember(Value = "DSET")]
     [IsoId("_a0CvZtp-Ed-ak6NoX_4Aeg_364193079")]
@@ -84,7 +84,7 @@ public enum DeniedReason2Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_a0CvZ9p-Ed-ak6NoX_4Aeg_364193140")]

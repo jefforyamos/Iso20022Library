@@ -21,7 +21,7 @@ public enum OutputFormat1Code
 {
     /// <summary>
     /// Predefined configured messages, identified by a reference.
-    /// Encoded/decoded by serializers as "MREF".
+    /// Encoded/decoded by serializers as &quot;MREF&quot;.
     /// </summary>
     [EnumMember(Value = "MREF")]
     [IsoId("_-Q8cgXr5EeSZrs_hiwNOWA")]
@@ -30,7 +30,7 @@ public enum OutputFormat1Code
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "TEXT".
+    /// Encoded/decoded by serializers as &quot;TEXT&quot;.
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_-m43UXr5EeSZrs_hiwNOWA")]
@@ -39,7 +39,7 @@ public enum OutputFormat1Code
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "HTML".
+    /// Encoded/decoded by serializers as &quot;HTML&quot;.
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_-sGugXr5EeSZrs_hiwNOWA")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Ratio expressed as a quotient of quantities.
 /// </summary>
 [IsoId("_OYixZXeuEeGnSLS4l8GDAA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Long Quantity To Quantity Ratio")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record LongQuantityToQuantityRatio2
     /// High precision numerator of the quotient of quantities.
     /// </summary>
     [IsoId("_OYixaHeuEeGnSLS4l8GDAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Long Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LngQty1")]
     #endif
+    [IsoXmlTag("LngQty1")]
+    [IsoSimpleType(IsoSimpleType.LongDecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLongDecimalNumber LongQuantity1 { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 LongQuantity1 { get; init; } 
+    public required System.UInt64 LongQuantity1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 LongQuantity1 { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record LongQuantityToQuantityRatio2
     /// High precision denominator of the quotient of quantities.
     /// </summary>
     [IsoId("_OYixa3euEeGnSLS4l8GDAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Long Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LngQty2")]
     #endif
+    [IsoXmlTag("LngQty2")]
+    [IsoSimpleType(IsoSimpleType.LongDecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLongDecimalNumber LongQuantity2 { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 LongQuantity2 { get; init; } 
+    public required System.UInt64 LongQuantity2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 LongQuantity2 { get; init; } 
     #else

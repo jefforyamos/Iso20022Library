@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Revaluation3Choice.Indicator))]
     [KnownType(typeof(Revaluation3Choice.Proprietary))]
     [IsoId("_sfc1cZEjEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Revaluation 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

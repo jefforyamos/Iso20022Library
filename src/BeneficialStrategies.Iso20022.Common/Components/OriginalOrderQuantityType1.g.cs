@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Breakdown of the cash movements into a fund by order type, eg, order by quantity of units or amount of money.
 /// </summary>
 [IsoId("_Uvt1e9p-Ed-ak6NoX_4Aeg_-1430220527")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Order Quantity Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record OriginalOrderQuantityType1
     /// Order type, expressed as a code.
     /// </summary>
     [IsoId("_Uvt1fNp-Ed-ak6NoX_4Aeg_-1000782955")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
+    [IsoXmlTag("Strd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderQuantityType1Code Structured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderQuantityType1Code Structured { get; init; } 
+    public required OrderQuantityType1Code Structured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderQuantityType1Code Structured { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record OriginalOrderQuantityType1
     /// Additional information about the order type.
     /// </summary>
     [IsoId("_Uv3mcNp-Ed-ak6NoX_4Aeg_-997087875")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TradeCertificateType2Code
 {
     /// <summary>
     /// Beneficiary certificate.
-    /// Encoded/decoded by serializers as "BENE".
+    /// Encoded/decoded by serializers as &quot;BENE&quot;.
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_YmLwuNp-Ed-ak6NoX_4Aeg_2058856409")]
@@ -30,7 +30,7 @@ public enum TradeCertificateType2Code
     
     /// <summary>
     /// Shipping line certificate.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_YmLwudp-Ed-ak6NoX_4Aeg_2058856410")]
@@ -39,7 +39,7 @@ public enum TradeCertificateType2Code
     
     /// <summary>
     /// Undefined certificate at this stage.
-    /// Encoded/decoded by serializers as "UND1".
+    /// Encoded/decoded by serializers as &quot;UND1&quot;.
     /// </summary>
     [EnumMember(Value = "UND1")]
     [IsoId("_YmVhsNp-Ed-ak6NoX_4Aeg_2058856418")]
@@ -48,7 +48,7 @@ public enum TradeCertificateType2Code
     
     /// <summary>
     /// Undefined certificate at this stage.
-    /// Encoded/decoded by serializers as "UND2".
+    /// Encoded/decoded by serializers as &quot;UND2&quot;.
     /// </summary>
     [EnumMember(Value = "UND2")]
     [IsoId("_YmVhsdp-Ed-ak6NoX_4Aeg_2058856419")]

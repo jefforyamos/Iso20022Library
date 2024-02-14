@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Represents the assignment of a case to a party. Assignment is a step in the overall process of managing a case.
 /// </summary>
 [IsoId("_T9Dpetp-Ed-ak6NoX_4Aeg_588710247")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Case Assignment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record CaseAssignment
     /// Identification of an assignment within a case.
     /// </summary>
     [IsoId("_T9Dpe9p-Ed-ak6NoX_4Aeg_588710282")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,16 +73,16 @@ public partial record CaseAssignment
     /// Party that assigns the case to another party. This is also the sender of the message.
     /// </summary>
     [IsoId("_T9NacNp-Ed-ak6NoX_4Aeg_588710299")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assigner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnr")]
     #endif
+    [IsoXmlTag("Assgnr")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier Assigner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Assigner { get; init; } 
+    public required System.String Assigner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Assigner { get; init; } 
     #else
@@ -97,16 +93,16 @@ public partial record CaseAssignment
     /// Party that the case is assigned to. This is also the receiver of the message.
     /// </summary>
     [IsoId("_T9Nacdp-Ed-ak6NoX_4Aeg_588710607")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgne")]
     #endif
+    [IsoXmlTag("Assgne")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier Assignee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Assignee { get; init; } 
+    public required System.String Assignee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Assignee { get; init; } 
     #else
@@ -117,16 +113,16 @@ public partial record CaseAssignment
     /// Date and time at which the assignment was created.
     /// </summary>
     [IsoId("_T9Nactp-Ed-ak6NoX_4Aeg_588710650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else

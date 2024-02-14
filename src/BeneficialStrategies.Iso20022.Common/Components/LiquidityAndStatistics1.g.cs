@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Ability of a financial instrument to be easily traded and converted to cash, at conditions that do not affect its price.
 /// </summary>
 [IsoId("_SW1Shdp-Ed-ak6NoX_4Aeg_-268744168")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Liquidity And Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record LiquidityAndStatistics1
     /// Indicates whether an amount is a gross amount (including all charges, commissions and tax), or a net amount.
     /// </summary>
     [IsoId("_SW1Shtp-Ed-ak6NoX_4Aeg_823585447")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssInd")]
     #endif
+    [IsoXmlTag("GrssInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator GrossIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String GrossIndicator { get; init; } 
+    public required System.String GrossIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String GrossIndicator { get; init; } 
     #else
@@ -74,16 +72,15 @@ public partial record LiquidityAndStatistics1
     /// Type of liquidity measure, of a financial instrument, on a market.
     /// </summary>
     [IsoId("_SW1Sh9p-Ed-ak6NoX_4Aeg_620603298")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indicator Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndTp")]
     #endif
+    [IsoXmlTag("IndTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LiquidityIndicatorType1Code IndicatorType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LiquidityIndicatorType1Code IndicatorType { get; init; } 
+    public required LiquidityIndicatorType1Code IndicatorType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LiquidityIndicatorType1Code IndicatorType { get; init; } 
     #else
@@ -94,16 +91,16 @@ public partial record LiquidityAndStatistics1
     /// Indicates the overall weighted average liquidity expressed as a percentage of average daily volume.
     /// </summary>
     [IsoId("_SW1SiNp-Ed-ak6NoX_4Aeg_880114594")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Weighted Average Liquidity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WghtdAvrgLqdty")]
     #endif
+    [IsoXmlTag("WghtdAvrgLqdty")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate WeightedAverageLiquidity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal WeightedAverageLiquidity { get; init; } 
+    public required System.Decimal WeightedAverageLiquidity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal WeightedAverageLiquidity { get; init; } 
     #else
@@ -114,16 +111,16 @@ public partial record LiquidityAndStatistics1
     /// Accepted value of stocks composing an index located outside its country of origin.
     /// </summary>
     [IsoId("_SW1Sidp-Ed-ak6NoX_4Aeg_936447934")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Out Main Country Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutMainCtryIndx")]
     #endif
+    [IsoXmlTag("OutMainCtryIndx")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OutMainCountryIndex { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OutMainCountryIndex { get; init; } 
+    public required System.Decimal OutMainCountryIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OutMainCountryIndex { get; init; } 
     #else
@@ -134,12 +131,12 @@ public partial record LiquidityAndStatistics1
     /// Percentage of program that crosses in Currency.
     /// </summary>
     [IsoId("_SW1Sitp-Ed-ak6NoX_4Aeg_1407444508")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cross Percent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrossPct")]
     #endif
+    [IsoXmlTag("CrossPct")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CrossPercent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +149,12 @@ public partial record LiquidityAndStatistics1
     /// SideValue1 is used to show the monetary total value in either direction (buy or sell) of the transaction without revealing whether it is the buy-side institutions intention to buy or sell.
     /// </summary>
     [IsoId("_SW1Si9p-Ed-ak6NoX_4Aeg_58180983")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SdVal1")]
     #endif
+    [IsoXmlTag("SdVal1")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SideValue1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +167,12 @@ public partial record LiquidityAndStatistics1
     /// SideValue2 is used to show the monetary total value in either direction (buy or sell) of the transaction without revealing whether it is the buy-side institutions intention to buy or sell.
     /// </summary>
     [IsoId("_SW1SjNp-Ed-ak6NoX_4Aeg_89580521")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SdVal2")]
     #endif
+    [IsoXmlTag("SdVal2")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SideValue2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

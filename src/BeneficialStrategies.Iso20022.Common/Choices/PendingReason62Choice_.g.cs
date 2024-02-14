@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingReason62Choice.Code))]
     [KnownType(typeof(PendingReason62Choice.Proprietary))]
     [IsoId("_LVbm8xnzEeyroI8qKgB7Mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Reason 62 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

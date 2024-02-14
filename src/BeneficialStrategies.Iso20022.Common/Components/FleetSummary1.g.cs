@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Supplies additional transaction information for fleet transactions.
 /// </summary>
 [IsoId("_otojUPikEeiJaN6-Lf-c_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fleet Summary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FleetSummary1
     /// Contains driver-related information.
     /// </summary>
     [IsoId("_otpKYPikEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Driver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Drvr")]
     #endif
+    [IsoXmlTag("Drvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Driver1? Driver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record FleetSummary1
     /// Vehicle belonging to the fleet.
     /// </summary>
     [IsoId("_otpKYfikEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vehicle")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vhcl")]
     #endif
+    [IsoXmlTag("Vhcl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vehicle5? Vehicle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record FleetSummary1
     /// Second card presented for the payment transaction.
     /// </summary>
     [IsoId("_8NRf8fixEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Driver Or Vehicle Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrvrOrVhclCard")]
     #endif
+    [IsoXmlTag("DrvrOrVhclCard")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData20? DriverOrVehicleCard { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,12 @@ public partial record FleetSummary1
     /// Indicates whether or not fuel or fleet data prompting should occur. 
     /// </summary>
     [IsoId("_rK5AMPi1EeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Fuel Prompt Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardFuelPrmptCd")]
     #endif
+    [IsoXmlTag("CardFuelPrmptCd")]
+    [IsoSimpleType(IsoSimpleType.Max1Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1Number? CardFuelPromptCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,18 +108,16 @@ public partial record FleetSummary1
     #endif
     
     /// <summary>
-    /// Currently known as "TransactionNumber". An identification code assigned by an agent.  This code can be used after applying for and awaiting the appropriate prompt value to be defined.
+    /// Currently known as &quot;TransactionNumber&quot;. An identification code assigned by an agent.  This code can be used after applying for and awaiting the appropriate prompt value to be defined.
     /// </summary>
     [IsoId("_QdgiIPi2EeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Fuel Prompt Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtFuelPrmptCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AgtFuelPrmptCd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AgentFuelPromptCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +130,11 @@ public partial record FleetSummary1
     /// Contains the details related to an individual trip. 
     /// </summary>
     [IsoId("_MfuEoPi7EeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trip Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TripInf")]
     #endif
+    [IsoXmlTag("TripInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TripInformation1? TripInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +147,11 @@ public partial record FleetSummary1
     /// Indicates the amenities available at the location where the merchant actually performed the transaction.
     /// </summary>
     [IsoId("_lowBwPi_EeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Amenity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclAmnty")]
     #endif
+    [IsoXmlTag("LclAmnty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalAmenity1? LocalAmenity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +164,11 @@ public partial record FleetSummary1
     /// Contains information related specifically to the transaction.
     /// </summary>
     [IsoId("_GVZhUPjEEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRltdData")]
     #endif
+    [IsoXmlTag("TxRltdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction117? TransactionRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +181,11 @@ public partial record FleetSummary1
     /// Contains additional fleet summary data.
     /// </summary>
     [IsoId("_2LjFsPi_EeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation19? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

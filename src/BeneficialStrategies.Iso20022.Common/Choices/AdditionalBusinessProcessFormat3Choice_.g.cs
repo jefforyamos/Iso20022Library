@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdditionalBusinessProcessFormat3Choice.Code))]
     [KnownType(typeof(AdditionalBusinessProcessFormat3Choice.Proprietary))]
     [IsoId("_Q10yw9p-Ed-ak6NoX_4Aeg_861159193")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Business Process Format 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

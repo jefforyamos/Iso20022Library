@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Settlement instructions to be used to transfer cash from the Debtor to the Creditor.
 /// </summary>
 [IsoId("_RRsPYtp-Ed-ak6NoX_4Aeg_-1105806618")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund Cash Settlement Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InvestmentFundCashSettlementInformation3
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a subscription payment.
     /// </summary>
     [IsoId("_RRsPY9p-Ed-ak6NoX_4Aeg_-1105806185")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptPmtInstrm")]
     #endif
+    [IsoXmlTag("SbcptPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument8? SubscriptionPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record InvestmentFundCashSettlementInformation3
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a redemption payment.
     /// </summary>
     [IsoId("_RRsPZNp-Ed-ak6NoX_4Aeg_-1105806557")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedPmtInstrm")]
     #endif
+    [IsoXmlTag("RedPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument9? RedemptionPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record InvestmentFundCashSettlementInformation3
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a dividend payment.
     /// </summary>
     [IsoId("_RRsPZdp-Ed-ak6NoX_4Aeg_-1105806246")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddPmtInstrm")]
     #endif
+    [IsoXmlTag("DvddPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument9? DividendPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record InvestmentFundCashSettlementInformation3
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a savings plan payment.
     /// </summary>
     [IsoId("_RRsPZtp-Ed-ak6NoX_4Aeg_-1105806109")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Savings Plan Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvgsPlanPmtInstrm")]
     #endif
+    [IsoXmlTag("SvgsPlanPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument8? SavingsPlanPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

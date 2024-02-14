@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectedStatus22Choice.NoSpecifiedReason))]
     [KnownType(typeof(RejectedStatus22Choice.Reason))]
     [IsoId("_6HV1B5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status 22 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

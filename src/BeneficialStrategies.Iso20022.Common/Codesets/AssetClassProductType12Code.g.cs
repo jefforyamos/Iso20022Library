@@ -21,7 +21,7 @@ public enum AssetClassProductType12Code
 {
     /// <summary>
     /// Commodity of type inflation.
-    /// Encoded/decoded by serializers as "INFL".
+    /// Encoded/decoded by serializers as &quot;INFL&quot;.
     /// </summary>
     [EnumMember(Value = "INFL")]
     [IsoId("_TxFBZ1rLEeWN79Bl6BUd3g")]

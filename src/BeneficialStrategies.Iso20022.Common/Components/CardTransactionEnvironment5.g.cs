@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the transaction.
 /// </summary>
 [IsoId("_Gj-mcXu6EeSLmfFG0DG7zQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record CardTransactionEnvironment5
     /// It corresponds to the ISO 8583 field number 94.
     /// </summary>
     [IsoId("_UJ0xEHu6EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sending Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndgInstn")]
     #endif
+    [IsoXmlTag("SndgInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification73 SendingInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification73 SendingInstitution { get; init; } 
+    public required GenericIdentification73 SendingInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification73 SendingInstitution { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record CardTransactionEnvironment5
     /// It corresponds to the ISO 8583 field number 93.
     /// </summary>
     [IsoId("_eIpKoHu6EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgInstn")]
     #endif
+    [IsoXmlTag("RcvgInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification73 ReceivingInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification73 ReceivingInstitution { get; init; } 
+    public required GenericIdentification73 ReceivingInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification73 ReceivingInstitution { get; init; } 
     #else
@@ -95,16 +91,15 @@ public partial record CardTransactionEnvironment5
     /// Institution in charge of the settlement of the transaction.
     /// </summary>
     [IsoId("_kcNacHu6EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmInstn")]
     #endif
+    [IsoXmlTag("SttlmInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification73 SettlementInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification73 SettlementInstitution { get; init; } 
+    public required GenericIdentification73 SettlementInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification73 SettlementInstitution { get; init; } 
     #else

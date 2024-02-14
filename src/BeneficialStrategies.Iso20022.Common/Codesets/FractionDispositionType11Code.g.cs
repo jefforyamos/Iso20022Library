@@ -21,7 +21,7 @@ public enum FractionDispositionType11Code
 {
     /// <summary>
     /// Buy securities up to next whole number.
-    /// Encoded/decoded by serializers as "BUYU".
+    /// Encoded/decoded by serializers as &quot;BUYU&quot;.
     /// </summary>
     [EnumMember(Value = "BUYU")]
     [IsoId("_gXwooWSCEeKFfdK0gKYFLQ")]
@@ -30,7 +30,7 @@ public enum FractionDispositionType11Code
     
     /// <summary>
     /// Fractional part of cash. Take cash in lieu of fractions.
-    /// Encoded/decoded by serializers as "CINL".
+    /// Encoded/decoded by serializers as &quot;CINL&quot;.
     /// </summary>
     [EnumMember(Value = "CINL")]
     [IsoId("_ggtJQWSCEeKFfdK0gKYFLQ")]
@@ -39,7 +39,7 @@ public enum FractionDispositionType11Code
     
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_g-qQkWSCEeKFfdK0gKYFLQ")]
@@ -48,7 +48,7 @@ public enum FractionDispositionType11Code
     
     /// <summary>
     /// Round the entitlement down to the last full unit/minimum nominal quantity, fractions are discarded.
-    /// Encoded/decoded by serializers as "RDDN".
+    /// Encoded/decoded by serializers as &quot;RDDN&quot;.
     /// </summary>
     [EnumMember(Value = "RDDN")]
     [IsoId("_hv_m4WSCEeKFfdK0gKYFLQ")]
@@ -57,7 +57,7 @@ public enum FractionDispositionType11Code
     
     /// <summary>
     /// If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down as specified in the respective RDUP and RDDN codes.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_h4yWgWSCEeKFfdK0gKYFLQ")]
@@ -66,7 +66,7 @@ public enum FractionDispositionType11Code
     
     /// <summary>
     /// Round up to the next full unit/minimum nominal quantity at no cost.
-    /// Encoded/decoded by serializers as "RDUP".
+    /// Encoded/decoded by serializers as &quot;RDUP&quot;.
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_h7d3EWSCEeKFfdK0gKYFLQ")]

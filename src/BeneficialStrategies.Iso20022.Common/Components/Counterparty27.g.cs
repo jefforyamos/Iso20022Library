@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to counterparty identification.
 /// </summary>
 [IsoId("_BOdH0ZQKEeiILOjNP8ro1w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record Counterparty27
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
     [IsoId("_BY0kwZQKEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification7Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification7Choice_ Identification { get; init; } 
+    public required OrganisationIdentification7Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification7Choice_ Identification { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record Counterparty27
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
     [IsoId("_BY0kw5QKEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntr")]
     #endif
+    [IsoXmlTag("Ntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyTradeNature4Choice_ Nature { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyTradeNature4Choice_ Nature { get; init; } 
+    public required CounterpartyTradeNature4Choice_ Nature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyTradeNature4Choice_ Nature { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record Counterparty27
     /// Identifies the trading capacity of the seller.
     /// </summary>
     [IsoId("_BY0kxZQKEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Capacity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgCpcty")]
     #endif
+    [IsoXmlTag("TradgCpcty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradingCapacity7Code TradingCapacity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradingCapacity7Code TradingCapacity { get; init; } 
+    public required TradingCapacity7Code TradingCapacity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradingCapacity7Code TradingCapacity { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record Counterparty27
     /// Identifies whether the reporting counterparty is a buyer or a seller.
     /// </summary>
     [IsoId("_BY0kx5QKEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySd")]
     #endif
+    [IsoXmlTag("CtrPtySd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionParty1Code CounterpartySide { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionParty1Code CounterpartySide { get; init; } 
+    public required OptionParty1Code CounterpartySide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionParty1Code CounterpartySide { get; init; } 
     #else

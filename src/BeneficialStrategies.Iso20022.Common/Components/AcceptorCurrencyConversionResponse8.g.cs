@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Currency conversion outcome from the service provider.
 /// </summary>
 [IsoId("_wNrNYS5IEeunNvJlR_vCbg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Currency Conversion Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AcceptorCurrencyConversionResponse8
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_wbN6IS5IEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment77 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment77 Environment { get; init; } 
+    public required CardPaymentEnvironment77 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment77 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record AcceptorCurrencyConversionResponse8
     /// Currency conversion of a card payment transaction between an acceptor and an acquirer.
     /// </summary>
     [IsoId("_wbN6Iy5IEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentTransaction111 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentTransaction111 Transaction { get; init; } 
+    public required CardPaymentTransaction111 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentTransaction111 Transaction { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record AcceptorCurrencyConversionResponse8
     /// Details of the currency conversion.
     /// </summary>
     [IsoId("_wbN6JS5IEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Conversion Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyConvsRslt")]
     #endif
+    [IsoXmlTag("CcyConvsRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyConversion22 CurrencyConversionResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyConversion22 CurrencyConversionResult { get; init; } 
+    public required CurrencyConversion22 CurrencyConversionResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyConversion22 CurrencyConversionResult { get; init; } 
     #else

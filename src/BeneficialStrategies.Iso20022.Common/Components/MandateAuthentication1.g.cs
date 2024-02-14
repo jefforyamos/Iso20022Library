@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the transport authentication details related to the mandate.
 /// </summary>
 [IsoId("_HSGqsGVVEeacpJ-gG9kyUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Authentication")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record MandateAuthentication1
     /// Specifies a piece of information used to authenticate a message, that is to confirm that the message came from the stated sender (its authenticity) and has not been changed in transit (its integrity).
     /// </summary>
     [IsoId("_Tw5GoGVVEeacpJ-gG9kyUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Authentication Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgAuthntcnCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgAuthntcnCd")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? MessageAuthenticationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,12 @@ public partial record MandateAuthentication1
     /// Date when the authentication was conducted.
     /// </summary>
     [IsoId("_Z4U-8GVVEeacpJ-gG9kyUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +79,11 @@ public partial record MandateAuthentication1
     /// Channel used to transmit the authentication information.
     /// </summary>
     [IsoId("_zsoqgGVVEeacpJ-gG9kyUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chanl")]
     #endif
+    [IsoXmlTag("Chanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthenticationChannel1Choice_? Channel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

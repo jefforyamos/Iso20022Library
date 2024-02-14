@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Taxable service charge amount conversions to host currency.
 /// </summary>
 [IsoId("_6QP-pJqlEeGSON8vddiWzQ_1984361507")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Services Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BillingServicesAmount1
     /// Sum of all the individual taxes on the service expressed in the host currency.
     /// </summary>
     [IsoId("_6QP-pZqlEeGSON8vddiWzQ_-123622265")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstAmt")]
     #endif
+    [IsoXmlTag("HstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 HostAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 HostAmount { get; init; } 
+    public required AmountAndDirection34 HostAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 HostAmount { get; init; } 
     #else
@@ -68,15 +65,14 @@ public partial record BillingServicesAmount1
     #endif
     
     /// <summary>
-    /// Amount of the tax obligation expressed in the tax region's pricing currency.|Usage: This is the same amount as carried in the host amount but allows the sender to optionally express the value in the pricing currency.
+    /// Amount of the tax obligation expressed in the tax region&apos;s pricing currency.|Usage: This is the same amount as carried in the host amount but allows the sender to optionally express the value in the pricing currency.
     /// </summary>
     [IsoId("_6QP-ppqlEeGSON8vddiWzQ_-1662410707")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pricing Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricgAmt")]
     #endif
+    [IsoXmlTag("PricgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? PricingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

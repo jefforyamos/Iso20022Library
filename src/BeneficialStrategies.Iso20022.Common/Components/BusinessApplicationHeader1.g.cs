@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Can be used when replying to a query; can also be used when canceling or amending.
 /// </summary>
 [IsoId("_QnrCBdp-Ed-ak6NoX_4Aeg_2082653882")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Application Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,12 +54,11 @@ public partial record BusinessApplicationHeader1
     /// Contains the character set of the text-based elements used in the Business Message.
     /// </summary>
     [IsoId("_QnrCBtp-Ed-ak6NoX_4Aeg_1732906457")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Character Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CharSet")]
     #endif
+    [IsoXmlTag("CharSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnicodeChartsCode? CharacterSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +72,15 @@ public partial record BusinessApplicationHeader1
     /// Note	the sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
     [IsoId("_QnrCB9p-Ed-ak6NoX_4Aeg_-73112806")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fr")]
     #endif
+    [IsoXmlTag("Fr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party9Choice_ From { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party9Choice_ From { get; init; } 
+    public required Party9Choice_ From { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party9Choice_ From { get; init; } 
     #else
@@ -96,16 +92,15 @@ public partial record BusinessApplicationHeader1
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
     [IsoId("_QnrCCNp-Ed-ak6NoX_4Aeg_-169722537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="To")]
     #endif
+    [IsoXmlTag("To")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party9Choice_ To { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party9Choice_ To { get; init; } 
+    public required Party9Choice_ To { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party9Choice_ To { get; init; } 
     #else
@@ -116,19 +111,17 @@ public partial record BusinessApplicationHeader1
     /// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.
     /// </summary>
     [IsoId("_QnrCCdp-Ed-ak6NoX_4Aeg_325023192")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Message Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizMsgIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BizMsgIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text BusinessMessageIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BusinessMessageIdentifier { get; init; } 
+    public required System.String BusinessMessageIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BusinessMessageIdentifier { get; init; } 
     #else
@@ -141,19 +134,17 @@ public partial record BusinessApplicationHeader1
     /// example	camt.001.001.03.
     /// </summary>
     [IsoId("_QnrCCtp-Ed-ak6NoX_4Aeg_-2098267532")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Definition Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgDefIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgDefIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageDefinitionIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageDefinitionIdentifier { get; init; } 
+    public required System.String MessageDefinitionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageDefinitionIdentifier { get; init; } 
     #else
@@ -163,18 +154,16 @@ public partial record BusinessApplicationHeader1
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.
     ///  To be used when there is a choice of processing services or processing service levels.
-    /// Example: E&I.
+    /// Example: E&amp;I.
     /// </summary>
     [IsoId("_QnrCC9p-Ed-ak6NoX_4Aeg_-1512320506")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizSvc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BizSvc")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BusinessService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,19 +174,19 @@ public partial record BusinessApplicationHeader1
     
     /// <summary>
     /// Date and time when this Business Message (header) was created.
-    /// Note Times must be normalized, using the "Z" annotation.
+    /// Note Times must be normalized, using the &quot;Z&quot; annotation.
     /// </summary>
     [IsoId("_Qn0zANp-Ed-ak6NoX_4Aeg_1403963847")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDt")]
     #endif
+    [IsoXmlTag("CreDt")]
+    [IsoSimpleType(IsoSimpleType.ISONormalisedDateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISONormalisedDateTime CreationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDate { get; init; } 
+    public required System.DateTime CreationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDate { get; init; } 
     #else
@@ -208,12 +197,11 @@ public partial record BusinessApplicationHeader1
     /// Indicates whether the message is a Copy, a Duplicate or a copy of a duplicate of a previously sent ISO 20022 Message.
     /// </summary>
     [IsoId("_Qn0zAdp-Ed-ak6NoX_4Aeg_293052428")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Duplicate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDplct")]
     #endif
+    [IsoXmlTag("CpyDplct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,15 +215,15 @@ public partial record BusinessApplicationHeader1
     /// If the receiving MessagingEndpoint did not receive the original, then this Business Message should be processed as if it were the original. 
     /// If the receiving MessagingEndpoint did receive the original, then it should perform necessary actions to avoid processing this Business Message again.
     /// This will guarantee business idempotent behaviour.
-    /// NOTE: this is named "PossResend" in FIX - this is an application level resend not a network level retransmission.
+    /// NOTE: this is named &quot;PossResend&quot; in FIX - this is an application level resend not a network level retransmission.
     /// </summary>
     [IsoId("_Qn0zAtp-Ed-ak6NoX_4Aeg_1615242288")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Possible Duplicate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PssblDplct")]
     #endif
+    [IsoXmlTag("PssblDplct")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PossibleDuplicate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,12 +236,11 @@ public partial record BusinessApplicationHeader1
     /// Relative indication of the processing precedence of the message over a (set of) Business Messages with assigned priorities.
     /// </summary>
     [IsoId("_Qn0zA9p-Ed-ak6NoX_4Aeg_1846952339")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prty")]
     #endif
+    [IsoXmlTag("Prty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessMessagePriorityCode? Priority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +253,11 @@ public partial record BusinessApplicationHeader1
     /// Contains the digital signature of the Business Entity authorised to sign this Business Message.
     /// </summary>
     [IsoId("_Qn0zBNp-Ed-ak6NoX_4Aeg_-572833242")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignatureEnvelope? Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

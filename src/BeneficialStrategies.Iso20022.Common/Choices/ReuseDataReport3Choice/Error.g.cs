@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport3Choice
     /// Indicates a cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to reporting requirements but was reported to a trade repository by mistake.
     /// </summary>
     [IsoId("_0mq3s64bEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport3Choice
         /// Unique identifier of a record in a message used as part of error management and status advice message.
         /// </summary>
         [IsoId("_4Uz9Ya4bEemB_csI4yyKLA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Technical Record Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TechRcrdId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TechRcrdId")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -78,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport3Choice
         /// Date and time of submission of the report to the entitled receiver.
         /// </summary>
         [IsoId("_4Uz9Y64bEemB_csI4yyKLA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reporting Date Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RptgDtTm")]
         #endif
+        [IsoXmlTag("RptgDtTm")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODateTime ReportingDateTime { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateTime ReportingDateTime { get; init; } 
+        public required System.DateTime ReportingDateTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateTime ReportingDateTime { get; init; } 
         #else
@@ -98,16 +94,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport3Choice
         /// Data specific to counterparties and related fields.
         /// </summary>
         [IsoId("_4Uz9Za4bEemB_csI4yyKLA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPtyData")]
         #endif
+        [IsoXmlTag("CtrPtyData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CounterpartyData46 CounterpartyData { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CounterpartyData46 CounterpartyData { get; init; } 
+        public required CounterpartyData46 CounterpartyData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CounterpartyData46 CounterpartyData { get; init; } 
         #else
@@ -118,12 +113,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport3Choice
         /// Additional information that can not be captured in the structured fields and/or any other specific block.
         /// </summary>
         [IsoId("_4Uz9Z64bEemB_csI4yyKLA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

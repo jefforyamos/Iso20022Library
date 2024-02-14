@@ -21,7 +21,7 @@ public enum TradingSessionCode
 {
     /// <summary>
     /// Orders that are traded in regularly occuring auctions: orders are accumulated and executed on basis of defined algorithms.
-    /// Encoded/decoded by serializers as "AUCT".
+    /// Encoded/decoded by serializers as &quot;AUCT&quot;.
     /// </summary>
     [EnumMember(Value = "AUCT")]
     [IsoId("_YrGs9dp-Ed-ak6NoX_4Aeg_-1134133596")]
@@ -30,7 +30,7 @@ public enum TradingSessionCode
     
     /// <summary>
     /// Trading process where orders are executed directly against each others as they hit the marketplace.
-    /// Encoded/decoded by serializers as "CONT".
+    /// Encoded/decoded by serializers as &quot;CONT&quot;.
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_YrGs9tp-Ed-ak6NoX_4Aeg_-610494837")]

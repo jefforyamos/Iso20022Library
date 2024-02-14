@@ -21,7 +21,7 @@ public enum ResolutionTypeCode
 {
     /// <summary>
     /// Meeting resolution is ordinary and is not subject to any specific voting requirements.
-    /// Encoded/decoded by serializers as "ORDI".
+    /// Encoded/decoded by serializers as &quot;ORDI&quot;.
     /// </summary>
     [EnumMember(Value = "ORDI")]
     [IsoId("_ZU-JV9p-Ed-ak6NoX_4Aeg_901505726")]
@@ -30,7 +30,7 @@ public enum ResolutionTypeCode
     
     /// <summary>
     /// Meeting resolution is extraordinary and may be subject to specific voting requirements.
-    /// Encoded/decoded by serializers as "EXTR".
+    /// Encoded/decoded by serializers as &quot;EXTR&quot;.
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("_ZU-JWNp-Ed-ak6NoX_4Aeg_929210488")]
@@ -39,7 +39,7 @@ public enum ResolutionTypeCode
     
     /// <summary>
     /// Resolution that is neither ordinary nor extraordinary (eg. decision on an investment strategy).
-    /// Encoded/decoded by serializers as "SPCL".
+    /// Encoded/decoded by serializers as &quot;SPCL&quot;.
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("_ZVH6UNp-Ed-ak6NoX_4Aeg_817498982")]

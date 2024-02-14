@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Attributes of a settlement service.
 /// </summary>
 [IsoId("_6-z1ISbUEeyhZIgCcGlTyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Service")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SettlementService4
     /// Settlement service actually applied to the transaction.
     /// </summary>
     [IsoId("_7G-5sSbUEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Service Applied")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSvcApld")]
     #endif
+    [IsoXmlTag("SttlmSvcApld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementServiceMode1? SettlementServiceApplied { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SettlementService4
     /// Dates related to the settlement service related to the transaction.
     /// </summary>
     [IsoId("_7G-5sybUEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Service Dates")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSvcDts")]
     #endif
+    [IsoXmlTag("SttlmSvcDts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementServiceDate2? SettlementServiceDates { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SettlementService4
     /// Entity in charge of the settlement reporting service.
     /// </summary>
     [IsoId("_7G-5tSbUEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Reporting Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmRptgNtty")]
     #endif
+    [IsoXmlTag("SttlmRptgNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementReportingEntity1? SettlementReportingEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record SettlementService4
     /// Additional Settlement Information.
     /// </summary>
     [IsoId("_FAjm4SbVEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Settlement Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlSttlmInf")]
     #endif
+    [IsoXmlTag("AddtlSttlmInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalSettlementInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
 [IsoId("_T6ZIUVm_EeOQYsoJizpkVw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Early Payment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record EarlyPayment1
     /// Date before which the early payment discount is valid for payment.
     /// </summary>
     [IsoId("_eUAngFm_EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlyPmtDt")]
     #endif
+    [IsoXmlTag("EarlyPmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EarlyPaymentDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly EarlyPaymentDate { get; init; } 
+    public required System.DateOnly EarlyPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly EarlyPaymentDate { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record EarlyPayment1
     /// Discount percent for early payment.
     /// </summary>
     [IsoId("_UGcnaVm_EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Percent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscntPct")]
     #endif
+    [IsoXmlTag("DscntPct")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate DiscountPercent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal DiscountPercent { get; init; } 
+    public required System.Decimal DiscountPercent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal DiscountPercent { get; init; } 
     #else
@@ -93,16 +91,16 @@ public partial record EarlyPayment1
     /// Early payment discount with tax, with currency.
     /// </summary>
     [IsoId("_UGcnZVm_EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscntAmt")]
     #endif
+    [IsoXmlTag("DscntAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount DiscountAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal DiscountAmount { get; init; } 
+    public required System.Decimal DiscountAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal DiscountAmount { get; init; } 
     #else
@@ -113,12 +111,11 @@ public partial record EarlyPayment1
     /// In tax specification for early payment discount one defined the applied tax rates for specific early payment. VAT stands for value added tax.
     /// </summary>
     [IsoId("_EkXkEFnAEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Payment Tax Specification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlyPmtTaxSpcfctn")]
     #endif
+    [IsoXmlTag("EarlyPmtTaxSpcfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EarlyPaymentsVAT1? EarlyPaymentTaxSpecification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +128,12 @@ public partial record EarlyPayment1
     /// Tax total in early payment, with currency.
     /// </summary>
     [IsoId("_sh6QoFm_EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Payment Tax Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlyPmtTaxTtl")]
     #endif
+    [IsoXmlTag("EarlyPmtTaxTtl")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? EarlyPaymentTaxTotal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +146,12 @@ public partial record EarlyPayment1
     /// Payable amount with discount of early payment, with currency.
     /// </summary>
     [IsoId("_3UqokFm_EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Due Payable Amount With Early Payment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DuePyblAmtWthEarlyPmt")]
     #endif
+    [IsoXmlTag("DuePyblAmtWthEarlyPmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? DuePayableAmountWithEarlyPayment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the financial instrument removal request.
 /// </summary>
 [IsoId("_3bfJsStFEeySlt9bF77XfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RequestDetails28
     /// Specifies the  removal processing change requested.
     /// </summary>
     [IsoId("_3zn84ytFEeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Removal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rmvl")]
     #endif
+    [IsoXmlTag("Rmvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RemovalTypeAndReason1 Removal { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RemovalTypeAndReason1 Removal { get; init; } 
+    public required RemovalTypeAndReason1 Removal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RemovalTypeAndReason1 Removal { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record RequestDetails28
     /// Specifies the financial instruments to be removed  (identification or attributes). 
     /// </summary>
     [IsoId("_3zn85StFEeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument And Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmAndAttrbts")]
     #endif
+    [IsoXmlTag("FinInstrmAndAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemovalProcessing2Choice_? FinancialInstrumentAndAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record RequestDetails28
     /// Identifies the collateral parties of a contract.
     /// </summary>
     [IsoId("_3zn85ytFEeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPty")]
     #endif
+    [IsoXmlTag("CtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralParties4? Counterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record RequestDetails28
     /// Account where financial instruments are maintained.
     /// </summary>
     [IsoId("_3zn86StFEeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record RequestDetails28
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
     [IsoId("_UBHi0ytFEeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Chain Address Or Wallet")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckChainAdrOrWllt")]
     #endif
+    [IsoXmlTag("BlckChainAdrOrWllt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,11 @@ public partial record RequestDetails28
     /// References of the transaction for which the financial instrument removal request is required.
     /// </summary>
     [IsoId("_3zn86ytFEeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reference21? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

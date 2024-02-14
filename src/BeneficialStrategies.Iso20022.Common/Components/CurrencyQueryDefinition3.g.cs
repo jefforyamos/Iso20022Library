@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the query criteria.
 /// </summary>
 [IsoId("_Ho80EZlZEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Query Definition")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CurrencyQueryDefinition3
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
     [IsoId("_HxiIU5lZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryTp")]
     #endif
+    [IsoXmlTag("QryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QueryType2Code? QueryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CurrencyQueryDefinition3
     /// Defines of the currency query criteria.
     /// </summary>
     [IsoId("_HxiIVZlZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyCrit")]
     #endif
+    [IsoXmlTag("CcyCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCriteriaDefinition1Choice_? CurrencyCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

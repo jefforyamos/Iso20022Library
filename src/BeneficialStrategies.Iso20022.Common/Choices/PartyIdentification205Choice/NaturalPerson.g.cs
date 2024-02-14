@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification205Choice
     /// Private person.
     /// </summary>
     [IsoId("_osYgE46XEemzmeK8_tPygg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Natural Person")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification205Choice
         /// Name and address of the party.
         /// </summary>
         [IsoId("_Zfz85T6CEemPvNTzinB5Vw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name And Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NmAndAdr")]
         #endif
+        [IsoXmlTag("NmAndAdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PersonName1 NameAndAddress { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PersonName1 NameAndAddress { get; init; } 
+        public required PersonName1 NameAndAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PersonName1 NameAndAddress { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification205Choice
         /// CONCAT
         /// </summary>
         [IsoId("_Zfz85j6CEemPvNTzinB5Vw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NaturalPersonIdentification1 Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NaturalPersonIdentification1 Identification { get; init; } 
+        public required NaturalPersonIdentification1 Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NaturalPersonIdentification1 Identification { get; init; } 
         #else

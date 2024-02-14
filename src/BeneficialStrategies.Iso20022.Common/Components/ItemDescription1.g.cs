@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Language, title and textual description in the specified language of an item.
 /// </summary>
 [IsoId("_22xaAPM8EeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Item Description")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ItemDescription1
     /// Language used to provide a description of the item and specified in the ISO 639-1 language code standard.
     /// </summary>
     [IsoId("_slMcgfM8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lang")]
     #endif
+    [IsoXmlTag("Lang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISO2ALanguageCode Language { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Language { get; init; } 
+    public required string Language { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Language { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record ItemDescription1
     /// Abbreviated description of the item.
     /// </summary>
     [IsoId("_VNTTkfM9EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Title")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Titl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Titl")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Title { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record ItemDescription1
     /// Free textual description of the item in the specified language.
     /// </summary>
     [IsoId("_sWfcsfM9EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max1025Text)]
     [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

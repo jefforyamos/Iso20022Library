@@ -21,7 +21,7 @@ public enum AssetClassSubProductType3Code
 {
     /// <summary>
     /// Commodity of type olive oil.
-    /// Encoded/decoded by serializers as "OOLI".
+    /// Encoded/decoded by serializers as &quot;OOLI&quot;.
     /// </summary>
     [EnumMember(Value = "OOLI")]
     [IsoId("_OOrBAQnzEeWnS-yHF1QhNQ")]

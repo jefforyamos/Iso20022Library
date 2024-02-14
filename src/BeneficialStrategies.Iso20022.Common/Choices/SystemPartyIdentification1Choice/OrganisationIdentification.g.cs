@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification1Choice
     /// Provides the identification of a party.
     /// </summary>
     [IsoId("_jBdh8-5NEeCisYr99QEiWA_-237351857")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

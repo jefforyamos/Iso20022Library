@@ -21,7 +21,7 @@ public enum InformationTypeCode
 {
     /// <summary>
     /// Instructions used to ease automatic request processing.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_aWsFA9p-Ed-ak6NoX_4Aeg_1218573157")]
@@ -30,7 +30,7 @@ public enum InformationTypeCode
     
     /// <summary>
     /// Instructions used to ease automatic request relay.
-    /// Encoded/decoded by serializers as "RELY".
+    /// Encoded/decoded by serializers as &quot;RELY&quot;.
     /// </summary>
     [EnumMember(Value = "RELY")]
     [IsoId("_aWsFBNp-Ed-ak6NoX_4Aeg_1222266779")]

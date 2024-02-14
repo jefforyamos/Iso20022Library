@@ -21,7 +21,7 @@ public enum CarRentalActivity1Code
 {
     /// <summary>
     /// Company specialised in car sharing activities.
-    /// Encoded/decoded by serializers as "CARS".
+    /// Encoded/decoded by serializers as &quot;CARS&quot;.
     /// </summary>
     [EnumMember(Value = "CARS")]
     [IsoId("_rkPHUVyrEeeve7Je9cXtkQ")]
@@ -30,7 +30,7 @@ public enum CarRentalActivity1Code
     
     /// <summary>
     /// Global car rental activities.
-    /// Encoded/decoded by serializers as "GLBL".
+    /// Encoded/decoded by serializers as &quot;GLBL&quot;.
     /// </summary>
     [EnumMember(Value = "GLBL")]
     [IsoId("_rxoDEVyrEeeve7Je9cXtkQ")]
@@ -39,7 +39,7 @@ public enum CarRentalActivity1Code
     
     /// <summary>
     /// Individual renting a car.
-    /// Encoded/decoded by serializers as "INDV".
+    /// Encoded/decoded by serializers as &quot;INDV&quot;.
     /// </summary>
     [EnumMember(Value = "INDV")]
     [IsoId("_r-kS4lyrEeeve7Je9cXtkQ")]
@@ -48,7 +48,7 @@ public enum CarRentalActivity1Code
     
     /// <summary>
     /// Peer to peer car rental activities.
-    /// Encoded/decoded by serializers as "PETP".
+    /// Encoded/decoded by serializers as &quot;PETP&quot;.
     /// </summary>
     [EnumMember(Value = "PETP")]
     [IsoId("_sQko4lyrEeeve7Je9cXtkQ")]
@@ -57,7 +57,7 @@ public enum CarRentalActivity1Code
     
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_6MeY4fSrEeife6veM7daYw")]
@@ -66,7 +66,7 @@ public enum CarRentalActivity1Code
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_6RrpAfSrEeife6veM7daYw")]
@@ -75,7 +75,7 @@ public enum CarRentalActivity1Code
     
     /// <summary>
     /// Other type of car rental activity.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_6TUAsfSrEeife6veM7daYw")]

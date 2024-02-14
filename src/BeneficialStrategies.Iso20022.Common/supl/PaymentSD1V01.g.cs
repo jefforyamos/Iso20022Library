@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"Supplementary data for payment message definitions.")]
 [IsoId("_ZAIu0PwLEeGHDMP28rpT3g_-1117810318")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment SD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record PaymentSD1V01 : IOuterRecord<PaymentSD1V01,PaymentSD1V01Do
     /// Structured card remittance information supplied in a payment.
     /// </summary>
     [IsoId("_ZAIu0fwLEeGHDMP28rpT3g_-1719162242")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Remittance Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardRmtInf")]
     #endif
+    [IsoXmlTag("CardRmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionData1 CardRemittanceInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionData1 CardRemittanceInformation { get; init; } 
+    public required TransactionData1 CardRemittanceInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionData1 CardRemittanceInformation { get; init; } 
     #else
@@ -95,7 +92,7 @@ public partial record PaymentSD1V01 : IOuterRecord<PaymentSD1V01,PaymentSD1V01Do
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PaymentSD1V01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PaymentSD1V01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PaymentSD1V01Document ToDocument()
     {
@@ -105,7 +102,7 @@ public partial record PaymentSD1V01 : IOuterRecord<PaymentSD1V01,PaymentSD1V01Do
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentSD1V01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PaymentSD1V01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PaymentSD1V01Document : IOuterDocument<PaymentSD1V01>
@@ -122,7 +119,7 @@ public partial record PaymentSD1V01Document : IOuterDocument<PaymentSD1V01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PaymentSD1V01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PaymentSD1V01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentSD1V01 Message { get; init; }

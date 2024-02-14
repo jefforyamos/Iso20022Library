@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies what to do during shutdown.
 /// </summary>
 [IsoId("_MAEhwXGgEe2TbaNWBpRZpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Poweroff Card Reader Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record DevicePoweroffCardReaderRequest5
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
     [IsoId("_MGTFkXGgEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Power Off Maximum Waiting Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PwrOffMaxWtgTm")]
     #endif
+    [IsoXmlTag("PwrOffMaxWtgTm")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PowerOffMaximumWaitingTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record DevicePoweroffCardReaderRequest5
     /// Optional message before Power-Off.
     /// </summary>
     [IsoId("_MGTsoXGgEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Output")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispOutpt")]
     #endif
+    [IsoXmlTag("DispOutpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage10? DisplayOutput { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

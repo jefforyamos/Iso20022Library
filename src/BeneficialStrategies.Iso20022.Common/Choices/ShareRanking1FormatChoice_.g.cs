@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ShareRanking1FormatChoice.Code))]
     [KnownType(typeof(ShareRanking1FormatChoice.Proprietary))]
     [IsoId("_Ro8Rw9p-Ed-ak6NoX_4Aeg_1933759381")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Share Ranking 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

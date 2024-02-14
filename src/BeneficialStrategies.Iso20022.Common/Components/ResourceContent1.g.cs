@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Features of a media resource.
 /// </summary>
 [IsoId("_wkqgEC8DEeu125Ip9zFcsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Resource Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ResourceContent1
     /// Type of media resource.
     /// </summary>
     [IsoId("_RZ53wC8EEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resource Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsrcTp")]
     #endif
+    [IsoXmlTag("RsrcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResourceType1Code ResourceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResourceType1Code ResourceType { get; init; } 
+    public required ResourceType1Code ResourceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResourceType1Code ResourceType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ResourceContent1
     /// Format of the media resource;
     /// </summary>
     [IsoId("_X5H98C8EEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resource Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsrcFrmt")]
     #endif
+    [IsoXmlTag("RsrcFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SoundFormat1Code? ResourceFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ResourceContent1
     /// Language of the media resource.
     /// </summary>
     [IsoId("_fjS0UC8EEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lang")]
     #endif
+    [IsoXmlTag("Lang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? Language { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +102,13 @@ public partial record ResourceContent1
     /// Reference of a media resource.
     /// </summary>
     [IsoId("_bzU3wS8GEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resource Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsrcRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RsrcRef")]
+    [IsoSimpleType(IsoSimpleType.Max1025Text)]
     [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? ResourceReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

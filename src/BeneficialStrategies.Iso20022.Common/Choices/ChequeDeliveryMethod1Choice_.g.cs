@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChequeDeliveryMethod1Choice.Code))]
     [KnownType(typeof(ChequeDeliveryMethod1Choice.Proprietary))]
     [IsoId("_QbwF5tp-Ed-ak6NoX_4Aeg_258234806")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque Delivery Method 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

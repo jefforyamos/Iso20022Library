@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope|The CollateralSubstitutionResponse message is sent by either the collateral taker or its collateral manager to the collateral giver or its collateral manager. This is a response to the CollateralSubstitutionRequest message and the collateral proposed in the substitution request can be accepted or rejected. If the collateral proposed is rejected then a new CollateralSubstitutionRequest should be sent. Note: There are cases where the collateral giver will send this message when the collateral taker has initiated the CollateralSubstitutionRequest message, for example in case of breach in the concentration limit.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|This is a response to the CollateralSubstitutionRequest message and the collateral proposed in the substitution request can be accepted or rejected.")]
 [IsoId("_J4YklSgrEeyB747fKu7_rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Substitution Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,19 +81,17 @@ public partial record CollateralSubstitutionResponseV05 : IOuterRecord<Collatera
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
     [IsoId("_J4YkmygrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -106,16 +102,15 @@ public partial record CollateralSubstitutionResponseV05 : IOuterRecord<Collatera
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
     /// </summary>
     [IsoId("_J4YknSgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgtn")]
     #endif
+    [IsoXmlTag("Oblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Obligation9 Obligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Obligation9 Obligation { get; init; } 
+    public required Obligation9 Obligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Obligation9 Obligation { get; init; } 
     #else
@@ -126,12 +121,11 @@ public partial record CollateralSubstitutionResponseV05 : IOuterRecord<Collatera
     /// Agreement details for the over the counter market.
     /// </summary>
     [IsoId("_J4YknygrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Agrmt")]
     #endif
+    [IsoXmlTag("Agrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Agreement4? Agreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,16 +138,15 @@ public partial record CollateralSubstitutionResponseV05 : IOuterRecord<Collatera
     /// Provides details about the collateral substitution response.
     /// </summary>
     [IsoId("_J4YkoSgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Substitution Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbstitnRspn")]
     #endif
+    [IsoXmlTag("SbstitnRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubstitutionResponse2 SubstitutionResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubstitutionResponse2 SubstitutionResponse { get; init; } 
+    public required SubstitutionResponse2 SubstitutionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubstitutionResponse2 SubstitutionResponse { get; init; } 
     #else
@@ -164,12 +157,11 @@ public partial record CollateralSubstitutionResponseV05 : IOuterRecord<Collatera
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_J4YkoygrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,7 +174,7 @@ public partial record CollateralSubstitutionResponseV05 : IOuterRecord<Collatera
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CollateralSubstitutionResponseV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CollateralSubstitutionResponseV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CollateralSubstitutionResponseV05Document ToDocument()
     {
@@ -192,7 +184,7 @@ public partial record CollateralSubstitutionResponseV05 : IOuterRecord<Collatera
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralSubstitutionResponseV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CollateralSubstitutionResponseV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CollateralSubstitutionResponseV05Document : IOuterDocument<CollateralSubstitutionResponseV05>
@@ -209,7 +201,7 @@ public partial record CollateralSubstitutionResponseV05Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CollateralSubstitutionResponseV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CollateralSubstitutionResponseV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralSubstitutionResponseV05 Message { get; init; }

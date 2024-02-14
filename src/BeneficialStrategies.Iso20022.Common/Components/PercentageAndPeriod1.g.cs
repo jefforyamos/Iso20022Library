@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a percentage together with a period of time. For overlapping periods, the maximum of all applicable elements at a given date is the result.
 /// </summary>
 [IsoId("_OTgzMzg0-AOSNFX-8224502")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Percentage And Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record PercentageAndPeriod1
     /// Covered percentage (max 100%).
     /// </summary>
     [IsoId("_OTgzMzg1-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pctg")]
     #endif
+    [IsoXmlTag("Pctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageBoundedRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageBoundedRate Percentage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Percentage { get; init; } 
+    public required System.Decimal Percentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Percentage { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record PercentageAndPeriod1
     /// Start of period or immediate if not specified.
     /// </summary>
     [IsoId("_OTgzMzg2-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDt")]
     #endif
+    [IsoXmlTag("StartDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,12 @@ public partial record PercentageAndPeriod1
     /// End of period or indefinite if not specified.
     /// </summary>
     [IsoId("_OThzMzg2-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndDt")]
     #endif
+    [IsoXmlTag("EndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

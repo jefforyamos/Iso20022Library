@@ -21,7 +21,7 @@ public enum TaxType6Code
 {
     /// <summary>
     /// Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.
-    /// Encoded/decoded by serializers as "INPO".
+    /// Encoded/decoded by serializers as &quot;INPO&quot;.
     /// </summary>
     [EnumMember(Value = "INPO")]
     [IsoId("_VfGrBNp-Ed-ak6NoX_4Aeg_1202035473")]
@@ -30,7 +30,7 @@ public enum TaxType6Code
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTR".
+    /// Encoded/decoded by serializers as &quot;EUTR&quot;.
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_VfGrBdp-Ed-ak6NoX_4Aeg_1214962922")]
@@ -39,7 +39,7 @@ public enum TaxType6Code
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "AKT1".
+    /// Encoded/decoded by serializers as &quot;AKT1&quot;.
     /// </summary>
     [EnumMember(Value = "AKT1")]
     [IsoId("_VfGrBtp-Ed-ak6NoX_4Aeg_-629185374")]
@@ -48,7 +48,7 @@ public enum TaxType6Code
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "AKT2".
+    /// Encoded/decoded by serializers as &quot;AKT2&quot;.
     /// </summary>
     [EnumMember(Value = "AKT2")]
     [IsoId("_VfGrB9p-Ed-ak6NoX_4Aeg_-629185365")]
@@ -57,7 +57,7 @@ public enum TaxType6Code
     
     /// <summary>
     /// Zwischengewinn.
-    /// Encoded/decoded by serializers as "ZWIS".
+    /// Encoded/decoded by serializers as &quot;ZWIS&quot;.
     /// </summary>
     [EnumMember(Value = "ZWIS")]
     [IsoId("_VfGrCNp-Ed-ak6NoX_4Aeg_-629183703")]
@@ -66,7 +66,7 @@ public enum TaxType6Code
     
     /// <summary>
     /// Another type of tax.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VfGrCdp-Ed-ak6NoX_4Aeg_-1567419793")]

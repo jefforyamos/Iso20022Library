@@ -26,13 +26,11 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// <summary>
 /// This record is an implementation of the cain.003.001.02 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
-/// The FinancialInitiation message is sent by an acquirer or an agent to an issuer to request approval of a card transaction or to inform about the completion of an authorisation. It allows the approved transaction amount to be billed or posted on the cardholder's account. It can also be sent by an issuer to an acquirer or agent to advise that an authorisation has been successfully completed for the final amount and requests the clearing of the transaction.
+/// The FinancialInitiation message is sent by an acquirer or an agent to an issuer to request approval of a card transaction or to inform about the completion of an authorisation. It allows the approved transaction amount to be billed or posted on the cardholder&apos;s account. It can also be sent by an issuer to an acquirer or agent to advise that an authorisation has been successfully completed for the final amount and requests the clearing of the transaction.
 /// </summary>
 [Description(@"The FinancialInitiation message is sent by an acquirer or an agent to an issuer to request approval of a card transaction or to inform about the completion of an authorisation. It allows the approved transaction amount to be billed or posted on the cardholder's account. It can also be sent by an issuer to an acquirer or agent to advise that an authorisation has been successfully completed for the final amount and requests the clearing of the transaction.")]
 [IsoId("_TwBNBVTQEeeeIYOiLZFQGg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record FinancialInitiationV02 : IOuterRecord<FinancialInitiationV
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_TwBNBlTQEeeeIYOiLZFQGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header42 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header42 Header { get; init; } 
+    public required Header42 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header42 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record FinancialInitiationV02 : IOuterRecord<FinancialInitiationV
     /// Information related to the financial initiation.
     /// </summary>
     [IsoId("_TwBNCFTQEeeeIYOiLZFQGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInitiation1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInitiation1 Body { get; init; } 
+    public required FinancialInitiation1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInitiation1 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record FinancialInitiationV02 : IOuterRecord<FinancialInitiationV
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_TwBNB1TQEeeeIYOiLZFQGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record FinancialInitiationV02 : IOuterRecord<FinancialInitiationV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInitiationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInitiationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInitiationV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record FinancialInitiationV02 : IOuterRecord<FinancialInitiationV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInitiationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInitiationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInitiationV02Document : IOuterDocument<FinancialInitiationV02>
@@ -161,7 +156,7 @@ public partial record FinancialInitiationV02Document : IOuterDocument<FinancialI
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInitiationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInitiationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInitiationV02 Message { get; init; }

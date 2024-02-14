@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets.
 /// </summary>
 [IsoId("_F6dn8cguEeuGrNSsxk3B0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Dimensions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PositionSetDimensions14
     /// Data specific to counterparties.
     /// </summary>
     [IsoId("_F8SM48guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyData")]
     #endif
+    [IsoXmlTag("CtrPtyData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartyData86? CounterpartyData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PositionSetDimensions14
     /// Details of the loan used for financing the transaction.
     /// </summary>
     [IsoId("_F8SM5cguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loan Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LnData")]
     #endif
+    [IsoXmlTag("LnData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoanData134? LoanData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PositionSetDimensions14
     /// Provides the details of the collateral used in the transaction.
     /// </summary>
     [IsoId("_F8SM58guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollData")]
     #endif
+    [IsoXmlTag("CollData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralData33? CollateralData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,12 @@ public partial record PositionSetDimensions14
     /// Flag to identify whether the reported Securities Financing Transaction position contains abnormal values.
     /// </summary>
     [IsoId("_F8SM6cguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outliers Included")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OtlrsIncl")]
     #endif
+    [IsoXmlTag("OtlrsIncl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OutliersIncluded { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

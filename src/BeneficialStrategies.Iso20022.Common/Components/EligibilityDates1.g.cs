@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Dates determining the entitlement.
 /// </summary>
 [IsoId("_TmHJHdp-Ed-ak6NoX_4Aeg_742278644")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Eligibility Dates")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record EligibilityDates1
     /// Date at which the positions are struck to note which parties will receive the entitlement, e.g. record date, book close date.
     /// </summary>
     [IsoId("_TmHJHtp-Ed-ak6NoX_4Aeg_-1095795436")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement Fixing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitlmntFxgDt")]
     #endif
+    [IsoXmlTag("EntitlmntFxgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EntitlementFixingDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly EntitlementFixingDate { get; init; } 
+    public required System.DateOnly EntitlementFixingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly EntitlementFixingDate { get; init; } 
     #else

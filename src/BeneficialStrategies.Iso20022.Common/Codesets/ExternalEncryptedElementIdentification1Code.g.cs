@@ -23,7 +23,7 @@ public enum ExternalEncryptedElementIdentification1Code
 {
     /// <summary>
     /// Primary Account Number
-    /// Encoded/decoded by serializers as "8A".
+    /// Encoded/decoded by serializers as &quot;8A&quot;.
     /// </summary>
     [EnumMember(Value = "8A")]
     [IsoId("_upNYGPRYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Track1
-    /// Encoded/decoded by serializers as "8C".
+    /// Encoded/decoded by serializers as &quot;8C&quot;.
     /// </summary>
     [EnumMember(Value = "8C")]
     [IsoId("_upNYG_RYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Track2
-    /// Encoded/decoded by serializers as "8D".
+    /// Encoded/decoded by serializers as &quot;8D&quot;.
     /// </summary>
     [EnumMember(Value = "8D")]
     [IsoId("_upXJEvRYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Track3
-    /// Encoded/decoded by serializers as "8E".
+    /// Encoded/decoded by serializers as &quot;8E&quot;.
     /// </summary>
     [EnumMember(Value = "8E")]
     [IsoId("_upXJFfRYEeuLhpyIdtJzwg")]
@@ -59,7 +59,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Visible Card Security Code
-    /// Encoded/decoded by serializers as "8F".
+    /// Encoded/decoded by serializers as &quot;8F&quot;.
     /// </summary>
     [EnumMember(Value = "8F")]
     [IsoId("_upg6EvRYEeuLhpyIdtJzwg")]
@@ -68,7 +68,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Pre-agreed structure for encrypting data. Permits combination of data elements as per bilateral agreement.
-    /// Encoded/decoded by serializers as "89".
+    /// Encoded/decoded by serializers as &quot;89&quot;.
     /// </summary>
     [EnumMember(Value = "89")]
     [IsoId("_upg6FfRYEeuLhpyIdtJzwg")]
@@ -77,7 +77,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Expiry Date
-    /// Encoded/decoded by serializers as "90".
+    /// Encoded/decoded by serializers as &quot;90&quot;.
     /// </summary>
     [EnumMember(Value = "90")]
     [IsoId("_upg6GPRYEeuLhpyIdtJzwg")]
@@ -86,7 +86,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payment Account Reference (PAR)
-    /// Encoded/decoded by serializers as "91".
+    /// Encoded/decoded by serializers as &quot;91&quot;.
     /// </summary>
     [EnumMember(Value = "91")]
     [IsoId("_upqEAvRYEeuLhpyIdtJzwg")]
@@ -95,7 +95,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payer Customer Identification 
-    /// Encoded/decoded by serializers as "92".
+    /// Encoded/decoded by serializers as &quot;92&quot;.
     /// </summary>
     [EnumMember(Value = "92")]
     [IsoId("_upqEBfRYEeuLhpyIdtJzwg")]
@@ -104,7 +104,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payer Customer Name
-    /// Encoded/decoded by serializers as "93".
+    /// Encoded/decoded by serializers as &quot;93&quot;.
     /// </summary>
     [EnumMember(Value = "93")]
     [IsoId("_upz1AvRYEeuLhpyIdtJzwg")]
@@ -113,7 +113,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payer Customer Address
-    /// Encoded/decoded by serializers as "94".
+    /// Encoded/decoded by serializers as &quot;94&quot;.
     /// </summary>
     [EnumMember(Value = "94")]
     [IsoId("_upz1BfRYEeuLhpyIdtJzwg")]
@@ -122,7 +122,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payer Customer Credentials Alien Registration Number
-    /// Encoded/decoded by serializers as "95".
+    /// Encoded/decoded by serializers as &quot;95&quot;.
     /// </summary>
     [EnumMember(Value = "95")]
     [IsoId("_upz1CPRYEeuLhpyIdtJzwg")]
@@ -131,7 +131,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payer Customer Credentials Driver Licence Identification
-    /// Encoded/decoded by serializers as "96".
+    /// Encoded/decoded by serializers as &quot;96&quot;.
     /// </summary>
     [EnumMember(Value = "96")]
     [IsoId("_upz1C_RYEeuLhpyIdtJzwg")]
@@ -140,7 +140,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payer Customer Credentials National Identifier
-    /// Encoded/decoded by serializers as "97".
+    /// Encoded/decoded by serializers as &quot;97&quot;.
     /// </summary>
     [EnumMember(Value = "97")]
     [IsoId("_up9mAvRYEeuLhpyIdtJzwg")]
@@ -149,7 +149,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payer Customer Credentials Passport Number
-    /// Encoded/decoded by serializers as "98".
+    /// Encoded/decoded by serializers as &quot;98&quot;.
     /// </summary>
     [EnumMember(Value = "98")]
     [IsoId("_up9mBfRYEeuLhpyIdtJzwg")]
@@ -158,7 +158,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payer Customer Credentials Social Security Number
-    /// Encoded/decoded by serializers as "99".
+    /// Encoded/decoded by serializers as &quot;99&quot;.
     /// </summary>
     [EnumMember(Value = "99")]
     [IsoId("_up9mCPRYEeuLhpyIdtJzwg")]
@@ -167,7 +167,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payee Customer Identification 
-    /// Encoded/decoded by serializers as "9A".
+    /// Encoded/decoded by serializers as &quot;9A&quot;.
     /// </summary>
     [EnumMember(Value = "9A")]
     [IsoId("_uqGv8vRYEeuLhpyIdtJzwg")]
@@ -176,7 +176,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payee Customer Name
-    /// Encoded/decoded by serializers as "9B".
+    /// Encoded/decoded by serializers as &quot;9B&quot;.
     /// </summary>
     [EnumMember(Value = "9B")]
     [IsoId("_uqGv9fRYEeuLhpyIdtJzwg")]
@@ -185,7 +185,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payee Customer Address
-    /// Encoded/decoded by serializers as "9C".
+    /// Encoded/decoded by serializers as &quot;9C&quot;.
     /// </summary>
     [EnumMember(Value = "9C")]
     [IsoId("_uqGv-PRYEeuLhpyIdtJzwg")]
@@ -194,7 +194,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payee Customer Credentials Alien Registration Number
-    /// Encoded/decoded by serializers as "9D".
+    /// Encoded/decoded by serializers as &quot;9D&quot;.
     /// </summary>
     [EnumMember(Value = "9D")]
     [IsoId("_uqGv-_RYEeuLhpyIdtJzwg")]
@@ -203,7 +203,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payee Customer Credentials Driver Licence Identification
-    /// Encoded/decoded by serializers as "9E".
+    /// Encoded/decoded by serializers as &quot;9E&quot;.
     /// </summary>
     [EnumMember(Value = "9E")]
     [IsoId("_uqQg8vRYEeuLhpyIdtJzwg")]
@@ -212,7 +212,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payee Customer Credentials National Identifier
-    /// Encoded/decoded by serializers as "9F1F".
+    /// Encoded/decoded by serializers as &quot;9F1F&quot;.
     /// </summary>
     [EnumMember(Value = "9F1F")]
     [IsoId("_uqQg9fRYEeuLhpyIdtJzwg")]
@@ -221,7 +221,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payee Customer Credentials Passport Number
-    /// Encoded/decoded by serializers as "9F20".
+    /// Encoded/decoded by serializers as &quot;9F20&quot;.
     /// </summary>
     [EnumMember(Value = "9F20")]
     [IsoId("_uqQg-PRYEeuLhpyIdtJzwg")]
@@ -230,7 +230,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Payee Customer Credentials Social Security Number
-    /// Encoded/decoded by serializers as "9F21".
+    /// Encoded/decoded by serializers as &quot;9F21&quot;.
     /// </summary>
     [EnumMember(Value = "9F21")]
     [IsoId("_uqQg-_RYEeuLhpyIdtJzwg")]
@@ -239,7 +239,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Customer Device Identification
-    /// Encoded/decoded by serializers as "9F22".
+    /// Encoded/decoded by serializers as &quot;9F22&quot;.
     /// </summary>
     [EnumMember(Value = "9F22")]
     [IsoId("_uqZq4vRYEeuLhpyIdtJzwg")]
@@ -248,7 +248,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Customer Device Location
-    /// Encoded/decoded by serializers as "9F23".
+    /// Encoded/decoded by serializers as &quot;9F23&quot;.
     /// </summary>
     [EnumMember(Value = "9F23")]
     [IsoId("_uqZq5fRYEeuLhpyIdtJzwg")]
@@ -257,7 +257,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Customer Device Internet Protocol Address
-    /// Encoded/decoded by serializers as "9F24".
+    /// Encoded/decoded by serializers as &quot;9F24&quot;.
     /// </summary>
     [EnumMember(Value = "9F24")]
     [IsoId("_uqZq6PRYEeuLhpyIdtJzwg")]
@@ -266,7 +266,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Customer Device E-mail
-    /// Encoded/decoded by serializers as "9F25".
+    /// Encoded/decoded by serializers as &quot;9F25&quot;.
     /// </summary>
     [EnumMember(Value = "9F25")]
     [IsoId("_uqZq6_RYEeuLhpyIdtJzwg")]
@@ -275,7 +275,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Token Payment Token
-    /// Encoded/decoded by serializers as "9F26".
+    /// Encoded/decoded by serializers as &quot;9F26&quot;.
     /// </summary>
     [EnumMember(Value = "9F26")]
     [IsoId("_uqjb4vRYEeuLhpyIdtJzwg")]
@@ -284,7 +284,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Token Token Requestor Identification
-    /// Encoded/decoded by serializers as "9F27".
+    /// Encoded/decoded by serializers as &quot;9F27&quot;.
     /// </summary>
     [EnumMember(Value = "9F27")]
     [IsoId("_uqjb5fRYEeuLhpyIdtJzwg")]
@@ -293,7 +293,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Name
-    /// Encoded/decoded by serializers as "9F28".
+    /// Encoded/decoded by serializers as &quot;9F28&quot;.
     /// </summary>
     [EnumMember(Value = "9F28")]
     [IsoId("_uqjb6PRYEeuLhpyIdtJzwg")]
@@ -302,7 +302,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification Customer Identification
-    /// Encoded/decoded by serializers as "9F29".
+    /// Encoded/decoded by serializers as &quot;9F29&quot;.
     /// </summary>
     [EnumMember(Value = "9F29")]
     [IsoId("_uqjb6_RYEeuLhpyIdtJzwg")]
@@ -311,7 +311,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification Alien Registration Number
-    /// Encoded/decoded by serializers as "9F2A".
+    /// Encoded/decoded by serializers as &quot;9F2A&quot;.
     /// </summary>
     [EnumMember(Value = "9F2A")]
     [IsoId("_uqjb7vRYEeuLhpyIdtJzwg")]
@@ -320,7 +320,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification Driver Licence Identification
-    /// Encoded/decoded by serializers as "9F2B".
+    /// Encoded/decoded by serializers as &quot;9F2B&quot;.
     /// </summary>
     [EnumMember(Value = "9F2B")]
     [IsoId("_uqtM4vRYEeuLhpyIdtJzwg")]
@@ -329,7 +329,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification Email
-    /// Encoded/decoded by serializers as "9F2C".
+    /// Encoded/decoded by serializers as &quot;9F2C&quot;.
     /// </summary>
     [EnumMember(Value = "9F2C")]
     [IsoId("_uqtM5fRYEeuLhpyIdtJzwg")]
@@ -338,7 +338,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification NatinalIdentifier
-    /// Encoded/decoded by serializers as "9F2D".
+    /// Encoded/decoded by serializers as &quot;9F2D&quot;.
     /// </summary>
     [EnumMember(Value = "9F2D")]
     [IsoId("_uqtM6PRYEeuLhpyIdtJzwg")]
@@ -347,7 +347,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification Passport Number
-    /// Encoded/decoded by serializers as "9F2E".
+    /// Encoded/decoded by serializers as &quot;9F2E&quot;.
     /// </summary>
     [EnumMember(Value = "9F2E")]
     [IsoId("_uqtM6_RYEeuLhpyIdtJzwg")]
@@ -356,7 +356,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification PhoneNumber
-    /// Encoded/decoded by serializers as "9F2F".
+    /// Encoded/decoded by serializers as &quot;9F2F&quot;.
     /// </summary>
     [EnumMember(Value = "9F2F")]
     [IsoId("_uq2W0vRYEeuLhpyIdtJzwg")]
@@ -365,7 +365,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification Social Security Number
-    /// Encoded/decoded by serializers as "9F30".
+    /// Encoded/decoded by serializers as &quot;9F30&quot;.
     /// </summary>
     [EnumMember(Value = "9F30")]
     [IsoId("_urAH0vRYEeuLhpyIdtJzwg")]
@@ -374,7 +374,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Identification Address
-    /// Encoded/decoded by serializers as "9F31".
+    /// Encoded/decoded by serializers as &quot;9F31&quot;.
     /// </summary>
     [EnumMember(Value = "9F31")]
     [IsoId("_urAH1fRYEeuLhpyIdtJzwg")]
@@ -383,7 +383,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Contact Information Name
-    /// Encoded/decoded by serializers as "9F32".
+    /// Encoded/decoded by serializers as &quot;9F32&quot;.
     /// </summary>
     [EnumMember(Value = "9F32")]
     [IsoId("_urJ40vRYEeuLhpyIdtJzwg")]
@@ -392,7 +392,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Contact Information Home Phone Number
-    /// Encoded/decoded by serializers as "9F33".
+    /// Encoded/decoded by serializers as &quot;9F33&quot;.
     /// </summary>
     [EnumMember(Value = "9F33")]
     [IsoId("_urJ41fRYEeuLhpyIdtJzwg")]
@@ -401,7 +401,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Contact Information Business Phone Number
-    /// Encoded/decoded by serializers as "9F34".
+    /// Encoded/decoded by serializers as &quot;9F34&quot;.
     /// </summary>
     [EnumMember(Value = "9F34")]
     [IsoId("_urTCwvRYEeuLhpyIdtJzwg")]
@@ -410,7 +410,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Contact Information Mobile Phone Number
-    /// Encoded/decoded by serializers as "9F35".
+    /// Encoded/decoded by serializers as &quot;9F35&quot;.
     /// </summary>
     [EnumMember(Value = "9F35")]
     [IsoId("_urTCxfRYEeuLhpyIdtJzwg")]
@@ -419,7 +419,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Contact Information Other Phone Number
-    /// Encoded/decoded by serializers as "9F36".
+    /// Encoded/decoded by serializers as &quot;9F36&quot;.
     /// </summary>
     [EnumMember(Value = "9F36")]
     [IsoId("_urTCyPRYEeuLhpyIdtJzwg")]
@@ -428,7 +428,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Contact Information Personal Email Address
-    /// Encoded/decoded by serializers as "9F37".
+    /// Encoded/decoded by serializers as &quot;9F37&quot;.
     /// </summary>
     [EnumMember(Value = "9F37")]
     [IsoId("_urTCy_RYEeuLhpyIdtJzwg")]
@@ -437,7 +437,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Contact Information Business Email Address
-    /// Encoded/decoded by serializers as "9F38".
+    /// Encoded/decoded by serializers as &quot;9F38&quot;.
     /// </summary>
     [EnumMember(Value = "9F38")]
     [IsoId("_urczwvRYEeuLhpyIdtJzwg")]
@@ -446,7 +446,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Contact Information Other Email Address
-    /// Encoded/decoded by serializers as "9F39".
+    /// Encoded/decoded by serializers as &quot;9F39&quot;.
     /// </summary>
     [EnumMember(Value = "9F39")]
     [IsoId("_urczxfRYEeuLhpyIdtJzwg")]
@@ -455,7 +455,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Address Digits
-    /// Encoded/decoded by serializers as "9F3A".
+    /// Encoded/decoded by serializers as &quot;9F3A&quot;.
     /// </summary>
     [EnumMember(Value = "9F3A")]
     [IsoId("_url9svRYEeuLhpyIdtJzwg")]
@@ -464,7 +464,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Billing Address
-    /// Encoded/decoded by serializers as "9F3B".
+    /// Encoded/decoded by serializers as &quot;9F3B&quot;.
     /// </summary>
     [EnumMember(Value = "9F3B")]
     [IsoId("_url9tfRYEeuLhpyIdtJzwg")]
@@ -473,7 +473,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Birth Date
-    /// Encoded/decoded by serializers as "9F3C".
+    /// Encoded/decoded by serializers as &quot;9F3C&quot;.
     /// </summary>
     [EnumMember(Value = "9F3C")]
     [IsoId("_url9uPRYEeuLhpyIdtJzwg")]
@@ -482,7 +482,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Place Of Birth
-    /// Encoded/decoded by serializers as "9F3D".
+    /// Encoded/decoded by serializers as &quot;9F3D&quot;.
     /// </summary>
     [EnumMember(Value = "9F3D")]
     [IsoId("_urvusvRYEeuLhpyIdtJzwg")]
@@ -491,7 +491,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Employee Identification Number
-    /// Encoded/decoded by serializers as "9F3E".
+    /// Encoded/decoded by serializers as &quot;9F3E&quot;.
     /// </summary>
     [EnumMember(Value = "9F3E")]
     [IsoId("_urvutfRYEeuLhpyIdtJzwg")]
@@ -500,7 +500,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Employer Identification Number
-    /// Encoded/decoded by serializers as "9F3F".
+    /// Encoded/decoded by serializers as &quot;9F3F&quot;.
     /// </summary>
     [EnumMember(Value = "9F3F")]
     [IsoId("_ur5fsvRYEeuLhpyIdtJzwg")]
@@ -509,7 +509,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Password
-    /// Encoded/decoded by serializers as "9F40".
+    /// Encoded/decoded by serializers as &quot;9F40&quot;.
     /// </summary>
     [EnumMember(Value = "9F40")]
     [IsoId("_ur5ftfRYEeuLhpyIdtJzwg")]
@@ -518,7 +518,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Postal Code
-    /// Encoded/decoded by serializers as "9F41".
+    /// Encoded/decoded by serializers as &quot;9F41&quot;.
     /// </summary>
     [EnumMember(Value = "9F41")]
     [IsoId("_ur5fuPRYEeuLhpyIdtJzwg")]
@@ -527,7 +527,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Shipping Address
-    /// Encoded/decoded by serializers as "9F42".
+    /// Encoded/decoded by serializers as &quot;9F42&quot;.
     /// </summary>
     [EnumMember(Value = "9F42")]
     [IsoId("_ur5fu_RYEeuLhpyIdtJzwg")]
@@ -536,7 +536,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Shipping Address From
-    /// Encoded/decoded by serializers as "9F43".
+    /// Encoded/decoded by serializers as &quot;9F43&quot;.
     /// </summary>
     [EnumMember(Value = "9F43")]
     [IsoId("_usCpovRYEeuLhpyIdtJzwg")]
@@ -545,7 +545,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Shipping Address To
-    /// Encoded/decoded by serializers as "9F44".
+    /// Encoded/decoded by serializers as &quot;9F44&quot;.
     /// </summary>
     [EnumMember(Value = "9F44")]
     [IsoId("_usCppfRYEeuLhpyIdtJzwg")]
@@ -554,7 +554,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Cardholder Tax Identification Number
-    /// Encoded/decoded by serializers as "9F45".
+    /// Encoded/decoded by serializers as &quot;9F45&quot;.
     /// </summary>
     [EnumMember(Value = "9F45")]
     [IsoId("_usCpqPRYEeuLhpyIdtJzwg")]
@@ -563,7 +563,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Account From Account Identification
-    /// Encoded/decoded by serializers as "9F46".
+    /// Encoded/decoded by serializers as &quot;9F46&quot;.
     /// </summary>
     [EnumMember(Value = "9F46")]
     [IsoId("_usCpq_RYEeuLhpyIdtJzwg")]
@@ -572,7 +572,7 @@ public enum ExternalEncryptedElementIdentification1Code
     
     /// <summary>
     /// Account To Account Identification
-    /// Encoded/decoded by serializers as "9F47".
+    /// Encoded/decoded by serializers as &quot;9F47&quot;.
     /// </summary>
     [EnumMember(Value = "9F47")]
     [IsoId("_usMaovRYEeuLhpyIdtJzwg")]

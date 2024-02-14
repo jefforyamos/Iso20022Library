@@ -21,7 +21,7 @@ public enum NotificationStatus1Code
 {
     /// <summary>
     /// The notification contains all the details.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_Vp_FVNp-Ed-ak6NoX_4Aeg_218831864")]
@@ -30,7 +30,7 @@ public enum NotificationStatus1Code
     
     /// <summary>
     /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
-    /// Encoded/decoded by serializers as "PREC".
+    /// Encoded/decoded by serializers as &quot;PREC&quot;.
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_Vp_FVdp-Ed-ak6NoX_4Aeg_232685128")]
@@ -39,7 +39,7 @@ public enum NotificationStatus1Code
     
     /// <summary>
     /// Notification may not contain complete details as the occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
-    /// Encoded/decoded by serializers as "PREU".
+    /// Encoded/decoded by serializers as &quot;PREU&quot;.
     /// </summary>
     [EnumMember(Value = "PREU")]
     [IsoId("_Vp_FVtp-Ed-ak6NoX_4Aeg_288094847")]

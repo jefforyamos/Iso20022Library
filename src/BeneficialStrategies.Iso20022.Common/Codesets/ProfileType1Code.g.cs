@@ -21,7 +21,7 @@ public enum ProfileType1Code
 {
     /// <summary>
     /// Investor shares that uses defensive operations (hedging), thus avoiding the risk of large swings.
-    /// Encoded/decoded by serializers as "HEDG".
+    /// Encoded/decoded by serializers as &quot;HEDG&quot;.
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_N0lOcSGLEeW_v8XsK-l3KA")]
@@ -30,7 +30,7 @@ public enum ProfileType1Code
     
     /// <summary>
     /// Investors operating through algorithms and send orders automatically according to the strategies defined by their managers. Through this access model, the participants of these servers are hosted primarily within the premises of Brazilian Market and significantly reduce the time of submission of offers to trading systems.
-    /// Encoded/decoded by serializers as "HFTR".
+    /// Encoded/decoded by serializers as &quot;HFTR&quot;.
     /// </summary>
     [EnumMember(Value = "HFTR")]
     [IsoId("_N8nJESGLEeW_v8XsK-l3KA")]
@@ -39,7 +39,7 @@ public enum ProfileType1Code
     
     /// <summary>
     /// Agent liquidity, liquidity facilitator, promoter of business, specialist, market maker and liquidity provider are some designations given to those who propose to provide liquidity and minimum reference price for assets previously accredited, factors highlighted in the analysis of efficiency in capital markets.
-    /// Encoded/decoded by serializers as "MAKE".
+    /// Encoded/decoded by serializers as &quot;MAKE&quot;.
     /// </summary>
     [EnumMember(Value = "MAKE")]
     [IsoId("_OEpDsSGLEeW_v8XsK-l3KA")]
@@ -48,7 +48,7 @@ public enum ProfileType1Code
     
     /// <summary>
     /// Trading system of federal securities in the retail market directly to the investor. The operation can be performed directly over the Internet.
-    /// Encoded/decoded by serializers as "TREA".
+    /// Encoded/decoded by serializers as &quot;TREA&quot;.
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_OMrlYSGLEeW_v8XsK-l3KA")]

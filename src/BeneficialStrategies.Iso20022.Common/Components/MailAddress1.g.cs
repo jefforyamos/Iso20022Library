@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Electronic and physical mail address.
 /// </summary>
 [IsoId("__InD0BrmEeyhRdHRjakS2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mail Address")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,35 +42,28 @@ public partial record MailAddress1
     /// Physical mail address for correspondance.
     /// </summary>
     [IsoId("_j1WRgBrnEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Correspondence")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Crspdc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Crspdc")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<PostalAddress1> Correspondence { get; init; } = new ValueList<PostalAddress1>(){};
     
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
     [IsoId("_vo1tsRrnEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Email Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EmailAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EmailAdr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> EmailAddress { get; init; } = new SimpleValueList<System.String>(){};
     
     

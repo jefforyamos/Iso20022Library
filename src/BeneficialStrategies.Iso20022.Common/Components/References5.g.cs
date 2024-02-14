@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements for the identification of the message and related references.
 /// </summary>
 [IsoId("_QoQ359p-Ed-ak6NoX_4Aeg_823875605")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("References")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record References5
     /// Identifies the type of acknowledged request.
     /// </summary>
     [IsoId("_QoQ36Np-Ed-ak6NoX_4Aeg_1346590787")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqTp")]
     #endif
+    [IsoXmlTag("ReqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UseCases1Code RequestType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UseCases1Code RequestType { get; init; } 
+    public required UseCases1Code RequestType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UseCases1Code RequestType { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record References5
     /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
     /// </summary>
     [IsoId("_Qoao4Np-Ed-ak6NoX_4Aeg_-1175229632")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record References5
     /// Identifies a process by a unique identifier and the date and time when the first message belonging to the process was created by the sender. The process identification remains the same in all messages belonging to the same process, from the initial request message to the final account report closing the process.
     /// </summary>
     [IsoId("_Qoao4dp-Ed-ak6NoX_4Aeg_-790121373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Process Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcId")]
     #endif
+    [IsoXmlTag("PrcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ProcessIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 ProcessIdentification { get; init; } 
+    public required MessageIdentification1 ProcessIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 ProcessIdentification { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record References5
     /// Reference to the message that is acknowledged.
     /// </summary>
     [IsoId("_Qoao4tp-Ed-ak6NoX_4Aeg_-1789477840")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledged Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AckdMsgId")]
     #endif
+    [IsoXmlTag("AckdMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageIdentification1? AcknowledgedMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,15 +125,13 @@ public partial record References5
     /// Status of the request.
     /// </summary>
     [IsoId("_Qoao49p-Ed-ak6NoX_4Aeg_-17664747")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Sts")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,15 +144,13 @@ public partial record References5
     /// File name of a document logically related to the request.
     /// </summary>
     [IsoId("_Qoao5Np-Ed-ak6NoX_4Aeg_186950521")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attached Document Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchdDocNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AttchdDocNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AttachedDocumentName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

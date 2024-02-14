@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkReport1Choice
     /// Cancellation of a benchmark previously updated.
     /// </summary>
     [IsoId("_P2VfdDrWEeedCZZ8dIPp6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,15 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkReport1Choice
         /// Unique identifier of a record in a message used as part of error management and status advice messages.
         /// </summary>
         [IsoId("_QSO71zrXEeedCZZ8dIPp6g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Technical Record Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TechRcrdId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TechRcrdId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,16 +73,15 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkReport1Choice
         /// Identification of the benchmark to be cancelled.
         /// </summary>
         [IsoId("_QSO71jrXEeedCZZ8dIPp6g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecurityIdentification19 Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecurityIdentification19 Identification { get; init; } 
+        public required SecurityIdentification19 Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecurityIdentification19 Identification { get; init; } 
         #else
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkReport1Choice
         /// Additional information that can not be captured in the structured fields and/or any other specific block.
         /// </summary>
         [IsoId("_QSO71TrXEeedCZZ8dIPp6g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

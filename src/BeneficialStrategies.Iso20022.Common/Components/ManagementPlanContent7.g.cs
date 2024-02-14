@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the management plan.
 /// </summary>
 [IsoId("_TKeAcdqJEeearpaEPXv9UA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Management Plan Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record ManagementPlanContent7
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
     [IsoId("_TTTMUdqJEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMChllng")]
     #endif
+    [IsoXmlTag("TMChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? TMChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record ManagementPlanContent7
     /// Certificate chain of an asymmetric encryption keys for the encryption of temporary transport key of the key to inject.
     /// </summary>
     [IsoId("_TTTMU9qJEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Encipherment Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeyNcphrmntCert")]
     #endif
+    [IsoXmlTag("KeyNcphrmntCert")]
+    [IsoSimpleType(IsoSimpleType.Max10KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? KeyEnciphermentCertificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record ManagementPlanContent7
     /// Terminal management action to be performed by the point of interaction (POI).
     /// </summary>
     [IsoId("_TTTMVdqJEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     public TMSAction7? Action { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _TTTMVdqJEeearpaEPXv9UA
     

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Source of funding
 /// </summary>
 [IsoId("_xJXl8EUUEeea-M6VZkEPUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Funding Source")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FundingSource2
     /// Type of source funding used to perform the transfer of funds.
     /// </summary>
     [IsoId("_GpSEIEUVEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcTp")]
     #endif
+    [IsoXmlTag("SrcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundingSourceType2Code? SourceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record FundingSource2
     /// Any other type of funding source used to perform the transfer of funds.
     /// </summary>
     [IsoId("_21b7cEUVEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Source Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrSrcTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrSrcTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherSourceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record FundingSource2
     /// Reference to the funding source.
     /// </summary>
     [IsoId("_8T0PsEUVEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Ref")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

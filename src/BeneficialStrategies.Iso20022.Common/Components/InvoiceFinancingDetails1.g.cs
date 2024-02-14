@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information about single invoice/instalment financing result, such as result of request (financed or not financed), amount, percentage applied.
 /// </summary>
 [IsoId("_ThypxNp-Ed-ak6NoX_4Aeg_1200073540")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Financing Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InvoiceFinancingDetails1
     /// General information that unambiguously identifies the invoice contained in the original request.
     /// </summary>
     [IsoId("_Thypxdp-Ed-ak6NoX_4Aeg_1348559933")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Invoice Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlInvcInf")]
     #endif
+    [IsoXmlTag("OrgnlInvcInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalInvoiceInformation1 OriginalInvoiceInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalInvoiceInformation1 OriginalInvoiceInformation { get; init; } 
+    public required OriginalInvoiceInformation1 OriginalInvoiceInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalInvoiceInformation1 OriginalInvoiceInformation { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record InvoiceFinancingDetails1
     /// Person or organization that represents the creditor for the invoice to be financed.
     /// </summary>
     [IsoId("_Thypxtp-Ed-ak6NoX_4Aeg_-989546543")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Spplr")]
     #endif
+    [IsoXmlTag("Spplr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8? Supplier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record InvoiceFinancingDetails1
     /// Information about result of invoice financing request.
     /// </summary>
     [IsoId("_Thypx9p-Ed-ak6NoX_4Aeg_1696461890")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Financing Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcFincgRslt")]
     #endif
+    [IsoXmlTag("InvcFincgRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancingResult1 InvoiceFinancingResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancingResult1 InvoiceFinancingResult { get; init; } 
+    public required FinancingResult1 InvoiceFinancingResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancingResult1 InvoiceFinancingResult { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record InvoiceFinancingDetails1
     /// Includes details about a single instalment within an invoice, such as identification and amount.
     /// </summary>
     [IsoId("_ThypyNp-Ed-ak6NoX_4Aeg_2076029175")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Financing Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtFincgInf")]
     #endif
+    [IsoXmlTag("InstlmtFincgInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstalmentFinancingInformation1? InstalmentFinancingInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlannedQuantity1Choice
     /// Code for the planned quantity of financial instrument or lot of rights/warrants to be purchased.
     /// </summary>
     [IsoId("_FiTKMDF1EeGKkIZzgd38VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PlannedQuantity1Choice
         /// TSE/JASDEC codes for unknown number of shares to be purchased.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesQuantity2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesQuantity2Code Value { get; init; } 
+        public required SecuritiesQuantity2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesQuantity2Code Value { get; init; } 
         #else

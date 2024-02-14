@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates when the amount of money will become available.
 /// </summary>
 [IsoId("_TU0kytp-Ed-ak6NoX_4Aeg_1268888405")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Balance Availability Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record CashBalanceAvailabilityDate1
     /// Indicates the number of float days attached to the balance.
     /// </summary>
     [IsoId("_TU0ky9p-Ed-ak6NoX_4Aeg_1379712355")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Days")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfDays")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfDays")]
+    [IsoSimpleType(IsoSimpleType.Max15PlusSignedNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15PlusSignedNumericText NumberOfDays { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NumberOfDays { get; init; } 
+    public required System.String NumberOfDays { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NumberOfDays { get; init; } 
     #else
@@ -75,16 +70,16 @@ public partial record CashBalanceAvailabilityDate1
     /// Identifies the actual availability date.
     /// </summary>
     [IsoId("_TU0kzNp-Ed-ak6NoX_4Aeg_1424965762")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlDt")]
     #endif
+    [IsoXmlTag("ActlDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ActualDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ActualDate { get; init; } 
+    public required System.DateOnly ActualDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ActualDate { get; init; } 
     #else

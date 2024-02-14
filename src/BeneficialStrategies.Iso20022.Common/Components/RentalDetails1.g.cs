@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of car rental service.
 /// </summary>
 [IsoId("_VJhKgF1rEeeu75xdwwAXQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rental Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record RentalDetails1
     /// Identification of the car rental service.
     /// </summary>
     [IsoId("_edrrQF1wEeeu75xdwwAXQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rental Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RntlId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RntlId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? RentalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,12 @@ public partial record RentalDetails1
     /// Date and time of registration of car rental service as  per folio.
     /// </summary>
     [IsoId("_sEAXAF1wEeeu75xdwwAXQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rental Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RntlDtTm")]
     #endif
+    [IsoXmlTag("RntlDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? RentalDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +79,11 @@ public partial record RentalDetails1
     /// Details of the vehicle at the start of the rental period.
     /// </summary>
     [IsoId("_lNkc8F1rEeeu75xdwwAXQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rental Start")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RntlStart")]
     #endif
+    [IsoXmlTag("RntlStart")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ServiceStartEnd1? RentalStart { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,11 @@ public partial record RentalDetails1
     /// Details of the vehicle at the end of the rental period.
     /// </summary>
     [IsoId("_qDUD4F1rEeeu75xdwwAXQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rental Return")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RntlRtr")]
     #endif
+    [IsoXmlTag("RntlRtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ServiceStartEnd1? RentalReturn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +113,11 @@ public partial record RentalDetails1
     /// Time period for the whole duration of rental.
     /// </summary>
     [IsoId("_yw6tMF1rEeeu75xdwwAXQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rental Time Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RntlTmPrd")]
     #endif
+    [IsoXmlTag("RntlTmPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PeriodUnit2Code? RentalTimePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,15 +130,12 @@ public partial record RentalDetails1
     /// Time period expressed in a number of units (for example, 1 week, 3 days, etc.).
     /// </summary>
     [IsoId("_x6MrIF1sEeeu75xdwwAXQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Period Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmPrdUnit")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TmPrdUnit")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? TimePeriodUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +148,12 @@ public partial record RentalDetails1
     /// Rate for the time period.
     /// </summary>
     [IsoId("_7w_xIF1sEeeu75xdwwAXQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Period Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmPrdRate")]
     #endif
+    [IsoXmlTag("TmPrdRate")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TimePeriodRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +166,11 @@ public partial record RentalDetails1
     /// Currency code applied for the rental.
     /// </summary>
     [IsoId("_Em73EF1tEeeu75xdwwAXQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

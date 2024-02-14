@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Compares information related to both sides of a loan.
 /// </summary>
 [IsoId("_2rK2ccgxEeuGrNSsxk3B0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Matching Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CounterpartyMatchingCriteria4
     /// Specifies whether the information on the reporting counterparties are matching or not.
     /// </summary>
     [IsoId("_2tACc8gxEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCtrPty")]
     #endif
+    [IsoXmlTag("RptgCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification6? ReportingCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CounterpartyMatchingCriteria4
     /// Specifies whether the information on the other counterparties are matching or not.
     /// </summary>
     [IsoId("_2tACdcgxEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCtrPty")]
     #endif
+    [IsoXmlTag("OthrCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification7? OtherCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CounterpartyMatchingCriteria4
     /// Specifies whether the information on the counterparty side are matching or not.
     /// </summary>
     [IsoId("_2tACd8gxEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySd")]
     #endif
+    [IsoXmlTag("CtrPtySd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCounterpartySide2? CounterpartySide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

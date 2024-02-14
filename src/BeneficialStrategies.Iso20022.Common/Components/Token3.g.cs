@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unencrypted sensitive data of a token.
 /// </summary>
 [IsoId("_eHaZsJx0EeuwYeL1lHu9zw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Token")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,12 @@ public partial record Token3
     /// Surrogate value of the PAN.
     /// </summary>
     [IsoId("_UWuGQZx1EeuwYeL1lHu9zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTkn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PmtTkn")]
+    [IsoSimpleType(IsoSimpleType.Max19NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax19NumericText? PaymentToken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,12 +61,12 @@ public partial record Token3
     /// ISO 8583 bit 14.
     /// </summary>
     [IsoId("_XmspQZx1EeuwYeL1lHu9zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknXpryDt")]
     #endif
+    [IsoXmlTag("TknXpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISOYearMonth)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? TokenExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -84,15 +79,12 @@ public partial record Token3
     /// Identification of a party requesting a token.
     /// </summary>
     [IsoId("_f9WyMZx1EeuwYeL1lHu9zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Requestor Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknRqstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TknRqstrId")]
+    [IsoSimpleType(IsoSimpleType.Max11NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax11NumericText? TokenRequestorIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,15 +97,13 @@ public partial record Token3
     /// Supporting information for the Token Assurance Method.
     /// </summary>
     [IsoId("_Z5LCMZx1EeuwYeL1lHu9zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Assurance Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknAssrncData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TknAssrncData")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TokenAssuranceData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,15 +116,12 @@ public partial record Token3
     /// Value that allows a Token Service Provider to indicate the identification and verification performed representing the binding of the payment token to the underlying PAN and cardholder.
     /// </summary>
     [IsoId("_b9fDUZx1EeuwYeL1lHu9zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Assurance Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknAssrncMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TknAssrncMtd")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? TokenAssuranceMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,15 +134,13 @@ public partial record Token3
     /// A reference to the token.
     /// </summary>
     [IsoId("_kyOSEcmpEeuF1f85xf6dbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Reference Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknRefId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TknRefId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TokenReferenceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +153,12 @@ public partial record Token3
     /// Original transaction was initiated by Token.
     /// </summary>
     [IsoId("_IQTfUZx7EeuwYeL1lHu9zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Initiated Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknInittdInd")]
     #endif
+    [IsoXmlTag("TknInittdInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TokenInitiatedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -186,12 +171,11 @@ public partial record Token3
     /// Storage location of the token.
     /// </summary>
     [IsoId("_y0c9kZyBEeuo7tDc4CDHXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Storage Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StorgLctn")]
     #endif
+    [IsoXmlTag("StorgLctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StorageLocation1Code? StorageLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -204,15 +188,13 @@ public partial record Token3
     /// Other private or national storage location code.
     /// </summary>
     [IsoId("_0oB0AZyBEeuo7tDc4CDHXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Storage Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrStorgLctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrStorgLctn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherStorageLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -225,12 +207,11 @@ public partial record Token3
     /// Method used to protect the token.
     /// </summary>
     [IsoId("_3hab8ZyBEeuo7tDc4CDHXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protection Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtcnMtd")]
     #endif
+    [IsoXmlTag("PrtcnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectionMethod1Code? ProtectionMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,15 +224,13 @@ public partial record Token3
     /// Other national or private protection method code.
     /// </summary>
     [IsoId("_6PsAEZyBEeuo7tDc4CDHXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Protection Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPrtcnMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrPrtcnMtd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherProtectionMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -264,12 +243,11 @@ public partial record Token3
     /// Original token.
     /// </summary>
     [IsoId("_LhGFMJx8EeuwYeL1lHu9zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlTkn")]
     #endif
+    [IsoXmlTag("OrgnlTkn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Token4? OriginalToken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -282,12 +260,11 @@ public partial record Token3
     /// Additional token data.
     /// </summary>
     [IsoId("_8tvW4ZyBEeuo7tDc4CDHXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

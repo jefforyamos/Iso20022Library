@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Investment fund transactions for a specific financial instrument.
 /// </summary>
 [IsoId("_Scf1qNp-Ed-ak6NoX_4Aeg_-1907610515")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund Transactions By Fund")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InvestmentFundTransactionsByFund2
     /// Identification of a security by an ISIN.
     /// </summary>
     [IsoId("_ScpmoNp-Ed-ak6NoX_4Aeg_-1907610498")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification3Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification3Choice_ Identification { get; init; } 
+    public required SecurityIdentification3Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification3Choice_ Identification { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record InvestmentFundTransactionsByFund2
     /// Name of the financial instrument in free format text.
     /// </summary>
     [IsoId("_Scpmodp-Ed-ak6NoX_4Aeg_-1907610480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record InvestmentFundTransactionsByFund2
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
     [IsoId("_Scpmotp-Ed-ak6NoX_4Aeg_-1907610455")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SplmtryId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,11 @@ public partial record InvestmentFundTransactionsByFund2
     /// Form, ie, ownership, of the security, eg, registered or bearer.
     /// </summary>
     [IsoId("_Scpmo9p-Ed-ak6NoX_4Aeg_-1907610438")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesForm")]
     #endif
+    [IsoXmlTag("SctiesForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FormOfSecurity1Code? SecuritiesForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,18 +120,16 @@ public partial record InvestmentFundTransactionsByFund2
     #endif
     
     /// <summary>
-    /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, 'Class A', 'Class 2'.
+    /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, &apos;Class A&apos;, &apos;Class 2&apos;.
     /// </summary>
     [IsoId("_ScpmpNp-Ed-ak6NoX_4Aeg_-1907610172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Class Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClssTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClassType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +142,11 @@ public partial record InvestmentFundTransactionsByFund2
     /// Income policy relating to a class type, ie, if income is paid out or retained in the fund.
     /// </summary>
     [IsoId("_Scpmpdp-Ed-ak6NoX_4Aeg_-1907610147")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Distribution Policy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstrbtnPlcy")]
     #endif
+    [IsoXmlTag("DstrbtnPlcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +159,11 @@ public partial record InvestmentFundTransactionsByFund2
     /// Process of buying, selling, switching or transferring fund units.
     /// </summary>
     [IsoId("_Scpmptp-Ed-ak6NoX_4Aeg_-1907610094")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     public InvestmentFundTransaction3? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Scpmptp-Ed-ak6NoX_4Aeg_-1907610094
     
@@ -183,12 +171,11 @@ public partial record InvestmentFundTransactionsByFund2
     /// Balance of the financial instrument for this specific statement page.
     /// </summary>
     [IsoId("_Scpmp9p-Ed-ak6NoX_4Aeg_-1907610129")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance By Page")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalByPg")]
     #endif
+    [IsoXmlTag("BalByPg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaginationBalance1? BalanceByPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

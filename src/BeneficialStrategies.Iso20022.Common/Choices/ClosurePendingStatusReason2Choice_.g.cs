@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClosurePendingStatusReason2Choice.Code))]
     [KnownType(typeof(ClosurePendingStatusReason2Choice.Proprietary))]
     [IsoId("_8xEykWCLEeabZtzjEVWYCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closure Pending Status Reason 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

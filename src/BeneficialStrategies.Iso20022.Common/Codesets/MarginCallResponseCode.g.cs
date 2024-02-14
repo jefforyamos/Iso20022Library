@@ -21,7 +21,7 @@ public enum MarginCallResponseCode
 {
     /// <summary>
     /// Indicates that the margin call request was sent on a non valuation day.
-    /// Encoded/decoded by serializers as "NVDA".
+    /// Encoded/decoded by serializers as &quot;NVDA&quot;.
     /// </summary>
     [EnumMember(Value = "NVDA")]
     [IsoId("_YdGGIdp-Ed-ak6NoX_4Aeg_-1089065484")]
@@ -30,7 +30,7 @@ public enum MarginCallResponseCode
     
     /// <summary>
     /// Indicates that the margin call request was sent after the notification time.
-    /// Encoded/decoded by serializers as "RANT".
+    /// Encoded/decoded by serializers as &quot;RANT&quot;.
     /// </summary>
     [EnumMember(Value = "RANT")]
     [IsoId("_YdGGItp-Ed-ak6NoX_4Aeg_-1747873600")]

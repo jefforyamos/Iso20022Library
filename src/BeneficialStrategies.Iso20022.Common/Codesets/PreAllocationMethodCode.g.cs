@@ -21,7 +21,7 @@ public enum PreAllocationMethodCode
 {
     /// <summary>
     /// Preallocation is proratised.
-    /// Encoded/decoded by serializers as "PROR".
+    /// Encoded/decoded by serializers as &quot;PROR&quot;.
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_aIFoUNp-Ed-ak6NoX_4Aeg_643714948")]
@@ -30,7 +30,7 @@ public enum PreAllocationMethodCode
     
     /// <summary>
     /// No prorata, discuss first.
-    /// Encoded/decoded by serializers as "TALK".
+    /// Encoded/decoded by serializers as &quot;TALK&quot;.
     /// </summary>
     [EnumMember(Value = "TALK")]
     [IsoId("_aIFoUdp-Ed-ak6NoX_4Aeg_1099009423")]

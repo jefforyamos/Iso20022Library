@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount pertaining to a transaction.
 /// </summary>
 [IsoId("_JgF9kImPEeeJpL7HBafurA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record OtherAmount1
     /// Type of amount.
     /// </summary>
     [IsoId("_Ybg0AImPEeeJpL7HBafurA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OtherAmountType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OtherAmountType1Choice_ Type { get; init; } 
+    public required OtherAmountType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OtherAmountType1Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record OtherAmount1
     /// Currency and amount.
     /// </summary>
     [IsoId("_d_97EYmPEeeJpL7HBafurA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

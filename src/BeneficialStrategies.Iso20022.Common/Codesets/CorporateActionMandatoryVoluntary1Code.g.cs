@@ -21,7 +21,7 @@ public enum CorporateActionMandatoryVoluntary1Code
 {
     /// <summary>
     /// Participation in CA event is mandatory. Further instructions from the account owner are not required.
-    /// Encoded/decoded by serializers as "MAND".
+    /// Encoded/decoded by serializers as &quot;MAND&quot;.
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_bKsU0tp-Ed-ak6NoX_4Aeg_-1751624150")]
@@ -30,7 +30,7 @@ public enum CorporateActionMandatoryVoluntary1Code
     
     /// <summary>
     /// Participation in the corporate action is mandatory and further instructions from the account owner are required, unless a default option has been specified.
-    /// Encoded/decoded by serializers as "CHOS".
+    /// Encoded/decoded by serializers as &quot;CHOS&quot;.
     /// </summary>
     [EnumMember(Value = "CHOS")]
     [IsoId("_bKsU09p-Ed-ak6NoX_4Aeg_-1751624149")]
@@ -39,7 +39,7 @@ public enum CorporateActionMandatoryVoluntary1Code
     
     /// <summary>
     /// Participation in the corporate action is voluntary. If the owner wishes to take part in the event, instructions from the account owner are required.
-    /// Encoded/decoded by serializers as "VOLU".
+    /// Encoded/decoded by serializers as &quot;VOLU&quot;.
     /// </summary>
     [EnumMember(Value = "VOLU")]
     [IsoId("_bKsU1Np-Ed-ak6NoX_4Aeg_-1751624119")]

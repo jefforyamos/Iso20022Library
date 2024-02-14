@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides narrative information about an event and the language in which it is specified.
 /// </summary>
 [IsoId("_JmgaIfM-EeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Language Specified Narrative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record LanguageSpecifiedNarrative1
     /// Language used to provide additional information and using the ISO 639-1 language code standard.
     /// </summary>
     [IsoId("_O-pHAfM_EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lang")]
     #endif
+    [IsoXmlTag("Lang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISO2ALanguageCode Language { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Language { get; init; } 
+    public required string Language { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Language { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record LanguageSpecifiedNarrative1
     /// Provides additional textual information in the specified language.
     /// </summary>
     [IsoId("_IV5RYfM_EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max8000Text)]
     [StringLength(maximumLength: 8000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax8000Text AdditionalInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AdditionalInformation { get; init; } 
+    public required System.String AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AdditionalInformation { get; init; } 
     #else

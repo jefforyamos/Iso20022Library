@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the type of proposal and if the proposal is for the variation margin and the segregated independent amount, or the segregated independent amount only.
 /// </summary>
 [IsoId("_xDwJX4FvEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proposal")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Proposal4
     /// Indicates whether this is an initial or counter proposal.
     /// </summary>
     [IsoId("_xZ6mkYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Proposal Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPrpslTp")]
     #endif
+    [IsoXmlTag("CollPrpslTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProposalType1Code CollateralProposalType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProposalType1Code CollateralProposalType { get; init; } 
+    public required ProposalType1Code CollateralProposalType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProposalType1Code CollateralProposalType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Proposal4
     /// Provides details about the proposal for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
     [IsoId("_xZ6mk4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Proposal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPrpsl")]
     #endif
+    [IsoXmlTag("CollPrpsl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralProposal4Choice_ CollateralProposal { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralProposal4Choice_ CollateralProposal { get; init; } 
+    public required CollateralProposal4Choice_ CollateralProposal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralProposal4Choice_ CollateralProposal { get; init; } 
     #else

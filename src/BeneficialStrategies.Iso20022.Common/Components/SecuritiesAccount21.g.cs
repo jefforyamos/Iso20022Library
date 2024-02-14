@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unambiguous identification for the account between the account owner and the account servicer.
 /// </summary>
 [IsoId("_m-Itu_NBEeCuA5Tr22BnwA_1737617622")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SecuritiesAccount21
     /// Account identification.
     /// </summary>
     [IsoId("_m-SesPNBEeCuA5Tr22BnwA_1237780923")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification5 Account { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification5 Account { get; init; } 
+    public required AccountIdentification5 Account { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification5 Account { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SecuritiesAccount21
     /// Sub-account identification.
     /// </summary>
     [IsoId("_m-SesfNBEeCuA5Tr22BnwA_607511995")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubAcct")]
     #endif
+    [IsoXmlTag("SubAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification5? SubAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record SecuritiesAccount21
     /// Base currency for the account.
     /// </summary>
     [IsoId("_m-SesvNBEeCuA5Tr22BnwA_1306004853")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BaseCcy")]
     #endif
+    [IsoXmlTag("BaseCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? BaseCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record SecuritiesAccount21
     /// Currency chosen for reporting purposes by the account owner in agreement with the account servicer.
     /// </summary>
     [IsoId("_m-Ses_NBEeCuA5Tr22BnwA_1419598212")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCcy")]
     #endif
+    [IsoXmlTag("RptgCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? ReportingCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,12 @@ public partial record SecuritiesAccount21
     /// Foreign exchange rate applied between the reporting and base currencies. It is assumed the valuation date is the same as the report date.
     /// </summary>
     [IsoId("_m-SetPNBEeCuA5Tr22BnwA_-2029423443")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FXRate")]
     #endif
+    [IsoXmlTag("FXRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ForeignExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum CardDepositTypeCode
 {
     /// <summary>
     /// Cash
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_nVa9cNCHEei_pMueJh_zOA")]
@@ -30,7 +30,7 @@ public enum CardDepositTypeCode
     
     /// <summary>
     /// Cheque
-    /// Encoded/decoded by serializers as "CHEC".
+    /// Encoded/decoded by serializers as &quot;CHEC&quot;.
     /// </summary>
     [EnumMember(Value = "CHEC")]
     [IsoId("_nVaWYNCHEei_pMueJh_zOA")]
@@ -39,7 +39,7 @@ public enum CardDepositTypeCode
     
     /// <summary>
     /// Envelope
-    /// Encoded/decoded by serializers as "ENVL".
+    /// Encoded/decoded by serializers as &quot;ENVL&quot;.
     /// </summary>
     [EnumMember(Value = "ENVL")]
     [IsoId("_nVa9cdCHEei_pMueJh_zOA")]
@@ -48,7 +48,7 @@ public enum CardDepositTypeCode
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_nVaWYdCHEei_pMueJh_zOA")]
@@ -57,7 +57,7 @@ public enum CardDepositTypeCode
     
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_nVaWYtCHEei_pMueJh_zOA")]
@@ -66,7 +66,7 @@ public enum CardDepositTypeCode
     
     /// <summary>
     /// Card
-    /// Encoded/decoded by serializers as "CARD".
+    /// Encoded/decoded by serializers as &quot;CARD&quot;.
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_6GwjkBsxEeqrvK3udMUsNQ")]

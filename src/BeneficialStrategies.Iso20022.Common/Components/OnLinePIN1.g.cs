@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Encrypted personal identification number (PIN) and related information.
 /// </summary>
 [IsoId("_SqIIwQEcEeCQm6a_G2yO_w_-1593466438")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("On Line PIN")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record OnLinePIN1
     /// Encrypted PIN (Personal Identification Number).
     /// </summary>
     [IsoId("_SqIIwgEcEeCQm6a_G2yO_w_1778537606")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted PIN Block")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdPINBlck")]
     #endif
+    [IsoXmlTag("NcrptdPINBlck")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType2 EncryptedPINBlock { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType2 EncryptedPINBlock { get; init; } 
+    public required ContentInformationType2 EncryptedPINBlock { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType2 EncryptedPINBlock { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record OnLinePIN1
     /// PIN format before encryption.
     /// </summary>
     [IsoId("_SqIIwwEcEeCQm6a_G2yO_w_-1684147451")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PINFrmt")]
     #endif
+    [IsoXmlTag("PINFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PINFormat1Code PINFormat { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PINFormat1Code PINFormat { get; init; } 
+    public required PINFormat1Code PINFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PINFormat1Code PINFormat { get; init; } 
     #else
@@ -92,15 +88,13 @@ public partial record OnLinePIN1
     /// Additional information required to verify the PIN.
     /// </summary>
     [IsoId("_SqIIxAEcEeCQm6a_G2yO_w_1043641581")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Input")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInpt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInpt")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalInput { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

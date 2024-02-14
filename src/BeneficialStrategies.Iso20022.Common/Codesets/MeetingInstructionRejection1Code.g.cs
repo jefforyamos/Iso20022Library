@@ -21,7 +21,7 @@ public enum MeetingInstructionRejection1Code
 {
     /// <summary>
     /// Instruction contains an invalid meeting reference.
-    /// Encoded/decoded by serializers as "INMR".
+    /// Encoded/decoded by serializers as &quot;INMR&quot;.
     /// </summary>
     [EnumMember(Value = "INMR")]
     [IsoId("_VpPeedp-Ed-ak6NoX_4Aeg_700506198")]
@@ -30,7 +30,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Instruction contains an invalid account identification.
-    /// Encoded/decoded by serializers as "INAC".
+    /// Encoded/decoded by serializers as &quot;INAC&quot;.
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_VpYoYNp-Ed-ak6NoX_4Aeg_704197272")]
@@ -39,7 +39,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Position is less than required threshold to be allowed to vote.
-    /// Encoded/decoded by serializers as "IPOS".
+    /// Encoded/decoded by serializers as &quot;IPOS&quot;.
     /// </summary>
     [EnumMember(Value = "IPOS")]
     [IsoId("_VpYoYdp-Ed-ak6NoX_4Aeg_1494487379")]
@@ -48,7 +48,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Instruction contains an invalid instructed quantity (eg the instructed quantity is greater than the entitlement).
-    /// Encoded/decoded by serializers as "INQY".
+    /// Encoded/decoded by serializers as &quot;INQY&quot;.
     /// </summary>
     [EnumMember(Value = "INQY")]
     [IsoId("_VpYoYtp-Ed-ak6NoX_4Aeg_714356552")]
@@ -57,7 +57,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Instruction received after the specified deadline.
-    /// Encoded/decoded by serializers as "INDT".
+    /// Encoded/decoded by serializers as &quot;INDT&quot;.
     /// </summary>
     [EnumMember(Value = "INDT")]
     [IsoId("_VpYoY9p-Ed-ak6NoX_4Aeg_717129391")]
@@ -66,7 +66,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Split voting is not allowed.
-    /// Encoded/decoded by serializers as "SPLT".
+    /// Encoded/decoded by serializers as &quot;SPLT&quot;.
     /// </summary>
     [EnumMember(Value = "SPLT")]
     [IsoId("_VpYoZNp-Ed-ak6NoX_4Aeg_1091710118")]
@@ -75,7 +75,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Partial voting is not allowed.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_VpYoZdp-Ed-ak6NoX_4Aeg_1122184465")]
@@ -84,7 +84,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Missing or invalid power of attorney.
-    /// Encoded/decoded by serializers as "IPOA".
+    /// Encoded/decoded by serializers as &quot;IPOA&quot;.
     /// </summary>
     [EnumMember(Value = "IPOA")]
     [IsoId("_VpYoZtp-Ed-ak6NoX_4Aeg_1349369580")]
@@ -93,7 +93,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Invalid proxy information.
-    /// Encoded/decoded by serializers as "PRXY".
+    /// Encoded/decoded by serializers as &quot;PRXY&quot;.
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_VpYoZ9p-Ed-ak6NoX_4Aeg_1367840945")]
@@ -102,7 +102,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Issuer has rejected the instruction.
-    /// Encoded/decoded by serializers as "RBIS".
+    /// Encoded/decoded by serializers as &quot;RBIS&quot;.
     /// </summary>
     [EnumMember(Value = "RBIS")]
     [IsoId("_VpYoaNp-Ed-ak6NoX_4Aeg_534839775")]
@@ -111,7 +111,7 @@ public enum MeetingInstructionRejection1Code
     
     /// <summary>
     /// Other errors.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VpYoadp-Ed-ak6NoX_4Aeg_1423253062")]

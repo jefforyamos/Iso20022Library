@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Party that provides services to investors relating to financial products (Investment Funds).
 /// </summary>
 [IsoId("_cVo1ASxxEeKgiYs1KJCQUg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intermediary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Intermediary23
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
     [IsoId("_cqqCxSxxEeKgiYs1KJCQUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification49Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification49Choice_ Identification { get; init; } 
+    public required PartyIdentification49Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification49Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Intermediary23
     /// Function performed by the intermediary (investment funds).
     /// </summary>
     [IsoId("_cqqCySxxEeKgiYs1KJCQUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Role2Choice_? Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record Intermediary23
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
     [IsoId("_cqqCzSxxEeKgiYs1KJCQUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account13? Account { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

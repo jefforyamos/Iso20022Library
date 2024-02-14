@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding the new agent component.
 /// </summary>
 [IsoId("_XrLVYb5XEeexmbB7KsjCwA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record PartyIdentificationSD5
     /// Xpath to the element that is being extended.
     /// </summary>
     [IsoId("_X7_Yk75XEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record PartyIdentificationSD5
     /// Function the agent is performing.
     /// </summary>
     [IsoId("_X7_Ylb5XEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtTp")]
     #endif
+    [IsoXmlTag("AgtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentType1Code AgentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgentType1Code AgentType { get; init; } 
+    public required AgentType1Code AgentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgentType1Code AgentType { get; init; } 
     #else
@@ -93,15 +88,13 @@ public partial record PartyIdentificationSD5
     /// DTC agent identification number.
     /// </summary>
     [IsoId("_X7_Ynb5XEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AgtId")]
+    [IsoSimpleType(IsoSimpleType.Max8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? AgentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,16 +107,15 @@ public partial record PartyIdentificationSD5
     /// Name and address of the agent.
     /// </summary>
     [IsoId("_X7_Ypb5XEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Name And Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtNmAndAdr")]
     #endif
+    [IsoXmlTag("AgtNmAndAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NameAndAddress5 AgentNameAndAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NameAndAddress5 AgentNameAndAddress { get; init; } 
+    public required NameAndAddress5 AgentNameAndAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NameAndAddress5 AgentNameAndAddress { get; init; } 
     #else
@@ -134,15 +126,12 @@ public partial record PartyIdentificationSD5
     /// Telephone number of the agent.
     /// </summary>
     [IsoId("_X7_Yrb5XEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Telephone Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtTelNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AgtTelNb")]
+    [IsoSimpleType(IsoSimpleType.PhoneNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPhoneNumber? AgentTelephoneNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,15 +144,13 @@ public partial record PartyIdentificationSD5
     /// Email address of the event agent.
     /// </summary>
     [IsoId("_X7_Ytb5XEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Email Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtEmailAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AgtEmailAdr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AgentEmailAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +163,11 @@ public partial record PartyIdentificationSD5
     /// Agent designated contact Information details.
     /// </summary>
     [IsoId("_X7_Yvb5XEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctInf")]
     #endif
+    [IsoXmlTag("CtctInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationSD4? ContactInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

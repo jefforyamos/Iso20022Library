@@ -44,9 +44,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"SCOPE|A securities financing transaction account servicer sends a SecuritiesFinancingConfirmation to an account owner to confirm or advise of the partial or full settlement of the opening or closing leg of a securities financing transaction. |The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure managing securities financing transactions on behalf of their participants|- an agent (sub-custodian) managing securities financing transactions on behalf of their global custodian customer, or |- a custodian managing securities financing transactions on behalf of an investment management institution or a broker/dealer.||USAGE|The message may also be used to: ||- re-send a message previously sent (the sub-function of the message is Duplicate) ||- provide a third party with a copy of a message for information (the sub-function of the message is Copy) ||- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).||ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
 [IsoId("_rF_hONE5Ed-BzquC8wXy7w_1188936936")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Financing Confirmation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -93,16 +91,15 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Information that unambiguously identifies a SecuritiesFinancingConfirmation message as known by the account servicer.
     /// </summary>
     [IsoId("_rF_hOdE5Ed-BzquC8wXy7w_1188936954")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification11 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification11 Identification { get; init; } 
+    public required DocumentIdentification11 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification11 Identification { get; init; } 
     #else
@@ -113,16 +110,15 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Securities financing transaction identification information, type (repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing) and other parameters.
     /// </summary>
     [IsoId("_rF_hOtE5Ed-BzquC8wXy7w_1188937309")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxIdDtls")]
     #endif
+    [IsoXmlTag("TxIdDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionTypeAndAdditionalParameters3 TransactionIdentificationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionTypeAndAdditionalParameters3 TransactionIdentificationDetails { get; init; } 
+    public required TransactionTypeAndAdditionalParameters3 TransactionIdentificationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionTypeAndAdditionalParameters3 TransactionIdentificationDetails { get; init; } 
     #else
@@ -133,12 +129,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Additional parameters to the transaction.
     /// </summary>
     [IsoId("_rGJSMNE5Ed-BzquC8wXy7w_399899078")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlParams")]
     #endif
+    [IsoXmlTag("AddtlParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalParameters2? AdditionalParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,16 +146,15 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Details of the securities financing deal.
     /// </summary>
     [IsoId("_rGJSMdE5Ed-BzquC8wXy7w_1188937343")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDtls")]
     #endif
+    [IsoXmlTag("TradDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTradeDetails6 TradeDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesTradeDetails6 TradeDetails { get; init; } 
+    public required SecuritiesTradeDetails6 TradeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesTradeDetails6 TradeDetails { get; init; } 
     #else
@@ -171,16 +165,15 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
     [IsoId("_rGJSMtE5Ed-BzquC8wXy7w_1188937361")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification11 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification11 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification11 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification11 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -191,12 +184,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Elements characterising a financial instrument.
     /// </summary>
     [IsoId("_rGJSM9E5Ed-BzquC8wXy7w_-484950757")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmAttrbts")]
     #endif
+    [IsoXmlTag("FinInstrmAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributes8? FinancialInstrumentAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,16 +201,15 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Details related to the account and quantity involved in the transaction.
     /// </summary>
     [IsoId("_rGJSNNE5Ed-BzquC8wXy7w_1188937652")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity And Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyAndAcctDtls")]
     #endif
+    [IsoXmlTag("QtyAndAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityAndAccount6 QuantityAndAccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityAndAccount6 QuantityAndAccountDetails { get; init; } 
+    public required QuantityAndAccount6 QuantityAndAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityAndAccount6 QuantityAndAccountDetails { get; init; } 
     #else
@@ -229,12 +220,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Details of the closing of the securities financing transaction.
     /// </summary>
     [IsoId("_rGJSNdE5Ed-BzquC8wXy7w_1188937807")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Financing Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesFincgDtls")]
     #endif
+    [IsoXmlTag("SctiesFincgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesFinancingTransactionDetails3? SecuritiesFinancingDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,12 +237,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
     [IsoId("_rGJSNtE5Ed-BzquC8wXy7w_1360839910")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Settlement Instruction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgSttlmInstrDtls")]
     #endif
+    [IsoXmlTag("StgSttlmInstrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StandingSettlementInstruction1? StandingSettlementInstructionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -265,12 +254,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
     /// </summary>
     [IsoId("_rGJSN9E5Ed-BzquC8wXy7w_-938070606")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmParams")]
     #endif
+    [IsoXmlTag("SttlmParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementDetails9? SettlementParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -283,12 +271,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
     [IsoId("_rGTDMNE5Ed-BzquC8wXy7w_1188937687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivering Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrgSttlmPties")]
     #endif
+    [IsoXmlTag("DlvrgSttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties5? DeliveringSettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -301,12 +288,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
     [IsoId("_rGTDMdE5Ed-BzquC8wXy7w_1188937729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgSttlmPties")]
     #endif
+    [IsoXmlTag("RcvgSttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties5? ReceivingSettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -319,12 +305,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Cash parties involved in the transaction if different for the securities settlement parties.
     /// </summary>
     [IsoId("_rGTDMtE5Ed-BzquC8wXy7w_1747793169")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshPties")]
     #endif
+    [IsoXmlTag("CshPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashParties3? CashParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -334,15 +319,14 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     #endif
     
     /// <summary>
-    /// Amount effectively settled and which will be credited to/debited from the account owner's cash account. It may differ from the instructed settlement amount based on market tolerance level.
+    /// Amount effectively settled and which will be credited to/debited from the account owner&apos;s cash account. It may differ from the instructed settlement amount based on market tolerance level.
     /// </summary>
     [IsoId("_rGTDM9E5Ed-BzquC8wXy7w_1188937764")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttldAmt")]
     #endif
+    [IsoXmlTag("SttldAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection2? SettledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -355,12 +339,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Other amounts than the settlement amount.
     /// </summary>
     [IsoId("_rGTDNNE5Ed-BzquC8wXy7w_1676683011")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAmts")]
     #endif
+    [IsoXmlTag("OthrAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherAmounts4? OtherAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -373,12 +356,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Other business parties relevant to the transaction.
     /// </summary>
     [IsoId("_rGTDNdE5Ed-BzquC8wXy7w_2075644235")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Business Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrBizPties")]
     #endif
+    [IsoXmlTag("OthrBizPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherParties2? OtherBusinessParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -391,12 +373,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Party that originated the message, if other than the sender.
     /// </summary>
     [IsoId("_rGTDNtE5Ed-BzquC8wXy7w_1188937884")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgOrgtr")]
     #endif
+    [IsoXmlTag("MsgOrgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? MessageOriginator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -409,12 +390,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Party that is the final destination of the message, if other than the receiver.
     /// </summary>
     [IsoId("_rGcNINE5Ed-BzquC8wXy7w_1188937842")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRcpt")]
     #endif
+    [IsoXmlTag("MsgRcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? MessageRecipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -427,12 +407,11 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_rGcNIdE5Ed-BzquC8wXy7w_1188937919")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension2? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -445,7 +424,7 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesFinancingConfirmationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesFinancingConfirmationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesFinancingConfirmationV01Document ToDocument()
     {
@@ -455,7 +434,7 @@ public partial record SecuritiesFinancingConfirmationV01 : IOuterRecord<Securiti
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesFinancingConfirmationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesFinancingConfirmationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesFinancingConfirmationV01Document : IOuterDocument<SecuritiesFinancingConfirmationV01>
@@ -472,7 +451,7 @@ public partial record SecuritiesFinancingConfirmationV01Document : IOuterDocumen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesFinancingConfirmationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesFinancingConfirmationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesFinancingConfirmationV01 Message { get; init; }

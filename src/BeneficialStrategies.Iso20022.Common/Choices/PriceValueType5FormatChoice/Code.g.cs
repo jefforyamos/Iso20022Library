@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceValueType5FormatChoice
     /// Standard code to specify the value of a price.
     /// </summary>
     [IsoId("_RnAYF9p-Ed-ak6NoX_4Aeg_-121428172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceValueType5FormatChoice
         /// Specifies the value of a price.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PriceValueType5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PriceValueType5Code Value { get; init; } 
+        public required PriceValueType5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PriceValueType5Code Value { get; init; } 
         #else

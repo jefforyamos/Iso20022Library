@@ -21,7 +21,7 @@ public enum TypeOfAmount12Code
 {
     /// <summary>
     /// Transaction amount that has been authorised.
-    /// Encoded/decoded by serializers as "AMTH".
+    /// Encoded/decoded by serializers as &quot;AMTH&quot;.
     /// </summary>
     [EnumMember(Value = "AMTH")]
     [IsoId("_z_oWAVT6EeetiruPyDPo0Q")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
-    /// Encoded/decoded by serializers as "DCNT".
+    /// Encoded/decoded by serializers as &quot;DCNT&quot;.
     /// </summary>
     [EnumMember(Value = "DCNT")]
     [IsoId("_4CMzkVT6EeetiruPyDPo0Q")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Fee applied by the card issuer to the cardholder.
-    /// Encoded/decoded by serializers as "ISCF".
+    /// Encoded/decoded by serializers as &quot;ISCF&quot;.
     /// </summary>
     [EnumMember(Value = "ISCF")]
     [IsoId("_5p5KIVT6EeetiruPyDPo0Q")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Contains the total amount of all authorisations related to the same cardholder purchase activities. Example: total of all incremental or splitted shipment authorisations for the same purchase.
-    /// Encoded/decoded by serializers as "CUAT".
+    /// Encoded/decoded by serializers as &quot;CUAT&quot;.
     /// </summary>
     [EnumMember(Value = "CUAT")]
     [IsoId("_IFzkoVT8EeetiruPyDPo0Q")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Maximum amount (the final amount must be less or equal).
-    /// Encoded/decoded by serializers as "MAXI".
+    /// Encoded/decoded by serializers as &quot;MAXI&quot;.
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_NlW9kVT8EeetiruPyDPo0Q")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.
-    /// Encoded/decoded by serializers as "AMTX".
+    /// Encoded/decoded by serializers as &quot;AMTX&quot;.
     /// </summary>
     [EnumMember(Value = "AMTX")]
     [IsoId("_OU91kVT8EeetiruPyDPo0Q")]
@@ -75,7 +75,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.
-    /// Encoded/decoded by serializers as "AMTN".
+    /// Encoded/decoded by serializers as &quot;AMTN&quot;.
     /// </summary>
     [EnumMember(Value = "AMTN")]
     [IsoId("_OdmNIVT8EeetiruPyDPo0Q")]
@@ -84,7 +84,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Transaction amount that has been requested to be authorised.
-    /// Encoded/decoded by serializers as "AMTQ".
+    /// Encoded/decoded by serializers as &quot;AMTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AMTQ")]
     [IsoId("_PRg9YVT8EeetiruPyDPo0Q")]
@@ -93,7 +93,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_PxWUAVT8EeetiruPyDPo0Q")]
@@ -102,7 +102,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_P_e2oVT8EeetiruPyDPo0Q")]
@@ -111,7 +111,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Requested cashback amount
-    /// Encoded/decoded by serializers as "RQCH".
+    /// Encoded/decoded by serializers as &quot;RQCH&quot;.
     /// </summary>
     [EnumMember(Value = "RQCH")]
     [IsoId("_2t9sYRcJEeit0dtP9bTmEg")]
@@ -120,7 +120,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Amount anticipated for the transaction
-    /// Encoded/decoded by serializers as "ANTA".
+    /// Encoded/decoded by serializers as &quot;ANTA&quot;.
     /// </summary>
     [EnumMember(Value = "ANTA")]
     [IsoId("_27WoIRcJEeit0dtP9bTmEg")]
@@ -129,7 +129,7 @@ public enum TypeOfAmount12Code
     
     /// <summary>
     /// Local amount before DCC (Dynamic Currency Conversion) was applied.
-    /// Encoded/decoded by serializers as "PDCC".
+    /// Encoded/decoded by serializers as &quot;PDCC&quot;.
     /// </summary>
     [EnumMember(Value = "PDCC")]
     [IsoId("_qD6MgekUEemeDPHh-U9b6w")]

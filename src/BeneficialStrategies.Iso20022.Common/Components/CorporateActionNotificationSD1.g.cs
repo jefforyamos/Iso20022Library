@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Customer security identification reference information.
 /// </summary>
 [IsoId("_1Tg-ADL3EeKU9IrkkToqcw_-2108418056")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Notification SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionNotificationSD1
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1Tg-ATL3EeKU9IrkkToqcw_1641834561")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record CorporateActionNotificationSD1
     /// Internal security identification as provided by the customer for the given security on the security of interest (SOI) import file.
     /// </summary>
     [IsoId("_1Tg-AjL3EeKU9IrkkToqcw_-48041887")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Internal Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrIntlSctyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CstmrIntlSctyId")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? CustomerInternalSecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +86,14 @@ public partial record CorporateActionNotificationSD1
     #endif
     
     /// <summary>
-    /// Security identifier that is used to match the customer's SOI (Security of Interest) to the GCA VS Security Cross Reference.
+    /// Security identifier that is used to match the customer&apos;s SOI (Security of Interest) to the GCA VS Security Cross Reference.
     /// </summary>
     [IsoId("_1Tg-AzL3EeKU9IrkkToqcw_-1925537148")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Of Interest Matching Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyOfIntrstMtchgScty")]
     #endif
+    [IsoXmlTag("SctyOfIntrstMtchgScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification15? SecurityOfInterestMatchingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

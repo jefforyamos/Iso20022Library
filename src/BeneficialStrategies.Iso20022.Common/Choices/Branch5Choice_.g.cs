@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Branch5Choice.Identification))]
     [KnownType(typeof(Branch5Choice.Country))]
     [IsoId("_BpDRkMg4Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Branch 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

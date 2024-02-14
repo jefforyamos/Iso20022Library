@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementInstructionGeneration2Choice.Code))]
     [KnownType(typeof(SettlementInstructionGeneration2Choice.Proprietary))]
     [IsoId("_gb_yQZCBEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Instruction Generation 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

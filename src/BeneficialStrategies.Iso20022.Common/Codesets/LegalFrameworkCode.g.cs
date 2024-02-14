@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum LegalFrameworkCode
 {
     /// <summary>
-    /// Relates to the French legal framework for repos, that is, relates to a "Pension Livrée".
-    /// Encoded/decoded by serializers as "FRAN".
+    /// Relates to the French legal framework for repos, that is, relates to a &quot;Pension Livrée&quot;.
+    /// Encoded/decoded by serializers as &quot;FRAN&quot;.
     /// </summary>
     [EnumMember(Value = "FRAN")]
     [IsoId("_ad115tp-Ed-ak6NoX_4Aeg_-806240527")]
@@ -30,7 +30,7 @@ public enum LegalFrameworkCode
     
     /// <summary>
     /// Relates to the European legal framework for alternative investment fund.
-    /// Encoded/decoded by serializers as "AIFD".
+    /// Encoded/decoded by serializers as &quot;AIFD&quot;.
     /// </summary>
     [EnumMember(Value = "AIFD")]
     [IsoId("_3d2MAOQvEeiDdp3LLDFTEQ")]
@@ -39,7 +39,7 @@ public enum LegalFrameworkCode
     
     /// <summary>
     /// Relates to the European legal framework for undertakings for collective investment in transferable securities.
-    /// Encoded/decoded by serializers as "UCIT".
+    /// Encoded/decoded by serializers as &quot;UCIT&quot;.
     /// </summary>
     [EnumMember(Value = "UCIT")]
     [IsoId("_PJ6YsOQwEeiDdp3LLDFTEQ")]
@@ -48,7 +48,7 @@ public enum LegalFrameworkCode
     
     /// <summary>
     /// Relates to the European legal framework for european social entrepreneurship funds.
-    /// Encoded/decoded by serializers as "ESEF".
+    /// Encoded/decoded by serializers as &quot;ESEF&quot;.
     /// </summary>
     [EnumMember(Value = "ESEF")]
     [IsoId("_Z8vHcJ6BEeutguKEfOuVZA")]
@@ -57,7 +57,7 @@ public enum LegalFrameworkCode
     
     /// <summary>
     /// Relates to the European legal framework for european venture capital funds.
-    /// Encoded/decoded by serializers as "EVCA".
+    /// Encoded/decoded by serializers as &quot;EVCA&quot;.
     /// </summary>
     [EnumMember(Value = "EVCA")]
     [IsoId("_pV-iUJ6BEeutguKEfOuVZA")]
@@ -66,7 +66,7 @@ public enum LegalFrameworkCode
     
     /// <summary>
     /// Relates to the European legal framework for european long-term investment funds.
-    /// Encoded/decoded by serializers as "LTIF".
+    /// Encoded/decoded by serializers as &quot;LTIF&quot;.
     /// </summary>
     [EnumMember(Value = "LTIF")]
     [IsoId("_Ev_AYJ6CEeutguKEfOuVZA")]

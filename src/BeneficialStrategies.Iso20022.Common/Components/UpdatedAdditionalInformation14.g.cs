@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information with update description and date.
 /// </summary>
 [IsoId("_x_UPDx9REeuFz_FaCzCLgQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Updated Additional Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UpdatedAdditionalInformation14
     /// Language used to provide additional information and using the ISO 639-1 language code standard.
     /// </summary>
     [IsoId("_x_UPER9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lang")]
     #endif
+    [IsoXmlTag("Lang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISO2ALanguageCode Language { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Language { get; init; } 
+    public required string Language { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Language { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record UpdatedAdditionalInformation14
     /// Specifies the amendments made to the narrative since the last message.
     /// </summary>
     [IsoId("_x_UPEx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UpdDesc")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax140Text? UpdateDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +88,12 @@ public partial record UpdatedAdditionalInformation14
     /// Specifies the date at which the narrative has been updated.
     /// </summary>
     [IsoId("_x_UPFR9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdDt")]
     #endif
+    [IsoXmlTag("UpdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? UpdateDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,19 +106,17 @@ public partial record UpdatedAdditionalInformation14
     /// Provides additional textual information.
     /// </summary>
     [IsoId("_x_UPFx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax350Text AdditionalInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AdditionalInformation { get; init; } 
+    public required System.String AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AdditionalInformation { get; init; } 
     #else

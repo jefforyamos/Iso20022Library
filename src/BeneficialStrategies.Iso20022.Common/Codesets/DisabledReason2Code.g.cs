@@ -21,7 +21,7 @@ public enum DisabledReason2Code
 {
     /// <summary>
     /// Account closing is in process.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_EtddUWBrEeaHEJD5P6-ccw")]
@@ -30,7 +30,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Bankruptcy.
-    /// Encoded/decoded by serializers as "BKRP".
+    /// Encoded/decoded by serializers as &quot;BKRP&quot;.
     /// </summary>
     [EnumMember(Value = "BKRP")]
     [IsoId("_Ex7GkWBrEeaHEJD5P6-ccw")]
@@ -39,7 +39,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Commitment.
-    /// Encoded/decoded by serializers as "CMMT".
+    /// Encoded/decoded by serializers as &quot;CMMT&quot;.
     /// </summary>
     [EnumMember(Value = "CMMT")]
     [IsoId("_E3bRoWBrEeaHEJD5P6-ccw")]
@@ -48,7 +48,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Confiscation.
-    /// Encoded/decoded by serializers as "CNFS".
+    /// Encoded/decoded by serializers as &quot;CNFS&quot;.
     /// </summary>
     [EnumMember(Value = "CNFS")]
     [IsoId("_E8ySwWBrEeaHEJD5P6-ccw")]
@@ -57,7 +57,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Reserved in contemplation of death.
-    /// Encoded/decoded by serializers as "MORT".
+    /// Encoded/decoded by serializers as &quot;MORT&quot;.
     /// </summary>
     [EnumMember(Value = "MORT")]
     [IsoId("_FBi28WBrEeaHEJD5P6-ccw")]
@@ -66,7 +66,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Pending compliance verification.
-    /// Encoded/decoded by serializers as "PCOM".
+    /// Encoded/decoded by serializers as &quot;PCOM&quot;.
     /// </summary>
     [EnumMember(Value = "PCOM")]
     [IsoId("_FGdMIWBrEeaHEJD5P6-ccw")]
@@ -75,7 +75,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Pledged.
-    /// Encoded/decoded by serializers as "PLDG".
+    /// Encoded/decoded by serializers as &quot;PLDG&quot;.
     /// </summary>
     [EnumMember(Value = "PLDG")]
     [IsoId("_FMHIMWBrEeaHEJD5P6-ccw")]
@@ -84,7 +84,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Reregistration.
-    /// Encoded/decoded by serializers as "TRPE".
+    /// Encoded/decoded by serializers as &quot;TRPE&quot;.
     /// </summary>
     [EnumMember(Value = "TRPE")]
     [IsoId("_FSW6IWBrEeaHEJD5P6-ccw")]
@@ -93,7 +93,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Sanctions are in place.
-    /// Encoded/decoded by serializers as "SANC".
+    /// Encoded/decoded by serializers as &quot;SANC&quot;.
     /// </summary>
     [EnumMember(Value = "SANC")]
     [IsoId("_FW-UYWBrEeaHEJD5P6-ccw")]
@@ -102,7 +102,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Transfer.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_FbSMoWBrEeaHEJD5P6-ccw")]
@@ -111,7 +111,7 @@ public enum DisabledReason2Code
     
     /// <summary>
     /// Account was pending opening but is now rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_voHfoWCIEeabZtzjEVWYCQ")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepoCallRequestStatus2Choice
     /// Instruction/Request will not be executed.
     /// </summary>
     [IsoId("_UWYvddp-Ed-ak6NoX_4Aeg_-1727603711")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denied")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

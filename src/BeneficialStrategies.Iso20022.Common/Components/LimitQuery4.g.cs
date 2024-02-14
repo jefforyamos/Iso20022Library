@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the query criteria.
 /// </summary>
 [IsoId("_E2br6W4-EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit Query")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record LimitQuery4
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
     [IsoId("_FDP_424-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryTp")]
     #endif
+    [IsoXmlTag("QryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QueryType2Code? QueryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record LimitQuery4
     /// Defines the limit query criteria.
     /// </summary>
     [IsoId("_FDP_5W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtCrit")]
     #endif
+    [IsoXmlTag("LmtCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LimitCriteria6Choice_? LimitCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

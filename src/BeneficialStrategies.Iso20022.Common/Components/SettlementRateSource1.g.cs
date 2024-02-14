@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the components of a settlement rate source for a non delvierable trade.
 /// </summary>
 [IsoId("_CldIUJULEeak6e8_Fc5fQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Rate Source")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record SettlementRateSource1
     /// Specifies the rate source for the non deliverable trade.
     /// </summary>
     [IsoId("_6mn-oJUMEeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateSrc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("RateSrc")]
+    [IsoSimpleType(IsoSimpleType.RateSourceText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRateSourceText RateSource { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RateSource { get; init; } 
+    public required System.String RateSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RateSource { get; init; } 
     #else
@@ -71,18 +66,15 @@ public partial record SettlementRateSource1
     #endif
     
     /// <summary>
-    /// Specifies the time "HHMM" associated with the rate source.
+    /// Specifies the time &quot;HHMM&quot; associated with the rate source.
     /// </summary>
     [IsoId("_UdWPkJUOEeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Tm")]
+    [IsoSimpleType(IsoSimpleType.Exact4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? Time { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,12 +87,11 @@ public partial record SettlementRateSource1
     /// Specifies the country code for the quoted rate source.
     /// </summary>
     [IsoId("_ISDz4JUNEeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryCd")]
     #endif
+    [IsoXmlTag("CtryCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,15 +104,12 @@ public partial record SettlementRateSource1
     /// The location expressed as a 2 character code.
     /// </summary>
     [IsoId("_1wrG4JUNEeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LctnCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("LctnCd")]
+    [IsoSimpleType(IsoSimpleType.Exact2AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2AlphaNumericText? LocationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for the failed settlement status.
 /// </summary>
 [IsoId("_RR_KV9p-Ed-ak6NoX_4Aeg_1532242447")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Failed Settlement Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record FailedSettlementStatus1
     /// Reason for the failed settlement status.
     /// </summary>
     [IsoId("_RR_KWNp-Ed-ak6NoX_4Aeg_1532242482")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Reason { get; init; } 
+    public required System.String Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Reason { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record FailedSettlementStatus1
     /// Proprietary identification of the reason for the failed settlement status.
     /// </summary>
     [IsoId("_RR_KWdp-Ed-ak6NoX_4Aeg_1532242756")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
+    [IsoXmlTag("DataSrcSchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification1 DataSourceScheme { get; init; } 
+    public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification1 DataSourceScheme { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record FailedSettlementStatus1
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_RR_KWtp-Ed-ak6NoX_4Aeg_2124998939")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Specified Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoSpcfdRsn")]
     #endif
+    [IsoXmlTag("NoSpcfdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoSpecifiedReason { get; init; } 
+    public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoSpecifiedReason { get; init; } 
     #else

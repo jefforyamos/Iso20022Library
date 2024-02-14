@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstrumentOrSubClassIdentification2Choice.ISINAndSubClass))]
     [KnownType(typeof(InstrumentOrSubClassIdentification2Choice.AssetClassAndSubClass))]
     [IsoId("_BRbDkaaUEeqZmriXpMtonA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Or Sub Class Identification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

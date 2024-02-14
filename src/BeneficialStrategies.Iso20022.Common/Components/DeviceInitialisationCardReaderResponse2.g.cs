@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Device Initialisation Card Reader Response message.
 /// </summary>
 [IsoId("_UyZdUQ0cEeqUVL7sB4m7NA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Initialisation Card Reader Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record DeviceInitialisationCardReaderResponse2
     /// Payment instrument entry mode requested by the Sale System.
     /// </summary>
     [IsoId("_U9zcEQ0cEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardNtryMd")]
     #endif
+    [IsoXmlTag("CardNtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading8Code? CardEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record DeviceInitialisationCardReaderResponse2
     /// Data of a Chip Card related to the reset of the chip.
     /// </summary>
     [IsoId("_U9zcEw0cEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Reset Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRstData")]
     #endif
+    [IsoXmlTag("ICCRstData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ICCResetData1? ICCResetData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record DeviceInitialisationCardReaderResponse2
     /// Additional information about the Device Initialisation Card Reader Response.
     /// </summary>
     [IsoId("_U9zcFQ0cEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

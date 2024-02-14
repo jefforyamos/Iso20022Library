@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Criteria for a query about securities reference data.
 /// </summary>
 [IsoId("_QETUpZJKEeuAlLVx8pyt3w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SecuritiesSearchCriteria4
     /// Way(s) of identifying the security.
     /// </summary>
     [IsoId("_QGUG0ZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification39? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record SecuritiesSearchCriteria4
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
     [IsoId("_QGUG05JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Financial Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssfctnFinInstrm")]
     #endif
+    [IsoXmlTag("ClssfctnFinInstrm")]
+    [IsoSimpleType(IsoSimpleType.CFIOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCFIOct2015Identifier? ClassificationFinancialInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record SecuritiesSearchCriteria4
     /// Planned final repayment date at the time of issuance.
     /// </summary>
     [IsoId("_QGUG1ZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record SecuritiesSearchCriteria4
     /// Date/time at which the security was made available.
     /// </summary>
     [IsoId("_QGUG6ZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record SecuritiesSearchCriteria4
     /// Currency in which a security is issued or redenominated.
     /// </summary>
     [IsoId("_QGUG65JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseCcy")]
     #endif
+    [IsoXmlTag("IsseCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? IssueCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,11 @@ public partial record SecuritiesSearchCriteria4
     /// Primary market or country where a security is issued by the issuer or its agent.
     /// </summary>
     [IsoId("_QGUG85JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Issue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfIsse")]
     #endif
+    [IsoXmlTag("CtryOfIsse")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfIssue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record SecuritiesSearchCriteria4
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
     [IsoId("_QGUG-5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctySts")]
     #endif
+    [IsoXmlTag("SctySts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityStatus3Choice_? SecurityStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +162,11 @@ public partial record SecuritiesSearchCriteria4
     /// Entity involved in an activity.
     /// </summary>
     [IsoId("_QGUHA5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maintaining CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MntngCSD")]
     #endif
+    [IsoXmlTag("MntngCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification2Choice_? MaintainingCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +179,11 @@ public partial record SecuritiesSearchCriteria4
     /// Entity involved in an activity.
     /// </summary>
     [IsoId("_QGUHBZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrCSD")]
     #endif
+    [IsoXmlTag("InvstrCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification2Choice_? InvestorCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +196,11 @@ public partial record SecuritiesSearchCriteria4
     /// Entity involved in an activity.
     /// </summary>
     [IsoId("_QGUHB5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrCSD")]
     #endif
+    [IsoXmlTag("IssrCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification2Choice_? IssuerCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +213,11 @@ public partial record SecuritiesSearchCriteria4
     /// Technical issuer of a security.
     /// </summary>
     [IsoId("_QGUHCZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Issuer CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechIssrCSD")]
     #endif
+    [IsoXmlTag("TechIssrCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification2Choice_? TechnicalIssuerCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +230,11 @@ public partial record SecuritiesSearchCriteria4
     /// CSD of a security.
     /// </summary>
     [IsoId("_QGUHC5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSD")]
     #endif
+    [IsoXmlTag("CSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification2Choice_? CSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

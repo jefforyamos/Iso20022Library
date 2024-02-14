@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status of a case resulting from a case assignment.
 /// </summary>
 [IsoId("_VJDihdp-Ed-ak6NoX_4Aeg_92437135")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Case Forwarding Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CaseForwardingNotification
     /// Justification for the forward action.
     /// </summary>
     [IsoId("_VJDihtp-Ed-ak6NoX_4Aeg_172785479")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Justification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Justfn")]
     #endif
+    [IsoXmlTag("Justfn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseForwardingNotification1Code Justification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseForwardingNotification1Code Justification { get; init; } 
+    public required CaseForwardingNotification1Code Justification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseForwardingNotification1Code Justification { get; init; } 
     #else

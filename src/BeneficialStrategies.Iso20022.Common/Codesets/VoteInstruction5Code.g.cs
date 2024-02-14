@@ -21,7 +21,7 @@ public enum VoteInstruction5Code
 {
     /// <summary>
     /// Active vote expressed as abstain (no opinion).
-    /// Encoded/decoded by serializers as "ABST".
+    /// Encoded/decoded by serializers as &quot;ABST&quot;.
     /// </summary>
     [EnumMember(Value = "ABST")]
     [IsoId("_aWN4Ia4aEemG7MmivSuE5g")]
@@ -30,7 +30,7 @@ public enum VoteInstruction5Code
     
     /// <summary>
     /// Vote against a meeting resolution.
-    /// Encoded/decoded by serializers as "CAGS".
+    /// Encoded/decoded by serializers as &quot;CAGS&quot;.
     /// </summary>
     [EnumMember(Value = "CAGS")]
     [IsoId("_ahq6Mq4aEemG7MmivSuE5g")]
@@ -39,7 +39,7 @@ public enum VoteInstruction5Code
     
     /// <summary>
     /// Rights holder gives authority to the chairman to vote on his behalf.
-    /// Encoded/decoded by serializers as "CHRM".
+    /// Encoded/decoded by serializers as &quot;CHRM&quot;.
     /// </summary>
     [EnumMember(Value = "CHRM")]
     [IsoId("_bHm40q4aEemG7MmivSuE5g")]
@@ -48,7 +48,7 @@ public enum VoteInstruction5Code
     
     /// <summary>
     /// Vote in favour of a meeting resolution.
-    /// Encoded/decoded by serializers as "CFOR".
+    /// Encoded/decoded by serializers as &quot;CFOR&quot;.
     /// </summary>
     [EnumMember(Value = "CFOR")]
     [IsoId("_b0PVUq4aEemG7MmivSuE5g")]
@@ -57,7 +57,7 @@ public enum VoteInstruction5Code
     
     /// <summary>
     /// Do not vote.
-    /// Encoded/decoded by serializers as "NOAC".
+    /// Encoded/decoded by serializers as &quot;NOAC&quot;.
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_cTe2Eq4aEemG7MmivSuE5g")]
@@ -66,7 +66,7 @@ public enum VoteInstruction5Code
     
     /// <summary>
     /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
-    /// Encoded/decoded by serializers as "WTHH".
+    /// Encoded/decoded by serializers as &quot;WTHH&quot;.
     /// </summary>
     [EnumMember(Value = "WTHH")]
     [IsoId("_dLkUoq4aEemG7MmivSuE5g")]
@@ -74,8 +74,8 @@ public enum VoteInstruction5Code
     Withhold = VoteInstructionV2Code.Withhold, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Vote in favour for one year for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "ONEY".
+    /// Vote in favour for one year for &quot;say on pay&quot; type of resolution.
+    /// Encoded/decoded by serializers as &quot;ONEY&quot;.
     /// </summary>
     [EnumMember(Value = "ONEY")]
     [IsoId("_d198gq4aEemG7MmivSuE5g")]
@@ -83,8 +83,8 @@ public enum VoteInstruction5Code
     OneYear = VoteInstructionV2Code.OneYear, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Vote in favour for three years for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "THRY".
+    /// Vote in favour for three years for &quot;say on pay&quot; type of resolution.
+    /// Encoded/decoded by serializers as &quot;THRY&quot;.
     /// </summary>
     [EnumMember(Value = "THRY")]
     [IsoId("_eAYcwq4aEemG7MmivSuE5g")]
@@ -92,8 +92,8 @@ public enum VoteInstruction5Code
     ThreeYears = VoteInstructionV2Code.ThreeYears, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Vote in favour for two years for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "TWOY".
+    /// Vote in favour for two years for &quot;say on pay&quot; type of resolution.
+    /// Encoded/decoded by serializers as &quot;TWOY&quot;.
     /// </summary>
     [EnumMember(Value = "TWOY")]
     [IsoId("_eE2GAa4aEemG7MmivSuE5g")]
@@ -102,7 +102,7 @@ public enum VoteInstruction5Code
     
     /// <summary>
     /// Vote is cast as empty but the vote is counted.
-    /// Encoded/decoded by serializers as "BLNK".
+    /// Encoded/decoded by serializers as &quot;BLNK&quot;.
     /// </summary>
     [EnumMember(Value = "BLNK")]
     [IsoId("_fApm8q4aEemG7MmivSuE5g")]
@@ -111,7 +111,7 @@ public enum VoteInstruction5Code
     
     /// <summary>
     /// No recommendation provided for the vote instruction type.
-    /// Encoded/decoded by serializers as "NREC".
+    /// Encoded/decoded by serializers as &quot;NREC&quot;.
     /// </summary>
     [EnumMember(Value = "NREC")]
     [IsoId("_5gPEIa4aEemG7MmivSuE5g")]

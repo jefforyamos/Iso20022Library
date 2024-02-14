@@ -21,7 +21,7 @@ public enum BusinessDayConvention1Code
 {
     /// <summary>
     /// The date will be the first following day that is a business day.
-    /// Encoded/decoded by serializers as "FWNG".
+    /// Encoded/decoded by serializers as &quot;FWNG&quot;.
     /// </summary>
     [EnumMember(Value = "FWNG")]
     [IsoId("_bVIDNtp-Ed-ak6NoX_4Aeg_1252936265")]
@@ -30,7 +30,7 @@ public enum BusinessDayConvention1Code
     
     /// <summary>
     /// The date will be the first preceding day that is a business day.
-    /// Encoded/decoded by serializers as "PREC".
+    /// Encoded/decoded by serializers as &quot;PREC&quot;.
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_bVIDN9p-Ed-ak6NoX_4Aeg_-522159377")]

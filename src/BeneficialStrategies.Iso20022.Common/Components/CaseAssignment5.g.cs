@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Represents the assignment of a case to a party.
 /// </summary>
 [IsoId("_BzPdIW49EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Case Assignment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record CaseAssignment5
     /// Uniquely identifies the case assignment.
     /// </summary>
     [IsoId("_B8VHsW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,16 +73,15 @@ public partial record CaseAssignment5
     /// Party who assigns the case. |Usage: This is also the sender of the message.
     /// </summary>
     [IsoId("_B8VHs249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assigner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnr")]
     #endif
+    [IsoXmlTag("Assgnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party40Choice_ Assigner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party40Choice_ Assigner { get; init; } 
+    public required Party40Choice_ Assigner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party40Choice_ Assigner { get; init; } 
     #else
@@ -97,16 +92,15 @@ public partial record CaseAssignment5
     /// Party to which the case is assigned.|Usage: This is also the receiver of the message.
     /// </summary>
     [IsoId("_B8VHtW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgne")]
     #endif
+    [IsoXmlTag("Assgne")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party40Choice_ Assignee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party40Choice_ Assignee { get; init; } 
+    public required Party40Choice_ Assignee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party40Choice_ Assignee { get; init; } 
     #else
@@ -117,16 +111,16 @@ public partial record CaseAssignment5
     /// Date and time at which the assignment was created.
     /// </summary>
     [IsoId("_B8VHt249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else

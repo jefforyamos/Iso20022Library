@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the status being requested.
 /// </summary>
 [IsoId("_gBH0Fzi8Eeydid5dcNPKvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document Number")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DocumentNumber19
     /// Number used to identify a message or document.
     /// </summary>
     [IsoId("_gBH0HTi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
+    [IsoXmlTag("Nb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentNumber6Choice_ Number { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentNumber6Choice_ Number { get; init; } 
+    public required DocumentNumber6Choice_ Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentNumber6Choice_ Number { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DocumentNumber19
     /// References of transaction for which the status is requested.
     /// </summary>
     [IsoId("_gBH0JTi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     public Identification29? References { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _gBH0JTi8Eeydid5dcNPKvg
     

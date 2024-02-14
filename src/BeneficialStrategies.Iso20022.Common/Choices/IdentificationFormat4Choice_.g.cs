@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IdentificationFormat4Choice.LongIdentification))]
     [KnownType(typeof(IdentificationFormat4Choice.ProprietaryIdentification))]
     [IsoId("_c5VTNZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Format 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

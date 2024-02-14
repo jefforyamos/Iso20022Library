@@ -21,7 +21,7 @@ public enum SuspendedStatusReason1Code
 {
     /// <summary>
     /// Transaction/instruction is suspended following your earlier suspension instruction.
-    /// Encoded/decoded by serializers as "SUBY".
+    /// Encoded/decoded by serializers as &quot;SUBY&quot;.
     /// </summary>
     [EnumMember(Value = "SUBY")]
     [IsoId("_ZQzbBNp-Ed-ak6NoX_4Aeg_689720894")]
@@ -30,7 +30,7 @@ public enum SuspendedStatusReason1Code
     
     /// <summary>
     /// Transaction/instruction is suspended following a system suspension instruction.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_ZQzbBdp-Ed-ak6NoX_4Aeg_689720895")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides ownership details  of a person on an asset.
 /// </summary>
 [IsoId("_6_92AIzzEemXJvzC2Wyt1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Ownership")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Ownership1
     /// Specifies the type of ownership.
     /// </summary>
     [IsoId("_ZauvUYz0EemXJvzC2Wyt1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ownership Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OwnrshTp")]
     #endif
+    [IsoXmlTag("OwnrshTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OwnershipType3Choice_? OwnershipType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record Ownership1
     /// Percentage of ownership that a person has on an asset.
     /// </summary>
     [IsoId("_jeCnUIz0EemXJvzC2Wyt1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ownership Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OwnrshPctg")]
     #endif
+    [IsoXmlTag("OwnrshPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? OwnershipPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record Ownership1
     /// Percentage of usufruct that a person has on an asset.
     /// </summary>
     [IsoId("_8KqSEIz0EemXJvzC2Wyt1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Usufruct Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsfrctPctg")]
     #endif
+    [IsoXmlTag("UsfrctPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? UsufructPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

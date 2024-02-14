@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum PendingReason22Code
 {
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_l2_wwRHpEeuE0Pnt-OcNOA")]
@@ -30,7 +30,7 @@ public enum PendingReason22Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_l2_wwxHpEeuE0Pnt-OcNOA")]
@@ -39,7 +39,7 @@ public enum PendingReason22Code
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "MONY".
+    /// Encoded/decoded by serializers as &quot;MONY&quot;.
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_l2_wyRHpEeuE0Pnt-OcNOA")]
@@ -48,7 +48,7 @@ public enum PendingReason22Code
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_l2_wyxHpEeuE0Pnt-OcNOA")]
@@ -57,7 +57,7 @@ public enum PendingReason22Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_l2_wzRHpEeuE0Pnt-OcNOA")]
@@ -65,8 +65,8 @@ public enum PendingReason22Code
     MarketDeadlineMissed = PendingFailingReasonV2Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Insufficient deliverable financial instruments in counterparty's account or counterparty does not hold financial instruments.
-    /// Encoded/decoded by serializers as "CLAC".
+    /// Insufficient deliverable financial instruments in counterparty&apos;s account or counterparty does not hold financial instruments.
+    /// Encoded/decoded by serializers as &quot;CLAC&quot;.
     /// </summary>
     [EnumMember(Value = "CLAC")]
     [IsoId("_1tV-YRHpEeuE0Pnt-OcNOA")]
@@ -74,8 +74,8 @@ public enum PendingReason22Code
     CounterpartyInsufficientSecurities = PendingFailingReasonV2Code.CounterpartyInsufficientSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Insufficient money in counterparty's account.
-    /// Encoded/decoded by serializers as "CMON".
+    /// Insufficient money in counterparty&apos;s account.
+    /// Encoded/decoded by serializers as &quot;CMON&quot;.
     /// </summary>
     [EnumMember(Value = "CMON")]
     [IsoId("_3BZnQRHpEeuE0Pnt-OcNOA")]
@@ -84,7 +84,7 @@ public enum PendingReason22Code
     
     /// <summary>
     /// Your instruction is a preadvice, that is, for matching only.
-    /// Encoded/decoded by serializers as "PREA".
+    /// Encoded/decoded by serializers as &quot;PREA&quot;.
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_Ii5b8RUHEeuZw7VHHgrHLg")]
@@ -93,7 +93,7 @@ public enum PendingReason22Code
     
     /// <summary>
     /// Your instruction is pending settlement because the instruction linked to it is pending.
-    /// Encoded/decoded by serializers as "LINK".
+    /// Encoded/decoded by serializers as &quot;LINK&quot;.
     /// </summary>
     [EnumMember(Value = "LINK")]
     [IsoId("_JpaYERUHEeuZw7VHHgrHLg")]
@@ -102,7 +102,7 @@ public enum PendingReason22Code
     
     /// <summary>
     /// Your instruction is confirmed in the local market or is ready for settlement, awaiting next settlement cycle.
-    /// Encoded/decoded by serializers as "CYCL".
+    /// Encoded/decoded by serializers as &quot;CYCL&quot;.
     /// </summary>
     [EnumMember(Value = "CYCL")]
     [IsoId("_Lh7Y4RUHEeuZw7VHHgrHLg")]
@@ -110,8 +110,8 @@ public enum PendingReason22Code
     AwaitingNextSettlementCycle = PendingFailingReasonV2Code.AwaitingNextSettlementCycle, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Counterparty's instruction and your instruction are on hold/frozen/ in a preadvice mode.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Counterparty&apos;s instruction and your instruction are on hold/frozen/ in a preadvice mode.
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_NA_X4RUHEeuZw7VHHgrHLg")]
@@ -119,8 +119,8 @@ public enum PendingReason22Code
     BothInstructionsOnHold = PendingFailingReasonV2Code.BothInstructionsOnHold, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Counterparty's instruction is a preadvice, that is, for matching only.
-    /// Encoded/decoded by serializers as "PRCY".
+    /// Counterparty&apos;s instruction is a preadvice, that is, for matching only.
+    /// Encoded/decoded by serializers as &quot;PRCY&quot;.
     /// </summary>
     [EnumMember(Value = "PRCY")]
     [IsoId("_Or9r8RUHEeuZw7VHHgrHLg")]
@@ -129,7 +129,7 @@ public enum PendingReason22Code
     
     /// <summary>
     /// Awaiting settlement date. No settlement problems to be reported.
-    /// Encoded/decoded by serializers as "FUTU".
+    /// Encoded/decoded by serializers as &quot;FUTU&quot;.
     /// </summary>
     [EnumMember(Value = "FUTU")]
     [IsoId("_bPtwgS2qEeuVt5XRmyhHiA")]

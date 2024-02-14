@@ -21,7 +21,7 @@ public enum SecuritiesBalanceType9Code
 {
     /// <summary>
     /// Balance of money or securities that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "AVLB".
+    /// Encoded/decoded by serializers as &quot;AVLB&quot;.
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_ZC8lONp-Ed-ak6NoX_4Aeg_-1937993977")]
@@ -30,7 +30,7 @@ public enum SecuritiesBalanceType9Code
     
     /// <summary>
     /// Balance of instructed position.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_ZC8lOdp-Ed-ak6NoX_4Aeg_-1937993976")]
@@ -39,7 +39,7 @@ public enum SecuritiesBalanceType9Code
     
     /// <summary>
     /// Balance of uninstructed position.
-    /// Encoded/decoded by serializers as "UNEL".
+    /// Encoded/decoded by serializers as &quot;UNEL&quot;.
     /// </summary>
     [EnumMember(Value = "UNEL")]
     [IsoId("_ZDFvINp-Ed-ak6NoX_4Aeg_-1937993948")]
@@ -48,7 +48,7 @@ public enum SecuritiesBalanceType9Code
     
     /// <summary>
     /// Balance of financial instruments that are reserved for the distribution of the proceeds.
-    /// Encoded/decoded by serializers as "RDIS".
+    /// Encoded/decoded by serializers as &quot;RDIS&quot;.
     /// </summary>
     [EnumMember(Value = "RDIS")]
     [IsoId("_ZDFvIdp-Ed-ak6NoX_4Aeg_-1937993947")]
@@ -57,7 +57,7 @@ public enum SecuritiesBalanceType9Code
     
     /// <summary>
     /// Balance of securities which are reserved temporarily in the SPA account before they will effectively be exchanged.
-    /// Encoded/decoded by serializers as "RREM".
+    /// Encoded/decoded by serializers as &quot;RREM&quot;.
     /// </summary>
     [EnumMember(Value = "RREM")]
     [IsoId("_ZDFvItp-Ed-ak6NoX_4Aeg_-1937993918")]

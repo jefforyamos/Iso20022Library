@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the acceptor configuration.
 /// </summary>
 [IsoId("_76B1cQvbEeK9Xewg3qiFQA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Configuration Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AcceptorConfigurationContent2
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
     [IsoId("_8LlfgQvbEeK9Xewg3qiFQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Protocol Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrPrtcolParams")]
     #endif
+    [IsoXmlTag("AcqrrPrtcolParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerProtocolParameters3? AcquirerProtocolParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record AcceptorConfigurationContent2
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
     [IsoId("_8LlfhQvbEeK9Xewg3qiFQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merchant Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrchntParams")]
     #endif
+    [IsoXmlTag("MrchntParams")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? MerchantParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record AcceptorConfigurationContent2
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
     [IsoId("_SrV3YCmnEeKIjpr--01h3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlParams")]
     #endif
+    [IsoXmlTag("TermnlParams")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? TerminalParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,11 @@ public partial record AcceptorConfigurationContent2
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
     [IsoId("_8LlfiQvbEeK9Xewg3qiFQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplParams")]
     #endif
+    [IsoXmlTag("ApplParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApplicationParameters2? ApplicationParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record AcceptorConfigurationContent2
     /// Acceptor parameters dedicated to the communication with an acquirer host.
     /// </summary>
     [IsoId("_8LlfjQvbEeK9Xewg3qiFQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Communication Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstComParams")]
     #endif
+    [IsoXmlTag("HstComParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HostCommunicationParameter2? HostCommunicationParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +129,11 @@ public partial record AcceptorConfigurationContent2
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
     [IsoId("_o360ACm3EeKIjpr--01h3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyParams")]
     #endif
+    [IsoXmlTag("SctyParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityParameters1? SecurityParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

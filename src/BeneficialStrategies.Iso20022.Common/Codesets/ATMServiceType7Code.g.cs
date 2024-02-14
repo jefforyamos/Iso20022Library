@@ -21,7 +21,7 @@ public enum ATMServiceType7Code
 {
     /// <summary>
     /// Amount and notes values are chosen by the customer.
-    /// Encoded/decoded by serializers as "CHSN".
+    /// Encoded/decoded by serializers as &quot;CHSN&quot;.
     /// </summary>
     [EnumMember(Value = "CHSN")]
     [IsoId("_JhuOoa4TEeWZgJQOa6iKCQ")]
@@ -30,7 +30,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Modification of the card PIN value.
-    /// Encoded/decoded by serializers as "PINC".
+    /// Encoded/decoded by serializers as &quot;PINC&quot;.
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_JhuOo64TEeWZgJQOa6iKCQ")]
@@ -39,7 +39,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Resetting of a PIN.
-    /// Encoded/decoded by serializers as "PINR".
+    /// Encoded/decoded by serializers as &quot;PINR&quot;.
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_JhuOpa4TEeWZgJQOa6iKCQ")]
@@ -48,7 +48,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Unblock the PIN.
-    /// Encoded/decoded by serializers as "PINU".
+    /// Encoded/decoded by serializers as &quot;PINU&quot;.
     /// </summary>
     [EnumMember(Value = "PINU")]
     [IsoId("_JhuOp64TEeWZgJQOa6iKCQ")]
@@ -57,7 +57,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.
-    /// Encoded/decoded by serializers as "PATH".
+    /// Encoded/decoded by serializers as &quot;PATH&quot;.
     /// </summary>
     [EnumMember(Value = "PATH")]
     [IsoId("_JhuOqa4TEeWZgJQOa6iKCQ")]
@@ -66,7 +66,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Amount and notes Values are pre-defined by the customer profile.
-    /// Encoded/decoded by serializers as "PRFL".
+    /// Encoded/decoded by serializers as &quot;PRFL&quot;.
     /// </summary>
     [EnumMember(Value = "PRFL")]
     [IsoId("_JhuOq64TEeWZgJQOa6iKCQ")]
@@ -75,7 +75,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Standard withdrawal of items.
-    /// Encoded/decoded by serializers as "STDR".
+    /// Encoded/decoded by serializers as &quot;STDR&quot;.
     /// </summary>
     [EnumMember(Value = "STDR")]
     [IsoId("_JhuOra4TEeWZgJQOa6iKCQ")]
@@ -84,7 +84,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Withdrawal authorised by a supervisor.
-    /// Encoded/decoded by serializers as "SPRV".
+    /// Encoded/decoded by serializers as &quot;SPRV&quot;.
     /// </summary>
     [EnumMember(Value = "SPRV")]
     [IsoId("_JhuOr64TEeWZgJQOa6iKCQ")]
@@ -93,7 +93,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Funds transfer between accounts belonging to the customer in the same bank.
-    /// Encoded/decoded by serializers as "TRFC".
+    /// Encoded/decoded by serializers as &quot;TRFC&quot;.
     /// </summary>
     [EnumMember(Value = "TRFC")]
     [IsoId("_PZ5i8a4TEeWZgJQOa6iKCQ")]
@@ -102,7 +102,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Funds transfer to another customer.
-    /// Encoded/decoded by serializers as "TRFI".
+    /// Encoded/decoded by serializers as &quot;TRFI&quot;.
     /// </summary>
     [EnumMember(Value = "TRFI")]
     [IsoId("_Pv8rc64TEeWZgJQOa6iKCQ")]
@@ -111,7 +111,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Deposit of media items unverified by the ATM, for instance in an envelope.
-    /// Encoded/decoded by serializers as "DPSN".
+    /// Encoded/decoded by serializers as &quot;DPSN&quot;.
     /// </summary>
     [EnumMember(Value = "DPSN")]
     [IsoId("_Qr4vQ64TEeWZgJQOa6iKCQ")]
@@ -120,7 +120,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Deposit of media items verified by the ATM.
-    /// Encoded/decoded by serializers as "DPSV".
+    /// Encoded/decoded by serializers as &quot;DPSV&quot;.
     /// </summary>
     [EnumMember(Value = "DPSV")]
     [IsoId("_RFErU64TEeWZgJQOa6iKCQ")]
@@ -129,7 +129,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Making change between media types.
-    /// Encoded/decoded by serializers as "MCHG".
+    /// Encoded/decoded by serializers as &quot;MCHG&quot;.
     /// </summary>
     [EnumMember(Value = "MCHG")]
     [IsoId("_IN4Lka-cEeWJvLRJ8PsD_w")]
@@ -138,7 +138,7 @@ public enum ATMServiceType7Code
     
     /// <summary>
     /// Funds transfer to pay a third party.
-    /// Encoded/decoded by serializers as "TRFP".
+    /// Encoded/decoded by serializers as &quot;TRFP&quot;.
     /// </summary>
     [EnumMember(Value = "TRFP")]
     [IsoId("_ItCz0a-cEeWJvLRJ8PsD_w")]

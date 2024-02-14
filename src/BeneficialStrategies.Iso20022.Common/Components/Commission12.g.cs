@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
 [IsoId("_RsEeQ9p-Ed-ak6NoX_4Aeg_356134401")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Commission")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Commission12
     /// Service for which the commission is asked or paid.
     /// </summary>
     [IsoId("_RsEeRNp-Ed-ak6NoX_4Aeg_356134419")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommissionType7Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommissionType7Code Type { get; init; } 
+    public required CommissionType7Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommissionType7Code Type { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record Commission12
     /// Service for which the commission is asked or paid.
     /// </summary>
     [IsoId("_RsEeRdp-Ed-ak6NoX_4Aeg_356134444")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedTp")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedType { get; init; } 
+    public required System.String ExtendedType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedType { get; init; } 
     #else
@@ -96,12 +91,11 @@ public partial record Commission12
     /// Basis upon which a commission is charged, eg, flat fee.
     /// </summary>
     [IsoId("_RsEeRtp-Ed-ak6NoX_4Aeg_356134479")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bsis")]
     #endif
+    [IsoXmlTag("Bsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxationBasis4Code? Basis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,15 +108,13 @@ public partial record Commission12
     /// Basis upon which a commission is charged, eg, flat fee.
     /// </summary>
     [IsoId("_RsEeR9p-Ed-ak6NoX_4Aeg_356134504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedBsis")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedBsis")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,16 +127,16 @@ public partial record Commission12
     /// Commission expressed as an amount of money.
     /// </summary>
     [IsoId("_RsEeSNp-Ed-ak6NoX_4Aeg_356134539")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -155,12 +147,11 @@ public partial record Commission12
     /// Party entitled to the amount of money resulting from a commission.
     /// </summary>
     [IsoId("_RsEeSdp-Ed-ak6NoX_4Aeg_356134574")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptId")]
     #endif
+    [IsoXmlTag("RcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,15 +164,13 @@ public partial record Commission12
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
     [IsoId("_RsNoMNp-Ed-ak6NoX_4Aeg_356134616")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commercial Agreement Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComrclAgrmtRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ComrclAgrmtRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

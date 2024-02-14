@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to report on business day information.
 /// </summary>
 [IsoId("_75XVlqMgEeCJ6YNENx4h-w_-59874421")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Day Return Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record BusinessDayReturnCriteria2
     /// Indicates whether the system date is requested.
     /// </summary>
     [IsoId("_75XVl6MgEeCJ6YNENx4h-w_-1794151342")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Date Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysDtInd")]
     #endif
+    [IsoXmlTag("SysDtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SystemDateIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record BusinessDayReturnCriteria2
     /// Indicates whether the system status is requested.
     /// </summary>
     [IsoId("_75XVmKMgEeCJ6YNENx4h-w_-173713487")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Status Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysStsInd")]
     #endif
+    [IsoXmlTag("SysStsInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SystemStatusIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record BusinessDayReturnCriteria2
     /// Indicates whether the system currency is requested.
     /// </summary>
     [IsoId("_75XVmaMgEeCJ6YNENx4h-w_-734965435")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Currency Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysCcyInd")]
     #endif
+    [IsoXmlTag("SysCcyInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SystemCurrencyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record BusinessDayReturnCriteria2
     /// Indicates whether the closure information is requested.
     /// </summary>
     [IsoId("_75gfgKMgEeCJ6YNENx4h-w_1130036750")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closure Period Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsrPrdInd")]
     #endif
+    [IsoXmlTag("ClsrPrdInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ClosurePeriodIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record BusinessDayReturnCriteria2
     /// Indicates whether the events are requested.
     /// </summary>
     [IsoId("_75gfgaMgEeCJ6YNENx4h-w_-1170785840")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtInd")]
     #endif
+    [IsoXmlTag("EvtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? EventIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +132,12 @@ public partial record BusinessDayReturnCriteria2
     /// Indicates whether the session period is requested.
     /// </summary>
     [IsoId("_75gfgqMgEeCJ6YNENx4h-w_2127109103")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Session Period Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SsnPrdInd")]
     #endif
+    [IsoXmlTag("SsnPrdInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SessionPeriodIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +150,12 @@ public partial record BusinessDayReturnCriteria2
     /// Indicates whether the system event type is requested.
     /// </summary>
     [IsoId("_75gfg6MgEeCJ6YNENx4h-w_-1854786731")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Type Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTpInd")]
     #endif
+    [IsoXmlTag("EvtTpInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? EventTypeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

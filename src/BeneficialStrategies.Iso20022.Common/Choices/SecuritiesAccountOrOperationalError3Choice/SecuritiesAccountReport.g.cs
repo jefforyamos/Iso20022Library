@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrOperationalEr
     /// Report information about securities account reference data.
     /// </summary>
     [IsoId("_x4sjgTp1Eemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrOperationalEr
         /// Unique and unambiguous identification for the system security account.
         /// </summary>
         [IsoId("_yC-g4Tp1Eemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Account Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesAcctId")]
         #endif
+        [IsoXmlTag("SctiesAcctId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
+        public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrOperationalEr
         /// Specifies the returned securities account reference data or error information.
         /// </summary>
         [IsoId("_yC-g4zp1Eemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Account Or Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesAcctOrErr")]
         #endif
+        [IsoXmlTag("SctiesAcctOrErr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
+        public required SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
         #else

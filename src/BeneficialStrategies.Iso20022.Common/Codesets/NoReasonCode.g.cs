@@ -21,7 +21,7 @@ public enum NoReasonCode
 {
     /// <summary>
     /// No reason to report or no reason available to report.
-    /// Encoded/decoded by serializers as "NORE".
+    /// Encoded/decoded by serializers as &quot;NORE&quot;.
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_aNmaeNp-Ed-ak6NoX_4Aeg_1957291337")]

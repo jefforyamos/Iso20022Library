@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The element identification is of schema type ID, it can be referenced by IDREF typed elements (composite=false).
 /// </summary>
 [IsoId("_OTgzMjA0-AOSNFX-8224491")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Qualified Document Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -60,16 +58,16 @@ public partial record QualifiedDocumentInformation1
     /// Local identification to be used in IDREFs in this message.
     /// </summary>
     [IsoId("_OTgzMjMz-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ID)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoID Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -80,12 +78,11 @@ public partial record QualifiedDocumentInformation1
     /// Party issuing the reference.
     /// </summary>
     [IsoId("_OTgzMjM0-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +95,13 @@ public partial record QualifiedDocumentInformation1
     /// Unambiguous identifier relative to the issuing party of a list of items.
     /// </summary>
     [IsoId("_OTgzMjM1-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item List Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmListIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ItmListIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ItemListIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,15 +114,13 @@ public partial record QualifiedDocumentInformation1
     /// Unambiguous identifier relative to the issuing party of an item (independent of any list).
     /// </summary>
     [IsoId("_OTgzMjM2-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ItmIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ItemIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +133,12 @@ public partial record QualifiedDocumentInformation1
     /// Date of document or element. This may be used as a control value to indicate a specific version.
     /// </summary>
     [IsoId("_OTgzMjM3-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,15 +151,13 @@ public partial record QualifiedDocumentInformation1
     /// Identification of the version of the document or element. This may be used as a control value to indicate a specific version.
     /// </summary>
     [IsoId("_OTgzMjM4-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Max6Text)]
     [StringLength(maximumLength: 6 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6Text? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,16 +170,16 @@ public partial record QualifiedDocumentInformation1
     /// If true, document is in its original form, otherwise it is a scanned version.
     /// </summary>
     [IsoId("_OTgzMjM5-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Electronic Original")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctrncOrgnl")]
     #endif
+    [IsoXmlTag("ElctrncOrgnl")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ElectronicOriginal { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ElectronicOriginal { get; init; } 
+    public required System.String ElectronicOriginal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ElectronicOriginal { get; init; } 
     #else
@@ -199,28 +190,24 @@ public partial record QualifiedDocumentInformation1
     /// Cryptographic hash of the document.
     /// </summary>
     [IsoId("_OTgzMjQx-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dgst")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Dgst")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<AlgorithmAndDigest1> Digest { get; init; } = new ValueList<AlgorithmAndDigest1>(){};
     
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
     [IsoId("_OTgzMjQy-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocTp")]
     #endif
+    [IsoXmlTag("DocTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalDocumentType1Code? DocumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,15 +220,13 @@ public partial record QualifiedDocumentInformation1
     /// URL (Uniform Resource Locator) where the document can be found.
     /// </summary>
     [IsoId("_OTgzMjQz-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("URL")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="URL")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("URL")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? URL { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,12 +239,11 @@ public partial record QualifiedDocumentInformation1
     /// Attached file for this document. The file must be in a self-describing format.
     /// </summary>
     [IsoId("_OTgzMjQ0-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attached File")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchdFile")]
     #endif
+    [IsoXmlTag("AttchdFile")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BinaryFile1? AttachedFile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

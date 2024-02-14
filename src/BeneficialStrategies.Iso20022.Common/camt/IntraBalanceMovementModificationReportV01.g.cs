@@ -27,15 +27,13 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This record is an implementation of the camt.081.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The IntraBalanceMovementModificationReport message is sent from a settlement infrastructure to an account owner/requestor to provide full details or current status values of the intra-balance movement modification request(s), as defined within the query. ||The message may also be used to: 
-/// - re-send a message previously sent (the sub-function of the message is "Duplicate") 
-/// - provide a third party with a copy of a message for information (the sub-function of the message is "Copy") 
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is "Copy Duplicate").
+/// - re-send a message previously sent (the sub-function of the message is &quot;Duplicate&quot;) 
+/// - provide a third party with a copy of a message for information (the sub-function of the message is &quot;Copy&quot;) 
+/// - re-send to a third party a copy of a message for information (the sub-function of the message is &quot;Copy Duplicate&quot;).
 /// </summary>
 [Description(@"The IntraBalanceMovementModificationReport message is sent from a settlement infrastructure to an account owner/requestor to provide full details or current status values of the intra-balance movement modification request(s), as defined within the query. ||The message may also be used to: |- re-send a message previously sent (the sub-function of the message is ""Duplicate"") |- provide a third party with a copy of a message for information (the sub-function of the message is ""Copy"") |- re-send to a third party a copy of a message for information (the sub-function of the message is ""Copy Duplicate"").")]
 [IsoId("_DLtK2TncEem7JZMuWtwtsg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Balance Movement Modification Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,12 +77,11 @@ public partial record IntraBalanceMovementModificationReportV01 : IOuterRecord<I
     /// Unambiguous identification of the message as known by the account servicer or settlement infrastructure.
     /// </summary>
     [IsoId("_DLtK6TncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification51? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,16 +94,15 @@ public partial record IntraBalanceMovementModificationReportV01 : IOuterRecord<I
     /// Pagination of the message.
     /// </summary>
     [IsoId("_DLtK6zncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination1 Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination1 Pagination { get; init; } 
+    public required Pagination1 Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination1 Pagination { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record IntraBalanceMovementModificationReportV01 : IOuterRecord<I
     /// General characteristics related to the report information.
     /// </summary>
     [IsoId("_DLtK7TncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptGnlDtls")]
     #endif
+    [IsoXmlTag("RptGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraBalanceReport5 ReportGeneralDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IntraBalanceReport5 ReportGeneralDetails { get; init; } 
+    public required IntraBalanceReport5 ReportGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IntraBalanceReport5 ReportGeneralDetails { get; init; } 
     #else
@@ -137,12 +132,11 @@ public partial record IntraBalanceMovementModificationReportV01 : IOuterRecord<I
     /// Provides information on report or error resulting from the originating query message.
     /// </summary>
     [IsoId("_DLtK7zncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptOrErr")]
     #endif
+    [IsoXmlTag("RptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntraBalanceOrOperationalError8Choice_? ReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +149,11 @@ public partial record IntraBalanceMovementModificationReportV01 : IOuterRecord<I
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_DLtK8TncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,7 +166,7 @@ public partial record IntraBalanceMovementModificationReportV01 : IOuterRecord<I
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IntraBalanceMovementModificationReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IntraBalanceMovementModificationReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IntraBalanceMovementModificationReportV01Document ToDocument()
     {
@@ -183,7 +176,7 @@ public partial record IntraBalanceMovementModificationReportV01 : IOuterRecord<I
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementModificationReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IntraBalanceMovementModificationReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IntraBalanceMovementModificationReportV01Document : IOuterDocument<IntraBalanceMovementModificationReportV01>
@@ -200,7 +193,7 @@ public partial record IntraBalanceMovementModificationReportV01Document : IOuter
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IntraBalanceMovementModificationReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IntraBalanceMovementModificationReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraBalanceMovementModificationReportV01 Message { get; init; }

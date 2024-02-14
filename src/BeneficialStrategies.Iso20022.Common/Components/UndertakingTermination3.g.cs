@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the notification of the termination of an undertaking.
 /// </summary>
 [IsoId("_98BaAHltEeG7BsjMvd1mEw_969313560")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Termination")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record UndertakingTermination3
     /// Date on which the termination is effective.
     /// </summary>
     [IsoId("_98BaAXltEeG7BsjMvd1mEw_-27758793")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDt")]
     #endif
+    [IsoXmlTag("FctvDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EffectiveDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly EffectiveDate { get; init; } 
+    public required System.DateOnly EffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly EffectiveDate { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record UndertakingTermination3
     /// Reason for the termination.
     /// </summary>
     [IsoId("_98BaAnltEeG7BsjMvd1mEw_1275991444")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminationReason1Choice_? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,19 +86,15 @@ public partial record UndertakingTermination3
     /// Additional information related to the termination.
     /// </summary>
     [IsoId("_98BaA3ltEeG7BsjMvd1mEw_-1993406674")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AgreedAmount1Choice.AgreedAmountDetails))]
     [KnownType(typeof(AgreedAmount1Choice.SegregatedIndependentAmount))]
     [IsoId("_Qm7bJdp-Ed-ak6NoX_4Aeg_926398968")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreed Amount 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

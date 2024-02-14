@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// ATM information.
 /// </summary>
 [IsoId("_g1MlsYtLEeSxlKlAGYErFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Automated Teller Machine")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record AutomatedTellerMachine6
     /// ATM terminal device identification for the acquirer and the issuer.
     /// </summary>
     [IsoId("_hBkNwYtLEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record AutomatedTellerMachine6
     /// ATM terminal device identification for the ATM manager.
     /// </summary>
     [IsoId("_hBkNw4tLEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +89,13 @@ public partial record AutomatedTellerMachine6
     /// ATM terminal device identification for the branch.
     /// </summary>
     [IsoId("_hBkNxYtLEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SeqNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +108,11 @@ public partial record AutomatedTellerMachine6
     /// Location of the ATM.
     /// </summary>
     [IsoId("_hBkNyYtLEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
+    [IsoXmlTag("Lctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress17? Location { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +125,11 @@ public partial record AutomatedTellerMachine6
     /// Indicates the environment of the transaction.
     /// </summary>
     [IsoId("_hBkNy4tLEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LctnCtgy")]
     #endif
+    [IsoXmlTag("LctnCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionEnvironment2Code? LocationCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +142,11 @@ public partial record AutomatedTellerMachine6
     /// ATM terminal equipment.
     /// </summary>
     [IsoId("_hBkNz4tLEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equipment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Eqpmnt")]
     #endif
+    [IsoXmlTag("Eqpmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMEquipment1? Equipment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

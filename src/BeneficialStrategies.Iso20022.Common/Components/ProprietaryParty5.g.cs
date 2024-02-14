@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies a proprietary party.
 /// </summary>
 [IsoId("__hD_J248EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Party")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ProprietaryParty5
     /// Specifies the type of proprietary party.
     /// </summary>
     [IsoId("__qvfk248EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Type { get; init; } 
+    public required System.String Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Type { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record ProprietaryParty5
     /// Proprietary party.
     /// </summary>
     [IsoId("__qvflW48EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party40Choice_ Party { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party40Choice_ Party { get; init; } 
+    public required Party40Choice_ Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party40Choice_ Party { get; init; } 
     #else

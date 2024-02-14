@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Result of the Sale to POI Reconciliation processing.
 /// </summary>
 [IsoId("_93n5UNxfEeioifFt1dhnJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Totals Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TransactionTotalsSet1
     /// Type of payment instrument.
     /// </summary>
     [IsoId("_KVLmMNxgEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Instrument Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInstrmTp")]
     #endif
+    [IsoXmlTag("PmtInstrmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInstrumentType1Code PaymentInstrumentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentInstrumentType1Code PaymentInstrumentType { get; init; } 
+    public required PaymentInstrumentType1Code PaymentInstrumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentInstrumentType1Code PaymentInstrumentType { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record TransactionTotalsSet1
     /// Identification of an Acquirer.
     /// </summary>
     [IsoId("_pIKLMNxgEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcqrrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AcquirerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,15 +88,13 @@ public partial record TransactionTotalsSet1
     /// Identifier of a host reconciliation period: acquirer for a payment or server for loyalty.
     /// </summary>
     [IsoId("_0hroMNxgEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcncltnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,15 +107,13 @@ public partial record TransactionTotalsSet1
     /// Identifier of a reconciliation period on the sale system.
     /// </summary>
     [IsoId("__uiiMNxgEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Reconciliation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleRcncltnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SaleRcncltnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,15 +126,13 @@ public partial record TransactionTotalsSet1
     /// Brand of payment card or loyalty system.
     /// </summary>
     [IsoId("_DHNuMNxhEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Brand")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Brnd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Brnd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Brand { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,15 +145,13 @@ public partial record TransactionTotalsSet1
     /// Identifier of the POI system performing a reconciliation.
     /// </summary>
     [IsoId("_G9gDQNxhEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("POIId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,15 +164,13 @@ public partial record TransactionTotalsSet1
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
     [IsoId("_KhixwNxhEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SaleId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,15 +183,13 @@ public partial record TransactionTotalsSet1
     /// Identification of the cashier who carried out the transactions.
     /// </summary>
     [IsoId("_Od2PQNxhEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cashier Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CshrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CashierIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,15 +202,12 @@ public partial record TransactionTotalsSet1
     /// Identifies the shift of the cashier.
     /// </summary>
     [IsoId("_RQcSsNxhEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shift Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShftNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ShftNb")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? ShiftNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,12 +220,11 @@ public partial record TransactionTotalsSet1
     /// Merchant using the payment services of a payment facilitator, acting as a card acceptor.
     /// </summary>
     [IsoId("_W-gowNxhEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sponsored Merchant")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpnsrdMrchnt")]
     #endif
+    [IsoXmlTag("SpnsrdMrchnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation26? SponsoredMerchant { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -258,16 +237,15 @@ public partial record TransactionTotalsSet1
     /// Payment Transaction totals during the reconciliation period, for a certain type of transaction.
     /// </summary>
     [IsoId("_UIs5QNxhEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTtl")]
     #endif
+    [IsoXmlTag("TxTtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionTotals8 TransactionTotal { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionTotals8 TransactionTotal { get; init; } 
+    public required TransactionTotals8 TransactionTotal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionTotals8 TransactionTotal { get; init; } 
     #else
@@ -278,12 +256,11 @@ public partial record TransactionTotalsSet1
     /// Loyalty Transaction totals during the reconciliation period, for a certain type of transaction.
     /// </summary>
     [IsoId("_WAtHQNxiEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Transaction Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyTxTtl")]
     #endif
+    [IsoXmlTag("LltyTxTtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyTransactionTotals1? LoyaltyTransactionTotal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

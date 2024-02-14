@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related specifically to counterparty.
 /// </summary>
 [IsoId("_CNhc96oAEemdLtwzt4CWxg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CounterpartyData61
     /// Information describing the reporting counterparty.
     /// </summary>
     [IsoId("_CVyoIaoAEemdLtwzt4CWxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCtrPty")]
     #endif
+    [IsoXmlTag("RptgCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyIdentification4 ReportingCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyIdentification4 ReportingCounterparty { get; init; } 
+    public required CounterpartyIdentification4 ReportingCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyIdentification4 ReportingCounterparty { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CounterpartyData61
     /// Data specific to other counterparties and related fields.
     /// </summary>
     [IsoId("_CVyoI6oAEemdLtwzt4CWxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCtrPty")]
     #endif
+    [IsoXmlTag("OthrCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyIdentification2 OtherCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyIdentification2 OtherCounterparty { get; init; } 
+    public required CounterpartyIdentification2 OtherCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyIdentification2 OtherCounterparty { get; init; } 
     #else

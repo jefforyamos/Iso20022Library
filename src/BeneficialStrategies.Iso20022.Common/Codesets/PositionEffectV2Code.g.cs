@@ -21,7 +21,7 @@ public enum PositionEffectV2Code
 {
     /// <summary>
     /// Position after the trade the position should be open.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("__tJx89ojEeC60axPepSq7g_1727155259")]
@@ -30,7 +30,7 @@ public enum PositionEffectV2Code
     
     /// <summary>
     /// Position after the trade the position should be closed.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("__tJx9NojEeC60axPepSq7g_1022040644")]
@@ -39,7 +39,7 @@ public enum PositionEffectV2Code
     
     /// <summary>
     /// Results in a position obtained in a security previously held, sold and repurchased.
-    /// Encoded/decoded by serializers as "ROLL".
+    /// Encoded/decoded by serializers as &quot;ROLL&quot;.
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("__tJx9dojEeC60axPepSq7g_-153150381")]
@@ -48,7 +48,7 @@ public enum PositionEffectV2Code
     
     /// <summary>
     /// First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.
-    /// Encoded/decoded by serializers as "FIFO".
+    /// Encoded/decoded by serializers as &quot;FIFO&quot;.
     /// </summary>
     [EnumMember(Value = "FIFO")]
     [IsoId("__tS74NojEeC60axPepSq7g_1492117054")]
@@ -57,7 +57,7 @@ public enum PositionEffectV2Code
     
     /// <summary>
     /// Trade relates to a closure of an account.
-    /// Encoded/decoded by serializers as "CLOA".
+    /// Encoded/decoded by serializers as &quot;CLOA&quot;.
     /// </summary>
     [EnumMember(Value = "CLOA")]
     [IsoId("__tS74dojEeC60axPepSq7g_1101005930")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeFrame4Choice
     /// An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement period. ||Where = T is the date that the price is applied to a transaction.
     /// </summary>
     [IsoId("_UAew6tp-Ed-ak6NoX_4Aeg_1882783639")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Plus")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeFrame4Choice
         /// Number of objects represented as an integer.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TPlus")]
         #endif
+        [IsoXmlTag("TPlus")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Value { get; init; } 
+        public required System.UInt64 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Value { get; init; } 
         #else

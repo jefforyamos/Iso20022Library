@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
 /// </summary>
 [IsoId("_hcja4XYAEee_qcLXasnA4g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralAccount5
     /// Unique identifer for the collateral account.
     /// </summary>
     [IsoId("_hlIvIXYAEee_qcLXasnA4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification118Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification118Choice_ Identification { get; init; } 
+    public required PartyIdentification118Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification118Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CollateralAccount5
     /// Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.
     /// </summary>
     [IsoId("_EPbHcHYCEee_qcLXasnA4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Margin Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdMrgnAcct")]
     #endif
+    [IsoXmlTag("RltdMrgnAcct")]
     public MarginAccount1? RelatedMarginAccount { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _EPbHcHYCEee_qcLXasnA4g
     
@@ -84,12 +80,12 @@ public partial record CollateralAccount5
     /// Indicates whether the account can be used for clients of UK FCA authorised firms subject to Title Transfer Collateral Arrangements (TTCA).
     /// </summary>
     [IsoId("_GuWoAHYCEee_qcLXasnA4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Title Transfer Collateral Arrangement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TitlTrfCollArrgmnt")]
     #endif
+    [IsoXmlTag("TitlTrfCollArrgmnt")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TitleTransferCollateralArrangement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,12 +98,12 @@ public partial record CollateralAccount5
     /// Indicates whether the client collateral is segregated by value in accordance with local regulations. Usage: In the context of clearing members with US clients, in accordance with Section 4d(a)(2) of the Commodity Exchange Act.
     /// </summary>
     [IsoId("_JNSIkHYCEee_qcLXasnA4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Segregation By Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSgrtnByVal")]
     #endif
+    [IsoXmlTag("CollSgrtnByVal")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CollateralSegregationByValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

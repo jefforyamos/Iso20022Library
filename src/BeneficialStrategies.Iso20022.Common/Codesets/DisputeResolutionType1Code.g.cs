@@ -21,7 +21,7 @@ public enum DisputeResolutionType1Code
 {
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the collateral.
-    /// Encoded/decoded by serializers as "RECO".
+    /// Encoded/decoded by serializers as &quot;RECO&quot;.
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_YcWfRtp-Ed-ak6NoX_4Aeg_-1118092822")]
@@ -30,7 +30,7 @@ public enum DisputeResolutionType1Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the minimum transfer amount.
-    /// Encoded/decoded by serializers as "RMTA".
+    /// Encoded/decoded by serializers as &quot;RMTA&quot;.
     /// </summary>
     [EnumMember(Value = "RMTA")]
     [IsoId("_YcWfR9p-Ed-ak6NoX_4Aeg_2050150903")]
@@ -39,7 +39,7 @@ public enum DisputeResolutionType1Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the rounding.
-    /// Encoded/decoded by serializers as "RERO".
+    /// Encoded/decoded by serializers as &quot;RERO&quot;.
     /// </summary>
     [EnumMember(Value = "RERO")]
     [IsoId("_YcWfSNp-Ed-ak6NoX_4Aeg_-716740705")]
@@ -48,7 +48,7 @@ public enum DisputeResolutionType1Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the valuation frequency.
-    /// Encoded/decoded by serializers as "REVF".
+    /// Encoded/decoded by serializers as &quot;REVF&quot;.
     /// </summary>
     [EnumMember(Value = "REVF")]
     [IsoId("_YcgQQNp-Ed-ak6NoX_4Aeg_-754726748")]
@@ -57,7 +57,7 @@ public enum DisputeResolutionType1Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the initial margin.
-    /// Encoded/decoded by serializers as "RESA".
+    /// Encoded/decoded by serializers as &quot;RESA&quot;.
     /// </summary>
     [EnumMember(Value = "RESA")]
     [IsoId("_YcgQQdp-Ed-ak6NoX_4Aeg_-1509476622")]

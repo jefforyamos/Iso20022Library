@@ -21,7 +21,7 @@ public enum CardPaymentServiceType6Code
 {
     /// <summary>
     /// Aggregation of low payments.
-    /// Encoded/decoded by serializers as "AGGR".
+    /// Encoded/decoded by serializers as &quot;AGGR&quot;.
     /// </summary>
     [EnumMember(Value = "AGGR")]
     [IsoId("_DwySMTAXEeOqioR9srQH1g")]
@@ -30,7 +30,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Dynamic currency conversion (DCC).
-    /// Encoded/decoded by serializers as "DCCV".
+    /// Encoded/decoded by serializers as &quot;DCCV&quot;.
     /// </summary>
     [EnumMember(Value = "DCCV")]
     [IsoId("_DwySMzAXEeOqioR9srQH1g")]
@@ -39,7 +39,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Card payment with gratuity.
-    /// Encoded/decoded by serializers as "GRTT".
+    /// Encoded/decoded by serializers as &quot;GRTT&quot;.
     /// </summary>
     [EnumMember(Value = "GRTT")]
     [IsoId("_DwySNTAXEeOqioR9srQH1g")]
@@ -48,7 +48,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Loyalty services.
-    /// Encoded/decoded by serializers as "LOYT".
+    /// Encoded/decoded by serializers as &quot;LOYT&quot;.
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_DwySOTAXEeOqioR9srQH1g")]
@@ -57,7 +57,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// No show after reservation.
-    /// Encoded/decoded by serializers as "NRES".
+    /// Encoded/decoded by serializers as &quot;NRES&quot;.
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_DwySOzAXEeOqioR9srQH1g")]
@@ -66,7 +66,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Purchase and corporate data.
-    /// Encoded/decoded by serializers as "PUCO".
+    /// Encoded/decoded by serializers as &quot;PUCO&quot;.
     /// </summary>
     [EnumMember(Value = "PUCO")]
     [IsoId("_DwySPTAXEeOqioR9srQH1g")]
@@ -75,7 +75,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Recurring payment.
-    /// Encoded/decoded by serializers as "RECP".
+    /// Encoded/decoded by serializers as &quot;RECP&quot;.
     /// </summary>
     [EnumMember(Value = "RECP")]
     [IsoId("_DwySPzAXEeOqioR9srQH1g")]
@@ -84,7 +84,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Solicited available funds.
-    /// Encoded/decoded by serializers as "SOAF".
+    /// Encoded/decoded by serializers as &quot;SOAF&quot;.
     /// </summary>
     [EnumMember(Value = "SOAF")]
     [IsoId("_DwySQTAXEeOqioR9srQH1g")]
@@ -93,7 +93,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Voice authorisation.
-    /// Encoded/decoded by serializers as "VCAU".
+    /// Encoded/decoded by serializers as &quot;VCAU&quot;.
     /// </summary>
     [EnumMember(Value = "VCAU")]
     [IsoId("_DwySRTAXEeOqioR9srQH1g")]
@@ -102,7 +102,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Instalment payment transaction performed by the card issuer.
-    /// Encoded/decoded by serializers as "INSI".
+    /// Encoded/decoded by serializers as &quot;INSI&quot;.
     /// </summary>
     [EnumMember(Value = "INSI")]
     [IsoId("_HS68MTAXEeOqioR9srQH1g")]
@@ -111,7 +111,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Instalment payment transaction performed by the acceptor or the acquirer.
-    /// Encoded/decoded by serializers as "INSA".
+    /// Encoded/decoded by serializers as &quot;INSA&quot;.
     /// </summary>
     [EnumMember(Value = "INSA")]
     [IsoId("_Hvx3UzAXEeOqioR9srQH1g")]
@@ -120,7 +120,7 @@ public enum CardPaymentServiceType6Code
     
     /// <summary>
     /// Card payment with cash-back.
-    /// Encoded/decoded by serializers as "CSHB".
+    /// Encoded/decoded by serializers as &quot;CSHB&quot;.
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_Yf8poUuGEeOC3MFxIpMwug")]

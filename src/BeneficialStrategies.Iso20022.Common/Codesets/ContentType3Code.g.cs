@@ -21,7 +21,7 @@ public enum ContentType3Code
 {
     /// <summary>
     /// Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).
-    /// Encoded/decoded by serializers as "EVLP".
+    /// Encoded/decoded by serializers as &quot;EVLP&quot;.
     /// </summary>
     [EnumMember(Value = "EVLP")]
     [IsoId("_W7MyET6OEeq_lLaSkIVjTQ")]
@@ -30,7 +30,7 @@ public enum ContentType3Code
     
     /// <summary>
     /// General data encryption that conforms to the ISO 13492 standard.
-    /// Encoded/decoded by serializers as "IFSE".
+    /// Encoded/decoded by serializers as &quot;IFSE&quot;.
     /// </summary>
     [EnumMember(Value = "IFSE")]
     [IsoId("_Zi3X4T6OEeq_lLaSkIVjTQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies prices.
 /// </summary>
 [IsoId("_QCk_M0GMEeWqy4niLuXETA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPrice61
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
     [IsoId("_QPYFBUGMEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Lieu Of Share Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInLieuOfShrPric")]
     #endif
+    [IsoXmlTag("CshInLieuOfShrPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat50Choice_? CashInLieuOfSharePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPrice61
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
     [IsoId("_QPYFDUGMEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Over Subscription Deposit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OverSbcptDpstPric")]
     #endif
+    [IsoXmlTag("OverSbcptDpstPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat50Choice_? OverSubscriptionDepositPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

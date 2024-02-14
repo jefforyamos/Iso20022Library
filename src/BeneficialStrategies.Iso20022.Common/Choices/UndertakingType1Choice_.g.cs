@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UndertakingType1Choice.Code))]
     [KnownType(typeof(UndertakingType1Choice.Proprietary))]
     [IsoId("_92qY6HltEeG7BsjMvd1mEw_72990354")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

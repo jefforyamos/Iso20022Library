@@ -21,7 +21,7 @@ public enum CILPaymentType1Code
 {
     /// <summary>
     /// Event pays daily at fixed rate.
-    /// Encoded/decoded by serializers as "FIXD".
+    /// Encoded/decoded by serializers as &quot;FIXD&quot;.
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_1tJmADL3EeKU9IrkkToqcw_1674898907")]
@@ -30,7 +30,7 @@ public enum CILPaymentType1Code
     
     /// <summary>
     /// Price can fluctuate. Payment is held until released.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_1tJmATL3EeKU9IrkkToqcw_1955757868")]
@@ -39,7 +39,7 @@ public enum CILPaymentType1Code
     
     /// <summary>
     /// Pays on same day as convert/exercise instructions.
-    /// Encoded/decoded by serializers as "PCIL".
+    /// Encoded/decoded by serializers as &quot;PCIL&quot;.
     /// </summary>
     [EnumMember(Value = "PCIL")]
     [IsoId("_1tJmAjL3EeKU9IrkkToqcw_-43100213")]

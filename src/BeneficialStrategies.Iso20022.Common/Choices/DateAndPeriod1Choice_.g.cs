@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateAndPeriod1Choice.StatementDate))]
     [KnownType(typeof(DateAndPeriod1Choice.StatementPeriod))]
     [IsoId("_Qqpdidp-Ed-ak6NoX_4Aeg_-2134500203")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date And Period 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

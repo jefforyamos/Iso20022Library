@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeadlineCode3Choice.Code))]
     [KnownType(typeof(DeadlineCode3Choice.Proprietary))]
     [IsoId("_W4fbIUGZEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deadline Code 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

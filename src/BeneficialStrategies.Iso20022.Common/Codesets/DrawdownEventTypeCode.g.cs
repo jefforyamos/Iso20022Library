@@ -21,7 +21,7 @@ public enum DrawdownEventTypeCode
 {
     /// <summary>
     /// Event is an uncrystallised funds pension lump sum (UFPLS).
-    /// Encoded/decoded by serializers as "UFPL".
+    /// Encoded/decoded by serializers as &quot;UFPL&quot;.
     /// </summary>
     [EnumMember(Value = "UFPL")]
     [IsoId("_Tk4SwFNiEeijdq8ilaxyOA")]
@@ -30,7 +30,7 @@ public enum DrawdownEventTypeCode
     
     /// <summary>
     /// Event is a drawdown.
-    /// Encoded/decoded by serializers as "DRAW".
+    /// Encoded/decoded by serializers as &quot;DRAW&quot;.
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_ZAtpUFNiEeijdq8ilaxyOA")]

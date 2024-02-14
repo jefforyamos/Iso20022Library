@@ -21,7 +21,7 @@ public enum AttributeType1Code
 {
     /// <summary>
     /// Common name of the attribute (ASN.1 Object Identifier: id-at-commonName).
-    /// Encoded/decoded by serializers as "CNAT".
+    /// Encoded/decoded by serializers as &quot;CNAT&quot;.
     /// </summary>
     [EnumMember(Value = "CNAT")]
     [IsoId("_TSESiAEcEeCQm6a_G2yO_w_399531534")]
@@ -30,7 +30,7 @@ public enum AttributeType1Code
     
     /// <summary>
     /// Locality of the attribute (ASN.1 Object Identifier: id-at-localityName).
-    /// Encoded/decoded by serializers as "LATT".
+    /// Encoded/decoded by serializers as &quot;LATT&quot;.
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_TSESiQEcEeCQm6a_G2yO_w_807359888")]
@@ -39,7 +39,7 @@ public enum AttributeType1Code
     
     /// <summary>
     /// Organization name of the attribute (ASN.1 Object Identifier: id-at-organizationName).
-    /// Encoded/decoded by serializers as "OATT".
+    /// Encoded/decoded by serializers as &quot;OATT&quot;.
     /// </summary>
     [EnumMember(Value = "OATT")]
     [IsoId("_TSESigEcEeCQm6a_G2yO_w_-1550382235")]
@@ -48,7 +48,7 @@ public enum AttributeType1Code
     
     /// <summary>
     /// Organization unit name of the attribute (ASN.1 Object Identifier: id-at-organizationalUnitName).
-    /// Encoded/decoded by serializers as "OUAT".
+    /// Encoded/decoded by serializers as &quot;OUAT&quot;.
     /// </summary>
     [EnumMember(Value = "OUAT")]
     [IsoId("_TSESiwEcEeCQm6a_G2yO_w_-2013772510")]
@@ -57,7 +57,7 @@ public enum AttributeType1Code
     
     /// <summary>
     /// Country name of the attribute (ASN.1 Object Identifier: id-at-countryName).
-    /// Encoded/decoded by serializers as "CATT".
+    /// Encoded/decoded by serializers as &quot;CATT&quot;.
     /// </summary>
     [EnumMember(Value = "CATT")]
     [IsoId("_TSESjAEcEeCQm6a_G2yO_w_189442098")]

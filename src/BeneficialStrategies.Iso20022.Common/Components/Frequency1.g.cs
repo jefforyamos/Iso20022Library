@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details to specify the frequency, pattern and other items to allow for the communication of a series of payments to be made to the same recipient over a period of time.
 /// </summary>
 [IsoId("_QUNr4Q2lEeSNWNtJlXOAhg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Frequency")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,12 @@ public partial record Frequency1
     /// Technical identifier of a Credit Transfer as part of a series of Credit Transfers within a single Payment Instruction. Assists the transfer of complex variable future payment schedules, associated with a single act of customer consent, within a single Payment Instruction.
     /// </summary>
     [IsoId("_eeziUA2lEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Seq")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Seq")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? Sequence { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +68,16 @@ public partial record Frequency1
     /// The date of the first payment to be made for this payment schedule.
     /// </summary>
     [IsoId("_g4fWgA2lEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDt")]
     #endif
+    [IsoXmlTag("StartDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate StartDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly StartDate { get; init; } 
+    public required System.DateOnly StartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly StartDate { get; init; } 
     #else
@@ -93,16 +88,15 @@ public partial record Frequency1
     /// Information about when the payment arrangement will end.
     /// </summary>
     [IsoId("_2-aEwA2lEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Point Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndPtChc")]
     #endif
+    [IsoXmlTag("EndPtChc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EndPoint1Choice_ EndPointChoice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EndPoint1Choice_ EndPointChoice { get; init; } 
+    public required EndPoint1Choice_ EndPointChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EndPoint1Choice_ EndPointChoice { get; init; } 
     #else
@@ -113,12 +107,11 @@ public partial record Frequency1
     /// Payment schedule frequency pattern which indicates how frequently a payment is made.
     /// </summary>
     [IsoId("_7pukYA2lEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Frequency Pattern")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdFrqcyPttrn")]
     #endif
+    [IsoXmlTag("ReqdFrqcyPttrn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency37Choice_? RequestedFrequencyPattern { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,11 @@ public partial record Frequency1
     /// Adjustment indicator for a non-working day to enable payment to be made on the next working day.
     /// </summary>
     [IsoId("_qsJo8A2lEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Working Day Adjustment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonWorkgDayAdjstmnt")]
     #endif
+    [IsoXmlTag("NonWorkgDayAdjstmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

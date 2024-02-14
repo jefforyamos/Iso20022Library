@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxEfficientProductType1Choice
     /// Type of tax efficient product expressed as a code.
     /// </summary>
     [IsoId("_He0uEE4LEeiQHa-q1Uephw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxEfficientProductType1Choice
         /// Specifies a type of tax efficient product.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TaxEfficientProductType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TaxEfficientProductType1Code Value { get; init; } 
+        public required TaxEfficientProductType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TaxEfficientProductType1Code Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
 [IsoId("_SUcs49p-Ed-ak6NoX_4Aeg_-2041884579")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount And Direction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,12 @@ public partial record AmountAndDirection2
     /// Indicates whether the net proceeds include interest accrued on the financial instrument.
     /// </summary>
     [IsoId("_SUcs5Np-Ed-ak6NoX_4Aeg_-2041884561")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstInd")]
     #endif
+    [IsoXmlTag("AcrdIntrstInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AccruedInterestIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +68,12 @@ public partial record AmountAndDirection2
     /// Whether the net proceeds include stamp duty amount.
     /// </summary>
     [IsoId("_SUcs5dp-Ed-ak6NoX_4Aeg_-2041884536")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stamp Duty Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmpDtyInd")]
     #endif
+    [IsoXmlTag("StmpDtyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StampDutyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,16 +86,16 @@ public partial record AmountAndDirection2
     /// Amount of money in the cash entry.
     /// </summary>
     [IsoId("_SUcs5tp-Ed-ak6NoX_4Aeg_-2041884519")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -108,16 +106,15 @@ public partial record AmountAndDirection2
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
     [IsoId("_SUcs59p-Ed-ak6NoX_4Aeg_-2041884484")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else
@@ -128,12 +125,12 @@ public partial record AmountAndDirection2
     /// Posting/settlement amount in its original currency when conversion from/into another currency has occurred.
     /// </summary>
     [IsoId("_SUcs6Np-Ed-ak6NoX_4Aeg_-2041884501")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Currency And Ordered Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlCcyAndOrdrdAmt")]
     #endif
+    [IsoXmlTag("OrgnlCcyAndOrdrdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +143,11 @@ public partial record AmountAndDirection2
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
     [IsoId("_SUcs6dp-Ed-ak6NoX_4Aeg_453780378")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FXDtls")]
     #endif
+    [IsoXmlTag("FXDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ForeignExchangeTerms11? ForeignExchangeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +160,11 @@ public partial record AmountAndDirection2
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
     [IsoId("_SUcs6tp-Ed-ak6NoX_4Aeg_-2001237107")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

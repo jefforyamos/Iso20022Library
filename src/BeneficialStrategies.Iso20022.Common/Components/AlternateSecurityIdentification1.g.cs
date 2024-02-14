@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Proprietary or domestic identification scheme that uniquely identifies a security.
 /// </summary>
 [IsoId("_Sk_qX9p-Ed-ak6NoX_4Aeg_-815168274")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Alternate Security Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record AlternateSecurityIdentification1
     /// Unique and unambiguous identifier of a security.
     /// </summary>
     [IsoId("_Sk_qYNp-Ed-ak6NoX_4Aeg_-815168262")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record AlternateSecurityIdentification1
     /// Country of the proprietary identification scheme.
     /// </summary>
     [IsoId("_Sk_qYdp-Ed-ak6NoX_4Aeg_-815168264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Domestic Identification Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmstIdSrc")]
     #endif
+    [IsoXmlTag("DmstIdSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode DomesticIdentificationSource { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string DomesticIdentificationSource { get; init; } 
+    public required string DomesticIdentificationSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string DomesticIdentificationSource { get; init; } 
     #else
@@ -96,19 +91,17 @@ public partial record AlternateSecurityIdentification1
     /// Entity that issues the proprietary identification.
     /// </summary>
     [IsoId("_Sk_qYtp-Ed-ak6NoX_4Aeg_-815168263")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Identification Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtryIdSrc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtryIdSrc")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ProprietaryIdentificationSource { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProprietaryIdentificationSource { get; init; } 
+    public required System.String ProprietaryIdentificationSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProprietaryIdentificationSource { get; init; } 
     #else

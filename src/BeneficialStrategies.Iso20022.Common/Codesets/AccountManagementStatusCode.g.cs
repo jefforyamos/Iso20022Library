@@ -21,7 +21,7 @@ public enum AccountManagementStatusCode
 {
     /// <summary>
     /// The account management instruction has been received and is acknowledged.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_bqlV1Np-Ed-ak6NoX_4Aeg_1504294962")]
@@ -30,7 +30,7 @@ public enum AccountManagementStatusCode
     
     /// <summary>
     /// The account management instruction has been validated and accepted.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_bqlV1dp-Ed-ak6NoX_4Aeg_1748103715")]
@@ -39,7 +39,7 @@ public enum AccountManagementStatusCode
     
     /// <summary>
     /// The account management instruction is being processed and the confirmation will follow.
-    /// Encoded/decoded by serializers as "EXEC".
+    /// Encoded/decoded by serializers as &quot;EXEC&quot;.
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_bqlV1tp-Ed-ak6NoX_4Aeg_1760108911")]
@@ -48,7 +48,7 @@ public enum AccountManagementStatusCode
     
     /// <summary>
     /// The account management instruction has been sent to the next party, for example, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_bqlV19p-Ed-ak6NoX_4Aeg_1773962673")]

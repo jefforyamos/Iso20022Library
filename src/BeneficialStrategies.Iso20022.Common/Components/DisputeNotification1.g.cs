@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the dispute notification details for the variation margin and optionaly the segregated independent amount.
 /// </summary>
 [IsoId("_UllpFNp-Ed-ak6NoX_4Aeg_203292187")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Dispute Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DisputeNotification1
     /// Provides the dispute notification details for the variation margin.
     /// </summary>
     [IsoId("_UllpFdp-Ed-ak6NoX_4Aeg_-641718307")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Dispute")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnDspt")]
     #endif
+    [IsoXmlTag("VartnMrgnDspt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VariationMarginDispute1 VariationMarginDispute { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VariationMarginDispute1 VariationMarginDispute { get; init; } 
+    public required VariationMarginDispute1 VariationMarginDispute { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VariationMarginDispute1 VariationMarginDispute { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DisputeNotification1
     /// Provides the dispute notification details for the segregated independent amount.
     /// </summary>
     [IsoId("_UllpFtp-Ed-ak6NoX_4Aeg_1091176533")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount Dispute")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgrtdIndpdntAmtDspt")]
     #endif
+    [IsoXmlTag("SgrtdIndpdntAmtDspt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SegregatedIndependentAmountDispute1? SegregatedIndependentAmountDispute { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

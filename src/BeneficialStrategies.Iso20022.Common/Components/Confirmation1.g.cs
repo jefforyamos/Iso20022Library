@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of confirmation in the CMU.
 /// </summary>
 [IsoId("_itJLUAJ-EeS2H9l84F_isg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Confirmation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -61,16 +59,15 @@ public partial record Confirmation1
     /// Identifies the status of the confirmation.
     /// </summary>
     [IsoId("_B6YGkAKDEeS2H9l84F_isg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfSts")]
     #endif
+    [IsoXmlTag("ConfSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeConfirmationStatus1Code ConfirmationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeConfirmationStatus1Code ConfirmationStatus { get; init; } 
+    public required TradeConfirmationStatus1Code ConfirmationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeConfirmationStatus1Code ConfirmationStatus { get; init; } 
     #else
@@ -81,12 +78,12 @@ public partial record Confirmation1
     /// Time that both of parties confirm the trade.
     /// </summary>
     [IsoId("_RzrzQKazEeSxuMLA5o46jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfTm")]
     #endif
+    [IsoXmlTag("ConfTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ConfirmationTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,12 +96,12 @@ public partial record Confirmation1
     /// Time that the trade party confirms the trade.
     /// </summary>
     [IsoId("_OKoP4AKGEeS2H9l84F_isg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Party Confirmation Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradPtyConfTm")]
     #endif
+    [IsoXmlTag("TradPtyConfTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TradePartyConfirmationTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +114,12 @@ public partial record Confirmation1
     /// Time that the initiating party confirms the trade.
     /// </summary>
     [IsoId("_LLSw8AKGEeS2H9l84F_isg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiating Party Confirmation Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitgPtyConfTm")]
     #endif
+    [IsoXmlTag("InitgPtyConfTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? InitiatingPartyConfirmationTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,16 +132,15 @@ public partial record Confirmation1
     /// Identifies the type of confirmation message being sent.
     /// </summary>
     [IsoId("_5a5sUIHYEeSY3ulMDfpmvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfTp")]
     #endif
+    [IsoXmlTag("ConfTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ConfirmationRequest1Code ConfirmationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ConfirmationRequest1Code ConfirmationType { get; init; } 
+    public required ConfirmationRequest1Code ConfirmationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ConfirmationRequest1Code ConfirmationType { get; init; } 
     #else
@@ -155,16 +151,15 @@ public partial record Confirmation1
     /// Identifies the confirm request messge.
     /// </summary>
     [IsoId("_8SUZAKaxEeSxuMLA5o46jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqId")]
     #endif
+    [IsoXmlTag("ReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RequestIdentification { get; init; } 
+    public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RequestIdentification { get; init; } 
     #else
@@ -175,19 +170,16 @@ public partial record Confirmation1
     /// Start number in request result.
     /// </summary>
     [IsoId("_MhL0UKayEeSxuMLA5o46jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Start Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryStartNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("QryStartNb")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35NumericText QueryStartNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String QueryStartNumber { get; init; } 
+    public required System.String QueryStartNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String QueryStartNumber { get; init; } 
     #else
@@ -198,16 +190,16 @@ public partial record Confirmation1
     /// Total number of reports returned in response to a request.
     /// </summary>
     [IsoId("_Wf7_4AKEEeS2H9l84F_isg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Reports")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfRpts")]
     #endif
+    [IsoXmlTag("TtlNbOfRpts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumberOfReports { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNumberOfReports { get; init; } 
+    public required System.UInt64 TotalNumberOfReports { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNumberOfReports { get; init; } 
     #else
@@ -218,19 +210,16 @@ public partial record Confirmation1
     /// Query results will be grouped with fixed number. The field indicates that the total number of groups.
     /// </summary>
     [IsoId("_YpefQAKEEeS2H9l84F_isg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Page Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PgNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PgNb")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35NumericText PageNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PageNumber { get; init; } 
+    public required System.String PageNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PageNumber { get; init; } 
     #else
@@ -241,19 +230,16 @@ public partial record Confirmation1
     /// Page number in request result.
     /// </summary>
     [IsoId("_YXsvUKayEeSxuMLA5o46jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Page Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryPgNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("QryPgNb")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35NumericText QueryPageNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String QueryPageNumber { get; init; } 
+    public required System.String QueryPageNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String QueryPageNumber { get; init; } 
     #else
@@ -264,16 +250,16 @@ public partial record Confirmation1
     /// Number of messages in current page.
     /// </summary>
     [IsoId("_CO9GQESsEeSTS-T7FO4CUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Number Of Current Page")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgNbOfCurPg")]
     #endif
+    [IsoXmlTag("MsgNbOfCurPg")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber MessageNumberOfCurrentPage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 MessageNumberOfCurrentPage { get; init; } 
+    public required System.UInt64 MessageNumberOfCurrentPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 MessageNumberOfCurrentPage { get; init; } 
     #else
@@ -284,16 +270,16 @@ public partial record Confirmation1
     /// Number of reports at current page.
     /// </summary>
     [IsoId("_-32pYAKFEeS2H9l84F_isg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("List Order Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ListOrdrNb")]
     #endif
+    [IsoXmlTag("ListOrdrNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ListOrderNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ListOrderNumber { get; init; } 
+    public required System.UInt64 ListOrderNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ListOrderNumber { get; init; } 
     #else
@@ -304,16 +290,16 @@ public partial record Confirmation1
     /// Indicate whether the current message is the last one of the current page or not.
     /// </summary>
     [IsoId("_eV2zQAKEEeS2H9l84F_isg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Page Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastPgInd")]
     #endif
+    [IsoXmlTag("LastPgInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator LastPageIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LastPageIndicator { get; init; } 
+    public required System.String LastPageIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LastPageIndicator { get; init; } 
     #else
@@ -324,16 +310,16 @@ public partial record Confirmation1
     /// Indicates whether this message is that last report message in response to a request.
     /// </summary>
     [IsoId("_B_YbAAKGEeS2H9l84F_isg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Report Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastRptReqd")]
     #endif
+    [IsoXmlTag("LastRptReqd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator LastReportRequested { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LastReportRequested { get; init; } 
+    public required System.String LastReportRequested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LastReportRequested { get; init; } 
     #else

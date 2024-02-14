@@ -21,7 +21,7 @@ public enum ThresholdTypeCode
 {
     /// <summary>
     /// Means that once the threshold is breached, collateral must be posted to cover the full exposure.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_YgYDptp-Ed-ak6NoX_4Aeg_1096006152")]
@@ -30,7 +30,7 @@ public enum ThresholdTypeCode
     
     /// <summary>
     /// Means that the threshold provides a predetermined level of free trading. Once the threshold is breached, collateral must be posted to cover the exposure over and above the threshold level.
-    /// Encoded/decoded by serializers as "UNSE".
+    /// Encoded/decoded by serializers as &quot;UNSE&quot;.
     /// </summary>
     [EnumMember(Value = "UNSE")]
     [IsoId("_YgYDp9p-Ed-ak6NoX_4Aeg_1832001640")]

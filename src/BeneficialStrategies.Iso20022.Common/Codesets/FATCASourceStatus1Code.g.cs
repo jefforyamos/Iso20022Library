@@ -21,7 +21,7 @@ public enum FATCASourceStatus1Code
 {
     /// <summary>
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status calculated.
-    /// Encoded/decoded by serializers as "CALC".
+    /// Encoded/decoded by serializers as &quot;CALC&quot;.
     /// </summary>
     [EnumMember(Value = "CALC")]
     [IsoId("_QakGUQjVEeS5F6qHcKOrew")]
@@ -30,7 +30,7 @@ public enum FATCASourceStatus1Code
     
     /// <summary>
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status is as declared by the investor.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_QjVn0QjVEeS5F6qHcKOrew")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General information about the corporate action event.
 /// </summary>
 [IsoId("_Drbzgc3yEee5nJBZsW8MFQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action General Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record CorporateActionGeneralInformation134
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
     [IsoId("_Drbzh83yEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnEvtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CorpActnEvtId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax16Text CorporateActionEventIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CorporateActionEventIdentification { get; init; } 
+    public required System.String CorporateActionEventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CorporateActionEventIdentification { get; init; } 
     #else
@@ -77,15 +73,13 @@ public partial record CorporateActionGeneralInformation134
     /// Official and unique reference assigned by the official central body/entity within each market at the beginning of a corporate action event.
     /// </summary>
     [IsoId("_Drbzj83yEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Official Corporate Action Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffclCorpActnEvtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OffclCorpActnEvtId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? OfficialCorporateActionEventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +92,13 @@ public partial record CorporateActionGeneralInformation134
     /// Reference assigned by a court to a class action.
     /// </summary>
     [IsoId("_Drbzl83yEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Class Action Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssActnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClssActnNb")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax16Text? ClassActionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +111,11 @@ public partial record CorporateActionGeneralInformation134
     /// Type of processing involved by a corporate action.
     /// </summary>
     [IsoId("_Drbzn83yEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Processing Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtPrcgTp")]
     #endif
+    [IsoXmlTag("EvtPrcgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventProcessingType3Choice_? EventProcessingType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,16 +128,15 @@ public partial record CorporateActionGeneralInformation134
     /// Type of corporate action event.
     /// </summary>
     [IsoId("_Drbzp83yEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTp")]
     #endif
+    [IsoXmlTag("EvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventType77Choice_ EventType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionEventType77Choice_ EventType { get; init; } 
+    public required CorporateActionEventType77Choice_ EventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionEventType77Choice_ EventType { get; init; } 
     #else
@@ -157,16 +147,15 @@ public partial record CorporateActionGeneralInformation134
     /// Specifies whether the event is mandatory, mandatory with options or voluntary.
     /// </summary>
     [IsoId("_Drbzr83yEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandatory Voluntary Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MndtryVlntryEvtTp")]
     #endif
+    [IsoXmlTag("MndtryVlntryEvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMandatoryVoluntary4Choice_ MandatoryVoluntaryEventType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionMandatoryVoluntary4Choice_ MandatoryVoluntaryEventType { get; init; } 
+    public required CorporateActionMandatoryVoluntary4Choice_ MandatoryVoluntaryEventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionMandatoryVoluntary4Choice_ MandatoryVoluntaryEventType { get; init; } 
     #else
@@ -177,16 +166,15 @@ public partial record CorporateActionGeneralInformation134
     /// Security concerned by the corporate action.
     /// </summary>
     [IsoId("_Drbzt83yEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygScty")]
     #endif
+    [IsoXmlTag("UndrlygScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentAttributes85 UnderlyingSecurity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentAttributes85 UnderlyingSecurity { get; init; } 
+    public required FinancialInstrumentAttributes85 UnderlyingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentAttributes85 UnderlyingSecurity { get; init; } 
     #else

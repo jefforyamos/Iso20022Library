@@ -21,7 +21,7 @@ public enum CollateralType8Code
 {
     /// <summary>
     /// Total collateral affected to open market operations.
-    /// Encoded/decoded by serializers as "COMO".
+    /// Encoded/decoded by serializers as &quot;COMO&quot;.
     /// </summary>
     [EnumMember(Value = "COMO")]
     [IsoId("_bzLRIQLwEeutW5-TpeYJhA")]
@@ -30,7 +30,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Total credit claims.
-    /// Encoded/decoded by serializers as "CCCL".
+    /// Encoded/decoded by serializers as &quot;CCCL&quot;.
     /// </summary>
     [EnumMember(Value = "CCCL")]
     [IsoId("_b6Ua8gLwEeutW5-TpeYJhA")]
@@ -39,7 +39,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Total externally managed collateral apart from credit claims.
-    /// Encoded/decoded by serializers as "CEMC".
+    /// Encoded/decoded by serializers as &quot;CEMC&quot;.
     /// </summary>
     [EnumMember(Value = "CEMC")]
     [IsoId("_cD_UUgLwEeutW5-TpeYJhA")]
@@ -48,7 +48,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Total externally managed collateral for credit claims.
-    /// Encoded/decoded by serializers as "CXCC".
+    /// Encoded/decoded by serializers as &quot;CXCC&quot;.
     /// </summary>
     [EnumMember(Value = "CXCC")]
     [IsoId("_cMUw8gLwEeutW5-TpeYJhA")]
@@ -57,7 +57,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Total fixed term deposit used as collateral.
-    /// Encoded/decoded by serializers as "CFTD".
+    /// Encoded/decoded by serializers as &quot;CFTD&quot;.
     /// </summary>
     [EnumMember(Value = "CFTD")]
     [IsoId("_cjO1EgLwEeutW5-TpeYJhA")]
@@ -66,7 +66,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Total interest for fixed term Deposit used as collateral.
-    /// Encoded/decoded by serializers as "CFTI".
+    /// Encoded/decoded by serializers as &quot;CFTI&quot;.
     /// </summary>
     [EnumMember(Value = "CFTI")]
     [IsoId("_csdCggLwEeutW5-TpeYJhA")]
@@ -75,7 +75,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Total triparty collateral.
-    /// Encoded/decoded by serializers as "CTRC".
+    /// Encoded/decoded by serializers as &quot;CTRC&quot;.
     /// </summary>
     [EnumMember(Value = "CTRC")]
     [IsoId("_czAWcgLwEeutW5-TpeYJhA")]
@@ -84,7 +84,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Collateral type is cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_qeiSUQLwEeutW5-TpeYJhA")]
@@ -92,8 +92,8 @@ public enum CollateralType8Code
     Cash = CollateralTypeCode.Cash, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary's compliance with the terms and conditions set forth in the undertaking.
-    /// Encoded/decoded by serializers as "LCRE".
+    /// Instrument issued by a bank substituting its name and credit standing for that of its customer. A letter of credit is a written undertaking of the bank, issued for the account of a customer (the applicant), to honour a demand for payment, upon the beneficiary&apos;s compliance with the terms and conditions set forth in the undertaking.
+    /// Encoded/decoded by serializers as &quot;LCRE&quot;.
     /// </summary>
     [EnumMember(Value = "LCRE")]
     [IsoId("_q7sIYgLwEeutW5-TpeYJhA")]
@@ -102,7 +102,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Other assets that could be used as collateral.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_rZcbYgLwEeutW5-TpeYJhA")]
@@ -111,7 +111,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Collateral type is securities.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_r0h04gLwEeutW5-TpeYJhA")]
@@ -120,7 +120,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Total collateral operations.
-    /// Encoded/decoded by serializers as "CTCO".
+    /// Encoded/decoded by serializers as &quot;CTCO&quot;.
     /// </summary>
     [EnumMember(Value = "CTCO")]
     [IsoId("_XI6sAQLxEeutW5-TpeYJhA")]
@@ -129,7 +129,7 @@ public enum CollateralType8Code
     
     /// <summary>
     /// Total collateral value after relative credit limit.
-    /// Encoded/decoded by serializers as "CCVR".
+    /// Encoded/decoded by serializers as &quot;CCVR&quot;.
     /// </summary>
     [EnumMember(Value = "CCVR")]
     [IsoId("_XR_IcgLxEeutW5-TpeYJhA")]

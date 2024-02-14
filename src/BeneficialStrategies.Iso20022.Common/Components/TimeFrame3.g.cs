@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// TimeFrame elements that define a period as number of days before or after a activity.
 /// </summary>
 [IsoId("_UAoh4Np-Ed-ak6NoX_4Aeg_-1899090252")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Time Frame")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record TimeFrame3
     /// Specifies a description of any other TimeFrame that may be used for the DealingCutOffTimeFrame.
     /// </summary>
     [IsoId("_UAoh4dp-Ed-ak6NoX_4Aeg_-1857530882")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Time Frame Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTmFrameDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrTmFrameDesc")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherTimeFrameDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,12 @@ public partial record TimeFrame3
     /// An agreed number of days before the Trade date (T) used to define standard timeframes e.g. T-1 Dealing cut off or T-2 prepayment condition||Where = T is the date that the price is applied to a transaction.
     /// </summary>
     [IsoId("_UAoh4tp-Ed-ak6NoX_4Aeg_-1899090190")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Minus")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMns")]
     #endif
+    [IsoXmlTag("TMns")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TradeMinus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +79,11 @@ public partial record TimeFrame3
     /// Convention used for adjusting a date when it is not a business day.
     /// </summary>
     [IsoId("_UAoh49p-Ed-ak6NoX_4Aeg_1418685838")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Working Day Adjustment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonWorkgDayAdjstmnt")]
     #endif
+    [IsoXmlTag("NonWorkgDayAdjstmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,11 @@ public partial record TimeFrame3
     /// Refer to Order Desk.
     /// </summary>
     [IsoId("_UAoh5Np-Ed-ak6NoX_4Aeg_-242360634")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Refer To Order Desk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefrToOrdrDsk")]
     #endif
+    [IsoXmlTag("RefrToOrdrDsk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType1Choice
     /// Repurchase agreement where the agreement allows for the sale and repurchase of any of a selection of assets from a pool of eligible assets.
     /// </summary>
     [IsoId("_EbIM8LbrEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Collateral")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType1Choice
         /// List of the identifiers of the securities eligible for a general collateral repurchase agreement.
         /// </summary>
         [IsoId("_OFpSY8huEeadgvwNGwK05w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Eligible Financial Instrument Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ElgblFinInstrmId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("ElgblFinInstrmId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         public System.String? EligibleFinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _OFpSY8huEeadgvwNGwK05w
         

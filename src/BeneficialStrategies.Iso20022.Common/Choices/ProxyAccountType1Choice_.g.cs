@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProxyAccountType1Choice.Code))]
     [KnownType(typeof(ProxyAccountType1Choice.Proprietary))]
     [IsoId("_dyock3h3EeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy Account Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum ServiceLevel2Code
 {
     /// <summary>
     /// Payment must be executed following the Single Euro Payments Area scheme.
-    /// Encoded/decoded by serializers as "SEPA".
+    /// Encoded/decoded by serializers as &quot;SEPA&quot;.
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_ZKjCAtp-Ed-ak6NoX_4Aeg_757139776")]
@@ -30,7 +30,7 @@ public enum ServiceLevel2Code
     
     /// <summary>
     /// Payment must be executed with same day value to the creditor.
-    /// Encoded/decoded by serializers as "SDVA".
+    /// Encoded/decoded by serializers as &quot;SDVA&quot;.
     /// </summary>
     [EnumMember(Value = "SDVA")]
     [IsoId("_ZKjCA9p-Ed-ak6NoX_4Aeg_757140285")]

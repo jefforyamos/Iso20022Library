@@ -20,13 +20,11 @@ namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique global identification structure used to match transactions throughout their lifecycle (for example, authorisation to financial, financial to chargebacks, etc.). 
-/// It shall contain the same value in all messages throughout a transaction's lifecycle.
+/// It shall contain the same value in all messages throughout a transaction&apos;s lifecycle.
 /// ISO 8583:2003 bit 21
 /// </summary>
 [IsoId("_5kV_sER7Eeeb1MmUPTrSMw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Life Cycle Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,16 @@ public partial record TransactionLifeCycleIdentification1
     /// ISO 8583:2003 bit 21-2
     /// </summary>
     [IsoId("_URUEoKdZEeiva6IOmhpVHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Exact15Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact15Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,15 +72,12 @@ public partial record TransactionLifeCycleIdentification1
     /// Contains authorisation sequence number.
     /// </summary>
     [IsoId("_uA1W0KdZEeiva6IOmhpVHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnSeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AuthstnSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Exact2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2NumericText? AuthorisationSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,15 +91,12 @@ public partial record TransactionLifeCycleIdentification1
     /// ISO 8583:2003 bit 21-3
     /// </summary>
     [IsoId("_27MCsKdZEeiva6IOmhpVHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentment Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PresntmntSeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PresntmntSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Exact2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2NumericText? PresentmentSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,15 +109,12 @@ public partial record TransactionLifeCycleIdentification1
     /// Expected maximum number of presentments for this transaction.
     /// </summary>
     [IsoId("_8vlqQKdZEeiva6IOmhpVHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentment Sequence Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PresntmntSeqCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PresntmntSeqCnt")]
+    [IsoSimpleType(IsoSimpleType.Exact2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2NumericText? PresentmentSequenceCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,15 +128,13 @@ public partial record TransactionLifeCycleIdentification1
     /// ISO 8583:2003 bit 21-4
     /// </summary>
     [IsoId("_A0fqIKdaEeiva6IOmhpVHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnTkn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AuthntcnTkn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AuthenticationToken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

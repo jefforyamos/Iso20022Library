@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information on the original transaction, to which the status report message refers.
 /// </summary>
 [IsoId("_N1HoYxlWEe2Do_UtrNmb2g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Payment Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record OriginalPaymentInstruction45
     /// Unique identification, as assigned by the original sending party, to unambiguously identify the original payment information group.
     /// </summary>
     [IsoId("_OAJziRlWEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Information Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtInfId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlPmtInfId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalPaymentInformationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalPaymentInformationIdentification { get; init; } 
+    public required System.String OriginalPaymentInformationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalPaymentInformationIdentification { get; init; } 
     #else
@@ -74,15 +70,12 @@ public partial record OriginalPaymentInstruction45
     /// Number of individual transactions contained in the original payment information group.
     /// </summary>
     [IsoId("_OAJzixlWEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Number Of Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlNbOfTxs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OrgnlNbOfTxs")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? OriginalNumberOfTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,12 +88,12 @@ public partial record OriginalPaymentInstruction45
     /// Total of all individual amounts included in the original payment information group, irrespective of currencies.
     /// </summary>
     [IsoId("_OAJzjRlWEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Control Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlCtrlSum")]
     #endif
+    [IsoXmlTag("OrgnlCtrlSum")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? OriginalControlSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,11 @@ public partial record OriginalPaymentInstruction45
     /// Specifies the status of the payment information group.
     /// </summary>
     [IsoId("_OAJzjxlWEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Information Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInfSts")]
     #endif
+    [IsoXmlTag("PmtInfSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalPaymentGroupStatus1Code? PaymentInformationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +123,11 @@ public partial record OriginalPaymentInstruction45
     /// Provides detailed information on the status reason.
     /// </summary>
     [IsoId("_OAJzkRlWEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsnInf")]
     #endif
+    [IsoXmlTag("StsRsnInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReasonInformation12? StatusReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +140,11 @@ public partial record OriginalPaymentInstruction45
     /// Detailed information on the number of transactions for each identical transaction status.
     /// </summary>
     [IsoId("_OAJzkxlWEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Transactions Per Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfTxsPerSts")]
     #endif
+    [IsoXmlTag("NbOfTxsPerSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberOfTransactionsPerStatus5? NumberOfTransactionsPerStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +157,11 @@ public partial record OriginalPaymentInstruction45
     /// Provides information on the original transactions to which the status report message refers.
     /// </summary>
     [IsoId("_OAJzlRlWEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInfAndSts")]
     #endif
+    [IsoXmlTag("TxInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction144? TransactionInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

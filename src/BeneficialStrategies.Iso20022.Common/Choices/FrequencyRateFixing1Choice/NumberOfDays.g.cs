@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyRateFixing1Choice
     /// Specific number of days assigned for the frequency fixing of the rate.
     /// </summary>
     [IsoId("_GfUYMI9QEeqMo4JxiuZGSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Days")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyRateFixing1Choice
         /// Specifies a numeric string with a maximum length of 3 digits.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NbOfDays")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("NbOfDays")]
+        [IsoSimpleType(IsoSimpleType.Max3NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax3NumericText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

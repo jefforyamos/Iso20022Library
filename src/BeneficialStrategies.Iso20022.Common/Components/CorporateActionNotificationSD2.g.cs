@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action notification.
 /// </summary>
 [IsoId("_1ZecFTL3EeKU9IrkkToqcw_-1357737772")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Notification SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record CorporateActionNotificationSD2
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1ZoNEDL3EeKU9IrkkToqcw_-1030441987")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -77,16 +73,15 @@ public partial record CorporateActionNotificationSD2
     /// Status of a notice of change.
     /// </summary>
     [IsoId("_1ZoNETL3EeKU9IrkkToqcw_1507237485")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Workflow Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivWorkflwSts")]
     #endif
+    [IsoXmlTag("DerivWorkflwSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativeWorkflowStatus1Code DerivativeWorkflowStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DerivativeWorkflowStatus1Code DerivativeWorkflowStatus { get; init; } 
+    public required DerivativeWorkflowStatus1Code DerivativeWorkflowStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DerivativeWorkflowStatus1Code DerivativeWorkflowStatus { get; init; } 
     #else
@@ -97,19 +92,17 @@ public partial record CorporateActionNotificationSD2
     /// Exchange where the derivative is traded.
     /// </summary>
     [IsoId("_1ZoNEjL3EeKU9IrkkToqcw_278246291")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivXchg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DerivXchg")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText DerivativeExchange { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DerivativeExchange { get; init; } 
+    public required System.String DerivativeExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DerivativeExchange { get; init; } 
     #else
@@ -120,12 +113,12 @@ public partial record CorporateActionNotificationSD2
     /// Date when the notice of change to the derivative is published by the exchange.
     /// </summary>
     [IsoId("_1ZoNEzL3EeKU9IrkkToqcw_1623632001")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Publication Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivPblctnDt")]
     #endif
+    [IsoXmlTag("DerivPblctnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DerivativePublicationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,16 +131,16 @@ public partial record CorporateActionNotificationSD2
     /// Effective date of the adjustment to the derivative contract.
     /// </summary>
     [IsoId("_1ZoNFDL3EeKU9IrkkToqcw_282377015")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Adjustment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivAdjstmntDt")]
     #endif
+    [IsoXmlTag("DerivAdjstmntDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate DerivativeAdjustmentDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly DerivativeAdjustmentDate { get; init; } 
+    public required System.DateOnly DerivativeAdjustmentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly DerivativeAdjustmentDate { get; init; } 
     #else
@@ -158,15 +151,13 @@ public partial record CorporateActionNotificationSD2
     /// Method (usually a formula) that will be used to calculate the adjustment factor that will be applied to the derivative to account for the impact of a corporate action event on the underlying equity.
     /// </summary>
     [IsoId("_1ZoNFTL3EeKU9IrkkToqcw_-592539143")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Calculation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivClctnMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DerivClctnMtd")]
+    [IsoSimpleType(IsoSimpleType.Max1025Text)]
     [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? DerivativeCalculationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +170,12 @@ public partial record CorporateActionNotificationSD2
     /// Adjustment factor to be applied to the derivative contract to account for the impact of a corporate action event on the underlying equity. Derived by using the calculation method.
     /// </summary>
     [IsoId("_1ZoNFjL3EeKU9IrkkToqcw_2133733290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivFctr")]
     #endif
+    [IsoXmlTag("DerivFctr")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? DerivativeFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +188,12 @@ public partial record CorporateActionNotificationSD2
     /// Indicates whether the deliverable stock amount on the derivative contract will be changed.
     /// </summary>
     [IsoId("_1Zx-EDL3EeKU9IrkkToqcw_238505614")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Size Change Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotSzChngFlg")]
     #endif
+    [IsoXmlTag("LotSzChngFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LotSizeChangeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,15 +206,13 @@ public partial record CorporateActionNotificationSD2
     /// Method that is used to calculate the new stock deliverable on the derivative contract. Usually multiplication or division by a stated figure but may include explanatory text and examples.
     /// </summary>
     [IsoId("_1Zx-ETL3EeKU9IrkkToqcw_-1956386810")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Adjustment Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotAdjstmntMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LotAdjstmntMtd")]
+    [IsoSimpleType(IsoSimpleType.Max1025Text)]
     [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? LotAdjustmentMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,12 +225,12 @@ public partial record CorporateActionNotificationSD2
     /// Indicates whether there is a new strike price for the change of the derivative contract as a result of the corporate action.
     /// </summary>
     [IsoId("_1Zx-EjL3EeKU9IrkkToqcw_915856039")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strike Price Change Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrkPricChngFlg")]
     #endif
+    [IsoXmlTag("StrkPricChngFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StrikePriceChangeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,15 +243,13 @@ public partial record CorporateActionNotificationSD2
     /// Method that will be used to adjust the strike price. May include the number of decimal places and rounding rules, example up or down.
     /// </summary>
     [IsoId("_1Zx-EzL3EeKU9IrkkToqcw_-113518360")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strike Price Rounding Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrkPricRndgMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StrkPricRndgMtd")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? StrikePriceRoundingMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +262,12 @@ public partial record CorporateActionNotificationSD2
     /// Indicates whether a residual cash is paid on the derivative contract. For example, this may be a cash element that is included in the terms of a takeover that the underlying equity is subject to.
     /// </summary>
     [IsoId("_1Zx-FDL3EeKU9IrkkToqcw_1063112730")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Residual Cash Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsdlCshFlg")]
     #endif
+    [IsoXmlTag("RsdlCshFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ResidualCashFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -293,12 +280,12 @@ public partial record CorporateActionNotificationSD2
     /// Price of the security to be used in factor calculations. Usually the closing price of the underlying equity on the effective date of the contract adjustment.
     /// </summary>
     [IsoId("_1Zx-FTL3EeKU9IrkkToqcw_-143242492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefPric")]
     #endif
+    [IsoXmlTag("RefPric")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ReferencePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -311,12 +298,11 @@ public partial record CorporateActionNotificationSD2
     /// Currency associated with the reference price.
     /// </summary>
     [IsoId("_1Zx-FjL3EeKU9IrkkToqcw_1334119961")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Price Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefPricCcy")]
     #endif
+    [IsoXmlTag("RefPricCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? ReferencePriceCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -326,15 +312,15 @@ public partial record CorporateActionNotificationSD2
     #endif
     
     /// <summary>
-    /// Indicates whether the derivative data has/hasn't been approved by a validation service.
+    /// Indicates whether the derivative data has/hasn&apos;t been approved by a validation service.
     /// </summary>
     [IsoId("_1Z7IADL3EeKU9IrkkToqcw_-444572123")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Approved Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApprvdFlg")]
     #endif
+    [IsoXmlTag("ApprvdFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ApprovedFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

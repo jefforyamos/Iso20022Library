@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the intra-position movement.
 /// </summary>
 [IsoId("_LFaA0f8JEeCKBMQETXEXKQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Position Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,12 +52,11 @@ public partial record IntraPositionDetails21
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
     [IsoId("_LFjx4f8JEeCKBMQETXEXKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prty")]
     #endif
+    [IsoXmlTag("Prty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriorityNumeric1Choice_? Priority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +69,15 @@ public partial record IntraPositionDetails21
     /// Total quantity of securities to be settled.
     /// </summary>
     [IsoId("_LFjx6_8JEeCKBMQETXEXKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmQty")]
     #endif
+    [IsoXmlTag("SttlmQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record IntraPositionDetails21
     /// Number identifying a Securities Sub balance Type (e.g. restriction identification etc…).
     /// </summary>
     [IsoId("_LFjx9f8JEeCKBMQETXEXKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Sub Balance Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesSubBalId")]
     #endif
+    [IsoXmlTag("SctiesSubBalId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification37? SecuritiesSubBalanceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,16 +105,15 @@ public partial record IntraPositionDetails21
     /// Date and time at which the securities are to be moved.
     /// </summary>
     [IsoId("_LFjx-f8JEeCKBMQETXEXKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTimeChoice_ SettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTimeChoice_ SettlementDate { get; init; } 
     #else
@@ -130,16 +124,15 @@ public partial record IntraPositionDetails21
     /// Balance from which the securities are moving.
     /// </summary>
     [IsoId("_LFjyA_8JEeCKBMQETXEXKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalFr")]
     #endif
+    [IsoXmlTag("BalFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSubBalanceTypeAndQuantityBreakdown1 BalanceFrom { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesSubBalanceTypeAndQuantityBreakdown1 BalanceFrom { get; init; } 
+    public required SecuritiesSubBalanceTypeAndQuantityBreakdown1 BalanceFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesSubBalanceTypeAndQuantityBreakdown1 BalanceFrom { get; init; } 
     #else
@@ -150,16 +143,15 @@ public partial record IntraPositionDetails21
     /// Balance to which the securities are moving.
     /// </summary>
     [IsoId("_LFjyEf8JEeCKBMQETXEXKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTo")]
     #endif
+    [IsoXmlTag("BalTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSubBalanceTypeAndQuantityBreakdown1 BalanceTo { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesSubBalanceTypeAndQuantityBreakdown1 BalanceTo { get; init; } 
+    public required SecuritiesSubBalanceTypeAndQuantityBreakdown1 BalanceTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesSubBalanceTypeAndQuantityBreakdown1 BalanceTo { get; init; } 
     #else
@@ -170,15 +162,13 @@ public partial record IntraPositionDetails21
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
     [IsoId("_LFjyH_8JEeCKBMQETXEXKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Processing Additional Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrPrcgAddtlDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrPrcgAddtlDtls")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

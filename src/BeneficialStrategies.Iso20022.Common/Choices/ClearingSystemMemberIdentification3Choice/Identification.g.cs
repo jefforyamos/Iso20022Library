@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// Identification for a clearing system member, identified in the list of clearing system member identifications published externally.
     /// </summary>
     [IsoId("_TMehGtp-Ed-ak6NoX_4Aeg_-1564562062")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,12 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalClearingSystemMemberCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Value { get; init; } 
+        public required string Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Value { get; init; } 
         #else

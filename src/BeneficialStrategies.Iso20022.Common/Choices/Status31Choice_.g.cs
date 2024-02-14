@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Status31Choice.Complete))]
     [KnownType(typeof(Status31Choice.Pending))]
     [IsoId("_ySVFQZM6EemKz5EOjv82iQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status 31 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

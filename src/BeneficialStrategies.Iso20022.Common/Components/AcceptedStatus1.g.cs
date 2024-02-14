@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice between a reason or no reason for the corporate action instruction processing accepted status.
 /// </summary>
 [IsoId("_6xutiYeUEemJ1cSJJmVYRQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Accepted Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AcceptedStatus1
     /// Reason not specified.
     /// </summary>
     [IsoId("_6xuti4eUEemJ1cSJJmVYRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Specified Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoSpcfdRsn")]
     #endif
+    [IsoXmlTag("NoSpcfdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoSpecifiedReason { get; init; } 
+    public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoSpecifiedReason { get; init; } 
     #else

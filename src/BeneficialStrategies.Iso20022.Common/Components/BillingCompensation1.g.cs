@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the compensation data of an incorrect billing.
 /// </summary>
 [IsoId("_6PzSsJqlEeGSON8vddiWzQ_-1213048629")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Compensation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record BillingCompensation1
     /// Defines the type of billing compensation.
     /// </summary>
     [IsoId("_6PzSsZqlEeGSON8vddiWzQ_-1034929957")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingCompensationType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingCompensationType1Choice_ Type { get; init; } 
+    public required BillingCompensationType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingCompensationType1Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record BillingCompensation1
     /// Defines the value of compensation.
     /// </summary>
     [IsoId("_6PzSspqlEeGSON8vddiWzQ_2084846314")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 Value { get; init; } 
+    public required AmountAndDirection34 Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 Value { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record BillingCompensation1
     /// Identifies the currency type used to report the value or total, in a coded form, such as Settlement (STLM).
     /// </summary>
     [IsoId("_6PzSs5qlEeGSON8vddiWzQ_-564853547")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyTp")]
     #endif
+    [IsoXmlTag("CcyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingCurrencyType2Code? CurrencyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

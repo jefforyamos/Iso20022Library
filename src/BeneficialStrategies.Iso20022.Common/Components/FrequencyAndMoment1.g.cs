@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines a frequency in terms a specific moment within a specified period type.
 /// </summary>
 [IsoId("_CWY182k3Eeanu6HLe77Rkg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Frequency And Moment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FrequencyAndMoment1
     /// Period for which the number of instructions are to be created and processed.
     /// </summary>
     [IsoId("_CWY19Wk3Eeanu6HLe77Rkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency6Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Frequency6Code Type { get; init; } 
+    public required Frequency6Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Frequency6Code Type { get; init; } 
     #else
@@ -72,19 +69,16 @@ public partial record FrequencyAndMoment1
     /// Further information on the exact point in time the event should take place.
     /// </summary>
     [IsoId("_CWY19Gk3Eeanu6HLe77Rkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Point In Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtInTm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PtInTm")]
+    [IsoSimpleType(IsoSimpleType.Exact2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact2NumericText PointInTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PointInTime { get; init; } 
+    public required System.String PointInTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PointInTime { get; init; } 
     #else

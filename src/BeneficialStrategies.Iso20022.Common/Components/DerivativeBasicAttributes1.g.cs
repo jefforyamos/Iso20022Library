@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the derivative contract not included in the general financial instrument attributes component.
 /// </summary>
 [IsoId("_UAL18Np-Ed-ak6NoX_4Aeg_-764187089")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivative Basic Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record DerivativeBasicAttributes1
     /// Amount underlying a financial derivatives contract necessary for calculating payments or receipts.
     /// </summary>
     [IsoId("_UAL18dp-Ed-ak6NoX_4Aeg_-672759476")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Currency And Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlCcyAndAmt")]
     #endif
+    [IsoXmlTag("NtnlCcyAndAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal NotionalCurrencyAndAmount { get; init; } 
+    public required System.Decimal NotionalCurrencyAndAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal NotionalCurrencyAndAmount { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record DerivativeBasicAttributes1
     /// Indicates whether the given derivative price includes a prorated accrued interest component.
     /// </summary>
     [IsoId("_UAL18tp-Ed-ak6NoX_4Aeg_1385962501")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Included In Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstInclInPric")]
     #endif
+    [IsoXmlTag("IntrstInclInPric")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? InterestIncludedInPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies all the parties involved in a cover payment transaction.
 /// </summary>
 [IsoId("_H1gUQDMmEeit26XNYhRFqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Credit Transfer Transaction Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CreditTransferTransactionParties1
     /// Identifies the financial institution that owes an amount of money to the (ultimate) financial institutional creditor.
     /// </summary>
     [IsoId("_MYGuATMsEeit26XNYhRFqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dbtr")]
     #endif
+    [IsoXmlTag("Dbtr")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? Debtor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record CreditTransferTransactionParties1
     /// Identifies the financial institution servicing an account for the debtor.
     /// </summary>
     [IsoId("_mHMX0TMrEeit26XNYhRFqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAgt")]
     #endif
+    [IsoXmlTag("DbtrAgt")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? DebtorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +75,15 @@ public partial record CreditTransferTransactionParties1
     #endif
     
     /// <summary>
-    /// Identifies the agent between the debtor's agent and the creditor's agent.
+    /// Identifies the agent between the debtor&apos;s agent and the creditor&apos;s agent.
     /// </summary>
     [IsoId("_oEMQATMrEeit26XNYhRFqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyAgt1")]
     #endif
+    [IsoXmlTag("IntrmyAgt1")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? IntermediaryAgent1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record CreditTransferTransactionParties1
     /// Identifies the financial institution servicing an account for the creditor.
     /// </summary>
     [IsoId("_pvXYYTMrEeit26XNYhRFqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrAgt")]
     #endif
+    [IsoXmlTag("CdtrAgt")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? CreditorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record CreditTransferTransactionParties1
     /// Identifies the financial institution that receives an amount of money from the financial institutional debtor.
     /// </summary>
     [IsoId("_EFU_gTMsEeit26XNYhRFqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cdtr")]
     #endif
+    [IsoXmlTag("Cdtr")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? Creditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

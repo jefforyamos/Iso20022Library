@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies two values to compare for a collateral code.
 /// </summary>
 [IsoId("_qXFLkdSZEemZdYGWu384Zw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Compare Special Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CompareSpecialCollateral2
     /// Information for the first side of the transaction.
     /// </summary>
     [IsoId("_qc11UdSZEemZdYGWu384Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val1")]
     #endif
+    [IsoXmlTag("Val1")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SpecialCollateral1Code? Value1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CompareSpecialCollateral2
     /// Information for the second side of the transaction.
     /// </summary>
     [IsoId("_qc11U9SZEemZdYGWu384Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val2")]
     #endif
+    [IsoXmlTag("Val2")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SpecialCollateral1Code? Value2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

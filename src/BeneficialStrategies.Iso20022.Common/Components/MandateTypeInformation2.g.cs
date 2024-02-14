@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to further detail the information related to the type of payment.
 /// </summary>
 [IsoId("_cm369kjwEeaVLL5QKJ4f-A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Type Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record MandateTypeInformation2
     /// Agreement under which or rules under which the mandate resides.
     /// </summary>
     [IsoId("_cvK7QUjwEeaVLL5QKJ4f-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcLvl")]
     #endif
+    [IsoXmlTag("SvcLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record MandateTypeInformation2
     /// User community specific instrument.|Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
     /// </summary>
     [IsoId("_cvK7Q0jwEeaVLL5QKJ4f-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclInstrm")]
     #endif
+    [IsoXmlTag("LclInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalInstrument2Choice_? LocalInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record MandateTypeInformation2
     /// Specifies the high level purpose of the mandate based on a set of pre-defined categories.
     /// </summary>
     [IsoId("_T6WPoUjwEeaVLL5QKJ4f-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Category Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtgyPurp")]
     #endif
+    [IsoXmlTag("CtgyPurp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CategoryPurpose1Choice_? CategoryPurpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record MandateTypeInformation2
     /// Type of direct debit instruction.
     /// </summary>
     [IsoId("_3MJbIGVREeacpJ-gG9kyUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clssfctn")]
     #endif
+    [IsoXmlTag("Clssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MandateClassification1Choice_? Classification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

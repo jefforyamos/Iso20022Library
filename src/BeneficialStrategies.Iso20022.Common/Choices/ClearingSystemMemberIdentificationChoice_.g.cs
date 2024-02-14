@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianExtensiveBranchNetworkIdentification))]
     [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianSmallNetworkIdentification))]
     [IsoId("_TDPFhtp-Ed-ak6NoX_4Aeg_-896562614")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Member Identification Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

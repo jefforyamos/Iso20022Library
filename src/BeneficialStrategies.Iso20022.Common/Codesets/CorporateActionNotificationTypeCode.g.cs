@@ -21,7 +21,7 @@ public enum CorporateActionNotificationTypeCode
 {
     /// <summary>
     /// New notification.
-    /// Encoded/decoded by serializers as "NEWM".
+    /// Encoded/decoded by serializers as &quot;NEWM&quot;.
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_bLJAxNp-Ed-ak6NoX_4Aeg_-464577409")]
@@ -30,7 +30,7 @@ public enum CorporateActionNotificationTypeCode
     
     /// <summary>
     /// Notification replacing a previously sent notification.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_bLJAxdp-Ed-ak6NoX_4Aeg_-379615464")]
@@ -39,7 +39,7 @@ public enum CorporateActionNotificationTypeCode
     
     /// <summary>
     /// Notification sent as a reminder of an event taking place.
-    /// Encoded/decoded by serializers as "RMDR".
+    /// Encoded/decoded by serializers as &quot;RMDR&quot;.
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_bLJAxtp-Ed-ak6NoX_4Aeg_-278951583")]
@@ -48,7 +48,7 @@ public enum CorporateActionNotificationTypeCode
     
     /// <summary>
     /// Notification sent to void a previously sent notification due to the withdrawal of the event by the issuer.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_bLJAx9p-Ed-ak6NoX_4Aeg_53517418")]
@@ -57,7 +57,7 @@ public enum CorporateActionNotificationTypeCode
     
     /// <summary>
     /// Notification requesting the cancellation of a previously sent notification.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bLJAyNp-Ed-ak6NoX_4Aeg_1834128888")]
@@ -66,7 +66,7 @@ public enum CorporateActionNotificationTypeCode
     
     /// <summary>
     /// Cancellation due to a processing error.
-    /// Encoded/decoded by serializers as "PROC".
+    /// Encoded/decoded by serializers as &quot;PROC&quot;.
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_bLSxwNp-Ed-ak6NoX_4Aeg_168776981")]

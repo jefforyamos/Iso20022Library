@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The AcquirerFinancialResponse message is sent by an issuer or an agent to answer to an AcquirerFinancialInitiation message.")]
 [IsoId("_K53kQHucEeSBS-QFUaKA-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Financial Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcquirerFinancialResponse : IOuterRecord<AcquirerFinancial
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_V0OZAHucEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header17 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header17 Header { get; init; } 
+    public required Header17 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header17 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcquirerFinancialResponse : IOuterRecord<AcquirerFinancial
     /// Information related to the response of a financial authorisation.
     /// </summary>
     [IsoId("_oMbT0HumEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinRspn")]
     #endif
+    [IsoXmlTag("FinRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerFinancialResponse1 FinancialResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerFinancialResponse1 FinancialResponse { get; init; } 
+    public required AcquirerFinancialResponse1 FinancialResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerFinancialResponse1 FinancialResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AcquirerFinancialResponse : IOuterRecord<AcquirerFinancial
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_7ieigHumEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AcquirerFinancialResponse : IOuterRecord<AcquirerFinancial
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcquirerFinancialResponseDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcquirerFinancialResponseDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcquirerFinancialResponseDocument ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AcquirerFinancialResponse : IOuterRecord<AcquirerFinancial
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcquirerFinancialResponse"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcquirerFinancialResponse&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcquirerFinancialResponseDocument : IOuterDocument<AcquirerFinancialResponse>
@@ -161,7 +156,7 @@ public partial record AcquirerFinancialResponseDocument : IOuterDocument<Acquire
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcquirerFinancialResponse"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcquirerFinancialResponse&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerFinancialResponse Message { get; init; }

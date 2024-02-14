@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData26Choice
     /// Details of the repurchase trade transaction.
     /// </summary>
     [IsoId("_3-z24Xz2EeurrJrNxcsszQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Trade")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,16 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData26Choice
         /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
         /// </summary>
         [IsoId("_4AQBUXz2EeurrJrNxcsszQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Event Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EvtDt")]
         #endif
+        [IsoXmlTag("EvtDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate EventDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly EventDate { get; init; } 
+        public required System.DateOnly EventDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly EventDate { get; init; } 
         #else
@@ -76,15 +74,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData26Choice
         /// Unique trade Identifier (UTI) as agreed with the other counterparty.
         /// </summary>
         [IsoId("_4AQBU3z2EeurrJrNxcsszQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Unique Trade Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UnqTradIdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("UnqTradIdr")]
+        [IsoSimpleType(IsoSimpleType.Max52Text)]
         [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +93,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData26Choice
         /// Reference to master agreement under which the counterparties concluded a documented transaction.
         /// </summary>
         [IsoId("_4AQBVXz2EeurrJrNxcsszQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Master Agreement")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MstrAgrmt")]
         #endif
+        [IsoXmlTag("MstrAgrmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MasterAgreement7? MasterAgreement { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

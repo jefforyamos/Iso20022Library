@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum SignatureType1Code
 {
     /// <summary>
-    /// The investor's written signature is required. Can also be known as physical or wet signature.
-    /// Encoded/decoded by serializers as "ORIG".
+    /// The investor&apos;s written signature is required. Can also be known as physical or wet signature.
+    /// Encoded/decoded by serializers as &quot;ORIG&quot;.
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_ZPUNQtp-Ed-ak6NoX_4Aeg_1976689877")]
@@ -30,7 +30,7 @@ public enum SignatureType1Code
     
     /// <summary>
     /// A technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.
-    /// Encoded/decoded by serializers as "DIGI".
+    /// Encoded/decoded by serializers as &quot;DIGI&quot;.
     /// </summary>
     [EnumMember(Value = "DIGI")]
     [IsoId("_ZPUNQ9p-Ed-ak6NoX_4Aeg_1976689878")]
@@ -39,7 +39,7 @@ public enum SignatureType1Code
     
     /// <summary>
     /// A copy of a physical or original signature in an electronic format.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_ZPUNRNp-Ed-ak6NoX_4Aeg_1976689908")]
@@ -48,7 +48,7 @@ public enum SignatureType1Code
     
     /// <summary>
     /// There is no signature required in any form.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_ZPUNRdp-Ed-ak6NoX_4Aeg_1976689909")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency3Choice
     /// Frequency expressed in tenor notation.
     /// </summary>
     [IsoId("_7KQYoVfREeqqKf65rDYWYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Term")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency3Choice
         /// Unit for the rate basis.
         /// </summary>
         [IsoId("_7j19U1fREeqqKf65rDYWYw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Unit")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Unit")]
         #endif
+        [IsoXmlTag("Unit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Frequency13Code? Unit { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,12 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency3Choice
         /// Specifies the number of time units (as expressed by the payment frequency period) that detemines the frequency at which periodic payment dates occur.
         /// </summary>
         [IsoId("_7j19VVfREeqqKf65rDYWYw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Val")]
         #endif
+        [IsoXmlTag("Val")]
+        [IsoSimpleType(IsoSimpleType.Max3Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax3Number? Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

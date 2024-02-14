@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify the documents referred to in the remittance information.
 /// </summary>
 [IsoId("_ThMM2tp-Ed-ak6NoX_4Aeg_-882800583")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Referred Document Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReferredDocumentInformation3
     /// Specifies the type of referred document.
     /// </summary>
     [IsoId("_ThV90Np-Ed-ak6NoX_4Aeg_-882800242")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentType2? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record ReferredDocumentInformation3
     /// Unique and unambiguous identification of the referred document.
     /// </summary>
     [IsoId("_ThV90dp-Ed-ak6NoX_4Aeg_-882800304")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record ReferredDocumentInformation3
     /// Date associated with the referred document.
     /// </summary>
     [IsoId("_ThV90tp-Ed-ak6NoX_4Aeg_1205279992")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdDt")]
     #endif
+    [IsoXmlTag("RltdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RelatedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

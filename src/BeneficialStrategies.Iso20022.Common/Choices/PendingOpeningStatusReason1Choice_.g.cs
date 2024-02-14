@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingOpeningStatusReason1Choice.NoSpecifiedReason))]
     [KnownType(typeof(PendingOpeningStatusReason1Choice.Reason))]
     [IsoId("_gh55AWCJEeabZtzjEVWYCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Opening Status Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

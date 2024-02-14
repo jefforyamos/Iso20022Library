@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// A short identification can be used for display purposes.
 /// </summary>
 [IsoId("_OTgzMjEy-AOSNFX-8224491")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Qualified Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record QualifiedPartyIdentification1
     /// Schema ID to be used in IDREF values.
     /// </summary>
     [IsoId("_OTgzMjU0-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ID)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoID Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -74,12 +72,11 @@ public partial record QualifiedPartyIdentification1
     /// List of identifications for the same party.
     /// </summary>
     [IsoId("_OTgzMjU1-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     public SingleQualifiedPartyIdentification1? Party { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _OTgzMjU1-AOSNFX-8224494
     
@@ -87,12 +84,11 @@ public partial record QualifiedPartyIdentification1
     /// Short identification of the resulting party as a control mechanism for humans.
     /// </summary>
     [IsoId("_OTgzMjU2-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtId")]
     #endif
+    [IsoXmlTag("ShrtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? ShortIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +101,11 @@ public partial record QualifiedPartyIdentification1
     /// Formally defined role qualifying the party.
     /// </summary>
     [IsoId("_OTgzMjU3-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,18 +115,16 @@ public partial record QualifiedPartyIdentification1
     #endif
     
     /// <summary>
-    /// Free form description of the party's role.
+    /// Free form description of the party&apos;s role.
     /// </summary>
     [IsoId("_OTgzMjU4-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RoleDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RoleDesc")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? RoleDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

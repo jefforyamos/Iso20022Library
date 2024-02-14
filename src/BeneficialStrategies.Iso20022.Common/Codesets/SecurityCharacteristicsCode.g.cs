@@ -21,7 +21,7 @@ public enum SecurityCharacteristicsCode
 {
     /// <summary>
     /// Private network.
-    /// Encoded/decoded by serializers as "PRVN".
+    /// Encoded/decoded by serializers as &quot;PRVN&quot;.
     /// </summary>
     [EnumMember(Value = "PRVN")]
     [IsoId("_g_y-cEqzEeenp6hmNprBHg")]
@@ -30,7 +30,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Open network
-    /// Encoded/decoded by serializers as "OPNN".
+    /// Encoded/decoded by serializers as &quot;OPNN&quot;.
     /// </summary>
     [EnumMember(Value = "OPNN")]
     [IsoId("_oj8FUEqzEeenp6hmNprBHg")]
@@ -39,7 +39,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Usage of MAC to secure a communication channel
-    /// Encoded/decoded by serializers as "CMAC".
+    /// Encoded/decoded by serializers as &quot;CMAC&quot;.
     /// </summary>
     [EnumMember(Value = "CMAC")]
     [IsoId("_sG2ycEqzEeenp6hmNprBHg")]
@@ -48,7 +48,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// MAC used in a pass-through communication mode
-    /// Encoded/decoded by serializers as "PMAC".
+    /// Encoded/decoded by serializers as &quot;PMAC&quot;.
     /// </summary>
     [EnumMember(Value = "PMAC")]
     [IsoId("_1EVDwEqzEeenp6hmNprBHg")]
@@ -57,7 +57,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption used from one end to the other end of the communication channel.
-    /// Encoded/decoded by serializers as "ETEE".
+    /// Encoded/decoded by serializers as &quot;ETEE&quot;.
     /// </summary>
     [EnumMember(Value = "ETEE")]
     [IsoId("_-f9QsEqzEeenp6hmNprBHg")]
@@ -66,7 +66,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption used to secure the communication channel.
-    /// Encoded/decoded by serializers as "CENC".
+    /// Encoded/decoded by serializers as &quot;CENC&quot;.
     /// </summary>
     [EnumMember(Value = "CENC")]
     [IsoId("_AOq1QEq0Eeenp6hmNprBHg")]
@@ -75,7 +75,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption using a private algorithm to secure a communication channel.
-    /// Encoded/decoded by serializers as "PRAE".
+    /// Encoded/decoded by serializers as &quot;PRAE&quot;.
     /// </summary>
     [EnumMember(Value = "PRAE")]
     [IsoId("_WeDokEq0Eeenp6hmNprBHg")]
@@ -84,7 +84,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption using PKI to secure the communication channel.
-    /// Encoded/decoded by serializers as "PKIE".
+    /// Encoded/decoded by serializers as &quot;PKIE&quot;.
     /// </summary>
     [EnumMember(Value = "PKIE")]
     [IsoId("_fNZ-UEq0Eeenp6hmNprBHg")]
@@ -93,7 +93,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Private algorithm used for MAC.
-    /// Encoded/decoded by serializers as "PRAM".
+    /// Encoded/decoded by serializers as &quot;PRAM&quot;.
     /// </summary>
     [EnumMember(Value = "PRAM")]
     [IsoId("_kp74cEq0Eeenp6hmNprBHg")]
@@ -102,7 +102,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Standard algorithm used for MAC
-    /// Encoded/decoded by serializers as "STAM".
+    /// Encoded/decoded by serializers as &quot;STAM&quot;.
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_w9ZOIEq0Eeenp6hmNprBHg")]
@@ -111,7 +111,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption initiated by the cardholder to secure end-to-end communication channel.
-    /// Encoded/decoded by serializers as "CETE".
+    /// Encoded/decoded by serializers as &quot;CETE&quot;.
     /// </summary>
     [EnumMember(Value = "CETE")]
     [IsoId("_5JXKAEq0Eeenp6hmNprBHg")]
@@ -120,7 +120,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption initiated by the cardholder to secure point-to-point communication channel.
-    /// Encoded/decoded by serializers as "CPTE".
+    /// Encoded/decoded by serializers as &quot;CPTE&quot;.
     /// </summary>
     [EnumMember(Value = "CPTE")]
     [IsoId("_IMrYMEq1Eeenp6hmNprBHg")]
@@ -129,7 +129,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption initiated by the merchant to secure end-to-end communication channel.
-    /// Encoded/decoded by serializers as "METE".
+    /// Encoded/decoded by serializers as &quot;METE&quot;.
     /// </summary>
     [EnumMember(Value = "METE")]
     [IsoId("_VEq-UEq1Eeenp6hmNprBHg")]
@@ -138,7 +138,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption initiated by the merchant to secure point-to-point communication channel.
-    /// Encoded/decoded by serializers as "MPTE".
+    /// Encoded/decoded by serializers as &quot;MPTE&quot;.
     /// </summary>
     [EnumMember(Value = "MPTE")]
     [IsoId("_cKz6kEq1Eeenp6hmNprBHg")]
@@ -147,7 +147,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption initiated by the acquirer to secure end-to-end communication channel.
-    /// Encoded/decoded by serializers as "AETE".
+    /// Encoded/decoded by serializers as &quot;AETE&quot;.
     /// </summary>
     [EnumMember(Value = "AETE")]
     [IsoId("_mvjrsEq1Eeenp6hmNprBHg")]
@@ -156,7 +156,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Encryption initiated by the acquirer to secure point-to-point communication channel.
-    /// Encoded/decoded by serializers as "APTE".
+    /// Encoded/decoded by serializers as &quot;APTE&quot;.
     /// </summary>
     [EnumMember(Value = "APTE")]
     [IsoId("_tBuNUEq1Eeenp6hmNprBHg")]
@@ -165,7 +165,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Other security characteristics defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_7qoHQAwfEeiHgJ0O2VQ-kg")]
@@ -174,7 +174,7 @@ public enum SecurityCharacteristicsCode
     
     /// <summary>
     /// Other security characteristics defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_CwUXkAwgEeiHgJ0O2VQ-kg")]

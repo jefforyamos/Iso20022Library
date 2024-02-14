@@ -21,7 +21,7 @@ public enum BalanceType15Code
 {
     /// <summary>
     /// Amount put on hold.
-    /// Encoded/decoded by serializers as "AMOH".
+    /// Encoded/decoded by serializers as &quot;AMOH&quot;.
     /// </summary>
     [EnumMember(Value = "AMOH")]
     [IsoId("_r_HcwcSqEeuBjv5G5kw00g")]
@@ -30,7 +30,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Amount of money owed
-    /// Encoded/decoded by serializers as "AMTO".
+    /// Encoded/decoded by serializers as &quot;AMTO&quot;.
     /// </summary>
     [EnumMember(Value = "AMTO")]
     [IsoId("_r_Hcw8SqEeuBjv5G5kw00g")]
@@ -39,7 +39,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Amount of money due.
-    /// Encoded/decoded by serializers as "AMTD".
+    /// Encoded/decoded by serializers as &quot;AMTD&quot;.
     /// </summary>
     [EnumMember(Value = "AMTD")]
     [IsoId("_r_HcxcSqEeuBjv5G5kw00g")]
@@ -48,7 +48,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Credit line available.
-    /// Encoded/decoded by serializers as "CRDL".
+    /// Encoded/decoded by serializers as &quot;CRDL&quot;.
     /// </summary>
     [EnumMember(Value = "CRDL")]
     [IsoId("_r_Hcx8SqEeuBjv5G5kw00g")]
@@ -57,7 +57,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Other type of balance defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_r_HcycSqEeuBjv5G5kw00g")]
@@ -66,7 +66,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Other type of balance defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_r_ID0cSqEeuBjv5G5kw00g")]
@@ -75,7 +75,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Balance of money or securities that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "AVLB".
+    /// Encoded/decoded by serializers as &quot;AVLB&quot;.
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_r_ID08SqEeuBjv5G5kw00g")]
@@ -84,7 +84,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Cleared items balance. 
-    /// Encoded/decoded by serializers as "CLRI".
+    /// Encoded/decoded by serializers as &quot;CLRI&quot;.
     /// </summary>
     [EnumMember(Value = "CLRI")]
     [IsoId("_r_ID1cSqEeuBjv5G5kw00g")]
@@ -93,7 +93,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Ledger balance refers to posted transactions (e.g. limit authorisation amount - posted transactions).
-    /// Encoded/decoded by serializers as "LDGR".
+    /// Encoded/decoded by serializers as &quot;LDGR&quot;.
     /// </summary>
     [EnumMember(Value = "LDGR")]
     [IsoId("_r_ID18SqEeuBjv5G5kw00g")]
@@ -102,7 +102,7 @@ public enum BalanceType15Code
     
     /// <summary>
     /// Value expressed in points.
-    /// Encoded/decoded by serializers as "PNTS".
+    /// Encoded/decoded by serializers as &quot;PNTS&quot;.
     /// </summary>
     [EnumMember(Value = "PNTS")]
     [IsoId("_y5o-4cSqEeuBjv5G5kw00g")]

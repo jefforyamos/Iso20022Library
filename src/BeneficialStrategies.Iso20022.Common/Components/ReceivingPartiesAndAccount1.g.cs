@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
 [IsoId("_VP5xZ9p-Ed-ak6NoX_4Aeg_2096007708")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receiving Parties And Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ReceivingPartiesAndAccount1
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_VP5xaNp-Ed-ak6NoX_4Aeg_1920137751")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrDtls")]
     #endif
+    [IsoXmlTag("RcvrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount11 ReceiverDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount11 ReceiverDetails { get; init; } 
+    public required InvestmentAccount11 ReceiverDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount11 ReceiverDetails { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record ReceivingPartiesAndAccount1
     /// Party that acts on behalf of the buyer of securities when the buyer does not have a direct relationship with the receiving agent.
     /// </summary>
     [IsoId("_VP5xadp-Ed-ak6NoX_4Aeg_-953327782")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receivers Custodian Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrsCtdnDtls")]
     #endif
+    [IsoXmlTag("RcvrsCtdnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount2? ReceiversCustodianDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,15 +84,14 @@ public partial record ReceivingPartiesAndAccount1
     #endif
     
     /// <summary>
-    /// Party that the Receiver's custodian uses to effect the receipt of a security, when the Receiver's custodian does not have a direct relationship with the Receiver agent.
+    /// Party that the Receiver&apos;s custodian uses to effect the receipt of a security, when the Receiver&apos;s custodian does not have a direct relationship with the Receiver agent.
     /// </summary>
     [IsoId("_VP5xatp-Ed-ak6NoX_4Aeg_-962563141")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receivers Intermediary Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrsIntrmyDtls")]
     #endif
+    [IsoXmlTag("RcvrsIntrmyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount2? ReceiversIntermediaryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,16 +104,15 @@ public partial record ReceivingPartiesAndAccount1
     /// Party that receives securities from the delivering agent via the place of settlement, eg, securities central depository.
     /// </summary>
     [IsoId("_VP5xa9p-Ed-ak6NoX_4Aeg_-992117644")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Agent Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgAgtDtls")]
     #endif
+    [IsoXmlTag("RcvgAgtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount2 ReceivingAgentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentificationAndAccount2 ReceivingAgentDetails { get; init; } 
+    public required PartyIdentificationAndAccount2 ReceivingAgentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentificationAndAccount2 ReceivingAgentDetails { get; init; } 
     #else
@@ -129,15 +123,13 @@ public partial record ReceivingPartiesAndAccount1
     /// Identifies the securities settlement system to be used.
     /// </summary>
     [IsoId("_VP5xbNp-Ed-ak6NoX_4Aeg_-796229294")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Settlement System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesSttlmSys")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctiesSttlmSys")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecuritiesSettlementSystem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,16 +142,15 @@ public partial record ReceivingPartiesAndAccount1
     /// Place where settlement of the securities takes place.
     /// </summary>
     [IsoId("_VP5xbdp-Ed-ak6NoX_4Aeg_443129355")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfSttlmDtls")]
     #endif
+    [IsoXmlTag("PlcOfSttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount2 PlaceOfSettlementDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentificationAndAccount2 PlaceOfSettlementDetails { get; init; } 
+    public required PartyIdentificationAndAccount2 PlaceOfSettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentificationAndAccount2 PlaceOfSettlementDetails { get; init; } 
     #else

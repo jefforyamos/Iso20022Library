@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the request of a PIN management from an ATM.
 /// </summary>
 [IsoId("_clVlUa4aEeW_TaP-ygI0SQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATMPIN Management Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ATMPINManagementRequest2
     /// Environment in which the transaction is performed.
     /// </summary>
     [IsoId("_cwEOoa4aEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMEnvironment11 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMEnvironment11 Environment { get; init; } 
+    public required ATMEnvironment11 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMEnvironment11 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ATMPINManagementRequest2
     /// Context in which the transaction is performed.
     /// </summary>
     [IsoId("_cwEOo64aEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMContext16 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMContext16 Context { get; init; } 
+    public required ATMContext16 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMContext16 Context { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ATMPINManagementRequest2
     /// Transaction for which the service is requested.
     /// </summary>
     [IsoId("_cwEOpa4aEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMTransaction9 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMTransaction9 Transaction { get; init; } 
+    public required ATMTransaction9 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMTransaction9 Transaction { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details on the limits.
 /// </summary>
 [IsoId("_8CmKEaMgEeCJ6YNENx4h-w_-1072216892")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Limit5
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
     [IsoId("_8CmKEqMgEeCJ6YNENx4h-w_-1380156253")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2Choice_ Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount2Choice_ Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount2Choice_ Amount { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Limit5
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
     [IsoId("_8CmKE6MgEeCJ6YNENx4h-w_-1218026722")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else

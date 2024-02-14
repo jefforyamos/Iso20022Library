@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action general information details.
 /// </summary>
 [IsoId("_1jUUkzL3EeKU9IrkkToqcw_-1079873192")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action General Information SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionGeneralInformationSD5
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1jUUlDL3EeKU9IrkkToqcw_-2076945545")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record CorporateActionGeneralInformationSD5
     /// DTC processing domain/ category for event types.
     /// </summary>
     [IsoId("_1jUUlTL3EeKU9IrkkToqcw_-1204811035")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Group")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtGrp")]
     #endif
+    [IsoXmlTag("EvtGrp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventGroup1Code? EventGroup { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record CorporateActionGeneralInformationSD5
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action event type name. Used in place for the events that cannot be classified by ISO code and mapped to OTHR or when two or more distinct events (in DTCC model) use same ISO code and there are no additional data elements that distinguish those two or more events.
     /// </summary>
     [IsoId("_1jdegDL3EeKU9IrkkToqcw_1209850621")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTp")]
     #endif
+    [IsoXmlTag("EvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedEventType1Code? EventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record CorporateActionGeneralInformationSD5
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action sub event type name further defines the event type.
     /// </summary>
     [IsoId("_1jdegTL3EeKU9IrkkToqcw_-750723766")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubEvtTp")]
     #endif
+    [IsoXmlTag("SubEvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCCSubEventType2Code? SubEventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

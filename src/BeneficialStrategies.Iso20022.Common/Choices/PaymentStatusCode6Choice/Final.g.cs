@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode6Choice
     /// Qualifies further the final status.
     /// </summary>
     [IsoId("_phD1BRbzEeOy-PlRuFSUzQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode6Choice
         /// Specifies the final status of a transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Fnl")]
         #endif
+        [IsoXmlTag("Fnl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinalStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinalStatus1Code Value { get; init; } 
+        public required FinalStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinalStatus1Code Value { get; init; } 
         #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reversible1Choice.Code))]
     [KnownType(typeof(Reversible1Choice.Proprietary))]
     [IsoId("_AYOIONokEeC60axPepSq7g_-1179089003")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversible 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instrument specific technical data to support identification.
 /// </summary>
 [IsoId("_6TNIgTH8EeWRJePX1ORoaw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Record Technical Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record RecordTechnicalData2
     /// Defines the date and time when the report was originally received by the national competent authority.
     /// </summary>
     [IsoId("_6nJ_RTH8EeWRJePX1ORoaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receipt Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RctDtTm")]
     #endif
+    [IsoXmlTag("RctDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ReceiptDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ReceiptDateTime { get; init; } 
+    public required System.DateTime ReceiptDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ReceiptDateTime { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record RecordTechnicalData2
     /// Specifies the reason for the cancellation the transaction.
     /// </summary>
     [IsoId("_xFDToJHzEeWL7bXuV2k5pg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
+    [IsoXmlTag("CxlRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancelledStatusReason15Code CancellationReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancelledStatusReason15Code CancellationReason { get; init; } 
+    public required CancelledStatusReason15Code CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancelledStatusReason15Code CancellationReason { get; init; } 
     #else

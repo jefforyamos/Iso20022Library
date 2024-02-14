@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of the contact person.
 /// </summary>
 [IsoId("__RflYS1AEeqVb9PEK4pNyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contact")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record Contact9
     /// Name of the party, such as a person or a team, responsible for the report.
     /// </summary>
     [IsoId("__TBPYS1AEeqVb9PEK4pNyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Name { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Name { get; init; } 
+    public required System.String Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Name { get; init; } 
     #else
@@ -76,19 +72,16 @@ public partial record Contact9
     /// Phone number of the person responsible for the report.
     /// </summary>
     [IsoId("__TBPYy1AEeqVb9PEK4pNyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Phone Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhneNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PhneNb")]
+    [IsoSimpleType(IsoSimpleType.PhoneNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PhoneNumber { get; init; } 
+    public required System.String PhoneNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PhoneNumber { get; init; } 
     #else
@@ -99,19 +92,17 @@ public partial record Contact9
     /// Electronic mail (e-mail) address of the of the person responsible for the report.
     /// </summary>
     [IsoId("__TBPZS1AEeqVb9PEK4pNyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Email Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EmailAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EmailAdr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text EmailAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EmailAddress { get; init; } 
+    public required System.String EmailAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EmailAddress { get; init; } 
     #else
@@ -122,15 +113,13 @@ public partial record Contact9
     /// Function of the person responsible for the report.
     /// </summary>
     [IsoId("__TBPZy1AEeqVb9PEK4pNyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Fctn")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Function { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

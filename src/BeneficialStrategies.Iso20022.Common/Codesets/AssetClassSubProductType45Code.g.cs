@@ -21,7 +21,7 @@ public enum AssetClassSubProductType45Code
 {
     /// <summary>
     /// Commodity of type potato.
-    /// Encoded/decoded by serializers as "POTA".
+    /// Encoded/decoded by serializers as &quot;POTA&quot;.
     /// </summary>
     [EnumMember(Value = "POTA")]
     [IsoId("_Kl9U0fwdEeW4Wthd0Ze_kA")]

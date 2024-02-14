@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Key elements used to identify the original transaction(s) that is being referred to.
 /// </summary>
 [IsoId("_XaBDNfWfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Payment Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record TrackerPaymentTransaction3
     /// Provides information on the original tracked message that contained the transaction.
     /// </summary>
     [IsoId("_XaBDN_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracked Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckdMsgId")]
     #endif
+    [IsoXmlTag("TrckdMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessInstruction2? TrackedMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record TrackerPaymentTransaction3
     /// Party that provides information on the status and related details of a transaction.
     /// </summary>
     [IsoId("_XaBqMfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Informing Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckrInfrmgPty")]
     #endif
+    [IsoXmlTag("TrckrInfrmgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerPartyIdentification1 TrackerInformingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerPartyIdentification1 TrackerInformingParty { get; init; } 
+    public required TrackerPartyIdentification1 TrackerInformingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerPartyIdentification1 TrackerInformingParty { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record TrackerPaymentTransaction3
     /// Set of elements used to reference a payment instruction.
     /// </summary>
     [IsoId("_XaBqNfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtId")]
     #endif
+    [IsoXmlTag("PmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentIdentification11 PaymentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentIdentification11 PaymentIdentification { get; init; } 
+    public required PaymentIdentification11 PaymentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentIdentification11 PaymentIdentification { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record TrackerPaymentTransaction3
     /// Specifies the details on how the settlement of the transaction(s) between the instructing agent and the instructed agent is completed.
     /// </summary>
     [IsoId("_XaBqOfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmInf")]
     #endif
+    [IsoXmlTag("SttlmInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementInstruction10? SettlementInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record TrackerPaymentTransaction3
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
     [IsoId("_XaBqPfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAgt")]
     #endif
+    [IsoXmlTag("InstdAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerFinancialInstitutionIdentification1? InstructedAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,12 @@ public partial record TrackerPaymentTransaction3
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
     [IsoId("_XaBqP_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrBkSttlmAmt")]
     #endif
+    [IsoXmlTag("IntrBkSttlmAmt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +157,11 @@ public partial record TrackerPaymentTransaction3
     /// Provides details of the rate and the currencies used in the foreign exchange.
     /// </summary>
     [IsoId("_XaBqT_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRateData")]
     #endif
+    [IsoXmlTag("XchgRateData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyExchange16? ExchangeRateData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +174,11 @@ public partial record TrackerPaymentTransaction3
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
     [IsoId("_XaBqUfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Bearer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgBr")]
     #endif
+    [IsoXmlTag("ChrgBr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeBearerType4Code? ChargeBearer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +191,11 @@ public partial record TrackerPaymentTransaction3
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
     [IsoId("_XaBqU_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsInf")]
     #endif
+    [IsoXmlTag("ChrgsInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerCharges1? ChargesInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +208,11 @@ public partial record TrackerPaymentTransaction3
     /// Provides information on the tracking of the interbank transaction related to the payment.
     /// </summary>
     [IsoId("_XaBqVfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckrData")]
     #endif
+    [IsoXmlTag("TrckrData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerData3? TrackerData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

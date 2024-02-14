@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of information related to the cancellation request, such as actors involved and identification of the original multiple invoice financing request to which the cancellation request is referring.
 /// </summary>
 [IsoId("_TiiQo9p-Ed-ak6NoX_4Aeg_1653900933")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancellation Request Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record CancellationRequestInformation1
     /// Unique and unambiguous identifier of the original financing request message as assigned by the original sending party.
     /// </summary>
     [IsoId("_TiiQpNp-Ed-ak6NoX_4Aeg_1653900935")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlGrpId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalGroupIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalGroupIdentification { get; init; } 
+    public required System.String OriginalGroupIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalGroupIdentification { get; init; } 
     #else
@@ -76,16 +72,16 @@ public partial record CancellationRequestInformation1
     /// Date and time at which the original financing request message was created.
     /// </summary>
     [IsoId("_TiiQpdp-Ed-ak6NoX_4Aeg_1653900951")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlCreDtTm")]
     #endif
+    [IsoXmlTag("OrgnlCreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime OriginalCreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime OriginalCreationDateTime { get; init; } 
+    public required System.DateTime OriginalCreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime OriginalCreationDateTime { get; init; } 
     #else
@@ -96,15 +92,12 @@ public partial record CancellationRequestInformation1
     /// Specifies the number of single invoice financing requests included in the original financing request message.
     /// </summary>
     [IsoId("_TiiQptp-Ed-ak6NoX_4Aeg_1653900968")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Invoice Requests")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfInvcReqs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfInvcReqs")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? NumberOfInvoiceRequests { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +110,12 @@ public partial record CancellationRequestInformation1
     /// Total amount of the bulk invoice financing request. It is composed by the sum of the total amounts of all invoices included in the original financing request message.
     /// </summary>
     [IsoId("_TiiQp9p-Ed-ak6NoX_4Aeg_1653900986")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Bulk Invoice Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlBlkInvcAmt")]
     #endif
+    [IsoXmlTag("TtlBlkInvcAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,19 +128,17 @@ public partial record CancellationRequestInformation1
     /// Further details on the cancellation request information, in an uncoded form.
     /// </summary>
     [IsoId("_TiiQqNp-Ed-ak6NoX_4Aeg_-96892245")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CxlRsn")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text CancellationReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CancellationReason { get; init; } 
+    public required System.String CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CancellationReason { get; init; } 
     #else
@@ -158,12 +149,11 @@ public partial record CancellationRequestInformation1
     /// Party that requests the cancellation of a financing request previously sent.
     /// </summary>
     [IsoId("_TirakNp-Ed-ak6NoX_4Aeg_-606230601")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Requestor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgRqstr")]
     #endif
+    [IsoXmlTag("FincgRqstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount6? FinancingRequestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +166,11 @@ public partial record CancellationRequestInformation1
     /// Financial institution that receives the request from the financing requestor and forwards it to the first agent for execution.
     /// </summary>
     [IsoId("_Tirakdp-Ed-ak6NoX_4Aeg_-604384907")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyAgt")]
     #endif
+    [IsoXmlTag("IntrmyAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +183,11 @@ public partial record CancellationRequestInformation1
     /// Financial institution of financing requestor to which an invoice financing cancellation request is addressed.
     /// </summary>
     [IsoId("_Tiraktp-Ed-ak6NoX_4Aeg_-603459399")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstAgt")]
     #endif
+    [IsoXmlTag("FrstAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification6? FirstAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Statement information of an account.
 /// </summary>
 [IsoId("_lBqwQTaqEeyjpIf0r_Ojqw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Statement Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record AccountStatementDetails2
     /// Date of the transaction.
     /// </summary>
     [IsoId("_lF5wATaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDt")]
     #endif
+    [IsoXmlTag("TxDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate TransactionDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly TransactionDate { get; init; } 
+    public required System.DateOnly TransactionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly TransactionDate { get; init; } 
     #else
@@ -73,12 +71,12 @@ public partial record AccountStatementDetails2
     /// No default value.
     /// </summary>
     [IsoId("_lF5wAzaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgInd")]
     #endif
+    [IsoXmlTag("PdgInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PendingIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,12 +89,12 @@ public partial record AccountStatementDetails2
     /// Posting date of the transaction.
     /// </summary>
     [IsoId("_lF5wBTaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Posting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxPstngDt")]
     #endif
+    [IsoXmlTag("TxPstngDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TransactionPostingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +107,11 @@ public partial record AccountStatementDetails2
     /// Amount of the transaction.
     /// </summary>
     [IsoId("_lF6XETaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAmt")]
     #endif
+    [IsoXmlTag("TxAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount7? TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,12 +124,11 @@ public partial record AccountStatementDetails2
     /// Cardholder billing amount of the transaction.
     /// </summary>
     [IsoId("_lF6XEzaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Billing Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrBllgAmt")]
     #endif
+    [IsoXmlTag("CrdhldrBllgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount7? CardholderBillingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,12 +141,11 @@ public partial record AccountStatementDetails2
     /// A code to indicate the tax amount is credit or debit
     /// </summary>
     [IsoId("_OBupwTaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbt")]
     #endif
+    [IsoXmlTag("CdtDbt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebit3Code? CreditDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,15 +158,13 @@ public partial record AccountStatementDetails2
     /// Currency of the amount.
     /// </summary>
     [IsoId("_lF6XFzaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acceptor Name And Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptrNmAndLctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AccptrNmAndLctn")]
+    [IsoSimpleType(IsoSimpleType.Max99Text)]
     [StringLength(maximumLength: 99 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax99Text? AcceptorNameAndLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -184,15 +177,13 @@ public partial record AccountStatementDetails2
     /// Short transaction description to print or display.
     /// </summary>
     [IsoId("_lF6XGTaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Transaction Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtTxDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ShrtTxDesc")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ShortTransactionDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,15 +196,13 @@ public partial record AccountStatementDetails2
     /// Long transaction description to print or display.
     /// </summary>
     [IsoId("_lF6XGzaqEeyjpIf0r_Ojqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Long Transaction Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LngTxDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LngTxDesc")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? LongTransactionDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

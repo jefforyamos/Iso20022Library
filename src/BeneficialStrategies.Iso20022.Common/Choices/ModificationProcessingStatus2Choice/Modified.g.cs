@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationProcessingStatus2Cho
     /// Instruction has been modified.
     /// </summary>
     [IsoId("_0k3gwAlIEeGATtfOBToyew_-1512185367")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

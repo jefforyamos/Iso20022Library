@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about total instructed balance.
 /// </summary>
 [IsoId("_D3WzDffQEeiNZp_PtLohLw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instructed Balance Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InstructedBalanceDetails10
     /// Provides information about the total instructed balance.
     /// </summary>
     [IsoId("_D3WzD_fQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Instructed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlInstdBal")]
     #endif
+    [IsoXmlTag("TtlInstdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceFormat7Choice_ TotalInstructedBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BalanceFormat7Choice_ TotalInstructedBalance { get; init; } 
+    public required BalanceFormat7Choice_ TotalInstructedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BalanceFormat7Choice_ TotalInstructedBalance { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record InstructedBalanceDetails10
     /// Daily total of all accepted instructions for given day.  Cover protect instructions will be included in this total balance.
     /// </summary>
     [IsoId("_D3WzEffQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Accepted Instruction Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAccptdInstrBal")]
     #endif
+    [IsoXmlTag("TtlAccptdInstrBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? TotalAcceptedInstructionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record InstructedBalanceDetails10
     /// Daily total of cancelled instructions for a given day.
     /// </summary>
     [IsoId("_D3WzE_fQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Cancelled Instruction Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCancInstrBal")]
     #endif
+    [IsoXmlTag("TtlCancInstrBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? TotalCancelledInstructionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record InstructedBalanceDetails10
     /// Daily total of pending instructions in pending status.  It includes cancel pending instructions.
     /// </summary>
     [IsoId("_D3WzFffQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Pending Instruction Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlPdgInstrBal")]
     #endif
+    [IsoXmlTag("TtlPdgInstrBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? TotalPendingInstructionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record InstructedBalanceDetails10
     /// Daily total of rejected instructions.
     /// </summary>
     [IsoId("_D3WzF_fQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Rejected Instruction Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlRjctdInstrBal")]
     #endif
+    [IsoXmlTag("TtlRjctdInstrBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? TotalRejectedInstructionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,11 @@ public partial record InstructedBalanceDetails10
     /// Daily total of all protect instructions sent in a given day.
     /// </summary>
     [IsoId("_D3WzGffQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Protect Instruction Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlPrtctInstrBal")]
     #endif
+    [IsoXmlTag("TtlPrtctInstrBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? TotalProtectInstructionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +153,11 @@ public partial record InstructedBalanceDetails10
     /// Provide instructed balance breakdown information per option.
     /// </summary>
     [IsoId("_D3WzG_fQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnDtls")]
     #endif
+    [IsoXmlTag("OptnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructedCorporateActionOption11? OptionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

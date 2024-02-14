@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action balance details.
 /// </summary>
 [IsoId("_HxgcEb5ZEeexmbB7KsjCwA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Balance SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record CorporateActionBalanceSD4
     /// Xpath to the element that is being extended.
     /// </summary>
     [IsoId("_IB3zUb5ZEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record CorporateActionBalanceSD4
     /// Position held in a security as of the day prior to publication date. This position is subject to a redemption lottery call when this is the first lottery. This balance will not be adjusted for the supplemental or concurrent lotteries and will remain constant to report the original position.
     /// </summary>
     [IsoId("_IB3zU75ZEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlBal")]
     #endif
+    [IsoXmlTag("OrgnlBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? OriginalBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record CorporateActionBalanceSD4
     /// Adjusted position held in a security that is subject to redemption call.
     /// </summary>
     [IsoId("_IB3zVb5ZEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjusted Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdjstdBal")]
     #endif
+    [IsoXmlTag("AdjstdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? AdjustedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record CorporateActionBalanceSD4
     /// Portion of the original balance position held in DTC general free account as of day prior to publication date. Position held in this account is subject to redemption lottery call.
     /// </summary>
     [IsoId("_IB3zV75ZEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unpledged Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpldgdBal")]
     #endif
+    [IsoXmlTag("UpldgdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? UnpledgedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,11 @@ public partial record CorporateActionBalanceSD4
     /// Portion of the original balance position held in DTC segregated account as of day prior to publication date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
     [IsoId("_IB3zWb5ZEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Unpledged Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtUpldgdBal")]
     #endif
+    [IsoXmlTag("InvstmtUpldgdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +129,11 @@ public partial record CorporateActionBalanceSD4
     /// Portion of the original balance position held in DTC investment account as of day prior to publication date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
     [IsoId("_IB3zW75ZEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Pledged Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtPldgdBal")]
     #endif
+    [IsoXmlTag("InvstmtPldgdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +146,11 @@ public partial record CorporateActionBalanceSD4
     /// Position held in DTC segregated account. This position is eligible for payment.
     /// </summary>
     [IsoId("_IB3zXb5ZEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Memo Segregation Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MemoSgrtnBal")]
     #endif
+    [IsoXmlTag("MemoSgrtnBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedQuantityFormat9? MemoSegregationBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

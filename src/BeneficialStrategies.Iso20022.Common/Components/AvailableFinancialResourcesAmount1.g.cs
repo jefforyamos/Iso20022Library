@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Construct used by a central counterparty to define the size of the aggregate quantum of resources available from a clearing member.
 /// </summary>
 [IsoId("_cu3rILV3EeeKi_hRJkOpmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Available Financial Resources Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,16 @@ public partial record AvailableFinancialResourcesAmount1
     /// Total value of the initial margin (IM) requirement for all members at the last business day of the month.
     /// </summary>
     [IsoId("_HETOAK_tEeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Initial Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlInitlMrgn")]
     #endif
+    [IsoXmlTag("TtlInitlMrgn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalInitialMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalInitialMargin { get; init; } 
+    public required System.Decimal TotalInitialMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalInitialMargin { get; init; } 
     #else
@@ -75,16 +73,16 @@ public partial record AvailableFinancialResourcesAmount1
     /// Total value of the clearing member pre-funded default fund, excluding pre-funded contributions to the default fund from the CCP.
     /// </summary>
     [IsoId("_x3XgwK_tEeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Prefunded Default Fund")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlPrfnddDfltFnd")]
     #endif
+    [IsoXmlTag("TtlPrfnddDfltFnd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalPrefundedDefaultFund { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalPrefundedDefaultFund { get; init; } 
+    public required System.Decimal TotalPrefundedDefaultFund { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalPrefundedDefaultFund { get; init; } 
     #else
@@ -95,12 +93,11 @@ public partial record AvailableFinancialResourcesAmount1
     /// Value of the CCP’s own contribution to the default waterfall junior to the pre-funded default fund contributions of the non-defaulting clearing members.
     /// </summary>
     [IsoId("_WGvdAK_uEeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CCP Skin In The Game")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CCPSkinInTheGame")]
     #endif
+    [IsoXmlTag("CCPSkinInTheGame")]
     public ReportingAssetBreakdown1? CCPSkinInTheGame { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _WGvdAK_uEeaE9YROwd69hA
     
@@ -108,16 +105,16 @@ public partial record AvailableFinancialResourcesAmount1
     /// Total value of other contributions to the pre-funded default fund, not received from clearing members, including any contribution from the CCP that is pari-passu with the default fund contributions of the non-defaulting clearing members.
     /// </summary>
     [IsoId("_bGc4QK_uEeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Default Fund Contribution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrDfltFndCntrbtn")]
     #endif
+    [IsoXmlTag("OthrDfltFndCntrbtn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OtherDefaultFundContribution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OtherDefaultFundContribution { get; init; } 
+    public required System.Decimal OtherDefaultFundContribution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OtherDefaultFundContribution { get; init; } 
     #else
@@ -128,16 +125,16 @@ public partial record AvailableFinancialResourcesAmount1
     /// Total value of all legally‐bound commitments for members to provide additional resources to available to mutualise losses on exhaustion of the default fund.
     /// </summary>
     [IsoId("_s02MoK_uEeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unfunded Member Commitment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UfnddMmbCmmtmnt")]
     #endif
+    [IsoXmlTag("UfnddMmbCmmtmnt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount UnfundedMemberCommitment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal UnfundedMemberCommitment { get; init; } 
+    public required System.Decimal UnfundedMemberCommitment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal UnfundedMemberCommitment { get; init; } 
     #else
@@ -148,16 +145,16 @@ public partial record AvailableFinancialResourcesAmount1
     /// Total value of any third‐party commitments to provide additional resources to absorb losses, for example, from insurers.
     /// </summary>
     [IsoId("_yvLdEK_uEeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unfunded Third Party Commitment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UfnddThrdPtyCmmtmnt")]
     #endif
+    [IsoXmlTag("UfnddThrdPtyCmmtmnt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount UnfundedThirdPartyCommitment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal UnfundedThirdPartyCommitment { get; init; } 
+    public required System.Decimal UnfundedThirdPartyCommitment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal UnfundedThirdPartyCommitment { get; init; } 
     #else

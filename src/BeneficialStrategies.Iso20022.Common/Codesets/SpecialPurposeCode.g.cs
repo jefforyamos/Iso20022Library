@@ -21,7 +21,7 @@ public enum SpecialPurposeCode
 {
     /// <summary>
     /// Blank value.
-    /// Encoded/decoded by serializers as "BLNK".
+    /// Encoded/decoded by serializers as &quot;BLNK&quot;.
     /// </summary>
     [EnumMember(Value = "BLNK")]
     [IsoId("_aerLQBvUEeWeg9zOuV6DZQ")]
@@ -30,7 +30,7 @@ public enum SpecialPurposeCode
     
     /// <summary>
     /// Not available (N/A).
-    /// Encoded/decoded by serializers as "NTAV".
+    /// Encoded/decoded by serializers as &quot;NTAV&quot;.
     /// </summary>
     [EnumMember(Value = "NTAV")]
     [IsoId("_brFsUBvaEeWeg9zOuV6DZQ")]
@@ -39,7 +39,7 @@ public enum SpecialPurposeCode
     
     /// <summary>
     /// Any MIC code.
-    /// Encoded/decoded by serializers as "ANYM".
+    /// Encoded/decoded by serializers as &quot;ANYM&quot;.
     /// </summary>
     [EnumMember(Value = "ANYM")]
     [IsoId("_KyeQMB3ZEeWNp95x0ENf8w")]
@@ -48,7 +48,7 @@ public enum SpecialPurposeCode
     
     /// <summary>
     /// Value not reported by the party.
-    /// Encoded/decoded by serializers as "NORP".
+    /// Encoded/decoded by serializers as &quot;NORP&quot;.
     /// </summary>
     [EnumMember(Value = "NORP")]
     [IsoId("_3wXcQNGeEeaQk737TH1Fzw")]
@@ -57,7 +57,7 @@ public enum SpecialPurposeCode
     
     /// <summary>
     /// No reason to report or no reason available to report.
-    /// Encoded/decoded by serializers as "NORE".
+    /// Encoded/decoded by serializers as &quot;NORE&quot;.
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_rM9R8OtfEeqXXbgP9HbjvA")]
@@ -66,7 +66,7 @@ public enum SpecialPurposeCode
     
     /// <summary>
     /// Not applicable (N/A).
-    /// Encoded/decoded by serializers as "NOAP".
+    /// Encoded/decoded by serializers as &quot;NOAP&quot;.
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_M1W0YICCEeqdQubSe21TTw")]
@@ -75,7 +75,7 @@ public enum SpecialPurposeCode
     
     /// <summary>
     /// Positive indication.
-    /// Encoded/decoded by serializers as "TRUE".
+    /// Encoded/decoded by serializers as &quot;TRUE&quot;.
     /// </summary>
     [EnumMember(Value = "TRUE")]
     [IsoId("_KQB1wOG8EeyjU5A7t8P1KA")]
@@ -84,7 +84,7 @@ public enum SpecialPurposeCode
     
     /// <summary>
     /// Negative indication.
-    /// Encoded/decoded by serializers as "FALS".
+    /// Encoded/decoded by serializers as &quot;FALS&quot;.
     /// </summary>
     [EnumMember(Value = "FALS")]
     [IsoId("_NSF4kOG8EeyjU5A7t8P1KA")]

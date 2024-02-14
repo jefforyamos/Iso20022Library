@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPLiquidityStressTestingDefinitionReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about how the central counterparty defines liquidity stress scenarios used to stress the liquidity resources and requirements of the CCP.")]
 [IsoId("_Q-Y94eUUEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Liquidity Stress Testing Definition Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01 : IOuterRecor
     /// Definition of scenario used to stress the liquidity needs of the CCP.
     /// </summary>
     [IsoId("_Q-Y96eUUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquidity Stress Scenario Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LqdtyStrssScnroDef")]
     #endif
+    [IsoXmlTag("LqdtyStrssScnroDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LiquidityStressScenarioDefinition1 LiquidityStressScenarioDefinition { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LiquidityStressScenarioDefinition1 LiquidityStressScenarioDefinition { get; init; } 
+    public required LiquidityStressScenarioDefinition1 LiquidityStressScenarioDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LiquidityStressScenarioDefinition1 LiquidityStressScenarioDefinition { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01 : IOuterRecor
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Q-Y96-UUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01 : IOuterRecor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPLiquidityStressTestingDefinitionReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPLiquidityStressTestingDefinitionReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPLiquidityStressTestingDefinitionReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01 : IOuterRecor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPLiquidityStressTestingDefinitionReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPLiquidityStressTestingDefinitionReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPLiquidityStressTestingDefinitionReportV01Document : IOuterDocument<CCPLiquidityStressTestingDefinitionReportV01>
@@ -140,7 +136,7 @@ public partial record CCPLiquidityStressTestingDefinitionReportV01Document : IOu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPLiquidityStressTestingDefinitionReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPLiquidityStressTestingDefinitionReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPLiquidityStressTestingDefinitionReportV01 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice between ISIN and an alternative format for the identification of a financial instrument. ISIN is the preferred format.
 /// </summary>
 [IsoId("_t3aoASyGEe2xAdY9t5fB3g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Basket Constituents")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BasketConstituents3
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
     [IsoId("_t4Q8kSyGEe2xAdY9t5fB3g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrmId")]
     #endif
+    [IsoXmlTag("InstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstrumentIdentification6Choice_ InstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstrumentIdentification6Choice_ InstrumentIdentification { get; init; } 
+    public required InstrumentIdentification6Choice_ InstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstrumentIdentification6Choice_ InstrumentIdentification { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record BasketConstituents3
     /// Indicates the number of units of a particular constituent in a custom basket.
     /// </summary>
     [IsoId("_t4Q8kyyGEe2xAdY9t5fB3g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
+    [IsoSimpleType(IsoSimpleType.LongFraction19DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLongFraction19DecimalNumber? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record BasketConstituents3
     /// Specifies the unit of measure in which the number of units of a particular custom basket constituent is expressed.
     /// </summary>
     [IsoId("_t4Q8lSyGEe2xAdY9t5fB3g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitOfMeasr")]
     #endif
+    [IsoXmlTag("UnitOfMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

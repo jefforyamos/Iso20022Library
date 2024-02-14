@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectionReason16Choice.Code))]
     [KnownType(typeof(RejectionReason16Choice.Proprietary))]
     [IsoId("_DW4C4SwxEeOEV5XHD-BKpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason 16 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

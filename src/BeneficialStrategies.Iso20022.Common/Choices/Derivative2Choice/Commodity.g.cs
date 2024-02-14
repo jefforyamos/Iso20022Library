@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice
     /// Details specific for commodity derivatives.
     /// </summary>
     [IsoId("_Bv9MQWkwEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commodity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice
         /// Provides specific information related to commodity derivatives.
         /// </summary>
         [IsoId("_znHVYWlHEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Class Specific")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClssSpcfc")]
         #endif
+        [IsoXmlTag("ClssSpcfc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CommodityDerivate2Choice_? ClassSpecific { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +71,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice
         /// Currency in which the notional is denominated.
         /// </summary>
         [IsoId("_znHVY2lHEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Notional Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NtnlCcy")]
         #endif
+        [IsoXmlTag("NtnlCcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string NotionalCurrency { get; init; } 
+        public required string NotionalCurrency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string NotionalCurrency { get; init; } 
         #else

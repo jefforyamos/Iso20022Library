@@ -26,9 +26,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityEnergy1Choice.LightEnd))]
     [KnownType(typeof(AssetClassCommodityEnergy1Choice.Distillates))]
     [IsoId("_pBoTZg2nEeW72qLtWESimw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity Energy 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusCodeSearch2Choice.FinalStatus))]
     [KnownType(typeof(PaymentStatusCodeSearch2Choice.PendingAndFinalStatus))]
     [IsoId("_RGEOMNp-Ed-ak6NoX_4Aeg_396814061")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Status Code Search 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contractual details related to the agreement between parties.
 /// </summary>
 [IsoId("_Issv0eWnEeevU7McUP3D1w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Agreement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TradeAgreement16
     /// Party that is specified as the buyer for this trade agreement.
     /// </summary>
     [IsoId("_I1XjoeWnEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty4 Buyer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeParty4 Buyer { get; init; } 
+    public required TradeParty4 Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeParty4 Buyer { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TradeAgreement16
     /// Party that is specified as the seller for this trade agreement.
     /// </summary>
     [IsoId("_I1Xjo-WnEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty4 Seller { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeParty4 Seller { get; init; } 
+    public required TradeParty4 Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeParty4 Seller { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record TradeAgreement16
     /// Quotation document referenced from this trade agreement.
     /// </summary>
     [IsoId("_I1XjpeWnEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quotation Document Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtnDocId")]
     #endif
+    [IsoXmlTag("QtnDocId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? QuotationDocumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record TradeAgreement16
     /// Contract document referenced from this trade agreement.
     /// </summary>
     [IsoId("_I1Xjp-WnEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Document Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctDocId")]
     #endif
+    [IsoXmlTag("CtrctDocId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? ContractDocumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record TradeAgreement16
     /// Buyer order document referenced from this trade agreement.
     /// </summary>
     [IsoId("_I1XjqeWnEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Order Identification Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrOrdrIdDoc")]
     #endif
+    [IsoXmlTag("BuyrOrdrIdDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? BuyerOrderIdentificationDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,11 @@ public partial record TradeAgreement16
     /// Additional document referenced from this trade agreement.
     /// </summary>
     [IsoId("_I1Xjq-WnEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Reference Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRefDoc")]
     #endif
+    [IsoXmlTag("AddtlRefDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation2? AdditionalReferenceDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +156,11 @@ public partial record TradeAgreement16
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
     [IsoId("_I1XjreWnEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incoterms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Incotrms")]
     #endif
+    [IsoXmlTag("Incotrms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Incoterms3? Incoterms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

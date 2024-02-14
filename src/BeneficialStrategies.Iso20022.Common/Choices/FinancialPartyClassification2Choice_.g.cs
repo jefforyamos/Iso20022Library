@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialPartyClassification2Choice.Code))]
     [KnownType(typeof(FinancialPartyClassification2Choice.Proprietary))]
     [IsoId("_IH7-oSI4Ee2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Party Classification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

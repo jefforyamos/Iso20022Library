@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCapacityParty5Choice
     /// Party tax capacity expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_5TKlaZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCapacityParty5Choice
         /// Specifies the tax role capacity of the instructing party.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TaxLiability1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TaxLiability1Code Value { get; init; } 
+        public required TaxLiability1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TaxLiability1Code Value { get; init; } 
         #else

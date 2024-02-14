@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics of the report.
 /// </summary>
 [IsoId("_MMY5keFiEeWIA4E9cYSxxQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Position Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record IntraPositionReport4
     /// Identification of the query message sent to request this statement.
     /// </summary>
     [IsoId("_MVUMFeFiEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("QryRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? QueryReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,15 +69,13 @@ public partial record IntraPositionReport4
     /// Reference common to all pages of a report.
     /// </summary>
     [IsoId("_MVUMHeFiEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RptId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +88,15 @@ public partial record IntraPositionReport4
     /// Defines the type of query.
     /// </summary>
     [IsoId("_MVUMH-FiEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryTp")]
     #endif
+    [IsoXmlTag("QryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MovementResponseType1Code QueryType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MovementResponseType1Code QueryType { get; init; } 
+    public required MovementResponseType1Code QueryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MovementResponseType1Code QueryType { get; init; } 
     #else
@@ -114,16 +107,16 @@ public partial record IntraPositionReport4
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
     [IsoId("_MVUMJ-FiEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activity Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtyInd")]
     #endif
+    [IsoXmlTag("ActvtyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ActivityIndicator { get; init; } 
+    public required System.String ActivityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ActivityIndicator { get; init; } 
     #else

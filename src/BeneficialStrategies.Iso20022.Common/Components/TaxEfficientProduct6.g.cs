@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics of a tax efficient product.
 /// </summary>
 [IsoId("__yVzAZNNEemQB_8XA98K0Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Efficient Product")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TaxEfficientProduct6
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
     [IsoId("_AO5zM5NOEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Efficient Product Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxEffcntPdctTp")]
     #endif
+    [IsoXmlTag("TaxEffcntPdctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
+    public required TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record TaxEfficientProduct6
     /// Indicates that all the current fiscal year’s products are to be included.
     /// </summary>
     [IsoId("_8OMPcZNQEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Year")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurYr")]
     #endif
+    [IsoXmlTag("CurYr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CurrentYear { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record TaxEfficientProduct6
     /// Indicates whether the product contains a cash asset for transfer.
     /// </summary>
     [IsoId("_AO5zNZNOEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Component Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCmpntInd")]
     #endif
+    [IsoXmlTag("CshCmpntInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CashComponentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,11 @@ public partial record TaxEfficientProduct6
     /// Investment plans issued during previous years.
     /// </summary>
     [IsoId("_AO5zN5NOEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsYrs")]
     #endif
+    [IsoXmlTag("PrvsYrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PreviousYear4? PreviousYears { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,11 @@ public partial record TaxEfficientProduct6
     /// Amounts already subscribed for the current year.
     /// </summary>
     [IsoId("_AO5zOZNOEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Year Subscription Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurYrSbcptDtls")]
     #endif
+    [IsoXmlTag("CurYrSbcptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubscriptionInformation2? CurrentYearSubscriptionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +138,11 @@ public partial record TaxEfficientProduct6
     /// Additional information about the tax efficient product.
     /// </summary>
     [IsoId("_AO5zO5NOEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

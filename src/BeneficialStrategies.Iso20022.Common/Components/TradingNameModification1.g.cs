@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of change to the trading name.
 /// </summary>
 [IsoId("_ogVZgA4jEeK3IMoVvcTkkg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trading Name Modification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record TradingNameModification1
     /// Specifies the type of change.
     /// </summary>
     [IsoId("_1Ha10A4jEeK3IMoVvcTkkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModCd")]
     #endif
+    [IsoXmlTag("ModCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? ModificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,19 +66,17 @@ public partial record TradingNameModification1
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another.
     /// </summary>
     [IsoId("_4tgywA4jEeK3IMoVvcTkkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TradgNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text TradingName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TradingName { get; init; } 
+    public required System.String TradingName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TradingName { get; init; } 
     #else

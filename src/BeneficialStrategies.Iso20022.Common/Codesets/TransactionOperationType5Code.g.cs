@@ -21,7 +21,7 @@ public enum TransactionOperationType5Code
 {
     /// <summary>
     /// Transaction is a new transaction.
-    /// Encoded/decoded by serializers as "NEWT".
+    /// Encoded/decoded by serializers as &quot;NEWT&quot;.
     /// </summary>
     [EnumMember(Value = "NEWT")]
     [IsoId("_HyDEUa1UEemkQYpo6COeTA")]
@@ -30,7 +30,7 @@ public enum TransactionOperationType5Code
     
     /// <summary>
     /// Transaction modifies in a previously sent transaction.
-    /// Encoded/decoded by serializers as "MODI".
+    /// Encoded/decoded by serializers as &quot;MODI&quot;.
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_H8xtoa1UEemkQYpo6COeTA")]
@@ -39,7 +39,7 @@ public enum TransactionOperationType5Code
     
     /// <summary>
     /// Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake, in which case, it will be identified as ‘error’.
-    /// Encoded/decoded by serializers as "EROR".
+    /// Encoded/decoded by serializers as &quot;EROR&quot;.
     /// </summary>
     [EnumMember(Value = "EROR")]
     [IsoId("_IHqH8a1UEemkQYpo6COeTA")]
@@ -48,7 +48,7 @@ public enum TransactionOperationType5Code
     
     /// <summary>
     /// Transaction is an early termination.
-    /// Encoded/decoded by serializers as "ETRM".
+    /// Encoded/decoded by serializers as &quot;ETRM&quot;.
     /// </summary>
     [EnumMember(Value = "ETRM")]
     [IsoId("_ISPnUa1UEemkQYpo6COeTA")]
@@ -57,7 +57,7 @@ public enum TransactionOperationType5Code
     
     /// <summary>
     /// Transaction corrects errors in a previously sent transaction.
-    /// Encoded/decoded by serializers as "CORR".
+    /// Encoded/decoded by serializers as &quot;CORR&quot;.
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_IcXzsa1UEemkQYpo6COeTA")]
@@ -66,7 +66,7 @@ public enum TransactionOperationType5Code
     
     /// <summary>
     /// Update of a contract valuation or collateral.
-    /// Encoded/decoded by serializers as "VALU".
+    /// Encoded/decoded by serializers as &quot;VALU&quot;.
     /// </summary>
     [EnumMember(Value = "VALU")]
     [IsoId("_Ivcgsa1UEemkQYpo6COeTA")]
@@ -75,7 +75,7 @@ public enum TransactionOperationType5Code
     
     /// <summary>
     /// Contract to be reported as a new trade and included in a separate position report on the same day.
-    /// Encoded/decoded by serializers as "POSC".
+    /// Encoded/decoded by serializers as &quot;POSC&quot;.
     /// </summary>
     [EnumMember(Value = "POSC")]
     [IsoId("_I5IoMa1UEemkQYpo6COeTA")]
@@ -84,7 +84,7 @@ public enum TransactionOperationType5Code
     
     /// <summary>
     /// Update of a contract collateral.
-    /// Encoded/decoded by serializers as "COLU".
+    /// Encoded/decoded by serializers as &quot;COLU&quot;.
     /// </summary>
     [EnumMember(Value = "COLU")]
     [IsoId("_hZexga1UEemkQYpo6COeTA")]

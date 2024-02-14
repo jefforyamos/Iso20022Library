@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the reported trade transactions.
 /// </summary>
 [IsoId("_R_kY3O3tEemV1LTEADuPBQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TradeData20
     /// Information about accepted and rejected reports and the reasons of rejection.
     /// </summary>
     [IsoId("_R_kY3u3tEemV1LTEADuPBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSttstcs")]
     #endif
+    [IsoXmlTag("RptSttstcs")]
     public DetailedReportStatistics5? ReportStatistics { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _R_kY3u3tEemV1LTEADuPBQ
     
@@ -57,12 +54,11 @@ public partial record TradeData20
     /// Information about accepted and rejected transactions and the reasons of rejection.
     /// </summary>
     [IsoId("_R_kY3-3tEemV1LTEADuPBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSttstcs")]
     #endif
+    [IsoXmlTag("TxSttstcs")]
     public DetailedTransactionStatistics10? TransactionStatistics { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _R_kY3-3tEemV1LTEADuPBQ
     
@@ -70,12 +66,11 @@ public partial record TradeData20
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_R_kY3e3tEemV1LTEADuPBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

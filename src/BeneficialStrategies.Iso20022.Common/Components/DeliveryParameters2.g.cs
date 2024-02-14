@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters of a physical delivery.
 /// </summary>
 [IsoId("_VMU4_9p-Ed-ak6NoX_4Aeg_-1776273308")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Delivery Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record DeliveryParameters2
     /// Indicates whether the address for the physical delivery is the registered address.
     /// </summary>
     [IsoId("_VMU5ANp-Ed-ak6NoX_4Aeg_-1646980441")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registered Address Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegdAdrInd")]
     #endif
+    [IsoXmlTag("RegdAdrInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator RegisteredAddressIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RegisteredAddressIndicator { get; init; } 
+    public required System.String RegisteredAddressIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RegisteredAddressIndicator { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record DeliveryParameters2
     /// Name and address to/from which the physical delivery/receipt of the financial instrument must take place.
     /// </summary>
     [IsoId("_VMU5Adp-Ed-ak6NoX_4Aeg_-1646980710")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name And Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmAndAdr")]
     #endif
+    [IsoXmlTag("NmAndAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress1? NameAndAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Change amount and rate.
 /// </summary>
 [IsoId("_nAOYZvNBEeCuA5Tr22BnwA_-1763287912")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount And Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AmountAndRate2
     /// Amount expressed as an amount of money.
     /// </summary>
     [IsoId("_nAOYZ_NBEeCuA5Tr22BnwA_-817933214")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record AmountAndRate2
     /// Amount expressed as a rate.
     /// </summary>
     [IsoId("_nAOYaPNBEeCuA5Tr22BnwA_905937363")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

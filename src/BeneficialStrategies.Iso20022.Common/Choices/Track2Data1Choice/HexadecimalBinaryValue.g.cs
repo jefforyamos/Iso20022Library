@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice
     /// When an odd number of hexadecimal text characters is present, a zero must be appended to the end of the string to pad to an even number of hexadecimal text characters.
     /// </summary>
     [IsoId("_jYXPMd8aEeeNTcLLmuYy-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hexadecimal Binary Value")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -60,15 +58,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice
         /// Used only for hex binary data only, supports only characters A-F and 0-9.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="HexBinryVal")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("HexBinryVal")]
+        [IsoSimpleType(IsoSimpleType.Max19HexBinaryText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax19HexBinaryText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

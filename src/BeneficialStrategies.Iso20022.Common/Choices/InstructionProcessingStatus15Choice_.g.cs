@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionProcessingStatus15Choice.StandingInstruction))]
     [KnownType(typeof(InstructionProcessingStatus15Choice.ProprietaryStatus))]
     [IsoId("_Rmr4ESdxEeOXAt_43VmZGw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Processing Status 15 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

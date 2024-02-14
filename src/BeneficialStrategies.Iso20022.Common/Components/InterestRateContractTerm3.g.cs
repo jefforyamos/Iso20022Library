@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes how interest rates are reported.
 /// </summary>
 [IsoId("_sCwFwexREeakeva4q26Yqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Rate Contract Term")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InterestRateContractTerm3
     /// Unit for the rate basis.
     /// </summary>
     [IsoId("_sO0L0exREeakeva4q26Yqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Unit")]
     #endif
+    [IsoXmlTag("Unit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateBasis1Code? Unit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record InterestRateContractTerm3
     /// Value of the contract term in number of units.
     /// </summary>
     [IsoId("_sO0L0-xREeakeva4q26Yqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.Max3Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Number? Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

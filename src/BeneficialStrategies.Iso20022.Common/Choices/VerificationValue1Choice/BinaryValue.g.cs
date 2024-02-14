@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
     /// Value of the data expressed in BASE-64 encoded binary form.
     /// </summary>
     [IsoId("_4EhKp5aNEemfCcEf5rVTyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Binary Value")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// Specifies a binary string with a maximum length of 5000 binary bytes.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BinryVal")]
         #endif
+        [IsoXmlTag("BinryVal")]
+        [IsoSimpleType(IsoSimpleType.Max5000Binary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax5000Binary Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Byte[] Value { get; init; } 
+        public required System.Byte[] Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Byte[] Value { get; init; } 
         #else

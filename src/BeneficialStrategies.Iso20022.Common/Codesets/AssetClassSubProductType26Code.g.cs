@@ -21,7 +21,7 @@ public enum AssetClassSubProductType26Code
 {
     /// <summary>
     /// Commodity of type inter energy.
-    /// Encoded/decoded by serializers as "INRG".
+    /// Encoded/decoded by serializers as &quot;INRG&quot;.
     /// </summary>
     [EnumMember(Value = "INRG")]
     [IsoId("_kgdlQ1rKEeWN79Bl6BUd3g")]

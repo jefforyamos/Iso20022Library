@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains text fields in the local language.
 /// </summary>
 [IsoId("_bp4_QcWxEeuhguwJmlgagQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Local Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record LocalData3
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
     [IsoId("_bucIEcWxEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lang")]
     #endif
+    [IsoXmlTag("Lang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISOMax3ALanguageCode Language { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Language { get; init; } 
+    public required string Language { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Language { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record LocalData3
     /// Name of the financial customer in the local language.
     /// </summary>
     [IsoId("_bucIE8WxEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
+    [IsoXmlTag("Nm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderName2? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record LocalData3
     /// Structured postal address in the local language.
     /// </summary>
     [IsoId("_bucIFcWxEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address3? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record LocalData3
     /// Additional local language data
     /// </summary>
     [IsoId("_uM8r8cXLEeumGdYElfgmbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

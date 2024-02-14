@@ -21,7 +21,7 @@ public enum AllocationIndicator1Code
 {
     /// <summary>
     /// Trade is a post-allocation trade.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_kPSY4SjvEeK1Sbo8NpBROA")]
@@ -30,7 +30,7 @@ public enum AllocationIndicator1Code
     
     /// <summary>
     /// Trade is a pre-allocation trade.
-    /// Encoded/decoded by serializers as "PREA".
+    /// Encoded/decoded by serializers as &quot;PREA&quot;.
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_kUnk0SjvEeK1Sbo8NpBROA")]
@@ -39,7 +39,7 @@ public enum AllocationIndicator1Code
     
     /// <summary>
     /// Trade is unallocated.
-    /// Encoded/decoded by serializers as "UNAL".
+    /// Encoded/decoded by serializers as &quot;UNAL&quot;.
     /// </summary>
     [EnumMember(Value = "UNAL")]
     [IsoId("_kZ_NASjvEeK1Sbo8NpBROA")]

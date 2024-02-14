@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus10C
     /// Instruction/Request has been rejected for further processing.
     /// </summary>
     [IsoId("_cdk0ozi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

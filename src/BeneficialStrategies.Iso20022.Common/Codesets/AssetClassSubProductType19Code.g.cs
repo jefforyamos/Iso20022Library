@@ -21,7 +21,7 @@ public enum AssetClassSubProductType19Code
 {
     /// <summary>
     /// Commodity of type deliverable.
-    /// Encoded/decoded by serializers as "DLVR".
+    /// Encoded/decoded by serializers as &quot;DLVR&quot;.
     /// </summary>
     [EnumMember(Value = "DLVR")]
     [IsoId("_TB5cIQ3oEeWc7_0KPiuk6w")]
@@ -30,7 +30,7 @@ public enum AssetClassSubProductType19Code
     
     /// <summary>
     /// Commodity of type non deliverable.
-    /// Encoded/decoded by serializers as "NDLV".
+    /// Encoded/decoded by serializers as &quot;NDLV&quot;.
     /// </summary>
     [EnumMember(Value = "NDLV")]
     [IsoId("_T0xqkQ3oEeWc7_0KPiuk6w")]

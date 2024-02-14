@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a transfer in transaction.
 /// </summary>
 [IsoId("_5ImlFSPvEeWQjryFgN2ITg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer In")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record TransferIn15
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
     [IsoId("_5lLMVSPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Transfer Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdTrfDt")]
     #endif
+    [IsoXmlTag("ReqdTrfDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,15 +66,13 @@ public partial record TransferIn15
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
     [IsoId("_5lLMVyPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +85,11 @@ public partial record TransferIn15
     /// Details of the transfer and cancellation.
     /// </summary>
     [IsoId("_5lLMWSPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer And References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfAndRefs")]
     #endif
+    [IsoXmlTag("TrfAndRefs")]
     public TransferIn16? TransferAndReferences { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _5lLMWSPvEeWQjryFgN2ITg
     
@@ -103,16 +97,15 @@ public partial record TransferIn15
     /// Information related to the account into which the financial instrument is to be received.
     /// </summary>
     [IsoId("_5lLMWyPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount56 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount56 AccountDetails { get; init; } 
+    public required InvestmentAccount56 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount56 AccountDetails { get; init; } 
     #else
@@ -123,12 +116,11 @@ public partial record TransferIn15
     /// Information related to the delivering side of the transfer.
     /// </summary>
     [IsoId("_5lLMXSPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtls")]
     #endif
+    [IsoXmlTag("SttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliverInformation16? SettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +133,11 @@ public partial record TransferIn15
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_5lLMXyPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

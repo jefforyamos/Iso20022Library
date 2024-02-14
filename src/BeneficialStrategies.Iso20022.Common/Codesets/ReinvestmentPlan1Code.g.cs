@@ -21,7 +21,7 @@ public enum ReinvestmentPlan1Code
 {
     /// <summary>
     /// Reinvestment plan is for retail investors only.
-    /// Encoded/decoded by serializers as "RETA".
+    /// Encoded/decoded by serializers as &quot;RETA&quot;.
     /// </summary>
     [EnumMember(Value = "RETA")]
     [IsoId("_Jc8egVf9EeOuDtoQo1qilA")]
@@ -30,7 +30,7 @@ public enum ReinvestmentPlan1Code
     
     /// <summary>
     /// Full reinvestment plan offered.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_JkiUQVf9EeOuDtoQo1qilA")]
@@ -39,7 +39,7 @@ public enum ReinvestmentPlan1Code
     
     /// <summary>
     /// Reinvestment plan is subject to shareholder approval.
-    /// Encoded/decoded by serializers as "SUAP".
+    /// Encoded/decoded by serializers as &quot;SUAP&quot;.
     /// </summary>
     [EnumMember(Value = "SUAP")]
     [IsoId("_JuNNoVf9EeOuDtoQo1qilA")]

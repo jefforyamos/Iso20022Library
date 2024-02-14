@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about external payment system.
 /// </summary>
 [IsoId("_YG0vwB9yEeapDZRA0Hb6ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("External Payment System Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record ExternalPaymentSystemDetails1
     /// Indicates whether the participant can send Register of Clearing Positions.
     /// </summary>
     [IsoId("_s4SMgB9yEeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Positions Register Allowed Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrPossRegrAllwdInd")]
     #endif
+    [IsoXmlTag("ClrPossRegrAllwdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ClearingPositionsRegisterAllowedIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ClearingPositionsRegisterAllowedIndicator { get; init; } 
+    public required System.String ClearingPositionsRegisterAllowedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ClearingPositionsRegisterAllowedIndicator { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record ExternalPaymentSystemDetails1
     /// List of the clearing schemes.
     /// </summary>
     [IsoId("_80z6oB9yEeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Circuits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrCrcts")]
     #endif
+    [IsoXmlTag("ClrCrcts")]
     public ClearingCircuits1? ClearingCircuits { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _80z6oB9yEeapDZRA0Hb6ow
     

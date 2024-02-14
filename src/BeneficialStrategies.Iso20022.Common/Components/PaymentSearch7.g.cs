@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to search for a payment.
 /// </summary>
 [IsoId("_VKVrmZlQEee-Zps0fZQaFQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Search")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record PaymentSearch7
     /// Point to point reference, as assigned by the original initiating party, to unambiguously identify the original payment transaction message. |Usage: this is the former transaction reference.
     /// </summary>
     [IsoId("_VShXP5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record PaymentSearch7
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
     [IsoId("_VShXQZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Execution Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdExctnDt")]
     #endif
+    [IsoXmlTag("ReqdExctnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeSearch3Choice_? RequestedExecutionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record PaymentSearch7
     /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.|.
     /// </summary>
     [IsoId("_VShXQ5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtId")]
     #endif
+    [IsoXmlTag("PmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentIdentification5Choice_? PaymentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record PaymentSearch7
     /// Detailed information about the status of a transfer.||.
     /// </summary>
     [IsoId("_VShXRZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructionStatusSearch4? Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,11 @@ public partial record PaymentSearch7
     /// Specifies the instructed amount(s) on which the query is performed.
     /// </summary>
     [IsoId("_VShXR5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAmt")]
     #endif
+    [IsoXmlTag("InstdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricAmountRange2Choice_? InstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +129,11 @@ public partial record PaymentSearch7
     /// Currency in which the instructed amount is expressed.
     /// </summary>
     [IsoId("_VShXSZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Amount Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAmtCcy")]
     #endif
+    [IsoXmlTag("InstdAmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? InstructedAmountCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +146,11 @@ public partial record PaymentSearch7
     /// Indicates whether the payment instruction is a debit or a credit.|.
     /// </summary>
     [IsoId("_VShXS5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +163,11 @@ public partial record PaymentSearch7
     /// Specifies the interbank settlement amount(s) on which the query is performed.
     /// </summary>
     [IsoId("_VShXTZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrBkSttlmAmt")]
     #endif
+    [IsoXmlTag("IntrBkSttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveAmountRange3Choice_? InterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +180,11 @@ public partial record PaymentSearch7
     /// Currency in which the interbank settlement amount is expressed.
     /// </summary>
     [IsoId("_VShXT5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank Settlement Amount Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrBkSttlmAmtCcy")]
     #endif
+    [IsoXmlTag("IntrBkSttlmAmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? InterbankSettlementAmountCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +197,11 @@ public partial record PaymentSearch7
     /// Indicates the message or event from which an instruction has been initiated.
     /// </summary>
     [IsoId("_VShXUZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtMtd")]
     #endif
+    [IsoXmlTag("PmtMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +214,11 @@ public partial record PaymentSearch7
     /// Instruction to pay an amount of money to an ultimate beneficiary, on behalf of an originator. This instruction may have to be forwarded several times to complete the settlement chain.|.
     /// </summary>
     [IsoId("_VShXU5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTp")]
     #endif
+    [IsoXmlTag("PmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentType4Choice_? PaymentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +231,11 @@ public partial record PaymentSearch7
     /// Urgency or order of importance that the originator would like the recipient of the payment instruction to apply to the processing of the payment instruction.|.
     /// </summary>
     [IsoId("_VShXVZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prty")]
     #endif
+    [IsoXmlTag("Prty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriorityCode3Choice_? Priority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +248,11 @@ public partial record PaymentSearch7
     /// Date and time range within which the payment instruction must be processed.|.
     /// </summary>
     [IsoId("_VShXV5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Validity Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgVldtyTm")]
     #endif
+    [IsoXmlTag("PrcgVldtyTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1Choice_? ProcessingValidityTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,12 +265,11 @@ public partial record PaymentSearch7
     /// Further information related to the processing of the payment instruction. The instruction can relate to a level of service between the bank and the customer, or give instructions to and for specific parties in the payment chain.|.
     /// </summary>
     [IsoId("_VShXWZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Instr")]
     #endif
+    [IsoXmlTag("Instr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Instruction1Code? Instruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -299,15 +282,13 @@ public partial record PaymentSearch7
     /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain.|Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.|Usage: this is the former PaymentInstructionReference.
     /// </summary>
     [IsoId("_VShXW5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +301,12 @@ public partial record PaymentSearch7
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.|Usage: this is the former InterbankValueDate.
     /// </summary>
     [IsoId("_VShXXZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrBkSttlmDt")]
     #endif
+    [IsoXmlTag("IntrBkSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InterbankSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,15 +319,13 @@ public partial record PaymentSearch7
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.|Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction.|It can be included in several messages related to the transaction.|Usage: this is the former RelatedReference.
     /// </summary>
     [IsoId("_VShXX5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End To End Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndToEndId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EndToEndId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? EndToEndIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -359,12 +338,11 @@ public partial record PaymentSearch7
     /// Defines the party fields used to search for a payment.
     /// </summary>
     [IsoId("_VShXYZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pties")]
     #endif
+    [IsoXmlTag("Pties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransactionParty2? Parties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

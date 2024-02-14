@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Key exchange transaction.
 /// </summary>
 [IsoId("_lhtygXvREeS2PZh7wUMQog")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CardTransaction14
     /// Type of key exchange.
     /// </summary>
     [IsoId("_Y34voISiEeScnfYByhaIWA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Exchange Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeyXchgTp")]
     #endif
+    [IsoXmlTag("KeyXchgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardServiceType3Code KeyExchangeType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardServiceType3Code KeyExchangeType { get; init; } 
+    public required CardServiceType3Code KeyExchangeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardServiceType3Code KeyExchangeType { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record CardTransaction14
     /// Date and time of the transaction.
     /// </summary>
     [IsoId("_eXsAMISiEeScnfYByhaIWA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiator Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitrDtTm")]
     #endif
+    [IsoXmlTag("InitrDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime InitiatorDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime InitiatorDateTime { get; init; } 
+    public required System.DateTime InitiatorDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime InitiatorDateTime { get; init; } 
     #else
@@ -93,12 +90,11 @@ public partial record CardTransaction14
     /// Key that has been verified.
     /// </summary>
     [IsoId("__taDUHvREeS2PZh7wUMQog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeyVrfctn")]
     #endif
+    [IsoXmlTag("KeyVrfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KEKIdentifier3? KeyVerification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +107,11 @@ public partial record CardTransaction14
     /// Created key to be stored.
     /// </summary>
     [IsoId("_lurQd3vREeS2PZh7wUMQog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Key")]
     #endif
+    [IsoXmlTag("Key")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey6? Key { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,16 +124,15 @@ public partial record CardTransaction14
     /// Response to the key exchange request.
     /// </summary>
     [IsoId("_mCKVQIO1EeSWSLYdc10LRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRspn")]
     #endif
+    [IsoXmlTag("TxRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType2 TransactionResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType2 TransactionResponse { get; init; } 
+    public required ResponseType2 TransactionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType2 TransactionResponse { get; init; } 
     #else

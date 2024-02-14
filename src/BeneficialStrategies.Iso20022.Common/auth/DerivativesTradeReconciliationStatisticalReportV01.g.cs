@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The DerivativesTradeReportReconciliationStatisticalReport message is sent by the trade repositories to the supervisory authority system, to report cumulative information within the reference period for the reconciliation status of the reported and outstanding derivatives.")]
 [IsoId("_wdKwNxWsEeqvRcdYcNYAVw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivatives Trade Reconciliation Statistical Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
     /// Detailed information on statistics per combination of counterparties.
     /// </summary>
     [IsoId("_wdKwORWsEeqvRcdYcNYAVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statistics Per Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttstcsPerCtrPty")]
     #endif
+    [IsoXmlTag("SttstcsPerCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerCounterparty1Choice_ StatisticsPerCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticsPerCounterparty1Choice_ StatisticsPerCounterparty { get; init; } 
+    public required StatisticsPerCounterparty1Choice_ StatisticsPerCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticsPerCounterparty1Choice_ StatisticsPerCounterparty { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_wdKwOxWsEeqvRcdYcNYAVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DerivativesTradeReconciliationStatisticalReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DerivativesTradeReconciliationStatisticalReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DerivativesTradeReconciliationStatisticalReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeReconciliationStatisticalReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DerivativesTradeReconciliationStatisticalReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DerivativesTradeReconciliationStatisticalReportV01Document : IOuterDocument<DerivativesTradeReconciliationStatisticalReportV01>
@@ -140,7 +136,7 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01Document
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DerivativesTradeReconciliationStatisticalReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DerivativesTradeReconciliationStatisticalReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativesTradeReconciliationStatisticalReportV01 Message { get; init; }

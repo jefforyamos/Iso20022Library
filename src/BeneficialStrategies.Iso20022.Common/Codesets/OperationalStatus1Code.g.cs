@@ -21,7 +21,7 @@ public enum OperationalStatus1Code
 {
     /// <summary>
     /// Enabled.
-    /// Encoded/decoded by serializers as "ENAB".
+    /// Encoded/decoded by serializers as &quot;ENAB&quot;.
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_G4T6wSDZEeWCLu74WLgP4w")]
@@ -30,7 +30,7 @@ public enum OperationalStatus1Code
     
     /// <summary>
     /// Special circumstances.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_G_dEkSDZEeWCLu74WLgP4w")]

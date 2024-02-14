@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The KeyExchangeInitiation message is sent by any party to an acquirer, an issuer or an agent, to initiate a cryptographic key exchange.")]
 [IsoId("_tdBdMHvGEeSCJdwgzb6SFw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Key Exchange Initiation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record KeyExchangeInitiation : IOuterRecord<KeyExchangeInitiation
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_4D0cwHvGEeSCJdwgzb6SFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header17 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header17 Header { get; init; } 
+    public required Header17 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header17 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record KeyExchangeInitiation : IOuterRecord<KeyExchangeInitiation
     /// Information related to the key exchange.
     /// </summary>
     [IsoId("_K6H0YHvHEeSCJdwgzb6SFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Exchange Initiation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeyXchgInitn")]
     #endif
+    [IsoXmlTag("KeyXchgInitn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerKeyExchangeInitiation1 KeyExchangeInitiationValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerKeyExchangeInitiation1 KeyExchangeInitiationValue { get; init; } 
+    public required AcquirerKeyExchangeInitiation1 KeyExchangeInitiationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerKeyExchangeInitiation1 KeyExchangeInitiationValue { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record KeyExchangeInitiation : IOuterRecord<KeyExchangeInitiation
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_urqrgHvPEeSCJdwgzb6SFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType12 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType12 SecurityTrailer { get; init; } 
+    public required ContentInformationType12 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType12 SecurityTrailer { get; init; } 
     #else
@@ -137,7 +132,7 @@ public partial record KeyExchangeInitiation : IOuterRecord<KeyExchangeInitiation
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="KeyExchangeInitiationDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;KeyExchangeInitiationDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public KeyExchangeInitiationDocument ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record KeyExchangeInitiation : IOuterRecord<KeyExchangeInitiation
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="KeyExchangeInitiation"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;KeyExchangeInitiation&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record KeyExchangeInitiationDocument : IOuterDocument<KeyExchangeInitiation>
@@ -164,7 +159,7 @@ public partial record KeyExchangeInitiationDocument : IOuterDocument<KeyExchange
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="KeyExchangeInitiation"/> is required.
+    /// The instance of &lt;seealso cref=&quot;KeyExchangeInitiation&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required KeyExchangeInitiation Message { get; init; }

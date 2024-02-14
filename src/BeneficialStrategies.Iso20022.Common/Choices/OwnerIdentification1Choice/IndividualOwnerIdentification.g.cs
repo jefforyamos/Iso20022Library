@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OwnerIdentification1Choice
     /// Identification of an individual person.
     /// </summary>
     [IsoId("_qe1hwggrEeSqp5OpJ0aMmw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Owner Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

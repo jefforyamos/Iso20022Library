@@ -27,9 +27,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus21Choice.CancellationRequested))]
     [KnownType(typeof(ProcessingStatus21Choice.ModificationRequested))]
     [IsoId("_yyd8Qf5WEeCtrO5qCU90cA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 21 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

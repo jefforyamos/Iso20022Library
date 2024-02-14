@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to an Input request.
 /// </summary>
 [IsoId("_F-SBQVFEEeyApZmLzm74zA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Input Result Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InputResultData4
     /// Type of processed input.
     /// </summary>
     [IsoId("_GEkPcVFEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Input Command")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InptCmd")]
     #endif
+    [IsoXmlTag("InptCmd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InputCommand1Code InputCommand { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InputCommand1Code InputCommand { get; init; } 
+    public required InputCommand1Code InputCommand { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InputCommand1Code InputCommand { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record InputResultData4
     /// Flag of notification of card to be entered in the POI card reader.
     /// </summary>
     [IsoId("_GEkPc1FEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmed Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfdFlg")]
     #endif
+    [IsoXmlTag("ConfdFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ConfirmedFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record InputResultData4
     /// The number of the function key which is typed by the Customer on the POI system or the Cashier on the Sale System.
     /// </summary>
     [IsoId("_GEkPdVFEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Function Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctnKey")]
     #endif
+    [IsoXmlTag("FctnKey")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? FunctionKey { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +104,13 @@ public partial record InputResultData4
     /// The input text and data given by the POI or the Sale System.
     /// </summary>
     [IsoId("_GEkPd1FEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Input Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InptMsg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InptMsg")]
+    [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? InputMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,11 @@ public partial record InputResultData4
     /// An enciphered password typed by the Customer on the POI system or the Cashier on the Sale system.
     /// </summary>
     [IsoId("_GEkPeVFEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Password")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pwd")]
     #endif
+    [IsoXmlTag("Pwd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType30? Password { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +140,11 @@ public partial record InputResultData4
     /// Numeric value of a handwritten signature.
     /// </summary>
     [IsoId("_GEk2gVFEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Image Captured Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ImgCaptrdSgntr")]
     #endif
+    [IsoXmlTag("ImgCaptrdSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CapturedSignature1? ImageCapturedSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

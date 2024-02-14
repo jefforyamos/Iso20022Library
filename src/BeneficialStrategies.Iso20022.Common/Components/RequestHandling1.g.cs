@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Explains the status of the related request.
 /// </summary>
 [IsoId("_jHkJ9-5NEeCisYr99QEiWA_-432477010")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request Handling")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record RequestHandling1
     /// Specifies the status of the request, for example the result of the schema validation or a business processing result/error.
     /// </summary>
     [IsoId("_jHkJ-O5NEeCisYr99QEiWA_1723974216")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StsCd")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText StatusCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String StatusCode { get; init; } 
+    public required System.String StatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String StatusCode { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record RequestHandling1
     /// Description of the status, in free format text.
     /// </summary>
     [IsoId("_jHt68O5NEeCisYr99QEiWA_1797059879")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

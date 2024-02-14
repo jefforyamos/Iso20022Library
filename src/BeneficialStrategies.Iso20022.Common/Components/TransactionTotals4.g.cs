@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Totals of the reconciliation.
 /// </summary>
 [IsoId("_BQQtQXu-EeSLmfFG0DG7zQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TransactionTotals4
     /// Total of credit transactions.
     /// </summary>
     [IsoId("_9scLwHu-EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Credit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCdt")]
     #endif
+    [IsoXmlTag("TtlCdt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionTotals5 TotalCredit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionTotals5 TotalCredit { get; init; } 
+    public required TransactionTotals5 TotalCredit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionTotals5 TotalCredit { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TransactionTotals4
     /// Total of debit transactions.
     /// </summary>
     [IsoId("_pFQP4Hu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlDbt")]
     #endif
+    [IsoXmlTag("TtlDbt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionTotals5 TotalDebit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionTotals5 TotalDebit { get; init; } 
+    public required TransactionTotals5 TotalDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionTotals5 TotalDebit { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record TransactionTotals4
     /// Additional count which may be utilised for reconciliation.
     /// </summary>
     [IsoId("_5Y8g0Hu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNb")]
     #endif
+    [IsoXmlTag("TtlNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionTotals6? TotalNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

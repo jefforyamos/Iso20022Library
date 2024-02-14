@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LetterOfGuarantee1Choice.Indicator))]
     [KnownType(typeof(LetterOfGuarantee1Choice.Proprietary))]
     [IsoId("_QvaoxNp-Ed-ak6NoX_4Aeg_3419755")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Letter Of Guarantee 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

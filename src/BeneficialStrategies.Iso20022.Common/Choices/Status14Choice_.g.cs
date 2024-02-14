@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Status14Choice.Status))]
     [KnownType(typeof(Status14Choice.Rejected))]
     [IsoId("_HT5NMR6rEeODgY9qxg6TFA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status 14 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

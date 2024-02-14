@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The CreateReservation message is used to create one particular reservation by the member and managed by the transaction administrator.|Usage|Based on the criteria defined in the CreateReservation message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.")]
 [IsoId("_P8tokckHEem3UrxZgQhVAw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Create Reservation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record CreateReservationV01 : IOuterRecord<CreateReservationV01,C
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_P8tol8kHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record CreateReservationV01 : IOuterRecord<CreateReservationV01,C
     /// Identification of the default reservation.
     /// </summary>
     [IsoId("_P8tomckHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsvatnId")]
     #endif
+    [IsoXmlTag("RsvatnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReservationIdentification2 ReservationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReservationIdentification2 ReservationIdentification { get; init; } 
+    public required ReservationIdentification2 ReservationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReservationIdentification2 ReservationIdentification { get; init; } 
     #else
@@ -120,16 +116,15 @@ public partial record CreateReservationV01 : IOuterRecord<CreateReservationV01,C
     /// New reservation values.
     /// </summary>
     [IsoId("_P8tom8kHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValSet")]
     #endif
+    [IsoXmlTag("ValSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Reservation4 ValueSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Reservation4 ValueSet { get; init; } 
+    public required Reservation4 ValueSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Reservation4 ValueSet { get; init; } 
     #else
@@ -140,12 +135,11 @@ public partial record CreateReservationV01 : IOuterRecord<CreateReservationV01,C
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_P8tonckHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +152,7 @@ public partial record CreateReservationV01 : IOuterRecord<CreateReservationV01,C
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CreateReservationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CreateReservationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CreateReservationV01Document ToDocument()
     {
@@ -168,7 +162,7 @@ public partial record CreateReservationV01 : IOuterRecord<CreateReservationV01,C
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateReservationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CreateReservationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CreateReservationV01Document : IOuterDocument<CreateReservationV01>
@@ -185,7 +179,7 @@ public partial record CreateReservationV01Document : IOuterDocument<CreateReserv
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CreateReservationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CreateReservationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreateReservationV01 Message { get; init; }

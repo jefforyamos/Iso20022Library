@@ -21,7 +21,7 @@ public enum DebtInstrumentSeniorityType2Code
 {
     /// <summary>
     /// Debt owed to an unsecured creditor that can only be paid, in the event of a liquidation, after the claims of secured creditors have been met.
-    /// Encoded/decoded by serializers as "SBOD".
+    /// Encoded/decoded by serializers as &quot;SBOD&quot;.
     /// </summary>
     [EnumMember(Value = "SBOD")]
     [IsoId("_dHThgUEPEeWwF-kIleVYXQ")]
@@ -30,7 +30,7 @@ public enum DebtInstrumentSeniorityType2Code
     
     /// <summary>
     /// Debt that takes priority over other unsecured or otherwise more junior debt owed by the issuer.
-    /// Encoded/decoded by serializers as "SNDB".
+    /// Encoded/decoded by serializers as &quot;SNDB&quot;.
     /// </summary>
     [EnumMember(Value = "SNDB")]
     [IsoId("_dZ-l4UEPEeWwF-kIleVYXQ")]
@@ -39,7 +39,7 @@ public enum DebtInstrumentSeniorityType2Code
     
     /// <summary>
     /// Other type of debts.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ds3ssUEPEeWwF-kIleVYXQ")]

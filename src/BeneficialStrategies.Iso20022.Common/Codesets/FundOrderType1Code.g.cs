@@ -21,7 +21,7 @@ public enum FundOrderType1Code
 {
     /// <summary>
     /// Investment fund order is a subscription.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_atCvgtp-Ed-ak6NoX_4Aeg_1645076282")]
@@ -30,7 +30,7 @@ public enum FundOrderType1Code
     
     /// <summary>
     /// Investment fund order is a redemption.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_atCvg9p-Ed-ak6NoX_4Aeg_1645076559")]
@@ -39,7 +39,7 @@ public enum FundOrderType1Code
     
     /// <summary>
     /// Investment fund order is a switch.
-    /// Encoded/decoded by serializers as "SWIT".
+    /// Encoded/decoded by serializers as &quot;SWIT&quot;.
     /// </summary>
     [EnumMember(Value = "SWIT")]
     [IsoId("_atCvhNp-Ed-ak6NoX_4Aeg_1645076612")]

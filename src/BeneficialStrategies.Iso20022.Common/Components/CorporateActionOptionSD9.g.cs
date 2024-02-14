@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option details.
 /// </summary>
 [IsoId("_OOwPW3h4EeOF3uSOaAf1Lg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Option SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionOptionSD9
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_OOwPXHh4EeOF3uSOaAf1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record CorporateActionOptionSD9
     /// Used for options that have particular proprietary feature that cannot be represented in standard ISO message.
     /// </summary>
     [IsoId("_OOwPXXh4EeOF3uSOaAf1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Option Features")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedOptnFeatrs")]
     #endif
+    [IsoXmlTag("XtndedOptnFeatrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record CorporateActionOptionSD9
     /// Identifies whether the option will be processed as default by DTC (The Depository Trust Corporation) when no election is made.
     /// </summary>
     [IsoId("_OOwPYnh4EeOF3uSOaAf1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Default Option Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCDfltOptnFlg")]
     #endif
+    [IsoXmlTag("DTCDfltOptnFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCDefaultOptionFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,12 @@ public partial record CorporateActionOptionSD9
     /// Indicates whether optional dividend supplementary data are required in the ISO 20022 CAIN instructions for this event.
     /// </summary>
     [IsoId("_OOwPYXh4EeOF3uSOaAf1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Optional Dividend Supplementary Data Required Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnlDvddSplmtryDataReqrdFlg")]
     #endif
+    [IsoXmlTag("OptnlDvddSplmtryDataReqrdFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OptionalDividendSupplementaryDataRequiredFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,15 +124,12 @@ public partial record CorporateActionOptionSD9
     /// USAGE RULE: this sequence can be populated /extended to event details, option details or a movement, depending on sequence number coordinality to an event.
     /// </summary>
     [IsoId("_VOkhIXh4EeOF3uSOaAf1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("RDP Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RDPRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("RDPRefNb")]
+    [IsoSimpleType(IsoSimpleType.Exact32AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

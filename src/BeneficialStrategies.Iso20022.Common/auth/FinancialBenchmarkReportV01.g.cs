@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"This FinancialBenchmarkReport message is sent by the competent institution to report benchmarks used for the purpose of the local regulation.")]
 [IsoId("_EqCsoPKJEeaz_YGUGLjP6A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Benchmark Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord<FinancialBenchm
     /// Provides appropriate instructions to update or cancel information about a benchmark in the scope of the local regulation.
     /// </summary>
     [IsoId("_mm5ioTrVEeedCZZ8dIPp6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Benchmark Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BchmkData")]
     #endif
+    [IsoXmlTag("BchmkData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BenchmarkReport1Choice_ BenchmarkData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BenchmarkReport1Choice_ BenchmarkData { get; init; } 
+    public required BenchmarkReport1Choice_ BenchmarkData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BenchmarkReport1Choice_ BenchmarkData { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord<FinancialBenchm
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_rFkoUTbuEeeYhaZ6bvG1Xg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord<FinancialBenchm
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialBenchmarkReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialBenchmarkReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialBenchmarkReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord<FinancialBenchm
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialBenchmarkReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialBenchmarkReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialBenchmarkReportV01Document : IOuterDocument<FinancialBenchmarkReportV01>
@@ -140,7 +136,7 @@ public partial record FinancialBenchmarkReportV01Document : IOuterDocument<Finan
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialBenchmarkReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialBenchmarkReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialBenchmarkReportV01 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies details related to the attendance card.
 /// </summary>
 [IsoId("_SFL9OfNrEeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Attendance Card")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record AttendanceCard3
     /// Information to be indicated on the attendance card.
     /// </summary>
     [IsoId("_SZHl1fNrEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Card Labelling")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncCardLbllg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AttndncCardLbllg")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AttendanceCardLabelling { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record AttendanceCard3
     /// Specifies where the attendance card must be delivered.
     /// </summary>
     [IsoId("_SZHl1_NrEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryMtd")]
     #endif
+    [IsoXmlTag("DlvryMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveryPlace3Code DeliveryMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DeliveryPlace3Code DeliveryMethod { get; init; } 
+    public required DeliveryPlace3Code DeliveryMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DeliveryPlace3Code DeliveryMethod { get; init; } 
     #else
@@ -92,12 +87,11 @@ public partial record AttendanceCard3
     /// Name and address of the party.
     /// </summary>
     [IsoId("_SZHl2fNrEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAdr")]
     #endif
+    [IsoXmlTag("OthrAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress9? OtherAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

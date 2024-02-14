@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An instructing party, eg, an investment manager or its authorised representative, sends the RequestForTransferStatusReport to the executing party, eg, a transfer agent to request the status of a previously instructed transfer.|Usage|The RequestForTransferStatusReport is used to request either:|- the status of one or several transfer instructions or,|- the status of one or several transfer cancellation instructions.")]
 [IsoId("_oGN9ZdE5Ed-BzquC8wXy7w_2033838549")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request For Transfer Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record RequestForTransferStatusReportV02 : IOuterRecord<RequestFo
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_oGN9ZtE5Ed-BzquC8wXy7w_1731455646")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -101,16 +98,15 @@ public partial record RequestForTransferStatusReportV02 : IOuterRecord<RequestFo
     /// Information to identify the transfer for which the status is requested.|.
     /// </summary>
     [IsoId("_oGN9Z9E5Ed-BzquC8wXy7w_2033838559")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqDtls")]
     #endif
+    [IsoXmlTag("ReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageAndBusinessReference6 RequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageAndBusinessReference6 RequestDetails { get; init; } 
+    public required MessageAndBusinessReference6 RequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageAndBusinessReference6 RequestDetails { get; init; } 
     #else
@@ -121,12 +117,11 @@ public partial record RequestForTransferStatusReportV02 : IOuterRecord<RequestFo
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_oGN9aNE5Ed-BzquC8wXy7w_240300067")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,7 +134,7 @@ public partial record RequestForTransferStatusReportV02 : IOuterRecord<RequestFo
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestForTransferStatusReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestForTransferStatusReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestForTransferStatusReportV02Document ToDocument()
     {
@@ -149,7 +144,7 @@ public partial record RequestForTransferStatusReportV02 : IOuterRecord<RequestFo
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForTransferStatusReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestForTransferStatusReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestForTransferStatusReportV02Document : IOuterDocument<RequestForTransferStatusReportV02>
@@ -166,7 +161,7 @@ public partial record RequestForTransferStatusReportV02Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestForTransferStatusReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestForTransferStatusReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestForTransferStatusReportV02 Message { get; init; }

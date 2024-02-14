@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Restriction information details.
 /// </summary>
 [IsoId("_c1-rgMnIEeWGzao7PBKDrg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Restriction Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record RestrictionDetailsSD1
     /// Type of restriction.
     /// </summary>
     [IsoId("_iS3K8MnIEeWGzao7PBKDrg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RstrctnTp")]
     #endif
+    [IsoXmlTag("RstrctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification36 RestrictionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification36 RestrictionType { get; init; } 
+    public required GenericIdentification36 RestrictionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification36 RestrictionType { get; init; } 
     #else
@@ -70,19 +67,18 @@ public partial record RestrictionDetailsSD1
     #endif
     
     /// <summary>
-    /// Country in which the account owner has one's fiscal domicile.
+    /// Country in which the account owner has one&apos;s fiscal domicile.
     /// </summary>
     [IsoId("_n7yiUMnIEeWGzao7PBKDrg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fiscal Domicile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FsclDmcl")]
     #endif
+    [IsoXmlTag("FsclDmcl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode FiscalDomicile { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string FiscalDomicile { get; init; } 
+    public required string FiscalDomicile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string FiscalDomicile { get; init; } 
     #else
@@ -93,19 +89,17 @@ public partial record RestrictionDetailsSD1
     /// Reference to the applicable restriction.
     /// </summary>
     [IsoId("_3RQ3gMnIEeWGzao7PBKDrg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else

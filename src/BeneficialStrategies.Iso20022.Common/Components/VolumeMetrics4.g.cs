@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Numeric variables calculated on the number of transactions or on market exposures.
 /// </summary>
 [IsoId("_T23LEIMGEeueDJg7fN5MDw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Volume Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record VolumeMetrics4
     /// Indication whether reused value is actual or estimated.
     /// </summary>
     [IsoId("_XE-s4oMGEeueDJg7fN5MDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reuse Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReuseVal")]
     #endif
+    [IsoXmlTag("ReuseVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReuseValue1Choice_? ReuseValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record VolumeMetrics4
     /// Provides details on the amount of the cash reinvestment in a given currency.
     /// </summary>
     [IsoId("_XE-s44MGEeueDJg7fN5MDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvested Cash Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstdCshAmt")]
     #endif
+    [IsoXmlTag("RinvstdCshAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ReinvestedCashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

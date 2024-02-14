@@ -21,7 +21,7 @@ public enum TelephonyCallType1Code
 {
     /// <summary>
     /// Voice mail
-    /// Encoded/decoded by serializers as "VCML".
+    /// Encoded/decoded by serializers as &quot;VCML&quot;.
     /// </summary>
     [EnumMember(Value = "VCML")]
     [IsoId("_caQHsTEvEemzCpWiCwK4aQ")]
@@ -30,7 +30,7 @@ public enum TelephonyCallType1Code
     
     /// <summary>
     /// Toll free phone call
-    /// Encoded/decoded by serializers as "TFPC".
+    /// Encoded/decoded by serializers as &quot;TFPC&quot;.
     /// </summary>
     [EnumMember(Value = "TFPC")]
     [IsoId("_cuX9kTEvEemzCpWiCwK4aQ")]
@@ -39,7 +39,7 @@ public enum TelephonyCallType1Code
     
     /// <summary>
     /// Page
-    /// Encoded/decoded by serializers as "PAGE".
+    /// Encoded/decoded by serializers as &quot;PAGE&quot;.
     /// </summary>
     [EnumMember(Value = "PAGE")]
     [IsoId("_c1-aYTEvEemzCpWiCwK4aQ")]
@@ -48,7 +48,7 @@ public enum TelephonyCallType1Code
     
     /// <summary>
     /// Outgoing phone call
-    /// Encoded/decoded by serializers as "OGPC".
+    /// Encoded/decoded by serializers as &quot;OGPC&quot;.
     /// </summary>
     [EnumMember(Value = "OGPC")]
     [IsoId("_dFeO8TEvEemzCpWiCwK4aQ")]
@@ -57,7 +57,7 @@ public enum TelephonyCallType1Code
     
     /// <summary>
     /// Other private
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_dGXm0TEvEemzCpWiCwK4aQ")]
@@ -66,7 +66,7 @@ public enum TelephonyCallType1Code
     
     /// <summary>
     /// Other national
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_degaATEvEemzCpWiCwK4aQ")]
@@ -75,7 +75,7 @@ public enum TelephonyCallType1Code
     
     /// <summary>
     /// Other type of call not elsewhere classified. 
-    /// Encoded/decoded by serializers as "OTCL".
+    /// Encoded/decoded by serializers as &quot;OTCL&quot;.
     /// </summary>
     [EnumMember(Value = "OTCL")]
     [IsoId("_dhMhoTEvEemzCpWiCwK4aQ")]
@@ -84,7 +84,7 @@ public enum TelephonyCallType1Code
     
     /// <summary>
     /// Incoming phone call
-    /// Encoded/decoded by serializers as "ICPC".
+    /// Encoded/decoded by serializers as &quot;ICPC&quot;.
     /// </summary>
     [EnumMember(Value = "ICPC")]
     [IsoId("_d28vMTEvEemzCpWiCwK4aQ")]

@@ -21,7 +21,7 @@ public enum ESGCategoryGermanStructuredSecuritiesMarket1Code
 {
     /// <summary>
     /// Netural or has no impact.
-    /// Encoded/decoded by serializers as "NEUT".
+    /// Encoded/decoded by serializers as &quot;NEUT&quot;.
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_v07ggdAKEeuSBa1PsnseFg")]
@@ -30,7 +30,7 @@ public enum ESGCategoryGermanStructuredSecuritiesMarket1Code
     
     /// <summary>
     /// Impact-related bond according to recognised market standards (for example, Green/Social Bond Principles, EU Green Bond Standards).
-    /// Encoded/decoded by serializers as "IMPS".
+    /// Encoded/decoded by serializers as &quot;IMPS&quot;.
     /// </summary>
     [EnumMember(Value = "IMPS")]
     [IsoId("_v7CvkdAKEeuSBa1PsnseFg")]
@@ -39,7 +39,7 @@ public enum ESGCategoryGermanStructuredSecuritiesMarket1Code
     
     /// <summary>
     /// Product manufacturer attains at least with one rating agency the status of a sustainable company.
-    /// Encoded/decoded by serializers as "ESGS".
+    /// Encoded/decoded by serializers as &quot;ESGS&quot;.
     /// </summary>
     [EnumMember(Value = "ESGS")]
     [IsoId("_v_9r0dAKEeuSBa1PsnseFg")]
@@ -48,7 +48,7 @@ public enum ESGCategoryGermanStructuredSecuritiesMarket1Code
     
     /// <summary>
     /// Product manufacturer follows environmental, social and corporate governance (ESG) product and transparency standard.
-    /// Encoded/decoded by serializers as "BASS".
+    /// Encoded/decoded by serializers as &quot;BASS&quot;.
     /// </summary>
     [EnumMember(Value = "BASS")]
     [IsoId("_wHHcsdAKEeuSBa1PsnseFg")]

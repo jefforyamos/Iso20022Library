@@ -21,7 +21,7 @@ public enum RateValueType7Code
 {
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q5kOI2tdEeCY4-KZ9JEyUQ_-1063133934")]

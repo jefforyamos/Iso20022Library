@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCriteria4Choice
     /// Explicitly defines the query criteria.
     /// </summary>
     [IsoId("_U5qyVZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Criteria")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCriteria4Choice
         /// Name of the query defined by the search criteria and return criteria.
         /// </summary>
         [IsoId("_VCTJ5ZlQEee-Zps0fZQaFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("New Query Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NewQryNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("NewQryNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? NewQueryName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCriteria4Choice
         /// Defines the criteria on which the information is extracted.
         /// </summary>
         [IsoId("_VCTJ55lQEee-Zps0fZQaFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Search Criteria")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SchCrit")]
         #endif
+        [IsoXmlTag("SchCrit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TransactionSearchCriteria7? SearchCriteria { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCriteria4Choice
         /// Indicates the format of the requested report.
         /// </summary>
         [IsoId("_VCTJ6ZlQEee-Zps0fZQaFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Statement Report")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StmtRpt")]
         #endif
+        [IsoXmlTag("StmtRpt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReportIndicator1Code? StatementReport { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +100,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCriteria4Choice
         /// Defines the expected payment transaction report.
         /// </summary>
         [IsoId("_VCTJ65lQEee-Zps0fZQaFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Return Criteria")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RtrCrit")]
         #endif
+        [IsoXmlTag("RtrCrit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TransactionReturnCriteria5? ReturnCriteria { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

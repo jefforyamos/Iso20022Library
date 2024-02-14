@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Breakdown of the transaction amount.
 /// </summary>
 [IsoId("_1juMQUS7EeiTBYbU3rWV0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record DetailedAmount20
     /// Type or class of amount.
     /// </summary>
     [IsoId("_1wqcEUS7EeiTBYbU3rWV0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DetailAmount2Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DetailAmount2Code Type { get; init; } 
+    public required DetailAmount2Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DetailAmount2Code Type { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record DetailedAmount20
     /// Additional information to specify the type of amount.
     /// </summary>
     [IsoId("_1wqcE0S7EeiTBYbU3rWV0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record DetailedAmount20
     /// Amount of one occurrence of the breakdown amount.
     /// </summary>
     [IsoId("_1wqcFUS7EeiTBYbU3rWV0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount5 Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount5 Amount { get; init; } 
+    public required Amount5 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount5 Amount { get; init; } 
     #else
@@ -113,15 +107,13 @@ public partial record DetailedAmount20
     /// Short description of the detailed amount.
     /// </summary>
     [IsoId("_1wqcF0S7EeiTBYbU3rWV0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Labl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Labl")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Label { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

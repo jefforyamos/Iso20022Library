@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProductCategory1Choice.StructuredProductCategory))]
     [KnownType(typeof(ProductCategory1Choice.OtherProductCategory))]
     [IsoId("_RbrR1tp-Ed-ak6NoX_4Aeg_-1773751928")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Category 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

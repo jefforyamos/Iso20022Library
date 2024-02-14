@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TrancheIndicator3Choice.Tranched))]
     [KnownType(typeof(TrancheIndicator3Choice.Untranched))]
     [IsoId("_mq05QQ06EeuJ1fOEB4bQXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tranche Indicator 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

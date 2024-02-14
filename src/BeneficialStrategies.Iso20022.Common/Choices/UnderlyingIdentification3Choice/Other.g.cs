@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingIdentification3Choice
     /// Underlying of any other type of transaction.
     /// </summary>
     [IsoId("_2EZuE53DEeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

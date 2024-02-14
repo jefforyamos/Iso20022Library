@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the prices related to a corporate action option.
 /// </summary>
 [IsoId("_utkFcROBEeKyONjZVQUqzg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PriceDetails10
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount or a number of points above an index, for example, reinvestment price, strike price and exercise price.
     /// </summary>
     [IsoId("_vDw-9ROBEeKyONjZVQUqzg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generic Cash Price Paid Per Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GncCshPricPdPerPdct")]
     #endif
+    [IsoXmlTag("GncCshPricPdPerPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat23Choice_? GenericCashPricePaidPerProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PriceDetails10
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
     [IsoId("_vDw--ROBEeKyONjZVQUqzg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generic Cash Price Received Per Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GncCshPricRcvdPerPdct")]
     #endif
+    [IsoXmlTag("GncCshPricRcvdPerPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat20Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

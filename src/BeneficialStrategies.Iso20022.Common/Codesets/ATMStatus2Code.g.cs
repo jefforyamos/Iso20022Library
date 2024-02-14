@@ -21,7 +21,7 @@ public enum ATMStatus2Code
 {
     /// <summary>
     /// Component is activated and in operation.
-    /// Encoded/decoded by serializers as "OPER".
+    /// Encoded/decoded by serializers as &quot;OPER&quot;.
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_fZ82sYr-EeSvuOJS0mmL0g")]
@@ -30,7 +30,7 @@ public enum ATMStatus2Code
     
     /// <summary>
     /// ATM out of service.
-    /// Encoded/decoded by serializers as "OUTS".
+    /// Encoded/decoded by serializers as &quot;OUTS&quot;.
     /// </summary>
     [EnumMember(Value = "OUTS")]
     [IsoId("_fkcPc4r-EeSvuOJS0mmL0g")]

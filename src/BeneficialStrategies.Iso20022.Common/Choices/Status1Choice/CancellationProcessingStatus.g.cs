@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice
     /// Provides the status of a cancellation request.
     /// </summary>
     [IsoId("_UVDSuNp-Ed-ak6NoX_4Aeg_-138495135")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Processing Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

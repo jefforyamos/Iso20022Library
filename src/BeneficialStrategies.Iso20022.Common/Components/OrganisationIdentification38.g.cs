@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies an organisation through client identification, a name and a domicile.
 /// </summary>
 [IsoId("_cM4lUMgnEeuGrNSsxk3B0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Organisation Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record OrganisationIdentification38
     /// Unique and unambiguous identification of the organisation.
     /// </summary>
     [IsoId("_sAgPEMgnEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification175 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification175 Identification { get; init; } 
+    public required GenericIdentification175 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification175 Identification { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record OrganisationIdentification38
     /// Indicates the name of the organisation.
     /// </summary>
     [IsoId("_yyv-8MgnEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record OrganisationIdentification38
     /// Indicates the domicile of the organisation.
     /// </summary>
     [IsoId("_8ndaQMgnEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Domicile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dmcl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Dmcl")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? Domicile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

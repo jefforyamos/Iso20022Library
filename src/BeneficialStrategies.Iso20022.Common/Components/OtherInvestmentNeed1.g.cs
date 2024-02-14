@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Other investment need.
 /// </summary>
 [IsoId("_II3KcDceEeidBoT_PugKiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Investment Need")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record OtherInvestmentNeed1
     /// Type of return profile.
     /// </summary>
     [IsoId("_QFqo8DceEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Objectives And Needs Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntObjctvsAndNeedsTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntObjctvsAndNeedsTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientObjectivesAndNeedsType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record OtherInvestmentNeed1
     /// Choice of formats for the specification of whether the product is aimed at the type of return profile.
     /// </summary>
     [IsoId("_ROkKsDceEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trgt")]
     #endif
+    [IsoXmlTag("Trgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Choice_? Target { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record OtherInvestmentNeed1
     /// Additional information about the target market and the Investor’s investment requirements.
     /// </summary>
     [IsoId("_mfHx0HoHEeidV-k9VF2jdA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

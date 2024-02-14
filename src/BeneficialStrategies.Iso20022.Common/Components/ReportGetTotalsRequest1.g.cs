@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Get Totals Request message.
 /// </summary>
 [IsoId("_mY7jcN6SEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Get Totals Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReportGetTotalsRequest1
     /// Indicates the hierarchical structure of the report.
     /// </summary>
     [IsoId("_s0kxMN6SEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlDtls")]
     #endif
+    [IsoXmlTag("TtlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalDetails1Code? TotalDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ReportGetTotalsRequest1
     /// Filter to compute the totals.
     /// </summary>
     [IsoId("_Pc6eMN6TEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Filter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlFltr")]
     #endif
+    [IsoXmlTag("TtlFltr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalFilter1? TotalFilter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

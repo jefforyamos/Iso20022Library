@@ -21,7 +21,7 @@ public enum ServiceRequestStatus1Code
 {
     /// <summary>
     /// Service request is accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_PZY4sfF6EemQ7oqCO5NTQw")]
@@ -30,7 +30,7 @@ public enum ServiceRequestStatus1Code
     
     /// <summary>
     /// Service request has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_PtECofF6EemQ7oqCO5NTQw")]

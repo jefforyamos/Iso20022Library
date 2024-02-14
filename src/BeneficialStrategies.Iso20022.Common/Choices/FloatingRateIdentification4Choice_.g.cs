@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FloatingRateIdentification4Choice.Code))]
     [KnownType(typeof(FloatingRateIdentification4Choice.Proprietary))]
     [IsoId("_LrWLESjFEeuKKc2MztSwPw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Rate Identification 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

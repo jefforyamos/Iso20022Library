@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References22Choice
     /// Unambiguous identification of the securities settlement transaction.
     /// </summary>
     [IsoId("_H42XLU-2EeCKyoyCaiI0rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Settlement Transaction Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,19 +56,17 @@ namespace BeneficialStrategies.Iso20022.Choices.References22Choice
         /// Provides unambiguous transaction identification information.
         /// </summary>
         [IsoId("_H4smFU-2EeCKyoyCaiI0rw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TxId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text TransactionIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String TransactionIdentification { get; init; } 
+        public required System.String TransactionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String TransactionIdentification { get; init; } 
         #else
@@ -81,16 +77,15 @@ namespace BeneficialStrategies.Iso20022.Choices.References22Choice
         /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
         /// </summary>
         [IsoId("_H4smH0-2EeCKyoyCaiI0rw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Movement Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesMvmntTp")]
         #endif
+        [IsoXmlTag("SctiesMvmntTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+        public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
         #else
@@ -101,16 +96,15 @@ namespace BeneficialStrategies.Iso20022.Choices.References22Choice
         /// Specifies how the transaction is to be settled, for example, against payment.
         /// </summary>
         [IsoId("_H4smKU-2EeCKyoyCaiI0rw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pmt")]
         #endif
+        [IsoXmlTag("Pmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DeliveryReceiptType2Code Payment { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DeliveryReceiptType2Code Payment { get; init; } 
+        public required DeliveryReceiptType2Code Payment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DeliveryReceiptType2Code Payment { get; init; } 
         #else

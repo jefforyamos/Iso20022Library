@@ -22,7 +22,7 @@ public enum ValidationRuleStatus1Code
 {
     /// <summary>
     /// Accepted technical validation.
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_oeoLsSAeEeuSiN6KdHu9iw")]
@@ -31,7 +31,7 @@ public enum ValidationRuleStatus1Code
     
     /// <summary>
     /// Accepted customer profile.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_oeoLsyAeEeuSiN6KdHu9iw")]
@@ -40,7 +40,7 @@ public enum ValidationRuleStatus1Code
     
     /// <summary>
     /// Accepted settlement in process.
-    /// Encoded/decoded by serializers as "ACSP".
+    /// Encoded/decoded by serializers as &quot;ACSP&quot;.
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_oeoLtSAeEeuSiN6KdHu9iw")]
@@ -49,7 +49,7 @@ public enum ValidationRuleStatus1Code
     
     /// <summary>
     /// Accepted settlement completed.
-    /// Encoded/decoded by serializers as "ACSC".
+    /// Encoded/decoded by serializers as &quot;ACSC&quot;.
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_oeoLtyAeEeuSiN6KdHu9iw")]
@@ -58,7 +58,7 @@ public enum ValidationRuleStatus1Code
     
     /// <summary>
     /// Accepted cancellation request.
-    /// Encoded/decoded by serializers as "ACCR".
+    /// Encoded/decoded by serializers as &quot;ACCR&quot;.
     /// </summary>
     [EnumMember(Value = "ACCR")]
     [IsoId("_oeoLuSAeEeuSiN6KdHu9iw")]
@@ -67,7 +67,7 @@ public enum ValidationRuleStatus1Code
     
     /// <summary>
     /// Accepted with change.
-    /// Encoded/decoded by serializers as "ACWC".
+    /// Encoded/decoded by serializers as &quot;ACWC&quot;.
     /// </summary>
     [EnumMember(Value = "ACWC")]
     [IsoId("_oeoLuyAeEeuSiN6KdHu9iw")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OptionFeaturesFormat22Choice.Code))]
     [KnownType(typeof(OptionFeaturesFormat22Choice.Proprietary))]
     [IsoId("_c25jIYcmEeavwKddCbm3hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Features Format 22 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

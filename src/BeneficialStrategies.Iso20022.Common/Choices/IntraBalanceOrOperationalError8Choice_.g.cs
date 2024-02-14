@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntraBalanceOrOperationalError8Choice.Modifications))]
     [KnownType(typeof(IntraBalanceOrOperationalError8Choice.OperationalError))]
     [IsoId("_ZhRzuzneEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Balance Or Operational Error 8 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

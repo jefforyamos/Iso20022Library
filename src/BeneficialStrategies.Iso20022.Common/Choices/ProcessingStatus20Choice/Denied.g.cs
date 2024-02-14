@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus20Choice
     /// Instruction/Request will not be executed.
     /// </summary>
     [IsoId("_Mx8yi_4xEeClUvPNHKL9Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denied")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

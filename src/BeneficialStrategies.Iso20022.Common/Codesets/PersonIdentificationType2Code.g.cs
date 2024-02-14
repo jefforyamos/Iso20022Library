@@ -21,7 +21,7 @@ public enum PersonIdentificationType2Code
 {
     /// <summary>
     /// Number assigned by a passport authority to a passport.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_aGmal9p-Ed-ak6NoX_4Aeg_864875963")]
@@ -30,7 +30,7 @@ public enum PersonIdentificationType2Code
     
     /// <summary>
     /// Account issued by the Central Provident Fund Board (Singapore).
-    /// Encoded/decoded by serializers as "CPFA".
+    /// Encoded/decoded by serializers as &quot;CPFA&quot;.
     /// </summary>
     [EnumMember(Value = "CPFA")]
     [IsoId("_aGmamNp-Ed-ak6NoX_4Aeg_864876360")]
@@ -39,7 +39,7 @@ public enum PersonIdentificationType2Code
     
     /// <summary>
     /// Supplementary retirement scheme account number.
-    /// Encoded/decoded by serializers as "SRSA".
+    /// Encoded/decoded by serializers as &quot;SRSA&quot;.
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_aGvkgNp-Ed-ak6NoX_4Aeg_864876377")]
@@ -48,7 +48,7 @@ public enum PersonIdentificationType2Code
     
     /// <summary>
     /// National registration identification number. In Singapore this is known as the NRIC.
-    /// Encoded/decoded by serializers as "NRIN".
+    /// Encoded/decoded by serializers as &quot;NRIN&quot;.
     /// </summary>
     [EnumMember(Value = "NRIN")]
     [IsoId("_aGvkgdp-Ed-ak6NoX_4Aeg_864876395")]
@@ -56,8 +56,8 @@ public enum PersonIdentificationType2Code
     NationalRegistrationIdentificationNumber = PersonIdentificationTypeCode.NationalRegistrationIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Number assigned by a license authority to a driver's license.
-    /// Encoded/decoded by serializers as "DRLC".
+    /// Number assigned by a license authority to a driver&apos;s license.
+    /// Encoded/decoded by serializers as &quot;DRLC&quot;.
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_aGvkgtp-Ed-ak6NoX_4Aeg_864876430")]
@@ -66,7 +66,7 @@ public enum PersonIdentificationType2Code
     
     /// <summary>
     /// Number assigned by a social security agency.
-    /// Encoded/decoded by serializers as "SOCS".
+    /// Encoded/decoded by serializers as &quot;SOCS&quot;.
     /// </summary>
     [EnumMember(Value = "SOCS")]
     [IsoId("_aGvkg9p-Ed-ak6NoX_4Aeg_864876455")]
@@ -75,7 +75,7 @@ public enum PersonIdentificationType2Code
     
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "AREG".
+    /// Encoded/decoded by serializers as &quot;AREG&quot;.
     /// </summary>
     [EnumMember(Value = "AREG")]
     [IsoId("_aGvkhNp-Ed-ak6NoX_4Aeg_864876472")]
@@ -84,7 +84,7 @@ public enum PersonIdentificationType2Code
     
     /// <summary>
     /// Number assigned by a national authority to an identity card.
-    /// Encoded/decoded by serializers as "IDCD".
+    /// Encoded/decoded by serializers as &quot;IDCD&quot;.
     /// </summary>
     [EnumMember(Value = "IDCD")]
     [IsoId("_aGvkhdp-Ed-ak6NoX_4Aeg_864876738")]
@@ -93,7 +93,7 @@ public enum PersonIdentificationType2Code
     
     /// <summary>
     /// Number assigned to an employer by a registration authority.
-    /// Encoded/decoded by serializers as "EMID".
+    /// Encoded/decoded by serializers as &quot;EMID&quot;.
     /// </summary>
     [EnumMember(Value = "EMID")]
     [IsoId("_aGvkhtp-Ed-ak6NoX_4Aeg_864876763")]

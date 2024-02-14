@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Withdrawal transaction for which the completion is sent.
 /// </summary>
 [IsoId("_UGw1MYqQEeSRT5rEzcAHEw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record ATMTransaction3
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
     [IsoId("_US2wcYqQEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifier1 TransactionIdentification { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record ATMTransaction3
     /// Outcome of the financial transaction for the customer.
     /// </summary>
     [IsoId("_cBZekIqSEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMTransactionStatus1Code TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMTransactionStatus1Code TransactionStatus { get; init; } 
+    public required ATMTransactionStatus1Code TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMTransactionStatus1Code TransactionStatus { get; init; } 
     #else
@@ -94,12 +90,12 @@ public partial record ATMTransaction3
     /// Multi bundle dispense.
     /// </summary>
     [IsoId("_ksoJUIqSEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multi Bundle")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MultiBndl")]
     #endif
+    [IsoXmlTag("MultiBndl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? MultiBundle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +108,12 @@ public partial record ATMTransaction3
     /// Amount per bundle in the currency of the total presented amount, in the order of the presentation.
     /// </summary>
     [IsoId("_r6HqwIqSEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bundle Presented Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BndlPresntdAmt")]
     #endif
+    [IsoXmlTag("BndlPresntdAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? BundlePresentedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,16 +126,15 @@ public partial record ATMTransaction3
     /// Status of the amount presented to the customer in the last bundle.
     /// </summary>
     [IsoId("_HPYywIqTEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presented Amount Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PresntdAmtSts")]
     #endif
+    [IsoXmlTag("PresntdAmtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMTransactionStatus2Code PresentedAmountStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMTransactionStatus2Code PresentedAmountStatus { get; init; } 
+    public required ATMTransactionStatus2Code PresentedAmountStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMTransactionStatus2Code PresentedAmountStatus { get; init; } 
     #else
@@ -150,12 +145,11 @@ public partial record ATMTransaction3
     /// Incident occurring during the processing of the transaction.
     /// </summary>
     [IsoId("_FvzZ4IqUEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incident")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Incdnt")]
     #endif
+    [IsoXmlTag("Incdnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FailureReason4Code? Incident { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,15 +162,13 @@ public partial record ATMTransaction3
     /// Explanation of the incident.
     /// </summary>
     [IsoId("_nDZfgCvMEeW-qbryg71zJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incident Detail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncdntDtl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IncdntDtl")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? IncidentDetail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,15 +181,13 @@ public partial record ATMTransaction3
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
     [IsoId("_US2wc4qQEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcncltnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,12 +200,11 @@ public partial record ATMTransaction3
     /// Unprotected account information.
     /// </summary>
     [IsoId("_US2wd4qQEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctData")]
     #endif
+    [IsoXmlTag("AcctData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccount5? AccountData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,12 +217,11 @@ public partial record ATMTransaction3
     /// Encryption of account information.
     /// </summary>
     [IsoId("_US2weYqQEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Account Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdAcctData")]
     #endif
+    [IsoXmlTag("PrtctdAcctData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedAccountData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -246,16 +234,15 @@ public partial record ATMTransaction3
     /// Total amount presented to the customer.
     /// </summary>
     [IsoId("_OWn7MIqTEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Presented Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlPresntdAmt")]
     #endif
+    [IsoXmlTag("TtlPresntdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndCurrency1 TotalPresentedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndCurrency1 TotalPresentedAmount { get; init; } 
+    public required AmountAndCurrency1 TotalPresentedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndCurrency1 TotalPresentedAmount { get; init; } 
     #else
@@ -266,12 +253,12 @@ public partial record ATMTransaction3
     /// Total authorised amount.
     /// </summary>
     [IsoId("_Ee0z8CyXEeWFrdXv6dBUzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Authorised Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAuthrsdAmt")]
     #endif
+    [IsoXmlTag("TtlAuthrsdAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalAuthorisedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +271,12 @@ public partial record ATMTransaction3
     /// Total requested amount.
     /// </summary>
     [IsoId("_N0UjsCyXEeWFrdXv6dBUzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Requested Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlReqdAmt")]
     #endif
+    [IsoXmlTag("TtlReqdAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +289,11 @@ public partial record ATMTransaction3
     /// Detail of the requested amounts for the withdrawal transaction.
     /// </summary>
     [IsoId("_cS8JYCyXEeWFrdXv6dBUzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Requested Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldReqdAmt")]
     #endif
+    [IsoXmlTag("DtldReqdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount12? DetailedRequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +306,11 @@ public partial record ATMTransaction3
     /// Currency conversion accepted by the customer, either to convert the amount to dispense in the base currency of the ATM, or to convert the total requested amount in the currency of the customer (so called dynamic currency conversion).
     /// </summary>
     [IsoId("_US2wf4qQEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Conversion")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyConvs")]
     #endif
+    [IsoXmlTag("CcyConvs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion4? CurrencyConversion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +323,11 @@ public partial record ATMTransaction3
     /// Additional charge (for instance tax or fee).
     /// </summary>
     [IsoId("_kdrWMCyXEeWFrdXv6dBUzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Charge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlChrg")]
     #endif
+    [IsoXmlTag("AddtlChrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount13? AdditionalCharge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,12 +340,12 @@ public partial record ATMTransaction3
     /// True if the customer has requested a receipt.
     /// </summary>
     [IsoId("_5c4goIqcEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Receipt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdRct")]
     #endif
+    [IsoXmlTag("ReqdRct")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RequestedReceipt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -374,12 +358,12 @@ public partial record ATMTransaction3
     /// True if a receipt has been printed and presented to the customer.
     /// </summary>
     [IsoId("_8qrSUIqcEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receipt Printed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RctPrtd")]
     #endif
+    [IsoXmlTag("RctPrtd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReceiptPrinted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -392,12 +376,12 @@ public partial record ATMTransaction3
     /// True when the card was captured by the ATM.
     /// </summary>
     [IsoId("__LMHQIqcEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Captured Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CaptrdCard")]
     #endif
+    [IsoXmlTag("CaptrdCard")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CapturedCard { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -410,12 +394,11 @@ public partial record ATMTransaction3
     /// Limit of amounts for the customer.
     /// </summary>
     [IsoId("_US2wfYqQEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lmts")]
     #endif
+    [IsoXmlTag("Lmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTransactionAmounts2? Limits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -428,12 +411,11 @@ public partial record ATMTransaction3
     /// Outcome of the withdrawal authorisation.
     /// </summary>
     [IsoId("_US2whYqQEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnRslt")]
     #endif
+    [IsoXmlTag("AuthstnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthorisationResult9? AuthorisationResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -446,12 +428,12 @@ public partial record ATMTransaction3
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
     [IsoId("_US2wh4qQEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRltdData")]
     #endif
+    [IsoXmlTag("ICCRltdData")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -464,12 +446,11 @@ public partial record ATMTransaction3
     /// Current totals of the ATM.
     /// </summary>
     [IsoId("_eMdm8IqdEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMTtls")]
     #endif
+    [IsoXmlTag("ATMTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTotals1? ATMTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -482,12 +463,11 @@ public partial record ATMTransaction3
     /// Information on the cassettes of the ATM.
     /// </summary>
     [IsoId("_FSoUsIqfEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cassette")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Csstt")]
     #endif
+    [IsoXmlTag("Csstt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCassette1? Cassette { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

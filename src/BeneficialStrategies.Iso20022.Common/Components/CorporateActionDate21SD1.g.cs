@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension to cater for specific corporate action dates.
 /// </summary>
 [IsoId("_cmPZkCf2EeGwDKgZV-rDtQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Date 21 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record CorporateActionDate21SD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_aDPUUFPHEeGs_NnqHXQZkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +63,11 @@ public partial record CorporateActionDate21SD1
     /// 通知日時 Notification date and time.
     /// </summary>
     [IsoId("_CPFqMCf3EeGwDKgZV-rDtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Web Service Notification Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WebSvcNtfctnDt")]
     #endif
+    [IsoXmlTag("WebSvcNtfctnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? WebServiceNotificationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +81,11 @@ public partial record CorporateActionDate21SD1
     /// 訂正（削除）前通知日時.
     /// </summary>
     [IsoId("_8vkRACf3EeGwDKgZV-rDtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Web Service Notification Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsWebSvcNtfctnDt")]
     #endif
+    [IsoXmlTag("PrvsWebSvcNtfctnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? PreviousWebServiceNotificationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +99,11 @@ public partial record CorporateActionDate21SD1
     /// 権利確定日.
     /// </summary>
     [IsoId("_FS6LECf4EeGwDKgZV-rDtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Record Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlRcrdDt")]
     #endif
+    [IsoXmlTag("ActlRcrdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? ActualRecordDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +117,11 @@ public partial record CorporateActionDate21SD1
     /// 取締役会決議日.
     /// </summary>
     [IsoId("_uTcX0DDNEeGmr_ZdHrulRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Board Meeting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrdMtgDt")]
     #endif
+    [IsoXmlTag("BrdMtgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? BoardMeetingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +135,11 @@ public partial record CorporateActionDate21SD1
     /// 新設会社登記日.
     /// </summary>
     [IsoId("_40FjsFCYEeGr9IkH55jg4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Registration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpRegnDt")]
     #endif
+    [IsoXmlTag("CorpRegnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? CorporateRegistrationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +153,11 @@ public partial record CorporateActionDate21SD1
     /// 発行価格決定予定日（最短）.
     /// </summary>
     [IsoId("_HFAPIFCaEeGr9IkH55jg4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Earliest Planned Date Of Issue Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlstPlandDtOfIssePric")]
     #endif
+    [IsoXmlTag("EarlstPlandDtOfIssePric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? EarliestPlannedDateOfIssuePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -181,12 +171,11 @@ public partial record CorporateActionDate21SD1
     /// 発行価格決定予定日（最長）.
     /// </summary>
     [IsoId("_X9kHsFCaEeGr9IkH55jg4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Latest Planned Date Of Issue Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LatstPlandDtOfIssePric")]
     #endif
+    [IsoXmlTag("LatstPlandDtOfIssePric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? LatestPlannedDateOfIssuePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +189,11 @@ public partial record CorporateActionDate21SD1
     /// 発行価格決定日.
     /// </summary>
     [IsoId("_lda_EFCaEeGr9IkH55jg4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of Issue Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfIssePric")]
     #endif
+    [IsoXmlTag("DtOfIssePric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? DateOfIssuePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,12 +207,11 @@ public partial record CorporateActionDate21SD1
     /// 払込期日予定日（最短）.
     /// </summary>
     [IsoId("_8GoAkFCaEeGr9IkH55jg4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Earliest Planned Subscription Cost Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlstPlandSbcptCostPmtDt")]
     #endif
+    [IsoXmlTag("EarlstPlandSbcptCostPmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? EarliestPlannedSubscriptionCostPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -238,12 +225,11 @@ public partial record CorporateActionDate21SD1
     /// 払込期日予定日（最長）.
     /// </summary>
     [IsoId("_NwmH8FCbEeGr9IkH55jg4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Latest Planned Subscription Cost Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LatstPlandSbcptCostPmtDt")]
     #endif
+    [IsoXmlTag("LatstPlandSbcptCostPmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? LatestPlannedSubscriptionCostPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,12 +243,11 @@ public partial record CorporateActionDate21SD1
     /// 変更上場日.
     /// </summary>
     [IsoId("_NajsoFFCEeGr9IkH55jg4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subsequent Listing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbsqntListgDt")]
     #endif
+    [IsoXmlTag("SbsqntListgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? SubsequentListingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +260,11 @@ public partial record CorporateActionDate21SD1
     /// Date at which the new share unit quantity becomes effective.
     /// </summary>
     [IsoId("_8bDpQGEqEeKBtLl-jeT19Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Share Unit Quantity Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewShrUnitQtyFctvDt")]
     #endif
+    [IsoXmlTag("NewShrUnitQtyFctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? NewShareUnitQuantityEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

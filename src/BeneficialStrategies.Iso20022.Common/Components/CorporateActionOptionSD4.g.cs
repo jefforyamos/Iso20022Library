@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option details.
 /// </summary>
 [IsoId("_1e2ERTL3EeKU9IrkkToqcw_141460738")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Option SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionOptionSD4
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1e_1QDL3EeKU9IrkkToqcw_-855611615")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record CorporateActionOptionSD4
     /// Used for options that have particular proprietary feature that cannot be represented in standard ISO message.
     /// </summary>
     [IsoId("_1e_1QTL3EeKU9IrkkToqcw_-1943682937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Option Features")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedOptnFeatrs")]
     #endif
+    [IsoXmlTag("XtndedOptnFeatrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record CorporateActionOptionSD4
     /// Identifies whether the option is announced/supported by the issuer/agent.
     /// </summary>
     [IsoId("_1e_1QjL3EeKU9IrkkToqcw_-475256589")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Supported Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrSpprtdFlg")]
     #endif
+    [IsoXmlTag("IssrSpprtdFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? IssuerSupportedFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,12 @@ public partial record CorporateActionOptionSD4
     /// Certain tax authorities provide control numbers to investors to instruct on Foreign Tax Relief service at DTC (The Depository Trust Corporation). This flag notes which events have these requirements and requires the DTC participant to input the control numbers.
     /// </summary>
     [IsoId("_1e_1QzL3EeKU9IrkkToqcw_-1232668810")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Tax Control Number Required Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCTaxCtrlNbReqrdFlg")]
     #endif
+    [IsoXmlTag("DTCTaxCtrlNbReqrdFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCTaxControlNumberRequiredFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

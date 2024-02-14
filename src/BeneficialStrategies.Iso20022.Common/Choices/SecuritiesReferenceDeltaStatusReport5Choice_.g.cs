@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.TerminatedRecord))]
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.CancelledRecord))]
     [IsoId("_ozgJwaWvEeqZmriXpMtonA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Reference Delta Status Report 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

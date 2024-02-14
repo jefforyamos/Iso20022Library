@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Ratio expressed as a quotient of amounts.
 /// </summary>
 [IsoId("_UHySwNp-Ed-ak6NoX_4Aeg_579173663")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount To Amount Ratio")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record AmountToAmountRatio1
     /// Numerator of the quotient of amounts.
     /// </summary>
     [IsoId("_UHySwdp-Ed-ak6NoX_4Aeg_622579243")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt1")]
     #endif
+    [IsoXmlTag("Amt1")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount1 { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount1 { get; init; } 
+    public required System.Decimal Amount1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount1 { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record AmountToAmountRatio1
     /// Denominator of the quotient of amounts.
     /// </summary>
     [IsoId("_UHySwtp-Ed-ak6NoX_4Aeg_636432914")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt2")]
     #endif
+    [IsoXmlTag("Amt2")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount2 { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount2 { get; init; } 
+    public required System.Decimal Amount2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount2 { get; init; } 
     #else

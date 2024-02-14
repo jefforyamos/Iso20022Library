@@ -21,7 +21,7 @@ public enum DTCMultiplyDivide1Code
 {
     /// <summary>
     /// Positions multiplied by rate.
-    /// Encoded/decoded by serializers as "MULT".
+    /// Encoded/decoded by serializers as &quot;MULT&quot;.
     /// </summary>
     [EnumMember(Value = "MULT")]
     [IsoId("_1p3ogzL3EeKU9IrkkToqcw_1860873575")]
@@ -30,7 +30,7 @@ public enum DTCMultiplyDivide1Code
     
     /// <summary>
     /// Positions divided by rate.
-    /// Encoded/decoded by serializers as "DVDE".
+    /// Encoded/decoded by serializers as &quot;DVDE&quot;.
     /// </summary>
     [EnumMember(Value = "DVDE")]
     [IsoId("_1p3ohDL3EeKU9IrkkToqcw_-935145883")]

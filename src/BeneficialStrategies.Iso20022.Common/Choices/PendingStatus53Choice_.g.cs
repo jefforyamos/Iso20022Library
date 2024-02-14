@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingStatus53Choice.NoSpecifiedReason))]
     [KnownType(typeof(PendingStatus53Choice.Reason))]
     [IsoId("_kov6k5wsEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Status 53 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

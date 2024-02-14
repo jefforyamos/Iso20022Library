@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the type of election advice and linked messages.
 /// </summary>
 [IsoId("_Rjkpmtp-Ed-ak6NoX_4Aeg_1579470167")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Election Advice Function")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ElectionAdviceFunction1
     /// Type of election advice.
     /// </summary>
     [IsoId("_RjuakNp-Ed-ak6NoX_4Aeg_1867607801")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctnTp")]
     #endif
+    [IsoXmlTag("ElctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ElectionType1Code ElectionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ElectionType1Code ElectionType { get; init; } 
+    public required ElectionType1Code ElectionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ElectionType1Code ElectionType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ElectionAdviceFunction1
     /// Identification of the previous Agent Corporate Action Election Advice that is being amended.
     /// </summary>
     [IsoId("_Rjuakdp-Ed-ak6NoX_4Aeg_1835225142")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Agent CA Election Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsAgtCAElctnAdvcId")]
     #endif
+    [IsoXmlTag("PrvsAgtCAElctnAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification8? PreviousAgentCAElectionAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ElectionAdviceFunction1
     /// Identification of the Agent Corporate Action Election Status Advice by which the issuer (agent) accepts the election amendment request.
     /// </summary>
     [IsoId("_Rjuaktp-Ed-ak6NoX_4Aeg_-1260629991")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Election Status Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAElctnStsAdvcId")]
     #endif
+    [IsoXmlTag("AgtCAElctnStsAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification8? AgentCAElectionStatusAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record ElectionAdviceFunction1
     /// Identification of the Agent Corporate Action Election Amendment Request by which the CSD request the authorisation to amend an election.
     /// </summary>
     [IsoId("_Rjuak9p-Ed-ak6NoX_4Aeg_-1390844724")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Election Amendment Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAElctnAmdmntReqId")]
     #endif
+    [IsoXmlTag("AgtCAElctnAmdmntReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification8? AgentCAElectionAmendmentRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

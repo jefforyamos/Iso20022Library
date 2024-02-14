@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingSystemMemberIdentification3Choice.Identification))]
     [KnownType(typeof(ClearingSystemMemberIdentification3Choice.Proprietary))]
     [IsoId("_TMehGdp-Ed-ak6NoX_4Aeg_-1564562098")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Member Identification 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus39Cho
     /// Proprietary status related to an instruction.
     /// </summary>
     [IsoId("_Pl7SdAVSEeqjd8n6wD9JVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus39Cho
         /// Proprietary identification of the status related to an instruction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtrySts")]
         #endif
+        [IsoXmlTag("PrtrySts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GenericIdentification47 Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GenericIdentification47 Value { get; init; } 
+        public required GenericIdentification47 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GenericIdentification47 Value { get; init; } 
         #else
@@ -72,12 +71,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus39Cho
         /// Proprietary identification of the reason related to a proprietary status.
         /// </summary>
         [IsoId("_cemex5KQEeWHWpTQn1FFVg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryRsn")]
         #endif
+        [IsoXmlTag("PrtryRsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ProprietaryReason5? ProprietaryReason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

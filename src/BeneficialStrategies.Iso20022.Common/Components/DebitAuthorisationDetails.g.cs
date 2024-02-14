@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the reason for requesting a debit authorisation as well as the amount of the requested debit.
 /// </summary>
 [IsoId("_T9Wkbdp-Ed-ak6NoX_4Aeg_1878930583")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Debit Authorisation Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DebitAuthorisationDetails
     /// Indicates the reason for cancellation.
     /// </summary>
     [IsoId("_T9Wkbtp-Ed-ak6NoX_4Aeg_-3725158")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
+    [IsoXmlTag("CxlRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationReason1Code CancellationReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationReason1Code CancellationReason { get; init; } 
+    public required CancellationReason1Code CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationReason1Code CancellationReason { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record DebitAuthorisationDetails
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
     [IsoId("_T9gVYNp-Ed-ak6NoX_4Aeg_1362682200")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount To Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtToDbt")]
     #endif
+    [IsoXmlTag("AmtToDbt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? AmountToDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record DebitAuthorisationDetails
     /// Value date for debiting the amount.
     /// </summary>
     [IsoId("_T9gVYdp-Ed-ak6NoX_4Aeg_-19191221")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date To Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDtToDbt")]
     #endif
+    [IsoXmlTag("ValDtToDbt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDateToDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

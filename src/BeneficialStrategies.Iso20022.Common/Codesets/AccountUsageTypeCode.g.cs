@@ -21,7 +21,7 @@ public enum AccountUsageTypeCode
 {
     /// <summary>
     /// Investor.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_Tv_toBKCEeKj15WxqwlXPw")]
@@ -30,7 +30,7 @@ public enum AccountUsageTypeCode
     
     /// <summary>
     /// Settlement participant.
-    /// Encoded/decoded by serializers as "SETP".
+    /// Encoded/decoded by serializers as &quot;SETP&quot;.
     /// </summary>
     [EnumMember(Value = "SETP")]
     [IsoId("_YImsoBKCEeKj15WxqwlXPw")]
@@ -39,7 +39,7 @@ public enum AccountUsageTypeCode
     
     /// <summary>
     /// Trading participant.
-    /// Encoded/decoded by serializers as "TRDP".
+    /// Encoded/decoded by serializers as &quot;TRDP&quot;.
     /// </summary>
     [EnumMember(Value = "TRDP")]
     [IsoId("_vsNZ0L-EEeWfsa741pI6WA")]
@@ -48,7 +48,7 @@ public enum AccountUsageTypeCode
     
     /// <summary>
     /// Issuing participant.
-    /// Encoded/decoded by serializers as "ISSP".
+    /// Encoded/decoded by serializers as &quot;ISSP&quot;.
     /// </summary>
     [EnumMember(Value = "ISSP")]
     [IsoId("_v5KQsL-EEeWfsa741pI6WA")]

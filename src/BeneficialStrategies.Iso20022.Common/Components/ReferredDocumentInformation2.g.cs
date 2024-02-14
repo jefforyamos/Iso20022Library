@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Structured information related to the invoice to be financed.
 /// </summary>
 [IsoId("_ThfHx9p-Ed-ak6NoX_4Aeg_415673992")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Referred Document Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReferredDocumentInformation2
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
     [IsoId("_ThfHyNp-Ed-ak6NoX_4Aeg_1244134096")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentType1? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record ReferredDocumentInformation2
     /// Unique and unambiguous identification number of the referred document.
     /// </summary>
     [IsoId("_Tho4wNp-Ed-ak6NoX_4Aeg_785144500")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DocNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DocumentNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record ReferredDocumentInformation2
     /// Date associated with the referred document, eg, date of issue.
     /// </summary>
     [IsoId("_Tho4wdp-Ed-ak6NoX_4Aeg_1357727086")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdDt")]
     #endif
+    [IsoXmlTag("RltdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RelatedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,12 @@ public partial record ReferredDocumentInformation2
     /// Amount of money and currency of a document referred to invoice to be financed.
     /// </summary>
     [IsoId("_Tho4wtp-Ed-ak6NoX_4Aeg_1784392308")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocAmt")]
     #endif
+    [IsoXmlTag("DocAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DocumentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

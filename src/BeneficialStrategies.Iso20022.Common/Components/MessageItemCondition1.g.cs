@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Presence condition of a message item.
 /// </summary>
 [IsoId("_K86DNH1DEeCF8NjrBemJWQ_-909229730")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Message Item Condition")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record MessageItemCondition1
     /// Unique identification of the message and the message item.
     /// </summary>
     [IsoId("_K86DNX1DEeCF8NjrBemJWQ_2010387496")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ItmId")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text ItemIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ItemIdentification { get; init; } 
+    public required System.String ItemIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ItemIdentification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record MessageItemCondition1
     /// Condition of presence of the message item.
     /// </summary>
     [IsoId("_K86DNn1DEeCF8NjrBemJWQ_-694076707")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cond")]
     #endif
+    [IsoXmlTag("Cond")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageItemCondition1Code Condition { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageItemCondition1Code Condition { get; init; } 
+    public required MessageItemCondition1Code Condition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageItemCondition1Code Condition { get; init; } 
     #else
@@ -95,15 +90,13 @@ public partial record MessageItemCondition1
     /// Value to be used for the message item.
     /// </summary>
     [IsoId("_K86DN31DEeCF8NjrBemJWQ_-1677320126")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

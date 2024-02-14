@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Value of total holdings reported.
 /// </summary>
 [IsoId("_Q7Cp9tp-Ed-ak6NoX_4Aeg_-277574684")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Value In Page And Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record TotalValueInPageAndStatement
     /// Total value of positions reported in this message.
     /// </summary>
     [IsoId("_Q7Cp99p-Ed-ak6NoX_4Aeg_-1277686772")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Holdings Value Of Page")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlHldgsValOfPg")]
     #endif
+    [IsoXmlTag("TtlHldgsValOfPg")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalHoldingsValueOfPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,16 @@ public partial record TotalValueInPageAndStatement
     /// Total value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
     [IsoId("_Q7Ma8Np-Ed-ak6NoX_4Aeg_-1254598967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Holdings Value Of Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlHldgsValOfStmt")]
     #endif
+    [IsoXmlTag("TtlHldgsValOfStmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalHoldingsValueOfStatement { get; init; } 
+    public required System.Decimal TotalHoldingsValueOfStatement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalHoldingsValueOfStatement { get; init; } 
     #else

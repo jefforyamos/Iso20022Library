@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous identification of a financial institution.
 /// </summary>
 [IsoId("_XaFUtfWfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Financial Institution Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TrackerFinancialInstitutionIdentification1
     /// Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
     [IsoId("_XaFUt_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstnId")]
     #endif
+    [IsoXmlTag("FinInstnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification20 FinancialInstitutionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstitutionIdentification20 FinancialInstitutionIdentification { get; init; } 
+    public required FinancialInstitutionIdentification20 FinancialInstitutionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstitutionIdentification20 FinancialInstitutionIdentification { get; init; } 
     #else

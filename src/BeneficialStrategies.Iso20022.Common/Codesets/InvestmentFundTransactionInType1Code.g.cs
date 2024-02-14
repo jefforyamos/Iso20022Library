@@ -21,7 +21,7 @@ public enum InvestmentFundTransactionInType1Code
 {
     /// <summary>
     /// Transaction is a subscription to an investment fund.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_acpjGNp-Ed-ak6NoX_4Aeg_99517208")]
@@ -30,7 +30,7 @@ public enum InvestmentFundTransactionInType1Code
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SWII".
+    /// Encoded/decoded by serializers as &quot;SWII&quot;.
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_acpjGdp-Ed-ak6NoX_4Aeg_99517562")]
@@ -39,7 +39,7 @@ public enum InvestmentFundTransactionInType1Code
     
     /// <summary>
     /// Transaction is an InSpecie.
-    /// Encoded/decoded by serializers as "INSP".
+    /// Encoded/decoded by serializers as &quot;INSP&quot;.
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_aczUENp-Ed-ak6NoX_4Aeg_100437611")]
@@ -48,7 +48,7 @@ public enum InvestmentFundTransactionInType1Code
     
     /// <summary>
     /// Transaction is a cross-in.
-    /// Encoded/decoded by serializers as "CROI".
+    /// Encoded/decoded by serializers as &quot;CROI&quot;.
     /// </summary>
     [EnumMember(Value = "CROI")]
     [IsoId("_aczUEdp-Ed-ak6NoX_4Aeg_100437629")]
@@ -57,7 +57,7 @@ public enum InvestmentFundTransactionInType1Code
     
     /// <summary>
     /// Transaction is a reinvestment of dividend.
-    /// Encoded/decoded by serializers as "RDIV".
+    /// Encoded/decoded by serializers as &quot;RDIV&quot;.
     /// </summary>
     [EnumMember(Value = "RDIV")]
     [IsoId("_aczUEtp-Ed-ak6NoX_4Aeg_711808534")]

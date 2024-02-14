@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Summary information about amount financed.
 /// </summary>
 [IsoId("_Th7zwdp-Ed-ak6NoX_4Aeg_-1462438308")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financing Allowed Summary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record FinancingAllowedSummary1
     /// Number of invoices/instalments financed.
     /// </summary>
     [IsoId("_Th7zwtp-Ed-ak6NoX_4Aeg_-1027457607")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financed Item Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincdItmNb")]
     #endif
+    [IsoXmlTag("FincdItmNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber FinancedItemNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 FinancedItemNumber { get; init; } 
+    public required System.UInt64 FinancedItemNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 FinancedItemNumber { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record FinancingAllowedSummary1
     /// Sum of the original total amounts of the invoices accepted for financing.
     /// </summary>
     [IsoId("_Th7zw9p-Ed-ak6NoX_4Aeg_-525987159")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Accepted Items Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAccptdItmsAmt")]
     #endif
+    [IsoXmlTag("TtlAccptdItmsAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalAcceptedItemsAmount { get; init; } 
+    public required System.Decimal TotalAcceptedItemsAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalAcceptedItemsAmount { get; init; } 
     #else
@@ -90,15 +88,15 @@ public partial record FinancingAllowedSummary1
     #endif
     
     /// <summary>
-    /// Percentage rate applied to calculate the total amount financed related to the total amounts of the invoices accepted for financing. It represents the average percentage rate applied to all single invoice requests financed. It can be calculated as result of "TotalFinancedAmount" divided by "TotalAcceptedItemsAmount".
+    /// Percentage rate applied to calculate the total amount financed related to the total amounts of the invoices accepted for financing. It represents the average percentage rate applied to all single invoice requests financed. It can be calculated as result of &quot;TotalFinancedAmount&quot; divided by &quot;TotalAcceptedItemsAmount&quot;.
     /// </summary>
     [IsoId("_TiFksNp-Ed-ak6NoX_4Aeg_2267645")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applied Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApldPctg")]
     #endif
+    [IsoXmlTag("ApldPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? AppliedPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +109,16 @@ public partial record FinancingAllowedSummary1
     /// Total amount financed, defined as the entire financed amount of the requests.
     /// </summary>
     [IsoId("_TiFksdp-Ed-ak6NoX_4Aeg_319034603")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Financed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlFincdAmt")]
     #endif
+    [IsoXmlTag("TtlFincdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalFinancedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalFinancedAmount { get; init; } 
+    public required System.Decimal TotalFinancedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalFinancedAmount { get; init; } 
     #else
@@ -131,12 +129,11 @@ public partial record FinancingAllowedSummary1
     /// Set of dates (eg book date, credit date) related to the crediting of the financed amount.
     /// </summary>
     [IsoId("_TiFkstp-Ed-ak6NoX_4Aeg_-1526604541")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgDtDtls")]
     #endif
+    [IsoXmlTag("FincgDtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingDateDetails1? FinancingDateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +146,11 @@ public partial record FinancingAllowedSummary1
     /// Unambiguous identification of the account, held by Financing Requestor, actually used for crediting the amount financed.
     /// </summary>
     [IsoId("_TiFks9p-Ed-ak6NoX_4Aeg_-434448310")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtAcct")]
     #endif
+    [IsoXmlTag("CdtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? CreditAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +163,11 @@ public partial record FinancingAllowedSummary1
     /// Unambiguous identification of the internal bank account actually used by First Agent to manage the line of credit granted to Financing Requestor.
     /// </summary>
     [IsoId("_TiFktNp-Ed-ak6NoX_4Aeg_-1667612693")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgAcct")]
     #endif
+    [IsoXmlTag("FincgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? FinancingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

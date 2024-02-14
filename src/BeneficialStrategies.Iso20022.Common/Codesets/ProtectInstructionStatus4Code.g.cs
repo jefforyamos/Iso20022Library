@@ -21,7 +21,7 @@ public enum ProtectInstructionStatus4Code
 {
     /// <summary>
     /// Protect instruction which has not been fully covered. Will include partial covers.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_BshVMbpcEeilsanBGAzy4A")]

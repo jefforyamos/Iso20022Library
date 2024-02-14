@@ -21,7 +21,7 @@ public enum MoneyLaunderingCheck1Code
 {
     /// <summary>
     /// Money laundering identification procedures have been carried out by the intermediary.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_aMj4otp-Ed-ak6NoX_4Aeg_-1394550883")]
@@ -30,7 +30,7 @@ public enum MoneyLaunderingCheck1Code
     
     /// <summary>
     /// Money laundering identification procedures have not been carried out.
-    /// Encoded/decoded by serializers as "NOTC".
+    /// Encoded/decoded by serializers as &quot;NOTC&quot;.
     /// </summary>
     [EnumMember(Value = "NOTC")]
     [IsoId("_aMj4o9p-Ed-ak6NoX_4Aeg_-1394550852")]
@@ -39,7 +39,7 @@ public enum MoneyLaunderingCheck1Code
     
     /// <summary>
     /// Money laundering identification procedures have not been carried out because the transaction is below the prescribed limit.
-    /// Encoded/decoded by serializers as "EXEM".
+    /// Encoded/decoded by serializers as &quot;EXEM&quot;.
     /// </summary>
     [EnumMember(Value = "EXEM")]
     [IsoId("_aMj4pNp-Ed-ak6NoX_4Aeg_-1394550851")]
@@ -48,7 +48,7 @@ public enum MoneyLaunderingCheck1Code
     
     /// <summary>
     /// Money laundering identification procedures have not been carried out because of the transaction type, for example, switch, or because the transaction is being funded from an existing investor account held by the intermediary.
-    /// Encoded/decoded by serializers as "CLMO".
+    /// Encoded/decoded by serializers as &quot;CLMO&quot;.
     /// </summary>
     [EnumMember(Value = "CLMO")]
     [IsoId("_aMj4pdp-Ed-ak6NoX_4Aeg_-1394550821")]
@@ -57,7 +57,7 @@ public enum MoneyLaunderingCheck1Code
     
     /// <summary>
     /// Money laundering identification procedures have not been carried out because the investor is an authorised credit or financial institution.
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_aMj4ptp-Ed-ak6NoX_4Aeg_-1394550820")]
@@ -66,7 +66,7 @@ public enum MoneyLaunderingCheck1Code
     
     /// <summary>
     /// Limited money laundering identification procedures have been carried out because it is a one time only transaction and the payment is being made by postal, telephone or electronic transfers from an existing account with an authorised credit or financial institution.
-    /// Encoded/decoded by serializers as "POEP".
+    /// Encoded/decoded by serializers as &quot;POEP&quot;.
     /// </summary>
     [EnumMember(Value = "POEP")]
     [IsoId("_aMj4p9p-Ed-ak6NoX_4Aeg_-1394550791")]

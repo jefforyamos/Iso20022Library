@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify the type or operations code of a transaction entry.
 /// </summary>
 [IsoId("_TVbBstp-Ed-ak6NoX_4Aeg_-1809965694")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank Transaction Code Structure")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record BankTransactionCodeStructure5
     /// Specifies the business area of the underlying transaction.
     /// </summary>
     [IsoId("_TVbBs9p-Ed-ak6NoX_4Aeg_-1809965664")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionDomain1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Code { get; init; } 
+    public required string Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Code { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record BankTransactionCodeStructure5
     /// Specifies the family and the sub-family of the bank transaction code, within a specific domain, in a structured and hierarchical format.
     /// </summary>
     [IsoId("_TVbBtNp-Ed-ak6NoX_4Aeg_-1809965570")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Family")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fmly")]
     #endif
+    [IsoXmlTag("Fmly")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankTransactionCodeStructure6 Family { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BankTransactionCodeStructure6 Family { get; init; } 
+    public required BankTransactionCodeStructure6 Family { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BankTransactionCodeStructure6 Family { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
 [IsoId("_Sg0U-tp-Ed-ak6NoX_4Aeg_-795273148")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("PEPISA Transfer")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,15 +52,13 @@ public partial record PEPISATransfer5
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
     [IsoId("_Sg-F8Np-Ed-ak6NoX_4Aeg_44234624")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,19 +71,17 @@ public partial record PEPISATransfer5
     /// Identification assigned by the new plan manager to each transfer of asset.
     /// </summary>
     [IsoId("_Sg-F8dp-Ed-ak6NoX_4Aeg_-795272992")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TrfId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransferIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransferIdentification { get; init; } 
+    public required System.String TransferIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransferIdentification { get; init; } 
     #else
@@ -98,16 +92,15 @@ public partial record PEPISATransfer5
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. |The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
     [IsoId("_Sg-F8tp-Ed-ak6NoX_4Aeg_-795271071")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISA")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ISA")]
     #endif
+    [IsoXmlTag("ISA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISAYearsOfIssue2 ISA { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ISAYearsOfIssue2 ISA { get; init; } 
+    public required ISAYearsOfIssue2 ISA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ISAYearsOfIssue2 ISA { get; init; } 
     #else
@@ -118,16 +111,15 @@ public partial record PEPISATransfer5
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. |The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
     [IsoId("_Sg-F89p-Ed-ak6NoX_4Aeg_-795271577")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PEP")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PEP")]
     #endif
+    [IsoXmlTag("PEP")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PreviousYearChoice_ PEP { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PreviousYearChoice_ PEP { get; init; } 
+    public required PreviousYearChoice_ PEP { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PreviousYearChoice_ PEP { get; init; } 
     #else
@@ -138,16 +130,15 @@ public partial record PEPISATransfer5
     /// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
     /// </summary>
     [IsoId("_Sg-F9Np-Ed-ak6NoX_4Aeg_-7764666")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Portfolio")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtfl")]
     #endif
+    [IsoXmlTag("Prtfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Portfolio1 Portfolio { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Portfolio1 Portfolio { get; init; } 
+    public required Portfolio1 Portfolio { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Portfolio1 Portfolio { get; init; } 
     #else
@@ -158,12 +149,11 @@ public partial record PEPISATransfer5
     /// Specifies the underlying assets for the PEP, ISA or portfolio.
     /// </summary>
     [IsoId("_Sg-F9dp-Ed-ak6NoX_4Aeg_-795271967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Asset For Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmAsstForTrf")]
     #endif
+    [IsoXmlTag("FinInstrmAsstForTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument12? FinancialInstrumentAssetForTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Formal document used to record a fact and used as proof of the fact, in the context of a commercial trade transaction.
 /// </summary>
 [IsoId("_d3zy0QgKEeSeS5xdjFfOTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Certificate Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record OtherCertificateDataSet2
     /// Identifies the certificate data set.
     /// </summary>
     [IsoId("_ePAx4QgKEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetId")]
     #endif
+    [IsoXmlTag("DataSetId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    public required DocumentIdentification1 DataSetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification1 DataSetIdentification { get; init; } 
     #else
@@ -75,19 +72,17 @@ public partial record OtherCertificateDataSet2
     /// Unique identifier of the document.
     /// </summary>
     [IsoId("_ePAx4wgKEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CertificateIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CertificateIdentification { get; init; } 
+    public required System.String CertificateIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CertificateIdentification { get; init; } 
     #else
@@ -98,19 +93,16 @@ public partial record OtherCertificateDataSet2
     /// Specifies the type of the certificate.
     /// </summary>
     [IsoId("_ePAx5QgKEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CertTp")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericText CertificateType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CertificateType { get; init; } 
+    public required System.String CertificateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CertificateType { get; init; } 
     #else
@@ -121,16 +113,16 @@ public partial record OtherCertificateDataSet2
     /// Issue date of the document.
     /// </summary>
     [IsoId("_ePAx5wgKEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly IssueDate { get; init; } 
+    public required System.DateOnly IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly IssueDate { get; init; } 
     #else
@@ -141,16 +133,15 @@ public partial record OtherCertificateDataSet2
     /// Issuer of the certificate, typically the inspection company or its agent.
     /// </summary>
     [IsoId("_ePAx6QgKEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Issuer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification26 Issuer { get; init; } 
+    public required PartyIdentification26 Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification26 Issuer { get; init; } 
     #else
@@ -161,15 +152,13 @@ public partial record OtherCertificateDataSet2
     /// Additional and important information that could not be captured by structured fields.
     /// </summary>
     [IsoId("_ePAx6wgKEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? CertificateInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType3Choice
     /// Type of system event, as published in an external code list.
     /// </summary>
     [IsoId("_wCNH5MlcEeW3r6pl_9_bpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType3Choice
         /// Specifies the technical error, as published in an external technical error code list.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalSystemEvent1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Value { get; init; } 
+        public required string Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Value { get; init; } 
         #else

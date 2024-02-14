@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Description of the financial instrument.
 /// </summary>
 [IsoId("_DeW-8WSDEeKFfdK0gKYFLQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record FinancialInstrumentAttributes46
     /// Identifies the financial instrument.
     /// </summary>
     [IsoId("_D3_m-WSDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification14 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification14 SecurityIdentification { get; init; } 
+    public required SecurityIdentification14 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification14 SecurityIdentification { get; init; } 
     #else
@@ -73,12 +70,12 @@ public partial record FinancialInstrumentAttributes46
     /// Quantity of entitled intermediate securities based on the balance of underlying securities.
     /// </summary>
     [IsoId("_D3_nA2SDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,12 +88,11 @@ public partial record FinancialInstrumentAttributes46
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
     [IsoId("_D3_nDWSDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Renounceable Entitlement Status Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RnncblEntitlmntStsTp")]
     #endif
+    [IsoXmlTag("RnncblEntitlmntStsTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RenounceableEntitlementStatusTypeFormat1Choice_? RenounceableEntitlementStatusType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +105,11 @@ public partial record FinancialInstrumentAttributes46
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
     [IsoId("_D3_nF2SDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraction Disposition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrctnDspstn")]
     #endif
+    [IsoXmlTag("FrctnDspstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FractionDispositionType15Choice_? FractionDisposition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,12 +122,11 @@ public partial record FinancialInstrumentAttributes46
     /// Quantity of intermediate securities awarded for a given quantity of underlying security.
     /// </summary>
     [IsoId("_D3_nIWSDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediate Securities To Underlying Ratio")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmdtSctiesToUndrlygRatio")]
     #endif
+    [IsoXmlTag("IntrmdtSctiesToUndrlygRatio")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityToQuantityRatio1? IntermediateSecuritiesToUnderlyingRatio { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,12 +139,11 @@ public partial record FinancialInstrumentAttributes46
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
     [IsoId("_D3_nK2SDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktPric")]
     #endif
+    [IsoXmlTag("MktPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountPrice2? MarketPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,16 +156,15 @@ public partial record FinancialInstrumentAttributes46
     /// Date on which an order expires or at which a privilege or offer terminates.
     /// </summary>
     [IsoId("_D3_nNWSDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat16Choice_ ExpiryDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat16Choice_ ExpiryDate { get; init; } 
+    public required DateFormat16Choice_ ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat16Choice_ ExpiryDate { get; init; } 
     #else
@@ -183,16 +175,15 @@ public partial record FinancialInstrumentAttributes46
     /// Date of the posting (credit or debit) to the account.
     /// </summary>
     [IsoId("_D3_nP2SDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstngDt")]
     #endif
+    [IsoXmlTag("PstngDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat16Choice_ PostingDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat16Choice_ PostingDate { get; init; } 
+    public required DateFormat16Choice_ PostingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat16Choice_ PostingDate { get; init; } 
     #else
@@ -203,12 +194,11 @@ public partial record FinancialInstrumentAttributes46
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
     [IsoId("_D3_nSWSDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgPrd")]
     #endif
+    [IsoXmlTag("TradgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4? TradingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +211,11 @@ public partial record FinancialInstrumentAttributes46
     /// Balance of uninstructed position.
     /// </summary>
     [IsoId("_D3_nU2SDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Uninstructed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UinstdBal")]
     #endif
+    [IsoXmlTag("UinstdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? UninstructedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +228,11 @@ public partial record FinancialInstrumentAttributes46
     /// Balance of instructed position.
     /// </summary>
     [IsoId("_D3_nXWSDEeKFfdK0gKYFLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdBal")]
     #endif
+    [IsoXmlTag("InstdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? InstructedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

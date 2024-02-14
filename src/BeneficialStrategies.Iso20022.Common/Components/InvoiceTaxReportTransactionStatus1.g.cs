@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of each individual invoice tax report transaction.
 /// </summary>
 [IsoId("_8pkzYU53Eeaine-lsNAGsA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Tax Report Transaction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record InvoiceTaxReportTransactionStatus1
     /// Report identification, for example invoice number or report number from point of sales system.
     /// </summary>
     [IsoId("_8xqYYU53Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRptId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TaxRptId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TaxReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TaxReportIdentification { get; init; } 
+    public required System.String TaxReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TaxReportIdentification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record InvoiceTaxReportTransactionStatus1
     /// Defines status of the reported transaction.
     /// </summary>
     [IsoId("_8xqYZ053Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxReportingStatus2Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxReportingStatus2Code Status { get; init; } 
+    public required TaxReportingStatus2Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxReportingStatus2Code Status { get; init; } 
     #else
@@ -95,12 +90,11 @@ public partial record InvoiceTaxReportTransactionStatus1
     /// Provides the details of the rule which could not be validated.
     /// </summary>
     [IsoId("_8xqYaU53Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Rule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnRule")]
     #endif
+    [IsoXmlTag("VldtnRule")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +107,11 @@ public partial record InvoiceTaxReportTransactionStatus1
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_8xqYa053Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

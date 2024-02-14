@@ -21,7 +21,7 @@ public enum TaxRateMarker1Code
 {
     /// <summary>
     /// Specifies the amount quoted less life assurance premium rate income tax.
-    /// Encoded/decoded by serializers as "ALPR".
+    /// Encoded/decoded by serializers as &quot;ALPR&quot;.
     /// </summary>
     [EnumMember(Value = "ALPR")]
     [IsoId("_z5l70Q2YEeSNWNtJlXOAhg")]
@@ -30,7 +30,7 @@ public enum TaxRateMarker1Code
     
     /// <summary>
     /// Specifies the amount quoted less standard rate income tax.
-    /// Encoded/decoded by serializers as "ALIT".
+    /// Encoded/decoded by serializers as &quot;ALIT&quot;.
     /// </summary>
     [EnumMember(Value = "ALIT")]
     [IsoId("_z-DlEQ2YEeSNWNtJlXOAhg")]
@@ -39,7 +39,7 @@ public enum TaxRateMarker1Code
     
     /// <summary>
     /// Specifies an amount before the deduction of tax.
-    /// Encoded/decoded by serializers as "GRSS".
+    /// Encoded/decoded by serializers as &quot;GRSS&quot;.
     /// </summary>
     [EnumMember(Value = "GRSS")]
     [IsoId("_0Cq_UQ2YEeSNWNtJlXOAhg")]

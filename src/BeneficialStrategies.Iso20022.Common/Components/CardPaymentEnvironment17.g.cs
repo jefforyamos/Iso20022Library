@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the diagnostic exchange.
 /// </summary>
 [IsoId("_TA70sRz1EeK5OKMB21JFBg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record CardPaymentEnvironment17
     /// Version of acquirer configuration parameters.
     /// </summary>
     [IsoId("_TNIdoRz1EeK5OKMB21JFBg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Parameters Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrParamsVrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcqrrParamsVrsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AcquirerParametersVersion { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AcquirerParametersVersion { get; init; } 
+    public required System.String AcquirerParametersVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AcquirerParametersVersion { get; init; } 
     #else
@@ -75,12 +71,11 @@ public partial record CardPaymentEnvironment17
     /// Identification of the merchant requesting the diagnostic.
     /// </summary>
     [IsoId("_TNIdpRz1EeK5OKMB21JFBg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merchant Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrchntId")]
     #endif
+    [IsoXmlTag("MrchntId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification32? MerchantIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record CardPaymentEnvironment17
     /// Identification of the POI requesting the diagnostic.
     /// </summary>
     [IsoId("_TNIdqRz1EeK5OKMB21JFBg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification32 POIIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification32 POIIdentification { get; init; } 
+    public required GenericIdentification32 POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification32 POIIdentification { get; init; } 
     #else

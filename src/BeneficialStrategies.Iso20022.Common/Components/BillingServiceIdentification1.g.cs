@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the service to be billed.
 /// </summary>
 [IsoId("_6PWmwJqlEeGSON8vddiWzQ_-1688870750")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Service Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -49,22 +47,20 @@ public partial record BillingServiceIdentification1
     #nullable enable
     
     /// <summary>
-    /// Financial institution's own, internal service identification code, different from the common code.|Usage: The financial institution own code is used to uniquely identify the service within the financial institution.
+    /// Financial institution&apos;s own, internal service identification code, different from the common code.|Usage: The financial institution own code is used to uniquely identify the service within the financial institution.
     /// </summary>
     [IsoId("_6PWmwZqlEeGSON8vddiWzQ_958913297")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -75,12 +71,11 @@ public partial record BillingServiceIdentification1
     /// Defines the financial institution sub-service identification if the financial institution service identification code is used for more than one service.
     /// </summary>
     [IsoId("_6PWmwpqlEeGSON8vddiWzQ_577029016")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubSvc")]
     #endif
+    [IsoXmlTag("SubSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingSubServiceIdentification1? SubService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,19 +88,17 @@ public partial record BillingServiceIdentification1
     /// Specifies further details to describe the financial institution service description, which is not the standard description related to the common code.
     /// </summary>
     [IsoId("_6PWmw5qlEeGSON8vddiWzQ_912294769")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text Description { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Description { get; init; } 
+    public required System.String Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Description { get; init; } 
     #else
@@ -116,12 +109,11 @@ public partial record BillingServiceIdentification1
     /// Standard reference code used to uniquely identify this service across financial institutions. This is not the financial institution’s internal bank service identification.
     /// </summary>
     [IsoId("_6PWmxJqlEeGSON8vddiWzQ_84412588")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Common Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmonCd")]
     #endif
+    [IsoXmlTag("CmonCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingServiceCommonIdentification1? CommonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,15 +126,13 @@ public partial record BillingServiceIdentification1
     /// Type used to classify or organise different services by common characteristics.
     /// </summary>
     [IsoId("_6PWmxZqlEeGSON8vddiWzQ_2126236147")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SvcTp")]
+    [IsoSimpleType(IsoSimpleType.Max12Text)]
     [StringLength(maximumLength: 12 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax12Text? ServiceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

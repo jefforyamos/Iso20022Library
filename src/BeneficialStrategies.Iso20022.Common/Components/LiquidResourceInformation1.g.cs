@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the liquid resources.
 /// </summary>
 [IsoId("_nNjvsESrEemM8-DVOYzdVQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Liquid Resource Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,15 +53,13 @@ public partial record LiquidResourceInformation1
     /// Identification of the facility provider.
     /// </summary>
     [IsoId("_xUlDAESrEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counter Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CntrPtyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CntrPtyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CounterPartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,16 +72,15 @@ public partial record LiquidResourceInformation1
     /// Amount of liquid resources available to meet liquid requirements.
     /// </summary>
     [IsoId("_2i3s0ESrEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquid Resource Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LqdRsrcVal")]
     #endif
+    [IsoXmlTag("LqdRsrcVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 LiquidResourceValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 LiquidResourceValue { get; init; } 
+    public required AmountAndDirection102 LiquidResourceValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 LiquidResourceValue { get; init; } 
     #else
@@ -96,12 +91,11 @@ public partial record LiquidResourceInformation1
     /// The market value of the financial instruments being used to secure the facility.
     /// </summary>
     [IsoId("_FuOcsESsEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection102? MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,16 +108,16 @@ public partial record LiquidResourceInformation1
     /// Indicates whether the facility is secured or not.
     /// </summary>
     [IsoId("_VvbPcESsEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scrd")]
     #endif
+    [IsoXmlTag("Scrd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator Secured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Secured { get; init; } 
+    public required System.String Secured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Secured { get; init; } 
     #else
@@ -134,16 +128,16 @@ public partial record LiquidResourceInformation1
     /// Indicates whether the financial instruments are encumbered or not. This includes where financial instruments must be pledged to secure liquidity facilities.
     /// </summary>
     [IsoId("_bFJ-AESsEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Encumbered")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstNcmbrd")]
     #endif
+    [IsoXmlTag("AsstNcmbrd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator AssetEncumbered { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AssetEncumbered { get; init; } 
+    public required System.String AssetEncumbered { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AssetEncumbered { get; init; } 
     #else
@@ -154,16 +148,16 @@ public partial record LiquidResourceInformation1
     /// Indicates whether the available liquid resource counts towards the liquid requirements in the scenario or not.
     /// </summary>
     [IsoId("_gVPXkESsEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Qualifying Resource")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QlfygRsrc")]
     #endif
+    [IsoXmlTag("QlfygRsrc")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator QualifyingResource { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String QualifyingResource { get; init; } 
+    public required System.String QualifyingResource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String QualifyingResource { get; init; } 
     #else
@@ -174,16 +168,16 @@ public partial record LiquidResourceInformation1
     /// Indicates the reliance on third party entities to settle payment obligations for the CCP or a clearing member. The article 32(4) of Commission Delegated Regulated 153/2013 includes a full list of third party entities which a CCP may have a liquidity exposure to. If the value is true, the portion of the liquid resource which is assumed to be unavailable due to a dependency on third party entities. If the value is false, the portion of the liquid resource which is assumed to be available as no dependency on third party entities.
     /// </summary>
     [IsoId("_lPmYwESsEemM8-DVOYzdVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agency Arrangements")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgcyArrgmnts")]
     #endif
+    [IsoXmlTag("AgcyArrgmnts")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator AgencyArrangements { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AgencyArrangements { get; init; } 
+    public required System.String AgencyArrangements { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AgencyArrangements { get; init; } 
     #else

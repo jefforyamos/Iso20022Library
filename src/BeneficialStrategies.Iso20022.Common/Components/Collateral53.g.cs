@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides for each collateral account the report summary and the valuation of each piece of collateral.
 /// </summary>
 [IsoId("_zoKi8SgtEeyB747fKu7_rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Collateral53
     /// Provides information about the collateral account, that is the identification, the type and optionally the name.
     /// </summary>
     [IsoId("_0AdHISgtEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralAccount3? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record Collateral53
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of collateral account for digital assets.
     /// </summary>
     [IsoId("_21OOcyqWEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Chain Address Or Wallet")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckChainAdrOrWllt")]
     #endif
+    [IsoXmlTag("BlckChainAdrOrWllt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockChainAddressWallet5? BlockChainAddressOrWallet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +83,15 @@ public partial record Collateral53
     /// Summary of the collateral valuation.
     /// </summary>
     [IsoId("_0AdHIygtEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSummry")]
     #endif
+    [IsoXmlTag("RptSummry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Summary3 ReportSummary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Summary3 ReportSummary { get; init; } 
+    public required Summary3 ReportSummary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Summary3 ReportSummary { get; init; } 
     #else
@@ -107,12 +102,11 @@ public partial record Collateral53
     /// Additional information about the collateral valuation that has been posted.
     /// </summary>
     [IsoId("_0AdHJSgtEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Valuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollValtn")]
     #endif
+    [IsoXmlTag("CollValtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralValuation13? CollateralValuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

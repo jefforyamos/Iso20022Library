@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EUCapitalGainType3Choice.EUCapitalGain))]
     [KnownType(typeof(EUCapitalGainType3Choice.Proprietary))]
     [IsoId("_XolpcZBhEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("EU Capital Gain Type 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

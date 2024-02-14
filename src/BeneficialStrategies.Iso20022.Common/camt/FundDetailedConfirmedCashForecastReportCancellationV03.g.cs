@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|A report provider, such as a transfer agent, sends the FundDetailedConfirmedCashForecastReportCancellation messages to the report user, such as an investment manager, fund accountant or any other interested party, to cancel a previously sent FundDetailedConfirmedCashForecastReport.|Usage|The FundDetailedConfirmedCashForecastReportCancellation message is used to cancel an entire FundDetailedConfirmedCashForecastReport message that was previously sent. This message must contain the reference of the message to be cancelled.|This message may also contain details of the message to be cancelled, but this is not recommended.")]
 [IsoId("_OOHvMQasEeSrXeb3pHPmbg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Detailed Confirmed Cash Forecast Report Cancellation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03 : I
     /// Identifies the message.
     /// </summary>
     [IsoId("_OOHvMwasEeSrXeb3pHPmbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -100,12 +97,11 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03 : I
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_OOHvNQasEeSrXeb3pHPmbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +114,11 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03 : I
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_OOHvNwasEeSrXeb3pHPmbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +131,11 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03 : I
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_OOHvOQasEeSrXeb3pHPmbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,16 +148,15 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03 : I
     /// Pagination of the message.
     /// </summary>
     [IsoId("_OOHvOwasEeSrXeb3pHPmbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination MessagePagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination MessagePagination { get; init; } 
+    public required Pagination MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination MessagePagination { get; init; } 
     #else
@@ -174,12 +167,11 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03 : I
     /// The FundDetailedConfirmedCashForecastReport to be cancelled.
     /// </summary>
     [IsoId("_OOHvPQasEeSrXeb3pHPmbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Forecast Report To Be Cancelled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshFcstRptToBeCanc")]
     #endif
+    [IsoXmlTag("CshFcstRptToBeCanc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundDetailedConfirmedCashForecastReport3? CashForecastReportToBeCancelled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,7 +184,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03 : I
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FundDetailedConfirmedCashForecastReportCancellationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FundDetailedConfirmedCashForecastReportCancellationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FundDetailedConfirmedCashForecastReportCancellationV03Document ToDocument()
     {
@@ -202,7 +194,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03 : I
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundDetailedConfirmedCashForecastReportCancellationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FundDetailedConfirmedCashForecastReportCancellationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FundDetailedConfirmedCashForecastReportCancellationV03Document : IOuterDocument<FundDetailedConfirmedCashForecastReportCancellationV03>
@@ -219,7 +211,7 @@ public partial record FundDetailedConfirmedCashForecastReportCancellationV03Docu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FundDetailedConfirmedCashForecastReportCancellationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FundDetailedConfirmedCashForecastReportCancellationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundDetailedConfirmedCashForecastReportCancellationV03 Message { get; init; }

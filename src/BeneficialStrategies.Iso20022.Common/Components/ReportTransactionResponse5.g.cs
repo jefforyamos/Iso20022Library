@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Transaction Report Response message.
 /// </summary>
 [IsoId("_tB5KYXJEEe299ZbWCkdR_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Transaction Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record ReportTransactionResponse5
     /// Specifies the total number of transactions matching the search criteria.
     /// </summary>
     [IsoId("_tJNTUXJEEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Full Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptFullSz")]
     #endif
+    [IsoXmlTag("RptFullSz")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber ReportFullSize { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ReportFullSize { get; init; } 
+    public required System.UInt64 ReportFullSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ReportFullSize { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record ReportTransactionResponse5
     /// Index of the first transaction reported in this message within the list of transactions matching the search criteria.
     /// </summary>
     [IsoId("_tJNTU3JEEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Start")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckStart")]
     #endif
+    [IsoXmlTag("BlckStart")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber BlockStart { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 BlockStart { get; init; } 
+    public required System.UInt64 BlockStart { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 BlockStart { get; init; } 
     #else
@@ -93,16 +91,16 @@ public partial record ReportTransactionResponse5
     /// Index of the last transaction reported in this message.
     /// </summary>
     [IsoId("_tJNTVXJEEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Stop")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckStop")]
     #endif
+    [IsoXmlTag("BlckStop")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber BlockStop { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 BlockStop { get; init; } 
+    public required System.UInt64 BlockStop { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 BlockStop { get; init; } 
     #else
@@ -113,12 +111,11 @@ public partial record ReportTransactionResponse5
     /// List of Transaction Report containing one Transaction Report for each transaction matching the Search criteria. This list may be partial according to requested block.
     /// </summary>
     [IsoId("_tJNTV3JEEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRpt")]
     #endif
+    [IsoXmlTag("TxRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ServiceResponse7? TransactionReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

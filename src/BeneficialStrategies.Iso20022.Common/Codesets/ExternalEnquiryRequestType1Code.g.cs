@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum ExternalEnquiryRequestType1Code
 {
     /// <summary>
-    /// Type is an enquiry on the bank's position.
-    /// Encoded/decoded by serializers as "RT11".
+    /// Type is an enquiry on the bank&apos;s position.
+    /// Encoded/decoded by serializers as &quot;RT11&quot;.
     /// </summary>
     [EnumMember(Value = "RT11")]
     [IsoId("_ud444vRYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalEnquiryRequestType1Code
     
     /// <summary>
     /// Type is an enquiry on a specific transaction.
-    /// Encoded/decoded by serializers as "RT12".
+    /// Encoded/decoded by serializers as &quot;RT12&quot;.
     /// </summary>
     [EnumMember(Value = "RT12")]
     [IsoId("_ud445fRYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalEnquiryRequestType1Code
     
     /// <summary>
     /// Type is an enquiry on a queued transaction.
-    /// Encoded/decoded by serializers as "RT13".
+    /// Encoded/decoded by serializers as &quot;RT13&quot;.
     /// </summary>
     [EnumMember(Value = "RT13")]
     [IsoId("_ueCp4vRYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalEnquiryRequestType1Code
     
     /// <summary>
     /// Type is an enquiry on a suspicious transaction.
-    /// Encoded/decoded by serializers as "RT14".
+    /// Encoded/decoded by serializers as &quot;RT14&quot;.
     /// </summary>
     [EnumMember(Value = "RT14")]
     [IsoId("_ueCp5fRYEeuLhpyIdtJzwg")]
@@ -59,7 +59,7 @@ public enum ExternalEnquiryRequestType1Code
     
     /// <summary>
     /// Type is an enquiry on the system date and/or time.
-    /// Encoded/decoded by serializers as "RT16".
+    /// Encoded/decoded by serializers as &quot;RT16&quot;.
     /// </summary>
     [EnumMember(Value = "RT16")]
     [IsoId("_ueCp6PRYEeuLhpyIdtJzwg")]
@@ -68,7 +68,7 @@ public enum ExternalEnquiryRequestType1Code
     
     /// <summary>
     /// Type is an enquiry on pending inward credits.
-    /// Encoded/decoded by serializers as "RT15".
+    /// Encoded/decoded by serializers as &quot;RT15&quot;.
     /// </summary>
     [EnumMember(Value = "RT15")]
     [IsoId("_ueCp6_RYEeuLhpyIdtJzwg")]

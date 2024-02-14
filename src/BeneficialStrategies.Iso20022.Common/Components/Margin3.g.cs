@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the calculation of the margin.
 /// </summary>
 [IsoId("_-eMvBKMOEeCojJW5vEuTEQ_631064077")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Margin3
     /// Margin required for absorbing future market price fluctuations (market risks) occurring between the default of a member and close-out of unsettled securities positions by the central counterparty.
     /// </summary>
     [IsoId("_-eMvBaMOEeCojJW5vEuTEQ_937741961")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgn")]
     #endif
+    [IsoXmlTag("InitlMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? InitialMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Margin3
     /// Provides details on the calculation of the variation margin.
     /// </summary>
     [IsoId("_-eMvBqMOEeCojJW5vEuTEQ_2054797146")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgn")]
     #endif
+    [IsoXmlTag("VartnMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VariationMargin3? VariationMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Margin3
     /// Provides details on the margin type and amount.
     /// </summary>
     [IsoId("_-eMvB6MOEeCojJW5vEuTEQ_-399143130")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrMrgn")]
     #endif
+    [IsoXmlTag("OthrMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Margin4? OtherMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

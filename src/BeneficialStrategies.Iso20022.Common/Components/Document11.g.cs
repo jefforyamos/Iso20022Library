@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a document.
 /// </summary>
 [IsoId("_XdB_6H1wEeGlwNeVP9egyg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Document11
     /// Type of document.
     /// </summary>
     [IsoId("_XdB_7n1wEeGlwNeVP9egyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PresentationDocumentFormat1Choice_? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record Document11
     /// Wording for document.
     /// </summary>
     [IsoId("_XdB_8X1wEeGlwNeVP9egyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wording")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Wrdg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Wrdg")]
+    [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? Wording { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record Document11
     /// Details related to an electronic presentation.
     /// </summary>
     [IsoId("_XdB_631wEeGlwNeVP9egyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Electronic Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctrncDtls")]
     #endif
+    [IsoXmlTag("ElctrncDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Presentation3? ElectronicDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

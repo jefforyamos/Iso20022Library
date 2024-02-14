@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCAPSSD1 message extends ISO corporate action event processing status advice message with DTCC corporate action elements not covered in the standard message.")]
 [IsoId("_1NaWBDL3EeKU9IrkkToqcw_997459875")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCAPSSD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCAPSSD1V01 : IOuterRecord<DTCCCAPSSD1V01,DTCCCAPSSD1V0
     /// Extension block for the information to be extended as corporate action general information.
     /// </summary>
     [IsoId("_1NaWBTL3EeKU9IrkkToqcw_-1234558780")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionGeneralInformationSD3? CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,7 +83,7 @@ public partial record DTCCCAPSSD1V01 : IOuterRecord<DTCCCAPSSD1V01,DTCCCAPSSD1V0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCAPSSD1V01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCAPSSD1V01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCAPSSD1V01Document ToDocument()
     {
@@ -96,7 +93,7 @@ public partial record DTCCCAPSSD1V01 : IOuterRecord<DTCCCAPSSD1V01,DTCCCAPSSD1V0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAPSSD1V01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCAPSSD1V01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCAPSSD1V01Document : IOuterDocument<DTCCCAPSSD1V01>
@@ -113,7 +110,7 @@ public partial record DTCCCAPSSD1V01Document : IOuterDocument<DTCCCAPSSD1V01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCAPSSD1V01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCAPSSD1V01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCAPSSD1V01 Message { get; init; }

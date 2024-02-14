@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OrganisationIdentificationSchemeName1Choice.Code))]
     [KnownType(typeof(OrganisationIdentificationSchemeName1Choice.Proprietary))]
     [IsoId("_QACaQtp-Ed-ak6NoX_4Aeg_362604391")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Identification Scheme Name 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

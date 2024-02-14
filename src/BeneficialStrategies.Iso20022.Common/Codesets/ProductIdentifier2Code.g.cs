@@ -21,7 +21,7 @@ public enum ProductIdentifier2Code
 {
     /// <summary>
     /// Product identifier assigned by the buyer.
-    /// Encoded/decoded by serializers as "BINR".
+    /// Encoded/decoded by serializers as &quot;BINR&quot;.
     /// </summary>
     [EnumMember(Value = "BINR")]
     [IsoId("_ZVuXSNp-Ed-ak6NoX_4Aeg_1808391590")]
@@ -30,7 +30,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// A code to identify a product based on applicable commercial conditions.
-    /// Encoded/decoded by serializers as "COMD".
+    /// Encoded/decoded by serializers as &quot;COMD&quot;.
     /// </summary>
     [EnumMember(Value = "COMD")]
     [IsoId("_ZVuXSdp-Ed-ak6NoX_4Aeg_1808391591")]
@@ -39,7 +39,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// The unique EAN (European Article Number) code.
-    /// Encoded/decoded by serializers as "EANC".
+    /// Encoded/decoded by serializers as &quot;EANC&quot;.
     /// </summary>
     [EnumMember(Value = "EANC")]
     [IsoId("_ZV3hMNp-Ed-ak6NoX_4Aeg_1808391608")]
@@ -48,7 +48,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// Classification of goods as developed by the Customs Cooperation council.
-    /// Encoded/decoded by serializers as "HRTR".
+    /// Encoded/decoded by serializers as &quot;HRTR&quot;.
     /// </summary>
     [EnumMember(Value = "HRTR")]
     [IsoId("_ZV3hMdp-Ed-ak6NoX_4Aeg_1808391609")]
@@ -57,7 +57,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// Product identifier as assigned by the manufacturer.
-    /// Encoded/decoded by serializers as "MANI".
+    /// Encoded/decoded by serializers as &quot;MANI&quot;.
     /// </summary>
     [EnumMember(Value = "MANI")]
     [IsoId("_ZV3hMtp-Ed-ak6NoX_4Aeg_1808391850")]
@@ -66,7 +66,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// Reference number assigned by the manufacturer to differentiate variations in similar products in a class or group.
-    /// Encoded/decoded by serializers as "MODL".
+    /// Encoded/decoded by serializers as &quot;MODL&quot;.
     /// </summary>
     [EnumMember(Value = "MODL")]
     [IsoId("_ZV3hM9p-Ed-ak6NoX_4Aeg_1808391867")]
@@ -75,7 +75,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// Reference assigned by the manufacturer to a product part.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_ZV3hNNp-Ed-ak6NoX_4Aeg_1808391868")]
@@ -84,7 +84,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// Product identifier used by the retail industry.
-    /// Encoded/decoded by serializers as "QOTA".
+    /// Encoded/decoded by serializers as &quot;QOTA&quot;.
     /// </summary>
     [EnumMember(Value = "QOTA")]
     [IsoId("_ZV3hNdp-Ed-ak6NoX_4Aeg_1808391885")]
@@ -93,7 +93,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// Identification of the style of a product.
-    /// Encoded/decoded by serializers as "STYL".
+    /// Encoded/decoded by serializers as &quot;STYL&quot;.
     /// </summary>
     [EnumMember(Value = "STYL")]
     [IsoId("_ZV3hNtp-Ed-ak6NoX_4Aeg_1808391886")]
@@ -102,7 +102,7 @@ public enum ProductIdentifier2Code
     
     /// <summary>
     /// Number assigned to an article by the supplier of that article.
-    /// Encoded/decoded by serializers as "SUPI".
+    /// Encoded/decoded by serializers as &quot;SUPI&quot;.
     /// </summary>
     [EnumMember(Value = "SUPI")]
     [IsoId("_ZV3hN9p-Ed-ak6NoX_4Aeg_-2058986456")]
@@ -110,8 +110,8 @@ public enum ProductIdentifier2Code
     SuppliersItemNumber = ProductIdentifierCode.SuppliersItemNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Number assigned to a manufacturer's product by the Product Code Council.
-    /// Encoded/decoded by serializers as "UPCC".
+    /// Number assigned to a manufacturer&apos;s product by the Product Code Council.
+    /// Encoded/decoded by serializers as &quot;UPCC&quot;.
     /// </summary>
     [EnumMember(Value = "UPCC")]
     [IsoId("_ZV3hONp-Ed-ak6NoX_4Aeg_-2016505606")]

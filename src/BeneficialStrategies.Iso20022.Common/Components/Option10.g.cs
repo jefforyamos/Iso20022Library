@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// List of elements which provide the parameters of an option trade.
 /// </summary>
 [IsoId("_XCwBUQ8iEeSFHsNYty4C9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -67,16 +65,15 @@ public partial record Option10
     /// Type of data to indicate whether a trade is an option or resulted by an option exercise.
     /// </summary>
     [IsoId("_wjtYoEeBEeSzluxs8tdrVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Data")]
     #endif
+    [IsoXmlTag("Data")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataType1Code Data { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataType1Code Data { get; init; } 
+    public required DataType1Code Data { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataType1Code Data { get; init; } 
     #else
@@ -87,16 +84,15 @@ public partial record Option10
     /// Specifies the exercise status of the option.
     /// </summary>
     [IsoId("_RGnuACKSEeSFts-9wCD3iw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exercise Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExrcSts")]
     #endif
+    [IsoXmlTag("ExrcSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativeExerciseStatus1Code ExerciseStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DerivativeExerciseStatus1Code ExerciseStatus { get; init; } 
+    public required DerivativeExerciseStatus1Code ExerciseStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DerivativeExerciseStatus1Code ExerciseStatus { get; init; } 
     #else
@@ -107,16 +103,15 @@ public partial record Option10
     /// Defines how an option can be exercised.
     /// </summary>
     [IsoId("_XdRaKQ8iEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exercise Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExrcStyle")]
     #endif
+    [IsoXmlTag("ExrcStyle")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionStyle2Code ExerciseStyle { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionStyle2Code ExerciseStyle { get; init; } 
+    public required OptionStyle2Code ExerciseStyle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionStyle2Code ExerciseStyle { get; init; } 
     #else
@@ -127,16 +122,15 @@ public partial record Option10
     /// Choice of format for option type.
     /// </summary>
     [IsoId("_7uMrYEUhEeSGWeX3z5zSZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionType1Code OptionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionType1Code OptionType { get; init; } 
+    public required OptionType1Code OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionType1Code OptionType { get; init; } 
     #else
@@ -147,19 +141,17 @@ public partial record Option10
     /// Identifies the derivative option.
     /// </summary>
     [IsoId("_lmNm8KbREeSnSIf9q_Ahng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Option Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivOptnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DerivOptnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text DerivativeOptionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DerivativeOptionIdentification { get; init; } 
+    public required System.String DerivativeOptionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DerivativeOptionIdentification { get; init; } 
     #else
@@ -170,16 +162,15 @@ public partial record Option10
     /// Indicates the type of payout that will result from an in-the-money option.
     /// </summary>
     [IsoId("_LQBMwKbFEeSxuMLA5o46jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Payout Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnPyoutTp")]
     #endif
+    [IsoXmlTag("OptnPyoutTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionPayoutType1Code OptionPayoutType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionPayoutType1Code OptionPayoutType { get; init; } 
+    public required OptionPayoutType1Code OptionPayoutType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionPayoutType1Code OptionPayoutType { get; init; } 
     #else
@@ -190,16 +181,15 @@ public partial record Option10
     /// Specifies the valuation rate used for the trade.
     /// </summary>
     [IsoId("_atfU4IabEeS6OMe6QA9z_g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnRate")]
     #endif
+    [IsoXmlTag("ValtnRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate3 ValuationRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate3 ValuationRate { get; init; } 
+    public required AgreedRate3 ValuationRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate3 ValuationRate { get; init; } 
     #else
@@ -210,16 +200,15 @@ public partial record Option10
     /// Specifies the rate of exchange at which the foreign exchange option has been struck.
     /// </summary>
     [IsoId("_XdRaJw8iEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strike Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrkPric")]
     #endif
+    [IsoXmlTag("StrkPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate3 StrikePrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate3 StrikePrice { get; init; } 
+    public required AgreedRate3 StrikePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate3 StrikePrice { get; init; } 
     #else
@@ -230,16 +219,16 @@ public partial record Option10
     /// Annualized volatility for option model calculations.
     /// </summary>
     [IsoId("_cp_Z0A8mEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volatility Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoltlyMrgn")]
     #endif
+    [IsoXmlTag("VoltlyMrgn")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate VolatilityMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal VolatilityMargin { get; init; } 
+    public required System.Decimal VolatilityMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal VolatilityMargin { get; init; } 
     #else
@@ -250,16 +239,16 @@ public partial record Option10
     /// Measurement of the amount of the trade values converted in the US dollars.
     /// </summary>
     [IsoId("_OITiUIclEeSSpbtwQkzChA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskAmt")]
     #endif
+    [IsoXmlTag("RskAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal RiskAmount { get; init; } 
+    public required System.Decimal RiskAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal RiskAmount { get; init; } 
     #else
@@ -270,16 +259,16 @@ public partial record Option10
     /// Date on which a privilege (for example, option, right, warrant.) expires. If it is an European option, the option holder can only exercise the right or let it lapse on expiry date. If it is an American option, the option holder can exercise the right up to the expiry date.
     /// </summary>
     [IsoId("_XdRaLQ8iEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date And Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDtAndTm")]
     #endif
+    [IsoXmlTag("XpryDtAndTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ExpiryDateAndTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ExpiryDateAndTime { get; init; } 
+    public required System.DateTime ExpiryDateAndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ExpiryDateAndTime { get; init; } 
     #else
@@ -290,19 +279,17 @@ public partial record Option10
     /// Financial center where option expires.
     /// </summary>
     [IsoId("_XdRaLw8iEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryLctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XpryLctn")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText ExpiryLocation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExpiryLocation { get; init; } 
+    public required System.String ExpiryLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExpiryLocation { get; init; } 
     #else
@@ -313,16 +300,15 @@ public partial record Option10
     /// Specifies the settlment period of the option trade.
     /// </summary>
     [IsoId("_2-7xQIabEeS6OMe6QA9z_g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTp")]
     #endif
+    [IsoXmlTag("SttlmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementDateCode SettlementType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementDateCode SettlementType { get; init; } 
+    public required SettlementDateCode SettlementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementDateCode SettlementType { get; init; } 
     #else
@@ -333,16 +319,15 @@ public partial record Option10
     /// Specifies the call and the put amount of the underlying foreign exchange trade.
     /// </summary>
     [IsoId("_XdRaJQ8iEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnAmts")]
     #endif
+    [IsoXmlTag("OptnAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate4 OptionAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountsAndValueDate4 OptionAmounts { get; init; } 
+    public required AmountsAndValueDate4 OptionAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountsAndValueDate4 OptionAmounts { get; init; } 
     #else
@@ -353,16 +338,15 @@ public partial record Option10
     /// Specifies the amount of the premium of a foreign exchange option trade and its settlement place.
     /// </summary>
     [IsoId("_XdRaNQ8iEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Premium")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prm")]
     #endif
+    [IsoXmlTag("Prm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PremiumAmount3 Premium { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PremiumAmount3 Premium { get; init; } 
+    public required PremiumAmount3 Premium { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PremiumAmount3 Premium { get; init; } 
     #else
@@ -373,16 +357,15 @@ public partial record Option10
     /// Indicates whether the trade is to be settled as principal or netted off against another trade.
     /// </summary>
     [IsoId("_HLBdkEefEeSC05fFWs3C4A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmtTp")]
     #endif
+    [IsoXmlTag("SttlmAmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementType1Code SettlementAmountType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementType1Code SettlementAmountType { get; init; } 
+    public required SettlementType1Code SettlementAmountType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementType1Code SettlementAmountType { get; init; } 
     #else
@@ -393,19 +376,17 @@ public partial record Option10
     /// Free format text that may contain information on the option.
     /// </summary>
     [IsoId("_XdRaMw8iEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Option Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlOptnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlOptnInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text AdditionalOptionInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AdditionalOptionInformation { get; init; } 
+    public required System.String AdditionalOptionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AdditionalOptionInformation { get; init; } 
     #else

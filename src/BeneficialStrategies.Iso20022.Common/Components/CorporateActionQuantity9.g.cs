@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies corporate action quantities.
 /// </summary>
 [IsoId("_Jsfaa5cCEee8S7xwGG7Veg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionQuantity9
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
     [IsoId("_Jsfab5cCEee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Denomination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BaseDnmtn")]
     #endif
+    [IsoXmlTag("BaseDnmtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity20Choice_? BaseDenomination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionQuantity9
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
     [IsoId("_JsfabZcCEee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incremental Denomination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncrmtlDnmtn")]
     #endif
+    [IsoXmlTag("IncrmtlDnmtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity20Choice_? IncrementalDenomination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

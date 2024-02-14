@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus5Choice
     /// Status of the meeting instruction cancellation request message or of the individual meeting instruction cancellation request(s). The message is identified in InstructionType/InstructionCancellationIdentification.
     /// </summary>
     [IsoId("_hD-EIxrpEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

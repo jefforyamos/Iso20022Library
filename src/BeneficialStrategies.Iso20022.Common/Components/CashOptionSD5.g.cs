@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option cash movement details.
 /// </summary>
 [IsoId("_1fvcIjL3EeKU9IrkkToqcw_-1926320982")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Option SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record CashOptionSD5
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1fvcIzL3EeKU9IrkkToqcw_-962139710")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -77,19 +73,16 @@ public partial record CashOptionSD5
     /// Unique number associated with a payout within an option.
     /// </summary>
     [IsoId("_1fvcJDL3EeKU9IrkkToqcw_1452521946")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payout Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyoutNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PyoutNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText PayoutNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PayoutNumber { get; init; } 
+    public required System.String PayoutNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PayoutNumber { get; init; } 
     #else
@@ -100,16 +93,15 @@ public partial record CashOptionSD5
     /// Describes the type of payout associated with the event.
     /// </summary>
     [IsoId("_1fvcJTL3EeKU9IrkkToqcw_341610527")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payout Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyoutTp")]
     #endif
+    [IsoXmlTag("PyoutTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCPayoutType1Code PayoutType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DTCCPayoutType1Code PayoutType { get; init; } 
+    public required DTCCPayoutType1Code PayoutType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DTCCPayoutType1Code PayoutType { get; init; } 
     #else
@@ -120,16 +112,15 @@ public partial record CashOptionSD5
     /// Workflow status of the payout.
     /// </summary>
     [IsoId("_1fvcJjL3EeKU9IrkkToqcw_1640647389")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payout Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyoutSts")]
     #endif
+    [IsoXmlTag("PyoutSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required WorkflowStatus1Code PayoutStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public WorkflowStatus1Code PayoutStatus { get; init; } 
+    public required WorkflowStatus1Code PayoutStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public WorkflowStatus1Code PayoutStatus { get; init; } 
     #else
@@ -140,12 +131,12 @@ public partial record CashOptionSD5
     /// Maximum withholding rate based on the country of the sourced income.
     /// </summary>
     [IsoId("_1f4mEDL3EeKU9IrkkToqcw_836812695")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Withholding Tax Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxWhldgTaxPctg")]
     #endif
+    [IsoXmlTag("MaxWhldgTaxPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? MaximumWithholdingTaxPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the data for the pending intra-balance movements.
 /// </summary>
 [IsoId("_Ys-BmzneEem7JZMuWtwtsg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Balance Pending")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record IntraBalancePending5
     /// Status and status reason of the transaction.
     /// </summary>
     [IsoId("_Y3sq0zneEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status And Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsAndRsn")]
     #endif
+    [IsoXmlTag("StsAndRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingStatusAndReason2? StatusAndReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record IntraBalancePending5
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
     [IsoId("_Y3sq1TneEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mvmnt")]
     #endif
+    [IsoXmlTag("Mvmnt")]
     public IntraBalancePending6? Movement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Y3sq1TneEem7JZMuWtwtsg
     

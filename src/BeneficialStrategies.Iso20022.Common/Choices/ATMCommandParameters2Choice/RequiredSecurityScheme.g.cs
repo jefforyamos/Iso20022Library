@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
     /// Parameters to be used by the security scheme update command.
     /// </summary>
     [IsoId("_3rN4AItHEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Required Security Scheme")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
         /// Key exchange security schemes implemented in the hardware security module of the ATM.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ReqrdSctySchme")]
         #endif
+        [IsoXmlTag("ReqrdSctySchme")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ATMSecurityScheme2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ATMSecurityScheme2Code Value { get; init; } 
+        public required ATMSecurityScheme2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ATMSecurityScheme2Code Value { get; init; } 
         #else

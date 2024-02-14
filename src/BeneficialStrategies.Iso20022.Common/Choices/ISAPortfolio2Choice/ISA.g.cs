@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio2Choice
     /// The Individual Savings Account (ISA) is provided only by UK based financial institutions.
     /// </summary>
     [IsoId("_RHwDc_pfEeCLMa5EIHtDrg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISA")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio2Choice
         /// ISA that was issued during the current fiscal year.
         /// </summary>
         [IsoId("_3gXIVUXfEeGY6MkiuzuPOA_-1964270954")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Current Year")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CurYr")]
         #endif
+        [IsoXmlTag("CurYr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CurrentYearType1Choice_? CurrentYear { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,16 +73,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio2Choice
         /// Indicates whether the ISA contains a cash component asset for transfer.
         /// </summary>
         [IsoId("_3gXIVkXfEeGY6MkiuzuPOA_336551636")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Component Indicator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshCmpntInd")]
         #endif
+        [IsoXmlTag("CshCmpntInd")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String CashComponentIndicator { get; init; } 
+        public required System.String CashComponentIndicator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String CashComponentIndicator { get; init; } 
         #else
@@ -96,12 +93,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio2Choice
         /// Selection of investment plans issued during previous years.
         /// </summary>
         [IsoId("_3gg5UUXfEeGY6MkiuzuPOA_-1543754004")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Previous Years")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrvsYrs")]
         #endif
+        [IsoXmlTag("PrvsYrs")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PreviousYear3? PreviousYears { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,16 +110,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio2Choice
         /// Specifies the amounts already subscribed for the current year.
         /// </summary>
         [IsoId("_3gg5UEXfEeGY6MkiuzuPOA_-546681651")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Current Year Subscription Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CurYrSbcptDtls")]
         #endif
+        [IsoXmlTag("CurYrSbcptDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SubscriptionInformation1 CurrentYearSubscriptionDetails { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SubscriptionInformation1 CurrentYearSubscriptionDetails { get; init; } 
+        public required SubscriptionInformation1 CurrentYearSubscriptionDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SubscriptionInformation1 CurrentYearSubscriptionDetails { get; init; } 
         #else

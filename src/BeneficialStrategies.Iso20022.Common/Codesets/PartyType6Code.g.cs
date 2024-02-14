@@ -21,7 +21,7 @@ public enum PartyType6Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_KTLwxn1DEeCF8NjrBemJWQ_1494105311")]
@@ -30,7 +30,7 @@ public enum PartyType6Code
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_KTLwx31DEeCF8NjrBemJWQ_788990696")]
@@ -39,7 +39,7 @@ public enum PartyType6Code
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_KTLwyH1DEeCF8NjrBemJWQ_-386200329")]
@@ -48,7 +48,7 @@ public enum PartyType6Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_KTVhwH1DEeCF8NjrBemJWQ_1259067106")]
@@ -57,7 +57,7 @@ public enum PartyType6Code
     
     /// <summary>
     /// Responsible for the maintenance of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "MTMG".
+    /// Encoded/decoded by serializers as &quot;MTMG&quot;.
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_KTVhwX1DEeCF8NjrBemJWQ_-1497111748")]
@@ -66,7 +66,7 @@ public enum PartyType6Code
     
     /// <summary>
     /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "TMGT".
+    /// Encoded/decoded by serializers as &quot;TMGT&quot;.
     /// </summary>
     [EnumMember(Value = "TMGT")]
     [IsoId("_KTVhwn1DEeCF8NjrBemJWQ_-735077600")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance6Choice
     /// Closing balance of this page only. This balance must be the intermediary opening balance of the next page of the same statement.
     /// </summary>
     [IsoId("_CBS5mSp8EeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

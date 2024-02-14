@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CancellationProcessingStatus10Choice.CancellationCompleted))]
     [KnownType(typeof(CancellationProcessingStatus10Choice.ProprietaryStatus))]
     [IsoId("_livbgQd4Ee2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Processing Status 10 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

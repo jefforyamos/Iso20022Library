@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitType1Choice
     /// Type of the limit, in a coded form.
     /// </summary>
     [IsoId("_79FX8aMgEeCJ6YNENx4h-w_418078119")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitType1Choice
         /// Specifies the type of risk management limit.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required LimitType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public LimitType3Code Value { get; init; } 
+        public required LimitType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public LimitType3Code Value { get; init; } 
         #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeReportQuery16Choice.AdHocQuery))]
     [KnownType(typeof(TradeReportQuery16Choice.RecurrentQuery))]
     [IsoId("_nktkcWE3Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Report Query 16 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

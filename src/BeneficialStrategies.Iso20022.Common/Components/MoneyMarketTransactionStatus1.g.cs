@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of each individual secured market transaction.
 /// </summary>
 [IsoId("_6oYUY9jFEeSD0e0ybx5L5Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Money Market Transaction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record MoneyMarketTransactionStatus1
     /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime.
     /// </summary>
     [IsoId("_6oYUatjFEeSD0e0ybx5L5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Transaction Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnqTxIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UnqTxIdr")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? UniqueTransactionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,19 +69,17 @@ public partial record MoneyMarketTransactionStatus1
     /// Internal unique transaction identifier used by the reporting agent for each transaction.
     /// </summary>
     [IsoId("_6oYUbtjFEeSD0e0ybx5L5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtryTxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtryTxId")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text ProprietaryTransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProprietaryTransactionIdentification { get; init; } 
+    public required System.String ProprietaryTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProprietaryTransactionIdentification { get; init; } 
     #else
@@ -96,16 +90,15 @@ public partial record MoneyMarketTransactionStatus1
     /// Defines status of the reported transaction.
     /// </summary>
     [IsoId("_6oYUadjFEeSD0e0ybx5L5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticalReportingStatus2Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticalReportingStatus2Code Status { get; init; } 
+    public required StatisticalReportingStatus2Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticalReportingStatus2Code Status { get; init; } 
     #else
@@ -116,12 +109,11 @@ public partial record MoneyMarketTransactionStatus1
     /// Provides the details of the rule which could not be validated.
     /// </summary>
     [IsoId("_fQ7wINjHEeSD0e0ybx5L5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Rule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnRule")]
     #endif
+    [IsoXmlTag("VldtnRule")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +126,11 @@ public partial record MoneyMarketTransactionStatus1
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_-Zj58SxWEeW8TK5Wiqd6Zg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

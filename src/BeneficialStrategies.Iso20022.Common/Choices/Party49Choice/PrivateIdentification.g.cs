@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
     /// Unique and unambiguous identification of a person, for example a passport.
     /// </summary>
     [IsoId("_dbeBZeEpEemRzcIkmUETeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Private Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
         /// Date and place of birth of a person.
         /// </summary>
         [IsoId("_dpOwk-EpEemRzcIkmUETeA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Date And Place Of Birth")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtAndPlcOfBirth")]
         #endif
+        [IsoXmlTag("DtAndPlcOfBirth")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndPlaceOfBirth1? DateAndPlaceOfBirth { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,15 +64,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
         /// Address for electronic mail (e-mail).
         /// </summary>
         [IsoId("_mV-eQeEpEemRzcIkmUETeA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Email Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EmailAdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("EmailAdr")]
+        [IsoSimpleType(IsoSimpleType.Max256Text)]
         [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax256Text? EmailAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
         /// Unique identification of a person, as assigned by an institution, using an identification scheme.
         /// </summary>
         [IsoId("_dpOwleEpEemRzcIkmUETeA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Othr")]
         #endif
+        [IsoXmlTag("Othr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public GenericPersonIdentification1? Other { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

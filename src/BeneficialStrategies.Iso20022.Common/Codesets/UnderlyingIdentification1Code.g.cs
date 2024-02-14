@@ -21,7 +21,7 @@ public enum UnderlyingIdentification1Code
 {
     /// <summary>
     /// Unknown (not available) underlying identification code.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_wlDTEXZWEeWM6LeFwEMTgg")]
@@ -30,7 +30,7 @@ public enum UnderlyingIdentification1Code
     
     /// <summary>
     /// Basket of indexes identification code.
-    /// Encoded/decoded by serializers as "BSKT".
+    /// Encoded/decoded by serializers as &quot;BSKT&quot;.
     /// </summary>
     [EnumMember(Value = "BSKT")]
     [IsoId("_5NIMEea4EeW1iL_FRZt8bg")]
@@ -39,7 +39,7 @@ public enum UnderlyingIdentification1Code
     
     /// <summary>
     /// Index identification code.
-    /// Encoded/decoded by serializers as "INDX".
+    /// Encoded/decoded by serializers as &quot;INDX&quot;.
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("_5X_YQea4EeW1iL_FRZt8bg")]

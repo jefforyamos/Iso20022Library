@@ -21,7 +21,7 @@ public enum DTCCorporateActionInstructionType2Code
 {
     /// <summary>
     /// Withdrawal of previously submitted instruction.
-    /// Encoded/decoded by serializers as "WIIN".
+    /// Encoded/decoded by serializers as &quot;WIIN&quot;.
     /// </summary>
     [EnumMember(Value = "WIIN")]
     [IsoId("_12r8gjL3EeKU9IrkkToqcw_776378901")]
@@ -30,7 +30,7 @@ public enum DTCCorporateActionInstructionType2Code
     
     /// <summary>
     /// Withdrawal of a previously submitted protect instruction.
-    /// Encoded/decoded by serializers as "WIPR".
+    /// Encoded/decoded by serializers as &quot;WIPR&quot;.
     /// </summary>
     [EnumMember(Value = "WIPR")]
     [IsoId("_12r8gzL3EeKU9IrkkToqcw_-2051439632")]

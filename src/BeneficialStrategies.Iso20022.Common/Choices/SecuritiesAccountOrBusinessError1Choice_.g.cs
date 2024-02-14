@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesAccountOrBusinessError1Choice.SecuritiesAccount))]
     [KnownType(typeof(SecuritiesAccountOrBusinessError1Choice.BusinessError))]
     [IsoId("_hjB2cWliEeGaMcKyqKNRfQ_1474195521")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account Or Business Error 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

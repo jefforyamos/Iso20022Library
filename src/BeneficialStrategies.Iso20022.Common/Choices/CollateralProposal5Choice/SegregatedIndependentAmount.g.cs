@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal5Choice
     /// Provides details about the proposal for the segregated independent amount.
     /// </summary>
     [IsoId("_rpS7A4pIEeaNTaanBSMWmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,16 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal5Choice
         /// Provides the call amount that is agreed and that will result in a collateral movement.
         /// </summary>
         [IsoId("_sHMX8YpIEeaNTaanBSMWmg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Agreed Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AgrdAmt")]
         #endif
+        [IsoXmlTag("AgrdAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount AgreedAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal AgreedAmount { get; init; } 
+        public required System.Decimal AgreedAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal AgreedAmount { get; init; } 
         #else
@@ -76,12 +74,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal5Choice
         /// Provides the collateral movement direction that is a delivery and optionally a return, or a return only.
         /// </summary>
         [IsoId("_sHMX84pIEeaNTaanBSMWmg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Movement Direction")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MvmntDrctn")]
         #endif
+        [IsoXmlTag("MvmntDrctn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralMovement5Choice_? MovementDirection { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

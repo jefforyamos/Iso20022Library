@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Original and corrected price information of an investment fund.
 /// </summary>
 [IsoId("_U1YYltp-Ed-ak6NoX_4Aeg_243480882")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Correction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PriceCorrection2
     /// Information related to the price valuation of a financial instrument sent in a previous price report.
     /// </summary>
     [IsoId("_U1YYl9p-Ed-ak6NoX_4Aeg_243480943")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previously Sent Price Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrevslySntPricDtls")]
     #endif
+    [IsoXmlTag("PrevslySntPricDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValuation2 PreviouslySentPriceDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceValuation2 PreviouslySentPriceDetails { get; init; } 
+    public required PriceValuation2 PreviouslySentPriceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceValuation2 PreviouslySentPriceDetails { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PriceCorrection2
     /// Information related to the new price valuation of a financial instrument, which overrides previously sent information.
     /// </summary>
     [IsoId("_U1YYmNp-Ed-ak6NoX_4Aeg_243480909")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corrected Price Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrrctdPricDtls")]
     #endif
+    [IsoXmlTag("CrrctdPricDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValuation2? CorrectedPriceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record PriceCorrection2
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_U1YYmdp-Ed-ak6NoX_4Aeg_-884858901")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

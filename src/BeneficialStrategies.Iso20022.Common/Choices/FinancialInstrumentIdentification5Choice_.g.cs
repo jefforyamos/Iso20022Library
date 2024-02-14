@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentIdentification5Choice.Single))]
     [KnownType(typeof(FinancialInstrumentIdentification5Choice.Basket))]
     [IsoId("_HH3GN35aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

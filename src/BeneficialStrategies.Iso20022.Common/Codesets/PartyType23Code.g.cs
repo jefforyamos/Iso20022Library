@@ -21,7 +21,7 @@ public enum PartyType23Code
 {
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_TverwVBBEeedyPuM0kK2EQ")]
@@ -30,7 +30,7 @@ public enum PartyType23Code
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_UI7GglBBEeedyPuM0kK2EQ")]
@@ -39,7 +39,7 @@ public enum PartyType23Code
     
     /// <summary>
     /// Agent in charge of clearing payment or related transactions.
-    /// Encoded/decoded by serializers as "CLRA".
+    /// Encoded/decoded by serializers as &quot;CLRA&quot;.
     /// </summary>
     [EnumMember(Value = "CLRA")]
     [IsoId("_VLk2UlBBEeedyPuM0kK2EQ")]

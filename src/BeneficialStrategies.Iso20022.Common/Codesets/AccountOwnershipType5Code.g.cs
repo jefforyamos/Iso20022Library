@@ -21,7 +21,7 @@ public enum AccountOwnershipType5Code
 {
     /// <summary>
     /// The person is ...
-    /// Encoded/decoded by serializers as "USUF".
+    /// Encoded/decoded by serializers as &quot;USUF&quot;.
     /// </summary>
     [EnumMember(Value = "USUF")]
     [IsoId("_WUASAZNiEem9mu_a5rvrBw")]
@@ -30,7 +30,7 @@ public enum AccountOwnershipType5Code
     
     /// <summary>
     /// A person has full ownership on the asset. 
-    /// Encoded/decoded by serializers as "OWNR".
+    /// Encoded/decoded by serializers as &quot;OWNR&quot;.
     /// </summary>
     [EnumMember(Value = "OWNR")]
     [IsoId("_YKOz0ZNiEem9mu_a5rvrBw")]
@@ -39,7 +39,7 @@ public enum AccountOwnershipType5Code
     
     /// <summary>
     /// A person has bare ownership on the asset.
-    /// Encoded/decoded by serializers as "BOWN".
+    /// Encoded/decoded by serializers as &quot;BOWN&quot;.
     /// </summary>
     [EnumMember(Value = "BOWN")]
     [IsoId("_Yr5WcZNiEem9mu_a5rvrBw")]

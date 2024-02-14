@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data specific to securities being subject to the transaction.
 /// </summary>
 [IsoId("_A2yHacK3EeuFNp8LZAnorg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Security48
     /// Specifies whether the values defined as ISIN (International Securities Identification Number-ISO 6166) identifier are matching or not.
     /// </summary>
     [IsoId("_A4HkI8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareISINIdentifier4? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Security48
     /// Specifies whether the values defined as CFI (Classification of Financial Instruments-ISO 10962) identifier are matching or not.
     /// </summary>
     [IsoId("_A4HkJcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssfctnTp")]
     #endif
+    [IsoXmlTag("ClssfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCFIIdentifier3? ClassificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Security48
     /// Specifies whether the values defined as decimal number are matching or not.
     /// </summary>
     [IsoId("_A4HkJ8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDecimalNumber3? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Security48
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
     [IsoId("_A4HkKcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nominal Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmnlVal")]
     #endif
+    [IsoXmlTag("NmnlVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection2? NominalValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record Security48
     /// Specifies whether the values defined as collateral quality type code are matching or not.
     /// </summary>
     [IsoId("_A4HkK8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quality")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qlty")]
     #endif
+    [IsoXmlTag("Qlty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCollateralQualityType3? Quality { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record Security48
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
     [IsoId("_A4HkLcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtrty")]
     #endif
+    [IsoXmlTag("Mtrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? Maturity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record Security48
     /// Specifies whether the values defined as LEI identifier are matching or not.
     /// </summary>
     [IsoId("_A4HkL8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrId")]
     #endif
+    [IsoXmlTag("IssrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification6? IssuerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record Security48
     /// Specifies whether the values defined as country code are matching or not.
     /// </summary>
     [IsoId("_A4HkMcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrCtry")]
     #endif
+    [IsoXmlTag("IssrCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCountryCode3? IssuerCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record Security48
     /// Specifies whether the values defined as securities lending type are matching or not.
     /// </summary>
     [IsoId("_A4HkM8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareSecuritiesLendingType3? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record Security48
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>
     [IsoId("_A4HkNcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitPric")]
     #endif
+    [IsoXmlTag("UnitPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice6? UnitPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record Security48
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
     [IsoId("_A4HkN8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exclusive Arrangement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExclsvArrgmnt")]
     #endif
+    [IsoXmlTag("ExclsvArrgmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator3? ExclusiveArrangement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +229,11 @@ public partial record Security48
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
     [IsoId("_A4HkOcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection2? MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ public partial record Security48
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
     [IsoId("_A4HkO8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available For Collateral Reuse")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblForCollReuse")]
     #endif
+    [IsoXmlTag("AvlblForCollReuse")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator3? AvailableForCollateralReuse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -280,12 +265,11 @@ public partial record Security48
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
     [IsoId("_A4HkPcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut Or Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HrcutOrMrgn")]
     #endif
+    [IsoXmlTag("HrcutOrMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ComparePercentageRate3? HaircutOrMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

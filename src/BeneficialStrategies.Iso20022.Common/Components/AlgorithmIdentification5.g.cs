@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cryptographic algorithm and parameters for digests.
 /// </summary>
 [IsoId("_CejOQQiuEeKn9O5oyej_zw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Algorithm Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AlgorithmIdentification5
     /// Identification of the algorithm.
     /// </summary>
     [IsoId("_Cqv3NQiuEeKn9O5oyej_zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
+    [IsoXmlTag("Algo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Algorithm5Code Algorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Algorithm5Code Algorithm { get; init; } 
+    public required Algorithm5Code Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Algorithm5Code Algorithm { get; init; } 
     #else

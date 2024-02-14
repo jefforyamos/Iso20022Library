@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestShareHeldDate1Choice
     /// Indicates what is the logical method to be used to determine and communicate from which date the shares have been held.
     /// </summary>
     [IsoId("_zKTRMFSTEempisJfoIfvvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Calculation Method")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestShareHeldDate1Choice
         /// Indicates the calculation method to be used to determine on which dates the shares have been acquired.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtClctnMtd")]
         #endif
+        [IsoXmlTag("DtClctnMtd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DateCalculationMethod1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DateCalculationMethod1Code Value { get; init; } 
+        public required DateCalculationMethod1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DateCalculationMethod1Code Value { get; init; } 
         #else

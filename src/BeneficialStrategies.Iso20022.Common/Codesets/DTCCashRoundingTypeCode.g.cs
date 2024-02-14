@@ -21,7 +21,7 @@ public enum DTCCashRoundingTypeCode
 {
     /// <summary>
     /// Round down to the nearest cent.
-    /// Encoded/decoded by serializers as "RDNC".
+    /// Encoded/decoded by serializers as &quot;RDNC&quot;.
     /// </summary>
     [EnumMember(Value = "RDNC")]
     [IsoId("_1sZ_IDL3EeKU9IrkkToqcw_-232119891")]
@@ -30,7 +30,7 @@ public enum DTCCashRoundingTypeCode
     
     /// <summary>
     /// Round down to the nearest dollar.
-    /// Encoded/decoded by serializers as "RDND".
+    /// Encoded/decoded by serializers as &quot;RDND&quot;.
     /// </summary>
     [EnumMember(Value = "RDND")]
     [IsoId("_1sZ_ITL3EeKU9IrkkToqcw_1453354338")]
@@ -39,7 +39,7 @@ public enum DTCCashRoundingTypeCode
     
     /// <summary>
     /// Round up to the nearest cent.
-    /// Encoded/decoded by serializers as "RUNC".
+    /// Encoded/decoded by serializers as &quot;RUNC&quot;.
     /// </summary>
     [EnumMember(Value = "RUNC")]
     [IsoId("_1sZ_IjL3EeKU9IrkkToqcw_1668730619")]
@@ -48,7 +48,7 @@ public enum DTCCashRoundingTypeCode
     
     /// <summary>
     /// Round up to the nearest dollar.
-    /// Encoded/decoded by serializers as "RUND".
+    /// Encoded/decoded by serializers as &quot;RUND&quot;.
     /// </summary>
     [EnumMember(Value = "RUND")]
     [IsoId("_1sZ_IzL3EeKU9IrkkToqcw_-1607281533")]

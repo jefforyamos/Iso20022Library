@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
 /// </summary>
 [IsoId("_QbcTNPfSEei89sMSHxl1ew")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Temporary Services")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TemporaryServices1
     /// Contains the details of the contracting company that has requested temporary services. 
     /// </summary>
     [IsoId("_QbcTOffSEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contracting Company")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctgCpny")]
     #endif
+    [IsoXmlTag("CtrctgCpny")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryServicesCompany1? ContractingCompany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TemporaryServices1
     /// Contains information about the individual working in a temporary capacity.
     /// </summary>
     [IsoId("_QbcTOvfSEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Temporary Employee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TempMplyee")]
     #endif
+    [IsoXmlTag("TempMplyee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification210? TemporaryEmployee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TemporaryServices1
     /// Contains the details of the job or task of the individual working in a temporary capacity.
     /// </summary>
     [IsoId("_QbcTNvfSEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Job")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Job")]
     #endif
+    [IsoXmlTag("Job")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryServicesJob1? Job { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,12 +94,12 @@ public partial record TemporaryServices1
     /// rate.
     /// </summary>
     [IsoId("_QbcTN_fSEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Flat Rate Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlatRateInd")]
     #endif
+    [IsoXmlTag("FlatRateInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? FlatRateIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +112,12 @@ public partial record TemporaryServices1
     /// Contains the discount amount. 
     /// </summary>
     [IsoId("_e6IJUPfdEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscntAmt")]
     #endif
+    [IsoXmlTag("DscntAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,15 +130,13 @@ public partial record TemporaryServices1
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
     [IsoId("_QbcTNffSEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary Commodity Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SummryCmmdtyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SummryCmmdtyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +149,11 @@ public partial record TemporaryServices1
     /// Contains the details of the labour performed and associated duration and billing rate. 
     /// </summary>
     [IsoId("_ns07wPfiEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Labor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Labr")]
     #endif
+    [IsoXmlTag("Labr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryServicesLabor1? Labor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +166,11 @@ public partial record TemporaryServices1
     /// Contains miscellaneous expense details.
     /// </summary>
     [IsoId("_bvgYsPfjEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Miscellaneous Expenses")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MiscExpnss")]
     #endif
+    [IsoXmlTag("MiscExpnss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount13? MiscellaneousExpenses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +183,12 @@ public partial record TemporaryServices1
     /// Subtotal amount exclusive of tax.
     /// </summary>
     [IsoId("_nG9ZIPfjEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subtotal Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbttlAmt")]
     #endif
+    [IsoXmlTag("SbttlAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? SubtotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,12 +201,11 @@ public partial record TemporaryServices1
     /// Contains the amount of taxes assessed for temporary services.
     /// </summary>
     [IsoId("_1iAGYPfjEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tax")]
     #endif
+    [IsoXmlTag("Tax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax33? Tax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,15 +218,13 @@ public partial record TemporaryServices1
     /// Additional user-defined data pertaining to the temporary services. 
     /// </summary>
     [IsoId("_QbcTOPfSEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlData")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

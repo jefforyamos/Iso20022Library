@@ -22,7 +22,7 @@ public enum SaleCapabilities2Code
 {
     /// <summary>
     /// Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element). The output device attached to this input device is the CashierDisplay device.
-    /// Encoded/decoded by serializers as "CHIN".
+    /// Encoded/decoded by serializers as &quot;CHIN&quot;.
     /// </summary>
     [EnumMember(Value = "CHIN")]
     [IsoId("_AwtYYd6nEeiwsev40qZGEQ")]
@@ -31,7 +31,7 @@ public enum SaleCapabilities2Code
     
     /// <summary>
     /// Any kind of keyboard allowing all or part of the commands 	of the Input message request from the Sale System to the POI System (InputCommand data element).
-    /// Encoded/decoded by serializers as "CUIN".
+    /// Encoded/decoded by serializers as &quot;CUIN&quot;.
     /// </summary>
     [EnumMember(Value = "CUIN")]
     [IsoId("_BTpGUd6nEeiwsev40qZGEQ")]

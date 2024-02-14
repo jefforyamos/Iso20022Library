@@ -21,7 +21,7 @@ public enum ResponseCode
 {
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_TVMfEQEcEeCQm6a_G2yO_w_-587786230")]
@@ -30,7 +30,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_TVMfEgEcEeCQm6a_G2yO_w_-1484977108")]
@@ -39,7 +39,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_TVWQAAEcEeCQm6a_G2yO_w_652071159")]
@@ -48,7 +48,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_TVWQAQEcEeCQm6a_G2yO_w_1120878574")]
@@ -57,7 +57,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Further action required to complete the transaction, for instance a referral.
-    /// Encoded/decoded by serializers as "FRTH".
+    /// Encoded/decoded by serializers as &quot;FRTH&quot;.
     /// </summary>
     [EnumMember(Value = "FRTH")]
     [IsoId("_cjP3wHuGEeSZrqGdHyoIrw")]
@@ -66,7 +66,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Advice message could not be processed.
-    /// Encoded/decoded by serializers as "UNPR".
+    /// Encoded/decoded by serializers as &quot;UNPR&quot;.
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_fW3O4HuGEeSZrqGdHyoIrw")]
@@ -75,7 +75,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Advice message is processed.
-    /// Encoded/decoded by serializers as "PRCS".
+    /// Encoded/decoded by serializers as &quot;PRCS&quot;.
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_iO0TcHuGEeSZrqGdHyoIrw")]
@@ -84,7 +84,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_m3eIEGpUEemFuJNacM8hZA")]
@@ -93,7 +93,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Processing OK. Information related to the result of the processing is contained in other parts of the response message.
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_uKnlkGpUEemFuJNacM8hZA")]
@@ -102,7 +102,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Procesing of the service is deferred.
-    /// Encoded/decoded by serializers as "DFRD".
+    /// Encoded/decoded by serializers as &quot;DFRD&quot;.
     /// </summary>
     [EnumMember(Value = "DFRD")]
     [IsoId("_maOtmXyLEemHsOqJOzMVfg")]
@@ -111,7 +111,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Request is still in progress.
-    /// Encoded/decoded by serializers as "INPS".
+    /// Encoded/decoded by serializers as &quot;INPS&quot;.
     /// </summary>
     [EnumMember(Value = "INPS")]
     [IsoId("_maOtmnyLEemHsOqJOzMVfg")]
@@ -120,7 +120,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Validate the data that couold be verified.
-    /// Encoded/decoded by serializers as "NRTD".
+    /// Encoded/decoded by serializers as &quot;NRTD&quot;.
     /// </summary>
     [EnumMember(Value = "NRTD")]
     [IsoId("_maOtm3yLEemHsOqJOzMVfg")]
@@ -129,7 +129,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Other type of processing result defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_maOtnHyLEemHsOqJOzMVfg")]
@@ -138,7 +138,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Other type of processing result defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_maOtnXyLEemHsOqJOzMVfg")]
@@ -147,7 +147,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Other type of result.
-    /// Encoded/decoded by serializers as "OTRD".
+    /// Encoded/decoded by serializers as &quot;OTRD&quot;.
     /// </summary>
     [EnumMember(Value = "OTRD")]
     [IsoId("_maOtnnyLEemHsOqJOzMVfg")]
@@ -156,7 +156,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Processing of the service has been partially performed.
-    /// Encoded/decoded by serializers as "PPRC".
+    /// Encoded/decoded by serializers as &quot;PPRC&quot;.
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_maOtn3yLEemHsOqJOzMVfg")]
@@ -165,7 +165,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Service was rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_maOtoHyLEemHsOqJOzMVfg")]
@@ -174,7 +174,7 @@ public enum ResponseCode
     
     /// <summary>
     /// Service is under review.
-    /// Encoded/decoded by serializers as "UNRV".
+    /// Encoded/decoded by serializers as &quot;UNRV&quot;.
     /// </summary>
     [EnumMember(Value = "UNRV")]
     [IsoId("_maOtoXyLEemHsOqJOzMVfg")]
@@ -182,8 +182,8 @@ public enum ResponseCode
     UnderReview,
     
     /// <summary>
-    /// Transaction has been received but hasn't been processed.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Transaction has been received but hasn&apos;t been processed.
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_v2JPUA1PEeqjM-rxn3HuXQ")]
@@ -192,7 +192,7 @@ public enum ResponseCode
     
     /// <summary>
     /// An additional Response Code, mainly a functional one, should be considered to identify the outcome of the request.
-    /// Encoded/decoded by serializers as "WARN".
+    /// Encoded/decoded by serializers as &quot;WARN&quot;.
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_ubWUEC8MEeu125Ip9zFcsQ")]

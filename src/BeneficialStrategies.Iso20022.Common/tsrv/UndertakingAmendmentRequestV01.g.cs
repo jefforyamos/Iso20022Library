@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingAmendmentRequest message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking to request issuance of a proposed amendment to the undertaking. The undertaking could be a demand guarantee, standby letter of credit, counter-undertaking (counter-guarantee or counter-standby), or suretyship undertaking. The message provides details on proposed changes to the undertaking, for example, to the expiry date, amount, and/or terms and conditions. It may also be used to request termination or cancellation of the undertaking.")]
 [IsoId("_9f3CdnltEeG7BsjMvd1mEw_-206674723")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amendment Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord<UndertakingA
     /// Details related to the request for an amendment of an undertaking.
     /// </summary>
     [IsoId("_9f3Cd3ltEeG7BsjMvd1mEw_-1387733041")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntReqDtls")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amendment3 UndertakingAmendmentRequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amendment3 UndertakingAmendmentRequestDetails { get; init; } 
+    public required Amendment3 UndertakingAmendmentRequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amendment3 UndertakingAmendmentRequestDetails { get; init; } 
     #else
@@ -95,31 +92,26 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord<UndertakingA
     /// Instructions specific to the bank receiving the message.
     /// </summary>
     [IsoId("_MZwWVX_6EeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructions To Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrsToBk")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrsToBk")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> InstructionsToBank { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
     /// Digital signature of the undertaking amendment request.
     /// </summary>
     [IsoId("_9f3CeHltEeG7BsjMvd1mEw_-2129123977")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,7 +124,7 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord<UndertakingA
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingAmendmentRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingAmendmentRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingAmendmentRequestV01Document ToDocument()
     {
@@ -142,7 +134,7 @@ public partial record UndertakingAmendmentRequestV01 : IOuterRecord<UndertakingA
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingAmendmentRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingAmendmentRequestV01Document : IOuterDocument<UndertakingAmendmentRequestV01>
@@ -159,7 +151,7 @@ public partial record UndertakingAmendmentRequestV01Document : IOuterDocument<Un
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingAmendmentRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingAmendmentRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmendmentRequestV01 Message { get; init; }

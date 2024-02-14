@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriorityCode2Choice.Code))]
     [KnownType(typeof(PriorityCode2Choice.Proprietary))]
     [IsoId("_74UMsqMgEeCJ6YNENx4h-w_784788398")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority Code 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

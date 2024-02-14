@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Quantity14Choice.Unit))]
     [KnownType(typeof(Quantity14Choice.PercentageRate))]
     [IsoId("_QC990RgKEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity 14 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

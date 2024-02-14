@@ -21,7 +21,7 @@ public enum ProtectTransactionType2Code
 {
     /// <summary>
     /// Reorganisation is a protect transaction type.
-    /// Encoded/decoded by serializers as "PROT".
+    /// Encoded/decoded by serializers as &quot;PROT&quot;.
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_KQ81YbpREeilsanBGAzy4A")]
@@ -30,7 +30,7 @@ public enum ProtectTransactionType2Code
     
     /// <summary>
     /// Reorganisation is a cover on behalf of another participant transaction type.
-    /// Encoded/decoded by serializers as "COVP".
+    /// Encoded/decoded by serializers as &quot;COVP&quot;.
     /// </summary>
     [EnumMember(Value = "COVP")]
     [IsoId("_OAUqIrpREeilsanBGAzy4A")]
@@ -39,7 +39,7 @@ public enum ProtectTransactionType2Code
     
     /// <summary>
     /// Reorganisation is a cover protect transaction type.
-    /// Encoded/decoded by serializers as "COVR".
+    /// Encoded/decoded by serializers as &quot;COVR&quot;.
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_ZfkUobpREeilsanBGAzy4A")]

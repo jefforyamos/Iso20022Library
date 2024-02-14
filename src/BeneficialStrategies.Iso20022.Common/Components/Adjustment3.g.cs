@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
 /// </summary>
 [IsoId("_SpUJotp-Ed-ak6NoX_4Aeg_912882684")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Adjustment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record Adjustment3
     /// Specifies the type of adjustment applied to the amount of goods/services by means of a code.
     /// </summary>
     [IsoId("_SpUJo9p-Ed-ak6NoX_4Aeg_912882709")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdjustmentType2Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdjustmentType2Code Type { get; init; } 
+    public required AdjustmentType2Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdjustmentType2Code Type { get; init; } 
     #else
@@ -75,19 +72,17 @@ public partial record Adjustment3
     /// Specifies a type of adjustment not present in the code list.
     /// </summary>
     [IsoId("_SpUJpNp-Ed-ak6NoX_4Aeg_912882726")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Adjustment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAdjstmntTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrAdjstmntTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OtherAdjustmentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OtherAdjustmentType { get; init; } 
+    public required System.String OtherAdjustmentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OtherAdjustmentType { get; init; } 
     #else
@@ -98,16 +93,16 @@ public partial record Adjustment3
     /// Specifies the monetary amount of the adjustment.
     /// </summary>
     [IsoId("_SpUJpdp-Ed-ak6NoX_4Aeg_912882986")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -118,16 +113,16 @@ public partial record Adjustment3
     /// Specifies the percentage rate of the adjustment.
     /// </summary>
     [IsoId("_SpUJptp-Ed-ak6NoX_4Aeg_912883021")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Rate { get; init; } 
+    public required System.Decimal Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Rate { get; init; } 
     #else
@@ -138,16 +133,15 @@ public partial record Adjustment3
     /// Specifies whether the adjustment must be subtracted or added to the total amount.
     /// </summary>
     [IsoId("_SpUJp9p-Ed-ak6NoX_4Aeg_912882744")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Drctn")]
     #endif
+    [IsoXmlTag("Drctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdjustmentDirection1Code Direction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdjustmentDirection1Code Direction { get; init; } 
+    public required AdjustmentDirection1Code Direction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdjustmentDirection1Code Direction { get; init; } 
     #else

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementStatus10Choice.Failing))]
     [KnownType(typeof(SettlementStatus10Choice.Proprietary))]
     [IsoId("_bfizof7rEeCvPoRGOxRobQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status 10 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Balance of the account involved in the card transaction.
 /// </summary>
 [IsoId("_K3LGsaycEeupy7O5H7ITjQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AccountBalance2
     /// This code list is maintained by the ISO 8583/MA (maintenance agency).
     /// </summary>
     [IsoId("_K7YRQaycEeupy7O5H7ITjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctTp")]
     #endif
+    [IsoXmlTag("AcctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISO8583AccountTypeCode AccountType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string AccountType { get; init; } 
+    public required string AccountType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string AccountType { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record AccountBalance2
     /// Balance of the account.
     /// </summary>
     [IsoId("_K7YRQ6ycEeupy7O5H7ITjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Balance28? Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InitialPhysicalForm3Choice.Code))]
     [KnownType(typeof(InitialPhysicalForm3Choice.Proprietary))]
     [IsoId("_mx0oUeLcEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Physical Form 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

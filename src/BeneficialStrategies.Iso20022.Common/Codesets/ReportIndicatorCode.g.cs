@@ -21,7 +21,7 @@ public enum ReportIndicatorCode
 {
     /// <summary>
     /// Requested report must contain information in the format of a statement.
-    /// Encoded/decoded by serializers as "STND".
+    /// Encoded/decoded by serializers as &quot;STND&quot;.
     /// </summary>
     [EnumMember(Value = "STND")]
     [IsoId("_ZTCPptp-Ed-ak6NoX_4Aeg_1052080555")]
@@ -30,7 +30,7 @@ public enum ReportIndicatorCode
     
     /// <summary>
     /// Requested report must contain information in a bilaterally agreed format.
-    /// Encoded/decoded by serializers as "PRPR".
+    /// Encoded/decoded by serializers as &quot;PRPR&quot;.
     /// </summary>
     [EnumMember(Value = "PRPR")]
     [IsoId("_ZTCPp9p-Ed-ak6NoX_4Aeg_1128730440")]

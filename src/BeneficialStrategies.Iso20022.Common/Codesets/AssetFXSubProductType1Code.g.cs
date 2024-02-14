@@ -21,7 +21,7 @@ public enum AssetFXSubProductType1Code
 {
     /// <summary>
     /// Commodity attribute of type foreign exchange cross rate.
-    /// Encoded/decoded by serializers as "FXCR".
+    /// Encoded/decoded by serializers as &quot;FXCR&quot;.
     /// </summary>
     [EnumMember(Value = "FXCR")]
     [IsoId("_LWWI4dDjEeSv_Pll20DdbA")]
@@ -30,7 +30,7 @@ public enum AssetFXSubProductType1Code
     
     /// <summary>
     /// Commodity attribute of type foreign exchange emerging markets.
-    /// Encoded/decoded by serializers as "FXEM".
+    /// Encoded/decoded by serializers as &quot;FXEM&quot;.
     /// </summary>
     [EnumMember(Value = "FXEM")]
     [IsoId("_LeFIkdDjEeSv_Pll20DdbA")]
@@ -39,7 +39,7 @@ public enum AssetFXSubProductType1Code
     
     /// <summary>
     /// Commodity attribute of type foreign exchange majors.
-    /// Encoded/decoded by serializers as "FXMJ".
+    /// Encoded/decoded by serializers as &quot;FXMJ&quot;.
     /// </summary>
     [EnumMember(Value = "FXMJ")]
     [IsoId("_Lj4OkdDjEeSv_Pll20DdbA")]

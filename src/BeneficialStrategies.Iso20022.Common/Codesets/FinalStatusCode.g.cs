@@ -21,7 +21,7 @@ public enum FinalStatusCode
 {
     /// <summary>
     /// Transaction has been successfully processed by the clearing agent.
-    /// Encoded/decoded by serializers as "STLD".
+    /// Encoded/decoded by serializers as &quot;STLD&quot;.
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_an04Vdp-Ed-ak6NoX_4Aeg_-1727527993")]
@@ -30,7 +30,7 @@ public enum FinalStatusCode
     
     /// <summary>
     /// Transaction has been rejected by the clearing agent.
-    /// Encoded/decoded by serializers as "RJTD".
+    /// Encoded/decoded by serializers as &quot;RJTD&quot;.
     /// </summary>
     [EnumMember(Value = "RJTD")]
     [IsoId("_an04Vtp-Ed-ak6NoX_4Aeg_-1727527992")]
@@ -39,7 +39,7 @@ public enum FinalStatusCode
     
     /// <summary>
     /// Transaction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_an04V9p-Ed-ak6NoX_4Aeg_-1727527991")]
@@ -48,7 +48,7 @@ public enum FinalStatusCode
     
     /// <summary>
     /// Transaction has been successfully processed by the clearing agent. Settlement will take place outside of the system.
-    /// Encoded/decoded by serializers as "FNLD".
+    /// Encoded/decoded by serializers as &quot;FNLD&quot;.
     /// </summary>
     [EnumMember(Value = "FNLD")]
     [IsoId("_an04WNp-Ed-ak6NoX_4Aeg_-1727527990")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Customer involved in a withdrawal transaction.
 /// </summary>
 [IsoId("_ExNJ0Yp3EeS3NqNpgnMh2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Customer")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ATMCustomer2
     /// Profile of the customer selected to perform the withdrawal.
     /// </summary>
     [IsoId("_E9kx4Yp3EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prfl")]
     #endif
+    [IsoXmlTag("Prfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCustomerProfile2? Profile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ATMCustomer2
     /// Result of the customer authentication for this transaction.
     /// </summary>
     [IsoId("_E9kx54p3EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnRslt")]
     #endif
+    [IsoXmlTag("AuthntcnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionVerificationResult5? AuthenticationResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

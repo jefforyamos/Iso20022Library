@@ -21,7 +21,7 @@ public enum ContentType2Code
 {
     /// <summary>
     /// Generic, non cryptographic, or unqualified data content - (ASN.1 Object Identifier: id-data).
-    /// Encoded/decoded by serializers as "DATA".
+    /// Encoded/decoded by serializers as &quot;DATA&quot;.
     /// </summary>
     [EnumMember(Value = "DATA")]
     [IsoId("_gd_z0WizEeS87LmvcA55sg")]
@@ -30,7 +30,7 @@ public enum ContentType2Code
     
     /// <summary>
     /// Digital signature - (ASN.1 Object Identifier: id-signedData).
-    /// Encoded/decoded by serializers as "SIGN".
+    /// Encoded/decoded by serializers as &quot;SIGN&quot;.
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_gd_z02izEeS87LmvcA55sg")]
@@ -39,7 +39,7 @@ public enum ContentType2Code
     
     /// <summary>
     /// Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).
-    /// Encoded/decoded by serializers as "EVLP".
+    /// Encoded/decoded by serializers as &quot;EVLP&quot;.
     /// </summary>
     [EnumMember(Value = "EVLP")]
     [IsoId("_gd_z1WizEeS87LmvcA55sg")]
@@ -48,7 +48,7 @@ public enum ContentType2Code
     
     /// <summary>
     /// Message digest - (ASN.1 Object Identifier: id-digestedData).
-    /// Encoded/decoded by serializers as "DGST".
+    /// Encoded/decoded by serializers as &quot;DGST&quot;.
     /// </summary>
     [EnumMember(Value = "DGST")]
     [IsoId("_gd_z12izEeS87LmvcA55sg")]
@@ -57,7 +57,7 @@ public enum ContentType2Code
     
     /// <summary>
     /// MAC (Message Authentication Code), with encryption key - (ASN.1 Object Identifier: id-ct-authData).
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_gd_z22izEeS87LmvcA55sg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies rates related to a corporate action option.
 /// </summary>
 [IsoId("_7-tU_UEEEeWVgfuHGaKtRQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CorporateActionRate71
     /// Rate proposed in a remarketing of variable rate notes.
     /// </summary>
     [IsoId("_8LDucUEEEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proposed Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PropsdRate")]
     #endif
+    [IsoXmlTag("PropsdRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ProposedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record CorporateActionRate71
     /// Rate of allowed over-subscription.
     /// </summary>
     [IsoId("_8LDueUEEEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Oversubscription Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OvrsbcptRate")]
     #endif
+    [IsoXmlTag("OvrsbcptRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat39Choice_? OversubscriptionRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record CorporateActionRate71
     /// Requested tax rate that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
     [IsoId("_8LDugUEEEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Withholding Tax Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdWhldgTaxRate")]
     #endif
+    [IsoXmlTag("ReqdWhldgTaxRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat40Choice_? RequestedWithholdingTaxRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record CorporateActionRate71
     /// Requested rate at which the income will be withheld by the jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible.
     /// </summary>
     [IsoId("_8LDui0EEEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Second Level Tax Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdScndLvlTaxRate")]
     #endif
+    [IsoXmlTag("ReqdScndLvlTaxRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat40Choice_? RequestedSecondLevelTaxRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

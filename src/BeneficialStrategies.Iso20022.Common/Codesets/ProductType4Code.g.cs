@@ -21,7 +21,7 @@ public enum ProductType4Code
 {
     /// <summary>
     /// Identifies categories of instruments that are credits.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_3BXTkebCEeW1iL_FRZt8bg")]
@@ -30,7 +30,7 @@ public enum ProductType4Code
     
     /// <summary>
     /// Identifies categories of currency instruments.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_3BXTk-bCEeW1iL_FRZt8bg")]
@@ -39,7 +39,7 @@ public enum ProductType4Code
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_3BXTlebCEeW1iL_FRZt8bg")]
@@ -48,7 +48,7 @@ public enum ProductType4Code
     
     /// <summary>
     /// Identifies categories of instruments that are interest rates based.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_3BXTl-bCEeW1iL_FRZt8bg")]
@@ -57,7 +57,7 @@ public enum ProductType4Code
     
     /// <summary>
     /// Identifies categories of instruments that are commodities.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_3BXTmebCEeW1iL_FRZt8bg")]
@@ -66,7 +66,7 @@ public enum ProductType4Code
     
     /// <summary>
     /// Other asset type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_5Q8wkebCEeW1iL_FRZt8bg")]

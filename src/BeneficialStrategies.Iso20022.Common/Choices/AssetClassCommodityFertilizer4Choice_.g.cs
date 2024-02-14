@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityFertilizer4Choice.UreaAndAmmoniumNitrate))]
     [KnownType(typeof(AssetClassCommodityFertilizer4Choice.Other))]
     [IsoId("_icwoUU8REe2PGo0mhYCh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity Fertilizer 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

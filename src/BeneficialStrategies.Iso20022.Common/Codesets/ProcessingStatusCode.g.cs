@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum ProcessingStatusCode
 {
     /// <summary>
-    /// Message contains complete details of the corporate action event at the time the event is communicated and the occurrence of the event has been confirmed by the account servicer's chosen official source. Further updates to the event are still possible.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Message contains complete details of the corporate action event at the time the event is communicated and the occurrence of the event has been confirmed by the account servicer&apos;s chosen official source. Further updates to the event are still possible.
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aLN01Np-Ed-ak6NoX_4Aeg_-1415651502")]
@@ -30,7 +30,7 @@ public enum ProcessingStatusCode
     
     /// <summary>
     /// Message may not contain complete details of the corporate action event,|however, the occurrence of the event is confirmed.
-    /// Encoded/decoded by serializers as "PREC".
+    /// Encoded/decoded by serializers as &quot;PREC&quot;.
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_aLN01dp-Ed-ak6NoX_4Aeg_-1410107405")]
@@ -39,7 +39,7 @@ public enum ProcessingStatusCode
     
     /// <summary>
     /// Message may not contain complete details of the corporate action event and|the occurrence of the event is not yet confirmed.
-    /// Encoded/decoded by serializers as "PREU".
+    /// Encoded/decoded by serializers as &quot;PREU&quot;.
     /// </summary>
     [EnumMember(Value = "PREU")]
     [IsoId("_aLN01tp-Ed-ak6NoX_4Aeg_-1383325513")]
@@ -48,7 +48,7 @@ public enum ProcessingStatusCode
     
     /// <summary>
     /// The message is for information only.
-    /// Encoded/decoded by serializers as "INFO".
+    /// Encoded/decoded by serializers as &quot;INFO&quot;.
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_aLN019p-Ed-ak6NoX_4Aeg_931194609")]

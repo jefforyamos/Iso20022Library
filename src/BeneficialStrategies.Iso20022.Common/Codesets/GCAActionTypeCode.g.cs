@@ -21,7 +21,7 @@ public enum GCAActionTypeCode
 {
     /// <summary>
     /// Custodian needs to be contacted.
-    /// Encoded/decoded by serializers as "RCON".
+    /// Encoded/decoded by serializers as &quot;RCON&quot;.
     /// </summary>
     [EnumMember(Value = "RCON")]
     [IsoId("_11ykoTL3EeKU9IrkkToqcw_-1534472255")]
@@ -30,7 +30,7 @@ public enum GCAActionTypeCode
     
     /// <summary>
     /// Further research is required.
-    /// Encoded/decoded by serializers as "FREA".
+    /// Encoded/decoded by serializers as &quot;FREA&quot;.
     /// </summary>
     [EnumMember(Value = "FREA")]
     [IsoId("_11ykojL3EeKU9IrkkToqcw_-97617058")]
@@ -39,7 +39,7 @@ public enum GCAActionTypeCode
     
     /// <summary>
     /// Custodian has been contacted.
-    /// Encoded/decoded by serializers as "CDCU".
+    /// Encoded/decoded by serializers as &quot;CDCU&quot;.
     /// </summary>
     [EnumMember(Value = "CDCU")]
     [IsoId("_11ykozL3EeKU9IrkkToqcw_1512813294")]
@@ -48,7 +48,7 @@ public enum GCAActionTypeCode
     
     /// <summary>
     /// Custodian does not need to be contacted.
-    /// Encoded/decoded by serializers as "NQCU".
+    /// Encoded/decoded by serializers as &quot;NQCU&quot;.
     /// </summary>
     [EnumMember(Value = "NQCU")]
     [IsoId("_11ykpDL3EeKU9IrkkToqcw_1707445278")]
@@ -57,7 +57,7 @@ public enum GCAActionTypeCode
     
     /// <summary>
     /// No further action is required.
-    /// Encoded/decoded by serializers as "NFAC".
+    /// Encoded/decoded by serializers as &quot;NFAC&quot;.
     /// </summary>
     [EnumMember(Value = "NFAC")]
     [IsoId("_11ykpTL3EeKU9IrkkToqcw_954466545")]
@@ -66,7 +66,7 @@ public enum GCAActionTypeCode
     
     /// <summary>
     /// Not supported by the GCA VA (Global Corporate Actions Validation service).
-    /// Encoded/decoded by serializers as "NSUP".
+    /// Encoded/decoded by serializers as &quot;NSUP&quot;.
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_118VoDL3EeKU9IrkkToqcw_1620933391")]
@@ -75,7 +75,7 @@ public enum GCAActionTypeCode
     
     /// <summary>
     /// Invalid.
-    /// Encoded/decoded by serializers as "INVA".
+    /// Encoded/decoded by serializers as &quot;INVA&quot;.
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_118VoTL3EeKU9IrkkToqcw_-704666898")]

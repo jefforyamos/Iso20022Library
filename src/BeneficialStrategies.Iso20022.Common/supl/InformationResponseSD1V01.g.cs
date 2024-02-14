@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"This extends the message InformationRequestResponse.")]
 [IsoId("_8nOCwC_7EeOKib24wnHaFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Information Response SD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,19 +76,17 @@ public partial record InformationResponseSD1V01 : IOuterRecord<InformationRespon
     /// Information used to identify the request.
     /// </summary>
     [IsoId("_hWzaoJirEeO4o528ngEXuw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InvstgtnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InvestigationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InvestigationIdentification { get; init; } 
+    public required System.String InvestigationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InvestigationIdentification { get; init; } 
     #else
@@ -101,16 +97,16 @@ public partial record InformationResponseSD1V01 : IOuterRecord<InformationRespon
     /// Date and time of creation of the extension.
     /// </summary>
     [IsoId("_pfuCgJirEeO4o528ngEXuw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -121,16 +117,15 @@ public partial record InformationResponseSD1V01 : IOuterRecord<InformationRespon
     /// Identifies the account servicing institution.
     /// </summary>
     [IsoId("_oUIuoC_8EeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrId")]
     #endif
+    [IsoXmlTag("AcctSvcrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #else
@@ -141,16 +136,15 @@ public partial record InformationResponseSD1V01 : IOuterRecord<InformationRespon
     /// Requested account and its owners.
     /// </summary>
     [IsoId("_jqrv4C__EeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account And Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctAndPties")]
     #endif
+    [IsoXmlTag("AcctAndPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountAndParties2 AccountAndParties { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountAndParties2 AccountAndParties { get; init; } 
+    public required AccountAndParties2 AccountAndParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountAndParties2 AccountAndParties { get; init; } 
     #else
@@ -161,7 +155,7 @@ public partial record InformationResponseSD1V01 : IOuterRecord<InformationRespon
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InformationResponseSD1V01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InformationResponseSD1V01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InformationResponseSD1V01Document ToDocument()
     {
@@ -171,7 +165,7 @@ public partial record InformationResponseSD1V01 : IOuterRecord<InformationRespon
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationResponseSD1V01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InformationResponseSD1V01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InformationResponseSD1V01Document : IOuterDocument<InformationResponseSD1V01>
@@ -188,7 +182,7 @@ public partial record InformationResponseSD1V01Document : IOuterDocument<Informa
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InformationResponseSD1V01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InformationResponseSD1V01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InformationResponseSD1V01 Message { get; init; }

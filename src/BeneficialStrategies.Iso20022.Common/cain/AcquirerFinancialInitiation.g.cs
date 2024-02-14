@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The AcquirerFinancialInitiation message is sent by an acquirer or an agent to an issuer or an agent, to request, advice or notify the approval and the clearing of a card transaction.")]
 [IsoId("_Mdr84HubEeSBS-QFUaKA-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Financial Initiation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record AcquirerFinancialInitiation : IOuterRecord<AcquirerFinanci
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_kgOI0HubEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header17 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header17 Header { get; init; } 
+    public required Header17 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header17 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record AcquirerFinancialInitiation : IOuterRecord<AcquirerFinanci
     /// Information related to financial authorisation.
     /// </summary>
     [IsoId("_uR7TcHubEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Initiation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInitn")]
     #endif
+    [IsoXmlTag("FinInitn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerFinancialInitiation1 FinancialInitiation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerFinancialInitiation1 FinancialInitiation { get; init; } 
+    public required AcquirerFinancialInitiation1 FinancialInitiation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerFinancialInitiation1 FinancialInitiation { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record AcquirerFinancialInitiation : IOuterRecord<AcquirerFinanci
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_Fxvz4HucEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType15 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType15 SecurityTrailer { get; init; } 
+    public required ContentInformationType15 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType15 SecurityTrailer { get; init; } 
     #else
@@ -137,7 +132,7 @@ public partial record AcquirerFinancialInitiation : IOuterRecord<AcquirerFinanci
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcquirerFinancialInitiationDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcquirerFinancialInitiationDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcquirerFinancialInitiationDocument ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record AcquirerFinancialInitiation : IOuterRecord<AcquirerFinanci
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcquirerFinancialInitiation"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcquirerFinancialInitiation&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcquirerFinancialInitiationDocument : IOuterDocument<AcquirerFinancialInitiation>
@@ -164,7 +159,7 @@ public partial record AcquirerFinancialInitiationDocument : IOuterDocument<Acqui
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcquirerFinancialInitiation"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcquirerFinancialInitiation&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerFinancialInitiation Message { get; init; }

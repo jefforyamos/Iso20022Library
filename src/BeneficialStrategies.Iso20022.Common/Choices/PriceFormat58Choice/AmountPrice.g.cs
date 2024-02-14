@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat58Choice
     /// Price expressed as a currency and amount.
     /// </summary>
     [IsoId("_ctku1ZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Price")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat58Choice
         /// Type of amount price.
         /// </summary>
         [IsoId("_Wiwgadp-Ed-ak6NoX_4Aeg_1480556892")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount Price Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AmtPricTp")]
         #endif
+        [IsoXmlTag("AmtPricTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AmountPriceType2Code AmountPriceType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AmountPriceType2Code AmountPriceType { get; init; } 
+        public required AmountPriceType2Code AmountPriceType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AmountPriceType2Code AmountPriceType { get; init; } 
         #else
@@ -77,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat58Choice
         /// Value of the price.
         /// </summary>
         [IsoId("_Wiwgatp-Ed-ak6NoX_4Aeg_-436549113")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Price Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PricVal")]
         #endif
+        [IsoXmlTag("PricVal")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal PriceValue { get; init; } 
+        public required System.Decimal PriceValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal PriceValue { get; init; } 
         #else

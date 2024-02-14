@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The RequestToPayDebtorActivationCancellationRequest message is sent by the debtor RTP (Request To Pay) provider to the creditor RTP provider and optionally from the debtor to its RTP provider and from the creditor RTP provider to the creditor to request for the cancellation of the debtor activation of the RTP service with that specific creditor.")]
 [IsoId("_rNNBw-HzEeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request To Pay Debtor Activation Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
     /// Set of characteristics to identify the message and parties playing a role in the cancellation of the mandate, but which are not part of the mandate.
     /// </summary>
     [IsoId("_rNNBx-HzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActivationHeader2 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ActivationHeader2 Header { get; init; } 
+    public required ActivationHeader2 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ActivationHeader2 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
     /// Provides details on the debtor activation cancellation request.
     /// </summary>
     [IsoId("_rNNByeHzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlData")]
     #endif
+    [IsoXmlTag("CxlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DebtorActivationCancellation2 CancellationData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DebtorActivationCancellation2 CancellationData { get; init; } 
+    public required DebtorActivationCancellation2 CancellationData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DebtorActivationCancellation2 CancellationData { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_rNNBy-HzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestToPayDebtorActivationCancellationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestToPayDebtorActivationCancellationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestToPayDebtorActivationCancellationRequestV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01 : IOute
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayDebtorActivationCancellationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestToPayDebtorActivationCancellationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestToPayDebtorActivationCancellationRequestV01Document : IOuterDocument<RequestToPayDebtorActivationCancellationRequestV01>
@@ -161,7 +156,7 @@ public partial record RequestToPayDebtorActivationCancellationRequestV01Document
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestToPayDebtorActivationCancellationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestToPayDebtorActivationCancellationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestToPayDebtorActivationCancellationRequestV01 Message { get; init; }

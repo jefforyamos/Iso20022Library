@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References45Choice.IntraPositionMovementIdentification))]
     [KnownType(typeof(References45Choice.OtherTransactionIdentification))]
     [IsoId("_RbgB0ztpEeWHYdqXF6YZmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References 45 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

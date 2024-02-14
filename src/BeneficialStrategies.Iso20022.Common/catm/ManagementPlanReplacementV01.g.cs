@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// </summary>
 [Description(@"Scope|The ManagementPlanReplacement message is sent by the master terminal manager or delegated terminal manager to the acceptor system to replace the TMS action list of the POI system.|Usage|The ManagementPlanReplacement message may embed the information required by the acceptor system for the planning of the TMS actions to be performed by the POI including the trigger, time conditions and TMS addresses.")]
 [IsoId("_-jWs8OQWEeCGktPI9k4Dlw_-1818503267")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Management Plan Replacement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record ManagementPlanReplacementV01 : IOuterRecord<ManagementPlan
     /// Set of characteristics related to the transfer of the management plan.
     /// </summary>
     [IsoId("_-jWs8eQWEeCGktPI9k4Dlw_-968714404")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header4 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header4 Header { get; init; } 
+    public required Header4 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header4 Header { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record ManagementPlanReplacementV01 : IOuterRecord<ManagementPlan
     /// Sequence of terminal maintenance actions to be performed by a point of interaction (POI).
     /// </summary>
     [IsoId("_-jWs8uQWEeCGktPI9k4Dlw_1841410176")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Management Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MgmtPlan")]
     #endif
+    [IsoXmlTag("MgmtPlan")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ManagementPlan1 ManagementPlan { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ManagementPlan1 ManagementPlan { get; init; } 
+    public required ManagementPlan1 ManagementPlan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ManagementPlan1 ManagementPlan { get; init; } 
     #else
@@ -120,16 +116,15 @@ public partial record ManagementPlanReplacementV01 : IOuterRecord<ManagementPlan
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_-jgd8OQWEeCGktPI9k4Dlw_-1383726347")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType1 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType1 SecurityTrailer { get; init; } 
+    public required ContentInformationType1 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType1 SecurityTrailer { get; init; } 
     #else
@@ -140,7 +135,7 @@ public partial record ManagementPlanReplacementV01 : IOuterRecord<ManagementPlan
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ManagementPlanReplacementV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ManagementPlanReplacementV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ManagementPlanReplacementV01Document ToDocument()
     {
@@ -150,7 +145,7 @@ public partial record ManagementPlanReplacementV01 : IOuterRecord<ManagementPlan
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ManagementPlanReplacementV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ManagementPlanReplacementV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ManagementPlanReplacementV01Document : IOuterDocument<ManagementPlanReplacementV01>
@@ -167,7 +162,7 @@ public partial record ManagementPlanReplacementV01Document : IOuterDocument<Mana
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ManagementPlanReplacementV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ManagementPlanReplacementV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ManagementPlanReplacementV01 Message { get; init; }

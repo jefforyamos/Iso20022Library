@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Replacement of an existing content by a different one.
 /// </summary>
 [IsoId("_RbYW4tp-Ed-ak6NoX_4Aeg_65619954")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Replacement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record Replacement2
     /// Content of the current element.
     /// </summary>
     [IsoId("_RbYW49p-Ed-ak6NoX_4Aeg_65620232")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CurVal")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text CurrentValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CurrentValue { get; init; } 
+    public required System.String CurrentValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CurrentValue { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record Replacement2
     /// Content of the new element.
     /// </summary>
     [IsoId("_RbYW5Np-Ed-ak6NoX_4Aeg_65620263")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proposed Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PropsdVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PropsdVal")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text ProposedValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProposedValue { get; init; } 
+    public required System.String ProposedValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProposedValue { get; init; } 
     #else

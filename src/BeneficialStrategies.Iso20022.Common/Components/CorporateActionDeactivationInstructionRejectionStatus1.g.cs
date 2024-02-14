@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides reason of the rejection of a deactivation instruction.
 /// </summary>
 [IsoId("_RkeBdtp-Ed-ak6NoX_4Aeg_1522075746")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Deactivation Instruction Rejection Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionDeactivationInstructionRejectionStatus1
     /// The rejection reason.
     /// </summary>
     [IsoId("_RkeBd9p-Ed-ak6NoX_4Aeg_1534080534")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     public RejectionReason12FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RkeBd9p-Ed-ak6NoX_4Aeg_1534080534
     
@@ -57,15 +54,13 @@ public partial record CorporateActionDeactivationInstructionRejectionStatus1
     /// Additional information about the status.
     /// </summary>
     [IsoId("_RknycNp-Ed-ak6NoX_4Aeg_1534080564")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

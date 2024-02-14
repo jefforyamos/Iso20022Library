@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the characteristics of the cash account.
 /// </summary>
 [IsoId("_cPWbgdcZEeqRFcf2R4bPBw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Account Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record CashAccountCharacteristics4
     /// Defines the account level within an account hierarchy.
     /// </summary>
     [IsoId("_cTJ9cdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctLvl")]
     #endif
+    [IsoXmlTag("AcctLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountLevel2Code AccountLevel { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountLevel2Code AccountLevel { get; init; } 
+    public required AccountLevel2Code AccountLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountLevel2Code AccountLevel { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record CashAccountCharacteristics4
     /// Account to or from which a cash entry is made.
     /// </summary>
     [IsoId("_cTJ9c9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcct")]
     #endif
+    [IsoXmlTag("CshAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount40 CashAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount40 CashAccount { get; init; } 
+    public required CashAccount40 CashAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount40 CashAccount { get; init; } 
     #else
@@ -95,12 +91,11 @@ public partial record CashAccountCharacteristics4
     /// Usage: the account servicer is the domicile agent servicing the local account.
     /// </summary>
     [IsoId("_cTJ9ddcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcr")]
     #endif
+    [IsoXmlTag("AcctSvcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? AccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +108,11 @@ public partial record CashAccountCharacteristics4
     /// Defines a parent account to which the cash account is related to.
     /// </summary>
     [IsoId("_cTJ9d9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parent Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrntAcct")]
     #endif
+    [IsoXmlTag("PrntAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ParentCashAccount4? ParentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,16 +125,15 @@ public partial record CashAccountCharacteristics4
     /// Defines if and how charges and taxes due are paid to the financial institution.
     /// </summary>
     [IsoId("_cTJ9edcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Compensation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CompstnMtd")]
     #endif
+    [IsoXmlTag("CompstnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CompensationMethod1Code CompensationMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CompensationMethod1Code CompensationMethod { get; init; } 
+    public required CompensationMethod1Code CompensationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CompensationMethod1Code CompensationMethod { get; init; } 
     #else
@@ -151,12 +144,11 @@ public partial record CashAccountCharacteristics4
     /// Defines the account debited for charges and taxes due on the cash account, if different from the cash account.
     /// </summary>
     [IsoId("_cTJ9e9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debit Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtAcct")]
     #endif
+    [IsoXmlTag("DbtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? DebitAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +161,12 @@ public partial record CashAccountCharacteristics4
     /// Future date on which the account will be automatically debited for charges and taxes due.
     /// </summary>
     [IsoId("_cTJ9fdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delayed Debit Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DelydDbtDt")]
     #endif
+    [IsoXmlTag("DelydDbtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DelayedDebitDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,15 +179,13 @@ public partial record CashAccountCharacteristics4
     /// Free form message advising the customer about the settlement of charges and taxes due.
     /// </summary>
     [IsoId("_cTJ9f9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAdvc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SttlmAdvc")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? SettlementAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,19 +195,18 @@ public partial record CashAccountCharacteristics4
     #endif
     
     /// <summary>
-    /// Currency used to specify the account's balance currency.
+    /// Currency used to specify the account&apos;s balance currency.
     /// </summary>
     [IsoId("_cTJ9gdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Balance Currency Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctBalCcyCd")]
     #endif
+    [IsoXmlTag("AcctBalCcyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode AccountBalanceCurrencyCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string AccountBalanceCurrencyCode { get; init; } 
+    public required string AccountBalanceCurrencyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string AccountBalanceCurrencyCode { get; init; } 
     #else
@@ -225,15 +214,14 @@ public partial record CashAccountCharacteristics4
     #endif
     
     /// <summary>
-    /// Currency used to specify the account's settlement currency.
+    /// Currency used to specify the account&apos;s settlement currency.
     /// </summary>
     [IsoId("_cTJ9g9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcyCd")]
     #endif
+    [IsoXmlTag("SttlmCcyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? SettlementCurrencyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,15 +231,14 @@ public partial record CashAccountCharacteristics4
     #endif
     
     /// <summary>
-    /// Currency used to specify the account's taxing host currency.
+    /// Currency used to specify the account&apos;s taxing host currency.
     /// </summary>
     [IsoId("_cTJ9hdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Currency Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstCcyCd")]
     #endif
+    [IsoXmlTag("HstCcyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? HostCurrencyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -264,12 +251,11 @@ public partial record CashAccountCharacteristics4
     /// Describes account taxing parameters.
     /// </summary>
     [IsoId("_cTJ9h9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tax")]
     #endif
+    [IsoXmlTag("Tax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountTax1? Tax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -279,19 +265,18 @@ public partial record CashAccountCharacteristics4
     #endif
     
     /// <summary>
-    /// Individual to contact at the financial institution's location regarding problems of a business nature.
+    /// Individual to contact at the financial institution&apos;s location regarding problems of a business nature.
     /// </summary>
     [IsoId("_cTJ9idcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Contact")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrCtct")]
     #endif
+    [IsoXmlTag("AcctSvcrCtct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Contact4 AccountServicerContact { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Contact4 AccountServicerContact { get; init; } 
+    public required Contact4 AccountServicerContact { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Contact4 AccountServicerContact { get; init; } 
     #else

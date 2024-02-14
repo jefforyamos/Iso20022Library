@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option securities movement details.
 /// </summary>
 [IsoId("_1f4mETL3EeKU9IrkkToqcw_-1740598190")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Option SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record SecuritiesOptionSD3
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1f4mEjL3EeKU9IrkkToqcw_-1501552593")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,15 +70,12 @@ public partial record SecuritiesOptionSD3
     /// Indicates the type of payment. Used in stock dividends processing at DTC(The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
     [IsoId("_1f4mEzL3EeKU9IrkkToqcw_1962270239")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Pay Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCPayMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DTCPayMtd")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? DTCPayMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +88,12 @@ public partial record SecuritiesOptionSD3
     /// Indicates the payment order. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
     [IsoId("_1f4mFDL3EeKU9IrkkToqcw_-2007169000")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Pay Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCPayOrdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DTCPayOrdr")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? DTCPayOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +106,11 @@ public partial record SecuritiesOptionSD3
     /// Income classification of the cash proceeds for dividend reinvestment.
     /// </summary>
     [IsoId("_1f4mFTL3EeKU9IrkkToqcw_-35495836")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvestment Income Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstmtIncmClssfctn")]
     #endif
+    [IsoXmlTag("RinvstmtIncmClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReinvestmentIncomeClassification1Code? ReinvestmentIncomeClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +123,11 @@ public partial record SecuritiesOptionSD3
     /// Indicates how the entitlements were calculated optional dividends.
     /// </summary>
     [IsoId("_1gCXEDL3EeKU9IrkkToqcw_1268254401")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement Calculation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitlmntClctnMtd")]
     #endif
+    [IsoXmlTag("EntitlmntClctnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +140,12 @@ public partial record SecuritiesOptionSD3
     /// For stock distributions, the fair market value represents the value of the security per share at the time of distribution. The value is used to calculate the cash value of the distribution and the necessary tax withholding on the distribution at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1gCXETL3EeKU9IrkkToqcw_-1221785638")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fair Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FairMktVal")]
     #endif
+    [IsoXmlTag("FairMktVal")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? FairMarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +158,11 @@ public partial record SecuritiesOptionSD3
     /// Price is based on either base or disbursed security.
     /// </summary>
     [IsoId("_1gCXEjL3EeKU9IrkkToqcw_375521892")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricBsis")]
     #endif
+    [IsoXmlTag("PricBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCBaseDisbursed1Code? PriceBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +175,11 @@ public partial record SecuritiesOptionSD3
     /// Specifies the reason for DTC (The Depository Trust Corporation) to exit the shares.
     /// </summary>
     [IsoId("_1gCXEzL3EeKU9IrkkToqcw_-735389527")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Exit Explanation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCExitExpltnInd")]
     #endif
+    [IsoXmlTag("DTCExitExpltnInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesExitReason1Code? DTCExitExplanationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +192,12 @@ public partial record SecuritiesOptionSD3
     /// Indicates whether a DTC (The Depository Trust Corporation) participant, using one or more payment bonds in connection with a warrant exercise, will be charged (through settlement on exercise date) the value of the upcoming interest payment on the bond(s).
     /// </summary>
     [IsoId("_1gCXFDL3EeKU9IrkkToqcw_-703418763")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgFlg")]
     #endif
+    [IsoXmlTag("ChrgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ChargeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,15 +207,15 @@ public partial record SecuritiesOptionSD3
     #endif
     
     /// <summary>
-    /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to "no" changes are due when protect is covered.
+    /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to &quot;no&quot; changes are due when protect is covered.
     /// </summary>
     [IsoId("_1gCXFTL3EeKU9IrkkToqcw_-1421221974")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Charge Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctChrgFlg")]
     #endif
+    [IsoXmlTag("PrtctChrgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +228,12 @@ public partial record SecuritiesOptionSD3
     /// Indicates whether the price from the offeror is estimated or final.
     /// </summary>
     [IsoId("_1gCXFjL3EeKU9IrkkToqcw_-2039139764")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Estimated Price Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstmtdPricFlg")]
     #endif
+    [IsoXmlTag("EstmtdPricFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EstimatedPriceFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ public partial record SecuritiesOptionSD3
     /// Time period during which instructions regarding the disposition of fractional entitlements will be accepted at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1gMIEDL3EeKU9IrkkToqcw_658520002")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Fractional Share Instruction Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCFrctnlShrInstrPrd")]
     #endif
+    [IsoXmlTag("DTCFrctnlShrInstrPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period3? DTCFractionalShareInstructionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +263,11 @@ public partial record SecuritiesOptionSD3
     /// Indicates the period during which the instructions for US Tax service will be accepted at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1gMIETL3EeKU9IrkkToqcw_1679272129")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTCUS Tax Instruction Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCUSTaxInstrPrd")]
     #endif
+    [IsoXmlTag("DTCUSTaxInstrPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period3? DTCUSTaxInstructionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

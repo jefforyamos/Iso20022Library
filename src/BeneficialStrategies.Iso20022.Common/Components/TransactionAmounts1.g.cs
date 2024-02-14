@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amounts of the card transaction.
 /// </summary>
 [IsoId("_1-7FQESIEeeb1MmUPTrSMw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Amounts")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,11 @@ public partial record TransactionAmounts1
     /// ISO 8583:93/2003 bit 24
     /// </summary>
     [IsoId("_AusaoESJEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtQlfr")]
     #endif
+    [IsoXmlTag("AmtQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfAmount11Code? AmountQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,12 +60,11 @@ public partial record TransactionAmounts1
     /// Actual amount of the transaction.
     /// </summary>
     [IsoId("_T6zDIESJEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAmt")]
     #endif
+    [IsoXmlTag("TxAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionAmount1? TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +77,11 @@ public partial record TransactionAmounts1
     /// Present when the cardholder billing currency differs from the transaction currency expressed in the amount of the transaction. It may be populated by the card scheme or an intermediary processor as normally the acceptor does not know the billing currency for which the cardholder will be debited.
     /// </summary>
     [IsoId("_KdbJwESJEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Billing Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrBllgAmt")]
     #endif
+    [IsoXmlTag("CrdhldrBllgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount4? CardholderBillingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +95,11 @@ public partial record TransactionAmounts1
     /// Calculated based on the transaction amount, except when the transaction amount is absent. When transaction amount is absent, the reconciliation amount is calculated on the detailed amount field 
     /// </summary>
     [IsoId("_gwLaIESJEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnAmt")]
     #endif
+    [IsoXmlTag("RcncltnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount4? ReconciliationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +112,11 @@ public partial record TransactionAmounts1
     /// Further details of some or all amounts in the transaction amount. 
     /// </summary>
     [IsoId("_M9dY8EUKEeea986VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldAmt")]
     #endif
+    [IsoXmlTag("DtldAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount19? DetailedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +131,11 @@ public partial record TransactionAmounts1
     /// ISO 8583:93/2003 bit 30
     /// </summary>
     [IsoId("_jFo7kEULEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Transaction Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlTxAmts")]
     #endif
+    [IsoXmlTag("OrgnlTxAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalTransactionAmount1? OriginalTransactionAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

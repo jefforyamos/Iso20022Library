@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriorityNumeric3Choice.Numeric))]
     [KnownType(typeof(PriorityNumeric3Choice.Proprietary))]
     [IsoId("_AbMjtdokEeC60axPepSq7g_-1361106617")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority Numeric 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

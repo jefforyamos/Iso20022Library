@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
 [IsoId("_Qf60NNp-Ed-ak6NoX_4Aeg_-1826849881")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PriceInformation3
     /// Value of the price, eg, as a currency and value.
     /// </summary>
     [IsoId("_Qf60Ndp-Ed-ak6NoX_4Aeg_-41080249")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
+    public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PriceInformation3
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
     [IsoId("_Qf60Ntp-Ed-ak6NoX_4Aeg_-311662157")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricTp")]
     #endif
+    [IsoXmlTag("PricTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitPriceType1Choice_ PriceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitPriceType1Choice_ PriceType { get; init; } 
+    public required UnitPriceType1Choice_ PriceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitPriceType1Choice_ PriceType { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record PriceInformation3
     /// Place from which the price was obtained.
     /// </summary>
     [IsoId("_Qf60N9p-Ed-ak6NoX_4Aeg_-41080187")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Of Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcOfPric")]
     #endif
+    [IsoXmlTag("SrcOfPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceSourceFormatChoice_? SourceOfPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record PriceInformation3
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
     [IsoId("_Qf60ONp-Ed-ak6NoX_4Aeg_-41080157")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quotation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtnDt")]
     #endif
+    [IsoXmlTag("QtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? QuotationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,12 @@ public partial record PriceInformation3
     /// Indicates whether the price is expressed as a yield. The absence of Yielded means it is not applicable.
     /// </summary>
     [IsoId("_Qf60Odp-Ed-ak6NoX_4Aeg_-41080156")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Yielded Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="YlddInd")]
     #endif
+    [IsoXmlTag("YlddInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? YieldedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

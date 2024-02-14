@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum RejectionReason32Code
 {
     /// <summary>
-    /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Unrecognised or invalid message sender&apos;s safekeeping account.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_POtDckAuEeGeCKosDOIVvQ_290415620")]
@@ -29,8 +29,8 @@ public enum RejectionReason32Code
     SafekeepingAccountRejection = RejectionReasonV2Code.SafekeepingAccountRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_POtDc0AuEeGeCKosDOIVvQ_1444288981")]
@@ -39,7 +39,7 @@ public enum RejectionReason32Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_PO20cEAuEeGeCKosDOIVvQ_-127436514")]
@@ -48,7 +48,7 @@ public enum RejectionReason32Code
     
     /// <summary>
     /// Instruction could not be found.
-    /// Encoded/decoded by serializers as "NRGN".
+    /// Encoded/decoded by serializers as &quot;NRGN&quot;.
     /// </summary>
     [EnumMember(Value = "NRGN")]
     [IsoId("_PO20cUAuEeGeCKosDOIVvQ_-1085893749")]
@@ -57,7 +57,7 @@ public enum RejectionReason32Code
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_PO20ckAuEeGeCKosDOIVvQ_-489704418")]
@@ -66,7 +66,7 @@ public enum RejectionReason32Code
     
     /// <summary>
     /// More than one instruction match the criteria.
-    /// Encoded/decoded by serializers as "NRGM".
+    /// Encoded/decoded by serializers as &quot;NRGM&quot;.
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_PO20c0AuEeGeCKosDOIVvQ_1877174322")]
@@ -75,7 +75,7 @@ public enum RejectionReason32Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_PO20dEAuEeGeCKosDOIVvQ_1937778798")]

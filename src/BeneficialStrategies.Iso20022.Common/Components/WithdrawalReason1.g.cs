@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the withdrawal reason code and optionally a withdrawal reason sub code.
 /// </summary>
 [IsoId("_t1jau4xnEeKdxfnzD2sqyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Withdrawal Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record WithdrawalReason1
     /// Withdrawal reason expressed as a code.
     /// </summary>
     [IsoId("_t1jaxYxnEeKdxfnzD2sqyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withdrawal Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WdrwlRsnCd")]
     #endif
+    [IsoXmlTag("WdrwlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required WithdrawalReason1Code WithdrawalReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public WithdrawalReason1Code WithdrawalReasonCode { get; init; } 
+    public required WithdrawalReason1Code WithdrawalReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public WithdrawalReason1Code WithdrawalReasonCode { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record WithdrawalReason1
     /// Further withdrawal reason information expressed as a code.
     /// </summary>
     [IsoId("_t1javoxnEeKdxfnzD2sqyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withdrawal Reason Sub Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WdrwlRsnSubCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("WdrwlRsnSubCd")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? WithdrawalReasonSubCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

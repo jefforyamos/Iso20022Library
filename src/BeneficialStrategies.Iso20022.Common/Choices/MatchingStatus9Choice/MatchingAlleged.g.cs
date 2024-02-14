@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus9Choice
     /// Trade is matched alleged.
     /// </summary>
     [IsoId("_A4aEJdokEeC60axPepSq7g_-548171408")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Alleged")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

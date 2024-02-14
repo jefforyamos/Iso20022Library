@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
     /// A credit default swap derivative on a single name.
     /// </summary>
     [IsoId("_xfbL1X5eEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Single Name Credit Default Swap Derivative")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,12 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// Derivative on a credit default swap with the ISIN code of the underlying swap.
         /// </summary>
         [IsoId("_Nmrxc35fEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Underlying Name Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UndrlygNmId")]
         #endif
+        [IsoXmlTag("UndrlygNmId")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISINOct2015Identifier? UnderlyingNameIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +73,16 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// Identification of the reference obligation for a derivative on a credit default swap.
         /// </summary>
         [IsoId("_NmrxdX5fEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Obligation Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OblgtnId")]
         #endif
+        [IsoXmlTag("OblgtnId")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISINOct2015Identifier ObligationIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ObligationIdentification { get; init; } 
+        public required System.String ObligationIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ObligationIdentification { get; init; } 
         #else
@@ -95,16 +93,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// Describes the single name specific details the derivative is being made on.
         /// </summary>
         [IsoId("_Nmrxd35fEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Single Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SnglNm")]
         #endif
+        [IsoXmlTag("SnglNm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CreditDefaultSwapSingleName2 SingleName { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CreditDefaultSwapSingleName2 SingleName { get; init; } 
+        public required CreditDefaultSwapSingleName2 SingleName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CreditDefaultSwapSingleName2 SingleName { get; init; } 
         #else

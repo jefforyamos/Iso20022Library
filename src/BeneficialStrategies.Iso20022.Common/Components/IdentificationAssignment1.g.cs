@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements that identify the identification assignment.
 /// </summary>
 [IsoId("_QpUAxNp-Ed-ak6NoX_4Aeg_1072835479")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Identification Assignment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,19 +53,17 @@ public partial record IdentificationAssignment1
     /// Usage: The assigner has to make sure that MessageIdentification is unique per assignee for a pre-agreed period.
     /// </summary>
     [IsoId("_QpUAxdp-Ed-ak6NoX_4Aeg_-498844044")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageIdentification { get; init; } 
+    public required System.String MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageIdentification { get; init; } 
     #else
@@ -78,16 +74,16 @@ public partial record IdentificationAssignment1
     /// Date and time at which the identification assignment was created.
     /// </summary>
     [IsoId("_QpUAxtp-Ed-ak6NoX_4Aeg_-1223862384")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -98,12 +94,11 @@ public partial record IdentificationAssignment1
     /// Party that created the identification assignment.
     /// </summary>
     [IsoId("_QpUAx9p-Ed-ak6NoX_4Aeg_1100809451")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cretr")]
     #endif
+    [IsoXmlTag("Cretr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party7Choice_? Creator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,16 +111,15 @@ public partial record IdentificationAssignment1
     /// Party that assigns the identification assignment to another party. This is also the sender of the message.
     /// </summary>
     [IsoId("_QpdKsNp-Ed-ak6NoX_4Aeg_-1061732853")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assigner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnr")]
     #endif
+    [IsoXmlTag("Assgnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party7Choice_ Assigner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party7Choice_ Assigner { get; init; } 
+    public required Party7Choice_ Assigner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party7Choice_ Assigner { get; init; } 
     #else
@@ -136,16 +130,15 @@ public partial record IdentificationAssignment1
     /// Party that the identification assignment is assigned to. This is also the receiver of the message.
     /// </summary>
     [IsoId("_QpdKsdp-Ed-ak6NoX_4Aeg_1821913207")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgne")]
     #endif
+    [IsoXmlTag("Assgne")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party7Choice_ Assignee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party7Choice_ Assignee { get; init; } 
+    public required Party7Choice_ Assignee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party7Choice_ Assignee { get; init; } 
     #else

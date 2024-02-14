@@ -21,7 +21,7 @@ public enum TriggerPriceType1Code
 {
     /// <summary>
     /// Trigger is compared to best offer.
-    /// Encoded/decoded by serializers as "BEOF".
+    /// Encoded/decoded by serializers as &quot;BEOF&quot;.
     /// </summary>
     [EnumMember(Value = "BEOF")]
     [IsoId("_Yv34N9p-Ed-ak6NoX_4Aeg_-319323277")]
@@ -30,7 +30,7 @@ public enum TriggerPriceType1Code
     
     /// <summary>
     /// Trigger is compared to last trade.
-    /// Encoded/decoded by serializers as "LATR".
+    /// Encoded/decoded by serializers as &quot;LATR&quot;.
     /// </summary>
     [EnumMember(Value = "LATR")]
     [IsoId("_YwBCINp-Ed-ak6NoX_4Aeg_-319323259")]
@@ -39,7 +39,7 @@ public enum TriggerPriceType1Code
     
     /// <summary>
     /// Trigger is compared to best bid.
-    /// Encoded/decoded by serializers as "BEBI".
+    /// Encoded/decoded by serializers as &quot;BEBI&quot;.
     /// </summary>
     [EnumMember(Value = "BEBI")]
     [IsoId("_YwBCIdp-Ed-ak6NoX_4Aeg_-319323258")]
@@ -48,7 +48,7 @@ public enum TriggerPriceType1Code
     
     /// <summary>
     /// Trigger is compared to best bid or last trade.
-    /// Encoded/decoded by serializers as "BBLT".
+    /// Encoded/decoded by serializers as &quot;BBLT&quot;.
     /// </summary>
     [EnumMember(Value = "BBLT")]
     [IsoId("_YwBCItp-Ed-ak6NoX_4Aeg_-319323234")]
@@ -57,7 +57,7 @@ public enum TriggerPriceType1Code
     
     /// <summary>
     /// Trigger is compared to best offer or last trade.
-    /// Encoded/decoded by serializers as "BOLT".
+    /// Encoded/decoded by serializers as &quot;BOLT&quot;.
     /// </summary>
     [EnumMember(Value = "BOLT")]
     [IsoId("_YwBCI9p-Ed-ak6NoX_4Aeg_-319323217")]
@@ -66,7 +66,7 @@ public enum TriggerPriceType1Code
     
     /// <summary>
     /// Trigger is compared to best mid.
-    /// Encoded/decoded by serializers as "BEMI".
+    /// Encoded/decoded by serializers as &quot;BEMI&quot;.
     /// </summary>
     [EnumMember(Value = "BEMI")]
     [IsoId("_YwBCJNp-Ed-ak6NoX_4Aeg_-319323199")]

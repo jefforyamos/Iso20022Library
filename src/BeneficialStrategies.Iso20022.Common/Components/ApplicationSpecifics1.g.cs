@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Application specific information defined by the service provider.
 /// </summary>
 [IsoId("_jLluUe5NEeCisYr99QEiWA_17771453")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Application Specifics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record ApplicationSpecifics1
     /// A system user is a user account defined in the static data. It represents an individual or an application that interacts with the system administrator (e. g. T2S), triggering the available functions. The set of functions available to each system user stems from the set of privileges for which the system user is grantee. System administrator does not provide any attribute for distinguishing between individuals and applications. 
     /// </summary>
     [IsoId("_hdq1QWliEeGaMcKyqKNRfQ_64695608")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System User")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysUsr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SysUsr")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SystemUser { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,12 +68,11 @@ public partial record ApplicationSpecifics1
     /// Contains the digital signature of the Business Entity authorised to sign this Business File.
     /// </summary>
     [IsoId("_hdq1QmliEeGaMcKyqKNRfQ_1022556874")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignatureEnvelope? Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +85,16 @@ public partial record ApplicationSpecifics1
     /// Gives the total number of instances (messages) within the file.
     /// </summary>
     [IsoId("_jLluUu5NEeCisYr99QEiWA_1016478772")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Documents")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfDocs")]
     #endif
+    [IsoXmlTag("TtlNbOfDocs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumberOfDocuments { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNumberOfDocuments { get; init; } 
+    public required System.UInt64 TotalNumberOfDocuments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNumberOfDocuments { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum DemandStatusCode
 {
     /// <summary>
     /// Demand refused.
-    /// Encoded/decoded by serializers as "REFD".
+    /// Encoded/decoded by serializers as &quot;REFD&quot;.
     /// </summary>
     [EnumMember(Value = "REFD")]
     [IsoId("_V0vHEHyZEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum DemandStatusCode
     
     /// <summary>
     /// Extend undertaking expiry date.
-    /// Encoded/decoded by serializers as "EXTD".
+    /// Encoded/decoded by serializers as &quot;EXTD&quot;.
     /// </summary>
     [EnumMember(Value = "EXTD")]
     [IsoId("_WJq0INryEeGuxusC7C-WeA")]
@@ -39,7 +39,7 @@ public enum DemandStatusCode
     
     /// <summary>
     /// Pay undertaking demand.
-    /// Encoded/decoded by serializers as "PAYD".
+    /// Encoded/decoded by serializers as &quot;PAYD&quot;.
     /// </summary>
     [EnumMember(Value = "PAYD")]
     [IsoId("_nrhhUNryEeGuxusC7C-WeA")]

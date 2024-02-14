@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Restriction on capability or operations allowed.
 /// </summary>
 [IsoId("_PUhYHtp-Ed-ak6NoX_4Aeg_-335182924")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Restriction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Restriction1
     /// Type of the restriction.
     /// </summary>
     [IsoId("_PUhYH9p-Ed-ak6NoX_4Aeg_1543244557")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RstrctnTp")]
     #endif
+    [IsoXmlTag("RstrctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CodeOrProprietary1Choice_ RestrictionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CodeOrProprietary1Choice_ RestrictionType { get; init; } 
+    public required CodeOrProprietary1Choice_ RestrictionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CodeOrProprietary1Choice_ RestrictionType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record Restriction1
     /// Date from when the restriction is valid.
     /// </summary>
     [IsoId("_PUhYINp-Ed-ak6NoX_4Aeg_736440027")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldFr")]
     #endif
+    [IsoXmlTag("VldFr")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ValidFrom { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ValidFrom { get; init; } 
+    public required System.DateTime ValidFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ValidFrom { get; init; } 
     #else
@@ -92,12 +89,12 @@ public partial record Restriction1
     /// Date until when the restriction is valid.
     /// </summary>
     [IsoId("_PUrJENp-Ed-ak6NoX_4Aeg_1733310129")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid Until")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldUntil")]
     #endif
+    [IsoXmlTag("VldUntil")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ValidUntil { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

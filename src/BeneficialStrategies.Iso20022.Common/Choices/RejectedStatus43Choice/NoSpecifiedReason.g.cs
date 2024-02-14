@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus43Choice
     /// Reason not specified.
     /// </summary>
     [IsoId("_KqoEcRn1EeyroI8qKgB7Mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Specified Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus43Choice
         /// Specifies that there is no reason available.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NoSpcfdRsn")]
         #endif
+        [IsoXmlTag("NoSpcfdRsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NoReasonCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NoReasonCode Value { get; init; } 
+        public required NoReasonCode Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NoReasonCode Value { get; init; } 
         #else

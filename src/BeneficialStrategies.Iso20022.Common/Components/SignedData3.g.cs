@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Digital signature of data, with an asymmetric key.
 /// </summary>
 [IsoId("_SIFo4VW8EeOlEMHvp-ipJg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Signed Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record SignedData3
     /// Version of the data structure.
     /// </summary>
     [IsoId("_SS0SMVW8EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record SignedData3
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>
     [IsoId("_SS0SM1W8EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     public AlgorithmIdentification5? DigestAlgorithm { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SS0SM1W8EeOlEMHvp-ipJg
     
@@ -82,16 +79,15 @@ public partial record SignedData3
     /// Data to sign.
     /// </summary>
     [IsoId("_SS0SNVW8EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encapsulated Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcpsltdCntt")]
     #endif
+    [IsoXmlTag("NcpsltdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EncapsulatedContent2 EncapsulatedContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EncapsulatedContent2 EncapsulatedContent { get; init; } 
+    public required EncapsulatedContent2 EncapsulatedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EncapsulatedContent2 EncapsulatedContent { get; init; } 
     #else
@@ -102,12 +98,12 @@ public partial record SignedData3
     /// Chain of X.509 certificates.
     /// </summary>
     [IsoId("_SS0SN1W8EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cert")]
     #endif
+    [IsoXmlTag("Cert")]
+    [IsoSimpleType(IsoSimpleType.Max3000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? Certificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,11 @@ public partial record SignedData3
     /// Entity who has signed the data.
     /// </summary>
     [IsoId("_SS0SOVW8EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgnr")]
     #endif
+    [IsoXmlTag("Sgnr")]
     public Signer2? Signer { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SS0SOVW8EeOlEMHvp-ipJg
     

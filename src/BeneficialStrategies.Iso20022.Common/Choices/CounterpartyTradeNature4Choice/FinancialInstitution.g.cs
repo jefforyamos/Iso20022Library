@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature4Choice
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
     [IsoId("_6j9NMbsAEea-m5tPqiasmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature4Choice
         /// Specifies the taxonomy type of a financial party.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FI")]
         #endif
+        [IsoXmlTag("FI")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialPartySectorType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialPartySectorType1Code Value { get; init; } 
+        public required FinancialPartySectorType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialPartySectorType1Code Value { get; init; } 
         #else

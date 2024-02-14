@@ -21,7 +21,7 @@ public enum OptionFeatures11Code
 {
     /// <summary>
     /// Option is offered by the account servicer only.
-    /// Encoded/decoded by serializers as "ASVO".
+    /// Encoded/decoded by serializers as &quot;ASVO&quot;.
     /// </summary>
     [EnumMember(Value = "ASVO")]
     [IsoId("_Brr2wbaCEeiN--kDwanlkA")]
@@ -30,7 +30,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Indicates that the holder needs to instruct at beneficiary owner level only.
-    /// Encoded/decoded by serializers as "BOIS".
+    /// Encoded/decoded by serializers as &quot;BOIS&quot;.
     /// </summary>
     [EnumMember(Value = "BOIS")]
     [IsoId("_Brr2w7aCEeiN--kDwanlkA")]
@@ -39,7 +39,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Feature whereby the holder can elect to place a condition on the acceptance of the option.
-    /// Encoded/decoded by serializers as "COND".
+    /// Encoded/decoded by serializers as &quot;COND&quot;.
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_Brr2xbaCEeiN--kDwanlkA")]
@@ -48,7 +48,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.
-    /// Encoded/decoded by serializers as "MAXC".
+    /// Encoded/decoded by serializers as &quot;MAXC&quot;.
     /// </summary>
     [EnumMember(Value = "MAXC")]
     [IsoId("_Brr2x7aCEeiN--kDwanlkA")]
@@ -57,7 +57,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.
-    /// Encoded/decoded by serializers as "MAXS".
+    /// Encoded/decoded by serializers as &quot;MAXS&quot;.
     /// </summary>
     [EnumMember(Value = "MAXS")]
     [IsoId("_Brr2ybaCEeiN--kDwanlkA")]
@@ -65,8 +65,8 @@ public enum OptionFeatures11Code
     MaximumSecurities = OptionFeaturesCode.MaximumSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Feature whereby the holder must elect directly to the issuer's agent (issuer only supported option).
-    /// Encoded/decoded by serializers as "NOSE".
+    /// Feature whereby the holder must elect directly to the issuer&apos;s agent (issuer only supported option).
+    /// Encoded/decoded by serializers as &quot;NOSE&quot;.
     /// </summary>
     [EnumMember(Value = "NOSE")]
     [IsoId("_Brr2y7aCEeiN--kDwanlkA")]
@@ -75,7 +75,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Tender or exchange with the odd lot preference.
-    /// Encoded/decoded by serializers as "OPLF".
+    /// Encoded/decoded by serializers as &quot;OPLF&quot;.
     /// </summary>
     [EnumMember(Value = "OPLF")]
     [IsoId("_Brr2zbaCEeiN--kDwanlkA")]
@@ -84,7 +84,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Option applicability is not subject to the account owner decision but depends on the terms defined by the issuer, for example in the case of equity linked notes or warrants.
-    /// Encoded/decoded by serializers as "CAOS".
+    /// Encoded/decoded by serializers as &quot;CAOS&quot;.
     /// </summary>
     [EnumMember(Value = "CAOS")]
     [IsoId("_Brr2z7aCEeiN--kDwanlkA")]
@@ -93,7 +93,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Indicates the previously sent instructions becomes invalid. This is only applicable after a market deadline extension.
-    /// Encoded/decoded by serializers as "PINS".
+    /// Encoded/decoded by serializers as &quot;PINS&quot;.
     /// </summary>
     [EnumMember(Value = "PINS")]
     [IsoId("_Brr20baCEeiN--kDwanlkA")]
@@ -102,7 +102,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.
-    /// Encoded/decoded by serializers as "PROR".
+    /// Encoded/decoded by serializers as &quot;PROR&quot;.
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_Brr207aCEeiN--kDwanlkA")]
@@ -111,7 +111,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Reduced withholding tax rate applies to the option.
-    /// Encoded/decoded by serializers as "VVPR".
+    /// Encoded/decoded by serializers as &quot;VVPR&quot;.
     /// </summary>
     [EnumMember(Value = "VVPR")]
     [IsoId("_Brr21baCEeiN--kDwanlkA")]
@@ -120,7 +120,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Feature whereby the holder should only instruct a cash amount.
-    /// Encoded/decoded by serializers as "QCAS".
+    /// Encoded/decoded by serializers as &quot;QCAS&quot;.
     /// </summary>
     [EnumMember(Value = "QCAS")]
     [IsoId("_Brr217aCEeiN--kDwanlkA")]
@@ -129,7 +129,7 @@ public enum OptionFeatures11Code
     
     /// <summary>
     /// Indicates usage of a reference number to identify an investor or a shareholder with the issuer or the registration provider (for instance allocation code).
-    /// Encoded/decoded by serializers as "SHAR".
+    /// Encoded/decoded by serializers as &quot;SHAR&quot;.
     /// </summary>
     [EnumMember(Value = "SHAR")]
     [IsoId("_Nead8baCEeiN--kDwanlkA")]

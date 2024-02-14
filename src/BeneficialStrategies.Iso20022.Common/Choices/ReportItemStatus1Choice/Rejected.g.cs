@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemStatus1Choice
     /// Statement is rejected.
     /// </summary>
     [IsoId("_08aRa73QEeO2FLWuu_JIqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemStatus1Choice
         /// Reason for the exception status.
         /// </summary>
         [IsoId("_j5TZgClEEeWwYv6HydV_vw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Exception")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Xcptn")]
         #endif
+        [IsoXmlTag("Xcptn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ReportItemRejectionReason1Choice_ Exception { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ReportItemRejectionReason1Choice_ Exception { get; init; } 
+        public required ReportItemRejectionReason1Choice_ Exception { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ReportItemRejectionReason1Choice_ Exception { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemStatus1Choice
         /// Additional information about the reason for the status that cannot be provided in a structured field.
         /// </summary>
         [IsoId("_j5TZgilEEeWwYv6HydV_vw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Reason Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlRsnInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlRsnInf")]
+        [IsoSimpleType(IsoSimpleType.Max210Text)]
         [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax210Text? AdditionalReasonInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemStatus1Choice
         /// Details of the report item.
         /// </summary>
         [IsoId("_j5TZhClEEeWwYv6HydV_vw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Report Item")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RptItm")]
         #endif
+        [IsoXmlTag("RptItm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReportItem1? ReportItem { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

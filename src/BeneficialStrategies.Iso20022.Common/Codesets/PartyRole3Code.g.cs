@@ -21,7 +21,7 @@ public enum PartyRole3Code
 {
     /// <summary>
     /// Legal entity, other than the issuer, who gives a guarantee. The guarantor becomes liable in case of default.
-    /// Encoded/decoded by serializers as "GATR".
+    /// Encoded/decoded by serializers as &quot;GATR&quot;.
     /// </summary>
     [EnumMember(Value = "GATR")]
     [IsoId("_0BtyYfRCEeqAradXpAelDQ")]

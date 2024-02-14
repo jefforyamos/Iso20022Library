@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ElectionAmendmentStatus1Choice.ProcessedStatus))]
     [KnownType(typeof(ElectionAmendmentStatus1Choice.RejectedStatus))]
     [IsoId("_RiiHxdp-Ed-ak6NoX_4Aeg_1987378998")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Amendment Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

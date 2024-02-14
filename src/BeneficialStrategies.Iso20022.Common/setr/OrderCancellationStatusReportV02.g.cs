@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The OrderCancellationStatusReport is sent by an executing party, eg, a transfer agent, to the instructing party, eg, an investment manager or its authorised representative. There may be one or more intermediary parties between the executing party and the instructing party. The intermediary party is, for example, an intermediary or a concentrator.|The message gives the status of an order cancellation instruction message that was previously sent by the instructing party.|Usage|The OrderCancellationStatusReport message is used to report the status of an order cancellation instruction message that was previously sent by the instructing party. The message can be used to report one of the following:|- the cancellation is accepted for further processing, or|- the cancellation is rejected, or|- the order has been cancelled.|When the cancellation is rejected, the reason for the rejection must be specified.")]
 [IsoId("_gilh-NE7Ed-BzquC8wXy7w_-1859459709")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Order Cancellation Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,48 +81,41 @@ public partial record OrderCancellationStatusReportV02 : IOuterRecord<OrderCance
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_gilh-dE7Ed-BzquC8wXy7w_339506897")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRef")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<AdditionalReference3> RelatedReference { get; init; } = new ValueList<AdditionalReference3>(){};
     
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or reference of a system.
     /// </summary>
     [IsoId("_gilh-tE7Ed-BzquC8wXy7w_-1972675840")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrRef")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<AdditionalReference3> OtherReference { get; init; } = new ValueList<AdditionalReference3>(){};
     
     /// <summary>
     /// Status report details of a bulk or multiple or switch order cancellation instruction that was previously received.
     /// </summary>
     [IsoId("_gilh-9E7Ed-BzquC8wXy7w_1147588729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlStsRpt")]
     #endif
+    [IsoXmlTag("CxlStsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderStatusAndReason4 CancellationStatusReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderStatusAndReason4 CancellationStatusReport { get; init; } 
+    public required OrderStatusAndReason4 CancellationStatusReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderStatusAndReason4 CancellationStatusReport { get; init; } 
     #else
@@ -135,7 +126,7 @@ public partial record OrderCancellationStatusReportV02 : IOuterRecord<OrderCance
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="OrderCancellationStatusReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;OrderCancellationStatusReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public OrderCancellationStatusReportV02Document ToDocument()
     {
@@ -145,7 +136,7 @@ public partial record OrderCancellationStatusReportV02 : IOuterRecord<OrderCance
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderCancellationStatusReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;OrderCancellationStatusReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record OrderCancellationStatusReportV02Document : IOuterDocument<OrderCancellationStatusReportV02>
@@ -162,7 +153,7 @@ public partial record OrderCancellationStatusReportV02Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="OrderCancellationStatusReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;OrderCancellationStatusReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderCancellationStatusReportV02 Message { get; init; }

@@ -48,9 +48,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|An executing party, for example, a transfer agent sends the SubscriptionBulkOrderConfirmationCancellationInstruction message to the instructing party, for example, an investment manager or its authorised representative to cancel a previously sent SubscriptionBulkOrderConfirmation.|Usage|The SubscriptionBulkOrderConfirmationCancellationInstruction message is used to cancel one or more previously sent subscription bulk order confirmations.|The amendment indicator element is used to specify whether the subscription bulk order confirmation cancellation is to be followed by a SubscriptionBulkOrderConfirmationAmendment.|The SubscriptionBulkOrderConfirmationCancellationInstruction message is used to either:|- cancel an entire SubscriptionBulkOrderConfirmation message, that is, all the individual order confirmations that it contained, or,|- request the cancellation of one or more individual confirmations.|There are two ways to use the message.|(1) When the SubscriptionBulkOrderConfirmationCancellationInstruction message is used to cancel an entire message, this can be done by either:|- quoting the business references, for example, OrderReference, Deal Reference, of all the individual order confirmations listed in the SubscriptionBulkOrderConfirmation message, or,|- quoting the details of all the individual order confirmations (this includes the OrderReference and DealReference) listed in SubscriptionBulkOrderConfirmation message but this is not recommended.|The message identification of the SubscriptionOrderConfirmation message may also be quoted in PreviousReference.|It is also possible to instruct the cancellation of an entire confirmation message by quoting its message identification in PreviousReference, but this is not recommended.|(2) When the SubscriptionBulkOrderConfirmationCancellationInstruction message is used to cancel one or more individual order confirmations, this can be done by either:|- quoting the business references, for example, OrderReference, Deal Reference, of each individual order confirmation listed in the SubscriptionBulkOrderConfirmation message, or,|- quoting the details of each individual order execution (this includes the OrderReference and DealReference) listed in SubscriptionBulkOrderConfirmation message but this is not recommended.|The message identification of the SubscriptionBulkOrderConfirmation message in which the individual order confirmation was conveyed may also be quoted in PreviousReference.|The rejection or acceptance of a SubscriptionBulkOrderConfirmationCancellationInstruction is made using an OrderConfirmationStatusReport message.")]
 [IsoId("_ygXWKNE7Ed-BzquC8wXy7w_-1338235349")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Bulk Order Confirmation Cancellation Instruction V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -93,16 +91,15 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_ygXWKdE7Ed-BzquC8wXy7w_1701643993")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -113,12 +110,11 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_ygXWKtE7Ed-BzquC8wXy7w_1700718953")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +127,11 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_ygggENE7Ed-BzquC8wXy7w_1700720004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +144,11 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_ygggEdE7Ed-BzquC8wXy7w_372102168")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +161,11 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     /// References of the orders confirmations to be cancelled.
     /// </summary>
     [IsoId("_ygggEtE7Ed-BzquC8wXy7w_1701642090")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation By Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlByRef")]
     #endif
+    [IsoXmlTag("CxlByRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundOrderExecution1? CancellationByReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +178,11 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     /// Common information related to all the orders confirmations to be cancelled.
     /// </summary>
     [IsoId("_ygggE9E7Ed-BzquC8wXy7w_1699796593")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation By Order Confirmation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlByOrdrConfDtls")]
     #endif
+    [IsoXmlTag("CxlByOrdrConfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubscriptionBulkOrderConfirmation1? CancellationByOrderConfirmationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +195,11 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     /// Message is a copy.
     /// </summary>
     [IsoId("_ygggFNE7Ed-BzquC8wXy7w_1702565188")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation2? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,7 +212,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SubscriptionBulkOrderConfirmationCancellationInstructionV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SubscriptionBulkOrderConfirmationCancellationInstructionV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SubscriptionBulkOrderConfirmationCancellationInstructionV01Document ToDocument()
     {
@@ -231,7 +222,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionBulkOrderConfirmationCancellationInstructionV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SubscriptionBulkOrderConfirmationCancellationInstructionV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV01Document : IOuterDocument<SubscriptionBulkOrderConfirmationCancellationInstructionV01>
@@ -248,7 +239,7 @@ public partial record SubscriptionBulkOrderConfirmationCancellationInstructionV0
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SubscriptionBulkOrderConfirmationCancellationInstructionV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SubscriptionBulkOrderConfirmationCancellationInstructionV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionBulkOrderConfirmationCancellationInstructionV01 Message { get; init; }

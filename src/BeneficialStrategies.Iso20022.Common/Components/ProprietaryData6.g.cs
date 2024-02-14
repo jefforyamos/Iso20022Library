@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Container for proprietary information. Business content of this element is not specified.
 /// </summary>
 [IsoId("_1gW-cYKYEee7hrXqLO3yQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ProprietaryData6
     /// Proprietary content.
     /// </summary>
     [IsoId("_1oY5E4KYEee7hrXqLO3yQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Any")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Any")]
     #endif
+    [IsoXmlTag("Any")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SkipPayload Any { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SkipPayload Any { get; init; } 
+    public required SkipPayload Any { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SkipPayload Any { get; init; } 
     #else

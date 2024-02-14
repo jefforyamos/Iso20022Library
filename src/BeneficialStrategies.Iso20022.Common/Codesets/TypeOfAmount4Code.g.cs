@@ -21,7 +21,7 @@ public enum TypeOfAmount4Code
 {
     /// <summary>
     /// Actual amount.
-    /// Encoded/decoded by serializers as "ACTL".
+    /// Encoded/decoded by serializers as &quot;ACTL&quot;.
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_6oNx0VfvEeOuDtoQo1qilA")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount4Code
     
     /// <summary>
     /// Estimated amount (the final amount could be above or below).
-    /// Encoded/decoded by serializers as "ESTM".
+    /// Encoded/decoded by serializers as &quot;ESTM&quot;.
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_6y7NAVfvEeOuDtoQo1qilA")]

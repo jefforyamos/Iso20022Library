@@ -21,7 +21,7 @@ public enum StayOnSideTypeCode
 {
     /// <summary>
     /// An order pegged against the offer price.
-    /// Encoded/decoded by serializers as "OFFR".
+    /// Encoded/decoded by serializers as &quot;OFFR&quot;.
     /// </summary>
     [EnumMember(Value = "OFFR")]
     [IsoId("_ZQpqAdp-Ed-ak6NoX_4Aeg_1520979426")]
@@ -30,7 +30,7 @@ public enum StayOnSideTypeCode
     
     /// <summary>
     /// An order pegged against the bid price.
-    /// Encoded/decoded by serializers as "BIDE".
+    /// Encoded/decoded by serializers as &quot;BIDE&quot;.
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_ZQpqAtp-Ed-ak6NoX_4Aeg_1525594701")]
@@ -39,7 +39,7 @@ public enum StayOnSideTypeCode
     
     /// <summary>
     /// Indicates a voluntary absence of choice/decision.
-    /// Encoded/decoded by serializers as "DCAR".
+    /// Encoded/decoded by serializers as &quot;DCAR&quot;.
     /// </summary>
     [EnumMember(Value = "DCAR")]
     [IsoId("_ZQpqA9p-Ed-ak6NoX_4Aeg_1547762094")]

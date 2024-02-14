@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies rates of a corporate action.
 /// </summary>
 [IsoId("_oME3YeGYEd-1Ktb5rVaajw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionRate16
     /// Annual rate of a financial instrument.
     /// </summary>
     [IsoId("_oME3Y-GYEd-1Ktb5rVaajw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrst")]
     #endif
+    [IsoXmlTag("Intrst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat14Choice_? Interest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -59,15 +56,14 @@ public partial record CorporateActionRate16
     #endif
     
     /// <summary>
-    /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
+    /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term &quot;any and all&quot;.
     /// </summary>
     [IsoId("_oME3ZeGYEd-1Ktb5rVaajw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Sought")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgSght")]
     #endif
+    [IsoXmlTag("PctgSght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat5Choice_? PercentageSought { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionRate16
     /// Index rate related to the interest rate of the forthcoming interest payment.
     /// </summary>
     [IsoId("_oME3Z-GYEd-1Ktb5rVaajw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdIndx")]
     #endif
+    [IsoXmlTag("RltdIndx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? RelatedIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionRate16
     /// Margin allowed over or under a given rate.
     /// </summary>
     [IsoId("_oME3aeGYEd-1Ktb5rVaajw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sprd")]
     #endif
+    [IsoXmlTag("Sprd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? Spread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionRate16
     /// Acceptable price increment used for submitting a bid.
     /// </summary>
     [IsoId("_oME3a-GYEd-1Ktb5rVaajw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid Interval")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidIntrvl")]
     #endif
+    [IsoXmlTag("BidIntrvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat14Choice_? BidInterval { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionRate16
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) until the next redemption (factor) date.
     /// </summary>
     [IsoId("_oME3beGYEd-1Ktb5rVaajw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsFctr")]
     #endif
+    [IsoXmlTag("PrvsFctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? PreviousFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionRate16
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) that will applicable after the redemption (factor) date.
     /// </summary>
     [IsoId("_oME3b-GYEd-1Ktb5rVaajw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Next Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NxtFctr")]
     #endif
+    [IsoXmlTag("NxtFctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? NextFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record CorporateActionRate16
     /// Rate of discount for securities purchased through a reinvestment scheme as compared to the current market price of security.
     /// </summary>
     [IsoId("_oME3ceGYEd-1Ktb5rVaajw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvestment Discount Rate To Market")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstmtDscntRateToMkt")]
     #endif
+    [IsoXmlTag("RinvstmtDscntRateToMkt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? ReinvestmentDiscountRateToMarket { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

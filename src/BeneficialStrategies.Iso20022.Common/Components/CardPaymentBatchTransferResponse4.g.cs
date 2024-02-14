@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status of the transactions sent in a previous batch of card payment transactions.
 /// </summary>
 [IsoId("_6vEhca1IEeW10_0PQ-btow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Batch Transfer Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CardPaymentBatchTransferResponse4
     /// Totals of transactions of all the data sets.
     /// </summary>
     [IsoId("_66ixoa1IEeW10_0PQ-btow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTtls")]
     #endif
+    [IsoXmlTag("TxTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionTotals7? TransactionTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CardPaymentBatchTransferResponse4
     /// Information related to the previously sent set of transaction.
     /// </summary>
     [IsoId("_66ixo61IEeW10_0PQ-btow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSet")]
     #endif
+    [IsoXmlTag("DataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet14? DataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

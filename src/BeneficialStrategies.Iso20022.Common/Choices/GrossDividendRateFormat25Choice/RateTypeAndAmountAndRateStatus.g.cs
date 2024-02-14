@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat25Choice
     /// Specifies different formats for the gross dividend rate.
     /// </summary>
     [IsoId("_ctda25KQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Type And Amount And Rate Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat25Choice
         /// Value expressed as a rate type.
         /// </summary>
         [IsoId("_cj9f15KQEeWHWpTQn1FFVg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RateTp")]
         #endif
+        [IsoXmlTag("RateTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RateType51Choice_ RateType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RateType51Choice_ RateType { get; init; } 
+        public required RateType51Choice_ RateType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RateType51Choice_ RateType { get; init; } 
         #else
@@ -77,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat25Choice
         /// Value expressed as an amount.
         /// </summary>
         [IsoId("_cj9f35KQEeWHWpTQn1FFVg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else
@@ -97,12 +94,11 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat25Choice
         /// Value expressed as a rate status.
         /// </summary>
         [IsoId("_cj9f4ZKQEeWHWpTQn1FFVg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RateSts")]
         #endif
+        [IsoXmlTag("RateSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public RateStatus4Choice_? RateStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

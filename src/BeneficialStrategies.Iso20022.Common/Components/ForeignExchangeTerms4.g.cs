@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
 [IsoId("_U36vM9p-Ed-ak6NoX_4Aeg_-1456785777")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange Terms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,12 @@ public partial record ForeignExchangeTerms4
     /// Currency and amount bought in a foreign exchange trade. The buy amount is received by the buyer.
     /// </summary>
     [IsoId("_U36vNNp-Ed-ak6NoX_4Aeg_-1456784941")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyAmt")]
     #endif
+    [IsoXmlTag("BuyAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? BuyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,12 +69,12 @@ public partial record ForeignExchangeTerms4
     /// Currency and amount sold in a foreign exchange trade. The sold amount is delivered by the buyer.
     /// </summary>
     [IsoId("_U36vNdp-Ed-ak6NoX_4Aeg_-1456784456")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sell Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellAmt")]
     #endif
+    [IsoXmlTag("SellAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SellAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,16 +87,15 @@ public partial record ForeignExchangeTerms4
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
     [IsoId("_U36vNtp-Ed-ak6NoX_4Aeg_-1455864407")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitCcy")]
     #endif
+    [IsoXmlTag("UnitCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode UnitCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string UnitCurrency { get; init; } 
+    public required string UnitCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string UnitCurrency { get; init; } 
     #else
@@ -109,16 +106,15 @@ public partial record ForeignExchangeTerms4
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
     [IsoId("_U36vN9p-Ed-ak6NoX_4Aeg_-1455864210")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quoted Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtdCcy")]
     #endif
+    [IsoXmlTag("QtdCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode QuotedCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string QuotedCurrency { get; init; } 
+    public required string QuotedCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string QuotedCurrency { get; init; } 
     #else
@@ -129,16 +125,16 @@ public partial record ForeignExchangeTerms4
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
     [IsoId("_U36vONp-Ed-ak6NoX_4Aeg_-1455863880")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRate")]
     #endif
+    [IsoXmlTag("XchgRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ExchangeRate { get; init; } 
+    public required System.Decimal ExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ExchangeRate { get; init; } 
     #else
@@ -149,12 +145,12 @@ public partial record ForeignExchangeTerms4
     /// Date and time at which an exchange rate is quoted.
     /// </summary>
     [IsoId("_U4D5INp-Ed-ak6NoX_4Aeg_-1455863795")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quotation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtnDt")]
     #endif
+    [IsoXmlTag("QtnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? QuotationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +163,11 @@ public partial record ForeignExchangeTerms4
     /// Party that proposes a foreign exchange rate.
     /// </summary>
     [IsoId("_U4D5Idp-Ed-ak6NoX_4Aeg_-1455863297")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quoting Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtgInstn")]
     #endif
+    [IsoXmlTag("QtgInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? QuotingInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

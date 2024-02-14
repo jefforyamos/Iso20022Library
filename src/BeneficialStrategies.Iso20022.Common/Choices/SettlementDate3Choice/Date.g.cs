@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDate3Choice
     /// Date in ISO format.
     /// </summary>
     [IsoId("_Qsl-R9p-Ed-ak6NoX_4Aeg_114969795")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

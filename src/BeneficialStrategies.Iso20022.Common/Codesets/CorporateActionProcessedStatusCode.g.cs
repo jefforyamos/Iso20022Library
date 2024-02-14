@@ -21,7 +21,7 @@ public enum CorporateActionProcessedStatusCode
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_bR2FtNp-Ed-ak6NoX_4Aeg_-720484994")]
@@ -30,7 +30,7 @@ public enum CorporateActionProcessedStatusCode
     
     /// <summary>
     /// The request is accepted.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bR2Ftdp-Ed-ak6NoX_4Aeg_-720484993")]
@@ -39,7 +39,7 @@ public enum CorporateActionProcessedStatusCode
     
     /// <summary>
     /// The processing of the request is pending.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_bR2Fttp-Ed-ak6NoX_4Aeg_-720484964")]
@@ -48,7 +48,7 @@ public enum CorporateActionProcessedStatusCode
     
     /// <summary>
     /// The request has been completed.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_bR2Ft9p-Ed-ak6NoX_4Aeg_-257800026")]
@@ -57,7 +57,7 @@ public enum CorporateActionProcessedStatusCode
     
     /// <summary>
     /// Awaiting the deactivation date.
-    /// Encoded/decoded by serializers as "DEAC".
+    /// Encoded/decoded by serializers as &quot;DEAC&quot;.
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_bR2FuNp-Ed-ak6NoX_4Aeg_638012647")]
@@ -66,7 +66,7 @@ public enum CorporateActionProcessedStatusCode
     
     /// <summary>
     /// The advice has been sent to the market.
-    /// Encoded/decoded by serializers as "SENT".
+    /// Encoded/decoded by serializers as &quot;SENT&quot;.
     /// </summary>
     [EnumMember(Value = "SENT")]
     [IsoId("_bR_2sNp-Ed-ak6NoX_4Aeg_2107675327")]
@@ -75,7 +75,7 @@ public enum CorporateActionProcessedStatusCode
     
     /// <summary>
     /// The announcement has been accepted but another source has provided different information.
-    /// Encoded/decoded by serializers as "WARN".
+    /// Encoded/decoded by serializers as &quot;WARN&quot;.
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_bR_2sdp-Ed-ak6NoX_4Aeg_-2058923992")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to network management services.
 /// </summary>
 [IsoId("_nyn6gYv8EeumSPwlS1PkxQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Network Management Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record NetworkManagementResponse2
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
     [IsoId("_n4bnkYv8EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Context17? Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record NetworkManagementResponse2
     /// Details of an exchange or interaction between parties to perform a specific function.
     /// </summary>
     [IsoId("_n4bnk4v8EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Transaction134 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Transaction134 Transaction { get; init; } 
+    public required Transaction134 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Transaction134 Transaction { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record NetworkManagementResponse2
     /// Outcome of the processing of the authorisation.
     /// </summary>
     [IsoId("_n4bnlYv8EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgRslt")]
     #endif
+    [IsoXmlTag("PrcgRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingResult9 ProcessingResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingResult9 ProcessingResult { get; init; } 
+    public required ProcessingResult9 ProcessingResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingResult9 ProcessingResult { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record NetworkManagementResponse2
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
     [IsoId("_n4bnl4v8EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ReportingWaiverType1Code
 {
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction in illiquid financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "OILQ".
+    /// Encoded/decoded by serializers as &quot;OILQ&quot;.
     /// </summary>
     [EnumMember(Value = "OILQ")]
     [IsoId("_PgjKge8WEeSLA89yUYsVSw")]
@@ -30,7 +30,7 @@ public enum ReportingWaiverType1Code
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction in liquid financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "NLIQ".
+    /// Encoded/decoded by serializers as &quot;NLIQ&quot;.
     /// </summary>
     [EnumMember(Value = "NLIQ")]
     [IsoId("_PnWWEe8WEeSLA89yUYsVSw")]
@@ -39,7 +39,7 @@ public enum ReportingWaiverType1Code
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction subject to conditions other than the current market price of that financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "PRIC".
+    /// Encoded/decoded by serializers as &quot;PRIC&quot;.
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_PxNcse8WEeSLA89yUYsVSw")]
@@ -48,7 +48,7 @@ public enum ReportingWaiverType1Code
     
     /// <summary>
     /// Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.
-    /// Encoded/decoded by serializers as "ILQD".
+    /// Encoded/decoded by serializers as &quot;ILQD&quot;.
     /// </summary>
     [EnumMember(Value = "ILQD")]
     [IsoId("_oQTBwe8WEeSLA89yUYsVSw")]
@@ -57,7 +57,7 @@ public enum ReportingWaiverType1Code
     
     /// <summary>
     /// Pre-trade waiver was for a reference price transaction. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "RFPT".
+    /// Encoded/decoded by serializers as &quot;RFPT&quot;.
     /// </summary>
     [EnumMember(Value = "RFPT")]
     [IsoId("_KcKw0fPbEeS_qLctCs2aRQ")]
@@ -66,7 +66,7 @@ public enum ReportingWaiverType1Code
     
     /// <summary>
     /// Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.
-    /// Encoded/decoded by serializers as "SIZE".
+    /// Encoded/decoded by serializers as &quot;SIZE&quot;.
     /// </summary>
     [EnumMember(Value = "SIZE")]
     [IsoId("_H_1TMIIjEeW_KPkCyw2GUA")]

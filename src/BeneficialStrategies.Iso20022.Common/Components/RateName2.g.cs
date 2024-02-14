@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Rate name specifies the reference rate or basis rate on which a variable rate is based (ex: EONIA, EURIBOR, LIBOR, FEFUND, EURREPO).
 /// </summary>
 [IsoId("_XO3Yc9p-Ed-ak6NoX_4Aeg_1105016861")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rate Name")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record RateName2
     /// Entity that assigns the identification.
     /// </summary>
     [IsoId("_XO3YdNp-Ed-ak6NoX_4Aeg_-5894558")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax8Text? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,19 +68,17 @@ public partial record RateName2
     /// Rate Name specifies the reference rate or basis rate on which a variable rate is based (ex: EONIA, EURIBOR, LIBOR, FEFUND, EURREPO).
     /// </summary>
     [IsoId("_XO3Yddp-Ed-ak6NoX_4Aeg_-2000039264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RateNm")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax24Text)]
     [StringLength(maximumLength: 24 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax24Text RateName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RateName { get; init; } 
+    public required System.String RateName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RateName { get; init; } 
     #else

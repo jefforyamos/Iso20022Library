@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about business parties involved in the transaction.
 /// </summary>
 [IsoId("_AOPFx9okEeC60axPepSq7g_1209561399")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record OtherParties18
     /// Party that identifies the underlying investor.
     /// </summary>
     [IsoId("_AOYPsNokEeC60axPepSq7g_1095722333")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Invstr")]
     #endif
+    [IsoXmlTag("Invstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount79? Investor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record OtherParties18
     /// Party that identifies the stock exchange.
     /// </summary>
     [IsoId("_AOYPsdokEeC60axPepSq7g_98649980")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stock Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StockXchg")]
     #endif
+    [IsoXmlTag("StockXchg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount87? StockExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record OtherParties18
     /// Party that identifies the trade regulator.
     /// </summary>
     [IsoId("_AOYPstokEeC60axPepSq7g_-898422373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Regulator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradRgltr")]
     #endif
+    [IsoXmlTag("TradRgltr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount87? TradeRegulator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record OtherParties18
     /// Party that handles tri-party transactions.
     /// </summary>
     [IsoId("_AOYPs9okEeC60axPepSq7g_-1895494726")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triparty Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrptyAgt")]
     #endif
+    [IsoXmlTag("TrptyAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount83? TripartyAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record OtherParties18
     /// Foreign Financial Institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>
     [IsoId("_AOYPtNokEeC60axPepSq7g_907764690")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Qualified Foreign Intermediary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QlfdFrgnIntrmy")]
     #endif
+    [IsoXmlTag("QlfdFrgnIntrmy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount77? QualifiedForeignIntermediary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

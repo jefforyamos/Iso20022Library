@@ -21,7 +21,7 @@ public enum SecuritiesSettlementStatus3Code
 {
     /// <summary>
     /// Instruction is pending. Settlement at the instructed settlement date is still possible.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_YKVI0cX-EeiSF9q-coWegA")]
@@ -30,7 +30,7 @@ public enum SecuritiesSettlementStatus3Code
     
     /// <summary>
     /// Full settlement.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_YSXqgcX-EeiSF9q-coWegA")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies whether the values defined as part of the Margin Loan Attribute are matching or not.
 /// </summary>
 [IsoId("_ufZIwM3MEeuiU4QSC_BouQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Compare Interest Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
     [IsoId("_lOE7EM6gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Loan Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnLnAmt")]
     #endif
+    [IsoXmlTag("MrgnLnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection1? MarginLoanAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
     [IsoId("_5FJMKs6gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fixed Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FxdIntrstRate")]
     #endif
+    [IsoXmlTag("FxdIntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ComparePercentageRate3? FixedInterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
     [IsoId("_5FJMK86gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Day Count Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DayCntBsis")]
     #endif
+    [IsoXmlTag("DayCntBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareInterestComputationMethod3? DayCountBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as benchmark curve name are matching or not.
     /// </summary>
     [IsoId("_5FJMLM6gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Interest Reference Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FltgIntrstRefRate")]
     #endif
+    [IsoXmlTag("FltgIntrstRefRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareBenchmarkCurveName3? FloatingInterestReferenceRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
     [IsoId("_5FJMLc6gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Interest Rate Term Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FltgIntrstRateTermUnit")]
     #endif
+    [IsoXmlTag("FltgIntrstRateTermUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareRateBasis3? FloatingInterestRateTermUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
     [IsoId("_5FJMLs6gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Interest Rate Term Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FltgIntrstRateTermVal")]
     #endif
+    [IsoXmlTag("FltgIntrstRateTermVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? FloatingInterestRateTermValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
     [IsoId("_5FJML86gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Interest Rate Payment Frequency Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FltgIntrstRatePmtFrqcyUnit")]
     #endif
+    [IsoXmlTag("FltgIntrstRatePmtFrqcyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareRateBasis3? FloatingInterestRatePaymentFrequencyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
     [IsoId("_5FJMMM6gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Interest Rate Payment Frequency Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FltgIntrstRatePmtFrqcyVal")]
     #endif
+    [IsoXmlTag("FltgIntrstRatePmtFrqcyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? FloatingInterestRatePaymentFrequencyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
     [IsoId("_5FJMMc6gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Interest Rate Reset Frequency Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FltgIntrstRateRstFrqcyUnit")]
     #endif
+    [IsoXmlTag("FltgIntrstRateRstFrqcyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareRateBasis3? FloatingInterestRateResetFrequencyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
     [IsoId("_5FJMMs6gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Interest Rate Reset Frequency Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FltgIntrstRateRstFrqcyVal")]
     #endif
+    [IsoXmlTag("FltgIntrstRateRstFrqcyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber6? FloatingInterestRateResetFrequencyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record CompareInterestRate1
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
     [IsoId("_5FJMM86gEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis Point Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsisPtSprd")]
     #endif
+    [IsoXmlTag("BsisPtSprd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDecimalNumber3? BasisPointSpread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

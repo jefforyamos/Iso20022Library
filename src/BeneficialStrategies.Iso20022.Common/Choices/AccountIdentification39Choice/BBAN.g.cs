@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification39Choice
     /// Basic Bank Account Number (BBAN) - identifier used nationally by financial institutions, that is, in individual countries, generally as part of a National Account Numbering Scheme(s), to uniquely identify the account of a customer.
     /// </summary>
     [IsoId("_mpl8admpEeeN3v2fup_Shw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("BBAN")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification39Choice
         /// Basic Bank Account Number (BBAN). Identifier used nationally by financial institutions, ie, in individual countries, generally as part of a National Account Numbering Scheme(s), which uniquely identifies the account of a customer.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BBAN")]
         #endif
+        [IsoXmlTag("BBAN")]
+        [IsoSimpleType(IsoSimpleType.BBANIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoBBANIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SubBalanceQuantity3Choice.Proprietary))]
     [KnownType(typeof(SubBalanceQuantity3Choice.QuantityAndAvailability))]
     [IsoId("_QYLNfNp-Ed-ak6NoX_4Aeg_-1938942383")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Balance Quantity 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

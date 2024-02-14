@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus7Ch
     /// Instruction has been cancelled.
     /// </summary>
     [IsoId("_4Z8psewLEeiazoAmcoGsBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancelled")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

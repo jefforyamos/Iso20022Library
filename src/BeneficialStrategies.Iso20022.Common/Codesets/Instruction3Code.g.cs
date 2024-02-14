@@ -21,7 +21,7 @@ public enum Instruction3Code
 {
     /// <summary>
     /// (Ultimate) creditor must be paid by cheque.
-    /// Encoded/decoded by serializers as "CHQB".
+    /// Encoded/decoded by serializers as &quot;CHQB&quot;.
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_aW12Btp-Ed-ak6NoX_4Aeg_156152754")]
@@ -30,7 +30,7 @@ public enum Instruction3Code
     
     /// <summary>
     /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_aW12B9p-Ed-ak6NoX_4Aeg_157072838")]
@@ -39,7 +39,7 @@ public enum Instruction3Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone.
-    /// Encoded/decoded by serializers as "PHOB".
+    /// Encoded/decoded by serializers as &quot;PHOB&quot;.
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_aW-_8Np-Ed-ak6NoX_4Aeg_157072976")]
@@ -48,7 +48,7 @@ public enum Instruction3Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "TELB".
+    /// Encoded/decoded by serializers as &quot;TELB&quot;.
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_aW-_8dp-Ed-ak6NoX_4Aeg_157073330")]

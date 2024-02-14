@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The discount amount that is attached to an item as a rebate.
 /// </summary>
 [IsoId("_ifYlkNxOEeioifFt1dhnJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale Item Rebate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SaleItemRebate1
     /// Data of the Sale item.
     /// </summary>
     [IsoId("_qEsKENxOEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleItm")]
     #endif
+    [IsoXmlTag("SaleItm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Product6 SaleItem { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Product6 SaleItem { get; init; } 
+    public required Product6 SaleItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Product6 SaleItem { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record SaleItemRebate1
     /// Short text to qualify a rebate on an line item.
     /// </summary>
     [IsoId("_uhRqINxOEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rebate Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RbtLabl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RbtLabl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RebateLabel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

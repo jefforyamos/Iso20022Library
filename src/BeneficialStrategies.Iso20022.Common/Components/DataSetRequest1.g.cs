@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of requested data set.
 /// </summary>
 [IsoId("_QLwe0A0bEeqUVL7sB4m7NA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Data Set Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DataSetRequest1
     /// Identification of the required data set.
     /// </summary>
     [IsoId("_QLxF4A0bEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetIdentification8 Identification { get; init; } 
+    public required DataSetIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetIdentification8 Identification { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record DataSetRequest1
     /// Point of interaction challenge for cryptographic key injection.
     /// </summary>
     [IsoId("_QLxF4w0bEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIChllng")]
     #endif
+    [IsoXmlTag("POIChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? POIChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record DataSetRequest1
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
     [IsoId("_QLxF4Q0bEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMChllng")]
     #endif
+    [IsoXmlTag("TMChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? TMChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,11 @@ public partial record DataSetRequest1
     /// Temporary encryption key that the host will use for protecting keys to download.
     /// </summary>
     [IsoId("_QLxF4g0bEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Session Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SsnKey")]
     #endif
+    [IsoXmlTag("SsnKey")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey14? SessionKey { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,12 @@ public partial record DataSetRequest1
     /// Proof of delegation to be validated by the terminal manager receiving a status report from a new POI.
     /// </summary>
     [IsoId("_QLxF5Q0bEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegation Proof")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtnProof")]
     #endif
+    [IsoXmlTag("DlgtnProof")]
+    [IsoSimpleType(IsoSimpleType.Max5000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? DelegationProof { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +139,11 @@ public partial record DataSetRequest1
     /// Protected proof of delegation.
     /// </summary>
     [IsoId("_QLxF5A0bEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Delegation Proof")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdDlgtnProof")]
     #endif
+    [IsoXmlTag("PrtctdDlgtnProof")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType23? ProtectedDelegationProof { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

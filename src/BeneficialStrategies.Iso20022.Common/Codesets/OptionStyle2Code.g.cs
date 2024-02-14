@@ -21,7 +21,7 @@ public enum OptionStyle2Code
 {
     /// <summary>
     /// Option can be exercised before or on expiry date.
-    /// Encoded/decoded by serializers as "AMER".
+    /// Encoded/decoded by serializers as &quot;AMER&quot;.
     /// </summary>
     [EnumMember(Value = "AMER")]
     [IsoId("_aQIxF9p-Ed-ak6NoX_4Aeg_-1107826186")]
@@ -30,7 +30,7 @@ public enum OptionStyle2Code
     
     /// <summary>
     /// Option that can be exercised on expiry date only.
-    /// Encoded/decoded by serializers as "EURO".
+    /// Encoded/decoded by serializers as &quot;EURO&quot;.
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_aQIxGNp-Ed-ak6NoX_4Aeg_-1107826168")]

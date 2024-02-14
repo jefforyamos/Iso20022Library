@@ -21,7 +21,7 @@ public enum StatementBasis1Code
 {
     /// <summary>
     /// The statement is based on contractual settlement date irrespective of settled data positions.
-    /// Encoded/decoded by serializers as "CONT".
+    /// Encoded/decoded by serializers as &quot;CONT&quot;.
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_ZP6DJdp-Ed-ak6NoX_4Aeg_-926610659")]
@@ -30,7 +30,7 @@ public enum StatementBasis1Code
     
     /// <summary>
     /// The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_ZP6DJtp-Ed-ak6NoX_4Aeg_-2028635093")]
@@ -39,7 +39,7 @@ public enum StatementBasis1Code
     
     /// <summary>
     /// The statement is based on trade date positions.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_ZP6DJ9p-Ed-ak6NoX_4Aeg_-2014783388")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// New standing order values.
 /// </summary>
 [IsoId("_eQ74wdcZEeqRFcf2R4bPBw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Order")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record StandingOrder8
     /// Amount of money and currency to be transferred when a payment instruction is created as a result of a standing order.
     /// </summary>
     [IsoId("_eSQucdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2Choice_? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record StandingOrder8
     /// Party to which an amount of money is due.
     /// </summary>
     [IsoId("_eSQuc9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cdtr")]
     #endif
+    [IsoXmlTag("Cdtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? Creditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record StandingOrder8
     /// Cash account credited from a standing order mechanism.
     /// </summary>
     [IsoId("_eSQuddcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrAcct")]
     #endif
+    [IsoXmlTag("CdtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount40? CreditorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record StandingOrder8
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
     [IsoId("_eSQud9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dbtr")]
     #endif
+    [IsoXmlTag("Dbtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? Debtor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record StandingOrder8
     /// Cash account debited from a standing order mechanism.
     /// </summary>
     [IsoId("_eSQuedcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAcct")]
     #endif
+    [IsoXmlTag("DbtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount40? DebtorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record StandingOrder8
     /// Defines whether the standing order is executed through a time-based or an event-based trigger.
     /// </summary>
     [IsoId("_eSQue9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnTp")]
     #endif
+    [IsoXmlTag("ExctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExecutionType1Choice_? ExecutionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record StandingOrder8
     /// Regularity with which payment instructions are to be created and processed as a result of the standing order, such as daily, weekly, or monthly.
     /// </summary>
     [IsoId("_eSQufdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frqcy")]
     #endif
+    [IsoXmlTag("Frqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency2Code? Frequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record StandingOrder8
     /// Dates during which the standing order is in effect.
     /// </summary>
     [IsoId("_eSQuf9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyPrd")]
     #endif
+    [IsoXmlTag("VldtyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod2Choice_? ValidityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,12 @@ public partial record StandingOrder8
     /// Indicates whether the standing order is defined as a zero sweeping order. When true, the liquidity transfer standing order will transfer all amount of money out of the account so the resulting balance is zero.
     /// </summary>
     [IsoId("_eSQugdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Zero Sweep Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ZeroSweepInd")]
     #endif
+    [IsoXmlTag("ZeroSweepInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ZeroSweepIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

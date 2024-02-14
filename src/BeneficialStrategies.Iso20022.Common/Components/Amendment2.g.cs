@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the amendment.
 /// </summary>
 [IsoId("_9-Q1snltEeG7BsjMvd1mEw_-687774575")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amendment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Amendment2
     /// Contents of the related Undertaking Amendment message.
     /// </summary>
     [IsoId("_9-Z_oXltEeG7BsjMvd1mEw_-922767707")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntMsg")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmendmentMessage1 UndertakingAmendmentMessage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingAmendmentMessage1 UndertakingAmendmentMessage { get; init; } 
+    public required UndertakingAmendmentMessage1 UndertakingAmendmentMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingAmendmentMessage1 UndertakingAmendmentMessage { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Amendment2
     /// Additional information related to the first advising party.
     /// </summary>
     [IsoId("__Ruatz1XEeKWjKfYlNE7jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Advising Party Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstAdvsgPtyAddtlInf")]
     #endif
+    [IsoXmlTag("FrstAdvsgPtyAddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdvisingPartyAdditionalInformation1? FirstAdvisingPartyAdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record Amendment2
     /// Additional information related to the second advising party.
     /// </summary>
     [IsoId("_BTNxVz1YEeKWjKfYlNE7jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Second Advising Party Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndAdvsgPtyAddtlInf")]
     #endif
+    [IsoXmlTag("ScndAdvsgPtyAddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdvisingPartyAdditionalInformation1? SecondAdvisingPartyAdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record Amendment2
     /// Details concerning the confirmation of the proposed amendment.
     /// </summary>
     [IsoId("_9-Z_onltEeG7BsjMvd1mEw_1012422079")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfDtls")]
     #endif
+    [IsoXmlTag("ConfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingConfirmation1? ConfirmationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,16 +119,13 @@ public partial record Amendment2
     /// Digital signature of the party providing additional undertaking amendment advice details.
     /// </summary>
     [IsoId("_9-Z_o3ltEeG7BsjMvd1mEw_1663412254")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DgtlSgntr")]
     [MinLength(0)]
     [MaxLength(3)]
-    #endif
     public ValueList<PartyAndSignature2> DigitalSignature { get; init; } = new ValueList<PartyAndSignature2>(){};
     
     

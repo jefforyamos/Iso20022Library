@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Type of position sets calculated to represent the exposures between a pair of counterparties.
 /// </summary>
 [IsoId("_0wETAQ1MEeqV4s5SpzR1dQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Aggregated")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record PositionSetAggregated3
     /// Reference date for statistics collection.
     /// </summary>
     [IsoId("_0w29MQ1MEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefDt")]
     #endif
+    [IsoXmlTag("RefDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ReferenceDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ReferenceDate { get; init; } 
+    public required System.DateOnly ReferenceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ReferenceDate { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record PositionSetAggregated3
     /// Aggregation of outstanding derivatives with similar dimensions. Numerous positions sets that are produced according to the combination of dimensions used to stratify the derivatives, and different metrics are used to represent the aggregations. 
     /// </summary>
     [IsoId("_0w29Mw1MEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PosSet")]
     #endif
+    [IsoXmlTag("PosSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet5? PositionSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record PositionSetAggregated3
     /// Aggregation of outstanding derivatives according to the currency of the position, for use by central banks issuing specific currencies.
     /// </summary>
     [IsoId("_0w29NQ1MEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Position Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyPosSet")]
     #endif
+    [IsoXmlTag("CcyPosSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet5? CurrencyPositionSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record PositionSetAggregated3
     /// Aggregation of collateral for derivative positions using collateral fields as metrics.
     /// </summary>
     [IsoId("_0w29Nw1MEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Position Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPosSet")]
     #endif
+    [IsoXmlTag("CollPosSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet4? CollateralPositionSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,11 @@ public partial record PositionSetAggregated3
     /// Aggregation of collateral with similar dimensions that relate to the currency position sets, with relevant collateral related metrics.
     /// </summary>
     [IsoId("_0w29OQ1MEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Collateral Position Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyCollPosSet")]
     #endif
+    [IsoXmlTag("CcyCollPosSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet4? CurrencyCollateralPositionSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

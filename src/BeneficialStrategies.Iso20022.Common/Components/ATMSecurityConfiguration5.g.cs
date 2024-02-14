@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration of the PIN online verification.
 /// </summary>
 [IsoId("_Xf8qAYr9EeSvuOJS0mmL0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Security Configuration")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ATMSecurityConfiguration5
     /// PIN block format the security module is able to manage for online verification of the PIN.
     /// </summary>
     [IsoId("_lihz8Ir9EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PINFrmt")]
     #endif
+    [IsoXmlTag("PINFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PINFormat4Code? PINFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record ATMSecurityConfiguration5
     /// Maximum number of digits the security module is able to accept when the cardholder enters its PIN.
     /// </summary>
     [IsoId("_5hgD0Ir9EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Length Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PINLngthCpblties")]
     #endif
+    [IsoXmlTag("PINLngthCpblties")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PINLengthCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

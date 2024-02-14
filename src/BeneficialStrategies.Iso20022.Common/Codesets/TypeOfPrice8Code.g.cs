@@ -21,7 +21,7 @@ public enum TypeOfPrice8Code
 {
     /// <summary>
     /// True offer price.
-    /// Encoded/decoded by serializers as "ACTU".
+    /// Encoded/decoded by serializers as &quot;ACTU&quot;.
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_Vgl4xdp-Ed-ak6NoX_4Aeg_-1170213422")]

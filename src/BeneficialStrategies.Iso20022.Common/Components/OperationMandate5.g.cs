@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information specifying the mandate.
 /// </summary>
 [IsoId("_K82tGW49EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Operation Mandate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record OperationMandate5
     /// Specifies the type of change.
     /// </summary>
     [IsoId("_LH4RQW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModCd")]
     #endif
+    [IsoXmlTag("ModCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? ModificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,19 +68,17 @@ public partial record OperationMandate5
     /// Unique and unambiguous identification of the mandate.
     /// </summary>
     [IsoId("_LH4RQ249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -94,12 +89,11 @@ public partial record OperationMandate5
     /// Channel for which the operation mandate is valid. If ApplicableChannel equals Fax, this means that a bank operation instruction sent by fax will be processed according to the mandates exchanged in this message.
     /// </summary>
     [IsoId("_LH4RRW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicable Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AplblChanl")]
     #endif
+    [IsoXmlTag("AplblChanl")]
     public Channel2Choice_? ApplicableChannel { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _LH4RRW49EeiU9cctagi5ow
     
@@ -107,19 +101,16 @@ public partial record OperationMandate5
     /// Number of required and necessary signatures by the mandate.
     /// </summary>
     [IsoId("_LH4RR249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Required Signature Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqrdSgntrNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ReqrdSgntrNb")]
+    [IsoSimpleType(IsoSimpleType.Max15PlusSignedNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15PlusSignedNumericText RequiredSignatureNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RequiredSignatureNumber { get; init; } 
+    public required System.String RequiredSignatureNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RequiredSignatureNumber { get; init; } 
     #else
@@ -130,16 +121,16 @@ public partial record OperationMandate5
     /// Indicator whether a certain order of signatures has to be respected or not.
     /// </summary>
     [IsoId("_LH4RSW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature Order Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgntrOrdrInd")]
     #endif
+    [IsoXmlTag("SgntrOrdrInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator SignatureOrderIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SignatureOrderIndicator { get; init; } 
+    public required System.String SignatureOrderIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SignatureOrderIndicator { get; init; } 
     #else
@@ -150,12 +141,11 @@ public partial record OperationMandate5
     /// Holder of the mandate.
     /// </summary>
     [IsoId("_LH4RS249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandate Holder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MndtHldr")]
     #endif
+    [IsoXmlTag("MndtHldr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndAuthorisation5? MandateHolder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +158,11 @@ public partial record OperationMandate5
     /// Bank operation allowed by a mandate.
     /// </summary>
     [IsoId("_LH4RTW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Operation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkOpr")]
     #endif
+    [IsoXmlTag("BkOpr")]
     public BankTransactionCodeStructure4? BankOperation { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _LH4RTW49EeiU9cctagi5ow
     
@@ -181,12 +170,12 @@ public partial record OperationMandate5
     /// Specifies the date when the mandate becomes valid.
     /// </summary>
     [IsoId("_LH4RT249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDt")]
     #endif
+    [IsoXmlTag("StartDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,12 +188,12 @@ public partial record OperationMandate5
     /// Specifies the date when the mandate stops to be valid.
     /// </summary>
     [IsoId("_LH4RUW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndDt")]
     #endif
+    [IsoXmlTag("EndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

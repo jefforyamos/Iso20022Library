@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Counterparty13Choice.Seller))]
     [KnownType(typeof(Counterparty13Choice.Buyer))]
     [IsoId("_9RmwddLCEeiN28wlpBQScw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty 13 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

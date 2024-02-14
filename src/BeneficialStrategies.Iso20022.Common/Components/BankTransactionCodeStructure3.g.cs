@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Code of the underlying bank transaction.
 /// </summary>
 [IsoId("_TVRQuNp-Ed-ak6NoX_4Aeg_-1028115455")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank Transaction Code Structure")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record BankTransactionCodeStructure3
     /// Specifies the family within a domain.
     /// </summary>
     [IsoId("_TVRQudp-Ed-ak6NoX_4Aeg_-1028115424")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionFamilyCode Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Code { get; init; } 
+    public required string Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Code { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record BankTransactionCodeStructure3
     /// Specifies the sub-product family within a specific family.
     /// </summary>
     [IsoId("_TVRQutp-Ed-ak6NoX_4Aeg_-1028115394")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Family Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubFmlyCd")]
     #endif
+    [IsoXmlTag("SubFmlyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionSubFamilyCode SubFamilyCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string SubFamilyCode { get; init; } 
+    public required string SubFamilyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string SubFamilyCode { get; init; } 
     #else

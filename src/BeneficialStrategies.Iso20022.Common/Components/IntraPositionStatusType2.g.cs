@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice of the intra-position movement status type.
 /// </summary>
 [IsoId("_ceohpeWXEeWvh8HbDeFFMA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Position Status Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record IntraPositionStatusType2
     /// Provides details on the processing status of the transaction.
     /// </summary>
     [IsoId("_cqsAoeWXEeWvh8HbDeFFMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingStatus68Choice_? ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record IntraPositionStatusType2
     /// Provides the settlement status of a transaction.
     /// </summary>
     [IsoId("_cqsAo-WXEeWvh8HbDeFFMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSts")]
     #endif
+    [IsoXmlTag("SttlmSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementStatus26Choice_? SettlementStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record IntraPositionStatusType2
     /// Specifies the state or the condition.
     /// </summary>
     [IsoId("_cqsApeWXEeWvh8HbDeFFMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sttld")]
     #endif
+    [IsoXmlTag("Sttld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProprietaryReason4? Settled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

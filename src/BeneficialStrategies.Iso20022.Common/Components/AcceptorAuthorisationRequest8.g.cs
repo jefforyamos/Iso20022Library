@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Authorisation request from an acceptor.
 /// </summary>
 [IsoId("_-Rt5sdeQEeiJyp_aycJaTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Authorisation Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AcceptorAuthorisationRequest8
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_-cls8deQEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment68 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment68 Environment { get; init; } 
+    public required CardPaymentEnvironment68 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment68 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record AcceptorAuthorisationRequest8
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
     [IsoId("_-cls89eQEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentContext27 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentContext27 Context { get; init; } 
+    public required CardPaymentContext27 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentContext27 Context { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record AcceptorAuthorisationRequest8
     /// Card payment transaction for which the authorisation is requested.
     /// </summary>
     [IsoId("_-cls9deQEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentTransaction87 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentTransaction87 Transaction { get; init; } 
+    public required CardPaymentTransaction87 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentTransaction87 Transaction { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record AcceptorAuthorisationRequest8
     /// Additional information incorporated as an extension to the message.
     /// </summary>
     [IsoId("_-cls99eQEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

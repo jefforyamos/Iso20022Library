@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the securities account position query criteria.
 /// </summary>
 [IsoId("_3wfPkeGBEeWCAvUNsZ5u6g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record PositionSearchCriteria2
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_38iukeGBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification100? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record PositionSearchCriteria2
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_38iuk-GBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcr")]
     #endif
+    [IsoXmlTag("AcctSvcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification100? AccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record PositionSearchCriteria2
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_38iuleGBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount2Choice_? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +100,11 @@ public partial record PositionSearchCriteria2
     /// Financial instrument representing a sum of rights of the investor vis-à-vis the issuer.
     /// </summary>
     [IsoId("_38iul-GBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrm")]
     #endif
+    [IsoXmlTag("FinInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,12 +117,11 @@ public partial record PositionSearchCriteria2
     /// Country where the security is issued.
     /// </summary>
     [IsoId("_38iumeGBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Issue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfIsse")]
     #endif
+    [IsoXmlTag("CtryOfIsse")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfIssue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +134,11 @@ public partial record PositionSearchCriteria2
     /// Defines specific restriction characteristics for a securities position.
     /// </summary>
     [IsoId("_38ium-GBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Balance Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubBalTp")]
     #endif
+    [IsoXmlTag("SubBalTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesBalanceType7Choice_? SubBalanceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,16 +151,16 @@ public partial record PositionSearchCriteria2
     /// Option to provide output zero position in the results.
     /// </summary>
     [IsoId("_38iuneGBEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Zero Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrZeroPos")]
     #endif
+    [IsoXmlTag("RtrZeroPos")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator ReturnZeroPosition { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReturnZeroPosition { get; init; } 
+    public required System.String ReturnZeroPosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReturnZeroPosition { get; init; } 
     #else

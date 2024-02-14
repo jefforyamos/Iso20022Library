@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the form of the financial Instrument.
 /// </summary>
 [IsoId("_dPETJeLxEeWOD7aAy2fAcA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Form")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FinancialInstrumentForm2
     /// Indicates the booking appearance of the financial Instrument.
     /// </summary>
     [IsoId("_dYSgkeLxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Booking Appearance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookgApprnc")]
     #endif
+    [IsoXmlTag("BookgApprnc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Appearance3Choice_? BookingAppearance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record FinancialInstrumentForm2
     /// Specifies the form, ie, ownership, of the security.
     /// </summary>
     [IsoId("_dYSgk-LxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglForm")]
     #endif
+    [IsoXmlTag("LglForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FormOfSecurity8Choice_? LegalForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the notional quantity frequency.
 /// </summary>
 [IsoId("_X-QgoSJEEe2zWP9pqvmqdw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Quantity Term")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record QuantityTerm1
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
     [IsoId("_n1kXkSJEEe2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
+    [IsoSimpleType(IsoSimpleType.LongFraction19DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLongFraction19DecimalNumber? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record QuantityTerm1
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
     [IsoId("_6LpXASJEEe2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitOfMeasr")]
     #endif
+    [IsoXmlTag("UnitOfMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record QuantityTerm1
     /// Specifies the number of time units (as expressed by the frequency period) that determines the frequency at which periodic dates occur.
     /// </summary>
     [IsoId("_X_OJ8SJEEe2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.Max3Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Number? Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,11 @@ public partial record QuantityTerm1
     /// Unit for the frequency period.
     /// </summary>
     [IsoId("_X_EY8yJEEe2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmUnit")]
     #endif
+    [IsoXmlTag("TmUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency19Code? TimeUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

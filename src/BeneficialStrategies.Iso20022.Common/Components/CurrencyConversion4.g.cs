@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Currency conversion accepted by the customer, either to convert the amount to dispense in the base currency of the ATM, or to convert the total requested amount in the currency of the customer (so called dynamic currency conversion).
 /// </summary>
 [IsoId("_Exik0YomEeSaAcF2oE2GNQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Conversion")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,15 +53,13 @@ public partial record CurrencyConversion4
     /// Identification of the currency conversion operation.
     /// </summary>
     [IsoId("_E-Nu4YomEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Conversion Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyConvsId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CcyConvsId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CurrencyConversionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,16 +72,15 @@ public partial record CurrencyConversion4
     /// Currency into which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
     [IsoId("_E-Nu44omEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrgtCcy")]
     #endif
+    [IsoXmlTag("TrgtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyDetails2 TargetCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyDetails2 TargetCurrency { get; init; } 
+    public required CurrencyDetails2 TargetCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyDetails2 TargetCurrency { get; init; } 
     #else
@@ -96,16 +91,16 @@ public partial record CurrencyConversion4
     /// Amount converted in the target currency, including commission and mark-up.
     /// </summary>
     [IsoId("_E-Nu5YomEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resulting Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsltgAmt")]
     #endif
+    [IsoXmlTag("RsltgAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ResultingAmount { get; init; } 
+    public required System.Decimal ResultingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ResultingAmount { get; init; } 
     #else
@@ -116,16 +111,16 @@ public partial record CurrencyConversion4
     /// Exchange rate, expressed as a percentage, applied to convert the original amount into the resulting amount.
     /// </summary>
     [IsoId("_E-Nu54omEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRate")]
     #endif
+    [IsoXmlTag("XchgRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate ExchangeRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ExchangeRate { get; init; } 
+    public required System.Decimal ExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ExchangeRate { get; init; } 
     #else
@@ -136,12 +131,12 @@ public partial record CurrencyConversion4
     /// Exchange rate expressed as a decimal, for example 0.7 is 7/10 and 70%.
     /// </summary>
     [IsoId("_E-Nu6YomEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate Decimal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRateDcml")]
     #endif
+    [IsoXmlTag("XchgRateDcml")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ExchangeRateDecimal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +149,12 @@ public partial record CurrencyConversion4
     /// Exchange rate, expressed as a percentage, applied to convert the resulting amount into the original amount.
     /// </summary>
     [IsoId("_E-Nu64omEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inverted Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NvrtdXchgRate")]
     #endif
+    [IsoXmlTag("NvrtdXchgRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? InvertedExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,12 +167,12 @@ public partial record CurrencyConversion4
     /// Date and time at which the exchange rate has been quoted.
     /// </summary>
     [IsoId("_E-Nu7YomEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quotation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtnDt")]
     #endif
+    [IsoXmlTag("QtnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? QuotationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -190,12 +185,12 @@ public partial record CurrencyConversion4
     /// Validity limit of the exchange rate.
     /// </summary>
     [IsoId("_E-Nu74omEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid Until")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldUntil")]
     #endif
+    [IsoXmlTag("VldUntil")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ValidUntil { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -208,16 +203,15 @@ public partial record CurrencyConversion4
     /// Currency from which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
     [IsoId("_E-Nu8YomEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcCcy")]
     #endif
+    [IsoXmlTag("SrcCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyDetails2 SourceCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyDetails2 SourceCurrency { get; init; } 
+    public required CurrencyDetails2 SourceCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyDetails2 SourceCurrency { get; init; } 
     #else
@@ -228,16 +222,16 @@ public partial record CurrencyConversion4
     /// Original amount in the source currency.
     /// </summary>
     [IsoId("_E-Nu84omEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlAmt")]
     #endif
+    [IsoXmlTag("OrgnlAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount OriginalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OriginalAmount { get; init; } 
+    public required System.Decimal OriginalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OriginalAmount { get; init; } 
     #else
@@ -248,12 +242,11 @@ public partial record CurrencyConversion4
     /// Commission or additional charges made as part of a currency conversion.
     /// </summary>
     [IsoId("_E-Nu9YomEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnDtls")]
     #endif
+    [IsoXmlTag("ComssnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission19? CommissionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +259,11 @@ public partial record CurrencyConversion4
     /// Mark-up made as part of a currency conversion.
     /// </summary>
     [IsoId("_E-Nu94omEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mark Up Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrkUpDtls")]
     #endif
+    [IsoXmlTag("MrkUpDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission18? MarkUpDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,15 +276,13 @@ public partial record CurrencyConversion4
     /// Card scheme declaration (disclaimer) to present to the cardholder.
     /// </summary>
     [IsoId("_E-Nu-YomEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declaration Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrtnDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DclrtnDtls")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? DeclarationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

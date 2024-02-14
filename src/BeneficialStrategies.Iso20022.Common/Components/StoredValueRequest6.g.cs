@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data to request a stored value service (prepaid card or account).
 /// </summary>
 [IsoId("_dKP-sXG0Ee2TbaNWBpRZpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Stored Value Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record StoredValueRequest6
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
     [IsoId("_dQkpIXG0Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleTxId")]
     #endif
+    [IsoXmlTag("SaleTxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record StoredValueRequest6
     /// Data related to the stored value card.
     /// </summary>
     [IsoId("_dQkpI3G0Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Data")]
     #endif
+    [IsoXmlTag("Data")]
     public StoredValueData6? Data { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _dQkpI3G0Ee2TbaNWBpRZpQ
     

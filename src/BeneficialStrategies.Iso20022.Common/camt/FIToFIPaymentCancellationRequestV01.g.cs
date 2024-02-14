@@ -38,13 +38,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// A FIToFI Payment Cancellation Request message concerns one and only one original payment instruction at a time.
 /// When a case assignee successfully performs a cancellation, it must return the corresponding funds to the case assigner. It may provide some details about the return in the Resolution Of Investigation message.
 /// The processing of a FIToFI Payment Cancellation Request message case may lead to a Debit Authorisation Request message sent to the creditor by its account servicing institution.
-/// The FIToFI Payment Cancellation Request message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original FIToFI Payment Cancellation Request message and the element ReopenCaseIndication is set to 'Yes' or 'true'.
+/// The FIToFI Payment Cancellation Request message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original FIToFI Payment Cancellation Request message and the element ReopenCaseIndication is set to &apos;Yes&apos; or &apos;true&apos;.
 /// </summary>
 [Description(@"Scope|The FIToFI Payment Cancellation Request message is sent by a case creator/case assigner to a case assignee.|This message is used to request the cancellation of an original payment instruction. The FIToFI Payment Cancellation Request message is exchanged between the instructing agent and the instructed agent to request the cancellation of a interbank payment message previously sent (such as FIToFICustomerCreditTransfer, FIToFICustomerDirectDebit or FinancialInstitutionCreditTransfer).|Usage|The FIToFI Payment Cancellation Request message must be answered with a:|- Resolution Of Investigation message with a positive final outcome when the case assignee can perform the requested cancellation|- Resolution Of Investigation message with a negative final outcome when the case assignee may perform the requested cancellation but fails to do so (too late, irrevocable instruction.)|- Reject Investigation message when the case assignee is unable or not authorised to perform the requested cancellation|- Notification Of Case Assignment message to indicate whether the case assignee will take on the case himself or reassign the case to a subsequent party in the payment processing chain.|A FIToFI Payment Cancellation Request message concerns one and only one original payment instruction at a time.|When a case assignee successfully performs a cancellation, it must return the corresponding funds to the case assigner. It may provide some details about the return in the Resolution Of Investigation message.|The processing of a FIToFI Payment Cancellation Request message case may lead to a Debit Authorisation Request message sent to the creditor by its account servicing institution.|The FIToFI Payment Cancellation Request message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original FIToFI Payment Cancellation Request message and the element ReopenCaseIndication is set to 'Yes' or 'true'.")]
 [IsoId("_YcuGuNE-Ed-BzquC8wXy7w_390093478")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("FI To FI Payment Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record FIToFIPaymentCancellationRequestV01 : IOuterRecord<FIToFIP
     /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
     /// </summary>
     [IsoId("_YcuGudE-Ed-BzquC8wXy7w_518526020")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment2 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment2 Assignment { get; init; } 
+    public required CaseAssignment2 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment2 Assignment { get; init; } 
     #else
@@ -108,12 +105,11 @@ public partial record FIToFIPaymentCancellationRequestV01 : IOuterRecord<FIToFIP
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_YcuGutE-Ed-BzquC8wXy7w_390093510")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case2? Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +122,11 @@ public partial record FIToFIPaymentCancellationRequestV01 : IOuterRecord<FIToFIP
     /// Provides details on the number of transactions and the control sum of the message.
     /// </summary>
     [IsoId("_YcuGu9E-Ed-BzquC8wXy7w_533303218")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Control Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrlData")]
     #endif
+    [IsoXmlTag("CtrlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ControlData1? ControlData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,16 +139,15 @@ public partial record FIToFIPaymentCancellationRequestV01 : IOuterRecord<FIToFIP
     /// Identifies the payment instruction to be cancelled.
     /// </summary>
     [IsoId("_YcuGvNE-Ed-BzquC8wXy7w_390093571")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Undrlyg")]
     #endif
+    [IsoXmlTag("Undrlyg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnderlyingTransaction2 Underlying { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnderlyingTransaction2 Underlying { get; init; } 
+    public required UnderlyingTransaction2 Underlying { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnderlyingTransaction2 Underlying { get; init; } 
     #else
@@ -164,7 +158,7 @@ public partial record FIToFIPaymentCancellationRequestV01 : IOuterRecord<FIToFIP
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FIToFIPaymentCancellationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FIToFIPaymentCancellationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FIToFIPaymentCancellationRequestV01Document ToDocument()
     {
@@ -174,7 +168,7 @@ public partial record FIToFIPaymentCancellationRequestV01 : IOuterRecord<FIToFIP
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFIPaymentCancellationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FIToFIPaymentCancellationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FIToFIPaymentCancellationRequestV01Document : IOuterDocument<FIToFIPaymentCancellationRequestV01>
@@ -191,7 +185,7 @@ public partial record FIToFIPaymentCancellationRequestV01Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FIToFIPaymentCancellationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FIToFIPaymentCancellationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FIToFIPaymentCancellationRequestV01 Message { get; init; }

@@ -21,7 +21,7 @@ public enum InterestTypeCode
 {
     /// <summary>
     /// Indicates deal price including accrued interest.
-    /// Encoded/decoded by serializers as "CINT".
+    /// Encoded/decoded by serializers as &quot;CINT&quot;.
     /// </summary>
     [EnumMember(Value = "CINT")]
     [IsoId("__215dNojEeC60axPepSq7g_-1809717898")]
@@ -30,7 +30,7 @@ public enum InterestTypeCode
     
     /// <summary>
     /// Indicates deal price excluding accrued interest.
-    /// Encoded/decoded by serializers as "XINT".
+    /// Encoded/decoded by serializers as &quot;XINT&quot;.
     /// </summary>
     [EnumMember(Value = "XINT")]
     [IsoId("__215ddojEeC60axPepSq7g_1908799161")]
@@ -39,7 +39,7 @@ public enum InterestTypeCode
     
     /// <summary>
     /// Indicates that the type of interest is a zero coupon.
-    /// Encoded/decoded by serializers as "ZCPN".
+    /// Encoded/decoded by serializers as &quot;ZCPN&quot;.
     /// </summary>
     [EnumMember(Value = "ZCPN")]
     [IsoId("_ha_UtWliEeGaMcKyqKNRfQ_405889650")]
@@ -48,7 +48,7 @@ public enum InterestTypeCode
     
     /// <summary>
     /// Indicates that the type of interest is discounted.
-    /// Encoded/decoded by serializers as "DSCO".
+    /// Encoded/decoded by serializers as &quot;DSCO&quot;.
     /// </summary>
     [EnumMember(Value = "DSCO")]
     [IsoId("_ha_UumliEeGaMcKyqKNRfQ_83685420")]
@@ -57,7 +57,7 @@ public enum InterestTypeCode
     
     /// <summary>
     /// Indicates that the type of interest is index.
-    /// Encoded/decoded by serializers as "INDE".
+    /// Encoded/decoded by serializers as &quot;INDE&quot;.
     /// </summary>
     [EnumMember(Value = "INDE")]
     [IsoId("_ha_UuWliEeGaMcKyqKNRfQ_-1767325736")]
@@ -66,7 +66,7 @@ public enum InterestTypeCode
     
     /// <summary>
     /// Indicates that the type of interest is a dual basis.
-    /// Encoded/decoded by serializers as "DUAL".
+    /// Encoded/decoded by serializers as &quot;DUAL&quot;.
     /// </summary>
     [EnumMember(Value = "DUAL")]
     [IsoId("_ha_UuGliEeGaMcKyqKNRfQ_-1760597089")]
@@ -75,7 +75,7 @@ public enum InterestTypeCode
     
     /// <summary>
     /// Indicates that the type of interest is a floating rate note.
-    /// Encoded/decoded by serializers as "FLRN".
+    /// Encoded/decoded by serializers as &quot;FLRN&quot;.
     /// </summary>
     [EnumMember(Value = "FLRN")]
     [IsoId("_ha_Ut2liEeGaMcKyqKNRfQ_-624589778")]
@@ -84,7 +84,7 @@ public enum InterestTypeCode
     
     /// <summary>
     /// Indicates that the type of interest is fixed.
-    /// Encoded/decoded by serializers as "FIXD".
+    /// Encoded/decoded by serializers as &quot;FIXD&quot;.
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_ha_UtmliEeGaMcKyqKNRfQ_-590551397")]

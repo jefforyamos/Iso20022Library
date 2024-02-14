@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Inquiry information for the transaction.
 /// </summary>
 [IsoId("_TkpPMfyuEeWVMqALyuondw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ATMTransaction29
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
     [IsoId("_TypO8fyuEeWVMqALyuondw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifier1 TransactionIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ATMTransaction29
     /// Unprotected account information.
     /// </summary>
     [IsoId("_TypO8_yuEeWVMqALyuondw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctData")]
     #endif
+    [IsoXmlTag("AcctData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccount7? AccountData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ATMTransaction29
     /// Encryption of account information.
     /// </summary>
     [IsoId("_TypO9fyuEeWVMqALyuondw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Account Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdAcctData")]
     #endif
+    [IsoXmlTag("PrtctdAcctData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedAccountData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record ATMTransaction29
     /// Amount to be authorised by the issuer.
     /// </summary>
     [IsoId("_TypO9_yuEeWVMqALyuondw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Requested Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlReqdAmt")]
     #endif
+    [IsoXmlTag("TtlReqdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndCurrency1? TotalRequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record ATMTransaction29
     /// Amounts of the withdrawal transaction.
     /// </summary>
     [IsoId("_TypO-fyuEeWVMqALyuondw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Requested Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldReqdAmt")]
     #endif
+    [IsoXmlTag("DtldReqdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount12? DetailedRequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,12 @@ public partial record ATMTransaction29
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
     [IsoId("_TypO-_yuEeWVMqALyuondw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRltdData")]
     #endif
+    [IsoXmlTag("ICCRltdData")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

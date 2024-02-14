@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instruction status.
 /// </summary>
 [IsoId("_aeWNY1NUEeijdq8ilaxyOA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Instruction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransferInstructionStatus5
     /// Status code.
     /// </summary>
     [IsoId("_avAfg1NUEeijdq8ilaxyOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferStatus6Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferStatus6Code Status { get; init; } 
+    public required TransferStatus6Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferStatus6Code Status { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TransferInstructionStatus5
     /// Reason for the status.
     /// </summary>
     [IsoId("_avAfhVNUEeijdq8ilaxyOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification3Choic
     /// Place at which the Over-the-Counter (OTC) transaction is executed.
     /// </summary>
     [IsoId("_WNmIstp-Ed-ak6NoX_4Aeg_-1162943025")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Over The Counter")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,18 +52,18 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification3Choic
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Specifies a character string with a maximum length of 30 characters. It has a pattern ([^/]+/)+([^/]+)|([^/]*) that disables the use of slash "/" at the beginning and end of line and double slash "//" within the line.
+        /// Specifies a character string with a maximum length of 30 characters. It has a pattern ([^/]+/)+([^/]+)|([^/]*) that disables the use of slash &quot;/&quot; at the beginning and end of line and double slash &quot;//&quot; within the line.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OverTheCntr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OverTheCntr")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINMax30Text)]
         [StringLength(maximumLength: 30 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINMax30Text Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide information concerning the identification data that is advised to be modified.
 /// </summary>
 [IsoId("_QpKPxNp-Ed-ak6NoX_4Aeg_-1017342654")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Identification Modification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record IdentificationModification1
     /// Unique identification, as assigned by a sending party, to unambigiously identify the party and account identification information group within the message.
     /// </summary>
     [IsoId("_QpKPxdp-Ed-ak6NoX_4Aeg_-1131181720")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -75,12 +71,11 @@ public partial record IdentificationModification1
     /// Provides party and/or account identification information as given in the original message.
     /// </summary>
     [IsoId("_QpKPxtp-Ed-ak6NoX_4Aeg_-2128254073")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Party And Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPtyAndAcctId")]
     #endif
+    [IsoXmlTag("OrgnlPtyAndAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IdentificationInformation1? OriginalPartyAndAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record IdentificationModification1
     /// Provides updated party and/or account identification information.
     /// </summary>
     [IsoId("_QpKPx9p-Ed-ak6NoX_4Aeg_-1480439384")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Updated Party And Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdtdPtyAndAcctId")]
     #endif
+    [IsoXmlTag("UpdtdPtyAndAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationInformation1 UpdatedPartyAndAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationInformation1 UpdatedPartyAndAccountIdentification { get; init; } 
+    public required IdentificationInformation1 UpdatedPartyAndAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationInformation1 UpdatedPartyAndAccountIdentification { get; init; } 
     #else
@@ -113,15 +107,13 @@ public partial record IdentificationModification1
     /// Additional information, in free text form, to complement the modification information.
     /// </summary>
     [IsoId("_QpUAwNp-Ed-ak6NoX_4Aeg_-1894245207")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

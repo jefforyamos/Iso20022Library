@@ -21,7 +21,7 @@ public enum CancellationStatus2Code
 {
     /// <summary>
     /// Cancellation instruction/request has been sent to the next party, that is, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_bYs7qNp-Ed-ak6NoX_4Aeg_-1024226245")]
@@ -30,7 +30,7 @@ public enum CancellationStatus2Code
     
     /// <summary>
     /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bY2soNp-Ed-ak6NoX_4Aeg_-1024226221")]

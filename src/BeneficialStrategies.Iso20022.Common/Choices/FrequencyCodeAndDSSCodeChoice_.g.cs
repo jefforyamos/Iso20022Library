@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode))]
     [KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS))]
     [IsoId("_UuhioNp-Ed-ak6NoX_4Aeg_400175868")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency Code And DSS Code Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

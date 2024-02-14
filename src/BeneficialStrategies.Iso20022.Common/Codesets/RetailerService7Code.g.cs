@@ -21,7 +21,7 @@ public enum RetailerService7Code
 {
     /// <summary>
     /// The POI System responds to a transaction report request.
-    /// Encoded/decoded by serializers as "RPTP".
+    /// Encoded/decoded by serializers as &quot;RPTP&quot;.
     /// </summary>
     [EnumMember(Value = "RPTP")]
     [IsoId("_c4lHMd6VEeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum RetailerService7Code
     
     /// <summary>
     /// The POI System responds to a totals figures request.
-    /// Encoded/decoded by serializers as "RPAP".
+    /// Encoded/decoded by serializers as &quot;RPAP&quot;.
     /// </summary>
     [EnumMember(Value = "RPAP")]
     [IsoId("_dKVlkd6VEeiwsev40qZGEQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
 /// </summary>
 [IsoId("_ynQ8AEkIEeaOe8w0NJ11wQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyIdentification116
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
     [IsoId("_HxZ-gEkJEeaOe8w0NJ11wQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification28 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification28 PartyIdentification { get; init; } 
+    public required OrganisationIdentification28 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification28 PartyIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PartyIdentification116
     /// Identifier and name of an organisation that is allocated by an institution.
     /// </summary>
     [IsoId("_5D82IEkJEeaOe8w0NJ11wQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Organisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglOrg")]
     #endif
+    [IsoXmlTag("LglOrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LegalOrganisation1? LegalOrganisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record PartyIdentification116
     /// TaxParty.
     /// </summary>
     [IsoId("_-F1boEkJEeaOe8w0NJ11wQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxPty")]
     #endif
+    [IsoXmlTag("TaxPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxParty1? TaxParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

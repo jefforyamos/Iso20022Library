@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorrectiveTransaction4Choice.Initiation))]
     [KnownType(typeof(CorrectiveTransaction4Choice.Interbank))]
     [IsoId("_3bNYAXuSEeivKIBRHeTQRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corrective Transaction 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

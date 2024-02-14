@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice
     /// Party Identification specified as a list of values per element.
     /// </summary>
     [IsoId("_BXmqtwN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -46,18 +44,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice
         #nullable enable
         
         /// <summary>
-        /// Identification of the party expressed as the party's name.
+        /// Identification of the party expressed as the party&apos;s name.
         /// </summary>
         [IsoId("_BjNdwwN1Ee2-vqzwMUAewg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PtyNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PtyNm")]
+        [IsoSimpleType(IsoSimpleType.Max34Text)]
         [StringLength(maximumLength: 34 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax34Text? PartyName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice
         /// Identification of the party expressed as a BIC and an optional alternative identifier.
         /// </summary>
         [IsoId("_BjNdxQN1Ee2-vqzwMUAewg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Any BIC")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AnyBIC")]
         #endif
+        [IsoXmlTag("AnyBIC")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification265? AnyBIC { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,18 +80,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice
         #endif
         
         /// <summary>
-        /// Provides the party's account number.
+        /// Provides the party&apos;s account number.
         /// </summary>
         [IsoId("_BjNdxwN1Ee2-vqzwMUAewg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AcctNb")]
+        [IsoSimpleType(IsoSimpleType.Max34Text)]
         [StringLength(maximumLength: 34 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax34Text? AccountNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,18 +99,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice
         #endif
         
         /// <summary>
-        /// Provides the party's address.
+        /// Provides the party&apos;s address.
         /// </summary>
         [IsoId("_BjNdyQN1Ee2-vqzwMUAewg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Adr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Adr")]
+        [IsoSimpleType(IsoSimpleType.Max105Text)]
         [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax105Text? Address { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +121,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice
         /// Choice of a clearing system identifier.
         /// </summary>
         [IsoId("_BjNdywN1Ee2-vqzwMUAewg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Clearing System Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClrSysId")]
         #endif
+        [IsoXmlTag("ClrSysId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,15 +135,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification242Choice
         #endif
         
         /// <summary>
-        /// Provides the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
+        /// Provides the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 &quot;Financial Services - Legal Entity Identifier (LEI)&quot;.
         /// </summary>
         [IsoId("_BjNdzQN1Ee2-vqzwMUAewg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Legal Entity Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LglNttyIdr")]
         #endif
+        [IsoXmlTag("LglNttyIdr")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

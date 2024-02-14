@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError6Choice
     /// Requested business information.
     /// </summary>
     [IsoId("_Mg4II5lgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Business")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError6Choice
         /// Further information about the criticality or importance of a general business information system.
         /// </summary>
         [IsoId("_MpLIgZlgEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Qualifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Qlfr")]
         #endif
+        [IsoXmlTag("Qlfr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InformationQualifierType1? Qualifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,15 +64,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError6Choice
         /// Subject line of an item of general business information, summarizing the topic and intended destination of the information.
         /// </summary>
         [IsoId("_MpLIg5lgEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Subject")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sbjt")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Sbjt")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Subject { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,15 +83,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError6Choice
         /// General business information, in unstructured form.
         /// </summary>
         [IsoId("_MpLIhZlgEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Subject Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SbjtDtls")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SbjtDtls")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? SubjectDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

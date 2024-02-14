@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionType1Choice
     /// Vote option expressed as a code.
     /// </summary>
     [IsoId("_U7ERUK4KEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionType1Choice
         /// Specifies a type of voting instructions.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required VoteInstruction6Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public VoteInstruction6Code Value { get; init; } 
+        public required VoteInstruction6Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public VoteInstruction6Code Value { get; init; } 
         #else

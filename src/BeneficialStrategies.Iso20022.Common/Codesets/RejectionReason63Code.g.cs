@@ -21,7 +21,7 @@ public enum RejectionReason63Code
 {
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_svdYARIvEeyHZKWo4KVxBw")]
@@ -29,8 +29,8 @@ public enum RejectionReason63Code
     ReferenceRejection = RejectionReasonV3Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_svdYAxIvEeyHZKWo4KVxBw")]
@@ -39,7 +39,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Unrecognised or invalid client collateral instruction identification.
-    /// Encoded/decoded by serializers as "CCIX".
+    /// Encoded/decoded by serializers as &quot;CCIX&quot;.
     /// </summary>
     [EnumMember(Value = "CCIX")]
     [IsoId("_svdYBRIvEeyHZKWo4KVxBw")]
@@ -48,7 +48,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Unrecognised or invalid Client Collateral Transaction Identification.
-    /// Encoded/decoded by serializers as "CCTI".
+    /// Encoded/decoded by serializers as &quot;CCTI&quot;.
     /// </summary>
     [EnumMember(Value = "CCTI")]
     [IsoId("_svdYBxIvEeyHZKWo4KVxBw")]
@@ -57,7 +57,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Unrecognised, invalid or missing common reference.
-    /// Encoded/decoded by serializers as "IIND".
+    /// Encoded/decoded by serializers as &quot;IIND&quot;.
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_svdYCRIvEeyHZKWo4KVxBw")]
@@ -66,7 +66,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Unrecognised or Invalid Party A.
-    /// Encoded/decoded by serializers as "PTYA".
+    /// Encoded/decoded by serializers as &quot;PTYA&quot;.
     /// </summary>
     [EnumMember(Value = "PTYA")]
     [IsoId("_svdYCxIvEeyHZKWo4KVxBw")]
@@ -75,7 +75,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Unrecognised or Invalid Party B
-    /// Encoded/decoded by serializers as "PTYB".
+    /// Encoded/decoded by serializers as &quot;PTYB&quot;.
     /// </summary>
     [EnumMember(Value = "PTYB")]
     [IsoId("_svdYDRIvEeyHZKWo4KVxBw")]
@@ -84,7 +84,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_svdYDxIvEeyHZKWo4KVxBw")]
@@ -93,7 +93,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Unrecognised or Invalid Triparty Agent
-    /// Encoded/decoded by serializers as "ITPA".
+    /// Encoded/decoded by serializers as &quot;ITPA&quot;.
     /// </summary>
     [EnumMember(Value = "ITPA")]
     [IsoId("_svdYERIvEeyHZKWo4KVxBw")]
@@ -102,7 +102,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Unrecognised or invalid Party A Safekeeping Account
-    /// Encoded/decoded by serializers as "SAFA".
+    /// Encoded/decoded by serializers as &quot;SAFA&quot;.
     /// </summary>
     [EnumMember(Value = "SAFA")]
     [IsoId("_svdYExIvEeyHZKWo4KVxBw")]
@@ -111,7 +111,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Unrecognised or Invalid Party B Safekeeping Account.
-    /// Encoded/decoded by serializers as "SAFB".
+    /// Encoded/decoded by serializers as &quot;SAFB&quot;.
     /// </summary>
     [EnumMember(Value = "SAFB")]
     [IsoId("_svdYFRIvEeyHZKWo4KVxBw")]
@@ -120,7 +120,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Invalid execution date/time
-    /// Encoded/decoded by serializers as "REDT".
+    /// Encoded/decoded by serializers as &quot;REDT&quot;.
     /// </summary>
     [EnumMember(Value = "REDT")]
     [IsoId("_svdYFxIvEeyHZKWo4KVxBw")]
@@ -129,7 +129,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Cancellation request was rejected since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "DCAN".
+    /// Encoded/decoded by serializers as &quot;DCAN&quot;.
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_svdYGRIvEeyHZKWo4KVxBw")]
@@ -138,7 +138,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
-    /// Encoded/decoded by serializers as "DPRG".
+    /// Encoded/decoded by serializers as &quot;DPRG&quot;.
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_svdYGxIvEeyHZKWo4KVxBw")]
@@ -147,7 +147,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Cancellation request was rejected because the instruction was already settled.
-    /// Encoded/decoded by serializers as "RSET".
+    /// Encoded/decoded by serializers as &quot;RSET&quot;.
     /// </summary>
     [EnumMember(Value = "RSET")]
     [IsoId("_svdYHRIvEeyHZKWo4KVxBw")]
@@ -156,7 +156,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Cancellation request was rejected because the repurchase was cancelled.
-    /// Encoded/decoded by serializers as "RREP".
+    /// Encoded/decoded by serializers as &quot;RREP&quot;.
     /// </summary>
     [EnumMember(Value = "RREP")]
     [IsoId("_svdYHxIvEeyHZKWo4KVxBw")]
@@ -165,7 +165,7 @@ public enum RejectionReason63Code
     
     /// <summary>
     /// Cancellation, modification or termination request has been rejected since the instruction could not be found.
-    /// Encoded/decoded by serializers as "NRJN".
+    /// Encoded/decoded by serializers as &quot;NRJN&quot;.
     /// </summary>
     [EnumMember(Value = "NRJN")]
     [IsoId("_svdYIRIvEeyHZKWo4KVxBw")]

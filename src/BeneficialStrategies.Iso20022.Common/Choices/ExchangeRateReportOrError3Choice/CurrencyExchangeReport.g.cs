@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError3Choice
     /// Reports on currency exchange information.
     /// </summary>
     [IsoId("_MmlkkdfiEeqoweZZxm4TPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Exchange Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError3Choice
         /// Source and target currencies for which information is request.
         /// </summary>
         [IsoId("_MobXodfiEeqoweZZxm4TPQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Currency Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CcyRef")]
         #endif
+        [IsoXmlTag("CcyRef")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CurrencySourceTarget1 CurrencyReference { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CurrencySourceTarget1 CurrencyReference { get; init; } 
+        public required CurrencySourceTarget1 CurrencyReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CurrencySourceTarget1 CurrencyReference { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError3Choice
         /// Reports either on currency exchange information or on a business error.
         /// </summary>
         [IsoId("_MobXo9fiEeqoweZZxm4TPQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Currency Exchange Or Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CcyXchgOrErr")]
         #endif
+        [IsoXmlTag("CcyXchgOrErr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExchangeRateReportOrError4Choice_ CurrencyExchangeOrError { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExchangeRateReportOrError4Choice_ CurrencyExchangeOrError { get; init; } 
+        public required ExchangeRateReportOrError4Choice_ CurrencyExchangeOrError { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExchangeRateReportOrError4Choice_ CurrencyExchangeOrError { get; init; } 
         #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Proxy4Choice.Proxy))]
     [KnownType(typeof(Proxy4Choice.ProxyNotAllowed))]
     [IsoId("_euVP0fM7EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

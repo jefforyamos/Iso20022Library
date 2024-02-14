@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the intra-position movement.
 /// </summary>
 [IsoId("_LTE32QVVEeqjd8n6wD9JVw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Position Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record IntraPositionDetails54
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
     [IsoId("_LTE33QVVEeqjd8n6wD9JVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgPlc")]
     #endif
+    [IsoXmlTag("SfkpgPlc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingPlaceFormat39Choice_? SafekeepingPlace { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record IntraPositionDetails54
     /// Balance from which the securities were moved.
     /// </summary>
     [IsoId("_LTE33wVVEeqjd8n6wD9JVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalFr")]
     #endif
+    [IsoXmlTag("BalFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesBalanceType8Choice_ BalanceFrom { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesBalanceType8Choice_ BalanceFrom { get; init; } 
+    public required SecuritiesBalanceType8Choice_ BalanceFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesBalanceType8Choice_ BalanceFrom { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record IntraPositionDetails54
     /// Intra-position movement(s) having been performed.
     /// </summary>
     [IsoId("_LTE34QVVEeqjd8n6wD9JVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Position Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraPosMvmnt")]
     #endif
+    [IsoXmlTag("IntraPosMvmnt")]
     public IntraPositionMovementDetails18? IntraPositionMovement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _LTE34QVVEeqjd8n6wD9JVw
     

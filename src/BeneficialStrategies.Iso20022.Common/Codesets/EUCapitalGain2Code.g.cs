@@ -21,7 +21,7 @@ public enum EUCapitalGain2Code
 {
     /// <summary>
     /// Capital gain is in the scope of the directive.
-    /// Encoded/decoded by serializers as "EUSI".
+    /// Encoded/decoded by serializers as &quot;EUSI&quot;.
     /// </summary>
     [EnumMember(Value = "EUSI")]
     [IsoId("_aiBLRNp-Ed-ak6NoX_4Aeg_1764162246")]
@@ -30,7 +30,7 @@ public enum EUCapitalGain2Code
     
     /// <summary>
     /// Capital gain is out of the scope of the directive.
-    /// Encoded/decoded by serializers as "EUSO".
+    /// Encoded/decoded by serializers as &quot;EUSO&quot;.
     /// </summary>
     [EnumMember(Value = "EUSO")]
     [IsoId("_aiBLRdp-Ed-ak6NoX_4Aeg_1764162306")]
@@ -39,7 +39,7 @@ public enum EUCapitalGain2Code
     
     /// <summary>
     /// Unknown whether capital gain is in or out of the scope of the directive.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aiBLRtp-Ed-ak6NoX_4Aeg_1764162323")]

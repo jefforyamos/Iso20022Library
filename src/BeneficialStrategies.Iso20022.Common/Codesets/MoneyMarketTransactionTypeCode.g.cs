@@ -21,7 +21,7 @@ public enum MoneyMarketTransactionTypeCode
 {
     /// <summary>
     /// Transaction is a borrowing.
-    /// Encoded/decoded by serializers as "BORR".
+    /// Encoded/decoded by serializers as &quot;BORR&quot;.
     /// </summary>
     [EnumMember(Value = "BORR")]
     [IsoId("_lmE4IJfrEeSfnc-VXAEapg")]
@@ -30,7 +30,7 @@ public enum MoneyMarketTransactionTypeCode
     
     /// <summary>
     /// Transaction is a lending.
-    /// Encoded/decoded by serializers as "LEND".
+    /// Encoded/decoded by serializers as &quot;LEND&quot;.
     /// </summary>
     [EnumMember(Value = "LEND")]
     [IsoId("_n-_3UJfrEeSfnc-VXAEapg")]

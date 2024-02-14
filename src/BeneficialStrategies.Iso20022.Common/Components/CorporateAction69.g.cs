@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the corporate action event.
 /// </summary>
 [IsoId("_jljV0TQJEe2o-K1dwNg8Gg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateAction69
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
     [IsoId("_j-Sl8TQJEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtDtls")]
     #endif
+    [IsoXmlTag("DtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate85? DateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateAction69
     /// Provides information about securities quantity linked to a corporate action.
     /// </summary>
     [IsoId("_j-Sl8zQJEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesQty")]
     #endif
+    [IsoXmlTag("SctiesQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionQuantity12? SecuritiesQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateAction69
     /// Stage in the corporate action event life cycle.
     /// </summary>
     [IsoId("_j-Sl9TQJEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Stage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtStag")]
     #endif
+    [IsoXmlTag("EvtStag")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventStageFormat14Choice_? EventStage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateAction69
     /// Indicates whether the message is related to a claim on the associated corporate action event.
     /// </summary>
     [IsoId("_j-Sl9zQJEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Business Process Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlBizPrcInd")]
     #endif
+    [IsoXmlTag("AddtlBizPrcInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalBusinessProcessFormat18Choice_? AdditionalBusinessProcessIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateAction69
     /// Specifies the type of intermediates securities distribution.
     /// </summary>
     [IsoId("_j-Sl_zQJEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediate Securities Distribution Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmdtSctiesDstrbtnTp")]
     #endif
+    [IsoXmlTag("IntrmdtSctiesDstrbtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntermediateSecuritiesDistributionTypeFormat15Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateAction69
     /// Specifies the type of lottery announced.
     /// </summary>
     [IsoId("_j-SmBzQJEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lottery Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtryTp")]
     #endif
+    [IsoXmlTag("LtryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LotteryTypeFormat4Choice_? LotteryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

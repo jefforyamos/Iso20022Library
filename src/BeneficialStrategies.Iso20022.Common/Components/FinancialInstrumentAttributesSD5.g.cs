@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option securities movement security details.
 /// </summary>
 [IsoId("_1g7u8TL3EeKU9IrkkToqcw_1034011765")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record FinancialInstrumentAttributesSD5
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1g7u8jL3EeKU9IrkkToqcw_36939412")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -71,15 +67,14 @@ public partial record FinancialInstrumentAttributesSD5
     #endif
     
     /// <summary>
-    /// Matching security identifier for the disbursed security that is used to match the customer's SOI (Security of Interest) to the GCA VS Security Cross Reference.
+    /// Matching security identifier for the disbursed security that is used to match the customer&apos;s SOI (Security of Interest) to the GCA VS Security Cross Reference.
     /// </summary>
     [IsoId("_1g7u8zL3EeKU9IrkkToqcw_-1838940768")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Of Interest Matching Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyOfIntrstMtchgScty")]
     #endif
+    [IsoXmlTag("SctyOfIntrstMtchgScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification15? SecurityOfInterestMatchingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

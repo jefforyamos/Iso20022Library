@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the value date and the amounts traded in a foreign exchange transaction.
 /// </summary>
 [IsoId("_TITy0tp-Ed-ak6NoX_4Aeg_290674075")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amounts And Value Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record AmountsAndValueDate1
     /// Currency and amount bought in a foreign exchange trade.
     /// </summary>
     [IsoId("_TITy09p-Ed-ak6NoX_4Aeg_290674076")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Buy Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdBuyAmt")]
     #endif
+    [IsoXmlTag("TradgSdBuyAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TradingSideBuyAmount { get; init; } 
+    public required System.Decimal TradingSideBuyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TradingSideBuyAmount { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record AmountsAndValueDate1
     /// Currency and amount sold in a foreign exchange trade.
     /// </summary>
     [IsoId("_TIc8sNp-Ed-ak6NoX_4Aeg_438409417")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Sell Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdSellAmt")]
     #endif
+    [IsoXmlTag("TradgSdSellAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TradingSideSellAmount { get; init; } 
+    public required System.Decimal TradingSideSellAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TradingSideSellAmount { get; init; } 
     #else
@@ -93,16 +91,16 @@ public partial record AmountsAndValueDate1
     /// Date on which the trade is settled, ie, the amounts are due.
     /// </summary>
     [IsoId("_TIc8sdp-Ed-ak6NoX_4Aeg_290674077")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly SettlementDate { get; init; } 
+    public required System.DateOnly SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly SettlementDate { get; init; } 
     #else

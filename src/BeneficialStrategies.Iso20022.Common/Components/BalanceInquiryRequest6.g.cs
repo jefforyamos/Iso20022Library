@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies data element nexessary to request balance information.
 /// </summary>
 [IsoId("_PD2PQXG1Ee2TbaNWBpRZpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Inquiry Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BalanceInquiryRequest6
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
     [IsoId("_PKkiUXG1Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleTxId")]
     #endif
+    [IsoXmlTag("SaleTxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record BalanceInquiryRequest6
     /// Data related to the account pointed by the payment card.
     /// </summary>
     [IsoId("_PKkiU3G1Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Account Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtAcctReq")]
     #endif
+    [IsoXmlTag("PmtAcctReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentAccountRequest1? PaymentAccountRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record BalanceInquiryRequest6
     /// Data related to a requested Loyalty program or account.
     /// </summary>
     [IsoId("_PKkiVXG1Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Account Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyAcctReq")]
     #endif
+    [IsoXmlTag("LltyAcctReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyAccountRequest3? LoyaltyAccountRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record BalanceInquiryRequest6
     /// Data related to a requested Stored value account.
     /// </summary>
     [IsoId("_PKkiV3G1Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stored Value Account Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StordValAcctReq")]
     #endif
+    [IsoXmlTag("StordValAcctReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueRequest6? StoredValueAccountRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

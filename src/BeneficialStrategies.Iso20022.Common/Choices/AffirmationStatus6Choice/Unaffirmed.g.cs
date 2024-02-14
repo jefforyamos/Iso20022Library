@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationStatus6Choice
     /// Trade has been unaffirmed.
     /// </summary>
     [IsoId("_A55R5tokEeC60axPepSq7g_323180115")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unaffirmed")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

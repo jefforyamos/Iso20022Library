@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information regarding the total amount of taxes.
 /// </summary>
 [IsoId("_U5QL9dp-Ed-ak6NoX_4Aeg_1827324489")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Taxes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record TotalTaxes2
     /// Total value of the taxes for a specific order.
     /// </summary>
     [IsoId("_U5QL9tp-Ed-ak6NoX_4Aeg_1827324679")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount Of Taxes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtOfTaxs")]
     #endif
+    [IsoXmlTag("TtlAmtOfTaxs")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record TotalTaxes2
     /// Information related to a specific tax.
     /// </summary>
     [IsoId("_U5QL99p-Ed-ak6NoX_4Aeg_1827325403")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDtls")]
     #endif
+    [IsoXmlTag("TaxDtls")]
     public Tax7? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _U5QL99p-Ed-ak6NoX_4Aeg_1827325403
     

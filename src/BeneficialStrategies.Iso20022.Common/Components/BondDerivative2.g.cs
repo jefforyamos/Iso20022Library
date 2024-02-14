@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Transparency calculation specific details on a bond derivative.
 /// </summary>
 [IsoId("_s736gWlJEeaLAKoEUNsD9g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bond Derivative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record BondDerivative2
     /// Legal Entity Identifier (LEI) code of the issuer of the direct or ultimate underlying bond.
     /// </summary>
     [IsoId("_tFkCAWlJEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier Issuer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Issuer { get; init; } 
+    public required System.String Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Issuer { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record BondDerivative2
     /// Date of maturity of the underlying bond. This field applies to debt instruments with defined maturity.
     /// </summary>
     [IsoId("_tFkCA2lJEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,12 @@ public partial record BondDerivative2
     /// Populated with the issuance date of the underlying bond.
     /// </summary>
     [IsoId("_zoY10GlJEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuance Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssncDt")]
     #endif
+    [IsoXmlTag("IssncDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssuanceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

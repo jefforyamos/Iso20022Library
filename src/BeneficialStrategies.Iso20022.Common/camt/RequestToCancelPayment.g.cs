@@ -38,13 +38,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// A Request To Cancel Payment message concerns one and only one original payment instruction at a time. If several original payment instructions need to be cancelled, then multiple Request To Cancel Payment messages must be sent.
 /// When a case assignee successfully performs a cancellation, it must return the corresponding funds to the case assigner. It may provide some details about the return in the Resolution Of Investigation message.
 /// The processing of a request to cancel payment case may end with a Debit Authorisation Request message sent to the creditor by its account servicing institution.
-/// The Request To Cancel Payment message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original Request To Modify Payment message and the element ReopenCaseIndication is set to 'Yes' or 'true'.
+/// The Request To Cancel Payment message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original Request To Modify Payment message and the element ReopenCaseIndication is set to &apos;Yes&apos; or &apos;true&apos;.
 /// </summary>
 [Description(@"Scope|The Request To Cancel Payment message is sent by a case creator/case assigner to a case assignee.|This message is used to request the cancellation of an original payment instruction.|Usage|The Request To Cancel Payment message must be answered with a:|- Resolution Of Investigation message with a positive final outcome when the case assignee can perform the requested cancellation|- Resolution Of Investigation message with a negative final outcome when the case assignee may perform the requested cancellation but fails to do so (too late, irrevocable instruction.)|- Reject Case Assignment message when the case assignee is unable or not authorised to perform the requested cancellation|- Notification Of Case Assignment message to indicate whether the case assignee will take on the case himself or reassign the case to a subsequent party in the payment processing chain.|A Request To Cancel Payment message concerns one and only one original payment instruction at a time. If several original payment instructions need to be cancelled, then multiple Request To Cancel Payment messages must be sent.|When a case assignee successfully performs a cancellation, it must return the corresponding funds to the case assigner. It may provide some details about the return in the Resolution Of Investigation message.|The processing of a request to cancel payment case may end with a Debit Authorisation Request message sent to the creditor by its account servicing institution.|The Request To Cancel Payment message may be used to escalate a case after an unsuccessful request to modify the payment. In this scenario, the case identification remains the same as in the original Request To Modify Payment message and the element ReopenCaseIndication is set to 'Yes' or 'true'.")]
 [IsoId("_SsPgaNE_Ed-BzquC8wXy7w_-319126459")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request To Cancel Payment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -90,16 +88,15 @@ public partial record RequestToCancelPayment : IOuterRecord<RequestToCancelPayme
     /// Identifies the assignment of a case from an assigner to an assignee.
     /// </summary>
     [IsoId("_SsPgadE_Ed-BzquC8wXy7w_402186084")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment Assignment { get; init; } 
+    public required CaseAssignment Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment Assignment { get; init; } 
     #else
@@ -110,16 +107,15 @@ public partial record RequestToCancelPayment : IOuterRecord<RequestToCancelPayme
     /// Identifies the case.
     /// </summary>
     [IsoId("_SsZRYNE_Ed-BzquC8wXy7w_70459884")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case Case { get; init; } 
+    public required Case Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case Case { get; init; } 
     #else
@@ -130,16 +126,15 @@ public partial record RequestToCancelPayment : IOuterRecord<RequestToCancelPayme
     /// Identifies the payment instruction to be cancelled.
     /// </summary>
     [IsoId("_SsZRYdE_Ed-BzquC8wXy7w_74152854")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Undrlyg")]
     #endif
+    [IsoXmlTag("Undrlyg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInstructionExtract Underlying { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentInstructionExtract Underlying { get; init; } 
+    public required PaymentInstructionExtract Underlying { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentInstructionExtract Underlying { get; init; } 
     #else
@@ -150,16 +145,15 @@ public partial record RequestToCancelPayment : IOuterRecord<RequestToCancelPayme
     /// Defines the reason for requesting the cancellation.
     /// </summary>
     [IsoId("_SsZRYtE_Ed-BzquC8wXy7w_341710652")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Justification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Justfn")]
     #endif
+    [IsoXmlTag("Justfn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DebitAuthorisationDetails Justification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DebitAuthorisationDetails Justification { get; init; } 
+    public required DebitAuthorisationDetails Justification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DebitAuthorisationDetails Justification { get; init; } 
     #else
@@ -170,7 +164,7 @@ public partial record RequestToCancelPayment : IOuterRecord<RequestToCancelPayme
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestToCancelPaymentDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestToCancelPaymentDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestToCancelPaymentDocument ToDocument()
     {
@@ -180,7 +174,7 @@ public partial record RequestToCancelPayment : IOuterRecord<RequestToCancelPayme
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToCancelPayment"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestToCancelPayment&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestToCancelPaymentDocument : IOuterDocument<RequestToCancelPayment>
@@ -197,7 +191,7 @@ public partial record RequestToCancelPaymentDocument : IOuterDocument<RequestToC
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestToCancelPayment"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestToCancelPayment&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestToCancelPayment Message { get; init; }

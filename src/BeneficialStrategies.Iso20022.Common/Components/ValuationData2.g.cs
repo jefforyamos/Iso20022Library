@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of data which contains the link to the opening of the non deliverable trade and supplementary information on its valuation.
 /// </summary>
 [IsoId("_TIKBxNp-Ed-ak6NoX_4Aeg_-1153647347")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Valuation Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record ValuationData2
     /// Reference to the latest trade identification of the NDF opening trade.
     /// </summary>
     [IsoId("_TIKBxdp-Ed-ak6NoX_4Aeg_-1153647330")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ValtnRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ValuationReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ValuationReference { get; init; } 
+    public required System.String ValuationReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ValuationReference { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record ValuationData2
     /// Specifies the currency in which the non deliverable trade has to be settled ie the deliverable currency.
     /// </summary>
     [IsoId("_TIKBxtp-Ed-ak6NoX_4Aeg_-1153647004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record ValuationData2
     /// Free format text that may contain information on the valuation such as the currency, the place, the time or the source of the rate.
     /// </summary>
     [IsoId("_TIKBx9p-Ed-ak6NoX_4Aeg_-1153647295")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Valuation Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlValtnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlValtnInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalValuationInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,11 @@ public partial record ValuationData2
     /// Party through which the settlement will take place. It may contain the BIC of a central settlement system eg CLSBUS33.
     /// </summary>
     [IsoId("_TIKByNp-Ed-ak6NoX_4Aeg_-1153647029")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPty")]
     #endif
+    [IsoXmlTag("SttlmPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8Choice_? SettlementParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

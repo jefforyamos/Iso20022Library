@@ -21,7 +21,7 @@ public enum AttributeType2Code
 {
     /// <summary>
     /// Email address of the certificate subject.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_56IUsY4TEeW6h7rGyYlyTg")]
@@ -30,7 +30,7 @@ public enum AttributeType2Code
     
     /// <summary>
     /// Password by which an entity may request certificate revocation.
-    /// Encoded/decoded by serializers as "CHLG".
+    /// Encoded/decoded by serializers as &quot;CHLG&quot;.
     /// </summary>
     [EnumMember(Value = "CHLG")]
     [IsoId("_6f_a044TEeW6h7rGyYlyTg")]

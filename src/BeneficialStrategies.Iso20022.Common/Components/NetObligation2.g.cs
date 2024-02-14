@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the amount, direction and parties involved in a payment obligation between two participants (and their netting group or trading party) of a netting service.
 /// </summary>
 [IsoId("_Chfq8QN1Ee2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Net Obligation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,19 +53,17 @@ public partial record NetObligation2
     /// Unique identification for the obligation.
     /// </summary>
     [IsoId("_CnI_9QN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OblgtnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OblgtnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ObligationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ObligationIdentification { get; init; } 
+    public required System.String ObligationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ObligationIdentification { get; init; } 
     #else
@@ -78,16 +74,16 @@ public partial record NetObligation2
     /// Amount of the obligation.
     /// </summary>
     [IsoId("_CnI_9wN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -98,16 +94,15 @@ public partial record NetObligation2
     /// Describes the party or netting group (of the participant receiving the report) involved in the calculation of the obligation.
     /// </summary>
     [IsoId("_CnI_-QN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant Netting Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcptNetgId")]
     #endif
+    [IsoXmlTag("PtcptNetgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NettingIdentification2Choice_ ParticipantNettingIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NettingIdentification2Choice_ ParticipantNettingIdentification { get; init; } 
+    public required NettingIdentification2Choice_ ParticipantNettingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NettingIdentification2Choice_ ParticipantNettingIdentification { get; init; } 
     #else
@@ -118,16 +113,15 @@ public partial record NetObligation2
     /// Specifies the direction of the obligation.
     /// </summary>
     [IsoId("_CnI_-wN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation Direction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OblgtnDrctn")]
     #endif
+    [IsoXmlTag("OblgtnDrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentReceipt1Code ObligationDirection { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentReceipt1Code ObligationDirection { get; init; } 
+    public required PaymentReceipt1Code ObligationDirection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentReceipt1Code ObligationDirection { get; init; } 
     #else
@@ -138,16 +132,15 @@ public partial record NetObligation2
     /// Describes the party or netting group (of the counterparty in the obligation) involved in the calculation of the obligation.
     /// </summary>
     [IsoId("_CnI__QN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Netting Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyNetgId")]
     #endif
+    [IsoXmlTag("CtrPtyNetgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NettingIdentification2Choice_ CounterpartyNettingIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NettingIdentification2Choice_ CounterpartyNettingIdentification { get; init; } 
+    public required NettingIdentification2Choice_ CounterpartyNettingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NettingIdentification2Choice_ CounterpartyNettingIdentification { get; init; } 
     #else
@@ -158,12 +151,11 @@ public partial record NetObligation2
     /// Describes the counterparty participant involved in the obligation.
     /// </summary>
     [IsoId("_CnI__wN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Service Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetSvcCtrPtyId")]
     #endif
+    [IsoXmlTag("NetSvcCtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? NetServiceCounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +168,11 @@ public partial record NetObligation2
     /// Specifies the standard settlement instructions used to issue a payment to the counterparty in order to settle the obligation.
     /// </summary>
     [IsoId("_CnJAAQN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Settlement Instructions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySttlmInstrs")]
     #endif
+    [IsoXmlTag("CtrPtySttlmInstrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties120? CounterpartySettlementInstructions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,15 +185,12 @@ public partial record NetObligation2
     /// Number of transactions used to calculate the obligation. This is used in reconciliation between the net report obligation and the previously provided transaction status updates.
     /// </summary>
     [IsoId("_CnJAAwN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transactions Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxsNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TxsNb")]
+    [IsoSimpleType(IsoSimpleType.Max10NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumericText? TransactionsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Corporate action option information for the custodian record.
 /// </summary>
 [IsoId("_1TqvATL3EeKU9IrkkToqcw_1383220652")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Custodian Option Date Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CustodianOptionDateDetailsSD1
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1TqvAjL3EeKU9IrkkToqcw_-1902659123")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,12 @@ public partial record CustodianOptionDateDetailsSD1
     /// Custodian deadline date for the option instructions. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1TqvAzL3EeKU9IrkkToqcw_-26617381")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Deadline Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtDdlnDt")]
     #endif
+    [IsoXmlTag("AgtDdlnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? AgentDeadlineDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +88,12 @@ public partial record CustodianOptionDateDetailsSD1
     /// Custodian deadline time for the option instructions. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1TqvBDL3EeKU9IrkkToqcw_-744742048")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Deadline Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtDdlnTm")]
     #endif
+    [IsoXmlTag("AgtDdlnTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? AgentDeadlineTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

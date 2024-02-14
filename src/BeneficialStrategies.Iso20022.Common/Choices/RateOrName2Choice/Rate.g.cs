@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName2Choice
     /// Pricing expressed as a rate.
     /// </summary>
     [IsoId("_XO3Yd9p-Ed-ak6NoX_4Aeg_1588721411")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,12 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName2Choice
         /// Indicates the sign of the rate.
         /// </summary>
         [IsoId("_Q-xTYNp-Ed-ak6NoX_4Aeg_-1215412849")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sign")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sgn")]
         #endif
+        [IsoXmlTag("Sgn")]
+        [IsoSimpleType(IsoSimpleType.PlusOrMinusIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoPlusOrMinusIndicator? Sign { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,12 +72,14 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName2Choice
         /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rate")]
         #endif
+        [IsoXmlTag("Rate")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPercentageRate Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Value { get; init; } 
+        public required System.Decimal Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Value { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum EncryptedDataFormat1Code
 {
     /// <summary>
     /// ASCII Format.
-    /// Encoded/decoded by serializers as "ASCI".
+    /// Encoded/decoded by serializers as &quot;ASCI&quot;.
     /// </summary>
     [EnumMember(Value = "ASCI")]
     [IsoId("_kQkL0QHzEeiJObvChJn-OA")]
@@ -30,7 +30,7 @@ public enum EncryptedDataFormat1Code
     
     /// <summary>
     /// Binary format.
-    /// Encoded/decoded by serializers as "BINF".
+    /// Encoded/decoded by serializers as &quot;BINF&quot;.
     /// </summary>
     [EnumMember(Value = "BINF")]
     [IsoId("_kd9HkgHzEeiJObvChJn-OA")]
@@ -39,7 +39,7 @@ public enum EncryptedDataFormat1Code
     
     /// <summary>
     /// EBCDIC format.
-    /// Encoded/decoded by serializers as "EBCD".
+    /// Encoded/decoded by serializers as &quot;EBCD&quot;.
     /// </summary>
     [EnumMember(Value = "EBCD")]
     [IsoId("_kryvQgHzEeiJObvChJn-OA")]
@@ -48,7 +48,7 @@ public enum EncryptedDataFormat1Code
     
     /// <summary>
     /// HEX Format.
-    /// Encoded/decoded by serializers as "HEXF".
+    /// Encoded/decoded by serializers as &quot;HEXF&quot;.
     /// </summary>
     [EnumMember(Value = "HEXF")]
     [IsoId("_k-1AAgHzEeiJObvChJn-OA")]
@@ -57,7 +57,7 @@ public enum EncryptedDataFormat1Code
     
     /// <summary>
     /// Other format defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_lNtJggHzEeiJObvChJn-OA")]
@@ -66,7 +66,7 @@ public enum EncryptedDataFormat1Code
     
     /// <summary>
     /// Other type of format defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_lb_dIgHzEeiJObvChJn-OA")]

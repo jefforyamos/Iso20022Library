@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionOption1FormatChoi
     /// Option type expressed as a code.
     /// </summary>
     [IsoId("_RlgjQdp-Ed-ak6NoX_4Aeg_-1093032102")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionOption1FormatChoi
         /// Specifies the type of CA options.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CorporateActionOptionType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CorporateActionOptionType1Code Value { get; init; } 
+        public required CorporateActionOptionType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CorporateActionOptionType1Code Value { get; init; } 
         #else

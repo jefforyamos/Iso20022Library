@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provide the processing status information of a deactivation instruction.
 /// </summary>
 [IsoId("_RkeBc9p-Ed-ak6NoX_4Aeg_1446345184")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Deactivation Instruction Processing Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CorporateActionDeactivationInstructionProcessingStatus1
     /// The processing status.
     /// </summary>
     [IsoId("_RkeBdNp-Ed-ak6NoX_4Aeg_1449119144")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessedStatus6FormatChoice_ Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessedStatus6FormatChoice_ Status { get; init; } 
+    public required ProcessedStatus6FormatChoice_ Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessedStatus6FormatChoice_ Status { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record CorporateActionDeactivationInstructionProcessingStatus1
     /// Additional information about the status.
     /// </summary>
     [IsoId("_RkeBddp-Ed-ak6NoX_4Aeg_1449119175")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

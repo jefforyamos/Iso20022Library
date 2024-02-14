@@ -21,7 +21,7 @@ public enum DeviceOperatingSystemTypeCode
 {
     /// <summary>
     /// Android operating system.
-    /// Encoded/decoded by serializers as "DROI".
+    /// Encoded/decoded by serializers as &quot;DROI&quot;.
     /// </summary>
     [EnumMember(Value = "DROI")]
     [IsoId("_V5SYgJfQEeuqNYk2TG3bTg")]
@@ -30,7 +30,7 @@ public enum DeviceOperatingSystemTypeCode
     
     /// <summary>
     /// iOS operating system.
-    /// Encoded/decoded by serializers as "IOSS".
+    /// Encoded/decoded by serializers as &quot;IOSS&quot;.
     /// </summary>
     [EnumMember(Value = "IOSS")]
     [IsoId("_cBa0YJfQEeuqNYk2TG3bTg")]
@@ -39,7 +39,7 @@ public enum DeviceOperatingSystemTypeCode
     
     /// <summary>
     /// Windows operating system.
-    /// Encoded/decoded by serializers as "WIND".
+    /// Encoded/decoded by serializers as &quot;WIND&quot;.
     /// </summary>
     [EnumMember(Value = "WIND")]
     [IsoId("_xg0VMJfQEeuqNYk2TG3bTg")]
@@ -48,7 +48,7 @@ public enum DeviceOperatingSystemTypeCode
     
     /// <summary>
     /// Blackberry operating system.
-    /// Encoded/decoded by serializers as "BLCK".
+    /// Encoded/decoded by serializers as &quot;BLCK&quot;.
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_Wcn5oJfREeuqNYk2TG3bTg")]
@@ -57,7 +57,7 @@ public enum DeviceOperatingSystemTypeCode
     
     /// <summary>
     /// Tizen operating system.
-    /// Encoded/decoded by serializers as "TIZN".
+    /// Encoded/decoded by serializers as &quot;TIZN&quot;.
     /// </summary>
     [EnumMember(Value = "TIZN")]
     [IsoId("_cmnWsJfREeuqNYk2TG3bTg")]
@@ -66,7 +66,7 @@ public enum DeviceOperatingSystemTypeCode
     
     /// <summary>
     /// Other nationally defined code.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_in48oJfREeuqNYk2TG3bTg")]
@@ -75,7 +75,7 @@ public enum DeviceOperatingSystemTypeCode
     
     /// <summary>
     /// Other privately defined code.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_roPi0JfREeuqNYk2TG3bTg")]

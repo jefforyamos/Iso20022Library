@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The ChargeBackInitiation message is sent by an issuer or agent to an acquirer to fully or partially nullify a previous financial transaction; namely when the issuer determines that a customer dispute exists or that an error or violation of rules has been committed. It is also used to nullify a previous chargeback. Chargebacks have a financial impact and should be computed within reconciliation totals.")]
 [IsoId("_1HbrRFZdEeen1vB4iz5SyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charge Back Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ChargeBackInitiationV01 : IOuterRecord<ChargeBackInitiatio
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_1HbrRlZdEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header40 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header40 Header { get; init; } 
+    public required Header40 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header40 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record ChargeBackInitiationV01 : IOuterRecord<ChargeBackInitiatio
     /// ISO 8583:93/2003 bit 25.
     /// </summary>
     [IsoId("_1HbrR1ZdEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargeBackInitiation1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargeBackInitiation1 Body { get; init; } 
+    public required ChargeBackInitiation1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargeBackInitiation1 Body { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record ChargeBackInitiationV01 : IOuterRecord<ChargeBackInitiatio
     /// It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.
     /// </summary>
     [IsoId("_1HbrRVZdEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record ChargeBackInitiationV01 : IOuterRecord<ChargeBackInitiatio
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ChargeBackInitiationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ChargeBackInitiationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ChargeBackInitiationV01Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record ChargeBackInitiationV01 : IOuterRecord<ChargeBackInitiatio
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChargeBackInitiationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ChargeBackInitiationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ChargeBackInitiationV01Document : IOuterDocument<ChargeBackInitiationV01>
@@ -163,7 +158,7 @@ public partial record ChargeBackInitiationV01Document : IOuterDocument<ChargeBac
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ChargeBackInitiationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ChargeBackInitiationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargeBackInitiationV01 Message { get; init; }

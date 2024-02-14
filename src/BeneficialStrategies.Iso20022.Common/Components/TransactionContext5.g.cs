@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the card payment transaction
 /// </summary>
 [IsoId("_g6d14cyaEeiqqJhU2tqK8A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,11 @@ public partial record TransactionContext5
     /// ISO 8583:87 bit 24
     /// </summary>
     [IsoId("_hE_q4cyaEeiqqJhU2tqK8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Programme Applied")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPrgrmmApld")]
     #endif
+    [IsoXmlTag("CardPrgrmmApld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardProgrammeMode1? CardProgrammeApplied { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

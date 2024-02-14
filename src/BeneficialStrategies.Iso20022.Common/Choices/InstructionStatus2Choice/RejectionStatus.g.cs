@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus2Choice
     /// Status advising on the rejection of the instruction.
     /// </summary>
     [IsoId("_RWwVkdp-Ed-ak6NoX_4Aeg_-1258577092")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus2Choice
         /// Reason advising the rejection of the instruction.
         /// </summary>
         [IsoId("_RWwVltp-Ed-ak6NoX_4Aeg_-151657309")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RejectionReason1Code Reason { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RejectionReason1Code Reason { get; init; } 
+        public required RejectionReason1Code Reason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RejectionReason1Code Reason { get; init; } 
         #else
@@ -77,19 +74,17 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus2Choice
         /// This code can be used in case another reason is required.
         /// </summary>
         [IsoId("_RWwVl9p-Ed-ak6NoX_4Aeg_-1485291083")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Extended Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="XtndedRsn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("XtndedRsn")]
+        [IsoSimpleType(IsoSimpleType.Extended350Code)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExtended350Code ExtendedReason { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ExtendedReason { get; init; } 
+        public required System.String ExtendedReason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ExtendedReason { get; init; } 
         #else
@@ -100,15 +95,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus2Choice
         /// Additional information about the reason.
         /// </summary>
         [IsoId("_RWwVmNp-Ed-ak6NoX_4Aeg_-151657294")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

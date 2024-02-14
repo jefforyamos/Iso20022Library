@@ -21,7 +21,7 @@ public enum RejectionReason20Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_Zi-wKNp-Ed-ak6NoX_4Aeg_-482612999")]
@@ -30,7 +30,7 @@ public enum RejectionReason20Code
     
     /// <summary>
     /// Unable to identify cash account.
-    /// Encoded/decoded by serializers as "CASA".
+    /// Encoded/decoded by serializers as &quot;CASA&quot;.
     /// </summary>
     [EnumMember(Value = "CASA")]
     [IsoId("_ZjIhINp-Ed-ak6NoX_4Aeg_-482612969")]
@@ -39,7 +39,7 @@ public enum RejectionReason20Code
     
     /// <summary>
     /// Unable to identify correspondent bank.
-    /// Encoded/decoded by serializers as "CORR".
+    /// Encoded/decoded by serializers as &quot;CORR&quot;.
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_ZjIhIdp-Ed-ak6NoX_4Aeg_-482612938")]
@@ -48,7 +48,7 @@ public enum RejectionReason20Code
     
     /// <summary>
     /// Invalid standing instruction type for the specified underlying security.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_ZjIhItp-Ed-ak6NoX_4Aeg_-482612937")]
@@ -57,7 +57,7 @@ public enum RejectionReason20Code
     
     /// <summary>
     /// No holding for the specified underlying security.
-    /// Encoded/decoded by serializers as "NOHO".
+    /// Encoded/decoded by serializers as &quot;NOHO&quot;.
     /// </summary>
     [EnumMember(Value = "NOHO")]
     [IsoId("_ZjIhI9p-Ed-ak6NoX_4Aeg_-482612907")]

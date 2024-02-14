@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choic
     /// Other type of classification of the financial instrument.
     /// </summary>
     [IsoId("_SimIQ_35EeimOuZbLgw0bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Classification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choic
         /// Proprietary information issued by the data source scheme issuer.
         /// </summary>
         [IsoId("_7MqLRRHnEeG9eo4v8X6Ubw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINMax30Text)]
         [StringLength(maximumLength: 30 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINMax30Text Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -79,15 +75,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choic
         /// Entity that assigns the identification.
         /// </summary>
         [IsoId("_7MqLSRHnEeG9eo4v8X6Ubw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Issr")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINMax8Text)]
         [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoRestrictedFINMax8Text? Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

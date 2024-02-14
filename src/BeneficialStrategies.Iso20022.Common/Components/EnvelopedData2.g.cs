@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Encrypted data with encryption key.
 /// </summary>
 [IsoId("_eO2UIQioEeKn9O5oyej_zw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Enveloped Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record EnvelopedData2
     /// Version of the data structure.
     /// </summary>
     [IsoId("_ebDkIQioEeKn9O5oyej_zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record EnvelopedData2
     /// Transport key or key encryption key (KEK) identification for the recipient.
     /// </summary>
     [IsoId("_ebDkJQioEeKn9O5oyej_zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcpt")]
     #endif
+    [IsoXmlTag("Rcpt")]
     public Recipient2Choice_? Recipient { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ebDkJQioEeKn9O5oyej_zw
     
@@ -82,16 +79,15 @@ public partial record EnvelopedData2
     /// Encrypted data with an encryption key.
     /// </summary>
     [IsoId("_ebDkKQioEeKn9O5oyej_zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdCntt")]
     #endif
+    [IsoXmlTag("NcrptdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EncryptedContent2 EncryptedContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EncryptedContent2 EncryptedContent { get; init; } 
+    public required EncryptedContent2 EncryptedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EncryptedContent2 EncryptedContent { get; init; } 
     #else

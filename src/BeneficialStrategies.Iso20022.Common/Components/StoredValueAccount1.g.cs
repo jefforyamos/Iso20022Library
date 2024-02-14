@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the stored value account or the stored value card (Prepaid card).
 /// </summary>
 [IsoId("_QMJNsNtcEeipuvJHTHIw9A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Stored Value Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record StoredValueAccount1
     /// Type of stored value account.
     /// </summary>
     [IsoId("_dQGzQNtcEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctTp")]
     #endif
+    [IsoXmlTag("AcctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueAccountType1Code? AccountType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record StoredValueAccount1
     /// Type of identification for this Stored Value Account.
     /// </summary>
     [IsoId("_AXDAcNtgEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IdTp")]
     #endif
+    [IsoXmlTag("IdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardIdentificationType1Code? IdentificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record StoredValueAccount1
     /// Identification of Stored Value Account.
     /// </summary>
     [IsoId("_R7WSwNtiEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,15 +95,13 @@ public partial record StoredValueAccount1
     /// Brand to which belong the account.
     /// </summary>
     [IsoId("_WhYpwNtiEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Brand")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Brnd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Brnd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Brand { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,15 +114,13 @@ public partial record StoredValueAccount1
     /// Provider of the Stored Value Account.
     /// </summary>
     [IsoId("_dARYwNtiEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Provider")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prvdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prvdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Provider { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,15 +133,13 @@ public partial record StoredValueAccount1
     /// Owner name of an account.
     /// </summary>
     [IsoId("_kEd0QNtiEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Owner Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OwnrNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OwnrNm")]
+    [IsoSimpleType(IsoSimpleType.Max45Text)]
     [StringLength(maximumLength: 45 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax45Text? OwnerName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,15 +152,13 @@ public partial record StoredValueAccount1
     /// Expiry date of the account of card.
     /// </summary>
     [IsoId("_p1McwNtiEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XpryDt")]
+    [IsoSimpleType(IsoSimpleType.Max10Text)]
     [StringLength(maximumLength: 10 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +171,11 @@ public partial record StoredValueAccount1
     /// Standard or last entry mode to access the Stored Value account or card.
     /// </summary>
     [IsoId("_s84xANtjEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtryMd")]
     #endif
+    [IsoXmlTag("NtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading6Code? EntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +188,11 @@ public partial record StoredValueAccount1
     /// Currency of the Stored Value account.
     /// </summary>
     [IsoId("_yE6awNtjEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +205,12 @@ public partial record StoredValueAccount1
     /// Current balance of the Stored Value account.
     /// </summary>
     [IsoId("_28EW8NtjEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

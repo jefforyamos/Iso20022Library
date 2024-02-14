@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the reason why the instruction or request is cancelled.
 /// </summary>
 [IsoId("_jbmdMZkLEeWn2ur3BXxtdg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancellation Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CancellationReason19
     /// Specifies the reason why the instruction is cancelled.
     /// </summary>
     [IsoId("_jqCh0ZkLEeWn2ur3BXxtdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationReason24Choice_ Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationReason24Choice_ Code { get; init; } 
+    public required CancellationReason24Choice_ Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationReason24Choice_ Code { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record CancellationReason19
     /// Provides the corporate action event identification of the event that triggered the cancellation.
     /// </summary>
     [IsoId("_jqCh2ZkLEeWn2ur3BXxtdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnEvtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CorpActnEvtId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax16Text? CorporateActionEventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

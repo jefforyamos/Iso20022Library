@@ -21,7 +21,7 @@ public enum EventFrequency12Code
 {
     /// <summary>
     /// Event takes place as necessary.
-    /// Encoded/decoded by serializers as "ADHO".
+    /// Encoded/decoded by serializers as &quot;ADHO&quot;.
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_ulQXQTrvEeuD7rm9md9zvg")]
@@ -30,7 +30,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_uqBigTrvEeuD7rm9md9zvg")]
@@ -39,7 +39,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_u1xfgTrvEeuD7rm9md9zvg")]
@@ -48,7 +48,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place every two months.
-    /// Encoded/decoded by serializers as "TOMN".
+    /// Encoded/decoded by serializers as &quot;TOMN&quot;.
     /// </summary>
     [EnumMember(Value = "TOMN")]
     [IsoId("_u-syATrvEeuD7rm9md9zvg")]
@@ -57,7 +57,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place every two weeks.
-    /// Encoded/decoded by serializers as "TOWK".
+    /// Encoded/decoded by serializers as &quot;TOWK&quot;.
     /// </summary>
     [EnumMember(Value = "TOWK")]
     [IsoId("_vCtvUTrvEeuD7rm9md9zvg")]
@@ -66,7 +66,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place several times a day.
-    /// Encoded/decoded by serializers as "INDA".
+    /// Encoded/decoded by serializers as &quot;INDA&quot;.
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_vKADETrvEeuD7rm9md9zvg")]
@@ -75,7 +75,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_vQsg8TrvEeuD7rm9md9zvg")]
@@ -84,7 +84,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QUTR".
+    /// Encoded/decoded by serializers as &quot;QUTR&quot;.
     /// </summary>
     [EnumMember(Value = "QUTR")]
     [IsoId("_v9eucTrvEeuD7rm9md9zvg")]
@@ -93,7 +93,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SEMI".
+    /// Encoded/decoded by serializers as &quot;SEMI&quot;.
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_wBfrwTrvEeuD7rm9md9zvg")]
@@ -102,7 +102,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place two times a month.
-    /// Encoded/decoded by serializers as "TWMN".
+    /// Encoded/decoded by serializers as &quot;TWMN&quot;.
     /// </summary>
     [EnumMember(Value = "TWMN")]
     [IsoId("_wFNuITrvEeuD7rm9md9zvg")]
@@ -111,7 +111,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_wJiNcTrvEeuD7rm9md9zvg")]
@@ -120,7 +120,7 @@ public enum EventFrequency12Code
     
     /// <summary>
     /// Event takes place on demand.
-    /// Encoded/decoded by serializers as "ONDE".
+    /// Encoded/decoded by serializers as &quot;ONDE&quot;.
     /// </summary>
     [EnumMember(Value = "ONDE")]
     [IsoId("_7xFfYTrvEeuD7rm9md9zvg")]

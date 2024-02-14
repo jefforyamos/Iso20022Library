@@ -21,7 +21,7 @@ public enum FinancialAssetBalanceTypeCode
 {
     /// <summary>
     /// Balance attributed to other financial instruments.
-    /// Encoded/decoded by serializers as "OINT".
+    /// Encoded/decoded by serializers as &quot;OINT&quot;.
     /// </summary>
     [EnumMember(Value = "OINT")]
     [IsoId("_m4CFsPNBEeCuA5Tr22BnwA_1499281326")]
@@ -30,7 +30,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to settled cash.
-    /// Encoded/decoded by serializers as "SCAS".
+    /// Encoded/decoded by serializers as &quot;SCAS&quot;.
     /// </summary>
     [EnumMember(Value = "SCAS")]
     [IsoId("_m4CFsfNBEeCuA5Tr22BnwA_1531605963")]
@@ -39,7 +39,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to accrued income.
-    /// Encoded/decoded by serializers as "ACRU".
+    /// Encoded/decoded by serializers as &quot;ACRU&quot;.
     /// </summary>
     [EnumMember(Value = "ACRU")]
     [IsoId("_m4CFsvNBEeCuA5Tr22BnwA_1553768540")]
@@ -48,7 +48,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to foreign exchange profit or loss.
-    /// Encoded/decoded by serializers as "FXTR".
+    /// Encoded/decoded by serializers as &quot;FXTR&quot;.
     /// </summary>
     [EnumMember(Value = "FXTR")]
     [IsoId("_m4CFs_NBEeCuA5Tr22BnwA_-650529017")]
@@ -57,7 +57,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_m4CFtPNBEeCuA5Tr22BnwA_66457166")]
@@ -66,7 +66,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to treasury inflated protected securities.
-    /// Encoded/decoded by serializers as "TIPS".
+    /// Encoded/decoded by serializers as &quot;TIPS&quot;.
     /// </summary>
     [EnumMember(Value = "TIPS")]
     [IsoId("_m4CFtfNBEeCuA5Tr22BnwA_-916710363")]
@@ -75,7 +75,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to equities.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_m4LPoPNBEeCuA5Tr22BnwA_324189526")]
@@ -84,7 +84,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to common stock.
-    /// Encoded/decoded by serializers as "CSTK".
+    /// Encoded/decoded by serializers as &quot;CSTK&quot;.
     /// </summary>
     [EnumMember(Value = "CSTK")]
     [IsoId("_m4LPofNBEeCuA5Tr22BnwA_577846223")]
@@ -93,7 +93,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to preferred stock.
-    /// Encoded/decoded by serializers as "PREF".
+    /// Encoded/decoded by serializers as &quot;PREF&quot;.
     /// </summary>
     [EnumMember(Value = "PREF")]
     [IsoId("_m4LPovNBEeCuA5Tr22BnwA_52283690")]
@@ -102,7 +102,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to mutual funds.
-    /// Encoded/decoded by serializers as "MFUN".
+    /// Encoded/decoded by serializers as &quot;MFUN&quot;.
     /// </summary>
     [EnumMember(Value = "MFUN")]
     [IsoId("_m4LPo_NBEeCuA5Tr22BnwA_-983188090")]
@@ -111,7 +111,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to exchange traded funds.
-    /// Encoded/decoded by serializers as "XFUN".
+    /// Encoded/decoded by serializers as &quot;XFUN&quot;.
     /// </summary>
     [EnumMember(Value = "XFUN")]
     [IsoId("_m4LPpPNBEeCuA5Tr22BnwA_-2109056942")]
@@ -120,7 +120,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to rights.
-    /// Encoded/decoded by serializers as "RGHT".
+    /// Encoded/decoded by serializers as &quot;RGHT&quot;.
     /// </summary>
     [EnumMember(Value = "RGHT")]
     [IsoId("_m4LPpfNBEeCuA5Tr22BnwA_1999294159")]
@@ -129,7 +129,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to warrants.
-    /// Encoded/decoded by serializers as "WARR".
+    /// Encoded/decoded by serializers as &quot;WARR&quot;.
     /// </summary>
     [EnumMember(Value = "WARR")]
     [IsoId("_m4LPpvNBEeCuA5Tr22BnwA_80361990")]
@@ -138,7 +138,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to bonds.
-    /// Encoded/decoded by serializers as "BOND".
+    /// Encoded/decoded by serializers as &quot;BOND&quot;.
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_m4VAoPNBEeCuA5Tr22BnwA_1711724601")]
@@ -147,7 +147,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to convertible bonds.
-    /// Encoded/decoded by serializers as "CONV".
+    /// Encoded/decoded by serializers as &quot;CONV&quot;.
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_m4VAofNBEeCuA5Tr22BnwA_1321261879")]
@@ -156,7 +156,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to corporate bonds.
-    /// Encoded/decoded by serializers as "CBND".
+    /// Encoded/decoded by serializers as &quot;CBND&quot;.
     /// </summary>
     [EnumMember(Value = "CBND")]
     [IsoId("_m4VAovNBEeCuA5Tr22BnwA_1499380551")]
@@ -165,7 +165,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to government bonds.
-    /// Encoded/decoded by serializers as "GBND".
+    /// Encoded/decoded by serializers as &quot;GBND&quot;.
     /// </summary>
     [EnumMember(Value = "GBND")]
     [IsoId("_m4VAo_NBEeCuA5Tr22BnwA_-1393276496")]
@@ -174,7 +174,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to futures.
-    /// Encoded/decoded by serializers as "FUTR".
+    /// Encoded/decoded by serializers as &quot;FUTR&quot;.
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("_m4VApPNBEeCuA5Tr22BnwA_-1480854084")]
@@ -183,7 +183,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to options.
-    /// Encoded/decoded by serializers as "OPTN".
+    /// Encoded/decoded by serializers as &quot;OPTN&quot;.
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_m4VApfNBEeCuA5Tr22BnwA_315327278")]
@@ -192,7 +192,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to swaps.
-    /// Encoded/decoded by serializers as "SWAP".
+    /// Encoded/decoded by serializers as &quot;SWAP&quot;.
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_m4VApvNBEeCuA5Tr22BnwA_258480662")]
@@ -201,7 +201,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to currency exchange contracts.
-    /// Encoded/decoded by serializers as "CUEX".
+    /// Encoded/decoded by serializers as &quot;CUEX&quot;.
     /// </summary>
     [EnumMember(Value = "CUEX")]
     [IsoId("_m4exoPNBEeCuA5Tr22BnwA_-1328437982")]
@@ -210,7 +210,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to foreign investments.
-    /// Encoded/decoded by serializers as "FOIV".
+    /// Encoded/decoded by serializers as &quot;FOIV&quot;.
     /// </summary>
     [EnumMember(Value = "FOIV")]
     [IsoId("_m4exofNBEeCuA5Tr22BnwA_-1302735412")]
@@ -219,7 +219,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to gold.
-    /// Encoded/decoded by serializers as "GOLD".
+    /// Encoded/decoded by serializers as &quot;GOLD&quot;.
     /// </summary>
     [EnumMember(Value = "GOLD")]
     [IsoId("_m4exovNBEeCuA5Tr22BnwA_-1819631751")]
@@ -228,7 +228,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to property.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_m4exo_NBEeCuA5Tr22BnwA_650726384")]
@@ -237,7 +237,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to bankers acceptances.
-    /// Encoded/decoded by serializers as "BAAP".
+    /// Encoded/decoded by serializers as &quot;BAAP&quot;.
     /// </summary>
     [EnumMember(Value = "BAAP")]
     [IsoId("_m4expPNBEeCuA5Tr22BnwA_-441513399")]
@@ -246,7 +246,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to syndicated bank loans.
-    /// Encoded/decoded by serializers as "SYBL".
+    /// Encoded/decoded by serializers as &quot;SYBL&quot;.
     /// </summary>
     [EnumMember(Value = "SYBL")]
     [IsoId("_m4n7kPNBEeCuA5Tr22BnwA_1429247769")]
@@ -255,7 +255,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to collateralised bond obligations.
-    /// Encoded/decoded by serializers as "CBOO".
+    /// Encoded/decoded by serializers as &quot;CBOO&quot;.
     /// </summary>
     [EnumMember(Value = "CBOO")]
     [IsoId("_m4n7kfNBEeCuA5Tr22BnwA_-1387724878")]
@@ -264,7 +264,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to certificates of deposits.
-    /// Encoded/decoded by serializers as "CEOD".
+    /// Encoded/decoded by serializers as &quot;CEOD&quot;.
     /// </summary>
     [EnumMember(Value = "CEOD")]
     [IsoId("_m4n7kvNBEeCuA5Tr22BnwA_588812844")]
@@ -273,7 +273,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to collateralised debt obligations.
-    /// Encoded/decoded by serializers as "CDEO".
+    /// Encoded/decoded by serializers as &quot;CDEO&quot;.
     /// </summary>
     [EnumMember(Value = "CDEO")]
     [IsoId("_m4n7k_NBEeCuA5Tr22BnwA_-1128898245")]
@@ -282,7 +282,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to collateralised loan obligations.
-    /// Encoded/decoded by serializers as "CLOB".
+    /// Encoded/decoded by serializers as &quot;CLOB&quot;.
     /// </summary>
     [EnumMember(Value = "CLOB")]
     [IsoId("_m4n7lPNBEeCuA5Tr22BnwA_696281544")]
@@ -291,7 +291,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to collateralised mortgage obligations.
-    /// Encoded/decoded by serializers as "CMOO".
+    /// Encoded/decoded by serializers as &quot;CMOO&quot;.
     /// </summary>
     [EnumMember(Value = "CMOO")]
     [IsoId("_m4n7lfNBEeCuA5Tr22BnwA_936367265")]
@@ -300,7 +300,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to commercial paper.
-    /// Encoded/decoded by serializers as "COPR".
+    /// Encoded/decoded by serializers as &quot;COPR&quot;.
     /// </summary>
     [EnumMember(Value = "COPR")]
     [IsoId("_m4xskPNBEeCuA5Tr22BnwA_22441313")]
@@ -309,7 +309,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to corporate private placements.
-    /// Encoded/decoded by serializers as "CPPE".
+    /// Encoded/decoded by serializers as &quot;CPPE&quot;.
     /// </summary>
     [EnumMember(Value = "CPPE")]
     [IsoId("_m4xskfNBEeCuA5Tr22BnwA_315448309")]
@@ -318,7 +318,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to discount notes.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_m4xskvNBEeCuA5Tr22BnwA_-687489337")]
@@ -327,7 +327,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to federal agency discount notes.
-    /// Encoded/decoded by serializers as "FEAD".
+    /// Encoded/decoded by serializers as &quot;FEAD&quot;.
     /// </summary>
     [EnumMember(Value = "FEAD")]
     [IsoId("_m4xsk_NBEeCuA5Tr22BnwA_1199877358")]
@@ -336,7 +336,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to federal housing authorities.
-    /// Encoded/decoded by serializers as "FEHA".
+    /// Encoded/decoded by serializers as &quot;FEHA&quot;.
     /// </summary>
     [EnumMember(Value = "FEHA")]
     [IsoId("_m4xslPNBEeCuA5Tr22BnwA_545398206")]
@@ -345,7 +345,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to federal home loans.
-    /// Encoded/decoded by serializers as "FEHL".
+    /// Encoded/decoded by serializers as &quot;FEHL&quot;.
     /// </summary>
     [EnumMember(Value = "FEHL")]
     [IsoId("_m4xslfNBEeCuA5Tr22BnwA_-1310041479")]
@@ -354,7 +354,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to federal national mortgage associations.
-    /// Encoded/decoded by serializers as "FNMA".
+    /// Encoded/decoded by serializers as &quot;FNMA&quot;.
     /// </summary>
     [EnumMember(Value = "FNMA")]
     [IsoId("_m462gPNBEeCuA5Tr22BnwA_-586583737")]
@@ -363,7 +363,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to floating rate notes.
-    /// Encoded/decoded by serializers as "FLNO".
+    /// Encoded/decoded by serializers as &quot;FLNO&quot;.
     /// </summary>
     [EnumMember(Value = "FLNO")]
     [IsoId("_m462gfNBEeCuA5Tr22BnwA_-2013220186")]
@@ -372,7 +372,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to the government national mortgage association.
-    /// Encoded/decoded by serializers as "GNMA".
+    /// Encoded/decoded by serializers as &quot;GNMA&quot;.
     /// </summary>
     [EnumMember(Value = "GNMA")]
     [IsoId("_m462gvNBEeCuA5Tr22BnwA_-87458484")]
@@ -381,7 +381,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to treasuries and agencies debentures.
-    /// Encoded/decoded by serializers as "TAAB".
+    /// Encoded/decoded by serializers as &quot;TAAB&quot;.
     /// </summary>
     [EnumMember(Value = "TAAB")]
     [IsoId("_m462g_NBEeCuA5Tr22BnwA_1693882052")]
@@ -390,7 +390,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to IOETTE mortgages.
-    /// Encoded/decoded by serializers as "IETM".
+    /// Encoded/decoded by serializers as &quot;IETM&quot;.
     /// </summary>
     [EnumMember(Value = "IETM")]
     [IsoId("_m462hPNBEeCuA5Tr22BnwA_-1110416674")]
@@ -399,7 +399,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to mortgage private placements.
-    /// Encoded/decoded by serializers as "MPRP".
+    /// Encoded/decoded by serializers as &quot;MPRP&quot;.
     /// </summary>
     [EnumMember(Value = "MPRP")]
     [IsoId("_m462hfNBEeCuA5Tr22BnwA_-320360860")]
@@ -408,7 +408,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to municipal bonds.
-    /// Encoded/decoded by serializers as "MBON".
+    /// Encoded/decoded by serializers as &quot;MBON&quot;.
     /// </summary>
     [EnumMember(Value = "MBON")]
     [IsoId("_m462hvNBEeCuA5Tr22BnwA_723289388")]
@@ -417,7 +417,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to student loan marketing associations.
-    /// Encoded/decoded by serializers as "SLMA".
+    /// Encoded/decoded by serializers as &quot;SLMA&quot;.
     /// </summary>
     [EnumMember(Value = "SLMA")]
     [IsoId("_m5EngPNBEeCuA5Tr22BnwA_1401877872")]
@@ -426,7 +426,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to short term investment funds.
-    /// Encoded/decoded by serializers as "STIF".
+    /// Encoded/decoded by serializers as &quot;STIF&quot;.
     /// </summary>
     [EnumMember(Value = "STIF")]
     [IsoId("_m5EngfNBEeCuA5Tr22BnwA_340780055")]
@@ -435,7 +435,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to treasury strips.
-    /// Encoded/decoded by serializers as "TSTP".
+    /// Encoded/decoded by serializers as &quot;TSTP&quot;.
     /// </summary>
     [EnumMember(Value = "TSTP")]
     [IsoId("_m5EngvNBEeCuA5Tr22BnwA_1310821862")]
@@ -444,7 +444,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to time deposits.
-    /// Encoded/decoded by serializers as "TIDE".
+    /// Encoded/decoded by serializers as &quot;TIDE&quot;.
     /// </summary>
     [EnumMember(Value = "TIDE")]
     [IsoId("_m5Eng_NBEeCuA5Tr22BnwA_2117762639")]
@@ -453,7 +453,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to unitized bonds and warrants.
-    /// Encoded/decoded by serializers as "UNBW".
+    /// Encoded/decoded by serializers as &quot;UNBW&quot;.
     /// </summary>
     [EnumMember(Value = "UNBW")]
     [IsoId("_m5EnhPNBEeCuA5Tr22BnwA_-1458320575")]
@@ -462,7 +462,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to unitized bonds.
-    /// Encoded/decoded by serializers as "UNBO".
+    /// Encoded/decoded by serializers as &quot;UNBO&quot;.
     /// </summary>
     [EnumMember(Value = "UNBO")]
     [IsoId("_m5EnhfNBEeCuA5Tr22BnwA_-799980806")]
@@ -471,7 +471,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to variable rate discount notes.
-    /// Encoded/decoded by serializers as "VRDN".
+    /// Encoded/decoded by serializers as &quot;VRDN&quot;.
     /// </summary>
     [EnumMember(Value = "VRDN")]
     [IsoId("_m5OYgPNBEeCuA5Tr22BnwA_1279144469")]
@@ -480,7 +480,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to cats, lions and tigers.
-    /// Encoded/decoded by serializers as "ZOOO".
+    /// Encoded/decoded by serializers as &quot;ZOOO&quot;.
     /// </summary>
     [EnumMember(Value = "ZOOO")]
     [IsoId("_m5OYgfNBEeCuA5Tr22BnwA_-1796097192")]
@@ -489,7 +489,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to forwards - bonds.
-    /// Encoded/decoded by serializers as "FWBO".
+    /// Encoded/decoded by serializers as &quot;FWBO&quot;.
     /// </summary>
     [EnumMember(Value = "FWBO")]
     [IsoId("_m5OYgvNBEeCuA5Tr22BnwA_-2043451381")]
@@ -498,7 +498,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to forward rate agreements.
-    /// Encoded/decoded by serializers as "FRAG".
+    /// Encoded/decoded by serializers as &quot;FRAG&quot;.
     /// </summary>
     [EnumMember(Value = "FRAG")]
     [IsoId("_m5OYg_NBEeCuA5Tr22BnwA_152977320")]
@@ -507,7 +507,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to repurchase agreements.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_m5OYhPNBEeCuA5Tr22BnwA_496215225")]
@@ -516,7 +516,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to reverse repurchase agreements.
-    /// Encoded/decoded by serializers as "XREP".
+    /// Encoded/decoded by serializers as &quot;XREP&quot;.
     /// </summary>
     [EnumMember(Value = "XREP")]
     [IsoId("_m5OYhfNBEeCuA5Tr22BnwA_139874332")]
@@ -525,7 +525,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to triparty repurchase agreements.
-    /// Encoded/decoded by serializers as "TREP".
+    /// Encoded/decoded by serializers as &quot;TREP&quot;.
     /// </summary>
     [EnumMember(Value = "TREP")]
     [IsoId("_m5OYhvNBEeCuA5Tr22BnwA_-1835908884")]
@@ -534,7 +534,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to triparty reverse repurchase agreements.
-    /// Encoded/decoded by serializers as "RXRP".
+    /// Encoded/decoded by serializers as &quot;RXRP&quot;.
     /// </summary>
     [EnumMember(Value = "RXRP")]
     [IsoId("_m5XicPNBEeCuA5Tr22BnwA_1121258651")]
@@ -543,7 +543,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to foreign exchange forwards.
-    /// Encoded/decoded by serializers as "FXFD".
+    /// Encoded/decoded by serializers as &quot;FXFD&quot;.
     /// </summary>
     [EnumMember(Value = "FXFD")]
     [IsoId("_m5XicfNBEeCuA5Tr22BnwA_472812638")]
@@ -552,7 +552,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to foreign exchange spots.
-    /// Encoded/decoded by serializers as "FXSP".
+    /// Encoded/decoded by serializers as &quot;FXSP&quot;.
     /// </summary>
     [EnumMember(Value = "FXSP")]
     [IsoId("_m5XicvNBEeCuA5Tr22BnwA_845627309")]
@@ -561,7 +561,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to foreign exchange profit.
-    /// Encoded/decoded by serializers as "FXPR".
+    /// Encoded/decoded by serializers as &quot;FXPR&quot;.
     /// </summary>
     [EnumMember(Value = "FXPR")]
     [IsoId("_m5Xic_NBEeCuA5Tr22BnwA_1929755497")]
@@ -570,7 +570,7 @@ public enum FinancialAssetBalanceTypeCode
     
     /// <summary>
     /// Balance attributed to foreign exchange loss.
-    /// Encoded/decoded by serializers as "FXLO".
+    /// Encoded/decoded by serializers as &quot;FXLO&quot;.
     /// </summary>
     [EnumMember(Value = "FXLO")]
     [IsoId("_m5XidPNBEeCuA5Tr22BnwA_140854004")]

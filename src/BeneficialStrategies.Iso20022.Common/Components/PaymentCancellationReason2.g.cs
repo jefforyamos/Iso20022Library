@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides further details on the reason of the cancellation request.
 /// </summary>
 [IsoId("_t3j1I1kyEeGeoaLUQk__nA_1924238897")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Cancellation Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaymentCancellationReason2
     /// Party that issues the cancellation request.
     /// </summary>
     [IsoId("_t3j1JFkyEeGeoaLUQk__nA_1574092631")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Orgtr")]
     #endif
+    [IsoXmlTag("Orgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Originator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PaymentCancellationReason2
     /// Specifies the reason for the cancellation.
     /// </summary>
     [IsoId("_t3s_EFkyEeGeoaLUQk__nA_-981671889")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationReason14Choice_? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record PaymentCancellationReason2
     /// Further details on the cancellation request reason.
     /// </summary>
     [IsoId("_t3s_EVkyEeGeoaLUQk__nA_712732373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the transportation of goods by air.
 /// </summary>
 [IsoId("_St7j49p-Ed-ak6NoX_4Aeg_1854659956")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transport By Air")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TransportByAir3
     /// Place from where the goods must leave.
     /// </summary>
     [IsoId("_St7j5Np-Ed-ak6NoX_4Aeg_1854660080")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Departure Airport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DprtureAirprt")]
     #endif
+    [IsoXmlTag("DprtureAirprt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AirportName1Choice_? DepartureAirport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TransportByAir3
     /// Place where the goods must arrive.
     /// </summary>
     [IsoId("_St7j5dp-Ed-ak6NoX_4Aeg_1854660141")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Destination Airport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstnAirprt")]
     #endif
+    [IsoXmlTag("DstnAirprt")]
     public AirportName1Choice_? DestinationAirport { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _St7j5dp-Ed-ak6NoX_4Aeg_1854660141
     
@@ -75,15 +71,13 @@ public partial record TransportByAir3
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
     [IsoId("_St7j5tp-Ed-ak6NoX_4Aeg_1854659987")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Air Carrier Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AirCrrierNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AirCrrierNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AirCarrierName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

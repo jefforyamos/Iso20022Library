@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
     /// Specifies the type classification of the party.
     /// </summary>
     [IsoId("_xPt7g2jNEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
         /// Old value before the update.
         /// </summary>
         [IsoId("_5Lc0RGjTEeiRg5NzP0jkQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Old")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Od")]
         #endif
+        [IsoXmlTag("Od")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SystemPartyType1Choice_ Old { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SystemPartyType1Choice_ Old { get; init; } 
+        public required SystemPartyType1Choice_ Old { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SystemPartyType1Choice_ Old { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
         /// New value after the update.
         /// </summary>
         [IsoId("_5Lc0RWjTEeiRg5NzP0jkQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("New")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="New")]
         #endif
+        [IsoXmlTag("New")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SystemPartyType1Choice_ New { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SystemPartyType1Choice_ New { get; init; } 
+        public required SystemPartyType1Choice_ New { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SystemPartyType1Choice_ New { get; init; } 
         #else

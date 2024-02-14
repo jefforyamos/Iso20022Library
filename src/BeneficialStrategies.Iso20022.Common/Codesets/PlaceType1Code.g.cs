@@ -21,7 +21,7 @@ public enum PlaceType1Code
 {
     /// <summary>
     /// The type of place is unknown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aHWBctp-Ed-ak6NoX_4Aeg_-1566893880")]

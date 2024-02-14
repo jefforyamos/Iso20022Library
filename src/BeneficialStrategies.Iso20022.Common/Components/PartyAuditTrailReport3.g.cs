@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Report information about party reference data.
 /// </summary>
 [IsoId("_QqREEZ9uEee7Qpz45yWJJw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Audit Trail Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PartyAuditTrailReport3
     /// Identifies the returned party reference data or error information.
     /// </summary>
     [IsoId("_Qy5boZ9uEee7Qpz45yWJJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Audit Trail Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyAudtTrlOrErr")]
     #endif
+    [IsoXmlTag("PtyAudtTrlOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyAuditTrailOrError2Choice_ PartyAuditTrailOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyAuditTrailOrError2Choice_ PartyAuditTrailOrError { get; init; } 
+    public required PartyAuditTrailOrError2Choice_ PartyAuditTrailOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyAuditTrailOrError2Choice_ PartyAuditTrailOrError { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record PartyAuditTrailReport3
     /// Period in dates for which the audit trail is provided.
     /// </summary>
     [IsoId("_Qy5bo59uEee7Qpz45yWJJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtPrd")]
     #endif
+    [IsoXmlTag("DtPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod3Choice_? DatePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record PartyAuditTrailReport3
     /// Identifies the party for which the audit trail is provided.
     /// </summary>
     [IsoId("_Qy5bpZ9uEee7Qpz45yWJJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification8 PartyIdentification { get; init; } 
+    public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification8 PartyIdentification { get; init; } 
     #else

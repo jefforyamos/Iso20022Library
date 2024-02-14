@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice
     /// Information about head member of liquidity pool.
     /// </summary>
     [IsoId("_zpIWcCDsEeav65mEytrgaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Head Member Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice
         /// Account identifier.
         /// </summary>
         [IsoId("_UhRGkCDsEeav65mEytrgaA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Acct")]
         #endif
+        [IsoXmlTag("Acct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CashAccount24 Account { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CashAccount24 Account { get; init; } 
+        public required CashAccount24 Account { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CashAccount24 Account { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice
         /// Account owner identification.
         /// </summary>
         [IsoId("_eOrnECDsEeav65mEytrgaA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnr")]
         #endif
+        [IsoXmlTag("AcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialInstitutionIdentification9 AccountOwner { get; init; } 
+        public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialInstitutionIdentification9 AccountOwner { get; init; } 
         #else

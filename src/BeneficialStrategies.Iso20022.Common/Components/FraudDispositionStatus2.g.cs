@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Disposition of previously submitted fraud report message.
 /// </summary>
 [IsoId("_tyAHATHUEeyTT91yHXSlSQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fraud Disposition Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FraudDispositionStatus2
     /// Indicates the action taken as a disposition of the previously fraud report message.
     /// </summary>
     [IsoId("_t4meQTHUEeyTT91yHXSlSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Taken")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTaken")]
     #endif
+    [IsoXmlTag("ActnTaken")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActionTaken1Code ActionTaken { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ActionTaken1Code ActionTaken { get; init; } 
+    public required ActionTaken1Code ActionTaken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ActionTaken1Code ActionTaken { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record FraudDispositionStatus2
     /// Other action taken as defined at national or private level.
     /// </summary>
     [IsoId("_t4meQzHUEeyTT91yHXSlSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Action Taken")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrActnTaken")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrActnTaken")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherActionTaken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record FraudDispositionStatus2
     /// Contains errors found in the submitted fraud report message.
     /// </summary>
     [IsoId("_t4meRTHUEeyTT91yHXSlSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ErrData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ErrData")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? ErrorData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,15 +106,13 @@ public partial record FraudDispositionStatus2
     /// Contains warnings found in the submitted fraud report message.
     /// </summary>
     [IsoId("_t4meRzHUEeyTT91yHXSlSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Warning Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WrngData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("WrngData")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? WarningData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +125,11 @@ public partial record FraudDispositionStatus2
     /// Additional information
     /// </summary>
     [IsoId("_t4meSTHUEeyTT91yHXSlSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation30? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

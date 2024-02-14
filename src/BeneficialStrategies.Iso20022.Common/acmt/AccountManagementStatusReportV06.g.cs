@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|The AccountManagementStatusReport message is sent by an account servicer, for example, a registrar, transfer agent, custodian bank or securities depository to the account owner or its designated agent, for example, an investor to report on the receipt or the processing status of a previously received account management message.|Usage|The AccountManagementStatusReport message is used to provide the status of a previously received AccountOpeningInstruction, an AccountModificationInstruction or a GetAccountDetails message. It may also be used to report the status of the account. |The AccountManagementStatusReport message is also used to reject an AccountOpeningInstruction, AccountModificationInstruction or GetAccountDetails message when the message is not compliant with the agreed SLA or when the account cannot be uniquely identified.")]
 [IsoId("_9r1N0UNDEeaknIuOb43xYQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Management Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record AccountManagementStatusReportV06 : IOuterRecord<AccountMan
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_9r1N00NDEeaknIuOb43xYQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -100,32 +97,28 @@ public partial record AccountManagementStatusReportV06 : IOuterRecord<AccountMan
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_9r1N1UNDEeaknIuOb43xYQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRef")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<AdditionalReference6> RelatedReference { get; init; } = new ValueList<AdditionalReference6>(){};
     
     /// <summary>
     /// Status report details of the account management instruction that was previously received.
     /// </summary>
     [IsoId("_9r1N10NDEeaknIuOb43xYQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRpt")]
     #endif
+    [IsoXmlTag("StsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountManagementStatusAndReason5 StatusReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountManagementStatusAndReason5 StatusReport { get; init; } 
+    public required AccountManagementStatusAndReason5 StatusReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountManagementStatusAndReason5 StatusReport { get; init; } 
     #else
@@ -136,12 +129,11 @@ public partial record AccountManagementStatusReportV06 : IOuterRecord<AccountMan
     /// Identifies the market practice to which the message conforms.
     /// </summary>
     [IsoId("_9r1N2UNDEeaknIuOb43xYQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Practice Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktPrctcVrsn")]
     #endif
+    [IsoXmlTag("MktPrctcVrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketPracticeVersion1? MarketPracticeVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +146,11 @@ public partial record AccountManagementStatusReportV06 : IOuterRecord<AccountMan
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_9r1N20NDEeaknIuOb43xYQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,7 +163,7 @@ public partial record AccountManagementStatusReportV06 : IOuterRecord<AccountMan
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountManagementStatusReportV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountManagementStatusReportV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountManagementStatusReportV06Document ToDocument()
     {
@@ -182,7 +173,7 @@ public partial record AccountManagementStatusReportV06 : IOuterRecord<AccountMan
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountManagementStatusReportV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountManagementStatusReportV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountManagementStatusReportV06Document : IOuterDocument<AccountManagementStatusReportV06>
@@ -199,7 +190,7 @@ public partial record AccountManagementStatusReportV06Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountManagementStatusReportV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountManagementStatusReportV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountManagementStatusReportV06 Message { get; init; }

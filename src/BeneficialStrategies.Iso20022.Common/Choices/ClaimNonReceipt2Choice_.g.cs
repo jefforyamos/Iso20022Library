@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClaimNonReceipt2Choice.Accepted))]
     [KnownType(typeof(ClaimNonReceipt2Choice.Rejected))]
     [IsoId("_EVNOIW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Claim Non Receipt 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

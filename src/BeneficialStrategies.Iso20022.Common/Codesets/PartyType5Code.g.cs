@@ -21,7 +21,7 @@ public enum PartyType5Code
 {
     /// <summary>
     /// Point Of Interaction initiating the card payment transaction.
-    /// Encoded/decoded by serializers as "OPOI".
+    /// Encoded/decoded by serializers as &quot;OPOI&quot;.
     /// </summary>
     [EnumMember(Value = "OPOI")]
     [IsoId("_KTB_yH1DEeCF8NjrBemJWQ_1219111491")]
@@ -30,7 +30,7 @@ public enum PartyType5Code
     
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_KTB_yX1DEeCF8NjrBemJWQ_990949228")]
@@ -39,7 +39,7 @@ public enum PartyType5Code
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_KTLwwH1DEeCF8NjrBemJWQ_-6123125")]
@@ -48,7 +48,7 @@ public enum PartyType5Code
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_KTLwwX1DEeCF8NjrBemJWQ_-1003195478")]
@@ -57,7 +57,7 @@ public enum PartyType5Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_KTLwwn1DEeCF8NjrBemJWQ_-2000267831")]
@@ -66,7 +66,7 @@ public enum PartyType5Code
     
     /// <summary>
     /// Responsible for the maintenance of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "MTMG".
+    /// Encoded/decoded by serializers as &quot;MTMG&quot;.
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_KTLww31DEeCF8NjrBemJWQ_1297627112")]
@@ -75,7 +75,7 @@ public enum PartyType5Code
     
     /// <summary>
     /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "TMGT".
+    /// Encoded/decoded by serializers as &quot;TMGT&quot;.
     /// </summary>
     [EnumMember(Value = "TMGT")]
     [IsoId("_KTLwxH1DEeCF8NjrBemJWQ_8597021")]

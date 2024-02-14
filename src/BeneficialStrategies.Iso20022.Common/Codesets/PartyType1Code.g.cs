@@ -21,7 +21,7 @@ public enum PartyType1Code
 {
     /// <summary>
     /// Party that identifies an executing / give-up broker.
-    /// Encoded/decoded by serializers as "EXEC".
+    /// Encoded/decoded by serializers as &quot;EXEC&quot;.
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_ZyLpwNp-Ed-ak6NoX_4Aeg_227965693")]
@@ -30,7 +30,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party that receives the trade credit.
-    /// Encoded/decoded by serializers as "BROK".
+    /// Encoded/decoded by serializers as &quot;BROK&quot;.
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_ZyLpwdp-Ed-ak6NoX_4Aeg_253825751")]
@@ -39,7 +39,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party that is going to carry the position on their books at another clearinghouse (exchanges).
-    /// Encoded/decoded by serializers as "CORR".
+    /// Encoded/decoded by serializers as &quot;CORR&quot;.
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_ZyLpwtp-Ed-ak6NoX_4Aeg_253825864")]
@@ -48,7 +48,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party that is the counterparty in a trade.
-    /// Encoded/decoded by serializers as "COFI".
+    /// Encoded/decoded by serializers as &quot;COFI&quot;.
     /// </summary>
     [EnumMember(Value = "COFI")]
     [IsoId("_ZyLpw9p-Ed-ak6NoX_4Aeg_253826236")]
@@ -57,7 +57,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party that is the clearing firm of the counterparty in a trade.
-    /// Encoded/decoded by serializers as "COCL".
+    /// Encoded/decoded by serializers as &quot;COCL&quot;.
     /// </summary>
     [EnumMember(Value = "COCL")]
     [IsoId("_ZyLpxNp-Ed-ak6NoX_4Aeg_253826279")]
@@ -66,7 +66,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party (broker or other firm), which is the contra side of the trade for the underlying security.
-    /// Encoded/decoded by serializers as "UNDE".
+    /// Encoded/decoded by serializers as &quot;UNDE&quot;.
     /// </summary>
     [EnumMember(Value = "UNDE")]
     [IsoId("_ZyLpxdp-Ed-ak6NoX_4Aeg_253826717")]
@@ -75,7 +75,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party to which the trade is given up (carries the position that results from a trade).
-    /// Encoded/decoded by serializers as "GIVE".
+    /// Encoded/decoded by serializers as &quot;GIVE&quot;.
     /// </summary>
     [EnumMember(Value = "GIVE")]
     [IsoId("_ZyLpxtp-Ed-ak6NoX_4Aeg_253826812")]
@@ -84,7 +84,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party that originates an order.
-    /// Encoded/decoded by serializers as "ORDE".
+    /// Encoded/decoded by serializers as &quot;ORDE&quot;.
     /// </summary>
     [EnumMember(Value = "ORDE")]
     [IsoId("_ZyLpx9p-Ed-ak6NoX_4Aeg_253826837")]
@@ -93,7 +93,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party (member of an exchange)that is sponsoring an entering firm to send orders directly to the exchange.
-    /// Encoded/decoded by serializers as "SPON".
+    /// Encoded/decoded by serializers as &quot;SPON&quot;.
     /// </summary>
     [EnumMember(Value = "SPON")]
     [IsoId("_ZyLpyNp-Ed-ak6NoX_4Aeg_253827226")]
@@ -102,7 +102,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party (broker) that settles security transactions from another broker for a fee = take up broker.
-    /// Encoded/decoded by serializers as "CLEA".
+    /// Encoded/decoded by serializers as &quot;CLEA&quot;.
     /// </summary>
     [EnumMember(Value = "CLEA")]
     [IsoId("_ZyLpydp-Ed-ak6NoX_4Aeg_254747310")]
@@ -111,7 +111,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party that can relay an order directly to the trading floor, or give clients direct access to the floor. The introducing firm delegates the work of the floor operation, trade execution and accounting.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_ZyLpytp-Ed-ak6NoX_4Aeg_254747508")]
@@ -120,7 +120,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party that has recorded or reported an execution of a trade. When an entering firm that is not a party to a trade enters the trade into a trade recording system, any inquiries can be directed to the appropriate source.
-    /// Encoded/decoded by serializers as "ENTE".
+    /// Encoded/decoded by serializers as &quot;ENTE&quot;.
     /// </summary>
     [EnumMember(Value = "ENTE")]
     [IsoId("_ZyVawNp-Ed-ak6NoX_4Aeg_254747897")]
@@ -129,7 +129,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// A client is identified in third party-transactions or for investor in intermediary transactions.
-    /// Encoded/decoded by serializers as "CLIE".
+    /// Encoded/decoded by serializers as &quot;CLIE&quot;.
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_ZyVawdp-Ed-ak6NoX_4Aeg_254748439")]
@@ -138,7 +138,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Broker to which the investment manager directs the execution of a portion of the trade.
-    /// Encoded/decoded by serializers as "STEP".
+    /// Encoded/decoded by serializers as &quot;STEP&quot;.
     /// </summary>
     [EnumMember(Value = "STEP")]
     [IsoId("_ZyVawtp-Ed-ak6NoX_4Aeg_254748828")]
@@ -147,7 +147,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.
-    /// Encoded/decoded by serializers as "AFFI".
+    /// Encoded/decoded by serializers as &quot;AFFI&quot;.
     /// </summary>
     [EnumMember(Value = "AFFI")]
     [IsoId("_ZyVaw9p-Ed-ak6NoX_4Aeg_254749231")]
@@ -156,7 +156,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party acting as the Electronic Trade Confirmation (ETC) service provider 1.
-    /// Encoded/decoded by serializers as "ETC1".
+    /// Encoded/decoded by serializers as &quot;ETC1&quot;.
     /// </summary>
     [EnumMember(Value = "ETC1")]
     [IsoId("_ZyVaxNp-Ed-ak6NoX_4Aeg_254749386")]
@@ -165,7 +165,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party acting as the Electronic Trade Confirmation (ETC) service provider 2.
-    /// Encoded/decoded by serializers as "ETC2".
+    /// Encoded/decoded by serializers as &quot;ETC2&quot;.
     /// </summary>
     [EnumMember(Value = "ETC2")]
     [IsoId("_ZyVaxdp-Ed-ak6NoX_4Aeg_254749776")]
@@ -174,7 +174,7 @@ public enum PartyType1Code
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_ZyVaxtp-Ed-ak6NoX_4Aeg_280607415")]

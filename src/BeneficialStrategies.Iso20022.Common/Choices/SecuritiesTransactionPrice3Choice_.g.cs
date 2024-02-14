@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice3Choice.Yield))]
     [KnownType(typeof(SecuritiesTransactionPrice3Choice.PendingPrice))]
     [IsoId("_rS83x0DWEeWOL-OsSq2h6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Transaction Price 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

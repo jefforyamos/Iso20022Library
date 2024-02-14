@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies prices.
 /// </summary>
 [IsoId("_UKwuSNp-Ed-ak6NoX_4Aeg_-198423815")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPrice4
     /// Estimated price, eg, for valuation purposes.
     /// </summary>
     [IsoId("_UKwuSdp-Ed-ak6NoX_4Aeg_-187341801")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indicative Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndctvPric")]
     #endif
+    [IsoXmlTag("IndctvPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat2Choice_? IndicativePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPrice4
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
     [IsoId("_UK6fQNp-Ed-ak6NoX_4Aeg_2014235941")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktPric")]
     #endif
+    [IsoXmlTag("MktPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat2Choice_? MarketPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

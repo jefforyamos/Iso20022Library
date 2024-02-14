@@ -21,7 +21,7 @@ public enum RejectedConfirmationStatusReason1Code
 {
     /// <summary>
     /// Investment account information not the same as instructed.
-    /// Encoded/decoded by serializers as "DSAF".
+    /// Encoded/decoded by serializers as &quot;DSAF&quot;.
     /// </summary>
     [EnumMember(Value = "DSAF")]
     [IsoId("_ZbYTUtp-Ed-ak6NoX_4Aeg_-695958995")]
@@ -30,7 +30,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Financial instrument information not the same as instructed.
-    /// Encoded/decoded by serializers as "DFIN".
+    /// Encoded/decoded by serializers as &quot;DFIN&quot;.
     /// </summary>
     [EnumMember(Value = "DFIN")]
     [IsoId("_ZbYTU9p-Ed-ak6NoX_4Aeg_-695958376")]
@@ -39,7 +39,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Beneficiary details is not the same as instructed.
-    /// Encoded/decoded by serializers as "DBEN".
+    /// Encoded/decoded by serializers as &quot;DBEN&quot;.
     /// </summary>
     [EnumMember(Value = "DBEN")]
     [IsoId("_ZbYTVNp-Ed-ak6NoX_4Aeg_-695037937")]
@@ -48,7 +48,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Place of trade not the same as instructed.
-    /// Encoded/decoded by serializers as "DPTD".
+    /// Encoded/decoded by serializers as &quot;DPTD&quot;.
     /// </summary>
     [EnumMember(Value = "DPTD")]
     [IsoId("_ZbYTVdp-Ed-ak6NoX_4Aeg_-695037912")]
@@ -57,7 +57,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Order date time not the same as instructed.
-    /// Encoded/decoded by serializers as "DORD".
+    /// Encoded/decoded by serializers as &quot;DORD&quot;.
     /// </summary>
     [EnumMember(Value = "DORD")]
     [IsoId("_ZbYTVtp-Ed-ak6NoX_4Aeg_-695037410")]
@@ -66,7 +66,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Cancellation right not the same as instructed.
-    /// Encoded/decoded by serializers as "DCXR".
+    /// Encoded/decoded by serializers as &quot;DCXR&quot;.
     /// </summary>
     [EnumMember(Value = "DCXR")]
     [IsoId("_ZbYTV9p-Ed-ak6NoX_4Aeg_-695036887")]
@@ -75,7 +75,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Units number information not the same as instructed.
-    /// Encoded/decoded by serializers as "DUNB".
+    /// Encoded/decoded by serializers as &quot;DUNB&quot;.
     /// </summary>
     [EnumMember(Value = "DUNB")]
     [IsoId("_ZbYTWNp-Ed-ak6NoX_4Aeg_-695036697")]
@@ -84,7 +84,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Order type information not the same as instructed.
-    /// Encoded/decoded by serializers as "DORT".
+    /// Encoded/decoded by serializers as &quot;DORT&quot;.
     /// </summary>
     [EnumMember(Value = "DORT")]
     [IsoId("_ZbYTWdp-Ed-ak6NoX_4Aeg_-695035896")]
@@ -93,7 +93,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Rounding information not the same as instructed.
-    /// Encoded/decoded by serializers as "DROU".
+    /// Encoded/decoded by serializers as &quot;DROU&quot;.
     /// </summary>
     [EnumMember(Value = "DROU")]
     [IsoId("_ZbiEUNp-Ed-ak6NoX_4Aeg_-695035334")]
@@ -102,7 +102,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Net amount information not the same as instructed.
-    /// Encoded/decoded by serializers as "DNAM".
+    /// Encoded/decoded by serializers as &quot;DNAM&quot;.
     /// </summary>
     [EnumMember(Value = "DNAM")]
     [IsoId("_ZbiEUdp-Ed-ak6NoX_4Aeg_-695034499")]
@@ -111,7 +111,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Gross amount information not the same as instructed.
-    /// Encoded/decoded by serializers as "DGAM".
+    /// Encoded/decoded by serializers as &quot;DGAM&quot;.
     /// </summary>
     [EnumMember(Value = "DGAM")]
     [IsoId("_ZbiEUtp-Ed-ak6NoX_4Aeg_-687649588")]
@@ -120,7 +120,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Holdings redemption rate not the same as instructed.
-    /// Encoded/decoded by serializers as "DHRR".
+    /// Encoded/decoded by serializers as &quot;DHRR&quot;.
     /// </summary>
     [EnumMember(Value = "DHRR")]
     [IsoId("_ZbiEU9p-Ed-ak6NoX_4Aeg_-687648777")]
@@ -129,7 +129,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Group 1 or 2 units not the same as instructed.
-    /// Encoded/decoded by serializers as "DGRP".
+    /// Encoded/decoded by serializers as &quot;DGRP&quot;.
     /// </summary>
     [EnumMember(Value = "DGRP")]
     [IsoId("_ZbiEVNp-Ed-ak6NoX_4Aeg_-687648250")]
@@ -138,7 +138,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Income preference information not the same as instructed.
-    /// Encoded/decoded by serializers as "DINP".
+    /// Encoded/decoded by serializers as &quot;DINP&quot;.
     /// </summary>
     [EnumMember(Value = "DINP")]
     [IsoId("_ZbiEVdp-Ed-ak6NoX_4Aeg_-687647770")]
@@ -147,7 +147,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Letter Intent reference information not the same as instructed.
-    /// Encoded/decoded by serializers as "DLIR".
+    /// Encoded/decoded by serializers as &quot;DLIR&quot;.
     /// </summary>
     [EnumMember(Value = "DLIR")]
     [IsoId("_ZbiEVtp-Ed-ak6NoX_4Aeg_-687647572")]
@@ -156,7 +156,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Accumulation right reference information not the same as instructed.
-    /// Encoded/decoded by serializers as "DARR".
+    /// Encoded/decoded by serializers as &quot;DARR&quot;.
     /// </summary>
     [EnumMember(Value = "DARR")]
     [IsoId("_ZbiEV9p-Ed-ak6NoX_4Aeg_-687647165")]
@@ -165,7 +165,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Physical delivery indicator information not the same as instructed.
-    /// Encoded/decoded by serializers as "DPDI".
+    /// Encoded/decoded by serializers as &quot;DPDI&quot;.
     /// </summary>
     [EnumMember(Value = "DPDI")]
     [IsoId("_ZbiEWNp-Ed-ak6NoX_4Aeg_-687646892")]
@@ -174,7 +174,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Requested settlement currency information not the same as instructed.
-    /// Encoded/decoded by serializers as "DRSC".
+    /// Encoded/decoded by serializers as &quot;DRSC&quot;.
     /// </summary>
     [EnumMember(Value = "DRSC")]
     [IsoId("_ZbiEWdp-Ed-ak6NoX_4Aeg_-687646624")]
@@ -183,7 +183,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Requested NAV currency information not the same as instructed.
-    /// Encoded/decoded by serializers as "DNAV".
+    /// Encoded/decoded by serializers as &quot;DNAV&quot;.
     /// </summary>
     [EnumMember(Value = "DNAV")]
     [IsoId("_ZbiEWtp-Ed-ak6NoX_4Aeg_-686726255")]
@@ -192,7 +192,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Foreign exchange details information not the same as instructed.
-    /// Encoded/decoded by serializers as "DFXD".
+    /// Encoded/decoded by serializers as &quot;DFXD&quot;.
     /// </summary>
     [EnumMember(Value = "DFXD")]
     [IsoId("_Zbr1UNp-Ed-ak6NoX_4Aeg_-686726238")]
@@ -201,7 +201,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Charge details information not the same as instructed.
-    /// Encoded/decoded by serializers as "DCHD".
+    /// Encoded/decoded by serializers as &quot;DCHD&quot;.
     /// </summary>
     [EnumMember(Value = "DCHD")]
     [IsoId("_Zbr1Udp-Ed-ak6NoX_4Aeg_-686726220")]
@@ -210,7 +210,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Commission details information not the same as instructed.
-    /// Encoded/decoded by serializers as "DXOD".
+    /// Encoded/decoded by serializers as &quot;DXOD&quot;.
     /// </summary>
     [EnumMember(Value = "DXOD")]
     [IsoId("_Zbr1Utp-Ed-ak6NoX_4Aeg_-686726203")]
@@ -219,7 +219,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Tax details information not the same as instructed.
-    /// Encoded/decoded by serializers as "DTAD".
+    /// Encoded/decoded by serializers as &quot;DTAD&quot;.
     /// </summary>
     [EnumMember(Value = "DTAD")]
     [IsoId("_Zbr1U9p-Ed-ak6NoX_4Aeg_-686725676")]
@@ -228,7 +228,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Physical delivery details information not the same as instructed.
-    /// Encoded/decoded by serializers as "DPDD".
+    /// Encoded/decoded by serializers as &quot;DPDD&quot;.
     /// </summary>
     [EnumMember(Value = "DPDD")]
     [IsoId("_Zbr1VNp-Ed-ak6NoX_4Aeg_-686725195")]
@@ -237,7 +237,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Settlement and custody details information not the same as instructed.
-    /// Encoded/decoded by serializers as "DSCA".
+    /// Encoded/decoded by serializers as &quot;DSCA&quot;.
     /// </summary>
     [EnumMember(Value = "DSCA")]
     [IsoId("_Zbr1Vdp-Ed-ak6NoX_4Aeg_-686724668")]
@@ -246,7 +246,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Payment Instrument details information not the same as instructed.
-    /// Encoded/decoded by serializers as "DPID".
+    /// Encoded/decoded by serializers as &quot;DPID&quot;.
     /// </summary>
     [EnumMember(Value = "DPID")]
     [IsoId("_Zbr1Vtp-Ed-ak6NoX_4Aeg_-686724222")]
@@ -255,7 +255,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Settlement amount not the same as instructed.
-    /// Encoded/decoded by serializers as "DSAM".
+    /// Encoded/decoded by serializers as &quot;DSAM&quot;.
     /// </summary>
     [EnumMember(Value = "DSAM")]
     [IsoId("_Zbr1V9p-Ed-ak6NoX_4Aeg_-686723369")]
@@ -264,7 +264,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Settlement date not the same as instructed.
-    /// Encoded/decoded by serializers as "DSDT".
+    /// Encoded/decoded by serializers as &quot;DSDT&quot;.
     /// </summary>
     [EnumMember(Value = "DSDT")]
     [IsoId("_Zbr1WNp-Ed-ak6NoX_4Aeg_-686723197")]
@@ -273,7 +273,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Extension information not the same as instructed.
-    /// Encoded/decoded by serializers as "DEXD".
+    /// Encoded/decoded by serializers as &quot;DEXD&quot;.
     /// </summary>
     [EnumMember(Value = "DEXD")]
     [IsoId("_Zbr1Wdp-Ed-ak6NoX_4Aeg_-685802681")]
@@ -282,7 +282,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Intermediary information not the same as instructed.
-    /// Encoded/decoded by serializers as "DIMD".
+    /// Encoded/decoded by serializers as &quot;DIMD&quot;.
     /// </summary>
     [EnumMember(Value = "DIMD")]
     [IsoId("_Zb0_QNp-Ed-ak6NoX_4Aeg_-685802206")]
@@ -291,7 +291,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Total redemption amount not the same as instructed.
-    /// Encoded/decoded by serializers as "DTRA".
+    /// Encoded/decoded by serializers as &quot;DTRA&quot;.
     /// </summary>
     [EnumMember(Value = "DTRA")]
     [IsoId("_Zb0_Qdp-Ed-ak6NoX_4Aeg_-685801492")]
@@ -300,7 +300,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Total subscription amount not the same as instructed.
-    /// Encoded/decoded by serializers as "DTSA".
+    /// Encoded/decoded by serializers as &quot;DTSA&quot;.
     /// </summary>
     [EnumMember(Value = "DTSA")]
     [IsoId("_Zb0_Qtp-Ed-ak6NoX_4Aeg_-685800812")]
@@ -309,7 +309,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Additional cash in not the same as instructed.
-    /// Encoded/decoded by serializers as "DACI".
+    /// Encoded/decoded by serializers as &quot;DACI&quot;.
     /// </summary>
     [EnumMember(Value = "DACI")]
     [IsoId("_Zb0_Q9p-Ed-ak6NoX_4Aeg_-685800545")]
@@ -318,7 +318,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Resulting cash out not the same as instructed.
-    /// Encoded/decoded by serializers as "DACO".
+    /// Encoded/decoded by serializers as &quot;DACO&quot;.
     /// </summary>
     [EnumMember(Value = "DACO")]
     [IsoId("_Zb0_RNp-Ed-ak6NoX_4Aeg_-685800113")]
@@ -327,7 +327,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Percentage of total subscription amount not the same as instructed.
-    /// Encoded/decoded by serializers as "DPSA".
+    /// Encoded/decoded by serializers as &quot;DPSA&quot;.
     /// </summary>
     [EnumMember(Value = "DPSA")]
     [IsoId("_Zb0_Rdp-Ed-ak6NoX_4Aeg_-685799319")]
@@ -336,7 +336,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Percentage of total redemption amount not the same as instructed.
-    /// Encoded/decoded by serializers as "DPRA".
+    /// Encoded/decoded by serializers as &quot;DPRA&quot;.
     /// </summary>
     [EnumMember(Value = "DPRA")]
     [IsoId("_Zb0_Rtp-Ed-ak6NoX_4Aeg_-684879098")]
@@ -345,7 +345,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Leg Identification not the same as instructed.
-    /// Encoded/decoded by serializers as "DLID".
+    /// Encoded/decoded by serializers as &quot;DLID&quot;.
     /// </summary>
     [EnumMember(Value = "DLID")]
     [IsoId("_Zb0_R9p-Ed-ak6NoX_4Aeg_-684878588")]
@@ -354,7 +354,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Confirmation is recognised by the Receiver because the message reference is identified, but the order reference is not the same as instructed.
-    /// Encoded/decoded by serializers as "DORF".
+    /// Encoded/decoded by serializers as &quot;DORF&quot;.
     /// </summary>
     [EnumMember(Value = "DORF")]
     [IsoId("_Zb-wQNp-Ed-ak6NoX_4Aeg_-684878065")]
@@ -363,7 +363,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Linked reference is not known.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_Zb-wQdp-Ed-ak6NoX_4Aeg_-684877623")]
@@ -372,7 +372,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Deal reference is a duplicate of a previously received deal reference.
-    /// Encoded/decoded by serializers as "DREF".
+    /// Encoded/decoded by serializers as &quot;DREF&quot;.
     /// </summary>
     [EnumMember(Value = "DREF")]
     [IsoId("_Zb-wQtp-Ed-ak6NoX_4Aeg_-684876727")]
@@ -381,7 +381,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Receiving agent is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IVAG".
+    /// Encoded/decoded by serializers as &quot;IVAG&quot;.
     /// </summary>
     [EnumMember(Value = "IVAG")]
     [IsoId("_Zb-wQ9p-Ed-ak6NoX_4Aeg_-684876702")]
@@ -389,8 +389,8 @@ public enum RejectedConfirmationStatusReason1Code
     ReceivingAgent = RejectedConfirmationStatusReasonCode.ReceivingAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Receiver's Custodian is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IRCU".
+    /// Receiver&apos;s Custodian is not recognised or is invalid.
+    /// Encoded/decoded by serializers as &quot;IRCU&quot;.
     /// </summary>
     [EnumMember(Value = "IRCU")]
     [IsoId("_Zb-wRNp-Ed-ak6NoX_4Aeg_-684876685")]
@@ -398,8 +398,8 @@ public enum RejectedConfirmationStatusReason1Code
     ReceiversCustodian = RejectedConfirmationStatusReasonCode.ReceiversCustodian, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Receiver's Intermediary is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IRIN".
+    /// Receiver&apos;s Intermediary is not recognised or is invalid.
+    /// Encoded/decoded by serializers as &quot;IRIN&quot;.
     /// </summary>
     [EnumMember(Value = "IRIN")]
     [IsoId("_Zb-wRdp-Ed-ak6NoX_4Aeg_-684876667")]
@@ -408,7 +408,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Delivering agent is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "ICAG".
+    /// Encoded/decoded by serializers as &quot;ICAG&quot;.
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_Zb-wRtp-Ed-ak6NoX_4Aeg_-684876049")]
@@ -416,8 +416,8 @@ public enum RejectedConfirmationStatusReason1Code
     DeliveringAgent = RejectedConfirmationStatusReasonCode.DeliveringAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Deliverer's Custodian is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IDCU".
+    /// Deliverer&apos;s Custodian is not recognised or is invalid.
+    /// Encoded/decoded by serializers as &quot;IDCU&quot;.
     /// </summary>
     [EnumMember(Value = "IDCU")]
     [IsoId("_Zb-wR9p-Ed-ak6NoX_4Aeg_-683955551")]
@@ -425,8 +425,8 @@ public enum RejectedConfirmationStatusReason1Code
     DeliverersCustodian = RejectedConfirmationStatusReasonCode.DeliverersCustodian, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Deliverer's Intermediary is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IDIN".
+    /// Deliverer&apos;s Intermediary is not recognised or is invalid.
+    /// Encoded/decoded by serializers as &quot;IDIN&quot;.
     /// </summary>
     [EnumMember(Value = "IDIN")]
     [IsoId("_Zb-wSNp-Ed-ak6NoX_4Aeg_-683955533")]
@@ -435,7 +435,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Credit transfer details are incorrect.
-    /// Encoded/decoded by serializers as "ICTR".
+    /// Encoded/decoded by serializers as &quot;ICTR&quot;.
     /// </summary>
     [EnumMember(Value = "ICTR")]
     [IsoId("_Zb-wSdp-Ed-ak6NoX_4Aeg_-683955006")]
@@ -444,7 +444,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Settlement Amount is invalid.
-    /// Encoded/decoded by serializers as "DMON".
+    /// Encoded/decoded by serializers as &quot;DMON&quot;.
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_Zb-wStp-Ed-ak6NoX_4Aeg_-683954465")]
@@ -453,7 +453,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Settlement date or transfer date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_ZcH6MNp-Ed-ak6NoX_4Aeg_-683953707")]
@@ -462,7 +462,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Confirmation is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NSLA".
+    /// Encoded/decoded by serializers as &quot;NSLA&quot;.
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ZcH6Mdp-Ed-ak6NoX_4Aeg_-683953223")]
@@ -471,7 +471,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// EU tax information is missing.
-    /// Encoded/decoded by serializers as "MEUT".
+    /// Encoded/decoded by serializers as &quot;MEUT&quot;.
     /// </summary>
     [EnumMember(Value = "MEUT")]
     [IsoId("_ZcH6Mtp-Ed-ak6NoX_4Aeg_-683952682")]
@@ -480,7 +480,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Commission information is missing.
-    /// Encoded/decoded by serializers as "MCOM".
+    /// Encoded/decoded by serializers as &quot;MCOM&quot;.
     /// </summary>
     [EnumMember(Value = "MCOM")]
     [IsoId("_ZcH6M9p-Ed-ak6NoX_4Aeg_-683031210")]
@@ -489,7 +489,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Charge information is missing.
-    /// Encoded/decoded by serializers as "MCHA".
+    /// Encoded/decoded by serializers as &quot;MCHA&quot;.
     /// </summary>
     [EnumMember(Value = "MCHA")]
     [IsoId("_ZcH6NNp-Ed-ak6NoX_4Aeg_-674719853")]
@@ -498,7 +498,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Tax information is missing.
-    /// Encoded/decoded by serializers as "MTAX".
+    /// Encoded/decoded by serializers as &quot;MTAX&quot;.
     /// </summary>
     [EnumMember(Value = "MTAX")]
     [IsoId("_ZcH6Ndp-Ed-ak6NoX_4Aeg_-674719348")]
@@ -507,7 +507,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Amendment of order confirmation not allowed.
-    /// Encoded/decoded by serializers as "NATA".
+    /// Encoded/decoded by serializers as &quot;NATA&quot;.
     /// </summary>
     [EnumMember(Value = "NATA")]
     [IsoId("_ZcH6Ntp-Ed-ak6NoX_4Aeg_-674718837")]
@@ -516,7 +516,7 @@ public enum RejectedConfirmationStatusReason1Code
     
     /// <summary>
     /// Amendment of order confirmation too late.
-    /// Encoded/decoded by serializers as "ALAT".
+    /// Encoded/decoded by serializers as &quot;ALAT&quot;.
     /// </summary>
     [EnumMember(Value = "ALAT")]
     [IsoId("_ZcH6N9p-Ed-ak6NoX_4Aeg_-674718357")]

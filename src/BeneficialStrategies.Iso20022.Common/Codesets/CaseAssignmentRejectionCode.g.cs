@@ -21,7 +21,7 @@ public enum CaseAssignmentRejectionCode
 {
     /// <summary>
     /// Underlying instruction can not be found.
-    /// Encoded/decoded by serializers as "NFND".
+    /// Encoded/decoded by serializers as &quot;NFND&quot;.
     /// </summary>
     [EnumMember(Value = "NFND")]
     [IsoId("_a2IaF9p-Ed-ak6NoX_4Aeg_-141872446")]
@@ -30,7 +30,7 @@ public enum CaseAssignmentRejectionCode
     
     /// <summary>
     /// Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).
-    /// Encoded/decoded by serializers as "NAUT".
+    /// Encoded/decoded by serializers as &quot;NAUT&quot;.
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_a2IaGNp-Ed-ak6NoX_4Aeg_-141872403")]
@@ -39,7 +39,7 @@ public enum CaseAssignmentRejectionCode
     
     /// <summary>
     /// Case has never been assigned before.
-    /// Encoded/decoded by serializers as "UKNW".
+    /// Encoded/decoded by serializers as &quot;UKNW&quot;.
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_a2SLENp-Ed-ak6NoX_4Aeg_-141872368")]
@@ -48,7 +48,7 @@ public enum CaseAssignmentRejectionCode
     
     /// <summary>
     /// Used when the payment instruction has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_a2SLEdp-Ed-ak6NoX_4Aeg_-141872333")]
@@ -57,7 +57,7 @@ public enum CaseAssignmentRejectionCode
     
     /// <summary>
     /// Used when the payment instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CNCL".
+    /// Encoded/decoded by serializers as &quot;CNCL&quot;.
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_a2SLEtp-Ed-ak6NoX_4Aeg_-141872308")]
@@ -66,7 +66,7 @@ public enum CaseAssignmentRejectionCode
     
     /// <summary>
     /// Used when the payment instruction has previously been cancelled or rejected.
-    /// Encoded/decoded by serializers as "PCOR".
+    /// Encoded/decoded by serializers as &quot;PCOR&quot;.
     /// </summary>
     [EnumMember(Value = "PCOR")]
     [IsoId("_a2SLE9p-Ed-ak6NoX_4Aeg_-795580088")]

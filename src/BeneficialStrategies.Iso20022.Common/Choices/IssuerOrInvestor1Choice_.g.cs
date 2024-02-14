@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IssuerOrInvestor1Choice.IssuerCSD))]
     [KnownType(typeof(IssuerOrInvestor1Choice.InvestorCSD))]
     [IsoId("_hh_UoWliEeGaMcKyqKNRfQ_1655812261")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Or Investor 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

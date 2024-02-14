@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity20Cho
     /// Quantity expressed as an amount representing the face amount, that is, the principal, of a debt instrument.
     /// </summary>
     [IsoId("_pPlzRQFIEeGhYJiRaPcH8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Face Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity20Cho
         /// Number of monetary units specified in a currency where the unit of currency is implied by the context and compliant with ISO 4217. The decimal separator is a dot.|Note: a zero amount is considered a positive amount.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FaceAmt")]
         #endif
+        [IsoXmlTag("FaceAmt")]
+        [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoImpliedCurrencyAndAmount Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Value { get; init; } 
+        public required System.Decimal Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Value { get; init; } 
         #else

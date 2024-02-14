@@ -21,7 +21,7 @@ public enum StatementStatusTypeCode
 {
     /// <summary>
     /// Transactions reported are confirmed.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_DQH18NBVEeiirviLm7P0IA")]
@@ -30,7 +30,7 @@ public enum StatementStatusTypeCode
     
     /// <summary>
     /// Instructions or transactions  reported are pending.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_SbArwNBVEeiirviLm7P0IA")]

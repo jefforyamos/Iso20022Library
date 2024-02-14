@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Assessments for the component of the point of interaction.
 /// </summary>
 [IsoId("_0nUakAyQEeKa_56Jbsi1RQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Point Of Interaction Component Assessment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PointOfInteractionComponentAssessment1
     /// Type of assessment of the component.
     /// </summary>
     [IsoId("_Buco4AyREeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required POIComponentAssessment1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public POIComponentAssessment1Code Type { get; init; } 
+    public required POIComponentAssessment1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public POIComponentAssessment1Code Type { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record PointOfInteractionComponentAssessment1
     /// Body which has delivered the assessment.
     /// </summary>
     [IsoId("_L3GT4AyREeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assigner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Assgnr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     public System.String? Assigner { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _L3GT4AyREeKa_56Jbsi1RQ
     
@@ -88,12 +83,12 @@ public partial record PointOfInteractionComponentAssessment1
     /// Date when the assessment has been delivered.
     /// </summary>
     [IsoId("_TwUS4AyREeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryDt")]
     #endif
+    [IsoXmlTag("DlvryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DeliveryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +101,12 @@ public partial record PointOfInteractionComponentAssessment1
     /// Date when the assessment will expire.
     /// </summary>
     [IsoId("_cJlD4AyREeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XprtnDt")]
     #endif
+    [IsoXmlTag("XprtnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,19 +119,17 @@ public partial record PointOfInteractionComponentAssessment1
     /// Unique assessment number for the component.
     /// </summary>
     [IsoId("_jKL_4AyREeKa_56Jbsi1RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Number { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Number { get; init; } 
+    public required System.String Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Number { get; init; } 
     #else

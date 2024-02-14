@@ -21,7 +21,7 @@ public enum CustomerAssignerCode
 {
     /// <summary>
     /// Travel agency assigning an identification.
-    /// Encoded/decoded by serializers as "TRAY".
+    /// Encoded/decoded by serializers as &quot;TRAY&quot;.
     /// </summary>
     [EnumMember(Value = "TRAY")]
     [IsoId("_eW7w0FyxEeeve7Je9cXtkQ")]
@@ -30,7 +30,7 @@ public enum CustomerAssignerCode
     
     /// <summary>
     /// Legal authority assigning an identification.
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_i-GwQFyxEeeve7Je9cXtkQ")]
@@ -39,7 +39,7 @@ public enum CustomerAssignerCode
     
     /// <summary>
     /// Company for which the customer is on duty.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_2ND4cFyxEeeve7Je9cXtkQ")]
@@ -48,7 +48,7 @@ public enum CustomerAssignerCode
     
     /// <summary>
     /// Company assigning an identification to a customer.
-    /// Encoded/decoded by serializers as "CRCY".
+    /// Encoded/decoded by serializers as &quot;CRCY&quot;.
     /// </summary>
     [EnumMember(Value = "CRCY")]
     [IsoId("__X0X0FyxEeeve7Je9cXtkQ")]
@@ -57,7 +57,7 @@ public enum CustomerAssignerCode
     
     /// <summary>
     /// On file identification.
-    /// Encoded/decoded by serializers as "ONFL".
+    /// Encoded/decoded by serializers as &quot;ONFL&quot;.
     /// </summary>
     [EnumMember(Value = "ONFL")]
     [IsoId("_FuHykFyyEeeve7Je9cXtkQ")]
@@ -66,7 +66,7 @@ public enum CustomerAssignerCode
     
     /// <summary>
     /// Other party assigning an identification.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_JVBAwFyyEeeve7Je9cXtkQ")]

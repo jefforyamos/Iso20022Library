@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The status of an instruction, advice or request.
 /// </summary>
 [IsoId("_UYoLKNp-Ed-ak6NoX_4Aeg_608457066")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Repair Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RepairReason1
     /// Specifies the reason why the instruction/request has a rejected or repair status.
     /// </summary>
     [IsoId("_UYxVENp-Ed-ak6NoX_4Aeg_-1969426127")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RepairReason1Choice_ Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RepairReason1Choice_ Code { get; init; } 
+    public required RepairReason1Choice_ Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RepairReason1Choice_ Code { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record RepairReason1
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
     [IsoId("_UYxVEdp-Ed-ak6NoX_4Aeg_-1704556307")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max210Text)]
     [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

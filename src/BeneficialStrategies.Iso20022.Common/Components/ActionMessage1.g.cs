@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Message to be displayed to the cardholder or the cashier.
 /// </summary>
 [IsoId("_TEzSkAEcEeCQm6a_G2yO_w_1379249384")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Action Message")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ActionMessage1
     /// Destination of the message to be displayed or printed.
     /// </summary>
     [IsoId("_TEzSkQEcEeCQm6a_G2yO_w_-1322905232")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Destination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgDstn")]
     #endif
+    [IsoXmlTag("MsgDstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UserInterface1Code MessageDestination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UserInterface1Code MessageDestination { get; init; } 
+    public required UserInterface1Code MessageDestination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UserInterface1Code MessageDestination { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record ActionMessage1
     /// Text or graphic data to be display or printed to the cardholder or the cashier.
     /// </summary>
     [IsoId("_TEzSkgEcEeCQm6a_G2yO_w_-1205034247")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgCntt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgCntt")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text MessageContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageContent { get; init; } 
+    public required System.String MessageContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageContent { get; init; } 
     #else
@@ -95,15 +90,13 @@ public partial record ActionMessage1
     /// Electronic signature of the message to display or print.
     /// </summary>
     [IsoId("_TEzSkwEcEeCQm6a_G2yO_w_795149401")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Content Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgCnttSgntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgCnttSgntr")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? MessageContentSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

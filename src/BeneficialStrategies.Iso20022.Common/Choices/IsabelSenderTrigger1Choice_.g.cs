@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IsabelSenderTrigger1Choice.Code))]
     [KnownType(typeof(IsabelSenderTrigger1Choice.Proprietary))]
     [IsoId("_Xmro0MmLEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Isabel Sender Trigger 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

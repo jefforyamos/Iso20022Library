@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the response of a reversal.
 /// </summary>
 [IsoId("_mdPa4Hu2EeS2Z_kGi7H1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Reversal Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AcquirerReversalResponse1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_9USEEHu2EeS2Z_kGi7H1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransactionEnvironment4 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardTransactionEnvironment4 Environment { get; init; } 
+    public required CardTransactionEnvironment4 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardTransactionEnvironment4 Environment { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AcquirerReversalResponse1
     /// Reversal card transaction.
     /// </summary>
     [IsoId("_7GmPEHu3EeS2Z_kGi7H1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransaction8 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardTransaction8 Transaction { get; init; } 
+    public required CardTransaction8 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardTransaction8 Transaction { get; init; } 
     #else

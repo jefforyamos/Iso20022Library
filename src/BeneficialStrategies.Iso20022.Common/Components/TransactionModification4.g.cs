@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains the requested modifications.
 /// </summary>
 [IsoId("_VShXY5lQEee-Zps0fZQaFQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Modification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TransactionModification4
     /// Reference to the instruction related to the payment for which a modification is requested.
     /// </summary>
     [IsoId("_Vblzo5lQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtId")]
     #endif
+    [IsoXmlTag("PmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentIdentification5Choice_ PaymentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentIdentification5Choice_ PaymentIdentification { get; init; } 
+    public required PaymentIdentification5Choice_ PaymentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentIdentification5Choice_ PaymentIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TransactionModification4
     /// New payment values.
     /// </summary>
     [IsoId("_VblzpZlQEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Payment Value Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewPmtValSet")]
     #endif
+    [IsoXmlTag("NewPmtValSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInstruction27 NewPaymentValueSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentInstruction27 NewPaymentValueSet { get; init; } 
+    public required PaymentInstruction27 NewPaymentValueSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentInstruction27 NewPaymentValueSet { get; init; } 
     #else

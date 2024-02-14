@@ -21,7 +21,7 @@ public enum Instruction5Code
 {
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone.
-    /// Encoded/decoded by serializers as "PHOB".
+    /// Encoded/decoded by serializers as &quot;PHOB&quot;.
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_aW-_9tp-Ed-ak6NoX_4Aeg_1896618964")]
@@ -30,7 +30,7 @@ public enum Instruction5Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "TELB".
+    /// Encoded/decoded by serializers as &quot;TELB&quot;.
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_aW-_99p-Ed-ak6NoX_4Aeg_1896618989")]

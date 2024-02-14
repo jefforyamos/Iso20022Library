@@ -21,7 +21,7 @@ public enum CancellationStatus6Code
 {
     /// <summary>
     /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_RaR74bLQEemDyeh7tbvg1w")]
@@ -30,7 +30,7 @@ public enum CancellationStatus6Code
     
     /// <summary>
     /// Cancellation instruction / request has been accepted and processed, the cancellation is complete.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_RaR75bLQEemDyeh7tbvg1w")]
@@ -39,7 +39,7 @@ public enum CancellationStatus6Code
     
     /// <summary>
     /// Cancellation instruction / request has been received by issuer or registrar.
-    /// Encoded/decoded by serializers as "RCIS".
+    /// Encoded/decoded by serializers as &quot;RCIS&quot;.
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_RaR757LQEemDyeh7tbvg1w")]

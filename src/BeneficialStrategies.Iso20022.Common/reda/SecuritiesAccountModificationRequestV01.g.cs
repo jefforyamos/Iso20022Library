@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The SecuritiesAccountModificationRequest message is sent by an instructing party to the executing party to instruct the update of an existing securities account by amending its existing attributes or by providing additional attibutes details.||Usage:|Processing and confirmation of the securities account creation request message are provided via a SecuritiesAccountStatusAdvice message.")]
 [IsoId("_KAu-rZ2fEem_Be8NuxvF7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Account Modification Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,12 +77,11 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord<Sec
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_Za_90J5HEemQg7pJhFUUYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,16 +94,15 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord<Sec
     /// Identification of the securities account to be updated in the executing party system.
     /// </summary>
     [IsoId("_KAu-u52fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount19 AccountIdentification { get; init; } 
+    public required SecuritiesAccount19 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount19 AccountIdentification { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord<Sec
     /// Further details about the requested modification.
     /// </summary>
     [IsoId("_KAu-vZ2fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mod")]
     #endif
+    [IsoXmlTag("Mod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccountModification2 Modification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccountModification2 Modification { get; init; } 
+    public required SecuritiesAccountModification2 Modification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccountModification2 Modification { get; init; } 
     #else
@@ -137,12 +132,11 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord<Sec
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_KAu-v52fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,7 +149,7 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord<Sec
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesAccountModificationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesAccountModificationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesAccountModificationRequestV01Document ToDocument()
     {
@@ -165,7 +159,7 @@ public partial record SecuritiesAccountModificationRequestV01 : IOuterRecord<Sec
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountModificationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesAccountModificationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesAccountModificationRequestV01Document : IOuterDocument<SecuritiesAccountModificationRequestV01>
@@ -182,7 +176,7 @@ public partial record SecuritiesAccountModificationRequestV01Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesAccountModificationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesAccountModificationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccountModificationRequestV01 Message { get; init; }

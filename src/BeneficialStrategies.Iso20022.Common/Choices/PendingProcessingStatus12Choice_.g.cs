@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingProcessingStatus12Choice.NoSpecifiedReason))]
     [KnownType(typeof(PendingProcessingStatus12Choice.Reason))]
     [IsoId("_D0nCgTqyEeWyoP0PbocV1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Processing Status 12 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

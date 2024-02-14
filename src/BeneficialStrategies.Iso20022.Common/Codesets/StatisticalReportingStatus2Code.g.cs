@@ -21,7 +21,7 @@ public enum StatisticalReportingStatus2Code
 {
     /// <summary>
     /// Transaction or report has been accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_cfa8aO2wEeS-SNPe_7uMwA")]
@@ -30,7 +30,7 @@ public enum StatisticalReportingStatus2Code
     
     /// <summary>
     /// Transaction or report has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_cfa8a-2wEeS-SNPe_7uMwA")]
@@ -39,7 +39,7 @@ public enum StatisticalReportingStatus2Code
     
     /// <summary>
     /// Transaction has been accepted with warnings.
-    /// Encoded/decoded by serializers as "WARN".
+    /// Encoded/decoded by serializers as &quot;WARN&quot;.
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_6KqdQe2wEeS-SNPe_7uMwA")]

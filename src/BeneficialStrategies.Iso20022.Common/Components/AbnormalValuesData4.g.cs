@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information about derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
 /// </summary>
 [IsoId("_x5wPZ1yGEe24CqbZJK5XxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Abnormal Values Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AbnormalValuesData4
     /// Data specific to counterparties and related fields.
     /// </summary>
     [IsoId("_x6yxMVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyId")]
     #endif
+    [IsoXmlTag("CtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyData92 CounterpartyIdentification { get; init; } 
+    public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyData92 CounterpartyIdentification { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record AbnormalValuesData4
     /// Number of reported derivatives.
     /// </summary>
     [IsoId("_x6yxM1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Derivatives Reported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfDerivsRptd")]
     #endif
+    [IsoXmlTag("NbOfDerivsRptd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfDerivativesReported { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfDerivativesReported { get; init; } 
+    public required System.UInt64 NumberOfDerivativesReported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfDerivativesReported { get; init; } 
     #else
@@ -93,16 +90,16 @@ public partial record AbnormalValuesData4
     /// Number of reported derivatives with outliers.
     /// </summary>
     [IsoId("_x6yxNVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Derivatives Reported With Outliers")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfDerivsRptdWthOtlrs")]
     #endif
+    [IsoXmlTag("NbOfDerivsRptdWthOtlrs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfDerivativesReportedWithOutliers { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfDerivativesReportedWithOutliers { get; init; } 
+    public required System.UInt64 NumberOfDerivativesReportedWithOutliers { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfDerivativesReportedWithOutliers { get; init; } 
     #else
@@ -113,12 +110,11 @@ public partial record AbnormalValuesData4
     /// Details on abnormal values per transaction.
     /// </summary>
     [IsoId("_x6yxN1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AbnormalValuesTransactionData2? TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

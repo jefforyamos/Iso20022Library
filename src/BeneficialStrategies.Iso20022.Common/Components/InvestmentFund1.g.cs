@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details about the investment fund class.
 /// </summary>
 [IsoId("_m-vKpvNBEeCuA5Tr22BnwA_337995700")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InvestmentFund1
     /// Identification of the investment fund or investment fund class.
     /// </summary>
     [IsoId("_m-vKp_NBEeCuA5Tr22BnwA_-1318599223")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -59,18 +56,16 @@ public partial record InvestmentFund1
     #endif
     
     /// <summary>
-    /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, for example, 'Class A', 'Class 2'.
+    /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, for example, &apos;Class A&apos;, &apos;Class 2&apos;.
     /// </summary>
     [IsoId("_m-vKqPNBEeCuA5Tr22BnwA_693141038")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Class Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClssTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClassType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record InvestmentFund1
     /// Number of shares outstanding for the investment fund or investment fund share class.
     /// </summary>
     [IsoId("_m-vKqfNBEeCuA5Tr22BnwA_-744176110")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Units Outstanding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlUnitsOutsdng")]
     #endif
+    [IsoXmlTag("TtlUnitsOutsdng")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? TotalUnitsOutstanding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,12 @@ public partial record InvestmentFund1
     /// Total transactional units (subscriptions and redemptions) which are applied to the investment fund or investment fund share class for the report period.
     /// </summary>
     [IsoId("_m-47oPNBEeCuA5Tr22BnwA_1556646480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transactional Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxnlUnits")]
     #endif
+    [IsoXmlTag("TxnlUnits")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? TransactionalUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +114,11 @@ public partial record InvestmentFund1
     /// Total value of the investment fund or investment fund share class units.
     /// </summary>
     [IsoId("_m-47ofNBEeCuA5Tr22BnwA_-2045687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlVal")]
     #endif
+    [IsoXmlTag("TtlVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection30? TotalValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +131,11 @@ public partial record InvestmentFund1
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
     [IsoId("_m-47ovNBEeCuA5Tr22BnwA_-574968216")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceInformation10? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +148,11 @@ public partial record InvestmentFund1
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_m-47o_NBEeCuA5Tr22BnwA_-14332001")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

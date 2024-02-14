@@ -21,7 +21,7 @@ public enum CardServiceType3Code
 {
     /// <summary>
     /// Convey the key to the receiver.
-    /// Encoded/decoded by serializers as "KYDL".
+    /// Encoded/decoded by serializers as &quot;KYDL&quot;.
     /// </summary>
     [EnumMember(Value = "KYDL")]
     [IsoId("_a-8UIXvNEeSCJdwgzb6SFw")]
@@ -30,7 +30,7 @@ public enum CardServiceType3Code
     
     /// <summary>
     /// Request the keys that the receiver must send in the response.
-    /// Encoded/decoded by serializers as "KYCG".
+    /// Encoded/decoded by serializers as &quot;KYCG&quot;.
     /// </summary>
     [EnumMember(Value = "KYCG")]
     [IsoId("_baEJ43vNEeSCJdwgzb6SFw")]
@@ -39,7 +39,7 @@ public enum CardServiceType3Code
     
     /// <summary>
     /// Request the receiver to verify the key check value.
-    /// Encoded/decoded by serializers as "KYVF".
+    /// Encoded/decoded by serializers as &quot;KYVF&quot;.
     /// </summary>
     [EnumMember(Value = "KYVF")]
     [IsoId("_ugAgAXvNEeSCJdwgzb6SFw")]

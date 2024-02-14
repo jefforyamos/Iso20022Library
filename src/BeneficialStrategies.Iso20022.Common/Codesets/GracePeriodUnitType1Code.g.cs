@@ -21,7 +21,7 @@ public enum GracePeriodUnitType1Code
 {
     /// <summary>
     /// Grace period weeks.
-    /// Encoded/decoded by serializers as "WEKS".
+    /// Encoded/decoded by serializers as &quot;WEKS&quot;.
     /// </summary>
     [EnumMember(Value = "WEKS")]
     [IsoId("_xb7ZcTEpEemzCpWiCwK4aQ")]
@@ -30,7 +30,7 @@ public enum GracePeriodUnitType1Code
     
     /// <summary>
     /// Grace period payments.
-    /// Encoded/decoded by serializers as "PMTS".
+    /// Encoded/decoded by serializers as &quot;PMTS&quot;.
     /// </summary>
     [EnumMember(Value = "PMTS")]
     [IsoId("_xwpFMTEpEemzCpWiCwK4aQ")]
@@ -39,7 +39,7 @@ public enum GracePeriodUnitType1Code
     
     /// <summary>
     /// Other Private Grace period.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_yFqS8TEpEemzCpWiCwK4aQ")]
@@ -48,7 +48,7 @@ public enum GracePeriodUnitType1Code
     
     /// <summary>
     /// Other National Grace period.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_yaONsTEpEemzCpWiCwK4aQ")]
@@ -57,7 +57,7 @@ public enum GracePeriodUnitType1Code
     
     /// <summary>
     /// Grace period months.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_yuo-gTEpEemzCpWiCwK4aQ")]
@@ -66,7 +66,7 @@ public enum GracePeriodUnitType1Code
     
     /// <summary>
     /// Grace period days.
-    /// Encoded/decoded by serializers as "DAYS".
+    /// Encoded/decoded by serializers as &quot;DAYS&quot;.
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_zDWqQTEpEemzCpWiCwK4aQ")]

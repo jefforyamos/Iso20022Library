@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementSystemMethod3Choice.Code))]
     [KnownType(typeof(SettlementSystemMethod3Choice.Proprietary))]
     [IsoId("_AZQqAdokEeC60axPepSq7g_1949401070")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement System Method 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

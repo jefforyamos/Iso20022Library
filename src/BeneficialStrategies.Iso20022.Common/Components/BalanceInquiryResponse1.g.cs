@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Balance Inquiry Response message.
 /// </summary>
 [IsoId("_XCUYcO19Eei-V5h0ja04AA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Inquiry Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BalanceInquiryResponse1
     /// Payment account information.
     /// </summary>
     [IsoId("_layS0O19Eei-V5h0ja04AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtAcct")]
     #endif
+    [IsoXmlTag("PmtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentAccount2? PaymentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record BalanceInquiryResponse1
     /// Loyalty account information.
     /// </summary>
     [IsoId("_RYOG8e1-Eei-V5h0ja04AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyAcct")]
     #endif
+    [IsoXmlTag("LltyAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyAccount1? LoyaltyAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record BalanceInquiryResponse1
     /// Stored value account information.
     /// </summary>
     [IsoId("_mjz68e1-Eei-V5h0ja04AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stored Value Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StordValAcct")]
     #endif
+    [IsoXmlTag("StordValAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueAccount1? StoredValueAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record BalanceInquiryResponse1
     /// Receipt to print after a balance inquiry.
     /// </summary>
     [IsoId("_tVd08e1-Eei-V5h0ja04AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receipt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rct")]
     #endif
+    [IsoXmlTag("Rct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentReceipt1? Receipt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum POIComponentAssessmentCode
 {
     /// <summary>
     /// Evaluation by a lab or a tool.
-    /// Encoded/decoded by serializers as "EVAL".
+    /// Encoded/decoded by serializers as &quot;EVAL&quot;.
     /// </summary>
     [EnumMember(Value = "EVAL")]
     [IsoId("_xXWtYAyKEeKa_56Jbsi1RQ")]
@@ -30,7 +30,7 @@ public enum POIComponentAssessmentCode
     
     /// <summary>
     /// Certification number delivered by a certification body.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_1l-C4AyKEeKa_56Jbsi1RQ")]
@@ -39,7 +39,7 @@ public enum POIComponentAssessmentCode
     
     /// <summary>
     /// Approval number delivered by an approval centre.
-    /// Encoded/decoded by serializers as "APPL".
+    /// Encoded/decoded by serializers as &quot;APPL&quot;.
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_5B2T4AyKEeKa_56Jbsi1RQ")]

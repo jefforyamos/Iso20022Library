@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies prices.
 /// </summary>
 [IsoId("_Tgcl-dp-Ed-ak6NoX_4Aeg_-1124848708")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPrice1
     /// 1. Price at which security will be purchased/sold if warrant is exercised, either as an actual amount or a percentage.|2. Price at which a bond is converted to underlying security either as an actual amount or a percentage.|3. Strike price of an option, represented either as an actual amount, a percentage or or a number of points above an index.
     /// </summary>
     [IsoId("_TgmW8Np-Ed-ak6NoX_4Aeg_-823780474")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exercise Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExrcPric")]
     #endif
+    [IsoXmlTag("ExrcPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat4Choice_? ExercisePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPrice1
     /// Initial issue price of a financial instrument.
     /// </summary>
     [IsoId("_TgmW8dp-Ed-ak6NoX_4Aeg_-823780443")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssePric")]
     #endif
+    [IsoXmlTag("IssePric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat2Choice_? IssuePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionPrice1
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
     [IsoId("_TgmW8tp-Ed-ak6NoX_4Aeg_-823780164")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Lieu Of Share Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInLieuOfShrPric")]
     #endif
+    [IsoXmlTag("CshInLieuOfShrPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat2Choice_? CashInLieuOfSharePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionPrice1
     /// Amount included in the dividend/NAV that is identified as gains directly or indirectly derived from interest payments within the scope of the EU Savings directive.
     /// </summary>
     [IsoId("_TgmW89p-Ed-ak6NoX_4Aeg_-823780073")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Income Per Dividend Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblIncmPerDvddShr")]
     #endif
+    [IsoXmlTag("TaxblIncmPerDvddShr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountPrice1? TaxableIncomePerDividendShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionPrice1
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, eg, redemption price.
     /// </summary>
     [IsoId("_TgmW9Np-Ed-ak6NoX_4Aeg_-823780042")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generic Cash Price Received Per Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GncCshPricRcvdPerPdct")]
     #endif
+    [IsoXmlTag("GncCshPricRcvdPerPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat1Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionPrice1
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, eg, reinvestment price.
     /// </summary>
     [IsoId("_TgmW9dp-Ed-ak6NoX_4Aeg_-823780011")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generic Cash Price Paid Per Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GncCshPricPdPerPdct")]
     #endif
+    [IsoXmlTag("GncCshPricPdPerPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat2Choice_? GenericCashPricePaidPerProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionPrice1
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
     [IsoId("_TgmW9tp-Ed-ak6NoX_4Aeg_-765598622")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Over Subscription Deposit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OverSbcptDpstPric")]
     #endif
+    [IsoXmlTag("OverSbcptDpstPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat2Choice_? OverSubscriptionDepositPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

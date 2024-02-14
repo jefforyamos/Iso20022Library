@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of customer identification requested.
 /// </summary>
 [IsoId("_AEhcceH5Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Customer Type Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CustomerTypeRequest2
     /// Indicates whether the customer identification is required by the creditor or not.
     /// </summary>
     [IsoId("_AGP6w-H5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Reqd")]
     #endif
+    [IsoXmlTag("Reqd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator Requested { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Requested { get; init; } 
+    public required System.String Requested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Requested { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record CustomerTypeRequest2
     /// Specifies which type of customer identification is requested for an organisation.
     /// </summary>
     [IsoId("_AGP6xeH5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgTp")]
     #endif
+    [IsoXmlTag("OrgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationType2? OrganisationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record CustomerTypeRequest2
     /// Specifies which type of customer identification is requested for a person.
     /// </summary>
     [IsoId("_AGP6x-H5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Private Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvtTp")]
     #endif
+    [IsoXmlTag("PrvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PersonType2? PrivateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

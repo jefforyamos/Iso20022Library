@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice
     /// Provides the status of the registration processing.
     /// </summary>
     [IsoId("_UVDStdp-Ed-ak6NoX_4Aeg_-199936640")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Processing Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

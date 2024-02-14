@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentOrigin1Choice
     /// Specifies the type of payment when not included in a SWIFT or proprietary format.
     /// </summary>
     [IsoId("_RIwV2Np-Ed-ak6NoX_4Aeg_-1983565483")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentOrigin1Choice
         /// Specifies the payment instrument used or the underlying financial transaction that resulted in a payment transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Instrm")]
         #endif
+        [IsoXmlTag("Instrm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PaymentInstrument1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PaymentInstrument1Code Value { get; init; } 
+        public required PaymentInstrument1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PaymentInstrument1Code Value { get; init; } 
         #else

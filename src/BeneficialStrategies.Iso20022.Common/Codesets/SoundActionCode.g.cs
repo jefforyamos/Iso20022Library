@@ -21,7 +21,7 @@ public enum SoundActionCode
 {
     /// <summary>
     /// Start the sound as specified in the message.
-    /// Encoded/decoded by serializers as "STAS".
+    /// Encoded/decoded by serializers as &quot;STAS&quot;.
     /// </summary>
     [EnumMember(Value = "STAS")]
     [IsoId("_fGWpsN6-Eeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum SoundActionCode
     
     /// <summary>
     /// Stop the sound in progress.
-    /// Encoded/decoded by serializers as "STOS".
+    /// Encoded/decoded by serializers as &quot;STOS&quot;.
     /// </summary>
     [EnumMember(Value = "STOS")]
     [IsoId("_hr_PMN6-Eeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum SoundActionCode
     
     /// <summary>
     /// Set the default volume of sounds.
-    /// Encoded/decoded by serializers as "DVOL".
+    /// Encoded/decoded by serializers as &quot;DVOL&quot;.
     /// </summary>
     [EnumMember(Value = "DVOL")]
     [IsoId("_kdmbMN6-Eeiwsev40qZGEQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details about successor account for automated default funds transfer.
 /// </summary>
 [IsoId("_7rRPoCDmEeav65mEytrgaA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Default Account Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record DefaultAccountDetails1
     /// Account owner identification.
     /// </summary>
     [IsoId("_Q7KfYCDoEeav65mEytrgaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstitutionIdentification9 AccountOwner { get; init; } 
+    public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstitutionIdentification9 AccountOwner { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record DefaultAccountDetails1
     /// Account identification.
     /// </summary>
     [IsoId("_X8ZGcCDoEeav65mEytrgaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount24 Account { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount24 Account { get; init; } 
+    public required CashAccount24 Account { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount24 Account { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record DefaultAccountDetails1
     /// Information about time and event fund transfer.
     /// </summary>
     [IsoId("_kgosACc8Eea7avjfd7yDAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Daily Fund Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DalyFndTrf")]
     #endif
+    [IsoXmlTag("DalyFndTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DailyFundTransfer1Choice_? DailyFundTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

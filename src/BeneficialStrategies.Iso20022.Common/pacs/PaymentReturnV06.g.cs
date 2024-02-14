@@ -30,16 +30,14 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// The PaymentReturn message is sent by an agent to the previous agent in the payment chain to undo a payment previously settled.
 /// Usage
 /// The PaymentReturn message is exchanged between agents to return funds after settlement of credit transfer instructions (i.e. FIToFICustomerCreditTransfer message and FinancialInstitutionCreditTransfer message) or direct debit instructions (FIToFICustomerDirectDebit message).
-/// The PaymentReturn message should not be used between agents and non-financial institution customers. Non-financial institution customers will be informed about a debit or a credit on their account(s) through a BankToCustomerDebitCreditNotification message ('notification') and/or BankToCustomerAccountReport/BankToCustomerStatement message ('statement').
+/// The PaymentReturn message should not be used between agents and non-financial institution customers. Non-financial institution customers will be informed about a debit or a credit on their account(s) through a BankToCustomerDebitCreditNotification message (&apos;notification&apos;) and/or BankToCustomerAccountReport/BankToCustomerStatement message (&apos;statement&apos;).
 /// The PaymentReturn message can be used to return single instructions or multiple instructions from one or different files.
 /// The PaymentReturn message can be used in domestic and cross-border scenarios.
 /// The PaymentReturn message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.
 /// </summary>
 [Description(@"Scope|The PaymentReturn message is sent by an agent to the previous agent in the payment chain to undo a payment previously settled.|Usage|The PaymentReturn message is exchanged between agents to return funds after settlement of credit transfer instructions (i.e. FIToFICustomerCreditTransfer message and FinancialInstitutionCreditTransfer message) or direct debit instructions (FIToFICustomerDirectDebit message).|The PaymentReturn message should not be used between agents and non-financial institution customers. Non-financial institution customers will be informed about a debit or a credit on their account(s) through a BankToCustomerDebitCreditNotification message ('notification') and/or BankToCustomerAccountReport/BankToCustomerStatement message ('statement').|The PaymentReturn message can be used to return single instructions or multiple instructions from one or different files.|The PaymentReturn message can be used in domestic and cross-border scenarios.|The PaymentReturn message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.")]
 [IsoId("_pmmdiTqxEeWZFYSPlduMhw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Return V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record PaymentReturnV06 : IOuterRecord<PaymentReturnV06,PaymentRe
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_pmmdpTqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader72 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader72 GroupHeader { get; init; } 
+    public required GroupHeader72 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader72 GroupHeader { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record PaymentReturnV06 : IOuterRecord<PaymentReturnV06,PaymentRe
     /// Information concerning the original group of transactions, to which the message refers.
     /// </summary>
     [IsoId("_pmmdpzqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInf")]
     #endif
+    [IsoXmlTag("OrgnlGrpInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalGroupHeader2? OriginalGroupInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,11 @@ public partial record PaymentReturnV06 : IOuterRecord<PaymentReturnV06,PaymentRe
     /// Information concerning the original transactions, to which the return message refers.
     /// </summary>
     [IsoId("_pmmdqTqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInf")]
     #endif
+    [IsoXmlTag("TxInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction65? TransactionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +133,11 @@ public partial record PaymentReturnV06 : IOuterRecord<PaymentReturnV06,PaymentRe
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_pmmdqzqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,7 +150,7 @@ public partial record PaymentReturnV06 : IOuterRecord<PaymentReturnV06,PaymentRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PaymentReturnV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PaymentReturnV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PaymentReturnV06Document ToDocument()
     {
@@ -166,7 +160,7 @@ public partial record PaymentReturnV06 : IOuterRecord<PaymentReturnV06,PaymentRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentReturnV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PaymentReturnV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PaymentReturnV06Document : IOuterDocument<PaymentReturnV06>
@@ -183,7 +177,7 @@ public partial record PaymentReturnV06Document : IOuterDocument<PaymentReturnV06
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PaymentReturnV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PaymentReturnV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentReturnV06 Message { get; init; }

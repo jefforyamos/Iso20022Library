@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Quantity50Choice.OriginalAndCurrentFaceAmount))]
     [KnownType(typeof(Quantity50Choice.SignedQuantity))]
     [IsoId("_K-7tVRuyEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity 50 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

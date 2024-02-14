@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Current totals of the ATM.
 /// </summary>
 [IsoId("_XPWq4IqdEeS4a4abTJTSSw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ATMTotals1
     /// Type of media inside the cassette.
     /// </summary>
     [IsoId("_H7ZjMIqeEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Media Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MdiaTp")]
     #endif
+    [IsoXmlTag("MdiaTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMMediaType1Code? MediaType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ATMTotals1
     /// Currency of the totals.
     /// </summary>
     [IsoId("_QIrGoIqeEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record ATMTotals1
     /// Total balance of the ATM including reject cassette, but excluding the retract cassette.
     /// </summary>
     [IsoId("_iyycYIqeEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMBal")]
     #endif
+    [IsoXmlTag("ATMBal")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ATMBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,12 @@ public partial record ATMTotals1
     /// Available amount for dispense in the ATM.
     /// </summary>
     [IsoId("_pmgL4IqeEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Current")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMCur")]
     #endif
+    [IsoXmlTag("ATMCur")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ATMCurrent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,12 @@ public partial record ATMTotals1
     /// Total number of units for non-valued media, including reject cassette.
     /// </summary>
     [IsoId("_uaqecIqeEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Balance Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMBalNb")]
     #endif
+    [IsoXmlTag("ATMBalNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ATMBalanceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,12 @@ public partial record ATMTotals1
     /// Total number of units for non-valued media, excluding reject cassette.
     /// </summary>
     [IsoId("_yIVqEIqeEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Current Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMCurNb")]
     #endif
+    [IsoXmlTag("ATMCurNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ATMCurrentNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

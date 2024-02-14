@@ -21,7 +21,7 @@ public enum AcknowledgementReason8Code
 {
     /// <summary>
     /// See narrative field for reason.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("__j-uESz2EeOsiuMH68so7Q")]

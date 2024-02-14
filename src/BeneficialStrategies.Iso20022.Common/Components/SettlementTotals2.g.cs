@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Settlement totals or the report.
 /// </summary>
 [IsoId("_ciULEZMnEeuleeHpFMMhmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SettlementTotals2
     /// Settlement totals for the acquirer.
     /// </summary>
     [IsoId("_cpvBsZMnEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrTtls")]
     #endif
+    [IsoXmlTag("AcqrrTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementCategoryTotal2? AcquirerTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SettlementTotals2
     /// Settlement totals for the issuer.
     /// </summary>
     [IsoId("_cpvBs5MnEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrTtls")]
     #endif
+    [IsoXmlTag("IssrTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementCategoryTotal2? IssuerTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SettlementTotals2
     /// Other settlement totals.
     /// </summary>
     [IsoId("_cpvBtZMnEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTtls")]
     #endif
+    [IsoXmlTag("OthrTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementCategoryTotal2? OtherTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record SettlementTotals2
     /// Total amount settled.
     /// </summary>
     [IsoId("_cpvBt5MnEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSttlmAmt")]
     #endif
+    [IsoXmlTag("TtlSttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementCategoryTotal2? TotalSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum FutureAndOptionContractType1Code
 {
     /// <summary>
     /// Ordinary future and option contract.
-    /// Encoded/decoded by serializers as "ORDY".
+    /// Encoded/decoded by serializers as &quot;ORDY&quot;.
     /// </summary>
     [EnumMember(Value = "ORDY")]
     [IsoId("__2sIcNojEeC60axPepSq7g_-842269814")]
@@ -30,7 +30,7 @@ public enum FutureAndOptionContractType1Code
     
     /// <summary>
     /// Future and option contract on an index as opposed to an underlying equity.
-    /// Encoded/decoded by serializers as "INDX".
+    /// Encoded/decoded by serializers as &quot;INDX&quot;.
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("__2sIcdojEeC60axPepSq7g_-1031487263")]
@@ -39,7 +39,7 @@ public enum FutureAndOptionContractType1Code
     
     /// <summary>
     /// Receipt of future contract when an option on a future is exercised.
-    /// Encoded/decoded by serializers as "EXFU".
+    /// Encoded/decoded by serializers as &quot;EXFU&quot;.
     /// </summary>
     [EnumMember(Value = "EXFU")]
     [IsoId("__2sIctojEeC60axPepSq7g_19645809")]

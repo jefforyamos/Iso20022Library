@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCAINSD1 message extends ISO corporate action instruction message with DTCC corporate action elements not covered in the standard message.")]
 [IsoId("_LAGyL75MEeexmbB7KsjCwA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCAINSD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCAINSD1V04 : IOuterRecord<DTCCCAINSD1V04,DTCCCAINSD1V0
     /// DTC (The Depository Trust Corporation) optional dividend service election.
     /// </summary>
     [IsoId("_LAGyMb5MEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Optional Dividend")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnlDvdd")]
     #endif
+    [IsoXmlTag("OptnlDvdd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionalDividendAccountQuantitySD3? OptionalDividend { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCAINSD1V04 : IOuterRecord<DTCCCAINSD1V04,DTCCCAINSD1V0
     /// DTC (The Depository Trust Corporation) tax exempt service election.
     /// </summary>
     [IsoId("_LAGyOb5MEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Exempt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxXmpt")]
     #endif
+    [IsoXmlTag("TaxXmpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxExemptQuantitySD2? TaxExempt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,11 @@ public partial record DTCCCAINSD1V04 : IOuterRecord<DTCCCAINSD1V04,DTCCCAINSD1V0
     /// DTC (The Depository Trust Corporation) foreign currency payment service wire payment instruction.
     /// </summary>
     [IsoId("_LAGyQb5MEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wire Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WireInstr")]
     #endif
+    [IsoXmlTag("WireInstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WireInstructionSD3? WireInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,23 +117,20 @@ public partial record DTCCCAINSD1V04 : IOuterRecord<DTCCCAINSD1V04,DTCCCAINSD1V0
     /// Supplementary data extending corporate action reorganisation instruction message with corporate action elements not covered in the standard message.
     /// </summary>
     [IsoId("_aEKXsMU2EeeWeZMpNX1JUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reorganisation Instruction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReorgInstrDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ReorgInstrDtls")]
     [MinLength(0)]
     [MaxLength(12)]
-    #endif
     public ValueList<ReorganisationInstructionDetailsSD1> ReorganisationInstructionDetails { get; init; } = new ValueList<ReorganisationInstructionDetailsSD1>(){};
     
     
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCAINSD1V04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCAINSD1V04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCAINSD1V04Document ToDocument()
     {
@@ -148,7 +140,7 @@ public partial record DTCCCAINSD1V04 : IOuterRecord<DTCCCAINSD1V04,DTCCCAINSD1V0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAINSD1V04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCAINSD1V04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCAINSD1V04Document : IOuterDocument<DTCCCAINSD1V04>
@@ -165,7 +157,7 @@ public partial record DTCCCAINSD1V04Document : IOuterDocument<DTCCCAINSD1V04>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCAINSD1V04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCAINSD1V04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCAINSD1V04 Message { get; init; }

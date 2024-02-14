@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies if the occurrence of the event contained in the notification is confirmed or unconfirmed. Details of the event can be complete or incomplete.
 /// </summary>
 [IsoId("_RW6Gk9p-Ed-ak6NoX_4Aeg_1742926968")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record NotificationStatus1
     /// Status to define if the occurrence of the event contained in the notification is confirmed or unconfirmed.
     /// </summary>
     [IsoId("_RW6GlNp-Ed-ak6NoX_4Aeg_1742926970")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationStatus2Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NotificationStatus2Code Status { get; init; } 
+    public required NotificationStatus2Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NotificationStatus2Code Status { get; init; } 
     #else

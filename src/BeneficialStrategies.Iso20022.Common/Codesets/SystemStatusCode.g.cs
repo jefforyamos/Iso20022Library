@@ -21,7 +21,7 @@ public enum SystemStatusCode
 {
     /// <summary>
     /// System is suspended, that is, not operational.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_ZSSowNp-Ed-ak6NoX_4Aeg_1625331815")]
@@ -30,7 +30,7 @@ public enum SystemStatusCode
     
     /// <summary>
     /// System is functioning normally, that is, operational.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZSSowdp-Ed-ak6NoX_4Aeg_1625331816")]
@@ -39,7 +39,7 @@ public enum SystemStatusCode
     
     /// <summary>
     /// System is closed (eg. normal closure of an RTGS).
-    /// Encoded/decoded by serializers as "CLSD".
+    /// Encoded/decoded by serializers as &quot;CLSD&quot;.
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_ZSSowtp-Ed-ak6NoX_4Aeg_1391489559")]
@@ -48,7 +48,7 @@ public enum SystemStatusCode
     
     /// <summary>
     /// System needs to wait for completion of intermediate internal activities before going to a status Closed.
-    /// Encoded/decoded by serializers as "CLSG".
+    /// Encoded/decoded by serializers as &quot;CLSG&quot;.
     /// </summary>
     [EnumMember(Value = "CLSG")]
     [IsoId("_ZSSow9p-Ed-ak6NoX_4Aeg_1391489836")]
@@ -57,7 +57,7 @@ public enum SystemStatusCode
     
     /// <summary>
     /// System is starting a new maintenance period.
-    /// Encoded/decoded by serializers as "RMPS".
+    /// Encoded/decoded by serializers as &quot;RMPS&quot;.
     /// </summary>
     [EnumMember(Value = "RMPS")]
     [IsoId("_JXo-AIpdEeiaB-4Hjqs8aw")]

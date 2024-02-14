@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information that enables any payments made in connection with the fulfilment of an account switch to be reconciled by the relevant account servicer with the associated request.
 /// </summary>
 [IsoId("_6zmxjW48EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Transfer")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BalanceTransfer2
     /// Reference that enables the creditor to reconcile a payment received through a different payment channel with the payment request.
     /// </summary>
     [IsoId("_68jSIW48EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Transfer Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTrfRef")]
     #endif
+    [IsoXmlTag("BalTrfRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceTransferReference1? BalanceTransferReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record BalanceTransfer2
     /// Contains details of the clearance and settlement method chosen to make the appropriate payment from account servicer to account servicer in order to transfer the positive or negative closing balance of the old account to the new account.
     /// </summary>
     [IsoId("_68jSI248EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Transfer Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTrfMtd")]
     #endif
+    [IsoXmlTag("BalTrfMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementMethod2Choice_? BalanceTransferMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record BalanceTransfer2
     /// Maximum value that the new account servicer will pay to the old account servicer when the closing balance on the old account is negative.
     /// </summary>
     [IsoId("_68jSJW48EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Transfer Funding Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTrfFndgLmt")]
     #endif
+    [IsoXmlTag("BalTrfFndgLmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceTransferFundingLimit1? BalanceTransferFundingLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics of the statement.
 /// </summary>
 [IsoId("_XdISgStMEeyOa655cLd-DQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record Statement85
     /// Reference common to all pages of a statement.
     /// </summary>
     [IsoId("_X2UOkStMEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StmtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text StatementIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String StatementIdentification { get; init; } 
+    public required System.String StatementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String StatementIdentification { get; init; } 
     #else
@@ -77,16 +73,16 @@ public partial record Statement85
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
     [IsoId("_X2UOkytMEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activity Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtyInd")]
     #endif
+    [IsoXmlTag("ActvtyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ActivityIndicator { get; init; } 
+    public required System.String ActivityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ActivityIndicator { get; init; } 
     #else
@@ -97,16 +93,15 @@ public partial record Statement85
     /// Frequency of the statement.
     /// </summary>
     [IsoId("_X2UOlStMEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frqcy")]
     #endif
+    [IsoXmlTag("Frqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency1Code Frequency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Frequency1Code Frequency { get; init; } 
+    public required Frequency1Code Frequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Frequency1Code Frequency { get; init; } 
     #else
@@ -117,16 +112,15 @@ public partial record Statement85
     /// Date and time of the statement.
     /// </summary>
     [IsoId("_X2UOlytMEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtDtTm")]
     #endif
+    [IsoXmlTag("StmtDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTime2Choice_ StatementDateTime { get; init; } 
+    public required DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     #else

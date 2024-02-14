@@ -21,7 +21,7 @@ public enum FundOrderType5Code
 {
     /// <summary>
     /// That part of an investment fund order attributed to a normal staff portion.
-    /// Encoded/decoded by serializers as "NSPN".
+    /// Encoded/decoded by serializers as &quot;NSPN&quot;.
     /// </summary>
     [EnumMember(Value = "NSPN")]
     [IsoId("_atVqctp-Ed-ak6NoX_4Aeg_-683770576")]
@@ -30,7 +30,7 @@ public enum FundOrderType5Code
     
     /// <summary>
     /// That part of an investment fund order attributed to a normal client portion.
-    /// Encoded/decoded by serializers as "NCPN".
+    /// Encoded/decoded by serializers as &quot;NCPN&quot;.
     /// </summary>
     [EnumMember(Value = "NCPN")]
     [IsoId("_atVqc9p-Ed-ak6NoX_4Aeg_-629285145")]
@@ -39,7 +39,7 @@ public enum FundOrderType5Code
     
     /// <summary>
     /// That part of an investment fund order attributed to a staff member with a savings plan.
-    /// Encoded/decoded by serializers as "SWSP".
+    /// Encoded/decoded by serializers as &quot;SWSP&quot;.
     /// </summary>
     [EnumMember(Value = "SWSP")]
     [IsoId("_atVqdNp-Ed-ak6NoX_4Aeg_-571102419")]
@@ -48,7 +48,7 @@ public enum FundOrderType5Code
     
     /// <summary>
     /// That part of an investment fund order attributed to a client with a savings plan.
-    /// Encoded/decoded by serializers as "CWSP".
+    /// Encoded/decoded by serializers as &quot;CWSP&quot;.
     /// </summary>
     [EnumMember(Value = "CWSP")]
     [IsoId("_atVqddp-Ed-ak6NoX_4Aeg_-329138804")]

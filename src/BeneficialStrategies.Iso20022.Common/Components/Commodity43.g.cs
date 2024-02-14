@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data specific to commodities and related informations used as a collateral.
 /// </summary>
 [IsoId("_X74TEcg7EeuWwaMSwXJLEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Commodity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Commodity43
     /// Details on commodities assignments to sectors.
     /// </summary>
     [IsoId("_X-T8A8g7EeuWwaMSwXJLEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clssfctn")]
     #endif
+    [IsoXmlTag("Clssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassCommodity5Choice_? Classification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Commodity43
     /// Quantity of the commodity.
     /// </summary>
     [IsoId("_X-T8Bcg7EeuWwaMSwXJLEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity17? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Commodity43
     /// Price of unit of asset or collateral component, including accrued interest for interest-bearing securities, used to value the commodity .
     /// </summary>
     [IsoId("_X-T8B8g7EeuWwaMSwXJLEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitPric")]
     #endif
+    [IsoXmlTag("UnitPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Commodity43
     /// Market value of asset or collateral component.
     /// </summary>
     [IsoId("_X-T8Ccg7EeuWwaMSwXJLEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

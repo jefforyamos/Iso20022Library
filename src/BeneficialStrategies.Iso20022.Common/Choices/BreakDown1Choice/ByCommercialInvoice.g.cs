@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice
     /// The intention to pay is based on a commercial invoice.
     /// </summary>
     [IsoId("_6n8NYBrYEeOVR9VN6fAMUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("By Commercial Invoice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice
         /// Reference to the identification of the underlying commercial document.
         /// </summary>
         [IsoId("_Ti7gwRrYEeOVR9VN6fAMUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Commercial Document Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ComrclDocRef")]
         #endif
+        [IsoXmlTag("ComrclDocRef")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvoiceIdentification1 CommercialDocumentReference { get; init; } 
+        public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvoiceIdentification1 CommercialDocumentReference { get; init; } 
         #else
@@ -77,12 +74,11 @@ namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice
         /// Specifies the adjustments applied to obtain the net amount.
         /// </summary>
         [IsoId("_Ti7gwxrYEeOVR9VN6fAMUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Adjustment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Adjstmnt")]
         #endif
+        [IsoXmlTag("Adjstmnt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Adjustment6? Adjustment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,16 +91,16 @@ namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice
         /// Net amount, after adjustments, intended to be paid.
         /// </summary>
         [IsoId("_Ti7gxRrYEeOVR9VN6fAMUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Net Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NetAmt")]
         #endif
+        [IsoXmlTag("NetAmt")]
+        [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoCurrencyAndAmount NetAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal NetAmount { get; init; } 
+        public required System.Decimal NetAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal NetAmount { get; init; } 
         #else
@@ -115,12 +111,11 @@ namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice
         /// Specifies how the net amount to be paid is related to different purchase orders.
         /// </summary>
         [IsoId("_Ti7gxxrYEeOVR9VN6fAMUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Breakdown By Purchase Order")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BrkdwnByPurchsOrdr")]
         #endif
+        [IsoXmlTag("BrkdwnByPurchsOrdr")]
         public ReportLine7? BreakdownByPurchaseOrder { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _Ti7gxxrYEeOVR9VN6fAMUg
         

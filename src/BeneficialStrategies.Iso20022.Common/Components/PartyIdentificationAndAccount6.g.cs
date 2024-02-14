@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity involved in an activity.
 /// </summary>
 [IsoId("_Pb058Np-Ed-ak6NoX_4Aeg_-1884789497")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification And Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyIdentificationAndAccount6
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
     [IsoId("_Pb058dp-Ed-ak6NoX_4Aeg_-1934636240")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification25 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification25 PartyIdentification { get; init; } 
+    public required PartyIdentification25 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification25 PartyIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PartyIdentificationAndAccount6
     /// Unambiguous identification of an account held by Financing Requestor to First Agent. This account is requested to be used for crediting the amount financed, as a result of the financing process.
     /// </summary>
     [IsoId("_Pb058tp-Ed-ak6NoX_4Aeg_1132049413")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtAcct")]
     #endif
+    [IsoXmlTag("CdtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? CreditAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record PartyIdentificationAndAccount6
     /// Unambiguous identification of an internal bank account used by First Agent to manage the line of credit granted to Financing Requestor. This account is requested to be used for managing the financing process.
     /// </summary>
     [IsoId("_Pb0589p-Ed-ak6NoX_4Aeg_1145898985")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgAcct")]
     #endif
+    [IsoXmlTag("FincgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? FinancingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the collateral against variation margin and optionally the segregated independent amount.
 /// </summary>
 [IsoId("_UoRJqtp-Ed-ak6NoX_4Aeg_1673012479")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Collateral1
     /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties, against the variation margin.
     /// </summary>
     [IsoId("_Uoa6oNp-Ed-ak6NoX_4Aeg_117230825")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgn")]
     #endif
+    [IsoXmlTag("VartnMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginCollateral1 VariationMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarginCollateral1 VariationMargin { get; init; } 
+    public required MarginCollateral1 VariationMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarginCollateral1 VariationMargin { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Collateral1
     /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties, against the segregated independent amount.
     /// </summary>
     [IsoId("_Uoa6odp-Ed-ak6NoX_4Aeg_-2144467240")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgrtdIndpdntAmt")]
     #endif
+    [IsoXmlTag("SgrtdIndpdntAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginCollateral1? SegregatedIndependentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

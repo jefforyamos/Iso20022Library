@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTransactionCondition19
     /// Settlement conditions expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_GvAjoTxKEeW5v6FXICU4Ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTransactionCondition19
         /// Specifies the conditions under which the order/trade is to be settled.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementTransactionCondition3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementTransactionCondition3Code Value { get; init; } 
+        public required SettlementTransactionCondition3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementTransactionCondition3Code Value { get; init; } 
         #else

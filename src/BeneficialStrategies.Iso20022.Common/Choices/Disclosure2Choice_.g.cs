@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Disclosure2Choice.NoDisclosure))]
     [KnownType(typeof(Disclosure2Choice.SafekeepingAccountAndHoldings))]
     [IsoId("_L3-v4fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disclosure 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

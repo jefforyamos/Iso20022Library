@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Date of last revision.
 /// </summary>
 [IsoId("_RfGZQ9p-Ed-ak6NoX_4Aeg_-651747461")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Updated Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record UpdatedDate
     /// Date of last revision.
     /// </summary>
     [IsoId("_RfGZRNp-Ed-ak6NoX_4Aeg_-590794644")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate Date { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly Date { get; init; } 
+    public required System.DateOnly Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly Date { get; init; } 
     #else

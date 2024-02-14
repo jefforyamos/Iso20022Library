@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
 /// </summary>
 [IsoId("_8bhd5ZNLEeWGlc8L7oPDIg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Closing Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ClosingBalance4
     /// Indication that the position is short or long.
     /// </summary>
     [IsoId("_8bhd6ZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Long Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtLngInd")]
     #endif
+    [IsoXmlTag("ShrtLngInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShortLong1Code ShortLongIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ShortLong1Code ShortLongIndicator { get; init; } 
+    public required ShortLong1Code ShortLongIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ShortLong1Code ShortLongIndicator { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ClosingBalance4
     /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
     /// </summary>
     [IsoId("_8bhd8ZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closing Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsgBal")]
     #endif
+    [IsoXmlTag("ClsgBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClosingBalance5Choice_ ClosingBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ClosingBalance5Choice_ ClosingBalance { get; init; } 
+    public required ClosingBalance5Choice_ ClosingBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ClosingBalance5Choice_ ClosingBalance { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum ProductType5Code
 {
     /// <summary>
     /// Identifies categories of instruments related to Emission Allowance.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_Ty9kEWlDEeaLAKoEUNsD9g")]
@@ -30,7 +30,7 @@ public enum ProductType5Code
     
     /// <summary>
     /// Identifies categories of instruments that are interest rates based.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_VAB0IWlDEeaLAKoEUNsD9g")]
@@ -39,7 +39,7 @@ public enum ProductType5Code
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_VdArEWlDEeaLAKoEUNsD9g")]
@@ -48,7 +48,7 @@ public enum ProductType5Code
     
     /// <summary>
     /// Identifies categories of instruments that are commodities.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_VzUSQWlDEeaLAKoEUNsD9g")]
@@ -57,7 +57,7 @@ public enum ProductType5Code
     
     /// <summary>
     /// Identifies categories of instruments that are credits.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_WGPOQWlDEeaLAKoEUNsD9g")]
@@ -66,7 +66,7 @@ public enum ProductType5Code
     
     /// <summary>
     /// Identifies categories of currency instruments.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_WZ5KEWlDEeaLAKoEUNsD9g")]

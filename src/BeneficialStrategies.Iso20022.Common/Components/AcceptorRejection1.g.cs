@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reject of an exchange.
 /// </summary>
 [IsoId("_Svfw9wEcEeCQm6a_G2yO_w_1794621080")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Rejection")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AcceptorRejection1
     /// Reject reason of the request or the advice.
     /// </summary>
     [IsoId("_Svfw-AEcEeCQm6a_G2yO_w_-144097158")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reject Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctRsn")]
     #endif
+    [IsoXmlTag("RjctRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectReason1Code RejectReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectReason1Code RejectReason { get; init; } 
+    public required RejectReason1Code RejectReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectReason1Code RejectReason { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record AcceptorRejection1
     /// Additional information related to the reject of the exchange.
     /// </summary>
     [IsoId("_Svfw-QEcEeCQm6a_G2yO_w_-155195935")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record AcceptorRejection1
     /// Original request that caused the recipient party to reject it.
     /// </summary>
     [IsoId("_Svfw-gEcEeCQm6a_G2yO_w_-622814345")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message In Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgInErr")]
     #endif
+    [IsoXmlTag("MsgInErr")]
+    [IsoSimpleType(IsoSimpleType.Max5000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? MessageInError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

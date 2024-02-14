@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the creditor.
 /// </summary>
 [IsoId("_Urs4Itp-Ed-ak6NoX_4Aeg_1405520878")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record Creditor2
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
     [IsoId("_Urs4I9p-Ed-ak6NoX_4Aeg_1405520880")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cdtr")]
     #endif
+    [IsoXmlTag("Cdtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? Creditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record Creditor2
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_Urs4JNp-Ed-ak6NoX_4Aeg_1405520930")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentificationAndName3 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentificationAndName3 AccountIdentification { get; init; } 
+    public required AccountIdentificationAndName3 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentificationAndName3 AccountIdentification { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record Creditor2
     /// Party that is the ultimate beneficiary of the credit transfer. The final party is mentioned when different from the creditor, whose account will be credited by the final agent.
     /// </summary>
     [IsoId("_Urs4Jdp-Ed-ak6NoX_4Aeg_1405520895")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlAgt")]
     #endif
+    [IsoXmlTag("FnlAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification3Choice_ FinalAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstitutionIdentification3Choice_ FinalAgent { get; init; } 
+    public required FinancialInstitutionIdentification3Choice_ FinalAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstitutionIdentification3Choice_ FinalAgent { get; init; } 
     #else

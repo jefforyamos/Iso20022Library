@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus39Cho
     /// Provides status information related to a pending instruction.
     /// </summary>
     [IsoId("_Pl7SXAVSEeqjd8n6wD9JVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

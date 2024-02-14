@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context in which the card payment transaction is performed.
 /// </summary>
 [IsoId("_drTTUVBPEeedyPuM0kK2EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Context3
     /// Context of the card payment transaction at the point of service.
     /// </summary>
     [IsoId("_d3acsVBPEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Point Of Service Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtOfSvcCntxt")]
     #endif
+    [IsoXmlTag("PtOfSvcCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfServiceContext1? PointOfServiceContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record Context3
     /// Context of the card payment transaction.
     /// </summary>
     [IsoId("_d3acs1BPEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxCntxt")]
     #endif
+    [IsoXmlTag("TxCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionContext1 TransactionContext { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionContext1 TransactionContext { get; init; } 
+    public required TransactionContext1 TransactionContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionContext1 TransactionContext { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record Context3
     /// Method and data intended to be used for this transaction in order to authenticate or verify  the cardholder or his card.
     /// </summary>
     [IsoId("_FSoIEewTEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrfctn")]
     #endif
+    [IsoXmlTag("Vrfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Verification2? Verification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record Context3
     /// Context of risk associated with the transaction.
     /// </summary>
     [IsoId("_d3act1BPEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskCntxt")]
     #endif
+    [IsoXmlTag("RskCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskContext1? RiskContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record Context3
     /// Context of the sale associated with the card payment transaction.
     /// </summary>
     [IsoId("_xG_0MPljEeilft0P2fSiEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleCntxt")]
     #endif
+    [IsoXmlTag("SaleCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleContext7? SaleContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

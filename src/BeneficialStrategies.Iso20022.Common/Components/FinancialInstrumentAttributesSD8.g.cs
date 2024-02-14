@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding underlying security details.
 /// </summary>
 [IsoId("_Z4b8UV2qEeOb__BffbPEig")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record FinancialInstrumentAttributesSD8
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_aRumEV2qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record FinancialInstrumentAttributesSD8
     /// Country in which the security was issued.
     /// </summary>
     [IsoId("_aRumE12qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Listing")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfListg")]
     #endif
+    [IsoXmlTag("CtryOfListg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfListing { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record FinancialInstrumentAttributesSD8
     /// Country of source income for the security.
     /// </summary>
     [IsoId("_aRumG12qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Income Source Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncmSrcCtry")]
     #endif
+    [IsoXmlTag("IncmSrcCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? IncomeSourceCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record FinancialInstrumentAttributesSD8
     /// Classification of instruments into asset classes at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_aRumI12qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Asset Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCAsstClss")]
     #endif
+    [IsoXmlTag("DTCAsstClss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClass1Code? DTCAssetClass { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record FinancialInstrumentAttributesSD8
     /// Further classification of instruments into (issue) asset types at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_aRumK12qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Asset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCAsstTp")]
     #endif
+    [IsoXmlTag("DTCAsstTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAssetType1Code? DTCAssetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +138,12 @@ public partial record FinancialInstrumentAttributesSD8
     /// Indicates whether the security is eligible for holding at DTC.
     /// </summary>
     [IsoId("_aRumM12qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Eligibility Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyElgbltyInd")]
     #endif
+    [IsoXmlTag("SctyElgbltyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SecurityEligibilityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,15 +156,13 @@ public partial record FinancialInstrumentAttributesSD8
     /// Ticket symbol for the event security (underlying security).
     /// </summary>
     [IsoId("_aRumO12qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ticker Symbol")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TckrSymb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TckrSymb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TickerSymbol { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +175,11 @@ public partial record FinancialInstrumentAttributesSD8
     /// Security whose characteristics mirror the event security for purposes of FCP eligibility and tax relief. Certain derivative securities like HOLDR may have certain events where the source of payments are from an underlying security.
     /// </summary>
     [IsoId("_aRumQ12qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdScty")]
     #endif
+    [IsoXmlTag("LkdScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification15? LinkedSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,15 +189,14 @@ public partial record FinancialInstrumentAttributesSD8
     #endif
     
     /// <summary>
-    /// Represents the 'original' security identifier of the event. It is used in the scenarios like "partial call" where there are 2 events. The first event distributes into the Contra CUSIP, a temporary security; and on the second event that temporary security becomes the underlying security of the event. This element is used in the second event to point to the original CUSIP.
+    /// Represents the &apos;original&apos; security identifier of the event. It is used in the scenarios like &quot;partial call&quot; where there are 2 events. The first event distributes into the Contra CUSIP, a temporary security; and on the second event that temporary security becomes the underlying security of the event. This element is used in the second event to point to the original CUSIP.
     /// </summary>
     [IsoId("_odHGsF2qEeOb__BffbPEig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originating Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgtgSctyId")]
     #endif
+    [IsoXmlTag("OrgtgSctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherIdentification2? OriginatingSecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

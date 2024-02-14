@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides further details on the reason of the amendment of the mandate.
 /// </summary>
 [IsoId("_t4JrAVkyEeGeoaLUQk__nA_-1184878668")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Amendment Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record MandateAmendmentReason1
     /// Party that issues the amendment request.
     /// </summary>
     [IsoId("_t4JrAlkyEeGeoaLUQk__nA_-177799544")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Orgtr")]
     #endif
+    [IsoXmlTag("Orgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Originator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record MandateAmendmentReason1
     /// Specifies the reason for the amendment request.
     /// </summary>
     [IsoId("_t4JrA1kyEeGeoaLUQk__nA_-1894437970")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateReason1Choice_ Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateReason1Choice_ Reason { get; init; } 
+    public required MandateReason1Choice_ Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateReason1Choice_ Reason { get; init; } 
     #else
@@ -89,15 +85,13 @@ public partial record MandateAmendmentReason1
     /// Further details on the amendment request reason.
     /// </summary>
     [IsoId("_t4JrBFkyEeGeoaLUQk__nA_-2110542685")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

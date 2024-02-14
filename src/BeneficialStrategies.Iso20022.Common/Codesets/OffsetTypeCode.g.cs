@@ -21,7 +21,7 @@ public enum OffsetTypeCode
 {
     /// <summary>
     /// Indicates that range of peg order or discretion offset value is a price.
-    /// Encoded/decoded by serializers as "PRIC".
+    /// Encoded/decoded by serializers as &quot;PRIC&quot;.
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_aOo8Rdp-Ed-ak6NoX_4Aeg_1091901412")]
@@ -30,7 +30,7 @@ public enum OffsetTypeCode
     
     /// <summary>
     /// The range of peg order or discretion offset value is measured in basis points.
-    /// Encoded/decoded by serializers as "BAPO".
+    /// Encoded/decoded by serializers as &quot;BAPO&quot;.
     /// </summary>
     [EnumMember(Value = "BAPO")]
     [IsoId("_aOo8Rtp-Ed-ak6NoX_4Aeg_1303388657")]
@@ -39,7 +39,7 @@ public enum OffsetTypeCode
     
     /// <summary>
     /// The range of peg order or discretion offset value is a tick.
-    /// Encoded/decoded by serializers as "TICK".
+    /// Encoded/decoded by serializers as &quot;TICK&quot;.
     /// </summary>
     [EnumMember(Value = "TICK")]
     [IsoId("_aOo8R9p-Ed-ak6NoX_4Aeg_1308930135")]
@@ -48,7 +48,7 @@ public enum OffsetTypeCode
     
     /// <summary>
     /// The range of peg order or discretion offset is a price level.
-    /// Encoded/decoded by serializers as "PTLE".
+    /// Encoded/decoded by serializers as &quot;PTLE&quot;.
     /// </summary>
     [EnumMember(Value = "PTLE")]
     [IsoId("_aOo8SNp-Ed-ak6NoX_4Aeg_1319087950")]

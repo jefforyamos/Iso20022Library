@@ -21,7 +21,7 @@ public enum ChargeBearerType1Code
 {
     /// <summary>
     /// All transaction charges are to be borne by the debtor.
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_a8PpIdp-Ed-ak6NoX_4Aeg_1019554986")]
@@ -30,7 +30,7 @@ public enum ChargeBearerType1Code
     
     /// <summary>
     /// All transaction charges are to be borne by the creditor.
-    /// Encoded/decoded by serializers as "CRED".
+    /// Encoded/decoded by serializers as &quot;CRED&quot;.
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_a8PpItp-Ed-ak6NoX_4Aeg_1019555004")]
@@ -39,7 +39,7 @@ public enum ChargeBearerType1Code
     
     /// <summary>
     /// In a credit transfer context, means that transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor. In a direct debit context, means that transaction charges on the sender side are to be borne by the creditor, transaction charges on the receiver side are to be borne by the debtor.
-    /// Encoded/decoded by serializers as "SHAR".
+    /// Encoded/decoded by serializers as &quot;SHAR&quot;.
     /// </summary>
     [EnumMember(Value = "SHAR")]
     [IsoId("_a8PpI9p-Ed-ak6NoX_4Aeg_1019555021")]
@@ -48,7 +48,7 @@ public enum ChargeBearerType1Code
     
     /// <summary>
     /// Charges are to be applied following the rules agreed in the service level and/or scheme.
-    /// Encoded/decoded by serializers as "SLEV".
+    /// Encoded/decoded by serializers as &quot;SLEV&quot;.
     /// </summary>
     [EnumMember(Value = "SLEV")]
     [IsoId("_a8PpJNp-Ed-ak6NoX_4Aeg_1139613709")]

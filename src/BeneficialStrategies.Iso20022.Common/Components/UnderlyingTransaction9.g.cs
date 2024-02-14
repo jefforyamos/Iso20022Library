@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the underlying (group of) transaction(s) to which the resolution of investigation applies.
 /// </summary>
 [IsoId("_oFWZmR72EeSxevWRRWxNAg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Underlying Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record UnderlyingTransaction9
     /// Provides information on the original cancellation message, to which the resolution refers.
     /// </summary>
     [IsoId("_oXLwWR72EeSxevWRRWxNAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlGrpInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalGroupHeader5? OriginalGroupInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record UnderlyingTransaction9
     /// Provides information on the original (group of) transactions, to which the cancellation status refers.
     /// </summary>
     [IsoId("_oXLwWx72EeSxevWRRWxNAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlPmtInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalPaymentInstruction10? OriginalPaymentInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record UnderlyingTransaction9
     /// Provides details on the original transactions to which the cancellation request message refers.
     /// </summary>
     [IsoId("_oXLwXR72EeSxevWRRWxNAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInfAndSts")]
     #endif
+    [IsoXmlTag("TxInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction53? TransactionInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

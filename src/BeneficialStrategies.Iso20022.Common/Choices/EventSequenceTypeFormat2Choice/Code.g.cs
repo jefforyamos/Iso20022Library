@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventSequenceTypeFormat2Choice
     /// Type of an event sequence, in a coded format.
     /// </summary>
     [IsoId("_6UsaIfyVEeiKOe8GCUL1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.EventSequenceTypeFormat2Choice
         /// Specifies whether the event is an interim or a final event in a series of successive events. 
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EventSequenceType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EventSequenceType1Code Value { get; init; } 
+        public required EventSequenceType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EventSequenceType1Code Value { get; init; } 
         #else

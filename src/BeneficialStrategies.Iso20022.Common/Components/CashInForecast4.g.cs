@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
 /// </summary>
 [IsoId("_SksIVtp-Ed-ak6NoX_4Aeg_1159291255")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash In Forecast")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CashInForecast4
     /// Date on which cash is available.
     /// </summary>
     [IsoId("_SksIV9p-Ed-ak6NoX_4Aeg_1159291273")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshSttlmDt")]
     #endif
+    [IsoXmlTag("CshSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate CashSettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly CashSettlementDate { get; init; } 
+    public required System.DateOnly CashSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly CashSettlementDate { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record CashInForecast4
     /// Sub-total amount of the cash flow in, expressed as an amount of money.
     /// </summary>
     [IsoId("_Sk15UNp-Ed-ak6NoX_4Aeg_1159291290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubTtlAmt")]
     #endif
+    [IsoXmlTag("SubTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,11 @@ public partial record CashInForecast4
     /// Sub-total amount of the cash flow in, expressed as a number of units.
     /// </summary>
     [IsoId("_Sk15Udp-Ed-ak6NoX_4Aeg_1159291332")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Total Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubTtlUnitsNb")]
     #endif
+    [IsoXmlTag("SubTtlUnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? SubTotalUnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,12 @@ public partial record CashInForecast4
     /// Indicates whether the cash flow in is exceptional.
     /// </summary>
     [IsoId("_Sk15Utp-Ed-ak6NoX_4Aeg_1159291350")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exceptional Cash Flow Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcptnlCshFlowInd")]
     #endif
+    [IsoXmlTag("XcptnlCshFlowInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ExceptionalCashFlowIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

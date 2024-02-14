@@ -21,7 +21,7 @@ public enum SettlementDate6Code
 {
     /// <summary>
     /// Settlement takes place on the trade date plus five business days.
-    /// Encoded/decoded by serializers as "TFIV".
+    /// Encoded/decoded by serializers as &quot;TFIV&quot;.
     /// </summary>
     [EnumMember(Value = "TFIV")]
     [IsoId("_aDXucbbwEeaqL_M7XFD7PQ")]
@@ -30,7 +30,7 @@ public enum SettlementDate6Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus four business days.
-    /// Encoded/decoded by serializers as "TFOR".
+    /// Encoded/decoded by serializers as &quot;TFOR&quot;.
     /// </summary>
     [EnumMember(Value = "TFOR")]
     [IsoId("_aLtLEbbwEeaqL_M7XFD7PQ")]
@@ -39,7 +39,7 @@ public enum SettlementDate6Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus one business day.
-    /// Encoded/decoded by serializers as "TONE".
+    /// Encoded/decoded by serializers as &quot;TONE&quot;.
     /// </summary>
     [EnumMember(Value = "TONE")]
     [IsoId("_aU7YgbbwEeaqL_M7XFD7PQ")]
@@ -48,7 +48,7 @@ public enum SettlementDate6Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus three business days.
-    /// Encoded/decoded by serializers as "TTRE".
+    /// Encoded/decoded by serializers as &quot;TTRE&quot;.
     /// </summary>
     [EnumMember(Value = "TTRE")]
     [IsoId("_ahIBcbbwEeaqL_M7XFD7PQ")]
@@ -57,7 +57,7 @@ public enum SettlementDate6Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus two business days.
-    /// Encoded/decoded by serializers as "TTWO".
+    /// Encoded/decoded by serializers as &quot;TTWO&quot;.
     /// </summary>
     [EnumMember(Value = "TTWO")]
     [IsoId("_apKjIbbwEeaqL_M7XFD7PQ")]
@@ -66,7 +66,7 @@ public enum SettlementDate6Code
     
     /// <summary>
     /// Event occurs on the same day or at time T.
-    /// Encoded/decoded by serializers as "SAMD".
+    /// Encoded/decoded by serializers as &quot;SAMD&quot;.
     /// </summary>
     [EnumMember(Value = "SAMD")]
     [IsoId("_nfpGUbbwEeaqL_M7XFD7PQ")]

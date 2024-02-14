@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the report level status advice.
 /// </summary>
 [IsoId("_CUoXKdGdEeaQk737TH1Fzw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Advice Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record StatusAdviceReport3
     /// Provides the status for the full message.
     /// </summary>
     [IsoId("_CduBsdGdEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingMessageStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportingMessageStatus1Code Status { get; init; } 
+    public required ReportingMessageStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportingMessageStatus1Code Status { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record StatusAdviceReport3
     /// Provides the details of the rule which could not be validated.
     /// </summary>
     [IsoId("_CduBs9GdEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Rule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnRule")]
     #endif
+    [IsoXmlTag("VldtnRule")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record StatusAdviceReport3
     /// Indicates the report date with the status advice message is related to.
     /// </summary>
     [IsoId("_CduBtdGdEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgDt")]
     #endif
+    [IsoXmlTag("MsgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MessageDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record StatusAdviceReport3
     /// Statistical information on the results of the records processing.
     /// </summary>
     [IsoId("_CduBt9GdEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sttstcs")]
     #endif
+    [IsoXmlTag("Sttstcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalReportStatistics3? Statistics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

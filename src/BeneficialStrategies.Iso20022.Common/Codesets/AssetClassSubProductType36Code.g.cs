@@ -21,7 +21,7 @@ public enum AssetClassSubProductType36Code
 {
     /// <summary>
     /// Commodity of type newsprint.
-    /// Encoded/decoded by serializers as "NSPT".
+    /// Encoded/decoded by serializers as &quot;NSPT&quot;.
     /// </summary>
     [EnumMember(Value = "NSPT")]
     [IsoId("_uxcls1ryEeWN79Bl6BUd3g")]

@@ -21,7 +21,7 @@ public enum UnmatchedReasonCode
 {
     /// <summary>
     /// OtherIdentification of financial instrument identification does not match.
-    /// Encoded/decoded by serializers as "OTHI".
+    /// Encoded/decoded by serializers as &quot;OTHI&quot;.
     /// </summary>
     [EnumMember(Value = "OTHI")]
     [IsoId("__5-F8NojEeC60axPepSq7g_-304664773")]
@@ -30,7 +30,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// LendingWithCollateral does not match.
-    /// Encoded/decoded by serializers as "LWCO".
+    /// Encoded/decoded by serializers as &quot;LWCO&quot;.
     /// </summary>
     [EnumMember(Value = "LWCO")]
     [IsoId("__5-F8dojEeC60axPepSq7g_1232998251")]
@@ -39,7 +39,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Lending transaction method does not match.
-    /// Encoded/decoded by serializers as "LTME".
+    /// Encoded/decoded by serializers as &quot;LTME&quot;.
     /// </summary>
     [EnumMember(Value = "LTME")]
     [IsoId("__5-F8tojEeC60axPepSq7g_522025126")]
@@ -48,7 +48,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// CallableTradeIndicator does not match.
-    /// Encoded/decoded by serializers as "CATI".
+    /// Encoded/decoded by serializers as &quot;CATI&quot;.
     /// </summary>
     [EnumMember(Value = "CATI")]
     [IsoId("__5-F89ojEeC60axPepSq7g_-1137320833")]
@@ -57,7 +57,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Position effect does not match.
-    /// Encoded/decoded by serializers as "POSE".
+    /// Encoded/decoded by serializers as &quot;POSE&quot;.
     /// </summary>
     [EnumMember(Value = "POSE")]
     [IsoId("__5-F9NojEeC60axPepSq7g_2025859188")]
@@ -66,7 +66,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Type of financing closing does not match.
-    /// Encoded/decoded by serializers as "TRTE".
+    /// Encoded/decoded by serializers as &quot;TRTE&quot;.
     /// </summary>
     [EnumMember(Value = "TRTE")]
     [IsoId("__6HP4NojEeC60axPepSq7g_1391243901")]
@@ -75,7 +75,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Settlement date in the second leg does not match.
-    /// Encoded/decoded by serializers as "SDAT".
+    /// Encoded/decoded by serializers as &quot;SDAT&quot;.
     /// </summary>
     [EnumMember(Value = "SDAT")]
     [IsoId("__6HP4dojEeC60axPepSq7g_880810440")]
@@ -84,7 +84,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Borrowing rate does not match.
-    /// Encoded/decoded by serializers as "BORT".
+    /// Encoded/decoded by serializers as &quot;BORT&quot;.
     /// </summary>
     [EnumMember(Value = "BORT")]
     [IsoId("__6HP4tojEeC60axPepSq7g_1929864788")]
@@ -93,7 +93,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// ClientOrderLinkIdentification does not match.
-    /// Encoded/decoded by serializers as "OLID".
+    /// Encoded/decoded by serializers as &quot;OLID&quot;.
     /// </summary>
     [EnumMember(Value = "OLID")]
     [IsoId("__6HP49ojEeC60axPepSq7g_-1910972375")]
@@ -102,7 +102,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// OpeningLegIdentification does not match.
-    /// Encoded/decoded by serializers as "OPLI".
+    /// Encoded/decoded by serializers as &quot;OPLI&quot;.
     /// </summary>
     [EnumMember(Value = "OPLI")]
     [IsoId("__6HP5NojEeC60axPepSq7g_-831561721")]
@@ -111,7 +111,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// End factor does not match.
-    /// Encoded/decoded by serializers as "ENFC".
+    /// Encoded/decoded by serializers as &quot;ENFC&quot;.
     /// </summary>
     [EnumMember(Value = "ENFC")]
     [IsoId("__6HP5dojEeC60axPepSq7g_-2143930594")]
@@ -120,7 +120,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Current factor does not match.
-    /// Encoded/decoded by serializers as "CUFC".
+    /// Encoded/decoded by serializers as &quot;CUFC&quot;.
     /// </summary>
     [EnumMember(Value = "CUFC")]
     [IsoId("__6HP5tojEeC60axPepSq7g_-1023035822")]
@@ -129,7 +129,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Maturity date does not match.
-    /// Encoded/decoded by serializers as "MADA".
+    /// Encoded/decoded by serializers as &quot;MADA&quot;.
     /// </summary>
     [EnumMember(Value = "MADA")]
     [IsoId("__6RA4NojEeC60axPepSq7g_1859552978")]
@@ -138,7 +138,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Closing settlement amount does not match.
-    /// Encoded/decoded by serializers as "TRSA".
+    /// Encoded/decoded by serializers as &quot;TRSA&quot;.
     /// </summary>
     [EnumMember(Value = "TRSA")]
     [IsoId("__6RA4dojEeC60axPepSq7g_-68105324")]
@@ -147,7 +147,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Accrued interest amount in the second leg does not match.
-    /// Encoded/decoded by serializers as "ACRS".
+    /// Encoded/decoded by serializers as &quot;ACRS&quot;.
     /// </summary>
     [EnumMember(Value = "ACRS")]
     [IsoId("__6RA4tojEeC60axPepSq7g_561457308")]
@@ -156,7 +156,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Deal amount in the second leg does not match.
-    /// Encoded/decoded by serializers as "DEAS".
+    /// Encoded/decoded by serializers as &quot;DEAS&quot;.
     /// </summary>
     [EnumMember(Value = "DEAS")]
     [IsoId("__6RA49ojEeC60axPepSq7g_552912343")]
@@ -165,7 +165,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Borrowing fee does not match.
-    /// Encoded/decoded by serializers as "BOFE".
+    /// Encoded/decoded by serializers as &quot;BOFE&quot;.
     /// </summary>
     [EnumMember(Value = "BOFE")]
     [IsoId("__6RA5NojEeC60axPepSq7g_809272261")]
@@ -174,7 +174,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Borrowing interest amount does not match.
-    /// Encoded/decoded by serializers as "BOIA".
+    /// Encoded/decoded by serializers as &quot;BOIA&quot;.
     /// </summary>
     [EnumMember(Value = "BOIA")]
     [IsoId("__6RA5dojEeC60axPepSq7g_143881417")]
@@ -183,7 +183,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Securities haircut rate does not match.
-    /// Encoded/decoded by serializers as "SHAI".
+    /// Encoded/decoded by serializers as &quot;SHAI&quot;.
     /// </summary>
     [EnumMember(Value = "SHAI")]
     [IsoId("__6RA5tojEeC60axPepSq7g_393838524")]
@@ -192,7 +192,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Standard collateral ratio does not match.
-    /// Encoded/decoded by serializers as "SCRA".
+    /// Encoded/decoded by serializers as &quot;SCRA&quot;.
     /// </summary>
     [EnumMember(Value = "SCRA")]
     [IsoId("__6ax4NojEeC60axPepSq7g_1566464790")]
@@ -201,7 +201,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Accrued interest tax indicator in the second leg does not match.
-    /// Encoded/decoded by serializers as "TACS".
+    /// Encoded/decoded by serializers as &quot;TACS&quot;.
     /// </summary>
     [EnumMember(Value = "TACS")]
     [IsoId("__6ax4dojEeC60axPepSq7g_252705128")]
@@ -210,7 +210,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Interest type does not match.
-    /// Encoded/decoded by serializers as "INTT".
+    /// Encoded/decoded by serializers as &quot;INTT&quot;.
     /// </summary>
     [EnumMember(Value = "INTT")]
     [IsoId("__6ax4tojEeC60axPepSq7g_1902311817")]
@@ -219,7 +219,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// See narrative field for the reason.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("__6ax49ojEeC60axPepSq7g_-1479295062")]
@@ -227,8 +227,8 @@ public enum UnmatchedReasonCode
     NarrativeReason,
     
     /// <summary>
-    /// Counterparty's instruction is for settlement through clearing segment, your instruction is not, or vice versa.
-    /// Encoded/decoded by serializers as "CLSE".
+    /// Counterparty&apos;s instruction is for settlement through clearing segment, your instruction is not, or vice versa.
+    /// Encoded/decoded by serializers as &quot;CLSE&quot;.
     /// </summary>
     [EnumMember(Value = "CLSE")]
     [IsoId("__6ax5NojEeC60axPepSq7g_-1730925220")]
@@ -236,8 +236,8 @@ public enum UnmatchedReasonCode
     ClearingSegment,
     
     /// <summary>
-    /// Counterparty's instruction is for settlement through standing settlement instruction, your instruction is not, or vice versa.
-    /// Encoded/decoded by serializers as "DBNM".
+    /// Counterparty&apos;s instruction is for settlement through standing settlement instruction, your instruction is not, or vice versa.
+    /// Encoded/decoded by serializers as &quot;DBNM&quot;.
     /// </summary>
     [EnumMember(Value = "DBNM")]
     [IsoId("__6ax5dojEeC60axPepSq7g_1605086138")]
@@ -246,7 +246,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Accrued interest tax indicator does not match.
-    /// Encoded/decoded by serializers as "TACR".
+    /// Encoded/decoded by serializers as &quot;TACR&quot;.
     /// </summary>
     [EnumMember(Value = "TACR")]
     [IsoId("__6ax5tojEeC60axPepSq7g_368779090")]
@@ -255,7 +255,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Trade transaction type does not match.
-    /// Encoded/decoded by serializers as "TRTR".
+    /// Encoded/decoded by serializers as &quot;TRTR&quot;.
     /// </summary>
     [EnumMember(Value = "TRTR")]
     [IsoId("__6j70NojEeC60axPepSq7g_991819173")]
@@ -264,7 +264,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// CommonIdentification does not match.
-    /// Encoded/decoded by serializers as "COID".
+    /// Encoded/decoded by serializers as &quot;COID&quot;.
     /// </summary>
     [EnumMember(Value = "COID")]
     [IsoId("__6j70dojEeC60axPepSq7g_-1456720860")]
@@ -273,7 +273,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Accrued interest amount does not match.
-    /// Encoded/decoded by serializers as "ACRU".
+    /// Encoded/decoded by serializers as &quot;ACRU&quot;.
     /// </summary>
     [EnumMember(Value = "ACRU")]
     [IsoId("__6j70tojEeC60axPepSq7g_-1015749051")]
@@ -282,7 +282,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Consumption tax amount does not match.
-    /// Encoded/decoded by serializers as "COAX".
+    /// Encoded/decoded by serializers as &quot;COAX&quot;.
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("__6j709ojEeC60axPepSq7g_-913646013")]
@@ -291,7 +291,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// A matching instruction from your counterparty could not be found.
-    /// Encoded/decoded by serializers as "CMIS".
+    /// Encoded/decoded by serializers as &quot;CMIS&quot;.
     /// </summary>
     [EnumMember(Value = "CMIS")]
     [IsoId("_Y65ccdp-Ed-ak6NoX_4Aeg_-1292512729")]
@@ -300,7 +300,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Settlement date/time does not match.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_Y65cctp-Ed-ak6NoX_4Aeg_1827263542")]
@@ -309,7 +309,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Direction of the trade does not match. Counterparty expects a delivery from you, not a receipt or vice versa.
-    /// Encoded/decoded by serializers as "DELN".
+    /// Encoded/decoded by serializers as &quot;DELN&quot;.
     /// </summary>
     [EnumMember(Value = "DELN")]
     [IsoId("_Y65cc9p-Ed-ak6NoX_4Aeg_1122148927")]
@@ -318,7 +318,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Deal amount does not match.
-    /// Encoded/decoded by serializers as "DEAL".
+    /// Encoded/decoded by serializers as &quot;DEAL&quot;.
     /// </summary>
     [EnumMember(Value = "DEAL")]
     [IsoId("_Y65cdNp-Ed-ak6NoX_4Aeg_-1527550934")]
@@ -327,7 +327,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Depository does not match.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_Y65cddp-Ed-ak6NoX_4Aeg_11237508")]
@@ -336,7 +336,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Settlement amount does not match.
-    /// Encoded/decoded by serializers as "DMON".
+    /// Encoded/decoded by serializers as &quot;DMON&quot;.
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_Y65cdtp-Ed-ak6NoX_4Aeg_-1163953517")]
@@ -345,7 +345,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Deal price does not match.
-    /// Encoded/decoded by serializers as "DDEA".
+    /// Encoded/decoded by serializers as &quot;DDEA&quot;.
     /// </summary>
     [EnumMember(Value = "DDEA")]
     [IsoId("_Y65cd9p-Ed-ak6NoX_4Aeg_-1869068132")]
@@ -354,7 +354,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Y65ceNp-Ed-ak6NoX_4Aeg_-223800697")]
@@ -363,7 +363,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Transaction call delay does not match.
-    /// Encoded/decoded by serializers as "CADE".
+    /// Encoded/decoded by serializers as &quot;CADE&quot;.
     /// </summary>
     [EnumMember(Value = "CADE")]
     [IsoId("_Y65cedp-Ed-ak6NoX_4Aeg_1314987745")]
@@ -371,8 +371,8 @@ public enum UnmatchedReasonCode
     RepurchaseCallDelay,
     
     /// <summary>
-    /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Y65cetp-Ed-ak6NoX_4Aeg_139796720")]
@@ -381,7 +381,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Settlement transaction type does not match (relates to the settlement transaction type codes available for field: 22F:: SETR.).
-    /// Encoded/decoded by serializers as "SETR".
+    /// Encoded/decoded by serializers as &quot;SETR&quot;.
     /// </summary>
     [EnumMember(Value = "SETR")]
     [IsoId("_Y7DNcNp-Ed-ak6NoX_4Aeg_-565317895")]
@@ -390,7 +390,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Settlement system/method does not match (for example, instruction is to settle using settlement system/method A. Counterparty expects settlement to occur using settlement system/method B).
-    /// Encoded/decoded by serializers as "SETS".
+    /// Encoded/decoded by serializers as &quot;SETS&quot;.
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_Y7DNcdp-Ed-ak6NoX_4Aeg_1079949540")]
@@ -399,7 +399,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Financial instrument identification does not match, for example, ISIN, financial instrument attributes differs.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_Y7DNctp-Ed-ak6NoX_4Aeg_-1676229314")]
@@ -408,7 +408,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Variable rate support does not match (repo).
-    /// Encoded/decoded by serializers as "VASU".
+    /// Encoded/decoded by serializers as &quot;VASU&quot;.
     /// </summary>
     [EnumMember(Value = "VASU")]
     [IsoId("_Y7DNc9p-Ed-ak6NoX_4Aeg_-243919865")]
@@ -417,7 +417,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Counterparty has been contacted or contacted us, and does not recognise the transaction.
-    /// Encoded/decoded by serializers as "DTRA".
+    /// Encoded/decoded by serializers as &quot;DTRA&quot;.
     /// </summary>
     [EnumMember(Value = "DTRA")]
     [IsoId("_Y7DNdNp-Ed-ak6NoX_4Aeg_-949034480")]
@@ -426,7 +426,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Spread rate does not match.
-    /// Encoded/decoded by serializers as "RSPR".
+    /// Encoded/decoded by serializers as &quot;RSPR&quot;.
     /// </summary>
     [EnumMember(Value = "RSPR")]
     [IsoId("_Y7DNddp-Ed-ak6NoX_4Aeg_696232955")]
@@ -435,7 +435,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Repurchase rate does not match.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_Y7DNdtp-Ed-ak6NoX_4Aeg_-2059945899")]
@@ -443,8 +443,8 @@ public enum UnmatchedReasonCode
     RepurchaseRate,
     
     /// <summary>
-    /// Counterparty's instruction was too late for matching.
-    /// Encoded/decoded by serializers as "CLAT".
+    /// Counterparty&apos;s instruction was too late for matching.
+    /// Encoded/decoded by serializers as &quot;CLAT&quot;.
     /// </summary>
     [EnumMember(Value = "CLAT")]
     [IsoId("_Y7DNd9p-Ed-ak6NoX_4Aeg_1059830372")]
@@ -453,7 +453,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Repurchase rate type does not match.
-    /// Encoded/decoded by serializers as "RERT".
+    /// Encoded/decoded by serializers as &quot;RERT&quot;.
     /// </summary>
     [EnumMember(Value = "RERT")]
     [IsoId("_Y7DNeNp-Ed-ak6NoX_4Aeg_354715757")]
@@ -462,7 +462,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Termination transaction amount does not match.
-    /// Encoded/decoded by serializers as "REPA".
+    /// Encoded/decoded by serializers as &quot;REPA&quot;.
     /// </summary>
     [EnumMember(Value = "REPA")]
     [IsoId("_Y7DNedp-Ed-ak6NoX_4Aeg_1999983192")]
@@ -471,7 +471,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Premium amount does not match.
-    /// Encoded/decoded by serializers as "REPP".
+    /// Encoded/decoded by serializers as &quot;REPP&quot;.
     /// </summary>
     [EnumMember(Value = "REPP")]
     [IsoId("_Y7MXYNp-Ed-ak6NoX_4Aeg_-756195662")]
@@ -479,8 +479,8 @@ public enum UnmatchedReasonCode
     RepurchasePremiumAmount,
     
     /// <summary>
-    /// Counterparty's instruction is physical settlement, your instruction is not, or vice versa.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Counterparty&apos;s instruction is physical settlement, your instruction is not, or vice versa.
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_Y7MXYdp-Ed-ak6NoX_4Aeg_-1931386687")]
@@ -489,7 +489,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Common reference does not match.
-    /// Encoded/decoded by serializers as "IIND".
+    /// Encoded/decoded by serializers as &quot;IIND&quot;.
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_Y7MXYtp-Ed-ak6NoX_4Aeg_1658465994")]
@@ -497,8 +497,8 @@ public enum UnmatchedReasonCode
     CommonReference,
     
     /// <summary>
-    /// Payment type does not match: your instruction is free of payment, your counterparty's instruction is against payment or vice versa.
-    /// Encoded/decoded by serializers as "FRAP".
+    /// Payment type does not match: your instruction is free of payment, your counterparty&apos;s instruction is against payment or vice versa.
+    /// Encoded/decoded by serializers as &quot;FRAP&quot;.
     /// </summary>
     [EnumMember(Value = "FRAP")]
     [IsoId("_Y7MXY9p-Ed-ak6NoX_4Aeg_-991233867")]
@@ -507,7 +507,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Place of trade does not match.
-    /// Encoded/decoded by serializers as "PLCE".
+    /// Encoded/decoded by serializers as &quot;PLCE&quot;.
     /// </summary>
     [EnumMember(Value = "PLCE")]
     [IsoId("_Y7MXZNp-Ed-ak6NoX_4Aeg_547554575")]
@@ -516,7 +516,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Instruction has not been matched. It is a possible duplicate instruction.
-    /// Encoded/decoded by serializers as "PODU".
+    /// Encoded/decoded by serializers as &quot;PODU&quot;.
     /// </summary>
     [EnumMember(Value = "PODU")]
     [IsoId("_Y7MXZdp-Ed-ak6NoX_4Aeg_-627636450")]
@@ -525,7 +525,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Forfeit amount does not match.
-    /// Encoded/decoded by serializers as "FORF".
+    /// Encoded/decoded by serializers as &quot;FORF&quot;.
     /// </summary>
     [EnumMember(Value = "FORF")]
     [IsoId("_Y7MXZtp-Ed-ak6NoX_4Aeg_-1332751065")]
@@ -533,8 +533,8 @@ public enum UnmatchedReasonCode
     ForfeitRepurchaseAmount,
     
     /// <summary>
-    /// Executing broker's commission does not match.
-    /// Encoded/decoded by serializers as "EXEC".
+    /// Executing broker&apos;s commission does not match.
+    /// Encoded/decoded by serializers as &quot;EXEC&quot;.
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_Y7MXZ9p-Ed-ak6NoX_4Aeg_312516370")]
@@ -543,7 +543,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Registration details linked to the transaction are incorrect.
-    /// Encoded/decoded by serializers as "REGD".
+    /// Encoded/decoded by serializers as &quot;REGD&quot;.
     /// </summary>
     [EnumMember(Value = "REGD")]
     [IsoId("_Y7MXaNp-Ed-ak6NoX_4Aeg_1851304812")]
@@ -552,7 +552,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Counterparty is for Real Time Gross Settlement (RTGS) system, you are for non-RTGS or vice versa.
-    /// Encoded/decoded by serializers as "RTGS".
+    /// Encoded/decoded by serializers as &quot;RTGS&quot;.
     /// </summary>
     [EnumMember(Value = "RTGS")]
     [IsoId("_Y7MXadp-Ed-ak6NoX_4Aeg_676113787")]
@@ -561,7 +561,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Participant of delivering or receiving depository does not match.
-    /// Encoded/decoded by serializers as "ICAG".
+    /// Encoded/decoded by serializers as &quot;ICAG&quot;.
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_Y7MXatp-Ed-ak6NoX_4Aeg_-29000828")]
@@ -570,7 +570,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Counterparty cancelled their instruction.
-    /// Encoded/decoded by serializers as "CPCA".
+    /// Encoded/decoded by serializers as &quot;CPCA&quot;.
     /// </summary>
     [EnumMember(Value = "CPCA")]
     [IsoId("_Y7WIYNp-Ed-ak6NoX_4Aeg_1616266607")]
@@ -579,7 +579,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Charges amount does not match.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_Y7WIYdp-Ed-ak6NoX_4Aeg_-1139912247")]
@@ -588,7 +588,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Client of delivering or receiving party 2 does not match.
-    /// Encoded/decoded by serializers as "IEXE".
+    /// Encoded/decoded by serializers as &quot;IEXE&quot;.
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_Y7WIYtp-Ed-ak6NoX_4Aeg_1979864024")]
@@ -597,7 +597,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Settlement amount currency does not match.
-    /// Encoded/decoded by serializers as "NCRR".
+    /// Encoded/decoded by serializers as &quot;NCRR&quot;.
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_Y7WIY9p-Ed-ak6NoX_4Aeg_1274749409")]
@@ -606,7 +606,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Corresponding matching record has been cancelled.
-    /// Encoded/decoded by serializers as "MCAN".
+    /// Encoded/decoded by serializers as &quot;MCAN&quot;.
     /// </summary>
     [EnumMember(Value = "MCAN")]
     [IsoId("_Y7WIZNp-Ed-ak6NoX_4Aeg_-1374950452")]
@@ -615,7 +615,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Counterparty is for settlement through letter of guarantee, your instruction is not, or vice versa.
-    /// Encoded/decoded by serializers as "LEOG".
+    /// Encoded/decoded by serializers as &quot;LEOG&quot;.
     /// </summary>
     [EnumMember(Value = "LEOG")]
     [IsoId("_Y7WIZdp-Ed-ak6NoX_4Aeg_163837990")]
@@ -624,7 +624,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Matching process has not yet started.
-    /// Encoded/decoded by serializers as "NMAS".
+    /// Encoded/decoded by serializers as &quot;NMAS&quot;.
     /// </summary>
     [EnumMember(Value = "NMAS")]
     [IsoId("_Y7WIZtp-Ed-ak6NoX_4Aeg_-1011353035")]
@@ -632,8 +632,8 @@ public enum UnmatchedReasonCode
     NoMatchingStarted,
     
     /// <summary>
-    /// Safekeeping account used as matching criteria on the market concerned does not match. This includes Buyer/seller's account, direct client's account at the receiving/delivering agent, or receiving/delivering agent's account at the CSD.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Safekeeping account used as matching criteria on the market concerned does not match. This includes Buyer/seller&apos;s account, direct client&apos;s account at the receiving/delivering agent, or receiving/delivering agent&apos;s account at the CSD.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_Y7WIZ9p-Ed-ak6NoX_4Aeg_-1716467650")]
@@ -642,7 +642,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Trade date does not match.
-    /// Encoded/decoded by serializers as "DTRD".
+    /// Encoded/decoded by serializers as &quot;DTRD&quot;.
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_Y7WIaNp-Ed-ak6NoX_4Aeg_-71200215")]
@@ -651,7 +651,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Your instruction was too late for matching.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_Y7WIadp-Ed-ak6NoX_4Aeg_1467588227")]
@@ -660,7 +660,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Closing date/time does not match.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_Y7f5YNp-Ed-ak6NoX_4Aeg_292397202")]
@@ -669,7 +669,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Disagreement on the tax status of the financial instruments to be settled.
-    /// Encoded/decoded by serializers as "TXST".
+    /// Encoded/decoded by serializers as &quot;TXST&quot;.
     /// </summary>
     [EnumMember(Value = "TXST")]
     [IsoId("_Y7f5Ydp-Ed-ak6NoX_4Aeg_-412717413")]
@@ -678,7 +678,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Client of delivering or receiving party 1 does not match.
-    /// Encoded/decoded by serializers as "ICUS".
+    /// Encoded/decoded by serializers as &quot;ICUS&quot;.
     /// </summary>
     [EnumMember(Value = "ICUS")]
     [IsoId("_Y7f5Ytp-Ed-ak6NoX_4Aeg_1232550022")]
@@ -687,7 +687,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Proprietary unmatched reason code described in a narrative field.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Y7f5Y9p-Ed-ak6NoX_4Aeg_-1523628832")]
@@ -696,7 +696,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Missing market execution details.
-    /// Encoded/decoded by serializers as "MIME".
+    /// Encoded/decoded by serializers as &quot;MIME&quot;.
     /// </summary>
     [EnumMember(Value = "MIME")]
     [IsoId("_Y7f5ZNp-Ed-ak6NoX_4Aeg_1596147439")]
@@ -705,7 +705,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Market side trade is unmatched.
-    /// Encoded/decoded by serializers as "UNBR".
+    /// Encoded/decoded by serializers as &quot;UNBR&quot;.
     /// </summary>
     [EnumMember(Value = "UNBR")]
     [IsoId("_Y7f5Zdp-Ed-ak6NoX_4Aeg_891032824")]
@@ -714,7 +714,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Place of safekeeping information does not allow matching to take place.
-    /// Encoded/decoded by serializers as "INPS".
+    /// Encoded/decoded by serializers as &quot;INPS&quot;.
     /// </summary>
     [EnumMember(Value = "INPS")]
     [IsoId("_Y7f5Ztp-Ed-ak6NoX_4Aeg_-1196939541")]
@@ -723,7 +723,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Investor party does not match.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_7p7QACwJEeOqZONeZTLNPw")]
@@ -732,7 +732,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Place of listing does not match.
-    /// Encoded/decoded by serializers as "PLIS".
+    /// Encoded/decoded by serializers as &quot;PLIS&quot;.
     /// </summary>
     [EnumMember(Value = "PLIS")]
     [IsoId("_B7xBgCwKEeOqZONeZTLNPw")]
@@ -741,7 +741,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Disagreement if trade was executed cum or ex.
-    /// Encoded/decoded by serializers as "DCMX".
+    /// Encoded/decoded by serializers as &quot;DCMX&quot;.
     /// </summary>
     [EnumMember(Value = "DCMX")]
     [IsoId("_oKBnQGXeEeWsrOWU209RUg")]
@@ -750,7 +750,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Disagreement on automatic generation of market claim or transformation.
-    /// Encoded/decoded by serializers as "DMCT".
+    /// Encoded/decoded by serializers as &quot;DMCT&quot;.
     /// </summary>
     [EnumMember(Value = "DMCT")]
     [IsoId("_7GiUkGXeEeWsrOWU209RUg")]
@@ -759,7 +759,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// The exposure type does not match.
-    /// Encoded/decoded by serializers as "EXPO".
+    /// Encoded/decoded by serializers as &quot;EXPO&quot;.
     /// </summary>
     [EnumMember(Value = "EXPO")]
     [IsoId("_gntAINCoEeqVwOG0fcjVKA")]
@@ -768,7 +768,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// The Eligibility Set Profile does not match.
-    /// Encoded/decoded by serializers as "EGSP".
+    /// Encoded/decoded by serializers as &quot;EGSP&quot;.
     /// </summary>
     [EnumMember(Value = "EGSP")]
     [IsoId("_A66BwNCpEeqVwOG0fcjVKA")]
@@ -777,7 +777,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Minimum Notice Period does not match
-    /// Encoded/decoded by serializers as "MNTP".
+    /// Encoded/decoded by serializers as &quot;MNTP&quot;.
     /// </summary>
     [EnumMember(Value = "MNTP")]
     [IsoId("_I9qXQNCpEeqVwOG0fcjVKA")]
@@ -786,7 +786,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Transaction amount does not  match.
-    /// Encoded/decoded by serializers as "TXAM".
+    /// Encoded/decoded by serializers as &quot;TXAM&quot;.
     /// </summary>
     [EnumMember(Value = "TXAM")]
     [IsoId("_agTuoNCpEeqVwOG0fcjVKA")]
@@ -795,7 +795,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Termination amount does not match.
-    /// Encoded/decoded by serializers as "TMAM".
+    /// Encoded/decoded by serializers as &quot;TMAM&quot;.
     /// </summary>
     [EnumMember(Value = "TMAM")]
     [IsoId("_4_BT0NCpEeqVwOG0fcjVKA")]
@@ -804,7 +804,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Termination Currency does not match
-    /// Encoded/decoded by serializers as "TMCY".
+    /// Encoded/decoded by serializers as &quot;TMCY&quot;.
     /// </summary>
     [EnumMember(Value = "TMCY")]
     [IsoId("_AMg1QNCqEeqVwOG0fcjVKA")]
@@ -813,7 +813,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Transaction Currency does not match.
-    /// Encoded/decoded by serializers as "TXCY".
+    /// Encoded/decoded by serializers as &quot;TXCY&quot;.
     /// </summary>
     [EnumMember(Value = "TXCY")]
     [IsoId("_AqkqQNCqEeqVwOG0fcjVKA")]
@@ -822,7 +822,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Rate does not match.
-    /// Encoded/decoded by serializers as "RATE".
+    /// Encoded/decoded by serializers as &quot;RATE&quot;.
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("_VMYhcNCqEeqVwOG0fcjVKA")]
@@ -831,7 +831,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Rate Index Type does not match.
-    /// Encoded/decoded by serializers as "RITP".
+    /// Encoded/decoded by serializers as &quot;RITP&quot;.
     /// </summary>
     [EnumMember(Value = "RITP")]
     [IsoId("_ZlHcQNCqEeqVwOG0fcjVKA")]
@@ -840,7 +840,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Spread does not match.
-    /// Encoded/decoded by serializers as "SPRD".
+    /// Encoded/decoded by serializers as &quot;SPRD&quot;.
     /// </summary>
     [EnumMember(Value = "SPRD")]
     [IsoId("_iZ3PYNCqEeqVwOG0fcjVKA")]
@@ -849,7 +849,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Overnight Frequency Rate Fixing does not match.
-    /// Encoded/decoded by serializers as "OFRF".
+    /// Encoded/decoded by serializers as &quot;OFRF&quot;.
     /// </summary>
     [EnumMember(Value = "OFRF")]
     [IsoId("_oD1IkNCqEeqVwOG0fcjVKA")]
@@ -858,7 +858,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Option Type does not match.
-    /// Encoded/decoded by serializers as "OPTP".
+    /// Encoded/decoded by serializers as &quot;OPTP&quot;.
     /// </summary>
     [EnumMember(Value = "OPTP")]
     [IsoId("_xHTUMNCqEeqVwOG0fcjVKA")]
@@ -867,7 +867,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Termination Option does not match.
-    /// Encoded/decoded by serializers as "TMOP".
+    /// Encoded/decoded by serializers as &quot;TMOP&quot;.
     /// </summary>
     [EnumMember(Value = "TMOP")]
     [IsoId("_3oUKINCqEeqVwOG0fcjVKA")]
@@ -876,7 +876,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Requested Execution Date Time does not match.
-    /// Encoded/decoded by serializers as "REDT".
+    /// Encoded/decoded by serializers as &quot;REDT&quot;.
     /// </summary>
     [EnumMember(Value = "REDT")]
     [IsoId("_KVCvANCrEeqVwOG0fcjVKA")]
@@ -885,7 +885,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Day Count Basis does  not match.
-    /// Encoded/decoded by serializers as "DCBS".
+    /// Encoded/decoded by serializers as &quot;DCBS&quot;.
     /// </summary>
     [EnumMember(Value = "DCBS")]
     [IsoId("_fztQANCrEeqVwOG0fcjVKA")]
@@ -894,7 +894,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Transfer Title Indicator does not match.
-    /// Encoded/decoded by serializers as "TFRT".
+    /// Encoded/decoded by serializers as &quot;TFRT&quot;.
     /// </summary>
     [EnumMember(Value = "TFRT")]
     [IsoId("_Ajgv4P7UEeqzyss40vrJTg")]
@@ -903,7 +903,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Compound simple accrual calculation indicator doe not match.
-    /// Encoded/decoded by serializers as "CSAC".
+    /// Encoded/decoded by serializers as &quot;CSAC&quot;.
     /// </summary>
     [EnumMember(Value = "CSAC")]
     [IsoId("_mxXLAP7UEeqzyss40vrJTg")]
@@ -912,7 +912,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// The computation method of (accrued) interest does not match.
-    /// Encoded/decoded by serializers as "PYFQ".
+    /// Encoded/decoded by serializers as &quot;PYFQ&quot;.
     /// </summary>
     [EnumMember(Value = "PYFQ")]
     [IsoId("_x_pBUP7UEeqzyss40vrJTg")]
@@ -921,7 +921,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Number of days after the accrual payment is due does not match.
-    /// Encoded/decoded by serializers as "INPD".
+    /// Encoded/decoded by serializers as &quot;INPD&quot;.
     /// </summary>
     [EnumMember(Value = "INPD")]
     [IsoId("_Q_2KAP7VEeqzyss40vrJTg")]
@@ -930,7 +930,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Lookback days does not match.
-    /// Encoded/decoded by serializers as "LBKD".
+    /// Encoded/decoded by serializers as &quot;LBKD&quot;.
     /// </summary>
     [EnumMember(Value = "LBKD")]
     [IsoId("_zg_p4P7VEeqzyss40vrJTg")]
@@ -939,7 +939,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Crystallisation date does not match.
-    /// Encoded/decoded by serializers as "CRYD".
+    /// Encoded/decoded by serializers as &quot;CRYD&quot;.
     /// </summary>
     [EnumMember(Value = "CRYD")]
     [IsoId("_KG7U8P7WEeqzyss40vrJTg")]
@@ -948,7 +948,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Tenor of the interest rate index does not match.
-    /// Encoded/decoded by serializers as "TENO".
+    /// Encoded/decoded by serializers as &quot;TENO&quot;.
     /// </summary>
     [EnumMember(Value = "TENO")]
     [IsoId("_9OLEYP7WEeqzyss40vrJTg")]
@@ -957,7 +957,7 @@ public enum UnmatchedReasonCode
     
     /// <summary>
     /// Settlement process in which the collateral will be settled does not match.
-    /// Encoded/decoded by serializers as "SEPR".
+    /// Encoded/decoded by serializers as &quot;SEPR&quot;.
     /// </summary>
     [EnumMember(Value = "SEPR")]
     [IsoId("_V-ROsA7iEeujzI3ezCGI7A")]

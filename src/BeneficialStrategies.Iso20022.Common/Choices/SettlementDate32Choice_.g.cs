@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementDate32Choice.Date))]
     [KnownType(typeof(SettlementDate32Choice.DateCode))]
     [IsoId("_vE8fa832Eee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date 32 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

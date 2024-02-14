@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Party type and party identification information.
 /// </summary>
 [IsoId("_-EhOsXltEeG7BsjMvd1mEw_-2096165478")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party And Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyAndType1
     /// Type of additional party.
     /// </summary>
     [IsoId("_-EhOsnltEeG7BsjMvd1mEw_75095689")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyType1Choice_ Type { get; init; } 
+    public required PartyType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyType1Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PartyAndType1
     /// Details related to the additional party.
     /// </summary>
     [IsoId("_-EhOs3ltEeG7BsjMvd1mEw_2077804920")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

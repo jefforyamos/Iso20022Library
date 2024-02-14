@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Balance details for a cash account.
 /// </summary>
 [IsoId("_6nhacX3sEeibM9CPDGCw0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CashBalance12
     /// Specifies the nature of a balance.
     /// </summary>
     [IsoId("_6yG5133sEeibM9CPDGCw0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceType11Choice_? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record CashBalance12
     /// Specifies the type of counterparty for which the balance is calculated.
     /// </summary>
     [IsoId("_6yG52X3sEeibM9CPDGCw0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyTp")]
     #endif
+    [IsoXmlTag("CtrPtyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceCounterparty1Code CounterpartyType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BalanceCounterparty1Code CounterpartyType { get; init; } 
+    public required BalanceCounterparty1Code CounterpartyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BalanceCounterparty1Code CounterpartyType { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record CashBalance12
     /// Specifies the counterparty for which the balance is calculated.
     /// </summary>
     [IsoId("_6yG5233sEeibM9CPDGCw0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyId")]
     #endif
+    [IsoXmlTag("CtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? CounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record CashBalance12
     /// Date and time at which the balance is or will be available.
     /// </summary>
     [IsoId("_6yG53X3sEeibM9CPDGCw0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeSearch4Choice_? ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record CashBalance12
     /// Date or date time when the balance was last updated following an entry posted to the account, in the books of the account servicing institution.
     /// </summary>
     [IsoId("_HyosAbwWEeioUZ07TzVRmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgDt")]
     #endif
+    [IsoXmlTag("PrcgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeSearch4Choice_? ProcessingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

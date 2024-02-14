@@ -27,15 +27,13 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This record is an implementation of the camt.057.001.05 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// The NotificationToReceive message is sent by an account owner or by a party acting on the account owner's behalf to one of the account owner's account servicing institutions. It is an advance notice that the account servicing institution will receive funds to be credited to the account of the account owner.
+/// The NotificationToReceive message is sent by an account owner or by a party acting on the account owner&apos;s behalf to one of the account owner&apos;s account servicing institutions. It is an advance notice that the account servicing institution will receive funds to be credited to the account of the account owner.
 /// Usage
 /// The NotificationToReceive message is used to advise the account servicing institution of funds that the account owner expects to have credited to its account. The message can be used in either a direct or a relay scenario.
 /// </summary>
 [Description(@"Scope|The NotificationToReceive message is sent by an account owner or by a party acting on the account owner's behalf to one of the account owner's account servicing institutions. It is an advance notice that the account servicing institution will receive funds to be credited to the account of the account owner.|Usage|The NotificationToReceive message is used to advise the account servicing institution of funds that the account owner expects to have credited to its account. The message can be used in either a direct or a relay scenario.")]
 [IsoId("_pmmdgTqxEeWZFYSPlduMhw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification To Receive V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record NotificationToReceiveV05 : IOuterRecord<NotificationToRece
     /// Set of elements used to provide further details on the message.
     /// </summary>
     [IsoId("_pmmdgzqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader59 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader59 GroupHeader { get; init; } 
+    public required GroupHeader59 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader59 GroupHeader { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record NotificationToReceiveV05 : IOuterRecord<NotificationToRece
     /// Set of elements used to provide further details on the account notification.
     /// </summary>
     [IsoId("_pmmdhTqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntfctn")]
     #endif
+    [IsoXmlTag("Ntfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountNotification13 Notification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountNotification13 Notification { get; init; } 
+    public required AccountNotification13 Notification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountNotification13 Notification { get; init; } 
     #else
@@ -119,12 +115,11 @@ public partial record NotificationToReceiveV05 : IOuterRecord<NotificationToRece
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_pmmdhzqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,7 +132,7 @@ public partial record NotificationToReceiveV05 : IOuterRecord<NotificationToRece
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NotificationToReceiveV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NotificationToReceiveV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NotificationToReceiveV05Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record NotificationToReceiveV05 : IOuterRecord<NotificationToRece
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationToReceiveV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NotificationToReceiveV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NotificationToReceiveV05Document : IOuterDocument<NotificationToReceiveV05>
@@ -164,7 +159,7 @@ public partial record NotificationToReceiveV05Document : IOuterDocument<Notifica
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NotificationToReceiveV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NotificationToReceiveV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationToReceiveV05 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the details of the currency exchange.
 /// </summary>
 [IsoId("_XaGizfWfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Exchange")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CurrencyExchange16
     /// Currency from which an amount is to be converted in a currency conversion.
     /// </summary>
     [IsoId("_XaGiz_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcCcy")]
     #endif
+    [IsoXmlTag("SrcCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode SourceCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string SourceCurrency { get; init; } 
+    public required string SourceCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string SourceCurrency { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record CurrencyExchange16
     /// Currency into which an amount is to be converted in a currency conversion.
     /// </summary>
     [IsoId("_XaGi0fWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrgtCcy")]
     #endif
+    [IsoXmlTag("TrgtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode TargetCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string TargetCurrency { get; init; } 
+    public required string TargetCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string TargetCurrency { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record CurrencyExchange16
     /// Factor used to convert an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
     [IsoId("_XaGi0_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRate")]
     #endif
+    [IsoXmlTag("XchgRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ExchangeRate { get; init; } 
+    public required System.Decimal ExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ExchangeRate { get; init; } 
     #else

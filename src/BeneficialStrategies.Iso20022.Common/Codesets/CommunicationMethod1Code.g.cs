@@ -21,7 +21,7 @@ public enum CommunicationMethod1Code
 {
     /// <summary>
     /// Transmission by Swift (FIN).
-    /// Encoded/decoded by serializers as "SWMT".
+    /// Encoded/decoded by serializers as &quot;SWMT&quot;.
     /// </summary>
     [EnumMember(Value = "SWMT")]
     [IsoId("_bAkIddp-Ed-ak6NoX_4Aeg_591608994")]
@@ -30,7 +30,7 @@ public enum CommunicationMethod1Code
     
     /// <summary>
     /// Transmission by SWIFTNET.
-    /// Encoded/decoded by serializers as "SWMX".
+    /// Encoded/decoded by serializers as &quot;SWMX&quot;.
     /// </summary>
     [EnumMember(Value = "SWMX")]
     [IsoId("_bAkIdtp-Ed-ak6NoX_4Aeg_309468232")]
@@ -39,7 +39,7 @@ public enum CommunicationMethod1Code
     
     /// <summary>
     /// Transmission by fax.
-    /// Encoded/decoded by serializers as "FAXI".
+    /// Encoded/decoded by serializers as &quot;FAXI&quot;.
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("_bAkId9p-Ed-ak6NoX_4Aeg_603616409")]
@@ -48,7 +48,7 @@ public enum CommunicationMethod1Code
     
     /// <summary>
     /// Transmission by e-mail.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_bAkIeNp-Ed-ak6NoX_4Aeg_617470095")]
@@ -57,7 +57,7 @@ public enum CommunicationMethod1Code
     
     /// <summary>
     /// Transmission by proprietary method.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_bAtSYNp-Ed-ak6NoX_4Aeg_631321016")]

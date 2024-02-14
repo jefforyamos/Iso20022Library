@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be honoured on the presentation of documents that comply with its terms and conditions.
 /// </summary>
 [IsoId("_916yAnltEeG7BsjMvd1mEw_562975782")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Undertaking2
     /// Undertaking name.
     /// </summary>
     [IsoId("_8Skgo4LIEeGwNp5ZjMErfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
+    [IsoXmlTag("Nm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingName1Code? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Undertaking2
     /// Party in whose favour the counter-undertaking is issued.
     /// </summary>
     [IsoId("_916yA3ltEeG7BsjMvd1mEw_1423077489")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bnfcry")]
     #endif
+    [IsoXmlTag("Bnfcry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Beneficiary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Undertaking2
     /// Details related to the expiry terms of the counter-undertaking.
     /// </summary>
     [IsoId("_nltCUhR7EeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDtls")]
     #endif
+    [IsoXmlTag("XpryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpiryDetails2? ExpiryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Undertaking2
     /// Details related to the amount of the counter-undertaking.
     /// </summary>
     [IsoId("_916yBXltEeG7BsjMvd1mEw_-1180399069")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counter Undertaking Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CntrUdrtkgAmt")]
     #endif
+    [IsoXmlTag("CntrUdrtkgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingAmount1? CounterUndertakingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record Undertaking2
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
     [IsoId("_92D78HltEeG7BsjMvd1mEw_1953031282")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Charges Payable By")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfChrgsPyblBy")]
     #endif
+    [IsoXmlTag("ConfChrgsPyblBy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record Undertaking2
     /// Rules and laws governing the counter-undertaking.
     /// </summary>
     [IsoId("_92D78XltEeG7BsjMvd1mEw_-138238292")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Governance Rules And Law")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GovncRulesAndLaw")]
     #endif
+    [IsoXmlTag("GovncRulesAndLaw")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GovernanceRules1? GovernanceRulesAndLaw { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,12 @@ public partial record Undertaking2
     /// Indication as to whether a claim is to utilise a standard claim form of the issuing institution.
     /// </summary>
     [IsoId("_92D78nltEeG7BsjMvd1mEw_816197846")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standard Claim Document Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StdClmDocInd")]
     #endif
+    [IsoXmlTag("StdClmDocInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StandardClaimDocumentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,19 +162,15 @@ public partial record Undertaking2
     /// Additional information related to the counter-undertaking.
     /// </summary>
     [IsoId("_92D783ltEeG7BsjMvd1mEw_1702800733")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

@@ -8,6 +8,11 @@ using Iso = BeneficialStrategies.Iso20022;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
+#if DECLARE_INTERNALSERIALIZATION
+
+/// <summary>
+/// Unit test for POC data
+/// </summary>
 public class CustomerCreditTransferInitiation : TestPublishedOuterRecordSample<Iso.pain.CustomerCreditTransferInitiationV11, Iso.pain.CustomerCreditTransferInitiationV11Document>
 {
     // https://www.iso20022.org/sites/default/files/2020-12/ISO20022_MDRPart1_PaymentsInitiation_2020_2021_v1_ForSEGReview.docx&ved=2ahUKEwjR39GZiomEAxX0TjABHSDID0oQFnoECB0QAQ&usg=AOvVaw0eSycRPoG1iFrAN0py8ziP&sxs=sb
@@ -141,3 +146,5 @@ public class CustomerCreditTransferInitiation : TestPublishedOuterRecordSample<I
         },
     };
 }
+
+#endif

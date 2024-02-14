@@ -21,7 +21,7 @@ public enum QRCodeEncodingMode1Code
 {
     /// <summary>
     /// Alphanumeric value provided in Barcode field.
-    /// Encoded/decoded by serializers as "ALFA".
+    /// Encoded/decoded by serializers as &quot;ALFA&quot;.
     /// </summary>
     [EnumMember(Value = "ALFA")]
     [IsoId("_C2JMYdudEeiB5uLfkg9ZJA")]
@@ -30,7 +30,7 @@ public enum QRCodeEncodingMode1Code
     
     /// <summary>
     /// Binary value provided in Quick Response Code Binary Value.
-    /// Encoded/decoded by serializers as "BINA".
+    /// Encoded/decoded by serializers as &quot;BINA&quot;.
     /// </summary>
     [EnumMember(Value = "BINA")]
     [IsoId("_C6I7kdudEeiB5uLfkg9ZJA")]
@@ -39,7 +39,7 @@ public enum QRCodeEncodingMode1Code
     
     /// <summary>
     /// Kanji value provided in Quick Response Code Binary Value.
-    /// Encoded/decoded by serializers as "KANJ".
+    /// Encoded/decoded by serializers as &quot;KANJ&quot;.
     /// </summary>
     [EnumMember(Value = "KANJ")]
     [IsoId("_C-EZUdudEeiB5uLfkg9ZJA")]
@@ -48,7 +48,7 @@ public enum QRCodeEncodingMode1Code
     
     /// <summary>
     /// Numeric value provided in Barcode field.
-    /// Encoded/decoded by serializers as "NUME".
+    /// Encoded/decoded by serializers as &quot;NUME&quot;.
     /// </summary>
     [EnumMember(Value = "NUME")]
     [IsoId("_DCOgkdudEeiB5uLfkg9ZJA")]

@@ -21,7 +21,7 @@ public enum PartialInstruction3Code
 {
     /// <summary>
     /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_ZxSR5Np-Ed-ak6NoX_4Aeg_528226787")]
@@ -30,7 +30,7 @@ public enum PartialInstruction3Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone.
-    /// Encoded/decoded by serializers as "PHOB".
+    /// Encoded/decoded by serializers as &quot;PHOB&quot;.
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_ZxSR5dp-Ed-ak6NoX_4Aeg_528226788")]
@@ -39,7 +39,7 @@ public enum PartialInstruction3Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "TELB".
+    /// Encoded/decoded by serializers as &quot;TELB&quot;.
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_ZxSR5tp-Ed-ak6NoX_4Aeg_528226818")]

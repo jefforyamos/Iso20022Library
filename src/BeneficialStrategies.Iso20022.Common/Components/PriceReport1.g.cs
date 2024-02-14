@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a price report.
 /// </summary>
 [IsoId("_U1YYmtp-Ed-ak6NoX_4Aeg_-666628245")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PriceReport1
     /// Information related to the price valuation of a financial instrument.
     /// </summary>
     [IsoId("_U1iJkNp-Ed-ak6NoX_4Aeg_-621374829")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Valuation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricValtnDtls")]
     #endif
+    [IsoXmlTag("PricValtnDtls")]
     public PriceValuation2? PriceValuationDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _U1iJkNp-Ed-ak6NoX_4Aeg_-621374829
     
@@ -57,12 +54,11 @@ public partial record PriceReport1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_U1iJkdp-Ed-ak6NoX_4Aeg_-622300758")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data to be present in a dispute.
 /// </summary>
 [IsoId("_1xe1ccZiEeiCDcGzDHI_9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Dispute Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,12 @@ public partial record DisputeData2
     /// Indicates the cycle of presentment or of the chargeback  (1= first cycle for chargeback, 2= second cycle of presentment or chargeback, etc.).
     /// </summary>
     [IsoId("_18M3scZiEeiCDcGzDHI_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentment Cycle")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PresntmntCycl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PresntmntCycl")]
+    [IsoSimpleType(IsoSimpleType.Exact1NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact1NumericText? PresentmentCycle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +60,13 @@ public partial record DisputeData2
     /// Condition of the dispute.
     /// </summary>
     [IsoId("_18M3s8ZiEeiCDcGzDHI_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Condition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsptCond")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DsptCond")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DisputeCondition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +79,11 @@ public partial record DisputeData2
     /// Reference for the dispute.
     /// </summary>
     [IsoId("_18M3ucZiEeiCDcGzDHI_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsptRef")]
     #endif
+    [IsoXmlTag("DsptRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisputeReference1? DisputeReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

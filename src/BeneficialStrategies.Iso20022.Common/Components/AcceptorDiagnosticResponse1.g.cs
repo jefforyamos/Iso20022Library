@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Diagnostic response from the acquirer.
 /// </summary>
 [IsoId("_Svo64wEcEeCQm6a_G2yO_w_-1117084732")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Diagnostic Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AcceptorDiagnosticResponse1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_Svo65AEcEeCQm6a_G2yO_w_-495977568")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment8 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment8 Environment { get; init; } 
+    public required CardPaymentEnvironment8 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment8 Environment { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AcceptorDiagnosticResponse1
     /// Instructions for contacting the terminal management host.
     /// </summary>
     [IsoId("_Svo65QEcEeCQm6a_G2yO_w_89969458")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSTrggr")]
     #endif
+    [IsoXmlTag("TMSTrggr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TMSTrigger1? TMSTrigger { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

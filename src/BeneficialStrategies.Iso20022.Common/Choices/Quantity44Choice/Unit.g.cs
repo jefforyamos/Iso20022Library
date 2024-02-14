@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity44Choice
     /// Quantity of security to be transferred.
     /// </summary>
     [IsoId("_QwEDAU3WEeidB49bWZiS0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity44Choice
         /// Number of objects represented as a decimal number, for example 0.75 or 45.6.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Unit")]
         #endif
+        [IsoXmlTag("Unit")]
+        [IsoSimpleType(IsoSimpleType.DecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoDecimalNumber Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Value { get; init; } 
+        public required System.UInt64 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Value { get; init; } 
         #else

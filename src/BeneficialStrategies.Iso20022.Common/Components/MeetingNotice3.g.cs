@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the shareholders meeting, specifying the participation requirements and the voting procedures. Alternatively, it may indicate where such information may be obtained.
 /// </summary>
 [IsoId("_TkBeZtp-Ed-ak6NoX_4Aeg_-1325036860")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting Notice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record MeetingNotice3
     /// Identification assigned to a general meeting by the party notifying the meeting. It must be unique for the party notifying the meeting.
     /// </summary>
     [IsoId("_TkBeZ9p-Ed-ak6NoX_4Aeg_-1325036828")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MtgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MeetingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,15 +69,13 @@ public partial record MeetingNotice3
     /// Identification assigned to a meeting by the issuer. It must be unique for the issuer.
     /// </summary>
     [IsoId("_TkBeaNp-Ed-ak6NoX_4Aeg_-1325036798")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Meeting Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrMtgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssrMtgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +88,15 @@ public partial record MeetingNotice3
     /// Specifies the type of security holders meeting.
     /// </summary>
     [IsoId("_TkBeadp-Ed-ak6NoX_4Aeg_-1325036737")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingType2Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MeetingType2Code Type { get; init; } 
+    public required MeetingType2Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MeetingType2Code Type { get; init; } 
     #else
@@ -114,12 +107,11 @@ public partial record MeetingNotice3
     /// Classifies the type of meeting.
     /// </summary>
     [IsoId("_TkLPYNp-Ed-ak6NoX_4Aeg_-1325036706")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clssfctn")]
     #endif
+    [IsoXmlTag("Clssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MeetingTypeClassification1Choice_? Classification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,12 +124,12 @@ public partial record MeetingNotice3
     /// Official meeting announcement date.
     /// </summary>
     [IsoId("_TkLPYdp-Ed-ak6NoX_4Aeg_-1325036645")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Announcement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnncmntDt")]
     #endif
+    [IsoXmlTag("AnncmntDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? AnnouncementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,16 +142,16 @@ public partial record MeetingNotice3
     /// Indicates whether physical participation to a meeting is required in order to be allowed to vote.
     /// </summary>
     [IsoId("_TkLPYtp-Ed-ak6NoX_4Aeg_-1325036622")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncReqrd")]
     #endif
+    [IsoXmlTag("AttndncReqrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AttendanceRequired { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AttendanceRequired { get; init; } 
+    public required System.String AttendanceRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AttendanceRequired { get; init; } 
     #else
@@ -170,15 +162,13 @@ public partial record MeetingNotice3
     /// Indicates how to order the attendance card or to give notice of attendance.
     /// </summary>
     [IsoId("_TkLPY9p-Ed-ak6NoX_4Aeg_-1325036591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Confirmation Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncConfInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AttndncConfInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AttendanceConfirmationInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +181,11 @@ public partial record MeetingNotice3
     /// Date and time by which the beneficial owner or agent must notify of their intention to participate in a meeting. This deadline is set by an intermediary.
     /// </summary>
     [IsoId("_TkLPZNp-Ed-ak6NoX_4Aeg_-1325036583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Confirmation Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncConfDdln")]
     #endif
+    [IsoXmlTag("AttndncConfDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? AttendanceConfirmationDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +198,11 @@ public partial record MeetingNotice3
     /// Date and time by which the beneficial owner or agent must notify of their intention to participate in a meeting (STP mode). This deadline is set by an intermediary.
     /// </summary>
     [IsoId("_TkLPZdp-Ed-ak6NoX_4Aeg_-1325036343")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Confirmation STP Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncConfSTPDdln")]
     #endif
+    [IsoXmlTag("AttndncConfSTPDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? AttendanceConfirmationSTPDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +215,11 @@ public partial record MeetingNotice3
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
     [IsoId("_TkLPZtp-Ed-ak6NoX_4Aeg_-1325036313")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Confirmation Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncConfMktDdln")]
     #endif
+    [IsoXmlTag("AttndncConfMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? AttendanceConfirmationMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,15 +232,13 @@ public partial record MeetingNotice3
     /// Address to use over the www (HTTP) service where addtional information on the meeting may be found.
     /// </summary>
     [IsoId("_TkLPZ9p-Ed-ak6NoX_4Aeg_-1325036282")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Documentation URL Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlDcmnttnURLAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlDcmnttnURLAdr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AdditionalDocumentationURLAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,28 +251,25 @@ public partial record MeetingNotice3
     /// Additional procedural information about the general meeting, specifying the participation requirements and the voting procedures. Alternatively, it may indicate where such information may be obtained.
     /// </summary>
     [IsoId("_TkLPaNp-Ed-ak6NoX_4Aeg_-141349463")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Procedure Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlPrcdrDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlPrcdrDtls")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<AdditionalRights1> AdditionalProcedureDetails { get; init; } = new ValueList<AdditionalRights1>(){};
     
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
     [IsoId("_TkLPadp-Ed-ak6NoX_4Aeg_-1324116189")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Securities Outstanding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfSctiesOutsdng")]
     #endif
+    [IsoXmlTag("TtlNbOfSctiesOutsdng")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -300,12 +282,12 @@ public partial record MeetingNotice3
     /// Number of rights admitted to the vote.
     /// </summary>
     [IsoId("_TkUZUNp-Ed-ak6NoX_4Aeg_-1324116158")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Voting Rights")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfVtngRghts")]
     #endif
+    [IsoXmlTag("TtlNbOfVtngRghts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -318,12 +300,11 @@ public partial record MeetingNotice3
     /// Address where the information on the proxy should be sent.
     /// </summary>
     [IsoId("_TkUZUdp-Ed-ak6NoX_4Aeg_-1324116004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy Appointment Notification Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrxyAppntmntNtfctnAdr")]
     #endif
+    [IsoXmlTag("PrxyAppntmntNtfctnAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress1? ProxyAppointmentNotificationAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -336,12 +317,11 @@ public partial record MeetingNotice3
     /// Choice to signalize whether proxy is allowed.
     /// </summary>
     [IsoId("_TkUZUtp-Ed-ak6NoX_4Aeg_-901483829")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrxyChc")]
     #endif
+    [IsoXmlTag("PrxyChc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Proxy1Choice_? ProxyChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -354,28 +334,24 @@ public partial record MeetingNotice3
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
     [IsoId("_TkUZU9p-Ed-ak6NoX_4Aeg_-1324116034")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Person Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctPrsnDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CtctPrsnDtls")]
     [MinLength(0)]
     [MaxLength(12)]
-    #endif
     public ValueList<MeetingContactPerson1> ContactPersonDetails { get; init; } = new ValueList<MeetingContactPerson1>(){};
     
     /// <summary>
     /// Date on which a company publishes the results of its meeting.
     /// </summary>
     [IsoId("_TkUZVNp-Ed-ak6NoX_4Aeg_-1324116157")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result Publication Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsltPblctnDt")]
     #endif
+    [IsoXmlTag("RsltPblctnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat3Choice_? ResultPublicationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

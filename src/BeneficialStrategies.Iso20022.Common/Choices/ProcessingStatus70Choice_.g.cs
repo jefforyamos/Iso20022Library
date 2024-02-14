@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus70Choice.Code))]
     [KnownType(typeof(ProcessingStatus70Choice.Proprietary))]
     [IsoId("_mLAX4eGHEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 70 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

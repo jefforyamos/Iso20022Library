@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of the documents referred by the creditor.
 /// </summary>
 [IsoId("_T31ySNp-Ed-ak6NoX_4Aeg_96960704")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Reference Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CreditorReferenceType1
     /// Coded creditor reference type.
     /// </summary>
     [IsoId("_T31ySdp-Ed-ak6NoX_4Aeg_96961291")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentType3Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentType3Code Code { get; init; } 
+    public required DocumentType3Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentType3Code Code { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record CreditorReferenceType1
     /// Creditor reference type not avilable in a coded format.
     /// </summary>
     [IsoId("_T31yStp-Ed-ak6NoX_4Aeg_96961652")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prtry")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Proprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Proprietary { get; init; } 
+    public required System.String Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Proprietary { get; init; } 
     #else
@@ -95,15 +90,13 @@ public partial record CreditorReferenceType1
     /// Identification of the issuer of the credit reference type.
     /// </summary>
     [IsoId("_T3_jQNp-Ed-ak6NoX_4Aeg_96961712")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

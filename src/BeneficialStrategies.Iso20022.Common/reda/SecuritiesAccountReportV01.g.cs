@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The SecuritiesAccountReport message sent by the executing party to an instructing party to provide the details of the securities account details as requested in the query.")]
 [IsoId("_KAu-1Z2fEem_Be8NuxvF7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Account Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,12 +74,11 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord<SecuritiesAccoun
     /// Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.
     /// </summary>
     [IsoId("_KAu-352fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader3? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +91,15 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord<SecuritiesAccoun
     /// Provides details on the page number of the message.
     /// </summary>
     [IsoId("_KAu-4Z2fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination1 Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination1 Pagination { get; init; } 
+    public required Pagination1 Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination1 Pagination { get; init; } 
     #else
@@ -114,16 +110,15 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord<SecuritiesAccoun
     /// Provides information on report or error resulting from the originating query message.
     /// </summary>
     [IsoId("_KAu-552fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptOrErr")]
     #endif
+    [IsoXmlTag("RptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccountOrOperationalError3Choice_ ReportOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccountOrOperationalError3Choice_ ReportOrError { get; init; } 
+    public required SecuritiesAccountOrOperationalError3Choice_ ReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccountOrOperationalError3Choice_ ReportOrError { get; init; } 
     #else
@@ -134,12 +129,11 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord<SecuritiesAccoun
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_KAu-6Z2fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,7 +146,7 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord<SecuritiesAccoun
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesAccountReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesAccountReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesAccountReportV01Document ToDocument()
     {
@@ -162,7 +156,7 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord<SecuritiesAccoun
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesAccountReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesAccountReportV01Document : IOuterDocument<SecuritiesAccountReportV01>
@@ -179,7 +173,7 @@ public partial record SecuritiesAccountReportV01Document : IOuterDocument<Securi
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesAccountReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesAccountReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccountReportV01 Message { get; init; }

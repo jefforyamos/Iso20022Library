@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Group of software packages related to a group of POIComponent of the POI System.
 /// </summary>
 [IsoId("_zZR7oAueEeqw5uEXxQ9H4g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Terminal Package Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TerminalPackageType1
     /// Identification of the POI (Point Of Interaction) component.
     /// </summary>
     [IsoId("_zCO7IBBgEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Component Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POICmpntId")]
     #endif
+    [IsoXmlTag("POICmpntId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentIdentification1? POIComponentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TerminalPackageType1
     /// Chunk of a software package.
     /// </summary>
     [IsoId("_5ti8kBBgEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Package")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Packg")]
     #endif
+    [IsoXmlTag("Packg")]
     public PackageType1? Package { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _5ti8kBBgEeqgJK7e3n_EXA
     

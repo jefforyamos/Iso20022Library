@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketTypeFormat1Choice
     /// Standard code to specify the type of market in which transactions take place, for example, primary or secondary.
     /// </summary>
     [IsoId("_Q4XJYtp-Ed-ak6NoX_4Aeg_1331206916")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketTypeFormat1Choice
         /// Specifies the type of market in which transactions take place, for example, primary or secondary.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required MarketType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public MarketType3Code Value { get; init; } 
+        public required MarketType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public MarketType3Code Value { get; init; } 
         #else

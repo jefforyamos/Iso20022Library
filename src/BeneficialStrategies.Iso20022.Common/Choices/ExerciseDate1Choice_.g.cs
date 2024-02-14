@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExerciseDate1Choice.FirstExerciseDate))]
     [KnownType(typeof(ExerciseDate1Choice.PendingDateApplicable))]
     [IsoId("_UR6owAbBEeqrW7Meu5r3kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exercise Date 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

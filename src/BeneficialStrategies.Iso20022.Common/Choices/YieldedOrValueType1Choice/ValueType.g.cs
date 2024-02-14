@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.YieldedOrValueType1Choice
     /// Type of value in which the price is expressed.
     /// </summary>
     [IsoId("_RdBVqNp-Ed-ak6NoX_4Aeg_599544875")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.YieldedOrValueType1Choice
         /// Specifies a type of value of the price.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ValTp")]
         #endif
+        [IsoXmlTag("ValTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PriceValueType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PriceValueType1Code Value { get; init; } 
+        public required PriceValueType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PriceValueType1Code Value { get; init; } 
         #else

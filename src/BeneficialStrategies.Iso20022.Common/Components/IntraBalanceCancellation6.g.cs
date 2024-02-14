@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the cancellation requests.
 /// </summary>
 [IsoId("_qIqm7znfEem7JZMuWtwtsg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Balance Cancellation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record IntraBalanceCancellation6
     /// Account to or from which a cash entry is made.
     /// </summary>
     [IsoId("_qSppUznfEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcct")]
     #endif
+    [IsoXmlTag("CshAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? CashAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record IntraBalanceCancellation6
     /// Party that owns the account.
     /// </summary>
     [IsoId("_qSppUTnfEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcctOwnr")]
     #endif
+    [IsoXmlTag("CshAcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record IntraBalanceCancellation6
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_MpzYETqCEemJ3KLLPeYl6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcctSvcr")]
     #endif
+    [IsoXmlTag("CshAcctSvcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +100,11 @@ public partial record IntraBalanceCancellation6
     /// Status and status reason of the transaction.
     /// </summary>
     [IsoId("_qSppVTnfEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingStatus69Choice_? ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,19 +117,17 @@ public partial record IntraBalanceCancellation6
     /// Unambiguous identification of the cancellation request.
     /// </summary>
     [IsoId("_qSppXTnfEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ReqRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RequestReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RequestReference { get; init; } 
+    public required System.String RequestReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RequestReference { get; init; } 
     #else
@@ -146,12 +138,12 @@ public partial record IntraBalanceCancellation6
     /// Date and time at which the status was assigned.
     /// </summary>
     [IsoId("_qSppXznfEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsDt")]
     #endif
+    [IsoXmlTag("StsDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StatusDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +156,11 @@ public partial record IntraBalanceCancellation6
     /// References of the transaction for which the intra-balance modification is requested.
     /// </summary>
     [IsoId("_qSppZznfEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public References14? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +173,11 @@ public partial record IntraBalanceCancellation6
     /// Identifies additional details of the transaction.
     /// </summary>
     [IsoId("_qSppbznfEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Intra Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygIntraBal")]
     #endif
+    [IsoXmlTag("UndrlygIntraBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntraBalance5? UnderlyingIntraBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

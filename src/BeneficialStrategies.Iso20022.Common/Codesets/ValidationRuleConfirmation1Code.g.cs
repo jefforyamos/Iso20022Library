@@ -22,7 +22,7 @@ public enum ValidationRuleConfirmation1Code
 {
     /// <summary>
     /// Confirmation party in trade.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_0NxeUSBpEeugLNJneiyzbA")]

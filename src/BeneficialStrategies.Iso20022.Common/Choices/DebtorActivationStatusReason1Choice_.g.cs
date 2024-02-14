@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DebtorActivationStatusReason1Choice.Code))]
     [KnownType(typeof(DebtorActivationStatusReason1Choice.Proprietary))]
     [IsoId("_yBQtU-IJEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Activation Status Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

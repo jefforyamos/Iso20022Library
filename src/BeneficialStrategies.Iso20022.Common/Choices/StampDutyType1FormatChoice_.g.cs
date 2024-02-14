@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StampDutyType1FormatChoice.Code))]
     [KnownType(typeof(StampDutyType1FormatChoice.Proprietary))]
     [IsoId("_Ro8Rxtp-Ed-ak6NoX_4Aeg_-891645005")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stamp Duty Type 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

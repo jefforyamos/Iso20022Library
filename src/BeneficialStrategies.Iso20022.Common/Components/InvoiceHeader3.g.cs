@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Collection of data for that is exchanged between two or more parties in written, printed or electronic form.
 /// </summary>
 [IsoId("_xV7LweWoEeevU7McUP3D1w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record InvoiceHeader3
     /// Unique identification of this invoice document.
     /// </summary>
     [IsoId("_xepp8eWoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record InvoiceHeader3
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
     [IsoId("_xepp8-WoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TpCd")]
     #endif
+    [IsoXmlTag("TpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentType1Code TypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDocumentType1Code TypeCode { get; init; } 
+    public required ExternalDocumentType1Code TypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDocumentType1Code TypeCode { get; init; } 
     #else
@@ -96,15 +91,13 @@ public partial record InvoiceHeader3
     /// Name of invoice document or transaction, for example, tax invoice.
     /// </summary>
     [IsoId("_xeqRAeWoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,16 +110,16 @@ public partial record InvoiceHeader3
     /// Issue date of the document.
     /// </summary>
     [IsoId("_xeqRA-WoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDtTm")]
     #endif
+    [IsoXmlTag("IsseDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime IssueDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime IssueDateTime { get; init; } 
+    public required System.DateTime IssueDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime IssueDateTime { get; init; } 
     #else
@@ -137,12 +130,11 @@ public partial record InvoiceHeader3
     /// Party that issued this invoice document.
     /// </summary>
     [IsoId("_xeqRBeWoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty4? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +147,11 @@ public partial record InvoiceHeader3
     /// Unique identifier for a language used in this invoice document.
     /// </summary>
     [IsoId("_xeqRB-WoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LangCd")]
     #endif
+    [IsoXmlTag("LangCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? LanguageCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +164,12 @@ public partial record InvoiceHeader3
     /// Indicator that the document is a copy of the|original document.
     /// </summary>
     [IsoId("_xeqRCeWoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyInd")]
     #endif
+    [IsoXmlTag("CpyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CopyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +182,11 @@ public partial record InvoiceHeader3
     /// Specifies the function of the document.
     /// </summary>
     [IsoId("_xeqRC-WoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocPurp")]
     #endif
+    [IsoXmlTag("DocPurp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalDocumentPurpose1Code? DocumentPurpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +199,11 @@ public partial record InvoiceHeader3
     /// Note included in this invoice document.
     /// </summary>
     [IsoId("_xeqRDeWoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Included Note")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InclNote")]
     #endif
+    [IsoXmlTag("InclNote")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation6? IncludedNote { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice
     /// Reason why the payment status is cancelled.
     /// </summary>
     [IsoId("_Ny9Dw5lPEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancelled")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice
         /// Specifies the underlying reason for cancellation of the associated transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Canc")]
         #endif
+        [IsoXmlTag("Canc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CancelledStatusReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CancelledStatusReason1Code Value { get; init; } 
+        public required CancelledStatusReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CancelledStatusReason1Code Value { get; init; } 
         #else

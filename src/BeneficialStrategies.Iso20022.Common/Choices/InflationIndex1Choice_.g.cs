@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InflationIndex1Choice.ISIN))]
     [KnownType(typeof(InflationIndex1Choice.Name))]
     [IsoId("_ZyZ21CS2EeWsI5Sp3-B3zg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inflation Index 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

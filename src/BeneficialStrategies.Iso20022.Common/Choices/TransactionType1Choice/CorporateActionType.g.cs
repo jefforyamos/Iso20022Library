@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1Choice
     /// Type of corporate action event.
     /// </summary>
     [IsoId("_RF4ZcAf_EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

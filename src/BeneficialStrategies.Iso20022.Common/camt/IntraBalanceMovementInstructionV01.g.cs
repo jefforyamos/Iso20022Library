@@ -30,15 +30,13 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// 
 /// Usage: 
 /// The message may be used to:
-/// - re-send a message previously sent (the sub-function of the message is "Duplicate")
-/// - provide a third party with a copy of a message for information (the sub-function of the message is "Copy")
-/// - re-send to a third party a copy of a message for information (the sub-function of the message is "CopyDuplicate").
+/// - re-send a message previously sent (the sub-function of the message is &quot;Duplicate&quot;)
+/// - provide a third party with a copy of a message for information (the sub-function of the message is &quot;Copy&quot;)
+/// - re-send to a third party a copy of a message for information (the sub-function of the message is &quot;CopyDuplicate&quot;).
 /// </summary>
 [Description(@"The IntraBalanceMovementInstruction message is sent from an account owner/requestor to a settlement infrastructure to instruct the movement of an amount of money within its holdings from one sub-balance to another.||Usage: |The message may be used to:|- re-send a message previously sent (the sub-function of the message is ""Duplicate"")|- provide a third party with a copy of a message for information (the sub-function of the message is ""Copy"")|- re-send to a third party a copy of a message for information (the sub-function of the message is ""CopyDuplicate"").")]
 [IsoId("_DLtKtTncEem7JZMuWtwtsg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Balance Movement Instruction V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,12 +80,11 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Unambiguous identification of the message as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
     [IsoId("_DLtKvTncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionAndDocumentIdentification6? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +97,11 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
     [IsoId("_DLtKvzncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnEvtId")]
     #endif
+    [IsoXmlTag("CorpActnEvtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Identification14? CorporateActionEventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +114,11 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Count of the number of transactions linked.
     /// </summary>
     [IsoId("_DLtKwTncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Counts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbCounts")]
     #endif
+    [IsoXmlTag("NbCounts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberCount1Choice_? NumberCounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +131,11 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Link to another transaction that must be processed after, before or at the same time.
     /// </summary>
     [IsoId("_DLtKwzncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkages")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lnkgs")]
     #endif
+    [IsoXmlTag("Lnkgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Linkages57? Linkages { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,16 +148,15 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Account to or from which an entry is made.
     /// </summary>
     [IsoId("_DLtKxTncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcct")]
     #endif
+    [IsoXmlTag("CshAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount38 CashAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount38 CashAccount { get; init; } 
+    public required CashAccount38 CashAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount38 CashAccount { get; init; } 
     #else
@@ -174,12 +167,11 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Party that legally owns the cash account.
     /// </summary>
     [IsoId("_JXdhwjp7EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcctOwnr")]
     #endif
+    [IsoXmlTag("CshAcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +184,11 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_JXdhwzp7EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcctSvcr")]
     #endif
+    [IsoXmlTag("CshAcctSvcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,16 +201,15 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Intra-balance movement transaction details.
     /// </summary>
     [IsoId("_DLtKxzncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraBal")]
     #endif
+    [IsoXmlTag("IntraBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraBalance5 IntraBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IntraBalance5 IntraBalance { get; init; } 
+    public required IntraBalance5 IntraBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IntraBalance5 IntraBalance { get; init; } 
     #else
@@ -230,12 +220,11 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_DLtKyTncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,7 +237,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IntraBalanceMovementInstructionV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IntraBalanceMovementInstructionV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IntraBalanceMovementInstructionV01Document ToDocument()
     {
@@ -258,7 +247,7 @@ public partial record IntraBalanceMovementInstructionV01 : IOuterRecord<IntraBal
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementInstructionV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IntraBalanceMovementInstructionV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IntraBalanceMovementInstructionV01Document : IOuterDocument<IntraBalanceMovementInstructionV01>
@@ -275,7 +264,7 @@ public partial record IntraBalanceMovementInstructionV01Document : IOuterDocumen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IntraBalanceMovementInstructionV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IntraBalanceMovementInstructionV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraBalanceMovementInstructionV01 Message { get; init; }

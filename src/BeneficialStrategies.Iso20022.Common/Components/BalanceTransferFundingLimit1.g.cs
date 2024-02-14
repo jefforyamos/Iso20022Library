@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Maximum value that the new bank will pay to the old bank when the closing balance on the old bank is negative.
 /// </summary>
 [IsoId("_x14swQ2aEeSNWNtJlXOAhg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Transfer Funding Limit")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record BalanceTransferFundingLimit1
     /// Maximum value and related currency that can be sent by the new account servicer to the old account servicer in case of a negative closing balance.
     /// </summary>
     [IsoId("_354PgA2aEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyAmt")]
     #endif
+    [IsoXmlTag("CcyAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CurrencyAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CurrencyAmount { get; init; } 
+    public required System.Decimal CurrencyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CurrencyAmount { get; init; } 
     #else

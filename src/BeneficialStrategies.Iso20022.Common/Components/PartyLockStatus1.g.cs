@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Lock status of the party for processing in the system. 
 /// </summary>
 [IsoId("_JfSv1mjMEeiRg5NzP0jkQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Lock Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record PartyLockStatus1
     /// Specifies the date from which the lock status is valid.
     /// </summary>
     [IsoId("_WiPMQGjNEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldFr")]
     #endif
+    [IsoXmlTag("VldFr")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,15 @@ public partial record PartyLockStatus1
     /// Lock status of the party.
     /// </summary>
     [IsoId("_JfT982jMEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LockStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LockStatus1Code Status { get; init; } 
+    public required LockStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LockStatus1Code Status { get; init; } 
     #else
@@ -89,15 +86,13 @@ public partial record PartyLockStatus1
     /// Specifies the underlying reason for the locking of the party.
     /// </summary>
     [IsoId("_JfT99GjMEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lock Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LckRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LckRsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LockReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cancellation response from the acquirer.
 /// </summary>
 [IsoId("_Yjz_8QucEeqYM5yH99IYQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Cancellation Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AcceptorCancellationResponse8
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_YuYRMQucEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment74 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment74 Environment { get; init; } 
+    public required CardPaymentEnvironment74 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment74 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record AcceptorCancellationResponse8
     /// Cancellation transaction between an acceptor and an acquirer.
     /// </summary>
     [IsoId("_YuYRMwucEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentTransaction97 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentTransaction97 Transaction { get; init; } 
+    public required CardPaymentTransaction97 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentTransaction97 Transaction { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record AcceptorCancellationResponse8
     /// Response from the acquirer to the cancellation transaction.
     /// </summary>
     [IsoId("_YuYRNQucEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRspn")]
     #endif
+    [IsoXmlTag("TxRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentTransaction98 TransactionResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentTransaction98 TransactionResponse { get; init; } 
+    public required CardPaymentTransaction98 TransactionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentTransaction98 TransactionResponse { get; init; } 
     #else

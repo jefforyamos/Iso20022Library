@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// </summary>
 [Description(@"Scope|The CreateNonDeliverableForwardOpening message is sent by a participant to a central system or to a counterparty to notify the opening of a non deliverable trade.|Usage|The trading parties will send similar messages to the central settlement system and the central settlement system will send notifications to both parties.")]
 [IsoId("_OzAFVdE8Ed-BzquC8wXy7w_421836002")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Create Non Deliverable Forward Opening V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord<Creat
     /// Provides identification and date of the non deliverable trade which is created.
     /// </summary>
     [IsoId("_OzAFVtE8Ed-BzquC8wXy7w_579998049")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradInf")]
     #endif
+    [IsoXmlTag("TradInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement1 TradeInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeAgreement1 TradeInformation { get; init; } 
+    public required TradeAgreement1 TradeInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeAgreement1 TradeInformation { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord<Creat
     /// Specifies the trading side of the non deliverable trade which is created.
     /// </summary>
     [IsoId("_OzAFV9E8Ed-BzquC8wXy7w_1458268305")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification3 TradingSideIdentification { get; init; } 
+    public required TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord<Creat
     /// Specifies the counterparty of the non deliverable trade which is created.
     /// </summary>
     [IsoId("_OzAFWNE8Ed-BzquC8wXy7w_1612496357")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
+    public required TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #else
@@ -143,16 +138,15 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord<Creat
     /// Specifies the amounts of the non deliverable trade which is created.
     /// </summary>
     [IsoId("_OzAFWdE8Ed-BzquC8wXy7w_-659367564")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAmts")]
     #endif
+    [IsoXmlTag("TradAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountsAndValueDate1 TradeAmounts { get; init; } 
+    public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountsAndValueDate1 TradeAmounts { get; init; } 
     #else
@@ -163,16 +157,15 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord<Creat
     /// Specifies the rate agreed at the opening of a non deliverable trade.
     /// </summary>
     [IsoId("_OzAFWtE8Ed-BzquC8wXy7w_497805144")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreed Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrdRate")]
     #endif
+    [IsoXmlTag("AgrdRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate1 AgreedRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate1 AgreedRate { get; init; } 
+    public required AgreedRate1 AgreedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate1 AgreedRate { get; init; } 
     #else
@@ -183,16 +176,15 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord<Creat
     /// Specifies the valuation conditions of the non deliverable trade which is created.
     /// </summary>
     [IsoId("_OzJ2UNE8Ed-BzquC8wXy7w_1979703277")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnConds")]
     #endif
+    [IsoXmlTag("ValtnConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
+    public required NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
     #else
@@ -203,7 +195,7 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord<Creat
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CreateNonDeliverableForwardOpeningV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CreateNonDeliverableForwardOpeningV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CreateNonDeliverableForwardOpeningV02Document ToDocument()
     {
@@ -213,7 +205,7 @@ public partial record CreateNonDeliverableForwardOpeningV02 : IOuterRecord<Creat
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateNonDeliverableForwardOpeningV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CreateNonDeliverableForwardOpeningV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CreateNonDeliverableForwardOpeningV02Document : IOuterDocument<CreateNonDeliverableForwardOpeningV02>
@@ -230,7 +222,7 @@ public partial record CreateNonDeliverableForwardOpeningV02Document : IOuterDocu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CreateNonDeliverableForwardOpeningV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CreateNonDeliverableForwardOpeningV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreateNonDeliverableForwardOpeningV02 Message { get; init; }

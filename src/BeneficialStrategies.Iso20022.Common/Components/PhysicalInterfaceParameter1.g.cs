@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration parameters for physical interface.
 /// </summary>
 [IsoId("_jVcYQNqfEeearpaEPXv9UA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Physical Interface Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record PhysicalInterfaceParameter1
     /// Identification of the interface.
     /// </summary>
     [IsoId("_-ROCMNqfEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interface Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrfcNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IntrfcNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InterfaceName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InterfaceName { get; init; } 
+    public required System.String InterfaceName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InterfaceName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record PhysicalInterfaceParameter1
     /// Identification of the physical link layer.
     /// </summary>
     [IsoId("_IBxWQNqgEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interface Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrfcTp")]
     #endif
+    [IsoXmlTag("IntrfcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public POICommunicationType2Code? InterfaceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record PhysicalInterfaceParameter1
     /// Optional user name to provide to use this interface.
     /// </summary>
     [IsoId("_SCt2wNqgEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? UserName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,12 @@ public partial record PhysicalInterfaceParameter1
     /// Optional access code to provide to use this interface.
     /// </summary>
     [IsoId("_ZFeH0NqgEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Access Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccsCd")]
     #endif
+    [IsoXmlTag("AccsCd")]
+    [IsoSimpleType(IsoSimpleType.Max35Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? AccessCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,15 +124,13 @@ public partial record PhysicalInterfaceParameter1
     /// Identification of the optional security profile to use with this interface.
     /// </summary>
     [IsoId("_f-XSQNqgEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyPrfl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctyPrfl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecurityProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +143,12 @@ public partial record PhysicalInterfaceParameter1
     /// Any other parameters relevant for this interface.
     /// </summary>
     [IsoId("_qB5zwNqgEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlParams")]
     #endif
+    [IsoXmlTag("AddtlParams")]
+    [IsoSimpleType(IsoSimpleType.Max2KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2KBinary? AdditionalParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity5Choice
     /// Industrial Product commodities.
     /// </summary>
     [IsoId("_owQIO7tIEeiLRYqS-r-R-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Industrial Product")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

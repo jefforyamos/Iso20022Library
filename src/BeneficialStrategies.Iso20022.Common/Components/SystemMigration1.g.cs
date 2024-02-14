@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data about participant migration to new payment system process.
 /// </summary>
 [IsoId("_g8InkCG3EeaZx5-Tw7BKeQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Migration")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SystemMigration1
     /// Indicates whether the participant is a member of a new payment system.
     /// </summary>
     [IsoId("_TqHo0CHAEeaZx5-Tw7BKeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("NPS Participant Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NPSPtcptInd")]
     #endif
+    [IsoXmlTag("NPSPtcptInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NPSParticipantIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record SystemMigration1
     /// Planned migration date.
     /// </summary>
     [IsoId("_Z_SbICHAEeaZx5-Tw7BKeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Planned Migration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlandMgrtnDt")]
     #endif
+    [IsoXmlTag("PlandMgrtnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? PlannedMigrationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record SystemMigration1
     /// Indicates whether the balance was received.
     /// </summary>
     [IsoId("_WYk3UCG5EeaZx5-Tw7BKeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Received Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalRcvdInd")]
     #endif
+    [IsoXmlTag("BalRcvdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? BalanceReceivedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record SystemMigration1
     /// Indicates whether the participant was migrated.
     /// </summary>
     [IsoId("_ruxDsCG3EeaZx5-Tw7BKeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Migrated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mgrtd")]
     #endif
+    [IsoXmlTag("Mgrtd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Migrated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record SystemMigration1
     /// Date of the latest RABIS service.
     /// </summary>
     [IsoId("_ze70YCG3EeaZx5-Tw7BKeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastDt")]
     #endif
+    [IsoXmlTag("LastDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? LastDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

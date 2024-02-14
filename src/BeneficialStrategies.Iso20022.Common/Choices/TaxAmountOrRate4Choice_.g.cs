@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxAmountOrRate4Choice.Amount))]
     [KnownType(typeof(TaxAmountOrRate4Choice.Rate))]
     [IsoId("_mnR34EUWEea21qTBwbMSEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Amount Or Rate 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

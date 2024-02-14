@@ -36,7 +36,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - claim non receipt case
 /// Rejecting a case assignment occurs when:
 /// - the case assignee is unable to trace the original payment instruction
-/// - the case assignee is unable, or does not have authority, to process the assigned case (indicate "You have by-passed a party",
+/// - the case assignee is unable, or does not have authority, to process the assigned case (indicate &quot;You have by-passed a party&quot;,
 /// - the case assignee has received a non expected message, and rejects the message with a wrong message indicator
 /// - the case assignee has not yet received the Resolution Of Investigation message and the case has already been reopened
 /// - the case assignee has rejects an non-cash related query
@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Reject Investigation message is sent by a case assignee to a case creator or case assigner to reject a case given to him.|Usage|The Reject Investigation message is used to notify the case creator or case assigner the rejection of an assignment by the case assignee in a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|Rejecting a case assignment occurs when:|- the case assignee is unable to trace the original payment instruction|- the case assignee is unable, or does not have authority, to process the assigned case (indicate ""You have by-passed a party"",|- the case assignee has received a non expected message, and rejects the message with a wrong message indicator|- the case assignee has not yet received the Resolution Of Investigation message and the case has already been reopened|- the case assignee has rejects an non-cash related query|The Reject Investigation message covers one and only one case at a time. If the case assignee needs to reject several case assignments, then multiple Reject Investigation messages must be sent.|The Reject Investigation message must be forwarded by all subsequent case assignee(s) until it reaches the case assigner and must not be used in place of a Resolution Of Investigation or Case Status Report message.")]
 [IsoId("_QvEpGNE_Ed-BzquC8wXy7w_-1066047967")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reject Investigation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -92,16 +90,15 @@ public partial record RejectInvestigationV03 : IOuterRecord<RejectInvestigationV
     /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
     /// </summary>
     [IsoId("_QvEpGdE_Ed-BzquC8wXy7w_708784134")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment2 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment2 Assignment { get; init; } 
+    public required CaseAssignment2 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment2 Assignment { get; init; } 
     #else
@@ -112,16 +109,15 @@ public partial record RejectInvestigationV03 : IOuterRecord<RejectInvestigationV
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_QvEpGtE_Ed-BzquC8wXy7w_708784195")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case2 Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case2 Case { get; init; } 
+    public required Case2 Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case2 Case { get; init; } 
     #else
@@ -132,16 +128,15 @@ public partial record RejectInvestigationV03 : IOuterRecord<RejectInvestigationV
     /// Specifies the reason for the rejection of an investigation.
     /// </summary>
     [IsoId("_QvEpG9E_Ed-BzquC8wXy7w_-1066047903")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Justification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Justfn")]
     #endif
+    [IsoXmlTag("Justfn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigationRejectionJustification1 Justification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestigationRejectionJustification1 Justification { get; init; } 
+    public required InvestigationRejectionJustification1 Justification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestigationRejectionJustification1 Justification { get; init; } 
     #else
@@ -152,7 +147,7 @@ public partial record RejectInvestigationV03 : IOuterRecord<RejectInvestigationV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RejectInvestigationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RejectInvestigationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RejectInvestigationV03Document ToDocument()
     {
@@ -162,7 +157,7 @@ public partial record RejectInvestigationV03 : IOuterRecord<RejectInvestigationV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RejectInvestigationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RejectInvestigationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RejectInvestigationV03Document : IOuterDocument<RejectInvestigationV03>
@@ -179,7 +174,7 @@ public partial record RejectInvestigationV03Document : IOuterDocument<RejectInve
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RejectInvestigationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RejectInvestigationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectInvestigationV03 Message { get; init; }

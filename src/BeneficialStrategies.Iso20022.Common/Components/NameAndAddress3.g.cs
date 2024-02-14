@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information that locates and identifies a party.
 /// </summary>
 [IsoId("_PZcUU9p-Ed-ak6NoX_4Aeg_-2099385393")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Name And Address")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record NameAndAddress3
     /// Name by which a party is known and is usually used to identify that identity.
     /// </summary>
     [IsoId("_PZcUVNp-Ed-ak6NoX_4Aeg_-2047670244")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text Name { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Name { get; init; } 
+    public required System.String Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Name { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record NameAndAddress3
     /// Postal address of a party.
     /// </summary>
     [IsoId("_PZcUVdp-Ed-ak6NoX_4Aeg_-1111154172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PostalAddress1 Address { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PostalAddress1 Address { get; init; } 
+    public required PostalAddress1 Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PostalAddress1 Address { get; init; } 
     #else

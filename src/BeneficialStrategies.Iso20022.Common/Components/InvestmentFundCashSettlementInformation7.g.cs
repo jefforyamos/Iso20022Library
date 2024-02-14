@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Settlement instructions to be used to transfer cash from the debtor to the creditor.
 /// </summary>
 [IsoId("_bGuAQRRfEeOKWo1NF21OVw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund Cash Settlement Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InvestmentFundCashSettlementInformation7
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a subscription payment.
     /// </summary>
     [IsoId("_bdx1YxRfEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptPmtInstrm")]
     #endif
+    [IsoXmlTag("SbcptPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument11? SubscriptionPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record InvestmentFundCashSettlementInformation7
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a redemption payment.
     /// </summary>
     [IsoId("_bdx1ZRRfEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedPmtInstrm")]
     #endif
+    [IsoXmlTag("RedPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument12? RedemptionPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record InvestmentFundCashSettlementInformation7
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a dividend payment.
     /// </summary>
     [IsoId("_bdx1ZxRfEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddPmtInstrm")]
     #endif
+    [IsoXmlTag("DvddPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument12? DividendPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record InvestmentFundCashSettlementInformation7
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a savings plan payment.
     /// </summary>
     [IsoId("_bdx1aRRfEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Savings Plan Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvgsPlanPmtInstrm")]
     #endif
+    [IsoXmlTag("SvgsPlanPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument11? SavingsPlanPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record InvestmentFundCashSettlementInformation7
     /// Instrument that has or represents monetary value and is used to process a payment instruction for an interest payment.
     /// </summary>
     [IsoId("_bdx1axRfEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstPmtInstrm")]
     #endif
+    [IsoXmlTag("IntrstPmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument12? InterestPaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

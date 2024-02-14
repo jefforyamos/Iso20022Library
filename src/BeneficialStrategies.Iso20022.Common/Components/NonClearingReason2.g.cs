@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the reason for which the contract has not been cleared.
 /// </summary>
 [IsoId("_Ak0bdZPuEey0rJ3Gl6WZVA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Clearing Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record NonClearingReason2
     /// Specifies the reason for a clearing exemption or exception.
     /// </summary>
     [IsoId("_AmE_sZPuEey0rJ3Gl6WZVA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Exemption Exception")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrXmptnXcptn")]
     #endif
+    [IsoXmlTag("ClrXmptnXcptn")]
     public ClearingExemptionException1Code? ClearingExemptionException { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _AmE_sZPuEey0rJ3Gl6WZVA
     
@@ -57,15 +54,13 @@ public partial record NonClearingReason2
     /// Indicates the reason for which the contract has not been cleared.
     /// </summary>
     [IsoId("_AmE_s5PuEey0rJ3Gl6WZVA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Clearing Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonClrRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NonClrRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? NonClearingReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

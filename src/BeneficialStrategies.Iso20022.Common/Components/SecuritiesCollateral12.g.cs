@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the securities posted as collateral.
 /// </summary>
 [IsoId("_Wh-tcyqSEeyR9JrVGfaMKw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,15 +51,13 @@ public partial record SecuritiesCollateral12
     /// Provides the identification of the proposed collateral.
     /// </summary>
     [IsoId("_W6abgSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CollateralIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +70,15 @@ public partial record SecuritiesCollateral12
     /// Identification of a security.
     /// </summary>
     [IsoId("_W6abgyqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification19 SecurityIdentification { get; init; } 
+    public required SecurityIdentification19 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification19 SecurityIdentification { get; init; } 
     #else
@@ -94,12 +89,11 @@ public partial record SecuritiesCollateral12
     /// Planned final repayment date at the time of issuance.
     /// </summary>
     [IsoId("_W6abhSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +106,12 @@ public partial record SecuritiesCollateral12
     /// Indicates that the collateral posted in the clearing house covers the margin until a specific timeframe.
     /// </summary>
     [IsoId("_W6abhyqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limited Coverage Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtdCvrgInd")]
     #endif
+    [IsoXmlTag("LtdCvrgInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LimitedCoverageIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,16 +124,15 @@ public partial record SecuritiesCollateral12
     /// Quantity of securities collateral.
     /// </summary>
     [IsoId("_W6abiSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
+    public required FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
     #else
@@ -150,12 +143,11 @@ public partial record SecuritiesCollateral12
     /// Indicates the price of the security.
     /// </summary>
     [IsoId("_W6abiyqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price7? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +160,12 @@ public partial record SecuritiesCollateral12
     /// Value of the collateral based on current market prices.
     /// </summary>
     [IsoId("_W6abjSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -186,12 +178,12 @@ public partial record SecuritiesCollateral12
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
     [IsoId("_W6abjyqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hrcut")]
     #endif
+    [IsoXmlTag("Hrcut")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Haircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -204,12 +196,12 @@ public partial record SecuritiesCollateral12
     /// Value of the collateral after taking into account the haircut.
     /// </summary>
     [IsoId("_W6abkSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollVal")]
     #endif
+    [IsoXmlTag("CollVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CollateralValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,12 +214,12 @@ public partial record SecuritiesCollateral12
     /// Valuation date of the securities taken as collateral.
     /// </summary>
     [IsoId("_W6abkyqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,12 +232,11 @@ public partial record SecuritiesCollateral12
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_W6ablSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -258,12 +249,11 @@ public partial record SecuritiesCollateral12
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
     [IsoId("_V-ISEyqVEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Chain Address Or Wallet")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckChainAdrOrWllt")]
     #endif
+    [IsoXmlTag("BlckChainAdrOrWllt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -276,16 +266,15 @@ public partial record SecuritiesCollateral12
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
     [IsoId("_W6ablyqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgPlc")]
     #endif
+    [IsoXmlTag("SfkpgPlc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SafekeepingPlaceFormat29Choice_ SafekeepingPlace { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SafekeepingPlaceFormat29Choice_ SafekeepingPlace { get; init; } 
+    public required SafekeepingPlaceFormat29Choice_ SafekeepingPlace { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SafekeepingPlaceFormat29Choice_ SafekeepingPlace { get; init; } 
     #else
@@ -296,12 +285,11 @@ public partial record SecuritiesCollateral12
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
     /// </summary>
     [IsoId("_W6abmSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmParams")]
     #endif
+    [IsoXmlTag("SttlmParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementDetails206? SettlementParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

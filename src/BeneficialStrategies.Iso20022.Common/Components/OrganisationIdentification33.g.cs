@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
 [IsoId("_XaDfZ_WfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Organisation Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record OrganisationIdentification33
     /// Business identification code of the organisation.
     /// </summary>
     [IsoId("_XaDfa_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Any BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnyBIC")]
     #endif
+    [IsoXmlTag("AnyBIC")]
+    [IsoSimpleType(IsoSimpleType.AnyBICDec2014Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICDec2014Identifier AnyBIC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AnyBIC { get; init; } 
+    public required System.String AnyBIC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AnyBIC { get; init; } 
     #else

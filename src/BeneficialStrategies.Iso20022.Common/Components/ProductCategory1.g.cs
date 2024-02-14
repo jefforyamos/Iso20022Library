@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the category of the product.
 /// </summary>
 [IsoId("_T5CFG9p-Ed-ak6NoX_4Aeg_2136410357")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Product Category")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ProductCategory1
     /// Specifies the type of product category by means of a code.
     /// </summary>
     [IsoId("_T5CFHNp-Ed-ak6NoX_4Aeg_-1686636659")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProductCategory1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProductCategory1Code Type { get; init; } 
+    public required ProductCategory1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProductCategory1Code Type { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record ProductCategory1
     /// Specifies the category of a product.
     /// </summary>
     [IsoId("_T5L2ENp-Ed-ak6NoX_4Aeg_-1658931027")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctgy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Ctgy")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Category { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Category { get; init; } 
+    public required System.String Category { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Category { get; init; } 
     #else

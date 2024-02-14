@@ -22,7 +22,7 @@ public enum MessageFunction20Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_xtHBAemtEemNVKPwszFC-A")]
@@ -31,7 +31,7 @@ public enum MessageFunction20Code
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_zKVM8OmtEemNVKPwszFC-A")]
@@ -40,7 +40,7 @@ public enum MessageFunction20Code
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_zzsTAemtEemNVKPwszFC-A")]
@@ -49,7 +49,7 @@ public enum MessageFunction20Code
     
     /// <summary>
     /// Advice for reversal without financial capture.
-    /// Encoded/decoded by serializers as "RVRA".
+    /// Encoded/decoded by serializers as &quot;RVRA&quot;.
     /// </summary>
     [EnumMember(Value = "RVRA")]
     [IsoId("_1H5F0emtEemNVKPwszFC-A")]
@@ -58,7 +58,7 @@ public enum MessageFunction20Code
     
     /// <summary>
     /// Notification of reversal for either an authorisation or a financial message (response not expected).
-    /// Encoded/decoded by serializers as "RVNO".
+    /// Encoded/decoded by serializers as &quot;RVNO&quot;.
     /// </summary>
     [EnumMember(Value = "RVNO")]
     [IsoId("_1rYNYemtEemNVKPwszFC-A")]
@@ -67,7 +67,7 @@ public enum MessageFunction20Code
     
     /// <summary>
     /// Advice about the status of a transaction.
-    /// Encoded/decoded by serializers as "STAD".
+    /// Encoded/decoded by serializers as &quot;STAD&quot;.
     /// </summary>
     [EnumMember(Value = "STAD")]
     [IsoId("_3BoOoemtEemNVKPwszFC-A")]
@@ -76,7 +76,7 @@ public enum MessageFunction20Code
     
     /// <summary>
     /// Notification about the status of a transaction.
-    /// Encoded/decoded by serializers as "STNO".
+    /// Encoded/decoded by serializers as &quot;STNO&quot;.
     /// </summary>
     [EnumMember(Value = "STNO")]
     [IsoId("_3I7JcemtEemNVKPwszFC-A")]

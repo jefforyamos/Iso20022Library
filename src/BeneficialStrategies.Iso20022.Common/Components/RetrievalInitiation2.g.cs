@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the retrieval of a message.
 /// </summary>
 [IsoId("_o0ZJ4YHSEeuwq_rv81SdXw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Retrieval Initiation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record RetrievalInitiation2
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_o5oPMYHSEeuwq_rv81SdXw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Environment21 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Environment21 Environment { get; init; } 
+    public required Environment21 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Environment21 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record RetrievalInitiation2
     /// Context of the transaction.
     /// </summary>
     [IsoId("_o5oPM4HSEeuwq_rv81SdXw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Context15 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Context15 Context { get; init; } 
+    public required Context15 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Context15 Context { get; init; } 
     #else
@@ -93,12 +89,11 @@ public partial record RetrievalInitiation2
     /// Original transaction for which a retrieval is requested.
     /// </summary>
     [IsoId("_o5oPNYHSEeuwq_rv81SdXw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Transaction136? Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +106,15 @@ public partial record RetrievalInitiation2
     /// Contains details of the transaction to be retrieved.
     /// </summary>
     [IsoId("_o5oPN4HSEeuwq_rv81SdXw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlTx")]
     #endif
+    [IsoXmlTag("OrgnlTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalTransaction2 OriginalTransaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalTransaction2 OriginalTransaction { get; init; } 
+    public required OriginalTransaction2 OriginalTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalTransaction2 OriginalTransaction { get; init; } 
     #else
@@ -131,12 +125,11 @@ public partial record RetrievalInitiation2
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
     [IsoId("_o5oPOYHSEeuwq_rv81SdXw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdData")]
     #endif
+    [IsoXmlTag("PrtctdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectedData1? ProtectedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,11 @@ public partial record RetrievalInitiation2
     /// Destination ID or routing information of Retrieval fulfilment initiation message. 
     /// </summary>
     [IsoId("_o5oPO4HSEeuwq_rv81SdXw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Retrieval Fulfilment Destination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrvlFlfmtDstn")]
     #endif
+    [IsoXmlTag("RtrvlFlfmtDstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification258? RetrievalFulfilmentDestination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +159,11 @@ public partial record RetrievalInitiation2
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
     [IsoId("_o5oPPYHSEeuwq_rv81SdXw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

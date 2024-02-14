@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"The AccountSwitchRequestRedirection message is sent by the new account servicer to a central account switch servicer to set up the redirection of payment and collection transactions that are processed after completion of the account switch.  It is routed to the previous account servicer to signal that it should schedule the cancellation of all payment arrangements on the old account. This message may also be used by the new bank to amend the new account details, if the details previously provided were incorrect.")]
 [IsoId("_KOlmz9cDEeq_l4BJLVUF2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Switch Request Redirection V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record AccountSwitchRequestRedirectionV03 : IOuterRecord<AccountS
     /// Unique identification for the message.
     /// </summary>
     [IsoId("_KOlm0dcDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record AccountSwitchRequestRedirectionV03 : IOuterRecord<AccountS
     /// Contains information about the details of the account switch.
     /// </summary>
     [IsoId("_KOlm09cDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Switch Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSwtchDtls")]
     #endif
+    [IsoXmlTag("AcctSwtchDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
+    public required AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #else
@@ -118,16 +114,15 @@ public partial record AccountSwitchRequestRedirectionV03 : IOuterRecord<AccountS
     /// Account servicer holding the account to which the switch will be made for example the acquiring account servicer.
     /// </summary>
     [IsoId("_KOlm1dcDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewAcct")]
     #endif
+    [IsoXmlTag("NewAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount41 NewAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount41 NewAccount { get; init; } 
+    public required CashAccount41 NewAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount41 NewAccount { get; init; } 
     #else
@@ -138,16 +133,15 @@ public partial record AccountSwitchRequestRedirectionV03 : IOuterRecord<AccountS
     /// Account held at the old account servicer being switched to the new account servicer.
     /// </summary>
     [IsoId("_KOlm19cDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OdAcct")]
     #endif
+    [IsoXmlTag("OdAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount41 OldAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount41 OldAccount { get; init; } 
+    public required CashAccount41 OldAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount41 OldAccount { get; init; } 
     #else
@@ -158,12 +152,11 @@ public partial record AccountSwitchRequestRedirectionV03 : IOuterRecord<AccountS
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_KOlm2dcDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,7 +169,7 @@ public partial record AccountSwitchRequestRedirectionV03 : IOuterRecord<AccountS
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountSwitchRequestRedirectionV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountSwitchRequestRedirectionV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountSwitchRequestRedirectionV03Document ToDocument()
     {
@@ -186,7 +179,7 @@ public partial record AccountSwitchRequestRedirectionV03 : IOuterRecord<AccountS
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchRequestRedirectionV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountSwitchRequestRedirectionV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountSwitchRequestRedirectionV03Document : IOuterDocument<AccountSwitchRequestRedirectionV03>
@@ -203,7 +196,7 @@ public partial record AccountSwitchRequestRedirectionV03Document : IOuterDocumen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountSwitchRequestRedirectionV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountSwitchRequestRedirectionV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountSwitchRequestRedirectionV03 Message { get; init; }

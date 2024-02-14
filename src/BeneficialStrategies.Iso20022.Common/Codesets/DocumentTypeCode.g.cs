@@ -21,7 +21,7 @@ public enum DocumentTypeCode
 {
     /// <summary>
     /// Document is an invoice claiming payment for the supply of metered services, for example gas or electricity supplied to a fixed meter.
-    /// Encoded/decoded by serializers as "MSIN".
+    /// Encoded/decoded by serializers as &quot;MSIN&quot;.
     /// </summary>
     [EnumMember(Value = "MSIN")]
     [IsoId("_aghWdtp-Ed-ak6NoX_4Aeg_1645796385")]
@@ -30,7 +30,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a credit note for the final amount settled for a commercial transaction.
-    /// Encoded/decoded by serializers as "CNFA".
+    /// Encoded/decoded by serializers as &quot;CNFA&quot;.
     /// </summary>
     [EnumMember(Value = "CNFA")]
     [IsoId("_aghWd9p-Ed-ak6NoX_4Aeg_1645796403")]
@@ -39,7 +39,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a debit note for the final amount settled for a commercial transaction.
-    /// Encoded/decoded by serializers as "DNFA".
+    /// Encoded/decoded by serializers as &quot;DNFA&quot;.
     /// </summary>
     [EnumMember(Value = "DNFA")]
     [IsoId("_aghWeNp-Ed-ak6NoX_4Aeg_1645796445")]
@@ -48,7 +48,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is an invoice.
-    /// Encoded/decoded by serializers as "CINV".
+    /// Encoded/decoded by serializers as &quot;CINV&quot;.
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_agrHcNp-Ed-ak6NoX_4Aeg_1645796463")]
@@ -57,7 +57,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a credit note.
-    /// Encoded/decoded by serializers as "CREN".
+    /// Encoded/decoded by serializers as &quot;CREN&quot;.
     /// </summary>
     [EnumMember(Value = "CREN")]
     [IsoId("_agrHcdp-Ed-ak6NoX_4Aeg_1645796480")]
@@ -66,7 +66,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a debit note.
-    /// Encoded/decoded by serializers as "DEBN".
+    /// Encoded/decoded by serializers as &quot;DEBN&quot;.
     /// </summary>
     [EnumMember(Value = "DEBN")]
     [IsoId("_agrHctp-Ed-ak6NoX_4Aeg_1645796715")]
@@ -75,7 +75,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is an invoice for the hiring of human resources or renting goods or equipment.
-    /// Encoded/decoded by serializers as "HIRI".
+    /// Encoded/decoded by serializers as &quot;HIRI&quot;.
     /// </summary>
     [EnumMember(Value = "HIRI")]
     [IsoId("_agrHc9p-Ed-ak6NoX_4Aeg_1645796740")]
@@ -84,7 +84,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is an invoice issued by the debtor.
-    /// Encoded/decoded by serializers as "SBIN".
+    /// Encoded/decoded by serializers as &quot;SBIN&quot;.
     /// </summary>
     [EnumMember(Value = "SBIN")]
     [IsoId("_agrHdNp-Ed-ak6NoX_4Aeg_1645796757")]
@@ -93,7 +93,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a remittance advice sent separately from the current transaction.
-    /// Encoded/decoded by serializers as "RADM".
+    /// Encoded/decoded by serializers as &quot;RADM&quot;.
     /// </summary>
     [EnumMember(Value = "RADM")]
     [IsoId("_agrHddp-Ed-ak6NoX_4Aeg_1645796800")]
@@ -102,7 +102,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.
-    /// Encoded/decoded by serializers as "RPIN".
+    /// Encoded/decoded by serializers as &quot;RPIN&quot;.
     /// </summary>
     [EnumMember(Value = "RPIN")]
     [IsoId("_agrHdtp-Ed-ak6NoX_4Aeg_1645796817")]
@@ -111,7 +111,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is an agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.
-    /// Encoded/decoded by serializers as "CMCN".
+    /// Encoded/decoded by serializers as &quot;CMCN&quot;.
     /// </summary>
     [EnumMember(Value = "CMCN")]
     [IsoId("_agrHd9p-Ed-ak6NoX_4Aeg_1645796835")]
@@ -120,7 +120,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.
-    /// Encoded/decoded by serializers as "FXDR".
+    /// Encoded/decoded by serializers as &quot;FXDR&quot;.
     /// </summary>
     [EnumMember(Value = "FXDR")]
     [IsoId("_agrHeNp-Ed-ak6NoX_4Aeg_1646716824")]
@@ -128,8 +128,8 @@ public enum DocumentTypeCode
     ForeignExchangeDealReference,
     
     /// <summary>
-    /// Document is a statement of the transactions posted to the debtor's account at the supplier.
-    /// Encoded/decoded by serializers as "SOAC".
+    /// Document is a statement of the transactions posted to the debtor&apos;s account at the supplier.
+    /// Encoded/decoded by serializers as &quot;SOAC&quot;.
     /// </summary>
     [EnumMember(Value = "SOAC")]
     [IsoId("_agrHedp-Ed-ak6NoX_4Aeg_1646716884")]
@@ -138,7 +138,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a dispatch advice.
-    /// Encoded/decoded by serializers as "DISP".
+    /// Encoded/decoded by serializers as &quot;DISP&quot;.
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_agrHetp-Ed-ak6NoX_4Aeg_-1207112892")]
@@ -147,7 +147,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a purchase order.
-    /// Encoded/decoded by serializers as "PUOR".
+    /// Encoded/decoded by serializers as &quot;PUOR&quot;.
     /// </summary>
     [EnumMember(Value = "PUOR")]
     [IsoId("_ag04cNp-Ed-ak6NoX_4Aeg_550471768")]
@@ -156,7 +156,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a structured communication reference provided by the creditor to identify the referred transaction.
-    /// Encoded/decoded by serializers as "SCOR".
+    /// Encoded/decoded by serializers as &quot;SCOR&quot;.
     /// </summary>
     [EnumMember(Value = "SCOR")]
     [IsoId("_ag04cdp-Ed-ak6NoX_4Aeg_550472217")]
@@ -165,7 +165,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a shipping notice.
-    /// Encoded/decoded by serializers as "BOLD".
+    /// Encoded/decoded by serializers as &quot;BOLD&quot;.
     /// </summary>
     [EnumMember(Value = "BOLD")]
     [IsoId("_ag04ctp-Ed-ak6NoX_4Aeg_-464327282")]
@@ -174,7 +174,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is an electronic payment document.
-    /// Encoded/decoded by serializers as "VCHR".
+    /// Encoded/decoded by serializers as &quot;VCHR&quot;.
     /// </summary>
     [EnumMember(Value = "VCHR")]
     [IsoId("_ag04c9p-Ed-ak6NoX_4Aeg_-464326980")]
@@ -183,7 +183,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a payment that applies to a specific source document.
-    /// Encoded/decoded by serializers as "AROI".
+    /// Encoded/decoded by serializers as &quot;AROI&quot;.
     /// </summary>
     [EnumMember(Value = "AROI")]
     [IsoId("_ag04dNp-Ed-ak6NoX_4Aeg_-464326919")]
@@ -192,7 +192,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// Document is a transaction identifier as assigned by the Trade Services Utility.
-    /// Encoded/decoded by serializers as "TSUT".
+    /// Encoded/decoded by serializers as &quot;TSUT&quot;.
     /// </summary>
     [EnumMember(Value = "TSUT")]
     [IsoId("_ag04ddp-Ed-ak6NoX_4Aeg_-464326858")]
@@ -201,7 +201,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// When the Sale system print the Cashier copy of the Payment receipt.
-    /// Encoded/decoded by serializers as "HRCP".
+    /// Encoded/decoded by serializers as &quot;HRCP&quot;.
     /// </summary>
     [EnumMember(Value = "HRCP")]
     [IsoId("_xxyWAGpTEemFuJNacM8hZA")]
@@ -210,7 +210,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// When the Sale System requires	the POI system to print the Customer receipt.
-    /// Encoded/decoded by serializers as "CRCP".
+    /// Encoded/decoded by serializers as &quot;CRCP&quot;.
     /// </summary>
     [EnumMember(Value = "CRCP")]
     [IsoId("_3nEHUGpTEemFuJNacM8hZA")]
@@ -219,7 +219,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// When the POI or the Sale System wants to store a message on the journal printer or electronic journal of the Sale Terminal (it is sometimes a Sale Logging/Journal Printer).
-    /// Encoded/decoded by serializers as "JNRL".
+    /// Encoded/decoded by serializers as &quot;JNRL&quot;.
     /// </summary>
     [EnumMember(Value = "JNRL")]
     [IsoId("_Az5qUGpUEemFuJNacM8hZA")]
@@ -228,7 +228,7 @@ public enum DocumentTypeCode
     
     /// <summary>
     /// When the Sale System requires the POI system to print the Sale receipt.
-    /// Encoded/decoded by serializers as "SRCP".
+    /// Encoded/decoded by serializers as &quot;SRCP&quot;.
     /// </summary>
     [EnumMember(Value = "SRCP")]
     [IsoId("_K7gzgGpUEemFuJNacM8hZA")]

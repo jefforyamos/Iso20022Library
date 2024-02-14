@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AcknowledgementReason23Choice.Code))]
     [KnownType(typeof(AcknowledgementReason23Choice.Proprietary))]
     [IsoId("_MNvhAekHEemm4qhb2yFPOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledgement Reason 23 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

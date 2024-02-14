@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction2Choice
     /// Reference details on the underlying statement cash entry.
     /// </summary>
     [IsoId("_P3XHQp9XEeGBX4a4yy-WHg_1277676598")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Entry")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction2Choice
         /// Set of elements used to provide information on the original message.
         /// </summary>
         [IsoId("_T9Dpcdp-Ed-ak6NoX_4Aeg_1694597164")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Group Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlGrpInf")]
         #endif
+        [IsoXmlTag("OrgnlGrpInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public OriginalGroupInformation3? OriginalGroupInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,15 +64,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction2Choice
         /// Unique identification, as assigned by the account servicer, to unambiguously identify the original statement.
         /// </summary>
         [IsoId("_T9Dpctp-Ed-ak6NoX_4Aeg_1694596697")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Statement Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlStmtId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OrgnlStmtId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? OriginalStatementIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,15 +83,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction2Choice
         /// Original unique identification, as assigned by the account servicer, to unambiguously identify the original entry.
         /// </summary>
         [IsoId("_T9Dpc9p-Ed-ak6NoX_4Aeg_1694596718")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Entry Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlNtryId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OrgnlNtryId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? OriginalEntryIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

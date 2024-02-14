@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the history of status and reasons for a pending, posted or cancelled transaction.
 /// </summary>
 [IsoId("_ukeLnffXEeiNZp_PtLohLw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Trail")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record StatusTrail9
     /// Date and time at which the status was assigned.
     /// </summary>
     [IsoId("_ukeLn_fXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsDt")]
     #endif
+    [IsoXmlTag("StsDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime StatusDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime StatusDate { get; init; } 
+    public required System.DateTime StatusDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime StatusDate { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record StatusTrail9
     /// Unique and unambiguous way to identify the organisation that sent the message instance.
     /// </summary>
     [IsoId("_ukeLoffXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sending Organisation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndgOrgId")]
     #endif
+    [IsoXmlTag("SndgOrgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification32? SendingOrganisationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +86,13 @@ public partial record StatusTrail9
     /// Unique and unambiguous way to identify the user that created the message instance.
     /// </summary>
     [IsoId("_ukeLo_fXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax35Text? UserIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record StatusTrail9
     /// Provides details on the processing status of the transaction.
     /// </summary>
     [IsoId("_ukeLpffXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingStatus76Choice_? ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record StatusTrail9
     /// Provides the matching status of an instruction as per the account servicer or the Market Infrastructure based on an allegement. At this time no matching took place on the market (at the CSD/ICSD/MI).
     /// </summary>
     [IsoId("_ukeLp_fXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inferred Matching Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IfrrdMtchgSts")]
     #endif
+    [IsoXmlTag("IfrrdMtchgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus30Choice_? InferredMatchingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,11 @@ public partial record StatusTrail9
     /// Provides the matching status of the instruction.
     /// </summary>
     [IsoId("_ukeLqffXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchgSts")]
     #endif
+    [IsoXmlTag("MtchgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MatchingStatus30Choice_? MatchingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +156,11 @@ public partial record StatusTrail9
     /// Provides the status of settlement of a transaction.
     /// </summary>
     [IsoId("_ukeLq_fXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSts")]
     #endif
+    [IsoXmlTag("SttlmSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementStatus22Choice_? SettlementStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +173,11 @@ public partial record StatusTrail9
     /// Provides details on the modification processing status of the transaction.
     /// </summary>
     [IsoId("_ukeLrffXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModPrcgSts")]
     #endif
+    [IsoXmlTag("ModPrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationProcessingStatus8Choice_? ModificationProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +190,11 @@ public partial record StatusTrail9
     /// Provides details on the processing status of the cancellation request.
     /// </summary>
     [IsoId("_ukeLr_fXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlSts")]
     #endif
+    [IsoXmlTag("CxlSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingStatus61Choice_? CancellationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +207,11 @@ public partial record StatusTrail9
     /// Status is settled.
     /// </summary>
     [IsoId("_ukeLsffXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sttld")]
     #endif
+    [IsoXmlTag("Sttld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProprietaryReason5? Settled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,12 +224,11 @@ public partial record StatusTrail9
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_ukeLs_fXEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies two values to compare for the method used to compute accruing interest of a financial instrument.
 /// </summary>
 [IsoId("_Dhvyga5jEeuo-IflVgGqiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Compare Interest Computation Method")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CompareInterestComputationMethod3
     /// Information for the first side of the transaction.
     /// </summary>
     [IsoId("_DxiiAa5jEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val1")]
     #endif
+    [IsoXmlTag("Val1")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethodFormat6Choice_? Value1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CompareInterestComputationMethod3
     /// Information for the first side of the transaction.
     /// </summary>
     [IsoId("_DxiiA65jEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val2")]
     #endif
+    [IsoXmlTag("Val2")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethodFormat6Choice_? Value2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LendingTransactionMethod2Choice.Code))]
     [KnownType(typeof(LendingTransactionMethod2Choice.Proprietary))]
     [IsoId("_2NBuAZEjEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lending Transaction Method 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

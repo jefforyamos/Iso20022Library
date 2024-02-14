@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Login Response message.
 /// </summary>
 [IsoId("_HNN9wVE9EeyApZmLzm74zA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Login Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record LoginResponse4
     /// Date and Time of POI Login.
     /// </summary>
     [IsoId("_HTjPQVE9EeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIDtTm")]
     #endif
+    [IsoXmlTag("POIDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime POIDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime POIDateTime { get; init; } 
+    public required System.DateTime POIDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime POIDateTime { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record LoginResponse4
     /// Information related to the software of the POI System which manages the Sale to POI protocol.
     /// </summary>
     [IsoId("_HTjPQ1E9EeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Software")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POISftwr")]
     #endif
+    [IsoXmlTag("POISftwr")]
     public PointOfInteractionComponent12? POISoftware { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _HTjPQ1E9EeyApZmLzm74zA
     
@@ -84,12 +81,11 @@ public partial record LoginResponse4
     /// Capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
     [IsoId("_HTjPRVE9EeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POICpblties")]
     #endif
+    [IsoXmlTag("POICpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionCapabilities9? POICapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,12 +98,11 @@ public partial record LoginResponse4
     /// Message to be displayed.
     /// </summary>
     [IsoId("_HTjPR1E9EeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Output Display")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutptDisp")]
     #endif
+    [IsoXmlTag("OutptDisp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage9? OutputDisplay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

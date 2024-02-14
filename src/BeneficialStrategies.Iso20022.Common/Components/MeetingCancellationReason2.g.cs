@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the reason for cancelling a meeting.
 /// </summary>
 [IsoId("_RCMa19p-Ed-ak6NoX_4Aeg_1000768570")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting Cancellation Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record MeetingCancellationReason2
     /// Reason for cancelling a meeting.
     /// </summary>
     [IsoId("_RCMa2Np-Ed-ak6NoX_4Aeg_1092600790")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsnCd")]
     #endif
+    [IsoXmlTag("CxlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MeetingCancellationReason1Choice_? CancellationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record MeetingCancellationReason2
     /// Provides more information on the reason for cancelling a meeting in free format form.
     /// </summary>
     [IsoId("_RCWL0Np-Ed-ak6NoX_4Aeg_1000768631")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CxlRsn")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

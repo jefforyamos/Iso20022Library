@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OriginalEnrolment2Choice.OriginalCreditorIdentification))]
     [KnownType(typeof(OriginalEnrolment2Choice.OriginalEnrolmentData))]
     [IsoId("_UX7ZV-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Enrolment 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

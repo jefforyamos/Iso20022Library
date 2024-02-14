@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The DemandWithdrawalNotification message is sent by the beneficiary to the party that issued the undertaking, either directly or via a presenting or nominated party, to inform the issuer or nominated party that it has elected to withdraw its demand under the demand guarantee or standby letter of credit.")]
 [IsoId("_9hWQMnltEeG7BsjMvd1mEw_1943951405")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Demand Withdrawal Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record DemandWithdrawalNotificationV01 : IOuterRecord<DemandWithd
     /// Details of the demand withdrawal notification.
     /// </summary>
     [IsoId("_9hWQM3ltEeG7BsjMvd1mEw_234628498")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demand Withdrawal Notification Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmndWdrwlNtfctnDtls")]
     #endif
+    [IsoXmlTag("DmndWdrwlNtfctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingDemandWithdrawal1 DemandWithdrawalNotificationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingDemandWithdrawal1 DemandWithdrawalNotificationDetails { get; init; } 
+    public required UndertakingDemandWithdrawal1 DemandWithdrawalNotificationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingDemandWithdrawal1 DemandWithdrawalNotificationDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record DemandWithdrawalNotificationV01 : IOuterRecord<DemandWithd
     /// Digital signature of the notification.
     /// </summary>
     [IsoId("_9hWQNHltEeG7BsjMvd1mEw_-1538509071")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record DemandWithdrawalNotificationV01 : IOuterRecord<DemandWithd
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DemandWithdrawalNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DemandWithdrawalNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DemandWithdrawalNotificationV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record DemandWithdrawalNotificationV01 : IOuterRecord<DemandWithd
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DemandWithdrawalNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DemandWithdrawalNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DemandWithdrawalNotificationV01Document : IOuterDocument<DemandWithdrawalNotificationV01>
@@ -140,7 +136,7 @@ public partial record DemandWithdrawalNotificationV01Document : IOuterDocument<D
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DemandWithdrawalNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DemandWithdrawalNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DemandWithdrawalNotificationV01 Message { get; init; }

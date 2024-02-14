@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies a customer identification as the search criteria for the financial institution to do the investigation.
 /// </summary>
 [IsoId("_cgxhY0yuEeGcV5yVhSZuNw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Customer Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CustomerIdentification1
     /// Identifies the customer for the investigation.
     /// </summary>
     [IsoId("_fQKf7EyuEeGcV5yVhSZuNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 Party { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification43 Party { get; init; } 
+    public required PartyIdentification43 Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification43 Party { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CustomerIdentification1
     /// Specifies the authority request related to the identified investigation party.
     /// </summary>
     [IsoId("_jP3PoUyuEeGcV5yVhSZuNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authority Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrtyReq")]
     #endif
+    [IsoXmlTag("AuthrtyReq")]
     public AuthorityInvestigation2? AuthorityRequest { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _jP3PoUyuEeGcV5yVhSZuNw
     

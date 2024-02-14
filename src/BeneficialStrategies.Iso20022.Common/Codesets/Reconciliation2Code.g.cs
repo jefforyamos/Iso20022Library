@@ -21,7 +21,7 @@ public enum Reconciliation2Code
 {
     /// <summary>
     /// Trade repository has one side of the trade and knows that the other side does not have a reporting obligation.
-    /// Encoded/decoded by serializers as "SSNE".
+    /// Encoded/decoded by serializers as &quot;SSNE&quot;.
     /// </summary>
     [EnumMember(Value = "SSNE")]
     [IsoId("_XplGEXhCEeu3kecHd7QKUQ")]
@@ -30,7 +30,7 @@ public enum Reconciliation2Code
     
     /// <summary>
     /// Trade repository has one side of the trade, knows that the other side is EEA counterparty and does not know which TR holds the other side of the trade.
-    /// Encoded/decoded by serializers as "SSUN".
+    /// Encoded/decoded by serializers as &quot;SSUN&quot;.
     /// </summary>
     [EnumMember(Value = "SSUN")]
     [IsoId("_XxBK0XhCEeu3kecHd7QKUQ")]
@@ -39,7 +39,7 @@ public enum Reconciliation2Code
     
     /// <summary>
     /// Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, and either has already performed comparison of the reports, or is in the process of doing so.
-    /// Encoded/decoded by serializers as "SSPA".
+    /// Encoded/decoded by serializers as &quot;SSPA&quot;.
     /// </summary>
     [EnumMember(Value = "SSPA")]
     [IsoId("_X4AjoXhCEeu3kecHd7QKUQ")]
@@ -48,7 +48,7 @@ public enum Reconciliation2Code
     
     /// <summary>
     /// Trade repository has one side of the trade, knows which trade repository holds the other side of the trade, has already performed the comparison of the reports, and the result has been successful according to the specification of the inter-TR reconciliation process.
-    /// Encoded/decoded by serializers as "SSMA".
+    /// Encoded/decoded by serializers as &quot;SSMA&quot;.
     /// </summary>
     [EnumMember(Value = "SSMA")]
     [IsoId("_X_coYXhCEeu3kecHd7QKUQ")]
@@ -57,7 +57,7 @@ public enum Reconciliation2Code
     
     /// <summary>
     /// Trade was not required to be submitted for reconciliation.
-    /// Encoded/decoded by serializers as "NORE".
+    /// Encoded/decoded by serializers as &quot;NORE&quot;.
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_YGJGQXhCEeu3kecHd7QKUQ")]
@@ -66,7 +66,7 @@ public enum Reconciliation2Code
     
     /// <summary>
     /// Trade repository has both sides of the trade reported but not all fields match.
-    /// Encoded/decoded by serializers as "DSNM".
+    /// Encoded/decoded by serializers as &quot;DSNM&quot;.
     /// </summary>
     [EnumMember(Value = "DSNM")]
     [IsoId("_YMsaMXhCEeu3kecHd7QKUQ")]
@@ -75,7 +75,7 @@ public enum Reconciliation2Code
     
     /// <summary>
     /// Trade repository has both sides of the trade reported and all fields match.
-    /// Encoded/decoded by serializers as "DSMA".
+    /// Encoded/decoded by serializers as &quot;DSMA&quot;.
     /// </summary>
     [EnumMember(Value = "DSMA")]
     [IsoId("_YVBPwXhCEeu3kecHd7QKUQ")]

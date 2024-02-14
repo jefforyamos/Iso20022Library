@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AuditTrailOrBusinessError6Choice.AuditTrail))]
     [KnownType(typeof(AuditTrailOrBusinessError6Choice.BusinessError))]
     [IsoId("_bRP60Wc-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Audit Trail Or Business Error 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

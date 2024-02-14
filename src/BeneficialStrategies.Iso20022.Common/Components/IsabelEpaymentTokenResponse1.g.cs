@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the token data on which the signature is calculated by the LRCI client.
 /// </summary>
 [IsoId("_vvpoEM_aEeWjSMe6YTKHlQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel Epayment Token Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record IsabelEpaymentTokenResponse1
     /// Unique and unambiguous transaction identification of the group of signed payment files.
     /// </summary>
     [IsoId("_q1xSkM_bEeWjSMe6YTKHlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LRCI Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LRCITxId")]
     #endif
+    [IsoXmlTag("LRCITxId")]
+    [IsoSimpleType(IsoSimpleType.Max50Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax50Binary LRCITransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] LRCITransactionIdentification { get; init; } 
+    public required System.Byte[] LRCITransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] LRCITransactionIdentification { get; init; } 
     #else
@@ -72,32 +70,29 @@ public partial record IsabelEpaymentTokenResponse1
     /// Individual record holding all data related to a payment file that is being used during the signature process.
     /// </summary>
     [IsoId("_ziCfIM_bEeWjSMe6YTKHlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PmtInf")]
     [MinLength(1)]
     [MaxLength(100)]
-    #endif
     public ValueList<IsabelLRCIPaymentInformation1> PaymentInformation { get; init; } = new ValueList<IsabelLRCIPaymentInformation1>(){};
     
     /// <summary>
     /// Mathematical scheme for demonstrating the authenticity of the original server challenge exchanged by the LRCI protocol during the signature process.
     /// </summary>
     [IsoId("_21vEgM_bEeWjSMe6YTKHlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Server Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvrSgntr")]
     #endif
+    [IsoXmlTag("SvrSgntr")]
+    [IsoSimpleType(IsoSimpleType.Max1kBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax1kBinary ServerSignature { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] ServerSignature { get; init; } 
+    public required System.Byte[] ServerSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] ServerSignature { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice
     /// Provides the status of the repurchase agreement call request.
     /// </summary>
     [IsoId("_UU5http-Ed-ak6NoX_4Aeg_-1582954792")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repo Call Request Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IdentificationType6Choice.Code))]
     [KnownType(typeof(IdentificationType6Choice.Proprietary))]
     [IsoId("_QmCDQtp-Ed-ak6NoX_4Aeg_-1758873433")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Type 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

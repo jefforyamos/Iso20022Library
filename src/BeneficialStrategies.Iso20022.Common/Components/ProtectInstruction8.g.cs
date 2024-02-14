@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information on protect and cover protect instructions.
 /// </summary>
 [IsoId("_mnkCkf0hEeiKOe8GCUL1Lg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Protect Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ProtectInstruction8
     /// Indicates whether the instruction is a protect or a cover protect instruction.
     /// </summary>
     [IsoId("_nQoNsf0hEeiKOe8GCUL1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTp")]
     #endif
+    [IsoXmlTag("TxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProtectTransactionType3Code TransactionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProtectTransactionType3Code TransactionType { get; init; } 
+    public required ProtectTransactionType3Code TransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProtectTransactionType3Code TransactionType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ProtectInstruction8
     /// Status of the protect transaction.
     /// </summary>
     [IsoId("_nQoNs_0hEeiKOe8GCUL1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctTxSts")]
     #endif
+    [IsoXmlTag("PrtctTxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectInstructionStatus4Code? ProtectTransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,13 @@ public partial record ProtectInstruction8
     /// Unique reference of the protect transaction assigned by the depository and used for cover protect validation.
     /// </summary>
     [IsoId("_nQoNtf0hEeiKOe8GCUL1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax15Text)]
     [StringLength(maximumLength: 15 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax15Text? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,12 @@ public partial record ProtectInstruction8
     /// Date at which the protect instruction was created and used for cover protect validation.
     /// </summary>
     [IsoId("_nQoNt_0hEeiKOe8GCUL1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctDt")]
     #endif
+    [IsoXmlTag("PrtctDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ProtectDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record ProtectInstruction8
     /// Remaining quantity of protect instruction which has not been covered.
     /// </summary>
     [IsoId("_nQoNuf0hEeiKOe8GCUL1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Uncovered Protect Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UcvrdPrtctQty")]
     #endif
+    [IsoXmlTag("UcvrdPrtctQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? UncoveredProtectQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

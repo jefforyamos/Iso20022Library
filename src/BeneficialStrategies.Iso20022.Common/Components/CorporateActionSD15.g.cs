@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains details about called certificates.
 /// </summary>
 [IsoId("_Jgj5IZ2NEeW-bsa36JFb9A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record CorporateActionSD15
     /// Unique identification or serial number that is assigned and affixed by an issuer or transfer agent to each securities certificate.
     /// </summary>
     [IsoId("_J3BRUZ2NEeW-bsa36JFb9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertNb")]
+    [IsoSimpleType(IsoSimpleType.Max15AlphaNumericText)]
     [StringLength(maximumLength: 15 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15AlphaNumericText CertificateNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CertificateNumber { get; init; } 
+    public required System.String CertificateNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CertificateNumber { get; init; } 
     #else
@@ -75,16 +71,16 @@ public partial record CorporateActionSD15
     /// Principal amount (for debt issues) or number of shares (for equity issues) that has been called for redemption for a particular certificate number.
     /// </summary>
     [IsoId("_J3BRWZ2NEeW-bsa36JFb9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Called Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertClldAmt")]
     #endif
+    [IsoXmlTag("CertClldAmt")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber CertificateCalledAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 CertificateCalledAmount { get; init; } 
+    public required System.UInt64 CertificateCalledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 CertificateCalledAmount { get; init; } 
     #else

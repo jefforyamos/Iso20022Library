@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOrUnderConfirmationChoice1
     /// Place of presentation when there is a confirmation.
     /// </summary>
     [IsoId("_97kuFHltEeG7BsjMvd1mEw_1998762195")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentation Under Confirmation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOrUnderConfirmationChoice1
         /// Specifies the party to receive the presentation.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PresntnUdrConf")]
         #endif
+        [IsoXmlTag("PresntnUdrConf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PresentationParty1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PresentationParty1Code Value { get; init; } 
+        public required PresentationParty1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PresentationParty1Code Value { get; init; } 
         #else

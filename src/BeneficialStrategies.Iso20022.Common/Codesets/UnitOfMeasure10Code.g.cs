@@ -21,7 +21,7 @@ public enum UnitOfMeasure10Code
 {
     /// <summary>
     /// Unit of measure that is equal to 1, 000 meters.
-    /// Encoded/decoded by serializers as "KMET".
+    /// Encoded/decoded by serializers as &quot;KMET&quot;.
     /// </summary>
     [EnumMember(Value = "KMET")]
     [IsoId("_l6goQX0mEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum UnitOfMeasure10Code
     
     /// <summary>
     /// Unit of length equal to 1, 760 yards.
-    /// Encoded/decoded by serializers as "MILE".
+    /// Encoded/decoded by serializers as &quot;MILE&quot;.
     /// </summary>
     [EnumMember(Value = "MILE")]
     [IsoId("_l6goQ30mEemfrNOe0zHQyg")]

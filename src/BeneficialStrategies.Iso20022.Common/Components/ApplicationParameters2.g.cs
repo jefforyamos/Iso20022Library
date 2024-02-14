@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Acceptor parameters dedicated to a payment application of the point of interaction.
 /// </summary>
 [IsoId("_ynX-UQvbEeK9Xewg3qiFQA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Application Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ApplicationParameters2
     /// Identification of the payment application.
     /// </summary>
     [IsoId("_yzIiYQvbEeK9Xewg3qiFQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ApplicationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ApplicationIdentification { get; init; } 
+    public required System.String ApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ApplicationIdentification { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record ApplicationParameters2
     /// Version of the payment application configuration parameters.
     /// </summary>
     [IsoId("_yzIiZQvbEeK9Xewg3qiFQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax16Text Version { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Version { get; init; } 
+    public required System.String Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Version { get; init; } 
     #else
@@ -98,12 +92,12 @@ public partial record ApplicationParameters2
     /// Configuration parameters used by the related payment application.
     /// </summary>
     [IsoId("_yzIiaQvbEeK9Xewg3qiFQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Params")]
     #endif
+    [IsoXmlTag("Params")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? Parameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record ApplicationParameters2
     /// Sensitive parameters (sequence of Parameters including the enveloppes) encrypted with a cryptographic key.
     /// </summary>
     [IsoId("_yzIibQvbEeK9Xewg3qiFQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdParams")]
     #endif
+    [IsoXmlTag("NcrptdParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType5? EncryptedParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

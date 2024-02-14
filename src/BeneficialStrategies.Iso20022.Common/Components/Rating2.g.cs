@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Rating and source of the rating of the financial instrument.
 /// </summary>
 [IsoId("_6xRCcL_IEeuexrfMa3dl_Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rating")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record Rating2
     /// Provides the rating of the financial instrument.
     /// </summary>
     [IsoId("_Bwe3Ub_JEeuexrfMa3dl_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rating")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ratg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Ratg")]
+    [IsoSimpleType(IsoSimpleType.Max10Text)]
     [StringLength(maximumLength: 10 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10Text Rating { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Rating { get; init; } 
+    public required System.String Rating { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Rating { get; init; } 
     #else
@@ -72,19 +68,18 @@ public partial record Rating2
     #endif
     
     /// <summary>
-    /// Agency, which provides rating services, for example, Moody's and S&P.
+    /// Agency, which provides rating services, for example, Moody&apos;s and S&amp;P.
     /// </summary>
     [IsoId("_D8xvwb_JEeuexrfMa3dl_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Of Rating")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcOfRatg")]
     #endif
+    [IsoXmlTag("SrcOfRatg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketIdentification89 SourceOfRating { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketIdentification89 SourceOfRating { get; init; } 
+    public required MarketIdentification89 SourceOfRating { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketIdentification89 SourceOfRating { get; init; } 
     #else

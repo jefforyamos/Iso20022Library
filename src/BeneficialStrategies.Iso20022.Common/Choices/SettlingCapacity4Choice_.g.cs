@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlingCapacity4Choice.Code))]
     [KnownType(typeof(SettlingCapacity4Choice.Proprietary))]
     [IsoId("_m6SEYSW3EeOslcz0TJwprQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settling Capacity 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

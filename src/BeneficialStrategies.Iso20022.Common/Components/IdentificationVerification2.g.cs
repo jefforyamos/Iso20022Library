@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the identification data that is requested to be verified.
 /// </summary>
 [IsoId("_tpjOU1kyEeGeoaLUQk__nA_-767383057")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Identification Verification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record IdentificationVerification2
     /// Unique identification, as assigned by a sending party, to unambiguously identify the party and account identification information group within the message.
     /// </summary>
     [IsoId("_tpjOVFkyEeGeoaLUQk__nA_-1764455410")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record IdentificationVerification2
     /// Party and/or account identification information for which verification is requested.
     /// </summary>
     [IsoId("_tps_UFkyEeGeoaLUQk__nA_358248508")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party And Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyAndAcctId")]
     #endif
+    [IsoXmlTag("PtyAndAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationInformation2 PartyAndAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationInformation2 PartyAndAccountIdentification { get; init; } 
+    public required IdentificationInformation2 PartyAndAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationInformation2 PartyAndAccountIdentification { get; init; } 
     #else

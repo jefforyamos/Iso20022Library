@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of financial instruments that are initially recorded or centrally maintained in CSDs (central securities depositories) as defined in the relevant regulation.
 /// </summary>
 [IsoId("_Gj3jgTOnEeqX8uoQQ3KffQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Daily Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -59,16 +57,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Shares in companies and other securities equivalent to shares in companies, partnerships or other entities, and depositary receipts in respect of share.
     /// </summary>
     [IsoId("_Gko_kTOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Eqty")]
     #endif
+    [IsoXmlTag("Eqty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ Equity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ Equity { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ Equity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ Equity { get; init; } 
     #else
@@ -79,16 +76,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Debt instrument issued by a sovereign issuer.
     /// </summary>
     [IsoId("_Gko_kzOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sovereign Debt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvrgnDebt")]
     #endif
+    [IsoXmlTag("SvrgnDebt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ SovereignDebt { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ SovereignDebt { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ SovereignDebt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ SovereignDebt { get; init; } 
     #else
@@ -99,16 +95,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Bonds other than sovereign debt.
     /// </summary>
     [IsoId("_Gko_lTOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bond")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bd")]
     #endif
+    [IsoXmlTag("Bd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ Bond { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ Bond { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ Bond { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ Bond { get; init; } 
     #else
@@ -119,16 +114,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Securities meeting the criteria laid down in the relevant legislation.
     /// </summary>
     [IsoId("_Gko_lzOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Transferable Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTrfblScties")]
     #endif
+    [IsoXmlTag("OthrTrfblScties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ OtherTransferableSecurities { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ OtherTransferableSecurities { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ OtherTransferableSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ OtherTransferableSecurities { get; init; } 
     #else
@@ -139,16 +133,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Relates to a fund of which at least one unit or share class is traded throughout the day on at least one trading venue and with at least one market maker which takes action to ensure that the price of its units or shares on the trading venue does not vary significantly from its net asset value and, where applicable, from its indicative net asset value, as referred to in the relevant legislation.
     /// </summary>
     [IsoId("_Gko_mTOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Traded Funds")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgTraddFnds")]
     #endif
+    [IsoXmlTag("XchgTraddFnds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ ExchangeTradedFunds { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ ExchangeTradedFunds { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ ExchangeTradedFunds { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ ExchangeTradedFunds { get; init; } 
     #else
@@ -159,16 +152,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Units in collective investment undertakings, other than ETFs.
     /// </summary>
     [IsoId("_Gko_mzOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collective Investment Undertakings")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CllctvInvstmtUdrtkgs")]
     #endif
+    [IsoXmlTag("CllctvInvstmtUdrtkgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ CollectiveInvestmentUndertakings { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ CollectiveInvestmentUndertakings { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ CollectiveInvestmentUndertakings { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ CollectiveInvestmentUndertakings { get; init; } 
     #else
@@ -179,16 +171,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Money market instruments other than sovereign debts.
     /// </summary>
     [IsoId("_Gko_nTOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Money Market Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MnyMktInstrm")]
     #endif
+    [IsoXmlTag("MnyMktInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ MoneyMarketInstrument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ MoneyMarketInstrument { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ MoneyMarketInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ MoneyMarketInstrument { get; init; } 
     #else
@@ -199,16 +190,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Relates to emission allowances which are tradable according to the relevant legislation.
     /// </summary>
     [IsoId("_Gko_nzOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Emission Allowance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EmssnAllwnc")]
     #endif
+    [IsoXmlTag("EmssnAllwnc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ EmissionAllowance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ EmissionAllowance { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ EmissionAllowance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ EmissionAllowance { get; init; } 
     #else
@@ -219,16 +209,15 @@ public partial record SettlementFailsDailyInstrument3
     /// Covers any financial instruments not covered as a dedicated category.
     /// </summary>
     [IsoId("_Gko_oTOnEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyTransactionType1Choice_ Other { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyTransactionType1Choice_ Other { get; init; } 
+    public required SettlementFailsDailyTransactionType1Choice_ Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyTransactionType1Choice_ Other { get; init; } 
     #else

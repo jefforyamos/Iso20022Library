@@ -21,7 +21,7 @@ public enum RateType9Code
 {
     /// <summary>
     /// Any and all rate is sought.
-    /// Encoded/decoded by serializers as "ANYA".
+    /// Encoded/decoded by serializers as &quot;ANYA&quot;.
     /// </summary>
     [EnumMember(Value = "ANYA")]
     [IsoId("_ZZvUlNp-Ed-ak6NoX_4Aeg_-1126354403")]

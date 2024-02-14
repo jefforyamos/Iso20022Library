@@ -21,7 +21,7 @@ public enum StatementType1Code
 {
     /// <summary>
     /// Accounting Statement of Holdings (semt 003).
-    /// Encoded/decoded by serializers as "ST03".
+    /// Encoded/decoded by serializers as &quot;ST03&quot;.
     /// </summary>
     [EnumMember(Value = "ST03")]
     [IsoId("_ZQM-FNp-Ed-ak6NoX_4Aeg_757727475")]
@@ -30,7 +30,7 @@ public enum StatementType1Code
     
     /// <summary>
     /// Custody Statement of Holdings (semt 002).
-    /// Encoded/decoded by serializers as "ST02".
+    /// Encoded/decoded by serializers as &quot;ST02&quot;.
     /// </summary>
     [EnumMember(Value = "ST02")]
     [IsoId("_ZQM-Fdp-Ed-ak6NoX_4Aeg_757727518")]
@@ -39,7 +39,7 @@ public enum StatementType1Code
     
     /// <summary>
     /// Statement of Investment Fund Transactions (semt 006).
-    /// Encoded/decoded by serializers as "ST06".
+    /// Encoded/decoded by serializers as &quot;ST06&quot;.
     /// </summary>
     [EnumMember(Value = "ST06")]
     [IsoId("_ZQM-Ftp-Ed-ak6NoX_4Aeg_757727535")]

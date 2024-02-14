@@ -21,7 +21,7 @@ public enum AssetClassProductType8Code
 {
     /// <summary>
     /// Commodity of type paper.
-    /// Encoded/decoded by serializers as "PAPR".
+    /// Encoded/decoded by serializers as &quot;PAPR&quot;.
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_qdn_gQnyEeWnS-yHF1QhNQ")]

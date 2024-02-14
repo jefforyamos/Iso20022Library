@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus83Choice
     /// Instruction/Request has been rejected for further processing.
     /// </summary>
     [IsoId("_NAqknStVEeyhipY4f42fZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

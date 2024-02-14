@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Profile of the customer with the allowed services and restrictions.
 /// </summary>
 [IsoId("_el4xkYqzEeSIDtZ76p6McQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Customer Profile")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record ATMCustomerProfile3
     /// Reference of the customer profile.
     /// </summary>
     [IsoId("_eyuTsYqzEeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Profile Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrflRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrflRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProfileReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +61,13 @@ public partial record ATMCustomerProfile3
     /// Identification of the customer for the bank.
     /// </summary>
     [IsoId("_eyuTs4qzEeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CstmrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CustomerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,18 +77,16 @@ public partial record ATMCustomerProfile3
     #endif
     
     /// <summary>
-    /// Description of the customer's profile in plaintext.
+    /// Description of the customer&apos;s profile in plaintext.
     /// </summary>
     [IsoId("_4iZ98IqzEeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Profile Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrflDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrflDesc")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ProfileDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,15 +96,14 @@ public partial record ATMCustomerProfile3
     #endif
     
     /// <summary>
-    /// Services allowed for the customer's profile.
+    /// Services allowed for the customer&apos;s profile.
     /// </summary>
     [IsoId("_ShKmAIq0EeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allowed Services")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllwdSvcs")]
     #endif
+    [IsoXmlTag("AllwdSvcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMService7? AllowedServices { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

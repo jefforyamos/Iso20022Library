@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|An executing party, for example, a transfer agent, sends the SwitchOrderConfirmation message to the instructing party, for example, an investment manager or its authorised representative to confirm the details of the execution of a previously received SwitchOrder instruction.|Usage|The SwitchOrderConfirmation message is used to confirm that all the legs of the previously instructed switch order have been executed. The reference of the switch order confirmation is identified in DealReference.|The reference of the original switch order is specified in OrderReference. The message identification of the SwitchOrder message in which the switch order was conveyed may also be quoted in RelatedReference.|If the SwitchOrderConfirmation Details sequence is present more than once, then the redemption leg details and subscription leg details sequences may only be present once.|If Switch Confirmation Order Details\Investment Account is used, then the Investment Account Details sequences in Subscription Leg Details and Redemption Leg Details are not allowed.|If the SwitchOrderConfirmation Details sequence is present more than once, then the redemption leg details and subscription leg details sequences may only be present once.|If SwitchOrderConfirmationDetails\InvestmentAccount is used, then the InvestmentAccountDetails sequences in SubscriptionLegDetails and RedemptionLegDetails are not allowed. This functionality is to be used by institutions that set up two accounts per investor, rather than one investment account.|.")]
 [IsoId("_7t2ZYNE7Ed-BzquC8wXy7w_190731874")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Switch Order Confirmation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_7t2ZYdE7Ed-BzquC8wXy7w_602996789")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_7t2ZYtE7Ed-BzquC8wXy7w_1151194773")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,11 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_7t2ZY9E7Ed-BzquC8wXy7w_1364526959")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +133,11 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_7t2ZZNE7Ed-BzquC8wXy7w_1366376495")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,16 +150,15 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
     /// Information related to a switch execution.
     /// </summary>
     [IsoId("_7t2ZZdE7Ed-BzquC8wXy7w_-1882952026")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Execution Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchExctnDtls")]
     #endif
+    [IsoXmlTag("SwtchExctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SwitchExecution4 SwitchExecutionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SwitchExecution4 SwitchExecutionDetails { get; init; } 
+    public required SwitchExecution4 SwitchExecutionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SwitchExecution4 SwitchExecutionDetails { get; init; } 
     #else
@@ -176,12 +169,11 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_7uAKYNE7Ed-BzquC8wXy7w_738593095")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation2? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +186,11 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_7uAKYdE7Ed-BzquC8wXy7w_746903959")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,7 +203,7 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SwitchOrderConfirmationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SwitchOrderConfirmationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SwitchOrderConfirmationV03Document ToDocument()
     {
@@ -222,7 +213,7 @@ public partial record SwitchOrderConfirmationV03 : IOuterRecord<SwitchOrderConfi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderConfirmationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SwitchOrderConfirmationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SwitchOrderConfirmationV03Document : IOuterDocument<SwitchOrderConfirmationV03>
@@ -239,7 +230,7 @@ public partial record SwitchOrderConfirmationV03Document : IOuterDocument<Switch
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SwitchOrderConfirmationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SwitchOrderConfirmationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SwitchOrderConfirmationV03 Message { get; init; }

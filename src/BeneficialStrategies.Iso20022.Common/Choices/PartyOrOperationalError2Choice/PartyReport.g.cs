@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrOperationalError2Choice
     /// Report information about party reference data.
     /// </summary>
     [IsoId("_enGS0fAzEeWPfa2xBhBfLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrOperationalError2Choice
         /// Unique identification to unambiguously identify the party within the system.
         /// </summary>
         [IsoId("_ewUgQfAzEeWPfa2xBhBfLQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PtyId")]
         #endif
+        [IsoXmlTag("PtyId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SystemPartyIdentification3 PartyIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SystemPartyIdentification3 PartyIdentification { get; init; } 
+        public required SystemPartyIdentification3 PartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SystemPartyIdentification3 PartyIdentification { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrOperationalError2Choice
         /// Identifies the returned party reference data or error information.
         /// </summary>
         [IsoId("_ewUgQ_AzEeWPfa2xBhBfLQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party Or Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PtyOrErr")]
         #endif
+        [IsoXmlTag("PtyOrErr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyOrBusinessError2Choice_ PartyOrError { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyOrBusinessError2Choice_ PartyOrError { get; init; } 
+        public required PartyOrBusinessError2Choice_ PartyOrError { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyOrBusinessError2Choice_ PartyOrError { get; init; } 
         #else

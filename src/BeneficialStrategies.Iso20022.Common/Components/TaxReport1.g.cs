@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains all needed party details for tax agency (sender of the TaxReport) and tax authority (receiver of the TaxReport) and the details of the reported sales transaction and calculated tax related that specific business transaction.
 /// </summary>
 [IsoId("_oAv2w1m4EeOQYsoJizpkVw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record TaxReport1
     /// Basic report details.
     /// </summary>
     [IsoId("_trTl01m4EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRptHdr")]
     #endif
+    [IsoXmlTag("TaxRptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader69 TaxReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader69 TaxReportHeader { get; init; } 
+    public required GroupHeader69 TaxReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader69 TaxReportHeader { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record TaxReport1
     /// Responsible to issue tax reporting to tax authority.
     /// </summary>
     [IsoId("_3-XxEFm4EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification72 Seller { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification72 Seller { get; init; } 
+    public required PartyIdentification72 Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification72 Seller { get; init; } 
     #else
@@ -94,12 +90,11 @@ public partial record TaxReport1
     /// Specifies the buyer of goods/service reported in this message.
     /// </summary>
     [IsoId("_7BHwYFm4EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification72? Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,16 +107,15 @@ public partial record TaxReport1
     /// Contains the details of the business transactions reported in the message.
     /// </summary>
     [IsoId("_LaSXMFm5EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradSttlm")]
     #endif
+    [IsoXmlTag("TradSttlm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeSettlement2 TradeSettlement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeSettlement2 TradeSettlement { get; init; } 
+    public required TradeSettlement2 TradeSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeSettlement2 TradeSettlement { get; init; } 
     #else
@@ -132,12 +126,11 @@ public partial record TaxReport1
     /// Reserved for parties that may be required by a specific tax authority.
     /// </summary>
     [IsoId("_ErRwwJD1EeSZY4BVJy2t3A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPty")]
     #endif
+    [IsoXmlTag("OthrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification72? OtherParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,12 +143,11 @@ public partial record TaxReport1
     /// Additional reference like site key or identifier.
     /// </summary>
     [IsoId("_zSTYoFm6EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation1? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +160,11 @@ public partial record TaxReport1
     /// Structure to deliver link to external attachment or deliver base64-coded attachment inside message.
     /// </summary>
     [IsoId("_5Jz-kFm6EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRef")]
     #endif
+    [IsoXmlTag("AddtlRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation2? AdditionalReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -186,12 +177,11 @@ public partial record TaxReport1
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_nHYhsEjvEeaOe8w0NJ11wQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

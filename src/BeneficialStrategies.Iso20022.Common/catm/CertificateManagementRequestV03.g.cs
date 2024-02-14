@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// </summary>
 [Description(@"The CertificateManagementRequest message is sent by a POI terminal or any intermediary entity either to a terminal manager acting as a certificate authority for managing X.509 certificate of a public key owned by the initiating party, or for requesting the inclusion or the removal of the POI to a white list of the terminal manager.|")]
 [IsoId("_ZtrIsQ0VEeqUVL7sB4m7NA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Certificate Management Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record CertificateManagementRequestV03 : IOuterRecord<Certificate
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_ZtrIsw0VEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TMSHeader1 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TMSHeader1 Header { get; init; } 
+    public required TMSHeader1 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TMSHeader1 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record CertificateManagementRequestV03 : IOuterRecord<Certificate
     /// Information related to the request of certificate management.
     /// </summary>
     [IsoId("_ZtrItQ0VEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Management Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertMgmtReq")]
     #endif
+    [IsoXmlTag("CertMgmtReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CertificateManagementRequest2 CertificateManagementRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CertificateManagementRequest2 CertificateManagementRequest { get; init; } 
+    public required CertificateManagementRequest2 CertificateManagementRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CertificateManagementRequest2 CertificateManagementRequest { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record CertificateManagementRequestV03 : IOuterRecord<Certificate
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_ZtrvwQ0VEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType21? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record CertificateManagementRequestV03 : IOuterRecord<Certificate
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CertificateManagementRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CertificateManagementRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CertificateManagementRequestV03Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record CertificateManagementRequestV03 : IOuterRecord<Certificate
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CertificateManagementRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CertificateManagementRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CertificateManagementRequestV03Document : IOuterDocument<CertificateManagementRequestV03>
@@ -162,7 +157,7 @@ public partial record CertificateManagementRequestV03Document : IOuterDocument<C
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CertificateManagementRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CertificateManagementRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CertificateManagementRequestV03 Message { get; init; }

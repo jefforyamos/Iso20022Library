@@ -21,7 +21,7 @@ public enum OnLineCapabilityCode
 {
     /// <summary>
     /// Off-line only capable.
-    /// Encoded/decoded by serializers as "OFLN".
+    /// Encoded/decoded by serializers as &quot;OFLN&quot;.
     /// </summary>
     [EnumMember(Value = "OFLN")]
     [IsoId("_TU5kHQEcEeCQm6a_G2yO_w_-1739377471")]
@@ -30,7 +30,7 @@ public enum OnLineCapabilityCode
     
     /// <summary>
     /// On-line only capable.
-    /// Encoded/decoded by serializers as "ONLN".
+    /// Encoded/decoded by serializers as &quot;ONLN&quot;.
     /// </summary>
     [EnumMember(Value = "ONLN")]
     [IsoId("_TU5kHgEcEeCQm6a_G2yO_w_-1554375829")]
@@ -39,7 +39,7 @@ public enum OnLineCapabilityCode
     
     /// <summary>
     /// Off-line capable with possible on-line requests to the acquirer.
-    /// Encoded/decoded by serializers as "SMON".
+    /// Encoded/decoded by serializers as &quot;SMON&quot;.
     /// </summary>
     [EnumMember(Value = "SMON")]
     [IsoId("_TU5kHwEcEeCQm6a_G2yO_w_-337286150")]
@@ -48,7 +48,7 @@ public enum OnLineCapabilityCode
     
     /// <summary>
     /// Both online and offline
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_83t5MXyJEemHsOqJOzMVfg")]

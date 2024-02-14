@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The TradeStatusReport message is exchanged between parties involved in the trade finance domain to report the transaction level status of a transaction previously received. It informs the sender about the positive or negative status of the referenced transaction, such as acceptance or rejection resulting from technical validation performed by the parser and/or front-office applications. It can be used, for example, to acknowledge receipt of a transaction, to report a syntactical error, to report an unrecognised digital signature, to indicate that further processing is pending, and to indicate that a transaction has been technically accepted for processing by the back-office application. Multiple TradeStatusReport messages may be progressively sent in response to the incremental processing of a single transaction.")]
 [IsoId("_9hy8JXltEeG7BsjMvd1mEw_-944920037")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record TradeStatusReportV01 : IOuterRecord<TradeStatusReportV01,T
     /// Details of the trade status report.
     /// </summary>
     [IsoId("_9hy8JnltEeG7BsjMvd1mEw_-979867813")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Status Advice Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradStsAdvcDtls")]
     #endif
+    [IsoXmlTag("TradStsAdvcDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeStatusReport1 TradeStatusAdviceDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeStatusReport1 TradeStatusAdviceDetails { get; init; } 
+    public required TradeStatusReport1 TradeStatusAdviceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeStatusReport1 TradeStatusAdviceDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record TradeStatusReportV01 : IOuterRecord<TradeStatusReportV01,T
     /// Digital signature of the report.
     /// </summary>
     [IsoId("_9hy8J3ltEeG7BsjMvd1mEw_-480119583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record TradeStatusReportV01 : IOuterRecord<TradeStatusReportV01,T
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TradeStatusReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TradeStatusReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TradeStatusReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record TradeStatusReportV01 : IOuterRecord<TradeStatusReportV01,T
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TradeStatusReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TradeStatusReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TradeStatusReportV01Document : IOuterDocument<TradeStatusReportV01>
@@ -140,7 +136,7 @@ public partial record TradeStatusReportV01Document : IOuterDocument<TradeStatusR
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TradeStatusReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TradeStatusReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeStatusReportV01 Message { get; init; }

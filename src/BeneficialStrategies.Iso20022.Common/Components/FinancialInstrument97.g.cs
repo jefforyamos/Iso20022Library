@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Tangible items of value to a business.
 /// </summary>
 [IsoId("_MQz4EZJOEeuAlLVx8pyt3w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -41,15 +39,14 @@ public partial record FinancialInstrument97
     #nullable enable
     
     /// <summary>
-    /// Financial instrument which represents a title of ownership in a company, ie, the shareholder is entitled to a part of the company's profit - usually by payment of a dividend - and to voting rights, if any. Each company issues generally different classes of shares, eg, ordinary or common shares, which have no guaranteed amount of dividend but carry voting rights, or preferred shares, which receive dividends before ordinary shares but have no voting right.
+    /// Financial instrument which represents a title of ownership in a company, ie, the shareholder is entitled to a part of the company&apos;s profit - usually by payment of a dividend - and to voting rights, if any. Each company issues generally different classes of shares, eg, ordinary or common shares, which have no guaranteed amount of dividend but carry voting rights, or preferred shares, which receive dividends before ordinary shares but have no voting right.
     /// </summary>
     [IsoId("_MS6w4ZJOEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Eqty")]
     #endif
+    [IsoXmlTag("Eqty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Equity3? Equity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record FinancialInstrument97
     /// Financial instrument that gives the holder the right to purchase shares or bonds at a given price within a specified time.
     /// </summary>
     [IsoId("_MS6w45JOEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Warrant")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Warrt")]
     #endif
+    [IsoXmlTag("Warrt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Warrant4? Warrant { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record FinancialInstrument97
     /// Financial instruments evidencing moneys owed by the issuer to the holder on terms as specified.
     /// </summary>
     [IsoId("_MS6w5ZJOEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Debt")]
     #endif
+    [IsoXmlTag("Debt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Debt5? Debt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record FinancialInstrument97
     /// Choice between type of derivatives.
     /// </summary>
     [IsoId("_MS6w55JOEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Deriv")]
     #endif
+    [IsoXmlTag("Deriv")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Derivative4? Derivative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

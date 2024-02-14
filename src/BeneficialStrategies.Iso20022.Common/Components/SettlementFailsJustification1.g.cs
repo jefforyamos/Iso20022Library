@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the justification for the derogation justification on the reporting of settlement fails instructions.
 /// </summary>
 [IsoId("_TKY2UMs0EemSav3hRKzWyg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Justification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SettlementFailsJustification1
     /// Specifies the value of settlement fails, which does not exceed the limit value as specified in the local regulation.
     /// </summary>
     [IsoId("_TKY2Uss0EemSav3hRKzWyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveDecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveDecimalNumber Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Value { get; init; } 
+    public required System.UInt64 Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Value { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record SettlementFailsJustification1
     /// Specifies the rate of settlement fails, which does not exceed the limits rate as specified in the local regulation.
     /// </summary>
     [IsoId("_TKY2U8s0EemSav3hRKzWyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementDataRate1Choice_ Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementDataRate1Choice_ Rate { get; init; } 
+    public required SettlementDataRate1Choice_ Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementDataRate1Choice_ Rate { get; init; } 
     #else

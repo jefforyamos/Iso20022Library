@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies detailed voting instructions.
 /// </summary>
 [IsoId("_RDYtoNp-Ed-ak6NoX_4Aeg_1302554579")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record VoteDetails2
     /// Indicates the vote instruction for the resolutions which are announced via the meeting agenda in advance of the meeting.
     /// </summary>
     [IsoId("_RDYtodp-Ed-ak6NoX_4Aeg_1303474735")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction For Agenda Resolution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteInstrForAgndRsltn")]
     #endif
+    [IsoXmlTag("VoteInstrForAgndRsltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Vote2Choice_ VoteInstructionForAgendaResolution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Vote2Choice_ VoteInstructionForAgendaResolution { get; init; } 
+    public required Vote2Choice_ VoteInstructionForAgendaResolution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Vote2Choice_ VoteInstructionForAgendaResolution { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record VoteDetails2
     /// Indicates the vote instruction for the resolutions that may arise at the meeting but were not previously provided in the agenda.
     /// </summary>
     [IsoId("_RDYtotp-Ed-ak6NoX_4Aeg_1302554702")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction For Meeting Resolution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteInstrForMtgRsltn")]
     #endif
+    [IsoXmlTag("VoteInstrForMtgRsltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteInstructionForMeetingResolution1Choice_? VoteInstructionForMeetingResolution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

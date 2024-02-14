@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NumberOrPercentage1Choice
     /// Threshold provided as a percentage rate.
     /// </summary>
     [IsoId("_waiGEK4pEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Threshold Percentage")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.NumberOrPercentage1Choice
         /// Rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ThrshldPctg")]
         #endif
+        [IsoXmlTag("ThrshldPctg")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPercentageRate Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Value { get; init; } 
+        public required System.Decimal Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Value { get; init; } 
         #else

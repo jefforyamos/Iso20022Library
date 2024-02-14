@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the detailed parameters a service to be billed.
 /// </summary>
 [IsoId("_6PgXxJqlEeGSON8vddiWzQ_126693803")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Service Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record BillingServiceParameters2
     /// Specifies the details to fully identify the bank service.
     /// </summary>
     [IsoId("_6PgXxZqlEeGSON8vddiWzQ_-1989872304")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkSvc")]
     #endif
+    [IsoXmlTag("BkSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingServiceIdentification2 BankService { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingServiceIdentification2 BankService { get; init; } 
+    public required BillingServiceIdentification2 BankService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingServiceIdentification2 BankService { get; init; } 
     #else
@@ -72,12 +69,12 @@ public partial record BillingServiceParameters2
     /// Count or number of items (volume) involved in the charge.
     /// </summary>
     [IsoId("_6PgXxpqlEeGSON8vddiWzQ_-424116921")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vol")]
     #endif
+    [IsoXmlTag("Vol")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Volume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +87,11 @@ public partial record BillingServiceParameters2
     /// Price per item or unit used to calculate the charge expressed in the pricing currency.
     /// </summary>
     [IsoId("_6PgXx5qlEeGSON8vddiWzQ_-1110935494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitPric")]
     #endif
+    [IsoXmlTag("UnitPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? UnitPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +104,15 @@ public partial record BillingServiceParameters2
     /// Amount of the calculated charge expressed in the pricing currency, exclusive of any tax.
     /// </summary>
     [IsoId("_6PphsJqlEeGSON8vddiWzQ_534331941")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Charge Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcChrgAmt")]
     #endif
+    [IsoXmlTag("SvcChrgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 ServiceChargeAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 ServiceChargeAmount { get; init; } 
+    public required AmountAndDirection34 ServiceChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 ServiceChargeAmount { get; init; } 
     #else

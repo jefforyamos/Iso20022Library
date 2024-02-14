@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to a linked transaction.
 /// </summary>
 [IsoId("_5PaGy5NLEeWGlc8L7oPDIg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Linkages")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Linkages42
     /// When the transaction is to be executed relative to a linked transaction.
     /// </summary>
     [IsoId("_5PaGzZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgPos")]
     #endif
+    [IsoXmlTag("PrcgPos")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition10Choice_? ProcessingPosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record Linkages42
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
     [IsoId("_5PaG1ZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgNb")]
     #endif
+    [IsoXmlTag("MsgNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentNumber6Choice_? MessageNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +83,15 @@ public partial record Linkages42
     /// Reference to the linked transaction.
     /// </summary>
     [IsoId("_5PaG3ZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References50Choice_ Reference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References50Choice_ Reference { get; init; } 
+    public required References50Choice_ Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References50Choice_ Reference { get; init; } 
     #else
@@ -107,12 +102,11 @@ public partial record Linkages42
     /// Party that generates the reference.
     /// </summary>
     [IsoId("_5PaG5ZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefOwnr")]
     #endif
+    [IsoXmlTag("RefOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification103Choice_? ReferenceOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cancellation status.
 /// </summary>
 [IsoId("_U0fAuNp-Ed-ak6NoX_4Aeg_441136069")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Cancellation Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransferCancellationStatus
     /// Status of the transfer cancellation instruction.
     /// </summary>
     [IsoId("_U0oxsNp-Ed-ak6NoX_4Aeg_-604209866")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationStatus1Code Status { get; init; } 
+    public required CancellationStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationStatus1Code Status { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TransferCancellationStatus
     /// Additional information about the status in textual form.
     /// </summary>
     [IsoId("_U0oxsdp-Ed-ak6NoX_4Aeg_1202118767")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

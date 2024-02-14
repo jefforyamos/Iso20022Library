@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Attribute of the certificate service to be put in the certificate extensions, or to be used for the request.
 /// </summary>
 [IsoId("_W-n0EY4TEeW6h7rGyYlyTg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Relative Distinguished Name")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record RelativeDistinguishedName2
     /// Type of attribute of a distinguished name (see X.500).
     /// </summary>
     [IsoId("_XKBLwY4TEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attribute Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttrTp")]
     #endif
+    [IsoXmlTag("AttrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AttributeType2Code AttributeType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AttributeType2Code AttributeType { get; init; } 
+    public required AttributeType2Code AttributeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AttributeType2Code AttributeType { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record RelativeDistinguishedName2
     /// Value of the attribute of a distinguished name (see X.500).
     /// </summary>
     [IsoId("_XKBLw44TEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attribute Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttrVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AttrVal")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text AttributeValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AttributeValue { get; init; } 
+    public required System.String AttributeValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AttributeValue { get; init; } 
     #else

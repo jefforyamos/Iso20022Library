@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains additional information related to the message.
 /// </summary>
 [IsoId("_Qoao5dp-Ed-ak6NoX_4Aeg_478592239")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record AdditionalInformation5
     /// Contains additional information related to the message.
     /// </summary>
     [IsoId("_Qoao5tp-Ed-ak6NoX_4Aeg_1159536818")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Inf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Inf")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     public System.String? Information { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Qoao5tp-Ed-ak6NoX_4Aeg_1159536818
     

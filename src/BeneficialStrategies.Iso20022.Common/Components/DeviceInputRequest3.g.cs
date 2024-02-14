@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Input Request message.
 /// </summary>
 [IsoId("_N15HMS9AEeu125Ip9zFcsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Input Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record DeviceInputRequest3
     /// Information to display before input.
     /// </summary>
     [IsoId("_OC1-ES9AEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Output")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispOutpt")]
     #endif
+    [IsoXmlTag("DispOutpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage8? DisplayOutput { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record DeviceInputRequest3
     /// Information related to an Input request.
     /// </summary>
     [IsoId("_OC1-Ey9AEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Input Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InptData")]
     #endif
+    [IsoXmlTag("InptData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InputData3 InputData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InputData3 InputData { get; init; } 
+    public required InputData3 InputData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InputData3 InputData { get; init; } 
     #else

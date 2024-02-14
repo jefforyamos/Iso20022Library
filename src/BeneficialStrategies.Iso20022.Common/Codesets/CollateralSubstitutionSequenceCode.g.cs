@@ -21,7 +21,7 @@ public enum CollateralSubstitutionSequenceCode
 {
     /// <summary>
     /// Indicates this is a new collateral substitution request.
-    /// Encoded/decoded by serializers as "INIT".
+    /// Encoded/decoded by serializers as &quot;INIT&quot;.
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_YcDkUtp-Ed-ak6NoX_4Aeg_556952094")]
@@ -30,7 +30,7 @@ public enum CollateralSubstitutionSequenceCode
     
     /// <summary>
     /// Indicates this is an updated collateral substitution request.
-    /// Encoded/decoded by serializers as "UPDD".
+    /// Encoded/decoded by serializers as &quot;UPDD&quot;.
     /// </summary>
     [EnumMember(Value = "UPDD")]
     [IsoId("_YcDkU9p-Ed-ak6NoX_4Aeg_-1690630387")]

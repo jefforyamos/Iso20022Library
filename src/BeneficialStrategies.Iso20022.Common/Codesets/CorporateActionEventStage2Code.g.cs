@@ -21,7 +21,7 @@ public enum CorporateActionEventStage2Code
 {
     /// <summary>
     /// Open for acceptance until the next specified deadline in the announcement (if any).
-    /// Encoded/decoded by serializers as "PWAL".
+    /// Encoded/decoded by serializers as &quot;PWAL&quot;.
     /// </summary>
     [EnumMember(Value = "PWAL")]
     [IsoId("_bD1e49p-Ed-ak6NoX_4Aeg_1234993231")]
@@ -30,7 +30,7 @@ public enum CorporateActionEventStage2Code
     
     /// <summary>
     /// Subject to approval at the relevant meeting, eg, dividend.
-    /// Encoded/decoded by serializers as "SUAP".
+    /// Encoded/decoded by serializers as &quot;SUAP&quot;.
     /// </summary>
     [EnumMember(Value = "SUAP")]
     [IsoId("_bD1e5Np-Ed-ak6NoX_4Aeg_1234993256")]
@@ -39,7 +39,7 @@ public enum CorporateActionEventStage2Code
     
     /// <summary>
     /// Approved at the relevant meeting, eg, dividend.
-    /// Encoded/decoded by serializers as "APPD".
+    /// Encoded/decoded by serializers as &quot;APPD&quot;.
     /// </summary>
     [EnumMember(Value = "APPD")]
     [IsoId("_bD1e5dp-Ed-ak6NoX_4Aeg_1234993257")]
@@ -48,7 +48,7 @@ public enum CorporateActionEventStage2Code
     
     /// <summary>
     /// The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.
-    /// Encoded/decoded by serializers as "UNAC".
+    /// Encoded/decoded by serializers as &quot;UNAC&quot;.
     /// </summary>
     [EnumMember(Value = "UNAC")]
     [IsoId("_bD1e5tp-Ed-ak6NoX_4Aeg_1234993273")]
@@ -57,7 +57,7 @@ public enum CorporateActionEventStage2Code
     
     /// <summary>
     /// Wholly unconditional; all conditions specified in the offer document have been satisfied.
-    /// Encoded/decoded by serializers as "WHOU".
+    /// Encoded/decoded by serializers as &quot;WHOU&quot;.
     /// </summary>
     [EnumMember(Value = "WHOU")]
     [IsoId("_bD1e59p-Ed-ak6NoX_4Aeg_1234993291")]
@@ -66,7 +66,7 @@ public enum CorporateActionEventStage2Code
     
     /// <summary>
     /// The offer is closed for acceptance.
-    /// Encoded/decoded by serializers as "CLDE".
+    /// Encoded/decoded by serializers as &quot;CLDE&quot;.
     /// </summary>
     [EnumMember(Value = "CLDE")]
     [IsoId("_bD1e6Np-Ed-ak6NoX_4Aeg_1234993308")]
@@ -75,7 +75,7 @@ public enum CorporateActionEventStage2Code
     
     /// <summary>
     /// The event/offer conditions have not been met and the event/offer is terminated or lapsed.
-    /// Encoded/decoded by serializers as "LAPS".
+    /// Encoded/decoded by serializers as &quot;LAPS&quot;.
     /// </summary>
     [EnumMember(Value = "LAPS")]
     [IsoId("_bD1e6dp-Ed-ak6NoX_4Aeg_1234993326")]

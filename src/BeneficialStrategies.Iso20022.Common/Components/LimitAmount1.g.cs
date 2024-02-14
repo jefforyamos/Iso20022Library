@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money characterics used to specify a limit.
 /// </summary>
 [IsoId("_jORO5O5NEeCisYr99QEiWA_-1135919214")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record LimitAmount1
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
     [IsoId("_jOa_4O5NEeCisYr99QEiWA_-1878638285")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitAmount1 Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitAmount1 Amount { get; init; } 
+    public required CreditDebitAmount1 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitAmount1 Amount { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record LimitAmount1
     /// Utilised amount of money of the limit expressed in an eligible currency.
     /// </summary>
     [IsoId("_jOa_4e5NEeCisYr99QEiWA_-1682012024")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Utilisation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UtlstnAmt")]
     #endif
+    [IsoXmlTag("UtlstnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitAmount1 UtilisationAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitAmount1 UtilisationAmount { get; init; } 
+    public required CreditDebitAmount1 UtilisationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitAmount1 UtilisationAmount { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record LimitAmount1
     /// Remaining amount of money of the limit expressed in an eligible currency.
     /// </summary>
     [IsoId("_jOa_4u5NEeCisYr99QEiWA_1097770186")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblAmt")]
     #endif
+    [IsoXmlTag("AvlblAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitAmount1 AvailableAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitAmount1 AvailableAmount { get; init; } 
+    public required CreditDebitAmount1 AvailableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitAmount1 AvailableAmount { get; init; } 
     #else

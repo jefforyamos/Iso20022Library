@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Clearing totals of the batch file.
 /// </summary>
 [IsoId("_Ypm1sFA8EeedyPuM0kK2EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record ClearingTotals1
     /// Number of transactions to clear.
     /// </summary>
     [IsoId("_hs73YFA8EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cnt")]
     #endif
+    [IsoXmlTag("Cnt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Count { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Count { get; init; } 
+    public required System.UInt64 Count { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Count { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record ClearingTotals1
     /// Gross clearing accumulated amount.
     /// </summary>
     [IsoId("_p3SCoFA8EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accumulated Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcmltdAmt")]
     #endif
+    [IsoXmlTag("AcmltdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount14 AccumulatedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount14 AccumulatedAmount { get; init; } 
+    public required Amount14 AccumulatedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount14 AccumulatedAmount { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus9Choi
     /// Indication that the reports subject of reconciliation match.
     /// </summary>
     [IsoId("_AxRVQcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matched")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus9Choi
         /// Specifies that there is no reason available.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Mtchd")]
         #endif
+        [IsoXmlTag("Mtchd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NoReasonCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NoReasonCode Value { get; init; } 
+        public required NoReasonCode Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NoReasonCode Value { get; init; } 
         #else

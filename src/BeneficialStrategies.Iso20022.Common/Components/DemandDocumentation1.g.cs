@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Document presented for examination.
 /// </summary>
 [IsoId("_-Eq_uHltEeG7BsjMvd1mEw_-538829885")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Demand Documentation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record DemandDocumentation1
     /// Indication as to whether the presentation is complete.
     /// </summary>
     [IsoId("_-E0JoHltEeG7BsjMvd1mEw_-572404369")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Complete Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpltInd")]
     #endif
+    [IsoXmlTag("CmpltInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CompleteIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CompleteIndicator { get; init; } 
+    public required System.String CompleteIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CompleteIndicator { get; init; } 
     #else
@@ -71,15 +69,13 @@ public partial record DemandDocumentation1
     /// Information related to an incomplete presentation.
     /// </summary>
     [IsoId("_-E0JoXltEeG7BsjMvd1mEw_-1669522883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Completion Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpltnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CmpltnInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? CompletionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +88,11 @@ public partial record DemandDocumentation1
     /// Document or template enclosed in the demand.
     /// </summary>
     [IsoId("_-E0JonltEeG7BsjMvd1mEw_32400156")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enclosed File")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NclsdFile")]
     #endif
+    [IsoXmlTag("NclsdFile")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,15 +105,13 @@ public partial record DemandDocumentation1
     /// Narrative text constituting the demand.
     /// </summary>
     [IsoId("_-E0Jo3ltEeG7BsjMvd1mEw_370931401")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demand Narrative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmndNrrtv")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DmndNrrtv")]
+    [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? DemandNarrative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

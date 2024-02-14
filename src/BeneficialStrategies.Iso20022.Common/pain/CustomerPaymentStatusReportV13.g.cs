@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The CustomerPaymentStatusReport message is sent by an instructed agent to the previous party in the payment chain. It is used to inform this party about the positive or negative status of an instruction (either single or file). It is also used to report on a pending instruction.|Usage|The CustomerPaymentStatusReport message is exchanged between an agent and a non-financial institution customer to provide status information on instructions previously sent. Its usage will always be governed by a bilateral agreement between the agent and the non-financial institution customer.|The CustomerPaymentStatusReport message can be used to provide information about the status (for example a rejection, an acceptance) of the initiation of a credit transfer, a direct debit, as well as on the initiation of other customer instructions.|The CustomerPaymentStatusReport message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|The CustomerPaymentStatusReport message can be used in domestic and cross-border scenarios.|The CustomerPaymentStatusReport may also be sent to the receiver of the payment in a real time payment scenario, as both sides of the transactions must be informed of the status of the transaction (that is either the beneficiary is credited, or the transaction is rejected).")]
 [IsoId("_UVR_ARlVEe2Do_UtrNmb2g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Customer Payment Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record CustomerPaymentStatusReportV13 : IOuterRecord<CustomerPaym
     /// Set of characteristics shared by all individual transactions included in the status report message.
     /// </summary>
     [IsoId("_UVVpYRlVEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader86 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader86 GroupHeader { get; init; } 
+    public required GroupHeader86 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader86 GroupHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record CustomerPaymentStatusReportV13 : IOuterRecord<CustomerPaym
     /// Original group information concerning the group of transactions, to which the status report message refers to.
     /// </summary>
     [IsoId("_UVVpYxlVEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlGrpInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalGroupHeader17 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalGroupHeader17 OriginalGroupInformationAndStatus { get; init; } 
+    public required OriginalGroupHeader17 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalGroupHeader17 OriginalGroupInformationAndStatus { get; init; } 
     #else
@@ -123,12 +119,11 @@ public partial record CustomerPaymentStatusReportV13 : IOuterRecord<CustomerPaym
     /// Information concerning the original payment information, to which the status report message refers.
     /// </summary>
     [IsoId("_UVVpZRlVEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlPmtInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalPaymentInstruction45? OriginalPaymentInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +136,11 @@ public partial record CustomerPaymentStatusReportV13 : IOuterRecord<CustomerPaym
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_UVVpZxlVEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,7 +153,7 @@ public partial record CustomerPaymentStatusReportV13 : IOuterRecord<CustomerPaym
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CustomerPaymentStatusReportV13Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CustomerPaymentStatusReportV13Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CustomerPaymentStatusReportV13Document ToDocument()
     {
@@ -169,7 +163,7 @@ public partial record CustomerPaymentStatusReportV13 : IOuterRecord<CustomerPaym
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerPaymentStatusReportV13"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CustomerPaymentStatusReportV13&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CustomerPaymentStatusReportV13Document : IOuterDocument<CustomerPaymentStatusReportV13>
@@ -186,7 +180,7 @@ public partial record CustomerPaymentStatusReportV13Document : IOuterDocument<Cu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CustomerPaymentStatusReportV13"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CustomerPaymentStatusReportV13&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CustomerPaymentStatusReportV13 Message { get; init; }

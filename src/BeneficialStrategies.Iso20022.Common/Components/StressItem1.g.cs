@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Risk factor, financial instrument or set of financial instruments that is stressed under a hypothetical stress scenario.
 /// </summary>
 [IsoId("_0AzLQKszEeayv9XxdmMwKQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Stress Item")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record StressItem1
     /// Set of information relating to major representative product being stressed under the stress scenario.
     /// </summary>
     [IsoId("_70-SMKszEeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stress Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrssPdct")]
     #endif
+    [IsoXmlTag("StrssPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StressItem1Choice_ StressProduct { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StressItem1Choice_ StressProduct { get; init; } 
+    public required StressItem1Choice_ StressProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StressItem1Choice_ StressProduct { get; init; } 
     #else

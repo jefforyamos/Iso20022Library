@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the acknowledgement of an ATM withdrawal from the ATM manager.
 /// </summary>
 [IsoId("_iAvFoIqkEeS4a4abTJTSSw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Withdrawal Completion Acknowledgement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ATMWithdrawalCompletionAcknowledgement1
     /// ATM information.
     /// </summary>
     [IsoId("_J3exMIqlEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATM")]
     #endif
+    [IsoXmlTag("ATM")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AutomatedTellerMachine3 ATM { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AutomatedTellerMachine3 ATM { get; init; } 
+    public required AutomatedTellerMachine3 ATM { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AutomatedTellerMachine3 ATM { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ATMWithdrawalCompletionAcknowledgement1
     /// Context in which the transaction is performed.
     /// </summary>
     [IsoId("_S248MIqlEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMContext2 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMContext2 Context { get; init; } 
+    public required ATMContext2 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMContext2 Context { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ATMWithdrawalCompletionAcknowledgement1
     /// Acknowledgement of the withdrawal completion advice.
     /// </summary>
     [IsoId("_l5XuoIqlEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMTransaction4 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMTransaction4 Transaction { get; init; } 
+    public required ATMTransaction4 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMTransaction4 Transaction { get; init; } 
     #else

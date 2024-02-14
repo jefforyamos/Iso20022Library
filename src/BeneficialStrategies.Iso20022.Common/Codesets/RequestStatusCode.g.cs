@@ -21,7 +21,7 @@ public enum RequestStatusCode
 {
     /// <summary>
     /// Single Invoice/Instalment financing request has been financed.
-    /// Encoded/decoded by serializers as "FNCD".
+    /// Encoded/decoded by serializers as &quot;FNCD&quot;.
     /// </summary>
     [EnumMember(Value = "FNCD")]
     [IsoId("_ZUFYhNp-Ed-ak6NoX_4Aeg_1919546667")]
@@ -30,7 +30,7 @@ public enum RequestStatusCode
     
     /// <summary>
     /// Single Invoice/Instalment financing request is in a pending status and more checks are ongoing.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_ZUFYhdp-Ed-ak6NoX_4Aeg_-809624912")]
@@ -39,7 +39,7 @@ public enum RequestStatusCode
     
     /// <summary>
     /// Single Invoice/Instalment financing request has not been financed.
-    /// Encoded/decoded by serializers as "NTFD".
+    /// Encoded/decoded by serializers as &quot;NTFD&quot;.
     /// </summary>
     [EnumMember(Value = "NTFD")]
     [IsoId("_ZUFYhtp-Ed-ak6NoX_4Aeg_-1950599515")]

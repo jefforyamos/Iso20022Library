@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NDFOpeningFixing1Choice.OpeningConditions))]
     [KnownType(typeof(NDFOpeningFixing1Choice.OpeningConfirmationReference))]
     [IsoId("_1koBMJUIEeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("NDF Opening Fixing 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Overall holding position, in a single financial instrument, held in a securities account at a specified place of safekeeping.
 /// </summary>
 [IsoId("_YlFnMVV3Eea1MPROA61PoQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Aggregate Holding Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AggregateHoldingBalance3
     /// Report on the net position of a financial instrument on the sub-account, for a certain date.
     /// </summary>
     [IsoId("_g8YpUlV3Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance For Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalForAcct")]
     #endif
+    [IsoXmlTag("BalForAcct")]
     public AggregateHoldingBalance1? BalanceForAccount { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _g8YpUlV3Eea1MPROA61PoQ
     
@@ -57,12 +54,11 @@ public partial record AggregateHoldingBalance3
     /// Agent of the financial instrument, for example, a trade intermediary.
     /// </summary>
     [IsoId("_g8YpU1V3Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Agt")]
     #endif
+    [IsoXmlTag("Agt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Intermediary29? Agent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

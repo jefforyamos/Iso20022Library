@@ -21,7 +21,7 @@ public enum MandateCancellationReason1Code
 {
     /// <summary>
     /// Agent details are incorrect or have changed.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_afxvlNp-Ed-ak6NoX_4Aeg_1808299688")]
@@ -30,7 +30,7 @@ public enum MandateCancellationReason1Code
     
     /// <summary>
     /// Currency for the mandate is incorrect or has changed.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_afxvldp-Ed-ak6NoX_4Aeg_1808299933")]
@@ -39,7 +39,7 @@ public enum MandateCancellationReason1Code
     
     /// <summary>
     /// Customer requested the change.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_afxvltp-Ed-ak6NoX_4Aeg_1808299934")]
@@ -48,7 +48,7 @@ public enum MandateCancellationReason1Code
     
     /// <summary>
     /// Insufficient or incoherent details about the debtor.
-    /// Encoded/decoded by serializers as "DBTR".
+    /// Encoded/decoded by serializers as &quot;DBTR&quot;.
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_afxvl9p-Ed-ak6NoX_4Aeg_1808299964")]
@@ -57,7 +57,7 @@ public enum MandateCancellationReason1Code
     
     /// <summary>
     /// Insufficient or incoherent details about the creditor.
-    /// Encoded/decoded by serializers as "CDTR".
+    /// Encoded/decoded by serializers as &quot;CDTR&quot;.
     /// </summary>
     [EnumMember(Value = "CDTR")]
     [IsoId("_afxvmNp-Ed-ak6NoX_4Aeg_1808299965")]

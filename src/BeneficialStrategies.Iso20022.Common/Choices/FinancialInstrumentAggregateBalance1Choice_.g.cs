@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator))]
     [KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingBalance))]
     [IsoId("_PW7ItqCCEeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Aggregate Balance 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

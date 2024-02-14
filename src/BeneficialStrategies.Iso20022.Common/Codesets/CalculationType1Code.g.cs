@@ -21,7 +21,7 @@ public enum CalculationType1Code
 {
     /// <summary>
     /// The yield on the bond net of any tax consequences from holding the bond. The discount on municipal securities can be subject to both capital gains taxes and ordinary income taxes. Calculated from dollar price.
-    /// Encoded/decoded by serializers as "AFTX".
+    /// Encoded/decoded by serializers as &quot;AFTX&quot;.
     /// </summary>
     [EnumMember(Value = "AFTX")]
     [IsoId("_bVa-J9p-Ed-ak6NoX_4Aeg_-1490623835")]
@@ -29,8 +29,8 @@ public enum CalculationType1Code
     AfterTax = CalculationTypeCode.AfterTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// The annual interest or dividend income an investment earns, expressed as a percentage of the investment's total value.
-    /// Encoded/decoded by serializers as "ANNU".
+    /// The annual interest or dividend income an investment earns, expressed as a percentage of the investment&apos;s total value.
+    /// Encoded/decoded by serializers as &quot;ANNU&quot;.
     /// </summary>
     [EnumMember(Value = "ANNU")]
     [IsoId("_bVa-KNp-Ed-ak6NoX_4Aeg_-1490623583")]
@@ -39,7 +39,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield of the bond offered on the issue date.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_bVkvINp-Ed-ak6NoX_4Aeg_-1490623540")]
@@ -47,8 +47,8 @@ public enum CalculationType1Code
     AtIssue = CalculationTypeCode.AtIssue, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// The yield achieved by substituting a bond's average maturity for the issue's final maturity date.
-    /// Encoded/decoded by serializers as "AVMA".
+    /// The yield achieved by substituting a bond&apos;s average maturity for the issue&apos;s final maturity date.
+    /// Encoded/decoded by serializers as &quot;AVMA&quot;.
     /// </summary>
     [EnumMember(Value = "AVMA")]
     [IsoId("_bVkvIdp-Ed-ak6NoX_4Aeg_-1490623523")]
@@ -57,7 +57,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield of a security calculated by using its book value instead of the current market price. This term is typically used in the US domestic market.
-    /// Encoded/decoded by serializers as "BOOK".
+    /// Encoded/decoded by serializers as &quot;BOOK&quot;.
     /// </summary>
     [EnumMember(Value = "BOOK")]
     [IsoId("_bVkvItp-Ed-ak6NoX_4Aeg_-1490623480")]
@@ -66,7 +66,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// Yield of a bond to the next possible call date.
-    /// Encoded/decoded by serializers as "YTNC".
+    /// Encoded/decoded by serializers as &quot;YTNC&quot;.
     /// </summary>
     [EnumMember(Value = "YTNC")]
     [IsoId("_bVkvI9p-Ed-ak6NoX_4Aeg_-1490623445")]
@@ -74,8 +74,8 @@ public enum CalculationType1Code
     YieldToNextCall = CalculationTypeCode.YieldToNextCall, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// The change in the yield since the previous day's closing yield.
-    /// Encoded/decoded by serializers as "CHCL".
+    /// The change in the yield since the previous day&apos;s closing yield.
+    /// Encoded/decoded by serializers as &quot;CHCL&quot;.
     /// </summary>
     [EnumMember(Value = "CHCL")]
     [IsoId("_bVkvJNp-Ed-ak6NoX_4Aeg_-1490623162")]
@@ -84,7 +84,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield of a bond based on the closing price.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_bVkvJdp-Ed-ak6NoX_4Aeg_-1490623120")]
@@ -93,7 +93,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield of certain Japanese bonds based on its price. Certain Japanese bonds have irregular first or last coupons, and the yield is calculated compound for these irregular periods.
-    /// Encoded/decoded by serializers as "CMPD".
+    /// Encoded/decoded by serializers as &quot;CMPD&quot;.
     /// </summary>
     [EnumMember(Value = "CMPD")]
     [IsoId("_bVkvJtp-Ed-ak6NoX_4Aeg_-1490623059")]
@@ -102,7 +102,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The ratio of the interest payment amount to the clean price.
-    /// Encoded/decoded by serializers as "CUYI".
+    /// Encoded/decoded by serializers as &quot;CUYI&quot;.
     /// </summary>
     [EnumMember(Value = "CUYI")]
     [IsoId("_bVkvJ9p-Ed-ak6NoX_4Aeg_-1490623041")]
@@ -111,7 +111,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// Yield calculated using the price including accrued interest, where coupon dates are moved from holidays and weekends to the next trading day.
-    /// Encoded/decoded by serializers as "TRGR".
+    /// Encoded/decoded by serializers as &quot;TRGR&quot;.
     /// </summary>
     [EnumMember(Value = "TRGR")]
     [IsoId("_bVkvKNp-Ed-ak6NoX_4Aeg_-1490623016")]
@@ -120,7 +120,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// Ask yield based on semi-annual coupons compounding in all periods and actual/actual calendar.
-    /// Encoded/decoded by serializers as "GVEQ".
+    /// Encoded/decoded by serializers as &quot;GVEQ&quot;.
     /// </summary>
     [EnumMember(Value = "GVEQ")]
     [IsoId("_bVkvKdp-Ed-ak6NoX_4Aeg_-1490622999")]
@@ -129,7 +129,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// Based on price, the return an investor would require on a normal bond that would make the real return equal to that of the inflation-indexed bond, assuming a constant inflation rate.
-    /// Encoded/decoded by serializers as "FLAS".
+    /// Encoded/decoded by serializers as &quot;FLAS&quot;.
     /// </summary>
     [EnumMember(Value = "FLAS")]
     [IsoId("_bVt5ENp-Ed-ak6NoX_4Aeg_-1490622981")]
@@ -138,7 +138,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// Inverse Floater Bond Yield - Inverse floater semi-annual bond equivalent rate.
-    /// Encoded/decoded by serializers as "NVFL".
+    /// Encoded/decoded by serializers as &quot;NVFL&quot;.
     /// </summary>
     [EnumMember(Value = "NVFL")]
     [IsoId("_bVt5Edp-Ed-ak6NoX_4Aeg_-1490622964")]
@@ -147,7 +147,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// Most Recent Closing Yield - The last available yield stored in history, computed using price.
-    /// Encoded/decoded by serializers as "LSCL".
+    /// Encoded/decoded by serializers as &quot;LSCL&quot;.
     /// </summary>
     [EnumMember(Value = "LSCL")]
     [IsoId("_bVt5Etp-Ed-ak6NoX_4Aeg_-1490622946")]
@@ -155,8 +155,8 @@ public enum CalculationType1Code
     LastClose = CalculationTypeCode.LastClose, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Closing Yield Most Recent Month - The yield of a bond based on the closing price as of the most recent month's end.
-    /// Encoded/decoded by serializers as "LSMT".
+    /// Closing Yield Most Recent Month - The yield of a bond based on the closing price as of the most recent month&apos;s end.
+    /// Encoded/decoded by serializers as &quot;LSMT&quot;.
     /// </summary>
     [EnumMember(Value = "LSMT")]
     [IsoId("_bVt5E9p-Ed-ak6NoX_4Aeg_-1490622921")]
@@ -164,8 +164,8 @@ public enum CalculationType1Code
     LastMonth = CalculationTypeCode.LastMonth, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Closing Yield Most Recent Quarter - The yield of a bond based on the closing price as of the most recent quarter's end.
-    /// Encoded/decoded by serializers as "LSQR".
+    /// Closing Yield Most Recent Quarter - The yield of a bond based on the closing price as of the most recent quarter&apos;s end.
+    /// Encoded/decoded by serializers as &quot;LSQR&quot;.
     /// </summary>
     [EnumMember(Value = "LSQR")]
     [IsoId("_bVt5FNp-Ed-ak6NoX_4Aeg_-1490622904")]
@@ -173,8 +173,8 @@ public enum CalculationType1Code
     LastQuarter = CalculationTypeCode.LastQuarter, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Closing Yield Most Recent Year - The yield of a bond based on the closing price as of the most recent year's end.
-    /// Encoded/decoded by serializers as "LSYR".
+    /// Closing Yield Most Recent Year - The yield of a bond based on the closing price as of the most recent year&apos;s end.
+    /// Encoded/decoded by serializers as &quot;LSYR&quot;.
     /// </summary>
     [EnumMember(Value = "LSYR")]
     [IsoId("_bVt5Fdp-Ed-ak6NoX_4Aeg_-1490622644")]
@@ -183,7 +183,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield assuming only mandatory sinks are taken. This results in a lower paydown of debt; the yield is then calculated to the final payment date.
-    /// Encoded/decoded by serializers as "LGAL".
+    /// Encoded/decoded by serializers as &quot;LGAL&quot;.
     /// </summary>
     [EnumMember(Value = "LGAL")]
     [IsoId("_bVt5Ftp-Ed-ak6NoX_4Aeg_-1490622627")]
@@ -192,7 +192,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// An adjustment in the valuation of a securities portfolio to reflect the current market values of the respective securities in the portfolio.
-    /// Encoded/decoded by serializers as "MARK".
+    /// Encoded/decoded by serializers as &quot;MARK&quot;.
     /// </summary>
     [EnumMember(Value = "MARK")]
     [IsoId("_bVt5F9p-Ed-ak6NoX_4Aeg_-1490622609")]
@@ -201,7 +201,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// Internal rate of return an investor would achieve if he or she purchased that bond at its current dirty price, and held it to maturity, assuming all coupon and principal payments are received as scheduled.
-    /// Encoded/decoded by serializers as "YTMA".
+    /// Encoded/decoded by serializers as &quot;YTMA&quot;.
     /// </summary>
     [EnumMember(Value = "YTMA")]
     [IsoId("_bVt5GNp-Ed-ak6NoX_4Aeg_-1490622592")]
@@ -210,7 +210,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// Yield To Next Refund (Sinking Fund Bonds) - Yield assuming all bonds are redeemed at the next refund date at the redemption price.
-    /// Encoded/decoded by serializers as "NXRF".
+    /// Encoded/decoded by serializers as &quot;NXRF&quot;.
     /// </summary>
     [EnumMember(Value = "NXRF")]
     [IsoId("_bVt5Gdp-Ed-ak6NoX_4Aeg_-1490622574")]
@@ -219,7 +219,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The average yield of the respective securities in the portfolio.
-    /// Encoded/decoded by serializers as "PNAV".
+    /// Encoded/decoded by serializers as &quot;PNAV&quot;.
     /// </summary>
     [EnumMember(Value = "PNAV")]
     [IsoId("_bVt5Gtp-Ed-ak6NoX_4Aeg_-1490622532")]
@@ -228,7 +228,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield to the date at which the bond holder can next put the bond to the issuer.
-    /// Encoded/decoded by serializers as "NXPT".
+    /// Encoded/decoded by serializers as &quot;NXPT&quot;.
     /// </summary>
     [EnumMember(Value = "NXPT")]
     [IsoId("_bV3qENp-Ed-ak6NoX_4Aeg_-1490622514")]
@@ -237,7 +237,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield of a bond based on the closing price 1 day ago.
-    /// Encoded/decoded by serializers as "PRCL".
+    /// Encoded/decoded by serializers as &quot;PRCL&quot;.
     /// </summary>
     [EnumMember(Value = "PRCL")]
     [IsoId("_bV3qEdp-Ed-ak6NoX_4Aeg_-1490622472")]
@@ -246,7 +246,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The CD equivalent yield when the remaining time to maturity is less than two years.
-    /// Encoded/decoded by serializers as "PRYL".
+    /// Encoded/decoded by serializers as &quot;PRYL&quot;.
     /// </summary>
     [EnumMember(Value = "PRYL")]
     [IsoId("_bV3qEtp-Ed-ak6NoX_4Aeg_-1490622206")]
@@ -255,7 +255,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield of a bond whose coupon payments are reinvested semi-annually.
-    /// Encoded/decoded by serializers as "SEMI".
+    /// Encoded/decoded by serializers as &quot;SEMI&quot;.
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_bV3qE9p-Ed-ak6NoX_4Aeg_-1490622171")]
@@ -264,7 +264,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield assuming that all sinks (mandatory and voluntary) are taken at par. This results in a faster paydown of debt; the yield is then calculated to the shortest average life date.
-    /// Encoded/decoded by serializers as "SHLF".
+    /// Encoded/decoded by serializers as &quot;SHLF&quot;.
     /// </summary>
     [EnumMember(Value = "SHLF")]
     [IsoId("_bV3qFNp-Ed-ak6NoX_4Aeg_-1490622146")]
@@ -273,7 +273,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield of a bond assuming no reinvestment of coupon payments. (Act/360 day count).
-    /// Encoded/decoded by serializers as "SPLL".
+    /// Encoded/decoded by serializers as &quot;SPLL&quot;.
     /// </summary>
     [EnumMember(Value = "SPLL")]
     [IsoId("_bV3qFdp-Ed-ak6NoX_4Aeg_-1490622111")]
@@ -282,7 +282,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The after tax yield grossed up by the maximum federal tax rate of 39.6%. For comparison to taxable yields.
-    /// Encoded/decoded by serializers as "TXQV".
+    /// Encoded/decoded by serializers as &quot;TXQV&quot;.
     /// </summary>
     [EnumMember(Value = "TXQV")]
     [IsoId("_bV3qFtp-Ed-ak6NoX_4Aeg_-1490622086")]
@@ -291,7 +291,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield on a Municipal bond to its mandatory tender date.
-    /// Encoded/decoded by serializers as "TTDT".
+    /// Encoded/decoded by serializers as &quot;TTDT&quot;.
     /// </summary>
     [EnumMember(Value = "TTDT")]
     [IsoId("_bV3qF9p-Ed-ak6NoX_4Aeg_-1490622051")]
@@ -300,7 +300,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The yield calculated with coupon dates moved from a weekend or holiday to the next valid settlement date.
-    /// Encoded/decoded by serializers as "TRYL".
+    /// Encoded/decoded by serializers as &quot;TRYL&quot;.
     /// </summary>
     [EnumMember(Value = "TRYL")]
     [IsoId("_bV3qGNp-Ed-ak6NoX_4Aeg_-1490622016")]
@@ -309,7 +309,7 @@ public enum CalculationType1Code
     
     /// <summary>
     /// The lowest yield to all possible redemption date scenarios.
-    /// Encoded/decoded by serializers as "WRST".
+    /// Encoded/decoded by serializers as &quot;WRST&quot;.
     /// </summary>
     [EnumMember(Value = "WRST")]
     [IsoId("_bV3qGdp-Ed-ak6NoX_4Aeg_-1490621991")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty2Choice
     /// Detailed statistics per counterparty.
     /// </summary>
     [IsoId("_85s8lEwWEeqwfMIOLcNxbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty2Choice
         /// Reference period for statistics collection.
         /// </summary>
         [IsoId("_MweAYVfdEeqZr5K1Woax-g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reporting Period")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RptgPrd")]
         #endif
+        [IsoXmlTag("RptgPrd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Period2 ReportingPeriod { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Period2 ReportingPeriod { get; init; } 
+        public required Period2 ReportingPeriod { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Period2 ReportingPeriod { get; init; } 
         #else
@@ -78,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty2Choice
         /// Data specific to counterparties and related fields.
         /// </summary>
         [IsoId("_MweAY1fdEeqZr5K1Woax-g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPtyId")]
         #endif
+        [IsoXmlTag("CtrPtyId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CounterpartyData36 CounterpartyIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CounterpartyData36 CounterpartyIdentification { get; init; } 
+        public required CounterpartyData36 CounterpartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CounterpartyData36 CounterpartyIdentification { get; init; } 
         #else
@@ -98,16 +94,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty2Choice
         /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
         /// </summary>
         [IsoId("_MweAZVfdEeqZr5K1Woax-g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rejection Statistics")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RjctnSttstcs")]
         #endif
+        [IsoXmlTag("RjctnSttstcs")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RejectionStatistics3 RejectionStatistics { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RejectionStatistics3 RejectionStatistics { get; init; } 
+        public required RejectionStatistics3 RejectionStatistics { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RejectionStatistics3 RejectionStatistics { get; init; } 
         #else
@@ -118,12 +113,11 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty2Choice
         /// Identification of the competent authority which supervises the reporting counterparty.
         /// </summary>
         [IsoId("_MweAZ1fdEeqZr5K1Woax-g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Competent Authority")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CmptntAuthrty")]
         #endif
+        [IsoXmlTag("CmptntAuthrty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CompetentAuthority1? CompetentAuthority { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

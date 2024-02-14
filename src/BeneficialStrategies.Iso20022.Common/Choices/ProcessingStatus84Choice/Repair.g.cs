@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus84Choice
     /// Instruction/Request is accepted but in repair.
     /// </summary>
     [IsoId("_mbmG4ytVEeyhipY4f42fZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repair")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

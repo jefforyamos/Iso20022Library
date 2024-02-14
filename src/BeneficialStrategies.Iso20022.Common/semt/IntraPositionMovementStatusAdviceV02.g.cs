@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|An account servicer sends a IntraPositionMovementStatusAdvice to an account owner to advise the status of a intra-position movement instruction previously sent by the account owner.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.|Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information.|using the relevant elements in the Business Application Header.|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
 [IsoId("_ZPl4AdtYEd-RF5yaMAVhAw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Position Movement Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord<IntraP
     /// Unambiguous identification of a transaction as per the account owner (or the instructing party managing the account).
     /// </summary>
     [IsoId("_ZPl4BdtYEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifications10 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifications10 TransactionIdentification { get; init; } 
+    public required TransactionIdentifications10 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifications10 TransactionIdentification { get; init; } 
     #else
@@ -101,12 +98,11 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord<IntraP
     /// Provides details on the processing status of the transaction.
     /// </summary>
     [IsoId("_ZPl4B9tYEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntraPositionProcessingStatus1Choice_? ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +115,11 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord<IntraP
     /// Provides the status of settlement of a transaction.
     /// </summary>
     [IsoId("_ZPl4CdtYEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSts")]
     #endif
+    [IsoXmlTag("SttlmSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementStatus2Choice_? SettlementStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +132,11 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord<IntraP
     /// Identifies the details of the transaction.
     /// </summary>
     [IsoId("_ZPl4C9tYEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntraPositionDetails9? TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +149,11 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord<IntraP
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_ZPl4EdtYEd-RF5yaMAVhAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,7 +166,7 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord<IntraP
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IntraPositionMovementStatusAdviceV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IntraPositionMovementStatusAdviceV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IntraPositionMovementStatusAdviceV02Document ToDocument()
     {
@@ -183,7 +176,7 @@ public partial record IntraPositionMovementStatusAdviceV02 : IOuterRecord<IntraP
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementStatusAdviceV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IntraPositionMovementStatusAdviceV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IntraPositionMovementStatusAdviceV02Document : IOuterDocument<IntraPositionMovementStatusAdviceV02>
@@ -200,7 +193,7 @@ public partial record IntraPositionMovementStatusAdviceV02Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IntraPositionMovementStatusAdviceV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IntraPositionMovementStatusAdviceV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraPositionMovementStatusAdviceV02 Message { get; init; }

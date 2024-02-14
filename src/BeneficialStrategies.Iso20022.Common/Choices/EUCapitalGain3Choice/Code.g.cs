@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EUCapitalGain3Choice
     /// EU capital gain expressed as a code.
     /// </summary>
     [IsoId("_6r67QTh7EeaH-93K5JKmzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.EUCapitalGain3Choice
         /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June) for an income realised upon sale, a refund or redemption of shares and units etc.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EUCapitalGain2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EUCapitalGain2Code Value { get; init; } 
+        public required EUCapitalGain2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EUCapitalGain2Code Value { get; init; } 
         #else

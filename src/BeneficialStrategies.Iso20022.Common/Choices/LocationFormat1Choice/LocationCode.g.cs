@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
     /// Indicates that the location is unknown.
     /// </summary>
     [IsoId("_RXD3mdp-Ed-ak6NoX_4Aeg_33853992")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
         /// Type of date.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LctnCd")]
         #endif
+        [IsoXmlTag("LctnCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PlaceType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PlaceType1Code Value { get; init; } 
+        public required PlaceType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PlaceType1Code Value { get; init; } 
         #else

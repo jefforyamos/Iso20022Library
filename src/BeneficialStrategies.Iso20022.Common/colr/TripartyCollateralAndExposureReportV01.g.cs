@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope:|This message is sent by a triparty agent to both the collateral giver and the collateral taker or to an account servicer, who manage the account at the triparty agent on behalf of a trading party, in the following circumstances:|- after all collateral movements have been affected (after settlement-initiated) to show the end (fixed) positions (current status) or,|- taking into account all collateral management instructions (including pending initiation and/or initiated.||Usage:|This message is sent to provide the details of the valuation of both the collateral and the exposure.")]
 [IsoId("_2uaM0Ss7EeySlt9bF77XfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Triparty Collateral And Exposure Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
     /// </summary>
     [IsoId("_2uaM2Ss7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination1 Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination1 Pagination { get; init; } 
+    public required Pagination1 Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination1 Pagination { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Provides general information on the report.
     /// </summary>
     [IsoId("_2uaM2ys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtGnlDtls")]
     #endif
+    [IsoXmlTag("StmtGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Statement78 StatementGeneralDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Statement78 StatementGeneralDetails { get; init; } 
+    public required Statement78 StatementGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Statement78 StatementGeneralDetails { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Identifies the chain of collateral parties.
     /// </summary>
     [IsoId("_2uaM3Ss7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPties")]
     #endif
+    [IsoXmlTag("CollPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralParties9 CollateralParties { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralParties9 CollateralParties { get; init; } 
+    public required CollateralParties9 CollateralParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralParties9 CollateralParties { get; init; } 
     #else
@@ -143,12 +138,11 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Overall Collateral  contains the global collateral status of all transactions covered in the message, in the reporting currency, that is, the total of the exposure amount, of the posted collateral, of the margin amounts, of the accrued interest, of the fees or commissions and of the principals. In addition, it provides collateral-specific information.
     /// </summary>
     [IsoId("_2uaM3ys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Overall Collateral Aggregation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OvrllCollAggtn")]
     #endif
+    [IsoXmlTag("OvrllCollAggtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OverallCollateralDetails2? OverallCollateralAggregation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +155,11 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Specifies the valuation details per exposure type aggregation.
     /// </summary>
     [IsoId("_2uaM4Ss7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Type Aggregation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrTpAggtn")]
     #endif
+    [IsoXmlTag("XpsrTpAggtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExposureTypeAggregation3? ExposureTypeAggregation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +172,11 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Specifies the valuation details per counterparty aggregation.
     /// </summary>
     [IsoId("_2uaM4ys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Aggregation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyAggtn")]
     #endif
+    [IsoXmlTag("CtrPtyAggtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartyAggregation3? CounterpartyAggregation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +189,11 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Specifies the transaction,  the collateral and related valuation details.
     /// </summary>
     [IsoId("_2uaM5Ss7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Txs")]
     #endif
+    [IsoXmlTag("Txs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Transaction124? Transactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +206,11 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Total valuation amounts provided in the base currency of the account
     /// </summary>
     [IsoId("_2uaM5ys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Base Currency Total Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctBaseCcyTtlAmts")]
     #endif
+    [IsoXmlTag("AcctBaseCcyTtlAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalValueInPageAndStatement5? AccountBaseCurrencyTotalAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,12 +223,11 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_2uaM6Ss7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,7 +240,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TripartyCollateralAndExposureReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TripartyCollateralAndExposureReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TripartyCollateralAndExposureReportV01Document ToDocument()
     {
@@ -261,7 +250,7 @@ public partial record TripartyCollateralAndExposureReportV01 : IOuterRecord<Trip
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralAndExposureReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TripartyCollateralAndExposureReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TripartyCollateralAndExposureReportV01Document : IOuterDocument<TripartyCollateralAndExposureReportV01>
@@ -278,7 +267,7 @@ public partial record TripartyCollateralAndExposureReportV01Document : IOuterDoc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TripartyCollateralAndExposureReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TripartyCollateralAndExposureReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TripartyCollateralAndExposureReportV01 Message { get; init; }

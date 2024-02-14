@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Tax related to an investment fund order.
 /// </summary>
 [IsoId("_-FSq8W1bEeiqaPNRWUnGNA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Tax35
     /// Type of tax.
     /// </summary>
     [IsoId("_-WZpE21bEeiqaPNRWUnGNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxType3Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxType3Choice_ Type { get; init; } 
+    public required TaxType3Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxType3Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record Tax35
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
     [IsoId("_-WZpFW1bEeiqaPNRWUnGNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applied Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApldAmt")]
     #endif
+    [IsoXmlTag("ApldAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AppliedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AppliedAmount { get; init; } 
+    public required System.Decimal AppliedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AppliedAmount { get; init; } 
     #else
@@ -92,12 +89,12 @@ public partial record Tax35
     /// Rate used to calculate the tax.
     /// </summary>
     [IsoId("_-WZpF21bEeiqaPNRWUnGNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applied Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApldRate")]
     #endif
+    [IsoXmlTag("ApldRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? AppliedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +107,11 @@ public partial record Tax35
     /// Country where the tax is due.
     /// </summary>
     [IsoId("_-WZpGW1bEeiqaPNRWUnGNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +124,11 @@ public partial record Tax35
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
     [IsoId("_-WZpG21bEeiqaPNRWUnGNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptId")]
     #endif
+    [IsoXmlTag("RcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification139? RecipientIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +141,11 @@ public partial record Tax35
     /// Information used to calculate the tax.
     /// </summary>
     [IsoId("_-WZpHW1bEeiqaPNRWUnGNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Calculation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxClctnDtls")]
     #endif
+    [IsoXmlTag("TaxClctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxCalculationInformation10? TaxCalculationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains dispute reference details.
 /// </summary>
 [IsoId("_sXZCwOCmEee9RadpHmUgYw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Dispute Reference")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record DisputeReference1
     /// Name of the entity assigning the dispute reference.
     /// </summary>
     [IsoId("_8BhZUOCmEee9RadpHmUgYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assigner Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssgnrNtty")]
     #endif
+    [IsoXmlTag("AssgnrNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType32Code? AssignerEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record DisputeReference1
     /// Other assigner entity.
     /// </summary>
     [IsoId("_krXOYOCqEee9RadpHmUgYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Assigner Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAssgnrNtty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrAssgnrNtty")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherAssignerEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record DisputeReference1
     /// Identification of the dispute.
     /// </summary>
     [IsoId("_NvLt4OCnEee9RadpHmUgYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsptId")]
     #endif
+    [IsoXmlTag("DsptId")]
     public DisputeIdentification1? DisputeIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _NvLt4OCnEee9RadpHmUgYw
     

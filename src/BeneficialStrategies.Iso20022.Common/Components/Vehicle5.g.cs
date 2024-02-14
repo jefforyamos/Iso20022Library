@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Attributes of a fleet vehicle.
 /// </summary>
 [IsoId("_EQmW3_iqEeiJaN6-Lf-c_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vehicle")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,12 @@ public partial record Vehicle5
     /// Identification number assigned to the vehicle by the fleet operator. This may not be a legal registration.
     /// </summary>
     [IsoId("_EQmW4_iqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vehicle Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VhclNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("VhclNb")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? VehicleNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +60,12 @@ public partial record Vehicle5
     /// Number that uniquely identifies the vehicle as assigned by the vehicle manufacturer.
     /// </summary>
     [IsoId("_hiSvQPiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vehicle Identification Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VhclIdNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("VhclIdNb")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? VehicleIdentificationNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,15 +78,13 @@ public partial record Vehicle5
     /// Fleet number.
     /// </summary>
     [IsoId("_mFyIkPiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fleet Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FleetNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FleetNb")]
+    [IsoSimpleType(IsoSimpleType.Max10Text)]
     [StringLength(maximumLength: 10 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? FleetNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +97,13 @@ public partial record Vehicle5
     /// Sub fleet number.
     /// </summary>
     [IsoId("_qP28UPiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Fleet Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubFleetNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SubFleetNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubFleetNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,15 +116,12 @@ public partial record Vehicle5
     /// Identification of the unit number of the vehicle in the fleet.
     /// </summary>
     [IsoId("_EQmW5_iqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("UnitNb")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? UnitNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,15 +134,12 @@ public partial record Vehicle5
     /// Identification number assigned to the trailer.
     /// </summary>
     [IsoId("_EQmW4PiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trailer Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrlrNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TrlrNb")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? TrailerNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,15 +152,13 @@ public partial record Vehicle5
     /// Registration tag of the vehicle.
     /// </summary>
     [IsoId("_EQmW5fiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vehicle Tag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VhclTag")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("VhclTag")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? VehicleTag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +171,11 @@ public partial record Vehicle5
     /// Entry mode of the registration tag.
     /// </summary>
     [IsoId("_EQmW6viqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vehicle Tag Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VhclTagNtryMd")]
     #endif
+    [IsoXmlTag("VhclTagNtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading5Code? VehicleTagEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +188,12 @@ public partial record Vehicle5
     /// True indicates a replacement vehicle.
     /// </summary>
     [IsoId("_EQmW7fiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Replacement Vehicle Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RplcmntVhclInd")]
     #endif
+    [IsoXmlTag("RplcmntVhclInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReplacementVehicleIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +206,12 @@ public partial record Vehicle5
     /// Odometer reading value indicating the distance travelled by the vehicle (for example, car, van, pickup truck, semi-truck portion of a tractor trailer unit).
     /// </summary>
     [IsoId("_EQmW5PiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Odometer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Odmtr")]
     #endif
+    [IsoXmlTag("Odmtr")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Odometer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +224,12 @@ public partial record Vehicle5
     /// Hubometer reading value indicating the distance travelled by the trailer (for example,  the semi-trailer portion of a tractor trailer unit).
     /// </summary>
     [IsoId("_EQmW7PiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hubometer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hbmtr")]
     #endif
+    [IsoXmlTag("Hbmtr")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Hubometer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,15 +242,13 @@ public partial record Vehicle5
     /// Identification assigned to the vehicle related to maintenance.
     /// </summary>
     [IsoId("_EQmW6_iqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maintenance Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MntncId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MntncId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MaintenanceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +261,11 @@ public partial record Vehicle5
     /// Data captured from on board diagnostic systems. 
     /// </summary>
     [IsoId("_EQmW4fiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Board Diagnostics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnBrdDgnstcs")]
     #endif
+    [IsoXmlTag("OnBrdDgnstcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnBoardDiagnostics1? OnBoardDiagnostics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +278,11 @@ public partial record Vehicle5
     /// Additional information related to the vehicle.
     /// </summary>
     [IsoId("_EQmW6PiqEeiJaN6-Lf-c_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Vehicle Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlVhclData")]
     #endif
+    [IsoXmlTag("AddtlVhclData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vehicle2? AdditionalVehicleData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

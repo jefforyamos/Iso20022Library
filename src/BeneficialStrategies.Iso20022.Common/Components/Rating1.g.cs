@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Assessment of securities credit and investment risk.
 /// </summary>
 [IsoId("_S1iAuNp-Ed-ak6NoX_4Aeg_-610008315")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rating")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record Rating1
     /// Information regarding the entity that assigns the rating.
     /// </summary>
     [IsoId("_S1iAudp-Ed-ak6NoX_4Aeg_-1436888380")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rating Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RatgSchme")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RatgSchme")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RatingScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RatingScheme { get; init; } 
+    public required System.String RatingScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RatingScheme { get; init; } 
     #else
@@ -76,16 +72,16 @@ public partial record Rating1
     /// Date/time as from which the rating is valid.
     /// </summary>
     [IsoId("_S1iAutp-Ed-ak6NoX_4Aeg_-1436888328")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ValueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ValueDate { get; init; } 
+    public required System.DateTime ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ValueDate { get; init; } 
     #else
@@ -96,16 +92,16 @@ public partial record Rating1
     /// Specifies the rating, which has been assigned to a security by a rating agency.
     /// </summary>
     [IsoId("_S1iAu9p-Ed-ak6NoX_4Aeg_-1436888268")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValId")]
     #endif
+    [IsoXmlTag("ValId")]
+    [IsoSimpleType(IsoSimpleType.RatingValueIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRatingValueIdentifier ValueIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ValueIdentification { get; init; } 
+    public required System.String ValueIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ValueIdentification { get; init; } 
     #else

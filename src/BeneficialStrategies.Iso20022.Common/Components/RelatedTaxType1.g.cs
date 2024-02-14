@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of related tax.
 /// </summary>
 [IsoId("_UPYvktp-Ed-ak6NoX_4Aeg_1950331335")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Related Tax Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record RelatedTaxType1
     /// Specifies the type of tax.
     /// </summary>
     [IsoId("_UPYvk9p-Ed-ak6NoX_4Aeg_1967880045")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxTp")]
     #endif
+    [IsoXmlTag("TaxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxType3FormatChoice_ TaxType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxType3FormatChoice_ TaxType { get; init; } 
+    public required TaxType3FormatChoice_ TaxType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxType3FormatChoice_ TaxType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record RelatedTaxType1
     /// The value of the related tax expressed as an amount.
     /// </summary>
     [IsoId("_UPYvlNp-Ed-ak6NoX_4Aeg_1981731905")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

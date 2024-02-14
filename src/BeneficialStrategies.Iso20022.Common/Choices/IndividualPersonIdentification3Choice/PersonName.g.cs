@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification3C
     /// Name of the person that owns the account.
     /// </summary>
     [IsoId("_G6_504oWEeahcZ3Nzs1Qag")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Person Name")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,15 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification3C
         /// First name of the person.
         /// </summary>
         [IsoId("_MOXQ4YoWEeahcZ3Nzs1Qag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Given Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="GvnNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("GvnNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? GivenName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification3C
         /// Second name of the person.
         /// </summary>
         [IsoId("_MOXQ44oWEeahcZ3Nzs1Qag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Middle Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MddlNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MddlNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MiddleName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,19 +92,17 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification3C
         /// Name by which the party is known and which is usually used to identify that party.
         /// </summary>
         [IsoId("_MOXQ5YoWEeahcZ3Nzs1Qag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax350Text Name { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Name { get; init; } 
+        public required System.String Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Name { get; init; } 
         #else
@@ -121,12 +113,11 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification3C
         /// Gender of the person.
         /// </summary>
         [IsoId("_MOXQ54oWEeahcZ3Nzs1Qag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Gender")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Gndr")]
         #endif
+        [IsoXmlTag("Gndr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Gender1Code? Gender { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +130,12 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification3C
         /// Date on which the person is born.
         /// </summary>
         [IsoId("_MOXQ6YoWEeahcZ3Nzs1Qag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Birth Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BirthDt")]
         #endif
+        [IsoXmlTag("BirthDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? BirthDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

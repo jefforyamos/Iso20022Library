@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides header details on the report.
 /// </summary>
 [IsoId("_IXU44Xk4Eei6JsZKrqN0hQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record ReportHeader6
     /// Identification of a report billing statement.
     /// </summary>
     [IsoId("_IijRc3k4Eei6JsZKrqN0hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RptId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReportIdentification { get; init; } 
+    public required System.String ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReportIdentification { get; init; } 
     #else
@@ -75,12 +71,11 @@ public partial record ReportHeader6
     /// Usage: The pagination of the message is only allowed when agreed between the parties.
     /// </summary>
     [IsoId("_IijRdXk4Eei6JsZKrqN0hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination1? MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

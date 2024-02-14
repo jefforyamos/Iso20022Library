@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Calculation of the current situation of a line item as a result of the submission of a commercial dataset.
 /// </summary>
 [IsoId("_9oAg0wy6EeS3puOfnJm56A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Line Item Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -59,19 +57,17 @@ public partial record LineItemDetails12
     /// Sequential number assigned to a line item.
     /// </summary>
     [IsoId("_994DEQy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Item Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineItmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LineItmId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text LineItemIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LineItemIdentification { get; init; } 
+    public required System.String LineItemIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LineItemIdentification { get; init; } 
     #else
@@ -82,15 +78,13 @@ public partial record LineItemDetails12
     /// Name of the product detailed in the corresponding line item.
     /// </summary>
     [IsoId("_994DEwy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PdctNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ProductName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +97,11 @@ public partial record LineItemDetails12
     /// Identifies the product of the corresponding line item.
     /// </summary>
     [IsoId("_994DFQy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctIdr")]
     #endif
+    [IsoXmlTag("PdctIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductIdentifier2Choice_? ProductIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +114,11 @@ public partial record LineItemDetails12
     /// Identifies the characteristic of a product.
     /// </summary>
     [IsoId("_994DFwy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctChrtcs")]
     #endif
+    [IsoXmlTag("PdctChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCharacteristics1Choice_? ProductCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +131,11 @@ public partial record LineItemDetails12
     /// Identifies the category of product.
     /// </summary>
     [IsoId("_994DGQy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctCtgy")]
     #endif
+    [IsoXmlTag("PdctCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCategory1Choice_? ProductCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,16 +148,15 @@ public partial record LineItemDetails12
     /// Quantity ordered for a line as indicated in the baseline.
     /// </summary>
     [IsoId("_994DGwy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ordered Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrdQty")]
     #endif
+    [IsoXmlTag("OrdrdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity9 OrderedQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity9 OrderedQuantity { get; init; } 
+    public required Quantity9 OrderedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity9 OrderedQuantity { get; init; } 
     #else
@@ -177,16 +167,15 @@ public partial record LineItemDetails12
     /// Quantity accepted by data set submission.
     /// </summary>
     [IsoId("_994DHQy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptdQty")]
     #endif
+    [IsoXmlTag("AccptdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity9 AcceptedQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity9 AcceptedQuantity { get; init; } 
+    public required Quantity9 AcceptedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity9 AcceptedQuantity { get; init; } 
     #else
@@ -197,16 +186,15 @@ public partial record LineItemDetails12
     /// Difference between the ordered quantity and the accepted one.
     /// </summary>
     [IsoId("_994DHwy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outstanding Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutsdngQty")]
     #endif
+    [IsoXmlTag("OutsdngQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity9 OutstandingQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity9 OutstandingQuantity { get; init; } 
+    public required Quantity9 OutstandingQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity9 OutstandingQuantity { get; init; } 
     #else
@@ -217,16 +205,15 @@ public partial record LineItemDetails12
     /// Quantity of a product for which a mismatched data set has been submitted and has not yet been accepted or rejected.
     /// </summary>
     [IsoId("_994DIQy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgQty")]
     #endif
+    [IsoXmlTag("PdgQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity9 PendingQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity9 PendingQuantity { get; init; } 
+    public required Quantity9 PendingQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity9 PendingQuantity { get; init; } 
     #else
@@ -237,12 +224,11 @@ public partial record LineItemDetails12
     /// Variance allowed on the quantity of goods.
     /// </summary>
     [IsoId("_994DIwy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Tolerance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyTlrnce")]
     #endif
+    [IsoXmlTag("QtyTlrnce")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageTolerance1? QuantityTolerance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -255,16 +241,16 @@ public partial record LineItemDetails12
     /// Price multiplied by the ordered quantity for a line as indicated in the baseline.
     /// </summary>
     [IsoId("_994DJQy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ordered Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrdAmt")]
     #endif
+    [IsoXmlTag("OrdrdAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount OrderedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OrderedAmount { get; init; } 
+    public required System.Decimal OrderedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OrderedAmount { get; init; } 
     #else
@@ -275,16 +261,16 @@ public partial record LineItemDetails12
     /// Price multiplied by the accepted quantity for a line.
     /// </summary>
     [IsoId("_994DJwy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptdAmt")]
     #endif
+    [IsoXmlTag("AccptdAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount AcceptedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AcceptedAmount { get; init; } 
+    public required System.Decimal AcceptedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AcceptedAmount { get; init; } 
     #else
@@ -295,16 +281,16 @@ public partial record LineItemDetails12
     /// Price multiplied by the outstanding quantity for a line.
     /// </summary>
     [IsoId("_994DKQy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outstanding Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutsdngAmt")]
     #endif
+    [IsoXmlTag("OutsdngAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount OutstandingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OutstandingAmount { get; init; } 
+    public required System.Decimal OutstandingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OutstandingAmount { get; init; } 
     #else
@@ -315,16 +301,16 @@ public partial record LineItemDetails12
     /// Price multiplied by the pending quantity for a line.
     /// </summary>
     [IsoId("_994DKwy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgAmt")]
     #endif
+    [IsoXmlTag("PdgAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount PendingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PendingAmount { get; init; } 
+    public required System.Decimal PendingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PendingAmount { get; init; } 
     #else
@@ -335,12 +321,11 @@ public partial record LineItemDetails12
     /// Variance on price for the goods.
     /// </summary>
     [IsoId("_994DLQy6EeS3puOfnJm56A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Tolerance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricTlrnce")]
     #endif
+    [IsoXmlTag("PricTlrnce")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageTolerance1? PriceTolerance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

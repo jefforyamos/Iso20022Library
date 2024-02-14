@@ -21,7 +21,7 @@ public enum BatchTransactionType1Code
 {
     /// <summary>
     /// Debit and credit transactions.
-    /// Encoded/decoded by serializers as "DTCT".
+    /// Encoded/decoded by serializers as &quot;DTCT&quot;.
     /// </summary>
     [EnumMember(Value = "DTCT")]
     [IsoId("_KUq-hH1DEeCF8NjrBemJWQ_-819708143")]
@@ -30,7 +30,7 @@ public enum BatchTransactionType1Code
     
     /// <summary>
     /// Cancellation of a previous transaction.
-    /// Encoded/decoded by serializers as "CNCL".
+    /// Encoded/decoded by serializers as &quot;CNCL&quot;.
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_KUq-hX1DEeCF8NjrBemJWQ_-538462037")]
@@ -39,7 +39,7 @@ public enum BatchTransactionType1Code
     
     /// <summary>
     /// Failed transactions.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_KUq-hn1DEeCF8NjrBemJWQ_-111331682")]
@@ -48,7 +48,7 @@ public enum BatchTransactionType1Code
     
     /// <summary>
     /// Declined transactions.
-    /// Encoded/decoded by serializers as "DCLN".
+    /// Encoded/decoded by serializers as &quot;DCLN&quot;.
     /// </summary>
     [EnumMember(Value = "DCLN")]
     [IsoId("_KUq-h31DEeCF8NjrBemJWQ_1581782246")]

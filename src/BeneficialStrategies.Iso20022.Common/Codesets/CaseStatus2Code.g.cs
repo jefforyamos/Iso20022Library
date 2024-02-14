@@ -21,7 +21,7 @@ public enum CaseStatus2Code
 {
     /// <summary>
     /// Case has been closed.
-    /// Encoded/decoded by serializers as "CLSD".
+    /// Encoded/decoded by serializers as &quot;CLSD&quot;.
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_a2lGCNp-Ed-ak6NoX_4Aeg_-286578825")]
@@ -30,7 +30,7 @@ public enum CaseStatus2Code
     
     /// <summary>
     /// Case has been assigned to another party.
-    /// Encoded/decoded by serializers as "ASGN".
+    /// Encoded/decoded by serializers as &quot;ASGN&quot;.
     /// </summary>
     [EnumMember(Value = "ASGN")]
     [IsoId("_a2uP8Np-Ed-ak6NoX_4Aeg_-286578808")]
@@ -39,7 +39,7 @@ public enum CaseStatus2Code
     
     /// <summary>
     /// Case is currently under investigation.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_a2uP8dp-Ed-ak6NoX_4Aeg_-286578566")]
@@ -48,7 +48,7 @@ public enum CaseStatus2Code
     
     /// <summary>
     /// Case has never been assigned before.
-    /// Encoded/decoded by serializers as "UKNW".
+    /// Encoded/decoded by serializers as &quot;UKNW&quot;.
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_a2uP8tp-Ed-ak6NoX_4Aeg_-286578549")]
@@ -57,7 +57,7 @@ public enum CaseStatus2Code
     
     /// <summary>
     /// Investigation is taking too long.
-    /// Encoded/decoded by serializers as "ODUE".
+    /// Encoded/decoded by serializers as &quot;ODUE&quot;.
     /// </summary>
     [EnumMember(Value = "ODUE")]
     [IsoId("_a2uP89p-Ed-ak6NoX_4Aeg_-286578548")]

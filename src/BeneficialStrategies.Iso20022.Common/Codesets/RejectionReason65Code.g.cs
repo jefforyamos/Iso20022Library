@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum RejectionReason65Code
 {
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Dmq40hrpEeyhRdHRjakS2w")]
@@ -30,7 +30,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Requested additional documentation is missing. 
-    /// Encoded/decoded by serializers as "ADDM".
+    /// Encoded/decoded by serializers as &quot;ADDM&quot;.
     /// </summary>
     [EnumMember(Value = "ADDM")]
     [IsoId("_Dmq4zBrpEeyhRdHRjakS2w")]
@@ -39,7 +39,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Event has been cancelled.
-    /// Encoded/decoded by serializers as "MCAN".
+    /// Encoded/decoded by serializers as &quot;MCAN&quot;.
     /// </summary>
     [EnumMember(Value = "MCAN")]
     [IsoId("_Dmq40BrpEeyhRdHRjakS2w")]
@@ -48,7 +48,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Dmq4vBrpEeyhRdHRjakS2w")]
@@ -57,7 +57,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Deadline to register is missed.
-    /// Encoded/decoded by serializers as "DREM".
+    /// Encoded/decoded by serializers as &quot;DREM&quot;.
     /// </summary>
     [EnumMember(Value = "DREM")]
     [IsoId("_Dmq4vxrpEeyhRdHRjakS2w")]
@@ -66,7 +66,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_Dmq4vRrpEeyhRdHRjakS2w")]
@@ -75,7 +75,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Unrecognised event number.
-    /// Encoded/decoded by serializers as "EVNM".
+    /// Encoded/decoded by serializers as &quot;EVNM&quot;.
     /// </summary>
     [EnumMember(Value = "EVNM")]
     [IsoId("_Dmq4zRrpEeyhRdHRjakS2w")]
@@ -84,7 +84,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Rejected due to missing beneficiary owner details.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_Dmq4vhrpEeyhRdHRjakS2w")]
@@ -93,7 +93,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Missing or invalid power of attorney.
-    /// Encoded/decoded by serializers as "IPOA".
+    /// Encoded/decoded by serializers as &quot;IPOA&quot;.
     /// </summary>
     [EnumMember(Value = "IPOA")]
     [IsoId("_Dmq4xhrpEeyhRdHRjakS2w")]
@@ -102,7 +102,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Position is less than required threshold.
-    /// Encoded/decoded by serializers as "IPOS".
+    /// Encoded/decoded by serializers as &quot;IPOS&quot;.
     /// </summary>
     [EnumMember(Value = "IPOS")]
     [IsoId("_Dmq4yRrpEeyhRdHRjakS2w")]
@@ -111,7 +111,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Invalid registration information.
-    /// Encoded/decoded by serializers as "IREG".
+    /// Encoded/decoded by serializers as &quot;IREG&quot;.
     /// </summary>
     [EnumMember(Value = "IREG")]
     [IsoId("_Dmq4zhrpEeyhRdHRjakS2w")]
@@ -120,7 +120,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_Dmq40xrpEeyhRdHRjakS2w")]
@@ -129,7 +129,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Insufficient or no registered position.
-    /// Encoded/decoded by serializers as "NPOS".
+    /// Encoded/decoded by serializers as &quot;NPOS&quot;.
     /// </summary>
     [EnumMember(Value = "NPOS")]
     [IsoId("_Dmq4yhrpEeyhRdHRjakS2w")]
@@ -138,7 +138,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Dmq4zxrpEeyhRdHRjakS2w")]
@@ -147,7 +147,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Partial voting is not allowed.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_Dmq4yxrpEeyhRdHRjakS2w")]
@@ -156,7 +156,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Invalid proxy information.
-    /// Encoded/decoded by serializers as "PRXY".
+    /// Encoded/decoded by serializers as &quot;PRXY&quot;.
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_Dmq4whrpEeyhRdHRjakS2w")]
@@ -165,7 +165,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Issuer or registrar has rejected the instruction.
-    /// Encoded/decoded by serializers as "RBIS".
+    /// Encoded/decoded by serializers as &quot;RBIS&quot;.
     /// </summary>
     [EnumMember(Value = "RBIS")]
     [IsoId("_Dmq4xBrpEeyhRdHRjakS2w")]
@@ -174,7 +174,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Resolution number provided discrepancy.
-    /// Encoded/decoded by serializers as "RESN".
+    /// Encoded/decoded by serializers as &quot;RESN&quot;.
     /// </summary>
     [EnumMember(Value = "RESN")]
     [IsoId("_Dmq4wBrpEeyhRdHRjakS2w")]
@@ -182,8 +182,8 @@ public enum RejectionReason65Code
     ResolutionNumberDiscrepancy = RejectionReasonV3Code.ResolutionNumberDiscrepancy, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Unrecognised or invalid message sender&apos;s safekeeping account.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_Dmq40RrpEeyhRdHRjakS2w")]
@@ -192,7 +192,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Split voting is not allowed.
-    /// Encoded/decoded by serializers as "SPLT".
+    /// Encoded/decoded by serializers as &quot;SPLT&quot;.
     /// </summary>
     [EnumMember(Value = "SPLT")]
     [IsoId("_Dmq4wRrpEeyhRdHRjakS2w")]
@@ -201,7 +201,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Linked reference is unknown.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_Dmq4xRrpEeyhRdHRjakS2w")]
@@ -210,7 +210,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Invalid option type.
-    /// Encoded/decoded by serializers as "OPTY".
+    /// Encoded/decoded by serializers as &quot;OPTY&quot;.
     /// </summary>
     [EnumMember(Value = "OPTY")]
     [IsoId("_Dmq4uxrpEeyhRdHRjakS2w")]
@@ -219,7 +219,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Instructed position exceeds the eligible balance.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_Dmq4wxrpEeyhRdHRjakS2w")]
@@ -227,8 +227,8 @@ public enum RejectionReason65Code
     LackofSecurities = RejectionReasonV3Code.LackofSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Instruction is invalid due to multiple resolutions instructed as vote "For” and belonging to the same listing group resolution label number.
-    /// Encoded/decoded by serializers as "LIST".
+    /// Instruction is invalid due to multiple resolutions instructed as vote &quot;For” and belonging to the same listing group resolution label number.
+    /// Encoded/decoded by serializers as &quot;LIST&quot;.
     /// </summary>
     [EnumMember(Value = "LIST")]
     [IsoId("_Dmq4xxrpEeyhRdHRjakS2w")]
@@ -237,7 +237,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Invalid instruction as the shareholder or its delegate is not registered in the company stock ledger book.
-    /// Encoded/decoded by serializers as "NOSL".
+    /// Encoded/decoded by serializers as &quot;NOSL&quot;.
     /// </summary>
     [EnumMember(Value = "NOSL")]
     [IsoId("_Dmq4yBrpEeyhRdHRjakS2w")]
@@ -246,7 +246,7 @@ public enum RejectionReason65Code
     
     /// <summary>
     /// Instruction rejected due to the method of participation not supported by the account servicer.
-    /// Encoded/decoded by serializers as "PMNS".
+    /// Encoded/decoded by serializers as &quot;PMNS&quot;.
     /// </summary>
     [EnumMember(Value = "PMNS")]
     [IsoId("_V7QDQRrpEeyhRdHRjakS2w")]

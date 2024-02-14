@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification36Choice
     /// Identification of constituents for a basket of indexes.
     /// </summary>
     [IsoId("_POTEp4rpEeq91phomTRDDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basket")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification36Choice
         /// Identification of the structurer of the customer basket.
         /// </summary>
         [IsoId("_lQQRIP5yEeqiEZtcZLwc3Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Structurer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Strr")]
         #endif
+        [IsoXmlTag("Strr")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoLEIIdentifier Structurer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Structurer { get; init; } 
+        public required System.String Structurer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Structurer { get; init; } 
         #else
@@ -77,19 +75,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification36Choice
         /// Identifier of the custom basket assigned by the structurer allowing to link the constituents of the basket of indexes.
         /// </summary>
         [IsoId("_EfWm0QFOEeqUa4noT3P56A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max52Text)]
         [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax52Text Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -100,12 +96,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification36Choice
         /// Identifier of the underliers that represent the constituents of a custom basket.
         /// </summary>
         [IsoId("_HI1KgQFOEeqUa4noT3P56A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Constituents")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cnsttnts")]
         #endif
+        [IsoXmlTag("Cnsttnts")]
         public BasketConstituents1? Constituents { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _HI1KgQFOEeqUa4noT3P56A
         

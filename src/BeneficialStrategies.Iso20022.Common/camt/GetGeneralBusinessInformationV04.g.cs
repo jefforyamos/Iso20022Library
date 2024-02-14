@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The GetGeneralBusinessInformation message is sent by a member to the transaction administrator.|It is used to request information on a broadcast-type message previously sent by the transaction administrator to all or some of the members, giving information related to the processing business.|Usage|The transaction administrator can send general business information messages to the members, which may request further action from them. General business information can contain either static data announcing foreseen events affecting the system operations, or dynamic data warning or notifying about unexpected events.|This type of information can be transmitted in either of the two following ways:|- non-solicited reports are pushed by the transaction administrator to the (selected) members together with a reference, a qualifier and a subject line|- upon request from the members (pull mode), the transaction administrator delivers the full text/content of the message back to the user|The Get General Business Information message is used in this second context. At any time during the operating hours of the system, the member can query the transaction administrator to get information about a report of general business information previously sent.|The member can request information based on the following elements:|- reference of the report previously delivered|- subject of the report previously delivered, detailing the purpose and content of the message|- priority of the report previously sent, and indication of its format. (Note that if the format is indicated, the subject refers to a set of pre-agreed texts. This enumeration has to be agreed upon by the transaction administrator and the members of the system.)|- details of the previously sent message|This message will be replied to by a ReturnGeneralBusinessInformation message.|Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.")]
 [IsoId("_jwlbfxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Get General Business Information V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -90,16 +88,15 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord<GetGeneral
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbgRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -110,12 +107,11 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord<GetGeneral
     /// Definition of the general business information query.
     /// </summary>
     [IsoId("_jwlbgxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Business Information Query Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GnlBizInfQryDef")]
     #endif
+    [IsoXmlTag("GnlBizInfQryDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessInformationQueryDefinition3? GeneralBusinessInformationQueryDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +124,11 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord<GetGeneral
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlbhRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,7 +141,7 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord<GetGeneral
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="GetGeneralBusinessInformationV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;GetGeneralBusinessInformationV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public GetGeneralBusinessInformationV04Document ToDocument()
     {
@@ -156,7 +151,7 @@ public partial record GetGeneralBusinessInformationV04 : IOuterRecord<GetGeneral
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetGeneralBusinessInformationV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;GetGeneralBusinessInformationV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record GetGeneralBusinessInformationV04Document : IOuterDocument<GetGeneralBusinessInformationV04>
@@ -173,7 +168,7 @@ public partial record GetGeneralBusinessInformationV04Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="GetGeneralBusinessInformationV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;GetGeneralBusinessInformationV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GetGeneralBusinessInformationV04 Message { get; init; }

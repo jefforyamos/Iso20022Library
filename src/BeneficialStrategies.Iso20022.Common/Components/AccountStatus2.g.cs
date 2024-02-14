@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status of an account.
 /// </summary>
 [IsoId("_N5eWMEy9EeafiMTDrtSnyw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AccountStatus2
     /// Account can be used for its intended purpose.
     /// </summary>
     [IsoId("_USUHkEy9EeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enabled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nbld")]
     #endif
+    [IsoXmlTag("Nbld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnabledStatusReason1Choice_? Enabled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AccountStatus2
     /// Account cannot temporarily be used for its intended purpose.
     /// </summary>
     [IsoId("_We568Ey9EeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disabled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dsbld")]
     #endif
+    [IsoXmlTag("Dsbld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisabledStatusReason1Choice_? Disabled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record AccountStatus2
     /// Account change is pending approval.
     /// </summary>
     [IsoId("_XztxwEy9EeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pdg")]
     #endif
+    [IsoXmlTag("Pdg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingStatusReason1Choice_? Pending { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record AccountStatus2
     /// Account opening is pending.
     /// </summary>
     [IsoId("_Z6oqEGCJEeabZtzjEVWYCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Opening")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgOpng")]
     #endif
+    [IsoXmlTag("PdgOpng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingOpeningStatusReason1Choice_? PendingOpening { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record AccountStatus2
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
     /// </summary>
     [IsoId("_bdJWkEy9EeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proforma")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Profrm")]
     #endif
+    [IsoXmlTag("Profrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProformaStatusReason1Choice_? Proforma { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record AccountStatus2
     /// Account is closed.
     /// </summary>
     [IsoId("_dPQNYEy9EeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clsd")]
     #endif
+    [IsoXmlTag("Clsd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClosedStatusReason1Choice_? Closed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record AccountStatus2
     /// Account closure is pending.
     /// </summary>
     [IsoId("_O96L4GCLEeabZtzjEVWYCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closure Pending")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsrPdg")]
     #endif
+    [IsoXmlTag("ClsrPdg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClosurePendingStatusReason1Choice_? ClosurePending { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record AccountStatus2
     /// Status is a bilaterally agreed status.
     /// </summary>
     [IsoId("_h6vsIEy9EeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherAccountStatus1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

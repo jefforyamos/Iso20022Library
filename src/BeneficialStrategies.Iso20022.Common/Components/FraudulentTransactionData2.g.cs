@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to the confirmed fraudulent transaction.
 /// </summary>
 [IsoId("_-RODYcsGEeuNe7RtB4qFHw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fraudulent Transaction Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FraudulentTransactionData2
     /// Status of authorisation of the fraudulent transaction.
     /// </summary>
     [IsoId("_-WlEgcsGEeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnSts")]
     #endif
+    [IsoXmlTag("AuthstnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthorisationStatus1? AuthorisationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record FraudulentTransactionData2
     /// Details of the dispute if and when relevant.
     /// </summary>
     [IsoId("_-WlrkcsGEeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsptDtls")]
     #endif
+    [IsoXmlTag("DsptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisputeData2? DisputeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +77,11 @@ public partial record FraudulentTransactionData2
     /// The ISO 8583 maintenance agency (MA) manages this Message reason code list.
     /// </summary>
     [IsoId("_-Wlrk8sGEeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRsn")]
     #endif
+    [IsoXmlTag("MsgRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO8583MessageReasonCode? MessageReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,15 +94,13 @@ public partial record FraudulentTransactionData2
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
     [IsoId("_-WlrlcsGEeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Message Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrnMsgRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AltrnMsgRsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AlternateMessageReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +113,12 @@ public partial record FraudulentTransactionData2
     /// Complete or partial details of the original message identified as fraudulent.
     /// </summary>
     [IsoId("_-Wlrl8sGEeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraudulent Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrdlntMsg")]
     #endif
+    [IsoXmlTag("FrdlntMsg")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? FraudulentMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

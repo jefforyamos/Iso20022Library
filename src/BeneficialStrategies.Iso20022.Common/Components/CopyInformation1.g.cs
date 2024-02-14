@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information provided when the message is a copy of a previous message.
 /// </summary>
 [IsoId("_RE37Ydp-Ed-ak6NoX_4Aeg_-877911728")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Copy Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CopyInformation1
     /// Indicates whether the message is a copy.
     /// </summary>
     [IsoId("_RE37Ytp-Ed-ak6NoX_4Aeg_-452168468")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyInd")]
     #endif
+    [IsoXmlTag("CpyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CopyIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CopyIndicator { get; init; } 
+    public required System.String CopyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CopyIndicator { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record CopyInformation1
     /// Original receiver of the message, if this message is a copy.
     /// </summary>
     [IsoId("_RE37Y9p-Ed-ak6NoX_4Aeg_-504809982")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRcvr")]
     #endif
+    [IsoXmlTag("OrgnlRcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 OriginalReceiver { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 OriginalReceiver { get; init; } 
+    public required BICIdentification1 OriginalReceiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 OriginalReceiver { get; init; } 
     #else

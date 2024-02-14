@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a subscription multiple order.
 /// </summary>
 [IsoId("_RN0cCtp-Ed-ak6NoX_4Aeg_-1747169582")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Multiple Order Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SubscriptionMultipleOrderInstruction2
     /// Common information related to all the orders to be cancelled.
     /// </summary>
     [IsoId("_RN0cC9p-Ed-ak6NoX_4Aeg_-1747169251")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multiple Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MltplOrdrDtls")]
     #endif
+    [IsoXmlTag("MltplOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionMultipleOrder3 MultipleOrderDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubscriptionMultipleOrder3 MultipleOrderDetails { get; init; } 
+    public required SubscriptionMultipleOrder3 MultipleOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubscriptionMultipleOrder3 MultipleOrderDetails { get; init; } 
     #else
@@ -71,28 +68,24 @@ public partial record SubscriptionMultipleOrderInstruction2
     /// Information about parties related to the transaction.
     /// </summary>
     [IsoId("_RN-NANp-Ed-ak6NoX_4Aeg_-1747169286")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Party Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdPtyDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdPtyDtls")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Intermediary8> RelatedPartyDetails { get; init; } = new ValueList<Intermediary8>(){};
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_RN-NAdp-Ed-ak6NoX_4Aeg_-1747169321")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

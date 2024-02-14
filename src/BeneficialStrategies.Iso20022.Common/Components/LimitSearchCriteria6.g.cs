@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to search for a limit.
 /// </summary>
 [IsoId("_FZ5lXW4-EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record LimitSearchCriteria6
     /// Identification of a particular cash clearing system.
     /// </summary>
     [IsoId("_Fkedp24-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysId")]
     #endif
+    [IsoXmlTag("SysId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record LimitSearchCriteria6
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
     [IsoId("_FkedqW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bilateral Limit Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BilLmtCtrPtyId")]
     #endif
+    [IsoXmlTag("BilLmtCtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? BilateralLimitCounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record LimitSearchCriteria6
     /// Type of limit as set by default in the system. The default limit is applicable by the system unless otherwise instructed.
     /// </summary>
     [IsoId("_Fkedq24-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Limit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltLmtTp")]
     #endif
+    [IsoXmlTag("DfltLmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LimitType1Choice_? DefaultLimitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record LimitSearchCriteria6
     /// Type of limit applied by the system at the present time.
     /// </summary>
     [IsoId("_FkedrW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Limit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurLmtTp")]
     #endif
+    [IsoXmlTag("CurLmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LimitType1Choice_? CurrentLimitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record LimitSearchCriteria6
     /// Owner of the account which is being queried.
     /// </summary>
     [IsoId("_Fkedr24-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record LimitSearchCriteria6
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_FkedsW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record LimitSearchCriteria6
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
     [IsoId("_Fkeds24-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Used Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsdAmt")]
     #endif
+    [IsoXmlTag("UsdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveAmountRange3Choice_? UsedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record LimitSearchCriteria6
     /// Actual usage of the limit expressed as a percentage.
     /// </summary>
     [IsoId("_FkedtW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Used Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsdPctg")]
     #endif
+    [IsoXmlTag("UsdPctg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageRange1Choice_? UsedPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record LimitSearchCriteria6
     /// Currency unit used to specify the limit amount.
     /// </summary>
     [IsoId("_Fkedt24-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtCcy")]
     #endif
+    [IsoXmlTag("LmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record LimitSearchCriteria6
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
     [IsoId("_FkeduW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtAmt")]
     #endif
+    [IsoXmlTag("LmtAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveAmountRange3Choice_? LimitAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record LimitSearchCriteria6
     /// Range of dates when the limit becomes valid.
     /// </summary>
     [IsoId("_Fkedu24-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Valid As Of Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtVldAsOfDt")]
     #endif
+    [IsoXmlTag("LmtVldAsOfDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndPeriod2Choice_? LimitValidAsOfDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

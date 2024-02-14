@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The final result of a single invoice financing request.
 /// </summary>
 [IsoId("_TiFktdp-Ed-ak6NoX_4Aeg_1101123529")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financing Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FinancingResult1
     /// Specifies the status of the financing request (e.g. financed. not financed).
     /// </summary>
     [IsoId("_TiFkttp-Ed-ak6NoX_4Aeg_352221392")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Request Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgReqSts")]
     #endif
+    [IsoXmlTag("FincgReqSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestStatus1Code FinancingRequestStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestStatus1Code FinancingRequestStatus { get; init; } 
+    public required RequestStatus1Code FinancingRequestStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestStatus1Code FinancingRequestStatus { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record FinancingResult1
     /// Indicates the reasons that have determined the result of the single request.
     /// </summary>
     [IsoId("_TiFkt9p-Ed-ak6NoX_4Aeg_564525140")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReason4Choice_? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,13 @@ public partial record FinancingResult1
     /// Further details on the status reason.
     /// </summary>
     [IsoId("_TiFkuNp-Ed-ak6NoX_4Aeg_-99752141")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Status Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlStsRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlStsRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalStatusReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record FinancingResult1
     /// Indicates amount financed related to the request.
     /// </summary>
     [IsoId("_TiOuoNp-Ed-ak6NoX_4Aeg_603605189")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincdAmt")]
     #endif
+    [IsoXmlTag("FincdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingRateOrAmountChoice_? FinancedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

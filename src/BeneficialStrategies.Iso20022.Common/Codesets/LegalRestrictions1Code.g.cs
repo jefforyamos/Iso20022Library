@@ -21,7 +21,7 @@ public enum LegalRestrictions1Code
 {
     /// <summary>
     /// Ownership or transfer of an unregistered security issued, pursuant to US legal restrictions 144A.
-    /// Encoded/decoded by serializers as "USLE".
+    /// Encoded/decoded by serializers as &quot;USLE&quot;.
     /// </summary>
     [EnumMember(Value = "USLE")]
     [IsoId("_ad_m4Np-Ed-ak6NoX_4Aeg_-481845169")]
@@ -30,7 +30,7 @@ public enum LegalRestrictions1Code
     
     /// <summary>
     /// Ownership or transfer of a security that is not subject to restrictions.
-    /// Encoded/decoded by serializers as "NORE".
+    /// Encoded/decoded by serializers as &quot;NORE&quot;.
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_ad_m4dp-Ed-ak6NoX_4Aeg_-234340489")]
@@ -39,7 +39,7 @@ public enum LegalRestrictions1Code
     
     /// <summary>
     /// Ownership or transfer of a security that is subject to restrictions, and not pursuant to 144A.
-    /// Encoded/decoded by serializers as "REST".
+    /// Encoded/decoded by serializers as &quot;REST&quot;.
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_ad_m4tp-Ed-ak6NoX_4Aeg_-8075812")]

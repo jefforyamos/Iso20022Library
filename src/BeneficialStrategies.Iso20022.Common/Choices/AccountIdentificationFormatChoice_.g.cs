@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAndPurpose))]
     [KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAsDSS))]
     [IsoId("_RBvu5dp-Ed-ak6NoX_4Aeg_1713990380")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

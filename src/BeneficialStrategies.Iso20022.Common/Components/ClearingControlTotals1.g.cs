@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Gross clearing control totals.
 /// </summary>
 [IsoId("_7vrLEFA9EeedyPuM0kK2EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing Control Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record ClearingControlTotals1
     /// Number of clearing transactions. To be used for control purpose.
     /// </summary>
     [IsoId("_MMGhQFA-EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Control Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrCtrlCnt")]
     #endif
+    [IsoXmlTag("ClrCtrlCnt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ClearingControlCount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ClearingControlCount { get; init; } 
+    public required System.UInt64 ClearingControlCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ClearingControlCount { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record ClearingControlTotals1
     /// Gross accumulated amount of clearing. To be used for control purpose.
     /// </summary>
     [IsoId("_VGpaYFA-EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Control Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrCtrlAmt")]
     #endif
+    [IsoXmlTag("ClrCtrlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount14 ClearingControlAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount14 ClearingControlAmount { get; init; } 
+    public required Amount14 ClearingControlAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount14 ClearingControlAmount { get; init; } 
     #else

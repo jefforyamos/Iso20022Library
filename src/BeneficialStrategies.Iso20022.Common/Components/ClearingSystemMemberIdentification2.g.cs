@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique identification, as assigned by a clearing system, to unambiguously identify a member of the clearing system.
 /// </summary>
 [IsoId("_TMehHNp-Ed-ak6NoX_4Aeg_151445359")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing System Member Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ClearingSystemMemberIdentification2
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
     [IsoId("_TMehHdp-Ed-ak6NoX_4Aeg_-1082144614")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSysId")]
     #endif
+    [IsoXmlTag("ClrSysId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,19 +66,17 @@ public partial record ClearingSystemMemberIdentification2
     /// Identification of a member of a clearing system.
     /// </summary>
     [IsoId("_TMehHtp-Ed-ak6NoX_4Aeg_151445420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MmbId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MmbId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MemberIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MemberIdentification { get; init; } 
+    public required System.String MemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MemberIdentification { get; init; } 
     #else

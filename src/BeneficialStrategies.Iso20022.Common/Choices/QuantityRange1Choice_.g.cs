@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(QuantityRange1Choice.EqualQuantity))]
     [KnownType(typeof(QuantityRange1Choice.NotEqualQuantity))]
     [IsoId("_jtHuFO5NEeCisYr99QEiWA_-1373711231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Range 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

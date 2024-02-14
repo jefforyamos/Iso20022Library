@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a subscription multiple order.
 /// </summary>
 [IsoId("_UzJj-tp-Ed-ak6NoX_4Aeg_-563586890")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Multiple Order Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SubscriptionMultipleOrderInstruction1
     /// Common information related to all the orders to be cancelled.
     /// </summary>
     [IsoId("_UzSt4Np-Ed-ak6NoX_4Aeg_2068096907")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multiple Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MltplOrdrDtls")]
     #endif
+    [IsoXmlTag("MltplOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionMultipleOrder2 MultipleOrderDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubscriptionMultipleOrder2 MultipleOrderDetails { get; init; } 
+    public required SubscriptionMultipleOrder2 MultipleOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubscriptionMultipleOrder2 MultipleOrderDetails { get; init; } 
     #else
@@ -71,28 +68,24 @@ public partial record SubscriptionMultipleOrderInstruction1
     /// Information related to an intermediary.
     /// </summary>
     [IsoId("_UzSt4dp-Ed-ak6NoX_4Aeg_37627214")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IntrmyDtls")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Intermediary4> IntermediaryDetails { get; init; } = new ValueList<Intermediary4>(){};
     
     /// <summary>
     /// Message is a copy.
     /// </summary>
     [IsoId("_UzSt4tp-Ed-ak6NoX_4Aeg_-35333257")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation1? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +98,11 @@ public partial record SubscriptionMultipleOrderInstruction1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_UzSt49p-Ed-ak6NoX_4Aeg_979070629")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

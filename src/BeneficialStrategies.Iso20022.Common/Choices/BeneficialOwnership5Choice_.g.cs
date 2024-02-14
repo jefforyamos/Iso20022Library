@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BeneficialOwnership5Choice.Indicator))]
     [KnownType(typeof(BeneficialOwnership5Choice.Proprietary))]
     [IsoId("_5m6A45NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficial Ownership 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentStatus2Choice
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_0jhc8glIEeGATtfOBToyew_-1111088717")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Specified Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentStatus2Choice
         /// Specifies that there is no reason available.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NoSpcfdRsn")]
         #endif
+        [IsoXmlTag("NoSpcfdRsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NoReasonCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NoReasonCode Value { get; init; } 
+        public required NoReasonCode Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NoReasonCode Value { get; init; } 
         #else

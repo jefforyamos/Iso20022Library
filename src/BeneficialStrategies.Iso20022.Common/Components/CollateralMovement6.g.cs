@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the collateral movement direction that is a delivery and optionaly a return.
 /// </summary>
 [IsoId("_QtN1tV9-EeSMgPeFpRHeJw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralMovement6
     /// Provides the collateral movement direction that is a delivery only.
     /// </summary>
     [IsoId("_RJe68V9-EeSMgPeFpRHeJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dlvr")]
     #endif
+    [IsoXmlTag("Dlvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Collateral8 Deliver { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Collateral8 Deliver { get; init; } 
+    public required Collateral8 Deliver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Collateral8 Deliver { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CollateralMovement6
     /// Provides the collateral movement direction that is a return only.
     /// </summary>
     [IsoId("_RJe6819-EeSMgPeFpRHeJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rtr")]
     #endif
+    [IsoXmlTag("Rtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Collateral7? Return { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

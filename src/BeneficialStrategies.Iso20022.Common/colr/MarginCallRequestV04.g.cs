@@ -28,7 +28,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// The MarginCallRequest message is sent by the collateral taker or its collateral manager to the collateral giver or its collateral manager
-/// This message is used to request new collateral at the initiation of an exposure or request additional collateral for an existing exposure. It can also be used to recall collateral upon the collateral giver or its collateral manager's request.
+/// This message is used to request new collateral at the initiation of an exposure or request additional collateral for an existing exposure. It can also be used to recall collateral upon the collateral giver or its collateral manager&apos;s request.
 /// 
 /// The message definition is intended for use with the ISO20022 Business Application Header.
 /// 
@@ -41,9 +41,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope|The MarginCallRequest message is sent by the collateral taker or its collateral manager to the collateral giver or its collateral manager|This message is used to request new collateral at the initiation of an exposure or request additional collateral for an existing exposure. It can also be used to recall collateral upon the collateral giver or its collateral manager's request.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|When sent by the collateral taker the MarginCallRequest message is used to:|- request new collateral at the initiation of an exposure|- request additional collateral|When sent by the collateral giver the MarginCallRequest message is used to:|- request the return of collateral.")]
 [IsoId("_CRyfq4FsEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Call Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,19 +86,17 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
     [IsoId("_CRyfrYFsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -111,16 +107,15 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
     /// </summary>
     [IsoId("_CRyfr4FsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgtn")]
     #endif
+    [IsoXmlTag("Oblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Obligation4 Obligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Obligation4 Obligation { get; init; } 
+    public required Obligation4 Obligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Obligation4 Obligation { get; init; } 
     #else
@@ -131,12 +126,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Agreement details for the over the counter market.
     /// </summary>
     [IsoId("_CRyfsYFsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Agrmt")]
     #endif
+    [IsoXmlTag("Agrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Agreement4? Agreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,16 +143,15 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Summation of the call amounts per margin type. It is provided for the purposes of carrying forward for future messages that are used to compare the margin call results to determine whether a call is agreed or full/partially disputed.
     /// </summary>
     [IsoId("_CRyfu4FsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Call Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnCallRslt")]
     #endif
+    [IsoXmlTag("MrgnCallRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginCallResult3 MarginCallResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarginCallResult3 MarginCallResult { get; init; } 
+    public required MarginCallResult3 MarginCallResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarginCallResult3 MarginCallResult { get; init; } 
     #else
@@ -169,12 +162,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Provides details about the margin calculation that would be due to party A.
     /// </summary>
     [IsoId("_CRyfs4FsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Details Due To A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnDtlsDueToA")]
     #endif
+    [IsoXmlTag("MrgnDtlsDueToA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginCall1? MarginDetailsDueToA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +179,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Provides details about the margin calculation that would be due to party B.
     /// </summary>
     [IsoId("_CRyftYFsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Details Due To B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnDtlsDueToB")]
     #endif
+    [IsoXmlTag("MrgnDtlsDueToB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginCall1? MarginDetailsDueToB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,12 +196,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Amount of expected margin that will be either delivered to party A by party B or recalled to party A from party B.
     /// </summary>
     [IsoId("_CRyft4FsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requirement Details Due To A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RqrmntDtlsDueToA")]
     #endif
+    [IsoXmlTag("RqrmntDtlsDueToA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginRequirement1Choice_? RequirementDetailsDueToA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -223,12 +213,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Amount of expected margin that will be either delivered to party B by party A or recalled to party B from party A.
     /// </summary>
     [IsoId("_CRyfuYFsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requirement Details Due To B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RqrmntDtlsDueToB")]
     #endif
+    [IsoXmlTag("RqrmntDtlsDueToB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginRequirement1Choice_? RequirementDetailsDueToB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -241,12 +230,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Provides details about the type of collateral that will be either delivered to party A by party B or recalled to party A from party B.
     /// </summary>
     [IsoId("_CRyfv4FsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Collateral Due To A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdCollDueToA")]
     #endif
+    [IsoXmlTag("XpctdCollDueToA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpectedCollateral2Choice_? ExpectedCollateralDueToA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -259,12 +247,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Provides details about the type of collateral that will be either delivered to party B by party A or recalled to party B from party A.
     /// </summary>
     [IsoId("_CRyfvYFsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Collateral Due To B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdCollDueToB")]
     #endif
+    [IsoXmlTag("XpctdCollDueToB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpectedCollateral2Choice_? ExpectedCollateralDueToB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -277,12 +264,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Allows the reporting of the margin requirements for multiple accounts and report a single margin call amount made up of the aggregate of all the individual requirement amounts.
     /// </summary>
     [IsoId("_JCbdwILVEeWrrO9HojbPQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Call Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnCallDtls")]
     #endif
+    [IsoXmlTag("MrgnCallDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginCall2? MarginCallDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -295,12 +281,11 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_CRyfwYFsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -313,7 +298,7 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MarginCallRequestV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MarginCallRequestV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MarginCallRequestV04Document ToDocument()
     {
@@ -323,7 +308,7 @@ public partial record MarginCallRequestV04 : IOuterRecord<MarginCallRequestV04,M
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarginCallRequestV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MarginCallRequestV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MarginCallRequestV04Document : IOuterDocument<MarginCallRequestV04>
@@ -340,7 +325,7 @@ public partial record MarginCallRequestV04Document : IOuterDocument<MarginCallRe
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MarginCallRequestV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MarginCallRequestV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginCallRequestV04 Message { get; init; }

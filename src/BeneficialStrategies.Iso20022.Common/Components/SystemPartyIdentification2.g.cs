@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique identification to unambiguously identify the party within the system.
 /// </summary>
 [IsoId("_knFb9e5NEeCisYr99QEiWA_164286854")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record SystemPartyIdentification2
     /// Starting date from which the identification is valid.
     /// </summary>
     [IsoId("_knPM8O5NEeCisYr99QEiWA_2146240777")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldFr")]
     #endif
+    [IsoXmlTag("VldFr")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValidFrom { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValidFrom { get; init; } 
+    public required System.DateOnly ValidFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValidFrom { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record SystemPartyIdentification2
     /// Unique and unambiguous way to identify a system party.
     /// </summary>
     [IsoId("_knPM8e5NEeCisYr99QEiWA_-852146574")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBICFIIdentifier? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

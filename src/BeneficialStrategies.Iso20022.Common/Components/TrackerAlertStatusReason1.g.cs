@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the reason for the status of the tracker alert.
 /// </summary>
 [IsoId("_k0GOTfY0Eemf4dJxCjghNw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Alert Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record TrackerAlertStatusReason1
     /// Reason for the status, in a proprietary form.
     /// </summary>
     [IsoId("_k0GOU_Y0Eemf4dJxCjghNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Prtry")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericText Proprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Proprietary { get; init; } 
+    public required System.String Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Proprietary { get; init; } 
     #else

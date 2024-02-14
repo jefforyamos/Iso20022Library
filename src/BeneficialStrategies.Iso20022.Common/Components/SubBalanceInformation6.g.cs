@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
 /// </summary>
 [IsoId("_QYU-d9p-Ed-ak6NoX_4Aeg_1429230934")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sub Balance Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SubBalanceInformation6
     /// Reason for the sub-balance.
     /// </summary>
     [IsoId("_QYU-eNp-Ed-ak6NoX_4Aeg_367878975")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Balance Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubBalTp")]
     #endif
+    [IsoXmlTag("SubBalTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubBalanceType5Choice_ SubBalanceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubBalanceType5Choice_ SubBalanceType { get; init; } 
+    public required SubBalanceType5Choice_ SubBalanceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubBalanceType5Choice_ SubBalanceType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SubBalanceInformation6
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_QYU-edp-Ed-ak6NoX_4Aeg_254039909")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubBalanceQuantity3Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubBalanceQuantity3Choice_ Quantity { get; init; } 
+    public required SubBalanceQuantity3Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubBalanceQuantity3Choice_ Quantity { get; init; } 
     #else
@@ -92,15 +88,13 @@ public partial record SubBalanceInformation6
     /// Provides additional subbalance information.
     /// </summary>
     [IsoId("_QYU-etp-Ed-ak6NoX_4Aeg_432158581")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Balance Additional Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubBalAddtlDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SubBalAddtlDtls")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SubBalanceAdditionalDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +107,11 @@ public partial record SubBalanceInformation6
     /// Provides additional instrument sub-balance information on all or parts of the reported financial instrument (unregistered, tax exempt, etc.).
     /// </summary>
     [IsoId("_QYeIYNp-Ed-ak6NoX_4Aeg_-564913772")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Balance Breakdown Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlBalBrkdwnDtls")]
     #endif
+    [IsoXmlTag("AddtlBalBrkdwnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalBalanceInformation6? AdditionalBalanceBreakdownDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

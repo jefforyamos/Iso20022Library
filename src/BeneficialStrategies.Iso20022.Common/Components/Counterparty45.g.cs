@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to counterparty identification.
 /// </summary>
 [IsoId("_x_a7MQz1Ee2YoLD-1vFj0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Counterparty45
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
     [IsoId("_yANlYQz1Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification248Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification248Choice_ Identification { get; init; } 
+    public required PartyIdentification248Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification248Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Counterparty45
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
     [IsoId("_yANlYwz1Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntr")]
     #endif
+    [IsoXmlTag("Ntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartyTradeNature15Choice_? Nature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record Counterparty45
     /// Identifies the trading capacity of the seller.
     /// </summary>
     [IsoId("_yANlZQz1Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Capacity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgCpcty")]
     #endif
+    [IsoXmlTag("TradgCpcty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingCapacity7Code? TradingCapacity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +104,11 @@ public partial record Counterparty45
     /// CounterpartySide should be used for the instruments such as most forwards and forward-like contracts (except for foreign exchange forwards and foreign exchange non-deliverable forwards); most options and option-like contracts including swaptions, caps and floors; credit default swaps; variance, volatility and correlation swaps; contracts for difference and spreadbets.
     /// </summary>
     [IsoId("_yANlZwz1Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direction Or Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrctnOrSd")]
     #endif
+    [IsoXmlTag("DrctnOrSd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Direction4Choice_? DirectionOrSide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,12 +121,11 @@ public partial record Counterparty45
     /// Location of the trading desk or trader responsible for the decision of entering into or execution of the transaction.
     /// </summary>
     [IsoId("_50_lYBZuEe27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trader Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradrLctn")]
     #endif
+    [IsoXmlTag("TradrLctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? TraderLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,12 +138,11 @@ public partial record Counterparty45
     /// Location of the trade party or the branch/office of the trade party to which the transaction is booked.
     /// </summary>
     [IsoId("_-kfaYBZuEe27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Booking Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookgLctn")]
     #endif
+    [IsoXmlTag("BookgLctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? BookingLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,12 +155,11 @@ public partial record Counterparty45
     /// Provides details on the reporting exemption of a counterparty.
     /// </summary>
     [IsoId("_EDG10BaIEe27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Exemption")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgXmptn")]
     #endif
+    [IsoXmlTag("RptgXmptn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingExemption1? ReportingExemption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

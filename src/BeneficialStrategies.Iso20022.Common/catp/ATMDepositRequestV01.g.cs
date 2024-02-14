@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catp;
 /// </summary>
 [Description(@"The ATMDepositRequest message is sent by an ATM to an acquirer or its agent to request the approval of a deposit transaction at an ATM, before or after deposit media inside the ATM.")]
 [IsoId("_VweFcK39EeWL1uap3dNhCQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Deposit Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMDepositRequestV01 : IOuterRecord<ATMDepositRequestV01,A
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_g4CPwK39EeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header31 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header31 Header { get; init; } 
+    public required Header31 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header31 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMDepositRequestV01 : IOuterRecord<ATMDepositRequestV01,A
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_o-6QQK39EeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATM Deposit Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMDpstReq")]
     #endif
+    [IsoXmlTag("PrtctdATMDpstReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMDepositRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMDepositRequestV01 : IOuterRecord<ATMDepositRequestV01,A
     /// Information related to the request of a deposit transaction from an ATM.
     /// </summary>
     [IsoId("_sJ93AK39EeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Deposit Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMDpstReq")]
     #endif
+    [IsoXmlTag("ATMDpstReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMDepositRequest1? ATMDepositRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMDepositRequestV01 : IOuterRecord<ATMDepositRequestV01,A
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_zLRWkK39EeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMDepositRequestV01 : IOuterRecord<ATMDepositRequestV01,A
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMDepositRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMDepositRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMDepositRequestV01Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMDepositRequestV01 : IOuterRecord<ATMDepositRequestV01,A
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDepositRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMDepositRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMDepositRequestV01Document : IOuterDocument<ATMDepositRequestV01>
@@ -176,7 +170,7 @@ public partial record ATMDepositRequestV01Document : IOuterDocument<ATMDepositRe
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMDepositRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMDepositRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMDepositRequestV01 Message { get; init; }

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"The AccountClosingAdditionalInformationRequest message is sent from a financial institution to an organisation as part of the account closing process. This message is sent in response to a closing request message from the organisation, if the business content is valid, but additional information is required.")]
 [IsoId("_bf9RX22PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Closing Additional Information Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Set of elements for the identification of the message and related references.
     /// </summary>
     [IsoId("_bf9RYW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References3 References { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References3 References { get; init; } 
+    public required References3 References { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References3 References { get; init; } 
     #else
@@ -98,12 +95,11 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Identifies the business sender of the message, if it is not the account owner or account servicing financial institution.
     /// </summary>
     [IsoId("_bf9RY22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fr")]
     #endif
+    [IsoXmlTag("Fr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification29? From { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,16 +112,15 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Identifier for an organisation.
     /// </summary>
     [IsoId("_bf9RZW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgId")]
     #endif
+    [IsoXmlTag("OrgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification29 OrganisationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification29 OrganisationIdentification { get; init; } 
+    public required OrganisationIdentification29 OrganisationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification29 OrganisationIdentification { get; init; } 
     #else
@@ -136,16 +131,15 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_bf9RZ22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountForAction1 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountForAction1 AccountIdentification { get; init; } 
+    public required AccountForAction1 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountForAction1 AccountIdentification { get; init; } 
     #else
@@ -156,16 +150,15 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
     [IsoId("_bf9RaW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrId")]
     #endif
+    [IsoXmlTag("AcctSvcrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 AccountServicerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification6 AccountServicerIdentification { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification6 AccountServicerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification6 AccountServicerIdentification { get; init; } 
     #else
@@ -176,12 +169,11 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Identification of the account to which the remaining positive balance of the account to be closed must be transferred or account from which funds can be moved to the account to be closed and which balance is negative. This account must be held in the same financial institution as the account to be closed if the transfer account is used to compensate a negative balance. For a positive balance to be transferred, an account in another financial institution might be used. In that case the account servicer is mandatory.
     /// </summary>
     [IsoId("_bf9Ra22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Transfer Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTrfAcct")]
     #endif
+    [IsoXmlTag("BalTrfAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountForAction1? BalanceTransferAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +186,11 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme, that is the servicer of the transfer account.
     /// </summary>
     [IsoId("_bf9RbW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Account Servicer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfAcctSvcrId")]
     #endif
+    [IsoXmlTag("TrfAcctSvcrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? TransferAccountServicerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +203,11 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
     /// </summary>
     [IsoId("_bf9Rb22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature3? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +220,11 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_bf9RcW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,7 +237,7 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountClosingAdditionalInformationRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountClosingAdditionalInformationRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountClosingAdditionalInformationRequestV03Document ToDocument()
     {
@@ -258,7 +247,7 @@ public partial record AccountClosingAdditionalInformationRequestV03 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountClosingAdditionalInformationRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountClosingAdditionalInformationRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountClosingAdditionalInformationRequestV03Document : IOuterDocument<AccountClosingAdditionalInformationRequestV03>
@@ -275,7 +264,7 @@ public partial record AccountClosingAdditionalInformationRequestV03Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountClosingAdditionalInformationRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountClosingAdditionalInformationRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountClosingAdditionalInformationRequestV03 Message { get; init; }

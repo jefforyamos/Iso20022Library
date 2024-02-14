@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify a person or an organisation.
 /// </summary>
 [IsoId("_DnnxDVtjEeSwKe7KuKvXhg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyIdentification71
     /// Unique identification of the party.
     /// </summary>
     [IsoId("_EEU7I1tjEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification40Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification40Choice_ Identification { get; init; } 
+    public required PartyIdentification40Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification40Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PartyIdentification71
     /// Ancillary identification information about the party.
     /// </summary>
     [IsoId("_EEU7JVtjEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Identification Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlIdInf")]
     #endif
+    [IsoXmlTag("AddtlIdInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAdditionalIdentification2Choice_? AdditionalIdentificationInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

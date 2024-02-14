@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment for a card transaction.
 /// </summary>
 [IsoId("_JYge4Xa3Eeef9c2nwgY9Xw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Environment10
     /// Party in contract with an acceptor to acquire card payment transactions.
     /// </summary>
     [IsoId("_JkHR8Xa3Eeef9c2nwgY9Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acqrr")]
     #endif
+    [IsoXmlTag("Acqrr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Acquirer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Environment10
     /// Party sending the message to another intermediary agent or to the final destination.
     /// </summary>
     [IsoId("_JkHR83a3Eeef9c2nwgY9Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sndr")]
     #endif
+    [IsoXmlTag("Sndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Sender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Environment10
     /// Party receiving the message from the originator or another intermediary agent.
     /// </summary>
     [IsoId("_JkHR9Xa3Eeef9c2nwgY9Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcvr")]
     #endif
+    [IsoXmlTag("Rcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Receiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Environment10
     /// Card or payment token performing the transaction.
     /// </summary>
     [IsoId("_JkHR_Xa3Eeef9c2nwgY9Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Card")]
     #endif
+    [IsoXmlTag("Card")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardData3? Card { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record Environment10
     /// Cardholder performing the card payment transaction.
     /// </summary>
     [IsoId("_FujtwZjGEeepepmc9PHSnw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Crdhldr")]
     #endif
+    [IsoXmlTag("Crdhldr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Cardholder15? Cardholder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record Environment10
     /// Details of payment token.
     /// </summary>
     [IsoId("_44yhYN0bEeil7LQldntseg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tkn")]
     #endif
+    [IsoXmlTag("Tkn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Token1? Token { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

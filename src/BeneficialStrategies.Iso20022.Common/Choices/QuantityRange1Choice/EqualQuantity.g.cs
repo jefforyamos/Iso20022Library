@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice
     /// Exact value a quantity must match to be considered valid.
     /// </summary>
     [IsoId("_jtRfE-5NEeCisYr99QEiWA_-675705255")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equal Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice
         /// Number of objects represented as a decimal number, for example 0.75 or 45.6.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EQQty")]
         #endif
+        [IsoXmlTag("EQQty")]
+        [IsoSimpleType(IsoSimpleType.DecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoDecimalNumber Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Value { get; init; } 
+        public required System.UInt64 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Value { get; init; } 
         #else

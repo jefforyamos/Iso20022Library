@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Maximum amount allowed over a specific period of time.
 /// </summary>
 [IsoId("_Qotj09p-Ed-ak6NoX_4Aeg_540897")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Maximum Amount By Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record MaximumAmountByPeriod1
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
     [IsoId("_Qotj1Np-Ed-ak6NoX_4Aeg_-998319567")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAmt")]
     #endif
+    [IsoXmlTag("MaxAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MaximumAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MaximumAmount { get; init; } 
+    public required System.Decimal MaximumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MaximumAmount { get; init; } 
     #else
@@ -72,19 +70,16 @@ public partial record MaximumAmountByPeriod1
     /// Period specified as a number of days.
     /// </summary>
     [IsoId("_Qotj1dp-Ed-ak6NoX_4Aeg_1020263959")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Days")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfDays")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfDays")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3NumericText NumberOfDays { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NumberOfDays { get; init; } 
+    public required System.String NumberOfDays { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NumberOfDays { get; init; } 
     #else

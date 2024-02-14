@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepurchaseType12Choice.Code))]
     [KnownType(typeof(RepurchaseType12Choice.Proprietary))]
     [IsoId("_X7Xj4TqHEeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Type 12 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

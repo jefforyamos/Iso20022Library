@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionQuantities3Choice.OriginalAndCurrentFaceAmount))]
     [KnownType(typeof(TransactionQuantities3Choice.Proprietary))]
     [IsoId("_dBfEgXkcEei6JsZKrqN0hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Quantities 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

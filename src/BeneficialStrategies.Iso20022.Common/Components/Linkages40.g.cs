@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to a linked transaction.
 /// </summary>
 [IsoId("_KLKpuzzbEeWeNtT0s2RbkQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Linkages")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Linkages40
     /// Reference to the linked transaction.
     /// </summary>
     [IsoId("_Kr5YETzbEeWeNtT0s2RbkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References47Choice_ Reference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References47Choice_ Reference { get; init; } 
+    public required References47Choice_ Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References47Choice_ Reference { get; init; } 
     #else

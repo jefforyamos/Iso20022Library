@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify a proprietary price.
 /// </summary>
 [IsoId("_Rpr4pNp-Ed-ak6NoX_4Aeg_1562404369")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ProprietaryPrice2
     /// Specifies the type of price.
     /// </summary>
     [IsoId("_Rpr4pdp-Ed-ak6NoX_4Aeg_1562404617")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Type { get; init; } 
+    public required System.String Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Type { get; init; } 
     #else
@@ -75,16 +71,16 @@ public partial record ProprietaryPrice2
     /// Proprietary price specification related to the underlying transaction.
     /// </summary>
     [IsoId("_Rpr4ptp-Ed-ak6NoX_4Aeg_1562404671")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount Price { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Price { get; init; } 
+    public required System.Decimal Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Price { get; init; } 
     #else

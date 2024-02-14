@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentification55Choice.UPIC))]
     [KnownType(typeof(AccountIdentification55Choice.ProprietaryAccount))]
     [IsoId("_enyf0QatEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification 55 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

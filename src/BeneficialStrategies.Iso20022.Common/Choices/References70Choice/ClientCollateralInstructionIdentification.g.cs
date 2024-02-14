@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.References70Choice
 {
     /// <summary>
-    /// Unique reference identifying the collateral management transaction from the client's point of view.
+    /// Unique reference identifying the collateral management transaction from the client&apos;s point of view.
     /// </summary>
     [IsoId("_F1wScFSOEemTt7251YwCKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Collateral Instruction Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.References70Choice
         /// Specifies a character string with a maximum length of 35 characters.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClntCollInstrId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("ClntCollInstrId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

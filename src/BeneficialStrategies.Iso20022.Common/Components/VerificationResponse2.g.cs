@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the verification response message.
 /// </summary>
 [IsoId("_i0v8MYwFEeugeuahCxXQ-Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Verification Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record VerificationResponse2
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_i47RkYwFEeugeuahCxXQ-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Environment32 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Environment32 Environment { get; init; } 
+    public required Environment32 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Environment32 Environment { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record VerificationResponse2
     /// Context in which the card transaction is performed.
     /// </summary>
     [IsoId("_i47Rk4wFEeugeuahCxXQ-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Context13 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Context13 Context { get; init; } 
+    public required Context13 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Context13 Context { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record VerificationResponse2
     /// Card transaction for which an authorisation is requested.
     /// </summary>
     [IsoId("_i47RlYwFEeugeuahCxXQ-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Transaction140 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Transaction140 Transaction { get; init; } 
+    public required Transaction140 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Transaction140 Transaction { get; init; } 
     #else
@@ -114,12 +109,11 @@ public partial record VerificationResponse2
     /// Component contains data structures applicable to certain industries that require specific data within transaction messages
     /// </summary>
     [IsoId("_2_NYoSX7Eeym0KcvJF9aDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Addendum Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdddmData")]
     #endif
+    [IsoXmlTag("AdddmData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddendumData5? AddendumData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,16 +126,15 @@ public partial record VerificationResponse2
     /// Outcome of the processing of the verification.
     /// </summary>
     [IsoId("_i47Rl4wFEeugeuahCxXQ-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgRslt")]
     #endif
+    [IsoXmlTag("PrcgRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingResult18 ProcessingResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingResult18 ProcessingResult { get; init; } 
+    public required ProcessingResult18 ProcessingResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingResult18 ProcessingResult { get; init; } 
     #else
@@ -153,15 +146,12 @@ public partial record VerificationResponse2
     /// ISO 8583 bit 55
     /// </summary>
     [IsoId("_i47RmYwFEeugeuahCxXQ-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRltdData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ICCRltdData")]
+    [IsoSimpleType(IsoSimpleType.Max10KHexBinaryText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KHexBinaryText? ICCRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +164,11 @@ public partial record VerificationResponse2
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
     [IsoId("_i47Rm4wFEeugeuahCxXQ-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdData")]
     #endif
+    [IsoXmlTag("PrtctdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectedData1? ProtectedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +181,11 @@ public partial record VerificationResponse2
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
     [IsoId("_i47RnYwFEeugeuahCxXQ-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

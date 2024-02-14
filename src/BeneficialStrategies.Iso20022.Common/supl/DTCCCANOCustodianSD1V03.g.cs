@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCANOCustodianSD1 message extends ISO corporate action notification (CANO) message with DTCC validation custodian service specific data elements that are not covered by the standard message.")]
 [IsoId("_1LBwZjL3EeKU9IrkkToqcw_-1345555435")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCANO Custodian SD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCANOCustodianSD1V03 : IOuterRecord<DTCCCANOCustodianSD
     /// Information to be extended as custodian details supplementary data to corporate action notification.
     /// </summary>
     [IsoId("_1LBwZzL3EeKU9IrkkToqcw_764430494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Custodian Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtdnDtls")]
     #endif
+    [IsoXmlTag("CtdnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustodianDetailsSD1? CustodianDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCANOCustodianSD1V03 : IOuterRecord<DTCCCANOCustodianSD
     /// Information to be extended as custodian service supplementary data to option details.
     /// </summary>
     [IsoId("_1LK6UDL3EeKU9IrkkToqcw_780588655")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Custodian Option Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtdnOptnDtDtls")]
     #endif
+    [IsoXmlTag("CtdnOptnDtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustodianOptionDateDetailsSD1? CustodianOptionDateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,7 +100,7 @@ public partial record DTCCCANOCustodianSD1V03 : IOuterRecord<DTCCCANOCustodianSD
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCANOCustodianSD1V03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCANOCustodianSD1V03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCANOCustodianSD1V03Document ToDocument()
     {
@@ -114,7 +110,7 @@ public partial record DTCCCANOCustodianSD1V03 : IOuterRecord<DTCCCANOCustodianSD
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOCustodianSD1V03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCANOCustodianSD1V03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCANOCustodianSD1V03Document : IOuterDocument<DTCCCANOCustodianSD1V03>
@@ -131,7 +127,7 @@ public partial record DTCCCANOCustodianSD1V03Document : IOuterDocument<DTCCCANOC
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCANOCustodianSD1V03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCANOCustodianSD1V03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCANOCustodianSD1V03 Message { get; init; }

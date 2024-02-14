@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to contract attributes.
 /// </summary>
 [IsoId("_k5ZioWEUEe2P-L9DBerEgA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ContractType14
     /// Classification of information according to contract type.
     /// </summary>
     [IsoId("_k6RFUWEUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctTp")]
     #endif
+    [IsoXmlTag("CtrctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ContractType14
     /// Specifies the classification according to the asset class of the contract.
     /// </summary>
     [IsoId("_k6RFU2EUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstClss")]
     #endif
+    [IsoXmlTag("AsstClss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductType4Code? AssetClass { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record ContractType14
     /// Specifies the classification of the derivative product.
     /// </summary>
     [IsoId("_k6RFVWEUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctClssfctn")]
     #endif
+    [IsoXmlTag("PdctClssfctn")]
+    [IsoSimpleType(IsoSimpleType.CFIOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCFIOct2015Identifier? ProductClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record ContractType14
     /// Specifies the identification of the derivative product.
     /// </summary>
     [IsoId("_k6RFWWEUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctId")]
     #endif
+    [IsoXmlTag("PdctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification46? ProductIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record ContractType14
     /// Unique identification to identify the direct underlying instrument based on its type.
     /// </summary>
     [IsoId("_k6RFW2EUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygInstrm")]
     #endif
+    [IsoXmlTag("UndrlygInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification41Choice_? UnderlyingInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,12 +129,11 @@ public partial record ContractType14
     /// Usage: For multicurrency transactions that do not net, SettlementCurrency is to be considered as the first leg.
     /// </summary>
     [IsoId("_k6RFXWEUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyExchange23? SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,12 +146,11 @@ public partial record ContractType14
     /// Specifies the currency second leg to be used for cash settlement of the transaction. 
     /// </summary>
     [IsoId("_k6RFX2EUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency Second Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcyScndLeg")]
     #endif
+    [IsoXmlTag("SttlmCcyScndLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyExchange23? SettlementCurrencySecondLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,12 +163,11 @@ public partial record ContractType14
     /// Specifies the place where settlement of the transaction occurs as stipulated in the contract.
     /// </summary>
     [IsoId("_k6RFYWEUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfSttlm")]
     #endif
+    [IsoXmlTag("PlcOfSttlm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? PlaceOfSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -190,12 +181,12 @@ public partial record ContractType14
     /// Usage: If the element is not present, the DerivativeBasedOnCryptoAsset is False.
     /// </summary>
     [IsoId("_k6RFY2EUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Based On Crypto Asset")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivBasedOnCrptAsst")]
     #endif
+    [IsoXmlTag("DerivBasedOnCrptAsst")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DerivativeBasedOnCryptoAsset { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

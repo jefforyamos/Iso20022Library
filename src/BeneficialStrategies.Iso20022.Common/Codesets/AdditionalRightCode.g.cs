@@ -21,7 +21,7 @@ public enum AdditionalRightCode
 {
     /// <summary>
     /// Defines a written question proposal.
-    /// Encoded/decoded by serializers as "WQPS".
+    /// Encoded/decoded by serializers as &quot;WQPS&quot;.
     /// </summary>
     [EnumMember(Value = "WQPS")]
     [IsoId("_bmtictp-Ed-ak6NoX_4Aeg_49222869")]
@@ -30,7 +30,7 @@ public enum AdditionalRightCode
     
     /// <summary>
     /// Defines a resolution proposal.
-    /// Encoded/decoded by serializers as "RSPS".
+    /// Encoded/decoded by serializers as &quot;RSPS&quot;.
     /// </summary>
     [EnumMember(Value = "RSPS")]
     [IsoId("_bmtic9p-Ed-ak6NoX_4Aeg_392774918")]
@@ -39,7 +39,7 @@ public enum AdditionalRightCode
     
     /// <summary>
     /// Defines a resolution proposal.
-    /// Encoded/decoded by serializers as "AIPS".
+    /// Encoded/decoded by serializers as &quot;AIPS&quot;.
     /// </summary>
     [EnumMember(Value = "AIPS")]
     [IsoId("_bmtidNp-Ed-ak6NoX_4Aeg_792659885")]

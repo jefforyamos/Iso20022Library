@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information about a request (e.g. financing request).
 /// </summary>
 [IsoId("_Rhyg6Np-Ed-ak6NoX_4Aeg_1542618603")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AdditionalInformation2
     /// Reason for the waiver.
     /// </summary>
     [IsoId("_Rhyg6dp-Ed-ak6NoX_4Aeg_828459095")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Waiver Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrWvrRsn")]
     #endif
+    [IsoXmlTag("OrdrWvrRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrderWaiverReason1Choice_? OrderWaiverReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record AdditionalInformation2
     /// Contents of the additional information.
     /// </summary>
     [IsoId("_Rh7q0Np-Ed-ak6NoX_4Aeg_1542618912")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InfVal")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InformationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

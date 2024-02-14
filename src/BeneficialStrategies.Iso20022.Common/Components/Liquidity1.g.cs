@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Ability of a financial instrument to be easily traded and converted to cash, at conditions that do not affect its price.
 /// </summary>
 [IsoId("_SW_DgNp-Ed-ak6NoX_4Aeg_587026413")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Liquidity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Liquidity1
     /// Market value of the securities position for which liquidity details are provided.
     /// </summary>
     [IsoId("_SW_Dgdp-Ed-ak6NoX_4Aeg_962899324")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record Liquidity1
     /// Number of securities for which liquidity range details are provided.
     /// </summary>
     [IsoId("_SW_Dgtp-Ed-ak6NoX_4Aeg_889017115")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfScties")]
     #endif
+    [IsoXmlTag("NbOfScties")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? NumberOfSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record Liquidity1
     /// Upper liquidity indicator, represented as a percentage of the average trade daily volume.
     /// </summary>
     [IsoId("_SW_Dg9p-Ed-ak6NoX_4Aeg_901945694")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Upper")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Upper")]
     #endif
+    [IsoXmlTag("Upper")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Upper { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record Liquidity1
     /// Lower liquidity indicator, represented as a percentage of the average trade daily volume.
     /// </summary>
     [IsoId("_SW_DhNp-Ed-ak6NoX_4Aeg_917645433")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lower")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lwr")]
     #endif
+    [IsoXmlTag("Lwr")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Lower { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

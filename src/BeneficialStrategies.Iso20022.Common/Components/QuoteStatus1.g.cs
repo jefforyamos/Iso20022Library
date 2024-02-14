@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the status of a quote and the rejection reason if required.
 /// </summary>
 [IsoId("_Q9IUqNp-Ed-ak6NoX_4Aeg_1434126655")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Quote Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record QuoteStatus1
     /// Provides information related to the status of a quote.
     /// </summary>
     [IsoId("_Q9IUqdp-Ed-ak6NoX_4Aeg_-1311303659")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quote Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtSts")]
     #endif
+    [IsoXmlTag("QtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuoteStatus1Code QuoteStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuoteStatus1Code QuoteStatus { get; init; } 
+    public required QuoteStatus1Code QuoteStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuoteStatus1Code QuoteStatus { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record QuoteStatus1
     /// Provides information related to the rejection of the quote.
     /// </summary>
     [IsoId("_Q9SFodp-Ed-ak6NoX_4Aeg_111978599")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RejectionReason3Code? RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

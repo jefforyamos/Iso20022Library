@@ -21,7 +21,7 @@ public enum TradeFinanceServiceCode
 {
     /// <summary>
     /// Code for purchase order services.
-    /// Encoded/decoded by serializers as "PORS".
+    /// Encoded/decoded by serializers as &quot;PORS&quot;.
     /// </summary>
     [EnumMember(Value = "PORS")]
     [IsoId("_YmyNodp-Ed-ak6NoX_4Aeg_274027739")]
@@ -30,7 +30,7 @@ public enum TradeFinanceServiceCode
     
     /// <summary>
     /// Code for level 1 services.
-    /// Encoded/decoded by serializers as "LEV1".
+    /// Encoded/decoded by serializers as &quot;LEV1&quot;.
     /// </summary>
     [EnumMember(Value = "LEV1")]
     [IsoId("_YmyNotp-Ed-ak6NoX_4Aeg_-1329776224")]
@@ -39,7 +39,7 @@ public enum TradeFinanceServiceCode
     
     /// <summary>
     /// Code for level 2 services.
-    /// Encoded/decoded by serializers as "LEV2".
+    /// Encoded/decoded by serializers as &quot;LEV2&quot;.
     /// </summary>
     [EnumMember(Value = "LEV2")]
     [IsoId("_YmyNo9p-Ed-ak6NoX_4Aeg_-1329775933")]
@@ -48,7 +48,7 @@ public enum TradeFinanceServiceCode
     
     /// <summary>
     /// Code for level 3 services.
-    /// Encoded/decoded by serializers as "LEV3".
+    /// Encoded/decoded by serializers as &quot;LEV3&quot;.
     /// </summary>
     [EnumMember(Value = "LEV3")]
     [IsoId("_YmyNpNp-Ed-ak6NoX_4Aeg_-1329775916")]

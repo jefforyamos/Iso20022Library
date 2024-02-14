@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount, currency, exchange rate and quotation date, sign and label.
 /// </summary>
 [IsoId("_pFtW8ZF2EeukDPgU2BMkjQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fee Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record FeeAmount3
     /// Amount exclusive of currency.
     /// </summary>
     [IsoId("_pMXYkZF2EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record FeeAmount3
     /// Contains code list for a credit or debit transaction
     /// </summary>
     [IsoId("_436O8JF3EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbt")]
     #endif
+    [IsoXmlTag("CdtDbt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebit3Code? CreditDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record FeeAmount3
     /// Currency for the type of amount.
     /// </summary>
     [IsoId("_pMXYk5F2EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,12 @@ public partial record FeeAmount3
     /// Exchange rate of the currency code associated with the amount. 
     /// </summary>
     [IsoId("_pMXYlZF2EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvXchgRate")]
     #endif
+    [IsoXmlTag("FctvXchgRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOne25Rate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOne25Rate? EffectiveExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,12 @@ public partial record FeeAmount3
     /// Date at which the exchange rate effective.
     /// </summary>
     [IsoId("_pMXYl5F2EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsDt")]
     #endif
+    [IsoXmlTag("ConvsDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ConversionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +139,12 @@ public partial record FeeAmount3
     /// Time at which the exchange rate effective.
     /// </summary>
     [IsoId("_65GgEJF2EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsTm")]
     #endif
+    [IsoXmlTag("ConvsTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? ConversionTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

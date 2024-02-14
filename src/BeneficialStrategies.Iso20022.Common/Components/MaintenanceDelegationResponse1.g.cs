@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the request of maintenance delegations.
 /// </summary>
 [IsoId("_5IxrwGqFEeS8RZDTbvnB_A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Maintenance Delegation Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MaintenanceDelegationResponse1
     /// Terminal manager identification.
     /// </summary>
     [IsoId("_SszfoGqGEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMId")]
     #endif
+    [IsoXmlTag("TMId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification72 TMIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification72 TMIdentification { get; init; } 
+    public required GenericIdentification72 TMIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification72 TMIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MaintenanceDelegationResponse1
     /// Master terminal manager identification.
     /// </summary>
     [IsoId("_bn054GqGEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master TM Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrTMId")]
     #endif
+    [IsoXmlTag("MstrTMId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification72? MasterTMIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record MaintenanceDelegationResponse1
     /// Information on the delegation of a maintenance action.
     /// </summary>
     [IsoId("_0C2eUGqGEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegation Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtnRspn")]
     #endif
+    [IsoXmlTag("DlgtnRspn")]
     public MaintenanceDelegation2? DelegationResponse { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _0C2eUGqGEeS8RZDTbvnB_A
     

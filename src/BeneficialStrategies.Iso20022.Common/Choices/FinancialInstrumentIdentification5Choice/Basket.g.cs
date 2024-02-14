@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentificatio
     /// Instrument consists of multiple instruments.
     /// </summary>
     [IsoId("_HQWTw35aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basket")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentificatio
         /// Identifies the financial instrument using an ISIN.
         /// </summary>
         [IsoId("_a46r4fBqEeWTAY6i--T_aA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("ISIN")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ISIN")]
         #endif
+        [IsoXmlTag("ISIN")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISINOct2015Identifier? ISIN { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +65,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentificatio
         /// The LEI code of the issuer where the instrument is referring to an issuer rather than one single instrument.
         /// </summary>
         [IsoId("_a46r4vBqEeWTAY6i--T_aA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("LEI")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LEI")]
         #endif
+        [IsoXmlTag("LEI")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? LEI { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

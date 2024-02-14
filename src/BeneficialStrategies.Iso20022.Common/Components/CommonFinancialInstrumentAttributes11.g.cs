@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Tangible items of value to a business.
 /// </summary>
 [IsoId("_QAKbh5JKEeuAlLVx8pyt3w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Common Financial Instrument Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
     [IsoId("_QCG8QZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctySts")]
     #endif
+    [IsoXmlTag("SctySts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityStatus3Choice_? SecurityStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Name of the security.
     /// </summary>
     [IsoId("_QCG8SZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmNm")]
     #endif
+    [IsoXmlTag("FinInstrmNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentName2? FinancialInstrumentName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Currency in which a security is issued or redenominated.
     /// </summary>
     [IsoId("_QCG8S5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denomination Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DnmtnCcy")]
     #endif
+    [IsoXmlTag("DnmtnCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? DenominationCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +93,13 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
     [IsoId("_QCG8U5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CertificateNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Version number assigned to the contract associated with the security.
     /// </summary>
     [IsoId("_QCG8VZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Version Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctVrsnNb")]
     #endif
+    [IsoXmlTag("CtrctVrsnNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ContractVersionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,15 +130,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Number of the coupon attached to the physical security.
     /// </summary>
     [IsoId("_QCG8V5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Coupon Attached Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpnAttchdNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CpnAttchdNb")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? CouponAttachedNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,15 +148,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
     [IsoId("_QCG8WZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Lot Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxLotNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TaxLotNb")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? TaxLotNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,15 +166,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Number identifying a group of underlying assets assigned by the issuer of a factored security.
     /// </summary>
     [IsoId("_QCG8W5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PoolNb")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? PoolNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +184,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates whether the derivative product is covered or not by an underlying financial instrument position.
     /// </summary>
     [IsoId("_QCG8Y5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Covered Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CvrdInd")]
     #endif
+    [IsoXmlTag("CvrdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CoveredIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +202,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Specifies the regulatory restrictions applicable to a security.
     /// </summary>
     [IsoId("_QCG8ZZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Restrictions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglRstrctns")]
     #endif
+    [IsoXmlTag("LglRstrctns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LegalRestrictions4Choice_? LegalRestrictions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,12 +219,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Position limits are created for the purpose of maintaining stable and fair markets. Contracts held by one individual investor with different brokers may be combined in order to gauge accurately the level of control held by one party. ||Each option and futures contract will have varying position limits.
     /// </summary>
     [IsoId("_QCG8Z5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PosLmt")]
     #endif
+    [IsoXmlTag("PosLmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? PositionLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,12 +236,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Near-term position limit for the instrument.
     /// </summary>
     [IsoId("_QCG8b5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Near Term Position Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NearTermPosLmt")]
     #endif
+    [IsoXmlTag("NearTermPosLmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? NearTermPositionLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,12 +253,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Original Date/time at which the security is listed at the specific exchange or trading venue.
     /// </summary>
     [IsoId("_QCG8d5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Listing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ListgDt")]
     #endif
+    [IsoXmlTag("ListgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ListingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,12 +271,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Date/time at which positions are struck to note which parties are entitled to receive the entitlement to a corporate event or vote at a meeting.
     /// </summary>
     [IsoId("_QCG8eZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcrdDt")]
     #endif
+    [IsoXmlTag("RcrdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? RecordDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,12 +289,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Date on which a privilege expires.
     /// </summary>
     [IsoId("_QCG8e5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -326,15 +307,13 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Reason for which money is raised through the issuance of a security.
     /// </summary>
     [IsoId("_QCG8fZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Purp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Purp")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Purpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -347,12 +326,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Information allowing the classification of a financial instrument, for example, with its ISO CFI (Classification of Financial Instrument) or product type.
     /// </summary>
     [IsoId("_QCG8f5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssfctnTp")]
     #endif
+    [IsoXmlTag("ClssfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClassificationType2? ClassificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -365,12 +343,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Details regarding the issuance of an asset.
     /// </summary>
     [IsoId("_QCG8gZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issnc")]
     #endif
+    [IsoXmlTag("Issnc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Issuance6? Issuance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -383,12 +360,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Market(s) on which the security is traded.
     /// </summary>
     [IsoId("_QCG8g5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Market")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgMkt")]
     #endif
+    [IsoXmlTag("TradgMkt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingParameters2? TradingMarket { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -401,12 +377,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates the spread to benchmark details of an indication of interest.
     /// </summary>
     [IsoId("_QCG8hZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Spread And Benchmark Curve")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SprdAndBchmkCrv")]
     #endif
+    [IsoXmlTag("SprdAndBchmkCrv")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BenchmarkCurve6? SpreadAndBenchmarkCurve { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -419,12 +394,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Represents the type of put.
     /// </summary>
     [IsoId("_QCG8h5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Put Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PutTp")]
     #endif
+    [IsoXmlTag("PutTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PutType3Choice_? PutType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -437,12 +411,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Represents the type of call.
     /// </summary>
     [IsoId("_QCG8iZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Call Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CallTp")]
     #endif
+    [IsoXmlTag("CallTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CallType3Choice_? CallType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -455,12 +428,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates whether a security is interchangeable, ie, the security is allowed to be replaced by another security, without loss of value.
     /// </summary>
     [IsoId("_QCG8i5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fungible Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FngbInd")]
     #endif
+    [IsoXmlTag("FngbInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FungibleIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -473,12 +446,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates whether the details of the security are to be made available to the market, or kept private between ICSDs and agency network.
     /// </summary>
     [IsoId("_QCG8jZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confidential")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cnfdtl")]
     #endif
+    [IsoXmlTag("Cnfdtl")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Confidential { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -491,12 +464,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// The sale of securities directly to private persons, institutional investors, or both outside a public offering. Such non-public deals (often without a publicly available prospectus) closing through the ICSDs are placed directly with investors.
     /// </summary>
     [IsoId("_QCG8j5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Private Placement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvtPlcmnt")]
     #endif
+    [IsoXmlTag("PrvtPlcmnt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PrivatePlacement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -509,12 +482,12 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates whether the investor or the issuer has a conversion option.
     /// </summary>
     [IsoId("_QCG8kZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Convertible Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvtblInd")]
     #endif
+    [IsoXmlTag("ConvtblInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ConvertibleIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -527,12 +500,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Period during which a convertible security may be converted according to the terms of the issue.
     /// </summary>
     [IsoId("_QCG8k5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsPrd")]
     #endif
+    [IsoXmlTag("ConvsPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1? ConversionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -545,12 +517,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Number of target securities for the conversion.
     /// </summary>
     [IsoId("_QCG8lZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Ratio Numerator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsRatioNmrtr")]
     #endif
+    [IsoXmlTag("ConvsRatioNmrtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? ConversionRatioNumerator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -563,12 +534,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Number of held securities for the conversion.
     /// </summary>
     [IsoId("_QCG8l5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Ratio Denominator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsRatioDnmtr")]
     #endif
+    [IsoXmlTag("ConvsRatioDnmtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? ConversionRatioDenominator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -581,12 +551,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Primary place of deposit.
     /// </summary>
     [IsoId("_QCG8mZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Place Of Deposit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryPlcOfDpst")]
     #endif
+    [IsoXmlTag("PmryPlcOfDpst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? PrimaryPlaceOfDeposit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -599,12 +568,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates whether the notional amount value is to be traded in either an amount or in units.
     /// </summary>
     [IsoId("_QCG8m5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgMtd")]
     #endif
+    [IsoXmlTag("TradgMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? TradingMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -617,12 +585,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates the TEFRA rule under which the security is issued.
     /// </summary>
     [IsoId("_QCG8nZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TEFRA Rule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TEFRARule")]
     #endif
+    [IsoXmlTag("TEFRARule")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TEFRARules3Choice_? TEFRARule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -635,15 +602,13 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Identifies the series number.
     /// </summary>
     [IsoId("_QCG8n5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Serie Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SrNb")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? SerieNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -656,15 +621,13 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Identifier that links multiple security classes.
     /// </summary>
     [IsoId("_QCG8oZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clss")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Clss")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? Class { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -677,12 +640,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Amount or percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
     [IsoId("_QCG8o5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Tax Regime")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgTaxRgm")]
     #endif
+    [IsoXmlTag("WhldgTaxRgm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityWithHoldingTax1? WithholdingTaxRegime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -695,12 +657,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Status of payment of a security at a particular time.
     /// </summary>
     [IsoId("_QCG8pZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtSts")]
     #endif
+    [IsoXmlTag("PmtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesPaymentStatus5Choice_? PaymentStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -713,12 +674,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates the physical form of the securities on the closing date.
     /// </summary>
     [IsoId("_QCG8p5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Physical Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlPhysForm")]
     #endif
+    [IsoXmlTag("InitlPhysForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InitialPhysicalForm4Choice_? InitialPhysicalForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -731,12 +691,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates the physical form of the securities after the exchange of the initial certificate issued on the closing date.
     /// </summary>
     [IsoId("_QCG8qZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("After Exchange Physical Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AftrXchgPhysForm")]
     #endif
+    [IsoXmlTag("AftrXchgPhysForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InitialPhysicalForm3Choice_? AfterExchangePhysicalForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -749,12 +708,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Entity appointed by the ICSDs to provide safekeeping for securities in new global note (NGN) form.
     /// </summary>
     [IsoId("_QCG8q5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Common Safekeeper")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmonSfkpr")]
     #endif
+    [IsoXmlTag("CmonSfkpr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification177Choice_? CommonSafekeeper { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -767,12 +725,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates the type of redemption at maturity.
     /// </summary>
     [IsoId("_QCG8rZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedTp")]
     #endif
+    [IsoXmlTag("RedTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaturityRedemptionType3Choice_? RedemptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -785,12 +742,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// ISO currency for the payment of the cash proceeds.
     /// </summary>
     [IsoId("_QCG8r5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Payment Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedPmtCcy")]
     #endif
+    [IsoXmlTag("RedPmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? RedemptionPaymentCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -803,12 +759,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Regulatory restriction(s) linked to the security.
     /// </summary>
     [IsoId("_QCG8sZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rstrctn")]
     #endif
+    [IsoXmlTag("Rstrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityRestriction3? Restriction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -821,12 +776,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Specifies the date from which the financial instrument identification is valid.
     /// </summary>
     [IsoId("_QCG8s5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification Validity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmIdVldty")]
     #endif
+    [IsoXmlTag("FinInstrmIdVldty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentIdentificationValidity3? FinancialInstrumentIdentificationValidity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -839,12 +793,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Settlement of the securities in a securities transaction, that is, the instruction to deliver or receive securities, involving the payment of an amount of money or not.
     /// </summary>
     [IsoId("_QCG8tZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmInf")]
     #endif
+    [IsoXmlTag("SttlmInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementInformation17? SettlementInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -857,12 +810,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Indicates the form of the financial Instrument.
     /// </summary>
     [IsoId("_QCG8t5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmForm")]
     #endif
+    [IsoXmlTag("FinInstrmForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentForm2? FinancialInstrumentForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -875,12 +827,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Details (name, e-mail address and/or telephone number) of the person requesting the allocation of the ISIN used as a point of reference in case further clarifications are required.
     /// </summary>
     [IsoId("_QCG8uZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctNm")]
     #endif
+    [IsoXmlTag("CtctNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? ContactName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -893,12 +844,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Entity appointed by the issuer to structure and lead the placement of a syndicated issue.
     /// </summary>
     [IsoId("_QCG8u5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lead Manager")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LeadMgr")]
     #endif
+    [IsoXmlTag("LeadMgr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? LeadManager { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -911,12 +861,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Main party appointed to distribute payment or securities on behalf of the issuer.
     /// </summary>
     [IsoId("_QCG8vZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Principal Paying Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrncplPngAgt")]
     #endif
+    [IsoXmlTag("PrncplPngAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? PrincipalPayingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -929,12 +878,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Additional party appointed to distribute payment or securities on behalf of the issuer.
     /// </summary>
     [IsoId("_QCG8v5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Paying Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PngAgt")]
     #endif
+    [IsoXmlTag("PngAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? PayingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -947,12 +895,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Entity appointed by the relevant clearing system as a depository for instruments issued in global or definitive form. The depository keeps the securities for safekeeping purposes on behalf of the clearing system(s).
     /// </summary>
     [IsoId("_QCG8wZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Depository")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dpstry")]
     #endif
+    [IsoXmlTag("Dpstry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? Depository { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -965,12 +912,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Entity(ies), asset(s) or security(ies) on which the credit responsibility lies as identified in the documentation.
     /// </summary>
     [IsoId("_QCG8w5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Risk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygRsk")]
     #endif
+    [IsoXmlTag("UndrlygRsk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? UnderlyingRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -983,12 +929,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// Defines how the CSD is linked to the security.
     /// </summary>
     [IsoId("_QCG8xZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security CSD Link")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyCSDLk")]
     #endif
+    [IsoXmlTag("SctyCSDLk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityCSDLink7? SecurityCSDLink { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

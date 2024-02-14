@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CounterpartyIdentification3Choice.SectorAndLocation))]
     [KnownType(typeof(CounterpartyIdentification3Choice.NameAndLocation))]
     [IsoId("_Zo-9QcEcEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Identification 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

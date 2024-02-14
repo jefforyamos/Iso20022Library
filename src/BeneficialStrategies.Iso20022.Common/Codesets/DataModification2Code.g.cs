@@ -21,7 +21,7 @@ public enum DataModification2Code
 {
     /// <summary>
     /// Insert a new set of data.
-    /// Encoded/decoded by serializers as "INSE".
+    /// Encoded/decoded by serializers as &quot;INSE&quot;.
     /// </summary>
     [EnumMember(Value = "INSE")]
     [IsoId("_ax9Etdp-Ed-ak6NoX_4Aeg_-1011150674")]
@@ -30,7 +30,7 @@ public enum DataModification2Code
     
     /// <summary>
     /// Delete an existing set of data.
-    /// Encoded/decoded by serializers as "DELT".
+    /// Encoded/decoded by serializers as &quot;DELT&quot;.
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_ax9Ettp-Ed-ak6NoX_4Aeg_-1011150656")]

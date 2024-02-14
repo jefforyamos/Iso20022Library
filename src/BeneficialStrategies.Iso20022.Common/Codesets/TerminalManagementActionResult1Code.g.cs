@@ -21,7 +21,7 @@ public enum TerminalManagementActionResult1Code
 {
     /// <summary>
     /// Access is denied while performing the action.
-    /// Encoded/decoded by serializers as "ACCD".
+    /// Encoded/decoded by serializers as &quot;ACCD&quot;.
     /// </summary>
     [EnumMember(Value = "ACCD")]
     [IsoId("_KTxmon1DEeCF8NjrBemJWQ_1998349503")]
@@ -30,7 +30,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Problem to connect while performing the action.
-    /// Encoded/decoded by serializers as "CNTE".
+    /// Encoded/decoded by serializers as &quot;CNTE&quot;.
     /// </summary>
     [EnumMember(Value = "CNTE")]
     [IsoId("_KTxmo31DEeCF8NjrBemJWQ_-2004781439")]
@@ -39,7 +39,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Data transferred has a wrong format.
-    /// Encoded/decoded by serializers as "FMTE".
+    /// Encoded/decoded by serializers as &quot;FMTE&quot;.
     /// </summary>
     [EnumMember(Value = "FMTE")]
     [IsoId("_KTxmpH1DEeCF8NjrBemJWQ_258228783")]
@@ -48,7 +48,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Content of the data is invalid.
-    /// Encoded/decoded by serializers as "INVC".
+    /// Encoded/decoded by serializers as &quot;INVC&quot;.
     /// </summary>
     [EnumMember(Value = "INVC")]
     [IsoId("_KTxmpX1DEeCF8NjrBemJWQ_84218319")]
@@ -57,7 +57,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Data transferred has a wrong length.
-    /// Encoded/decoded by serializers as "LENE".
+    /// Encoded/decoded by serializers as &quot;LENE&quot;.
     /// </summary>
     [EnumMember(Value = "LENE")]
     [IsoId("_KTxmpn1DEeCF8NjrBemJWQ_2107604522")]
@@ -66,7 +66,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Memory to store the date exceeded.
-    /// Encoded/decoded by serializers as "OVER".
+    /// Encoded/decoded by serializers as &quot;OVER&quot;.
     /// </summary>
     [EnumMember(Value = "OVER")]
     [IsoId("_KTxmp31DEeCF8NjrBemJWQ_90247886")]
@@ -75,7 +75,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Data set to be maintained is missing.
-    /// Encoded/decoded by serializers as "MISS".
+    /// Encoded/decoded by serializers as &quot;MISS&quot;.
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_KTxmqH1DEeCF8NjrBemJWQ_2138138548")]
@@ -84,7 +84,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Action is not supported.
-    /// Encoded/decoded by serializers as "NSUP".
+    /// Encoded/decoded by serializers as &quot;NSUP&quot;.
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_KT7XoH1DEeCF8NjrBemJWQ_-1338636500")]
@@ -93,7 +93,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Data transferred has a wrong digital signature.
-    /// Encoded/decoded by serializers as "SIGE".
+    /// Encoded/decoded by serializers as &quot;SIGE&quot;.
     /// </summary>
     [EnumMember(Value = "SIGE")]
     [IsoId("_KT7XoX1DEeCF8NjrBemJWQ_-1724818487")]
@@ -102,7 +102,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Action was successfully performed.
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_KT7Xon1DEeCF8NjrBemJWQ_764235056")]
@@ -111,7 +111,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Data transferred has a wrong syntax.
-    /// Encoded/decoded by serializers as "SYNE".
+    /// Encoded/decoded by serializers as &quot;SYNE&quot;.
     /// </summary>
     [EnumMember(Value = "SYNE")]
     [IsoId("_KT7Xo31DEeCF8NjrBemJWQ_1816440546")]
@@ -120,7 +120,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Timeout expired during the data transfer.
-    /// Encoded/decoded by serializers as "TIMO".
+    /// Encoded/decoded by serializers as &quot;TIMO&quot;.
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_KT7XpH1DEeCF8NjrBemJWQ_1358492660")]
@@ -129,7 +129,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Data set identification invalid.
-    /// Encoded/decoded by serializers as "UKDT".
+    /// Encoded/decoded by serializers as &quot;UKDT&quot;.
     /// </summary>
     [EnumMember(Value = "UKDT")]
     [IsoId("_KT7XpX1DEeCF8NjrBemJWQ_939812179")]
@@ -138,7 +138,7 @@ public enum TerminalManagementActionResult1Code
     
     /// <summary>
     /// Cryptographic key reference used for the data signature is not valid.
-    /// Encoded/decoded by serializers as "UKRF".
+    /// Encoded/decoded by serializers as &quot;UKRF&quot;.
     /// </summary>
     [EnumMember(Value = "UKRF")]
     [IsoId("_KT7Xpn1DEeCF8NjrBemJWQ_1526031104")]

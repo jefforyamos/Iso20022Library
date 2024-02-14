@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies prices related to a corporate action option.
 /// </summary>
 [IsoId("_k9pQ4c3xEee5nJBZsW8MFQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPrice69
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
     [IsoId("_k9pQ5c3xEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Lieu Of Share Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInLieuOfShrPric")]
     #endif
+    [IsoXmlTag("CshInLieuOfShrPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat57Choice_? CashInLieuOfSharePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPrice69
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
     [IsoId("_k9pQ7c3xEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Over Subscription Deposit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OverSbcptDpstPric")]
     #endif
+    [IsoXmlTag("OverSbcptDpstPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat57Choice_? OverSubscriptionDepositPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionPrice69
     /// Maximum cash amount that may be instructed.
     /// </summary>
     [IsoId("_k9pQ9c3xEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Cash To Instruct")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxCshToInst")]
     #endif
+    [IsoXmlTag("MaxCshToInst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat62Choice_? MaximumCashToInstruct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionPrice69
     /// Minimum cash amount that may be instructed.
     /// </summary>
     [IsoId("_k9pQ983xEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Cash To Instruct")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinCshToInst")]
     #endif
+    [IsoXmlTag("MinCshToInst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat62Choice_? MinimumCashToInstruct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionPrice69
     /// Minimum multiple of a cash amount that may be instructed.
     /// </summary>
     [IsoId("_k9pQ-c3xEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Multiple Cash To Instruct")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinMltplCshToInst")]
     #endif
+    [IsoXmlTag("MinMltplCshToInst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat62Choice_? MinimumMultipleCashToInstruct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

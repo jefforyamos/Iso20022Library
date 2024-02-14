@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variable, index, benchmark or other price used in the valuation of a financial instrument.
 /// </summary>
 [IsoId("_8KUvwKs2Eeayv9XxdmMwKQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Risk Factor")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record RiskFactor1
     /// Unique identifier for the risk factor.
     /// </summary>
     [IsoId("_BrXWcKs3Eeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record RiskFactor1
     /// Assumed stress move of the associated stress item under the scenario.
     /// </summary>
     [IsoId("_EhdZ0Ks3Eeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stress Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrssSz")]
     #endif
+    [IsoXmlTag("StrssSz")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StressSize1Choice_ StressSize { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StressSize1Choice_ StressSize { get; init; } 
+    public required StressSize1Choice_ StressSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StressSize1Choice_ StressSize { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum ReportingWaiverTypeCode
 {
     /// <summary>
     /// Large-in-scale transactions. Applicable for all instruments.
-    /// Encoded/decoded by serializers as "LRGS".
+    /// Encoded/decoded by serializers as &quot;LRGS&quot;.
     /// </summary>
     [EnumMember(Value = "LRGS")]
     [IsoId("_-1R8gO8UEeSLA89yUYsVSw")]
@@ -30,7 +30,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Pre-trade waiver was for an above specific size transaction. Applicable to non-equity instruments.
-    /// Encoded/decoded by serializers as "SIZE".
+    /// Encoded/decoded by serializers as &quot;SIZE&quot;.
     /// </summary>
     [EnumMember(Value = "SIZE")]
     [IsoId("_Kgj34O8VEeSLA89yUYsVSw")]
@@ -39,7 +39,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction in illiquid financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "OILQ".
+    /// Encoded/decoded by serializers as &quot;OILQ&quot;.
     /// </summary>
     [EnumMember(Value = "OILQ")]
     [IsoId("_VeVNAe8VEeSLA89yUYsVSw")]
@@ -48,7 +48,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Pre-trade waiver was for an illiquid instrument transaction. Applicable to non-equity instruments.
-    /// Encoded/decoded by serializers as "ILQD".
+    /// Encoded/decoded by serializers as &quot;ILQD&quot;.
     /// </summary>
     [EnumMember(Value = "ILQD")]
     [IsoId("_V9420e8VEeSLA89yUYsVSw")]
@@ -57,7 +57,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Pre-trade waiver was for a reference price transaction. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "RFPT".
+    /// Encoded/decoded by serializers as &quot;RFPT&quot;.
     /// </summary>
     [EnumMember(Value = "RFPT")]
     [IsoId("_WWfkEe8VEeSLA89yUYsVSw")]
@@ -66,7 +66,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction in liquid financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "NLIQ".
+    /// Encoded/decoded by serializers as &quot;NLIQ&quot;.
     /// </summary>
     [EnumMember(Value = "NLIQ")]
     [IsoId("_oYE6Me8VEeSLA89yUYsVSw")]
@@ -75,7 +75,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Pre-trade waiver was for a negotiated transaction subject to conditions other than the current market price of that financial instruments. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "PRIC".
+    /// Encoded/decoded by serializers as &quot;PRIC&quot;.
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_pL3uoe8VEeSLA89yUYsVSw")]
@@ -84,7 +84,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Benchmark transaction.
-    /// Encoded/decoded by serializers as "BENC".
+    /// Encoded/decoded by serializers as &quot;BENC&quot;.
     /// </summary>
     [EnumMember(Value = "BENC")]
     [IsoId("_sIJwcBqBEeWZfqhJDVHHrQ")]
@@ -93,7 +93,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Agency cross transaction.
-    /// Encoded/decoded by serializers as "ACTX".
+    /// Encoded/decoded by serializers as &quot;ACTX&quot;.
     /// </summary>
     [EnumMember(Value = "ACTX")]
     [IsoId("_0OYQsBqBEeWZfqhJDVHHrQ")]
@@ -102,7 +102,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Non-price forming transactions.
-    /// Encoded/decoded by serializers as "NPFT".
+    /// Encoded/decoded by serializers as &quot;NPFT&quot;.
     /// </summary>
     [EnumMember(Value = "NPFT")]
     [IsoId("_5X-AsBqBEeWZfqhJDVHHrQ")]
@@ -111,7 +111,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Cancellations.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_RupQoBqCEeWZfqhJDVHHrQ")]
@@ -120,7 +120,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Special dividend transactions.
-    /// Encoded/decoded by serializers as "SDIV".
+    /// Encoded/decoded by serializers as &quot;SDIV&quot;.
     /// </summary>
     [EnumMember(Value = "SDIV")]
     [IsoId("_WvjlwBqCEeWZfqhJDVHHrQ")]
@@ -129,7 +129,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Amendments.
-    /// Encoded/decoded by serializers as "AMND".
+    /// Encoded/decoded by serializers as &quot;AMND&quot;.
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_YqJDIBqCEeWZfqhJDVHHrQ")]
@@ -138,7 +138,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Algorithmic transactions. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "ALGO".
+    /// Encoded/decoded by serializers as &quot;ALGO&quot;.
     /// </summary>
     [EnumMember(Value = "ALGO")]
     [IsoId("_x0nukBqCEeWZfqhJDVHHrQ")]
@@ -147,7 +147,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Transactions which have received price improvement. Applicable to equity instruments.
-    /// Encoded/decoded by serializers as "RPRI".
+    /// Encoded/decoded by serializers as &quot;RPRI&quot;.
     /// </summary>
     [EnumMember(Value = "RPRI")]
     [IsoId("_XrZGcBqDEeWZfqhJDVHHrQ")]
@@ -156,7 +156,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Duplicative trade reports.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_hzmFgBqDEeWZfqhJDVHHrQ")]
@@ -165,7 +165,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Transactions not contributing to the price discovery process.
-    /// Encoded/decoded by serializers as "TNCP".
+    /// Encoded/decoded by serializers as &quot;TNCP&quot;.
     /// </summary>
     [EnumMember(Value = "TNCP")]
     [IsoId("_6kelQEWxEeWh1Y8PiCwMhg")]
@@ -174,7 +174,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Package transaction.
-    /// Encoded/decoded by serializers as "TPAC".
+    /// Encoded/decoded by serializers as &quot;TPAC&quot;.
     /// </summary>
     [EnumMember(Value = "TPAC")]
     [IsoId("__tGr8EWxEeWh1Y8PiCwMhg")]
@@ -183,7 +183,7 @@ public enum ReportingWaiverTypeCode
     
     /// <summary>
     /// Transaction where the contract on a commodity is exchanged for the actual physical good.
-    /// Encoded/decoded by serializers as "XFPH".
+    /// Encoded/decoded by serializers as &quot;XFPH&quot;.
     /// </summary>
     [EnumMember(Value = "XFPH")]
     [IsoId("_N4PO4FyxEeWBopJHIRjb4g")]

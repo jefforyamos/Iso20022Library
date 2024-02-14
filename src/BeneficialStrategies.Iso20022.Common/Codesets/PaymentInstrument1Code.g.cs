@@ -21,7 +21,7 @@ public enum PaymentInstrument1Code
 {
     /// <summary>
     /// Direct debit instruction in which the debtor and the creditor are financial institutions.
-    /// Encoded/decoded by serializers as "BDT".
+    /// Encoded/decoded by serializers as &quot;BDT&quot;.
     /// </summary>
     [EnumMember(Value = "BDT")]
     [IsoId("_zcHKoQ93EeGeV5vP7Mvdig_1028186806")]
@@ -30,7 +30,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Funds transfer in which the debtor and the creditor are financial institutions.
-    /// Encoded/decoded by serializers as "BCT".
+    /// Encoded/decoded by serializers as &quot;BCT&quot;.
     /// </summary>
     [EnumMember(Value = "BCT")]
     [IsoId("_zcHKog93EeGeV5vP7Mvdig_914347740")]
@@ -39,7 +39,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Direct debit instruction in which the debtor or the creditor or both are non-financial institutions.
-    /// Encoded/decoded by serializers as "CDT".
+    /// Encoded/decoded by serializers as &quot;CDT&quot;.
     /// </summary>
     [EnumMember(Value = "CDT")]
     [IsoId("_zcHKow93EeGeV5vP7Mvdig_1788951959")]
@@ -48,7 +48,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Funds transfer in which the debtor or the creditor or both are non-financial institutions.
-    /// Encoded/decoded by serializers as "CCT".
+    /// Encoded/decoded by serializers as &quot;CCT&quot;.
     /// </summary>
     [EnumMember(Value = "CCT")]
     [IsoId("_zcHKpA93EeGeV5vP7Mvdig_2114069466")]
@@ -57,7 +57,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Payment instrument is a cheque. (A written order on which instructions are given to an account holder (a financial institution) to pay a stated sum to a named recipient (the payee)).
-    /// Encoded/decoded by serializers as "CHK".
+    /// Encoded/decoded by serializers as &quot;CHK&quot;.
     /// </summary>
     [EnumMember(Value = "CHK")]
     [IsoId("_zcHKpQ93EeGeV5vP7Mvdig_-221004899")]
@@ -66,7 +66,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Transfer that is a movement of cash on the books of the account servicer.
-    /// Encoded/decoded by serializers as "BKT".
+    /// Encoded/decoded by serializers as &quot;BKT&quot;.
     /// </summary>
     [EnumMember(Value = "BKT")]
     [IsoId("_zcHKpg93EeGeV5vP7Mvdig_104112608")]
@@ -75,7 +75,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Payment instrument is a debit card. (The payment originated using a debit card scheme.).
-    /// Encoded/decoded by serializers as "DCP".
+    /// Encoded/decoded by serializers as &quot;DCP&quot;.
     /// </summary>
     [EnumMember(Value = "DCP")]
     [IsoId("_zcQUkA93EeGeV5vP7Mvdig_1182132946")]
@@ -84,7 +84,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Payment instrument is a credit card. (The payment originated using a credit card scheme.).
-    /// Encoded/decoded by serializers as "CCP".
+    /// Encoded/decoded by serializers as &quot;CCP&quot;.
     /// </summary>
     [EnumMember(Value = "CCP")]
     [IsoId("_zcQUkQ93EeGeV5vP7Mvdig_-2061701278")]
@@ -93,7 +93,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Entry related to a returned or unpaid item.
-    /// Encoded/decoded by serializers as "RTI".
+    /// Encoded/decoded by serializers as &quot;RTI&quot;.
     /// </summary>
     [EnumMember(Value = "RTI")]
     [IsoId("_zcQUkg93EeGeV5vP7Mvdig_2119426952")]
@@ -102,7 +102,7 @@ public enum PaymentInstrument1Code
     
     /// <summary>
     /// Reverse entry that is the result of the cancellation of a previously booked entry.
-    /// Encoded/decoded by serializers as "CAN".
+    /// Encoded/decoded by serializers as &quot;CAN&quot;.
     /// </summary>
     [EnumMember(Value = "CAN")]
     [IsoId("_zcQUkw93EeGeV5vP7Mvdig_389397029")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Combination of two or more transactions that are reported separately but that are negotiated together as the product of a single economic agreement.
 /// </summary>
 [IsoId("_8GlqARZtEe27wrM4RUjLog")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Package")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record Package4
     /// |
     /// </summary>
     [IsoId("_8IV9gRZtEe27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Complex Trade Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmplxTradId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CmplxTradId")]
+    [IsoSimpleType(IsoSimpleType.Max100Text)]
     [StringLength(maximumLength: 100 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100Text? ComplexTradeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,15 +62,13 @@ public partial record Package4
     /// Identifier which is used to link the near leg and far leg of an FX swap per current industry practice. This identifier could distingish FX swap from other packaged transactions identified by ComplexTradeIdentification.
     /// </summary>
     [IsoId("_A9OBwBZuEe27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("FX Swap Link Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FxSwpLkId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FxSwpLkId")]
+    [IsoSimpleType(IsoSimpleType.Max100Text)]
     [StringLength(maximumLength: 100 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100Text? FXSwapLinkIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +81,11 @@ public partial record Package4
     /// Indicates the traded price of the entire package in which the reported derivative transaction is a component.
     /// </summary>
     [IsoId("_8IV9gxZtEe27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice17Choice_? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +98,11 @@ public partial record Package4
     /// Indicates the traded price (expressed as a difference between two reference prices) of the entire package in which the reported derivative transaction is a component.
     /// </summary>
     [IsoId("_8IV9hxZtEe27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sprd")]
     #endif
+    [IsoXmlTag("Sprd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice20Choice_? Spread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

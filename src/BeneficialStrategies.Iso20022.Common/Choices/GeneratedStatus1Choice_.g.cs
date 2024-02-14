@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeneratedStatus1Choice.NoSpecifiedReason))]
     [KnownType(typeof(GeneratedStatus1Choice.Reason))]
     [IsoId("_UY7GE9p-Ed-ak6NoX_4Aeg_107186789")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generated Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Response to a non financial request.
 /// </summary>
 [IsoId("_qNgYMU1BEeybj420QgWBkA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Financial Response Component")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NonFinancialResponseComponent2
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_qUPSUU1BEeybj420QgWBkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment78 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment78 Environment { get; init; } 
+    public required CardPaymentEnvironment78 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment78 Environment { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record NonFinancialResponseComponent2
     /// Response of the non financial request.
     /// </summary>
     [IsoId("_qUPSU01BEeybj420QgWBkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnCntt")]
     #endif
+    [IsoXmlTag("RspnCntt")]
     public NonFinancialResponseContentComponent2? ResponseContent { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _qUPSU01BEeybj420QgWBkA
     
@@ -85,16 +81,15 @@ public partial record NonFinancialResponseComponent2
     /// Result of the processing of the request.
     /// </summary>
     [IsoId("_qUPSVU1BEeybj420QgWBkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspn")]
     #endif
+    [IsoXmlTag("Rspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType11 Response { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType11 Response { get; init; } 
+    public required ResponseType11 Response { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType11 Response { get; init; } 
     #else
@@ -105,12 +100,11 @@ public partial record NonFinancialResponseComponent2
     /// Additional information incorporated as an extension to the message.
     /// </summary>
     [IsoId("_qUPSV01BEeybj420QgWBkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

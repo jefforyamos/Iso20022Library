@@ -21,7 +21,7 @@ public enum BookingUnit1Code
 {
     /// <summary>
     /// Each partial execution is a bookable unit.
-    /// Encoded/decoded by serializers as "EACP".
+    /// Encoded/decoded by serializers as &quot;EACP&quot;.
     /// </summary>
     [EnumMember(Value = "EACP")]
     [IsoId("_VuwQk9p-Ed-ak6NoX_4Aeg_-1874118380")]
@@ -30,7 +30,7 @@ public enum BookingUnit1Code
     
     /// <summary>
     /// Aggregate partial executions on this order, and book one trade per order.
-    /// Encoded/decoded by serializers as "AGGP".
+    /// Encoded/decoded by serializers as &quot;AGGP&quot;.
     /// </summary>
     [EnumMember(Value = "AGGP")]
     [IsoId("_VuwQlNp-Ed-ak6NoX_4Aeg_-1871346287")]
@@ -39,7 +39,7 @@ public enum BookingUnit1Code
     
     /// <summary>
     /// Aggregate executions for this symbol, side and settlement date.
-    /// Encoded/decoded by serializers as "AGGE".
+    /// Encoded/decoded by serializers as &quot;AGGE&quot;.
     /// </summary>
     [EnumMember(Value = "AGGE")]
     [IsoId("_VuwQldp-Ed-ak6NoX_4Aeg_-1861189086")]

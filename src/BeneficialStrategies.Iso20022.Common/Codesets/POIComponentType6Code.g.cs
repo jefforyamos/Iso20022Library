@@ -21,7 +21,7 @@ public enum POIComponentType6Code
 {
     /// <summary>
     /// Parameters for acquirer interface of the point of interaction, including acquirer host configuration parameters.
-    /// Encoded/decoded by serializers as "AQPP".
+    /// Encoded/decoded by serializers as &quot;AQPP&quot;.
     /// </summary>
     [EnumMember(Value = "AQPP")]
     [IsoId("_UCslQQ1JEeqjM-rxn3HuXQ")]
@@ -30,7 +30,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Parameters of a payment application running on the point of interaction.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_UCslQw1JEeqjM-rxn3HuXQ")]
@@ -39,7 +39,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
-    /// Encoded/decoded by serializers as "TLPR".
+    /// Encoded/decoded by serializers as &quot;TLPR&quot;.
     /// </summary>
     [EnumMember(Value = "TLPR")]
     [IsoId("_UCslRQ1JEeqjM-rxn3HuXQ")]
@@ -48,7 +48,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Security parameters of the point of interaction.
-    /// Encoded/decoded by serializers as "SCPR".
+    /// Encoded/decoded by serializers as &quot;SCPR&quot;.
     /// </summary>
     [EnumMember(Value = "SCPR")]
     [IsoId("_UCslRw1JEeqjM-rxn3HuXQ")]
@@ -57,7 +57,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Payment server of a point of interaction system.
-    /// Encoded/decoded by serializers as "SERV".
+    /// Encoded/decoded by serializers as &quot;SERV&quot;.
     /// </summary>
     [EnumMember(Value = "SERV")]
     [IsoId("_UCslSQ1JEeqjM-rxn3HuXQ")]
@@ -66,7 +66,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Payment terminal point of interaction.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_UCslSw1JEeqjM-rxn3HuXQ")]
@@ -75,7 +75,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Device sub-component of a component of the point of interaction.
-    /// Encoded/decoded by serializers as "DVCE".
+    /// Encoded/decoded by serializers as &quot;DVCE&quot;.
     /// </summary>
     [EnumMember(Value = "DVCE")]
     [IsoId("_UCslTQ1JEeqjM-rxn3HuXQ")]
@@ -84,7 +84,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Security module.
-    /// Encoded/decoded by serializers as "SECM".
+    /// Encoded/decoded by serializers as &quot;SECM&quot;.
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_UCslTw1JEeqjM-rxn3HuXQ")]
@@ -93,7 +93,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Payment application software.
-    /// Encoded/decoded by serializers as "APLI".
+    /// Encoded/decoded by serializers as &quot;APLI&quot;.
     /// </summary>
     [EnumMember(Value = "APLI")]
     [IsoId("_UCslUQ1JEeqjM-rxn3HuXQ")]
@@ -102,7 +102,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVK".
+    /// Encoded/decoded by serializers as &quot;EMVK&quot;.
     /// </summary>
     [EnumMember(Value = "EMVK")]
     [IsoId("_UCslUw1JEeqjM-rxn3HuXQ")]
@@ -111,7 +111,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVO".
+    /// Encoded/decoded by serializers as &quot;EMVO&quot;.
     /// </summary>
     [EnumMember(Value = "EMVO")]
     [IsoId("_UCslVQ1JEeqjM-rxn3HuXQ")]
@@ -120,7 +120,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Software module of the point of interaction.
-    /// Encoded/decoded by serializers as "MDWR".
+    /// Encoded/decoded by serializers as &quot;MDWR&quot;.
     /// </summary>
     [EnumMember(Value = "MDWR")]
     [IsoId("_UCslVw1JEeqjM-rxn3HuXQ")]
@@ -129,7 +129,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Driver module of the point of interaction.
-    /// Encoded/decoded by serializers as "DRVR".
+    /// Encoded/decoded by serializers as &quot;DRVR&quot;.
     /// </summary>
     [EnumMember(Value = "DRVR")]
     [IsoId("_UCslWQ1JEeqjM-rxn3HuXQ")]
@@ -138,7 +138,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Software that manages hardware to provide common services to the applications.
-    /// Encoded/decoded by serializers as "OPST".
+    /// Encoded/decoded by serializers as &quot;OPST&quot;.
     /// </summary>
     [EnumMember(Value = "OPST")]
     [IsoId("_UCslWw1JEeqjM-rxn3HuXQ")]
@@ -147,7 +147,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MRPR".
+    /// Encoded/decoded by serializers as &quot;MRPR&quot;.
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_UCslXQ1JEeqjM-rxn3HuXQ")]
@@ -156,7 +156,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CRTF".
+    /// Encoded/decoded by serializers as &quot;CRTF&quot;.
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_UCslXw1JEeqjM-rxn3HuXQ")]
@@ -165,7 +165,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSP".
+    /// Encoded/decoded by serializers as &quot;TMSP&quot;.
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_UCslYQ1JEeqjM-rxn3HuXQ")]
@@ -174,7 +174,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Component of the Sale system.
-    /// Encoded/decoded by serializers as "SACP".
+    /// Encoded/decoded by serializers as &quot;SACP&quot;.
     /// </summary>
     [EnumMember(Value = "SACP")]
     [IsoId("_UCslYw1JEeqjM-rxn3HuXQ")]
@@ -183,7 +183,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Parameters related to the Sale to POI protocol.
-    /// Encoded/decoded by serializers as "SAPR".
+    /// Encoded/decoded by serializers as &quot;SAPR&quot;.
     /// </summary>
     [EnumMember(Value = "SAPR")]
     [IsoId("_UCslZQ1JEeqjM-rxn3HuXQ")]
@@ -192,7 +192,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Any repository used for recording log traces.
-    /// Encoded/decoded by serializers as "LOGF".
+    /// Encoded/decoded by serializers as &quot;LOGF&quot;.
     /// </summary>
     [EnumMember(Value = "LOGF")]
     [IsoId("_NU6h0Q1NEeqjM-rxn3HuXQ")]
@@ -201,7 +201,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Media file managed by an application of the POI.
-    /// Encoded/decoded by serializers as "MDFL".
+    /// Encoded/decoded by serializers as &quot;MDFL&quot;.
     /// </summary>
     [EnumMember(Value = "MDFL")]
     [IsoId("_XsvRQQ1NEeqjM-rxn3HuXQ")]
@@ -210,7 +210,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Payment or other software application.
-    /// Encoded/decoded by serializers as "SOFT".
+    /// Encoded/decoded by serializers as &quot;SOFT&quot;.
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_ZOhNEQ1NEeqjM-rxn3HuXQ")]
@@ -219,7 +219,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Configuration file relevant for the POI.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_eaydoQ1NEeqjM-rxn3HuXQ")]
@@ -228,7 +228,7 @@ public enum POIComponentType6Code
     
     /// <summary>
     /// Report file generated by the POI.
-    /// Encoded/decoded by serializers as "RPFL".
+    /// Encoded/decoded by serializers as &quot;RPFL&quot;.
     /// </summary>
     [EnumMember(Value = "RPFL")]
     [IsoId("_iDmXYQ1NEeqjM-rxn3HuXQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a bonus paid out or a withdrawal.
 /// </summary>
 [IsoId("_y1unsZzGEembF9M4GR6EAA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bonus Withdrawal")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BonusWithdrawal2
     /// Specifies whether the amount is the result of a bonus paid, a withdrawal or other kind of amount.
     /// </summary>
     [IsoId("_zJhGYZzGEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Of Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TpOfAmt")]
     #endif
+    [IsoXmlTag("TpOfAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
+    public required TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record BonusWithdrawal2
     /// Amount of the bonus paid or the claimed amount. For example, a claimed amount for a lifetime ISA (LISA) or a government bonus paid out.
     /// </summary>
     [IsoId("_zJhGY5zGEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record BonusWithdrawal2
     /// Reason for the bonus amount paid to or an amount withdrawn from the investment product.
     /// </summary>
     [IsoId("_zJhGZZzGEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WithdrawalReason1Choice_? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,12 @@ public partial record BonusWithdrawal2
     /// Amount of an unclaimed bonus or an unclaimed withdrawal.
     /// </summary>
     [IsoId("_zJhGZ5zGEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unclaimed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UclmdAmt")]
     #endif
+    [IsoXmlTag("UclmdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? UnclaimedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,12 @@ public partial record BonusWithdrawal2
     /// Indicates whether there is an outstanding bonus or withdrawal amount.
     /// </summary>
     [IsoId("_zJhGaZzGEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outstanding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Outsdng")]
     #endif
+    [IsoXmlTag("Outsdng")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Outstanding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,15 +139,13 @@ public partial record BonusWithdrawal2
     /// Identification of the withdrawal or bonus.
     /// </summary>
     [IsoId("_5u10kJzGEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Ref")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +158,11 @@ public partial record BonusWithdrawal2
     /// Additional information about the monies paid out or withdrawn.
     /// </summary>
     [IsoId("_zJhGa5zGEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

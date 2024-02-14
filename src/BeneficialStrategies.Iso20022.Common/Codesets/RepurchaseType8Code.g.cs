@@ -21,7 +21,7 @@ public enum RepurchaseType8Code
 {
     /// <summary>
     /// Relates to a principal adjustment.
-    /// Encoded/decoded by serializers as "PADJ".
+    /// Encoded/decoded by serializers as &quot;PADJ&quot;.
     /// </summary>
     [EnumMember(Value = "PADJ")]
     [IsoId("_CCDcYY-REeaVK-2bgpxeYw")]
@@ -30,7 +30,7 @@ public enum RepurchaseType8Code
     
     /// <summary>
     /// Relates to a repo rollover of a contract extending the closing or maturity date without the underlying collateral impacted.
-    /// Encoded/decoded by serializers as "ROLP".
+    /// Encoded/decoded by serializers as &quot;ROLP&quot;.
     /// </summary>
     [EnumMember(Value = "ROLP")]
     [IsoId("_CG9KgY-REeaVK-2bgpxeYw")]
@@ -39,7 +39,7 @@ public enum RepurchaseType8Code
     
     /// <summary>
     /// Is part of a pair-off.
-    /// Encoded/decoded by serializers as "RATE".
+    /// Encoded/decoded by serializers as &quot;RATE&quot;.
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("_CTApgY-REeaVK-2bgpxeYw")]
@@ -48,7 +48,7 @@ public enum RepurchaseType8Code
     
     /// <summary>
     /// Relates to the early closing/maturity date for a term repo or a termination date of an open repo with the underlying collateral.
-    /// Encoded/decoded by serializers as "CALL".
+    /// Encoded/decoded by serializers as &quot;CALL&quot;.
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_ENc88Y-REeaVK-2bgpxeYw")]

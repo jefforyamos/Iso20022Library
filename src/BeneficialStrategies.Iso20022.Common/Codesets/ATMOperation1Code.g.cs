@@ -21,7 +21,7 @@ public enum ATMOperation1Code
 {
     /// <summary>
     /// Adjust logical counters of the cassette.
-    /// Encoded/decoded by serializers as "ADJU".
+    /// Encoded/decoded by serializers as &quot;ADJU&quot;.
     /// </summary>
     [EnumMember(Value = "ADJU")]
     [IsoId("_EHHP0ehBEeSbwP3G-MV9YA")]
@@ -30,7 +30,7 @@ public enum ATMOperation1Code
     
     /// <summary>
     /// Add physically media to cassette.
-    /// Encoded/decoded by serializers as "INSR".
+    /// Encoded/decoded by serializers as &quot;INSR&quot;.
     /// </summary>
     [EnumMember(Value = "INSR")]
     [IsoId("_EQDwc-hBEeSbwP3G-MV9YA")]
@@ -39,7 +39,7 @@ public enum ATMOperation1Code
     
     /// <summary>
     /// Loading cassette.
-    /// Encoded/decoded by serializers as "LOAD".
+    /// Encoded/decoded by serializers as &quot;LOAD&quot;.
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_ERi-MehBEeSbwP3G-MV9YA")]
@@ -48,7 +48,7 @@ public enum ATMOperation1Code
     
     /// <summary>
     /// Substract physically media from cassette.
-    /// Encoded/decoded by serializers as "REMV".
+    /// Encoded/decoded by serializers as &quot;REMV&quot;.
     /// </summary>
     [EnumMember(Value = "REMV")]
     [IsoId("_EZ5B4ehBEeSbwP3G-MV9YA")]
@@ -57,7 +57,7 @@ public enum ATMOperation1Code
     
     /// <summary>
     /// Unloading cassette.
-    /// Encoded/decoded by serializers as "UNLD".
+    /// Encoded/decoded by serializers as &quot;UNLD&quot;.
     /// </summary>
     [EnumMember(Value = "UNLD")]
     [IsoId("_Ei-sc-hBEeSbwP3G-MV9YA")]

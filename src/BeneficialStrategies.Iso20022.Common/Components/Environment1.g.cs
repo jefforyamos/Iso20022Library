@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the transaction.
 /// </summary>
 [IsoId("_mKbarewKEeiMkKo2clXHdQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Environment1
     /// ISO 8583 bit 32.
     /// </summary>
     [IsoId("_mKbasOwKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acqrr")]
     #endif
+    [IsoXmlTag("Acqrr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification197 Acquirer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification197 Acquirer { get; init; } 
+    public required PartyIdentification197 Acquirer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification197 Acquirer { get; init; } 
     #else
@@ -74,12 +71,11 @@ public partial record Environment1
     /// ISO 8583 bit 33
     /// </summary>
     [IsoId("_mKbauewKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sndr")]
     #endif
+    [IsoXmlTag("Sndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Sender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +89,11 @@ public partial record Environment1
     /// ISO 8583 bit 100.
     /// </summary>
     [IsoId("_mKbas-wKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcvr")]
     #endif
+    [IsoXmlTag("Rcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Receiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +106,11 @@ public partial record Environment1
     /// Card acceptor performing the card transaction.
     /// </summary>
     [IsoId("_mKbatewKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acceptor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Accptr")]
     #endif
+    [IsoXmlTag("Accptr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification203? Acceptor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +123,11 @@ public partial record Environment1
     /// Person initiating a payment to the benefit of a payee.
     /// </summary>
     [IsoId("_mKbatuwKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pyer")]
     #endif
+    [IsoXmlTag("Pyer")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification211? Payer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +141,11 @@ public partial record Environment1
     /// ISO 8583:87/93/2003 bit 98
     /// </summary>
     [IsoId("_mKbaruwKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pyee")]
     #endif
+    [IsoXmlTag("Pyee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification211? Payee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,12 +158,11 @@ public partial record Environment1
     /// Payment terminal or ATM performing the transaction.
     /// </summary>
     [IsoId("_mKbatOwKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Termnl")]
     #endif
+    [IsoXmlTag("Termnl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Terminal1? Terminal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -184,16 +175,15 @@ public partial record Environment1
     /// Card or payment token performing the transaction.
     /// </summary>
     [IsoId("_mKbat-wKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Card")]
     #endif
+    [IsoXmlTag("Card")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardData1 Card { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardData1 Card { get; init; } 
+    public required CardData1 Card { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardData1 Card { get; init; } 
     #else
@@ -204,12 +194,11 @@ public partial record Environment1
     /// Identification of the customer device performing the transaction.
     /// </summary>
     [IsoId("_mKbar-wKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Device")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrDvc")]
     #endif
+    [IsoXmlTag("CstmrDvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerDevice2? CustomerDevice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,12 +211,11 @@ public partial record Environment1
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
     [IsoId("_mKbauOwKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Wllt")]
     #endif
+    [IsoXmlTag("Wllt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Wallet1? Wallet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,12 +228,11 @@ public partial record Environment1
     /// Details of payment token.
     /// </summary>
     [IsoId("_mKbasewKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tkn")]
     #endif
+    [IsoXmlTag("Tkn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Token1? Token { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -258,12 +245,11 @@ public partial record Environment1
     /// Cardholder performing the card payment transaction.
     /// </summary>
     [IsoId("_mKbasuwKEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Crdhldr")]
     #endif
+    [IsoXmlTag("Crdhldr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Cardholder15? Cardholder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

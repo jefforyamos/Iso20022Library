@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PlaceOrUnderConfirmationChoice1.PlaceOfPresentation))]
     [KnownType(typeof(PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation))]
     [IsoId("_97kuEnltEeG7BsjMvd1mEw_-1026438563")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Or Under Confirmation Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

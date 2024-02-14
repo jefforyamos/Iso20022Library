@@ -21,7 +21,7 @@ public enum TransactionReasonCode
 {
     /// <summary>
     /// Format of the account number specified is not correct.
-    /// Encoded/decoded by serializers as "AC01".
+    /// Encoded/decoded by serializers as &quot;AC01&quot;.
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_YsS_xtp-Ed-ak6NoX_4Aeg_-371166097")]
@@ -30,7 +30,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Format of the account number specified is non-numeric.
-    /// Encoded/decoded by serializers as "AC02".
+    /// Encoded/decoded by serializers as &quot;AC02&quot;.
     /// </summary>
     [EnumMember(Value = "AC02")]
     [IsoId("_YsS_x9p-Ed-ak6NoX_4Aeg_-371166037")]
@@ -39,7 +39,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Format of the account number specified is not valid for local Sort/National Clearing Code.
-    /// Encoded/decoded by serializers as "AC03".
+    /// Encoded/decoded by serializers as &quot;AC03&quot;.
     /// </summary>
     [EnumMember(Value = "AC03")]
     [IsoId("_YsS_yNp-Ed-ak6NoX_4Aeg_-371166002")]
@@ -47,8 +47,8 @@ public enum TransactionReasonCode
     InvalidAccountNumberForClearingCode,
     
     /// <summary>
-    /// Account number specified has been closed on the Receiver's books.
-    /// Encoded/decoded by serializers as "AC04".
+    /// Account number specified has been closed on the Receiver&apos;s books.
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_YsS_ydp-Ed-ak6NoX_4Aeg_-371165924")]
@@ -57,7 +57,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Account number specified is not a valid account at the Final Agent.
-    /// Encoded/decoded by serializers as "AC05".
+    /// Encoded/decoded by serializers as &quot;AC05&quot;.
     /// </summary>
     [EnumMember(Value = "AC05")]
     [IsoId("_YscJsNp-Ed-ak6NoX_4Aeg_-371165882")]
@@ -66,7 +66,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "AC06".
+    /// Encoded/decoded by serializers as &quot;AC06&quot;.
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_YscJsdp-Ed-ak6NoX_4Aeg_-371165611")]
@@ -75,7 +75,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Specified message amount is equal to zero.
-    /// Encoded/decoded by serializers as "AM01".
+    /// Encoded/decoded by serializers as &quot;AM01&quot;.
     /// </summary>
     [EnumMember(Value = "AM01")]
     [IsoId("_YscJstp-Ed-ak6NoX_4Aeg_-371165509")]
@@ -84,7 +84,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Specified transaction/message amount is greater than allowed maximum.
-    /// Encoded/decoded by serializers as "AM02".
+    /// Encoded/decoded by serializers as &quot;AM02&quot;.
     /// </summary>
     [EnumMember(Value = "AM02")]
     [IsoId("_YscJs9p-Ed-ak6NoX_4Aeg_-371165183")]
@@ -93,7 +93,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Specified message amount is in an non processable currency outside of existing agreement.
-    /// Encoded/decoded by serializers as "AM03".
+    /// Encoded/decoded by serializers as &quot;AM03&quot;.
     /// </summary>
     [EnumMember(Value = "AM03")]
     [IsoId("_YscJtNp-Ed-ak6NoX_4Aeg_-371165123")]
@@ -102,7 +102,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
-    /// Encoded/decoded by serializers as "AM04".
+    /// Encoded/decoded by serializers as &quot;AM04&quot;.
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_YscJtdp-Ed-ak6NoX_4Aeg_-371165071")]
@@ -111,7 +111,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// This message appears to have been duplicated.
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_YscJttp-Ed-ak6NoX_4Aeg_-371165011")]
@@ -120,7 +120,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Specified transaction amount is less than agreed minimum.
-    /// Encoded/decoded by serializers as "AM06".
+    /// Encoded/decoded by serializers as &quot;AM06&quot;.
     /// </summary>
     [EnumMember(Value = "AM06")]
     [IsoId("_YscJt9p-Ed-ak6NoX_4Aeg_-371164951")]
@@ -129,7 +129,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Amount specified in message has been blocked by regulatory authorities.
-    /// Encoded/decoded by serializers as "AM07".
+    /// Encoded/decoded by serializers as &quot;AM07&quot;.
     /// </summary>
     [EnumMember(Value = "AM07")]
     [IsoId("_YscJuNp-Ed-ak6NoX_4Aeg_-371164656")]
@@ -138,7 +138,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Specified charges amount is not as agreed between sender and receiver.
-    /// Encoded/decoded by serializers as "AM08".
+    /// Encoded/decoded by serializers as &quot;AM08&quot;.
     /// </summary>
     [EnumMember(Value = "AM08")]
     [IsoId("_YscJudp-Ed-ak6NoX_4Aeg_-371164596")]
@@ -147,7 +147,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).
-    /// Encoded/decoded by serializers as "BE01".
+    /// Encoded/decoded by serializers as &quot;BE01&quot;.
     /// </summary>
     [EnumMember(Value = "BE01")]
     [IsoId("_Ysl6sNp-Ed-ak6NoX_4Aeg_-371164544")]
@@ -156,7 +156,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Creditor specified is not known at associated Sort/National Clearing code.
-    /// Encoded/decoded by serializers as "BE02".
+    /// Encoded/decoded by serializers as &quot;BE02&quot;.
     /// </summary>
     [EnumMember(Value = "BE02")]
     [IsoId("_Ysl6sdp-Ed-ak6NoX_4Aeg_-370244477")]
@@ -165,7 +165,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Creditor specified no longer exists in the books.
-    /// Encoded/decoded by serializers as "BE03".
+    /// Encoded/decoded by serializers as &quot;BE03&quot;.
     /// </summary>
     [EnumMember(Value = "BE03")]
     [IsoId("_Ysl6stp-Ed-ak6NoX_4Aeg_-370244322")]
@@ -173,8 +173,8 @@ public enum TransactionReasonCode
     NoLongerValidCreditor,
     
     /// <summary>
-    /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
-    /// Encoded/decoded by serializers as "BE04".
+    /// Specification of creditor&apos;s address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
+    /// Encoded/decoded by serializers as &quot;BE04&quot;.
     /// </summary>
     [EnumMember(Value = "BE04")]
     [IsoId("_Ysl6s9p-Ed-ak6NoX_4Aeg_-370244020")]
@@ -183,7 +183,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Party who initiated the message is not recognised by the end customer.
-    /// Encoded/decoded by serializers as "BE05".
+    /// Encoded/decoded by serializers as &quot;BE05&quot;.
     /// </summary>
     [EnumMember(Value = "BE05")]
     [IsoId("_Ysl6tNp-Ed-ak6NoX_4Aeg_-370243925")]
@@ -192,7 +192,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Transaction forbidden on this type of account (formerly NoAgreement).
-    /// Encoded/decoded by serializers as "AG01".
+    /// Encoded/decoded by serializers as &quot;AG01&quot;.
     /// </summary>
     [EnumMember(Value = "AG01")]
     [IsoId("_Ysl6tdp-Ed-ak6NoX_4Aeg_-370243865")]
@@ -201,7 +201,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver.
-    /// Encoded/decoded by serializers as "AG02".
+    /// Encoded/decoded by serializers as &quot;AG02&quot;.
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_Ysl6ttp-Ed-ak6NoX_4Aeg_-370243522")]
@@ -210,7 +210,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Invalid date (eg, wrong settlement date).
-    /// Encoded/decoded by serializers as "DT01".
+    /// Encoded/decoded by serializers as &quot;DT01&quot;.
     /// </summary>
     [EnumMember(Value = "DT01")]
     [IsoId("_Ysl6t9p-Ed-ak6NoX_4Aeg_-370243427")]
@@ -219,7 +219,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Reason has not been specified due to sensitivities.
-    /// Encoded/decoded by serializers as "MS01".
+    /// Encoded/decoded by serializers as &quot;MS01&quot;.
     /// </summary>
     [EnumMember(Value = "MS01")]
     [IsoId("_Ysl6uNp-Ed-ak6NoX_4Aeg_-370243331")]
@@ -228,7 +228,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Unknown account with institution.
-    /// Encoded/decoded by serializers as "PY01".
+    /// Encoded/decoded by serializers as &quot;PY01&quot;.
     /// </summary>
     [EnumMember(Value = "PY01")]
     [IsoId("_Ysl6udp-Ed-ak6NoX_4Aeg_-370243012")]
@@ -237,7 +237,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Transaction reference is not unique within the message.
-    /// Encoded/decoded by serializers as "RF01".
+    /// Encoded/decoded by serializers as &quot;RF01&quot;.
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_YsvrsNp-Ed-ak6NoX_4Aeg_-370242959")]
@@ -246,7 +246,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
-    /// Encoded/decoded by serializers as "RC01".
+    /// Encoded/decoded by serializers as &quot;RC01&quot;.
     /// </summary>
     [EnumMember(Value = "RC01")]
     [IsoId("_Ysvrsdp-Ed-ak6NoX_4Aeg_-370242609")]
@@ -255,7 +255,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Routing code specified in the transaction/message is not numeric.
-    /// Encoded/decoded by serializers as "RC02".
+    /// Encoded/decoded by serializers as &quot;RC02&quot;.
     /// </summary>
     [EnumMember(Value = "RC02")]
     [IsoId("_Ysvrstp-Ed-ak6NoX_4Aeg_-370242531")]
@@ -264,7 +264,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Routing code specified in the transaction/message is not valid for local clearing.
-    /// Encoded/decoded by serializers as "RC03".
+    /// Encoded/decoded by serializers as &quot;RC03&quot;.
     /// </summary>
     [EnumMember(Value = "RC03")]
     [IsoId("_Ysvrs9p-Ed-ak6NoX_4Aeg_-370242436")]
@@ -273,7 +273,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Routing code specified in the transaction/message refers to a closed branch.
-    /// Encoded/decoded by serializers as "RC04".
+    /// Encoded/decoded by serializers as &quot;RC04&quot;.
     /// </summary>
     [EnumMember(Value = "RC04")]
     [IsoId("_YsvrtNp-Ed-ak6NoX_4Aeg_-370242341")]
@@ -282,7 +282,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Associated message was received after agreed processing cut-off time.
-    /// Encoded/decoded by serializers as "TM01".
+    /// Encoded/decoded by serializers as &quot;TM01&quot;.
     /// </summary>
     [EnumMember(Value = "TM01")]
     [IsoId("_Ysvrtdp-Ed-ak6NoX_4Aeg_-370242047")]
@@ -291,7 +291,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Correspondent bank not possible.
-    /// Encoded/decoded by serializers as "ED01".
+    /// Encoded/decoded by serializers as &quot;ED01&quot;.
     /// </summary>
     [EnumMember(Value = "ED01")]
     [IsoId("_Ysvrttp-Ed-ak6NoX_4Aeg_-370241927")]
@@ -300,7 +300,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Transaction reason non reportable.
-    /// Encoded/decoded by serializers as "ED02".
+    /// Encoded/decoded by serializers as &quot;ED02&quot;.
     /// </summary>
     [EnumMember(Value = "ED02")]
     [IsoId("_Ysvrt9p-Ed-ak6NoX_4Aeg_-370241584")]
@@ -309,7 +309,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Balance of payments complementary info is requested.
-    /// Encoded/decoded by serializers as "ED03".
+    /// Encoded/decoded by serializers as &quot;ED03&quot;.
     /// </summary>
     [EnumMember(Value = "ED03")]
     [IsoId("_YsvruNp-Ed-ak6NoX_4Aeg_-370241489")]
@@ -318,7 +318,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Charge details not correct.
-    /// Encoded/decoded by serializers as "ED04".
+    /// Encoded/decoded by serializers as &quot;ED04&quot;.
     /// </summary>
     [EnumMember(Value = "ED04")]
     [IsoId("_Ysvrudp-Ed-ak6NoX_4Aeg_-370241369")]
@@ -327,7 +327,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "MS03".
+    /// Encoded/decoded by serializers as &quot;MS03&quot;.
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_Ysvrutp-Ed-ak6NoX_4Aeg_1015961068")]
@@ -336,7 +336,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Reason has not been specified by end customer.
-    /// Encoded/decoded by serializers as "MS02".
+    /// Encoded/decoded by serializers as &quot;MS02&quot;.
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_Ys41oNp-Ed-ak6NoX_4Aeg_1030740222")]
@@ -345,7 +345,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// End customer specified is not known at associated Sort/National Bank Code or does no longer exist in the books.
-    /// Encoded/decoded by serializers as "BE06".
+    /// Encoded/decoded by serializers as &quot;BE06&quot;.
     /// </summary>
     [EnumMember(Value = "BE06")]
     [IsoId("_Ys41odp-Ed-ak6NoX_4Aeg_1473105324")]
@@ -353,8 +353,8 @@ public enum TransactionReasonCode
     UnknownEndCustomer,
     
     /// <summary>
-    /// Specification of debtor's address, which is required for payment, is missing/not correct.
-    /// Encoded/decoded by serializers as "BE07".
+    /// Specification of debtor&apos;s address, which is required for payment, is missing/not correct.
+    /// Encoded/decoded by serializers as &quot;BE07&quot;.
     /// </summary>
     [EnumMember(Value = "BE07")]
     [IsoId("_Ys41otp-Ed-ak6NoX_4Aeg_1904390558")]
@@ -363,7 +363,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Amount received is not the amount agreed or expected.
-    /// Encoded/decoded by serializers as "AM09".
+    /// Encoded/decoded by serializers as &quot;AM09&quot;.
     /// </summary>
     [EnumMember(Value = "AM09")]
     [IsoId("_Ys41o9p-Ed-ak6NoX_4Aeg_-1889107065")]
@@ -372,7 +372,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Sum of instructed amounts does not equal the control sum.
-    /// Encoded/decoded by serializers as "AM10".
+    /// Encoded/decoded by serializers as &quot;AM10&quot;.
     /// </summary>
     [EnumMember(Value = "AM10")]
     [IsoId("_Ys41pNp-Ed-ak6NoX_4Aeg_-1564026693")]
@@ -381,7 +381,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Mandate is cancelled or invalid.
-    /// Encoded/decoded by serializers as "MD01".
+    /// Encoded/decoded by serializers as &quot;MD01&quot;.
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_Ys41pdp-Ed-ak6NoX_4Aeg_-1003449105")]
@@ -390,7 +390,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Mandate related information data required by the scheme is missing.
-    /// Encoded/decoded by serializers as "MD02".
+    /// Encoded/decoded by serializers as &quot;MD02&quot;.
     /// </summary>
     [EnumMember(Value = "MD02")]
     [IsoId("_Ys41ptp-Ed-ak6NoX_4Aeg_-900939252")]
@@ -399,7 +399,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// File format incomplete or invalid.
-    /// Encoded/decoded by serializers as "MD03".
+    /// Encoded/decoded by serializers as &quot;MD03&quot;.
     /// </summary>
     [EnumMember(Value = "MD03")]
     [IsoId("_Ys41p9p-Ed-ak6NoX_4Aeg_-604488852")]
@@ -408,7 +408,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// File format incorrect in terms of grouping indicator.
-    /// Encoded/decoded by serializers as "MD04".
+    /// Encoded/decoded by serializers as &quot;MD04&quot;.
     /// </summary>
     [EnumMember(Value = "MD04")]
     [IsoId("_Ys41qNp-Ed-ak6NoX_4Aeg_-286797660")]
@@ -417,7 +417,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Return of funds requested by end customer.
-    /// Encoded/decoded by serializers as "MD06".
+    /// Encoded/decoded by serializers as &quot;MD06&quot;.
     /// </summary>
     [EnumMember(Value = "MD06")]
     [IsoId("_YtCmoNp-Ed-ak6NoX_4Aeg_-83623586")]
@@ -426,7 +426,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// End customer is deceased.
-    /// Encoded/decoded by serializers as "MD07".
+    /// Encoded/decoded by serializers as &quot;MD07&quot;.
     /// </summary>
     [EnumMember(Value = "MD07")]
     [IsoId("_YtCmodp-Ed-ak6NoX_4Aeg_197126350")]
@@ -434,8 +434,8 @@ public enum TransactionReasonCode
     EndCustomerDeceased,
     
     /// <summary>
-    /// Creditor or creditor's agent should not have collected the direct debit.
-    /// Encoded/decoded by serializers as "MD05".
+    /// Creditor or creditor&apos;s agent should not have collected the direct debit.
+    /// Encoded/decoded by serializers as &quot;MD05&quot;.
     /// </summary>
     [EnumMember(Value = "MD05")]
     [IsoId("_YtCmotp-Ed-ak6NoX_4Aeg_338428408")]
@@ -444,7 +444,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Name provided is not valid.
-    /// Encoded/decoded by serializers as "AC07".
+    /// Encoded/decoded by serializers as &quot;AC07&quot;.
     /// </summary>
     [EnumMember(Value = "AC07")]
     [IsoId("_YtCmo9p-Ed-ak6NoX_4Aeg_-275055644")]
@@ -453,7 +453,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Settlement of the transaction has failed.
-    /// Encoded/decoded by serializers as "ED05".
+    /// Encoded/decoded by serializers as &quot;ED05&quot;.
     /// </summary>
     [EnumMember(Value = "ED05")]
     [IsoId("_YtCmpNp-Ed-ak6NoX_4Aeg_-1585165125")]
@@ -462,7 +462,7 @@ public enum TransactionReasonCode
     
     /// <summary>
     /// Reason is provided as narrative information in the additional reason information.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_YtCmpdp-Ed-ak6NoX_4Aeg_-1585164368")]

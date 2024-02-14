@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus1Ch
     /// Instruction has been cancelled (only as an response to an SecuritiesTransactionStatusQuery). The status on the processing of a cancellation request must be provided using a SecuritiesTransactionCancellationRequestStatusAdvice.
     /// </summary>
     [IsoId("_UW_MYtp-Ed-ak6NoX_4Aeg_1567854925")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancelled")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

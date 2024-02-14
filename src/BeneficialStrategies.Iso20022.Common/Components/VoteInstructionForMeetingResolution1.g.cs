@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Vote instruction applying to resolutions added during the meeting.
 /// </summary>
 [IsoId("_TLJEUNp-Ed-ak6NoX_4Aeg_1597899369")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote Instruction For Meeting Resolution")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record VoteInstructionForMeetingResolution1
     /// Specifies the vote recommendation for resolutions added during the meeting.
     /// </summary>
     [IsoId("_TLJEUdp-Ed-ak6NoX_4Aeg_1597899371")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteIndctn")]
     #endif
+    [IsoXmlTag("VoteIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VoteInstructionAtMeeting1Code VoteIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VoteInstructionAtMeeting1Code VoteIndication { get; init; } 
+    public required VoteInstructionAtMeeting1Code VoteIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VoteInstructionAtMeeting1Code VoteIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record VoteInstructionForMeetingResolution1
     /// Specifies the name and address of the shareholder to whom the rights to vote are transferred for resolutions added during the meeting.
     /// </summary>
     [IsoId("_TLJEUtp-Ed-ak6NoX_4Aeg_1597899431")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shareholder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Shrhldr")]
     #endif
+    [IsoXmlTag("Shrhldr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NameAndAddress9 Shareholder { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NameAndAddress9 Shareholder { get; init; } 
+    public required NameAndAddress9 Shareholder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NameAndAddress9 Shareholder { get; init; } 
     #else

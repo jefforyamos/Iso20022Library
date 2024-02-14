@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeConfirmation2Choice.Confirmed))]
     [KnownType(typeof(TradeConfirmation2Choice.NonConfirmed))]
     [IsoId("_qQg6EQFXEeaDfK-zDSyB6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Confirmation 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

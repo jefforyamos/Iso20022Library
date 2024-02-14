@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Provides detailed information on the transaction and it's status as updated in the tracker.
+/// Provides detailed information on the transaction and it&apos;s status as updated in the tracker.
 /// </summary>
 [IsoId("_nz76AWRPEeqImsG9JNoSQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Status And Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record TrackerStatusAndTransaction7
     /// Provides detailed information on the transaction status to be updated in the tracker.
     /// </summary>
     [IsoId("_n7bpIWRPEeqImsG9JNoSQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerStatus2? TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record TrackerStatusAndTransaction7
     /// Provides detailed information on the alert notification in the tracker.
     /// </summary>
     [IsoId("_n7bpI2RPEeqImsG9JNoSQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alert Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AlrtSts")]
     #endif
+    [IsoXmlTag("AlrtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerAlertNotificationStatus1 AlertStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerAlertNotificationStatus1 AlertStatus { get; init; } 
+    public required TrackerAlertNotificationStatus1 AlertStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerAlertNotificationStatus1 AlertStatus { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record TrackerStatusAndTransaction7
     /// Key elements used to identify the original transaction(s) that is being referred to.
     /// </summary>
     [IsoId("_n7bpJWRPEeqImsG9JNoSQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     public TrackerPaymentTransaction7? Transaction { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _n7bpJWRPEeqImsG9JNoSQw
     

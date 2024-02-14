@@ -21,7 +21,7 @@ public enum PartyType9Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_-H_xIXrTEeSfJf8ETXpBxg")]
@@ -30,7 +30,7 @@ public enum PartyType9Code
     
     /// <summary>
     /// Entity providing acquiring card payment processing services on behalf on an acquirer.
-    /// Encoded/decoded by serializers as "ACQP".
+    /// Encoded/decoded by serializers as &quot;ACQP&quot;.
     /// </summary>
     [EnumMember(Value = "ACQP")]
     [IsoId("_-SnFsXrTEeSfJf8ETXpBxg")]
@@ -39,7 +39,7 @@ public enum PartyType9Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_-mj8cXrTEeSfJf8ETXpBxg")]
@@ -48,7 +48,7 @@ public enum PartyType9Code
     
     /// <summary>
     /// Entity providing issuing card payment processing services on behalf on an issuer.
-    /// Encoded/decoded by serializers as "CISP".
+    /// Encoded/decoded by serializers as &quot;CISP&quot;.
     /// </summary>
     [EnumMember(Value = "CISP")]
     [IsoId("_-v1NMXrTEeSfJf8ETXpBxg")]
@@ -57,7 +57,7 @@ public enum PartyType9Code
     
     /// <summary>
     /// Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "CSCH".
+    /// Encoded/decoded by serializers as &quot;CSCH&quot;.
     /// </summary>
     [EnumMember(Value = "CSCH")]
     [IsoId("_-5uJAXrTEeSfJf8ETXpBxg")]
@@ -66,7 +66,7 @@ public enum PartyType9Code
     
     /// <summary>
     /// Entity providing card payment processing services acting on behalf of a card scheme.
-    /// Encoded/decoded by serializers as "SCHP".
+    /// Encoded/decoded by serializers as &quot;SCHP&quot;.
     /// </summary>
     [EnumMember(Value = "SCHP")]
     [IsoId("_AAaEQXrUEeSfJf8ETXpBxg")]

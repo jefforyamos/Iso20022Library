@@ -42,9 +42,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|An account servicer sends a IntraPositionMovementConfirmation to an account owner to confirm the movement of securities within its holding from one sub-balance to another, for example, blocking of securities. |The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or |- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.")]
 [IsoId("_M_D64ZwxEeazcsnODTksnQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Position Movement Confirmation 002 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -89,12 +87,11 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     /// Additional parameters to the transaction.
     /// </summary>
     [IsoId("_M_D645wxEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlParams")]
     #endif
+    [IsoXmlTag("AddtlParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalParameters25? AdditionalParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,11 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_M_D65ZwxEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification103Choice_? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,16 +121,15 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_M_D655wxEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount27 SafekeepingAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount27 SafekeepingAccount { get; init; } 
+    public required SecuritiesAccount27 SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount27 SafekeepingAccount { get; init; } 
     #else
@@ -145,12 +140,11 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
     [IsoId("_M_D66ZwxEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgPlc")]
     #endif
+    [IsoXmlTag("SfkpgPlc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingPlaceFormat17Choice_? SafekeepingPlace { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,16 +157,15 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
     [IsoId("_M_D665wxEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -183,12 +176,11 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     /// Elements characterising a financial instrument.
     /// </summary>
     [IsoId("_M_D67ZwxEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmAttrbts")]
     #endif
+    [IsoXmlTag("FinInstrmAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributes75? FinancialInstrumentAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,16 +193,15 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     /// Intra-position movement transaction details.
     /// </summary>
     [IsoId("_M_D675wxEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Position Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraPosDtls")]
     #endif
+    [IsoXmlTag("IntraPosDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraPositionDetails43 IntraPositionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IntraPositionDetails43 IntraPositionDetails { get; init; } 
+    public required IntraPositionDetails43 IntraPositionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IntraPositionDetails43 IntraPositionDetails { get; init; } 
     #else
@@ -221,12 +212,11 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_M_D68ZwxEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,7 +229,7 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IntraPositionMovementConfirmation002V06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IntraPositionMovementConfirmation002V06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IntraPositionMovementConfirmation002V06Document ToDocument()
     {
@@ -249,7 +239,7 @@ public partial record IntraPositionMovementConfirmation002V06 : IOuterRecord<Int
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraPositionMovementConfirmation002V06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IntraPositionMovementConfirmation002V06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IntraPositionMovementConfirmation002V06Document : IOuterDocument<IntraPositionMovementConfirmation002V06>
@@ -266,7 +256,7 @@ public partial record IntraPositionMovementConfirmation002V06Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IntraPositionMovementConfirmation002V06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IntraPositionMovementConfirmation002V06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraPositionMovementConfirmation002V06 Message { get; init; }

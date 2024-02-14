@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentification2Choice
 {
     /// <summary>
-    /// New Zealand Bank/Branch Code - identifies New Zealand institutions on the New Zealand national clearing system. The code is assigned by the New Zealand Bankers' Association (NZBA).
+    /// New Zealand Bank/Branch Code - identifies New Zealand institutions on the New Zealand national clearing system. The code is assigned by the New Zealand Bankers&apos; Association (NZBA).
     /// </summary>
     [IsoId("_TC8KkNp-Ed-ak6NoX_4Aeg_1989939487")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Zealand NCC Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,17 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         
         /// <summary>
         /// Contains the main value for the container.
-        /// New Zealand Bank/Branch Code. Identifies New Zealand institutions on the New Zealand national clearing system. The code is assigned by the New Zealand Bankers' Association (NZBA).
+        /// New Zealand Bank/Branch Code. Identifies New Zealand institutions on the New Zealand national clearing system. The code is assigned by the New Zealand Bankers&apos; Association (NZBA).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NZNCC")]
         #endif
+        [IsoXmlTag("NZNCC")]
+        [IsoSimpleType(IsoSimpleType.NewZealandNCCIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNewZealandNCCIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum BusinessFlowTypeCode
 {
     /// <summary>
     /// Single leg process initiated by the delivering party.
-    /// Encoded/decoded by serializers as "SLDP".
+    /// Encoded/decoded by serializers as &quot;SLDP&quot;.
     /// </summary>
     [EnumMember(Value = "SLDP")]
     [IsoId("_HgklF_sMEeCZF5_uug7xyA")]
@@ -30,7 +30,7 @@ public enum BusinessFlowTypeCode
     
     /// <summary>
     /// Single leg process initiated by the receiving party.
-    /// Encoded/decoded by serializers as "SLRP".
+    /// Encoded/decoded by serializers as &quot;SLRP&quot;.
     /// </summary>
     [EnumMember(Value = "SLRP")]
     [IsoId("_SCRpR_sMEeCZF5_uug7xyA")]
@@ -39,7 +39,7 @@ public enum BusinessFlowTypeCode
     
     /// <summary>
     /// Double leg process.
-    /// Encoded/decoded by serializers as "DLPR".
+    /// Encoded/decoded by serializers as &quot;DLPR&quot;.
     /// </summary>
     [EnumMember(Value = "DLPR")]
     [IsoId("_ZA4aJ_sMEeCZF5_uug7xyA")]

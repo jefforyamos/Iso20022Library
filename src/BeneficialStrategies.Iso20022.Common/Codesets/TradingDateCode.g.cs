@@ -21,7 +21,7 @@ public enum TradingDateCode
 {
     /// <summary>
     /// Partial trades have occurred over a period of two or more days.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("__ztF4tojEeC60axPepSq7g_-94040938")]

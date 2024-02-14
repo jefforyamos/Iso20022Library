@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EncryptedData1Choice
     /// BASE-64 encoded encrypted data.
     /// </summary>
     [IsoId("_-on81OkLEemeDPHh-U9b6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Binary Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.EncryptedData1Choice
         /// Binary data of 100K maximum.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BinryData")]
         #endif
+        [IsoXmlTag("BinryData")]
+        [IsoSimpleType(IsoSimpleType.Max100KBinary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax100KBinary Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Byte[] Value { get; init; } 
+        public required System.Byte[] Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Byte[] Value { get; init; } 
         #else

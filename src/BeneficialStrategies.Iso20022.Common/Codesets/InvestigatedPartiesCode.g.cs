@@ -21,7 +21,7 @@ public enum InvestigatedPartiesCode
 {
     /// <summary>
     /// Investigated parties are all parties playig a role matching the search criteria.
-    /// Encoded/decoded by serializers as "ALLP".
+    /// Encoded/decoded by serializers as &quot;ALLP&quot;.
     /// </summary>
     [EnumMember(Value = "ALLP")]
     [IsoId("_zQQzLU5FEeGFgOSp_IATnQ")]
@@ -30,7 +30,7 @@ public enum InvestigatedPartiesCode
     
     /// <summary>
     /// Investigated party is the owner.
-    /// Encoded/decoded by serializers as "OWNE".
+    /// Encoded/decoded by serializers as &quot;OWNE&quot;.
     /// </summary>
     [EnumMember(Value = "OWNE")]
     [IsoId("_7vHOzU5FEeGFgOSp_IATnQ")]

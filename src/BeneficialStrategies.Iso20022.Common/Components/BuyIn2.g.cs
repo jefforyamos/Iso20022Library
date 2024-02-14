@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies elements related to the confirmation sent by the central counterparty to the clearing member in the context of the buy in process.
 /// </summary>
 [IsoId("_Uot1ldp-Ed-ak6NoX_4Aeg_1022669122")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Buy In")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record BuyIn2
     /// Indicates the reference of the BuyInNotification message.
     /// </summary>
     [IsoId("_Uot1ltp-Ed-ak6NoX_4Aeg_-1301593621")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInNtfctnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BuyInNtfctnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BuyInNotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,19 +69,17 @@ public partial record BuyIn2
     /// Indicates the reference id of the buy in.
     /// </summary>
     [IsoId("_Uot1l9p-Ed-ak6NoX_4Aeg_1529026602")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BuyInId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text BuyInIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BuyInIdentification { get; init; } 
+    public required System.String BuyInIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BuyInIdentification { get; init; } 
     #else
@@ -96,16 +90,16 @@ public partial record BuyIn2
     /// Provides the date at which the buy occured.
     /// </summary>
     [IsoId("_Uot1mNp-Ed-ak6NoX_4Aeg_1976267456")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate Date { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly Date { get; init; } 
+    public required System.DateOnly Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly Date { get; init; } 
     #else
@@ -116,12 +110,11 @@ public partial record BuyIn2
     /// Provides the price of the buy-in.
     /// </summary>
     [IsoId("_Uo3mkNp-Ed-ak6NoX_4Aeg_346078375")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record BuyIn2
     /// Specifies the elements related to the securities that the central counterparty had to buy in the context of the buy-in process.
     /// </summary>
     [IsoId("_Uo3mkdp-Ed-ak6NoX_4Aeg_-1107722371")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Buy In")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesBuyIn")]
     #endif
+    [IsoXmlTag("SctiesBuyIn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesCompensation1? SecuritiesBuyIn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record BuyIn2
     /// Provides details about the cash compensation required, in case the central counterparty could not buy the securities to cover the trade(s) that failed.
     /// </summary>
     [IsoId("_Uo3mktp-Ed-ak6NoX_4Aeg_1388271978")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Required Cash Compensation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqrdCshCompstn")]
     #endif
+    [IsoXmlTag("ReqrdCshCompstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashCompensation1? RequiredCashCompensation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

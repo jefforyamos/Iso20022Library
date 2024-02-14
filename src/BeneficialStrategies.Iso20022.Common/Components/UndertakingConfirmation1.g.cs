@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Confirmation information for the issued undertaking.
 /// </summary>
 [IsoId("_9yV5knltEeG7BsjMvd1mEw_-1807654359")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Confirmation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record UndertakingConfirmation1
     /// Party that adds its undertaking to honour the undertaking or amendment of the undertaking.
     /// </summary>
     [IsoId("_9yV5k3ltEeG7BsjMvd1mEw_-1094766461")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cnfrmr")]
     #endif
+    [IsoXmlTag("Cnfrmr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 Confirmer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification43 Confirmer { get; init; } 
+    public required PartyIdentification43 Confirmer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification43 Confirmer { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record UndertakingConfirmation1
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
     [IsoId("_9yV5lHltEeG7BsjMvd1mEw_-1612716749")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ReferenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReferenceNumber { get; init; } 
+    public required System.String ReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReferenceNumber { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record UndertakingConfirmation1
     /// Date and time when the undertaking or amendment of the undertaking was confirmed.
     /// </summary>
     [IsoId("_9yV5lXltEeG7BsjMvd1mEw_-1478675936")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ Date { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTimeChoice_ Date { get; init; } 
+    public required DateAndDateTimeChoice_ Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTimeChoice_ Date { get; init; } 
     #else
@@ -116,19 +110,15 @@ public partial record UndertakingConfirmation1
     /// Confirmation of the undertaking or amendment of the confirmed undertaking.
     /// </summary>
     [IsoId("_9yV5lnltEeG7BsjMvd1mEw_-1395818404")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Conf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Conf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> Confirmation { get; init; } = new SimpleValueList<System.String>(){};
     
     

@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// </summary>
 [Description(@"Scope|The InvoiceFinancingRequestStatus message is sent by the First Agent to the Financing Requestor, alternatively through an Intermediary Agent (relay scenario). It is used to inform the Financing Requestor about the positive or negative status of a financing request or a financing cancellation request.|Usage|The InvoiceFinancingRequestStatus message flows from the First Agent to the Financing Requestor (alternatively through an Intermediary Agent) to provide status information about a request previously sent.|Its usage will always be governed by a bilateral agreement between the First Agent and the Financing Requestor.|The InvoiceFinancingRequestStatus message can be used two fold:|- to provide information about the reception status (eg rejection, acceptance) of a request message. In this case the status message is the result of a technical validation performed by the First Agent on the request message received;|- to inform the Financing Requestor about the business status of the financing process initiated. In this case the First Agent can:|* communicate that a single financing request has been granted, is pending or has not been granted at all;|* inform that a financing cancellation request has been allowed or denied.|Note.|If the Financing Requestor requests financing for more than one instalment related to the same invoice, the First Agent can decide to finance only some of the instalments. In such case the status message contains details and status of every single instalment (financed, not financed).|The message can be used in a direct or in a relay scenario:|- In a direct scenario, the message is sent directly by the First Agent to the Financing Requestor;|- In a relay scenario, the message is sent first by the First Agent to the Intermediary Agent, who forwards it to the Financing Requestor.|The InvoiceFinancingRequestStatus message refers to the original request(s) by means of references and a set of data elements included into the original request.")]
 [IsoId("_BUZXMH1LEeCF8NjrBemJWQ_1543411923")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Financing Request Status V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -91,16 +89,15 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord<InvoiceFin
     /// General information that unambiguously identify the invoice financing status report, such as status identification, creation date time.
     /// </summary>
     [IsoId("_BUZXMX1LEeCF8NjrBemJWQ_746296789")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsId")]
     #endif
+    [IsoXmlTag("StsId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 StatusIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 StatusIdentification { get; init; } 
+    public required MessageIdentification1 StatusIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 StatusIdentification { get; init; } 
     #else
@@ -111,16 +108,15 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord<InvoiceFin
     /// Set of summary information that unambiguously identifies the original invoice financing (or cancellation) request to which the status is referred. The status of the original request is also given in this block.|.
     /// </summary>
     [IsoId("_BUZXMn1LEeCF8NjrBemJWQ_1550684151")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Request Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlReqInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlReqInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalRequestInformation1 OriginalRequestInformationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalRequestInformation1 OriginalRequestInformationAndStatus { get; init; } 
+    public required OriginalRequestInformation1 OriginalRequestInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalRequestInformation1 OriginalRequestInformationAndStatus { get; init; } 
     #else
@@ -131,12 +127,11 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord<InvoiceFin
     /// Information concerning the business status of a financing request.
     /// </summary>
     [IsoId("_BUZXM31LEeCF8NjrBemJWQ_740712719")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgInfAndSts")]
     #endif
+    [IsoXmlTag("FincgInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingInformationAndStatus1? FinancingInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +144,7 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord<InvoiceFin
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvoiceFinancingRequestStatusV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvoiceFinancingRequestStatusV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvoiceFinancingRequestStatusV01Document ToDocument()
     {
@@ -159,7 +154,7 @@ public partial record InvoiceFinancingRequestStatusV01 : IOuterRecord<InvoiceFin
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceFinancingRequestStatusV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvoiceFinancingRequestStatusV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvoiceFinancingRequestStatusV01Document : IOuterDocument<InvoiceFinancingRequestStatusV01>
@@ -176,7 +171,7 @@ public partial record InvoiceFinancingRequestStatusV01Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvoiceFinancingRequestStatusV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvoiceFinancingRequestStatusV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceFinancingRequestStatusV01 Message { get; init; }

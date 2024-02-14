@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The FinancialInstrumentReportingCountryCodeReport message provides the details of the two character country codes and is created by ESMA for distribution to national competent authorities.")]
 [IsoId("_4LK8MURNEee7JdgA9zPESA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Reporting Country Code Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01 : IOuterR
     /// Report detailing all countries and their 2 character ISO 3166 code.
     /// </summary>
     [IsoId("_4LK8M0RNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryData")]
     #endif
+    [IsoXmlTag("CtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesCountryIdentification2 CountryData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesCountryIdentification2 CountryData { get; init; } 
+    public required SecuritiesCountryIdentification2 CountryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesCountryIdentification2 CountryData { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01 : IOuterR
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_4LK8NURNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01 : IOuterR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInstrumentReportingCountryCodeReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInstrumentReportingCountryCodeReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInstrumentReportingCountryCodeReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01 : IOuterR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingCountryCodeReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInstrumentReportingCountryCodeReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInstrumentReportingCountryCodeReportV01Document : IOuterDocument<FinancialInstrumentReportingCountryCodeReportV01>
@@ -140,7 +136,7 @@ public partial record FinancialInstrumentReportingCountryCodeReportV01Document :
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInstrumentReportingCountryCodeReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInstrumentReportingCountryCodeReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentReportingCountryCodeReportV01 Message { get; init; }

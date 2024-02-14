@@ -21,7 +21,7 @@ public enum AssetClassSubProductType31Code
 {
     /// <summary>
     /// Commodity of type dry freight.
-    /// Encoded/decoded by serializers as "DRYF".
+    /// Encoded/decoded by serializers as &quot;DRYF&quot;.
     /// </summary>
     [EnumMember(Value = "DRYF")]
     [IsoId("_MvTikVrdEeWN79Bl6BUd3g")]

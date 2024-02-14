@@ -21,7 +21,7 @@ public enum BidRangeType1Code
 {
     /// <summary>
     /// All values (including minimum and maximum prices) are divisible by the bid interval.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_IuYsUe3NEeqc-LCjwLsUVg")]
@@ -30,7 +30,7 @@ public enum BidRangeType1Code
     
     /// <summary>
     /// No values within the bid range are divisible by the bid interval including the minimum and maximum prices.  Each value between the minimum and maximum prices is incremented by the bid interval.
-    /// Encoded/decoded by serializers as "INCR".
+    /// Encoded/decoded by serializers as &quot;INCR&quot;.
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_Iy9DQe3NEeqc-LCjwLsUVg")]
@@ -39,7 +39,7 @@ public enum BidRangeType1Code
     
     /// <summary>
     /// Minimum and maximum prices are not divisible by the bid interval.  All successive values between the minimum and maximum prices are in multiples of the bid interval.
-    /// Encoded/decoded by serializers as "MULT".
+    /// Encoded/decoded by serializers as &quot;MULT&quot;.
     /// </summary>
     [EnumMember(Value = "MULT")]
     [IsoId("_I3mSse3NEeqc-LCjwLsUVg")]

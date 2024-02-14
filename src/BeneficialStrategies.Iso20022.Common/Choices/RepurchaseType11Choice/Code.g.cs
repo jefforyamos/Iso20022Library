@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseType11Choice
     /// Type of securities financing transaction process expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_AZjk8tokEeC60axPepSq7g_-258507365")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseType11Choice
         /// Specifies the type of repurchase transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RepurchaseType7Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RepurchaseType7Code Value { get; init; } 
+        public required RepurchaseType7Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RepurchaseType7Code Value { get; init; } 
         #else

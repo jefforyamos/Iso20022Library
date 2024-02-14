@@ -21,7 +21,7 @@ public enum POICommunicationTypeCode
 {
     /// <summary>
     /// Communication with a host from an USB port.
-    /// Encoded/decoded by serializers as "USBH".
+    /// Encoded/decoded by serializers as &quot;USBH&quot;.
     /// </summary>
     [EnumMember(Value = "USBH")]
     [IsoId("_a0S8sAx1EeKa_56Jbsi1RQ")]
@@ -30,7 +30,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Communication with a USB stick or any USB device.
-    /// Encoded/decoded by serializers as "USBD".
+    /// Encoded/decoded by serializers as &quot;USBD&quot;.
     /// </summary>
     [EnumMember(Value = "USBD")]
     [IsoId("_e8XlUAx1EeKa_56Jbsi1RQ")]
@@ -39,7 +39,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Ethernet port to communicate.
-    /// Encoded/decoded by serializers as "ETHR".
+    /// Encoded/decoded by serializers as &quot;ETHR&quot;.
     /// </summary>
     [EnumMember(Value = "ETHR")]
     [IsoId("_kXApEAx1EeKa_56Jbsi1RQ")]
@@ -48,7 +48,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Wifi communication with another component.
-    /// Encoded/decoded by serializers as "WIFI".
+    /// Encoded/decoded by serializers as &quot;WIFI&quot;.
     /// </summary>
     [EnumMember(Value = "WIFI")]
     [IsoId("_outCEAx1EeKa_56Jbsi1RQ")]
@@ -57,7 +57,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Communication with a host using Public Switching Telephone Network.
-    /// Encoded/decoded by serializers as "PSTN".
+    /// Encoded/decoded by serializers as &quot;PSTN&quot;.
     /// </summary>
     [EnumMember(Value = "PSTN")]
     [IsoId("_swFM0Ax1EeKa_56Jbsi1RQ")]
@@ -66,7 +66,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Communication with a host using Bluetooth.
-    /// Encoded/decoded by serializers as "BLTH".
+    /// Encoded/decoded by serializers as &quot;BLTH&quot;.
     /// </summary>
     [EnumMember(Value = "BLTH")]
     [IsoId("_wfdBkAx1EeKa_56Jbsi1RQ")]
@@ -75,7 +75,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Communication with a host using GSM.
-    /// Encoded/decoded by serializers as "GSMF".
+    /// Encoded/decoded by serializers as &quot;GSMF&quot;.
     /// </summary>
     [EnumMember(Value = "GSMF")]
     [IsoId("_0HsTkAx1EeKa_56Jbsi1RQ")]
@@ -84,7 +84,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Communication with a host using GPRS.
-    /// Encoded/decoded by serializers as "GPRS".
+    /// Encoded/decoded by serializers as &quot;GPRS&quot;.
     /// </summary>
     [EnumMember(Value = "GPRS")]
     [IsoId("_4W6GAAx1EeKa_56Jbsi1RQ")]
@@ -93,7 +93,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Serial port to communicate.
-    /// Encoded/decoded by serializers as "RS23".
+    /// Encoded/decoded by serializers as &quot;RS23&quot;.
     /// </summary>
     [EnumMember(Value = "RS23")]
     [IsoId("_8DAkUAx1EeKa_56Jbsi1RQ")]
@@ -102,7 +102,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 2G technology (e.g EDGE or PDC).
-    /// Encoded/decoded by serializers as "WT2G".
+    /// Encoded/decoded by serializers as &quot;WT2G&quot;.
     /// </summary>
     [EnumMember(Value = "WT2G")]
     [IsoId("_Z0jxULCYEeapjPTKZHuM2w")]
@@ -111,7 +111,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 3G technology.
-    /// Encoded/decoded by serializers as "WT3G".
+    /// Encoded/decoded by serializers as &quot;WT3G&quot;.
     /// </summary>
     [EnumMember(Value = "WT3G")]
     [IsoId("_pQgh8LCYEeapjPTKZHuM2w")]
@@ -120,7 +120,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 4G technology.
-    /// Encoded/decoded by serializers as "WT4G".
+    /// Encoded/decoded by serializers as &quot;WT4G&quot;.
     /// </summary>
     [EnumMember(Value = "WT4G")]
     [IsoId("_t2jgALCYEeapjPTKZHuM2w")]
@@ -129,7 +129,7 @@ public enum POICommunicationTypeCode
     
     /// <summary>
     /// Includes all communication technologies which can be qualified as being part of the 5G technology.
-    /// Encoded/decoded by serializers as "WT5G".
+    /// Encoded/decoded by serializers as &quot;WT5G&quot;.
     /// </summary>
     [EnumMember(Value = "WT5G")]
     [IsoId("_wwPp8LCYEeapjPTKZHuM2w")]

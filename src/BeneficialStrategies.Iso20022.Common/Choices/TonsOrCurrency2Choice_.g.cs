@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TonsOrCurrency2Choice.Number))]
     [KnownType(typeof(TonsOrCurrency2Choice.Amount))]
     [IsoId("_Z5jxEWlSEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tons Or Currency 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

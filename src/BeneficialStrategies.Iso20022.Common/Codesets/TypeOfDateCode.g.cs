@@ -21,7 +21,7 @@ public enum TypeOfDateCode
 {
     /// <summary>
     /// Date/date and time is estimated.
-    /// Encoded/decoded by serializers as "ESTM".
+    /// Encoded/decoded by serializers as &quot;ESTM&quot;.
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_Oxs3zm-BEeKuY41pq1-dog")]
@@ -30,7 +30,7 @@ public enum TypeOfDateCode
     
     /// <summary>
     /// Date / date and time is the actual date / date and time.
-    /// Encoded/decoded by serializers as "ACTL".
+    /// Encoded/decoded by serializers as &quot;ACTL&quot;.
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_Oxs31W-BEeKuY41pq1-dog")]

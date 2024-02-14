@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the applicable Incoterm and associated location.
 /// </summary>
 [IsoId("_S5VCYwEcEeCQm6a_G2yO_w_154174815")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Incoterms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Incoterms3
     /// Specifies the Incoterms.
     /// </summary>
     [IsoId("_S5VCZAEcEeCQm6a_G2yO_w_129737747")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incoterms Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncotrmsCd")]
     #endif
+    [IsoXmlTag("IncotrmsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Incoterms4Choice_ IncotermsCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Incoterms4Choice_ IncotermsCode { get; init; } 
+    public required Incoterms4Choice_ IncotermsCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Incoterms4Choice_ IncotermsCode { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record Incoterms3
     /// Location where the Incoterms are actioned. Reference UN/ECE Recommendation 16 - LOCODE - Code for Trade and Transport Locations (www.unece.org/cefact/recommendations).
     /// </summary>
     [IsoId("_S5VCZQEcEeCQm6a_G2yO_w_-956736604")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Lctn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Location { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

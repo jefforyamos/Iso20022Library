@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the settlement obligation report.
 /// </summary>
 [IsoId("_7jLUES9dEeS94oXWDaBauA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Report5
     /// Provides the identification for the non-clearing member. This is mandatory if the clearing member identification equals a general clearing member.
     /// </summary>
     [IsoId("_71U0AS9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonClrMmb")]
     #endif
+    [IsoXmlTag("NonClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Report5
     /// Provides information about the settlement obligation details.
     /// </summary>
     [IsoId("_71U0Ay9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Obligation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmOblgtnDtls")]
     #endif
+    [IsoXmlTag("SttlmOblgtnDtls")]
     public SettlementObligation8? SettlementObligationDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _71U0Ay9dEeS94oXWDaBauA
     

@@ -21,7 +21,7 @@ public enum ModificationLevelCode
 {
     /// <summary>
     /// Modification applies to a position.
-    /// Encoded/decoded by serializers as "PSTN".
+    /// Encoded/decoded by serializers as &quot;PSTN&quot;.
     /// </summary>
     [EnumMember(Value = "PSTN")]
     [IsoId("_d8LDQA3mEeWc7_0KPiuk6w")]
@@ -30,7 +30,7 @@ public enum ModificationLevelCode
     
     /// <summary>
     /// Modification applies to a transaction.
-    /// Encoded/decoded by serializers as "TCTN".
+    /// Encoded/decoded by serializers as &quot;TCTN&quot;.
     /// </summary>
     [EnumMember(Value = "TCTN")]
     [IsoId("_ea0uIA3mEeWc7_0KPiuk6w")]

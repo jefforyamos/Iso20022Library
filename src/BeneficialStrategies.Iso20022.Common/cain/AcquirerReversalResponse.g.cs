@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The AcquirerReversalResponse message is sent by an issuer or an agent to answer to an AcquirerReversalInitiation message.")]
 [IsoId("_Se9ukHu2EeS2Z_kGi7H1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Reversal Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcquirerReversalResponse : IOuterRecord<AcquirerReversalRe
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_cIqMsHu2EeS2Z_kGi7H1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header18 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header18 Header { get; init; } 
+    public required Header18 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header18 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcquirerReversalResponse : IOuterRecord<AcquirerReversalRe
     /// Information related to the response of a reversal.
     /// </summary>
     [IsoId("_umfZ8Hu2EeS2Z_kGi7H1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslRspn")]
     #endif
+    [IsoXmlTag("RvslRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerReversalResponse1 ReversalResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerReversalResponse1 ReversalResponse { get; init; } 
+    public required AcquirerReversalResponse1 ReversalResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerReversalResponse1 ReversalResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AcquirerReversalResponse : IOuterRecord<AcquirerReversalRe
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_kiQwIIOyEeSWSLYdc10LRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AcquirerReversalResponse : IOuterRecord<AcquirerReversalRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcquirerReversalResponseDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcquirerReversalResponseDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcquirerReversalResponseDocument ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AcquirerReversalResponse : IOuterRecord<AcquirerReversalRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcquirerReversalResponse"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcquirerReversalResponse&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcquirerReversalResponseDocument : IOuterDocument<AcquirerReversalResponse>
@@ -161,7 +156,7 @@ public partial record AcquirerReversalResponseDocument : IOuterDocument<Acquirer
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcquirerReversalResponse"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcquirerReversalResponse&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerReversalResponse Message { get; init; }

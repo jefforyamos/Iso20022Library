@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingNonExtensionRequest message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking. It is used to request no further automatic extensions to the expiry of the referenced undertaking.")]
 [IsoId("_9gmpVXltEeG7BsjMvd1mEw_634999527")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Non Extension Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord<Undertaki
     /// Details of the non extension request.
     /// </summary>
     [IsoId("_9gmpVnltEeG7BsjMvd1mEw_1337678372")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Non Extension Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgNonXtnsnReqDtls")]
     #endif
+    [IsoXmlTag("UdrtkgNonXtnsnReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingNonExtensionRequest1 UndertakingNonExtensionRequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingNonExtensionRequest1 UndertakingNonExtensionRequestDetails { get; init; } 
+    public required UndertakingNonExtensionRequest1 UndertakingNonExtensionRequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingNonExtensionRequest1 UndertakingNonExtensionRequestDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord<Undertaki
     /// Digital signature of the request.
     /// </summary>
     [IsoId("_9gmpV3ltEeG7BsjMvd1mEw_-238052912")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord<Undertaki
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingNonExtensionRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingNonExtensionRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingNonExtensionRequestV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record UndertakingNonExtensionRequestV01 : IOuterRecord<Undertaki
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingNonExtensionRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingNonExtensionRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingNonExtensionRequestV01Document : IOuterDocument<UndertakingNonExtensionRequestV01>
@@ -140,7 +136,7 @@ public partial record UndertakingNonExtensionRequestV01Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingNonExtensionRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingNonExtensionRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingNonExtensionRequestV01 Message { get; init; }

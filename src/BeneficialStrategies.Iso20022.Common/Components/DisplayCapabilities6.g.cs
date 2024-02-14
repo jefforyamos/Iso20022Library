@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Capabilities of the display components performing the transaction.
 /// </summary>
 [IsoId("_mYI9YUeYEee9r7QjOdsbFw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Display Capabilities")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DisplayCapabilities6
     /// Destination of the message to present.
     /// </summary>
     [IsoId("_mjKhoUeYEee9r7QjOdsbFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Destination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dstn")]
     #endif
+    [IsoXmlTag("Dstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UserInterface1Code Destination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UserInterface1Code Destination { get; init; } 
+    public required UserInterface1Code Destination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UserInterface1Code Destination { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DisplayCapabilities6
     /// Available message format.
     /// </summary>
     [IsoId("_mjKho0eYEee9r7QjOdsbFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblFrmt")]
     #endif
+    [IsoXmlTag("AvlblFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputFormat1Code? AvailableFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record DisplayCapabilities6
     /// Number of lines of the display.
     /// </summary>
     [IsoId("_mjKhpUeYEee9r7QjOdsbFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Lines")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfLines")]
     #endif
+    [IsoXmlTag("NbOfLines")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfLines { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,12 @@ public partial record DisplayCapabilities6
     /// Number of columns of the display or printer.
     /// </summary>
     [IsoId("_mjKhp0eYEee9r7QjOdsbFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Width")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineWidth")]
     #endif
+    [IsoXmlTag("LineWidth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? LineWidth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,11 @@ public partial record DisplayCapabilities6
     /// Available language for the message. Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
     [IsoId("_mjKhqUeYEee9r7QjOdsbFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblLang")]
     #endif
+    [IsoXmlTag("AvlblLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? AvailableLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

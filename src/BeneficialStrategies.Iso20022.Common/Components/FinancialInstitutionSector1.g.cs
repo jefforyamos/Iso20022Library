@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information concerning financial counterparties.
 /// </summary>
 [IsoId("_M0T6AQz2Ee2YoLD-1vFj0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Institution Sector")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FinancialInstitutionSector1
     /// Specifies the nature of the counterparty business activities. 
     /// </summary>
     [IsoId("_UgEEwAz2Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sctr")]
     #endif
+    [IsoXmlTag("Sctr")]
     public FinancialPartyClassification2Choice_? Sector { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _UgEEwAz2Ee2YoLD-1vFj0g
     
@@ -58,12 +55,12 @@ public partial record FinancialInstitutionSector1
     /// Usage: If the element is not present, the ClearingThreshold is False.
     /// </summary>
     [IsoId("_W7SxEAz2Ee2YoLD-1vFj0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Threshold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrThrshld")]
     #endif
+    [IsoXmlTag("ClrThrshld")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ClearingThreshold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

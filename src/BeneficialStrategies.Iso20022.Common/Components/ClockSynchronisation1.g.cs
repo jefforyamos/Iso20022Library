@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters to synchronise a real time clock.
 /// </summary>
 [IsoId("_2S7tMEeUEeODR7vDcYOqmg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clock Synchronisation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record ClockSynchronisation1
     /// Name of the time zone where is located the POI (Point Of Interaction), as definined by the IANA (Internet Assigned Number Authority) time zone data base.
     /// </summary>
     [IsoId("_LwD9IEeVEeODR7vDcYOqmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Time Zone")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POITmZone")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("POITmZone")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text POITimeZone { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String POITimeZone { get; init; } 
+    public required System.String POITimeZone { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String POITimeZone { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record ClockSynchronisation1
     /// Parameters to contact a time server.
     /// </summary>
     [IsoId("_Spmn0EeVEeODR7vDcYOqmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Synchronisation Server")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SynctnSvr")]
     #endif
+    [IsoXmlTag("SynctnSvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkParameters2? SynchronisationServer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ProtectTransactionType3Code
 {
     /// <summary>
     /// Reorganisation is a protect transaction type.
-    /// Encoded/decoded by serializers as "PROT".
+    /// Encoded/decoded by serializers as &quot;PROT&quot;.
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_Kp2HcbpaEeilsanBGAzy4A")]

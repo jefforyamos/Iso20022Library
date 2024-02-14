@@ -26,9 +26,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeReport10Choice.Correction))]
     [KnownType(typeof(TradeReport10Choice.ValuationUpdate))]
     [IsoId("_34vr9f_qEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Report 10 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

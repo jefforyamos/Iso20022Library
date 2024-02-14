@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amounts linked to a securities balance, for example, holding value.
 /// </summary>
 [IsoId("_WQIfU9p-Ed-ak6NoX_4Aeg_1080208287")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Amounts")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BalanceAmounts4
     /// Value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
     [IsoId("_WQIfVNp-Ed-ak6NoX_4Aeg_1401606317")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgVal")]
     #endif
+    [IsoXmlTag("HldgVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? HoldingValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record BalanceAmounts4
     /// Previous value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
     [IsoId("_WQIfVdp-Ed-ak6NoX_4Aeg_-1475771676")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Holding Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsHldgVal")]
     #endif
+    [IsoXmlTag("PrvsHldgVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? PreviousHoldingValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record BalanceAmounts4
     /// Value of a financial instrument, as booked/acquired in an account. It may be used to establish capital gain tax liability.
     /// </summary>
     [IsoId("_WQIfVtp-Ed-ak6NoX_4Aeg_711211848")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Book Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookVal")]
     #endif
+    [IsoXmlTag("BookVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? BookValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record BalanceAmounts4
     /// Value of the position eligible for collateral purposes.
     /// </summary>
     [IsoId("_WQIfV9p-Ed-ak6NoX_4Aeg_2128801151")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligible Collateral Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgblCollVal")]
     #endif
+    [IsoXmlTag("ElgblCollVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? EligibleCollateralValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record BalanceAmounts4
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
     [IsoId("_WQIfWNp-Ed-ak6NoX_4Aeg_20817379")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstAmt")]
     #endif
+    [IsoXmlTag("AcrdIntrstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

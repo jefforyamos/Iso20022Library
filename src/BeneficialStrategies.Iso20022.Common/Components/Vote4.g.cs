@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Decision of the voting party for one resolution. Several types of decisions can be indicated to allow for split vote specification.
 /// </summary>
 [IsoId("_TK1iU9p-Ed-ak6NoX_4Aeg_62627583")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record Vote4
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
     [IsoId("_TK1iVNp-Ed-ak6NoX_4Aeg_62627585")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrLabl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssrLabl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerLabel { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IssuerLabel { get; init; } 
+    public required System.String IssuerLabel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IssuerLabel { get; init; } 
     #else
@@ -74,12 +70,12 @@ public partial record Vote4
     /// Number of votes in favour of one resolution.
     /// </summary>
     [IsoId("_TK1iVdp-Ed-ak6NoX_4Aeg_62627600")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("For")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="For")]
     #endif
+    [IsoXmlTag("For")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? For { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +88,12 @@ public partial record Vote4
     /// Number of votes against one resolution.
     /// </summary>
     [IsoId("_TK1iVtp-Ed-ak6NoX_4Aeg_62627618")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Against")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Agnst")]
     #endif
+    [IsoXmlTag("Agnst")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Against { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,12 @@ public partial record Vote4
     /// Number of votes expressed as abstain for one resolution.
     /// </summary>
     [IsoId("_TK_TUNp-Ed-ak6NoX_4Aeg_62627643")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Abstain")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Abstn")]
     #endif
+    [IsoXmlTag("Abstn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Abstain { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +124,12 @@ public partial record Vote4
     /// Number of votes withheld for one resolution.
     /// </summary>
     [IsoId("_TK_TUdp-Ed-ak6NoX_4Aeg_62627660")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withhold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Wthhld")]
     #endif
+    [IsoXmlTag("Wthhld")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Withhold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +142,12 @@ public partial record Vote4
     /// Number of votes in line with the votes of the management.
     /// </summary>
     [IsoId("_TK_TUtp-Ed-ak6NoX_4Aeg_62627678")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("With Management")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WthMgmt")]
     #endif
+    [IsoXmlTag("WthMgmt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? WithManagement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +160,12 @@ public partial record Vote4
     /// Number of votes against the voting recommendation of the management.
     /// </summary>
     [IsoId("_TK_TU9p-Ed-ak6NoX_4Aeg_62627937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Against Management")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgnstMgmt")]
     #endif
+    [IsoXmlTag("AgnstMgmt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? AgainstManagement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +178,12 @@ public partial record Vote4
     /// Number of votes for which decision is left to the party that will exercise the voting right.
     /// </summary>
     [IsoId("_TK_TVNp-Ed-ak6NoX_4Aeg_62627955")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discretionary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dscrtnry")]
     #endif
+    [IsoXmlTag("Dscrtnry")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Discretionary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +196,12 @@ public partial record Vote4
     /// Number of votes for which no action has been taken.
     /// </summary>
     [IsoId("_TK_TVdp-Ed-ak6NoX_4Aeg_128196007")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoActn")]
     #endif
+    [IsoXmlTag("NoActn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NoAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

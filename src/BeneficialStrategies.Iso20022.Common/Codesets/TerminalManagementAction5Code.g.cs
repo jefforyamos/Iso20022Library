@@ -21,7 +21,7 @@ public enum TerminalManagementAction5Code
 {
     /// <summary>
     /// Request to deactivate the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "DCTV".
+    /// Encoded/decoded by serializers as &quot;DCTV&quot;.
     /// </summary>
     [EnumMember(Value = "DCTV")]
     [IsoId("_GmJtgSiyEeurkfo6MpvKDA")]
@@ -30,7 +30,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request to delete the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "DELT".
+    /// Encoded/decoded by serializers as &quot;DELT&quot;.
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_GmJtgyiyEeurkfo6MpvKDA")]
@@ -39,7 +39,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request to download the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "DWNL".
+    /// Encoded/decoded by serializers as &quot;DWNL&quot;.
     /// </summary>
     [EnumMember(Value = "DWNL")]
     [IsoId("_GmJthSiyEeurkfo6MpvKDA")]
@@ -48,7 +48,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request to install the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_GmJthyiyEeurkfo6MpvKDA")]
@@ -57,7 +57,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request to restart the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "RSTR".
+    /// Encoded/decoded by serializers as &quot;RSTR&quot;.
     /// </summary>
     [EnumMember(Value = "RSTR")]
     [IsoId("_GmJtiSiyEeurkfo6MpvKDA")]
@@ -66,7 +66,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request to upload the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "UPLD".
+    /// Encoded/decoded by serializers as &quot;UPLD&quot;.
     /// </summary>
     [EnumMember(Value = "UPLD")]
     [IsoId("_GmJtiyiyEeurkfo6MpvKDA")]
@@ -75,7 +75,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request to update the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "UPDT".
+    /// Encoded/decoded by serializers as &quot;UPDT&quot;.
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_GmKUkSiyEeurkfo6MpvKDA")]
@@ -84,7 +84,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request sent to a POI to bind with a server.
-    /// Encoded/decoded by serializers as "BIND".
+    /// Encoded/decoded by serializers as &quot;BIND&quot;.
     /// </summary>
     [EnumMember(Value = "BIND")]
     [IsoId("_GmKUkyiyEeurkfo6MpvKDA")]
@@ -93,7 +93,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request sent to a POI to rebind with a server.
-    /// Encoded/decoded by serializers as "RBND".
+    /// Encoded/decoded by serializers as &quot;RBND&quot;.
     /// </summary>
     [EnumMember(Value = "RBND")]
     [IsoId("_GmKUlSiyEeurkfo6MpvKDA")]
@@ -102,7 +102,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request sent to a POI to unbind with a server.
-    /// Encoded/decoded by serializers as "UBND".
+    /// Encoded/decoded by serializers as &quot;UBND&quot;.
     /// </summary>
     [EnumMember(Value = "UBND")]
     [IsoId("_GmKUlyiyEeurkfo6MpvKDA")]
@@ -111,7 +111,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request to activate the element identified inside the message exchange.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_GmKUmSiyEeurkfo6MpvKDA")]
@@ -120,7 +120,7 @@ public enum TerminalManagementAction5Code
     
     /// <summary>
     /// Request to execute a device request.
-    /// Encoded/decoded by serializers as "DEVR".
+    /// Encoded/decoded by serializers as &quot;DEVR&quot;.
     /// </summary>
     [EnumMember(Value = "DEVR")]
     [IsoId("_Mam_cSiyEeurkfo6MpvKDA")]

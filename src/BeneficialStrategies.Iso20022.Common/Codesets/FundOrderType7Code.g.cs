@@ -21,7 +21,7 @@ public enum FundOrderType7Code
 {
     /// <summary>
     /// All type of orders.
-    /// Encoded/decoded by serializers as "ALLL".
+    /// Encoded/decoded by serializers as &quot;ALLL&quot;.
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_tpCoUVxUEeWvPv3PXpS3fw")]
@@ -30,7 +30,7 @@ public enum FundOrderType7Code
     
     /// <summary>
     /// Purchase of securities.
-    /// Encoded/decoded by serializers as "BUYI".
+    /// Encoded/decoded by serializers as &quot;BUYI&quot;.
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_uF5jcVxUEeWvPv3PXpS3fw")]
@@ -39,7 +39,7 @@ public enum FundOrderType7Code
     
     /// <summary>
     /// Sale of securities.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_uNMeQVxUEeWvPv3PXpS3fw")]
@@ -48,7 +48,7 @@ public enum FundOrderType7Code
     
     /// <summary>
     /// Switch out or switch from.
-    /// Encoded/decoded by serializers as "SWII".
+    /// Encoded/decoded by serializers as &quot;SWII&quot;.
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_vcMoAVxUEeWvPv3PXpS3fw")]
@@ -57,7 +57,7 @@ public enum FundOrderType7Code
     
     /// <summary>
     /// Switch in or switch to.
-    /// Encoded/decoded by serializers as "SWIO".
+    /// Encoded/decoded by serializers as &quot;SWIO&quot;.
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_vilj4VxUEeWvPv3PXpS3fw")]
@@ -66,7 +66,7 @@ public enum FundOrderType7Code
     
     /// <summary>
     /// Transfer in.
-    /// Encoded/decoded by serializers as "TRAI".
+    /// Encoded/decoded by serializers as &quot;TRAI&quot;.
     /// </summary>
     [EnumMember(Value = "TRAI")]
     [IsoId("_vvO4wVxUEeWvPv3PXpS3fw")]
@@ -75,7 +75,7 @@ public enum FundOrderType7Code
     
     /// <summary>
     /// Transfer out.
-    /// Encoded/decoded by serializers as "TRAO".
+    /// Encoded/decoded by serializers as &quot;TRAO&quot;.
     /// </summary>
     [EnumMember(Value = "TRAO")]
     [IsoId("_v5NUIVxUEeWvPv3PXpS3fw")]
@@ -84,7 +84,7 @@ public enum FundOrderType7Code
     
     /// <summary>
     /// Investment fund order is a subscription.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_xDTIsVxUEeWvPv3PXpS3fw")]
@@ -93,7 +93,7 @@ public enum FundOrderType7Code
     
     /// <summary>
     /// Investment fund order is a redemption.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_xf3I4VxUEeWvPv3PXpS3fw")]

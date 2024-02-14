@@ -21,7 +21,7 @@ public enum UserInterface7Code
 {
     /// <summary>
     /// Data dedicated to another interface maintained by the clearing agent.
-    /// Encoded/decoded by serializers as "OCAI".
+    /// Encoded/decoded by serializers as &quot;OCAI&quot;.
     /// </summary>
     [EnumMember(Value = "OCAI")]
     [IsoId("_cwZIEVBAEeedyPuM0kK2EQ")]
@@ -30,7 +30,7 @@ public enum UserInterface7Code
     
     /// <summary>
     /// Data dedicated to a log maintained by the clearing agent.
-    /// Encoded/decoded by serializers as "CLRL".
+    /// Encoded/decoded by serializers as &quot;CLRL&quot;.
     /// </summary>
     [EnumMember(Value = "CLRL")]
     [IsoId("_dHTzQlBAEeedyPuM0kK2EQ")]
@@ -39,7 +39,7 @@ public enum UserInterface7Code
     
     /// <summary>
     /// Data dedicated to an application maintained by a clearing agent.
-    /// Encoded/decoded by serializers as "CLRA".
+    /// Encoded/decoded by serializers as &quot;CLRA&quot;.
     /// </summary>
     [EnumMember(Value = "CLRA")]
     [IsoId("_dRH2klBAEeedyPuM0kK2EQ")]

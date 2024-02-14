@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous identification of a financial institution.
 /// </summary>
 [IsoId("_ejGB0-zsEeWGZ8O9Moj6Zw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Institution Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,19 +46,19 @@ public partial record FinancialInstitutionIdentification12
     #nullable enable
     
     /// <summary>
-    /// Code allocated to a financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+    /// Code allocated to a financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
     /// </summary>
     [IsoId("_ejGB1OzsEeWGZ8O9Moj6Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("BICFI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BICFI")]
     #endif
+    [IsoXmlTag("BICFI")]
+    [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICFIIdentifier BICFI { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BICFI { get; init; } 
+    public required System.String BICFI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BICFI { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record FinancialInstitutionIdentification12
     /// Legal entity identification as an alternate identification.
     /// </summary>
     [IsoId("_ejGB1ezsEeWGZ8O9Moj6Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LEI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LEI")]
     #endif
+    [IsoXmlTag("LEI")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum MarketTypeCode
 {
     /// <summary>
     /// The place is a primary market.
-    /// Encoded/decoded by serializers as "PRIM".
+    /// Encoded/decoded by serializers as &quot;PRIM&quot;.
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_aUwLVNp-Ed-ak6NoX_4Aeg_1011156230")]
@@ -30,7 +30,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is a secondary market.
-    /// Encoded/decoded by serializers as "SECM".
+    /// Encoded/decoded by serializers as &quot;SECM&quot;.
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_aUwLVdp-Ed-ak6NoX_4Aeg_306041615")]
@@ -39,7 +39,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is a third market.
-    /// Encoded/decoded by serializers as "THIM".
+    /// Encoded/decoded by serializers as &quot;THIM&quot;.
     /// </summary>
     [EnumMember(Value = "THIM")]
     [IsoId("_aUwLVtp-Ed-ak6NoX_4Aeg_-869149410")]
@@ -48,7 +48,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is a fourth market.
-    /// Encoded/decoded by serializers as "FOUM".
+    /// Encoded/decoded by serializers as &quot;FOUM&quot;.
     /// </summary>
     [EnumMember(Value = "FOUM")]
     [IsoId("_aUwLV9p-Ed-ak6NoX_4Aeg_776118025")]
@@ -57,7 +57,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is over the counter.
-    /// Encoded/decoded by serializers as "OTCO".
+    /// Encoded/decoded by serializers as &quot;OTCO&quot;.
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("_aUwLWNp-Ed-ak6NoX_4Aeg_-1980060829")]
@@ -66,7 +66,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// Various places.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_aU58UNp-Ed-ak6NoX_4Aeg_1609791852")]
@@ -75,7 +75,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is a stock exchange.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_aU58Udp-Ed-ak6NoX_4Aeg_434600827")]
@@ -84,7 +84,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is a fund (transfer agent, fund itself, etc.).
-    /// Encoded/decoded by serializers as "FUND".
+    /// Encoded/decoded by serializers as &quot;FUND&quot;.
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_aU58Utp-Ed-ak6NoX_4Aeg_-1340620878")]
@@ -93,7 +93,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is a local market.
-    /// Encoded/decoded by serializers as "LMAR".
+    /// Encoded/decoded by serializers as &quot;LMAR&quot;.
     /// </summary>
     [EnumMember(Value = "LMAR")]
     [IsoId("_aU58U9p-Ed-ak6NoX_4Aeg_1499568600")]
@@ -102,7 +102,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is theoretical.
-    /// Encoded/decoded by serializers as "THEO".
+    /// Encoded/decoded by serializers as &quot;THEO&quot;.
     /// </summary>
     [EnumMember(Value = "THEO")]
     [IsoId("_aU58VNp-Ed-ak6NoX_4Aeg_-1975383519")]
@@ -111,7 +111,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// The place is a vendor.
-    /// Encoded/decoded by serializers as "VEND".
+    /// Encoded/decoded by serializers as &quot;VEND&quot;.
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_aU58Vdp-Ed-ak6NoX_4Aeg_-692811024")]
@@ -120,7 +120,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// Specified type of market is inter bank market.
-    /// Encoded/decoded by serializers as "INBA".
+    /// Encoded/decoded by serializers as &quot;INBA&quot;.
     /// </summary>
     [EnumMember(Value = "INBA")]
     [IsoId("_l8xukDxHEeWZTovCemTvqg")]
@@ -129,7 +129,7 @@ public enum MarketTypeCode
     
     /// <summary>
     /// Specified type of market is counter market.
-    /// Encoded/decoded by serializers as "COUN".
+    /// Encoded/decoded by serializers as &quot;COUN&quot;.
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_tWXyUDxHEeWZTovCemTvqg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information on the collateral proposal(s), that is either in cash, securities or other types.
 /// </summary>
 [IsoId("_wfCNlytIEeyOa655cLd-DQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CollateralResponse3
     /// Provides details on the securities collateral proposal.
     /// </summary>
     [IsoId("_w3eiwytIEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Collateral Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesCollRspn")]
     #endif
+    [IsoXmlTag("SctiesCollRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesCollateralResponse2? SecuritiesCollateralResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CollateralResponse3
     /// Provides details on the cash collateral proposal.
     /// </summary>
     [IsoId("_w3eixStIEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Collateral Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCollRspn")]
     #endif
+    [IsoXmlTag("CshCollRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashCollateralResponse3? CashCollateralResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CollateralResponse3
     /// Provides details on other collateral proposal.
     /// </summary>
     [IsoId("_w3eixytIEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Collateral Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCollRspn")]
     #endif
+    [IsoXmlTag("OthrCollRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherCollateralResponse3? OtherCollateralResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

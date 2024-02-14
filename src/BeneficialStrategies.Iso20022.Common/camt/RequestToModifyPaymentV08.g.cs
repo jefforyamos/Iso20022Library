@@ -52,15 +52,13 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The RequestToModifyPayment message has the following main characteristics:
 /// The case creator assigns a unique case identification. This information will be passed unchanged to all subsequent case assignee(s).
 /// Lowering the amount of an original payment instruction for which cover is provided by a separate instruction will systematically mean the modification of the whole transaction, including the cover. The case assignee performing the amount modification must initiate the return of funds in excess to the case creator.
-/// The modification of the agent's or agents' information on an original payment instruction for which cover is provided by a separate instruction will systematically mean the whole transaction is modified, that is the cover is executed through the agent(s) mentioned in the RequestToModifyPayment message. The cover payment must not be modified separately.
+/// The modification of the agent&apos;s or agents&apos; information on an original payment instruction for which cover is provided by a separate instruction will systematically mean the whole transaction is modified, that is the cover is executed through the agent(s) mentioned in the RequestToModifyPayment message. The cover payment must not be modified separately.
 /// The modification of a payment instruction can be initiated by either the debtor or any subsequent agent in the payment processing chain.
 /// The case creator provides the information to be modified in line with agreements made with the case assignee. If the case assignee needs in turn to assign the case to a subsequent case assignee, the requested modification(s) must be in line with the agreement made with the next case assignee and a NotificationOfCaseAssignment message must be sent to the case assigner. Otherwise, the request to modify payment case must be rejected (by means of a negative ResolutionOfInvestigation message).
 /// </summary>
 [Description(@"Scope|The RequestToModifyPayment message is sent by a case creator/case assigner to a case assignee.|This message is used to request the modification of characteristics of an original payment instruction.|Usage|The RequestToModifyPayment message must be answered with a:|- ResolutionOfInvestigation message with a positive final outcome when the case assignee can perform the requested modification;|- ResolutionOfInvestigation message with a negative final outcome when the case assignee may perform the requested modification but fails to do so (too late, irrevocable instruction, one requested element cannot be modified);|- RejectCaseAssignment message when the case assignee is unable or not authorised to perform the requested modification;|- NotificationOfCaseAssignment message to indicate whether the case assignee will take on the case himself or reassign the case to a subsequent party in the payment processing chain.|The RequestToModifyPayment message covers one and only one original instruction at a time. If several original payment instructions need to be modified, then multiple RequestToModifyPayment messages must be sent.|The RequestToModifyPayment message can be sent to request the modification of one or several elements of the original payment instruction. If many elements need to be modified, it is recommended to cancel the original payment instruction and initiate a new one.|The RequestToModifyPayment must be processed on an all or nothing basis. If one of the elements to be modified cannot be altered, the assignment must be rejected in full by means of a negative ResolutionOfInvestigation message. (See section on ResolutionOfInvestigation for more details).|The RequestToModifyPayment message must never be sent to request the modification of the currency of the original payment instruction. If the currency is wrong, use a CustomerPaymentCancellationRequest or a FIToFIPaymentCancellationRequest message to cancel it and issue and a new payment instruction.|The RequestToModifyPayment message may be forwarded to subsequent case assignee(s).|When a RequestToModifyPayment message is used to decrease the amount of the original payment instruction, the modification will trigger a return of funds from the case assignee to the case creator. The assignee may indicate, within the ResolutionOfInvestigation message, the amount to be returned, the date it is or will be returned and the channel through which the return will be done.|The RequestToModifyPayment message must never be sent to request the increase of the amount of the original payment instruction. To increase the amount in a payment, the debtor can do one of the following:|- Cancel the first payment using a CustomerPaymentCancellationRequest or a FIToFIPaymentCancellationRequest message and make a new payment with a higher and correct amount;|- Simply send a second payment with the supplementary amount.|Depending on the requested modification(s) and the processing stage of the original payment instruction, the processing of a request to modify payment case may end with one of the following:|- an AdditionalPaymentInformation message sent to the creditor of the original payment instruction;|- a DebitAuthorisationRequest message sent to the creditor of the original payment instruction;|- a CustomerPaymentCancellationRequest or a FIToFIPaymentCancellationRequest message sent to a subsequent case assignee.|The RequestToModifyPayment message can be sent to correct characteristics of an original payment instruction following receipt of an UnableToApply message. In this scenario, the case identification will remain the same.|The RequestToModifyPayment message has the following main characteristics:|The case creator assigns a unique case identification. This information will be passed unchanged to all subsequent case assignee(s).|Lowering the amount of an original payment instruction for which cover is provided by a separate instruction will systematically mean the modification of the whole transaction, including the cover. The case assignee performing the amount modification must initiate the return of funds in excess to the case creator.|The modification of the agent's or agents' information on an original payment instruction for which cover is provided by a separate instruction will systematically mean the whole transaction is modified, that is the cover is executed through the agent(s) mentioned in the RequestToModifyPayment message. The cover payment must not be modified separately.|The modification of a payment instruction can be initiated by either the debtor or any subsequent agent in the payment processing chain.|The case creator provides the information to be modified in line with agreements made with the case assignee. If the case assignee needs in turn to assign the case to a subsequent case assignee, the requested modification(s) must be in line with the agreement made with the next case assignee and a NotificationOfCaseAssignment message must be sent to the case assigner. Otherwise, the request to modify payment case must be rejected (by means of a negative ResolutionOfInvestigation message).")]
 [IsoId("_IBkAj9cBEeq_l4BJLVUF2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request To Modify Payment V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -106,16 +104,15 @@ public partial record RequestToModifyPaymentV08 : IOuterRecord<RequestToModifyPa
     /// Usage: The assigner must be the sender of this confirmation and the assignee must be the receiver.
     /// </summary>
     [IsoId("_IBkAl9cBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment5 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment5 Assignment { get; init; } 
+    public required CaseAssignment5 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment5 Assignment { get; init; } 
     #else
@@ -126,12 +123,11 @@ public partial record RequestToModifyPaymentV08 : IOuterRecord<RequestToModifyPa
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_IBkAmdcBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case5? Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,16 +140,15 @@ public partial record RequestToModifyPaymentV08 : IOuterRecord<RequestToModifyPa
     /// Identifies the payment transaction to be modified.
     /// </summary>
     [IsoId("_IBkAm9cBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Undrlyg")]
     #endif
+    [IsoXmlTag("Undrlyg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnderlyingTransaction7Choice_ Underlying { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnderlyingTransaction7Choice_ Underlying { get; init; } 
+    public required UnderlyingTransaction7Choice_ Underlying { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnderlyingTransaction7Choice_ Underlying { get; init; } 
     #else
@@ -164,16 +159,15 @@ public partial record RequestToModifyPaymentV08 : IOuterRecord<RequestToModifyPa
     /// Identifies the list of modifications requested.
     /// </summary>
     [IsoId("_IBkAndcBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mod")]
     #endif
+    [IsoXmlTag("Mod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestedModification10 Modification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestedModification10 Modification { get; init; } 
+    public required RequestedModification10 Modification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestedModification10 Modification { get; init; } 
     #else
@@ -184,12 +178,11 @@ public partial record RequestToModifyPaymentV08 : IOuterRecord<RequestToModifyPa
     /// Further information related to the processing of the investigation that may need to be acted upon by the assignee.
     /// </summary>
     [IsoId("_IBkAn9cBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction For Assignee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrForAssgne")]
     #endif
+    [IsoXmlTag("InstrForAssgne")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructionForAssignee1? InstructionForAssignee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -202,12 +195,11 @@ public partial record RequestToModifyPaymentV08 : IOuterRecord<RequestToModifyPa
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_IBkAodcBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -220,7 +212,7 @@ public partial record RequestToModifyPaymentV08 : IOuterRecord<RequestToModifyPa
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestToModifyPaymentV08Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestToModifyPaymentV08Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestToModifyPaymentV08Document ToDocument()
     {
@@ -230,7 +222,7 @@ public partial record RequestToModifyPaymentV08 : IOuterRecord<RequestToModifyPa
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToModifyPaymentV08"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestToModifyPaymentV08&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestToModifyPaymentV08Document : IOuterDocument<RequestToModifyPaymentV08>
@@ -247,7 +239,7 @@ public partial record RequestToModifyPaymentV08Document : IOuterDocument<Request
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestToModifyPaymentV08"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestToModifyPaymentV08&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestToModifyPaymentV08 Message { get; init; }

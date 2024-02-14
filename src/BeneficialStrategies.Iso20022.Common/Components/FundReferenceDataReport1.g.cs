@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Fund reference data.
 /// </summary>
 [IsoId("_bbb7sTQbEeifw8iDiyZLmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Reference Data Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record FundReferenceDataReport1
     /// Unique technical identifier for an instance of a report within a fund reference data report, as assigned by the issuer of the report.
     /// </summary>
     [IsoId("_sG7E0V9NEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,12 +69,11 @@ public partial record FundReferenceDataReport1
     /// Version Number. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00001 and is the version of the template for which the EMT data is provided. In EMT v1, this element is not supported.
     /// </summary>
     [IsoId("_sMKzIIvtEeicrr-UkGlMQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketPracticeVersion1? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +86,16 @@ public partial record FundReferenceDataReport1
     /// Date to which the data refers. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00050. In EMT v1, this is known as the Reporting Date.
     /// </summary>
     [IsoId("_467fkDQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Reference Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GnlRefDt")]
     #endif
+    [IsoXmlTag("GnlRefDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate GeneralReferenceDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly GeneralReferenceDate { get; init; } 
+    public required System.DateOnly GeneralReferenceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly GeneralReferenceDate { get; init; } 
     #else
@@ -111,16 +106,15 @@ public partial record FundReferenceDataReport1
     /// Identification of the security.
     /// </summary>
     [IsoId("_buLRgzQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification36 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification36 SecurityIdentification { get; init; } 
+    public required SecurityIdentification36 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification36 SecurityIdentification { get; init; } 
     #else
@@ -131,12 +125,11 @@ public partial record FundReferenceDataReport1
     /// Parties related to the investment fund.
     /// </summary>
     [IsoId("__lb_0F_5EeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndPties")]
     #endif
+    [IsoXmlTag("FndPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundParties1? FundParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,11 @@ public partial record FundReferenceDataReport1
     /// Principal entity appointed by the fund, to which orders should be submitted. Usually located in the country of domicile.
     /// </summary>
     [IsoId("_buLRhTQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Main Fund Order Desk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MainFndOrdrDsk")]
     #endif
+    [IsoXmlTag("MainFndOrdrDsk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrderDesk1? MainFundOrderDesk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +159,11 @@ public partial record FundReferenceDataReport1
     /// Company that is responsible for the management and operation of the fund, for example, determines the investment strategy, appoints the service providers, and makes major decisions for the fund. It is usually responsible for the distribution and marketing of the fund. For self-managed funds, this will often be a separate promoter or sponsor of the fund.
     /// </summary>
     [IsoId("_buLRhzQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Management Company")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndMgmtCpny")]
     #endif
+    [IsoXmlTag("FndMgmtCpny")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes5? FundManagementCompany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +176,11 @@ public partial record FundReferenceDataReport1
     /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
     /// </summary>
     [IsoId("_buLRiTQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndDtls")]
     #endif
+    [IsoXmlTag("FndDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument66? FundDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +193,11 @@ public partial record FundReferenceDataReport1
     /// Processing characteristics linked to the instrument, that is, not to the market.
     /// </summary>
     [IsoId("_buLRizQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Dealing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDealgChrtcs")]
     #endif
+    [IsoXmlTag("ValtnDealgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValuationDealingProcessingCharacteristics3? ValuationDealingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +210,11 @@ public partial record FundReferenceDataReport1
     /// Investment restrictions linked to the trading of the investment fund or an alternative/hedge fund.
     /// </summary>
     [IsoId("_buLRjTQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Restrictions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtRstrctns")]
     #endif
+    [IsoXmlTag("InvstmtRstrctns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentRestrictions3? InvestmentRestrictions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +227,11 @@ public partial record FundReferenceDataReport1
     /// Processing characteristics linked to a subscription to the investment fund or alternative/hedge fund.
     /// </summary>
     [IsoId("_buLRjzQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptPrcgChrtcs")]
     #endif
+    [IsoXmlTag("SbcptPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics4? SubscriptionProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,12 +244,11 @@ public partial record FundReferenceDataReport1
     /// Processing characteristics linked to a redemption to the investment fund or alternative/hedge fund.
     /// </summary>
     [IsoId("_buLRkTQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedPrcgChrtcs")]
     #endif
+    [IsoXmlTag("RedPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics5? RedemptionProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +261,11 @@ public partial record FundReferenceDataReport1
     /// Processing characteristics linked to a switch of the investment fund or alternative/hedge fund.
     /// </summary>
     [IsoId("_XM02AF84Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchPrcgChrtcs")]
     #endif
+    [IsoXmlTag("SwtchPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics6? SwitchProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -293,12 +278,11 @@ public partial record FundReferenceDataReport1
     /// Characteristics of the investment plan.
     /// </summary>
     [IsoId("_bmKmEF8-Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plan Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlanChrtcs")]
     #endif
+    [IsoXmlTag("PlanChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentPlanCharacteristics1? PlanCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -311,12 +295,11 @@ public partial record FundReferenceDataReport1
     /// Specifies, for a specific type of transaction, how amounts are to be paid in or paid out.
     /// </summary>
     [IsoId("_3_MBMF8qEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInstrm")]
     #endif
+    [IsoXmlTag("PmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstrument16? PaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -329,12 +312,11 @@ public partial record FundReferenceDataReport1
     /// Account to be used for cash settlement.
     /// </summary>
     [IsoId("_buLRkzQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshSttlmDtls")]
     #endif
+    [IsoXmlTag("CshSttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount202? CashSettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -347,12 +329,11 @@ public partial record FundReferenceDataReport1
     /// Processing characteristics specific to a local fund order desk.
     /// </summary>
     [IsoId("_buLRlTQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Market Annex")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclMktAnx")]
     #endif
+    [IsoXmlTag("LclMktAnx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalMarketAnnex3? LocalMarketAnnex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -365,12 +346,11 @@ public partial record FundReferenceDataReport1
     /// Target market criteria.
     /// </summary>
     [IsoId("_u69HEDQpEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target Market")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrgtMkt")]
     #endif
+    [IsoXmlTag("TrgtMkt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1? TargetMarket { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -383,12 +363,11 @@ public partial record FundReferenceDataReport1
     /// Distribution strategy criteria.
     /// </summary>
     [IsoId("_Voos0DcfEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Distribution Strategy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstrbtnStrtgy")]
     #endif
+    [IsoXmlTag("DstrbtnStrtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1? DistributionStrategy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -401,28 +380,24 @@ public partial record FundReferenceDataReport1
     /// Costs and charges associated with the distribution of selling of the financial instrument. These may be one-off or recurring. These may be ex ante (intended) or post ante (actual).
     /// </summary>
     [IsoId("_jSDBcDciEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Costs And Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CostsAndChrgs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CostsAndChrgs")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<CostsAndCharges1> CostsAndCharges { get; init; } = new ValueList<CostsAndCharges1>(){};
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_buLRlzQbEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

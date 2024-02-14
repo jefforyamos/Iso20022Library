@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Transaction totals during the reconciliation period, for a certain type of transaction.
 /// </summary>
 [IsoId("_XpAh0NxiEeioifFt1dhnJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Loyalty Transaction Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,15 +51,13 @@ public partial record LoyaltyTransactionTotals1
     /// Identifier assigned by the merchant identifying a set of POI terminals performing some categories of transactions.
     /// </summary>
     [IsoId("_gDkTUNxiEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Group Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIGrpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("POIGrpId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIGroupIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,12 +70,11 @@ public partial record LoyaltyTransactionTotals1
     /// Unit of the amount, expressed in point or in a monetary value and a currency.
     /// </summary>
     [IsoId("_jRtDQNxiEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyUnit")]
     #endif
+    [IsoXmlTag("LltyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountUnit1Code? LoyaltyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record LoyaltyTransactionTotals1
     /// Cards category related to the acceptance processing rules defined by the Loyalty provider.
     /// </summary>
     [IsoId("_nFAVwNxiEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Product Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPdctPrfl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CardPdctPrfl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardProductProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,11 @@ public partial record LoyaltyTransactionTotals1
     /// Currency associated with the transaction totals.
     /// </summary>
     [IsoId("_qL-GsNxiEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,16 +123,15 @@ public partial record LoyaltyTransactionTotals1
     /// Type of Loyalty transaction for Report.
     /// </summary>
     [IsoId("_xggEQNxiEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTp")]
     #endif
+    [IsoXmlTag("TxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LoyaltyTypeTransactionTotals1Code TransactionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LoyaltyTypeTransactionTotals1Code TransactionType { get; init; } 
+    public required LoyaltyTypeTransactionTotals1Code TransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LoyaltyTypeTransactionTotals1Code TransactionType { get; init; } 
     #else
@@ -151,16 +142,16 @@ public partial record LoyaltyTransactionTotals1
     /// Total number of transactions during a reconciliation period.
     /// </summary>
     [IsoId("_U5AC4NxjEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNb")]
     #endif
+    [IsoXmlTag("TtlNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNumber { get; init; } 
+    public required System.UInt64 TotalNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNumber { get; init; } 
     #else
@@ -171,16 +162,16 @@ public partial record LoyaltyTransactionTotals1
     /// Total amount of a collection of transactions.
     /// </summary>
     [IsoId("_XOIuQNxjEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cumulative Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmltvAmt")]
     #endif
+    [IsoXmlTag("CmltvAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount CumulativeAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CumulativeAmount { get; init; } 
+    public required System.Decimal CumulativeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CumulativeAmount { get; init; } 
     #else
@@ -191,12 +182,11 @@ public partial record LoyaltyTransactionTotals1
     /// Detailed amounts associated with the total amount of transactions.
     /// </summary>
     [IsoId("_a83CwNxjEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldAmt")]
     #endif
+    [IsoXmlTag("DtldAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount15? DetailedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information requested against money laundering for a transfer transaction.
 /// </summary>
 [IsoId("_jG3qgHs-EeSTS7uHCe8FPQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Anti Money Laundering")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record AntiMoneyLaundering1
     /// Name of the sender.
     /// </summary>
     [IsoId("_ynk_UHs-EeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SndrNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SenderName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record AntiMoneyLaundering1
     /// Address of the sender.
     /// </summary>
     [IsoId("_36d1QHs-EeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrAdr")]
     #endif
+    [IsoXmlTag("SndrAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress18? SenderAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record AntiMoneyLaundering1
     /// National identifier number of the sender.
     /// </summary>
     [IsoId("_JJhs0HtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender National Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrNtlIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SndrNtlIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderNationalIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,15 +97,12 @@ public partial record AntiMoneyLaundering1
     /// Country of the national identifier (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
     [IsoId("_OnaR0HtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("National Identifier Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtlIdrCtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NtlIdrCtry")]
+    [IsoSimpleType(IsoSimpleType.Min2Max3AlphaText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? NationalIdentifierCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,15 +115,13 @@ public partial record AntiMoneyLaundering1
     /// Passport number of the sender.
     /// </summary>
     [IsoId("_R-MAYHtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Passport Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrPsptNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SndrPsptNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderPassportNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,15 +134,12 @@ public partial record AntiMoneyLaundering1
     /// Country issuing the passport (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
     [IsoId("_VDe9YHtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Passport Issuing Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PsptIssgCtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PsptIssgCtry")]
+    [IsoSimpleType(IsoSimpleType.Min2Max3AlphaText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? PassportIssuingCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,15 +152,13 @@ public partial record AntiMoneyLaundering1
     /// Tax identifier of the sender.
     /// </summary>
     [IsoId("_bkH_4HtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Tax Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrTaxIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SndrTaxIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderTaxIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,15 +171,12 @@ public partial record AntiMoneyLaundering1
     /// Country of the tax (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
     [IsoId("_fQduwHtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxCtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TaxCtry")]
+    [IsoSimpleType(IsoSimpleType.Min2Max3AlphaText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? TaxCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,15 +189,13 @@ public partial record AntiMoneyLaundering1
     /// Customer identifier of the sender.
     /// </summary>
     [IsoId("_nfe-oHtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Customer Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrCstmrIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SndrCstmrIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SenderCustomerIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +208,11 @@ public partial record AntiMoneyLaundering1
     /// Date and place of birth of the sender.
     /// </summary>
     [IsoId("_s2m0UHtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Date And Place Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrDtAndPlcOfBirth")]
     #endif
+    [IsoXmlTag("SndrDtAndPlcOfBirth")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndPlaceOfBirth? SenderDateAndPlaceOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,15 +225,13 @@ public partial record AntiMoneyLaundering1
     /// Name of the receiver.
     /// </summary>
     [IsoId("_xrSrUHtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcvrNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ReceiverName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -269,15 +244,13 @@ public partial record AntiMoneyLaundering1
     /// Unique transaction reference number for sender and the receiver.
     /// </summary>
     [IsoId("_4Q5GUHtAEeSTS7uHCe8FPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus4Choice
     /// Specifies that a corporate action event processing has not been fully completed and is therefore pending.
     /// </summary>
     [IsoId("_cel4CZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

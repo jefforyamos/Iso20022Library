@@ -21,7 +21,7 @@ public enum KnowYourCustomerCheckTypeCode
 {
     /// <summary>
     /// Ordinary check, typically carried out on standard accounts.
-    /// Encoded/decoded by serializers as "ORDN".
+    /// Encoded/decoded by serializers as &quot;ORDN&quot;.
     /// </summary>
     [EnumMember(Value = "ORDN")]
     [IsoId("_pgZWYBRxEeOKWo1NF21OVw")]
@@ -30,7 +30,7 @@ public enum KnowYourCustomerCheckTypeCode
     
     /// <summary>
     /// Simple check, typically carried out on accounts that have a low risk of anti-money laundering, such as an account owned by a financial institution.
-    /// Encoded/decoded by serializers as "SIMP".
+    /// Encoded/decoded by serializers as &quot;SIMP&quot;.
     /// </summary>
     [EnumMember(Value = "SIMP")]
     [IsoId("_pkaTsBRxEeOKWo1NF21OVw")]
@@ -39,7 +39,7 @@ public enum KnowYourCustomerCheckTypeCode
     
     /// <summary>
     /// Enhanced check, typically carried out on accounts that are considered high risk.
-    /// Encoded/decoded by serializers as "ENHA".
+    /// Encoded/decoded by serializers as &quot;ENHA&quot;.
     /// </summary>
     [EnumMember(Value = "ENHA")]
     [IsoId("_po388BRxEeOKWo1NF21OVw")]

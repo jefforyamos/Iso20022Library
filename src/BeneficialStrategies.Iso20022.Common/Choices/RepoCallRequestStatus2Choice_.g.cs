@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepoCallRequestStatus2Choice.Denied))]
     [KnownType(typeof(RepoCallRequestStatus2Choice.Proprietary))]
     [IsoId("_UWYvc9p-Ed-ak6NoX_4Aeg_-1943927387")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repo Call Request Status 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

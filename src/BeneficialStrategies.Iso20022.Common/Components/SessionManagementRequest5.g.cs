@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This component define the type of Session management service to be used with this message.
 /// </summary>
 [IsoId("_gAxp4U6_EeyGi9JAv6wq7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Session Management Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record SessionManagementRequest5
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_gIATQU6_EeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment78 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment78 Environment { get; init; } 
+    public required CardPaymentEnvironment78 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment78 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record SessionManagementRequest5
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
     [IsoId("_gIATQ06_EeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentContext29 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentContext29 Context { get; init; } 
+    public required CardPaymentContext29 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentContext29 Context { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record SessionManagementRequest5
     /// Define the type of service requested.
     /// </summary>
     [IsoId("_gIATRU6_EeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcCntt")]
     #endif
+    [IsoXmlTag("SvcCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerService4Code ServiceContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetailerService4Code ServiceContent { get; init; } 
+    public required RetailerService4Code ServiceContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetailerService4Code ServiceContent { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record SessionManagementRequest5
     /// Content of the Login Request message.
     /// </summary>
     [IsoId("_gIATR06_EeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Login Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LgnReq")]
     #endif
+    [IsoXmlTag("LgnReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoginRequest4? LoginRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record SessionManagementRequest5
     /// Content of the Logout Request message.
     /// </summary>
     [IsoId("_gIATSU6_EeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Logout Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LgtReq")]
     #endif
+    [IsoXmlTag("LgtReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LogoutRequest1? LogoutRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,11 @@ public partial record SessionManagementRequest5
     /// Content of the Diagnosis Request message.
     /// </summary>
     [IsoId("_gIATS06_EeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Diagnosis Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgnssReq")]
     #endif
+    [IsoXmlTag("DgnssReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DiagnosisRequest1? DiagnosisRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +159,11 @@ public partial record SessionManagementRequest5
     /// Additional information incorporated as an extension to the message.
     /// </summary>
     [IsoId("_gIATTU6_EeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

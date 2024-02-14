@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusReason1Choice.ProprietaryRejection))]
     [KnownType(typeof(PaymentStatusReason1Choice.Proprietary))]
     [IsoId("_QKoAqdEdEei798TPbKJMuw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Status Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

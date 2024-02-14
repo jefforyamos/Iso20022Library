@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// </summary>
 [Description(@"Scope|The StatusNotification message is sent by a central system to a participant to notify the current status of a trade in the system.|Usage|This message will be sent at specific times agreed upon by the central settlement system and a participant in a central settlement system.|||This message is obsolete please use ForeignExchangeAndDerivativeTradeStatusNotificationV03 - fxtr.008.001.03")]
 [IsoId("_VgTq09E8Ed-BzquC8wXy7w_1259743081")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record StatusNotificationV02 : IOuterRecord<StatusNotificationV02
     /// Provides information on the status of a trade in a system.
     /// </summary>
     [IsoId("_VgTq1NE8Ed-BzquC8wXy7w_-575229954")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradData")]
     #endif
+    [IsoXmlTag("TradData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeData1 TradeData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeData1 TradeData { get; init; } 
+    public required TradeData1 TradeData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeData1 TradeData { get; init; } 
     #else
@@ -100,7 +97,7 @@ public partial record StatusNotificationV02 : IOuterRecord<StatusNotificationV02
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatusNotificationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatusNotificationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatusNotificationV02Document ToDocument()
     {
@@ -110,7 +107,7 @@ public partial record StatusNotificationV02 : IOuterRecord<StatusNotificationV02
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusNotificationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatusNotificationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatusNotificationV02Document : IOuterDocument<StatusNotificationV02>
@@ -127,7 +124,7 @@ public partial record StatusNotificationV02Document : IOuterDocument<StatusNotif
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatusNotificationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatusNotificationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusNotificationV02 Message { get; init; }

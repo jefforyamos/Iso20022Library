@@ -21,7 +21,7 @@ public enum SettlementTransactionCondition13Code
 {
     /// <summary>
     /// Tax-exempt financial instruments are to be settled.
-    /// Encoded/decoded by serializers as "CLEN".
+    /// Encoded/decoded by serializers as &quot;CLEN&quot;.
     /// </summary>
     [EnumMember(Value = "CLEN")]
     [IsoId("_tm2EEgzVEeuUZuaHWzkTew")]
@@ -30,7 +30,7 @@ public enum SettlementTransactionCondition13Code
     
     /// <summary>
     /// Taxable financial instruments are to be settled.
-    /// Encoded/decoded by serializers as "DIRT".
+    /// Encoded/decoded by serializers as &quot;DIRT&quot;.
     /// </summary>
     [EnumMember(Value = "DIRT")]
     [IsoId("_tm2EFAzVEeuUZuaHWzkTew")]
@@ -39,7 +39,7 @@ public enum SettlementTransactionCondition13Code
     
     /// <summary>
     /// Matching receipt instruction not required (only for concerned international or national central securities depositories).
-    /// Encoded/decoded by serializers as "DLWM".
+    /// Encoded/decoded by serializers as &quot;DLWM&quot;.
     /// </summary>
     [EnumMember(Value = "DLWM")]
     [IsoId("_tm2EEQzVEeuUZuaHWzkTew")]
@@ -48,7 +48,7 @@ public enum SettlementTransactionCondition13Code
     
     /// <summary>
     /// Securities are to be physically settled.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_tm2EFQzVEeuUZuaHWzkTew")]
@@ -57,7 +57,7 @@ public enum SettlementTransactionCondition13Code
     
     /// <summary>
     /// Settlement transactions to be settled with special delivery.
-    /// Encoded/decoded by serializers as "SPDL".
+    /// Encoded/decoded by serializers as &quot;SPDL&quot;.
     /// </summary>
     [EnumMember(Value = "SPDL")]
     [IsoId("_tm2EFgzVEeuUZuaHWzkTew")]
@@ -66,7 +66,7 @@ public enum SettlementTransactionCondition13Code
     
     /// <summary>
     /// Money and financial instruments settle in different locations.
-    /// Encoded/decoded by serializers as "SPST".
+    /// Encoded/decoded by serializers as &quot;SPST&quot;.
     /// </summary>
     [EnumMember(Value = "SPST")]
     [IsoId("_tm2EFwzVEeuUZuaHWzkTew")]
@@ -75,7 +75,7 @@ public enum SettlementTransactionCondition13Code
     
     /// <summary>
     /// No market claim should be automatically generated.
-    /// Encoded/decoded by serializers as "NOMC".
+    /// Encoded/decoded by serializers as &quot;NOMC&quot;.
     /// </summary>
     [EnumMember(Value = "NOMC")]
     [IsoId("_tm2EEwzVEeuUZuaHWzkTew")]
@@ -84,7 +84,7 @@ public enum SettlementTransactionCondition13Code
     
     /// <summary>
     /// Identification of settlement instructions created as a result of a partial successful buy-in.
-    /// Encoded/decoded by serializers as "BPSS".
+    /// Encoded/decoded by serializers as &quot;BPSS&quot;.
     /// </summary>
     [EnumMember(Value = "BPSS")]
     [IsoId("_ySxnsAzVEeuUZuaHWzkTew")]

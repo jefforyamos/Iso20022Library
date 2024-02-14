@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity involved in an activity.
 /// </summary>
 [IsoId("_k4nFNZKuEeGnRMFvqYmPBQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party And Signature")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PartyAndSignature2
     /// Entity involved in an activity.
     /// </summary>
     [IsoId("_k4nFOJKuEeGnRMFvqYmPBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 Party { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification43 Party { get; init; } 
+    public required PartyIdentification43 Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification43 Party { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PartyAndSignature2
     /// Signature of a party.
     /// </summary>
     [IsoId("_k4nFO5KuEeGnRMFvqYmPBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProprietaryData3 Signature { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProprietaryData3 Signature { get; init; } 
+    public required ProprietaryData3 Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProprietaryData3 Signature { get; init; } 
     #else

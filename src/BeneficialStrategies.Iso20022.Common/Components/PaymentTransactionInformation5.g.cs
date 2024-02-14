@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reference and status information concerning the original transactions, included in the original instruction, to which the reversal message applies.
 /// </summary>
 [IsoId("_Prnpetp-Ed-ak6NoX_4Aeg_1832543398")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Transaction Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record PaymentTransactionInformation5
     /// Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the reversed transaction.
     /// </summary>
     [IsoId("_Prnpe9p-Ed-ak6NoX_4Aeg_1833463637")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RvslId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReversalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,15 +68,13 @@ public partial record PaymentTransactionInformation5
     /// Unique and unambiguous identifier of the original payment information block as assigned by the original sending party.
     /// </summary>
     [IsoId("_PrnpfNp-Ed-ak6NoX_4Aeg_1833463949")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Information Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtInfId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlPmtInfId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalPaymentInformationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,15 +87,13 @@ public partial record PaymentTransactionInformation5
     /// Original unique instruction identification as assigned by an instructing party for an instructed party to unambiguously identify the original instruction.||Usage: the original instruction identification is the original point to point reference used between the instructing party and the instructed party to refer to the original instruction.
     /// </summary>
     [IsoId("_PrxacNp-Ed-ak6NoX_4Aeg_1833464026")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlInstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlInstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,15 +106,13 @@ public partial record PaymentTransactionInformation5
     /// Original unique identification assigned by the initiating party to unambiguously identify the original transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
     /// </summary>
     [IsoId("_Prxacdp-Ed-ak6NoX_4Aeg_1833464069")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original End To End Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlEndToEndId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlEndToEndId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,15 +125,13 @@ public partial record PaymentTransactionInformation5
     /// Original identification of a transaction, as assigned by the first instructing agent and passed on, unchanged, throughout the entire interbank chain.
     /// </summary>
     [IsoId("_Prxactp-Ed-ak6NoX_4Aeg_1833464430")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlTxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlTxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +144,12 @@ public partial record PaymentTransactionInformation5
     /// Amount of money transferred between the instructing agent and the instructed agent in the original transaction.
     /// </summary>
     [IsoId("_Prxac9p-Ed-ak6NoX_4Aeg_1833464905")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Interbank Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlIntrBkSttlmAmt")]
     #endif
+    [IsoXmlTag("OrgnlIntrBkSttlmAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,16 +162,16 @@ public partial record PaymentTransactionInformation5
     /// Amount of money moved between the instructing agent and the instructed agent in the reversed transaction.
     /// </summary>
     [IsoId("_PrxadNp-Ed-ak6NoX_4Aeg_1833466463")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversed Interbank Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvsdIntrBkSttlmAmt")]
     #endif
+    [IsoXmlTag("RvsdIntrBkSttlmAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount ReversedInterbankSettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ReversedInterbankSettlementAmount { get; init; } 
+    public required System.Decimal ReversedInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ReversedInterbankSettlementAmount { get; init; } 
     #else
@@ -194,12 +182,12 @@ public partial record PaymentTransactionInformation5
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.||Usage: the InterbankSettlementDate is the interbank settlement date of the reversal message, and not of the original instruction.
     /// </summary>
     [IsoId("_Prxaddp-Ed-ak6NoX_4Aeg_1833465325")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrBkSttlmDt")]
     #endif
+    [IsoXmlTag("IntrBkSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InterbankSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +200,12 @@ public partial record PaymentTransactionInformation5
     /// Amount of money to be moved between the debtor and the creditor, before deduction of charges, in the reversed transaction.
     /// </summary>
     [IsoId("_Prxadtp-Ed-ak6NoX_4Aeg_-918387251")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversed Instructed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvsdInstdAmt")]
     #endif
+    [IsoXmlTag("RvsdInstdAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ReversedInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +218,12 @@ public partial record PaymentTransactionInformation5
     /// The factor used for conversion of an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
     [IsoId("_Prxad9p-Ed-ak6NoX_4Aeg_1833465887")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRate")]
     #endif
+    [IsoXmlTag("XchgRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,12 +236,12 @@ public partial record PaymentTransactionInformation5
     /// Amount of money asked or paid as compensation for the processing of the instruction.
     /// </summary>
     [IsoId("_PrxaeNp-Ed-ak6NoX_4Aeg_1833465533")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Compensation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CompstnAmt")]
     #endif
+    [IsoXmlTag("CompstnAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? CompensationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +254,11 @@ public partial record PaymentTransactionInformation5
     /// Specifies if the creditor and/or debtor will bear the charges associated with the processing of the payment transaction.||Usage: The ChargeBearer applies to the reversal message, not to the original instruction.
     /// </summary>
     [IsoId("_Prxaedp-Ed-ak6NoX_4Aeg_1833466308")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Bearer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgBr")]
     #endif
+    [IsoXmlTag("ChrgBr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +271,11 @@ public partial record PaymentTransactionInformation5
     /// Transaction charges to be paid by the charge bearer for the reversal transaction.
     /// </summary>
     [IsoId("_Pr6kYNp-Ed-ak6NoX_4Aeg_1834388055")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsInf")]
     #endif
+    [IsoXmlTag("ChrgsInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargesInformation1? ChargesInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +288,11 @@ public partial record PaymentTransactionInformation5
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
     [IsoId("_Pr6kYdp-Ed-ak6NoX_4Aeg_1835312473")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgAgt")]
     #endif
+    [IsoXmlTag("InstgAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification3? InstructingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +305,11 @@ public partial record PaymentTransactionInformation5
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
     [IsoId("_Pr6kYtp-Ed-ak6NoX_4Aeg_1835311079")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAgt")]
     #endif
+    [IsoXmlTag("InstdAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification3? InstructedAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +322,11 @@ public partial record PaymentTransactionInformation5
     /// Detailed information on the reversal reason.
     /// </summary>
     [IsoId("_Pr6kY9p-Ed-ak6NoX_4Aeg_14128664")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslRsnInf")]
     #endif
+    [IsoXmlTag("RvslRsnInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReversalReasonInformation1? ReversalReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,12 +339,11 @@ public partial record PaymentTransactionInformation5
     /// Set of key elements of the original transaction being referred to.
     /// </summary>
     [IsoId("_Pr6kZNp-Ed-ak6NoX_4Aeg_1834389873")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlTxRef")]
     #endif
+    [IsoXmlTag("OrgnlTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalTransactionReference1? OriginalTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

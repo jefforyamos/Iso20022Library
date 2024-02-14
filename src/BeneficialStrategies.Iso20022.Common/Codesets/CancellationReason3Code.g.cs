@@ -21,7 +21,7 @@ public enum CancellationReason3Code
 {
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_bYGettp-Ed-ak6NoX_4Aeg_-553056545")]
@@ -30,7 +30,7 @@ public enum CancellationReason3Code
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bYGet9p-Ed-ak6NoX_4Aeg_-553056520")]
@@ -39,7 +39,7 @@ public enum CancellationReason3Code
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_bYGeuNp-Ed-ak6NoX_4Aeg_-553056503")]
@@ -48,7 +48,7 @@ public enum CancellationReason3Code
     
     /// <summary>
     /// Currency of the payment is incorrect.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_bYQPsNp-Ed-ak6NoX_4Aeg_-553056460")]
@@ -57,7 +57,7 @@ public enum CancellationReason3Code
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_bYQPsdp-Ed-ak6NoX_4Aeg_-553056459")]
@@ -66,7 +66,7 @@ public enum CancellationReason3Code
     
     /// <summary>
     /// Insufficient or incoherent details about the debtor with respect to regulatory requirements.
-    /// Encoded/decoded by serializers as "MM23".
+    /// Encoded/decoded by serializers as &quot;MM23&quot;.
     /// </summary>
     [EnumMember(Value = "MM23")]
     [IsoId("_bYQPstp-Ed-ak6NoX_4Aeg_-212277718")]
@@ -75,7 +75,7 @@ public enum CancellationReason3Code
     
     /// <summary>
     /// Insufficient or incoherent details about the creditor with respect to regulatory requirements.
-    /// Encoded/decoded by serializers as "MM24".
+    /// Encoded/decoded by serializers as &quot;MM24&quot;.
     /// </summary>
     [EnumMember(Value = "MM24")]
     [IsoId("_bYQPs9p-Ed-ak6NoX_4Aeg_-212277392")]

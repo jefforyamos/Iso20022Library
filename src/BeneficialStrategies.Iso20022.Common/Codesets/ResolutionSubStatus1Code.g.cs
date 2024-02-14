@@ -21,7 +21,7 @@ public enum ResolutionSubStatus1Code
 {
     /// <summary>
     /// Resolution voted at the meeting was amended.
-    /// Encoded/decoded by serializers as "AMDR".
+    /// Encoded/decoded by serializers as &quot;AMDR&quot;.
     /// </summary>
     [EnumMember(Value = "AMDR")]
     [IsoId("_Zd6yETUHEe2tRf29bleifQ")]
@@ -30,7 +30,7 @@ public enum ResolutionSubStatus1Code
     
     /// <summary>
     /// Resolution voted at the meeting is new. 
-    /// Encoded/decoded by serializers as "NEWR".
+    /// Encoded/decoded by serializers as &quot;NEWR&quot;.
     /// </summary>
     [EnumMember(Value = "NEWR")]
     [IsoId("_ZkxoATUHEe2tRf29bleifQ")]

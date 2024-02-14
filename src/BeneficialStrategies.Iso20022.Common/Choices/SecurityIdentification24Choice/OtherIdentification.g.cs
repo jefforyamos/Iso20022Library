@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification24Choice
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
     [IsoId("_jUg4o-GXEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification24Choice
         /// Unique and unambiguous identifier of a security.
         /// </summary>
         [IsoId("_64vPkR5VEeWFEfGJQFSF5w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max70Text)]
         [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax70Text Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -80,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification24Choice
         /// Source of the security identification.
         /// </summary>
         [IsoId("_64vPkx5VEeWFEfGJQFSF5w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification Source")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IdSrc")]
         #endif
+        [IsoXmlTag("IdSrc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IdentificationSource1Choice_ IdentificationSource { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public IdentificationSource1Choice_ IdentificationSource { get; init; } 
+        public required IdentificationSource1Choice_ IdentificationSource { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public IdentificationSource1Choice_ IdentificationSource { get; init; } 
         #else

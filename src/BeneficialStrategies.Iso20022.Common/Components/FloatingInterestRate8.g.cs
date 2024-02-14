@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the index used to define the rate and optionally the basis point spread.
 /// </summary>
 [IsoId("_HhTg5X5aEea2k7EBUopqxw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Floating Interest Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record FloatingInterestRate8
     /// Index or name if the reference rate is not included in the index list.
     /// </summary>
     [IsoId("_Hq0pQX5aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefRate")]
     #endif
+    [IsoXmlTag("RefRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
+    public required BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record FloatingInterestRate8
     /// Term of the reference rate.
     /// </summary>
     [IsoId("_Hq0pQ35aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Term")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Term")]
     #endif
+    [IsoXmlTag("Term")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateContractTerm2? Term { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

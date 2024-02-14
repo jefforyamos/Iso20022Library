@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The MisMatchRejectionNotification message is sent by the matching application to the parties involved in the transaction.|This message is used to notify the rejection of mis-matched data sets.|Usage|The MisMatchRejectionNotification message can be sent by the matching application to pass on the information about the rejection of mis-matched data sets that it has obtained through the receipt of an MisMatchRejection message.|In order to pass on information about the acceptance of mis-matched data sets the matching application sends an MisMatchAcceptanceNotification message.")]
 [IsoId("_sB1-GNE8Ed-BzquC8wXy7w_-1828586196")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mis Match Rejection Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
     /// Identifies the notification message.
     /// </summary>
     [IsoId("_sB1-GdE8Ed-BzquC8wXy7w_-1828585825")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
+    [IsoXmlTag("NtfctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 NotificationIdentification { get; init; } 
+    public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 NotificationIdentification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
     /// </summary>
     [IsoId("_sB1-GtE8Ed-BzquC8wXy7w_-1828586193")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -125,16 +121,15 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_sB1-G9E8Ed-BzquC8wXy7w_-1828586103")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
+    public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #else
@@ -145,16 +140,15 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_sB_vENE8Ed-BzquC8wXy7w_-1828586134")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 TransactionStatus { get; init; } 
+    public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 TransactionStatus { get; init; } 
     #else
@@ -165,32 +159,28 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
     [IsoId("_sB_vEdE8Ed-BzquC8wXy7w_-1828585771")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Reference to the identification of the report that contained the difference.
     /// </summary>
     [IsoId("_sB_vEtE8Ed-BzquC8wXy7w_-1828585794")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Match Report Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetMtchRptRef")]
     #endif
+    [IsoXmlTag("DataSetMtchRptRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 DataSetMatchReportReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 DataSetMatchReportReference { get; init; } 
+    public required MessageIdentification1 DataSetMatchReportReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 DataSetMatchReportReference { get; init; } 
     #else
@@ -201,16 +191,15 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
     /// Specifies the reaons for rejecting the mismatch.
     /// </summary>
     [IsoId("_sB_vE9E8Ed-BzquC8wXy7w_-1828585709")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReason1Choice_ RejectionReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectionReason1Choice_ RejectionReason { get; init; } 
+    public required RejectionReason1Choice_ RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectionReason1Choice_ RejectionReason { get; init; } 
     #else
@@ -221,12 +210,11 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
     /// Information on the next processing step required.
     /// </summary>
     [IsoId("_sB_vFNE8Ed-BzquC8wXy7w_-1828585679")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,7 +227,7 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MisMatchRejectionNotificationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MisMatchRejectionNotificationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MisMatchRejectionNotificationV03Document ToDocument()
     {
@@ -249,7 +237,7 @@ public partial record MisMatchRejectionNotificationV03 : IOuterRecord<MisMatchRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MisMatchRejectionNotificationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MisMatchRejectionNotificationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MisMatchRejectionNotificationV03Document : IOuterDocument<MisMatchRejectionNotificationV03>
@@ -266,7 +254,7 @@ public partial record MisMatchRejectionNotificationV03Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MisMatchRejectionNotificationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MisMatchRejectionNotificationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MisMatchRejectionNotificationV03 Message { get; init; }

@@ -21,7 +21,7 @@ public enum PartyType25Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_b4ppMXbLEeef9c2nwgY9Xw")]
@@ -30,7 +30,7 @@ public enum PartyType25Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_b4ppM3bLEeef9c2nwgY9Xw")]
@@ -39,7 +39,7 @@ public enum PartyType25Code
     
     /// <summary>
     /// Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "CSCH".
+    /// Encoded/decoded by serializers as &quot;CSCH&quot;.
     /// </summary>
     [EnumMember(Value = "CSCH")]
     [IsoId("_b4ppNXbLEeef9c2nwgY9Xw")]
@@ -48,7 +48,7 @@ public enum PartyType25Code
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_b4ppN3bLEeef9c2nwgY9Xw")]
@@ -57,7 +57,7 @@ public enum PartyType25Code
     
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_k4eq8XbLEeef9c2nwgY9Xw")]
@@ -66,7 +66,7 @@ public enum PartyType25Code
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_lDV3IXbLEeef9c2nwgY9Xw")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Cho
     /// Query is executed on a monthly basis. The day of the month of the query execution should be specified.
     /// </summary>
     [IsoId("_mmTLsNGYEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Monthly")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Cho
         /// Number (max 999) of objects represented as an integer.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Mnthly")]
         #endif
+        [IsoXmlTag("Mnthly")]
+        [IsoSimpleType(IsoSimpleType.Max3Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax3Number Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Value { get; init; } 
+        public required System.UInt64 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Value { get; init; } 
         #else

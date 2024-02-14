@@ -21,7 +21,7 @@ public enum CashSettlementSystem2Code
 {
     /// <summary>
     /// Settle money through gross settlement system.
-    /// Encoded/decoded by serializers as "GROS".
+    /// Encoded/decoded by serializers as &quot;GROS&quot;.
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_a7WRRNp-Ed-ak6NoX_4Aeg_-702652999")]
@@ -30,7 +30,7 @@ public enum CashSettlementSystem2Code
     
     /// <summary>
     /// Settle money through net settlement system.
-    /// Encoded/decoded by serializers as "NETS".
+    /// Encoded/decoded by serializers as &quot;NETS&quot;.
     /// </summary>
     [EnumMember(Value = "NETS")]
     [IsoId("_a7WRRdp-Ed-ak6NoX_4Aeg_1056453502")]

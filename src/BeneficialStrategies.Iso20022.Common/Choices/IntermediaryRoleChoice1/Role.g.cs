@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntermediaryRoleChoice1
     /// Role of the party in the activity.
     /// </summary>
     [IsoId("_RhC6B9p-Ed-ak6NoX_4Aeg_1630269497")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.IntermediaryRoleChoice1
         /// Specifies the role played by an actor in an investment fund transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Role")]
         #endif
+        [IsoXmlTag("Role")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestmentFundRole4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestmentFundRole4Code Value { get; init; } 
+        public required InvestmentFundRole4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestmentFundRole4Code Value { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateFormat27Choice
     /// Specifies an amount and a rate status.
     /// </summary>
     [IsoId("_cteBRZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount And Rate Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateFormat27Choice
         /// Value expressed as an amount.
         /// </summary>
         [IsoId("_g2FhhZnREeWLs7cvLxlyAg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else
@@ -77,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateFormat27Choice
         /// Value expressed as a rate status.
         /// </summary>
         [IsoId("_g2FhhJnREeWLs7cvLxlyAg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RateSts")]
         #endif
+        [IsoXmlTag("RateSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RateStatus1Code RateStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RateStatus1Code RateStatus { get; init; } 
+        public required RateStatus1Code RateStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RateStatus1Code RateStatus { get; init; } 
         #else

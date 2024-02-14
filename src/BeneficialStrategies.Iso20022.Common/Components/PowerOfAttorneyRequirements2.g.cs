@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the conditions to be filled in to obtain a valid power of attorney.
 /// </summary>
 [IsoId("_T5CFEtp-Ed-ak6NoX_4Aeg_-1322861866")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Power Of Attorney Requirements")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,31 +42,26 @@ public partial record PowerOfAttorneyRequirements2
     /// Specifies whether the power of attorney needs to be validated by some authority.
     /// </summary>
     [IsoId("_T5CFE9p-Ed-ak6NoX_4Aeg_-1322861864")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglRqrmnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LglRqrmnt")]
     [MinLength(0)]
     [MaxLength(4)]
-    #endif
     public SimpleValueList<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = new SimpleValueList<PowerOfAttorneyLegalisation1Code>(){};
     
     /// <summary>
     /// Specifies the documents needed to obtain a valid power of attorney.
     /// </summary>
     [IsoId("_T5CFFNp-Ed-ak6NoX_4Aeg_-1322861849")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Documentation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrDcmnttn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrDcmnttn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherDocumentation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

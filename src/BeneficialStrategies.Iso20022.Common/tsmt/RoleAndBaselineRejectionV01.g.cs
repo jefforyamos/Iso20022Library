@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The RoleAndBaselineRejection message is sent by a secondary bank to the matching application if it rejects to join the transaction based on the baseline and the role that it is expected to play.|Usage|The RoleAndBaselineRejection message is sent in response to a message that is a direct request to join a transaction.")]
 [IsoId("_uJ5PuNE8Ed-BzquC8wXy7w_1408620878")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Role And Baseline Rejection V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord<RoleAndBaseline
     /// Identifies the rejection message.
     /// </summary>
     [IsoId("_uJ5PudE8Ed-BzquC8wXy7w_1408620914")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnId")]
     #endif
+    [IsoXmlTag("RjctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RejectionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RejectionIdentification { get; init; } 
+    public required MessageIdentification1 RejectionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RejectionIdentification { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord<RoleAndBaseline
     /// Reference to the message that contained the baseline and is rejected.
     /// </summary>
     [IsoId("_uJ5PutE8Ed-BzquC8wXy7w_-1800452718")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Message Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdMsgRef")]
     #endif
+    [IsoXmlTag("RltdMsgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RelatedMessageReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RelatedMessageReference { get; init; } 
+    public required MessageIdentification1 RelatedMessageReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RelatedMessageReference { get; init; } 
     #else
@@ -120,16 +116,15 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord<RoleAndBaseline
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
     /// </summary>
     [IsoId("_uKCZoNE8Ed-BzquC8wXy7w_1408620999")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -140,12 +135,11 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord<RoleAndBaseline
     /// Reason why the user cannot accept the request.
     /// </summary>
     [IsoId("_uKCZodE8Ed-BzquC8wXy7w_1408621387")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reason2? RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +152,7 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord<RoleAndBaseline
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RoleAndBaselineRejectionV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RoleAndBaselineRejectionV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RoleAndBaselineRejectionV01Document ToDocument()
     {
@@ -168,7 +162,7 @@ public partial record RoleAndBaselineRejectionV01 : IOuterRecord<RoleAndBaseline
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RoleAndBaselineRejectionV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RoleAndBaselineRejectionV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RoleAndBaselineRejectionV01Document : IOuterDocument<RoleAndBaselineRejectionV01>
@@ -185,7 +179,7 @@ public partial record RoleAndBaselineRejectionV01Document : IOuterDocument<RoleA
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RoleAndBaselineRejectionV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RoleAndBaselineRejectionV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RoleAndBaselineRejectionV01 Message { get; init; }

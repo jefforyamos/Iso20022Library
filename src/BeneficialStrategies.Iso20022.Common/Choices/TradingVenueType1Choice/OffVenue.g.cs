@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueType1Choice
     /// Whether the Securities Financing Transaction was concluded off-venue.
     /// </summary>
     [IsoId("_5_yR8Hy7Eeu1BeE84IrnAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Off Venue")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueType1Choice
         /// Specifies that there is no reason available.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OffVn")]
         #endif
+        [IsoXmlTag("OffVn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NoReasonCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NoReasonCode Value { get; init; } 
+        public required NoReasonCode Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NoReasonCode Value { get; init; } 
         #else

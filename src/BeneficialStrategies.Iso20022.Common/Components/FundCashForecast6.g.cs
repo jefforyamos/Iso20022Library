@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cash movements from or to a fund as a result of investment funds transactions, eg, subscriptions or redemptions.
 /// </summary>
 [IsoId("_MJUJhQatEeS3lpTattq7hg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Cash Forecast")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record FundCashForecast6
     /// Unique technical identifier for an instance of a fund cash forecast within a fund cash forecast report as assigned by the issuer of the report.
     /// </summary>
     [IsoId("_MjNQFQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,16 +73,15 @@ public partial record FundCashForecast6
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
     [IsoId("_MjNQFwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDtTm")]
     #endif
+    [IsoXmlTag("TradDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTimeChoice_ TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #else
@@ -97,12 +92,11 @@ public partial record FundCashForecast6
     /// Previous date and time at which the price was applied.
     /// </summary>
     [IsoId("_MjNQGQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Trade Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsTradDtTm")]
     #endif
+    [IsoXmlTag("PrvsTradDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,16 +109,15 @@ public partial record FundCashForecast6
     /// Investment fund class to which the cash flow is related.
     /// </summary>
     [IsoId("_MjNQGwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmDtls")]
     #endif
+    [IsoXmlTag("FinInstrmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
+    public required FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
     #else
@@ -132,15 +125,15 @@ public partial record FundCashForecast6
     #endif
     
     /// <summary>
-    /// Total value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
+    /// Total value of all the holdings, less the fund&apos;s liabilities, attributable to a specific investment fund class.
     /// </summary>
     [IsoId("_MjNQHQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total NAV")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNAV")]
     #endif
+    [IsoXmlTag("TtlNAV")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalNAV { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,15 +143,15 @@ public partial record FundCashForecast6
     #endif
     
     /// <summary>
-    /// Previous value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
+    /// Previous value of all the holdings, less the fund&apos;s liabilities, attributable to a specific investment fund class.
     /// </summary>
     [IsoId("_MjNQHwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Total NAV")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsTtlNAV")]
     #endif
+    [IsoXmlTag("PrvsTtlNAV")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,12 +164,11 @@ public partial record FundCashForecast6
     /// Total number of investment fund class units that have been issued.
     /// </summary>
     [IsoId("_MjNQIQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlUnitsNb")]
     #endif
+    [IsoXmlTag("TtlUnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? TotalUnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,12 +181,11 @@ public partial record FundCashForecast6
     /// Previous total number of investment fund class units that have been issued.
     /// </summary>
     [IsoId("_MjNQIwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Total Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsTtlUnitsNb")]
     #endif
+    [IsoXmlTag("PrvsTtlUnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,12 +198,12 @@ public partial record FundCashForecast6
     /// Rate of change of the net asset value.
     /// </summary>
     [IsoId("_MjNQJQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total NAV Change Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNAVChngRate")]
     #endif
+    [IsoXmlTag("TtlNAVChngRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TotalNAVChangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -225,12 +216,11 @@ public partial record FundCashForecast6
     /// Currency of the investment fund class.
     /// </summary>
     [IsoId("_MjNQJwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtCcy")]
     #endif
+    [IsoXmlTag("InvstmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,12 +233,11 @@ public partial record FundCashForecast6
     /// Information about the designation of the share class currency, that is, whether it is for onshore or offshore purposes and other information that may be required. This is typically only required for CNY funds.
     /// </summary>
     [IsoId("_a9bEkQd2EeSPHJIdUs1USg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcySts")]
     #endif
+    [IsoXmlTag("CcySts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyDesignation1? CurrencyStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -261,16 +250,16 @@ public partial record FundCashForecast6
     /// Indicates whether the net cash flow is exceptional.
     /// </summary>
     [IsoId("_MjNQKwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exceptional Net Cash Flow Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcptnlNetCshFlowInd")]
     #endif
+    [IsoXmlTag("XcptnlNetCshFlowInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ExceptionalNetCashFlowIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExceptionalNetCashFlowIndicator { get; init; } 
+    public required System.String ExceptionalNetCashFlowIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExceptionalNetCashFlowIndicator { get; init; } 
     #else
@@ -281,12 +270,11 @@ public partial record FundCashForecast6
     /// Price per unit of the trade date.
     /// </summary>
     [IsoId("_-7pAYwdrEeSPHJIdUs1USg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitPrice19? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -299,12 +287,11 @@ public partial record FundCashForecast6
     /// Foreign exchange rate.
     /// </summary>
     [IsoId("_-7pAZAdrEeSPHJIdUs1USg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FXRate")]
     #endif
+    [IsoXmlTag("FXRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ForeignExchangeTerms19? ForeignExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -317,12 +304,12 @@ public partial record FundCashForecast6
     /// Net cash flow expressed as a percentage of the total NAV for the share class.
     /// </summary>
     [IsoId("_-7pAZQdrEeSPHJIdUs1USg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Of Share Class Total NAV")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgOfShrClssTtlNAV")]
     #endif
+    [IsoXmlTag("PctgOfShrClssTtlNAV")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageOfShareClassTotalNAV { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -335,12 +322,11 @@ public partial record FundCashForecast6
     /// Cash flow by party.
     /// </summary>
     [IsoId("_MjNQMQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Breakdown By Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrkdwnByPty")]
     #endif
+    [IsoXmlTag("BrkdwnByPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BreakdownByParty3? BreakdownByParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -353,12 +339,11 @@ public partial record FundCashForecast6
     /// Cash flow by country.
     /// </summary>
     [IsoId("_MjNQLQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Breakdown By Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrkdwnByCtry")]
     #endif
+    [IsoXmlTag("BrkdwnByCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BreakdownByCountry2? BreakdownByCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -371,12 +356,11 @@ public partial record FundCashForecast6
     /// Cash flow by currency.
     /// </summary>
     [IsoId("_MjNQLwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Breakdown By Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrkdwnByCcy")]
     #endif
+    [IsoXmlTag("BrkdwnByCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BreakdownByCurrency2? BreakdownByCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -389,12 +373,11 @@ public partial record FundCashForecast6
     /// Cash flow by a user defined parameter/s.
     /// </summary>
     [IsoId("_MjNQMwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Breakdown By User Defined Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrkdwnByUsrDfndParam")]
     #endif
+    [IsoXmlTag("BrkdwnByUsrDfndParam")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BreakdownByUserDefinedParameter3? BreakdownByUserDefinedParameter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -407,12 +390,11 @@ public partial record FundCashForecast6
     /// Net cash movements per financial instrument.
     /// </summary>
     [IsoId("_MjNQKQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Cash Forecast Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetCshFcstDtls")]
     #endif
+    [IsoXmlTag("NetCshFcstDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast4? NetCashForecastDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

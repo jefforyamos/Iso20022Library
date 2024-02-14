@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstitutionIdentification3Choice.ClearingSystemMemberIdentification))]
     [KnownType(typeof(FinancialInstitutionIdentification3Choice.ProprietaryIdentification))]
     [IsoId("_QE8vcNp-Ed-ak6NoX_4Aeg_2089460166")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution Identification 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

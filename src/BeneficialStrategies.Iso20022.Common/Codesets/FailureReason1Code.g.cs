@@ -21,7 +21,7 @@ public enum FailureReason1Code
 {
     /// <summary>
     /// Customer cancellation, for example removing the card before the end of the transaction.
-    /// Encoded/decoded by serializers as "CUCL".
+    /// Encoded/decoded by serializers as &quot;CUCL&quot;.
     /// </summary>
     [EnumMember(Value = "CUCL")]
     [IsoId("_TTG0VwEcEeCQm6a_G2yO_w_1835563439")]
@@ -30,7 +30,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Suspected malfunction.
-    /// Encoded/decoded by serializers as "MALF".
+    /// Encoded/decoded by serializers as &quot;MALF&quot;.
     /// </summary>
     [EnumMember(Value = "MALF")]
     [IsoId("_TTG0WAEcEeCQm6a_G2yO_w_-186424222")]
@@ -39,7 +39,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Completed partially.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_TTG0WQEcEeCQm6a_G2yO_w_1750800951")]
@@ -48,7 +48,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Response to the previous message was received too late.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_TTG0WgEcEeCQm6a_G2yO_w_267663047")]
@@ -57,7 +57,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Unable to complete the transaction after the authorisation response.
-    /// Encoded/decoded by serializers as "UCMP".
+    /// Encoded/decoded by serializers as &quot;UCMP&quot;.
     /// </summary>
     [EnumMember(Value = "UCMP")]
     [IsoId("_TTG0WwEcEeCQm6a_G2yO_w_-2090079076")]
@@ -66,7 +66,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Unable to deliver the request message to the recipient party.
-    /// Encoded/decoded by serializers as "USND".
+    /// Encoded/decoded by serializers as &quot;USND&quot;.
     /// </summary>
     [EnumMember(Value = "USND")]
     [IsoId("_TTG0XAEcEeCQm6a_G2yO_w_1028428200")]
@@ -75,7 +75,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Timeout while waiting for a response to a request message, or no response was received (for example connection release before receiving the response).
-    /// Encoded/decoded by serializers as "TIMO".
+    /// Encoded/decoded by serializers as &quot;TIMO&quot;.
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_TTG0XQEcEeCQm6a_G2yO_w_-1329313923")]
@@ -84,7 +84,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Integrated circuit card declines the transaction before or after the authorisation.
-    /// Encoded/decoded by serializers as "CDCL".
+    /// Encoded/decoded by serializers as &quot;CDCL&quot;.
     /// </summary>
     [EnumMember(Value = "CDCL")]
     [IsoId("_TTG0XgEcEeCQm6a_G2yO_w_-1435615927")]
@@ -93,7 +93,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Online authorisation declined the transaction.
-    /// Encoded/decoded by serializers as "NDCL".
+    /// Encoded/decoded by serializers as &quot;NDCL&quot;.
     /// </summary>
     [EnumMember(Value = "NDCL")]
     [IsoId("_TTG0XwEcEeCQm6a_G2yO_w_501609246")]
@@ -102,7 +102,7 @@ public enum FailureReason1Code
     
     /// <summary>
     /// Offline authorisation declined the transaction.
-    /// Encoded/decoded by serializers as "FDCL".
+    /// Encoded/decoded by serializers as &quot;FDCL&quot;.
     /// </summary>
     [EnumMember(Value = "FDCL")]
     [IsoId("_TTG0YAEcEeCQm6a_G2yO_w_-981528658")]

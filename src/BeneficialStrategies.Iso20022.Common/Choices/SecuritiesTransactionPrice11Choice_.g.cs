@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice11Choice.Yield))]
     [KnownType(typeof(SecuritiesTransactionPrice11Choice.BasisPoints))]
     [IsoId("_MR5i6c1VEem4K5qLxnWwMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Transaction Price 11 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

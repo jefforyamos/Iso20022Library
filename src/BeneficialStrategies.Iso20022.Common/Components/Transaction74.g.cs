@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the payment transaction.
 /// </summary>
 [IsoId("_dnujtdcZEeqRFcf2R4bPBw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Transaction74
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
     [IsoId("_dqPFJdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTo")]
     #endif
+    [IsoXmlTag("PmtTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public System2? PaymentTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Transaction74
     /// Origin of the payment (be it a member or a system or both).
     /// </summary>
     [IsoId("_dqPFJ9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtFr")]
     #endif
+    [IsoXmlTag("PmtFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public System2? PaymentFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Transaction74
     /// Indicates whether the payment transaction is a debit or credit transaction. |.
     /// </summary>
     [IsoId("_dqPFKdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Transaction74
     /// Instruction to pay an amount of money to an ultimate beneficiary, on behalf of an originator. This instruction may have to be forwarded several times to complete the settlement chain.
     /// </summary>
     [IsoId("_dqPFK9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pmt")]
     #endif
+    [IsoXmlTag("Pmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentInstruction32? Payment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record Transaction74
     /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
     /// </summary>
     [IsoId("_dqPFLdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Entry")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctNtry")]
     #endif
+    [IsoXmlTag("AcctNtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountAndEntry4? AccountEntry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record Transaction74
     /// Provides the references of the underlying securities transaction.
     /// </summary>
     [IsoId("_dqPFL9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Transaction References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesTxRefs")]
     #endif
+    [IsoXmlTag("SctiesTxRefs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionReferences1? SecuritiesTransactionReferences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

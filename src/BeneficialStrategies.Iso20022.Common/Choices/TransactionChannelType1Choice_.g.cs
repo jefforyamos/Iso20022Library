@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionChannelType1Choice.Code))]
     [KnownType(typeof(TransactionChannelType1Choice.Proprietary))]
     [IsoId("_JtX4MRRGEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Channel Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

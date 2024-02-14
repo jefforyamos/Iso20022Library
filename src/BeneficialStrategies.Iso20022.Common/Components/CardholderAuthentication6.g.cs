@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to the authentication of the cardholder.
 /// </summary>
 [IsoId("_HE--UWjNEeSHBr6v3XO0Mg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cardholder Authentication")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardholderAuthentication6
     /// Method to authenticate the cardholder.
     /// </summary>
     [IsoId("_HSU2wWjNEeSHBr6v3XO0Mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnMtd")]
     #endif
+    [IsoXmlTag("AuthntcnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthenticationMethod3Code AuthenticationMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthenticationMethod3Code AuthenticationMethod { get; init; } 
+    public required AuthenticationMethod3Code AuthenticationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthenticationMethod3Code AuthenticationMethod { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record CardholderAuthentication6
     /// Value used to authenticate the cardholder.
     /// </summary>
     [IsoId("_HSU2xWjNEeSHBr6v3XO0Mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnVal")]
     #endif
+    [IsoXmlTag("AuthntcnVal")]
+    [IsoSimpleType(IsoSimpleType.Max5000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? AuthenticationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record CardholderAuthentication6
     /// Protection of the authentication value.
     /// </summary>
     [IsoId("_F7UVoGjPEeSHBr6v3XO0Mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Authentication Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdAuthntcnVal")]
     #endif
+    [IsoXmlTag("PrtctdAuthntcnVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedAuthenticationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record CardholderAuthentication6
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
     [IsoId("_HSU2x2jNEeSHBr6v3XO0Mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder On Line PIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrOnLinePIN")]
     #endif
+    [IsoXmlTag("CrdhldrOnLinePIN")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLinePIN4? CardholderOnLinePIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,15 +117,14 @@ public partial record CardholderAuthentication6
     #endif
     
     /// <summary>
-    /// Numeric characters of the cardholder's billing or shipping address for verification.
+    /// Numeric characters of the cardholder&apos;s billing or shipping address for verification.
     /// </summary>
     [IsoId("_q8ZboGjPEeSHBr6v3XO0Mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdrVrfctn")]
     #endif
+    [IsoXmlTag("AdrVrfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddressVerification1? AddressVerification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

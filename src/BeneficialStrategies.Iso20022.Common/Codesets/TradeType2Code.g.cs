@@ -21,7 +21,7 @@ public enum TradeType2Code
 {
     /// <summary>
     /// Trade involving risk.
-    /// Encoded/decoded by serializers as "RISK".
+    /// Encoded/decoded by serializers as &quot;RISK&quot;.
     /// </summary>
     [EnumMember(Value = "RISK")]
     [IsoId("_YqDkGNp-Ed-ak6NoX_4Aeg_-865863561")]
@@ -30,7 +30,7 @@ public enum TradeType2Code
     
     /// <summary>
     /// Trade whose price is guaranteed as the weighted average of the trade prices on a specific day.
-    /// Encoded/decoded by serializers as "VWAP".
+    /// Encoded/decoded by serializers as &quot;VWAP&quot;.
     /// </summary>
     [EnumMember(Value = "VWAP")]
     [IsoId("_YqNVENp-Ed-ak6NoX_4Aeg_-865863544")]
@@ -39,7 +39,7 @@ public enum TradeType2Code
     
     /// <summary>
     /// Trade in which an agent intermediates between a buyer and a seller.
-    /// Encoded/decoded by serializers as "AGEN".
+    /// Encoded/decoded by serializers as &quot;AGEN&quot;.
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_YqNVEdp-Ed-ak6NoX_4Aeg_-865863526")]
@@ -48,7 +48,7 @@ public enum TradeType2Code
     
     /// <summary>
     /// Trade which is guaranteed to be finalized.
-    /// Encoded/decoded by serializers as "GUAR".
+    /// Encoded/decoded by serializers as &quot;GUAR&quot;.
     /// </summary>
     [EnumMember(Value = "GUAR")]
     [IsoId("_YqNVEtp-Ed-ak6NoX_4Aeg_-865863509")]

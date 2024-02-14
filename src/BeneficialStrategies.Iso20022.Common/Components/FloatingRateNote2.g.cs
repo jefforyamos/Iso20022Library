@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of a debt instrument in which the periodic interest payments are calculated on the basis of the value (that is, fixing of an underlying reference rate such as the Euribor) on predefined dates (that is, fixing dates) and which has a maturity of no more than one year.
 /// </summary>
 [IsoId("_GIEfkaifEeWHO_l3hf2rlA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Floating Rate Note")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record FloatingRateNote2
     /// Underlying reference rate on the basis on which the periodic interest payments are calculated.
     /// </summary>
     [IsoId("_Gm8z8aifEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Rate Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefRateIndx")]
     #endif
+    [IsoXmlTag("RefRateIndx")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier ReferenceRateIndex { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReferenceRateIndex { get; init; } 
+    public required System.String ReferenceRateIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReferenceRateIndex { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record FloatingRateNote2
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
     [IsoId("_Gm8z86ifEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis Point Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsisPtSprd")]
     #endif
+    [IsoXmlTag("BsisPtSprd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber BasisPointSpread { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 BasisPointSpread { get; init; } 
+    public required System.UInt64 BasisPointSpread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 BasisPointSpread { get; init; } 
     #else

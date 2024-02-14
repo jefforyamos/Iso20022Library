@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AllocationSatus3Choice
     /// Provides the status of allocation of collateral to cover the instruction.
     /// </summary>
     [IsoId("_EAk7gTqqEeWyoP0PbocV1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AllocationSatus3Choice
         /// Specifies the status of allocation of collateral to cover the instruction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AllocationStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AllocationStatus1Code Value { get; init; } 
+        public required AllocationStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AllocationStatus1Code Value { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty16Choic
     /// Detailed information on statistics per combination of counterparties.
     /// </summary>
     [IsoId("_rpsLQ1owEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,16 +57,16 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty16Choic
         /// Reference date for statistics collection.
         /// </summary>
         [IsoId("_rqy-gVowEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reference Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RefDt")]
         #endif
+        [IsoXmlTag("RefDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate ReferenceDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly ReferenceDate { get; init; } 
+        public required System.DateOnly ReferenceDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly ReferenceDate { get; init; } 
         #else
@@ -79,16 +77,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty16Choic
         /// Detailed information of outstanding derivatives for which the valuation was not reported or the valuation reported is more than fourteen calendar days earlier than the date for which the report was generated shall be included in the report of missing valuations at the end of the day.
         /// </summary>
         [IsoId("_rqy-g1owEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Missing Valuation")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MssngValtn")]
         #endif
+        [IsoXmlTag("MssngValtn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
+        public required DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
         #else
@@ -99,16 +96,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty16Choic
         /// Detailed information of the outstanding derivatives for which no margin information has been reported, or the margin information that was reported is dated more than fourteen calendar days earlier than the day.
         /// </summary>
         [IsoId("_rqy-hVowEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Missing Margin Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MssngMrgnInf")]
         #endif
+        [IsoXmlTag("MssngMrgnInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
+        public required DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
         #else
@@ -119,16 +115,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty16Choic
         /// Detailed information of the derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
         /// </summary>
         [IsoId("_rqy-h1owEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Abnormal Values")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AbnrmlVals")]
         #endif
+        [IsoXmlTag("AbnrmlVals")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
+        public required DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
         #else

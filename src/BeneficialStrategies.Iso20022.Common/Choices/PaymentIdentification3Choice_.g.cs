@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentIdentification3Choice.ShortBusinessIdentification))]
     [KnownType(typeof(PaymentIdentification3Choice.ProprietaryReference))]
     [IsoId("_RbYW59p-Ed-ak6NoX_4Aeg_-1132471784")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Identification 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

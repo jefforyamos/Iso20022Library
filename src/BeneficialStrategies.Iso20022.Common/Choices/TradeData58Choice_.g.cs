@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeData58Choice.DataSetAction))]
     [KnownType(typeof(TradeData58Choice.State))]
     [IsoId("_B_8MQWEbEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Data 58 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

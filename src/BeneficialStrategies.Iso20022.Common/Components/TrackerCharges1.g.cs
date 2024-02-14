@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information on the charges related to the payment transaction.
 /// </summary>
 [IsoId("_XaHJxfWfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Charges")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record TrackerCharges1
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
     [IsoId("_XaHJyfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record TrackerCharges1
     /// Agent that takes the transaction charges or to which the transaction charges are due.
     /// </summary>
     [IsoId("_XaHJy_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Agt")]
     #endif
+    [IsoXmlTag("Agt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerFinancialInstitutionIdentification1 Agent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerFinancialInstitutionIdentification1 Agent { get; init; } 
+    public required TrackerFinancialInstitutionIdentification1 Agent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerFinancialInstitutionIdentification1 Agent { get; init; } 
     #else

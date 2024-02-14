@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Location of a presentation.
 /// </summary>
 [IsoId("_97RzI3ltEeG7BsjMvd1mEw_-1003914803")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Place Of Presentation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PlaceOfPresentation1
     /// Place of the presentation.
     /// </summary>
     [IsoId("_97RzJHltEeG7BsjMvd1mEw_-404426889")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Plc")]
     #endif
+    [IsoXmlTag("Plc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTypeOfParty1Code Place { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalTypeOfParty1Code Place { get; init; } 
+    public required ExternalTypeOfParty1Code Place { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalTypeOfParty1Code Place { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PlaceOfPresentation1
     /// Country where a presentation is to be made.
     /// </summary>
     [IsoId("_97RzJXltEeG7BsjMvd1mEw_392011712")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

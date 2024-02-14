@@ -21,7 +21,7 @@ public enum ElectionType1Code
 {
     /// <summary>
     /// New election advice.
-    /// Encoded/decoded by serializers as "NEWM".
+    /// Encoded/decoded by serializers as &quot;NEWM&quot;.
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_ag-CaNp-Ed-ak6NoX_4Aeg_-1543884834")]
@@ -30,7 +30,7 @@ public enum ElectionType1Code
     
     /// <summary>
     /// Election advice which is the result of an option change.
-    /// Encoded/decoded by serializers as "CHAN".
+    /// Encoded/decoded by serializers as &quot;CHAN&quot;.
     /// </summary>
     [EnumMember(Value = "CHAN")]
     [IsoId("_ahHzYNp-Ed-ak6NoX_4Aeg_-1543884803")]

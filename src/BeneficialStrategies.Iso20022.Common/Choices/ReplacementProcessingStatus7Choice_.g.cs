@@ -29,9 +29,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReplacementProcessingStatus7Choice.ModificationRequested))]
     [KnownType(typeof(ReplacementProcessingStatus7Choice.ProprietaryStatus))]
     [IsoId("_A5TcANokEeC60axPepSq7g_722143945")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Replacement Processing Status 7 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

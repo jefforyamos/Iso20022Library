@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information relevant to the destination.
 /// </summary>
 [IsoId("_kIe6gVBBEeedyPuM0kK2EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record AdditionalInformation21
     /// Recipient of the additional information to display, print, send or store.
     /// </summary>
     [IsoId("_kTMVsVBBEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcpt")]
     #endif
+    [IsoXmlTag("Rcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType23Code? Recipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record AdditionalInformation21
     /// Target of the additional information to print, display, send or store.
     /// </summary>
     [IsoId("_kTMVs1BBEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trgt")]
     #endif
+    [IsoXmlTag("Trgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UserInterface7Code? Target { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record AdditionalInformation21
     /// Format of the additional information.
     /// </summary>
     [IsoId("_kTMVtVBBEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frmt")]
     #endif
+    [IsoXmlTag("Frmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputFormat4Code? Format { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,19 +100,17 @@ public partial record AdditionalInformation21
     /// Content of or reference to the message.
     /// </summary>
     [IsoId("_uUVFsewlEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.Max20KText)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20KText Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Value { get; init; } 
+    public required System.String Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Value { get; init; } 
     #else

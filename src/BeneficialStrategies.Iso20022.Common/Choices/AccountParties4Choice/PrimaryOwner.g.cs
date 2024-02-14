@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
     /// Single owner of the investment account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
     /// </summary>
     [IsoId("_tHD44RRiEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Owner")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Information about the organisation or individual person.
         /// </summary>
         [IsoId("_Ez9zERRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pty")]
         #endif
+        [IsoXmlTag("Pty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Party16Choice_ Party { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Party16Choice_ Party { get; init; } 
+        public required Party16Choice_ Party { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Party16Choice_ Party { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
         /// </summary>
         [IsoId("_Ez9zExRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Money Laundering Check")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MnyLndrgChck")]
         #endif
+        [IsoXmlTag("MnyLndrgChck")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Information to support Know Your Customer processes.
         /// </summary>
         [IsoId("_Ez9zFRRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Investor Profile Validation")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InvstrPrflVldtn")]
         #endif
+        [IsoXmlTag("InvstrPrflVldtn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyProfileInformation3? InvestorProfileValidation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +107,12 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Percentage of ownership or of beneficial ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
         /// </summary>
         [IsoId("_Ez9zFxRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Ownership Beneficiary Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OwnrshBnfcryRate")]
         #endif
+        [IsoXmlTag("OwnrshBnfcryRate")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoPercentageRate? OwnershipBeneficiaryRate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,15 +125,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
         /// </summary>
         [IsoId("_Ez9zGRRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Client Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClntId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("ClntId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? ClientIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,12 +144,12 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Indicates whether an owner of an investment account may benefit from a fiscal exemption or amnesty for instance for declaring overseas investments.
         /// </summary>
         [IsoId("_Ez9zGxRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Fiscal Exemption")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FsclXmptn")]
         #endif
+        [IsoXmlTag("FsclXmptn")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? FiscalExemption { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +162,12 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Indicates whether the signature of the account owner is required to authorise transactions on the account.
         /// </summary>
         [IsoId("_Ez9zHRRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Signatory Right Indicator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SgntryRghtInd")]
         #endif
+        [IsoXmlTag("SgntryRghtInd")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? SignatoryRightIndicator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +180,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Details about the MiFID classification of the account owner.
         /// </summary>
         [IsoId("_Ez9zHxRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Mi FID Classification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MiFIDClssfctn")]
         #endif
+        [IsoXmlTag("MiFIDClssfctn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MiFIDClassification1? MiFIDClassification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,12 +197,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice
         /// Specifies how information is sent to the account holder.
         /// </summary>
         [IsoId("_Ez9zIRRjEeOKWo1NF21OVw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Information Distribution")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InfDstrbtn")]
         #endif
+        [IsoXmlTag("InfDstrbtn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InformationDistribution1Code? InformationDistribution { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

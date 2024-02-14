@@ -21,7 +21,7 @@ public enum CollateralAppliedExcess1Code
 {
     /// <summary>
     /// Collateral used by the collateral receiver to discharge liabilities owed to it by the collateral provider.
-    /// Encoded/decoded by serializers as "APLD".
+    /// Encoded/decoded by serializers as &quot;APLD&quot;.
     /// </summary>
     [EnumMember(Value = "APLD")]
     [IsoId("_v1E-sQF7EeutW5-TpeYJhA")]
@@ -30,7 +30,7 @@ public enum CollateralAppliedExcess1Code
     
     /// <summary>
     /// Collateral held by the collateral receiver either in anticipation of future liabilities or towards previously liabilities no longer owed to it.
-    /// Encoded/decoded by serializers as "EXCS".
+    /// Encoded/decoded by serializers as &quot;EXCS&quot;.
     /// </summary>
     [EnumMember(Value = "EXCS")]
     [IsoId("_v-TzMQF7EeutW5-TpeYJhA")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TypeOfPrice6Choice.Code))]
     [KnownType(typeof(TypeOfPrice6Choice.Proprietary))]
     [IsoId("_Qwdxpdp-Ed-ak6NoX_4Aeg_-1053429608")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Of Price 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters of the RSASSA-PSS digital signature algorithm (RSA signature algorithm with appendix: Probabilistic Signature Scheme).
 /// </summary>
 [IsoId("_G4BX4S_JEeugIJ3Gvoevmg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Parameter15
     /// Identification of the digest algorithm.
     /// </summary>
     [IsoId("_HC81gS_JEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm16Code? DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Parameter15
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
     [IsoId("_HC81gy_JEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mask Generator Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MskGnrtrAlgo")]
     #endif
+    [IsoXmlTag("MskGnrtrAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlgorithmIdentification12? MaskGeneratorAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record Parameter15
     /// Length of the salt to include in the signature.
     /// </summary>
     [IsoId("_HC81hS_JEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Salt Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaltLngth")]
     #endif
+    [IsoXmlTag("SaltLngth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SaltLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,12 @@ public partial record Parameter15
     /// Trailer field number.
     /// </summary>
     [IsoId("_HC81hy_JEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trailer Field")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrlrFld")]
     #endif
+    [IsoXmlTag("TrlrFld")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TrailerField { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,15 +112,13 @@ public partial record Parameter15
     /// Name of the Elliptic Curve according to the OID notation.
     /// </summary>
     [IsoId("_WPWHMC_JEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("OID Curve Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OIDCrvNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OIDCrvNm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? OIDCurveName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

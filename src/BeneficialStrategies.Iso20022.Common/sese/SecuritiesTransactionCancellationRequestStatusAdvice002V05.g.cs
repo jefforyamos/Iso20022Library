@@ -42,9 +42,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An account servicer sends an SecuritiesTransactionCancellationRequestStatusAdvice to an account owner to advise the status of a securities transaction cancellation request previously sent by the account owner.|The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information|using the relevant elements in the Business Application Header.")]
 [IsoId("_8ScZ05NLEeWGlc8L7oPDIg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Transaction Cancellation Request Status Advice 002 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     /// Reference to the unambiguous identification of the cancellation request as per the account owner.
     /// </summary>
     [IsoId("_8ScZ15NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Request Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlReqRef")]
     #endif
+    [IsoXmlTag("CxlReqRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Identification16 CancellationRequestReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Identification16 CancellationRequestReference { get; init; } 
+    public required Identification16 CancellationRequestReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Identification16 CancellationRequestReference { get; init; } 
     #else
@@ -108,12 +105,11 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
     [IsoId("_8ScZ2ZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifications39? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,16 +122,15 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     /// Provides details on the processing status of the request.
     /// </summary>
     [IsoId("_8ScZ25NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingStatus65Choice_ ProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingStatus65Choice_ ProcessingStatus { get; init; } 
+    public required ProcessingStatus65Choice_ ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingStatus65Choice_ ProcessingStatus { get; init; } 
     #else
@@ -146,12 +141,11 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     /// Identifies the details of the transaction.
     /// </summary>
     [IsoId("_8ScZ3ZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionDetails88? TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +158,11 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_8ScZ35NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,7 +175,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesTransactionCancellationRequestStatusAdvice002V05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesTransactionCancellationRequestStatusAdvice002V05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesTransactionCancellationRequestStatusAdvice002V05Document ToDocument()
     {
@@ -192,7 +185,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTransactionCancellationRequestStatusAdvice002V05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesTransactionCancellationRequestStatusAdvice002V05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05Document : IOuterDocument<SecuritiesTransactionCancellationRequestStatusAdvice002V05>
@@ -209,7 +202,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesTransactionCancellationRequestStatusAdvice002V05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesTransactionCancellationRequestStatusAdvice002V05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTransactionCancellationRequestStatusAdvice002V05 Message { get; init; }

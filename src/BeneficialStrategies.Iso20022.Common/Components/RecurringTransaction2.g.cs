@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
 [IsoId("_3s3JETDhEeO9waS4ina8CA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Recurring Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record RecurringTransaction2
     /// Type of instalment plan.
     /// </summary>
     [IsoId("_gVyDADDjEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtPlan")]
     #endif
+    [IsoXmlTag("InstlmtPlan")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstalmentPlan1Code? InstalmentPlan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record RecurringTransaction2
     /// Identification of the instalment plan.
     /// </summary>
     [IsoId("_wDl_sDDjEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plan Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlanId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlanId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PlanIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record RecurringTransaction2
     /// Indicates the recurring/instalment occurrence of the transaction (1 = 1st instalment, 2 = 2nd instalment, etc.).
     /// </summary>
     [IsoId("_37vSkTDhEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqNb")]
     #endif
+    [IsoXmlTag("SeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,11 @@ public partial record RecurringTransaction2
     /// Period unit between consecutive payments (for example day, month, year).
     /// </summary>
     [IsoId("_37vSkzDhEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrdUnit")]
     #endif
+    [IsoXmlTag("PrdUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency3Code? PeriodUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +113,12 @@ public partial record RecurringTransaction2
     /// Number of period units between consecutive payments.
     /// </summary>
     [IsoId("_37vSlTDhEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtPrd")]
     #endif
+    [IsoXmlTag("InstlmtPrd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? InstalmentPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +131,12 @@ public partial record RecurringTransaction2
     /// Total number of instalment payments.
     /// </summary>
     [IsoId("_37vSlzDhEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Payments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfPmts")]
     #endif
+    [IsoXmlTag("TtlNbOfPmts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfPayments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +149,12 @@ public partial record RecurringTransaction2
     /// Date of the first payment.
     /// </summary>
     [IsoId("_2bU70DD5EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstPmtDt")]
     #endif
+    [IsoXmlTag("FrstPmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FirstPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +167,12 @@ public partial record RecurringTransaction2
     /// Cumulative amount of all the instalments.
     /// </summary>
     [IsoId("_FDQ1kDD6EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmt")]
     #endif
+    [IsoXmlTag("TtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +185,12 @@ public partial record RecurringTransaction2
     /// Amount of the first payment.
     /// </summary>
     [IsoId("_kvf90DD6EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstAmt")]
     #endif
+    [IsoXmlTag("FrstAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FirstAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +203,12 @@ public partial record RecurringTransaction2
     /// Charges related to the transaction.
     /// </summary>
     [IsoId("_c2KFADDkEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrgs")]
     #endif
+    [IsoXmlTag("Chrgs")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? Charges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

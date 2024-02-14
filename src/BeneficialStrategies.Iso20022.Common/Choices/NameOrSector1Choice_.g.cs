@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NameOrSector1Choice.Name))]
     [KnownType(typeof(NameOrSector1Choice.Sector))]
     [IsoId("_6MuWYYInEeWA9fc11zJf1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name Or Sector 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

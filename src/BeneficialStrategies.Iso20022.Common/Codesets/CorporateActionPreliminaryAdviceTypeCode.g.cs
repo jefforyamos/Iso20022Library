@@ -21,7 +21,7 @@ public enum CorporateActionPreliminaryAdviceTypeCode
 {
     /// <summary>
     /// New movement preliminary advice.
-    /// Encoded/decoded by serializers as "NEWM".
+    /// Encoded/decoded by serializers as &quot;NEWM&quot;.
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_bR2Fsdp-Ed-ak6NoX_4Aeg_456561091")]
@@ -30,7 +30,7 @@ public enum CorporateActionPreliminaryAdviceTypeCode
     
     /// <summary>
     /// Movement preliminary advice replacing a previously sent preliminary advice.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_bR2Fstp-Ed-ak6NoX_4Aeg_-248553524")]

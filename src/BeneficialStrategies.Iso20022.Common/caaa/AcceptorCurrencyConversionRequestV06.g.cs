@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorCurrencyConversionRequest message is sent by the card acceptor to the currency conversion service provider to request if the cardholder is able to pay in the currency of its card.|")]
 [IsoId("_N0bCgdelEeiJyp_aycJaTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Currency Conversion Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record AcceptorCurrencyConversionRequestV06 : IOuterRecord<Accept
     /// Currency Conversion request message management information.
     /// </summary>
     [IsoId("_N0bChdelEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header35 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header35 Header { get; init; } 
+    public required Header35 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header35 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record AcceptorCurrencyConversionRequestV06 : IOuterRecord<Accept
     /// Information related to the currency conversion request.
     /// </summary>
     [IsoId("_N0bCh9elEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Conversion Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyConvsReq")]
     #endif
+    [IsoXmlTag("CcyConvsReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCurrencyConversionRequest6 CurrencyConversionRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorCurrencyConversionRequest6 CurrencyConversionRequest { get; init; } 
+    public required AcceptorCurrencyConversionRequest6 CurrencyConversionRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorCurrencyConversionRequest6 CurrencyConversionRequest { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record AcceptorCurrencyConversionRequestV06 : IOuterRecord<Accept
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_N0bCidelEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType16? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record AcceptorCurrencyConversionRequestV06 : IOuterRecord<Accept
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorCurrencyConversionRequestV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorCurrencyConversionRequestV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorCurrencyConversionRequestV06Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record AcceptorCurrencyConversionRequestV06 : IOuterRecord<Accept
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCurrencyConversionRequestV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorCurrencyConversionRequestV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorCurrencyConversionRequestV06Document : IOuterDocument<AcceptorCurrencyConversionRequestV06>
@@ -162,7 +157,7 @@ public partial record AcceptorCurrencyConversionRequestV06Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorCurrencyConversionRequestV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorCurrencyConversionRequestV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCurrencyConversionRequestV06 Message { get; init; }

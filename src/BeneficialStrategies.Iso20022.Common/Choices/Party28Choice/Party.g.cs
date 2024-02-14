@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party28Choice
     /// Identification of a person or an organisation.
     /// </summary>
     [IsoId("_cOVCc9nSEeS--7IJLPC9lw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party28Choice
         /// Name by which a party is known and which is usually used to identify that party.
         /// </summary>
         [IsoId("_kCMZA9LPEeSdq5yU2aaSNw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax140Text? Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party28Choice
         /// Information that locates and identifies a specific address, as defined by postal services.
         /// </summary>
         [IsoId("_kCMZBdLPEeSdq5yU2aaSNw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Postal Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PstlAdr")]
         #endif
+        [IsoXmlTag("PstlAdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PostalAddress19? PostalAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party28Choice
         /// Unique and unambiguous identification of a party.
         /// </summary>
         [IsoId("_kCMZB9LPEeSdq5yU2aaSNw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Party11Choice_? Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,15 +97,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Party28Choice
         #endif
         
         /// <summary>
-        /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
+        /// Country in which a person resides (the place of a person&apos;s home). In the case of a company, it is the country from which the affairs of that company are directed.
         /// </summary>
         [IsoId("_kCMZCdLPEeSdq5yU2aaSNw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Country Of Residence")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtryOfRes")]
         #endif
+        [IsoXmlTag("CtryOfRes")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CountryCode? CountryOfResidence { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +117,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party28Choice
         /// Set of elements used to indicate how to contact the party.
         /// </summary>
         [IsoId("_kCMZC9LPEeSdq5yU2aaSNw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Contact Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtctDtls")]
         #endif
+        [IsoXmlTag("CtctDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ContactDetails2? ContactDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

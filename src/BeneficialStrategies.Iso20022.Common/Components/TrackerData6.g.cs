@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the detailed information as provided by a payment tracking system.
 /// </summary>
 [IsoId("_uu9vLVc8EeunQrLahSRvvA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record TrackerData6
     /// This date can be the point in time when an agent provides a pending status update to the tracking system or when the creditor has been credited and can use the amount of money (as confirmed to the tracking system by the creditor agent).
     /// </summary>
     [IsoId("_uvkLsVc8EeunQrLahSRvvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmed Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfdDt")]
     #endif
+    [IsoXmlTag("ConfdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
+    public required DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     #else
@@ -74,16 +71,16 @@ public partial record TrackerData6
     /// Amount of money effectively credited to the creditor and confirmed to the tracking system by the agent.
     /// </summary>
     [IsoId("_uvkLs1c8EeunQrLahSRvvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfdAmt")]
     #endif
+    [IsoXmlTag("ConfdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ConfirmedAmount { get; init; } 
+    public required System.Decimal ConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ConfirmedAmount { get; init; } 
     #else
@@ -94,12 +91,12 @@ public partial record TrackerData6
     /// Amount of money remaining to be confirmed.
     /// </summary>
     [IsoId("_uvkLtVc8EeunQrLahSRvvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remaining To Be Confirmed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmngToBeConfdAmt")]
     #endif
+    [IsoXmlTag("RmngToBeConfdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RemainingToBeConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +109,12 @@ public partial record TrackerData6
     /// Amount of money previously credited to the creditor and confirmed to the tracking system by the agent.
     /// </summary>
     [IsoId("_uvkLt1c8EeunQrLahSRvvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previously Confirmed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrevslyConfdAmt")]
     #endif
+    [IsoXmlTag("PrevslyConfdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreviouslyConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,12 +129,11 @@ public partial record TrackerData6
     /// This date provides the point in time when the last previous confirmed amount was provided to the tracker, in case of a partial confirmation.
     /// </summary>
     [IsoId("_uvkLuVc8EeunQrLahSRvvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previously Confirmed Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrevslyConfdDt")]
     #endif
+    [IsoXmlTag("PrevslyConfdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? PreviouslyConfirmedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

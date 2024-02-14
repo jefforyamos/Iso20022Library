@@ -21,7 +21,7 @@ public enum DTCCPayoutType3Code
 {
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as capital gains.
-    /// Encoded/decoded by serializers as "CAPG".
+    /// Encoded/decoded by serializers as &quot;CAPG&quot;.
     /// </summary>
     [EnumMember(Value = "CAPG")]
     [IsoId("_g8GfIaFpEeSpipW1FBSFVg")]
@@ -30,7 +30,7 @@ public enum DTCCPayoutType3Code
     
     /// <summary>
     /// Payout consisting of cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_hA3DUaFpEeSpipW1FBSFVg")]
@@ -39,7 +39,7 @@ public enum DTCCPayoutType3Code
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by company as dividend.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_hIv0AaFpEeSpipW1FBSFVg")]
@@ -48,7 +48,7 @@ public enum DTCCPayoutType3Code
     
     /// <summary>
     /// Cash payment on a debt instrument calculated using the coupon rate, principal and period of time.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_hVsD0aFpEeSpipW1FBSFVg")]
@@ -57,7 +57,7 @@ public enum DTCCPayoutType3Code
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as long-term capital gains.
-    /// Encoded/decoded by serializers as "LTCG".
+    /// Encoded/decoded by serializers as &quot;LTCG&quot;.
     /// </summary>
     [EnumMember(Value = "LTCG")]
     [IsoId("_hfNzQaFpEeSpipW1FBSFVg")]
@@ -66,7 +66,7 @@ public enum DTCCPayoutType3Code
     
     /// <summary>
     /// Cash payment that is categorised by the issuer as premium, usually offered as incentive for early participation in an offer.
-    /// Encoded/decoded by serializers as "PREM".
+    /// Encoded/decoded by serializers as &quot;PREM&quot;.
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_hsv48aFpEeSpipW1FBSFVg")]
@@ -75,7 +75,7 @@ public enum DTCCPayoutType3Code
     
     /// <summary>
     /// Cash payment on a debt instrument that represents a return of principal to the holder.
-    /// Encoded/decoded by serializers as "PRPL".
+    /// Encoded/decoded by serializers as &quot;PRPL&quot;.
     /// </summary>
     [EnumMember(Value = "PRPL")]
     [IsoId("_h0L9saFpEeSpipW1FBSFVg")]
@@ -83,8 +83,8 @@ public enum DTCCPayoutType3Code
     Principal = DTCCPayoutTypeCode.Principal, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Distribution that doesn't represent earnings and is categorised by the company as return of capital.
-    /// Encoded/decoded by serializers as "ROCA".
+    /// Distribution that doesn&apos;t represent earnings and is categorised by the company as return of capital.
+    /// Encoded/decoded by serializers as &quot;ROCA&quot;.
     /// </summary>
     [EnumMember(Value = "ROCA")]
     [IsoId("_iA1SkaFpEeSpipW1FBSFVg")]
@@ -93,7 +93,7 @@ public enum DTCCPayoutType3Code
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as short-term capital gains.
-    /// Encoded/decoded by serializers as "STCG".
+    /// Encoded/decoded by serializers as &quot;STCG&quot;.
     /// </summary>
     [EnumMember(Value = "STCG")]
     [IsoId("_idQI0aFpEeSpipW1FBSFVg")]

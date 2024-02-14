@@ -21,7 +21,7 @@ public enum MarketType8Code
 {
     /// <summary>
     /// Specified type of market is counter market.
-    /// Encoded/decoded by serializers as "COUN".
+    /// Encoded/decoded by serializers as &quot;COUN&quot;.
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_FcGlgTzzEeWLuazO9XdCTg")]
@@ -30,7 +30,7 @@ public enum MarketType8Code
     
     /// <summary>
     /// Specified type of market is inter bank market.
-    /// Encoded/decoded by serializers as "INBA".
+    /// Encoded/decoded by serializers as &quot;INBA&quot;.
     /// </summary>
     [EnumMember(Value = "INBA")]
     [IsoId("_F4RkITzzEeWLuazO9XdCTg")]
@@ -39,7 +39,7 @@ public enum MarketType8Code
     
     /// <summary>
     /// The place is over the counter.
-    /// Encoded/decoded by serializers as "OTCO".
+    /// Encoded/decoded by serializers as &quot;OTCO&quot;.
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("_GeAucTzzEeWLuazO9XdCTg")]
@@ -48,7 +48,7 @@ public enum MarketType8Code
     
     /// <summary>
     /// The place is a primary market.
-    /// Encoded/decoded by serializers as "PRIM".
+    /// Encoded/decoded by serializers as &quot;PRIM&quot;.
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_G9KvoTzzEeWLuazO9XdCTg")]
@@ -57,7 +57,7 @@ public enum MarketType8Code
     
     /// <summary>
     /// The place is a secondary market.
-    /// Encoded/decoded by serializers as "SECM".
+    /// Encoded/decoded by serializers as &quot;SECM&quot;.
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_HgWVMTzzEeWLuazO9XdCTg")]
@@ -66,7 +66,7 @@ public enum MarketType8Code
     
     /// <summary>
     /// The place is a stock exchange.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_IEdH0TzzEeWLuazO9XdCTg")]
@@ -75,7 +75,7 @@ public enum MarketType8Code
     
     /// <summary>
     /// Various places.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_OIREYTzzEeWLuazO9XdCTg")]

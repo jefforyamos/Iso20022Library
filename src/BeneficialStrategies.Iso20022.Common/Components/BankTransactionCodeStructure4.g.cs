@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify the type or operations code of a transaction entry.
 /// </summary>
 [IsoId("_TVbBtdp-Ed-ak6NoX_4Aeg_-549688189")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank Transaction Code Structure")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BankTransactionCodeStructure4
     /// Set of elements used to provide the domain, the family and the sub-family of the bank transaction code, in a structured and hierarchical format.||Usage: If a specific family or sub-family code cannot be provided, the generic family code defined for the domain or the generic sub-family code defined for the family should be provided.
     /// </summary>
     [IsoId("_TVbBttp-Ed-ak6NoX_4Aeg_-549687856")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Domain")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Domn")]
     #endif
+    [IsoXmlTag("Domn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BankTransactionCodeStructure5? Domain { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record BankTransactionCodeStructure4
     /// Bank transaction code in a proprietary form, as defined by the issuer.
     /// </summary>
     [IsoId("_TVbBt9p-Ed-ak6NoX_4Aeg_-549687485")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
+    [IsoXmlTag("Prtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProprietaryBankTransactionCodeStructure1? Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

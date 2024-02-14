@@ -21,7 +21,7 @@ public enum ResultDetail1Code
 {
     /// <summary>
     /// Account of the cardholder or the customer is not found.
-    /// Encoded/decoded by serializers as "ACTF".
+    /// Encoded/decoded by serializers as &quot;ACTF&quot;.
     /// </summary>
     [EnumMember(Value = "ACTF")]
     [IsoId("_xHmTUXuLEeSZrqGdHyoIrw")]
@@ -30,7 +30,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Acquirer is not supported.
-    /// Encoded/decoded by serializers as "ACQS".
+    /// Encoded/decoded by serializers as &quot;ACQS&quot;.
     /// </summary>
     [EnumMember(Value = "ACQS")]
     [IsoId("_xNHFcXuLEeSZrqGdHyoIrw")]
@@ -39,7 +39,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Error on AML (Anti Money Laundering) validation.
-    /// Encoded/decoded by serializers as "AMLV".
+    /// Encoded/decoded by serializers as &quot;AMLV&quot;.
     /// </summary>
     [EnumMember(Value = "AMLV")]
     [IsoId("_xSeGkXuLEeSZrqGdHyoIrw")]
@@ -48,7 +48,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Amount not found.
-    /// Encoded/decoded by serializers as "AMTA".
+    /// Encoded/decoded by serializers as &quot;AMTA&quot;.
     /// </summary>
     [EnumMember(Value = "AMTA")]
     [IsoId("_xX1uwXuLEeSZrqGdHyoIrw")]
@@ -57,7 +57,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Bank not found.
-    /// Encoded/decoded by serializers as "BANK".
+    /// Encoded/decoded by serializers as &quot;BANK&quot;.
     /// </summary>
     [EnumMember(Value = "BANK")]
     [IsoId("_xdWg4XuLEeSZrqGdHyoIrw")]
@@ -66,7 +66,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Card error, for instance invalid ARQC (Authorisation ReQuest Cryptogram).
-    /// Encoded/decoded by serializers as "CRDR".
+    /// Encoded/decoded by serializers as &quot;CRDR&quot;.
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_xitiAXuLEeSZrqGdHyoIrw")]
@@ -75,7 +75,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Identification of the card is invalid.
-    /// Encoded/decoded by serializers as "CRDF".
+    /// Encoded/decoded by serializers as &quot;CRDF&quot;.
     /// </summary>
     [EnumMember(Value = "CRDF")]
     [IsoId("_xpHsAXuLEeSZrqGdHyoIrw")]
@@ -84,7 +84,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Cashback is not permitted.
-    /// Encoded/decoded by serializers as "CSHI".
+    /// Encoded/decoded by serializers as &quot;CSHI&quot;.
     /// </summary>
     [EnumMember(Value = "CSHI")]
     [IsoId("_xufUMXuLEeSZrqGdHyoIrw")]
@@ -93,7 +93,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Cashback amount is higher than permitted.
-    /// Encoded/decoded by serializers as "CSHE".
+    /// Encoded/decoded by serializers as &quot;CSHE&quot;.
     /// </summary>
     [EnumMember(Value = "CSHE")]
     [IsoId("_x1VjEXuLEeSZrqGdHyoIrw")]
@@ -102,7 +102,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Account is no more usable for the transaction.
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_x6tLQXuLEeSZrqGdHyoIrw")]
@@ -111,7 +111,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Cutover is in progress, transaction could not be processed.
-    /// Encoded/decoded by serializers as "CTVG".
+    /// Encoded/decoded by serializers as &quot;CTVG&quot;.
     /// </summary>
     [EnumMember(Value = "CTVG")]
     [IsoId("_yAN9YXuLEeSZrqGdHyoIrw")]
@@ -120,7 +120,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Database access error.
-    /// Encoded/decoded by serializers as "DBER".
+    /// Encoded/decoded by serializers as &quot;DBER&quot;.
     /// </summary>
     [EnumMember(Value = "DBER")]
     [IsoId("_yFuvgXuLEeSZrqGdHyoIrw")]
@@ -129,7 +129,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction fees are disputed by the issuer.
-    /// Encoded/decoded by serializers as "FEES".
+    /// Encoded/decoded by serializers as &quot;FEES&quot;.
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_yLGXsXuLEeSZrqGdHyoIrw")]
@@ -138,7 +138,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Validity period of the transaction is exceeded.
-    /// Encoded/decoded by serializers as "TXNL".
+    /// Encoded/decoded by serializers as &quot;TXNL&quot;.
     /// </summary>
     [EnumMember(Value = "TXNL")]
     [IsoId("_yQnJ0XuLEeSZrqGdHyoIrw")]
@@ -147,7 +147,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Card has expired.
-    /// Encoded/decoded by serializers as "CRDX".
+    /// Encoded/decoded by serializers as &quot;CRDX&quot;.
     /// </summary>
     [EnumMember(Value = "CRDX")]
     [IsoId("_yZG-gXuLEeSZrqGdHyoIrw")]
@@ -156,7 +156,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Invalid format of the message or its content.
-    /// Encoded/decoded by serializers as "FMTR".
+    /// Encoded/decoded by serializers as &quot;FMTR&quot;.
     /// </summary>
     [EnumMember(Value = "FMTR")]
     [IsoId("_yg2lQXuLEeSZrqGdHyoIrw")]
@@ -165,7 +165,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// From account status error.
-    /// Encoded/decoded by serializers as "ACEF".
+    /// Encoded/decoded by serializers as &quot;ACEF&quot;.
     /// </summary>
     [EnumMember(Value = "ACEF")]
     [IsoId("_ynagQXuLEeSZrqGdHyoIrw")]
@@ -174,7 +174,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Original request is in progress.
-    /// Encoded/decoded by serializers as "TXNG".
+    /// Encoded/decoded by serializers as &quot;TXNG&quot;.
     /// </summary>
     [EnumMember(Value = "TXNG")]
     [IsoId("_yuHlMXuLEeSZrqGdHyoIrw")]
@@ -183,7 +183,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Account balance is not sufficient.
-    /// Encoded/decoded by serializers as "FNDI".
+    /// Encoded/decoded by serializers as &quot;FNDI&quot;.
     /// </summary>
     [EnumMember(Value = "FNDI")]
     [IsoId("_yzoXUXuLEeSZrqGdHyoIrw")]
@@ -192,7 +192,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Issuer denies the acceptor.
-    /// Encoded/decoded by serializers as "ACPI".
+    /// Encoded/decoded by serializers as &quot;ACPI&quot;.
     /// </summary>
     [EnumMember(Value = "ACPI")]
     [IsoId("_y6ChUXuLEeSZrqGdHyoIrw")]
@@ -201,7 +201,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Requested amount is outside the card limits, or the currency is invalid.
-    /// Encoded/decoded by serializers as "AMTI".
+    /// Encoded/decoded by serializers as &quot;AMTI&quot;.
     /// </summary>
     [EnumMember(Value = "AMTI")]
     [IsoId("_zAJJUXuLEeSZrqGdHyoIrw")]
@@ -210,7 +210,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Identification of the cardholder or the customer does not match.
-    /// Encoded/decoded by serializers as "CHDI".
+    /// Encoded/decoded by serializers as &quot;CHDI&quot;.
     /// </summary>
     [EnumMember(Value = "CHDI")]
     [IsoId("_zGQYYXuLEeSZrqGdHyoIrw")]
@@ -219,7 +219,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Identification of the card is invalid.
-    /// Encoded/decoded by serializers as "CRDI".
+    /// Encoded/decoded by serializers as &quot;CRDI&quot;.
     /// </summary>
     [EnumMember(Value = "CRDI")]
     [IsoId("_zNQYQXuLEeSZrqGdHyoIrw")]
@@ -228,7 +228,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Digital certificate cannot be authenticated, is expired or revoked.
-    /// Encoded/decoded by serializers as "CTFV".
+    /// Encoded/decoded by serializers as &quot;CTFV&quot;.
     /// </summary>
     [EnumMember(Value = "CTFV")]
     [IsoId("_zZCKcXuLEeSZrqGdHyoIrw")]
@@ -237,7 +237,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Process not permitted to the acceptor (for example fall back).
-    /// Encoded/decoded by serializers as "NPRA".
+    /// Encoded/decoded by serializers as &quot;NPRA&quot;.
     /// </summary>
     [EnumMember(Value = "NPRA")]
     [IsoId("_0LZbgXuLEeSZrqGdHyoIrw")]
@@ -246,7 +246,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// PIN could not be validated.
-    /// Encoded/decoded by serializers as "PINA".
+    /// Encoded/decoded by serializers as &quot;PINA&quot;.
     /// </summary>
     [EnumMember(Value = "PINA")]
     [IsoId("_0UCaIXuLEeSZrqGdHyoIrw")]
@@ -255,7 +255,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction is processed, but liability is not accepted.
-    /// Encoded/decoded by serializers as "LBLU".
+    /// Encoded/decoded by serializers as &quot;LBLU&quot;.
     /// </summary>
     [EnumMember(Value = "LBLU")]
     [IsoId("_0Z_4MXuLEeSZrqGdHyoIrw")]
@@ -264,7 +264,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// No card file record.
-    /// Encoded/decoded by serializers as "CRDA".
+    /// Encoded/decoded by serializers as &quot;CRDA&quot;.
     /// </summary>
     [EnumMember(Value = "CRDA")]
     [IsoId("_0fXgYXuLEeSZrqGdHyoIrw")]
@@ -273,7 +273,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// New PIN is invalid (PIN change).
-    /// Encoded/decoded by serializers as "PINN".
+    /// Encoded/decoded by serializers as &quot;PINN&quot;.
     /// </summary>
     [EnumMember(Value = "PINN")]
     [IsoId("_0lLNcXuLEeSZrqGdHyoIrw")]
@@ -282,7 +282,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// MAC key error.
-    /// Encoded/decoded by serializers as "MACK".
+    /// Encoded/decoded by serializers as &quot;MACK&quot;.
     /// </summary>
     [EnumMember(Value = "MACK")]
     [IsoId("_0qr_kXuLEeSZrqGdHyoIrw")]
@@ -291,7 +291,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// MAC error.
-    /// Encoded/decoded by serializers as "MACR".
+    /// Encoded/decoded by serializers as &quot;MACR&quot;.
     /// </summary>
     [EnumMember(Value = "MACR")]
     [IsoId("_0wDnwXuLEeSZrqGdHyoIrw")]
@@ -300,7 +300,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Card has been declared lost.
-    /// Encoded/decoded by serializers as "CRDL".
+    /// Encoded/decoded by serializers as &quot;CRDL&quot;.
     /// </summary>
     [EnumMember(Value = "CRDL")]
     [IsoId("_01uK4XuLEeSZrqGdHyoIrw")]
@@ -309,7 +309,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction is processed and liability is accepted.
-    /// Encoded/decoded by serializers as "LBLA".
+    /// Encoded/decoded by serializers as &quot;LBLA&quot;.
     /// </summary>
     [EnumMember(Value = "LBLA")]
     [IsoId("_096dkXuLEeSZrqGdHyoIrw")]
@@ -318,7 +318,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction could not be processed as Issuer is unavailable.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_1EK2kXuLEeSZrqGdHyoIrw")]
@@ -327,7 +327,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction could not be processed as Issuer times out.
-    /// Encoded/decoded by serializers as "ISST".
+    /// Encoded/decoded by serializers as &quot;ISST&quot;.
     /// </summary>
     [EnumMember(Value = "ISST")]
     [IsoId("_1JiewXuLEeSZrqGdHyoIrw")]
@@ -336,7 +336,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction could not be processed as Issuer is signed off.
-    /// Encoded/decoded by serializers as "ISSO".
+    /// Encoded/decoded by serializers as &quot;ISSO&quot;.
     /// </summary>
     [EnumMember(Value = "ISSO")]
     [IsoId("_1PDQ4XuLEeSZrqGdHyoIrw")]
@@ -345,7 +345,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Issuer is not found.
-    /// Encoded/decoded by serializers as "ISSF".
+    /// Encoded/decoded by serializers as &quot;ISSF&quot;.
     /// </summary>
     [EnumMember(Value = "ISSF")]
     [IsoId("_1UkDAXuLEeSZrqGdHyoIrw")]
@@ -354,7 +354,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Issuer is inoperative.
-    /// Encoded/decoded by serializers as "ISSP".
+    /// Encoded/decoded by serializers as &quot;ISSP&quot;.
     /// </summary>
     [EnumMember(Value = "ISSP")]
     [IsoId("_1btz4XuLEeSZrqGdHyoIrw")]
@@ -363,7 +363,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Date time of the transaction is invalid.
-    /// Encoded/decoded by serializers as "DATI".
+    /// Encoded/decoded by serializers as &quot;DATI&quot;.
     /// </summary>
     [EnumMember(Value = "DATI")]
     [IsoId("_1h-M4XuLEeSZrqGdHyoIrw")]
@@ -372,7 +372,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction is invalid.
-    /// Encoded/decoded by serializers as "TXNV".
+    /// Encoded/decoded by serializers as &quot;TXNV&quot;.
     /// </summary>
     [EnumMember(Value = "TXNV")]
     [IsoId("_1nV1EXuLEeSZrqGdHyoIrw")]
@@ -381,7 +381,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Identification of the token provider or the token requestor is invalid.
-    /// Encoded/decoded by serializers as "TKID".
+    /// Encoded/decoded by serializers as &quot;TKID&quot;.
     /// </summary>
     [EnumMember(Value = "TKID")]
     [IsoId("_1s2nMXuLEeSZrqGdHyoIrw")]
@@ -390,7 +390,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Token cannot be used to surrogate a PAN (Primary Account Number).
-    /// Encoded/decoded by serializers as "TKKO".
+    /// Encoded/decoded by serializers as &quot;TKKO&quot;.
     /// </summary>
     [EnumMember(Value = "TKKO")]
     [IsoId("_1yhKUXuLEeSZrqGdHyoIrw")]
@@ -399,7 +399,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Security code validation fails.
-    /// Encoded/decoded by serializers as "CSCV".
+    /// Encoded/decoded by serializers as &quot;CSCV&quot;.
     /// </summary>
     [EnumMember(Value = "CSCV")]
     [IsoId("_134LcXuLEeSZrqGdHyoIrw")]
@@ -408,7 +408,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// PIN is invalid.
-    /// Encoded/decoded by serializers as "PINV".
+    /// Encoded/decoded by serializers as &quot;PINV&quot;.
     /// </summary>
     [EnumMember(Value = "PINV")]
     [IsoId("_19Y9kXuLEeSZrqGdHyoIrw")]
@@ -417,7 +417,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Original amount is invalid.
-    /// Encoded/decoded by serializers as "AMTO".
+    /// Encoded/decoded by serializers as &quot;AMTO&quot;.
     /// </summary>
     [EnumMember(Value = "AMTO")]
     [IsoId("_2C5vsXuLEeSZrqGdHyoIrw")]
@@ -426,7 +426,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction not permitted to the cardholder or the customer.
-    /// Encoded/decoded by serializers as "NPRC".
+    /// Encoded/decoded by serializers as &quot;NPRC&quot;.
     /// </summary>
     [EnumMember(Value = "NPRC")]
     [IsoId("_2qsIcXuLEeSZrqGdHyoIrw")]
@@ -435,7 +435,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction has been processed offline by the terminal.
-    /// Encoded/decoded by serializers as "OFFL".
+    /// Encoded/decoded by serializers as &quot;OFFL&quot;.
     /// </summary>
     [EnumMember(Value = "OFFL")]
     [IsoId("_2w9IgXuLEeSZrqGdHyoIrw")]
@@ -444,7 +444,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction has been processed offline after referral.
-    /// Encoded/decoded by serializers as "ONLP".
+    /// Encoded/decoded by serializers as &quot;ONLP&quot;.
     /// </summary>
     [EnumMember(Value = "ONLP")]
     [IsoId("_22w1kXuLEeSZrqGdHyoIrw")]
@@ -453,7 +453,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Original is found, but transaction does not match.
-    /// Encoded/decoded by serializers as "TXNM".
+    /// Encoded/decoded by serializers as &quot;TXNM&quot;.
     /// </summary>
     [EnumMember(Value = "TXNM")]
     [IsoId("_28RnsXuLEeSZrqGdHyoIrw")]
@@ -462,7 +462,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Other error.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_3BpP4XuLEeSZrqGdHyoIrw")]
@@ -471,7 +471,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Out of balance.
-    /// Encoded/decoded by serializers as "BALO".
+    /// Encoded/decoded by serializers as &quot;BALO&quot;.
     /// </summary>
     [EnumMember(Value = "BALO")]
     [IsoId("_3HKCAXuLEeSZrqGdHyoIrw")]
@@ -480,7 +480,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Message is out of sequence.
-    /// Encoded/decoded by serializers as "SEQO".
+    /// Encoded/decoded by serializers as &quot;SEQO&quot;.
     /// </summary>
     [EnumMember(Value = "SEQO")]
     [IsoId("_3MhDIXuLEeSZrqGdHyoIrw")]
@@ -489,7 +489,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Amount of payment transactions exceeds card limit.
-    /// Encoded/decoded by serializers as "AMTL".
+    /// Encoded/decoded by serializers as &quot;AMTL&quot;.
     /// </summary>
     [EnumMember(Value = "AMTL")]
     [IsoId("_3R4rUXuLEeSZrqGdHyoIrw")]
@@ -498,7 +498,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Number of payment transactions exceeds card limit.
-    /// Encoded/decoded by serializers as "NMBL".
+    /// Encoded/decoded by serializers as &quot;NMBL&quot;.
     /// </summary>
     [EnumMember(Value = "NMBL")]
     [IsoId("_3XsYYXuLEeSZrqGdHyoIrw")]
@@ -507,7 +507,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Cardholder must change the PIN to be able to perform the transaction.
-    /// Encoded/decoded by serializers as "PINC".
+    /// Encoded/decoded by serializers as &quot;PINC&quot;.
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_3f5SIXuLEeSZrqGdHyoIrw")]
@@ -516,7 +516,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Additional information are required to verify the PIN.
-    /// Encoded/decoded by serializers as "PIND".
+    /// Encoded/decoded by serializers as &quot;PIND&quot;.
     /// </summary>
     [EnumMember(Value = "PIND")]
     [IsoId("_3lQTQXuLEeSZrqGdHyoIrw")]
@@ -525,7 +525,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Decrypted PIN block is invalid.
-    /// Encoded/decoded by serializers as "PINE".
+    /// Encoded/decoded by serializers as &quot;PINE&quot;.
     /// </summary>
     [EnumMember(Value = "PINE")]
     [IsoId("_3qxFYXuLEeSZrqGdHyoIrw")]
@@ -534,7 +534,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// PIN length or PIN key is invalid.
-    /// Encoded/decoded by serializers as "PINS".
+    /// Encoded/decoded by serializers as &quot;PINS&quot;.
     /// </summary>
     [EnumMember(Value = "PINS")]
     [IsoId("_3wujcXuLEeSZrqGdHyoIrw")]
@@ -543,7 +543,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Last attempt of the PIN verification fails.
-    /// Encoded/decoded by serializers as "PINX".
+    /// Encoded/decoded by serializers as &quot;PINX&quot;.
     /// </summary>
     [EnumMember(Value = "PINX")]
     [IsoId("_32sBgXuLEeSZrqGdHyoIrw")]
@@ -552,7 +552,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Store and forward queue maximum exceeded.
-    /// Encoded/decoded by serializers as "QMAX".
+    /// Encoded/decoded by serializers as &quot;QMAX&quot;.
     /// </summary>
     [EnumMember(Value = "QMAX")]
     [IsoId("_38DpsXuLEeSZrqGdHyoIrw")]
@@ -561,7 +561,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Recurring Error on Data.
-    /// Encoded/decoded by serializers as "RECD".
+    /// Encoded/decoded by serializers as &quot;RECD&quot;.
     /// </summary>
     [EnumMember(Value = "RECD")]
     [IsoId("_4Bkb0XuLEeSZrqGdHyoIrw")]
@@ -570,7 +570,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Requested service not allowed by the card.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_4Hrq4XuLEeSZrqGdHyoIrw")]
@@ -579,7 +579,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Security violation, for instance invalid ARPC (Authorisation ResPonse Cryptogram).
-    /// Encoded/decoded by serializers as "SECV".
+    /// Encoded/decoded by serializers as &quot;SECV&quot;.
     /// </summary>
     [EnumMember(Value = "SECV")]
     [IsoId("_4OO-0XuLEeSZrqGdHyoIrw")]
@@ -588,7 +588,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Security software or hardware error.
-    /// Encoded/decoded by serializers as "SFWE".
+    /// Encoded/decoded by serializers as &quot;SFWE&quot;.
     /// </summary>
     [EnumMember(Value = "SFWE")]
     [IsoId("_4TmnAXuLEeSZrqGdHyoIrw")]
@@ -597,7 +597,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Special card conditions not respected.
-    /// Encoded/decoded by serializers as "SPCC".
+    /// Encoded/decoded by serializers as &quot;SPCC&quot;.
     /// </summary>
     [EnumMember(Value = "SPCC")]
     [IsoId("_4aAJ8XuLEeSZrqGdHyoIrw")]
@@ -606,7 +606,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Other card used for the original transaction.
-    /// Encoded/decoded by serializers as "CRDW".
+    /// Encoded/decoded by serializers as &quot;CRDW&quot;.
     /// </summary>
     [EnumMember(Value = "CRDW")]
     [IsoId("_5LeqMXuLEeSZrqGdHyoIrw")]
@@ -615,7 +615,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Number of withdrawal transactions exceeds card limit.
-    /// Encoded/decoded by serializers as "NMBW".
+    /// Encoded/decoded by serializers as &quot;NMBW&quot;.
     /// </summary>
     [EnumMember(Value = "NMBW")]
     [IsoId("_5SVgIXuLEeSZrqGdHyoIrw")]
@@ -624,7 +624,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Amount of withdrawal transactions exceeds card limit.
-    /// Encoded/decoded by serializers as "AMTW".
+    /// Encoded/decoded by serializers as &quot;AMTW&quot;.
     /// </summary>
     [EnumMember(Value = "AMTW")]
     [IsoId("_5XshQXuLEeSZrqGdHyoIrw")]
@@ -633,7 +633,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Vendor not found.
-    /// Encoded/decoded by serializers as "VNDF".
+    /// Encoded/decoded by serializers as &quot;VNDF&quot;.
     /// </summary>
     [EnumMember(Value = "VNDF")]
     [IsoId("_5dNTYXuLEeSZrqGdHyoIrw")]
@@ -642,7 +642,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Vendor format has an error.
-    /// Encoded/decoded by serializers as "VNDR".
+    /// Encoded/decoded by serializers as &quot;VNDR&quot;.
     /// </summary>
     [EnumMember(Value = "VNDR")]
     [IsoId("_5ik7kXuLEeSZrqGdHyoIrw")]
@@ -651,7 +651,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Requested service not supported.
-    /// Encoded/decoded by serializers as "SVSU".
+    /// Encoded/decoded by serializers as &quot;SVSU&quot;.
     /// </summary>
     [EnumMember(Value = "SVSU")]
     [IsoId("_5oFtsXuLEeSZrqGdHyoIrw")]
@@ -660,7 +660,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Card is not active yet.
-    /// Encoded/decoded by serializers as "CRDU".
+    /// Encoded/decoded by serializers as &quot;CRDU&quot;.
     /// </summary>
     [EnumMember(Value = "CRDU")]
     [IsoId("_5tdV4XuLEeSZrqGdHyoIrw")]
@@ -669,7 +669,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Communication keys are not available.
-    /// Encoded/decoded by serializers as "CMKY".
+    /// Encoded/decoded by serializers as &quot;CMKY&quot;.
     /// </summary>
     [EnumMember(Value = "CMKY")]
     [IsoId("_5y-IAXuLEeSZrqGdHyoIrw")]
@@ -678,7 +678,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Currency is unacceptable for the Issuer or the processor.
-    /// Encoded/decoded by serializers as "UNBC".
+    /// Encoded/decoded by serializers as &quot;UNBC&quot;.
     /// </summary>
     [EnumMember(Value = "UNBC")]
     [IsoId("_54VJIXuLEeSZrqGdHyoIrw")]
@@ -687,7 +687,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction cannot be processed offline.
-    /// Encoded/decoded by serializers as "UNBP".
+    /// Encoded/decoded by serializers as &quot;UNBP&quot;.
     /// </summary>
     [EnumMember(Value = "UNBP")]
     [IsoId("_5917QXuLEeSZrqGdHyoIrw")]
@@ -696,7 +696,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction cannot be processed online by the terminal.
-    /// Encoded/decoded by serializers as "UNBO".
+    /// Encoded/decoded by serializers as &quot;UNBO&quot;.
     /// </summary>
     [EnumMember(Value = "UNBO")]
     [IsoId("_6DWtYXuLEeSZrqGdHyoIrw")]
@@ -705,7 +705,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction could not be processed as original is not found.
-    /// Encoded/decoded by serializers as "ORGF".
+    /// Encoded/decoded by serializers as &quot;ORGF&quot;.
     /// </summary>
     [EnumMember(Value = "ORGF")]
     [IsoId("_6IuVkXuLEeSZrqGdHyoIrw")]
@@ -714,7 +714,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction identification already used for another transaction.
-    /// Encoded/decoded by serializers as "TXND".
+    /// Encoded/decoded by serializers as &quot;TXND&quot;.
     /// </summary>
     [EnumMember(Value = "TXND")]
     [IsoId("_6OFWsXuLEeSZrqGdHyoIrw")]
@@ -723,7 +723,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Transaction did not complete at the terminal.
-    /// Encoded/decoded by serializers as "TXNU".
+    /// Encoded/decoded by serializers as &quot;TXNU&quot;.
     /// </summary>
     [EnumMember(Value = "TXNU")]
     [IsoId("_6U8MoXuLEeSZrqGdHyoIrw")]
@@ -732,7 +732,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Totals are not available.
-    /// Encoded/decoded by serializers as "TTLV".
+    /// Encoded/decoded by serializers as &quot;TTLV&quot;.
     /// </summary>
     [EnumMember(Value = "TTLV")]
     [IsoId("_6ac-wXuLEeSZrqGdHyoIrw")]
@@ -741,7 +741,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// To account status error.
-    /// Encoded/decoded by serializers as "ACTT".
+    /// Encoded/decoded by serializers as &quot;ACTT&quot;.
     /// </summary>
     [EnumMember(Value = "ACTT")]
     [IsoId("_6f0m8XuLEeSZrqGdHyoIrw")]
@@ -750,7 +750,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// System Malfunction.
-    /// Encoded/decoded by serializers as "SYSM".
+    /// Encoded/decoded by serializers as &quot;SYSM&quot;.
     /// </summary>
     [EnumMember(Value = "SYSM")]
     [IsoId("_6lVZEXuLEeSZrqGdHyoIrw")]
@@ -759,7 +759,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Processing temporary not available.
-    /// Encoded/decoded by serializers as "SYSP".
+    /// Encoded/decoded by serializers as &quot;SYSP&quot;.
     /// </summary>
     [EnumMember(Value = "SYSP")]
     [IsoId("_6rS3IXuLEeSZrqGdHyoIrw")]
@@ -768,7 +768,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Fraudulent transaction is suspected by the issuer or the processor.
-    /// Encoded/decoded by serializers as "FRDS".
+    /// Encoded/decoded by serializers as &quot;FRDS&quot;.
     /// </summary>
     [EnumMember(Value = "FRDS")]
     [IsoId("_6yJtEXuLEeSZrqGdHyoIrw")]
@@ -777,7 +777,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Counterfeit card suspected by the issuer or the processor.
-    /// Encoded/decoded by serializers as "CNTC".
+    /// Encoded/decoded by serializers as &quot;CNTC&quot;.
     /// </summary>
     [EnumMember(Value = "CNTC")]
     [IsoId("_65AjAXuLEeSZrqGdHyoIrw")]
@@ -786,7 +786,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Surcharging is not permitted.
-    /// Encoded/decoded by serializers as "SRCH".
+    /// Encoded/decoded by serializers as &quot;SRCH&quot;.
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_6_aF8XuLEeSZrqGdHyoIrw")]
@@ -795,7 +795,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Card has been declared stolen.
-    /// Encoded/decoded by serializers as "CRDS".
+    /// Encoded/decoded by serializers as &quot;CRDS&quot;.
     /// </summary>
     [EnumMember(Value = "CRDS")]
     [IsoId("_7ExuIXuLEeSZrqGdHyoIrw")]
@@ -804,7 +804,7 @@ public enum ResultDetail1Code
     
     /// <summary>
     /// Message is acknowledged only without processing the service, for instance the reconciliation is not performed, acknowledged only.
-    /// Encoded/decoded by serializers as "ACKO".
+    /// Encoded/decoded by serializers as &quot;ACKO&quot;.
     /// </summary>
     [EnumMember(Value = "ACKO")]
     [IsoId("_Nev6wYO-EeSWSLYdc10LRg")]

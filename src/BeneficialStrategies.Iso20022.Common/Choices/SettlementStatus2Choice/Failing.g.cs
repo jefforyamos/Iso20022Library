@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus2Choice
     /// Instruction is failing. Settlement at the instructed settlement date is no longer possible.
     /// </summary>
     [IsoId("_UZ9n49p-Ed-ak6NoX_4Aeg_2080863734")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failing")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

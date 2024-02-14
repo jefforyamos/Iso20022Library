@@ -21,7 +21,7 @@ public enum ProtectInstructionStatus3Code
 {
     /// <summary>
     /// Protect instruction which has not been fully covered. Will include partial covers.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_riQzIbpTEeilsanBGAzy4A")]
@@ -30,7 +30,7 @@ public enum ProtectInstructionStatus3Code
     
     /// <summary>
     /// Protect instruction has been fully covered.
-    /// Encoded/decoded by serializers as "COVR".
+    /// Encoded/decoded by serializers as &quot;COVR&quot;.
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_r-rpYrpTEeilsanBGAzy4A")]
@@ -39,7 +39,7 @@ public enum ProtectInstructionStatus3Code
     
     /// <summary>
     /// Protect instruction has expired.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_vrX9krpTEeilsanBGAzy4A")]

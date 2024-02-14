@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// U-003-2009 Addition and Modification of choice component. S-009-2009 They are not valid business options in the redemption processing context. S-015-2009 Add new data elements to indicate time zone.
 /// </summary>
 [IsoId("_SsJbPdp-Ed-ak6NoX_4Aeg_2033258756")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Main Fund Order Desk Location")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record MainFundOrderDeskLocation1
     /// Country in which it is authorised to commercialise the fund.
     /// </summary>
     [IsoId("_SsJbPtp-Ed-ak6NoX_4Aeg_1855465345")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record MainFundOrderDeskLocation1
     /// Offset of the reporting time before or after 00: 00 hour UTC.
     /// </summary>
     [IsoId("_SsJbP9p-Ed-ak6NoX_4Aeg_-559851982")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Zone Off Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmZoneOffSet")]
     #endif
+    [IsoXmlTag("TmZoneOffSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UTCOffset1 TimeZoneOffSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UTCOffset1 TimeZoneOffSet { get; init; } 
+    public required UTCOffset1 TimeZoneOffSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UTCOffset1 TimeZoneOffSet { get; init; } 
     #else

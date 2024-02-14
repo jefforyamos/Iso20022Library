@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction3Choice
     /// Card transaction details, based on card transaction aggregated data performed by the card acquirer.
     /// </summary>
     [IsoId("_S-5Eka6BEeexrtTFgmVD3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregated")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction3Choice
         /// Service in addition to the main service.
         /// </summary>
         [IsoId("_StCfka6BEeexrtTFgmVD3Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Service")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlSvc")]
         #endif
+        [IsoXmlTag("AddtlSvc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CardPaymentServiceType2Code? AdditionalService { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction3Choice
         /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
         /// </summary>
         [IsoId("_StCfk66BEeexrtTFgmVD3Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Category")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxCtgy")]
         #endif
+        [IsoXmlTag("TxCtgy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,15 +81,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction3Choice
         /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
         /// </summary>
         [IsoId("_StCfla6BEeexrtTFgmVD3Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sale Reconciliation Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SaleRcncltnId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SaleRcncltnId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +100,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction3Choice
         /// Range of sequence numbers on which the globalisation applies.
         /// </summary>
         [IsoId("_StCfl66BEeexrtTFgmVD3Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sequence Number Range")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SeqNbRg")]
         #endif
+        [IsoXmlTag("SeqNbRg")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CardSequenceNumberRange1? SequenceNumberRange { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +117,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction3Choice
         /// Date range on which the globalisation applies.
         /// </summary>
         [IsoId("_StCfma6BEeexrtTFgmVD3Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Date Range")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxDtRg")]
         #endif
+        [IsoXmlTag("TxDtRg")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateOrDateTimePeriod1Choice_? TransactionDateRange { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

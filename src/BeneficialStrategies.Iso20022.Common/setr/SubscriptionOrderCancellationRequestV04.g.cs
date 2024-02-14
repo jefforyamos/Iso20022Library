@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The SubscriptionOrderCancellationRequest message is sent by an instructing party, for example, an investment manager or its authorised representative, to the executing party, for example, a transfer agent, to request the cancellation of a previously sent SubscriptionOrder.|Usage|The SubscriptionOrderCancellationRequest message is used to request the cancellation of one or more individual orders.|There is no amendment, but a cancellation and re-instruct policy.|To request the cancellation of one or more individual orders, the order reference of each individual order listed in the original SubscriptionOrder message is specified in the order reference element. The message identification of the SubscriptionOrder message which contains the individual orders to be cancelled may also be quoted in PreviousReference but this is not recommended.|The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation.|The rejection or acceptance of a SubscriptionOrderCancellationRequest is made using an OrderCancellationStatusReport message.")]
 [IsoId("_Aab6tTbLEead9bDRE_1DAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Order Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record SubscriptionOrderCancellationRequestV04 : IOuterRecord<Sub
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_Aab6uzbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -103,12 +100,11 @@ public partial record SubscriptionOrderCancellationRequestV04 : IOuterRecord<Sub
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_Aab6vTbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference9? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +117,11 @@ public partial record SubscriptionOrderCancellationRequestV04 : IOuterRecord<Sub
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_Aab6vzbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference8? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,15 +134,13 @@ public partial record SubscriptionOrderCancellationRequestV04 : IOuterRecord<Sub
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
     [IsoId("_3-AvIVAXEea5nPE5ezGuuw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,16 +153,15 @@ public partial record SubscriptionOrderCancellationRequestV04 : IOuterRecord<Sub
     /// Identification of the individual order to be cancelled.
     /// </summary>
     [IsoId("_FnUYQUjXEeaUN5TdQqhvNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrRefs")]
     #endif
+    [IsoXmlTag("OrdrRefs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentFundOrder9 OrderReferences { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentFundOrder9 OrderReferences { get; init; } 
+    public required InvestmentFundOrder9 OrderReferences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentFundOrder9 OrderReferences { get; init; } 
     #else
@@ -180,12 +172,11 @@ public partial record SubscriptionOrderCancellationRequestV04 : IOuterRecord<Sub
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_Aab6xTbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation4? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,7 +189,7 @@ public partial record SubscriptionOrderCancellationRequestV04 : IOuterRecord<Sub
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SubscriptionOrderCancellationRequestV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SubscriptionOrderCancellationRequestV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SubscriptionOrderCancellationRequestV04Document ToDocument()
     {
@@ -208,7 +199,7 @@ public partial record SubscriptionOrderCancellationRequestV04 : IOuterRecord<Sub
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionOrderCancellationRequestV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SubscriptionOrderCancellationRequestV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SubscriptionOrderCancellationRequestV04Document : IOuterDocument<SubscriptionOrderCancellationRequestV04>
@@ -225,7 +216,7 @@ public partial record SubscriptionOrderCancellationRequestV04Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SubscriptionOrderCancellationRequestV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SubscriptionOrderCancellationRequestV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionOrderCancellationRequestV04 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the beneficial owner of the securities.
 /// </summary>
 [IsoId("_n-5xMUGTEeWqy4niLuXETA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PartyIdentification93
     /// Party that is the beneficial owner of the specified quantity of securities.
     /// </summary>
     [IsoId("_oM4i1UGTEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Owner Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OwnrId")]
     #endif
+    [IsoXmlTag("OwnrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification71Choice_ OwnerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification71Choice_ OwnerIdentification { get; init; } 
+    public required PartyIdentification71Choice_ OwnerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification71Choice_ OwnerIdentification { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record PartyIdentification93
     /// Alternate identification for a party.
     /// </summary>
     [IsoId("_oM4i3UGTEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrnId")]
     #endif
+    [IsoXmlTag("AltrnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlternatePartyIdentification7? AlternateIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,15 +83,14 @@ public partial record PartyIdentification93
     #endif
     
     /// <summary>
-    /// Country in which a person is permanently domiciled (the place of a person's permanent home).
+    /// Country in which a person is permanently domiciled (the place of a person&apos;s permanent home).
     /// </summary>
     [IsoId("_oM4i5UGTEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Domicile Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmclCtry")]
     #endif
+    [IsoXmlTag("DmclCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? DomicileCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +103,11 @@ public partial record PartyIdentification93
     /// Holder of the security certifies, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
     [IsoId("_oM4i7UGTEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Domicile Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonDmclCtry")]
     #endif
+    [IsoXmlTag("NonDmclCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? NonDomicileCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,16 +120,15 @@ public partial record PartyIdentification93
     /// Quantity of securities belonging to the beneficial owner specified.
     /// </summary>
     [IsoId("_oM4i9UGTEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Owned Securities Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OwndSctiesQty")]
     #endif
+    [IsoXmlTag("OwndSctiesQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ OwnedSecuritiesQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1Choice_ OwnedSecuritiesQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ OwnedSecuritiesQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1Choice_ OwnedSecuritiesQuantity { get; init; } 
     #else
@@ -146,12 +139,11 @@ public partial record PartyIdentification93
     /// Type of certification which is required.
     /// </summary>
     [IsoId("_oM4i_UGTEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnTp")]
     #endif
+    [IsoXmlTag("CertfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryCertificationType10Choice_? CertificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,15 +156,13 @@ public partial record PartyIdentification93
     /// Provides additional information about the type of certification/breakdown required.
     /// </summary>
     [IsoId("_REDEAWOKEeW4z96Yfj3Wng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Breakdown")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnBrkdwn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertfctnBrkdwn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? CertificationBreakdown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

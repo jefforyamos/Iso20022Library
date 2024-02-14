@@ -21,7 +21,7 @@ public enum SecuritiesAccountPurposeTypeCode
 {
     /// <summary>
     /// Account is used when financing is done by the broker.
-    /// Encoded/decoded by serializers as "MARG".
+    /// Encoded/decoded by serializers as &quot;MARG&quot;.
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_Y_Ex0tp-Ed-ak6NoX_4Aeg_1289715496")]
@@ -30,7 +30,7 @@ public enum SecuritiesAccountPurposeTypeCode
     
     /// <summary>
     /// Account is used for short sale orders.
-    /// Encoded/decoded by serializers as "SHOR".
+    /// Encoded/decoded by serializers as &quot;SHOR&quot;.
     /// </summary>
     [EnumMember(Value = "SHOR")]
     [IsoId("_Y_Ex09p-Ed-ak6NoX_4Aeg_1289715787")]
@@ -39,7 +39,7 @@ public enum SecuritiesAccountPurposeTypeCode
     
     /// <summary>
     /// Account is located in a financial institution outside the country where the transaction is taking place.
-    /// Encoded/decoded by serializers as "ABRD".
+    /// Encoded/decoded by serializers as &quot;ABRD&quot;.
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_Y_Ex1Np-Ed-ak6NoX_4Aeg_1289715822")]
@@ -48,7 +48,7 @@ public enum SecuritiesAccountPurposeTypeCode
     
     /// <summary>
     /// Account and all its related positions are held in one location.
-    /// Encoded/decoded by serializers as "CEND".
+    /// Encoded/decoded by serializers as &quot;CEND&quot;.
     /// </summary>
     [EnumMember(Value = "CEND")]
     [IsoId("_Y_Ex1dp-Ed-ak6NoX_4Aeg_1289715882")]
@@ -57,7 +57,7 @@ public enum SecuritiesAccountPurposeTypeCode
     
     /// <summary>
     /// Account is used for settlement upon delivery, or a collection on a delivery basis.
-    /// Encoded/decoded by serializers as "DVPA".
+    /// Encoded/decoded by serializers as &quot;DVPA&quot;.
     /// </summary>
     [EnumMember(Value = "DVPA")]
     [IsoId("_Y_Ex1tp-Ed-ak6NoX_4Aeg_1289715942")]
@@ -66,7 +66,7 @@ public enum SecuritiesAccountPurposeTypeCode
     
     /// <summary>
     /// Account is used for physical domestic safekeeping.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_Y_Ex19p-Ed-ak6NoX_4Aeg_1289715977")]
@@ -75,7 +75,7 @@ public enum SecuritiesAccountPurposeTypeCode
     
     /// <summary>
     /// Financial instruments in the safekeeping account are fungible.
-    /// Encoded/decoded by serializers as "FUNG".
+    /// Encoded/decoded by serializers as &quot;FUNG&quot;.
     /// </summary>
     [EnumMember(Value = "FUNG")]
     [IsoId("_45NmMdUeEeOz093LM8f3Hw")]
@@ -84,7 +84,7 @@ public enum SecuritiesAccountPurposeTypeCode
     
     /// <summary>
     /// Financial instruments in the safekeeping account are not fungible.
-    /// Encoded/decoded by serializers as "NFUN".
+    /// Encoded/decoded by serializers as &quot;NFUN&quot;.
     /// </summary>
     [EnumMember(Value = "NFUN")]
     [IsoId("_7HTOYdUeEeOz093LM8f3Hw")]

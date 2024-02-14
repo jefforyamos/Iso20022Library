@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the intra-position movement.
 /// </summary>
 [IsoId("_w7exW0ADEeC4mKrqv7wPJQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Position Movement Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record IntraPositionMovementDetails5
     /// Identifications (account owner and/or account servicer) of the intra-position movement.
     /// </summary>
     [IsoId("_w7exb0ADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public References19Choice_? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,16 +68,15 @@ public partial record IntraPositionMovementDetails5
     /// Quantity of financial instrument effectively settled.
     /// </summary>
     [IsoId("_w7exdkADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttldQty")]
     #endif
+    [IsoXmlTag("SttldQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     #else
@@ -91,12 +87,11 @@ public partial record IntraPositionMovementDetails5
     /// Quantity of financial instrument previously settled.
     /// </summary>
     [IsoId("_w7exfUADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previously Settled Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrevslySttldQty")]
     #endif
+    [IsoXmlTag("PrevslySttldQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +104,11 @@ public partial record IntraPositionMovementDetails5
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
     [IsoId("_w7exhEADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remaining To Be Settled Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmngToBeSttldQty")]
     #endif
+    [IsoXmlTag("RmngToBeSttldQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,12 +121,11 @@ public partial record IntraPositionMovementDetails5
     /// Number identifying a lot constituting the financial instrument.
     /// </summary>
     [IsoId("_w7exi0ADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotNb")]
     #endif
+    [IsoXmlTag("LotNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Number2Choice_? LotNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,16 +138,15 @@ public partial record IntraPositionMovementDetails5
     /// Balance to which the securities were moved.
     /// </summary>
     [IsoId("_w7exkkADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTo")]
     #endif
+    [IsoXmlTag("BalTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
+    public required SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
     #else
@@ -165,16 +157,15 @@ public partial record IntraPositionMovementDetails5
     /// Date and time at which the securities were moved.
     /// </summary>
     [IsoId("_w7exnUADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTimeChoice_ SettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTimeChoice_ SettlementDate { get; init; } 
     #else
@@ -185,12 +176,11 @@ public partial record IntraPositionMovementDetails5
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
     [IsoId("_w7expEADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblDt")]
     #endif
+    [IsoXmlTag("AvlblDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? AvailableDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +193,11 @@ public partial record IntraPositionMovementDetails5
     /// Specifies the type of corporate event.
     /// </summary>
     [IsoId("_w7exq0ADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnEvtTp")]
     #endif
+    [IsoXmlTag("CorpActnEvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventType3Choice_? CorporateActionEventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +210,11 @@ public partial record IntraPositionMovementDetails5
     /// Value of the collateral available for the delivery settlement process at the account level.
     /// </summary>
     [IsoId("_w7exskADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Monitor Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollMntrAmt")]
     #endif
+    [IsoXmlTag("CollMntrAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection9? CollateralMonitorAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,15 +227,13 @@ public partial record IntraPositionMovementDetails5
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
     [IsoId("_w7exuUADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Processing Additional Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrPrcgAddtlDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrPrcgAddtlDtls")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ public partial record IntraPositionMovementDetails5
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_w7exwEADEeC4mKrqv7wPJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

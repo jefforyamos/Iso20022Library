@@ -21,7 +21,7 @@ public enum SecuritiesSettlementStatus1Code
 {
     /// <summary>
     /// Instruction is pending. Settlement at the instructed settlement date is still possible.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZFx2xtp-Ed-ak6NoX_4Aeg_1558336292")]
@@ -30,7 +30,7 @@ public enum SecuritiesSettlementStatus1Code
     
     /// <summary>
     /// Instruction is failing. Settlement at the instructed settlement date is no longer possible.
-    /// Encoded/decoded by serializers as "PENF".
+    /// Encoded/decoded by serializers as &quot;PENF&quot;.
     /// </summary>
     [EnumMember(Value = "PENF")]
     [IsoId("_ZFx2x9p-Ed-ak6NoX_4Aeg_1570340511")]

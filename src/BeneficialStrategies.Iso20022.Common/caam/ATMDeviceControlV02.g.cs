@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caam;
 /// </summary>
 [Description(@"The ATMDeviceControl message is sent by a maintenance host to an ATM in response to an ATMDeviceReport message. The message contains a sequence of maintenance commands the ATM must perform.")]
 [IsoId("_caM7Qa45EeWRfYPBaeOY8w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Device Control V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMDeviceControlV02 : IOuterRecord<ATMDeviceControlV02,ATM
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_caM7Q645EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header31 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header31 Header { get; init; } 
+    public required Header31 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header31 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMDeviceControlV02 : IOuterRecord<ATMDeviceControlV02,ATM
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_caM7Ra45EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATM Device Control")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMDvcCtrl")]
     #endif
+    [IsoXmlTag("PrtctdATMDvcCtrl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMDeviceControl { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMDeviceControlV02 : IOuterRecord<ATMDeviceControlV02,ATM
     /// Information related to the control of an ATM device.
     /// </summary>
     [IsoId("_caM7R645EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Device Control")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMDvcCtrl")]
     #endif
+    [IsoXmlTag("ATMDvcCtrl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMDeviceControl1? ATMDeviceControl { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMDeviceControlV02 : IOuterRecord<ATMDeviceControlV02,ATM
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_caM7Sa45EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType13? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMDeviceControlV02 : IOuterRecord<ATMDeviceControlV02,ATM
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMDeviceControlV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMDeviceControlV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMDeviceControlV02Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMDeviceControlV02 : IOuterRecord<ATMDeviceControlV02,ATM
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDeviceControlV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMDeviceControlV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMDeviceControlV02Document : IOuterDocument<ATMDeviceControlV02>
@@ -176,7 +170,7 @@ public partial record ATMDeviceControlV02Document : IOuterDocument<ATMDeviceCont
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMDeviceControlV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMDeviceControlV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMDeviceControlV02 Message { get; init; }

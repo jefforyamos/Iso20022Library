@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntraPositionProcessingStatus5Choice.AcknowledgedAccepted))]
     [KnownType(typeof(IntraPositionProcessingStatus5Choice.Proprietary))]
     [IsoId("_DwdiUTnuEeWfSKvvZlhRKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Position Processing Status 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification178Choice
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_UPdGpdgxEeipBO1pkKK6zg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name And Address")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification178Choice
         /// Name by which a party is known and which is usually used to identify that party.
         /// </summary>
         [IsoId("_PbOdANp-Ed-ak6NoX_4Aeg_1129576091")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max70Text)]
         [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax70Text Name { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Name { get; init; } 
+        public required System.String Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Name { get; init; } 
         #else
@@ -80,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification178Choice
         /// Information that locates and identifies a specific address, as defined by postal services.
         /// </summary>
         [IsoId("_PbOdAdp-Ed-ak6NoX_4Aeg_-1308409680")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Adr")]
         #endif
+        [IsoXmlTag("Adr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PostalAddress2 Address { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PostalAddress2 Address { get; init; } 
+        public required PostalAddress2 Address { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PostalAddress2 Address { get; init; } 
         #else

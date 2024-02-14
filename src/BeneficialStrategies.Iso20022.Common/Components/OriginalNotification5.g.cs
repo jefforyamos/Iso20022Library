@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the original notification and to provide the status.
 /// </summary>
 [IsoId("_sg1SwlkyEeGeoaLUQk__nA_-453347482")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record OriginalNotification5
     /// Point to point reference, as assigned by the original sender, to unambiguously identify the original notification to receive message.
     /// </summary>
     [IsoId("_sg1Sw1kyEeGeoaLUQk__nA_-528256525")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlMsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalMessageIdentification { get; init; } 
+    public required System.String OriginalMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalMessageIdentification { get; init; } 
     #else
@@ -75,12 +71,12 @@ public partial record OriginalNotification5
     /// Date and time at which the original message was created.
     /// </summary>
     [IsoId("_sg-csFkyEeGeoaLUQk__nA_511160159")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlCreDtTm")]
     #endif
+    [IsoXmlTag("OrgnlCreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,19 +89,17 @@ public partial record OriginalNotification5
     /// Identification of the original notification.
     /// </summary>
     [IsoId("_shINsFkyEeGeoaLUQk__nA_-1292106780")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlNtfctnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlNtfctnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalNotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalNotificationIdentification { get; init; } 
+    public required System.String OriginalNotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalNotificationIdentification { get; init; } 
     #else
@@ -116,12 +110,11 @@ public partial record OriginalNotification5
     /// Specifies the status of the notification in a coded form.
     /// </summary>
     [IsoId("_shINsVkyEeGeoaLUQk__nA_705947210")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnSts")]
     #endif
+    [IsoXmlTag("NtfctnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotificationStatus3Code? NotificationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,15 +127,13 @@ public partial record OriginalNotification5
     /// Further details of the notification status.
     /// </summary>
     [IsoId("_shINslkyEeGeoaLUQk__nA_694848433")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Status Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlStsInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlStsInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalStatusInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +146,11 @@ public partial record OriginalNotification5
     /// Identifies the original notification item and provides the status.
     /// </summary>
     [IsoId("_shR-sFkyEeGeoaLUQk__nA_-1595967386")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Notification Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlNtfctnRef")]
     #endif
+    [IsoXmlTag("OrgnlNtfctnRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalNotificationReference3? OriginalNotificationReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

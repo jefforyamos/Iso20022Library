@@ -21,7 +21,7 @@ public enum CardProductTypeCode
 {
     /// <summary>
     /// Cards issued as a means of business expenditure, for instance business card or corporate card. The user could be a company, an individual for business expenses or a self employed for business purposes.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_W0DrAGtZEeSKOvNNYJQdoQ")]
@@ -30,7 +30,7 @@ public enum CardProductTypeCode
     
     /// <summary>
     /// Cards issued as a means of personal expenditure. The user is always an individual.
-    /// Encoded/decoded by serializers as "CONS".
+    /// Encoded/decoded by serializers as &quot;CONS&quot;.
     /// </summary>
     [EnumMember(Value = "CONS")]
     [IsoId("_bxmjEGtZEeSKOvNNYJQdoQ")]

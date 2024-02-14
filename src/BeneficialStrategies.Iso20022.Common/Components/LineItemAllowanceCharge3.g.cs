@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Pricing component, such as a service, promotion, allowance or charge, for this line item.
 /// </summary>
 [IsoId("__2vvIfFUEee_LsXdoqzkWg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Line Item Allowance Charge")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record LineItemAllowanceCharge3
     /// Indication of whether or not this allowance charge is a charge.
     /// </summary>
     [IsoId("___vTEfFUEee_LsXdoqzkWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgInd")]
     #endif
+    [IsoXmlTag("ChrgInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ChargeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record LineItemAllowanceCharge3
     /// Actual monetary value of this allowance charge.
     /// </summary>
     [IsoId("___vTE_FUEee_LsXdoqzkWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlAmt")]
     #endif
+    [IsoXmlTag("ActlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ActualAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record LineItemAllowanceCharge3
     /// Quantity on which this allowance charge is based.
     /// </summary>
     [IsoId("___vTFfFUEee_LsXdoqzkWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsisQty")]
     #endif
+    [IsoXmlTag("BsisQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity16? BasisQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record LineItemAllowanceCharge3
     /// Percentage applied to calculate this allowance charge.
     /// </summary>
     [IsoId("___vTF_FUEee_LsXdoqzkWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Percent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnPct")]
     #endif
+    [IsoXmlTag("ClctnPct")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CalculationPercent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,12 @@ public partial record LineItemAllowanceCharge3
     /// Specifies the order in which the allowance or charge is applied.
     /// </summary>
     [IsoId("___vTGfFUEee_LsXdoqzkWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqNb")]
     #endif
+    [IsoXmlTag("SeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +131,11 @@ public partial record LineItemAllowanceCharge3
     /// Reason, expressed as text, for this allowance charge.
     /// </summary>
     [IsoId("___vTG_FUEee_LsXdoqzkWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DiscountOrChargeType1Choice_? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

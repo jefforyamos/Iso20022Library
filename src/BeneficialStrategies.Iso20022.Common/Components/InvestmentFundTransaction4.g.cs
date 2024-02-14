@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
 /// </summary>
 [IsoId("_3zPtGQf9EeSaceXTzyiZRg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -58,16 +56,15 @@ public partial record InvestmentFundTransaction4
     /// Underlying transaction or corporate action.
     /// </summary>
     [IsoId("_1FreEAf-EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTp")]
     #endif
+    [IsoXmlTag("EvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionType1Choice_ EventType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionType1Choice_ EventType { get; init; } 
+    public required TransactionType1Choice_ EventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionType1Choice_ EventType { get; init; } 
     #else
@@ -78,12 +75,11 @@ public partial record InvestmentFundTransaction4
     /// Status of an investment fund transaction.
     /// </summary>
     [IsoId("_4OBkkQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Booking Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookgSts")]
     #endif
+    [IsoXmlTag("BookgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionStatus1Code? BookingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,15 +92,13 @@ public partial record InvestmentFundTransaction4
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
     [IsoId("_4OBkkwf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,15 +111,13 @@ public partial record InvestmentFundTransaction4
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
     [IsoId("_4OBklQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrdrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OrderReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,18 +127,16 @@ public partial record InvestmentFundTransaction4
     #endif
     
     /// <summary>
-    /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
+    /// Unique and unambiguous investor&apos;s identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
     [IsoId("_4OBklwf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,15 +149,13 @@ public partial record InvestmentFundTransaction4
     /// Unique and unambiguous identifier for an order execution, as assigned by a confirming party.
     /// </summary>
     [IsoId("_4OBkmQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deal Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DealRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DealReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,15 +168,13 @@ public partial record InvestmentFundTransaction4
     /// Unique technical identifier for an instance of a leg within a switch.
     /// </summary>
     [IsoId("_4OBkmwf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LegId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LegIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,15 +187,13 @@ public partial record InvestmentFundTransaction4
     /// Unique identifier for an instance of a leg execution within a switch confirmation.
     /// </summary>
     [IsoId("_4OBknQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Execution Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegExctnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LegExctnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LegExecutionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,12 +206,12 @@ public partial record InvestmentFundTransaction4
     /// Date and time at which the order was placed by the investor or its agent.
     /// </summary>
     [IsoId("_4OBknwf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrDtTm")]
     #endif
+    [IsoXmlTag("OrdrDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? OrderDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,16 +224,16 @@ public partial record InvestmentFundTransaction4
     /// Indicates whether the cash payment with respect to the executed order is settled.
     /// </summary>
     [IsoId("_4OBkoQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled Transaction Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttldTxInd")]
     #endif
+    [IsoXmlTag("SttldTxInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator SettledTransactionIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SettledTransactionIndicator { get; init; } 
+    public required System.String SettledTransactionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SettledTransactionIndicator { get; init; } 
     #else
@@ -260,16 +244,16 @@ public partial record InvestmentFundTransaction4
     /// Indicates whether the executed order has a registered status on the books of the transfer agent.
     /// </summary>
     [IsoId("_4OBkowf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registered Transaction Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegdTxInd")]
     #endif
+    [IsoXmlTag("RegdTxInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator RegisteredTransactionIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RegisteredTransactionIndicator { get; init; } 
+    public required System.String RegisteredTransactionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RegisteredTransactionIndicator { get; init; } 
     #else
@@ -280,16 +264,15 @@ public partial record InvestmentFundTransaction4
     /// Number of investment funds units.
     /// </summary>
     [IsoId("_4OBkpQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Units Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitsQty")]
     #endif
+    [IsoXmlTag("UnitsQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1 UnitsQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1 UnitsQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1 UnitsQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1 UnitsQuantity { get; init; } 
     #else
@@ -300,16 +283,15 @@ public partial record InvestmentFundTransaction4
     /// Direction of the transaction being reported, is, securities are received (credited) or delivered (debited).
     /// </summary>
     [IsoId("_4OBkpwf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbt")]
     #endif
+    [IsoXmlTag("CdtDbt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebit { get; init; } 
+    public required CreditDebitCode CreditDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebit { get; init; } 
     #else
@@ -320,12 +302,11 @@ public partial record InvestmentFundTransaction4
     /// Transaction being reported is a reversal of previously reported transaction.
     /// </summary>
     [IsoId("_4OBkqQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rvsl")]
     #endif
+    [IsoXmlTag("Rvsl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReversalCode? Reversal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +319,12 @@ public partial record InvestmentFundTransaction4
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
     [IsoId("_4OBkqwf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,12 +337,12 @@ public partial record InvestmentFundTransaction4
     /// Date on which the debtor expects the amount of money to be available to the creditor.
     /// </summary>
     [IsoId("_4OBkrQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -374,16 +355,15 @@ public partial record InvestmentFundTransaction4
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
     [IsoId("_4OBkrwf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDtTm")]
     #endif
+    [IsoXmlTag("TradDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTimeChoice_ TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #else
@@ -394,16 +374,16 @@ public partial record InvestmentFundTransaction4
     /// Indicates whether the dividend is included, that is, cum-dividend, in the executed price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
     [IsoId("_4OBksQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cum Dividend Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CumDvddInd")]
     #endif
+    [IsoXmlTag("CumDvddInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CumDividendIndicator { get; init; } 
+    public required System.String CumDividendIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CumDividendIndicator { get; init; } 
     #else
@@ -414,16 +394,16 @@ public partial record InvestmentFundTransaction4
     /// Indicates whether the order has been partially executed, that is, the confirmed quantity does not match the ordered quantity for a given financial instrument.
     /// </summary>
     [IsoId("_4OBkswf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partially Executed Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlyExctdInd")]
     #endif
+    [IsoXmlTag("PrtlyExctdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PartiallyExecutedIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PartiallyExecutedIndicator { get; init; } 
+    public required System.String PartiallyExecutedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PartiallyExecutedIndicator { get; init; } 
     #else
@@ -434,12 +414,11 @@ public partial record InvestmentFundTransaction4
     /// Price at which the order was executed.
     /// </summary>
     [IsoId("_4OBktQf9EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricDtls")]
     #endif
+    [IsoXmlTag("PricDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitPrice20? PriceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

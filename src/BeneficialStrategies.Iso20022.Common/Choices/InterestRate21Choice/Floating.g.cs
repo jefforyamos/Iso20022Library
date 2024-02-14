@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
     /// Attributes related specifically to floating rate of an interest rate contract.
     /// </summary>
     [IsoId("_GPqvsw1IEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
         /// Indication of the floating rate used.
         /// </summary>
         [IsoId("_GQZvgw1IEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rate")]
         #endif
+        [IsoXmlTag("Rate")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FloatingRateIdentification3Choice_? Rate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
         /// Information related to reference period.
         /// </summary>
         [IsoId("_GQZvhQ1IEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reference Period")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RefPrd")]
         #endif
+        [IsoXmlTag("RefPrd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InterestRateContractTerm3? ReferencePeriod { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,12 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
         /// Spread expressed as a rate.
         /// </summary>
         [IsoId("_GQZvhw1IEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Spread")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sprd")]
         #endif
+        [IsoXmlTag("Sprd")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoPercentageRate? Spread { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +99,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
         /// Information related to payment frequency.
         /// </summary>
         [IsoId("_GQZviQ1IEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment Frequency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtFrqcy")]
         #endif
+        [IsoXmlTag("PmtFrqcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +116,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
         /// Information related to reset of payment frequency.
         /// </summary>
         [IsoId("_GQZviw1IEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reset Frequency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RstFrqcy")]
         #endif
+        [IsoXmlTag("RstFrqcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InterestRateFrequency2Choice_? ResetFrequency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

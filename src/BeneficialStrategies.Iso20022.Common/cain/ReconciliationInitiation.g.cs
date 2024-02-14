@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The ReconciliationInitiation message is sent by an acquirer or an agent to an issuer or an agent, to initiate an exchange of totals to be reconciled for debits, credits, chargebacks and other transactions.")]
 [IsoId("_k8erYHu5EeSLmfFG0DG7zQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Initiation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ReconciliationInitiation : IOuterRecord<ReconciliationInit
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_vvDdIHu5EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header17 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header17 Header { get; init; } 
+    public required Header17 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header17 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ReconciliationInitiation : IOuterRecord<ReconciliationInit
     /// Information related to the reconciliation.
     /// </summary>
     [IsoId("_35V-AHu5EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Initiation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnInitn")]
     #endif
+    [IsoXmlTag("RcncltnInitn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerReconciliationInitiation1 ReconciliationInitiationValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerReconciliationInitiation1 ReconciliationInitiationValue { get; init; } 
+    public required AcquirerReconciliationInitiation1 ReconciliationInitiationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerReconciliationInitiation1 ReconciliationInitiationValue { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ReconciliationInitiation : IOuterRecord<ReconciliationInit
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_7qmk8HvAEeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ReconciliationInitiation : IOuterRecord<ReconciliationInit
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReconciliationInitiationDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReconciliationInitiationDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReconciliationInitiationDocument ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ReconciliationInitiation : IOuterRecord<ReconciliationInit
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReconciliationInitiation"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReconciliationInitiation&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReconciliationInitiationDocument : IOuterDocument<ReconciliationInitiation>
@@ -161,7 +156,7 @@ public partial record ReconciliationInitiationDocument : IOuterDocument<Reconcil
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReconciliationInitiation"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReconciliationInitiation&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationInitiation Message { get; init; }

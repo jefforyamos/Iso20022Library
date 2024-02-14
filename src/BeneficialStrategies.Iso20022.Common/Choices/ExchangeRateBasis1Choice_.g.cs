@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExchangeRateBasis1Choice.CurrencyPair))]
     [KnownType(typeof(ExchangeRateBasis1Choice.Proprietary))]
     [IsoId("_n2_eYLppEea_jI1vMH_RbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate Basis 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

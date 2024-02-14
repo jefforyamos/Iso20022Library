@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information used to calculate the tax.
 /// </summary>
 [IsoId("_VSSXA9p-Ed-ak6NoX_4Aeg_1013966021")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Calculation Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TaxCalculationInformation1
     /// Basis used to determine the capital gain or loss, eg, the purchase price.
     /// </summary>
     [IsoId("_VSSXBNp-Ed-ak6NoX_4Aeg_-1422873809")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bsis")]
     #endif
+    [IsoXmlTag("Bsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxationBasis1? Basis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

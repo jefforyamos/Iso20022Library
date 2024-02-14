@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Range of amount values.
 /// </summary>
 [IsoId("_PVQ-9Np-Ed-ak6NoX_4Aeg_-844951100")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency And Amount Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CurrencyAndAmountRange2
     /// Specified amount or amount range.
     /// </summary>
     [IsoId("_PVQ-9dp-Ed-ak6NoX_4Aeg_-844951098")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ImpliedCurrencyAmountRangeChoice_ Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ImpliedCurrencyAmountRangeChoice_ Amount { get; init; } 
+    public required ImpliedCurrencyAmountRangeChoice_ Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ImpliedCurrencyAmountRangeChoice_ Amount { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record CurrencyAndAmountRange2
     /// Indicates whether the amount is a credited or debited amount.
     /// </summary>
     [IsoId("_PVQ-9tp-Ed-ak6NoX_4Aeg_-844951039")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record CurrencyAndAmountRange2
     /// Medium of exchange of value, used to qualify an amount.
     /// </summary>
     [IsoId("_PVQ-99p-Ed-ak6NoX_4Aeg_-844951070")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else

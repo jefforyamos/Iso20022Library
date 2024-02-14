@@ -21,7 +21,7 @@ public enum RateStatus1Code
 {
     /// <summary>
     /// Rate is actual.
-    /// Encoded/decoded by serializers as "ACTU".
+    /// Encoded/decoded by serializers as &quot;ACTU&quot;.
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_ZY_ttNp-Ed-ak6NoX_4Aeg_1472885768")]
@@ -30,7 +30,7 @@ public enum RateStatus1Code
     
     /// <summary>
     /// Rate is indicative.
-    /// Encoded/decoded by serializers as "INDI".
+    /// Encoded/decoded by serializers as &quot;INDI&quot;.
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_ZY_ttdp-Ed-ak6NoX_4Aeg_1472885797")]

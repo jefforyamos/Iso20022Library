@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
 [IsoId("_VYshAdp-Ed-ak6NoX_4Aeg_1336355604")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record PaymentTransaction20
     /// Amount of money to be transferred between the debtor and creditor before bank transaction charges.
     /// </summary>
     [IsoId("_VYshAtp-Ed-ak6NoX_4Aeg_1336355847")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,12 @@ public partial record PaymentTransaction20
     /// Date on which the first agent expects the cash to be available to the final agent.
     /// </summary>
     [IsoId("_VYshA9p-Ed-ak6NoX_4Aeg_1336355863")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +85,15 @@ public partial record PaymentTransaction20
     /// Choice between cash-in or cash-out.
     /// </summary>
     [IsoId("_VYshBNp-Ed-ak6NoX_4Aeg_1336355908")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Or Out")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInOrOut")]
     #endif
+    [IsoXmlTag("CshInOrOut")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashInOrOut4Choice_ CashInOrOut { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashInOrOut4Choice_ CashInOrOut { get; init; } 
+    public required CashInOrOut4Choice_ CashInOrOut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashInOrOut4Choice_ CashInOrOut { get; init; } 
     #else

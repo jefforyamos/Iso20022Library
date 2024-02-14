@@ -21,7 +21,7 @@ public enum UnmatchedReason16Code
 {
     /// <summary>
     /// Settlement amount currency does not match.
-    /// Encoded/decoded by serializers as "NCRR".
+    /// Encoded/decoded by serializers as &quot;NCRR&quot;.
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_ETr-oRUJEeuZw7VHHgrHLg")]
@@ -30,7 +30,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Financial instrument identification does not match, for example, ISIN, financial instrument attributes differs.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_F67pQRUJEeuZw7VHHgrHLg")]
@@ -39,7 +39,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_GVkW0RUJEeuZw7VHHgrHLg")]
@@ -48,7 +48,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// A matching instruction from your counterparty could not be found.
-    /// Encoded/decoded by serializers as "CMIS".
+    /// Encoded/decoded by serializers as &quot;CMIS&quot;.
     /// </summary>
     [EnumMember(Value = "CMIS")]
     [IsoId("_HMdikRUJEeuZw7VHHgrHLg")]
@@ -57,7 +57,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Depository does not match.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_Kpr3YRUJEeuZw7VHHgrHLg")]
@@ -66,7 +66,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Participant of delivering or receiving depository does not match.
-    /// Encoded/decoded by serializers as "ICAG".
+    /// Encoded/decoded by serializers as &quot;ICAG&quot;.
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_MYOc0RUJEeuZw7VHHgrHLg")]
@@ -75,7 +75,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Client of delivering or receiving party 1 does not match.
-    /// Encoded/decoded by serializers as "ICUS".
+    /// Encoded/decoded by serializers as &quot;ICUS&quot;.
     /// </summary>
     [EnumMember(Value = "ICUS")]
     [IsoId("_Mdbs8RUJEeuZw7VHHgrHLg")]
@@ -84,7 +84,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Client of delivering or receiving party 2 does not match.
-    /// Encoded/decoded by serializers as "IEXE".
+    /// Encoded/decoded by serializers as &quot;IEXE&quot;.
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_NCoEsRUJEeuZw7VHHgrHLg")]
@@ -93,7 +93,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Settlement amount does not match.
-    /// Encoded/decoded by serializers as "DMON".
+    /// Encoded/decoded by serializers as &quot;DMON&quot;.
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_OjL4gRUJEeuZw7VHHgrHLg")]
@@ -102,7 +102,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Settlement date/time does not match.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_OnfwwRUJEeuZw7VHHgrHLg")]
@@ -111,7 +111,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Trade date does not match.
-    /// Encoded/decoded by serializers as "DTRD".
+    /// Encoded/decoded by serializers as &quot;DTRD&quot;.
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_QPpaURUJEeuZw7VHHgrHLg")]
@@ -120,7 +120,7 @@ public enum UnmatchedReason16Code
     
     /// <summary>
     /// Direction of the trade does not match. Counterparty expects a delivery from you, not a receipt or vice versa.
-    /// Encoded/decoded by serializers as "DELN".
+    /// Encoded/decoded by serializers as &quot;DELN&quot;.
     /// </summary>
     [EnumMember(Value = "DELN")]
     [IsoId("_Q2LO0RUJEeuZw7VHHgrHLg")]

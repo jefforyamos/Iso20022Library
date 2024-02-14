@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriod3Choice
     /// Period expressed a dates and times.
     /// </summary>
     [IsoId("_Fk5tlP1bEeiAfJEqh4xF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

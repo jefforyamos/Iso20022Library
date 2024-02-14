@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of actions to be performed by the card acceptor.
 /// </summary>
 [IsoId("_CShKUa2BEeWMg5rOByfExw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Action7
     /// Type of action to be performed by the card acceptor.
     /// </summary>
     [IsoId("_Cd_aga2BEeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTp")]
     #endif
+    [IsoXmlTag("ActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActionType6Code ActionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ActionType6Code ActionType { get; init; } 
+    public required ActionType6Code ActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ActionType6Code ActionType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Action7
     /// Information to display, print or log.
     /// </summary>
     [IsoId("_Cd_ag62BEeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message To Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgToPres")]
     #endif
+    [IsoXmlTag("MsgToPres")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage4? MessageToPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record Action7
     /// Message to send before the completion of the transaction.
     /// </summary>
     [IsoId("_Cd_aha2BEeWMg5rOByfExw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request To Perform")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqToPrfrm")]
     #endif
+    [IsoXmlTag("ReqToPrfrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageFunction11Code? RequestToPerform { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

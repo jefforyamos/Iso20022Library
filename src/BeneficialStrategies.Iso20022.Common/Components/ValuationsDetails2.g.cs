@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Valuation details for the cash position.
 /// </summary>
 [IsoId("_LuJTafGMEei2UYJ62ws-Fw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Valuations Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ValuationsDetails2
     /// Securities collateral position valuation amounts.
     /// </summary>
     [IsoId("_LuJTcfGMEei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Details Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDtlsAmt")]
     #endif
+    [IsoXmlTag("ValtnDtlsAmt")]
     public CollateralAmount9? ValuationDetailsAmount { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _LuJTcfGMEei2UYJ62ws-Fw
     
@@ -64,16 +61,16 @@ public partial record ValuationsDetails2
     /// Haircut or margin on the security  expressed as a percentage.
     /// </summary>
     [IsoId("_ZyuksTYnEeuD7rm9md9zvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hrcut")]
     #endif
+    [IsoXmlTag("Hrcut")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate Haircut { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Haircut { get; init; } 
+    public required System.Decimal Haircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Haircut { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount7Choic
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
     [IsoId("_pizbYTi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount7Choic
         /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
         /// </summary>
         [IsoId("_pizbaTi7Eeydid5dcNPKvg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Conditional Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CondlQty")]
         #endif
+        [IsoXmlTag("CondlQty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrumentQuantity36Choice_? ConditionalQuantity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +71,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount7Choic
         /// Quantity of securities to which this instruction applies.
         /// </summary>
         [IsoId("_pizbcTi7Eeydid5dcNPKvg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Instructed Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InstdQty")]
         #endif
+        [IsoXmlTag("InstdQty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Quantity55Choice_ InstructedQuantity { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Quantity55Choice_ InstructedQuantity { get; init; } 
+        public required Quantity55Choice_ InstructedQuantity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Quantity55Choice_ InstructedQuantity { get; init; } 
         #else
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount7Choic
         /// Quantity of additional shares requested due to the difference of “round-up against payment” practice between the account servicer and the account holder (for instance for French dividend option).
         /// </summary>
         [IsoId("_pizbczi7Eeydid5dcNPKvg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Round Up Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlRndUpQty")]
         #endif
+        [IsoXmlTag("AddtlRndUpQty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrumentQuantity36Choice_? AdditionalRoundUpQuantity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

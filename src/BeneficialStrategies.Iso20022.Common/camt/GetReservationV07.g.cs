@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The GetReservation message is sent by a member to the transaction administrator.|It is used to request information on the details of one or more reservation facilities set by the member and managed by the transaction administrator.|Usage|The member can request reservations information based on the following elements:|- identification of the system;|- identification of the account;|- status of the reservation (default and/or current);|- type of reservation.|This message will be replied to by a ReturnReservation message.")]
 [IsoId("_4DhGEQy9Ee2Wmf2RrXviyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Get Reservation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record GetReservationV07 : IOuterRecord<GetReservationV07,GetRese
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_4DhGFwy9Ee2Wmf2RrXviyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader9 MessageHeader { get; init; } 
+    public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader9 MessageHeader { get; init; } 
     #else
@@ -104,12 +101,11 @@ public partial record GetReservationV07 : IOuterRecord<GetReservationV07,GetRese
     /// Definition of the reservation query.
     /// </summary>
     [IsoId("_4DhGGQy9Ee2Wmf2RrXviyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Query Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsvatnQryDef")]
     #endif
+    [IsoXmlTag("RsvatnQryDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReservationQuery5? ReservationQueryDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +118,11 @@ public partial record GetReservationV07 : IOuterRecord<GetReservationV07,GetRese
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_4DhGGwy9Ee2Wmf2RrXviyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,7 +135,7 @@ public partial record GetReservationV07 : IOuterRecord<GetReservationV07,GetRese
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="GetReservationV07Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;GetReservationV07Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public GetReservationV07Document ToDocument()
     {
@@ -150,7 +145,7 @@ public partial record GetReservationV07 : IOuterRecord<GetReservationV07,GetRese
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetReservationV07"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;GetReservationV07&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record GetReservationV07Document : IOuterDocument<GetReservationV07>
@@ -167,7 +162,7 @@ public partial record GetReservationV07Document : IOuterDocument<GetReservationV
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="GetReservationV07"/> is required.
+    /// The instance of &lt;seealso cref=&quot;GetReservationV07&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GetReservationV07 Message { get; init; }

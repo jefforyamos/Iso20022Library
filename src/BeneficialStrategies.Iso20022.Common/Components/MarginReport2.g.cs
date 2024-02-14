@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details on the margin report per margin account, and optionally per non-clearing member.
 /// </summary>
 [IsoId("_-eDlF6MOEeCojJW5vEuTEQ_-651188683")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record MarginReport2
     /// Specifies if the margin is related to equities or fixed income.
     /// </summary>
     [IsoId("_-eDlGKMOEeCojJW5vEuTEQ_1535794841")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnPdct")]
     #endif
+    [IsoXmlTag("MrgnPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginProductType1Choice_? MarginProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,19 +63,18 @@ public partial record MarginReport2
     #endif
     
     /// <summary>
-    /// Identifies the clearing member's account.
+    /// Identifies the clearing member&apos;s account.
     /// </summary>
     [IsoId("_-eDlGaMOEeCojJW5vEuTEQ_-765027749")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnAcct")]
     #endif
+    [IsoXmlTag("MrgnAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount18 MarginAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount18 MarginAccount { get; init; } 
+    public required SecuritiesAccount18 MarginAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount18 MarginAccount { get; init; } 
     #else
@@ -89,12 +85,12 @@ public partial record MarginReport2
     /// Used to indicate whether the reported margin account is collateralised or not. If not collateralised, the account is configured for informational reporting.
     /// </summary>
     [IsoId("_-eMvAKMOEeCojJW5vEuTEQ_1274385428")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateralised Margin Account Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollsdMrgnAcctInd")]
     #endif
+    [IsoXmlTag("CollsdMrgnAcctInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CollateralisedMarginAccountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record MarginReport2
     /// Provides details about the non clearing member identification and account.
     /// </summary>
     [IsoId("_-eMvAaMOEeCojJW5vEuTEQ_-1762100102")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonClrMmb")]
     #endif
+    [IsoXmlTag("NonClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,11 @@ public partial record MarginReport2
     /// Provides the margin calculation summary per margin account.
     /// </summary>
     [IsoId("_-eMvAqMOEeCojJW5vEuTEQ_-403792512")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Calculation Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnClctnSummry")]
     #endif
+    [IsoXmlTag("MrgnClctnSummry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginCalculation1? MarginCalculationSummary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +137,11 @@ public partial record MarginReport2
     /// Provides the margin details such as the exposure amount and the initial margin.
     /// </summary>
     [IsoId("_-eMvA6MOEeCojJW5vEuTEQ_538722488")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Calculation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnClctn")]
     #endif
+    [IsoXmlTag("MrgnClctn")]
     public MarginCalculation2? MarginCalculation { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _-eMvA6MOEeCojJW5vEuTEQ_538722488
     

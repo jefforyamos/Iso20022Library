@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BalanceType2Choice.Code))]
     [KnownType(typeof(BalanceType2Choice.Proprietary))]
     [IsoId("_RcH9wtp-Ed-ak6NoX_4Aeg_1127274775")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

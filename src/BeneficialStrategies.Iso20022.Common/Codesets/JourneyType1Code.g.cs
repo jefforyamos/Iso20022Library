@@ -21,7 +21,7 @@ public enum JourneyType1Code
 {
     /// <summary>
     /// Coach number
-    /// Encoded/decoded by serializers as "COAC".
+    /// Encoded/decoded by serializers as &quot;COAC&quot;.
     /// </summary>
     [EnumMember(Value = "COAC")]
     [IsoId("__3usEV1jEeeu75xdwwAXQw")]
@@ -30,7 +30,7 @@ public enum JourneyType1Code
     
     /// <summary>
     /// Early arrival or departure
-    /// Encoded/decoded by serializers as "EARL".
+    /// Encoded/decoded by serializers as &quot;EARL&quot;.
     /// </summary>
     [EnumMember(Value = "EARL")]
     [IsoId("_ALOP0l1kEeeu75xdwwAXQw")]
@@ -39,7 +39,7 @@ public enum JourneyType1Code
     
     /// <summary>
     /// Flight number.
-    /// Encoded/decoded by serializers as "FLGT".
+    /// Encoded/decoded by serializers as &quot;FLGT&quot;.
     /// </summary>
     [EnumMember(Value = "FLGT")]
     [IsoId("_AXa4wl1kEeeu75xdwwAXQw")]
@@ -48,7 +48,7 @@ public enum JourneyType1Code
     
     /// <summary>
     /// Late arrival or departure.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_AgfVMl1kEeeu75xdwwAXQw")]
@@ -57,7 +57,7 @@ public enum JourneyType1Code
     
     /// <summary>
     /// On-time arrival or departure
-    /// Encoded/decoded by serializers as "ONTM".
+    /// Encoded/decoded by serializers as &quot;ONTM&quot;.
     /// </summary>
     [EnumMember(Value = "ONTM")]
     [IsoId("_As_gIl1kEeeu75xdwwAXQw")]
@@ -66,7 +66,7 @@ public enum JourneyType1Code
     
     /// <summary>
     /// Other type of journey.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_A7kusl1kEeeu75xdwwAXQw")]
@@ -75,7 +75,7 @@ public enum JourneyType1Code
     
     /// <summary>
     /// Train number.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_BGlE0l1kEeeu75xdwwAXQw")]
@@ -84,7 +84,7 @@ public enum JourneyType1Code
     
     /// <summary>
     /// Vessel number
-    /// Encoded/decoded by serializers as "VESS".
+    /// Encoded/decoded by serializers as &quot;VESS&quot;.
     /// </summary>
     [EnumMember(Value = "VESS")]
     [IsoId("_BRla8l1kEeeu75xdwwAXQw")]

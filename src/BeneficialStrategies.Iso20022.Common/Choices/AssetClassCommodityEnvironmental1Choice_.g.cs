@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityEnvironmental1Choice.Weather))]
     [KnownType(typeof(AssetClassCommodityEnvironmental1Choice.CarbonRelated))]
     [IsoId("_aQGG1Q2pEeW72qLtWESimw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity Environmental 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

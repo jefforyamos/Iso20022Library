@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
 [IsoId("__y4bwTAiEeOUGqA1wUwNLA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PriceInformation11
     /// Value of the price, for instance, as a currency and value.
     /// </summary>
     [IsoId("_AJ8Q4zAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Price4 Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Price4 Value { get; init; } 
+    public required Price4 Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Price4 Value { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PriceInformation11
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
     [IsoId("_AJ8Q5TAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quotation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtnDt")]
     #endif
+    [IsoXmlTag("QtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime1Choice_? QuotationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record PriceInformation11
     /// Period during which the price of a security is determined (For outturn securities).
     /// </summary>
     [IsoId("_AJ8Q7TAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Calculation Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricClctnPrd")]
     #endif
+    [IsoXmlTag("PricClctnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodChoice_? PriceCalculationPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record PriceInformation11
     /// Place from which the price was obtained.
     /// </summary>
     [IsoId("_AJ8Q7zAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Of Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcOfPric")]
     #endif
+    [IsoXmlTag("SrcOfPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification79? SourceOfPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

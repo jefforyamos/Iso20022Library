@@ -48,9 +48,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The UnableToApply message is sent by a case creator or a case assigner to a case assignee. This message is used to initiate an investigation of a payment instruction that cannot be executed or reconciled.|Usage|The Unable To Apply case occurs in two situations:|- an agent cannot execute the payment instruction due to missing or incorrect information;|- a creditor cannot reconcile the payment entry as it is received unexpectedly, or missing or incorrect information prevents reconciliation.|The UnableToApply message:|- always follows the reverse route of the original payment instruction;|- must be forwarded to the preceding agents in the payment processing chain, where appropriate;|- covers one and only one payment instruction (or payment entry) at a time; if several payment instructions cannot be executed or several payment entries cannot be reconciled, then multiple UnableToApply messages must be sent.|Depending on what stage the payment is and what has been done to it, for example incorrect routing, errors/omissions when processing the instruction or even the absence of any error, the unable to apply case may lead to a:|- AdditionalPaymentInformation message, sent to the case creator/case assigner, if a truncation or omission in a payment instruction prevented reconciliation;|- CustomerPaymentCancellationRequest or FIToFIPaymentCancellationRequest message, sent to the subsequent agent in the payment processing chain, if the original payment instruction has been incorrectly routed through the chain of agents (this also entails a new corrected payment instruction being issued). Prior to sending the payment cancellation request, the agent should first send a resolution indicating that a cancellation will follow (CWFW);|- RequestToModifyPayment message, sent to the subsequent agent in the payment processing chain, if a truncation or omission has occurred during the processing of the original payment instruction. Prior to sending the modify payment request, the agent should first send a resolution indicating that a modification will follow (MWFW);|- DebitAuthorisationRequest message, sent to the case creator/case assigner, if the payment instruction has reached an incorrect creditor.|The UnableToApply message has the following main characteristics:|The case creator (the instructed party/creditor of a payment instruction) assigns a unique case identification and optionally the reason code for the UnableToApply message. This information will be passed unchanged to all subsequent case assignees.|The case creator specifies the identification of the underlying payment instruction. This identification needs to be updated by the subsequent case assigner(s) in order to match the one used with their case assignee(s).|The UnableToApply Justification element allows the assigner to indicate whether a specific element causes the unable to apply situation (incorrect element and/or mismatched element can be listed) or whether any supplementary information needs to be forwarded.")]
 [IsoId("_eX_OLW2PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Unable To Apply V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -96,16 +94,15 @@ public partial record UnableToApplyV07 : IOuterRecord<UnableToApplyV07,UnableToA
     /// Usage: The assigner must be the sender of this confirmation and the assignee must be the receiver.
     /// </summary>
     [IsoId("_eX_OOW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment5 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment5 Assignment { get; init; } 
+    public required CaseAssignment5 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment5 Assignment { get; init; } 
     #else
@@ -116,12 +113,11 @@ public partial record UnableToApplyV07 : IOuterRecord<UnableToApplyV07,UnableToA
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_eX_OO22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case5? Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,16 +130,15 @@ public partial record UnableToApplyV07 : IOuterRecord<UnableToApplyV07,UnableToA
     /// References the payment instruction or statement entry that a party is unable to execute or unable to reconcile.
     /// </summary>
     [IsoId("_eX_OPW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Undrlyg")]
     #endif
+    [IsoXmlTag("Undrlyg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnderlyingTransaction5Choice_ Underlying { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnderlyingTransaction5Choice_ Underlying { get; init; } 
+    public required UnderlyingTransaction5Choice_ Underlying { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnderlyingTransaction5Choice_ Underlying { get; init; } 
     #else
@@ -154,16 +149,15 @@ public partial record UnableToApplyV07 : IOuterRecord<UnableToApplyV07,UnableToA
     /// Explains the reason why the case creator is unable to apply the instruction.
     /// </summary>
     [IsoId("_eX_OP22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Justification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Justfn")]
     #endif
+    [IsoXmlTag("Justfn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnableToApplyJustification3Choice_ Justification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnableToApplyJustification3Choice_ Justification { get; init; } 
+    public required UnableToApplyJustification3Choice_ Justification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnableToApplyJustification3Choice_ Justification { get; init; } 
     #else
@@ -174,12 +168,11 @@ public partial record UnableToApplyV07 : IOuterRecord<UnableToApplyV07,UnableToA
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_eX_OQW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,7 +185,7 @@ public partial record UnableToApplyV07 : IOuterRecord<UnableToApplyV07,UnableToA
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UnableToApplyV07Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UnableToApplyV07Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UnableToApplyV07Document ToDocument()
     {
@@ -202,7 +195,7 @@ public partial record UnableToApplyV07 : IOuterRecord<UnableToApplyV07,UnableToA
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UnableToApplyV07"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UnableToApplyV07&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UnableToApplyV07Document : IOuterDocument<UnableToApplyV07>
@@ -219,7 +212,7 @@ public partial record UnableToApplyV07Document : IOuterDocument<UnableToApplyV07
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UnableToApplyV07"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UnableToApplyV07&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnableToApplyV07 Message { get; init; }

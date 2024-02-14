@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the elements used to calculate the collateral margin call for the variation margin and optionally the segregated independent amount.
 /// </summary>
 [IsoId("_UnOn1dp-Ed-ak6NoX_4Aeg_-1003583230")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Margin1
     /// Elements used to calculate the collateral margin call for the variation margin.
     /// </summary>
     [IsoId("_UnOn1tp-Ed-ak6NoX_4Aeg_-1233189826")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgn")]
     #endif
+    [IsoXmlTag("VartnMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VariationMargin1 VariationMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VariationMargin1 VariationMargin { get; init; } 
+    public required VariationMargin1 VariationMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VariationMargin1 VariationMargin { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Margin1
     /// Elements used to calculate the collateral margin call for the segregated independent amount.
     /// </summary>
     [IsoId("_UnOn19p-Ed-ak6NoX_4Aeg_1199972462")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgrtdIndpdntAmtMrgn")]
     #endif
+    [IsoXmlTag("SgrtdIndpdntAmtMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SegregatedIndependentAmountMargin1? SegregatedIndependentAmountMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

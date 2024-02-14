@@ -21,7 +21,7 @@ public enum TypeOfAmount20Code
 {
     /// <summary>
     /// Transaction amount that has been authorised.
-    /// Encoded/decoded by serializers as "AMTH".
+    /// Encoded/decoded by serializers as &quot;AMTH&quot;.
     /// </summary>
     [EnumMember(Value = "AMTH")]
     [IsoId("_Sxu9gZJFEeuuktRxxQZoNQ")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Baggage related fees
-    /// Encoded/decoded by serializers as "BAGG".
+    /// Encoded/decoded by serializers as &quot;BAGG&quot;.
     /// </summary>
     [EnumMember(Value = "BAGG")]
     [IsoId("_S5tNwZJFEeuuktRxxQZoNQ")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Cargo Amount.
-    /// Encoded/decoded by serializers as "CARG".
+    /// Encoded/decoded by serializers as &quot;CARG&quot;.
     /// </summary>
     [EnumMember(Value = "CARG")]
     [IsoId("_TWZw0JJFEeuuktRxxQZoNQ")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Amount that has been charged to card account
-    /// Encoded/decoded by serializers as "CHTC".
+    /// Encoded/decoded by serializers as &quot;CHTC&quot;.
     /// </summary>
     [EnumMember(Value = "CHTC")]
     [IsoId("_VjHgAZJFEeuuktRxxQZoNQ")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Amount for club fee.
-    /// Encoded/decoded by serializers as "CLUB".
+    /// Encoded/decoded by serializers as &quot;CLUB&quot;.
     /// </summary>
     [EnumMember(Value = "CLUB")]
     [IsoId("_V9Cb4ZJFEeuuktRxxQZoNQ")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Duty free amount
-    /// Encoded/decoded by serializers as "DUTY".
+    /// Encoded/decoded by serializers as &quot;DUTY&quot;.
     /// </summary>
     [EnumMember(Value = "DUTY")]
     [IsoId("_ZKsDoZJFEeuuktRxxQZoNQ")]
@@ -75,7 +75,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Fee for exchanging a ticket (modifying an itinerary)
-    /// Encoded/decoded by serializers as "EXTK".
+    /// Encoded/decoded by serializers as &quot;EXTK&quot;.
     /// </summary>
     [EnumMember(Value = "EXTK")]
     [IsoId("_ZVflcZJFEeuuktRxxQZoNQ")]
@@ -84,7 +84,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Fee for exchanging a ticket (modifying an itinerary)
-    /// Encoded/decoded by serializers as "EXTF".
+    /// Encoded/decoded by serializers as &quot;EXTF&quot;.
     /// </summary>
     [EnumMember(Value = "EXTF")]
     [IsoId("_Zdu7cZJFEeuuktRxxQZoNQ")]
@@ -93,7 +93,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Extra charges (for example,  minibar, etc.)
-    /// Encoded/decoded by serializers as "EXTR".
+    /// Encoded/decoded by serializers as &quot;EXTR&quot;.
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("_Zs9qQZJFEeuuktRxxQZoNQ")]
@@ -102,7 +102,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Amount of fare
-    /// Encoded/decoded by serializers as "FARE".
+    /// Encoded/decoded by serializers as &quot;FARE&quot;.
     /// </summary>
     [EnumMember(Value = "FARE")]
     [IsoId("_Z8tWcZJFEeuuktRxxQZoNQ")]
@@ -111,7 +111,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Amount of food and beverages
-    /// Encoded/decoded by serializers as "FDBV".
+    /// Encoded/decoded by serializers as &quot;FDBV&quot;.
     /// </summary>
     [EnumMember(Value = "FDBV")]
     [IsoId("_aPyqgZJFEeuuktRxxQZoNQ")]
@@ -120,7 +120,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Insurance charges 
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_cSosAZJFEeuuktRxxQZoNQ")]
@@ -129,7 +129,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Miscellaneous charges not elsewhere defined
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_dpgYUZJFEeuuktRxxQZoNQ")]
@@ -138,7 +138,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_erNF4ZJFEeuuktRxxQZoNQ")]
@@ -147,7 +147,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_e4zdAZJFEeuuktRxxQZoNQ")]
@@ -156,7 +156,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Pet carrier.
-    /// Encoded/decoded by serializers as "PETC".
+    /// Encoded/decoded by serializers as &quot;PETC&quot;.
     /// </summary>
     [EnumMember(Value = "PETC")]
     [IsoId("_fG0D0ZJFEeuuktRxxQZoNQ")]
@@ -165,7 +165,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Phone charges
-    /// Encoded/decoded by serializers as "PHNE".
+    /// Encoded/decoded by serializers as &quot;PHNE&quot;.
     /// </summary>
     [EnumMember(Value = "PHNE")]
     [IsoId("_fPznwZJFEeuuktRxxQZoNQ")]
@@ -174,7 +174,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Amount of prepayment
-    /// Encoded/decoded by serializers as "PRPY".
+    /// Encoded/decoded by serializers as &quot;PRPY&quot;.
     /// </summary>
     [EnumMember(Value = "PRPY")]
     [IsoId("_ffnlYZJFEeuuktRxxQZoNQ")]
@@ -183,7 +183,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Total amount of charges
-    /// Encoded/decoded by serializers as "TOTL".
+    /// Encoded/decoded by serializers as &quot;TOTL&quot;.
     /// </summary>
     [EnumMember(Value = "TOTL")]
     [IsoId("_hCefQZJFEeuuktRxxQZoNQ")]
@@ -192,7 +192,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Tour order amount.
-    /// Encoded/decoded by serializers as "TOUR".
+    /// Encoded/decoded by serializers as &quot;TOUR&quot;.
     /// </summary>
     [EnumMember(Value = "TOUR")]
     [IsoId("_hUNvgZJFEeuuktRxxQZoNQ")]
@@ -201,7 +201,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Amount for an upgrade.
-    /// Encoded/decoded by serializers as "UPGD".
+    /// Encoded/decoded by serializers as &quot;UPGD&quot;.
     /// </summary>
     [EnumMember(Value = "UPGD")]
     [IsoId("_inEegZJFEeuuktRxxQZoNQ")]
@@ -210,7 +210,7 @@ public enum TypeOfAmount20Code
     
     /// <summary>
     /// Ticket delivery amount.
-    /// Encoded/decoded by serializers as "TKDL".
+    /// Encoded/decoded by serializers as &quot;TKDL&quot;.
     /// </summary>
     [EnumMember(Value = "TKDL")]
     [IsoId("_onjaQZJFEeuuktRxxQZoNQ")]

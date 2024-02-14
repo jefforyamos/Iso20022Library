@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caam;
 /// </summary>
 [Description(@"The ATMExceptionAdvice message is sent by an ATM to an acquirer or its agent to inform of that an exception occurred outside a service.")]
 [IsoId("_i58PwK5CEeWCgYcWSNgX5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Exception Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMExceptionAdviceV01 : IOuterRecord<ATMExceptionAdviceV01
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_uFaCoK5CEeWCgYcWSNgX5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header32 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header32 Header { get; init; } 
+    public required Header32 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header32 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMExceptionAdviceV01 : IOuterRecord<ATMExceptionAdviceV01
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_MJAZIK5DEeWCgYcWSNgX5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATM Exception Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMXcptnAdvc")]
     #endif
+    [IsoXmlTag("PrtctdATMXcptnAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMExceptionAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMExceptionAdviceV01 : IOuterRecord<ATMExceptionAdviceV01
     /// Information related to exceptions occurring on the ATM.
     /// </summary>
     [IsoId("_4n370K5CEeWCgYcWSNgX5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Exception Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMXcptnAdvc")]
     #endif
+    [IsoXmlTag("ATMXcptnAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMExceptionAdvice1? ATMExceptionAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMExceptionAdviceV01 : IOuterRecord<ATMExceptionAdviceV01
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_PYXwwK5GEeWCgYcWSNgX5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMExceptionAdviceV01 : IOuterRecord<ATMExceptionAdviceV01
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMExceptionAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMExceptionAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMExceptionAdviceV01Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMExceptionAdviceV01 : IOuterRecord<ATMExceptionAdviceV01
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMExceptionAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMExceptionAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMExceptionAdviceV01Document : IOuterDocument<ATMExceptionAdviceV01>
@@ -176,7 +170,7 @@ public partial record ATMExceptionAdviceV01Document : IOuterDocument<ATMExceptio
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMExceptionAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMExceptionAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMExceptionAdviceV01 Message { get; init; }

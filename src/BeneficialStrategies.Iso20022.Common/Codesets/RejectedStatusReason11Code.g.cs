@@ -21,7 +21,7 @@ public enum RejectedStatusReason11Code
 {
     /// <summary>
     /// Investment account is blocked due to a corporate action.
-    /// Encoded/decoded by serializers as "BLCA".
+    /// Encoded/decoded by serializers as &quot;BLCA&quot;.
     /// </summary>
     [EnumMember(Value = "BLCA")]
     [IsoId("_u-RmgUggEea9YuSvQGoi-w")]
@@ -30,7 +30,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Investment account is blocked due to a transfer out of investment funds.
-    /// Encoded/decoded by serializers as "BLTR".
+    /// Encoded/decoded by serializers as &quot;BLTR&quot;.
     /// </summary>
     [EnumMember(Value = "BLTR")]
     [IsoId("_zZ1y4UggEea9YuSvQGoi-w")]
@@ -39,7 +39,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
-    /// Encoded/decoded by serializers as "DOCC".
+    /// Encoded/decoded by serializers as &quot;DOCC&quot;.
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_0_dF0UggEea9YuSvQGoi-w")]
@@ -47,8 +47,8 @@ public enum RejectedStatusReason11Code
     AccountBlockedMissingDocuments = RejectedStatusReasonCode.AccountBlockedMissingDocuments, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Instruction was received after the Receiver's deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the Receiver&apos;s deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_1Qt08UggEea9YuSvQGoi-w")]
@@ -57,7 +57,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Assets are illiquid.
-    /// Encoded/decoded by serializers as "ILLI".
+    /// Encoded/decoded by serializers as &quot;ILLI&quot;.
     /// </summary>
     [EnumMember(Value = "ILLI")]
     [IsoId("_1kqEoUggEea9YuSvQGoi-w")]
@@ -66,7 +66,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Amount of subscription is below the minimum initial investment amount.
-    /// Encoded/decoded by serializers as "BMIN".
+    /// Encoded/decoded by serializers as &quot;BMIN&quot;.
     /// </summary>
     [EnumMember(Value = "BMIN")]
     [IsoId("_19DWgUggEea9YuSvQGoi-w")]
@@ -75,7 +75,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Amount is below the minimum redemption amount.
-    /// Encoded/decoded by serializers as "BMRA".
+    /// Encoded/decoded by serializers as &quot;BMRA&quot;.
     /// </summary>
     [EnumMember(Value = "BMRA")]
     [IsoId("_2UQ8oUggEea9YuSvQGoi-w")]
@@ -84,7 +84,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Holding will be below the minimum retained value.
-    /// Encoded/decoded by serializers as "BMRV".
+    /// Encoded/decoded by serializers as &quot;BMRV&quot;.
     /// </summary>
     [EnumMember(Value = "BMRV")]
     [IsoId("_2ozCMUggEea9YuSvQGoi-w")]
@@ -93,7 +93,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Instruction has been received after the cut-off time.
-    /// Encoded/decoded by serializers as "CUTO".
+    /// Encoded/decoded by serializers as &quot;CUTO&quot;.
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_35uekUggEea9YuSvQGoi-w")]
@@ -102,7 +102,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Delivering agent is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "ICAG".
+    /// Encoded/decoded by serializers as &quot;ICAG&quot;.
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_5v25wUggEea9YuSvQGoi-w")]
@@ -111,7 +111,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Direct debit account identification is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IDDB".
+    /// Encoded/decoded by serializers as &quot;IDDB&quot;.
     /// </summary>
     [EnumMember(Value = "IDDB")]
     [IsoId("_6LiJIUggEea9YuSvQGoi-w")]
@@ -120,7 +120,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Order reference is a duplicate of a previously received order.
-    /// Encoded/decoded by serializers as "ORRF".
+    /// Encoded/decoded by serializers as &quot;ORRF&quot;.
     /// </summary>
     [EnumMember(Value = "ORRF")]
     [IsoId("_6fniwUggEea9YuSvQGoi-w")]
@@ -129,7 +129,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Unrecognised or invalid fee or commission.
-    /// Encoded/decoded by serializers as "FEEE".
+    /// Encoded/decoded by serializers as &quot;FEEE&quot;.
     /// </summary>
     [EnumMember(Value = "FEEE")]
     [IsoId("_7NlcAUggEea9YuSvQGoi-w")]
@@ -138,7 +138,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Identification of the security is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_7j5qQUggEea9YuSvQGoi-w")]
@@ -147,7 +147,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Identification of the security and the security name are not the same.
-    /// Encoded/decoded by serializers as "IDNA".
+    /// Encoded/decoded by serializers as &quot;IDNA&quot;.
     /// </summary>
     [EnumMember(Value = "IDNA")]
     [IsoId("_7ye40UggEea9YuSvQGoi-w")]
@@ -156,7 +156,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Financial instrument quantity is invalid.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_79f2AUggEea9YuSvQGoi-w")]
@@ -165,7 +165,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Fund is closed and will not take in any more investments.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("__A_cMUggEea9YuSvQGoi-w")]
@@ -174,7 +174,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Instructing party is not allowed to instruct for this investment account.
-    /// Encoded/decoded by serializers as "IPAC".
+    /// Encoded/decoded by serializers as &quot;IPAC&quot;.
     /// </summary>
     [EnumMember(Value = "IPAC")]
     [IsoId("__OYX8UggEea9YuSvQGoi-w")]
@@ -183,7 +183,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Insufficient capacity.
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("__gro4UggEea9YuSvQGoi-w")]
@@ -192,7 +192,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Intermediary is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("__4VT4UggEea9YuSvQGoi-w")]
@@ -201,7 +201,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Cash account is not recognised or invalid.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_ARn9oUghEea9YuSvQGoi-w")]
@@ -210,7 +210,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Credit transfer details are incorrect.
-    /// Encoded/decoded by serializers as "ICTR".
+    /// Encoded/decoded by serializers as &quot;ICTR&quot;.
     /// </summary>
     [EnumMember(Value = "ICTR")]
     [IsoId("_ArXTUUghEea9YuSvQGoi-w")]
@@ -219,7 +219,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Order type is invalid.
-    /// Encoded/decoded by serializers as "IOTP".
+    /// Encoded/decoded by serializers as &quot;IOTP&quot;.
     /// </summary>
     [EnumMember(Value = "IOTP")]
     [IsoId("_BLDgAUghEea9YuSvQGoi-w")]
@@ -228,7 +228,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Form of the security is wrong, eg, the form of security is registered not bearer or vice versa.
-    /// Encoded/decoded by serializers as "DFOR".
+    /// Encoded/decoded by serializers as &quot;DFOR&quot;.
     /// </summary>
     [EnumMember(Value = "DFOR")]
     [IsoId("_CIpwsUghEea9YuSvQGoi-w")]
@@ -237,7 +237,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Unrecognised or invalid settlement amount.
-    /// Encoded/decoded by serializers as "DMON".
+    /// Encoded/decoded by serializers as &quot;DMON&quot;.
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_CcSeYUghEea9YuSvQGoi-w")]
@@ -246,7 +246,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Investment account identification is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_Coo4UUghEea9YuSvQGoi-w")]
@@ -255,7 +255,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Lock-up period is in place.
-    /// Encoded/decoded by serializers as "LOCK".
+    /// Encoded/decoded by serializers as &quot;LOCK&quot;.
     /// </summary>
     [EnumMember(Value = "LOCK")]
     [IsoId("_C-zVkUghEea9YuSvQGoi-w")]
@@ -264,7 +264,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// The cancellation request has been rejected since more than one instruction match to the cancellation criteria.
-    /// Encoded/decoded by serializers as "NRGM".
+    /// Encoded/decoded by serializers as &quot;NRGM&quot;.
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_D1GrcUghEea9YuSvQGoi-w")]
@@ -273,7 +273,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NSLA".
+    /// Encoded/decoded by serializers as &quot;NSLA&quot;.
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_Fv_q0UghEea9YuSvQGoi-w")]
@@ -282,7 +282,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// There is not enough cash in the account to process the instruction.
-    /// Encoded/decoded by serializers as "MONY".
+    /// Encoded/decoded by serializers as &quot;MONY&quot;.
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_GLFEUUghEea9YuSvQGoi-w")]
@@ -291,7 +291,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// There are not enough securities in the account to process the instruction.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_Gd-LIUghEea9YuSvQGoi-w")]
@@ -300,7 +300,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Payment card details are incorrect.
-    /// Encoded/decoded by serializers as "IPAY".
+    /// Encoded/decoded by serializers as &quot;IPAY&quot;.
     /// </summary>
     [EnumMember(Value = "IPAY")]
     [IsoId("_G8BZEUghEea9YuSvQGoi-w")]
@@ -309,7 +309,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Percentage holding breach, for example, PPM rules; taxation rules (ERISA).
-    /// Encoded/decoded by serializers as "PRCT".
+    /// Encoded/decoded by serializers as &quot;PRCT&quot;.
     /// </summary>
     [EnumMember(Value = "PRCT")]
     [IsoId("_IZmxYUghEea9YuSvQGoi-w")]
@@ -318,7 +318,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Order contains physical delivery details but the fund can not be physically delivered.
-    /// Encoded/decoded by serializers as "DLVY".
+    /// Encoded/decoded by serializers as &quot;DLVY&quot;.
     /// </summary>
     [EnumMember(Value = "DLVY")]
     [IsoId("_IxtIUUghEea9YuSvQGoi-w")]
@@ -327,7 +327,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Physical Settlement Impossible.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_JEAZQUghEea9YuSvQGoi-w")]
@@ -336,7 +336,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Unrecognised or invalid Place of Trade.
-    /// Encoded/decoded by serializers as "PLCE".
+    /// Encoded/decoded by serializers as &quot;PLCE&quot;.
     /// </summary>
     [EnumMember(Value = "PLCE")]
     [IsoId("_JRQLEUghEea9YuSvQGoi-w")]
@@ -345,7 +345,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Receiving agent is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IVAG".
+    /// Encoded/decoded by serializers as &quot;IVAG&quot;.
     /// </summary>
     [EnumMember(Value = "IVAG")]
     [IsoId("_JhK2YUghEea9YuSvQGoi-w")]
@@ -354,7 +354,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Impossible to use RTGS System.
-    /// Encoded/decoded by serializers as "RTGS".
+    /// Encoded/decoded by serializers as &quot;RTGS&quot;.
     /// </summary>
     [EnumMember(Value = "RTGS")]
     [IsoId("_J7DWAUghEea9YuSvQGoi-w")]
@@ -363,7 +363,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Safekeeping place is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "ISAF".
+    /// Encoded/decoded by serializers as &quot;ISAF&quot;.
     /// </summary>
     [EnumMember(Value = "ISAF")]
     [IsoId("_KZtA4UghEea9YuSvQGoi-w")]
@@ -372,7 +372,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Unrecognised or invalid Settlement Amount Currency.
-    /// Encoded/decoded by serializers as "NCRR".
+    /// Encoded/decoded by serializers as &quot;NCRR&quot;.
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_KtyagUghEea9YuSvQGoi-w")]
@@ -381,7 +381,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Cash settlement date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_LCnbAUghEea9YuSvQGoi-w")]
@@ -390,7 +390,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Place of settlement is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_LrFwQUghEea9YuSvQGoi-w")]
@@ -399,7 +399,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Unrecognised or invalid Settlement Transaction.
-    /// Encoded/decoded by serializers as "SETR".
+    /// Encoded/decoded by serializers as &quot;SETR&quot;.
     /// </summary>
     [EnumMember(Value = "SETR")]
     [IsoId("_MBs5cUghEea9YuSvQGoi-w")]
@@ -408,7 +408,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Unrecognised or invalid subscriber or redeemer.
-    /// Encoded/decoded by serializers as "IEXE".
+    /// Encoded/decoded by serializers as &quot;IEXE&quot;.
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_MdrDwUghEea9YuSvQGoi-w")]
@@ -417,7 +417,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Quantity of units or amount of money in the order is too high for a subscription.
-    /// Encoded/decoded by serializers as "SHIG".
+    /// Encoded/decoded by serializers as &quot;SHIG&quot;.
     /// </summary>
     [EnumMember(Value = "SHIG")]
     [IsoId("_N1S-AUghEea9YuSvQGoi-w")]
@@ -426,7 +426,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_N_3PQUghEea9YuSvQGoi-w")]
@@ -435,7 +435,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Quantity of units or amount of money in the order is too low for a subscription.
-    /// Encoded/decoded by serializers as "SLOW".
+    /// Encoded/decoded by serializers as &quot;SLOW&quot;.
     /// </summary>
     [EnumMember(Value = "SLOW")]
     [IsoId("_ORa5UUghEea9YuSvQGoi-w")]
@@ -444,7 +444,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Unrecognised or invalid trade date or requested trade date or future trade date.
-    /// Encoded/decoded by serializers as "DTRD".
+    /// Encoded/decoded by serializers as &quot;DTRD&quot;.
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_OcuxcUghEea9YuSvQGoi-w")]
@@ -453,7 +453,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Percentage of commission waiving exceeds the commission percentage or commission amount.
-    /// Encoded/decoded by serializers as "UWAI".
+    /// Encoded/decoded by serializers as &quot;UWAI&quot;.
     /// </summary>
     [EnumMember(Value = "UWAI")]
     [IsoId("_O5lskUghEea9YuSvQGoi-w")]
@@ -462,7 +462,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Deal currency is not supported.
-    /// Encoded/decoded by serializers as "UDCY".
+    /// Encoded/decoded by serializers as &quot;UDCY&quot;.
     /// </summary>
     [EnumMember(Value = "UDCY")]
     [IsoId("_PLmCkUghEea9YuSvQGoi-w")]
@@ -471,7 +471,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Net asset value currency is not supported.
-    /// Encoded/decoded by serializers as "UNAV".
+    /// Encoded/decoded by serializers as &quot;UNAV&quot;.
     /// </summary>
     [EnumMember(Value = "UNAV")]
     [IsoId("_PjZekUghEea9YuSvQGoi-w")]
@@ -480,7 +480,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Payment method, for example, cheque or payment card, is not accepted.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_PwopUUghEea9YuSvQGoi-w")]
@@ -489,7 +489,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Settlement currency requested is not supported.
-    /// Encoded/decoded by serializers as "URSC".
+    /// Encoded/decoded by serializers as &quot;URSC&quot;.
     /// </summary>
     [EnumMember(Value = "URSC")]
     [IsoId("_QAaKsUghEea9YuSvQGoi-w")]
@@ -498,7 +498,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Linked reference is not known.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_QP4KEUghEea9YuSvQGoi-w")]
@@ -507,7 +507,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Instruction specifies an unacceptable combination for the financial instruments in the switch order.
-    /// Encoded/decoded by serializers as "UNSC".
+    /// Encoded/decoded by serializers as &quot;UNSC&quot;.
     /// </summary>
     [EnumMember(Value = "UNSC")]
     [IsoId("_QGIfQVNFEeaOrcVOcDJQkA")]
@@ -516,7 +516,7 @@ public enum RejectedStatusReason11Code
     
     /// <summary>
     /// Order contains funds that have different valuation points.
-    /// Encoded/decoded by serializers as "POIN".
+    /// Encoded/decoded by serializers as &quot;POIN&quot;.
     /// </summary>
     [EnumMember(Value = "POIN")]
     [IsoId("_8JBRsb0dEeagCZkbeM8gxw")]

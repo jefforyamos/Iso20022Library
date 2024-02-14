@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
 [IsoId("_9h9p68WLEeiRga8tPu1L4Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Posted And Received")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,12 @@ public partial record PositionSetPostedAndReceived1
     /// Usage: This field should include the overall value posted for the portfolio.
     /// </summary>
     [IsoId("_9h9p7MWLEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pstd")]
     #endif
+    [IsoXmlTag("Pstd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20Amount? Posted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +62,12 @@ public partial record PositionSetPostedAndReceived1
     /// Usage: This field should include the overall value received for the portfolio.
     /// </summary>
     [IsoId("_9h9p7cWLEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcvd")]
     #endif
+    [IsoXmlTag("Rcvd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20Amount? Received { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

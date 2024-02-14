@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DataRecord1Choice.Binary))]
     [KnownType(typeof(DataRecord1Choice.Text))]
     [IsoId("_Gl7WgJb8Eeuc6pwKtqbEVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Record 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

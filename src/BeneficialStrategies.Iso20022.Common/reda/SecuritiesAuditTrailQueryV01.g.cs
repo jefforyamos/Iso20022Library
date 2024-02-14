@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The SecuritiesAuditTrailQuery message is sent by an instructing party to the executing party to query for the securities audit trail recorded in the system.")]
 [IsoId("_jTsKcR62Eeu31YsWNiv_cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Audit Trail Query V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,12 +73,11 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord<SecuritiesAudi
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_4G_JQZIwEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +90,15 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord<SecuritiesAudi
     /// Defines the criteria to be used to query the securities audit trail by the executing system.
     /// </summary>
     [IsoId("_jTsKgx62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAuditTrailSearchCriteria4 SearchCriteria { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAuditTrailSearchCriteria4 SearchCriteria { get; init; } 
+    public required SecuritiesAuditTrailSearchCriteria4 SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAuditTrailSearchCriteria4 SearchCriteria { get; init; } 
     #else
@@ -113,12 +109,11 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord<SecuritiesAudi
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jTsxgR62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord<SecuritiesAudi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesAuditTrailQueryV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesAuditTrailQueryV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesAuditTrailQueryV01Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record SecuritiesAuditTrailQueryV01 : IOuterRecord<SecuritiesAudi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAuditTrailQueryV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesAuditTrailQueryV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesAuditTrailQueryV01Document : IOuterDocument<SecuritiesAuditTrailQueryV01>
@@ -158,7 +153,7 @@ public partial record SecuritiesAuditTrailQueryV01Document : IOuterDocument<Secu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesAuditTrailQueryV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesAuditTrailQueryV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAuditTrailQueryV01 Message { get; init; }

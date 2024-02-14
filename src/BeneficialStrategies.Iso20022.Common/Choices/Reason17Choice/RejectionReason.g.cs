@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason17Choice
     /// Specifies the reason why the instruction/request has a rejected status.
     /// </summary>
     [IsoId("_8Qc15ZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the transaction for Inquiry.
 /// </summary>
 [IsoId("_Ru_cefJFEeiJn9rM2Znz2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Environment16
     /// ISO 8583 bit 32.
     /// </summary>
     [IsoId("_Ru_cfvJFEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acqrr")]
     #endif
+    [IsoXmlTag("Acqrr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification197 Acquirer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification197 Acquirer { get; init; } 
+    public required PartyIdentification197 Acquirer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification197 Acquirer { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record Environment16
     /// ISO 8583 bit 33
     /// </summary>
     [IsoId("_Ru_cf_JFEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sndr")]
     #endif
+    [IsoXmlTag("Sndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Sender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +88,11 @@ public partial record Environment16
     /// ISO 8583 bit 100.
     /// </summary>
     [IsoId("_Ru_cevJFEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcvr")]
     #endif
+    [IsoXmlTag("Rcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Receiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record Environment16
     /// Destination of the message.
     /// </summary>
     [IsoId("_Oz4gwfJGEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Destination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dstn")]
     #endif
+    [IsoXmlTag("Dstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Destination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record Environment16
     /// Card or payment token performing the transaction.
     /// </summary>
     [IsoId("_Ru_ce_JFEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Card")]
     #endif
+    [IsoXmlTag("Card")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardData2? Card { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,11 @@ public partial record Environment16
     /// Details of payment token.
     /// </summary>
     [IsoId("_JivXQfJGEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tkn")]
     #endif
+    [IsoXmlTag("Tkn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Token1? Token { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

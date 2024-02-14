@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the settlement obligation.
 /// </summary>
 [IsoId("_-ezL8aMOEeCojJW5vEuTEQ_1121588279")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Obligation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,15 +53,13 @@ public partial record SettlementObligation5
     /// Provides the identification of an existing obligation that is linked to the new obligation.
     /// </summary>
     [IsoId("_-ezL8qMOEeCojJW5vEuTEQ_1007749213")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Settlement Obligation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdSttlmOblgtnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdSttlmOblgtnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RelatedSettlementObligationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,12 +72,11 @@ public partial record SettlementObligation5
     /// Indicates the type of the obligation.
     /// </summary>
     [IsoId("_-ezL86MOEeCojJW5vEuTEQ_10676860")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OblgtnTp")]
     #endif
+    [IsoXmlTag("OblgtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ObligationType1Choice_? ObligationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,15 +89,13 @@ public partial record SettlementObligation5
     /// Provides additional information related to the linked obligation.
     /// </summary>
     [IsoId("_-ezL9KMOEeCojJW5vEuTEQ_-986395493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +108,12 @@ public partial record SettlementObligation5
     /// Provides the original trade date.
     /// </summary>
     [IsoId("_-ezL9aMOEeCojJW5vEuTEQ_-1983467846")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDt")]
     #endif
+    [IsoXmlTag("TradDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TradeDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,16 +126,15 @@ public partial record SettlementObligation5
     /// Specifies the quantity related to the settlement obligation.
     /// </summary>
     [IsoId("_-ezL9qMOEeCojJW5vEuTEQ_1428266163")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     #else
@@ -153,12 +145,11 @@ public partial record SettlementObligation5
     /// Provides the price applied to that net position.
     /// </summary>
     [IsoId("_-ezL96MOEeCojJW5vEuTEQ_431193810")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Position Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetPosPric")]
     #endif
+    [IsoXmlTag("NetPosPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? NetPositionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,12 +162,11 @@ public partial record SettlementObligation5
     /// Specifies the ISO code of the trade currency.
     /// </summary>
     [IsoId("_-e888KMOEeCojJW5vEuTEQ_-565878543")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgCcy")]
     #endif
+    [IsoXmlTag("TradgCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? TradingCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,16 +179,15 @@ public partial record SettlementObligation5
     /// Provides the total amount to be settled.
     /// </summary>
     [IsoId("_-e888aMOEeCojJW5vEuTEQ_-679717609")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection27 SettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection27 SettlementAmount { get; init; } 
+    public required AmountAndDirection27 SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection27 SettlementAmount { get; init; } 
     #else
@@ -209,16 +198,16 @@ public partial record SettlementObligation5
     /// Provides the contractual settlement date.
     /// </summary>
     [IsoId("_-e888qMOEeCojJW5vEuTEQ_-1676789962")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly SettlementDate { get; init; } 
+    public required System.DateOnly SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly SettlementDate { get; init; } 
     #else
@@ -229,16 +218,15 @@ public partial record SettlementObligation5
     /// Indicates if the obligation will result in a receive or a delivery of securities.
     /// </summary>
     [IsoId("_-e8886MOEeCojJW5vEuTEQ_1734944047")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmntTp")]
     #endif
+    [IsoXmlTag("SctiesMvmntTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+    public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     #else
@@ -249,16 +237,15 @@ public partial record SettlementObligation5
     /// Specifies how the transaction is to be settled.
     /// </summary>
     [IsoId("_-e889KMOEeCojJW5vEuTEQ_1621104981")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pmt")]
     #endif
+    [IsoXmlTag("Pmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeliveryReceiptType2Code Payment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DeliveryReceiptType2Code Payment { get; init; } 
+    public required DeliveryReceiptType2Code Payment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DeliveryReceiptType2Code Payment { get; init; } 
     #else
@@ -269,12 +256,11 @@ public partial record SettlementObligation5
     /// Provides the references of the underlying trade leg(s) and/or the reference to the related net position message.
     /// </summary>
     [IsoId("_-e889aMOEeCojJW5vEuTEQ_624032628")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reference19? References { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

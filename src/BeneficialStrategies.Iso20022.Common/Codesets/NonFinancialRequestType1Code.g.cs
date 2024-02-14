@@ -21,7 +21,7 @@ public enum NonFinancialRequestType1Code
 {
     /// <summary>
     /// According to several parameters of a transaction, an Intermediary Agent helps an Acceptor to identify the more relevant Acquirer to process the transaction.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_hzPIsS_rEeugIJ3Gvoevmg")]
@@ -30,7 +30,7 @@ public enum NonFinancialRequestType1Code
     
     /// <summary>
     /// The Intermediary Agent or Acquirer provides the PaymentAccountReference to use to process the transaction.
-    /// Encoded/decoded by serializers as "PARQ".
+    /// Encoded/decoded by serializers as &quot;PARQ&quot;.
     /// </summary>
     [EnumMember(Value = "PARQ")]
     [IsoId("_h4cY0S_rEeugIJ3Gvoevmg")]
@@ -39,7 +39,7 @@ public enum NonFinancialRequestType1Code
     
     /// <summary>
     /// The Intermediary Agent or Acquirer helps the Acceptor to assess the risk management of the transaction.
-    /// Encoded/decoded by serializers as "RISK".
+    /// Encoded/decoded by serializers as &quot;RISK&quot;.
     /// </summary>
     [EnumMember(Value = "RISK")]
     [IsoId("_h8-TgS_rEeugIJ3Gvoevmg")]
@@ -48,7 +48,7 @@ public enum NonFinancialRequestType1Code
     
     /// <summary>
     /// The Intermediary Agent or Acquirer provides the token to use to process the transaction.
-    /// Encoded/decoded by serializers as "TOKN".
+    /// Encoded/decoded by serializers as &quot;TOKN&quot;.
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_iB8TES_rEeugIJ3Gvoevmg")]

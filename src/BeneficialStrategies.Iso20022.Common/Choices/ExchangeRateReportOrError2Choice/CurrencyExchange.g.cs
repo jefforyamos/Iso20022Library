@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError2Choice
     /// Requested business information.
     /// </summary>
     [IsoId("_77TPQ6MgEeCJ6YNENx4h-w_-1305206641")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Exchange")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError2Choice
         /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
         /// </summary>
         [IsoId("_77cZMKMgEeCJ6YNENx4h-w_150823148")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Exchange Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="XchgRate")]
         #endif
+        [IsoXmlTag("XchgRate")]
+        [IsoSimpleType(IsoSimpleType.BaseOneRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoBaseOneRate ExchangeRate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal ExchangeRate { get; init; } 
+        public required System.Decimal ExchangeRate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal ExchangeRate { get; init; } 
         #else
@@ -78,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError2Choice
         /// Currency into which the base currency is converted, in a currency exchange.
         /// </summary>
         [IsoId("_77cZMaMgEeCJ6YNENx4h-w_-47235485")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Quoted Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="QtdCcy")]
         #endif
+        [IsoXmlTag("QtdCcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ActiveOrHistoricCurrencyCode QuotedCurrency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string QuotedCurrency { get; init; } 
+        public required string QuotedCurrency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string QuotedCurrency { get; init; } 
         #else
@@ -98,16 +95,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError2Choice
         /// Date and time at which an exchange rate is quoted.
         /// </summary>
         [IsoId("_77cZMqMgEeCJ6YNENx4h-w_1808142586")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Quotation Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="QtnDt")]
         #endif
+        [IsoXmlTag("QtnDt")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODateTime QuotationDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateTime QuotationDate { get; init; } 
+        public required System.DateTime QuotationDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateTime QuotationDate { get; init; } 
         #else

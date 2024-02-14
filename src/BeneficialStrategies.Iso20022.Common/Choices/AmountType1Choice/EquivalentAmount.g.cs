@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.AmountType1Choice
 {
     /// <summary>
-    /// Amount of money to be transferred between the debtor and creditor, before deduction of charges, expressed in the currency of the debtor's account, and to be transferred into a different currency. ||Usage: Currency of the amount is expressed in the currency of the debtor's account, but the amount to be transferred is in another currency. The debtor agent will convert the amount and currency to the to be transferred amount and currency, eg, 'pay equivalent of 100000 EUR in JPY'(and account is in EUR).
+    /// Amount of money to be transferred between the debtor and creditor, before deduction of charges, expressed in the currency of the debtor&apos;s account, and to be transferred into a different currency. ||Usage: Currency of the amount is expressed in the currency of the debtor&apos;s account, but the amount to be transferred is in another currency. The debtor agent will convert the amount and currency to the to be transferred amount and currency, eg, &apos;pay equivalent of 100000 EUR in JPY&apos;(and account is in EUR).
     /// </summary>
     [IsoId("_Prd4cNp-Ed-ak6NoX_4Aeg_1273347022")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equivalent Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,19 +52,19 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType1Choice
         #nullable enable
         
         /// <summary>
-        /// Amount of money to be transferred between debtor and creditor, before deduction of charges, expressed in the currency of the debtor's account, and to be transferred in a different currency. ||Usage: Currency of the amount is expressed in the currency of the debtor's account, but the amount to be transferred is in another currency. The first agent will convert the amount and currency to the to be transferred amount and currency, eg, 'pay equivalent of 100000 EUR in JPY'(and account is in EUR).
+        /// Amount of money to be transferred between debtor and creditor, before deduction of charges, expressed in the currency of the debtor&apos;s account, and to be transferred in a different currency. ||Usage: Currency of the amount is expressed in the currency of the debtor&apos;s account, but the amount to be transferred is in another currency. The first agent will convert the amount and currency to the to be transferred amount and currency, eg, &apos;pay equivalent of 100000 EUR in JPY&apos;(and account is in EUR).
         /// </summary>
         [IsoId("_PrBzkdp-Ed-ak6NoX_4Aeg_-1963000912")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoCurrencyAndAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else
@@ -74,19 +72,18 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType1Choice
         #endif
         
         /// <summary>
-        /// Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
+        /// Specifies the currency of the to be transferred amount, which is different from the currency of the debtor&apos;s account.
         /// </summary>
         [IsoId("_PrBzktp-Ed-ak6NoX_4Aeg_1183764992")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Currency Of Transfer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CcyOfTrf")]
         #endif
+        [IsoXmlTag("CcyOfTrf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CurrencyCode CurrencyOfTransfer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string CurrencyOfTransfer { get; init; } 
+        public required string CurrencyOfTransfer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string CurrencyOfTransfer { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum ProcessedStatus3Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKnX4Np-Ed-ak6NoX_4Aeg_-807236817")]
@@ -30,7 +30,7 @@ public enum ProcessedStatus3Code
     
     /// <summary>
     /// The processing of the request is pending.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_aKnX4dp-Ed-ak6NoX_4Aeg_-807236816")]
@@ -39,7 +39,7 @@ public enum ProcessedStatus3Code
     
     /// <summary>
     /// The request is accepted.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aKnX4tp-Ed-ak6NoX_4Aeg_-807236786")]

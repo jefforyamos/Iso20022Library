@@ -21,7 +21,7 @@ public enum TypeOfAmount3Code
 {
     /// <summary>
     /// Cash-back amount.
-    /// Encoded/decoded by serializers as "CSHB".
+    /// Encoded/decoded by serializers as &quot;CSHB&quot;.
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_Y_iR4PwLEeGHDMP28rpT3g_-1513006654")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount3Code
     
     /// <summary>
     /// Gratuity amount.
-    /// Encoded/decoded by serializers as "GRTY".
+    /// Encoded/decoded by serializers as &quot;GRTY&quot;.
     /// </summary>
     [EnumMember(Value = "GRTY")]
     [IsoId("_Y_iR4fwLEeGHDMP28rpT3g_-1804964392")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount3Code
     
     /// <summary>
     /// Service fee.
-    /// Encoded/decoded by serializers as "SRVF".
+    /// Encoded/decoded by serializers as &quot;SRVF&quot;.
     /// </summary>
     [EnumMember(Value = "SRVF")]
     [IsoId("_Y_iR4vwLEeGHDMP28rpT3g_748675924")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount3Code
     
     /// <summary>
     /// Interchange fee.
-    /// Encoded/decoded by serializers as "INTC".
+    /// Encoded/decoded by serializers as &quot;INTC&quot;.
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_Y_iR4_wLEeGHDMP28rpT3g_1117249163")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount3Code
     
     /// <summary>
     /// Original amount authorised during the real-time authorisation process.
-    /// Encoded/decoded by serializers as "ORIG".
+    /// Encoded/decoded by serializers as &quot;ORIG&quot;.
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_Y_iR5PwLEeGHDMP28rpT3g_1606769617")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount3Code
     
     /// <summary>
     /// Extra fee for a purchase or a withdrawal.
-    /// Encoded/decoded by serializers as "SRCH".
+    /// Encoded/decoded by serializers as &quot;SRCH&quot;.
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_Y_iR5fwLEeGHDMP28rpT3g_1784888289")]

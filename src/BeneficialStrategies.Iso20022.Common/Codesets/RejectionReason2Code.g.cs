@@ -21,7 +21,7 @@ public enum RejectionReason2Code
 {
     /// <summary>
     /// Instruction contains an invalid message reference, reference is unknown.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_Zkxf49p-Ed-ak6NoX_4Aeg_-438583092")]
@@ -30,7 +30,7 @@ public enum RejectionReason2Code
     
     /// <summary>
     /// Issuer or Registrar has rejected the instruction.
-    /// Encoded/decoded by serializers as "RBIS".
+    /// Encoded/decoded by serializers as &quot;RBIS&quot;.
     /// </summary>
     [EnumMember(Value = "RBIS")]
     [IsoId("_Zkxf5Np-Ed-ak6NoX_4Aeg_-413646475")]
@@ -39,7 +39,7 @@ public enum RejectionReason2Code
     
     /// <summary>
     /// The instruction is irrevocable.
-    /// Encoded/decoded by serializers as "INIR".
+    /// Encoded/decoded by serializers as &quot;INIR&quot;.
     /// </summary>
     [EnumMember(Value = "INIR")]
     [IsoId("_Zkxf5dp-Ed-ak6NoX_4Aeg_-354541132")]
@@ -48,7 +48,7 @@ public enum RejectionReason2Code
     
     /// <summary>
     /// Instruction received after the account servicers specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Zkxf5tp-Ed-ak6NoX_4Aeg_-325913625")]
@@ -57,7 +57,7 @@ public enum RejectionReason2Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_Zkxf59p-Ed-ak6NoX_4Aeg_-43315191")]
@@ -66,7 +66,7 @@ public enum RejectionReason2Code
     
     /// <summary>
     /// Cancellation request was rejected since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "DCAN".
+    /// Encoded/decoded by serializers as &quot;DCAN&quot;.
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_Zkxf6Np-Ed-ak6NoX_4Aeg_-13761369")]
@@ -75,7 +75,7 @@ public enum RejectionReason2Code
     
     /// <summary>
     /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
-    /// Encoded/decoded by serializers as "DPRG".
+    /// Encoded/decoded by serializers as &quot;DPRG&quot;.
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_Zkxf6dp-Ed-ak6NoX_4Aeg_4708938")]

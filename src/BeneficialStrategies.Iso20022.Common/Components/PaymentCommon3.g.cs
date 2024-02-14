@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Common details for all payment instruction.
 /// </summary>
 [IsoId("_mKHMIZlgEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Common")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaymentCommon3
     /// Origin of the payment (be it a member or a system or both).
     /// </summary>
     [IsoId("_mSmZw5lgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtFr")]
     #endif
+    [IsoXmlTag("PmtFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public System1? PaymentFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PaymentCommon3
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
     [IsoId("_mSsgYZlgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTo")]
     #endif
+    [IsoXmlTag("PmtTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public System1? PaymentTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PaymentCommon3
     /// Status of a transfer.|.
     /// </summary>
     [IsoId("_mSsgY5lgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Common Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmonSts")]
     #endif
+    [IsoXmlTag("CmonSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentStatus3? CommonStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record PaymentCommon3
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
     [IsoId("_mSsgZZlgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Execution Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdExctnDt")]
     #endif
+    [IsoXmlTag("ReqdExctnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,15 +107,14 @@ public partial record PaymentCommon3
     #endif
     
     /// <summary>
-    /// Date and time at which an entry is posted to an account on the account servicer's books.
+    /// Date and time at which an entry is posted to an account on the account servicer&apos;s books.
     /// </summary>
     [IsoId("_mSsgZ5lgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtryDt")]
     #endif
+    [IsoXmlTag("NtryDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EntryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record PaymentCommon3
     /// Indicates whether the payment instruction is a debit or a credit.|.
     /// </summary>
     [IsoId("_mSsgaZlgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record PaymentCommon3
     /// Indicates the message or event from which an instruction has been initiated.
     /// </summary>
     [IsoId("_mSsga5lgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtMtd")]
     #endif
+    [IsoXmlTag("PmtMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

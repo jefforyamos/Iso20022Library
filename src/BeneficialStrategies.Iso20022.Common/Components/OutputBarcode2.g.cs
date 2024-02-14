@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Barcode content to display or print.
 /// </summary>
 [IsoId("_gocIQXDBEe2MCaKO5AtGsA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Output Barcode")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record OutputBarcode2
     /// Type of Barcode coding.
     /// </summary>
     [IsoId("_g0Hz0XDBEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Barcode Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrcdTp")]
     #endif
+    [IsoXmlTag("BrcdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BarcodeType1Code BarcodeType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BarcodeType1Code BarcodeType { get; init; } 
+    public required BarcodeType1Code BarcodeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BarcodeType1Code BarcodeType { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record OutputBarcode2
     /// Value with a Barcode coding.
     /// </summary>
     [IsoId("_g0Hz03DBEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Barcode Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrcdVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BrcdVal")]
+    [IsoSimpleType(IsoSimpleType.Max8000Text)]
     [StringLength(maximumLength: 8000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8000Text? BarcodeValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record OutputBarcode2
     /// Use for binary and Kanji Quick Respone Code.
     /// </summary>
     [IsoId("_g0JpAXDBEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("QR Code Binary Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QRCdBinryVal")]
     #endif
+    [IsoXmlTag("QRCdBinryVal")]
+    [IsoSimpleType(IsoSimpleType.Max3000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? QRCodeBinaryValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,15 +105,13 @@ public partial record OutputBarcode2
     /// Version of the Quick Response Code.
     /// </summary>
     [IsoId("_g0JpA3DBEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("QR Code Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QRCdVrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("QRCdVrsn")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax16Text? QRCodeVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,11 @@ public partial record OutputBarcode2
     /// Encoding Mode of Quick Response Code.
     /// </summary>
     [IsoId("_g0JpBXDBEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("QR Code Encoding Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QRCdNcodgMd")]
     #endif
+    [IsoXmlTag("QRCdNcodgMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QRCodeEncodingMode1Code? QRCodeEncodingMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +141,11 @@ public partial record OutputBarcode2
     /// Error Correction mode of Quick Response Code.
     /// </summary>
     [IsoId("_g0JpB3DBEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("QR Code Error Correction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QRCdErrCrrctn")]
     #endif
+    [IsoXmlTag("QRCdErrCrrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QRCodeErrorCorrection1Code? QRCodeErrorCorrection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// An event determined by a corporation's board of directors, that changes the existing corporate capital structure or financial condition.
+/// An event determined by a corporation&apos;s board of directors, that changes the existing corporate capital structure or financial condition.
 /// </summary>
 [IsoId("_t20OQVkyEeGeoaLUQk__nA_-1416100338")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record CorporateAction9
     /// Type of corporate action event, in a free-text format.
     /// </summary>
     [IsoId("_t20OQlkyEeGeoaLUQk__nA_1767955539")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EvtTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text EventType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EventType { get; init; } 
+    public required System.String EventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EventType { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record CorporateAction9
     /// Identification of a corporate action assigned by an official central body/entity within a given market.
     /// </summary>
     [IsoId("_t20OQ1kyEeGeoaLUQk__nA_2048814500")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EvtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text EventIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EventIdentification { get; init; } 
+    public required System.String EventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EventIdentification { get; init; } 
     #else

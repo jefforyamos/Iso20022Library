@@ -21,7 +21,7 @@ public enum TransactionType2Code
 {
     /// <summary>
     /// Transaction is a redemption of an investment fund.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_Yuh0Ztp-Ed-ak6NoX_4Aeg_-756571607")]
@@ -30,7 +30,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is a subscription to an investment fund.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_Yuh0Z9p-Ed-ak6NoX_4Aeg_-754722916")]
@@ -39,7 +39,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is a subscription for a savings plan, that is, money set aside by individuals in the framework of a structured plan for a special purpose, for example, retirement.
-    /// Encoded/decoded by serializers as "SSPL".
+    /// Encoded/decoded by serializers as &quot;SSPL&quot;.
     /// </summary>
     [EnumMember(Value = "SSPL")]
     [IsoId("_Yuh0aNp-Ed-ak6NoX_4Aeg_-746412148")]
@@ -48,7 +48,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is a withdrawal by individuals in the framework of a structured plan for investments made in the past.
-    /// Encoded/decoded by serializers as "RWPL".
+    /// Encoded/decoded by serializers as &quot;RWPL&quot;.
     /// </summary>
     [EnumMember(Value = "RWPL")]
     [IsoId("_YurlYNp-Ed-ak6NoX_4Aeg_-745487445")]
@@ -57,7 +57,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is an incoming credit to an account on the shareholders register, and is not linked to a shift in investment (subscription or switch), but to account management.
-    /// Encoded/decoded by serializers as "TRIN".
+    /// Encoded/decoded by serializers as &quot;TRIN&quot;.
     /// </summary>
     [EnumMember(Value = "TRIN")]
     [IsoId("_YurlYdp-Ed-ak6NoX_4Aeg_-732559796")]
@@ -66,7 +66,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is a debit to an account on the shareholders register, and is not linked to a shift in investment (redemption or switch), but to account management.
-    /// Encoded/decoded by serializers as "TOUT".
+    /// Encoded/decoded by serializers as &quot;TOUT&quot;.
     /// </summary>
     [EnumMember(Value = "TOUT")]
     [IsoId("_YurlYtp-Ed-ak6NoX_4Aeg_-731634274")]
@@ -75,7 +75,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SWII".
+    /// Encoded/decoded by serializers as &quot;SWII&quot;.
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_YurlY9p-Ed-ak6NoX_4Aeg_-384390981")]
@@ -84,7 +84,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SWIO".
+    /// Encoded/decoded by serializers as &quot;SWIO&quot;.
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_YurlZNp-Ed-ak6NoX_4Aeg_-372387112")]
@@ -93,7 +93,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is a subscription in an asset allocation plan that enables investors to allocate, by percentage a certain amount of cash into several sub-funds of a same umbrella structure.
-    /// Encoded/decoded by serializers as "SUAA".
+    /// Encoded/decoded by serializers as &quot;SUAA&quot;.
     /// </summary>
     [EnumMember(Value = "SUAA")]
     [IsoId("_YurlZdp-Ed-ak6NoX_4Aeg_-690818303")]
@@ -102,7 +102,7 @@ public enum TransactionType2Code
     
     /// <summary>
     /// Transaction is a redemption in an asset allocation plan which enables investors to withdraw, by percentage a certain amount of cash from several sub-funds of a same umbrella structure.
-    /// Encoded/decoded by serializers as "REAA".
+    /// Encoded/decoded by serializers as &quot;REAA&quot;.
     /// </summary>
     [EnumMember(Value = "REAA")]
     [IsoId("_YurlZtp-Ed-ak6NoX_4Aeg_-690817720")]

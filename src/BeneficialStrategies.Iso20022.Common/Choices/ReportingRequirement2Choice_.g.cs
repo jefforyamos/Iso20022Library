@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportingRequirement2Choice.ReportingRequirement))]
     [KnownType(typeof(ReportingRequirement2Choice.NoReportingRequirement))]
     [IsoId("_IUKZoV55Ee2a_-MvhEjKmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Requirement 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionCollateralData18Choice.SecuritiesLending))]
     [KnownType(typeof(TransactionCollateralData18Choice.MarginLending))]
     [IsoId("_C5KZIcg5Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Collateral Data 18 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum SettlementStandingInstructionDatabaseCode
 {
     /// <summary>
-    /// The settlement standing instruction database to be used is the receiver's internal database.
-    /// Encoded/decoded by serializers as "INTE".
+    /// The settlement standing instruction database to be used is the receiver&apos;s internal database.
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_ZMVKs9p-Ed-ak6NoX_4Aeg_-390472890")]
@@ -29,8 +29,8 @@ public enum SettlementStandingInstructionDatabaseCode
     InternalDatabase,
     
     /// <summary>
-    /// The settlement standing instruction database to be used is the broker's database.
-    /// Encoded/decoded by serializers as "BRKR".
+    /// The settlement standing instruction database to be used is the broker&apos;s database.
+    /// Encoded/decoded by serializers as &quot;BRKR&quot;.
     /// </summary>
     [EnumMember(Value = "BRKR")]
     [IsoId("_ZMVKtNp-Ed-ak6NoX_4Aeg_-1565663915")]
@@ -39,7 +39,7 @@ public enum SettlementStandingInstructionDatabaseCode
     
     /// <summary>
     /// The settlement standing instruction database to be used is the database of the vendor.
-    /// Encoded/decoded by serializers as "VEND".
+    /// Encoded/decoded by serializers as &quot;VEND&quot;.
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_ZMVKtdp-Ed-ak6NoX_4Aeg_2024188766")]

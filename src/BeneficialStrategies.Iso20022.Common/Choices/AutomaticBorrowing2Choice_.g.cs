@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AutomaticBorrowing2Choice.Code))]
     [KnownType(typeof(AutomaticBorrowing2Choice.Proprietary))]
     [IsoId("_QtyRFNp-Ed-ak6NoX_4Aeg_-1043359290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Automatic Borrowing 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

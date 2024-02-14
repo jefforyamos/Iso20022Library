@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PersonOrOrganisation2Choice.LEI))]
     [KnownType(typeof(PersonOrOrganisation2Choice.Person))]
     [IsoId("_9-fNkQkiEeWGouz230Xp5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Person Or Organisation 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventType1CodeCho
     /// Corporate action event type in a structured format.
     /// </summary>
     [IsoId("_UyZ9Gdp-Ed-ak6NoX_4Aeg_983611068")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventType1CodeCho
         /// Specifies the type of corporate action event.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Strd")]
         #endif
+        [IsoXmlTag("Strd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CorporateActionEventType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CorporateActionEventType1Code Value { get; init; } 
+        public required CorporateActionEventType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CorporateActionEventType1Code Value { get; init; } 
         #else

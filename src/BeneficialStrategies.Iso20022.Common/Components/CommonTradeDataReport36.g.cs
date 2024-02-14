@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to contract and transaction details.
 /// </summary>
 [IsoId("_ifb7qQ1JEeqV4s5SpzR1dQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Common Trade Data Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CommonTradeDataReport36
     /// Data specifically related to contract.
     /// </summary>
     [IsoId("_igMJkw1JEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctData")]
     #endif
+    [IsoXmlTag("CtrctData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractType8? ContractData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CommonTradeDataReport36
     /// Data related specifically to the transaction.
     /// </summary>
     [IsoId("_igMJlQ1JEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxData")]
     #endif
+    [IsoXmlTag("TxData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeTransaction27? TransactionData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

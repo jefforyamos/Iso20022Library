@@ -21,7 +21,7 @@ public enum PartyType11Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_-QbU8XtCEeSTS7uHCe8FPQ")]
@@ -30,7 +30,7 @@ public enum PartyType11Code
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_-ZApM3tCEeSTS7uHCe8FPQ")]
@@ -39,7 +39,7 @@ public enum PartyType11Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("__OPoE3tCEeSTS7uHCe8FPQ")]
@@ -48,7 +48,7 @@ public enum PartyType11Code
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DLIS".
+    /// Encoded/decoded by serializers as &quot;DLIS&quot;.
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("__deW43tCEeSTS7uHCe8FPQ")]
@@ -57,7 +57,7 @@ public enum PartyType11Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_AgFDY3tDEeSTS7uHCe8FPQ")]
@@ -66,7 +66,7 @@ public enum PartyType11Code
     
     /// <summary>
     /// Application on the terminal which has initiated the transaction.
-    /// Encoded/decoded by serializers as "OTRM".
+    /// Encoded/decoded by serializers as &quot;OTRM&quot;.
     /// </summary>
     [EnumMember(Value = "OTRM")]
     [IsoId("_BBjYw3tDEeSTS7uHCe8FPQ")]
@@ -75,7 +75,7 @@ public enum PartyType11Code
     
     /// <summary>
     /// Application in the smart card.
-    /// Encoded/decoded by serializers as "ICCA".
+    /// Encoded/decoded by serializers as &quot;ICCA&quot;.
     /// </summary>
     [EnumMember(Value = "ICCA")]
     [IsoId("_X79fgS6vEeWc7f-D6ByqMg")]

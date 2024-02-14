@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Clearing data at batch level. Allows clearing in different currencies.
 /// </summary>
 [IsoId("_MCJ34FA6EeedyPuM0kK2EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing Batch Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ClearingBatchData1
     /// Type of clearing method used.
     /// </summary>
     [IsoId("_aETkAFA6EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMtd")]
     #endif
+    [IsoXmlTag("ClrMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClearingMethod2Code ClearingMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ClearingMethod2Code ClearingMethod { get; init; } 
+    public required ClearingMethod2Code ClearingMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ClearingMethod2Code ClearingMethod { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record ClearingBatchData1
     /// Other type of clearing method.
     /// </summary>
     [IsoId("_6cTJkFA7EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Clearing Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrClrMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrClrMtd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherClearingMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record ClearingBatchData1
     /// Level of priority of clearing.
     /// </summary>
     [IsoId("__8ATgFA7EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrPrty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClrPrty")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClearingPriority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,12 @@ public partial record ClearingBatchData1
     /// Date of clearing.
     /// </summary>
     [IsoId("_Fof8QFA8EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrDt")]
     #endif
+    [IsoXmlTag("ClrDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ClearingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,11 @@ public partial record ClearingBatchData1
     /// Clearing totals of the batch file.
     /// </summary>
     [IsoId("_KmAioFA9EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrTtls")]
     #endif
+    [IsoXmlTag("ClrTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingTotals1? ClearingTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +141,11 @@ public partial record ClearingBatchData1
     /// Interchange fee.
     /// </summary>
     [IsoId("_S7N6EFA9EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interchange Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrchngFee")]
     #endif
+    [IsoXmlTag("IntrchngFee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount14? InterchangeFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +158,11 @@ public partial record ClearingBatchData1
     /// Fee of the agent.
     /// </summary>
     [IsoId("_XEn_cFA9EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtFee")]
     #endif
+    [IsoXmlTag("AgtFee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount14? AgentFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

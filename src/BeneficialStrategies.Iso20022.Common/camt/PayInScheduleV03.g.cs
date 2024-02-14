@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"The PayInSchedule message is sent by a central settlement system to the participant to provide notification of a series of timed payments scheduled for each currency at the time and date of the schedule generation. The central settlement system may send information about how the timed payments have been calculated.")]
 [IsoId("_KfNcsS43EeK7-OZOLIksSw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pay In Schedule V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record PayInScheduleV03 : IOuterRecord<PayInScheduleV03,PayInSche
     /// Party for which the pay-in schedule is generated.
     /// </summary>
     [IsoId("_KfNctS43EeK7-OZOLIksSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification73Choice_ PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification73Choice_ PartyIdentification { get; init; } 
+    public required PartyIdentification73Choice_ PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification73Choice_ PartyIdentification { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record PayInScheduleV03 : IOuterRecord<PayInScheduleV03,PayInSche
     /// General information applicable to the report.
     /// </summary>
     [IsoId("_KfNcuS43EeK7-OZOLIksSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptData")]
     #endif
+    [IsoXmlTag("RptData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportData4 ReportData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportData4 ReportData { get; init; } 
+    public required ReportData4 ReportData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportData4 ReportData { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record PayInScheduleV03 : IOuterRecord<PayInScheduleV03,PayInSche
     /// Projected net position for all currencies, projected long for the value date.
     /// </summary>
     [IsoId("_KfNcvS43EeK7-OZOLIksSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pay In Schedule Long Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PayInSchdlLngBal")]
     #endif
+    [IsoXmlTag("PayInSchdlLngBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceStatus2? PayInScheduleLongBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +129,11 @@ public partial record PayInScheduleV03 : IOuterRecord<PayInScheduleV03,PayInSche
     /// Currency and total amount to be paid in by the corresponding deadline.
     /// </summary>
     [IsoId("_KfNcwS43EeK7-OZOLIksSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pay In Schedule Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PayInSchdlItm")]
     #endif
+    [IsoXmlTag("PayInSchdlItm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PayInScheduleItems1? PayInScheduleItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +146,11 @@ public partial record PayInScheduleV03 : IOuterRecord<PayInScheduleV03,PayInSche
     /// Factors used in the calculation of the pay-in schedule.
     /// </summary>
     [IsoId("_KfNcxS43EeK7-OZOLIksSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pay In Factors")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PayInFctrs")]
     #endif
+    [IsoXmlTag("PayInFctrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PayInFactors1? PayInFactors { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +163,11 @@ public partial record PayInScheduleV03 : IOuterRecord<PayInScheduleV03,PayInSche
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_DTaJUS53EeKwTrPDLMbLxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,7 +180,7 @@ public partial record PayInScheduleV03 : IOuterRecord<PayInScheduleV03,PayInSche
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PayInScheduleV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PayInScheduleV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PayInScheduleV03Document ToDocument()
     {
@@ -198,7 +190,7 @@ public partial record PayInScheduleV03 : IOuterRecord<PayInScheduleV03,PayInSche
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PayInScheduleV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PayInScheduleV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PayInScheduleV03Document : IOuterDocument<PayInScheduleV03>
@@ -215,7 +207,7 @@ public partial record PayInScheduleV03Document : IOuterDocument<PayInScheduleV03
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PayInScheduleV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PayInScheduleV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PayInScheduleV03 Message { get; init; }

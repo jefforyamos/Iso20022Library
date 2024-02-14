@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventIdentifier1Choice
     /// Specifies post trade risk reduction identifier.
     /// </summary>
     [IsoId("_tbdG8PbfEeyInphUKJZxtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Trade Risk Reduction Identifier")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.EventIdentifier1Choice
         /// Identification of the structurer of the post trade risk reduction identifier.
         /// </summary>
         [IsoId("_-UxsID1hEeyA3eIPELln4g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Structurer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Strr")]
         #endif
+        [IsoXmlTag("Strr")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoLEIIdentifier Structurer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Structurer { get; init; } 
+        public required System.String Structurer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Structurer { get; init; } 
         #else
@@ -77,19 +75,17 @@ namespace BeneficialStrategies.Iso20022.Choices.EventIdentifier1Choice
         /// Post trade risk reduction identifier assigned by the structurer allowing to link the constituents.
         /// </summary>
         [IsoId("_GT9wQD1iEeyA3eIPELln4g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max52Text)]
         [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax52Text Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum PendingReason10Code
 {
     /// <summary>
     /// Financial instruments are delivered, but still awaiting money from counterparty.
-    /// Encoded/decoded by serializers as "AWMO".
+    /// Encoded/decoded by serializers as &quot;AWMO&quot;.
     /// </summary>
     [EnumMember(Value = "AWMO")]
     [IsoId("_b_fWt_41EeClUvPNHKL9Zw")]
@@ -29,8 +29,8 @@ public enum PendingReason10Code
     AwaitingMoney = PendingFailingReasonCode.AwaitingMoney, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_b_fWu_41EeClUvPNHKL9Zw")]
@@ -39,7 +39,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.
-    /// Encoded/decoded by serializers as "CAIS".
+    /// Encoded/decoded by serializers as &quot;CAIS&quot;.
     /// </summary>
     [EnumMember(Value = "CAIS")]
     [IsoId("_b_fWv_41EeClUvPNHKL9Zw")]
@@ -48,7 +48,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Instruction has been refused or not recognised and is represented automatically.
-    /// Encoded/decoded by serializers as "REFU".
+    /// Encoded/decoded by serializers as &quot;REFU&quot;.
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_b_fWw_41EeClUvPNHKL9Zw")]
@@ -57,7 +57,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Financial instruments have not yet been received from the counterparty (if receive against payment trade), the money has been delivered.
-    /// Encoded/decoded by serializers as "AWSH".
+    /// Encoded/decoded by serializers as &quot;AWSH&quot;.
     /// </summary>
     [EnumMember(Value = "AWSH")]
     [IsoId("_b_fWx_41EeClUvPNHKL9Zw")]
@@ -66,7 +66,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Settlement is physical. Financial instruments are being delivered.
-    /// Encoded/decoded by serializers as "PHSE".
+    /// Encoded/decoded by serializers as &quot;PHSE&quot;.
     /// </summary>
     [EnumMember(Value = "PHSE")]
     [IsoId("_b_fWy_41EeClUvPNHKL9Zw")]
@@ -75,7 +75,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Trade is being amended in the market.
-    /// Encoded/decoded by serializers as "TAMM".
+    /// Encoded/decoded by serializers as &quot;TAMM&quot;.
     /// </summary>
     [EnumMember(Value = "TAMM")]
     [IsoId("_b_fWz_41EeClUvPNHKL9Zw")]
@@ -84,7 +84,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Awaiting documents or endorsements from you.
-    /// Encoded/decoded by serializers as "DOCY".
+    /// Encoded/decoded by serializers as &quot;DOCY&quot;.
     /// </summary>
     [EnumMember(Value = "DOCY")]
     [IsoId("_b_fW0_41EeClUvPNHKL9Zw")]
@@ -93,7 +93,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Awaiting documents or endorsements from counterparty.
-    /// Encoded/decoded by serializers as "DOCC".
+    /// Encoded/decoded by serializers as &quot;DOCC&quot;.
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_b_fW1_41EeClUvPNHKL9Zw")]
@@ -102,7 +102,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Your account is blocked, no instruction can settle over the account.
-    /// Encoded/decoded by serializers as "BLOC".
+    /// Encoded/decoded by serializers as &quot;BLOC&quot;.
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_b_fW2_41EeClUvPNHKL9Zw")]
@@ -111,7 +111,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// A chaser/enquiry has been sent.
-    /// Encoded/decoded by serializers as "CHAS".
+    /// Encoded/decoded by serializers as &quot;CHAS&quot;.
     /// </summary>
     [EnumMember(Value = "CHAS")]
     [IsoId("_b_fW3_41EeClUvPNHKL9Zw")]
@@ -120,7 +120,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Financial instrument is a new issue and not yet available/tradable.
-    /// Encoded/decoded by serializers as "NEWI".
+    /// Encoded/decoded by serializers as &quot;NEWI&quot;.
     /// </summary>
     [EnumMember(Value = "NEWI")]
     [IsoId("_b_fW4_41EeClUvPNHKL9Zw")]
@@ -128,8 +128,8 @@ public enum PendingReason10Code
     NewIssues = PendingFailingReasonCode.NewIssues, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Insufficient deliverable financial instruments in counterparty's account or counterparty does not hold financial instruments.
-    /// Encoded/decoded by serializers as "CLAC".
+    /// Insufficient deliverable financial instruments in counterparty&apos;s account or counterparty does not hold financial instruments.
+    /// Encoded/decoded by serializers as &quot;CLAC&quot;.
     /// </summary>
     [EnumMember(Value = "CLAC")]
     [IsoId("_b_fW5_41EeClUvPNHKL9Zw")]
@@ -138,7 +138,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MUNO".
+    /// Encoded/decoded by serializers as &quot;MUNO&quot;.
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_b_fW6_41EeClUvPNHKL9Zw")]
@@ -147,7 +147,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Settlement cannot be executed; financial instruments are in global form.
-    /// Encoded/decoded by serializers as "GLOB".
+    /// Encoded/decoded by serializers as &quot;GLOB&quot;.
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_b_fW7_41EeClUvPNHKL9Zw")]
@@ -156,7 +156,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Your instruction is a preadvice, that is, for matching only.
-    /// Encoded/decoded by serializers as "PREA".
+    /// Encoded/decoded by serializers as &quot;PREA&quot;.
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_b_fW8_41EeClUvPNHKL9Zw")]
@@ -165,7 +165,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Trade will settle in partials.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_b_fW9_41EeClUvPNHKL9Zw")]
@@ -174,7 +174,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Instruction has not been matched; matching process is not required.
-    /// Encoded/decoded by serializers as "NMAS".
+    /// Encoded/decoded by serializers as &quot;NMAS&quot;.
     /// </summary>
     [EnumMember(Value = "NMAS")]
     [IsoId("_b_fW-_41EeClUvPNHKL9Zw")]
@@ -183,7 +183,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// A foreign exchange instruction from you is missing.
-    /// Encoded/decoded by serializers as "NOFX".
+    /// Encoded/decoded by serializers as &quot;NOFX&quot;.
     /// </summary>
     [EnumMember(Value = "NOFX")]
     [IsoId("_b_fW__41EeClUvPNHKL9Zw")]
@@ -191,8 +191,8 @@ public enum PendingReason10Code
     NoForeignExchangeInstruction = PendingFailingReasonCode.NoForeignExchangeInstruction, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Insufficient money in counterparty's account.
-    /// Encoded/decoded by serializers as "CMON".
+    /// Insufficient money in counterparty&apos;s account.
+    /// Encoded/decoded by serializers as &quot;CMON&quot;.
     /// </summary>
     [EnumMember(Value = "CMON")]
     [IsoId("_b_fXA_41EeClUvPNHKL9Zw")]
@@ -201,7 +201,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Insufficient collateral in your account to execute the instruction.
-    /// Encoded/decoded by serializers as "YCOL".
+    /// Encoded/decoded by serializers as &quot;YCOL&quot;.
     /// </summary>
     [EnumMember(Value = "YCOL")]
     [IsoId("_b_fXB_41EeClUvPNHKL9Zw")]
@@ -210,7 +210,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Financial instruments are not deliverable as they are pledged as collateral.
-    /// Encoded/decoded by serializers as "COLL".
+    /// Encoded/decoded by serializers as &quot;COLL&quot;.
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_b_fXC_41EeClUvPNHKL9Zw")]
@@ -219,7 +219,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Deposit of shares for the issuing of depositary receipts has been refused. The allotment granted by the issuer is exceeded by your transaction.
-    /// Encoded/decoded by serializers as "DEPO".
+    /// Encoded/decoded by serializers as &quot;DEPO&quot;.
     /// </summary>
     [EnumMember(Value = "DEPO")]
     [IsoId("_b_fXD_41EeClUvPNHKL9Zw")]
@@ -228,7 +228,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.
-    /// Encoded/decoded by serializers as "FLIM".
+    /// Encoded/decoded by serializers as &quot;FLIM&quot;.
     /// </summary>
     [EnumMember(Value = "FLIM")]
     [IsoId("_b_fXE_41EeClUvPNHKL9Zw")]
@@ -237,7 +237,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Financial instruments require income adjustment, for example, dividend or interest.
-    /// Encoded/decoded by serializers as "INCA".
+    /// Encoded/decoded by serializers as &quot;INCA&quot;.
     /// </summary>
     [EnumMember(Value = "INCA")]
     [IsoId("_b_fXF_41EeClUvPNHKL9Zw")]
@@ -246,7 +246,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Your instruction is pending settlement because the instruction linked to it is pending.
-    /// Encoded/decoded by serializers as "LINK".
+    /// Encoded/decoded by serializers as &quot;LINK&quot;.
     /// </summary>
     [EnumMember(Value = "LINK")]
     [IsoId("_b_fXG_41EeClUvPNHKL9Zw")]
@@ -255,7 +255,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Awaiting settlement date. No settlement problems to be reported.
-    /// Encoded/decoded by serializers as "FUTU".
+    /// Encoded/decoded by serializers as &quot;FUTU&quot;.
     /// </summary>
     [EnumMember(Value = "FUTU")]
     [IsoId("_b_fXH_41EeClUvPNHKL9Zw")]
@@ -264,7 +264,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_b_fXI_41EeClUvPNHKL9Zw")]
@@ -273,7 +273,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Financial instruments are out on loan.
-    /// Encoded/decoded by serializers as "LALO".
+    /// Encoded/decoded by serializers as &quot;LALO&quot;.
     /// </summary>
     [EnumMember(Value = "LALO")]
     [IsoId("_b_fXJ_41EeClUvPNHKL9Zw")]
@@ -282,7 +282,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "MONY".
+    /// Encoded/decoded by serializers as &quot;MONY&quot;.
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_b_fXK_41EeClUvPNHKL9Zw")]
@@ -291,7 +291,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Confirmation of settlement has not yet been received.
-    /// Encoded/decoded by serializers as "NCON".
+    /// Encoded/decoded by serializers as &quot;NCON&quot;.
     /// </summary>
     [EnumMember(Value = "NCON")]
     [IsoId("_b_fXL_41EeClUvPNHKL9Zw")]
@@ -300,7 +300,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Delivery/receipt was refused because physical financial instruments are not in good order.
-    /// Encoded/decoded by serializers as "REFS".
+    /// Encoded/decoded by serializers as &quot;REFS&quot;.
     /// </summary>
     [EnumMember(Value = "REFS")]
     [IsoId("_b_fXM_41EeClUvPNHKL9Zw")]
@@ -309,7 +309,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Stamp duty information is missing.
-    /// Encoded/decoded by serializers as "SDUT".
+    /// Encoded/decoded by serializers as &quot;SDUT&quot;.
     /// </summary>
     [EnumMember(Value = "SDUT")]
     [IsoId("_b_fXN_41EeClUvPNHKL9Zw")]
@@ -317,8 +317,8 @@ public enum PendingReason10Code
     LackOfStampDutyInformation = PendingFailingReasonCode.LackOfStampDutyInformation, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Processing batch differs in the counterparty's instruction, for example, daytime/real-time versus overnight.
-    /// Encoded/decoded by serializers as "BATC".
+    /// Processing batch differs in the counterparty&apos;s instruction, for example, daytime/real-time versus overnight.
+    /// Encoded/decoded by serializers as &quot;BATC&quot;.
     /// </summary>
     [EnumMember(Value = "BATC")]
     [IsoId("_b_fXO_41EeClUvPNHKL9Zw")]
@@ -327,7 +327,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Your instruction is confirmed in the local market or is ready for settlement, awaiting next settlement cycle.
-    /// Encoded/decoded by serializers as "CYCL".
+    /// Encoded/decoded by serializers as &quot;CYCL&quot;.
     /// </summary>
     [EnumMember(Value = "CYCL")]
     [IsoId("_b_fXP_41EeClUvPNHKL9Zw")]
@@ -336,7 +336,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Financial instruments are blocked due to, for example, a corporate action event, realignment.
-    /// Encoded/decoded by serializers as "SBLO".
+    /// Encoded/decoded by serializers as &quot;SBLO&quot;.
     /// </summary>
     [EnumMember(Value = "SBLO")]
     [IsoId("_b_fXQ_41EeClUvPNHKL9Zw")]
@@ -345,7 +345,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Counterparty is in receivership (form of bankruptcy where a court appointed person - the receiver - manages the affairs of the business).
-    /// Encoded/decoded by serializers as "CPEC".
+    /// Encoded/decoded by serializers as &quot;CPEC&quot;.
     /// </summary>
     [EnumMember(Value = "CPEC")]
     [IsoId("_b_fXR_41EeClUvPNHKL9Zw")]
@@ -354,7 +354,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MINO".
+    /// Encoded/decoded by serializers as &quot;MINO&quot;.
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_b_fXS_41EeClUvPNHKL9Zw")]
@@ -363,7 +363,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Pending reason being investigated.
-    /// Encoded/decoded by serializers as "IAAD".
+    /// Encoded/decoded by serializers as &quot;IAAD&quot;.
     /// </summary>
     [EnumMember(Value = "IAAD")]
     [IsoId("_b_fXT_41EeClUvPNHKL9Zw")]
@@ -372,7 +372,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_b_fXU_41EeClUvPNHKL9Zw")]
@@ -381,7 +381,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Physical financial instruments have been received and are being checked for authenticity.
-    /// Encoded/decoded by serializers as "PHCK".
+    /// Encoded/decoded by serializers as &quot;PHCK&quot;.
     /// </summary>
     [EnumMember(Value = "PHCK")]
     [IsoId("_b_fXV_41EeClUvPNHKL9Zw")]
@@ -390,7 +390,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Disagreement in beneficial ownership.
-    /// Encoded/decoded by serializers as "BENO".
+    /// Encoded/decoded by serializers as &quot;BENO&quot;.
     /// </summary>
     [EnumMember(Value = "BENO")]
     [IsoId("_b_fXW_41EeClUvPNHKL9Zw")]
@@ -398,8 +398,8 @@ public enum PendingReason10Code
     BeneficialOwnershipDisagreement = PendingFailingReasonCode.BeneficialOwnershipDisagreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Counterparty's instruction and your instruction are on hold/frozen/ in a preadvice mode.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Counterparty&apos;s instruction and your instruction are on hold/frozen/ in a preadvice mode.
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_b_fXX_41EeClUvPNHKL9Zw")]
@@ -408,7 +408,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Instructed settlement date does not agree with the settlement date on the clearing house trade, that is, a specific type of trade in India.
-    /// Encoded/decoded by serializers as "CLHT".
+    /// Encoded/decoded by serializers as &quot;CLHT&quot;.
     /// </summary>
     [EnumMember(Value = "CLHT")]
     [IsoId("_b_fXY_41EeClUvPNHKL9Zw")]
@@ -417,7 +417,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.
-    /// Encoded/decoded by serializers as "DENO".
+    /// Encoded/decoded by serializers as &quot;DENO&quot;.
     /// </summary>
     [EnumMember(Value = "DENO")]
     [IsoId("_b_fXZ_41EeClUvPNHKL9Zw")]
@@ -426,7 +426,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Exceptional closing of all financial institutions due to natural disaster, for example, earthquake.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_b_fXa_41EeClUvPNHKL9Zw")]
@@ -435,7 +435,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Counterparty has returned or refuses the securities.
-    /// Encoded/decoded by serializers as "DKNY".
+    /// Encoded/decoded by serializers as &quot;DKNY&quot;.
     /// </summary>
     [EnumMember(Value = "DKNY")]
     [IsoId("_b_fXb_41EeClUvPNHKL9Zw")]
@@ -444,7 +444,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Financial instruments are blocked at the Central Security Depository (CSD) following a corporate event.
-    /// Encoded/decoded by serializers as "FROZ".
+    /// Encoded/decoded by serializers as &quot;FROZ&quot;.
     /// </summary>
     [EnumMember(Value = "FROZ")]
     [IsoId("_b_fXc_41EeClUvPNHKL9Zw")]
@@ -453,7 +453,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Awaiting settlement of a purchase to cover failing positions.
-    /// Encoded/decoded by serializers as "LAAW".
+    /// Encoded/decoded by serializers as &quot;LAAW&quot;.
     /// </summary>
     [EnumMember(Value = "LAAW")]
     [IsoId("_b_fXd_41EeClUvPNHKL9Zw")]
@@ -462,7 +462,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_b_fXe_41EeClUvPNHKL9Zw")]
@@ -471,7 +471,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Central bank liquidity is insufficient.
-    /// Encoded/decoded by serializers as "LIQU".
+    /// Encoded/decoded by serializers as &quot;LIQU&quot;.
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_b_fXf_41EeClUvPNHKL9Zw")]
@@ -479,8 +479,8 @@ public enum PendingReason10Code
     InsufficientCentralBankLiquidity = PendingFailingReasonCode.InsufficientCentralBankLiquidity, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Counterparty's instruction is a preadvice, that is, for matching only.
-    /// Encoded/decoded by serializers as "PRCY".
+    /// Counterparty&apos;s instruction is a preadvice, that is, for matching only.
+    /// Encoded/decoded by serializers as &quot;PRCY&quot;.
     /// </summary>
     [EnumMember(Value = "PRCY")]
     [IsoId("_b_fXg_41EeClUvPNHKL9Zw")]
@@ -489,7 +489,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Certificates have been lodged with the registrar but rejected due to incomplete documentation or foreign ownership limitation reached.
-    /// Encoded/decoded by serializers as "REGT".
+    /// Encoded/decoded by serializers as &quot;REGT&quot;.
     /// </summary>
     [EnumMember(Value = "REGT")]
     [IsoId("_b_fXh_41EeClUvPNHKL9Zw")]
@@ -498,7 +498,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Settlement system/method has been modified at central securities depository to allow settlement.
-    /// Encoded/decoded by serializers as "SETS".
+    /// Encoded/decoded by serializers as &quot;SETS&quot;.
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_b_fXi_41EeClUvPNHKL9Zw")]
@@ -507,7 +507,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Certificate number error.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_b_fXj_41EeClUvPNHKL9Zw")]
@@ -516,7 +516,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Transaction was put on hold/frozen by the system.
-    /// Encoded/decoded by serializers as "PRSY".
+    /// Encoded/decoded by serializers as &quot;PRSY&quot;.
     /// </summary>
     [EnumMember(Value = "PRSY")]
     [IsoId("_b_fXk_41EeClUvPNHKL9Zw")]
@@ -525,7 +525,7 @@ public enum PendingReason10Code
     
     /// <summary>
     /// Not all the instructions part of a pool have been received.
-    /// Encoded/decoded by serializers as "INBC".
+    /// Encoded/decoded by serializers as &quot;INBC&quot;.
     /// </summary>
     [EnumMember(Value = "INBC")]
     [IsoId("_9OTD5v8EEeC_AbvjMzzF-A")]

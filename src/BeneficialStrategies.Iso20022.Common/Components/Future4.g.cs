@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters for contracts which obligate the buyer to receive and the seller to deliver in the future the assets specified at an agreed price.
 /// </summary>
 [IsoId("_12okUWp7EemmaZLSPtWX5A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Future")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Future4
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
     [IsoId("_2CcLsWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctSz")]
     #endif
+    [IsoXmlTag("CtrctSz")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ContractSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record Future4
     /// Predetermined price at which the holder of a Future will have to buy or sell the underlying instrument.
     /// </summary>
     [IsoId("_2CcLs2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exercise Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExrcPric")]
     #endif
+    [IsoXmlTag("ExrcPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? ExercisePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record Future4
     /// Date on which future contracts settle.
     /// </summary>
     [IsoId("_2CcLtWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Future Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FutrDt")]
     #endif
+    [IsoXmlTag("FutrDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? FutureDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record Future4
     /// Specifies the minimum ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
     [IsoId("_2CcLt2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinSz")]
     #endif
+    [IsoXmlTag("MinSz")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,11 @@ public partial record Future4
     /// Used to indicate the measurement unit of the underlying commodity on which the contract is based (for example, 2500 lbs of lean cattle, 1000 barrels of crude oil, 1000 bushels of corn, etc.).
     /// </summary>
     [IsoId("_2CcLuWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitOfMeasr")]
     #endif
+    [IsoXmlTag("UnitOfMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure7Choice_? UnitOfMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,11 @@ public partial record Future4
     /// Used to indicate a time unit for the contract (for example days, weeks, months, etc.).
     /// </summary>
     [IsoId("_2CcLwWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmUnit")]
     #endif
+    [IsoXmlTag("TmUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeUnit3Choice_? TimeUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +147,11 @@ public partial record Future4
     /// Provides more information about the underlying instrument.
     /// </summary>
     [IsoId("_2CcLyWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Underlying Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlUndrlygAttrbts")]
     #endif
+    [IsoXmlTag("AddtlUndrlygAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

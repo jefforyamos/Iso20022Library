@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EUDividendStatusType1Choice
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
     [IsoId("_RgcdE9p-Ed-ak6NoX_4Aeg_-780950982")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("EU Dividend Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.EUDividendStatusType1Choice
         /// Specifies whether the dividend is in the scope of the European directive on taxation of savings income in the form of interest payments.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EUDvddSts")]
         #endif
+        [IsoXmlTag("EUDvddSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EUDividendStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EUDividendStatus1Code Value { get; init; } 
+        public required EUDividendStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EUDividendStatus1Code Value { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FATCAForm1Choice
     /// Type of Foreign Account Tax Compliance Act (FATCA) form expressed as a code.
     /// </summary>
     [IsoId("_gPPrkAjLEeS5F6qHcKOrew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FATCAForm1Choice
         /// Specifies the type of Foreign Account Tax Compliance Act (FATCA) form.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FATCAFormType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FATCAFormType1Code Value { get; init; } 
+        public required FATCAFormType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FATCAFormType1Code Value { get; init; } 
         #else

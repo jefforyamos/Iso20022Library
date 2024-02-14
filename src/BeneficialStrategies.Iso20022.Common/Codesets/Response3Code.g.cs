@@ -21,7 +21,7 @@ public enum Response3Code
 {
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_p-IvkXuGEeSZrqGdHyoIrw")]
@@ -30,7 +30,7 @@ public enum Response3Code
     
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_qEZIkXuGEeSZrqGdHyoIrw")]
@@ -39,7 +39,7 @@ public enum Response3Code
     
     /// <summary>
     /// Further action required to complete the transaction, for instance a referral.
-    /// Encoded/decoded by serializers as "FRTH".
+    /// Encoded/decoded by serializers as &quot;FRTH&quot;.
     /// </summary>
     [EnumMember(Value = "FRTH")]
     [IsoId("_qMJWYXuGEeSZrqGdHyoIrw")]
@@ -48,7 +48,7 @@ public enum Response3Code
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_rHtmwXuGEeSZrqGdHyoIrw")]
@@ -57,7 +57,7 @@ public enum Response3Code
     
     /// <summary>
     /// Advice message is processed.
-    /// Encoded/decoded by serializers as "PRCS".
+    /// Encoded/decoded by serializers as &quot;PRCS&quot;.
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_rPm-gXuGEeSZrqGdHyoIrw")]
@@ -66,7 +66,7 @@ public enum Response3Code
     
     /// <summary>
     /// Advice message could not be processed.
-    /// Encoded/decoded by serializers as "UNPR".
+    /// Encoded/decoded by serializers as &quot;UNPR&quot;.
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_QgeH4SxKEeW0Obqrzm1X8Q")]

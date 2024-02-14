@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains the new, current and previous cut offs for a netting cut off held at the central system.
 /// </summary>
 [IsoId("_B5DK5wN1Ee2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cut Off Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CutOffData2
     /// Describes the participant receiving the net report.
     /// </summary>
     [IsoId("_B-238QN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcptId")]
     #endif
+    [IsoXmlTag("PtcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification242Choice_ ParticipantIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification242Choice_ ParticipantIdentification { get; init; } 
+    public required PartyIdentification242Choice_ ParticipantIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification242Choice_ ParticipantIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CutOffData2
     /// Specifies the information regarding the updated netting cut off.
     /// </summary>
     [IsoId("_B-238wN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Netting Cut Off Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetgCutOffDtls")]
     #endif
+    [IsoXmlTag("NetgCutOffDtls")]
     public NettingCutOff2? NettingCutOffDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _B-238wN1Ee2-vqzwMUAewg
     

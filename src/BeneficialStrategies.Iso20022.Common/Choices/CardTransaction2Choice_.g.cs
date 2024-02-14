@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CardTransaction2Choice.Aggregated))]
     [KnownType(typeof(CardTransaction2Choice.Individual))]
     [IsoId("_0UR2gTj3EeSz-s1QOUJaOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Transaction 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

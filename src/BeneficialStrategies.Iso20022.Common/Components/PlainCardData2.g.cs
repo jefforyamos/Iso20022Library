@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Sensible data associated with the payment card performing the transaction.
 /// </summary>
 [IsoId("_Sqk0tgEcEeCQm6a_G2yO_w_-453349384")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Plain Card Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record PlainCardData2
     /// Primary Account Number (PAN) of the card, or card number.
     /// </summary>
     [IsoId("_Sqk0twEcEeCQm6a_G2yO_w_-2096174719")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PAN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PAN")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PAN")]
+    [IsoSimpleType(IsoSimpleType.Min8Max28NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin8Max28NumericText PAN { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PAN { get; init; } 
+    public required System.String PAN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PAN { get; init; } 
     #else
@@ -75,15 +70,12 @@ public partial record PlainCardData2
     /// Identify a card inside a set of cards with the same card number (PAN).
     /// </summary>
     [IsoId("_Sqk0uAEcEeCQm6a_G2yO_w_-1154038539")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardSeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CardSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Min2Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,12 +88,12 @@ public partial record PlainCardData2
     /// Date as from which the card can be used.
     /// </summary>
     [IsoId("_Sqk0uQEcEeCQm6a_G2yO_w_-1165137316")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDt")]
     #endif
+    [IsoXmlTag("FctvDt")]
+    [IsoSimpleType(IsoSimpleType.ISOYearMonth)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? EffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,16 +106,16 @@ public partial record PlainCardData2
     /// Expiry date of the card.
     /// </summary>
     [IsoId("_Sqk0ugEcEeCQm6a_G2yO_w_2116945475")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISOYearMonth)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISOYearMonth ExpiryDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt16 ExpiryDate { get; init; } 
+    public required System.UInt16 ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt16 ExpiryDate { get; init; } 
     #else
@@ -134,15 +126,12 @@ public partial record PlainCardData2
     /// Services attached to the card, as defined in ISO 7813.
     /// </summary>
     [IsoId("_Sqk0uwEcEeCQm6a_G2yO_w_-1723934552")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SvcCd")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? ServiceCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +144,11 @@ public partial record PlainCardData2
     /// Magnetic track or equivalent payment card data.
     /// </summary>
     [IsoId("_Sqk0vAEcEeCQm6a_G2yO_w_1397723830")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Track Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckData")]
     #endif
+    [IsoXmlTag("TrckData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackData1? TrackData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

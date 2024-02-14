@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
 /// </summary>
 [IsoId("_Mp-n-znGEeWV5sr121Fc8A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Opening Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record OpeningBalance3
     /// Indication that the position is short or long.
     /// </summary>
     [IsoId("_NIehwznGEeWV5sr121Fc8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Long Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtLngInd")]
     #endif
+    [IsoXmlTag("ShrtLngInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShortLong1Code ShortLongIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ShortLong1Code ShortLongIndicator { get; init; } 
+    public required ShortLong1Code ShortLongIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ShortLong1Code ShortLongIndicator { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record OpeningBalance3
     /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
     /// </summary>
     [IsoId("_NIehyznGEeWV5sr121Fc8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngBal")]
     #endif
+    [IsoXmlTag("OpngBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OpeningBalance4Choice_ OpeningBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OpeningBalance4Choice_ OpeningBalance { get; init; } 
+    public required OpeningBalance4Choice_ OpeningBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OpeningBalance4Choice_ OpeningBalance { get; init; } 
     #else

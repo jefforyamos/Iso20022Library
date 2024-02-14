@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssignmentMethod2Choice.Code))]
     [KnownType(typeof(AssignmentMethod2Choice.Proprietary))]
     [IsoId("_hJG-heLaEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment Method 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

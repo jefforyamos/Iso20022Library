@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// Portuguese National Clearing Code - identifies Portuguese financial institutions on the Portuguese national clearing system.
     /// </summary>
     [IsoId("_TDY2hdp-Ed-ak6NoX_4Aeg_-896562591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Portuguese NCC Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// Portuguese National Clearing Code. Identifies Portuguese financial institutions on the Portuguese national clearing system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PTNCC")]
         #endif
+        [IsoXmlTag("PTNCC")]
+        [IsoSimpleType(IsoSimpleType.PortugueseNCCIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPortugueseNCCIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

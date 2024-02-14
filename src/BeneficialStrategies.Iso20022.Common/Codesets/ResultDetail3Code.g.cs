@@ -21,7 +21,7 @@ public enum ResultDetail3Code
 {
     /// <summary>
     /// The certificate is unknown.
-    /// Encoded/decoded by serializers as "CRTU".
+    /// Encoded/decoded by serializers as &quot;CRTU&quot;.
     /// </summary>
     [EnumMember(Value = "CRTU")]
     [IsoId("_dRl0sY4YEeW6h7rGyYlyTg")]
@@ -30,7 +30,7 @@ public enum ResultDetail3Code
     
     /// <summary>
     /// Requested service not supported.
-    /// Encoded/decoded by serializers as "SVSU".
+    /// Encoded/decoded by serializers as &quot;SVSU&quot;.
     /// </summary>
     [EnumMember(Value = "SVSU")]
     [IsoId("_eBK3g44YEeW6h7rGyYlyTg")]

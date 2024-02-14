@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentType3Choice
     /// Type, or nature, of the payment, such as express payment.|.
     /// </summary>
     [IsoId("_72YTAKMgEeCJ6YNENx4h-w_166956886")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentType3Choice
         /// Specifies the type, or nature, of the payment.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PaymentType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PaymentType3Code Value { get; init; } 
+        public required PaymentType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PaymentType3Code Value { get; init; } 
         #else

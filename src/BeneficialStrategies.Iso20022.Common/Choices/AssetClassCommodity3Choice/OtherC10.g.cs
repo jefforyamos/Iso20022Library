@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity3Choice
     /// Other C10 commodities.
     /// </summary>
     [IsoId("_lThdb3vyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other C")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

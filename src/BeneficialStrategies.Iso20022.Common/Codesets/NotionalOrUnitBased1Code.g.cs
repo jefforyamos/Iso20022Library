@@ -21,7 +21,7 @@ public enum NotionalOrUnitBased1Code
 {
     /// <summary>
     /// Basis of a financial instrument is unit.
-    /// Encoded/decoded by serializers as "UNIT".
+    /// Encoded/decoded by serializers as &quot;UNIT&quot;.
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_1AhQoZ9WEeqxTNfi5y7ywQ")]
@@ -30,7 +30,7 @@ public enum NotionalOrUnitBased1Code
     
     /// <summary>
     /// Basis of a financial instrument is notional.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_1G6zkZ9WEeqxTNfi5y7ywQ")]

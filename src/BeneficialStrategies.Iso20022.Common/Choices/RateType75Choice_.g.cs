@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateType75Choice.Code))]
     [KnownType(typeof(RateType75Choice.Proprietary))]
     [IsoId("_sk2Hoc3wEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Type 75 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

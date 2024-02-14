@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingSystemReference1Choice.MatchingSystemUniqueReference))]
     [KnownType(typeof(MatchingSystemReference1Choice.RelatedReference))]
     [IsoId("_i-a184ufEeKYr_965Eh8aQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching System Reference 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

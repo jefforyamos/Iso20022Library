@@ -21,7 +21,7 @@ public enum MessageFunction15Code
 {
     /// <summary>
     /// Request for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FAUQ".
+    /// Encoded/decoded by serializers as &quot;FAUQ&quot;.
     /// </summary>
     [EnumMember(Value = "FAUQ")]
     [IsoId("_vhzJwdqGEeearpaEPXv9UA")]
@@ -30,7 +30,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Request for cancellation.
-    /// Encoded/decoded by serializers as "CCAQ".
+    /// Encoded/decoded by serializers as &quot;CCAQ&quot;.
     /// </summary>
     [EnumMember(Value = "CCAQ")]
     [IsoId("_vhzJw9qGEeearpaEPXv9UA")]
@@ -39,7 +39,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Advice for completion without financial capture.
-    /// Encoded/decoded by serializers as "CMPV".
+    /// Encoded/decoded by serializers as &quot;CMPV&quot;.
     /// </summary>
     [EnumMember(Value = "CMPV")]
     [IsoId("_vhzJxdqGEeearpaEPXv9UA")]
@@ -48,7 +48,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Request for diagnostic.
-    /// Encoded/decoded by serializers as "DGNP".
+    /// Encoded/decoded by serializers as &quot;DGNP&quot;.
     /// </summary>
     [EnumMember(Value = "DGNP")]
     [IsoId("_vhzJx9qGEeearpaEPXv9UA")]
@@ -57,7 +57,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Request for reconciliation.
-    /// Encoded/decoded by serializers as "RCLQ".
+    /// Encoded/decoded by serializers as &quot;RCLQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCLQ")]
     [IsoId("_vhzJydqGEeearpaEPXv9UA")]
@@ -66,7 +66,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Advice for cancellation.
-    /// Encoded/decoded by serializers as "CCAV".
+    /// Encoded/decoded by serializers as &quot;CCAV&quot;.
     /// </summary>
     [EnumMember(Value = "CCAV")]
     [IsoId("_vhzJy9qGEeearpaEPXv9UA")]
@@ -75,7 +75,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Transfer the financial data as a collection of transction.
-    /// Encoded/decoded by serializers as "BTCH".
+    /// Encoded/decoded by serializers as &quot;BTCH&quot;.
     /// </summary>
     [EnumMember(Value = "BTCH")]
     [IsoId("_vhzJzdqGEeearpaEPXv9UA")]
@@ -84,7 +84,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Advice for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FRVA".
+    /// Encoded/decoded by serializers as &quot;FRVA&quot;.
     /// </summary>
     [EnumMember(Value = "FRVA")]
     [IsoId("_vhzJz9qGEeearpaEPXv9UA")]
@@ -93,7 +93,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// The initiator requests an authorisation without financial impact to complete the transaction.
-    /// Encoded/decoded by serializers as "AUTQ".
+    /// Encoded/decoded by serializers as &quot;AUTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AUTQ")]
     [IsoId("_vhzJ0dqGEeearpaEPXv9UA")]
@@ -102,7 +102,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Advice for completion with financial capture.
-    /// Encoded/decoded by serializers as "FCMV".
+    /// Encoded/decoded by serializers as &quot;FCMV&quot;.
     /// </summary>
     [EnumMember(Value = "FCMV")]
     [IsoId("_vhzJ09qGEeearpaEPXv9UA")]
@@ -111,7 +111,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Request for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCCQ".
+    /// Encoded/decoded by serializers as &quot;DCCQ&quot;.
     /// </summary>
     [EnumMember(Value = "DCCQ")]
     [IsoId("_vhzJ1dqGEeearpaEPXv9UA")]
@@ -120,7 +120,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Advice for reversal without financial capture.
-    /// Encoded/decoded by serializers as "RVRA".
+    /// Encoded/decoded by serializers as &quot;RVRA&quot;.
     /// </summary>
     [EnumMember(Value = "RVRA")]
     [IsoId("_vhzJ19qGEeearpaEPXv9UA")]
@@ -129,7 +129,7 @@ public enum MessageFunction15Code
     
     /// <summary>
     /// Advice for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCAV".
+    /// Encoded/decoded by serializers as &quot;DCAV&quot;.
     /// </summary>
     [EnumMember(Value = "DCAV")]
     [IsoId("_z0P2YNqGEeearpaEPXv9UA")]

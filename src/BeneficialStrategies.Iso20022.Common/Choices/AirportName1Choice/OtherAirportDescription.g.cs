@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice
     /// Identifies an airport by its location and by its name.
     /// </summary>
     [IsoId("_SsSlJdp-Ed-ak6NoX_4Aeg_-564217545")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Airport Description")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice
         /// Identifies the town where the airport is located. For example: London.
         /// </summary>
         [IsoId("_SsSlIdp-Ed-ak6NoX_4Aeg_-1352905988")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Town")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Twn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Twn")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Town { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Town { get; init; } 
+        public required System.String Town { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Town { get; init; } 
         #else
@@ -79,15 +75,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice
         /// Identifies the airport by its name. For example: Heathrow.
         /// </summary>
         [IsoId("_SsSlItp-Ed-ak6NoX_4Aeg_-1308575071")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Airport Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AirprtNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AirprtNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? AirportName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

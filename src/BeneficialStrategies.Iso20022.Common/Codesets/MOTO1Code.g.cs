@@ -21,7 +21,7 @@ public enum MOTO1Code
 {
     /// <summary>
     /// Mail order.
-    /// Encoded/decoded by serializers as "MAOR".
+    /// Encoded/decoded by serializers as &quot;MAOR&quot;.
     /// </summary>
     [EnumMember(Value = "MAOR")]
     [IsoId("_V2gisTxSEeyuG4d2lhAp-w")]
@@ -30,7 +30,7 @@ public enum MOTO1Code
     
     /// <summary>
     /// Mail order or telephone order.
-    /// Encoded/decoded by serializers as "MOTO".
+    /// Encoded/decoded by serializers as &quot;MOTO&quot;.
     /// </summary>
     [EnumMember(Value = "MOTO")]
     [IsoId("_V6r4ETxSEeyuG4d2lhAp-w")]
@@ -39,7 +39,7 @@ public enum MOTO1Code
     
     /// <summary>
     /// Telephone order
-    /// Encoded/decoded by serializers as "TPOR".
+    /// Encoded/decoded by serializers as &quot;TPOR&quot;.
     /// </summary>
     [EnumMember(Value = "TPOR")]
     [IsoId("_V-eL4TxSEeyuG4d2lhAp-w")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Range of quantities.
 /// </summary>
 [IsoId("_jtHuEe5NEeCisYr99QEiWA_674630365")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("From To Quantity Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FromToQuantityRange1
     /// Lower boundary of a range of quantity values.
     /// </summary>
     [IsoId("_jtHuEu5NEeCisYr99QEiWA_-621671182")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrQty")]
     #endif
+    [IsoXmlTag("FrQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityRangeBoundary1 FromQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityRangeBoundary1 FromQuantity { get; init; } 
+    public required QuantityRangeBoundary1 FromQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityRangeBoundary1 FromQuantity { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record FromToQuantityRange1
     /// Upper boundary of a range of quantity values.
     /// </summary>
     [IsoId("_jtHuE-5NEeCisYr99QEiWA_788676247")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ToQty")]
     #endif
+    [IsoXmlTag("ToQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityRangeBoundary1 ToQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityRangeBoundary1 ToQuantity { get; init; } 
+    public required QuantityRangeBoundary1 ToQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityRangeBoundary1 ToQuantity { get; init; } 
     #else

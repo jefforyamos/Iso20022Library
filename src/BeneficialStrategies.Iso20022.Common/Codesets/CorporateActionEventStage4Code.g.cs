@@ -21,7 +21,7 @@ public enum CorporateActionEventStage4Code
 {
     /// <summary>
     /// Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_5wragSUmEeO8eOSw0QN9mA")]
@@ -30,7 +30,7 @@ public enum CorporateActionEventStage4Code
     
     /// <summary>
     /// Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_6CSu8SUmEeO8eOSw0QN9mA")]
@@ -39,7 +39,7 @@ public enum CorporateActionEventStage4Code
     
     /// <summary>
     /// A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.
-    /// Encoded/decoded by serializers as "RESC".
+    /// Encoded/decoded by serializers as &quot;RESC&quot;.
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_6OILgSUmEeO8eOSw0QN9mA")]

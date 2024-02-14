@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed statistics on reconciliation per type of derivative.
 /// </summary>
 [IsoId("_530fYVfcEeqZr5K1Woax-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Statistics Per Derivative Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReconciliationStatisticsPerDerivativeType3
     /// Detailed statistics on reconciliation for all derivatives.
     /// </summary>
     [IsoId("_6PTLQVfcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Derivatives")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllDerivs")]
     #endif
+    [IsoXmlTag("AllDerivs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DetailedReconciliationStatistics2 AllDerivatives { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DetailedReconciliationStatistics2 AllDerivatives { get; init; } 
+    public required DetailedReconciliationStatistics2 AllDerivatives { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DetailedReconciliationStatistics2 AllDerivatives { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReconciliationStatisticsPerDerivativeType3
     /// Detailed statistics on reconciliation for outstanding derivatives.
     /// </summary>
     [IsoId("_6PTLQ1fcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outstanding Derivatives")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutsdngDerivs")]
     #endif
+    [IsoXmlTag("OutsdngDerivs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DetailedReconciliationStatistics2 OutstandingDerivatives { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DetailedReconciliationStatistics2 OutstandingDerivatives { get; init; } 
+    public required DetailedReconciliationStatistics2 OutstandingDerivatives { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DetailedReconciliationStatistics2 OutstandingDerivatives { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria which are used to search for a standing order and to report on standing orders. A name may be given to the new query.
 /// </summary>
 [IsoId("_GMtiVW4-EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Order Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record StandingOrderCriteria3
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
     [IsoId("_GWGH024-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Query Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewQryNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NewQryNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NewQueryName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record StandingOrderCriteria3
     /// Defines the criteria to be used to extract the standing order information.
     /// </summary>
     [IsoId("_GWGH1W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StandingOrderSearchCriteria3? SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record StandingOrderCriteria3
     /// Defines the expected standing order report.
     /// </summary>
     [IsoId("_GWGH124-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrCrit")]
     #endif
+    [IsoXmlTag("RtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StandingOrderReturnCriteria1? ReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

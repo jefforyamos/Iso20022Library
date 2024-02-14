@@ -21,7 +21,7 @@ public enum UserInterface8Code
 {
     /// <summary>
     /// Interface used in case of disputes or chargebacks.
-    /// Encoded/decoded by serializers as "DSPU".
+    /// Encoded/decoded by serializers as &quot;DSPU&quot;.
     /// </summary>
     [EnumMember(Value = "DSPU")]
     [IsoId("_sHJJoX0mEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum UserInterface8Code
     
     /// <summary>
     /// File used to store the message.
-    /// Encoded/decoded by serializers as "FILE".
+    /// Encoded/decoded by serializers as &quot;FILE&quot;.
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_sHJJo30mEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum UserInterface8Code
     
     /// <summary>
     /// Information dedicated to a log file.
-    /// Encoded/decoded by serializers as "LOGF".
+    /// Encoded/decoded by serializers as &quot;LOGF&quot;.
     /// </summary>
     [EnumMember(Value = "LOGF")]
     [IsoId("_sHJJpX0mEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum UserInterface8Code
     
     /// <summary>
     /// Other type of interface defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_sHJJp30mEemfrNOe0zHQyg")]
@@ -57,7 +57,7 @@ public enum UserInterface8Code
     
     /// <summary>
     /// Other type of interface defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_sHJJqX0mEemfrNOe0zHQyg")]

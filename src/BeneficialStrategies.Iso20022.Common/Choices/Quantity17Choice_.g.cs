@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Quantity17Choice.QuantityChoice))]
     [KnownType(typeof(Quantity17Choice.ProprietaryQuantity))]
     [IsoId("_LllANzq5EeWQ1Y7f8kds2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity 17 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

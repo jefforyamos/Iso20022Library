@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reason1Choice.PendingModificationReason))]
     [KnownType(typeof(Reason1Choice.UnmatchedReason))]
     [IsoId("_UXb4U9p-Ed-ak6NoX_4Aeg_1692385622")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

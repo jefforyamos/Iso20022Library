@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Card transaction details.
 /// </summary>
 [IsoId("_aq96ATj3EeSz-s1QOUJaOg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CardTransaction2
     /// Electronic money product that provides the cardholder with a portable and specialised computer device, which typically contains a microprocessor.
     /// </summary>
     [IsoId("_a65MYTj3EeSz-s1QOUJaOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Card")]
     #endif
+    [IsoXmlTag("Card")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCard4? Card { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CardTransaction2
     /// Physical or logical card payment terminal containing software and hardware components.
     /// </summary>
     [IsoId("_a65MYzj3EeSz-s1QOUJaOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POI")]
     #endif
+    [IsoXmlTag("POI")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction1? POI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CardTransaction2
     /// Card transaction details, which can be either globalised by the acquirer or individual transaction.
     /// </summary>
     [IsoId("_a65MZTj3EeSz-s1QOUJaOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardTransaction2Choice_? Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CardTransaction2
     /// Prepaid account for the transfer or loading of an amount of money.
     /// </summary>
     [IsoId("_-P0IATj2EeSz-s1QOUJaOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Paid Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrePdAcct")]
     #endif
+    [IsoXmlTag("PrePdAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? PrePaidAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

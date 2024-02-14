@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
     /// Details of the repurchase trade transaction.
     /// </summary>
     [IsoId("_16F6Ya1KEemojPqsRBB5Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Trade")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,19 +56,17 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Unique Trade Identifier (UTI) as agreed with the other counterparty.
         /// </summary>
         [IsoId("_xJWY0bOYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Unique Trade Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UnqTradIdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("UnqTradIdr")]
+        [IsoSimpleType(IsoSimpleType.Max52Text)]
         [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax52Text UniqueTradeIdentifier { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String UniqueTradeIdentifier { get; init; } 
+        public required System.String UniqueTradeIdentifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String UniqueTradeIdentifier { get; init; } 
         #else
@@ -81,16 +77,16 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
         /// </summary>
         [IsoId("_xJWY07OYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Event Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EvtDt")]
         #endif
+        [IsoXmlTag("EvtDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate EventDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly EventDate { get; init; } 
+        public required System.DateOnly EventDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly EventDate { get; init; } 
         #else
@@ -101,16 +97,16 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Indicates the date and time when the contract was executed.
         /// </summary>
         [IsoId("_xJWY1bOYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Execution Date Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ExctnDtTm")]
         #endif
+        [IsoXmlTag("ExctnDtTm")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODateTime ExecutionDateTime { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateTime ExecutionDateTime { get; init; } 
+        public required System.DateTime ExecutionDateTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateTime ExecutionDateTime { get; init; } 
         #else
@@ -121,12 +117,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Indicates whether clearing of contract has taken place.
         /// </summary>
         [IsoId("_xJWY17OYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Clearing Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClrSts")]
         #endif
+        [IsoXmlTag("ClrSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Cleared10Choice_? ClearingStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +134,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Identification of the trading venue where the transaction was executed.
         /// </summary>
         [IsoId("_xJWY2bOYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Trading Venue")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TradgVn")]
         #endif
+        [IsoXmlTag("TradgVn")]
+        [IsoSimpleType(IsoSimpleType.MICIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMICIdentifier? TradingVenue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,12 +152,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Reference to master agreement under which the counterparties concluded a documented transaction.
         /// </summary>
         [IsoId("_xJWY27OYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Master Agreement")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MstrAgrmt")]
         #endif
+        [IsoXmlTag("MstrAgrmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MasterAgreement6? MasterAgreement { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +169,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the opening leg (spot leg) of the secured financing transaction. In the case of rollover of transaction open term, this is the date on which the rollover settles, even if no exchange of cash takes place.
         /// </summary>
         [IsoId("_xJWY3bOYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Value Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ValDt")]
         #endif
+        [IsoXmlTag("ValDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? ValueDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +187,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Minimum number of business days that one of the counterparties has to inform about the termination of the transaction.
         /// </summary>
         [IsoId("_xJWY37OYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Minimum Notice Period")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MinNtcePrd")]
         #endif
+        [IsoXmlTag("MinNtcePrd")]
+        [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax20PositiveNumber? MinimumNoticePeriod { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,12 +205,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Earliest date that the cash lender has the right to call back a portion of the amount of money or to terminate the transaction.
         /// </summary>
         [IsoId("_xJWY4bOYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Earliest Call Back Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EarlstCallBckDt")]
         #endif
+        [IsoXmlTag("EarlstCallBckDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? EarliestCallBackDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,12 +223,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Indication whether the secured financing transaction is subject to a general or special collateral arrangement.
         /// </summary>
         [IsoId("_xJWY47OYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("General Collateral")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="GnlColl")]
         #endif
+        [IsoXmlTag("GnlColl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SpecialCollateral1Code? GeneralCollateral { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,12 +240,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Indicates whether the transaction was settled using the Delivery-by-Value (DBV) mechanism.
         /// </summary>
         [IsoId("_xJWY5bOYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Delivery By Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DlvryByVal")]
         #endif
+        [IsoXmlTag("DlvryByVal")]
+        [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoTrueFalseIndicator? DeliveryByValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -265,12 +258,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Delivery method of the collateral.
         /// </summary>
         [IsoId("_xJWY57OYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Collateral Delivery Method")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CollDlvryMtd")]
         #endif
+        [IsoXmlTag("CollDlvryMtd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralDeliveryMethod1Code? CollateralDeliveryMethod { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -283,12 +275,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Period before or at the end of which the loan should be repaid or renegotiated for another term. 
         /// </summary>
         [IsoId("_xJWY67OYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Term")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Term")]
         #endif
+        [IsoXmlTag("Term")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ContractTerm3Choice_? Term { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -301,12 +292,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Interest rate of the loan.
         /// </summary>
         [IsoId("_xJWY6bOYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Interest Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IntrstRate")]
         #endif
+        [IsoXmlTag("IntrstRate")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InterestRate20Choice_? InterestRate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -319,12 +309,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Amount of money to be settled as of the start date and maturity date of the transaction.
         /// </summary>
         [IsoId("_xJWY7bOYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Principal Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrncplAmt")]
         #endif
+        [IsoXmlTag("PrncplAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PrincipalAmount2? PrincipalAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -337,12 +326,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice
         /// Termination date in the case of a full early termination of the SFT.
         /// </summary>
         [IsoId("_xJWY77OYEemDE9K-I5TT8Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Termination Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TermntnDt")]
         #endif
+        [IsoXmlTag("TermntnDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? TerminationDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

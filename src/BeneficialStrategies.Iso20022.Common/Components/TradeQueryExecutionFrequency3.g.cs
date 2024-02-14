@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the frequency of the trade query execution.
 /// </summary>
 [IsoId("_et5Wt91dEeqxpKDfBZC1vg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Query Execution Frequency")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TradeQueryExecutionFrequency3
     /// Specifies the frequency type of the trade query execution.
     /// </summary>
     [IsoId("_evMXN91dEeqxpKDfBZC1vg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrqcyTp")]
     #endif
+    [IsoXmlTag("FrqcyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency14Code FrequencyType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Frequency14Code FrequencyType { get; init; } 
+    public required Frequency14Code FrequencyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Frequency14Code FrequencyType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TradeQueryExecutionFrequency3
     /// Specifies the day of the expected delivery of the query response.
     /// </summary>
     [IsoId("_evMXOd1dEeqxpKDfBZC1vg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Day")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryDay")]
     #endif
+    [IsoXmlTag("DlvryDay")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WeekDay3Code? DeliveryDay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record TradeQueryExecutionFrequency3
     /// Day of the month of the monthly query execution.
     /// </summary>
     [IsoId("_evMXO91dEeqxpKDfBZC1vg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Day Of Month")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DayOfMnth")]
     #endif
+    [IsoXmlTag("DayOfMnth")]
+    [IsoSimpleType(IsoSimpleType.DayOfMonthNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDayOfMonthNumber? DayOfMonth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

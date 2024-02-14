@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the rates related to securities movement.
 /// </summary>
 [IsoId("_ORdmwOsgEd-b_I-JAnHTUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rate Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record RateDetails3
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
     [IsoId("_T1lWoesgEd-b_I-JAnHTUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlTax")]
     #endif
+    [IsoXmlTag("AddtlTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat14Choice_? AdditionalTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record RateDetails3
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
     [IsoId("_o8yZ4esgEd-b_I-JAnHTUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Dividend Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssDvddRate")]
     #endif
+    [IsoXmlTag("GrssDvddRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GrossDividendRateFormat5Choice_? GrossDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record RateDetails3
     /// The actual interest rate used for the payment of the interest for the specified interest period. |Usage guideline: It is used to provide the applicable rate for the current payment, after all calculations have been performed, that is, application of period and method of interest computation.
     /// </summary>
     [IsoId("_rgGEIesgEd-b_I-JAnHTUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate Used For Payment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRateUsdForPmt")]
     #endif
+    [IsoXmlTag("IntrstRateUsdForPmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateUsedForPaymentFormat5Choice_? InterestRateUsedForPayment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record RateDetails3
     /// Percentage of the gross dividend rate on which tax must be paid.
     /// </summary>
     [IsoId("_vShz8esgEd-b_I-JAnHTUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Related Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRltdRate")]
     #endif
+    [IsoXmlTag("TaxRltdRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateTypeAndAmountAndStatus6? TaxRelatedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record RateDetails3
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
     [IsoId("_xsdfwesgEd-b_I-JAnHTUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Tax Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgTaxRate")]
     #endif
+    [IsoXmlTag("WhldgTaxRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? WithholdingTaxRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record RateDetails3
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
     [IsoId("_B-T2cOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsFees")]
     #endif
+    [IsoXmlTag("ChrgsFees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat14Choice_? ChargesFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record RateDetails3
     /// Cash rate made available, as an incentive, in addition to the solicitation fee, in order to encourage early participation in an offer.
     /// </summary>
     [IsoId("_LqUowOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Solicitation Fee Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlySlctnFeeRate")]
     #endif
+    [IsoXmlTag("EarlySlctnFeeRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SolicitationFeeRateFormat3Choice_? EarlySolicitationFeeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record RateDetails3
     /// Dividend is final.
     /// </summary>
     [IsoId("_NcmesOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Dividend Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlDvddRate")]
     #endif
+    [IsoXmlTag("FnlDvddRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat15Choice_? FinalDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record RateDetails3
     /// Percentage of fiscal tax to apply.
     /// </summary>
     [IsoId("_PJO_oOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fiscal Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FsclStmp")]
     #endif
+    [IsoXmlTag("FsclStmp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? FiscalStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record RateDetails3
     /// Rate resulting from a fully franked dividend paid by a company; rate includes tax credit for companies that have made sufficient tax payments during fiscal period.
     /// </summary>
     [IsoId("_RX-vIOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fully Franked Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FullyFrnkdRate")]
     #endif
+    [IsoXmlTag("FullyFrnkdRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat14Choice_? FullyFrankedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record RateDetails3
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example, consent fees.
     /// </summary>
     [IsoId("_ThNsgOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Incentive Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshIncntivRate")]
     #endif
+    [IsoXmlTag("CshIncntivRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? CashIncentiveRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +229,11 @@ public partial record RateDetails3
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
     [IsoId("_U8QHIOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Dividend Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetDvddRate")]
     #endif
+    [IsoXmlTag("NetDvddRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetDividendRateFormat5Choice_? NetDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ public partial record RateDetails3
     /// Rate per share to which a non-resident is entitled.
     /// </summary>
     [IsoId("_WKCI4OtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Resident Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonResdtRate")]
     #endif
+    [IsoXmlTag("NonResdtRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat14Choice_? NonResidentRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +263,11 @@ public partial record RateDetails3
     /// Dividend is provisional.
     /// </summary>
     [IsoId("_YczcwOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Provisional Dividend Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsnlDvddRate")]
     #endif
+    [IsoXmlTag("PrvsnlDvddRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat15Choice_? ProvisionalDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +280,11 @@ public partial record RateDetails3
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
     [IsoId("_ZvfzsOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicable Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AplblRate")]
     #endif
+    [IsoXmlTag("AplblRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? ApplicableRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +297,11 @@ public partial record RateDetails3
     /// Cash rate made available in an offer in order to encourage participation in the offer.
     /// </summary>
     [IsoId("_bU0ywOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Solicitation Fee Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SlctnFeeRate")]
     #endif
+    [IsoXmlTag("SlctnFeeRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SolicitationFeeRateFormat3Choice_? SolicitationFeeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -332,12 +314,11 @@ public partial record RateDetails3
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
     [IsoId("_c076oOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Credit Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxCdtRate")]
     #endif
+    [IsoXmlTag("TaxCdtRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxCreditRateFormat5Choice_? TaxCreditRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -350,12 +331,11 @@ public partial record RateDetails3
     /// Taxation applied on an amount clearly identified as an income.
     /// </summary>
     [IsoId("_eOVWgOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax On Income")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxOnIncm")]
     #endif
+    [IsoXmlTag("TaxOnIncm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? TaxOnIncome { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -368,12 +348,11 @@ public partial record RateDetails3
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
     [IsoId("_fKF0IOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax On Profits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxOnPrfts")]
     #endif
+    [IsoXmlTag("TaxOnPrfts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? TaxOnProfits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -386,12 +365,11 @@ public partial record RateDetails3
     /// Percentage of cash that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
     [IsoId("_gNlRcOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Reclaim Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRclmRate")]
     #endif
+    [IsoXmlTag("TaxRclmRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? TaxReclaimRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -404,12 +382,11 @@ public partial record RateDetails3
     /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// </summary>
     [IsoId("_hNgdYOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Of Foreign Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgOfFrgnTax")]
     #endif
+    [IsoXmlTag("WhldgOfFrgnTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat14Choice_? WithholdingOfForeignTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -422,12 +399,11 @@ public partial record RateDetails3
     /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// </summary>
     [IsoId("_iTPWYOtJEd-PFJLHKom6FA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Of Local Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgOfLclTax")]
     #endif
+    [IsoXmlTag("WhldgOfLclTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat14Choice_? WithholdingOfLocalTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

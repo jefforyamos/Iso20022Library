@@ -21,7 +21,7 @@ public enum SecuritiesQuantity2Code
 {
     /// <summary>
     /// Maximum / Minimum number is unknown or not decided.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_bLRaljFxEeGKkIZzgd38VA")]

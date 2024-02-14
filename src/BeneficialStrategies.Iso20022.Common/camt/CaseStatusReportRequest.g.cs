@@ -42,9 +42,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Case Status Report Request message is sent by a case creator or case assigner to a case assignee.|This message is used to request the status of a case.|Usage|The Case Status Report Request message must be answered with a Case Status Report message. It can be used to request the status of a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|The Case Status Report Request message covers one and only one case at a time. If a case creator or case assigner needs the status of several cases, then multiple Case Status Report Request messages must be sent.|The Case Status Report Request message may be forwarded to subsequent case assignee(s) in the case processing chain.|The processing of a case generates Notification Of Case Assignment and/or Resolution Of Investigation messages to the case creator/case assigner. They alone should provide collaborating parties sufficient information about the progress of the investigation. The Case Status Report Request must therefore only be used when no information has been received from the case assignee within the expected time frame.|An agent may suspense an investigation by classifying it as overdue if he, after sending the request for status, does not receive any response after a long time. Agents may set their individual threshold wait-time.")]
 [IsoId("_OXDeQNE-Ed-BzquC8wXy7w_1889207264")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Case Status Report Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record CaseStatusReportRequest : IOuterRecord<CaseStatusReportReq
     /// Identifies the party requesting the status, the requested party, the identification and the date of the status.
     /// </summary>
     [IsoId("_OXDeQdE-Ed-BzquC8wXy7w_-669475545")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqHdr")]
     #endif
+    [IsoXmlTag("ReqHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportHeader RequestHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportHeader RequestHeader { get; init; } 
+    public required ReportHeader RequestHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportHeader RequestHeader { get; init; } 
     #else
@@ -108,16 +105,15 @@ public partial record CaseStatusReportRequest : IOuterRecord<CaseStatusReportReq
     /// Identifies the case.
     /// </summary>
     [IsoId("_OXDeQtE-Ed-BzquC8wXy7w_1781217793")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case Case { get; init; } 
+    public required Case Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case Case { get; init; } 
     #else
@@ -128,7 +124,7 @@ public partial record CaseStatusReportRequest : IOuterRecord<CaseStatusReportReq
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CaseStatusReportRequestDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CaseStatusReportRequestDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CaseStatusReportRequestDocument ToDocument()
     {
@@ -138,7 +134,7 @@ public partial record CaseStatusReportRequest : IOuterRecord<CaseStatusReportReq
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CaseStatusReportRequest"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CaseStatusReportRequest&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CaseStatusReportRequestDocument : IOuterDocument<CaseStatusReportRequest>
@@ -155,7 +151,7 @@ public partial record CaseStatusReportRequestDocument : IOuterDocument<CaseStatu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CaseStatusReportRequest"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CaseStatusReportRequest&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseStatusReportRequest Message { get; init; }

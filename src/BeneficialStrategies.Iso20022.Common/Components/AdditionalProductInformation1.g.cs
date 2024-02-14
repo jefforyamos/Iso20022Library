@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information required for distribution in the German market.
 /// </summary>
 [IsoId("_Z1vAIM2rEeuAE-cYsQdwHQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Product Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AdditionalProductInformation1
     /// Category of fund product.  When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09000.
     /// </summary>
     [IsoId("_1fDskM2rEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ESG Category German Fund Market")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ESGCtgyGrmnFndMkt")]
     #endif
+    [IsoXmlTag("ESGCtgyGrmnFndMkt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ESGCategoryGermanFundMarket1Code? ESGCategoryGermanFundMarket { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AdditionalProductInformation1
     /// Category of structured securities product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09000.
     /// </summary>
     [IsoId("_5mXgMM2rEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ESG Category German Structured Securities Market")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ESGCtgyGrmnStrdSctiesMkt")]
     #endif
+    [IsoXmlTag("ESGCtgyGrmnStrdSctiesMkt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ESGCategoryGermanStructuredSecuritiesMarket1Code? ESGCategoryGermanStructuredSecuritiesMarket { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record AdditionalProductInformation1
     /// Specifies if the focus will be Environmental, Social or Governance.  When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09010.
     /// </summary>
     [IsoId("_8e2wQM2rEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ESG Focus")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ESGFcs")]
     #endif
+    [IsoXmlTag("ESGFcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ESGFocus1Code? ESGFocus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record AdditionalProductInformation1
     /// ESG label or standard of a product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09020.
     /// </summary>
     [IsoId("_D4f3UM2sEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ESG Label Or Standard")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ESGLablOrStd")]
     #endif
+    [IsoXmlTag("ESGLablOrStd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ESGLabelOrStandard1Code? ESGLabelOrStandard { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

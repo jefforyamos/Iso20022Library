@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the vote methods to be used.
 /// </summary>
 [IsoId("_gf0lJzT7Ee2tRf29bleifQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote Methods")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record VoteMethods5
     /// Network address through which a voting party can cast its vote via a structured message.
     /// </summary>
     [IsoId("_g1R3ozT7Ee2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Through Network")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteThrghNtwk")]
     #endif
+    [IsoXmlTag("VoteThrghNtwk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteThroughNetwork1Choice_? VoteThroughNetwork { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record VoteMethods5
     /// Address where the voting ballot can be sent.
     /// </summary>
     [IsoId("_g1R3pTT7Ee2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote By Mail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteByMail")]
     #endif
+    [IsoXmlTag("VoteByMail")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MailAddress1? VoteByMail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,35 +76,28 @@ public partial record VoteMethods5
     /// Electronic address, e-mail or web site, where a security holder can vote.
     /// </summary>
     [IsoId("_g1R3pzT7Ee2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Electronic Vote")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctrncVote")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElctrncVote")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<CommunicationAddress12> ElectronicVote { get; init; } = new ValueList<CommunicationAddress12>(){};
     
     /// <summary>
     /// Telephone number providing access to an automated voting system.
     /// </summary>
     [IsoId("_g1R3qTT7Ee2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote By Telephone")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteByTel")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("VoteByTel")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> VoteByTelephone { get; init; } = new SimpleValueList<System.String>(){};
     
     

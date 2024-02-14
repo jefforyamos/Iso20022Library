@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingPosition2Choice.Code))]
     [KnownType(typeof(ProcessingPosition2Choice.Proprietary))]
     [IsoId("_QtevGtp-Ed-ak6NoX_4Aeg_-730269459")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Position 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

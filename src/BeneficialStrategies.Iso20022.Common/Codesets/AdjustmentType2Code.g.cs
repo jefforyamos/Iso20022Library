@@ -21,7 +21,7 @@ public enum AdjustmentType2Code
 {
     /// <summary>
     /// Adjustment is a rebate.
-    /// Encoded/decoded by serializers as "REBA".
+    /// Encoded/decoded by serializers as &quot;REBA&quot;.
     /// </summary>
     [EnumMember(Value = "REBA")]
     [IsoId("_bnKOZ9p-Ed-ak6NoX_4Aeg_-1989744440")]
@@ -30,7 +30,7 @@ public enum AdjustmentType2Code
     
     /// <summary>
     /// Adjustment is a discount.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_bnTYUNp-Ed-ak6NoX_4Aeg_-1989744416")]
@@ -39,7 +39,7 @@ public enum AdjustmentType2Code
     
     /// <summary>
     /// Adjustment is a credit note.
-    /// Encoded/decoded by serializers as "CREN".
+    /// Encoded/decoded by serializers as &quot;CREN&quot;.
     /// </summary>
     [EnumMember(Value = "CREN")]
     [IsoId("_bnTYUdp-Ed-ak6NoX_4Aeg_-1989744399")]
@@ -48,7 +48,7 @@ public enum AdjustmentType2Code
     
     /// <summary>
     /// Adjustment is a surcharge.
-    /// Encoded/decoded by serializers as "SURC".
+    /// Encoded/decoded by serializers as &quot;SURC&quot;.
     /// </summary>
     [EnumMember(Value = "SURC")]
     [IsoId("_bnTYUtp-Ed-ak6NoX_4Aeg_-1488271597")]

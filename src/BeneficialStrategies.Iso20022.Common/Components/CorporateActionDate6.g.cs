@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies corporate action date.
 /// </summary>
 [IsoId("_TW6Pfdp-Ed-ak6NoX_4Aeg_1109592297")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionDate6
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// </summary>
     [IsoId("_TW6Pftp-Ed-ak6NoX_4Aeg_1109592759")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnDdln")]
     #endif
+    [IsoXmlTag("RspnDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? ResponseDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionDate6
     /// Date/time by which cash must be in place in order to take part in the event.
     /// </summary>
     [IsoId("_TW6Pf9p-Ed-ak6NoX_4Aeg_1109593160")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Cost Debit Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptCostDbtDt")]
     #endif
+    [IsoXmlTag("SbcptCostDbtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? SubscriptionCostDebitDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +73,14 @@ public partial record CorporateActionDate6
     #endif
     
     /// <summary>
-    /// Issuer or issuer's agent deadline to respond, with an instruction, to an outstanding offer or privilege.
+    /// Issuer or issuer&apos;s agent deadline to respond, with an instruction, to an outstanding offer or privilege.
     /// </summary>
     [IsoId("_TXEAcNp-Ed-ak6NoX_4Aeg_1109592729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktDdln")]
     #endif
+    [IsoXmlTag("MktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? MarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionDate6
     /// Date/time at which an order expires or on which a privilege or offer terminates.
     /// </summary>
     [IsoId("_TXEAcdp-Ed-ak6NoX_4Aeg_1109592851")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionDate6
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
     [IsoId("_TXEActp-Ed-ak6NoX_4Aeg_-1259743507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cover Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CoverXprtnDt")]
     #endif
+    [IsoXmlTag("CoverXprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? CoverExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionDate6
     /// Last date/time a holder can request to defer delivery of securities pursuant to a notice of guaranteed delivery or other required documentation.
     /// </summary>
     [IsoId("_TXEAc9p-Ed-ak6NoX_4Aeg_-1220032173")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctDt")]
     #endif
+    [IsoXmlTag("PrtctDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? ProtectDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionDate6
     /// Date/time at which the deal (rights) was agreed.
     /// </summary>
     [IsoId("_TXEAdNp-Ed-ak6NoX_4Aeg_-1190480582")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgDt")]
     #endif
+    [IsoXmlTag("TradgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? TradingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

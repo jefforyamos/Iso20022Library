@@ -21,7 +21,7 @@ public enum EquityInstrumentReportingClassification1Code
 {
     /// <summary>
     /// Contract is of type shares.
-    /// Encoded/decoded by serializers as "SHRS".
+    /// Encoded/decoded by serializers as &quot;SHRS&quot;.
     /// </summary>
     [EnumMember(Value = "SHRS")]
     [IsoId("_DpNkQQjtEeW36pGcc5RpFw")]
@@ -30,7 +30,7 @@ public enum EquityInstrumentReportingClassification1Code
     
     /// <summary>
     /// Contract is of type other equity-like financial instrument.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_DxPe4QjtEeW36pGcc5RpFw")]
@@ -39,7 +39,7 @@ public enum EquityInstrumentReportingClassification1Code
     
     /// <summary>
     /// Contract is of type electronic traded funds.
-    /// Encoded/decoded by serializers as "ETFS".
+    /// Encoded/decoded by serializers as &quot;ETFS&quot;.
     /// </summary>
     [EnumMember(Value = "ETFS")]
     [IsoId("_D4hyoQjtEeW36pGcc5RpFw")]
@@ -48,7 +48,7 @@ public enum EquityInstrumentReportingClassification1Code
     
     /// <summary>
     /// Contract is of type depositary receipt.
-    /// Encoded/decoded by serializers as "DPRS".
+    /// Encoded/decoded by serializers as &quot;DPRS&quot;.
     /// </summary>
     [EnumMember(Value = "DPRS")]
     [IsoId("_EFnzcQjtEeW36pGcc5RpFw")]
@@ -57,7 +57,7 @@ public enum EquityInstrumentReportingClassification1Code
     
     /// <summary>
     /// Contract is of type certificates.
-    /// Encoded/decoded by serializers as "CRFT".
+    /// Encoded/decoded by serializers as &quot;CRFT&quot;.
     /// </summary>
     [EnumMember(Value = "CRFT")]
     [IsoId("_EO2A4QjtEeW36pGcc5RpFw")]

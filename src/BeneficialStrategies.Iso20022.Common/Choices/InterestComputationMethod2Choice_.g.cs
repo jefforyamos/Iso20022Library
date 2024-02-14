@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestComputationMethod2Choice.Code))]
     [KnownType(typeof(InterestComputationMethod2Choice.Proprietary))]
     [IsoId("_4-mnkNopEeCWg-hsBVGrDA_-378245373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Computation Method 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

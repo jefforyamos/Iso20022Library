@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a party.
 /// </summary>
 [IsoId("_1VTtxTL3EeKU9IrkkToqcw_1362987129")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyIdentificationSD3
     /// Name and address by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_1VdewDL3EeKU9IrkkToqcw_1161094766")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name And Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmAndAdr")]
     #endif
+    [IsoXmlTag("NmAndAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NameAndAddress5 NameAndAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NameAndAddress5 NameAndAddress { get; init; } 
+    public required NameAndAddress5 NameAndAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NameAndAddress5 NameAndAddress { get; init; } 
     #else

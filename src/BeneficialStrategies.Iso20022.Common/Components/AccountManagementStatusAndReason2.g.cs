@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status report of an account opening instruction or account modification instruction that was previously received.
 /// </summary>
 [IsoId("_xpyPYRc5EeK5g-3oYI0_9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Management Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AccountManagementStatusAndReason2
     /// Status of the account opening instruction or account modification instruction.
     /// </summary>
     [IsoId("_ab1YsBdSEeK5g-3oYI0_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status12Choice_ Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status12Choice_ Status { get; init; } 
+    public required Status12Choice_ Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status12Choice_ Status { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record AccountManagementStatusAndReason2
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
     [IsoId("_x-f7MRc5EeK5g-3oYI0_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
     /// Instruction specifying the instructed quantity of voting rights per resolution. Split votes can be indicated. If only one type of decision is indicated, the number of votes cast must not be adjusted if the position of the voting party increases.
     /// </summary>
     [IsoId("_Y98Ls64cEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Number of the resolution as specified by the issuer or its agent.
         /// </summary>
         [IsoId("_bVfaI6-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer Label")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IssrLabl")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("IssrLabl")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text IssuerLabel { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String IssuerLabel { get; init; } 
+        public required System.String IssuerLabel { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String IssuerLabel { get; init; } 
         #else
@@ -79,12 +75,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Number of votes in favour of one resolution.
         /// </summary>
         [IsoId("_bVfaJa-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("For")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="For")]
         #endif
+        [IsoXmlTag("For")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? For { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Number of votes against one resolution.
         /// </summary>
         [IsoId("_bVfaJ6-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Against")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Agnst")]
         #endif
+        [IsoXmlTag("Agnst")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? Against { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +109,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Number of abstention votes for one resolution.
         /// </summary>
         [IsoId("_bVfaKa-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Abstain")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Abstn")]
         #endif
+        [IsoXmlTag("Abstn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? Abstain { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,12 +126,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Number of votes withheld for one resolution.
         /// </summary>
         [IsoId("_bVfaK6-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Withhold")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Wthhld")]
         #endif
+        [IsoXmlTag("Wthhld")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? Withhold { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,12 +143,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Number of votes in line with the votes of the management.
         /// </summary>
         [IsoId("_bVfaLa-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("With Management")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="WthMgmt")]
         #endif
+        [IsoXmlTag("WthMgmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? WithManagement { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +160,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Number of votes against the voting recommendation of the management.
         /// </summary>
         [IsoId("_bVfaL6-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Against Management")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AgnstMgmt")]
         #endif
+        [IsoXmlTag("AgnstMgmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? AgainstManagement { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +177,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Number of votes for which decision is left to the party that will exercise the voting right.
         /// </summary>
         [IsoId("_bVfaMa-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Discretionary")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dscrtnry")]
         #endif
+        [IsoXmlTag("Dscrtnry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? Discretionary { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -202,15 +191,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         #endif
         
         /// <summary>
-        /// Number of votes in favour for one year for "say on pay" type of resolution.
+        /// Number of votes in favour for one year for &quot;say on pay&quot; type of resolution.
         /// </summary>
         [IsoId("_bVfaM6-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("One Year")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OneYr")]
         #endif
+        [IsoXmlTag("OneYr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? OneYear { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -220,15 +208,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         #endif
         
         /// <summary>
-        /// Number of votes in favour of two years for "say on pay" type of resolution.
+        /// Number of votes in favour of two years for &quot;say on pay&quot; type of resolution.
         /// </summary>
         [IsoId("_bVfaNa-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Two Years")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TwoYrs")]
         #endif
+        [IsoXmlTag("TwoYrs")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? TwoYears { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -238,15 +225,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         #endif
         
         /// <summary>
-        /// Number of votes in favour of three years for "say on pay" type of resolution.
+        /// Number of votes in favour of three years for &quot;say on pay&quot; type of resolution.
         /// </summary>
         [IsoId("_bVfaN6-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Three Years")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ThreeYrs")]
         #endif
+        [IsoXmlTag("ThreeYrs")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? ThreeYears { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -259,12 +245,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Do not vote.
         /// </summary>
         [IsoId("_bVfaOa-WEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("No Action")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NoActn")]
         #endif
+        [IsoXmlTag("NoActn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? NoAction { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -277,12 +262,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Vote is cast as empty but the vote is counted.
         /// </summary>
         [IsoId("_EnkbQK-XEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Blank")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Blnk")]
         #endif
+        [IsoXmlTag("Blnk")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityOrCode1Choice_? Blank { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -295,16 +279,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote4Choice
         /// Other type of vote expressed as a proprietary code.
         /// </summary>
         [IsoId("_tkrR8K-XEemJ1NnLPsTFaw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Prtry")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Prtry")]
         [MinLength(0)]
         [MaxLength(4)]
-        #endif
         public ValueList<ProprietaryVote1> Proprietary { get; init; } = new ValueList<ProprietaryVote1>(){};
         
         

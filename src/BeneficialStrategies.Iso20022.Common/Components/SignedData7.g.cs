@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Digital signatures of data from one or several signers.
 /// </summary>
 [IsoId("_4_PTwVFKEeyApZmLzm74zA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Signed Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SignedData7
     /// Version of the data structure.
     /// </summary>
     [IsoId("_5FjXIVFKEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record SignedData7
     /// Identification of digest algorithm applied before signature.
     /// </summary>
     [IsoId("_5FjXI1FKEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlgorithmIdentification21? DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record SignedData7
     /// Data to sign.
     /// </summary>
     [IsoId("_5FjXJVFKEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encapsulated Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcpsltdCntt")]
     #endif
+    [IsoXmlTag("NcpsltdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncapsulatedContent3? EncapsulatedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,12 @@ public partial record SignedData7
     /// Chain of X.509 certificates.
     /// </summary>
     [IsoId("_5FjXJ1FKEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cert")]
     #endif
+    [IsoXmlTag("Cert")]
+    [IsoSimpleType(IsoSimpleType.Max5000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? Certificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record SignedData7
     /// Digital signature and identification of a signer.
     /// </summary>
     [IsoId("_5FjXKVFKEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgnr")]
     #endif
+    [IsoXmlTag("Sgnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Signer6? Signer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

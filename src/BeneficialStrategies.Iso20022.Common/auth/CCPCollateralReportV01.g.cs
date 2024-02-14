@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPCollateralReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the collateral posted by clearing members at the central counterparty.")]
 [IsoId("_5aP-IeUTEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Collateral Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CCPCollateralReportV01 : IOuterRecord<CCPCollateralReportV
     /// Central counterparties record of the collateral posted by clearing members to meet the obligations of the associated margin account or accounts.
     /// </summary>
     [IsoId("_5aP-KeUTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollAcctOwnr")]
     #endif
+    [IsoXmlTag("CollAcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAccount4 CollateralAccountOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralAccount4 CollateralAccountOwner { get; init; } 
+    public required CollateralAccount4 CollateralAccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralAccount4 CollateralAccountOwner { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CCPCollateralReportV01 : IOuterRecord<CCPCollateralReportV
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_5aP-K-UTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record CCPCollateralReportV01 : IOuterRecord<CCPCollateralReportV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPCollateralReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPCollateralReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPCollateralReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record CCPCollateralReportV01 : IOuterRecord<CCPCollateralReportV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPCollateralReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPCollateralReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPCollateralReportV01Document : IOuterDocument<CCPCollateralReportV01>
@@ -140,7 +136,7 @@ public partial record CCPCollateralReportV01Document : IOuterDocument<CCPCollate
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPCollateralReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPCollateralReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPCollateralReportV01 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the action type.
 /// </summary>
 [IsoId("_W4SbsA3kEeWc7_0KPiuk6w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Modification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ContractModification1
     /// Indication of the action type of the transaction.
     /// </summary>
     [IsoId("_dNZjoA3kEeWc7_0KPiuk6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTp")]
     #endif
+    [IsoXmlTag("ActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionOperationType3Code ActionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionOperationType3Code ActionType { get; init; } 
+    public required TransactionOperationType3Code ActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionOperationType3Code ActionType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ContractModification1
     /// Indication whether the report is done at trade or position level.
     /// </summary>
     [IsoId("_SwRykA3mEeWc7_0KPiuk6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lvl")]
     #endif
+    [IsoXmlTag("Lvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationLevel1Code? Level { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

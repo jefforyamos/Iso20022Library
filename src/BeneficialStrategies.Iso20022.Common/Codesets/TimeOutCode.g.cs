@@ -21,7 +21,7 @@ public enum TimeOutCode
 {
     /// <summary>
     /// Reason for time-out is the reaching of latest shipment date.
-    /// Encoded/decoded by serializers as "LSDD".
+    /// Encoded/decoded by serializers as &quot;LSDD&quot;.
     /// </summary>
     [EnumMember(Value = "LSDD")]
     [IsoId("_Vr6_Atp-Ed-ak6NoX_4Aeg_1039902628")]
@@ -30,7 +30,7 @@ public enum TimeOutCode
     
     /// <summary>
     /// Reason for time-out is the lack of action from the user side.
-    /// Encoded/decoded by serializers as "NACT".
+    /// Encoded/decoded by serializers as &quot;NACT&quot;.
     /// </summary>
     [EnumMember(Value = "NACT")]
     [IsoId("_Vr6_A9p-Ed-ak6NoX_4Aeg_1081458249")]

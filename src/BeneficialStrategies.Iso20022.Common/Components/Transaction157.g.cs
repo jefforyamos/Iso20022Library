@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of transaction for a file action.
 /// </summary>
 [IsoId("_rqZBIYgpEeu8-LhY4KPfWg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record Transaction157
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
     [IsoId("_aiTBd8sJEeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRsn")]
     #endif
+    [IsoXmlTag("MsgRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO8583MessageReasonCode? MessageReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,15 +67,13 @@ public partial record Transaction157
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
     [IsoId("_rvxQY4gpEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Message Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrnMsgRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AltrnMsgRsn")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? AlternateMessageReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,12 +86,11 @@ public partial record Transaction157
     /// Identification of the transaction.
     /// </summary>
     [IsoId("_rvxQZYgpEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +103,11 @@ public partial record Transaction157
     /// Scope of file action.
     /// </summary>
     [IsoId("_rvxQZ4gpEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Action Scope")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileActnScp")]
     #endif
+    [IsoXmlTag("FileActnScp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FileActionScope1Code? FileActionScope { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record Transaction157
     /// ISO 8583:87 bit 91
     /// </summary>
     [IsoId("_rvxQaYgpEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileActnTp")]
     #endif
+    [IsoXmlTag("FileActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FileActionType2Code? FileActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,15 +138,13 @@ public partial record Transaction157
     /// Other file action type in free text.
     /// </summary>
     [IsoId("_rvxQa4gpEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other File Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrFileActnTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrFileActnTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherFileActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,16 +157,15 @@ public partial record Transaction157
     /// Details pertaining to the file action.
     /// </summary>
     [IsoId("_rvxQbYgpEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Action Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileActnDtls")]
     #endif
+    [IsoXmlTag("FileActnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FileActionDetails2 FileActionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FileActionDetails2 FileActionDetails { get; init; } 
+    public required FileActionDetails2 FileActionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FileActionDetails2 FileActionDetails { get; init; } 
     #else
@@ -187,12 +176,11 @@ public partial record Transaction157
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
     [IsoId("_rvxQb4gpEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlFee")]
     #endif
+    [IsoXmlTag("AddtlFee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee2? AdditionalFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,12 +193,11 @@ public partial record Transaction157
     /// Contains additional data.
     /// </summary>
     [IsoId("_rvxQcYgpEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -223,12 +210,11 @@ public partial record Transaction157
     /// Identifies that this batch or collection is a corrected version of a batch or collection that was previously sent.
     /// </summary>
     [IsoId("_ULdioJb9Eeuc6pwKtqbEVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Correction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Crrctn")]
     #endif
+    [IsoXmlTag("Crrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorrectionIdentification1? Correction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -241,12 +227,12 @@ public partial record Transaction157
     /// Indicates that batch or collection is not complete.
     /// </summary>
     [IsoId("_V_dP0Zb9Eeuc6pwKtqbEVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Continuation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConttnInd")]
     #endif
+    [IsoXmlTag("ConttnInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ContinuationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Party and related security certificate.
 /// </summary>
 [IsoId("_D_AxJ249EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party And Certificate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record PartyAndCertificate5
     /// Specifies the type of change.
     /// </summary>
     [IsoId("_ELOoMW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModCd")]
     #endif
+    [IsoXmlTag("ModCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? ModificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record PartyAndCertificate5
     /// Entity involved in an activity.
     /// </summary>
     [IsoId("_ELOoM249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification135 Party { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification135 Party { get; init; } 
+    public required PartyIdentification135 Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification135 Party { get; init; } 
     #else
@@ -89,12 +85,12 @@ public partial record PartyAndCertificate5
     /// Security certificate used to sign electronically.
     /// </summary>
     [IsoId("_ELOoNW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cert")]
     #endif
+    [IsoXmlTag("Cert")]
+    [IsoSimpleType(IsoSimpleType.Max10KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? Certificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

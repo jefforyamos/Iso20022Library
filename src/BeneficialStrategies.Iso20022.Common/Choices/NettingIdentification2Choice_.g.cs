@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NettingIdentification2Choice.TradeParty))]
     [KnownType(typeof(NettingIdentification2Choice.NettingGroupIdentification))]
     [IsoId("_CEeXwQN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Netting Identification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

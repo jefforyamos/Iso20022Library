@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status22Choice
     /// Provides the processing status of the replacement request.
     /// </summary>
     [IsoId("_8QboN5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Replacement Processing Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the index used to define the rate and optionally the basis point spread.
 /// </summary>
 [IsoId("_reYmMepnEeSsk6KxwbYJ9w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Floating Interest Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record FloatingInterestRate4
     /// Where an identifier exists, the ISIN must be used; otherwise, names will be necessary (such as EURIBOR6M, LIBOR3M) as other identification.
     /// </summary>
     [IsoId("_rmIM8epnEeSsk6KxwbYJ9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefRate")]
     #endif
+    [IsoXmlTag("RefRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
+    public required BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record FloatingInterestRate4
     /// Term of the index.
     /// </summary>
     [IsoId("_85QTUSSLEeW2Xf4A_zKwwg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Term")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Term")]
     #endif
+    [IsoXmlTag("Term")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestRateContractTerm1 Term { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InterestRateContractTerm1 Term { get; init; } 
+    public required InterestRateContractTerm1 Term { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InterestRateContractTerm1 Term { get; init; } 
     #else
@@ -96,16 +92,16 @@ public partial record FloatingInterestRate4
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
     [IsoId("_r4PXcSSNEeW2Xf4A_zKwwg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis Point Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsisPtSprd")]
     #endif
+    [IsoXmlTag("BsisPtSprd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber BasisPointSpread { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 BasisPointSpread { get; init; } 
+    public required System.UInt64 BasisPointSpread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 BasisPointSpread { get; init; } 
     #else

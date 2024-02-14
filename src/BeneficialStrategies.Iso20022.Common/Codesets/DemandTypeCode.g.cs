@@ -21,7 +21,7 @@ public enum DemandTypeCode
 {
     /// <summary>
     /// Pay only.
-    /// Encoded/decoded by serializers as "PAYM".
+    /// Encoded/decoded by serializers as &quot;PAYM&quot;.
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_vHYM0HyVEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum DemandTypeCode
     
     /// <summary>
     /// Pay or extend.
-    /// Encoded/decoded by serializers as "PAEX".
+    /// Encoded/decoded by serializers as &quot;PAEX&quot;.
     /// </summary>
     [EnumMember(Value = "PAEX")]
     [IsoId("_qaP54HyWEeGWJuGCfvwOsQ")]

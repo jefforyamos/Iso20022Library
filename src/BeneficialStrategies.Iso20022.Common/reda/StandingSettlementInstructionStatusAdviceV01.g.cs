@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"Scope|The receiver of a StandingSettlementInstruction message sends the StandingSettlementInstructionStatusAdvice message to the instructing party (sender of the StandingSettlementInstruction message) to provide the status of a previously received StandingSettlementInstruction, StandingSettlementInstructionCancellation or StandingSettlementInstructionDeletion message.||Usage|The StandingSettlementInstructionStatusAdvice message is used to report one of the following statuses:|-	a received status, or, |-	an accepted status, or,|-	a rejected status, or,|-	a pending processing status, or,|-	a proprietary status.")]
 [IsoId("_5gmxoPRnEeK8G5J12Bcx2g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Settlement Instruction Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,12 +86,11 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     /// Date on which the SSI is effective.
     /// </summary>
     [IsoId("_QP7bYPXrEeKpFY1yaoww4A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDtDtls")]
     #endif
+    [IsoXmlTag("FctvDtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EffectiveDate1? EffectiveDateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,16 +104,15 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     /// If no account or reference is available then “NONREF” must be specified.
     /// </summary>
     [IsoId("_QP7bYfXrEeKpFY1yaoww4A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification26 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification26 AccountIdentification { get; init; } 
+    public required AccountIdentification26 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification26 AccountIdentification { get; init; } 
     #else
@@ -127,16 +123,15 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     /// Identifies the market for the standing settlement instruction.
     /// </summary>
     [IsoId("_Va68wVK1EeOsJr32EK1NAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktId")]
     #endif
+    [IsoXmlTag("MktId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; } 
+    public required MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; } 
     #else
@@ -147,16 +142,15 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     /// Settlement information that helps to identify the standing settlement instruction, cancellation or deletion for which the status is sent.
     /// </summary>
     [IsoId("_jd-AwVK1EeOsJr32EK1NAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtls")]
     #endif
+    [IsoXmlTag("SttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyOrCurrency1Choice_ SettlementDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyOrCurrency1Choice_ SettlementDetails { get; init; } 
+    public required PartyOrCurrency1Choice_ SettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyOrCurrency1Choice_ SettlementDetails { get; init; } 
     #else
@@ -167,19 +161,17 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_z8NGwPm-EeKDvJTxb9tKVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Message Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdMsgRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdMsgRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RelatedMessageReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RelatedMessageReference { get; init; } 
+    public required System.String RelatedMessageReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RelatedMessageReference { get; init; } 
     #else
@@ -190,16 +182,15 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     /// Status of the standing settlement instruction, deletion or cancellation.
     /// </summary>
     [IsoId("__JwQcFhJEeOMYfRGLS0NbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingStatus43Choice_ ProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingStatus43Choice_ ProcessingStatus { get; init; } 
+    public required ProcessingStatus43Choice_ ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingStatus43Choice_ ProcessingStatus { get; init; } 
     #else
@@ -210,12 +201,11 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_1jvlQfXtEeKpFY1yaoww4A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,7 +218,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StandingSettlementInstructionStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StandingSettlementInstructionStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StandingSettlementInstructionStatusAdviceV01Document ToDocument()
     {
@@ -238,7 +228,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StandingSettlementInstructionStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StandingSettlementInstructionStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StandingSettlementInstructionStatusAdviceV01Document : IOuterDocument<StandingSettlementInstructionStatusAdviceV01>
@@ -255,7 +245,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01Document : IOu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StandingSettlementInstructionStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StandingSettlementInstructionStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingSettlementInstructionStatusAdviceV01 Message { get; init; }

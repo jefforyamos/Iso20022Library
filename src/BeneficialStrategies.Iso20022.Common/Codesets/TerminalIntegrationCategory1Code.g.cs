@@ -21,7 +21,7 @@ public enum TerminalIntegrationCategory1Code
 {
     /// <summary>
     /// Multiple terminals linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "MPOI".
+    /// Encoded/decoded by serializers as &quot;MPOI&quot;.
     /// </summary>
     [EnumMember(Value = "MPOI")]
     [IsoId("_hundoWXPEem9Y55YJ70L8g")]
@@ -30,7 +30,7 @@ public enum TerminalIntegrationCategory1Code
     
     /// <summary>
     /// Terminal serving multiple sale terminals.
-    /// Encoded/decoded by serializers as "MSLE".
+    /// Encoded/decoded by serializers as &quot;MSLE&quot;.
     /// </summary>
     [EnumMember(Value = "MSLE")]
     [IsoId("_jFUx4WXPEem9Y55YJ70L8g")]
@@ -39,7 +39,7 @@ public enum TerminalIntegrationCategory1Code
     
     /// <summary>
     /// Terminal linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "SSLE".
+    /// Encoded/decoded by serializers as &quot;SSLE&quot;.
     /// </summary>
     [EnumMember(Value = "SSLE")]
     [IsoId("_jfLcUWXPEem9Y55YJ70L8g")]

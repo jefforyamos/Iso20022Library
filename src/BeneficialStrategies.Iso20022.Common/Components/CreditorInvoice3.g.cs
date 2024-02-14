@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the identification attribtues of an invoice which are required by the creditor for the activation of the debtor.
 /// </summary>
 [IsoId("_ABrj0eH5Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Invoice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CreditorInvoice3
     /// Indicates whether the creditor allows limited presentment of the e-invoice, that is, only the e-invoice data needed for payment initiation.
     /// </summary>
     [IsoId("_AEXrceH5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limited Presentment Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtdPresntmntInd")]
     #endif
+    [IsoXmlTag("LtdPresntmntInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator LimitedPresentmentIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LimitedPresentmentIndicator { get; init; } 
+    public required System.String LimitedPresentmentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LimitedPresentmentIndicator { get; init; } 
     #else
@@ -72,12 +70,11 @@ public partial record CreditorInvoice3
     /// Unique and unambiguous type of the identification of the debtor required by the creditor, for example  the reference number or customer number. Unique identification provided by the web bank or web payment services user, with which the creditor may identify the debtor in its system.
     /// </summary>
     [IsoId("_AEXrc-H5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Identification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrIdTp")]
     #endif
+    [IsoXmlTag("CstmrIdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerTypeRequest2? CustomerIdentificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +87,11 @@ public partial record CreditorInvoice3
     /// Document format type supported to exchange the contracts.
     /// </summary>
     [IsoId("_AEXrdeH5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Format Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctFrmtTp")]
     #endif
+    [IsoXmlTag("CtrctFrmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentFormat2Choice_? ContractFormatType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +104,11 @@ public partial record CreditorInvoice3
     /// Type of the contract reference for which the enrolment is defined.Type of the contract reference requested by the creditor which the debtor must provide in the debtor activation request  to identify the contract(s) for which the RTP is requested.
     /// </summary>
     [IsoId("_AEXrd-H5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Reference Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctRefTp")]
     #endif
+    [IsoXmlTag("CtrctRefTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentType1Choice_? ContractReferenceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,15 +121,13 @@ public partial record CreditorInvoice3
     /// Instructions provided by the seller (that is creditor or ultimate creditor) for the Request-To-Pay (RTP) recipient (that is the debtor). The instructions may include for example the time required by the creditor to take into account the activation request. The debtor agent may display the information in the customer’s own service language.
     /// </summary>
     [IsoId("_AEXreeH5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrInstr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CdtrInstr")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? CreditorInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,19 +137,18 @@ public partial record CreditorInvoice3
     #endif
     
     /// <summary>
-    /// Creditor's service provider address to which the debtor activation has to be delivered.
+    /// Creditor&apos;s service provider address to which the debtor activation has to be delivered.
     /// </summary>
     [IsoId("_AEXre-H5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activation Request Delivery Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtnReqDlvryPty")]
     #endif
+    [IsoXmlTag("ActvtnReqDlvryPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RTPPartyIdentification1 ActivationRequestDeliveryParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RTPPartyIdentification1 ActivationRequestDeliveryParty { get; init; } 
+    public required RTPPartyIdentification1 ActivationRequestDeliveryParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RTPPartyIdentification1 ActivationRequestDeliveryParty { get; init; } 
     #else

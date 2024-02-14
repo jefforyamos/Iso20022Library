@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the reconciliation of an ATM.
 /// </summary>
 [IsoId("_bn_okIttEeSLQutgI1Ulfw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Reconciliation Advice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ATMReconciliationAdvice1
     /// Environment of the ATM.
     /// </summary>
     [IsoId("_NRDiwItuEeSLQutgI1Ulfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMEnvironment10 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMEnvironment10 Environment { get; init; } 
+    public required ATMEnvironment10 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMEnvironment10 Environment { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record ATMReconciliationAdvice1
     /// Command result for reinitialisation of the transaction counters.
     /// </summary>
     [IsoId("_c9-5MItvEeSLQutgI1Ulfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdRslt")]
     #endif
+    [IsoXmlTag("CmdRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand5? CommandResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,11 @@ public partial record ATMReconciliationAdvice1
     /// Party which has requested the reconciliation.
     /// </summary>
     [IsoId("_8LpZoItwEeSLQutgI1Ulfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdCntxt")]
     #endif
+    [IsoXmlTag("CmdCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand6? CommandContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +103,15 @@ public partial record ATMReconciliationAdvice1
     /// Information about the reconciliation request.
     /// </summary>
     [IsoId("_uCBXEItxEeSLQutgI1Ulfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMTransaction11 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMTransaction11 Transaction { get; init; } 
+    public required ATMTransaction11 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMTransaction11 Transaction { get; init; } 
     #else

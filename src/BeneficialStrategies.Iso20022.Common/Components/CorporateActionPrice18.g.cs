@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies prices related to a corporate action option.
 /// </summary>
 [IsoId("_oc_1a-EJEd-udr336SN7mQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPrice18
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
     [IsoId("_oc_1beEJEd-udr336SN7mQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indicative Or Market Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndctvOrMktPric")]
     #endif
+    [IsoXmlTag("IndctvOrMktPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndicativeOrMarketPrice5Choice_? IndicativeOrMarketPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPrice18
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
     [IsoId("_oc_1b-EJEd-udr336SN7mQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Lieu Of Share Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInLieuOfShrPric")]
     #endif
+    [IsoXmlTag("CshInLieuOfShrPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat19Choice_? CashInLieuOfSharePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

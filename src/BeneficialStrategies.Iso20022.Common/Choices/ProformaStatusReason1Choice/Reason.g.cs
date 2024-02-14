@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProformaStatusReason1Choice
     /// Reason for the proforma account status.
     /// </summary>
     [IsoId("_5BVa80zCEeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ProformaStatusReason1Choice
         /// Reason for the proforma account status.
         /// </summary>
         [IsoId("_G4DTIUzDEeafiMTDrtSnyw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ProformaStatusReason2Choice_ Code { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ProformaStatusReason2Choice_ Code { get; init; } 
+        public required ProformaStatusReason2Choice_ Code { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ProformaStatusReason2Choice_ Code { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ProformaStatusReason1Choice
         /// Additional information about the reason for the proforma account status.
         /// </summary>
         [IsoId("_G4DTI0zDEeafiMTDrtSnyw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

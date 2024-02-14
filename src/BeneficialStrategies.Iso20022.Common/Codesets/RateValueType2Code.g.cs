@@ -21,7 +21,7 @@ public enum RateValueType2Code
 {
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZaMAhtp-Ed-ak6NoX_4Aeg_-1008646189")]
@@ -30,7 +30,7 @@ public enum RateValueType2Code
     
     /// <summary>
     /// Rate has not been established.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ZaMAh9p-Ed-ak6NoX_4Aeg_-1008646188")]
@@ -39,7 +39,7 @@ public enum RateValueType2Code
     
     /// <summary>
     /// Rate will not be paid.
-    /// Encoded/decoded by serializers as "NILP".
+    /// Encoded/decoded by serializers as &quot;NILP&quot;.
     /// </summary>
     [EnumMember(Value = "NILP")]
     [IsoId("_ZaMAiNp-Ed-ak6NoX_4Aeg_-1008646168")]

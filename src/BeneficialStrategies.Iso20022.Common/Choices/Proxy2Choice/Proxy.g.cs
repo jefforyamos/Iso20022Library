@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy2Choice
     /// Specifies the elements required to assign a proxy.
     /// </summary>
     [IsoId("_7fsSgVtgEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy2Choice
         /// Specifies how to register the proxy.
         /// </summary>
         [IsoId("_79clg1tgEeSwKe7KuKvXhg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Registration Method")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RegnMtd")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("RegnMtd")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? RegistrationMethod { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy2Choice
         /// Date by which the information on the proxy assignment must be received by the intermediary.
         /// </summary>
         [IsoId("_79clhVtgEeSwKe7KuKvXhg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Deadline")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ddln")]
         #endif
+        [IsoXmlTag("Ddln")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateFormat29Choice_? Deadline { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy2Choice
         /// Date by which the information on the proxy assignment must be received by the intermediary (STP mode).
         /// </summary>
         [IsoId("_79clh1tgEeSwKe7KuKvXhg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("STP Deadline")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="STPDdln")]
         #endif
+        [IsoXmlTag("STPDdln")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateFormat29Choice_? STPDeadline { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +100,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy2Choice
         /// Date by which the information on the proxy assignment must be received by the issuer.
         /// </summary>
         [IsoId("_79cliVtgEeSwKe7KuKvXhg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Market Deadline")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MktDdln")]
         #endif
+        [IsoXmlTag("MktDdln")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateFormat29Choice_? MarketDeadline { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,16 +117,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy2Choice
         /// Specifies the proxy person that is authorised by the issuer.
         /// </summary>
         [IsoId("_79cli1tgEeSwKe7KuKvXhg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Authorised Proxy")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AuthrsdPrxy")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AuthrsdPrxy")]
         [MinLength(0)]
         [MaxLength(10)]
-        #endif
         public ValueList<Proxy5> AuthorisedProxy { get; init; } = new ValueList<Proxy5>(){};
         
         

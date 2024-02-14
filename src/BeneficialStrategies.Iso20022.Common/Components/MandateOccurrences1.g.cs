@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide further details related to the duration of the mandate and the occurrence of the underlying transactions.
 /// </summary>
 [IsoId("_T28aYtp-Ed-ak6NoX_4Aeg_-1799899683")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Occurrences")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MandateOccurrences1
     /// Identifies the underlying transaction sequence as either recurring or one-off.
     /// </summary>
     [IsoId("_T28aY9p-Ed-ak6NoX_4Aeg_1230892211")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqTp")]
     #endif
+    [IsoXmlTag("SeqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SequenceType2Code SequenceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SequenceType2Code SequenceType { get; init; } 
+    public required SequenceType2Code SequenceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SequenceType2Code SequenceType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MandateOccurrences1
     /// Regularity with which instructions are to be created and processed.
     /// </summary>
     [IsoId("_T28aZNp-Ed-ak6NoX_4Aeg_-1799899530")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frqcy")]
     #endif
+    [IsoXmlTag("Frqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency1Code? Frequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record MandateOccurrences1
     /// Length of time for which the mandate remains valid.
     /// </summary>
     [IsoId("_T28aZdp-Ed-ak6NoX_4Aeg_-1799899282")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Duration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Drtn")]
     #endif
+    [IsoXmlTag("Drtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodDetails1? Duration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,12 @@ public partial record MandateOccurrences1
     /// Date of the first collection of a direct debit as per the mandate.
     /// </summary>
     [IsoId("_T28aZtp-Ed-ak6NoX_4Aeg_-1799899591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Collection Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstColltnDt")]
     #endif
+    [IsoXmlTag("FrstColltnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FirstCollectionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,12 @@ public partial record MandateOccurrences1
     /// Date of the final collection of a direct debit as per the mandate.
     /// </summary>
     [IsoId("_T28aZ9p-Ed-ak6NoX_4Aeg_-1799899560")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Collection Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlColltnDt")]
     #endif
+    [IsoXmlTag("FnlColltnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FinalCollectionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

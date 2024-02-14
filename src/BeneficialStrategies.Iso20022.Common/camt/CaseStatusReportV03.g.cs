@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Case Status Report message is sent by a case assignee to a case creator or case assigner.|This message is used to report on the status of a case.|Usage|A Case Status Report message is sent in reply to a Case Status Report Request message. This message|- covers one and only one case at a time. (If a case assignee needs to report on several cases, then multiple Case Status Report messages must be sent.)|- may be forwarded to subsequent case assigner(s) until it reaches the end point|- is able to indicate the fact that a case has been assigned to a party downstream in the payment processing chain|- may not be used in place of a Resolution Of Investigation (except for the condition given in the next bullet point) or Notification Of Case Assignment message|- may be skipped and replaced by a Resolution Of Investigation message when the request for a investigation status is received at the time the assigner has resolved the case. (In this case a Resolution Of Investigation message can be sent instead of a Case Status Report and the case may be closed.).")]
 [IsoId("_PzltuNE-Ed-BzquC8wXy7w_86849110")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Case Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record CaseStatusReportV03 : IOuterRecord<CaseStatusReportV03,Cas
     /// Specifies generic information about an investigation report.
     /// </summary>
     [IsoId("_PzltudE-Ed-BzquC8wXy7w_108164602")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportHeader2 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportHeader2 Header { get; init; } 
+    public required ReportHeader2 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportHeader2 Header { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record CaseStatusReportV03 : IOuterRecord<CaseStatusReportV03,Cas
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_Pzu3oNE-Ed-BzquC8wXy7w_108164624")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case2 Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case2 Case { get; init; } 
+    public required Case2 Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case2 Case { get; init; } 
     #else
@@ -126,16 +122,15 @@ public partial record CaseStatusReportV03 : IOuterRecord<CaseStatusReportV03,Cas
     /// Defines the status of the case.
     /// </summary>
     [IsoId("_Pzu3odE-Ed-BzquC8wXy7w_86849420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseStatus2 Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseStatus2 Status { get; init; } 
+    public required CaseStatus2 Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseStatus2 Status { get; init; } 
     #else
@@ -146,12 +141,11 @@ public partial record CaseStatusReportV03 : IOuterRecord<CaseStatusReportV03,Cas
     /// Identifies the change of an assignment for an investigation case from an assigner to a new assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
     /// </summary>
     [IsoId("_Pzu3otE-Ed-BzquC8wXy7w_108164716")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewAssgnmt")]
     #endif
+    [IsoXmlTag("NewAssgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CaseAssignment2? NewAssignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,7 +158,7 @@ public partial record CaseStatusReportV03 : IOuterRecord<CaseStatusReportV03,Cas
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CaseStatusReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CaseStatusReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CaseStatusReportV03Document ToDocument()
     {
@@ -174,7 +168,7 @@ public partial record CaseStatusReportV03 : IOuterRecord<CaseStatusReportV03,Cas
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CaseStatusReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CaseStatusReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CaseStatusReportV03Document : IOuterDocument<CaseStatusReportV03>
@@ -191,7 +185,7 @@ public partial record CaseStatusReportV03Document : IOuterDocument<CaseStatusRep
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CaseStatusReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CaseStatusReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseStatusReportV03 Message { get; init; }

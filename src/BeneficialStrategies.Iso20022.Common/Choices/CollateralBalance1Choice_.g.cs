@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralBalance1Choice.CollateralDetails))]
     [KnownType(typeof(CollateralBalance1Choice.SegregatedIndependentAmount))]
     [IsoId("_UnXxx9p-Ed-ak6NoX_4Aeg_-92530976")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Balance 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

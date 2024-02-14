@@ -21,7 +21,7 @@ public enum KeyType1Code
 {
     /// <summary>
     /// Other national
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_EnKX4TEtEemzCpWiCwK4aQ")]
@@ -30,7 +30,7 @@ public enum KeyType1Code
     
     /// <summary>
     /// Other private
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_E7SNwTEtEemzCpWiCwK4aQ")]
@@ -39,7 +39,7 @@ public enum KeyType1Code
     
     /// <summary>
     /// PIN translation key applicable to the acquirer
-    /// Encoded/decoded by serializers as "PTKA".
+    /// Encoded/decoded by serializers as &quot;PTKA&quot;.
     /// </summary>
     [EnumMember(Value = "PTKA")]
     [IsoId("_FP-EUTEtEemzCpWiCwK4aQ")]
@@ -48,7 +48,7 @@ public enum KeyType1Code
     
     /// <summary>
     /// PIN translation key applicable to the issuer
-    /// Encoded/decoded by serializers as "PTKI".
+    /// Encoded/decoded by serializers as &quot;PTKI&quot;.
     /// </summary>
     [EnumMember(Value = "PTKI")]
     [IsoId("_FluR4TEtEemzCpWiCwK4aQ")]

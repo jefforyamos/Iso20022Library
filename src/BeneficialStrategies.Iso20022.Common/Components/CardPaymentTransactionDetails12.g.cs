@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the transaction in the authorisation request.
 /// </summary>
 [IsoId("_njt2ETDzEeO9waS4ina8CA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Transaction Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CardPaymentTransactionDetails12
     /// Currency associated with the transaction.
     /// </summary>
     [IsoId("_nyTEoTDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record CardPaymentTransactionDetails12
     /// Total amount of the transaction.
     /// </summary>
     [IsoId("_nyTEozDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmt")]
     #endif
+    [IsoXmlTag("TtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalAmount { get; init; } 
+    public required System.Decimal TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalAmount { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record CardPaymentTransactionDetails12
     /// Qualifies the amount associated with the transaction.
     /// </summary>
     [IsoId("_nyTEpTDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtQlfr")]
     #endif
+    [IsoXmlTag("AmtQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfAmount1Code? AmountQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,11 @@ public partial record CardPaymentTransactionDetails12
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
     [IsoId("_nyTEpzDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldAmt")]
     #endif
+    [IsoXmlTag("DtldAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount5? DetailedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,12 @@ public partial record CardPaymentTransactionDetails12
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>
     [IsoId("_nyTEqTDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyDt")]
     #endif
+    [IsoXmlTag("VldtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +141,11 @@ public partial record CardPaymentTransactionDetails12
     /// Reason to process an online authorisation.
     /// </summary>
     [IsoId("_nyTEqzDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Line Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnLineRsn")]
     #endif
+    [IsoXmlTag("OnLineRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLineReason1Code? OnLineReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,15 +158,12 @@ public partial record CardPaymentTransactionDetails12
     /// Transaction category level on an unattended POI (Point Of Interaction).
     /// </summary>
     [IsoId("_nyTErTDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unattended Level Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UattnddLvlCtgy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("UattnddLvlCtgy")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? UnattendedLevelCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +176,11 @@ public partial record CardPaymentTransactionDetails12
     /// Type of cardholder account used for the transaction.
     /// </summary>
     [IsoId("_nyTErzDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctTp")]
     #endif
+    [IsoXmlTag("AcctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccountType1Code? AccountType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +193,12 @@ public partial record CardPaymentTransactionDetails12
     /// The currency conversion has been accepted by the cardholder.
     /// </summary>
     [IsoId("_o4-awEeaEeODR7vDcYOqmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Accepted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsAccptd")]
     #endif
+    [IsoXmlTag("ConvsAccptd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ConversionAccepted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +211,11 @@ public partial record CardPaymentTransactionDetails12
     /// Currency conversion proposed to the cardholder.
     /// </summary>
     [IsoId("_3ZdmwDDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Conversion")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyConvs")]
     #endif
+    [IsoXmlTag("CcyConvs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion1? CurrencyConversion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +228,11 @@ public partial record CardPaymentTransactionDetails12
     /// Data related to a financial loan (instalment) or to a recurring transaction.
     /// </summary>
     [IsoId("_CAUQsDD0EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Instlmt")]
     #endif
+    [IsoXmlTag("Instlmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RecurringTransaction2? Instalment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,12 +245,11 @@ public partial record CardPaymentTransactionDetails12
     /// Payment transaction with an aggregated amount.
     /// </summary>
     [IsoId("_dGViIDD8EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregation Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AggtnTx")]
     #endif
+    [IsoXmlTag("AggtnTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregationTransaction1? AggregationTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +262,11 @@ public partial record CardPaymentTransactionDetails12
     /// Product purchased with the transaction.
     /// </summary>
     [IsoId("_nyTEszDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pdct")]
     #endif
+    [IsoXmlTag("Pdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product1? Product { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -293,12 +279,11 @@ public partial record CardPaymentTransactionDetails12
     /// Detailed invoice data.
     /// </summary>
     [IsoId("_P2ad0DD0EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Payment Invoice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPmtInvc")]
     #endif
+    [IsoXmlTag("CardPmtInvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentInvoice1? CardPaymentInvoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -311,12 +296,12 @@ public partial record CardPaymentTransactionDetails12
     /// Data related to an integrated circuit card application.
     /// </summary>
     [IsoId("_nyTEtTDzEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRltdData")]
     #endif
+    [IsoXmlTag("ICCRltdData")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

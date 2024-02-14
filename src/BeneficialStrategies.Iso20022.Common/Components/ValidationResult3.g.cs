@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the error that is the cause of the rejection.
 /// </summary>
 [IsoId("_RFLdYdp-Ed-ak6NoX_4Aeg_-1930823301")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Validation Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record ValidationResult3
     /// Sequential number assigned to the error.
     /// </summary>
     [IsoId("_RFLdYtp-Ed-ak6NoX_4Aeg_-1930823223")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqNb")]
     #endif
+    [IsoXmlTag("SeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber SequenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 SequenceNumber { get; init; } 
+    public required System.UInt64 SequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 SequenceNumber { get; init; } 
     #else
@@ -73,19 +71,17 @@ public partial record ValidationResult3
     /// Coded identification of the rule that is violated by the rejected message.
     /// </summary>
     [IsoId("_RFLdY9p-Ed-ak6NoX_4Aeg_-1930823282")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rule Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RuleId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RuleId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RuleIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RuleIdentification { get; init; } 
+    public required System.String RuleIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RuleIdentification { get; init; } 
     #else
@@ -96,19 +92,17 @@ public partial record ValidationResult3
     /// Detailed description of the rule.
     /// </summary>
     [IsoId("_RFLdZNp-Ed-ak6NoX_4Aeg_-1930823266")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rule Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RuleDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RuleDesc")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text RuleDescription { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RuleDescription { get; init; } 
+    public required System.String RuleDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RuleDescription { get; init; } 
     #else
@@ -119,12 +113,11 @@ public partial record ValidationResult3
     /// Description of the elements that violated the rule.
     /// </summary>
     [IsoId("_RFLdZdp-Ed-ak6NoX_4Aeg_-1930823205")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Element")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Elmt")]
     #endif
+    [IsoXmlTag("Elmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ElementIdentification3? Element { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

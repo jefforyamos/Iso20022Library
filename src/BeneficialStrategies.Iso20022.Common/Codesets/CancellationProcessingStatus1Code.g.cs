@@ -21,7 +21,7 @@ public enum CancellationProcessingStatus1Code
 {
     /// <summary>
     /// Cancellation has been completed.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_bXgo09p-Ed-ak6NoX_4Aeg_2094579543")]
@@ -30,7 +30,7 @@ public enum CancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation is pending. It is not known at this time whether cancellation can be affected.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_bXgo1Np-Ed-ak6NoX_4Aeg_2094579544")]
@@ -39,7 +39,7 @@ public enum CancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation will not be executed.
-    /// Encoded/decoded by serializers as "DEND".
+    /// Encoded/decoded by serializers as &quot;DEND&quot;.
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_bXgo1dp-Ed-ak6NoX_4Aeg_2094579564")]
@@ -48,7 +48,7 @@ public enum CancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation has been received at the stock exchange.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_bXgo1tp-Ed-ak6NoX_4Aeg_2094579565")]
@@ -57,7 +57,7 @@ public enum CancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation has been received at the intermediary.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_bXgo19p-Ed-ak6NoX_4Aeg_2094579595")]
@@ -66,7 +66,7 @@ public enum CancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation request has been acknowledged for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bXqZ0Np-Ed-ak6NoX_4Aeg_2094579596")]
@@ -75,7 +75,7 @@ public enum CancellationProcessingStatus1Code
     
     /// <summary>
     /// Order is partially filled, cancellation processing accepted for the remainder.
-    /// Encoded/decoded by serializers as "PARF".
+    /// Encoded/decoded by serializers as &quot;PARF&quot;.
     /// </summary>
     [EnumMember(Value = "PARF")]
     [IsoId("_bXqZ0dp-Ed-ak6NoX_4Aeg_2094579626")]
@@ -84,7 +84,7 @@ public enum CancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation has been rejected for further processing.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_bXqZ0tp-Ed-ak6NoX_4Aeg_2094579627")]
@@ -93,7 +93,7 @@ public enum CancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation request is in repair.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_bXqZ09p-Ed-ak6NoX_4Aeg_2094579656")]

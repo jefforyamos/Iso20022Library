@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Grace period applicable to an instalment plan.
 /// </summary>
 [IsoId("_SDCRMEVCEeea-M6VZkEPUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Grace Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record GracePeriod1
     /// Grace period time relative to the grace period unit type. 
     /// </summary>
     [IsoId("_mEDvgEVCEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Tm")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3NumericText Time { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Time { get; init; } 
+    public required System.String Time { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Time { get; init; } 
     #else
@@ -75,16 +70,15 @@ public partial record GracePeriod1
     /// Grace period unit type.
     /// </summary>
     [IsoId("_tgcBgEVCEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitTp")]
     #endif
+    [IsoXmlTag("UnitTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GracePeriodUnitType1Code UnitType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GracePeriodUnitType1Code UnitType { get; init; } 
+    public required GracePeriodUnitType1Code UnitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GracePeriodUnitType1Code UnitType { get; init; } 
     #else
@@ -95,15 +89,13 @@ public partial record GracePeriod1
     /// Grace period other unit type.
     /// </summary>
     [IsoId("_7tjAcEVCEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Unit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrUnitTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrUnitTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherUnitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum InitialPhysicalFormCode
 {
     /// <summary>
     /// Initial Physical Form is GT.
-    /// Encoded/decoded by serializers as "GTGT".
+    /// Encoded/decoded by serializers as &quot;GTGT&quot;.
     /// </summary>
     [EnumMember(Value = "GTGT")]
     [IsoId("_hblKmWliEeGaMcKyqKNRfQ_-939155429")]
@@ -30,7 +30,7 @@ public enum InitialPhysicalFormCode
     
     /// <summary>
     /// Initial Physical Form is GP.
-    /// Encoded/decoded by serializers as "GPGP".
+    /// Encoded/decoded by serializers as &quot;GPGP&quot;.
     /// </summary>
     [EnumMember(Value = "GPGP")]
     [IsoId("_hblKmmliEeGaMcKyqKNRfQ_145243167")]
@@ -39,7 +39,7 @@ public enum InitialPhysicalFormCode
     
     /// <summary>
     /// Initial Physical Form is definitive.
-    /// Encoded/decoded by serializers as "DERN".
+    /// Encoded/decoded by serializers as &quot;DERN&quot;.
     /// </summary>
     [EnumMember(Value = "DERN")]
     [IsoId("_hblKm2liEeGaMcKyqKNRfQ_1943280310")]

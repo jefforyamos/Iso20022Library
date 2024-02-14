@@ -21,7 +21,7 @@ public enum InvestigationExecutionConfirmation4Code
 {
     /// <summary>
     /// Used when a requested cancellation has been partially executed.
-    /// Encoded/decoded by serializers as "PECR".
+    /// Encoded/decoded by serializers as &quot;PECR&quot;.
     /// </summary>
     [EnumMember(Value = "PECR")]
     [IsoId("_abdQQNp-Ed-ak6NoX_4Aeg_-698006802")]
@@ -30,7 +30,7 @@ public enum InvestigationExecutionConfirmation4Code
     
     /// <summary>
     /// Used when a requested cancellation has been rejected.
-    /// Encoded/decoded by serializers as "RJCR".
+    /// Encoded/decoded by serializers as &quot;RJCR&quot;.
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_abdQQdp-Ed-ak6NoX_4Aeg_-698006801")]

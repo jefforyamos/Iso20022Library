@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure7Choice
     /// Unit of measure expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_rnXegWp8EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure7Choice
         /// Identifies the unit of measure by means of a code. The code is taken from UN/ECE Recommendation 20.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required UnitOfMeasure9Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public UnitOfMeasure9Code Value { get; init; } 
+        public required UnitOfMeasure9Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public UnitOfMeasure9Code Value { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason6Choice
     /// Specifies the reason why the instruction has a failing settlement status.
     /// </summary>
     [IsoId("_itAoG0AAEeCaq78Ig8ATcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failing Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

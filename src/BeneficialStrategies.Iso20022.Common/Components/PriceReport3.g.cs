@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a price report.
 /// </summary>
 [IsoId("_brky0RmCEeKxsrht2duUcg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PriceReport3
     /// Information related to the price valuation of a financial instrument.
     /// </summary>
     [IsoId("_cAvKhRmCEeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Valuation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricValtnDtls")]
     #endif
+    [IsoXmlTag("PricValtnDtls")]
     public PriceValuation4? PriceValuationDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _cAvKhRmCEeKxsrht2duUcg
     

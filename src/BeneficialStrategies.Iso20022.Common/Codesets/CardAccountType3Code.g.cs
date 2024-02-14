@@ -21,7 +21,7 @@ public enum CardAccountType3Code
 {
     /// <summary>
     /// Certificate of deposit saving account.
-    /// Encoded/decoded by serializers as "CTDP".
+    /// Encoded/decoded by serializers as &quot;CTDP&quot;.
     /// </summary>
     [EnumMember(Value = "CTDP")]
     [IsoId("_OXtQMY0kEeWzoK7sd7oTyw")]
@@ -30,7 +30,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Checking account.
-    /// Encoded/decoded by serializers as "CHCK".
+    /// Encoded/decoded by serializers as &quot;CHCK&quot;.
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_OXtQM40kEeWzoK7sd7oTyw")]
@@ -39,7 +39,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Credit card account.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_OXtQNY0kEeWzoK7sd7oTyw")]
@@ -48,7 +48,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Current account.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_OXtQN40kEeWzoK7sd7oTyw")]
@@ -57,7 +57,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Debit card account.
-    /// Encoded/decoded by serializers as "CDBT".
+    /// Encoded/decoded by serializers as &quot;CDBT&quot;.
     /// </summary>
     [EnumMember(Value = "CDBT")]
     [IsoId("_OXtQOY0kEeWzoK7sd7oTyw")]
@@ -66,7 +66,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Default account.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_OXtQO40kEeWzoK7sd7oTyw")]
@@ -75,7 +75,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Electronic purse card account.
-    /// Encoded/decoded by serializers as "EPRS".
+    /// Encoded/decoded by serializers as &quot;EPRS&quot;.
     /// </summary>
     [EnumMember(Value = "EPRS")]
     [IsoId("_OXtQPY0kEeWzoK7sd7oTyw")]
@@ -84,7 +84,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Home equity loan credit account.
-    /// Encoded/decoded by serializers as "HEQL".
+    /// Encoded/decoded by serializers as &quot;HEQL&quot;.
     /// </summary>
     [EnumMember(Value = "HEQL")]
     [IsoId("_OXtQP40kEeWzoK7sd7oTyw")]
@@ -93,7 +93,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Instalment loan credit account.
-    /// Encoded/decoded by serializers as "ISTL".
+    /// Encoded/decoded by serializers as &quot;ISTL&quot;.
     /// </summary>
     [EnumMember(Value = "ISTL")]
     [IsoId("_OXtQQY0kEeWzoK7sd7oTyw")]
@@ -102,7 +102,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Investment account.
-    /// Encoded/decoded by serializers as "INVS".
+    /// Encoded/decoded by serializers as &quot;INVS&quot;.
     /// </summary>
     [EnumMember(Value = "INVS")]
     [IsoId("_OXtQQ40kEeWzoK7sd7oTyw")]
@@ -111,7 +111,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Line of credit account.
-    /// Encoded/decoded by serializers as "LCDT".
+    /// Encoded/decoded by serializers as &quot;LCDT&quot;.
     /// </summary>
     [EnumMember(Value = "LCDT")]
     [IsoId("_OXtQRY0kEeWzoK7sd7oTyw")]
@@ -120,7 +120,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Mobile Station Integrated Services Digital Network Number (MSISDN).
-    /// Encoded/decoded by serializers as "MBNW".
+    /// Encoded/decoded by serializers as &quot;MBNW&quot;.
     /// </summary>
     [EnumMember(Value = "MBNW")]
     [IsoId("_OXtQR40kEeWzoK7sd7oTyw")]
@@ -129,7 +129,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Money market saving account.
-    /// Encoded/decoded by serializers as "MNMK".
+    /// Encoded/decoded by serializers as &quot;MNMK&quot;.
     /// </summary>
     [EnumMember(Value = "MNMK")]
     [IsoId("_OXtQSY0kEeWzoK7sd7oTyw")]
@@ -138,7 +138,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Money market checking account.
-    /// Encoded/decoded by serializers as "MNMC".
+    /// Encoded/decoded by serializers as &quot;MNMC&quot;.
     /// </summary>
     [EnumMember(Value = "MNMC")]
     [IsoId("_OXtQS40kEeWzoK7sd7oTyw")]
@@ -147,7 +147,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Mortgage loan credit account.
-    /// Encoded/decoded by serializers as "MTGL".
+    /// Encoded/decoded by serializers as &quot;MTGL&quot;.
     /// </summary>
     [EnumMember(Value = "MTGL")]
     [IsoId("_OXtQTY0kEeWzoK7sd7oTyw")]
@@ -156,7 +156,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Retirement account.
-    /// Encoded/decoded by serializers as "RTRM".
+    /// Encoded/decoded by serializers as &quot;RTRM&quot;.
     /// </summary>
     [EnumMember(Value = "RTRM")]
     [IsoId("_OXtQT40kEeWzoK7sd7oTyw")]
@@ -165,7 +165,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Revolving loan account.
-    /// Encoded/decoded by serializers as "RVLV".
+    /// Encoded/decoded by serializers as &quot;RVLV&quot;.
     /// </summary>
     [EnumMember(Value = "RVLV")]
     [IsoId("_OXtQUY0kEeWzoK7sd7oTyw")]
@@ -174,7 +174,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Savings account.
-    /// Encoded/decoded by serializers as "SVNG".
+    /// Encoded/decoded by serializers as &quot;SVNG&quot;.
     /// </summary>
     [EnumMember(Value = "SVNG")]
     [IsoId("_OXtQU40kEeWzoK7sd7oTyw")]
@@ -183,7 +183,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Stock or bond investment account.
-    /// Encoded/decoded by serializers as "STBD".
+    /// Encoded/decoded by serializers as &quot;STBD&quot;.
     /// </summary>
     [EnumMember(Value = "STBD")]
     [IsoId("_OXtQVY0kEeWzoK7sd7oTyw")]
@@ -192,7 +192,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Universal account.
-    /// Encoded/decoded by serializers as "UVRL".
+    /// Encoded/decoded by serializers as &quot;UVRL&quot;.
     /// </summary>
     [EnumMember(Value = "UVRL")]
     [IsoId("_OXtQV40kEeWzoK7sd7oTyw")]
@@ -201,7 +201,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Pre-paid account.
-    /// Encoded/decoded by serializers as "PRPD".
+    /// Encoded/decoded by serializers as &quot;PRPD&quot;.
     /// </summary>
     [EnumMember(Value = "PRPD")]
     [IsoId("_S8TcwY0kEeWzoK7sd7oTyw")]
@@ -210,7 +210,7 @@ public enum CardAccountType3Code
     
     /// <summary>
     /// Fleet card account.
-    /// Encoded/decoded by serializers as "FLTC".
+    /// Encoded/decoded by serializers as &quot;FLTC&quot;.
     /// </summary>
     [EnumMember(Value = "FLTC")]
     [IsoId("_hpLzkZKYEeWRcecbKhfKuQ")]

@@ -21,7 +21,7 @@ public enum IncomePreference2Code
 {
     /// <summary>
     /// Distribution in cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_ril1cSFJEeWgV9SQSyaAog")]
@@ -30,7 +30,7 @@ public enum IncomePreference2Code
     
     /// <summary>
     /// Distribution in securities.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ryQpISFJEeWgV9SQSyaAog")]

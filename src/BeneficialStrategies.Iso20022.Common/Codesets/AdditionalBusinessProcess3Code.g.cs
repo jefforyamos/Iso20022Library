@@ -21,7 +21,7 @@ public enum AdditionalBusinessProcess3Code
 {
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "CLAI".
+    /// Encoded/decoded by serializers as &quot;CLAI&quot;.
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_bqbk1Np-Ed-ak6NoX_4Aeg_1334000184")]
@@ -30,7 +30,7 @@ public enum AdditionalBusinessProcess3Code
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TAXR".
+    /// Encoded/decoded by serializers as &quot;TAXR&quot;.
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_bqbk1dp-Ed-ak6NoX_4Aeg_1334000217")]

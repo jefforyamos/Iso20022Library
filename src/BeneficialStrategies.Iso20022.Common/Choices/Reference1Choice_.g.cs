@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reference1Choice.DisputeNotificationIdentification))]
     [KnownType(typeof(Reference1Choice.CollateralSubstitutionRequestIdentification))]
     [IsoId("_QmxqItp-Ed-ak6NoX_4Aeg_261203016")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

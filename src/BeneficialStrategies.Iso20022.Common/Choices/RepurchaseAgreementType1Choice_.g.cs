@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepurchaseAgreementType1Choice.SpecificCollateral))]
     [KnownType(typeof(RepurchaseAgreementType1Choice.GeneralCollateral))]
     [IsoId("_3-Tf4LbqEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Agreement Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

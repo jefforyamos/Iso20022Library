@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment transaction with an aggregated amount.
 /// </summary>
 [IsoId("_Yy7UkDDuEeO9waS4ina8CA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Aggregation Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record AggregationTransaction1
     /// Date and time of the first payment.
     /// </summary>
     [IsoId("_j5xGIDDuEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Payment Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstPmtDtTm")]
     #endif
+    [IsoXmlTag("FrstPmtDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? FirstPaymentDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record AggregationTransaction1
     /// Date and time of the last payment.
     /// </summary>
     [IsoId("_typ20DDuEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Payment Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastPmtDtTm")]
     #endif
+    [IsoXmlTag("LastPmtDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? LastPaymentDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record AggregationTransaction1
     /// Total number of payments that has been aggregated.
     /// </summary>
     [IsoId("_1wf3IDDuEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Payments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfPmts")]
     #endif
+    [IsoXmlTag("NbOfPmts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfPayments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,11 @@ public partial record AggregationTransaction1
     /// Individual payment that has been aggregated.
     /// </summary>
     [IsoId("__CQWYDDuEeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Payment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvPmt")]
     #endif
+    [IsoXmlTag("IndvPmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount6? IndividualPayment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

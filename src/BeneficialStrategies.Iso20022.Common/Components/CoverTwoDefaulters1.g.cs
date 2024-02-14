@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the two largest assumed defaulting entities under a particular scenario.
 /// </summary>
 [IsoId("_hs1wsLJPEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cover Two Defaulters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CoverTwoDefaulters1
     /// Identifies the member whose default would generate the largest liquidity exposure for the CCP under the scenario and for the relevant currency.
     /// </summary>
     [IsoId("_mgMyALJPEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cover 1 Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cover1Id")]
     #endif
+    [IsoXmlTag("Cover1Id")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier Cover1Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Cover1Identification { get; init; } 
+    public required System.String Cover1Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Cover1Identification { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record CoverTwoDefaulters1
     /// Identifies the member whose default would generate the second largest liquidity exposure for the CCP under the scenario and for the relevant currency.
     /// </summary>
     [IsoId("_ox2EgLJPEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cover 2 Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cover2Id")]
     #endif
+    [IsoXmlTag("Cover2Id")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier Cover2Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Cover2Identification { get; init; } 
+    public required System.String Cover2Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Cover2Identification { get; init; } 
     #else

@@ -27,13 +27,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This record is an implementation of the camt.060.001.05 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// The AccountReportingRequest message is sent by the account owner, either directly or through a forwarding agent, to one of its account servicing institutions. It is used to ask the account servicing institution to send a report on the account owner's account in a BankToCustomerAccountReport (camt.052), a BankToCustomerStatement (camt.053) or a BankToCustomerDebitCreditNotification (camt.054).
+/// The AccountReportingRequest message is sent by the account owner, either directly or through a forwarding agent, to one of its account servicing institutions. It is used to ask the account servicing institution to send a report on the account owner&apos;s account in a BankToCustomerAccountReport (camt.052), a BankToCustomerStatement (camt.053) or a BankToCustomerDebitCreditNotification (camt.054).
 /// </summary>
 [Description(@"Scope|The AccountReportingRequest message is sent by the account owner, either directly or through a forwarding agent, to one of its account servicing institutions. It is used to ask the account servicing institution to send a report on the account owner's account in a BankToCustomerAccountReport (camt.052), a BankToCustomerStatement (camt.053) or a BankToCustomerDebitCreditNotification (camt.054).")]
 [IsoId("_eYI_k22PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Reporting Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record AccountReportingRequestV05 : IOuterRecord<AccountReporting
     /// Set of elements used to provide further details on the message.
     /// </summary>
     [IsoId("_eYI_lW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader77 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader77 GroupHeader { get; init; } 
+    public required GroupHeader77 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader77 GroupHeader { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record AccountReportingRequestV05 : IOuterRecord<AccountReporting
     /// Set of elements used to provide further details on the reporting request.
     /// </summary>
     [IsoId("_eYI_l22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgReq")]
     #endif
+    [IsoXmlTag("RptgReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingRequest5 ReportingRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportingRequest5 ReportingRequest { get; init; } 
+    public required ReportingRequest5 ReportingRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportingRequest5 ReportingRequest { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record AccountReportingRequestV05 : IOuterRecord<AccountReporting
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_eYI_mW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record AccountReportingRequestV05 : IOuterRecord<AccountReporting
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountReportingRequestV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountReportingRequestV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountReportingRequestV05Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record AccountReportingRequestV05 : IOuterRecord<AccountReporting
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountReportingRequestV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountReportingRequestV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountReportingRequestV05Document : IOuterDocument<AccountReportingRequestV05>
@@ -162,7 +157,7 @@ public partial record AccountReportingRequestV05Document : IOuterDocument<Accoun
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountReportingRequestV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountReportingRequestV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountReportingRequestV05 Message { get; init; }

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EntryStatus1Choice
     /// Entry status, in a coded form.
     /// </summary>
     [IsoId("_H_H9sIaoEeeUws0ZryHQ2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.EntryStatus1Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalEntryStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalEntryStatus1Code Value { get; init; } 
+        public required ExternalEntryStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalEntryStatus1Code Value { get; init; } 
         #else

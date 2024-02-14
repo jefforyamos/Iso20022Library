@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instructions information received for a given option.
 /// </summary>
 [IsoId("_pf87HTi7Eeydid5dcNPKvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Option Instruction Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record OptionInstructionDetails8
     /// Identifies the instruction or protect instruction.
     /// </summary>
     [IsoId("_pf87Hzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax15Text)]
     [StringLength(maximumLength: 15 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINMax15Text InstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InstructionIdentification { get; init; } 
+    public required System.String InstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InstructionIdentification { get; init; } 
     #else
@@ -77,15 +73,12 @@ public partial record OptionInstructionDetails8
     /// Provides the sequence number of the instruction.
     /// </summary>
     [IsoId("_pf87ITi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrSeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("InstrSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? InstructionSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +91,11 @@ public partial record OptionInstructionDetails8
     /// Indicates whether the instruction is a protect or a cover protect instruction.
     /// </summary>
     [IsoId("_pf87Izi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctInd")]
     #endif
+    [IsoXmlTag("PrtctInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProtectTransactionType2Code? ProtectIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,16 +108,15 @@ public partial record OptionInstructionDetails8
     /// Securities quantity instructed in the instruction.
     /// </summary>
     [IsoId("_pf87JTi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrQty")]
     #endif
+    [IsoXmlTag("InstrQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity36Choice_ InstructionQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity36Choice_ InstructionQuantity { get; init; } 
+    public required FinancialInstrumentQuantity36Choice_ InstructionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity36Choice_ InstructionQuantity { get; init; } 
     #else
@@ -136,16 +127,16 @@ public partial record OptionInstructionDetails8
     /// Date of the instruction.
     /// </summary>
     [IsoId("_pf87Jzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrDt")]
     #endif
+    [IsoXmlTag("InstrDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate InstructionDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly InstructionDate { get; init; } 
+    public required System.DateOnly InstructionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly InstructionDate { get; init; } 
     #else
@@ -156,12 +147,12 @@ public partial record OptionInstructionDetails8
     /// Date of the client protect instruction.
     /// </summary>
     [IsoId("_pf87KTi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctDt")]
     #endif
+    [IsoXmlTag("PrtctDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ProtectDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +165,12 @@ public partial record OptionInstructionDetails8
     /// Date of the cover protect Instruction
     /// </summary>
     [IsoId("_pf87Kzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cover Protect Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CoverPrtctDt")]
     #endif
+    [IsoXmlTag("CoverPrtctDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CoverProtectDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +183,11 @@ public partial record OptionInstructionDetails8
     /// Bid price of the instruction.
     /// </summary>
     [IsoId("_pf87LTi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidPric")]
     #endif
+    [IsoXmlTag("BidPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat57Choice_? BidPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,12 +200,11 @@ public partial record OptionInstructionDetails8
     /// Conditional quantity of the instruction.
     /// </summary>
     [IsoId("_pf87Lzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conditional Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CondlQty")]
     #endif
+    [IsoXmlTag("CondlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity36Choice_? ConditionalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,15 +217,13 @@ public partial record OptionInstructionDetails8
     /// Customer related narrative information.
     /// </summary>
     [IsoId("_pf87MTi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CstmrRef")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax50Text)]
     [StringLength(maximumLength: 50 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax50Text? CustomerReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -249,15 +236,13 @@ public partial record OptionInstructionDetails8
     /// Narrative information from the submitted instruction.
     /// </summary>
     [IsoId("_pf87Mzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Narrative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrNrrtv")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrNrrtv")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax350Text? InstructionNarrative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -270,16 +255,15 @@ public partial record OptionInstructionDetails8
     /// Status of a particular instruction.
     /// </summary>
     [IsoId("_pf87NTi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrSts")]
     #endif
+    [IsoXmlTag("InstrSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstructionProcessingStatus48Choice_ InstructionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstructionProcessingStatus48Choice_ InstructionStatus { get; init; } 
+    public required InstructionProcessingStatus48Choice_ InstructionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstructionProcessingStatus48Choice_ InstructionStatus { get; init; } 
     #else

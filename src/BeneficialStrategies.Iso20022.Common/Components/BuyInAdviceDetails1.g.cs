@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of a buy-in.
 /// </summary>
 [IsoId("_fGNv0ZwREeqtp-LOti013g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Buy In Advice Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record BuyInAdviceDetails1
     /// References of the failing transaction.
     /// </summary>
     [IsoId("_fMwct5wREeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References23 Reference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References23 Reference { get; init; } 
+    public required References23 Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References23 Reference { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record BuyInAdviceDetails1
     /// Status of the buy-in transaction.
     /// </summary>
     [IsoId("_2kO5cJwREeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In State")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInStat")]
     #endif
+    [IsoXmlTag("BuyInStat")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BuyInState1Code BuyInState { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BuyInState1Code BuyInState { get; init; } 
+    public required BuyInState1Code BuyInState { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BuyInState1Code BuyInState { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record BuyInAdviceDetails1
     /// Specifies if the buy-in transaction was deferred or not.
     /// </summary>
     [IsoId("_8gDXoJwREeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In Deferral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInDfrrl")]
     #endif
+    [IsoXmlTag("BuyInDfrrl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BuyInDeferral1Code BuyInDeferral { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BuyInDeferral1Code BuyInDeferral { get; init; } 
+    public required BuyInDeferral1Code BuyInDeferral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BuyInDeferral1Code BuyInDeferral { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record BuyInAdviceDetails1
     /// Identification of the financial instrument of the buy-in instruction.
     /// </summary>
     [IsoId("_H0I7ApwSEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record BuyInAdviceDetails1
     /// Quantity of financial instrument concerned by the buy-in transaction.
     /// </summary>
     [IsoId("_JEf6MpwTEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,11 @@ public partial record BuyInAdviceDetails1
     /// Price of the traded financial instrument in the buy-in transaction.
     /// </summary>
     [IsoId("_aU_xoZwTEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInPric")]
     #endif
+    [IsoXmlTag("BuyInPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat39Choice_? BuyInPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +159,11 @@ public partial record BuyInAdviceDetails1
     /// Amount of money that has to be paid by the failing trading party in case of an unsuccessful or partially successful buy-in transaction.
     /// </summary>
     [IsoId("_kcLdAJwTEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Compensation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCompstnAmt")]
     #endif
+    [IsoXmlTag("CshCompstnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection102? CashCompensationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +176,11 @@ public partial record BuyInAdviceDetails1
     /// Settlement date of the buy-in. 
     /// </summary>
     [IsoId("_vGqpwpwTEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInSttlmDt")]
     #endif
+    [IsoXmlTag("BuyInSttlmDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? BuyInSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

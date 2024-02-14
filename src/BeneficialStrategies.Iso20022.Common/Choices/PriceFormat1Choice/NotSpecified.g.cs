@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat1Choice
     /// The value of the price is not specified.
     /// </summary>
     [IsoId("_QatkGtp-Ed-ak6NoX_4Aeg_-1046180910")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Specified")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

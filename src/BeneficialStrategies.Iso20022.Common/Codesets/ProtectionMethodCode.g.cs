@@ -21,7 +21,7 @@ public enum ProtectionMethodCode
 {
     /// <summary>
     /// Software protection method.
-    /// Encoded/decoded by serializers as "SOFT".
+    /// Encoded/decoded by serializers as &quot;SOFT&quot;.
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_ihY0MJyAEeuo7tDc4CDHXg")]
@@ -30,7 +30,7 @@ public enum ProtectionMethodCode
     
     /// <summary>
     /// Trusted execution environment method.
-    /// Encoded/decoded by serializers as "TEEN".
+    /// Encoded/decoded by serializers as &quot;TEEN&quot;.
     /// </summary>
     [EnumMember(Value = "TEEN")]
     [IsoId("_nIdtAJyAEeuo7tDc4CDHXg")]
@@ -39,7 +39,7 @@ public enum ProtectionMethodCode
     
     /// <summary>
     /// Secure element method.
-    /// Encoded/decoded by serializers as "SELM".
+    /// Encoded/decoded by serializers as &quot;SELM&quot;.
     /// </summary>
     [EnumMember(Value = "SELM")]
     [IsoId("_v09jEJyAEeuo7tDc4CDHXg")]
@@ -48,7 +48,7 @@ public enum ProtectionMethodCode
     
     /// <summary>
     /// Secure enclave method.
-    /// Encoded/decoded by serializers as "SNCL".
+    /// Encoded/decoded by serializers as &quot;SNCL&quot;.
     /// </summary>
     [EnumMember(Value = "SNCL")]
     [IsoId("_2HHdoJyAEeuo7tDc4CDHXg")]
@@ -57,7 +57,7 @@ public enum ProtectionMethodCode
     
     /// <summary>
     /// Other privately assigned code.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_6kwtoJyAEeuo7tDc4CDHXg")]
@@ -66,7 +66,7 @@ public enum ProtectionMethodCode
     
     /// <summary>
     /// Other code assigned by national organisation.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_KZ-S0JyBEeuo7tDc4CDHXg")]
@@ -75,7 +75,7 @@ public enum ProtectionMethodCode
     
     /// <summary>
     /// Trusted Platform Module (TPM).
-    /// Encoded/decoded by serializers as "TPMD".
+    /// Encoded/decoded by serializers as &quot;TPMD&quot;.
     /// </summary>
     [EnumMember(Value = "TPMD")]
     [IsoId("_P8l5gKH1EeuiuNcvKhXmNQ")]
@@ -84,7 +84,7 @@ public enum ProtectionMethodCode
     
     /// <summary>
     /// Virtual trusted execution environment	
-    /// Encoded/decoded by serializers as "VTEE".
+    /// Encoded/decoded by serializers as &quot;VTEE&quot;.
     /// </summary>
     [EnumMember(Value = "VTEE")]
     [IsoId("_fMd9AKH1EeuiuNcvKhXmNQ")]

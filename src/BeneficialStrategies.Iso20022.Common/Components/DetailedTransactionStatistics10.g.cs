@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about number of transactions accepted and rejected and the reasons of the rejections.
 /// </summary>
 [IsoId("_j31tca4cEemB_csI4yyKLA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Transaction Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,16 @@ public partial record DetailedTransactionStatistics10
     /// Total number of reports sent or received.
     /// </summary>
     [IsoId("_j8wpsa4cEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTxs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfTxs")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfTransactions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfTransactions { get; init; } 
+    public required System.String TotalNumberOfTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfTransactions { get; init; } 
     #else
@@ -76,19 +71,16 @@ public partial record DetailedTransactionStatistics10
     /// Total number of transactions accepted.
     /// </summary>
     [IsoId("_j8wps64cEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Transactions Accepted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTxsAccptd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfTxsAccptd")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfTransactionsAccepted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfTransactionsAccepted { get; init; } 
+    public required System.String TotalNumberOfTransactionsAccepted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfTransactionsAccepted { get; init; } 
     #else
@@ -99,19 +91,16 @@ public partial record DetailedTransactionStatistics10
     /// Total number of transactions rejected.
     /// </summary>
     [IsoId("_j8wpta4cEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Transactions Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTxsRjctd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfTxsRjctd")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfTransactionsRejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfTransactionsRejected { get; init; } 
+    public required System.String TotalNumberOfTransactionsRejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfTransactionsRejected { get; init; } 
     #else
@@ -122,12 +111,11 @@ public partial record DetailedTransactionStatistics10
     /// Number of transactions rejected per error code.
     /// </summary>
     [IsoId("_j8wpt64cEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Transactions Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfTxsRjctd")]
     #endif
+    [IsoXmlTag("NbOfTxsRjctd")]
     public RejectionReason47? NumberOfTransactionsRejected { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _j8wpt64cEemB_csI4yyKLA
     

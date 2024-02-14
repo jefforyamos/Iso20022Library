@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrentYearType2Choice
     /// Current year ISA is an ISA that was issued during the current fiscal year.
     /// </summary>
     [IsoId("_3gENYUXfEeGY6MkiuzuPOA_-1651867592")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Current Year Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrentYearType2Choice
         /// Code and / or description for values that are not yet part of the related code list.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="XtndedCurYrTp")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("XtndedCurYrTp")]
+        [IsoSimpleType(IsoSimpleType.Extended350Code)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExtended350Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

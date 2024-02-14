@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data specific to commodities and related fields used as a collateral.
 /// </summary>
 [IsoId("_EvTYIdR8EemZdYGWu384Zw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Commodity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Commodity21
     /// Specifies whether the values defined asset class commodity are matching or not.
     /// </summary>
     [IsoId("_EzO14dR8EemZdYGWu384Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clssfctn")]
     #endif
+    [IsoXmlTag("Clssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCommodityAssetClass2? Classification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Commodity21
     /// Specifies whether the values defined as decimal number are matching or not.
     /// </summary>
     [IsoId("_EzO149R8EemZdYGWu384Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDecimalNumber2? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Commodity21
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>
     [IsoId("_EzO15dR8EemZdYGWu384Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitPric")]
     #endif
+    [IsoXmlTag("UnitPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice3? UnitPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Commodity21
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
     [IsoId("_EzO159R8EemZdYGWu384Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record Commodity21
     /// Specifies whether the values defined as unit of measure code are matching or not.
     /// </summary>
     [IsoId("_EzO16dR8EemZdYGWu384Zw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitOfMeasr")]
     #endif
+    [IsoXmlTag("UnitOfMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitOfMeasure2? UnitOfMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Expected trade date and expected settlement date of the order execution.
 /// </summary>
 [IsoId("_R6914Np-Ed-ak6NoX_4Aeg_1060526305")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Expected Execution Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ExpectedExecutionDetails2
     /// Expected date or expected date and time at which a price will be applied according to the terms of the prospectus.
     /// </summary>
     [IsoId("_R6914dp-Ed-ak6NoX_4Aeg_1060526331")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Trade Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdTradDtTm")]
     #endif
+    [IsoXmlTag("XpctdTradDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ExpectedTradeDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record ExpectedExecutionDetails2
     /// Expected date at which the financial instruments will be exchanged against cash.
     /// </summary>
     [IsoId("_R6914tp-Ed-ak6NoX_4Aeg_1060526347")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Cash Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdCshSttlmDt")]
     #endif
+    [IsoXmlTag("XpctdCshSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpectedCashSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

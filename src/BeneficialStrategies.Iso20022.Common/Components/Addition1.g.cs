@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Addition of a new element.
 /// </summary>
 [IsoId("_UtCU59p-Ed-ak6NoX_4Aeg_1642866501")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Addition")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record Addition1
     /// Content of the new element.
     /// </summary>
     [IsoId("_UtCU6Np-Ed-ak6NoX_4Aeg_-1834784201")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proposed Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PropsdVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PropsdVal")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text ProposedValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProposedValue { get; init; } 
+    public required System.String ProposedValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProposedValue { get; init; } 
     #else

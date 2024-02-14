@@ -21,7 +21,7 @@ public enum AssuredTypeCode
 {
     /// <summary>
     /// The buyer should be the assured.
-    /// Encoded/decoded by serializers as "BUYE".
+    /// Encoded/decoded by serializers as &quot;BUYE&quot;.
     /// </summary>
     [EnumMember(Value = "BUYE")]
     [IsoId("_bjbk8Np-Ed-ak6NoX_4Aeg_1647471499")]
@@ -30,7 +30,7 @@ public enum AssuredTypeCode
     
     /// <summary>
     /// The seller should be the assured.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_bjbk8dp-Ed-ak6NoX_4Aeg_1647471558")]
@@ -38,8 +38,8 @@ public enum AssuredTypeCode
     Seller,
     
     /// <summary>
-    /// The buyer's bank should be the assured.
-    /// Encoded/decoded by serializers as "BUBA".
+    /// The buyer&apos;s bank should be the assured.
+    /// Encoded/decoded by serializers as &quot;BUBA&quot;.
     /// </summary>
     [EnumMember(Value = "BUBA")]
     [IsoId("_bjbk8tp-Ed-ak6NoX_4Aeg_1971625958")]
@@ -47,8 +47,8 @@ public enum AssuredTypeCode
     BuyerBank,
     
     /// <summary>
-    /// The seller's bank should be the assured.
-    /// Encoded/decoded by serializers as "SEBA".
+    /// The seller&apos;s bank should be the assured.
+    /// Encoded/decoded by serializers as &quot;SEBA&quot;.
     /// </summary>
     [EnumMember(Value = "SEBA")]
     [IsoId("_bjbk89p-Ed-ak6NoX_4Aeg_2001181880")]

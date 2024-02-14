@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status26Choice
     /// Status report details of a bulk or multiple or switch order cancellation message.
     /// </summary>
     [IsoId("_n7iikkgrEeaD2L_hzZaE0w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,15 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Status26Choice
         /// Reference assigned to a set of orders or trades in order to link them together.
         /// </summary>
         [IsoId("_5uS5tTbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Master Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MstrRef")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MstrRef")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MasterReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,16 +73,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Status26Choice
         /// Cancellation status of the order cancellation.
         /// </summary>
         [IsoId("_MlLY8EgsEeaD2L_hzZaE0w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cancellation Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CxlSts")]
         #endif
+        [IsoXmlTag("CxlSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CancellationStatus22Choice_ CancellationStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CancellationStatus22Choice_ CancellationStatus { get; init; } 
+        public required CancellationStatus22Choice_ CancellationStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CancellationStatus22Choice_ CancellationStatus { get; init; } 
         #else
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Status26Choice
         /// Party that initiates the status of the order cancellation.
         /// </summary>
         [IsoId("_5uS5uzbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Status Initiator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StsInitr")]
         #endif
+        [IsoXmlTag("StsInitr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification113? StatusInitiator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

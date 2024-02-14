@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the entity to which the financial instruments are pledged expressed as a code and a narrative description.
 /// </summary>
 [IsoId("_Sg8bNW_nEeSNvKTulh2IuA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pledgee Type And Text")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record PledgeeTypeAndText2
     /// Additional information about the entity to which the financial instruments are pledged.
     /// </summary>
     [IsoId("_Sg8bN2_nEeSNvKTulh2IuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax30Text)]
     [StringLength(maximumLength: 30 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax30Text? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record PledgeeTypeAndText2
     /// Entity to which the financial instruments are pledged expressed as a code.
     /// </summary>
     [IsoId("_Sg8bOW_nEeSNvKTulh2IuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pledgee Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PldgeeTp")]
     #endif
+    [IsoXmlTag("PldgeeTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PledgeeType1Code PledgeeType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PledgeeType1Code PledgeeType { get; init; } 
+    public required PledgeeType1Code PledgeeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PledgeeType1Code PledgeeType { get; init; } 
     #else

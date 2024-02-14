@@ -21,7 +21,7 @@ public enum PeriodUnit2Code
 {
     /// <summary>
     /// Period unit expressed in hours.
-    /// Encoded/decoded by serializers as "HOUR".
+    /// Encoded/decoded by serializers as &quot;HOUR&quot;.
     /// </summary>
     [EnumMember(Value = "HOUR")]
     [IsoId("_I1r-sXyYEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum PeriodUnit2Code
     
     /// <summary>
     /// Half days
-    /// Encoded/decoded by serializers as "HFDA".
+    /// Encoded/decoded by serializers as &quot;HFDA&quot;.
     /// </summary>
     [EnumMember(Value = "HFDA")]
     [IsoId("_I1r-s3yYEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum PeriodUnit2Code
     
     /// <summary>
     /// Counted in days.
-    /// Encoded/decoded by serializers as "DAYS".
+    /// Encoded/decoded by serializers as &quot;DAYS&quot;.
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_I1r-tXyYEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum PeriodUnit2Code
     
     /// <summary>
     /// Counted in weeks.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_I1r-t3yYEemfrNOe0zHQyg")]
@@ -57,7 +57,7 @@ public enum PeriodUnit2Code
     
     /// <summary>
     /// Counted in months.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_I1r-uXyYEemfrNOe0zHQyg")]
@@ -66,7 +66,7 @@ public enum PeriodUnit2Code
     
     /// <summary>
     /// Counted in years.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_I1r-u3yYEemfrNOe0zHQyg")]
@@ -75,7 +75,7 @@ public enum PeriodUnit2Code
     
     /// <summary>
     /// Period unit expressed in minutes
-    /// Encoded/decoded by serializers as "MINU".
+    /// Encoded/decoded by serializers as &quot;MINU&quot;.
     /// </summary>
     [EnumMember(Value = "MINU")]
     [IsoId("_I1r-vXyYEemfrNOe0zHQyg")]
@@ -84,7 +84,7 @@ public enum PeriodUnit2Code
     
     /// <summary>
     /// Counted in some other unit.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_I1r-v3yYEemfrNOe0zHQyg")]

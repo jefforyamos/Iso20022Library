@@ -21,7 +21,7 @@ public enum TaxType9Code
 {
     /// <summary>
     /// Tax is a provincial tax.
-    /// Encoded/decoded by serializers as "PROV".
+    /// Encoded/decoded by serializers as &quot;PROV&quot;.
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_Yksi89p-Ed-ak6NoX_4Aeg_-1809973337")]
@@ -30,7 +30,7 @@ public enum TaxType9Code
     
     /// <summary>
     /// Tax is a national tax.
-    /// Encoded/decoded by serializers as "NATI".
+    /// Encoded/decoded by serializers as &quot;NATI&quot;.
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_Yksi9Np-Ed-ak6NoX_4Aeg_-1809973277")]
@@ -39,7 +39,7 @@ public enum TaxType9Code
     
     /// <summary>
     /// Tax is a state tax.
-    /// Encoded/decoded by serializers as "STAT".
+    /// Encoded/decoded by serializers as &quot;STAT&quot;.
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_Yksi9dp-Ed-ak6NoX_4Aeg_-1809973260")]
@@ -48,7 +48,7 @@ public enum TaxType9Code
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_Yksi9tp-Ed-ak6NoX_4Aeg_-1809973242")]
@@ -57,7 +57,7 @@ public enum TaxType9Code
     
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "STAM".
+    /// Encoded/decoded by serializers as &quot;STAM&quot;.
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_Yksi99p-Ed-ak6NoX_4Aeg_-1809972969")]
@@ -66,7 +66,7 @@ public enum TaxType9Code
     
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
-    /// Encoded/decoded by serializers as "COAX".
+    /// Encoded/decoded by serializers as &quot;COAX&quot;.
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_Yk2T8Np-Ed-ak6NoX_4Aeg_-1809972968")]
@@ -75,7 +75,7 @@ public enum TaxType9Code
     
     /// <summary>
     /// Tax is a value added tax.
-    /// Encoded/decoded by serializers as "VATA".
+    /// Encoded/decoded by serializers as &quot;VATA&quot;.
     /// </summary>
     [EnumMember(Value = "VATA")]
     [IsoId("_Yk2T8dp-Ed-ak6NoX_4Aeg_-1791501938")]
@@ -84,7 +84,7 @@ public enum TaxType9Code
     
     /// <summary>
     /// Tax is customs and excise.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_Yk2T8tp-Ed-ak6NoX_4Aeg_-1830323614")]

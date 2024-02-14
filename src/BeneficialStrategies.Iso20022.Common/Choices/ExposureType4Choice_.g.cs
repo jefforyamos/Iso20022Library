@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExposureType4Choice.Code))]
     [KnownType(typeof(ExposureType4Choice.Proprietary))]
     [IsoId("_oKLSc9xKEd-tnM7aRm4nqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Type 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

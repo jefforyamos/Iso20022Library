@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestSt
     /// Provides status information related to a cancellation request accepted for further processing.
     /// </summary>
     [IsoId("_86aSp5wtEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestSt
         /// Indicates that there is no reason available or to report.
         /// </summary>
         [IsoId("_UatOwNp-Ed-ak6NoX_4Aeg_137164408")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("No Specified Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NoSpcfdRsn")]
         #endif
+        [IsoXmlTag("NoSpcfdRsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NoReasonCode NoSpecifiedReason { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NoReasonCode NoSpecifiedReason { get; init; } 
+        public required NoReasonCode NoSpecifiedReason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NoReasonCode NoSpecifiedReason { get; init; } 
         #else

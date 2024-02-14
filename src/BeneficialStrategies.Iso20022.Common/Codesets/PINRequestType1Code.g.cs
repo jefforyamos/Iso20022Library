@@ -21,7 +21,7 @@ public enum PINRequestType1Code
 {
     /// <summary>
     /// The cardholder enters the PIN, the POI enciphers the PIN Block and provides it as a result to the Sale System.
-    /// Encoded/decoded by serializers as "PIAE".
+    /// Encoded/decoded by serializers as &quot;PIAE&quot;.
     /// </summary>
     [EnumMember(Value = "PIAE")]
     [IsoId("_WYR0Yd7AEeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum PINRequestType1Code
     
     /// <summary>
     /// The Cardholder enters the PIN and the POI verifies it.
-    /// Encoded/decoded by serializers as "PIAV".
+    /// Encoded/decoded by serializers as &quot;PIAV&quot;.
     /// </summary>
     [EnumMember(Value = "PIAV")]
     [IsoId("_WbNMkd7AEeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum PINRequestType1Code
     
     /// <summary>
     /// The Sale System send a previous keyed PIN and the POI verifies it.
-    /// Encoded/decoded by serializers as "PIVO".
+    /// Encoded/decoded by serializers as &quot;PIVO&quot;.
     /// </summary>
     [EnumMember(Value = "PIVO")]
     [IsoId("_WfOw8d7AEeiwsev40qZGEQ")]

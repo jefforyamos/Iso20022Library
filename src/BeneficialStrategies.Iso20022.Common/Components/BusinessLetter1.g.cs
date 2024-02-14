@@ -27,9 +27,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// (3) - the LegalContext element.
 /// </summary>
 [IsoId("_OTgzMTkz-AOSNFX-8224490")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Letter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -58,15 +56,13 @@ public partial record BusinessLetter1
     /// Application context defined by users. This is typically the name of a product.
     /// </summary>
     [IsoId("_OTgzMjAz-AOSNFX-8224491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplCntxt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ApplCntxt")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ApplicationContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -79,16 +75,15 @@ public partial record BusinessLetter1
     /// Unambiguous identifier for this letter.
     /// </summary>
     [IsoId("_OTgzMjA1-AOSNFX-8224491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Letter Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LttrIdr")]
     #endif
+    [IsoXmlTag("LttrIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedDocumentInformation1 LetterIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QualifiedDocumentInformation1 LetterIdentifier { get; init; } 
+    public required QualifiedDocumentInformation1 LetterIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QualifiedDocumentInformation1 LetterIdentifier { get; init; } 
     #else
@@ -99,16 +94,16 @@ public partial record BusinessLetter1
     /// Purported creation date of the document.
     /// </summary>
     [IsoId("_OTgzMjA2-AOSNFX-8224491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate Date { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly Date { get; init; } 
+    public required System.DateOnly Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly Date { get; init; } 
     #else
@@ -119,12 +114,11 @@ public partial record BusinessLetter1
     /// Identifier of a related letter.
     /// </summary>
     [IsoId("_OTgzMjA3-AOSNFX-8224491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Letter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdLttr")]
     #endif
+    [IsoXmlTag("RltdLttr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? RelatedLetter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +131,11 @@ public partial record BusinessLetter1
     /// Identifier of a related message.
     /// </summary>
     [IsoId("_OTgzMjA4-AOSNFX-822449")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdMsg")]
     #endif
+    [IsoXmlTag("RltdMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? RelatedMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,15 +148,13 @@ public partial record BusinessLetter1
     /// Cross references the lists that are associated to this letter inside a message. The identifiers are relative to the Originator.
     /// </summary>
     [IsoId("_OTgzMjA5-AOSNFX-8224491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CnttIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ContentIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +167,11 @@ public partial record BusinessLetter1
     /// Urgency or order of importance that the originator would like the recipient of the business letter to apply to the processing of the letter.
     /// </summary>
     [IsoId("_OTgzMjEx-AOSNFX-8224491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrPrty")]
     #endif
+    [IsoXmlTag("InstrPrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority3Code? InstructionPriority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,16 +184,15 @@ public partial record BusinessLetter1
     /// Identification of the originating party of this letter.
     /// </summary>
     [IsoId("_OTgzMjEz-AOSNFX-8224491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Orgtr")]
     #endif
+    [IsoXmlTag("Orgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedPartyIdentification1 Originator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QualifiedPartyIdentification1 Originator { get; init; } 
+    public required QualifiedPartyIdentification1 Originator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QualifiedPartyIdentification1 Originator { get; init; } 
     #else
@@ -214,12 +203,11 @@ public partial record BusinessLetter1
     /// Primary recipient of the business letter. The exact meaning is given by the users.
     /// </summary>
     [IsoId("_OTgzMjE0-AOSNFX-8224491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryRcpt")]
     #endif
+    [IsoXmlTag("PmryRcpt")]
     public QualifiedPartyIdentification1? PrimaryRecipient { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _OTgzMjE0-AOSNFX-8224491
     
@@ -227,12 +215,11 @@ public partial record BusinessLetter1
     /// Sender of the business letter. The exact meaning is given by the users.
     /// </summary>
     [IsoId("_OTgzMjE1-AOSNFX-8224492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sndr")]
     #endif
+    [IsoXmlTag("Sndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Sender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +232,11 @@ public partial record BusinessLetter1
     /// User who, either individually or in concert with others, authorises the origination of a message.
     /// </summary>
     [IsoId("_OTgzMjE2-AOSNFX-8224492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation User")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnUsr")]
     #endif
+    [IsoXmlTag("AuthstnUsr")]
     public QualifiedPartyIdentification1? AuthorisationUser { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _OTgzMjE2-AOSNFX-8224492
     
@@ -258,12 +244,11 @@ public partial record BusinessLetter1
     /// Party to receive a reply to this letter.
     /// </summary>
     [IsoId("_OTgzMjE3-AOSNFX-8224492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnRcpt")]
     #endif
+    [IsoXmlTag("RspnRcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? ResponseRecipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -276,12 +261,11 @@ public partial record BusinessLetter1
     /// Party to receive a copy of the message.
     /// </summary>
     [IsoId("_OTgzMjE4-AOSNFX-8224492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyRcpt")]
     #endif
+    [IsoXmlTag("CpyRcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? CopyRecipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -294,12 +278,11 @@ public partial record BusinessLetter1
     /// Other party involved. This element is usable as a target for IDREFs.
     /// </summary>
     [IsoId("_OTgzMjE5-AOSNFX-8224492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPty")]
     #endif
+    [IsoXmlTag("OthrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? OtherParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -312,12 +295,11 @@ public partial record BusinessLetter1
     /// Associated free form document.
     /// </summary>
     [IsoId("_OTgzMjIw-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Associated Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssoctdDoc")]
     #endif
+    [IsoXmlTag("AssoctdDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -330,12 +312,11 @@ public partial record BusinessLetter1
     /// Governing contract.
     /// </summary>
     [IsoId("_OTgzMjIx-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Governing Contract")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GovngCtrct")]
     #endif
+    [IsoXmlTag("GovngCtrct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? GoverningContract { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -348,12 +329,11 @@ public partial record BusinessLetter1
     /// Rules and laws governing the letter.
     /// </summary>
     [IsoId("_OTgzMjIz-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglCntxt")]
     #endif
+    [IsoXmlTag("LglCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GovernanceRules2? LegalContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -366,15 +346,13 @@ public partial record BusinessLetter1
     /// Free form information about this message.
     /// </summary>
     [IsoId("_OTgzMjI0-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -387,15 +365,13 @@ public partial record BusinessLetter1
     /// Free form information unrelated to the message for example advertising or a service notice.
     /// </summary>
     [IsoId("_OTgzMjI1-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntce")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Ntce")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Notice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -408,12 +384,11 @@ public partial record BusinessLetter1
     /// Status of referenced messages or letters.
     /// </summary>
     [IsoId("_OTgzMjI2-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Status Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnStsInf")]
     #endif
+    [IsoXmlTag("VldtnStsInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -426,12 +401,11 @@ public partial record BusinessLetter1
     /// Digital signatures and signing parties of this letter or parts of it.
     /// </summary>
     [IsoId("_OTgzMjI4-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyAndXMLSignature1? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

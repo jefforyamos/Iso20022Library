@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to counterparty identification.
 /// </summary>
 [IsoId("_fXcpwZQMEeiILOjNP8ro1w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record Counterparty28
     /// This field shall be filled from the perspective of the reporting counterparty. In case of a private individual a client code shall be used in a consistent manner.
     /// </summary>
     [IsoId("_fi32oZQMEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification9Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification9Choice_ Identification { get; init; } 
+    public required OrganisationIdentification9Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification9Choice_ Identification { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record Counterparty28
     /// The code of country where the registered office of the other counterparty is located or country of residence in case that the other counterparty is a natural person.
     /// </summary>
     [IsoId("_fi32o5QMEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else

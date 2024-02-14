@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
 /// </summary>
 [IsoId("_Ufx8Btp-Ed-ak6NoX_4Aeg_1753382733")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SettlementDetails7
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
     [IsoId("_Ufx8B9p-Ed-ak6NoX_4Aeg_1303192240")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hold Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldInd")]
     #endif
+    [IsoXmlTag("HldInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? HoldIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record SettlementDetails7
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
     [IsoId("_Ufx8CNp-Ed-ak6NoX_4Aeg_1639543667")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Transaction Condition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTxCond")]
     #endif
+    [IsoXmlTag("SttlmTxCond")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTransactionCondition1Choice_? SettlementTransactionCondition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record SettlementDetails7
     /// Role of a party in the settlement of the transaction.
     /// </summary>
     [IsoId("_Ufx8Cdp-Ed-ak6NoX_4Aeg_934429052")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settling Capacity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlgCpcty")]
     #endif
+    [IsoXmlTag("SttlgCpcty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlingCapacity1Choice_? SettlingCapacity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record SettlementDetails7
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
     [IsoId("_Ufx8Ctp-Ed-ak6NoX_4Aeg_-240761973")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stamp Duty Tax Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmpDtyTaxBsis")]
     #endif
+    [IsoXmlTag("StmpDtyTaxBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification20? StampDutyTaxBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record SettlementDetails7
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
     [IsoId("_Ufx8C9p-Ed-ak6NoX_4Aeg_1404505462")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities RTGS")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesRTGS")]
     #endif
+    [IsoXmlTag("SctiesRTGS")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesRTGS1Choice_? SecuritiesRTGS { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,11 @@ public partial record SettlementDetails7
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
     [IsoId("_Ufx8DNp-Ed-ak6NoX_4Aeg_-1351673392")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Regn")]
     #endif
+    [IsoXmlTag("Regn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Registration1Choice_? Registration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record SettlementDetails7
     /// Specifies whether there is change of beneficial ownership.
     /// </summary>
     [IsoId("_Uf7F8Np-Ed-ak6NoX_4Aeg_-2056788007")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficial Ownership")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfclOwnrsh")]
     #endif
+    [IsoXmlTag("BnfclOwnrsh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficialOwnership1Choice_? BeneficialOwnership { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +162,11 @@ public partial record SettlementDetails7
     /// Specifies the category of cash clearing system, eg, cheque clearing.
     /// </summary>
     [IsoId("_Uf7F8dp-Ed-ak6NoX_4Aeg_1062988264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Clearing System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshClrSys")]
     #endif
+    [IsoXmlTag("CshClrSys")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashSettlementSystem1Choice_? CashClearingSystem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +179,11 @@ public partial record SettlementDetails7
     /// Tax role capacity of the instructing party.
     /// </summary>
     [IsoId("_Uf7F8tp-Ed-ak6NoX_4Aeg_-1586711597")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Capacity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxCpcty")]
     #endif
+    [IsoXmlTag("TaxCpcty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxCapacityParty1Choice_? TaxCapacity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +196,11 @@ public partial record SettlementDetails7
     /// Specifies whether the rate is fixed, variable or a forfeit.
     /// </summary>
     [IsoId("_Uf7F89p-Ed-ak6NoX_4Aeg_-47923155")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpTp")]
     #endif
+    [IsoXmlTag("RpTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RepurchaseType3Choice_? RepurchaseType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +213,11 @@ public partial record SettlementDetails7
     /// Specifies if an instruction is for a market side or a client side transaction.
     /// </summary>
     [IsoId("_Uf7F9Np-Ed-ak6NoX_4Aeg_-753037770")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Client Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktClntSd")]
     #endif
+    [IsoXmlTag("MktClntSd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketClientSide1Choice_? MarketClientSide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +230,11 @@ public partial record SettlementDetails7
     /// Specifies whether the settlement instruction is a block parent or child.
     /// </summary>
     [IsoId("_Uf7F9dp-Ed-ak6NoX_4Aeg_15872320")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Trade")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckTrad")]
     #endif
+    [IsoXmlTag("BlckTrad")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockTrade1Choice_? BlockTrade { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +247,11 @@ public partial record SettlementDetails7
     /// Regulatory restrictions applicable to a security.
     /// </summary>
     [IsoId("_Uf7F9tp-Ed-ak6NoX_4Aeg_-1159318705")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Restrictions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglRstrctns")]
     #endif
+    [IsoXmlTag("LglRstrctns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Restriction1Choice_? LegalRestrictions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +264,11 @@ public partial record SettlementDetails7
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
     [IsoId("_Uf7F99p-Ed-ak6NoX_4Aeg_485948730")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement System Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSysMtd")]
     #endif
+    [IsoXmlTag("SttlmSysMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementSystemMethod1Choice_? SettlementSystemMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +281,11 @@ public partial record SettlementDetails7
     /// Specifies whether the settlement transaction is eligible for netting.
     /// </summary>
     [IsoId("_Uf7F-Np-Ed-ak6NoX_4Aeg_2024737172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Netting Eligibility")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetgElgblty")]
     #endif
+    [IsoXmlTag("NetgElgblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NettingEligibility1Choice_? NettingEligibility { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +298,11 @@ public partial record SettlementDetails7
     /// Specifies whether the settlement transaction is CCP (Central Counterparty) eligible.
     /// </summary>
     [IsoId("_Uf7F-dp-Ed-ak6NoX_4Aeg_1319622557")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CCP Eligibility")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CCPElgblty")]
     #endif
+    [IsoXmlTag("CCPElgblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CentralCounterPartyEligibility1Choice_? CCPEligibility { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -332,12 +315,11 @@ public partial record SettlementDetails7
     /// Specifies whether physical settlement may be executed using a letter of guarantee or if the physical certificates should be used.
     /// </summary>
     [IsoId("_Uf7F-tp-Ed-ak6NoX_4Aeg_144431532")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Letter Of Guarantee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LttrOfGrnt")]
     #endif
+    [IsoXmlTag("LttrOfGrnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LetterOfGuarantee1Choice_? LetterOfGuarantee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -350,12 +332,12 @@ public partial record SettlementDetails7
     /// Specifies whether partial settlement is allowed.
     /// </summary>
     [IsoId("_UgE28Np-Ed-ak6NoX_4Aeg_1789698967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial Settlement Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlSttlmInd")]
     #endif
+    [IsoXmlTag("PrtlSttlmInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PartialSettlementIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

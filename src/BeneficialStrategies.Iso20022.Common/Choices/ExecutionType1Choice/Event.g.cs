@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExecutionType1Choice
     /// Execution type is executed based on an event driven trigger.
     /// </summary>
     [IsoId("_750BgaMgEeCJ6YNENx4h-w_989331050")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

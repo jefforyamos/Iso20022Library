@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status is accepted under certain conditions.
 /// </summary>
 [IsoId("_RM7EKdp-Ed-ak6NoX_4Aeg_-367108012")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Conditionally Accepted Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ConditionallyAcceptedStatus2
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_RM7EKtp-Ed-ak6NoX_4Aeg_-367107934")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Specified Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoSpcfdRsn")]
     #endif
+    [IsoXmlTag("NoSpcfdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoSpecifiedReason { get; init; } 
+    public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoSpecifiedReason { get; init; } 
     #else
@@ -71,16 +68,13 @@ public partial record ConditionallyAcceptedStatus2
     /// Reason for the conditionally accepted status.
     /// </summary>
     [IsoId("_RM7EK9p-Ed-ak6NoX_4Aeg_1592724754")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsnDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RsnDtls")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<ConditionallyAcceptedStatusReason2> ReasonDetails { get; init; } = new ValueList<ConditionallyAcceptedStatusReason2>(){};
     
     

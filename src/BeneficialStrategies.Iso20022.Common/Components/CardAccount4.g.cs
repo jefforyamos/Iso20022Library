@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Customer account information.
 /// </summary>
 [IsoId("_eYroYYp5EeS3NqNpgnMh2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CardAccount4
     /// Method used by the cardholder and the terminal for the choice of the account.
     /// </summary>
     [IsoId("_ekmkgYp5EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Selection Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SelctnMtd")]
     #endif
+    [IsoXmlTag("SelctnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountChoiceMethod1Code? SelectionMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CardAccount4
     /// Type of cardholder account used for the transaction.
     /// </summary>
     [IsoId("_ekmkg4p5EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Selected Account Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SelctdAcctTp")]
     #endif
+    [IsoXmlTag("SelctdAcctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccountType2Code? SelectedAccountType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -78,18 +74,16 @@ public partial record CardAccount4
     
     /// <summary>
     /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.
-    /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
+    /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner&apos;s identity and the account number.
     /// </summary>
     [IsoId("_ekmkhYp5EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AccountName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,12 +96,11 @@ public partial record CardAccount4
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_rK5gECq-EeWRf8RNsvC5fQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress3? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +113,11 @@ public partial record CardAccount4
     /// Identification of the currency in which the account is held.
     /// </summary>
     [IsoId("_ekmkiYp5EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +130,11 @@ public partial record CardAccount4
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
     [IsoId("_ekmki4p5EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctIdr")]
     #endif
+    [IsoXmlTag("AcctIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification31Choice_? AccountIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,15 +147,13 @@ public partial record CardAccount4
     /// Internal account reference in case of credit account.
     /// </summary>
     [IsoId("_zMf1kIp5EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CdtRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CreditReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,12 +166,11 @@ public partial record CardAccount4
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_ekmkj4p5EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Svcr")]
     #endif
+    [IsoXmlTag("Svcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification72Choice_? Servicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -195,12 +183,11 @@ public partial record CardAccount4
     /// Balance of the account.
     /// </summary>
     [IsoId("__a99kIp5EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection43? Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -213,12 +200,12 @@ public partial record CardAccount4
     /// Indicates if the balance must be displayed to the customer on the ATM.
     /// </summary>
     [IsoId("_4dUYYCq-EeWRf8RNsvC5fQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Display Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalDispFlg")]
     #endif
+    [IsoXmlTag("BalDispFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BalanceDisplayFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -231,12 +218,12 @@ public partial record CardAccount4
     /// Indicates if this is the default account.
     /// </summary>
     [IsoId("_-A1EQCq-EeWRf8RNsvC5fQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Account Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltAcctInd")]
     #endif
+    [IsoXmlTag("DfltAcctInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DefaultAccountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

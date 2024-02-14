@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of actions to be performed by the POI (Point Of Interaction) system.
 /// </summary>
 [IsoId("_QkYuwS81Eeu125Ip9zFcsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Action11
     /// Type of action to be performed by the POI (Point Of Interaction) system.
     /// </summary>
     [IsoId("_Qw79AS81Eeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTp")]
     #endif
+    [IsoXmlTag("ActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActionType9Code ActionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ActionType9Code ActionType { get; init; } 
+    public required ActionType9Code ActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ActionType9Code ActionType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Action11
     /// Message to be displayed to the cardholder or the cashier.
     /// </summary>
     [IsoId("_Qw79Ay81Eeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message To Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgToPres")]
     #endif
+    [IsoXmlTag("MsgToPres")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage8? MessageToPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

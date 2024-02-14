@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason12Choice
     /// Specifies the reason why the instruction is in repair.
     /// </summary>
     [IsoId("_C2YFxyRhEeO8sskhVI3IDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repair Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to contract attributes.
 /// </summary>
 [IsoId("_qmrCNXhCEeu3kecHd7QKUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ContractType10
     /// Classification of information according to contract type.
     /// </summary>
     [IsoId("_q25PgXhCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctTp")]
     #endif
+    [IsoXmlTag("CtrctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ContractType10
     /// Specifies the classification according to the asset class of the contract.
     /// </summary>
     [IsoId("_q25Pg3hCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstClss")]
     #endif
+    [IsoXmlTag("AsstClss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductType4Code? AssetClass { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record ContractType10
     /// Specifies the classification of the derivative product.
     /// </summary>
     [IsoId("_q25PhXhCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctClssfctn")]
     #endif
+    [IsoXmlTag("PdctClssfctn")]
+    [IsoSimpleType(IsoSimpleType.CFIOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCFIOct2015Identifier? ProductClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record ContractType10
     /// Specifies the identification of the derivative product.
     /// </summary>
     [IsoId("_q25PiXhCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctId")]
     #endif
+    [IsoXmlTag("PdctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification22? ProductIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record ContractType10
     /// Unique identification to identify the direct underlying instrument based on its type.
     /// </summary>
     [IsoId("_q25Pi3hCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygInstrm")]
     #endif
+    [IsoXmlTag("UndrlygInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification36Choice_? UnderlyingInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,12 +129,11 @@ public partial record ContractType10
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of first leg.
     /// </summary>
     [IsoId("_q25PjXhCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlCcy")]
     #endif
+    [IsoXmlTag("NtnlCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LegCurrency2? NotionalCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,12 +146,11 @@ public partial record ContractType10
     /// Specifies the currency to be used for cash settlement of the transaction. For multicurrency transactions that do not net, specify the currency to be delivered for each leg.
     /// </summary>
     [IsoId("_q25Pj3hCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LegCurrency2? SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,12 +163,11 @@ public partial record ContractType10
     /// Specifies the place where settlement of the transaction occurs as stipulated in the contract.
     /// </summary>
     [IsoId("_q25PkXhCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfSttlm")]
     #endif
+    [IsoXmlTag("PlcOfSttlm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? PlaceOfSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

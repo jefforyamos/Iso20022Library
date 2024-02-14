@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters of a physical delivery.
 /// </summary>
 [IsoId("_T6YI7tp-Ed-ak6NoX_4Aeg_152223563")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Delivery Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DeliveryParameters3
     /// Address for physical delivery.
     /// </summary>
     [IsoId("_T6hS0Np-Ed-ak6NoX_4Aeg_152223589")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NameAndAddress4 Address { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NameAndAddress4 Address { get; init; } 
+    public required NameAndAddress4 Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NameAndAddress4 Address { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record DeliveryParameters3
     /// Certificate representing a security that is delivered.
     /// </summary>
     [IsoId("_T6hS0dp-Ed-ak6NoX_4Aeg_152223605")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issued Certificate Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssdCertNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssdCertNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? IssuedCertificateNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

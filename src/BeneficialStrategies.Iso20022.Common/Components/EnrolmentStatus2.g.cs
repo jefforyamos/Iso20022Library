@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the status of a creditor enrolment.
 /// </summary>
 [IsoId("_UalrzeH7Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Enrolment Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record EnrolmentStatus2
     /// Unique identification of the original instruction.
     /// </summary>
     [IsoId("_Ub7vk-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Business Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlBizInstr")]
     #endif
+    [IsoXmlTag("OrgnlBizInstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record EnrolmentStatus2
     /// Provides detailed information on the status for the request.
     /// </summary>
     [IsoId("_Ub7vleH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ServiceStatus1Choice_ Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ServiceStatus1Choice_ Status { get; init; } 
+    public required ServiceStatus1Choice_ Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ServiceStatus1Choice_ Status { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record EnrolmentStatus2
     /// Specifies the reason for the status of the enrolment request.
     /// </summary>
     [IsoId("_Ub7vl-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorEnrolmentStatusReason2? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record EnrolmentStatus2
     /// Provides the original creditor enrolment data.
     /// </summary>
     [IsoId("_Ub7vmeH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Enrolment Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlEnrlmntRef")]
     #endif
+    [IsoXmlTag("OrgnlEnrlmntRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalEnrolment2Choice_? OriginalEnrolmentReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record EnrolmentStatus2
     /// Actual date when the creditor enrolment was executed.
     /// </summary>
     [IsoId("_Ub7vm-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Enrolment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvEnrlmntDt")]
     #endif
+    [IsoXmlTag("FctvEnrlmntDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EffectiveEnrolmentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,11 @@ public partial record EnrolmentStatus2
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Ub7vneH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

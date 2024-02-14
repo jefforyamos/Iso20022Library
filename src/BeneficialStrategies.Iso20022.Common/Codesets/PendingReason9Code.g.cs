@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum PendingReason9Code
 {
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Go_6Rf41EeClUvPNHKL9Zw")]
@@ -30,7 +30,7 @@ public enum PendingReason9Code
     
     /// <summary>
     /// Awaiting confirmation from the counterparty.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_Go_6Sf41EeClUvPNHKL9Zw")]
@@ -39,7 +39,7 @@ public enum PendingReason9Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Go_6Tf41EeClUvPNHKL9Zw")]
@@ -48,7 +48,7 @@ public enum PendingReason9Code
     
     /// <summary>
     /// Execution is conditional to the execution of a process at the registrar.
-    /// Encoded/decoded by serializers as "CDRG".
+    /// Encoded/decoded by serializers as &quot;CDRG&quot;.
     /// </summary>
     [EnumMember(Value = "CDRG")]
     [IsoId("_Go_6Uf41EeClUvPNHKL9Zw")]
@@ -57,7 +57,7 @@ public enum PendingReason9Code
     
     /// <summary>
     /// Execution is conditional to the execution of a process linked to the currency of the transaction.
-    /// Encoded/decoded by serializers as "CDCY".
+    /// Encoded/decoded by serializers as &quot;CDCY&quot;.
     /// </summary>
     [EnumMember(Value = "CDCY")]
     [IsoId("_Go_6Vf41EeClUvPNHKL9Zw")]
@@ -66,7 +66,7 @@ public enum PendingReason9Code
     
     /// <summary>
     /// Execution is conditional to the execution of a process of realignment at the issuer CSD.
-    /// Encoded/decoded by serializers as "CDRE".
+    /// Encoded/decoded by serializers as &quot;CDRE&quot;.
     /// </summary>
     [EnumMember(Value = "CDRE")]
     [IsoId("_Go_6Wf41EeClUvPNHKL9Zw")]
@@ -75,7 +75,7 @@ public enum PendingReason9Code
     
     /// <summary>
     /// Awaiting cancellation of one of the party.
-    /// Encoded/decoded by serializers as "CDAC".
+    /// Encoded/decoded by serializers as &quot;CDAC&quot;.
     /// </summary>
     [EnumMember(Value = "CDAC")]
     [IsoId("_PMeU4hqJEeG38P9Gj2JZJw")]
@@ -84,7 +84,7 @@ public enum PendingReason9Code
     
     /// <summary>
     /// Not all the instructions part of a pool have been received.
-    /// Encoded/decoded by serializers as "INBC".
+    /// Encoded/decoded by serializers as &quot;INBC&quot;.
     /// </summary>
     [EnumMember(Value = "INBC")]
     [IsoId("_RjugIhqJEeG38P9Gj2JZJw")]

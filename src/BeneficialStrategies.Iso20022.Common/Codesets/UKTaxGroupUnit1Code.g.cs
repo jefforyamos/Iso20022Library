@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
-/// Specifies the UK tax group to which units belong. For UK tax, the first dividend that an investor receives from a funds investment is deemed to be part income and part return of capital. The capital element is 'equalisation', and is exempt from income tax.
+/// Specifies the UK tax group to which units belong. For UK tax, the first dividend that an investor receives from a funds investment is deemed to be part income and part return of capital. The capital element is &apos;equalisation&apos;, and is exempt from income tax.
 /// </summary>
 [DataContract]
 [Serializable]
@@ -21,7 +21,7 @@ public enum UKTaxGroupUnit1Code
 {
     /// <summary>
     /// The units that were purchased prior to the last ex-div date.
-    /// Encoded/decoded by serializers as "GRP1".
+    /// Encoded/decoded by serializers as &quot;GRP1&quot;.
     /// </summary>
     [EnumMember(Value = "GRP1")]
     [IsoId("_PGFToYoQEeahcZ3Nzs1Qag")]
@@ -30,7 +30,7 @@ public enum UKTaxGroupUnit1Code
     
     /// <summary>
     /// The units that were purchased since the ex-div date, and that benefit from the tax exemption.
-    /// Encoded/decoded by serializers as "GRP2".
+    /// Encoded/decoded by serializers as &quot;GRP2&quot;.
     /// </summary>
     [EnumMember(Value = "GRP2")]
     [IsoId("_PLJZ0YoQEeahcZ3Nzs1Qag")]

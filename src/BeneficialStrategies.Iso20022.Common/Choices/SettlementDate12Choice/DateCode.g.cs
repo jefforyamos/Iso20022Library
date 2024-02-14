@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDate12Choice
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
     [IsoId("_5TGUr5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

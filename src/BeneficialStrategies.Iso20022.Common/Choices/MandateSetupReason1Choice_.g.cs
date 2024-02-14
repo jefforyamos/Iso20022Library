@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MandateSetupReason1Choice.Code))]
     [KnownType(typeof(MandateSetupReason1Choice.Proprietary))]
     [IsoId("_iQq8ND2OEeS6DKIV6SF6gw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandate Setup Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

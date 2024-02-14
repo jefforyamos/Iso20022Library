@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnaffirmedReason2Choice.Code))]
     [KnownType(typeof(UnaffirmedReason2Choice.Proprietary))]
     [IsoId("_AzfH4NokEeC60axPepSq7g_1484054937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unaffirmed Reason 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

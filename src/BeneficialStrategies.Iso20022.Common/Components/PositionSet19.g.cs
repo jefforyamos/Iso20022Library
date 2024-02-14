@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the values used to calculate positions.
 /// </summary>
 [IsoId("_wmkIkcKzEeuFNp8LZAnorg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PositionSet19
     /// Variables related to derivatives that are used to group derivatives together into positions.
     /// </summary>
     [IsoId("_woVqMcKzEeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dimensions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dmnsns")]
     #endif
+    [IsoXmlTag("Dmnsns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PositionSetDimensions12 Dimensions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PositionSetDimensions12 Dimensions { get; init; } 
+    public required PositionSetDimensions12 Dimensions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PositionSetDimensions12 Dimensions { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PositionSet19
     /// Variables used to quantify the different calculations.
     /// </summary>
     [IsoId("_woVqM8KzEeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Metrics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtrcs")]
     #endif
+    [IsoXmlTag("Mtrcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PositionSetMetrics11 Metrics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PositionSetMetrics11 Metrics { get; init; } 
+    public required PositionSetMetrics11 Metrics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PositionSetMetrics11 Metrics { get; init; } 
     #else

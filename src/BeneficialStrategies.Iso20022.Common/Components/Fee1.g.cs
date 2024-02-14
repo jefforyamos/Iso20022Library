@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money associated with a service.
 /// </summary>
 [IsoId("_OIXCoDh4EeamLZQeccJa7w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fee")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Fee1
     /// Type of fee (charge/commission).
     /// </summary>
     [IsoId("_8tq38jh4EeaH-93K5JKmzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargeType5Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargeType5Choice_ Type { get; init; } 
+    public required ChargeType5Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargeType5Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Fee1
     /// Method used to calculate the fee (charge/commission).
     /// </summary>
     [IsoId("__VgAYjh5EeaH-93K5JKmzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bsis")]
     #endif
+    [IsoXmlTag("Bsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeBasis2Choice_? Basis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record Fee1
     /// Standard fee (charge/commission) amount as specified in the fund prospectus or agreed for the account.
     /// </summary>
     [IsoId("_U-gJIzh6EeaH-93K5JKmzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standard Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StdAmt")]
     #endif
+    [IsoXmlTag("StdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? StandardAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,12 @@ public partial record Fee1
     /// Standard fee (charge/commission) rate used to calculate the amount of the charge or fee, as specified in the fund prospectus or agreed for the account.
     /// </summary>
     [IsoId("_U-gJJDh6EeaH-93K5JKmzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standard Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StdRate")]
     #endif
+    [IsoXmlTag("StdRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? StandardRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,11 @@ public partial record Fee1
     /// Discount or waiver applied to the fee (charge/commission).
     /// </summary>
     [IsoId("_gJBNQViZEeaMNZxYNthMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscntDtls")]
     #endif
+    [IsoXmlTag("DscntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeOrCommissionDiscount1? DiscountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +138,12 @@ public partial record Fee1
     /// Requested fee (charge/commission) amount as agreed for the account.
     /// </summary>
     [IsoId("_rBKSYGRIEeaj9PFzwy2f6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdAmt")]
     #endif
+    [IsoXmlTag("ReqdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +156,12 @@ public partial record Fee1
     /// Requested rate used to calculate the amount of the fee (charge/commission), as agreed for the account.
     /// </summary>
     [IsoId("_0cBqUWRIEeaj9PFzwy2f6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdRate")]
     #endif
+    [IsoXmlTag("ReqdRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? RequestedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,15 +174,13 @@ public partial record Fee1
     /// Reference to a sales agreement that overrides normal processing or the Service Level Agreement (SLA), such as a fee (charge/commission).
     /// </summary>
     [IsoId("_WCFjcTkyEeapUO0vUIo9Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Standard SLA Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonStdSLARef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NonStdSLARef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NonStandardSLAReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +193,11 @@ public partial record Fee1
     /// Party entitled to the amount of money resulting from a fee (charge/commission).
     /// </summary>
     [IsoId("_U-gJJTh6EeaH-93K5JKmzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptId")]
     #endif
+    [IsoXmlTag("RcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification113? RecipientIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

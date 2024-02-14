@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies other amounts pertaining to the transaction.
 /// </summary>
 [IsoId("_-4p5Azp8EeWVrPy0StzzSg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Amounts")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record OtherAmounts32
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
     [IsoId("__Yf2lTp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstAmt")]
     #endif
+    [IsoXmlTag("AcrdIntrstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record OtherAmounts32
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
     [IsoId("__Yf2nTp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsFees")]
     #endif
+    [IsoXmlTag("ChrgsFees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? ChargesFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record OtherAmounts32
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
     [IsoId("__Yf2pTp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAmt")]
     #endif
+    [IsoXmlTag("TradAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? TradeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record OtherAmounts32
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
     [IsoId("__Yf2rTp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Executing Broker Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctgBrkrAmt")]
     #endif
+    [IsoXmlTag("ExctgBrkrAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? ExecutingBrokerAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record OtherAmounts32
     /// Tax charged by the jurisdiction in which the financial instrument settles.
     /// </summary>
     [IsoId("__Yf2tTp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclTax")]
     #endif
+    [IsoXmlTag("LclTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? LocalTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record OtherAmounts32
     /// Amount of commission paid to a local broker.
     /// </summary>
     [IsoId("__Yf2vTp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Broker Commission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclBrkrComssn")]
     #endif
+    [IsoXmlTag("LclBrkrComssn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? LocalBrokerCommission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record OtherAmounts32
     /// An amount that is not indicated by a known business denomination.
     /// </summary>
     [IsoId("__Yf2xTp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record OtherAmounts32
     /// Amount of stamp duty.
     /// </summary>
     [IsoId("__Yf2zTp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stamp Duty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmpDty")]
     #endif
+    [IsoXmlTag("StmpDty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? StampDuty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record OtherAmounts32
     /// Amount of transaction tax.
     /// </summary>
     [IsoId("__Yf21Tp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTax")]
     #endif
+    [IsoXmlTag("TxTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? TransactionTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record OtherAmounts32
     /// Amount of money that will be withheld by a tax authority.
     /// </summary>
     [IsoId("__Yf23Tp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgTax")]
     #endif
+    [IsoXmlTag("WhldgTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? WithholdingTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record OtherAmounts32
     /// Amount of consumption tax.
     /// </summary>
     [IsoId("__Yf25Tp8EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consumption Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CsmptnTax")]
     #endif
+    [IsoXmlTag("CsmptnTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection47? ConsumptionTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralPurpose1Choice.Code))]
     [KnownType(typeof(CollateralPurpose1Choice.Proprietary))]
     [IsoId("_Qkr_c9p-Ed-ak6NoX_4Aeg_1939659282")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Purpose 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

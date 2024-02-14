@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the interest statement.
 /// </summary>
 [IsoId("_WxUNESqWEeyR9JrVGfaMKw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InterestStatement5
     /// Provides the period during which the interest rate has been applied.
     /// </summary>
     [IsoId("_Xfp5wSqWEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstPrd")]
     #endif
+    [IsoXmlTag("IntrstPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DatePeriod2 InterestPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DatePeriod2 InterestPeriod { get; init; } 
+    public required DatePeriod2 InterestPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DatePeriod2 InterestPeriod { get; init; } 
     #else
@@ -72,12 +69,12 @@ public partial record InterestStatement5
     /// Provides the total amount of interest that is due to partyA.
     /// </summary>
     [IsoId("_Xfp5wyqWEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Interest Amount Due To A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlIntrstAmtDueToA")]
     #endif
+    [IsoXmlTag("TtlIntrstAmtDueToA")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalInterestAmountDueToA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +87,12 @@ public partial record InterestStatement5
     /// Provides the total amount of interest that is due to partyB.
     /// </summary>
     [IsoId("_Xfp5xSqWEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Interest Amount Due To B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlIntrstAmtDueToB")]
     #endif
+    [IsoXmlTag("TtlIntrstAmtDueToB")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalInterestAmountDueToB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +105,16 @@ public partial record InterestStatement5
     /// Indicates the value date of the interest statement.
     /// </summary>
     [IsoId("_Xfp5xyqWEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValueDate { get; init; } 
+    public required System.DateOnly ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValueDate { get; init; } 
     #else
@@ -128,15 +125,13 @@ public partial record InterestStatement5
     /// Provides the reference to the interest payment request.
     /// </summary>
     [IsoId("_Xfp5ySqWEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Payment Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstPmtReqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IntrstPmtReqId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InterestPaymentRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +144,11 @@ public partial record InterestStatement5
     /// Provides the details of the interest calculation.
     /// </summary>
     [IsoId("_Xfp5yyqWEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Calculation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstClctn")]
     #endif
+    [IsoXmlTag("IntrstClctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestCalculation5? InterestCalculation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

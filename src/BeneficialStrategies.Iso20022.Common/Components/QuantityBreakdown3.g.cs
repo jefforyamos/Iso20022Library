@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of breakdown of a quantity.
 /// </summary>
 [IsoId("_TAjk_Np-Ed-ak6NoX_4Aeg_-448049887")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Quantity Breakdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record QuantityBreakdown3
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
     [IsoId("_TAtV8Np-Ed-ak6NoX_4Aeg_-269931215")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotNb")]
     #endif
+    [IsoXmlTag("LotNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Number2Choice_? LotNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record QuantityBreakdown3
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
     [IsoId("_TAtV8dp-Ed-ak6NoX_4Aeg_-1267003568")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotQty")]
     #endif
+    [IsoXmlTag("LotQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? LotQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record QuantityBreakdown3
     /// Date/time at which the lot was purchased.
     /// </summary>
     [IsoId("_TAtV8tp-Ed-ak6NoX_4Aeg_2030891375")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotDtTm")]
     #endif
+    [IsoXmlTag("LotDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? LotDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record QuantityBreakdown3
     /// Price at which the lot was purchased.
     /// </summary>
     [IsoId("_TAtV89p-Ed-ak6NoX_4Aeg_1033819022")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotPric")]
     #endif
+    [IsoXmlTag("LotPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price2? LotPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record QuantityBreakdown3
     /// Specifies the type of price and information about the price.
     /// </summary>
     [IsoId("_TAtV9Np-Ed-ak6NoX_4Aeg_36746669")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Of Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TpOfPric")]
     #endif
+    [IsoXmlTag("TpOfPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfPrice3Choice_? TypeOfPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

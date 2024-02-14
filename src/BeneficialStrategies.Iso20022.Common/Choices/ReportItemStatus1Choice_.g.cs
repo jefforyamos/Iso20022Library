@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportItemStatus1Choice.AcceptedWithException))]
     [KnownType(typeof(ReportItemStatus1Choice.Rejected))]
     [IsoId("_0w3vwb3QEeO2FLWuu_JIqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Item Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

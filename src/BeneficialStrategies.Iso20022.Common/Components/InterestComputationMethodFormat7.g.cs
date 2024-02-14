@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice between a standard code or proprietary code to specify the type of interest computation method.
 /// </summary>
 [IsoId("_YO9D8XitEeqKjIYaFgh_2g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Computation Method Format")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InterestComputationMethodFormat7
     /// Standard code to specify the method used to compute accruing interest of a financial instrument.
     /// </summary>
     [IsoId("_YPsq0XitEeqKjIYaFgh_2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestComputationMethod4Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InterestComputationMethod4Code Code { get; init; } 
+    public required InterestComputationMethod4Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InterestComputationMethod4Code Code { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record InterestComputationMethodFormat7
     /// The computation method can not be represented in the predefined fields.
     /// </summary>
     [IsoId("_2h3KIH_yEeqdQubSe21TTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Narrative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nrrtv")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nrrtv")]
+    [IsoSimpleType(IsoSimpleType.Max1000Text)]
     [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? Narrative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

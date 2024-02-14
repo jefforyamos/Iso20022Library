@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Corporate action event notification status and contents.
 /// </summary>
 [IsoId("_YXNL2l99Ee262vCSVgjImg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CorporateActionNotification8
     /// Specifies the type of notification.
     /// </summary>
     [IsoId("_YXNL3l99Ee262vCSVgjImg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnTp")]
     #endif
+    [IsoXmlTag("NtfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionNotificationType1Code NotificationType { get; init; } 
+    public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionNotificationType1Code NotificationType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CorporateActionNotification8
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
     [IsoId("_YXNL5l99Ee262vCSVgjImg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
+    public required CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
     #else

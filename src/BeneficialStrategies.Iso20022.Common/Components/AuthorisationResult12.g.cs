@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Outcome of the authorisation.
 /// </summary>
 [IsoId("_CrpOsY1FEeWsypzzYao74A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Authorisation Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record AuthorisationResult12
     /// Type of party that has delivered or declined the card payment authorisation (the party is not identified).
     /// </summary>
     [IsoId("_C2X4AY1FEeWsypzzYao74A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnNtty")]
     #endif
+    [IsoXmlTag("AuthstnNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification90? AuthorisationEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record AuthorisationResult12
     /// Response to an authorisation request.
     /// </summary>
     [IsoId("_C2X4A41FEeWsypzzYao74A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response To Authorisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnToAuthstn")]
     #endif
+    [IsoXmlTag("RspnToAuthstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType5 ResponseToAuthorisation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType5 ResponseToAuthorisation { get; init; } 
+    public required ResponseType5 ResponseToAuthorisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType5 ResponseToAuthorisation { get; init; } 
     #else
@@ -89,15 +85,13 @@ public partial record AuthorisationResult12
     /// Value assigned by the authorising party.
     /// </summary>
     [IsoId("_C2X4BY1FEeWsypzzYao74A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AuthstnCd")]
+    [IsoSimpleType(IsoSimpleType.Min6Max8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 6)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin6Max8Text? AuthorisationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record AuthorisationResult12
     /// Acquirer has requested a contact to the maintenance host.
     /// </summary>
     [IsoId("_C2X4B41FEeWsypzzYao74A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSTrggr")]
     #endif
+    [IsoXmlTag("TMSTrggr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TMSTrigger1? TMSTrigger { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

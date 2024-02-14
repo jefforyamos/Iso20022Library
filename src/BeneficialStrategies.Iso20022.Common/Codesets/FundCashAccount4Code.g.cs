@@ -21,7 +21,7 @@ public enum FundCashAccount4Code
 {
     /// <summary>
     /// Hedge fund account.
-    /// Encoded/decoded by serializers as "HEDG".
+    /// Encoded/decoded by serializers as &quot;HEDG&quot;.
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_o_Z3gSC7EeWPMvNwVtiMsA")]
@@ -30,7 +30,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Central Provident Fund (CPF) ordinary account.
-    /// Encoded/decoded by serializers as "CPFO".
+    /// Encoded/decoded by serializers as &quot;CPFO&quot;.
     /// </summary>
     [EnumMember(Value = "CPFO")]
     [IsoId("_pGldkSC7EeWPMvNwVtiMsA")]
@@ -39,7 +39,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Central Provident Fund (CPF) special account.
-    /// Encoded/decoded by serializers as "CPFS".
+    /// Encoded/decoded by serializers as &quot;CPFS&quot;.
     /// </summary>
     [EnumMember(Value = "CPFS")]
     [IsoId("_pL-T4SC7EeWPMvNwVtiMsA")]
@@ -48,7 +48,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Supplementary Retirement Scheme (SRS) account.
-    /// Encoded/decoded by serializers as "SRSA".
+    /// Encoded/decoded by serializers as &quot;SRSA&quot;.
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_pRzPESC7EeWPMvNwVtiMsA")]
@@ -57,7 +57,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Account operated by a CSD in cross-CSD settlement context.
-    /// Encoded/decoded by serializers as "CSDO".
+    /// Encoded/decoded by serializers as &quot;CSDO&quot;.
     /// </summary>
     [EnumMember(Value = "CSDO")]
     [IsoId("_I6ZNcSC8EeWPMvNwVtiMsA")]
@@ -66,7 +66,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Account operated by a CSD in a direct holding market context.
-    /// Encoded/decoded by serializers as "TOFF".
+    /// Encoded/decoded by serializers as &quot;TOFF&quot;.
     /// </summary>
     [EnumMember(Value = "TOFF")]
     [IsoId("_JQ7eISC8EeWPMvNwVtiMsA")]
@@ -75,7 +75,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Account operated by a CSD for settlement of securities legs for instructions involving internal CSDs.
-    /// Encoded/decoded by serializers as "ICSA".
+    /// Encoded/decoded by serializers as &quot;ICSA&quot;.
     /// </summary>
     [EnumMember(Value = "ICSA")]
     [IsoId("_JWmBQSC8EeWPMvNwVtiMsA")]
@@ -84,7 +84,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Account operated by a CSD for mirroring positions.
-    /// Encoded/decoded by serializers as "CSDM".
+    /// Encoded/decoded by serializers as &quot;CSDM&quot;.
     /// </summary>
     [EnumMember(Value = "CSDM")]
     [IsoId("_JeNFISC8EeWPMvNwVtiMsA")]
@@ -93,7 +93,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Account owned by a CSD participant.
-    /// Encoded/decoded by serializers as "CSDP".
+    /// Encoded/decoded by serializers as &quot;CSDP&quot;.
     /// </summary>
     [EnumMember(Value = "CSDP")]
     [IsoId("_JoWfoSC8EeWPMvNwVtiMsA")]
@@ -102,7 +102,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Private pension account.
-    /// Encoded/decoded by serializers as "PPEN".
+    /// Encoded/decoded by serializers as &quot;PPEN&quot;.
     /// </summary>
     [EnumMember(Value = "PPEN")]
     [IsoId("_JvqokSC8EeWPMvNwVtiMsA")]
@@ -111,7 +111,7 @@ public enum FundCashAccount4Code
     
     /// <summary>
     /// Workplace or company pension account.
-    /// Encoded/decoded by serializers as "CPEN".
+    /// Encoded/decoded by serializers as &quot;CPEN&quot;.
     /// </summary>
     [EnumMember(Value = "CPEN")]
     [IsoId("_J2YUkSC8EeWPMvNwVtiMsA")]

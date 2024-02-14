@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous way to identify a system party.
 /// </summary>
 [IsoId("_Tz7vAeE8EeWHlNkrP2xqHA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SystemPartyIdentification6
     /// Unique identification of the party referenced by a request.
     /// </summary>
     [IsoId("_T9AygeE8EeWHlNkrP2xqHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdPtyId")]
     #endif
+    [IsoXmlTag("RltdPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification91 RelatedPartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification91 RelatedPartyIdentification { get; init; } 
+    public required PartyIdentification91 RelatedPartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification91 RelatedPartyIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SystemPartyIdentification6
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
     [IsoId("_T9Ayg-E8EeWHlNkrP2xqHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responsible Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnsblPtyId")]
     #endif
+    [IsoXmlTag("RspnsblPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification12? ResponsiblePartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

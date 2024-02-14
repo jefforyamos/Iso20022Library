@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GrossDividendRateFormat29Choice.AmountAndRateStatus))]
     [KnownType(typeof(GrossDividendRateFormat29Choice.RateTypeAndAmountAndRateStatus))]
     [IsoId("_6AoXsZb8Eee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Dividend Rate Format 29 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

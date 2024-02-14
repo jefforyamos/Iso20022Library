@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Order to invest the investor's principal in an investment fund.
+/// Order to invest the investor&apos;s principal in an investment fund.
 /// </summary>
 [IsoId("_CPQ1PTbtEead9bDRE_1DAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Multiple Order")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record SubscriptionMultipleOrder6
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
     [IsoId("_Cnz4HTbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,12 +68,11 @@ public partial record SubscriptionMultipleOrder6
     /// Market in which the advised trade transaction was executed.
     /// </summary>
     [IsoId("_Cnz4HzbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Trade")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfTrad")]
     #endif
+    [IsoXmlTag("PlcOfTrad")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +85,12 @@ public partial record SubscriptionMultipleOrder6
     /// Date and time the order is placed by the investor or its agent.
     /// </summary>
     [IsoId("_Cnz4ITbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrDtTm")]
     #endif
+    [IsoXmlTag("OrdrDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? OrderDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +103,11 @@ public partial record SubscriptionMultipleOrder6
     /// Date on which the order expires.
     /// </summary>
     [IsoId("_Cnz4IzbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDtTm")]
     #endif
+    [IsoXmlTag("XpryDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +120,12 @@ public partial record SubscriptionMultipleOrder6
     /// Future date at which the investor requests the order to be executed. The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
     [IsoId("_Cnz4JTbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Future Trade Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdFutrTradDt")]
     #endif
+    [IsoXmlTag("ReqdFutrTradDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,12 +138,11 @@ public partial record SubscriptionMultipleOrder6
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
     [IsoId("_Cnz4JzbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Right")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRght")]
     #endif
+    [IsoXmlTag("CxlRght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationRight1Choice_? CancellationRight { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,16 +155,15 @@ public partial record SubscriptionMultipleOrder6
     /// Account impacted by the investment fund order.
     /// </summary>
     [IsoId("_Cnz4KzbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcctDtls")]
     #endif
+    [IsoXmlTag("InvstmtAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount58 InvestmentAccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount58 InvestmentAccountDetails { get; init; } 
+    public required InvestmentAccount58 InvestmentAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount58 InvestmentAccountDetails { get; init; } 
     #else
@@ -182,12 +174,11 @@ public partial record SubscriptionMultipleOrder6
     /// Additional information about the investor.
     /// </summary>
     [IsoId("_Cnz4LTbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryDtls")]
     #endif
+    [IsoXmlTag("BnfcryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson31? BeneficiaryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,15 +188,14 @@ public partial record SubscriptionMultipleOrder6
     #endif
     
     /// <summary>
-    /// Order to invest the investor's principal in an investment fund.
+    /// Order to invest the investor&apos;s principal in an investment fund.
     /// </summary>
     [IsoId("_Cnz4LzbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvOrdrDtls")]
     #endif
+    [IsoXmlTag("IndvOrdrDtls")]
     public SubscriptionOrder14? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Cnz4LzbtEead9bDRE_1DAQ
     
@@ -213,12 +203,11 @@ public partial record SubscriptionMultipleOrder6
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
     [IsoId("_Cnz4NTbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bulk Cash Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlkCshSttlmDtls")]
     #endif
+    [IsoXmlTag("BlkCshSttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction70? BulkCashSettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -231,12 +220,12 @@ public partial record SubscriptionMultipleOrder6
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>
     [IsoId("_Cnz4MTbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSttlmAmt")]
     #endif
+    [IsoXmlTag("TtlSttlmAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

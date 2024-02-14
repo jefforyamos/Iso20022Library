@@ -21,7 +21,7 @@ public enum AllegementReason1Code
 {
     /// <summary>
     /// Allegement has been received and no match could be found.
-    /// Encoded/decoded by serializers as "ALG1".
+    /// Encoded/decoded by serializers as &quot;ALG1&quot;.
     /// </summary>
     [EnumMember(Value = "ALG1")]
     [IsoId("__0Jx0NojEeC60axPepSq7g_1527696364")]

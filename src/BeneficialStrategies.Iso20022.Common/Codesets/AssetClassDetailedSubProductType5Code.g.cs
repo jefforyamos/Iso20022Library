@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType5Code
 {
     /// <summary>
     /// Commodity attribute of type base load.
-    /// Encoded/decoded by serializers as "BSLD".
+    /// Encoded/decoded by serializers as &quot;BSLD&quot;.
     /// </summary>
     [EnumMember(Value = "BSLD")]
     [IsoId("_q8_4EQ2gEeW72qLtWESimw")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType5Code
     
     /// <summary>
     /// Commodity attribute of type financial transmission rights.
-    /// Encoded/decoded by serializers as "FITR".
+    /// Encoded/decoded by serializers as &quot;FITR&quot;.
     /// </summary>
     [EnumMember(Value = "FITR")]
     [IsoId("_sAsJsQ2gEeW72qLtWESimw")]
@@ -39,7 +39,7 @@ public enum AssetClassDetailedSubProductType5Code
     
     /// <summary>
     /// Commodity attribute of type peak load.
-    /// Encoded/decoded by serializers as "PKLD".
+    /// Encoded/decoded by serializers as &quot;PKLD&quot;.
     /// </summary>
     [EnumMember(Value = "PKLD")]
     [IsoId("_ueY7MQ2gEeW72qLtWESimw")]
@@ -48,7 +48,7 @@ public enum AssetClassDetailedSubProductType5Code
     
     /// <summary>
     /// Commodity attribute of type off-peak.
-    /// Encoded/decoded by serializers as "OFFP".
+    /// Encoded/decoded by serializers as &quot;OFFP&quot;.
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_Vb9FgWs3EeW9oI9ZdgWHPQ")]
@@ -57,7 +57,7 @@ public enum AssetClassDetailedSubProductType5Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_WDhb0ms3EeW9oI9ZdgWHPQ")]

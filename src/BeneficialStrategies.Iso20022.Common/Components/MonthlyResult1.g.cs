@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Results of backtesting analysis used to test the performance of a risk model.
 /// </summary>
 [IsoId("_9ZdcILC3EeaSl6vJk5Bd8w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Monthly Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,16 @@ public partial record MonthlyResult1
     /// Total number of accounts subject to backtesting in the month.
     /// </summary>
     [IsoId("_I2UhALC4EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Observations")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfObsrvtns")]
     #endif
+    [IsoXmlTag("NbOfObsrvtns")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber NumberOfObservations { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfObservations { get; init; } 
+    public required System.UInt64 NumberOfObservations { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfObservations { get; init; } 
     #else
@@ -75,16 +73,16 @@ public partial record MonthlyResult1
     /// Number of times that margin coverage held against any account fell below the marked‐to‐market exposure of that member account, based on the backtesting results.
     /// </summary>
     [IsoId("_4jSh8LC4EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Exceptions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfXcptns")]
     #endif
+    [IsoXmlTag("NbOfXcptns")]
+    [IsoSimpleType(IsoSimpleType.NonNegativeNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNonNegativeNumber NumberOfExceptions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfExceptions { get; init; } 
+    public required System.UInt64 NumberOfExceptions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfExceptions { get; init; } 
     #else
@@ -95,16 +93,16 @@ public partial record MonthlyResult1
     /// Achieved coverage level.
     /// </summary>
     [IsoId("_Y4uYMLC5EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Coverage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cvrg")]
     #endif
+    [IsoXmlTag("Cvrg")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate Coverage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Coverage { get; init; } 
+    public required System.Decimal Coverage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Coverage { get; init; } 
     #else
@@ -115,16 +113,16 @@ public partial record MonthlyResult1
     /// Largest marked-to-market exposure on any account that exceeds the margin coverage held against that account. The difference between the size of the exposure and the margin held.
     /// </summary>
     [IsoId("_p424YLC5EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Largest Exception")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LrgstXcptn")]
     #endif
+    [IsoXmlTag("LrgstXcptn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount LargestException { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal LargestException { get; init; } 
+    public required System.Decimal LargestException { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal LargestException { get; init; } 
     #else
@@ -135,16 +133,16 @@ public partial record MonthlyResult1
     /// Average marked‐to‐market exposure on accounts that exceeds the margin coverage held against those accounts.
     /// </summary>
     [IsoId("_wM63cLC5EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Average Exception")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvrgXcptn")]
     #endif
+    [IsoXmlTag("AvrgXcptn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AverageException { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AverageException { get; init; } 
+    public required System.Decimal AverageException { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AverageException { get; init; } 
     #else
@@ -155,12 +153,11 @@ public partial record MonthlyResult1
     /// Unique internal identifier for the backtested account experiencing the largest exception.
     /// </summary>
     [IsoId("_AOalILC6EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Largest Exception Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LrgstXcptnId")]
     #endif
+    [IsoXmlTag("LrgstXcptnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification165? LargestExceptionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

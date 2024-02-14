@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of the collateralised securities.
 /// </summary>
 [IsoId("_J_aqJcg5Eeu4ecZgAYuz5w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collaterised Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CollaterisedData12
     /// Date on which the counterparties contractually agree the exchange of cash, securities, or commodities versus collateral for the opening leg (spot leg) of the securities financing transaction.
     /// </summary>
     [IsoId("_KA3bo8g5Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollValDt")]
     #endif
+    [IsoXmlTag("CollValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CollateralValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record CollaterisedData12
     /// Specification on the type of asset used as collateral.
     /// </summary>
     [IsoId("_KA3bpcg5Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstTp")]
     #endif
+    [IsoXmlTag("AsstTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralType21? AssetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record CollaterisedData12
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
     [IsoId("_KA3bp8g5Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Exposure Collateralisation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetXpsrCollstnInd")]
     #endif
+    [IsoXmlTag("NetXpsrCollstnInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,11 @@ public partial record CollaterisedData12
     /// Identification of the collateral basket.
     /// </summary>
     [IsoId("_KA3bqcg5Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basket Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsktIdr")]
     #endif
+    [IsoXmlTag("BsktIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
 [IsoId("_t0oSlcWEEeiRga8tPu1L4Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PositionSetMetrics1
     /// Refers to the total number of trades contained in the position set.
     /// </summary>
     [IsoId("_t0oSoMWEEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ttl")]
     #endif
+    [IsoXmlTag("Ttl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetBuyerAndSeller1? Total { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PositionSetMetrics1
     /// Refers to the aggregated number of trades contained in the position set.
     /// </summary>
     [IsoId("_t0oSo8WEEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clean")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clean")]
     #endif
+    [IsoXmlTag("Clean")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetBuyerAndSeller1? Clean { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

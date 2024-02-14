@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies additional parameters to the message or transaction.
 /// </summary>
 [IsoId("__h8D1kNHEeGHJ_bHJRPaIQ_-1663671451")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AdditionalParameters14
     /// Specifies whether there exists a pre-confirmation.
     /// </summary>
     [IsoId("__iFNwENHEeGHJ_bHJRPaIQ_-1777510517")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Confirmation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PreConf")]
     #endif
+    [IsoXmlTag("PreConf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PreConfirmation1Code? PreConfirmation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AdditionalParameters14
     /// Specifies partial settlement information.
     /// </summary>
     [IsoId("__iFNwUNHEeGHJ_bHJRPaIQ_1520384426")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlSttlm")]
     #endif
+    [IsoXmlTag("PrtlSttlm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartialSettlement2Code? PartialSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,18 +73,16 @@ public partial record AdditionalParameters14
     #endif
     
     /// <summary>
-    /// Unique reference identifying the triparty collateral management transaction from the triparty agent's point of view.
+    /// Unique reference identifying the triparty collateral management transaction from the triparty agent&apos;s point of view.
     /// </summary>
     [IsoId("__iFNwkNHEeGHJ_bHJRPaIQ_523312073")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triparty Agent Collateral Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrptyAgtCollTxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TrptyAgtCollTxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TripartyAgentCollateralTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,18 +92,16 @@ public partial record AdditionalParameters14
     #endif
     
     /// <summary>
-    /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
+    /// Unique reference identifying the triparty collateral management transaction from the client&apos;s point of view.
     /// </summary>
     [IsoId("__iFNw0NHEeGHJ_bHJRPaIQ_-473760280")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Triparty Collateral Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntTrptyCollTxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntTrptyCollTxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

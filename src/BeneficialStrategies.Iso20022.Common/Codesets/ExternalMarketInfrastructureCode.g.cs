@@ -23,7 +23,7 @@ public enum ExternalMarketInfrastructureCode
 {
     /// <summary>
     /// EBA Euro1/Step1.
-    /// Encoded/decoded by serializers as "ABE".
+    /// Encoded/decoded by serializers as &quot;ABE&quot;.
     /// </summary>
     [EnumMember(Value = "ABE")]
     [IsoId("_uiNYNvRYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// Automated Clearing House. Payment system that clears cash transfers and settles the proceeds in a lump sum, usually on a multilateral netting basis.
-    /// Encoded/decoded by serializers as "ACH".
+    /// Encoded/decoded by serializers as &quot;ACH&quot;.
     /// </summary>
     [EnumMember(Value = "ACH")]
     [IsoId("_uiXJMPRYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// Canadian Dollar (CAD)  - Automated Clearing Settlement System (ACSS) 
-    /// Encoded/decoded by serializers as "ACS".
+    /// Encoded/decoded by serializers as &quot;ACS&quot;.
     /// </summary>
     [EnumMember(Value = "ACS")]
     [IsoId("_uiXJM_RYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// AL (Albania) -  Albania Interbank Payment System.
-    /// Encoded/decoded by serializers as "AIP".
+    /// Encoded/decoded by serializers as &quot;AIP&quot;.
     /// </summary>
     [EnumMember(Value = "AIP")]
     [IsoId("_uigTIPRYEeuLhpyIdtJzwg")]
@@ -59,7 +59,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// AT (Austria) - Austrian RTGS (ARTIS).
-    /// Encoded/decoded by serializers as "ART".
+    /// Encoded/decoded by serializers as &quot;ART&quot;.
     /// </summary>
     [EnumMember(Value = "ART")]
     [IsoId("_uigTI_RYEeuLhpyIdtJzwg")]
@@ -68,7 +68,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// NZ (New Zealand) - New Zealand Assured Value Payments.
-    /// Encoded/decoded by serializers as "AVP".
+    /// Encoded/decoded by serializers as &quot;AVP&quot;.
     /// </summary>
     [EnumMember(Value = "AVP")]
     [IsoId("_uigTJvRYEeuLhpyIdtJzwg")]
@@ -77,7 +77,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// AZ (Azerbaijan) - Azerbaijan Interbank Payment System (AZIPS).
-    /// Encoded/decoded by serializers as "AZM".
+    /// Encoded/decoded by serializers as &quot;AZM&quot;.
     /// </summary>
     [EnumMember(Value = "AZM")]
     [IsoId("_uigTKfRYEeuLhpyIdtJzwg")]
@@ -86,7 +86,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// BA (Bosnia and Herzegovina).
-    /// Encoded/decoded by serializers as "BAP".
+    /// Encoded/decoded by serializers as &quot;BAP&quot;.
     /// </summary>
     [EnumMember(Value = "BAP")]
     [IsoId("_uiqEIPRYEeuLhpyIdtJzwg")]
@@ -95,7 +95,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// SE (Sweden) - Sweden BGC Clearing CUG.
-    /// Encoded/decoded by serializers as "BCC".
+    /// Encoded/decoded by serializers as &quot;BCC&quot;.
     /// </summary>
     [EnumMember(Value = "BCC")]
     [IsoId("_uiqEI_RYEeuLhpyIdtJzwg")]
@@ -104,7 +104,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// EC (Ecuador) - Ecuadorian Central Payment System (Sistema Central de Pagos Ecuatoriano)
-    /// Encoded/decoded by serializers as "BCE".
+    /// Encoded/decoded by serializers as &quot;BCE&quot;.
     /// </summary>
     [EnumMember(Value = "BCE")]
     [IsoId("_uiz1IPRYEeuLhpyIdtJzwg")]
@@ -113,7 +113,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// BB (Barbados) - Barbados RTGS (CBRTGS).
-    /// Encoded/decoded by serializers as "BDS".
+    /// Encoded/decoded by serializers as &quot;BDS&quot;.
     /// </summary>
     [EnumMember(Value = "BDS")]
     [IsoId("_uiz1I_RYEeuLhpyIdtJzwg")]
@@ -122,7 +122,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// BE (Belgium) - Belgium RTGS (ELLIPS).
-    /// Encoded/decoded by serializers as "BEL".
+    /// Encoded/decoded by serializers as &quot;BEL&quot;.
     /// </summary>
     [EnumMember(Value = "BEL")]
     [IsoId("_uiz1JvRYEeuLhpyIdtJzwg")]
@@ -131,7 +131,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// BG (Bulgaria) - Bulgaria RTGS.
-    /// Encoded/decoded by serializers as "BGN".
+    /// Encoded/decoded by serializers as &quot;BGN&quot;.
     /// </summary>
     [EnumMember(Value = "BGN")]
     [IsoId("_ui8_EPRYEeuLhpyIdtJzwg")]
@@ -140,7 +140,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// BS (Bahamas) - Bahamas RTGS.
-    /// Encoded/decoded by serializers as "BHS".
+    /// Encoded/decoded by serializers as &quot;BHS&quot;.
     /// </summary>
     [EnumMember(Value = "BHS")]
     [IsoId("_ui8_E_RYEeuLhpyIdtJzwg")]
@@ -149,7 +149,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// BW (Botswana) - Botswana Interbank Settlement System.
-    /// Encoded/decoded by serializers as "BIS".
+    /// Encoded/decoded by serializers as &quot;BIS&quot;.
     /// </summary>
     [EnumMember(Value = "BIS")]
     [IsoId("_ujGwEPRYEeuLhpyIdtJzwg")]
@@ -158,7 +158,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// FI (Finland) - RTGS (BOF).
-    /// Encoded/decoded by serializers as "BOF".
+    /// Encoded/decoded by serializers as &quot;BOF&quot;.
     /// </summary>
     [EnumMember(Value = "BOF")]
     [IsoId("_ujGwE_RYEeuLhpyIdtJzwg")]
@@ -167,7 +167,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// the Bank of Japan clearing system.
-    /// Encoded/decoded by serializers as "BOJ".
+    /// Encoded/decoded by serializers as &quot;BOJ&quot;.
     /// </summary>
     [EnumMember(Value = "BOJ")]
     [IsoId("_ujGwFvRYEeuLhpyIdtJzwg")]
@@ -176,7 +176,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// IT (Italy) - Italy RTGS (BIREL).
-    /// Encoded/decoded by serializers as "BRL".
+    /// Encoded/decoded by serializers as &quot;BRL&quot;.
     /// </summary>
     [EnumMember(Value = "BRL")]
     [IsoId("_ujGwGfRYEeuLhpyIdtJzwg")]
@@ -185,7 +185,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// PH (Philippines) - Philippines Payment System.
-    /// Encoded/decoded by serializers as "BSP".
+    /// Encoded/decoded by serializers as &quot;BSP&quot;.
     /// </summary>
     [EnumMember(Value = "BSP")]
     [IsoId("_ujP6APRYEeuLhpyIdtJzwg")]
@@ -194,7 +194,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CA (Canada) - Canadian Large Value Transfer System (LVTS)
-    /// Encoded/decoded by serializers as "CAD".
+    /// Encoded/decoded by serializers as &quot;CAD&quot;.
     /// </summary>
     [EnumMember(Value = "CAD")]
     [IsoId("_ujP6A_RYEeuLhpyIdtJzwg")]
@@ -203,7 +203,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// ES (Spain).
-    /// Encoded/decoded by serializers as "CAM".
+    /// Encoded/decoded by serializers as &quot;CAM&quot;.
     /// </summary>
     [EnumMember(Value = "CAM")]
     [IsoId("_ujZrAPRYEeuLhpyIdtJzwg")]
@@ -212,7 +212,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// AW (Aruba) - Central Bank of Aruba CSM
-    /// Encoded/decoded by serializers as "CBA".
+    /// Encoded/decoded by serializers as &quot;CBA&quot;.
     /// </summary>
     [EnumMember(Value = "CBA")]
     [IsoId("_ujZrA_RYEeuLhpyIdtJzwg")]
@@ -221,7 +221,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// IE (Ireland) - Irish RTGS (IRIS).
-    /// Encoded/decoded by serializers as "CBJ".
+    /// Encoded/decoded by serializers as &quot;CBJ&quot;.
     /// </summary>
     [EnumMember(Value = "CBJ")]
     [IsoId("_ujjcAPRYEeuLhpyIdtJzwg")]
@@ -230,7 +230,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// US - The Clearing House CHIPS
-    /// Encoded/decoded by serializers as "CHI".
+    /// Encoded/decoded by serializers as &quot;CHI&quot;.
     /// </summary>
     [EnumMember(Value = "CHI")]
     [IsoId("_ujjcA_RYEeuLhpyIdtJzwg")]
@@ -239,7 +239,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// GB (UK) - British Euro RTGS (CHAPS).
-    /// Encoded/decoded by serializers as "CHP".
+    /// Encoded/decoded by serializers as &quot;CHP&quot;.
     /// </summary>
     [EnumMember(Value = "CHP")]
     [IsoId("_ujjcBvRYEeuLhpyIdtJzwg")]
@@ -248,7 +248,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// Central Interoperability Service of the EACHA Clearing Cooperative, for exchanging SEPA payments between Automated Clearing Houses in the EEA.
-    /// Encoded/decoded by serializers as "CIS".
+    /// Encoded/decoded by serializers as &quot;CIS&quot;.
     /// </summary>
     [EnumMember(Value = "CIS")]
     [IsoId("_ujjcCfRYEeuLhpyIdtJzwg")]
@@ -257,7 +257,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// Payments and cash management system that settles individual payments and cash transfers in central bank money.
-    /// Encoded/decoded by serializers as "CLM".
+    /// Encoded/decoded by serializers as &quot;CLM&quot;.
     /// </summary>
     [EnumMember(Value = "CLM")]
     [IsoId("_ujjcDPRYEeuLhpyIdtJzwg")]
@@ -266,7 +266,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CO (Columbia) - Colombian Electronic Cheque System named CEDEC (Compensación Electrónica De Cheques).
-    /// Encoded/decoded by serializers as "COE".
+    /// Encoded/decoded by serializers as &quot;COE&quot;.
     /// </summary>
     [EnumMember(Value = "COE")]
     [IsoId("_ujsl8PRYEeuLhpyIdtJzwg")]
@@ -275,7 +275,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CO (Columbia) - Colombian Central Bank´s ACH named CENIT (Compensación Electrónica Nacional Interbancaria).
-    /// Encoded/decoded by serializers as "COI".
+    /// Encoded/decoded by serializers as &quot;COI&quot;.
     /// </summary>
     [EnumMember(Value = "COI")]
     [IsoId("_ujsl8_RYEeuLhpyIdtJzwg")]
@@ -284,7 +284,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CO (Columbia) - Colombian RTGS System named CUD (Cuentas de Depósito).
-    /// Encoded/decoded by serializers as "COU".
+    /// Encoded/decoded by serializers as &quot;COU&quot;.
     /// </summary>
     [EnumMember(Value = "COU")]
     [IsoId("_uj2W8PRYEeuLhpyIdtJzwg")]
@@ -293,7 +293,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// DK (Denmark) - Danish Krone RTGS (KRONOS)
-    /// Encoded/decoded by serializers as "DDK".
+    /// Encoded/decoded by serializers as &quot;DDK&quot;.
     /// </summary>
     [EnumMember(Value = "DDK")]
     [IsoId("_uj2W8_RYEeuLhpyIdtJzwg")]
@@ -302,7 +302,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// DK (Denmark) - Danish Euro RTGS (KRONOS)
-    /// Encoded/decoded by serializers as "DKC".
+    /// Encoded/decoded by serializers as &quot;DKC&quot;.
     /// </summary>
     [EnumMember(Value = "DKC")]
     [IsoId("_ukAH8PRYEeuLhpyIdtJzwg")]
@@ -311,7 +311,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// EBA Euro1.
-    /// Encoded/decoded by serializers as "EBA".
+    /// Encoded/decoded by serializers as &quot;EBA&quot;.
     /// </summary>
     [EnumMember(Value = "EBA")]
     [IsoId("_ukAH8_RYEeuLhpyIdtJzwg")]
@@ -320,7 +320,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// DE (Germany).
-    /// Encoded/decoded by serializers as "ELS".
+    /// Encoded/decoded by serializers as &quot;ELS&quot;.
     /// </summary>
     [EnumMember(Value = "ELS")]
     [IsoId("_ukAH9vRYEeuLhpyIdtJzwg")]
@@ -329,7 +329,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// Elektronischer Massenzahlungsverkehr (EMZ)
-    /// Encoded/decoded by serializers as "EMZ".
+    /// Encoded/decoded by serializers as &quot;EMZ&quot;.
     /// </summary>
     [EnumMember(Value = "EMZ")]
     [IsoId("_ukAH-fRYEeuLhpyIdtJzwg")]
@@ -338,7 +338,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// ECB (European Central Bank) - ECB Payment Mechanism.
-    /// Encoded/decoded by serializers as "EPM".
+    /// Encoded/decoded by serializers as &quot;EPM&quot;.
     /// </summary>
     [EnumMember(Value = "EPM")]
     [IsoId("_ukAH_PRYEeuLhpyIdtJzwg")]
@@ -347,7 +347,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// US - The Clearing House EPN
-    /// Encoded/decoded by serializers as "EPN".
+    /// Encoded/decoded by serializers as &quot;EPN&quot;.
     /// </summary>
     [EnumMember(Value = "EPN")]
     [IsoId("_ukJR4PRYEeuLhpyIdtJzwg")]
@@ -356,7 +356,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// EBA step 1 (members).
-    /// Encoded/decoded by serializers as "ERP".
+    /// Encoded/decoded by serializers as &quot;ERP&quot;.
     /// </summary>
     [EnumMember(Value = "ERP")]
     [IsoId("_ukJR4_RYEeuLhpyIdtJzwg")]
@@ -365,7 +365,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// US (United States) - FED-ACH
-    /// Encoded/decoded by serializers as "FDA".
+    /// Encoded/decoded by serializers as &quot;FDA&quot;.
     /// </summary>
     [EnumMember(Value = "FDA")]
     [IsoId("_ukTC4PRYEeuLhpyIdtJzwg")]
@@ -374,7 +374,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// FedNet is a link to a Federal Bank account via the internet.  FedNet enables checking of account balance, transactions, take print outs of account statement, transfer funds to third party accounts, E-shopping, BSNL Payments, Deposit opening, Deposit Renewal, Request for Demand Draft, Cheque Book etc.
-    /// Encoded/decoded by serializers as "FDN".
+    /// Encoded/decoded by serializers as &quot;FDN&quot;.
     /// </summary>
     [EnumMember(Value = "FDN")]
     [IsoId("_ukTC4_RYEeuLhpyIdtJzwg")]
@@ -383,7 +383,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// US (United States) – FEDWIRE
-    /// Encoded/decoded by serializers as "FDW".
+    /// Encoded/decoded by serializers as &quot;FDW&quot;.
     /// </summary>
     [EnumMember(Value = "FDW")]
     [IsoId("_ukTC5vRYEeuLhpyIdtJzwg")]
@@ -392,7 +392,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// JP (Japan) the Foreign Exchange Yen Clearing system (FEYCS). It is the Japanese electronic interbank system for sending guaranteed and unconditional yen payments of FX deals for same day settlement from one settlement bank, on behalf of itself or its customers, to another settlement bank.
-    /// Encoded/decoded by serializers as "FEY".
+    /// Encoded/decoded by serializers as &quot;FEY&quot;.
     /// </summary>
     [EnumMember(Value = "FEY")]
     [IsoId("_ukTC6fRYEeuLhpyIdtJzwg")]
@@ -401,7 +401,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// GH (Ghana) - Ghana Interbank Settlement System (GISS).
-    /// Encoded/decoded by serializers as "GIS".
+    /// Encoded/decoded by serializers as &quot;GIS&quot;.
     /// </summary>
     [EnumMember(Value = "GIS")]
     [IsoId("_ukTC7PRYEeuLhpyIdtJzwg")]
@@ -410,7 +410,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// HR (Croatia) - HSVP.
-    /// Encoded/decoded by serializers as "HRK".
+    /// Encoded/decoded by serializers as &quot;HRK&quot;.
     /// </summary>
     [EnumMember(Value = "HRK")]
     [IsoId("_ukcz4PRYEeuLhpyIdtJzwg")]
@@ -419,7 +419,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// GR (Greece) - Greek RTGS (HERMES).
-    /// Encoded/decoded by serializers as "HRM".
+    /// Encoded/decoded by serializers as &quot;HRM&quot;.
     /// </summary>
     [EnumMember(Value = "HRM")]
     [IsoId("_ukcz4_RYEeuLhpyIdtJzwg")]
@@ -428,7 +428,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// HU (Hungary) - VIBER.
-    /// Encoded/decoded by serializers as "HUF".
+    /// Encoded/decoded by serializers as &quot;HUF&quot;.
     /// </summary>
     [EnumMember(Value = "HUF")]
     [IsoId("_ukcz5vRYEeuLhpyIdtJzwg")]
@@ -437,7 +437,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// DE and NL - Equens 
-    /// Encoded/decoded by serializers as "INC".
+    /// Encoded/decoded by serializers as &quot;INC&quot;.
     /// </summary>
     [EnumMember(Value = "INC")]
     [IsoId("_ukcz6fRYEeuLhpyIdtJzwg")]
@@ -446,7 +446,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// JO (Jordan) - Jordan RTGS.
-    /// Encoded/decoded by serializers as "JOD".
+    /// Encoded/decoded by serializers as &quot;JOD&quot;.
     /// </summary>
     [EnumMember(Value = "JOD")]
     [IsoId("_ukcz7PRYEeuLhpyIdtJzwg")]
@@ -455,7 +455,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// KE (Kenya) - Kenyan Electronic Payment Settlement System.
-    /// Encoded/decoded by serializers as "KPS".
+    /// Encoded/decoded by serializers as &quot;KPS&quot;.
     /// </summary>
     [EnumMember(Value = "KPS")]
     [IsoId("_ukl90PRYEeuLhpyIdtJzwg")]
@@ -464,7 +464,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// LU (Luxemburg) - Luxembourg RTGS (LIPS).
-    /// Encoded/decoded by serializers as "LGS".
+    /// Encoded/decoded by serializers as &quot;LGS&quot;.
     /// </summary>
     [EnumMember(Value = "LGS")]
     [IsoId("_ukl90_RYEeuLhpyIdtJzwg")]
@@ -473,7 +473,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// LK (Sri Lanka) - Sri Lanka (Lankasettle).
-    /// Encoded/decoded by serializers as "LKB".
+    /// Encoded/decoded by serializers as &quot;LKB&quot;.
     /// </summary>
     [EnumMember(Value = "LKB")]
     [IsoId("_ukvu0PRYEeuLhpyIdtJzwg")]
@@ -482,7 +482,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// LV (Latvia).
-    /// Encoded/decoded by serializers as "LVL".
+    /// Encoded/decoded by serializers as &quot;LVL&quot;.
     /// </summary>
     [EnumMember(Value = "LVL")]
     [IsoId("_ukvu0_RYEeuLhpyIdtJzwg")]
@@ -491,7 +491,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CA (Canada) - Large Value Transfer System (LVTS).  Replaces CAD.
-    /// Encoded/decoded by serializers as "LVT".
+    /// Encoded/decoded by serializers as &quot;LVT&quot;.
     /// </summary>
     [EnumMember(Value = "LVT")]
     [IsoId("_ukvu1vRYEeuLhpyIdtJzwg")]
@@ -500,7 +500,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// SG (Singapore) - Singapore RTGS (MEPS+).
-    /// Encoded/decoded by serializers as "MEP".
+    /// Encoded/decoded by serializers as &quot;MEP&quot;.
     /// </summary>
     [EnumMember(Value = "MEP")]
     [IsoId("_ukvu2fRYEeuLhpyIdtJzwg")]
@@ -509,7 +509,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// ZA (South Africa) - South-African Multiple Option Settlement.
-    /// Encoded/decoded by serializers as "MOS".
+    /// Encoded/decoded by serializers as &quot;MOS&quot;.
     /// </summary>
     [EnumMember(Value = "MOS")]
     [IsoId("_ukvu3PRYEeuLhpyIdtJzwg")]
@@ -518,7 +518,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// MT (Malta) - Malta Realtime Interbank Settlement System.
-    /// Encoded/decoded by serializers as "MRS".
+    /// Encoded/decoded by serializers as &quot;MRS&quot;.
     /// </summary>
     [EnumMember(Value = "MRS")]
     [IsoId("_uk44wPRYEeuLhpyIdtJzwg")]
@@ -527,7 +527,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// MU (Mauritius).
-    /// Encoded/decoded by serializers as "MUP".
+    /// Encoded/decoded by serializers as &quot;MUP&quot;.
     /// </summary>
     [EnumMember(Value = "MUP")]
     [IsoId("_uk44w_RYEeuLhpyIdtJzwg")]
@@ -536,7 +536,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// NA (Namibian) - Namibian Interbank Settlement System.
-    /// Encoded/decoded by serializers as "NAM".
+    /// Encoded/decoded by serializers as &quot;NAM&quot;.
     /// </summary>
     [EnumMember(Value = "NAM")]
     [IsoId("_ulCpwPRYEeuLhpyIdtJzwg")]
@@ -545,7 +545,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// NO (Norway).
-    /// Encoded/decoded by serializers as "NOC".
+    /// Encoded/decoded by serializers as &quot;NOC&quot;.
     /// </summary>
     [EnumMember(Value = "NOC")]
     [IsoId("_ulCpw_RYEeuLhpyIdtJzwg")]
@@ -554,7 +554,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// AU (Australia) - New Payments Platform (NPP)
-    /// Encoded/decoded by serializers as "NPP".
+    /// Encoded/decoded by serializers as &quot;NPP&quot;.
     /// </summary>
     [EnumMember(Value = "NPP")]
     [IsoId("_ulLzsPRYEeuLhpyIdtJzwg")]
@@ -563,7 +563,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CH (Switzerland).
-    /// Encoded/decoded by serializers as "PCH".
+    /// Encoded/decoded by serializers as &quot;PCH&quot;.
     /// </summary>
     [EnumMember(Value = "PCH")]
     [IsoId("_ulLzs_RYEeuLhpyIdtJzwg")]
@@ -572,7 +572,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// AU (Australia).
-    /// Encoded/decoded by serializers as "PDS".
+    /// Encoded/decoded by serializers as &quot;PDS&quot;.
     /// </summary>
     [EnumMember(Value = "PDS")]
     [IsoId("_ulLztvRYEeuLhpyIdtJzwg")]
@@ -581,7 +581,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// EG (Egypt).
-    /// Encoded/decoded by serializers as "PEG".
+    /// Encoded/decoded by serializers as &quot;PEG&quot;.
     /// </summary>
     [EnumMember(Value = "PEG")]
     [IsoId("_ulVksPRYEeuLhpyIdtJzwg")]
@@ -590,7 +590,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// FR (France).
-    /// Encoded/decoded by serializers as "PNS".
+    /// Encoded/decoded by serializers as &quot;PNS&quot;.
     /// </summary>
     [EnumMember(Value = "PNS")]
     [IsoId("_ulVks_RYEeuLhpyIdtJzwg")]
@@ -599,7 +599,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// AO (Angola) - Angola RTGS.
-    /// Encoded/decoded by serializers as "PTR".
+    /// Encoded/decoded by serializers as &quot;PTR&quot;.
     /// </summary>
     [EnumMember(Value = "PTR")]
     [IsoId("_ulVktvRYEeuLhpyIdtJzwg")]
@@ -608,7 +608,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// Ve (Venezuela).
-    /// Encoded/decoded by serializers as "PVE".
+    /// Encoded/decoded by serializers as &quot;PVE&quot;.
     /// </summary>
     [EnumMember(Value = "PVE")]
     [IsoId("_ulVkufRYEeuLhpyIdtJzwg")]
@@ -617,7 +617,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// RO (Romania) - Romanian Electronic Payment Operations RT.
-    /// Encoded/decoded by serializers as "ROL".
+    /// Encoded/decoded by serializers as &quot;ROL&quot;.
     /// </summary>
     [EnumMember(Value = "ROL")]
     [IsoId("_ulfVsPRYEeuLhpyIdtJzwg")]
@@ -626,7 +626,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// RO (Romania) - Romanian GSRS.
-    /// Encoded/decoded by serializers as "ROS".
+    /// Encoded/decoded by serializers as &quot;ROS&quot;.
     /// </summary>
     [EnumMember(Value = "ROS")]
     [IsoId("_ulfVs_RYEeuLhpyIdtJzwg")]
@@ -635,7 +635,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// Real Time Gross Settlement System. Payment system that simultaneously clears individual transfers and settles them in central bank money.
-    /// Encoded/decoded by serializers as "RTG".
+    /// Encoded/decoded by serializers as &quot;RTG&quot;.
     /// </summary>
     [EnumMember(Value = "RTG")]
     [IsoId("_ulfVtvRYEeuLhpyIdtJzwg")]
@@ -644,7 +644,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// DE (Germany).
-    /// Encoded/decoded by serializers as "RTP".
+    /// Encoded/decoded by serializers as &quot;RTP&quot;.
     /// </summary>
     [EnumMember(Value = "RTP")]
     [IsoId("_ulpGsPRYEeuLhpyIdtJzwg")]
@@ -653,7 +653,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// DE – SEPA-Clearer of the Retail Payment System operated by Deutsche Bundesbank
-    /// Encoded/decoded by serializers as "SCL".
+    /// Encoded/decoded by serializers as &quot;SCL&quot;.
     /// </summary>
     [EnumMember(Value = "SCL")]
     [IsoId("_ulpGs_RYEeuLhpyIdtJzwg")]
@@ -662,7 +662,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CL (Chile) - Chilean Interbank Payment System.
-    /// Encoded/decoded by serializers as "SCP".
+    /// Encoded/decoded by serializers as &quot;SCP&quot;.
     /// </summary>
     [EnumMember(Value = "SCP")]
     [IsoId("_ulpGtvRYEeuLhpyIdtJzwg")]
@@ -671,7 +671,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// SE (Sweden) - Swedish Euro RTGS (SEC).
-    /// Encoded/decoded by serializers as "SEC".
+    /// Encoded/decoded by serializers as &quot;SEC&quot;.
     /// </summary>
     [EnumMember(Value = "SEC")]
     [IsoId("_ulpGufRYEeuLhpyIdtJzwg")]
@@ -680,7 +680,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CH (Switzerland) – Swiss EUR RTGS named euroSIC.
-    /// Encoded/decoded by serializers as "SEU".
+    /// Encoded/decoded by serializers as &quot;SEU&quot;.
     /// </summary>
     [EnumMember(Value = "SEU")]
     [IsoId("_ulyQoPRYEeuLhpyIdtJzwg")]
@@ -689,7 +689,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CH (Switzerland) – Swiss CHF RTGS named SIC.
-    /// Encoded/decoded by serializers as "SIC".
+    /// Encoded/decoded by serializers as &quot;SIC&quot;.
     /// </summary>
     [EnumMember(Value = "SIC")]
     [IsoId("_ulyQo_RYEeuLhpyIdtJzwg")]
@@ -698,7 +698,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// CH (Switzerland) – Swiss Instant Payment service in CHF operated by SIX Interbank Clearing.
-    /// Encoded/decoded by serializers as "SIP".
+    /// Encoded/decoded by serializers as &quot;SIP&quot;.
     /// </summary>
     [EnumMember(Value = "SIP")]
     [IsoId("_ulyQpvRYEeuLhpyIdtJzwg")]
@@ -707,7 +707,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// SI (Slovenia).
-    /// Encoded/decoded by serializers as "SIT".
+    /// Encoded/decoded by serializers as &quot;SIT&quot;.
     /// </summary>
     [EnumMember(Value = "SIT")]
     [IsoId("_ulyQqfRYEeuLhpyIdtJzwg")]
@@ -716,7 +716,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// ES (Spain) - Spanish RTGS (SLBE).
-    /// Encoded/decoded by serializers as "SLB".
+    /// Encoded/decoded by serializers as &quot;SLB&quot;.
     /// </summary>
     [EnumMember(Value = "SLB")]
     [IsoId("_ul8BoPRYEeuLhpyIdtJzwg")]
@@ -725,7 +725,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// PT (Portugal) - Portuguese RTGS (SPGT).
-    /// Encoded/decoded by serializers as "SPG".
+    /// Encoded/decoded by serializers as &quot;SPG&quot;.
     /// </summary>
     [EnumMember(Value = "SPG")]
     [IsoId("_ul8Bo_RYEeuLhpyIdtJzwg")]
@@ -734,7 +734,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// SE (Sweden) - SEK RTGS (RIX).
-    /// Encoded/decoded by serializers as "SSK".
+    /// Encoded/decoded by serializers as &quot;SSK&quot;.
     /// </summary>
     [EnumMember(Value = "SSK")]
     [IsoId("_ul8BpvRYEeuLhpyIdtJzwg")]
@@ -743,7 +743,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// EBA Clearing STEP 2.
-    /// Encoded/decoded by serializers as "ST2".
+    /// Encoded/decoded by serializers as &quot;ST2&quot;.
     /// </summary>
     [EnumMember(Value = "ST2")]
     [IsoId("_ul8BqfRYEeuLhpyIdtJzwg")]
@@ -752,7 +752,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// UK (United Kingdom) - CHAPS Sterling RTGS.
-    /// Encoded/decoded by serializers as "STG".
+    /// Encoded/decoded by serializers as &quot;STG&quot;.
     /// </summary>
     [EnumMember(Value = "STG")]
     [IsoId("_ul8BrPRYEeuLhpyIdtJzwg")]
@@ -761,7 +761,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// T2S.
-    /// Encoded/decoded by serializers as "T2S".
+    /// Encoded/decoded by serializers as &quot;T2S&quot;.
     /// </summary>
     [EnumMember(Value = "T2S")]
     [IsoId("_ul8Br_RYEeuLhpyIdtJzwg")]
@@ -770,7 +770,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// FR (France) - French RTGS (TBF).
-    /// Encoded/decoded by serializers as "TBF".
+    /// Encoded/decoded by serializers as &quot;TBF&quot;.
     /// </summary>
     [EnumMember(Value = "TBF")]
     [IsoId("_umFLkPRYEeuLhpyIdtJzwg")]
@@ -779,7 +779,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// US - The Clearing House Real-TimePayment System
-    /// Encoded/decoded by serializers as "TCH".
+    /// Encoded/decoded by serializers as &quot;TCH&quot;.
     /// </summary>
     [EnumMember(Value = "TCH")]
     [IsoId("_umFLk_RYEeuLhpyIdtJzwg")]
@@ -788,7 +788,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// Target.
-    /// Encoded/decoded by serializers as "TGT".
+    /// Encoded/decoded by serializers as &quot;TGT&quot;.
     /// </summary>
     [EnumMember(Value = "TGT")]
     [IsoId("_umO8kPRYEeuLhpyIdtJzwg")]
@@ -797,7 +797,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// TH (Thailand) - Thailand Payment System (BAHTNET).
-    /// Encoded/decoded by serializers as "THB".
+    /// Encoded/decoded by serializers as &quot;THB&quot;.
     /// </summary>
     [EnumMember(Value = "THB")]
     [IsoId("_umO8k_RYEeuLhpyIdtJzwg")]
@@ -806,7 +806,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// TH (Thailand) - National ITMX Payment System
-    /// Encoded/decoded by serializers as "THN".
+    /// Encoded/decoded by serializers as &quot;THN&quot;.
     /// </summary>
     [EnumMember(Value = "THN")]
     [IsoId("_umO8lvRYEeuLhpyIdtJzwg")]
@@ -815,7 +815,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// TZ (Tanzania) - Tanzania Interbank Settlement System (TISS).
-    /// Encoded/decoded by serializers as "TIS".
+    /// Encoded/decoded by serializers as &quot;TIS&quot;.
     /// </summary>
     [EnumMember(Value = "TIS")]
     [IsoId("_umO8mfRYEeuLhpyIdtJzwg")]
@@ -824,7 +824,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// NL (Netherlands) - Dutch RTGS (TOP) 
-    /// Encoded/decoded by serializers as "TOP".
+    /// Encoded/decoded by serializers as &quot;TOP&quot;.
     /// </summary>
     [EnumMember(Value = "TOP")]
     [IsoId("_umO8nPRYEeuLhpyIdtJzwg")]
@@ -833,7 +833,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// TT (Trinidad and Tobago ) - Trinidad and Tobago SAFE-TT.
-    /// Encoded/decoded by serializers as "TTD".
+    /// Encoded/decoded by serializers as &quot;TTD&quot;.
     /// </summary>
     [EnumMember(Value = "TTD")]
     [IsoId("_umYtkPRYEeuLhpyIdtJzwg")]
@@ -842,7 +842,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// United States Dollar  (USD)
-    /// Encoded/decoded by serializers as "UBE".
+    /// Encoded/decoded by serializers as &quot;UBE&quot;.
     /// </summary>
     [EnumMember(Value = "UBE")]
     [IsoId("_umYtk_RYEeuLhpyIdtJzwg")]
@@ -851,7 +851,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// UG (Uganda) - Uganda National Interbank Settlement System.
-    /// Encoded/decoded by serializers as "UIS".
+    /// Encoded/decoded by serializers as &quot;UIS&quot;.
     /// </summary>
     [EnumMember(Value = "UIS")]
     [IsoId("_umYtlvRYEeuLhpyIdtJzwg")]
@@ -860,7 +860,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// VocaLink Clearing System
-    /// Encoded/decoded by serializers as "VCS".
+    /// Encoded/decoded by serializers as &quot;VCS&quot;.
     /// </summary>
     [EnumMember(Value = "VCS")]
     [IsoId("_umYtmfRYEeuLhpyIdtJzwg")]
@@ -869,7 +869,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// EBA step 2.
-    /// Encoded/decoded by serializers as "XCT".
+    /// Encoded/decoded by serializers as &quot;XCT&quot;.
     /// </summary>
     [EnumMember(Value = "XCT")]
     [IsoId("_umYtnPRYEeuLhpyIdtJzwg")]
@@ -878,7 +878,7 @@ public enum ExternalMarketInfrastructureCode
     
     /// <summary>
     /// JP (Japan) the Zengin system. The electronic payment system for domestic third party transfers managed by the Tokyo Bankers Association.
-    /// Encoded/decoded by serializers as "ZEN".
+    /// Encoded/decoded by serializers as &quot;ZEN&quot;.
     /// </summary>
     [EnumMember(Value = "ZEN")]
     [IsoId("_umh3gPRYEeuLhpyIdtJzwg")]
@@ -886,8 +886,8 @@ public enum ExternalMarketInfrastructureCode
     Zengin,
     
     /// <summary>
-    /// ZW (Zimbabwe) - Zimbabwe Electronic Transfer & Settlement System.
-    /// Encoded/decoded by serializers as "ZET".
+    /// ZW (Zimbabwe) - Zimbabwe Electronic Transfer &amp; Settlement System.
+    /// Encoded/decoded by serializers as &quot;ZET&quot;.
     /// </summary>
     [EnumMember(Value = "ZET")]
     [IsoId("_umh3g_RYEeuLhpyIdtJzwg")]
@@ -895,8 +895,8 @@ public enum ExternalMarketInfrastructureCode
     Zimbabwe,
     
     /// <summary>
-    /// ZM (Zambia) - Zambian Interbank Payment &Settlement System.
-    /// Encoded/decoded by serializers as "ZIS".
+    /// ZM (Zambia) - Zambian Interbank Payment &amp;Settlement System.
+    /// Encoded/decoded by serializers as &quot;ZIS&quot;.
     /// </summary>
     [EnumMember(Value = "ZIS")]
     [IsoId("_umh3hvRYEeuLhpyIdtJzwg")]

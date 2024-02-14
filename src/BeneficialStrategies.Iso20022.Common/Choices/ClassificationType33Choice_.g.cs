@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClassificationType33Choice.ClassificationFinancialInstrument))]
     [KnownType(typeof(ClassificationType33Choice.AlternateClassification))]
     [IsoId("_chVpw5KQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Type 33 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

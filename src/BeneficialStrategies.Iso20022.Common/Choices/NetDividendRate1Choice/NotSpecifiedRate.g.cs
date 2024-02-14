@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRate1Choice
     /// The value of the rate is not specified, eg, the rate is unknown.
     /// </summary>
     [IsoId("_UPh5gNp-Ed-ak6NoX_4Aeg_2035314621")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Specified Rate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

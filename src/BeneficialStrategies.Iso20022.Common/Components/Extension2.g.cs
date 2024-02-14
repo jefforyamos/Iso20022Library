@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information that can not be captured in the structured fields and/or any other specific block.
 /// </summary>
 [IsoId("_QzJSNdp-Ed-ak6NoX_4Aeg_251191216")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Extension")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record Extension2
     /// Name qualifying the information provided in the Text field, and place where this information should be inserted.
     /// </summary>
     [IsoId("_QzJSNtp-Ed-ak6NoX_4Aeg_-1852964930")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record Extension2
     /// Technical element wrapping the extension.
     /// </summary>
     [IsoId("_QzJSN9p-Ed-ak6NoX_4Aeg_-277341268")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension Envelope")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtnsnEnvlp")]
     #endif
+    [IsoXmlTag("XtnsnEnvlp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExtensionEnvelope1 ExtensionEnvelope { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExtensionEnvelope1 ExtensionEnvelope { get; init; } 
+    public required ExtensionEnvelope1 ExtensionEnvelope { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExtensionEnvelope1 ExtensionEnvelope { get; init; } 
     #else

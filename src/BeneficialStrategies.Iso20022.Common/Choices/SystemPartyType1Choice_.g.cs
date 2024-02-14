@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SystemPartyType1Choice.Code))]
     [KnownType(typeof(SystemPartyType1Choice.Proprietary))]
     [IsoId("_DZrOc1hPEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Party Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeTransactionCondition7Choice.Code))]
     [KnownType(typeof(TradeTransactionCondition7Choice.Proprietary))]
     [IsoId("_XFNQYeLaEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Transaction Condition 7 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

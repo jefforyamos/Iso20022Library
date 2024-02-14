@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option securities movement rate details.
 /// </summary>
 [IsoId("_1kW2YjL3EeKU9IrkkToqcw_1154144563")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionRateSD6
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1kW2YzL3EeKU9IrkkToqcw_1801070650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record CorporateActionRateSD6
     /// Corresponding rate of the security being disbursed as a result of the corporate action as declared by the issuer or offeror on the market.
     /// </summary>
     [IsoId("_1kW2ZDL3EeKU9IrkkToqcw_-1766701812")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Security Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdSctyRate")]
     #endif
+    [IsoXmlTag("DclrdSctyRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionRateSD6Choice_? DeclaredSecurityRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record CorporateActionRateSD6
     /// Denotes whether the rate is approximate.
     /// </summary>
     [IsoId("_1kW2ZTL3EeKU9IrkkToqcw_1489361583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Estimated Rate Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstmtdRateFlg")]
     #endif
+    [IsoXmlTag("EstmtdRateFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EstimatedRateFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record CorporateActionRateSD6
     /// Rate at which the fee will be charged to a DTC participant.
     /// </summary>
     [IsoId("_1kgnYDL3EeKU9IrkkToqcw_729716764")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Fee Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdFeeRate")]
     #endif
+    [IsoXmlTag("DclrdFeeRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredFeeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

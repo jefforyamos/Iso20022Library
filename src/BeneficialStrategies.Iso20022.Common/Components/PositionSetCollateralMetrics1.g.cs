@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables used to quantify the different calculations for collateral position sets and currency collateral position sets reports.
 /// </summary>
 [IsoId("_imt2X8WJEeiRga8tPu1L4Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Collateral Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,11 @@ public partial record PositionSetCollateralMetrics1
     /// Usage: Where the value is on a portfolio basis, this field should include the overall value  posted for the portfolio.
     /// </summary>
     [IsoId("_2AU54sWKEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ttl")]
     #endif
+    [IsoXmlTag("Ttl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetCollateralTotal1? Total { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +61,11 @@ public partial record PositionSetCollateralMetrics1
     /// Usage: Where the value is on a portfolio basis, this field should include the overall value posted for the portfolio.
     /// </summary>
     [IsoId("_2AU548WKEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clean")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clean")]
     #endif
+    [IsoXmlTag("Clean")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetCollateralTotal1? Clean { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

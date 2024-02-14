@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Result of an individual terminal management action by the point of interaction.
 /// </summary>
 [IsoId("_ACvkIWpNEeSR-ZWLvO-1dg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("TMS Action Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TMSActionIdentification3
     /// Types of terminal management action performed by a point of interaction.
     /// </summary>
     [IsoId("_APQ9MWpNEeSR-ZWLvO-1dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTp")]
     #endif
+    [IsoXmlTag("ActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction1Code ActionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementAction1Code ActionType { get; init; } 
+    public required TerminalManagementAction1Code ActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementAction1Code ActionType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TMSActionIdentification3
     /// Data set on which the action has been performed.
     /// </summary>
     [IsoId("_APQ9M2pNEeSR-ZWLvO-1dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetId")]
     #endif
+    [IsoXmlTag("DataSetId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DataSetIdentification4? DataSetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

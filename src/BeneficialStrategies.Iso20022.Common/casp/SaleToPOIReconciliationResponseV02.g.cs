@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"The SaleToPOIReconciliationResponse message is sent by a POI to provide the result of reconciliation process between sale and POI systems.")]
 [IsoId("_2r5z8Q1UEeqjM-rxn3HuXQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Reconciliation Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOIReconciliationResponseV02 : IOuterRecord<SaleToPO
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_2r5z8w1UEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header41 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header41 Header { get; init; } 
+    public required Header41 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header41 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOIReconciliationResponseV02 : IOuterRecord<SaleToPO
     /// Information related to the response of a reconciliation request.
     /// </summary>
     [IsoId("_2r5z9Q1UEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnRspn")]
     #endif
+    [IsoXmlTag("RcncltnRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationResponse4 ReconciliationResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationResponse4 ReconciliationResponse { get; init; } 
+    public required ReconciliationResponse4 ReconciliationResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationResponse4 ReconciliationResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SaleToPOIReconciliationResponseV02 : IOuterRecord<SaleToPO
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_2r5z9w1UEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType21? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SaleToPOIReconciliationResponseV02 : IOuterRecord<SaleToPO
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOIReconciliationResponseV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOIReconciliationResponseV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOIReconciliationResponseV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SaleToPOIReconciliationResponseV02 : IOuterRecord<SaleToPO
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIReconciliationResponseV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOIReconciliationResponseV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOIReconciliationResponseV02Document : IOuterDocument<SaleToPOIReconciliationResponseV02>
@@ -161,7 +156,7 @@ public partial record SaleToPOIReconciliationResponseV02Document : IOuterDocumen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOIReconciliationResponseV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOIReconciliationResponseV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOIReconciliationResponseV02 Message { get; init; }

@@ -21,7 +21,7 @@ public enum TEFRARules1Code
 {
     /// <summary>
     /// Indicates that the security is issued under the TEFRA rule C.
-    /// Encoded/decoded by serializers as "RULC".
+    /// Encoded/decoded by serializers as &quot;RULC&quot;.
     /// </summary>
     [EnumMember(Value = "RULC")]
     [IsoId("_Yg95hNp-Ed-ak6NoX_4Aeg_-1859434425")]
@@ -30,7 +30,7 @@ public enum TEFRARules1Code
     
     /// <summary>
     /// Indicates that the security is issued under the TEFRA rule D.
-    /// Encoded/decoded by serializers as "RULD".
+    /// Encoded/decoded by serializers as &quot;RULD&quot;.
     /// </summary>
     [EnumMember(Value = "RULD")]
     [IsoId("_Yg95hdp-Ed-ak6NoX_4Aeg_1396824143")]

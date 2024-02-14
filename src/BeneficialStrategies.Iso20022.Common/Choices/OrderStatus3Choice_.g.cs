@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OrderStatus3Choice.Suspended))]
     [KnownType(typeof(OrderStatus3Choice.PartiallySettled))]
     [IsoId("_uvD4kUH7EeaV3ab_pHzFIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Status 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

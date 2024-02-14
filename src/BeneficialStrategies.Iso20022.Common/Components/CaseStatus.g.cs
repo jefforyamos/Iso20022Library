@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the status of an investigation case.
 /// </summary>
 [IsoId("_VJDih9p-Ed-ak6NoX_4Aeg_964129193")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Case Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CaseStatus
     /// Date and time of the status.
     /// </summary>
     [IsoId("_VJDiiNp-Ed-ak6NoX_4Aeg_964129600")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtTm")]
     #endif
+    [IsoXmlTag("DtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime DateTime { get; init; } 
+    public required System.DateTime DateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime DateTime { get; init; } 
     #else
@@ -72,12 +70,13 @@ public partial record CaseStatus
     /// Status of the case.
     /// </summary>
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CaseSts")]
     #endif
+    [IsoXmlTag("CaseSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseStatus1Code Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseStatus1Code Value { get; init; } 
+    public required CaseStatus1Code Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseStatus1Code Value { get; init; } 
     #else
@@ -88,12 +87,11 @@ public partial record CaseStatus
     /// Status of the investigation.
     /// </summary>
     [IsoId("_VJMscNp-Ed-ak6NoX_4Aeg_-392540477")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnSts")]
     #endif
+    [IsoXmlTag("InvstgtnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestigationExecutionConfirmation1Code? InvestigationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,15 +104,13 @@ public partial record CaseStatus
     /// Free text justification of the status.
     /// </summary>
     [IsoId("_VJMscdp-Ed-ak6NoX_4Aeg_-1534881594")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details for a specific date on the daily data on settlement fails instructions.
 /// </summary>
 [IsoId("_XevB0TOqEeqX8uoQQ3KffQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Daily Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SettlementFailsDailyData3
     /// Date for each reporting day in the month.
     /// </summary>
     [IsoId("_XfxjoTOqEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgDt")]
     #endif
+    [IsoXmlTag("RptgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ReportingDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ReportingDate { get; init; } 
+    public required System.DateOnly ReportingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ReportingDate { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record SettlementFailsDailyData3
     /// Data related to the failed settlement instructions for the reporting date.
     /// </summary>
     [IsoId("_XfxjozOqEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Daily Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DalyRcrd")]
     #endif
+    [IsoXmlTag("DalyRcrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyInstrument3 DailyRecord { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyInstrument3 DailyRecord { get; init; } 
+    public required SettlementFailsDailyInstrument3 DailyRecord { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyInstrument3 DailyRecord { get; init; } 
     #else

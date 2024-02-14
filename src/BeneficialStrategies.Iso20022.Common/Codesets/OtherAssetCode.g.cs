@@ -21,7 +21,7 @@ public enum OtherAssetCode
 {
     /// <summary>
     /// Property that is real estate.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_fdkQMEyMEeiepssxrmRw1A")]
@@ -29,8 +29,8 @@ public enum OtherAssetCode
     Property,
     
     /// <summary>
-    /// Property that is not real estate. Also known as 'movable chattels'.
-    /// Encoded/decoded by serializers as "MOVE".
+    /// Property that is not real estate. Also known as &apos;movable chattels&apos;.
+    /// Encoded/decoded by serializers as &quot;MOVE&quot;.
     /// </summary>
     [EnumMember(Value = "MOVE")]
     [IsoId("_j1tVIEyMEeiepssxrmRw1A")]
@@ -39,7 +39,7 @@ public enum OtherAssetCode
     
     /// <summary>
     /// Asset is an external investment account.
-    /// Encoded/decoded by serializers as "EXIA".
+    /// Encoded/decoded by serializers as &quot;EXIA&quot;.
     /// </summary>
     [EnumMember(Value = "EXIA")]
     [IsoId("_DYEaAJNCEemQB_8XA98K0Q")]
@@ -48,7 +48,7 @@ public enum OtherAssetCode
     
     /// <summary>
     /// Asset is a discretionary investment manager account
-    /// Encoded/decoded by serializers as "DIMA".
+    /// Encoded/decoded by serializers as &quot;DIMA&quot;.
     /// </summary>
     [EnumMember(Value = "DIMA")]
     [IsoId("_OfW3gJNCEemQB_8XA98K0Q")]
@@ -57,7 +57,7 @@ public enum OtherAssetCode
     
     /// <summary>
     /// Asset is a trustee investment plan (TIP).
-    /// Encoded/decoded by serializers as "TIPP".
+    /// Encoded/decoded by serializers as &quot;TIPP&quot;.
     /// </summary>
     [EnumMember(Value = "TIPP")]
     [IsoId("_XhV1YJNCEemQB_8XA98K0Q")]

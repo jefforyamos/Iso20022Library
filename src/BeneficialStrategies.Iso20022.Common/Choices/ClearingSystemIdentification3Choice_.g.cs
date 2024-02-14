@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingSystemIdentification3Choice.Code))]
     [KnownType(typeof(ClearingSystemIdentification3Choice.Proprietary))]
     [IsoId("_TMVXJdp-Ed-ak6NoX_4Aeg_948374898")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Identification 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

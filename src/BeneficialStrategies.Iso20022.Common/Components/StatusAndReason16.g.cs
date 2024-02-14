@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status and reason of an instructed order.
 /// </summary>
 [IsoId("_9aRywQ31EeKRyJSEMMwa2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record StatusAndReason16
     /// Status and reason for the transaction.
     /// </summary>
     [IsoId("_9xq_FQ31EeKRyJSEMMwa2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status And Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsAndRsn")]
     #endif
+    [IsoXmlTag("StsAndRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status9Choice_ StatusAndReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status9Choice_ StatusAndReason { get; init; } 
+    public required Status9Choice_ StatusAndReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status9Choice_ StatusAndReason { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record StatusAndReason16
     /// Details of the transactions reported.
     /// </summary>
     [IsoId("_9xq_Hw31EeKRyJSEMMwa2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Transaction28? Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

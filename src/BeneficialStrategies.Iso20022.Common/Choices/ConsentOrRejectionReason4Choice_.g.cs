@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConsentOrRejectionReason4Choice.Code))]
     [KnownType(typeof(ConsentOrRejectionReason4Choice.Proprietary))]
     [IsoId("_ne_nsTzpEeWeNtT0s2RbkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consent Or Rejection Reason 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

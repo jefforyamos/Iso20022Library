@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment card performing the transaction.
 /// </summary>
 [IsoId("_SqR5zwEcEeCQm6a_G2yO_w_-584197886")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Card")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaymentCard1
     /// Sensitive data of the card (PlainCardData1 including the envelope), encrypted with a cryptographic key.
     /// </summary>
     [IsoId("_SqbqwAEcEeCQm6a_G2yO_w_-1958797237")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdCardData")]
     #endif
+    [IsoXmlTag("PrtctdCardData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType2? ProtectedCardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PaymentCard1
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
     [IsoId("_SqbqwQEcEeCQm6a_G2yO_w_-1721398329")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plain Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlainCardData")]
     #endif
+    [IsoXmlTag("PlainCardData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData1? PlainCardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,12 @@ public partial record PaymentCard1
     /// Country code assigned to the card by the card issuer.
     /// </summary>
     [IsoId("_SqbqwgEcEeCQm6a_G2yO_w_937372847")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Country Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardCtryCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CardCtryCd")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? CardCountryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,15 +94,12 @@ public partial record PaymentCard1
     /// Defines a category of cards related to the acceptance processing rules defined by the acquirer.
     /// </summary>
     [IsoId("_SqbqwwEcEeCQm6a_G2yO_w_2105966354")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Product Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPdctPrfl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CardPdctPrfl")]
+    [IsoSimpleType(IsoSimpleType.Exact4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? CardProductProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,15 +112,13 @@ public partial record PaymentCard1
     /// Brand name of the card.
     /// </summary>
     [IsoId("_SqbqxAEcEeCQm6a_G2yO_w_716184634")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Brand")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardBrnd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CardBrnd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardBrand { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,15 +131,13 @@ public partial record PaymentCard1
     /// Additional card issuer specific data.
     /// </summary>
     [IsoId("_SqbqxQEcEeCQm6a_G2yO_w_412422136")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlCardData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlCardData")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalCardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

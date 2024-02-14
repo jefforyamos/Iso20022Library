@@ -21,7 +21,7 @@ public enum PartyRole1Code
 {
     /// <summary>
     /// Party that safekeeps and administers assets on behalf of the owner.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_zsaVUSDSEeWCLu74WLgP4w")]
@@ -30,7 +30,7 @@ public enum PartyRole1Code
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
-    /// Encoded/decoded by serializers as "INVS".
+    /// Encoded/decoded by serializers as &quot;INVS&quot;.
     /// </summary>
     [EnumMember(Value = "INVS")]
     [IsoId("_0PE9gSDSEeWCLu74WLgP4w")]

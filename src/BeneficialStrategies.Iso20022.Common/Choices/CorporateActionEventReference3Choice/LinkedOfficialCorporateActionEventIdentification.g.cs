@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventReference3Ch
     /// Official and unique reference assigned by the official central body/ entity within each market at the beginning of a corporate action event.
     /// </summary>
     [IsoId("_4h3LozncEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Official Corporate Action Event Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventReference3Ch
         /// Specifies a character string with a maximum length of 35 characters.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LkdOffclCorpActnEvtId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("LkdOffclCorpActnEvtId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

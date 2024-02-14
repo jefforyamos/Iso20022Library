@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
 [IsoId("_H7FLkdNVEeKdOs2hjJ_3WQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Obligation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record PaymentObligation2
     /// Bank that has to pay under the obligation.
     /// </summary>
     [IsoId("_IbM2E9NVEeKdOs2hjJ_3WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligor Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OblgrBk")]
     #endif
+    [IsoXmlTag("OblgrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 ObligorBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 ObligorBank { get; init; } 
+    public required BICIdentification1 ObligorBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 ObligorBank { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record PaymentObligation2
     /// Bank that will be paid under the obligation.
     /// </summary>
     [IsoId("_IbM2FdNVEeKdOs2hjJ_3WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptBk")]
     #endif
+    [IsoXmlTag("RcptBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 RecipientBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 RecipientBank { get; init; } 
+    public required BICIdentification1 RecipientBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 RecipientBank { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record PaymentObligation2
     /// Payment obligation amount specified as an amount or percentage.
     /// </summary>
     [IsoId("_qRrnENP_EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Obligation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtOblgtnAmt")]
     #endif
+    [IsoXmlTag("PmtOblgtnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
+    public required AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
     #else
@@ -114,12 +109,11 @@ public partial record PaymentObligation2
     /// Charges related to the payment obligation.
     /// </summary>
     [IsoId("_bUWsINP_EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrgs")]
     #endif
+    [IsoXmlTag("Chrgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charges5? Charges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,16 +126,16 @@ public partial record PaymentObligation2
     /// Date at which the obligation will expire.
     /// </summary>
     [IsoId("_IbM2H9NVEeKdOs2hjJ_3WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ExpiryDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ExpiryDate { get; init; } 
+    public required System.DateOnly ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ExpiryDate { get; init; } 
     #else
@@ -152,12 +146,11 @@ public partial record PaymentObligation2
     /// Rules which apply to the BPO (Bank Payment Obligation).
     /// </summary>
     [IsoId("_VaMaENNrEeKdOs2hjJ_3WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicable Rules")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AplblRules")]
     #endif
+    [IsoXmlTag("AplblRules")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BPOApplicableRules1Choice_? ApplicableRules { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +163,11 @@ public partial record PaymentObligation2
     /// Country of which the law governs the bank payment obligation.
     /// </summary>
     [IsoId("_IbM2IdNVEeKdOs2hjJ_3WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicable Law")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AplblLaw")]
     #endif
+    [IsoXmlTag("AplblLaw")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? ApplicableLaw { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +180,11 @@ public partial record PaymentObligation2
     /// Location and forum for dispute resolution.
     /// </summary>
     [IsoId("_aiswQNQAEeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Jurisdiction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfJursdctn")]
     #endif
+    [IsoXmlTag("PlcOfJursdctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Location2? PlaceOfJurisdiction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +197,11 @@ public partial record PaymentObligation2
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
     [IsoId("_IbM2I9NVEeKdOs2hjJ_3WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTerms")]
     #endif
+    [IsoXmlTag("PmtTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTerms4? PaymentTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +214,11 @@ public partial record PaymentObligation2
     /// Instruction between two clearing agents stipulating the cash transfer characteristics between the two parties.
     /// </summary>
     [IsoId("_IbM2JdNVEeKdOs2hjJ_3WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTerms")]
     #endif
+    [IsoXmlTag("SttlmTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTerms3? SettlementTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

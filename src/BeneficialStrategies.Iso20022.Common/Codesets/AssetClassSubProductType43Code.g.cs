@@ -21,7 +21,7 @@ public enum AssetClassSubProductType43Code
 {
     /// <summary>
     /// Commodity of type urea.
-    /// Encoded/decoded by serializers as "UREA".
+    /// Encoded/decoded by serializers as &quot;UREA&quot;.
     /// </summary>
     [EnumMember(Value = "UREA")]
     [IsoId("_pK4MiVr3EeWN79Bl6BUd3g")]

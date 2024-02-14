@@ -21,7 +21,7 @@ public enum AssetPriceTypeCode
 {
     /// <summary>
     /// Argus / Mc Closkey price.
-    /// Encoded/decoded by serializers as "ARGM".
+    /// Encoded/decoded by serializers as &quot;ARGM&quot;.
     /// </summary>
     [EnumMember(Value = "ARGM")]
     [IsoId("_N3C1EBsTEeWhp-Wous5jzA")]
@@ -30,7 +30,7 @@ public enum AssetPriceTypeCode
     
     /// <summary>
     /// Baltic price.
-    /// Encoded/decoded by serializers as "BLTC".
+    /// Encoded/decoded by serializers as &quot;BLTC&quot;.
     /// </summary>
     [EnumMember(Value = "BLTC")]
     [IsoId("_N-VI0BsTEeWhp-Wous5jzA")]
@@ -39,7 +39,7 @@ public enum AssetPriceTypeCode
     
     /// <summary>
     /// Exchange price.
-    /// Encoded/decoded by serializers as "EXOF".
+    /// Encoded/decoded by serializers as &quot;EXOF&quot;.
     /// </summary>
     [EnumMember(Value = "EXOF")]
     [IsoId("_OARCgBsTEeWhp-Wous5jzA")]
@@ -48,7 +48,7 @@ public enum AssetPriceTypeCode
     
     /// <summary>
     /// Global coal price.
-    /// Encoded/decoded by serializers as "GBCL".
+    /// Encoded/decoded by serializers as &quot;GBCL&quot;.
     /// </summary>
     [EnumMember(Value = "GBCL")]
     [IsoId("_OCDLMBsTEeWhp-Wous5jzA")]
@@ -57,7 +57,7 @@ public enum AssetPriceTypeCode
     
     /// <summary>
     /// IHS Mc Closkey price.
-    /// Encoded/decoded by serializers as "IHSM".
+    /// Encoded/decoded by serializers as &quot;IHSM&quot;.
     /// </summary>
     [EnumMember(Value = "IHSM")]
     [IsoId("_OD_E4BsTEeWhp-Wous5jzA")]
@@ -66,7 +66,7 @@ public enum AssetPriceTypeCode
     
     /// <summary>
     /// Platts price.
-    /// Encoded/decoded by serializers as "PLAT".
+    /// Encoded/decoded by serializers as &quot;PLAT&quot;.
     /// </summary>
     [EnumMember(Value = "PLAT")]
     [IsoId("_OFnckBsTEeWhp-Wous5jzA")]
@@ -75,7 +75,7 @@ public enum AssetPriceTypeCode
     
     /// <summary>
     /// Other price.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_OHjWQBsTEeWhp-Wous5jzA")]

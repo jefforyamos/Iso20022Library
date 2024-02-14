@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The classification type of the financial instrument, eg, common share with voting right, fully paid and registered etc.
 /// </summary>
 [IsoId("_TuJqxdp-Ed-ak6NoX_4Aeg_1114148307")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Classification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FinancialInstrumentClassification1
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, eg, common share with voting rights, fully paid, or registered.
     /// </summary>
     [IsoId("_TuJqxtp-Ed-ak6NoX_4Aeg_1140931613")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssfctnTp")]
     #endif
+    [IsoXmlTag("ClssfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityClassificationType1Choice_ ClassificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityClassificationType1Choice_ ClassificationType { get; init; } 
+    public required SecurityClassificationType1Choice_ ClassificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityClassificationType1Choice_ ClassificationType { get; init; } 
     #else

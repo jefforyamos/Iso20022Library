@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party13Choice
     /// Unique and unambiguous identification of a financial institution.
     /// </summary>
     [IsoId("_6Q10hZqlEeGSON8vddiWzQ_1922530449")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -46,15 +44,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Party13Choice
         #nullable enable
         
         /// <summary>
-        /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+        /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
         /// </summary>
         [IsoId("_6T-oF5qlEeGSON8vddiWzQ_-1460045446")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("BICFI")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BICFI")]
         #endif
+        [IsoXmlTag("BICFI")]
+        [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoBICFIIdentifier? BICFI { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +65,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party13Choice
         /// Information used to identify a member within a clearing system.
         /// </summary>
         [IsoId("_6T-oGJqlEeGSON8vddiWzQ_700420690")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Clearing System Member Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClrSysMmbId")]
         #endif
+        [IsoXmlTag("ClrSysMmbId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ClearingSystemMemberIdentification2? ClearingSystemMemberIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +82,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party13Choice
         /// Unique identification of an agent, as assigned by an institution, using an identification scheme.
         /// </summary>
         [IsoId("_6T-oGZqlEeGSON8vddiWzQ_1934580671")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Othr")]
         #endif
+        [IsoXmlTag("Othr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public GenericFinancialIdentification1? Other { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

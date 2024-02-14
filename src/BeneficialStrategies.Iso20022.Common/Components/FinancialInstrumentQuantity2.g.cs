@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Quantity of the financial instrument subscribed.
 /// </summary>
 [IsoId("_SGABM9p-Ed-ak6NoX_4Aeg_345752631")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FinancialInstrumentQuantity2
     /// Quantity of investment fund units to be subscribed.
     /// </summary>
     [IsoId("_SGABNNp-Ed-ak6NoX_4Aeg_345752649")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitsNb")]
     #endif
+    [IsoXmlTag("UnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
+    public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record FinancialInstrumentQuantity2
     /// Amount of money to be invested.
     /// </summary>
     [IsoId("_SGABNdp-Ed-ak6NoX_4Aeg_345752726")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ordered Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrdAmt")]
     #endif
+    [IsoXmlTag("OrdrdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? OrderedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record FinancialInstrumentQuantity2
     /// Amount of money invested after deduction of charges, commissions and taxes.
     /// </summary>
     [IsoId("_SGABNtp-Ed-ak6NoX_4Aeg_345753034")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetAmt")]
     #endif
+    [IsoXmlTag("NetAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,12 @@ public partial record FinancialInstrumentQuantity2
     /// Amount of money invested before deduction of charges, commissions and taxes.
     /// </summary>
     [IsoId("_SGABN9p-Ed-ak6NoX_4Aeg_345753284")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssAmt")]
     #endif
+    [IsoXmlTag("GrssAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +122,12 @@ public partial record FinancialInstrumentQuantity2
     /// Amount of money invested.
     /// </summary>
     [IsoId("_SGABONp-Ed-ak6NoX_4Aeg_1692243831")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Executed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctdAmt")]
     #endif
+    [IsoXmlTag("ExctdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ExecutedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +140,12 @@ public partial record FinancialInstrumentQuantity2
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
     [IsoId("_SGABOdp-Ed-ak6NoX_4Aeg_1448437730")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

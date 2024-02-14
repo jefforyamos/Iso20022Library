@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity52Choice
     /// Quantity of financial instrument in units, original face amount or current face amount.
     /// </summary>
     [IsoId("_OovFmxuyEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

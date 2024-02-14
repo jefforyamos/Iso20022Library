@@ -21,7 +21,7 @@ public enum ValidationRuleCreditSettlement1Code
 {
     /// <summary>
     /// AcceptedCreditSettlementCompleted
-    /// Encoded/decoded by serializers as "ACCC".
+    /// Encoded/decoded by serializers as &quot;ACCC&quot;.
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_yFd3gSE5EeuIZ4Hf6difAw")]

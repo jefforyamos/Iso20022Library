@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementTransactionCondition30Choice.Code))]
     [KnownType(typeof(SettlementTransactionCondition30Choice.Proprietary))]
     [IsoId("_1VRycUc8EeaBWtcfqEyXyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Transaction Condition 30 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

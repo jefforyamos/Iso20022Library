@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
 [IsoId("_xey5kzT5Ee2j2eQlcOSMKg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Holding Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record HoldingBalance12
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
     [IsoId("_x0jHEzT5Ee2j2eQlcOSMKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignedQuantityFormat15 Balance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SignedQuantityFormat15 Balance { get; init; } 
+    public required SignedQuantityFormat15 Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SignedQuantityFormat15 Balance { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record HoldingBalance12
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
     [IsoId("_x0jHFTT5Ee2j2eQlcOSMKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTp")]
     #endif
+    [IsoXmlTag("BalTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesEntryType2Code? BalanceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record HoldingBalance12
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
     [IsoId("_x0jHFzT5Ee2j2eQlcOSMKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgPlc")]
     #endif
+    [IsoXmlTag("SfkpgPlc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

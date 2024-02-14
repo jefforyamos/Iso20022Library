@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|The MeetingCancellation message is sent by the party that sent the MeetingNotification message to the original receiver. It is sent to cancel a previously announced meeting or to advise the withdrawal of a meeting.|Usage|The MeetingCancellation message is used to advise that the meeting has been cancelled by the account servicer or withdrawn by the Issuer. |This message definition is intended for use with the Business Application Header.")]
 [IsoId("_yXBbUayREemMosWmlQ33EA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting Cancellation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record MeetingCancellationV06 : IOuterRecord<MeetingCancellationV
     /// Set of elements that allow to identify unambiguously a meeting.
     /// </summary>
     [IsoId("_yXBbVayREemMosWmlQ33EA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtgRef")]
     #endif
+    [IsoXmlTag("MtgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingReference9 MeetingReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MeetingReference9 MeetingReference { get; init; } 
+    public required MeetingReference9 MeetingReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MeetingReference9 MeetingReference { get; init; } 
     #else
@@ -100,32 +97,28 @@ public partial record MeetingCancellationV06 : IOuterRecord<MeetingCancellationV
     /// Identification of the security for which the meeting was organised.
     /// </summary>
     [IsoId("_yXBbV6yREemMosWmlQ33EA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Scty")]
     [MinLength(1)]
     [MaxLength(200)]
-    #endif
     public ValueList<SecurityPosition10> Security { get; init; } = new ValueList<SecurityPosition10>(){};
     
     /// <summary>
     /// Justification for the cancellation.
     /// </summary>
     [IsoId("_yXBbWayREemMosWmlQ33EA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingCancellationReason2 Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MeetingCancellationReason2 Reason { get; init; } 
+    public required MeetingCancellationReason2 Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MeetingCancellationReason2 Reason { get; init; } 
     #else
@@ -136,12 +129,11 @@ public partial record MeetingCancellationV06 : IOuterRecord<MeetingCancellationV
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_yXBbW6yREemMosWmlQ33EA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,7 +146,7 @@ public partial record MeetingCancellationV06 : IOuterRecord<MeetingCancellationV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MeetingCancellationV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MeetingCancellationV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MeetingCancellationV06Document ToDocument()
     {
@@ -164,7 +156,7 @@ public partial record MeetingCancellationV06 : IOuterRecord<MeetingCancellationV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingCancellationV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MeetingCancellationV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MeetingCancellationV06Document : IOuterDocument<MeetingCancellationV06>
@@ -181,7 +173,7 @@ public partial record MeetingCancellationV06Document : IOuterDocument<MeetingCan
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MeetingCancellationV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MeetingCancellationV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingCancellationV06 Message { get; init; }

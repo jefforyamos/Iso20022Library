@@ -21,7 +21,7 @@ public enum DateCalculationMethod1Code
 {
     /// <summary>
     /// First in, first out. 
-    /// Encoded/decoded by serializers as "FIFO".
+    /// Encoded/decoded by serializers as &quot;FIFO&quot;.
     /// </summary>
     [EnumMember(Value = "FIFO")]
     [IsoId("_U1m4wVSVEempisJfoIfvvQ")]
@@ -30,7 +30,7 @@ public enum DateCalculationMethod1Code
     
     /// <summary>
     /// Last in, first out. 
-    /// Encoded/decoded by serializers as "LIFO".
+    /// Encoded/decoded by serializers as &quot;LIFO&quot;.
     /// </summary>
     [EnumMember(Value = "LIFO")]
     [IsoId("_U6qX4VSVEempisJfoIfvvQ")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MeetingEventReference1Choice.LinkedIssuerMeetingIdentification))]
     [KnownType(typeof(MeetingEventReference1Choice.LinkedMeetingIdentification))]
     [IsoId("__b3CGa7rEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Event Reference 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

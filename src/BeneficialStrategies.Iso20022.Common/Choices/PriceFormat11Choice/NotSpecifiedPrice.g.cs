@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat11Choice
     /// Value of the price not specified.
     /// </summary>
     [IsoId("_Q4EOd9p-Ed-ak6NoX_4Aeg_1753076383")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Specified Price")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat11Choice
         /// Specifies the value of a price.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NotSpcfdPric")]
         #endif
+        [IsoXmlTag("NotSpcfdPric")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PriceValueType5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PriceValueType5Code Value { get; init; } 
+        public required PriceValueType5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PriceValueType5Code Value { get; init; } 
         #else

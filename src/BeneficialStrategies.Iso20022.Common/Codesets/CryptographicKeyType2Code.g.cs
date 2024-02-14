@@ -21,7 +21,7 @@ public enum CryptographicKeyType2Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES2".
+    /// Encoded/decoded by serializers as &quot;AES2&quot;.
     /// </summary>
     [EnumMember(Value = "AES2")]
     [IsoId("_yZyTMSm0EeKIjpr--01h3Q")]
@@ -30,7 +30,7 @@ public enum CryptographicKeyType2Code
     
     /// <summary>
     /// Data encryption standard key of 112 bits (without the parity bits).
-    /// Encoded/decoded by serializers as "EDE3".
+    /// Encoded/decoded by serializers as &quot;EDE3&quot;.
     /// </summary>
     [EnumMember(Value = "EDE3")]
     [IsoId("_zIyuQym0EeKIjpr--01h3Q")]
@@ -39,7 +39,7 @@ public enum CryptographicKeyType2Code
     
     /// <summary>
     /// DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.
-    /// Encoded/decoded by serializers as "DKP9".
+    /// Encoded/decoded by serializers as &quot;DKP9&quot;.
     /// </summary>
     [EnumMember(Value = "DKP9")]
     [IsoId("_zYRUsym0EeKIjpr--01h3Q")]

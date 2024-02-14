@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for which the collateral message has been cancelled.
 /// </summary>
 [IsoId("_UnhiwNp-Ed-ak6NoX_4Aeg_-540863751")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Cancellation Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record CollateralCancellationReason1
     /// Allows to provides additional information on the cancellation reason.
     /// </summary>
     [IsoId("_Unhiwdp-Ed-ak6NoX_4Aeg_-1001218572")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record CollateralCancellationReason1
     /// Allows to provide a cancellation reason using a code or proprietary reason.
     /// </summary>
     [IsoId("_Unhiwtp-Ed-ak6NoX_4Aeg_1328732613")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsnCd")]
     #endif
+    [IsoXmlTag("CxlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralCancellationType1Choice_ CancellationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralCancellationType1Choice_ CancellationReasonCode { get; init; } 
+    public required CollateralCancellationType1Choice_ CancellationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralCancellationType1Choice_ CancellationReasonCode { get; init; } 
     #else

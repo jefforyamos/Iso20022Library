@@ -21,7 +21,7 @@ public enum Operation3Code
 {
     /// <summary>
     /// Indicates that only when all if all of its elements are valid, the whole expression is valid.
-    /// Encoded/decoded by serializers as "ANDD".
+    /// Encoded/decoded by serializers as &quot;ANDD&quot;.
     /// </summary>
     [EnumMember(Value = "ANDD")]
     [IsoId("_zxpM0dGyEeaokquJJ-K6uA")]
@@ -30,7 +30,7 @@ public enum Operation3Code
     
     /// <summary>
     /// Indicates that when at least one of its elements is valid, the whole expression is valid.
-    /// Encoded/decoded by serializers as "ORRR".
+    /// Encoded/decoded by serializers as &quot;ORRR&quot;.
     /// </summary>
     [EnumMember(Value = "ORRR")]
     [IsoId("_0EAIItGyEeaokquJJ-K6uA")]

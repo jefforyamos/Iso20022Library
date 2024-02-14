@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the corporate action event.
 /// </summary>
 [IsoId("_k5rScZcEEee8S7xwGG7Veg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateAction43
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
     [IsoId("_lIsl4ZcEEee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtDtls")]
     #endif
+    [IsoXmlTag("DtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate59? DateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateAction43
     /// Stage in the corporate action event life cycle.
     /// </summary>
     [IsoId("_lIsl45cEEee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Stage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtStag")]
     #endif
+    [IsoXmlTag("EvtStag")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventStageFormat14Choice_? EventStage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateAction43
     /// Specifies the type of the additional business process linked to a corporate action event such as a claim compensation or tax refund.
     /// </summary>
     [IsoId("_oZIb5JcEEee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Business Process Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlBizPrcInd")]
     #endif
+    [IsoXmlTag("AddtlBizPrcInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalBusinessProcessFormat15Choice_? AdditionalBusinessProcessIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateAction43
     /// Specifies the type of lottery announced.
     /// </summary>
     [IsoId("_lIsl5ZcEEee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lottery Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtryTp")]
     #endif
+    [IsoXmlTag("LtryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LotteryTypeFormat4Choice_? LotteryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

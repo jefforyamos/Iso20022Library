@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeneralBusinessInformationCriteriaDefinition1Choice.QueryName))]
     [KnownType(typeof(GeneralBusinessInformationCriteriaDefinition1Choice.NewCriteria))]
     [IsoId("_1VwUF5lZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Business Information Criteria Definition 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

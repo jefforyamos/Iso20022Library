@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The InvoiceTaxReport message is sent by tax responsible to tax authority. Tax authorities require corporates to report their sales based value added tax (VAT). This message is targeted to this reporting based on information in sales invoices and card transactions.")]
 [IsoId("_B5eQoFmrEeOQYsoJizpkVw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Tax Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record InvoiceTaxReportV01 : IOuterRecord<InvoiceTaxReportV01,Inv
     /// Defines message level identification, number of individual tax reports and tax authority.
     /// </summary>
     [IsoId("_riLtAGn0Eea5EcY2TpG1mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Tax Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcTaxRptHdr")]
     #endif
+    [IsoXmlTag("InvcTaxRptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxReportHeader1 InvoiceTaxReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxReportHeader1 InvoiceTaxReportHeader { get; init; } 
+    public required TaxReportHeader1 InvoiceTaxReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxReportHeader1 InvoiceTaxReportHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record InvoiceTaxReportV01 : IOuterRecord<InvoiceTaxReportV01,Inv
     /// Contains all needed party details for tax agency (sender of the TaxReport) and tax authority (receiver of the TaxReport) and the details of the reported sales transaction and calculated tax related that specific business transaction.
     /// </summary>
     [IsoId("_DiX4YFm8EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRpt")]
     #endif
+    [IsoXmlTag("TaxRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxReport1 TaxReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxReport1 TaxReport { get; init; } 
+    public required TaxReport1 TaxReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxReport1 TaxReport { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record InvoiceTaxReportV01 : IOuterRecord<InvoiceTaxReportV01,Inv
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_YqO7oEjvEeaOe8w0NJ11wQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record InvoiceTaxReportV01 : IOuterRecord<InvoiceTaxReportV01,Inv
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvoiceTaxReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvoiceTaxReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvoiceTaxReportV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record InvoiceTaxReportV01 : IOuterRecord<InvoiceTaxReportV01,Inv
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceTaxReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvoiceTaxReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvoiceTaxReportV01Document : IOuterDocument<InvoiceTaxReportV01>
@@ -161,7 +156,7 @@ public partial record InvoiceTaxReportV01Document : IOuterDocument<InvoiceTaxRep
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvoiceTaxReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvoiceTaxReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceTaxReportV01 Message { get; init; }

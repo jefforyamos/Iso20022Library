@@ -21,7 +21,7 @@ public enum RepoCallAcknowledgementReason2Code
 {
     /// <summary>
     /// Repurchase agreement call is in process.
-    /// Encoded/decoded by serializers as "CALD".
+    /// Encoded/decoded by serializers as &quot;CALD&quot;.
     /// </summary>
     [EnumMember(Value = "CALD")]
     [IsoId("_ZSvUtdp-Ed-ak6NoX_4Aeg_-364881931")]
@@ -30,7 +30,7 @@ public enum RepoCallAcknowledgementReason2Code
     
     /// <summary>
     /// Repurchase agreement call is processed.
-    /// Encoded/decoded by serializers as "CALP".
+    /// Encoded/decoded by serializers as &quot;CALP&quot;.
     /// </summary>
     [EnumMember(Value = "CALP")]
     [IsoId("_ZSvUttp-Ed-ak6NoX_4Aeg_-478720997")]
@@ -38,8 +38,8 @@ public enum RepoCallAcknowledgementReason2Code
     Processed = RepoCallAcknowledgementReasonCode.Processed, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_ZSvUt9p-Ed-ak6NoX_4Aeg_1840624684")]

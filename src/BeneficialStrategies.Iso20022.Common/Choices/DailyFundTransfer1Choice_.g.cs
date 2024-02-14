@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DailyFundTransfer1Choice.TransferTime))]
     [KnownType(typeof(DailyFundTransfer1Choice.TransferEvent))]
     [IsoId("_mJGJgCc6Eea7avjfd7yDAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Daily Fund Transfer 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

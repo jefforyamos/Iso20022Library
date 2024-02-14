@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType15Code
 {
     /// <summary>
     /// Commodity attribute of type milled wheat.
-    /// Encoded/decoded by serializers as "MWHT".
+    /// Encoded/decoded by serializers as &quot;MWHT&quot;.
     /// </summary>
     [EnumMember(Value = "MWHT")]
     [IsoId("_2a6FYWX-EeWIGZvepIG8Mg")]

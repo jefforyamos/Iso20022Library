@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Totals for the value of the holdings reported in the statement or page.
 /// </summary>
 [IsoId("_L7GM8MRrEeij-rSPpvD-Tw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Value In Page And Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record TotalValueInPageAndStatement5
     /// Total value of exposure reported in this message.
     /// </summary>
     [IsoId("_8TX0sMRrEeij-rSPpvD-Tw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Exposure Value Of Page")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlXpsrValOfPg")]
     #endif
+    [IsoXmlTag("TtlXpsrValOfPg")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalExposureValueOfPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record TotalValueInPageAndStatement5
     /// Total value of collateral held reported in this message.
     /// </summary>
     [IsoId("_Hzfo8MRsEeij-rSPpvD-Tw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Collateral Held Value Of Page")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCollHeldValOfPg")]
     #endif
+    [IsoXmlTag("TtlCollHeldValOfPg")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCollateralHeldValueOfPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

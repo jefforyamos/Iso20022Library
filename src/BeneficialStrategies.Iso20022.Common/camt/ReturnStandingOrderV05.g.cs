@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The ReturnStandingOrder message is sent by a transaction administrator to a member.|It is used to provide information on the details of one or more standing orders, based on specific request and return criteria.|in response to a request a on information on standing and predefined orders.|Usage|The ReturnStandingOrder message lists the standing order based on the following possible return criteria: |- Generic standing order details,|- Details of a specific predefined or standing liquidity transfer orders,|- Details on the set to which the standing order belongs to,|- List of all predefined and standing liquidity transfer standing orders and/or per set,|- Total amount of predefined and standing liquidity transfer orders defined in the system.")]
 [IsoId("_ThWhvdb6Eeq_l4BJLVUF2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Return Standing Order V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ReturnStandingOrderV05 : IOuterRecord<ReturnStandingOrderV
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_ThWhxdb6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader6 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader6 MessageHeader { get; init; } 
+    public required MessageHeader6 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader6 MessageHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ReturnStandingOrderV05 : IOuterRecord<ReturnStandingOrderV
     /// Reports on standing orders.
     /// </summary>
     [IsoId("_ThWhx9b6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptOrErr")]
     #endif
+    [IsoXmlTag("RptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingOrderOrError7Choice_ ReportOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingOrderOrError7Choice_ ReportOrError { get; init; } 
+    public required StandingOrderOrError7Choice_ ReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingOrderOrError7Choice_ ReportOrError { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ReturnStandingOrderV05 : IOuterRecord<ReturnStandingOrderV
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_ThWhydb6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ReturnStandingOrderV05 : IOuterRecord<ReturnStandingOrderV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReturnStandingOrderV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReturnStandingOrderV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReturnStandingOrderV05Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ReturnStandingOrderV05 : IOuterRecord<ReturnStandingOrderV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReturnStandingOrderV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReturnStandingOrderV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReturnStandingOrderV05Document : IOuterDocument<ReturnStandingOrderV05>
@@ -161,7 +156,7 @@ public partial record ReturnStandingOrderV05Document : IOuterDocument<ReturnStan
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReturnStandingOrderV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReturnStandingOrderV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReturnStandingOrderV05 Message { get; init; }

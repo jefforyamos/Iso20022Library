@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action instructed balance details at option protect level.
 /// </summary>
 [IsoId("_KY-t8b-0Eeeb2ZBoAlSG1Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Instructed Balance Option Protect Instruction Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,15 +52,13 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Xpath to the element that is being extended.
     /// </summary>
     [IsoId("_KoTjYb-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +71,15 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Option number of the protect instruction.
     /// </summary>
     [IsoId("_KoTjZ7-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnNb")]
     #endif
+    [IsoXmlTag("OptnNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionNumber1Choice_ OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionNumber1Choice_ OptionNumber { get; init; } 
     #else
@@ -95,19 +90,17 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Instruction reference number assigned by DTC to the uncovered protect instruction.
     /// </summary>
     [IsoId("_KoTjY7-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtctId")]
+    [IsoSimpleType(IsoSimpleType.Max15Text)]
     [StringLength(maximumLength: 15 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15Text ProtectIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProtectIdentification { get; init; } 
+    public required System.String ProtectIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProtectIdentification { get; init; } 
     #else
@@ -118,15 +111,13 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// For cover protect instructions whereby one safekeeping account is covering on behalf of another safekeeping account. The protect safekeeping account will be the account which submitted the original protect instruction.
     /// </summary>
     [IsoId("_5vrDseZSEeewObBhnieI_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctSfkpgAcct")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtctSfkpgAcct")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax35Text? ProtectSafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,15 +130,12 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Additional reference number used to uniquely identify uncovered protect instruction.
     /// </summary>
     [IsoId("_KoTjZb-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctSeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PrtctSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? ProtectSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,16 +148,16 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Date and time of the protect instruction.
     /// </summary>
     [IsoId("_KoTjb7-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctDt")]
     #endif
+    [IsoXmlTag("PrtctDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ProtectDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ProtectDate { get; init; } 
+    public required System.DateTime ProtectDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ProtectDate { get; init; } 
     #else
@@ -180,12 +168,12 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Date and time of the cover protect. Will be the latest cover date if partial cover transaction occurs.
     /// </summary>
     [IsoId("_KoTjcb-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cover Protect Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CoverPrtctDt")]
     #endif
+    [IsoXmlTag("CoverPrtctDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CoverProtectDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,16 +186,15 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Quantity of the protect instruction. For protects which are partially covered, the quantity will be reduced by the amount partially covered.
     /// </summary>
     [IsoId("_KoTjc7-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Identification Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctIdQty")]
     #endif
+    [IsoXmlTag("PrtctIdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity15Choice_ ProtectIdentificationQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity15Choice_ ProtectIdentificationQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ ProtectIdentificationQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity15Choice_ ProtectIdentificationQuantity { get; init; } 
     #else
@@ -218,12 +205,11 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Quantity of the protect instruction which has not been covered.
     /// </summary>
     [IsoId("_KoTjdb-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Identification Uncovered Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctIdUcvrdQty")]
     #endif
+    [IsoXmlTag("PrtctIdUcvrdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationUncoveredQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,12 +222,11 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Protect oversubscription quantity.
     /// </summary>
     [IsoId("_KoTjd7-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Identification Oversubscription Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctIdOvrsbcptQty")]
     #endif
+    [IsoXmlTag("PrtctIdOvrsbcptQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationOversubscriptionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,12 +239,11 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Status of the protect instruction.
     /// </summary>
     [IsoId("_KoTjeb-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Identification Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctIdSts")]
     #endif
+    [IsoXmlTag("PrtctIdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCProtectInstructionStatus1Code? ProtectIdentificationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,12 +256,11 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Conditional quantity for the protect instruction.
     /// </summary>
     [IsoId("_KoTje7-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Conditional Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctCondlQty")]
     #endif
+    [IsoXmlTag("PrtctCondlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? ProtectConditionalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,12 +273,11 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Tender bid price of the protect instruction.
     /// </summary>
     [IsoId("_KoTjfb-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Tender Bid Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctTndrBidPric")]
     #endif
+    [IsoXmlTag("PrtctTndrBidPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat57Choice_? ProtectTenderBidPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,15 +290,12 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
     [IsoId("_KoTjf7-0Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Reference Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrRefId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CstmrRefId")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -329,15 +308,13 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// Client free format instruction narrative information. Will be 80 characters for tender instructions, 150 characters for rights instructions and 20 characters for put instructions.
     /// </summary>
     [IsoId("_252Z8b_uEeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Comments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrCmnts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrCmnts")]
+    [IsoSimpleType(IsoSimpleType.Max210Text)]
     [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? InstructionComments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

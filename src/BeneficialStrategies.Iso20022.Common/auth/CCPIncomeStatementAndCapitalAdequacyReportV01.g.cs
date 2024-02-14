@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPIncomeStatementAndCapitalAdequacyReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the financial performance and regulatory capital holdings of the central counterparty.")]
 [IsoId("_DzbYceUUEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Income Statement And Capital Adequacy Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     /// Income statement of the CCP.
     /// </summary>
     [IsoId("_DzbYeeUUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Income Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncmStmt")]
     #endif
+    [IsoXmlTag("IncmStmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IncomeStatement1 IncomeStatement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IncomeStatement1 IncomeStatement { get; init; } 
+    public required IncomeStatement1 IncomeStatement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IncomeStatement1 IncomeStatement { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     /// Report of the breakdown of the components for the capital requirement for central counterparty.
     /// </summary>
     [IsoId("_DzbYe-UUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capital Requirements")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CptlRqrmnts")]
     #endif
+    [IsoXmlTag("CptlRqrmnts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CapitalRequirement1 CapitalRequirements { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CapitalRequirement1 CapitalRequirements { get; init; } 
+    public required CapitalRequirement1 CapitalRequirements { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CapitalRequirement1 CapitalRequirements { get; init; } 
     #else
@@ -116,19 +112,19 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     #endif
     
     /// <summary>
-    /// Sum of the CCP's capital requirements for operational expenses; for winding down or restructuring its activities; for overall operational and legal risk; for uncovered credit, counterparty credit and market risks and business risks.
+    /// Sum of the CCP&apos;s capital requirements for operational expenses; for winding down or restructuring its activities; for overall operational and legal risk; for uncovered credit, counterparty credit and market risks and business risks.
     /// </summary>
     [IsoId("_DzbYfeUUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Capital")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCptl")]
     #endif
+    [IsoXmlTag("TtlCptl")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalCapital { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalCapital { get; init; } 
+    public required System.Decimal TotalCapital { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalCapital { get; init; } 
     #else
@@ -139,16 +135,16 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     /// Total capital resources invested in liquid financial resources.
     /// </summary>
     [IsoId("_DzbYf-UUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquid Financial Resources")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LqdFinRsrcs")]
     #endif
+    [IsoXmlTag("LqdFinRsrcs")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount LiquidFinancialResources { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal LiquidFinancialResources { get; init; } 
+    public required System.Decimal LiquidFinancialResources { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal LiquidFinancialResources { get; init; } 
     #else
@@ -159,16 +155,15 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     /// Hypothetical capital requirement due to counterparty credit risk exposures to all clearing members.
     /// </summary>
     [IsoId("_DzbYgeUUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hypothetical Capital Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HpthtclCptlMeasr")]
     #endif
+    [IsoXmlTag("HpthtclCptlMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required HypotheticalCapitalMeasure1 HypotheticalCapitalMeasure { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public HypotheticalCapitalMeasure1 HypotheticalCapitalMeasure { get; init; } 
+    public required HypotheticalCapitalMeasure1 HypotheticalCapitalMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public HypotheticalCapitalMeasure1 HypotheticalCapitalMeasure { get; init; } 
     #else
@@ -179,12 +174,11 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_DzbYg-UUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,7 +191,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPIncomeStatementAndCapitalAdequacyReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPIncomeStatementAndCapitalAdequacyReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPIncomeStatementAndCapitalAdequacyReportV01Document ToDocument()
     {
@@ -207,7 +201,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPIncomeStatementAndCapitalAdequacyReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPIncomeStatementAndCapitalAdequacyReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPIncomeStatementAndCapitalAdequacyReportV01Document : IOuterDocument<CCPIncomeStatementAndCapitalAdequacyReportV01>
@@ -224,7 +218,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPIncomeStatementAndCapitalAdequacyReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPIncomeStatementAndCapitalAdequacyReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPIncomeStatementAndCapitalAdequacyReportV01 Message { get; init; }

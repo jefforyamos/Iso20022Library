@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LimitReportOrError3Choice.BusinessReport))]
     [KnownType(typeof(LimitReportOrError3Choice.OperationalError))]
     [IsoId("_Qm5s4ZlhEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Report Or Error 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

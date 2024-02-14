@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Corporate action event notification status and contents.
 /// </summary>
 [IsoId("_A8o54fpPEeCLrd06h-p51g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CorporateActionNotification3
     /// Specifies the type of notification.
     /// </summary>
     [IsoId("_A8o55_pPEeCLrd06h-p51g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnTp")]
     #endif
+    [IsoXmlTag("NtfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionNotificationType1Code NotificationType { get; init; } 
+    public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionNotificationType1Code NotificationType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CorporateActionNotification3
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
     [IsoId("_A8o58fpPEeCLrd06h-p51g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionProcessingStatus3Choice_ ProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionProcessingStatus3Choice_ ProcessingStatus { get; init; } 
+    public required CorporateActionProcessingStatus3Choice_ ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionProcessingStatus3Choice_ ProcessingStatus { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record CorporateActionNotification3
     /// Indicates whether the eligible balance is final except for a voluntary corporate action event where it can represent the current eligible balance when communicated before expiration date of that event.
     /// </summary>
     [IsoId("_A8o5-_pPEeCLrd06h-p51g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligible Balance Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgblBalInd")]
     #endif
+    [IsoXmlTag("ElgblBalInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EligibleBalanceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

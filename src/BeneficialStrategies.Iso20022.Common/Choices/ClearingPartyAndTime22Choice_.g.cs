@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingPartyAndTime22Choice.Reason))]
     [KnownType(typeof(ClearingPartyAndTime22Choice.Details))]
     [IsoId("_mkgZsRZOEe2QNcZTDeoKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Party And Time 22 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

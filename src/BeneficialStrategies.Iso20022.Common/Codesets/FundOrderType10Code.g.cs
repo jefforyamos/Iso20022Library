@@ -21,7 +21,7 @@ public enum FundOrderType10Code
 {
     /// <summary>
     /// Investment fund order is a subscription.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_fPfJIbszEeiTr4dQrTCaYA")]
@@ -30,7 +30,7 @@ public enum FundOrderType10Code
     
     /// <summary>
     /// Investment fund order is a dividend reinvestment (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RDIV".
+    /// Encoded/decoded by serializers as &quot;RDIV&quot;.
     /// </summary>
     [EnumMember(Value = "RDIV")]
     [IsoId("_f00q0bszEeiTr4dQrTCaYA")]
@@ -39,7 +39,7 @@ public enum FundOrderType10Code
     
     /// <summary>
     /// Investment fund order is a redemption.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_gs6wcbszEeiTr4dQrTCaYA")]
@@ -48,7 +48,7 @@ public enum FundOrderType10Code
     
     /// <summary>
     /// Investment fund order is a regular savings plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RGSV".
+    /// Encoded/decoded by serializers as &quot;RGSV&quot;.
     /// </summary>
     [EnumMember(Value = "RGSV")]
     [IsoId("_hNyo4bszEeiTr4dQrTCaYA")]
@@ -57,7 +57,7 @@ public enum FundOrderType10Code
     
     /// <summary>
     /// Investment fund order is for a withdrawal investment plan (only applicable to a redemption).
-    /// Encoded/decoded by serializers as "WIDP".
+    /// Encoded/decoded by serializers as &quot;WIDP&quot;.
     /// </summary>
     [EnumMember(Value = "WIDP")]
     [IsoId("_hpd4QbszEeiTr4dQrTCaYA")]

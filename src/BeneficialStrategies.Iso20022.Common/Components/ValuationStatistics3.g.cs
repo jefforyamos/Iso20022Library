@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Statistical data related to the price change of a security.
 /// </summary>
 [IsoId("_SeuqT9p-Ed-ak6NoX_4Aeg_578731261")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Valuation Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ValuationStatistics3
     /// Currency of the valuation statistics.
     /// </summary>
     [IsoId("_SeuqUNp-Ed-ak6NoX_4Aeg_578731305")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ValuationStatistics3
     /// Type of price from which the change is calculated, eg, bid, offer, or single.
     /// </summary>
     [IsoId("_SeuqUdp-Ed-ak6NoX_4Aeg_578731364")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Type Change Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricTpChngBsis")]
     #endif
+    [IsoXmlTag("PricTpChngBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceType2 PriceTypeChangeBasis { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceType2 PriceTypeChangeBasis { get; init; } 
+    public required PriceType2 PriceTypeChangeBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceType2 PriceTypeChangeBasis { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ValuationStatistics3
     /// Change in price since the previous valuation date.
     /// </summary>
     [IsoId("_SeuqUtp-Ed-ak6NoX_4Aeg_578731434")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricChng")]
     #endif
+    [IsoXmlTag("PricChng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValueChange1 PriceChange { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceValueChange1 PriceChange { get; init; } 
+    public required PriceValueChange1 PriceChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceValueChange1 PriceChange { get; init; } 
     #else
@@ -113,12 +108,12 @@ public partial record ValuationStatistics3
     /// Rate of income from the financial instrument, usually calculated as total dividends or coupon interest available to investors in the last year,divided by the current price.
     /// </summary>
     [IsoId("_Se4bQNp-Ed-ak6NoX_4Aeg_578731519")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Yield")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Yld")]
     #endif
+    [IsoXmlTag("Yld")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Yield { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ValuationStatistics3
     /// Information related to price variations, expressed using pre-defined periods.
     /// </summary>
     [IsoId("_Se4bQdp-Ed-ak6NoX_4Aeg_578731849")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("By Predefined Time Periods")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ByPrdfndTmPrds")]
     #endif
+    [IsoXmlTag("ByPrdfndTmPrds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatisticsByPredefinedTimePeriods2? ByPredefinedTimePeriods { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +143,11 @@ public partial record ValuationStatistics3
     /// Information related to price variations, expressed using user-defined periods.
     /// </summary>
     [IsoId("_Se4bQtp-Ed-ak6NoX_4Aeg_579651898")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("By User Defined Time Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ByUsrDfndTmPrd")]
     #endif
+    [IsoXmlTag("ByUsrDfndTmPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatisticsByUserDefinedTimePeriod2? ByUserDefinedTimePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

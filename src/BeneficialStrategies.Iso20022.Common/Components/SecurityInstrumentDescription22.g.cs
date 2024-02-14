@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
 [IsoId("_2nJhkZidEe2f7NHvXATP5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Instrument Description")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecurityInstrumentDescription22
     /// Attributes and characteristics of the financial instrument.
     /// </summary>
     [IsoId("_2oQU0ZidEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument General Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmGnlAttrbts")]
     #endif
+    [IsoXmlTag("FinInstrmGnlAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityInstrumentDescription23 FinancialInstrumentGeneralAttributes { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityInstrumentDescription23 FinancialInstrumentGeneralAttributes { get; init; } 
+    public required SecurityInstrumentDescription23 FinancialInstrumentGeneralAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityInstrumentDescription23 FinancialInstrumentGeneralAttributes { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record SecurityInstrumentDescription22
     /// Attributes specific to debt instruments.
     /// </summary>
     [IsoId("_2oQU05idEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debt Instrument Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DebtInstrmAttrbts")]
     #endif
+    [IsoXmlTag("DebtInstrmAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DebtInstrument4? DebtInstrumentAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record SecurityInstrumentDescription22
     /// Attributes specific to derivative instruments.
     /// </summary>
     [IsoId("_2oQU1ZidEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Instrument Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivInstrmAttrbts")]
     #endif
+    [IsoXmlTag("DerivInstrmAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativeInstrument6 DerivativeInstrumentAttributes { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DerivativeInstrument6 DerivativeInstrumentAttributes { get; init; } 
+    public required DerivativeInstrument6 DerivativeInstrumentAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DerivativeInstrument6 DerivativeInstrumentAttributes { get; init; } 
     #else

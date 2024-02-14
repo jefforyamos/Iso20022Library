@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the underlying (group of) transaction(s) to which the investigation applies.
 /// </summary>
 [IsoId("_wsiMN0gtEeaGKYpLDboHPQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Underlying Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record UnderlyingTransaction15
     /// Provides information on the original message, to which the cancellation refers.
     /// </summary>
     [IsoId("_w2KpX0gtEeaGKYpLDboHPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information And Cancellation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInfAndCxl")]
     #endif
+    [IsoXmlTag("OrgnlGrpInfAndCxl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalGroupHeader6? OriginalGroupInformationAndCancellation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record UnderlyingTransaction15
     /// Provides information on the original (group of) transactions, to which the cancellation request refers.
     /// </summary>
     [IsoId("_w2KpYUgtEeaGKYpLDboHPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Information And Cancellation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtInfAndCxl")]
     #endif
+    [IsoXmlTag("OrgnlPmtInfAndCxl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalPaymentInstruction20? OriginalPaymentInformationAndCancellation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

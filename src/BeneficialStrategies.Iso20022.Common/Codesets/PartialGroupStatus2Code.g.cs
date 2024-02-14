@@ -21,7 +21,7 @@ public enum PartialGroupStatus2Code
 {
     /// <summary>
     /// Authentication and syntactical and semantical validation are successful.
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_YZEhwNp-Ed-ak6NoX_4Aeg_-1454361419")]
@@ -30,7 +30,7 @@ public enum PartialGroupStatus2Code
     
     /// <summary>
     /// Preceding check of technical validation was successful. Customer profile check was also successful.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_YZEhwdp-Ed-ak6NoX_4Aeg_-1454361418")]
@@ -39,7 +39,7 @@ public enum PartialGroupStatus2Code
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
-    /// Encoded/decoded by serializers as "ACSP".
+    /// Encoded/decoded by serializers as &quot;ACSP&quot;.
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_YZEhwtp-Ed-ak6NoX_4Aeg_-1454361389")]
@@ -47,8 +47,8 @@ public enum PartialGroupStatus2Code
     AcceptedSettlementInProcess = PaymentStatusCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Settlement on the debtor's account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement
-    /// Encoded/decoded by serializers as "ACSC".
+    /// Settlement on the debtor&apos;s account has been completed. ||Usage : this can be used by the first agent to report to the debtor that the transaction has been completed. Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement
+    /// Encoded/decoded by serializers as &quot;ACSC&quot;.
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_YZEhw9p-Ed-ak6NoX_4Aeg_-1454361358")]
@@ -57,7 +57,7 @@ public enum PartialGroupStatus2Code
     
     /// <summary>
     /// Cancellation is accepted.
-    /// Encoded/decoded by serializers as "ACCR".
+    /// Encoded/decoded by serializers as &quot;ACCR&quot;.
     /// </summary>
     [EnumMember(Value = "ACCR")]
     [IsoId("_YZEhxNp-Ed-ak6NoX_4Aeg_-1454361079")]
@@ -66,7 +66,7 @@ public enum PartialGroupStatus2Code
     
     /// <summary>
     /// Instruction is accepted but a change will be made, such as date or remittance not sent.
-    /// Encoded/decoded by serializers as "ACWC".
+    /// Encoded/decoded by serializers as &quot;ACWC&quot;.
     /// </summary>
     [EnumMember(Value = "ACWC")]
     [IsoId("_YZEhxdp-Ed-ak6NoX_4Aeg_-1454361078")]
@@ -75,7 +75,7 @@ public enum PartialGroupStatus2Code
     
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation is pending.  Further checks and status update will be performed.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_YZEhxtp-Ed-ak6NoX_4Aeg_-1327837602")]

@@ -21,7 +21,7 @@ public enum Eligible1Code
 {
     /// <summary>
     /// Item is eligible.
-    /// Encoded/decoded by serializers as "ELIG".
+    /// Encoded/decoded by serializers as &quot;ELIG&quot;.
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_RBY30SC-EeWPMvNwVtiMsA")]
@@ -30,7 +30,7 @@ public enum Eligible1Code
     
     /// <summary>
     /// Item is not eligible.
-    /// Encoded/decoded by serializers as "NELI".
+    /// Encoded/decoded by serializers as &quot;NELI&quot;.
     /// </summary>
     [EnumMember(Value = "NELI")]
     [IsoId("_RIY3sSC-EeWPMvNwVtiMsA")]

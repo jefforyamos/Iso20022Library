@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics related to the transfer of transactions.
 /// </summary>
 [IsoId("_SzGD4Y3IEeWjkqXgn_0Imw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,16 @@ public partial record Header25
     /// Indicates if the file transfer is a download or an upload.
     /// </summary>
     [IsoId("_S_T68Y3IEeWjkqXgn_0Imw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Download Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DwnldTrf")]
     #endif
+    [IsoXmlTag("DwnldTrf")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator DownloadTransfer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DownloadTransfer { get; init; } 
+    public required System.String DownloadTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DownloadTransfer { get; init; } 
     #else
@@ -75,19 +73,17 @@ public partial record Header25
     /// Version of file format.
     /// </summary>
     [IsoId("_S_T6843IEeWjkqXgn_0Imw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Format Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrmtVrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FrmtVrsn")]
+    [IsoSimpleType(IsoSimpleType.Max6Text)]
     [StringLength(maximumLength: 6 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax6Text FormatVersion { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FormatVersion { get; init; } 
+    public required System.String FormatVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FormatVersion { get; init; } 
     #else
@@ -98,16 +94,16 @@ public partial record Header25
     /// Unique identification of an exchange occurrence.
     /// </summary>
     [IsoId("_S_T69Y3IEeWjkqXgn_0Imw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgId")]
     #endif
+    [IsoXmlTag("XchgId")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ExchangeIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ExchangeIdentification { get; init; } 
+    public required System.UInt64 ExchangeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ExchangeIdentification { get; init; } 
     #else
@@ -118,16 +114,16 @@ public partial record Header25
     /// Date and time at which the file or message was created.
     /// </summary>
     [IsoId("_S_T6943IEeWjkqXgn_0Imw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -138,16 +134,15 @@ public partial record Header25
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
     [IsoId("_S_T6-Y3IEeWjkqXgn_0Imw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiating Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitgPty")]
     #endif
+    [IsoXmlTag("InitgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification53 InitiatingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification53 InitiatingParty { get; init; } 
+    public required GenericIdentification53 InitiatingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification53 InitiatingParty { get; init; } 
     #else
@@ -158,12 +153,11 @@ public partial record Header25
     /// Unique identification of the partner that is the recipient of the exchange.
     /// </summary>
     [IsoId("_S_T6-43IEeWjkqXgn_0Imw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptPty")]
     #endif
+    [IsoXmlTag("RcptPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification94? RecipientParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

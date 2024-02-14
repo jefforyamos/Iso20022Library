@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingNonExtensionNotification message is sent by the party that issued the undertaking to the beneficiary, either directly or via one or more advising parties, to notify it of the non-extension of the referenced undertaking beyond the current expiry date.")]
 [IsoId("_9i_O8nltEeG7BsjMvd1mEw_-188871383")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Non Extension Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingNonExtensionNotificationV01 : IOuterRecord<Unde
     /// Details of the non-extension notification.
     /// </summary>
     [IsoId("_9i_O83ltEeG7BsjMvd1mEw_1181398282")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Non Extension Notification Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgNonXtnsnNtfctnDtls")]
     #endif
+    [IsoXmlTag("UdrtkgNonXtnsnNtfctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingNonExtensionStatusAdvice1 UndertakingNonExtensionNotificationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingNonExtensionStatusAdvice1 UndertakingNonExtensionNotificationDetails { get; init; } 
+    public required UndertakingNonExtensionStatusAdvice1 UndertakingNonExtensionNotificationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingNonExtensionStatusAdvice1 UndertakingNonExtensionNotificationDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record UndertakingNonExtensionNotificationV01 : IOuterRecord<Unde
     /// Digital signature of the notification.
     /// </summary>
     [IsoId("_9i_O9HltEeG7BsjMvd1mEw_-676227762")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record UndertakingNonExtensionNotificationV01 : IOuterRecord<Unde
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingNonExtensionNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingNonExtensionNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingNonExtensionNotificationV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record UndertakingNonExtensionNotificationV01 : IOuterRecord<Unde
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingNonExtensionNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingNonExtensionNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingNonExtensionNotificationV01Document : IOuterDocument<UndertakingNonExtensionNotificationV01>
@@ -140,7 +136,7 @@ public partial record UndertakingNonExtensionNotificationV01Document : IOuterDoc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingNonExtensionNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingNonExtensionNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingNonExtensionNotificationV01 Message { get; init; }

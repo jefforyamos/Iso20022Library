@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details on the settlement fails split per intra-CSD and cross-CSD instructions.
 /// </summary>
 [IsoId("_MTNhaTOmEeqX8uoQQ3KffQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Daily CSD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SettlementFailsDailyCSD3
     /// Intra-CSD settlement instructions data.
     /// </summary>
     [IsoId("_MUG5QTOmEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraCSD")]
     #endif
+    [IsoXmlTag("IntraCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
+    public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SettlementFailsDailyCSD3
     /// Cross-CSD settlement instructions data.
     /// </summary>
     [IsoId("_MUG5QzOmEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cross CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrossCSD")]
     #endif
+    [IsoXmlTag("CrossCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
+    public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
     #else

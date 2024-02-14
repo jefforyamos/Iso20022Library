@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorDiagnosticResponse message is sent by the acquirer (or its agent) to provide to the acceptor the result of the diagnostic request.")]
 [IsoId("_SGaJwY3YEeW56qaqQ8B0kQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Diagnostic Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcceptorDiagnosticResponseV05 : IOuterRecord<AcceptorDiagn
     /// Diagnostic response message management information.
     /// </summary>
     [IsoId("_SGaJxY3YEeW56qaqQ8B0kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header30 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header30 Header { get; init; } 
+    public required Header30 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header30 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcceptorDiagnosticResponseV05 : IOuterRecord<AcceptorDiagn
     /// Information related to the diagnostic response.
     /// </summary>
     [IsoId("_SGaJx43YEeW56qaqQ8B0kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Diagnostic Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgnstcRspn")]
     #endif
+    [IsoXmlTag("DgnstcRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorDiagnosticResponse4 DiagnosticResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorDiagnosticResponse4 DiagnosticResponse { get; init; } 
+    public required AcceptorDiagnosticResponse4 DiagnosticResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorDiagnosticResponse4 DiagnosticResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AcceptorDiagnosticResponseV05 : IOuterRecord<AcceptorDiagn
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_SGaJyY3YEeW56qaqQ8B0kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AcceptorDiagnosticResponseV05 : IOuterRecord<AcceptorDiagn
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorDiagnosticResponseV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorDiagnosticResponseV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorDiagnosticResponseV05Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AcceptorDiagnosticResponseV05 : IOuterRecord<AcceptorDiagn
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorDiagnosticResponseV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorDiagnosticResponseV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorDiagnosticResponseV05Document : IOuterDocument<AcceptorDiagnosticResponseV05>
@@ -161,7 +156,7 @@ public partial record AcceptorDiagnosticResponseV05Document : IOuterDocument<Acc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorDiagnosticResponseV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorDiagnosticResponseV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorDiagnosticResponseV05 Message { get; init; }

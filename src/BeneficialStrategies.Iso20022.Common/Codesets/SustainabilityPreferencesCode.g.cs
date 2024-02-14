@@ -21,7 +21,7 @@ public enum SustainabilityPreferencesCode
 {
     /// <summary>
     /// Neutral or has no impact.
-    /// Encoded/decoded by serializers as "NEUT".
+    /// Encoded/decoded by serializers as &quot;NEUT&quot;.
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_oUmkEM0UEeuAE-cYsQdwHQ")]
@@ -30,7 +30,7 @@ public enum SustainabilityPreferencesCode
     
     /// <summary>
     /// Preference for products having environmental, social and corporate governance (ESG) characteristics.
-    /// Encoded/decoded by serializers as "CESG".
+    /// Encoded/decoded by serializers as &quot;CESG&quot;.
     /// </summary>
     [EnumMember(Value = "CESG")]
     [IsoId("_1SaeUM0UEeuAE-cYsQdwHQ")]
@@ -39,7 +39,7 @@ public enum SustainabilityPreferencesCode
     
     /// <summary>
     /// Preference for products having sustainable objectives.
-    /// Encoded/decoded by serializers as "OSUS".
+    /// Encoded/decoded by serializers as &quot;OSUS&quot;.
     /// </summary>
     [EnumMember(Value = "OSUS")]
     [IsoId("_5kohcM0UEeuAE-cYsQdwHQ")]

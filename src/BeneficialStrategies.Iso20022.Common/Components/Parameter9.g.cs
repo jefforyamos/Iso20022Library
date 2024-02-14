@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters associated to a mask generator cryptographic function.
 /// </summary>
 [IsoId("_9z5i4ds1Eee9e6xduATmQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Parameter9
     /// Digest algorithm used in the mask generator function.
     /// </summary>
     [IsoId("_99De4ds1Eee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm16Code? DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

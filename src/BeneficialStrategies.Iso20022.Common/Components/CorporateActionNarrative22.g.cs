@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information such as the taxation conditions.
 /// </summary>
 [IsoId("_N_rznAU-EeGZxNLgzisRtw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Narrative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionNarrative22
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
     [IsoId("_N_rzogU-EeGZxNLgzisRtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Text")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlTxt")]
     #endif
+    [IsoXmlTag("AddtlTxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation6? AdditionalText { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionNarrative22
     /// Provides information that can be ignored for automated processing; - reiteration of information that has been included within structured fields of this message, - or narrative information not needed for automatic processing.
     /// </summary>
     [IsoId("_N_rzqAU-EeGZxNLgzisRtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Narrative Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NrrtvVrsn")]
     #endif
+    [IsoXmlTag("NrrtvVrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation6? NarrativeVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionNarrative22
     /// Provides conditional information related to the event, for example, an offer is subject to 50 percent acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
     [IsoId("_N_rzrgU-EeGZxNLgzisRtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfConds")]
     #endif
+    [IsoXmlTag("InfConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation5? InformationConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionNarrative22
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or SIL (Sophisticated Investor Letter) to be provided.
     /// </summary>
     [IsoId("_N_rztAU-EeGZxNLgzisRtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information To Comply With")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfToCmplyWth")]
     #endif
+    [IsoXmlTag("InfToCmplyWth")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation5? InformationToComplyWith { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionNarrative22
     /// Provides restriction(s) on securities.
     /// </summary>
     [IsoId("_N_rzugU-EeGZxNLgzisRtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Restriction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyRstrctn")]
     #endif
+    [IsoXmlTag("SctyRstrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation5? SecurityRestriction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionNarrative22
     /// Provides taxation conditions that cannot be included within the structured fields of this message and has not been mentioned in the Service Level Agreement (SLA).
     /// </summary>
     [IsoId("_N_rzwAU-EeGZxNLgzisRtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxation Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxtnConds")]
     #endif
+    [IsoXmlTag("TaxtnConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation5? TaxationConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionNarrative22
     /// Provides a disclaimer relative to the information provided in the message. It may be ignored for automated processing.
     /// </summary>
     [IsoId("_N_rzxgU-EeGZxNLgzisRtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disclaimer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dsclmr")]
     #endif
+    [IsoXmlTag("Dsclmr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation5? Disclaimer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record CorporateActionNarrative22
     /// Provides additional information about the type of certification/breakdown required.
     /// </summary>
     [IsoId("_N_rzzAU-EeGZxNLgzisRtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Breakdown")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnBrkdwn")]
     #endif
+    [IsoXmlTag("CertfctnBrkdwn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation5? CertificationBreakdown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

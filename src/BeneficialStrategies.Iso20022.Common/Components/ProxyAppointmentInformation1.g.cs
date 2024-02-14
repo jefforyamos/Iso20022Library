@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates how to register a proxy.
 /// </summary>
 [IsoId("_T44UEdp-Ed-ak6NoX_4Aeg_-1448448855")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proxy Appointment Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record ProxyAppointmentInformation1
     /// Indicates how to register a proxy.
     /// </summary>
     [IsoId("_T44UEtp-Ed-ak6NoX_4Aeg_-1448448846")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RegnMtd")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? RegistrationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record ProxyAppointmentInformation1
     /// Date by which the information on proxy assignment must be received by the intermediary.
     /// </summary>
     [IsoId("_T44UE9p-Ed-ak6NoX_4Aeg_-1448448830")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ddln")]
     #endif
+    [IsoXmlTag("Ddln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? Deadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record ProxyAppointmentInformation1
     /// Date by which the information on proxy assignment must be received by the intermediary (STP mode).
     /// </summary>
     [IsoId("_T44UFNp-Ed-ak6NoX_4Aeg_-1447528841")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("STP Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="STPDdln")]
     #endif
+    [IsoXmlTag("STPDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? STPDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record ProxyAppointmentInformation1
     /// Date by which the information on proxy assignment must be received by the issuer.
     /// </summary>
     [IsoId("_T44UFdp-Ed-ak6NoX_4Aeg_-1447528824")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktDdln")]
     #endif
+    [IsoXmlTag("MktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? MarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,16 +112,13 @@ public partial record ProxyAppointmentInformation1
     /// Specifies the proxy persons which are authorised by the issuer.
     /// </summary>
     [IsoId("_T44UFtp-Ed-ak6NoX_4Aeg_2093029164")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorised Proxy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrsdPrxy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AuthrsdPrxy")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Proxy1> AuthorisedProxy { get; init; } = new ValueList<Proxy1>(){};
     
     

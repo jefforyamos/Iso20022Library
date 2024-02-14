@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the status of a specific message.
 /// </summary>
 [IsoId("_RXzec9p-Ed-ak6NoX_4Aeg_714459273")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Validation Status Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ValidationStatusInformation1
     /// The result of the technical validation (e.g. Accepted, Reception error) executed on the request message.
     /// </summary>
     [IsoId("_RXzedNp-Ed-ak6NoX_4Aeg_1118960492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TechnicalValidationStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TechnicalValidationStatus1Code Status { get; init; } 
+    public required TechnicalValidationStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TechnicalValidationStatus1Code Status { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ValidationStatusInformation1
     /// The reason for the validation status.
     /// </summary>
     [IsoId("_RXzeddp-Ed-ak6NoX_4Aeg_1535469525")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReason4Choice_? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,13 @@ public partial record ValidationStatusInformation1
     /// Further details on the validation status reason.
     /// </summary>
     [IsoId("_RXzedtp-Ed-ak6NoX_4Aeg_1617662894")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Status Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlStsRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlStsRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalStatusReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

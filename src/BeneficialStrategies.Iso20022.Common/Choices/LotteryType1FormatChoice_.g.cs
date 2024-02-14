@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LotteryType1FormatChoice.Code))]
     [KnownType(typeof(LotteryType1FormatChoice.Proprietary))]
     [IsoId("_Rms2Fdp-Ed-ak6NoX_4Aeg_1767480666")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lottery Type 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

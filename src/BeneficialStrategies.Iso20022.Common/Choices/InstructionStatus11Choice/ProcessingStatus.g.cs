@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus11Choice
     /// Status advising on the processing of the instruction.
     /// </summary>
     [IsoId("_htjMoxrpEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus11Choice
         /// Status code.
         /// </summary>
         [IsoId("_M57j0fNsEeqRfth943bvEA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sts")]
         #endif
+        [IsoXmlTag("Sts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Status9Code Status { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Status9Code Status { get; init; } 
+        public required Status9Code Status { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Status9Code Status { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus11Choice
         /// Number of the admission ticket that has been granted by the custodian or the issuer.
         /// </summary>
         [IsoId("_f1l8kPNsEeqRfth943bvEA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Attendance Card Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AttndncCardNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AttndncCardNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? AttendanceCardNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,15 +92,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus11Choice
         /// Additional information about the status.
         /// </summary>
         [IsoId("_M57j0_NsEeqRfth943bvEA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

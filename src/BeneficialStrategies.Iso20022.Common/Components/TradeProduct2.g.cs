@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Tangible output or service produced by human or mechanical effort, or by a natural process for purposes of specifying a product.
 /// </summary>
 [IsoId("_KKpZccNUEeWGDrnsYu2p6g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Product")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TradeProduct2
     /// Identification of the product.
     /// </summary>
     [IsoId("_KXJkYcNUEeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductIdentifier2Choice_? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record TradeProduct2
     /// Name of a product.
     /// </summary>
     [IsoId("_KXJkY8NUEeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record TradeProduct2
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
     [IsoId("_KXJkZcNUEeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +97,11 @@ public partial record TradeProduct2
     /// Country of origin of the product.
     /// </summary>
     [IsoId("_KXJkZ8NUEeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Origin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfOrgn")]
     #endif
+    [IsoXmlTag("CtryOfOrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCodeAndName1? CountryOfOrigin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +114,11 @@ public partial record TradeProduct2
     /// Identifies the characteristic of a product.
     /// </summary>
     [IsoId("_KXJkacNUEeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctChrtcs")]
     #endif
+    [IsoXmlTag("PdctChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCharacteristics3? ProductCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +131,11 @@ public partial record TradeProduct2
     /// Category of the product.
     /// </summary>
     [IsoId("_KXJka8NUEeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctCtgy")]
     #endif
+    [IsoXmlTag("PdctCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCategory1Choice_? ProductCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,15 +148,13 @@ public partial record TradeProduct2
     /// Unique global serial identifier for this product instance.
     /// </summary>
     [IsoId("_KXJkbcNUEeWGDrnsYu2p6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Serial Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GblSrlIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("GblSrlIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? GlobalSerialIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TypeOfAmount1Code
 {
     /// <summary>
     /// Actual amount.
-    /// Encoded/decoded by serializers as "ACTL".
+    /// Encoded/decoded by serializers as &quot;ACTL&quot;.
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_TUJ9NAEcEeCQm6a_G2yO_w_1589618959")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount1Code
     
     /// <summary>
     /// Estimated amount (the final amount could be above or below).
-    /// Encoded/decoded by serializers as "ESTM".
+    /// Encoded/decoded by serializers as &quot;ESTM&quot;.
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_TUJ9NQEcEeCQm6a_G2yO_w_-630255646")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount1Code
     
     /// <summary>
     /// Maximum amount (the final amount must be less or equal).
-    /// Encoded/decoded by serializers as "MAXI".
+    /// Encoded/decoded by serializers as &quot;MAXI&quot;.
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_TUJ9NgEcEeCQm6a_G2yO_w_1200667523")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount1Code
     
     /// <summary>
     /// Default amount.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_TUJ9NwEcEeCQm6a_G2yO_w_-1157074600")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount1Code
     
     /// <summary>
     /// Replacement amount.
-    /// Encoded/decoded by serializers as "RPLT".
+    /// Encoded/decoded by serializers as &quot;RPLT&quot;.
     /// </summary>
     [EnumMember(Value = "RPLT")]
     [IsoId("_TUJ9OAEcEeCQm6a_G2yO_w_-952745682")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Acknowledgement of a completion advice.
 /// </summary>
 [IsoId("_ny2Sga4NEeWZgJQOa6iKCQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ATMTransaction18
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
     [IsoId("_n_Ewoa4NEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifier1 TransactionIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ATMTransaction18
     /// Response to the advice.
     /// </summary>
     [IsoId("_n_Ewo64NEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspn")]
     #endif
+    [IsoXmlTag("Rspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Response4Code Response { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Response4Code Response { get; init; } 
+    public required Response4Code Response { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Response4Code Response { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record ATMTransaction18
     /// Detail of the response.
     /// </summary>
     [IsoId("_n_Ewpa4NEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnRsn")]
     #endif
+    [IsoXmlTag("RspnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultDetail4Code? ResponseReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,12 @@ public partial record ATMTransaction18
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
     [IsoId("_n_Ewp64NEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRltdData")]
     #endif
+    [IsoXmlTag("ICCRltdData")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,11 @@ public partial record ATMTransaction18
     /// Maintenance command to perform on the ATM.
     /// </summary>
     [IsoId("_n_Ewqa4NEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmd")]
     #endif
+    [IsoXmlTag("Cmd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand7? Command { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

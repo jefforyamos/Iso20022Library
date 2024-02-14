@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxCapacityParty1Choice.Code))]
     [KnownType(typeof(TaxCapacityParty1Choice.Proprietary))]
     [IsoId("_Qv3UtNp-Ed-ak6NoX_4Aeg_948349513")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Capacity Party 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

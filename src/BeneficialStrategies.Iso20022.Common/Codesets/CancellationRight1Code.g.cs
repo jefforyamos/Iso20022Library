@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum CancellationRight1Code
 {
     /// <summary>
-    /// Investor is entitled to a "cooling off" period with cancellation rights under compliance rules.
-    /// Encoded/decoded by serializers as "VALI".
+    /// Investor is entitled to a &quot;cooling off&quot; period with cancellation rights under compliance rules.
+    /// Encoded/decoded by serializers as &quot;VALI&quot;.
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_bYjKptp-Ed-ak6NoX_4Aeg_533511288")]
@@ -29,8 +29,8 @@ public enum CancellationRight1Code
     Entitled = CancellationRightCode.Entitled, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.
-    /// Encoded/decoded by serializers as "NOXO".
+    /// Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution&apos;s only client.
+    /// Encoded/decoded by serializers as &quot;NOXO&quot;.
     /// </summary>
     [EnumMember(Value = "NOXO")]
     [IsoId("_bYjKp9p-Ed-ak6NoX_4Aeg_533511383")]
@@ -39,7 +39,7 @@ public enum CancellationRight1Code
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.
-    /// Encoded/decoded by serializers as "NOWA".
+    /// Encoded/decoded by serializers as &quot;NOWA&quot;.
     /// </summary>
     [EnumMember(Value = "NOWA")]
     [IsoId("_bYjKqNp-Ed-ak6NoX_4Aeg_533511443")]
@@ -48,7 +48,7 @@ public enum CancellationRight1Code
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.
-    /// Encoded/decoded by serializers as "NOIN".
+    /// Encoded/decoded by serializers as &quot;NOIN&quot;.
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_bYs7oNp-Ed-ak6NoX_4Aeg_533511503")]

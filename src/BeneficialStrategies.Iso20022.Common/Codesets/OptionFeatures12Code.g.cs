@@ -21,7 +21,7 @@ public enum OptionFeatures12Code
 {
     /// <summary>
     /// Tender or exchange with the odd lot preference.
-    /// Encoded/decoded by serializers as "OPLF".
+    /// Encoded/decoded by serializers as &quot;OPLF&quot;.
     /// </summary>
     [EnumMember(Value = "OPLF")]
     [IsoId("_m4sssbaSEeiN--kDwanlkA")]

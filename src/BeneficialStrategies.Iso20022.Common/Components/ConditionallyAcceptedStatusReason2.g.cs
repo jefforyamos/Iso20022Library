@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the reason for the conditionally accepted status.
 /// </summary>
 [IsoId("_RTLdJNp-Ed-ak6NoX_4Aeg_-536648388")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Conditionally Accepted Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ConditionallyAcceptedStatusReason2
     /// Reason for the conditionally accepted status.
     /// </summary>
     [IsoId("_RTLdJdp-Ed-ak6NoX_4Aeg_-653993997")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ConditionallyAcceptedStatusReason2Code Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ConditionallyAcceptedStatusReason2Code Reason { get; init; } 
+    public required ConditionallyAcceptedStatusReason2Code Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ConditionallyAcceptedStatusReason2Code Reason { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record ConditionallyAcceptedStatusReason2
     /// Reason for the conditionally accepted status.
     /// </summary>
     [IsoId("_RTLdJtp-Ed-ak6NoX_4Aeg_-607817225")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedRsn")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedReason { get; init; } 
+    public required System.String ExtendedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedReason { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record ConditionallyAcceptedStatusReason2
     /// Proprietary identification of the reason for the conditionally accepted status.
     /// </summary>
     [IsoId("_RTLdJ9p-Ed-ak6NoX_4Aeg_-367107520")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
+    [IsoXmlTag("DataSrcSchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification1 DataSourceScheme { get; init; } 
+    public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification1 DataSourceScheme { get; init; } 
     #else
@@ -116,15 +110,13 @@ public partial record ConditionallyAcceptedStatusReason2
     /// Additional information about the conditionally accepted status reason.
     /// </summary>
     [IsoId("_RTLdKNp-Ed-ak6NoX_4Aeg_1824265125")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

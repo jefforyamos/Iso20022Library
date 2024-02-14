@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details relative to the submission of the certificate data set.
 /// </summary>
 [IsoId("_7keh8QgIEeSeS5xdjFfOTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Required Submission")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record RequiredSubmission6
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
     [IsoId("_77-b8QgIEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Submitr")]
     #endif
+    [IsoXmlTag("Submitr")]
     public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _77-b8QgIEeSeS5xdjFfOTw
     
@@ -65,19 +62,16 @@ public partial record RequiredSubmission6
     /// Specifies the type of the certificate, in 4 letters, for example BENE for beneficiary certificate, SHIP for shipping line certifcate.
     /// </summary>
     [IsoId("_77-b8wgIEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CertTp")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericText CertificateType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CertificateType { get; init; } 
+    public required System.String CertificateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CertificateType { get; init; } 
     #else
@@ -88,19 +82,17 @@ public partial record RequiredSubmission6
     /// Description of the certificate type required.
     /// </summary>
     [IsoId("_klV3QAgJEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Type Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertTpDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertTpDesc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text CertificateTypeDescription { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CertificateTypeDescription { get; init; } 
+    public required System.String CertificateTypeDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CertificateTypeDescription { get; init; } 
     #else

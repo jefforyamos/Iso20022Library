@@ -21,7 +21,7 @@ public enum FailureReasonCode
 {
     /// <summary>
     /// Customer cancellation, for example removing the card before the end of the transaction.
-    /// Encoded/decoded by serializers as "CUCL".
+    /// Encoded/decoded by serializers as &quot;CUCL&quot;.
     /// </summary>
     [EnumMember(Value = "CUCL")]
     [IsoId("_TUmCFgEcEeCQm6a_G2yO_w_737172254")]
@@ -30,7 +30,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Suspected malfunction.
-    /// Encoded/decoded by serializers as "MALF".
+    /// Encoded/decoded by serializers as &quot;MALF&quot;.
     /// </summary>
     [EnumMember(Value = "MALF")]
     [IsoId("_TUmCFwEcEeCQm6a_G2yO_w_-1726871873")]
@@ -39,7 +39,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Completed partially.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_TUmCGAEcEeCQm6a_G2yO_w_-966106720")]
@@ -48,7 +48,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Response to the previous message was received too late.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_TUmCGQEcEeCQm6a_G2yO_w_-512019451")]
@@ -57,7 +57,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Unable to complete the transaction after the authorisation response.
-    /// Encoded/decoded by serializers as "UCMP".
+    /// Encoded/decoded by serializers as &quot;UCMP&quot;.
     /// </summary>
     [EnumMember(Value = "UCMP")]
     [IsoId("_TUmCGgEcEeCQm6a_G2yO_w_2011152748")]
@@ -66,7 +66,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Unable to deliver the request message to the recipient party.
-    /// Encoded/decoded by serializers as "USND".
+    /// Encoded/decoded by serializers as &quot;USND&quot;.
     /// </summary>
     [EnumMember(Value = "USND")]
     [IsoId("_TUmCGwEcEeCQm6a_G2yO_w_-2009869983")]
@@ -75,7 +75,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Timeout while waiting for a response to a request message, or no response was received (for example connection release before receiving the response).
-    /// Encoded/decoded by serializers as "TIMO".
+    /// Encoded/decoded by serializers as &quot;TIMO&quot;.
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_TUmCHAEcEeCQm6a_G2yO_w_-2020968760")]
@@ -84,7 +84,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Integrated circuit card declines the transaction before or after the authorisation.
-    /// Encoded/decoded by serializers as "CDCL".
+    /// Encoded/decoded by serializers as &quot;CDCL&quot;.
     /// </summary>
     [EnumMember(Value = "CDCL")]
     [IsoId("_TUmCHQEcEeCQm6a_G2yO_w_-1695851253")]
@@ -93,7 +93,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Online authorisation declined the transaction.
-    /// Encoded/decoded by serializers as "NDCL".
+    /// Encoded/decoded by serializers as &quot;NDCL&quot;.
     /// </summary>
     [EnumMember(Value = "NDCL")]
     [IsoId("_TUmCHgEcEeCQm6a_G2yO_w_617410472")]
@@ -102,7 +102,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Offline authorisation declined the transaction.
-    /// Encoded/decoded by serializers as "FDCL".
+    /// Encoded/decoded by serializers as &quot;FDCL&quot;.
     /// </summary>
     [EnumMember(Value = "FDCL")]
     [IsoId("_TUmCHwEcEeCQm6a_G2yO_w_606311695")]
@@ -111,7 +111,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Card payment transaction fails because the merchant suspect a fraud.
-    /// Encoded/decoded by serializers as "SFRD".
+    /// Encoded/decoded by serializers as &quot;SFRD&quot;.
     /// </summary>
     [EnumMember(Value = "SFRD")]
     [IsoId("_sPZjEL4pEeKkGaJ0UrThyA_-1482930014")]
@@ -120,7 +120,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Security error has occurred in the authorisation response message sent by the acquirer.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_KurLEDG8EeOH78pE3LSlGw")]
@@ -129,7 +129,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// ATM manager has requested to capture the card.
-    /// Encoded/decoded by serializers as "CDCP".
+    /// Encoded/decoded by serializers as &quot;CDCP&quot;.
     /// </summary>
     [EnumMember(Value = "CDCP")]
     [IsoId("_Yn_dUIqTEeSRT5rEzcAHEw")]
@@ -138,7 +138,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Unable to complete transaction with the card.
-    /// Encoded/decoded by serializers as "CDER".
+    /// Encoded/decoded by serializers as &quot;CDER&quot;.
     /// </summary>
     [EnumMember(Value = "CDER")]
     [IsoId("_cmzcQIqTEeSRT5rEzcAHEw")]
@@ -147,7 +147,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Customer has declined additional fees or a lower amount, transaction fails.
-    /// Encoded/decoded by serializers as "CUDC".
+    /// Encoded/decoded by serializers as &quot;CUDC&quot;.
     /// </summary>
     [EnumMember(Value = "CUDC")]
     [IsoId("_gQT5kIqTEeSRT5rEzcAHEw")]
@@ -156,7 +156,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Customer has left the card in the ATM or a motorised card reader.
-    /// Encoded/decoded by serializers as "CDFG".
+    /// Encoded/decoded by serializers as &quot;CDFG&quot;.
     /// </summary>
     [EnumMember(Value = "CDFG")]
     [IsoId("_jtJM0IqTEeSRT5rEzcAHEw")]
@@ -165,7 +165,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Unable to fulfil, for instance dispensing the cash.
-    /// Encoded/decoded by serializers as "FILL".
+    /// Encoded/decoded by serializers as &quot;FILL&quot;.
     /// </summary>
     [EnumMember(Value = "FILL")]
     [IsoId("_lvYxYIqTEeSRT5rEzcAHEw")]
@@ -174,7 +174,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// ATM manager has requested to the ATM to stop customer services.
-    /// Encoded/decoded by serializers as "CSRV".
+    /// Encoded/decoded by serializers as &quot;CSRV&quot;.
     /// </summary>
     [EnumMember(Value = "CSRV")]
     [IsoId("_o1m7cIqTEeSRT5rEzcAHEw")]
@@ -183,7 +183,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Unable to capture the card as requested.
-    /// Encoded/decoded by serializers as "UCPT".
+    /// Encoded/decoded by serializers as &quot;UCPT&quot;.
     /// </summary>
     [EnumMember(Value = "UCPT")]
     [IsoId("_rKquUIqTEeSRT5rEzcAHEw")]
@@ -192,7 +192,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// General security error.
-    /// Encoded/decoded by serializers as "SECR".
+    /// Encoded/decoded by serializers as &quot;SECR&quot;.
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_t-sSgIr-EeSvuOJS0mmL0g")]
@@ -201,7 +201,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Hardware error on the device.
-    /// Encoded/decoded by serializers as "HRDW".
+    /// Encoded/decoded by serializers as &quot;HRDW&quot;.
     /// </summary>
     [EnumMember(Value = "HRDW")]
     [IsoId("_6uC6AIr-EeSvuOJS0mmL0g")]
@@ -210,7 +210,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Key is compromised.
-    /// Encoded/decoded by serializers as "CMPR".
+    /// Encoded/decoded by serializers as &quot;CMPR&quot;.
     /// </summary>
     [EnumMember(Value = "CMPR")]
     [IsoId("_brHAEItDEeSxlKlAGYErFg")]
@@ -219,7 +219,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Key has expired.
-    /// Encoded/decoded by serializers as "EXPR".
+    /// Encoded/decoded by serializers as &quot;EXPR&quot;.
     /// </summary>
     [EnumMember(Value = "EXPR")]
     [IsoId("_jBjCIItDEeSxlKlAGYErFg")]
@@ -228,7 +228,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Key check value is incorrect.
-    /// Encoded/decoded by serializers as "KCVE".
+    /// Encoded/decoded by serializers as &quot;KCVE&quot;.
     /// </summary>
     [EnumMember(Value = "KCVE")]
     [IsoId("_nP21oItDEeSxlKlAGYErFg")]
@@ -237,7 +237,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Error during the key download in the security device.
-    /// Encoded/decoded by serializers as "KLOD".
+    /// Encoded/decoded by serializers as &quot;KLOD&quot;.
     /// </summary>
     [EnumMember(Value = "KLOD")]
     [IsoId("_s-4N8ItDEeSxlKlAGYErFg")]
@@ -246,7 +246,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Card has been retained by the ATM or the terminal.
-    /// Encoded/decoded by serializers as "CDRT".
+    /// Encoded/decoded by serializers as &quot;CDRT&quot;.
     /// </summary>
     [EnumMember(Value = "CDRT")]
     [IsoId("_gjrA8K4LEeWZgJQOa6iKCQ")]
@@ -255,7 +255,7 @@ public enum FailureReasonCode
     
     /// <summary>
     /// Customer has not been performed in time an action.
-    /// Encoded/decoded by serializers as "CUTO".
+    /// Encoded/decoded by serializers as &quot;CUTO&quot;.
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_l1L94K4LEeWZgJQOa6iKCQ")]

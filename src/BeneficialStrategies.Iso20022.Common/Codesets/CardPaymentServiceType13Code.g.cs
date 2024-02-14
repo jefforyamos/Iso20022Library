@@ -21,7 +21,7 @@ public enum CardPaymentServiceType13Code
 {
     /// <summary>
     /// Card payment.
-    /// Encoded/decoded by serializers as "CRDP".
+    /// Encoded/decoded by serializers as &quot;CRDP&quot;.
     /// </summary>
     [EnumMember(Value = "CRDP")]
     [IsoId("_CzZIcdufEeiB5uLfkg9ZJA")]
@@ -30,7 +30,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.
-    /// Encoded/decoded by serializers as "CSHW".
+    /// Encoded/decoded by serializers as &quot;CSHW&quot;.
     /// </summary>
     [EnumMember(Value = "CSHW")]
     [IsoId("_Dda84dufEeiB5uLfkg9ZJA")]
@@ -39,7 +39,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Cash deposit.
-    /// Encoded/decoded by serializers as "CSHD".
+    /// Encoded/decoded by serializers as &quot;CSHD&quot;.
     /// </summary>
     [EnumMember(Value = "CSHD")]
     [IsoId("_ELN3AdufEeiB5uLfkg9ZJA")]
@@ -48,7 +48,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Initial reservation.
-    /// Encoded/decoded by serializers as "IRES".
+    /// Encoded/decoded by serializers as &quot;IRES&quot;.
     /// </summary>
     [EnumMember(Value = "IRES")]
     [IsoId("_FayBcdufEeiB5uLfkg9ZJA")]
@@ -57,7 +57,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Deferred payment.
-    /// Encoded/decoded by serializers as "DEFR".
+    /// Encoded/decoded by serializers as &quot;DEFR&quot;.
     /// </summary>
     [EnumMember(Value = "DEFR")]
     [IsoId("_GD6eAdufEeiB5uLfkg9ZJA")]
@@ -66,7 +66,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Update reservation.
-    /// Encoded/decoded by serializers as "URES".
+    /// Encoded/decoded by serializers as &quot;URES&quot;.
     /// </summary>
     [EnumMember(Value = "URES")]
     [IsoId("_HMJ4cdufEeiB5uLfkg9ZJA")]
@@ -75,7 +75,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Payment after reservation.
-    /// Encoded/decoded by serializers as "PRES".
+    /// Encoded/decoded by serializers as &quot;PRES&quot;.
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_J2hM8dufEeiB5uLfkg9ZJA")]
@@ -84,7 +84,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Recurring payment.
-    /// Encoded/decoded by serializers as "RECP".
+    /// Encoded/decoded by serializers as &quot;RECP&quot;.
     /// </summary>
     [EnumMember(Value = "RECP")]
     [IsoId("_Khy-kdufEeiB5uLfkg9ZJA")]
@@ -93,7 +93,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Instalment payment.
-    /// Encoded/decoded by serializers as "INSP".
+    /// Encoded/decoded by serializers as &quot;INSP&quot;.
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_MAr-cdufEeiB5uLfkg9ZJA")]
@@ -102,7 +102,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Instalment payment transaction performed by the card issuer.
-    /// Encoded/decoded by serializers as "INSI".
+    /// Encoded/decoded by serializers as &quot;INSI&quot;.
     /// </summary>
     [EnumMember(Value = "INSI")]
     [IsoId("_MZUg4dufEeiB5uLfkg9ZJA")]
@@ -111,7 +111,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Refund transaction.
-    /// Encoded/decoded by serializers as "RFND".
+    /// Encoded/decoded by serializers as &quot;RFND&quot;.
     /// </summary>
     [EnumMember(Value = "RFND")]
     [IsoId("_NeARAdufEeiB5uLfkg9ZJA")]
@@ -120,7 +120,7 @@ public enum CardPaymentServiceType13Code
     
     /// <summary>
     /// Voice authorisation.
-    /// Encoded/decoded by serializers as "VCAU".
+    /// Encoded/decoded by serializers as &quot;VCAU&quot;.
     /// </summary>
     [EnumMember(Value = "VCAU")]
     [IsoId("_OpXQ4dufEeiB5uLfkg9ZJA")]

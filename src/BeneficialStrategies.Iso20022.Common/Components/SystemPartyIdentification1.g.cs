@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique identification to unambiguously identify the party within the system.
 /// </summary>
 [IsoId("_knFb8u5NEeCisYr99QEiWA_1320589615")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SystemPartyIdentification1
     /// Starting date from which the identification is valid.
     /// </summary>
     [IsoId("_knFb8-5NEeCisYr99QEiWA_-1206753064")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldFr")]
     #endif
+    [IsoXmlTag("VldFr")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValidFrom { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValidFrom { get; init; } 
+    public required System.DateOnly ValidFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValidFrom { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record SystemPartyIdentification1
     /// Unique and unambiguous way to identify a system party.
     /// </summary>
     [IsoId("_knFb9O5NEeCisYr99QEiWA_-427548288")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICFIIdentifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else

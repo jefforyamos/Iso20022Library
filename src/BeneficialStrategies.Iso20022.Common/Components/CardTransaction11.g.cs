@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Network management transaction.
 /// </summary>
 [IsoId("_wiFRAXvDEeSKFIcWw3l4Yw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardTransaction11
     /// Type of network management service (correspond to the ISO 8583 field 24).
     /// </summary>
     [IsoId("_erLrcHvEEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Network Management Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtwkMgmtTp")]
     #endif
+    [IsoXmlTag("NtwkMgmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardServiceType2Code NetworkManagementType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardServiceType2Code NetworkManagementType { get; init; } 
+    public required CardServiceType2Code NetworkManagementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardServiceType2Code NetworkManagementType { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record CardTransaction11
     /// Number of messages in the store and forward queue.
     /// </summary>
     [IsoId("_o2N8EHvEEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Messages")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfMsgs")]
     #endif
+    [IsoXmlTag("NbOfMsgs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfMessages { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record CardTransaction11
     /// Maximum number of messages in the store and forward queue.
     /// </summary>
     [IsoId("_sZqNoHvEEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Number Of Messages")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxNbOfMsgs")]
     #endif
+    [IsoXmlTag("MaxNbOfMsgs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumNumberOfMessages { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,12 @@ public partial record CardTransaction11
     /// Date and time of the transaction.
     /// </summary>
     [IsoId("_yBYEEHvEEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiator Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitrDtTm")]
     #endif
+    [IsoXmlTag("InitrDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? InitiatorDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +122,11 @@ public partial record CardTransaction11
     /// Response to the network management request.
     /// </summary>
     [IsoId("_m3xkEIO0EeSWSLYdc10LRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRspn")]
     #endif
+    [IsoXmlTag("TxRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseType2? TransactionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

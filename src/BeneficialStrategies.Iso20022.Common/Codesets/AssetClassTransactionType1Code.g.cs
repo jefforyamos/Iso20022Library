@@ -21,7 +21,7 @@ public enum AssetClassTransactionType1Code
 {
     /// <summary>
     /// Crack.
-    /// Encoded/decoded by serializers as "CRCK".
+    /// Encoded/decoded by serializers as &quot;CRCK&quot;.
     /// </summary>
     [EnumMember(Value = "CRCK")]
     [IsoId("_T3s5MdDTEeSv_Pll20DdbA")]
@@ -30,7 +30,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// Differential.
-    /// Encoded/decoded by serializers as "DIFF".
+    /// Encoded/decoded by serializers as &quot;DIFF&quot;.
     /// </summary>
     [EnumMember(Value = "DIFF")]
     [IsoId("_T-YwAdDTEeSv_Pll20DdbA")]
@@ -39,7 +39,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// Futures.
-    /// Encoded/decoded by serializers as "FUTR".
+    /// Encoded/decoded by serializers as &quot;FUTR&quot;.
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("_UHUCgdDTEeSv_Pll20DdbA")]
@@ -48,7 +48,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// Minis.
-    /// Encoded/decoded by serializers as "MINI".
+    /// Encoded/decoded by serializers as &quot;MINI&quot;.
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_UPMzMdDTEeSv_Pll20DdbA")]
@@ -57,7 +57,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// Options.
-    /// Encoded/decoded by serializers as "OPTN".
+    /// Encoded/decoded by serializers as &quot;OPTN&quot;.
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_UWMMAdDTEeSv_Pll20DdbA")]
@@ -66,7 +66,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// Over-The-Counter.
-    /// Encoded/decoded by serializers as "OTCT".
+    /// Encoded/decoded by serializers as &quot;OTCT&quot;.
     /// </summary>
     [EnumMember(Value = "OTCT")]
     [IsoId("_UcS0AdDTEeSv_Pll20DdbA")]
@@ -75,7 +75,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// Outright.
-    /// Encoded/decoded by serializers as "ORIT".
+    /// Encoded/decoded by serializers as &quot;ORIT&quot;.
     /// </summary>
     [EnumMember(Value = "ORIT")]
     [IsoId("_UiF6AdDTEeSv_Pll20DdbA")]
@@ -84,7 +84,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// Swaps.
-    /// Encoded/decoded by serializers as "SWAP".
+    /// Encoded/decoded by serializers as &quot;SWAP&quot;.
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_Uo8I4dDTEeSv_Pll20DdbA")]
@@ -93,7 +93,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// TAPOS.
-    /// Encoded/decoded by serializers as "TAPO".
+    /// Encoded/decoded by serializers as &quot;TAPO&quot;.
     /// </summary>
     [EnumMember(Value = "TAPO")]
     [IsoId("_UwYNodDTEeSv_Pll20DdbA")]
@@ -102,7 +102,7 @@ public enum AssetClassTransactionType1Code
     
     /// <summary>
     /// Other.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_RVvyYVCOEeWchIYf-qgDzg")]

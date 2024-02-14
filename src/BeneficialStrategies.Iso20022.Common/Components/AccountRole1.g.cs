@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the party and owner type.
 /// </summary>
 [IsoId("_l5A6kC_9EeOKib24wnHaFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Role")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AccountRole1
     /// Account owner/user identification and contact information.
     /// </summary>
     [IsoId("_rnEpkC_9EeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification41 Party { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification41 Party { get; init; } 
+    public required PartyIdentification41 Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification41 Party { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AccountRole1
     /// Defines account owners/users relation to the account.
     /// </summary>
     [IsoId("_BjRlsC__EeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Owner Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OwnrTp")]
     #endif
+    [IsoXmlTag("OwnrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OwnerType1 OwnerType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OwnerType1 OwnerType { get; init; } 
+    public required OwnerType1 OwnerType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OwnerType1 OwnerType { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record AccountRole1
     /// Start date related to the role.
     /// </summary>
     [IsoId("_vT_nQC_9EeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDt")]
     #endif
+    [IsoXmlTag("StartDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,12 @@ public partial record AccountRole1
     /// End date related to the role.
     /// </summary>
     [IsoId("_1cJRQC_9EeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndDt")]
     #endif
+    [IsoXmlTag("EndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

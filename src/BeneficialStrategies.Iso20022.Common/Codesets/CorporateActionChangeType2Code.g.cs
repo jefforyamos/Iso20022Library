@@ -21,7 +21,7 @@ public enum CorporateActionChangeType2Code
 {
     /// <summary>
     /// Change from bearer into registered form.
-    /// Encoded/decoded by serializers as "BERE".
+    /// Encoded/decoded by serializers as &quot;BERE&quot;.
     /// </summary>
     [EnumMember(Value = "BERE")]
     [IsoId("_bC8uFdp-Ed-ak6NoX_4Aeg_-1895645691")]
@@ -30,7 +30,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// Change of all instruments into certificates.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_bC8uFtp-Ed-ak6NoX_4Aeg_-1895645690")]
@@ -39,7 +39,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// Change from dematerialised into physical form.
-    /// Encoded/decoded by serializers as "DEPH".
+    /// Encoded/decoded by serializers as &quot;DEPH&quot;.
     /// </summary>
     [EnumMember(Value = "DEPH")]
     [IsoId("_bC8uF9p-Ed-ak6NoX_4Aeg_-1895645689")]
@@ -48,7 +48,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// Change from global permanent to physical form.
-    /// Encoded/decoded by serializers as "GPPH".
+    /// Encoded/decoded by serializers as &quot;GPPH&quot;.
     /// </summary>
     [EnumMember(Value = "GPPH")]
     [IsoId("_bC8uGNp-Ed-ak6NoX_4Aeg_-1895645674")]
@@ -57,7 +57,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// Change from global temporary to global permanent form.
-    /// Encoded/decoded by serializers as "GTGP".
+    /// Encoded/decoded by serializers as &quot;GTGP&quot;.
     /// </summary>
     [EnumMember(Value = "GTGP")]
     [IsoId("_bC8uGdp-Ed-ak6NoX_4Aeg_-1895645673")]
@@ -66,7 +66,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// Change from global temporary to physical form.
-    /// Encoded/decoded by serializers as "GTPH".
+    /// Encoded/decoded by serializers as &quot;GTPH&quot;.
     /// </summary>
     [EnumMember(Value = "GTPH")]
     [IsoId("_bDF4ANp-Ed-ak6NoX_4Aeg_-1895645656")]
@@ -75,7 +75,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// The issuing company changes its name. CA event shows the change from old name to new name and may involve surrendering physical shares with the old name to the registrar.
-    /// Encoded/decoded by serializers as "NAME".
+    /// Encoded/decoded by serializers as &quot;NAME&quot;.
     /// </summary>
     [EnumMember(Value = "NAME")]
     [IsoId("_bDF4Adp-Ed-ak6NoX_4Aeg_-1895645655")]
@@ -84,7 +84,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// Change from physical into dematerialised form.
-    /// Encoded/decoded by serializers as "PHDE".
+    /// Encoded/decoded by serializers as &quot;PHDE&quot;.
     /// </summary>
     [EnumMember(Value = "PHDE")]
     [IsoId("_bDF4Atp-Ed-ak6NoX_4Aeg_-1895645639")]
@@ -93,7 +93,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// Change from registered into bearer form.
-    /// Encoded/decoded by serializers as "REBE".
+    /// Encoded/decoded by serializers as &quot;REBE&quot;.
     /// </summary>
     [EnumMember(Value = "REBE")]
     [IsoId("_bDF4A9p-Ed-ak6NoX_4Aeg_-1895645621")]
@@ -102,7 +102,7 @@ public enum CorporateActionChangeType2Code
     
     /// <summary>
     /// Change in the terms of the security.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_bDF4BNp-Ed-ak6NoX_4Aeg_-1895645613")]

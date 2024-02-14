@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to search for a report.
 /// </summary>
 [IsoId("_3b6DFZb6Eee4htziCyV8eA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Query Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ReportQuerySearchCriteria2
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_3pS-0Zb6Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentificationSearchCriteria2Choice_? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record ReportQuerySearchCriteria2
     /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
     /// </summary>
     [IsoId("_3pS-05b6Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalance12? Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,15 +83,13 @@ public partial record ReportQuerySearchCriteria2
     /// Values of possible reports.
     /// </summary>
     [IsoId("_3pS-1Zb6Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RptNm")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4AlphaNumericText? ReportName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,15 +102,13 @@ public partial record ReportQuerySearchCriteria2
     /// Specifies the query message name identifier to which the message refers.
     /// </summary>
     [IsoId("_S1RJ0Fg7Eeiv7OYKCzUSAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Name Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgNmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgNmId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MessageNameIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,16 +121,15 @@ public partial record ReportQuerySearchCriteria2
     /// Report owning party.
     /// </summary>
     [IsoId("_3pS-15b6Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification136 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification136 PartyIdentification { get; init; } 
+    public required PartyIdentification136 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification136 PartyIdentification { get; init; } 
     #else
@@ -149,12 +140,11 @@ public partial record ReportQuerySearchCriteria2
     /// Responsible Party of the report owning party.
     /// </summary>
     [IsoId("_3pS-2Zb6Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responsible Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnsblPtyId")]
     #endif
+    [IsoXmlTag("RspnsblPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +157,11 @@ public partial record ReportQuerySearchCriteria2
     /// Date and time when the report was created.
     /// </summary>
     [IsoId("_3pS-25b6Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Search")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtSch")]
     #endif
+    [IsoXmlTag("DtSch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? DateSearch { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +174,11 @@ public partial record ReportQuerySearchCriteria2
     /// Time when the (business) event, which triggered the report, was scheduled.
     /// </summary>
     [IsoId("_3pS-3Zb6Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scheduled Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchdldTm")]
     #endif
+    [IsoXmlTag("SchdldTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1Choice_? ScheduledTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +191,11 @@ public partial record ReportQuerySearchCriteria2
     /// Execution type is executed based on an event driven trigger.
     /// </summary>
     [IsoId("_mEwyoVg9Eeiv7OYKCzUSAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Evt")]
     #endif
+    [IsoXmlTag("Evt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventType1Choice_? Event { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

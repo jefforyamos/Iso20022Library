@@ -21,7 +21,7 @@ public enum TotalDetails1Code
 {
     /// <summary>
     /// Give the totals result per Operator Identification value.
-    /// Encoded/decoded by serializers as "OPID".
+    /// Encoded/decoded by serializers as &quot;OPID&quot;.
     /// </summary>
     [EnumMember(Value = "OPID")]
     [IsoId("_KYx18d6TEeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum TotalDetails1Code
     
     /// <summary>
     /// Give the totals result per POI Identification value.
-    /// Encoded/decoded by serializers as "PIID".
+    /// Encoded/decoded by serializers as &quot;PIID&quot;.
     /// </summary>
     [EnumMember(Value = "PIID")]
     [IsoId("_KcKhId6TEeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum TotalDetails1Code
     
     /// <summary>
     /// Give the totals result per Totals Group Identification value.
-    /// Encoded/decoded by serializers as "TGID".
+    /// Encoded/decoded by serializers as &quot;TGID&quot;.
     /// </summary>
     [EnumMember(Value = "TGID")]
     [IsoId("_KplSEd6TEeiwsev40qZGEQ")]
@@ -48,7 +48,7 @@ public enum TotalDetails1Code
     
     /// <summary>
     /// Give the totals result per Shift Number Identification value.
-    /// Encoded/decoded by serializers as "SNID".
+    /// Encoded/decoded by serializers as &quot;SNID&quot;.
     /// </summary>
     [EnumMember(Value = "SNID")]
     [IsoId("_Ks-kUd6TEeiwsev40qZGEQ")]
@@ -57,7 +57,7 @@ public enum TotalDetails1Code
     
     /// <summary>
     /// Give the totals result per Sale Identification value.
-    /// Encoded/decoded by serializers as "SAID".
+    /// Encoded/decoded by serializers as &quot;SAID&quot;.
     /// </summary>
     [EnumMember(Value = "SAID")]
     [IsoId("_KwBRQd6TEeiwsev40qZGEQ")]

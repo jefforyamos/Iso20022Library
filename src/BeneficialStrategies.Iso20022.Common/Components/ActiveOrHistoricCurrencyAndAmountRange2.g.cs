@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Range of amount values.
 /// </summary>
 [IsoId("_PPV2V5lcEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Active Or Historic Currency And Amount Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ActiveOrHistoricCurrencyAndAmountRange2
     /// Specified amount or amount range.
     /// </summary>
     [IsoId("_PXu9U5lcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ImpliedCurrencyAmountRange1Choice_ Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ImpliedCurrencyAmountRange1Choice_ Amount { get; init; } 
+    public required ImpliedCurrencyAmountRange1Choice_ Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ImpliedCurrencyAmountRange1Choice_ Amount { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record ActiveOrHistoricCurrencyAndAmountRange2
     /// Indicates whether the amount is a credited or debited amount.
     /// </summary>
     [IsoId("_PXu9VZlcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record ActiveOrHistoricCurrencyAndAmountRange2
     /// Medium of exchange of value, used to qualify an amount.
     /// </summary>
     [IsoId("_PXu9V5lcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else

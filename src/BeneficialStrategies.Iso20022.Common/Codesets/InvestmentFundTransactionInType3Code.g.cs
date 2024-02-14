@@ -21,7 +21,7 @@ public enum InvestmentFundTransactionInType3Code
 {
     /// <summary>
     /// Transaction is a subscription to an investment fund.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_ViO3idp-Ed-ak6NoX_4Aeg_-936351208")]
@@ -30,7 +30,7 @@ public enum InvestmentFundTransactionInType3Code
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SWII".
+    /// Encoded/decoded by serializers as &quot;SWII&quot;.
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_ViYogNp-Ed-ak6NoX_4Aeg_-921572438")]
@@ -39,7 +39,7 @@ public enum InvestmentFundTransactionInType3Code
     
     /// <summary>
     /// Transaction is an InSpecie.
-    /// Encoded/decoded by serializers as "INSP".
+    /// Encoded/decoded by serializers as &quot;INSP&quot;.
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_ViYogdp-Ed-ak6NoX_4Aeg_-1939231322")]
@@ -48,7 +48,7 @@ public enum InvestmentFundTransactionInType3Code
     
     /// <summary>
     /// Transaction is a cross-in.
-    /// Encoded/decoded by serializers as "CROI".
+    /// Encoded/decoded by serializers as &quot;CROI&quot;.
     /// </summary>
     [EnumMember(Value = "CROI")]
     [IsoId("_ViYogtp-Ed-ak6NoX_4Aeg_-1929071750")]
@@ -57,7 +57,7 @@ public enum InvestmentFundTransactionInType3Code
     
     /// <summary>
     /// Transaction is another type of transaction.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ViYog9p-Ed-ak6NoX_4Aeg_-1909676382")]

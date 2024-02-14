@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details for a call/put option.
 /// </summary>
 [IsoId("_TvjDULtJEeSmENFdxjMqzQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Option12
     /// Identifies whether the instrument has a call option or a put option. If the instrument contains both options, i.e. a call and a put, both the call option and the put option have to be reported.
     /// </summary>
     [IsoId("_an7QYLtJEeSmENFdxjMqzQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionType1Code Type { get; init; } 
+    public required OptionType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionType1Code Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Option12
     /// Provides the exercise date or notice period for a call/put option.
     /// </summary>
     [IsoId("_VQ8yMTU7EeWITbq5W8H-2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Or Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOrPrd")]
     #endif
+    [IsoXmlTag("DtOrPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionDateOrPeriod1Choice_ DateOrPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionDateOrPeriod1Choice_ DateOrPeriod { get; init; } 
+    public required OptionDateOrPeriod1Choice_ DateOrPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionDateOrPeriod1Choice_ DateOrPeriod { get; init; } 
     #else

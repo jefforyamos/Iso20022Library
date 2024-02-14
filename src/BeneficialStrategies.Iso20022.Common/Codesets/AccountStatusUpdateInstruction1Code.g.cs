@@ -21,7 +21,7 @@ public enum AccountStatusUpdateInstruction1Code
 {
     /// <summary>
     /// Account is to be closed.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_SuwCEXi6EeaRm5xIK6nGuQ")]
@@ -30,7 +30,7 @@ public enum AccountStatusUpdateInstruction1Code
     
     /// <summary>
     /// Account is to be reactivated, any previous instruction to close the account is rescinded.
-    /// Encoded/decoded by serializers as "REAC".
+    /// Encoded/decoded by serializers as &quot;REAC&quot;.
     /// </summary>
     [EnumMember(Value = "REAC")]
     [IsoId("_S6f_EXi6EeaRm5xIK6nGuQ")]

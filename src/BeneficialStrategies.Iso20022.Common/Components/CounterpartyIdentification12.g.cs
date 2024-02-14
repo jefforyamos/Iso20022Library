@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to counterparty identification.
 /// </summary>
 [IsoId("_DrQZ4cg4Eeu4ecZgAYuz5w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CounterpartyIdentification12
     /// Identification of the counterparty in the transaction.
     /// </summary>
     [IsoId("_DtZH4cg4Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification236Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification236Choice_ Identification { get; init; } 
+    public required PartyIdentification236Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification236Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CounterpartyIdentification12
     /// Identification of the branch of the counterparty, when the transaction concludes a transaction through a branch office.
     /// </summary>
     [IsoId("_DtZH48g4Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Branch")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Brnch")]
     #endif
+    [IsoXmlTag("Brnch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Branch6Choice_? Branch { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record CounterpartyIdentification12
     /// Country where the registered office of the counterparty is located or country of residence in case that the counterparty is a natural person.
     /// </summary>
     [IsoId("_DtZH5cg4Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryCd")]
     #endif
+    [IsoXmlTag("CtryCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

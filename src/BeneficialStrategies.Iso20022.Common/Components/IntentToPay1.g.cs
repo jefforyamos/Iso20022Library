@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of an intention to pay based on purchase orders or commercial invoice.
 /// </summary>
 [IsoId("_PzEVSdp-Ed-ak6NoX_4Aeg_-1491388962")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intent To Pay")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record IntentToPay1
     /// The intention to pay is based on a purchase order.
     /// </summary>
     [IsoId("_PzEVStp-Ed-ak6NoX_4Aeg_1426935583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("By Purchase Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ByPurchsOrdr")]
     #endif
+    [IsoXmlTag("ByPurchsOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportLine3 ByPurchaseOrder { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportLine3 ByPurchaseOrder { get; init; } 
+    public required ReportLine3 ByPurchaseOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportLine3 ByPurchaseOrder { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record IntentToPay1
     /// The intention to pay is based on a commercial invoice.
     /// </summary>
     [IsoId("_PzEVS9p-Ed-ak6NoX_4Aeg_1432476294")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("By Commercial Invoice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ByComrclInvc")]
     #endif
+    [IsoXmlTag("ByComrclInvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportLine4 ByCommercialInvoice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportLine4 ByCommercialInvoice { get; init; } 
+    public required ReportLine4 ByCommercialInvoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportLine4 ByCommercialInvoice { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record IntentToPay1
     /// Date at which the payment would be effected.
     /// </summary>
     [IsoId("_PzEVTNp-Ed-ak6NoX_4Aeg_-1088733127")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdPmtDt")]
     #endif
+    [IsoXmlTag("XpctdPmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ExpectedPaymentDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ExpectedPaymentDate { get; init; } 
+    public required System.DateOnly ExpectedPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ExpectedPaymentDate { get; init; } 
     #else
@@ -110,15 +106,14 @@ public partial record IntentToPay1
     #endif
     
     /// <summary>
-    /// Specifies the beneficiary's account information.
+    /// Specifies the beneficiary&apos;s account information.
     /// </summary>
     [IsoId("_PzOGQNp-Ed-ak6NoX_4Aeg_-1728337681")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTerms")]
     #endif
+    [IsoXmlTag("SttlmTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTerms2? SettlementTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of or reference to the content of a message.
 /// </summary>
 [IsoId("_jrZ20EXWEeegp_DADCe7HQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record Content1
     /// Value of the content of or the reference to the message.
     /// </summary>
     [IsoId("_7RCrYEXWEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.Max20KText)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20KText Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Value { get; init; } 
+    public required System.String Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Value { get; init; } 
     #else
@@ -74,12 +70,12 @@ public partial record Content1
     /// Digital signature of the content of or the reference to the message.
     /// </summary>
     [IsoId("_Y50HEEXXEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +88,13 @@ public partial record Content1
     /// Signing certificate identification.
     /// </summary>
     [IsoId("_lPoNMEXXEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? CertificateIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

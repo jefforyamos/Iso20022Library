@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Financing information and status.
 /// </summary>
 [IsoId("_RYGZYtp-Ed-ak6NoX_4Aeg_645590457")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financing Information And Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FinancingInformationAndStatus1
     /// Specifies summary information about invoices/instalments financed, such as total amount financed, number of single requests accepted.
     /// </summary>
     [IsoId("_RYGZY9p-Ed-ak6NoX_4Aeg_-1388553810")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Allowed Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgAllwdSummry")]
     #endif
+    [IsoXmlTag("FincgAllwdSummry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancingAllowedSummary1 FinancingAllowedSummary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancingAllowedSummary1 FinancingAllowedSummary { get; init; } 
+    public required FinancingAllowedSummary1 FinancingAllowedSummary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancingAllowedSummary1 FinancingAllowedSummary { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record FinancingInformationAndStatus1
     /// Specifies detailed information about single invoice/instalment financing result, such as result of request (financed or not financed), amount, percentage applied.
     /// </summary>
     [IsoId("_RYGZZNp-Ed-ak6NoX_4Aeg_1262872441")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Financing Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcFincgDtls")]
     #endif
+    [IsoXmlTag("InvcFincgDtls")]
     public InvoiceFinancingDetails1? InvoiceFinancingDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RYGZZNp-Ed-ak6NoX_4Aeg_1262872441
     

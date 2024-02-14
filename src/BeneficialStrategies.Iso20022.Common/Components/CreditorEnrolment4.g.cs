@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the attributes of the creditor used for a creditor enrolment.
 /// </summary>
 [IsoId("_UdRMV-H7Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Enrolment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CreditorEnrolment4
     /// Detailed activation data related to the creditor enrolment. 
     /// </summary>
     [IsoId("_UedfIeH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enrolment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Enrlmnt")]
     #endif
+    [IsoXmlTag("Enrlmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorServiceEnrolment1? Enrolment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,15 +66,13 @@ public partial record CreditorEnrolment4
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another, such as the brand name.
     /// </summary>
     [IsoId("_UedfI-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Trading Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrTradgNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CdtrTradgNm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? CreditorTradingName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +85,15 @@ public partial record CreditorEnrolment4
     /// Party to which an amount of money is due.
     /// </summary>
     [IsoId("_UedfJeH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cdtr")]
     #endif
+    [IsoXmlTag("Cdtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RTPPartyIdentification1 Creditor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RTPPartyIdentification1 Creditor { get; init; } 
+    public required RTPPartyIdentification1 Creditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RTPPartyIdentification1 Creditor { get; init; } 
     #else
@@ -110,12 +104,11 @@ public partial record CreditorEnrolment4
     /// Ultimate party to which an amount of money is due.
     /// </summary>
     [IsoId("_UedfJ-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ultimate Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UltmtCdtr")]
     #endif
+    [IsoXmlTag("UltmtCdtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RTPPartyIdentification1? UltimateCreditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,12 @@ public partial record CreditorEnrolment4
     /// Classification of a business by the types of goods or services it provides.
     /// </summary>
     [IsoId("_UedfKeH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merchant Category Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrchntCtgyCd")]
     #endif
+    [IsoXmlTag("MrchntCtgyCd")]
+    [IsoSimpleType(IsoSimpleType.MerchantCategoryCodeIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMerchantCategoryCodeIdentifier? MerchantCategoryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,12 @@ public partial record CreditorEnrolment4
     /// Commercial logo of the creditor.
     /// </summary>
     [IsoId("_UedfK-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Logo")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrLogo")]
     #endif
+    [IsoXmlTag("CdtrLogo")]
+    [IsoSimpleType(IsoSimpleType.Max10KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? CreditorLogo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

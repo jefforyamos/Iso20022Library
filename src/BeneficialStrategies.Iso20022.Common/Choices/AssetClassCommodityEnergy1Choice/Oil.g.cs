@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy1Choice
     /// Definition of Oil energy commodity derivative.
     /// </summary>
     [IsoId("_pBoTZw2nEeW72qLtWESimw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Oil")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy1Choice
         /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
         /// </summary>
         [IsoId("_NEqcxQ2oEeW72qLtWESimw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Base Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BasePdct")]
         #endif
+        [IsoXmlTag("BasePdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassProductType2Code BaseProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassProductType2Code BaseProduct { get; init; } 
+        public required AssetClassProductType2Code BaseProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassProductType2Code BaseProduct { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy1Choice
         /// Sub-product for the underlying asset class.
         /// </summary>
         [IsoId("_NEqcxw2oEeW72qLtWESimw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sub Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SubPdct")]
         #endif
+        [IsoXmlTag("SubPdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassSubProductType8Code SubProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassSubProductType8Code SubProduct { get; init; } 
+        public required AssetClassSubProductType8Code SubProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassSubProductType8Code SubProduct { get; init; } 
         #else
@@ -97,12 +93,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy1Choice
         /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
         /// </summary>
         [IsoId("_NEqcxg2oEeW72qLtWESimw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Sub Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlSubPdct")]
         #endif
+        [IsoXmlTag("AddtlSubPdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AssetClassDetailedSubProductType7Code? AdditionalSubProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

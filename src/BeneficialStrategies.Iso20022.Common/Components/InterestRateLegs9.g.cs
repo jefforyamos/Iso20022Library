@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details related to interest rate attributes.
 /// </summary>
 [IsoId("_5tHsQVfREeqqKf65rDYWYw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Rate Legs")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InterestRateLegs9
     /// Details concerning the rate in the first leg of an interest rate contract.
     /// </summary>
     [IsoId("_6Hvyw1fREeqqKf65rDYWYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstLeg")]
     #endif
+    [IsoXmlTag("FrstLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRate23Choice_? FirstLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record InterestRateLegs9
     /// Details concerning the rate in the second leg of an interest rate contract.
     /// </summary>
     [IsoId("_6HvyxVfREeqqKf65rDYWYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Second Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndLeg")]
     #endif
+    [IsoXmlTag("ScndLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRate23Choice_? SecondLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

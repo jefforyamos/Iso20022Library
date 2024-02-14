@@ -21,7 +21,7 @@ public enum ResponseStatus2Code
 {
     /// <summary>
     /// Collateral giver instruction details are confirmed.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_FtcUocf1EemlRYW9CHJ8_Q")]
@@ -30,7 +30,7 @@ public enum ResponseStatus2Code
     
     /// <summary>
     /// Collateral giver instruction details are not recognised.
-    /// Encoded/decoded by serializers as "DKNY".
+    /// Encoded/decoded by serializers as &quot;DKNY&quot;.
     /// </summary>
     [EnumMember(Value = "DKNY")]
     [IsoId("_Fzstocf1EemlRYW9CHJ8_Q")]

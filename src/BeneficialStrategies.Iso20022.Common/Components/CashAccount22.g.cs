@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Account to or from which a cash entry is made.
 /// </summary>
 [IsoId("_SOMT6Np-Ed-ak6NoX_4Aeg_-1967253219")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record CashAccount22
     /// Medium of exchange of value.
     /// </summary>
     [IsoId("_SOWE4Np-Ed-ak6NoX_4Aeg_-1789134547")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,16 +68,16 @@ public partial record CashAccount22
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_SOWE4dp-Ed-ak6NoX_4Aeg_-2081092285")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Svcr")]
     #endif
+    [IsoXmlTag("Svcr")]
+    [IsoSimpleType(IsoSimpleType.BICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICIdentifier Servicer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Servicer { get; init; } 
+    public required System.String Servicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Servicer { get; init; } 
     #else
@@ -91,16 +88,15 @@ public partial record CashAccount22
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_SOWE4tp-Ed-ak6NoX_4Aeg_-1902973613")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification5Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification5Choice_ Identification { get; init; } 
+    public required AccountIdentification5Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification5Choice_ Identification { get; init; } 
     #else
@@ -111,12 +107,11 @@ public partial record CashAccount22
     /// Sub-division of a master or omnibus cash account.
     /// </summary>
     [IsoId("_SOWE49p-Ed-ak6NoX_4Aeg_-286714049")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secondary Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndryAcct")]
     #endif
+    [IsoXmlTag("ScndryAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount21? SecondaryAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,19 +124,17 @@ public partial record CashAccount22
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
     [IsoId("_SOWE5Np-Ed-ak6NoX_4Aeg_-268592078")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Type Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctTpDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctTpDesc")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AccountTypeDescription { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AccountTypeDescription { get; init; } 
+    public required System.String AccountTypeDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AccountTypeDescription { get; init; } 
     #else

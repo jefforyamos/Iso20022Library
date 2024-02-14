@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the arrangement of the transport of goods and services and the parties involved in this process.
 /// </summary>
 [IsoId("_XzXXgeWoEeevU7McUP3D1w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Consignment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Consignment5
     /// Party consigning goods as stipulated in the transport contract by the party ordering transport.
     /// </summary>
     [IsoId("_X8NKceWoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consignor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Consgnr")]
     #endif
+    [IsoXmlTag("Consgnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty4? Consignor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Consignment5
     /// Party to which goods are consigned.
     /// </summary>
     [IsoId("_X8NKc-WoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consignee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Consgn")]
     #endif
+    [IsoXmlTag("Consgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty4? Consignee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Consignment5
     /// Particular aircraft, vehicle, vessel or other device used for the transport of a consignment.
     /// </summary>
     [IsoId("_X8NKdeWoEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport Means")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsprtMeans")]
     #endif
+    [IsoXmlTag("TrnsprtMeans")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportMeans3? TransportMeans { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

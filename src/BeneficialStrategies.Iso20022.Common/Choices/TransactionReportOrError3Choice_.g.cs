@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionReportOrError3Choice.BusinessReport))]
     [KnownType(typeof(TransactionReportOrError3Choice.OperationalError))]
     [IsoId("_MwAZAZlPEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Report Or Error 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

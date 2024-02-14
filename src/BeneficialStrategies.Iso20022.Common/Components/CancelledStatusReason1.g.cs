@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for a cancelled status.
 /// </summary>
 [IsoId("_Ux9RNdp-Ed-ak6NoX_4Aeg_-1476021532")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancelled Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CancelledStatusReason1
     /// Reason for a cancelled status in free format text.
     /// </summary>
     [IsoId("_UyGbENp-Ed-ak6NoX_4Aeg_-1476021506")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text AdditionalInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AdditionalInformation { get; init; } 
+    public required System.String AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AdditionalInformation { get; init; } 
     #else

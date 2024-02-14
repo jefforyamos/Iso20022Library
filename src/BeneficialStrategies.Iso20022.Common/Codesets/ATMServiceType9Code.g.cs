@@ -21,7 +21,7 @@ public enum ATMServiceType9Code
 {
     /// <summary>
     /// Funds transfer between accounts belonging to the customer in the same bank.
-    /// Encoded/decoded by serializers as "TRFC".
+    /// Encoded/decoded by serializers as &quot;TRFC&quot;.
     /// </summary>
     [EnumMember(Value = "TRFC")]
     [IsoId("_GTc9Aa4tEeWLdt0vLARX2Q")]
@@ -30,7 +30,7 @@ public enum ATMServiceType9Code
     
     /// <summary>
     /// Funds transfer to another customer.
-    /// Encoded/decoded by serializers as "TRFI".
+    /// Encoded/decoded by serializers as &quot;TRFI&quot;.
     /// </summary>
     [EnumMember(Value = "TRFI")]
     [IsoId("_GkSOUa4tEeWLdt0vLARX2Q")]
@@ -39,7 +39,7 @@ public enum ATMServiceType9Code
     
     /// <summary>
     /// Funds transfer to pay a third party.
-    /// Encoded/decoded by serializers as "TRFP".
+    /// Encoded/decoded by serializers as &quot;TRFP&quot;.
     /// </summary>
     [EnumMember(Value = "TRFP")]
     [IsoId("_PF0xka4tEeWLdt0vLARX2Q")]

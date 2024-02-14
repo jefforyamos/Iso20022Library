@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains detailed information from the cancellation response (for example an MT 196 or an MT 199).
 /// </summary>
 [IsoId("_SYKDoCFfEeicwehH70nfgw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancellation Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CancellationResponse1
     /// Provides the status of the execution of an investigation.
     /// </summary>
     [IsoId("_hxLcECFfEeicwehH70nfgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Execution Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnExctnSts")]
     #endif
+    [IsoXmlTag("InvstgtnExctnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigationExecutionConfirmation5Code InvestigationExecutionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestigationExecutionConfirmation5Code InvestigationExecutionStatus { get; init; } 
+    public required InvestigationExecutionConfirmation5Code InvestigationExecutionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestigationExecutionConfirmation5Code InvestigationExecutionStatus { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CancellationResponse1
     /// Provides the reason for a given status on the execution of an investigation.
     /// </summary>
     [IsoId("_LJOF0CFhEeicwehH70nfgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Execution Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnExctnStsRsn")]
     #endif
+    [IsoXmlTag("InvstgtnExctnStsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestigationExecutionStatusReason1? InvestigationExecutionStatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

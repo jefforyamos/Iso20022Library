@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the comparison between the currently established baseline elements and the proposed ones.
 /// </summary>
 [IsoId("_RbOl4dp-Ed-ak6NoX_4Aeg_153355944")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Comparison Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,16 @@ public partial record ComparisonResult2
     /// Sequence number assigned to the element.
     /// </summary>
     [IsoId("_RbOl4tp-Ed-ak6NoX_4Aeg_153356284")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Element Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElmtSeqNb")]
     #endif
+    [IsoXmlTag("ElmtSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ElementSequenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ElementSequenceNumber { get; init; } 
+    public required System.UInt64 ElementSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ElementSequenceNumber { get; init; } 
     #else
@@ -76,19 +74,17 @@ public partial record ComparisonResult2
     /// Specifies from the root of the message the complete path of the element.
     /// </summary>
     [IsoId("_RbOl49p-Ed-ak6NoX_4Aeg_153355976")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Element Path")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElmtPth")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElmtPth")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text ElementPath { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ElementPath { get; init; } 
+    public required System.String ElementPath { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ElementPath { get; init; } 
     #else
@@ -99,19 +95,17 @@ public partial record ComparisonResult2
     /// Name of the element.
     /// </summary>
     [IsoId("_RbOl5Np-Ed-ak6NoX_4Aeg_153356222")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Element Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElmtNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElmtNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ElementName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ElementName { get; init; } 
+    public required System.String ElementName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ElementName { get; init; } 
     #else
@@ -122,16 +116,15 @@ public partial record ComparisonResult2
     /// Replacement of an existing content by a different one.
     /// </summary>
     [IsoId("_RbOl5dp-Ed-ak6NoX_4Aeg_153356746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Replacement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rplcmnt")]
     #endif
+    [IsoXmlTag("Rplcmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Replacement2 Replacement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Replacement2 Replacement { get; init; } 
+    public required Replacement2 Replacement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Replacement2 Replacement { get; init; } 
     #else
@@ -142,16 +135,15 @@ public partial record ComparisonResult2
     /// Deletion of the current element.
     /// </summary>
     [IsoId("_RbOl5tp-Ed-ak6NoX_4Aeg_153356346")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deletion")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Deltn")]
     #endif
+    [IsoXmlTag("Deltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Deletion2 Deletion { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Deletion2 Deletion { get; init; } 
+    public required Deletion2 Deletion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Deletion2 Deletion { get; init; } 
     #else
@@ -162,16 +154,15 @@ public partial record ComparisonResult2
     /// Addition of a new element.
     /// </summary>
     [IsoId("_RbOl59p-Ed-ak6NoX_4Aeg_153356686")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Addition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Addtn")]
     #endif
+    [IsoXmlTag("Addtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Addition2 Addition { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Addition2 Addition { get; init; } 
+    public required Addition2 Addition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Addition2 Addition { get; init; } 
     #else

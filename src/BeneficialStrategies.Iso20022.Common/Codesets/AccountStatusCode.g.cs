@@ -21,7 +21,7 @@ public enum AccountStatusCode
 {
     /// <summary>
     /// Account can be used for its intended purpose.
-    /// Encoded/decoded by serializers as "ENAB".
+    /// Encoded/decoded by serializers as &quot;ENAB&quot;.
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_brn3otp-Ed-ak6NoX_4Aeg_-1967705692")]
@@ -30,7 +30,7 @@ public enum AccountStatusCode
     
     /// <summary>
     /// Account cannot be used for its intended purpose, either temporarily or permanently.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_brn3o9p-Ed-ak6NoX_4Aeg_-1949232976")]
@@ -39,7 +39,7 @@ public enum AccountStatusCode
     
     /// <summary>
     /// Account cannot be used any longer.
-    /// Encoded/decoded by serializers as "DELE".
+    /// Encoded/decoded by serializers as &quot;DELE&quot;.
     /// </summary>
     [EnumMember(Value = "DELE")]
     [IsoId("_brn3pNp-Ed-ak6NoX_4Aeg_-1923375698")]
@@ -48,7 +48,7 @@ public enum AccountStatusCode
     
     /// <summary>
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
-    /// Encoded/decoded by serializers as "FORM".
+    /// Encoded/decoded by serializers as &quot;FORM&quot;.
     /// </summary>
     [EnumMember(Value = "FORM")]
     [IsoId("_brn3pdp-Ed-ak6NoX_4Aeg_-54743257")]
@@ -57,7 +57,7 @@ public enum AccountStatusCode
     
     /// <summary>
     /// Account change is pending approval.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_Oi_OkCF1EeW9XJWqfgXIIA")]

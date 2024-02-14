@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the status of the global movement.
 /// </summary>
 [IsoId("_Ri-zsNp-Ed-ak6NoX_4Aeg_-2092963403")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Global Distribution Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record GlobalDistributionStatus1
     /// Provides information about the processing status of the global movement.
     /// </summary>
     [IsoId("_Ri-zsdp-Ed-ak6NoX_4Aeg_-2010770250")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processed Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcdSts")]
     #endif
+    [IsoXmlTag("PrcdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DistributionProcessingStatus1 ProcessedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DistributionProcessingStatus1 ProcessedStatus { get; init; } 
+    public required DistributionProcessingStatus1 ProcessedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DistributionProcessingStatus1 ProcessedStatus { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record GlobalDistributionStatus1
     /// Provides information about the rejection status.
     /// </summary>
     [IsoId("_Ri-zstp-Ed-ak6NoX_4Aeg_-2008920266")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdSts")]
     #endif
+    [IsoXmlTag("RjctdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DistributionRejectionStatus1 RejectedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DistributionRejectionStatus1 RejectedStatus { get; init; } 
+    public required DistributionRejectionStatus1 RejectedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DistributionRejectionStatus1 RejectedStatus { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Numeric variables calculated on the number of transactions or on market exposures.
 /// </summary>
 [IsoId("_HPOrga5QEeuo-IflVgGqiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Volume Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record VolumeMetrics6
     /// Aggregations of all positive values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
     [IsoId("_Hd-5Ma5QEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Positive")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Postv")]
     #endif
+    [IsoXmlTag("Postv")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExposureMetrics5? Positive { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record VolumeMetrics6
     /// Aggregations of all negative values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
     [IsoId("_Hd-5M65QEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Negative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Neg")]
     #endif
+    [IsoXmlTag("Neg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExposureMetrics5? Negative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the security pledged as collateral.
 /// </summary>
 [IsoId("__pEK0IxmEeap1-whlAlpOw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Reuse Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SecurityReuseData1
     /// Identifier of the security used as collateral.
     /// </summary>
     [IsoId("_IiLgkIxnEeap1-whlAlpOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ISIN")]
     #endif
+    [IsoXmlTag("ISIN")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier ISIN { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ISIN { get; init; } 
+    public required System.String ISIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ISIN { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record SecurityReuseData1
     /// Indication whether reused value is actual or estimated.
     /// </summary>
     [IsoId("_JXFIQIxnEeap1-whlAlpOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reuse Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReuseVal")]
     #endif
+    [IsoXmlTag("ReuseVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReuseValue1Choice_ ReuseValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReuseValue1Choice_ ReuseValue { get; init; } 
+    public required ReuseValue1Choice_ ReuseValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReuseValue1Choice_ ReuseValue { get; init; } 
     #else

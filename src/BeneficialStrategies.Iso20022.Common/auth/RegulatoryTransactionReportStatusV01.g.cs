@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"Scope|A regulator or an intermediary sends the RegulatoryTransactionReportStatus to a reporting institution to provide the status of a RegulatoryTransactionReport previously sent by the reporting institution.|Usage|The message definition may be used to provide a status for the entire report or to provide a status at the level of individual transactions within the report. One of the following statuses can be reported:|- Completed, or,|- Pending, or,|- Rejected.|If the status is rejected, then reason for the rejection must be specified.")]
 [IsoId("_gJ-K8MIFEeGllrOKQRUTYA_-1798409708")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Regulatory Transaction Report Status V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord<Regula
     /// Identification of the RegulatoryTransactionReportStatus document.
     /// </summary>
     [IsoId("_gJ-K8cIFEeGllrOKQRUTYA_-1414225965")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord<Regula
     /// Identification of the firm that is legally responsible for sending the transaction report.
     /// </summary>
     [IsoId("_gJ-K8sIFEeGllrOKQRUTYA_1208200865")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgInstn")]
     #endif
+    [IsoXmlTag("RptgInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification23Choice_ ReportingInstitution { get; init; } 
+    public required PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #else
@@ -125,16 +121,15 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord<Regula
     /// Provides the status of the entire RegulatoryTransactionReport that was previously sent by the reporting institution.
     /// </summary>
     [IsoId("_gJ-K88IFEeGllrOKQRUTYA_963266001")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSts")]
     #endif
+    [IsoXmlTag("RptSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportStatusAndReason1 ReportStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportStatusAndReason1 ReportStatus { get; init; } 
+    public required ReportStatusAndReason1 ReportStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportStatusAndReason1 ReportStatus { get; init; } 
     #else
@@ -145,16 +140,15 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord<Regula
     /// Provides the status of one or more transactions that were previously sent within a RegulatoryTransactionReport by the reporting institution.
     /// </summary>
     [IsoId("_gJ-K9MIFEeGllrOKQRUTYA_1351125442")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvTxSts")]
     #endif
+    [IsoXmlTag("IndvTxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeTransactionStatusAndReason1 IndividualTransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeTransactionStatusAndReason1 IndividualTransactionStatus { get; init; } 
+    public required TradeTransactionStatusAndReason1 IndividualTransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeTransactionStatusAndReason1 IndividualTransactionStatus { get; init; } 
     #else
@@ -165,7 +159,7 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord<Regula
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RegulatoryTransactionReportStatusV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RegulatoryTransactionReportStatusV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RegulatoryTransactionReportStatusV01Document ToDocument()
     {
@@ -175,7 +169,7 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord<Regula
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RegulatoryTransactionReportStatusV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RegulatoryTransactionReportStatusV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RegulatoryTransactionReportStatusV01Document : IOuterDocument<RegulatoryTransactionReportStatusV01>
@@ -192,7 +186,7 @@ public partial record RegulatoryTransactionReportStatusV01Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RegulatoryTransactionReportStatusV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RegulatoryTransactionReportStatusV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RegulatoryTransactionReportStatusV01 Message { get; init; }

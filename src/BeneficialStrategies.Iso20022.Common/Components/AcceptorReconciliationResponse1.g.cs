@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reconciliation response from the acquirer.
 /// </summary>
 [IsoId("_Svfw-wEcEeCQm6a_G2yO_w_828551474")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Reconciliation Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AcceptorReconciliationResponse1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_Svfw_AEcEeCQm6a_G2yO_w_766279755")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment7 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment7 Environment { get; init; } 
+    public required CardPaymentEnvironment7 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment7 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record AcceptorReconciliationResponse1
     /// Response from the acquirer to the reconciliation transaction.
     /// </summary>
     [IsoId("_Svfw_QEcEeCQm6a_G2yO_w_-1242316409")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRspn")]
     #endif
+    [IsoXmlTag("TxRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType1 TransactionResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType1 TransactionResponse { get; init; } 
+    public required ResponseType1 TransactionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType1 TransactionResponse { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record AcceptorReconciliationResponse1
     /// Reconciliation transaction between an acceptor an acquirer.
     /// </summary>
     [IsoId("_Svfw_gEcEeCQm6a_G2yO_w_-712189637")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionReconciliation1 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionReconciliation1 Transaction { get; init; } 
+    public required TransactionReconciliation1 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionReconciliation1 Transaction { get; init; } 
     #else

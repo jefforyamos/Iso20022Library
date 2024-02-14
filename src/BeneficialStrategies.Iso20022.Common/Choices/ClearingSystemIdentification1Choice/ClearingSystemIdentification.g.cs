@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemIdentification1Cho
     /// Infrastructure through which the payment instruction is processed.
     /// </summary>
     [IsoId("_TMVXINp-Ed-ak6NoX_4Aeg_-843594927")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemIdentification1Cho
         /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is to be processed.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClrSysId")]
         #endif
+        [IsoXmlTag("ClrSysId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CashClearingSystem3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CashClearingSystem3Code Value { get; init; } 
+        public required CashClearingSystem3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CashClearingSystem3Code Value { get; init; } 
         #else

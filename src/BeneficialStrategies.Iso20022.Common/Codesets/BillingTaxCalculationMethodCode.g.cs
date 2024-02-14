@@ -21,7 +21,7 @@ public enum BillingTaxCalculationMethodCode
 {
     /// <summary>
     /// No taxes are calculated or due on this account.
-    /// Encoded/decoded by serializers as "NTAX".
+    /// Encoded/decoded by serializers as &quot;NTAX&quot;.
     /// </summary>
     [EnumMember(Value = "NTAX")]
     [IsoId("_6Vm_wZqlEeGSON8vddiWzQ_-275092404")]
@@ -30,7 +30,7 @@ public enum BillingTaxCalculationMethodCode
     
     /// <summary>
     /// Line-by-line per service calculation and settlement currency translation.
-    /// Encoded/decoded by serializers as "MTDA".
+    /// Encoded/decoded by serializers as &quot;MTDA&quot;.
     /// </summary>
     [EnumMember(Value = "MTDA")]
     [IsoId("_6Vm_wpqlEeGSON8vddiWzQ_-96973732")]
@@ -39,7 +39,7 @@ public enum BillingTaxCalculationMethodCode
     
     /// <summary>
     /// Line-by-line per service calculation with settlement currency translation performed on the statement tax total.
-    /// Encoded/decoded by serializers as "MTDB".
+    /// Encoded/decoded by serializers as &quot;MTDB&quot;.
     /// </summary>
     [EnumMember(Value = "MTDB")]
     [IsoId("_6Vm_w5qlEeGSON8vddiWzQ_-388931470")]
@@ -48,7 +48,7 @@ public enum BillingTaxCalculationMethodCode
     
     /// <summary>
     /// Group tax calculation with group settlement currency translation.
-    /// Encoded/decoded by serializers as "MTDC".
+    /// Encoded/decoded by serializers as &quot;MTDC&quot;.
     /// </summary>
     [EnumMember(Value = "MTDC")]
     [IsoId("_6Vm_xJqlEeGSON8vddiWzQ_1370175031")]
@@ -57,7 +57,7 @@ public enum BillingTaxCalculationMethodCode
     
     /// <summary>
     /// Line-by-line per service calculation with all charges and taxes due in the pricing currency.
-    /// Encoded/decoded by serializers as "MTDD".
+    /// Encoded/decoded by serializers as &quot;MTDD&quot;.
     /// </summary>
     [EnumMember(Value = "MTDD")]
     [IsoId("_6Vm_xZqlEeGSON8vddiWzQ_-1272164757")]
@@ -66,7 +66,7 @@ public enum BillingTaxCalculationMethodCode
     
     /// <summary>
     /// Tax calculation method is not defined or unknown.
-    /// Encoded/decoded by serializers as "UDFD".
+    /// Encoded/decoded by serializers as &quot;UDFD&quot;.
     /// </summary>
     [EnumMember(Value = "UDFD")]
     [IsoId("_6Vm_xpqlEeGSON8vddiWzQ_-1094046085")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentificatio
     /// Instrument consists of single instrument.
     /// </summary>
     [IsoId("_HQWTwX5aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Single")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Card transaction information to be transferred.
 /// </summary>
 [IsoId("_Y-DEIfwLEeGHDMP28rpT3g_1761080314")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record TransactionData1
     /// Brand name of the card.
     /// </summary>
     [IsoId("_Y-DEIvwLEeGHDMP28rpT3g_237700941")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Brand")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardBrnd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CardBrnd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CardBrand { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record TransactionData1
     /// Card data associated with the card performing the transaction.
     /// </summary>
     [IsoId("_Y-DEI_wLEeGHDMP28rpT3g_304673772")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardData")]
     #endif
+    [IsoXmlTag("CardData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData3? CardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record TransactionData1
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
     [IsoId("_Y-DEJPwLEeGHDMP28rpT3g_362363636")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Point Of Interaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtOfIntractn")]
     #endif
+    [IsoXmlTag("PtOfIntractn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction1? PointOfInteraction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record TransactionData1
     /// Details of the transaction.
     /// </summary>
     [IsoId("_Y-M1IPwLEeGHDMP28rpT3g_-1560928202")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransactionDetails8? TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,11 @@ public partial record TransactionData1
     /// PrePaid Account for funds transfer or loading.
     /// </summary>
     [IsoId("_Y-M1IfwLEeGHDMP28rpT3g_769227939")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Paid Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrePdAcct")]
     #endif
+    [IsoXmlTag("PrePdAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? PrePaidAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

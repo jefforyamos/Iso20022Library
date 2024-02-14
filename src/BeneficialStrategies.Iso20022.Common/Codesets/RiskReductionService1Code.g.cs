@@ -21,7 +21,7 @@ public enum RiskReductionService1Code
 {
     /// <summary>
     /// There is no portfolio compression.
-    /// Encoded/decoded by serializers as "NORR".
+    /// Encoded/decoded by serializers as &quot;NORR&quot;.
     /// </summary>
     [EnumMember(Value = "NORR")]
     [IsoId("_IMhhYYKPEeyi6unpji8kcA")]
@@ -30,7 +30,7 @@ public enum RiskReductionService1Code
     
     /// <summary>
     /// Portfolio Compression without a third-party service provider.
-    /// Encoded/decoded by serializers as "PWOS".
+    /// Encoded/decoded by serializers as &quot;PWOS&quot;.
     /// </summary>
     [EnumMember(Value = "PWOS")]
     [IsoId("_ITNYMYKPEeyi6unpji8kcA")]
@@ -39,7 +39,7 @@ public enum RiskReductionService1Code
     
     /// <summary>
     /// Other portfolio compression.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_IYeSsYKPEeyi6unpji8kcA")]
@@ -48,7 +48,7 @@ public enum RiskReductionService1Code
     
     /// <summary>
     /// Portfolio rebalancing or margin management.
-    /// Encoded/decoded by serializers as "PRBM".
+    /// Encoded/decoded by serializers as &quot;PRBM&quot;.
     /// </summary>
     [EnumMember(Value = "PRBM")]
     [IsoId("_IeBhEYKPEeyi6unpji8kcA")]
@@ -57,7 +57,7 @@ public enum RiskReductionService1Code
     
     /// <summary>
     /// Portfolio Compression with a third-party service provider or CCP.
-    /// Encoded/decoded by serializers as "PWAS".
+    /// Encoded/decoded by serializers as &quot;PWAS&quot;.
     /// </summary>
     [EnumMember(Value = "PWAS")]
     [IsoId("_IilQ8YKPEeyi6unpji8kcA")]

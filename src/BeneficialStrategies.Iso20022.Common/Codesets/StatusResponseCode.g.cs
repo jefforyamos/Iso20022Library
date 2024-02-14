@@ -21,7 +21,7 @@ public enum StatusResponseCode
 {
     /// <summary>
     /// Response not provided yet.
-    /// Encoded/decoded by serializers as "NRES".
+    /// Encoded/decoded by serializers as &quot;NRES&quot;.
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_Oh2ljT2yEeGXQ7zxoAIFpQ")]
@@ -30,7 +30,7 @@ public enum StatusResponseCode
     
     /// <summary>
     /// Response is partially provided.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_b9g5bT2yEeGXQ7zxoAIFpQ")]
@@ -39,7 +39,7 @@ public enum StatusResponseCode
     
     /// <summary>
     /// Response is complete.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ilBY7T2yEeGXQ7zxoAIFpQ")]

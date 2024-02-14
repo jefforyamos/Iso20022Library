@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information on the delegation of a maintenance action or maintenance function.
 /// </summary>
 [IsoId("__pGIsWqGEeS8RZDTbvnB_A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Maintenance Delegation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record MaintenanceDelegation2
     /// Maintenance service to be delegated.
     /// </summary>
     [IsoId("__16csWqGEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maintenance Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MntncSvc")]
     #endif
+    [IsoXmlTag("MntncSvc")]
     public DataSetCategory6Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is __16csWqGEeS8RZDTbvnB_A
     
@@ -64,16 +61,15 @@ public partial record MaintenanceDelegation2
     /// Response of the MTM to the delegation of the maintenance service.
     /// </summary>
     [IsoId("_p_-1wGqHEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspn")]
     #endif
+    [IsoXmlTag("Rspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Response2Code Response { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Response2Code Response { get; init; } 
+    public required Response2Code Response { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Response2Code Response { get; init; } 
     #else
@@ -84,15 +80,13 @@ public partial record MaintenanceDelegation2
     /// Reason of the response of the MTM.
     /// </summary>
     [IsoId("_PqNmcGqIEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RspnRsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ResponseReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,15 +99,13 @@ public partial record MaintenanceDelegation2
     /// Subset of the terminal estate for the delegated actions, for instance for pilot or key deactivation). The subset may be expressed as a list of POI or terminal estate subset identifier.
     /// </summary>
     [IsoId("__16ctWqGEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Subset")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POISubset")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("POISubset")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POISubset { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,15 +118,13 @@ public partial record MaintenanceDelegation2
     /// Identification of the parameters subset assigned by the MTM.
     /// </summary>
     [IsoId("__16cuWqGEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameters Subset Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ParamsSubsetId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ParamsSubsetId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ParametersSubsetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +137,12 @@ public partial record MaintenanceDelegation2
     /// Definition of the subset of application parameters, for instance the range of application profiles, the RID (registered application provider identification).
     /// </summary>
     [IsoId("__16cu2qGEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameters Subset Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ParamsSubsetDef")]
     #endif
+    [IsoXmlTag("ParamsSubsetDef")]
+    [IsoSimpleType(IsoSimpleType.Max3000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? ParametersSubsetDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +155,12 @@ public partial record MaintenanceDelegation2
     /// Proof of delegation to be verified by the POI, when performing the delegated actions.
     /// </summary>
     [IsoId("_h8pcAGqIEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegation Proof")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtnProof")]
     #endif
+    [IsoXmlTag("DlgtnProof")]
+    [IsoSimpleType(IsoSimpleType.Max5000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5000Binary? DelegationProof { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +173,11 @@ public partial record MaintenanceDelegation2
     /// Protected proof of delegation.
     /// </summary>
     [IsoId("_oNyp8GqIEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Delegation Proof")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdDlgtnProof")]
     #endif
+    [IsoXmlTag("PrtctdDlgtnProof")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType12? ProtectedDelegationProof { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,12 +190,11 @@ public partial record MaintenanceDelegation2
     /// Association of the TM identifier and the MTM identifier of a POI.
     /// </summary>
     [IsoId("__16cv2qGEeS8RZDTbvnB_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification Association")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIIdAssoctn")]
     #endif
+    [IsoXmlTag("POIIdAssoctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a meeting instruction vote.
 /// </summary>
 [IsoId("__hC9MTUCEe2tRf29bleifQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Instruction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record DetailedInstructionStatus18
     /// Identification of the specific individual instruction from the original meeting instruction message for which the confirmation is provided.
     /// </summary>
     [IsoId("__6rlNzUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Single Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SnglInstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SnglInstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SingleInstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SingleInstructionIdentification { get; init; } 
+    public required System.String SingleInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SingleInstructionIdentification { get; init; } 
     #else
@@ -75,15 +71,13 @@ public partial record DetailedInstructionStatus18
     /// Identification of the safekeeping account.
     /// </summary>
     [IsoId("__6rlOTUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,12 +90,11 @@ public partial record DetailedInstructionStatus18
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("__6rlOzUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification231Choice_? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,15 +107,13 @@ public partial record DetailedInstructionStatus18
     /// Identification of the subaccount within the safekeeping account.
     /// </summary>
     [IsoId("__6rlPTUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubAcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SubAcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,28 +126,24 @@ public partial record DetailedInstructionStatus18
     /// Owner of the voting rights.
     /// </summary>
     [IsoId("__6rlPzUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rights Holder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RghtsHldr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RghtsHldr")]
     [MinLength(0)]
     [MaxLength(250)]
-    #endif
     public ValueList<PartyIdentification246Choice_> RightsHolder { get; init; } = new ValueList<PartyIdentification246Choice_>(){};
     
     /// <summary>
     /// Identification of the person appointed by the security holder as the proxy.
     /// </summary>
     [IsoId("__6rlQTUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prxy")]
     #endif
+    [IsoXmlTag("Prxy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification232Choice_? Proxy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +156,12 @@ public partial record DetailedInstructionStatus18
     /// Indicates whether standing instructions have been applied or not.
     /// </summary>
     [IsoId("__6rlQzUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgInstr")]
     #endif
+    [IsoXmlTag("StgInstr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StandingInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,16 +174,15 @@ public partial record DetailedInstructionStatus18
     /// Modality through which the votes that have been recorded and counted were received by the issuer, including whether this is ahead of the meeting or at the meeting.
     /// </summary>
     [IsoId("__6rlRTUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modality Of Counting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModltyOfCntg")]
     #endif
+    [IsoXmlTag("ModltyOfCntg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ModalityOfCounting1Choice_ ModalityOfCounting { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ModalityOfCounting1Choice_ ModalityOfCounting { get; init; } 
+    public required ModalityOfCounting1Choice_ ModalityOfCounting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ModalityOfCounting1Choice_ ModalityOfCounting { get; init; } 
     #else
@@ -207,12 +193,11 @@ public partial record DetailedInstructionStatus18
     /// Date or date and time at which the votes that have been recorded and counted were received.
     /// </summary>
     [IsoId("__6rlRzUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Receipt Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteRctDtTm")]
     #endif
+    [IsoXmlTag("VoteRctDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime1Choice_? VoteReceiptDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -225,16 +210,13 @@ public partial record DetailedInstructionStatus18
     /// Details of the vote.
     /// </summary>
     [IsoId("__6rlSTUCEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Per Resolution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VotePerRsltn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("VotePerRsltn")]
     [MinLength(0)]
     [MaxLength(1000)]
-    #endif
     public ValueList<Vote17> VotePerResolution { get; init; } = new ValueList<Vote17>(){};
     
     

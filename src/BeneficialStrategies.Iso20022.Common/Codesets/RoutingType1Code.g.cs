@@ -21,7 +21,7 @@ public enum RoutingType1Code
 {
     /// <summary>
     /// Indicates that routing is allowed.
-    /// Encoded/decoded by serializers as "ALLO".
+    /// Encoded/decoded by serializers as &quot;ALLO&quot;.
     /// </summary>
     [EnumMember(Value = "ALLO")]
     [IsoId("_Y-Uj6Np-Ed-ak6NoX_4Aeg_1903962381")]
@@ -30,7 +30,7 @@ public enum RoutingType1Code
     
     /// <summary>
     /// Indicates that routing is blocked.
-    /// Encoded/decoded by serializers as "BLOC".
+    /// Encoded/decoded by serializers as &quot;BLOC&quot;.
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_Y-Uj6dp-Ed-ak6NoX_4Aeg_1903962382")]

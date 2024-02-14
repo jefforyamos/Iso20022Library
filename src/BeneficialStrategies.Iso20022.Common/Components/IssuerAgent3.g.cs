@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the issuer and its role.
 /// </summary>
 [IsoId("_VeYVka4REemG7MmivSuE5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Issuer Agent")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record IssuerAgent3
     /// Identification of the issuer agent.
     /// </summary>
     [IsoId("_V0Gt864REemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification129Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification129Choice_ Identification { get; init; } 
+    public required PartyIdentification129Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification129Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record IssuerAgent3
     /// Role of the issuer agent.
     /// </summary>
     [IsoId("_V0Gt9a4REemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgentRole1Code? Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

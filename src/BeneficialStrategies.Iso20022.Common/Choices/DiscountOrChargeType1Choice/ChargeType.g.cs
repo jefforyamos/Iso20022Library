@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountOrChargeType1Choice
     /// Type of charge.
     /// </summary>
     [IsoId("_St2yMQEcEeCQm6a_G2yO_w_-1448163837")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

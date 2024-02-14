@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the securities movement resulting from the election instruction.
 /// </summary>
 [IsoId("_UIYIoNp-Ed-ak6NoX_4Aeg_-758299282")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Securities Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CorporateActionSecuritiesMovement2
     /// Identification of the financial instrument.
     /// </summary>
     [IsoId("_UIYIodp-Ed-ak6NoX_4Aeg_-412902862")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification7 SecurityIdentification { get; init; } 
+    public required SecurityIdentification7 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification7 SecurityIdentification { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record CorporateActionSecuritiesMovement2
     /// Date and time of the posting of the movement.
     /// </summary>
     [IsoId("_UIYIotp-Ed-ak6NoX_4Aeg_-2095744075")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posting Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstngDtTm")]
     #endif
+    [IsoXmlTag("PstngDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,15 +86,13 @@ public partial record CorporateActionSecuritiesMovement2
     /// Posting identification of the securities movement.
     /// </summary>
     [IsoId("_UIYIo9p-Ed-ak6NoX_4Aeg_-266143599")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posting Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstngId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PstngId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PostingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +105,15 @@ public partial record CorporateActionSecuritiesMovement2
     /// Securities quantity posted as a result of the securities movement.
     /// </summary>
     [IsoId("_UIYIpNp-Ed-ak6NoX_4Aeg_-412902831")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posting Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstngQty")]
     #endif
+    [IsoXmlTag("PstngQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     #else
@@ -131,16 +124,13 @@ public partial record CorporateActionSecuritiesMovement2
     /// Provides information about the account which is debited/credited as a result of the movement.
     /// </summary>
     [IsoId("_UIYIpdp-Ed-ak6NoX_4Aeg_1796783257")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctDtls")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<SecuritiesAccount9> AccountDetails { get; init; } = new ValueList<SecuritiesAccount9>(){};
     
     

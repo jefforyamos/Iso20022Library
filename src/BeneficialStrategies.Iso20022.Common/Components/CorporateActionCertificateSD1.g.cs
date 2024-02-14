@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Certificate information provided for a given corporate action instruction.
 /// </summary>
 [IsoId("_OBTl0MViEeeprYdSN88o0Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Certificate SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionCertificateSD1
     /// Unique identification or serial number that is assigned and affixed by an issuer or transfer agent to each securities certificate.
     /// </summary>
     [IsoId("_HsduNMVjEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertNb")]
+    [IsoSimpleType(IsoSimpleType.Max15AlphaNumericText)]
     [StringLength(maximumLength: 15 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15AlphaNumericText CertificateNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CertificateNumber { get; init; } 
+    public required System.String CertificateNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CertificateNumber { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record CorporateActionCertificateSD1
     /// Additional identifier assigned by DTC.
     /// </summary>
     [IsoId("_kj2zcMVnEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertSeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CertSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Max15AlphaNumericText)]
     [StringLength(maximumLength: 15 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15AlphaNumericText? CertificateSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +89,12 @@ public partial record CorporateActionCertificateSD1
     /// Registration name of the beneficial holder.
     /// </summary>
     [IsoId("_uY8pQMVnEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Registration Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertRegnNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CertRegnNm")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? CertificateRegistrationName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

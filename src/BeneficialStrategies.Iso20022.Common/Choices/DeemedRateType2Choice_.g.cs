@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeemedRateType2Choice.Code))]
     [KnownType(typeof(DeemedRateType2Choice.Proprietary))]
     [IsoId("_r25EEdBbEee0mNiKMkpGNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deemed Rate Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

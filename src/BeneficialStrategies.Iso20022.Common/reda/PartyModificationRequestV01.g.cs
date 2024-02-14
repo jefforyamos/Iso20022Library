@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"Scope:|The PartyModificationRequest message is sent by the instructing party to the executing party to request for an update of the party reference data of a party defined in the executing system.||Usage:|It aims at instructing the update of an existing party by amending its existing details or by providing additional details.|Processing and confirmation of the party modification request message are provided via a party status advice.")]
 [IsoId("_xJQSoZeREeen_cyMrluY4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Modification Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,12 +74,11 @@ public partial record PartyModificationRequestV01 : IOuterRecord<PartyModificati
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_AvsDgVhGEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +91,15 @@ public partial record PartyModificationRequestV01 : IOuterRecord<PartyModificati
     /// Unique identification, as assigned by the executing system, to unambiguously identify the party to be modified.
     /// </summary>
     [IsoId("_xJQSqZeREeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysPtyId")]
     #endif
+    [IsoXmlTag("SysPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification8 SystemPartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification8 SystemPartyIdentification { get; init; } 
+    public required SystemPartyIdentification8 SystemPartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification8 SystemPartyIdentification { get; init; } 
     #else
@@ -114,16 +110,15 @@ public partial record PartyModificationRequestV01 : IOuterRecord<PartyModificati
     /// Identifies the list of requested modifications to be executed by the system.
     /// </summary>
     [IsoId("_xJQSq5eREeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mod")]
     #endif
+    [IsoXmlTag("Mod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyModification2 Modification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyModification2 Modification { get; init; } 
+    public required SystemPartyModification2 Modification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyModification2 Modification { get; init; } 
     #else
@@ -134,12 +129,11 @@ public partial record PartyModificationRequestV01 : IOuterRecord<PartyModificati
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_xJQSrZeREeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,7 +146,7 @@ public partial record PartyModificationRequestV01 : IOuterRecord<PartyModificati
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PartyModificationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PartyModificationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PartyModificationRequestV01Document ToDocument()
     {
@@ -162,7 +156,7 @@ public partial record PartyModificationRequestV01 : IOuterRecord<PartyModificati
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyModificationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PartyModificationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PartyModificationRequestV01Document : IOuterDocument<PartyModificationRequestV01>
@@ -179,7 +173,7 @@ public partial record PartyModificationRequestV01Document : IOuterDocument<Party
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PartyModificationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PartyModificationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyModificationRequestV01 Message { get; init; }

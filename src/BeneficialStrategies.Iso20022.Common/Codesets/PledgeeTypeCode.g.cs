@@ -21,7 +21,7 @@ public enum PledgeeTypeCode
 {
     /// <summary>
     /// Financial instruments are pledged to a regulatory body.
-    /// Encoded/decoded by serializers as "REGB".
+    /// Encoded/decoded by serializers as &quot;REGB&quot;.
     /// </summary>
     [EnumMember(Value = "REGB")]
     [IsoId("_J-JKME9aEeSn2-3swbRbzg")]
@@ -30,7 +30,7 @@ public enum PledgeeTypeCode
     
     /// <summary>
     /// Financial instruments are pledged to a counterparty.
-    /// Encoded/decoded by serializers as "CPTY".
+    /// Encoded/decoded by serializers as &quot;CPTY&quot;.
     /// </summary>
     [EnumMember(Value = "CPTY")]
     [IsoId("_0CJM8E9ZEeSn2-3swbRbzg")]

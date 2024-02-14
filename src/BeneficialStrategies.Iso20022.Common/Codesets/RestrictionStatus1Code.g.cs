@@ -21,7 +21,7 @@ public enum RestrictionStatus1Code
 {
     /// <summary>
     /// Status of the restriction is active.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_yA_goSFnEeW9XJWqfgXIIA")]
@@ -30,7 +30,7 @@ public enum RestrictionStatus1Code
     
     /// <summary>
     /// Status of the restriction is inactive.
-    /// Encoded/decoded by serializers as "INAC".
+    /// Encoded/decoded by serializers as &quot;INAC&quot;.
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_yH-5cSFnEeW9XJWqfgXIIA")]

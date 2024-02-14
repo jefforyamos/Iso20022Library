@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Ratio expressed as a quotient of quantities.
 /// </summary>
 [IsoId("_WjNMUNp-Ed-ak6NoX_4Aeg_511377656")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Quantity To Quantity Ratio")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record QuantityToQuantityRatio2
     /// Numerator of the quotient of quantities.
     /// </summary>
     [IsoId("_WjNMUdp-Ed-ak6NoX_4Aeg_2126904066")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty1")]
     #endif
+    [IsoXmlTag("Qty1")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINDecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINDecimalNumber Quantity1 { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Quantity1 { get; init; } 
+    public required System.UInt64 Quantity1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Quantity1 { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record QuantityToQuantityRatio2
     /// Denominator of the quotient of quantities.
     /// </summary>
     [IsoId("_WjNMUtp-Ed-ak6NoX_4Aeg_-1402106980")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty2")]
     #endif
+    [IsoXmlTag("Qty2")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINDecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINDecimalNumber Quantity2 { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Quantity2 { get; init; } 
+    public required System.UInt64 Quantity2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Quantity2 { get; init; } 
     #else

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCASTSD1 message extends ISO Corporate Action Instruction Statement Report message with DTCC corporate action elements not covered in the standard message.")]
 [IsoId("_pfw8AJCFEeaSk9d1hvTrHg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCASTSD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCASTSD1V01 : IOuterRecord<DTCCCASTSD1V01,DTCCCASTSD1V0
     /// Information to be extended as supplementary data to corporate action balance details at event level.
     /// </summary>
     [IsoId("_RIHTAJH2EeaNbfbSYshZYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Balance Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtBalDtls")]
     #endif
+    [IsoXmlTag("EvtBalDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionBalanceSD2? EventBalanceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCASTSD1V01 : IOuterRecord<DTCCCASTSD1V01,DTCCCASTSD1V0
     /// Information to be extended as supplementary data to corporate action balance details at option level.
     /// </summary>
     [IsoId("_VaV10JH5EeaNbfbSYshZYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Instructed Balance Option Balance Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlInstdBalOptnBalDtls")]
     #endif
+    [IsoXmlTag("TtlInstdBalOptnBalDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionInstructedBalanceOptionBalanceDetailsSD1? TotalInstructedBalanceOptionBalanceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,11 @@ public partial record DTCCCASTSD1V01 : IOuterRecord<DTCCCASTSD1V01,DTCCCASTSD1V0
     /// Information to be extended as supplementary data to corporate action balance details at option instruction details level. Option level instruction detail is referenced by unique Instruction ID, Instruction Date, Quantity and Status of instruction.
     /// </summary>
     [IsoId("_YVG2cJH8EeaNbfbSYshZYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Instructed Balance Option Instruction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlInstdBalOptnInstrDtls")]
     #endif
+    [IsoXmlTag("TtlInstdBalOptnInstrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionInstructedBalanceOptionInstructionDetailsSD1? TotalInstructedBalanceOptionInstructionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +117,11 @@ public partial record DTCCCASTSD1V01 : IOuterRecord<DTCCCASTSD1V01,DTCCCASTSD1V0
     /// Information to be extended as supplementary data to corporate action balance details at option protect instruction details level.
     /// </summary>
     [IsoId("_tzhrkJIXEeaNbfbSYshZYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Instructed Balance Option Protect Instruction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlInstdBalOptnPrtctInstrDtls")]
     #endif
+    [IsoXmlTag("TtlInstdBalOptnPrtctInstrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionInstructedBalanceOptionProtectInstructionDetailsSD1? TotalInstructedBalanceOptionProtectInstructionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,7 +134,7 @@ public partial record DTCCCASTSD1V01 : IOuterRecord<DTCCCASTSD1V01,DTCCCASTSD1V0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCASTSD1V01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCASTSD1V01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCASTSD1V01Document ToDocument()
     {
@@ -150,7 +144,7 @@ public partial record DTCCCASTSD1V01 : IOuterRecord<DTCCCASTSD1V01,DTCCCASTSD1V0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCASTSD1V01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCASTSD1V01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCASTSD1V01Document : IOuterDocument<DTCCCASTSD1V01>
@@ -167,7 +161,7 @@ public partial record DTCCCASTSD1V01Document : IOuterDocument<DTCCCASTSD1V01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCASTSD1V01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCASTSD1V01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCASTSD1V01 Message { get; init; }

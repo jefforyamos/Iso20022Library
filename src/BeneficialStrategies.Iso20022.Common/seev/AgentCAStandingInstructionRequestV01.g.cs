@@ -27,7 +27,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This record is an implementation of the seev.025.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// This message is sent by a CSD to the issuer (or its agent) to provide the issuer (or its agent) with the CSD's client details for the distribution of the proceeds of a corporate action event:
+/// This message is sent by a CSD to the issuer (or its agent) to provide the issuer (or its agent) with the CSD&apos;s client details for the distribution of the proceeds of a corporate action event:
 /// - Gross or net payments.
 /// - Delivery details for securities that have to be delivered outside of the CSD.
 /// - Delivery details for cash amounts that have to be delivered outside of the CSD.
@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|This message is sent by a CSD to the issuer (or its agent) to provide the issuer (or its agent) with the CSD's client details for the distribution of the proceeds of a corporate action event:|- Gross or net payments.|- Delivery details for securities that have to be delivered outside of the CSD.|- Delivery details for cash amounts that have to be delivered outside of the CSD.|Usage|This message is used to request the issuer (or its agent) to put a standing instruction in place for proceeds.|The amendment of a standing instruction is done through a cancel-and-replace mechanism. First a standing instruction cancellation request is sent followed by a new standing instruction request.")]
 [IsoId("_TR6-KdEwEd-BzquC8wXy7w_1831735017")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent CA Standing Instruction Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord<AgentC
     /// Identification assigned by the Sender to unambiguously identify the request.
     /// </summary>
     [IsoId("_TR6-KtEwEd-BzquC8wXy7w_-325890589")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord<AgentC
     /// General information about the standing instruction.
     /// </summary>
     [IsoId("_TR6-K9EwEd-BzquC8wXy7w_199276822")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Instruction General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgInstrGnlInf")]
     #endif
+    [IsoXmlTag("StgInstrGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionStandingInstructionGeneralInformation1 StandingInstructionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionStandingInstructionGeneralInformation1 StandingInstructionGeneralInformation { get; init; } 
+    public required CorporateActionStandingInstructionGeneralInformation1 StandingInstructionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionStandingInstructionGeneralInformation1 StandingInstructionGeneralInformation { get; init; } 
     #else
@@ -124,16 +120,15 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord<AgentC
     /// Provides detailed information about the standing instruction.
     /// </summary>
     [IsoId("_TR6-LNEwEd-BzquC8wXy7w_1084668578")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Instruction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgInstrDtls")]
     #endif
+    [IsoXmlTag("StgInstrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionStandingInstruction1 StandingInstructionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionStandingInstruction1 StandingInstructionDetails { get; init; } 
+    public required CorporateActionStandingInstruction1 StandingInstructionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionStandingInstruction1 StandingInstructionDetails { get; init; } 
     #else
@@ -144,12 +139,11 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord<AgentC
     /// Contact responsible for the transaction identified in the message.
     /// </summary>
     [IsoId("_TR6-LdEwEd-BzquC8wXy7w_1089871682")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctDtls")]
     #endif
+    [IsoXmlTag("CtctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactPerson1? ContactDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,7 +156,7 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord<AgentC
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AgentCAStandingInstructionRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AgentCAStandingInstructionRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AgentCAStandingInstructionRequestV01Document ToDocument()
     {
@@ -172,7 +166,7 @@ public partial record AgentCAStandingInstructionRequestV01 : IOuterRecord<AgentC
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAStandingInstructionRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AgentCAStandingInstructionRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AgentCAStandingInstructionRequestV01Document : IOuterDocument<AgentCAStandingInstructionRequestV01>
@@ -189,7 +183,7 @@ public partial record AgentCAStandingInstructionRequestV01Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AgentCAStandingInstructionRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AgentCAStandingInstructionRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentCAStandingInstructionRequestV01 Message { get; init; }

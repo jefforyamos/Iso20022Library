@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the foreign exchange commissions and fees amounts.
 /// </summary>
 [IsoId("_Tv5YAANyEe2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("FX Commission Or Fee")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FXCommissionOrFee1
     /// Type of the commission or fee.
     /// </summary>
     [IsoId("_e4y_EANyEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FXAmountType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FXAmountType1Choice_ Type { get; init; } 
+    public required FXAmountType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FXAmountType1Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record FXCommissionOrFee1
     /// Amount or rate of the commissions and fees.
     /// </summary>
     [IsoId("_oLLJYANyEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Or Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtOrRate")]
     #endif
+    [IsoXmlTag("AmtOrRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrRate4Choice_ AmountOrRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrRate4Choice_ AmountOrRate { get; init; } 
+    public required AmountOrRate4Choice_ AmountOrRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrRate4Choice_ AmountOrRate { get; init; } 
     #else
@@ -93,12 +89,12 @@ public partial record FXCommissionOrFee1
     /// Usage: when absent, it means that amount value is 0 or positive.
     /// </summary>
     [IsoId("_pC8e4ANyEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sign")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgn")]
     #endif
+    [IsoXmlTag("Sgn")]
+    [IsoSimpleType(IsoSimpleType.PlusOrMinusIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

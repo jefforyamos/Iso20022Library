@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCodeSearch2Choice
     /// State of a payment instruction at a specified time.
     /// </summary>
     [IsoId("_RGEOM9p-Ed-ak6NoX_4Aeg_396814260")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending And Final Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCodeSearch2Choice
         /// Specifies the state of a payment instruction at a specified time.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PdgAndFnlSts")]
         #endif
+        [IsoXmlTag("PdgAndFnlSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CashPaymentStatus2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CashPaymentStatus2Code Value { get; init; } 
+        public required CashPaymentStatus2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CashPaymentStatus2Code Value { get; init; } 
         #else

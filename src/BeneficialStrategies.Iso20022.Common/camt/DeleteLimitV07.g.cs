@@ -41,9 +41,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The DeleteLimit message is sent by a member to the transaction administrator.|It is used to request the deletion of one particular, several or all limits set by the member and managed by the transaction administrator.|The DeleteLimit message may delete several types of current limits (risk or liquidity management limit), based on a multiple requests.|Usage|The member will submit a DeleteLimit message identifying which limit(s) it wants to delete (current limit risk/liquidity limit concepts have been merged) based on following criteria:|- type of limit(s) (current/default)|- value of the limit(s) (default and/or current limit(s))|- identification of the counterparty (bilateral limit)|Based on the criteria received within the DeleteLimit message, the transaction administrator will execute or reject the requested modifications.|The transaction administrator may send a Receipt message as a reply to the DeleteLimit request.|To verify the outcome of the request, the member may submit a GetLimit message with the appropriate search criteria.")]
 [IsoId("_jwlbTxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Delete Limit V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -87,16 +85,15 @@ public partial record DeleteLimitV07 : IOuterRecord<DeleteLimitV07,DeleteLimitV0
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbURbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -107,16 +104,15 @@ public partial record DeleteLimitV07 : IOuterRecord<DeleteLimitV07,DeleteLimitV0
     /// Identifies one particular limit set by the member and managed by the transaction administrator.
     /// </summary>
     [IsoId("_jwlbUxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtDtls")]
     #endif
+    [IsoXmlTag("LmtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitStructure2Choice_ LimitDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LimitStructure2Choice_ LimitDetails { get; init; } 
+    public required LimitStructure2Choice_ LimitDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LimitStructure2Choice_ LimitDetails { get; init; } 
     #else
@@ -127,12 +123,11 @@ public partial record DeleteLimitV07 : IOuterRecord<DeleteLimitV07,DeleteLimitV0
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlbVRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,7 +140,7 @@ public partial record DeleteLimitV07 : IOuterRecord<DeleteLimitV07,DeleteLimitV0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DeleteLimitV07Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DeleteLimitV07Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DeleteLimitV07Document ToDocument()
     {
@@ -155,7 +150,7 @@ public partial record DeleteLimitV07 : IOuterRecord<DeleteLimitV07,DeleteLimitV0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DeleteLimitV07"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DeleteLimitV07&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DeleteLimitV07Document : IOuterDocument<DeleteLimitV07>
@@ -172,7 +167,7 @@ public partial record DeleteLimitV07Document : IOuterDocument<DeleteLimitV07>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DeleteLimitV07"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DeleteLimitV07&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeleteLimitV07 Message { get; init; }

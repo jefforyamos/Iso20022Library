@@ -21,7 +21,7 @@ public enum SecuritiesTransactionType15Code
 {
     /// <summary>
     /// Transaction is a purchase of financial instrument.
-    /// Encoded/decoded by serializers as "BUYI".
+    /// Encoded/decoded by serializers as &quot;BUYI&quot;.
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_U6o2obu7EeSXxOgurgHGgw")]
@@ -30,7 +30,7 @@ public enum SecuritiesTransactionType15Code
     
     /// <summary>
     /// Transaction is a sale of financial instrument.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_XDPh4bu7EeSXxOgurgHGgw")]

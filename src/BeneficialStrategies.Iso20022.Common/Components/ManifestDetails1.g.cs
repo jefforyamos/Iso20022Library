@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the related items or attachments (such as message types and number of messages types) within the file.
 /// </summary>
 [IsoId("_jLluVe5NEeCisYr99QEiWA_942484578")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Manifest Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ManifestDetails1
     /// Specifies the type of items contained in the document set. An initial list of values can be found in the ISO20022 message type catalogue such as admi, camt, pacs, sese, semt etc. ISO messages.
     /// </summary>
     [IsoId("_jLvfUO5NEeCisYr99QEiWA_-354097622")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DocTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text DocumentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DocumentType { get; init; } 
+    public required System.String DocumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DocumentType { get; init; } 
     #else
@@ -75,16 +71,16 @@ public partial record ManifestDetails1
     /// Gives the number of instances (messages) for each declared type.
     /// </summary>
     [IsoId("_jLvfUe5NEeCisYr99QEiWA_-683335600")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Documents")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfDocs")]
     #endif
+    [IsoXmlTag("NbOfDocs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfDocuments { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfDocuments { get; init; } 
+    public required System.UInt64 NumberOfDocuments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfDocuments { get; init; } 
     #else

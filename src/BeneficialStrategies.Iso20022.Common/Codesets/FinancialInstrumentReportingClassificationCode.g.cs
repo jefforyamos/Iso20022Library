@@ -21,7 +21,7 @@ public enum FinancialInstrumentReportingClassificationCode
 {
     /// <summary>
     /// Contract is of type securitised derivatives.
-    /// Encoded/decoded by serializers as "SDRV".
+    /// Encoded/decoded by serializers as &quot;SDRV&quot;.
     /// </summary>
     [EnumMember(Value = "SDRV")]
     [IsoId("_DSY2QPPREeS_qLctCs2aRQ")]
@@ -30,7 +30,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type structured finance products (SFPs).
-    /// Encoded/decoded by serializers as "SFPS".
+    /// Encoded/decoded by serializers as &quot;SFPS&quot;.
     /// </summary>
     [EnumMember(Value = "SFPS")]
     [IsoId("_HLvGYfPREeS_qLctCs2aRQ")]
@@ -39,7 +39,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type bonds.
-    /// Encoded/decoded by serializers as "BOND".
+    /// Encoded/decoded by serializers as &quot;BOND&quot;.
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_IBJEYfPREeS_qLctCs2aRQ")]
@@ -48,7 +48,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type emission allowances.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_IYM5gfPREeS_qLctCs2aRQ")]
@@ -57,7 +57,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type contract for difference (CFD).
-    /// Encoded/decoded by serializers as "CFDS".
+    /// Encoded/decoded by serializers as &quot;CFDS&quot;.
     /// </summary>
     [EnumMember(Value = "CFDS")]
     [IsoId("_K1KEIfPREeS_qLctCs2aRQ")]
@@ -66,7 +66,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type derivative.
-    /// Encoded/decoded by serializers as "DERV".
+    /// Encoded/decoded by serializers as &quot;DERV&quot;.
     /// </summary>
     [EnumMember(Value = "DERV")]
     [IsoId("_LLeSYfPREeS_qLctCs2aRQ")]
@@ -75,7 +75,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type shares.
-    /// Encoded/decoded by serializers as "SHRS".
+    /// Encoded/decoded by serializers as &quot;SHRS&quot;.
     /// </summary>
     [EnumMember(Value = "SHRS")]
     [IsoId("_cna1oAjqEeW36pGcc5RpFw")]
@@ -84,7 +84,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type electronic traded funds.
-    /// Encoded/decoded by serializers as "ETFS".
+    /// Encoded/decoded by serializers as &quot;ETFS&quot;.
     /// </summary>
     [EnumMember(Value = "ETFS")]
     [IsoId("_hr5cIAjqEeW36pGcc5RpFw")]
@@ -93,7 +93,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type depositary receipt.
-    /// Encoded/decoded by serializers as "DPRS".
+    /// Encoded/decoded by serializers as &quot;DPRS&quot;.
     /// </summary>
     [EnumMember(Value = "DPRS")]
     [IsoId("_oxp94AjqEeW36pGcc5RpFw")]
@@ -102,7 +102,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type other equity-like financial instrument.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_zYziwAjqEeW36pGcc5RpFw")]
@@ -111,7 +111,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type certificates.
-    /// Encoded/decoded by serializers as "CRFT".
+    /// Encoded/decoded by serializers as &quot;CRFT&quot;.
     /// </summary>
     [EnumMember(Value = "CRFT")]
     [IsoId("_zY9TwAjqEeW36pGcc5RpFw")]
@@ -120,7 +120,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type exchange traded note.
-    /// Encoded/decoded by serializers as "ETNS".
+    /// Encoded/decoded by serializers as &quot;ETNS&quot;.
     /// </summary>
     [EnumMember(Value = "ETNS")]
     [IsoId("_2_VMYAnNEeW1sbwBDSZgiA")]
@@ -129,7 +129,7 @@ public enum FinancialInstrumentReportingClassificationCode
     
     /// <summary>
     /// Contract is of type exchange traded commodities.
-    /// Encoded/decoded by serializers as "ETCS".
+    /// Encoded/decoded by serializers as &quot;ETCS&quot;.
     /// </summary>
     [EnumMember(Value = "ETCS")]
     [IsoId("_6zeMYAnNEeW1sbwBDSZgiA")]

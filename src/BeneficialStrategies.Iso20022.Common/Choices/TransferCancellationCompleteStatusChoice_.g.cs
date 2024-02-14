@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransferCancellationCompleteStatusChoice.Reason))]
     [KnownType(typeof(TransferCancellationCompleteStatusChoice.DataSourceScheme))]
     [IsoId("_U0C70dp-Ed-ak6NoX_4Aeg_-1711844694")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Cancellation Complete Status Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the expected collateral type and direction.
 /// </summary>
 [IsoId("__DOQZYLZEeWrrO9HojbPQA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Expected Collateral Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ExpectedCollateralMovement2
     /// Type of collateral that will be delivered and date by which the collateral movement is expected.
     /// </summary>
     [IsoId("__cEOMYLZEeWrrO9HojbPQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dlvry")]
     #endif
+    [IsoXmlTag("Dlvry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralMovement9? Delivery { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ExpectedCollateralMovement2
     /// Type of collateral that will be returned and date by which the collateral movement is expected.
     /// </summary>
     [IsoId("__cEOM4LZEeWrrO9HojbPQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rtr")]
     #endif
+    [IsoXmlTag("Rtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralMovement9? Return { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

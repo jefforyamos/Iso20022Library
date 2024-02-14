@@ -21,7 +21,7 @@ public enum OfficialDocumentTypeCode
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "ARNU".
+    /// Encoded/decoded by serializers as &quot;ARNU&quot;.
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_ClTHwHhOEee6_vnrijrKgg")]
@@ -30,7 +30,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Travel authorisation assigned by a government agency (e.g. ESTA, etc.)
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_Mv5TgHhOEee6_vnrijrKgg")]
@@ -39,7 +39,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Diplomatic passport or travel document.
-    /// Encoded/decoded by serializers as "DIPL".
+    /// Encoded/decoded by serializers as &quot;DIPL&quot;.
     /// </summary>
     [EnumMember(Value = "DIPL")]
     [IsoId("_V7an4HhOEee6_vnrijrKgg")]
@@ -48,7 +48,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Driving license.
-    /// Encoded/decoded by serializers as "DVLC".
+    /// Encoded/decoded by serializers as &quot;DVLC&quot;.
     /// </summary>
     [EnumMember(Value = "DVLC")]
     [IsoId("_gPFQEHhOEee6_vnrijrKgg")]
@@ -57,7 +57,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Europol-issued travel or related document.
-    /// Encoded/decoded by serializers as "EURO".
+    /// Encoded/decoded by serializers as &quot;EURO&quot;.
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_lEbOYHhOEee6_vnrijrKgg")]
@@ -66,7 +66,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Identity card.
-    /// Encoded/decoded by serializers as "IDEN".
+    /// Encoded/decoded by serializers as &quot;IDEN&quot;.
     /// </summary>
     [EnumMember(Value = "IDEN")]
     [IsoId("_t7mqcHhOEee6_vnrijrKgg")]
@@ -75,7 +75,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Internal travel document.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_57UkwHhOEee6_vnrijrKgg")]
@@ -84,7 +84,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Interpol-issued travel or related document 
-    /// Encoded/decoded by serializers as "INPO".
+    /// Encoded/decoded by serializers as &quot;INPO&quot;.
     /// </summary>
     [EnumMember(Value = "INPO")]
     [IsoId("_E3-fkHhPEee6_vnrijrKgg")]
@@ -93,7 +93,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Emergency travel or related document.
-    /// Encoded/decoded by serializers as "LZPR".
+    /// Encoded/decoded by serializers as &quot;LZPR&quot;.
     /// </summary>
     [EnumMember(Value = "LZPR")]
     [IsoId("_QS7f8HhPEee6_vnrijrKgg")]
@@ -102,7 +102,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Passport.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_cq_o0HhPEee6_vnrijrKgg")]
@@ -111,7 +111,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Permit.
-    /// Encoded/decoded by serializers as "PERM".
+    /// Encoded/decoded by serializers as &quot;PERM&quot;.
     /// </summary>
     [EnumMember(Value = "PERM")]
     [IsoId("_iDTKQHhPEee6_vnrijrKgg")]
@@ -120,7 +120,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Travel or related document issued to refugees.
-    /// Encoded/decoded by serializers as "REFU".
+    /// Encoded/decoded by serializers as &quot;REFU&quot;.
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_s88NUHhPEee6_vnrijrKgg")]
@@ -129,7 +129,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Visa issued by a government or related authority.
-    /// Encoded/decoded by serializers as "VISA".
+    /// Encoded/decoded by serializers as &quot;VISA&quot;.
     /// </summary>
     [EnumMember(Value = "VISA")]
     [IsoId("_zKbqUHhPEee6_vnrijrKgg")]
@@ -138,7 +138,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Other type of official document defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_5XGA4HhPEee6_vnrijrKgg")]
@@ -147,7 +147,7 @@ public enum OfficialDocumentTypeCode
     
     /// <summary>
     /// Other type of official document defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("__UVbYHhPEee6_vnrijrKgg")]

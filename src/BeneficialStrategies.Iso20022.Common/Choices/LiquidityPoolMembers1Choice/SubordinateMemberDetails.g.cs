@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice
     /// List of subordinate liquidity pool member.
     /// </summary>
     [IsoId("_2ObkwCDsEeav65mEytrgaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subordinate Member Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice
         /// List of the identifier pairs.
         /// </summary>
         [IsoId("_qhLMECDvEeav65mEytrgaA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("List")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="List")]
         #endif
+        [IsoXmlTag("List")]
         public AccountOwnerAndIdentification1? List { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _qhLMECDvEeav65mEytrgaA
         

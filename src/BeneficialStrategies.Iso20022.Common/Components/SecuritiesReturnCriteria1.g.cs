@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Return criteria for information to be returned in the report deriving from a query about securities reference data.
 /// </summary>
 [IsoId("_hXQrSWliEeGaMcKyqKNRfQ_-1281740246")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Return Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -67,16 +65,16 @@ public partial record SecuritiesReturnCriteria1
     /// Identification of a security.
     /// </summary>
     [IsoId("_hXQrSmliEeGaMcKyqKNRfQ_1355658104")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FinancialInstrumentIdentification { get; init; } 
+    public required System.String FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FinancialInstrumentIdentification { get; init; } 
     #else
@@ -87,16 +85,16 @@ public partial record SecuritiesReturnCriteria1
     /// Name of the security.
     /// </summary>
     [IsoId("_hXQrS2liEeGaMcKyqKNRfQ_2109594347")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISO Security Long Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ISOSctyLngNm")]
     #endif
+    [IsoXmlTag("ISOSctyLngNm")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator ISOSecurityLongName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ISOSecurityLongName { get; init; } 
+    public required System.String ISOSecurityLongName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ISOSecurityLongName { get; init; } 
     #else
@@ -107,16 +105,16 @@ public partial record SecuritiesReturnCriteria1
     /// Short name of the security expressed as ISO 18773/18774.
     /// </summary>
     [IsoId("_hXQrTGliEeGaMcKyqKNRfQ_1698752525")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISO Security Short Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ISOSctyShrtNm")]
     #endif
+    [IsoXmlTag("ISOSctyShrtNm")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator ISOSecurityShortName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ISOSecurityShortName { get; init; } 
+    public required System.String ISOSecurityShortName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ISOSecurityShortName { get; init; } 
     #else
@@ -127,16 +125,16 @@ public partial record SecuritiesReturnCriteria1
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
     [IsoId("_hXQrTWliEeGaMcKyqKNRfQ_-1867260926")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Financial Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssfctnFinInstrm")]
     #endif
+    [IsoXmlTag("ClssfctnFinInstrm")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator ClassificationFinancialInstrument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ClassificationFinancialInstrument { get; init; } 
+    public required System.String ClassificationFinancialInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ClassificationFinancialInstrument { get; init; } 
     #else
@@ -147,16 +145,16 @@ public partial record SecuritiesReturnCriteria1
     /// Planned final repayment date at the time of issuance.
     /// </summary>
     [IsoId("_hXQrTmliEeGaMcKyqKNRfQ_1997846748")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator MaturityDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MaturityDate { get; init; } 
+    public required System.String MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MaturityDate { get; init; } 
     #else
@@ -167,16 +165,16 @@ public partial record SecuritiesReturnCriteria1
     /// Date/time at which the security was made available.
     /// </summary>
     [IsoId("_hXQrT2liEeGaMcKyqKNRfQ_-847027990")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator IssueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IssueDate { get; init; } 
+    public required System.String IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IssueDate { get; init; } 
     #else
@@ -187,16 +185,16 @@ public partial record SecuritiesReturnCriteria1
     /// Currency in which a security is issued or redenominated.
     /// </summary>
     [IsoId("_hXQrUGliEeGaMcKyqKNRfQ_-270251885")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseCcy")]
     #endif
+    [IsoXmlTag("IsseCcy")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator IssueCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IssueCurrency { get; init; } 
+    public required System.String IssueCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IssueCurrency { get; init; } 
     #else
@@ -207,16 +205,16 @@ public partial record SecuritiesReturnCriteria1
     /// Primary market or country where a security is issued by the issuer or its agent.
     /// </summary>
     [IsoId("_hXQrUWliEeGaMcKyqKNRfQ_812960440")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Issue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfIsse")]
     #endif
+    [IsoXmlTag("CtryOfIsse")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator CountryOfIssue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CountryOfIssue { get; init; } 
+    public required System.String CountryOfIssue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CountryOfIssue { get; init; } 
     #else
@@ -227,16 +225,16 @@ public partial record SecuritiesReturnCriteria1
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
     [IsoId("_hXQrUmliEeGaMcKyqKNRfQ_-876696833")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctySts")]
     #endif
+    [IsoXmlTag("SctySts")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator SecurityStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SecurityStatus { get; init; } 
+    public required System.String SecurityStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SecurityStatus { get; init; } 
     #else
@@ -247,16 +245,16 @@ public partial record SecuritiesReturnCriteria1
     /// CSD Investor of a security.
     /// </summary>
     [IsoId("_hXQrU2liEeGaMcKyqKNRfQ_-1284010832")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrCSD")]
     #endif
+    [IsoXmlTag("InvstrCSD")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator InvestorCSD { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InvestorCSD { get; init; } 
+    public required System.String InvestorCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InvestorCSD { get; init; } 
     #else
@@ -267,16 +265,16 @@ public partial record SecuritiesReturnCriteria1
     /// CSD Issuer of a security.
     /// </summary>
     [IsoId("_hXQrVGliEeGaMcKyqKNRfQ_361256603")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrCSD")]
     #endif
+    [IsoXmlTag("IssrCSD")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator IssuerCSD { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IssuerCSD { get; init; } 
+    public required System.String IssuerCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IssuerCSD { get; init; } 
     #else
@@ -287,16 +285,16 @@ public partial record SecuritiesReturnCriteria1
     /// Technical issuer of a security.
     /// </summary>
     [IsoId("_hXQrVWliEeGaMcKyqKNRfQ_-1496901381")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Issuer CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechIssrCSD")]
     #endif
+    [IsoXmlTag("TechIssrCSD")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator TechnicalIssuerCSD { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TechnicalIssuerCSD { get; init; } 
+    public required System.String TechnicalIssuerCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TechnicalIssuerCSD { get; init; } 
     #else
@@ -307,16 +305,16 @@ public partial record SecuritiesReturnCriteria1
     /// CSD of a security.
     /// </summary>
     [IsoId("_hXacQGliEeGaMcKyqKNRfQ_1152798480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSD")]
     #endif
+    [IsoXmlTag("CSD")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator CSD { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CSD { get; init; } 
+    public required System.String CSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CSD { get; init; } 
     #else
@@ -327,16 +325,16 @@ public partial record SecuritiesReturnCriteria1
     /// Quantity of a security.
     /// </summary>
     [IsoId("_hXacQWliEeGaMcKyqKNRfQ_-419471499")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesQtyTp")]
     #endif
+    [IsoXmlTag("SctiesQtyTp")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator SecuritiesQuantityType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SecuritiesQuantityType { get; init; } 
+    public required System.String SecuritiesQuantityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SecuritiesQuantityType { get; init; } 
     #else
@@ -347,16 +345,16 @@ public partial record SecuritiesReturnCriteria1
     /// Indicates the minimum quantity (unit or nominal) of a security.
     /// </summary>
     [IsoId("_hXacQmliEeGaMcKyqKNRfQ_912420582")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Denomination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinDnmtn")]
     #endif
+    [IsoXmlTag("MinDnmtn")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator MinimumDenomination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MinimumDenomination { get; init; } 
+    public required System.String MinimumDenomination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MinimumDenomination { get; init; } 
     #else
@@ -367,16 +365,16 @@ public partial record SecuritiesReturnCriteria1
     /// Minimum multiple quantity (unit or nominal) of securities.
     /// </summary>
     [IsoId("_hXacQ2liEeGaMcKyqKNRfQ_-2107680798")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Multiple Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinMltplQty")]
     #endif
+    [IsoXmlTag("MinMltplQty")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator MinimumMultipleQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MinimumMultipleQuantity { get; init; } 
+    public required System.String MinimumMultipleQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MinimumMultipleQuantity { get; init; } 
     #else
@@ -387,16 +385,16 @@ public partial record SecuritiesReturnCriteria1
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
     [IsoId("_hXacRGliEeGaMcKyqKNRfQ_830858922")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deviating Settlement Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DevtgSttlmUnit")]
     #endif
+    [IsoXmlTag("DevtgSttlmUnit")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator DeviatingSettlementUnit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DeviatingSettlementUnit { get; init; } 
+    public required System.String DeviatingSettlementUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DeviatingSettlementUnit { get; init; } 
     #else

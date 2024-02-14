@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnableToApplyJustification3Choice.MissingOrIncorrectInformation))]
     [KnownType(typeof(UnableToApplyJustification3Choice.PossibleDuplicateInstruction))]
     [IsoId("_SzxmAUgoEeaGKYpLDboHPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unable To Apply Justification 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides for reporting quantitative data of non-equity instruments for transparency calculations.
 /// </summary>
 [IsoId("_hLn-cX5kEeaGiOUFl5b1oQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transparency Data Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,15 +52,13 @@ public partial record TransparencyDataReport15
     /// This identification will be used in the status advice report sent back.
     /// </summary>
     [IsoId("_hWyFlX5kEeaGiOUFl5b1oQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +71,16 @@ public partial record TransparencyDataReport15
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
     [IsoId("_hWyFl35kEeaGiOUFl5b1oQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -95,12 +91,12 @@ public partial record TransparencyDataReport15
     /// Date to which the quantitative data fields below relate.
     /// </summary>
     [IsoId("_hWyFmX5kEeaGiOUFl5b1oQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgDt")]
     #endif
+    [IsoXmlTag("RptgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ReportingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,12 @@ public partial record TransparencyDataReport15
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
     [IsoId("_hWyFm35kEeaGiOUFl5b1oQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgVn")]
     #endif
+    [IsoXmlTag("TradgVn")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? TradingVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,16 +127,16 @@ public partial record TransparencyDataReport15
     /// Indicates whether the instrument was suspended for trading on that trading venue on the reporting day.
     /// </summary>
     [IsoId("_hWyFnX5kEeaGiOUFl5b1oQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sspnsn")]
     #endif
+    [IsoXmlTag("Sspnsn")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator Suspension { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Suspension { get; init; } 
+    public required System.String Suspension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Suspension { get; init; } 
     #else
@@ -151,12 +147,12 @@ public partial record TransparencyDataReport15
     /// Total number of transactions executed on the reporting day for the instrument.
     /// </summary>
     [IsoId("_hWyFn35kEeaGiOUFl5b1oQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbTxs")]
     #endif
+    [IsoXmlTag("NbTxs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +165,11 @@ public partial record TransparencyDataReport15
     /// Aggregated quantitative data on the non-equity instrument being reported. Details aggregated against the specific range that is defined. Transactions that have been cancelled should be excluded from the reported figure.
     /// </summary>
     [IsoId("_hWyFoX5kEeaGiOUFl5b1oQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregated Quantitative Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AggtdQttvData")]
     #endif
+    [IsoXmlTag("AggtdQttvData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionsBin2? AggregatedQuantitativeData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

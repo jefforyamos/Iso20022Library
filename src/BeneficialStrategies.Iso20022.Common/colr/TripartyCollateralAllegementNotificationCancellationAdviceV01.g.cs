@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope:|Triparty agent sends a TripartyCollateralAllegementNotificationCancellationAdvice to the collateral giver or the collateral taker to inform of the cancellation of an allegement notification message previously sent by the triparty agent. ||The collateral giver and the collateral taker are participants of the triparty agents. In the frame of ECMS the collateral taker will be a central bank.||The previously sent message is a TripartyCollateralAllegementNotification")]
 [IsoId("_rvMtQSs7EeySlt9bF77XfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Triparty Collateral Allegement Notification Cancellation Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
     [IsoId("_rvMtQys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInstrId")]
     #endif
+    [IsoXmlTag("TxInstrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifications44 TransactionInstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifications44 TransactionInstructionIdentification { get; init; } 
+    public required TransactionIdentifications44 TransactionInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifications44 TransactionInstructionIdentification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Specifies the type of collateral instruction.
     /// </summary>
     [IsoId("_rvMtRSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollTxTp")]
     #endif
+    [IsoXmlTag("CollTxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralTransactionType1Choice_ CollateralTransactionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralTransactionType1Choice_ CollateralTransactionType { get; init; } 
+    public required CollateralTransactionType1Choice_ CollateralTransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralTransactionType1Choice_ CollateralTransactionType { get; init; } 
     #else
@@ -124,16 +120,15 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
     [IsoId("_rvMtRys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrTp")]
     #endif
+    [IsoXmlTag("XpsrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExposureType23Choice_ ExposureType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExposureType23Choice_ ExposureType { get; init; } 
+    public required ExposureType23Choice_ ExposureType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExposureType23Choice_ ExposureType { get; init; } 
     #else
@@ -144,16 +139,15 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Specifies whether the alleging side is the collateral taker or giver.
     /// </summary>
     [IsoId("_rvMtSSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSd")]
     #endif
+    [IsoXmlTag("CollSd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralRole1Code CollateralSide { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralRole1Code CollateralSide { get; init; } 
+    public required CollateralRole1Code CollateralSide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralRole1Code CollateralSide { get; init; } 
     #else
@@ -164,12 +158,11 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
     [IsoId("_rvMtSys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligibility Set Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgbltySetPrfl")]
     #endif
+    [IsoXmlTag("ElgbltySetPrfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? EligibilitySetProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,16 +175,15 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Identifies the chain of collateral parties. Party A and B will be the opposite  from that provided in the unmatched instruction.
     /// </summary>
     [IsoId("_rvMtTSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPties")]
     #endif
+    [IsoXmlTag("CollPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralParties8 CollateralParties { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralParties8 CollateralParties { get; init; } 
+    public required CollateralParties8 CollateralParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralParties8 CollateralParties { get; init; } 
     #else
@@ -202,12 +194,11 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Amount of the principal.
     /// </summary>
     [IsoId("_rvMtTys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAmt")]
     #endif
+    [IsoXmlTag("TxAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -220,12 +211,11 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Date/time at which the instructing party requests the instruction to be executed. 
     /// </summary>
     [IsoId("_rvMtUSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Execution Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdExctnDt")]
     #endif
+    [IsoXmlTag("ReqdExctnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -238,12 +228,11 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_rvMtUys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -256,7 +245,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TripartyCollateralAllegementNotificationCancellationAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TripartyCollateralAllegementNotificationCancellationAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TripartyCollateralAllegementNotificationCancellationAdviceV01Document ToDocument()
     {
@@ -266,7 +255,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralAllegementNotificationCancellationAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TripartyCollateralAllegementNotificationCancellationAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TripartyCollateralAllegementNotificationCancellationAdviceV01Document : IOuterDocument<TripartyCollateralAllegementNotificationCancellationAdviceV01>
@@ -283,7 +272,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TripartyCollateralAllegementNotificationCancellationAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TripartyCollateralAllegementNotificationCancellationAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TripartyCollateralAllegementNotificationCancellationAdviceV01 Message { get; init; }

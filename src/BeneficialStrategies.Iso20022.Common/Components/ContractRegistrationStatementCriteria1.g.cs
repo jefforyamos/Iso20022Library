@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the list of criteria to be returned in the contract registration statement.
 /// </summary>
 [IsoId("_ZgWEUOFIEeStTblywAGIyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Registration Statement Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record ContractRegistrationStatementCriteria1
     /// Indicates whether the journal of the transactions recorded under the registered currency control contract must be returned or not.
     /// </summary>
     [IsoId("_0pv6lOFIEeStTblywAGIyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Journal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxJrnl")]
     #endif
+    [IsoXmlTag("TxJrnl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TransactionJournal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record ContractRegistrationStatementCriteria1
     /// Indicates whether the journal of the supporting documents recorded under the registered currency control contract must be returned or not.
     /// </summary>
     [IsoId("_0pv6leFIEeStTblywAGIyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supporting Document Journal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpprtgDocJrnl")]
     #endif
+    [IsoXmlTag("SpprtgDocJrnl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SupportingDocumentJournal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record ContractRegistrationStatementCriteria1
     /// Indicates whether the journal of additional supporting documents recorded under the registered currency control contract must be returned or not.
     /// </summary>
     [IsoId("_0pv6luFIEeStTblywAGIyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Supporting Document Journal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlSpprtgDocJrnl")]
     #endif
+    [IsoXmlTag("AddtlSpprtgDocJrnl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AdditionalSupportingDocumentJournal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record ContractRegistrationStatementCriteria1
     /// Indicates whether the details on the currency control rule against which has been violated must be returned or not.
     /// </summary>
     [IsoId("_0pv6l-FIEeStTblywAGIyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Regulatory Rule Validation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgltryRuleVldtn")]
     #endif
+    [IsoXmlTag("RgltryRuleVldtn")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RegulatoryRuleValidation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

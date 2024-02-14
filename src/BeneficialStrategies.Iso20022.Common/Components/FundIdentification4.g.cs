@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Distinct pool of financial instruments managed by a single investment policy. May or may not be part of an umbrella fund.The pool is issued in at least one investment fund class.
 /// </summary>
 [IsoId("_cxglQSjaEeK1Sbo8NpBROA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FundIdentification4
     /// Identification of the investment fund.
     /// </summary>
     [IsoId("_c94NUSjaEeK1Sbo8NpBROA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndId")]
     #endif
+    [IsoXmlTag("FndId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification60 FundIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification60 FundIdentification { get; init; } 
+    public required PartyIdentification60 FundIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification60 FundIdentification { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record FundIdentification4
     /// Identifies the account of the fund held with the custodian.
     /// </summary>
     [IsoId("_c94NVSjaEeK1Sbo8NpBROA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification With Custodian")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctIdWthCtdn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctIdWthCtdn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountIdentificationWithCustodian { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record FundIdentification4
     /// Identification of the custodian which services the account of the fund.
     /// </summary>
     [IsoId("_c94NWSjaEeK1Sbo8NpBROA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Custodian Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtdnId")]
     #endif
+    [IsoXmlTag("CtdnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? CustodianIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

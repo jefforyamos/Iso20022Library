@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies rates of a corporate action.
 /// </summary>
 [IsoId("_x_DvRR9REeuFz_FaCzCLgQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionRate110
     /// Annualised interest rate of a financial instrument used to calculate the actual interest rate of the coupon or the accrued interest.
     /// </summary>
     [IsoId("_x_DvSx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat46Choice_? InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionRate110
     /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event.
     /// </summary>
     [IsoId("_x_DvUx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Sought")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgSght")]
     #endif
+    [IsoXmlTag("PctgSght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat7Choice_? PercentageSought { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionRate110
     /// Index rate related to the interest rate of the forthcoming interest payment.
     /// </summary>
     [IsoId("_x_DvWx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdIndx")]
     #endif
+    [IsoXmlTag("RltdIndx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? RelatedIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionRate110
     /// Margin allowed over or under a given rate.
     /// </summary>
     [IsoId("_x_DvYx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sprd")]
     #endif
+    [IsoXmlTag("Sprd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? Spread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionRate110
     /// Acceptable price increment used for submitting a bid.
     /// </summary>
     [IsoId("_x_Dvax9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid Interval")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidIntrvl")]
     #endif
+    [IsoXmlTag("BidIntrvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat50Choice_? BidInterval { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionRate110
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) until the next redemption (factor) date.
     /// </summary>
     [IsoId("_x_Dvcx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsFctr")]
     #endif
+    [IsoXmlTag("PrvsFctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat12Choice_? PreviousFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionRate110
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) that will applicable after the redemption (factor) date.
     /// </summary>
     [IsoId("_x_Dvex9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Next Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NxtFctr")]
     #endif
+    [IsoXmlTag("NxtFctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat12Choice_? NextFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record CorporateActionRate110
     /// Rate of discount for securities purchased through a reinvestment scheme as compared to the current market price of security.
     /// </summary>
     [IsoId("_x_Dvgx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvestment Discount Rate To Market")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstmtDscntRateToMkt")]
     #endif
+    [IsoXmlTag("RinvstmtDscntRateToMkt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? ReinvestmentDiscountRateToMarket { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record CorporateActionRate110
     /// For structured security issues where there is a set schedule of principal and interest payments for the life of the issue, this is the difference between the actual rate of the interest payment and the expected or scheduled rate of the interest payment.
     /// </summary>
     [IsoId("_x_Dvix9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Shortfall")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstShrtfll")]
     #endif
+    [IsoXmlTag("IntrstShrtfll")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat43Choice_? InterestShortfall { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record CorporateActionRate110
     /// For structured security issues where there is a set schedule of principal and interest payments for the life of the issue, this is the difference between the actual rate of the capital or principal repayment and the scheduled capital repayment.
     /// </summary>
     [IsoId("_x_DvjR9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Realised Loss")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RealsdLoss")]
     #endif
+    [IsoXmlTag("RealsdLoss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat43Choice_? RealisedLoss { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record CorporateActionRate110
     /// Dividend or interest rate declared by the issuer.
     /// </summary>
     [IsoId("_x_Dvjx9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdRate")]
     #endif
+    [IsoXmlTag("DclrdRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat43Choice_? DeclaredRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +229,11 @@ public partial record CorporateActionRate110
     /// Public index rate applied to the amount paid to adjust it to inflation.
     /// </summary>
     [IsoId("_x_DvkR9REeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndxFctr")]
     #endif
+    [IsoXmlTag("IndxFctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat37Choice_? IndexFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

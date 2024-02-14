@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party40Choice
     /// Identification of a financial institution.
     /// </summary>
     [IsoId("_8U6MNW48EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Party40Choice
         /// Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
         /// </summary>
         [IsoId("_8xXCMW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Institution Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstnId")]
         #endif
+        [IsoXmlTag("FinInstnId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialInstitutionIdentification18 FinancialInstitutionIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialInstitutionIdentification18 FinancialInstitutionIdentification { get; init; } 
+        public required FinancialInstitutionIdentification18 FinancialInstitutionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialInstitutionIdentification18 FinancialInstitutionIdentification { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party40Choice
         /// Identifies a specific branch of a financial institution.||Usage: This component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
         /// </summary>
         [IsoId("_8xXCM249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Branch Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BrnchId")]
         #endif
+        [IsoXmlTag("BrnchId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchData3? BranchIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

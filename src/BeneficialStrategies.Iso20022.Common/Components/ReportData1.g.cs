@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
 [IsoId("_SXbvdtp-Ed-ak6NoX_4Aeg_-759204181")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record ReportData1
     /// Identification of the report assigned by the central system.
     /// </summary>
     [IsoId("_SXbvd9p-Ed-ak6NoX_4Aeg_-759204120")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageIdentification { get; init; } 
+    public required System.String MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageIdentification { get; init; } 
     #else
@@ -77,16 +73,16 @@ public partial record ReportData1
     /// Date by which the amount(s) requested must be settled.
     /// </summary>
     [IsoId("_SXk5YNp-Ed-ak6NoX_4Aeg_628613877")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValueDate { get; init; } 
+    public required System.DateOnly ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValueDate { get; init; } 
     #else
@@ -97,16 +93,16 @@ public partial record ReportData1
     /// Date and time on which the report is generated. The offset with UTC may also be specified.
     /// </summary>
     [IsoId("_SXk5Ydp-Ed-ak6NoX_4Aeg_-759204151")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date And Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtAndTmStmp")]
     #endif
+    [IsoXmlTag("DtAndTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateAndTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime DateAndTimeStamp { get; init; } 
+    public required System.DateTime DateAndTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime DateAndTimeStamp { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record ReportData1
     /// Specifies the type of the Pay In Call.
     /// </summary>
     [IsoId("_SXk5Ytp-Ed-ak6NoX_4Aeg_-759204059")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CallIn1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CallIn1Code Type { get; init; } 
+    public required CallIn1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CallIn1Code Type { get; init; } 
     #else
@@ -137,12 +132,11 @@ public partial record ReportData1
     /// Specifies the amount requested.
     /// </summary>
     [IsoId("_SXk5Y9p-Ed-ak6NoX_4Aeg_1451930490")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pay In Call Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PayInCallAmt")]
     #endif
+    [IsoXmlTag("PayInCallAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PayInCallItem? PayInCallAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +149,11 @@ public partial record ReportData1
     /// Specifies the requested amount in multiple currencies.
     /// </summary>
     [IsoId("_SXk5ZNp-Ed-ak6NoX_4Aeg_-2100983347")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrnVal")]
     #endif
+    [IsoXmlTag("AltrnVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Value? AlternateValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a date code and a time.
 /// </summary>
 [IsoId("_bf0RMUENEeWVgfuHGaKtRQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Date Code And Time Format")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record DateCodeAndTimeFormat3
     /// Specifies the type of date.
     /// </summary>
     [IsoId("_btDb8UENEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtCd")]
     #endif
+    [IsoXmlTag("DtCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateCode21Choice_ DateCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateCode21Choice_ DateCode { get; init; } 
+    public required DateCode21Choice_ DateCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateCode21Choice_ DateCode { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record DateCodeAndTimeFormat3
     /// Specifies the time.
     /// </summary>
     [IsoId("_btDb-UENEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tm")]
     #endif
+    [IsoXmlTag("Tm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISOTime Time { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.TimeOnly Time { get; init; } 
+    public required System.TimeOnly Time { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.TimeOnly Time { get; init; } 
     #else

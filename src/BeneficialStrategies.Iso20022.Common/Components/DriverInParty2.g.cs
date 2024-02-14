@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Driver in a car rental party
 /// </summary>
 [IsoId("_DNYFscW0EeuhguwJmlgagQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Driver In Party")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record DriverInParty2
     /// Name of vehicle rental driver.
     /// </summary>
     [IsoId("_DSE_gcW0EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record DriverInParty2
     /// Address of driver in party.
     /// </summary>
     [IsoId("_DSE_g8W0EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address2? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record DriverInParty2
     /// Contact details of driver in party.
     /// </summary>
     [IsoId("_DSE_hcW0EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctct")]
     #endif
+    [IsoXmlTag("Ctct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact6? Contact { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,12 @@ public partial record DriverInParty2
     /// Date of birth of vehicle rental driver.
     /// </summary>
     [IsoId("_DSE_h8W0EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfBirth")]
     #endif
+    [IsoXmlTag("DtOfBirth")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,15 +113,12 @@ public partial record DriverInParty2
     /// Age of driver.
     /// </summary>
     [IsoId("_DSE_icW0EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Age")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Age")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Age")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? Age { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +131,11 @@ public partial record DriverInParty2
     /// Credential used by the driver for identification.
     /// </summary>
     [IsoId("_DSE_i8W0EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Driver Credential")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrvrCrdntl")]
     #endif
+    [IsoXmlTag("DrvrCrdntl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TravelDocument2? DriverCredential { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +148,11 @@ public partial record DriverInParty2
     /// Driving license details.
     /// </summary>
     [IsoId("_DSE_jcW0EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Driving License")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrvgLic")]
     #endif
+    [IsoXmlTag("DrvgLic")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DrivingLicense2? DrivingLicense { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

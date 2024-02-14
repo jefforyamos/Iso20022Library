@@ -21,7 +21,7 @@ public enum DTCInstructionStatus1Code
 {
     /// <summary>
     /// Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.
-    /// Encoded/decoded by serializers as "RECY".
+    /// Encoded/decoded by serializers as &quot;RECY&quot;.
     /// </summary>
     [EnumMember(Value = "RECY")]
     [IsoId("_121thTL3EeKU9IrkkToqcw_1047722971")]
@@ -30,7 +30,7 @@ public enum DTCInstructionStatus1Code
     
     /// <summary>
     /// Fully processed instruction.
-    /// Encoded/decoded by serializers as "MADE".
+    /// Encoded/decoded by serializers as &quot;MADE&quot;.
     /// </summary>
     [EnumMember(Value = "MADE")]
     [IsoId("_121thjL3EeKU9IrkkToqcw_-1664224946")]
@@ -39,7 +39,7 @@ public enum DTCInstructionStatus1Code
     
     /// <summary>
     /// Instruction dropped due to insufficient position.
-    /// Encoded/decoded by serializers as "DROP".
+    /// Encoded/decoded by serializers as &quot;DROP&quot;.
     /// </summary>
     [EnumMember(Value = "DROP")]
     [IsoId("_12-3cDL3EeKU9IrkkToqcw_1558737291")]
@@ -48,7 +48,7 @@ public enum DTCInstructionStatus1Code
     
     /// <summary>
     /// Transaction rejected.
-    /// Encoded/decoded by serializers as "EDRJ".
+    /// Encoded/decoded by serializers as &quot;EDRJ&quot;.
     /// </summary>
     [EnumMember(Value = "EDRJ")]
     [IsoId("_12-3cTL3EeKU9IrkkToqcw_-1269081242")]

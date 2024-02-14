@@ -21,7 +21,7 @@ public enum CardPaymentServiceType10Code
 {
     /// <summary>
     /// Creation of an X.509 certificate with the public key and the information of the owner of the asymmetric key provided by the requestor.
-    /// Encoded/decoded by serializers as "CRTC".
+    /// Encoded/decoded by serializers as &quot;CRTC&quot;.
     /// </summary>
     [EnumMember(Value = "CRTC")]
     [IsoId("_wguZgY4MEeW6h7rGyYlyTg")]
@@ -30,7 +30,7 @@ public enum CardPaymentServiceType10Code
     
     /// <summary>
     /// Renewal of an X.509 certificate, protected by the certificate to renew.
-    /// Encoded/decoded by serializers as "CRTR".
+    /// Encoded/decoded by serializers as &quot;CRTR&quot;.
     /// </summary>
     [EnumMember(Value = "CRTR")]
     [IsoId("_xQaKA44MEeW6h7rGyYlyTg")]
@@ -39,7 +39,7 @@ public enum CardPaymentServiceType10Code
     
     /// <summary>
     /// Revocation of an active X.509 certificate.
-    /// Encoded/decoded by serializers as "CRTK".
+    /// Encoded/decoded by serializers as &quot;CRTK&quot;.
     /// </summary>
     [EnumMember(Value = "CRTK")]
     [IsoId("_yQQdc44MEeW6h7rGyYlyTg")]
@@ -48,7 +48,7 @@ public enum CardPaymentServiceType10Code
     
     /// <summary>
     /// Remove a POI from the white list of the terminal manager.
-    /// Encoded/decoded by serializers as "WLSR".
+    /// Encoded/decoded by serializers as &quot;WLSR&quot;.
     /// </summary>
     [EnumMember(Value = "WLSR")]
     [IsoId("_zIS4s44MEeW6h7rGyYlyTg")]
@@ -57,7 +57,7 @@ public enum CardPaymentServiceType10Code
     
     /// <summary>
     /// Add a POI in the white list of the terminal manager.
-    /// Encoded/decoded by serializers as "WLSA".
+    /// Encoded/decoded by serializers as &quot;WLSA&quot;.
     /// </summary>
     [EnumMember(Value = "WLSA")]
     [IsoId("_znLNE44MEeW6h7rGyYlyTg")]

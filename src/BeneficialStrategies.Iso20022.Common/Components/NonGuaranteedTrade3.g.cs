@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the non guaranteed trade details.
 /// </summary>
 [IsoId("_C9INcWpUEeSgo9vJrfSF_Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Guaranteed Trade")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NonGuaranteedTrade3
     /// External identification of the member who is the market counterpart member of the current trade leg (in case of non guarantee trades, this field allows buyer and seller to identify each other).
     /// </summary>
     [IsoId("_DallgWpUEeSgo9vJrfSF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Counterparty Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradCtrPtyMmbId")]
     #endif
+    [IsoXmlTag("TradCtrPtyMmbId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification35Choice_ TradeCounterpartyMemberIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification35Choice_ TradeCounterpartyMemberIdentification { get; init; } 
+    public required PartyIdentification35Choice_ TradeCounterpartyMemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification35Choice_ TradeCounterpartyMemberIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record NonGuaranteedTrade3
     /// External identification of the clearing member of the market couterpart member (in case of non guarantee trades, this field allows buyer and seller to identify each other).
     /// </summary>
     [IsoId("_Dallg2pUEeSgo9vJrfSF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Counterparty Clearing Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradCtrPtyClrMmbId")]
     #endif
+    [IsoXmlTag("TradCtrPtyClrMmbId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification35Choice_ TradeCounterpartyClearingMemberIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification35Choice_ TradeCounterpartyClearingMemberIdentification { get; init; } 
+    public required PartyIdentification35Choice_ TradeCounterpartyClearingMemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification35Choice_ TradeCounterpartyClearingMemberIdentification { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record NonGuaranteedTrade3
     /// Provides details about the delivering parties involved in the settlement chain.
     /// </summary>
     [IsoId("_DallhWpUEeSgo9vJrfSF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivering Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrgPties")]
     #endif
+    [IsoXmlTag("DlvrgPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveringPartiesAndAccount11? DeliveringParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record NonGuaranteedTrade3
     /// Provides details about the receiving parties involved in the settlement chain.
     /// </summary>
     [IsoId("_Dallh2pUEeSgo9vJrfSF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgPties")]
     #endif
+    [IsoXmlTag("RcvgPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReceivingPartiesAndAccount11? ReceivingParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

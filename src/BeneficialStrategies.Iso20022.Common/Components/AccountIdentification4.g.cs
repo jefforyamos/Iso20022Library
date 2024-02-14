@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique identifier of an account, as assigned by the account servicer.
 /// </summary>
 [IsoId("_WO8MiNp-Ed-ak6NoX_4Aeg_672442635")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AccountIdentification4
     /// Unique identifier for an account. It is assigned by the account servicer using a proprietary identification scheme.
     /// </summary>
     [IsoId("_WO8Midp-Ed-ak6NoX_4Aeg_-1613659809")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
+    [IsoXmlTag("Prtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation1 Proprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation1 Proprietary { get; init; } 
+    public required SimpleIdentificationInformation1 Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation1 Proprietary { get; init; } 
     #else

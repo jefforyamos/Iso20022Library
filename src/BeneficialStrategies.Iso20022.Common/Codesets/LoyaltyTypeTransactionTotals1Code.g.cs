@@ -21,7 +21,7 @@ public enum LoyaltyTypeTransactionTotals1Code
 {
     /// <summary>
     /// Direct or payment related award on a loyalty account. Award alone, award associated to a payment (may be with an additional award alone), award because of a payment resulting on rebates.
-    /// Encoded/decoded by serializers as "AWRD".
+    /// Encoded/decoded by serializers as &quot;AWRD&quot;.
     /// </summary>
     [EnumMember(Value = "AWRD")]
     [IsoId("_PsWX0dxjEeioifFt1dhnJA")]
@@ -30,7 +30,7 @@ public enum LoyaltyTypeTransactionTotals1Code
     
     /// <summary>
     /// Rebate on a total amount, sale item amount, or sale items.
-    /// Encoded/decoded by serializers as "REBA".
+    /// Encoded/decoded by serializers as &quot;REBA&quot;.
     /// </summary>
     [EnumMember(Value = "REBA")]
     [IsoId("_PybxsdxjEeioifFt1dhnJA")]
@@ -39,7 +39,7 @@ public enum LoyaltyTypeTransactionTotals1Code
     
     /// <summary>
     /// Redemption on a loyalty account.
-    /// Encoded/decoded by serializers as "REDE".
+    /// Encoded/decoded by serializers as &quot;REDE&quot;.
     /// </summary>
     [EnumMember(Value = "REDE")]
     [IsoId("_P1z10dxjEeioifFt1dhnJA")]
@@ -48,7 +48,7 @@ public enum LoyaltyTypeTransactionTotals1Code
     
     /// <summary>
     /// Refund of a loyalty award transaction.
-    /// Encoded/decoded by serializers as "AWRR".
+    /// Encoded/decoded by serializers as &quot;AWRR&quot;.
     /// </summary>
     [EnumMember(Value = "AWRR")]
     [IsoId("_P5Vq8dxjEeioifFt1dhnJA")]
@@ -57,7 +57,7 @@ public enum LoyaltyTypeTransactionTotals1Code
     
     /// <summary>
     /// Refund of a loyalty rebate transaction.
-    /// Encoded/decoded by serializers as "REBR".
+    /// Encoded/decoded by serializers as &quot;REBR&quot;.
     /// </summary>
     [EnumMember(Value = "REBR")]
     [IsoId("_P8sg8dxjEeioifFt1dhnJA")]
@@ -66,7 +66,7 @@ public enum LoyaltyTypeTransactionTotals1Code
     
     /// <summary>
     /// Refund of a loyalty redemption transaction.
-    /// Encoded/decoded by serializers as "REDR".
+    /// Encoded/decoded by serializers as &quot;REDR&quot;.
     /// </summary>
     [EnumMember(Value = "REDR")]
     [IsoId("_QAElEdxjEeioifFt1dhnJA")]

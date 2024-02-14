@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Alternate identification for a party using an identification type, a country code and a text field.
 /// </summary>
 [IsoId("_PWdRw9p-Ed-ak6NoX_4Aeg_-1995851730")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Alternate Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AlternatePartyIdentification4
     /// Specifies the type of alternate identification of the party identified.
     /// </summary>
     [IsoId("_PWdRxNp-Ed-ak6NoX_4Aeg_-2109690796")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IdTp")]
     #endif
+    [IsoXmlTag("IdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationType6Choice_ IdentificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationType6Choice_ IdentificationType { get; init; } 
+    public required IdentificationType6Choice_ IdentificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationType6Choice_ IdentificationType { get; init; } 
     #else
@@ -70,19 +67,18 @@ public partial record AlternatePartyIdentification4
     #endif
     
     /// <summary>
-    /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
+    /// Country in which a person resides (the place of a person&apos;s home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>
     [IsoId("_PWdRxdp-Ed-ak6NoX_4Aeg_1302043213")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else
@@ -93,19 +89,17 @@ public partial record AlternatePartyIdentification4
     /// Alternate identification for a party.
     /// </summary>
     [IsoId("_PWdRxtp-Ed-ak6NoX_4Aeg_1010085475")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AltrnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AlternateIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AlternateIdentification { get; init; } 
+    public required System.String AlternateIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AlternateIdentification { get; init; } 
     #else

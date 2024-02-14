@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of market in which a trade transaction has been executed.
 /// </summary>
 [IsoId("_xU1ak2wsEeWLq_lbZ2Mhyw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Place Of Trade Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PlaceOfTradeIdentification1
     /// Identification and type of the place of trade.
     /// </summary>
     [IsoId("_xU1alGwsEeWLq_lbZ2Mhyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Type And Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktTpAndId")]
     #endif
+    [IsoXmlTag("MktTpAndId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification84? MarketTypeAndIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record PlaceOfTradeIdentification1
     /// Legal entity identification as an alternate identification for a place of trade.
     /// </summary>
     [IsoId("_xU1alWwsEeWLq_lbZ2Mhyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LEI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LEI")]
     #endif
+    [IsoXmlTag("LEI")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

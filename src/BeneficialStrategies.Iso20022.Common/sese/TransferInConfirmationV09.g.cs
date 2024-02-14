@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|The TransferInConfirmation message is sent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or its authorised representative, to confirm the receipt of a financial instrument, free of payment, on a given date, from a specified party.|This message may also be used to confirm the receipt of a financial instrument, free of payment, from another of the instructing parties own accounts or from a third party.|This message may also be used as an advice, that is, the message is used to provide account information.|Usage|The TransferInConfirmation message is used to confirm receipt of a financial instrument, either from another account owned by the instructing party or from a third party. The reference of the transfer confirmation is identified in TransferConfirmationReference.|The reference of the original transfer instruction is specified in TransferReference. The message identification of the TransferInInstruction message in which the transfer instruction was conveyed may also be quoted in RelatedReference.")]
 [IsoId("_aqouUZDhEem7fvtoGpNpow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer In Confirmation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_aqouV5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -103,12 +100,11 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_aqouWZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference11? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +117,11 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_aqouW5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference10? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +134,11 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_aqouXZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference10? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,12 +151,11 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Function of the transfer in, that is, whether the transfer in message is used as a confirmation or as or an advice. The absence of Function indicates the message is a confirmation.
     /// </summary>
     [IsoId("_aqouX5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fctn")]
     #endif
+    [IsoXmlTag("Fctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransferInFunction2Code? Function { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,15 +168,13 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
     [IsoId("_aqouYZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -196,16 +187,15 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// General information related to the transfer of the financial instrument.
     /// </summary>
     [IsoId("_aqouY5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfDtls")]
     #endif
+    [IsoXmlTag("TrfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Transfer37 TransferDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Transfer37 TransferDetails { get; init; } 
+    public required Transfer37 TransferDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Transfer37 TransferDetails { get; init; } 
     #else
@@ -216,16 +206,15 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Information related to the account into which the financial instrument was received.
     /// </summary>
     [IsoId("_aqouZZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount71 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount71 AccountDetails { get; init; } 
+    public required InvestmentAccount71 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount71 AccountDetails { get; init; } 
     #else
@@ -236,12 +225,11 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Information related to the delivering side of the transfer.
     /// </summary>
     [IsoId("_aqouZ5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtls")]
     #endif
+    [IsoXmlTag("SttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliverInformation20? SettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,12 +242,11 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Identifies the market practice to which the message conforms.
     /// </summary>
     [IsoId("_aqouaZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Practice Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktPrctcVrsn")]
     #endif
+    [IsoXmlTag("MktPrctcVrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketPracticeVersion1? MarketPracticeVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,12 +259,11 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_aqoua5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation5? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,12 +276,11 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_aqoubZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,7 +293,7 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TransferInConfirmationV09Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TransferInConfirmationV09Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TransferInConfirmationV09Document ToDocument()
     {
@@ -318,7 +303,7 @@ public partial record TransferInConfirmationV09 : IOuterRecord<TransferInConfirm
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInConfirmationV09"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TransferInConfirmationV09&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TransferInConfirmationV09Document : IOuterDocument<TransferInConfirmationV09>
@@ -335,7 +320,7 @@ public partial record TransferInConfirmationV09Document : IOuterDocument<Transfe
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TransferInConfirmationV09"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TransferInConfirmationV09&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferInConfirmationV09 Message { get; init; }

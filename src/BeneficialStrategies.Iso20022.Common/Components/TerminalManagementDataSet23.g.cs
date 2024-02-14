@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data set containing the acceptor parameters of a point of interaction (POI).
 /// </summary>
 [IsoId("_wWoDgdqHEeearpaEPXv9UA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Terminal Management Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TerminalManagementDataSet23
     /// Identification of the data set transferred.
     /// </summary>
     [IsoId("_wfazIdqHEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification7 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetIdentification7 Identification { get; init; } 
+    public required DataSetIdentification7 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetIdentification7 Identification { get; init; } 
     #else
@@ -72,15 +69,12 @@ public partial record TerminalManagementDataSet23
     /// Counter to identify a single data set within the whole transfer.
     /// </summary>
     [IsoId("_wfazI9qHEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Counter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqCntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SeqCntr")]
+    [IsoSimpleType(IsoSimpleType.Max9NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax9NumericText? SequenceCounter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +87,11 @@ public partial record TerminalManagementDataSet23
     /// Identification of the point of interactions involved by the configuration data set.
     /// </summary>
     [IsoId("_wfazJdqHEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification71? POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +104,11 @@ public partial record TerminalManagementDataSet23
     /// Scope of the configuration contained in the data set.
     /// </summary>
     [IsoId("_wfazJ9qHEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Configuration Scope")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CfgtnScp")]
     #endif
+    [IsoXmlTag("CfgtnScp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType15Code? ConfigurationScope { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,16 +121,15 @@ public partial record TerminalManagementDataSet23
     /// Content of the acceptor parameters.
     /// </summary>
     [IsoId("_wfazKdqHEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntt")]
     #endif
+    [IsoXmlTag("Cntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorConfigurationContent7 Content { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorConfigurationContent7 Content { get; init; } 
+    public required AcceptorConfigurationContent7 Content { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorConfigurationContent7 Content { get; init; } 
     #else

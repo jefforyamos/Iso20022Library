@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice10Choice.PendingPrice))]
     [KnownType(typeof(SecuritiesTransactionPrice10Choice.Other))]
     [IsoId("_QhQ_wf9iEea3W_f2lS_aiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Transaction Price 10 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

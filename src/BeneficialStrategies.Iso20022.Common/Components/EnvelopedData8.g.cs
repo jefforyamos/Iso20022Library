@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Encrypted data with encryption key.
 /// </summary>
 [IsoId("_3A8KsS8pEeu125Ip9zFcsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Enveloped Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record EnvelopedData8
     /// Version of the data structure.
     /// </summary>
     [IsoId("_3Ns0US8pEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record EnvelopedData8
     /// Provides certificates of the originator.
     /// </summary>
     [IsoId("_3Ns0Uy8pEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originator Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgtrInf")]
     #endif
+    [IsoXmlTag("OrgtrInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginatorInformation1? OriginatorInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record EnvelopedData8
     /// Session key or identification of the protection key used by the recipient.
     /// </summary>
     [IsoId("_3Ns0VS8pEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcpt")]
     #endif
+    [IsoXmlTag("Rcpt")]
     public Recipient10Choice_? Recipient { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _3Ns0VS8pEeu125Ip9zFcsQ
     
@@ -93,12 +89,11 @@ public partial record EnvelopedData8
     /// Data protection by encryption (digital envelope), with an encryption key.
     /// </summary>
     [IsoId("_3Ns0Vy8pEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdCntt")]
     #endif
+    [IsoXmlTag("NcrptdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncryptedContent6? EncryptedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

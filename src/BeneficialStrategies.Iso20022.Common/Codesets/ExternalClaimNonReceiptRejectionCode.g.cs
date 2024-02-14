@@ -22,7 +22,7 @@ public enum ExternalClaimNonReceiptRejectionCode
 {
     /// <summary>
     /// Original credit transfer never received.
-    /// Encoded/decoded by serializers as "NOOR".
+    /// Encoded/decoded by serializers as &quot;NOOR&quot;.
     /// </summary>
     [EnumMember(Value = "NOOR")]
     [IsoId("_ubNYVvRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalClaimNonReceiptRejectionCode
     
     /// <summary>
     /// Original credit transfer was received but is not processable.
-    /// Encoded/decoded by serializers as "RNPR".
+    /// Encoded/decoded by serializers as &quot;RNPR&quot;.
     /// </summary>
     [EnumMember(Value = "RNPR")]
     [IsoId("_ubNYWfRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalClaimNonReceiptRejectionCode
     
     /// <summary>
     /// Already rejected original SCT (SEPA Credit Transfer).
-    /// Encoded/decoded by serializers as "ARJT".
+    /// Encoded/decoded by serializers as &quot;ARJT&quot;.
     /// </summary>
     [EnumMember(Value = "ARJT")]
     [IsoId("_ubNYXPRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalClaimNonReceiptRejectionCode
     
     /// <summary>
     /// Already returned original SCT (SEPA Credit Transfer).
-    /// Encoded/decoded by serializers as "ARDT".
+    /// Encoded/decoded by serializers as &quot;ARDT&quot;.
     /// </summary>
     [EnumMember(Value = "ARDT")]
     [IsoId("_ubWiQPRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalClaimNonReceiptRejectionCode
     
     /// <summary>
     /// Regulatory reason.
-    /// Encoded/decoded by serializers as "RR04".
+    /// Encoded/decoded by serializers as &quot;RR04&quot;.
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_ubWiQ_RYEeuLhpyIdtJzwg")]

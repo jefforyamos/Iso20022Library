@@ -21,7 +21,7 @@ public enum ProxyType2Code
 {
     /// <summary>
     /// Chairman of the meeting is the proxy.
-    /// Encoded/decoded by serializers as "CHRM".
+    /// Encoded/decoded by serializers as &quot;CHRM&quot;.
     /// </summary>
     [EnumMember(Value = "CHRM")]
     [IsoId("_ZWd-KNp-Ed-ak6NoX_4Aeg_-885468111")]
@@ -30,7 +30,7 @@ public enum ProxyType2Code
     
     /// <summary>
     /// Any type of proxy is allowed.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_ZWnIENp-Ed-ak6NoX_4Aeg_-885468041")]
@@ -39,7 +39,7 @@ public enum ProxyType2Code
     
     /// <summary>
     /// Proxy can only be a security holder.
-    /// Encoded/decoded by serializers as "HLDR".
+    /// Encoded/decoded by serializers as &quot;HLDR&quot;.
     /// </summary>
     [EnumMember(Value = "HLDR")]
     [IsoId("_ZWnIEdp-Ed-ak6NoX_4Aeg_-1812267007")]

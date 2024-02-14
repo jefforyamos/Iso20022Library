@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Natural or legal person to whom an investment firm provides investment or ancillary services.
 /// </summary>
 [IsoId("_Yo3FgO3pEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Internaliser Client Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SettlementInternaliserClientType1
     /// Professional clients as defined in the relevant legislation.
     /// </summary>
     [IsoId("_dCfYMO3pEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Professional")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prfssnl")]
     #endif
+    [IsoXmlTag("Prfssnl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 Professional { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 Professional { get; init; } 
+    public required InternalisationData1 Professional { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 Professional { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SettlementInternaliserClientType1
     /// Clients other than professional clients.
     /// </summary>
     [IsoId("_eG7QsO3pEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Retail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rtl")]
     #endif
+    [IsoXmlTag("Rtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 Retail { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 Retail { get; init; } 
+    public required InternalisationData1 Retail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 Retail { get; init; } 
     #else

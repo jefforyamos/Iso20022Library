@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status is in repair.
 /// </summary>
 [IsoId("_Uuhiptp-Ed-ak6NoX_4Aeg_-794783023")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("In Repair Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record InRepairStatus1
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_UurToNp-Ed-ak6NoX_4Aeg_-794782787")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoRsn")]
     #endif
+    [IsoXmlTag("NoRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoReason { get; init; } 
+    public required NoReasonCode NoReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoReason { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record InRepairStatus1
     /// Reason of an in repair status in the report.
     /// </summary>
     [IsoId("_UurTodp-Ed-ak6NoX_4Aeg_-794782710")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InRepairStatusReason1 Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InRepairStatusReason1 Reason { get; init; } 
+    public required InRepairStatusReason1 Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InRepairStatusReason1 Reason { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record InRepairStatus1
     /// Proprietary identification for a reason of a specific status in the report.
     /// </summary>
     [IsoId("_UurTotp-Ed-ak6NoX_4Aeg_-794782752")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
+    [IsoXmlTag("DataSrcSchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification1 DataSourceScheme { get; init; } 
+    public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification1 DataSourceScheme { get; init; } 
     #else

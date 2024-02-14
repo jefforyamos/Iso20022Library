@@ -21,7 +21,7 @@ public enum LendingTransactionMethod1Code
 {
     /// <summary>
     /// Contract applies to a specific security only.
-    /// Encoded/decoded by serializers as "ODTR".
+    /// Encoded/decoded by serializers as &quot;ODTR&quot;.
     /// </summary>
     [EnumMember(Value = "ODTR")]
     [IsoId("__2_DYdojEeC60axPepSq7g_-945747247")]
@@ -30,7 +30,7 @@ public enum LendingTransactionMethod1Code
     
     /// <summary>
     /// Contract applies to a number of different securities within the same pool/fund.
-    /// Encoded/decoded by serializers as "EXTR".
+    /// Encoded/decoded by serializers as &quot;EXTR&quot;.
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("__2_DYtojEeC60axPepSq7g_1548205403")]

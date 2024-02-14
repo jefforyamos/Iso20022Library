@@ -44,9 +44,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The GetMember message is sent by a member to the transaction administrator.|It is used to request information on static data maintained by the transaction administrator and related to the participants in the system and their membership status vis-a-vis this system.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, that is, not related to the transactions entered into the system. The type of business information available can vary depending on the system. Among other things, it can refer to information about the membership of the system.|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the static data related to the members of the system.|The member can request information based on the following elements:|- identification of the member within the system|- membership status|- type of member|- contact details for the member: name, address|- account number of the member|- identification of contact persons for the member|This message will be replied to by a ReturnMember message.|Additional information on the generic design of the Get/Return messages can be found in the MDR Part 1 section How to Use the Cash Management Messages.")]
 [IsoId("_jwlbjxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Get Member V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -89,16 +87,15 @@ public partial record GetMemberV04 : IOuterRecord<GetMemberV04,GetMemberV04Docum
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbkRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader9 MessageHeader { get; init; } 
+    public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader9 MessageHeader { get; init; } 
     #else
@@ -109,12 +106,11 @@ public partial record GetMemberV04 : IOuterRecord<GetMemberV04,GetMemberV04Docum
     /// Definition of the member query.
     /// </summary>
     [IsoId("_jwlbkxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Query Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MmbQryDef")]
     #endif
+    [IsoXmlTag("MmbQryDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MemberQueryDefinition4? MemberQueryDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,12 +123,11 @@ public partial record GetMemberV04 : IOuterRecord<GetMemberV04,GetMemberV04Docum
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlblRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,7 +140,7 @@ public partial record GetMemberV04 : IOuterRecord<GetMemberV04,GetMemberV04Docum
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="GetMemberV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;GetMemberV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public GetMemberV04Document ToDocument()
     {
@@ -155,7 +150,7 @@ public partial record GetMemberV04 : IOuterRecord<GetMemberV04,GetMemberV04Docum
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetMemberV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;GetMemberV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record GetMemberV04Document : IOuterDocument<GetMemberV04>
@@ -172,7 +167,7 @@ public partial record GetMemberV04Document : IOuterDocument<GetMemberV04>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="GetMemberV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;GetMemberV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GetMemberV04 Message { get; init; }

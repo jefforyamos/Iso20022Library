@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Quantity expressed as a number and its details.
 /// </summary>
 [IsoId("_BdzxQa5yEeeMy7TnJ3e__g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Unit")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record Unit10
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
     [IsoId("_Bsiw0a5yEeeMy7TnJ3e__g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitsNb")]
     #endif
+    [IsoXmlTag("UnitsNb")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber UnitsNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 UnitsNumber { get; init; } 
+    public required System.UInt64 UnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 UnitsNumber { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record Unit10
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
     [IsoId("_Bsiw065yEeeMy7TnJ3e__g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group 1 Or 2 Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Grp1Or2Units")]
     #endif
+    [IsoXmlTag("Grp1Or2Units")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UKTaxGroupUnit1Code Group1Or2Units { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UKTaxGroupUnit1Code Group1Or2Units { get; init; } 
+    public required UKTaxGroupUnit1Code Group1Or2Units { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UKTaxGroupUnit1Code Group1Or2Units { get; init; } 
     #else

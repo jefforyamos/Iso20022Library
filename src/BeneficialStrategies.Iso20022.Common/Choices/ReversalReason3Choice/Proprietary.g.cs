@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReversalReason3Choice
     /// Reason for the reversal not catered for by the available codes.
     /// </summary>
     [IsoId("_V8nGZ9p-Ed-ak6NoX_4Aeg_-801418309")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ReversalReason3Choice
         /// EPC Technical validation subset restricted to MS02 and MS03 codes.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Prtry")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("Prtry")]
+        [IsoSimpleType(IsoSimpleType.RestrictedMS02MS03CodeText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedMS02MS03CodeText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

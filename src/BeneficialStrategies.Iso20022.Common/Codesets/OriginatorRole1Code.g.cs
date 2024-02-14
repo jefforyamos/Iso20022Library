@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum OriginatorRole1Code
 {
     /// <summary>
-    /// Firms which, on an organised, frequent and systematic basis deal on their own account by executing client orders outside a regulated market or a Multilateral Trading Facility. SI's will have the obligation to provide, and make public, a definite bid and offer quote for liquid securities. They act as "mini"exchanges.
-    /// Encoded/decoded by serializers as "SINT".
+    /// Firms which, on an organised, frequent and systematic basis deal on their own account by executing client orders outside a regulated market or a Multilateral Trading Facility. SI&apos;s will have the obligation to provide, and make public, a definite bid and offer quote for liquid securities. They act as &quot;mini&quot;exchanges.
+    /// Encoded/decoded by serializers as &quot;SINT&quot;.
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("_Zw1l9Np-Ed-ak6NoX_4Aeg_1072441670")]
@@ -30,7 +30,7 @@ public enum OriginatorRole1Code
     
     /// <summary>
     /// Multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.
-    /// Encoded/decoded by serializers as "MLTF".
+    /// Encoded/decoded by serializers as &quot;MLTF&quot;.
     /// </summary>
     [EnumMember(Value = "MLTF")]
     [IsoId("_Zw1l9dp-Ed-ak6NoX_4Aeg_1072441706")]
@@ -39,7 +39,7 @@ public enum OriginatorRole1Code
     
     /// <summary>
     /// Market on which financial instruments can be traded according to rules defined by the stock exchange.
-    /// Encoded/decoded by serializers as "RMKT".
+    /// Encoded/decoded by serializers as &quot;RMKT&quot;.
     /// </summary>
     [EnumMember(Value = "RMKT")]
     [IsoId("_Zw1l9tp-Ed-ak6NoX_4Aeg_1072441731")]
@@ -48,7 +48,7 @@ public enum OriginatorRole1Code
     
     /// <summary>
     /// Dealer or specialist that is trading for their own account in the OTC market. Market makers are expected to maintain an orderly market by being available to buy or sell.
-    /// Encoded/decoded by serializers as "MKTM".
+    /// Encoded/decoded by serializers as &quot;MKTM&quot;.
     /// </summary>
     [EnumMember(Value = "MKTM")]
     [IsoId("_Zw1l99p-Ed-ak6NoX_4Aeg_1072441748")]
@@ -57,7 +57,7 @@ public enum OriginatorRole1Code
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_Zw1l-Np-Ed-ak6NoX_4Aeg_1072442008")]

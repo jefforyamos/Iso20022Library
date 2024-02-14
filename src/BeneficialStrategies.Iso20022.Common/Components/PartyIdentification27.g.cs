@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity involved in an activity.
 /// </summary>
 [IsoId("_Pb-D59p-Ed-ak6NoX_4Aeg_-1579248331")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record PartyIdentification27
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_PcH04Np-Ed-ak6NoX_4Aeg_-1579248300")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text Name { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Name { get; init; } 
+    public required System.String Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Name { get; init; } 
     #else
@@ -75,12 +71,11 @@ public partial record PartyIdentification27
     /// Unique and unambiguous identifier assigned to a party using a proprietary identification scheme.
     /// </summary>
     [IsoId("_PcH04dp-Ed-ak6NoX_4Aeg_-634486320")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtryId")]
     #endif
+    [IsoXmlTag("PrtryId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification4? ProprietaryIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record PartyIdentification27
     /// Specifies the country of the party.
     /// </summary>
     [IsoId("_PcH04tp-Ed-ak6NoX_4Aeg_251171234")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else

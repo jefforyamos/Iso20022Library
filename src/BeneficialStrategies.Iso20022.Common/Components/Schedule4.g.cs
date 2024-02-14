@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the unadjusted effective and end date of the schedule.
 /// </summary>
 [IsoId("_HC008A0zEeuJ1fOEB4bQXA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Schedule")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record Schedule4
     /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
     /// </summary>
     [IsoId("_HC008w0zEeuJ1fOEB4bQXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unadjusted Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UadjstdFctvDt")]
     #endif
+    [IsoXmlTag("UadjstdFctvDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate UnadjustedEffectiveDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly UnadjustedEffectiveDate { get; init; } 
+    public required System.DateOnly UnadjustedEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly UnadjustedEffectiveDate { get; init; } 
     #else
@@ -72,12 +70,12 @@ public partial record Schedule4
     /// Indicates the end date agreed in the derivative transaction without adjustment.
     /// </summary>
     [IsoId("_HC008g0zEeuJ1fOEB4bQXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unadjusted End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UadjstdEndDt")]
     #endif
+    [IsoXmlTag("UadjstdEndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? UnadjustedEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +90,15 @@ public partial record Schedule4
     /// For volatility and variance swaps, specify the volatility strike price.
     /// </summary>
     [IsoId("_HC008Q0zEeuJ1fOEB4bQXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTransactionPrice17Choice_ Price { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesTransactionPrice17Choice_ Price { get; init; } 
+    public required SecuritiesTransactionPrice17Choice_ Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesTransactionPrice17Choice_ Price { get; init; } 
     #else

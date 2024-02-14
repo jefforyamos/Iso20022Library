@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount and trigger information.
 /// </summary>
 [IsoId("_-GTXZnltEeG7BsjMvd1mEw_-1985688302")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount And Trigger")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record AmountAndTrigger1
     /// Identification of the amount and trigger details.
     /// </summary>
     [IsoId("_-GTXZ3ltEeG7BsjMvd1mEw_-1458509078")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record AmountAndTrigger1
     /// Choice between an amount and a percentage.
     /// </summary>
     [IsoId("_-GTXaHltEeG7BsjMvd1mEw_-1720196234")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Details Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtDtlsChc")]
     #endif
+    [IsoXmlTag("AmtDtlsChc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrPercentage1Choice_ AmountDetailsChoice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrPercentage1Choice_ AmountDetailsChoice { get; init; } 
+    public required AmountOrPercentage1Choice_ AmountDetailsChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrPercentage1Choice_ AmountDetailsChoice { get; init; } 
     #else
@@ -95,12 +90,11 @@ public partial record AmountAndTrigger1
     /// Trigger that causes the variation to come into effect.
     /// </summary>
     [IsoId("_-GdIYHltEeG7BsjMvd1mEw_-206552408")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trggr")]
     #endif
+    [IsoXmlTag("Trggr")]
     public Trigger1? Trigger { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _-GdIYHltEeG7BsjMvd1mEw_-206552408
     

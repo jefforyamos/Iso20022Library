@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionTypeStatus3Choice.InstructionStatus))]
     [KnownType(typeof(InstructionTypeStatus3Choice.CancellationStatus))]
     [IsoId("_7xaDIa-nEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Type Status 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

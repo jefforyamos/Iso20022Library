@@ -21,7 +21,7 @@ public enum UndertakingIssuanceNameCode
 {
     /// <summary>
     /// Demand guarantee.
-    /// Encoded/decoded by serializers as "DGAR".
+    /// Encoded/decoded by serializers as &quot;DGAR&quot;.
     /// </summary>
     [EnumMember(Value = "DGAR")]
     [IsoId("_-IZCEnltEeG7BsjMvd1mEw_443560113")]
@@ -30,7 +30,7 @@ public enum UndertakingIssuanceNameCode
     
     /// <summary>
     /// Standby letter of credit.
-    /// Encoded/decoded by serializers as "STBY".
+    /// Encoded/decoded by serializers as &quot;STBY&quot;.
     /// </summary>
     [EnumMember(Value = "STBY")]
     [IsoId("_-IZCE3ltEeG7BsjMvd1mEw_621678785")]

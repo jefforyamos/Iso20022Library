@@ -21,7 +21,7 @@ public enum CertificateType2Code
 {
     /// <summary>
     /// Anti-money laundering certification form.
-    /// Encoded/decoded by serializers as "AMLC".
+    /// Encoded/decoded by serializers as &quot;AMLC&quot;.
     /// </summary>
     [EnumMember(Value = "AMLC")]
     [IsoId("_MX05cRODEeKjmvxNCObNeQ")]
@@ -30,7 +30,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Government issued form of picture identification - driving license.
-    /// Encoded/decoded by serializers as "DVLC".
+    /// Encoded/decoded by serializers as &quot;DVLC&quot;.
     /// </summary>
     [EnumMember(Value = "DVLC")]
     [IsoId("_MkCwgRODEeKjmvxNCObNeQ")]
@@ -39,7 +39,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Certification of due formation and organisation.
-    /// Encoded/decoded by serializers as "DFOR".
+    /// Encoded/decoded by serializers as &quot;DFOR&quot;.
     /// </summary>
     [EnumMember(Value = "DFOR")]
     [IsoId("_MvhAsRODEeKjmvxNCObNeQ")]
@@ -48,7 +48,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Certificate of good standing.
-    /// Encoded/decoded by serializers as "GOST".
+    /// Encoded/decoded by serializers as &quot;GOST&quot;.
     /// </summary>
     [EnumMember(Value = "GOST")]
     [IsoId("_M6jMARODEeKjmvxNCObNeQ")]
@@ -57,7 +57,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Government issued form of picture identification - identity card.
-    /// Encoded/decoded by serializers as "IDEN".
+    /// Encoded/decoded by serializers as &quot;IDEN&quot;.
     /// </summary>
     [EnumMember(Value = "IDEN")]
     [IsoId("_NHqa8RODEeKjmvxNCObNeQ")]
@@ -66,7 +66,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Certification of incumbency.
-    /// Encoded/decoded by serializers as "INCU".
+    /// Encoded/decoded by serializers as &quot;INCU&quot;.
     /// </summary>
     [EnumMember(Value = "INCU")]
     [IsoId("_NacNARODEeKjmvxNCObNeQ")]
@@ -75,7 +75,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Letter of reference.
-    /// Encoded/decoded by serializers as "LREF".
+    /// Encoded/decoded by serializers as &quot;LREF&quot;.
     /// </summary>
     [EnumMember(Value = "LREF")]
     [IsoId("_NpCpsRODEeKjmvxNCObNeQ")]
@@ -84,7 +84,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Government issued form of picture identification - passport.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_N1HW0RODEeKjmvxNCObNeQ")]
@@ -93,7 +93,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Proof of the address, such as a utility bill.
-    /// Encoded/decoded by serializers as "PRAD".
+    /// Encoded/decoded by serializers as &quot;PRAD&quot;.
     /// </summary>
     [EnumMember(Value = "PRAD")]
     [IsoId("_OE6GURODEeKjmvxNCObNeQ")]
@@ -102,7 +102,7 @@ public enum CertificateType2Code
     
     /// <summary>
     /// Public key infrastructure certificate.
-    /// Encoded/decoded by serializers as "PKIC".
+    /// Encoded/decoded by serializers as &quot;PKIC&quot;.
     /// </summary>
     [EnumMember(Value = "PKIC")]
     [IsoId("_OPV0sRODEeKjmvxNCObNeQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Return criteria for information to be returned in the report deriving from a query about securities account reference data.
 /// </summary>
 [IsoId("_hjB2Z2liEeGaMcKyqKNRfQ_-1911828030")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Account Return Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Indicates whether the identification of the account is requested.
     /// </summary>
     [IsoId("_hjB2aGliEeGaMcKyqKNRfQ_-1979285068")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Indicates whether the identification of the party owning the account is requested.
     /// </summary>
     [IsoId("_hjB2aWliEeGaMcKyqKNRfQ_1420289725")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Indicates whether the type of the party owning the account is requested.
     /// </summary>
     [IsoId("_hjB2amliEeGaMcKyqKNRfQ_817359905")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyTp")]
     #endif
+    [IsoXmlTag("PtyTp")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PartyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Indicates whether the account servicer is requested.
     /// </summary>
     [IsoId("_hjB2a2liEeGaMcKyqKNRfQ_-1406786554")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcr")]
     #endif
+    [IsoXmlTag("AcctSvcr")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Indicates whether the account type is requested.
     /// </summary>
     [IsoId("_hjB2bGliEeGaMcKyqKNRfQ_-713957965")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctTp")]
     #endif
+    [IsoXmlTag("AcctTp")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +132,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Indicates whether the opening date for the account is requested.
     /// </summary>
     [IsoId("_hjB2bWliEeGaMcKyqKNRfQ_81224670")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngDt")]
     #endif
+    [IsoXmlTag("OpngDt")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? OpeningDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +150,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Indicates whether the closing date for the account is requested.
     /// </summary>
     [IsoId("_hjB2bmliEeGaMcKyqKNRfQ_841989823")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsgDt")]
     #endif
+    [IsoXmlTag("ClsgDt")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ClosingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +168,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
     [IsoId("_hjB2b2liEeGaMcKyqKNRfQ_-140662419")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Investor Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndInvstrFlg")]
     #endif
+    [IsoXmlTag("EndInvstrFlg")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? EndInvestorFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +186,12 @@ public partial record SecuritiesAccountReturnCriteria
     /// Defines how the price is applied to the securities account.
     /// </summary>
     [IsoId("_hjB2cGliEeGaMcKyqKNRfQ_131386874")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pricing Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricgSchme")]
     #endif
+    [IsoXmlTag("PricgSchme")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PricingScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

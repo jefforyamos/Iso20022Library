@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxDetailsType1Choice
     /// Type of tax applied.
     /// </summary>
     [IsoId("_RfZ7QNp-Ed-ak6NoX_4Aeg_-94117549")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxDetailsType1Choice
         /// Specifies the type of tax.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TaxType11Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TaxType11Code Value { get; init; } 
+        public required TaxType11Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TaxType11Code Value { get; init; } 
         #else

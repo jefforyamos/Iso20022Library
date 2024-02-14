@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingAmendmentNotification message is sent by the party that issued the undertaking to the applicant to notify it of the contents of a proposed amendment to the undertaking (issued electronically or on paper). The undertaking could be a demand guarantee, standby letter of credit, counter-undertaking (counter-guarantee or counter-standby), or suretyship undertaking. In addition to providing the proposed terms of the amendment and details on proposed changes to the undertaking, the message may provide other supporting information from the sender. It may also be used to notify the proposed termination or cancellation of the undertaking.")]
 [IsoId("_9g6LUnltEeG7BsjMvd1mEw_1297611038")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amendment Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingAmendmentNotificationV01 : IOuterRecord<Underta
     /// Details related to the notification of the proposed amended undertaking.
     /// </summary>
     [IsoId("_9g6LU3ltEeG7BsjMvd1mEw_1612122638")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Notification Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntNtfctnDtls")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntNtfctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amendment6 UndertakingAmendmentNotificationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amendment6 UndertakingAmendmentNotificationDetails { get; init; } 
+    public required Amendment6 UndertakingAmendmentNotificationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amendment6 UndertakingAmendmentNotificationDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record UndertakingAmendmentNotificationV01 : IOuterRecord<Underta
     /// Digital signature of the notification.
     /// </summary>
     [IsoId("_9g6LVHltEeG7BsjMvd1mEw_1241284917")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record UndertakingAmendmentNotificationV01 : IOuterRecord<Underta
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingAmendmentNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingAmendmentNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingAmendmentNotificationV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record UndertakingAmendmentNotificationV01 : IOuterRecord<Underta
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingAmendmentNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingAmendmentNotificationV01Document : IOuterDocument<UndertakingAmendmentNotificationV01>
@@ -140,7 +136,7 @@ public partial record UndertakingAmendmentNotificationV01Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingAmendmentNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingAmendmentNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmendmentNotificationV01 Message { get; init; }

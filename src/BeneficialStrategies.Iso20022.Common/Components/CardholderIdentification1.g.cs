@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the cardholder involved in a transaction.
 /// </summary>
 [IsoId("_SoWAKwEcEeCQm6a_G2yO_w_-1995265470")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cardholder Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record CardholderIdentification1
     /// Identification value of the cardholder involved in a transaction.
     /// </summary>
     [IsoId("_SoWALAEcEeCQm6a_G2yO_w_596422852")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Identification Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrIdVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CrdhldrIdVal")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CardholderIdentificationValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CardholderIdentificationValue { get; init; } 
+    public required System.String CardholderIdentificationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CardholderIdentificationValue { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record CardholderIdentification1
     /// Type of identification used for identifying the cardholder.
     /// </summary>
     [IsoId("_SoWALQEcEeCQm6a_G2yO_w_-899306894")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Identification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrIdTp")]
     #endif
+    [IsoXmlTag("CrdhldrIdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PersonIdentificationType4Code CardholderIdentificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PersonIdentificationType4Code CardholderIdentificationType { get; init; } 
+    public required PersonIdentificationType4Code CardholderIdentificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PersonIdentificationType4Code CardholderIdentificationType { get; init; } 
     #else

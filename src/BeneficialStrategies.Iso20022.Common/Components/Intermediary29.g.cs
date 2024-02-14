@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Party that provides services to investors relating to financial products.
 /// </summary>
 [IsoId("_sWVbIaB-EeOEyO7fCl8lLA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intermediary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Intermediary29
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
     [IsoId("_s2Bn16B-EeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification100 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification100 Identification { get; init; } 
+    public required PartyIdentification100 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification100 Identification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Intermediary29
     /// Function performed by the intermediary.
     /// </summary>
     [IsoId("_s2Bn3aB-EeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Role5Choice_ Role { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Role5Choice_ Role { get; init; } 
+    public required Role5Choice_ Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Role5Choice_ Role { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record Intermediary29
     /// Counterparties eligibility as defined by article 24 of the EU MiFID Directive applicable to transactions executed by investment firms for eligible counterparties.
     /// </summary>
     [IsoId("_s2Bn26B-EeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Originator Eligibility")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrOrgtrElgblty")]
     #endif
+    [IsoXmlTag("OrdrOrgtrElgblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrderOriginatorEligibility1Code? OrderOriginatorEligibility { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record Intermediary29
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_yAcG4W5FEeSFHPWGV34yZw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

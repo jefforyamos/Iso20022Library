@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies technical attributes of the message.
 /// </summary>
 [IsoId("_bzI8cXhCEeu3kecHd7QKUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Technical Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TechnicalAttributes4
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
     [IsoId("_cCm70XhCEeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnFlg")]
     #endif
+    [IsoXmlTag("RcncltnFlg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reconciliation2Code? ReconciliationFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

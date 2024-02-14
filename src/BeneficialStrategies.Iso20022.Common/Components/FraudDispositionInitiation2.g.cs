@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the  fraud disposition initiation message.
 /// </summary>
 [IsoId("_I5XAQYgrEeu8-LhY4KPfWg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fraud Disposition Initiation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record FraudDispositionInitiation2
     /// Environment of the transaction
     /// </summary>
     [IsoId("_I-jCQYgrEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Environment28 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Environment28 Environment { get; init; } 
+    public required Environment28 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Environment28 Environment { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record FraudDispositionInitiation2
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
     [IsoId("_I-jCQ4grEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Context17? Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,15 @@ public partial record FraudDispositionInitiation2
     /// Card transaction for which an authorisation is requested.
     /// </summary>
     [IsoId("_I-jCRYgrEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Transaction128 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Transaction128 Transaction { get; init; } 
+    public required Transaction128 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Transaction128 Transaction { get; init; } 
     #else
@@ -111,16 +106,15 @@ public partial record FraudDispositionInitiation2
     /// Contains the disposition of the previously submitted fraud reporting message.
     /// </summary>
     [IsoId("_I-jCR4grEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraud Disposition Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrdDspstnSts")]
     #endif
+    [IsoXmlTag("FrdDspstnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FraudDispositionStatus2 FraudDispositionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FraudDispositionStatus2 FraudDispositionStatus { get; init; } 
+    public required FraudDispositionStatus2 FraudDispositionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FraudDispositionStatus2 FraudDispositionStatus { get; init; } 
     #else
@@ -131,12 +125,11 @@ public partial record FraudDispositionInitiation2
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
     [IsoId("_I-jCSYgrEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

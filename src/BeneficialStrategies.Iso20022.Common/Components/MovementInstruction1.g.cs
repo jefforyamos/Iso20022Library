@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the movement instructions.
 /// </summary>
 [IsoId("_RirRtdp-Ed-ak6NoX_4Aeg_-1983038422")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Movement Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MovementInstruction1
     /// Provides general information about the movement.
     /// </summary>
     [IsoId("_RirRttp-Ed-ak6NoX_4Aeg_-1906384163")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MvmntGnlInf")]
     #endif
+    [IsoXmlTag("MvmntGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMovement1 MovementGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionMovement1 MovementGeneralInformation { get; init; } 
+    public required CorporateActionMovement1 MovementGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionMovement1 MovementGeneralInformation { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MovementInstruction1
     /// Provides information about the underlying securities movement.
     /// </summary>
     [IsoId("_RirRt9p-Ed-ak6NoX_4Aeg_-1853745607")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Securities Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygSctiesMvmntDtls")]
     #endif
+    [IsoXmlTag("UndrlygSctiesMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingSecurityMovement1? UnderlyingSecuritiesMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record MovementInstruction1
     /// Provides information about the underlying cash movement.
     /// </summary>
     [IsoId("_RirRuNp-Ed-ak6NoX_4Aeg_-1965607200")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Cash Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygCshMvmntDtls")]
     #endif
+    [IsoXmlTag("UndrlygCshMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashMovement2? UnderlyingCashMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record MovementInstruction1
     /// Provides information about the proceeds, ie, outturned resources.
     /// </summary>
     [IsoId("_Ri1CsNp-Ed-ak6NoX_4Aeg_-1820497873")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proceeds Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcdsMvmntDtls")]
     #endif
+    [IsoXmlTag("PrcdsMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProceedsMovement1? ProceedsMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a statement of investment fund transactions.
 /// </summary>
 [IsoId("_ROHW-tp-Ed-ak6NoX_4Aeg_-1658317001")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statement Of Investment Fund Transactions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record StatementOfInvestmentFundTransactions2
     /// General information related to the investment fund statement of transactions that is being cancelled.
     /// </summary>
     [IsoId("_ROHW-9p-Ed-ak6NoX_4Aeg_-1658316838")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtGnlDtls")]
     #endif
+    [IsoXmlTag("StmtGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Statement8? StatementGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record StatementOfInvestmentFundTransactions2
     /// Information related to an investment account of the statement that is being cancelled.
     /// </summary>
     [IsoId("_ROHW_Np-Ed-ak6NoX_4Aeg_-1658316880")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcctDtls")]
     #endif
+    [IsoXmlTag("InvstmtAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount25? InvestmentAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record StatementOfInvestmentFundTransactions2
     /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
     /// </summary>
     [IsoId("_RORH8Np-Ed-ak6NoX_4Aeg_-1658316898")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction On Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxOnAcct")]
     #endif
+    [IsoXmlTag("TxOnAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundTransactionsByFund2? TransactionOnAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,16 +100,15 @@ public partial record StatementOfInvestmentFundTransactions2
     /// Sub-account of the safekeeping or investment account.
     /// </summary>
     [IsoId("_RORH8dp-Ed-ak6NoX_4Aeg_-1658316940")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubAcctDtls")]
     #endif
+    [IsoXmlTag("SubAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubAccountIdentification6 SubAccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubAccountIdentification6 SubAccountDetails { get; init; } 
+    public required SubAccountIdentification6 SubAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubAccountIdentification6 SubAccountDetails { get; init; } 
     #else
@@ -125,12 +119,11 @@ public partial record StatementOfInvestmentFundTransactions2
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_RORH8tp-Ed-ak6NoX_4Aeg_-1658316820")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

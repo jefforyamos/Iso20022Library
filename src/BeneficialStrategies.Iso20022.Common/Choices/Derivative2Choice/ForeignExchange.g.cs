@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice
     /// Details specific for Foreign exchange.
     /// </summary>
     [IsoId("_Bv9MRWkwEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice
         /// Type of deliverable and non-deliverable forwards, options and swaps contract.	.
         /// </summary>
         [IsoId("_UA7JoX5iEeaGiOUFl5b1oQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Contract Sub Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrctSubTp")]
         #endif
+        [IsoXmlTag("CtrctSubTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassSubProductType19Code ContractSubType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassSubProductType19Code ContractSubType { get; init; } 
+        public required AssetClassSubProductType19Code ContractSubType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassSubProductType19Code ContractSubType { get; init; } 
         #else

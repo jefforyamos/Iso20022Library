@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
 [IsoId("_BDegLYfuEeevKP8c-ilVhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Delivering Parties And Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record DeliveringPartiesAndAccount18
     /// Party that acts on behalf of the seller of securities when the seller does not have a direct relationship with the delivering agent.
     /// </summary>
     [IsoId("_BUbtN4fuEeevKP8c-ilVhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliverers Custodian Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrrsCtdnDtls")]
     #endif
+    [IsoXmlTag("DlvrrsCtdnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount157? DeliverersCustodianDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,15 +63,14 @@ public partial record DeliveringPartiesAndAccount18
     #endif
     
     /// <summary>
-    /// Party that the deliverer's custodian uses to effect the delivery of a security, when the deliverer's custodian does not have a direct relationship with the delivering agent.
+    /// Party that the deliverer&apos;s custodian uses to effect the delivery of a security, when the deliverer&apos;s custodian does not have a direct relationship with the delivering agent.
     /// </summary>
     [IsoId("_BUbtOYfuEeevKP8c-ilVhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliverers Intermediary 1 Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrrsIntrmy1Dtls")]
     #endif
+    [IsoXmlTag("DlvrrsIntrmy1Dtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount157? DeliverersIntermediary1Details { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -84,15 +80,14 @@ public partial record DeliveringPartiesAndAccount18
     #endif
     
     /// <summary>
-    /// Party that interacts with the deliverer's intermediary.
+    /// Party that interacts with the deliverer&apos;s intermediary.
     /// </summary>
     [IsoId("_BUbtO4fuEeevKP8c-ilVhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliverers Intermediary 2 Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrrsIntrmy2Dtls")]
     #endif
+    [IsoXmlTag("DlvrrsIntrmy2Dtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount157? DeliverersIntermediary2Details { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,16 +100,15 @@ public partial record DeliveringPartiesAndAccount18
     /// Party that delivers securities to the receiving agent at the place of settlement, for example, central securities depository.
     /// </summary>
     [IsoId("_BUbtPYfuEeevKP8c-ilVhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivering Agent Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrgAgtDtls")]
     #endif
+    [IsoXmlTag("DlvrgAgtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount157 DeliveringAgentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentificationAndAccount157 DeliveringAgentDetails { get; init; } 
+    public required PartyIdentificationAndAccount157 DeliveringAgentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentificationAndAccount157 DeliveringAgentDetails { get; init; } 
     #else
@@ -125,15 +119,13 @@ public partial record DeliveringPartiesAndAccount18
     /// Identifies the securities settlement system to be used.
     /// </summary>
     [IsoId("_BUbtP4fuEeevKP8c-ilVhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Settlement System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesSttlmSys")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctiesSttlmSys")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecuritiesSettlementSystem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +138,11 @@ public partial record DeliveringPartiesAndAccount18
     /// Place where settlement of the securities takes place.
     /// </summary>
     [IsoId("_BUbtQYfuEeevKP8c-ilVhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfSttlmDtls")]
     #endif
+    [IsoXmlTag("PlcOfSttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification123? PlaceOfSettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

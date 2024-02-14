@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides further details on the settlement of the instruction.
 /// </summary>
 [IsoId("_XaEGd_WfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SettlementInstruction10
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
     [IsoId("_XaEGefWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmMtd")]
     #endif
+    [IsoXmlTag("SttlmMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementMethod1Code SettlementMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementMethod1Code SettlementMethod { get; init; } 
+    public required SettlementMethod1Code SettlementMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementMethod1Code SettlementMethod { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SettlementInstruction10
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
     [IsoId("_XaEGffWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSys")]
     #endif
+    [IsoXmlTag("ClrSys")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerClearingSystemIdentification1? ClearingSystem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

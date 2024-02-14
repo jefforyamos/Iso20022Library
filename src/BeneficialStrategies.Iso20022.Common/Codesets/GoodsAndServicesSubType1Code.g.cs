@@ -21,7 +21,7 @@ public enum GoodsAndServicesSubType1Code
 {
     /// <summary>
     /// Sub type applied is cryptocurrency.
-    /// Encoded/decoded by serializers as "CRCU".
+    /// Encoded/decoded by serializers as &quot;CRCU&quot;.
     /// </summary>
     [EnumMember(Value = "CRCU")]
     [IsoId("_lrDJIOkEEemeDPHh-U9b6w")]
@@ -30,7 +30,7 @@ public enum GoodsAndServicesSubType1Code
     
     /// <summary>
     /// Sub type applied is foreign exchange.
-    /// Encoded/decoded by serializers as "FORX".
+    /// Encoded/decoded by serializers as &quot;FORX&quot;.
     /// </summary>
     [EnumMember(Value = "FORX")]
     [IsoId("_lz3G4ukEEemeDPHh-U9b6w")]
@@ -39,7 +39,7 @@ public enum GoodsAndServicesSubType1Code
     
     /// <summary>
     /// Other sub type of goods and service at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_l-pakukEEemeDPHh-U9b6w")]
@@ -48,7 +48,7 @@ public enum GoodsAndServicesSubType1Code
     
     /// <summary>
     /// Other sub type of goods and service at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_mGXzMukEEemeDPHh-U9b6w")]
@@ -57,7 +57,7 @@ public enum GoodsAndServicesSubType1Code
     
     /// <summary>
     /// Sub type applied is securities.
-    /// Encoded/decoded by serializers as "SECS".
+    /// Encoded/decoded by serializers as &quot;SECS&quot;.
     /// </summary>
     [EnumMember(Value = "SECS")]
     [IsoId("_mOIoEukEEemeDPHh-U9b6w")]

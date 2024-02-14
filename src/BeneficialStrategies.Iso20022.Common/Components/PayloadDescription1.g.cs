@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains information about the payload.
 /// </summary>
 [IsoId("_jLvfUu5NEeCisYr99QEiWA_-1263684777")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payload Description")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PayloadDescription1
     /// This component is used to identify the instance of the document exchanged.
     /// </summary>
     [IsoId("_jLvfU-5NEeCisYr99QEiWA_897283407")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payload Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyldDtls")]
     #endif
+    [IsoXmlTag("PyldDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PayloadDetails1 PayloadDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PayloadDetails1 PayloadDetails { get; init; } 
+    public required PayloadDetails1 PayloadDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PayloadDetails1 PayloadDetails { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record PayloadDescription1
     /// Contains business information that is considered as necessary by the service provider.
     /// </summary>
     [IsoId("_jLvfVO5NEeCisYr99QEiWA_-232163905")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Specific Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplSpcfcInf")]
     #endif
+    [IsoXmlTag("ApplSpcfcInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApplicationSpecifics1? ApplicationSpecificInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record PayloadDescription1
     /// Identification of the type of payload.
     /// </summary>
     [IsoId("_jL4pQO5NEeCisYr99QEiWA_-1404370216")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payload Type Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyldTpDtls")]
     #endif
+    [IsoXmlTag("PyldTpDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PayloadTypeDetails1 PayloadTypeDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PayloadTypeDetails1 PayloadTypeDetails { get; init; } 
+    public required PayloadTypeDetails1 PayloadTypeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PayloadTypeDetails1 PayloadTypeDetails { get; init; } 
     #else
@@ -111,12 +106,11 @@ public partial record PayloadDescription1
     /// This block is repeated for each different type of item.
     /// </summary>
     [IsoId("_jL4pQe5NEeCisYr99QEiWA_54247380")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Manifest Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MnfstDtls")]
     #endif
+    [IsoXmlTag("MnfstDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ManifestDetails1? ManifestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

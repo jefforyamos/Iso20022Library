@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"Scope|A reporting institution, eg, an investment bank, sends the RegulatoryTransactionReport to a regulator or an intermediary (eg a reporting agent), to report the transaction details of a trade that has been executed on or off-exchange.|Usage|The message definition can be used to report more than one transaction. The message definition can also be used to specify, on a trade by trade basis, to which authorities the transaction report(s) need to be sent using the TransactionReportMarker.")]
 [IsoId("_gKH798IFEeGllrOKQRUTYA_1289680586")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Regulatory Transaction Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord<RegulatoryTr
     /// Identification of the RegulatoryTransactionReport.
     /// </summary>
     [IsoId("_gKH7-MIFEeGllrOKQRUTYA_1289680640")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord<RegulatoryTr
     /// Provides details of the trade for which the transaction report is being sent.
     /// </summary>
     [IsoId("_gKRs8MIFEeGllrOKQRUTYA_1289680605")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionDetails3 TransactionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionDetails3 TransactionDetails { get; init; } 
+    public required TransactionDetails3 TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionDetails3 TransactionDetails { get; init; } 
     #else
@@ -120,16 +116,15 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord<RegulatoryTr
     /// Identification of the firm that is legally responsible for sending the transaction report.|.
     /// </summary>
     [IsoId("_gKRs8cIFEeGllrOKQRUTYA_1289680665")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgInstn")]
     #endif
+    [IsoXmlTag("RptgInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification23Choice_ ReportingInstitution { get; init; } 
+    public required PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #else
@@ -140,12 +135,11 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord<RegulatoryTr
     /// Identifies the intermediary which is reporting on behalf on the ReportingInstitution. If there is a reporting chain, then the last party should override the previous one.
     /// </summary>
     [IsoId("_gKRs8sIFEeGllrOKQRUTYA_1289680990")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgAgt")]
     #endif
+    [IsoXmlTag("RptgAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification24Choice_? ReportingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +152,11 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord<RegulatoryTr
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_gKRs88IFEeGllrOKQRUTYA_1289680973")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,7 +169,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord<RegulatoryTr
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RegulatoryTransactionReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RegulatoryTransactionReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RegulatoryTransactionReportV02Document ToDocument()
     {
@@ -186,7 +179,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord<RegulatoryTr
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RegulatoryTransactionReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RegulatoryTransactionReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RegulatoryTransactionReportV02Document : IOuterDocument<RegulatoryTransactionReportV02>
@@ -203,7 +196,7 @@ public partial record RegulatoryTransactionReportV02Document : IOuterDocument<Re
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RegulatoryTransactionReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RegulatoryTransactionReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RegulatoryTransactionReportV02 Message { get; init; }

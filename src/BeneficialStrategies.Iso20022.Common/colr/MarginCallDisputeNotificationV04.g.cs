@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope|The MarginCallDisputeNotification message is sent by the collateral taker or its collateral manager to the collateral giver or its collateral manager to acknowledge the notification of the dispute (either full or partial dispute) of the MarginCallRequest. The message will detail the amount of the dispute and the reason.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|When there is a dispute by the collateral giver to the collateral taker a MarginCallDisputeNotification message is sent with the disputed amount (full or partial) stating the reason why the margin call is being disputed.")]
 [IsoId("_CRyfoYFsEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Call Dispute Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,19 +81,17 @@ public partial record MarginCallDisputeNotificationV04 : IOuterRecord<MarginCall
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
     [IsoId("_CRyfo4FsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -106,16 +102,15 @@ public partial record MarginCallDisputeNotificationV04 : IOuterRecord<MarginCall
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
     /// </summary>
     [IsoId("_CRyfpYFsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgtn")]
     #endif
+    [IsoXmlTag("Oblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Obligation4 Obligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Obligation4 Obligation { get; init; } 
+    public required Obligation4 Obligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Obligation4 Obligation { get; init; } 
     #else
@@ -126,16 +121,15 @@ public partial record MarginCallDisputeNotificationV04 : IOuterRecord<MarginCall
     /// Details of the dispute notification.
     /// </summary>
     [IsoId("_CRyfp4FsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsptNtfctn")]
     #endif
+    [IsoXmlTag("DsptNtfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DisputeNotification1Choice_ DisputeNotification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DisputeNotification1Choice_ DisputeNotification { get; init; } 
+    public required DisputeNotification1Choice_ DisputeNotification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DisputeNotification1Choice_ DisputeNotification { get; init; } 
     #else
@@ -146,12 +140,11 @@ public partial record MarginCallDisputeNotificationV04 : IOuterRecord<MarginCall
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_CRyfqYFsEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,7 +157,7 @@ public partial record MarginCallDisputeNotificationV04 : IOuterRecord<MarginCall
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MarginCallDisputeNotificationV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MarginCallDisputeNotificationV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MarginCallDisputeNotificationV04Document ToDocument()
     {
@@ -174,7 +167,7 @@ public partial record MarginCallDisputeNotificationV04 : IOuterRecord<MarginCall
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarginCallDisputeNotificationV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MarginCallDisputeNotificationV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MarginCallDisputeNotificationV04Document : IOuterDocument<MarginCallDisputeNotificationV04>
@@ -191,7 +184,7 @@ public partial record MarginCallDisputeNotificationV04Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MarginCallDisputeNotificationV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MarginCallDisputeNotificationV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginCallDisputeNotificationV04 Message { get; init; }

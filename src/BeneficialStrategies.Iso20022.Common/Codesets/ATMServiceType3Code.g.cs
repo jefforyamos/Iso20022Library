@@ -21,7 +21,7 @@ public enum ATMServiceType3Code
 {
     /// <summary>
     /// Ask for account statement information to a related custumer account.
-    /// Encoded/decoded by serializers as "ASTS".
+    /// Encoded/decoded by serializers as &quot;ASTS&quot;.
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_NzZooYqvEeSIDtZ76p6McQ")]
@@ -30,7 +30,7 @@ public enum ATMServiceType3Code
     
     /// <summary>
     /// Verification of the card.
-    /// Encoded/decoded by serializers as "CDVF".
+    /// Encoded/decoded by serializers as &quot;CDVF&quot;.
     /// </summary>
     [EnumMember(Value = "CDVF")]
     [IsoId("_OGUko4qvEeSIDtZ76p6McQ")]
@@ -39,7 +39,7 @@ public enum ATMServiceType3Code
     
     /// <summary>
     /// Ask to a DCC service provider to qualify the currency conversion for the card.
-    /// Encoded/decoded by serializers as "DCCS".
+    /// Encoded/decoded by serializers as &quot;DCCS&quot;.
     /// </summary>
     [EnumMember(Value = "DCCS")]
     [IsoId("_OZjCo4qvEeSIDtZ76p6McQ")]
@@ -48,7 +48,7 @@ public enum ATMServiceType3Code
     
     /// <summary>
     /// Ask for exchange rate for the ongoing deposit transaction.
-    /// Encoded/decoded by serializers as "XRTD".
+    /// Encoded/decoded by serializers as &quot;XRTD&quot;.
     /// </summary>
     [EnumMember(Value = "XRTD")]
     [IsoId("_PZLTo4qvEeSIDtZ76p6McQ")]
@@ -57,7 +57,7 @@ public enum ATMServiceType3Code
     
     /// <summary>
     /// Ask for exchange rate for the ongoing withdrawal transaction.
-    /// Encoded/decoded by serializers as "XRTW".
+    /// Encoded/decoded by serializers as &quot;XRTW&quot;.
     /// </summary>
     [EnumMember(Value = "XRTW")]
     [IsoId("_Ph0SQ4qvEeSIDtZ76p6McQ")]
@@ -66,7 +66,7 @@ public enum ATMServiceType3Code
     
     /// <summary>
     /// Select the EMV applications allowed by the acquirer.
-    /// Encoded/decoded by serializers as "EMVS".
+    /// Encoded/decoded by serializers as &quot;EMVS&quot;.
     /// </summary>
     [EnumMember(Value = "EMVS")]
     [IsoId("_QYW4s4qvEeSIDtZ76p6McQ")]
@@ -75,7 +75,7 @@ public enum ATMServiceType3Code
     
     /// <summary>
     /// Ask for customer profile with eventualy related account information.
-    /// Encoded/decoded by serializers as "CMPF".
+    /// Encoded/decoded by serializers as &quot;CMPF&quot;.
     /// </summary>
     [EnumMember(Value = "CMPF")]
     [IsoId("_Ix3Kkec3EeSW7vQF-KSwOA")]
@@ -84,7 +84,7 @@ public enum ATMServiceType3Code
     
     /// <summary>
     /// Balance inquiry.
-    /// Encoded/decoded by serializers as "BLCQ".
+    /// Encoded/decoded by serializers as &quot;BLCQ&quot;.
     /// </summary>
     [EnumMember(Value = "BLCQ")]
     [IsoId("_wiCi8egaEeSbJsoAnSuiCQ")]

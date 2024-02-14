@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status of the acceptor system containing the identification of the POI (Point Of Interaction), its components and their installed versions.
 /// </summary>
 [IsoId("_8cfBURBbEeqgJK7e3n_EXA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record StatusReport9
     /// Identification of the point of interaction for terminal management.
     /// </summary>
     [IsoId("_8pOc0RBbEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification176 POIIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification176 POIIdentification { get; init; } 
+    public required GenericIdentification176 POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification176 POIIdentification { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record StatusReport9
     /// Identification of the requestor.
     /// </summary>
     [IsoId("_8pOc0xBbEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiating Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitgTrggr")]
     #endif
+    [IsoXmlTag("InitgTrggr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TriggerInformation2? InitiatingTrigger { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,15 @@ public partial record StatusReport9
     /// Identification of the terminal management system (TMS) to contact for the maintenance.
     /// </summary>
     [IsoId("_8pOc1RBbEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Manager Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlMgrId")]
     #endif
+    [IsoXmlTag("TermnlMgrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #else
@@ -111,16 +106,15 @@ public partial record StatusReport9
     /// Data related to a status report of a point of interaction (POI).
     /// </summary>
     [IsoId("_8pOc1xBbEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSet")]
     #endif
+    [IsoXmlTag("DataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusReportDataSetRequest1 DataSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatusReportDataSetRequest1 DataSet { get; init; } 
+    public required StatusReportDataSetRequest1 DataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatusReportDataSetRequest1 DataSet { get; init; } 
     #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PositionSetAggregated1Choice.DataSetAction))]
     [KnownType(typeof(PositionSetAggregated1Choice.Report))]
     [IsoId("_CHENw0whEeqwfMIOLcNxbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position Set Aggregated 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

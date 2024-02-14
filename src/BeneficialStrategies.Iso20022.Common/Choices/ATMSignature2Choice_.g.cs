@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ATMSignature2Choice.DigitalSignature))]
     [KnownType(typeof(ATMSignature2Choice.TRRelatedData))]
     [IsoId("_h8fS4bTwEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Signature 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

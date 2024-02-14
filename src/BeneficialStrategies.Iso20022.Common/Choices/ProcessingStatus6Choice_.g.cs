@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus6Choice.Proprietary))]
     [KnownType(typeof(ProcessingStatus6Choice.CancellationRequested))]
     [IsoId("_UVMcpNp-Ed-ak6NoX_4Aeg_-399020300")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

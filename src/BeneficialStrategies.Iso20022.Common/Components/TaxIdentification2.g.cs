@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Tax identification information.
 /// </summary>
 [IsoId("_ZEtY8QhGEeSUPbC7DbLJpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record TaxIdentification2
     /// Tax identification number or identifier.
     /// </summary>
     [IsoId("_hD6rMQhGEeSUPbC7DbLJpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record TaxIdentification2
     /// Type of tax identification number or identifier.
     /// </summary>
     [IsoId("_ooC5EQhIEeSUPbC7DbLJpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Identification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxIdTp")]
     #endif
+    [IsoXmlTag("TaxIdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
+    public required TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
     #else
@@ -96,15 +91,13 @@ public partial record TaxIdentification2
     /// Entity that assigns the identifier.
     /// </summary>
     [IsoId("_BpuDRAhIEeSUPbC7DbLJpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +110,12 @@ public partial record TaxIdentification2
     /// Date at which the identification was issued.
     /// </summary>
     [IsoId("_BpuDRQhIEeSUPbC7DbLJpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,12 +128,12 @@ public partial record TaxIdentification2
     /// Date at which the identification expires.
     /// </summary>
     [IsoId("_BpuDRghIEeSUPbC7DbLJpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,16 +146,15 @@ public partial record TaxIdentification2
     /// Country that issued the tax identification.
     /// </summary>
     [IsoId("_Zg-eNQhGEeSUPbC7DbLJpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrCtry")]
     #endif
+    [IsoXmlTag("IssrCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode IssuerCountry { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string IssuerCountry { get; init; } 
+    public required string IssuerCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string IssuerCountry { get; init; } 
     #else

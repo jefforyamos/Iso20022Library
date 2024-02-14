@@ -21,7 +21,7 @@ public enum LodgingActivity1Code
 {
     /// <summary>
     /// Apartment residence.
-    /// Encoded/decoded by serializers as "APTM".
+    /// Encoded/decoded by serializers as &quot;APTM&quot;.
     /// </summary>
     [EnumMember(Value = "APTM")]
     [IsoId("_Dl0zwWMdEeexSYCBvAp_qA")]
@@ -30,7 +30,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Bed and breakfast or related lodging.
-    /// Encoded/decoded by serializers as "BEBR".
+    /// Encoded/decoded by serializers as &quot;BEBR&quot;.
     /// </summary>
     [EnumMember(Value = "BEBR")]
     [IsoId("_DvdQ4WMdEeexSYCBvAp_qA")]
@@ -39,7 +39,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Cottage and related lodging.
-    /// Encoded/decoded by serializers as "COTT".
+    /// Encoded/decoded by serializers as &quot;COTT&quot;.
     /// </summary>
     [EnumMember(Value = "COTT")]
     [IsoId("_D6_ygWMdEeexSYCBvAp_qA")]
@@ -48,7 +48,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Cruise line lodging.
-    /// Encoded/decoded by serializers as "CRUI".
+    /// Encoded/decoded by serializers as &quot;CRUI&quot;.
     /// </summary>
     [EnumMember(Value = "CRUI")]
     [IsoId("_EH_FoWMdEeexSYCBvAp_qA")]
@@ -57,7 +57,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// An individual offering lodging facilities.
-    /// Encoded/decoded by serializers as "HOME".
+    /// Encoded/decoded by serializers as &quot;HOME&quot;.
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_EP_yIWMdEeexSYCBvAp_qA")]
@@ -66,7 +66,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Hostel or related lodging.
-    /// Encoded/decoded by serializers as "HOST".
+    /// Encoded/decoded by serializers as &quot;HOST&quot;.
     /// </summary>
     [EnumMember(Value = "HOST")]
     [IsoId("_EY9g4WMdEeexSYCBvAp_qA")]
@@ -75,7 +75,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Hotel or related lodging.
-    /// Encoded/decoded by serializers as "HOTL".
+    /// Encoded/decoded by serializers as &quot;HOTL&quot;.
     /// </summary>
     [EnumMember(Value = "HOTL")]
     [IsoId("_Eh2XIWMdEeexSYCBvAp_qA")]
@@ -84,7 +84,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Lodge or related lodging.
-    /// Encoded/decoded by serializers as "LODG".
+    /// Encoded/decoded by serializers as &quot;LODG&quot;.
     /// </summary>
     [EnumMember(Value = "LODG")]
     [IsoId("_EsVv4WMdEeexSYCBvAp_qA")]
@@ -93,7 +93,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Motel or related lodging.
-    /// Encoded/decoded by serializers as "MOTL".
+    /// Encoded/decoded by serializers as &quot;MOTL&quot;.
     /// </summary>
     [EnumMember(Value = "MOTL")]
     [IsoId("_E3f3AWMdEeexSYCBvAp_qA")]
@@ -102,7 +102,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Other type of lodging defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_FAXfIWMdEeexSYCBvAp_qA")]
@@ -111,7 +111,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Other type of lodging defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_FJPHQWMdEeexSYCBvAp_qA")]
@@ -120,7 +120,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Resort or related lodging.
-    /// Encoded/decoded by serializers as "RESO".
+    /// Encoded/decoded by serializers as &quot;RESO&quot;.
     /// </summary>
     [EnumMember(Value = "RESO")]
     [IsoId("_FSGvYWMdEeexSYCBvAp_qA")]
@@ -129,7 +129,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Room and board or related lodging.
-    /// Encoded/decoded by serializers as "ROAB".
+    /// Encoded/decoded by serializers as &quot;ROAB&quot;.
     /// </summary>
     [EnumMember(Value = "ROAB")]
     [IsoId("_FdW9IWMdEeexSYCBvAp_qA")]
@@ -138,7 +138,7 @@ public enum LodgingActivity1Code
     
     /// <summary>
     /// Tourist shelter and related lodging.
-    /// Encoded/decoded by serializers as "TOSH".
+    /// Encoded/decoded by serializers as &quot;TOSH&quot;.
     /// </summary>
     [EnumMember(Value = "TOSH")]
     [IsoId("_FrkYQWMdEeexSYCBvAp_qA")]

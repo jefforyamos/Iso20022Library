@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets.
 /// </summary>
 [IsoId("_hOjrQcguEeuGrNSsxk3B0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Dimensions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PositionSetDimensions15
     /// Information describing the reporting counterparty.
     /// </summary>
     [IsoId("_hP-nk8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCtrPty")]
     #endif
+    [IsoXmlTag("RptgCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PositionSetDimensions15
     /// Data specific to other counterparties and related fields.
     /// </summary>
     [IsoId("_hP-nlcguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCtrPty")]
     #endif
+    [IsoXmlTag("OthrCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record PositionSetDimensions15
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>
     [IsoId("_hP-nl8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Portfolio Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPrtflId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollPrtflId")]
+    [IsoSimpleType(IsoSimpleType.Max52Text)]
     [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? CollateralPortfolioIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,12 @@ public partial record PositionSetDimensions15
     /// Flag to identify whether the reported Securities Financing Transaction position contains abnormal values.
     /// </summary>
     [IsoId("_hP-nmcguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outliers Included")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OtlrsIncl")]
     #endif
+    [IsoXmlTag("OtlrsIncl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OutliersIncluded { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

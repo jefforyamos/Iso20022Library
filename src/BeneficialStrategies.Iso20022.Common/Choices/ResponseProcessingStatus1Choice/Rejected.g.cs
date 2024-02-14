@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseProcessingStatus1Choice
     /// The received message or the multipart received report (sent with pagination in multiple messages) is rejected.
     /// </summary>
     [IsoId("_mjD0wIeUEemJ1cSJJmVYRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

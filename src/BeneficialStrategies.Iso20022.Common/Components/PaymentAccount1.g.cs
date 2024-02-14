@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Bank account used by a central counterparty to allow for the convenient settlement of obligations between a central counterparty and a clearing member, typically in commercial bank money.
 /// </summary>
 [IsoId("_gOkuQBXsEeejf-cbr8l5qw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record PaymentAccount1
     /// Specifies the currency of the account
     /// </summary>
     [IsoId("_ps1YcBXsEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record PaymentAccount1
     /// Total value of actual flows to and from clearing members via payment banks in the embedded system in each currency.
     /// </summary>
     [IsoId("_EicI8BXtEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Payment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetPmt")]
     #endif
+    [IsoXmlTag("NetPmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection86 NetPayment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection86 NetPayment { get; init; } 
+    public required AmountAndDirection86 NetPayment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection86 NetPayment { get; init; } 
     #else
@@ -93,19 +89,16 @@ public partial record PaymentAccount1
     /// Number of payment bank account pay‐ins breaching the allowed time between instruction and confirmation. Usage: nil returns to be included for late payment confirmations in all cleared currencies.
     /// </summary>
     [IsoId("_U8pRkBXtEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Late Payment Confirmation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LatePmtConf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("LatePmtConf")]
+    [IsoSimpleType(IsoSimpleType.Max10NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10NumericText LatePaymentConfirmation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LatePaymentConfirmation { get; init; } 
+    public required System.String LatePaymentConfirmation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LatePaymentConfirmation { get; init; } 
     #else

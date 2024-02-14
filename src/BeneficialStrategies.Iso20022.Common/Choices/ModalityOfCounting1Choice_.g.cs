@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ModalityOfCounting1Choice.Code))]
     [KnownType(typeof(ModalityOfCounting1Choice.Proprietary))]
     [IsoId("_ZBJPkK-vEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modality Of Counting 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

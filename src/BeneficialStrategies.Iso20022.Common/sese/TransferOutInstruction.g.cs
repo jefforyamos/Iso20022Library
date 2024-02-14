@@ -27,16 +27,14 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// This record is an implementation of the sese.001.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// The TransferOutInstruction message is sent by an instructing party, or an instructing party's designated agent, to the executing party.
+/// The TransferOutInstruction message is sent by an instructing party, or an instructing party&apos;s designated agent, to the executing party.
 /// This message is used to instruct the delivery of a financial instrument, free of payment, at a given date, to a specified party. This message can be used to instruct the transfer of a financial instrument to an own account or to a third party.
 /// Usage
 /// The TransferOutInstruction message is used by an instructing party to instruct the executing party to withdraw a financial instrument from one account and deliver it to either another account or to a third party.
 /// </summary>
 [Description(@"Scope|The TransferOutInstruction message is sent by an instructing party, or an instructing party's designated agent, to the executing party.|This message is used to instruct the delivery of a financial instrument, free of payment, at a given date, to a specified party. This message can be used to instruct the transfer of a financial instrument to an own account or to a third party.|Usage|The TransferOutInstruction message is used by an instructing party to instruct the executing party to withdraw a financial instrument from one account and deliver it to either another account or to a third party.")]
 [IsoId("_K2NxmNE6Ed-BzquC8wXy7w_-47353492")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Out Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,12 +80,11 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_K2NxmdE6Ed-BzquC8wXy7w_-1535314618")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +97,11 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     /// Reference of the linked message that was previously sent.
     /// </summary>
     [IsoId("_K2NxmtE6Ed-BzquC8wXy7w_1182915315")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +114,11 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_K2Nxm9E6Ed-BzquC8wXy7w_-1011295011")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,16 +131,15 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     /// General information related to the transfer of a financial instrument.
     /// </summary>
     [IsoId("_K2NxnNE6Ed-BzquC8wXy7w_-1636080860")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfDtls")]
     #endif
+    [IsoXmlTag("TrfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Transfer1 TransferDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Transfer1 TransferDetails { get; init; } 
+    public required Transfer1 TransferDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Transfer1 TransferDetails { get; init; } 
     #else
@@ -156,16 +150,15 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     /// Information related to the financial instrument to be withdrawn.
     /// </summary>
     [IsoId("_K2NxndE6Ed-BzquC8wXy7w_1556003366")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmDtls")]
     #endif
+    [IsoXmlTag("FinInstrmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument3 FinancialInstrumentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument3 FinancialInstrumentDetails { get; init; } 
+    public required FinancialInstrument3 FinancialInstrumentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument3 FinancialInstrumentDetails { get; init; } 
     #else
@@ -176,16 +169,15 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     /// Information related to the account from which the financial instrument is to be withdrawn.
     /// </summary>
     [IsoId("_K2XikNE6Ed-BzquC8wXy7w_1846996382")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount10 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount10 AccountDetails { get; init; } 
+    public required InvestmentAccount10 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount10 AccountDetails { get; init; } 
     #else
@@ -196,16 +188,15 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     /// Information related to the receiving side of the transfer.
     /// </summary>
     [IsoId("_K2XikdE6Ed-BzquC8wXy7w_1723243531")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtls")]
     #endif
+    [IsoXmlTag("SttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceiveInformation1 SettlementDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReceiveInformation1 SettlementDetails { get; init; } 
+    public required ReceiveInformation1 SettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReceiveInformation1 SettlementDetails { get; init; } 
     #else
@@ -216,12 +207,11 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_K2XiktE6Ed-BzquC8wXy7w_-406991476")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -234,7 +224,7 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TransferOutInstructionDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TransferOutInstructionDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TransferOutInstructionDocument ToDocument()
     {
@@ -244,7 +234,7 @@ public partial record TransferOutInstruction : IOuterRecord<TransferOutInstructi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferOutInstruction"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TransferOutInstruction&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TransferOutInstructionDocument : IOuterDocument<TransferOutInstruction>
@@ -261,7 +251,7 @@ public partial record TransferOutInstructionDocument : IOuterDocument<TransferOu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TransferOutInstruction"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TransferOutInstruction&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferOutInstruction Message { get; init; }

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPBackTestingResultReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the results of the back test carried out by the central counterparty.")]
 [IsoId("_mLRn0eUTEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Back Testing Result Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CCPBackTestingResultReportV01 : IOuterRecord<CCPBackTestin
     /// Reports the results of the central counterparties production backtesting.
     /// </summary>
     [IsoId("_mLRn2eUTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Monthly Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MnthlyRslt")]
     #endif
+    [IsoXmlTag("MnthlyRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MonthlyResult1 MonthlyResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MonthlyResult1 MonthlyResult { get; init; } 
+    public required MonthlyResult1 MonthlyResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MonthlyResult1 MonthlyResult { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CCPBackTestingResultReportV01 : IOuterRecord<CCPBackTestin
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_mLRn2-UTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record CCPBackTestingResultReportV01 : IOuterRecord<CCPBackTestin
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPBackTestingResultReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPBackTestingResultReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPBackTestingResultReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record CCPBackTestingResultReportV01 : IOuterRecord<CCPBackTestin
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPBackTestingResultReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPBackTestingResultReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPBackTestingResultReportV01Document : IOuterDocument<CCPBackTestingResultReportV01>
@@ -140,7 +136,7 @@ public partial record CCPBackTestingResultReportV01Document : IOuterDocument<CCP
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPBackTestingResultReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPBackTestingResultReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPBackTestingResultReportV01 Message { get; init; }

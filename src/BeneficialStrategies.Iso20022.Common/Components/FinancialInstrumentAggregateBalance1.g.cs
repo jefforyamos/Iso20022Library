@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Aggregated position of holdings held in a securities account for a specified financial instrument.
 /// </summary>
 [IsoId("_1TSje4jiEeONZKAAW4pOaQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Aggregate Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record FinancialInstrumentAggregateBalance1
     /// Date of the line of holding in the statement.
     /// </summary>
     [IsoId("_1TSjfIjiEeONZKAAW4pOaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmDt")]
     #endif
+    [IsoXmlTag("ItmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ItemDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ItemDate { get; init; } 
+    public required System.DateOnly ItemDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ItemDate { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record FinancialInstrumentAggregateBalance1
     /// Balances and sub-balances attributed to the holding.
     /// </summary>
     [IsoId("_SAtY8aCDEeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holdings")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hldgs")]
     #endif
+    [IsoXmlTag("Hldgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentAggregateBalance1Choice_ Holdings { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentAggregateBalance1Choice_ Holdings { get; init; } 
+    public required FinancialInstrumentAggregateBalance1Choice_ Holdings { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentAggregateBalance1Choice_ Holdings { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record FinancialInstrumentAggregateBalance1
     /// Details on the price value, type and source.
     /// </summary>
     [IsoId("_KMa34TywEeSBD_ZW60GwCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price6? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

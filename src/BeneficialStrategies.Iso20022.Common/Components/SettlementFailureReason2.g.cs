@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the reason for the settlement fails as defined in the relevant regulation.
 /// </summary>
 [IsoId("_QHUzx76YEemHTLTzJg7M-A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Failure Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record SettlementFailureReason2
     /// Main reasons for settlement fails during the reporting period.
     /// </summary>
     [IsoId("_QMoKg76YEemHTLTzJg7M-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Main Reasons")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MainRsns")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MainRsns")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2048Text MainReasons { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MainReasons { get; init; } 
+    public required System.String MainReasons { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MainReasons { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record SettlementFailureReason2
     /// Measures to improve settlement efficiency.
     /// </summary>
     [IsoId("_QMoKhb6YEemHTLTzJg7M-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Efficiency Improvement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EffcncyImprvmt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EffcncyImprvmt")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2048Text EfficiencyImprovement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EfficiencyImprovement { get; init; } 
+    public required System.String EfficiencyImprovement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EfficiencyImprovement { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse3Choic
     /// Provides the collateral proposal response for the variation margin and optionally the segregated independent amount.
     /// </summary>
     [IsoId("_sc8-0YpDEeaNTaanBSMWmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Proposal")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse3Choic
         /// Provides the collateral proposal response for the variation margin.
         /// </summary>
         [IsoId("_ssRNMYpDEeaNTaanBSMWmg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Variation Margin")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VartnMrgn")]
         #endif
+        [IsoXmlTag("VartnMrgn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CollateralProposalResponseType3 VariationMargin { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CollateralProposalResponseType3 VariationMargin { get; init; } 
+        public required CollateralProposalResponseType3 VariationMargin { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CollateralProposalResponseType3 VariationMargin { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse3Choic
         /// Provides the collateral proposal response for the segregated independent amount.
         /// </summary>
         [IsoId("_ssRNM4pDEeaNTaanBSMWmg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Segregated Independent Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SgrtdIndpdntAmt")]
         #endif
+        [IsoXmlTag("SgrtdIndpdntAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralProposalResponseType3? SegregatedIndependentAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

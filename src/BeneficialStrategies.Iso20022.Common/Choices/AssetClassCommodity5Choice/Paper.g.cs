@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity5Choice
     /// Paper commodities.
     /// </summary>
     [IsoId("_owQIQbtIEeiLRYqS-r-R-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Paper")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

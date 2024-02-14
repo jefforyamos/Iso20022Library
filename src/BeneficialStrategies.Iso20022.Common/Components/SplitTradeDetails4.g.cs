@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information describing the high level details of a split trade.
 /// </summary>
 [IsoId("_dCfNcQNhEe2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Split Trade Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record SplitTradeDetails4
     /// Provides information on the status of a foreign exchange trade in the system.
     /// </summary>
     [IsoId("_dH88QQNhEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsDtls")]
     #endif
+    [IsoXmlTag("StsDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeData16? StatusDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record SplitTradeDetails4
     /// Amounts of the foreign exchange trade.
     /// </summary>
     [IsoId("_dH88QwNhEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAmts")]
     #endif
+    [IsoXmlTag("TradAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate6 TradeAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountsAndValueDate6 TradeAmounts { get; init; } 
+    public required AmountsAndValueDate6 TradeAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountsAndValueDate6 TradeAmounts { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record SplitTradeDetails4
     /// Exchange rate as agreed by the traders.
     /// </summary>
     [IsoId("_dH88RQNhEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreed Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrdRate")]
     #endif
+    [IsoXmlTag("AgrdRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreedRate3? AgreedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -41,9 +41,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Reject Case Assignment message is sent by a case assignee to a case creator or case assigner to reject a case given to him.|Usage|The Reject Case Assignment message is used to notify the case creator or case assigner the rejection of an assignment by the case assignee in a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|Rejecting a case assignment occurs when the case assignee is unable to trace the original payment instruction or when the case assignee is unable, or does not have authority, to process the assigned case.|The Reject Case Assignment message covers one and only one case at a time. If the case assignee needs to reject several case assignments, then multiple Reject Case Assignment messages must be sent.|The Reject Case Assignment message must be forwarded by all subsequent case assignee(s) until it reaches the case assigner.|The Reject Case Assignment message must not be used in place of a Resolution Of Investigation or Case Status Report message.")]
 [IsoId("_PxiCwtE_Ed-BzquC8wXy7w_-313128527")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reject Case Assignment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record RejectCaseAssignment : IOuterRecord<RejectCaseAssignment,R
     /// Identifies the assignment.
     /// </summary>
     [IsoId("_PxiCw9E_Ed-BzquC8wXy7w_2109597961")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment Assignment { get; init; } 
+    public required CaseAssignment Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment Assignment { get; init; } 
     #else
@@ -108,16 +105,15 @@ public partial record RejectCaseAssignment : IOuterRecord<RejectCaseAssignment,R
     /// Identifies the case.
     /// </summary>
     [IsoId("_PxiCxNE_Ed-BzquC8wXy7w_2125297631")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case Case { get; init; } 
+    public required Case Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case Case { get; init; } 
     #else
@@ -128,16 +124,15 @@ public partial record RejectCaseAssignment : IOuterRecord<RejectCaseAssignment,R
     /// Specifies the reason for not accepting a Case.
     /// </summary>
     [IsoId("_PxiCxdE_Ed-BzquC8wXy7w_-1282168665")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Justification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Justfn")]
     #endif
+    [IsoXmlTag("Justfn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignmentRejectionJustification Justification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignmentRejectionJustification Justification { get; init; } 
+    public required CaseAssignmentRejectionJustification Justification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignmentRejectionJustification Justification { get; init; } 
     #else
@@ -148,7 +143,7 @@ public partial record RejectCaseAssignment : IOuterRecord<RejectCaseAssignment,R
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RejectCaseAssignmentDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RejectCaseAssignmentDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RejectCaseAssignmentDocument ToDocument()
     {
@@ -158,7 +153,7 @@ public partial record RejectCaseAssignment : IOuterRecord<RejectCaseAssignment,R
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RejectCaseAssignment"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RejectCaseAssignment&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RejectCaseAssignmentDocument : IOuterDocument<RejectCaseAssignment>
@@ -175,7 +170,7 @@ public partial record RejectCaseAssignmentDocument : IOuterDocument<RejectCaseAs
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RejectCaseAssignment"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RejectCaseAssignment&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectCaseAssignment Message { get; init; }

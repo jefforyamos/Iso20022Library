@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Capabilities of the ATM terminal.
 /// </summary>
 [IsoId("_uehdQYn6EeShMpas3885ww")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Point Of Interaction Capabilities")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PointOfInteractionCapabilities5
     /// Card reading capabilities of the ATM performing the transaction.
     /// </summary>
     [IsoId("_uqvUUYn6EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Read Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardRdData")]
     #endif
+    [IsoXmlTag("CardRdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading4Code? CardReadData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PointOfInteractionCapabilities5
     /// Card writing capabilities of the terminal performing the transaction.
     /// </summary>
     [IsoId("_UHJrcIn7EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Write Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardWrtData")]
     #endif
+    [IsoXmlTag("CardWrtData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading4Code? CardWriteData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PointOfInteractionCapabilities5
     /// Customer and card authentication capabilities available at the ATM.
     /// </summary>
     [IsoId("_uqvUU4n6EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Authntcn")]
     #endif
+    [IsoXmlTag("Authntcn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderVerificationCapability3Code? Authentication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,12 @@ public partial record PointOfInteractionCapabilities5
     /// Maximum number of digits the ATM is able to accept when the cardholder enters its PIN.
     /// </summary>
     [IsoId("_uqvUVYn6EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Length Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PINLngthCpblties")]
     #endif
+    [IsoXmlTag("PINLngthCpblties")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PINLengthCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,12 @@ public partial record PointOfInteractionCapabilities5
     /// Maximum number of characters of the approval code the ATM is able to manage.
     /// </summary>
     [IsoId("_uqvUV4n6EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Approval Code Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApprvlCdLngth")]
     #endif
+    [IsoXmlTag("ApprvlCdLngth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ApprovalCodeLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +129,12 @@ public partial record PointOfInteractionCapabilities5
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// </summary>
     [IsoId("_XMgnoC7zEeWc7f-D6ByqMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Max Script Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MxScrptLngth")]
     #endif
+    [IsoXmlTag("MxScrptLngth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaxScriptLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +147,12 @@ public partial record PointOfInteractionCapabilities5
     /// True if the ATM is able to capture card.
     /// </summary>
     [IsoId("_uqvUWYn6EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Capture Capable")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardCaptrCpbl")]
     #endif
+    [IsoXmlTag("CardCaptrCpbl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

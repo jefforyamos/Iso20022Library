@@ -21,7 +21,7 @@ public enum InvestorType3Code
 {
     /// <summary>
     /// Investor is a retail investor.
-    /// Encoded/decoded by serializers as "RETL".
+    /// Encoded/decoded by serializers as &quot;RETL&quot;.
     /// </summary>
     [EnumMember(Value = "RETL")]
     [IsoId("_KSbzAddkEeibyvRfU9vJ7w")]
@@ -30,7 +30,7 @@ public enum InvestorType3Code
     
     /// <summary>
     /// Investor is professional or professional per se.
-    /// Encoded/decoded by serializers as "PRF2".
+    /// Encoded/decoded by serializers as &quot;PRF2&quot;.
     /// </summary>
     [EnumMember(Value = "PRF2")]
     [IsoId("_LvkfYddkEeibyvRfU9vJ7w")]
@@ -39,7 +39,7 @@ public enum InvestorType3Code
     
     /// <summary>
     /// Investor is neither professional or retail.
-    /// Encoded/decoded by serializers as "NEI1".
+    /// Encoded/decoded by serializers as &quot;NEI1&quot;.
     /// </summary>
     [EnumMember(Value = "NEI1")]
     [IsoId("_Mq77cddkEeibyvRfU9vJ7w")]
@@ -48,7 +48,7 @@ public enum InvestorType3Code
     
     /// <summary>
     /// Investor is both professional and retail.
-    /// Encoded/decoded by serializers as "BOT2".
+    /// Encoded/decoded by serializers as &quot;BOT2&quot;.
     /// </summary>
     [EnumMember(Value = "BOT2")]
     [IsoId("_NgC-gddkEeibyvRfU9vJ7w")]

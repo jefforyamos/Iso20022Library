@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Breakdown of cash movements out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
 /// </summary>
 [IsoId("_SjDJlNp-Ed-ak6NoX_4Aeg_-2020690769")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Cash Out Breakdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,12 +52,12 @@ public partial record FundCashOutBreakdown2
     /// Amount of cash flow out, expressed as an amount of money.
     /// </summary>
     [IsoId("_SjDJldp-Ed-ak6NoX_4Aeg_-2019770158")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,12 +70,11 @@ public partial record FundCashOutBreakdown2
     /// Amount of the cash flow out, expressed as a number of units.
     /// </summary>
     [IsoId("_SjDJltp-Ed-ak6NoX_4Aeg_-2019769690")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitsNb")]
     #endif
+    [IsoXmlTag("UnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +87,12 @@ public partial record FundCashOutBreakdown2
     /// Indicates whether the cash flow is an item that did not appear on the previously sent report, eg, because it was received close to cut-off time.
     /// </summary>
     [IsoId("_SjDJl9p-Ed-ak6NoX_4Aeg_-2019769305")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Amount Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewAmtInd")]
     #endif
+    [IsoXmlTag("NewAmtInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NewAmountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +105,15 @@ public partial record FundCashOutBreakdown2
     /// Breakdown of the cash movements out of a fund by transaction type, eg, redemption, switch-out.
     /// </summary>
     [IsoId("_SjDJmNp-Ed-ak6NoX_4Aeg_881142863")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Fund Transaction Out Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtFndTxOutTp")]
     #endif
+    [IsoXmlTag("InvstmtFndTxOutTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentFundTransactionOutType1Code InvestmentFundTransactionOutType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentFundTransactionOutType1Code InvestmentFundTransactionOutType { get; init; } 
+    public required InvestmentFundTransactionOutType1Code InvestmentFundTransactionOutType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentFundTransactionOutType1Code InvestmentFundTransactionOutType { get; init; } 
     #else
@@ -128,19 +124,17 @@ public partial record FundCashOutBreakdown2
     /// Breakdown of the cash movements out of a fund by transaction type, eg, redemption, switch-out.
     /// </summary>
     [IsoId("_SjM6kNp-Ed-ak6NoX_4Aeg_881142898")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Investment Fund Transaction Out Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedInvstmtFndTxOutTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedInvstmtFndTxOutTp")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedInvestmentFundTransactionOutType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedInvestmentFundTransactionOutType { get; init; } 
+    public required System.String ExtendedInvestmentFundTransactionOutType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedInvestmentFundTransactionOutType { get; init; } 
     #else
@@ -151,16 +145,15 @@ public partial record FundCashOutBreakdown2
     /// Breakdown of the cash movements into a fund by order type, eg, order by quantity of units or amount of money.
     /// </summary>
     [IsoId("_SjM6kdp-Ed-ak6NoX_4Aeg_881143175")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Order Quantity Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlOrdrQtyTp")]
     #endif
+    [IsoXmlTag("OrgnlOrdrQtyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderQuantityType2Code OriginalOrderQuantityType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderQuantityType2Code OriginalOrderQuantityType { get; init; } 
+    public required OrderQuantityType2Code OriginalOrderQuantityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderQuantityType2Code OriginalOrderQuantityType { get; init; } 
     #else
@@ -171,19 +164,17 @@ public partial record FundCashOutBreakdown2
     /// Breakdown of the cash movements into a fund by transaction type, eg, subscription, switch-in.
     /// </summary>
     [IsoId("_SjM6ktp-Ed-ak6NoX_4Aeg_881143235")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Original Order Quantity Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedOrgnlOrdrQtyTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedOrgnlOrdrQtyTp")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedOriginalOrderQuantityType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedOriginalOrderQuantityType { get; init; } 
+    public required System.String ExtendedOriginalOrderQuantityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedOriginalOrderQuantityType { get; init; } 
     #else
@@ -194,12 +185,11 @@ public partial record FundCashOutBreakdown2
     /// Charge for the placement of an order.
     /// </summary>
     [IsoId("_SjM6k9p-Ed-ak6NoX_4Aeg_2117714463")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgDtls")]
     #endif
+    [IsoXmlTag("ChrgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge16? ChargeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +202,11 @@ public partial record FundCashOutBreakdown2
     /// Information related to the commission applied to an order, eg, back-end or front-end commission.
     /// </summary>
     [IsoId("_SjM6lNp-Ed-ak6NoX_4Aeg_-2019767882")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnDtls")]
     #endif
+    [IsoXmlTag("ComssnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission9? CommissionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

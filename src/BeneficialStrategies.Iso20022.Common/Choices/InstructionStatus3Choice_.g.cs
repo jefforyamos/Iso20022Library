@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionStatus3Choice.GlobalInstructionStatus))]
     [KnownType(typeof(InstructionStatus3Choice.DetailedInstructionStatus))]
     [IsoId("_RCpGwtp-Ed-ak6NoX_4Aeg_1720173069")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Status 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

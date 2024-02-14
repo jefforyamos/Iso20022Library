@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Distribution strategy criteria.
 /// </summary>
 [IsoId("_XogS0DcfEeidBoT_PugKiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Distribution Strategy")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record DistributionStrategy1
     /// Specifies to whom the product can be sold on an execution-only basis. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06010.
     /// </summary>
     [IsoId("_gJ328DcfEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Only")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnOnly")]
     #endif
+    [IsoXmlTag("ExctnOnly")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? ExecutionOnly { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record DistributionStrategy1
     /// Specifies to whom the product can be sold with an appropriateness test or to a non-advised service. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06020.
     /// </summary>
     [IsoId("_pbLDMDcfEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution With Appropriateness Test Or Non Advised Services")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnWthApprprtnssTstOrNonAdvsdSvcs")]
     #endif
+    [IsoXmlTag("ExctnWthApprprtnssTstOrNonAdvsdSvcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? ExecutionWithAppropriatenessTestOrNonAdvisedServices { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record DistributionStrategy1
     /// Specifies to whom the product can be sold if investment advice has been provided. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06030.
     /// </summary>
     [IsoId("_s0S7IDcfEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAdvc")]
     #endif
+    [IsoXmlTag("InvstmtAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? InvestmentAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record DistributionStrategy1
     /// Specifies to whom the product can be sold if portfolio management has been provided. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06040.
     /// </summary>
     [IsoId("_wMPuYDcfEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Portfolio Management")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtflMgmt")]
     #endif
+    [IsoXmlTag("PrtflMgmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? PortfolioManagement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record DistributionStrategy1
     /// Other distribution strategy.
     /// </summary>
     [IsoId("_zDR3kD8PEeih8-WNbS6hbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherDistributionStrategy1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the attributes of the party, which are / are being updated.
 /// </summary>
 [IsoId("_oZdVsPH1Eeaz_YGUGLjP6A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Update")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record PartyUpdate1
     /// Unique identifier of a record in a message used as part of error management and status advice messages.
     /// </summary>
     [IsoId("_3j8_ITbvEeeYhaZ6bvG1Xg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record PartyUpdate1
     /// Unique identification of the party.
     /// </summary>
     [IsoId("_7OkLIPmjEeak-cGuSQTPwg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification136 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification136 Identification { get; init; } 
+    public required PartyIdentification136 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification136 Identification { get; init; } 
     #else
@@ -93,12 +88,11 @@ public partial record PartyUpdate1
     /// Unique identification of the party, as previously defined.
     /// </summary>
     [IsoId("_pemdMEn3EeexwKvkdw4OGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsId")]
     #endif
+    [IsoXmlTag("PrvsId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? PreviousIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +105,15 @@ public partial record PartyUpdate1
     /// Any other additional information about the party.
     /// </summary>
     [IsoId("_a3_3AvmkEeak-cGuSQTPwg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyDetail1 Other { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyDetail1 Other { get; init; } 
+    public required PartyDetail1 Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyDetail1 Other { get; init; } 
     #else
@@ -131,12 +124,11 @@ public partial record PartyUpdate1
     /// Information about decision taken by a relevant institution concerning the party.
     /// </summary>
     [IsoId("_IffBgPH3Eeaz_YGUGLjP6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     public StatusDetail1? Status { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _IffBgPH3Eeaz_YGUGLjP6A
     
@@ -144,12 +136,11 @@ public partial record PartyUpdate1
     /// Period of time when the associated record is technically valid.
     /// </summary>
     [IsoId("_BoOKUTb5EeeYhaZ6bvG1Xg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Validity Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechVldtyPrd")]
     #endif
+    [IsoXmlTag("TechVldtyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? TechnicalValidityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +153,11 @@ public partial record PartyUpdate1
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_5O9IYTbvEeeYhaZ6bvG1Xg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

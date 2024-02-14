@@ -21,7 +21,7 @@ public enum FrequencyGranularityType1Code
 {
     /// <summary>
     /// Event takes place at the end of each month or period of one month.
-    /// Encoded/decoded by serializers as "EMON".
+    /// Encoded/decoded by serializers as &quot;EMON&quot;.
     /// </summary>
     [EnumMember(Value = "EMON")]
     [IsoId("_Bh82kTy6EeS4E7Ac8_OV3g")]
@@ -30,7 +30,7 @@ public enum FrequencyGranularityType1Code
     
     /// <summary>
     /// Event takes place at the end of each week.
-    /// Encoded/decoded by serializers as "EWEK".
+    /// Encoded/decoded by serializers as &quot;EWEK&quot;.
     /// </summary>
     [EnumMember(Value = "EWEK")]
     [IsoId("_iKUaEUimEeSlHoYg_EudVQ")]
@@ -39,7 +39,7 @@ public enum FrequencyGranularityType1Code
     
     /// <summary>
     /// Event takes place at the end of each six months (or two times a year).
-    /// Encoded/decoded by serializers as "ESEM".
+    /// Encoded/decoded by serializers as &quot;ESEM&quot;.
     /// </summary>
     [EnumMember(Value = "ESEM")]
     [IsoId("_iRnU4UimEeSlHoYg_EudVQ")]
@@ -48,7 +48,7 @@ public enum FrequencyGranularityType1Code
     
     /// <summary>
     /// Event takes place at the end of each period of three months (or four times a year).
-    /// Encoded/decoded by serializers as "EQRT".
+    /// Encoded/decoded by serializers as &quot;EQRT&quot;.
     /// </summary>
     [EnumMember(Value = "EQRT")]
     [IsoId("_iZzAgUimEeSlHoYg_EudVQ")]
@@ -57,7 +57,7 @@ public enum FrequencyGranularityType1Code
     
     /// <summary>
     /// Event takes place at the end of each two weeks.
-    /// Encoded/decoded by serializers as "EFRT".
+    /// Encoded/decoded by serializers as &quot;EFRT&quot;.
     /// </summary>
     [EnumMember(Value = "EFRT")]
     [IsoId("_ih07IUimEeSlHoYg_EudVQ")]
@@ -66,7 +66,7 @@ public enum FrequencyGranularityType1Code
     
     /// <summary>
     /// Event takes place at the end of each day.
-    /// Encoded/decoded by serializers as "EDAY".
+    /// Encoded/decoded by serializers as &quot;EDAY&quot;.
     /// </summary>
     [EnumMember(Value = "EDAY")]
     [IsoId("_iqnDsUimEeSlHoYg_EudVQ")]
@@ -75,7 +75,7 @@ public enum FrequencyGranularityType1Code
     
     /// <summary>
     /// Event takes place at the end of each year.
-    /// Encoded/decoded by serializers as "ENDY".
+    /// Encoded/decoded by serializers as &quot;ENDY&quot;.
     /// </summary>
     [EnumMember(Value = "ENDY")]
     [IsoId("_qoAfQUrvEeSHP9pzU4nIpA")]

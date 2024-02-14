@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement1Choice
     /// Identify the status advice and the transaction for which the status advice was requested.
     /// </summary>
     [IsoId("_QqNYotp-Ed-ak6NoX_4Aeg_-405761909")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Advice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement1Choice
         /// Number used to identify a message or document.
         /// </summary>
         [IsoId("_Tg5R4Np-Ed-ak6NoX_4Aeg_171158802")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nb")]
         #endif
+        [IsoXmlTag("Nb")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DocumentNumber1Choice_ Number { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DocumentNumber1Choice_ Number { get; init; } 
+        public required DocumentNumber1Choice_ Number { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DocumentNumber1Choice_ Number { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement1Choice
         /// References of transaction for which the status is requested.
         /// </summary>
         [IsoId("_Tg5R4dp-Ed-ak6NoX_4Aeg_-266260922")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("References")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Refs")]
         #endif
+        [IsoXmlTag("Refs")]
         public Identification2? References { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _Tg5R4dp-Ed-ak6NoX_4Aeg_-266260922
         

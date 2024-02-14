@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// </summary>
 [Description(@"Scope|The ForeignExchangeTradeWithdrawalNotification message is sent by a central system to notify the withdrawal of a foreign exchange trade which was previously notified to the receiver as an alleged trade.|Usage|The ForeignExchangeTradeWithdrawalNotification message is used to confirm the cancellation of a previously notified trade.")]
 [IsoId("_K7tXYS53EeKwTrPDLMbLxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange Trade Withdrawal Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,19 +77,17 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     /// Identification of the present message assigned by the party issuing the message. This identification must be unique amongst all messages of same type sent by the same party.
     /// </summary>
     [IsoId("_oEmmtzqMEeKXK8qRvydwAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageIdentification { get; init; } 
+    public required System.String MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageIdentification { get; init; } 
     #else
@@ -102,19 +98,17 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     /// Reference to the unique system identification assigned to the trade by the central matching system.
     /// </summary>
     [IsoId("_g9h2VTqMEeKXK8qRvydwAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching System Unique Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchgSysUnqRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MtchgSysUnqRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MatchingSystemUniqueReference { get; init; } 
+    public required System.String MatchingSystemUniqueReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MatchingSystemUniqueReference { get; init; } 
     #else
@@ -125,12 +119,11 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     /// Reason for the withdrawal notification.
     /// </summary>
     [IsoId("_eHZflZEkEeKcLcxonNWTXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withdrawal Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WdrwlRsn")]
     #endif
+    [IsoXmlTag("WdrwlRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WithdrawalReason1? WithdrawalReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,15 +136,12 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
     [IsoId("_QVqk05TkEeKShbaq9ixROw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Session Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSsnIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SttlmSsnIdr")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +154,11 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_GJJnaS53EeKwTrPDLMbLxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,7 +171,7 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ForeignExchangeTradeWithdrawalNotificationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ForeignExchangeTradeWithdrawalNotificationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ForeignExchangeTradeWithdrawalNotificationV03Document ToDocument()
     {
@@ -192,7 +181,7 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeWithdrawalNotificationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ForeignExchangeTradeWithdrawalNotificationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ForeignExchangeTradeWithdrawalNotificationV03Document : IOuterDocument<ForeignExchangeTradeWithdrawalNotificationV03>
@@ -209,7 +198,7 @@ public partial record ForeignExchangeTradeWithdrawalNotificationV03Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ForeignExchangeTradeWithdrawalNotificationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ForeignExchangeTradeWithdrawalNotificationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForeignExchangeTradeWithdrawalNotificationV03 Message { get; init; }

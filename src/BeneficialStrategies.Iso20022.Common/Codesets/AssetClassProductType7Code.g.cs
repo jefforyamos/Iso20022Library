@@ -21,7 +21,7 @@ public enum AssetClassProductType7Code
 {
     /// <summary>
     /// Commodity of type metal.
-    /// Encoded/decoded by serializers as "METL".
+    /// Encoded/decoded by serializers as &quot;METL&quot;.
     /// </summary>
     [EnumMember(Value = "METL")]
     [IsoId("_n9PtcQnyEeWnS-yHF1QhNQ")]

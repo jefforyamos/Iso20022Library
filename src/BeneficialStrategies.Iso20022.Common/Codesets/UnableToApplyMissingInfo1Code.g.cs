@@ -20,7 +20,7 @@ public enum UnableToApplyMissingInfo1Code
 {
     /// <summary>
     /// RemittanceInformation is missing.
-    /// Encoded/decoded by serializers as "MS01".
+    /// Encoded/decoded by serializers as &quot;MS01&quot;.
     /// </summary>
     [EnumMember(Value = "MS01")]
     [IsoId("_Y1YqVdp-Ed-ak6NoX_4Aeg_-1626866520")]
@@ -29,7 +29,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// SenderToReceiverInformation is missing.
-    /// Encoded/decoded by serializers as "MS02".
+    /// Encoded/decoded by serializers as &quot;MS02&quot;.
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_Y1YqVtp-Ed-ak6NoX_4Aeg_-1626866194")]
@@ -38,7 +38,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// Debtor is missing.
-    /// Encoded/decoded by serializers as "MS03".
+    /// Encoded/decoded by serializers as &quot;MS03&quot;.
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_Y1YqV9p-Ed-ak6NoX_4Aeg_-1626866159")]
@@ -47,7 +47,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// DebtorAccount is missing.
-    /// Encoded/decoded by serializers as "MS04".
+    /// Encoded/decoded by serializers as &quot;MS04&quot;.
     /// </summary>
     [EnumMember(Value = "MS04")]
     [IsoId("_Y1YqWNp-Ed-ak6NoX_4Aeg_-1626866134")]
@@ -56,7 +56,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// FirstAgent is missing.
-    /// Encoded/decoded by serializers as "MS05".
+    /// Encoded/decoded by serializers as &quot;MS05&quot;.
     /// </summary>
     [EnumMember(Value = "MS05")]
     [IsoId("_Y1YqWdp-Ed-ak6NoX_4Aeg_-1626866099")]
@@ -65,7 +65,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// Amount is missing.
-    /// Encoded/decoded by serializers as "MS06".
+    /// Encoded/decoded by serializers as &quot;MS06&quot;.
     /// </summary>
     [EnumMember(Value = "MS06")]
     [IsoId("_Y1ibUNp-Ed-ak6NoX_4Aeg_-1626866057")]
@@ -74,7 +74,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// Nostro_VostroAccount is missing.
-    /// Encoded/decoded by serializers as "MS07".
+    /// Encoded/decoded by serializers as &quot;MS07&quot;.
     /// </summary>
     [EnumMember(Value = "MS07")]
     [IsoId("_Y1ibUdp-Ed-ak6NoX_4Aeg_-1626866022")]
@@ -83,7 +83,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// Intermediary is missing.
-    /// Encoded/decoded by serializers as "MS08".
+    /// Encoded/decoded by serializers as &quot;MS08&quot;.
     /// </summary>
     [EnumMember(Value = "MS08")]
     [IsoId("_Y1ibUtp-Ed-ak6NoX_4Aeg_-1626865979")]
@@ -92,7 +92,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// ReimbursementAgent (53) is missing.
-    /// Encoded/decoded by serializers as "MS09".
+    /// Encoded/decoded by serializers as &quot;MS09&quot;.
     /// </summary>
     [EnumMember(Value = "MS09")]
     [IsoId("_Y1ibU9p-Ed-ak6NoX_4Aeg_-1626865702")]
@@ -101,7 +101,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// ReimbursementAgent (54) is missing.
-    /// Encoded/decoded by serializers as "MS10".
+    /// Encoded/decoded by serializers as &quot;MS10&quot;.
     /// </summary>
     [EnumMember(Value = "MS10")]
     [IsoId("_Y1ibVNp-Ed-ak6NoX_4Aeg_-1626865667")]
@@ -110,7 +110,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// ReimbursementAgent (55) is missing.
-    /// Encoded/decoded by serializers as "MS11".
+    /// Encoded/decoded by serializers as &quot;MS11&quot;.
     /// </summary>
     [EnumMember(Value = "MS11")]
     [IsoId("_Y1ibVdp-Ed-ak6NoX_4Aeg_-1626865632")]
@@ -119,7 +119,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// Creditor is missing.
-    /// Encoded/decoded by serializers as "MS12".
+    /// Encoded/decoded by serializers as &quot;MS12&quot;.
     /// </summary>
     [EnumMember(Value = "MS12")]
     [IsoId("_Y1ibVtp-Ed-ak6NoX_4Aeg_-1626865590")]
@@ -128,7 +128,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// CreditorAccount is missing.
-    /// Encoded/decoded by serializers as "MS13".
+    /// Encoded/decoded by serializers as &quot;MS13&quot;.
     /// </summary>
     [EnumMember(Value = "MS13")]
     [IsoId("_Y1ibV9p-Ed-ak6NoX_4Aeg_-1626865247")]
@@ -137,7 +137,7 @@ public enum UnableToApplyMissingInfo1Code
     
     /// <summary>
     /// Indicates the payment instruction (MT103) is missing.
-    /// Encoded/decoded by serializers as "MS14".
+    /// Encoded/decoded by serializers as &quot;MS14&quot;.
     /// </summary>
     [EnumMember(Value = "MS14")]
     [IsoId("_Y1ibWNp-Ed-ak6NoX_4Aeg_-1299769718")]

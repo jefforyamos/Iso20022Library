@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Proprietary quantity format.
 /// </summary>
 [IsoId("_3XncoTq5EeWQ1Y7f8kds2A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record ProprietaryQuantity7
     /// Sign of the quantity of security.
     /// </summary>
     [IsoId("_3jqUlTq5EeWQ1Y7f8kds2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Long Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtLngPos")]
     #endif
+    [IsoXmlTag("ShrtLngPos")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ShortLong1Code? ShortLongPosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,16 +68,16 @@ public partial record ProprietaryQuantity7
     /// Provides the proprietary quantity with a decimal number.
     /// </summary>
     [IsoId("_3jqUlzq5EeWQ1Y7f8kds2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Quantity { get; init; } 
+    public required System.UInt64 Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Quantity { get; init; } 
     #else
@@ -91,19 +88,16 @@ public partial record ProprietaryQuantity7
     /// Identifies the type of proprietary quantity reported.
     /// </summary>
     [IsoId("_3jqUmTq5EeWQ1Y7f8kds2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("QtyTp")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericText QuantityType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String QuantityType { get; init; } 
+    public required System.String QuantityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String QuantityType { get; init; } 
     #else
@@ -114,19 +108,17 @@ public partial record ProprietaryQuantity7
     /// Provides information related to issuer in free format.
     /// </summary>
     [IsoId("_3jqUmzq5EeWQ1Y7f8kds2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Issuer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Issuer { get; init; } 
+    public required System.String Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Issuer { get; init; } 
     #else
@@ -137,15 +129,13 @@ public partial record ProprietaryQuantity7
     /// Name of the identification scheme.
     /// </summary>
     [IsoId("_3jqUozq5EeWQ1Y7f8kds2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scheme Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchmeNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SchmeNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SchemeName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

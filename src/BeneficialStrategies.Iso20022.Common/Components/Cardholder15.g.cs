@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unprotected sensitive detailed information about the cardholder.
 /// </summary>
 [IsoId("_91eHMEarEeeIjf8aP9KbJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cardholder")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Cardholder15
     /// Contains the registered cardholder name that issuer knows to be correct.
     /// </summary>
     [IsoId("_Ozg8sEasEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrNm")]
     #endif
+    [IsoXmlTag("CrdhldrNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderName1? CardholderName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +62,11 @@ public partial record Cardholder15
     /// ISO 8583:2003 bit 51 (TLV tag 03/dataset 73)
     /// </summary>
     [IsoId("_Wy6cMEasEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Credentials1? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +79,11 @@ public partial record Cardholder15
     /// Complete address of the cardholder.
     /// </summary>
     [IsoId("_mALlsEauEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address1? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +99,11 @@ public partial record Cardholder15
     /// ISO 8583:2003 bit 51 (TLV tag 02/dataset 72)
     /// </summary>
     [IsoId("_VXD3MJjHEeeMBq7G6mQ32Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctInf")]
     #endif
+    [IsoXmlTag("CtctInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contact1? ContactInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +116,12 @@ public partial record Cardholder15
     /// Date of birth of the party.
     /// </summary>
     [IsoId("_ZM4VARqYEeqH1IQNpbVpEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfBirth")]
     #endif
+    [IsoXmlTag("DtOfBirth")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

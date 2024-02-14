@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Clearing circuits information.
 /// </summary>
 [IsoId("_dWs4gB9zEeapDZRA0Hb6ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing Circuits")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -58,16 +56,15 @@ public partial record ClearingCircuits1
     /// Clearing scheme used.
     /// </summary>
     [IsoId("_lHJ9EB9zEeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Circuit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrCrct")]
     #endif
+    [IsoXmlTag("ClrCrct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClearingScheme1Choice_ ClearingCircuit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ClearingScheme1Choice_ ClearingCircuit { get; init; } 
+    public required ClearingScheme1Choice_ ClearingCircuit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ClearingScheme1Choice_ ClearingCircuit { get; init; } 
     #else
@@ -78,16 +75,16 @@ public partial record ClearingCircuits1
     /// Indicates whether the limits can be set for the external payment system.
     /// </summary>
     [IsoId("_s5xIUB90EeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Claim Limit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClmLmtInd")]
     #endif
+    [IsoXmlTag("ClmLmtInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ClaimLimitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ClaimLimitIndicator { get; init; } 
+    public required System.String ClaimLimitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ClaimLimitIndicator { get; init; } 
     #else
@@ -98,19 +95,17 @@ public partial record ClearingCircuits1
     /// Short name of the clearing scheme.
     /// </summary>
     [IsoId("_3LyKsB90EeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Scheme Short Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSchmeShrtNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClrSchmeShrtNm")]
+    [IsoSimpleType(IsoSimpleType.Max40Text)]
     [StringLength(maximumLength: 40 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax40Text ClearingSchemeShortName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ClearingSchemeShortName { get; init; } 
+    public required System.String ClearingSchemeShortName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ClearingSchemeShortName { get; init; } 
     #else
@@ -121,19 +116,17 @@ public partial record ClearingCircuits1
     /// Long name of the clearing scheme.
     /// </summary>
     [IsoId("_DkXQ8B91EeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Scheme Long Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSchmeLngNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClrSchmeLngNm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text ClearingSchemeLongName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ClearingSchemeLongName { get; init; } 
+    public required System.String ClearingSchemeLongName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ClearingSchemeLongName { get; init; } 
     #else
@@ -144,16 +137,16 @@ public partial record ClearingCircuits1
     /// Indicates whether all or nothing rule is in effect.
     /// </summary>
     [IsoId("_i_ZUcB91EeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Or Nothing Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllOrNthgInd")]
     #endif
+    [IsoXmlTag("AllOrNthgInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AllOrNothingIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AllOrNothingIndicator { get; init; } 
+    public required System.String AllOrNothingIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AllOrNothingIndicator { get; init; } 
     #else
@@ -164,16 +157,15 @@ public partial record ClearingCircuits1
     /// Guarantee funds details.
     /// </summary>
     [IsoId("_8zngcB91EeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guarantee Funds")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntFnds")]
     #endif
+    [IsoXmlTag("GrntFnds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GuaranteeFunds1 GuaranteeFunds { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GuaranteeFunds1 GuaranteeFunds { get; init; } 
+    public required GuaranteeFunds1 GuaranteeFunds { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GuaranteeFunds1 GuaranteeFunds { get; init; } 
     #else
@@ -184,16 +176,15 @@ public partial record ClearingCircuits1
     /// Clearing account identifier.
     /// </summary>
     [IsoId("_UjoHEB94EeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrAcct")]
     #endif
+    [IsoXmlTag("ClrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount24 ClearingAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount24 ClearingAccount { get; init; } 
+    public required CashAccount24 ClearingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount24 ClearingAccount { get; init; } 
     #else
@@ -204,16 +195,15 @@ public partial record ClearingCircuits1
     /// Identification of the clearing account owner.
     /// </summary>
     [IsoId("_fJw_UB94EeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrAcctOwnr")]
     #endif
+    [IsoXmlTag("ClrAcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification9 ClearingAccountOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstitutionIdentification9 ClearingAccountOwner { get; init; } 
+    public required FinancialInstitutionIdentification9 ClearingAccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstitutionIdentification9 ClearingAccountOwner { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains encrypted data and the attributes used to encrypt the data using the ISO 13492 methods for data encryption.  The encryption key is not included in the message with this method.
 /// </summary>
 [IsoId("_JP9iYD6UEeq_lLaSkIVjTQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Encrypted Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Control field for values.
     /// </summary>
     [IsoId("_V_GHcD6UEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Control")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctrl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Ctrl")]
+    [IsoSimpleType(IsoSimpleType.Exact1HexBinaryText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact1HexBinaryText? Control { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,15 +62,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Key-set identifier for usage.
     /// </summary>
     [IsoId("_lDTGcD6UEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Set Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeySetIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("KeySetIdr")]
+    [IsoSimpleType(IsoSimpleType.Max8NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8NumericText? KeySetIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +81,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Derived information or Device ID and Transaction Counter for more information.
     /// </summary>
     [IsoId("_urqu4D6UEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derived Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrvdInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DrvdInf")]
+    [IsoSimpleType(IsoSimpleType.Max32HexBinaryText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax32HexBinaryText? DerivedInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,15 +100,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Algorithm field for values.
     /// </summary>
     [IsoId("_0fAmgD6UEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Algo")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,15 +119,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Key length field for value to use.
     /// </summary>
     [IsoId("_-EU68D6UEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeyLngth")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("KeyLngth")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? KeyLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,15 +138,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Key protection field for values.
     /// </summary>
     [IsoId("_JzhF8D6VEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Protection")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeyPrtcn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("KeyPrtcn")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? KeyProtection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,15 +157,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Key index for more information.
     /// </summary>
     [IsoId("_PGI2ID6VEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeyIndx")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("KeyIndx")]
+    [IsoSimpleType(IsoSimpleType.Max5NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? KeyIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,15 +176,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Padding method field for values.
     /// </summary>
     [IsoId("_XLGyID6VEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Padding Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PddgMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PddgMtd")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? PaddingMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,15 +195,12 @@ public partial record EncryptedData1
     /// See ISO 13492 Encrypted data format field for values.
     /// </summary>
     [IsoId("_gh_pAD6VEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Data Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdDataFrmt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NcrptdDataFrmt")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? EncryptedDataFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +213,11 @@ public partial record EncryptedData1
     /// Encrypted data element information.
     /// </summary>
     [IsoId("_r673MD6VEeq_lLaSkIVjTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Data Element")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdDataElmt")]
     #endif
+    [IsoXmlTag("NcrptdDataElmt")]
     public EncryptedDataElement1? EncryptedDataElement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _r673MD6VEeq_lLaSkIVjTQ
     

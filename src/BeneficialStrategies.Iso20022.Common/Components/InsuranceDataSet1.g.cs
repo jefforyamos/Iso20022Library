@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Formal document used to record a fact and used as proof of the fact that goods have been insured under an insurance policy.
 /// </summary>
 [IsoId("_Tm2v9tp-Ed-ak6NoX_4Aeg_888710434")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Insurance Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,16 +55,15 @@ public partial record InsuranceDataSet1
     /// Identifies the insurancedata set.
     /// </summary>
     [IsoId("_Tm2v99p-Ed-ak6NoX_4Aeg_-1099246738")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetId")]
     #endif
+    [IsoXmlTag("DataSetId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    public required DocumentIdentification1 DataSetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification1 DataSetIdentification { get; init; } 
     #else
@@ -77,16 +74,15 @@ public partial record InsuranceDataSet1
     /// Issuer of the certificate, typically the insurance company or its agent.
     /// </summary>
     [IsoId("_Tm2v-Np-Ed-ak6NoX_4Aeg_1216560686")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Issuer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification26 Issuer { get; init; } 
+    public required PartyIdentification26 Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification26 Issuer { get; init; } 
     #else
@@ -97,16 +93,16 @@ public partial record InsuranceDataSet1
     /// Issue date of the document.
     /// </summary>
     [IsoId("_Tm2v-dp-Ed-ak6NoX_4Aeg_1545335745")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly IssueDate { get; init; } 
+    public required System.DateOnly IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly IssueDate { get; init; } 
     #else
@@ -117,12 +113,12 @@ public partial record InsuranceDataSet1
     /// Date upon which cover under an insurance policy becomes effective.
     /// </summary>
     [IsoId("_Tm2v-tp-Ed-ak6NoX_4Aeg_1571192429")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDt")]
     #endif
+    [IsoXmlTag("FctvDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,12 +131,11 @@ public partial record InsuranceDataSet1
     /// Place where the insurance certificate was issued.
     /// </summary>
     [IsoId("_Tm2v-9p-Ed-ak6NoX_4Aeg_1690329886")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Issue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfIsse")]
     #endif
+    [IsoXmlTag("PlcOfIsse")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress5? PlaceOfIssue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,19 +148,17 @@ public partial record InsuranceDataSet1
     /// Unique identifier of the document.
     /// </summary>
     [IsoId("_Tm2v_Np-Ed-ak6NoX_4Aeg_1786375668")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Document Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncDocId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InsrncDocId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InsuranceDocumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InsuranceDocumentIdentification { get; init; } 
+    public required System.String InsuranceDocumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InsuranceDocumentIdentification { get; init; } 
     #else
@@ -176,12 +169,11 @@ public partial record InsuranceDataSet1
     /// Transport information relative to the goods that are insured under the insurance policy.
     /// </summary>
     [IsoId("_Tm_54Np-Ed-ak6NoX_4Aeg_-1469580210")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trnsprt")]
     #endif
+    [IsoXmlTag("Trnsprt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SingleTransport3? Transport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,16 +186,16 @@ public partial record InsuranceDataSet1
     /// Value of the goods as insured under the insurance policy.
     /// </summary>
     [IsoId("_Tm_54dp-Ed-ak6NoX_4Aeg_-397424452")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insured Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrdAmt")]
     #endif
+    [IsoXmlTag("InsrdAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount InsuredAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal InsuredAmount { get; init; } 
+    public required System.Decimal InsuredAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal InsuredAmount { get; init; } 
     #else
@@ -214,15 +206,13 @@ public partial record InsuranceDataSet1
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
     [IsoId("_Tm_54tp-Ed-ak6NoX_4Aeg_-88042726")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insured Goods Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrdGoodsDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InsrdGoodsDesc")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? InsuredGoodsDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -235,15 +225,13 @@ public partial record InsuranceDataSet1
     /// Description of the conditions and exclusion clauses under which insurance is granted.
     /// </summary>
     [IsoId("_Tm_549p-Ed-ak6NoX_4Aeg_515013339")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncConds")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InsrncConds")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? InsuranceConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -256,12 +244,11 @@ public partial record InsuranceDataSet1
     /// Standard insurance clauses defined by the Institute of London Underwriters (or the American Institute of marine Underwriters).
     /// </summary>
     [IsoId("_Tm_55Np-Ed-ak6NoX_4Aeg_812386949")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Clauses")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncClauses")]
     #endif
+    [IsoXmlTag("InsrncClauses")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InsuranceClauses1Code? InsuranceClauses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -274,16 +261,15 @@ public partial record InsuranceDataSet1
     /// Party that is covered under the assurance policy.
     /// </summary>
     [IsoId("_Tm_55dp-Ed-ak6NoX_4Aeg_976774092")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assrd")]
     #endif
+    [IsoXmlTag("Assrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification29Choice_ Assured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification29Choice_ Assured { get; init; } 
+    public required PartyIdentification29Choice_ Assured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification29Choice_ Assured { get; init; } 
     #else
@@ -294,16 +280,15 @@ public partial record InsuranceDataSet1
     /// Place where claims under the insurance policy will be paid.
     /// </summary>
     [IsoId("_Tm_55tp-Ed-ak6NoX_4Aeg_1330485176")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Claims Payable At")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClmsPyblAt")]
     #endif
+    [IsoXmlTag("ClmsPyblAt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PostalAddress5 ClaimsPayableAt { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PostalAddress5 ClaimsPayableAt { get; init; } 
+    public required PostalAddress5 ClaimsPayableAt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PostalAddress5 ClaimsPayableAt { get; init; } 
     #else
@@ -314,12 +299,11 @@ public partial record InsuranceDataSet1
     /// Currency in which claims, if valid, will be paid.
     /// </summary>
     [IsoId("_Tm_559p-Ed-ak6NoX_4Aeg_1343411929")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Claims Payable In")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClmsPyblIn")]
     #endif
+    [IsoXmlTag("ClmsPyblIn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? ClaimsPayableIn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

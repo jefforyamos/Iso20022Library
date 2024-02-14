@@ -21,7 +21,7 @@ public enum NovationStatusCode
 {
     /// <summary>
     /// Transaction is a novation.
-    /// Encoded/decoded by serializers as "NOVA".
+    /// Encoded/decoded by serializers as &quot;NOVA&quot;.
     /// </summary>
     [EnumMember(Value = "NOVA")]
     [IsoId("_Zd1zUMETEea7jLfvGi1PDw")]
@@ -30,7 +30,7 @@ public enum NovationStatusCode
     
     /// <summary>
     /// Transaction is not a novation.
-    /// Encoded/decoded by serializers as "NONO".
+    /// Encoded/decoded by serializers as &quot;NONO&quot;.
     /// </summary>
     [EnumMember(Value = "NONO")]
     [IsoId("_Z1DZcMETEea7jLfvGi1PDw")]

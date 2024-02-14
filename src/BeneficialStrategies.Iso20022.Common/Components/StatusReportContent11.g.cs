@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the status report.
 /// </summary>
 [IsoId("_TBZZcU6rEeyGi9JAv6wq7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Report Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record StatusReportContent11
     /// Capabilities of the POI (Point Of Interaction) performing the status report.
     /// </summary>
     [IsoId("_THgogU6rEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POICpblties")]
     #endif
+    [IsoXmlTag("POICpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionCapabilities9? POICapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record StatusReportContent11
     /// Data related to a component of the POI (Point Of Interaction) performing the status report.
     /// </summary>
     [IsoId("_THgog06rEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Component")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POICmpnt")]
     #endif
+    [IsoXmlTag("POICmpnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponent12? POIComponent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,15 +83,13 @@ public partial record StatusReportContent11
     /// Identifier assigned to a set of POI terminals performing some categories of transactions.
     /// </summary>
     [IsoId("_THgohU6rEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Group Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIGrpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("POIGrpId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIGroupIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +102,11 @@ public partial record StatusReportContent11
     /// Human attendance at the POI (Point Of Interaction) location during transactions.
     /// </summary>
     [IsoId("_THgoh06rEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncCntxt")]
     #endif
+    [IsoXmlTag("AttndncCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,16 +119,16 @@ public partial record StatusReportContent11
     /// System date time of the point of interaction (POI) sending the status report.
     /// </summary>
     [IsoId("_THgoiU6rEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIDtTm")]
     #endif
+    [IsoXmlTag("POIDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime POIDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime POIDateTime { get; init; } 
+    public required System.DateTime POIDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime POIDateTime { get; init; } 
     #else
@@ -146,12 +139,11 @@ public partial record StatusReportContent11
     /// Request the terminal management system to answer with the identified data set.
     /// </summary>
     [IsoId("_THgoi06rEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetReqrd")]
     #endif
+    [IsoXmlTag("DataSetReqrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DataSetRequest3? DataSetRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +156,11 @@ public partial record StatusReportContent11
     /// Result of an individual terminal management action by the point of interaction.
     /// </summary>
     [IsoId("_THgojU6rEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Evt")]
     #endif
+    [IsoXmlTag("Evt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TMSEvent9? Event { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,15 +173,13 @@ public partial record StatusReportContent11
     /// Error log of the point of interaction since the last status report.
     /// </summary>
     [IsoId("_THgoj06rEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Errors")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Errs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Errs")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Errors { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

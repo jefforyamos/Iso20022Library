@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify the transactions to be reported.
 /// </summary>
 [IsoId("_cVL34YaoEeeUws0ZryHQ2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TransactionType2
     /// Specifies the status on the books of the account servicer of the transactions to be reported.
     /// </summary>
     [IsoId("_cdgtcYaoEeeUws0ZryHQ2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EntryStatus1Choice_ Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EntryStatus1Choice_ Status { get; init; } 
+    public required EntryStatus1Choice_ Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EntryStatus1Choice_ Status { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TransactionType2
     /// Indicates whether the reporting request refers to credit or debit entries.
     /// </summary>
     [IsoId("_cdgtc4aoEeeUws0ZryHQ2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record TransactionType2
     /// Specifies the minimum value of entries to be reported in the requested message.
     /// </summary>
     [IsoId("_cdgtdYaoEeeUws0ZryHQ2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floor Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlrLmt")]
     #endif
+    [IsoXmlTag("FlrLmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Limit2? FloorLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

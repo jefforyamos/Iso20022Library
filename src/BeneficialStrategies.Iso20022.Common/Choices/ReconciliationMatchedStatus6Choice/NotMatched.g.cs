@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus6Choi
     /// Indication that the reports subject of reconciliation do not match.
     /// </summary>
     [IsoId("_C44f8__oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Matched")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus6Choi
         /// First side of the contract that needs to be matched.
         /// </summary>
         [IsoId("_C9D1Uf_oEemm3skPVSMJQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPty1")]
         #endif
+        [IsoXmlTag("CtrPty1")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OrganisationIdentification9Choice_ Counterparty1 { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OrganisationIdentification9Choice_ Counterparty1 { get; init; } 
+        public required OrganisationIdentification9Choice_ Counterparty1 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OrganisationIdentification9Choice_ Counterparty1 { get; init; } 
         #else
@@ -78,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus6Choi
         /// Second side of the contract that needs to be matched.
         /// </summary>
         [IsoId("_C9D1U__oEemm3skPVSMJQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPty2")]
         #endif
+        [IsoXmlTag("CtrPty2")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OrganisationIdentification9Choice_ Counterparty2 { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OrganisationIdentification9Choice_ Counterparty2 { get; init; } 
+        public required OrganisationIdentification9Choice_ Counterparty2 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OrganisationIdentification9Choice_ Counterparty2 { get; init; } 
         #else
@@ -98,16 +94,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus6Choi
         /// Criteria used to match the sides of the contract.
         /// </summary>
         [IsoId("_C9D1Vf_oEemm3skPVSMJQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Matching Criteria")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MtchgCrit")]
         #endif
+        [IsoXmlTag("MtchgCrit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required MatchingCriteria7 MatchingCriteria { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public MatchingCriteria7 MatchingCriteria { get; init; } 
+        public required MatchingCriteria7 MatchingCriteria { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public MatchingCriteria7 MatchingCriteria { get; init; } 
         #else

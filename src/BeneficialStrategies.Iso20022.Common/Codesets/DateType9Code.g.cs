@@ -21,7 +21,7 @@ public enum DateType9Code
 {
     /// <summary>
     /// Blocking occurs until and inclusive of the end of the election period of the option.
-    /// Encoded/decoded by serializers as "PWAL".
+    /// Encoded/decoded by serializers as &quot;PWAL&quot;.
     /// </summary>
     [EnumMember(Value = "PWAL")]
     [IsoId("_fv2X0e4EEeqc-LCjwLsUVg")]
@@ -30,7 +30,7 @@ public enum DateType9Code
     
     /// <summary>
     /// Blocking occurs until and inclusive of the market deadline of the option.
-    /// Encoded/decoded by serializers as "MKDT".
+    /// Encoded/decoded by serializers as &quot;MKDT&quot;.
     /// </summary>
     [EnumMember(Value = "MKDT")]
     [IsoId("_f1gT4e4EEeqc-LCjwLsUVg")]
@@ -39,7 +39,7 @@ public enum DateType9Code
     
     /// <summary>
     /// Blocking occurs until and inclusive of the meeting date.
-    /// Encoded/decoded by serializers as "MEET".
+    /// Encoded/decoded by serializers as &quot;MEET&quot;.
     /// </summary>
     [EnumMember(Value = "MEET")]
     [IsoId("_f7Ae8e4EEeqc-LCjwLsUVg")]
@@ -48,7 +48,7 @@ public enum DateType9Code
     
     /// <summary>
     /// Unblocking will occur on payment date of the option.
-    /// Encoded/decoded by serializers as "PAYD".
+    /// Encoded/decoded by serializers as &quot;PAYD&quot;.
     /// </summary>
     [EnumMember(Value = "PAYD")]
     [IsoId("_gAqbAe4EEeqc-LCjwLsUVg")]
@@ -57,7 +57,7 @@ public enum DateType9Code
     
     /// <summary>
     /// Blocking occurs until and inclusive of the record date of the event.
-    /// Encoded/decoded by serializers as "RDTE".
+    /// Encoded/decoded by serializers as &quot;RDTE&quot;.
     /// </summary>
     [EnumMember(Value = "RDTE")]
     [IsoId("_gGKmEe4EEeqc-LCjwLsUVg")]
@@ -66,7 +66,7 @@ public enum DateType9Code
     
     /// <summary>
     /// Blocking occurs until and inclusive of the account servicer deadline for the option.
-    /// Encoded/decoded by serializers as "RDDT".
+    /// Encoded/decoded by serializers as &quot;RDDT&quot;.
     /// </summary>
     [EnumMember(Value = "RDDT")]
     [IsoId("_gMROEe4EEeqc-LCjwLsUVg")]
@@ -75,7 +75,7 @@ public enum DateType9Code
     
     /// <summary>
     /// Refer to additional information element for the date until when the securities are blocked.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_gUv0oe4EEeqc-LCjwLsUVg")]
@@ -84,7 +84,7 @@ public enum DateType9Code
     
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_gordQe4EEeqc-LCjwLsUVg")]

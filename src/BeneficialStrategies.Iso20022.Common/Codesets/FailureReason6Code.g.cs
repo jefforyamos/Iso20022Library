@@ -21,7 +21,7 @@ public enum FailureReason6Code
 {
     /// <summary>
     /// Key is compromised.
-    /// Encoded/decoded by serializers as "CMPR".
+    /// Encoded/decoded by serializers as &quot;CMPR&quot;.
     /// </summary>
     [EnumMember(Value = "CMPR")]
     [IsoId("_6MpPwYtDEeSxlKlAGYErFg")]
@@ -30,7 +30,7 @@ public enum FailureReason6Code
     
     /// <summary>
     /// Key has expired.
-    /// Encoded/decoded by serializers as "EXPR".
+    /// Encoded/decoded by serializers as &quot;EXPR&quot;.
     /// </summary>
     [EnumMember(Value = "EXPR")]
     [IsoId("_6XX5EYtDEeSxlKlAGYErFg")]
@@ -39,7 +39,7 @@ public enum FailureReason6Code
     
     /// <summary>
     /// Key check value is incorrect.
-    /// Encoded/decoded by serializers as "KCVE".
+    /// Encoded/decoded by serializers as &quot;KCVE&quot;.
     /// </summary>
     [EnumMember(Value = "KCVE")]
     [IsoId("_7HWkgYtDEeSxlKlAGYErFg")]
@@ -48,7 +48,7 @@ public enum FailureReason6Code
     
     /// <summary>
     /// Error during the key download in the security device.
-    /// Encoded/decoded by serializers as "KLOD".
+    /// Encoded/decoded by serializers as &quot;KLOD&quot;.
     /// </summary>
     [EnumMember(Value = "KLOD")]
     [IsoId("_7N6fgYtDEeSxlKlAGYErFg")]

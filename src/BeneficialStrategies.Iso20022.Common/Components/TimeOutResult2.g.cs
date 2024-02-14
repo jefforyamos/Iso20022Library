@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the time-out consequences.
 /// </summary>
 [IsoId("_RbFb8tp-Ed-ak6NoX_4Aeg_-1237479550")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Time Out Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TimeOutResult2
     /// Specifies the status of the transaction if no action is taken by the user.
     /// </summary>
     [IsoId("_RbFb89p-Ed-ak6NoX_4Aeg_-324119576")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Future Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxFutrSts")]
     #endif
+    [IsoXmlTag("TxFutrSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus5 TransactionFutureStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus5 TransactionFutureStatus { get; init; } 
+    public required TransactionStatus5 TransactionFutureStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus5 TransactionFutureStatus { get; init; } 
     #else

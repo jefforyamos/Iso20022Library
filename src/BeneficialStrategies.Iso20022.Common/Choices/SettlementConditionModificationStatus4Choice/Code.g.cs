@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementConditionModificationS
     /// Provides the status of the securities settlement condition modification request.
     /// </summary>
     [IsoId("_8QcPy5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementConditionModificationS
         /// Specifies the status of a securities settlement condition modification request.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementConditionModificationStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementConditionModificationStatus1Code Value { get; init; } 
+        public required SettlementConditionModificationStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementConditionModificationStatus1Code Value { get; init; } 
         #else

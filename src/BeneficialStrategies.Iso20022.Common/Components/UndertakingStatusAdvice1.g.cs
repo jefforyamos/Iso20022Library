@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Undertaking status information.
 /// </summary>
 [IsoId("_-DLK5XltEeG7BsjMvd1mEw_1047822406")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Status Advice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record UndertakingStatusAdvice1
     /// Details related to the party that initiated the report.
     /// </summary>
     [IsoId("_-DLK5nltEeG7BsjMvd1mEw_24427462")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiating Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitgPty")]
     #endif
+    [IsoXmlTag("InitgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 InitiatingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification43 InitiatingParty { get; init; } 
+    public required PartyIdentification43 InitiatingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification43 InitiatingParty { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record UndertakingStatusAdvice1
     /// Details related to the identification of the undertaking.
     /// </summary>
     [IsoId("_-DLK53ltEeG7BsjMvd1mEw_-1609250460")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgId")]
     #endif
+    [IsoXmlTag("UdrtkgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Undertaking8? UndertakingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,12 +87,12 @@ public partial record UndertakingStatusAdvice1
     /// Sequence number assigned by the issuer to each amendment of the undertaking.
     /// </summary>
     [IsoId("_-DLK6HltEeG7BsjMvd1mEw_-238433445")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amendment Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmdmntSeqNb")]
     #endif
+    [IsoXmlTag("AmdmntSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? AmendmentSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,15 +105,13 @@ public partial record UndertakingStatusAdvice1
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
     [IsoId("_-DU74HltEeG7BsjMvd1mEw_-1490832620")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Advising Party Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdvsgPtyRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdvsgPtyRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,15 +124,13 @@ public partial record UndertakingStatusAdvice1
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
     [IsoId("_-DU74XltEeG7BsjMvd1mEw_1807062323")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmer Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnfrmrRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CnfrmrRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,16 +143,15 @@ public partial record UndertakingStatusAdvice1
     /// Specifies the category of the status.
     /// </summary>
     [IsoId("_-DU75HltEeG7BsjMvd1mEw_-482858718")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsCtgy")]
     #endif
+    [IsoXmlTag("StsCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingStatusCategory1Code StatusCategory { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUndertakingStatusCategory1Code StatusCategory { get; init; } 
+    public required ExternalUndertakingStatusCategory1Code StatusCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUndertakingStatusCategory1Code StatusCategory { get; init; } 
     #else
@@ -171,16 +162,15 @@ public partial record UndertakingStatusAdvice1
     /// Specifies the reported status.
     /// </summary>
     [IsoId("_-DU74nltEeG7BsjMvd1mEw_-818864240")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingStatus3Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingStatus3Code Status { get; init; } 
+    public required UndertakingStatus3Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingStatus3Code Status { get; init; } 
     #else
@@ -191,12 +181,11 @@ public partial record UndertakingStatusAdvice1
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
     [IsoId("_-DU743ltEeG7BsjMvd1mEw_1827841012")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReasonInformation8? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +198,11 @@ public partial record UndertakingStatusAdvice1
     /// Amount reported.
     /// </summary>
     [IsoId("_rO8tFq-2EeGNi5z8K_XPKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reported Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptdAmt")]
     #endif
+    [IsoXmlTag("RptdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportedAmount1? ReportedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +215,11 @@ public partial record UndertakingStatusAdvice1
     /// Information concerning the original message to which the status report may be sent in response.
     /// </summary>
     [IsoId("_-DU75XltEeG7BsjMvd1mEw_1261386021")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgDtls")]
     #endif
+    [IsoXmlTag("OrgnlMsgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessage1? OriginalMessageDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +232,11 @@ public partial record UndertakingStatusAdvice1
     /// Document or template enclosed in the report.
     /// </summary>
     [IsoId("_1IyGs37nEeGudZE4UaJCHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enclosed File")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NclsdFile")]
     #endif
+    [IsoXmlTag("NclsdFile")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,19 +249,15 @@ public partial record UndertakingStatusAdvice1
     /// Additional information related to the report.
     /// </summary>
     [IsoId("_-Des4HltEeG7BsjMvd1mEw_1652499690")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type, date and version of the agreement.
 /// </summary>
 [IsoId("_bedvoJUTEea7vKctaoIyEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agreement Conditions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record AgreementConditions1
     /// Specifies the type of agreement.
     /// </summary>
     [IsoId("_LS4cYJUUEea7vKctaoIyEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrmtCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AgrmtCd")]
+    [IsoSimpleType(IsoSimpleType.Max6AlphaText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax6AlphaText AgreementCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AgreementCode { get; init; } 
+    public required System.String AgreementCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AgreementCode { get; init; } 
     #else
@@ -74,12 +69,12 @@ public partial record AgreementConditions1
     /// Specifies the date of the agreement.
     /// </summary>
     [IsoId("_6QcZoJUUEea7vKctaoIyEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,12 @@ public partial record AgreementConditions1
     /// Specifies the version of the agreement.
     /// </summary>
     [IsoId("_-vvPcJUUEea7vKctaoIyEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Exact4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

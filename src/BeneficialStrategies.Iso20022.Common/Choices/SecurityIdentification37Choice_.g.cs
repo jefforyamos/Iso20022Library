@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityIdentification37Choice.Name))]
     [KnownType(typeof(SecurityIdentification37Choice.Index))]
     [IsoId("_OtC8sTLlEeu9CrLaMVTofw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification 37 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

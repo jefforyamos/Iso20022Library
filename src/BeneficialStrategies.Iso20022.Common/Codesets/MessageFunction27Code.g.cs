@@ -22,7 +22,7 @@ public enum MessageFunction27Code
 {
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_oPgJAemrEemNVKPwszFC-A")]

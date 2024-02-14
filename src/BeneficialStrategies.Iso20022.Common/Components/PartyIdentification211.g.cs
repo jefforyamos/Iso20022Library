@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a party.
 /// </summary>
 [IsoId("_k0uOwECFEeeXpbqDpLawug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PartyIdentification211
     /// Financial institution-related data required by business and/or regulation (for example, money or funds transfer).
     /// </summary>
     [IsoId("_zQJWgkCFEeeXpbqDpLawug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FI")]
     #endif
+    [IsoXmlTag("FI")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitution4? FinancialInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PartyIdentification211
     /// Customer-related data required by business and/or regulation (for example, money or funds transfer).
     /// </summary>
     [IsoId("_zQJWg0CFEeeXpbqDpLawug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cstmr")]
     #endif
+    [IsoXmlTag("Cstmr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Customer3? Customer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

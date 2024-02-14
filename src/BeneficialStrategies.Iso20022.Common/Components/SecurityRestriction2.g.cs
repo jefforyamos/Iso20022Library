@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Restrictions applicable to the security.
 /// </summary>
 [IsoId("_cW1DkeLxEeWOD7aAy2fAcA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Restriction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SecurityRestriction2
     /// Period during which the restriction applies.
     /// </summary>
     [IsoId("_cg8o4eLxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvPrd")]
     #endif
+    [IsoXmlTag("FctvPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodDetails1? EffectivePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SecurityRestriction2
     /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
     /// </summary>
     [IsoId("_cg8o4-LxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RstrctnTp")]
     #endif
+    [IsoXmlTag("RstrctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityRestrictionType2Choice_? RestrictionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SecurityRestriction2
     /// Specifies the regulatory restrictions applicable to a security.
     /// </summary>
     [IsoId("_cg8o5eLxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Restriction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglRstrctnTp")]
     #endif
+    [IsoXmlTag("LglRstrctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LegalRestrictions5Choice_? LegalRestrictionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record SecurityRestriction2
     /// Specifies whether the restriction to be applied is relevant for citizen, resident, country.
     /// </summary>
     [IsoId("_cg8o5-LxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Restriction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrRstrctnTp")]
     #endif
+    [IsoXmlTag("InvstrRstrctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorRestrictionType3Choice_? InvestorRestrictionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record SecurityRestriction2
     /// Type of investor that is allowed to hold the security.
     /// </summary>
     [IsoId("_cg8o6eLxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrTp")]
     #endif
+    [IsoXmlTag("InvstrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorType3Choice_? InvestorType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

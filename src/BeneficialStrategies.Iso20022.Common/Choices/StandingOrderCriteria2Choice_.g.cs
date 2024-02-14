@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StandingOrderCriteria2Choice.QueryName))]
     [KnownType(typeof(StandingOrderCriteria2Choice.NewCriteria))]
     [IsoId("_i0T9sZlPEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Criteria 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum GateHoldBackCode
 {
     /// <summary>
     /// Hold back of redemption proceeds.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_AmK5YDwwEeaFzejt0Yw_3A")]
@@ -30,7 +30,7 @@ public enum GateHoldBackCode
     
     /// <summary>
     /// Gating of redemption proceeds.
-    /// Encoded/decoded by serializers as "GATE".
+    /// Encoded/decoded by serializers as &quot;GATE&quot;.
     /// </summary>
     [EnumMember(Value = "GATE")]
     [IsoId("_F7KoIDwwEeaFzejt0Yw_3A")]

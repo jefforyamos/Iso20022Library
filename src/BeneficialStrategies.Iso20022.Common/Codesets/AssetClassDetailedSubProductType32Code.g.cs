@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType32Code
 {
     /// <summary>
     /// Commodity attribute of type bakken.
-    /// Encoded/decoded by serializers as "BAKK".
+    /// Encoded/decoded by serializers as &quot;BAKK&quot;.
     /// </summary>
     [EnumMember(Value = "BAKK")]
     [IsoId("_PiIp8bv4EeiLRYqS-r-R-A")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type biodiesel.
-    /// Encoded/decoded by serializers as "BDSL".
+    /// Encoded/decoded by serializers as &quot;BDSL&quot;.
     /// </summary>
     [EnumMember(Value = "BDSL")]
     [IsoId("_PiIp87v4EeiLRYqS-r-R-A")]
@@ -39,7 +39,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type Brent.
-    /// Encoded/decoded by serializers as "BRNT".
+    /// Encoded/decoded by serializers as &quot;BRNT&quot;.
     /// </summary>
     [EnumMember(Value = "BRNT")]
     [IsoId("_PiIp9bv4EeiLRYqS-r-R-A")]
@@ -48,7 +48,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type Brent NX (New Expiry).
-    /// Encoded/decoded by serializers as "BRNX".
+    /// Encoded/decoded by serializers as &quot;BRNX&quot;.
     /// </summary>
     [EnumMember(Value = "BRNX")]
     [IsoId("_PiIp97v4EeiLRYqS-r-R-A")]
@@ -57,7 +57,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type canadian.
-    /// Encoded/decoded by serializers as "CNDA".
+    /// Encoded/decoded by serializers as &quot;CNDA&quot;.
     /// </summary>
     [EnumMember(Value = "CNDA")]
     [IsoId("_PiIp-bv4EeiLRYqS-r-R-A")]
@@ -66,7 +66,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type condensate.
-    /// Encoded/decoded by serializers as "COND".
+    /// Encoded/decoded by serializers as &quot;COND&quot;.
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_PiIp-7v4EeiLRYqS-r-R-A")]
@@ -75,7 +75,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type diesel.
-    /// Encoded/decoded by serializers as "DSEL".
+    /// Encoded/decoded by serializers as &quot;DSEL&quot;.
     /// </summary>
     [EnumMember(Value = "DSEL")]
     [IsoId("_PiIp_bv4EeiLRYqS-r-R-A")]
@@ -84,7 +84,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type Dubai.
-    /// Encoded/decoded by serializers as "DUBA".
+    /// Encoded/decoded by serializers as &quot;DUBA&quot;.
     /// </summary>
     [EnumMember(Value = "DUBA")]
     [IsoId("_PiIp_7v4EeiLRYqS-r-R-A")]
@@ -93,7 +93,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type ESPO (Eastern Siberia Pacific Ocean).
-    /// Encoded/decoded by serializers as "ESPO".
+    /// Encoded/decoded by serializers as &quot;ESPO&quot;.
     /// </summary>
     [EnumMember(Value = "ESPO")]
     [IsoId("_PiIqAbv4EeiLRYqS-r-R-A")]
@@ -102,7 +102,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type ethanol.
-    /// Encoded/decoded by serializers as "ETHA".
+    /// Encoded/decoded by serializers as &quot;ETHA&quot;.
     /// </summary>
     [EnumMember(Value = "ETHA")]
     [IsoId("_PiIqA7v4EeiLRYqS-r-R-A")]
@@ -111,7 +111,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type fuel.
-    /// Encoded/decoded by serializers as "FUEL".
+    /// Encoded/decoded by serializers as &quot;FUEL&quot;.
     /// </summary>
     [EnumMember(Value = "FUEL")]
     [IsoId("_PiIqBbv4EeiLRYqS-r-R-A")]
@@ -120,7 +120,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type fuel oil.
-    /// Encoded/decoded by serializers as "FOIL".
+    /// Encoded/decoded by serializers as &quot;FOIL&quot;.
     /// </summary>
     [EnumMember(Value = "FOIL")]
     [IsoId("_PiIqB7v4EeiLRYqS-r-R-A")]
@@ -129,7 +129,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type gasoil.
-    /// Encoded/decoded by serializers as "GOIL".
+    /// Encoded/decoded by serializers as &quot;GOIL&quot;.
     /// </summary>
     [EnumMember(Value = "GOIL")]
     [IsoId("_PiIqCbv4EeiLRYqS-r-R-A")]
@@ -138,7 +138,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type gasoline.
-    /// Encoded/decoded by serializers as "GSLN".
+    /// Encoded/decoded by serializers as &quot;GSLN&quot;.
     /// </summary>
     [EnumMember(Value = "GSLN")]
     [IsoId("_PiIqC7v4EeiLRYqS-r-R-A")]
@@ -147,7 +147,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type heating oil.
-    /// Encoded/decoded by serializers as "HEAT".
+    /// Encoded/decoded by serializers as &quot;HEAT&quot;.
     /// </summary>
     [EnumMember(Value = "HEAT")]
     [IsoId("_PiIqDbv4EeiLRYqS-r-R-A")]
@@ -156,7 +156,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type jet fuel.
-    /// Encoded/decoded by serializers as "JTFL".
+    /// Encoded/decoded by serializers as &quot;JTFL&quot;.
     /// </summary>
     [EnumMember(Value = "JTFL")]
     [IsoId("_PiIqD7v4EeiLRYqS-r-R-A")]
@@ -165,7 +165,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type kerosene.
-    /// Encoded/decoded by serializers as "KERO".
+    /// Encoded/decoded by serializers as &quot;KERO&quot;.
     /// </summary>
     [EnumMember(Value = "KERO")]
     [IsoId("_PiIqEbv4EeiLRYqS-r-R-A")]
@@ -174,7 +174,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type light Louisiana sweet (LLS).
-    /// Encoded/decoded by serializers as "LLSO".
+    /// Encoded/decoded by serializers as &quot;LLSO&quot;.
     /// </summary>
     [EnumMember(Value = "LLSO")]
     [IsoId("_PiIqE7v4EeiLRYqS-r-R-A")]
@@ -183,7 +183,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type mars.
-    /// Encoded/decoded by serializers as "MARS".
+    /// Encoded/decoded by serializers as &quot;MARS&quot;.
     /// </summary>
     [EnumMember(Value = "MARS")]
     [IsoId("_PiIqFbv4EeiLRYqS-r-R-A")]
@@ -192,7 +192,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type naptha.
-    /// Encoded/decoded by serializers as "NAPH".
+    /// Encoded/decoded by serializers as &quot;NAPH&quot;.
     /// </summary>
     [EnumMember(Value = "NAPH")]
     [IsoId("_PiIqF7v4EeiLRYqS-r-R-A")]
@@ -201,7 +201,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type NGL (Natural Gas Liquids).
-    /// Encoded/decoded by serializers as "NGLO".
+    /// Encoded/decoded by serializers as &quot;NGLO&quot;.
     /// </summary>
     [EnumMember(Value = "NGLO")]
     [IsoId("_PiIqGbv4EeiLRYqS-r-R-A")]
@@ -210,7 +210,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type tapis.
-    /// Encoded/decoded by serializers as "TAPI".
+    /// Encoded/decoded by serializers as &quot;TAPI&quot;.
     /// </summary>
     [EnumMember(Value = "TAPI")]
     [IsoId("_PiIqG7v4EeiLRYqS-r-R-A")]
@@ -219,7 +219,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type WTI (West Texas Intermediate).
-    /// Encoded/decoded by serializers as "WTIO".
+    /// Encoded/decoded by serializers as &quot;WTIO&quot;.
     /// </summary>
     [EnumMember(Value = "WTIO")]
     [IsoId("_PiIqHbv4EeiLRYqS-r-R-A")]
@@ -228,7 +228,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of type urals.
-    /// Encoded/decoded by serializers as "URAL".
+    /// Encoded/decoded by serializers as &quot;URAL&quot;.
     /// </summary>
     [EnumMember(Value = "URAL")]
     [IsoId("_PiIqH7v4EeiLRYqS-r-R-A")]
@@ -237,7 +237,7 @@ public enum AssetClassDetailedSubProductType32Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_SZcOQbv4EeiLRYqS-r-R-A")]

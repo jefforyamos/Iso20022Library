@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the request of a deposit transaction from an ATM.
 /// </summary>
 [IsoId("_6lj94K39EeWL1uap3dNhCQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Deposit Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ATMDepositRequest1
     /// Environment in which the transaction is performed.
     /// </summary>
     [IsoId("_HR34cK3-EeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMEnvironment11 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMEnvironment11 Environment { get; init; } 
+    public required ATMEnvironment11 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMEnvironment11 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ATMDepositRequest1
     /// Context in which the deposit transaction is performed.
     /// </summary>
     [IsoId("_XZv68K3-EeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMContext10 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMContext10 Context { get; init; } 
+    public required ATMContext10 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMContext10 Context { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ATMDepositRequest1
     /// Deposit transaction for which the service is requested.
     /// </summary>
     [IsoId("_1CH4kK3_EeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMTransaction15 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMTransaction15 Transaction { get; init; } 
+    public required ATMTransaction15 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMTransaction15 Transaction { get; init; } 
     #else

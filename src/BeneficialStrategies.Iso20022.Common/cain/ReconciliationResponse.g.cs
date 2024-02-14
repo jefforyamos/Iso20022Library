@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The ReconciliationResponse message is sent by an issuer or an agent to return the reconciled totals for debits, credits, chargebacks and other transactions.")]
 [IsoId("_A6xeEHvBEeSLmfFG0DG7zQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ReconciliationResponse : IOuterRecord<ReconciliationRespon
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_QMmpYHvBEeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header17 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header17 Header { get; init; } 
+    public required Header17 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header17 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ReconciliationResponse : IOuterRecord<ReconciliationRespon
     /// Information related to the response to a reconciliation.
     /// </summary>
     [IsoId("_ZV0QoHvBEeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnRspn")]
     #endif
+    [IsoXmlTag("RcncltnRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerReconciliationResponse1 ReconciliationResponseValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerReconciliationResponse1 ReconciliationResponseValue { get; init; } 
+    public required AcquirerReconciliationResponse1 ReconciliationResponseValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerReconciliationResponse1 ReconciliationResponseValue { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ReconciliationResponse : IOuterRecord<ReconciliationRespon
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_Z6ywgHvCEeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ReconciliationResponse : IOuterRecord<ReconciliationRespon
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReconciliationResponseDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReconciliationResponseDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReconciliationResponseDocument ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ReconciliationResponse : IOuterRecord<ReconciliationRespon
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReconciliationResponse"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReconciliationResponse&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReconciliationResponseDocument : IOuterDocument<ReconciliationResponse>
@@ -161,7 +156,7 @@ public partial record ReconciliationResponseDocument : IOuterDocument<Reconcilia
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReconciliationResponse"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReconciliationResponse&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationResponse Message { get; init; }

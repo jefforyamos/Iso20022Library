@@ -21,7 +21,7 @@ public enum DiscountType1Code
 {
     /// <summary>
     /// Quantity discount.
-    /// Encoded/decoded by serializers as "QUAN".
+    /// Encoded/decoded by serializers as &quot;QUAN&quot;.
     /// </summary>
     [EnumMember(Value = "QUAN")]
     [IsoId("_TQ3_sQEcEeCQm6a_G2yO_w_1171814968")]
@@ -30,7 +30,7 @@ public enum DiscountType1Code
     
     /// <summary>
     /// Promotional discount.
-    /// Encoded/decoded by serializers as "PROM".
+    /// Encoded/decoded by serializers as &quot;PROM&quot;.
     /// </summary>
     [EnumMember(Value = "PROM")]
     [IsoId("_TQ3_sgEcEeCQm6a_G2yO_w_-1656003565")]
@@ -39,7 +39,7 @@ public enum DiscountType1Code
     
     /// <summary>
     /// Pricing discount.
-    /// Encoded/decoded by serializers as "PRIC".
+    /// Encoded/decoded by serializers as &quot;PRIC&quot;.
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_TQ3_swEcEeCQm6a_G2yO_w_1625902237")]
@@ -48,7 +48,7 @@ public enum DiscountType1Code
     
     /// <summary>
     /// Special agreement discount.
-    /// Encoded/decoded by serializers as "SPAG".
+    /// Encoded/decoded by serializers as &quot;SPAG&quot;.
     /// </summary>
     [EnumMember(Value = "SPAG")]
     [IsoId("_TQ3_tAEcEeCQm6a_G2yO_w_-1201916296")]
@@ -57,7 +57,7 @@ public enum DiscountType1Code
     
     /// <summary>
     /// End-of-range discount.
-    /// Encoded/decoded by serializers as "ENOR".
+    /// Encoded/decoded by serializers as &quot;ENOR&quot;.
     /// </summary>
     [EnumMember(Value = "ENOR")]
     [IsoId("_TQ3_tQEcEeCQm6a_G2yO_w_1614803460")]

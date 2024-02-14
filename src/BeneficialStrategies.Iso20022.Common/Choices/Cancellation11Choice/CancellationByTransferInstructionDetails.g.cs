@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
     /// Information related to the transfer instruction to be cancelled.
     /// </summary>
     [IsoId("_8u6kcSPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation By Transfer Instruction Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Information identifying the primary individual investor, for example, name, address, social security number and date of birth.
         /// </summary>
         [IsoId("_9MFBnSPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Primary Individual Investor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmryIndvInvstr")]
         #endif
+        [IsoXmlTag("PmryIndvInvstr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IndividualPerson8? PrimaryIndividualInvestor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Information identifying the secondary individual investor, for example, name, address, social security number and date of birth.
         /// </summary>
         [IsoId("_9MFBnyPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Secondary Individual Investor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ScndryIndvInvstr")]
         #endif
+        [IsoXmlTag("ScndryIndvInvstr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IndividualPerson8? SecondaryIndividualInvestor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Information identifying the other individual investors, for example, name, address, social security number and date of birth.
         /// </summary>
         [IsoId("_9MFBoSPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Individual Investor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrIndvInvstr")]
         #endif
+        [IsoXmlTag("OthrIndvInvstr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IndividualPerson8? OtherIndividualInvestor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +107,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Information identifying the primary corporate investor, for example, name and address.
         /// </summary>
         [IsoId("_9MFBoyPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Primary Corporate Investor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmryCorpInvstr")]
         #endif
+        [IsoXmlTag("PmryCorpInvstr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Organisation21? PrimaryCorporateInvestor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +124,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Information identifying the secondary corporate investor, for example, name and address.
         /// </summary>
         [IsoId("_9MFBpSPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Secondary Corporate Investor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ScndryCorpInvstr")]
         #endif
+        [IsoXmlTag("ScndryCorpInvstr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Organisation21? SecondaryCorporateInvestor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +141,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Information identifying the other corporate investors, for example, name and address.
         /// </summary>
         [IsoId("_9MFBpyPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Corporate Investor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrCorpInvstr")]
         #endif
+        [IsoXmlTag("OthrCorpInvstr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Organisation21? OtherCorporateInvestor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,16 +158,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Identification of an account owned by the investor at the old plan manager (account servicer).
         /// </summary>
         [IsoId("_9MFBqSPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transferor Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrfrAcct")]
         #endif
+        [IsoXmlTag("TrfrAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Account19 TransferorAccount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Account19 TransferorAccount { get; init; } 
+        public required Account19 TransferorAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Account19 TransferorAccount { get; init; } 
         #else
@@ -186,12 +177,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
         /// </summary>
         [IsoId("_9MFBqyPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Nominee Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NmneeAcct")]
         #endif
+        [IsoXmlTag("NmneeAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Account19? NomineeAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -204,16 +194,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Information related to the institution to which the financial instrument is to be transferred.
         /// </summary>
         [IsoId("_9MFBrSPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transferee")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Trfee")]
         #endif
+        [IsoXmlTag("Trfee")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification70Choice_ Transferee { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification70Choice_ Transferee { get; init; } 
+        public required PartyIdentification70Choice_ Transferee { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification70Choice_ Transferee { get; init; } 
         #else
@@ -224,12 +213,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Identification of a related party or intermediary.
         /// </summary>
         [IsoId("_ky2vYSYdEeWJkOUkQWu90g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intermediary Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IntrmyInf")]
         #endif
+        [IsoXmlTag("IntrmyInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Intermediary34? IntermediaryInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +230,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).
         /// </summary>
         [IsoId("_9MFBryPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshAcct")]
         #endif
+        [IsoXmlTag("CshAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashAccount34? CashAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,16 +247,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Details of the transfer to be cancelled.
         /// </summary>
         [IsoId("_9MFBsSPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Product Transfer And Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PdctTrfAndRef")]
         #endif
+        [IsoXmlTag("PdctTrfAndRef")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ISATransfer25 ProductTransferAndReference { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ISATransfer25 ProductTransferAndReference { get; init; } 
+        public required ISATransfer25 ProductTransferAndReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ISATransfer25 ProductTransferAndReference { get; init; } 
         #else
@@ -280,12 +266,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Additional information that cannot be captured in the structured elements and/or any other specific block.
         /// </summary>
         [IsoId("_9MFBsyPvEeWQjryFgN2ITg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Extension")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Xtnsn")]
         #endif
+        [IsoXmlTag("Xtnsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Extension1? Extension { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

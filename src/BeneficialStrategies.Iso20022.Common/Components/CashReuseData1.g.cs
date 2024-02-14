@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the type and amount of the cash reinvestment in a given currency and on the cash reinvestment rate.
 /// </summary>
 [IsoId("_ANAEgI67EeaxxtxaoOwzAg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Reuse Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CashReuseData1
     /// Provides details on the type and amount of the cash reinvestment in a given currency.
     /// </summary>
     [IsoId("_P73YgJLiEeelrYORFsXWZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvested Cash")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstdCsh")]
     #endif
+    [IsoXmlTag("RinvstdCsh")]
     public ReinvestedCashTypeAndAmount1? ReinvestedCash { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _P73YgJLiEeelrYORFsXWZg
     
@@ -64,16 +61,16 @@ public partial record CashReuseData1
     /// Average interest rate received on cash collateral reinvestment by the lender for reinvestment of cash collateral.
     /// </summary>
     [IsoId("_AgOw8JLiEeelrYORFsXWZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Reinvestment Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshRinvstmtRate")]
     #endif
+    [IsoXmlTag("CshRinvstmtRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate CashReinvestmentRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CashReinvestmentRate { get; init; } 
+    public required System.Decimal CashReinvestmentRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CashReinvestmentRate { get; init; } 
     #else

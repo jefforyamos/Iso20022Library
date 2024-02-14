@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingDateCode1Choice
     /// Trading date expressed as a ISO20022 code.
     /// </summary>
     [IsoId("_AXUwUtokEeC60axPepSq7g_2017039094")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingDateCode1Choice
         /// Trading Date Code.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TradingDate1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TradingDate1Code Value { get; init; } 
+        public required TradingDate1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TradingDate1Code Value { get; init; } 
         #else

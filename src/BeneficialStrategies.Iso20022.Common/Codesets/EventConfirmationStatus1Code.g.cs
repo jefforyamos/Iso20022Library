@@ -21,7 +21,7 @@ public enum EventConfirmationStatus1Code
 {
     /// <summary>
     /// Occurrence of the event has been confirmed.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_ajNeEtp-Ed-ak6NoX_4Aeg_-181611544")]
@@ -30,7 +30,7 @@ public enum EventConfirmationStatus1Code
     
     /// <summary>
     /// Occurrence of the event has not been confirmed.
-    /// Encoded/decoded by serializers as "UCON".
+    /// Encoded/decoded by serializers as &quot;UCON&quot;.
     /// </summary>
     [EnumMember(Value = "UCON")]
     [IsoId("_ajNeE9p-Ed-ak6NoX_4Aeg_-176071125")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentCondition1Choice
     /// Shipment conditions expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_c0JRgLGdEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentCondition1Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalShipmentCondition1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalShipmentCondition1Code Value { get; init; } 
+        public required ExternalShipmentCondition1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalShipmentCondition1Code Value { get; init; } 
         #else

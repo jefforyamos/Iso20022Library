@@ -21,7 +21,7 @@ public enum TypeOfAmount8Code
 {
     /// <summary>
     /// Actual amount.
-    /// Encoded/decoded by serializers as "ACTL".
+    /// Encoded/decoded by serializers as &quot;ACTL&quot;.
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_gKHgEa11EeawR4FMacHsRQ")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount8Code
     
     /// <summary>
     /// Estimated amount (the final amount could be above or below).
-    /// Encoded/decoded by serializers as "ESTM".
+    /// Encoded/decoded by serializers as &quot;ESTM&quot;.
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_gKHgE611EeawR4FMacHsRQ")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount8Code
     
     /// <summary>
     /// Maximum amount (the final amount must be less or equal).
-    /// Encoded/decoded by serializers as "MAXI".
+    /// Encoded/decoded by serializers as &quot;MAXI&quot;.
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_gKHgFa11EeawR4FMacHsRQ")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount8Code
     
     /// <summary>
     /// Default amount.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_gKHgF611EeawR4FMacHsRQ")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount8Code
     
     /// <summary>
     /// Replacement amount.
-    /// Encoded/decoded by serializers as "RPLT".
+    /// Encoded/decoded by serializers as &quot;RPLT&quot;.
     /// </summary>
     [EnumMember(Value = "RPLT")]
     [IsoId("_gKHgGa11EeawR4FMacHsRQ")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount8Code
     
     /// <summary>
     /// Incremental amount for reservation.
-    /// Encoded/decoded by serializers as "INCR".
+    /// Encoded/decoded by serializers as &quot;INCR&quot;.
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_ldQNoa11EeawR4FMacHsRQ")]
@@ -75,7 +75,7 @@ public enum TypeOfAmount8Code
     
     /// <summary>
     /// Decremental amount for reservation.
-    /// Encoded/decoded by serializers as "DECR".
+    /// Encoded/decoded by serializers as &quot;DECR&quot;.
     /// </summary>
     [EnumMember(Value = "DECR")]
     [IsoId("_mJlvMa11EeawR4FMacHsRQ")]
@@ -84,7 +84,7 @@ public enum TypeOfAmount8Code
     
     /// <summary>
     /// Reserved or updated reserved amount for reservation.
-    /// Encoded/decoded by serializers as "RESD".
+    /// Encoded/decoded by serializers as &quot;RESD&quot;.
     /// </summary>
     [EnumMember(Value = "RESD")]
     [IsoId("_m246Ea11EeawR4FMacHsRQ")]

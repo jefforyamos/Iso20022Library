@@ -21,7 +21,7 @@ public enum PaymentMethod5Code
 {
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer.
-    /// Encoded/decoded by serializers as "TRF".
+    /// Encoded/decoded by serializers as &quot;TRF&quot;.
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_Vr6_Bdp-Ed-ak6NoX_4Aeg_869407428")]

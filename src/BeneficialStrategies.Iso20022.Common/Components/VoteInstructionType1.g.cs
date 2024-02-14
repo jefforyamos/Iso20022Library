@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Vote options for a resolution.
 /// </summary>
 [IsoId("_ScucEK4JEemG7MmivSuE5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote Instruction Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record VoteInstructionType1
     /// Vote option allowed at the resolution level.
     /// </summary>
     [IsoId("_ov6xUK4JEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteInstrTpCd")]
     #endif
+    [IsoXmlTag("VoteInstrTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VoteInstructionType1Choice_ VoteInstructionTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VoteInstructionType1Choice_ VoteInstructionTypeCode { get; init; } 
+    public required VoteInstructionType1Choice_ VoteInstructionTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VoteInstructionType1Choice_ VoteInstructionTypeCode { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record VoteInstructionType1
     /// Additional information about the vote instruction type code when expressed as a proprietary code.
     /// </summary>
     [IsoId("_uWdjEK4JEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

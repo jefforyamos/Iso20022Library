@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the reason for the return of the transaction.
 /// </summary>
 [IsoId("_XaBDI_WfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Return Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TrackerReturnReason1
     /// Reason for the reject or return, as published in an external reason code list.
     /// </summary>
     [IsoId("_XaBDJ_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerPaymentRejectReturnReason1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerPaymentRejectReturnReason1Code Code { get; init; } 
+    public required TrackerPaymentRejectReturnReason1Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerPaymentRejectReturnReason1Code Code { get; init; } 
     #else

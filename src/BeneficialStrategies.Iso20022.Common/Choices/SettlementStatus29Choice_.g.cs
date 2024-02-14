@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementStatus29Choice.Failing))]
     [KnownType(typeof(SettlementStatus29Choice.Proprietary))]
     [IsoId("_qTHeGSAdEeuyDZ-ukt4YRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status 29 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

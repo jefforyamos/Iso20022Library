@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Actual amount of the transaction.
 /// </summary>
 [IsoId("_SfRJwEUMEeea-M6VZkEPUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record TransactionAmount1
     /// ISO 8583 bit 4.
     /// </summary>
     [IsoId("_oIKk0EUMEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -70,21 +68,20 @@ public partial record TransactionAmount1
     #endif
     
     /// <summary>
-    /// Currency code associated with the transaction amount.  ISO 4217 "Codes for the representation of currencies and funds"
+    /// Currency code associated with the transaction amount.  ISO 4217 &quot;Codes for the representation of currencies and funds&quot;
     /// ISO 8583:87/93 bit 49
     /// ISO 8583:2003 bit 4
     /// </summary>
     [IsoId("_vWLqsEUMEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISO3NumericCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else

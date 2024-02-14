@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Description of the mis-matched situation between two baselines or between a baseline and a data set.
 /// </summary>
 [IsoId("_UsvZ9tp-Ed-ak6NoX_4Aeg_1894133920")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mis Match Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record MisMatchReport2
     /// Total number of mismatches between two baselines or between one baseline and one data set.
     /// </summary>
     [IsoId("_UsvZ99p-Ed-ak6NoX_4Aeg_1894133939")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Mis Matches")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfMisMtchs")]
     #endif
+    [IsoXmlTag("NbOfMisMtchs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfMisMatches { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfMisMatches { get; init; } 
+    public required System.UInt64 NumberOfMisMatches { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfMisMatches { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record MisMatchReport2
     /// Details of each mismatch occurrence.
     /// </summary>
     [IsoId("_Us5K8Np-Ed-ak6NoX_4Aeg_1894133964")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mis Match Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MisMtchInf")]
     #endif
+    [IsoXmlTag("MisMtchInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationResult4? MisMatchInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

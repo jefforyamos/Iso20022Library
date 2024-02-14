@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice to define the price of the securities transaction.
 /// </summary>
 [IsoId("_i7VOgZiuEe2f7NHvXATP5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Transaction Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecuritiesTransactionPrice7
     /// Price expressed as a monetary value.
     /// </summary>
     [IsoId("_i9PTAZiuEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Monetary Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MntryVal")]
     #endif
+    [IsoXmlTag("MntryVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection61 MonetaryValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection61 MonetaryValue { get; init; } 
+    public required AmountAndDirection61 MonetaryValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection61 MonetaryValue { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SecuritiesTransactionPrice7
     /// Price expressed as a number of digital tokens.
     /// </summary>
     [IsoId("_o26cIJiuEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Token Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlTknQty")]
     #endif
+    [IsoXmlTag("DgtlTknQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DigitalTokenAmount2 DigitalTokenQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DigitalTokenAmount2 DigitalTokenQuantity { get; init; } 
+    public required DigitalTokenAmount2 DigitalTokenQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DigitalTokenAmount2 DigitalTokenQuantity { get; init; } 
     #else

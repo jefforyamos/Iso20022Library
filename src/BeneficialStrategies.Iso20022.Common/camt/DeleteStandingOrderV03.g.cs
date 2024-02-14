@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"The DeleteStandingOrder message is sent by the system member to delete one or more standing orders within the static data held by the system transaction administrator.")]
 [IsoId("_jwlbXxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Delete Standing Order V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record DeleteStandingOrderV03 : IOuterRecord<DeleteStandingOrderV
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbYRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record DeleteStandingOrderV03 : IOuterRecord<DeleteStandingOrderV
     /// Identifies one particular limit set by the member and managed by the transaction administrator.
     /// </summary>
     [IsoId("_jwlbYxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgOrdrDtls")]
     #endif
+    [IsoXmlTag("StgOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingOrderOrAll2Choice_ StandingOrderDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingOrderOrAll2Choice_ StandingOrderDetails { get; init; } 
+    public required StandingOrderOrAll2Choice_ StandingOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingOrderOrAll2Choice_ StandingOrderDetails { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record DeleteStandingOrderV03 : IOuterRecord<DeleteStandingOrderV
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlbZRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record DeleteStandingOrderV03 : IOuterRecord<DeleteStandingOrderV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DeleteStandingOrderV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DeleteStandingOrderV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DeleteStandingOrderV03Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record DeleteStandingOrderV03 : IOuterRecord<DeleteStandingOrderV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DeleteStandingOrderV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DeleteStandingOrderV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DeleteStandingOrderV03Document : IOuterDocument<DeleteStandingOrderV03>
@@ -161,7 +156,7 @@ public partial record DeleteStandingOrderV03Document : IOuterDocument<DeleteStan
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DeleteStandingOrderV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DeleteStandingOrderV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeleteStandingOrderV03 Message { get; init; }

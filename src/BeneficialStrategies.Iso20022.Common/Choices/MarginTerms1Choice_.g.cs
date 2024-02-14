@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginTerms1Choice.MarginDetails))]
     [KnownType(typeof(MarginTerms1Choice.SegregatedIndependentAmountMargin))]
     [IsoId("_QmogMtp-Ed-ak6NoX_4Aeg_86732419")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Terms 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|The MeetingInstructionCancellationRequest message is sent by the same party that sent the|MeetingInstruction message. It is sent to request the cancellation of one, some or all of the instructions included in the original MeetingInstruction message.|Usage|This message must be answered by a MeetingInstructionStatus message. |This message definition is intended for use with the Business Application Header (BAH).")]
 [IsoId("_lKgSUxrdEeyhRdHRjakS2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting Instruction Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,19 +80,17 @@ public partial record MeetingInstructionCancellationRequestV08 : IOuterRecord<Me
     /// Identification of the original meeting instruction message for which the cancellation is requested or the original meeting instruction message containing the individual instruction(s) that is/are to be cancelled.
     /// </summary>
     [IsoId("_lKgSXRrdEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtgInstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MtgInstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MeetingInstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MeetingInstructionIdentification { get; init; } 
+    public required System.String MeetingInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MeetingInstructionIdentification { get; init; } 
     #else
@@ -105,16 +101,15 @@ public partial record MeetingInstructionCancellationRequestV08 : IOuterRecord<Me
     /// Set of elements to allow the unambiguous identification of a meeting.
     /// </summary>
     [IsoId("_lKgSXxrdEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtgRef")]
     #endif
+    [IsoXmlTag("MtgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingReference10 MeetingReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MeetingReference10 MeetingReference { get; init; } 
+    public required MeetingReference10 MeetingReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MeetingReference10 MeetingReference { get; init; } 
     #else
@@ -125,16 +120,15 @@ public partial record MeetingInstructionCancellationRequestV08 : IOuterRecord<Me
     /// Security for which the meeting is organised.
     /// </summary>
     [IsoId("_lKgSYRrdEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -145,12 +139,11 @@ public partial record MeetingInstructionCancellationRequestV08 : IOuterRecord<Me
     /// Specifies one or more instructions for which the cancellation is requested.
     /// </summary>
     [IsoId("_lKgSYxrdEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To Be Cancelled Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ToBeCancInstr")]
     #endif
+    [IsoXmlTag("ToBeCancInstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancelInstruction3? ToBeCancelledInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,12 +156,11 @@ public partial record MeetingInstructionCancellationRequestV08 : IOuterRecord<Me
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_lKgSZRrdEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -181,7 +173,7 @@ public partial record MeetingInstructionCancellationRequestV08 : IOuterRecord<Me
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MeetingInstructionCancellationRequestV08Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MeetingInstructionCancellationRequestV08Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MeetingInstructionCancellationRequestV08Document ToDocument()
     {
@@ -191,7 +183,7 @@ public partial record MeetingInstructionCancellationRequestV08 : IOuterRecord<Me
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionCancellationRequestV08"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MeetingInstructionCancellationRequestV08&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MeetingInstructionCancellationRequestV08Document : IOuterDocument<MeetingInstructionCancellationRequestV08>
@@ -208,7 +200,7 @@ public partial record MeetingInstructionCancellationRequestV08Document : IOuterD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MeetingInstructionCancellationRequestV08"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MeetingInstructionCancellationRequestV08&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingInstructionCancellationRequestV08 Message { get; init; }

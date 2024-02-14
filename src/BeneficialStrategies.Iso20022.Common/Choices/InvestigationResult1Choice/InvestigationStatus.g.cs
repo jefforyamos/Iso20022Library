@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationResult1Choice
     /// Provides the investigation status.
     /// </summary>
     [IsoId("_elyCtGgkEeGHuf0_3c6vdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationResult1Choice
         /// Provides the status of the investigation response related to a previously sent request.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InvstgtnSts")]
         #endif
+        [IsoXmlTag("InvstgtnSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestigationStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestigationStatus1Code Value { get; init; } 
+        public required InvestigationStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestigationStatus1Code Value { get; init; } 
         #else

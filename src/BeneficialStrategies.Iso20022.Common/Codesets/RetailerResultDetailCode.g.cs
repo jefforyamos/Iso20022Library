@@ -21,7 +21,7 @@ public enum RetailerResultDetailCode
 {
     /// <summary>
     /// The Initiator of the request has sent an Abort message request, which was accepted and processed.
-    /// Encoded/decoded by serializers as "ABRT".
+    /// Encoded/decoded by serializers as &quot;ABRT&quot;.
     /// </summary>
     [EnumMember(Value = "ABRT")]
     [IsoId("_UDWqwNxXEeioifFt1dhnJA")]
@@ -30,7 +30,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The system is busy, try later.
-    /// Encoded/decoded by serializers as "BUSY".
+    /// Encoded/decoded by serializers as &quot;BUSY&quot;.
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_W_ymsNxXEeioifFt1dhnJA")]
@@ -39,7 +39,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The user has aborted the transaction on the PED keyboard, for instance during PIN entering.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_Z-cwMNxXEeioifFt1dhnJA")]
@@ -48,7 +48,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// Device out of order.
-    /// Encoded/decoded by serializers as "DEVO".
+    /// Encoded/decoded by serializers as &quot;DEVO&quot;.
     /// </summary>
     [EnumMember(Value = "DEVO")]
     [IsoId("_csx-sNxXEeioifFt1dhnJA")]
@@ -57,7 +57,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// If the Input Device request a NotifyCardInputFlag and the Customer enters a card in the card reader without answers to the Input command, the POI abort the Input command processing, and answer a dedicated ErrorCondition value in the Input response message.
-    /// Encoded/decoded by serializers as "ICAR".
+    /// Encoded/decoded by serializers as &quot;ICAR&quot;.
     /// </summary>
     [EnumMember(Value = "ICAR")]
     [IsoId("_fAfGsNxXEeioifFt1dhnJA")]
@@ -66,7 +66,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The transaction is still in progress and then the command cannot be processed.
-    /// Encoded/decoded by serializers as "WIPG".
+    /// Encoded/decoded by serializers as &quot;WIPG&quot;.
     /// </summary>
     [EnumMember(Value = "WIPG")]
     [IsoId("_j9RJwNxXEeioifFt1dhnJA")]
@@ -75,7 +75,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// Not logged in.
-    /// Encoded/decoded by serializers as "LOUT".
+    /// Encoded/decoded by serializers as &quot;LOUT&quot;.
     /// </summary>
     [EnumMember(Value = "LOUT")]
     [IsoId("_mtpmsNxXEeioifFt1dhnJA")]
@@ -84,7 +84,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// A service request is sent during a Service dialogue. A combination of services not possible to provide. During the DeviceInitialisationCardReader message processing, the user has entered a card which has to be protected by the POI, and cannot be processed with this device request from the external, and then the Sale System.
-    /// Encoded/decoded by serializers as "NALW".
+    /// Encoded/decoded by serializers as &quot;NALW&quot;.
     /// </summary>
     [EnumMember(Value = "NALW")]
     [IsoId("_pKI3QNxXEeioifFt1dhnJA")]
@@ -93,7 +93,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The transaction is not found (e.g. for a reversal or a repeat).
-    /// Encoded/decoded by serializers as "TNFD".
+    /// Encoded/decoded by serializers as &quot;TNFD&quot;.
     /// </summary>
     [EnumMember(Value = "TNFD")]
     [IsoId("_vLk1QNxXEeioifFt1dhnJA")]
@@ -102,7 +102,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// Some sale items are not payable by the card proposed by the Customer.
-    /// Encoded/decoded by serializers as "PAYR".
+    /// Encoded/decoded by serializers as &quot;PAYR&quot;.
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_yhzxQNxXEeioifFt1dhnJA")]
@@ -111,7 +111,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The transaction is refused by the host or by the local rules associated to the card or the POI.
-    /// Encoded/decoded by serializers as "REFU".
+    /// Encoded/decoded by serializers as &quot;REFU&quot;.
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_1R-LwNxXEeioifFt1dhnJA")]
@@ -120,7 +120,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The hardware is not available (absent, not configured...).
-    /// Encoded/decoded by serializers as "UNVD".
+    /// Encoded/decoded by serializers as &quot;UNVD&quot;.
     /// </summary>
     [EnumMember(Value = "UNVD")]
     [IsoId("_4UvZMNxXEeioifFt1dhnJA")]
@@ -129,7 +129,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The service is not available (not implemented, not configured, protocol version too old...).
-    /// Encoded/decoded by serializers as "UNVS".
+    /// Encoded/decoded by serializers as &quot;UNVS&quot;.
     /// </summary>
     [EnumMember(Value = "UNVS")]
     [IsoId("_7BU7QNxXEeioifFt1dhnJA")]
@@ -138,7 +138,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The card entered by the Customer cannot be processed by the POI because this card is not configured in the system.
-    /// Encoded/decoded by serializers as "IVCA".
+    /// Encoded/decoded by serializers as &quot;IVCA&quot;.
     /// </summary>
     [EnumMember(Value = "IVCA")]
     [IsoId("_9qPeQNxXEeioifFt1dhnJA")]
@@ -146,8 +146,8 @@ public enum RetailerResultDetailCode
     InvalidCard,
     
     /// <summary>
-    /// Acquirer or any host is unreachable or has not answered to an online request, so is considered as temporary unavailable. Depending on the Sale context, the request could be repeated (to be compared with "Refusal").
-    /// Encoded/decoded by serializers as "NHOS".
+    /// Acquirer or any host is unreachable or has not answered to an online request, so is considered as temporary unavailable. Depending on the Sale context, the request could be repeated (to be compared with &quot;Refusal&quot;).
+    /// Encoded/decoded by serializers as &quot;NHOS&quot;.
     /// </summary>
     [EnumMember(Value = "NHOS")]
     [IsoId("_Ay0YwNxYEeioifFt1dhnJA")]
@@ -156,7 +156,7 @@ public enum RetailerResultDetailCode
     
     /// <summary>
     /// The user has entered the PIN on the PED keyboard and the verification fails.
-    /// Encoded/decoded by serializers as "WPIN".
+    /// Encoded/decoded by serializers as &quot;WPIN&quot;.
     /// </summary>
     [EnumMember(Value = "WPIN")]
     [IsoId("_ErTtQNxYEeioifFt1dhnJA")]

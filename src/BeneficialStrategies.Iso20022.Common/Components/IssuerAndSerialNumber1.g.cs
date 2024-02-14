@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Certificate issuer name and serial number (see X.509).
 /// </summary>
 [IsoId("_SxIvsQEcEeCQm6a_G2yO_w_-65882528")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Issuer And Serial Number")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record IssuerAndSerialNumber1
     /// Certificate issuer name (see X.509).
     /// </summary>
     [IsoId("_SxIvsgEcEeCQm6a_G2yO_w_1368507280")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CertificateIssuer1 Issuer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CertificateIssuer1 Issuer { get; init; } 
+    public required CertificateIssuer1 Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CertificateIssuer1 Issuer { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record IssuerAndSerialNumber1
     /// Certificate serial number (see X.509).
     /// </summary>
     [IsoId("_SxIvswEcEeCQm6a_G2yO_w_683840175")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Serial Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrlNb")]
     #endif
+    [IsoXmlTag("SrlNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Binary SerialNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] SerialNumber { get; init; } 
+    public required System.Byte[] SerialNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] SerialNumber { get; init; } 
     #else

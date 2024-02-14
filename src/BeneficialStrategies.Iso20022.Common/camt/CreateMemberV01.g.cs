@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The ModifyMember message is sent by a member to the transaction administrator.|It is used to create the profile of a member that the transaction administrator maintains.|Usage|Based on the criteria defined in the CreateLimit message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.")]
 [IsoId("_P8togckHEem3UrxZgQhVAw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Create Member V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record CreateMemberV01 : IOuterRecord<CreateMemberV01,CreateMembe
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_P8toickHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -101,16 +98,15 @@ public partial record CreateMemberV01 : IOuterRecord<CreateMemberV01,CreateMembe
     /// Unique and unambiguous identifier of a system member, as assigned by the system, or the system administrator.
     /// </summary>
     [IsoId("_P8toi8kHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MmbId")]
     #endif
+    [IsoXmlTag("MmbId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MemberIdentification3Choice_ MemberIdentification { get; init; } 
+    public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #else
@@ -121,16 +117,15 @@ public partial record CreateMemberV01 : IOuterRecord<CreateMemberV01,CreateMembe
     /// New member values.
     /// </summary>
     [IsoId("_P8tojckHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValSet")]
     #endif
+    [IsoXmlTag("ValSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Member6 ValueSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Member6 ValueSet { get; init; } 
+    public required Member6 ValueSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Member6 ValueSet { get; init; } 
     #else
@@ -141,12 +136,11 @@ public partial record CreateMemberV01 : IOuterRecord<CreateMemberV01,CreateMembe
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_P8toj8kHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,7 +153,7 @@ public partial record CreateMemberV01 : IOuterRecord<CreateMemberV01,CreateMembe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CreateMemberV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CreateMemberV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CreateMemberV01Document ToDocument()
     {
@@ -169,7 +163,7 @@ public partial record CreateMemberV01 : IOuterRecord<CreateMemberV01,CreateMembe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateMemberV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CreateMemberV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CreateMemberV01Document : IOuterDocument<CreateMemberV01>
@@ -186,7 +180,7 @@ public partial record CreateMemberV01Document : IOuterDocument<CreateMemberV01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CreateMemberV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CreateMemberV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreateMemberV01 Message { get; init; }

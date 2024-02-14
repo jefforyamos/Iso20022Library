@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType2Code
 {
     /// <summary>
     /// Commodity attribute of type robusta coffee.
-    /// Encoded/decoded by serializers as "ROBU".
+    /// Encoded/decoded by serializers as &quot;ROBU&quot;.
     /// </summary>
     [EnumMember(Value = "ROBU")]
     [IsoId("_PV51sQ2fEeW72qLtWESimw")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType2Code
     
     /// <summary>
     /// Commodity attribute of type cocoa.
-    /// Encoded/decoded by serializers as "CCOA".
+    /// Encoded/decoded by serializers as &quot;CCOA&quot;.
     /// </summary>
     [EnumMember(Value = "CCOA")]
     [IsoId("_P_aswQ2fEeW72qLtWESimw")]
@@ -39,7 +39,7 @@ public enum AssetClassDetailedSubProductType2Code
     
     /// <summary>
     /// Commodity attribute of type raw sugar.
-    /// Encoded/decoded by serializers as "BRWN".
+    /// Encoded/decoded by serializers as &quot;BRWN&quot;.
     /// </summary>
     [EnumMember(Value = "BRWN")]
     [IsoId("_RqOowQ2fEeW72qLtWESimw")]
@@ -48,7 +48,7 @@ public enum AssetClassDetailedSubProductType2Code
     
     /// <summary>
     /// Commodity attribute of type white sugar.
-    /// Encoded/decoded by serializers as "WHSG".
+    /// Encoded/decoded by serializers as &quot;WHSG&quot;.
     /// </summary>
     [EnumMember(Value = "WHSG")]
     [IsoId("_S_xfYQ2fEeW72qLtWESimw")]
@@ -57,7 +57,7 @@ public enum AssetClassDetailedSubProductType2Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_iQv5oQ2gEeW72qLtWESimw")]

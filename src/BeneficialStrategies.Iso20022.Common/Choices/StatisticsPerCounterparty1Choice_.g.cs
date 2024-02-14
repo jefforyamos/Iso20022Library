@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StatisticsPerCounterparty1Choice.DataSetAction))]
     [KnownType(typeof(StatisticsPerCounterparty1Choice.Report))]
     [IsoId("_98o1tEwVEeqwfMIOLcNxbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statistics Per Counterparty 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

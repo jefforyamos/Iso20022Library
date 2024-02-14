@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a ratio: amount price per financial instrument quantity.
 /// </summary>
 [IsoId("_chfav5KQEeWHWpTQn1FFVg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount Price Per Financial Instrument Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AmountPricePerFinancialInstrumentQuantity7
     /// Type of amount price.
     /// </summary>
     [IsoId("_chfawZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Price Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtPricTp")]
     #endif
+    [IsoXmlTag("AmtPricTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountPriceType1Code AmountPriceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountPriceType1Code AmountPriceType { get; init; } 
+    public required AmountPriceType1Code AmountPriceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountPriceType1Code AmountPriceType { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record AmountPricePerFinancialInstrumentQuantity7
     /// Value of the price.
     /// </summary>
     [IsoId("_chfayZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricVal")]
     #endif
+    [IsoXmlTag("PricVal")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PriceValue { get; init; } 
+    public required System.Decimal PriceValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PriceValue { get; init; } 
     #else
@@ -93,16 +90,15 @@ public partial record AmountPricePerFinancialInstrumentQuantity7
     /// Quantity of financial instrument.
     /// </summary>
     [IsoId("_chfa0ZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmQty")]
     #endif
+    [IsoXmlTag("FinInstrmQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity15Choice_ FinancialInstrumentQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity15Choice_ FinancialInstrumentQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ FinancialInstrumentQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity15Choice_ FinancialInstrumentQuantity { get; init; } 
     #else

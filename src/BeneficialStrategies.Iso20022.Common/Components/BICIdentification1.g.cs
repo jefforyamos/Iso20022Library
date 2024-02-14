@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
 /// </summary>
 [IsoId("_QEp0kNp-Ed-ak6NoX_4Aeg_792527554")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("BIC Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,19 +46,19 @@ public partial record BICIdentification1
     #nullable enable
     
     /// <summary>
-    /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+    /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
     /// </summary>
     [IsoId("_QEp0kdp-Ed-ak6NoX_4Aeg_792527555")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BIC")]
     #endif
+    [IsoXmlTag("BIC")]
+    [IsoSimpleType(IsoSimpleType.BICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICIdentifier BIC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BIC { get; init; } 
+    public required System.String BIC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BIC { get; init; } 
     #else

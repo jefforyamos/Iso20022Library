@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The CreateStandingOrder message is sent by a member to the transaction administrator.|It is used to create a permanent order for the transfer of funds between two accounts belonging to the same member and being held at the transaction administrator.|Usage|Based on the criteria defined in the CreateStandingOrder message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.")]
 [IsoId("_P8uPkckHEem3UrxZgQhVAw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Create Standing Order V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record CreateStandingOrderV01 : IOuterRecord<CreateStandingOrderV
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_P8uPmckHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -101,16 +98,15 @@ public partial record CreateStandingOrderV01 : IOuterRecord<CreateStandingOrderV
     /// Identifies the standing order.
     /// </summary>
     [IsoId("_P8uPm8kHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgOrdrId")]
     #endif
+    [IsoXmlTag("StgOrdrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingOrderIdentification4 StandingOrderIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingOrderIdentification4 StandingOrderIdentification { get; init; } 
+    public required StandingOrderIdentification4 StandingOrderIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingOrderIdentification4 StandingOrderIdentification { get; init; } 
     #else
@@ -121,16 +117,15 @@ public partial record CreateStandingOrderV01 : IOuterRecord<CreateStandingOrderV
     /// Set of values for the standing order.
     /// </summary>
     [IsoId("_P8uPnckHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValSet")]
     #endif
+    [IsoXmlTag("ValSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingOrder7 ValueSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingOrder7 ValueSet { get; init; } 
+    public required StandingOrder7 ValueSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingOrder7 ValueSet { get; init; } 
     #else
@@ -141,12 +136,11 @@ public partial record CreateStandingOrderV01 : IOuterRecord<CreateStandingOrderV
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_P8uPn8kHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,7 +153,7 @@ public partial record CreateStandingOrderV01 : IOuterRecord<CreateStandingOrderV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CreateStandingOrderV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CreateStandingOrderV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CreateStandingOrderV01Document ToDocument()
     {
@@ -169,7 +163,7 @@ public partial record CreateStandingOrderV01 : IOuterRecord<CreateStandingOrderV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateStandingOrderV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CreateStandingOrderV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CreateStandingOrderV01Document : IOuterDocument<CreateStandingOrderV01>
@@ -186,7 +180,7 @@ public partial record CreateStandingOrderV01Document : IOuterDocument<CreateStan
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CreateStandingOrderV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CreateStandingOrderV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreateStandingOrderV01 Message { get; init; }

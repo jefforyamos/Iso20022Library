@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancingRateOrAmountChoice.Amount))]
     [KnownType(typeof(FinancingRateOrAmountChoice.Rate))]
     [IsoId("_RXzecNp-Ed-ak6NoX_4Aeg_-2069508751")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Rate Or Amount Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

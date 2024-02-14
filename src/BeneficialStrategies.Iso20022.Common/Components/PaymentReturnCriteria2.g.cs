@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to report on the payment.
 /// </summary>
 [IsoId("_RKiehdp-Ed-ak6NoX_4Aeg_-1663577418")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Return Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the transaction reference is requested.
     /// </summary>
     [IsoId("_RKiehtp-Ed-ak6NoX_4Aeg_-1662656188")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Reference Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRefInd")]
     #endif
+    [IsoXmlTag("TxRefInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TransactionReferenceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the transfer value date is requested.
     /// </summary>
     [IsoId("_RKieh9p-Ed-ak6NoX_4Aeg_-1662656651")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Value Date Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfValDtInd")]
     #endif
+    [IsoXmlTag("TrfValDtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TransferValueDateIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the instruction is requested.
     /// </summary>
     [IsoId("_RKieiNp-Ed-ak6NoX_4Aeg_-1662657196")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrInd")]
     #endif
+    [IsoXmlTag("InstrInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,11 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the instruction status is requested.
     /// </summary>
     [IsoId("_RKsPgNp-Ed-ak6NoX_4Aeg_-1662657076")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Status Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrStsRtrCrit")]
     #endif
+    [IsoXmlTag("InstrStsRtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructionStatusReturnCriteria? InstructionStatusReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the instructed amount is requested.
     /// </summary>
     [IsoId("_RKsPgdp-Ed-ak6NoX_4Aeg_-1662657136")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Amount Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAmtInd")]
     #endif
+    [IsoXmlTag("InstdAmtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructedAmountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +131,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Payment Instruction Reference is requested.
     /// </summary>
     [IsoId("_RKsPgtp-Ed-ak6NoX_4Aeg_351278396")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +149,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the interbank settlement amount is requested.
     /// </summary>
     [IsoId("_RKsPg9p-Ed-ak6NoX_4Aeg_-1662656807")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank Settlement Amount Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrBkSttlmAmtInd")]
     #endif
+    [IsoXmlTag("IntrBkSttlmAmtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InterbankSettlementAmountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +167,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the payment priority is requested.
     /// </summary>
     [IsoId("_RKsPhNp-Ed-ak6NoX_4Aeg_-1662657291")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtyInd")]
     #endif
+    [IsoXmlTag("PrtyInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PriorityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +185,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the processing validity time is requested.
     /// </summary>
     [IsoId("_RKsPhdp-Ed-ak6NoX_4Aeg_-1662657231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Validity Time Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgVldtyTmInd")]
     #endif
+    [IsoXmlTag("PrcgVldtyTmInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ProcessingValidityTimeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +203,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the transfer reason is requested.
     /// </summary>
     [IsoId("_RKsPhtp-Ed-ak6NoX_4Aeg_-1662656360")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purpose Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PurpInd")]
     #endif
+    [IsoXmlTag("PurpInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PurposeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +221,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the instruction copy is requested.
     /// </summary>
     [IsoId("_RKsPh9p-Ed-ak6NoX_4Aeg_-1662656248")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Copy Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrCpyInd")]
     #endif
+    [IsoXmlTag("InstrCpyInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructionCopyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +239,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the payment message type is requested.
     /// </summary>
     [IsoId("_RKsPiNp-Ed-ak6NoX_4Aeg_-1662656300")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Message Type Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtMsgTpInd")]
     #endif
+    [IsoXmlTag("PmtMsgTpInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentMessageTypeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +257,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the payment type is requested.
     /// </summary>
     [IsoId("_RK1ZcNp-Ed-ak6NoX_4Aeg_-1663577399")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Type Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTpInd")]
     #endif
+    [IsoXmlTag("PmtTpInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentTypeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +275,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Payment Instruction Reference is requested.
     /// </summary>
     [IsoId("_RK1Zcdp-Ed-ak6NoX_4Aeg_-1175959206")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Instruction Reference Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInstrRefInd")]
     #endif
+    [IsoXmlTag("PmtInstrRefInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentInstructionReferenceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +293,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Interbank Value Date is requested.
     /// </summary>
     [IsoId("_RK1Zctp-Ed-ak6NoX_4Aeg_313679236")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank Value Date Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrBkValDtInd")]
     #endif
+    [IsoXmlTag("IntrBkValDtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InterbankValueDateIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +311,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Related Reference is requested.
     /// </summary>
     [IsoId("_RK1Zc9p-Ed-ak6NoX_4Aeg_211167351")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRefInd")]
     #endif
+    [IsoXmlTag("RltdRefInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? RelatedReferenceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -332,12 +329,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Payment Method is requested.
     /// </summary>
     [IsoId("_RK1ZdNp-Ed-ak6NoX_4Aeg_1203028604")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Method Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtMtdInd")]
     #endif
+    [IsoXmlTag("PmtMtdInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? PaymentMethodIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -350,12 +347,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Debtor is requested.
     /// </summary>
     [IsoId("_RK_KcNp-Ed-ak6NoX_4Aeg_-754618295")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrInd")]
     #endif
+    [IsoXmlTag("DbtrInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? DebtorIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -368,12 +365,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the First Agent is requested.
     /// </summary>
     [IsoId("_RK_Kcdp-Ed-ak6NoX_4Aeg_-484951167")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Agent Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstAgtInd")]
     #endif
+    [IsoXmlTag("FrstAgtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? FirstAgentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -386,12 +383,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the correspondent of the Instructing Agent is requested.
     /// </summary>
     [IsoId("_RK_Kctp-Ed-ak6NoX_4Aeg_-470172535")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing Agent Correspondent Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgAgtCrspdtInd")]
     #endif
+    [IsoXmlTag("InstgAgtCrspdtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructingAgentCorrespondentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -404,12 +401,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the correspondent of the Instructed Agent is requested.
     /// </summary>
     [IsoId("_RK_Kc9p-Ed-ak6NoX_4Aeg_-444314494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Agent Correspondent Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAgtCrspdtInd")]
     #endif
+    [IsoXmlTag("InstdAgtCrspdtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? InstructedAgentCorrespondentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -422,12 +419,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Intermediary is requested.
     /// </summary>
     [IsoId("_RK_KdNp-Ed-ak6NoX_4Aeg_-424921485")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyInd")]
     #endif
+    [IsoXmlTag("IntrmyInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? IntermediaryIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -440,12 +437,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Final Agent is requested.
     /// </summary>
     [IsoId("_RK_Kddp-Ed-ak6NoX_4Aeg_-411070416")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Agent Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlAgtInd")]
     #endif
+    [IsoXmlTag("FnlAgtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? FinalAgentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -458,12 +455,12 @@ public partial record PaymentReturnCriteria2
     /// Indicates whether the Creditor is requested.
     /// </summary>
     [IsoId("_RK_Kdtp-Ed-ak6NoX_4Aeg_-398141338")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrInd")]
     #endif
+    [IsoXmlTag("CdtrInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CreditorIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

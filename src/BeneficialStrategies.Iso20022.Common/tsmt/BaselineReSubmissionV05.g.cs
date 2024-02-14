@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The BaselineReSubmission message is sent by either the counterparty or the initiator of a transaction (baseline) to the matching application.|This message is used by the counterparty to respond on the registration of a push-through transaction in the matching application or by the initiator or counterparty to re-send earlier mis-matched baseline information.|Usage|The BaselineReSubmission message can be sent by the counterparty of a transaction to the matching application in response to a FullPushThroughReport message received from the matching application conveying the details of an InitialBaselineSubmission message. The objective of the BaselineReSubmission message sent in the outlined scenario is to achieve a successful match of two baseline initiation messages in order to establish a transaction in the matching application.|or|The BaselineReSubmission message can be sent by the initiator of a transaction to the matching application in response to a BaselineMatchReport message indicating mis-matches. The objective of the BaselineReSubmission message sent in the outlined scenario is to correct an InitialBaselineSubmission or BaselineReSubmission message submitted earlier in order to achieve the establishment of a transaction in the matching application.|or|The BaselineReSubmission message can be sent by the counterparty of a transaction to the matching application in response to a BaselineMatchReport message indicating mis-matches. The objective of the BaselineReSubmission message sent in the outlined scenario is to correct a BaselineReSubmission message submitted earlier in order to achieve the establishment of a transaction in the matching application.")]
 [IsoId("_XtCPcQgGEeSeS5xdjFfOTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Baseline Re Submission V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     /// Identifies the submitted information.
     /// </summary>
     [IsoId("_XtCPdQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submission Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmissnId")]
     #endif
+    [IsoXmlTag("SubmissnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 SubmissionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 SubmissionIdentification { get; init; } 
+    public required MessageIdentification1 SubmissionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 SubmissionIdentification { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_XtCPdwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -126,12 +122,11 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     /// Reference to the transaction for the requesting financial institution.
     /// </summary>
     [IsoId("_XtCPeQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitrTxRef")]
     #endif
+    [IsoXmlTag("SubmitrTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,16 +139,15 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     /// Specifies the commercial details of the underlying transaction.
     /// </summary>
     [IsoId("_XtCPewgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Baseline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Baseln")]
     #endif
+    [IsoXmlTag("Baseln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Baseline5 Baseline { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Baseline5 Baseline { get; init; } 
+    public required Baseline5 Baseline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Baseline5 Baseline { get; init; } 
     #else
@@ -164,12 +158,11 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     /// Person to be contacted in the organisation of the buyer.
     /// </summary>
     [IsoId("_XtCPfQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrCtctPrsn")]
     #endif
+    [IsoXmlTag("BuyrCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? BuyerContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +175,11 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     /// Person to be contacted in the organisation of the seller.
     /// </summary>
     [IsoId("_XtCPfwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrCtctPrsn")]
     #endif
+    [IsoXmlTag("SellrCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? SellerContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,19 +189,18 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     #endif
     
     /// <summary>
-    /// Person to be contacted in the seller's bank or buyer's bank.
+    /// Person to be contacted in the seller&apos;s bank or buyer&apos;s bank.
     /// </summary>
     [IsoId("_XtCPgQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkCtctPrsn")]
     #endif
+    [IsoXmlTag("BkCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankContactPerson1Choice_ BankContactPerson { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BankContactPerson1Choice_ BankContactPerson { get; init; } 
+    public required BankContactPerson1Choice_ BankContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BankContactPerson1Choice_ BankContactPerson { get; init; } 
     #else
@@ -217,15 +208,14 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     #endif
     
     /// <summary>
-    /// Person to be contacted in another bank than the seller or buyer's bank.
+    /// Person to be contacted in another bank than the seller or buyer&apos;s bank.
     /// </summary>
     [IsoId("_XtCPgwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Bank Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrBkCtctPrsn")]
     #endif
+    [IsoXmlTag("OthrBkCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification3? OtherBankContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -238,7 +228,7 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BaselineReSubmissionV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BaselineReSubmissionV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BaselineReSubmissionV05Document ToDocument()
     {
@@ -248,7 +238,7 @@ public partial record BaselineReSubmissionV05 : IOuterRecord<BaselineReSubmissio
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BaselineReSubmissionV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BaselineReSubmissionV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BaselineReSubmissionV05Document : IOuterDocument<BaselineReSubmissionV05>
@@ -265,7 +255,7 @@ public partial record BaselineReSubmissionV05Document : IOuterDocument<BaselineR
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BaselineReSubmissionV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BaselineReSubmissionV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BaselineReSubmissionV05 Message { get; init; }

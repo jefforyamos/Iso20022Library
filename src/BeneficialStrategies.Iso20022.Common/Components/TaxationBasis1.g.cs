@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specification of the taxation basis.
 /// </summary>
 [IsoId("_VSvC8tp-Ed-ak6NoX_4Aeg_526119979")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Taxation Basis")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TaxationBasis1
     /// Structured format.
     /// </summary>
     [IsoId("_VSvC89p-Ed-ak6NoX_4Aeg_-799724773")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
+    [IsoXmlTag("Strd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxationBasis3Code Structured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxationBasis3Code Structured { get; init; } 
+    public required TaxationBasis3Code Structured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxationBasis3Code Structured { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TaxationBasis1
     /// Additional information about the type of taxation basis.
     /// </summary>
     [IsoId("_VSvC9Np-Ed-ak6NoX_4Aeg_-792339705")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

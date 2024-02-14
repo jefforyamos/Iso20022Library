@@ -21,7 +21,7 @@ public enum ReconciliationTypeCode
 {
     /// <summary>
     /// Reconciliation with closure of the current period, without	any Acquirers synchronisation.
-    /// Encoded/decoded by serializers as "SREC".
+    /// Encoded/decoded by serializers as &quot;SREC&quot;.
     /// </summary>
     [EnumMember(Value = "SREC")]
     [IsoId("_My0YMNxeEeioifFt1dhnJA")]
@@ -30,7 +30,7 @@ public enum ReconciliationTypeCode
     
     /// <summary>
     /// Reconciliation and closure of the current period, with synchronisation of the reconciliation between the POI and Acquirers.
-    /// Encoded/decoded by serializers as "ASYN".
+    /// Encoded/decoded by serializers as &quot;ASYN&quot;.
     /// </summary>
     [EnumMember(Value = "ASYN")]
     [IsoId("_QEaEwNxeEeioifFt1dhnJA")]
@@ -39,7 +39,7 @@ public enum ReconciliationTypeCode
     
     /// <summary>
     /// Reconciliation between the POI and one or several Acquirers only. There is no reconciliation between the Sale System and the POI System.
-    /// Encoded/decoded by serializers as "AREC".
+    /// Encoded/decoded by serializers as &quot;AREC&quot;.
     /// </summary>
     [EnumMember(Value = "AREC")]
     [IsoId("_TVSmsNxeEeioifFt1dhnJA")]
@@ -48,7 +48,7 @@ public enum ReconciliationTypeCode
     
     /// <summary>
     /// Request result of a previous reconciliation.
-    /// Encoded/decoded by serializers as "PREC".
+    /// Encoded/decoded by serializers as &quot;PREC&quot;.
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_Wlz8QNxeEeioifFt1dhnJA")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOpeningType1Choice
     /// Type of account opening instruction expressed as a code.
     /// </summary>
     [IsoId("_3Et5EUzJEeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOpeningType1Choice
         /// Specifies the type of account to which an account opening request is related, eg, a new account.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountOpeningType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountOpeningType1Code Value { get; init; } 
+        public required AccountOpeningType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountOpeningType1Code Value { get; init; } 
         #else

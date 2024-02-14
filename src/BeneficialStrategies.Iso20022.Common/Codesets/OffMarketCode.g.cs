@@ -21,7 +21,7 @@ public enum OffMarketCode
 {
     /// <summary>
     /// Trade was executed off-market.
-    /// Encoded/decoded by serializers as "XOFF".
+    /// Encoded/decoded by serializers as &quot;XOFF&quot;.
     /// </summary>
     [EnumMember(Value = "XOFF")]
     [IsoId("_aOfyVdp-Ed-ak6NoX_4Aeg_-2107206762")]
@@ -30,7 +30,7 @@ public enum OffMarketCode
     
     /// <summary>
     /// Trade was executed off-exchange because the instrument is not admitted to trade on an exchange.
-    /// Encoded/decoded by serializers as "XXXX".
+    /// Encoded/decoded by serializers as &quot;XXXX&quot;.
     /// </summary>
     [EnumMember(Value = "XXXX")]
     [IsoId("_aOfyVtp-Ed-ak6NoX_4Aeg_199845376")]

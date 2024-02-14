@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide information on the reason of the mandate cancellation request.
 /// </summary>
 [IsoId("_TOt8yNp-Ed-ak6NoX_4Aeg_993731779")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancellation Reason Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CancellationReasonInformation2
     /// Party that issues the cancellation request.
     /// </summary>
     [IsoId("_TO3GsNp-Ed-ak6NoX_4Aeg_-102160306")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Orgtr")]
     #endif
+    [IsoXmlTag("Orgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification32? Originator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record CancellationReasonInformation2
     /// Specifies the reason for the cancellation request.
     /// </summary>
     [IsoId("_TO3Gsdp-Ed-ak6NoX_4Aeg_-190159100")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateReason1Choice_ Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateReason1Choice_ Reason { get; init; } 
+    public required MandateReason1Choice_ Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateReason1Choice_ Reason { get; init; } 
     #else
@@ -89,15 +85,13 @@ public partial record CancellationReasonInformation2
     /// Further details on the cancellation request reason.
     /// </summary>
     [IsoId("_TO3Gstp-Ed-ak6NoX_4Aeg_256167406")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

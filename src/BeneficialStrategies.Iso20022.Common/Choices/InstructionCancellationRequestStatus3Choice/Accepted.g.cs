@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestSt
     /// Provides status information related to a cancellation request accepted for further processing.
     /// </summary>
     [IsoId("_V4EH5eJxEd-Q6MzBzY5WkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

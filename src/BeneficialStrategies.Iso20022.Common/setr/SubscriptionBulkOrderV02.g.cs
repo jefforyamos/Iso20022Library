@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The SubscriptionBulkOrder message is sent by an instructing party, eg, an investment manager or its authorised representative, to an executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.|This message is used to instruct the executing party to subscribe to a financial instrument, for two or more accounts.|Usage|The SubscriptionBulkOrder message is used to bulk several individual orders into one bulk order. The individual orders come from different instructing parties, ie, account owners, but are related to the same financial instrument. This message will be typically be used by a party collecting orders and bulking these individual orders into one bulk order before sending it to another party.|For a single subscription order, the SubscriptionMultipleOrder message, not the SubscriptionBulkOrder message, must be used.|If there are subscription orders for different financial instruments but for the same account, then the SubscriptionMultipleOrder must be used.")]
 [IsoId("_zvolqNE7Ed-BzquC8wXy7w_-2097123010")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Bulk Order V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,12 +79,11 @@ public partial record SubscriptionBulkOrderV02 : IOuterRecord<SubscriptionBulkOr
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
     [IsoId("_zvyWoNE7Ed-BzquC8wXy7w_142369537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
+    [IsoXmlTag("MstrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,12 +96,11 @@ public partial record SubscriptionBulkOrderV02 : IOuterRecord<SubscriptionBulkOr
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_zvyWodE7Ed-BzquC8wXy7w_140520340")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +113,11 @@ public partial record SubscriptionBulkOrderV02 : IOuterRecord<SubscriptionBulkOr
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_zvyWotE7Ed-BzquC8wXy7w_152526577")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,16 +130,15 @@ public partial record SubscriptionBulkOrderV02 : IOuterRecord<SubscriptionBulkOr
     /// General information related to the order.
     /// </summary>
     [IsoId("_zvyWo9E7Ed-BzquC8wXy7w_-1645520650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bulk Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlkOrdrDtls")]
     #endif
+    [IsoXmlTag("BlkOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionBulkOrder2 BulkOrderDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubscriptionBulkOrder2 BulkOrderDetails { get; init; } 
+    public required SubscriptionBulkOrder2 BulkOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubscriptionBulkOrder2 BulkOrderDetails { get; init; } 
     #else
@@ -155,28 +149,24 @@ public partial record SubscriptionBulkOrderV02 : IOuterRecord<SubscriptionBulkOr
     /// The information related to an intermediary.
     /// </summary>
     [IsoId("_zvyWpNE7Ed-BzquC8wXy7w_2102293267")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IntrmyDtls")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Intermediary4> IntermediaryDetails { get; init; } = new ValueList<Intermediary4>(){};
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_zvyWpdE7Ed-BzquC8wXy7w_-1053648766")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation1? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,12 +179,11 @@ public partial record SubscriptionBulkOrderV02 : IOuterRecord<SubscriptionBulkOr
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_zvyWptE7Ed-BzquC8wXy7w_862111806")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,7 +196,7 @@ public partial record SubscriptionBulkOrderV02 : IOuterRecord<SubscriptionBulkOr
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SubscriptionBulkOrderV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SubscriptionBulkOrderV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SubscriptionBulkOrderV02Document ToDocument()
     {
@@ -217,7 +206,7 @@ public partial record SubscriptionBulkOrderV02 : IOuterRecord<SubscriptionBulkOr
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionBulkOrderV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SubscriptionBulkOrderV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SubscriptionBulkOrderV02Document : IOuterDocument<SubscriptionBulkOrderV02>
@@ -234,7 +223,7 @@ public partial record SubscriptionBulkOrderV02Document : IOuterDocument<Subscrip
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SubscriptionBulkOrderV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SubscriptionBulkOrderV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionBulkOrderV02 Message { get; init; }

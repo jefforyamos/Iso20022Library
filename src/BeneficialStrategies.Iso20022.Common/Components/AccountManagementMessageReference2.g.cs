@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the message reference of the account management instruction message for which the status is requested.
 /// </summary>
 [IsoId("_KUjOwQgvEeSy_NqeitQG4Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Management Message Reference")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record AccountManagementMessageReference2
     /// Reference to a linked message.
     /// </summary>
     [IsoId("_wu2KcQgvEeSy_NqeitQG4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdRef")]
     #endif
+    [IsoXmlTag("LkdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LinkedMessage2Choice_? LinkedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record AccountManagementMessageReference2
     /// Specifies if the status request refers to an earlier account opening or modification instruction message.
     /// </summary>
     [IsoId("_KvVGTwgvEeSy_NqeitQG4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsReqTp")]
     #endif
+    [IsoXmlTag("StsReqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountManagementType1Code StatusRequestType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountManagementType1Code StatusRequestType { get; init; } 
+    public required AccountManagementType1Code StatusRequestType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountManagementType1Code StatusRequestType { get; init; } 
     #else
@@ -89,15 +85,13 @@ public partial record AccountManagementMessageReference2
     /// Unique and unambiguous identifier of the account opening or account modification instruction at application level.
     /// </summary>
     [IsoId("_KvVGUQgvEeSy_NqeitQG4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record AccountManagementMessageReference2
     /// Account information for which the status of an account management instruction is requested.
     /// </summary>
     [IsoId("_KvVGUwgvEeSy_NqeitQG4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcct")]
     #endif
+    [IsoXmlTag("InvstmtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount45? InvestmentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

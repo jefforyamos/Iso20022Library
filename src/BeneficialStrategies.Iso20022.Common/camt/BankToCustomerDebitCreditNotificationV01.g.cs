@@ -41,9 +41,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Bank-to-Customer Debit/Credit Notification message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It can be used to inform the account owner, or authorised party, of single or multiple debit and/or credit entries reported to the account.|Usage|The Bank-to-Customer Debit/Credit Notification message can contain reports for more than 1 account. It provides information for cash management and/or reconciliation.|It can be used to:|- report pending and booked items;|- notify one or more debit entries;|- notify one or more credit entries;|- notify a combination of debit and credit entries|It can include underlying details of transactions that have been included in the entry.|It is possible that the receiver of the message is not the account owner, but a party entitled by the account owner to receive the account information (also known as recipient).|It does not contain balance information.")]
 [IsoId("_In48CNE-Ed-BzquC8wXy7w_1638002708")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank To Customer Debit Credit Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -87,16 +85,15 @@ public partial record BankToCustomerDebitCreditNotificationV01 : IOuterRecord<Ba
     /// Common information for the message.
     /// </summary>
     [IsoId("_In48CdE-Ed-BzquC8wXy7w_640607521")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader23 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader23 GroupHeader { get; init; } 
+    public required GroupHeader23 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader23 GroupHeader { get; init; } 
     #else
@@ -107,16 +104,15 @@ public partial record BankToCustomerDebitCreditNotificationV01 : IOuterRecord<Ba
     /// Notifies debit and credit entries for the account.
     /// </summary>
     [IsoId("_IoCF8NE-Ed-BzquC8wXy7w_296135544")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntfctn")]
     #endif
+    [IsoXmlTag("Ntfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountNotification1 Notification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountNotification1 Notification { get; init; } 
+    public required AccountNotification1 Notification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountNotification1 Notification { get; init; } 
     #else
@@ -127,7 +123,7 @@ public partial record BankToCustomerDebitCreditNotificationV01 : IOuterRecord<Ba
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BankToCustomerDebitCreditNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BankToCustomerDebitCreditNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BankToCustomerDebitCreditNotificationV01Document ToDocument()
     {
@@ -137,7 +133,7 @@ public partial record BankToCustomerDebitCreditNotificationV01 : IOuterRecord<Ba
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankToCustomerDebitCreditNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BankToCustomerDebitCreditNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BankToCustomerDebitCreditNotificationV01Document : IOuterDocument<BankToCustomerDebitCreditNotificationV01>
@@ -154,7 +150,7 @@ public partial record BankToCustomerDebitCreditNotificationV01Document : IOuterD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BankToCustomerDebitCreditNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BankToCustomerDebitCreditNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankToCustomerDebitCreditNotificationV01 Message { get; init; }

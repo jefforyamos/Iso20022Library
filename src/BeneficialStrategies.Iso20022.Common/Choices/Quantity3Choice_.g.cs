@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Quantity3Choice.QuantityChoice))]
     [KnownType(typeof(Quantity3Choice.ProprietaryQuantity))]
     [IsoId("_Qz45G9p-Ed-ak6NoX_4Aeg_-354691076")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

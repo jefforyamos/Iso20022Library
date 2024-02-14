@@ -21,7 +21,7 @@ public enum TechnicalValidationStatusCode
 {
     /// <summary>
     /// Indicates that the request has been correctly received and that the technical validation was successful.
-    /// Encoded/decoded by serializers as "RCCF".
+    /// Encoded/decoded by serializers as &quot;RCCF&quot;.
     /// </summary>
     [EnumMember(Value = "RCCF")]
     [IsoId("_Yll61dp-Ed-ak6NoX_4Aeg_1506722144")]
@@ -30,7 +30,7 @@ public enum TechnicalValidationStatusCode
     
     /// <summary>
     /// Indicates there was an error in the reception of the request or that the technical validation was not successful.
-    /// Encoded/decoded by serializers as "RCER".
+    /// Encoded/decoded by serializers as &quot;RCER&quot;.
     /// </summary>
     [EnumMember(Value = "RCER")]
     [IsoId("_Yll61tp-Ed-ak6NoX_4Aeg_1529808681")]

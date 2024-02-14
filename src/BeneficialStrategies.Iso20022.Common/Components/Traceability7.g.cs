@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
 /// </summary>
 [IsoId("_SnT1wUqOEeenp6hmNprBHg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Traceability")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Traceability7
     /// Identification of a partner of a message exchange.
     /// </summary>
     [IsoId("_SxVUcUqOEeenp6hmNprBHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Relay Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RlayId")]
     #endif
+    [IsoXmlTag("RlayId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification172 RelayIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification172 RelayIdentification { get; init; } 
+    public required GenericIdentification172 RelayIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification172 RelayIdentification { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record Traceability7
     /// Date and time of incoming data exchange for relaying or processing.
     /// </summary>
     [IsoId("_SxVUc0qOEeenp6hmNprBHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trace Date Time In")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TracDtTmIn")]
     #endif
+    [IsoXmlTag("TracDtTmIn")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TraceDateTimeIn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record Traceability7
     /// Date and time of the outgoing exchange for relaying or processing.
     /// </summary>
     [IsoId("_SxVUdUqOEeenp6hmNprBHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trace Date Time Out")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TracDtTmOut")]
     #endif
+    [IsoXmlTag("TracDtTmOut")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TraceDateTimeOut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

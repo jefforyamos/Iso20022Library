@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instrument specific technical data to support identification.
 /// </summary>
 [IsoId("_OwQysSX7EeigZbhgJcrASA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Record Technical Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record RecordTechnicalData4
     /// Flag to say if there is an inconsistency across all submitting entities records.
     /// </summary>
     [IsoId("_O7vp8yX7EeigZbhgJcrASA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inconsistency Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncnsstncyInd")]
     #endif
+    [IsoXmlTag("IncnsstncyInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? InconsistencyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record RecordTechnicalData4
     /// Last date for which data was received for this instrument.
     /// </summary>
     [IsoId("_O7vp9SX7EeigZbhgJcrASA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Update")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastUpd")]
     #endif
+    [IsoXmlTag("LastUpd")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? LastUpdate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record RecordTechnicalData4
     /// Defines the date and time when this instrument was originally received at the submission destination.
     /// </summary>
     [IsoId("_O7vp9yX7EeigZbhgJcrASA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submission Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmissnDtTm")]
     #endif
+    [IsoXmlTag("SubmissnDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? SubmissionDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,11 @@ public partial record RecordTechnicalData4
     /// Country code of the relevant competent authority of the instrument.
     /// </summary>
     [IsoId("_O7vp-SX7EeigZbhgJcrASA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Relevant Competent Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RlvntCmptntAuthrty")]
     #endif
+    [IsoXmlTag("RlvntCmptntAuthrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? RelevantCompetentAuthority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,11 @@ public partial record RecordTechnicalData4
     /// Period for which the associated instrument has been publically available.
     /// </summary>
     [IsoId("_O7vp-yX7EeigZbhgJcrASA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Publication Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PblctnPrd")]
     #endif
+    [IsoXmlTag("PblctnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? PublicationPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,12 @@ public partial record RecordTechnicalData4
     /// Flag to say if the record has ever been published.
     /// </summary>
     [IsoId("_O7vp_SX7EeigZbhgJcrASA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Never Published")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NvrPblshd")]
     #endif
+    [IsoXmlTag("NvrPblshd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NeverPublished { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +148,12 @@ public partial record RecordTechnicalData4
     /// Trading venue of the record used by the relevant competent authority to determine the reference data for the instrument.
     /// </summary>
     [IsoId("_qDbo8CX7EeigZbhgJcrASA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Relevant Trading Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RlvntTradgVn")]
     #endif
+    [IsoXmlTag("RlvntTradgVn")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? RelevantTradingVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

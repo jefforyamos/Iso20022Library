@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to indicate when the booked amount of money will become available, ie can be accessed and start generating interest.
 /// </summary>
 [IsoId("_TU0k0Np-Ed-ak6NoX_4Aeg_865553727")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Balance Availability")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CashBalanceAvailability1
     /// Indicates when the amount of money will become available.
     /// </summary>
     [IsoId("_TU-VwNp-Ed-ak6NoX_4Aeg_609227725")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashBalanceAvailabilityDate1 Date { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashBalanceAvailabilityDate1 Date { get; init; } 
+    public required CashBalanceAvailabilityDate1 Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashBalanceAvailabilityDate1 Date { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record CashBalanceAvailability1
     /// Identifies the available amount.
     /// </summary>
     [IsoId("_TU-Vwdp-Ed-ak6NoX_4Aeg_865553839")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -93,16 +90,15 @@ public partial record CashBalanceAvailability1
     /// Indicates whether the availability balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
     [IsoId("_TU-Vwtp-Ed-ak6NoX_4Aeg_1983432427")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdjustedBalanceTypeSD1Choice.Repo))]
     [KnownType(typeof(AdjustedBalanceTypeSD1Choice.Fail))]
     [IsoId("_1hE44zL3EeKU9IrkkToqcw_-166456088")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjusted Balance Type SD 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

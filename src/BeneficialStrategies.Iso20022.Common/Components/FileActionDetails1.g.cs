@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the file action to be performed.
 /// </summary>
 [IsoId("_7LN-oFD3Eee94_dUz-hvgw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("File Action Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record FileActionDetails1
     /// ISO 8583 bit 101
     /// </summary>
     [IsoId("_Ddn5sFD4Eee94_dUz-hvgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FileNm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text FileName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FileName { get; init; } 
+    public required System.String FileName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FileName { get; init; } 
     #else
@@ -77,16 +73,16 @@ public partial record FileActionDetails1
     /// ISO 8583:93/2003 bit 72
     /// </summary>
     [IsoId("_j2qysFD6Eee94_dUz-hvgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataRcrd")]
     #endif
+    [IsoXmlTag("DataRcrd")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax100KBinary DataRecord { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] DataRecord { get; init; } 
+    public required System.Byte[] DataRecord { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] DataRecord { get; init; } 
     #else
@@ -98,12 +94,12 @@ public partial record FileActionDetails1
     /// ISO 8583 bit 73.
     /// </summary>
     [IsoId("_shNg8FD6Eee94_dUz-hvgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnDt")]
     #endif
+    [IsoXmlTag("ActnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ActionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,15 +113,13 @@ public partial record FileActionDetails1
     /// ISO 8583:87 bit 92
     /// </summary>
     [IsoId("_U60dcFEFEee94_dUz-hvgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Security Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileSctyCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FileSctyCd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FileSecurityCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

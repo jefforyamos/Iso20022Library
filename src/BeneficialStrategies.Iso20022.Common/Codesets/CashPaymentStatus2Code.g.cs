@@ -21,7 +21,7 @@ public enum CashPaymentStatus2Code
 {
     /// <summary>
     /// The payment is awaiting settlement.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_a7DWVdp-Ed-ak6NoX_4Aeg_1461915330")]
@@ -30,7 +30,7 @@ public enum CashPaymentStatus2Code
     
     /// <summary>
     /// The payment has been settled or stopped.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_a7DWVtp-Ed-ak6NoX_4Aeg_1461915331")]

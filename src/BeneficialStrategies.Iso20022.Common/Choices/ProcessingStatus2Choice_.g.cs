@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus2Choice.Denied))]
     [KnownType(typeof(ProcessingStatus2Choice.Cancelled))]
     [IsoId("_UUJ60dp-Ed-ak6NoX_4Aeg_1316468360")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

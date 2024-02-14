@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat3Choice
     /// Place of safekeeping expressed with a propriety identification scheme.
     /// </summary>
     [IsoId("_SfoCItp-Ed-ak6NoX_4Aeg_-955186305")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat3Choice
         /// Proprietary information, often a code, issued by the data source scheme issuer.
         /// </summary>
         [IsoId("_P-Zbhtp-Ed-ak6NoX_4Aeg_-178701769")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GenericIdentification20 Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GenericIdentification20 Type { get; init; } 
+        public required GenericIdentification20 Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GenericIdentification20 Type { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat3Choice
         /// Name or number assigned by an entity to enable recognition of that entity, eg, account identifier.
         /// </summary>
         [IsoId("_P-Zbh9p-Ed-ak6NoX_4Aeg_-1061935056")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason14Choice
     /// Specifies the reason why the transaction was generated.
     /// </summary>
     [IsoId("_ux5oKVhpEeS8HfHHd4stCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generated Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

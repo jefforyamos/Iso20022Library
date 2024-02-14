@@ -22,7 +22,7 @@ public enum ExternalIncoterms1Code
 {
     /// <summary>
     /// Cost and Freight (sea and inland waterway transport) - Incoterms 2010
-    /// Encoded/decoded by serializers as "CFR".
+    /// Encoded/decoded by serializers as &quot;CFR&quot;.
     /// </summary>
     [EnumMember(Value = "CFR")]
     [IsoId("_uH-6UvRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Cost, Insurance and Freight (sea and inland waterway transport) - Incoterms 2010
-    /// Encoded/decoded by serializers as "CIF".
+    /// Encoded/decoded by serializers as &quot;CIF&quot;.
     /// </summary>
     [EnumMember(Value = "CIF")]
     [IsoId("_uH-6VfRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Carriage and Insurance Paid To (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "CIP".
+    /// Encoded/decoded by serializers as &quot;CIP&quot;.
     /// </summary>
     [EnumMember(Value = "CIP")]
     [IsoId("_uIIrUvRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Carriage Paid To (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "CPT".
+    /// Encoded/decoded by serializers as &quot;CPT&quot;.
     /// </summary>
     [EnumMember(Value = "CPT")]
     [IsoId("_uIIrVfRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Delivered at Place (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "DAP".
+    /// Encoded/decoded by serializers as &quot;DAP&quot;.
     /// </summary>
     [EnumMember(Value = "DAP")]
     [IsoId("_uIIrWPRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Delivered at Terminal (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "DAT".
+    /// Encoded/decoded by serializers as &quot;DAT&quot;.
     /// </summary>
     [EnumMember(Value = "DAT")]
     [IsoId("_uIIrW_RYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Delivered Duty Paid (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "DDP".
+    /// Encoded/decoded by serializers as &quot;DDP&quot;.
     /// </summary>
     [EnumMember(Value = "DDP")]
     [IsoId("_uIR1QvRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Ex Works (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "EXW".
+    /// Encoded/decoded by serializers as &quot;EXW&quot;.
     /// </summary>
     [EnumMember(Value = "EXW")]
     [IsoId("_uIR1RfRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Free Alongside Ship (sea and inland waterway transport) - Incoterms 2010
-    /// Encoded/decoded by serializers as "FAS".
+    /// Encoded/decoded by serializers as &quot;FAS&quot;.
     /// </summary>
     [EnumMember(Value = "FAS")]
     [IsoId("_uIR1SPRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Free Carrier (any mode of transport, including multimodal) - Incoterms 2010
-    /// Encoded/decoded by serializers as "FCA".
+    /// Encoded/decoded by serializers as &quot;FCA&quot;.
     /// </summary>
     [EnumMember(Value = "FCA")]
     [IsoId("_uIR1S_RYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalIncoterms1Code
     
     /// <summary>
     /// Free On Board (sea and inland waterway transport) - Incoterms 2010
-    /// Encoded/decoded by serializers as "FOB".
+    /// Encoded/decoded by serializers as &quot;FOB&quot;.
     /// </summary>
     [EnumMember(Value = "FOB")]
     [IsoId("_uIR1TvRYEeuLhpyIdtJzwg")]

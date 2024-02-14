@@ -21,7 +21,7 @@ public enum AdviceType1Code
 {
     /// <summary>
     /// Advice with transaction details is requested.
-    /// Encoded/decoded by serializers as "ADWD".
+    /// Encoded/decoded by serializers as &quot;ADWD&quot;.
     /// </summary>
     [EnumMember(Value = "ADWD")]
     [IsoId("_XiPt0e8XEemSR6j6KWQzCg")]
@@ -30,7 +30,7 @@ public enum AdviceType1Code
     
     /// <summary>
     /// Advice without  transaction details is requested.
-    /// Encoded/decoded by serializers as "ADND".
+    /// Encoded/decoded by serializers as &quot;ADND&quot;.
     /// </summary>
     [EnumMember(Value = "ADND")]
     [IsoId("_Xz3CQe8XEemSR6j6KWQzCg")]

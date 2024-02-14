@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MeetingCancellationReason1Choice
     /// Specifies the reason for cancelling a meeting in coded form.
     /// </summary>
     [IsoId("_RCWL0tp-Ed-ak6NoX_4Aeg_-1788860770")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MeetingCancellationReason1Choice
         /// Specifies the reason for cancelling a meeting.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required MeetingCancellationReason2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public MeetingCancellationReason2Code Value { get; init; } 
+        public required MeetingCancellationReason2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public MeetingCancellationReason2Code Value { get; init; } 
         #else

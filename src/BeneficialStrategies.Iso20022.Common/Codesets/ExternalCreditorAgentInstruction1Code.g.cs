@@ -21,7 +21,7 @@ public enum ExternalCreditorAgentInstruction1Code
 {
     /// <summary>
     /// (Ultimate) creditor must be paid by cheque.
-    /// Encoded/decoded by serializers as "CHQB".
+    /// Encoded/decoded by serializers as &quot;CHQB&quot;.
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_uwEOAvRYEeuLhpyIdtJzwg")]
@@ -30,7 +30,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_uwEOBfRYEeuLhpyIdtJzwg")]
@@ -39,7 +39,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone.
-    /// Encoded/decoded by serializers as "PHOB".
+    /// Encoded/decoded by serializers as &quot;PHOB&quot;.
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_uwEOCPRYEeuLhpyIdtJzwg")]
@@ -48,7 +48,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Indicates that a payer token is requested/used.
-    /// Encoded/decoded by serializers as "PRTK".
+    /// Encoded/decoded by serializers as &quot;PRTK&quot;.
     /// </summary>
     [EnumMember(Value = "PRTK")]
     [IsoId("_uwN_AvRYEeuLhpyIdtJzwg")]
@@ -57,7 +57,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Further information regarding the intended recipient. 
-    /// Encoded/decoded by serializers as "RECI".
+    /// Encoded/decoded by serializers as &quot;RECI&quot;.
     /// </summary>
     [EnumMember(Value = "RECI")]
     [IsoId("_uwN_BfRYEeuLhpyIdtJzwg")]
@@ -66,7 +66,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "TELB".
+    /// Encoded/decoded by serializers as &quot;TELB&quot;.
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_uwN_CPRYEeuLhpyIdtJzwg")]
@@ -75,7 +75,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Token found with counterparty mismatch. 
-    /// Encoded/decoded by serializers as "TKCM".
+    /// Encoded/decoded by serializers as &quot;TKCM&quot;.
     /// </summary>
     [EnumMember(Value = "TKCM")]
     [IsoId("_uwN_C_RYEeuLhpyIdtJzwg")]
@@ -84,7 +84,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Single Use Token already used. 
-    /// Encoded/decoded by serializers as "TKSG".
+    /// Encoded/decoded by serializers as &quot;TKSG&quot;.
     /// </summary>
     [EnumMember(Value = "TKSG")]
     [IsoId("_uwXwAvRYEeuLhpyIdtJzwg")]
@@ -93,7 +93,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Token found with suspended status.
-    /// Encoded/decoded by serializers as "TKSP".
+    /// Encoded/decoded by serializers as &quot;TKSP&quot;.
     /// </summary>
     [EnumMember(Value = "TKSP")]
     [IsoId("_uwXwBfRYEeuLhpyIdtJzwg")]
@@ -102,7 +102,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Token found with value limit rule violation. 
-    /// Encoded/decoded by serializers as "TKVE".
+    /// Encoded/decoded by serializers as &quot;TKVE&quot;.
     /// </summary>
     [EnumMember(Value = "TKVE")]
     [IsoId("_uwXwCPRYEeuLhpyIdtJzwg")]
@@ -111,7 +111,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Token expired. 
-    /// Encoded/decoded by serializers as "TKXP".
+    /// Encoded/decoded by serializers as &quot;TKXP&quot;.
     /// </summary>
     [EnumMember(Value = "TKXP")]
     [IsoId("_uwXwC_RYEeuLhpyIdtJzwg")]
@@ -120,7 +120,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Token information.
-    /// Encoded/decoded by serializers as "TOKN".
+    /// Encoded/decoded by serializers as &quot;TOKN&quot;.
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_uwg58vRYEeuLhpyIdtJzwg")]
@@ -129,7 +129,7 @@ public enum ExternalCreditorAgentInstruction1Code
     
     /// <summary>
     /// Additional validation information to be used in conjunction with the token.
-    /// Encoded/decoded by serializers as "VLTK".
+    /// Encoded/decoded by serializers as &quot;VLTK&quot;.
     /// </summary>
     [EnumMember(Value = "VLTK")]
     [IsoId("_uwg59fRYEeuLhpyIdtJzwg")]

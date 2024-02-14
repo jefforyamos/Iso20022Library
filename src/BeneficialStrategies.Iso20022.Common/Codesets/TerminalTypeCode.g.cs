@@ -21,7 +21,7 @@ public enum TerminalTypeCode
 {
     /// <summary>
     /// Automated Teller Machine
-    /// Encoded/decoded by serializers as "ATMT".
+    /// Encoded/decoded by serializers as &quot;ATMT&quot;.
     /// </summary>
     [EnumMember(Value = "ATMT")]
     [IsoId("_CyLEgECHEeeXpbqDpLawug")]
@@ -30,7 +30,7 @@ public enum TerminalTypeCode
     
     /// <summary>
     /// Point of Sale terminal.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_GY-zIECHEeeXpbqDpLawug")]
@@ -39,7 +39,7 @@ public enum TerminalTypeCode
     
     /// <summary>
     /// Mobile or tablet used as a Point of Sale terminal
-    /// Encoded/decoded by serializers as "MPOS".
+    /// Encoded/decoded by serializers as &quot;MPOS&quot;.
     /// </summary>
     [EnumMember(Value = "MPOS")]
     [IsoId("_K_CYQECHEeeXpbqDpLawug")]
@@ -48,7 +48,7 @@ public enum TerminalTypeCode
     
     /// <summary>
     /// Other type defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_QkQ7YECHEeeXpbqDpLawug")]
@@ -57,7 +57,7 @@ public enum TerminalTypeCode
     
     /// <summary>
     /// Other private type of terminal.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_VOi5MECHEeeXpbqDpLawug")]

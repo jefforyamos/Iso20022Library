@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum RejectionReason61Code
 {
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_BGUkgTDFEeunENYTWutRtQ")]
@@ -30,7 +30,7 @@ public enum RejectionReason61Code
     
     /// <summary>
     /// Linked reference is unknown.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_DjSWMTDFEeunENYTWutRtQ")]
@@ -39,7 +39,7 @@ public enum RejectionReason61Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_FaTiMTDFEeunENYTWutRtQ")]
@@ -48,7 +48,7 @@ public enum RejectionReason61Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Go3AATDFEeunENYTWutRtQ")]
@@ -57,7 +57,7 @@ public enum RejectionReason61Code
     
     /// <summary>
     /// Cancellation request was rejected since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "DCAN".
+    /// Encoded/decoded by serializers as &quot;DCAN&quot;.
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_Iw1ZITDFEeunENYTWutRtQ")]
@@ -66,7 +66,7 @@ public enum RejectionReason61Code
     
     /// <summary>
     /// Cancellation request was denied because the instruction was already settled.
-    /// Encoded/decoded by serializers as "DSET".
+    /// Encoded/decoded by serializers as &quot;DSET&quot;.
     /// </summary>
     [EnumMember(Value = "DSET")]
     [IsoId("_Ny8BETDFEeunENYTWutRtQ")]
@@ -75,7 +75,7 @@ public enum RejectionReason61Code
     
     /// <summary>
     /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
-    /// Encoded/decoded by serializers as "DPRG".
+    /// Encoded/decoded by serializers as &quot;DPRG&quot;.
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_PiXXUTDFEeunENYTWutRtQ")]

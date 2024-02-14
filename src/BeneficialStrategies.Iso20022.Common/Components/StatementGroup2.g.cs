@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Group of the statement header reporting the bank services billing and the billing statement.
 /// </summary>
 [IsoId("_akFHMTq2EeWZFYSPlduMhw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statement Group")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record StatementGroup2
     /// Identification of a group of customer billing statements.
     /// </summary>
     [IsoId("_arIxcTq2EeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("GrpId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text GroupIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String GroupIdentification { get; init; } 
+    public required System.String GroupIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String GroupIdentification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record StatementGroup2
     /// Originating financial institution sending the statement.
     /// </summary>
     [IsoId("_arIxczq2EeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sndr")]
     #endif
+    [IsoXmlTag("Sndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification58 Sender { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification58 Sender { get; init; } 
+    public required PartyIdentification58 Sender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification58 Sender { get; init; } 
     #else
@@ -93,35 +88,31 @@ public partial record StatementGroup2
     #endif
     
     /// <summary>
-    /// Specifies the individual to contact in case of technical problems at the sender's location.
+    /// Specifies the individual to contact in case of technical problems at the sender&apos;s location.
     /// </summary>
     [IsoId("_arIxdTq2EeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Individual Contact")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrIndvCtct")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SndrIndvCtct")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<ContactDetails3> SenderIndividualContact { get; init; } = new ValueList<ContactDetails3>(){};
     
     /// <summary>
     /// Financial institution customer receiving the statement.
     /// </summary>
     [IsoId("_arIxdzq2EeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcvr")]
     #endif
+    [IsoXmlTag("Rcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification58 Receiver { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification58 Receiver { get; init; } 
+    public required PartyIdentification58 Receiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification58 Receiver { get; init; } 
     #else
@@ -129,31 +120,27 @@ public partial record StatementGroup2
     #endif
     
     /// <summary>
-    /// Specifies the individual to contact in case of technical problems at the receiver's location.
+    /// Specifies the individual to contact in case of technical problems at the receiver&apos;s location.
     /// </summary>
     [IsoId("_arIxeTq2EeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver Individual Contact")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrIndvCtct")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcvrIndvCtct")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<ContactDetails3> ReceiverIndividualContact { get; init; } = new ValueList<ContactDetails3>(){};
     
     /// <summary>
     /// Provides the bank services billing statement recounting of all service chargeable events that occurred during a reporting cycle, such as the end of the month reporting.
     /// </summary>
     [IsoId("_arIxezq2EeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billing Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BllgStmt")]
     #endif
+    [IsoXmlTag("BllgStmt")]
     public BillingStatement2? BillingStatement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _arIxezq2EeWZFYSPlduMhw
     

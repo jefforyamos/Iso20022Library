@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// </summary>
 [Description(@"Scope|The ForeignExchangeOptionNotification message is sent by a central system to a participant to provide details of a foreign exchange option trade.|Usage|The notification is sent by the central settlement system to the two trading parties after it has received Create, Amend or Cancel messages from both. The message may also contain information on the settlement of the trade and/or premium.")]
 [IsoId("_QCIK6NE8Ed-BzquC8wXy7w_-2045814163")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange Option Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord<Foreig
     /// Specifies the trading side of the currency option trade which is reported.
     /// </summary>
     [IsoId("_QCIK6dE8Ed-BzquC8wXy7w_-28711885")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification4 TradingSideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification4 TradingSideIdentification { get; init; } 
+    public required TradePartyIdentification4 TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification4 TradingSideIdentification { get; init; } 
     #else
@@ -101,16 +98,15 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord<Foreig
     /// Specifies the counterparty of the non deliverable trade which is reported.
     /// </summary>
     [IsoId("_QCIK6tE8Ed-BzquC8wXy7w_-1363683318")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification4 CounterpartySideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification4 CounterpartySideIdentification { get; init; } 
+    public required TradePartyIdentification4 CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification4 CounterpartySideIdentification { get; init; } 
     #else
@@ -121,16 +117,15 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord<Foreig
     /// Provides information on the conditions of the option.
     /// </summary>
     [IsoId("_QCIK69E8Ed-BzquC8wXy7w_1138794159")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnData")]
     #endif
+    [IsoXmlTag("OptnData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionData2 OptionData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionData2 OptionData { get; init; } 
+    public required OptionData2 OptionData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionData2 OptionData { get; init; } 
     #else
@@ -141,16 +136,15 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord<Foreig
     /// Provides information on the status of a trade in a settlement system.
     /// </summary>
     [IsoId("_QCR74NE8Ed-BzquC8wXy7w_1207820711")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradSts")]
     #endif
+    [IsoXmlTag("TradSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeStatus1 TradeStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeStatus1 TradeStatus { get; init; } 
+    public required TradeStatus1 TradeStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeStatus1 TradeStatus { get; init; } 
     #else
@@ -161,12 +155,11 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord<Foreig
     /// Provides information on the settlement of a trade.
     /// </summary>
     [IsoId("_QCR74dE8Ed-BzquC8wXy7w_949234653")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmData")]
     #endif
+    [IsoXmlTag("SttlmData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementData2? SettlementData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,7 +172,7 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord<Foreig
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ForeignExchangeOptionNotificationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ForeignExchangeOptionNotificationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ForeignExchangeOptionNotificationV02Document ToDocument()
     {
@@ -189,7 +182,7 @@ public partial record ForeignExchangeOptionNotificationV02 : IOuterRecord<Foreig
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeOptionNotificationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ForeignExchangeOptionNotificationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ForeignExchangeOptionNotificationV02Document : IOuterDocument<ForeignExchangeOptionNotificationV02>
@@ -206,7 +199,7 @@ public partial record ForeignExchangeOptionNotificationV02Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ForeignExchangeOptionNotificationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ForeignExchangeOptionNotificationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForeignExchangeOptionNotificationV02 Message { get; init; }

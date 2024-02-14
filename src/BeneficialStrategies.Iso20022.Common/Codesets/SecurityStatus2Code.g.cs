@@ -21,7 +21,7 @@ public enum SecurityStatus2Code
 {
     /// <summary>
     /// The status is active.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ha1jsGliEeGaMcKyqKNRfQ_1830027418")]
@@ -30,7 +30,7 @@ public enum SecurityStatus2Code
     
     /// <summary>
     /// The status is inactive.
-    /// Encoded/decoded by serializers as "INAC".
+    /// Encoded/decoded by serializers as &quot;INAC&quot;.
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_ha1jsWliEeGaMcKyqKNRfQ_-1878992852")]
@@ -39,7 +39,7 @@ public enum SecurityStatus2Code
     
     /// <summary>
     /// The status is suspended.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_ha1jsmliEeGaMcKyqKNRfQ_-387389187")]

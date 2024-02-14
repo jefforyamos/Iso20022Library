@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The FundEstimatedCashForecastReport message is sent by a report provider, such as a transfer agent or a designated agent of the fund, to a report user, such as an investment manager, a fund accountant or any other interested party.|This message is used to report the estimated cash incomings and outgoings of one or more investment funds, on one or more trade dates. These cash movements may result from, for example, redemption, subscription, switch transactions or dividends.|Usage|The FundEstimatedCashForecastReport message is used to report estimated cash movements, i.e., it is sent prior to the cutoff time and/or the price valuation of the fund.")]
 [IsoId("_d6JYtdE-Ed-BzquC8wXy7w_78558760")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Estimated Cash Forecast Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,12 +77,11 @@ public partial record FundEstimatedCashForecastReportV02 : IOuterRecord<FundEsti
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_d6JYttE-Ed-BzquC8wXy7w_-203432164")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +94,11 @@ public partial record FundEstimatedCashForecastReportV02 : IOuterRecord<FundEsti
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_d6JYt9E-Ed-BzquC8wXy7w_-602392790")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +111,11 @@ public partial record FundEstimatedCashForecastReportV02 : IOuterRecord<FundEsti
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_d6JYuNE-Ed-BzquC8wXy7w_-506346429")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,16 +128,15 @@ public partial record FundEstimatedCashForecastReportV02 : IOuterRecord<FundEsti
     /// Information related to the estimated cash-in and cash-out flows for a specific trade date as a result of investment fund transactions, for example, subscriptions, redemptions or switch to/from a specified investment fund.
     /// </summary>
     [IsoId("_d6JYudE-Ed-BzquC8wXy7w_1685167439")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Estimated Fund Cash Forecast Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstmtdFndCshFcstDtls")]
     #endif
+    [IsoXmlTag("EstmtdFndCshFcstDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EstimatedFundCashForecast1 EstimatedFundCashForecastDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EstimatedFundCashForecast1 EstimatedFundCashForecastDetails { get; init; } 
+    public required EstimatedFundCashForecast1 EstimatedFundCashForecastDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EstimatedFundCashForecast1 EstimatedFundCashForecastDetails { get; init; } 
     #else
@@ -153,12 +147,11 @@ public partial record FundEstimatedCashForecastReportV02 : IOuterRecord<FundEsti
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_d6JYutE-Ed-BzquC8wXy7w_328515513")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,7 +164,7 @@ public partial record FundEstimatedCashForecastReportV02 : IOuterRecord<FundEsti
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FundEstimatedCashForecastReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FundEstimatedCashForecastReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FundEstimatedCashForecastReportV02Document ToDocument()
     {
@@ -181,7 +174,7 @@ public partial record FundEstimatedCashForecastReportV02 : IOuterRecord<FundEsti
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FundEstimatedCashForecastReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FundEstimatedCashForecastReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FundEstimatedCashForecastReportV02Document : IOuterDocument<FundEstimatedCashForecastReportV02>
@@ -198,7 +191,7 @@ public partial record FundEstimatedCashForecastReportV02Document : IOuterDocumen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FundEstimatedCashForecastReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FundEstimatedCashForecastReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundEstimatedCashForecastReportV02 Message { get; init; }

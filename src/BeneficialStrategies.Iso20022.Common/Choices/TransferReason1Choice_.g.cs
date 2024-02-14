@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransferReason1Choice.Code))]
     [KnownType(typeof(TransferReason1Choice.Proprietary))]
     [IsoId("_hPw_oa51EeeMy7TnJ3e__g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

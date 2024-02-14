@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information for the presentation of documents.
 /// </summary>
 [IsoId("_vsXgeX1qEeGlwNeVP9egyg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Presentation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Presentation4
     /// Medium through which the presentation can be submitted such as paper, electronic or both.
     /// </summary>
     [IsoId("_vsXgfH1qEeGlwNeVP9egyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Medium")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mdm")]
     #endif
+    [IsoXmlTag("Mdm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PresentationMedium1Choice_? Medium { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Presentation4
     /// Document required to be presented.
     /// </summary>
     [IsoId("_vsXgh31qEeGlwNeVP9egyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Doc")]
     #endif
+    [IsoXmlTag("Doc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document11? Document { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,19 +76,15 @@ public partial record Presentation4
     /// Additional information related to the presentation.
     /// </summary>
     [IsoId("_vsXgf31qEeGlwNeVP9egyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

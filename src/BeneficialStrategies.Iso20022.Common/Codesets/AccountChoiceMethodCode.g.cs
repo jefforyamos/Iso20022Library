@@ -21,7 +21,7 @@ public enum AccountChoiceMethodCode
 {
     /// <summary>
     /// Account selected in an account list.
-    /// Encoded/decoded by serializers as "ACSL".
+    /// Encoded/decoded by serializers as &quot;ACSL&quot;.
     /// </summary>
     [EnumMember(Value = "ACSL")]
     [IsoId("_L62-QHs7EeSTS7uHCe8FPQ")]
@@ -30,7 +30,7 @@ public enum AccountChoiceMethodCode
     
     /// <summary>
     /// Account identification is entered by the customer.
-    /// Encoded/decoded by serializers as "ENTR".
+    /// Encoded/decoded by serializers as &quot;ENTR&quot;.
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_OzfYQHs7EeSTS7uHCe8FPQ")]
@@ -39,7 +39,7 @@ public enum AccountChoiceMethodCode
     
     /// <summary>
     /// Account is selected according to the configuration.
-    /// Encoded/decoded by serializers as "IMAC".
+    /// Encoded/decoded by serializers as &quot;IMAC&quot;.
     /// </summary>
     [EnumMember(Value = "IMAC")]
     [IsoId("_Q_G7QHs7EeSTS7uHCe8FPQ")]
@@ -48,7 +48,7 @@ public enum AccountChoiceMethodCode
     
     /// <summary>
     /// Type of account is selected according to the configuration.
-    /// Encoded/decoded by serializers as "IMPL".
+    /// Encoded/decoded by serializers as &quot;IMPL&quot;.
     /// </summary>
     [EnumMember(Value = "IMPL")]
     [IsoId("_T4HvwHs7EeSTS7uHCe8FPQ")]
@@ -57,7 +57,7 @@ public enum AccountChoiceMethodCode
     
     /// <summary>
     /// Type of account selected in a list.
-    /// Encoded/decoded by serializers as "TPSL".
+    /// Encoded/decoded by serializers as &quot;TPSL&quot;.
     /// </summary>
     [EnumMember(Value = "TPSL")]
     [IsoId("_WnguMHs7EeSTS7uHCe8FPQ")]
@@ -66,7 +66,7 @@ public enum AccountChoiceMethodCode
     
     /// <summary>
     /// Account is not selected by the customer or a profile, but by the issuer.
-    /// Encoded/decoded by serializers as "NOSL".
+    /// Encoded/decoded by serializers as &quot;NOSL&quot;.
     /// </summary>
     [EnumMember(Value = "NOSL")]
     [IsoId("_aLRv4Hs7EeSTS7uHCe8FPQ")]

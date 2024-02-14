@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the header for a trade transaction query message.
 /// </summary>
 [IsoId("_hxrf4RZ6Ee27wrM4RUjLog")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Report Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record TradeReportHeader4
     /// Indicates the as-at day for which the report was produced.
     /// </summary>
     [IsoId("_hzTQgRZ6Ee27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Execution Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptExctnDt")]
     #endif
+    [IsoXmlTag("RptExctnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ReportExecutionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record TradeReportHeader4
     /// Page number of the message (within the report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
     [IsoId("_hzTQgxZ6Ee27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination1? MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +84,16 @@ public partial record TradeReportHeader4
     /// Indicates the number of records in the page.
     /// </summary>
     [IsoId("_hzTQhRZ6Ee27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Records")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbRcrds")]
     #endif
+    [IsoXmlTag("NbRcrds")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberRecords { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberRecords { get; init; } 
+    public required System.UInt64 NumberRecords { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberRecords { get; init; } 
     #else
@@ -107,15 +104,13 @@ public partial record TradeReportHeader4
     /// Specifies the competent authority that requires reporting of the transaction.
     /// </summary>
     [IsoId("_hzTQhxZ6Ee27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Competent Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmptntAuthrty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CmptntAuthrty")]
+    [IsoSimpleType(IsoSimpleType.Max100Text)]
     [StringLength(maximumLength: 100 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100Text? CompetentAuthority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,11 @@ public partial record TradeReportHeader4
     /// Identifies the new trade repository to which the derivative is transfered to.
     /// </summary>
     [IsoId("_hzTQiRZ6Ee27wrM4RUjLog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Trade Repository Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewTradRpstryIdr")]
     #endif
+    [IsoXmlTag("NewTradRpstryIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? NewTradeRepositoryIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,15 +140,13 @@ public partial record TradeReportHeader4
     /// Underlying reason for reporting the derivative transaction.
     /// </summary>
     [IsoId("_Uu4gsCLrEe2KAJot-YBP6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPurp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RptgPurp")]
+    [IsoSimpleType(IsoSimpleType.Max100Text)]
     [StringLength(maximumLength: 100 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100Text? ReportingPurpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

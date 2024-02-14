@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BenchmarkCurveName13Choice.Code))]
     [KnownType(typeof(BenchmarkCurveName13Choice.Proprietary))]
     [IsoId("_g9r0ERIkEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Benchmark Curve Name 13 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

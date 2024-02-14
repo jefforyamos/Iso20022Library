@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_Np_CgUzaEea8fovz_9xSTQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ModificationScope35
     /// Type of modification to be applied.
     /// </summary>
     [IsoId("_ODRsQUzaEea8fovz_9xSTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ModificationScopeIndication { get; init; } 
+    public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ModificationScopeIndication { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ModificationScope35
     /// Additional information such as remarks or notes that must be conveyed about the party and or limitations and restrictions.
     /// </summary>
     [IsoId("_ODRsQ0zaEea8fovz_9xSTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     public AdditiononalInformation12? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ODRsQ0zaEea8fovz_9xSTQ
     

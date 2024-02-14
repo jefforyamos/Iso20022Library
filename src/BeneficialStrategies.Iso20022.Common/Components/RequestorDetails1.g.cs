@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the financial institution sending the request.
 /// </summary>
 [IsoId("_Su5UAQEcEeCQm6a_G2yO_w_1332252059")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Requestor Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record RequestorDetails1
     /// Date and time at which the request was created.
     /// </summary>
     [IsoId("_Su5UAgEcEeCQm6a_G2yO_w_-991672194")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtTmStmp")]
     #endif
+    [IsoXmlTag("DtTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime DateTimeStamp { get; init; } 
+    public required System.DateTime DateTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime DateTimeStamp { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record RequestorDetails1
     /// Identification of the requester.
     /// </summary>
     [IsoId("_Su5UAwEcEeCQm6a_G2yO_w_1407581183")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requestor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rqstr")]
     #endif
+    [IsoXmlTag("Rqstr")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier Requestor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Requestor { get; init; } 
+    public required System.String Requestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Requestor { get; init; } 
     #else

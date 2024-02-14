@@ -22,7 +22,7 @@ public enum ValidationRulePendingAndRejected1Code
 {
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_3o5AVU6KEeuOHsgMPq_2jQ")]
@@ -31,7 +31,7 @@ public enum ValidationRulePendingAndRejected1Code
     
     /// <summary>
     /// Pending.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_BRWvYU6LEeuOHsgMPq_2jQ")]

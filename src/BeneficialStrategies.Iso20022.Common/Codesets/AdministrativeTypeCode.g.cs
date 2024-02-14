@@ -21,7 +21,7 @@ public enum AdministrativeTypeCode
 {
     /// <summary>
     /// Text message.
-    /// Encoded/decoded by serializers as "TEXT".
+    /// Encoded/decoded by serializers as &quot;TEXT&quot;.
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_N79nkDNKEeylu6lH-gut-A")]
@@ -30,7 +30,7 @@ public enum AdministrativeTypeCode
     
     /// <summary>
     /// Other administrative type defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_TckJYDNKEeylu6lH-gut-A")]
@@ -39,7 +39,7 @@ public enum AdministrativeTypeCode
     
     /// <summary>
     /// Other administrative type defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_fkWakDNKEeylu6lH-gut-A")]
@@ -48,7 +48,7 @@ public enum AdministrativeTypeCode
     
     /// <summary>
     /// Currency conversion rate data.
-    /// Encoded/decoded by serializers as "CCRD".
+    /// Encoded/decoded by serializers as &quot;CCRD&quot;.
     /// </summary>
     [EnumMember(Value = "CCRD")]
     [IsoId("_kBf7UDNKEeylu6lH-gut-A")]

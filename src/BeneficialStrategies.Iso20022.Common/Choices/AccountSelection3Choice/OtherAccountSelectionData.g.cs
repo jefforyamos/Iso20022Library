@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
     /// Various investment account information used to select a specific account.
     /// </summary>
     [IsoId("_oQaFg5TIEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Account Selection Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
         /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
         /// </summary>
         [IsoId("_voK9RZTIEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,15 +66,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
         /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to be reconciled individually.
         /// </summary>
         [IsoId("_voK9R5TIEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Designation")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dsgnt")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Dsgnt")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Designation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,15 +85,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
         /// Legal form of the fund, for example, UCITS, SICAV, OEIC, Unit Trust, and FCP.
         /// </summary>
         [IsoId("_voK9SZTIEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Fund Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FndTp")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("FndTp")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? FundType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,15 +104,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
         /// Name of the investment fund family.
         /// </summary>
         [IsoId("_voK9S5TIEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Fund Family Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FndFmlyNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("FndFmlyNm")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? FundFamilyName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,12 +123,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
         /// Detailed information about the investment fund associated to the account.
         /// </summary>
         [IsoId("_voK9TZTIEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Security Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctyDtls")]
         #endif
+        [IsoXmlTag("SctyDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrument55? SecurityDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,12 +140,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
         /// Owner of the account.
         /// </summary>
         [IsoId("_voK9T5TIEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnr")]
         #endif
+        [IsoXmlTag("AcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AccountOwner3Choice_? AccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +157,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
         /// Intermediary or other party related to the management of the account.
         /// </summary>
         [IsoId("_voK9UZTIEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intermediary")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Intrmy")]
         #endif
+        [IsoXmlTag("Intrmy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Intermediary47? Intermediary { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +174,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection3Choice
         /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
         /// </summary>
         [IsoId("_voK9U5TIEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Servicer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctSvcr")]
         #endif
+        [IsoXmlTag("AcctSvcr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification125Choice_? AccountServicer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

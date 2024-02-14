@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Other amount in clearing record data.
 /// </summary>
 [IsoId("_L8b4wZM5EeuleeHpFMMhmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record OtherAmount4
     /// Number of other amounts involved in clearing.
     /// </summary>
     [IsoId("_MBFvQZM5EeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrCnt")]
     #endif
+    [IsoXmlTag("ClrCnt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ClearingCount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ClearingCount { get; init; } 
+    public required System.UInt64 ClearingCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ClearingCount { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record OtherAmount4
     /// Amount of clearing.
     /// </summary>
     [IsoId("_MBFvQ5M5EeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrAmt")]
     #endif
+    [IsoXmlTag("ClrAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount17 ClearingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount17 ClearingAmount { get; init; } 
+    public required Amount17 ClearingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount17 ClearingAmount { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record OtherAmount4
     /// Interchange fee.
     /// </summary>
     [IsoId("_MBFvRZM5EeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interchange Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrchngFee")]
     #endif
+    [IsoXmlTag("IntrchngFee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount17? InterchangeFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,11 @@ public partial record OtherAmount4
     /// Agent fee.
     /// </summary>
     [IsoId("_MBFvR5M5EeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtFee")]
     #endif
+    [IsoXmlTag("AgtFee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount17? AgentFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

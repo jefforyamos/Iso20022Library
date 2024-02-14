@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics that unambiguously identify the original global invoice financing request.
 /// </summary>
 [IsoId("_TiOuodp-Ed-ak6NoX_4Aeg_1502660608")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Request Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record OriginalRequestInformation1
     /// Unique and unambiguous identifier of the original request message as assigned by the original sending party.
     /// </summary>
     [IsoId("_TiOuotp-Ed-ak6NoX_4Aeg_1331216430")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -76,16 +72,16 @@ public partial record OriginalRequestInformation1
     /// Date and time at which the original request message was created.
     /// </summary>
     [IsoId("_TiOuo9p-Ed-ak6NoX_4Aeg_822273349")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -96,12 +92,11 @@ public partial record OriginalRequestInformation1
     /// Party that requests the invoice financing, on behalf of a creditor, as indicated in the original request message.
     /// </summary>
     [IsoId("_TiOupNp-Ed-ak6NoX_4Aeg_1500618546")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Requestor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgRqstr")]
     #endif
+    [IsoXmlTag("FincgRqstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount6? FinancingRequestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,12 +109,11 @@ public partial record OriginalRequestInformation1
     /// Financial institution that receives the request from the financing requestor and forwards it to the first agent for execution, as indicated in the original request message.
     /// </summary>
     [IsoId("_TiOupdp-Ed-ak6NoX_4Aeg_745955200")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyAgt")]
     #endif
+    [IsoXmlTag("IntrmyAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,12 +126,11 @@ public partial record OriginalRequestInformation1
     /// Financial institution of financing requestor to which an invoice financing request is addressed, as indicated in the original request message.
     /// </summary>
     [IsoId("_TiOuptp-Ed-ak6NoX_4Aeg_989766263")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstAgt")]
     #endif
+    [IsoXmlTag("FrstAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification6? FirstAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,16 +143,15 @@ public partial record OriginalRequestInformation1
     /// Information about the validation status of the request message.
     /// </summary>
     [IsoId("_TiOup9p-Ed-ak6NoX_4Aeg_-1776871398")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Status Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnStsInf")]
     #endif
+    [IsoXmlTag("VldtnStsInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ValidationStatusInformation1 ValidationStatusInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ValidationStatusInformation1 ValidationStatusInformation { get; init; } 
+    public required ValidationStatusInformation1 ValidationStatusInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ValidationStatusInformation1 ValidationStatusInformation { get; init; } 
     #else
@@ -170,12 +162,11 @@ public partial record OriginalRequestInformation1
     /// Information on the business status of the cancellation.
     /// </summary>
     [IsoId("_TiOuqNp-Ed-ak6NoX_4Aeg_-219603516")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlStsInf")]
     #endif
+    [IsoXmlTag("CxlStsInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationStatusInformation1? CancellationStatusInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

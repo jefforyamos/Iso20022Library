@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension for identification of a party.
 /// </summary>
 [IsoId("_wNKtoDFREeGpgKb_ecoJPw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Organisation Identification SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record OrganisationIdentificationSD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_crO00FPIEeGs_NnqHXQZkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,19 +69,17 @@ public partial record OrganisationIdentificationSD1
     /// Name in the local language by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_hVxlNWzeEeGa9q9Mq4E7uA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Language Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclLangNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LclLangNm")]
+    [IsoSimpleType(IsoSimpleType.Max240Text)]
     [StringLength(maximumLength: 240 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax240Text LocalLanguageName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LocalLanguageName { get; init; } 
+    public required System.String LocalLanguageName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LocalLanguageName { get; init; } 
     #else

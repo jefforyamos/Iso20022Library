@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus5Choice
     /// Specifies the status of the investigation, in a coded form.
     /// </summary>
     [IsoId("_NRkho249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus5Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Conf")]
         #endif
+        [IsoXmlTag("Conf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalInvestigationExecutionConfirmation1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalInvestigationExecutionConfirmation1Code Value { get; init; } 
+        public required ExternalInvestigationExecutionConfirmation1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalInvestigationExecutionConfirmation1Code Value { get; init; } 
         #else

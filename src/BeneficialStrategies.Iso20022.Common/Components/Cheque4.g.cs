@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics related to a cheque instruction, such as cheque type or cheque number.
 /// </summary>
 [IsoId("_QbdK-dp-Ed-ak6NoX_4Aeg_2112357361")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cheque")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Cheque4
     /// Party to which a cheque is made payable.
     /// </summary>
     [IsoId("_QbdK-tp-Ed-ak6NoX_4Aeg_-2038541815")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payee Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyeeId")]
     #endif
+    [IsoXmlTag("PyeeId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NameAndAddress5 PayeeIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NameAndAddress5 PayeeIdentification { get; init; } 
+    public required NameAndAddress5 PayeeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NameAndAddress5 PayeeIdentification { get; init; } 
     #else

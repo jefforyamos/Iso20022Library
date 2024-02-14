@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice
     /// Wertpapier Kenn-nummer. A number issued in Germany by the Wertpapier Mitteilungen. The Wertpapier Kenn-nummer, sometimes called WPK, contains 6-digits, but no check digit. There are different ranges of numbers representing different classes of securities.
     /// </summary>
     [IsoId("_CSq4QyGQEeW7gKYhAMEFCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wertpapier")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice
         /// Wertpapier Kenn-nummer. A number issued in Germany by the Wertpapier Mitteilungen. The Wertpapier Kenn-nummer, sometimes called WPK, contains 6-digits, but no check digit. There are different ranges of numbers representing different classes of securities.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Wrtppr")]
         #endif
+        [IsoXmlTag("Wrtppr")]
+        [IsoSimpleType(IsoSimpleType.WertpapierIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoWertpapierIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

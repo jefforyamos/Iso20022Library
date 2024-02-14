@@ -21,7 +21,7 @@ public enum MeetingType3Code
 {
     /// <summary>
     /// Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.
-    /// Encoded/decoded by serializers as "XMET".
+    /// Encoded/decoded by serializers as &quot;XMET&quot;.
     /// </summary>
     [EnumMember(Value = "XMET")]
     [IsoId("_62UMQVuKEeSmO6RkXg92Lg")]
@@ -30,7 +30,7 @@ public enum MeetingType3Code
     
     /// <summary>
     /// Includes annual and ordinary meeting. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example approval of dividends, directors, etc. These meetings are always issuer initiated.
-    /// Encoded/decoded by serializers as "GMET".
+    /// Encoded/decoded by serializers as &quot;GMET&quot;.
     /// </summary>
     [EnumMember(Value = "GMET")]
     [IsoId("_7KtH4VuKEeSmO6RkXg92Lg")]
@@ -39,7 +39,7 @@ public enum MeetingType3Code
     
     /// <summary>
     /// Specifies a meeting which contains both ordinary and extraordinary resolutions.
-    /// Encoded/decoded by serializers as "MIXD".
+    /// Encoded/decoded by serializers as &quot;MIXD&quot;.
     /// </summary>
     [EnumMember(Value = "MIXD")]
     [IsoId("_7hUREVuKEeSmO6RkXg92Lg")]
@@ -48,7 +48,7 @@ public enum MeetingType3Code
     
     /// <summary>
     /// Meeting that takes place as needed that is neither ordinary nor extraordinary.
-    /// Encoded/decoded by serializers as "SPCL".
+    /// Encoded/decoded by serializers as &quot;SPCL&quot;.
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("_78P5kVuKEeSmO6RkXg92Lg")]
@@ -57,7 +57,7 @@ public enum MeetingType3Code
     
     /// <summary>
     /// Physical meeting of bond holders.
-    /// Encoded/decoded by serializers as "BMET".
+    /// Encoded/decoded by serializers as &quot;BMET&quot;.
     /// </summary>
     [EnumMember(Value = "BMET")]
     [IsoId("_LLzM8VuLEeSmO6RkXg92Lg")]

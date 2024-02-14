@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Status26Choice.CancellationStatusReport))]
     [KnownType(typeof(Status26Choice.IndividualCancellationStatusReport))]
     [IsoId("_ZdGjEEgrEeaD2L_hzZaE0w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status 26 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Certificate against which all currency control transactions are registered.
 /// </summary>
 [IsoId("_IXbngNLiEeSdq5yU2aaSNw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Certificate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record TransactionCertificate1
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
     [IsoId("_f7w0gNLiEeSdq5yU2aaSNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record TransactionCertificate1
     /// Reference of the transaction certificate.
     /// </summary>
     [IsoId("_B1cu8NLnEeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cert")]
     #endif
+    [IsoXmlTag("Cert")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification28 Certificate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification28 Certificate { get; init; } 
+    public required DocumentIdentification28 Certificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification28 Certificate { get; init; } 
     #else
@@ -95,12 +90,11 @@ public partial record TransactionCertificate1
     /// Cash account, linked to the registered contract, on which the cash entry is made.
     /// </summary>
     [IsoId("_nHn-QNLiEeSdq5yU2aaSNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? Account { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +107,11 @@ public partial record TransactionCertificate1
     /// Country in which the bank account is located, when the bank which services the account is located in another country.
     /// </summary>
     [IsoId("_1uEqQNLiEeSdq5yU2aaSNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Account Domiciliation Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkAcctDmcltnCtry")]
     #endif
+    [IsoXmlTag("BkAcctDmcltnCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? BankAccountDomiciliationCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,11 @@ public partial record TransactionCertificate1
     /// Amendment indicator details.
     /// </summary>
     [IsoId("_Fd284NLjEeSdq5yU2aaSNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amendment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amdmnt")]
     #endif
+    [IsoXmlTag("Amdmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentAmendment1? Amendment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +141,11 @@ public partial record TransactionCertificate1
     /// Record of the transaction certificate.
     /// </summary>
     [IsoId("_IfapYNLjEeSdq5yU2aaSNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertRcrd")]
     #endif
+    [IsoXmlTag("CertRcrd")]
     public TransactionCertificateRecord1? CertificateRecord { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _IfapYNLjEeSdq5yU2aaSNw
     
@@ -162,12 +153,11 @@ public partial record TransactionCertificate1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Uu73cTmzEeWDb47rJ6ki4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

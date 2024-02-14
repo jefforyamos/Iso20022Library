@@ -21,7 +21,7 @@ public enum CollateralProposalResponseCode
 {
     /// <summary>
     /// Indicates that the collateral proposal response is an initial proposal.
-    /// Encoded/decoded by serializers as "INPR".
+    /// Encoded/decoded by serializers as &quot;INPR&quot;.
     /// </summary>
     [EnumMember(Value = "INPR")]
     [IsoId("_YbwCV9p-Ed-ak6NoX_4Aeg_-605829047")]
@@ -30,7 +30,7 @@ public enum CollateralProposalResponseCode
     
     /// <summary>
     /// Indicates that the collateral proposal response is a counter proposal.
-    /// Encoded/decoded by serializers as "COPR".
+    /// Encoded/decoded by serializers as &quot;COPR&quot;.
     /// </summary>
     [EnumMember(Value = "COPR")]
     [IsoId("_YbwCWNp-Ed-ak6NoX_4Aeg_926407591")]

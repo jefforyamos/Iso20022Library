@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateDerivative2Choice
     /// Underlying interest rate type is a swap, swaption, a future on a swap or a forward on a swap with regard to the underlying swap.
     /// </summary>
     [IsoId("_xbbEcWlIEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Swap Related")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateDerivative2Choice
         /// Specifies the type of an interest rate derivative when the contract type is a swap, a swaption, a future on a swap and / or a forward on a swap.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SwpRltd")]
         #endif
+        [IsoXmlTag("SwpRltd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SwapType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SwapType1Code Value { get; init; } 
+        public required SwapType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SwapType1Code Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Criterion by which the cash movements are broken down.
 /// </summary>
 [IsoId("_Uw6IQtp-Ed-ak6NoX_4Aeg_1294908608")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Sorting Criterion")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CashSortingCriterion1
     /// Type of criterion by which the estimated cash flow is being broken down, ie, country, institution, currency code or a user defined type, such as a region or distribution channel.
     /// </summary>
     [IsoId("_Uw6IQ9p-Ed-ak6NoX_4Aeg_1294908625")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sorting Criterion Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrtgCritnTp")]
     #endif
+    [IsoXmlTag("SrtgCritnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SortCriteria1Choice_ SortingCriterionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SortCriteria1Choice_ SortingCriterionType { get; init; } 
+    public required SortCriteria1Choice_ SortingCriterionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SortCriteria1Choice_ SortingCriterionType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CashSortingCriterion1
     /// Parameter for which the cash movements are reported.
     /// </summary>
     [IsoId("_Uw6IRNp-Ed-ak6NoX_4Aeg_1294908661")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Forecast Breakdown Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FcstBrkdwnDtls")]
     #endif
+    [IsoXmlTag("FcstBrkdwnDtls")]
     public ForecastParameter1? ForecastBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Uw6IRNp-Ed-ak6NoX_4Aeg_1294908661
     

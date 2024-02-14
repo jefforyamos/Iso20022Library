@@ -21,7 +21,7 @@ public enum ResourceType1Code
 {
     /// <summary>
     /// Voice synthesis.
-    /// Encoded/decoded by serializers as "TEXT".
+    /// Encoded/decoded by serializers as &quot;TEXT&quot;.
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_-HF_wS8CEeu125Ip9zFcsQ")]
@@ -30,7 +30,7 @@ public enum ResourceType1Code
     
     /// <summary>
     /// String of characters that unambiguously identifies a particular resource.
-    /// Encoded/decoded by serializers as "URLI".
+    /// Encoded/decoded by serializers as &quot;URLI&quot;.
     /// </summary>
     [EnumMember(Value = "URLI")]
     [IsoId("_-K6v0S8CEeu125Ip9zFcsQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Sequence of terminal management actions to be performed by a point of interaction (POI).
 /// </summary>
 [IsoId("_H559EU6qEeyGi9JAv6wq7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Management Plan")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record ManagementPlan10
     /// Identification of the point of interaction (POI) for terminal management.
     /// </summary>
     [IsoId("_IAhicU6qEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification176? POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record ManagementPlan10
     /// Identification of the terminal management system (TMS) sending the management plan.
     /// </summary>
     [IsoId("_IAhic06qEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Manager Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlMgrId")]
     #endif
+    [IsoXmlTag("TermnlMgrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record ManagementPlan10
     /// Data set related to the sequence of actions to be performed by a point of interaction (POI).
     /// </summary>
     [IsoId("_IAhidU6qEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSet")]
     #endif
+    [IsoXmlTag("DataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementDataSet31 DataSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementDataSet31 DataSet { get; init; } 
+    public required TerminalManagementDataSet31 DataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementDataSet31 DataSet { get; init; } 
     #else

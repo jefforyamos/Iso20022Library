@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity6Choice.NetAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity6Choice.GrossAmount))]
     [IsoId("_SoRAxNp-Ed-ak6NoX_4Aeg_-1931223701")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Quantity 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
 /// </summary>
 [IsoId("_SpKYqdp-Ed-ak6NoX_4Aeg_1141917187")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Adjustment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record Adjustment4
     /// Specifies the type of adjustment applied to the amount of goods/services by means of a code.
     /// </summary>
     [IsoId("_SpKYqtp-Ed-ak6NoX_4Aeg_1141917204")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdjustmentType2Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdjustmentType2Code Type { get; init; } 
+    public required AdjustmentType2Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdjustmentType2Code Type { get; init; } 
     #else
@@ -74,19 +71,17 @@ public partial record Adjustment4
     /// Specifies a type of adjustment not present in the code list.
     /// </summary>
     [IsoId("_SpKYq9p-Ed-ak6NoX_4Aeg_1141917222")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Adjustment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAdjstmntTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrAdjstmntTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OtherAdjustmentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OtherAdjustmentType { get; init; } 
+    public required System.String OtherAdjustmentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OtherAdjustmentType { get; init; } 
     #else
@@ -97,16 +92,15 @@ public partial record Adjustment4
     /// Specifies whether the adjustment must be subtracted or added to the total amount.
     /// </summary>
     [IsoId("_SpKYrNp-Ed-ak6NoX_4Aeg_1141917239")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Drctn")]
     #endif
+    [IsoXmlTag("Drctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdjustmentDirection1Code Direction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdjustmentDirection1Code Direction { get; init; } 
+    public required AdjustmentDirection1Code Direction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdjustmentDirection1Code Direction { get; init; } 
     #else
@@ -117,16 +111,16 @@ public partial record Adjustment4
     /// Specifies the monetary amount of the adjustment.
     /// </summary>
     [IsoId("_SpKYrdp-Ed-ak6NoX_4Aeg_1141917257")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

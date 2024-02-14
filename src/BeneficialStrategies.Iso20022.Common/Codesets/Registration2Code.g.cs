@@ -21,7 +21,7 @@ public enum Registration2Code
 {
     /// <summary>
     /// You or your party set the instruction in a hold/frozen/preadvice mode.
-    /// Encoded/decoded by serializers as "PTYH".
+    /// Encoded/decoded by serializers as &quot;PTYH&quot;.
     /// </summary>
     [EnumMember(Value = "PTYH")]
     [IsoId("_q5kOJGtdEeCY4-KZ9JEyUQ_105432583")]
@@ -30,7 +30,7 @@ public enum Registration2Code
     
     /// <summary>
     /// Central securities depository sets the instruction in a hold/frozen/preadvice mode.
-    /// Encoded/decoded by serializers as "CSDH".
+    /// Encoded/decoded by serializers as &quot;CSDH&quot;.
     /// </summary>
     [EnumMember(Value = "CSDH")]
     [IsoId("_q5kOJWtdEeCY4-KZ9JEyUQ_-891639770")]
@@ -39,7 +39,7 @@ public enum Registration2Code
     
     /// <summary>
     /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditional delivery rules in the market infrastructure platform for conditional delivery.
-    /// Encoded/decoded by serializers as "CDEL".
+    /// Encoded/decoded by serializers as &quot;CDEL&quot;.
     /// </summary>
     [EnumMember(Value = "CDEL")]
     [IsoId("_q5kOJmtdEeCY4-KZ9JEyUQ_-914504853")]
@@ -48,7 +48,7 @@ public enum Registration2Code
     
     /// <summary>
     /// Instruction is in a hold/frozen/preadvice mode as it fulfils predefined conditions of a restriction processing type in the market infrastructure platform.
-    /// Encoded/decoded by serializers as "CVAL".
+    /// Encoded/decoded by serializers as &quot;CVAL&quot;.
     /// </summary>
     [EnumMember(Value = "CVAL")]
     [IsoId("_q5t_IGtdEeCY4-KZ9JEyUQ_7658457")]

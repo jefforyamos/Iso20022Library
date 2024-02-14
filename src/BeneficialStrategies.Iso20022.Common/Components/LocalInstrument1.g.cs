@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements that further identifies the type of local instruments being requested by the initiating party.
 /// </summary>
 [IsoId("_VyVJA9p-Ed-ak6NoX_4Aeg_-2089814377")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Local Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record LocalInstrument1
     /// Specifies the local instrument published in an external local instrument code list - restricted to B2B or CORE within SEPA.
     /// </summary>
     [IsoId("_VyVJBNp-Ed-ak6NoX_4Aeg_-2089814375")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Cd")]
+    [IsoSimpleType(IsoSimpleType.RestrictedB2BCORECodeText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedB2BCORECodeText Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Code { get; init; } 
+    public required System.String Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Code { get; init; } 
     #else

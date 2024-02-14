@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Number23Choice
     /// Number of maximum 3 numeric text.
     /// </summary>
     [IsoId("_5NbJpZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Number23Choice
         /// Specifies a numeric string with an exact length of 3 digits.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Shrt")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("Shrt")]
+        [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExact3NumericText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

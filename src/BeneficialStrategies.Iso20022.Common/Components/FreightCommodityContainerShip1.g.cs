@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines commodity sub-product attributes of a freight derivative of type container ships.
 /// </summary>
 [IsoId("_i535xPwfEeW4Wthd0Ze_kA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Freight Commodity Container Ship")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FreightCommodityContainerShip1
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
     [IsoId("_i535x_wfEeW4Wthd0Ze_kA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BasePdct")]
     #endif
+    [IsoXmlTag("BasePdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassProductType4Code BaseProduct { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AssetClassProductType4Code BaseProduct { get; init; } 
+    public required AssetClassProductType4Code BaseProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AssetClassProductType4Code BaseProduct { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record FreightCommodityContainerShip1
     /// Sub-product for the underlying asset class.
     /// </summary>
     [IsoId("_i535xfwfEeW4Wthd0Ze_kA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubPdct")]
     #endif
+    [IsoXmlTag("SubPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassSubProductType46Code SubProduct { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AssetClassSubProductType46Code SubProduct { get; init; } 
+    public required AssetClassSubProductType46Code SubProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AssetClassSubProductType46Code SubProduct { get; init; } 
     #else

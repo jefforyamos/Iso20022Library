@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateAndPeriod3Choice
     /// Period for the statement.
     /// </summary>
     [IsoId("_x7SLOQzJEeuTPv2wqaotHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Period")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

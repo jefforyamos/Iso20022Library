@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationStatus8Choice
     /// Provides the status of the trade at confirmation level at the time the settlement instruction was sent.
     /// </summary>
     [IsoId("_8nU2ATqpEeWyoP0PbocV1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationStatus8Choice
         /// Specifies the affirmation status of a trade.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AffirmationStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AffirmationStatus1Code Value { get; init; } 
+        public required AffirmationStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AffirmationStatus1Code Value { get; init; } 
         #else

@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// </summary>
 [Description(@"Scope|The TradeLegNotification message is sent by the central counterparty (CCP) to a clearing member to report the trade that has been executed by the trading platform.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CCP reports both sides of the trade from the clearing member perspective. The CCP sends a message to the global clearing member of the seller and a message to the global clearing member of the buyer. Note: An individual clearing member only clear its own trades.")]
 [IsoId("_BjjyQS0mEeSRe9rElPHBfg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Leg Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     /// Provides the identification of the clearing member (individual clearing member or general clearing member).
     /// </summary>
     [IsoId("_BjjyRS0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification35Choice_ ClearingMember { get; init; } 
+    public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification35Choice_ ClearingMember { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     /// Identifies the clearing member account at the CCP through which the trade must be cleared (sometimes called position account).
     /// </summary>
     [IsoId("_BjjyRy0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrAcct")]
     #endif
+    [IsoXmlTag("ClrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount18 ClearingAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount18 ClearingAccount { get; init; } 
+    public required SecuritiesAccount18 ClearingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount18 ClearingAccount { get; init; } 
     #else
@@ -124,12 +120,11 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     /// An account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
     /// </summary>
     [IsoId("_BjjySS0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryAcct")]
     #endif
+    [IsoXmlTag("DlvryAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? DeliveryAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,12 +137,11 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     /// Provides details about the non clearing member identification and account.
     /// </summary>
     [IsoId("_BjjySy0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonClrMmb")]
     #endif
+    [IsoXmlTag("NonClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,12 +154,11 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     /// Provides clearing details such as the settlement netting (or not) eligibility code or the clearing segment.
     /// </summary>
     [IsoId("_BjjyTS0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrDtls")]
     #endif
+    [IsoXmlTag("ClrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Clearing4? ClearingDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,16 +171,15 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     /// Provides details about the trade leg such as the trade date, the settlement date or the trading currency.
     /// </summary>
     [IsoId("_BjjyTy0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Leg Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradLegDtls")]
     #endif
+    [IsoXmlTag("TradLegDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeLeg8 TradeLegDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeLeg8 TradeLegDetails { get; init; } 
+    public required TradeLeg8 TradeLegDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeLeg8 TradeLegDetails { get; init; } 
     #else
@@ -198,16 +190,15 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     /// Provides details about the settlement details of the trade leg such the settlement amount or the place of settlement.
     /// </summary>
     [IsoId("_BjjyUS0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtls")]
     #endif
+    [IsoXmlTag("SttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Settlement1 SettlementDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Settlement1 SettlementDetails { get; init; } 
+    public required Settlement1 SettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Settlement1 SettlementDetails { get; init; } 
     #else
@@ -218,12 +209,11 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_BjjyUy0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,7 +226,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TradeLegNotificationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TradeLegNotificationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TradeLegNotificationV03Document ToDocument()
     {
@@ -246,7 +236,7 @@ public partial record TradeLegNotificationV03 : IOuterRecord<TradeLegNotificatio
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TradeLegNotificationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TradeLegNotificationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TradeLegNotificationV03Document : IOuterDocument<TradeLegNotificationV03>
@@ -263,7 +253,7 @@ public partial record TradeLegNotificationV03Document : IOuterDocument<TradeLegN
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TradeLegNotificationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TradeLegNotificationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeLegNotificationV03 Message { get; init; }

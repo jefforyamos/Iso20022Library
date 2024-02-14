@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Business status of the collateral data management request for processing in the system.
 /// </summary>
 [IsoId("_jBTw8e5NEeCisYr99QEiWA_246169338")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralStatusReason1
     /// Status of the collateral data maintenance instruction.
     /// </summary>
     [IsoId("_jBTw8u5NEeCisYr99QEiWA_132330272")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status6Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status6Code Status { get; init; } 
+    public required Status6Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status6Code Status { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CollateralStatusReason1
     /// Reason for the status of a collateral data maintenance instruction.
     /// </summary>
     [IsoId("_jBTw8-5NEeCisYr99QEiWA_-750903015")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReasonInformation10? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of advice to report back for the transaction.
 /// </summary>
 [IsoId("_5ZNFsNolEembTrt_WixjyQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Advice Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AdviceType1
     /// Type of credit advice requested.
     /// </summary>
     [IsoId("_bQTjANomEembTrt_WixjyQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtAdvc")]
     #endif
+    [IsoXmlTag("CdtAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdviceType1Choice_? CreditAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AdviceType1
     /// Type de debit advice requested.
     /// </summary>
     [IsoId("_fU3koNomEembTrt_WixjyQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debit Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtAdvc")]
     #endif
+    [IsoXmlTag("DbtAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdviceType1Choice_? DebitAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

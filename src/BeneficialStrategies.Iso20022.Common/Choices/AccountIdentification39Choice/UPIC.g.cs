@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification39Choice
     /// Universal Payment Identification Code (UPIC) - identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes.
     /// </summary>
     [IsoId("_mpl8a9mpEeeN3v2fup_Shw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UPIC")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification39Choice
         /// Universal Payment Identification Code (UPIC). Identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UPIC")]
         #endif
+        [IsoXmlTag("UPIC")]
+        [IsoSimpleType(IsoSimpleType.UPICIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoUPICIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

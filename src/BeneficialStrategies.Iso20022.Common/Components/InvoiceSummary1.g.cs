@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Summary information about the sale
 /// </summary>
 [IsoId("_IgZ-aPM0Eei4qfiLgRIZBA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Summary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record InvoiceSummary1
     /// Contains the invoice number.
     /// </summary>
     [IsoId("_IgZ-bfM0Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InvcNb")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? InvoiceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record InvoiceSummary1
     /// Supplier or the provider of the goods or services.
     /// </summary>
     [IsoId("_IgZ-bvM0Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification206? Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record InvoiceSummary1
     /// Buyer or company buying the goods or services.
     /// </summary>
     [IsoId("_IgZ-avM0Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification206? Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,12 @@ public partial record InvoiceSummary1
     /// Effective billing date.
     /// </summary>
     [IsoId("_IgZ-b_M0Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcDt")]
     #endif
+    [IsoXmlTag("InvcDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InvoiceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +113,12 @@ public partial record InvoiceSummary1
     /// Contains the date and time the electronic invoice was created.
     /// </summary>
     [IsoId("_IgZ-bPM0Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcCreDtTm")]
     #endif
+    [IsoXmlTag("InvcCreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? InvoiceCreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,15 +131,13 @@ public partial record InvoiceSummary1
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
     [IsoId("_IgZ-afM0Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary Commodity Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SummryCmmdtyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SummryCmmdtyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +150,12 @@ public partial record InvoiceSummary1
     /// Contains the freight charges for the entire purchase. 
     /// </summary>
     [IsoId("_1RoGQPM8Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Freight Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrghtAmt")]
     #endif
+    [IsoXmlTag("FrghtAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FreightAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +168,11 @@ public partial record InvoiceSummary1
     /// Contains the total tax amount for the entire purchase. 
     /// </summary>
     [IsoId("_5JlPQPM8Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxTtl")]
     #endif
+    [IsoXmlTag("TaxTtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax33? TaxTotal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +185,11 @@ public partial record InvoiceSummary1
     /// Code that identifies the disposition of the tax reclaim invoice.
     /// </summary>
     [IsoId("_-wAsQPM8Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Reclaim Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRclmMtd")]
     #endif
+    [IsoXmlTag("TaxRclmMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReclaimMethod1Code? TaxReclaimMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,15 +202,13 @@ public partial record InvoiceSummary1
     /// Contains additional details.
     /// </summary>
     [IsoId("_C9fZUPM9Eei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlData")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

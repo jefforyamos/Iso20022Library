@@ -21,7 +21,7 @@ public enum SuspendedStatusReason3Code
 {
     /// <summary>
     /// There is a suspension of pricing. The order will stay on the books until the next pricing.
-    /// Encoded/decoded by serializers as "PRIC".
+    /// Encoded/decoded by serializers as &quot;PRIC&quot;.
     /// </summary>
     [EnumMember(Value = "PRIC")]
     [IsoId("_ZQzbB9p-Ed-ak6NoX_4Aeg_1892876189")]
@@ -30,7 +30,7 @@ public enum SuspendedStatusReason3Code
     
     /// <summary>
     /// There is a fund overflow.
-    /// Encoded/decoded by serializers as "FLOW".
+    /// Encoded/decoded by serializers as &quot;FLOW&quot;.
     /// </summary>
     [EnumMember(Value = "FLOW")]
     [IsoId("_ZQzbCNp-Ed-ak6NoX_4Aeg_1892876206")]

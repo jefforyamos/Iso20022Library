@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The CreateLimit message is sent by a member to the transaction administrator.|It is used to create one or several limits set by the member and managed by the transaction administrator.|Usage|Based on the criteria defined in the CreateLimit message, the transaction administrator will execute or reject the requested creation and respond with a Receipt message as a reply to the request.")]
 [IsoId("_P8tBcckHEem3UrxZgQhVAw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Create Limit V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record CreateLimitV01 : IOuterRecord<CreateLimitV01,CreateLimitV0
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_P8tBd8kHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record CreateLimitV01 : IOuterRecord<CreateLimitV01,CreateLimitV0
     /// Identifies one particular limit set by the member and managed by the transaction administrator.
     /// </summary>
     [IsoId("_P8tBeckHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtData")]
     #endif
+    [IsoXmlTag("LmtData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitStructure4 LimitData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LimitStructure4 LimitData { get; init; } 
+    public required LimitStructure4 LimitData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LimitStructure4 LimitData { get; init; } 
     #else
@@ -120,12 +116,11 @@ public partial record CreateLimitV01 : IOuterRecord<CreateLimitV01,CreateLimitV0
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_P8tBe8kHEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,7 +133,7 @@ public partial record CreateLimitV01 : IOuterRecord<CreateLimitV01,CreateLimitV0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CreateLimitV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CreateLimitV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CreateLimitV01Document ToDocument()
     {
@@ -148,7 +143,7 @@ public partial record CreateLimitV01 : IOuterRecord<CreateLimitV01,CreateLimitV0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreateLimitV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CreateLimitV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CreateLimitV01Document : IOuterDocument<CreateLimitV01>
@@ -165,7 +160,7 @@ public partial record CreateLimitV01Document : IOuterDocument<CreateLimitV01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CreateLimitV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CreateLimitV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreateLimitV01 Message { get; init; }

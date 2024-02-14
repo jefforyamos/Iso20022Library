@@ -21,7 +21,7 @@ public enum TradingCapacity8Code
 {
     /// <summary>
     /// Trading as Agent on behalf of a customer.
-    /// Encoded/decoded by serializers as "AGEN".
+    /// Encoded/decoded by serializers as &quot;AGEN&quot;.
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_4RHcIYoREeahcZ3Nzs1Qag")]
@@ -30,7 +30,7 @@ public enum TradingCapacity8Code
     
     /// <summary>
     /// Trading as Principal.
-    /// Encoded/decoded by serializers as "PRIN".
+    /// Encoded/decoded by serializers as &quot;PRIN&quot;.
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_4lzSsYoREeahcZ3Nzs1Qag")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This message provides the capability to convey customized reports that are defined by bi-lateral agreement.
 /// </summary>
 [IsoId("_6o4MAMlLEeuJ35KoBRZFOg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Custom Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CustomReport1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_zbY1IclMEeuJ35KoBRZFOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Environment33 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Environment33 Environment { get; init; } 
+    public required Environment33 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Environment33 Environment { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record CustomReport1
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
     [IsoId("_FDkz0clNEeuJ35KoBRZFOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Context17? Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,15 @@ public partial record CustomReport1
     /// Specifies the attributes of a report and its content.
     /// </summary>
     [IsoId("_7fW2IMlNEeuJ35KoBRZFOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rpt")]
     #endif
+    [IsoXmlTag("Rpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportData6 Report { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportData6 Report { get; init; } 
+    public required ReportData6 Report { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportData6 Report { get; init; } 
     #else
@@ -111,12 +106,11 @@ public partial record CustomReport1
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
     [IsoId("_Iw3vgclOEeuJ35KoBRZFOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

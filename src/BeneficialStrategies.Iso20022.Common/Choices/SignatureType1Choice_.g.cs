@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SignatureType1Choice.Code))]
     [KnownType(typeof(SignatureType1Choice.Proprietary))]
     [IsoId("_k8doQDoHEeabspMEjqY5TQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

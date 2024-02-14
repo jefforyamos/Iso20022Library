@@ -21,7 +21,7 @@ public enum SpecialPurpose2Code
 {
     /// <summary>
     /// Blank value.
-    /// Encoded/decoded by serializers as "BLNK".
+    /// Encoded/decoded by serializers as &quot;BLNK&quot;.
     /// </summary>
     [EnumMember(Value = "BLNK")]
     [IsoId("_V-aLccVcEeiYpLQka876sg")]
@@ -30,7 +30,7 @@ public enum SpecialPurpose2Code
     
     /// <summary>
     /// Not available (N/A).
-    /// Encoded/decoded by serializers as "NTAV".
+    /// Encoded/decoded by serializers as &quot;NTAV&quot;.
     /// </summary>
     [EnumMember(Value = "NTAV")]
     [IsoId("_WJ0xQsVcEeiYpLQka876sg")]

@@ -21,7 +21,7 @@ public enum FailedSettlementReasonCode
 {
     /// <summary>
     /// Credit account is not eligible.
-    /// Encoded/decoded by serializers as "CANE".
+    /// Encoded/decoded by serializers as &quot;CANE&quot;.
     /// </summary>
     [EnumMember(Value = "CANE")]
     [IsoId("_amyWiNp-Ed-ak6NoX_4Aeg_822057797")]
@@ -30,7 +30,7 @@ public enum FailedSettlementReasonCode
     
     /// <summary>
     /// Credit account is disabled.
-    /// Encoded/decoded by serializers as "CADI".
+    /// Encoded/decoded by serializers as &quot;CADI&quot;.
     /// </summary>
     [EnumMember(Value = "CADI")]
     [IsoId("_am7gcNp-Ed-ak6NoX_4Aeg_822058068")]
@@ -39,7 +39,7 @@ public enum FailedSettlementReasonCode
     
     /// <summary>
     /// Debit account is not eligible.
-    /// Encoded/decoded by serializers as "DANE".
+    /// Encoded/decoded by serializers as &quot;DANE&quot;.
     /// </summary>
     [EnumMember(Value = "DANE")]
     [IsoId("_am7gcdp-Ed-ak6NoX_4Aeg_822058076")]
@@ -48,7 +48,7 @@ public enum FailedSettlementReasonCode
     
     /// <summary>
     /// Debit account is disabled.
-    /// Encoded/decoded by serializers as "AADI".
+    /// Encoded/decoded by serializers as &quot;AADI&quot;.
     /// </summary>
     [EnumMember(Value = "AADI")]
     [IsoId("_am7gctp-Ed-ak6NoX_4Aeg_822058099")]
@@ -57,7 +57,7 @@ public enum FailedSettlementReasonCode
     
     /// <summary>
     /// Insufficient securities on the account to settle.
-    /// Encoded/decoded by serializers as "INSE".
+    /// Encoded/decoded by serializers as &quot;INSE&quot;.
     /// </summary>
     [EnumMember(Value = "INSE")]
     [IsoId("_am7gc9p-Ed-ak6NoX_4Aeg_822058107")]
@@ -66,7 +66,7 @@ public enum FailedSettlementReasonCode
     
     /// <summary>
     /// The distribution is incomplete.
-    /// Encoded/decoded by serializers as "INDI".
+    /// Encoded/decoded by serializers as &quot;INDI&quot;.
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_am7gdNp-Ed-ak6NoX_4Aeg_822058129")]
@@ -75,7 +75,7 @@ public enum FailedSettlementReasonCode
     
     /// <summary>
     /// Insufficient cash on the account to settle.
-    /// Encoded/decoded by serializers as "INCA".
+    /// Encoded/decoded by serializers as &quot;INCA&quot;.
     /// </summary>
     [EnumMember(Value = "INCA")]
     [IsoId("_am7gddp-Ed-ak6NoX_4Aeg_822058130")]

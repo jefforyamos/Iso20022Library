@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType11Code
 {
     /// <summary>
     /// Commodity attribute of type gold.
-    /// Encoded/decoded by serializers as "GOLD".
+    /// Encoded/decoded by serializers as &quot;GOLD&quot;.
     /// </summary>
     [EnumMember(Value = "GOLD")]
     [IsoId("_lDcOQQ2hEeW72qLtWESimw")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType11Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_mf1TwQ2hEeW72qLtWESimw")]
@@ -39,7 +39,7 @@ public enum AssetClassDetailedSubProductType11Code
     
     /// <summary>
     /// Commodity attribute of type palladium.
-    /// Encoded/decoded by serializers as "PLDM".
+    /// Encoded/decoded by serializers as &quot;PLDM&quot;.
     /// </summary>
     [EnumMember(Value = "PLDM")]
     [IsoId("_mnaicQ2hEeW72qLtWESimw")]
@@ -48,7 +48,7 @@ public enum AssetClassDetailedSubProductType11Code
     
     /// <summary>
     /// Commodity attribute of type platinum.
-    /// Encoded/decoded by serializers as "PTNM".
+    /// Encoded/decoded by serializers as &quot;PTNM&quot;.
     /// </summary>
     [EnumMember(Value = "PTNM")]
     [IsoId("_my3kgQ2hEeW72qLtWESimw")]
@@ -57,7 +57,7 @@ public enum AssetClassDetailedSubProductType11Code
     
     /// <summary>
     /// Commodity attribute of type silver.
-    /// Encoded/decoded by serializers as "SLVR".
+    /// Encoded/decoded by serializers as &quot;SLVR&quot;.
     /// </summary>
     [EnumMember(Value = "SLVR")]
     [IsoId("_naSw4Q2hEeW72qLtWESimw")]

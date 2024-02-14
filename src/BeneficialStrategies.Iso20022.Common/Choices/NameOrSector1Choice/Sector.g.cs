@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NameOrSector1Choice
     /// Represents the counterparty institutional section (such as non-financial corporation, central bank.).
     /// </summary>
     [IsoId("_6URv4YInEeWA9fc11zJf1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sector")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.NameOrSector1Choice
         /// System of National Accounts (SNA) Sector. Hierarchical classification of the sectors, as defined in the System of National Accounts 2008, as published by the United Nations.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sctr")]
         #endif
+        [IsoXmlTag("Sctr")]
+        [IsoSimpleType(IsoSimpleType.SNA2008SectorIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoSNA2008SectorIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

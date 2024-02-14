@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
 [IsoId("_bKYDAecnEei5aPS232E3Mw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Quantity SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SecuritiesQuantitySD5
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
     [IsoId("_bxgUdecnEei5aPS232E3Mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrQty")]
     #endif
+    [IsoXmlTag("InstrQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SecuritiesQuantitySD5
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
     [IsoId("_bxgUcecnEei5aPS232E3Mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Oversubscription Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OvrsbcptQty")]
     #endif
+    [IsoXmlTag("OvrsbcptQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity4? OversubscriptionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SecuritiesQuantitySD5
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
     [IsoId("_bxgUc-cnEei5aPS232E3Mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Oversubscription Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlOvrsbcptQty")]
     #endif
+    [IsoXmlTag("TtlOvrsbcptQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +90,14 @@ public partial record SecuritiesQuantitySD5
     #endif
     
     /// <summary>
-    /// Quantity covered but transactions not in "MADE" status.
+    /// Quantity covered but transactions not in &quot;MADE&quot; status.
     /// </summary>
     [IsoId("_bxgUeecnEei5aPS232E3Mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interim Covered Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmCvrdQty")]
     #endif
+    [IsoXmlTag("IntrmCvrdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

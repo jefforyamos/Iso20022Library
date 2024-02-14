@@ -21,7 +21,7 @@ public enum AttendanceContext1Code
 {
     /// <summary>
     /// Attended payment, with an attendant.
-    /// Encoded/decoded by serializers as "ATTD".
+    /// Encoded/decoded by serializers as &quot;ATTD&quot;.
     /// </summary>
     [EnumMember(Value = "ATTD")]
     [IsoId("_TSEShAEcEeCQm6a_G2yO_w_940571351")]
@@ -30,7 +30,7 @@ public enum AttendanceContext1Code
     
     /// <summary>
     /// Semi-attended, including self checkout. An attendant supervises several payment, and could be called to help the cardholder.
-    /// Encoded/decoded by serializers as "SATT".
+    /// Encoded/decoded by serializers as &quot;SATT&quot;.
     /// </summary>
     [EnumMember(Value = "SATT")]
     [IsoId("_TSEShQEcEeCQm6a_G2yO_w_57338064")]
@@ -39,7 +39,7 @@ public enum AttendanceContext1Code
     
     /// <summary>
     /// Unattended payment, no attendant present.
-    /// Encoded/decoded by serializers as "UATT".
+    /// Encoded/decoded by serializers as &quot;UATT&quot;.
     /// </summary>
     [EnumMember(Value = "UATT")]
     [IsoId("_TSEShgEcEeCQm6a_G2yO_w_1087570186")]

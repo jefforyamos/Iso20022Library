@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SystemIdentification2Choice.MarketInfrastructureIdentification))]
     [KnownType(typeof(SystemIdentification2Choice.Country))]
     [IsoId("_8BZ3QaMgEeCJ6YNENx4h-w_-1347709917")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Identification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

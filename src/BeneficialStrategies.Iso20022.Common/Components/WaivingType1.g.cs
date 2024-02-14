@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specification of the waiving type.
 /// </summary>
 [IsoId("_VRshKNp-Ed-ak6NoX_4Aeg_978065066")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Waiving Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record WaivingType1
     /// Structured format.
     /// </summary>
     [IsoId("_VRshKdp-Ed-ak6NoX_4Aeg_1036247835")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
+    [IsoXmlTag("Strd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required WaivingInstruction2Code Structured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public WaivingInstruction2Code Structured { get; init; } 
+    public required WaivingInstruction2Code Structured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public WaivingInstruction2Code Structured { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record WaivingType1
     /// Additional information about the type of waiving.
     /// </summary>
     [IsoId("_VRshKtp-Ed-ak6NoX_4Aeg_1036247853")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

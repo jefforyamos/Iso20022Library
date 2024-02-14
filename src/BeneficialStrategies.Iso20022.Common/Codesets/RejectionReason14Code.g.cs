@@ -21,7 +21,7 @@ public enum RejectionReason14Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_Zg5Fdtp-Ed-ak6NoX_4Aeg_-1511085978")]
@@ -30,7 +30,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Instruction/Request arrives too late.
-    /// Encoded/decoded by serializers as "LATT".
+    /// Encoded/decoded by serializers as &quot;LATT&quot;.
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_Zg5Fd9p-Ed-ak6NoX_4Aeg_-1511085947")]
@@ -39,7 +39,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// CA Event Type does not correspond with the relating Corporate Action.
-    /// Encoded/decoded by serializers as "INET".
+    /// Encoded/decoded by serializers as &quot;INET&quot;.
     /// </summary>
     [EnumMember(Value = "INET")]
     [IsoId("_Zg5FeNp-Ed-ak6NoX_4Aeg_-1511085917")]
@@ -48,7 +48,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Underlying Security Identification does not correspond with the Corporate Action Reference supplied.
-    /// Encoded/decoded by serializers as "INUS".
+    /// Encoded/decoded by serializers as &quot;INUS&quot;.
     /// </summary>
     [EnumMember(Value = "INUS")]
     [IsoId("_Zg5Fedp-Ed-ak6NoX_4Aeg_-1511085608")]
@@ -57,7 +57,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Event Processing Type does not correspond with the relating Corporate Action.
-    /// Encoded/decoded by serializers as "INPT".
+    /// Encoded/decoded by serializers as &quot;INPT&quot;.
     /// </summary>
     [EnumMember(Value = "INPT")]
     [IsoId("_ZhC2cNp-Ed-ak6NoX_4Aeg_-1511085577")]
@@ -66,7 +66,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Mandatory/Voluntary Event Type does not correspond with the relating Corporate Action.
-    /// Encoded/decoded by serializers as "INMV".
+    /// Encoded/decoded by serializers as &quot;INMV&quot;.
     /// </summary>
     [EnumMember(Value = "INMV")]
     [IsoId("_ZhC2cdp-Ed-ak6NoX_4Aeg_-1511085546")]
@@ -75,7 +75,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Details specified in the Corporate Action General Information block are inconsistent with those that were specified in the relating original message.
-    /// Encoded/decoded by serializers as "INDE".
+    /// Encoded/decoded by serializers as &quot;INDE&quot;.
     /// </summary>
     [EnumMember(Value = "INDE")]
     [IsoId("_ZhC2ctp-Ed-ak6NoX_4Aeg_-1511085524")]
@@ -84,7 +84,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Invalid agent identification supplied.
-    /// Encoded/decoded by serializers as "AGIN".
+    /// Encoded/decoded by serializers as &quot;AGIN&quot;.
     /// </summary>
     [EnumMember(Value = "AGIN")]
     [IsoId("_ZhC2c9p-Ed-ak6NoX_4Aeg_-1511085493")]
@@ -93,7 +93,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Details specified in the MOVEMENT GENERAL INFORMATION block are inconsistent with those that were specified in the relating original message.
-    /// Encoded/decoded by serializers as "INMO".
+    /// Encoded/decoded by serializers as &quot;INMO&quot;.
     /// </summary>
     [EnumMember(Value = "INMO")]
     [IsoId("_ZhC2dNp-Ed-ak6NoX_4Aeg_-1511085462")]
@@ -102,7 +102,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Several message with the same identification.
-    /// Encoded/decoded by serializers as "SAID".
+    /// Encoded/decoded by serializers as &quot;SAID&quot;.
     /// </summary>
     [EnumMember(Value = "SAID")]
     [IsoId("_ZhC2ddp-Ed-ak6NoX_4Aeg_-1511085432")]
@@ -111,7 +111,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// Instruction contains an invalid message identification, identification is unknown.
-    /// Encoded/decoded by serializers as "INID".
+    /// Encoded/decoded by serializers as &quot;INID&quot;.
     /// </summary>
     [EnumMember(Value = "INID")]
     [IsoId("_ZhMncNp-Ed-ak6NoX_4Aeg_-1511085370")]
@@ -120,7 +120,7 @@ public enum RejectionReason14Code
     
     /// <summary>
     /// One or more of the underlying movements have already settled.
-    /// Encoded/decoded by serializers as "MOSE".
+    /// Encoded/decoded by serializers as &quot;MOSE&quot;.
     /// </summary>
     [EnumMember(Value = "MOSE")]
     [IsoId("_ZhMncdp-Ed-ak6NoX_4Aeg_-1511085340")]

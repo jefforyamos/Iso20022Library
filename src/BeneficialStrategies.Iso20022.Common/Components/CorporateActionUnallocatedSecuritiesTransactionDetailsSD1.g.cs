@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Breakdown of unallocated securities transactions.
 /// </summary>
 [IsoId("_1P8FkTL3EeKU9IrkkToqcw_1199159734")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Unallocated Securities Transaction Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CorporateActionUnallocatedSecuritiesTransactionDetailsSD1
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
     [IsoId("_1P8FkjL3EeKU9IrkkToqcw_-1863594632")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record CorporateActionUnallocatedSecuritiesTransactionDetailsSD1
     /// Resulting quantity of securities concerned in this transaction.
     /// </summary>
     [IsoId("_1P8FkzL3EeKU9IrkkToqcw_-1977433698")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxQty")]
     #endif
+    [IsoXmlTag("TxQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,19 +86,17 @@ public partial record CorporateActionUnallocatedSecuritiesTransactionDetailsSD1
     /// Reason for the unallocation.
     /// </summary>
     [IsoId("_1P8FlDL3EeKU9IrkkToqcw_280766213")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdRsnCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UallctdRsnCd")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText UnallocatedReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String UnallocatedReasonCode { get; init; } 
+    public required System.String UnallocatedReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String UnallocatedReasonCode { get; init; } 
     #else
@@ -113,15 +107,13 @@ public partial record CorporateActionUnallocatedSecuritiesTransactionDetailsSD1
     /// Transaction contra participant identification when shares are distributed / delivered to / from another participant.
     /// </summary>
     [IsoId("_1QF2kDL3EeKU9IrkkToqcw_1320461245")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contra Participant Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ContraPtcptNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ContraPtcptNb")]
+    [IsoSimpleType(IsoSimpleType.Max8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +126,11 @@ public partial record CorporateActionUnallocatedSecuritiesTransactionDetailsSD1
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
     [IsoId("_1QF2kTL3EeKU9IrkkToqcw_323388892")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Earliest Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlstPmtDt")]
     #endif
+    [IsoXmlTag("EarlstPmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? EarliestPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +143,11 @@ public partial record CorporateActionUnallocatedSecuritiesTransactionDetailsSD1
     /// Transaction reason.
     /// </summary>
     [IsoId("_1QF2kjL3EeKU9IrkkToqcw_397065")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsnCd")]
     #endif
+    [IsoXmlTag("RsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAdjustmentPaymentType1Code? ReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

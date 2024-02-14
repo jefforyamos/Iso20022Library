@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the clearing system identification.
 /// </summary>
 [IsoId("_XaEtifWfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Clearing System Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TrackerClearingSystemIdentification1
     /// Infrastructure through which the payment instruction is processed, as published in an external clearing system identification code list.
     /// </summary>
     [IsoId("_XaFUkfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCashClearingSystem1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCashClearingSystem1Code Code { get; init; } 
+    public required ExternalCashClearingSystem1Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCashClearingSystem1Code Code { get; init; } 
     #else

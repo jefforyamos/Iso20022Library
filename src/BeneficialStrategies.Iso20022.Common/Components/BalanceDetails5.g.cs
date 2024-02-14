@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Balance related details for a portfolio.
 /// </summary>
 [IsoId("_m9_jw_NBEeCuA5Tr22BnwA_-1587495854")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record BalanceDetails5
     /// Balance type.
     /// </summary>
     [IsoId("_m9_jxPNBEeCuA5Tr22BnwA_-509912192")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceType6Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BalanceType6Choice_ Type { get; init; } 
+    public required BalanceType6Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BalanceType6Choice_ Type { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record BalanceDetails5
     /// Unrealised gain or loss.
     /// </summary>
     [IsoId("_m9_jxfNBEeCuA5Tr22BnwA_1710399089")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unrealised")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Urlsd")]
     #endif
+    [IsoXmlTag("Urlsd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Unrealised1Code? Unrealised { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record BalanceDetails5
     /// Balance amount.
     /// </summary>
     [IsoId("_m-ItsPNBEeCuA5Tr22BnwA_944599101")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection31 Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection31 Amount { get; init; } 
+    public required AmountAndDirection31 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection31 Amount { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record BalanceDetails5
     /// Detailed balance information.
     /// </summary>
     [IsoId("_m-ItsfNBEeCuA5Tr22BnwA_1949015826")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldBal")]
     #endif
+    [IsoXmlTag("DtldBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceDetails6? DetailedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -47,9 +47,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The OrderInstructionStatusReport is sent by an executing party, eg, a transfer agent, to an instructing party, eg, an investment manager or its authorised representative. There may be one or more intermediary parties between the executing party and the instructing party. The intermediary party is, for example, an intermediary or a concentrator.|This message reports the status of an order from the time the executing party receives the order until the order is executed.|Usage|The OrderInstructionStatusReport message is sent by an executing party to the instructing party to report on the status of a subscription, redemption or a switch order.|The message can be used to report one of the following:|- a received status, or|- an accepted status, or|- a sent to next party status, or|- an already executed status, or|- a cancelled status, or|- a conditionally accepted status, or|- a rejected status, or|- a suspended status, or|- an in-repair status (at the individual order level only), or|- repaired conditions (at the individual order level only).|For subscription and redemption orders, the OrderInstructionStatusReport message covers both bulk and multiple categories of orders, and this message may provide the status either at the bulk or at the individual level.|For a switch order, this message provides the status of the whole order, ie, it is not possible to accept one leg and to reject the other leg, the entire switch order has to be rejected. In order to identify which leg within the switch is causing a problem, the redemption or subscription leg identification is used.")]
 [IsoId("_jH1s-NE7Ed-BzquC8wXy7w_1853868190")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Order Instruction Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -93,44 +91,37 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord<OrderInstru
     /// Reference to a linked message sent in a proprietary way or reference of a system.
     /// </summary>
     [IsoId("_jH1s-dE7Ed-BzquC8wXy7w_-220954983")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrRef")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<AdditionalReference3> OtherReference { get; init; } = new ValueList<AdditionalReference3>(){};
     
     /// <summary>
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_jH1s-tE7Ed-BzquC8wXy7w_81957477")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRef")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<AdditionalReference3> RelatedReference { get; init; } = new ValueList<AdditionalReference3>(){};
     
     /// <summary>
     /// Reference to a multiple order or bulk order that represents the common reference of several individual orders.
     /// </summary>
     [IsoId("_jH1s-9E7Ed-BzquC8wXy7w_-293915217")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
+    [IsoXmlTag("MstrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,16 +134,15 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord<OrderInstru
     /// Status report details of a bulk or multiple or switch order that was previously received.
     /// </summary>
     [IsoId("_jH_d8NE7Ed-BzquC8wXy7w_178929891")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Details Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrDtlsRpt")]
     #endif
+    [IsoXmlTag("OrdrDtlsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderStatusAndReason3 OrderDetailsReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderStatusAndReason3 OrderDetailsReport { get; init; } 
+    public required OrderStatusAndReason3 OrderDetailsReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderStatusAndReason3 OrderDetailsReport { get; init; } 
     #else
@@ -163,16 +153,15 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord<OrderInstru
     /// Status report details of the individual orders of a bulk or multiple order that was previously received.
     /// </summary>
     [IsoId("_jH_d8dE7Ed-BzquC8wXy7w_289696390")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Order Details Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvOrdrDtlsRpt")]
     #endif
+    [IsoXmlTag("IndvOrdrDtlsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IndividualOrderStatusAndReason1 IndividualOrderDetailsReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IndividualOrderStatusAndReason1 IndividualOrderDetailsReport { get; init; } 
+    public required IndividualOrderStatusAndReason1 IndividualOrderDetailsReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IndividualOrderStatusAndReason1 IndividualOrderDetailsReport { get; init; } 
     #else
@@ -183,7 +172,7 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord<OrderInstru
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="OrderInstructionStatusReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;OrderInstructionStatusReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public OrderInstructionStatusReportV02Document ToDocument()
     {
@@ -193,7 +182,7 @@ public partial record OrderInstructionStatusReportV02 : IOuterRecord<OrderInstru
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="OrderInstructionStatusReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;OrderInstructionStatusReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record OrderInstructionStatusReportV02Document : IOuterDocument<OrderInstructionStatusReportV02>
@@ -210,7 +199,7 @@ public partial record OrderInstructionStatusReportV02Document : IOuterDocument<O
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="OrderInstructionStatusReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;OrderInstructionStatusReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderInstructionStatusReportV02 Message { get; init; }

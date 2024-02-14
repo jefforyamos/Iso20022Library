@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Discounts or waivers to charges and commissions.
 /// </summary>
 [IsoId("_CXqF4YjMEeeqaMoyJI1HbA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charge Or Commission Discount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record ChargeOrCommissionDiscount2
     /// Amount of discount or waiver.
     /// </summary>
     [IsoId("_CmiPY4jMEeeqaMoyJI1HbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record ChargeOrCommissionDiscount2
     /// Rate of discount or waiver.
     /// </summary>
     [IsoId("_CmiPZYjMEeeqaMoyJI1HbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record ChargeOrCommissionDiscount2
     /// Form of the discount or rebate.
     /// </summary>
     [IsoId("_CmiPZ4jMEeeqaMoyJI1HbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bsis")]
     #endif
+    [IsoXmlTag("Bsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WaivingInstruction2Choice_? Basis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

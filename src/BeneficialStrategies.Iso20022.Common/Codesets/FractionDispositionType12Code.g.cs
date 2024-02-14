@@ -21,7 +21,7 @@ public enum FractionDispositionType12Code
 {
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDDN".
+    /// Encoded/decoded by serializers as &quot;RDDN&quot;.
     /// </summary>
     [EnumMember(Value = "RDDN")]
     [IsoId("_Of_qMZFGEeanIpS4qvJ1tw")]
@@ -30,7 +30,7 @@ public enum FractionDispositionType12Code
     
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDUP".
+    /// Encoded/decoded by serializers as &quot;RDUP&quot;.
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_OqaKcZFGEeanIpS4qvJ1tw")]

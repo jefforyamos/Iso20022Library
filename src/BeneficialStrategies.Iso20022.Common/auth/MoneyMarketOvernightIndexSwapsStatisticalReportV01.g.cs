@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The MoneyMarketOvernightIndexSwapsStatisticalReport message is sent by the reporting agents to the relevant competent authority, to report the daily overnight index swaps (OIS) transactions.")]
 [IsoId("_HeIa8aicEeWHO_l3hf2rlA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Money Market Overnight Index Swaps Statistical Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
     /// Provides the elements specific to the report.
     /// </summary>
     [IsoId("_HeIa86icEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptHdr")]
     #endif
+    [IsoXmlTag("RptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MoneyMarketReportHeader1 ReportHeader { get; init; } 
+    public required MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
     /// Provides the reason why no activity is reported or the required list of transactions for the overnight index swaps segment.
     /// </summary>
     [IsoId("_HeIa9aicEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Overnight Index Swaps Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OvrnghtIndxSwpsRpt")]
     #endif
+    [IsoXmlTag("OvrnghtIndxSwpsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OvernightIndexSwap3Choice_ OvernightIndexSwapsReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OvernightIndexSwap3Choice_ OvernightIndexSwapsReport { get; init; } 
+    public required OvernightIndexSwap3Choice_ OvernightIndexSwapsReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OvernightIndexSwap3Choice_ OvernightIndexSwapsReport { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_HeIa96icEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MoneyMarketOvernightIndexSwapsStatisticalReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MoneyMarketOvernightIndexSwapsStatisticalReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MoneyMarketOvernightIndexSwapsStatisticalReportV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketOvernightIndexSwapsStatisticalReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MoneyMarketOvernightIndexSwapsStatisticalReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01Document : IOuterDocument<MoneyMarketOvernightIndexSwapsStatisticalReportV01>
@@ -161,7 +156,7 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01Document
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MoneyMarketOvernightIndexSwapsStatisticalReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MoneyMarketOvernightIndexSwapsStatisticalReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoneyMarketOvernightIndexSwapsStatisticalReportV01 Message { get; init; }

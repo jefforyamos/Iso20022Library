@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// A safekeeping account is an account on which a securities entry is made.
 /// </summary>
 [IsoId("_QTQRM9p-Ed-ak6NoX_4Aeg_1467329706")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Safekeeping Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record SafekeepingAccount4
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_QTQRNNp-Ed-ak6NoX_4Aeg_1467329736")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AccountIdentification { get; init; } 
+    public required System.String AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AccountIdentification { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record SafekeepingAccount4
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_QTQRNdp-Ed-ak6NoX_4Aeg_1467330169")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification9Choice_? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record SafekeepingAccount4
     /// Identification of a subaccount within the safekeeping account.
     /// </summary>
     [IsoId("_QTQRNtp-Ed-ak6NoX_4Aeg_1467330108")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubAcctDtls")]
     #endif
+    [IsoXmlTag("SubAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubAccount2? SubAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,32 +104,26 @@ public partial record SafekeepingAccount4
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_QTQRN9p-Ed-ak6NoX_4Aeg_1467329798")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdBal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstdBal")]
     [MinLength(1)]
     [MaxLength(10)]
-    #endif
     public ValueList<HoldingBalance5> InstructedBalance { get; init; } = new ValueList<HoldingBalance5>(){};
     
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
     [IsoId("_QTQRONp-Ed-ak6NoX_4Aeg_1467330478")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rights Holder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RghtsHldr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RghtsHldr")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<PartyIdentification9Choice_> RightsHolder { get; init; } = new ValueList<PartyIdentification9Choice_>(){};
     
     

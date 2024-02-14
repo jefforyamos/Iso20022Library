@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
 /// </summary>
 [IsoId("_SvkiqNp-Ed-ak6NoX_4Aeg_-248329088")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Previous Year")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record PreviousYear1
     /// Selection ot the entirety of the investment plans.
     /// </summary>
     [IsoId("_Svkiqdp-Ed-ak6NoX_4Aeg_-248329010")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Previous Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllPrvsYrs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AllPrvsYrs")]
+    [IsoSimpleType(IsoSimpleType.PreviousAll)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPreviousAll AllPreviousYears { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AllPreviousYears { get; init; } 
+    public required System.String AllPreviousYears { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AllPreviousYears { get; init; } 
     #else
@@ -75,12 +70,12 @@ public partial record PreviousYear1
     /// Selection of investment plans issued during previous years.
     /// </summary>
     [IsoId("_Svkiqtp-Ed-ak6NoX_4Aeg_-248328915")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Specific Previous Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpcfcPrvsYrs")]
     #endif
+    [IsoXmlTag("SpcfcPrvsYrs")]
+    [IsoSimpleType(IsoSimpleType.ISOYear)]
     public System.UInt16? SpecificPreviousYears { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Svkiqtp-Ed-ak6NoX_4Aeg_-248328915
     
@@ -88,16 +83,16 @@ public partial record PreviousYear1
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
     [IsoId("_Svkiq9p-Ed-ak6NoX_4Aeg_306709098")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Component Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCmpntInd")]
     #endif
+    [IsoXmlTag("CshCmpntInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CashComponentIndicator { get; init; } 
+    public required System.String CashComponentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CashComponentIndicator { get; init; } 
     #else

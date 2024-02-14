@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// </summary>
 [Description(@"The TerminalManagementRejection message is sent by the terminal manager to reject a message request sent by an acceptor, to indicate that the received message could not be processed.")]
 [IsoId("_DWVHgTZ9EeOP_KvUKe29ng")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Terminal Management Rejection V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record TerminalManagementRejectionV02 : IOuterRecord<TerminalMana
     /// Rejection message management information.
     /// </summary>
     [IsoId("_DWVHgzZ9EeOP_KvUKe29ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header6 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header6 Header { get; init; } 
+    public required Header6 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header6 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record TerminalManagementRejectionV02 : IOuterRecord<TerminalMana
     /// Information related to the reject.
     /// </summary>
     [IsoId("_DWVHhTZ9EeOP_KvUKe29ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reject")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjct")]
     #endif
+    [IsoXmlTag("Rjct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorRejection2 Reject { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorRejection2 Reject { get; init; } 
+    public required AcceptorRejection2 Reject { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorRejection2 Reject { get; init; } 
     #else
@@ -116,7 +112,7 @@ public partial record TerminalManagementRejectionV02 : IOuterRecord<TerminalMana
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TerminalManagementRejectionV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TerminalManagementRejectionV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TerminalManagementRejectionV02Document ToDocument()
     {
@@ -126,7 +122,7 @@ public partial record TerminalManagementRejectionV02 : IOuterRecord<TerminalMana
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TerminalManagementRejectionV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TerminalManagementRejectionV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TerminalManagementRejectionV02Document : IOuterDocument<TerminalManagementRejectionV02>
@@ -143,7 +139,7 @@ public partial record TerminalManagementRejectionV02Document : IOuterDocument<Te
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TerminalManagementRejectionV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TerminalManagementRejectionV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementRejectionV02 Message { get; init; }

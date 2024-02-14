@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType9Choice
     /// Specifies the nature of a balance, in a coded form.
     /// </summary>
     [IsoId("_77AUUqMgEeCJ6YNENx4h-w_609741360")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType9Choice
         /// Specifies the nature of the balance within a system processing the transactions.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SystemBalanceType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SystemBalanceType2Code Value { get; init; } 
+        public required SystemBalanceType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SystemBalanceType2Code Value { get; init; } 
         #else

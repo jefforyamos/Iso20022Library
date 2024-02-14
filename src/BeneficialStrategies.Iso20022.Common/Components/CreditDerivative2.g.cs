@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related specifically to credit derivatives attributes.
 /// </summary>
 [IsoId("_yvKMUbyOEeaUov4jN5X9Qw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Credit Derivative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CreditDerivative2
     /// Classification of seniority in case of contract on index or on a single name entity.
     /// </summary>
     [IsoId("_y4Zn4byOEeaUov4jN5X9Qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seniority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Snrty")]
     #endif
+    [IsoXmlTag("Snrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DebtInstrumentSeniorityType2Code? Seniority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CreditDerivative2
     /// Designation of the underlying reference obligation.
     /// </summary>
     [IsoId("_y4Zn47yOEeaUov4jN5X9Qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefPty")]
     #endif
+    [IsoXmlTag("RefPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CreditDerivative2
     /// Frequency of payment of the interest rate or coupon.
     /// </summary>
     [IsoId("_y4Zn5byOEeaUov4jN5X9Qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtFrqcy")]
     #endif
+    [IsoXmlTag("PmtFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency8Code? PaymentFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +93,13 @@ public partial record CreditDerivative2
     /// Calculation basis of the interest rate, such as Act/360.
     /// </summary>
     [IsoId("_y4Zn57yOEeaUov4jN5X9Qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnBsis")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClctnBsis")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CalculationBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,12 @@ public partial record CreditDerivative2
     /// Indicates the series number of the composition of the index if applicable.
     /// </summary>
     [IsoId("_y4Zn6byOEeaUov4jN5X9Qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Series")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Srs")]
     #endif
+    [IsoXmlTag("Srs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Series { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +130,12 @@ public partial record CreditDerivative2
     /// New version of a series is issued if one of the constituents defaults and the index has to be re-weighted to account for the new number of total constituents within the index.
     /// </summary>
     [IsoId("_y4Zn67yOEeaUov4jN5X9Qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +149,12 @@ public partial record CreditDerivative2
     /// Usage: The figure varies between 0 and 100.
     /// </summary>
     [IsoId("_y4Zn7byOEeaUov4jN5X9Qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndxFctr")]
     #endif
+    [IsoXmlTag("IndxFctr")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? IndexFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +167,11 @@ public partial record CreditDerivative2
     /// Indicates whether the derivative contract is tranched or not.
     /// </summary>
     [IsoId("_y4Zn77yOEeaUov4jN5X9Qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tranche")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trch")]
     #endif
+    [IsoXmlTag("Trch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrancheIndicator2Choice_? Tranche { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum InterestRateIndexTenor2Code
 {
     /// <summary>
     /// Tenor is IntraDay.
-    /// Encoded/decoded by serializers as "INDA".
+    /// Encoded/decoded by serializers as &quot;INDA&quot;.
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_fwbwwo9IEeqMo4JxiuZGSw")]
@@ -30,7 +30,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is 1 month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_f5keoo9IEeqMo4JxiuZGSw")]
@@ -39,7 +39,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is 12 months.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_gA0WIo9IEeqMo4JxiuZGSw")]
@@ -48,7 +48,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is 2 months.
-    /// Encoded/decoded by serializers as "TOMN".
+    /// Encoded/decoded by serializers as &quot;TOMN&quot;.
     /// </summary>
     [EnumMember(Value = "TOMN")]
     [IsoId("_gGHs4o9IEeqMo4JxiuZGSw")]
@@ -57,7 +57,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is 3 months.
-    /// Encoded/decoded by serializers as "QUTR".
+    /// Encoded/decoded by serializers as &quot;QUTR&quot;.
     /// </summary>
     [EnumMember(Value = "QUTR")]
     [IsoId("_gMgowo9IEeqMo4JxiuZGSw")]
@@ -66,7 +66,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is 4 months.
-    /// Encoded/decoded by serializers as "FOMN".
+    /// Encoded/decoded by serializers as &quot;FOMN&quot;.
     /// </summary>
     [EnumMember(Value = "FOMN")]
     [IsoId("_gSt-cI9IEeqMo4JxiuZGSw")]
@@ -75,7 +75,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is 6 months.
-    /// Encoded/decoded by serializers as "SEMI".
+    /// Encoded/decoded by serializers as &quot;SEMI&quot;.
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_ga2mwo9IEeqMo4JxiuZGSw")]
@@ -84,7 +84,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is overnght.
-    /// Encoded/decoded by serializers as "OVNG".
+    /// Encoded/decoded by serializers as &quot;OVNG&quot;.
     /// </summary>
     [EnumMember(Value = "OVNG")]
     [IsoId("_grH3Yo9IEeqMo4JxiuZGSw")]
@@ -93,7 +93,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is 1 week.	
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_gzVYMY9IEeqMo4JxiuZGSw")]
@@ -102,7 +102,7 @@ public enum InterestRateIndexTenor2Code
     
     /// <summary>
     /// Tenor is 2 weeks.
-    /// Encoded/decoded by serializers as "TOWK".
+    /// Encoded/decoded by serializers as &quot;TOWK&quot;.
     /// </summary>
     [EnumMember(Value = "TOWK")]
     [IsoId("_g5Ok0Y9IEeqMo4JxiuZGSw")]

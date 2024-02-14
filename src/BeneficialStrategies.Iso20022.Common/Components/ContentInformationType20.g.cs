@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General cryptographic message syntax (CMS) containing encrypted data.
 /// </summary>
 [IsoId("_fP-osaQuEeeWXKXf3KjtmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Content Information Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record ContentInformationType20
     /// ISO 8583:2003 bit 53 or 50
     /// </summary>
     [IsoId("_fblbwaQuEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("MAC Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MACData")]
     #endif
+    [IsoXmlTag("MACData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MACData1 MACData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MACData1 MACData { get; init; } 
+    public required MACData1 MACData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MACData1 MACData { get; init; } 
     #else
@@ -77,19 +74,16 @@ public partial record ContentInformationType20
     /// ISO 8583 bit 64 or bit 128
     /// </summary>
     [IsoId("_fblbw6QuEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("MAC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MAC")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("MAC")]
+    [IsoSimpleType(IsoSimpleType.Max8HexBinaryText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax8HexBinaryText MAC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MAC { get; init; } 
+    public required System.String MAC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MAC { get; init; } 
     #else

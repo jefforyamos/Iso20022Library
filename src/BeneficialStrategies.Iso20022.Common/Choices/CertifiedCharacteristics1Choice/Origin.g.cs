@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics1Choice
     /// Country of origin of the goods, as proven by the certificate.
     /// </summary>
     [IsoId("_TnJq6dp-Ed-ak6NoX_4Aeg_568642879")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Origin")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics1Choice
         /// Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Orgn")]
         #endif
+        [IsoXmlTag("Orgn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CountryCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Value { get; init; } 
+        public required string Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Value { get; init; } 
         #else

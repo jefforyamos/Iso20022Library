@@ -21,7 +21,7 @@ public enum ActionType5Code
 {
     /// <summary>
     /// Server busy, try later.
-    /// Encoded/decoded by serializers as "BUSY".
+    /// Encoded/decoded by serializers as &quot;BUSY&quot;.
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_cEJbwXuYEeSVeNXcmBQ4hQ")]
@@ -30,7 +30,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CPTR".
+    /// Encoded/decoded by serializers as &quot;CPTR&quot;.
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_cNY3U3uYEeSVeNXcmBQ4hQ")]
@@ -39,7 +39,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Message to display, print or log.
-    /// Encoded/decoded by serializers as "DISP".
+    /// Encoded/decoded by serializers as &quot;DISP&quot;.
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_cc4r43uYEeSVeNXcmBQ4hQ")]
@@ -48,7 +48,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Payment application cannot propose to the merchant an override of the payment transaction.
-    /// Encoded/decoded by serializers as "NOVR".
+    /// Encoded/decoded by serializers as &quot;NOVR&quot;.
     /// </summary>
     [EnumMember(Value = "NOVR")]
     [IsoId("_dZ0OM3uYEeSVeNXcmBQ4hQ")]
@@ -57,7 +57,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Additional identification required (passport, ID card, etc.).
-    /// Encoded/decoded by serializers as "RQID".
+    /// Encoded/decoded by serializers as &quot;RQID&quot;.
     /// </summary>
     [EnumMember(Value = "RQID")]
     [IsoId("_djpfo3uYEeSVeNXcmBQ4hQ")]
@@ -66,7 +66,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Last PIN (Personal Identification Number) try.
-    /// Encoded/decoded by serializers as "PINL".
+    /// Encoded/decoded by serializers as &quot;PINL&quot;.
     /// </summary>
     [EnumMember(Value = "PINL")]
     [IsoId("_exd9o3uYEeSVeNXcmBQ4hQ")]
@@ -75,7 +75,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
-    /// Encoded/decoded by serializers as "PINR".
+    /// Encoded/decoded by serializers as &quot;PINR&quot;.
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_e5qQU3uYEeSVeNXcmBQ4hQ")]
@@ -84,7 +84,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Print a message.
-    /// Encoded/decoded by serializers as "PRNT".
+    /// Encoded/decoded by serializers as &quot;PRNT&quot;.
     /// </summary>
     [EnumMember(Value = "PRNT")]
     [IsoId("_fAhGQ3uYEeSVeNXcmBQ4hQ")]
@@ -93,7 +93,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Referral has to be performed.
-    /// Encoded/decoded by serializers as "RFRL".
+    /// Encoded/decoded by serializers as &quot;RFRL&quot;.
     /// </summary>
     [EnumMember(Value = "RFRL")]
     [IsoId("_f_w8w3uYEeSVeNXcmBQ4hQ")]
@@ -102,7 +102,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Request additional data through a displayed text and request confirmation by an attendant.
-    /// Encoded/decoded by serializers as "RQDT".
+    /// Encoded/decoded by serializers as &quot;RQDT&quot;.
     /// </summary>
     [EnumMember(Value = "RQDT")]
     [IsoId("_hcqYk3uYEeSVeNXcmBQ4hQ")]
@@ -111,7 +111,7 @@ public enum ActionType5Code
     
     /// <summary>
     /// Track provided in the response must be updated on the card.
-    /// Encoded/decoded by serializers as "TRCK".
+    /// Encoded/decoded by serializers as &quot;TRCK&quot;.
     /// </summary>
     [EnumMember(Value = "TRCK")]
     [IsoId("_h-CnU3uYEeSVeNXcmBQ4hQ")]

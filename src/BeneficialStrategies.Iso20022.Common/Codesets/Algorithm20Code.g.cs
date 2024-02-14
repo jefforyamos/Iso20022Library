@@ -21,7 +21,7 @@ public enum Algorithm20Code
 {
     /// <summary>
     /// Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).
-    /// Encoded/decoded by serializers as "HS25".
+    /// Encoded/decoded by serializers as &quot;HS25&quot;.
     /// </summary>
     [EnumMember(Value = "HS25")]
     [IsoId("_ER020aRHEeeWXKXf3KjtmQ")]
@@ -30,7 +30,7 @@ public enum Algorithm20Code
     
     /// <summary>
     /// Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).
-    /// Encoded/decoded by serializers as "HS38".
+    /// Encoded/decoded by serializers as &quot;HS38&quot;.
     /// </summary>
     [EnumMember(Value = "HS38")]
     [IsoId("_ER0206RHEeeWXKXf3KjtmQ")]
@@ -39,7 +39,7 @@ public enum Algorithm20Code
     
     /// <summary>
     /// Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).
-    /// Encoded/decoded by serializers as "HS51".
+    /// Encoded/decoded by serializers as &quot;HS51&quot;.
     /// </summary>
     [EnumMember(Value = "HS51")]
     [IsoId("_ER021aRHEeeWXKXf3KjtmQ")]

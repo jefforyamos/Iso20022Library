@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason why the service is taxed.
 /// </summary>
 [IsoId("_6TrGE5qlEeGSON8vddiWzQ_2115552253")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record TaxReason1
     /// Reason why the service is taxed, in a coded form.
     /// </summary>
     [IsoId("_6TrGFJqlEeGSON8vddiWzQ_-393693755")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Cd")]
+    [IsoSimpleType(IsoSimpleType.Max10Text)]
     [StringLength(maximumLength: 10 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10Text Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Code { get; init; } 
+    public required System.String Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Code { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record TaxReason1
     /// Reason why the service is taxed, in a free-text form.
     /// </summary>
     [IsoId("_6TrGFZqlEeGSON8vddiWzQ_887562025")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Explanation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Expltn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Expltn")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text Explanation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Explanation { get; init; } 
+    public required System.String Explanation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Explanation { get; init; } 
     #else

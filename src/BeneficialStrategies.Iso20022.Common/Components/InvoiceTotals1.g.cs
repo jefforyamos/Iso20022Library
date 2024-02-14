@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies totals related to the invoice.
 /// </summary>
 [IsoId("_Tho4zNp-Ed-ak6NoX_4Aeg_-773420460")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record InvoiceTotals1
     /// Total amount subject to tax.
     /// </summary>
     [IsoId("_Tho4zdp-Ed-ak6NoX_4Aeg_-773420429")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Taxable Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTaxblAmt")]
     #endif
+    [IsoXmlTag("TtlTaxblAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalTaxableAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalTaxableAmount { get; init; } 
+    public required System.Decimal TotalTaxableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalTaxableAmount { get; init; } 
     #else
@@ -74,16 +72,16 @@ public partial record InvoiceTotals1
     /// Sum of all tax amounts related to the invoice.
     /// </summary>
     [IsoId("_ThypwNp-Ed-ak6NoX_4Aeg_-773420428")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Tax Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTaxAmt")]
     #endif
+    [IsoXmlTag("TtlTaxAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalTaxAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalTaxAmount { get; init; } 
+    public required System.Decimal TotalTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalTaxAmount { get; init; } 
     #else
@@ -94,12 +92,11 @@ public partial record InvoiceTotals1
     /// Variance on invoice amount taking into account discounts, allowances and charges.
     /// </summary>
     [IsoId("_Thypwdp-Ed-ak6NoX_4Aeg_2076378677")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjustment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adjstmnt")]
     #endif
+    [IsoXmlTag("Adjstmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Adjustment5? Adjustment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,16 +109,16 @@ public partial record InvoiceTotals1
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice adjustment amount (discounts, allowances and charges) and total tax amounts.
     /// </summary>
     [IsoId("_Thypwtp-Ed-ak6NoX_4Aeg_-773420399")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Invoice Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlInvcAmt")]
     #endif
+    [IsoXmlTag("TtlInvcAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalInvoiceAmount { get; init; } 
+    public required System.Decimal TotalInvoiceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalInvoiceAmount { get; init; } 
     #else
@@ -132,16 +129,16 @@ public partial record InvoiceTotals1
     /// Due date for the payment of the invoice.
     /// </summary>
     [IsoId("_Thypw9p-Ed-ak6NoX_4Aeg_-773420121")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Due Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDueDt")]
     #endif
+    [IsoXmlTag("PmtDueDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate PaymentDueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly PaymentDueDate { get; init; } 
+    public required System.DateOnly PaymentDueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly PaymentDueDate { get; init; } 
     #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Incoterms4Choice.Code))]
     [KnownType(typeof(Incoterms4Choice.Proprietary))]
     [IsoId("_S5ezYAEcEeCQm6a_G2yO_w_-552526097")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incoterms 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

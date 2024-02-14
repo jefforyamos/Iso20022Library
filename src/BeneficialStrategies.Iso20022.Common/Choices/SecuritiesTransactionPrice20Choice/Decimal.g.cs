@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice20Choi
     /// <summary>
     /// </summary>
     [IsoId("_IaZdhU2vEe2Ci6HlmBLbDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Decimal")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice20Choi
         /// Rate expressed as a decimal, for example, 0.7 is 7/10 and 70%.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dcml")]
         #endif
+        [IsoXmlTag("Dcml")]
+        [IsoSimpleType(IsoSimpleType.BaseOneRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoBaseOneRate Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Value { get; init; } 
+        public required System.Decimal Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Value { get; init; } 
         #else

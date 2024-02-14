@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Acknowledgement by the acquirer, of the completion advice of the card payment at the acceptor.
 /// </summary>
 [IsoId("_TmmLkTJMEeOkpIB9tKITlw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Completion Advice Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AcceptorCompletionAdviceResponse3
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_T1eVETJMEeOkpIB9tKITlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment21 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment21 Environment { get; init; } 
+    public required CardPaymentEnvironment21 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment21 Environment { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AcceptorCompletionAdviceResponse3
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
     [IsoId("_T1eVEzJMEeOkpIB9tKITlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentTransactionAdviceResponse4 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentTransactionAdviceResponse4 Transaction { get; init; } 
+    public required CardPaymentTransactionAdviceResponse4 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentTransactionAdviceResponse4 Transaction { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record AcceptorCompletionAdviceResponse3
     /// Instructions for contacting the terminal management host.
     /// </summary>
     [IsoId("_T1eVFTJMEeOkpIB9tKITlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSTrggr")]
     #endif
+    [IsoXmlTag("TMSTrggr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TMSTrigger1? TMSTrigger { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

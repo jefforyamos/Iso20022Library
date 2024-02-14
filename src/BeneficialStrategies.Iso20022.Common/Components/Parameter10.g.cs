@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters of the asymmetric encryption algorithm.
 /// </summary>
 [IsoId("_Uj1egds2Eee9e6xduATmQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Parameter10
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
     [IsoId("_UtuaUds2Eee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encryption Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptnFrmt")]
     #endif
+    [IsoXmlTag("NcrptnFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncryptionFormat2Code? EncryptionFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Parameter10
     /// Identification of the digest algorithm.
     /// </summary>
     [IsoId("_UtuaU9s2Eee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm16Code? DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Parameter10
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
     [IsoId("_UtuaVds2Eee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mask Generator Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MskGnrtrAlgo")]
     #endif
+    [IsoXmlTag("MskGnrtrAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlgorithmIdentification18? MaskGeneratorAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

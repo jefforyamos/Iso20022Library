@@ -21,7 +21,7 @@ public enum StoredValueAccountType1Code
 {
     /// <summary>
     /// Prepaid account managed by a financial institution for low income customers.
-    /// Encoded/decoded by serializers as "BNKA".
+    /// Encoded/decoded by serializers as &quot;BNKA&quot;.
     /// </summary>
     [EnumMember(Value = "BNKA")]
     [IsoId("_swkJEdtfEeipuvJHTHIw9A")]
@@ -30,7 +30,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Car wash specific account.
-    /// Encoded/decoded by serializers as "CWVC".
+    /// Encoded/decoded by serializers as &quot;CWVC&quot;.
     /// </summary>
     [EnumMember(Value = "CWVC")]
     [IsoId("_sz7mIdtfEeipuvJHTHIw9A")]
@@ -39,7 +39,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Specific prepaid account for companies or professionals expenses.
-    /// Encoded/decoded by serializers as "CPYA".
+    /// Encoded/decoded by serializers as &quot;CPYA&quot;.
     /// </summary>
     [EnumMember(Value = "CPYA")]
     [IsoId("_s4Kl4dtfEeipuvJHTHIw9A")]
@@ -48,7 +48,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Account supporting e-money issued by an electronic money issuer.
-    /// Encoded/decoded by serializers as "ELMY".
+    /// Encoded/decoded by serializers as &quot;ELMY&quot;.
     /// </summary>
     [EnumMember(Value = "ELMY")]
     [IsoId("_s8hhcdtfEeipuvJHTHIw9A")]
@@ -57,7 +57,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Payment mean issued by retailers or banks as a substitute to a non-monetary gift. Usually, this Stored Value item is used only once.
-    /// Encoded/decoded by serializers as "GIFT".
+    /// Encoded/decoded by serializers as &quot;GIFT&quot;.
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_tBb2odtfEeipuvJHTHIw9A")]
@@ -66,7 +66,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Certificate to be given to a customer. Usually one shot voucher.
-    /// Encoded/decoded by serializers as "GCER".
+    /// Encoded/decoded by serializers as &quot;GCER&quot;.
     /// </summary>
     [EnumMember(Value = "GCER")]
     [IsoId("_tGYBAdtfEeipuvJHTHIw9A")]
@@ -75,7 +75,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Meal and check voucher for restaurants.
-    /// Encoded/decoded by serializers as "MLVC".
+    /// Encoded/decoded by serializers as &quot;MLVC&quot;.
     /// </summary>
     [EnumMember(Value = "MLVC")]
     [IsoId("_tKV7AdtfEeipuvJHTHIw9A")]
@@ -84,7 +84,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Voucher that can be used online once or in several times.
-    /// Encoded/decoded by serializers as "OLVC".
+    /// Encoded/decoded by serializers as &quot;OLVC&quot;.
     /// </summary>
     [EnumMember(Value = "OLVC")]
     [IsoId("_tPUhodtfEeipuvJHTHIw9A")]
@@ -93,7 +93,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Prepaid account open with a merchant or big retailers.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_tVqaMdtfEeipuvJHTHIw9A")]
@@ -102,7 +102,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Other non listed stored value instrument.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_tdEpwdtfEeipuvJHTHIw9A")]
@@ -111,7 +111,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Stored value instrument used to pay telephone services (e.g. card or identifier).
-    /// Encoded/decoded by serializers as "PHON".
+    /// Encoded/decoded by serializers as &quot;PHON&quot;.
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_thugQdtfEeipuvJHTHIw9A")]
@@ -120,7 +120,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Stored value account hold on the chip of a smart card. 
-    /// Encoded/decoded by serializers as "CARD".
+    /// Encoded/decoded by serializers as &quot;CARD&quot;.
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_tmPz4dtfEeipuvJHTHIw9A")]
@@ -129,7 +129,7 @@ public enum StoredValueAccountType1Code
     
     /// <summary>
     /// Travel prepaid account.
-    /// Encoded/decoded by serializers as "TRVL".
+    /// Encoded/decoded by serializers as &quot;TRVL&quot;.
     /// </summary>
     [EnumMember(Value = "TRVL")]
     [IsoId("_tquEMdtfEeipuvJHTHIw9A")]

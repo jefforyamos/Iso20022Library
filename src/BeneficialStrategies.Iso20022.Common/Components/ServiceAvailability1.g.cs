@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the availability of a service.
 /// </summary>
 [IsoId("_bU4edtEWEeWfZsLg1wugTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Service Availability")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record ServiceAvailability1
     /// Specifies the applicable business service.
     /// </summary>
     [IsoId("_bU4eetEWEeWfZsLg1wugTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizSvc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BizSvc")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BusinessService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record ServiceAvailability1
     /// Status of service availability.
     /// </summary>
     [IsoId("_bU4eeNEWEeWfZsLg1wugTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Availability Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlbtySts")]
     #endif
+    [IsoXmlTag("AvlbtySts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemEventType3Choice_ AvailabilityStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemEventType3Choice_ AvailabilityStatus { get; init; } 
+    public required SystemEventType3Choice_ AvailabilityStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemEventType3Choice_ AvailabilityStatus { get; init; } 
     #else

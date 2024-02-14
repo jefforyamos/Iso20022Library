@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics that apply to the the direct debit transaction(s).
 /// </summary>
 [IsoId("_PwF5wNp-Ed-ak6NoX_4Aeg_-698254258")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Direct Debit Transaction Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record DirectDebitTransactionInformation1
     /// Set of elements to reference a payment instruction.
     /// </summary>
     [IsoId("_PwF5wdp-Ed-ak6NoX_4Aeg_-697330319")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtId")]
     #endif
+    [IsoXmlTag("PmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentIdentification1 PaymentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentIdentification1 PaymentIdentification { get; init; } 
+    public required PaymentIdentification1 PaymentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentIdentification1 PaymentIdentification { get; init; } 
     #else
@@ -75,12 +72,11 @@ public partial record DirectDebitTransactionInformation1
     /// Set of elements used to further specify the type of transaction.
     /// </summary>
     [IsoId("_PwF5wtp-Ed-ak6NoX_4Aeg_709731807")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Type Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTpInf")]
     #endif
+    [IsoXmlTag("PmtTpInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTypeInformation2? PaymentTypeInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +89,16 @@ public partial record DirectDebitTransactionInformation1
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
     [IsoId("_PwF5w9p-Ed-ak6NoX_4Aeg_-1231988816")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAmt")]
     #endif
+    [IsoXmlTag("InstdAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount InstructedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal InstructedAmount { get; init; } 
+    public required System.Decimal InstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal InstructedAmount { get; init; } 
     #else
@@ -113,12 +109,11 @@ public partial record DirectDebitTransactionInformation1
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
     [IsoId("_PwF5xNp-Ed-ak6NoX_4Aeg_-134577148")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Bearer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgBr")]
     #endif
+    [IsoXmlTag("ChrgBr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record DirectDebitTransactionInformation1
     /// Set of elements providing information specific to the direct debit mandate.
     /// </summary>
     [IsoId("_PwF5xdp-Ed-ak6NoX_4Aeg_-80903261")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direct Debit Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrctDbtTx")]
     #endif
+    [IsoXmlTag("DrctDbtTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DirectDebitTransaction1? DirectDebitTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +143,11 @@ public partial record DirectDebitTransactionInformation1
     /// Ultimate party to which an amount of money is due.
     /// </summary>
     [IsoId("_PwF5xtp-Ed-ak6NoX_4Aeg_671768228")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ultimate Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UltmtCdtr")]
     #endif
+    [IsoXmlTag("UltmtCdtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8? UltimateCreditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,16 +160,15 @@ public partial record DirectDebitTransactionInformation1
     /// Financial institution servicing an account for the debtor.
     /// </summary>
     [IsoId("_PwF5x9p-Ed-ak6NoX_4Aeg_-726885796")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAgt")]
     #endif
+    [IsoXmlTag("DbtrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification3 DebtorAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification3 DebtorAgent { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification3 DebtorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification3 DebtorAgent { get; init; } 
     #else
@@ -187,12 +179,11 @@ public partial record DirectDebitTransactionInformation1
     /// Unambiguous identification of the account of the debtor agent at its servicing agent in the payment chain.
     /// </summary>
     [IsoId("_PwF5yNp-Ed-ak6NoX_4Aeg_-725962912")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Agent Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAgtAcct")]
     #endif
+    [IsoXmlTag("DbtrAgtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? DebtorAgentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,16 +196,15 @@ public partial record DirectDebitTransactionInformation1
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
     [IsoId("_PwF5ydp-Ed-ak6NoX_4Aeg_-727807794")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dbtr")]
     #endif
+    [IsoXmlTag("Dbtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification8 Debtor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification8 Debtor { get; init; } 
+    public required PartyIdentification8 Debtor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification8 Debtor { get; init; } 
     #else
@@ -225,16 +215,15 @@ public partial record DirectDebitTransactionInformation1
     /// Identification of the account of the debtor to which a debit entry will be made to execute the transfer.
     /// </summary>
     [IsoId("_PwPDsNp-Ed-ak6NoX_4Aeg_-727806805")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAcct")]
     #endif
+    [IsoXmlTag("DbtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount7 DebtorAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount7 DebtorAccount { get; init; } 
+    public required CashAccount7 DebtorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount7 DebtorAccount { get; init; } 
     #else
@@ -245,12 +234,11 @@ public partial record DirectDebitTransactionInformation1
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
     [IsoId("_PwPDsdp-Ed-ak6NoX_4Aeg_-694562141")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ultimate Debtor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UltmtDbtr")]
     #endif
+    [IsoXmlTag("UltmtDbtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8? UltimateDebtor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,15 +251,13 @@ public partial record DirectDebitTransactionInformation1
     /// Further information, related to the processing of the payment instruction, that may need to be acted upon by the creditor agent, depending on agreement between creditor and the creditor agent.
     /// </summary>
     [IsoId("_PwPDstp-Ed-ak6NoX_4Aeg_1236038580")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction For Creditor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrForCdtrAgt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrForCdtrAgt")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? InstructionForCreditorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +270,11 @@ public partial record DirectDebitTransactionInformation1
     /// Underlying reason for the payment transaction, eg, a charity payment, or a commercial agreement between the creditor and the debtor. ||Usage: purpose is used by the end-customers, ie originating party, initiating party, debtor, creditor, final party, to provide information concerning the nature of the payment transaction. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
     [IsoId("_PwPDs9p-Ed-ak6NoX_4Aeg_-697332656")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Purp")]
     #endif
+    [IsoXmlTag("Purp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Purpose1Choice_? Purpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,28 +287,24 @@ public partial record DirectDebitTransactionInformation1
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>
     [IsoId("_PwPDtNp-Ed-ak6NoX_4Aeg_-696409271")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Regulatory Reporting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgltryRptg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RgltryRptg")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<RegulatoryReporting2> RegulatoryReporting { get; init; } = new ValueList<RegulatoryReporting2>(){};
     
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
     [IsoId("_PwPDtdp-Ed-ak6NoX_4Aeg_-696409073")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tax")]
     #endif
+    [IsoXmlTag("Tax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxInformation2? Tax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -336,28 +317,24 @@ public partial record DirectDebitTransactionInformation1
     /// Information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
     [IsoId("_PwPDttp-Ed-ak6NoX_4Aeg_-694561639")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Remittance Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRmtInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRmtInf")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<RemittanceLocation1> RelatedRemittanceInformation { get; init; } = new ValueList<RemittanceLocation1>(){};
     
     /// <summary>
     /// Information that enables the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an account receivable system.
     /// </summary>
     [IsoId("_PwPDt9p-Ed-ak6NoX_4Aeg_-696410019")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remittance Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtInf")]
     #endif
+    [IsoXmlTag("RmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemittanceInformation1? RemittanceInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

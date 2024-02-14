@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|An account servicer sends the CorporateActionMovementConfirmation message to an account owner or its designated agent to confirm posting of securities or cash as a result of a corporate action event.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
 [IsoId("_TZrL-9EwEd-BzquC8wXy7w_763996090")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Movement Confirmation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Information that unambiguously identifies a CorporateActionMovementConfirmation message as know by the account servicer.
     /// </summary>
     [IsoId("_TZrL_NEwEd-BzquC8wXy7w_-1184537218")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification11 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification11 Identification { get; init; } 
+    public required DocumentIdentification11 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification11 Identification { get; init; } 
     #else
@@ -104,12 +101,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Identification of a previously sent notification document.
     /// </summary>
     [IsoId("_TZ0V4NEwEd-BzquC8wXy7w_-2053177913")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
+    [IsoXmlTag("NtfctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification15? NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +118,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Identification of a previously sent movement preliminary advice document.
     /// </summary>
     [IsoId("_TZ0V4dEwEd-BzquC8wXy7w_-370811515")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement Preliminary Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MvmntPrlimryAdvcId")]
     #endif
+    [IsoXmlTag("MvmntPrlimryAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification15? MovementPreliminaryAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +135,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Identification of a related instruction document.
     /// </summary>
     [IsoId("_TZ0V4tEwEd-BzquC8wXy7w_-1433496731")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrId")]
     #endif
+    [IsoXmlTag("InstrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification9? InstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +152,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Identification of other documents as well as the document number.
     /// </summary>
     [IsoId("_TZ0V49EwEd-BzquC8wXy7w_-1722822639")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Document Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrDocId")]
     #endif
+    [IsoXmlTag("OthrDocId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification13? OtherDocumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +169,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Identification of an other corporate action event that needs to be closely linked to the processing of the event notified in this document.
     /// </summary>
     [IsoId("_TZ0V5NEwEd-BzquC8wXy7w_1273408411")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Events Linkage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtsLkg")]
     #endif
+    [IsoXmlTag("EvtsLkg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventReference1? EventsLinkage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,16 +186,15 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TZ0V5dEwEd-BzquC8wXy7w_571267100")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionGeneralInformation4 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionGeneralInformation4 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionGeneralInformation4 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionGeneralInformation4 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -214,16 +205,15 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// General information about the safekeeping account, owner and account balance.
     /// </summary>
     [IsoId("_TZ0V5tEwEd-BzquC8wXy7w_489405533")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountAndBalance3 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountAndBalance3 AccountDetails { get; init; } 
+    public required AccountAndBalance3 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountAndBalance3 AccountDetails { get; init; } 
     #else
@@ -234,16 +224,15 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Information about the corporate action option.
     /// </summary>
     [IsoId("_TZ0V59EwEd-BzquC8wXy7w_-1174912361")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Confirmation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnConfDtls")]
     #endif
+    [IsoXmlTag("CorpActnConfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption4 CorporateActionConfirmationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionOption4 CorporateActionConfirmationDetails { get; init; } 
+    public required CorporateActionOption4 CorporateActionConfirmationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionOption4 CorporateActionConfirmationDetails { get; init; } 
     #else
@@ -254,12 +243,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Provides additional information.
     /// </summary>
     [IsoId("_TZ0V6NEwEd-BzquC8wXy7w_-1047216463")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNarrative4? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,12 +260,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Party that originated the message, if other than the sender.
     /// </summary>
     [IsoId("_TZ-G4NEwEd-BzquC8wXy7w_1846832884")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgOrgtr")]
     #endif
+    [IsoXmlTag("MsgOrgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? MessageOriginator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,12 +277,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Party that is the final destination of the message, if other than the receiver.
     /// </summary>
     [IsoId("_TZ-G4dEwEd-BzquC8wXy7w_1900398315")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRcpt")]
     #endif
+    [IsoXmlTag("MsgRcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? MessageRecipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,12 +294,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.
     /// </summary>
     [IsoId("_TZ-G4tEwEd-BzquC8wXy7w_-2135984088")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrAgt")]
     #endif
+    [IsoXmlTag("IssrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? IssuerAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -326,12 +311,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
     /// </summary>
     [IsoId("_TZ-G49EwEd-BzquC8wXy7w_-2049175166")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Paying Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PngAgt")]
     #endif
+    [IsoXmlTag("PngAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? PayingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -344,12 +328,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
     /// </summary>
     [IsoId("_TZ-G5NEwEd-BzquC8wXy7w_-2020543082")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Paying Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubPngAgt")]
     #endif
+    [IsoXmlTag("SubPngAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? SubPayingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -362,12 +345,11 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_TZ-G5dEwEd-BzquC8wXy7w_-1154154999")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension2? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -380,7 +362,7 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CorporateActionMovementConfirmationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CorporateActionMovementConfirmationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CorporateActionMovementConfirmationV01Document ToDocument()
     {
@@ -390,7 +372,7 @@ public partial record CorporateActionMovementConfirmationV01 : IOuterRecord<Corp
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionMovementConfirmationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CorporateActionMovementConfirmationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CorporateActionMovementConfirmationV01Document : IOuterDocument<CorporateActionMovementConfirmationV01>
@@ -407,7 +389,7 @@ public partial record CorporateActionMovementConfirmationV01Document : IOuterDoc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CorporateActionMovementConfirmationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CorporateActionMovementConfirmationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMovementConfirmationV01 Message { get; init; }

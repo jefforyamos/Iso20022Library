@@ -21,7 +21,7 @@ public enum FundCashAccount1Code
 {
     /// <summary>
     /// Cash account.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Virjc9p-Ed-ak6NoX_4Aeg_-2028108164")]
@@ -30,7 +30,7 @@ public enum FundCashAccount1Code
     
     /// <summary>
     /// Central Provident Fund (CPF) ordinary account.
-    /// Encoded/decoded by serializers as "CPFO".
+    /// Encoded/decoded by serializers as &quot;CPFO&quot;.
     /// </summary>
     [EnumMember(Value = "CPFO")]
     [IsoId("_VirjdNp-Ed-ak6NoX_4Aeg_-2028108147")]
@@ -39,7 +39,7 @@ public enum FundCashAccount1Code
     
     /// <summary>
     /// Central Provident Fund (CPF) special account.
-    /// Encoded/decoded by serializers as "CPFS".
+    /// Encoded/decoded by serializers as &quot;CPFS&quot;.
     /// </summary>
     [EnumMember(Value = "CPFS")]
     [IsoId("_Virjddp-Ed-ak6NoX_4Aeg_-2028108129")]
@@ -48,7 +48,7 @@ public enum FundCashAccount1Code
     
     /// <summary>
     /// Supplementary Retirement Scheme (SRS) account.
-    /// Encoded/decoded by serializers as "SRSA".
+    /// Encoded/decoded by serializers as &quot;SRSA&quot;.
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_Virjdtp-Ed-ak6NoX_4Aeg_-2028108104")]
@@ -57,7 +57,7 @@ public enum FundCashAccount1Code
     
     /// <summary>
     /// Another type cash account.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Virjd9p-Ed-ak6NoX_4Aeg_-2021642544")]

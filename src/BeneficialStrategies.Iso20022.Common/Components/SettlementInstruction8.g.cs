@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides further details on the settlement of the instruction.
 /// </summary>
 [IsoId("_VOSH0Xh1EeidzqjNEfehPg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SettlementInstruction8
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
     [IsoId("_VdkhB3h1EeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmMtd")]
     #endif
+    [IsoXmlTag("SttlmMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementMethod2Code SettlementMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementMethod2Code SettlementMethod { get; init; } 
+    public required SettlementMethod2Code SettlementMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementMethod2Code SettlementMethod { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SettlementInstruction8
     /// A specific purpose account used to post debit and credit entries as a result of the transaction.
     /// </summary>
     [IsoId("_VdkhCXh1EeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAcct")]
     #endif
+    [IsoXmlTag("SttlmAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount38? SettlementAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record SettlementInstruction8
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
     [IsoId("_VdkhC3h1EeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSys")]
     #endif
+    [IsoXmlTag("ClrSys")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingSystemIdentification3Choice_? ClearingSystem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

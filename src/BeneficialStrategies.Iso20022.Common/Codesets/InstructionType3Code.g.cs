@@ -21,7 +21,7 @@ public enum InstructionType3Code
 {
     /// <summary>
     /// Instruction to match a data set.
-    /// Encoded/decoded by serializers as "MTCH".
+    /// Encoded/decoded by serializers as &quot;MTCH&quot;.
     /// </summary>
     [EnumMember(Value = "MTCH")]
     [IsoId("_aYxvsNp-Ed-ak6NoX_4Aeg_-1294968773")]
@@ -30,7 +30,7 @@ public enum InstructionType3Code
     
     /// <summary>
     /// Instruction to pre-match a data set.
-    /// Encoded/decoded by serializers as "PMTC".
+    /// Encoded/decoded by serializers as &quot;PMTC&quot;.
     /// </summary>
     [EnumMember(Value = "PMTC")]
     [IsoId("_aYxvsdp-Ed-ak6NoX_4Aeg_-1294968370")]

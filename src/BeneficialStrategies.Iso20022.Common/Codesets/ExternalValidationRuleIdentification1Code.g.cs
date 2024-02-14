@@ -23,7 +23,7 @@ public enum ExternalValidationRuleIdentification1Code
 {
     /// <summary>
     /// Identifies the validation rules related to the Russian Cross-border Transactions Currency Control Reporting
-    /// Encoded/decoded by serializers as "CCTR".
+    /// Encoded/decoded by serializers as &quot;CCTR&quot;.
     /// </summary>
     [EnumMember(Value = "CCTR")]
     [IsoId("_uTdKjvRYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalValidationRuleIdentification1Code
     
     /// <summary>
     /// Identifies the validation rules related to the invoice tax reporting 
-    /// Encoded/decoded by serializers as "ITRP".
+    /// Encoded/decoded by serializers as &quot;ITRP&quot;.
     /// </summary>
     [EnumMember(Value = "ITRP")]
     [IsoId("_uTm7gvRYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalValidationRuleIdentification1Code
     
     /// <summary>
     /// Identifies the validation rule scheme related to the ECB Euro Money Market Statistical Reporting
-    /// Encoded/decoded by serializers as "MMSR".
+    /// Encoded/decoded by serializers as &quot;MMSR&quot;.
     /// </summary>
     [EnumMember(Value = "MMSR")]
     [IsoId("_uTm7hfRYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalValidationRuleIdentification1Code
     
     /// <summary>
     /// Identifies the validation rules related to the Bank Of England Sterling Money Market Daily Reporting
-    /// Encoded/decoded by serializers as "SMMD".
+    /// Encoded/decoded by serializers as &quot;SMMD&quot;.
     /// </summary>
     [EnumMember(Value = "SMMD")]
     [IsoId("_uTwFcvRYEeuLhpyIdtJzwg")]

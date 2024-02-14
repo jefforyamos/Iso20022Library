@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|A party holding the right to vote sends the MeetingInstruction message to an intermediary, the issuer or its agent to request the receiving party to act upon one or several instructions.|Usage|The MeetingInstruction message is used to register for a shareholders meeting, request blocking or registration of securities. It is used to assign a proxy, to specify the names of meeting attendees and to relay vote instructions per resolution electronically.|The MeetingInstruction message may only be sent for one security, though several safekeeping places may be specified.|Once the message is sent, it cannot be modified. It must be cancelled by a MeetingInstructionCancellationRequest. Only after receipt of a confirmed cancelled status via the MeetingInstructionStatus message, a new MeetingInstruction message can be sent.")]
 [IsoId("_Tq9JOdEwEd-BzquC8wXy7w_-1580879636")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting Instruction V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record MeetingInstructionV04 : IOuterRecord<MeetingInstructionV04
     /// Identifies the meeting instruction message.
     /// </summary>
     [IsoId("_Tq9JOtEwEd-BzquC8wXy7w_1416416792")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 Identification { get; init; } 
+    public required MessageIdentification1 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 Identification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record MeetingInstructionV04 : IOuterRecord<MeetingInstructionV04
     /// Series of elements which allow to identify a meeting.
     /// </summary>
     [IsoId("_Tq9JO9EwEd-BzquC8wXy7w_668851111")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtgRef")]
     #endif
+    [IsoXmlTag("MtgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingReference4 MeetingReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MeetingReference4 MeetingReference { get; init; } 
+    public required MeetingReference4 MeetingReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MeetingReference4 MeetingReference { get; init; } 
     #else
@@ -124,16 +120,15 @@ public partial record MeetingInstructionV04 : IOuterRecord<MeetingInstructionV04
     /// Party notifying the instructions.
     /// </summary>
     [IsoId("_Tq9JPNEwEd-BzquC8wXy7w_1200693664")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgPty")]
     #endif
+    [IsoXmlTag("InstgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification9Choice_ InstructingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification9Choice_ InstructingParty { get; init; } 
+    public required PartyIdentification9Choice_ InstructingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification9Choice_ InstructingParty { get; init; } 
     #else
@@ -144,16 +139,15 @@ public partial record MeetingInstructionV04 : IOuterRecord<MeetingInstructionV04
     /// Identifies the security for which the meeting is organised.
     /// </summary>
     [IsoId("_TrG6MNEwEd-BzquC8wXy7w_2100528158")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification11 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification11 SecurityIdentification { get; init; } 
+    public required SecurityIdentification11 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification11 SecurityIdentification { get; init; } 
     #else
@@ -164,16 +158,15 @@ public partial record MeetingInstructionV04 : IOuterRecord<MeetingInstructionV04
     /// Identifies the position of the instructing party and the action that they want to take.
     /// </summary>
     [IsoId("_TrG6MdEwEd-BzquC8wXy7w_-1116418800")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Instr")]
     #endif
+    [IsoXmlTag("Instr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Instruction2 Instruction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Instruction2 Instruction { get; init; } 
+    public required Instruction2 Instruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Instruction2 Instruction { get; init; } 
     #else
@@ -184,12 +177,11 @@ public partial record MeetingInstructionV04 : IOuterRecord<MeetingInstructionV04
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_TrG6MtEwEd-BzquC8wXy7w_1093292958")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension2? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -202,7 +194,7 @@ public partial record MeetingInstructionV04 : IOuterRecord<MeetingInstructionV04
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MeetingInstructionV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MeetingInstructionV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MeetingInstructionV04Document ToDocument()
     {
@@ -212,7 +204,7 @@ public partial record MeetingInstructionV04 : IOuterRecord<MeetingInstructionV04
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MeetingInstructionV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MeetingInstructionV04Document : IOuterDocument<MeetingInstructionV04>
@@ -229,7 +221,7 @@ public partial record MeetingInstructionV04Document : IOuterDocument<MeetingInst
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MeetingInstructionV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MeetingInstructionV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingInstructionV04 Message { get; init; }

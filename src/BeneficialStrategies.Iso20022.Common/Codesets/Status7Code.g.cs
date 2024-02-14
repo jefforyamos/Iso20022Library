@@ -21,7 +21,7 @@ public enum Status7Code
 {
     /// <summary>
     /// Instruction has been cancelled by the agent, for example, due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_YyZqoF6uEeSyc4g_pm5hbw")]
@@ -30,7 +30,7 @@ public enum Status7Code
     
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aCL3gV6uEeSyc4g_pm5hbw")]
@@ -39,7 +39,7 @@ public enum Status7Code
     
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_agtmkV6uEeSyc4g_pm5hbw")]
@@ -48,7 +48,7 @@ public enum Status7Code
     
     /// <summary>
     /// Processing has been completed.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_a88PkV6uEeSyc4g_pm5hbw")]
@@ -57,7 +57,7 @@ public enum Status7Code
     
     /// <summary>
     /// No instruction has been received (to be used in a reminder).
-    /// Encoded/decoded by serializers as "NOIN".
+    /// Encoded/decoded by serializers as &quot;NOIN&quot;.
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_b10_YV6uEeSyc4g_pm5hbw")]
@@ -66,7 +66,7 @@ public enum Status7Code
     
     /// <summary>
     /// Instruction has been received by Issuer.
-    /// Encoded/decoded by serializers as "RCIS".
+    /// Encoded/decoded by serializers as &quot;RCIS&quot;.
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_c1-00V6uEeSyc4g_pm5hbw")]
@@ -75,7 +75,7 @@ public enum Status7Code
     
     /// <summary>
     /// Standing instruction is applied.
-    /// Encoded/decoded by serializers as "STIN".
+    /// Encoded/decoded by serializers as &quot;STIN&quot;.
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_dTZJkV6uEeSyc4g_pm5hbw")]

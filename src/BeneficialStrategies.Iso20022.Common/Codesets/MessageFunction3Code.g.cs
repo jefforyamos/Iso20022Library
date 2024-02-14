@@ -21,7 +21,7 @@ public enum MessageFunction3Code
 {
     /// <summary>
     /// Request for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FAUQ".
+    /// Encoded/decoded by serializers as &quot;FAUQ&quot;.
     /// </summary>
     [EnumMember(Value = "FAUQ")]
     [IsoId("_KSlT131DEeCF8NjrBemJWQ_-2015531584")]
@@ -30,7 +30,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Request for cancellation.
-    /// Encoded/decoded by serializers as "CCAQ".
+    /// Encoded/decoded by serializers as &quot;CCAQ&quot;.
     /// </summary>
     [EnumMember(Value = "CCAQ")]
     [IsoId("_KSlT2H1DEeCF8NjrBemJWQ_-370264149")]
@@ -39,7 +39,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Advice for completion without financial capture.
-    /// Encoded/decoded by serializers as "CMPV".
+    /// Encoded/decoded by serializers as &quot;CMPV&quot;.
     /// </summary>
     [EnumMember(Value = "CMPV")]
     [IsoId("_KSvE0H1DEeCF8NjrBemJWQ_-1367336502")]
@@ -48,7 +48,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Request for diagnostic.
-    /// Encoded/decoded by serializers as "DGNP".
+    /// Encoded/decoded by serializers as &quot;DGNP&quot;.
     /// </summary>
     [EnumMember(Value = "DGNP")]
     [IsoId("_KSvE0X1DEeCF8NjrBemJWQ_1930558441")]
@@ -57,7 +57,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Request for reconciliation.
-    /// Encoded/decoded by serializers as "RCLQ".
+    /// Encoded/decoded by serializers as &quot;RCLQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCLQ")]
     [IsoId("_KSvE0n1DEeCF8NjrBemJWQ_933486088")]
@@ -66,7 +66,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Advice for cancellation.
-    /// Encoded/decoded by serializers as "CCAV".
+    /// Encoded/decoded by serializers as &quot;CCAV&quot;.
     /// </summary>
     [EnumMember(Value = "CCAV")]
     [IsoId("_KSvE031DEeCF8NjrBemJWQ_-63586265")]
@@ -75,7 +75,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Transfer the financial data as a collection of transction.
-    /// Encoded/decoded by serializers as "BTCH".
+    /// Encoded/decoded by serializers as &quot;BTCH&quot;.
     /// </summary>
     [EnumMember(Value = "BTCH")]
     [IsoId("_KSvE1H1DEeCF8NjrBemJWQ_-1060658618")]
@@ -84,7 +84,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Advice for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FRVA".
+    /// Encoded/decoded by serializers as &quot;FRVA&quot;.
     /// </summary>
     [EnumMember(Value = "FRVA")]
     [IsoId("_KSvE1X1DEeCF8NjrBemJWQ_-405103463")]
@@ -93,7 +93,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// The initiator requests an authorisation without financial impact to complete the transaction.
-    /// Encoded/decoded by serializers as "AUTQ".
+    /// Encoded/decoded by serializers as &quot;AUTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AUTQ")]
     [IsoId("_KSvE1n1DEeCF8NjrBemJWQ_1240163972")]
@@ -102,7 +102,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Advice for completion with financial capture.
-    /// Encoded/decoded by serializers as "FCMV".
+    /// Encoded/decoded by serializers as &quot;FCMV&quot;.
     /// </summary>
     [EnumMember(Value = "FCMV")]
     [IsoId("_KSvE131DEeCF8NjrBemJWQ_243091619")]
@@ -111,7 +111,7 @@ public enum MessageFunction3Code
     
     /// <summary>
     /// Advice for reversal without financial capture.
-    /// Encoded/decoded by serializers as "RVRA".
+    /// Encoded/decoded by serializers as &quot;RVRA&quot;.
     /// </summary>
     [EnumMember(Value = "RVRA")]
     [IsoId("_KSvE2H1DEeCF8NjrBemJWQ_1781880061")]

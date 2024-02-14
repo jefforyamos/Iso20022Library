@@ -21,7 +21,7 @@ public enum ClearingExemptionExceptionCode
 {
     /// <summary>
     /// End user exemption.
-    /// Encoded/decoded by serializers as "ENDU".
+    /// Encoded/decoded by serializers as &quot;ENDU&quot;.
     /// </summary>
     [EnumMember(Value = "ENDU")]
     [IsoId("_xGxLIIJTEeuDe9SyRl5qeg")]
@@ -30,7 +30,7 @@ public enum ClearingExemptionExceptionCode
     
     /// <summary>
     /// Inter affiliate exemption.
-    /// Encoded/decoded by serializers as "AFFL".
+    /// Encoded/decoded by serializers as &quot;AFFL&quot;.
     /// </summary>
     [EnumMember(Value = "AFFL")]
     [IsoId("_0FpXEIJTEeuDe9SyRl5qeg")]
@@ -39,7 +39,7 @@ public enum ClearingExemptionExceptionCode
     
     /// <summary>
     /// Small bank exemption
-    /// Encoded/decoded by serializers as "SMBK".
+    /// Encoded/decoded by serializers as &quot;SMBK&quot;.
     /// </summary>
     [EnumMember(Value = "SMBK")]
     [IsoId("_3ErUAIJTEeuDe9SyRl5qeg")]
@@ -48,7 +48,7 @@ public enum ClearingExemptionExceptionCode
     
     /// <summary>
     /// Cooperative exemption.
-    /// Encoded/decoded by serializers as "COOP".
+    /// Encoded/decoded by serializers as &quot;COOP&quot;.
     /// </summary>
     [EnumMember(Value = "COOP")]
     [IsoId("_5E6tcIJTEeuDe9SyRl5qeg")]
@@ -57,7 +57,7 @@ public enum ClearingExemptionExceptionCode
     
     /// <summary>
     /// No action letter relief.
-    /// Encoded/decoded by serializers as "NOAL".
+    /// Encoded/decoded by serializers as &quot;NOAL&quot;.
     /// </summary>
     [EnumMember(Value = "NOAL")]
     [IsoId("_7TvVcIJTEeuDe9SyRl5qeg")]
@@ -66,7 +66,7 @@ public enum ClearingExemptionExceptionCode
     
     /// <summary>
     /// No reason.
-    /// Encoded/decoded by serializers as "NORE".
+    /// Encoded/decoded by serializers as &quot;NORE&quot;.
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_-yAzIIJTEeuDe9SyRl5qeg")]
@@ -75,7 +75,7 @@ public enum ClearingExemptionExceptionCode
     
     /// <summary>
     /// Other.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_A0x8IIJUEeuDe9SyRl5qeg")]

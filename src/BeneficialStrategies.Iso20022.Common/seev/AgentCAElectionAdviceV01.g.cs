@@ -27,19 +27,17 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// This record is an implementation of the seev.012.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// This message is sent by a CSD to the issuer (or its agent) to provide information about the clients' election instruction, the registration details, the delivery details, etc. In case of an election with underlying resource movements, it also confirms that these have been completed. This message may also be sent in case of an amendment of an election, once the CSD has completed the required resource movements.
+/// This message is sent by a CSD to the issuer (or its agent) to provide information about the clients&apos; election instruction, the registration details, the delivery details, etc. In case of an election with underlying resource movements, it also confirms that these have been completed. This message may also be sent in case of an amendment of an election, once the CSD has completed the required resource movements.
 /// Usage
 /// This message can be used for a new election advice or an amended election advice.
-/// If this message is used for a new election advice, the function of the message must be 'new election'.
-/// If this message is used for an amended election advice, the function of the message must be 'option change' and the identification of the previously sent election advice must be present.
+/// If this message is used for a new election advice, the function of the message must be &apos;new election&apos;.
+/// If this message is used for an amended election advice, the function of the message must be &apos;option change&apos; and the identification of the previously sent election advice must be present.
 /// This message can include the cash movements and/or securities movements in the case of an election with underlying resource movements. Additionally, this message can include delivery, certification and beneficial owner details.
 /// Note: this information can be also sent separately in the Agent Corporate Action Information advice message.
 /// </summary>
 [Description(@"Scope|This message is sent by a CSD to the issuer (or its agent) to provide information about the clients' election instruction, the registration details, the delivery details, etc. In case of an election with underlying resource movements, it also confirms that these have been completed. This message may also be sent in case of an amendment of an election, once the CSD has completed the required resource movements.|Usage|This message can be used for a new election advice or an amended election advice.|If this message is used for a new election advice, the function of the message must be 'new election'.|If this message is used for an amended election advice, the function of the message must be 'option change' and the identification of the previously sent election advice must be present.|This message can include the cash movements and/or securities movements in the case of an election with underlying resource movements. Additionally, this message can include delivery, certification and beneficial owner details.|Note: this information can be also sent separately in the Agent Corporate Action Information advice message.")]
 [IsoId("_TMtG-tEwEd-BzquC8wXy7w_1166385439")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent CA Election Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdv
     /// Identification assigned by the Sender to unambiguously identify the advice.
     /// </summary>
     [IsoId("_TMtG-9EwEd-BzquC8wXy7w_-42698000")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdv
     /// Provides information about the type of election advice and linked messages.
     /// </summary>
     [IsoId("_TM238NEwEd-BzquC8wXy7w_-1990867488")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Advice Type And Linkage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctnAdvcTpAndLkg")]
     #endif
+    [IsoXmlTag("ElctnAdvcTpAndLkg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ElectionAdviceFunction1 ElectionAdviceTypeAndLinkage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ElectionAdviceFunction1 ElectionAdviceTypeAndLinkage { get; init; } 
+    public required ElectionAdviceFunction1 ElectionAdviceTypeAndLinkage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ElectionAdviceFunction1 ElectionAdviceTypeAndLinkage { get; init; } 
     #else
@@ -125,16 +121,15 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdv
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TM238dEwEd-BzquC8wXy7w_1272192692")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -145,16 +140,15 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdv
     /// Provides information about the election(s).
     /// </summary>
     [IsoId("_TM238tEwEd-BzquC8wXy7w_-1547276927")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctnDtls")]
     #endif
+    [IsoXmlTag("ElctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionElection3 ElectionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionElection3 ElectionDetails { get; init; } 
+    public required CorporateActionElection3 ElectionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionElection3 ElectionDetails { get; init; } 
     #else
@@ -165,12 +159,11 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdv
     /// Provides additional information about the delivery details, beneficial owner details, etc.
     /// </summary>
     [IsoId("_TM2389EwEd-BzquC8wXy7w_-1731981881")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionAdditionalInformation1? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +176,11 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdv
     /// Contact responsible for the transaction identified in the message.
     /// </summary>
     [IsoId("_TM239NEwEd-BzquC8wXy7w_-741674043")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctDtls")]
     #endif
+    [IsoXmlTag("CtctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactPerson1? ContactDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,7 +193,7 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdv
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AgentCAElectionAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AgentCAElectionAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AgentCAElectionAdviceV01Document ToDocument()
     {
@@ -211,7 +203,7 @@ public partial record AgentCAElectionAdviceV01 : IOuterRecord<AgentCAElectionAdv
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AgentCAElectionAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AgentCAElectionAdviceV01Document : IOuterDocument<AgentCAElectionAdviceV01>
@@ -228,7 +220,7 @@ public partial record AgentCAElectionAdviceV01Document : IOuterDocument<AgentCAE
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AgentCAElectionAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AgentCAElectionAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentCAElectionAdviceV01 Message { get; init; }

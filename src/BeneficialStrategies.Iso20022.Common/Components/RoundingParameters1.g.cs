@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters applied to a fractional number.
 /// </summary>
 [IsoId("_QRxDcNp-Ed-ak6NoX_4Aeg_-1749123923")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rounding Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record RoundingParameters1
     /// Float value specifying the value to which rounding is required, eg, 10 means round to a multiple of 10 units/shares, 0.5 means round to a multiple of 0.5 units/shares.
     /// </summary>
     [IsoId("_QRxDcdp-Ed-ak6NoX_4Aeg_-1749123921")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rounding Modulus")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RndgMdlus")]
     #endif
+    [IsoXmlTag("RndgMdlus")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? RoundingModulus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,15 @@ public partial record RoundingParameters1
     /// Rounding direction applied to fractional numbers, eg, round up.
     /// </summary>
     [IsoId("_QRxDctp-Ed-ak6NoX_4Aeg_-1749123920")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rounding Direction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RndgDrctn")]
     #endif
+    [IsoXmlTag("RndgDrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RoundingDirection1Code RoundingDirection { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RoundingDirection1Code RoundingDirection { get; init; } 
+    public required RoundingDirection1Code RoundingDirection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RoundingDirection1Code RoundingDirection { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the currency control group status details.
 /// </summary>
 [IsoId("_S5InHW49EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Control Group Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CurrencyControlGroupStatus2
     /// Original underlying message references for which the status advice is provided.
     /// </summary>
     [IsoId("_TC94gW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRefs")]
     #endif
+    [IsoXmlTag("OrgnlRefs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMessage5 OriginalReferences { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalMessage5 OriginalReferences { get; init; } 
+    public required OriginalMessage5 OriginalReferences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalMessage5 OriginalReferences { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record CurrencyControlGroupStatus2
     /// Party registering the currency control contract.
     /// </summary>
     [IsoId("_TC94g249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPty")]
     #endif
+    [IsoXmlTag("RptgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty5 ReportingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeParty5 ReportingParty { get; init; } 
+    public required TradeParty5 ReportingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeParty5 ReportingParty { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record CurrencyControlGroupStatus2
     /// Agent which registers the currency control contract.
     /// </summary>
     [IsoId("_TC94hW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnAgt")]
     #endif
+    [IsoXmlTag("RegnAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #else
@@ -114,12 +109,11 @@ public partial record CurrencyControlGroupStatus2
     /// For periodic reporting this is the first and the last day to which the transaction data in the status message refers.
     /// </summary>
     [IsoId("_TC94h249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPrd")]
     #endif
+    [IsoXmlTag("RptgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ReportingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,12 +126,11 @@ public partial record CurrencyControlGroupStatus2
     /// Provides the status for the full report.
     /// </summary>
     [IsoId("_TC94iW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatisticalReportingStatus1Code? Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,12 +143,11 @@ public partial record CurrencyControlGroupStatus2
     /// Provides detailed information on the status reason.
     /// </summary>
     [IsoId("_TC94i249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusReason2? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +160,12 @@ public partial record CurrencyControlGroupStatus2
     /// Provides the date and time when the status was issued.
     /// </summary>
     [IsoId("_TC94jW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsDtTm")]
     #endif
+    [IsoXmlTag("StsDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StatusDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

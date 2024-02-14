@@ -21,7 +21,7 @@ public enum Instruction4Code
 {
     /// <summary>
     /// Please advise/contact next agent by phone.
-    /// Encoded/decoded by serializers as "PHOA".
+    /// Encoded/decoded by serializers as &quot;PHOA&quot;.
     /// </summary>
     [EnumMember(Value = "PHOA")]
     [IsoId("_aW-_89p-Ed-ak6NoX_4Aeg_-1285879464")]
@@ -30,7 +30,7 @@ public enum Instruction4Code
     
     /// <summary>
     /// Please advise/contact next agent by the most efficient means of telecommunication.
-    /// Encoded/decoded by serializers as "TELA".
+    /// Encoded/decoded by serializers as &quot;TELA&quot;.
     /// </summary>
     [EnumMember(Value = "TELA")]
     [IsoId("_aW-_9Np-Ed-ak6NoX_4Aeg_-1285879404")]

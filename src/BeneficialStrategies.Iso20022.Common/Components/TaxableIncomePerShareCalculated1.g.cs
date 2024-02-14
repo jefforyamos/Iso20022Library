@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specification of the taxable income per share.
 /// </summary>
 [IsoId("_VSl5B9p-Ed-ak6NoX_4Aeg_-362445404")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Taxable Income Per Share Calculated")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TaxableIncomePerShareCalculated1
     /// Structured format.
     /// </summary>
     [IsoId("_VSl5CNp-Ed-ak6NoX_4Aeg_-309804629")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
+    [IsoXmlTag("Strd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxableIncomePerShareCalculated1Code Structured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxableIncomePerShareCalculated1Code Structured { get; init; } 
+    public required TaxableIncomePerShareCalculated1Code Structured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxableIncomePerShareCalculated1Code Structured { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TaxableIncomePerShareCalculated1
     /// Additional information about the type of tax.
     /// </summary>
     [IsoId("_VSl5Cdp-Ed-ak6NoX_4Aeg_-308882890")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

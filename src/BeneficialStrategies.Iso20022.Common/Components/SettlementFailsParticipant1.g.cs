@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details on the settlement fails per participant.
 /// </summary>
 [IsoId("_dhkbUI0UEemUAO64Q252gQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Participant")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record SettlementFailsParticipant1
     /// Legal entity identification of the participant in the securities settlement system.
     /// </summary>
     [IsoId("_pLGqQY0UEemUAO64Q252gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LEI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LEI")]
     #endif
+    [IsoXmlTag("LEI")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier LEI { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LEI { get; init; } 
+    public required System.String LEI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LEI { get; init; } 
     #else
@@ -73,19 +71,16 @@ public partial record SettlementFailsParticipant1
     /// Ranking of the top participants with the highest rate of settlement fails.
     /// </summary>
     [IsoId("_qNCoYY0UEemUAO64Q252gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rank")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Rank")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2NumericText Rank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Rank { get; init; } 
+    public required System.String Rank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Rank { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record SettlementFailsParticipant1
     /// Aggregated data of the settlement instructions.
     /// </summary>
     [IsoId("_4yoYwI0UEemUAO64Q252gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Aggt")]
     #endif
+    [IsoXmlTag("Aggt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1 Aggregate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementTotalData1 Aggregate { get; init; } 
+    public required SettlementTotalData1 Aggregate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementTotalData1 Aggregate { get; init; } 
     #else

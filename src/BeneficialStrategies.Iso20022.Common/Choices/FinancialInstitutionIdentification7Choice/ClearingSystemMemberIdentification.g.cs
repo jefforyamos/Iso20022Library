@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
     /// Choice of identifier for a clearing system member, as assigned by the clearing system. In some clearing systems, the accounts of the clearing system members are also assigned an identifier.
     /// </summary>
     [IsoId("_Tet_ZSGOEeW7gKYhAMEFCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Member Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum OnLineReasonCode
 {
     /// <summary>
     /// Transaction random selection to go online.
-    /// Encoded/decoded by serializers as "RNDM".
+    /// Encoded/decoded by serializers as &quot;RNDM&quot;.
     /// </summary>
     [EnumMember(Value = "RNDM")]
     [IsoId("_TU5kIQEcEeCQm6a_G2yO_w_1923311799")]
@@ -30,7 +30,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Payment application in the Integrated Circuit Card forces to go on-line.
-    /// Encoded/decoded by serializers as "ICCF".
+    /// Encoded/decoded by serializers as &quot;ICCF&quot;.
     /// </summary>
     [EnumMember(Value = "ICCF")]
     [IsoId("_TU5kIgEcEeCQm6a_G2yO_w_-1245846943")]
@@ -39,7 +39,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// On line forced by card acceptor.
-    /// Encoded/decoded by serializers as "MERF".
+    /// Encoded/decoded by serializers as &quot;MERF&quot;.
     /// </summary>
     [EnumMember(Value = "MERF")]
     [IsoId("_TVCuAAEcEeCQm6a_G2yO_w_674120094")]
@@ -48,7 +48,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Terminal random selection to go online.
-    /// Encoded/decoded by serializers as "TRMF".
+    /// Encoded/decoded by serializers as &quot;TRMF&quot;.
     /// </summary>
     [EnumMember(Value = "TRMF")]
     [IsoId("_TVCuAQEcEeCQm6a_G2yO_w_-247585585")]
@@ -57,7 +57,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// On line forced by card issuer.
-    /// Encoded/decoded by serializers as "ISSF".
+    /// Encoded/decoded by serializers as &quot;ISSF&quot;.
     /// </summary>
     [EnumMember(Value = "ISSF")]
     [IsoId("_TVCuAgEcEeCQm6a_G2yO_w_1284522022")]
@@ -66,7 +66,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Over floor limit.
-    /// Encoded/decoded by serializers as "FRLT".
+    /// Encoded/decoded by serializers as &quot;FRLT&quot;.
     /// </summary>
     [EnumMember(Value = "FRLT")]
     [IsoId("_TVCuAwEcEeCQm6a_G2yO_w_1786397507")]
@@ -75,7 +75,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Card appears on terminal exception file.
-    /// Encoded/decoded by serializers as "EXFL".
+    /// Encoded/decoded by serializers as &quot;EXFL&quot;.
     /// </summary>
     [EnumMember(Value = "EXFL")]
     [IsoId("_TVCuBAEcEeCQm6a_G2yO_w_-736533613")]
@@ -84,7 +84,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Total amount of purchases per cardholder and per application above floor limit.
-    /// Encoded/decoded by serializers as "TAMT".
+    /// Encoded/decoded by serializers as &quot;TAMT&quot;.
     /// </summary>
     [EnumMember(Value = "TAMT")]
     [IsoId("_TVCuBQEcEeCQm6a_G2yO_w_-390515156")]
@@ -93,7 +93,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Bank Identification Number under control.
-    /// Encoded/decoded by serializers as "CBIN".
+    /// Encoded/decoded by serializers as &quot;CBIN&quot;.
     /// </summary>
     [EnumMember(Value = "CBIN")]
     [IsoId("_TVCuBgEcEeCQm6a_G2yO_w_-768504377")]
@@ -102,7 +102,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Unknown Bank Identification Number.
-    /// Encoded/decoded by serializers as "UBIN".
+    /// Encoded/decoded by serializers as &quot;UBIN&quot;.
     /// </summary>
     [EnumMember(Value = "UBIN")]
     [IsoId("_TVCuBwEcEeCQm6a_G2yO_w_-314417108")]
@@ -111,7 +111,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Primary account number (card number) under control.
-    /// Encoded/decoded by serializers as "CPAN".
+    /// Encoded/decoded by serializers as &quot;CPAN&quot;.
     /// </summary>
     [EnumMember(Value = "CPAN")]
     [IsoId("_TVCuCAEcEeCQm6a_G2yO_w_811391446")]
@@ -120,7 +120,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Flow control.
-    /// Encoded/decoded by serializers as "FLOW".
+    /// Encoded/decoded by serializers as &quot;FLOW&quot;.
     /// </summary>
     [EnumMember(Value = "FLOW")]
     [IsoId("_TVCuCQEcEeCQm6a_G2yO_w_-800606403")]
@@ -129,7 +129,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Unknown currency code or foreign currency.
-    /// Encoded/decoded by serializers as "CRCY".
+    /// Encoded/decoded by serializers as &quot;CRCY&quot;.
     /// </summary>
     [EnumMember(Value = "CRCY")]
     [IsoId("_TVCuCgEcEeCQm6a_G2yO_w_1210676022")]
@@ -138,7 +138,7 @@ public enum OnLineReasonCode
     
     /// <summary>
     /// Request Cardholder Authentication througth PIN insertion
-    /// Encoded/decoded by serializers as "IFPR".
+    /// Encoded/decoded by serializers as &quot;IFPR&quot;.
     /// </summary>
     [EnumMember(Value = "IFPR")]
     [IsoId("_MFRxkE4LEey_VecAUE-C9Q")]

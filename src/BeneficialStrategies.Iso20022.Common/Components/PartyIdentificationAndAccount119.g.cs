@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Party and account information.
 /// </summary>
 [IsoId("_o7MJQEUqEeSGWeX3z5zSZQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification And Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PartyIdentificationAndAccount119
     /// Identification of the party that legally owns the account.
     /// </summary>
     [IsoId("_Bl2FIEUrEeSGWeX3z5zSZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     public PartyIdentification90? PartyIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Bl2FIEUrEeSGWeX3z5zSZQ
     
@@ -57,12 +54,11 @@ public partial record PartyIdentificationAndAccount119
     /// Identification of the account owned by the party.
     /// </summary>
     [IsoId("_kNHDAEVKEeSGWeX3z5zSZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     public AccountIdentification30? AccountIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _kNHDAEVKEeSGWeX3z5zSZQ
     

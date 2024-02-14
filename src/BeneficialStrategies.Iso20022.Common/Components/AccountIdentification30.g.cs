@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the account expressed with a data source scheme.
 /// </summary>
 [IsoId("_puErAEVnEeS9ytE0W9bgkQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AccountIdentification30
     /// Specifies the type of account.
     /// </summary>
     [IsoId("_aczocEa8EeSm2psHh_KSCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctTp")]
     #endif
+    [IsoXmlTag("AcctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountInformationType1Code AccountType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountInformationType1Code AccountType { get; init; } 
+    public required AccountInformationType1Code AccountType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountInformationType1Code AccountType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AccountIdentification30
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_woHE8EVnEeS9ytE0W9bgkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification26 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification26 Identification { get; init; } 
+    public required AccountIdentification26 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification26 Identification { get; init; } 
     #else

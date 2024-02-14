@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FormOfSecurity4Choice.Code))]
     [KnownType(typeof(FormOfSecurity4Choice.Proprietary))]
     [IsoId("_AbzAotokEeC60axPepSq7g_-664085466")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Form Of Security 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

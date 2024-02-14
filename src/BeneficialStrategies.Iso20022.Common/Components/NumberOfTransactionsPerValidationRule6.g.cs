@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Number of individual reports or transactions received / sent, detailed per validation rule.
 /// </summary>
 [IsoId("_vUlOcU2UEe2bQ-Ksk8mwQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Number Of Transactions Per Validation Rule")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record NumberOfTransactionsPerValidationRule6
     /// Number of individual reports or transactions sent / received, detailed per status.
     /// </summary>
     [IsoId("_vVXRkU2UEe2bQ-Ksk8mwQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DtldNb")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText DetailedNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DetailedNumber { get; init; } 
+    public required System.String DetailedNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DetailedNumber { get; init; } 
     #else
@@ -74,12 +69,11 @@ public partial record NumberOfTransactionsPerValidationRule6
     /// Common validation rule for all individual reports received.
     /// </summary>
     [IsoId("_vVXRk02UEe2bQ-Ksk8mwQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSts")]
     #endif
+    [IsoXmlTag("RptSts")]
     public RejectionReason70? ReportStatus { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _vVXRk02UEe2bQ-Ksk8mwQg
     

@@ -21,7 +21,7 @@ public enum AdditionalBusinessProcessCode
 {
     /// <summary>
     /// Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "ACLA".
+    /// Encoded/decoded by serializers as &quot;ACLA&quot;.
     /// </summary>
     [EnumMember(Value = "ACLA")]
     [IsoId("_bmaAdNp-Ed-ak6NoX_4Aeg_680586071")]
@@ -30,7 +30,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).
-    /// Encoded/decoded by serializers as "ATXF".
+    /// Encoded/decoded by serializers as &quot;ATXF&quot;.
     /// </summary>
     [EnumMember(Value = "ATXF")]
     [IsoId("_bmaAddp-Ed-ak6NoX_4Aeg_1125721829")]
@@ -39,7 +39,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.
-    /// Encoded/decoded by serializers as "CNTR".
+    /// Encoded/decoded by serializers as &quot;CNTR&quot;.
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_bmaAdtp-Ed-ak6NoX_4Aeg_1154351853")]
@@ -48,7 +48,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "NAMC".
+    /// Encoded/decoded by serializers as &quot;NAMC&quot;.
     /// </summary>
     [EnumMember(Value = "NAMC")]
     [IsoId("_bmaAd9p-Ed-ak6NoX_4Aeg_1195909241")]
@@ -57,7 +57,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Issuer only allows a single option to be selected per designated holding.
-    /// Encoded/decoded by serializers as "NPLE".
+    /// Encoded/decoded by serializers as &quot;NPLE&quot;.
     /// </summary>
     [EnumMember(Value = "NPLE")]
     [IsoId("_bmjxcNp-Ed-ak6NoX_4Aeg_1242085325")]
@@ -66,7 +66,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.
-    /// Encoded/decoded by serializers as "SCHM".
+    /// Encoded/decoded by serializers as &quot;SCHM&quot;.
     /// </summary>
     [EnumMember(Value = "SCHM")]
     [IsoId("_bmjxcdp-Ed-ak6NoX_4Aeg_1522835843")]
@@ -75,7 +75,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "CLAI".
+    /// Encoded/decoded by serializers as &quot;CLAI&quot;.
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_bmjxctp-Ed-ak6NoX_4Aeg_1302432019")]
@@ -84,7 +84,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TAXR".
+    /// Encoded/decoded by serializers as &quot;TAXR&quot;.
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_bmjxc9p-Ed-ak6NoX_4Aeg_1331059271")]
@@ -93,7 +93,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Indicates a preadvice of movement reversal.
-    /// Encoded/decoded by serializers as "REVR".
+    /// Encoded/decoded by serializers as &quot;REVR&quot;.
     /// </summary>
     [EnumMember(Value = "REVR")]
     [IsoId("_bmjxdNp-Ed-ak6NoX_4Aeg_-1970967591")]
@@ -102,7 +102,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).
-    /// Encoded/decoded by serializers as "CONS".
+    /// Encoded/decoded by serializers as &quot;CONS&quot;.
     /// </summary>
     [EnumMember(Value = "CONS")]
     [IsoId("_bmjxddp-Ed-ak6NoX_4Aeg_164070844")]
@@ -111,7 +111,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Partial mandatory exchange of a portion of bonds where the exchanged securities are usually remarketed. The issuer may offer holders the right to retain instead of exchanging their securities. A lottery will be used to determine eligibility for the event.
-    /// Encoded/decoded by serializers as "PPUT".
+    /// Encoded/decoded by serializers as &quot;PPUT&quot;.
     /// </summary>
     [EnumMember(Value = "PPUT")]
     [IsoId("_mr8y8GH9EeWNUe-5HV3A_g")]
@@ -120,7 +120,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Full pre-funding of a debt instrument by the issuer prior to original maturity when the issuer deposits assets in trust. Applicable only in the frame of a partial defeasance corporate action event.
-    /// Encoded/decoded by serializers as "FPRE".
+    /// Encoded/decoded by serializers as &quot;FPRE&quot;.
     /// </summary>
     [EnumMember(Value = "FPRE")]
     [IsoId("_PnyMYGIAEeWNUe-5HV3A_g")]
@@ -129,7 +129,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Partial pre-funding of a debt instrument prior to maturity drawn through a lottery process. One new security is issued with an earlier maturity date for the refunded (called portion) and the other new security is issued with the original maturity date for the non refunded (remaining) portion. Applicable only in the frame of a partial defeasance corporate action event.
-    /// Encoded/decoded by serializers as "PPRE".
+    /// Encoded/decoded by serializers as &quot;PPRE&quot;.
     /// </summary>
     [EnumMember(Value = "PPRE")]
     [IsoId("_Xynf0GIAEeWNUe-5HV3A_g")]
@@ -138,7 +138,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// Proceeds / entitlements of the mandatory event can only be paid if specified action is taken by the account owner.
-    /// Encoded/decoded by serializers as "REAC".
+    /// Encoded/decoded by serializers as &quot;REAC&quot;.
     /// </summary>
     [EnumMember(Value = "REAC")]
     [IsoId("_Ao5yAGKfEeWR9ZSfjmHwUA")]
@@ -147,7 +147,7 @@ public enum AdditionalBusinessProcessCode
     
     /// <summary>
     /// The event is a payment of an incentive premium related to the voting conditions prescribed at a general meeting.
-    /// Encoded/decoded by serializers as "INCP".
+    /// Encoded/decoded by serializers as &quot;INCP&quot;.
     /// </summary>
     [EnumMember(Value = "INCP")]
     [IsoId("_Du5eEBeoEeyroI8qKgB7Mg")]

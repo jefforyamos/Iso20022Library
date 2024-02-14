@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginRequirement1Choice.MarginRequirement))]
     [KnownType(typeof(MarginRequirement1Choice.SegregatedIndependentAmountRequirement))]
     [IsoId("_QmevONp-Ed-ak6NoX_4Aeg_-593475226")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Requirement 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information that identifies a side pocket in investment fund orders.
 /// </summary>
 [IsoId("_Sd_DYdp-Ed-ak6NoX_4Aeg_-2131868584")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Side Pocket Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SidePocketInformation2
     /// Indicates whether the investor wants to participate in the optional side pocket.
     /// </summary>
     [IsoId("_Sd_DYtp-Ed-ak6NoX_4Aeg_-2131868562")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side Pocket Inclusion Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SdPcktInclsnInd")]
     #endif
+    [IsoXmlTag("SdPcktInclsnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SidePocketInclusionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +60,13 @@ public partial record SidePocketInformation2
     /// Identification of the side pocket.
     /// </summary>
     [IsoId("_Sd_DY9p-Ed-ak6NoX_4Aeg_-2131868500")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side Pocket Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SdPcktId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SdPcktId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SidePocketIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +79,11 @@ public partial record SidePocketInformation2
     /// Quantity of the side pocket.
     /// </summary>
     [IsoId("_Sd_DZNp-Ed-ak6NoX_4Aeg_-2089384261")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side Pocket Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SdPcktQty")]
     #endif
+    [IsoXmlTag("SdPcktQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SidePocketQuantityAndAmount1? SidePocketQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

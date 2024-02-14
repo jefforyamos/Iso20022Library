@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency35Choice
     /// Frequency expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_ALKWgeLaEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency35Choice
         /// Specifies the regularity of an event.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Frequency5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Frequency5Code Value { get; init; } 
+        public required Frequency5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Frequency5Code Value { get; init; } 
         #else

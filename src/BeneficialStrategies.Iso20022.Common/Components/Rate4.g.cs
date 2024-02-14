@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to qualify the interest rate.
 /// </summary>
 [IsoId("_uoQ2MbTVEee_k7HqaUKERA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Rate4
     /// Specifies the type of interest rate.
     /// </summary>
     [IsoId("_uwTX47TVEee_k7HqaUKERA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RateType4Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RateType4Choice_ Type { get; init; } 
+    public required RateType4Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RateType4Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Rate4
     /// An amount range where the interest rate is applicable.
     /// </summary>
     [IsoId("_uwTX5bTVEee_k7HqaUKERA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity Range")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyRg")]
     #endif
+    [IsoXmlTag("VldtyRg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyAndAmountRange2? ValidityRange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

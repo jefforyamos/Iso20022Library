@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the cash-in and cash-out flows by party.
 /// </summary>
 [IsoId("_RP6Gt9p-Ed-ak6NoX_4Aeg_1330321865")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Breakdown By Party")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BreakdownByParty1
     /// Party, eg, fund management company, for which the cash flow is being reported.
     /// </summary>
     [IsoId("_RP6GuNp-Ed-ak6NoX_4Aeg_-1549407706")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ Party { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification2Choice_ Party { get; init; } 
+    public required PartyIdentification2Choice_ Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification2Choice_ Party { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record BreakdownByParty1
     /// Additional parameter/s applied to the cash flow by party.
     /// </summary>
     [IsoId("_RP6Gudp-Ed-ak6NoX_4Aeg_960937370")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlParams")]
     #endif
+    [IsoXmlTag("AddtlParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalParameters1? AdditionalParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record BreakdownByParty1
     /// Cash movement into the fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
     [IsoId("_RP6Gutp-Ed-ak6NoX_4Aeg_-2077163620")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInFcst")]
     #endif
+    [IsoXmlTag("CshInFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInForecast3? CashInForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record BreakdownByParty1
     /// Cash movement out of the fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
     [IsoId("_RP6Gu9p-Ed-ak6NoX_4Aeg_-2070700651")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Out Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshOutFcst")]
     #endif
+    [IsoXmlTag("CshOutFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOutForecast3? CashOutForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record BreakdownByParty1
     /// Net cash as a result of the cash-in and cash-out flows specified for the party.
     /// </summary>
     [IsoId("_RQDQoNp-Ed-ak6NoX_4Aeg_-2101175737")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Cash Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetCshFcst")]
     #endif
+    [IsoXmlTag("NetCshFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast2? NetCashForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

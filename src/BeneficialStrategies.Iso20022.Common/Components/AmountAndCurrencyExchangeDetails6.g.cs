@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide information on the original amount and currency exchange.
 /// </summary>
 [IsoId("_mY_vsQ5rEe2xs7BqO31w6w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount And Currency Exchange Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record AmountAndCurrencyExchangeDetails6
     /// Specifies the type of amount.
     /// </summary>
     [IsoId("_mjB1cw5rEe2xs7BqO31w6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Type { get; init; } 
+    public required System.String Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Type { get; init; } 
     #else
@@ -75,16 +71,16 @@ public partial record AmountAndCurrencyExchangeDetails6
     /// Amount of money to be exchanged against another amount of money in the counter currency.
     /// </summary>
     [IsoId("_mjB1dQ5rEe2xs7BqO31w6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -95,12 +91,11 @@ public partial record AmountAndCurrencyExchangeDetails6
     /// Set of elements used to provide details on the currency exchange.
     /// </summary>
     [IsoId("_mjB1dw5rEe2xs7BqO31w6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyXchg")]
     #endif
+    [IsoXmlTag("CcyXchg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyExchange24? CurrencyExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

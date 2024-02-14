@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Time span defined by a start date and time, and an end date and time.
 /// </summary>
 [IsoId("_4LqCYfZFEd-2Jsl2KtUQCw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Period5
     /// Date and time at which the range starts.
     /// </summary>
     [IsoId("_4LzMUfZFEd-2Jsl2KtUQCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDt")]
     #endif
+    [IsoXmlTag("StartDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat21Choice_ StartDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat21Choice_ StartDate { get; init; } 
+    public required DateFormat21Choice_ StartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat21Choice_ StartDate { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Period5
     /// Date and time at which the range ends.
     /// </summary>
     [IsoId("_4LzMU_ZFEd-2Jsl2KtUQCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndDt")]
     #endif
+    [IsoXmlTag("EndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat21Choice_ EndDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat21Choice_ EndDate { get; init; } 
+    public required DateFormat21Choice_ EndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat21Choice_ EndDate { get; init; } 
     #else

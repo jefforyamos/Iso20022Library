@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DetailedTransactionStatistics6Choice.DataSetAction))]
     [KnownType(typeof(DetailedTransactionStatistics6Choice.DetailedStatistics))]
     [IsoId("_x-ovZ1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Transaction Statistics 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

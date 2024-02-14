@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Aim of the non financial response.
 /// </summary>
 [IsoId("_KKDwkC_uEeugIJ3Gvoevmg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Financial Response Content Component")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NonFinancialResponseContentComponent1
     /// Type of non financial request that the Acquirer processed.
     /// </summary>
     [IsoId("_aO9-oS_uEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Financial Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonFinReqTp")]
     #endif
+    [IsoXmlTag("NonFinReqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonFinancialRequestType1Code NonFinancialRequestType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NonFinancialRequestType1Code NonFinancialRequestType { get; init; } 
+    public required NonFinancialRequestType1Code NonFinancialRequestType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NonFinancialRequestType1Code NonFinancialRequestType { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record NonFinancialResponseContentComponent1
     /// Identification of the most relevant Acquirer to process the transaction.
     /// </summary>
     [IsoId("_pJh5cC_uEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Selected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrSelctd")]
     #endif
+    [IsoXmlTag("AcqrrSelctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer10? AcquirerSelected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,11 @@ public partial record NonFinancialResponseContentComponent1
     /// Advice from the Acquirer (or its Agent) to the POI to manage risk. 
     /// </summary>
     [IsoId("_LaIxAC_xEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Management Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskMgmtRslt")]
     #endif
+    [IsoXmlTag("RskMgmtRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonFinancialResponseRisk1Code? RiskManagementResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +103,11 @@ public partial record NonFinancialResponseContentComponent1
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
     [IsoId("_Se83kS_xEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action11? Action { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,16 +120,15 @@ public partial record NonFinancialResponseContentComponent1
     /// Result of the processing of the request.
     /// </summary>
     [IsoId("_YlVnAS_xEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspn")]
     #endif
+    [IsoXmlTag("Rspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType11 Response { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType11 Response { get; init; } 
+    public required ResponseType11 Response { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType11 Response { get; init; } 
     #else

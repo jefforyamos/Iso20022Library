@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SystemEventType2Choice.Code))]
     [KnownType(typeof(SystemEventType2Choice.Proprietary))]
     [IsoId("_717nF6MgEeCJ6YNENx4h-w_-1478283975")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Event Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

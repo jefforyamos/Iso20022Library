@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters associated to the MAC algorithm.
 /// </summary>
 [IsoId("_PrnlsWkJEeS7zPBpvm732w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Parameter7
     /// Initialisation vector of a cipher block chaining (CBC) mode encryption.
     /// </summary>
     [IsoId("_P4zGEWkJEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initialisation Vector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlstnVctr")]
     #endif
+    [IsoXmlTag("InitlstnVctr")]
+    [IsoSimpleType(IsoSimpleType.Max500Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Binary? InitialisationVector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record Parameter7
     /// Byte padding for a cypher block chaining mode encryption, if the padding is not implicit.
     /// </summary>
     [IsoId("_fwDSoGkJEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Byte Padding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BPddg")]
     #endif
+    [IsoXmlTag("BPddg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BytePadding1Code? BytePadding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

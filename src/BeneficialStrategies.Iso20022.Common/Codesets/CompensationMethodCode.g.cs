@@ -21,7 +21,7 @@ public enum CompensationMethodCode
 {
     /// <summary>
     /// Account does not pay and charges or taxes due.
-    /// Encoded/decoded by serializers as "NOCP".
+    /// Encoded/decoded by serializers as &quot;NOCP&quot;.
     /// </summary>
     [EnumMember(Value = "NOCP")]
     [IsoId("_6VwwxJqlEeGSON8vddiWzQ_375454543")]
@@ -30,7 +30,7 @@ public enum CompensationMethodCode
     
     /// <summary>
     /// Account is debited for any charges or taxes due.
-    /// Encoded/decoded by serializers as "DBTD".
+    /// Encoded/decoded by serializers as &quot;DBTD&quot;.
     /// </summary>
     [EnumMember(Value = "DBTD")]
     [IsoId("_6VwwxZqlEeGSON8vddiWzQ_83496805")]
@@ -39,7 +39,7 @@ public enum CompensationMethodCode
     
     /// <summary>
     /// Account or summary account is invoiced for any charges or taxes due.
-    /// Encoded/decoded by serializers as "INVD".
+    /// Encoded/decoded by serializers as &quot;INVD&quot;.
     /// </summary>
     [EnumMember(Value = "INVD")]
     [IsoId("_6VwwxpqlEeGSON8vddiWzQ_1842603306")]
@@ -48,7 +48,7 @@ public enum CompensationMethodCode
     
     /// <summary>
     /// Account is automatically debited on a future date.
-    /// Encoded/decoded by serializers as "DDBT".
+    /// Encoded/decoded by serializers as &quot;DDBT&quot;.
     /// </summary>
     [EnumMember(Value = "DDBT")]
     [IsoId("_6Vwwx5qlEeGSON8vddiWzQ_-799736482")]

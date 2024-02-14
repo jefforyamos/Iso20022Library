@@ -21,7 +21,7 @@ public enum NonEquityAssetClassCode
 {
     /// <summary>
     /// Interest rate derivative.
-    /// Encoded/decoded by serializers as "IRDV".
+    /// Encoded/decoded by serializers as &quot;IRDV&quot;.
     /// </summary>
     [EnumMember(Value = "IRDV")]
     [IsoId("_rG2DwHBZEeqTZuDtO9NgaQ")]
@@ -30,7 +30,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Equity derivative.
-    /// Encoded/decoded by serializers as "EQDV".
+    /// Encoded/decoded by serializers as &quot;EQDV&quot;.
     /// </summary>
     [EnumMember(Value = "EQDV")]
     [IsoId("_vfkXgHBZEeqTZuDtO9NgaQ")]
@@ -39,7 +39,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Commodity derivative.
-    /// Encoded/decoded by serializers as "COMD".
+    /// Encoded/decoded by serializers as &quot;COMD&quot;.
     /// </summary>
     [EnumMember(Value = "COMD")]
     [IsoId("_17-aQHBZEeqTZuDtO9NgaQ")]
@@ -48,7 +48,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Foreign exchange derivative.
-    /// Encoded/decoded by serializers as "FEXD".
+    /// Encoded/decoded by serializers as &quot;FEXD&quot;.
     /// </summary>
     [EnumMember(Value = "FEXD")]
     [IsoId("_4iFg4HBZEeqTZuDtO9NgaQ")]
@@ -57,7 +57,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Credit derivative.
-    /// Encoded/decoded by serializers as "CRDV".
+    /// Encoded/decoded by serializers as &quot;CRDV&quot;.
     /// </summary>
     [EnumMember(Value = "CRDV")]
     [IsoId("__v6ZgHBZEeqTZuDtO9NgaQ")]
@@ -66,7 +66,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// C10 derivative.
-    /// Encoded/decoded by serializers as "C10D".
+    /// Encoded/decoded by serializers as &quot;C10D&quot;.
     /// </summary>
     [EnumMember(Value = "C10D")]
     [IsoId("_CVFE8HBaEeqTZuDtO9NgaQ")]
@@ -75,7 +75,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Contract for difference.
-    /// Encoded/decoded by serializers as "CFDS".
+    /// Encoded/decoded by serializers as &quot;CFDS&quot;.
     /// </summary>
     [EnumMember(Value = "CFDS")]
     [IsoId("_Ev3FUHBaEeqTZuDtO9NgaQ")]
@@ -84,7 +84,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Emission allowance.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_G3tioHBaEeqTZuDtO9NgaQ")]
@@ -93,7 +93,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Emission allowance derivative.
-    /// Encoded/decoded by serializers as "EADV".
+    /// Encoded/decoded by serializers as &quot;EADV&quot;.
     /// </summary>
     [EnumMember(Value = "EADV")]
     [IsoId("_KNbhQHBaEeqTZuDtO9NgaQ")]
@@ -102,7 +102,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Securitised derivative.
-    /// Encoded/decoded by serializers as "SDRV".
+    /// Encoded/decoded by serializers as &quot;SDRV&quot;.
     /// </summary>
     [EnumMember(Value = "SDRV")]
     [IsoId("_Ng75YHBaEeqTZuDtO9NgaQ")]
@@ -111,7 +111,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Bond.
-    /// Encoded/decoded by serializers as "BOND".
+    /// Encoded/decoded by serializers as &quot;BOND&quot;.
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_vN9uEIR5EeqOnqlbcclX_g")]
@@ -120,7 +120,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Exchange traded commodities.
-    /// Encoded/decoded by serializers as "ETCS".
+    /// Encoded/decoded by serializers as &quot;ETCS&quot;.
     /// </summary>
     [EnumMember(Value = "ETCS")]
     [IsoId("_C1r7kIR6EeqOnqlbcclX_g")]
@@ -129,7 +129,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Exchange traded note.
-    /// Encoded/decoded by serializers as "ETNS".
+    /// Encoded/decoded by serializers as &quot;ETNS&quot;.
     /// </summary>
     [EnumMember(Value = "ETNS")]
     [IsoId("_FHQVkIR6EeqOnqlbcclX_g")]
@@ -138,7 +138,7 @@ public enum NonEquityAssetClassCode
     
     /// <summary>
     /// Structured finance product.
-    /// Encoded/decoded by serializers as "SFPS".
+    /// Encoded/decoded by serializers as &quot;SFPS&quot;.
     /// </summary>
     [EnumMember(Value = "SFPS")]
     [IsoId("_etfI4IR6EeqOnqlbcclX_g")]

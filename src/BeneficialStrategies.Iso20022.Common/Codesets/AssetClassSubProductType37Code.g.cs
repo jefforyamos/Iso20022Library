@@ -21,7 +21,7 @@ public enum AssetClassSubProductType37Code
 {
     /// <summary>
     /// Commodity of type pulp.
-    /// Encoded/decoded by serializers as "PULP".
+    /// Encoded/decoded by serializers as &quot;PULP&quot;.
     /// </summary>
     [EnumMember(Value = "PULP")]
     [IsoId("_2IP0JVryEeWN79Bl6BUd3g")]

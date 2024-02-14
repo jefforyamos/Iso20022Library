@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide security position details.
 /// </summary>
 [IsoId("_jKPqh-5NEeCisYr99QEiWA_1769802046")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Position")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record SecuritiesPosition1
     /// Specifies the type of a position or a balance, such as earmarked or delivered.
     /// </summary>
     [IsoId("_jKZbgO5NEeCisYr99QEiWA_-1820329742")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Type { get; init; } 
+    public required System.String Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Type { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record SecuritiesPosition1
     /// Specifies the quantity of a position or a balance.
     /// </summary>
     [IsoId("_jKZbge5NEeCisYr99QEiWA_1450583756")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubBalanceQuantity2Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubBalanceQuantity2Choice_ Quantity { get; init; } 
+    public required SubBalanceQuantity2Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubBalanceQuantity2Choice_ Quantity { get; init; } 
     #else

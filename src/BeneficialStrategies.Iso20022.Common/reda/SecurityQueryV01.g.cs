@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"SCOPE|An instructing party sends a SecurityQuery message to an executing/servicing party to request a report of financial instrument details in their system.||The instructing party - executing/servicing party relationship may be:|- Central Securities Depositories (CSD) who would like to publish security static data, or |- a Corporate, or|- a Bank, or|- a Market Infrastructure, or |- a Market Data Provider.||USAGE|The request is sent when the instructing party needs to see data of a security data within the executing/servicing party system.||Initiator: instructing party.")]
 [IsoId("_jTvN8x62Eeu31YsWNiv_cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Query V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,12 +86,11 @@ public partial record SecurityQueryV01 : IOuterRecord<SecurityQueryV01,SecurityQ
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_Vmf7QZIxEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +103,11 @@ public partial record SecurityQueryV01 : IOuterRecord<SecurityQueryV01,SecurityQ
     /// Defines the type of action to be performed in the request.
     /// </summary>
     [IsoId("_16GBoZI1EeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqTp")]
     #endif
+    [IsoXmlTag("ReqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? RequestType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,16 +120,15 @@ public partial record SecurityQueryV01 : IOuterRecord<SecurityQueryV01,SecurityQ
     /// Defines the criteria to be used to query the securities reference data by the executing system.
     /// </summary>
     [IsoId("_jTv02x62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSearchCriteria4 SearchCriteria { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesSearchCriteria4 SearchCriteria { get; init; } 
+    public required SecuritiesSearchCriteria4 SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesSearchCriteria4 SearchCriteria { get; init; } 
     #else
@@ -144,12 +139,11 @@ public partial record SecurityQueryV01 : IOuterRecord<SecurityQueryV01,SecurityQ
     /// Defines the expected securities reference data to be returned.
     /// </summary>
     [IsoId("_jTv03R62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Small Set Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SmlSetRtrCrit")]
     #endif
+    [IsoXmlTag("SmlSetRtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesReturnCriteria1? SmallSetReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +156,11 @@ public partial record SecurityQueryV01 : IOuterRecord<SecurityQueryV01,SecurityQ
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jTv04x62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,7 +173,7 @@ public partial record SecurityQueryV01 : IOuterRecord<SecurityQueryV01,SecurityQ
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecurityQueryV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecurityQueryV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecurityQueryV01Document ToDocument()
     {
@@ -190,7 +183,7 @@ public partial record SecurityQueryV01 : IOuterRecord<SecurityQueryV01,SecurityQ
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityQueryV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecurityQueryV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecurityQueryV01Document : IOuterDocument<SecurityQueryV01>
@@ -207,7 +200,7 @@ public partial record SecurityQueryV01Document : IOuterDocument<SecurityQueryV01
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecurityQueryV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecurityQueryV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityQueryV01 Message { get; init; }

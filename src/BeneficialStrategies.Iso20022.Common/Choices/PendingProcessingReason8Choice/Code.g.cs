@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason8Choice
     /// Reason for the pending status expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_Ooypv1jsEeOnqqBHs8Gasw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason8Choice
         /// The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalPendingProcessingReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalPendingProcessingReason1Code Value { get; init; } 
+        public required ExternalPendingProcessingReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalPendingProcessingReason1Code Value { get; init; } 
         #else

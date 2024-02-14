@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics of a cheque instruction, such as cheque type or cheque number.
 /// </summary>
 [IsoId("_cRHMkbtuEeq_cfXrH83Rcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cheque")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,15 +53,13 @@ public partial record Cheque14
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
     [IsoId("_35u6gCmwEeutWNGMV2XKIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,15 +72,13 @@ public partial record Cheque14
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
     [IsoId("_B1s0YSmxEeutWNGMV2XKIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlInstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlInstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,19 +91,17 @@ public partial record Cheque14
     /// Unique and unambiguous identifier for a cheque as assigned by the agent.
     /// </summary>
     [IsoId("_cSN_0btuEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ChqNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ChequeNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ChequeNumber { get; init; } 
+    public required System.String ChequeNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ChequeNumber { get; init; } 
     #else
@@ -120,16 +112,16 @@ public partial record Cheque14
     /// Date when the cheque has been issued by the payer.
     /// </summary>
     [IsoId("_cSN_07tuEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly IssueDate { get; init; } 
+    public required System.DateOnly IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly IssueDate { get; init; } 
     #else
@@ -137,16 +129,16 @@ public partial record Cheque14
     #endif
     
     /// <summary>
-    /// Date after which a cheque is no longer valid. The validity period of a cheque is calculated from the issue date on the face of the cheque.  The period may be indicated on the face of the cheque itself such as "Valid for 90 days” or may be determined in accordance with domestic banking practice. 
+    /// Date after which a cheque is no longer valid. The validity period of a cheque is calculated from the issue date on the face of the cheque.  The period may be indicated on the face of the cheque itself such as &quot;Valid for 90 days” or may be determined in accordance with domestic banking practice. 
     /// Not all countries will have a validity period. 
     /// </summary>
     [IsoId("_Nfnd0SmxEeutWNGMV2XKIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stale Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StlDt")]
     #endif
+    [IsoXmlTag("StlDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StaleDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,16 +151,16 @@ public partial record Cheque14
     /// Specifies the amount of the cheque to be paid to the payee.
     /// </summary>
     [IsoId("_cSN_1btuEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -179,12 +171,11 @@ public partial record Cheque14
     /// Date and time at which the cheque amount becomes available on the payee account.
     /// </summary>
     [IsoId("_cSN_17tuEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDt")]
     #endif
+    [IsoXmlTag("FctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +188,11 @@ public partial record Cheque14
     /// Specifies the agent servicing the account of the cheque payer.
     /// </summary>
     [IsoId("_cSN_3btuEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Drawer Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrwrAgt")]
     #endif
+    [IsoXmlTag("DrwrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? DrawerAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +205,11 @@ public partial record Cheque14
     /// Specifies the cash account of the drawer agent.
     /// </summary>
     [IsoId("_cSN_37tuEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Drawer Agent Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrwrAgtAcct")]
     #endif
+    [IsoXmlTag("DrwrAgtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount40? DrawerAgentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,12 +222,11 @@ public partial record Cheque14
     /// Party that receives an amount of money as specified in the cheque.
     /// </summary>
     [IsoId("_cSN_4btuEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pyee")]
     #endif
+    [IsoXmlTag("Pyee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification135? Payee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,12 +239,11 @@ public partial record Cheque14
     /// Specifies the cash account of the payee.
     /// </summary>
     [IsoId("_cSN_47tuEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payee Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyeeAcct")]
     #endif
+    [IsoXmlTag("PyeeAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount40? PayeeAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -269,16 +256,15 @@ public partial record Cheque14
     /// Specifies the status of the cancellation or stop request.
     /// </summary>
     [IsoId("_7ilW4Sm4EeutWNGMV2XKIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque Cancellation Or Stop Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChqCxlOrStopSts")]
     #endif
+    [IsoXmlTag("ChqCxlOrStopSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChequeCancellationStatus1 ChequeCancellationOrStopStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChequeCancellationStatus1 ChequeCancellationOrStopStatus { get; init; } 
+    public required ChequeCancellationStatus1 ChequeCancellationOrStopStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChequeCancellationStatus1 ChequeCancellationOrStopStatus { get; init; } 
     #else

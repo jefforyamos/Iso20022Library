@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the ordering in which the resulting transaction reports should be returned.
 /// </summary>
 [IsoId("_s9PP4N6QEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Search Output Order")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SearchOutputOrder1
     /// Ordering criteria for the transaction report.
     /// </summary>
     [IsoId("_0aWhsN6QEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Criteria Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CritOrdr")]
     #endif
+    [IsoXmlTag("CritOrdr")]
     public CriteriaOrder1? CriteriaOrder { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _0aWhsN6QEeiwsev40qZGEQ
     

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies regulatory stipulations that financial institutions must be compliant with in the country, region, and/or area they conduct business.
 /// </summary>
 [IsoId("_AmX48NokEeC60axPepSq7g_4921707")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Regulatory Stipulations")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RegulatoryStipulations1
     /// Nation with its own government, occupying a particular territory.
     /// </summary>
     [IsoId("_Amhp8NokEeC60axPepSq7g_-2124829502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record RegulatoryStipulations1
     /// Specifies regulatory stipulations that financial institutions must be compliant with in the country, region, and/or where they conduct business.
     /// </summary>
     [IsoId("_Amhp8dokEeC60axPepSq7g_1275857359")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stipulations")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Stiptns")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Stiptns")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     public System.String? Stipulations { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Amhp8dokEeC60axPepSq7g_1275857359
     

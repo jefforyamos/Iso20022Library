@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateFormat42Choice.YearMonth))]
     [KnownType(typeof(DateFormat42Choice.YearMonthDay))]
     [IsoId("_rQn0cJBrEeaGiLsfv6g8MA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Format 42 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

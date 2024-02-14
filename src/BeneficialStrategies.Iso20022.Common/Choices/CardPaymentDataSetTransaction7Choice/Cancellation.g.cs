@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction7Ch
     /// Cancelled card payment transaction to be captured.
     /// </summary>
     [IsoId("_438Tc9eiEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,19 +56,16 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction7Ch
         /// Sequential counter of the transaction.
         /// </summary>
         [IsoId("_nQsmIdg1EeipBO1pkKK6zg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Sequence Counter")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxSeqCntr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("TxSeqCntr")]
+        [IsoSimpleType(IsoSimpleType.Max9NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String TransactionSequenceCounter { get; init; } 
+        public required System.String TransactionSequenceCounter { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String TransactionSequenceCounter { get; init; } 
         #else
@@ -81,12 +76,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction7Ch
         /// Identification of partners involved in the exchange from the merchant to the issuer, with the corresponding timestamp of their exchanges.
         /// </summary>
         [IsoId("_nQsmI9g1EeipBO1pkKK6zg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Traceability")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tracblt")]
         #endif
+        [IsoXmlTag("Tracblt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Traceability5? Traceability { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,16 +93,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction7Ch
         /// Data related to the environment of the cancelled transaction captured in batch.
         /// </summary>
         [IsoId("_nQsmJdg1EeipBO1pkKK6zg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Environment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Envt")]
         #endif
+        [IsoXmlTag("Envt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CardPaymentEnvironment68 Environment { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CardPaymentEnvironment68 Environment { get; init; } 
+        public required CardPaymentEnvironment68 Environment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CardPaymentEnvironment68 Environment { get; init; } 
         #else
@@ -119,12 +112,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction7Ch
         /// Context in which the transaction is performed (payment and sale).
         /// </summary>
         [IsoId("_nQsmJ9g1EeipBO1pkKK6zg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Context")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cntxt")]
         #endif
+        [IsoXmlTag("Cntxt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CardPaymentContext27? Context { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,16 +129,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction7Ch
         /// Card payment cancellation transaction between an acceptor and an acquirer.
         /// </summary>
         [IsoId("_nQsmKdg1EeipBO1pkKK6zg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tx")]
         #endif
+        [IsoXmlTag("Tx")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CardPaymentTransaction83 Transaction { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CardPaymentTransaction83 Transaction { get; init; } 
+        public required CardPaymentTransaction83 Transaction { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CardPaymentTransaction83 Transaction { get; init; } 
         #else

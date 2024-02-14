@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the value, type and source of price.
 /// </summary>
 [IsoId("_E_XYoaB6EeOEyO7fCl8lLA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Price6
     /// Value of the price expressed as a currency and value or as a rate.
     /// </summary>
     [IsoId("_PsBIkKB6EeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Or Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateOrAmt")]
     #endif
+    [IsoXmlTag("RateOrAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateOrAmountChoice_ RateOrAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceRateOrAmountChoice_ RateOrAmount { get; init; } 
+    public required PriceRateOrAmountChoice_ RateOrAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceRateOrAmountChoice_ RateOrAmount { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record Price6
     /// Specification of the price type.
     /// </summary>
     [IsoId("_VrjpIKB6EeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfPrice13Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfPrice13Code Type { get; init; } 
+    public required TypeOfPrice13Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfPrice13Code Type { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record Price6
     /// Source for the price valuation.
     /// </summary>
     [IsoId("_ctv5gKB6EeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Src")]
     #endif
+    [IsoXmlTag("Src")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceSource2Code Source { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceSource2Code Source { get; init; } 
+    public required PriceSource2Code Source { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceSource2Code Source { get; init; } 
     #else

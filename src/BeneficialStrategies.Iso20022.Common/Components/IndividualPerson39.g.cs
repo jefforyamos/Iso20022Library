@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
+/// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an &apos;artificial person&apos;).
 /// </summary>
 [IsoId("_fQtPUa-SEemJ1NnLPsTFaw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Individual Person")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record IndividualPerson39
     /// Unique and unambiguous identification of the proxy.
     /// </summary>
     [IsoId("_fliP16-SEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Preassigned Proxy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrssgndPrxy")]
     #endif
+    [IsoXmlTag("PrssgndPrxy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification223Choice_? PreassignedProxy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record IndividualPerson39
     /// Organisation represented by the person, or for which the person works.
     /// </summary>
     [IsoId("_fliP26-SEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Employing Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EmplngPty")]
     #endif
+    [IsoXmlTag("EmplngPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification129Choice_? EmployingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +83,15 @@ public partial record IndividualPerson39
     /// Details related to the attendance card.
     /// </summary>
     [IsoId("_fliP3a-SEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Card Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncCardDtls")]
     #endif
+    [IsoXmlTag("AttndncCardDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AttendanceCard2 AttendanceCardDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AttendanceCard2 AttendanceCardDetails { get; init; } 
+    public required AttendanceCard2 AttendanceCardDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AttendanceCard2 AttendanceCardDetails { get; init; } 
     #else

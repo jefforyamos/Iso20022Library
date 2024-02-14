@@ -21,7 +21,7 @@ public enum PhysicalTransferType1Code
 {
     /// <summary>
     /// Dematerialised transfer.
-    /// Encoded/decoded by serializers as "DEMT".
+    /// Encoded/decoded by serializers as &quot;DEMT&quot;.
     /// </summary>
     [EnumMember(Value = "DEMT")]
     [IsoId("_kzEcnv8vEeCuNd2SpsBr7g")]
@@ -30,7 +30,7 @@ public enum PhysicalTransferType1Code
     
     /// <summary>
     /// Physical transfer.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_k2gLHv8vEeCuNd2SpsBr7g")]

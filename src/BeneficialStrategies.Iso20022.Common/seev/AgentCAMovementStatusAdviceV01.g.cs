@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to report the status, or a change in status, of|- a global distribution status advice released by an issuer (or its agent);|- a movement instruction released by an issuer (or its agent);|- a movement cancellation request sent by the issuer (or its agent); and|- the non-settlement of the movements at the CSD.|Usage|This message is used to report the status of:|- the movements resulting from a movement instruction message, in which case, the Agent Corporate Action Movement Instruction Identification must be present;|- the movements resulting from a global distribution status advice message (with the status, authorised), in which case, the Agent Corporate Action Global Distribution Status Advice Identification must be present;|- the movement cancellation request, in which case, the Agent Corporate Action Movement Cancellation Request Identification must be present; and|- the movements resulting from an election status advice (if the status of the election advice is rejected or if the status of the election cancellation request or amendment request is accepted) in case there is a settlement problem. The Election Status Advice Identification must be present.|In the case of a failed settlement, the message contains details of the movement, such as account details, securities or cash information and the reason of the failure.|This message should not be used to provide the confirmation of the settlement; the Agent Corporate Action Movement Confirmation message should be used instead.")]
 [IsoId("_TQurWdEwEd-BzquC8wXy7w_-1045499600")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent CA Movement Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -95,16 +93,15 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     /// Identification assigned by the Sender to unambiguously identify the status advice.
     /// </summary>
     [IsoId("_TQurWtEwEd-BzquC8wXy7w_-1742571317")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -115,16 +112,15 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     /// Identification of the Agent Corporate Action Election Status Advice.
     /// </summary>
     [IsoId("_TQurW9EwEd-BzquC8wXy7w_-1429169217")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Election Status Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAElctnStsAdvcId")]
     #endif
+    [IsoXmlTag("AgtCAElctnStsAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCAElectionStatusAdviceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCAElectionStatusAdviceIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCAElectionStatusAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCAElectionStatusAdviceIdentification { get; init; } 
     #else
@@ -135,16 +131,15 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     /// Identification of the Agent Corporate Action Global Distribution Status Advice.
     /// </summary>
     [IsoId("_TQurXNEwEd-BzquC8wXy7w_-1486425039")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Global Distribution Status Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAGblDstrbtnStsAdvcId")]
     #endif
+    [IsoXmlTag("AgtCAGblDstrbtnStsAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCAGlobalDistributionStatusAdviceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCAGlobalDistributionStatusAdviceIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCAGlobalDistributionStatusAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCAGlobalDistributionStatusAdviceIdentification { get; init; } 
     #else
@@ -155,16 +150,15 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     /// Identification of the linked Agent CA Movement Instruction for which a status is given.
     /// </summary>
     [IsoId("_TQ4cUNEwEd-BzquC8wXy7w_-1745342942")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Movement Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAMvmntInstrId")]
     #endif
+    [IsoXmlTag("AgtCAMvmntInstrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCAMovementInstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCAMovementInstructionIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCAMovementInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCAMovementInstructionIdentification { get; init; } 
     #else
@@ -175,16 +169,15 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     /// Identification of the linked Agent CA Movement Cancellation Request for which a status is given.
     /// </summary>
     [IsoId("_TQ4cUdEwEd-BzquC8wXy7w_-1588344197")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Movement Cancellation Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAMvmntCxlReqId")]
     #endif
+    [IsoXmlTag("AgtCAMvmntCxlReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCAMovementCancellationRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCAMovementCancellationRequestIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCAMovementCancellationRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCAMovementCancellationRequestIdentification { get; init; } 
     #else
@@ -195,16 +188,15 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TQ4cUtEwEd-BzquC8wXy7w_529102850")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -215,16 +207,15 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     /// Status of the movement instruction.
     /// </summary>
     [IsoId("_TQ4cU9EwEd-BzquC8wXy7w_-2031490064")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement Status Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MvmntStsDtls")]
     #endif
+    [IsoXmlTag("MvmntStsDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMovementStatus1Choice_ MovementStatusDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionMovementStatus1Choice_ MovementStatusDetails { get; init; } 
+    public required CorporateActionMovementStatus1Choice_ MovementStatusDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionMovementStatus1Choice_ MovementStatusDetails { get; init; } 
     #else
@@ -235,16 +226,15 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     /// Status of the movement cancellation request.
     /// </summary>
     [IsoId("_TQ4cVNEwEd-BzquC8wXy7w_1041846719")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement Cancellation Status Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MvmntCxlStsDtls")]
     #endif
+    [IsoXmlTag("MvmntCxlStsDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateMovementStatus2 MovementCancellationStatusDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateMovementStatus2 MovementCancellationStatusDetails { get; init; } 
+    public required CorporateMovementStatus2 MovementCancellationStatusDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateMovementStatus2 MovementCancellationStatusDetails { get; init; } 
     #else
@@ -255,7 +245,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AgentCAMovementStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AgentCAMovementStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AgentCAMovementStatusAdviceV01Document ToDocument()
     {
@@ -265,7 +255,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord<AgentCAMovem
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAMovementStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AgentCAMovementStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AgentCAMovementStatusAdviceV01Document : IOuterDocument<AgentCAMovementStatusAdviceV01>
@@ -282,7 +272,7 @@ public partial record AgentCAMovementStatusAdviceV01Document : IOuterDocument<Ag
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AgentCAMovementStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AgentCAMovementStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentCAMovementStatusAdviceV01 Message { get; init; }

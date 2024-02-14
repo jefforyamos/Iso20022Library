@@ -21,7 +21,7 @@ public enum RateType10Code
 {
     /// <summary>
     /// Any and all rate is sought.
-    /// Encoded/decoded by serializers as "ANYA".
+    /// Encoded/decoded by serializers as &quot;ANYA&quot;.
     /// </summary>
     [EnumMember(Value = "ANYA")]
     [IsoId("_uBZyFQCoEeGt2odvTAOpog")]
@@ -30,7 +30,7 @@ public enum RateType10Code
     
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_wN7UAgCoEeGt2odvTAOpog")]

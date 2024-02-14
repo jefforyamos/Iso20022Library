@@ -21,7 +21,7 @@ public enum OrderWaiverReason1Code
 {
     /// <summary>
     /// Dealing of the trade is outside the normal limit.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_aUAkedp-Ed-ak6NoX_4Aeg_1092977119")]
@@ -30,7 +30,7 @@ public enum OrderWaiverReason1Code
     
     /// <summary>
     /// Front end load charge differs from PPM.
-    /// Encoded/decoded by serializers as "FEND".
+    /// Encoded/decoded by serializers as &quot;FEND&quot;.
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_aUJuYNp-Ed-ak6NoX_4Aeg_1092977150")]
@@ -39,7 +39,7 @@ public enum OrderWaiverReason1Code
     
     /// <summary>
     /// Amount of subscription is below the minimum initial investment amount.
-    /// Encoded/decoded by serializers as "BMIN".
+    /// Encoded/decoded by serializers as &quot;BMIN&quot;.
     /// </summary>
     [EnumMember(Value = "BMIN")]
     [IsoId("_aUJuYdp-Ed-ak6NoX_4Aeg_1092977180")]
@@ -48,7 +48,7 @@ public enum OrderWaiverReason1Code
     
     /// <summary>
     /// Cut off date has been passed.
-    /// Encoded/decoded by serializers as "CUTO".
+    /// Encoded/decoded by serializers as &quot;CUTO&quot;.
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_aUJuYtp-Ed-ak6NoX_4Aeg_1092977211")]
@@ -57,7 +57,7 @@ public enum OrderWaiverReason1Code
     
     /// <summary>
     /// Standard commission is waived.
-    /// Encoded/decoded by serializers as "COMW".
+    /// Encoded/decoded by serializers as &quot;COMW&quot;.
     /// </summary>
     [EnumMember(Value = "COMW")]
     [IsoId("_aUJuY9p-Ed-ak6NoX_4Aeg_-417659720")]

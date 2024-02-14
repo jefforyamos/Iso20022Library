@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectedStatusReason9Choice.ExtendedReason))]
     [KnownType(typeof(RejectedStatusReason9Choice.DataSourceScheme))]
     [IsoId("_RXWyh9p-Ed-ak6NoX_4Aeg_-1456677531")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status Reason 9 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

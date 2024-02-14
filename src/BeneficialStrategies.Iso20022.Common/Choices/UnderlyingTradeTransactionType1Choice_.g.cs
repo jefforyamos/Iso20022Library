@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnderlyingTradeTransactionType1Choice.Code))]
     [KnownType(typeof(UnderlyingTradeTransactionType1Choice.Proprietary))]
     [IsoId("_93QOw3ltEeG7BsjMvd1mEw_-521905675")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Trade Transaction Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

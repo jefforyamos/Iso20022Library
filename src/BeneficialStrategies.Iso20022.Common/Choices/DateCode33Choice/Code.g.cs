@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateCode33Choice
     /// Standard code to specify the type of date.
     /// </summary>
     [IsoId("_d3GXAe3DEeqc-LCjwLsUVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DateCode33Choice
         /// Date is specified as a fixed code value.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DateType9Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DateType9Code Value { get; init; } 
+        public required DateType9Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DateType9Code Value { get; init; } 
         #else

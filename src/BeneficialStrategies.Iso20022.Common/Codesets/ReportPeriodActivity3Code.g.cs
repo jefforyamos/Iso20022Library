@@ -21,7 +21,7 @@ public enum ReportPeriodActivity3Code
 {
     /// <summary>
     /// No transaction has been identified during the period.
-    /// Encoded/decoded by serializers as "NOTX".
+    /// Encoded/decoded by serializers as &quot;NOTX&quot;.
     /// </summary>
     [EnumMember(Value = "NOTX")]
     [IsoId("_HW4DY8ESEea7jLfvGi1PDw")]
@@ -30,7 +30,7 @@ public enum ReportPeriodActivity3Code
     
     /// <summary>
     /// No report has been received from reporting agent.
-    /// Encoded/decoded by serializers as "NORA".
+    /// Encoded/decoded by serializers as &quot;NORA&quot;.
     /// </summary>
     [EnumMember(Value = "NORA")]
     [IsoId("_LTDlEcESEea7jLfvGi1PDw")]

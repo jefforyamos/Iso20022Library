@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This component define the type of financial service to be used with this message of Reconciliation. This is only one service : ReconcialiationResponse.
 /// </summary>
 [IsoId("_MTmrYS5LEeunNvJlR_vCbg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record ReconciliationResponse5
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_MiATwS5LEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment77 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment77 Environment { get; init; } 
+    public required CardPaymentEnvironment77 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment77 Environment { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record ReconciliationResponse5
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
     [IsoId("_MiATwy5LEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentContext28 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentContext28 Context { get; init; } 
+    public required CardPaymentContext28 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentContext28 Context { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record ReconciliationResponse5
     /// Content of the Reconciliation Response message.
     /// </summary>
     [IsoId("_MiATxS5LEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Response Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnRspnData")]
     #endif
+    [IsoXmlTag("RcncltnRspnData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationResponseData1 ReconciliationResponseData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationResponseData1 ReconciliationResponseData { get; init; } 
+    public required ReconciliationResponseData1 ReconciliationResponseData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationResponseData1 ReconciliationResponseData { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record ReconciliationResponse5
     /// Result of the processing of the request.
     /// </summary>
     [IsoId("_MiATxy5LEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspn")]
     #endif
+    [IsoXmlTag("Rspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType11 Response { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType11 Response { get; init; } 
+    public required ResponseType11 Response { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType11 Response { get; init; } 
     #else
@@ -134,12 +128,11 @@ public partial record ReconciliationResponse5
     /// Additional information incorporated as an extension to the message.
     /// </summary>
     [IsoId("_MiATyS5LEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

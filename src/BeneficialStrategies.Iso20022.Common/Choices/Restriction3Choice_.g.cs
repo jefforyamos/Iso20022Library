@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Restriction3Choice.Code))]
     [KnownType(typeof(Restriction3Choice.Proprietary))]
     [IsoId("_AZabBNokEeC60axPepSq7g_692067563")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

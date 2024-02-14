@@ -21,7 +21,7 @@ public enum TradeCertificateType1Code
 {
     /// <summary>
     /// Certificate of analysis.
-    /// Encoded/decoded by serializers as "ANLY".
+    /// Encoded/decoded by serializers as &quot;ANLY&quot;.
     /// </summary>
     [EnumMember(Value = "ANLY")]
     [IsoId("_YmLwsNp-Ed-ak6NoX_4Aeg_133463751")]
@@ -30,7 +30,7 @@ public enum TradeCertificateType1Code
     
     /// <summary>
     /// Certificate of quality.
-    /// Encoded/decoded by serializers as "QUAL".
+    /// Encoded/decoded by serializers as &quot;QUAL&quot;.
     /// </summary>
     [EnumMember(Value = "QUAL")]
     [IsoId("_YmLwsdp-Ed-ak6NoX_4Aeg_171327058")]
@@ -39,7 +39,7 @@ public enum TradeCertificateType1Code
     
     /// <summary>
     /// Certificate of quantity.
-    /// Encoded/decoded by serializers as "QUAN".
+    /// Encoded/decoded by serializers as &quot;QUAN&quot;.
     /// </summary>
     [EnumMember(Value = "QUAN")]
     [IsoId("_YmLwstp-Ed-ak6NoX_4Aeg_199955222")]
@@ -48,7 +48,7 @@ public enum TradeCertificateType1Code
     
     /// <summary>
     /// Certificate of weight.
-    /// Encoded/decoded by serializers as "WEIG".
+    /// Encoded/decoded by serializers as &quot;WEIG&quot;.
     /// </summary>
     [EnumMember(Value = "WEIG")]
     [IsoId("_YmLws9p-Ed-ak6NoX_4Aeg_476088181")]
@@ -57,7 +57,7 @@ public enum TradeCertificateType1Code
     
     /// <summary>
     /// Certificate of origin.
-    /// Encoded/decoded by serializers as "ORIG".
+    /// Encoded/decoded by serializers as &quot;ORIG&quot;.
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_YmLwtNp-Ed-ak6NoX_4Aeg_489018208")]
@@ -66,7 +66,7 @@ public enum TradeCertificateType1Code
     
     /// <summary>
     /// Certificate of health.
-    /// Encoded/decoded by serializers as "HEAL".
+    /// Encoded/decoded by serializers as &quot;HEAL&quot;.
     /// </summary>
     [EnumMember(Value = "HEAL")]
     [IsoId("_YmLwtdp-Ed-ak6NoX_4Aeg_501024056")]
@@ -75,7 +75,7 @@ public enum TradeCertificateType1Code
     
     /// <summary>
     /// Phytosanitary certificate.
-    /// Encoded/decoded by serializers as "PHYT".
+    /// Encoded/decoded by serializers as &quot;PHYT&quot;.
     /// </summary>
     [EnumMember(Value = "PHYT")]
     [IsoId("_YmLwttp-Ed-ak6NoX_4Aeg_504719603")]

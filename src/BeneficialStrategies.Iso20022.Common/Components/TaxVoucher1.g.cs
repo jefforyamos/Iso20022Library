@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the tax voucher.
 /// </summary>
 [IsoId("_UB00vtp-Ed-ak6NoX_4Aeg_2027853243")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Voucher")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,16 @@ public partial record TaxVoucher1
     /// Distribution rate per share.
     /// </summary>
     [IsoId("_UB-lsNp-Ed-ak6NoX_4Aeg_-2044813732")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Voucher Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxVchrRate")]
     #endif
+    [IsoXmlTag("TaxVchrRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate TaxVoucherRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TaxVoucherRate { get; init; } 
+    public required System.Decimal TaxVoucherRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TaxVoucherRate { get; init; } 
     #else
@@ -76,16 +74,16 @@ public partial record TaxVoucher1
     /// Amount of tax that have been previously paid.
     /// </summary>
     [IsoId("_UB-lsdp-Ed-ak6NoX_4Aeg_-877092967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Credit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxCdt")]
     #endif
+    [IsoXmlTag("TaxCdt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TaxCredit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TaxCredit { get; init; } 
+    public required System.Decimal TaxCredit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TaxCredit { get; init; } 
     #else
@@ -96,16 +94,16 @@ public partial record TaxVoucher1
     /// Amount of tax that have been previously deducted.
     /// </summary>
     [IsoId("_UB-lstp-Ed-ak6NoX_4Aeg_-1198867220")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Deduction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDdctn")]
     #endif
+    [IsoXmlTag("TaxDdctn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TaxDeduction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TaxDeduction { get; init; } 
+    public required System.Decimal TaxDeduction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TaxDeduction { get; init; } 
     #else
@@ -116,16 +114,16 @@ public partial record TaxVoucher1
     /// Cash amount before any deductions and allowances have been made.
     /// </summary>
     [IsoId("_UB-ls9p-Ed-ak6NoX_4Aeg_-1668939190")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssAmt")]
     #endif
+    [IsoXmlTag("GrssAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount GrossAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal GrossAmount { get; init; } 
+    public required System.Decimal GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal GrossAmount { get; init; } 
     #else
@@ -136,16 +134,16 @@ public partial record TaxVoucher1
     /// Cash amount after any deductions and allowances have been made.
     /// </summary>
     [IsoId("_UB-ltNp-Ed-ak6NoX_4Aeg_-1616299971")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetAmt")]
     #endif
+    [IsoXmlTag("NetAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount NetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal NetAmount { get; init; } 
+    public required System.Decimal NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal NetAmount { get; init; } 
     #else
@@ -156,16 +154,15 @@ public partial record TaxVoucher1
     /// Securities holding on record date.
     /// </summary>
     [IsoId("_UB-ltdp-Ed-ak6NoX_4Aeg_-1541494395")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Date Holding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcrdDtHldg")]
     #endif
+    [IsoXmlTag("RcrdDtHldg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOrFaceAmount1Choice_ RecordDateHolding { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitOrFaceAmount1Choice_ RecordDateHolding { get; init; } 
+    public required UnitOrFaceAmount1Choice_ RecordDateHolding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitOrFaceAmount1Choice_ RecordDateHolding { get; init; } 
     #else
@@ -176,12 +173,12 @@ public partial record TaxVoucher1
     /// Applicable tax rate on the tax credit amount.
     /// </summary>
     [IsoId("_UB-lttp-Ed-ak6NoX_4Aeg_-1126831006")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Credit Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxCdtRate")]
     #endif
+    [IsoXmlTag("TaxCdtRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxCreditRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +191,12 @@ public partial record TaxVoucher1
     /// Cash amount that will be withheld by a tax authority.
     /// </summary>
     [IsoId("_UB-lt9p-Ed-ak6NoX_4Aeg_-829458124")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Tax Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgTaxAmt")]
     #endif
+    [IsoXmlTag("WhldgTaxAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +209,12 @@ public partial record TaxVoucher1
     /// Rate of a cash distribution that wil be withheld by a tax authority.
     /// </summary>
     [IsoId("_UB-luNp-Ed-ak6NoX_4Aeg_-713094105")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Tax Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgTaxRate")]
     #endif
+    [IsoXmlTag("WhldgTaxRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? WithholdingTaxRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +227,11 @@ public partial record TaxVoucher1
     /// Cost per share of new shares allotted.
     /// </summary>
     [IsoId("_UB-ludp-Ed-ak6NoX_4Aeg_1421163033")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scrip Dividend Reinvestment Price Per Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScripDvddRinvstmtPricPerShr")]
     #endif
+    [IsoXmlTag("ScripDvddRinvstmtPricPerShr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? ScripDividendReinvestmentPricePerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,12 +244,12 @@ public partial record TaxVoucher1
     /// Cash amount retained from previous dividend or interest payment.
     /// </summary>
     [IsoId("_UCHvoNp-Ed-ak6NoX_4Aeg_1493196653")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Amount Brought Forward")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAmtBrghtFwd")]
     #endif
+    [IsoXmlTag("CshAmtBrghtFwd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CashAmountBroughtForward { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +262,11 @@ public partial record TaxVoucher1
     /// Total cash amount required to purchase shares allotted.
     /// </summary>
     [IsoId("_UCHvodp-Ed-ak6NoX_4Aeg_1566152884")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alloted Shares Cost")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AlltdShrsCost")]
     #endif
+    [IsoXmlTag("AlltdShrsCost")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? AllotedSharesCost { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +279,12 @@ public partial record TaxVoucher1
     /// Cash amount carried forward to next dividend or interest payment.
     /// </summary>
     [IsoId("_UCHvotp-Ed-ak6NoX_4Aeg_872324890")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Amount Carried Forward")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAmtCrrdFwd")]
     #endif
+    [IsoXmlTag("CshAmtCrrdFwd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CashAmountCarriedForward { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +297,12 @@ public partial record TaxVoucher1
     /// Where new securities are issued in lieu of a cash dividend, the notional tax is the tax on the amount of cash that would have been paid. For scrips only.
     /// </summary>
     [IsoId("_UCHvo9p-Ed-ak6NoX_4Aeg_959135599")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlTax")]
     #endif
+    [IsoXmlTag("NtnlTax")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NotionalTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +315,12 @@ public partial record TaxVoucher1
     /// Amount of cash that would have been payable if the dividend had been taken in the form of cash rather than shares. For scrip only.
     /// </summary>
     [IsoId("_UCHvpNp-Ed-ak6NoX_4Aeg_1243580576")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Dividend Payable")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlDvddPybl")]
     #endif
+    [IsoXmlTag("NtnlDvddPybl")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NotionalDividendPayable { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +333,12 @@ public partial record TaxVoucher1
     /// Date on which DRIP purchase completed.
     /// </summary>
     [IsoId("_UCHvpdp-Ed-ak6NoX_4Aeg_1300836961")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bargain Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrgnDt")]
     #endif
+    [IsoXmlTag("BrgnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BargainDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,12 +351,12 @@ public partial record TaxVoucher1
     /// Settlement date of the DRIP purchase transaction.
     /// </summary>
     [IsoId("_UCHvptp-Ed-ak6NoX_4Aeg_1320230438")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bargain Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrgnSttlmDt")]
     #endif
+    [IsoXmlTag("BrgnSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BargainSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -374,12 +369,12 @@ public partial record TaxVoucher1
     /// Amount of stamp duty.
     /// </summary>
     [IsoId("_UCHvp9p-Ed-ak6NoX_4Aeg_1378415220")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stamp Duty Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmpDtyAmt")]
     #endif
+    [IsoXmlTag("StmpDtyAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -392,12 +387,12 @@ public partial record TaxVoucher1
     /// Amount of charges/fees charged to the client.
     /// </summary>
     [IsoId("_UCHvqNp-Ed-ak6NoX_4Aeg_1422744340")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgAmt")]
     #endif
+    [IsoXmlTag("ChrgAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -410,12 +405,12 @@ public partial record TaxVoucher1
     /// Amount due to the paying agent.
     /// </summary>
     [IsoId("_UCHvqdp-Ed-ak6NoX_4Aeg_1452297040")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnAmt")]
     #endif
+    [IsoXmlTag("ComssnAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CommissionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -428,12 +423,11 @@ public partial record TaxVoucher1
     /// Provides information about the foreign exchange transaction.
     /// </summary>
     [IsoId("_UCRgoNp-Ed-ak6NoX_4Aeg_583807128")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FXDtls")]
     #endif
+    [IsoXmlTag("FXDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ForeignExchangeTerms9? ForeignExchangeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

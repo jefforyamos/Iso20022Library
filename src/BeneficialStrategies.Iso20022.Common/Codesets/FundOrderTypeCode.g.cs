@@ -21,7 +21,7 @@ public enum FundOrderTypeCode
 {
     /// <summary>
     /// Investment fund order is part of a bed and breakfast transaction.
-    /// Encoded/decoded by serializers as "BEDB".
+    /// Encoded/decoded by serializers as &quot;BEDB&quot;.
     /// </summary>
     [EnumMember(Value = "BEDB")]
     [IsoId("_atVqd9p-Ed-ak6NoX_4Aeg_1897052175")]
@@ -30,7 +30,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is related to an investment plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "INVP".
+    /// Encoded/decoded by serializers as &quot;INVP&quot;.
     /// </summary>
     [EnumMember(Value = "INVP")]
     [IsoId("_atfbcNp-Ed-ak6NoX_4Aeg_1897052427")]
@@ -39,7 +39,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is executed with specific pre-advice conditions.
-    /// Encoded/decoded by serializers as "PREA".
+    /// Encoded/decoded by serializers as &quot;PREA&quot;.
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_atfbcdp-Ed-ak6NoX_4Aeg_1897052487")]
@@ -48,7 +48,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is a staff order.
-    /// Encoded/decoded by serializers as "STAF".
+    /// Encoded/decoded by serializers as &quot;STAF&quot;.
     /// </summary>
     [EnumMember(Value = "STAF")]
     [IsoId("_atfbctp-Ed-ak6NoX_4Aeg_1940457443")]
@@ -57,7 +57,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is a regular savings plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RGSV".
+    /// Encoded/decoded by serializers as &quot;RGSV&quot;.
     /// </summary>
     [EnumMember(Value = "RGSV")]
     [IsoId("_atfbc9p-Ed-ak6NoX_4Aeg_1886312212")]
@@ -66,7 +66,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Another type of investment fund order.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_atfbdNp-Ed-ak6NoX_4Aeg_1886312264")]
@@ -75,7 +75,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is paying extra money into to an existing plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RGSU".
+    /// Encoded/decoded by serializers as &quot;RGSU&quot;.
     /// </summary>
     [EnumMember(Value = "RGSU")]
     [IsoId("_atfbddp-Ed-ak6NoX_4Aeg_-518098615")]
@@ -84,7 +84,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is a dividend reinvestment (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RDIV".
+    /// Encoded/decoded by serializers as &quot;RDIV&quot;.
     /// </summary>
     [EnumMember(Value = "RDIV")]
     [IsoId("_atfbdtp-Ed-ak6NoX_4Aeg_-517178582")]
@@ -93,7 +93,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// That part of an investment fund order attributed to a normal staff portion.
-    /// Encoded/decoded by serializers as "NSPN".
+    /// Encoded/decoded by serializers as &quot;NSPN&quot;.
     /// </summary>
     [EnumMember(Value = "NSPN")]
     [IsoId("_atfbd9p-Ed-ak6NoX_4Aeg_-494089538")]
@@ -102,7 +102,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// That part of an investment fund order attributed to a normal client portion.
-    /// Encoded/decoded by serializers as "NCPN".
+    /// Encoded/decoded by serializers as &quot;NCPN&quot;.
     /// </summary>
     [EnumMember(Value = "NCPN")]
     [IsoId("_atfbeNp-Ed-ak6NoX_4Aeg_-494089503")]
@@ -111,7 +111,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// That part of an investment fund order attributed to a staff member with a savings plan.
-    /// Encoded/decoded by serializers as "SWSP".
+    /// Encoded/decoded by serializers as &quot;SWSP&quot;.
     /// </summary>
     [EnumMember(Value = "SWSP")]
     [IsoId("_atfbedp-Ed-ak6NoX_4Aeg_-494089382")]
@@ -120,7 +120,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// That part of an investment fund order attributed to a client with a savings plan.
-    /// Encoded/decoded by serializers as "CWSP".
+    /// Encoded/decoded by serializers as &quot;CWSP&quot;.
     /// </summary>
     [EnumMember(Value = "CWSP")]
     [IsoId("_atolYNp-Ed-ak6NoX_4Aeg_-494089347")]
@@ -129,7 +129,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is for a limited partnership instrument.
-    /// Encoded/decoded by serializers as "NUNI".
+    /// Encoded/decoded by serializers as &quot;NUNI&quot;.
     /// </summary>
     [EnumMember(Value = "NUNI")]
     [IsoId("_atolYdp-Ed-ak6NoX_4Aeg_802267736")]
@@ -138,7 +138,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order contains a side pocket component.
-    /// Encoded/decoded by serializers as "SPCM".
+    /// Encoded/decoded by serializers as &quot;SPCM&quot;.
     /// </summary>
     [EnumMember(Value = "SPCM")]
     [IsoId("_atolYtp-Ed-ak6NoX_4Aeg_802267839")]
@@ -147,7 +147,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is a side pocket order.
-    /// Encoded/decoded by serializers as "SPOR".
+    /// Encoded/decoded by serializers as &quot;SPOR&quot;.
     /// </summary>
     [EnumMember(Value = "SPOR")]
     [IsoId("_atolY9p-Ed-ak6NoX_4Aeg_802268168")]
@@ -156,7 +156,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is for a unitized instrument.
-    /// Encoded/decoded by serializers as "UNIT".
+    /// Encoded/decoded by serializers as &quot;UNIT&quot;.
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_atolZNp-Ed-ak6NoX_4Aeg_802268529")]
@@ -165,7 +165,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is a subscription.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_atolZdp-Ed-ak6NoX_4Aeg_802268649")]
@@ -174,7 +174,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is a redemption.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_atyWYNp-Ed-ak6NoX_4Aeg_802268786")]
@@ -183,7 +183,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is a switch.
-    /// Encoded/decoded by serializers as "SWIT".
+    /// Encoded/decoded by serializers as &quot;SWIT&quot;.
     /// </summary>
     [EnumMember(Value = "SWIT")]
     [IsoId("_atyWYdp-Ed-ak6NoX_4Aeg_802269141")]
@@ -192,7 +192,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order specifies a top up.
-    /// Encoded/decoded by serializers as "TOPU".
+    /// Encoded/decoded by serializers as &quot;TOPU&quot;.
     /// </summary>
     [EnumMember(Value = "TOPU")]
     [IsoId("_atyWYtp-Ed-ak6NoX_4Aeg_802269519")]
@@ -201,7 +201,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order specifies a hold back.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_atyWY9p-Ed-ak6NoX_4Aeg_802269656")]
@@ -210,7 +210,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// All type of orders.
-    /// Encoded/decoded by serializers as "ALLL".
+    /// Encoded/decoded by serializers as &quot;ALLL&quot;.
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_Ab3EoBOtEeKd9pI2QZcqvg_-1821151523")]
@@ -219,7 +219,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Switch out or switch from.
-    /// Encoded/decoded by serializers as "SWII".
+    /// Encoded/decoded by serializers as &quot;SWII&quot;.
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_Acc6gBOtEeKd9pI2QZcqvg_1473147179")]
@@ -228,7 +228,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Switch in or switch to.
-    /// Encoded/decoded by serializers as "SWIO".
+    /// Encoded/decoded by serializers as &quot;SWIO&quot;.
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_Acc6gROtEeKd9pI2QZcqvg_-1867895001")]
@@ -237,7 +237,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Transfer in.
-    /// Encoded/decoded by serializers as "TRAI".
+    /// Encoded/decoded by serializers as &quot;TRAI&quot;.
     /// </summary>
     [EnumMember(Value = "TRAI")]
     [IsoId("_AcmrgBOtEeKd9pI2QZcqvg_1734255276")]
@@ -246,7 +246,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Transfer out.
-    /// Encoded/decoded by serializers as "TRAO".
+    /// Encoded/decoded by serializers as &quot;TRAO&quot;.
     /// </summary>
     [EnumMember(Value = "TRAO")]
     [IsoId("_AcmrgROtEeKd9pI2QZcqvg_-1071874864")]
@@ -255,7 +255,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Purchase of securities.
-    /// Encoded/decoded by serializers as "BUYI".
+    /// Encoded/decoded by serializers as &quot;BUYI&quot;.
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_C_2DQFxUEeWfo_WUOMFqVQ")]
@@ -264,7 +264,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Sale of securities.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_IQbzIFxUEeWfo_WUOMFqVQ")]
@@ -273,7 +273,7 @@ public enum FundOrderTypeCode
     
     /// <summary>
     /// Investment fund order is for a withdrawal investment plan (only applicable to a redemption).
-    /// Encoded/decoded by serializers as "WIDP".
+    /// Encoded/decoded by serializers as &quot;WIDP&quot;.
     /// </summary>
     [EnumMember(Value = "WIDP")]
     [IsoId("_qaT3gEctEeaWfr8CWb3Bqg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment related to the reconciliation of the transaction.
 /// </summary>
 [IsoId("_Mm3j8VA5EeedyPuM0kK2EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Environment4
     /// Originator of the message.
     /// </summary>
     [IsoId("_Mx4hIVA5EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Orgtr")]
     #endif
+    [IsoXmlTag("Orgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Originator1? Originator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record Environment4
     /// Destination of the message.
     /// </summary>
     [IsoId("_Mx4hJ1A5EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Destination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dstn")]
     #endif
+    [IsoXmlTag("Dstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Destination1 Destination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Destination1 Destination { get; init; } 
+    public required Destination1 Destination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Destination1 Destination { get; init; } 
     #else

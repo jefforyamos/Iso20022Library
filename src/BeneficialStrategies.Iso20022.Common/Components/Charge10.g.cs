@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money associated with a service.
 /// </summary>
 [IsoId("_VIm2ktp-Ed-ak6NoX_4Aeg_32079845")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charge")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Charge10
     /// Type of service for which a charge is asked or paid.
     /// </summary>
     [IsoId("_VIm2k9p-Ed-ak6NoX_4Aeg_32079871")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargeType1 Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargeType1 Type { get; init; } 
+    public required ChargeType1 Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargeType1 Type { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record Charge10
     /// Method used to calculate a charge.
     /// </summary>
     [IsoId("_VIm2lNp-Ed-ak6NoX_4Aeg_32080157")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgBsis")]
     #endif
+    [IsoXmlTag("ChrgBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxationBasis1? ChargeBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,16 @@ public partial record Charge10
     /// Amount of money asked or paid for the charge.
     /// </summary>
     [IsoId("_VIm2ldp-Ed-ak6NoX_4Aeg_32080139")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -110,12 +106,12 @@ public partial record Charge10
     /// Rate used to calculate the amount of the charge or fee.
     /// </summary>
     [IsoId("_VIm2ltp-Ed-ak6NoX_4Aeg_32080122")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +124,11 @@ public partial record Charge10
     /// Party entitled to the amount of money resulting from a charge.
     /// </summary>
     [IsoId("_VIm2l9p-Ed-ak6NoX_4Aeg_32080182")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptId")]
     #endif
+    [IsoXmlTag("RcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

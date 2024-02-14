@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CurrentOrDefaultReservation3Choice.Current))]
     [KnownType(typeof(CurrentOrDefaultReservation3Choice.Default))]
     [IsoId("_g_uaQdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Or Default Reservation 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

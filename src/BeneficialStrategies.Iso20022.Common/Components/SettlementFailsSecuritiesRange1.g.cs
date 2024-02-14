@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the highest volume and value of settlement fails with a ranking by financial instrument.
 /// </summary>
 [IsoId("_BnlYg40bEemUAO64Q252gQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Securities Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SettlementFailsSecuritiesRange1
     /// Securities with the highest volume of settlement fails.
     /// </summary>
     [IsoId("_BnlYhY0bEemUAO64Q252gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Highest In Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghstInVol")]
     #endif
+    [IsoXmlTag("HghstInVol")]
     public SettlementFailsSecurities1? HighestInVolume { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _BnlYhY0bEemUAO64Q252gQ
     
@@ -57,12 +54,11 @@ public partial record SettlementFailsSecuritiesRange1
     /// Securities with the highest value of settlement fails.
     /// </summary>
     [IsoId("_BnlYhI0bEemUAO64Q252gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Highest In Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghstInVal")]
     #endif
+    [IsoXmlTag("HghstInVal")]
     public SettlementFailsSecurities1? HighestInValue { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _BnlYhI0bEemUAO64Q252gQ
     

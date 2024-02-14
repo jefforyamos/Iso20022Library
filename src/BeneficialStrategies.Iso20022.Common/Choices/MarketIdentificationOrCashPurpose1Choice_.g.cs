@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketIdentificationOrCashPurpose1Choice.SettlementInstructionMarketIdentification))]
     [KnownType(typeof(MarketIdentificationOrCashPurpose1Choice.CashSSIPurpose))]
     [IsoId("_Lc9dQEiNEeOdL6nMHefDgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Identification Or Cash Purpose 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

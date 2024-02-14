@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Numeric variables calculated on market exposures.
 /// </summary>
 [IsoId("_zg_J065QEeuo-IflVgGqiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exposure Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ExposureMetrics6
     /// Information on posted collateral and margin.
     /// </summary>
     [IsoId("_zwe-Ya5QEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posted Margin Or Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstdMrgnOrColl")]
     #endif
+    [IsoXmlTag("PstdMrgnOrColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostedMarginOrCollateral4? PostedMarginOrCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

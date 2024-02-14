@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity19Choice.AmortisedValue))]
     [KnownType(typeof(FinancialInstrumentQuantity19Choice.Code))]
     [IsoId("_dPPy8fmWEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Quantity 19 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

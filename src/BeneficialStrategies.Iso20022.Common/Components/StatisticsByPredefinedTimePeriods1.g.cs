@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Statistical data related to the price change of a security.
 /// </summary>
 [IsoId("_VZS989p-Ed-ak6NoX_4Aeg_-616872931")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statistics By Predefined Time Periods")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record StatisticsByPredefinedTimePeriods1
     /// Highest price for the referenced period.
     /// </summary>
     [IsoId("_VZS99Np-Ed-ak6NoX_4Aeg_-80104993")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Highest Price Value 12 Months")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghstPricVal12Mnths")]
     #endif
+    [IsoXmlTag("HghstPricVal12Mnths")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? HighestPriceValue12Months { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record StatisticsByPredefinedTimePeriods1
     /// Lowest price for the referenced period.
     /// </summary>
     [IsoId("_VZS99dp-Ed-ak6NoX_4Aeg_1198045150")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lowest Price Value 12 Months")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LwstPricVal12Mnths")]
     #endif
+    [IsoXmlTag("LwstPricVal12Mnths")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? LowestPriceValue12Months { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record StatisticsByPredefinedTimePeriods1
     /// Change in price over a one year period.
     /// </summary>
     [IsoId("_VZS99tp-Ed-ak6NoX_4Aeg_1251612280")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("One Year Price Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OneYrPricChng")]
     #endif
+    [IsoXmlTag("OneYrPricChng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue2? OneYearPriceChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record StatisticsByPredefinedTimePeriods1
     /// Change in price over a three year period.
     /// </summary>
     [IsoId("_VZS999p-Ed-ak6NoX_4Aeg_1282086108")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Three Year Price Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThreeYrPricChng")]
     #endif
+    [IsoXmlTag("ThreeYrPricChng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue2? ThreeYearPriceChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record StatisticsByPredefinedTimePeriods1
     /// Change in price over a five year period.
     /// </summary>
     [IsoId("_VZS9-Np-Ed-ak6NoX_4Aeg_1380901942")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Five Year Price Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FiveYrPricChng")]
     #endif
+    [IsoXmlTag("FiveYrPricChng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue2? FiveYearPriceChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

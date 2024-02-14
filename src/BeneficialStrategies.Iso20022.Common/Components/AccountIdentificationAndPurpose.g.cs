@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the account expressed with an account number and a code.
 /// </summary>
 [IsoId("_PoVr9tp-Ed-ak6NoX_4Aeg_1399035911")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Identification And Purpose")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AccountIdentificationAndPurpose
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_PoVr99p-Ed-ak6NoX_4Aeg_1457217360")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification1 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification1 Identification { get; init; } 
+    public required AccountIdentification1 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification1 Identification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AccountIdentificationAndPurpose
     /// Specifies the purpose of the account.
     /// </summary>
     [IsoId("_PoVr-Np-Ed-ak6NoX_4Aeg_1496004828")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Purp")]
     #endif
+    [IsoXmlTag("Purp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccountPurposeType1Code Purpose { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccountPurposeType1Code Purpose { get; init; } 
+    public required SecuritiesAccountPurposeType1Code Purpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccountPurposeType1Code Purpose { get; init; } 
     #else

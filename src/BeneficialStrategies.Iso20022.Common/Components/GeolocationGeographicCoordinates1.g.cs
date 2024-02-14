@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Location on the Earth specified by two numbers representing vertical and horizontal position.
 /// </summary>
 [IsoId("_S4tccNj9EeiojJsa6FYyew")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Geolocation Geographic Coordinates")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -50,22 +48,20 @@ public partial record GeolocationGeographicCoordinates1
     
     /// <summary>
     /// Angular distance of a location on the earth south or north of the equator.
-    /// The latitude is measured in degrees, minutes and seconds, following by "N" for the north and "S" for the south of the equator. For example: 48°51'29" N the Eiffel Tower latitude.
+    /// The latitude is measured in degrees, minutes and seconds, following by &quot;N&quot; for the north and &quot;S&quot; for the south of the equator. For example: 48°51&apos;29&quot; N the Eiffel Tower latitude.
     /// </summary>
     [IsoId("_enk3UNj9EeiojJsa6FYyew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Latitude")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lat")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Lat")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Latitude { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Latitude { get; init; } 
+    public required System.String Latitude { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Latitude { get; init; } 
     #else
@@ -74,22 +70,20 @@ public partial record GeolocationGeographicCoordinates1
     
     /// <summary>
     /// Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.
-    /// The longitude is measured in degrees, minutes and seconds, following by "E" for the east and "W" for the west. For example: 23°27'30" E.
+    /// The longitude is measured in degrees, minutes and seconds, following by &quot;E&quot; for the east and &quot;W&quot; for the west. For example: 23°27&apos;30&quot; E.
     /// </summary>
     [IsoId("_o1RaYNj9EeiojJsa6FYyew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Longitude")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Long")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Long")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Longitude { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Longitude { get; init; } 
+    public required System.String Longitude { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Longitude { get; init; } 
     #else

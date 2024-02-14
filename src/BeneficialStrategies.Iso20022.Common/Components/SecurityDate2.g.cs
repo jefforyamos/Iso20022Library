@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies security date details.
 /// </summary>
 [IsoId("_TYQTQ9p-Ed-ak6NoX_4Aeg_-950423797")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SecurityDate2
     /// Date/time at which the movement is due to take place (cash and/or securities).
     /// </summary>
     [IsoId("_TYQTRNp-Ed-ak6NoX_4Aeg_-950423667")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDt")]
     #endif
+    [IsoXmlTag("PmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat6Choice_ PaymentDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat6Choice_ PaymentDate { get; init; } 
+    public required DateFormat6Choice_ PaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat6Choice_ PaymentDate { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SecurityDate2
     /// Date/time at which securities become available for trading, for example first dealing date.
     /// </summary>
     [IsoId("_TYQTRdp-Ed-ak6NoX_4Aeg_-950423762")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblDt")]
     #endif
+    [IsoXmlTag("AvlblDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? AvailableDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record SecurityDate2
     /// Date/time at which a security will be entitled to a dividend.
     /// </summary>
     [IsoId("_TYQTRtp-Ed-ak6NoX_4Aeg_-950423702")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Ranking Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddRnkgDt")]
     #endif
+    [IsoXmlTag("DvddRnkgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? DividendRankingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record SecurityDate2
     /// Date/time at which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
     [IsoId("_TYQTR9p-Ed-ak6NoX_4Aeg_-950423685")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Earliest Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlstPmtDt")]
     #endif
+    [IsoXmlTag("EarlstPmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? EarliestPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record SecurityDate2
     /// Date/time at which security will assimilate, become fungible, or have the same rights to dividends as the parent issue.
     /// </summary>
     [IsoId("_TYQTSNp-Ed-ak6NoX_4Aeg_-950423727")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pari Passu Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrpssDt")]
     #endif
+    [IsoXmlTag("PrpssDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat6Choice_? PariPassuDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

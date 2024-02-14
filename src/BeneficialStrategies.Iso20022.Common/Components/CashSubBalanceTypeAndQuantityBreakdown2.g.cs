@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Quantity breakdown information for a specific securities balance.
 /// </summary>
 [IsoId("_k7ZAYeFWEeWIA4E9cYSxxQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Sub Balance Type And Quantity Breakdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CashSubBalanceTypeAndQuantityBreakdown2
     /// Specifies the securities sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>
     [IsoId("_lGGbkeFWEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashBalanceType2Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashBalanceType2Choice_ Type { get; init; } 
+    public required CashBalanceType2Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashBalanceType2Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CashSubBalanceTypeAndQuantityBreakdown2
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
     [IsoId("_lGGbk-FWEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Breakdown")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyBrkdwn")]
     #endif
+    [IsoXmlTag("QtyBrkdwn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityBreakdown45? QuantityBreakdown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

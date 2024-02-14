@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
 [IsoId("_iz6GkRgFEeKqWJINzXcn5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FinancialInstrument31
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
     [IsoId("_jJgjKRgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification3Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification3Choice_ Identification { get; init; } 
+    public required SecurityIdentification3Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification3Choice_ Identification { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record FinancialInstrument31
     /// Name of the financial instrument in free format text.
     /// </summary>
     [IsoId("_jJgjLRgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record FinancialInstrument31
     /// Specifies whether the financial instrument is transferred as an asset or as cash.
     /// </summary>
     [IsoId("_jJgjMRgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfTp")]
     #endif
+    [IsoXmlTag("TrfTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferType1Code TransferType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferType1Code TransferType { get; init; } 
+    public required TransferType1Code TransferType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferType1Code TransferType { get; init; } 
     #else
@@ -113,12 +107,11 @@ public partial record FinancialInstrument31
     /// Specifies the quantity of assets to be transferred in units or in a percentage rate.
     /// </summary>
     [IsoId("_jJgjNRgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity12Choice_? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,12 @@ public partial record FinancialInstrument31
     /// Average cost per share of a security, including all charges and commissions.
     /// </summary>
     [IsoId("_jJgjORgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Average Acquisition Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvrgAcqstnPric")]
     #endif
+    [IsoXmlTag("AvrgAcqstnPric")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? AverageAcquisitionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,12 @@ public partial record FinancialInstrument31
     /// Net asset on balance sheet - total portfolio value minus or plus the unrealised gain or loss.
     /// </summary>
     [IsoId("_jJgjPRgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Book Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlBookVal")]
     #endif
+    [IsoXmlTag("TtlBookVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalBookValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +160,11 @@ public partial record FinancialInstrument31
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
     /// </summary>
     [IsoId("_jJgjQRgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transferee Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfeeAcct")]
     #endif
+    [IsoXmlTag("TrfeeAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account6? TransfereeAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +177,11 @@ public partial record FinancialInstrument31
     /// Party that receives securities from the delivering agent via the place of settlement, for example, securities central depository.
     /// </summary>
     [IsoId("_yuALwBgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Agent Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgAgtDtls")]
     #endif
+    [IsoXmlTag("RcvgAgtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount93? ReceivingAgentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +194,11 @@ public partial record FinancialInstrument31
     /// Party that delivers securities to the receiving agent at the place of settlement, for example, a central securities depository.
     /// </summary>
     [IsoId("_6585hRgFEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivering Agent Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrgAgtDtls")]
     #endif
+    [IsoXmlTag("DlvrgAgtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount93? DeliveringAgentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

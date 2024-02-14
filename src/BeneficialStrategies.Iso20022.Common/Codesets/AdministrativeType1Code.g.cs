@@ -21,7 +21,7 @@ public enum AdministrativeType1Code
 {
     /// <summary>
     /// Other administrative type defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_6oeIMTNKEeylu6lH-gut-A")]
@@ -30,7 +30,7 @@ public enum AdministrativeType1Code
     
     /// <summary>
     /// Other administrative type defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_6tdV4TNKEeylu6lH-gut-A")]
@@ -39,7 +39,7 @@ public enum AdministrativeType1Code
     
     /// <summary>
     /// Text message.
-    /// Encoded/decoded by serializers as "TEXT".
+    /// Encoded/decoded by serializers as &quot;TEXT&quot;.
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_6zMxgTNKEeylu6lH-gut-A")]

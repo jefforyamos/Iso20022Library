@@ -21,7 +21,7 @@ public enum LinkageType1Code
 {
     /// <summary>
     /// Request is to link the referenced transactions.
-    /// Encoded/decoded by serializers as "LINK".
+    /// Encoded/decoded by serializers as &quot;LINK&quot;.
     /// </summary>
     [EnumMember(Value = "LINK")]
     [IsoId("_ae4Xt9p-Ed-ak6NoX_4Aeg_-2003821118")]
@@ -30,7 +30,7 @@ public enum LinkageType1Code
     
     /// <summary>
     /// Request is to unlink the referenced transactions.
-    /// Encoded/decoded by serializers as "UNLK".
+    /// Encoded/decoded by serializers as &quot;UNLK&quot;.
     /// </summary>
     [EnumMember(Value = "UNLK")]
     [IsoId("_ae4XuNp-Ed-ak6NoX_4Aeg_-2003821117")]
@@ -39,7 +39,7 @@ public enum LinkageType1Code
     
     /// <summary>
     /// Request is to soft link the referenced transactions.
-    /// Encoded/decoded by serializers as "SOFT".
+    /// Encoded/decoded by serializers as &quot;SOFT&quot;.
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_ae4Xudp-Ed-ak6NoX_4Aeg_-2003821101")]

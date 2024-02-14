@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Means by which a payment will be or has been made for settlement purposes.
 /// </summary>
 [IsoId("_TCRjCAEcEeCQm6a_G2yO_w_-1888332883")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Means")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record PaymentMeans1
     /// Type, or nature, of the payment, eg, express payment.
     /// </summary>
     [IsoId("_TCRjCQEcEeCQm6a_G2yO_w_-1949458724")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTp")]
     #endif
+    [IsoXmlTag("PmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentTypeInformation19 PaymentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentTypeInformation19 PaymentType { get; init; } 
+    public required PaymentTypeInformation19 PaymentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentTypeInformation19 PaymentType { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record PaymentMeans1
     /// Transfer method to be used for the transfer.
     /// </summary>
     [IsoId("_TCRjCgEcEeCQm6a_G2yO_w_-563553250")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Method Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtMtdCd")]
     #endif
+    [IsoXmlTag("PmtMtdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentMethod4Code PaymentMethodCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentMethod4Code PaymentMethodCode { get; init; } 
+    public required PaymentMethod4Code PaymentMethodCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentMethod4Code PaymentMethodCode { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record PaymentMeans1
     /// Creditor financial account of the payee party for this payment means.
     /// </summary>
     [IsoId("_TCRjCwEcEeCQm6a_G2yO_w_319981111")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payee Creditor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyeeCdtrAcct")]
     #endif
+    [IsoXmlTag("PyeeCdtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount16 PayeeCreditorAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount16 PayeeCreditorAccount { get; init; } 
+    public required CashAccount16 PayeeCreditorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount16 PayeeCreditorAccount { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record PaymentMeans1
     /// Creditor financial institution of the payee party specified for this payment means.
     /// </summary>
     [IsoId("_TCRjDAEcEeCQm6a_G2yO_w_-1893685339")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payee Financial Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyeeFI")]
     #endif
+    [IsoXmlTag("PyeeFI")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; init; } 
     #else
@@ -134,12 +128,11 @@ public partial record PaymentMeans1
     /// Debtor financial account of the payer party for this payment means.
     /// </summary>
     [IsoId("_TCRjDQEcEeCQm6a_G2yO_w_-535212270")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payer Debtor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyerDbtrAcct")]
     #endif
+    [IsoXmlTag("PyerDbtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount16? PayerDebtorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record PaymentMeans1
     /// Debtor financial institution of the payer party specified for this payment means.
     /// </summary>
     [IsoId("_TCRjDgEcEeCQm6a_G2yO_w_1731818407")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payer Financial Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyerFI")]
     #endif
+    [IsoXmlTag("PyerFI")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification4? PayerFinancialInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

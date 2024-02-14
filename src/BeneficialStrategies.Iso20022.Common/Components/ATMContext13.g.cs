@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context in which the transaction is performed.
 /// </summary>
 [IsoId("_cO578a4SEeWZgJQOa6iKCQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record ATMContext13
     /// Unique identification of the customer session in which the service is performed.
     /// </summary>
     [IsoId("_caruIa4SEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Session Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SsnRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SsnRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SessionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record ATMContext13
     /// Service provided by the ATM inside the session.
     /// </summary>
     [IsoId("_caruI64SEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Svc")]
     #endif
+    [IsoXmlTag("Svc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMService14 Service { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMService14 Service { get; init; } 
+    public required ATMService14 Service { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMService14 Service { get; init; } 
     #else

@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|This message is sent by a CSD to the issuer (or its agent) to request the authorisation of an amendment of a previously sent Agent Corporate Action Election Advice message.|Usage|This message is used to request the amendment of a previously sent Agent Corporate Action Election Advice message.|Once the amendment request has been accepted by the issuer (or its agent), the CSD will process any resource movement and send an Agent Corporate Action Election Advice message with the function, option change, to confirm that the amendment has been booked at the CSD.|This message is used when the terms and conditions of the corporate action event allow amendments.")]
 [IsoId("_TNAo_tEwEd-BzquC8wXy7w_1507742806")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent CA Election Amendment Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
     /// Identification assigned by the Sender to unambiguously identify the request.
     /// </summary>
     [IsoId("_TNAo_9EwEd-BzquC8wXy7w_32107139")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
     /// Identification of the linked Agent CA Election Advice for which an amendment is requested.
     /// </summary>
     [IsoId("_TNApANEwEd-BzquC8wXy7w_61660705")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Election Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAElctnAdvcId")]
     #endif
+    [IsoXmlTag("AgtCAElctnAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; } 
     #else
@@ -125,16 +121,15 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TNApAdEwEd-BzquC8wXy7w_-1916344559")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -145,16 +140,15 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
     /// Provides information about the account.
     /// </summary>
     [IsoId("_TNJy4NEwEd-BzquC8wXy7w_-148394854")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount7 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount7 AccountDetails { get; init; } 
+    public required SecuritiesAccount7 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount7 AccountDetails { get; init; } 
     #else
@@ -165,16 +159,15 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
     /// Provides information about the original election to be amended.
     /// </summary>
     [IsoId("_TNJy4dEwEd-BzquC8wXy7w_915892144")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Election Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlElctnDtls")]
     #endif
+    [IsoXmlTag("OrgnlElctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionElection1 OriginalElectionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionElection1 OriginalElectionDetails { get; init; } 
+    public required CorporateActionElection1 OriginalElectionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionElection1 OriginalElectionDetails { get; init; } 
     #else
@@ -185,16 +178,15 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
     /// Provides information about the amendments to the election.
     /// </summary>
     [IsoId("_TNJy4tEwEd-BzquC8wXy7w_934364367")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amended Election Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmddElctnDtls")]
     #endif
+    [IsoXmlTag("AmddElctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionElection2 AmendedElectionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionElection2 AmendedElectionDetails { get; init; } 
+    public required CorporateActionElection2 AmendedElectionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionElection2 AmendedElectionDetails { get; init; } 
     #else
@@ -205,12 +197,11 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
     /// Contact responsible for the transaction identified in the message.
     /// </summary>
     [IsoId("_TNJy49EwEd-BzquC8wXy7w_459673267")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctDtls")]
     #endif
+    [IsoXmlTag("CtctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactPerson1? ContactDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -223,7 +214,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AgentCAElectionAmendmentRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AgentCAElectionAmendmentRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AgentCAElectionAmendmentRequestV01Document ToDocument()
     {
@@ -233,7 +224,7 @@ public partial record AgentCAElectionAmendmentRequestV01 : IOuterRecord<AgentCAE
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionAmendmentRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AgentCAElectionAmendmentRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AgentCAElectionAmendmentRequestV01Document : IOuterDocument<AgentCAElectionAmendmentRequestV01>
@@ -250,7 +241,7 @@ public partial record AgentCAElectionAmendmentRequestV01Document : IOuterDocumen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AgentCAElectionAmendmentRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AgentCAElectionAmendmentRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentCAElectionAmendmentRequestV01 Message { get; init; }

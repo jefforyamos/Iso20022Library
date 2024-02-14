@@ -21,7 +21,7 @@ public enum ErrorSeverity1Code
 {
     /// <summary>
     /// The error is considered fatal.
-    /// Encoded/decoded by serializers as "FATL".
+    /// Encoded/decoded by serializers as &quot;FATL&quot;.
     /// </summary>
     [EnumMember(Value = "FATL")]
     [IsoId("_sXHiUQ3EEeWH49U6bkyMaA")]
@@ -30,7 +30,7 @@ public enum ErrorSeverity1Code
     
     /// <summary>
     /// The error is considered transient.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_sdgeMw3EEeWH49U6bkyMaA")]

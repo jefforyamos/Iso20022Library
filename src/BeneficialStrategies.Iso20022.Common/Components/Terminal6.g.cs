@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment terminal or ATM performing the transaction
 /// </summary>
 [IsoId("_F0hq0RyrEey6gI8SKlv7rg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Terminal")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Terminal6
     /// Identification of the terminal performing the transaction.
     /// </summary>
     [IsoId("_F6TisRyrEey6gI8SKlv7rg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlId")]
     #endif
+    [IsoXmlTag("TermnlId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalIdentification3 TerminalIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalIdentification3 TerminalIdentification { get; init; } 
+    public required TerminalIdentification3 TerminalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalIdentification3 TerminalIdentification { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Party and related authorisation.
 /// </summary>
 [IsoId("_9khXQQ4eEeK3IMoVvcTkkg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party And Authorisation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record PartyAndAuthorisation3
     /// Specifies the type of change.
     /// </summary>
     [IsoId("_FTt3kA4fEeK3IMoVvcTkkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModCd")]
     #endif
+    [IsoXmlTag("ModCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? ModificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record PartyAndAuthorisation3
     /// Specifies a party or a group of parties.
     /// </summary>
     [IsoId("_96bV1Q4eEeK3IMoVvcTkkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Or Group")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyOrGrp")]
     #endif
+    [IsoXmlTag("PtyOrGrp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyOrGroup1Choice_ PartyOrGroup { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyOrGroup1Choice_ PartyOrGroup { get; init; } 
+    public required PartyOrGroup1Choice_ PartyOrGroup { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyOrGroup1Choice_ PartyOrGroup { get; init; } 
     #else
@@ -90,15 +86,12 @@ public partial record PartyAndAuthorisation3
     /// Order in which the mandate holder has to sign.
     /// </summary>
     [IsoId("_96bV3A4eEeK3IMoVvcTkkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgntrOrdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SgntrOrdr")]
+    [IsoSimpleType(IsoSimpleType.Max15PlusSignedNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15PlusSignedNumericText? SignatureOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +104,15 @@ public partial record PartyAndAuthorisation3
     /// Authorisation granted to a mandate holder.
     /// </summary>
     [IsoId("_96bV4w4eEeK3IMoVvcTkkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Authstn")]
     #endif
+    [IsoXmlTag("Authstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Authorisation2 Authorisation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Authorisation2 Authorisation { get; init; } 
+    public required Authorisation2 Authorisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Authorisation2 Authorisation { get; init; } 
     #else

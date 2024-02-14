@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountStatus1Choice
     /// Status of the account expressed as a code.
     /// </summary>
     [IsoId("_Dsx6ACF1EeW9XJWqfgXIIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountStatus1Choice
         /// Specifies the status of an account.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountStatus4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountStatus4Code Value { get; init; } 
+        public required AccountStatus4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountStatus4Code Value { get; init; } 
         #else

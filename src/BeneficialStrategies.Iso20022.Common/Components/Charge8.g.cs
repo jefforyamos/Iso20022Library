@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money associated with a service.
 /// </summary>
 [IsoId("_VIm2mNp-Ed-ak6NoX_4Aeg_-1228628411")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charge")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Charge8
     /// Type of service for which a charge is asked or paid.
     /// </summary>
     [IsoId("_VIwAgNp-Ed-ak6NoX_4Aeg_-1228628409")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargeType1 Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargeType1 Type { get; init; } 
+    public required ChargeType1 Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargeType1 Type { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record Charge8
     /// Method used to calculate a charge.
     /// </summary>
     [IsoId("_VIwAgdp-Ed-ak6NoX_4Aeg_-1228628334")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgBsis")]
     #endif
+    [IsoXmlTag("ChrgBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxationBasis1? ChargeBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,16 @@ public partial record Charge8
     /// Amount of money asked or paid for the charge.
     /// </summary>
     [IsoId("_VIwAgtp-Ed-ak6NoX_4Aeg_-1228628351")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -111,16 +107,16 @@ public partial record Charge8
     /// Rate used to calculate the amount of the charge or fee.
     /// </summary>
     [IsoId("_VIwAg9p-Ed-ak6NoX_4Aeg_-1228628376")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Rate { get; init; } 
+    public required System.Decimal Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Rate { get; init; } 
     #else
@@ -131,12 +127,11 @@ public partial record Charge8
     /// Party entitled to the amount of money resulting from a charge.
     /// </summary>
     [IsoId("_VIwAhNp-Ed-ak6NoX_4Aeg_-1228628290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptId")]
     #endif
+    [IsoXmlTag("RcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

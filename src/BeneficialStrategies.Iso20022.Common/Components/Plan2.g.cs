@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Attributes of the instalment plan.
 /// </summary>
 [IsoId("_0uO7YZJJEeuuktRxxQZoNQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Plan")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record Plan2
     /// Identification of the instalment plan.
     /// </summary>
     [IsoId("_00pscZJJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plan Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlanId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlanId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? PlanIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record Plan2
     /// List of plan owners.
     /// </summary>
     [IsoId("_00qTgZJJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plan Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlanOwnr")]
     #endif
+    [IsoXmlTag("PlanOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlanOwner1Code? PlanOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record Plan2
     /// Other plan owner, used when PlanOwner is OtherNational or OtherPrivate.
     /// </summary>
     [IsoId("_00qTg5JJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Plan Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPlanOwnr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrPlanOwnr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherPlanOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,15 +97,13 @@ public partial record Plan2
     /// Instalment payment type.
     /// </summary>
     [IsoId("_00qThZJJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Payment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtPmtTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstlmtPmtTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InstalmentPaymentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +116,12 @@ public partial record Plan2
     /// Indicate a deferred Instalment plan.
     /// </summary>
     [IsoId("_qVTp4CuCEeyg-aG5nXcnfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deferred Instalment Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfrrdInstlmtInd")]
     #endif
+    [IsoXmlTag("DfrrdInstlmtInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DeferredInstalmentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +134,11 @@ public partial record Plan2
     /// Period unit between consecutive payments.
     /// </summary>
     [IsoId("_00qTh5JJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrdUnit")]
     #endif
+    [IsoXmlTag("PrdUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency18Code? PeriodUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +151,12 @@ public partial record Plan2
     /// Number of period units between consecutive payments.
     /// </summary>
     [IsoId("_00qTiZJJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Periods")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfPrds")]
     #endif
+    [IsoXmlTag("NbOfPrds")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfPeriods { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +169,11 @@ public partial record Plan2
     /// Details of the interest rate.
     /// </summary>
     [IsoId("_00qTi5JJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateDetails2? InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +186,12 @@ public partial record Plan2
     /// Date of the first payment.
     /// </summary>
     [IsoId("_00qTjZJJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstPmtDt")]
     #endif
+    [IsoXmlTag("FrstPmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FirstPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +204,12 @@ public partial record Plan2
     /// Amount of the first payment when different from the subsequent payments.
     /// </summary>
     [IsoId("_00qTj5JJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstAmt")]
     #endif
+    [IsoXmlTag("FrstAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FirstAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,12 +222,12 @@ public partial record Plan2
     /// Normal payment amount.
     /// </summary>
     [IsoId("_00qTkZJJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Normal Payment Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NrmlPmtAmt")]
     #endif
+    [IsoXmlTag("NrmlPmtAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? NormalPaymentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,12 +240,12 @@ public partial record Plan2
     /// Total number of instalment payments.
     /// </summary>
     [IsoId("_00qTk5JJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Payments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfPmts")]
     #endif
+    [IsoXmlTag("TtlNbOfPmts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfPayments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,15 +255,14 @@ public partial record Plan2
     #endif
     
     /// <summary>
-    /// Currency code associated with the instalment amount.  ISO 4217 "Codes for the representation of currencies and funds".
+    /// Currency code associated with the instalment amount.  ISO 4217 &quot;Codes for the representation of currencies and funds&quot;.
     /// </summary>
     [IsoId("_00qTlZJJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtCcy")]
     #endif
+    [IsoXmlTag("InstlmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCurrencyCode? InstalmentCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -287,12 +275,11 @@ public partial record Plan2
     /// Contains grace period details.
     /// </summary>
     [IsoId("_00qTl5JJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Grace Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GracePrd")]
     #endif
+    [IsoXmlTag("GracePrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GracePeriod2? GracePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -305,12 +292,11 @@ public partial record Plan2
     /// Contains the amount details of an instalment plan.
     /// </summary>
     [IsoId("_00qTmZJJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtDtls")]
     #endif
+    [IsoXmlTag("AmtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstalmentAmountDetails2? AmountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -323,12 +309,12 @@ public partial record Plan2
     /// Total amount of the instalment including charges, insurance and taxes in addition to the funded amount.
     /// </summary>
     [IsoId("_00qTm5JJEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Grand Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrdTtlAmt")]
     #endif
+    [IsoXmlTag("GrdTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? GrandTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -341,12 +327,11 @@ public partial record Plan2
     /// Additional plan data
     /// </summary>
     [IsoId("_5Q7OAJJKEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

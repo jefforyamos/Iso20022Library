@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification46Choice
     /// Selected safekeeping accounts list (and optionally balance information) to which the corporate action event applies.
     /// </summary>
     [IsoId("_0_amjffSEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accounts List And Balance Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification46Choice
         /// Account where financial instruments are maintained.
         /// </summary>
         [IsoId("_0_ammffSEeiNZp_PtLohLw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Safekeeping Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SfkpgAcct")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SfkpgAcct")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINXMax35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String SafekeepingAccount { get; init; } 
+        public required System.String SafekeepingAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String SafekeepingAccount { get; init; } 
         #else
@@ -80,12 +76,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification46Choice
         /// Party that legally owns the account.
         /// </summary>
         [IsoId("_0_amoffSEeiNZp_PtLohLw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnr")]
         #endif
+        [IsoXmlTag("AcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification136Choice_? AccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification46Choice
         /// Location where the financial instruments are/will be safekept.
         /// </summary>
         [IsoId("_0_amqffSEeiNZp_PtLohLw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Safekeeping Place")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SfkpgPlc")]
         #endif
+        [IsoXmlTag("SfkpgPlc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SafekeepingPlaceFormat32Choice_? SafekeepingPlace { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,16 +110,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification46Choice
         /// Balance to which the payment applies (less or equal to the total eligible balance).
         /// </summary>
         [IsoId("_0_amsffSEeiNZp_PtLohLw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Confirmed Balance")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ConfdBal")]
         #endif
+        [IsoXmlTag("ConfdBal")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BalanceFormat7Choice_ ConfirmedBalance { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BalanceFormat7Choice_ ConfirmedBalance { get; init; } 
+        public required BalanceFormat7Choice_ ConfirmedBalance { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BalanceFormat7Choice_ ConfirmedBalance { get; init; } 
         #else

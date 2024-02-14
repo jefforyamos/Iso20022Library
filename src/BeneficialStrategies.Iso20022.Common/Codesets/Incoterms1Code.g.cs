@@ -21,7 +21,7 @@ public enum Incoterms1Code
 {
     /// <summary>
     /// Ex Works (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "EXW".
+    /// Encoded/decoded by serializers as &quot;EXW&quot;.
     /// </summary>
     [EnumMember(Value = "EXW")]
     [IsoId("_aWGPJdp-Ed-ak6NoX_4Aeg_-435821229")]
@@ -30,7 +30,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Free Carrier (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "FCA".
+    /// Encoded/decoded by serializers as &quot;FCA&quot;.
     /// </summary>
     [EnumMember(Value = "FCA")]
     [IsoId("_aWGPJtp-Ed-ak6NoX_4Aeg_-435821204")]
@@ -39,7 +39,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Free Alongside Ship (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "FAS".
+    /// Encoded/decoded by serializers as &quot;FAS&quot;.
     /// </summary>
     [EnumMember(Value = "FAS")]
     [IsoId("_aWGPJ9p-Ed-ak6NoX_4Aeg_-435821203")]
@@ -48,7 +48,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Free On Board (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "FOB".
+    /// Encoded/decoded by serializers as &quot;FOB&quot;.
     /// </summary>
     [EnumMember(Value = "FOB")]
     [IsoId("_aWGPKNp-Ed-ak6NoX_4Aeg_-435820952")]
@@ -57,7 +57,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Cost and Freight (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "CFR".
+    /// Encoded/decoded by serializers as &quot;CFR&quot;.
     /// </summary>
     [EnumMember(Value = "CFR")]
     [IsoId("_aWPZENp-Ed-ak6NoX_4Aeg_-435820935")]
@@ -66,7 +66,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Cost, Insurance and Freight (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "CIF".
+    /// Encoded/decoded by serializers as &quot;CIF&quot;.
     /// </summary>
     [EnumMember(Value = "CIF")]
     [IsoId("_aWPZEdp-Ed-ak6NoX_4Aeg_-435820926")]
@@ -75,7 +75,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Carriage Paid To (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "CPT".
+    /// Encoded/decoded by serializers as &quot;CPT&quot;.
     /// </summary>
     [EnumMember(Value = "CPT")]
     [IsoId("_aWPZEtp-Ed-ak6NoX_4Aeg_-435820892")]
@@ -84,7 +84,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Carriage and Insurance Paid to (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "CIP".
+    /// Encoded/decoded by serializers as &quot;CIP&quot;.
     /// </summary>
     [EnumMember(Value = "CIP")]
     [IsoId("_aWPZE9p-Ed-ak6NoX_4Aeg_-435820875")]
@@ -93,7 +93,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Delivered At Frontier (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "DAF".
+    /// Encoded/decoded by serializers as &quot;DAF&quot;.
     /// </summary>
     [EnumMember(Value = "DAF")]
     [IsoId("_aWPZFNp-Ed-ak6NoX_4Aeg_-435820832")]
@@ -102,7 +102,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Delivered Ex Ship (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "DES".
+    /// Encoded/decoded by serializers as &quot;DES&quot;.
     /// </summary>
     [EnumMember(Value = "DES")]
     [IsoId("_aWPZFdp-Ed-ak6NoX_4Aeg_-435820831")]
@@ -111,7 +111,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Delivered Ex Quay (sea and inland waterway transport).
-    /// Encoded/decoded by serializers as "DEQ".
+    /// Encoded/decoded by serializers as &quot;DEQ&quot;.
     /// </summary>
     [EnumMember(Value = "DEQ")]
     [IsoId("_aWPZFtp-Ed-ak6NoX_4Aeg_-434900826")]
@@ -120,7 +120,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Delivered Duty Unpaid (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "DDU".
+    /// Encoded/decoded by serializers as &quot;DDU&quot;.
     /// </summary>
     [EnumMember(Value = "DDU")]
     [IsoId("_aWPZF9p-Ed-ak6NoX_4Aeg_-434900825")]
@@ -129,7 +129,7 @@ public enum Incoterms1Code
     
     /// <summary>
     /// Delivered Duty Paid (any mode of transport, including multimodal).
-    /// Encoded/decoded by serializers as "DDP".
+    /// Encoded/decoded by serializers as &quot;DDP&quot;.
     /// </summary>
     [EnumMember(Value = "DDP")]
     [IsoId("_aWPZGNp-Ed-ak6NoX_4Aeg_-434900808")]

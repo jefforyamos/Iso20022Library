@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceFormat32Choice.AmountPricePerAmount))]
     [KnownType(typeof(PriceFormat32Choice.IndexPoints))]
     [IsoId("_4vHhsSXoEeO4bIO_HtGo9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Format 32 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of requested data set.
 /// </summary>
 [IsoId("_E38f4WpKEeSR-ZWLvO-1dg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Terminal Management Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TerminalManagementDataSet12
     /// Identification of the required data set.
     /// </summary>
     [IsoId("_FEdR4WpKEeSR-ZWLvO-1dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification4 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetIdentification4 Identification { get; init; } 
+    public required DataSetIdentification4 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetIdentification4 Identification { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record TerminalManagementDataSet12
     /// Point of interaction challenge for cryptographic key injection.
     /// </summary>
     [IsoId("_FEdR42pKEeSR-ZWLvO-1dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIChllng")]
     #endif
+    [IsoXmlTag("POIChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? POIChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record TerminalManagementDataSet12
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
     [IsoId("_FEdR5WpKEeSR-ZWLvO-1dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMChllng")]
     #endif
+    [IsoXmlTag("TMChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? TMChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,11 @@ public partial record TerminalManagementDataSet12
     /// Temporary encryption key that the host will use for protecting keys to download.
     /// </summary>
     [IsoId("_g3s54GpLEeSR-ZWLvO-1dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Session Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SsnKey")]
     #endif
+    [IsoXmlTag("SsnKey")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey5? SessionKey { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

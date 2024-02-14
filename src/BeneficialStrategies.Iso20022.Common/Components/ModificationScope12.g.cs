@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_RQNBotp-Ed-ak6NoX_4Aeg_-94512893")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope12
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
     [IsoId("_RQNBo9p-Ed-ak6NoX_4Aeg_-94512874")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification2Code ModificationScopeIndication { get; init; } 
+    public required DataModification2Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification2Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope12
     /// Information related to the account to be modified.
     /// </summary>
     [IsoId("_RQNBpNp-Ed-ak6NoX_4Aeg_251806449")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndDtls")]
     #endif
+    [IsoXmlTag("FndDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument10 FundDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument10 FundDetails { get; init; } 
+    public required FinancialInstrument10 FundDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument10 FundDetails { get; init; } 
     #else

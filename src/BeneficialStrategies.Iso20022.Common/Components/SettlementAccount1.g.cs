@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Deposit account used by the central counterparty to make payments to and from its clearing members.
 /// </summary>
 [IsoId("_hzT7oKp5EeamNLogr5TkIQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,16 +55,15 @@ public partial record SettlementAccount1
     /// Identification of the settlement account.
     /// </summary>
     [IsoId("_s6JGIKp5EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification165 Identification { get; init; } 
+    public required GenericIdentification165 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification165 Identification { get; init; } 
     #else
@@ -77,16 +74,15 @@ public partial record SettlementAccount1
     /// Total value of initial margin to be called or returned to clearing member the morning following end of day. Indicates whether the clearing member has an obligation to deliver cash to the CCP (true) or receive cash from the CCP (false).
     /// </summary>
     [IsoId("_1J_ccKp5EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Of Day Initial Margin Called")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndOfDayInitlMrgnClld")]
     #endif
+    [IsoXmlTag("EndOfDayInitlMrgnClld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 EndOfDayInitialMarginCalled { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 EndOfDayInitialMarginCalled { get; init; } 
+    public required AmountAndDirection102 EndOfDayInitialMarginCalled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 EndOfDayInitialMarginCalled { get; init; } 
     #else
@@ -97,16 +93,15 @@ public partial record SettlementAccount1
     /// Total cash receivable (or payable) in the relevant currency based on changes in the mark-to-market of a clearing member’s positions, including liabilities (or credits) relating to option premiums, upfront fees or cash calls to cover other mark-to-market exposures where such exposures create a cash payable / receivable from the member. Indicates whether the clearing member has an obligation to deliver cash to the CCP (true) or receive cash from the CCP (false).
     /// </summary>
     [IsoId("_5BG38Kp5EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Of Day Variation Margin Called")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndOfDayVartnMrgnClld")]
     #endif
+    [IsoXmlTag("EndOfDayVartnMrgnClld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 EndOfDayVariationMarginCalled { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 EndOfDayVariationMarginCalled { get; init; } 
+    public required AmountAndDirection102 EndOfDayVariationMarginCalled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 EndOfDayVariationMarginCalled { get; init; } 
     #else
@@ -117,16 +112,15 @@ public partial record SettlementAccount1
     /// Total net cash receivable (payable) in the relevant currency that will be called to cover default fund requirements. DF receipts from clearing members are positive, payments to members are negative. Indicates whether the clearing member has an obligation to deliver cash to the CCP (true) or receive cash from the CCP (false).
     /// </summary>
     [IsoId("_8ZkokKp5EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Of Day Default Fund Called")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndOfDayDfltFndClld")]
     #endif
+    [IsoXmlTag("EndOfDayDfltFndClld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 EndOfDayDefaultFundCalled { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 EndOfDayDefaultFundCalled { get; init; } 
+    public required AmountAndDirection102 EndOfDayDefaultFundCalled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 EndOfDayDefaultFundCalled { get; init; } 
     #else
@@ -137,16 +131,15 @@ public partial record SettlementAccount1
     /// Total cash receivable (or payable) in the relevant currency arising from settlement or delivery obligations of a Clearing Member positions where such obligations arise in the payment system of the CCP. Indicates whether the clearing member has an obligation to deliver cash to the CCP (true) or receive cash from the CCP (false).
     /// </summary>
     [IsoId("_At16IKp6EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Of Day Settlement Called")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndOfDaySttlmClld")]
     #endif
+    [IsoXmlTag("EndOfDaySttlmClld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 EndOfDaySettlementCalled { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 EndOfDaySettlementCalled { get; init; } 
+    public required AmountAndDirection102 EndOfDaySettlementCalled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 EndOfDaySettlementCalled { get; init; } 
     #else
@@ -157,16 +150,15 @@ public partial record SettlementAccount1
     /// Other cash receivable (payables) in the relevant currency that will be called from or paid to the Clearing Member by the CCP. Such obligations may include exchange/clearing fees, and interest on margin interest on mark-to-market, coupon payments (including such payments called and settled by a securities settlement system). Indicates whether the clearing member has an obligation to deliver cash to the CCP (true) or receive cash from the CCP (false).
     /// </summary>
     [IsoId("_Gb0woKp6EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Of Day Other Called")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndOfDayOthrClld")]
     #endif
+    [IsoXmlTag("EndOfDayOthrClld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 EndOfDayOtherCalled { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 EndOfDayOtherCalled { get; init; } 
+    public required AmountAndDirection102 EndOfDayOtherCalled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 EndOfDayOtherCalled { get; init; } 
     #else
@@ -177,16 +169,15 @@ public partial record SettlementAccount1
     /// Net cash receivables (payable) that will be called/paid by the CCP to the clearing member in the relevant currency. If the amount represents a credit for the clearing member, the net cash amount due to be delivered on the reporting date and/or returnable on demand by the Clearing Member. Indicates whether the clearing member has an obligation to deliver cash to the CCP (true) or receive cash from the CCP (false).
     /// </summary>
     [IsoId("_6b5MYOoeEeadseq5W5YLvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Of Day Liquidity Called")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndOfDayLqdtyClld")]
     #endif
+    [IsoXmlTag("EndOfDayLqdtyClld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 EndOfDayLiquidityCalled { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 EndOfDayLiquidityCalled { get; init; } 
+    public required AmountAndDirection102 EndOfDayLiquidityCalled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 EndOfDayLiquidityCalled { get; init; } 
     #else

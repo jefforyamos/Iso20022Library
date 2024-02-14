@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusCode4Choice.FinalStatus))]
     [KnownType(typeof(PaymentStatusCode4Choice.ProprietaryStatus))]
     [IsoId("_RZcdOtp-Ed-ak6NoX_4Aeg_1463454824")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Status Code 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

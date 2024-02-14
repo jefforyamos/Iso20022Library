@@ -41,9 +41,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The ModifyMember message is sent by a member to the transaction administrator.|It is used to request modifications to the static data related to the profile of a member that the transaction administrator maintains.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, that is, not related to the transactions entered into the system. The type of business information available can vary depending on the system. Among other things, it can, refer to information about the membership of the system.|At any time during the operating hours of the system, the member can request the transaction administrator to modify the information it maintains about the member.|The member will submit a message requesting modifications in one or more of the following criteria:|- identification of the member|- contact information for the member organization: postal address, e-mail address, telephone or fax number|- identification of contact persons for the member, their role and/or details (postal address, e-mail address, telephone or fax number)|Based on the criteria received within the Modify Member message, the transaction administrator will execute or reject the requested modifications.|In principle, the transaction administrator may send a Receipt message as a reply to the ModifyMember request. To verify the outcome of the request, the member may submit a GetMember message with the appropriate search criteria.")]
 [IsoId("_jwlbxxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modify Member V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record ModifyMemberV04 : IOuterRecord<ModifyMemberV04,ModifyMembe
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbyxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -108,16 +105,15 @@ public partial record ModifyMemberV04 : IOuterRecord<ModifyMemberV04,ModifyMembe
     /// Unique and unambiguous identifier of a system member, as assigned by the system, or the system administrator.
     /// </summary>
     [IsoId("_jwlbzRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MmbId")]
     #endif
+    [IsoXmlTag("MmbId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MemberIdentification3Choice_ MemberIdentification { get; init; } 
+    public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #else
@@ -128,16 +124,15 @@ public partial record ModifyMemberV04 : IOuterRecord<ModifyMemberV04,ModifyMembe
     /// New member values.
     /// </summary>
     [IsoId("_jwlbzxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Member Value Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewMmbValSet")]
     #endif
+    [IsoXmlTag("NewMmbValSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Member6 NewMemberValueSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Member6 NewMemberValueSet { get; init; } 
+    public required Member6 NewMemberValueSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Member6 NewMemberValueSet { get; init; } 
     #else
@@ -148,12 +143,11 @@ public partial record ModifyMemberV04 : IOuterRecord<ModifyMemberV04,ModifyMembe
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlb0RbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,7 +160,7 @@ public partial record ModifyMemberV04 : IOuterRecord<ModifyMemberV04,ModifyMembe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ModifyMemberV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ModifyMemberV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ModifyMemberV04Document ToDocument()
     {
@@ -176,7 +170,7 @@ public partial record ModifyMemberV04 : IOuterRecord<ModifyMemberV04,ModifyMembe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ModifyMemberV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ModifyMemberV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ModifyMemberV04Document : IOuterDocument<ModifyMemberV04>
@@ -193,7 +187,7 @@ public partial record ModifyMemberV04Document : IOuterDocument<ModifyMemberV04>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ModifyMemberV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ModifyMemberV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ModifyMemberV04 Message { get; init; }

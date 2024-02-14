@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ISAPortfolio3Choice.ISA))]
     [KnownType(typeof(ISAPortfolio3Choice.Portfolio))]
     [IsoId("_3fnhcEXfEeGY6MkiuzuPOA_-1372155354")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISA Portfolio 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

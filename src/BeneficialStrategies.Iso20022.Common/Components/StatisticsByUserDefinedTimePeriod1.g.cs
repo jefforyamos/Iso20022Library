@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Statistical data related to the price change of a security.
 /// </summary>
 [IsoId("_VZJM-tp-Ed-ak6NoX_4Aeg_16395281")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statistics By User Defined Time Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record StatisticsByUserDefinedTimePeriod1
     /// Reference period for the valuation.
     /// </summary>
     [IsoId("_VZJM-9p-Ed-ak6NoX_4Aeg_93973909")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prd")]
     #endif
+    [IsoXmlTag("Prd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateTimePeriodDetails Period { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateTimePeriodDetails Period { get; init; } 
+    public required DateTimePeriodDetails Period { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateTimePeriodDetails Period { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record StatisticsByUserDefinedTimePeriod1
     /// Highest price for the referenced period.
     /// </summary>
     [IsoId("_VZJM_Np-Ed-ak6NoX_4Aeg_123524743")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Highest Price Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghstPricVal")]
     #endif
+    [IsoXmlTag("HghstPricVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? HighestPriceValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record StatisticsByUserDefinedTimePeriod1
     /// Lowest price for the referenced period.
     /// </summary>
     [IsoId("_VZJM_dp-Ed-ak6NoX_4Aeg_138301510")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lowest Price Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LwstPricVal")]
     #endif
+    [IsoXmlTag("LwstPricVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? LowestPriceValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record StatisticsByUserDefinedTimePeriod1
     /// Change in price since the last valuation.
     /// </summary>
     [IsoId("_VZJM_tp-Ed-ak6NoX_4Aeg_-1933750767")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricChng")]
     #endif
+    [IsoXmlTag("PricChng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue2? PriceChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,12 @@ public partial record StatisticsByUserDefinedTimePeriod1
     /// Rate of income from the financial instrument, usually calculated as total dividends or coupon interest available to investors in the last year,divided by the current price.
     /// </summary>
     [IsoId("_VZJM_9p-Ed-ak6NoX_4Aeg_1815898632")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Yield")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Yld")]
     #endif
+    [IsoXmlTag("Yld")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Yield { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

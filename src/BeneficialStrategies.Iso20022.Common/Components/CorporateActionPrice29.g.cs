@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies prices related to a corporate action option.
 /// </summary>
 [IsoId("_r9NDHfo6EeCVCIR-Uq3c5A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPrice29
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
     [IsoId("_r9NDJ_o6EeCVCIR-Uq3c5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indicative Or Market Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndctvOrMktPric")]
     #endif
+    [IsoXmlTag("IndctvOrMktPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndicativeOrMarketPrice2Choice_? IndicativeOrMarketPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPrice29
     /// Initial issue price of a financial instrument.
     /// </summary>
     [IsoId("_r9NDO_o6EeCVCIR-Uq3c5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssePric")]
     #endif
+    [IsoXmlTag("IssePric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat5Choice_? IssuePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionPrice29
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
     [IsoId("_r9NDRfo6EeCVCIR-Uq3c5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generic Cash Price Received Per Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GncCshPricRcvdPerPdct")]
     #endif
+    [IsoXmlTag("GncCshPricRcvdPerPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat21Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionPrice29
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
     [IsoId("_r9NDT_o6EeCVCIR-Uq3c5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generic Cash Price Paid Per Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GncCshPricPdPerPdct")]
     #endif
+    [IsoXmlTag("GncCshPricPdPerPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat5Choice_? GenericCashPricePaidPerProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

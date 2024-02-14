@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification23Choice.BICOrBEI))]
     [KnownType(typeof(PartyIdentification23Choice.ProprietaryIdentification))]
     [IsoId("_QReIgdp-Ed-ak6NoX_4Aeg_-1086683076")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification 23 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

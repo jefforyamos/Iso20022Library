@@ -21,7 +21,7 @@ public enum MessageFunction6Code
 {
     /// <summary>
     /// Advice of transaction totals from an acquirer.
-    /// Encoded/decoded by serializers as "RCAV".
+    /// Encoded/decoded by serializers as &quot;RCAV&quot;.
     /// </summary>
     [EnumMember(Value = "RCAV")]
     [IsoId("_uFKVwXrKEeSfJf8ETXpBxg")]
@@ -30,7 +30,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Notification of transaction totals from an acquirer.
-    /// Encoded/decoded by serializers as "RCAN".
+    /// Encoded/decoded by serializers as &quot;RCAN&quot;.
     /// </summary>
     [EnumMember(Value = "RCAN")]
     [IsoId("_uZm7wXrKEeSfJf8ETXpBxg")]
@@ -39,7 +39,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Request of transaction totals exchange from an acquirer.
-    /// Encoded/decoded by serializers as "RCAQ".
+    /// Encoded/decoded by serializers as &quot;RCAQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCAQ")]
     [IsoId("_uiZrYXrKEeSfJf8ETXpBxg")]
@@ -48,7 +48,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Reject of a message by an acquirer.
-    /// Encoded/decoded by serializers as "REJA".
+    /// Encoded/decoded by serializers as &quot;REJA&quot;.
     /// </summary>
     [EnumMember(Value = "REJA")]
     [IsoId("_ux5f8XrKEeSfJf8ETXpBxg")]
@@ -57,7 +57,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Reversal advice of an authorisation or a financial message.
-    /// Encoded/decoded by serializers as "REVV".
+    /// Encoded/decoded by serializers as &quot;REVV&quot;.
     /// </summary>
     [EnumMember(Value = "REVV")]
     [IsoId("_vDXqcXrKEeSfJf8ETXpBxg")]
@@ -66,7 +66,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Reversal notification of an authorisation or a financial message.
-    /// Encoded/decoded by serializers as "REVN".
+    /// Encoded/decoded by serializers as &quot;REVN&quot;.
     /// </summary>
     [EnumMember(Value = "REVN")]
     [IsoId("_vYhbEXrKEeSfJf8ETXpBxg")]
@@ -75,7 +75,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Reversal request of an authorisation or a financial message.
-    /// Encoded/decoded by serializers as "REVQ".
+    /// Encoded/decoded by serializers as &quot;REVQ&quot;.
     /// </summary>
     [EnumMember(Value = "REVQ")]
     [IsoId("_vhw2oXrKEeSfJf8ETXpBxg")]
@@ -84,7 +84,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Advice of transaction totals from a processor.
-    /// Encoded/decoded by serializers as "RCPV".
+    /// Encoded/decoded by serializers as &quot;RCPV&quot;.
     /// </summary>
     [EnumMember(Value = "RCPV")]
     [IsoId("_vx7ZkXrKEeSfJf8ETXpBxg")]
@@ -93,7 +93,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Notification of transaction totals from a processor.
-    /// Encoded/decoded by serializers as "RCPN".
+    /// Encoded/decoded by serializers as &quot;RCPN&quot;.
     /// </summary>
     [EnumMember(Value = "RCPN")]
     [IsoId("_wISEEXrKEeSfJf8ETXpBxg")]
@@ -102,7 +102,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Request of transaction totals exchange from a processor.
-    /// Encoded/decoded by serializers as "RCPQ".
+    /// Encoded/decoded by serializers as &quot;RCPQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCPQ")]
     [IsoId("_wUYmYXrKEeSfJf8ETXpBxg")]
@@ -111,7 +111,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Reject of a message by an agent.
-    /// Encoded/decoded by serializers as "REJP".
+    /// Encoded/decoded by serializers as &quot;REJP&quot;.
     /// </summary>
     [EnumMember(Value = "REJP")]
     [IsoId("_wjUaQXrKEeSfJf8ETXpBxg")]
@@ -120,7 +120,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Initiator of the message advises the recipient about the result of an authorisation already performed.
-    /// Encoded/decoded by serializers as "AUTV".
+    /// Encoded/decoded by serializers as &quot;AUTV&quot;.
     /// </summary>
     [EnumMember(Value = "AUTV")]
     [IsoId("_2kMXkXrKEeSfJf8ETXpBxg")]
@@ -129,7 +129,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Information about an authorisation.
-    /// Encoded/decoded by serializers as "AUTN".
+    /// Encoded/decoded by serializers as &quot;AUTN&quot;.
     /// </summary>
     [EnumMember(Value = "AUTN")]
     [IsoId("_2y7-MXrKEeSfJf8ETXpBxg")]
@@ -138,7 +138,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// The initiator requests an authorisation without financial impact to complete the transaction.
-    /// Encoded/decoded by serializers as "AUTQ".
+    /// Encoded/decoded by serializers as &quot;AUTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AUTQ")]
     [IsoId("_27by4XrKEeSfJf8ETXpBxg")]
@@ -147,7 +147,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Response for authorisation without financial capture.
-    /// Encoded/decoded by serializers as "AUTP".
+    /// Encoded/decoded by serializers as &quot;AUTP&quot;.
     /// </summary>
     [EnumMember(Value = "AUTP")]
     [IsoId("_3E87QXrKEeSfJf8ETXpBxg")]
@@ -156,7 +156,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Initiator of the message advises the receptor that an authorisation has been successfully delivered or completed with a final amount, and requests the clearing of the transaction.
-    /// Encoded/decoded by serializers as "FNCV".
+    /// Encoded/decoded by serializers as &quot;FNCV&quot;.
     /// </summary>
     [EnumMember(Value = "FNCV")]
     [IsoId("_5HLRsXrKEeSfJf8ETXpBxg")]
@@ -165,7 +165,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Initiator requests the clearing of the transaction.
-    /// Encoded/decoded by serializers as "FNCN".
+    /// Encoded/decoded by serializers as &quot;FNCN&quot;.
     /// </summary>
     [EnumMember(Value = "FNCN")]
     [IsoId("_5sC5UXrKEeSfJf8ETXpBxg")]
@@ -174,7 +174,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Initiator of the message requests both the authorisation and the clearing of the transaction.
-    /// Encoded/decoded by serializers as "FNCQ".
+    /// Encoded/decoded by serializers as &quot;FNCQ&quot;.
     /// </summary>
     [EnumMember(Value = "FNCQ")]
     [IsoId("_5yv-QXrKEeSfJf8ETXpBxg")]
@@ -183,7 +183,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Advice of transaction totals from an issuer.
-    /// Encoded/decoded by serializers as "RCIV".
+    /// Encoded/decoded by serializers as &quot;RCIV&quot;.
     /// </summary>
     [EnumMember(Value = "RCIV")]
     [IsoId("_7MpJYXrKEeSfJf8ETXpBxg")]
@@ -192,7 +192,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Notification of transaction totals from an issuer.
-    /// Encoded/decoded by serializers as "RCIN".
+    /// Encoded/decoded by serializers as &quot;RCIN&quot;.
     /// </summary>
     [EnumMember(Value = "RCIN")]
     [IsoId("_7Y3AcXrKEeSfJf8ETXpBxg")]
@@ -201,7 +201,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Request of transaction totals exchange from an issuer.
-    /// Encoded/decoded by serializers as "RCIQ".
+    /// Encoded/decoded by serializers as &quot;RCIQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCIQ")]
     [IsoId("_7fAEsXrKEeSfJf8ETXpBxg")]
@@ -210,7 +210,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Reject of a message by an issuer.
-    /// Encoded/decoded by serializers as "REJI".
+    /// Encoded/decoded by serializers as &quot;REJI&quot;.
     /// </summary>
     [EnumMember(Value = "REJI")]
     [IsoId("_7tw5cXrKEeSfJf8ETXpBxg")]
@@ -219,7 +219,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Advise of a performed key update.
-    /// Encoded/decoded by serializers as "KEYV".
+    /// Encoded/decoded by serializers as &quot;KEYV&quot;.
     /// </summary>
     [EnumMember(Value = "KEYV")]
     [IsoId("_719zMXrKEeSfJf8ETXpBxg")]
@@ -228,7 +228,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Request of a key exchange.
-    /// Encoded/decoded by serializers as "KEYQ".
+    /// Encoded/decoded by serializers as &quot;KEYQ&quot;.
     /// </summary>
     [EnumMember(Value = "KEYQ")]
     [IsoId("_8DX9EXrKEeSfJf8ETXpBxg")]
@@ -237,7 +237,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Advise of a performed network management service.
-    /// Encoded/decoded by serializers as "MGTV".
+    /// Encoded/decoded by serializers as &quot;MGTV&quot;.
     /// </summary>
     [EnumMember(Value = "MGTV")]
     [IsoId("_8Tp0wXrKEeSfJf8ETXpBxg")]
@@ -246,7 +246,7 @@ public enum MessageFunction6Code
     
     /// <summary>
     /// Request of a network management service.
-    /// Encoded/decoded by serializers as "MGTQ".
+    /// Encoded/decoded by serializers as &quot;MGTQ&quot;.
     /// </summary>
     [EnumMember(Value = "MGTQ")]
     [IsoId("_8hgqkXrKEeSfJf8ETXpBxg")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
     /// Attributes related specifically to fixed rate of an interest rate contract.
     /// </summary>
     [IsoId("_GPqvsQ1IEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fixed")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,12 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
         /// An indication of the fixed rate used.
         /// </summary>
         [IsoId("_mY0Z4_OFEeaS7fYULSI4_Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rate")]
         #endif
+        [IsoXmlTag("Rate")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoPercentageRate? Rate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,15 +65,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
         /// Actual number of days in the relevant fixed rate calculation period.
         /// </summary>
         [IsoId("_mY0Z5fOFEeaS7fYULSI4_Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Day Count")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DayCnt")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("DayCnt")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? DayCount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +84,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice
         /// Information related to payment frequency.
         /// </summary>
         [IsoId("_mY0Z5_OFEeaS7fYULSI4_Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment Frequency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtFrqcy")]
         #endif
+        [IsoXmlTag("PmtFrqcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MemberCriteriaDefinition1Choice.QueryName))]
     [KnownType(typeof(MemberCriteriaDefinition1Choice.NewCriteria))]
     [IsoId("_tLC5R5lVEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Criteria Definition 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -13,24 +13,23 @@ namespace BeneficialStrategies.Iso20022
          where T: IIsoXmlSerilizable<T>
 #endif
     {
-        //private readonly bool _requireMathcingOrder;
+        /// <inheritdoc />
         public ValueList()
         {
-        
+
         }
+        
+        /// <inheritdoc />
         public ValueList(IEnumerable<T> collection) : base(collection)
         {
         }
 
+        /// <inheritdoc />
         public ValueList(int capacity) : base(capacity)
         {
         }
 
-        /// <summary>
-        /// Overridden to do value-based equality.
-        /// </summary>
-        /// <param name="other"></param>
-        /// <returns></returns>
+        /// <inheritdoc />
         public override bool Equals(object? other)
         {
             if (other is null) return false;
@@ -39,6 +38,7 @@ namespace BeneficialStrategies.Iso20022
             return enumerable.SequenceEqual(this);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             var hashCode = 0;
@@ -49,7 +49,7 @@ namespace BeneficialStrategies.Iso20022
 
             return hashCode;
         }
-        #if DECLARE_INTERNALSERIALIZATION
+#if DECLARE_INTERNALSERIALIZATION
         /// <summary>
         /// Serializes the collection one item at a time based using the Iso20022 standard serialization.
         /// </summary>
@@ -79,6 +79,6 @@ namespace BeneficialStrategies.Iso20022
             }
             return list;
         }
-        #endif 
+#endif
     }
 }

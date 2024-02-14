@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingReason1Choice
     /// Specifies the reason of the UnmatchStatus.
     /// </summary>
     [IsoId("_Az7z1NokEeC60axPepSq7g_-166563219")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingReason1Choice
         /// Specifies the reason why the instruction has an unmatched status.
         /// </summary>
         [IsoId("_A4s_E9okEeC60axPepSq7g_2038515075")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required UnmatchedReason7Choice_ Code { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public UnmatchedReason7Choice_ Code { get; init; } 
+        public required UnmatchedReason7Choice_ Code { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public UnmatchedReason7Choice_ Code { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingReason1Choice
         /// Provides additional information about the reason in narrative form.
         /// </summary>
         [IsoId("_A4s_FNokEeC60axPepSq7g_-2004360679")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Reason Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlRsnInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlRsnInf")]
+        [IsoSimpleType(IsoSimpleType.Max210Text)]
         [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax210Text? AdditionalReasonInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

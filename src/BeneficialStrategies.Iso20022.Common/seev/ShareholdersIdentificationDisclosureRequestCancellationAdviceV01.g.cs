@@ -26,13 +26,11 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// <summary>
 /// This record is an implementation of the seev.046.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
-/// The ShareholdersIdentificationDisclosureCancellationAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the first intermediaries in a custody chain or is sent by any intermediaries in  a custody chain to the next intermediary down the chain of intermediaries (towards the investor side of the chain) in order to withdraw/cancel the disclosure request of shareholders identity previously sent.
+/// The ShareholdersIdentificationDisclosureCancellationAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer&apos;s agent) to the first intermediaries in a custody chain or is sent by any intermediaries in  a custody chain to the next intermediary down the chain of intermediaries (towards the investor side of the chain) in order to withdraw/cancel the disclosure request of shareholders identity previously sent.
 /// </summary>
 [Description(@"The ShareholdersIdentificationDisclosureCancellationAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the first intermediaries in a custody chain or is sent by any intermediaries in  a custody chain to the next intermediary down the chain of intermediaries (towards the investor side of the chain) in order to withdraw/cancel the disclosure request of shareholders identity previously sent.")]
 [IsoId("_mKzuYDnYEemL_ewJY9QP1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Shareholders Identification Disclosure Request Cancellation Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     /// Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.
     /// </summary>
     [IsoId("_Yk74gbRAEem2T48lBgJbww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Disclosure Request Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrDsclsrReqRef")]
     #endif
+    [IsoXmlTag("IssrDsclsrReqRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; } 
+    public required DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     /// Provides the reason for cancelling the request for shareholders identification disclosure.
     /// </summary>
     [IsoId("_L7L5YDqUEemL_ewJY9QP1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
+    [IsoXmlTag("CxlRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisclosureRequestCancellationReason1Code? CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     /// Issuer of the financial instrument.
     /// </summary>
     [IsoId("_OBOqxzqSEemL_ewJY9QP1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification129Choice_? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_FGPFkT6LEemPvNTzinB5Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ShareholdersIdentificationDisclosureRequestCancellationAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ShareholdersIdentificationDisclosureRequestCancellationAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ShareholdersIdentificationDisclosureRequestCancellationAdviceV01Document : IOuterDocument<ShareholdersIdentificationDisclosureRequestCancellationAdviceV01>
@@ -176,7 +170,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ShareholdersIdentificationDisclosureRequestCancellationAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ShareholdersIdentificationDisclosureRequestCancellationAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShareholdersIdentificationDisclosureRequestCancellationAdviceV01 Message { get; init; }

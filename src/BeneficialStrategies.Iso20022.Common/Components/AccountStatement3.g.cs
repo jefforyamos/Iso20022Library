@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides further details of the account statement.
 /// </summary>
 [IsoId("_tqvhIlkyEeGeoaLUQk__nA_-1076556870")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record AccountStatement3
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account statement.
     /// </summary>
     [IsoId("_tqvhI1kyEeGeoaLUQk__nA_-2073629223")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,12 +73,11 @@ public partial record AccountStatement3
     /// Usage: The pagination of the statement is only allowed when agreed between the parties.
     /// </summary>
     [IsoId("_tqvhJFkyEeGeoaLUQk__nA_95626296")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtPgntn")]
     #endif
+    [IsoXmlTag("StmtPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination? StatementPagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,12 +90,12 @@ public partial record AccountStatement3
     /// Sequential number of the statement, as assigned by the account servicer.|Usage: The sequential number is increased incrementally for each statement sent electronically.
     /// </summary>
     [IsoId("_tq5SIFkyEeGeoaLUQk__nA_-112375598")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Electronic Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctrncSeqNb")]
     #endif
+    [IsoXmlTag("ElctrncSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +108,12 @@ public partial record AccountStatement3
     /// Legal sequential number of the statement, as assigned by the account servicer. It is increased incrementally for each statement sent.||Usage: Where a paper statement is a legal requirement, it may have a number different from the electronic sequential number. Paper statements could for instance only be sent if movement on the account has taken place, whereas electronic statements could be sent at the end of each reporting period, regardless of whether movements have taken place or not.
     /// </summary>
     [IsoId("_tq5SIVkyEeGeoaLUQk__nA_-1992681238")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglSeqNb")]
     #endif
+    [IsoXmlTag("LglSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? LegalSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,16 +126,16 @@ public partial record AccountStatement3
     /// Date and time at which the message was created.
     /// </summary>
     [IsoId("_tq5SIlkyEeGeoaLUQk__nA_1094614502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -151,12 +146,11 @@ public partial record AccountStatement3
     /// Range of time between a start date and an end date for which the account statement is issued.
     /// </summary>
     [IsoId("_tq5SI1kyEeGeoaLUQk__nA_-1077648876")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From To Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrToDt")]
     #endif
+    [IsoXmlTag("FrToDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodDetails? FromToDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +163,11 @@ public partial record AccountStatement3
     /// Indicates whether the document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
     [IsoId("_tq5SJFkyEeGeoaLUQk__nA_-2122332456")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Duplicate Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDplctInd")]
     #endif
+    [IsoXmlTag("CpyDplctInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +180,11 @@ public partial record AccountStatement3
     /// Specifies the application used to generate the reporting.
     /// </summary>
     [IsoId("_trCcEFkyEeGeoaLUQk__nA_371462")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgSrc")]
     #endif
+    [IsoXmlTag("RptgSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingSource1Choice_? ReportingSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,16 +197,15 @@ public partial record AccountStatement3
     /// Unambiguous identification of the account to which credit and debit entries are made.
     /// </summary>
     [IsoId("_trCcEVkyEeGeoaLUQk__nA_581428124")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount25 Account { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount25 Account { get; init; } 
+    public required CashAccount25 Account { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount25 Account { get; init; } 
     #else
@@ -225,12 +216,11 @@ public partial record AccountStatement3
     /// Identifies the parent account of the account for which the statement has been issued.
     /// </summary>
     [IsoId("_trCcElkyEeGeoaLUQk__nA_-386083520")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdAcct")]
     #endif
+    [IsoXmlTag("RltdAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? RelatedAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,12 +233,11 @@ public partial record AccountStatement3
     /// Provides general interest information that applies to the account at a particular moment in time.
     /// </summary>
     [IsoId("_trCcE1kyEeGeoaLUQk__nA_374681633")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrst")]
     #endif
+    [IsoXmlTag("Intrst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountInterest2? Interest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -261,12 +250,11 @@ public partial record AccountStatement3
     /// Set of elements used to define the balance as a numerical representation of the net increases and decreases in an account at a specific point in time.
     /// </summary>
     [IsoId("_trCcFFkyEeGeoaLUQk__nA_1709532480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     public CashBalance3? Balance { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _trCcFFkyEeGeoaLUQk__nA_1709532480
     
@@ -274,12 +262,11 @@ public partial record AccountStatement3
     /// Provides summary information on entries.
     /// </summary>
     [IsoId("_trMNEFkyEeGeoaLUQk__nA_-1635275225")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transactions Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxsSummry")]
     #endif
+    [IsoXmlTag("TxsSummry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalTransactions2? TransactionsSummary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -292,12 +279,11 @@ public partial record AccountStatement3
     /// Set of elements used to specify an entry in the statement.|Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
     [IsoId("_trMNEVkyEeGeoaLUQk__nA_-217685922")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entry")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntry")]
     #endif
+    [IsoXmlTag("Ntry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportEntry3? Entry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -310,15 +296,13 @@ public partial record AccountStatement3
     /// Further details of the account statement.
     /// </summary>
     [IsoId("_trMNElkyEeGeoaLUQk__nA_1765360007")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Statement Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlStmtInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlStmtInf")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalStatementInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

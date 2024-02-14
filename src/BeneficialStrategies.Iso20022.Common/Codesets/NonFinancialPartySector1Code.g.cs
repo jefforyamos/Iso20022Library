@@ -21,7 +21,7 @@ public enum NonFinancialPartySector1Code
 {
     /// <summary>
     /// Water supply, sewerage, waste management and remediation activities.
-    /// Encoded/decoded by serializers as "WTER".
+    /// Encoded/decoded by serializers as &quot;WTER&quot;.
     /// </summary>
     [EnumMember(Value = "WTER")]
     [IsoId("_wE0lARQYEeWSI-Fz8Zwg6g")]
@@ -30,7 +30,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Mining and quarrying activities.
-    /// Encoded/decoded by serializers as "MING".
+    /// Encoded/decoded by serializers as &quot;MING&quot;.
     /// </summary>
     [EnumMember(Value = "MING")]
     [IsoId("_wMQpwRQYEeWSI-Fz8Zwg6g")]
@@ -39,7 +39,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Manufacturing activities.
-    /// Encoded/decoded by serializers as "MAFG".
+    /// Encoded/decoded by serializers as &quot;MAFG&quot;.
     /// </summary>
     [EnumMember(Value = "MAFG")]
     [IsoId("_wSLEgRQYEeWSI-Fz8Zwg6g")]
@@ -48,7 +48,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Electricity, gas, steam and air conditioning supply activities.
-    /// Encoded/decoded by serializers as "SPLY".
+    /// Encoded/decoded by serializers as &quot;SPLY&quot;.
     /// </summary>
     [EnumMember(Value = "SPLY")]
     [IsoId("_wXzLYRQYEeWSI-Fz8Zwg6g")]
@@ -57,7 +57,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Construction activities.
-    /// Encoded/decoded by serializers as "CSTR".
+    /// Encoded/decoded by serializers as &quot;CSTR&quot;.
     /// </summary>
     [EnumMember(Value = "CSTR")]
     [IsoId("_wgMSYRQYEeWSI-Fz8Zwg6g")]
@@ -66,7 +66,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Agriculture, forestry and fishing activities.
-    /// Encoded/decoded by serializers as "AGRI".
+    /// Encoded/decoded by serializers as &quot;AGRI&quot;.
     /// </summary>
     [EnumMember(Value = "AGRI")]
     [IsoId("_wnP8oRQYEeWSI-Fz8Zwg6g")]
@@ -75,7 +75,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Accommodation and food service activities.
-    /// Encoded/decoded by serializers as "ACAF".
+    /// Encoded/decoded by serializers as &quot;ACAF&quot;.
     /// </summary>
     [EnumMember(Value = "ACAF")]
     [IsoId("_FRr48RVZEeWLrt6TQWUeiw")]
@@ -84,7 +84,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Education activities.
-    /// Encoded/decoded by serializers as "EDUC".
+    /// Encoded/decoded by serializers as &quot;EDUC&quot;.
     /// </summary>
     [EnumMember(Value = "EDUC")]
     [IsoId("_4UszMRVaEeWLrt6TQWUeiw")]
@@ -93,7 +93,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Arts, entertainment and recreation activities.
-    /// Encoded/decoded by serializers as "AEAR".
+    /// Encoded/decoded by serializers as &quot;AEAR&quot;.
     /// </summary>
     [EnumMember(Value = "AEAR")]
     [IsoId("_4hDNIRVaEeWLrt6TQWUeiw")]
@@ -102,7 +102,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Financial and insurance activities.
-    /// Encoded/decoded by serializers as "FINA".
+    /// Encoded/decoded by serializers as &quot;FINA&quot;.
     /// </summary>
     [EnumMember(Value = "FINA")]
     [IsoId("_4tixARVaEeWLrt6TQWUeiw")]
@@ -111,7 +111,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Human health and social work activities.
-    /// Encoded/decoded by serializers as "HHSW".
+    /// Encoded/decoded by serializers as &quot;HHSW&quot;.
     /// </summary>
     [EnumMember(Value = "HHSW")]
     [IsoId("_455K8RVaEeWLrt6TQWUeiw")]
@@ -120,7 +120,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Information and communication activities.
-    /// Encoded/decoded by serializers as "INCO".
+    /// Encoded/decoded by serializers as &quot;INCO&quot;.
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_5HIVsRVaEeWLrt6TQWUeiw")]
@@ -129,7 +129,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Wholesale and retail trade, repair of motor vehicles and motorcycles.
-    /// Encoded/decoded by serializers as "WRRM".
+    /// Encoded/decoded by serializers as &quot;WRRM&quot;.
     /// </summary>
     [EnumMember(Value = "WRRM")]
     [IsoId("_5l7KgRVaEeWLrt6TQWUeiw")]
@@ -138,7 +138,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Other service activities.
-    /// Encoded/decoded by serializers as "OTSA".
+    /// Encoded/decoded by serializers as &quot;OTSA&quot;.
     /// </summary>
     [EnumMember(Value = "OTSA")]
     [IsoId("_5y4BYRVaEeWLrt6TQWUeiw")]
@@ -147,7 +147,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Professional, scientific and technical activities.
-    /// Encoded/decoded by serializers as "PSTA".
+    /// Encoded/decoded by serializers as &quot;PSTA&quot;.
     /// </summary>
     [EnumMember(Value = "PSTA")]
     [IsoId("_5_N0QRVaEeWLrt6TQWUeiw")]
@@ -156,7 +156,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Public administration and defence, compulsory social security.
-    /// Encoded/decoded by serializers as "PADS".
+    /// Encoded/decoded by serializers as &quot;PADS&quot;.
     /// </summary>
     [EnumMember(Value = "PADS")]
     [IsoId("_6LkOMRVaEeWLrt6TQWUeiw")]
@@ -165,7 +165,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Real estate activities.
-    /// Encoded/decoded by serializers as "RESA".
+    /// Encoded/decoded by serializers as &quot;RESA&quot;.
     /// </summary>
     [EnumMember(Value = "RESA")]
     [IsoId("_60LtYRVaEeWLrt6TQWUeiw")]
@@ -174,7 +174,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Transportation and storage activities.
-    /// Encoded/decoded by serializers as "TRAS".
+    /// Encoded/decoded by serializers as &quot;TRAS&quot;.
     /// </summary>
     [EnumMember(Value = "TRAS")]
     [IsoId("_7AiHURVaEeWLrt6TQWUeiw")]
@@ -183,7 +183,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Administrative and support service activities.
-    /// Encoded/decoded by serializers as "ASSA".
+    /// Encoded/decoded by serializers as &quot;ASSA&quot;.
     /// </summary>
     [EnumMember(Value = "ASSA")]
     [IsoId("_BR290exnEeWDzYHCp-PB8g")]
@@ -192,7 +192,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Activities of households as employers; undifferentiated goods – and services –producing activities of households for own use.
-    /// Encoded/decoded by serializers as "AHAE".
+    /// Encoded/decoded by serializers as &quot;AHAE&quot;.
     /// </summary>
     [EnumMember(Value = "AHAE")]
     [IsoId("_CeDEIexnEeWDzYHCp-PB8g")]
@@ -201,7 +201,7 @@ public enum NonFinancialPartySector1Code
     
     /// <summary>
     /// Activities of extraterritorial organisations and bodies.
-    /// Encoded/decoded by serializers as "AEOB".
+    /// Encoded/decoded by serializers as &quot;AEOB&quot;.
     /// </summary>
     [EnumMember(Value = "AEOB")]
     [IsoId("_DXnwcexnEeWDzYHCp-PB8g")]

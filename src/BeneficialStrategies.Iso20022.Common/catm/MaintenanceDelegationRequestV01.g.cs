@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// </summary>
 [Description(@"A terminal manager requests to the master terminal manager the delegation of maintenance functions or maintenance operation on the terminal estate managed by the master terminal manager.")]
 [IsoId("_RRRwEGp2EeSojYXQbRlLzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Maintenance Delegation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record MaintenanceDelegationRequestV01 : IOuterRecord<Maintenance
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_825hIGp2EeSojYXQbRlLzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header16 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header16 Header { get; init; } 
+    public required Header16 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header16 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record MaintenanceDelegationRequestV01 : IOuterRecord<Maintenance
     /// Information related to the request of maintenance delegations.
     /// </summary>
     [IsoId("_jVQoAGp4EeSojYXQbRlLzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maintenance Delegation Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MntncDlgtnReq")]
     #endif
+    [IsoXmlTag("MntncDlgtnReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MaintenanceDelegationRequest1 MaintenanceDelegationRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MaintenanceDelegationRequest1 MaintenanceDelegationRequest { get; init; } 
+    public required MaintenanceDelegationRequest1 MaintenanceDelegationRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MaintenanceDelegationRequest1 MaintenanceDelegationRequest { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record MaintenanceDelegationRequestV01 : IOuterRecord<Maintenance
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_xgIyUGp4EeSojYXQbRlLzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType12 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType12 SecurityTrailer { get; init; } 
+    public required ContentInformationType12 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType12 SecurityTrailer { get; init; } 
     #else
@@ -137,7 +132,7 @@ public partial record MaintenanceDelegationRequestV01 : IOuterRecord<Maintenance
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MaintenanceDelegationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MaintenanceDelegationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MaintenanceDelegationRequestV01Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record MaintenanceDelegationRequestV01 : IOuterRecord<Maintenance
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MaintenanceDelegationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MaintenanceDelegationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MaintenanceDelegationRequestV01Document : IOuterDocument<MaintenanceDelegationRequestV01>
@@ -164,7 +159,7 @@ public partial record MaintenanceDelegationRequestV01Document : IOuterDocument<M
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MaintenanceDelegationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MaintenanceDelegationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MaintenanceDelegationRequestV01 Message { get; init; }

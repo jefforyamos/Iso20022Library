@@ -21,7 +21,7 @@ public enum PaymentReceiptCode
 {
     /// <summary>
     /// Operation is a payment.
-    /// Encoded/decoded by serializers as "PAYM".
+    /// Encoded/decoded by serializers as &quot;PAYM&quot;.
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_t7Wn8A5EEeenr-7g_0TYag")]
@@ -30,7 +30,7 @@ public enum PaymentReceiptCode
     
     /// <summary>
     /// Operation is a receipt.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_yRapQA5EEeenr-7g_0TYag")]
@@ -39,7 +39,7 @@ public enum PaymentReceiptCode
     
     /// <summary>
     /// Operation is null.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_2kqAEA5EEeenr-7g_0TYag")]

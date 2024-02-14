@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information to identify funds order(s).
 /// </summary>
 [IsoId("_IGLlRzbtEead9bDRE_1DAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Message And Business Reference")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record MessageAndBusinessReference10
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_o3wOAEg9Eea8pJjypp-yMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public References62Choice_? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record MessageAndBusinessReference10
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_IeuoKzbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference8? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record MessageAndBusinessReference10
     /// Unique and unambiguous identifiers of one or more individual order instructions or individual order cancellation requests.
     /// </summary>
     [IsoId("_IeuoLTbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrRef")]
     #endif
+    [IsoXmlTag("OrdrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundOrder8? OrderReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

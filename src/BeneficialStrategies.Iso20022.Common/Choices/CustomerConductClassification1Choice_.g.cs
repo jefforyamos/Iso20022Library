@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CustomerConductClassification1Choice.Code))]
     [KnownType(typeof(CustomerConductClassification1Choice.Proprietary))]
     [IsoId("_E0HGsxdwEeKYM7Bc71nDlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Conduct Classification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

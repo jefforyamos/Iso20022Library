@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of report.
 /// </summary>
 [IsoId("_RKFykdp-Ed-ak6NoX_4Aeg_1945213198")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ReportType3
     /// Specifies whether the report is for a matched or pre-matched data set.
     /// </summary>
     [IsoId("_RKFyktp-Ed-ak6NoX_4Aeg_-2108712606")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstructionType3Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstructionType3Code Type { get; init; } 
+    public required InstructionType3Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstructionType3Code Type { get; init; } 
     #else

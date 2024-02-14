@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the cash compensation such as the fees and the total settlement amount.
 /// </summary>
 [IsoId("_UokEmtp-Ed-ak6NoX_4Aeg_-1006073827")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Compensation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CashCompensation1
     /// Provides the original amount to be settled.
     /// </summary>
     [IsoId("_UokEm9p-Ed-ak6NoX_4Aeg_1436012936")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection20 SettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection20 SettlementAmount { get; init; } 
+    public required AmountAndDirection20 SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection20 SettlementAmount { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CashCompensation1
     /// Amount of fees linked to the cash compensation process.
     /// </summary>
     [IsoId("_UokEnNp-Ed-ak6NoX_4Aeg_796992332")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fees")]
     #endif
+    [IsoXmlTag("Fees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection20? Fees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record CashCompensation1
     /// Indicates the value date of the cash compensation.
     /// </summary>
     [IsoId("_Uot1kNp-Ed-ak6NoX_4Aeg_1587929881")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

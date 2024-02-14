@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a party.
 /// </summary>
 [IsoId("_JmJYYygxEeuqgbMAZaNiGw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PartyIdentification243
     /// Legal entity.
     /// </summary>
     [IsoId("_JmJYZCgxEeuqgbMAZaNiGw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglPrsn")]
     #endif
+    [IsoXmlTag("LglPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification237? LegalPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PartyIdentification243
     /// Private person.
     /// </summary>
     [IsoId("_JmJYZSgxEeuqgbMAZaNiGw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Natural Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtrlPrsn")]
     #endif
+    [IsoXmlTag("NtrlPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification217? NaturalPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

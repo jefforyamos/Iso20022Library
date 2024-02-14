@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasisCodeAndDSSCodeChoi
     /// Statement basis expressed as a code.
     /// </summary>
     [IsoId("_Q7Cp8dp-Ed-ak6NoX_4Aeg_-1663061250")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Basis As Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasisCodeAndDSSCodeChoi
         /// Specifies the type of balances on which the statement is prepared.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StmtBsisAsCd")]
         #endif
+        [IsoXmlTag("StmtBsisAsCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StatementBasis1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StatementBasis1Code Value { get; init; } 
+        public required StatementBasis1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StatementBasis1Code Value { get; init; } 
         #else

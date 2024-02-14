@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType35Choice
     /// Set of data requested to enrich a security.
     /// </summary>
     [IsoId("_QOJ0MZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Add")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType35Choice
         /// Provides additional details about the financial instrument.
         /// </summary>
         [IsoId("_QKNvYZJKEeuAlLVx8pyt3w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmTp")]
         #endif
+        [IsoXmlTag("FinInstrmTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrument97? FinancialInstrumentType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType35Choice
         /// Provides details about the financial instrument attributes of a particular leg.
         /// </summary>
         [IsoId("_QKNvY5JKEeuAlLVx8pyt3w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmAttrbts")]
         #endif
+        [IsoXmlTag("FinInstrmAttrbts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CommonFinancialInstrumentAttributes12? FinancialInstrumentAttributes { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType35Choice
         /// Additional information that cannot be captured in the structured elements and/or any other specific block.
         /// </summary>
         [IsoId("_QKNvZZJKEeuAlLVx8pyt3w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

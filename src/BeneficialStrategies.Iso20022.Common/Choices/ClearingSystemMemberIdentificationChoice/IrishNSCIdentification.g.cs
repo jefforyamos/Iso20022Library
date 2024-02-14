@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// Irish National Sorting Code - identifies Irish financial institutions on the Irish national clearing system. The code is assigned by the Irish Payments Services Organisation (IPSO).
     /// </summary>
     [IsoId("_TDY2gNp-Ed-ak6NoX_4Aeg_-896562604")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Irish NSC Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// Irish National Sorting Code. Identifies Irish financial institutions on the Irish national clearing system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IENSC")]
         #endif
+        [IsoXmlTag("IENSC")]
+        [IsoSimpleType(IsoSimpleType.IrishNSCIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoIrishNSCIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

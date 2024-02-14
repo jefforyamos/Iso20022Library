@@ -21,7 +21,7 @@ public enum AssetClassProductType13Code
 {
     /// <summary>
     /// Commodity of type multi commodity exotic.
-    /// Encoded/decoded by serializers as "MCEX".
+    /// Encoded/decoded by serializers as &quot;MCEX&quot;.
     /// </summary>
     [EnumMember(Value = "MCEX")]
     [IsoId("_XyXFgVrLEeWN79Bl6BUd3g")]

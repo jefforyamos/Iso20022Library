@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information that describes a netting cut off held at a central system.
 /// </summary>
 [IsoId("_WkhLEJVIEeaYkf5FCqYMeA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cut Off")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record CutOff1
     /// Identification for the updated netting cut off.
     /// </summary>
     [IsoId("_hrAdUZnoEeaKH-pm9fIa8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cut Off Update Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CutOffUpdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CutOffUpdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CutOffUpdateIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CutOffUpdateIdentification { get; init; } 
+    public required System.String CutOffUpdateIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CutOffUpdateIdentification { get; init; } 
     #else
@@ -77,16 +73,15 @@ public partial record CutOff1
     /// Currency linked to the netting cut off.
     /// </summary>
     [IsoId("_yTThwZnnEeaKH-pm9fIa8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else
@@ -97,16 +92,16 @@ public partial record CutOff1
     /// Cut off time value for the netting cut off.
     /// </summary>
     [IsoId("_tbaqUJVIEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cut Off Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CutOffTm")]
     #endif
+    [IsoXmlTag("CutOffTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISOTime CutOffTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.TimeOnly CutOffTime { get; init; } 
+    public required System.TimeOnly CutOffTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.TimeOnly CutOffTime { get; init; } 
     #else
@@ -117,19 +112,16 @@ public partial record CutOff1
     /// Specifies the offset in business days from the value date from which the netting cut off is to be applied.
     /// </summary>
     [IsoId("_V7THkJVLEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date Offset")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDtOffset")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ValDtOffset")]
+    [IsoSimpleType(IsoSimpleType.DateOffsetText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDateOffsetText ValueDateOffset { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ValueDateOffset { get; init; } 
+    public required System.String ValueDateOffset { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ValueDateOffset { get; init; } 
     #else

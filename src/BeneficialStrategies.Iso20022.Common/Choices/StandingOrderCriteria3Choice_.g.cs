@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StandingOrderCriteria3Choice.QueryName))]
     [KnownType(typeof(StandingOrderCriteria3Choice.NewCriteria))]
     [IsoId("_GBYcFW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Criteria 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

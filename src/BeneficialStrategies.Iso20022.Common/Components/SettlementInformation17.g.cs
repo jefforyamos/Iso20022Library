@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Settlement of the securities in a securities transaction, that is, the instruction to deliver or receive securities, involving the payment of an amount of money or not.
 /// </summary>
 [IsoId("_dqcAheLxEeWOD7aAy2fAcA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SettlementInformation17
     /// Choice between formats for the quantity of security.
     /// </summary>
     [IsoId("_dzhEAeLxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesQtyTp")]
     #endif
+    [IsoXmlTag("SctiesQtyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementUnitType3Choice_? SecuritiesQuantityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record SettlementInformation17
     /// Specifies when the contract (i.e. MBS/TBA) will settle.
     /// </summary>
     [IsoId("_dzhEA-LxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Settlement Month")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctSttlmMnth")]
     #endif
+    [IsoXmlTag("CtrctSttlmMnth")]
+    [IsoSimpleType(IsoSimpleType.ISOYearMonth)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? ContractSettlementMonth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record SettlementInformation17
     /// Indicates the minimum quantity (unit or nominal) of a security.
     /// </summary>
     [IsoId("_dzhEC-LxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Denomination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinDnmtn")]
     #endif
+    [IsoXmlTag("MinDnmtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record SettlementInformation17
     /// Minimum multiple quantity (unit or nominal) of securities.
     /// </summary>
     [IsoId("_dzhEDeLxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Multiple Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinMltplQty")]
     #endif
+    [IsoXmlTag("MinMltplQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumMultipleQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record SettlementInformation17
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
     [IsoId("_dzhED-LxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deviating Settlement Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DevtgSttlmUnit")]
     #endif
+    [IsoXmlTag("DevtgSttlmUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? DeviatingSettlementUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

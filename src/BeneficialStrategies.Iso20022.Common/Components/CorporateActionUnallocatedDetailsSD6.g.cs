@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding the corporate action event.
 /// </summary>
 [IsoId("_QeZTYb-8Eeeb2ZBoAlSG1Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Unallocated Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionUnallocatedDetailsSD6
     /// Type of Participants positions distribution balance concerned in unallocated payment.
     /// </summary>
     [IsoId("_QvgRgb-8Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Distribution Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdDstrbtnBal")]
     #endif
+    [IsoXmlTag("UallctdDstrbtnBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedBalanceSD3Choice_? UnallocatedDistributionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionUnallocatedDetailsSD6
     /// Type of Participants positions redemption balance concerned in unallocated payment.
     /// </summary>
     [IsoId("_QvgRib-8Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Redemption Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdRedBal")]
     #endif
+    [IsoXmlTag("UallctdRedBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedBalanceSD3? UnallocatedRedemptionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionUnallocatedDetailsSD6
     /// Type of participants positions reorganisation balance concerned in unallocated payment.
     /// </summary>
     [IsoId("_QvgRi7-8Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Reorganisation Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdReorgBal")]
     #endif
+    [IsoXmlTag("UallctdReorgBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedBalanceSD4? UnallocatedReorganisationBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionUnallocatedDetailsSD6
     /// Details of the securities transactions concerned in unallocated payment.
     /// </summary>
     [IsoId("_QvgRjb-8Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Securities Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdSctiesTxDtls")]
     #endif
+    [IsoXmlTag("UallctdSctiesTxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedSecuritiesTransactionDetailsSD7? UnallocatedSecuritiesTransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionUnallocatedDetailsSD6
     /// Details of the cash transactions concerned in unallocated payment.
     /// </summary>
     [IsoId("_QvgRlb-8Eeeb2ZBoAlSG1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Cash Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdCshTxDtls")]
     #endif
+    [IsoXmlTag("UallctdCshTxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedCashTransactionDetailsSD6? UnallocatedCashTransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

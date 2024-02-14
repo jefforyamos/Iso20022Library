@@ -21,7 +21,7 @@ public enum ChequePartyRoleCode
 {
     /// <summary>
     /// Party that receives an amount of money as specified in the cheque.
-    /// Encoded/decoded by serializers as "PAYE".
+    /// Encoded/decoded by serializers as &quot;PAYE&quot;.
     /// </summary>
     [EnumMember(Value = "PAYE")]
     [IsoId("_hn9FECmxEeutWNGMV2XKIQ")]
@@ -30,7 +30,7 @@ public enum ChequePartyRoleCode
     
     /// <summary>
     /// Specifies the agent servicing the account of the cheque payer.
-    /// Encoded/decoded by serializers as "DWRA".
+    /// Encoded/decoded by serializers as &quot;DWRA&quot;.
     /// </summary>
     [EnumMember(Value = "DWRA")]
     [IsoId("_htiIoCmxEeutWNGMV2XKIQ")]
@@ -39,7 +39,7 @@ public enum ChequePartyRoleCode
     
     /// <summary>
     /// Specifies the agent on which a cheque is drawn, that is the financial institution that services the account of the payee that issued the cheque.
-    /// Encoded/decoded by serializers as "DWEA".
+    /// Encoded/decoded by serializers as &quot;DWEA&quot;.
     /// </summary>
     [EnumMember(Value = "DWEA")]
     [IsoId("_hxVqkCmxEeutWNGMV2XKIQ")]
@@ -48,7 +48,7 @@ public enum ChequePartyRoleCode
     
     /// <summary>
     /// Party that issues a cheque ordering the drawee agent to pay a specific amount, upon demand, to the payee.
-    /// Encoded/decoded by serializers as "PAYR".
+    /// Encoded/decoded by serializers as &quot;PAYR&quot;.
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_j2rmcCmxEeutWNGMV2XKIQ")]

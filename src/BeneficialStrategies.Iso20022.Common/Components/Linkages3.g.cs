@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to a linked transaction.
 /// </summary>
 [IsoId("_QtogFdp-Ed-ak6NoX_4Aeg_-113359788")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Linkages")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Linkages3
     /// When the transaction is to be executed relative to a linked transaction.
     /// </summary>
     [IsoId("_QtogFtp-Ed-ak6NoX_4Aeg_-113359762")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgPos")]
     #endif
+    [IsoXmlTag("PrcgPos")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition2Choice_? ProcessingPosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record Linkages3
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
     [IsoId("_QtogF9p-Ed-ak6NoX_4Aeg_-113359746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgNb")]
     #endif
+    [IsoXmlTag("MsgNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentNumber1Choice_? MessageNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +83,15 @@ public partial record Linkages3
     /// Reference to the linked transaction.
     /// </summary>
     [IsoId("_QtogGNp-Ed-ak6NoX_4Aeg_-113359686")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References6Choice_ Reference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References6Choice_ Reference { get; init; } 
+    public required References6Choice_ Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References6Choice_ Reference { get; init; } 
     #else

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnderlyingTransaction3Choice.Interbank))]
     [KnownType(typeof(UnderlyingTransaction3Choice.StatementEntry))]
     [IsoId("_Xq7UAWXpEeap-P22vGV91g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Transaction 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

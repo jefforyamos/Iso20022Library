@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The ReversalInitiation message is sent by an acquirer, an originator or an agent to an issuer to request or advise of the reversal of an authorisation by the issuer. A reversal is a partial or complete nullification of the effects of a previous authorisation, financial presentment or financial accumulation presentment that cannot be processed as instructed (for example, is undeliverable and cancelled or the acquirer timed out waiting for a response).")]
 [IsoId("_ctEcNVT_EeetiruPyDPo0Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reversal Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ReversalInitiationV02 : IOuterRecord<ReversalInitiationV02
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_ctEcNlT_EeetiruPyDPo0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header42 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header42 Header { get; init; } 
+    public required Header42 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header42 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ReversalInitiationV02 : IOuterRecord<ReversalInitiationV02
     /// Information related to the reversal of an authorisation or financial transaction.
     /// </summary>
     [IsoId("_ctEcOVT_EeetiruPyDPo0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReversalInitiation1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReversalInitiation1 Body { get; init; } 
+    public required ReversalInitiation1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReversalInitiation1 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ReversalInitiationV02 : IOuterRecord<ReversalInitiationV02
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_ctEcN1T_EeetiruPyDPo0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ReversalInitiationV02 : IOuterRecord<ReversalInitiationV02
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReversalInitiationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReversalInitiationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReversalInitiationV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ReversalInitiationV02 : IOuterRecord<ReversalInitiationV02
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalInitiationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReversalInitiationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReversalInitiationV02Document : IOuterDocument<ReversalInitiationV02>
@@ -161,7 +156,7 @@ public partial record ReversalInitiationV02Document : IOuterDocument<ReversalIni
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReversalInitiationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReversalInitiationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReversalInitiationV02 Message { get; init; }

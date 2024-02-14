@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Local time offset to UTC (Coordinated Universal Time).
 /// </summary>
 [IsoId("_4KU98GpuEeSMqvBfBY1c9A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Local Date Time")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record LocalDateTime1
     /// Date time of the beginning of the period (inclusive).
     /// </summary>
     [IsoId("_-wojkGpuEeSMqvBfBY1c9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrDtTm")]
     #endif
+    [IsoXmlTag("FrDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? FromDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,12 @@ public partial record LocalDateTime1
     /// Date time of the end of the period (exclusive).
     /// </summary>
     [IsoId("_GdqgsGpvEeSMqvBfBY1c9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ToDtTm")]
     #endif
+    [IsoXmlTag("ToDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ToDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +85,16 @@ public partial record LocalDateTime1
     /// UTC offset in minutes, of the local time during the period. For instance, 120 for Central European Time, -720 for Central Standard Time (North America).
     /// </summary>
     [IsoId("_LJO38GpvEeSMqvBfBY1c9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UTC Offset")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UTCOffset")]
     #endif
+    [IsoXmlTag("UTCOffset")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber UTCOffset { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 UTCOffset { get; init; } 
+    public required System.UInt64 UTCOffset { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 UTCOffset { get; init; } 
     #else

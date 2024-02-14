@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Outcome of the authorisation, and actions to perform.
 /// </summary>
 [IsoId("_uPzsgWkkEeSTIuB9A-QJ6g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Authorisation Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record AuthorisationResult4
     /// Type of party that has delivered or declined the card payment authorisation (the party is not identified).
     /// </summary>
     [IsoId("_uc34IWkkEeSTIuB9A-QJ6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnNtty")]
     #endif
+    [IsoXmlTag("AuthstnNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification70? AuthorisationEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record AuthorisationResult4
     /// Response to an authorisation request.
     /// </summary>
     [IsoId("_uc34I2kkEeSTIuB9A-QJ6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response To Authorisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnToAuthstn")]
     #endif
+    [IsoXmlTag("RspnToAuthstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType1 ResponseToAuthorisation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType1 ResponseToAuthorisation { get; init; } 
+    public required ResponseType1 ResponseToAuthorisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType1 ResponseToAuthorisation { get; init; } 
     #else
@@ -89,15 +85,13 @@ public partial record AuthorisationResult4
     /// Value assigned by the authorising party.
     /// </summary>
     [IsoId("_uc34JWkkEeSTIuB9A-QJ6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AuthstnCd")]
+    [IsoSimpleType(IsoSimpleType.Min6Max8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 6)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin6Max8Text? AuthorisationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,12 @@ public partial record AuthorisationResult4
     /// Indicates whether the acquirer requires a further exchange completion after the completion of the transaction.
     /// </summary>
     [IsoId("_uc34J2kkEeSTIuB9A-QJ6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Completion Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpltnReqrd")]
     #endif
+    [IsoXmlTag("CmpltnReqrd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CompletionRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record AuthorisationResult4
     /// Instructs the point of interaction (POI) how to contact the host to initiate the maintenance of the terminal.
     /// </summary>
     [IsoId("_uc34KWkkEeSTIuB9A-QJ6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSTrggr")]
     #endif
+    [IsoXmlTag("TMSTrggr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TMSTrigger1? TMSTrigger { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

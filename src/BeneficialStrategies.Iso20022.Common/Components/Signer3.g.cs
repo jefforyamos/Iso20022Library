@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity who has signed the data and its digital signature.
 /// </summary>
 [IsoId("_krtoAWmQEeS7iYydEtv3Ug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Signer")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,12 @@ public partial record Signer3
     /// Version of the Cryptographic Message Syntax (CMS) data structure.
     /// </summary>
     [IsoId("_k49Z0WmQEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,12 +69,11 @@ public partial record Signer3
     /// Identification of the entity who has signed the data.
     /// </summary>
     [IsoId("_k49Z02mQEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgnrId")]
     #endif
+    [IsoXmlTag("SgnrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Recipient5Choice_? SignerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,16 +86,15 @@ public partial record Signer3
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>
     [IsoId("_k49Z1WmQEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification16 DigestAlgorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AlgorithmIdentification16 DigestAlgorithm { get; init; } 
+    public required AlgorithmIdentification16 DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AlgorithmIdentification16 DigestAlgorithm { get; init; } 
     #else
@@ -109,16 +105,15 @@ public partial record Signer3
     /// Cryptographic digital signature algorithm.
     /// </summary>
     [IsoId("_k49Z12mQEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgntrAlgo")]
     #endif
+    [IsoXmlTag("SgntrAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification17 SignatureAlgorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AlgorithmIdentification17 SignatureAlgorithm { get; init; } 
+    public required AlgorithmIdentification17 SignatureAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AlgorithmIdentification17 SignatureAlgorithm { get; init; } 
     #else
@@ -129,16 +124,16 @@ public partial record Signer3
     /// Digital signature.
     /// </summary>
     [IsoId("_k49Z2WmQEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
+    [IsoSimpleType(IsoSimpleType.Max3000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3000Binary Signature { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Signature { get; init; } 
+    public required System.Byte[] Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Signature { get; init; } 
     #else

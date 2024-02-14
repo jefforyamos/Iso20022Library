@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choic
     /// Detailed statistics per counterparty.
     /// </summary>
     [IsoId("_cFghI1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choic
         /// Reference date for statistics collection.
         /// </summary>
         [IsoId("_cHFOcVovEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reference Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RefDt")]
         #endif
+        [IsoXmlTag("RefDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate ReferenceDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly ReferenceDate { get; init; } 
+        public required System.DateOnly ReferenceDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly ReferenceDate { get; init; } 
         #else
@@ -77,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choic
         /// Different categories of statuses for a derivative.
         /// </summary>
         [IsoId("_cHFOc1ovEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reconciliation Categories")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RcncltnCtgrs")]
         #endif
+        [IsoXmlTag("RcncltnCtgrs")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
+        public required ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
         #else
@@ -97,12 +94,12 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choic
         /// Number of all reports per status on derivatives submitted for reconciliation.
         /// </summary>
         [IsoId("_cHFOdVovEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Total Number Of Transactions")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TtlNbOfTxs")]
         #endif
+        [IsoXmlTag("TtlNbOfTxs")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoNumber? TotalNumberOfTransactions { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +112,11 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choic
         /// Details of derivatives submitted for reconciliation per counterparty pair.
         /// </summary>
         [IsoId("_cHFOd1ovEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxDtls")]
         #endif
+        [IsoXmlTag("TxDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReconciliationCounterpartyPairStatistics6? TransactionDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

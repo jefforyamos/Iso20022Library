@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the securities index request operations for national competent authorities.
 /// </summary>
 [IsoId("_00E_kL3kEeWvRsMSLyTf-A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Index Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,15 +51,13 @@ public partial record SecuritiesIndexReport1
     /// This identification will be used in the status advice sent back.
     /// </summary>
     [IsoId("_M8By8b7VEeW_FPJ0tzugkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,12 +70,11 @@ public partial record SecuritiesIndexReport1
     /// Country code of the entity that wishes to express an interest in receiving transaction reports for the requested indexes.
     /// </summary>
     [IsoId("_K91sAL3lEeWvRsMSLyTf-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requesting Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RqstngNtty")]
     #endif
+    [IsoXmlTag("RqstngNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? RequestingEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +87,15 @@ public partial record SecuritiesIndexReport1
     /// Details the index that is being requested.
     /// </summary>
     [IsoId("_5eLhwL3lEeWvRsMSLyTf-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Indx")]
     #endif
+    [IsoXmlTag("Indx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument46Choice_ Index { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument46Choice_ Index { get; init; } 
+    public required FinancialInstrument46Choice_ Index { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument46Choice_ Index { get; init; } 
     #else
@@ -112,12 +106,11 @@ public partial record SecuritiesIndexReport1
     /// Date when the national competent authority last expressed its interest in this index.
     /// </summary>
     [IsoId("_mAsbEr31EeWvRsMSLyTf-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyPrd")]
     #endif
+    [IsoXmlTag("VldtyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ValidityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The RedemptionOrder message is sent by an instructing party, for example, an investment manager or its authorised representative, to the executing party, for example, a transfer agent, to instruct the redemption of one or more financial instruments for one investment fund account.|Usage|The RedemptionOrder message is used to instruct single redemption orders, that is, a message containing one order for one financial instrument and related to one investment account. The RedemptionOrder message may also be used for multiple orders, that is, a message containing several orders related to the same investment account for different financial instruments.|For a single redemption order, the RedemptionOrder message, not the RedemptionBulkOrder message, must be used.|If there are redemption orders for the same financial instrument but for different accounts that are to be communicated in a single message, then the RedemptionBulkOrder message must be used.")]
 [IsoId("_Aab6GzbLEead9bDRE_1DAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Redemption Order V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,Redem
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_Aab6IzbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -101,12 +98,11 @@ public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,Redem
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_Aab6JTbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference9? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +115,11 @@ public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,Redem
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_Aab6JzbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference8? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,16 +132,15 @@ public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,Redem
     /// General information related to the orders.
     /// </summary>
     [IsoId("_Aab6KTbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multiple Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MltplOrdrDtls")]
     #endif
+    [IsoXmlTag("MltplOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RedemptionMultipleOrder6 MultipleOrderDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RedemptionMultipleOrder6 MultipleOrderDetails { get; init; } 
+    public required RedemptionMultipleOrder6 MultipleOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RedemptionMultipleOrder6 MultipleOrderDetails { get; init; } 
     #else
@@ -157,12 +151,11 @@ public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,Redem
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_Aab6LTbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation4? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +168,11 @@ public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,Redem
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Aab6LzbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,7 +185,7 @@ public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,Redem
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RedemptionOrderV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RedemptionOrderV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RedemptionOrderV04Document ToDocument()
     {
@@ -203,7 +195,7 @@ public partial record RedemptionOrderV04 : IOuterRecord<RedemptionOrderV04,Redem
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionOrderV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RedemptionOrderV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RedemptionOrderV04Document : IOuterDocument<RedemptionOrderV04>
@@ -220,7 +212,7 @@ public partial record RedemptionOrderV04Document : IOuterDocument<RedemptionOrde
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RedemptionOrderV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RedemptionOrderV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RedemptionOrderV04 Message { get; init; }

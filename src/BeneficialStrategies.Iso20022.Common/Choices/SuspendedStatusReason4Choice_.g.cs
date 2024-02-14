@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SuspendedStatusReason4Choice.NoSpecifiedReason))]
     [KnownType(typeof(SuspendedStatusReason4Choice.ReasonDetails))]
     [IsoId("_Z5vRgUHlEea8I67lh6qdSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspended Status Reason 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

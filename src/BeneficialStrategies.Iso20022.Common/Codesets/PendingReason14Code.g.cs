@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum PendingReason14Code
 {
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_C15G4YlsEeavwKddCbm3hg")]
@@ -30,7 +30,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_C15G44lsEeavwKddCbm3hg")]
@@ -39,7 +39,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Pending receipt of beneficiary owner details.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_C15G5YlsEeavwKddCbm3hg")]
@@ -48,7 +48,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Awaiting receipt of adequate certification.
-    /// Encoded/decoded by serializers as "MCER".
+    /// Encoded/decoded by serializers as &quot;MCER&quot;.
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_C15G54lsEeavwKddCbm3hg")]
@@ -57,7 +57,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "MONY".
+    /// Encoded/decoded by serializers as &quot;MONY&quot;.
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_C15G6YlsEeavwKddCbm3hg")]
@@ -66,7 +66,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_C15G64lsEeavwKddCbm3hg")]
@@ -75,7 +75,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_C15G7YlsEeavwKddCbm3hg")]
@@ -84,7 +84,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_C15G74lsEeavwKddCbm3hg")]
@@ -93,7 +93,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// The instruction is pending receipt of securities, for example, from a purchase or loan.
-    /// Encoded/decoded by serializers as "PENR".
+    /// Encoded/decoded by serializers as &quot;PENR&quot;.
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_C15G8YlsEeavwKddCbm3hg")]
@@ -102,7 +102,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Certificate number error.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_C15G84lsEeavwKddCbm3hg")]
@@ -111,7 +111,7 @@ public enum PendingReason14Code
     
     /// <summary>
     /// Unrecognised or invalid instructed cash amount.
-    /// Encoded/decoded by serializers as "DQCS".
+    /// Encoded/decoded by serializers as &quot;DQCS&quot;.
     /// </summary>
     [EnumMember(Value = "DQCS")]
     [IsoId("_HIFU0YlsEeavwKddCbm3hg")]

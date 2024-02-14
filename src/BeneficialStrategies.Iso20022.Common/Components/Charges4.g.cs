@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides further details on the charges related to the payment transaction.
 /// </summary>
 [IsoId("_eoALASHCEeK_0OuuIoS2mw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charges")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Charges4
     /// Total of all charges and taxes applied to the entry.
     /// </summary>
     [IsoId("_e8RK1SHCEeK_0OuuIoS2mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Charges And Tax Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlChrgsAndTaxAmt")]
     #endif
+    [IsoXmlTag("TtlChrgsAndTaxAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalChargesAndTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record Charges4
     /// Provides details of the individual charges record.
     /// </summary>
     [IsoId("_e8RK2SHCEeK_0OuuIoS2mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcrd")]
     #endif
+    [IsoXmlTag("Rcrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargesRecord2? Record { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

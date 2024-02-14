@@ -16,8 +16,8 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.ExternalSchema;
 
 /// <summary>
-/// Specifies a data structure that allows the inclusion of any valid XML structure, for example, through an XML Schema. The property namespace is set to 'any'.
-/// The processContents value is 'strict' which according to the above specification and to ISO 20022: 2013 means that the application must understand and validate the content.
+/// Specifies a data structure that allows the inclusion of any valid XML structure, for example, through an XML Schema. The property namespace is set to &apos;any&apos;.
+/// The processContents value is &apos;strict&apos; which according to the above specification and to ISO 20022: 2013 means that the application must understand and validate the content.
 /// </summary>
 public partial record StrictPayload
 {

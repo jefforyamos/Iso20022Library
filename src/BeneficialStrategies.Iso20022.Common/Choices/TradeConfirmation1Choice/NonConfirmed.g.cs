@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation1Choice
     /// Indicates that contract was not confirmed.
     /// </summary>
     [IsoId("_SDySEA28EeWmAKKPnqYEVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Confirmed")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation1Choice
         /// Specifies that the contract remains unconfirmed.
         /// </summary>
         [IsoId("_8sHJ5w27EeWmAKKPnqYEVQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TradeConfirmationType2Code Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TradeConfirmationType2Code Type { get; init; } 
+        public required TradeConfirmationType2Code Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TradeConfirmationType2Code Type { get; init; } 
         #else

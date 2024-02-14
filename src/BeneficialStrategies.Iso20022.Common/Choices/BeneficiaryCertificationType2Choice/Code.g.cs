@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficiaryCertificationType2Cho
     /// Standard code to specify the type of certification required.
     /// </summary>
     [IsoId("_QzTDNtp-Ed-ak6NoX_4Aeg_-1271232209")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficiaryCertificationType2Cho
         /// Specifies the type of certification required.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BeneficiaryCertificationType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BeneficiaryCertificationType3Code Value { get; init; } 
+        public required BeneficiaryCertificationType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BeneficiaryCertificationType3Code Value { get; init; } 
         #else

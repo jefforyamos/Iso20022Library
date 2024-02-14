@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies linkage information of a corporate action message.
 /// </summary>
 [IsoId("_RjH9pNp-Ed-ak6NoX_4Aeg_866442593")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Linked Corporate Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record LinkedCorporateAction1
     /// The function of the notification e.g. new notification.
     /// </summary>
     [IsoId("_RjH9pdp-Ed-ak6NoX_4Aeg_-1179382200")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnTp")]
     #endif
+    [IsoXmlTag("NtfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionNotificationType1Code NotificationType { get; init; } 
+    public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionNotificationType1Code NotificationType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record LinkedCorporateAction1
     /// The identification of the linked notification advice.
     /// </summary>
     [IsoId("_RjH9ptp-Ed-ak6NoX_4Aeg_883990379")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Agent CA Notification Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdAgtCANtfctnAdvcId")]
     #endif
+    [IsoXmlTag("LkdAgtCANtfctnAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification8? LinkedAgentCANotificationAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record LinkedCorporateAction1
     /// Specifies when the instruction is to be executed relative to a linked instruction.
     /// </summary>
     [IsoId("_RjRuoNp-Ed-ak6NoX_4Aeg_907077517")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkage Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkgTp")]
     #endif
+    [IsoXmlTag("LkgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition2FormatChoice_? LinkageType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +102,13 @@ public partial record LinkedCorporateAction1
     /// Reference given to the linked event by the CA event issuer (agent).
     /// </summary>
     [IsoId("_RjRuodp-Ed-ak6NoX_4Aeg_-1520860145")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Issuer Corporate Action Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdIssrCorpActnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LkdIssrCorpActnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LinkedIssuerCorporateActionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,15 +121,13 @@ public partial record LinkedCorporateAction1
     /// Reference assigned by the CSD to the linked coporate avent.
     /// </summary>
     [IsoId("_RjRuotp-Ed-ak6NoX_4Aeg_-1520860114")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Corporate Action Processing Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdCorpActnPrcgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LkdCorpActnPrcgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LinkedCorporateActionProcessingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

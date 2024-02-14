@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Status1Choice.SettlementStatus))]
     [KnownType(typeof(Status1Choice.SettlementConditionModificationStatus))]
     [IsoId("_UU5hs9p-Ed-ak6NoX_4Aeg_1668372789")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

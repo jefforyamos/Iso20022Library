@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details about the schedule change.
 /// </summary>
 [IsoId("_bMr9gBkcEeapYKOltfjd7A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Schedule Change Entry")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ScheduleChangeEntry1
     /// Type of the scheduled event.
     /// </summary>
     [IsoId("_MiT-UBkdEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Schedule Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchdlEvtTp")]
     #endif
+    [IsoXmlTag("SchdlEvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemEventType2Choice_ ScheduleEventType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemEventType2Choice_ ScheduleEventType { get; init; } 
+    public required SystemEventType2Choice_ ScheduleEventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemEventType2Choice_ ScheduleEventType { get; init; } 
     #else
@@ -72,15 +69,12 @@ public partial record ScheduleChangeEntry1
     /// Identificaiton of the scheduled event.
     /// </summary>
     [IsoId("_zvnEQBkdEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Schedule Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchdlEvtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SchdlEvtId")]
+    [IsoSimpleType(IsoSimpleType.Exact1NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact1NumericText? ScheduleEventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,15 +87,13 @@ public partial record ScheduleChangeEntry1
     /// New frequency of the scheduled event.
     /// </summary>
     [IsoId("_FkCvMBkeEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtFrqcy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EvtFrqcy")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? EventFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,15 +106,13 @@ public partial record ScheduleChangeEntry1
     /// Frequency of the scheduled event before change.
     /// </summary>
     [IsoId("_Q3lgABkeEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Previous Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtPrvsFrqcy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EvtPrvsFrqcy")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? EventPreviousFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,12 +125,12 @@ public partial record ScheduleChangeEntry1
     /// New scheduled time of the event.
     /// </summary>
     [IsoId("_iFbFABkeEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTm")]
     #endif
+    [IsoXmlTag("EvtTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? EventTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,12 +143,12 @@ public partial record ScheduleChangeEntry1
     /// Scheduled time of the event before change.
     /// </summary>
     [IsoId("_v_fMIBkeEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Previous Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtPrvsTm")]
     #endif
+    [IsoXmlTag("EvtPrvsTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? EventPreviousTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,15 +161,12 @@ public partial record ScheduleChangeEntry1
     /// Minimum duration of event.
     /// </summary>
     [IsoId("_FBeJICHbEea-Xbqk8qZGYQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Duration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtDrtn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("EvtDrtn")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? EventDuration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,15 +179,12 @@ public partial record ScheduleChangeEntry1
     /// Set earlier duration of event.
     /// </summary>
     [IsoId("_xYTUsCHbEea-Xbqk8qZGYQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Previous Duration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtPrvsDrtn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("EvtPrvsDrtn")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? EventPreviousDuration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -213,19 +197,17 @@ public partial record ScheduleChangeEntry1
     /// Type of schedule modification (i.e. event cancelled, new event).
     /// </summary>
     [IsoId("_GXOqMBkfEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Change Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChngTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ChngTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ChangeType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ChangeType { get; init; } 
+    public required System.String ChangeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ChangeType { get; init; } 
     #else

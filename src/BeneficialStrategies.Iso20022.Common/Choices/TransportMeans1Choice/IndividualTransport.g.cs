@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
     [IsoId("_U7oxldp-Ed-ak6NoX_4Aeg_1658534673")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Transport")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice
         /// Moving of goods or people from one place to another by vehicle.
         /// </summary>
         [IsoId("_U7fnoNp-Ed-ak6NoX_4Aeg_2015935953")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transport By Air")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrnsprtByAir")]
         #endif
+        [IsoXmlTag("TrnsprtByAir")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TransportByAir1? TransportByAir { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice
         /// Information related for the transportation of goods by sea.
         /// </summary>
         [IsoId("_U7fnodp-Ed-ak6NoX_4Aeg_2030713576")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transport By Sea")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrnsprtBySea")]
         #endif
+        [IsoXmlTag("TrnsprtBySea")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TransportBySea1? TransportBySea { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice
         /// Information related to the transportation of goods by road.
         /// </summary>
         [IsoId("_U7fnotp-Ed-ak6NoX_4Aeg_2027019443")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transport By Road")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrnsprtByRoad")]
         #endif
+        [IsoXmlTag("TrnsprtByRoad")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TransportByRoad1? TransportByRoad { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +98,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice
         /// Information related to the transportation of goods by rail.
         /// </summary>
         [IsoId("_U7fno9p-Ed-ak6NoX_4Aeg_2035329660")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transport By Rail")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrnsprtByRail")]
         #endif
+        [IsoXmlTag("TrnsprtByRail")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TransportByRail1? TransportByRail { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NamePrefix2Choice
     /// Prefix for name.
     /// </summary>
     [IsoId("_M0Pz0A2fEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name Prefix")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.NamePrefix2Choice
         /// Specifies the terms used to formally address a person.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NmPrfx")]
         #endif
+        [IsoXmlTag("NmPrfx")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NamePrefix1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NamePrefix1Code Value { get; init; } 
+        public required NamePrefix1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NamePrefix1Code Value { get; init; } 
         #else

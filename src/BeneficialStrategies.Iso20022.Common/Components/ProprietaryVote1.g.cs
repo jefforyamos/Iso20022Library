@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Proprietary vote type and quantity voted.
 /// </summary>
 [IsoId("_v_P28K-XEemJ1NnLPsTFaw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Vote")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ProprietaryVote1
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
     [IsoId("_A8QxsK-YEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification30 Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification30 Code { get; init; } 
+    public required GenericIdentification30 Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification30 Code { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ProprietaryVote1
     /// Quantity of securities voted.
     /// </summary>
     [IsoId("_EKdzEK-YEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityOrCode1Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityOrCode1Choice_ Quantity { get; init; } 
+    public required QuantityOrCode1Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityOrCode1Choice_ Quantity { get; init; } 
     #else

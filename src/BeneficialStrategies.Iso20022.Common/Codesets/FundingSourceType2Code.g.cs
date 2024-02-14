@@ -21,7 +21,7 @@ public enum FundingSourceType2Code
 {
     /// <summary>
     /// Loyalty points converted into cash
-    /// Encoded/decoded by serializers as "LOYL".
+    /// Encoded/decoded by serializers as &quot;LOYL&quot;.
     /// </summary>
     [EnumMember(Value = "LOYL")]
     [IsoId("_4MzzIdwoEeeiWo5KG3eipw")]
@@ -30,7 +30,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Other type of account defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_46oicdwoEeeiWo5KG3eipw")]
@@ -39,7 +39,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Other type of account defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_5EAg4dwoEeeiWo5KG3eipw")]
@@ -48,7 +48,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Savings account.
-    /// Encoded/decoded by serializers as "SVNG".
+    /// Encoded/decoded by serializers as &quot;SVNG&quot;.
     /// </summary>
     [EnumMember(Value = "SVNG")]
     [IsoId("_6QVKEdwoEeeiWo5KG3eipw")]
@@ -57,7 +57,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Universal account.
-    /// Encoded/decoded by serializers as "UVRL".
+    /// Encoded/decoded by serializers as &quot;UVRL&quot;.
     /// </summary>
     [EnumMember(Value = "UVRL")]
     [IsoId("_7OOVsdwoEeeiWo5KG3eipw")]
@@ -66,7 +66,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Cash as a source type  to perform the transaction.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_9LyOkdwoEeeiWo5KG3eipw")]
@@ -75,7 +75,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Credit card account.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_-ayYUdwoEeeiWo5KG3eipw")]
@@ -84,7 +84,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Debit card account.
-    /// Encoded/decoded by serializers as "CDBT".
+    /// Encoded/decoded by serializers as &quot;CDBT&quot;.
     /// </summary>
     [EnumMember(Value = "CDBT")]
     [IsoId("__Y0t4dwoEeeiWo5KG3eipw")]
@@ -93,7 +93,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Electronic purse card account.
-    /// Encoded/decoded by serializers as "EPRS".
+    /// Encoded/decoded by serializers as &quot;EPRS&quot;.
     /// </summary>
     [EnumMember(Value = "EPRS")]
     [IsoId("__r3lsdwoEeeiWo5KG3eipw")]
@@ -102,7 +102,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Account for debiting funds.
-    /// Encoded/decoded by serializers as "DBAC".
+    /// Encoded/decoded by serializers as &quot;DBAC&quot;.
     /// </summary>
     [EnumMember(Value = "DBAC")]
     [IsoId("_Av_8MdwpEeeiWo5KG3eipw")]
@@ -111,7 +111,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Current account.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_BI_rAdwpEeeiWo5KG3eipw")]
@@ -120,7 +120,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Cheque
-    /// Encoded/decoded by serializers as "CHQE".
+    /// Encoded/decoded by serializers as &quot;CHQE&quot;.
     /// </summary>
     [EnumMember(Value = "CHQE")]
     [IsoId("_BviGkdwpEeeiWo5KG3eipw")]
@@ -129,7 +129,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Pre-paid account.
-    /// Encoded/decoded by serializers as "PRPD".
+    /// Encoded/decoded by serializers as &quot;PRPD&quot;.
     /// </summary>
     [EnumMember(Value = "PRPD")]
     [IsoId("_DMhB8dwpEeeiWo5KG3eipw")]
@@ -138,7 +138,7 @@ public enum FundingSourceType2Code
     
     /// <summary>
     /// Line of credit account.
-    /// Encoded/decoded by serializers as "LCDT".
+    /// Encoded/decoded by serializers as &quot;LCDT&quot;.
     /// </summary>
     [EnumMember(Value = "LCDT")]
     [IsoId("_7u4G4eFmEeeA0cKTZTRL5g")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RiskLevel2Choice.Code))]
     [KnownType(typeof(RiskLevel2Choice.Proprietary))]
     [IsoId("_BQa7kSGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Level 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

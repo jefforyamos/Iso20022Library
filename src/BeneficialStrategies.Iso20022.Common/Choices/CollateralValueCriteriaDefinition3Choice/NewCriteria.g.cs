@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueCriteriaDefinitio
     /// Explicitly defines the query criteria.
     /// </summary>
     [IsoId("__xM6gzpsEemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Criteria")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueCriteriaDefinitio
         /// Name of the query defined by the search criteria and return criteria.
         /// </summary>
         [IsoId("__7yZ4TpsEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Query Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="QryNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("QryNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? QueryName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueCriteriaDefinitio
         /// Defines the criteria to be used to extract the account information.
         /// </summary>
         [IsoId("__7yZ4zpsEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Search Criteria")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SchCrit")]
         #endif
+        [IsoXmlTag("SchCrit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralValueSearchCriteria3? SearchCriteria { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueCriteriaDefinitio
         /// Defines the expected account report.
         /// </summary>
         [IsoId("__7yZ5TpsEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Return Criteria")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RtrCrit")]
         #endif
+        [IsoXmlTag("RtrCrit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralValueReturnCriteria1? ReturnCriteria { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

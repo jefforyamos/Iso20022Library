@@ -21,7 +21,7 @@ public enum ReplacementProcessingStatusCode
 {
     /// <summary>
     /// Replacement request cannot be executed.
-    /// Encoded/decoded by serializers as "DEND".
+    /// Encoded/decoded by serializers as &quot;DEND&quot;.
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_ZwirAdp-Ed-ak6NoX_4Aeg_1109777748")]
@@ -30,7 +30,7 @@ public enum ReplacementProcessingStatusCode
     
     /// <summary>
     /// Replacement request previously received from you has been received at the stock exchange.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_ZwirAtp-Ed-ak6NoX_4Aeg_1441321726")]
@@ -39,7 +39,7 @@ public enum ReplacementProcessingStatusCode
     
     /// <summary>
     /// Replacement request previously received from you has been received at intermediary (if not stock exchange).
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_ZwirA9p-Ed-ak6NoX_4Aeg_1498577579")]
@@ -48,7 +48,7 @@ public enum ReplacementProcessingStatusCode
     
     /// <summary>
     /// Replacement request has been accepted for further processing by the account servicer (technical receipt).
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZwirBNp-Ed-ak6NoX_4Aeg_1579850029")]
@@ -57,7 +57,7 @@ public enum ReplacementProcessingStatusCode
     
     /// <summary>
     /// Order is partially filled, replacement processing accepted for the remaining.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_ZwirBdp-Ed-ak6NoX_4Aeg_1612172256")]
@@ -66,7 +66,7 @@ public enum ReplacementProcessingStatusCode
     
     /// <summary>
     /// Replacement request is pending.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZwirBtp-Ed-ak6NoX_4Aeg_1987122153")]
@@ -75,7 +75,7 @@ public enum ReplacementProcessingStatusCode
     
     /// <summary>
     /// Replacement request has been rejected for further processing.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_ZwirB9p-Ed-ak6NoX_4Aeg_-2050182268")]
@@ -84,7 +84,7 @@ public enum ReplacementProcessingStatusCode
     
     /// <summary>
     /// Replacement request has been completed.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_ZwirCNp-Ed-ak6NoX_4Aeg_-1979995218")]
@@ -93,7 +93,7 @@ public enum ReplacementProcessingStatusCode
     
     /// <summary>
     /// Replacement request previously received from you is in repair.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_ZwirCdp-Ed-ak6NoX_4Aeg_-1937515093")]

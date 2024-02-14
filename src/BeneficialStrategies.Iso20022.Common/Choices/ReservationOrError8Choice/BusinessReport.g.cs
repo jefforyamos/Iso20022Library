@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError8Choice
     /// Reports on reservations.
     /// </summary>
     [IsoId("_DXEK4W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError8Choice
         /// Report is given for a current reservation.
         /// </summary>
         [IsoId("_DgmhY24-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Current Reservation")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CurRsvatn")]
         #endif
+        [IsoXmlTag("CurRsvatn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReservationReport6? CurrentReservation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError8Choice
         /// Report is given for a default reservation.
         /// </summary>
         [IsoId("_DgmhZW4-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Default Reservation")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DfltRsvatn")]
         #endif
+        [IsoXmlTag("DfltRsvatn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReservationReport6? DefaultReservation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

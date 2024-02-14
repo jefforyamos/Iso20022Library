@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of creditor reference.
 /// </summary>
 [IsoId("_T4ItMtp-Ed-ak6NoX_4Aeg_604337645")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Reference Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CreditorReferenceType2
     /// Coded or proprietary format creditor reference type.
     /// </summary>
     [IsoId("_T4ItM9p-Ed-ak6NoX_4Aeg_710539957")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code Or Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdOrPrtry")]
     #endif
+    [IsoXmlTag("CdOrPrtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditorReferenceType1Choice_ CodeOrProprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditorReferenceType1Choice_ CodeOrProprietary { get; init; } 
+    public required CreditorReferenceType1Choice_ CodeOrProprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditorReferenceType1Choice_ CodeOrProprietary { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record CreditorReferenceType2
     /// Entity that assigns the credit reference type.
     /// </summary>
     [IsoId("_T4ItNNp-Ed-ak6NoX_4Aeg_604337984")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

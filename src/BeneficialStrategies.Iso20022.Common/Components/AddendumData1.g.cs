@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Component contains data structures applicable to certain merchant verticals that require industry-specific data within transaction messages. 
 /// </summary>
 [IsoId("_DnFa09kkEeiKYdl5SlduIA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Addendum Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AddendumData1
     /// Specifies the type of identifier present in the message.
     /// </summary>
     [IsoId("_7-q0oPJNEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purchase Identifier Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PurchsIdrTp")]
     #endif
+    [IsoXmlTag("PurchsIdrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PurchaseIdentifierType1Code? PurchaseIdentifierType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record AddendumData1
     /// Used when Purchase Identifier Type is Other National or Other Private. 
     /// </summary>
     [IsoId("_r448gPJQEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Purchase Identifier Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPurchsIdrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrPurchsIdrTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherPurchaseIdentifierType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record AddendumData1
     /// Contains a value identifying Invoice Data or Purchase Request Data.
     /// </summary>
     [IsoId("_7K0OcPJQEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purchase Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PurchsIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PurchsIdr")]
+    [IsoSimpleType(IsoSimpleType.Max99Text)]
     [StringLength(maximumLength: 99 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax99Text? PurchaseIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +97,11 @@ public partial record AddendumData1
     /// Contains additional card acceptor data. 
     /// </summary>
     [IsoId("_bbBTgPJeEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Acceptor Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlAccptrData")]
     #endif
+    [IsoXmlTag("AddtlAccptrData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalAcceptorData1? AdditionalAcceptorData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +114,11 @@ public partial record AddendumData1
     /// Information about the customer.
     /// </summary>
     [IsoId("_z39NYPJnEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cstmr")]
     #endif
+    [IsoXmlTag("Cstmr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Customer4? Customer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +131,11 @@ public partial record AddendumData1
     /// Details of good and services included in the sale.
     /// </summary>
     [IsoId("_vGEREPJ6EeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sale")]
     #endif
+    [IsoXmlTag("Sale")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Sale1? Sale { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +148,11 @@ public partial record AddendumData1
     /// Fleet data pertaining to the payment transaction.
     /// </summary>
     [IsoId("_oQcUYPjNEeiM7KpzmLtmTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fleet")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fleet")]
     #endif
+    [IsoXmlTag("Fleet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FleetData2? Fleet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +165,11 @@ public partial record AddendumData1
     /// Invoice data pertaining to the payment transaction.
     /// </summary>
     [IsoId("_M5uigfNJEei4qfiLgRIZBA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Invc")]
     #endif
+    [IsoXmlTag("Invc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Invoice1? Invoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +182,11 @@ public partial record AddendumData1
     /// Component supports corporate transactions for travel agency, airline, or railway transactions. Acquirers may submit multiple occurrences of this component. Each occurrence provides detailed travel agency fee data associated with a travel agency, airline, or railway transaction.
     /// </summary>
     [IsoId("_dZBKwfPeEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Travel Agency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrvlAgcy")]
     #endif
+    [IsoXmlTag("TrvlAgcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TravelAgency2? TravelAgency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +199,11 @@ public partial record AddendumData1
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. 
     /// </summary>
     [IsoId("_a2_UQPQdEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Passenger Transport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PssngrTrnsprt")]
     #endif
+    [IsoXmlTag("PssngrTrnsprt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PassengerTransport1? PassengerTransport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +216,11 @@ public partial record AddendumData1
     /// Component provides detailed vehicle rental information. One occurrence of this component provides rental agreement data reporting for a single vehicle rental transaction.
     /// </summary>
     [IsoId("_W9dLwvJNEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vehicle Rental")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VhclRntl")]
     #endif
+    [IsoXmlTag("VhclRntl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VehicleRentalService1? VehicleRental { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,12 +233,11 @@ public partial record AddendumData1
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios.
     /// </summary>
     [IsoId("_W9dLw_JNEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lodging")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ldgg")]
     #endif
+    [IsoXmlTag("Ldgg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Lodging2? Lodging { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +250,11 @@ public partial record AddendumData1
     /// Shipping or Courier Service detail component provides detailed information regarding delivery or courier services. 
     /// </summary>
     [IsoId("_ZZD9cPctEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shipping Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShppgData")]
     #endif
+    [IsoXmlTag("ShppgData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ShippingData1? ShippingData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +267,11 @@ public partial record AddendumData1
     /// Telecommunication services component is designed to carry telephony billing data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to telecommunications services and related billing information. 
     /// </summary>
     [IsoId("_iX6coPfOEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Telecommunication Services")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TelecomSvcs")]
     #endif
+    [IsoXmlTag("TelecomSvcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TelecomServices1? TelecommunicationServices { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +284,11 @@ public partial record AddendumData1
     /// Temporary Services component provides detailed information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
     /// </summary>
     [IsoId("_bfPSoPfkEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Temporary Services")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TempSvcs")]
     #endif
+    [IsoXmlTag("TempSvcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryServices1? TemporaryServices { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +301,11 @@ public partial record AddendumData1
     /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
     /// </summary>
     [IsoId("_tVn5gPlREeilft0P2fSiEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Instlmt")]
     #endif
+    [IsoXmlTag("Instlmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Instalment3? Instalment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +318,11 @@ public partial record AddendumData1
     /// Contains additional data for the addendum.
     /// </summary>
     [IsoId("_jeXOgP75Eeic54G0fOJNMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OpeningClosing3Choice.Code))]
     [KnownType(typeof(OpeningClosing3Choice.Proprietary))]
     [IsoId("_gj_VkTtCEeWRTLSN0i0tng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Closing 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

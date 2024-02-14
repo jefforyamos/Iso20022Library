@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a document.
 /// </summary>
 [IsoId("_Q1Ld4XR1EeiH1ZOt2UD8vQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record Document12
     /// Type of document or template.
     /// </summary>
     [IsoId("_Q_AvUXR1EeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentType1Choice_ Type { get; init; } 
+    public required DocumentType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentType1Choice_ Type { get; init; } 
     #else
@@ -75,19 +72,17 @@ public partial record Document12
     /// Identification of the document or template.
     /// </summary>
     [IsoId("_Q_AvU3R1EeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -98,16 +93,15 @@ public partial record Document12
     /// Issue date or date time of the document.
     /// </summary>
     [IsoId("_3iRlYXiJEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ IssueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTime2Choice_ IssueDate { get; init; } 
+    public required DateAndDateTime2Choice_ IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTime2Choice_ IssueDate { get; init; } 
     #else
@@ -118,15 +112,13 @@ public partial record Document12
     /// Name of document or transaction, for example, tax invoice.
     /// </summary>
     [IsoId("_E_8EYniKEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +131,11 @@ public partial record Document12
     /// Unique identifier for a language used in the document.
     /// </summary>
     [IsoId("_E_8EY3iKEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LangCd")]
     #endif
+    [IsoXmlTag("LangCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? LanguageCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,16 +148,15 @@ public partial record Document12
     /// Format of the document or template, such as PDF, XML, XSLT.
     /// </summary>
     [IsoId("_Q_AvVXR1EeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frmt")]
     #endif
+    [IsoXmlTag("Frmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentFormat1Choice_ Format { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentFormat1Choice_ Format { get; init; } 
+    public required DocumentFormat1Choice_ Format { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentFormat1Choice_ Format { get; init; } 
     #else
@@ -177,15 +167,13 @@ public partial record Document12
     /// Technical name of the file.
     /// </summary>
     [IsoId("_ZEDS8XiKEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FileNm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? FileName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,12 +186,11 @@ public partial record Document12
     /// Digital signature of the enclosed binary file.
     /// </summary>
     [IsoId("_Q_AvWXR1EeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature3? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -216,16 +203,16 @@ public partial record Document12
     /// Binary file representing the enclosed document or template, such as a PDF file, image file, XML file, MT message.
     /// </summary>
     [IsoId("_Q_AvV3R1EeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enclosure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nclsr")]
     #endif
+    [IsoXmlTag("Nclsr")]
+    [IsoSimpleType(IsoSimpleType.Max10MbBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10MbBinary Enclosure { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Enclosure { get; init; } 
+    public required System.Byte[] Enclosure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Enclosure { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for a rejected status.
 /// </summary>
 [IsoId("_U3LIU9p-Ed-ak6NoX_4Aeg_100455647")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejected Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RejectedStatusReason5
     /// Reason for a rejected status in structured form.
     /// </summary>
     [IsoId("_U3LIVNp-Ed-ak6NoX_4Aeg_431072629")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
+    [IsoXmlTag("Strd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferRejectedStatusReason1Code Structured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferRejectedStatusReason1Code Structured { get; init; } 
+    public required TransferRejectedStatusReason1Code Structured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferRejectedStatusReason1Code Structured { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record RejectedStatusReason5
     /// Additional information about the reason for the rejected status in textual form.
     /// </summary>
     [IsoId("_U3LIVdp-Ed-ak6NoX_4Aeg_431072681")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

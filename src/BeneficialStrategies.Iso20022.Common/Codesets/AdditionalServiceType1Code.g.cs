@@ -21,7 +21,7 @@ public enum AdditionalServiceType1Code
 {
     /// <summary>
     /// Card activation
-    /// Encoded/decoded by serializers as "CACT".
+    /// Encoded/decoded by serializers as &quot;CACT&quot;.
     /// </summary>
     [EnumMember(Value = "CACT")]
     [IsoId("_l_7U8RZdEeiwvuY-sPnsNg")]
@@ -30,7 +30,7 @@ public enum AdditionalServiceType1Code
     
     /// <summary>
     /// Purchase of goods or services with cashback
-    /// Encoded/decoded by serializers as "CSHB".
+    /// Encoded/decoded by serializers as &quot;CSHB&quot;.
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_mLhg8RZdEeiwvuY-sPnsNg")]
@@ -39,7 +39,7 @@ public enum AdditionalServiceType1Code
     
     /// <summary>
     /// Dynamic Currency Conversion (DCC)
-    /// Encoded/decoded by serializers as "DCCV".
+    /// Encoded/decoded by serializers as &quot;DCCV&quot;.
     /// </summary>
     [EnumMember(Value = "DCCV")]
     [IsoId("_mcVkIRZdEeiwvuY-sPnsNg")]
@@ -47,8 +47,8 @@ public enum AdditionalServiceType1Code
     DCC = AdditionalServiceTypeCode.DCC, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Instant payment from a cardholder's account to an acceptor's account
-    /// Encoded/decoded by serializers as "INTP".
+    /// Instant payment from a cardholder&apos;s account to an acceptor&apos;s account
+    /// Encoded/decoded by serializers as &quot;INTP&quot;.
     /// </summary>
     [EnumMember(Value = "INTP")]
     [IsoId("_mmdJcRZdEeiwvuY-sPnsNg")]
@@ -56,8 +56,8 @@ public enum AdditionalServiceType1Code
     InstantPayment = AdditionalServiceTypeCode.InstantPayment, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Instant transfer of funds from a payer's account to a payee's account.
-    /// Encoded/decoded by serializers as "INTT".
+    /// Instant transfer of funds from a payer&apos;s account to a payee&apos;s account.
+    /// Encoded/decoded by serializers as &quot;INTT&quot;.
     /// </summary>
     [EnumMember(Value = "INTT")]
     [IsoId("_mw3psRZdEeiwvuY-sPnsNg")]
@@ -66,7 +66,7 @@ public enum AdditionalServiceType1Code
     
     /// <summary>
     /// Loyalty services
-    /// Encoded/decoded by serializers as "LOYT".
+    /// Encoded/decoded by serializers as &quot;LOYT&quot;.
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_m-jgYRZdEeiwvuY-sPnsNg")]
@@ -75,7 +75,7 @@ public enum AdditionalServiceType1Code
     
     /// <summary>
     /// Other type of additional service at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_nMi5ERZdEeiwvuY-sPnsNg")]
@@ -84,7 +84,7 @@ public enum AdditionalServiceType1Code
     
     /// <summary>
     /// Other type of additional service at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_narbsRZdEeiwvuY-sPnsNg")]
@@ -93,7 +93,7 @@ public enum AdditionalServiceType1Code
     
     /// <summary>
     /// Withdrawal transaction was pre-authorised by another channel (amount could be absent).
-    /// Encoded/decoded by serializers as "PRST".
+    /// Encoded/decoded by serializers as &quot;PRST&quot;.
     /// </summary>
     [EnumMember(Value = "PRST")]
     [IsoId("_nl1i0RZdEeiwvuY-sPnsNg")]

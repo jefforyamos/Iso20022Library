@@ -21,7 +21,7 @@ public enum CorporateActionFrequencyType1Code
 {
     /// <summary>
     /// Payment of a dividend, less amounts already paid through interim dividends.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_bJ8t-Np-Ed-ak6NoX_4Aeg_1457749703")]
@@ -30,7 +30,7 @@ public enum CorporateActionFrequencyType1Code
     
     /// <summary>
     /// Dividend declared and paid before annual earnings have been determined.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_bKGe8Np-Ed-ak6NoX_4Aeg_1457749980")]
@@ -39,7 +39,7 @@ public enum CorporateActionFrequencyType1Code
     
     /// <summary>
     /// Dividend paid at regular interval, for example, quarterly.
-    /// Encoded/decoded by serializers as "REGR".
+    /// Encoded/decoded by serializers as &quot;REGR&quot;.
     /// </summary>
     [EnumMember(Value = "REGR")]
     [IsoId("_bKGe8dp-Ed-ak6NoX_4Aeg_1457749981")]
@@ -48,7 +48,7 @@ public enum CorporateActionFrequencyType1Code
     
     /// <summary>
     /// Dividend in addition to the regular dividend being paid by the company.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_bKGe8tp-Ed-ak6NoX_4Aeg_1457749982")]

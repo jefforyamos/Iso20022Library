@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Elements characterising a financial instrument.
 /// </summary>
 [IsoId("_ja4gschlEeadgvwNGwK05w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,12 @@ public partial record FinancialInstrumentAttributes90
     /// Reference notional amount of the contract.
     /// </summary>
     [IsoId("_jjd08chlEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntnl")]
     #endif
+    [IsoXmlTag("Ntnl")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Notional { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,16 +69,16 @@ public partial record FinancialInstrumentAttributes90
     /// Value of unit move in index if fixed in contract terms, and currency of payments relating to changes in the amount of the underlying.
     /// </summary>
     [IsoId("_jjd088hlEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitVal")]
     #endif
+    [IsoXmlTag("UnitVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount UnitValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal UnitValue { get; init; } 
+    public required System.Decimal UnitValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal UnitValue { get; init; } 
     #else
@@ -91,16 +89,15 @@ public partial record FinancialInstrumentAttributes90
     /// Unique identifier for underlying index on which final settlement price or periodic payments are calculated.
     /// </summary>
     [IsoId("_jjd09chlEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndxId")]
     #endif
+    [IsoXmlTag("IndxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification168 IndexIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification168 IndexIdentification { get; init; } 
+    public required GenericIdentification168 IndexIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification168 IndexIdentification { get; init; } 
     #else
@@ -111,19 +108,17 @@ public partial record FinancialInstrumentAttributes90
     /// Unit index, typically ‘Points’, or for interest rate and CDS products, ‘Bps’.
     /// </summary>
     [IsoId("_HF0BMMhoEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndxUnit")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IndxUnit")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IndexUnit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IndexUnit { get; init; } 
+    public required System.String IndexUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IndexUnit { get; init; } 
     #else
@@ -134,12 +129,11 @@ public partial record FinancialInstrumentAttributes90
     /// Day count convention for interest payments. Interest rate products only.
     /// </summary>
     [IsoId("_NMr40MhoEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRateTerms")]
     #endif
+    [IsoXmlTag("IntrstRateTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethod2Code? InterestRateTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

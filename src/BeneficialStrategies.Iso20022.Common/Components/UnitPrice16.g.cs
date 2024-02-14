@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
 [IsoId("_QfxqStp-Ed-ak6NoX_4Aeg_394298835")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Unit Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UnitPrice16
     /// Type of price.
     /// </summary>
     [IsoId("_Qf60MNp-Ed-ak6NoX_4Aeg_-466354401")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Price Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitPricTp")]
     #endif
+    [IsoXmlTag("UnitPricTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitPriceType1Choice_ UnitPriceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitPriceType1Choice_ UnitPriceType { get; init; } 
+    public required UnitPriceType1Choice_ UnitPriceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitPriceType1Choice_ UnitPriceType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UnitPrice16
     /// Value of the price, eg, as a currency and value.
     /// </summary>
     [IsoId("_Qf60Mdp-Ed-ak6NoX_4Aeg_394299267")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValue1 Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceValue1 Value { get; init; } 
+    public required PriceValue1 Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceValue1 Value { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record UnitPrice16
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
     [IsoId("_Qf60Mtp-Ed-ak6NoX_4Aeg_1724434450")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Income Per Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblIncmPerShr")]
     #endif
+    [IsoXmlTag("TaxblIncmPerShr")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,11 @@ public partial record UnitPrice16
     /// Taxable income per share calculated.
     /// </summary>
     [IsoId("_Qf60M9p-Ed-ak6NoX_4Aeg_205901546")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Income Per Share Calculated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblIncmPerShrClctd")]
     #endif
+    [IsoXmlTag("TaxblIncmPerShrClctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxableIncomePerShareCalculatedType1Choice_? TaxableIncomePerShareCalculated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

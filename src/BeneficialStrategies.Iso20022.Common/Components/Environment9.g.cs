@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the transaction.
 /// </summary>
 [IsoId("_uiLcgWbaEeeNuKDeKoUMAA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Environment9
     /// financial institution (or its agent) at which the accounts are held by the parties settling. This institution, acting on information provided by the parties, transfers the appropriate funds between the accounts.
     /// </summary>
     [IsoId("_uuMfQWbaEeeNuKDeKoUMAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmInstn")]
     #endif
+    [IsoXmlTag("SttlmInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? SettlementInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Environment9
     /// Party sending the message to another intermediary agent or to the destination.
     /// </summary>
     [IsoId("_GQcLsWp5EemXfKijhrqa-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sndr")]
     #endif
+    [IsoXmlTag("Sndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Sender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +77,11 @@ public partial record Environment9
     /// ISO 8583 bit 100.
     /// </summary>
     [IsoId("_uuMfRWbaEeeNuKDeKoUMAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcvr")]
     #endif
+    [IsoXmlTag("Rcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? Receiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,12 +94,11 @@ public partial record Environment9
     /// Financial Institution to which the settlement totals apply.
     /// </summary>
     [IsoId("_uuMfQ2baEeeNuKDeKoUMAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FI")]
     #endif
+    [IsoXmlTag("FI")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitution5? FinancialInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +111,11 @@ public partial record Environment9
     /// Additional institution involved in settlement. For example, the other party involved in bilateral settlement agreement.
     /// </summary>
     [IsoId("_uuMfR2baEeeNuKDeKoUMAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrInstn")]
     #endif
+    [IsoXmlTag("OthrInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification197? OtherInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

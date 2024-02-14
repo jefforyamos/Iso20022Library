@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus4Choice
     /// Status of the switch order is conditionally accepted.
     /// </summary>
     [IsoId("_9wxHxUH8EeaV3ab_pHzFIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conditionally Accepted")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

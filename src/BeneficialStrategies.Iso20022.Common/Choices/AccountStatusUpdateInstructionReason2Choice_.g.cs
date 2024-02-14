@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountStatusUpdateInstructionReason2Choice.Code))]
     [KnownType(typeof(AccountStatusUpdateInstructionReason2Choice.Proprietary))]
     [IsoId("_0Y8Z4Xi8EeaRm5xIK6nGuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Status Update Instruction Reason 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum FundOrderType3Code
 {
     /// <summary>
     /// Investment fund order is part of a bed and breakfast transaction.
-    /// Encoded/decoded by serializers as "BEDB".
+    /// Encoded/decoded by serializers as &quot;BEDB&quot;.
     /// </summary>
     [EnumMember(Value = "BEDB")]
     [IsoId("_atCvhtp-Ed-ak6NoX_4Aeg_233028148")]
@@ -30,7 +30,7 @@ public enum FundOrderType3Code
     
     /// <summary>
     /// Investment fund order is related to an investment plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "INVP".
+    /// Encoded/decoded by serializers as &quot;INVP&quot;.
     /// </summary>
     [EnumMember(Value = "INVP")]
     [IsoId("_atCvh9p-Ed-ak6NoX_4Aeg_233028173")]
@@ -39,7 +39,7 @@ public enum FundOrderType3Code
     
     /// <summary>
     /// Investment fund order is executed with specific pre-advice conditions.
-    /// Encoded/decoded by serializers as "PREA".
+    /// Encoded/decoded by serializers as &quot;PREA&quot;.
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_atCviNp-Ed-ak6NoX_4Aeg_233028190")]
@@ -48,7 +48,7 @@ public enum FundOrderType3Code
     
     /// <summary>
     /// Investment fund order is a staff order.
-    /// Encoded/decoded by serializers as "STAF".
+    /// Encoded/decoded by serializers as &quot;STAF&quot;.
     /// </summary>
     [EnumMember(Value = "STAF")]
     [IsoId("_atL5cNp-Ed-ak6NoX_4Aeg_233028208")]
@@ -57,7 +57,7 @@ public enum FundOrderType3Code
     
     /// <summary>
     /// Investment fund order is a regular savings plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RGSV".
+    /// Encoded/decoded by serializers as &quot;RGSV&quot;.
     /// </summary>
     [EnumMember(Value = "RGSV")]
     [IsoId("_atL5cdp-Ed-ak6NoX_4Aeg_233028243")]
@@ -66,7 +66,7 @@ public enum FundOrderType3Code
     
     /// <summary>
     /// Investment fund order is a dividend reinvestment (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RDIV".
+    /// Encoded/decoded by serializers as &quot;RDIV&quot;.
     /// </summary>
     [EnumMember(Value = "RDIV")]
     [IsoId("_atL5ctp-Ed-ak6NoX_4Aeg_279205342")]

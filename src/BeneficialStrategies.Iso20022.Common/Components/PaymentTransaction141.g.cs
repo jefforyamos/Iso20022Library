@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment transaction invoiced to customer.
 /// </summary>
 [IsoId("_RHVJkSCBEey8XKHwKquEQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaymentTransaction141
     /// List of codes representing type of fleet purchases.
     /// </summary>
     [IsoId("_RMU-USCBEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purchase Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PurchsTp")]
     #endif
+    [IsoXmlTag("PurchsTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FleetPurchaseType1Code? PurchaseType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record PaymentTransaction141
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
     [IsoId("_RMU-UyCBEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary Commodity Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SummryCmmdtyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SummryCmmdtyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record PaymentTransaction141
     /// Discount applied to the transaction.
     /// </summary>
     [IsoId("_RMU-VSCBEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscntTtl")]
     #endif
+    [IsoXmlTag("DscntTtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FleetDiscountTotals1? DiscountTotal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record PaymentTransaction141
     /// Total taxes related to the products or services. 
     /// </summary>
     [IsoId("_RMU-VyCBEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxTtl")]
     #endif
+    [IsoXmlTag("TaxTtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax39? TaxTotal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,12 @@ public partial record PaymentTransaction141
     /// Total amount of the transaction, inclusive of all applicable taxes and fees. 
     /// </summary>
     [IsoId("_RMU-WSCBEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmt")]
     #endif
+    [IsoXmlTag("TtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

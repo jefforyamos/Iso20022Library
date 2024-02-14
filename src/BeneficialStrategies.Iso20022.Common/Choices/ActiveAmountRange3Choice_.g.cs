@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ActiveAmountRange3Choice.ImpliedCurrencyAndAmountRange))]
     [KnownType(typeof(ActiveAmountRange3Choice.CurrencyAndAmountRange))]
     [IsoId("_OnGKkZlcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Active Amount Range 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

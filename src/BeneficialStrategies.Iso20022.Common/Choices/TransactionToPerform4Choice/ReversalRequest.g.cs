@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform4Choice
     /// Content of the Reversal Request message.
     /// </summary>
     [IsoId("_8yJLRU31Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Request")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform4Choice
         /// Transaction to reverse.
         /// </summary>
         [IsoId("_ubzMQU3_Eey_VecAUE-C9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reversal Transaction")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RvslTx")]
         #endif
+        [IsoXmlTag("RvslTx")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CardPaymentTransaction120? ReversalTransaction { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,12 +71,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform4Choice
         /// Data linked to card loyalty during payment.
         /// </summary>
         [IsoId("_ubzMQ03_Eey_VecAUE-C9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Loyalty Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LltyData")]
         #endif
+        [IsoXmlTag("LltyData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public LoyaltyRequestData3? LoyaltyData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +88,15 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform4Choice
         /// Reason for this reversal.
         /// </summary>
         [IsoId("_ubzMRU3_Eey_VecAUE-C9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reversal Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RvslRsn")]
         #endif
+        [IsoXmlTag("RvslRsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ReversalReason1Code ReversalReason { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ReversalReason1Code ReversalReason { get; init; } 
+        public required ReversalReason1Code ReversalReason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ReversalReason1Code ReversalReason { get; init; } 
         #else
@@ -112,12 +107,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform4Choice
         /// Amount to reverse (total or partial).
         /// </summary>
         [IsoId("_ubzMR03_Eey_VecAUE-C9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reversed Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RvsdAmt")]
         #endif
+        [IsoXmlTag("RvsdAmt")]
+        [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +125,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform4Choice
         /// Specific Customer Order linked with the reversal.
         /// </summary>
         [IsoId("_ubzMSU3_Eey_VecAUE-C9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Customer Order")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CstmrOrdr")]
         #endif
+        [IsoXmlTag("CstmrOrdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CustomerOrder1? CustomerOrder { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

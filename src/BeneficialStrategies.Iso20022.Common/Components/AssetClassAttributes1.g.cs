@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Asset class specific details of a derivative.
 /// </summary>
 [IsoId("_Hx9E0cnYEeWpf-ImB_F2gQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Asset Class Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AssetClassAttributes1
     /// Asset class is a non-financial instrument of type interest rate.
     /// </summary>
     [IsoId("_IO1OE8nYEeWpf-ImB_F2gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrst")]
     #endif
+    [IsoXmlTag("Intrst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativeInterest2 Interest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DerivativeInterest2 Interest { get; init; } 
+    public required DerivativeInterest2 Interest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DerivativeInterest2 Interest { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AssetClassAttributes1
     /// Asset class is a non-financial instrument of type foreign exchange.
     /// </summary>
     [IsoId("_IO1OFcnYEeWpf-ImB_F2gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FX")]
     #endif
+    [IsoXmlTag("FX")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativeForeignExchange2 ForeignExchange { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DerivativeForeignExchange2 ForeignExchange { get; init; } 
+    public required DerivativeForeignExchange2 ForeignExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DerivativeForeignExchange2 ForeignExchange { get; init; } 
     #else

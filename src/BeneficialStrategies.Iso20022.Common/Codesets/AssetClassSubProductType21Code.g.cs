@@ -21,7 +21,7 @@ public enum AssetClassSubProductType21Code
 {
     /// <summary>
     /// Commodity of type forestry.
-    /// Encoded/decoded by serializers as "FRST".
+    /// Encoded/decoded by serializers as &quot;FRST&quot;.
     /// </summary>
     [EnumMember(Value = "FRST")]
     [IsoId("_HNipUVrAEeWN79Bl6BUd3g")]

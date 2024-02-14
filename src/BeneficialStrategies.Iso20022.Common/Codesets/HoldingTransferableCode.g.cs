@@ -21,7 +21,7 @@ public enum HoldingTransferableCode
 {
     /// <summary>
     /// Transfer is allowed.
-    /// Encoded/decoded by serializers as "TRAL".
+    /// Encoded/decoded by serializers as &quot;TRAL&quot;.
     /// </summary>
     [EnumMember(Value = "TRAL")]
     [IsoId("_aV8eJNp-Ed-ak6NoX_4Aeg_1901341697")]
@@ -30,7 +30,7 @@ public enum HoldingTransferableCode
     
     /// <summary>
     /// Transfer is not allowed.
-    /// Encoded/decoded by serializers as "TRNA".
+    /// Encoded/decoded by serializers as &quot;TRNA&quot;.
     /// </summary>
     [EnumMember(Value = "TRNA")]
     [IsoId("_aV8eJdp-Ed-ak6NoX_4Aeg_1926274407")]
@@ -39,7 +39,7 @@ public enum HoldingTransferableCode
     
     /// <summary>
     /// Indicates that the operation is only possible in restricted circumstances.
-    /// Encoded/decoded by serializers as "RFOD".
+    /// Encoded/decoded by serializers as &quot;RFOD&quot;.
     /// </summary>
     [EnumMember(Value = "RFOD")]
     [IsoId("_aV8eJtp-Ed-ak6NoX_4Aeg_-1992820992")]

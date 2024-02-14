@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the parameters, such as dates, used to calculate the entitlement to vote at a general meeting.
 /// </summary>
 [IsoId("_TmHJH9p-Ed-ak6NoX_4Aeg_-30513816")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Entitlement Assessment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record EntitlementAssessment1
     /// Date by which the securities should be blocked. This deadline is set by an intermediary.
     /// </summary>
     [IsoId("_TmQTANp-Ed-ak6NoX_4Aeg_-30513814")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Blocking Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesBlckgDdln")]
     #endif
+    [IsoXmlTag("SctiesBlckgDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? SecuritiesBlockingDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record EntitlementAssessment1
     /// Date by which the securities should be blocked. This deadline is set by the issuer. (STP mode).
     /// </summary>
     [IsoId("_TmQTAdp-Ed-ak6NoX_4Aeg_2054659303")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Blocking STP Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesBlckgSTPDdln")]
     #endif
+    [IsoXmlTag("SctiesBlckgSTPDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? SecuritiesBlockingSTPDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record EntitlementAssessment1
     /// Date by which the securities should be blocked. This deadline is set by the issuer.
     /// </summary>
     [IsoId("_TmQTAtp-Ed-ak6NoX_4Aeg_-30513799")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Blocking Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesBlckgMktDdln")]
     #endif
+    [IsoXmlTag("SctiesBlckgMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? SecuritiesBlockingMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,12 @@ public partial record EntitlementAssessment1
     /// Date by which the blocking period for the securities should end.
     /// </summary>
     [IsoId("_TmQTA9p-Ed-ak6NoX_4Aeg_-30513781")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Blocking Period End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesBlckgPrdEndDt")]
     #endif
+    [IsoXmlTag("SctiesBlckgPrdEndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? SecuritiesBlockingPeriodEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record EntitlementAssessment1
     /// Date at which the positions are struck to note which parties will receive the entitlement, e.g. record date, book close date.
     /// </summary>
     [IsoId("_TmQTBNp-Ed-ak6NoX_4Aeg_-30513444")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement Fixing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitlmntFxgDt")]
     #endif
+    [IsoXmlTag("EntitlmntFxgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat3Choice_? EntitlementFixingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,11 @@ public partial record EntitlementAssessment1
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary.
     /// </summary>
     [IsoId("_TmQTBdp-Ed-ak6NoX_4Aeg_-120826273")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Securities Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnSctiesDdln")]
     #endif
+    [IsoXmlTag("RegnSctiesDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RegistrationSecuritiesDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record EntitlementAssessment1
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary (STP mode).
     /// </summary>
     [IsoId("_TmQTBtp-Ed-ak6NoX_4Aeg_46327692")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Securities STP Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnSctiesSTPDdln")]
     #endif
+    [IsoXmlTag("RegnSctiesSTPDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RegistrationSecuritiesSTPDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +162,11 @@ public partial record EntitlementAssessment1
     /// Date by which the securities have to be registered. This deadline is set by the issuer.
     /// </summary>
     [IsoId("_TmQTB9p-Ed-ak6NoX_4Aeg_305836980")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Securities Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnSctiesMktDdln")]
     #endif
+    [IsoXmlTag("RegnSctiesMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RegistrationSecuritiesMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +179,11 @@ public partial record EntitlementAssessment1
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary.
     /// </summary>
     [IsoId("_TmQTCNp-Ed-ak6NoX_4Aeg_453602280")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Participation Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnPrtcptnDdln")]
     #endif
+    [IsoXmlTag("RegnPrtcptnDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RegistrationParticipationDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +196,11 @@ public partial record EntitlementAssessment1
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary (STP mode).
     /// </summary>
     [IsoId("_TmQTCdp-Ed-ak6NoX_4Aeg_722345516")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Participation STP Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnPrtcptnSTPDdln")]
     #endif
+    [IsoXmlTag("RegnPrtcptnSTPDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RegistrationParticipationSTPDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +213,11 @@ public partial record EntitlementAssessment1
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is set by the issuer.
     /// </summary>
     [IsoId("_TmaEANp-Ed-ak6NoX_4Aeg_735277287")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Participation Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnPrtcptnMktDdln")]
     #endif
+    [IsoXmlTag("RegnPrtcptnMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RegistrationParticipationMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,15 +230,13 @@ public partial record EntitlementAssessment1
     /// Specifies the calculation method of the number of votes assigned to one security. This element should be used when the entitlement calculation rule is complex.
     /// </summary>
     [IsoId("_TmaEAdp-Ed-ak6NoX_4Aeg_-30513409")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitlmntDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EntitlmntDesc")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? EntitlementDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +249,12 @@ public partial record EntitlementAssessment1
     /// Number of votes assigned to one security.
     /// </summary>
     [IsoId("_TmaEAtp-Ed-ak6NoX_4Aeg_-30513427")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement Ratio")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitlmntRatio")]
     #endif
+    [IsoXmlTag("EntitlmntRatio")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? EntitlementRatio { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

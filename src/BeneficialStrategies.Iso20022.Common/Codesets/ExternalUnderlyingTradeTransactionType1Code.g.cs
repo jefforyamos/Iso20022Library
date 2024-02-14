@@ -22,7 +22,7 @@ public enum ExternalUnderlyingTradeTransactionType1Code
 {
     /// <summary>
     /// Underlying transaction is a contract.
-    /// Encoded/decoded by serializers as "CONT".
+    /// Encoded/decoded by serializers as &quot;CONT&quot;.
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_uQn48vRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalUnderlyingTradeTransactionType1Code
     
     /// <summary>
     /// Underlying transaction is a delivery order.
-    /// Encoded/decoded by serializers as "DELV".
+    /// Encoded/decoded by serializers as &quot;DELV&quot;.
     /// </summary>
     [EnumMember(Value = "DELV")]
     [IsoId("_uQn49fRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalUnderlyingTradeTransactionType1Code
     
     /// <summary>
     /// Underlying transaction is a proforma invoice.
-    /// Encoded/decoded by serializers as "PROF".
+    /// Encoded/decoded by serializers as &quot;PROF&quot;.
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_uQn4-PRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalUnderlyingTradeTransactionType1Code
     
     /// <summary>
     /// Underlying transaction is a project.
-    /// Encoded/decoded by serializers as "PROJ".
+    /// Encoded/decoded by serializers as &quot;PROJ&quot;.
     /// </summary>
     [EnumMember(Value = "PROJ")]
     [IsoId("_uQn4-_RYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalUnderlyingTradeTransactionType1Code
     
     /// <summary>
     /// Underlying transaction is a purchase order.
-    /// Encoded/decoded by serializers as "PUOR".
+    /// Encoded/decoded by serializers as &quot;PUOR&quot;.
     /// </summary>
     [EnumMember(Value = "PUOR")]
     [IsoId("_uQxp8vRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalUnderlyingTradeTransactionType1Code
     
     /// <summary>
     /// Underlying transaction is a quotation.
-    /// Encoded/decoded by serializers as "QUOT".
+    /// Encoded/decoded by serializers as &quot;QUOT&quot;.
     /// </summary>
     [EnumMember(Value = "QUOT")]
     [IsoId("_uQxp9fRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalUnderlyingTradeTransactionType1Code
     
     /// <summary>
     /// Underlying transaction is a tender.
-    /// Encoded/decoded by serializers as "TEND".
+    /// Encoded/decoded by serializers as &quot;TEND&quot;.
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_uQxp-PRYEeuLhpyIdtJzwg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the physical parameters of a shareholders meeting. Several dates and places can be defined for a meeting.
 /// </summary>
 [IsoId("_S8SuwVuAEeSmO6RkXg92Lg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Meeting4
     /// Date and time at which the meeting will take place.
     /// </summary>
     [IsoId("_TapetVuAEeSmO6RkXg92Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date And Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtAndTm")]
     #endif
+    [IsoXmlTag("DtAndTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat29Choice_ DateAndTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat29Choice_ DateAndTime { get; init; } 
+    public required DateFormat29Choice_ DateAndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat29Choice_ DateAndTime { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record Meeting4
     /// Indicates the status of the meeting date.
     /// </summary>
     [IsoId("_Tapet1uAEeSmO6RkXg92Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtSts")]
     #endif
+    [IsoXmlTag("DtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MeetingDateStatus1Code? DateStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,16 @@ public partial record Meeting4
     /// Specifies whether a minimum number of security representation is required to hold a meeting.
     /// </summary>
     [IsoId("_TapeuVuAEeSmO6RkXg92Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QrmReqrd")]
     #endif
+    [IsoXmlTag("QrmReqrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator QuorumRequired { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String QuorumRequired { get; init; } 
+    public required System.String QuorumRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String QuorumRequired { get; init; } 
     #else
@@ -110,28 +106,24 @@ public partial record Meeting4
     /// Specifies the location where meeting will take place.
     /// </summary>
     [IsoId("_Tapeu1uAEeSmO6RkXg92Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Lctn")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<LocationFormat1Choice_> Location { get; init; } = new ValueList<LocationFormat1Choice_>(){};
     
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
     [IsoId("_TapevVuAEeSmO6RkXg92Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QrmQty")]
     #endif
+    [IsoXmlTag("QrmQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuorumQuantity1Choice_? QuorumQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

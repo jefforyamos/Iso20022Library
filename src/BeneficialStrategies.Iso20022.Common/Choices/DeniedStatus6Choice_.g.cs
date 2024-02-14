@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeniedStatus6Choice.NoSpecifiedReason))]
     [KnownType(typeof(DeniedStatus6Choice.Reason))]
     [IsoId("_p91CIf7rEeCvPoRGOxRobQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denied Status 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

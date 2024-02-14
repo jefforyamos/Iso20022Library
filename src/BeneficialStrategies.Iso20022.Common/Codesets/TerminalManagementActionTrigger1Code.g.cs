@@ -21,7 +21,7 @@ public enum TerminalManagementActionTrigger1Code
 {
     /// <summary>
     /// Date and time trigger the terminal management action.
-    /// Encoded/decoded by serializers as "DATE".
+    /// Encoded/decoded by serializers as &quot;DATE&quot;.
     /// </summary>
     [EnumMember(Value = "DATE")]
     [IsoId("_KUOSln1DEeCF8NjrBemJWQ_-370493014")]
@@ -30,7 +30,7 @@ public enum TerminalManagementActionTrigger1Code
     
     /// <summary>
     /// Acquirer triggers the terminal management action.
-    /// Encoded/decoded by serializers as "HOST".
+    /// Encoded/decoded by serializers as &quot;HOST&quot;.
     /// </summary>
     [EnumMember(Value = "HOST")]
     [IsoId("_KUOSl31DEeCF8NjrBemJWQ_1411431502")]
@@ -39,7 +39,7 @@ public enum TerminalManagementActionTrigger1Code
     
     /// <summary>
     /// Acceptor triggers the terminal management action.
-    /// Encoded/decoded by serializers as "MANU".
+    /// Encoded/decoded by serializers as &quot;MANU&quot;.
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_KUYDkH1DEeCF8NjrBemJWQ_-1262025415")]
@@ -48,7 +48,7 @@ public enum TerminalManagementActionTrigger1Code
     
     /// <summary>
     /// Sale system triggers the terminal management action.
-    /// Encoded/decoded by serializers as "SALE".
+    /// Encoded/decoded by serializers as &quot;SALE&quot;.
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_KUYDkX1DEeCF8NjrBemJWQ_-2047159303")]

@@ -2,6 +2,8 @@
 
 namespace BeneficialStrategies.Iso20022.Metadata;
 
+#if DECLARE_INTERNALSERIALIZATION
+
 public class EnumMetadataItem<TEnum> : IEnumMetadataDropdownRow<TEnum>
     where TEnum : struct
 {
@@ -25,3 +27,5 @@ public class EnumMetadataItem<TEnum> : IEnumMetadataDropdownRow<TEnum>
 
     public string Description { get; }
 }
+
+#endif

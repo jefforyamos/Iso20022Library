@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|The AccountReportRequest message is sent from an organisation to a financial institution for reporting purposes. It is a request for an account report.|Usage|This message can be sent at any time outside of account opening, maintenance or closing processes.")]
 [IsoId("_vMh7-NE9Ed-BzquC8wXy7w_-1349901231")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Report Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record AccountReportRequestV01 : IOuterRecord<AccountReportReques
     /// Set of elements for the identification of the message and related references.
     /// </summary>
     [IsoId("_vMh7-dE9Ed-BzquC8wXy7w_-2141826396")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References4 References { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References4 References { get; init; } 
+    public required References4 References { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References4 References { get; init; } 
     #else
@@ -101,16 +98,15 @@ public partial record AccountReportRequestV01 : IOuterRecord<AccountReportReques
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_vMh7-tE9Ed-BzquC8wXy7w_561216606")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountForAction1 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountForAction1 AccountIdentification { get; init; } 
+    public required AccountForAction1 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountForAction1 AccountIdentification { get; init; } 
     #else
@@ -121,16 +117,15 @@ public partial record AccountReportRequestV01 : IOuterRecord<AccountReportReques
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
     /// </summary>
     [IsoId("_vMh7-9E9Ed-BzquC8wXy7w_1090826957")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrId")]
     #endif
+    [IsoXmlTag("AcctSvcrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #else
@@ -141,16 +136,15 @@ public partial record AccountReportRequestV01 : IOuterRecord<AccountReportReques
     /// Identification of the organisation requesting the report.
     /// </summary>
     [IsoId("_vMh7_NE9Ed-BzquC8wXy7w_1166554158")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgId")]
     #endif
+    [IsoXmlTag("OrgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification6 OrganisationIdentification { get; init; } 
+    public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #else
@@ -161,12 +155,11 @@ public partial record AccountReportRequestV01 : IOuterRecord<AccountReportReques
     /// Specifies target and/or actual dates.
     /// </summary>
     [IsoId("_vMrs8NE9Ed-BzquC8wXy7w_-1862979378")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Dates")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctDts")]
     #endif
+    [IsoXmlTag("CtrctDts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountContract2? ContractDates { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +172,11 @@ public partial record AccountReportRequestV01 : IOuterRecord<AccountReportReques
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
     /// </summary>
     [IsoId("_vMrs8dE9Ed-BzquC8wXy7w_1658266551")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature1? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,7 +189,7 @@ public partial record AccountReportRequestV01 : IOuterRecord<AccountReportReques
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountReportRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountReportRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountReportRequestV01Document ToDocument()
     {
@@ -207,7 +199,7 @@ public partial record AccountReportRequestV01 : IOuterRecord<AccountReportReques
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountReportRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountReportRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountReportRequestV01Document : IOuterDocument<AccountReportRequestV01>
@@ -224,7 +216,7 @@ public partial record AccountReportRequestV01Document : IOuterDocument<AccountRe
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountReportRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountReportRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountReportRequestV01 Message { get; init; }

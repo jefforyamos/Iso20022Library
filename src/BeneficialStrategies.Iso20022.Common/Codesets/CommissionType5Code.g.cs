@@ -21,7 +21,7 @@ public enum CommissionType5Code
 {
     /// <summary>
     /// Type of service for which the commission is asked or paid.
-    /// Encoded/decoded by serializers as "FEND".
+    /// Encoded/decoded by serializers as &quot;FEND&quot;.
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_VkKxN9p-Ed-ak6NoX_4Aeg_445405236")]
@@ -30,7 +30,7 @@ public enum CommissionType5Code
     
     /// <summary>
     /// Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.
-    /// Encoded/decoded by serializers as "BEND".
+    /// Encoded/decoded by serializers as &quot;BEND&quot;.
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_VkKxONp-Ed-ak6NoX_4Aeg_446328819")]
@@ -39,7 +39,7 @@ public enum CommissionType5Code
     
     /// <summary>
     /// Commission is another type of transaction.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VkUiMNp-Ed-ak6NoX_4Aeg_449101350")]

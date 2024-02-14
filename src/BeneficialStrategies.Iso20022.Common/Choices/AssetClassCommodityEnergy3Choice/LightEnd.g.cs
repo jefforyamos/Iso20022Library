@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy3Choice
     /// Light end energy commodity derivative.
     /// </summary>
     [IsoId("_O67yDU8SEe2PGo0mhYCh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Light End")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy3Choice
         /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
         /// </summary>
         [IsoId("_m4bs8U8SEe2PGo0mhYCh1g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Base Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BasePdct")]
         #endif
+        [IsoXmlTag("BasePdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassProductType2Code BaseProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassProductType2Code BaseProduct { get; init; } 
+        public required AssetClassProductType2Code BaseProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassProductType2Code BaseProduct { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy3Choice
         /// Sub-product for the underlying asset class.
         /// </summary>
         [IsoId("_m4bs808SEe2PGo0mhYCh1g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sub Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SubPdct")]
         #endif
+        [IsoXmlTag("SubPdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AssetClassSubProductType27Code? SubProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

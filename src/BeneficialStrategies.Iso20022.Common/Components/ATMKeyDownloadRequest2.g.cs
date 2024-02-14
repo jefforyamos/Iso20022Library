@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the request of a key download from an ATM.
 /// </summary>
 [IsoId("_no7dga45EeWRfYPBaeOY8w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Key Download Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ATMKeyDownloadRequest2
     /// Environment of the key download.
     /// </summary>
     [IsoId("_n02Zoa45EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMEnvironment15 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMEnvironment15 Environment { get; init; } 
+    public required ATMEnvironment15 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMEnvironment15 Environment { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record ATMKeyDownloadRequest2
     /// Result of a maintenance command performed by the ATM.
     /// </summary>
     [IsoId("_n02Zo645EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdRslt")]
     #endif
+    [IsoXmlTag("CmdRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand2? CommandResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,12 +87,11 @@ public partial record ATMKeyDownloadRequest2
     /// Security command in progress inside which the key download is requested.
     /// </summary>
     [IsoId("_n02Zpa45EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdCntxt")]
     #endif
+    [IsoXmlTag("CmdCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand3? CommandContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,16 +104,15 @@ public partial record ATMKeyDownloadRequest2
     /// Context of the ATM for the key download.
     /// </summary>
     [IsoId("_n02Zp645EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Security Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMSctyCntxt")]
     #endif
+    [IsoXmlTag("ATMSctyCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMSecurityContext2 ATMSecurityContext { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMSecurityContext2 ATMSecurityContext { get; init; } 
+    public required ATMSecurityContext2 ATMSecurityContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMSecurityContext2 ATMSecurityContext { get; init; } 
     #else
@@ -129,16 +123,15 @@ public partial record ATMKeyDownloadRequest2
     /// Security parameters of the ATM for the initiated key download.
     /// </summary>
     [IsoId("_n02Zqa45EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Security Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMSctyParams")]
     #endif
+    [IsoXmlTag("ATMSctyParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityParameters4 ATMSecurityParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityParameters4 ATMSecurityParameters { get; init; } 
+    public required SecurityParameters4 ATMSecurityParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityParameters4 ATMSecurityParameters { get; init; } 
     #else
@@ -149,12 +142,12 @@ public partial record ATMKeyDownloadRequest2
     /// Random value from the host provided during a previous exchange.
     /// </summary>
     [IsoId("_n02Zq645EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstChllng")]
     #endif
+    [IsoXmlTag("HstChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? HostChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

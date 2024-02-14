@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Card security code (CSC) associated with the card performing the transaction.
 /// </summary>
 [IsoId("_SqR5xAEcEeCQm6a_G2yO_w_383431093")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Security Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardSecurityInformation1
     /// Card security code (CSC) management associated with the transaction.
     /// </summary>
     [IsoId("_SqR5xQEcEeCQm6a_G2yO_w_-2115154942")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSC Management")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSCMgmt")]
     #endif
+    [IsoXmlTag("CSCMgmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CSCManagement1Code CSCManagement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CSCManagement1Code CSCManagement { get; init; } 
+    public required CSCManagement1Code CSCManagement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CSCManagement1Code CSCManagement { get; init; } 
     #else
@@ -71,15 +68,12 @@ public partial record CardSecurityInformation1
     /// Card security code (CSC).
     /// </summary>
     [IsoId("_SqR5xgEcEeCQm6a_G2yO_w_494973003")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSC Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSCVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CSCVal")]
+    [IsoSimpleType(IsoSimpleType.Min3Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin3Max4NumericText? CSCValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

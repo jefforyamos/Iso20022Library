@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPDailyCashFlowsReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the operational performance and exposures that occurred in a central counterparty payment system.|")]
 [IsoId("_-yhDUeUTEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Daily Cash Flows Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord<CCPDailyCashFlow
     /// Deposit taking institution with which a central counterparty has accounts used to concentrate cash funds before or after investment.
     /// </summary>
     [IsoId("_-yhDWeUTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Concentration Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CncntrtnAgt")]
     #endif
+    [IsoXmlTag("CncntrtnAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ConcentrationAgent1 ConcentrationAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ConcentrationAgent1 ConcentrationAgent { get; init; } 
+    public required ConcentrationAgent1 ConcentrationAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ConcentrationAgent1 ConcentrationAgent { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord<CCPDailyCashFlow
     /// Agent used by a central counterparty to allow for the convenient settlement of obligations between a central counterparty and a clearing member, typically in commercial bank money.
     /// </summary>
     [IsoId("_-yhDW-UTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAgt")]
     #endif
+    [IsoXmlTag("SttlmAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementAgent1 SettlementAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementAgent1 SettlementAgent { get; init; } 
+    public required SettlementAgent1 SettlementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementAgent1 SettlementAgent { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord<CCPDailyCashFlow
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_-yhDXeUTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord<CCPDailyCashFlow
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPDailyCashFlowsReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPDailyCashFlowsReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPDailyCashFlowsReportV01Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record CCPDailyCashFlowsReportV01 : IOuterRecord<CCPDailyCashFlow
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPDailyCashFlowsReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPDailyCashFlowsReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPDailyCashFlowsReportV01Document : IOuterDocument<CCPDailyCashFlowsReportV01>
@@ -162,7 +157,7 @@ public partial record CCPDailyCashFlowsReportV01Document : IOuterDocument<CCPDai
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPDailyCashFlowsReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPDailyCashFlowsReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPDailyCashFlowsReportV01 Message { get; init; }

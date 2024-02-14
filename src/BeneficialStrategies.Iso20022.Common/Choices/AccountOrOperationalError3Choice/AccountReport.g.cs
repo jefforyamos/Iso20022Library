@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError3Choice
     /// Reports either on the account information or on a business error.
     /// </summary>
     [IsoId("_fSjb8Z-WEee28J7y9KlTWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError3Choice
         /// Unique and unambiguous identification for the account between the account owner and the account servicer.
         /// </summary>
         [IsoId("_fd0Qw5-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctId")]
         #endif
+        [IsoXmlTag("AcctId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountIdentification4Choice_ AccountIdentification { get; init; } 
+        public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountIdentification4Choice_ AccountIdentification { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError3Choice
         /// Requested information on the account or business error when information has not been found.
         /// </summary>
         [IsoId("_fd0QxZ-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Or Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOrErr")]
         #endif
+        [IsoXmlTag("AcctOrErr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountOrBusinessError3Choice_ AccountOrError { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountOrBusinessError3Choice_ AccountOrError { get; init; } 
+        public required AccountOrBusinessError3Choice_ AccountOrError { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountOrBusinessError3Choice_ AccountOrError { get; init; } 
         #else

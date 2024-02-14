@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CommissionType2Choice.Code))]
     [KnownType(typeof(CommissionType2Choice.Proprietary))]
     [IsoId("_Ac_TctokEeC60axPepSq7g_1955335824")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

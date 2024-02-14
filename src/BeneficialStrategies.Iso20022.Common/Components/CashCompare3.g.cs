@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data specific to cash and related informations used as a collateral.
 /// </summary>
 [IsoId("_AVJ6ta5jEeuo-IflVgGqiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Compare")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CashCompare3
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
     [IsoId("_AjwXYa5jEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection2? Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +61,11 @@ public partial record CashCompare3
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
     [IsoId("_AjwXY65jEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut Or Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HrcutOrMrgn")]
     #endif
+    [IsoXmlTag("HrcutOrMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ComparePercentageRate3? HaircutOrMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

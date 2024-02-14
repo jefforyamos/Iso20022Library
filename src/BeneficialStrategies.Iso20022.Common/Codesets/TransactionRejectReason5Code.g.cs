@@ -21,7 +21,7 @@ public enum TransactionRejectReason5Code
 {
     /// <summary>
     /// Format of the account number specified is not correct.
-    /// Encoded/decoded by serializers as "AC01".
+    /// Encoded/decoded by serializers as &quot;AC01&quot;.
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_Yt7-g9p-Ed-ak6NoX_4Aeg_-68063242")]
@@ -29,8 +29,8 @@ public enum TransactionRejectReason5Code
     IncorrectAccountNumber = TransactionReasonCode.IncorrectAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Account number specified has been closed on the Receiver's books.
-    /// Encoded/decoded by serializers as "AC04".
+    /// Account number specified has been closed on the Receiver&apos;s books.
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_Yt7-hNp-Ed-ak6NoX_4Aeg_-68063199")]
@@ -39,7 +39,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "AC06".
+    /// Encoded/decoded by serializers as &quot;AC06&quot;.
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_Yt7-hdp-Ed-ak6NoX_4Aeg_-68063139")]
@@ -48,7 +48,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// Transaction forbidden on this type of account (formerly NoAgreement).
-    /// Encoded/decoded by serializers as "AG01".
+    /// Encoded/decoded by serializers as &quot;AG01&quot;.
     /// </summary>
     [EnumMember(Value = "AG01")]
     [IsoId("_Yt7-htp-Ed-ak6NoX_4Aeg_-68063069")]
@@ -57,7 +57,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
-    /// Encoded/decoded by serializers as "AM04".
+    /// Encoded/decoded by serializers as &quot;AM04&quot;.
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_Yt7-h9p-Ed-ak6NoX_4Aeg_-68063009")]
@@ -66,7 +66,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// This message appears to have been duplicated.
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_Yt7-iNp-Ed-ak6NoX_4Aeg_-68062967")]
@@ -74,8 +74,8 @@ public enum TransactionRejectReason5Code
     Duplication = TransactionReasonCode.Duplication, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
-    /// Encoded/decoded by serializers as "BE04".
+    /// Specification of creditor&apos;s address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
+    /// Encoded/decoded by serializers as &quot;BE04&quot;.
     /// </summary>
     [EnumMember(Value = "BE04")]
     [IsoId("_YuFIcNp-Ed-ak6NoX_4Aeg_-68063104")]
@@ -84,7 +84,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// Mandate is cancelled or invalid.
-    /// Encoded/decoded by serializers as "MD01".
+    /// Encoded/decoded by serializers as &quot;MD01&quot;.
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_YuFIcdp-Ed-ak6NoX_4Aeg_-68062672")]
@@ -93,7 +93,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// Return of funds requested by end customer.
-    /// Encoded/decoded by serializers as "MD06".
+    /// Encoded/decoded by serializers as &quot;MD06&quot;.
     /// </summary>
     [EnumMember(Value = "MD06")]
     [IsoId("_YuFIctp-Ed-ak6NoX_4Aeg_-68062595")]
@@ -102,7 +102,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// End customer is deceased.
-    /// Encoded/decoded by serializers as "MD07".
+    /// Encoded/decoded by serializers as &quot;MD07&quot;.
     /// </summary>
     [EnumMember(Value = "MD07")]
     [IsoId("_YuFIc9p-Ed-ak6NoX_4Aeg_-68062252")]
@@ -111,7 +111,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// Reason has not been specified by end customer.
-    /// Encoded/decoded by serializers as "MS02".
+    /// Encoded/decoded by serializers as &quot;MS02&quot;.
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_YuFIdNp-Ed-ak6NoX_4Aeg_-68062637")]
@@ -120,7 +120,7 @@ public enum TransactionRejectReason5Code
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "MS03".
+    /// Encoded/decoded by serializers as &quot;MS03&quot;.
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_YuFIddp-Ed-ak6NoX_4Aeg_-68062209")]

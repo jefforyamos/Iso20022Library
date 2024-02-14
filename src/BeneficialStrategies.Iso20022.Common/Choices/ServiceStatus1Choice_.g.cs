@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ServiceStatus1Choice.Code))]
     [KnownType(typeof(ServiceStatus1Choice.Proprietary))]
     [IsoId("_z_f3DfDXEemsS_0xy2XRug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

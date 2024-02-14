@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionType2Choice.InstructionIdentification))]
     [KnownType(typeof(InstructionType2Choice.InstructionCancellationIdentification))]
     [IsoId("_5chpEbmwEemdEs93hOkPKA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

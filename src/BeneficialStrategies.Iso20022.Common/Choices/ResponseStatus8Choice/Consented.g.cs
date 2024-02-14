@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus8Choice
     /// Reason provided for the status.
     /// </summary>
     [IsoId("_Vl2wJ5NSEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consented")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

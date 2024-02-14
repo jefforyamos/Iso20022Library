@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Capabilities of the terminal.
 /// </summary>
 [IsoId("_HjX5sEYZEeegp_DADCe7HQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Capabilities")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,11 @@ public partial record Capabilities1
     /// ISO 8583:93 bit 22-2; ISO 8583:2003 bit 27-1
     /// </summary>
     [IsoId("_f4hfoEYZEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Reading Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardRdngCpblty")]
     #endif
+    [IsoXmlTag("CardRdngCpblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading7Code? CardReadingCapability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,15 +60,13 @@ public partial record Capabilities1
     /// Other types of card reading capabilities.
     /// </summary>
     [IsoId("_oEHoEEYZEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Card Reading Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCardRdngCpblties")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrCardRdngCpblties")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherCardReadingCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +80,11 @@ public partial record Capabilities1
     /// ISO 8583:93 bit 22-10, ISO 8583:2003 bit 27-8_9.
     /// </summary>
     [IsoId("_5zlTcEYZEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Writing Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardWrtgCpblties")]
     #endif
+    [IsoXmlTag("CardWrtgCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataWriting1Code? CardWritingCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,15 +97,13 @@ public partial record Capabilities1
     /// Other card writing or output capabilities of the terminal performing the transaction.
     /// </summary>
     [IsoId("_FKeTMEYaEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Card Writing Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCardWrtgCpblties")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrCardWrtgCpblties")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherCardWritingCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +117,12 @@ public partial record Capabilities1
     /// ISO 8583:87 bit 26, ISO 8583:93 bit 22-12, ISO 8583:2003 bit 27-11.
     /// </summary>
     [IsoId("_R71s4EYaEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Length Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PINLngthCpblties")]
     #endif
+    [IsoXmlTag("PINLngthCpblties")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PINLengthCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,15 +133,15 @@ public partial record Capabilities1
     
     /// <summary>
     /// Maximum number of characters of the approval code that the acquirer is able to manage.
-    /// ISO 8583:87 & 93 bit 27,  ISO 8583:2003-1 bit 27-3
+    /// ISO 8583:87 &amp; 93 bit 27,  ISO 8583:2003-1 bit 27-3
     /// </summary>
     [IsoId("_gyFvcEYaEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Approval Code Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApprvlCdLngth")]
     #endif
+    [IsoXmlTag("ApprvlCdLngth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ApprovalCodeLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,12 +155,12 @@ public partial record Capabilities1
     /// ISO 8583:2003 bit 27-8
     /// </summary>
     [IsoId("_r_zlEEYaEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Max Script Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MxScrptLngth")]
     #endif
+    [IsoXmlTag("MxScrptLngth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaxScriptLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +175,12 @@ public partial record Capabilities1
     /// True: PIN pas is inoperative.
     /// </summary>
     [IsoId("_fVl-wJo5Eee2tb5MXkS8WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Pad Inoperative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PINPadInprtv")]
     #endif
+    [IsoXmlTag("PINPadInprtv")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PINPadInoperative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -204,12 +196,12 @@ public partial record Capabilities1
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-3, ISO 8583:2003 bit 27-10.
     /// </summary>
     [IsoId("_9yTWUEYaEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Capture Capable")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardCaptrCpbl")]
     #endif
+    [IsoXmlTag("CardCaptrCpbl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,12 +214,11 @@ public partial record Capabilities1
     /// Capability of the terminal to go online.
     /// </summary>
     [IsoId("_GkEt8EYbEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Line Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnLineCpblties")]
     #endif
+    [IsoXmlTag("OnLineCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLineCapability2Code? OnLineCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -241,12 +232,11 @@ public partial record Capabilities1
     /// ISO 8583:93 bit 22-11, ISO 8583:2003-1 bit 27-4,5, 6, 7
     /// </summary>
     [IsoId("_Im3aMEYdEeegp_DADCe7HQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgCpblties")]
     #endif
+    [IsoXmlTag("MsgCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisplayCapabilities6? MessageCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +250,11 @@ public partial record Capabilities1
     /// ISO 8583:93 bit 22-2, ISO 8583:2003 bit 27-2
     /// </summary>
     [IsoId("_25q4kRqZEeqH1IQNpbVpEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Verification Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrVrfctnCpblty")]
     #endif
+    [IsoXmlTag("CrdhldrVrfctnCpblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderVerificationCapabilities1? CardholderVerificationCapability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

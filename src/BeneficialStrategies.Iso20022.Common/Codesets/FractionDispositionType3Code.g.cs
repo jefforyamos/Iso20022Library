@@ -21,7 +21,7 @@ public enum FractionDispositionType3Code
 {
     /// <summary>
     /// Buy securities up to next whole number.
-    /// Encoded/decoded by serializers as "BUYU".
+    /// Encoded/decoded by serializers as &quot;BUYU&quot;.
     /// </summary>
     [EnumMember(Value = "BUYU")]
     [IsoId("_arjhwNp-Ed-ak6NoX_4Aeg_1382196652")]
@@ -30,7 +30,7 @@ public enum FractionDispositionType3Code
     
     /// <summary>
     /// Fractional part of cash. Take cash in lieu of fractions.
-    /// Encoded/decoded by serializers as "CINL".
+    /// Encoded/decoded by serializers as &quot;CINL&quot;.
     /// </summary>
     [EnumMember(Value = "CINL")]
     [IsoId("_arjhwdp-Ed-ak6NoX_4Aeg_1382196668")]
@@ -39,7 +39,7 @@ public enum FractionDispositionType3Code
     
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_arjhwtp-Ed-ak6NoX_4Aeg_1382196669")]
@@ -48,7 +48,7 @@ public enum FractionDispositionType3Code
     
     /// <summary>
     /// Let fractions expire worthless.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_arjhw9p-Ed-ak6NoX_4Aeg_1758992666")]
@@ -57,7 +57,7 @@ public enum FractionDispositionType3Code
     
     /// <summary>
     /// Characteristics of the disposition of fractions are unknown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_arjhxNp-Ed-ak6NoX_4Aeg_299584857")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Statement of the journal entries for all activities related to the registered currency control contract.
 /// </summary>
 [IsoId("_TYk8IW49EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Registration Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,15 +53,13 @@ public partial record ContractRegistrationStatement2
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the contract registration statement.
     /// </summary>
     [IsoId("_TitIgW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StmtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StatementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,16 +72,15 @@ public partial record ContractRegistrationStatement2
     /// Party registering the currency control contract.
     /// </summary>
     [IsoId("_TitIg249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPty")]
     #endif
+    [IsoXmlTag("RptgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty5 ReportingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeParty5 ReportingParty { get; init; } 
+    public required TradeParty5 ReportingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeParty5 ReportingParty { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record ContractRegistrationStatement2
     /// Agent which registers the currency control contract.
     /// </summary>
     [IsoId("_TitIhW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnAgt")]
     #endif
+    [IsoXmlTag("RegnAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #else
@@ -116,16 +110,15 @@ public partial record ContractRegistrationStatement2
     /// Specifies the period for which the statement is provided.
     /// </summary>
     [IsoId("_TitIh249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPrd")]
     #endif
+    [IsoXmlTag("RptgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingPeriod4 ReportingPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportingPeriod4 ReportingPeriod { get; init; } 
+    public required ReportingPeriod4 ReportingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportingPeriod4 ReportingPeriod { get; init; } 
     #else
@@ -136,16 +129,15 @@ public partial record ContractRegistrationStatement2
     /// Registered currency control contract.
     /// </summary>
     [IsoId("_TitIiW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registered Contract")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegdCtrct")]
     #endif
+    [IsoXmlTag("RegdCtrct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RegisteredContract8 RegisteredContract { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RegisteredContract8 RegisteredContract { get; init; } 
+    public required RegisteredContract8 RegisteredContract { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RegisteredContract8 RegisteredContract { get; init; } 
     #else
@@ -156,12 +148,11 @@ public partial record ContractRegistrationStatement2
     /// Journal of the transactions recorded under the registered currency control contract.
     /// </summary>
     [IsoId("_TitIi249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Journal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxJrnl")]
     #endif
+    [IsoXmlTag("TxJrnl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionCertificate3? TransactionJournal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +165,11 @@ public partial record ContractRegistrationStatement2
     /// Journal of the supporting documents recorded under the registered currency control contract.
     /// </summary>
     [IsoId("_TitIjW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supporting Document Journal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpprtgDocJrnl")]
     #endif
+    [IsoXmlTag("SpprtgDocJrnl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupportingDocument2? SupportingDocumentJournal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +182,11 @@ public partial record ContractRegistrationStatement2
     /// Journal of additional supporting documents recorded under the registered currency control contract.
     /// </summary>
     [IsoId("_TitIj249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Supporting Document Journal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlSpprtgDocJrnl")]
     #endif
+    [IsoXmlTag("AddtlSpprtgDocJrnl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupportingDocument2? AdditionalSupportingDocumentJournal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,12 +199,11 @@ public partial record ContractRegistrationStatement2
     /// Details on the currency control rule against which has been violated.
     /// </summary>
     [IsoId("_TitIkW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Regulatory Rule Validation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgltryRuleVldtn")]
     #endif
+    [IsoXmlTag("RgltryRuleVldtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? RegulatoryRuleValidation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,16 +216,16 @@ public partial record ContractRegistrationStatement2
     /// Total turn over amount recorded under the currency control contract for the amount of all.
     /// </summary>
     [IsoId("_TitIk249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Contract Turnover Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCtrctTrnvrSum")]
     #endif
+    [IsoXmlTag("TtlCtrctTrnvrSum")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalContractTurnoverSum { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalContractTurnoverSum { get; init; } 
+    public required System.Decimal TotalContractTurnoverSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalContractTurnoverSum { get; init; } 
     #else
@@ -248,12 +236,11 @@ public partial record ContractRegistrationStatement2
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_TitIlW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

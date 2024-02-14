@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains elements identifying an event belonging to the transaction.
 /// </summary>
 [IsoId("_TsN2cKJoEeaLbOzg6lYrCA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Event")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,16 @@ public partial record PaymentEvent2
     /// the sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
     [IsoId("_hqnrAqJoEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fr")]
     #endif
+    [IsoXmlTag("Fr")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier From { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String From { get; init; } 
+    public required System.String From { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String From { get; init; } 
     #else
@@ -77,16 +75,16 @@ public partial record PaymentEvent2
     /// the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
     [IsoId("_hqoSEKJoEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="To")]
     #endif
+    [IsoXmlTag("To")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier To { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String To { get; init; } 
+    public required System.String To { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String To { get; init; } 
     #else
@@ -97,16 +95,16 @@ public partial record PaymentEvent2
     /// Indicates whether a payment has been received or not. 
     /// </summary>
     [IsoId("_wvnewKJpEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcvd")]
     #endif
+    [IsoXmlTag("Rcvd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Received { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Received { get; init; } 
+    public required System.String Received { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Received { get; init; } 
     #else

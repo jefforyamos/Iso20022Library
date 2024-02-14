@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PreviousYearChoice
     /// Selection ot the entirety of the investment plans.
     /// </summary>
     [IsoId("_Rb-Mwtp-Ed-ak6NoX_4Aeg_-602919807")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Previous Years")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PreviousYearChoice
         /// Indicates that the investment plan issued during all the previous years have to be transferred.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AllPrvsYrs")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("AllPrvsYrs")]
+        [IsoSimpleType(IsoSimpleType.PreviousAll)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPreviousAll Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

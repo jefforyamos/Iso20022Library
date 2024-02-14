@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RequestType2Choice.Enquiry))]
     [KnownType(typeof(RequestType2Choice.Proprietary))]
     [IsoId("_76G8cqMgEeCJ6YNENx4h-w_-156360077")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

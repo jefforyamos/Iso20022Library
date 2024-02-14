@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Quantity13Choice.TotalUnitsNumber))]
     [KnownType(typeof(Quantity13Choice.PortfolioTransferOutRate))]
     [IsoId("__UhkwEZ6EeGxeZmLCxTaOw_-2052413231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity 13 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

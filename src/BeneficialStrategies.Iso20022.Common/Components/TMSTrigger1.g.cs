@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instructs the POI (Point Of Interaction) how to contact the host of the terminal management system (TMS), to initiate the maintenance of the terminal.
 /// </summary>
 [IsoId("_TGSgXAEcEeCQm6a_G2yO_w_-983555179")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("TMS Trigger")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TMSTrigger1
     /// Level of urgency in contacting the maintenance.
     /// </summary>
     [IsoId("_TGSgXQEcEeCQm6a_G2yO_w_-325386480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Contact Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSCtctLvl")]
     #endif
+    [IsoXmlTag("TMSCtctLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TMSContactLevel1Code TMSContactLevel { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TMSContactLevel1Code TMSContactLevel { get; init; } 
+    public required TMSContactLevel1Code TMSContactLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TMSContactLevel1Code TMSContactLevel { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TMSTrigger1
     /// Identification of the host to contact for the maintenance.
     /// </summary>
     [IsoId("_TGSgXgEcEeCQm6a_G2yO_w_-579683190")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TMSId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TMSIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record TMSTrigger1
     /// Date and time for calling the maintenance.
     /// </summary>
     [IsoId("_TGSgXwEcEeCQm6a_G2yO_w_-1677507172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Contact Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSCtctDtTm")]
     #endif
+    [IsoXmlTag("TMSCtctDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TMSContactDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

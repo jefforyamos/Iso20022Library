@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentMethod1Choice
     /// Method of payment for the remittance of the CSD or the NCB to the invoicing party, in a proprietary free text format.
     /// </summary>
     [IsoId("_jFLkVO5NEeCisYr99QEiWA_1833674686")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentMethod1Choice
         /// Specifies a character string with a maximum length of 210 characters.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Prtry")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Prtry")]
+        [IsoSimpleType(IsoSimpleType.Max210Text)]
         [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax210Text Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

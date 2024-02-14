@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
     /// Required status of the ATM, parameters of the status update command.
     /// </summary>
     [IsoId("_qAYfsYtHEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Required Global Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
         /// Status of the ATM.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ATMReqrdGblSts")]
         #endif
+        [IsoXmlTag("ATMReqrdGblSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ATMStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ATMStatus1Code Value { get; init; } 
+        public required ATMStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ATMStatus1Code Value { get; init; } 
         #else

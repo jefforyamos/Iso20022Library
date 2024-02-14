@@ -28,8 +28,8 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
 /// An account owner sends a SecuritiesSettlementTransactionCounterpartyResponse to advise the account servicer that:
-/// - the allegement received is either rejected (that is counterparty's transaction is unknown) or accepted (i.e. either the allegement was passed to the client or the transaction is know with or without mismatches)
-/// - the modification or cancellation request sent by the counterparty for a matched transaction is affirmed or not. The account servicer will therefore proceed or not with the counterparty's request to modify or cancel the transaction.
+/// - the allegement received is either rejected (that is counterparty&apos;s transaction is unknown) or accepted (i.e. either the allegement was passed to the client or the transaction is know with or without mismatches)
+/// - the modification or cancellation request sent by the counterparty for a matched transaction is affirmed or not. The account servicer will therefore proceed or not with the counterparty&apos;s request to modify or cancel the transaction.
 /// The account servicer may be a central securities depository or another settlement market infrastructure acting on behalf of their participants
 /// The account owner may be:
 /// - a central securities depository participant which has an account with a central securities depository or a market infrastructure
@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An account owner sends a SecuritiesSettlementTransactionCounterpartyResponse to advise the account servicer that:|- the allegement received is either rejected (that is counterparty's transaction is unknown) or accepted (i.e. either the allegement was passed to the client or the transaction is know with or without mismatches)|- the modification or cancellation request sent by the counterparty for a matched transaction is affirmed or not. The account servicer will therefore proceed or not with the counterparty's request to modify or cancel the transaction.|The account servicer may be a central securities depository or another settlement market infrastructure acting on behalf of their participants|The account owner may be:|- a central securities depository participant which has an account with a central securities depository or a market infrastructure|- an agent (sub-custodian) acting on behalf of their global custodian customer, or|- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|The message may also be used to:|- re-send a message sent by the account owner to the account servicer,|- provide a third party with a copy of a message being sent by the account owner for information,|- re-send to a third party a copy of a message being sent by the account owner for information|using the relevant elements in the Business Application Header.")]
 [IsoId("_4vL5MSp0EeyR9JrVGfaMKw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Settlement Transaction Counterparty Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -91,16 +89,15 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV04 : I
     /// Provides unambiguous transaction identification information.
     /// </summary>
     [IsoId("_4vL5Pyp0EeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification6 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentification6 TransactionIdentification { get; init; } 
+    public required TransactionIdentification6 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentification6 TransactionIdentification { get; init; } 
     #else
@@ -108,19 +105,18 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV04 : I
     #endif
     
     /// <summary>
-    /// Provides the response status related to an allegement or a counterparty's instruction.
+    /// Provides the response status related to an allegement or a counterparty&apos;s instruction.
     /// </summary>
     [IsoId("_4vL5QSp0EeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnSts")]
     #endif
+    [IsoXmlTag("RspnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseStatus6Choice_ ResponseStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseStatus6Choice_ ResponseStatus { get; init; } 
+    public required ResponseStatus6Choice_ ResponseStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseStatus6Choice_ ResponseStatus { get; init; } 
     #else
@@ -131,12 +127,11 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV04 : I
     /// Identifies the details of the transaction.
     /// </summary>
     [IsoId("_4vL5Qyp0EeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionDetails149? TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +144,11 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV04 : I
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_4vL5RSp0EeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,7 +161,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV04 : I
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesSettlementTransactionCounterpartyResponseV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesSettlementTransactionCounterpartyResponseV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesSettlementTransactionCounterpartyResponseV04Document ToDocument()
     {
@@ -177,7 +171,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV04 : I
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionCounterpartyResponseV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesSettlementTransactionCounterpartyResponseV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesSettlementTransactionCounterpartyResponseV04Document : IOuterDocument<SecuritiesSettlementTransactionCounterpartyResponseV04>
@@ -194,7 +188,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV04Docu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesSettlementTransactionCounterpartyResponseV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesSettlementTransactionCounterpartyResponseV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSettlementTransactionCounterpartyResponseV04 Message { get; init; }

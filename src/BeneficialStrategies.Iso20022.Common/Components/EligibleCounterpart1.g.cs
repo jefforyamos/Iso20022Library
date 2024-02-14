@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Represents a party to be identified as eligible for the instructing party.
 /// </summary>
 [IsoId("_jA3FAu5NEeCisYr99QEiWA_640889809")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Eligible Counterpart")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record EligibleCounterpart1
     /// Unique business identifier code used to identify the party providing the eligible counterpart information.
     /// </summary>
     [IsoId("_jA3FA-5NEeCisYr99QEiWA_1268620979")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrId")]
     #endif
+    [IsoXmlTag("IssrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
+    public required SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record EligibleCounterpart1
     /// Unique business identifier code used to identify the central securities depository to be defined as eligible.
     /// </summary>
     [IsoId("_jA3FBO5NEeCisYr99QEiWA_758214850")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligible Counterpart Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgblCntrptId")]
     #endif
+    [IsoXmlTag("ElgblCntrptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
+    public required SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
     #else
@@ -95,16 +91,16 @@ public partial record EligibleCounterpart1
     /// Date from when the eligible counterpart is valid.
     /// </summary>
     [IsoId("_jBA2AO5NEeCisYr99QEiWA_1781725699")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldFr")]
     #endif
+    [IsoXmlTag("VldFr")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValidFrom { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValidFrom { get; init; } 
+    public required System.DateOnly ValidFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValidFrom { get; init; } 
     #else
@@ -115,12 +111,12 @@ public partial record EligibleCounterpart1
     /// Date until when the eligible counterpart is valid.
     /// </summary>
     [IsoId("_jBA2Ae5NEeCisYr99QEiWA_-852427203")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldTo")]
     #endif
+    [IsoXmlTag("VldTo")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,16 +129,15 @@ public partial record EligibleCounterpart1
     /// Defines the type of eligibility.
     /// </summary>
     [IsoId("_jBA2Au5NEeCisYr99QEiWA_208099130")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligibility Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgbltyTp")]
     #endif
+    [IsoXmlTag("ElgbltyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EligibilityType1Code EligibilityType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EligibilityType1Code EligibilityType { get; init; } 
+    public required EligibilityType1Code EligibilityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EligibilityType1Code EligibilityType { get; init; } 
     #else
@@ -153,16 +148,15 @@ public partial record EligibleCounterpart1
     /// Unique identification of the eligible counterpart party.
     /// </summary>
     [IsoId("_jBA2A-5NEeCisYr99QEiWA_-730913403")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligibility Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgbltyId")]
     #endif
+    [IsoXmlTag("ElgbltyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
+    public required EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
     #else

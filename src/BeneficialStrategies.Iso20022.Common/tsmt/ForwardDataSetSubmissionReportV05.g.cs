@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The ForwardDataSetSubmissionReport message is sent by the matching application to the counterparty(ies) of the submitter of data sets.|This message is used to pass on information related to the purchasing agreement(s) covered by the transaction(s) referred to in the message.|Usage|The ForwardDataSetSubmission message can be sent by the matching application to forward the details of a DataSetSubmission message that it has obtained.")]
 [IsoId("_kTZ6EQgGEeSeS5xdjFfOTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Forward Data Set Submission Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// Identifies the report.
     /// </summary>
     [IsoId("_kTZ6FQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
+    [IsoXmlTag("RptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 ReportIdentification { get; init; } 
+    public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 ReportIdentification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// Identifies the transactions that this submission relates to and provides associated information.
     /// </summary>
     [IsoId("_kTZ6FwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Transaction References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdTxRefs")]
     #endif
+    [IsoXmlTag("RltdTxRefs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetSubmissionReferences4 RelatedTransactionReferences { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetSubmissionReferences4 RelatedTransactionReferences { get; init; } 
+    public required DataSetSubmissionReferences4 RelatedTransactionReferences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetSubmissionReferences4 RelatedTransactionReferences { get; init; } 
     #else
@@ -124,16 +120,15 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// This reference must be used for all data sets belonging to the same submission group.
     /// </summary>
     [IsoId("_kTZ6GQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Common Submission Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmonSubmissnRef")]
     #endif
+    [IsoXmlTag("CmonSubmissnRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation CommonSubmissionReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation CommonSubmissionReference { get; init; } 
+    public required SimpleIdentificationInformation CommonSubmissionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation CommonSubmissionReference { get; init; } 
     #else
@@ -144,16 +139,15 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// The financial institution that has submitted the data sets to the matching engine.
     /// </summary>
     [IsoId("_kTZ6GwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Submitr")]
     #endif
+    [IsoXmlTag("Submitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 Submitter { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 Submitter { get; init; } 
+    public required BICIdentification1 Submitter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 Submitter { get; init; } 
     #else
@@ -164,16 +158,15 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// The financial institution of the buyer, uniquely identified by its BIC.
     /// </summary>
     [IsoId("_kTZ6HQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrBk")]
     #endif
+    [IsoXmlTag("BuyrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 BuyerBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 BuyerBank { get; init; } 
+    public required BICIdentification1 BuyerBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 BuyerBank { get; init; } 
     #else
@@ -184,16 +177,15 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// The financial institution of the seller, uniquely identified by its BIC.
     /// </summary>
     [IsoId("_kTZ6HwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrBk")]
     #endif
+    [IsoXmlTag("SellrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 SellerBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 SellerBank { get; init; } 
+    public required BICIdentification1 SellerBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 SellerBank { get; init; } 
     #else
@@ -204,12 +196,11 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// Commercial information that has been submitted to the matching application by the other party.
     /// </summary>
     [IsoId("_kTZ6IQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commercial Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComrclDataSet")]
     #endif
+    [IsoXmlTag("ComrclDataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommercialDataSet5? CommercialDataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,12 +213,11 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// Transport information that has been submitted to the matching application by the other party.
     /// </summary>
     [IsoId("_kTZ6IwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsprtDataSet")]
     #endif
+    [IsoXmlTag("TrnsprtDataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportDataSet5? TransportDataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,12 +230,11 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// Insurance information that has been submitted to the matching application by the other party.
     /// </summary>
     [IsoId("_kTZ6JQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncDataSet")]
     #endif
+    [IsoXmlTag("InsrncDataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InsuranceDataSet1? InsuranceDataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -258,12 +247,11 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// Certificate information that has been submitted to the matching application by the other party.
     /// </summary>
     [IsoId("_kTZ6JwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertDataSet")]
     #endif
+    [IsoXmlTag("CertDataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CertificateDataSet2? CertificateDataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -276,12 +264,11 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// Other certificate information that has been submitted to the matching application by the other party.
     /// </summary>
     [IsoId("_kTZ6KQgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Certificate Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCertDataSet")]
     #endif
+    [IsoXmlTag("OthrCertDataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherCertificateDataSet2? OtherCertificateDataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -294,12 +281,11 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     /// Next processing step required.
     /// </summary>
     [IsoId("_kTZ6KwgGEeSeS5xdjFfOTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -312,7 +298,7 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ForwardDataSetSubmissionReportV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ForwardDataSetSubmissionReportV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ForwardDataSetSubmissionReportV05Document ToDocument()
     {
@@ -322,7 +308,7 @@ public partial record ForwardDataSetSubmissionReportV05 : IOuterRecord<ForwardDa
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForwardDataSetSubmissionReportV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ForwardDataSetSubmissionReportV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ForwardDataSetSubmissionReportV05Document : IOuterDocument<ForwardDataSetSubmissionReportV05>
@@ -339,7 +325,7 @@ public partial record ForwardDataSetSubmissionReportV05Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ForwardDataSetSubmissionReportV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ForwardDataSetSubmissionReportV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForwardDataSetSubmissionReportV05 Message { get; init; }

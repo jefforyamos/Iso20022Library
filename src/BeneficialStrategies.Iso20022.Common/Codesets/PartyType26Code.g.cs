@@ -21,7 +21,7 @@ public enum PartyType26Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_UUqwkZmMEee_M7tURHTZTQ")]
@@ -30,7 +30,7 @@ public enum PartyType26Code
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_UjpAsZmMEee_M7tURHTZTQ")]
@@ -39,7 +39,7 @@ public enum PartyType26Code
     
     /// <summary>
     /// Application in the smart card.
-    /// Encoded/decoded by serializers as "ICCA".
+    /// Encoded/decoded by serializers as &quot;ICCA&quot;.
     /// </summary>
     [EnumMember(Value = "ICCA")]
     [IsoId("_VJ4hUZmMEee_M7tURHTZTQ")]
@@ -48,7 +48,7 @@ public enum PartyType26Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_ViAtcZmMEee_M7tURHTZTQ")]
@@ -57,7 +57,7 @@ public enum PartyType26Code
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DLIS".
+    /// Encoded/decoded by serializers as &quot;DLIS&quot;.
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_Wz7oUZmMEee_M7tURHTZTQ")]
@@ -66,7 +66,7 @@ public enum PartyType26Code
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_X5jMkZmMEee_M7tURHTZTQ")]
@@ -75,7 +75,7 @@ public enum PartyType26Code
     
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_fdQOkZmMEee_M7tURHTZTQ")]
@@ -84,7 +84,7 @@ public enum PartyType26Code
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_frdpsZmMEee_M7tURHTZTQ")]

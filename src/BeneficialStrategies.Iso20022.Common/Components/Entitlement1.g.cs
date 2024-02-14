@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the entitlement.
 /// </summary>
 [IsoId("_UJRggtp-Ed-ak6NoX_4Aeg_-1393093293")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Entitlement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Entitlement1
     /// Identification of the party that owns the account.
     /// </summary>
     [IsoId("_UJRgg9p-Ed-ak6NoX_4Aeg_-505589087")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnrId")]
     #endif
+    [IsoXmlTag("AcctOwnrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,19 +66,17 @@ public partial record Entitlement1
     /// Idenfitication of the account.
     /// </summary>
     [IsoId("_UJRghNp-Ed-ak6NoX_4Aeg_-505589086")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AccountIdentification { get; init; } 
+    public required System.String AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AccountIdentification { get; init; } 
     #else
@@ -92,12 +87,11 @@ public partial record Entitlement1
     /// Provides information about the securities distribution.
     /// </summary>
     [IsoId("_UJRghdp-Ed-ak6NoX_4Aeg_1936794544")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Distribution Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesDstrbtnDtls")]
     #endif
+    [IsoXmlTag("SctiesDstrbtnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesEntitlement1? SecuritiesDistributionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record Entitlement1
     /// Provides information about the cash distribution.
     /// </summary>
     [IsoId("_UJRghtp-Ed-ak6NoX_4Aeg_1939563150")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Distribution Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshDstrbtnDtls")]
     #endif
+    [IsoXmlTag("CshDstrbtnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashEntitlement1? CashDistributionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

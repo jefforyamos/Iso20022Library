@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Global status of the ATM.
 /// </summary>
 [IsoId("__xSdUIrxEeSvuOJS0mmL0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ATMStatus1
     /// Actual status of the ATM.
     /// </summary>
     [IsoId("_O76NYIryEeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurSts")]
     #endif
+    [IsoXmlTag("CurSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMStatus1Code CurrentStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMStatus1Code CurrentStatus { get; init; } 
+    public required ATMStatus1Code CurrentStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMStatus1Code CurrentStatus { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ATMStatus1
     /// Present if the status required by the ATM manager is different from the current status.
     /// </summary>
     [IsoId("_TTaZIIryEeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demanded Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmnddSts")]
     #endif
+    [IsoXmlTag("DmnddSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMStatus1Code? DemandedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

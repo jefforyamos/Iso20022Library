@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RemovalProcessing2Choice.IndexIdentification))]
     [KnownType(typeof(RemovalProcessing2Choice.IssuerCountry))]
     [IsoId("__MbGwRIoEeyZaPkaPAzTvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Removal Processing 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

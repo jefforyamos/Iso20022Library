@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingCancellationStatus9Choice.NotSpecifiedReason))]
     [KnownType(typeof(PendingCancellationStatus9Choice.Reason))]
     [IsoId("_3V7U8f0vEeiKOe8GCUL1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Cancellation Status 9 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

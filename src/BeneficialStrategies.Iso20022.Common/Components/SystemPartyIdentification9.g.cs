@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous identification of a party within a system.
 /// </summary>
 [IsoId("_x7Ud0RirEeiNm9ItaZcR2A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SystemPartyIdentification9
     /// Unique identification of the party.
     /// </summary>
     [IsoId("_yN6psRirEeiNm9ItaZcR2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification136 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification136 Identification { get; init; } 
+    public required PartyIdentification136 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification136 Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SystemPartyIdentification9
     /// Unique identification of the responsible party.
     /// </summary>
     [IsoId("_vUry8VhKEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responsible Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnsblPtyId")]
     #endif
+    [IsoXmlTag("RspnsblPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record SystemPartyIdentification9
     /// Starting date from which the identification is valid.
     /// </summary>
     [IsoId("_xkq4kVhKEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldFr")]
     #endif
+    [IsoXmlTag("VldFr")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of the document referred in the remittance information.
 /// </summary>
 [IsoId("_T31yQdp-Ed-ak6NoX_4Aeg_788285148")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Referred Document Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReferredDocumentType1
     /// Document type in a coded form.
     /// </summary>
     [IsoId("_T31yQtp-Ed-ak6NoX_4Aeg_1742281673")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentType2Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentType2Code Code { get; init; } 
+    public required DocumentType2Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentType2Code Code { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record ReferredDocumentType1
     /// Proprietary identification of the type of the remittance document.
     /// </summary>
     [IsoId("_T31yQ9p-Ed-ak6NoX_4Aeg_1745976831")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prtry")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Proprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Proprietary { get; init; } 
+    public required System.String Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Proprietary { get; init; } 
     #else
@@ -95,15 +90,13 @@ public partial record ReferredDocumentType1
     /// Identification of the issuer of the reference document type.
     /// </summary>
     [IsoId("_T31yRNp-Ed-ak6NoX_4Aeg_1757060568")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

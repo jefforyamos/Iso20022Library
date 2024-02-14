@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxType3FormatChoice
     /// Standard code to specify the type of taxes.
     /// </summary>
     [IsoId("_RpFbstp-Ed-ak6NoX_4Aeg_1866583881")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxType3FormatChoice
         /// Type of tax.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TaxType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TaxType3Code Value { get; init; } 
+        public required TaxType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TaxType3Code Value { get; init; } 
         #else

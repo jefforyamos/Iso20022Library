@@ -21,7 +21,7 @@ public enum DebtInstrumentSeniorityTypeCode
 {
     /// <summary>
     /// Debt that takes priority over other unsecured or otherwise more junior debt owed by the issuer.
-    /// Encoded/decoded by serializers as "SNDB".
+    /// Encoded/decoded by serializers as &quot;SNDB&quot;.
     /// </summary>
     [EnumMember(Value = "SNDB")]
     [IsoId("_c5p08M4tEeSc85GUbgBycw")]
@@ -29,8 +29,8 @@ public enum DebtInstrumentSeniorityTypeCode
     SeniorDebt,
     
     /// <summary>
-    /// Subordinated debt or preferred equity instrument that represents a claim on a company's assets which is senior only to that of the common shares.
-    /// Encoded/decoded by serializers as "MZZD".
+    /// Subordinated debt or preferred equity instrument that represents a claim on a company&apos;s assets which is senior only to that of the common shares.
+    /// Encoded/decoded by serializers as &quot;MZZD&quot;.
     /// </summary>
     [EnumMember(Value = "MZZD")]
     [IsoId("_c8oQcM4tEeSc85GUbgBycw")]
@@ -39,7 +39,7 @@ public enum DebtInstrumentSeniorityTypeCode
     
     /// <summary>
     /// Debt owed to an unsecured creditor that can only be paid, in the event of a liquidation, after the claims of secured creditors have been met.
-    /// Encoded/decoded by serializers as "SBOD".
+    /// Encoded/decoded by serializers as &quot;SBOD&quot;.
     /// </summary>
     [EnumMember(Value = "SBOD")]
     [IsoId("_dAWS0M4tEeSc85GUbgBycw")]
@@ -48,7 +48,7 @@ public enum DebtInstrumentSeniorityTypeCode
     
     /// <summary>
     /// Debt that is either unsecured or has a lower priority than of another debt claim on the same asset or property.
-    /// Encoded/decoded by serializers as "JUND".
+    /// Encoded/decoded by serializers as &quot;JUND&quot;.
     /// </summary>
     [EnumMember(Value = "JUND")]
     [IsoId("_dGAO4M4tEeSc85GUbgBycw")]
@@ -57,7 +57,7 @@ public enum DebtInstrumentSeniorityTypeCode
     
     /// <summary>
     /// Other type of debts.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VTTZsEEPEeWwF-kIleVYXQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity involved in an activity.
 /// </summary>
 [IsoId("_PW59tdp-Ed-ak6NoX_4Aeg_-515475026")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party And Signature")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PartyAndSignature1
     /// Entity involved in an activity.
     /// </summary>
     [IsoId("_PW59ttp-Ed-ak6NoX_4Aeg_-1799527953")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification41 Party { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification41 Party { get; init; } 
+    public required PartyIdentification41 Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification41 Party { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PartyAndSignature1
     /// Signature of a party.
     /// </summary>
     [IsoId("_PW59t9p-Ed-ak6NoX_4Aeg_-1223443864")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProprietaryData3 Signature { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProprietaryData3 Signature { get; init; } 
+    public required ProprietaryData3 Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProprietaryData3 Signature { get; init; } 
     #else

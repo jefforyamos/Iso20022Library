@@ -21,7 +21,7 @@ public enum InstalmentAmountDetailsType2Code
 {
     /// <summary>
     /// Total financing cost per annum.
-    /// Encoded/decoded by serializers as "AFCO".
+    /// Encoded/decoded by serializers as &quot;AFCO&quot;.
     /// </summary>
     [EnumMember(Value = "AFCO")]
     [IsoId("_LaEdUZJOEeuuktRxxQZoNQ")]
@@ -30,7 +30,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Expense Amount
-    /// Encoded/decoded by serializers as "EXPN".
+    /// Encoded/decoded by serializers as &quot;EXPN&quot;.
     /// </summary>
     [EnumMember(Value = "EXPN")]
     [IsoId("_LhX_MZJOEeuuktRxxQZoNQ")]
@@ -39,7 +39,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Fees amount
-    /// Encoded/decoded by serializers as "FEES".
+    /// Encoded/decoded by serializers as &quot;FEES&quot;.
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_Lnl78ZJOEeuuktRxxQZoNQ")]
@@ -48,7 +48,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Funded amount
-    /// Encoded/decoded by serializers as "FUNA".
+    /// Encoded/decoded by serializers as &quot;FUNA&quot;.
     /// </summary>
     [EnumMember(Value = "FUNA")]
     [IsoId("_LuRywZJOEeuuktRxxQZoNQ")]
@@ -57,7 +57,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Insurance amount
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_L1TAwZJOEeuuktRxxQZoNQ")]
@@ -66,7 +66,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Interest amount.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_L7lO8ZJOEeuuktRxxQZoNQ")]
@@ -75,7 +75,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Other amounts
-    /// Encoded/decoded by serializers as "OTHC".
+    /// Encoded/decoded by serializers as &quot;OTHC&quot;.
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_MBmXYZJOEeuuktRxxQZoNQ")]
@@ -84,7 +84,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Grace period unit type
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_MH07MZJOEeuuktRxxQZoNQ")]
@@ -93,7 +93,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Grace period unit type
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_MOe80ZJOEeuuktRxxQZoNQ")]
@@ -102,7 +102,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Principal amount.
-    /// Encoded/decoded by serializers as "PRNC".
+    /// Encoded/decoded by serializers as &quot;PRNC&quot;.
     /// </summary>
     [EnumMember(Value = "PRNC")]
     [IsoId("_MUKuEZJOEeuuktRxxQZoNQ")]
@@ -111,7 +111,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Requested amount
-    /// Encoded/decoded by serializers as "RQST".
+    /// Encoded/decoded by serializers as &quot;RQST&quot;.
     /// </summary>
     [EnumMember(Value = "RQST")]
     [IsoId("_MbQNgZJOEeuuktRxxQZoNQ")]
@@ -120,7 +120,7 @@ public enum InstalmentAmountDetailsType2Code
     
     /// <summary>
     /// Instalment amount tax
-    /// Encoded/decoded by serializers as "TAXX".
+    /// Encoded/decoded by serializers as &quot;TAXX&quot;.
     /// </summary>
     [EnumMember(Value = "TAXX")]
     [IsoId("_MhsMsZJOEeuuktRxxQZoNQ")]

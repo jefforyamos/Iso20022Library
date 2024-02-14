@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data set containing the acceptor parameters of a point of interaction (POI).
 /// </summary>
 [IsoId("_K9f5En1DEeCF8NjrBemJWQ_137212968")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Terminal Management Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TerminalManagementDataSet3
     /// Identification of the data set transferred.
     /// </summary>
     [IsoId("_K9f5E31DEeCF8NjrBemJWQ_2022622085")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification2 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetIdentification2 Identification { get; init; } 
+    public required DataSetIdentification2 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetIdentification2 Identification { get; init; } 
     #else
@@ -72,15 +69,12 @@ public partial record TerminalManagementDataSet3
     /// Counter to identify a single data set within the whole transfer.
     /// </summary>
     [IsoId("_K9f5FH1DEeCF8NjrBemJWQ_-75183062")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Counter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqCntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SeqCntr")]
+    [IsoSimpleType(IsoSimpleType.Max9NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax9NumericText? SequenceCounter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +87,15 @@ public partial record TerminalManagementDataSet3
     /// Content of the acceptor parameters.
     /// </summary>
     [IsoId("_K9f5FX1DEeCF8NjrBemJWQ_843277362")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntt")]
     #endif
+    [IsoXmlTag("Cntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorConfigurationContent1 Content { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorConfigurationContent1 Content { get; init; } 
+    public required AcceptorConfigurationContent1 Content { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorConfigurationContent1 Content { get; init; } 
     #else

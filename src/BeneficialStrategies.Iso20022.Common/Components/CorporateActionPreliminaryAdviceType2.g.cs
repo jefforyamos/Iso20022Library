@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Type of movement preliminary advice document.
 /// </summary>
 [IsoId("_hX_uQSqeEeObprHJy8Zrxg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Preliminary Advice Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CorporateActionPreliminaryAdviceType2
     /// Type of movement preliminary advice, for example. new or replacement.
     /// </summary>
     [IsoId("_hvNUYSqeEeObprHJy8Zrxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
+    public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     #else
@@ -72,12 +69,12 @@ public partial record CorporateActionPreliminaryAdviceType2
     /// Value is Yes (true) if sent after entitlement date and No (false) if sent before entitlement date.
     /// </summary>
     [IsoId("_hvNUcSqeEeObprHJy8Zrxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligibility Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgbltyInd")]
     #endif
+    [IsoXmlTag("ElgbltyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EligibilityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

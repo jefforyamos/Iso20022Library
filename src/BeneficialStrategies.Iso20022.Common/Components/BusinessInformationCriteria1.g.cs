@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to search for business information and to report on the business information. A name may be given to the new query.
 /// </summary>
 [IsoId("_1dxAlZlZEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Information Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record BusinessInformationCriteria1
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
     [IsoId("_1mEoA5lZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Query Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewQryNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NewQryNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? NewQueryName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record BusinessInformationCriteria1
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
     [IsoId("_1mEoBZlZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeneralBusinessInformationSearchCriteria1? SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record BusinessInformationCriteria1
     /// Defines the expected report.
     /// </summary>
     [IsoId("_1mEoB5lZEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrCrit")]
     #endif
+    [IsoXmlTag("RtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeneralBusinessInformationReturnCriteria1? ReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

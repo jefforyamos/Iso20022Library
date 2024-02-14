@@ -21,7 +21,7 @@ public enum AssignmentMethod1Code
 {
     /// <summary>
     /// Assignment was conducted randomly.
-    /// Encoded/decoded by serializers as "RAND".
+    /// Encoded/decoded by serializers as &quot;RAND&quot;.
     /// </summary>
     [EnumMember(Value = "RAND")]
     [IsoId("_bfaAktp-Ed-ak6NoX_4Aeg_-1560115838")]
@@ -30,7 +30,7 @@ public enum AssignmentMethod1Code
     
     /// <summary>
     /// Assignment was conducted on a prorata basis.
-    /// Encoded/decoded by serializers as "PROR".
+    /// Encoded/decoded by serializers as &quot;PROR&quot;.
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_bfaAk9p-Ed-ak6NoX_4Aeg_-1560115837")]

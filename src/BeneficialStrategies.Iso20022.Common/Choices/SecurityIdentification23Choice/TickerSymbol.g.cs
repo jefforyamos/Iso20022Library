@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice
     /// Letters that identify a stock traded on a stock exchange. The Ticker Symbol is a short and convenient way of identifying a stock, for example, RTR.L for Reuters quoted in London.
     /// </summary>
     [IsoId("_CSq4OyGQEeW7gKYhAMEFCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ticker Symbol")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice
         /// Letters that identify a stock traded on a stock exchange. The Ticker Symbol is a short and convenient way of identifying a stock, for example, RTR.L for Reuters quoted in London.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TckrSymb")]
         #endif
+        [IsoXmlTag("TckrSymb")]
+        [IsoSimpleType(IsoSimpleType.TickerIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoTickerIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The AcquirerAuthorisationResponse message is sent by an issuer or an agent to answer to an AcquirerAuthorisationInitiation message.")]
 [IsoId("_YO8QUHuOEeSVeNXcmBQ4hQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Authorisation Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcquirerAuthorisationResponse : IOuterRecord<AcquirerAutho
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_m2yDcHuOEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header17 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header17 Header { get; init; } 
+    public required Header17 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header17 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcquirerAuthorisationResponse : IOuterRecord<AcquirerAutho
     /// Information related to the response of an authorisation.
     /// </summary>
     [IsoId("_Md4noHuPEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnRspn")]
     #endif
+    [IsoXmlTag("AuthstnRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerAuthorisationResponse1 AuthorisationResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerAuthorisationResponse1 AuthorisationResponse { get; init; } 
+    public required AcquirerAuthorisationResponse1 AuthorisationResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerAuthorisationResponse1 AuthorisationResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AcquirerAuthorisationResponse : IOuterRecord<AcquirerAutho
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_RzR_AHuPEeSVeNXcmBQ4hQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AcquirerAuthorisationResponse : IOuterRecord<AcquirerAutho
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcquirerAuthorisationResponseDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcquirerAuthorisationResponseDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcquirerAuthorisationResponseDocument ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AcquirerAuthorisationResponse : IOuterRecord<AcquirerAutho
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcquirerAuthorisationResponse"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcquirerAuthorisationResponse&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcquirerAuthorisationResponseDocument : IOuterDocument<AcquirerAuthorisationResponse>
@@ -161,7 +156,7 @@ public partial record AcquirerAuthorisationResponseDocument : IOuterDocument<Acq
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcquirerAuthorisationResponse"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcquirerAuthorisationResponse&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerAuthorisationResponse Message { get; init; }

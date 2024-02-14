@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountOwner3Choice.IndividualOwnerIdentification))]
     [KnownType(typeof(AccountOwner3Choice.OrganisationOwnerIdentification))]
     [IsoId("_6NYocZTIEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuredCollateral2Choice.PoolCollateral))]
     [KnownType(typeof(SecuredCollateral2Choice.OtherCollateral))]
     [IsoId("_h6SUN6idEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secured Collateral 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

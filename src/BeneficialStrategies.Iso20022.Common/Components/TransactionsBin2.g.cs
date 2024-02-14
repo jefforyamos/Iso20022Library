@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies aggregated details on transactions within a defined numeric range bin.
 /// </summary>
 [IsoId("_mbY-AUD5EeW1yage4PQ__A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transactions Bin")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record TransactionsBin2
     /// Total number of transactions executed for that bin. Transactions that have been cancelled should be excluded from the reported figure.
     /// </summary>
     [IsoId("_mmgB00D5EeW1yage4PQ__A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfTxs")]
     #endif
+    [IsoXmlTag("NbOfTxs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfTransactions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfTransactions { get; init; } 
+    public required System.UInt64 NumberOfTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfTransactions { get; init; } 
     #else
@@ -70,19 +68,19 @@ public partial record TransactionsBin2
     #endif
     
     /// <summary>
-    /// Total notional amount traded represented by all transactions executed on the reporting day which size lies in the bin's range, expressed in the currency as specified in the local regulation (except for emission allowances and emission allowance derivatives: tons of carbon dioxide). Transactions that have been cancelled should be excluded from the reported figure.
+    /// Total notional amount traded represented by all transactions executed on the reporting day which size lies in the bin&apos;s range, expressed in the currency as specified in the local regulation (except for emission allowances and emission allowance derivatives: tons of carbon dioxide). Transactions that have been cancelled should be excluded from the reported figure.
     /// </summary>
     [IsoId("_mmgB1UD5EeW1yage4PQ__A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Notional Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNtnlAmt")]
     #endif
+    [IsoXmlTag("TtlNtnlAmt")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber TotalNotionalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNotionalAmount { get; init; } 
+    public required System.UInt64 TotalNotionalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNotionalAmount { get; init; } 
     #else
@@ -93,16 +91,15 @@ public partial record TransactionsBin2
     /// Specific range the quantitative data relates to. Only allowed ranges must be used.
     /// </summary>
     [IsoId("_mmgB10D5EeW1yage4PQ__A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Range")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rg")]
     #endif
+    [IsoXmlTag("Rg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FromToQuantityRange2 Range { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FromToQuantityRange2 Range { get; init; } 
+    public required FromToQuantityRange2 Range { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FromToQuantityRange2 Range { get; init; } 
     #else

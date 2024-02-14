@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the processing status.
 /// </summary>
 [IsoId("_RjkpkNp-Ed-ak6NoX_4Aeg_-1988452432")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Individual Movement Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record IndividualMovementStatus1
     /// Identification of the movement.
     /// </summary>
     [IsoId("_Rjkpkdp-Ed-ak6NoX_4Aeg_-1957054674")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MvmntId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MvmntId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MovementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record IndividualMovementStatus1
     /// Provides information about the processing status of individual movement.
     /// </summary>
     [IsoId("_Rjkpktp-Ed-ak6NoX_4Aeg_-1443576010")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processed Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcdSts")]
     #endif
+    [IsoXmlTag("PrcdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MovementProcessingStatus1 ProcessedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MovementProcessingStatus1 ProcessedStatus { get; init; } 
+    public required MovementProcessingStatus1 ProcessedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MovementProcessingStatus1 ProcessedStatus { get; init; } 
     #else
@@ -93,16 +88,15 @@ public partial record IndividualMovementStatus1
     /// Provides information about the rejection status.
     /// </summary>
     [IsoId("_Rjkpk9p-Ed-ak6NoX_4Aeg_1990813693")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdSts")]
     #endif
+    [IsoXmlTag("RjctdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DistributionRejectionStatus1 RejectedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DistributionRejectionStatus1 RejectedStatus { get; init; } 
+    public required DistributionRejectionStatus1 RejectedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DistributionRejectionStatus1 RejectedStatus { get; init; } 
     #else

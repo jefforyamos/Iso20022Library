@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context in which the card payment transaction is performed.
 /// </summary>
 [IsoId("_uGFQkTNIEeylu6lH-gut-A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Context18
     /// Contains point of interaction information specific to a given transaction that may change from transaction to transaction.
     /// </summary>
     [IsoId("_uNL-ITNIEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Point Of Service Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtOfSvcCntxt")]
     #endif
+    [IsoXmlTag("PtOfSvcCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfServiceContext3? PointOfServiceContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Context18
     /// Context of the card payment transaction.
     /// </summary>
     [IsoId("_uNL-IzNIEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxCntxt")]
     #endif
+    [IsoXmlTag("TxCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionContext7? TransactionContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Context18
     /// Contain validation result and/or data to be validated.
     /// </summary>
     [IsoId("_uNL-JTNIEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrfctn")]
     #endif
+    [IsoXmlTag("Vrfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Verification5? Verification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Context18
     /// Context of risk associated with the transaction.
     /// </summary>
     [IsoId("_uNL-JzNIEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskCntxt")]
     #endif
+    [IsoXmlTag("RskCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskContext2? RiskContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record Context18
     /// Context of the sale associated with the card payment transaction.
     /// </summary>
     [IsoId("_uNL-KTNIEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleCntxt")]
     #endif
+    [IsoXmlTag("SaleCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleContext8? SaleContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record Context18
     /// Contains additional data.
     /// </summary>
     [IsoId("_6DFOETNIEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData2? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

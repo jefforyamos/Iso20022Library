@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
 /// </summary>
 [IsoId("_QZqbMdp-Ed-ak6NoX_4Aeg_223622935")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Balance Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AdditionalBalanceInformation3
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_QZqbMtp-Ed-ak6NoX_4Aeg_-1511610862")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubBalanceQuantity1Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubBalanceQuantity1Choice_ Quantity { get; init; } 
+    public required SubBalanceQuantity1Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubBalanceQuantity1Choice_ Quantity { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AdditionalBalanceInformation3
     /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
     /// </summary>
     [IsoId("_QZqbM9p-Ed-ak6NoX_4Aeg_-1026734239")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Balance Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlBalInf")]
     #endif
+    [IsoXmlTag("AddtlBalInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubBalanceType1Choice_ AdditionalBalanceInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubBalanceType1Choice_ AdditionalBalanceInformation { get; init; } 
+    public required SubBalanceType1Choice_ AdditionalBalanceInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubBalanceType1Choice_ AdditionalBalanceInformation { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
     /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
     /// </summary>
     [IsoId("_BkkfcWW8EeSHcOWXSsMhqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Name by which a party is known and which is usually used to identify that party.
         /// </summary>
         [IsoId("_xflo4QhFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax140Text Name { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Name { get; init; } 
+        public required System.String Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Name { get; init; } 
         #else
@@ -76,15 +72,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         #endif
         
         /// <summary>
-        /// Unique and unambiguous identifier for an organisation that is allocated by an institution, for example, Dun & Bradstreet Identification.
+        /// Unique and unambiguous identifier for an organisation that is allocated by an institution, for example, Dun &amp; Bradstreet Identification.
         /// </summary>
         [IsoId("_xflo4whFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification4Choice_? Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,15 +92,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Purpose of the organisation, for example, charity.
         /// </summary>
         [IsoId("_xflo5QhFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Purpose")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Purp")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Purp")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Purpose { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +111,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Country of taxation of an organisation.
         /// </summary>
         [IsoId("_xflo5whFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Taxation Country")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TaxtnCtry")]
         #endif
+        [IsoXmlTag("TaxtnCtry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CountryCode? TaxationCountry { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +128,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Country in which the organisation is registered.
         /// </summary>
         [IsoId("_xflo6QhFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Registration Country")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RegnCtry")]
         #endif
+        [IsoXmlTag("RegnCtry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CountryCode? RegistrationCountry { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +145,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Date and time at which a given organisation was officially registered.
         /// </summary>
         [IsoId("_xflo6whFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Registration Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RegnDt")]
         #endif
+        [IsoXmlTag("RegnDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? RegistrationDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,12 +163,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Tax identification information.
         /// </summary>
         [IsoId("_xflo7QhFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tax Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TaxId")]
         #endif
+        [IsoXmlTag("TaxId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TaxIdentification2? TaxIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -190,15 +180,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Number assigned by a national registration authority to an entity.
         /// </summary>
         [IsoId("_xflo7whFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("National Registration Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NtlRegnNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("NtlRegnNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? NationalRegistrationNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,28 +199,24 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Information that locates and identifies a specific address, as defined by postal services.
         /// </summary>
         [IsoId("_xflo8QhFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Postal Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PstlAdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PstlAdr")]
         [MinLength(1)]
         [MaxLength(5)]
-        #endif
         public ValueList<PostalAddress3> PostalAddress { get; init; } = new ValueList<PostalAddress3>(){};
         
         /// <summary>
         /// Communication device number or electronic address used for communication.
         /// </summary>
         [IsoId("_xflo8whFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Primary Communication Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmryComAdr")]
         #endif
+        [IsoXmlTag("PmryComAdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +229,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Communication device number or electronic address used for communication.
         /// </summary>
         [IsoId("_xflo9QhFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Secondary Communication Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ScndryComAdr")]
         #endif
+        [IsoXmlTag("ScndryComAdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +246,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party23Choice
         /// Additional regulatory information about the investor that is required in some markets to support anti-money laundering laws.
         /// </summary>
         [IsoId("_xflo9whFEeSUPbC7DbLJpQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Regulatory Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlRgltryInf")]
         #endif
+        [IsoXmlTag("AddtlRgltryInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public RegulatoryInformation1? AdditionalRegulatoryInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

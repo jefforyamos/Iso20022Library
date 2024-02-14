@@ -21,7 +21,7 @@ public enum DTCAdjustmentPaymentType1Code
 {
     /// <summary>
     /// Stock loan transaction.
-    /// Encoded/decoded by serializers as "STOK".
+    /// Encoded/decoded by serializers as &quot;STOK&quot;.
     /// </summary>
     [EnumMember(Value = "STOK")]
     [IsoId("_16HD8jL3EeKU9IrkkToqcw_-1873975027")]
@@ -30,7 +30,7 @@ public enum DTCAdjustmentPaymentType1Code
     
     /// <summary>
     /// REPO (repurchase agreement) transaction.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_16HD8zL3EeKU9IrkkToqcw_-990741740")]
@@ -39,7 +39,7 @@ public enum DTCAdjustmentPaymentType1Code
     
     /// <summary>
     /// FAIL (undelivered securities) transaction.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_16HD9DL3EeKU9IrkkToqcw_-1315859247")]
@@ -48,7 +48,7 @@ public enum DTCAdjustmentPaymentType1Code
     
     /// <summary>
     /// Miscellaneous (adjustment) transaction.
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_16HD9TL3EeKU9IrkkToqcw_-872870755")]

@@ -21,7 +21,7 @@ public enum RepoTerminationOption1Code
 {
     /// <summary>
     /// Evergreen termination option.
-    /// Encoded/decoded by serializers as "EGRN".
+    /// Encoded/decoded by serializers as &quot;EGRN&quot;.
     /// </summary>
     [EnumMember(Value = "EGRN")]
     [IsoId("_JUfZoSy0Eea35M2x2c9PXw")]
@@ -30,7 +30,7 @@ public enum RepoTerminationOption1Code
     
     /// <summary>
     /// Extendable termination option.
-    /// Encoded/decoded by serializers as "ETSB".
+    /// Encoded/decoded by serializers as &quot;ETSB&quot;.
     /// </summary>
     [EnumMember(Value = "ETSB")]
     [IsoId("_JmCcoSy0Eea35M2x2c9PXw")]

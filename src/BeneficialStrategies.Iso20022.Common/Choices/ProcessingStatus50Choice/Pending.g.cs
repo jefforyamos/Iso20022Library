@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus50Choice
     /// Modification is pending. It is not known at this time whether modification can be affected.
     /// </summary>
     [IsoId("_i1LiNznvEeWfSKvvZlhRKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

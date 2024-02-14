@@ -21,7 +21,7 @@ public enum InvestmentFundFee2Code
 {
     /// <summary>
     /// Fee paid by the investor to the fund or fund management company when redeeming.
-    /// Encoded/decoded by serializers as "BEND".
+    /// Encoded/decoded by serializers as &quot;BEND&quot;.
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_uPlWAa26EeerDLLe8bZJCA")]
@@ -30,7 +30,7 @@ public enum InvestmentFundFee2Code
     
     /// <summary>
     /// Fee paid by the investor to the fund or fund management company when subscribing.
-    /// Encoded/decoded by serializers as "FEND".
+    /// Encoded/decoded by serializers as &quot;FEND&quot;.
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_uhu18a26EeerDLLe8bZJCA")]
@@ -39,7 +39,7 @@ public enum InvestmentFundFee2Code
     
     /// <summary>
     /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_uzbp8a26EeerDLLe8bZJCA")]
@@ -48,7 +48,7 @@ public enum InvestmentFundFee2Code
     
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_0rY70a26EeerDLLe8bZJCA")]
@@ -57,7 +57,7 @@ public enum InvestmentFundFee2Code
     
     /// <summary>
     /// Fee charged by a regulatory authority, for example, securities and exchange fees.
-    /// Encoded/decoded by serializers as "REGF".
+    /// Encoded/decoded by serializers as &quot;REGF&quot;.
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_48070a26EeerDLLe8bZJCA")]
@@ -66,7 +66,7 @@ public enum InvestmentFundFee2Code
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_6HEhYa26EeerDLLe8bZJCA")]
@@ -75,7 +75,7 @@ public enum InvestmentFundFee2Code
     
     /// <summary>
     /// Fees, drawdown, or other reduction from or in addition to the deal price.
-    /// Encoded/decoded by serializers as "SPCN".
+    /// Encoded/decoded by serializers as &quot;SPCN&quot;.
     /// </summary>
     [EnumMember(Value = "SPCN")]
     [IsoId("_uV2goa27EeerDLLe8bZJCA")]

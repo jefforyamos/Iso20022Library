@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|An account owner, for example, an investor or its designated agent, sends the RequestForAccountManagementStatusReport message to the account servicer, for example, a registrar, transfer agent, custodian bank or securities depository to request the status of an AccountOpeningInstruction, GetAccountDetails or an AccountModificationInstruction.|Usage|The RequestForAccountManagementStatusReport message is used to request the processing status of a previously sent AccountOpeningInstruction message or AccountModificationInstruction message for which a AccountDetailsConfirmation message has not yet been received.")]
 [IsoId("_Kn-tYR8LEeWpZde3LQh6dg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request For Account Management Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record RequestForAccountManagementStatusReportV04 : IOuterRecord<
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_Kn-tYx8LEeWpZde3LQh6dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record RequestForAccountManagementStatusReportV04 : IOuterRecord<
     /// Identifies the account for which the status of the account management instruction is requested.
     /// </summary>
     [IsoId("_Kn-tZR8LEeWpZde3LQh6dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqDtls")]
     #endif
+    [IsoXmlTag("ReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountManagementMessageReference3 RequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountManagementMessageReference3 RequestDetails { get; init; } 
+    public required AccountManagementMessageReference3 RequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountManagementMessageReference3 RequestDetails { get; init; } 
     #else
@@ -119,7 +115,7 @@ public partial record RequestForAccountManagementStatusReportV04 : IOuterRecord<
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestForAccountManagementStatusReportV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestForAccountManagementStatusReportV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestForAccountManagementStatusReportV04Document ToDocument()
     {
@@ -129,7 +125,7 @@ public partial record RequestForAccountManagementStatusReportV04 : IOuterRecord<
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForAccountManagementStatusReportV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestForAccountManagementStatusReportV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestForAccountManagementStatusReportV04Document : IOuterDocument<RequestForAccountManagementStatusReportV04>
@@ -146,7 +142,7 @@ public partial record RequestForAccountManagementStatusReportV04Document : IOute
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestForAccountManagementStatusReportV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestForAccountManagementStatusReportV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestForAccountManagementStatusReportV04 Message { get; init; }

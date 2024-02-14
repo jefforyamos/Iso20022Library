@@ -22,7 +22,7 @@ public enum ValidationRuleStatus3Code
 {
     /// <summary>
     /// Received.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_itZM4SAeEeuSiN6KdHu9iw")]
@@ -31,7 +31,7 @@ public enum ValidationRuleStatus3Code
     
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_K2H4QSE7EeuIZ4Hf6difAw")]

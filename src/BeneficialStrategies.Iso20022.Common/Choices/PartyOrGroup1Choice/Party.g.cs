@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup1Choice
     /// Specifies a party.
     /// </summary>
     [IsoId("_EjCCgA4UEeKGXqvMN6jpiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup1Choice
         /// Entity involved in an activity.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pty")]
         #endif
+        [IsoXmlTag("Pty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification43 Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification43 Value { get; init; } 
+        public required PartyIdentification43 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification43 Value { get; init; } 
         #else
@@ -72,12 +71,12 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup1Choice
         /// Security certificate used to sign electronically.
         /// </summary>
         [IsoId("_5pjFlQ4VEeKGXqvMN6jpiw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Certificate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cert")]
         #endif
+        [IsoXmlTag("Cert")]
+        [IsoSimpleType(IsoSimpleType.Max10KBinary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax10KBinary? Certificate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

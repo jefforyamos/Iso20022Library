@@ -21,7 +21,7 @@ public enum ExternalPaymentStatusReasonCode
 {
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure maintaining the transaction’s service obligations.
-    /// Encoded/decoded by serializers as "G000".
+    /// Encoded/decoded by serializers as &quot;G000&quot;.
     /// </summary>
     [EnumMember(Value = "G000")]
     [IsoId("_RIYwcKXZEeaBtJ1HvhzRtg")]
@@ -30,7 +30,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.
-    /// Encoded/decoded by serializers as "G001".
+    /// Encoded/decoded by serializers as &quot;G001&quot;.
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_cMU_AKXZEeaBtJ1HvhzRtg")]
@@ -38,8 +38,8 @@ public enum ExternalPaymentStatusReasonCode
     PaymentTransferredAndSLANoLongerMaintained,
     
     /// <summary>
-    /// In an FI to FI Customer Credit Transfer: Credit to creditor's account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.
-    /// Encoded/decoded by serializers as "G003".
+    /// In an FI to FI Customer Credit Transfer: Credit to creditor&apos;s account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.
+    /// Encoded/decoded by serializers as &quot;G003&quot;.
     /// </summary>
     [EnumMember(Value = "G003")]
     [IsoId("_qS54IKXZEeaBtJ1HvhzRtg")]
@@ -47,8 +47,8 @@ public enum ExternalPaymentStatusReasonCode
     CreditPendingDocuments,
     
     /// <summary>
-    /// Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.
-    /// Encoded/decoded by serializers as "G004".
+    /// Credit to the creditor&apos;s account is pending as status Originator is waiting for funds provided via a cover.
+    /// Encoded/decoded by serializers as &quot;G004&quot;.
     /// </summary>
     [EnumMember(Value = "G004")]
     [IsoId("_DejBMKXaEeaBtJ1HvhzRtg")]
@@ -57,7 +57,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// The transaction processing cannot be completed the same day.
-    /// Encoded/decoded by serializers as "G002".
+    /// Encoded/decoded by serializers as &quot;G002&quot;.
     /// </summary>
     [EnumMember(Value = "G002")]
     [IsoId("_V_YfIKXaEeaBtJ1HvhzRtg")]
@@ -66,7 +66,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Credit Transfer has been delivered to creditor agent with transaction’s service obligations maintained.
-    /// Encoded/decoded by serializers as "G005".
+    /// Encoded/decoded by serializers as &quot;G005&quot;.
     /// </summary>
     [EnumMember(Value = "G005")]
     [IsoId("_oaqBEEJGEeinU6Cqu8f2Ow")]
@@ -75,7 +75,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Credit Transfer has been delivered to creditor agent where the transaction’s service obligations were no longer maintained.
-    /// Encoded/decoded by serializers as "G006".
+    /// Encoded/decoded by serializers as &quot;G006&quot;.
     /// </summary>
     [EnumMember(Value = "G006")]
     [IsoId("_72a2MEJGEeinU6Cqu8f2Ow")]
@@ -84,7 +84,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Account number is invalid or missing
-    /// Encoded/decoded by serializers as "AC01".
+    /// Encoded/decoded by serializers as &quot;AC01&quot;.
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_5oxmgFnjEemOfpP9Km-2dA")]
@@ -92,8 +92,8 @@ public enum ExternalPaymentStatusReasonCode
     IncorrectAccountNumber,
     
     /// <summary>
-    /// Account number specified has been closed on the bank of account's books.
-    /// Encoded/decoded by serializers as "AC04".
+    /// Account number specified has been closed on the bank of account&apos;s books.
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_LquJAFnkEemOfpP9Km-2dA")]
@@ -102,7 +102,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "AC06".
+    /// Encoded/decoded by serializers as &quot;AC06&quot;.
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_P-tGsFnkEemOfpP9Km-2dA")]
@@ -111,7 +111,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).
-    /// Encoded/decoded by serializers as "BE01".
+    /// Encoded/decoded by serializers as &quot;BE01&quot;.
     /// </summary>
     [EnumMember(Value = "BE01")]
     [IsoId("_TDRD4FnkEemOfpP9Km-2dA")]
@@ -120,7 +120,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Failed to contact beneficiary.
-    /// Encoded/decoded by serializers as "NOAS".
+    /// Encoded/decoded by serializers as &quot;NOAS&quot;.
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_ZAwWAFnkEemOfpP9Km-2dA")]
@@ -128,8 +128,8 @@ public enum ExternalPaymentStatusReasonCode
     NoAnswerFromCustomer,
     
     /// <summary>
-    /// Specification of the creditor's name and/or address needed for regulatory requirements is insufficient or missing.
-    /// Encoded/decoded by serializers as "RR03".
+    /// Specification of the creditor&apos;s name and/or address needed for regulatory requirements is insufficient or missing.
+    /// Encoded/decoded by serializers as &quot;RR03&quot;.
     /// </summary>
     [EnumMember(Value = "RR03")]
     [IsoId("_cSfzkFnkEemOfpP9Km-2dA")]
@@ -138,7 +138,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Purpose is missing or invalid.
-    /// Encoded/decoded by serializers as "FF07".
+    /// Encoded/decoded by serializers as &quot;FF07&quot;.
     /// </summary>
     [EnumMember(Value = "FF07")]
     [IsoId("_ipyFwFnkEemOfpP9Km-2dA")]
@@ -147,7 +147,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
-    /// Encoded/decoded by serializers as "RC01".
+    /// Encoded/decoded by serializers as &quot;RC01&quot;.
     /// </summary>
     [EnumMember(Value = "RC01")]
     [IsoId("_lg9uQFnkEemOfpP9Km-2dA")]
@@ -156,7 +156,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Routing code not valid for local clearing.
-    /// Encoded/decoded by serializers as "RC08".
+    /// Encoded/decoded by serializers as &quot;RC08&quot;.
     /// </summary>
     [EnumMember(Value = "RC08")]
     [IsoId("_x5X1YFnkEemOfpP9Km-2dA")]
@@ -165,7 +165,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Return following a cancellation request.
-    /// Encoded/decoded by serializers as "FOCR".
+    /// Encoded/decoded by serializers as &quot;FOCR&quot;.
     /// </summary>
     [EnumMember(Value = "FOCR")]
     [IsoId("_EM2MwFnlEemOfpP9Km-2dA")]
@@ -174,7 +174,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_Hu3iAFnlEemOfpP9Km-2dA")]
@@ -183,7 +183,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Regulatory or Central Bank Reporting information missing, incomplete or invalid.
-    /// Encoded/decoded by serializers as "RR05".
+    /// Encoded/decoded by serializers as &quot;RR05&quot;.
     /// </summary>
     [EnumMember(Value = "RR05")]
     [IsoId("_KdWhgFnlEemOfpP9Km-2dA")]
@@ -192,7 +192,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Below limit.
-    /// Encoded/decoded by serializers as "AM06".
+    /// Encoded/decoded by serializers as &quot;AM06&quot;.
     /// </summary>
     [EnumMember(Value = "AM06")]
     [IsoId("_O1jQ0FnlEemOfpP9Km-2dA")]
@@ -201,7 +201,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// At request of creditor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_RaxmoFnlEemOfpP9Km-2dA")]
@@ -210,7 +210,7 @@ public enum ExternalPaymentStatusReasonCode
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "MS03".
+    /// Encoded/decoded by serializers as &quot;MS03&quot;.
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_T35wYFnlEemOfpP9Km-2dA")]

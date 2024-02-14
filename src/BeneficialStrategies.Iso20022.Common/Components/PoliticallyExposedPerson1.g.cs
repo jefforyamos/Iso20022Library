@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Politically exposed person checks.
 /// </summary>
 [IsoId("_kC2a0KeeEemSUcvu_mDC7w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Politically Exposed Person")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PoliticallyExposedPerson1
     /// Specifies if due diligence checks on the political exposure of the investor have been carried out. (A politically exposed person is someone who has been entrusted with a prominent public function, or an individual who is closely related to such a person.)
     /// </summary>
     [IsoId("_m5DL4qeeEemSUcvu_mDC7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Politically Exposed Person Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PltclyXpsdPrsnTp")]
     #endif
+    [IsoXmlTag("PltclyXpsdPrsnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PoliticalExposureType2Choice_ PoliticallyExposedPersonType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PoliticalExposureType2Choice_ PoliticallyExposedPersonType { get; init; } 
+    public required PoliticalExposureType2Choice_ PoliticallyExposedPersonType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PoliticalExposureType2Choice_ PoliticallyExposedPersonType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PoliticallyExposedPerson1
     /// Status of the politically exposed person.
     /// </summary>
     [IsoId("_m5DL46eeEemSUcvu_mDC7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Politically Exposed Person Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PltclyXpsdPrsnSts")]
     #endif
+    [IsoXmlTag("PltclyXpsdPrsnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PoliticallyExposedPersonStatus1Choice_? PoliticallyExposedPersonStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

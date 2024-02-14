@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
 /// </summary>
 [IsoId("_jGE_IXIQEe2OqYulmHWukQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("TMS Protocol Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record TMSProtocolParameters7
     /// Type of action for the configuration parameters.
     /// </summary>
     [IsoId("_jM3joXIQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTp")]
     #endif
+    [IsoXmlTag("ActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code ActionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementAction3Code ActionType { get; init; } 
+    public required TerminalManagementAction3Code ActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementAction3Code ActionType { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record TMSProtocolParameters7
     /// Identification of the master terminal manager or the terminal manager.
     /// </summary>
     [IsoId("_jM3jo3IQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Manager Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlMgrId")]
     #endif
+    [IsoXmlTag("TermnlMgrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification176 TerminalManagerIdentification { get; init; } 
+    public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification176 TerminalManagerIdentification { get; init; } 
     #else
@@ -94,15 +90,13 @@ public partial record TMSProtocolParameters7
     /// Protocol version to use when using these parameters.
     /// </summary>
     [IsoId("_jM3jpXIQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protocol Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtcolVrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtcolVrsn")]
+    [IsoSimpleType(IsoSimpleType.Max8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax8Text? ProtocolVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +109,11 @@ public partial record TMSProtocolParameters7
     /// Maintenance services provided by the terminal manager.
     /// </summary>
     [IsoId("_jM3jp3IQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maintenance Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MntncSvc")]
     #endif
+    [IsoXmlTag("MntncSvc")]
     public DataSetCategory10Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _jM3jp3IQEe2OqYulmHWukQ
     
@@ -128,19 +121,17 @@ public partial record TMSProtocolParameters7
     /// Version of the TMS protocol parameters.
     /// </summary>
     [IsoId("_jM3jqXIQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Version { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Version { get; init; } 
+    public required System.String Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Version { get; init; } 
     #else
@@ -151,15 +142,13 @@ public partial record TMSProtocolParameters7
     /// Identification of applications which may be managed by the TM, partially or globally.
     /// </summary>
     [IsoId("_jM3jq3IQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,19 +161,17 @@ public partial record TMSProtocolParameters7
     /// Identification of the terminal manager host.
     /// </summary>
     [IsoId("_jM3jrXIQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("HstId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text HostIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String HostIdentification { get; init; } 
+    public required System.String HostIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String HostIdentification { get; init; } 
     #else
@@ -195,15 +182,13 @@ public partial record TMSProtocolParameters7
     /// New identification of the POI for the terminal manager.
     /// </summary>
     [IsoId("_jM3jr3IQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("POIId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -216,15 +201,13 @@ public partial record TMSProtocolParameters7
     /// New identification of the initiating party to set in TMS messages with this terminal manager.
     /// </summary>
     [IsoId("_jM3jsXIQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiating Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitgPtyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InitgPtyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? InitiatingPartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -237,15 +220,13 @@ public partial record TMSProtocolParameters7
     /// New identification of the recipient party to set in TMS messages with this terminal manager.
     /// </summary>
     [IsoId("_jM5Y0XIQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptPtyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcptPtyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RecipientPartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -258,12 +239,12 @@ public partial record TMSProtocolParameters7
     /// Configuration parameters are exchanged per file transfer protocol rather than per message.
     /// </summary>
     [IsoId("_jM5Y03IQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileTrf")]
     #endif
+    [IsoXmlTag("FileTrf")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? FileTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -276,12 +257,11 @@ public partial record TMSProtocolParameters7
     /// Configuration of a message item.
     /// </summary>
     [IsoId("_jM5Y1XIQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgItm")]
     #endif
+    [IsoXmlTag("MsgItm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageItemCondition2? MessageItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -294,15 +274,13 @@ public partial record TMSProtocolParameters7
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
     [IsoId("_jM5Y13IQEe2OqYulmHWukQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Externally Type Supported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlyTpSpprtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtrnlyTpSpprtd")]
+    [IsoSimpleType(IsoSimpleType.Max1025Text)]
     [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? ExternallyTypeSupported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

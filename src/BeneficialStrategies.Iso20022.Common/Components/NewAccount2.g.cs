@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the new account.
 /// </summary>
 [IsoId("_XYiKkW49EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("New Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record NewAccount2
     /// Details of the new account.
     /// </summary>
     [IsoId("_XjHp8W49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount39 Account { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount39 Account { get; init; } 
+    public required CashAccount39 Account { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount39 Account { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record NewAccount2
     /// Party or parties to be identified in the context of account operations.
     /// </summary>
     [IsoId("_XjHp8249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctPty")]
     #endif
+    [IsoXmlTag("AcctPty")]
     public IndividualPerson36? AccountParty { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _XjHp8249EeiU9cctagi5ow
     
@@ -84,12 +80,11 @@ public partial record NewAccount2
     /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
     /// </summary>
     [IsoId("_XjHp9W49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Org")]
     #endif
+    [IsoXmlTag("Org")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation35? Organisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

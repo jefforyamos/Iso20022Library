@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
 [IsoId("_HPltAQc_EeSyIPzOZ6VzBQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Unit Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UnitPrice19
     /// Type of price.
     /// </summary>
     [IsoId("_Hp64kQc_EeSyIPzOZ6VzBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricTp")]
     #endif
+    [IsoXmlTag("PricTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitPriceType2Choice_ PriceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitPriceType2Choice_ PriceType { get; init; } 
+    public required UnitPriceType2Choice_ PriceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitPriceType2Choice_ PriceType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UnitPrice19
     /// Value of the price, that is, as a currency and value.
     /// </summary>
     [IsoId("_Hp64kwc_EeSyIPzOZ6VzBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValue1 Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceValue1 Value { get; init; } 
+    public required PriceValue1 Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceValue1 Value { get; init; } 
     #else

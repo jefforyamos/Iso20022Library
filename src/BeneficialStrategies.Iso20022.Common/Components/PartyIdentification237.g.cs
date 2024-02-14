@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a party.
 /// </summary>
 [IsoId("_NbXONfNyEeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PartyIdentification237
     /// Name and address of the party.
     /// </summary>
     [IsoId("_Nu2K4fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name And Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmAndAdr")]
     #endif
+    [IsoXmlTag("NmAndAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NameAndAddress17 NameAndAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NameAndAddress17 NameAndAddress { get; init; } 
+    public required NameAndAddress17 NameAndAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NameAndAddress17 NameAndAddress { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record PartyIdentification237
     /// Address for electronic mail (e-mail).
     /// </summary>
     [IsoId("_Nu2K4_NyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Email Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EmailAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("EmailAdr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? EmailAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record PartyIdentification237
     /// Identification of the party.
     /// </summary>
     [IsoId("_Nu2K5fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification198Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification198Choice_ Identification { get; init; } 
+    public required PartyIdentification198Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification198Choice_ Identification { get; init; } 
     #else
@@ -113,12 +107,11 @@ public partial record PartyIdentification237
     /// Country in which the company is incorporated or legally registered. 
     /// </summary>
     [IsoId("_Nu2K5_NyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Incorporation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfIncorprtn")]
     #endif
+    [IsoXmlTag("CtryOfIncorprtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfIncorporation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,12 @@ public partial record PartyIdentification237
     /// Year during which the legal entity was officially incorporated.
     /// </summary>
     [IsoId("_Z5rJAPNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Year Of Incorporation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="YrOfIncorprtn")]
     #endif
+    [IsoXmlTag("YrOfIncorprtn")]
+    [IsoSimpleType(IsoSimpleType.ISOYear)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYear? YearOfIncorporation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,12 @@ public partial record PartyIdentification237
     /// Economical activity of the  investor.
     /// </summary>
     [IsoId("_Nu2K6fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activity Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtyInd")]
     #endif
+    [IsoXmlTag("ActvtyInd")]
+    [IsoSimpleType(IsoSimpleType.ISICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISICIdentifier? ActivityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +160,11 @@ public partial record PartyIdentification237
     /// Type of investor.
     /// </summary>
     [IsoId("_Nu2K6_NyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrTp")]
     #endif
+    [IsoXmlTag("InvstrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorType1Choice_? InvestorType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +177,11 @@ public partial record PartyIdentification237
     /// Information about the ownership on an asset.
     /// </summary>
     [IsoId("_Nu2K7fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ownership")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ownrsh")]
     #endif
+    [IsoXmlTag("Ownrsh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Ownership1? Ownership { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

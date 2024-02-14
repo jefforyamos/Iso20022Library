@@ -16,13 +16,11 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.UserDefined;
 
 /// <summary>
-/// Technical extension structure that allows to specify any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'. 
+/// Technical extension structure that allows to specify any valid XML Structure (e.g. through an XML Schema). The property namespace is set to &apos;any&apos;. 
 /// The content of the extension MUST be validated by the receiver (processContent=strict), hence the receiver must have the description (e.g. the XML Schema) of the extension.
 /// </summary>
 [IsoId("_YWiyM9p-Ed-ak6NoX_4Aeg_1061291860")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Extension Contents")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif

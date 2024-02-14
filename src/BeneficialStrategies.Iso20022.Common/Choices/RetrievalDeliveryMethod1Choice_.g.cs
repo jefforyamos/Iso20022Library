@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RetrievalDeliveryMethod1Choice.EstablishedMethod))]
     [KnownType(typeof(RetrievalDeliveryMethod1Choice.ActualDeliveryMethod))]
     [IsoId("_wPBNlewhEeiMkKo2clXHdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Retrieval Delivery Method 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

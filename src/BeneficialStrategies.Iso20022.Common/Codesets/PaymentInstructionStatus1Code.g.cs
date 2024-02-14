@@ -21,7 +21,7 @@ public enum PaymentInstructionStatus1Code
 {
     /// <summary>
     /// Transaction has been accepted by the clearing agent.
-    /// Encoded/decoded by serializers as "ACPD".
+    /// Encoded/decoded by serializers as &quot;ACPD&quot;.
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_VmaM6dp-Ed-ak6NoX_4Aeg_504928912")]
@@ -30,7 +30,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction has been validated by the clearing agent.
-    /// Encoded/decoded by serializers as "VALD".
+    /// Encoded/decoded by serializers as &quot;VALD&quot;.
     /// </summary>
     [EnumMember(Value = "VALD")]
     [IsoId("_VmjW0Np-Ed-ak6NoX_4Aeg_504928913")]
@@ -39,7 +39,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction has been authorised by the transaction administrator or authorised party.
-    /// Encoded/decoded by serializers as "AUTD".
+    /// Encoded/decoded by serializers as &quot;AUTD&quot;.
     /// </summary>
     [EnumMember(Value = "AUTD")]
     [IsoId("_VmjW0dp-Ed-ak6NoX_4Aeg_504928914")]
@@ -48,7 +48,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction is invalid.
-    /// Encoded/decoded by serializers as "INVD".
+    /// Encoded/decoded by serializers as &quot;INVD&quot;.
     /// </summary>
     [EnumMember(Value = "INVD")]
     [IsoId("_VmjW0tp-Ed-ak6NoX_4Aeg_504928915")]
@@ -57,7 +57,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction has been matched with a corresponding transaction by the clearing agent.
-    /// Encoded/decoded by serializers as "MATD".
+    /// Encoded/decoded by serializers as &quot;MATD&quot;.
     /// </summary>
     [EnumMember(Value = "MATD")]
     [IsoId("_VmjW09p-Ed-ak6NoX_4Aeg_504928916")]
@@ -66,7 +66,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Clearing agent attempted to match the transaction with a corresponding transaction but failed.
-    /// Encoded/decoded by serializers as "UMAC".
+    /// Encoded/decoded by serializers as &quot;UMAC&quot;.
     /// </summary>
     [EnumMember(Value = "UMAC")]
     [IsoId("_VmjW1Np-Ed-ak6NoX_4Aeg_504928917")]
@@ -75,7 +75,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Clearing agent attempted to match the transaction with a corresponding transaction, but some non-essential characteristics of both transactions failed to match.
-    /// Encoded/decoded by serializers as "MMTD".
+    /// Encoded/decoded by serializers as &quot;MMTD&quot;.
     /// </summary>
     [EnumMember(Value = "MMTD")]
     [IsoId("_VmjW1dp-Ed-ak6NoX_4Aeg_504928929")]
@@ -84,7 +84,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction is eligible for future settlement.
-    /// Encoded/decoded by serializers as "STLE".
+    /// Encoded/decoded by serializers as &quot;STLE&quot;.
     /// </summary>
     [EnumMember(Value = "STLE")]
     [IsoId("_VmjW1tp-Ed-ak6NoX_4Aeg_504928930")]
@@ -93,7 +93,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction is eligible for immediate settlement.
-    /// Encoded/decoded by serializers as "STLM".
+    /// Encoded/decoded by serializers as &quot;STLM&quot;.
     /// </summary>
     [EnumMember(Value = "STLM")]
     [IsoId("_VmjW19p-Ed-ak6NoX_4Aeg_504928931")]
@@ -102,7 +102,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction has been suspended by the clearing agent.
-    /// Encoded/decoded by serializers as "SSPD".
+    /// Encoded/decoded by serializers as &quot;SSPD&quot;.
     /// </summary>
     [EnumMember(Value = "SSPD")]
     [IsoId("_VmtH0Np-Ed-ak6NoX_4Aeg_504928932")]
@@ -111,7 +111,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Clearing agent has received a cancellation request for the transaction, and needs either a matching request for cancellation from the counterparty or a confirmation from an authorised party.
-    /// Encoded/decoded by serializers as "PCAN".
+    /// Encoded/decoded by serializers as &quot;PCAN&quot;.
     /// </summary>
     [EnumMember(Value = "PCAN")]
     [IsoId("_VmtH0dp-Ed-ak6NoX_4Aeg_504928933")]
@@ -120,7 +120,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction is eligible for settlement, but is pending.
-    /// Encoded/decoded by serializers as "PSTL".
+    /// Encoded/decoded by serializers as &quot;PSTL&quot;.
     /// </summary>
     [EnumMember(Value = "PSTL")]
     [IsoId("_VmtH0tp-Ed-ak6NoX_4Aeg_504928934")]
@@ -129,7 +129,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction eligible for immediate settlement, has failed to settle.
-    /// Encoded/decoded by serializers as "PFST".
+    /// Encoded/decoded by serializers as &quot;PFST&quot;.
     /// </summary>
     [EnumMember(Value = "PFST")]
     [IsoId("_VmtH09p-Ed-ak6NoX_4Aeg_504928935")]
@@ -137,8 +137,8 @@ public enum PaymentInstructionStatus1Code
     PendingFailingSettlement = PaymentInstructionStatusCode.PendingFailingSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction causes the 'Sender multilateral limit' to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "SMLR".
+    /// Transaction causes the &apos;Sender multilateral limit&apos; to be exceeded and cannot currently be processed.
+    /// Encoded/decoded by serializers as &quot;SMLR&quot;.
     /// </summary>
     [EnumMember(Value = "SMLR")]
     [IsoId("_VmtH1Np-Ed-ak6NoX_4Aeg_504928943")]
@@ -146,8 +146,8 @@ public enum PaymentInstructionStatus1Code
     SenderMultilateralLimitRelated = PaymentInstructionStatusCode.SenderMultilateralLimitRelated, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction causes the 'Receiver multilateral limit' to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "RMLR".
+    /// Transaction causes the &apos;Receiver multilateral limit&apos; to be exceeded and cannot currently be processed.
+    /// Encoded/decoded by serializers as &quot;RMLR&quot;.
     /// </summary>
     [EnumMember(Value = "RMLR")]
     [IsoId("_VmtH1dp-Ed-ak6NoX_4Aeg_504928944")]
@@ -156,7 +156,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction causes the bilateral limit fixed between Sender and Receiver to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "SRBL".
+    /// Encoded/decoded by serializers as &quot;SRBL&quot;.
     /// </summary>
     [EnumMember(Value = "SRBL")]
     [IsoId("_VmtH1tp-Ed-ak6NoX_4Aeg_504928945")]
@@ -165,7 +165,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction has been successfully processed by the clearing agent.
-    /// Encoded/decoded by serializers as "STLD".
+    /// Encoded/decoded by serializers as &quot;STLD&quot;.
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_VmtH19p-Ed-ak6NoX_4Aeg_504928946")]
@@ -174,7 +174,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction has been rejected by the clearing agent.
-    /// Encoded/decoded by serializers as "RJTD".
+    /// Encoded/decoded by serializers as &quot;RJTD&quot;.
     /// </summary>
     [EnumMember(Value = "RJTD")]
     [IsoId("_VmtH2Np-Ed-ak6NoX_4Aeg_504928947")]
@@ -183,7 +183,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_VmtH2dp-Ed-ak6NoX_4Aeg_504928948")]
@@ -192,7 +192,7 @@ public enum PaymentInstructionStatus1Code
     
     /// <summary>
     /// Transaction has been successfully processed by the clearing agent. Settlement will take place outside of the system.
-    /// Encoded/decoded by serializers as "FNLD".
+    /// Encoded/decoded by serializers as &quot;FNLD&quot;.
     /// </summary>
     [EnumMember(Value = "FNLD")]
     [IsoId("_Vm240Np-Ed-ak6NoX_4Aeg_504928957")]

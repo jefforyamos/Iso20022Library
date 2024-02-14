@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the cash proceeds.
 /// </summary>
 [IsoId("_UP1bhtp-Ed-ak6NoX_4Aeg_1953970402")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Proceeds")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CashProceeds1
     /// Cash amount which is posted.
     /// </summary>
     [IsoId("_UP1bh9p-Ed-ak6NoX_4Aeg_1291538706")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posting Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstngAmt")]
     #endif
+    [IsoXmlTag("PstngAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PostingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PostingAmount { get; init; } 
+    public required System.Decimal PostingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PostingAmount { get; init; } 
     #else
@@ -71,15 +69,13 @@ public partial record CashProceeds1
     /// Reconciliation information.
     /// </summary>
     [IsoId("_UP1biNp-Ed-ak6NoX_4Aeg_1379272721")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcncltnDtls")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ReconciliationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +88,13 @@ public partial record CashProceeds1
     /// Provides information about the debited securities account.
     /// </summary>
     [IsoId("_UP1bidp-Ed-ak6NoX_4Aeg_-876446591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctDtls")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<CashAccount19> AccountDetails { get; init; } = new ValueList<CashAccount19>(){};
     
     

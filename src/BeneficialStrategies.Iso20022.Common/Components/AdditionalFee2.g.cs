@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Fees not included in the transaction.
 /// </summary>
 [IsoId("_xv70MYdGEeuBS50MFjViNw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Fee")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AdditionalFee2
     /// Type or class of fee.
     /// </summary>
     [IsoId("_x1HPIYdGEeuBS50MFjViNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfAmount21Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfAmount21Code Type { get; init; } 
+    public required TypeOfAmount21Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfAmount21Code Type { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record AdditionalFee2
     /// Additional information to specify the type of amount of fee.
     /// </summary>
     [IsoId("_x1HPI4dGEeuBS50MFjViNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,15 +88,13 @@ public partial record AdditionalFee2
     /// Identification of fee program.
     /// </summary>
     [IsoId("_x1HPJYdGEeuBS50MFjViNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fee Program")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FeePrgm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FeePrgm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FeeProgram { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,15 +107,13 @@ public partial record AdditionalFee2
     /// Identification of specific fee.
     /// </summary>
     [IsoId("_x1HPJ4dGEeuBS50MFjViNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fee Descriptor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FeeDscrptr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FeeDscrptr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FeeDescriptor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,16 +126,15 @@ public partial record AdditionalFee2
     /// Amount of one occurrence of the fee amount.
     /// </summary>
     [IsoId("_x1HPKYdGEeuBS50MFjViNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fee Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FeeAmt")]
     #endif
+    [IsoXmlTag("FeeAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FeeAmount3 FeeAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FeeAmount3 FeeAmount { get; init; } 
+    public required FeeAmount3 FeeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FeeAmount3 FeeAmount { get; init; } 
     #else
@@ -155,12 +145,11 @@ public partial record AdditionalFee2
     /// Contains the fee amount in reconciliation currency.
     /// </summary>
     [IsoId("_CHQygIdIEeuBS50MFjViNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fee Reconciliation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FeeRcncltnAmt")]
     #endif
+    [IsoXmlTag("FeeRcncltnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FeeAmount3? FeeReconciliationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,15 +162,13 @@ public partial record AdditionalFee2
     /// Short description of the fee amount.
     /// </summary>
     [IsoId("_x1HPK4dGEeuBS50MFjViNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +181,11 @@ public partial record AdditionalFee2
     /// Contains additional data.
     /// </summary>
     [IsoId("_nKZbYTNJEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

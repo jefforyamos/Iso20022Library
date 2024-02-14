@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the debit instrument.
 /// </summary>
 [IsoId("_u39RcSQTEeWXFu0Jt0z3Xw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Debt Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record DebtInstrument2
     /// Total issued nominal amount in monetary value.
     /// </summary>
     [IsoId("_vhWMmyQTEeWXFu0Jt0z3Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Issued Nominal Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlIssdNmnlAmt")]
     #endif
+    [IsoXmlTag("TtlIssdNmnlAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount TotalIssuedNominalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalIssuedNominalAmount { get; init; } 
+    public required System.Decimal TotalIssuedNominalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalIssuedNominalAmount { get; init; } 
     #else
@@ -73,12 +71,12 @@ public partial record DebtInstrument2
     /// Maturity date of the financial instrument.
     /// </summary>
     [IsoId("_vhWMmSQTEeWXFu0Jt0z3Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +89,16 @@ public partial record DebtInstrument2
     /// Nominal value of each instrument. If not available, the minimum traded value should be populated.
     /// </summary>
     [IsoId("_vhWMlyQTEeWXFu0Jt0z3Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nominal Value Per Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmnlValPerUnit")]
     #endif
+    [IsoXmlTag("NmnlValPerUnit")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount NominalValuePerUnit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal NominalValuePerUnit { get; init; } 
+    public required System.Decimal NominalValuePerUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal NominalValuePerUnit { get; init; } 
     #else
@@ -111,16 +109,15 @@ public partial record DebtInstrument2
     /// Interest rate of the debt instrument.
     /// </summary>
     [IsoId("_vhWMkyQTEeWXFu0Jt0z3Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestRate6Choice_ InterestRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InterestRate6Choice_ InterestRate { get; init; } 
+    public required InterestRate6Choice_ InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InterestRate6Choice_ InterestRate { get; init; } 
     #else
@@ -131,12 +128,11 @@ public partial record DebtInstrument2
     /// Seniority for a specific debt instrument.
     /// </summary>
     [IsoId("_vhWMlSQTEeWXFu0Jt0z3Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debt Seniority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DebtSnrty")]
     #endif
+    [IsoXmlTag("DebtSnrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DebtInstrumentSeniorityType1Code? DebtSeniority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

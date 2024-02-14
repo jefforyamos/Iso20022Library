@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope and Usage|The MarketClaimCancellationRequest message is sent by the account holder to the account servicer. |It is sent to request the cancellation of a market claim transaction.|This message definition is intended for use with the Business Application Header (BAH).")]
 [IsoId("_mmNNYNsFEeqmdMJWobugpw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Market Claim Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord<MarketCla
     /// Identification of the related market claim creation document for which the cancellation is requested.
     /// </summary>
     [IsoId("_AiUsoNxwEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Claim Creation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktClmCreId")]
     #endif
+    [IsoXmlTag("MktClmCreId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification9 MarketClaimCreationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification9 MarketClaimCreationIdentification { get; init; } 
+    public required DocumentIdentification9 MarketClaimCreationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification9 MarketClaimCreationIdentification { get; init; } 
     #else
@@ -101,16 +98,15 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord<MarketCla
     /// References of the market claim for which cancellation is requested.
     /// </summary>
     [IsoId("_Iu5sgtxwEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRef")]
     #endif
+    [IsoXmlTag("TxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References26 TransactionReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References26 TransactionReference { get; init; } 
+    public required References26 TransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References26 TransactionReference { get; init; } 
     #else
@@ -121,16 +117,15 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord<MarketCla
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_zo9YEtxwEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -141,16 +136,15 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord<MarketCla
     /// General information about the safekeeping account, owner and account balance.
     /// </summary>
     [IsoId("_zo9YE9xwEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification46 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification46 AccountDetails { get; init; } 
+    public required AccountIdentification46 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification46 AccountDetails { get; init; } 
     #else
@@ -161,12 +155,11 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord<MarketCla
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_QtiwUSgaEeuYwc3diVMizA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,7 +172,7 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord<MarketCla
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MarketClaimCancellationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MarketClaimCancellationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MarketClaimCancellationRequestV01Document ToDocument()
     {
@@ -189,7 +182,7 @@ public partial record MarketClaimCancellationRequestV01 : IOuterRecord<MarketCla
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarketClaimCancellationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MarketClaimCancellationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MarketClaimCancellationRequestV01Document : IOuterDocument<MarketClaimCancellationRequestV01>
@@ -206,7 +199,7 @@ public partial record MarketClaimCancellationRequestV01Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MarketClaimCancellationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MarketClaimCancellationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketClaimCancellationRequestV01 Message { get; init; }

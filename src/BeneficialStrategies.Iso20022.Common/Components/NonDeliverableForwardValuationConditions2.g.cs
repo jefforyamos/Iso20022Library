@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of parameters used to calculate the fixing rate to be applied to a non-deliverable agreement.
 /// </summary>
 [IsoId("_TIAQw9p-Ed-ak6NoX_4Aeg_1813124879")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Deliverable Forward Valuation Conditions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NonDeliverableForwardValuationConditions2
     /// Specifies the currency in which the non deliverable trade has to be settled ie the deliverable currency.
     /// </summary>
     [IsoId("_TIAQxNp-Ed-ak6NoX_4Aeg_1813124956")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode SettlementCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string SettlementCurrency { get; init; } 
+    public required string SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string SettlementCurrency { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record NonDeliverableForwardValuationConditions2
     /// Date at which the rate used for calculating the net amount to be settled is observed.
     /// </summary>
     [IsoId("_TIAQxdp-Ed-ak6NoX_4Aeg_1813124914")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDt")]
     #endif
+    [IsoXmlTag("ValtnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValuationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValuationDate { get; init; } 
+    public required System.DateOnly ValuationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValuationDate { get; init; } 
     #else
@@ -92,15 +89,13 @@ public partial record NonDeliverableForwardValuationConditions2
     /// Free format text that may contain valuation information such as the place, the time or the source of the rate.
     /// </summary>
     [IsoId("_TIAQxtp-Ed-ak6NoX_4Aeg_1813124939")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Valuation Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlValtnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlValtnInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalValuationInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +108,11 @@ public partial record NonDeliverableForwardValuationConditions2
     /// Party through which the settlement will take place. It may contain the BIC of a central settlement system eg CLSBUS33.
     /// </summary>
     [IsoId("_TIAQx9p-Ed-ak6NoX_4Aeg_1813124896")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPty")]
     #endif
+    [IsoXmlTag("SttlmPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8Choice_? SettlementParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the standing instruction.
 /// </summary>
 [IsoId("_UJkbdNp-Ed-ak6NoX_4Aeg_1871445103")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Standing Instruction General Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// Type of standing instruction.
     /// </summary>
     [IsoId("_UJkbddp-Ed-ak6NoX_4Aeg_1386661402")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Instruction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgInstrTp")]
     #endif
+    [IsoXmlTag("StgInstrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingInstructionType1Code StandingInstructionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingInstructionType1Code StandingInstructionType { get; init; } 
+    public required StandingInstructionType1Code StandingInstructionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingInstructionType1Code StandingInstructionType { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// Type of coporpate action event.
     /// </summary>
     [IsoId("_UJkbdtp-Ed-ak6NoX_4Aeg_1471624351")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTp")]
     #endif
+    [IsoXmlTag("EvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventType2FormatChoice_? EventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,15 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// Identification of the instructing party, ie, the CSD client.
     /// </summary>
     [IsoId("_UJkbd9p-Ed-ak6NoX_4Aeg_-218154734")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgPtyId")]
     #endif
+    [IsoXmlTag("InstgPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
+    public required PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
     #else
@@ -111,19 +106,17 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// Reference of the standing instruction assigned by the client.
     /// </summary>
     [IsoId("_UJkbeNp-Ed-ak6NoX_4Aeg_-290186934")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Standing Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntStgInstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntStgInstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ClientStandingInstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ClientStandingInstructionIdentification { get; init; } 
+    public required System.String ClientStandingInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ClientStandingInstructionIdentification { get; init; } 
     #else
@@ -134,12 +127,11 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// Provides information about the account to which the standing instruction can apply.
     /// </summary>
     [IsoId("_UJkbedp-Ed-ak6NoX_4Aeg_-1954368406")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncludedAccount1? AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// Identification of the underlying financial instrument, ie, the financial instrument affected by the corporate action event.
     /// </summary>
     [IsoId("_UJkbetp-Ed-ak6NoX_4Aeg_1334871492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygScty")]
     #endif
+    [IsoXmlTag("UndrlygScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentDescription3? UnderlyingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

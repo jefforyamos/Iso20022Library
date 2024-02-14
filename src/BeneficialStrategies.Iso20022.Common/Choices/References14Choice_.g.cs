@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References14Choice.PoolIdentification))]
     [KnownType(typeof(References14Choice.OtherTransactionIdentification))]
     [IsoId("_u7dqIeDgEd-udr336SN7mQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References 14 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

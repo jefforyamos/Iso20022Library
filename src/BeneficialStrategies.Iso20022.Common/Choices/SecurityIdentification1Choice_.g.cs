@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityIdentification1Choice.CTA))]
     [KnownType(typeof(SecurityIdentification1Choice.Common))]
     [IsoId("_Vb-ekNp-Ed-ak6NoX_4Aeg_-1748201317")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

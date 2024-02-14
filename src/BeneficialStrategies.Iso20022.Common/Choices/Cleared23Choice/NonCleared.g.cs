@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared23Choice
     /// Indicates that the contract has not been cleared.
     /// </summary>
     [IsoId("_zX2RZQtuEe2eQ-C-GTDpFA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Cleared")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References18Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
     [KnownType(typeof(References18Choice.OtherMessageIdentification))]
     [IsoId("_9EijET9mEeCuVfEpWlZb5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References 18 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

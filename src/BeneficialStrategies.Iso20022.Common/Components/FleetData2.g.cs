@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Fleet data pertaining to the payment transaction.
 /// </summary>
 [IsoId("_zYIag_jNEeiM7KpzmLtmTQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fleet Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FleetData2
     /// Invoice Summary information.
     /// </summary>
     [IsoId("_zYIahfjNEeiM7KpzmLtmTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Summry")]
     #endif
+    [IsoXmlTag("Summry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FleetSummary1? Summary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record FleetData2
     /// Fleet Line Item component is designed to carry detail level fleet data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to fleet transactions. 
     /// </summary>
     [IsoId("_zYIahPjNEeiM7KpzmLtmTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineItm")]
     #endif
+    [IsoXmlTag("LineItm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FleetLineItem1? LineItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

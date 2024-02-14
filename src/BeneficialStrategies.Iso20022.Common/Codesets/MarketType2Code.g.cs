@@ -21,7 +21,7 @@ public enum MarketType2Code
 {
     /// <summary>
     /// The place is a primary market.
-    /// Encoded/decoded by serializers as "PRIM".
+    /// Encoded/decoded by serializers as &quot;PRIM&quot;.
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_aUdQYtp-Ed-ak6NoX_4Aeg_-922054296")]
@@ -30,7 +30,7 @@ public enum MarketType2Code
     
     /// <summary>
     /// The place is a secondary market.
-    /// Encoded/decoded by serializers as "SECM".
+    /// Encoded/decoded by serializers as &quot;SECM&quot;.
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_aUdQY9p-Ed-ak6NoX_4Aeg_-922054280")]
@@ -39,7 +39,7 @@ public enum MarketType2Code
     
     /// <summary>
     /// The place is over the counter.
-    /// Encoded/decoded by serializers as "OTCO".
+    /// Encoded/decoded by serializers as &quot;OTCO&quot;.
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("_aUdQZNp-Ed-ak6NoX_4Aeg_-922054262")]
@@ -48,7 +48,7 @@ public enum MarketType2Code
     
     /// <summary>
     /// Various places.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_aUdQZdp-Ed-ak6NoX_4Aeg_-922054261")]
@@ -57,7 +57,7 @@ public enum MarketType2Code
     
     /// <summary>
     /// The place is a stock exchange.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_aUdQZtp-Ed-ak6NoX_4Aeg_127744806")]

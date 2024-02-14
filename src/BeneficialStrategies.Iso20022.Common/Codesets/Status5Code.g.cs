@@ -21,7 +21,7 @@ public enum Status5Code
 {
     /// <summary>
     /// Instruction has been rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_Yaalk9p-Ed-ak6NoX_4Aeg_1715573718")]
@@ -30,7 +30,7 @@ public enum Status5Code
     
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_YaallNp-Ed-ak6NoX_4Aeg_832340431")]
@@ -39,7 +39,7 @@ public enum Status5Code
     
     /// <summary>
     /// Instruction is pending.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_Yaalldp-Ed-ak6NoX_4Aeg_-1533344004")]

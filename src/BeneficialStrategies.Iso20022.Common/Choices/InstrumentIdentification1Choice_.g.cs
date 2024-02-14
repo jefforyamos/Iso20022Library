@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstrumentIdentification1Choice.UniqueProductIdentifier))]
     [KnownType(typeof(InstrumentIdentification1Choice.OtherIdentification))]
     [IsoId("_vWHmMAbSEeqrW7Meu5r3kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

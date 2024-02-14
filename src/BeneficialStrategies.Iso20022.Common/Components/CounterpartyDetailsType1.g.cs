@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information of the counterparty in case of [sankaku] gappei (a third party is involved as one of the counterparties in the merger but there is no security movement from the third party).
 /// </summary>
 [IsoId("_01K7cGHNEeGknP6xAc4fKw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Details Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CounterpartyDetailsType1
     /// Identifies the financial instrument.
     /// </summary>
     [IsoId("_Jd4r4GHOEeGknP6xAc4fKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification15 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification15 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification15 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification15 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -74,12 +71,11 @@ public partial record CounterpartyDetailsType1
     /// ※イベントタイプがMRGRの場合に、存続会社or消滅会社、親会社or子会社の通知を見分けるために必要。.
     /// </summary>
     [IsoId("_Xq3vAGHOEeGknP6xAc4fKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Effective Date Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstFctvDtClssfctn")]
     #endif
+    [IsoXmlTag("PstFctvDtClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstitutionalClassificationCode? PostEffectiveDateClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,19 +90,17 @@ public partial record CounterpartyDetailsType1
     /// 銘柄名（銘柄略称）.
     /// </summary>
     [IsoId("_2kS6QGHOEeGknP6xAc4fKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Abbreviated Local Language Security Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AbbrvtdLclLangSctyNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AbbrvtdLclLangSctyNm")]
+    [IsoSimpleType(IsoSimpleType.Max240Text)]
     [StringLength(maximumLength: 240 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax240Text AbbreviatedLocalLanguageSecurityName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AbbreviatedLocalLanguageSecurityName { get; init; } 
+    public required System.String AbbreviatedLocalLanguageSecurityName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AbbreviatedLocalLanguageSecurityName { get; init; } 
     #else

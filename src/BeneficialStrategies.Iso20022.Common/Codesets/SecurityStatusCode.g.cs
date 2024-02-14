@@ -21,7 +21,7 @@ public enum SecurityStatusCode
 {
     /// <summary>
     /// The status is active.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZKGWE9p-Ed-ak6NoX_4Aeg_875031399")]
@@ -30,7 +30,7 @@ public enum SecurityStatusCode
     
     /// <summary>
     /// The status is inactive.
-    /// Encoded/decoded by serializers as "INAC".
+    /// Encoded/decoded by serializers as &quot;INAC&quot;.
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_ZKGWFNp-Ed-ak6NoX_4Aeg_924902935")]
@@ -39,7 +39,7 @@ public enum SecurityStatusCode
     
     /// <summary>
     /// The status is when issued.
-    /// Encoded/decoded by serializers as "WISS".
+    /// Encoded/decoded by serializers as &quot;WISS&quot;.
     /// </summary>
     [EnumMember(Value = "WISS")]
     [IsoId("_ZKGWFdp-Ed-ak6NoX_4Aeg_1162247833")]
@@ -48,7 +48,7 @@ public enum SecurityStatusCode
     
     /// <summary>
     /// The status is when distributed.
-    /// Encoded/decoded by serializers as "WDIS".
+    /// Encoded/decoded by serializers as &quot;WDIS&quot;.
     /// </summary>
     [EnumMember(Value = "WDIS")]
     [IsoId("_ZKGWFtp-Ed-ak6NoX_4Aeg_1205652804")]
@@ -57,7 +57,7 @@ public enum SecurityStatusCode
     
     /// <summary>
     /// The status is issued.
-    /// Encoded/decoded by serializers as "ISUD".
+    /// Encoded/decoded by serializers as &quot;ISUD&quot;.
     /// </summary>
     [EnumMember(Value = "ISUD")]
     [IsoId("_ZKGWF9p-Ed-ak6NoX_4Aeg_1232436292")]
@@ -66,7 +66,7 @@ public enum SecurityStatusCode
     
     /// <summary>
     /// The status is suspended.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_ZKGWGNp-Ed-ak6NoX_4Aeg_1249981812")]
@@ -75,7 +75,7 @@ public enum SecurityStatusCode
     
     /// <summary>
     /// The status is in default.
-    /// Encoded/decoded by serializers as "IDEF".
+    /// Encoded/decoded by serializers as &quot;IDEF&quot;.
     /// </summary>
     [EnumMember(Value = "IDEF")]
     [IsoId("_ZKPgANp-Ed-ak6NoX_4Aeg_1275841256")]
@@ -84,7 +84,7 @@ public enum SecurityStatusCode
     
     /// <summary>
     /// Annoucement by the regulator that the security has become worthless.
-    /// Encoded/decoded by serializers as "WRTH".
+    /// Encoded/decoded by serializers as &quot;WRTH&quot;.
     /// </summary>
     [EnumMember(Value = "WRTH")]
     [IsoId("_ZKPgAdp-Ed-ak6NoX_4Aeg_1295235874")]

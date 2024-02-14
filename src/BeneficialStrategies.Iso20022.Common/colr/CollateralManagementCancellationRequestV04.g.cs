@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope|The CollateralManagementCancellationRequest message is sent by:|- the collateral taker or its collateral manager to the collateral giver or its collateral manager,|- the collateral giver or its collateral manager to the collateral taker or its collateral manager|This message is used to request the cancellation of a previously sent MarginCallRequest message, MarginCallResponse message, CollateralProposal message, CollateralProposalResponse message, MarginCallDisputeNotification message or a CollateralSubstitutionRequest message.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CollateralManagementCancellationRequest message is used to request the cancellation of a collateral message. When requesting the cancellation of a message there must be a cancellation reason specified.|When the CollateralManagementCancellationRequest message is used to cancel a collateral message the reference of the original message must be specified. The rejection or acceptance of a CollateralManagementCancellationRequest message is made using a CollateralManagementCancellationStatus message.")]
 [IsoId("_Z6K7cYFrEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Management Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,19 +86,17 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord<
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
     [IsoId("_Z6K7c4FrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -111,16 +107,15 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord<
     /// Reference to the message advised to be cancelled.
     /// </summary>
     [IsoId("_Z6K7dYFrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Reference2Choice_ Reference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Reference2Choice_ Reference { get; init; } 
+    public required Reference2Choice_ Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Reference2Choice_ Reference { get; init; } 
     #else
@@ -131,16 +126,15 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord<
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
     /// </summary>
     [IsoId("_Z6K7d4FrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgtn")]
     #endif
+    [IsoXmlTag("Oblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Obligation4 Obligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Obligation4 Obligation { get; init; } 
+    public required Obligation4 Obligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Obligation4 Obligation { get; init; } 
     #else
@@ -151,16 +145,15 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord<
     /// It is used to detail the reason for the cancellation of a previously sent request.
     /// </summary>
     [IsoId("_Z6K7eYFrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
+    [IsoXmlTag("CxlRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralCancellationReason1 CancellationReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralCancellationReason1 CancellationReason { get; init; } 
+    public required CollateralCancellationReason1 CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralCancellationReason1 CancellationReason { get; init; } 
     #else
@@ -171,12 +164,11 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord<
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_Z6K7e4FrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,7 +181,7 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord<
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CollateralManagementCancellationRequestV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CollateralManagementCancellationRequestV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CollateralManagementCancellationRequestV04Document ToDocument()
     {
@@ -199,7 +191,7 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord<
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralManagementCancellationRequestV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CollateralManagementCancellationRequestV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CollateralManagementCancellationRequestV04Document : IOuterDocument<CollateralManagementCancellationRequestV04>
@@ -216,7 +208,7 @@ public partial record CollateralManagementCancellationRequestV04Document : IOute
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CollateralManagementCancellationRequestV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CollateralManagementCancellationRequestV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralManagementCancellationRequestV04 Message { get; init; }

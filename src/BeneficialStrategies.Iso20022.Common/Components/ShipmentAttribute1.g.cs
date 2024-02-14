@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Further details on the shipment conditions.
 /// </summary>
 [IsoId("_wGRaAdM_EeSDLevdaFPXHw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Shipment Attribute")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ShipmentAttribute1
     /// Shipment conditions.
     /// </summary>
     [IsoId("_6NKKcNM_EeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Conds")]
     #endif
+    [IsoXmlTag("Conds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalShipmentCondition1Code? Conditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,12 @@ public partial record ShipmentAttribute1
     /// Expected shipment date.
     /// </summary>
     [IsoId("_-CyYMNM_EeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdDt")]
     #endif
+    [IsoXmlTag("XpctdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpectedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +84,15 @@ public partial record ShipmentAttribute1
     /// Country in which the counter party is located.
     /// </summary>
     [IsoId("_ibf2oNNAEeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Counter Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfCntrPty")]
     #endif
+    [IsoXmlTag("CtryOfCntrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode CountryOfCounterParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string CountryOfCounterParty { get; init; } 
+    public required string CountryOfCounterParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string CountryOfCounterParty { get; init; } 
     #else

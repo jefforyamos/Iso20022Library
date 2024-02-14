@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The NotificationOfCaseAssignment message is sent by a case assignee to a case creator/case assigner.|This message is used to inform the case assigner that:|- the assignee is reassigning the case to the next agent in the transaction processing chain for further action|- the assignee will work on the case himself, without re-assigning it to another party, and therefore indicating that the re-assignment has reached its end-point|Usage|The NotificationOfCaseAssignment message is used to notify the case creator or case assigner of further action undertaken by the case assignee in a:|- request to cancel payment case;|- request to modify payment case;|- unable to apply case;|- claim non receipt case.|The NotificationOfCaseAssignment message:|- covers one and only one case at a time. If the case assignee needs to inform a case creator or case assigner about several cases, then multiple Notification Of Case Assignment messages must be sent;|- except in the case where it is used to indicate that an agent is doing the correction himself, this message must be forwarded by all subsequent case assigner(s) until it reaches the case creator;|- must not be used in place of a Resolution Of Investigation or a Case Status Report message.|When the assignee does not reassign the case to another party (that is responding with a NotificationOfCaseAssignment message with notification MINE - The case is processed by the assignee), the case assignment should contain the case assignment elements as received in the original query.")]
 [IsoId("_eX_Oh22PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification Of Case Assignment V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -93,16 +91,15 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord<Notificatio
     /// Specifies generic information about the notification.|The receiver of a notification must be the party which assigned the case to the sender.
     /// </summary>
     [IsoId("_eX_OiW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportHeader5 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportHeader5 Header { get; init; } 
+    public required ReportHeader5 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportHeader5 Header { get; init; } 
     #else
@@ -113,16 +110,15 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord<Notificatio
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_eX_Oi22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case5 Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case5 Case { get; init; } 
+    public required Case5 Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case5 Case { get; init; } 
     #else
@@ -134,16 +130,15 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord<Notificatio
     /// Usage: The assigner must be the sender of this confirmation and the assignee must be the receiver.
     /// </summary>
     [IsoId("_eX_OjW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment5 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment5 Assignment { get; init; } 
+    public required CaseAssignment5 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment5 Assignment { get; init; } 
     #else
@@ -154,16 +149,15 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord<Notificatio
     /// Information about the type of action taken.
     /// </summary>
     [IsoId("_eX_Oj22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntfctn")]
     #endif
+    [IsoXmlTag("Ntfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseForwardingNotification3 Notification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseForwardingNotification3 Notification { get; init; } 
+    public required CaseForwardingNotification3 Notification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseForwardingNotification3 Notification { get; init; } 
     #else
@@ -174,12 +168,11 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord<Notificatio
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_eX_OkW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,7 +185,7 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord<Notificatio
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NotificationOfCaseAssignmentV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NotificationOfCaseAssignmentV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NotificationOfCaseAssignmentV05Document ToDocument()
     {
@@ -202,7 +195,7 @@ public partial record NotificationOfCaseAssignmentV05 : IOuterRecord<Notificatio
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationOfCaseAssignmentV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NotificationOfCaseAssignmentV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NotificationOfCaseAssignmentV05Document : IOuterDocument<NotificationOfCaseAssignmentV05>
@@ -219,7 +212,7 @@ public partial record NotificationOfCaseAssignmentV05Document : IOuterDocument<N
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NotificationOfCaseAssignmentV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NotificationOfCaseAssignmentV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationOfCaseAssignmentV05 Message { get; init; }

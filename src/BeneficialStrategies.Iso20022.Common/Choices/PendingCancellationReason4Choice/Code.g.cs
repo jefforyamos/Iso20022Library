@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingCancellationReason4Choice
     /// Standard code to specify the reason why a cancellation request sent for the related instruction is pending.
     /// </summary>
     [IsoId("_ce_gxZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingCancellationReason4Choice
         /// Standard code to specify.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingCancellationReason4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingCancellationReason4Code Value { get; init; } 
+        public required PendingCancellationReason4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingCancellationReason4Code Value { get; init; } 
         #else

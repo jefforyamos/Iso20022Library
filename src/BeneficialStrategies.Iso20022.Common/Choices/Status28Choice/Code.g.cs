@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status28Choice
     /// Status expressed as a code.
     /// </summary>
     [IsoId("_tsd0gZU8EeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Status28Choice
         /// Specifies the status of a trade in a central matching and settlement system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TradeStatus7Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TradeStatus7Code Value { get; init; } 
+        public required TradeStatus7Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TradeStatus7Code Value { get; init; } 
         #else

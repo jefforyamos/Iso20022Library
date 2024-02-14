@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
 [IsoId("_VN93tdp-Ed-ak6NoX_4Aeg_-1112110934")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receive Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record ReceiveInformation2
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
     [IsoId("_VN93ttp-Ed-ak6NoX_4Aeg_-682749671")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgDtls")]
     #endif
+    [IsoXmlTag("ChrgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge4? ChargeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +67,11 @@ public partial record ReceiveInformation2
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
     [IsoId("_VN93t9p-Ed-ak6NoX_4Aeg_1276116650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDtls")]
     #endif
+    [IsoXmlTag("TaxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax3? TaxDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,16 +84,15 @@ public partial record ReceiveInformation2
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
     [IsoId("_VN93uNp-Ed-ak6NoX_4Aeg_-330292383")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parties Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPtiesDtls")]
     #endif
+    [IsoXmlTag("SttlmPtiesDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
+    public required ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     #else
@@ -108,16 +103,16 @@ public partial record ReceiveInformation2
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
     [IsoId("_VN93udp-Ed-ak6NoX_4Aeg_1074705091")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Transfer Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysTrfInd")]
     #endif
+    [IsoXmlTag("PhysTrfInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PhysicalTransferIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PhysicalTransferIndicator { get; init; } 
+    public required System.String PhysicalTransferIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PhysicalTransferIndicator { get; init; } 
     #else
@@ -128,12 +123,11 @@ public partial record ReceiveInformation2
     /// Parameters of a physical delivery.
     /// </summary>
     [IsoId("_VN93utp-Ed-ak6NoX_4Aeg_100067338")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Transfer Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysTrfDtls")]
     #endif
+    [IsoXmlTag("PhysTrfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryParameters2? PhysicalTransferDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

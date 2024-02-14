@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus43Cho
     /// Instruction cancelled by client cancellation instruction.
     /// </summary>
     [IsoId("_pUH1rx9QEeuFz_FaCzCLgQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancelled")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

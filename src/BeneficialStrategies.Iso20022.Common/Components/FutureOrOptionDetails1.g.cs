@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters for contracts which obligate the buyer to receive and the seller to deliver in the future the assets specified at an agreed price or contracts which grant to the holder either the privilege to purchase or the privilege to sell the assets specified at a predetermined price or formula at or within a time in the future.
 /// </summary>
 [IsoId("_AvBeoNokEeC60axPepSq7g_1982217603")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Future Or Option Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FutureOrOptionDetails1
     /// Specifies the type of the contract for futures and options.
     /// </summary>
     [IsoId("_AvBeodokEeC60axPepSq7g_2030935240")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Future And Option Contract Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FutrAndOptnCtrctTp")]
     #endif
+    [IsoXmlTag("FutrAndOptnCtrctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FutureAndOptionContractType1Code? FutureAndOptionContractType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record FutureOrOptionDetails1
     /// Last date/time by which the option for physical delivery may still be exercised.
     /// </summary>
     [IsoId("_AvBeotokEeC60axPepSq7g_-376226312")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Delivery Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastDlvryDt")]
     #endif
+    [IsoXmlTag("LastDlvryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? LastDeliveryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record FutureOrOptionDetails1
     /// Used to indicate the size of the underlying commodity on which the contract is based (e.g., 2500 lbs of lean cattle, 1000 barrels of crude oil, 1000 bushels of corn, etc.).
     /// </summary>
     [IsoId("_AvBeo9okEeC60axPepSq7g_365772849")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitOfMeasr")]
     #endif
+    [IsoXmlTag("UnitOfMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,12 @@ public partial record FutureOrOptionDetails1
     /// Date on which future contracts settle.
     /// </summary>
     [IsoId("_AvBepNokEeC60axPepSq7g_354674072")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Future Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FutrDt")]
     #endif
+    [IsoXmlTag("FutrDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? FutureDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,12 @@ public partial record FutureOrOptionDetails1
     /// Specifies the minimum ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
     [IsoId("_AvBepdokEeC60axPepSq7g_-1243311832")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinSz")]
     #endif
+    [IsoXmlTag("MinSz")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,12 @@ public partial record FutureOrOptionDetails1
     /// Date/time, as announced by the issuer, at which the securities will be issued.
     /// </summary>
     [IsoId("_AvKokNokEeC60axPepSq7g_-1945802058")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Announcement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnncmntDt")]
     #endif
+    [IsoXmlTag("AnncmntDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? AnnouncementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +148,11 @@ public partial record FutureOrOptionDetails1
     /// Specifies the deliverability of a security.
     /// </summary>
     [IsoId("_AvKokdokEeC60axPepSq7g_2021219608")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Appearance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Apprnc")]
     #endif
+    [IsoXmlTag("Apprnc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Appearance1Code? Appearance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +165,12 @@ public partial record FutureOrOptionDetails1
     /// Indicates whether the interest is separable from the principal.
     /// </summary>
     [IsoId("_AvKoktokEeC60axPepSq7g_-1763165363")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strippable Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrpblInd")]
     #endif
+    [IsoXmlTag("StrpblInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StrippableIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +183,12 @@ public partial record FutureOrOptionDetails1
     /// Indicates the maximum number of listed option contracts on a single security which can be held by an investor or group of investors acting jointly.
     /// </summary>
     [IsoId("_AvKok9okEeC60axPepSq7g_839621736")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PosLmt")]
     #endif
+    [IsoXmlTag("PosLmt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PositionLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +201,12 @@ public partial record FutureOrOptionDetails1
     /// Position limit in the near-term contract for a given exchange-traded product.
     /// </summary>
     [IsoId("_AvKolNokEeC60axPepSq7g_521845075")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Near Term Position Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NearTermPosLmt")]
     #endif
+    [IsoXmlTag("NearTermPosLmt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NearTermPositionLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +219,12 @@ public partial record FutureOrOptionDetails1
     /// Minimum price increase for a given exchange-traded Instrument.
     /// </summary>
     [IsoId("_AvKoldokEeC60axPepSq7g_1879656031")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Trading Pricing Increment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinTradgPricgIncrmt")]
     #endif
+    [IsoXmlTag("MinTradgPricgIncrmt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumTradingPricingIncrement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,15 +237,13 @@ public partial record FutureOrOptionDetails1
     /// Reason for which money is raised through the issuance of a security.
     /// </summary>
     [IsoId("_AvKoltokEeC60axPepSq7g_-988373229")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Purp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Purp")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Purpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +256,12 @@ public partial record FutureOrOptionDetails1
     /// Specifies when the contract (i.e. MBS/TBA) will settle.
     /// </summary>
     [IsoId("_AvUZkNokEeC60axPepSq7g_-1299764488")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Settlement Month")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctSttlmMnth")]
     #endif
+    [IsoXmlTag("CtrctSttlmMnth")]
+    [IsoSimpleType(IsoSimpleType.ISOYearMonth)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? ContractSettlementMonth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,12 +274,11 @@ public partial record FutureOrOptionDetails1
     /// Date on which new securities begin trading.
     /// </summary>
     [IsoId("_AvUZkdokEeC60axPepSq7g_-1495565773")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Dealing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstDealgDt")]
     #endif
+    [IsoXmlTag("FrstDealgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime1Choice_? FirstDealingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -299,12 +291,11 @@ public partial record FutureOrOptionDetails1
     /// Ratio applied to convert the related security.
     /// </summary>
     [IsoId("_AvUZktokEeC60axPepSq7g_1965979375")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ratio")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ratio")]
     #endif
+    [IsoXmlTag("Ratio")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingRatio1? Ratio { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -317,12 +308,11 @@ public partial record FutureOrOptionDetails1
     /// Rating(s) of the security.
     /// </summary>
     [IsoId("_AvUZk9okEeC60axPepSq7g_-1389041298")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rating")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ratg")]
     #endif
+    [IsoXmlTag("Ratg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Rating1? Rating { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -335,12 +325,11 @@ public partial record FutureOrOptionDetails1
     /// Initial issue price of a financial instrument.
     /// </summary>
     [IsoId("_AvUZlNokEeC60axPepSq7g_-1424901255")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssePric")]
     #endif
+    [IsoXmlTag("IssePric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? IssuePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -353,12 +342,11 @@ public partial record FutureOrOptionDetails1
     /// Rights to exercise the privilege to purchase or to sell the assets specified at a predetermined price or formula at or within a time in the future.
     /// </summary>
     [IsoId("_AvUZldokEeC60axPepSq7g_-305341311")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Rights")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnRghts")]
     #endif
+    [IsoXmlTag("OptnRghts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionRight1Choice_? OptionRights { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -371,12 +359,12 @@ public partial record FutureOrOptionDetails1
     /// Indicates whether or not this is the last transaction.
     /// </summary>
     [IsoId("_AvUZltokEeC60axPepSq7g_-1808362353")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastTx")]
     #endif
+    [IsoXmlTag("LastTx")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LastTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -389,12 +377,12 @@ public partial record FutureOrOptionDetails1
     /// Specifies that there will be one price and one transaction when two contracts are carried out simultaneously, one to buy and the other one to sell with two different expiration dates.
     /// </summary>
     [IsoId("_AvdjgNokEeC60axPepSq7g_90977262")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Spread Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SprdTx")]
     #endif
+    [IsoXmlTag("SprdTx")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SpreadTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

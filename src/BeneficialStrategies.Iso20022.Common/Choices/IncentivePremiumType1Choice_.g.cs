@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IncentivePremiumType1Choice.PerVote))]
     [KnownType(typeof(IncentivePremiumType1Choice.PerAttendee))]
     [IsoId("_RDieodp-Ed-ak6NoX_4Aeg_1038160776")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incentive Premium Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

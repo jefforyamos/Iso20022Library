@@ -21,7 +21,7 @@ public enum LocationCategory3Code
 {
     /// <summary>
     /// Indoor terminal.
-    /// Encoded/decoded by serializers as "INDR".
+    /// Encoded/decoded by serializers as &quot;INDR&quot;.
     /// </summary>
     [EnumMember(Value = "INDR")]
     [IsoId("_3wtnUZX5EeWMQt4mOczoDw")]
@@ -30,7 +30,7 @@ public enum LocationCategory3Code
     
     /// <summary>
     /// Terminal incorporated in the pump dispensing petrol.
-    /// Encoded/decoded by serializers as "IPMP".
+    /// Encoded/decoded by serializers as &quot;IPMP&quot;.
     /// </summary>
     [EnumMember(Value = "IPMP")]
     [IsoId("_34m_EZX5EeWMQt4mOczoDw")]
@@ -39,7 +39,7 @@ public enum LocationCategory3Code
     
     /// <summary>
     /// Multiple terminals linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "MPOI".
+    /// Encoded/decoded by serializers as &quot;MPOI&quot;.
     /// </summary>
     [EnumMember(Value = "MPOI")]
     [IsoId("_4HaQEZX5EeWMQt4mOczoDw")]
@@ -48,7 +48,7 @@ public enum LocationCategory3Code
     
     /// <summary>
     /// Outdoor terminal serving several petrol pumps.
-    /// Encoded/decoded by serializers as "MPMP".
+    /// Encoded/decoded by serializers as &quot;MPMP&quot;.
     /// </summary>
     [EnumMember(Value = "MPMP")]
     [IsoId("_4QWwsZX5EeWMQt4mOczoDw")]
@@ -57,7 +57,7 @@ public enum LocationCategory3Code
     
     /// <summary>
     /// Terminal serving multiple sale terminals.
-    /// Encoded/decoded by serializers as "MSLE".
+    /// Encoded/decoded by serializers as &quot;MSLE&quot;.
     /// </summary>
     [EnumMember(Value = "MSLE")]
     [IsoId("_4ZllMZX5EeWMQt4mOczoDw")]
@@ -66,7 +66,7 @@ public enum LocationCategory3Code
     
     /// <summary>
     /// Terminal linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "SSLE".
+    /// Encoded/decoded by serializers as &quot;SSLE&quot;.
     /// </summary>
     [EnumMember(Value = "SSLE")]
     [IsoId("_4oC38ZX5EeWMQt4mOczoDw")]
@@ -75,7 +75,7 @@ public enum LocationCategory3Code
     
     /// <summary>
     /// Terminal integrated in a vending machine.
-    /// Encoded/decoded by serializers as "VNDG".
+    /// Encoded/decoded by serializers as &quot;VNDG&quot;.
     /// </summary>
     [EnumMember(Value = "VNDG")]
     [IsoId("_4up2QZX5EeWMQt4mOczoDw")]

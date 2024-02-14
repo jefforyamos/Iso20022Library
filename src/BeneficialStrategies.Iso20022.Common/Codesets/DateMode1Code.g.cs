@@ -21,7 +21,7 @@ public enum DateMode1Code
 {
     /// <summary>
     /// Beginning of day.
-    /// Encoded/decoded by serializers as "BODY".
+    /// Encoded/decoded by serializers as &quot;BODY&quot;.
     /// </summary>
     [EnumMember(Value = "BODY")]
     [IsoId("_jKunEVuSEeSmO6RkXg92Lg")]
@@ -30,7 +30,7 @@ public enum DateMode1Code
     
     /// <summary>
     /// End of day.
-    /// Encoded/decoded by serializers as "EODY".
+    /// Encoded/decoded by serializers as &quot;EODY&quot;.
     /// </summary>
     [EnumMember(Value = "EODY")]
     [IsoId("_jT6_UVuSEeSmO6RkXg92Lg")]

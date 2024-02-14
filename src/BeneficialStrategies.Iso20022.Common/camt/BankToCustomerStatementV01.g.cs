@@ -32,14 +32,12 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The Bank-to-Customer Statement message can contain reports for more than 1 account. It provides information for cash management and/or reconciliation.
 /// It contains information on booked entries only.
 /// It can include underlying details of transactions that have been included in the entry.
-/// The message is exchanged as defined between the account servicer and the account owner. It provides information on items that have been booked to the account (and therefore are "binding" and also balance information. Depending on services agreed between banks and their customers, "binding" statements can be generated and exchanged intraday. Depending on legal requirements in local jurisdictions, "end-of-day" statements may need to be mandatorily generated and exchanged.
+/// The message is exchanged as defined between the account servicer and the account owner. It provides information on items that have been booked to the account (and therefore are &quot;binding&quot; and also balance information. Depending on services agreed between banks and their customers, &quot;binding&quot; statements can be generated and exchanged intraday. Depending on legal requirements in local jurisdictions, &quot;end-of-day&quot; statements may need to be mandatorily generated and exchanged.
 /// It is possible that the receiver of the message is not the account owner, but a party entitled through arrangement with the account owner to receive the account information (also known as recipient).
 /// </summary>
 [Description(@"Scope|The Bank-to-Customer Statement message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It is used to inform the account owner, or authorised party, of the entries booked to the account, and to provide the owner with balance information on the account at a given point in time.|Usage|The Bank-to-Customer Statement message can contain reports for more than 1 account. It provides information for cash management and/or reconciliation.|It contains information on booked entries only.|It can include underlying details of transactions that have been included in the entry.|The message is exchanged as defined between the account servicer and the account owner. It provides information on items that have been booked to the account (and therefore are ""binding"" and also balance information. Depending on services agreed between banks and their customers, ""binding"" statements can be generated and exchanged intraday. Depending on legal requirements in local jurisdictions, ""end-of-day"" statements may need to be mandatorily generated and exchanged.|It is possible that the receiver of the message is not the account owner, but a party entitled through arrangement with the account owner to receive the account information (also known as recipient).")]
 [IsoId("_JlInYNE-Ed-BzquC8wXy7w_1694338972")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank To Customer Statement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record BankToCustomerStatementV01 : IOuterRecord<BankToCustomerSt
     /// Common information for the message.
     /// </summary>
     [IsoId("_JlInYdE-Ed-BzquC8wXy7w_926898019")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader23 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader23 GroupHeader { get; init; } 
+    public required GroupHeader23 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader23 GroupHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record BankToCustomerStatementV01 : IOuterRecord<BankToCustomerSt
     /// Reports on booked entries and balances for a cash account.
     /// </summary>
     [IsoId("_JlInYtE-Ed-BzquC8wXy7w_926897907")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Stmt")]
     #endif
+    [IsoXmlTag("Stmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountStatement1 Statement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountStatement1 Statement { get; init; } 
+    public required AccountStatement1 Statement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountStatement1 Statement { get; init; } 
     #else
@@ -123,7 +119,7 @@ public partial record BankToCustomerStatementV01 : IOuterRecord<BankToCustomerSt
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BankToCustomerStatementV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BankToCustomerStatementV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BankToCustomerStatementV01Document ToDocument()
     {
@@ -133,7 +129,7 @@ public partial record BankToCustomerStatementV01 : IOuterRecord<BankToCustomerSt
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankToCustomerStatementV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BankToCustomerStatementV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BankToCustomerStatementV01Document : IOuterDocument<BankToCustomerStatementV01>
@@ -150,7 +146,7 @@ public partial record BankToCustomerStatementV01Document : IOuterDocument<BankTo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BankToCustomerStatementV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BankToCustomerStatementV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankToCustomerStatementV01 Message { get; init; }

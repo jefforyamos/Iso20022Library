@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates one of the constraints of a range of business values.
 /// </summary>
 [IsoId("_Q7yQ0dp-Ed-ak6NoX_4Aeg_528848853")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Term")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Term1
     /// Provides the relationship between a variable and a fixed value.
     /// </summary>
     [IsoId("_Q7yQ0tp-Ed-ak6NoX_4Aeg_-1511433825")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oprtr")]
     #endif
+    [IsoXmlTag("Oprtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Operator1Code Operator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Operator1Code Operator { get; init; } 
+    public required Operator1Code Operator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Operator1Code Operator { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Term1
     /// Indicates the value.
     /// </summary>
     [IsoId("_Q7yQ09p-Ed-ak6NoX_4Aeg_1365947131")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RateOrAbsoluteValue1Choice_ Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RateOrAbsoluteValue1Choice_ Value { get; init; } 
+    public required RateOrAbsoluteValue1Choice_ Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RateOrAbsoluteValue1Choice_ Value { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the service level of the transaction.
 /// </summary>
 [IsoId("_XZ-m4_WfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Service Level")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransactionServiceLevel1
     /// Specifies a pre-agreed service or level of service between the parties, as published in an external service level code list.
     /// </summary>
     [IsoId("_XZ-m5fWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalServiceLevel1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalServiceLevel1Code Code { get; init; } 
+    public required ExternalServiceLevel1Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalServiceLevel1Code Code { get; init; } 
     #else

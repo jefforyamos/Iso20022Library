@@ -21,7 +21,7 @@ public enum NotificationStatus2Code
 {
     /// <summary>
     /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
-    /// Encoded/decoded by serializers as "ECON".
+    /// Encoded/decoded by serializers as &quot;ECON&quot;.
     /// </summary>
     [EnumMember(Value = "ECON")]
     [IsoId("_aNwLeNp-Ed-ak6NoX_4Aeg_-174896803")]
@@ -30,7 +30,7 @@ public enum NotificationStatus2Code
     
     /// <summary>
     /// The occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
-    /// Encoded/decoded by serializers as "EUNC".
+    /// Encoded/decoded by serializers as &quot;EUNC&quot;.
     /// </summary>
     [EnumMember(Value = "EUNC")]
     [IsoId("_aN5VYNp-Ed-ak6NoX_4Aeg_-174896795")]

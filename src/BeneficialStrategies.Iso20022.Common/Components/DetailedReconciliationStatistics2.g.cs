@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed statistics on reconciliation.
 /// </summary>
 [IsoId("_6PTLRVfcEeqZr5K1Woax-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Reconciliation Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -58,16 +56,16 @@ public partial record DetailedReconciliationStatistics2
     /// Detailed statistics on derivatives accepted by trade repository since the beginning of reporting.
     /// </summary>
     [IsoId("_6lXh4VfcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Accepted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAccptd")]
     #endif
+    [IsoXmlTag("TtlAccptd")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalAccepted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalAccepted { get; init; } 
+    public required System.UInt64 TotalAccepted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalAccepted { get; init; } 
     #else
@@ -78,16 +76,16 @@ public partial record DetailedReconciliationStatistics2
     /// Detailed statistics on derivatives that are not single-sided non-EEA and are not included in to the inter trade repository reconciliation process due to lack of compliance with LEI or the UTI specifications.
     /// </summary>
     [IsoId("_6lXh41fcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Not Submitted To Reconciliation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNotSubmittdToRcncltn")]
     #endif
+    [IsoXmlTag("TtlNotSubmittdToRcncltn")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalNotSubmittedToReconciliation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNotSubmittedToReconciliation { get; init; } 
+    public required System.UInt64 TotalNotSubmittedToReconciliation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNotSubmittedToReconciliation { get; init; } 
     #else
@@ -98,16 +96,16 @@ public partial record DetailedReconciliationStatistics2
     /// Detailed statistics on single-sided EEA unpaired derivatives.
     /// </summary>
     [IsoId("_6lXh5VfcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Single Sided EEA Unpaired")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSnglSddEEAUnprd")]
     #endif
+    [IsoXmlTag("TtlSnglSddEEAUnprd")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalSingleSidedEEAUnpaired { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalSingleSidedEEAUnpaired { get; init; } 
+    public required System.UInt64 TotalSingleSidedEEAUnpaired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalSingleSidedEEAUnpaired { get; init; } 
     #else
@@ -118,16 +116,16 @@ public partial record DetailedReconciliationStatistics2
     /// Detailed statistics on single-sided EEA paired derivatives.
     /// </summary>
     [IsoId("_6lXh51fcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Single Sided EEA Paired")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSnglSddEEAPaird")]
     #endif
+    [IsoXmlTag("TtlSnglSddEEAPaird")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalSingleSidedEEAPaired { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalSingleSidedEEAPaired { get; init; } 
+    public required System.UInt64 TotalSingleSidedEEAPaired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalSingleSidedEEAPaired { get; init; } 
     #else
@@ -138,16 +136,16 @@ public partial record DetailedReconciliationStatistics2
     /// Detailed statistics on single-sided EEA matched derivatives.
     /// </summary>
     [IsoId("_6lXh6VfcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Single Sided EEA Matched")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSnglSddEEAMtchd")]
     #endif
+    [IsoXmlTag("TtlSnglSddEEAMtchd")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalSingleSidedEEAMatched { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalSingleSidedEEAMatched { get; init; } 
+    public required System.UInt64 TotalSingleSidedEEAMatched { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalSingleSidedEEAMatched { get; init; } 
     #else
@@ -158,16 +156,16 @@ public partial record DetailedReconciliationStatistics2
     /// Detailed statistics on dual-sided non-matched derivatives.
     /// </summary>
     [IsoId("_6lXh61fcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Dual Sided Non Matched")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlDualSddNonMtchd")]
     #endif
+    [IsoXmlTag("TtlDualSddNonMtchd")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalDualSidedNonMatched { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalDualSidedNonMatched { get; init; } 
+    public required System.UInt64 TotalDualSidedNonMatched { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalDualSidedNonMatched { get; init; } 
     #else
@@ -178,16 +176,16 @@ public partial record DetailedReconciliationStatistics2
     /// Detailed statistics on dual-sided matched derivatives.
     /// </summary>
     [IsoId("_6lXh7VfcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Dual Sided Matched")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlDualSddMtchd")]
     #endif
+    [IsoXmlTag("TtlDualSddMtchd")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalDualSidedMatched { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalDualSidedMatched { get; init; } 
+    public required System.UInt64 TotalDualSidedMatched { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalDualSidedMatched { get; init; } 
     #else
@@ -198,16 +196,16 @@ public partial record DetailedReconciliationStatistics2
     /// Detailed statistics on single-sided non-EEA derivatives.
     /// </summary>
     [IsoId("_6lXh71fcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Single Sided Non EEA")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSnglSddNonEEA")]
     #endif
+    [IsoXmlTag("TtlSnglSddNonEEA")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalSingleSidedNonEEA { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalSingleSidedNonEEA { get; init; } 
+    public required System.UInt64 TotalSingleSidedNonEEA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalSingleSidedNonEEA { get; init; } 
     #else
@@ -218,15 +216,13 @@ public partial record DetailedReconciliationStatistics2
     /// Identification of the most common data field considered as reason for paired non-matched derivatives.
     /// </summary>
     [IsoId("_6lXh8VfcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Top Reasons For Paired Non Matched")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TopRsnsForPairdNonMtchd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TopRsnsForPairdNonMtchd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TopReasonsForPairedNonMatched { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

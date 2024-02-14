@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Other distribution strategy.
 /// </summary>
 [IsoId("_q5CaAD8PEeih8-WNbS6hbA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Distribution Strategy")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record OtherDistributionStrategy1
     /// Type of distribution strategy.
     /// </summary>
     [IsoId("_TfymMj8QEeih8-WNbS6hbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Distribution Strategy Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstrbtnStrtgyTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DstrbtnStrtgyTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DistributionStrategyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record OtherDistributionStrategy1
     /// Choice of formats for the specification of whether the product is aimed at the type of return profile.
     /// </summary>
     [IsoId("_TfymMz8QEeih8-WNbS6hbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trgt")]
     #endif
+    [IsoXmlTag("Trgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionStrategy1Choice_? Target { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +75,14 @@ public partial record OtherDistributionStrategy1
     #endif
     
     /// <summary>
-    /// Additional information about the target market and the investor's risk tolerance.
+    /// Additional information about the target market and the investor&apos;s risk tolerance.
     /// </summary>
     [IsoId("_l4QyUT8QEeih8-WNbS6hbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

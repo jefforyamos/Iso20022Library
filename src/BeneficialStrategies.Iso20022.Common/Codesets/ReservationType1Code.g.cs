@@ -21,7 +21,7 @@ public enum ReservationType1Code
 {
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing cash withdrawals.
-    /// Encoded/decoded by serializers as "CARE".
+    /// Encoded/decoded by serializers as &quot;CARE&quot;.
     /// </summary>
     [EnumMember(Value = "CARE")]
     [IsoId("_ZUiEddp-Ed-ak6NoX_4Aeg_937272384")]
@@ -30,7 +30,7 @@ public enum ReservationType1Code
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing critical payments called urgent payments.
-    /// Encoded/decoded by serializers as "UPAR".
+    /// Encoded/decoded by serializers as &quot;UPAR&quot;.
     /// </summary>
     [EnumMember(Value = "UPAR")]
     [IsoId("_ZUiEdtp-Ed-ak6NoX_4Aeg_952974761")]
@@ -39,7 +39,7 @@ public enum ReservationType1Code
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for the settlement of the multilateral cash balance stemming from the Net Security Settlement System.
-    /// Encoded/decoded by serializers as "NSSR".
+    /// Encoded/decoded by serializers as &quot;NSSR&quot;.
     /// </summary>
     [EnumMember(Value = "NSSR")]
     [IsoId("_ZUiEd9p-Ed-ak6NoX_4Aeg_998225402")]
@@ -48,7 +48,7 @@ public enum ReservationType1Code
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing highly urgent payments.
-    /// Encoded/decoded by serializers as "HPAR".
+    /// Encoded/decoded by serializers as &quot;HPAR&quot;.
     /// </summary>
     [EnumMember(Value = "HPAR")]
     [IsoId("_ZUiEeNp-Ed-ak6NoX_4Aeg_1227258206")]
@@ -57,7 +57,7 @@ public enum ReservationType1Code
     
     /// <summary>
     /// Amount above which funds will be destined for investment.
-    /// Encoded/decoded by serializers as "THRE".
+    /// Encoded/decoded by serializers as &quot;THRE&quot;.
     /// </summary>
     [EnumMember(Value = "THRE")]
     [IsoId("_ZUiEedp-Ed-ak6NoX_4Aeg_1253119695")]

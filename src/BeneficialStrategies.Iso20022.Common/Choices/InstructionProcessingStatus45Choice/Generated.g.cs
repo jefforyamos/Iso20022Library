@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus45Cho
     /// Transaction was created by the account servicer or a third party. It was not instructed directly by the account owner.
     /// </summary>
     [IsoId("_waWtpyAeEeuyDZ-ukt4YRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Generated")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum ReportPeriodActivityCode
 {
     /// <summary>
     /// No transaction has been identified during the period.
-    /// Encoded/decoded by serializers as "NOTX".
+    /// Encoded/decoded by serializers as &quot;NOTX&quot;.
     /// </summary>
     [EnumMember(Value = "NOTX")]
     [IsoId("_hNRosJfnEeSfnc-VXAEapg")]
@@ -30,7 +30,7 @@ public enum ReportPeriodActivityCode
     
     /// <summary>
     /// No report has been received from reporting agent.
-    /// Encoded/decoded by serializers as "NORA".
+    /// Encoded/decoded by serializers as &quot;NORA&quot;.
     /// </summary>
     [EnumMember(Value = "NORA")]
     [IsoId("_ypfn8JfnEeSfnc-VXAEapg")]
@@ -39,7 +39,7 @@ public enum ReportPeriodActivityCode
     
     /// <summary>
     /// Report has been received but was corrupted.
-    /// Encoded/decoded by serializers as "CRPT".
+    /// Encoded/decoded by serializers as &quot;CRPT&quot;.
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_csIZkJyZEeSBzu9qI1PCRQ")]

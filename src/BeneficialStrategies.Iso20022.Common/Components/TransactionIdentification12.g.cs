@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the transaction for network management.
 /// </summary>
 [IsoId("_yGEF8cWZEeiCfKAZkk6ZAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,16 @@ public partial record TransactionIdentification12
     /// ISO 8583 bit 11.
     /// </summary>
     [IsoId("_ySq-mcWZEeiCfKAZkk6ZAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Trace Audit Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysTracAudtNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SysTracAudtNb")]
+    [IsoSimpleType(IsoSimpleType.Max12NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax12NumericText SystemTraceAuditNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SystemTraceAuditNumber { get; init; } 
+    public required System.String SystemTraceAuditNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SystemTraceAuditNumber { get; init; } 
     #else
@@ -77,16 +72,16 @@ public partial record TransactionIdentification12
     /// ISO 8583 bit 7
     /// </summary>
     [IsoId("_ySq-l8WZEeiCfKAZkk6ZAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transmission Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsmssnDtTm")]
     #endif
+    [IsoXmlTag("TrnsmssnDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TransmissionDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TransmissionDateTime { get; init; } 
+    public required System.DateTime TransmissionDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TransmissionDateTime { get; init; } 
     #else
@@ -98,15 +93,12 @@ public partial record TransactionIdentification12
     /// ISO 8583 bit 37
     /// </summary>
     [IsoId("_ySq-m8WZEeiCfKAZkk6ZAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Retrieval Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrvlRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("RtrvlRefNb")]
+    [IsoSimpleType(IsoSimpleType.Exact12Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact12Text? RetrievalReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +112,11 @@ public partial record TransactionIdentification12
     /// ISO 8583:2003 bit 21
     /// </summary>
     [IsoId("_ySq-n8WZEeiCfKAZkk6ZAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Life Cycle Trace Identification Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LifeCyclTracIdData")]
     #endif
+    [IsoXmlTag("LifeCyclTracIdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionLifeCycleIdentification2? LifeCycleTraceIdentificationData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

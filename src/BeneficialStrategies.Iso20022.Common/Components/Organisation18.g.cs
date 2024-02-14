@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Card acceptor performing the transaction.
 /// </summary>
 [IsoId("_HX5psXrpEeSz_of_1TY14A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Organisation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Organisation18
     /// Identification of the card acceptor.
     /// </summary>
     [IsoId("_HkkMsXrpEeSz_of_1TY14A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification32 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification32 Identification { get; init; } 
+    public required GenericIdentification32 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification32 Identification { get; init; } 
     #else
@@ -74,19 +71,17 @@ public partial record Organisation18
     /// It correspond to the ISO 8583 field number 43.
     /// </summary>
     [IsoId("_HkkMs3rpEeSz_of_1TY14A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Common Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmonNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CmonNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text CommonName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CommonName { get; init; } 
+    public required System.String CommonName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CommonName { get; init; } 
     #else
@@ -98,16 +93,15 @@ public partial record Organisation18
     /// It correspond to the ISO 8583 field number 43.
     /// </summary>
     [IsoId("_HkkMt3rpEeSz_of_1TY14A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
+    [IsoXmlTag("Lctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommunicationAddress5 Location { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommunicationAddress5 Location { get; init; } 
+    public required CommunicationAddress5 Location { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommunicationAddress5 Location { get; init; } 
     #else
@@ -118,12 +112,11 @@ public partial record Organisation18
     /// Selected language of the card acceptor. Reference ISO 639-1 (alpha-2) andISO 639-2 (alpha-3).
     /// </summary>
     [IsoId("_uDglkHruEeSz_of_1TY14A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Selected Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SelctdLang")]
     #endif
+    [IsoXmlTag("SelctdLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? SelectedLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,15 +129,13 @@ public partial record Organisation18
     /// Additional card acceptor data required by a card scheme.
     /// </summary>
     [IsoId("_zEKcAHruEeSz_of_1TY14A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scheme Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchmeData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SchmeData")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SchemeData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

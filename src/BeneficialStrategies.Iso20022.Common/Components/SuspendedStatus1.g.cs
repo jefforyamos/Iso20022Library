@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status is suspended.
 /// </summary>
 [IsoId("_UzSt59p-Ed-ak6NoX_4Aeg_-1626734948")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Suspended Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record SuspendedStatus1
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_UzSt6Np-Ed-ak6NoX_4Aeg_-1626734946")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoRsn")]
     #endif
+    [IsoXmlTag("NoRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoReason { get; init; } 
+    public required NoReasonCode NoReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoReason { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record SuspendedStatus1
     /// Reason for a suspended status in the report.
     /// </summary>
     [IsoId("_Uzce4Np-Ed-ak6NoX_4Aeg_-1110487797")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SuspendedStatusReason1 Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SuspendedStatusReason1 Reason { get; init; } 
+    public required SuspendedStatusReason1 Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SuspendedStatusReason1 Reason { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record SuspendedStatus1
     /// Proprietary identification of a reason for a suspended status in the report.
     /// </summary>
     [IsoId("_Uzce4dp-Ed-ak6NoX_4Aeg_-1626734687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
+    [IsoXmlTag("DataSrcSchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification1 DataSourceScheme { get; init; } 
+    public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification1 DataSourceScheme { get; init; } 
     #else

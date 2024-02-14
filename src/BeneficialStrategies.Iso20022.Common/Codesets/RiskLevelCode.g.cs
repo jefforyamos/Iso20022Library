@@ -21,7 +21,7 @@ public enum RiskLevelCode
 {
     /// <summary>
     /// High.
-    /// Encoded/decoded by serializers as "HIGH".
+    /// Encoded/decoded by serializers as &quot;HIGH&quot;.
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_1Fus0BdwEeKYM7Bc71nDlA")]
@@ -30,7 +30,7 @@ public enum RiskLevelCode
     
     /// <summary>
     /// Medium.
-    /// Encoded/decoded by serializers as "MEDM".
+    /// Encoded/decoded by serializers as &quot;MEDM&quot;.
     /// </summary>
     [EnumMember(Value = "MEDM")]
     [IsoId("_1R8j4BdwEeKYM7Bc71nDlA")]
@@ -39,7 +39,7 @@ public enum RiskLevelCode
     
     /// <summary>
     /// Low.
-    /// Encoded/decoded by serializers as "LOWW".
+    /// Encoded/decoded by serializers as &quot;LOWW&quot;.
     /// </summary>
     [EnumMember(Value = "LOWW")]
     [IsoId("_1Z17oBdwEeKYM7Bc71nDlA")]

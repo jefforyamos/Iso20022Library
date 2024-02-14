@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.admi;
 /// </summary>
 [Description(@"Scope|The MessageReject message is sent by a central system to notify the rejection of a previously received message.|Usage|The message provides specific information about the rejection reason.")]
 [IsoId("_8LH5WNE9Ed-BzquC8wXy7w_-1942533103")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Message Reject V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record MessageRejectV01 : IOuterRecord<MessageRejectV01,MessageRe
     /// Refers to the identification of the message previously received and for which the rejection is notified.
     /// </summary>
     [IsoId("_8LH5WdE9Ed-BzquC8wXy7w_-1383804009")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageReference RelatedReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageReference RelatedReference { get; init; } 
+    public required MessageReference RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageReference RelatedReference { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record MessageRejectV01 : IOuterRecord<MessageRejectV01,MessageRe
     /// General information about the reason of the message rejection.
     /// </summary>
     [IsoId("_8LH5WtE9Ed-BzquC8wXy7w_-223860119")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReason2 Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectionReason2 Reason { get; init; } 
+    public required RejectionReason2 Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectionReason2 Reason { get; init; } 
     #else
@@ -119,7 +115,7 @@ public partial record MessageRejectV01 : IOuterRecord<MessageRejectV01,MessageRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MessageRejectV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MessageRejectV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MessageRejectV01Document ToDocument()
     {
@@ -129,7 +125,7 @@ public partial record MessageRejectV01 : IOuterRecord<MessageRejectV01,MessageRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MessageRejectV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MessageRejectV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MessageRejectV01Document : IOuterDocument<MessageRejectV01>
@@ -146,7 +142,7 @@ public partial record MessageRejectV01Document : IOuterDocument<MessageRejectV01
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MessageRejectV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MessageRejectV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageRejectV01 Message { get; init; }

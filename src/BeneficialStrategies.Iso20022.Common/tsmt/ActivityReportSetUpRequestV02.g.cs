@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The ActivityReportSetUpRequest message is sent by any party involved in a transaction to the matching application.|The ActivityReportSetUpRequest message can be sent to request the reset of the pre-determined time at which the daily production of the activity report should take place.|Usage|This message is sent to the matching application by a bank, in order to set the UTC offset specifying the hour when the matching application will generate every day an activity report covering the last 24 hours and send it. By default, this offset is equal to 0.")]
 [IsoId("_ihSN2NE8Ed-BzquC8wXy7w_-1378853261")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Activity Report Set Up Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record ActivityReportSetUpRequestV02 : IOuterRecord<ActivityRepor
     /// Identifies the request message.
     /// </summary>
     [IsoId("_ihSN2dE8Ed-BzquC8wXy7w_-1378853229")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqId")]
     #endif
+    [IsoXmlTag("ReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RequestIdentification { get; init; } 
+    public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RequestIdentification { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record ActivityReportSetUpRequestV02 : IOuterRecord<ActivityRepor
     /// Specifies the parameters to calculate the local reporting time.
     /// </summary>
     [IsoId("_ihSN2tE8Ed-BzquC8wXy7w_-1378852898")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UTC Offset")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UTCOffset")]
     #endif
+    [IsoXmlTag("UTCOffset")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UTCOffset1 UTCOffset { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UTCOffset1 UTCOffset { get; init; } 
+    public required UTCOffset1 UTCOffset { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UTCOffset1 UTCOffset { get; init; } 
     #else
@@ -120,7 +116,7 @@ public partial record ActivityReportSetUpRequestV02 : IOuterRecord<ActivityRepor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ActivityReportSetUpRequestV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ActivityReportSetUpRequestV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ActivityReportSetUpRequestV02Document ToDocument()
     {
@@ -130,7 +126,7 @@ public partial record ActivityReportSetUpRequestV02 : IOuterRecord<ActivityRepor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ActivityReportSetUpRequestV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ActivityReportSetUpRequestV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ActivityReportSetUpRequestV02Document : IOuterDocument<ActivityReportSetUpRequestV02>
@@ -147,7 +143,7 @@ public partial record ActivityReportSetUpRequestV02Document : IOuterDocument<Act
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ActivityReportSetUpRequestV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ActivityReportSetUpRequestV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActivityReportSetUpRequestV02 Message { get; init; }

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus26Choice
     /// Status advising that the instruction cancellation request is pending and advising on the reason for the pending status.
     /// </summary>
     [IsoId("_7I3wILKfEemux5trsZcCpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Cancellation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Certificate in which all currency control transactions are registered.
 /// </summary>
 [IsoId("_Oo0tENLiEeSdq5yU2aaSNw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Certificate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record TransactionCertificate2
     /// Reference of the transaction, that is the underlying payment instruction or statement entry.
     /// </summary>
     [IsoId("_TOVNsNLkEeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrdDoc")]
     #endif
+    [IsoXmlTag("RfrdDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CertificateReference1 ReferredDocument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CertificateReference1 ReferredDocument { get; init; } 
+    public required CertificateReference1 ReferredDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CertificateReference1 ReferredDocument { get; init; } 
     #else
@@ -75,16 +72,16 @@ public partial record TransactionCertificate2
     /// Date of the underlying transaction.
     /// </summary>
     [IsoId("_WmWSYNLkEeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDt")]
     #endif
+    [IsoXmlTag("TxDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate TransactionDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly TransactionDate { get; init; } 
+    public required System.DateOnly TransactionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly TransactionDate { get; init; } 
     #else
@@ -95,19 +92,16 @@ public partial record TransactionCertificate2
     /// Type of the transaction.
     /// </summary>
     [IsoId("_h6KTgNLlEeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TxTp")]
+    [IsoSimpleType(IsoSimpleType.Exact1NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact1NumericText TransactionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionType { get; init; } 
+    public required System.String TransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionType { get; init; } 
     #else
@@ -119,19 +113,16 @@ public partial record TransactionCertificate2
     /// Usage: This element is used to specify a local transaction type to further qualify the transaction type.
     /// </summary>
     [IsoId("_klsssNLlEeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclInstrm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("LclInstrm")]
+    [IsoSimpleType(IsoSimpleType.Exact5NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact5NumericText LocalInstrument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LocalInstrument { get; init; } 
+    public required System.String LocalInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LocalInstrument { get; init; } 
     #else
@@ -142,16 +133,16 @@ public partial record TransactionCertificate2
     /// Amount as provided in the transaction to be recorded under the contract.
     /// </summary>
     [IsoId("_nawOQNLlEeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

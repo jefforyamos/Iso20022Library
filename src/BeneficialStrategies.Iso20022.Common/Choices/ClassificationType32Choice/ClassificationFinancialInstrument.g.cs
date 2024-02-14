@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClassificationType32Choice
     /// ISO 10962 Classification of Financial Instrument (CFI).
     /// </summary>
     [IsoId("_IyRYZYlYEeWPSZi0kAOXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Financial Instrument")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClassificationType32Choice
         /// Classification type of the financial instrument, as per the ISO 10962 Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClssfctnFinInstrm")]
         #endif
+        [IsoXmlTag("ClssfctnFinInstrm")]
+        [IsoSimpleType(IsoSimpleType.CFIOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoCFIOct2015Identifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

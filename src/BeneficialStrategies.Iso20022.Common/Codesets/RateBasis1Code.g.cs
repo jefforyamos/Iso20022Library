@@ -21,7 +21,7 @@ public enum RateBasis1Code
 {
     /// <summary>
     /// Rate is reported in days.
-    /// Encoded/decoded by serializers as "DAYS".
+    /// Encoded/decoded by serializers as &quot;DAYS&quot;.
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("_Oxb24c5KEeSc85GUbgBycw")]
@@ -30,7 +30,7 @@ public enum RateBasis1Code
     
     /// <summary>
     /// Rate is reported in months.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_O4WXMc5KEeSc85GUbgBycw")]
@@ -39,7 +39,7 @@ public enum RateBasis1Code
     
     /// <summary>
     /// Rate is reported in weeks.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_O9mqoc5KEeSc85GUbgBycw")]
@@ -48,7 +48,7 @@ public enum RateBasis1Code
     
     /// <summary>
     /// Rate is reported in years.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_PCi1Ac5KEeSc85GUbgBycw")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice
     /// Tax values are based on tax calculation method B.
     /// </summary>
     [IsoId("_6P9Ds5qlEeGSON8vddiWzQ_1047988105")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method B")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice
         /// Amount of the original charge expressed in the host currency.
         /// </summary>
         [IsoId("_6P9DtpqlEeGSON8vddiWzQ_-1342564280")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Service Charge Host Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SvcChrgHstAmt")]
         #endif
+        [IsoXmlTag("SvcChrgHstAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
+        public required AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice
         /// Provides for the regional taxes on the service. Up to three regional taxes may be defined for the same service.
         /// </summary>
         [IsoId("_6P9Dt5qlEeGSON8vddiWzQ_1918530298")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Service Tax")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SvcTax")]
         #endif
+        [IsoXmlTag("SvcTax")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BillingServicesAmount1 ServiceTax { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BillingServicesAmount1 ServiceTax { get; init; } 
+        public required BillingServicesAmount1 ServiceTax { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BillingServicesAmount1 ServiceTax { get; init; } 
         #else
@@ -98,16 +94,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice
         /// Usage: This element allows for a maximum of three regional taxes on the same service.
         /// </summary>
         [IsoId("_6P9DuJqlEeGSON8vddiWzQ_1610375494")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tax Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TaxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TaxId")]
         [MinLength(1)]
         [MaxLength(3)]
-        #endif
         public ValueList<BillingServicesTax1> TaxIdentification { get; init; } = new ValueList<BillingServicesTax1>(){};
         
         

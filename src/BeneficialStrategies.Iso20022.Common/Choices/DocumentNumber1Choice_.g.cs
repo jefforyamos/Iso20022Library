@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DocumentNumber1Choice.LongNumber))]
     [KnownType(typeof(DocumentNumber1Choice.ProprietaryNumber))]
     [IsoId("_QzcNJtp-Ed-ak6NoX_4Aeg_-2100056613")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Number 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

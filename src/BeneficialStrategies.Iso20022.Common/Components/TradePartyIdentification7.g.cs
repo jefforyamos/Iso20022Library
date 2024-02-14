@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity involved in an activity.
 /// </summary>
 [IsoId("_D2EMMAfeEeSLV4FSBR_q6A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,12 +52,11 @@ public partial record TradePartyIdentification7
     /// Identifies the fund which is one of the parties in a treasury trade.
     /// </summary>
     [IsoId("_3YpMwAfeEeSLV4FSBR_q6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndInf")]
     #endif
+    [IsoXmlTag("FndInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundIdentification3? FundInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +69,15 @@ public partial record TradePartyIdentification7
     /// Specifies the party which is the buyer or the seller.
     /// </summary>
     [IsoId("_DbIuQAffEeSLV4FSBR_q6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Or Seller Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrOrSellrInd")]
     #endif
+    [IsoXmlTag("BuyrOrSellrInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionParty1Code BuyerOrSellerIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionParty1Code BuyerOrSellerIndicator { get; init; } 
+    public required OptionParty1Code BuyerOrSellerIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionParty1Code BuyerOrSellerIndicator { get; init; } 
     #else
@@ -92,16 +88,15 @@ public partial record TradePartyIdentification7
     /// Specifies if a trade party is a taker or a maker.
     /// </summary>
     [IsoId("_EFezsEVUEeSGWeX3z5zSZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiator Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitrInd")]
     #endif
+    [IsoXmlTag("InitrInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionParty3Code InitiatorIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionParty3Code InitiatorIndicator { get; init; } 
+    public required OptionParty3Code InitiatorIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionParty3Code InitiatorIndicator { get; init; } 
     #else
@@ -112,16 +107,15 @@ public partial record TradePartyIdentification7
     /// Identification of the party.
     /// </summary>
     [IsoId("_PLv5kIHFEeSY3ulMDfpmvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradPtyId")]
     #endif
+    [IsoXmlTag("TradPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification78 TradePartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification78 TradePartyIdentification { get; init; } 
+    public required PartyIdentification78 TradePartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification78 TradePartyIdentification { get; init; } 
     #else
@@ -132,16 +126,15 @@ public partial record TradePartyIdentification7
     /// Specifies the party which submits a treasury trade to a matching system or to a settlement system or to a counterparty.
     /// </summary>
     [IsoId("_LaETsAffEeSLV4FSBR_q6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitgPty")]
     #endif
+    [IsoXmlTag("SubmitgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount119 SubmittingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentificationAndAccount119 SubmittingParty { get; init; } 
+    public required PartyIdentificationAndAccount119 SubmittingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentificationAndAccount119 SubmittingParty { get; init; } 
     #else

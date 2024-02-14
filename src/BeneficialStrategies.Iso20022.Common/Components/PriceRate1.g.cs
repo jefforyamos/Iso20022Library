@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a price expressed as a rate.
 /// </summary>
 [IsoId("_Qa2uBdp-Ed-ak6NoX_4Aeg_101667231")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PriceRate1
     /// Type of rate, eg, yield.
     /// </summary>
     [IsoId("_Qa2uBtp-Ed-ak6NoX_4Aeg_112748166")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateTp")]
     #endif
+    [IsoXmlTag("RateTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateType3FormatChoice_ RateType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceRateType3FormatChoice_ RateType { get; init; } 
+    public required PriceRateType3FormatChoice_ RateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceRateType3FormatChoice_ RateType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record PriceRate1
     /// Price expressed as a rate, ie, percentage.
     /// </summary>
     [IsoId("_Qa2uB9p-Ed-ak6NoX_4Aeg_303697377")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Rate { get; init; } 
+    public required System.Decimal Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Rate { get; init; } 
     #else

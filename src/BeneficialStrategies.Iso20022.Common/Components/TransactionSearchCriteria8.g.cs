@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria which are used to search for a payment transaction.
 /// </summary>
 [IsoId("_O2c0zW49EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TransactionSearchCriteria8
     /// Defines the criteria which are used to search for the destination of the payment.
     /// </summary>
     [IsoId("_PEwWgW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTo")]
     #endif
+    [IsoXmlTag("PmtTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemSearch4? PaymentTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TransactionSearchCriteria8
     /// Defines the criteria which are used to search for the origin of the payment.
     /// </summary>
     [IsoId("_PEwWg249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtFr")]
     #endif
+    [IsoXmlTag("PmtFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemSearch4? PaymentFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TransactionSearchCriteria8
     /// Defines the criteria which are used to search for a payment.
     /// </summary>
     [IsoId("_PEwWhW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Search")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtSch")]
     #endif
+    [IsoXmlTag("PmtSch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentSearch8? PaymentSearch { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TransactionSearchCriteria8
     /// Defines the criteria which are used to search for a cash entry.
     /// </summary>
     [IsoId("_PEwWh249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Entry Search")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctNtrySch")]
     #endif
+    [IsoXmlTag("AcctNtrySch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccountEntrySearch6? AccountEntrySearch { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

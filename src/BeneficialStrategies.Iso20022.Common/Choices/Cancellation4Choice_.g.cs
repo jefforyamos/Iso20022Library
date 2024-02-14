@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Cancellation4Choice.References))]
     [KnownType(typeof(Cancellation4Choice.TransferOutDetails))]
     [IsoId("_d8mKoRXzEeOBE-jZfcm4KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice
     /// Fraud reporting initiation message record.
     /// </summary>
     [IsoId("_xyAZ0FZYEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraud Reporting Initiation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice
         /// Binary data of 2MB maximum.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrdRptgInitn")]
         #endif
+        [IsoXmlTag("FrdRptgInitn")]
+        [IsoSimpleType(IsoSimpleType.Max2MBBinary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax2MBBinary Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Byte[] Value { get; init; } 
+        public required System.Byte[] Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Byte[] Value { get; init; } 
         #else

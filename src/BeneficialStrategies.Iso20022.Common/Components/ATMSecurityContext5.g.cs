@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to security commands.
 /// </summary>
 [IsoId("_VbtT4bTlEeeQy4o2AayYHg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Security Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ATMSecurityContext5
     /// Key exchange security scheme in activation on the ATM for the host manager.
     /// </summary>
     [IsoId("_VkuF8bTlEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Security Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurSctySchme")]
     #endif
+    [IsoXmlTag("CurSctySchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMSecurityScheme3Code CurrentSecurityScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMSecurityScheme3Code CurrentSecurityScheme { get; init; } 
+    public required ATMSecurityScheme3Code CurrentSecurityScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMSecurityScheme3Code CurrentSecurityScheme { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record ATMSecurityContext5
     /// Key exchange security schemes implemented in the hardware security module of the ATM.
     /// </summary>
     [IsoId("_VkuF87TlEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Scheme Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctySchmeCpblties")]
     #endif
+    [IsoXmlTag("SctySchmeCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityScheme4Code? SecuritySchemeCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record ATMSecurityContext5
     /// Hardware security module of the ATM.
     /// </summary>
     [IsoId("_VkuF9bTlEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Device")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyDvc")]
     #endif
+    [IsoXmlTag("SctyDvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMSecurityDevice2 SecurityDevice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMSecurityDevice2 SecurityDevice { get; init; } 
+    public required ATMSecurityDevice2 SecurityDevice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMSecurityDevice2 SecurityDevice { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record ATMSecurityContext5
     /// Cryptographic keys stored in the hardware security module of the ATM.
     /// </summary>
     [IsoId("_VkuF97TlEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Key")]
     #endif
+    [IsoXmlTag("Key")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey11? Key { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,12 @@ public partial record ATMSecurityContext5
     /// Random value from the host provided during a previous exchange.
     /// </summary>
     [IsoId("_VkuF-bTlEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstChllng")]
     #endif
+    [IsoXmlTag("HstChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? HostChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

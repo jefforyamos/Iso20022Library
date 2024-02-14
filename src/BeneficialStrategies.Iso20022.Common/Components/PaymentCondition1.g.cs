@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the conditions for the execution of the payment.
 /// </summary>
 [IsoId("_BmRRkHVjEeiEU7thYTAN1w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Condition")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record PaymentCondition1
     /// Indicates if the debtor is allowed to pay a different amount then the requested amount.
     /// </summary>
     [IsoId("_zg-VYHVjEeiEU7thYTAN1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Modification Allowed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtModAllwd")]
     #endif
+    [IsoXmlTag("AmtModAllwd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator AmountModificationAllowed { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AmountModificationAllowed { get; init; } 
+    public required System.String AmountModificationAllowed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AmountModificationAllowed { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record PaymentCondition1
     /// Indicates if the debtor is allowed to pay before the requested execution date.
     /// </summary>
     [IsoId("_3QRRoXVjEeiEU7thYTAN1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Payment Allowed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlyPmtAllwd")]
     #endif
+    [IsoXmlTag("EarlyPmtAllwd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator EarlyPaymentAllowed { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EarlyPaymentAllowed { get; init; } 
+    public required System.String EarlyPaymentAllowed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EarlyPaymentAllowed { get; init; } 
     #else
@@ -93,15 +91,13 @@ public partial record PaymentCondition1
     /// Penalty to be applied for a delayed payment, that is when the payment is made after the requested execution date.
     /// </summary>
     [IsoId("_YiSE4HVkEeiEU7thYTAN1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delay Penalty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DelyPnlty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DelyPnlty")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? DelayPenalty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,12 +110,11 @@ public partial record PaymentCondition1
     /// Discount rate applied for immediate payment upon receipt of the request.
     /// </summary>
     [IsoId("_jw1A8HVkEeiEU7thYTAN1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Immediate Payment Rebate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ImdtPmtRbt")]
     #endif
+    [IsoXmlTag("ImdtPmtRbt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountOrRate1Choice_? ImmediatePaymentRebate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,16 +127,16 @@ public partial record PaymentCondition1
     /// Indicates if a payment guarantee is requested, assuming a payment guarantee contract exists between the different actors.
     /// </summary>
     [IsoId("_-63wYHVkEeiEU7thYTAN1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guaranteed Payment Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntedPmtReqd")]
     #endif
+    [IsoXmlTag("GrntedPmtReqd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator GuaranteedPaymentRequested { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String GuaranteedPaymentRequested { get; init; } 
+    public required System.String GuaranteedPaymentRequested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String GuaranteedPaymentRequested { get; init; } 
     #else

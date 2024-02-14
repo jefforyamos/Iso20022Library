@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketType13Choice.Code))]
     [KnownType(typeof(MarketType13Choice.Proprietary))]
     [IsoId("_Yczl4EeIEeSzluxs8tdrVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Type 13 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to request the authorisation to process the entitlement movements (cash and/or securities) calculated by the CSD for a given corporate action entire event, a given corporate action option and optionally a given resource.|This message can also be sent to request the issuer (or its agent) to make available / deliver the relevant resources to the CSD.|Usage|This message is used to request the authorisation to process the entitlement movements calculated by the CSD for a given corporate action event and option. An Agent Corporate Action Global Distribution Authorisation Request message must be sent for each option and if several resources are associated to an option, an Agent Corporate Action Global Distribution Authorisation Request message can be sent for each resource.|This message can also be used to pre-advise a global distribution authorisation request, in which case the value of the field pre-advice indicator must be set to yes.")]
 [IsoId("_TNwP1dEwEd-BzquC8wXy7w_690310315")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent CA Global Distribution Authorisation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     /// Identification assigned by the Sender to unambiguously identify the request.
     /// </summary>
     [IsoId("_TNwP1tEwEd-BzquC8wXy7w_1189279537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -102,16 +99,15 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TNwP19EwEd-BzquC8wXy7w_806676079")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -122,16 +118,15 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     /// Provides detailed information about the global distribution.
     /// </summary>
     [IsoId("_TNwP2NEwEd-BzquC8wXy7w_959712876")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Distribution Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GblDstrbtnDtls")]
     #endif
+    [IsoXmlTag("GblDstrbtnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GlobalDistributionRequest1 GlobalDistributionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GlobalDistributionRequest1 GlobalDistributionDetails { get; init; } 
+    public required GlobalDistributionRequest1 GlobalDistributionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GlobalDistributionRequest1 GlobalDistributionDetails { get; init; } 
     #else
@@ -142,7 +137,7 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AgentCAGlobalDistributionAuthorisationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AgentCAGlobalDistributionAuthorisationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AgentCAGlobalDistributionAuthorisationRequestV01Document ToDocument()
     {
@@ -152,7 +147,7 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01 : IOuterR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAGlobalDistributionAuthorisationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AgentCAGlobalDistributionAuthorisationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AgentCAGlobalDistributionAuthorisationRequestV01Document : IOuterDocument<AgentCAGlobalDistributionAuthorisationRequestV01>
@@ -169,7 +164,7 @@ public partial record AgentCAGlobalDistributionAuthorisationRequestV01Document :
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AgentCAGlobalDistributionAuthorisationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AgentCAGlobalDistributionAuthorisationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentCAGlobalDistributionAuthorisationRequestV01 Message { get; init; }

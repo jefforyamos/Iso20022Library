@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The MandateCancellationRequest message is sent by the initiator of the request to his agent. The initiator can either be the debtor or the creditor.|The MandateCancellationRequest message is forwarded by the agent of the initiator to the agent of the counterparty.|A MandateCancellationRequest message is used to request the cancellation of an existing mandate. If accepted, this MandateCancellationRequest message together with the MandateAcceptanceReport message confirming the acceptance will be considered a valid cancellation of an existing mandate, agreed upon by all parties.|Usage|The MandateCancellationRequest message can contain one or more request(s) to cancel a specific mandate.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.|The MandateCancellationRequest message can be used in domestic and cross-border scenarios.")]
 [IsoId("_-YfK0SGmEeKjd4jizyIDGA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record MandateCancellationRequestV03 : IOuterRecord<MandateCancel
     /// Set of characteristics to identify the message and parties playing a role in the cancellation of the mandate, but which are not part of the mandate.
     /// </summary>
     [IsoId("_-YfK0yGmEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader47 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader47 GroupHeader { get; init; } 
+    public required GroupHeader47 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader47 GroupHeader { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record MandateCancellationRequestV03 : IOuterRecord<MandateCancel
     /// Set of elements used to provide details on the cancellation request.
     /// </summary>
     [IsoId("_-YfK1yGmEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Cancellation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygCxlDtls")]
     #endif
+    [IsoXmlTag("UndrlygCxlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateCancellation3 UnderlyingCancellationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateCancellation3 UnderlyingCancellationDetails { get; init; } 
+    public required MandateCancellation3 UnderlyingCancellationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateCancellation3 UnderlyingCancellationDetails { get; init; } 
     #else
@@ -124,12 +120,11 @@ public partial record MandateCancellationRequestV03 : IOuterRecord<MandateCancel
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_-YfK2yGmEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,7 +137,7 @@ public partial record MandateCancellationRequestV03 : IOuterRecord<MandateCancel
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MandateCancellationRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MandateCancellationRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MandateCancellationRequestV03Document ToDocument()
     {
@@ -152,7 +147,7 @@ public partial record MandateCancellationRequestV03 : IOuterRecord<MandateCancel
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateCancellationRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MandateCancellationRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MandateCancellationRequestV03Document : IOuterDocument<MandateCancellationRequestV03>
@@ -169,7 +164,7 @@ public partial record MandateCancellationRequestV03Document : IOuterDocument<Man
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MandateCancellationRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MandateCancellationRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateCancellationRequestV03 Message { get; init; }

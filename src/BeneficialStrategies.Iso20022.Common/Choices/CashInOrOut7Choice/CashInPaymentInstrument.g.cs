@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashInOrOut7Choice
     /// Payment instrument for the cash-in flow.
     /// </summary>
     [IsoId("_3zQJUzbsEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Payment Instrument")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

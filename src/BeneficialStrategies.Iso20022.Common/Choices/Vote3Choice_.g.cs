@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Vote3Choice.VoteInstruction))]
     [KnownType(typeof(Vote3Choice.GlobalVoteInstruction))]
     [IsoId("_hx10Z166EeSjaerr_EM7AQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

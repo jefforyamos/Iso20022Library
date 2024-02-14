@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
     /// Specifies the type of residence where the party has its permanent home or principal establishment.
     /// </summary>
     [IsoId("_xPtUfmjNEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Residence Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
         /// Old value before the update.
         /// </summary>
         [IsoId("_hgYlxWjWEeiRg5NzP0jkQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Old")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Od")]
         #endif
+        [IsoXmlTag("Od")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ResidenceType1Code Old { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ResidenceType1Code Old { get; init; } 
+        public required ResidenceType1Code Old { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ResidenceType1Code Old { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
         /// New value after the update.
         /// </summary>
         [IsoId("_hgYlxGjWEeiRg5NzP0jkQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("New")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="New")]
         #endif
+        [IsoXmlTag("New")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ResidenceType1Code New { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ResidenceType1Code New { get; init; } 
+        public required ResidenceType1Code New { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ResidenceType1Code New { get; init; } 
         #else

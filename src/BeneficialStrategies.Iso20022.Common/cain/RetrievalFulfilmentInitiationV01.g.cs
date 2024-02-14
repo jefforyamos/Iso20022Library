@@ -26,15 +26,13 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// <summary>
 /// This record is an implementation of the cain.014.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
-/// The RetrievaFulfilmentInitiation message is sent by an acquirer or agent to an issuer to support an issuer's retrieval request.
+/// The RetrievaFulfilmentInitiation message is sent by an acquirer or agent to an issuer to support an issuer&apos;s retrieval request.
 /// 
 /// The RetrievaFulfilmentInitiation message is the activity initiated by the acceptor, the acquirer or the relevant agent to support the issuer who has determined that a transaction information document needs to be examined before a potential chargeback is sent or to satisfy another need of the issuer or the cardholder. Only an issuer or its agent can initiate a retrieval request.
 /// </summary>
 [Description(@"The RetrievaFulfilmentInitiation message is sent by an acquirer or agent to an issuer to support an issuer's retrieval request.||The RetrievaFulfilmentInitiation message is the activity initiated by the acceptor, the acquirer or the relevant agent to support the issuer who has determined that a transaction information document needs to be examined before a potential chargeback is sent or to satisfy another need of the issuer or the cardholder. Only an issuer or its agent can initiate a retrieval request.")]
 [IsoId("_I-6FQeE1EeeV6-yubHrZaQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Retrieval Fulfilment Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record RetrievalFulfilmentInitiationV01 : IOuterRecord<RetrievalF
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_I-6FQ-E1EeeV6-yubHrZaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header48 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header48 Header { get; init; } 
+    public required Header48 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header48 Header { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record RetrievalFulfilmentInitiationV01 : IOuterRecord<RetrievalF
     /// Information related to the initiation of a retrieval fulfilment
     /// </summary>
     [IsoId("_I-6FReE1EeeV6-yubHrZaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetrievalFulfilmentInitiation1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetrievalFulfilmentInitiation1 Body { get; init; } 
+    public required RetrievalFulfilmentInitiation1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetrievalFulfilmentInitiation1 Body { get; init; } 
     #else
@@ -119,12 +115,11 @@ public partial record RetrievalFulfilmentInitiationV01 : IOuterRecord<RetrievalF
     /// It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.
     /// </summary>
     [IsoId("_I-6FR-E1EeeV6-yubHrZaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,7 +132,7 @@ public partial record RetrievalFulfilmentInitiationV01 : IOuterRecord<RetrievalF
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RetrievalFulfilmentInitiationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RetrievalFulfilmentInitiationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RetrievalFulfilmentInitiationV01Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record RetrievalFulfilmentInitiationV01 : IOuterRecord<RetrievalF
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RetrievalFulfilmentInitiationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RetrievalFulfilmentInitiationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RetrievalFulfilmentInitiationV01Document : IOuterDocument<RetrievalFulfilmentInitiationV01>
@@ -164,7 +159,7 @@ public partial record RetrievalFulfilmentInitiationV01Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RetrievalFulfilmentInitiationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RetrievalFulfilmentInitiationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetrievalFulfilmentInitiationV01 Message { get; init; }

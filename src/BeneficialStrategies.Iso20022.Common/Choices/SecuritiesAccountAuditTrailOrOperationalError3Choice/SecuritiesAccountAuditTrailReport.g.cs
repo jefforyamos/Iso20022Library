@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountAuditTrailOrOpe
     /// Report information about securities account reference data.
     /// </summary>
     [IsoId("_A6gAsTp0Eemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account Audit Trail Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountAuditTrailOrOpe
         /// Provides the returned securities account reference data or error information.
         /// </summary>
         [IsoId("_BEo0ITp0Eemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Account Audit Trail Or Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesAcctAudtTrlOrErr")]
         #endif
+        [IsoXmlTag("SctiesAcctAudtTrlOrErr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AuditTrailOrBusinessError6Choice_ SecuritiesAccountAuditTrailOrError { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AuditTrailOrBusinessError6Choice_ SecuritiesAccountAuditTrailOrError { get; init; } 
+        public required AuditTrailOrBusinessError6Choice_ SecuritiesAccountAuditTrailOrError { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AuditTrailOrBusinessError6Choice_ SecuritiesAccountAuditTrailOrError { get; init; } 
         #else
@@ -77,12 +74,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountAuditTrailOrOpe
         /// Period in dates for which the audit trail is provided.
         /// </summary>
         [IsoId("_BEo0Izp0Eemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Date Period")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtPrd")]
         #endif
+        [IsoXmlTag("DtPrd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,16 +91,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountAuditTrailOrOpe
         /// Identifies the securities account for which the audit trail is provided.
         /// </summary>
         [IsoId("_BEo0JTp0Eemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Account Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesAcctId")]
         #endif
+        [IsoXmlTag("SctiesAcctId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
+        public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
         #else

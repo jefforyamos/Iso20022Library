@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentAmount1Choice
     /// Amount of money that results from the application of an agreed discount to the amount due and payable to the creditor.
     /// </summary>
     [IsoId("_QGJCRNp-Ed-ak6NoX_4Aeg_-888106465")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Applied Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentAmount1Choice
         /// Number of monetary units specified in a currency, where the unit of currency is explicit and compliant with ISO 4217. The decimal separator is a dot.|Note: A zero amount is considered a positive amount.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DscntApldAmt")]
         #endif
+        [IsoXmlTag("DscntApldAmt")]
+        [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoCurrencyAndAmount Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Value { get; init; } 
+        public required System.Decimal Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Value { get; init; } 
         #else

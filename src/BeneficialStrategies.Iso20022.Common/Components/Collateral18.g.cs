@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the security pledge as collateral.
 /// </summary>
 [IsoId("_96huocEaEea7jLfvGi1PDw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Collateral18
     /// Provides the values of the security pledged as collateral.
     /// </summary>
     [IsoId("_-DKGMcEaEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Valtn")]
     #endif
+    [IsoXmlTag("Valtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuredCollateral2Choice_ Valuation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuredCollateral2Choice_ Valuation { get; init; } 
+    public required SecuredCollateral2Choice_ Valuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuredCollateral2Choice_ Valuation { get; init; } 
     #else
@@ -74,12 +71,12 @@ public partial record Collateral18
     /// Only actual values, as opposed to estimated or default values will be reported for this variable.
     /// </summary>
     [IsoId("_-DKGM8EaEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hrcut")]
     #endif
+    [IsoXmlTag("Hrcut")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Haircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +94,11 @@ public partial record Collateral18
     /// This field is optional and it should be provided only in case it is feasible for the reporting agent.
     /// </summary>
     [IsoId("_-DKGNcEaEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Special Collateral Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpclCollInd")]
     #endif
+    [IsoXmlTag("SpclCollInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SpecialCollateral2Code? SpecialCollateralIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the requested authority investigation information details.
 /// </summary>
 [IsoId("_zIYkA01JEeGAs6v-iSb2RQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Authority Investigation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AuthorityInvestigation2
     /// Identifies the type requested information as a code.
     /// </summary>
     [IsoId("_1ur36E1JEeGAs6v-iSb2RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthorityRequestType1 Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthorityRequestType1 Type { get; init; } 
+    public required AuthorityRequestType1 Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthorityRequestType1 Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AuthorityInvestigation2
     /// Identifies the roles the customer plays in the requested information.
     /// </summary>
     [IsoId("_sGeWoU1AEeGAs6v-iSb2RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigated Roles")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtdRoles")]
     #endif
+    [IsoXmlTag("InvstgtdRoles")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
+    public required InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record AuthorityInvestigation2
     /// Specifies the additional investigated parties.
     /// </summary>
     [IsoId("_80akgU1JEeGAs6v-iSb2RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Investigated Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInvstgtdPties")]
     #endif
+    [IsoXmlTag("AddtlInvstgtdPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestigatedParties1Choice_? AdditionalInvestigatedParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,15 +105,13 @@ public partial record AuthorityInvestigation2
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
     [IsoId("_6sOI8U1JEeGAs6v-iSb2RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

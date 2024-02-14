@@ -21,7 +21,7 @@ public enum TypeOfAmount17Code
 {
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_mpFfEVjqEeiTlKUpxxSxEw")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount17Code
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_m0EnEVjqEeiTlKUpxxSxEw")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount17Code
     
     /// <summary>
     /// Fee applied by the card issuer to the cardholder.
-    /// Encoded/decoded by serializers as "ISCF".
+    /// Encoded/decoded by serializers as &quot;ISCF&quot;.
     /// </summary>
     [EnumMember(Value = "ISCF")]
     [IsoId("_nw0jMVjqEeiTlKUpxxSxEw")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount17Code
     
     /// <summary>
     /// Amount anticipated for the transaction
-    /// Encoded/decoded by serializers as "ANTA".
+    /// Encoded/decoded by serializers as &quot;ANTA&quot;.
     /// </summary>
     [EnumMember(Value = "ANTA")]
     [IsoId("_7nV2oa0pEeiBP5PZ97xcEA")]

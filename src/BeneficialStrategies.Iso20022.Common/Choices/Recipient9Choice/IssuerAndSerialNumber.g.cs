@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient9Choice
     /// Certificate issuer name and serial number (see ITU X.509).
     /// </summary>
     [IsoId("_M0YGAS8jEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer And Serial Number")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient9Choice
         /// Certificate issuer name (see X.509).
         /// </summary>
         [IsoId("_-8B2IS8iEeu125Ip9zFcsQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
+        [IsoXmlTag("Issr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CertificateIssuer1 Issuer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CertificateIssuer1 Issuer { get; init; } 
+        public required CertificateIssuer1 Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CertificateIssuer1 Issuer { get; init; } 
         #else
@@ -77,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient9Choice
         /// Certificate serial number (see X.509).
         /// </summary>
         [IsoId("_-8B2Iy8iEeu125Ip9zFcsQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Serial Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SrlNb")]
         #endif
+        [IsoXmlTag("SrlNb")]
+        [IsoSimpleType(IsoSimpleType.Max500Binary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax500Binary SerialNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Byte[] SerialNumber { get; init; } 
+        public required System.Byte[] SerialNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Byte[] SerialNumber { get; init; } 
         #else

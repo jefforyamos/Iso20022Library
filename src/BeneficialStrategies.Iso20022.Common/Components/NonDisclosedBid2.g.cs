@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// List trading by which the buy-side provides details to the sell-side information about the sector, country, index and potential market impact of the financial instrument to be bought or sold. Using this information, the sell-side firms bid for the trade.
 /// </summary>
 [IsoId("_S07jwdp-Ed-ak6NoX_4Aeg_986706325")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Disclosed Bid")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record NonDisclosedBid2
     /// Identifies a type of bid based on a common characteristic (the currency) of all securities of a list.
     /// </summary>
     [IsoId("_S07jwtp-Ed-ak6NoX_4Aeg_1205583746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid By Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidByCcy")]
     #endif
+    [IsoXmlTag("BidByCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? BidByCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record NonDisclosedBid2
     /// Identifies a type of bid based on a common characteristic (the sector) of all securities of a list.
     /// </summary>
     [IsoId("_S07jw9p-Ed-ak6NoX_4Aeg_1206503753")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid By Sector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidBySctr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BidBySctr")]
+    [IsoSimpleType(IsoSimpleType.Max128Text)]
     [StringLength(maximumLength: 128 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? BidBySector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record NonDisclosedBid2
     /// Identifies a type of bid based on a common characteristic (the index) of all securities of a list.
     /// </summary>
     [IsoId("_S07jxNp-Ed-ak6NoX_4Aeg_1206503778")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid By Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidByIndx")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BidByIndx")]
+    [IsoSimpleType(IsoSimpleType.Max128Text)]
     [StringLength(maximumLength: 128 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? BidByIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +97,12 @@ public partial record NonDisclosedBid2
     /// Difference between the value of a future and the value of the underlying equities after allowing for the discounted cash flows associated with the underlying stocks.
     /// </summary>
     [IsoId("_S07jxdp-Ed-ak6NoX_4Aeg_-1304220816")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fair Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FairVal")]
     #endif
+    [IsoXmlTag("FairVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FairValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

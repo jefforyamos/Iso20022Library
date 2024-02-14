@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyOrCurrency1Choice.Depository))]
     [KnownType(typeof(PartyOrCurrency1Choice.SettlementCurrency))]
     [IsoId("_eY4Ls1K0EeOsJr32EK1NAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Or Currency 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

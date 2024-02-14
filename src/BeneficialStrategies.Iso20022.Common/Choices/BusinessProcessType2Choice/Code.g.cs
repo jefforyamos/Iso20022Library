@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessProcessType2Choice
     /// Business process type is identified using a code.
     /// </summary>
     [IsoId("_0w-KU5BgEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessProcessType2Choice
         /// Type of business process model used to carry out the transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BusinessProcessType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BusinessProcessType1Code Value { get; init; } 
+        public required BusinessProcessType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BusinessProcessType1Code Value { get; init; } 
         #else

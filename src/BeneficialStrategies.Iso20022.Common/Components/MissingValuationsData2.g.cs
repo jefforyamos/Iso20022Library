@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information about the outstanding derivatives for which no valuation or outdated valuation has been reported.
 /// </summary>
 [IsoId("_x2ECMVyGEe24CqbZJK5XxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Missing Valuations Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record MissingValuationsData2
     /// Data specific to counterparties and related fields.
     /// </summary>
     [IsoId("_x24hkVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyId")]
     #endif
+    [IsoXmlTag("CtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyData92 CounterpartyIdentification { get; init; } 
+    public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyData92 CounterpartyIdentification { get; init; } 
     #else
@@ -74,16 +71,16 @@ public partial record MissingValuationsData2
     /// Number of outstanding derivatives. 
     /// </summary>
     [IsoId("_x24hk1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Outstanding Derivatives")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfOutsdngDerivs")]
     #endif
+    [IsoXmlTag("NbOfOutsdngDerivs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfOutstandingDerivatives { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
+    public required System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
     #else
@@ -94,16 +91,16 @@ public partial record MissingValuationsData2
     /// Number of outstanding derivatives for which valuation amount was never reported.
     /// </summary>
     [IsoId("_x24hlVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Outstanding Derivatives With No Valuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfOutsdngDerivsWthNoValtn")]
     #endif
+    [IsoXmlTag("NbOfOutsdngDerivsWthNoValtn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
+    public required System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
     #else
@@ -114,16 +111,16 @@ public partial record MissingValuationsData2
     /// Number of outstanding derivatives with outdated valuation.
     /// </summary>
     [IsoId("_x24hl1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Outstanding Derivatives With Outdated Valuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfOutsdngDerivsWthOutdtdValtn")]
     #endif
+    [IsoXmlTag("NbOfOutsdngDerivsWthOutdtdValtn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
+    public required System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
     #else
@@ -134,12 +131,11 @@ public partial record MissingValuationsData2
     /// Details of missing valuations per transaction.
     /// </summary>
     [IsoId("_x24hmVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MissingValuationsTransactionData2? TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum NoCriteria1Code
 {
     /// <summary>
     /// No criteria.
-    /// Encoded/decoded by serializers as "NOCR".
+    /// Encoded/decoded by serializers as &quot;NOCR&quot;.
     /// </summary>
     [EnumMember(Value = "NOCR")]
     [IsoId("_aNcpc9p-Ed-ak6NoX_4Aeg_-678428636")]

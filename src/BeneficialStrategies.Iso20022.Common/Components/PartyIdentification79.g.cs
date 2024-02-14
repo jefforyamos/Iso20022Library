@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify an account owner and the associated decision maker.
 /// </summary>
 [IsoId("_5DtlUFCiEeWdp9NcseTlOw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PartyIdentification79
     /// Identifies the account which is used to acquire or sell financial instruments.
     /// </summary>
     [IsoId("_O_0QQFCjEeWdp9NcseTlOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     public PartyIdentification76? AccountOwner { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _O_0QQFCjEeWdp9NcseTlOw
     
@@ -57,12 +54,11 @@ public partial record PartyIdentification79
     /// Identifies the person who makes the decision on the financial instrument, acquire in case the of a buyer or to sell in case of the seller.
     /// </summary>
     [IsoId("_5c13BVCiEeWdp9NcseTlOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Decision Maker")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DcsnMakr")]
     #endif
+    [IsoXmlTag("DcsnMakr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PersonOrOrganisation2Choice_? DecisionMaker { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

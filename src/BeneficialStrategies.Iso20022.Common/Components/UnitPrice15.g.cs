@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
 [IsoId("_QelXdtp-Ed-ak6NoX_4Aeg_116968013")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Unit Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record UnitPrice15
     /// Type and information about a price.
     /// </summary>
     [IsoId("_QelXd9p-Ed-ak6NoX_4Aeg_116968049")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfPrice9Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfPrice9Code Type { get; init; } 
+    public required TypeOfPrice9Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfPrice9Code Type { get; init; } 
     #else
@@ -75,19 +72,17 @@ public partial record UnitPrice15
     /// Type and information about a price.
     /// </summary>
     [IsoId("_QelXeNp-Ed-ak6NoX_4Aeg_-1035184327")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedTp")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedType { get; init; } 
+    public required System.String ExtendedType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedType { get; init; } 
     #else
@@ -98,12 +93,11 @@ public partial record UnitPrice15
     /// Type of pricing calculation method.
     /// </summary>
     [IsoId("_QeuhYNp-Ed-ak6NoX_4Aeg_116968125")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricMtd")]
     #endif
+    [IsoXmlTag("PricMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceMethod1Code? PriceMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record UnitPrice15
     /// Value of the price, eg, as a currency and value.
     /// </summary>
     [IsoId("_QeuhYdp-Ed-ak6NoX_4Aeg_116968420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value In Investment Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValInInvstmtCcy")]
     #endif
+    [IsoXmlTag("ValInInvstmtCcy")]
     public PriceValue1? ValueInInvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _QeuhYdp-Ed-ak6NoX_4Aeg_116968420
     
@@ -129,12 +122,11 @@ public partial record UnitPrice15
     /// Value of the price, eg, as a currency and value.
     /// </summary>
     [IsoId("_QeuhYtp-Ed-ak6NoX_4Aeg_116968480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value In Alternative Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValInAltrntvCcy")]
     #endif
+    [IsoXmlTag("ValInAltrntvCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? ValueInAlternativeCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,16 +139,16 @@ public partial record UnitPrice15
     /// Indicates whether the price information can be used for the execution of a transaction.
     /// </summary>
     [IsoId("_QeuhY9p-Ed-ak6NoX_4Aeg_116968557")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("For Execution Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ForExctnInd")]
     #endif
+    [IsoXmlTag("ForExctnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ForExecutionIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ForExecutionIndicator { get; init; } 
+    public required System.String ForExecutionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ForExecutionIndicator { get; init; } 
     #else
@@ -167,16 +159,16 @@ public partial record UnitPrice15
     /// Indicates whether the dividend is included, ie, cum-dividend, in the price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
     [IsoId("_QeuhZNp-Ed-ak6NoX_4Aeg_116968883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cum Dividend Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CumDvddInd")]
     #endif
+    [IsoXmlTag("CumDvddInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CumDividendIndicator { get; init; } 
+    public required System.String CumDividendIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CumDividendIndicator { get; init; } 
     #else
@@ -187,12 +179,12 @@ public partial record UnitPrice15
     /// Ratio applied on the non-adjusted price.
     /// </summary>
     [IsoId("_QeuhZdp-Ed-ak6NoX_4Aeg_116968944")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnBsis")]
     #endif
+    [IsoXmlTag("ClctnBsis")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CalculationBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,16 +197,16 @@ public partial record UnitPrice15
     /// Indicates whether the price is an estimated price.
     /// </summary>
     [IsoId("_QeuhZtp-Ed-ak6NoX_4Aeg_240626510")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Estimated Price Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstmtdPricInd")]
     #endif
+    [IsoXmlTag("EstmtdPricInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator EstimatedPriceIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EstimatedPriceIndicator { get; init; } 
+    public required System.String EstimatedPriceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EstimatedPriceIndicator { get; init; } 
     #else
@@ -222,15 +214,15 @@ public partial record UnitPrice15
     #endif
     
     /// <summary>
-    /// Specifies the number of days from trade date that the counterparty on the other side of the trade should "given up" or divulged.
+    /// Specifies the number of days from trade date that the counterparty on the other side of the trade should &quot;given up&quot; or divulged.
     /// </summary>
     [IsoId("_QeuhZ9p-Ed-ak6NoX_4Aeg_116969021")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Days Accrued")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfDaysAcrd")]
     #endif
+    [IsoXmlTag("NbOfDaysAcrd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,12 +235,12 @@ public partial record UnitPrice15
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
     [IsoId("_QeuhaNp-Ed-ak6NoX_4Aeg_116969074")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Income Per Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblIncmPerShr")]
     #endif
+    [IsoXmlTag("TaxblIncmPerShr")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -261,12 +253,11 @@ public partial record UnitPrice15
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
     [IsoId("_Qeuhadp-Ed-ak6NoX_4Aeg_116969376")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Income Per Share Calculated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblIncmPerShrClctd")]
     #endif
+    [IsoXmlTag("TaxblIncmPerShrClctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -279,15 +270,13 @@ public partial record UnitPrice15
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
     [IsoId("_Qe4SYNp-Ed-ak6NoX_4Aeg_911625097")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Taxable Income Per Share Calculated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedTaxblIncmPerShrClctd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedTaxblIncmPerShrClctd")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedTaxableIncomePerShareCalculated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -300,12 +289,12 @@ public partial record UnitPrice15
     /// Amount included in the dividend that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
     [IsoId("_Qe4SYdp-Ed-ak6NoX_4Aeg_-450781721")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Income Per Dividend")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblIncmPerDvdd")]
     #endif
+    [IsoXmlTag("TaxblIncmPerDvdd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerDividend { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -318,12 +307,11 @@ public partial record UnitPrice15
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
     [IsoId("_Qe4SYtp-Ed-ak6NoX_4Aeg_-107228916")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("EU Dividend Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EUDvddSts")]
     #endif
+    [IsoXmlTag("EUDvddSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EUDividendStatus1Code? EUDividendStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -336,15 +324,13 @@ public partial record UnitPrice15
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
     [IsoId("_Qe4SY9p-Ed-ak6NoX_4Aeg_1319885059")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended EU Dividend Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedEUDvddSts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedEUDvddSts")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedEUDividendStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -357,12 +343,11 @@ public partial record UnitPrice15
     /// Amount of money associated with a service.
     /// </summary>
     [IsoId("_Qe4SZNp-Ed-ak6NoX_4Aeg_116969935")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgDtls")]
     #endif
+    [IsoXmlTag("ChrgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge15? ChargeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -375,12 +360,11 @@ public partial record UnitPrice15
     /// Information related to taxes that are due.
     /// </summary>
     [IsoId("_Qe4SZdp-Ed-ak6NoX_4Aeg_1606728234")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Liability Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxLbltyDtls")]
     #endif
+    [IsoXmlTag("TaxLbltyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax17? TaxLiabilityDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -393,12 +377,11 @@ public partial record UnitPrice15
     /// Information related to taxes that are paid back.
     /// </summary>
     [IsoId("_Qe4SZtp-Ed-ak6NoX_4Aeg_1615962093")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Refund Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRfndDtls")]
     #endif
+    [IsoXmlTag("TaxRfndDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax17? TaxRefundDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

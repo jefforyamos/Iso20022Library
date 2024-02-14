@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information on the investigation status as updated in the tracker or investigation facility.
 /// </summary>
 [IsoId("_CWE9oWHGEe2dtcJPyL3-cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Investigation Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TrackerInvestigationRequest1
     /// Type of investigation.
     /// </summary>
     [IsoId("_VDZMsHbgEe2_x8sH-8RFVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnTp")]
     #endif
+    [IsoXmlTag("InvstgtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigationType2Choice_ InvestigationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestigationType2Choice_ InvestigationType { get; init; } 
+    public required InvestigationType2Choice_ InvestigationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestigationType2Choice_ InvestigationType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TrackerInvestigationRequest1
     /// Request status and details of assignment by the tracking facility. 
     /// </summary>
     [IsoId("_-hxSgHbiEe2GR4CRzIB77g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status And Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsAndAssgnmt")]
     #endif
+    [IsoXmlTag("StsAndAssgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerInvestigationRequestStatus1 StatusAndAssignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerInvestigationRequestStatus1 StatusAndAssignment { get; init; } 
+    public required TrackerInvestigationRequestStatus1 StatusAndAssignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerInvestigationRequestStatus1 StatusAndAssignment { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record TrackerInvestigationRequest1
     /// Provides details on the subject to which the investigation refers, for example a payment or statement entry.
     /// </summary>
     [IsoId("_RC5oUXfIEe2A6pitLvwC_g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Undrlyg")]
     #endif
+    [IsoXmlTag("Undrlyg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingData1Choice_? Underlying { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum SystemStatus2Code
 {
     /// <summary>
     /// System is suspended, that is, not operational.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_ZSJe1Np-Ed-ak6NoX_4Aeg_-246312211")]
@@ -30,7 +30,7 @@ public enum SystemStatus2Code
     
     /// <summary>
     /// System is functioning normally, that is, operational.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZSJe1dp-Ed-ak6NoX_4Aeg_-237078229")]
@@ -39,7 +39,7 @@ public enum SystemStatus2Code
     
     /// <summary>
     /// System is closed (eg. normal closure of an RTGS).
-    /// Encoded/decoded by serializers as "CLSD".
+    /// Encoded/decoded by serializers as &quot;CLSD&quot;.
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_ZSJe1tp-Ed-ak6NoX_4Aeg_-234308163")]
@@ -48,7 +48,7 @@ public enum SystemStatus2Code
     
     /// <summary>
     /// System needs to wait for completion of intermediate internal activities before going to a status Closed.
-    /// Encoded/decoded by serializers as "CLSG".
+    /// Encoded/decoded by serializers as &quot;CLSG&quot;.
     /// </summary>
     [EnumMember(Value = "CLSG")]
     [IsoId("_ZSJe19p-Ed-ak6NoX_4Aeg_-225070272")]

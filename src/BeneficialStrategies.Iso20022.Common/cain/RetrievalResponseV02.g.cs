@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The RetrievalResponse message is sent by an acquirer to an issuer or agent in response to an Retrievalnitiation message.")]
 [IsoId("_w1uw0YHXEeu7P-fjMhpKOg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Retrieval Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record RetrievalResponseV02 : IOuterRecord<RetrievalResponseV02,R
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_w1vX4YHXEeu7P-fjMhpKOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header67 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header67 Header { get; init; } 
+    public required Header67 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header67 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record RetrievalResponseV02 : IOuterRecord<RetrievalResponseV02,R
     /// Information related to the response to the request of a retrieval of information.
     /// </summary>
     [IsoId("_w1vX44HXEeu7P-fjMhpKOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetrievalResponse2 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetrievalResponse2 Body { get; init; } 
+    public required RetrievalResponse2 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetrievalResponse2 Body { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record RetrievalResponseV02 : IOuterRecord<RetrievalResponseV02,R
     /// It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.
     /// </summary>
     [IsoId("_w1vX5YHXEeu7P-fjMhpKOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record RetrievalResponseV02 : IOuterRecord<RetrievalResponseV02,R
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RetrievalResponseV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RetrievalResponseV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RetrievalResponseV02Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record RetrievalResponseV02 : IOuterRecord<RetrievalResponseV02,R
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RetrievalResponseV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RetrievalResponseV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RetrievalResponseV02Document : IOuterDocument<RetrievalResponseV02>
@@ -162,7 +157,7 @@ public partial record RetrievalResponseV02Document : IOuterDocument<RetrievalRes
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RetrievalResponseV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RetrievalResponseV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetrievalResponseV02 Message { get; init; }

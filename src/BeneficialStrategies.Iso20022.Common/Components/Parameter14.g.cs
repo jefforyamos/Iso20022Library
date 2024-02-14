@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters associated to a cryptographic encryption algorithm.
 /// </summary>
 [IsoId("_s_BikdZ2EeeA4_YxLuyJaA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Parameter14
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
     [IsoId("_tLOLgdZ2EeeA4_YxLuyJaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encryption Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptnFrmt")]
     #endif
+    [IsoXmlTag("NcrptnFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncryptionFormat3Code? EncryptionFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record Parameter14
     /// Initialisation vector of a cipher block chaining (CBC) mode encryption.
     /// </summary>
     [IsoId("_tLOLg9Z2EeeA4_YxLuyJaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initialisation Vector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlstnVctr")]
     #endif
+    [IsoXmlTag("InitlstnVctr")]
+    [IsoSimpleType(IsoSimpleType.Max500Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Binary? InitialisationVector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record Parameter14
     /// Byte padding for a cypher block chaining mode encryption, if the padding is not implicit.
     /// </summary>
     [IsoId("_tLOLhdZ2EeeA4_YxLuyJaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Byte Padding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BPddg")]
     #endif
+    [IsoXmlTag("BPddg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BytePadding1Code? BytePadding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

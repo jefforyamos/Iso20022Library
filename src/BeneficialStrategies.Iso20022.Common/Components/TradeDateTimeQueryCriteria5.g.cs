@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Date and time query criteria.
 /// </summary>
 [IsoId("_np2jIWE3Ee2S65ml6YCOtA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Date Time Query Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TradeDateTimeQueryCriteria5
     /// Indicates the reporting date and full hour that transaction was reported.
     /// </summary>
     [IsoId("_nrlBc2E3Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgDtTm")]
     #endif
+    [IsoXmlTag("RptgDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1? ReportingDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TradeDateTimeQueryCriteria5
     /// Indicates the date and full hour the trade was executed.
     /// </summary>
     [IsoId("_nrlBdWE3Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnDtTm")]
     #endif
+    [IsoXmlTag("ExctnDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1? ExecutionDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TradeDateTimeQueryCriteria5
     /// Indicates the date when the trade was matured.
     /// </summary>
     [IsoId("_nrlBd2E3Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateOrBlankQuery2Choice_? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TradeDateTimeQueryCriteria5
     /// Indicates the date when obligations under the contract come into effect.
     /// </summary>
     [IsoId("_nrlBeWE3Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDt")]
     #endif
+    [IsoXmlTag("FctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod1? EffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record TradeDateTimeQueryCriteria5
     /// Date and time of the valuation.
     /// </summary>
     [IsoId("_nrlBe2E3Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDtTm")]
     #endif
+    [IsoXmlTag("ValtnDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1? ValuationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record TradeDateTimeQueryCriteria5
     /// Indicates the date when the trade was terminated.
     /// </summary>
     [IsoId("_nrlBfWE3Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XprtnDt")]
     #endif
+    [IsoXmlTag("XprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateOrBlankQuery2Choice_? ExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record TradeDateTimeQueryCriteria5
     /// Indicates the effective date of the early termination of the reported derivative transaction.
     /// </summary>
     [IsoId("_nrlBf2E3Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Termination Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlyTermntnDt")]
     #endif
+    [IsoXmlTag("EarlyTermntnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod1? EarlyTerminationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record TradeDateTimeQueryCriteria5
     /// Indicates the collateral time stamp range.
     /// </summary>
     [IsoId("_p7LQEGE4Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollTmStmp")]
     #endif
+    [IsoXmlTag("CollTmStmp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimeOrBlankQuery1Choice_? CollateralTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

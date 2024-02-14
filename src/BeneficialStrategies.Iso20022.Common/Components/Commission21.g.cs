@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
 [IsoId("_GK8bkQavEeS3lpTattq7hg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Commission")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Commission21
     /// Type of commission.
     /// </summary>
     [IsoId("_ZCl3AAavEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnTp")]
     #endif
+    [IsoXmlTag("ComssnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommissionType5Choice_ CommissionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommissionType5Choice_ CommissionType { get; init; } 
+    public required CommissionType5Choice_ CommissionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommissionType5Choice_ CommissionType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Commission21
     /// Commission amount or commission rate applied.
     /// </summary>
     [IsoId("_1HtHkAavEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Applied")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnApld")]
     #endif
+    [IsoXmlTag("ComssnApld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrRate3Choice_ CommissionApplied { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrRate3Choice_ CommissionApplied { get; init; } 
+    public required AmountOrRate3Choice_ CommissionApplied { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrRate3Choice_ CommissionApplied { get; init; } 
     #else

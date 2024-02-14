@@ -21,7 +21,7 @@ public enum ATMNoteTypeCode
 {
     /// <summary>
     /// All fit bank note types.
-    /// Encoded/decoded by serializers as "ALLT".
+    /// Encoded/decoded by serializers as &quot;ALLT&quot;.
     /// </summary>
     [EnumMember(Value = "ALLT")]
     [IsoId("_GGMqMIqgEeS4a4abTJTSSw")]
@@ -30,7 +30,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// Detected counterfeit notes.
-    /// Encoded/decoded by serializers as "CNTR".
+    /// Encoded/decoded by serializers as &quot;CNTR&quot;.
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_IqGxYIqgEeS4a4abTJTSSw")]
@@ -39,7 +39,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// All types of fit bank notes specified in an individual list.
-    /// Encoded/decoded by serializers as "IDVD".
+    /// Encoded/decoded by serializers as &quot;IDVD&quot;.
     /// </summary>
     [EnumMember(Value = "IDVD")]
     [IsoId("_LepVkIqgEeS4a4abTJTSSw")]
@@ -48,7 +48,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// Suspected counterfeit notes.
-    /// Encoded/decoded by serializers as "SCNT".
+    /// Encoded/decoded by serializers as &quot;SCNT&quot;.
     /// </summary>
     [EnumMember(Value = "SCNT")]
     [IsoId("_N3-kcIqgEeS4a4abTJTSSw")]
@@ -57,7 +57,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// Unfit bank notes (unacceptable quality).
-    /// Encoded/decoded by serializers as "UNFT".
+    /// Encoded/decoded by serializers as &quot;UNFT&quot;.
     /// </summary>
     [EnumMember(Value = "UNFT")]
     [IsoId("_Q3BIcIqgEeS4a4abTJTSSw")]
@@ -66,7 +66,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// Fit bank notes.
-    /// Encoded/decoded by serializers as "FITN".
+    /// Encoded/decoded by serializers as &quot;FITN&quot;.
     /// </summary>
     [EnumMember(Value = "FITN")]
     [IsoId("_K5jPAIqhEeS4a4abTJTSSw")]
@@ -75,7 +75,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// Fit and unfit bank notes, if fitness cannot be determined.
-    /// Encoded/decoded by serializers as "FITU".
+    /// Encoded/decoded by serializers as &quot;FITU&quot;.
     /// </summary>
     [EnumMember(Value = "FITU")]
     [IsoId("_OmVCwIqhEeS4a4abTJTSSw")]
@@ -84,7 +84,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// Notes stained by dye pack.
-    /// Encoded/decoded by serializers as "NTRL".
+    /// Encoded/decoded by serializers as &quot;NTRL&quot;.
     /// </summary>
     [EnumMember(Value = "NTRL")]
     [IsoId("_RZ4vgIqhEeS4a4abTJTSSw")]
@@ -93,7 +93,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// Suspect notes.
-    /// Encoded/decoded by serializers as "SPCT".
+    /// Encoded/decoded by serializers as &quot;SPCT&quot;.
     /// </summary>
     [EnumMember(Value = "SPCT")]
     [IsoId("_T9gi0IqhEeS4a4abTJTSSw")]
@@ -102,7 +102,7 @@ public enum ATMNoteTypeCode
     
     /// <summary>
     /// Unrecognised notes.
-    /// Encoded/decoded by serializers as "UNRG".
+    /// Encoded/decoded by serializers as &quot;UNRG&quot;.
     /// </summary>
     [EnumMember(Value = "UNRG")]
     [IsoId("_XNiJIIqhEeS4a4abTJTSSw")]

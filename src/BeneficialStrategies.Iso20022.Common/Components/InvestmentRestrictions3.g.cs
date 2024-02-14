@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Investment restrictions linked to the trading of an investment fund, or an alternative/hedge fund.
 /// </summary>
 [IsoId("_Sp4ScV88Eeicg40_9gK9vQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Restrictions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record InvestmentRestrictions3
     /// Minimum initial quantity of securities, expressed as an amount, that must be purchased at subscription.
     /// </summary>
     [IsoId("_S5y9w188Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Initial Subscription Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinInitlSbcptAmt")]
     #endif
+    [IsoXmlTag("MinInitlSbcptAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record InvestmentRestrictions3
     /// Minimum initial number of units/shares that must be purchased.
     /// </summary>
     [IsoId("_S5y9xV88Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Initial Subscription Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinInitlSbcptUnits")]
     #endif
+    [IsoXmlTag("MinInitlSbcptUnits")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumInitialSubscriptionUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record InvestmentRestrictions3
     /// Minimum quantity of securities, expressed as an amount, that must be purchased.
     /// </summary>
     [IsoId("_S5y9x188Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Subsequent Subscription Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinSbsqntSbcptAmt")]
     #endif
+    [IsoXmlTag("MinSbsqntSbcptAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record InvestmentRestrictions3
     /// Minimum quantity of securities, expressed as number of units/shares that must be purchased.
     /// </summary>
     [IsoId("_S5y9yV88Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Subsequent Subscription Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinSbsqntSbcptUnits")]
     #endif
+    [IsoXmlTag("MinSbsqntSbcptUnits")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumSubsequentSubscriptionUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record InvestmentRestrictions3
     /// Maximum quantity of securities, expressed as an amount, that can be sold. 
     /// </summary>
     [IsoId("_S5y9y188Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Redemption Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxRedAmt")]
     #endif
+    [IsoXmlTag("MaxRedAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MaximumRedemptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +132,12 @@ public partial record InvestmentRestrictions3
     /// Maximum number of shares/units that may be redeemed on a single dealing day.
     /// </summary>
     [IsoId("_S5y9zV88Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Redemption Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxRedUnits")]
     #endif
+    [IsoXmlTag("MaxRedUnits")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MaximumRedemptionUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +150,12 @@ public partial record InvestmentRestrictions3
     /// Minimum percentage of holding that may be redeemed.
     /// </summary>
     [IsoId("_0VZA0N6eEei9RJrL5H7TLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Redemption Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinRedPctg")]
     #endif
+    [IsoXmlTag("MinRedPctg")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MinimumRedemptionPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,18 +165,16 @@ public partial record InvestmentRestrictions3
     #endif
     
     /// <summary>
-    /// Specifies any other restrictions that may limit an investor's ability to redeem.
+    /// Specifies any other restrictions that may limit an investor&apos;s ability to redeem.
     /// </summary>
     [IsoId("_S5y9z188Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Redemption Restrictions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRedRstrctns")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrRedRstrctns")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherRedemptionRestrictions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +187,12 @@ public partial record InvestmentRestrictions3
     /// Minimum quantity of securities, expressed as an amount, that must be purchased.
     /// </summary>
     [IsoId("_zKI5MN6fEei9RJrL5H7TLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Switch Subscription Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinSwtchSbcptAmt")]
     #endif
+    [IsoXmlTag("MinSwtchSbcptAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumSwitchSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +205,12 @@ public partial record InvestmentRestrictions3
     /// Minimum quantity of securities, expressed as number of units/shares that must be purchased.
     /// </summary>
     [IsoId("_8WiXUN6fEei9RJrL5H7TLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Switch Subscription Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinSwtchSbcptUnits")]
     #endif
+    [IsoXmlTag("MinSwtchSbcptUnits")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MinimumSwitchSubscriptionUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +223,12 @@ public partial record InvestmentRestrictions3
     /// Maximum quantity of securities, expressed as an amount, that can be sold. 
     /// </summary>
     [IsoId("_kS7MwF88Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Switch Redemption Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxSwtchRedAmt")]
     #endif
+    [IsoXmlTag("MaxSwtchRedAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MaximumSwitchRedemptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +241,12 @@ public partial record InvestmentRestrictions3
     /// Maximum number of shares/units that may be redeemed on a single dealing day.
     /// </summary>
     [IsoId("_CNJlYN6gEei9RJrL5H7TLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Switch Redemption Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxSwtchRedUnits")]
     #endif
+    [IsoXmlTag("MaxSwtchRedUnits")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MaximumSwitchRedemptionUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,18 +256,16 @@ public partial record InvestmentRestrictions3
     #endif
     
     /// <summary>
-    /// Specifies any other restrictions that may limit an investor's ability to switch.
+    /// Specifies any other restrictions that may limit an investor&apos;s ability to switch.
     /// </summary>
     [IsoId("_1coDMF89Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Switch Restrictions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrSwtchRstrctns")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrSwtchRstrctns")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherSwitchRestrictions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +278,12 @@ public partial record InvestmentRestrictions3
     /// Minimum value of units that must be maintained to avoid automatic redemption.
     /// </summary>
     [IsoId("_S5y90V88Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Holding Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinHldgAmt")]
     #endif
+    [IsoXmlTag("MinHldgAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumHoldingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +296,12 @@ public partial record InvestmentRestrictions3
     /// Minimum number of units that must be maintained to avoid automatic redemption.
     /// </summary>
     [IsoId("_S5y90188Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Holding Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinHldgUnits")]
     #endif
+    [IsoXmlTag("MinHldgUnits")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? MinimumHoldingUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,15 +314,13 @@ public partial record InvestmentRestrictions3
     /// Description of the period, that may be a number of days or weeks or another way of describing the period, during which the units/shares must be held following their issue before redemption will be permitted.
     /// </summary>
     [IsoId("_S5y91V88Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Holding Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinHldgPrd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MinHldgPrd")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? MinimumHoldingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -341,12 +333,11 @@ public partial record InvestmentRestrictions3
     /// Specifies how registered investors are able to transfer some or all of their holdings to third parties.
     /// </summary>
     [IsoId("_S5y91188Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Transferable")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgTrfbl")]
     #endif
+    [IsoXmlTag("HldgTrfbl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HoldingTransferable1Code? HoldingTransferable { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -359,12 +350,11 @@ public partial record InvestmentRestrictions3
     /// Additional information about the investment restrictions.
     /// </summary>
     [IsoId("_Val68WAKEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

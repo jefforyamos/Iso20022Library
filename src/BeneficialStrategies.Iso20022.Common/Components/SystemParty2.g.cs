@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This entity shall store the parties from the first three levels: the system operator, the central securities depositaries, the participants of the central securities depositaries, the national central banks and payment banks.
 /// </summary>
 [IsoId("_kmC6Ie5NEeCisYr99QEiWA_-1914948225")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Party")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -46,12 +44,12 @@ public partial record SystemParty2
     /// Specifies the opening date of the party.
     /// </summary>
     [IsoId("_kmC6Iu5NEeCisYr99QEiWA_1131494895")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngDt")]
     #endif
+    [IsoXmlTag("OpngDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? OpeningDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +62,12 @@ public partial record SystemParty2
     /// Specifies the closing date of the party.
     /// </summary>
     [IsoId("_kmC6I-5NEeCisYr99QEiWA_-586504225")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsgDt")]
     #endif
+    [IsoXmlTag("ClsgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ClosingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

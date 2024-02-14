@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the different types of freight charges associated with goods.
 /// </summary>
 [IsoId("_hrK_ERreEeOVR9VN6fAMUg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charge")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,19 +46,18 @@ public partial record Charge24
     #nullable enable
     
     /// <summary>
-    /// Identifies whether the freight charges associated with the goods are "prepaid" or "collect".
+    /// Identifies whether the freight charges associated with the goods are &quot;prepaid&quot; or &quot;collect&quot;.
     /// </summary>
     [IsoId("_iDTyQRreEeOVR9VN6fAMUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FreightCharges1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FreightCharges1Code Type { get; init; } 
+    public required FreightCharges1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FreightCharges1Code Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Charge24
     /// Amount of money associated with a service.
     /// </summary>
     [IsoId("_iDTyQxreEeOVR9VN6fAMUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrgs")]
     #endif
+    [IsoXmlTag("Chrgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChargesDetails3? Charges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

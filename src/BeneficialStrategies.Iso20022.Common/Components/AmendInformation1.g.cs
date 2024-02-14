@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information specific to an amendment or cancellation.
 /// </summary>
 [IsoId("_RVa40tp-Ed-ak6NoX_4Aeg_-1270467118")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amend Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AmendInformation1
     /// Identifies the linked message which was previously sent.
     /// </summary>
     [IsoId("_RVa409p-Ed-ak6NoX_4Aeg_1071515411")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification PreviousReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification PreviousReference { get; init; } 
+    public required MessageIdentification PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification PreviousReference { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record AmendInformation1
     /// Indicates whether instructions must be resent (in case of modification of the parameters of a meeting for which instructions have already been sent).
     /// </summary>
     [IsoId("_RVa41Np-Ed-ak6NoX_4Aeg_-1270467116")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconfirm Instructions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcnfrmInstrs")]
     #endif
+    [IsoXmlTag("RcnfrmInstrs")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ReconfirmInstructions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReconfirmInstructions { get; init; } 
+    public required System.String ReconfirmInstructions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReconfirmInstructions { get; init; } 
     #else

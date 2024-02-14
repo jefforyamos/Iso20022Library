@@ -26,13 +26,11 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// <summary>
 /// This record is an implementation of the tsrv.015.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
-/// The ExtendOrPayResponse message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking, in response to the issuer's request for the applicant's response to the beneficiary’s request to extend or pay.
+/// The ExtendOrPayResponse message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking, in response to the issuer&apos;s request for the applicant&apos;s response to the beneficiary’s request to extend or pay.
 /// </summary>
 [Description(@"The ExtendOrPayResponse message is sent by the party that requested issuance of the undertaking (applicant or obligor) to the party that issued the undertaking, in response to the issuer's request for the applicant's response to the beneficiary’s request to extend or pay.")]
 [IsoId("_9iZZEnltEeG7BsjMvd1mEw_519258789")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Extend Or Pay Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ExtendOrPayResponseV01 : IOuterRecord<ExtendOrPayResponseV
     /// Details of the extend or pay response.
     /// </summary>
     [IsoId("_9iZZE3ltEeG7BsjMvd1mEw_-29894697")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extend Or Pay Response Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndOrPayRspnDtls")]
     #endif
+    [IsoXmlTag("XtndOrPayRspnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExtendOrPayQuery2 ExtendOrPayResponseDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExtendOrPayQuery2 ExtendOrPayResponseDetails { get; init; } 
+    public required ExtendOrPayQuery2 ExtendOrPayResponseDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExtendOrPayQuery2 ExtendOrPayResponseDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ExtendOrPayResponseV01 : IOuterRecord<ExtendOrPayResponseV
     /// Digital signature of the response.
     /// </summary>
     [IsoId("_9iZZFHltEeG7BsjMvd1mEw_1281187011")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record ExtendOrPayResponseV01 : IOuterRecord<ExtendOrPayResponseV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ExtendOrPayResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ExtendOrPayResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ExtendOrPayResponseV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record ExtendOrPayResponseV01 : IOuterRecord<ExtendOrPayResponseV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ExtendOrPayResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ExtendOrPayResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ExtendOrPayResponseV01Document : IOuterDocument<ExtendOrPayResponseV01>
@@ -140,7 +136,7 @@ public partial record ExtendOrPayResponseV01Document : IOuterDocument<ExtendOrPa
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ExtendOrPayResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ExtendOrPayResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExtendOrPayResponseV01 Message { get; init; }

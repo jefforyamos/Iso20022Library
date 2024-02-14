@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TerminationDate2Choice.Date))]
     [KnownType(typeof(TerminationDate2Choice.Code))]
     [IsoId("_QurB4dp-Ed-ak6NoX_4Aeg_1799972644")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Termination Date 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

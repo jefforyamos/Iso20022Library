@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the cancellation of a notification advice or the withdrawal of a CA event.
 /// </summary>
 [IsoId("_Rjual9p-Ed-ak6NoX_4Aeg_493176942")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification Cancellation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NotificationCancellation1
     /// The function of the notification e.g. new notification.
     /// </summary>
     [IsoId("_RjuamNp-Ed-ak6NoX_4Aeg_959555478")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Cancellation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnCxlTp")]
     #endif
+    [IsoXmlTag("NtfctnCxlTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionNotificationType2Code NotificationCancellationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionNotificationType2Code NotificationCancellationType { get; init; } 
+    public required CorporateActionNotificationType2Code NotificationCancellationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionNotificationType2Code NotificationCancellationType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record NotificationCancellation1
     /// The identification of the linked notification advice.
     /// </summary>
     [IsoId("_Rjuamdp-Ed-ak6NoX_4Aeg_959555509")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Agent CA Notification Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdAgtCANtfctnAdvcId")]
     #endif
+    [IsoXmlTag("LkdAgtCANtfctnAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 LinkedAgentCANotificationAdviceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 LinkedAgentCANotificationAdviceIdentification { get; init; } 
+    public required DocumentIdentification8 LinkedAgentCANotificationAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 LinkedAgentCANotificationAdviceIdentification { get; init; } 
     #else

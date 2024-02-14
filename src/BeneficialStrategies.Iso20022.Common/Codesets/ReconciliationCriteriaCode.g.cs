@@ -21,7 +21,7 @@ public enum ReconciliationCriteriaCode
 {
     /// <summary>
     /// The set is defined by transactions processed by POIs identified with the same POIGroup.
-    /// Encoded/decoded by serializers as "GRUP".
+    /// Encoded/decoded by serializers as &quot;GRUP&quot;.
     /// </summary>
     [EnumMember(Value = "GRUP")]
     [IsoId("_ZNckYCpVEeuUucRY0yCMTA")]
@@ -30,7 +30,7 @@ public enum ReconciliationCriteriaCode
     
     /// <summary>
     /// The set is defined by transactions made with cards sharing the same CardProductProfile.
-    /// Encoded/decoded by serializers as "PROF".
+    /// Encoded/decoded by serializers as &quot;PROF&quot;.
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_t62AgCpVEeuUucRY0yCMTA")]
@@ -39,7 +39,7 @@ public enum ReconciliationCriteriaCode
     
     /// <summary>
     /// The set is defined by transactions made with cards belonging  to the same brand.
-    /// Encoded/decoded by serializers as "BRND".
+    /// Encoded/decoded by serializers as &quot;BRND&quot;.
     /// </summary>
     [EnumMember(Value = "BRND")]
     [IsoId("_7_6dwCpVEeuUucRY0yCMTA")]

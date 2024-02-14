@@ -21,7 +21,7 @@ public enum DataSetCategory5Code
 {
     /// <summary>
     /// Acquirer specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "AQPR".
+    /// Encoded/decoded by serializers as &quot;AQPR&quot;.
     /// </summary>
     [EnumMember(Value = "AQPR")]
     [IsoId("_gSqqcWpcEeS4r8z7dKyh1g")]
@@ -30,7 +30,7 @@ public enum DataSetCategory5Code
     
     /// <summary>
     /// Payment application specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_gb0mcWpcEeS4r8z7dKyh1g")]
@@ -39,7 +39,7 @@ public enum DataSetCategory5Code
     
     /// <summary>
     /// The terminal manager is the master.
-    /// Encoded/decoded by serializers as "MTMG".
+    /// Encoded/decoded by serializers as &quot;MTMG&quot;.
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_hYUq8WpcEeS4r8z7dKyh1g")]
@@ -48,7 +48,7 @@ public enum DataSetCategory5Code
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MRPR".
+    /// Encoded/decoded by serializers as &quot;MRPR&quot;.
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_hj8sIWpcEeS4r8z7dKyh1g")]
@@ -57,7 +57,7 @@ public enum DataSetCategory5Code
     
     /// <summary>
     /// Monitoring of the terminal estate.
-    /// Encoded/decoded by serializers as "MTOR".
+    /// Encoded/decoded by serializers as &quot;MTOR&quot;.
     /// </summary>
     [EnumMember(Value = "MTOR")]
     [IsoId("_hrsS4WpcEeS4r8z7dKyh1g")]
@@ -66,7 +66,7 @@ public enum DataSetCategory5Code
     
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
-    /// Encoded/decoded by serializers as "SCPR".
+    /// Encoded/decoded by serializers as &quot;SCPR&quot;.
     /// </summary>
     [EnumMember(Value = "SCPR")]
     [IsoId("_ixk84WpcEeS4r8z7dKyh1g")]
@@ -75,7 +75,7 @@ public enum DataSetCategory5Code
     
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SWPK".
+    /// Encoded/decoded by serializers as &quot;SWPK&quot;.
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_i6OikWpcEeS4r8z7dKyh1g")]
@@ -84,7 +84,7 @@ public enum DataSetCategory5Code
     
     /// <summary>
     /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
-    /// Encoded/decoded by serializers as "TRPR".
+    /// Encoded/decoded by serializers as &quot;TRPR&quot;.
     /// </summary>
     [EnumMember(Value = "TRPR")]
     [IsoId("_jPr1MWpcEeS4r8z7dKyh1g")]

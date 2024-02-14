@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Account details of the report item.
 /// </summary>
 [IsoId("_Xtn_QU1oEeSvz4A_x0ui8g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Item")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReportItem1
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_xqlbEU1pEeSvz4A_x0ui8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount19 AccountIdentification { get; init; } 
+    public required SecuritiesAccount19 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount19 AccountIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReportItem1
     /// Level of the safekeeping account or sub-account of the report item.
     /// </summary>
     [IsoId("_Qv8mAE1pEeSvz4A_x0ui8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctLvl")]
     #endif
+    [IsoXmlTag("AcctLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required HoldingAccountLevel1Code AccountLevel { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public HoldingAccountLevel1Code AccountLevel { get; init; } 
+    public required HoldingAccountLevel1Code AccountLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public HoldingAccountLevel1Code AccountLevel { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record ReportItem1
     /// Financial instrument identification of the report item.
     /// </summary>
     [IsoId("_ia7aAU1pEeSvz4A_x0ui8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,12 @@ public partial record ReportItem1
     /// Date of the report item.
     /// </summary>
     [IsoId("_kotgMU1pEeSvz4A_x0ui8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmDt")]
     #endif
+    [IsoXmlTag("ItmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ItemDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

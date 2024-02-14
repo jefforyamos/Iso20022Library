@@ -21,7 +21,7 @@ public enum ICCFallbackReasonCode
 {
     /// <summary>
     /// Choosing incorrect IC application.
-    /// Encoded/decoded by serializers as "CIIA".
+    /// Encoded/decoded by serializers as &quot;CIIA&quot;.
     /// </summary>
     [EnumMember(Value = "CIIA")]
     [IsoId("_UmgI4DHJEeyTT91yHXSlSQ")]
@@ -30,7 +30,7 @@ public enum ICCFallbackReasonCode
     
     /// <summary>
     /// Error during IC app processing.
-    /// Encoded/decoded by serializers as "EDIP".
+    /// Encoded/decoded by serializers as &quot;EDIP&quot;.
     /// </summary>
     [EnumMember(Value = "EDIP")]
     [IsoId("_c46rADHJEeyTT91yHXSlSQ")]
@@ -39,7 +39,7 @@ public enum ICCFallbackReasonCode
     
     /// <summary>
     /// Terminal error reading IC data.
-    /// Encoded/decoded by serializers as "TERI".
+    /// Encoded/decoded by serializers as &quot;TERI&quot;.
     /// </summary>
     [EnumMember(Value = "TERI")]
     [IsoId("_tJRUEDHJEeyTT91yHXSlSQ")]
@@ -48,7 +48,7 @@ public enum ICCFallbackReasonCode
     
     /// <summary>
     /// Other ICC fallback reason defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_0dWlsDHJEeyTT91yHXSlSQ")]
@@ -57,7 +57,7 @@ public enum ICCFallbackReasonCode
     
     /// <summary>
     /// Other ICC fallback reason defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_67REUDHJEeyTT91yHXSlSQ")]

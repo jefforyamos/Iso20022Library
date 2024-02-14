@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the securities for which the meeting is organised.
 /// </summary>
 [IsoId("_QT2uKNp-Ed-ak6NoX_4Aeg_583952553")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Position")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SecurityPosition5
     /// Security held in an account on which the balance is calculated.
     /// </summary>
     [IsoId("_QT_4ENp-Ed-ak6NoX_4Aeg_583952562")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification3 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification3 Identification { get; init; } 
+    public required SecurityIdentification3 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification3 Identification { get; init; } 
     #else
@@ -71,16 +68,13 @@ public partial record SecurityPosition5
     /// Amount of securities that are eligible for the vote.
     /// </summary>
     [IsoId("_QT_4Edp-Ed-ak6NoX_4Aeg_1240575085")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pos")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Pos")]
     [MinLength(0)]
     [MaxLength(1000)]
-    #endif
     public ValueList<EligiblePosition2> Position { get; init; } = new ValueList<EligiblePosition2>(){};
     
     

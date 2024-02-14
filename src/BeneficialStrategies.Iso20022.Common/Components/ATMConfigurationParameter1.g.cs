@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration parameter version of the ATM.
 /// </summary>
 [IsoId("_Mv--sIn9EeShMpas3885ww")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Configuration Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ATMConfigurationParameter1
     /// Type of the ATM configuration.
     /// </summary>
     [IsoId("_MrLhwIn-EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetCategory7Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetCategory7Code Type { get; init; } 
+    public required DataSetCategory7Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetCategory7Code Type { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record ATMConfigurationParameter1
     /// Active version of the configuration.
     /// </summary>
     [IsoId("_TcxKUIn-EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Version { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Version { get; init; } 
+    public required System.String Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Version { get; init; } 
     #else

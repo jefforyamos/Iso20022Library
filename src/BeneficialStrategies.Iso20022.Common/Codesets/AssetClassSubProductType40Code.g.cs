@@ -21,7 +21,7 @@ public enum AssetClassSubProductType40Code
 {
     /// <summary>
     /// Commodity of type diammonium phosphate.
-    /// Encoded/decoded by serializers as "DAPH".
+    /// Encoded/decoded by serializers as &quot;DAPH&quot;.
     /// </summary>
     [EnumMember(Value = "DAPH")]
     [IsoId("_VOFt81r3EeWN79Bl6BUd3g")]

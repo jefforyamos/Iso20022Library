@@ -21,7 +21,7 @@ public enum LevelOfControl1Code
 {
     /// <summary>
     /// Transactions are permitted on the account.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_mhS8sSDDEeWPMvNwVtiMsA")]
@@ -30,7 +30,7 @@ public enum LevelOfControl1Code
     
     /// <summary>
     /// Account may be viewed only.
-    /// Encoded/decoded by serializers as "VIEW".
+    /// Encoded/decoded by serializers as &quot;VIEW&quot;.
     /// </summary>
     [EnumMember(Value = "VIEW")]
     [IsoId("_mpeoUSDDEeWPMvNwVtiMsA")]

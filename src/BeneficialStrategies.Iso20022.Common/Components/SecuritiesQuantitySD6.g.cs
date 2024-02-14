@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
 [IsoId("_JSKGfef6Eei5aPS232E3Mw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Quantity SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SecuritiesQuantitySD6
     /// Quantity not fully covered.
     /// </summary>
     [IsoId("_J0O4t-f6Eei5aPS232E3Mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Open Uncovered Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpnUcvrdQty")]
     #endif
+    [IsoXmlTag("OpnUcvrdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? OpenUncoveredQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -59,15 +56,14 @@ public partial record SecuritiesQuantitySD6
     #endif
     
     /// <summary>
-    /// Quantity covered but transactions not in "MADE" status.
+    /// Quantity covered but transactions not in &quot;MADE&quot; status.
     /// </summary>
     [IsoId("_J0O4uef6Eei5aPS232E3Mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interim Covered Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmCvrdQty")]
     #endif
+    [IsoXmlTag("IntrmCvrdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

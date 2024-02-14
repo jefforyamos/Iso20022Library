@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies corporate action quantities.
 /// </summary>
 [IsoId("_fT1XVfmVEeCcAY_zfcalaA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionQuantity5
     /// Minimum quantity (or lot) of financial instrument that may be exercised or tendered.
     /// </summary>
     [IsoId("_fT1XY_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Exercisable Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinExrcblQty")]
     #endif
+    [IsoXmlTag("MinExrcblQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity19Choice_? MinimumExercisableQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionQuantity5
     /// Minimum multiple quantity (or lot) of financial instrument that may be exercised or tendered.
     /// </summary>
     [IsoId("_fT1XbfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Exercisable Multiple Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinExrcblMltplQty")]
     #endif
+    [IsoXmlTag("MinExrcblMltplQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity20Choice_? MinimumExercisableMultipleQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +73,14 @@ public partial record CorporateActionQuantity5
     #endif
     
     /// <summary>
-    /// The maximum number of securities the offeror/issuer is ready to purchase or redeem. This can be a number or the term "any and all".
+    /// The maximum number of securities the offeror/issuer is ready to purchase or redeem. This can be a number or the term &quot;any and all&quot;.
     /// </summary>
     [IsoId("_fT1Xd_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxQty")]
     #endif
+    [IsoXmlTag("MaxQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity19Choice_? MaximumQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +90,14 @@ public partial record CorporateActionQuantity5
     #endif
     
     /// <summary>
-    /// Minimum quantity of securities the offeror/issuer is ready to purchase or redeem under the terms of the event. This can be a number or the term "any and all".
+    /// Minimum quantity of securities the offeror/issuer is ready to purchase or redeem under the terms of the event. This can be a number or the term &quot;any and all&quot;.
     /// </summary>
     [IsoId("_fT1XgfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Quantity Sought")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinQtySght")]
     #endif
+    [IsoXmlTag("MinQtySght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity19Choice_? MinimumQuantitySought { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionQuantity5
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
     [IsoId("_fT1Xi_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Board Lot Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewBrdLotQty")]
     #endif
+    [IsoXmlTag("NewBrdLotQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity20Choice_? NewBoardLotQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionQuantity5
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
     [IsoId("_fT1XlfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Denomination Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewDnmtnQty")]
     #endif
+    [IsoXmlTag("NewDnmtnQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity20Choice_? NewDenominationQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionQuantity5
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
     [IsoId("_fT1Xn_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Denomination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BaseDnmtn")]
     #endif
+    [IsoXmlTag("BaseDnmtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity20Choice_? BaseDenomination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record CorporateActionQuantity5
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
     [IsoId("_fT1XqfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incremental Denomination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncrmtlDnmtn")]
     #endif
+    [IsoXmlTag("IncrmtlDnmtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity20Choice_? IncrementalDenomination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

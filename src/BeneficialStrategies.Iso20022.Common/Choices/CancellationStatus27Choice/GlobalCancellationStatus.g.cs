@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus27Choice
     /// Status applicable globally to the meeting instruction cancellation request message.
     /// </summary>
     [IsoId("_DOiZwMT2Eem9aZlimxVUIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Cancellation Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

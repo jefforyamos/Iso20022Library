@@ -22,7 +22,7 @@ public enum ExternalReservationTypeCode
 {
     /// <summary>
     /// Amount blocked or frozen due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.
-    /// Encoded/decoded by serializers as "BLKD".
+    /// Encoded/decoded by serializers as &quot;BLKD&quot;.
     /// </summary>
     [EnumMember(Value = "BLKD")]
     [IsoId("_ut1ZYPRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalReservationTypeCode
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively or executing cash withdrawals.
-    /// Encoded/decoded by serializers as "CARE".
+    /// Encoded/decoded by serializers as &quot;CARE&quot;.
     /// </summary>
     [EnumMember(Value = "CARE")]
     [IsoId("_ut1ZY_RYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalReservationTypeCode
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing highly urgent payments.
-    /// Encoded/decoded by serializers as "HPAR".
+    /// Encoded/decoded by serializers as &quot;HPAR&quot;.
     /// </summary>
     [EnumMember(Value = "HPAR")]
     [IsoId("_ut1ZZvRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalReservationTypeCode
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for the settlement of the multilateral cash balance stemming from the Net Security Settlement System.
-    /// Encoded/decoded by serializers as "NSSR".
+    /// Encoded/decoded by serializers as &quot;NSSR&quot;.
     /// </summary>
     [EnumMember(Value = "NSSR")]
     [IsoId("_ut_KYPRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalReservationTypeCode
     
     /// <summary>
     /// Amount above which funds will be destined for investment.
-    /// Encoded/decoded by serializers as "THRE".
+    /// Encoded/decoded by serializers as &quot;THRE&quot;.
     /// </summary>
     [EnumMember(Value = "THRE")]
     [IsoId("_uuIUUPRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalReservationTypeCode
     
     /// <summary>
     /// Amount set aside by a participant to reserve liquidity from its own account, exclusively for executing critical payments called urgent payments.
-    /// Encoded/decoded by serializers as "UPAR".
+    /// Encoded/decoded by serializers as &quot;UPAR&quot;.
     /// </summary>
     [EnumMember(Value = "UPAR")]
     [IsoId("_uuIUU_RYEeuLhpyIdtJzwg")]

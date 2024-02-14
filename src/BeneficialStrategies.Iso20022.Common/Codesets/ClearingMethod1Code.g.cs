@@ -21,7 +21,7 @@ public enum ClearingMethod1Code
 {
     /// <summary>
     /// Each trade is settled by a single entry to the account of the beneficiary.
-    /// Encoded/decoded by serializers as "GRNE".
+    /// Encoded/decoded by serializers as &quot;GRNE&quot;.
     /// </summary>
     [EnumMember(Value = "GRNE")]
     [IsoId("_2LokwX6HEeSAlrUr1Vow5g")]
@@ -30,7 +30,7 @@ public enum ClearingMethod1Code
     
     /// <summary>
     /// In a foreign exchange transaction, the third party as a central clearing counterparty will settle the transaction for both sides respectively.
-    /// Encoded/decoded by serializers as "NEMA".
+    /// Encoded/decoded by serializers as &quot;NEMA&quot;.
     /// </summary>
     [EnumMember(Value = "NEMA")]
     [IsoId("_2RCCIX6HEeSAlrUr1Vow5g")]
@@ -39,7 +39,7 @@ public enum ClearingMethod1Code
     
     /// <summary>
     /// Settlement done by netting amounts (for trades in the same currency and for the same value date).
-    /// Encoded/decoded by serializers as "NENE".
+    /// Encoded/decoded by serializers as &quot;NENE&quot;.
     /// </summary>
     [EnumMember(Value = "NENE")]
     [IsoId("_2WbfgX6HEeSAlrUr1Vow5g")]

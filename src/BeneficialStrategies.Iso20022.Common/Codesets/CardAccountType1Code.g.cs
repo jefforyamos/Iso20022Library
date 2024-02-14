@@ -21,7 +21,7 @@ public enum CardAccountType1Code
 {
     /// <summary>
     /// Default account.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_TSNcfQEcEeCQm6a_G2yO_w_-449669424")]
@@ -30,7 +30,7 @@ public enum CardAccountType1Code
     
     /// <summary>
     /// Savings account.
-    /// Encoded/decoded by serializers as "SVNG".
+    /// Encoded/decoded by serializers as &quot;SVNG&quot;.
     /// </summary>
     [EnumMember(Value = "SVNG")]
     [IsoId("_TSNcfgEcEeCQm6a_G2yO_w_1127404324")]
@@ -39,7 +39,7 @@ public enum CardAccountType1Code
     
     /// <summary>
     /// Checking account.
-    /// Encoded/decoded by serializers as "CHCK".
+    /// Encoded/decoded by serializers as &quot;CHCK&quot;.
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_TSNcfwEcEeCQm6a_G2yO_w_1944410752")]
@@ -48,7 +48,7 @@ public enum CardAccountType1Code
     
     /// <summary>
     /// Credit card account.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_TSNcgAEcEeCQm6a_G2yO_w_-2082317872")]
@@ -57,7 +57,7 @@ public enum CardAccountType1Code
     
     /// <summary>
     /// Universal account.
-    /// Encoded/decoded by serializers as "UVRL".
+    /// Encoded/decoded by serializers as &quot;UVRL&quot;.
     /// </summary>
     [EnumMember(Value = "UVRL")]
     [IsoId("_TSNcgQEcEeCQm6a_G2yO_w_-469218526")]
@@ -66,7 +66,7 @@ public enum CardAccountType1Code
     
     /// <summary>
     /// Investment account.
-    /// Encoded/decoded by serializers as "INVS".
+    /// Encoded/decoded by serializers as &quot;INVS&quot;.
     /// </summary>
     [EnumMember(Value = "INVS")]
     [IsoId("_TSNcggEcEeCQm6a_G2yO_w_2114733823")]
@@ -75,7 +75,7 @@ public enum CardAccountType1Code
     
     /// <summary>
     /// Electronic purse card account.
-    /// Encoded/decoded by serializers as "EPRS".
+    /// Encoded/decoded by serializers as &quot;EPRS&quot;.
     /// </summary>
     [EnumMember(Value = "EPRS")]
     [IsoId("_TSXNcAEcEeCQm6a_G2yO_w_-304672763")]

@@ -21,7 +21,7 @@ public enum TransferInFunction2Code
 {
     /// <summary>
     /// The transfer-in is a confirmation (rather than an advice).
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_ukgQsSVOEeWI0orciOKunQ")]
@@ -30,7 +30,7 @@ public enum TransferInFunction2Code
     
     /// <summary>
     /// The transfer-in provides advice about account information for a transfer.
-    /// Encoded/decoded by serializers as "ADVI".
+    /// Encoded/decoded by serializers as &quot;ADVI&quot;.
     /// </summary>
     [EnumMember(Value = "ADVI")]
     [IsoId("_uw_0kSVOEeWI0orciOKunQ")]

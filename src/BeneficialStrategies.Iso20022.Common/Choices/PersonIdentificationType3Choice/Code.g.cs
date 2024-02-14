@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType3Choice
     /// Person identification expressed as a code.
     /// </summary>
     [IsoId("_Ri-zutp-Ed-ak6NoX_4Aeg_-142125379")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType3Choice
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Specifies the type of person's identification.
+        /// Specifies the type of person&apos;s identification.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PersonIdentificationType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PersonIdentificationType3Code Value { get; init; } 
+        public required PersonIdentificationType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PersonIdentificationType3Code Value { get; init; } 
         #else

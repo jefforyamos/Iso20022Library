@@ -21,7 +21,7 @@ public enum BatchManagementType2Code
 {
     /// <summary>
     /// Acknowledgement requested by the originator to the destination (used with a notification message exclusively).
-    /// Encoded/decoded by serializers as "AKRQ".
+    /// Encoded/decoded by serializers as &quot;AKRQ&quot;.
     /// </summary>
     [EnumMember(Value = "AKRQ")]
     [IsoId("_HTuKQJb0Eeuc6pwKtqbEVQ")]
@@ -30,7 +30,7 @@ public enum BatchManagementType2Code
     
     /// <summary>
     /// Acknowledgement response by the destination to the originator (used with a notification message exclusively).
-    /// Encoded/decoded by serializers as "AKRP".
+    /// Encoded/decoded by serializers as &quot;AKRP&quot;.
     /// </summary>
     [EnumMember(Value = "AKRP")]
     [IsoId("_HeiTIZb0Eeuc6pwKtqbEVQ")]
@@ -39,7 +39,7 @@ public enum BatchManagementType2Code
     
     /// <summary>
     /// End of a collection or batch by the originator (used with a request message exclusively).
-    /// Encoded/decoded by serializers as "ENDB".
+    /// Encoded/decoded by serializers as &quot;ENDB&quot;.
     /// </summary>
     [EnumMember(Value = "ENDB")]
     [IsoId("_HmFFkZb0Eeuc6pwKtqbEVQ")]
@@ -48,7 +48,7 @@ public enum BatchManagementType2Code
     
     /// <summary>
     /// Contains a list of batch or collection identifications.
-    /// Encoded/decoded by serializers as "IDNT".
+    /// Encoded/decoded by serializers as &quot;IDNT&quot;.
     /// </summary>
     [EnumMember(Value = "IDNT")]
     [IsoId("_Htc44Zb0Eeuc6pwKtqbEVQ")]
@@ -57,7 +57,7 @@ public enum BatchManagementType2Code
     
     /// <summary>
     /// Any other type of batch management transaction defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_H0RSkZb0Eeuc6pwKtqbEVQ")]
@@ -66,7 +66,7 @@ public enum BatchManagementType2Code
     
     /// <summary>
     /// Any other type of batch management transaction defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_H8W3kZb0Eeuc6pwKtqbEVQ")]
@@ -75,7 +75,7 @@ public enum BatchManagementType2Code
     
     /// <summary>
     /// A request to resend a batch or collection.
-    /// Encoded/decoded by serializers as "RERQ".
+    /// Encoded/decoded by serializers as &quot;RERQ&quot;.
     /// </summary>
     [EnumMember(Value = "RERQ")]
     [IsoId("_IEVu4Zb0Eeuc6pwKtqbEVQ")]
@@ -84,7 +84,7 @@ public enum BatchManagementType2Code
     
     /// <summary>
     /// Initiation of a collection or batch by the originator (used with a request message exclusively).
-    /// Encoded/decoded by serializers as "STRT".
+    /// Encoded/decoded by serializers as &quot;STRT&quot;.
     /// </summary>
     [EnumMember(Value = "STRT")]
     [IsoId("_ILNL4Zb0Eeuc6pwKtqbEVQ")]

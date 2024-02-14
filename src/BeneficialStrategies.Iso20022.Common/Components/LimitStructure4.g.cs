@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Limit details of one particular limit set by the member and managed by the transaction administrator.
 /// </summary>
 [IsoId("_LWX6EckIEem3UrxZgQhVAw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit Structure")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record LimitStructure4
     /// Identification of the default limit.
     /// </summary>
     [IsoId("_Lmziw8kIEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtId")]
     #endif
+    [IsoXmlTag("LmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitIdentification5 LimitIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LimitIdentification5 LimitIdentification { get; init; } 
+    public required LimitIdentification5 LimitIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LimitIdentification5 LimitIdentification { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record LimitStructure4
     /// Date and time at which the limit becomes effective.
     /// </summary>
     [IsoId("_SKFpk8kIEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDtTm")]
     #endif
+    [IsoXmlTag("StartDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record LimitStructure4
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
     [IsoId("_SKFplMkIEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2Choice_ Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount2Choice_ Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount2Choice_ Amount { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record LimitStructure4
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
     [IsoId("_SKFplckIEem3UrxZgQhVAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

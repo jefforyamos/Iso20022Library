@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity57Choice
     /// Signed face amount and amortised value of security.
     /// </summary>
     [IsoId("_pf0Ywzi7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original And Current Face Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity57Choice
         /// Sign of the quantity of security.
         /// </summary>
         [IsoId("_cfsEZ5KQEeWHWpTQn1FFVg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Short Long Position")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ShrtLngPos")]
         #endif
+        [IsoXmlTag("ShrtLngPos")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ShortLong1Code ShortLongPosition { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ShortLong1Code ShortLongPosition { get; init; } 
+        public required ShortLong1Code ShortLongPosition { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ShortLong1Code ShortLongPosition { get; init; } 
         #else
@@ -78,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity57Choice
         /// Quantity expressed as an amount representing the face amount, that is, the principal, of a debt instrument.
         /// </summary>
         [IsoId("_cfsEaZKQEeWHWpTQn1FFVg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Face Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FaceAmt")]
         #endif
+        [IsoXmlTag("FaceAmt")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal FaceAmount { get; init; } 
+        public required System.Decimal FaceAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal FaceAmount { get; init; } 
         #else
@@ -95,19 +92,19 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity57Choice
         #endif
         
         /// <summary>
-        /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond's principal amount.
+        /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond&apos;s principal amount.
         /// </summary>
         [IsoId("_cfsEcZKQEeWHWpTQn1FFVg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amortised Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AmtsdVal")]
         #endif
+        [IsoXmlTag("AmtsdVal")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal AmortisedValue { get; init; } 
+        public required System.Decimal AmortisedValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal AmortisedValue { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information about the safekeeping account, its holdings and the sublevel accounts.
 /// </summary>
 [IsoId("_MM9hZfNyEeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Safekeeping Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,19 +53,17 @@ public partial record SafekeepingAccount11
     /// Account where financial instruments are maintained. Account held by the responding intermediary with its account servicer.
     /// </summary>
     [IsoId("_Mhe_4fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SfkpgAcct")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SafekeepingAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SafekeepingAccount { get; init; } 
+    public required System.String SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SafekeepingAccount { get; init; } 
     #else
@@ -78,16 +74,15 @@ public partial record SafekeepingAccount11
     /// Party that manages the account on behalf of the account owner, that is, manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_Mhe_6fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcr")]
     #endif
+    [IsoXmlTag("AcctSvcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification195Choice_ AccountServicer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification195Choice_ AccountServicer { get; init; } 
+    public required PartyIdentification195Choice_ AccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification195Choice_ AccountServicer { get; init; } 
     #else
@@ -98,16 +93,15 @@ public partial record SafekeepingAccount11
     /// Number of shares held by the responding intermediary on its own account.
     /// </summary>
     [IsoId("_Mhe_6_NyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shareholding Balance On Own Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrhldgBalOnOwnAcct")]
     #endif
+    [IsoXmlTag("ShrhldgBalOnOwnAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnOwnAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnOwnAccount { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnOwnAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnOwnAccount { get; init; } 
     #else
@@ -118,16 +112,15 @@ public partial record SafekeepingAccount11
     /// Number of shares held by the responding intermediary on account of someone else.
     /// </summary>
     [IsoId("_Mhe_7fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shareholding Balance On Client Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrhldgBalOnClntAcct")]
     #endif
+    [IsoXmlTag("ShrhldgBalOnClntAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnClientAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnClientAccount { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnClientAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnClientAccount { get; init; } 
     #else
@@ -138,16 +131,15 @@ public partial record SafekeepingAccount11
     /// Total number of shares held by the responding intermediary.
     /// </summary>
     [IsoId("_Mhe_7_NyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Shareholding Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlShrhldgBal")]
     #endif
+    [IsoXmlTag("TtlShrhldgBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity18Choice_ TotalShareholdingBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity18Choice_ TotalShareholdingBalance { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ TotalShareholdingBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity18Choice_ TotalShareholdingBalance { get; init; } 
     #else
@@ -158,12 +150,11 @@ public partial record SafekeepingAccount11
     /// Shareholdings information at account sub level.
     /// </summary>
     [IsoId("_Mhe_8fNyEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Sub Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSubLvl")]
     #endif
+    [IsoXmlTag("AcctSubLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountSubLevel22? AccountSubLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

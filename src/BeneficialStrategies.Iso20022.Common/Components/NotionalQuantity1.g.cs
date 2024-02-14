@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the reference quantity of the transaction and the schedule applicable to the quantity computation.
 /// </summary>
 [IsoId("_8P5WAAbHEeqrW7Meu5r3kQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notional Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record NotionalQuantity1
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
     [IsoId("__zSkQgbHEeqrW7Meu5r3kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
+    [IsoSimpleType(IsoSimpleType.LongFraction19DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLongFraction19DecimalNumber Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Quantity { get; init; } 
+    public required System.UInt64 Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Quantity { get; init; } 
     #else
@@ -72,12 +70,11 @@ public partial record NotionalQuantity1
     /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in non-monetary amounts with a notional quantity varying throughout the life of the transaction.
     /// </summary>
     [IsoId("_ZIXWIQbIEeqrW7Meu5r3kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Schedule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Schdl")]
     #endif
+    [IsoXmlTag("Schdl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Schedule2? Schedule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +87,15 @@ public partial record NotionalQuantity1
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
     [IsoId("__zSkQwbHEeqrW7Meu5r3kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitOfMeasr")]
     #endif
+    [IsoXmlTag("UnitOfMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOfMeasure12Code UnitOfMeasure { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitOfMeasure12Code UnitOfMeasure { get; init; } 
+    public required UnitOfMeasure12Code UnitOfMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitOfMeasure12Code UnitOfMeasure { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPortfolioCode5Choice
     /// Specifies the unique code assigned by the reporting counterparty to the margin portfolio if the collateral is posted on a margin portfolio basis.
     /// </summary>
     [IsoId("_YxDO0zIDEe2fXedS_ucFOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Portfolio Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPortfolioCode5Choice
         /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
         /// </summary>
         [IsoId("_tnypoTICEe2fXedS_ucFOA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Initial Margin Portfolio Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InitlMrgnPrtflCd")]
         #endif
+        [IsoXmlTag("InitlMrgnPrtflCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PortfolioCode5Choice_ InitialMarginPortfolioCode { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PortfolioCode5Choice_ InitialMarginPortfolioCode { get; init; } 
+        public required PortfolioCode5Choice_ InitialMarginPortfolioCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PortfolioCode5Choice_ InitialMarginPortfolioCode { get; init; } 
         #else
@@ -80,12 +77,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPortfolioCode5Choice
         /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
         /// </summary>
         [IsoId("_tnypozICEe2fXedS_ucFOA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Variation Margin Portfolio Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VartnMrgnPrtflCd")]
         #endif
+        [IsoXmlTag("VartnMrgnPrtflCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PortfolioCode5Choice_? VariationMarginPortfolioCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

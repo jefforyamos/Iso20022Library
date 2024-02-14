@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
     [IsoId("_UVDSstp-Ed-ak6NoX_4Aeg_688107606")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inferred Matching Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

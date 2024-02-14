@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Financial instrument cleared by a central counterparty.
 /// </summary>
 [IsoId("_vcwiQLVNEeadLcJesEbkTQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cleared Product")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,29 +51,28 @@ public partial record ClearedProduct1
     /// Exchange or trading venue where product is traded.
     /// </summary>
     [IsoId("__o5ZsLVNEeadLcJesEbkTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgVn")]
     #endif
+    [IsoXmlTag("TradgVn")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     public System.String? TradingVenue { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is __o5ZsLVNEeadLcJesEbkTQ
     
     /// <summary>
-    /// CCP's unique identification for product cleared.
+    /// CCP&apos;s unique identification for product cleared.
     /// </summary>
     [IsoId("_DsqKELVOEeadLcJesEbkTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CCP Product Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CCPPdctId")]
     #endif
+    [IsoXmlTag("CCPPdctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification168 CCPProductIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification168 CCPProductIdentification { get; init; } 
+    public required GenericIdentification168 CCPProductIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification168 CCPProductIdentification { get; init; } 
     #else
@@ -86,12 +83,11 @@ public partial record ClearedProduct1
     /// Standard unique identification of product cleared.
     /// </summary>
     [IsoId("__int0MhtEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Universal Product Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UvrslPdctId")]
     #endif
+    [IsoXmlTag("UvrslPdctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification168? UniversalProductIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,16 +100,15 @@ public partial record ClearedProduct1
     /// Choice between the major categories of financial instruments.
     /// </summary>
     [IsoId("__Z5e8LVOEeadLcJesEbkTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pdct")]
     #endif
+    [IsoXmlTag("Pdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Product1Choice_ Product { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Product1Choice_ Product { get; init; } 
+    public required Product1Choice_ Product { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Product1Choice_ Product { get; init; } 
     #else
@@ -124,16 +119,15 @@ public partial record ClearedProduct1
     /// Measure of the current stock of a financial instrument that has been traded on an exchange or cleared via a central counterparty.
     /// </summary>
     [IsoId("_Q99nELVZEeadLcJesEbkTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Open Interest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpnIntrst")]
     #endif
+    [IsoXmlTag("OpnIntrst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OpenInterest1 OpenInterest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OpenInterest1 OpenInterest { get; init; } 
+    public required OpenInterest1 OpenInterest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OpenInterest1 OpenInterest { get; init; } 
     #else
@@ -144,12 +138,12 @@ public partial record ClearedProduct1
     /// Number of trades cleared over the reporting period.
     /// </summary>
     [IsoId("_xGV_EPqBEeaQh_7a05rSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trades Cleared")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrdsClrd")]
     #endif
+    [IsoXmlTag("TrdsClrd")]
+    [IsoSimpleType(IsoSimpleType.NonNegativeNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNonNegativeNumber? TradesCleared { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

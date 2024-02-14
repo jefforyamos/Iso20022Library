@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(WaivingInstruction2Choice.Code))]
     [KnownType(typeof(WaivingInstruction2Choice.Proprietary))]
     [IsoId("_Ox8_UViPEeaMNZxYNthMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Waiving Instruction 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

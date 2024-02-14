@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to a linked transaction.
 /// </summary>
 [IsoId("_dsRUYb-CEeW_u_CSZtGM1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Linkages")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Linkages50
     /// When the transaction is to be executed relative to a linked transaction - for information only.
     /// </summary>
     [IsoId("_eEEwYb-CEeW_u_CSZtGM1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgPos")]
     #endif
+    [IsoXmlTag("PrcgPos")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition23Choice_? ProcessingPosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,19 +66,17 @@ public partial record Linkages50
     /// Unambiguous identification of a securities settlement transaction as known by the account owner (or instructing party acting on its behalf).
     /// </summary>
     [IsoId("_eEEwY7-CEeW_u_CSZtGM1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Settlement Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesSttlmTxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctiesSttlmTxId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax16Text SecuritiesSettlementTransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SecuritiesSettlementTransactionIdentification { get; init; } 
+    public required System.String SecuritiesSettlementTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SecuritiesSettlementTransactionIdentification { get; init; } 
     #else

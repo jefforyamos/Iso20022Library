@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties32Choice
     /// Legal entity identifier of the central securities depository participant involved in the transaction.
     /// </summary>
     [IsoId("_Az7-8bQ0EemI67HK7aviyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Central Securities Depository Participant")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure6Choice
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>
     [IsoId("_QWXDkfFSEee_LsXdoqzkWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure6Choice
         /// Identifies the unit of measure by means of a code. The code is taken from UN/ECE Recommendation 20.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UnitOfMeasrCd")]
         #endif
+        [IsoXmlTag("UnitOfMeasrCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required UnitOfMeasure9Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public UnitOfMeasure9Code Value { get; init; } 
+        public required UnitOfMeasure9Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public UnitOfMeasure9Code Value { get; init; } 
         #else

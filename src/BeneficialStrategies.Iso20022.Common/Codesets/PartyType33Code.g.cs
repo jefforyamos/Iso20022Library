@@ -21,7 +21,7 @@ public enum PartyType33Code
 {
     /// <summary>
     /// Point Of Interaction initiating the card payment transaction.
-    /// Encoded/decoded by serializers as "OPOI".
+    /// Encoded/decoded by serializers as &quot;OPOI&quot;.
     /// </summary>
     [EnumMember(Value = "OPOI")]
     [IsoId("_pTLpsQ0wEeqUVL7sB4m7NA")]
@@ -30,7 +30,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_pTLpsw0wEeqUVL7sB4m7NA")]
@@ -39,7 +39,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_pTLptQ0wEeqUVL7sB4m7NA")]
@@ -48,7 +48,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_pTLptw0wEeqUVL7sB4m7NA")]
@@ -57,7 +57,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_pTLpuQ0wEeqUVL7sB4m7NA")]
@@ -66,7 +66,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_pTLpuw0wEeqUVL7sB4m7NA")]
@@ -75,7 +75,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DLIS".
+    /// Encoded/decoded by serializers as &quot;DLIS&quot;.
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_pTLpvQ0wEeqUVL7sB4m7NA")]
@@ -84,7 +84,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Responsible for the maintenance of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "MTMG".
+    /// Encoded/decoded by serializers as &quot;MTMG&quot;.
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_nABSQQ1GEeqjM-rxn3HuXQ")]
@@ -93,7 +93,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Tax authority.
-    /// Encoded/decoded by serializers as "TAXH".
+    /// Encoded/decoded by serializers as &quot;TAXH&quot;.
     /// </summary>
     [EnumMember(Value = "TAXH")]
     [IsoId("_pRciUQ1GEeqjM-rxn3HuXQ")]
@@ -102,7 +102,7 @@ public enum PartyType33Code
     
     /// <summary>
     /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "TMGT".
+    /// Encoded/decoded by serializers as &quot;TMGT&quot;.
     /// </summary>
     [EnumMember(Value = "TMGT")]
     [IsoId("_p-q0sA1GEeqjM-rxn3HuXQ")]

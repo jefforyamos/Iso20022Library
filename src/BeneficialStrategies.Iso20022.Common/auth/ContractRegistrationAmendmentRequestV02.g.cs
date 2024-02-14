@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The ContractRegistrationAmendmentRequest message is sent by the reporting party to the registration agent to amend the registered contract subject to currency control.")]
 [IsoId("_bf9R022PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Registration Amendment Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ContractRegistrationAmendmentRequestV02 : IOuterRecord<Con
     /// Characteristics shared by all individual items included in the message.
     /// </summary>
     [IsoId("_bf9R1W2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlHeader4 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyControlHeader4 GroupHeader { get; init; } 
+    public required CurrencyControlHeader4 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyControlHeader4 GroupHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ContractRegistrationAmendmentRequestV02 : IOuterRecord<Con
     /// Details on the amendment of the registered contract.
     /// </summary>
     [IsoId("_bf9R122PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Registration Amendment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctRegnAmdmnt")]
     #endif
+    [IsoXmlTag("CtrctRegnAmdmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RegisteredContract9 ContractRegistrationAmendment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RegisteredContract9 ContractRegistrationAmendment { get; init; } 
+    public required RegisteredContract9 ContractRegistrationAmendment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RegisteredContract9 ContractRegistrationAmendment { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ContractRegistrationAmendmentRequestV02 : IOuterRecord<Con
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_bf9R2W2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ContractRegistrationAmendmentRequestV02 : IOuterRecord<Con
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ContractRegistrationAmendmentRequestV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ContractRegistrationAmendmentRequestV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ContractRegistrationAmendmentRequestV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ContractRegistrationAmendmentRequestV02 : IOuterRecord<Con
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ContractRegistrationAmendmentRequestV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ContractRegistrationAmendmentRequestV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ContractRegistrationAmendmentRequestV02Document : IOuterDocument<ContractRegistrationAmendmentRequestV02>
@@ -161,7 +156,7 @@ public partial record ContractRegistrationAmendmentRequestV02Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ContractRegistrationAmendmentRequestV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ContractRegistrationAmendmentRequestV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContractRegistrationAmendmentRequestV02 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Previous employment information.
 /// </summary>
 [IsoId("_YJCEAHzpEeuEHsEB8Johfw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Employment Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record EmploymentDetails1
     /// Current tax code.
     /// </summary>
     [IsoId("_vkTboXzpEeuEHsEB8Johfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxCd")]
     #endif
+    [IsoXmlTag("TaxCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification36? TaxCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record EmploymentDetails1
     /// Indicates whether or not another tax code exists.
     /// </summary>
     [IsoId("_2hDV4HzqEeuEHsEB8Johfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Tax Code Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTaxCdInd")]
     #endif
+    [IsoXmlTag("OthrTaxCdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OtherTaxCodeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record EmploymentDetails1
     /// Indicates whether tax is cumulative or non-cumulative. In the UK, this is known as the W1M1 indicator.
     /// </summary>
     [IsoId("_8YYLEHzpEeuEHsEB8Johfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cumulative Tax Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmltvTaxInd")]
     #endif
+    [IsoXmlTag("CmltvTaxInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CumulativeTaxIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record EmploymentDetails1
     /// Amount of the previous pay.
     /// </summary>
     [IsoId("_D_1EoHzqEeuEHsEB8Johfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Pay")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsPay")]
     #endif
+    [IsoXmlTag("PrvsPay")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreviousPay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,12 @@ public partial record EmploymentDetails1
     /// Amount of the previous tax.
     /// </summary>
     [IsoId("_Hg2UUHzqEeuEHsEB8Johfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsTax")]
     #endif
+    [IsoXmlTag("PrvsTax")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PreviousTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +131,11 @@ public partial record EmploymentDetails1
     /// Start date of the employment period.
     /// </summary>
     [IsoId("_KV09YHzqEeuEHsEB8Johfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDt")]
     #endif
+    [IsoXmlTag("StartDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat42Choice_? StartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +148,11 @@ public partial record EmploymentDetails1
     /// End date of the employment period.
     /// </summary>
     [IsoId("_ydy70HzqEeuEHsEB8Johfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndDt")]
     #endif
+    [IsoXmlTag("EndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat42Choice_? EndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +165,11 @@ public partial record EmploymentDetails1
     /// Additional information about the employment.
     /// </summary>
     [IsoId("_9IAbwHzqEeuEHsEB8Johfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

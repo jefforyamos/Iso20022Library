@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"Scope|The PaymentReturn message is sent by an agent to the previous agent in the payment chain to undo a payment previously settled.|Usage|The PaymentReturn message is exchanged between agents to return funds after settlement of credit transfer instructions (i.e. FIToFICustomerCreditTransfer message and FinancialInstitutionCreditTransfer message) or direct debit instructions (FIToFICustomerDirectDebit message).|The PaymentReturn message should not be used between agents and non-financial institution customers. Non-financial institution customers will be informed about a debit or a credit on their account(s) through an Advice of Credit/Debit message and/or Statement message.|The PaymentReturn message can be used to return single instructions or multiple instructions from one or different files.|The PaymentReturn message can be used in domestic and cross-border scenarios.|The PaymentReturn message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|.")]
 [IsoId("_eqFbL9EuEd-BzquC8wXy7w_1826980297")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Return V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record PaymentReturnV01 : IOuterRecord<PaymentReturnV01,PaymentRe
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_eqOlENEuEd-BzquC8wXy7w_1567907625")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader6 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader6 GroupHeader { get; init; } 
+    public required GroupHeader6 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader6 GroupHeader { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record PaymentReturnV01 : IOuterRecord<PaymentReturnV01,PaymentRe
     /// Information concerning the original group of transactions, to which the message refers.
     /// </summary>
     [IsoId("_eqOlEdEuEd-BzquC8wXy7w_497715970")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInf")]
     #endif
+    [IsoXmlTag("OrgnlGrpInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalGroupInformation2? OriginalGroupInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,11 @@ public partial record PaymentReturnV01 : IOuterRecord<PaymentReturnV01,PaymentRe
     /// Information concerning the original transactions, to which the return message refers.
     /// </summary>
     [IsoId("_eqOlEtEuEd-BzquC8wXy7w_-1979906269")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInf")]
     #endif
+    [IsoXmlTag("TxInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransactionInformation2? TransactionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,7 +133,7 @@ public partial record PaymentReturnV01 : IOuterRecord<PaymentReturnV01,PaymentRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PaymentReturnV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PaymentReturnV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PaymentReturnV01Document ToDocument()
     {
@@ -148,7 +143,7 @@ public partial record PaymentReturnV01 : IOuterRecord<PaymentReturnV01,PaymentRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentReturnV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PaymentReturnV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PaymentReturnV01Document : IOuterDocument<PaymentReturnV01>
@@ -165,7 +160,7 @@ public partial record PaymentReturnV01Document : IOuterDocument<PaymentReturnV01
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PaymentReturnV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PaymentReturnV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentReturnV01 Message { get; init; }

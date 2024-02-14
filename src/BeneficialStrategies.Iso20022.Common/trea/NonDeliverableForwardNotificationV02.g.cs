@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// </summary>
 [Description(@"Scope|The NonDeliverableForwardNotification message is sent by a central system to a participant to provide details of a non deliverable forward trade.|Usage|The notification is sent by a central settlement system to the two trading parties after it has received create, amend or cancel messages from both. The message may also contain information on the settlement of the trade.")]
 [IsoId("_URegMNE8Ed-BzquC8wXy7w_1248981968")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Deliverable Forward Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord<NonDel
     /// Specifies the trading side of the non deliverable trade which is reported.
     /// </summary>
     [IsoId("_URegMdE8Ed-BzquC8wXy7w_942299240")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification3 TradingSideIdentification { get; init; } 
+    public required TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord<NonDel
     /// Specifies the counterparty of the non deliverable trade which is reported.
     /// </summary>
     [IsoId("_URegMtE8Ed-BzquC8wXy7w_945996128")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
+    public required TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #else
@@ -120,12 +116,11 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord<NonDel
     /// Set of data specified for the opening of a non deliverable trade.
     /// </summary>
     [IsoId("_URegM9E8Ed-BzquC8wXy7w_159065050")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngData")]
     #endif
+    [IsoXmlTag("OpngData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OpeningData2? OpeningData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +133,11 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord<NonDel
     /// Set of data specified for the valuation of a non deliverable trade.
     /// </summary>
     [IsoId("_URegNNE8Ed-BzquC8wXy7w_1474183734")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnData")]
     #endif
+    [IsoXmlTag("ValtnData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClosingData2? ValuationData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,16 +150,15 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord<NonDel
     /// Provides information on the status of a trade in a central system.
     /// </summary>
     [IsoId("_URegNdE8Ed-BzquC8wXy7w_1332886078")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradInfAndSts")]
     #endif
+    [IsoXmlTag("TradInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeStatus1 TradeInformationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeStatus1 TradeInformationAndStatus { get; init; } 
+    public required TradeStatus1 TradeInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeStatus1 TradeInformationAndStatus { get; init; } 
     #else
@@ -176,12 +169,11 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord<NonDel
     /// Provides information on the settlement of a trade.
     /// </summary>
     [IsoId("_URoRMNE8Ed-BzquC8wXy7w_941311999")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmData")]
     #endif
+    [IsoXmlTag("SttlmData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementData2? SettlementData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,7 +186,7 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord<NonDel
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NonDeliverableForwardNotificationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NonDeliverableForwardNotificationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NonDeliverableForwardNotificationV02Document ToDocument()
     {
@@ -204,7 +196,7 @@ public partial record NonDeliverableForwardNotificationV02 : IOuterRecord<NonDel
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NonDeliverableForwardNotificationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NonDeliverableForwardNotificationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NonDeliverableForwardNotificationV02Document : IOuterDocument<NonDeliverableForwardNotificationV02>
@@ -221,7 +213,7 @@ public partial record NonDeliverableForwardNotificationV02Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NonDeliverableForwardNotificationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NonDeliverableForwardNotificationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonDeliverableForwardNotificationV02 Message { get; init; }

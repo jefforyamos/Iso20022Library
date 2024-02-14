@@ -23,7 +23,7 @@ public enum MessageFunction29Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_fhDAkemqEemNVKPwszFC-A")]
@@ -32,7 +32,7 @@ public enum MessageFunction29Code
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_geC0UemqEemNVKPwszFC-A")]

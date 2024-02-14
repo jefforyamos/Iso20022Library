@@ -21,7 +21,7 @@ public enum SenderBusinessRole1Code
 {
     /// <summary>
     /// Sender is the owner of the safekeeping account. The sender is disclosing the breakdown of the underlying owners of sender’s holdings with the receiver.
-    /// Encoded/decoded by serializers as "AOWN".
+    /// Encoded/decoded by serializers as &quot;AOWN&quot;.
     /// </summary>
     [EnumMember(Value = "AOWN")]
     [IsoId("_sECakVV0Eea1MPROA61PoQ")]
@@ -30,7 +30,7 @@ public enum SenderBusinessRole1Code
     
     /// <summary>
     /// Sender is the account servicer of an account owned by the receiver.
-    /// Encoded/decoded by serializers as "ASER".
+    /// Encoded/decoded by serializers as &quot;ASER&quot;.
     /// </summary>
     [EnumMember(Value = "ASER")]
     [IsoId("_sNkKAVV0Eea1MPROA61PoQ")]

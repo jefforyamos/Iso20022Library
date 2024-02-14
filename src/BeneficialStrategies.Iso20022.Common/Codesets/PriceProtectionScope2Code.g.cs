@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
-/// Defines the type of price protection the customer requires on their order. Defines the scope of the "related to" price of the peg or the scope of "related to" price of the discretion (for example, local, global etc).
+/// Defines the type of price protection the customer requires on their order. Defines the scope of the &quot;related to&quot; price of the peg or the scope of &quot;related to&quot; price of the discretion (for example, local, global etc).
 /// </summary>
 [DataContract]
 [Serializable]
@@ -21,7 +21,7 @@ public enum PriceProtectionScope2Code
 {
     /// <summary>
     /// Price protection is local (for example, Exchange, ECN, ATS).
-    /// Encoded/decoded by serializers as "LOCA".
+    /// Encoded/decoded by serializers as &quot;LOCA&quot;.
     /// </summary>
     [EnumMember(Value = "LOCA")]
     [IsoId("_aI1PMtp-Ed-ak6NoX_4Aeg_-40654570")]
@@ -30,7 +30,7 @@ public enum PriceProtectionScope2Code
     
     /// <summary>
     /// Price protection is national (across all national markets).
-    /// Encoded/decoded by serializers as "NATI".
+    /// Encoded/decoded by serializers as &quot;NATI&quot;.
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_aI1PM9p-Ed-ak6NoX_4Aeg_-40654240")]
@@ -39,7 +39,7 @@ public enum PriceProtectionScope2Code
     
     /// <summary>
     /// Price protection is global (across all markets).
-    /// Encoded/decoded by serializers as "GLOB".
+    /// Encoded/decoded by serializers as &quot;GLOB&quot;.
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_aI1PNNp-Ed-ak6NoX_4Aeg_-40654239")]
@@ -48,7 +48,7 @@ public enum PriceProtectionScope2Code
     
     /// <summary>
     /// Price protection is national (across all national markets) excluding local price protection.
-    /// Encoded/decoded by serializers as "NAEL".
+    /// Encoded/decoded by serializers as &quot;NAEL&quot;.
     /// </summary>
     [EnumMember(Value = "NAEL")]
     [IsoId("_aI1PNdp-Ed-ak6NoX_4Aeg_-40654215")]

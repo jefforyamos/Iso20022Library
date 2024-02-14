@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the customer device.
 /// </summary>
 [IsoId("_Uy_usYKvEeu4svNQ5N-l6w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Customer Device")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CustomerDevice4
     /// Information about the customer device.
     /// </summary>
     [IsoId("_U4M-0YKvEeu4svNQ5N-l6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Device")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dvc")]
     #endif
+    [IsoXmlTag("Dvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Device2? Device { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CustomerDevice4
     /// Identification of the device.
     /// </summary>
     [IsoId("_Rs2CsJfPEeuqNYk2TG3bTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Device Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvcId")]
     #endif
+    [IsoXmlTag("DvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceIdentification1? DeviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CustomerDevice4
     /// Device operating system information.
     /// </summary>
     [IsoId("_mZABUJfSEeuqNYk2TG3bTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operating System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OprgSys")]
     #endif
+    [IsoXmlTag("OprgSys")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceOperatingSystem1? OperatingSystem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +93,13 @@ public partial record CustomerDevice4
     /// Provider of the customer device.
     /// </summary>
     [IsoId("_U4M-1YKvEeu4svNQ5N-l6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Provider")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prvdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prvdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Provider { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,11 @@ public partial record CustomerDevice4
     /// Additional customer device data.
     /// </summary>
     [IsoId("_w89vUJfSEeuqNYk2TG3bTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

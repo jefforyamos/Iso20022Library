@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the card transaction.
 /// </summary>
 [IsoId("_L_gNQXu1EeS2Z_kGi7H1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction Detail")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardTransactionDetail5
     /// Amounts of the transaction expressed within the terminal currency.
     /// </summary>
     [IsoId("_ML31UXu1EeS2Z_kGi7H1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAmts")]
     #endif
+    [IsoXmlTag("TxAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransactionAmount5 TransactionAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardTransactionAmount5 TransactionAmounts { get; init; } 
+    public required CardTransactionAmount5 TransactionAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardTransactionAmount5 TransactionAmounts { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CardTransactionDetail5
     /// Fees between acquirer and issuer exclusive of the transaction amount, and expressed in the currency of the reconciliation.
     /// </summary>
     [IsoId("_uuK-kINyEeSXtJ8rlirVJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxFees")]
     #endif
+    [IsoXmlTag("TxFees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount11? TransactionFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record CardTransactionDetail5
     /// Additional amounts from the processor or the issuer without financial impacts on the transaction amount.
     /// </summary>
     [IsoId("_ML31U3u1EeS2Z_kGi7H1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlAmts")]
     #endif
+    [IsoXmlTag("AddtlAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount10? AdditionalAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +103,11 @@ public partial record CardTransactionDetail5
     /// It corresponds to ISO 8583, field number 25 for the version 93, and 9 for the version 2003.
     /// </summary>
     [IsoId("_ML31VXu1EeS2Z_kGi7H1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRsn")]
     #endif
+    [IsoXmlTag("MsgRsn")]
     public MessageReason1Code? MessageReason { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ML31VXu1EeS2Z_kGi7H1VQ
     
@@ -122,12 +116,12 @@ public partial record CardTransactionDetail5
     /// It corresponds to ISO 8583, field number 55 for the versions 93 and 2003.
     /// </summary>
     [IsoId("_ML31Y3u1EeS2Z_kGi7H1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRltdData")]
     #endif
+    [IsoXmlTag("ICCRltdData")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

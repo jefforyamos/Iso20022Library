@@ -21,7 +21,7 @@ public enum ExtendedOptionFeature1Code
 {
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. Option to select unfavourable tax rate. The Foreign Tax Unfavourable option is the default option.
-    /// Encoded/decoded by serializers as "FORU".
+    /// Encoded/decoded by serializers as &quot;FORU&quot;.
     /// </summary>
     [EnumMember(Value = "FORU")]
     [IsoId("_146xIjL3EeKU9IrkkToqcw_-255037301")]
@@ -30,7 +30,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. An election into this option ensures the participant receives their payment at a favourable tax withholding rate.
-    /// Encoded/decoded by serializers as "FORF".
+    /// Encoded/decoded by serializers as &quot;FORF&quot;.
     /// </summary>
     [EnumMember(Value = "FORF")]
     [IsoId("_146xIzL3EeKU9IrkkToqcw_-1138270588")]
@@ -39,7 +39,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for the Foreign Tax Relief service at DTC. An election into this option ensures the participant is exempt from any tax withholding.
-    /// Encoded/decoded by serializers as "FORX".
+    /// Encoded/decoded by serializers as &quot;FORX&quot;.
     /// </summary>
     [EnumMember(Value = "FORX")]
     [IsoId("_146xJDL3EeKU9IrkkToqcw_199049968")]
@@ -48,7 +48,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and Foreign Tax services at DTC. Participants electing this option will receive additional shares and the tax withholding on those shares will be at the unfavourable tax rate.
-    /// Encoded/decoded by serializers as "DRPU".
+    /// Encoded/decoded by serializers as &quot;DRPU&quot;.
     /// </summary>
     [EnumMember(Value = "DRPU")]
     [IsoId("_146xJTL3EeKU9IrkkToqcw_-684183319")]
@@ -57,7 +57,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and Foreign Tax Relief services at DTC. Participants electing this option will receive additional shares and the tax withholding on those shares will be at the favourable tax rate.
-    /// Encoded/decoded by serializers as "DRPF".
+    /// Encoded/decoded by serializers as &quot;DRPF&quot;.
     /// </summary>
     [EnumMember(Value = "DRPF")]
     [IsoId("_15EiIDL3EeKU9IrkkToqcw_784996994")]
@@ -66,7 +66,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Dividend Reinvestment and the Foreign Tax Relief services at DTC. Participants electing this option will receive additional shares and will be exempt from any tax withholding.
-    /// Encoded/decoded by serializers as "DRPX".
+    /// Encoded/decoded by serializers as &quot;DRPX&quot;.
     /// </summary>
     [EnumMember(Value = "DRPX")]
     [IsoId("_15EiITL3EeKU9IrkkToqcw_-2036135404")]
@@ -75,7 +75,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for Foreign Currency Payment service at DTC. Participants electing this option will receive their distribution in the foreign currency instructed.
-    /// Encoded/decoded by serializers as "FCPP".
+    /// Encoded/decoded by serializers as &quot;FCPP&quot;.
     /// </summary>
     [EnumMember(Value = "FCPP")]
     [IsoId("_15EiIjL3EeKU9IrkkToqcw_1375598605")]
@@ -84,7 +84,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing this option will receive their distribution in a foreign currency and the tax withholding on that distribution will be subject to unfavourable tax withholding.
-    /// Encoded/decoded by serializers as "FCPU".
+    /// Encoded/decoded by serializers as &quot;FCPU&quot;.
     /// </summary>
     [EnumMember(Value = "FCPU")]
     [IsoId("_15EiIzL3EeKU9IrkkToqcw_-604784726")]
@@ -93,7 +93,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing the option will receive their distribution in foreign currency and the tax withholding on that distribution will be subject to favourable tax withholding.
-    /// Encoded/decoded by serializers as "FCPF".
+    /// Encoded/decoded by serializers as &quot;FCPF&quot;.
     /// </summary>
     [EnumMember(Value = "FCPF")]
     [IsoId("_15EiJDL3EeKU9IrkkToqcw_-1488018013")]
@@ -102,7 +102,7 @@ public enum ExtendedOptionFeature1Code
     
     /// <summary>
     /// DTC (The Depository Trust Company) only option. The event and security are eligible for both the Foreign Currency and Foreign Tax services at DTC. Participants electing this option will receive their distribution in a foreign currency and will be exempt from any tax withholding.
-    /// Encoded/decoded by serializers as "FCPX".
+    /// Encoded/decoded by serializers as &quot;FCPX&quot;.
     /// </summary>
     [EnumMember(Value = "FCPX")]
     [IsoId("_15EiJTL3EeKU9IrkkToqcw_809451896")]

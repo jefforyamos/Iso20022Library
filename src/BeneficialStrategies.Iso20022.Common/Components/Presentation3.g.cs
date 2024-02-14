@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Electronic presentation information.
 /// </summary>
 [IsoId("_97IpNHltEeG7BsjMvd1mEw_776064240")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Presentation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Presentation3
     /// Format for presentation documents that are submitted electronically.
     /// </summary>
     [IsoId("_97RzIHltEeG7BsjMvd1mEw_1774083101")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frmt")]
     #endif
+    [IsoXmlTag("Frmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentFormat1Choice_? Format { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Presentation3
     /// Channel through which presentation documents are submitted electronically, such as SWIFT, Web upload, or secure email.
     /// </summary>
     [IsoId("_97RzIXltEeG7BsjMvd1mEw_-403292535")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chanl")]
     #endif
+    [IsoXmlTag("Chanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Channel1Choice_? Channel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record Presentation3
     /// Uniform Resource Identifier (URI), such as a web or an email address, specifying where the presentation can be addressed.
     /// </summary>
     [IsoId("_97RzInltEeG7BsjMvd1mEw_837339061")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Adr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

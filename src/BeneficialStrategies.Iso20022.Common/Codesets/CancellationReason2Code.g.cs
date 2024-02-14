@@ -21,7 +21,7 @@ public enum CancellationReason2Code
 {
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_bX9UyNp-Ed-ak6NoX_4Aeg_1539844657")]
@@ -30,7 +30,7 @@ public enum CancellationReason2Code
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bYGesNp-Ed-ak6NoX_4Aeg_1539844717")]
@@ -39,7 +39,7 @@ public enum CancellationReason2Code
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_bYGesdp-Ed-ak6NoX_4Aeg_1539845000")]
@@ -48,7 +48,7 @@ public enum CancellationReason2Code
     
     /// <summary>
     /// Currency of the payment is incorrect.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_bYGestp-Ed-ak6NoX_4Aeg_1539845025")]
@@ -57,7 +57,7 @@ public enum CancellationReason2Code
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_bYGes9p-Ed-ak6NoX_4Aeg_1539845060")]
@@ -66,7 +66,7 @@ public enum CancellationReason2Code
     
     /// <summary>
     /// Payment is a suspicious payment.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_bYGetNp-Ed-ak6NoX_4Aeg_1640509378")]

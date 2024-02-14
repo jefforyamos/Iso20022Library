@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the identification of a person.
 /// </summary>
 [IsoId("_eNbcAVyuEeWBopJHIRjb4g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Person Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PersonIdentification12
     /// Branch where the trader is located.
     /// </summary>
     [IsoId("_elevo1yuEeWBopJHIRjb4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Branch")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfBrnch")]
     #endif
+    [IsoXmlTag("CtryOfBrnch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode CountryOfBranch { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string CountryOfBranch { get; init; } 
+    public required string CountryOfBranch { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string CountryOfBranch { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PersonIdentification12
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
     [IsoId("_elevoVyuEeWBopJHIRjb4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericPersonIdentification1 Other { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericPersonIdentification1 Other { get; init; } 
+    public required GenericPersonIdentification1 Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericPersonIdentification1 Other { get; init; } 
     #else

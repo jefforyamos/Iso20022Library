@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catp;
 /// </summary>
 [Description(@"The ATMPINManagementResponse message is sent by an ATM manager or its agent to the ATM to provide the information and the outcome of the cardholder PIN operation requested in the ATMPINManagementRequest.")]
 [IsoId("_52hnca4aEeW_TaP-ygI0SQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATMPIN Management Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord<ATMPINManagemen
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_52hnc64aEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header31 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header31 Header { get; init; } 
+    public required Header31 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header31 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord<ATMPINManagemen
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_52hnda4aEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATMPIN Management Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMPINMgmtRspn")]
     #endif
+    [IsoXmlTag("PrtctdATMPINMgmtRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMPINManagementResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord<ATMPINManagemen
     /// Information related to the response of an ATM PIN Management from an ATM manager.
     /// </summary>
     [IsoId("_52hnd64aEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATMPIN Management Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMPINMgmtRspn")]
     #endif
+    [IsoXmlTag("ATMPINMgmtRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMPINManagementResponse2? ATMPINManagementResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord<ATMPINManagemen
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_52hnea4aEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord<ATMPINManagemen
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMPINManagementResponseV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMPINManagementResponseV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMPINManagementResponseV02Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMPINManagementResponseV02 : IOuterRecord<ATMPINManagemen
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMPINManagementResponseV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMPINManagementResponseV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMPINManagementResponseV02Document : IOuterDocument<ATMPINManagementResponseV02>
@@ -176,7 +170,7 @@ public partial record ATMPINManagementResponseV02Document : IOuterDocument<ATMPI
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMPINManagementResponseV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMPINManagementResponseV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMPINManagementResponseV02 Message { get; init; }

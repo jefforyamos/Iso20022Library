@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Business status of the party for processing in the system.
 /// </summary>
 [IsoId("_knY98-5NEeCisYr99QEiWA_336843792")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyStatus1
     /// Status of the party maintenance instruction.
     /// </summary>
     [IsoId("_kniH4O5NEeCisYr99QEiWA_2146103806")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status6Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status6Code Status { get; init; } 
+    public required Status6Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status6Code Status { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PartyStatus1
     /// Specifies the underlying reason for the status of an object.
     /// </summary>
     [IsoId("_kniH4e5NEeCisYr99QEiWA_-1456967057")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReasonInformation10? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record PartyStatus1
     /// Specifications of a party defined within a system.
     /// </summary>
     [IsoId("_kniH4u5NEeCisYr99QEiWA_-124739370")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysPtyId")]
     #endif
+    [IsoXmlTag("SysPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification3? SystemPartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

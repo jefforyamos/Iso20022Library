@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"Extends the ATICA message set to address the requirement of the European Banking Authority (EBA) related to the Regulatory Technical Standard (RTS) on Strong Customer Authentication (SCA) imposed by the EU regulation.")]
 [IsoId("_g7hKgAMdEeujMs2LsB3mMw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("EUPSD 2 SCA Data SD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record EUPSD2SCADataSD1V01 : IOuterRecord<EUPSD2SCADataSD1V01,EUP
     /// EU PSD2 Strong Consumer Authentication data.
     /// </summary>
     [IsoId("_dWMeEAMnEeubkNI1IXQTVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strong Customer Authentication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrngCstmrAuthntcn")]
     #endif
+    [IsoXmlTag("StrngCstmrAuthntcn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StrongCustomerAuthentication1 StrongCustomerAuthentication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StrongCustomerAuthentication1 StrongCustomerAuthentication { get; init; } 
+    public required StrongCustomerAuthentication1 StrongCustomerAuthentication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StrongCustomerAuthentication1 StrongCustomerAuthentication { get; init; } 
     #else
@@ -95,7 +92,7 @@ public partial record EUPSD2SCADataSD1V01 : IOuterRecord<EUPSD2SCADataSD1V01,EUP
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="EUPSD2SCADataSD1V01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;EUPSD2SCADataSD1V01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public EUPSD2SCADataSD1V01Document ToDocument()
     {
@@ -105,7 +102,7 @@ public partial record EUPSD2SCADataSD1V01 : IOuterRecord<EUPSD2SCADataSD1V01,EUP
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="EUPSD2SCADataSD1V01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;EUPSD2SCADataSD1V01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record EUPSD2SCADataSD1V01Document : IOuterDocument<EUPSD2SCADataSD1V01>
@@ -122,7 +119,7 @@ public partial record EUPSD2SCADataSD1V01Document : IOuterDocument<EUPSD2SCAData
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="EUPSD2SCADataSD1V01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;EUPSD2SCADataSD1V01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EUPSD2SCADataSD1V01 Message { get; init; }

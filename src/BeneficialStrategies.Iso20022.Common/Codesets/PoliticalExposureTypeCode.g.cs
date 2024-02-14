@@ -21,7 +21,7 @@ public enum PoliticalExposureTypeCode
 {
     /// <summary>
     /// Political exposure type is domestic.
-    /// Encoded/decoded by serializers as "PEXD".
+    /// Encoded/decoded by serializers as &quot;PEXD&quot;.
     /// </summary>
     [EnumMember(Value = "PEXD")]
     [IsoId("_CDrmUBRvEeOKWo1NF21OVw")]
@@ -30,7 +30,7 @@ public enum PoliticalExposureTypeCode
     
     /// <summary>
     /// Political exposure type is foreign.
-    /// Encoded/decoded by serializers as "PEXF".
+    /// Encoded/decoded by serializers as &quot;PEXF&quot;.
     /// </summary>
     [EnumMember(Value = "PEXF")]
     [IsoId("_CHiyoBRvEeOKWo1NF21OVw")]
@@ -39,7 +39,7 @@ public enum PoliticalExposureTypeCode
     
     /// <summary>
     /// No political exposure.
-    /// Encoded/decoded by serializers as "NPEX".
+    /// Encoded/decoded by serializers as &quot;NPEX&quot;.
     /// </summary>
     [EnumMember(Value = "NPEX")]
     [IsoId("_CjXL8BRvEeOKWo1NF21OVw")]
@@ -48,7 +48,7 @@ public enum PoliticalExposureTypeCode
     
     /// <summary>
     /// Political exposure.
-    /// Encoded/decoded by serializers as "YPEX".
+    /// Encoded/decoded by serializers as &quot;YPEX&quot;.
     /// </summary>
     [EnumMember(Value = "YPEX")]
     [IsoId("_9vrX8JUfEemC09f0MxYkRg")]

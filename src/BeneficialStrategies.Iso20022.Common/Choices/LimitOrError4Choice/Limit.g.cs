@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
     /// Requested information on the limit.
     /// </summary>
     [IsoId("_RixMQXhdEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
         /// Amount of money of the limit, expressed in an eligible currency.
         /// </summary>
         [IsoId("_Rt38AZlhEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Amount2Choice_ Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Amount2Choice_ Amount { get; init; } 
+        public required Amount2Choice_ Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Amount2Choice_ Amount { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
         /// Specifies if a limit is a debit limit or a credit limit.
         /// </summary>
         [IsoId("_Rt38A5lhEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Credit Debit Indicator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtDbtInd")]
         #endif
+        [IsoXmlTag("CdtDbtInd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CreditDebitCode? CreditDebitIndicator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
         /// Status of the limit, such as enabled or disabled.
         /// </summary>
         [IsoId("_Rt38BZlhEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sts")]
         #endif
+        [IsoXmlTag("Sts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public LimitStatus1Code? Status { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +107,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
         /// Date and time at which the limit becomes effective.
         /// </summary>
         [IsoId("_Rt38B5lhEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Start Date Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StartDtTm")]
         #endif
+        [IsoXmlTag("StartDtTm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndDateTime2Choice_? StartDateTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +124,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
         /// Actual usage of the limit expressed as an amount.
         /// </summary>
         [IsoId("_Rt38CZlhEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Used Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UsdAmt")]
         #endif
+        [IsoXmlTag("UsdAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Amount2Choice_? UsedAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +141,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
         /// Specifies if the used amount of the limit is a debit amount or a credit amount.
         /// </summary>
         [IsoId("_Rt38C5lhEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Used Amount Credit Debit Indicator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UsdAmtCdtDbtInd")]
         #endif
+        [IsoXmlTag("UsdAmtCdtDbtInd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CreditDebitCode? UsedAmountCreditDebitIndicator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,12 +158,12 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
         /// Actual usage of the limit expressed as a percentage.
         /// </summary>
         [IsoId("_Rt38DZlhEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Used Percentage")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UsdPctg")]
         #endif
+        [IsoXmlTag("UsdPctg")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoPercentageRate? UsedPercentage { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -184,12 +176,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError4Choice
         /// Actual usage of the limit expressed as an amount.
         /// </summary>
         [IsoId("_Rt38D5lhEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Remaining Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RmngAmt")]
         #endif
+        [IsoXmlTag("RmngAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Amount2Choice_? RemainingAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

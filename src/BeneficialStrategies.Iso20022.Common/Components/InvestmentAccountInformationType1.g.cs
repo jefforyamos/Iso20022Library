@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Select the type(s) of information to be retrieved about a registered investment account.
 /// </summary>
 [IsoId("_RR2AZNp-Ed-ak6NoX_4Aeg_1677189755")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Account Information Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,16 @@ public partial record InvestmentAccountInformationType1
     /// Indicates if the core investment account information must be selected.
     /// </summary>
     [IsoId("_RR2AZdp-Ed-ak6NoX_4Aeg_1677190067")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcct")]
     #endif
+    [IsoXmlTag("InvstmtAcct")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator InvestmentAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InvestmentAccount { get; init; } 
+    public required System.String InvestmentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InvestmentAccount { get; init; } 
     #else
@@ -76,16 +74,16 @@ public partial record InvestmentAccountInformationType1
     /// Indicates if the information about account parties must be selected.
     /// </summary>
     [IsoId("_RR2AZtp-Ed-ak6NoX_4Aeg_1677190092")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctPties")]
     #endif
+    [IsoXmlTag("AcctPties")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AccountParties { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AccountParties { get; init; } 
+    public required System.String AccountParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AccountParties { get; init; } 
     #else
@@ -96,16 +94,16 @@ public partial record InvestmentAccountInformationType1
     /// Indicates if the information about the intermediaries must be selected.
     /// </summary>
     [IsoId("_RR2AZ9p-Ed-ak6NoX_4Aeg_1677190127")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediaries")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrmies")]
     #endif
+    [IsoXmlTag("Intrmies")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Intermediaries { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Intermediaries { get; init; } 
+    public required System.String Intermediaries { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Intermediaries { get; init; } 
     #else
@@ -116,16 +114,16 @@ public partial record InvestmentAccountInformationType1
     /// Indicates if the information about the investment plan(s) must be selected.
     /// </summary>
     [IsoId("_RR2AaNp-Ed-ak6NoX_4Aeg_1677190169")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtPlan")]
     #endif
+    [IsoXmlTag("InvstmtPlan")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator InvestmentPlan { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InvestmentPlan { get; init; } 
+    public required System.String InvestmentPlan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InvestmentPlan { get; init; } 
     #else
@@ -136,16 +134,16 @@ public partial record InvestmentAccountInformationType1
     /// Indicates if the cash settlement information must be selected.
     /// </summary>
     [IsoId("_RR2Aadp-Ed-ak6NoX_4Aeg_1677190470")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshSttlm")]
     #endif
+    [IsoXmlTag("CshSttlm")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CashSettlement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CashSettlement { get; init; } 
+    public required System.String CashSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CashSettlement { get; init; } 
     #else
@@ -156,16 +154,16 @@ public partial record InvestmentAccountInformationType1
     /// Indicates if the Service Level Agreement information must be selected.
     /// </summary>
     [IsoId("_RR2Aatp-Ed-ak6NoX_4Aeg_1908994765")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Level Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcLvlAgrmt")]
     #endif
+    [IsoXmlTag("SvcLvlAgrmt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ServiceLevelAgreement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ServiceLevelAgreement { get; init; } 
+    public required System.String ServiceLevelAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ServiceLevelAgreement { get; init; } 
     #else

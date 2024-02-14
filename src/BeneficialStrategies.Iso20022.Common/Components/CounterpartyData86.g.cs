@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data specific to counterparties.
 /// </summary>
 [IsoId("_CRJNUcgtEeuGrNSsxk3B0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CounterpartyData86
     /// Set of information identifying the reporting counterparty.
     /// </summary>
     [IsoId("_CSkJo8gtEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCtrPty")]
     #endif
+    [IsoXmlTag("RptgCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartyIdentification10? ReportingCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CounterpartyData86
     /// Data specific to other counterparties and related information.
     /// </summary>
     [IsoId("_CSkJpcgtEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCtrPty")]
     #endif
+    [IsoXmlTag("OthrCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record CounterpartyData86
     /// Specifies if a triparty agent is involved in the transaction.
     /// </summary>
     [IsoId("_CSkJp8gtEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triparty Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrptyAgt")]
     #endif
+    [IsoXmlTag("TrptyAgt")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TripartyAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,12 @@ public partial record CounterpartyData86
     /// Specifies if the agent lender is involved in the securities lending transaction.
     /// </summary>
     [IsoId("_CSkJqcgtEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Lender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtLndr")]
     #endif
+    [IsoXmlTag("AgtLndr")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AgentLender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

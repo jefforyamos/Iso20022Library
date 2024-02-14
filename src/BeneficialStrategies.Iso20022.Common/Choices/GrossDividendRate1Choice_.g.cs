@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GrossDividendRate1Choice.Amount))]
     [KnownType(typeof(GrossDividendRate1Choice.RateTypeAmount))]
     [IsoId("_UPO-mdp-Ed-ak6NoX_4Aeg_1360546700")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Dividend Rate 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

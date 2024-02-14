@@ -21,7 +21,7 @@ public enum ChargeType1Code
 {
     /// <summary>
     /// Fee paid to a broker for services provided.
-    /// Encoded/decoded by serializers as "BRKF".
+    /// Encoded/decoded by serializers as &quot;BRKF&quot;.
     /// </summary>
     [EnumMember(Value = "BRKF")]
     [IsoId("_a9SK8tp-Ed-ak6NoX_4Aeg_1912147156")]
@@ -30,7 +30,7 @@ public enum ChargeType1Code
     
     /// <summary>
     /// Fee paid for services provided.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_a9SK89p-Ed-ak6NoX_4Aeg_1922304879")]

@@ -21,7 +21,7 @@ public enum PriceValueType5Code
 {
     /// <summary>
     /// Price is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aJk2FNp-Ed-ak6NoX_4Aeg_-647834596")]
@@ -30,7 +30,7 @@ public enum PriceValueType5Code
     
     /// <summary>
     /// Price has not been established.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_aJk2Fdp-Ed-ak6NoX_4Aeg_-647834587")]

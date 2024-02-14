@@ -56,9 +56,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RecordMessage1Choice.VerificationInitiation))]
     [KnownType(typeof(RecordMessage1Choice.VerificationResponse))]
     [IsoId("_F2jDAFZVEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Message 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

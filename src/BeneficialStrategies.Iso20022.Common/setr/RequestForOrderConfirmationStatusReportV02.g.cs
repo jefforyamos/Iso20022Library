@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The RequestForOrderConfirmationStatusReport message is ent by an executing party, for example, a transfer agent, to the instructing party, for example, an investment manager or its authorised representative, to request the status of one or more order confirmations.|Usage|The RequestForOrderConfirmationStatusReport message is used to request the status of either:|- one or several individual order confirmations, or,|- one or several order confirmation messages.|The response to a RequestForOrderConfirmationStatusReport message is the OrderConfirmationStatusReport message.|When the RequestForOrderConfirmationStatusReport message is used to request the status of several individual order confirmations or one or more order confirmation messages, the executing party may receive several OrderConfirmationStatusReport messages from the instructing party.|When the RequestForOrderConfirmationStatusReport is used to request the status of one or more individual order confirmations, each individual order confirmation is identified with its order reference. The message identification of the message in which the individual order confirmation was conveyed may also be quoted in PreviousReference.|When the RequestForOrderConfirmationStatusReport is used to request the status of an order confirmation message, then the message identification of the order confirmation message is identified in PreviousReference.")]
 [IsoId("_Aab8RzbLEead9bDRE_1DAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request For Order Confirmation Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record RequestForOrderConfirmationStatusReportV02 : IOuterRecord<
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_Aab8STbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record RequestForOrderConfirmationStatusReportV02 : IOuterRecord<
     /// Information to identify the order confirmation for which the status is requested.
     /// </summary>
     [IsoId("_Aab8SzbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqDtls")]
     #endif
+    [IsoXmlTag("ReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageAndBusinessReference10 RequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageAndBusinessReference10 RequestDetails { get; init; } 
+    public required MessageAndBusinessReference10 RequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageAndBusinessReference10 RequestDetails { get; init; } 
     #else
@@ -125,12 +121,11 @@ public partial record RequestForOrderConfirmationStatusReportV02 : IOuterRecord<
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Aab8TTbLEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,7 +138,7 @@ public partial record RequestForOrderConfirmationStatusReportV02 : IOuterRecord<
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestForOrderConfirmationStatusReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestForOrderConfirmationStatusReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestForOrderConfirmationStatusReportV02Document ToDocument()
     {
@@ -153,7 +148,7 @@ public partial record RequestForOrderConfirmationStatusReportV02 : IOuterRecord<
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForOrderConfirmationStatusReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestForOrderConfirmationStatusReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestForOrderConfirmationStatusReportV02Document : IOuterDocument<RequestForOrderConfirmationStatusReportV02>
@@ -170,7 +165,7 @@ public partial record RequestForOrderConfirmationStatusReportV02Document : IOute
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestForOrderConfirmationStatusReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestForOrderConfirmationStatusReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestForOrderConfirmationStatusReportV02 Message { get; init; }

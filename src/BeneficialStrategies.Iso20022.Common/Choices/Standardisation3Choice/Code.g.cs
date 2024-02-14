@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Standardisation3Choice
     /// Standardisation expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_PnpgwWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Standardisation3Choice
         /// Specifies whether the terms of the security (underlying instruments, expiration date, contract size) are defined according to the exchange specifications or whether they can be user defined.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Standardisation1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Standardisation1Code Value { get; init; } 
+        public required Standardisation1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Standardisation1Code Value { get; init; } 
         #else

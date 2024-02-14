@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information for the presentation of documents.
 /// </summary>
 [IsoId("_97bkJnltEeG7BsjMvd1mEw_1224258578")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Presentation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Presentation2
     /// Party, other than beneficiary, forwarding the documents.
     /// </summary>
     [IsoId("_97kuEHltEeG7BsjMvd1mEw_2057434773")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presenter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Presntr")]
     #endif
+    [IsoXmlTag("Presntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Presenter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record Presentation2
     /// Date on which the beneficiary presented the demand.
     /// </summary>
     [IsoId("_97kuEXltEeG7BsjMvd1mEw_-177176006")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Presentation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryPresntnDt")]
     #endif
+    [IsoXmlTag("BnfcryPresntnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BeneficiaryPresentationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

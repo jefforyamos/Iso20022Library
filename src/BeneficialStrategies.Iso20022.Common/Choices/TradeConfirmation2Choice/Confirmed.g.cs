@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation2Choice
     /// Indicates the type of contract confirmation.
     /// </summary>
     [IsoId("_qo0sYQFXEeaDfK-zDSyB6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmed")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation2Choice
         /// Specifies whether the contract was confirmed electronically or non-electronically.
         /// </summary>
         [IsoId("_41eYUQFXEeaDfK-zDSyB6A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TradeConfirmationType1Code? Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation2Choice
         /// Date and time of the trade confirmation, indicating time zone in which the confirmation has taken place.
         /// </summary>
         [IsoId("_41eYUwFXEeaDfK-zDSyB6A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Time Stamp")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TmStmp")]
         #endif
+        [IsoXmlTag("TmStmp")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODateTime? TimeStamp { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

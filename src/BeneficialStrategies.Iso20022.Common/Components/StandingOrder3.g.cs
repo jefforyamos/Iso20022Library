@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the detailed attributes of a standing order.
 /// </summary>
 [IsoId("_7-lMx6MgEeCJ6YNENx4h-w_-1472837524")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Order")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record StandingOrder3
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_7-lMyKMgEeCJ6YNENx4h-w_62369976")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgOrdrId")]
     #endif
+    [IsoXmlTag("StgOrdrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingOrderIdentification2 StandingOrderIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingOrderIdentification2 StandingOrderIdentification { get; init; } 
+    public required StandingOrderIdentification2 StandingOrderIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingOrderIdentification2 StandingOrderIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record StandingOrder3
     /// Requested information on the standing order or business error when information has not been found.
     /// </summary>
     [IsoId("_7-uWsKMgEeCJ6YNENx4h-w_2079274139")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgOrdrOrErr")]
     #endif
+    [IsoXmlTag("StgOrdrOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingOrderOrError2Choice_ StandingOrderOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingOrderOrError2Choice_ StandingOrderOrError { get; init; } 
+    public required StandingOrderOrError2Choice_ StandingOrderOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingOrderOrError2Choice_ StandingOrderOrError { get; init; } 
     #else

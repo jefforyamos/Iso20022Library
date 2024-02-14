@@ -21,7 +21,7 @@ public enum OtherAmountType1Code
 {
     /// <summary>
     /// Interest that was pre-paid.
-    /// Encoded/decoded by serializers as "PINT".
+    /// Encoded/decoded by serializers as &quot;PINT&quot;.
     /// </summary>
     [EnumMember(Value = "PINT")]
     [IsoId("_19nc0a53Eee6Q7mFsDuJBA")]
@@ -30,7 +30,7 @@ public enum OtherAmountType1Code
     
     /// <summary>
     /// Interest on the interest.
-    /// Encoded/decoded by serializers as "SINT".
+    /// Encoded/decoded by serializers as &quot;SINT&quot;.
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("_2CFGEa53Eee6Q7mFsDuJBA")]

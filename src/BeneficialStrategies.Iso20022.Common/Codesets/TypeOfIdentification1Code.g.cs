@@ -21,7 +21,7 @@ public enum TypeOfIdentification1Code
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "ARNU".
+    /// Encoded/decoded by serializers as &quot;ARNU&quot;.
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_YwnfFtp-Ed-ak6NoX_4Aeg_-632668460")]
@@ -30,7 +30,7 @@ public enum TypeOfIdentification1Code
     
     /// <summary>
     /// Number assigned by a passport authority.
-    /// Encoded/decoded by serializers as "CCPT".
+    /// Encoded/decoded by serializers as &quot;CCPT&quot;.
     /// </summary>
     [EnumMember(Value = "CCPT")]
     [IsoId("_YwnfF9p-Ed-ak6NoX_4Aeg_-334369828")]
@@ -39,7 +39,7 @@ public enum TypeOfIdentification1Code
     
     /// <summary>
     /// Number assigned to a tax exempt entity.
-    /// Encoded/decoded by serializers as "CHTY".
+    /// Encoded/decoded by serializers as &quot;CHTY&quot;.
     /// </summary>
     [EnumMember(Value = "CHTY")]
     [IsoId("_YwxQENp-Ed-ak6NoX_4Aeg_-332526291")]
@@ -48,7 +48,7 @@ public enum TypeOfIdentification1Code
     
     /// <summary>
     /// Number assigned to a corporate entity.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_YwxQEdp-Ed-ak6NoX_4Aeg_-332522818")]
@@ -56,8 +56,8 @@ public enum TypeOfIdentification1Code
     CorporateIdentification = TypeOfIdentificationCode.CorporateIdentification, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Number assigned to a driver's license.
-    /// Encoded/decoded by serializers as "DRLC".
+    /// Number assigned to a driver&apos;s license.
+    /// Encoded/decoded by serializers as &quot;DRLC&quot;.
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_YwxQEtp-Ed-ak6NoX_4Aeg_-331599633")]
@@ -66,7 +66,7 @@ public enum TypeOfIdentification1Code
     
     /// <summary>
     /// Number assigned to a foreign investor (other than the alien number).
-    /// Encoded/decoded by serializers as "FIIN".
+    /// Encoded/decoded by serializers as &quot;FIIN&quot;.
     /// </summary>
     [EnumMember(Value = "FIIN")]
     [IsoId("_YwxQE9p-Ed-ak6NoX_4Aeg_-330676223")]
@@ -75,7 +75,7 @@ public enum TypeOfIdentification1Code
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TXID".
+    /// Encoded/decoded by serializers as &quot;TXID&quot;.
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_YwxQFNp-Ed-ak6NoX_4Aeg_-329752873")]

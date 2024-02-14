@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the type of margin amounts.
 /// </summary>
 [IsoId("_-aesraMOEeCojJW5vEuTEQ_-272677709")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Margin4
     /// Specifies the type of margin that is calculated.
     /// </summary>
     [IsoId("_-aesrqMOEeCojJW5vEuTEQ_-348030546")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarginType1Choice_ Type { get; init; } 
+    public required MarginType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarginType1Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Margin4
     /// Provides the margin amount in the reporting currency and optionally in the original currency.
     /// </summary>
     [IsoId("_-an2kKMOEeCojJW5vEuTEQ_-1400894984")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2 Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount2 Amount { get; init; } 
+    public required Amount2 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount2 Amount { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record Margin4
     /// Specifies whether the margin type position is short or long, that is, whether the balance is a negative or positive balance.
     /// </summary>
     [IsoId("_-an2kaMOEeCojJW5vEuTEQ_-675379499")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

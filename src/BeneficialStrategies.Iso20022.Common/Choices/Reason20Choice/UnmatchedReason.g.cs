@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason20Choice
     /// Specifies the reason why the instruction has an unmatched status.
     /// </summary>
     [IsoId("_gAQ5mTi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unmatched Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

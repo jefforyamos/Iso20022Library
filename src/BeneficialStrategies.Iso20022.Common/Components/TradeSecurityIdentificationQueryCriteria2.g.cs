@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the query criteria related to securities.
 /// </summary>
 [IsoId("_YwmEUdGREeaQk737TH1Fzw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Security Identification Query Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TradeSecurityIdentificationQueryCriteria2
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
     [IsoId("_Y5Yz8dGREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oprtr")]
     #endif
+    [IsoXmlTag("Oprtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Operation3Code Operator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Operation3Code Operator { get; init; } 
+    public required Operation3Code Operator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Operation3Code Operator { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TradeSecurityIdentificationQueryCriteria2
     /// Identification of the product through ISIN or AII.
     /// </summary>
     [IsoId("_Y5Yz89GREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentificationQueryCriteria1? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record TradeSecurityIdentificationQueryCriteria2
     /// Unique identification to identify the direct underlying instrument based on its type. 
     /// </summary>
     [IsoId("_Y5Yz9dGREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygInstrmId")]
     #endif
+    [IsoXmlTag("UndrlygInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentificationQuery3Choice_? UnderlyingInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

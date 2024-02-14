@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared23Choice
     /// Indicates that the contract is intended to be cleared.
     /// </summary>
     [IsoId("_zX2RYwtuEe2eQ-C-GTDpFA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intend To Clear")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

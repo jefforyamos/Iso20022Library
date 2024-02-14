@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountParties4Choice.Nominee))]
     [KnownType(typeof(AccountParties4Choice.JointOwner))]
     [IsoId("_sv2SwRRiEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Parties 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

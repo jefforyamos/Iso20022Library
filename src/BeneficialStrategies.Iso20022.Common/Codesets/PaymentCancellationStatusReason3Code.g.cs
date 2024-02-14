@@ -21,7 +21,7 @@ public enum PaymentCancellationStatusReason3Code
 {
     /// <summary>
     /// Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.
-    /// Encoded/decoded by serializers as "S003".
+    /// Encoded/decoded by serializers as &quot;S003&quot;.
     /// </summary>
     [EnumMember(Value = "S003")]
     [IsoId("_tomosYEoEei51tn2YGQhvg")]
@@ -30,7 +30,7 @@ public enum PaymentCancellationStatusReason3Code
     
     /// <summary>
     /// Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.
-    /// Encoded/decoded by serializers as "S004".
+    /// Encoded/decoded by serializers as &quot;S004&quot;.
     /// </summary>
     [EnumMember(Value = "S004")]
     [IsoId("_txPAQYEoEei51tn2YGQhvg")]

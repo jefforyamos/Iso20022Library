@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains detailed information from the cancellation request (for example an MT 192 or an MT 199).
 /// </summary>
 [IsoId("_a4UL4CBkEei5H9PsIMzTkw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancellation Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CancellationRequest1
     /// Contains information on the reason for the cancellation.
     /// </summary>
     [IsoId("_z10yUCBkEei5H9PsIMzTkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsnInf")]
     #endif
+    [IsoXmlTag("CxlRsnInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationReason7Code CancellationReasonInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationReason7Code CancellationReasonInformation { get; init; } 
+    public required CancellationReason7Code CancellationReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationReason7Code CancellationReasonInformation { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CancellationRequest1
     /// Specifies a contractual obligation of one party (indemnifier) to compensate for any loss occurred to the other party (indemnity holder). 
     /// </summary>
     [IsoId("_41rXgCBkEei5H9PsIMzTkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indemnity Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndmntyAgrmt")]
     #endif
+    [IsoXmlTag("IndmntyAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingPaymentCancellationReason2Code? IndemnityAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

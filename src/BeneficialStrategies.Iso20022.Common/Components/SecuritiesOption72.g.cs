@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the security option of a corporate event.
 /// </summary>
 [IsoId("_ICF6FbXQEeiTob_PrFFUxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record SecuritiesOption72
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
     [IsoId("_IVbs0bXQEeiTob_PrFFUxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conditional Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CondlQty")]
     #endif
+    [IsoXmlTag("CondlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record SecuritiesOption72
     /// Quantity of securities to which this instruction applies.
     /// </summary>
     [IsoId("_IVbs2bXQEeiTob_PrFFUxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdQty")]
     #endif
+    [IsoXmlTag("InstdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity20Choice_ InstructedQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity20Choice_ InstructedQuantity { get; init; } 
+    public required Quantity20Choice_ InstructedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity20Choice_ InstructedQuantity { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record SecuritiesOption72
     /// Quantity of additional shares requested due to the difference of “round-up against payment” practice between the account servicer and the account holder (for instance for French dividend option).
     /// </summary>
     [IsoId("_T38GsLXQEeiTob_PrFFUxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Round Up Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRndUpQty")]
     #endif
+    [IsoXmlTag("AddtlRndUpQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? AdditionalRoundUpQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

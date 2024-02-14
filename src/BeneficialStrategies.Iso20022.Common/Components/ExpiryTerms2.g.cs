@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Expiry conditions.
 /// </summary>
 [IsoId("_rhWRxoAAEeGOn4dfTT_QdQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Expiry Terms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ExpiryTerms2
     /// Date and time when the undertaking will cease to be available.
     /// </summary>
     [IsoId("_rhW4yoAAEeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtTm")]
     #endif
+    [IsoXmlTag("DtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? DateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ExpiryTerms2
     /// Details related to the automatic extension of the undertaking.
     /// </summary>
     [IsoId("_rhW43IAAEeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Auto Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AutoXtnsn")]
     #endif
+    [IsoXmlTag("AutoXtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AutoExtension1? AutoExtension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record ExpiryTerms2
     /// Documentary condition that indicates when the undertaking will cease to be available.
     /// </summary>
     [IsoId("_rhW4xIAAEeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cond")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Cond")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? Condition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,12 @@ public partial record ExpiryTerms2
     /// Indicates whether the expiry terms are without a fixed expiry date.
     /// </summary>
     [IsoId("_rhW40oAAEeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Open Ended Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpnEnddInd")]
     #endif
+    [IsoXmlTag("OpnEnddInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OpenEndedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

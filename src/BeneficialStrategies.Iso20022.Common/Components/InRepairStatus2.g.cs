@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status is in repair.
 /// </summary>
 [IsoId("_RMeYNtp-Ed-ak6NoX_4Aeg_-329740653")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("In Repair Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InRepairStatus2
     /// Reason for the in-repair status.
     /// </summary>
     [IsoId("_RMeYN9p-Ed-ak6NoX_4Aeg_-2034253428")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsnDtls")]
     #endif
+    [IsoXmlTag("RsnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InRepairStatusReason3 ReasonDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InRepairStatusReason3 ReasonDetails { get; init; } 
+    public required InRepairStatusReason3 ReasonDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InRepairStatusReason3 ReasonDetails { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record InRepairStatus2
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_RMeYONp-Ed-ak6NoX_4Aeg_-329740627")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Specified Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoSpcfdRsn")]
     #endif
+    [IsoXmlTag("NoSpcfdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoSpecifiedReason { get; init; } 
+    public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoSpecifiedReason { get; init; } 
     #else

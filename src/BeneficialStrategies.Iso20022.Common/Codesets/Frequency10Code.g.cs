@@ -21,7 +21,7 @@ public enum Frequency10Code
 {
     /// <summary>
     /// Event does never take place.
-    /// Encoded/decoded by serializers as "NEVR".
+    /// Encoded/decoded by serializers as &quot;NEVR&quot;.
     /// </summary>
     [EnumMember(Value = "NEVR")]
     [IsoId("_ns-iwWoEEearR-CA7eRZXQ")]
@@ -30,7 +30,7 @@ public enum Frequency10Code
     
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_vQ94oWoEEearR-CA7eRZXQ")]
@@ -39,7 +39,7 @@ public enum Frequency10Code
     
     /// <summary>
     /// Event takes place based on a change of a rate.
-    /// Encoded/decoded by serializers as "RATE".
+    /// Encoded/decoded by serializers as &quot;RATE&quot;.
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("_5MNZwWoEEearR-CA7eRZXQ")]
@@ -48,7 +48,7 @@ public enum Frequency10Code
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "MIAN".
+    /// Encoded/decoded by serializers as &quot;MIAN&quot;.
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_6xlcIWoEEearR-CA7eRZXQ")]
@@ -57,7 +57,7 @@ public enum Frequency10Code
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QURT".
+    /// Encoded/decoded by serializers as &quot;QURT&quot;.
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_7SZDIWoEEearR-CA7eRZXQ")]

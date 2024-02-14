@@ -21,7 +21,7 @@ public enum LockStatusCode
 {
     /// <summary>
     /// Party has been locked for operations.
-    /// Encoded/decoded by serializers as "LOCK".
+    /// Encoded/decoded by serializers as &quot;LOCK&quot;.
     /// </summary>
     [EnumMember(Value = "LOCK")]
     [IsoId("_fvXfoGjMEeiRg5NzP0jkQg")]
@@ -30,7 +30,7 @@ public enum LockStatusCode
     
     /// <summary>
     /// Party is ready for operations.
-    /// Encoded/decoded by serializers as "ULCK".
+    /// Encoded/decoded by serializers as &quot;ULCK&quot;.
     /// </summary>
     [EnumMember(Value = "ULCK")]
     [IsoId("_hh8QgGjMEeiRg5NzP0jkQg")]

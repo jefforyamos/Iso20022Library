@@ -21,7 +21,7 @@ public enum PersonIdentificationType7Code
 {
     /// <summary>
     /// Temporary tax processing number (used in the domestic adoption of a child).
-    /// Encoded/decoded by serializers as "ATIN".
+    /// Encoded/decoded by serializers as &quot;ATIN&quot;.
     /// </summary>
     [EnumMember(Value = "ATIN")]
     [IsoId("_CZgLUU4REeiQHa-q1Uephw")]
@@ -30,7 +30,7 @@ public enum PersonIdentificationType7Code
     
     /// <summary>
     /// Generic tax identification number.
-    /// Encoded/decoded by serializers as "GTIN".
+    /// Encoded/decoded by serializers as &quot;GTIN&quot;.
     /// </summary>
     [EnumMember(Value = "GTIN")]
     [IsoId("_C_cJ8U4REeiQHa-q1Uephw")]
@@ -39,7 +39,7 @@ public enum PersonIdentificationType7Code
     
     /// <summary>
     /// Tax processing number.
-    /// Encoded/decoded by serializers as "ITIN".
+    /// Encoded/decoded by serializers as &quot;ITIN&quot;.
     /// </summary>
     [EnumMember(Value = "ITIN")]
     [IsoId("_D1vf0U4REeiQHa-q1Uephw")]

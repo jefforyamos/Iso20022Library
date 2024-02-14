@@ -21,7 +21,7 @@ public enum LodgingService1Code
 {
     /// <summary>
     /// Room accommodation
-    /// Encoded/decoded by serializers as "ACCO".
+    /// Encoded/decoded by serializers as &quot;ACCO&quot;.
     /// </summary>
     [EnumMember(Value = "ACCO")]
     [IsoId("_y7qT0WMtEeexSYCBvAp_qA")]
@@ -30,7 +30,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Audio visual lodging service.
-    /// Encoded/decoded by serializers as "AUDI".
+    /// Encoded/decoded by serializers as &quot;AUDI&quot;.
     /// </summary>
     [EnumMember(Value = "AUDI")]
     [IsoId("_zM08UmMtEeexSYCBvAp_qA")]
@@ -39,7 +39,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Banquet lodging service.
-    /// Encoded/decoded by serializers as "BANQ".
+    /// Encoded/decoded by serializers as &quot;BANQ&quot;.
     /// </summary>
     [EnumMember(Value = "BANQ")]
     [IsoId("_zbOksmMtEeexSYCBvAp_qA")]
@@ -48,7 +48,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Breakfast lodging service.
-    /// Encoded/decoded by serializers as "BREK".
+    /// Encoded/decoded by serializers as &quot;BREK&quot;.
     /// </summary>
     [EnumMember(Value = "BREK")]
     [IsoId("_zoAccmMtEeexSYCBvAp_qA")]
@@ -57,7 +57,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Business centre lodging service.
-    /// Encoded/decoded by serializers as "BUSS".
+    /// Encoded/decoded by serializers as &quot;BUSS&quot;.
     /// </summary>
     [EnumMember(Value = "BUSS")]
     [IsoId("_z1EoEmMtEeexSYCBvAp_qA")]
@@ -66,7 +66,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Concierge lodging service.
-    /// Encoded/decoded by serializers as "CONC".
+    /// Encoded/decoded by serializers as &quot;CONC&quot;.
     /// </summary>
     [EnumMember(Value = "CONC")]
     [IsoId("_0BX-smMtEeexSYCBvAp_qA")]
@@ -75,7 +75,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Early arrival lodging service.
-    /// Encoded/decoded by serializers as "EARA".
+    /// Encoded/decoded by serializers as &quot;EARA&quot;.
     /// </summary>
     [EnumMember(Value = "EARA")]
     [IsoId("_0TUqUmMtEeexSYCBvAp_qA")]
@@ -84,7 +84,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Early departure lodging service.
-    /// Encoded/decoded by serializers as "EARD".
+    /// Encoded/decoded by serializers as &quot;EARD&quot;.
     /// </summary>
     [EnumMember(Value = "EARD")]
     [IsoId("_0mfd8mMtEeexSYCBvAp_qA")]
@@ -93,7 +93,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Entertainment lodging service.
-    /// Encoded/decoded by serializers as "ENTR".
+    /// Encoded/decoded by serializers as &quot;ENTR&quot;.
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_05LwcmMtEeexSYCBvAp_qA")]
@@ -102,7 +102,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Folio cash advance lodging service.
-    /// Encoded/decoded by serializers as "FCAA".
+    /// Encoded/decoded by serializers as &quot;FCAA&quot;.
     /// </summary>
     [EnumMember(Value = "FCAA")]
     [IsoId("_1IohsmMtEeexSYCBvAp_qA")]
@@ -111,7 +111,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Games lodging service.
-    /// Encoded/decoded by serializers as "GAME".
+    /// Encoded/decoded by serializers as &quot;GAME&quot;.
     /// </summary>
     [EnumMember(Value = "GAME")]
     [IsoId("_1Xy_EmMtEeexSYCBvAp_qA")]
@@ -120,7 +120,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Garage lodging service.
-    /// Encoded/decoded by serializers as "GARA".
+    /// Encoded/decoded by serializers as &quot;GARA&quot;.
     /// </summary>
     [EnumMember(Value = "GARA")]
     [IsoId("_1nJpsmMtEeexSYCBvAp_qA")]
@@ -129,7 +129,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Gift shop lodging service.
-    /// Encoded/decoded by serializers as "GIFT".
+    /// Encoded/decoded by serializers as &quot;GIFT&quot;.
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_1zdAUmMtEeexSYCBvAp_qA")]
@@ -138,7 +138,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Health lodging service.
-    /// Encoded/decoded by serializers as "HEAL".
+    /// Encoded/decoded by serializers as &quot;HEAL&quot;.
     /// </summary>
     [EnumMember(Value = "HEAL")]
     [IsoId("_1-5bUmMtEeexSYCBvAp_qA")]
@@ -147,7 +147,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Internet lodging service.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_2saBkmMtEeexSYCBvAp_qA")]
@@ -156,7 +156,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Laundry lodging service.
-    /// Encoded/decoded by serializers as "LAUN".
+    /// Encoded/decoded by serializers as &quot;LAUN&quot;.
     /// </summary>
     [EnumMember(Value = "LAUN")]
     [IsoId("_25L5UmMtEeexSYCBvAp_qA")]
@@ -165,7 +165,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Lounge bar lodging service.
-    /// Encoded/decoded by serializers as "LONG".
+    /// Encoded/decoded by serializers as &quot;LONG&quot;.
     /// </summary>
     [EnumMember(Value = "LONG")]
     [IsoId("_3HroUmMtEeexSYCBvAp_qA")]
@@ -174,7 +174,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Mini bar lodging service.
-    /// Encoded/decoded by serializers as "MINI".
+    /// Encoded/decoded by serializers as &quot;MINI&quot;.
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_3Vgo8mMtEeexSYCBvAp_qA")]
@@ -183,7 +183,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// No show lodging service.
-    /// Encoded/decoded by serializers as "NOSH".
+    /// Encoded/decoded by serializers as &quot;NOSH&quot;.
     /// </summary>
     [EnumMember(Value = "NOSH")]
     [IsoId("_3slsMmMtEeexSYCBvAp_qA")]
@@ -192,7 +192,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Other type of service.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_4AnbcmMtEeexSYCBvAp_qA")]
@@ -201,7 +201,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Parking lodging service.
-    /// Encoded/decoded by serializers as "PARK".
+    /// Encoded/decoded by serializers as &quot;PARK&quot;.
     /// </summary>
     [EnumMember(Value = "PARK")]
     [IsoId("_4LxikmMtEeexSYCBvAp_qA")]
@@ -210,7 +210,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Phone lodging service.
-    /// Encoded/decoded by serializers as "PHON".
+    /// Encoded/decoded by serializers as &quot;PHON&quot;.
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_4YYbMmMtEeexSYCBvAp_qA")]
@@ -219,7 +219,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Restaurant lodging service.
-    /// Encoded/decoded by serializers as "REST".
+    /// Encoded/decoded by serializers as &quot;REST&quot;.
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_4kfkkmMtEeexSYCBvAp_qA")]
@@ -228,7 +228,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Room service.
-    /// Encoded/decoded by serializers as "RMSE".
+    /// Encoded/decoded by serializers as &quot;RMSE&quot;.
     /// </summary>
     [EnumMember(Value = "RMSE")]
     [IsoId("_4pvQ8WMtEeexSYCBvAp_qA")]
@@ -237,7 +237,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Spa lodging service.
-    /// Encoded/decoded by serializers as "SPAS".
+    /// Encoded/decoded by serializers as &quot;SPAS&quot;.
     /// </summary>
     [EnumMember(Value = "SPAS")]
     [IsoId("_5X_eEmMtEeexSYCBvAp_qA")]
@@ -246,7 +246,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Third-party lodging service.
-    /// Encoded/decoded by serializers as "THRD".
+    /// Encoded/decoded by serializers as &quot;THRD&quot;.
     /// </summary>
     [EnumMember(Value = "THRD")]
     [IsoId("_5o95UmMtEeexSYCBvAp_qA")]
@@ -255,7 +255,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Transportation lodging service.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_50UNsmMtEeexSYCBvAp_qA")]
@@ -264,7 +264,7 @@ public enum LodgingService1Code
     
     /// <summary>
     /// Video on demand lodging service.
-    /// Encoded/decoded by serializers as "VODS".
+    /// Encoded/decoded by serializers as &quot;VODS&quot;.
     /// </summary>
     [EnumMember(Value = "VODS")]
     [IsoId("_6AzxkmMtEeexSYCBvAp_qA")]

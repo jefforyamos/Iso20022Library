@@ -21,7 +21,7 @@ public enum Status4Code
 {
     /// <summary>
     /// Instruction has been rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_YgFIttp-Ed-ak6NoX_4Aeg_703110423")]
@@ -30,7 +30,7 @@ public enum Status4Code
     
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_YgFIt9p-Ed-ak6NoX_4Aeg_-1140758566")]

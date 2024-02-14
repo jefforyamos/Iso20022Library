@@ -21,7 +21,7 @@ public enum BillingCurrencyType2Code
 {
     /// <summary>
     /// Currency type used for the billing is the account currency.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_6WzSkpqlEeGSON8vddiWzQ_-1127654531")]
@@ -30,7 +30,7 @@ public enum BillingCurrencyType2Code
     
     /// <summary>
     /// Currency type used for the billing is the settlement currency.
-    /// Encoded/decoded by serializers as "STLM".
+    /// Encoded/decoded by serializers as &quot;STLM&quot;.
     /// </summary>
     [EnumMember(Value = "STLM")]
     [IsoId("_6WzSk5qlEeGSON8vddiWzQ_-541707505")]
@@ -39,7 +39,7 @@ public enum BillingCurrencyType2Code
     
     /// <summary>
     /// Currency type used for the billing is the pricing currency.
-    /// Encoded/decoded by serializers as "PRCG".
+    /// Encoded/decoded by serializers as &quot;PRCG&quot;.
     /// </summary>
     [EnumMember(Value = "PRCG")]
     [IsoId("_6WzSlJqlEeGSON8vddiWzQ_-1424940792")]
@@ -48,7 +48,7 @@ public enum BillingCurrencyType2Code
     
     /// <summary>
     /// Currency type used for the billing is the host currency.
-    /// Encoded/decoded by serializers as "HOST".
+    /// Encoded/decoded by serializers as &quot;HOST&quot;.
     /// </summary>
     [EnumMember(Value = "HOST")]
     [IsoId("_6WzSlZqlEeGSON8vddiWzQ_-1920390448")]

@@ -21,7 +21,7 @@ public enum CorporateActionOption10Code
 {
     /// <summary>
     /// Vote expressed as abstain. In this case, the issuing company will add the number of shares to the quorum of the meeting.|If the voting right is not executed, it will not be added to the quorum. In this case, code NOAC should be used.
-    /// Encoded/decoded by serializers as "ABST".
+    /// Encoded/decoded by serializers as &quot;ABST&quot;.
     /// </summary>
     [EnumMember(Value = "ABST")]
     [IsoId("_tzGsNwrAEeGFLZ_5tFfOnw")]
@@ -30,7 +30,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Vote against management.
-    /// Encoded/decoded by serializers as "AMGT".
+    /// Encoded/decoded by serializers as &quot;AMGT&quot;.
     /// </summary>
     [EnumMember(Value = "AMGT")]
     [IsoId("_tzGsOwrAEeGFLZ_5tFfOnw")]
@@ -39,7 +39,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Receive equities from the share premium reserve of the company and considered as a capital distribution rather than a disbursement of income with different tax implications (typically found in Australia).
-    /// Encoded/decoded by serializers as "BSPL".
+    /// Encoded/decoded by serializers as &quot;BSPL&quot;.
     /// </summary>
     [EnumMember(Value = "BSPL")]
     [IsoId("_tzGsPwrAEeGFLZ_5tFfOnw")]
@@ -48,7 +48,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Buy additional securities to round up position.
-    /// Encoded/decoded by serializers as "BUYA".
+    /// Encoded/decoded by serializers as &quot;BUYA&quot;.
     /// </summary>
     [EnumMember(Value = "BUYA")]
     [IsoId("_tzGsQwrAEeGFLZ_5tFfOnw")]
@@ -57,7 +57,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Option to choose between different security and cash options.
-    /// Encoded/decoded by serializers as "CASE".
+    /// Encoded/decoded by serializers as &quot;CASE&quot;.
     /// </summary>
     [EnumMember(Value = "CASE")]
     [IsoId("_tzGsRwrAEeGFLZ_5tFfOnw")]
@@ -66,7 +66,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Option to choose cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_tzGsSwrAEeGFLZ_5tFfOnw")]
@@ -75,7 +75,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Vote to consent to change the terms of the securities agreement and to exchange securities.
-    /// Encoded/decoded by serializers as "CEXC".
+    /// Encoded/decoded by serializers as &quot;CEXC&quot;.
     /// </summary>
     [EnumMember(Value = "CEXC")]
     [IsoId("_tzGsTwrAEeGFLZ_5tFfOnw")]
@@ -84,7 +84,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Vote not to approve the event or proposal.
-    /// Encoded/decoded by serializers as "CONN".
+    /// Encoded/decoded by serializers as &quot;CONN&quot;.
     /// </summary>
     [EnumMember(Value = "CONN")]
     [IsoId("_tzGsUwrAEeGFLZ_5tFfOnw")]
@@ -93,7 +93,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Vote to approve the event or proposal.
-    /// Encoded/decoded by serializers as "CONY".
+    /// Encoded/decoded by serializers as &quot;CONY&quot;.
     /// </summary>
     [EnumMember(Value = "CONY")]
     [IsoId("_tzGsVwrAEeGFLZ_5tFfOnw")]
@@ -102,7 +102,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Vote to consent to change the terms of the securities agreement and to tender securities for cash.
-    /// Encoded/decoded by serializers as "CTEN".
+    /// Encoded/decoded by serializers as &quot;CTEN&quot;.
     /// </summary>
     [EnumMember(Value = "CTEN")]
     [IsoId("_tzGsWwrAEeGFLZ_5tFfOnw")]
@@ -111,7 +111,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Exercise intermediate securities or warrants.
-    /// Encoded/decoded by serializers as "EXER".
+    /// Encoded/decoded by serializers as &quot;EXER&quot;.
     /// </summary>
     [EnumMember(Value = "EXER")]
     [IsoId("_tzGsXwrAEeGFLZ_5tFfOnw")]
@@ -120,7 +120,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Allow event or entitled security to expire.
-    /// Encoded/decoded by serializers as "LAPS".
+    /// Encoded/decoded by serializers as &quot;LAPS&quot;.
     /// </summary>
     [EnumMember(Value = "LAPS")]
     [IsoId("_tzGsYwrAEeGFLZ_5tFfOnw")]
@@ -129,7 +129,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Mark down the global certificate as a result of a corporate action (instruction from International Central Securities Depositories (ICSDs) to common depositories who are holding the global certificate on behalf of the International Central Securities Depositories (ICSDs)).
-    /// Encoded/decoded by serializers as "MKDW".
+    /// Encoded/decoded by serializers as &quot;MKDW&quot;.
     /// </summary>
     [EnumMember(Value = "MKDW")]
     [IsoId("_tzGsZwrAEeGFLZ_5tFfOnw")]
@@ -138,7 +138,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Mark up the global certificate as a result of a corporate action (instruction from International Central Securities Depositories (ICSDs) to common depositories who are holding the global certificate on behalf of the International Central Securities Depositories (ICSDs)).
-    /// Encoded/decoded by serializers as "MKUP".
+    /// Encoded/decoded by serializers as &quot;MKUP&quot;.
     /// </summary>
     [EnumMember(Value = "MKUP")]
     [IsoId("_tzGsawrAEeGFLZ_5tFfOnw")]
@@ -147,7 +147,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Vote with management.
-    /// Encoded/decoded by serializers as "MNGT".
+    /// Encoded/decoded by serializers as &quot;MNGT&quot;.
     /// </summary>
     [EnumMember(Value = "MNGT")]
     [IsoId("_tzGsbwrAEeGFLZ_5tFfOnw")]
@@ -156,7 +156,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Option that allows a holder to elect to retain their holding, for example, a putable bond.
-    /// Encoded/decoded by serializers as "MPUT".
+    /// Encoded/decoded by serializers as &quot;MPUT&quot;.
     /// </summary>
     [EnumMember(Value = "MPUT")]
     [IsoId("_tzGscwrAEeGFLZ_5tFfOnw")]
@@ -164,8 +164,8 @@ public enum CorporateActionOption10Code
     Retain = CorporateActionOptionCode.Retain, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Option for the account owner not to take part in the event. This would include opt-out for class actions and lodging of dissenters' rights.
-    /// Encoded/decoded by serializers as "NOAC".
+    /// Option for the account owner not to take part in the event. This would include opt-out for class actions and lodging of dissenters&apos; rights.
+    /// Encoded/decoded by serializers as &quot;NOAC&quot;.
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_tzGsdwrAEeGFLZ_5tFfOnw")]
@@ -174,7 +174,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Account owner is a non-qualified investor.
-    /// Encoded/decoded by serializers as "NOQU".
+    /// Encoded/decoded by serializers as &quot;NOQU&quot;.
     /// </summary>
     [EnumMember(Value = "NOQU")]
     [IsoId("_tzGsewrAEeGFLZ_5tFfOnw")]
@@ -183,7 +183,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// In a remarketing of variable notes, the margin that shareholders can propose in respect of the next interest period.
-    /// Encoded/decoded by serializers as "OFFR".
+    /// Encoded/decoded by serializers as &quot;OFFR&quot;.
     /// </summary>
     [EnumMember(Value = "OFFR")]
     [IsoId("_tzGsfwrAEeGFLZ_5tFfOnw")]
@@ -192,7 +192,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Generic corporate action option to be used in case that no other specific code is appropriate.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_tzGsgwrAEeGFLZ_5tFfOnw")]
@@ -201,7 +201,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Subscribe to more equities than underlying securities position allows.
-    /// Encoded/decoded by serializers as "OVER".
+    /// Encoded/decoded by serializers as &quot;OVER&quot;.
     /// </summary>
     [EnumMember(Value = "OVER")]
     [IsoId("_tzGshwrAEeGFLZ_5tFfOnw")]
@@ -210,7 +210,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Issue a proxy card in case of voting.
-    /// Encoded/decoded by serializers as "PROX".
+    /// Encoded/decoded by serializers as &quot;PROX&quot;.
     /// </summary>
     [EnumMember(Value = "PROX")]
     [IsoId("_tzGsiwrAEeGFLZ_5tFfOnw")]
@@ -219,7 +219,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Account owner is a qualified investor.
-    /// Encoded/decoded by serializers as "QINV".
+    /// Encoded/decoded by serializers as &quot;QINV&quot;.
     /// </summary>
     [EnumMember(Value = "QINV")]
     [IsoId("_tzGsjwrAEeGFLZ_5tFfOnw")]
@@ -228,7 +228,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Distribution of securities to holders.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_tzGskwrAEeGFLZ_5tFfOnw")]
@@ -237,7 +237,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Sell the intermediate securities.
-    /// Encoded/decoded by serializers as "SLLE".
+    /// Encoded/decoded by serializers as &quot;SLLE&quot;.
     /// </summary>
     [EnumMember(Value = "SLLE")]
     [IsoId("_tzGslwrAEeGFLZ_5tFfOnw")]
@@ -246,7 +246,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Option to give a split instruction, for example, a split voting instruction on a meeting.
-    /// Encoded/decoded by serializers as "SPLI".
+    /// Encoded/decoded by serializers as &quot;SPLI&quot;.
     /// </summary>
     [EnumMember(Value = "SPLI")]
     [IsoId("_tzGsmwrAEeGFLZ_5tFfOnw")]
@@ -255,7 +255,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Tax instruction.
-    /// Encoded/decoded by serializers as "TAXI".
+    /// Encoded/decoded by serializers as &quot;TAXI&quot;.
     /// </summary>
     [EnumMember(Value = "TAXI")]
     [IsoId("_tzGsnwrAEeGFLZ_5tFfOnw")]
@@ -264,7 +264,7 @@ public enum CorporateActionOption10Code
     
     /// <summary>
     /// Proceeds not known during election period. The option can result in cash and/or securities.
-    /// Encoded/decoded by serializers as "PRUN".
+    /// Encoded/decoded by serializers as &quot;PRUN&quot;.
     /// </summary>
     [EnumMember(Value = "PRUN")]
     [IsoId("_usUzMgrAEeGFLZ_5tFfOnw")]

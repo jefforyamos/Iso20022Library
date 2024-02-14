@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionTypeFormat4Choice
     /// Standard code to specify the effect on the holdings of electing a corporate action option.
     /// </summary>
     [IsoId("_c5WhLZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionTypeFormat4Choice
         /// Specifies the effect on the holdings of electing a Corporate Action option.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ElectionMovementType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ElectionMovementType2Code Value { get; init; } 
+        public required ElectionMovementType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ElectionMovementType2Code Value { get; init; } 
         #else

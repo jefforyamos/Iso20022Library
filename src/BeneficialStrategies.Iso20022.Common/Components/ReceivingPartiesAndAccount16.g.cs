@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
 [IsoId("_1gjt9TbsEead9bDRE_1DAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receiving Parties And Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ReceivingPartiesAndAccount16
     /// Party that acts on behalf of the buyer of securities when the buyer does not have a direct relationship with the receiving agent.
     /// </summary>
     [IsoId("_14z14zbsEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receivers Custodian Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrsCtdnDtls")]
     #endif
+    [IsoXmlTag("RcvrsCtdnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount147? ReceiversCustodianDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,15 +63,14 @@ public partial record ReceivingPartiesAndAccount16
     #endif
     
     /// <summary>
-    /// Party that the receiver's custodian uses to effect the receipt of a security, when the receiver's custodian does not have a direct relationship with the receiving agent.
+    /// Party that the receiver&apos;s custodian uses to effect the receipt of a security, when the receiver&apos;s custodian does not have a direct relationship with the receiving agent.
     /// </summary>
     [IsoId("_14z15TbsEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receivers Intermediary 1 Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrsIntrmy1Dtls")]
     #endif
+    [IsoXmlTag("RcvrsIntrmy1Dtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount147? ReceiversIntermediary1Details { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record ReceivingPartiesAndAccount16
     /// Party that interacts with the receiver’s intermediary 1.
     /// </summary>
     [IsoId("_SXUugThZEeaRwdGFv45qTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receivers Intermediary 2 Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrsIntrmy2Dtls")]
     #endif
+    [IsoXmlTag("RcvrsIntrmy2Dtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount147? ReceiversIntermediary2Details { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,16 +100,15 @@ public partial record ReceivingPartiesAndAccount16
     /// Party that receives securities from the delivering agent at the place of settlement, for example, central securities depository.
     /// </summary>
     [IsoId("_14z15zbsEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Agent Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgAgtDtls")]
     #endif
+    [IsoXmlTag("RcvgAgtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount147 ReceivingAgentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentificationAndAccount147 ReceivingAgentDetails { get; init; } 
+    public required PartyIdentificationAndAccount147 ReceivingAgentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentificationAndAccount147 ReceivingAgentDetails { get; init; } 
     #else

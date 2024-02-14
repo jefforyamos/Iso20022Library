@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General cryptographic message syntax (CMS) containing encrypted data.
 /// </summary>
 [IsoId("_zhHrwQvFEeKzJ69IWwzB9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Content Information Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ContentInformationType5
     /// Type of data protection.
     /// </summary>
     [IsoId("_zyOp4QvFEeKzJ69IWwzB9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttTp")]
     #endif
+    [IsoXmlTag("CnttTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentType1Code ContentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentType1Code ContentType { get; init; } 
+    public required ContentType1Code ContentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentType1Code ContentType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ContentInformationType5
     /// Data protection by encryption, with a session key.
     /// </summary>
     [IsoId("_zyOp5QvFEeKzJ69IWwzB9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enveloped Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EnvlpdData")]
     #endif
+    [IsoXmlTag("EnvlpdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EnvelopedData2 EnvelopedData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EnvelopedData2 EnvelopedData { get; init; } 
+    public required EnvelopedData2 EnvelopedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EnvelopedData2 EnvelopedData { get; init; } 
     #else

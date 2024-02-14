@@ -21,7 +21,7 @@ public enum ResolutionType2Code
 {
     /// <summary>
     /// Meeting resolution is extraordinary and may be subject to specific voting requirements.
-    /// Encoded/decoded by serializers as "EXTR".
+    /// Encoded/decoded by serializers as &quot;EXTR&quot;.
     /// </summary>
     [EnumMember(Value = "EXTR")]
     [IsoId("_-9l88VuFEeSmO6RkXg92Lg")]
@@ -30,7 +30,7 @@ public enum ResolutionType2Code
     
     /// <summary>
     /// Resolution that is neither ordinary nor extraordinary (eg. decision on an investment strategy).
-    /// Encoded/decoded by serializers as "SPCL".
+    /// Encoded/decoded by serializers as &quot;SPCL&quot;.
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("__EcL0VuFEeSmO6RkXg92Lg")]

@@ -21,7 +21,7 @@ public enum TimeUnitCode
 {
     /// <summary>
     /// Time unit is second.
-    /// Encoded/decoded by serializers as "SECO".
+    /// Encoded/decoded by serializers as &quot;SECO&quot;.
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("_YmCmwdp-Ed-ak6NoX_4Aeg_-1938121752")]
@@ -30,7 +30,7 @@ public enum TimeUnitCode
     
     /// <summary>
     /// Time unit is minute.
-    /// Encoded/decoded by serializers as "MINU".
+    /// Encoded/decoded by serializers as &quot;MINU&quot;.
     /// </summary>
     [EnumMember(Value = "MINU")]
     [IsoId("_YmCmwtp-Ed-ak6NoX_4Aeg_-1937198231")]
@@ -39,7 +39,7 @@ public enum TimeUnitCode
     
     /// <summary>
     /// Time unit is hour.
-    /// Encoded/decoded by serializers as "HOUR".
+    /// Encoded/decoded by serializers as &quot;HOUR&quot;.
     /// </summary>
     [EnumMember(Value = "HOUR")]
     [IsoId("_YmCmw9p-Ed-ak6NoX_4Aeg_-1936275233")]
@@ -48,7 +48,7 @@ public enum TimeUnitCode
     
     /// <summary>
     /// Time unit is calendar day.
-    /// Encoded/decoded by serializers as "DAYC".
+    /// Encoded/decoded by serializers as &quot;DAYC&quot;.
     /// </summary>
     [EnumMember(Value = "DAYC")]
     [IsoId("_YmCmxNp-Ed-ak6NoX_4Aeg_-1927962536")]
@@ -57,7 +57,7 @@ public enum TimeUnitCode
     
     /// <summary>
     /// Time unit is week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_YmCmxdp-Ed-ak6NoX_4Aeg_-1927039439")]
@@ -66,7 +66,7 @@ public enum TimeUnitCode
     
     /// <summary>
     /// Time unit is month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_YmCmxtp-Ed-ak6NoX_4Aeg_-1926116410")]
@@ -75,7 +75,7 @@ public enum TimeUnitCode
     
     /// <summary>
     /// Time unit is year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_YmCmx9p-Ed-ak6NoX_4Aeg_-1925193661")]

@@ -21,7 +21,7 @@ public enum PartyType7Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_ncXyUQyHEeKa_56Jbsi1RQ")]
@@ -30,7 +30,7 @@ public enum PartyType7Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_ovcjwQyHEeKa_56Jbsi1RQ")]
@@ -39,7 +39,7 @@ public enum PartyType7Code
     
     /// <summary>
     /// Party component of a POI system or POI terminal (Point of Interaction).
-    /// Encoded/decoded by serializers as "PCPT".
+    /// Encoded/decoded by serializers as &quot;PCPT&quot;.
     /// </summary>
     [EnumMember(Value = "PCPT")]
     [IsoId("_p-bfYQyHEeKa_56Jbsi1RQ")]
@@ -48,7 +48,7 @@ public enum PartyType7Code
     
     /// <summary>
     /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "TMGT".
+    /// Encoded/decoded by serializers as &quot;TMGT&quot;.
     /// </summary>
     [EnumMember(Value = "TMGT")]
     [IsoId("_qo1HQQyHEeKa_56Jbsi1RQ")]
@@ -57,7 +57,7 @@ public enum PartyType7Code
     
     /// <summary>
     /// Party selling goods and services.
-    /// Encoded/decoded by serializers as "SALE".
+    /// Encoded/decoded by serializers as &quot;SALE&quot;.
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_r5bzgQyHEeKa_56Jbsi1RQ")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient7Choice
     /// Key encryption key using previously distributed symmetric key.
     /// </summary>
     [IsoId("__Mbdw6RbEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("KEK")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient7Choice
         /// Version of the data structure.
         /// </summary>
         [IsoId("_tyiNsdZ3EeeA4_YxLuyJaA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Version")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Vrsn")]
         #endif
+        [IsoXmlTag("Vrsn")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoNumber? Version { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +73,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient7Choice
         /// Identification of the key encryption key (KEK).
         /// </summary>
         [IsoId("_tyiNs9Z3EeeA4_YxLuyJaA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("KEK Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KEKId")]
         #endif
+        [IsoXmlTag("KEKId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required KEKIdentifier6 KEKIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public KEKIdentifier6 KEKIdentification { get; init; } 
+        public required KEKIdentifier6 KEKIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public KEKIdentifier6 KEKIdentification { get; init; } 
         #else
@@ -95,16 +92,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient7Choice
         /// Algorithm to encrypt the key encryption key (KEK).
         /// </summary>
         [IsoId("_tyiNtdZ3EeeA4_YxLuyJaA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Encryption Algorithm")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyNcrptnAlgo")]
         #endif
+        [IsoXmlTag("KeyNcrptnAlgo")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AlgorithmIdentification28 KeyEncryptionAlgorithm { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AlgorithmIdentification28 KeyEncryptionAlgorithm { get; init; } 
+        public required AlgorithmIdentification28 KeyEncryptionAlgorithm { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AlgorithmIdentification28 KeyEncryptionAlgorithm { get; init; } 
         #else
@@ -115,12 +111,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient7Choice
         /// Encrypted key encryption key (KEK).
         /// </summary>
         [IsoId("_tyiNt9Z3EeeA4_YxLuyJaA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Encrypted Key")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NcrptdKey")]
         #endif
+        [IsoXmlTag("NcrptdKey")]
+        [IsoSimpleType(IsoSimpleType.Max500Binary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax500Binary? EncryptedKey { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

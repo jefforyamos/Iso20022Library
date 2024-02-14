@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RequestShareHeldDate1Choice.DateCalculationMethod))]
     [KnownType(typeof(RequestShareHeldDate1Choice.DateCalculationDescription))]
     [IsoId("_iOMVYFSTEempisJfoIfvvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Share Held Date 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

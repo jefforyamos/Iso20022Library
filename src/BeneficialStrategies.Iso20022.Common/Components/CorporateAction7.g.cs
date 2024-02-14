@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the corporate action event.
 /// </summary>
 [IsoId("_fTrlUfmVEeCcAY_zfcalaA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateAction7
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
     [IsoId("_fTrlW_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtDtls")]
     #endif
+    [IsoXmlTag("DtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate22? DateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateAction7
     /// Provides information about the periods related to a corporate action event.
     /// </summary>
     [IsoId("_fTrlZfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrdDtls")]
     #endif
+    [IsoXmlTag("PrdDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPeriod8? PeriodDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateAction7
     /// Provides information about rates and amounts related to a corporate action event.
     /// </summary>
     [IsoId("_fT1WWfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate And Amount Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateAndAmtDtls")]
     #endif
+    [IsoXmlTag("RateAndAmtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionRate27? RateAndAmountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateAction7
     /// Provides information about the prices related to a corporate action event.
     /// </summary>
     [IsoId("_fT1WY_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricDtls")]
     #endif
+    [IsoXmlTag("PricDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPrice17? PriceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateAction7
     /// Provides information about securities quantity linked to a corporate action.
     /// </summary>
     [IsoId("_fT1WbfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesQty")]
     #endif
+    [IsoXmlTag("SctiesQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionQuantity5? SecuritiesQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,12 @@ public partial record CorporateAction7
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
     [IsoId("_fT1Wd_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Accrued Number Of Days")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstAcrdNbOfDays")]
     #endif
+    [IsoXmlTag("IntrstAcrdNbOfDays")]
+    [IsoSimpleType(IsoSimpleType.Max3Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Number? InterestAccruedNumberOfDays { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record CorporateAction7
     /// Number of the coupon attached/associated with a security.
     /// </summary>
     [IsoId("_fT1WgfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Coupon Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpnNb")]
     #endif
+    [IsoXmlTag("CpnNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IdentificationFormat1Choice_? CouponNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,12 +164,12 @@ public partial record CorporateAction7
     /// No = no certification required.
     /// </summary>
     [IsoId("_fT1Wi_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Breakdown Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnBrkdwnInd")]
     #endif
+    [IsoXmlTag("CertfctnBrkdwnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CertificationBreakdownIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -190,12 +182,12 @@ public partial record CorporateAction7
     /// Indicates whether charges apply to the holder, for instance redemption charges.
     /// </summary>
     [IsoId("_fT1WlfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Applied Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsApldInd")]
     #endif
+    [IsoXmlTag("ChrgsApldInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ChargesAppliedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -208,12 +200,12 @@ public partial record CorporateAction7
     /// Indicates whether there is restrictions apply to the corporate action event or not.|Yes = There is restrictions.|No = There is no restrictions.
     /// </summary>
     [IsoId("_fT1Wn_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RstrctnInd")]
     #endif
+    [IsoXmlTag("RstrctnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RestrictionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -226,12 +218,12 @@ public partial record CorporateAction7
     /// Indicates whether the holder is entitled to accrued interest.
     /// </summary>
     [IsoId("_fT1WqfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstInd")]
     #endif
+    [IsoXmlTag("AcrdIntrstInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AccruedInterestIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -244,12 +236,11 @@ public partial record CorporateAction7
     /// Specifies the conditions in which a dividend is paid.
     /// </summary>
     [IsoId("_fT1Ws_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddTp")]
     #endif
+    [IsoXmlTag("DvddTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DividendTypeFormat3Choice_? DividendType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -262,12 +253,11 @@ public partial record CorporateAction7
     /// Specifies the conversion type of an instrument.
     /// </summary>
     [IsoId("_fT1WvfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsTp")]
     #endif
+    [IsoXmlTag("ConvsTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConversionTypeFormat1Choice_? ConversionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -280,12 +270,11 @@ public partial record CorporateAction7
     /// Specifies the conditions in which the payment of the proceeds occurs.
     /// </summary>
     [IsoId("_fT1Wx_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Occurrence Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtOcrncTp")]
     #endif
+    [IsoXmlTag("PmtOcrncTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionTypeFormat3Choice_? PaymentOccurrenceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -298,12 +287,11 @@ public partial record CorporateAction7
     /// Specifies the conditions that apply to the offer.
     /// </summary>
     [IsoId("_fT1W0fmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offer Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OfferTp")]
     #endif
+    [IsoXmlTag("OfferTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OfferTypeFormat1Choice_? OfferType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -316,12 +304,11 @@ public partial record CorporateAction7
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
     [IsoId("_fT1W2_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Renounceable Entitlement Status Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RnncblEntitlmntStsTp")]
     #endif
+    [IsoXmlTag("RnncblEntitlmntStsTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RenounceableEntitlementStatusTypeFormat1Choice_? RenounceableEntitlementStatusType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -334,12 +321,11 @@ public partial record CorporateAction7
     /// Stage in the corporate action event life cycle.
     /// </summary>
     [IsoId("_fT1W5fmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Stage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtStag")]
     #endif
+    [IsoXmlTag("EvtStag")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventStageFormat3Choice_? EventStage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -352,12 +338,11 @@ public partial record CorporateAction7
     /// Specifies the type of the additional business process linked to a corporate action event such as a claim compensation or tax refund.
     /// </summary>
     [IsoId("_fT1W7_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Business Process Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlBizPrcInd")]
     #endif
+    [IsoXmlTag("AddtlBizPrcInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalBusinessProcessFormat1Choice_? AdditionalBusinessProcessIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -370,12 +355,11 @@ public partial record CorporateAction7
     /// Specifies the type of change announced.
     /// </summary>
     [IsoId("_fT1W-fmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Change Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChngTp")]
     #endif
+    [IsoXmlTag("ChngTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionChangeTypeFormat1Choice_? ChangeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -388,12 +372,11 @@ public partial record CorporateAction7
     /// Type of intermediates securities distribution.
     /// </summary>
     [IsoId("_fT1XA_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediate Securities Distribution Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmdtSctiesDstrbtnTp")]
     #endif
+    [IsoXmlTag("IntrmdtSctiesDstrbtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntermediateSecuritiesDistributionTypeFormat9Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -406,12 +389,11 @@ public partial record CorporateAction7
     /// Specifies whether the capital gain is in the scope of the EU Savings directive for the income realised upon the sale, refund or redemption of shares and units (.) (Article 6(1d)).
     /// </summary>
     [IsoId("_fT1XDfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capital Gain In Out Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CptlGnInOutInd")]
     #endif
+    [IsoXmlTag("CptlGnInOutInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CapitalGainFormat1Choice_? CapitalGainInOutIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -424,12 +406,11 @@ public partial record CorporateAction7
     /// Specifies whether the financial instrument calculates the taxable income per dividend/taxable income per share.
     /// </summary>
     [IsoId("_fT1XF_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Income Per Share Calculated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblIncmPerShrClctd")]
     #endif
+    [IsoXmlTag("TaxblIncmPerShrClctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxableIncomePerShareCalculatedFormat1Choice_? TaxableIncomePerShareCalculated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -442,12 +423,11 @@ public partial record CorporateAction7
     /// Specifies the effect on the holdings of electing a corporate action option.
     /// </summary>
     [IsoId("_fT1XIfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctnTp")]
     #endif
+    [IsoXmlTag("ElctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ElectionTypeFormat1Choice_? ElectionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -460,12 +440,11 @@ public partial record CorporateAction7
     /// Specifies the type of lottery announced.
     /// </summary>
     [IsoId("_fT1XK_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lottery Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtryTp")]
     #endif
+    [IsoXmlTag("LtryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LotteryTypeFormat1Choice_? LotteryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -478,12 +457,11 @@ public partial record CorporateAction7
     /// Specifies the certification format required, this is, physical or electronic format.
     /// </summary>
     [IsoId("_fT1XNfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnTp")]
     #endif
+    [IsoXmlTag("CertfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CertificationTypeFormat1Choice_? CertificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -493,18 +471,16 @@ public partial record CorporateAction7
     #endif
     
     /// <summary>
-    /// New company's place of incorporation.
+    /// New company&apos;s place of incorporation.
     /// </summary>
     [IsoId("_fT1XP_mVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Place Of Incorporation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewPlcOfIncorprtn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NewPlcOfIncorprtn")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? NewPlaceOfIncorporation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -517,12 +493,11 @@ public partial record CorporateAction7
     /// Provides additional information. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
     [IsoId("_fT1XSfmVEeCcAY_zfcalaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNarrative3? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

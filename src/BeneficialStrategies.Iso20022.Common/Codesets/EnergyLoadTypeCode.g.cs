@@ -21,7 +21,7 @@ public enum EnergyLoadTypeCode
 {
     /// <summary>
     /// Off-Peak.
-    /// Encoded/decoded by serializers as "OFFP".
+    /// Encoded/decoded by serializers as &quot;OFFP&quot;.
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_0JbZsBVnEeWXLoZC9OIRgg")]
@@ -30,7 +30,7 @@ public enum EnergyLoadTypeCode
     
     /// <summary>
     /// Hour and block hours.
-    /// Encoded/decoded by serializers as "HABH".
+    /// Encoded/decoded by serializers as &quot;HABH&quot;.
     /// </summary>
     [EnumMember(Value = "HABH")]
     [IsoId("_0NmIABVnEeWXLoZC9OIRgg")]
@@ -39,7 +39,7 @@ public enum EnergyLoadTypeCode
     
     /// <summary>
     /// Shaped.
-    /// Encoded/decoded by serializers as "SHPD".
+    /// Encoded/decoded by serializers as &quot;SHPD&quot;.
     /// </summary>
     [EnumMember(Value = "SHPD")]
     [IsoId("_0Rw2UBVnEeWXLoZC9OIRgg")]
@@ -48,7 +48,7 @@ public enum EnergyLoadTypeCode
     
     /// <summary>
     /// Gas day.
-    /// Encoded/decoded by serializers as "GASD".
+    /// Encoded/decoded by serializers as &quot;GASD&quot;.
     /// </summary>
     [EnumMember(Value = "GASD")]
     [IsoId("_0Rw2URVnEeWXLoZC9OIRgg")]
@@ -57,7 +57,7 @@ public enum EnergyLoadTypeCode
     
     /// <summary>
     /// Base load.
-    /// Encoded/decoded by serializers as "BSLD".
+    /// Encoded/decoded by serializers as &quot;BSLD&quot;.
     /// </summary>
     [EnumMember(Value = "BSLD")]
     [IsoId("_EmqBIhVoEeWXLoZC9OIRgg")]
@@ -66,7 +66,7 @@ public enum EnergyLoadTypeCode
     
     /// <summary>
     /// Peak load.
-    /// Encoded/decoded by serializers as "PKLD".
+    /// Encoded/decoded by serializers as &quot;PKLD&quot;.
     /// </summary>
     [EnumMember(Value = "PKLD")]
     [IsoId("_EmqBIxVoEeWXLoZC9OIRgg")]
@@ -75,7 +75,7 @@ public enum EnergyLoadTypeCode
     
     /// <summary>
     /// Other.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jP73kBVoEeWXLoZC9OIRgg")]

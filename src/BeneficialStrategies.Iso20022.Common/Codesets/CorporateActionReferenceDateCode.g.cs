@@ -21,7 +21,7 @@ public enum CorporateActionReferenceDateCode
 {
     /// <summary>
     /// Date on which the issuer announced that a corporate action event will occur.
-    /// Encoded/decoded by serializers as "ANOU".
+    /// Encoded/decoded by serializers as &quot;ANOU&quot;.
     /// </summary>
     [EnumMember(Value = "ANOU")]
     [IsoId("_bR_2s9p-Ed-ak6NoX_4Aeg_545674128")]
@@ -30,7 +30,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which securities become available for trading, for example first dealing date.
-    /// Encoded/decoded by serializers as "AVAL".
+    /// Encoded/decoded by serializers as &quot;AVAL&quot;.
     /// </summary>
     [EnumMember(Value = "AVAL")]
     [IsoId("_bR_2tNp-Ed-ak6NoX_4Aeg_1504289547")]
@@ -39,7 +39,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Deadline by which the beneficial ownership of securities must be declared.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_bR_2tdp-Ed-ak6NoX_4Aeg_545674206")]
@@ -48,7 +48,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Last date on which a holder can consent to the changes sought by the corporation.
-    /// Encoded/decoded by serializers as "CEXD".
+    /// Encoded/decoded by serializers as &quot;CEXD&quot;.
     /// </summary>
     [EnumMember(Value = "CEXD")]
     [IsoId("_bR_2ttp-Ed-ak6NoX_4Aeg_1578173148")]
@@ -57,7 +57,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date upon which the court provided approval.
-    /// Encoded/decoded by serializers as "COAP".
+    /// Encoded/decoded by serializers as &quot;COAP&quot;.
     /// </summary>
     [EnumMember(Value = "COAP")]
     [IsoId("_bR_2t9p-Ed-ak6NoX_4Aeg_545674613")]
@@ -66,7 +66,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date used by the offeror to determine the beneficiary eligible to participate in a consent based on the registered owner of the securities, for example, beneficial owner of consent record. Consent record date qualifier is used to indicate that a record date only applies to a certain part of the offer, not the entire offer.
-    /// Encoded/decoded by serializers as "CORD".
+    /// Encoded/decoded by serializers as &quot;CORD&quot;.
     /// </summary>
     [EnumMember(Value = "CORD")]
     [IsoId("_bR_2uNp-Ed-ak6NoX_4Aeg_2006686254")]
@@ -75,7 +75,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
-    /// Encoded/decoded by serializers as "CVPR".
+    /// Encoded/decoded by serializers as &quot;CVPR&quot;.
     /// </summary>
     [EnumMember(Value = "CVPR")]
     [IsoId("_bSJAoNp-Ed-ak6NoX_4Aeg_545675041")]
@@ -84,7 +84,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which a security will be entitled to a dividend.
-    /// Encoded/decoded by serializers as "DIVR".
+    /// Encoded/decoded by serializers as &quot;DIVR&quot;.
     /// </summary>
     [EnumMember(Value = "DIVR")]
     [IsoId("_bSJAodp-Ed-ak6NoX_4Aeg_-1977054321")]
@@ -93,7 +93,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
-    /// Encoded/decoded by serializers as "EARL".
+    /// Encoded/decoded by serializers as &quot;EARL&quot;.
     /// </summary>
     [EnumMember(Value = "EARL")]
     [IsoId("_bSJAotp-Ed-ak6NoX_4Aeg_-1943809478")]
@@ -102,7 +102,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Deadline by which an entitled holder needs to advise their counterparty to a transaction of their election for a corporate action event.
-    /// Encoded/decoded by serializers as "ECPD".
+    /// Encoded/decoded by serializers as &quot;ECPD&quot;.
     /// </summary>
     [EnumMember(Value = "ECPD")]
     [IsoId("_bSJAo9p-Ed-ak6NoX_4Aeg_546597805")]
@@ -111,7 +111,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which a process is to be completed or becomes effective.
-    /// Encoded/decoded by serializers as "EFFD".
+    /// Encoded/decoded by serializers as &quot;EFFD&quot;.
     /// </summary>
     [EnumMember(Value = "EFFD")]
     [IsoId("_bSJApNp-Ed-ak6NoX_4Aeg_545675136")]
@@ -119,8 +119,8 @@ public enum CorporateActionReferenceDateCode
     EffectiveDate,
     
     /// <summary>
-    /// Date on which all or part of any holding bought in a unit trust is subject to being treated as capital rather than income. This is normally one day after the previous distribution's ex date.
-    /// Encoded/decoded by serializers as "EQUL".
+    /// Date on which all or part of any holding bought in a unit trust is subject to being treated as capital rather than income. This is normally one day after the previous distribution&apos;s ex date.
+    /// Encoded/decoded by serializers as &quot;EQUL&quot;.
     /// </summary>
     [EnumMember(Value = "EQUL")]
     [IsoId("_bSJApdp-Ed-ak6NoX_4Aeg_545675231")]
@@ -129,7 +129,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which an order expires or on which a privilege or offer terminates.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_bSJAptp-Ed-ak6NoX_4Aeg_458600807")]
@@ -138,7 +138,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// First day of the month that is a working day.
-    /// Encoded/decoded by serializers as "FBDM".
+    /// Encoded/decoded by serializers as &quot;FBDM&quot;.
     /// </summary>
     [EnumMember(Value = "FBDM")]
     [IsoId("_bSJAp9p-Ed-ak6NoX_4Aeg_484457833")]
@@ -147,7 +147,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// First calendar day of the month.
-    /// Encoded/decoded by serializers as "FCDM".
+    /// Encoded/decoded by serializers as &quot;FCDM&quot;.
     /// </summary>
     [EnumMember(Value = "FCDM")]
     [IsoId("_bSJAqNp-Ed-ak6NoX_4Aeg_531558457")]
@@ -156,7 +156,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which additional information on the event will be announced, for example, exchange ratio announcement date.
-    /// Encoded/decoded by serializers as "FDAT".
+    /// Encoded/decoded by serializers as &quot;FDAT&quot;.
     /// </summary>
     [EnumMember(Value = "FDAT")]
     [IsoId("_bSJAqdp-Ed-ak6NoX_4Aeg_545675273")]
@@ -165,7 +165,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which a foreign exchange rate will be determined.
-    /// Encoded/decoded by serializers as "FXDT".
+    /// Encoded/decoded by serializers as &quot;FXDT&quot;.
     /// </summary>
     [EnumMember(Value = "FXDT")]
     [IsoId("_bSSxoNp-Ed-ak6NoX_4Aeg_834473884")]
@@ -174,7 +174,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Last date/time by which a buying counterparty to a trade can be sure that it will have the right to participate in an event.
-    /// Encoded/decoded by serializers as "GUPA".
+    /// Encoded/decoded by serializers as &quot;GUPA&quot;.
     /// </summary>
     [EnumMember(Value = "GUPA")]
     [IsoId("_bSSxodp-Ed-ak6NoX_4Aeg_546597788")]
@@ -183,7 +183,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date/time at which an index rate will be determined.
-    /// Encoded/decoded by serializers as "IFIX".
+    /// Encoded/decoded by serializers as &quot;IFIX&quot;.
     /// </summary>
     [EnumMember(Value = "IFIX")]
     [IsoId("_bSSxotp-Ed-ak6NoX_4Aeg_545675308")]
@@ -192,7 +192,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which instruction was sent.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_bSSxo9p-Ed-ak6NoX_4Aeg_887114495")]
@@ -201,7 +201,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Last day of the month that is a working day.
-    /// Encoded/decoded by serializers as "LBDM".
+    /// Encoded/decoded by serializers as &quot;LBDM&quot;.
     /// </summary>
     [EnumMember(Value = "LBDM")]
     [IsoId("_bSSxpNp-Ed-ak6NoX_4Aeg_913894181")]
@@ -210,7 +210,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Last calendar day of the month.
-    /// Encoded/decoded by serializers as "LCDM".
+    /// Encoded/decoded by serializers as &quot;LCDM&quot;.
     /// </summary>
     [EnumMember(Value = "LCDM")]
     [IsoId("_bSSxpdp-Ed-ak6NoX_4Aeg_933290258")]
@@ -218,8 +218,8 @@ public enum CorporateActionReferenceDateCode
     LastCalendarDayOfMonth,
     
     /// <summary>
-    /// Date on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
-    /// Encoded/decoded by serializers as "LOTO".
+    /// Date on which the lottery is run and applied to the holder&apos;s positions. This is also applicable to partial calls.
+    /// Encoded/decoded by serializers as &quot;LOTO&quot;.
     /// </summary>
     [EnumMember(Value = "LOTO")]
     [IsoId("_bSSxptp-Ed-ak6NoX_4Aeg_545675568")]
@@ -228,7 +228,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date upon which interest bearing security becomes due and principal is paid.
-    /// Encoded/decoded by serializers as "MATU".
+    /// Encoded/decoded by serializers as &quot;MATU&quot;.
     /// </summary>
     [EnumMember(Value = "MATU")]
     [IsoId("_bSSxp9p-Ed-ak6NoX_4Aeg_545675603")]
@@ -236,8 +236,8 @@ public enum CorporateActionReferenceDateCode
     MaturityDate,
     
     /// <summary>
-    /// Date on which the bondholders' or shareholders' meeting will take place.
-    /// Encoded/decoded by serializers as "MEET".
+    /// Date on which the bondholders&apos; or shareholders&apos; meeting will take place.
+    /// Encoded/decoded by serializers as &quot;MEET&quot;.
     /// </summary>
     [EnumMember(Value = "MEET")]
     [IsoId("_bScioNp-Ed-ak6NoX_4Aeg_545675988")]
@@ -245,8 +245,8 @@ public enum CorporateActionReferenceDateCode
     MeetingDate,
     
     /// <summary>
-    /// Date on which the company's general meeting is scheduled, second session if applicable, for example, Italy.
-    /// Encoded/decoded by serializers as "MET2".
+    /// Date on which the company&apos;s general meeting is scheduled, second session if applicable, for example, Italy.
+    /// Encoded/decoded by serializers as &quot;MET2&quot;.
     /// </summary>
     [EnumMember(Value = "MET2")]
     [IsoId("_bSciodp-Ed-ak6NoX_4Aeg_545676049")]
@@ -254,8 +254,8 @@ public enum CorporateActionReferenceDateCode
     SecondMeetingDate,
     
     /// <summary>
-    /// Date on which the company's general meeting is scheduled, third session if applicable, for example, Italy.
-    /// Encoded/decoded by serializers as "MET3".
+    /// Date on which the company&apos;s general meeting is scheduled, third session if applicable, for example, Italy.
+    /// Encoded/decoded by serializers as &quot;MET3&quot;.
     /// </summary>
     [EnumMember(Value = "MET3")]
     [IsoId("_bSciotp-Ed-ak6NoX_4Aeg_545676144")]
@@ -264,7 +264,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date/time at which the margin rate will be determined.
-    /// Encoded/decoded by serializers as "MFIX".
+    /// Encoded/decoded by serializers as &quot;MFIX&quot;.
     /// </summary>
     [EnumMember(Value = "MFIX")]
     [IsoId("_bScio9p-Ed-ak6NoX_4Aeg_545676162")]
@@ -272,8 +272,8 @@ public enum CorporateActionReferenceDateCode
     MarginFixingDate,
     
     /// <summary>
-    /// Issuer or issuer's agent deadline to respond, with an election instruction, to an outstanding offer or privilege.
-    /// Encoded/decoded by serializers as "MKDT".
+    /// Issuer or issuer&apos;s agent deadline to respond, with an election instruction, to an outstanding offer or privilege.
+    /// Encoded/decoded by serializers as &quot;MKDT&quot;.
     /// </summary>
     [EnumMember(Value = "MKDT")]
     [IsoId("_bScipNp-Ed-ak6NoX_4Aeg_1230664300")]
@@ -282,7 +282,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which the movement is due to take place (cash and/or securities).
-    /// Encoded/decoded by serializers as "PAYD".
+    /// Encoded/decoded by serializers as &quot;PAYD&quot;.
     /// </summary>
     [EnumMember(Value = "PAYD")]
     [IsoId("_bScipdp-Ed-ak6NoX_4Aeg_1274067482")]
@@ -291,7 +291,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Last date a holder can request to defer delivery of securities pursuant to a notice of guaranteed delivery or other required documentation.
-    /// Encoded/decoded by serializers as "PODT".
+    /// Encoded/decoded by serializers as &quot;PODT&quot;.
     /// </summary>
     [EnumMember(Value = "PODT")]
     [IsoId("_bSciptp-Ed-ak6NoX_4Aeg_545676222")]
@@ -300,7 +300,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which security will assimilate, become fungible, or have the same rights to dividends as the parent issue.
-    /// Encoded/decoded by serializers as "PPDT".
+    /// Encoded/decoded by serializers as &quot;PPDT&quot;.
     /// </summary>
     [EnumMember(Value = "PPDT")]
     [IsoId("_bScip9p-Ed-ak6NoX_4Aeg_857601260")]
@@ -309,7 +309,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date at which an issuer will determine the proration amount/quantity of an offer.
-    /// Encoded/decoded by serializers as "PROD".
+    /// Encoded/decoded by serializers as &quot;PROD&quot;.
     /// </summary>
     [EnumMember(Value = "PROD")]
     [IsoId("_bSciqNp-Ed-ak6NoX_4Aeg_545676499")]
@@ -318,7 +318,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
-    /// Encoded/decoded by serializers as "RDDT".
+    /// Encoded/decoded by serializers as &quot;RDDT&quot;.
     /// </summary>
     [EnumMember(Value = "RDDT")]
     [IsoId("_bSciqdp-Ed-ak6NoX_4Aeg_1347026649")]
@@ -327,7 +327,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which positions are struck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date.
-    /// Encoded/decoded by serializers as "RDTE".
+    /// Encoded/decoded by serializers as &quot;RDTE&quot;.
     /// </summary>
     [EnumMember(Value = "RDTE")]
     [IsoId("_bSlskNp-Ed-ak6NoX_4Aeg_545676559")]
@@ -336,7 +336,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which instructions to register or registration details will be accepted.
-    /// Encoded/decoded by serializers as "REGI".
+    /// Encoded/decoded by serializers as &quot;REGI&quot;.
     /// </summary>
     [EnumMember(Value = "REGI")]
     [IsoId("_bSlskdp-Ed-ak6NoX_4Aeg_545676654")]
@@ -345,7 +345,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which results are published, for example, results of an offer.
-    /// Encoded/decoded by serializers as "RESU".
+    /// Encoded/decoded by serializers as &quot;RESU&quot;.
     /// </summary>
     [EnumMember(Value = "RESU")]
     [IsoId("_bSlsktp-Ed-ak6NoX_4Aeg_545677039")]
@@ -354,7 +354,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Deadline by which instructions must be received to split securities, for example, of physical certificates.
-    /// Encoded/decoded by serializers as "SPLT".
+    /// Encoded/decoded by serializers as &quot;SPLT&quot;.
     /// </summary>
     [EnumMember(Value = "SPLT")]
     [IsoId("_bSlsk9p-Ed-ak6NoX_4Aeg_1417214216")]
@@ -363,7 +363,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date by which cash must be in place in order to take part in the event.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_bSlslNp-Ed-ak6NoX_4Aeg_1476318053")]
@@ -371,8 +371,8 @@ public enum CorporateActionReferenceDateCode
     SubscriptionCostDebitDate,
     
     /// <summary>
-    /// Date/time as from which 'special processing' can start to be used by participants for that event. Special processing is a means of marking a transaction, that would normally be traded ex or cum, as being traded cum or ex respectively, for example, a transaction dealt 'special' after the ex date would result in the buyer's being eligible for the entitlement. This is typically used in the UK and Irish markets.
-    /// Encoded/decoded by serializers as "SXDT".
+    /// Date/time as from which &apos;special processing&apos; can start to be used by participants for that event. Special processing is a means of marking a transaction, that would normally be traded ex or cum, as being traded cum or ex respectively, for example, a transaction dealt &apos;special&apos; after the ex date would result in the buyer&apos;s being eligible for the entitlement. This is typically used in the UK and Irish markets.
+    /// Encoded/decoded by serializers as &quot;SXDT&quot;.
     /// </summary>
     [EnumMember(Value = "SXDT")]
     [IsoId("_bSlsldp-Ed-ak6NoX_4Aeg_546597728")]
@@ -381,7 +381,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on until which tax breakdown instructions will be accepted.
-    /// Encoded/decoded by serializers as "TAXB".
+    /// Encoded/decoded by serializers as &quot;TAXB&quot;.
     /// </summary>
     [EnumMember(Value = "TAXB")]
     [IsoId("_bSlsltp-Ed-ak6NoX_4Aeg_545677117")]
@@ -390,7 +390,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which the trade was executed.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_bSlsl9p-Ed-ak6NoX_4Aeg_1939257507")]
@@ -399,7 +399,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which trading of a security is suspended as the result of an event.
-    /// Encoded/decoded by serializers as "TSDT".
+    /// Encoded/decoded by serializers as &quot;TSDT&quot;.
     /// </summary>
     [EnumMember(Value = "TSDT")]
     [IsoId("_bSlsmNp-Ed-ak6NoX_4Aeg_545677152")]
@@ -408,7 +408,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date upon which the terms of the take-over become unconditional.
-    /// Encoded/decoded by serializers as "UNCO".
+    /// Encoded/decoded by serializers as &quot;UNCO&quot;.
     /// </summary>
     [EnumMember(Value = "UNCO")]
     [IsoId("_bSlsmdp-Ed-ak6NoX_4Aeg_545677489")]
@@ -417,7 +417,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which assets become available to the account owner (in a credit entry), or cease to be available to the account owner (in a debit entry).
-    /// Encoded/decoded by serializers as "VALU".
+    /// Encoded/decoded by serializers as &quot;VALU&quot;.
     /// </summary>
     [EnumMember(Value = "VALU")]
     [IsoId("_bSlsmtp-Ed-ak6NoX_4Aeg_1874357883")]
@@ -426,7 +426,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date on which all conditions, including regulatory, legal etc. pertaining to the take-over, have been met.
-    /// Encoded/decoded by serializers as "WUCO".
+    /// Encoded/decoded by serializers as &quot;WUCO&quot;.
     /// </summary>
     [EnumMember(Value = "WUCO")]
     [IsoId("_bSvdkNp-Ed-ak6NoX_4Aeg_545677549")]
@@ -435,7 +435,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date as from which trading (including exchange and Over The Counter (OTC) trading) occurs on the underlying security without the benefit.
-    /// Encoded/decoded by serializers as "XDTE".
+    /// Encoded/decoded by serializers as &quot;XDTE&quot;.
     /// </summary>
     [EnumMember(Value = "XDTE")]
     [IsoId("_bSvdkdp-Ed-ak6NoX_4Aeg_546597615")]
@@ -444,7 +444,7 @@ public enum CorporateActionReferenceDateCode
     
     /// <summary>
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event, giving the holder eligibility to incentives. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
-    /// Encoded/decoded by serializers as "EARD".
+    /// Encoded/decoded by serializers as &quot;EARD&quot;.
     /// </summary>
     [EnumMember(Value = "EARD")]
     [IsoId("_bSvdktp-Ed-ak6NoX_4Aeg_333827875")]

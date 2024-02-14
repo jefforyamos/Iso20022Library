@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountOrChargeType1Choice
     /// Type of discount.
     /// </summary>
     [IsoId("_St2yMgEcEeCQm6a_G2yO_w_1552852069")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

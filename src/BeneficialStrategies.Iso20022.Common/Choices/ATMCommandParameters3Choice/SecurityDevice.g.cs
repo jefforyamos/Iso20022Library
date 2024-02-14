@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice
     /// Parameters to be used to update the configuration or the status security device.
     /// </summary>
     [IsoId("_htqcOV2aEeekzJIz1JxYSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Device")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice
         /// Serial number of the device.
         /// </summary>
         [IsoId("_ObyFwItIEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Serial Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SrlNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SrlNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? SerialNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice
         /// Update of the security configuration to apply on the security module of the ATM.
         /// </summary>
         [IsoId("_Sp8IQItIEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Required Configuration")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ReqrdCfgtn")]
         #endif
+        [IsoXmlTag("ReqrdCfgtn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ATMSecurityConfiguration1? RequiredConfiguration { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice
         /// New status to apply on the security module of the ATM.
         /// </summary>
         [IsoId("_W1WYwItIEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Required Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ReqrdSts")]
         #endif
+        [IsoXmlTag("ReqrdSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ATMStatus2Code? RequiredStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

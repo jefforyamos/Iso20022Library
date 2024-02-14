@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Specifies the beneficiary's account information for the settlement of a purchase of goods or services.
+/// Specifies the beneficiary&apos;s account information for the settlement of a purchase of goods or services.
 /// </summary>
 [IsoId("_QIrY5tp-Ed-ak6NoX_4Aeg_739233613")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Terms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record SettlementTerms2
     /// Financial institution that receives the payment transaction on behalf of an account owner, and posts the transaction into the account.
     /// </summary>
     [IsoId("_QIrY59p-Ed-ak6NoX_4Aeg_739233984")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrAgt")]
     #endif
+    [IsoXmlTag("CdtrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification4Choice_? CreditorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record SettlementTerms2
     /// Account to be credited as a result of an instruction.
     /// </summary>
     [IsoId("_QIrY6Np-Ed-ak6NoX_4Aeg_739233923")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrAcct")]
     #endif
+    [IsoXmlTag("CdtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount7 CreditorAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount7 CreditorAccount { get; init; } 
+    public required CashAccount7 CreditorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount7 CreditorAccount { get; init; } 
     #else

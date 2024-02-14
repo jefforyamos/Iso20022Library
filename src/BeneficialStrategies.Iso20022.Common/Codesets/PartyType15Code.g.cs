@@ -21,7 +21,7 @@ public enum PartyType15Code
 {
     /// <summary>
     /// Configuration to apply to a subset of the whole POI system.
-    /// Encoded/decoded by serializers as "PGRP".
+    /// Encoded/decoded by serializers as &quot;PGRP&quot;.
     /// </summary>
     [EnumMember(Value = "PGRP")]
     [IsoId("_jtF7gY33EeWRwov1g9WL_A")]
@@ -30,7 +30,7 @@ public enum PartyType15Code
     
     /// <summary>
     /// Configuration to apply to the whole POI system.
-    /// Encoded/decoded by serializers as "PSYS".
+    /// Encoded/decoded by serializers as &quot;PSYS&quot;.
     /// </summary>
     [EnumMember(Value = "PSYS")]
     [IsoId("_j2B1EY33EeWRwov1g9WL_A")]
@@ -39,7 +39,7 @@ public enum PartyType15Code
     
     /// <summary>
     /// Configuration to apply to a single POI terminal.
-    /// Encoded/decoded by serializers as "PSNG".
+    /// Encoded/decoded by serializers as &quot;PSNG&quot;.
     /// </summary>
     [EnumMember(Value = "PSNG")]
     [IsoId("_kCQTMY33EeWRwov1g9WL_A")]

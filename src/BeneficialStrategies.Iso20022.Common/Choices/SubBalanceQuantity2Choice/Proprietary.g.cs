@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity2Choice
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_QZhRRdp-Ed-ak6NoX_4Aeg_-1518979155")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,19 +56,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity2Choice
         /// Proprietary information, often a code, issued by the data source scheme issuer.
         /// </summary>
         [IsoId("_QAfGNtp-Ed-ak6NoX_4Aeg_-597428687")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
         [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax4AlphaNumericText Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -81,19 +77,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity2Choice
         /// Entity that assigns the identification.
         /// </summary>
         [IsoId("_QAfGN9p-Ed-ak6NoX_4Aeg_-597428737")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Issr")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Issuer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Issuer { get; init; } 
+        public required System.String Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Issuer { get; init; } 
         #else
@@ -104,15 +98,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity2Choice
         /// Name of the identification scheme.
         /// </summary>
         [IsoId("_QAfGONp-Ed-ak6NoX_4Aeg_-427500841")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Scheme Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SchmeNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SchmeNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? SchemeName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,16 +117,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity2Choice
         /// Value of the balance.
         /// </summary>
         [IsoId("_QAfGOdp-Ed-ak6NoX_4Aeg_-597428669")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Balance")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Bal")]
         #endif
+        [IsoXmlTag("Bal")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber Balance { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Balance { get; init; } 
+        public required System.UInt64 Balance { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Balance { get; init; } 
         #else

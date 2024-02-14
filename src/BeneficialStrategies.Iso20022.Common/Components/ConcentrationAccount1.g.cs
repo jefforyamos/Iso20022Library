@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Bank account used by a central counterparty to concentrate cash funds before or after investment.
 /// </summary>
 [IsoId("_tnsvELIhEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Concentration Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,15 @@ public partial record ConcentrationAccount1
     /// Indicates inflows into the account.
     /// </summary>
     [IsoId("_zPbzoLIhEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("In Flow")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InFlow")]
     #endif
+    [IsoXmlTag("InFlow")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Flows1 InFlow { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Flows1 InFlow { get; init; } 
+    public required Flows1 InFlow { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Flows1 InFlow { get; init; } 
     #else
@@ -76,16 +73,15 @@ public partial record ConcentrationAccount1
     /// Indicates outflows out of the account.
     /// </summary>
     [IsoId("_0TkxMLIhEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Out Flow")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutFlow")]
     #endif
+    [IsoXmlTag("OutFlow")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Flows1 OutFlow { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Flows1 OutFlow { get; init; } 
+    public required Flows1 OutFlow { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Flows1 OutFlow { get; init; } 
     #else
@@ -96,16 +92,15 @@ public partial record ConcentrationAccount1
     /// Indicates end of day cash balance on the account.
     /// </summary>
     [IsoId("_1ym0QBXoEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Of Day")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndOfDay")]
     #endif
+    [IsoXmlTag("EndOfDay")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 EndOfDay { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 EndOfDay { get; init; } 
+    public required AmountAndDirection102 EndOfDay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 EndOfDay { get; init; } 
     #else
@@ -116,16 +111,16 @@ public partial record ConcentrationAccount1
     /// Indicates peak credit balance on the account.
     /// </summary>
     [IsoId("_53fmABXoEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Peak Credit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PeakCdt")]
     #endif
+    [IsoXmlTag("PeakCdt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PeakCredit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PeakCredit { get; init; } 
+    public required System.Decimal PeakCredit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PeakCredit { get; init; } 
     #else
@@ -136,16 +131,16 @@ public partial record ConcentrationAccount1
     /// Indicates peak debit balance on the account.
     /// </summary>
     [IsoId("_-YlLkBXoEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Peak Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PeakDbt")]
     #endif
+    [IsoXmlTag("PeakDbt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PeakDebit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PeakDebit { get; init; } 
+    public required System.Decimal PeakDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PeakDebit { get; init; } 
     #else
@@ -156,19 +151,16 @@ public partial record ConcentrationAccount1
     /// Number of concentration account pay‐ins breaching the allowed time between instruction and confirmation. Usage: nil returns to be included for late payment confirmations in all cleared currencies.
     /// </summary>
     [IsoId("_Frc8QBXpEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Late Payment Confirmation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LatePmtConf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("LatePmtConf")]
+    [IsoSimpleType(IsoSimpleType.Max10NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10NumericText LatePaymentConfirmation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LatePaymentConfirmation { get; init; } 
+    public required System.String LatePaymentConfirmation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LatePaymentConfirmation { get; init; } 
     #else

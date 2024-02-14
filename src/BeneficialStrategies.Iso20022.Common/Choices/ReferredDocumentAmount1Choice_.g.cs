@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReferredDocumentAmount1Choice.CreditNoteAmount))]
     [KnownType(typeof(ReferredDocumentAmount1Choice.TaxAmount))]
     [IsoId("_QGJCQtp-Ed-ak6NoX_4Aeg_-888106501")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred Document Amount 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
     /// Specifies the name by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_xPt7iGjNEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
         /// Old value before the update.
         /// </summary>
         [IsoId("_zOmJYWjVEeiRg5NzP0jkQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Old")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Od")]
         #endif
+        [IsoXmlTag("Od")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyName4 Old { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyName4 Old { get; init; } 
+        public required PartyName4 Old { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyName4 Old { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice
         /// New value after the update.
         /// </summary>
         [IsoId("_zOmJYmjVEeiRg5NzP0jkQg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("New")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="New")]
         #endif
+        [IsoXmlTag("New")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyName4 New { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyName4 New { get; init; } 
+        public required PartyName4 New { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyName4 New { get; init; } 
         #else

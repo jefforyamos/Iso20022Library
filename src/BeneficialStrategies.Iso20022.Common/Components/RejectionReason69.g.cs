@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason to reject the message.
 /// </summary>
 [IsoId("_2NxawTWhEe2OzdGcZrUAEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejection Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RejectionReason69
     /// Reason to reject the message.
     /// </summary>
     [IsoId("_2mW54zWhEe2OzdGcZrUAEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageRejectedReason2Code Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageRejectedReason2Code Reason { get; init; } 
+    public required MessageRejectedReason2Code Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageRejectedReason2Code Reason { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record RejectionReason69
     /// Additional information about the rejection reason.
     /// </summary>
     [IsoId("_2mW55TWhEe2OzdGcZrUAEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record RejectionReason69
     /// Identification of the invalid or unrecognised reference.
     /// </summary>
     [IsoId("_2mW55zWhEe2OzdGcZrUAEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdMsg")]
     #endif
+    [IsoXmlTag("LkdMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LinkedMessage6Choice_? LinkedMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

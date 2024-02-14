@@ -21,7 +21,7 @@ public enum WithdrawalReason1Code
 {
     /// <summary>
     /// Alleged trade is rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_3S_I0ZElEeKcLcxonNWTXg")]
@@ -30,7 +30,7 @@ public enum WithdrawalReason1Code
     
     /// <summary>
     /// Alleged trade is rescinded.
-    /// Encoded/decoded by serializers as "RSCD".
+    /// Encoded/decoded by serializers as &quot;RSCD&quot;.
     /// </summary>
     [EnumMember(Value = "RSCD")]
     [IsoId("_3dH8QZElEeKcLcxonNWTXg")]
@@ -39,7 +39,7 @@ public enum WithdrawalReason1Code
     
     /// <summary>
     /// Alleged trade is withdrawn due to an amendment.
-    /// Encoded/decoded by serializers as "WTDN".
+    /// Encoded/decoded by serializers as &quot;WTDN&quot;.
     /// </summary>
     [EnumMember(Value = "WTDN")]
     [IsoId("_3nQIoZElEeKcLcxonNWTXg")]

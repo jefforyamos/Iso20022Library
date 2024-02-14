@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceType2Choice
     /// Reason for the sub-balance.
     /// </summary>
     [IsoId("_RgSsFtp-Ed-ak6NoX_4Aeg_678920230")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Balance Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceType2Choice
         /// Specifies the nature of the securities or investment fund balance.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SubBalTp")]
         #endif
+        [IsoXmlTag("SubBalTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesBalanceType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesBalanceType3Code Value { get; init; } 
+        public required SecuritiesBalanceType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesBalanceType3Code Value { get; init; } 
         #else

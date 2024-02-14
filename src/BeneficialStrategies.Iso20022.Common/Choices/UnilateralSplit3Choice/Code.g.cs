@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnilateralSplit3Choice
     /// Unilateral split expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_e2Y7wTt4EeW638lNyHKv7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnilateralSplit3Choice
         /// Specifies underlying information regarding the type of transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesTransactionType5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesTransactionType5Code Value { get; init; } 
+        public required SecuritiesTransactionType5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesTransactionType5Code Value { get; init; } 
         #else

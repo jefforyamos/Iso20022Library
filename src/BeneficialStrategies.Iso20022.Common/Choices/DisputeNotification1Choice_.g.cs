@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DisputeNotification1Choice.DisputeNotificationDetails))]
     [KnownType(typeof(DisputeNotification1Choice.SegregatedIndependentAmountDisputeDetails))]
     [IsoId("_QmU-Mtp-Ed-ak6NoX_4Aeg_2020917030")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Notification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

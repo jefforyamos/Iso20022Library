@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneratedStatus7Choice
     /// Specifies the reason of the generated status.
     /// </summary>
     [IsoId("_PceNhTqeEeWyoP0PbocV1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneratedStatus7Choice
         /// Specifies the reason why the transaction was generated.
         /// </summary>
         [IsoId("_O8oP0TqeEeWyoP0PbocV1Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GeneratedReasons5Choice_ Code { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GeneratedReasons5Choice_ Code { get; init; } 
+        public required GeneratedReasons5Choice_ Code { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GeneratedReasons5Choice_ Code { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneratedStatus7Choice
         /// Provides additional reason information that cannot be provided in a structured field.
         /// </summary>
         [IsoId("_O8oP1TqeEeWyoP0PbocV1Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Reason Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlRsnInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlRsnInf")]
+        [IsoSimpleType(IsoSimpleType.Max210Text)]
         [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax210Text? AdditionalReasonInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

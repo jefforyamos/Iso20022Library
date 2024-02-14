@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BidRangeType1Choice.Code))]
     [KnownType(typeof(BidRangeType1Choice.Proprietary))]
     [IsoId("_TIIuYO3NEeqc-LCjwLsUVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid Range Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

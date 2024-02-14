@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IsabelEbanking1Choice.UserIdentification))]
     [KnownType(typeof(IsabelEbanking1Choice.ContractIdentification))]
     [IsoId("_F5NoEKA3EeWiJt5KdX5iuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Isabel Ebanking 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

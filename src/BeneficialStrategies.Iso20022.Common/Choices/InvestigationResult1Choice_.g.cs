@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestigationResult1Choice.Result))]
     [KnownType(typeof(InvestigationResult1Choice.InvestigationStatus))]
     [IsoId("_TRkjcGgkEeGHuf0_3c6vdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Result 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

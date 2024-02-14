@@ -21,7 +21,7 @@ public enum TypeTransactionTotalsCode
 {
     /// <summary>
     /// Debit transactions on the cardholder account.
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_TVfZ-wEcEeCQm6a_G2yO_w_847668388")]
@@ -30,7 +30,7 @@ public enum TypeTransactionTotalsCode
     
     /// <summary>
     /// Reversal of debit transactions (cancellation).
-    /// Encoded/decoded by serializers as "DBTR".
+    /// Encoded/decoded by serializers as &quot;DBTR&quot;.
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_TVfZ_AEcEeCQm6a_G2yO_w_-1805770177")]
@@ -39,7 +39,7 @@ public enum TypeTransactionTotalsCode
     
     /// <summary>
     /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_TVfZ_QEcEeCQm6a_G2yO_w_490339038")]
@@ -48,7 +48,7 @@ public enum TypeTransactionTotalsCode
     
     /// <summary>
     /// Reversal of credit transactions (cancellation).
-    /// Encoded/decoded by serializers as "CRDR".
+    /// Encoded/decoded by serializers as &quot;CRDR&quot;.
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_TVfZ_gEcEeCQm6a_G2yO_w_1638442145")]
@@ -57,7 +57,7 @@ public enum TypeTransactionTotalsCode
     
     /// <summary>
     /// Declined transactions.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_sP2PAb4pEeKkGaJ0UrThyA_1695729139")]
@@ -66,7 +66,7 @@ public enum TypeTransactionTotalsCode
     
     /// <summary>
     /// Failed transactions.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_sP2PAr4pEeKkGaJ0UrThyA_1843086273")]
@@ -75,7 +75,7 @@ public enum TypeTransactionTotalsCode
     
     /// <summary>
     /// Outstanding Reservation transactions.
-    /// Encoded/decoded by serializers as "RESV".
+    /// Encoded/decoded by serializers as &quot;RESV&quot;.
     /// </summary>
     [EnumMember(Value = "RESV")]
     [IsoId("__Fr_kGpUEemFuJNacM8hZA")]

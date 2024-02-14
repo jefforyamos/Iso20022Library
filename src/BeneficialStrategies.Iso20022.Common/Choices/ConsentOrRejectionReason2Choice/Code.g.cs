@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentOrRejectionReason2Choice
     /// Specifies the reason why the counterparty response has a rejection status.
     /// </summary>
     [IsoId("_0fzakAlIEeGATtfOBToyew_-2131217638")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentOrRejectionReason2Choice
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Specifies the type of counterparty's action the response is related to.
+        /// Specifies the type of counterparty&apos;s action the response is related to.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CounterpartyResponseStatusReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CounterpartyResponseStatusReason1Code Value { get; init; } 
+        public required CounterpartyResponseStatusReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CounterpartyResponseStatusReason1Code Value { get; init; } 
         #else

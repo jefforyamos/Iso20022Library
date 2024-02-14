@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the creditor enrolment to be cancelled.
 /// </summary>
 [IsoId("_UedfLeH7Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Enrolment Cancellation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CreditorEnrolmentCancellation2
     /// Unique identification of the original instruction.
     /// </summary>
     [IsoId("_Ufpx8eH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Business Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlBizInstr")]
     #endif
+    [IsoXmlTag("OrgnlBizInstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record CreditorEnrolmentCancellation2
     /// Provides detailed information on the cancellation reason.
     /// </summary>
     [IsoId("_Ufpx8-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
+    [IsoXmlTag("CxlRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorEnrolmentCancellationReason2? CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +83,15 @@ public partial record CreditorEnrolmentCancellation2
     /// Provides the original creditor enrolment data.
     /// </summary>
     [IsoId("_Ufpx9eH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Enrolment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlEnrlmnt")]
     #endif
+    [IsoXmlTag("OrgnlEnrlmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalEnrolment2Choice_ OriginalEnrolment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalEnrolment2Choice_ OriginalEnrolment { get; init; } 
+    public required OriginalEnrolment2Choice_ OriginalEnrolment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalEnrolment2Choice_ OriginalEnrolment { get; init; } 
     #else
@@ -107,12 +102,11 @@ public partial record CreditorEnrolmentCancellation2
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Ufpx9-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

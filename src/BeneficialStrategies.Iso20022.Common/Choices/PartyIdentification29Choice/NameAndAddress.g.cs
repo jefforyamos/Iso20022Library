@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification29Choice
     /// Identifies the name and address of a non-financial institution.
     /// </summary>
     [IsoId("_QFGgctp-Ed-ak6NoX_4Aeg_196915523")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name And Address")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification29Choice
         /// Name by which a party is known and which is usually used to identify that party.
         /// </summary>
         [IsoId("_PcH05Np-Ed-ak6NoX_4Aeg_-1219999063")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max70Text)]
         [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax70Text Name { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Name { get; init; } 
+        public required System.String Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Name { get; init; } 
         #else
@@ -80,12 +76,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification29Choice
         /// Unique and unambiguous identifier assigned to a party using a proprietary identification scheme.
         /// </summary>
         [IsoId("_PcH05dp-Ed-ak6NoX_4Aeg_53536454")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryId")]
         #endif
+        [IsoXmlTag("PrtryId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public GenericIdentification4? ProprietaryIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,16 +93,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification29Choice
         /// Information that locates and identifies a specific address, as defined by postal services.
         /// </summary>
         [IsoId("_PcH05tp-Ed-ak6NoX_4Aeg_-1219998601")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Postal Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PstlAdr")]
         #endif
+        [IsoXmlTag("PstlAdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PostalAddress5 PostalAddress { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PostalAddress5 PostalAddress { get; init; } 
+        public required PostalAddress5 PostalAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PostalAddress5 PostalAddress { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueType1Choice
     /// Whether the Securities Financing Transaction was concluded on a domestic trading venue or a foregin trading venue.
     /// </summary>
     [IsoId("_upJw4Hy7Eeu1BeE84IrnAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Venue")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueType1Choice
         /// Specifies a code for a trade market.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OnVn")]
         #endif
+        [IsoXmlTag("OnVn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TradeMarket2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TradeMarket2Code Value { get; init; } 
+        public required TradeMarket2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TradeMarket2Code Value { get; init; } 
         #else

@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// </summary>
 [Description(@"Scope|The BuyInResponse message is sent by the clearing member to the central counterparty as a response to the previous buy-in notification message.||The message definition is intended for use with the ISO 20022 Business Application Header.||Usage|The BuyInResponse may be sent in response to the BuyInNotification message. However, the use of this message in the buy in process is optional and depends on the rules set by each central counterparty.")]
 [IsoId("_2_0twS0lEeSRe9rElPHBfg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Buy In Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,15 +79,13 @@ public partial record BuyInResponseV03 : IOuterRecord<BuyInResponseV03,BuyInResp
     /// Unambiguous identification of the transaction as known by the instructing party.
     /// </summary>
     [IsoId("_2_0twy0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,16 +98,15 @@ public partial record BuyInResponseV03 : IOuterRecord<BuyInResponseV03,BuyInResp
     /// Provides response details such as a request for delay and the number of days associated to that request.
     /// </summary>
     [IsoId("_2_0txS0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In Response Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInRspnDtls")]
     #endif
+    [IsoXmlTag("BuyInRspnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BuyIn3 BuyInResponseDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BuyIn3 BuyInResponseDetails { get; init; } 
+    public required BuyIn3 BuyInResponseDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BuyIn3 BuyInResponseDetails { get; init; } 
     #else
@@ -122,12 +117,11 @@ public partial record BuyInResponseV03 : IOuterRecord<BuyInResponseV03,BuyInResp
     /// Provides details about the original settlement obligation that did not settle and for which the buy in process will be launched.
     /// </summary>
     [IsoId("_2_0txy0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Settlement Obligation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlSttlmOblgtnDtls")]
     #endif
+    [IsoXmlTag("OrgnlSttlmOblgtnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementObligation7? OriginalSettlementObligationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +134,11 @@ public partial record BuyInResponseV03 : IOuterRecord<BuyInResponseV03,BuyInResp
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_2_0tyS0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +151,7 @@ public partial record BuyInResponseV03 : IOuterRecord<BuyInResponseV03,BuyInResp
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BuyInResponseV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BuyInResponseV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BuyInResponseV03Document ToDocument()
     {
@@ -168,7 +161,7 @@ public partial record BuyInResponseV03 : IOuterRecord<BuyInResponseV03,BuyInResp
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BuyInResponseV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BuyInResponseV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BuyInResponseV03Document : IOuterDocument<BuyInResponseV03>
@@ -185,7 +178,7 @@ public partial record BuyInResponseV03Document : IOuterDocument<BuyInResponseV03
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BuyInResponseV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BuyInResponseV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BuyInResponseV03 Message { get; init; }

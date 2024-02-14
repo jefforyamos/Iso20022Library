@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
 [IsoId("_sAOv553CEeuwmdq0KtnICg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Instrument Description")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,12 @@ public partial record SecurityInstrumentDescription20
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
     [IsoId("_sY0PAZ3CEeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ISIN2021Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISIN2021Identifier? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,19 +68,17 @@ public partial record SecurityInstrumentDescription20
     /// Full name or description of the financial instrument.
     /// </summary>
     [IsoId("_sY0PA53CEeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Full Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FullNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FullNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text FullName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FullName { get; init; } 
+    public required System.String FullName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FullName { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record SecurityInstrumentDescription20
     /// Classification type of the financial instrument, as per the ISO classification of financial instrument (CFI) codification, that is common share with voting rights, fully paid, or registered.
     /// </summary>
     [IsoId("_sY0PBZ3CEeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssfctnTp")]
     #endif
+    [IsoXmlTag("ClssfctnTp")]
+    [IsoSimpleType(IsoSimpleType.CFIOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCFIOct2015Identifier ClassificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ClassificationType { get; init; } 
+    public required System.String ClassificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ClassificationType { get; init; } 
     #else
@@ -113,12 +109,11 @@ public partial record SecurityInstrumentDescription20
     /// Currency in which the notional is denominated.
     /// </summary>
     [IsoId("_sY0PCZ3CEeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlCcy")]
     #endif
+    [IsoXmlTag("NtnlCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? NotionalCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

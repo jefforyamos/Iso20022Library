@@ -21,7 +21,7 @@ public enum AssetClassSubProductType10Code
 {
     /// <summary>
     /// Commodity of type emission.
-    /// Encoded/decoded by serializers as "EMIS".
+    /// Encoded/decoded by serializers as &quot;EMIS&quot;.
     /// </summary>
     [EnumMember(Value = "EMIS")]
     [IsoId("_XZ6MEQn0EeWnS-yHF1QhNQ")]

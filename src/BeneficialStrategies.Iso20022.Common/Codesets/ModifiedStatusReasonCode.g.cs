@@ -21,7 +21,7 @@ public enum ModifiedStatusReasonCode
 {
     /// <summary>
     /// Modification of a transaction by the account owner.
-    /// Encoded/decoded by serializers as "MDBY".
+    /// Encoded/decoded by serializers as &quot;MDBY&quot;.
     /// </summary>
     [EnumMember(Value = "MDBY")]
     [IsoId("_0ldWowlIEeGATtfOBToyew_471915014")]
@@ -30,7 +30,7 @@ public enum ModifiedStatusReasonCode
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_0ldWpAlIEeGATtfOBToyew_377855801")]

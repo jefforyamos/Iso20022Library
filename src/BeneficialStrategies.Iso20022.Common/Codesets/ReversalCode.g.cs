@@ -21,7 +21,7 @@ public enum ReversalCode
 {
     /// <summary>
     /// Debit entry used to reverse a previously booked credit entry.
-    /// Encoded/decoded by serializers as "RVCD".
+    /// Encoded/decoded by serializers as &quot;RVCD&quot;.
     /// </summary>
     [EnumMember(Value = "RVCD")]
     [IsoId("_Y-Bo89p-Ed-ak6NoX_4Aeg_499553797")]
@@ -30,7 +30,7 @@ public enum ReversalCode
     
     /// <summary>
     /// Credit entry used to reverse a previously booked debit entry.
-    /// Encoded/decoded by serializers as "RVDB".
+    /// Encoded/decoded by serializers as &quot;RVDB&quot;.
     /// </summary>
     [EnumMember(Value = "RVDB")]
     [IsoId("_Y-Bo9Np-Ed-ak6NoX_4Aeg_499553857")]

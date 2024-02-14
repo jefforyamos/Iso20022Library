@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus45Cho
     /// Cancellation request from yourself for this instruction is pending waiting for further processing.
     /// </summary>
     [IsoId("_waWtryAeEeuyDZ-ukt4YRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Cancellation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

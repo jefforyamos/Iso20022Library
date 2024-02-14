@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The FinancialInstrumentReportingEquityTradingActivityResult message is sent by a national competent authority to report on computed results data of equity specific trading activity.")]
 [IsoId("_4LK8RURNEee7JdgA9zPESA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Reporting Equity Trading Activity Result V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record FinancialInstrumentReportingEquityTradingActivityResultV01
     /// Header to provide details on when and from whom the message originates.
     /// </summary>
     [IsoId("_4LK8R0RNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptHdr")]
     #endif
+    [IsoXmlTag("RptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesMarketReportHeader1 ReportHeader { get; init; } 
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesMarketReportHeader1 ReportHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record FinancialInstrumentReportingEquityTradingActivityResultV01
     /// Details the transparency data reported by a trading venue.
     /// </summary>
     [IsoId("_4LK8SURNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equity Transparency Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EqtyTrnsprncyData")]
     #endif
+    [IsoXmlTag("EqtyTrnsprncyData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransparencyDataReport12 EquityTransparencyData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransparencyDataReport12 EquityTransparencyData { get; init; } 
+    public required TransparencyDataReport12 EquityTransparencyData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransparencyDataReport12 EquityTransparencyData { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record FinancialInstrumentReportingEquityTradingActivityResultV01
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_4LK8S0RNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record FinancialInstrumentReportingEquityTradingActivityResultV01
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInstrumentReportingEquityTradingActivityResultV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInstrumentReportingEquityTradingActivityResultV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInstrumentReportingEquityTradingActivityResultV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record FinancialInstrumentReportingEquityTradingActivityResultV01
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingEquityTradingActivityResultV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInstrumentReportingEquityTradingActivityResultV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInstrumentReportingEquityTradingActivityResultV01Document : IOuterDocument<FinancialInstrumentReportingEquityTradingActivityResultV01>
@@ -161,7 +156,7 @@ public partial record FinancialInstrumentReportingEquityTradingActivityResultV01
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInstrumentReportingEquityTradingActivityResultV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInstrumentReportingEquityTradingActivityResultV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentReportingEquityTradingActivityResultV01 Message { get; init; }

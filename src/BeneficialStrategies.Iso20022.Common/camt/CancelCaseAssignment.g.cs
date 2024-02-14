@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Cancel Case Assignment message is sent by a case creator or case assigner to a case assignee. This message is used to request the cancellation of a case.|Usage|The Cancel Case Assignment message is used to stop the processing of a case at a case assignee when a case assignment is incorrect or when the root cause for the case disappears (such as the account owner was able to reconcile after sending a Claim Non Receipt message).|The Cancel Case Assignment message can be used to stop the processing of a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|The Cancel Case Assignment message covers one and only one case at a time. If several case assignments need to be cancelled, then multiple Cancel Case Assignment messages must be sent.|The Cancel Case Assignment message must be forwarded by all subsequent case assignee(s) in the case processing chain until it reaches the end point.|When an agent re-assigns the Cancel Case Assignment to a subsequent case assignee, this agent must send a Notification Of Case Assignment message to its assigner.|When the Cancel Case Assignment instruction has been acted upon by the relevant case assignee, a Resolution Of Investigation message is sent to the case assigner or case creator, in reply.|The Cancel Case Assignment message must not be used for other purposes. If, for example, a request to modify payment fails, and the case creator requests the cancellation of the payment, then a Request To Cancel Payment message must be used, with the case identification of the original Request To Modify Payment message. In this context it is incorrect to use the Cancel Case Assignment message.")]
 [IsoId("_L_DsKNE-Ed-BzquC8wXy7w_-767166223")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancel Case Assignment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -89,16 +87,15 @@ public partial record CancelCaseAssignment : IOuterRecord<CancelCaseAssignment,C
     /// Identifies the assignment.
     /// </summary>
     [IsoId("_L_NdINE-Ed-BzquC8wXy7w_2010781647")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment Assignment { get; init; } 
+    public required CaseAssignment Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment Assignment { get; init; } 
     #else
@@ -109,16 +106,15 @@ public partial record CancelCaseAssignment : IOuterRecord<CancelCaseAssignment,C
     /// Identifies the case.
     /// </summary>
     [IsoId("_L_NdIdE-Ed-BzquC8wXy7w_450552846")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case Case { get; init; } 
+    public required Case Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case Case { get; init; } 
     #else
@@ -129,7 +125,7 @@ public partial record CancelCaseAssignment : IOuterRecord<CancelCaseAssignment,C
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CancelCaseAssignmentDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CancelCaseAssignmentDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CancelCaseAssignmentDocument ToDocument()
     {
@@ -139,7 +135,7 @@ public partial record CancelCaseAssignment : IOuterRecord<CancelCaseAssignment,C
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CancelCaseAssignment"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CancelCaseAssignment&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CancelCaseAssignmentDocument : IOuterDocument<CancelCaseAssignment>
@@ -156,7 +152,7 @@ public partial record CancelCaseAssignmentDocument : IOuterDocument<CancelCaseAs
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CancelCaseAssignment"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CancelCaseAssignment&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancelCaseAssignment Message { get; init; }

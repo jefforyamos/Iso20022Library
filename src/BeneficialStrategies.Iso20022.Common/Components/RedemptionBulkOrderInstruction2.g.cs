@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a redemption bulk order.
 /// </summary>
 [IsoId("_RO293Np-Ed-ak6NoX_4Aeg_-1015929589")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Redemption Bulk Order Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RedemptionBulkOrderInstruction2
     /// Common information related to all the orders.
     /// </summary>
     [IsoId("_RO293dp-Ed-ak6NoX_4Aeg_-1015929545")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bulk Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlkOrdrDtls")]
     #endif
+    [IsoXmlTag("BlkOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RedemptionBulkOrder3 BulkOrderDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RedemptionBulkOrder3 BulkOrderDetails { get; init; } 
+    public required RedemptionBulkOrder3 BulkOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RedemptionBulkOrder3 BulkOrderDetails { get; init; } 
     #else
@@ -71,28 +68,24 @@ public partial record RedemptionBulkOrderInstruction2
     /// Information about parties related to the transaction.
     /// </summary>
     [IsoId("_RO293tp-Ed-ak6NoX_4Aeg_-1015929503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Party Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdPtyDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdPtyDtls")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Intermediary8> RelatedPartyDetails { get; init; } = new ValueList<Intermediary8>(){};
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_RPAu0Np-Ed-ak6NoX_4Aeg_-1015929468")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

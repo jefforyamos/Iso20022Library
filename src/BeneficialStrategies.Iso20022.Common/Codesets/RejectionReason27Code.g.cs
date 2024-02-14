@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum RejectionReason27Code
 {
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_BhhR1v4vEeClUvPNHKL9Zw")]
@@ -30,7 +30,7 @@ public enum RejectionReason27Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_BhhR2v4vEeClUvPNHKL9Zw")]
@@ -38,8 +38,8 @@ public enum RejectionReason27Code
     MarketDeadlineMissed = RejectionReasonV2Code.MarketDeadlineMissed, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Unrecognised or invalid message sender&apos;s safekeeping account.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_BhhR3v4vEeClUvPNHKL9Zw")]
@@ -48,7 +48,7 @@ public enum RejectionReason27Code
     
     /// <summary>
     /// More than one instruction match the criteria.
-    /// Encoded/decoded by serializers as "NRGM".
+    /// Encoded/decoded by serializers as &quot;NRGM&quot;.
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_BhhR4v4vEeClUvPNHKL9Zw")]
@@ -57,7 +57,7 @@ public enum RejectionReason27Code
     
     /// <summary>
     /// Instruction could not be found.
-    /// Encoded/decoded by serializers as "NRGN".
+    /// Encoded/decoded by serializers as &quot;NRGN&quot;.
     /// </summary>
     [EnumMember(Value = "NRGN")]
     [IsoId("_BhhR5v4vEeClUvPNHKL9Zw")]
@@ -66,7 +66,7 @@ public enum RejectionReason27Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_BhhR6v4vEeClUvPNHKL9Zw")]
@@ -75,7 +75,7 @@ public enum RejectionReason27Code
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_BhhR7v4vEeClUvPNHKL9Zw")]
@@ -84,7 +84,7 @@ public enum RejectionReason27Code
     
     /// <summary>
     /// Invalid or unrecognized modification request.
-    /// Encoded/decoded by serializers as "INVM".
+    /// Encoded/decoded by serializers as &quot;INVM&quot;.
     /// </summary>
     [EnumMember(Value = "INVM")]
     [IsoId("_xwRr_v8FEeCCq-oUcJbFqw")]
@@ -93,7 +93,7 @@ public enum RejectionReason27Code
     
     /// <summary>
     /// Invalid or unrecognized link.
-    /// Encoded/decoded by serializers as "INVL".
+    /// Encoded/decoded by serializers as &quot;INVL&quot;.
     /// </summary>
     [EnumMember(Value = "INVL")]
     [IsoId("_yNLqbv8FEeCCq-oUcJbFqw")]

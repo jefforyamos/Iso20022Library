@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"This message is sent by the authorities (police, customs, tax authorities, enforcement authorities) to a financial institution to request account and other banking and financial information. Requested information can relate to accounts, their signatories and beneficiaries and co-owners as well as movements plus positions on these accounts.||Requests are underpinned by specific legal texts.")]
 [IsoId("_ixVXwztbEeGg8InIPRjKog")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Information Request Opening V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,19 +79,17 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
     /// Unique identification for the specific investigation as known by the requesting party.
     /// </summary>
     [IsoId("_MvVY3zteEeGg8InIPRjKog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InvstgtnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InvestigationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InvestigationIdentification { get; init; } 
+    public required System.String InvestigationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InvestigationIdentification { get; init; } 
     #else
@@ -104,16 +100,15 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
     /// Provides details on the legal basis of the request.
     /// </summary>
     [IsoId("_Gh6K-0J9EeGuetKibuqsKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Mandate Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglMndtBsis")]
     #endif
+    [IsoXmlTag("LglMndtBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LegalMandate1 LegalMandateBasis { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LegalMandate1 LegalMandateBasis { get; init; } 
+    public required LegalMandate1 LegalMandateBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LegalMandate1 LegalMandateBasis { get; init; } 
     #else
@@ -124,16 +119,16 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
     /// Specifies the confidentiality status of the investigation.
     /// </summary>
     [IsoId("_UdsRrz2NEeGG64_ngBNdUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confidentiality Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnfdtltySts")]
     #endif
+    [IsoXmlTag("CnfdtltySts")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ConfidentialityStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ConfidentialityStatus { get; init; } 
+    public required System.String ConfidentialityStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ConfidentialityStatus { get; init; } 
     #else
@@ -144,12 +139,11 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
     /// Specifies the date by when the financial institutiion needs to provide a response.
     /// </summary>
     [IsoId("_6Pv_70cVEeGlWcsEChp7QA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Due Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DueDt")]
     #endif
+    [IsoXmlTag("DueDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DueDate1? DueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,16 +156,15 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
     /// Specifies the dates between which period the authority requests that the financial institution provides a response to the information request.
     /// </summary>
     [IsoId("_VWAzXzwlEeGUCuI3g5RrVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnPrd")]
     #endif
+    [IsoXmlTag("InvstgtnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateOrDateTimePeriodChoice_ InvestigationPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateOrDateTimePeriodChoice_ InvestigationPeriod { get; init; } 
+    public required DateOrDateTimePeriodChoice_ InvestigationPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateOrDateTimePeriodChoice_ InvestigationPeriod { get; init; } 
     #else
@@ -182,16 +175,15 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
     /// Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.
     /// </summary>
     [IsoId("_qpVADzthEeGg8InIPRjKog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SearchCriteria1Choice_ SearchCriteria { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SearchCriteria1Choice_ SearchCriteria { get; init; } 
+    public required SearchCriteria1Choice_ SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SearchCriteria1Choice_ SearchCriteria { get; init; } 
     #else
@@ -202,12 +194,11 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_O_AtrzwoEeGUCuI3g5RrVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -220,7 +211,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InformationRequestOpeningV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InformationRequestOpeningV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InformationRequestOpeningV01Document ToDocument()
     {
@@ -230,7 +221,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord<InformationReq
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestOpeningV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InformationRequestOpeningV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InformationRequestOpeningV01Document : IOuterDocument<InformationRequestOpeningV01>
@@ -247,7 +238,7 @@ public partial record InformationRequestOpeningV01Document : IOuterDocument<Info
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InformationRequestOpeningV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InformationRequestOpeningV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InformationRequestOpeningV01 Message { get; init; }

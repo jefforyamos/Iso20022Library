@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cash management feature limiting the maximum risk a party accepts to take with respect to a counterparty or a set of counterparties. A risk management limit is either bilateral, ie, for a counterparty, or multilateral, ie, for a set of counterparties or all other members in a system.The limit may also apply to sponsored members, ie, indirect members. In principle, a risk management limit is calculated on the net position between two members and is expressed as a credit or debit limit, from the point of view of the party setting the limit.
 /// </summary>
 [IsoId("_jOt60O5NEeCisYr99QEiWA_-281816560")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record LimitIdentification4
     /// Unique identification as assigned by the account servicer to unambiguously identify the account.
     /// </summary>
     [IsoId("_jOt60e5NEeCisYr99QEiWA_932788374")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification4Choice_ AccountIdentification { get; init; } 
+    public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification4Choice_ AccountIdentification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record LimitIdentification4
     /// Nature of the risk management limit.
     /// </summary>
     [IsoId("_jOt60u5NEeCisYr99QEiWA_-1514351595")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitType4Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LimitType4Code Type { get; init; } 
+    public required LimitType4Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LimitType4Code Type { get; init; } 
     #else
@@ -93,12 +89,11 @@ public partial record LimitIdentification4
     /// Currency unit used to specify the limit amount.
     /// </summary>
     [IsoId("_jOt60-5NEeCisYr99QEiWA_2125379305")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtCcy")]
     #endif
+    [IsoXmlTag("LmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +106,16 @@ public partial record LimitIdentification4
     /// Owner of the account which is being queried.
     /// </summary>
     [IsoId("_jOt61O5NEeCisYr99QEiWA_-1060264326")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
+    [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICFIIdentifier AccountOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AccountOwner { get; init; } 
+    public required System.String AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AccountOwner { get; init; } 
     #else
@@ -131,12 +126,11 @@ public partial record LimitIdentification4
     /// Identification of the system member for which the limit is established.
     /// </summary>
     [IsoId("_jO3r0O5NEeCisYr99QEiWA_-1722859271")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bilateral Limit Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BilLmtCtrPtyId")]
     #endif
+    [IsoXmlTag("BilLmtCtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification4? BilateralLimitCounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

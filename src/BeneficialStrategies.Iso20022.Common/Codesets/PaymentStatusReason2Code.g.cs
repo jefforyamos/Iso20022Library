@@ -21,7 +21,7 @@ public enum PaymentStatusReason2Code
 {
     /// <summary>
     /// The transaction processing cannot be completed the same day.
-    /// Encoded/decoded by serializers as "G002".
+    /// Encoded/decoded by serializers as &quot;G002&quot;.
     /// </summary>
     [EnumMember(Value = "G002")]
     [IsoId("_m3wxgaXaEeaBtJ1HvhzRtg")]
@@ -29,8 +29,8 @@ public enum PaymentStatusReason2Code
     CreditDebitNotConfirmed = ExternalPaymentStatusReasonCode.CreditDebitNotConfirmed, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Credit to the creditor's account is pending as status Originator is waiting for funds provided via a cover.
-    /// Encoded/decoded by serializers as "G004".
+    /// Credit to the creditor&apos;s account is pending as status Originator is waiting for funds provided via a cover.
+    /// Encoded/decoded by serializers as &quot;G004&quot;.
     /// </summary>
     [EnumMember(Value = "G004")]
     [IsoId("_m8ReEaXaEeaBtJ1HvhzRtg")]
@@ -39,7 +39,7 @@ public enum PaymentStatusReason2Code
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure maintaining the transaction’s service obligations.
-    /// Encoded/decoded by serializers as "G000".
+    /// Encoded/decoded by serializers as &quot;G000&quot;.
     /// </summary>
     [EnumMember(Value = "G000")]
     [IsoId("_nGkpkaXaEeaBtJ1HvhzRtg")]
@@ -48,7 +48,7 @@ public enum PaymentStatusReason2Code
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.
-    /// Encoded/decoded by serializers as "G001".
+    /// Encoded/decoded by serializers as &quot;G001&quot;.
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_nLJnkaXaEeaBtJ1HvhzRtg")]
@@ -56,8 +56,8 @@ public enum PaymentStatusReason2Code
     PaymentTransferredAndSLANoLongerMaintained = ExternalPaymentStatusReasonCode.PaymentTransferredAndSLANoLongerMaintained, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// In an FI to FI Customer Credit Transfer: Credit to creditor's account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.
-    /// Encoded/decoded by serializers as "G003".
+    /// In an FI to FI Customer Credit Transfer: Credit to creditor&apos;s account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation.
+    /// Encoded/decoded by serializers as &quot;G003&quot;.
     /// </summary>
     [EnumMember(Value = "G003")]
     [IsoId("_eqFg0aZbEeatnf2letP_og")]

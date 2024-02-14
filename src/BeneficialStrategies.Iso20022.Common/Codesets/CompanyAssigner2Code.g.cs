@@ -21,7 +21,7 @@ public enum CompanyAssigner2Code
 {
     /// <summary>
     /// Any relevant association in charge of assigning an identification to a company.
-    /// Encoded/decoded by serializers as "ASSO".
+    /// Encoded/decoded by serializers as &quot;ASSO&quot;.
     /// </summary>
     [EnumMember(Value = "ASSO")]
     [IsoId("_qVBv0WMaEeexSYCBvAp_qA")]
@@ -30,7 +30,7 @@ public enum CompanyAssigner2Code
     
     /// <summary>
     /// Legal authority assigning an identification to a company (for example, a local, regional or national authority).
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_qeFlMWMaEeexSYCBvAp_qA")]
@@ -39,7 +39,7 @@ public enum CompanyAssigner2Code
     
     /// <summary>
     /// Identification assigned by the company itself.
-    /// Encoded/decoded by serializers as "CPNY".
+    /// Encoded/decoded by serializers as &quot;CPNY&quot;.
     /// </summary>
     [EnumMember(Value = "CPNY")]
     [IsoId("_qrDqMWMaEeexSYCBvAp_qA")]
@@ -48,7 +48,7 @@ public enum CompanyAssigner2Code
     
     /// <summary>
     /// Legal Entity Identifier.
-    /// Encoded/decoded by serializers as "LEII".
+    /// Encoded/decoded by serializers as &quot;LEII&quot;.
     /// </summary>
     [EnumMember(Value = "LEII")]
     [IsoId("_q6aU0WMaEeexSYCBvAp_qA")]
@@ -57,7 +57,7 @@ public enum CompanyAssigner2Code
     
     /// <summary>
     /// Identification assigned by a travel agency.
-    /// Encoded/decoded by serializers as "TRAG".
+    /// Encoded/decoded by serializers as &quot;TRAG&quot;.
     /// </summary>
     [EnumMember(Value = "TRAG")]
     [IsoId("_rC_pEWMaEeexSYCBvAp_qA")]
@@ -66,7 +66,7 @@ public enum CompanyAssigner2Code
     
     /// <summary>
     /// Other company assigner entity defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_9vdIMWMaEeexSYCBvAp_qA")]
@@ -75,7 +75,7 @@ public enum CompanyAssigner2Code
     
     /// <summary>
     /// Other company assigner entity defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_97L3EWMaEeexSYCBvAp_qA")]

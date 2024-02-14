@@ -21,7 +21,7 @@ public enum MemoryUnitCode
 {
     /// <summary>
     /// Exa byte.
-    /// Encoded/decoded by serializers as "EXAB".
+    /// Encoded/decoded by serializers as &quot;EXAB&quot;.
     /// </summary>
     [EnumMember(Value = "EXAB")]
     [IsoId("_Hr9EwAxzEeKa_56Jbsi1RQ")]
@@ -30,7 +30,7 @@ public enum MemoryUnitCode
     
     /// <summary>
     /// Peta byte.
-    /// Encoded/decoded by serializers as "PETA".
+    /// Encoded/decoded by serializers as &quot;PETA&quot;.
     /// </summary>
     [EnumMember(Value = "PETA")]
     [IsoId("_R05qsAxzEeKa_56Jbsi1RQ")]
@@ -39,7 +39,7 @@ public enum MemoryUnitCode
     
     /// <summary>
     /// Tera byte.
-    /// Encoded/decoded by serializers as "TERA".
+    /// Encoded/decoded by serializers as &quot;TERA&quot;.
     /// </summary>
     [EnumMember(Value = "TERA")]
     [IsoId("_cCdq4AxzEeKa_56Jbsi1RQ")]
@@ -48,7 +48,7 @@ public enum MemoryUnitCode
     
     /// <summary>
     /// Giga byte.
-    /// Encoded/decoded by serializers as "GIGA".
+    /// Encoded/decoded by serializers as &quot;GIGA&quot;.
     /// </summary>
     [EnumMember(Value = "GIGA")]
     [IsoId("_hkizYAxzEeKa_56Jbsi1RQ")]
@@ -57,7 +57,7 @@ public enum MemoryUnitCode
     
     /// <summary>
     /// Mega byte.
-    /// Encoded/decoded by serializers as "MEGA".
+    /// Encoded/decoded by serializers as &quot;MEGA&quot;.
     /// </summary>
     [EnumMember(Value = "MEGA")]
     [IsoId("_lTyFQAxzEeKa_56Jbsi1RQ")]
@@ -66,7 +66,7 @@ public enum MemoryUnitCode
     
     /// <summary>
     /// Kilo byte.
-    /// Encoded/decoded by serializers as "KILO".
+    /// Encoded/decoded by serializers as &quot;KILO&quot;.
     /// </summary>
     [EnumMember(Value = "KILO")]
     [IsoId("_qWw28AxzEeKa_56Jbsi1RQ")]
@@ -75,7 +75,7 @@ public enum MemoryUnitCode
     
     /// <summary>
     /// Byte.
-    /// Encoded/decoded by serializers as "BYTE".
+    /// Encoded/decoded by serializers as &quot;BYTE&quot;.
     /// </summary>
     [EnumMember(Value = "BYTE")]
     [IsoId("_up_msAxzEeKa_56Jbsi1RQ")]

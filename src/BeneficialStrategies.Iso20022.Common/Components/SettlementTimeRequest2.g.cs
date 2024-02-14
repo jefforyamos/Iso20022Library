@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information on the requested settlement time(s) of the payment instruction.
 /// </summary>
 [IsoId("_QIrY6dp-Ed-ak6NoX_4Aeg_2050617089")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Time Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -41,15 +39,15 @@ public partial record SettlementTimeRequest2
     #nullable enable
     
     /// <summary>
-    /// Time by which the amount of money must be credited, with confirmation, to the CLS Bank's account at the central bank.|Usage: Time must be expressed in Central European Time (CET).
+    /// Time by which the amount of money must be credited, with confirmation, to the CLS Bank&apos;s account at the central bank.|Usage: Time must be expressed in Central European Time (CET).
     /// </summary>
     [IsoId("_QIrY6tp-Ed-ak6NoX_4Aeg_2050617120")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CLS Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CLSTm")]
     #endif
+    [IsoXmlTag("CLSTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? CLSTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record SettlementTimeRequest2
     /// Time until when the payment may be settled.
     /// </summary>
     [IsoId("_QIrY69p-Ed-ak6NoX_4Aeg_2142970270")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Till Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TillTm")]
     #endif
+    [IsoXmlTag("TillTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? TillTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record SettlementTimeRequest2
     /// Time as from when the payment may be settled.
     /// </summary>
     [IsoId("_QIrY7Np-Ed-ak6NoX_4Aeg_2123575201")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrTm")]
     #endif
+    [IsoXmlTag("FrTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? FromTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record SettlementTimeRequest2
     /// Time by when the payment must be settled to avoid rejection.
     /// </summary>
     [IsoId("_QI1J4Np-Ed-ak6NoX_4Aeg_2138351566")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reject Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctTm")]
     #endif
+    [IsoXmlTag("RjctTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? RejectTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum CollateralType2Code
 {
     /// <summary>
     /// Collateral type is cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_YZhNt9p-Ed-ak6NoX_4Aeg_-490160893")]
@@ -30,7 +30,7 @@ public enum CollateralType2Code
     
     /// <summary>
     /// Collateral type is securities.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_YZhNuNp-Ed-ak6NoX_4Aeg_-2046528295")]

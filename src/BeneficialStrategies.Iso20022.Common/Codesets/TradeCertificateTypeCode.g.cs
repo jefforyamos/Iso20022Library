@@ -21,7 +21,7 @@ public enum TradeCertificateTypeCode
 {
     /// <summary>
     /// Certificate of analysis.
-    /// Encoded/decoded by serializers as "ANLY".
+    /// Encoded/decoded by serializers as &quot;ANLY&quot;.
     /// </summary>
     [EnumMember(Value = "ANLY")]
     [IsoId("_YmVhs9p-Ed-ak6NoX_4Aeg_563823531")]
@@ -30,7 +30,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Certificate of quality.
-    /// Encoded/decoded by serializers as "QUAL".
+    /// Encoded/decoded by serializers as &quot;QUAL&quot;.
     /// </summary>
     [EnumMember(Value = "QUAL")]
     [IsoId("_YmVhtNp-Ed-ak6NoX_4Aeg_563823549")]
@@ -39,7 +39,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Certificate of quantity.
-    /// Encoded/decoded by serializers as "QUAN".
+    /// Encoded/decoded by serializers as &quot;QUAN&quot;.
     /// </summary>
     [EnumMember(Value = "QUAN")]
     [IsoId("_YmVhtdp-Ed-ak6NoX_4Aeg_563823550")]
@@ -48,7 +48,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Certificate of weight.
-    /// Encoded/decoded by serializers as "WEIG".
+    /// Encoded/decoded by serializers as &quot;WEIG&quot;.
     /// </summary>
     [EnumMember(Value = "WEIG")]
     [IsoId("_YmVhttp-Ed-ak6NoX_4Aeg_563823574")]
@@ -57,7 +57,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Certificate of origin.
-    /// Encoded/decoded by serializers as "ORIG".
+    /// Encoded/decoded by serializers as &quot;ORIG&quot;.
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_YmVht9p-Ed-ak6NoX_4Aeg_563823575")]
@@ -66,7 +66,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Certificate of health.
-    /// Encoded/decoded by serializers as "HEAL".
+    /// Encoded/decoded by serializers as &quot;HEAL&quot;.
     /// </summary>
     [EnumMember(Value = "HEAL")]
     [IsoId("_YmVhuNp-Ed-ak6NoX_4Aeg_563823591")]
@@ -75,7 +75,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Phytosanitary certificate.
-    /// Encoded/decoded by serializers as "PHYT".
+    /// Encoded/decoded by serializers as &quot;PHYT&quot;.
     /// </summary>
     [EnumMember(Value = "PHYT")]
     [IsoId("_YmVhudp-Ed-ak6NoX_4Aeg_563823592")]
@@ -84,7 +84,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Beneficiary certificate.
-    /// Encoded/decoded by serializers as "BENE".
+    /// Encoded/decoded by serializers as &quot;BENE&quot;.
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_YmeroNp-Ed-ak6NoX_4Aeg_1629420522")]
@@ -93,7 +93,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Shipping line certificate.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_Ymerodp-Ed-ak6NoX_4Aeg_1656201715")]
@@ -102,7 +102,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Undefined certificate at this stage.
-    /// Encoded/decoded by serializers as "UND1".
+    /// Encoded/decoded by serializers as &quot;UND1&quot;.
     /// </summary>
     [EnumMember(Value = "UND1")]
     [IsoId("_Ymerotp-Ed-ak6NoX_4Aeg_1675594307")]
@@ -111,7 +111,7 @@ public enum TradeCertificateTypeCode
     
     /// <summary>
     /// Undefined certificate at this stage.
-    /// Encoded/decoded by serializers as "UND2".
+    /// Encoded/decoded by serializers as &quot;UND2&quot;.
     /// </summary>
     [EnumMember(Value = "UND2")]
     [IsoId("_Ymero9p-Ed-ak6NoX_4Aeg_1953575415")]

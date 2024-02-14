@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the document entry amendment.
 /// </summary>
 [IsoId("_rOYIcLP4Eeud-ZmjZVm7MA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document Entry Amendment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record DocumentEntryAmendment1
     /// Number of correcting entry.
     /// </summary>
     [IsoId("_DlxxILP5Eeud-ZmjZVm7MA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Correcting Entry Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrrctgNtryNb")]
     #endif
+    [IsoXmlTag("CrrctgNtryNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber CorrectingEntryNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 CorrectingEntryNumber { get; init; } 
+    public required System.UInt64 CorrectingEntryNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 CorrectingEntryNumber { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record DocumentEntryAmendment1
     /// Data related to an original document.
     /// </summary>
     [IsoId("_MnAhELP5Eeud-ZmjZVm7MA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlDoc")]
     #endif
+    [IsoXmlTag("OrgnlDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification28 OriginalDocument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification28 OriginalDocument { get; init; } 
+    public required DocumentIdentification28 OriginalDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification28 OriginalDocument { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the mandate, which is being suspended.
 /// </summary>
 [IsoId("_IgCRoH5oEea7cqFPsAF3tQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Suspension")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record MandateSuspension1
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the suspension request.
     /// </summary>
     [IsoId("_TNLMgJnBEeao_Z127E9uYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspension Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SspnsnReqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SspnsnReqId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SuspensionRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SuspensionRequestIdentification { get; init; } 
+    public required System.String SuspensionRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SuspensionRequestIdentification { get; init; } 
     #else
@@ -76,12 +72,11 @@ public partial record MandateSuspension1
     /// Provides information on the original message.
     /// </summary>
     [IsoId("_s3OtIH5oEea7cqFPsAF3tQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgInf")]
     #endif
+    [IsoXmlTag("OrgnlMsgInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +89,15 @@ public partial record MandateSuspension1
     /// Provides detailed information on the suspension reason.
     /// </summary>
     [IsoId("_w6-2cH5oEea7cqFPsAF3tQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspension Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SspnsnRsn")]
     #endif
+    [IsoXmlTag("SspnsnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateSuspensionReason1 SuspensionReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateSuspensionReason1 SuspensionReason { get; init; } 
+    public required MandateSuspensionReason1 SuspensionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateSuspensionReason1 SuspensionReason { get; init; } 
     #else
@@ -114,16 +108,15 @@ public partial record MandateSuspension1
     /// Provides the original mandate data.
     /// </summary>
     [IsoId("_CfZIYH5pEea7cqFPsAF3tQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Mandate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMndt")]
     #endif
+    [IsoXmlTag("OrgnlMndt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMandate4Choice_ OriginalMandate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalMandate4Choice_ OriginalMandate { get; init; } 
+    public required OriginalMandate4Choice_ OriginalMandate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalMandate4Choice_ OriginalMandate { get; init; } 
     #else
@@ -134,12 +127,11 @@ public partial record MandateSuspension1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_H2d6wH5pEea7cqFPsAF3tQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

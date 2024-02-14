@@ -21,7 +21,7 @@ public enum MessageFunction8Code
 {
     /// <summary>
     /// Provide the ATM counters resettting those that are applicable.
-    /// Encoded/decoded by serializers as "BALN".
+    /// Encoded/decoded by serializers as &quot;BALN&quot;.
     /// </summary>
     [EnumMember(Value = "BALN")]
     [IsoId("_qGK2cSycEeWT0qwwEKj7sA")]
@@ -30,7 +30,7 @@ public enum MessageFunction8Code
     
     /// <summary>
     /// Global status of the ATM.
-    /// Encoded/decoded by serializers as "GSTS".
+    /// Encoded/decoded by serializers as &quot;GSTS&quot;.
     /// </summary>
     [EnumMember(Value = "GSTS")]
     [IsoId("_rsG5gSycEeWT0qwwEKj7sA")]
@@ -39,7 +39,7 @@ public enum MessageFunction8Code
     
     /// <summary>
     /// Security detailed report.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_uCydASycEeWT0qwwEKj7sA")]
@@ -48,7 +48,7 @@ public enum MessageFunction8Code
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "INQC".
+    /// Encoded/decoded by serializers as &quot;INQC&quot;.
     /// </summary>
     [EnumMember(Value = "INQC")]
     [IsoId("_vAyWUSycEeWT0qwwEKj7sA")]
@@ -57,7 +57,7 @@ public enum MessageFunction8Code
     
     /// <summary>
     /// Request of a key exchange.
-    /// Encoded/decoded by serializers as "KEYQ".
+    /// Encoded/decoded by serializers as &quot;KEYQ&quot;.
     /// </summary>
     [EnumMember(Value = "KEYQ")]
     [IsoId("_xK0k8SycEeWT0qwwEKj7sA")]
@@ -66,7 +66,7 @@ public enum MessageFunction8Code
     
     /// <summary>
     /// Status of cryptographic keys.
-    /// Encoded/decoded by serializers as "SSTS".
+    /// Encoded/decoded by serializers as &quot;SSTS&quot;.
     /// </summary>
     [EnumMember(Value = "SSTS")]
     [IsoId("_yriw0SycEeWT0qwwEKj7sA")]

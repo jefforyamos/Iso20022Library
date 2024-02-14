@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
     /// Requested information on the account.
     /// </summary>
     [IsoId("_fowVcZ-WEee28J7y9KlTWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
         /// </summary>
         [IsoId("_fzXqBZ-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max70Text)]
         [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax70Text? Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Specifies the nature, or use, of the cash account.
         /// </summary>
         [IsoId("_fzXqB5-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashAccountType2Choice_? Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Specifies the currency of the cash account.
         /// </summary>
         [IsoId("_fzYREZ-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ccy")]
         #endif
+        [IsoXmlTag("Ccy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +100,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Maximum amount value applied to or by a participant versus a set of counterparts. The multilateral system is taken into account by the transaction administrator to contain the risk in the system.|With the help of the multilateral limit, the direct participant restricts the use of liquidity when clearing payments with all other direct participants for whom no bilateral limit was set.
         /// </summary>
         [IsoId("_fzYRE5-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Current Multilateral Limit")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CurMulLmt")]
         #endif
+        [IsoXmlTag("CurMulLmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Limit5? CurrentMultilateralLimit { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +117,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Owner of the account which is being queried.
         /// </summary>
         [IsoId("_fzYRFZ-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ownr")]
         #endif
+        [IsoXmlTag("Ownr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification125? Owner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,12 +134,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Servicer of the account which is being queried.
         /// </summary>
         [IsoId("_fzYRF5-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Servicer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Svcr")]
         #endif
+        [IsoXmlTag("Svcr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchAndFinancialInstitutionIdentification5? Servicer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,12 +151,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Balance is calculated with regard to many members in the system.
         /// </summary>
         [IsoId("_fzYRGZ-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Multilateral Balance")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MulBal")]
         #endif
+        [IsoXmlTag("MulBal")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashBalance10? MultilateralBalance { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,12 +168,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Limit fixed by a party A with regard to a specific counterparty B and corresponding to the maximum amount of traffic that party A may send to party B. The bilateral limit can be expressed as a debit limit or a credit limit. |With the help of a bilateral limit, the direct participant restricts the use of liquidity when clearing payments with another direct participant.
         /// </summary>
         [IsoId("_fzYRG5-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Current Bilateral Limit")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CurBilLmt")]
         #endif
+        [IsoXmlTag("CurBilLmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BilateralLimit2? CurrentBilateralLimit { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -196,12 +185,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice
         /// Instruction given by a party that has explicit authority to instruct a debit on the account, that is either the debtor or originating party, to the debtor agent, to process liquidity transfers at specified intervals during an implicit or explicit period of time. A standing order is given once and is valid for an open or closed period of time.
         /// </summary>
         [IsoId("_fzYRHZ-WEee28J7y9KlTWg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Standing Order")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StgOrdr")]
         #endif
+        [IsoXmlTag("StgOrdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public StandingOrder2? StandingOrder { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

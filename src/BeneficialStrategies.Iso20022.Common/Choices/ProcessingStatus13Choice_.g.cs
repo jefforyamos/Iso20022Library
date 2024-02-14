@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus13Choice.Denied))]
     [KnownType(typeof(ProcessingStatus13Choice.Cancelled))]
     [IsoId("_ZH-k4eZgEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 13 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

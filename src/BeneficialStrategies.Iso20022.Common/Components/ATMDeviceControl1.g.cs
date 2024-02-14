@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the control of an ATM device.
 /// </summary>
 [IsoId("_p87DYItEEeSxlKlAGYErFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Device Control")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ATMDeviceControl1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_EruoUItFEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMEnvironment7 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMEnvironment7 Environment { get; init; } 
+    public required ATMEnvironment7 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMEnvironment7 Environment { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ATMDeviceControl1
     /// Maintenance command the ATM must perform.
     /// </summary>
     [IsoId("_laaFAItFEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmd")]
     #endif
+    [IsoXmlTag("Cmd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand4? Command { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

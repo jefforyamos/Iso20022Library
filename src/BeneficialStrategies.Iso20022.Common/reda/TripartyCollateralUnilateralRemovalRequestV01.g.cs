@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"Scope:|A collateral giver/taker sends a TripartyCollateralFinancialInstrumentRemovalRequest to the Triparty Agent to remove a financial instrument from the collateral pool.||The status of this request is provided with the reda.028 , the CollateralDataStatusAdvice.")]
 [IsoId("_2uaNRys7EeySlt9bF77XfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Triparty Collateral Unilateral Removal Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
     /// </summary>
     [IsoId("_2uaNSSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination1 Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination1 Pagination { get; init; } 
+    public required Pagination1 Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination1 Pagination { get; init; } 
     #else
@@ -102,19 +99,17 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     /// Unambiguous identification of the removal request as known by the account owner (or the instructing party managing the account).
     /// </summary>
     [IsoId("_2uaNSys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Removal Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmvlReqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RmvlReqId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RemovalRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RemovalRequestIdentification { get; init; } 
+    public required System.String RemovalRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RemovalRequestIdentification { get; init; } 
     #else
@@ -125,16 +120,15 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     /// Instructing party sending the removal request.
     /// </summary>
     [IsoId("_2uaNTSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyA")]
     #endif
+    [IsoXmlTag("PtyA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification232 PartyA { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification232 PartyA { get; init; } 
+    public required PartyIdentification232 PartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification232 PartyA { get; init; } 
     #else
@@ -145,12 +139,11 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     /// Party that instructs party A to send the message.
     /// </summary>
     [IsoId("_2uaNTys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Party A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntPtyA")]
     #endif
+    [IsoXmlTag("ClntPtyA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification232? ClientPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,16 +156,15 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
     [IsoId("_2uaNUSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSd")]
     #endif
+    [IsoXmlTag("CollSd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralRole1Code CollateralSide { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralRole1Code CollateralSide { get; init; } 
+    public required CollateralRole1Code CollateralSide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralRole1Code CollateralSide { get; init; } 
     #else
@@ -183,16 +175,15 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     /// Details of the request (the request details block is not repetitive to remove some complexity, only one removal request will be possible per message).
     /// </summary>
     [IsoId("_2uaNUys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqDtls")]
     #endif
+    [IsoXmlTag("ReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestDetails28 RequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestDetails28 RequestDetails { get; init; } 
+    public required RequestDetails28 RequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestDetails28 RequestDetails { get; init; } 
     #else
@@ -203,12 +194,11 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_2uaNVSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,7 +211,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TripartyCollateralUnilateralRemovalRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TripartyCollateralUnilateralRemovalRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TripartyCollateralUnilateralRemovalRequestV01Document ToDocument()
     {
@@ -231,7 +221,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralUnilateralRemovalRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TripartyCollateralUnilateralRemovalRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TripartyCollateralUnilateralRemovalRequestV01Document : IOuterDocument<TripartyCollateralUnilateralRemovalRequestV01>
@@ -248,7 +238,7 @@ public partial record TripartyCollateralUnilateralRemovalRequestV01Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TripartyCollateralUnilateralRemovalRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TripartyCollateralUnilateralRemovalRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TripartyCollateralUnilateralRemovalRequestV01 Message { get; init; }

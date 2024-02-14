@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Securitised right for entitlement, for example, equity or bond.
 /// </summary>
 [IsoId("_-p04AeaUEd-q8fx_Zl_34A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Underlying Security")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record UnderlyingSecurity3
     /// Identifies the financial instrument.
     /// </summary>
     [IsoId("_-p04A-aUEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification14 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification14 SecurityIdentification { get; init; } 
+    public required SecurityIdentification14 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification14 SecurityIdentification { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum InterestType2Code
 {
     /// <summary>
     /// Indicates deal price including accrued interest.
-    /// Encoded/decoded by serializers as "CINT".
+    /// Encoded/decoded by serializers as &quot;CINT&quot;.
     /// </summary>
     [EnumMember(Value = "CINT")]
     [IsoId("__215cdojEeC60axPepSq7g_717130324")]
@@ -30,7 +30,7 @@ public enum InterestType2Code
     
     /// <summary>
     /// Indicates deal price excluding accrued interest.
-    /// Encoded/decoded by serializers as "XINT".
+    /// Encoded/decoded by serializers as &quot;XINT&quot;.
     /// </summary>
     [EnumMember(Value = "XINT")]
     [IsoId("__215ctojEeC60axPepSq7g_1303077350")]

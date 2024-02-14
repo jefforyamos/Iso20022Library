@@ -21,7 +21,7 @@ public enum SettlementTransactionCondition5Code
 {
     /// <summary>
     /// Partial settlement is allowed.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_q6dmBWtdEeCY4-KZ9JEyUQ_-817672077")]
@@ -30,7 +30,7 @@ public enum SettlementTransactionCondition5Code
     
     /// <summary>
     /// Partial settlement is not allowed.
-    /// Encoded/decoded by serializers as "NPAR".
+    /// Encoded/decoded by serializers as &quot;NPAR&quot;.
     /// </summary>
     [EnumMember(Value = "NPAR")]
     [IsoId("_q6dmBmtdEeCY4-KZ9JEyUQ_-1814744430")]
@@ -39,7 +39,7 @@ public enum SettlementTransactionCondition5Code
     
     /// <summary>
     /// Partial settlement is allowed but must satisfy a cash value minimum (value defined in static data).
-    /// Encoded/decoded by serializers as "PARC".
+    /// Encoded/decoded by serializers as &quot;PARC&quot;.
     /// </summary>
     [EnumMember(Value = "PARC")]
     [IsoId("_q6nXAGtdEeCY4-KZ9JEyUQ_374187327")]
@@ -48,7 +48,7 @@ public enum SettlementTransactionCondition5Code
     
     /// <summary>
     /// Partial settlement is allowed but must satisfy a minimum quantity of securities (quantity defined in static data).
-    /// Encoded/decoded by serializers as "PARQ".
+    /// Encoded/decoded by serializers as &quot;PARQ&quot;.
     /// </summary>
     [EnumMember(Value = "PARQ")]
     [IsoId("_q6nXAWtdEeCY4-KZ9JEyUQ_1425320399")]

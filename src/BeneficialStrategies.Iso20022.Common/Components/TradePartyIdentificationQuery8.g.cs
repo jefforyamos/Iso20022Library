@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Query of a trade party based on the identification.
 /// </summary>
 [IsoId("_FHEpEZQTEeiok48Eh9lW9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Party Identification Query")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record TradePartyIdentificationQuery8
     /// Legal entity identifier code used to recognise the counterparty of the reporting agent for the reported transaction.
     /// </summary>
     [IsoId("_FS0mEZQTEeiok48Eh9lW9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LEI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LEI")]
     #endif
+    [IsoXmlTag("LEI")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record TradePartyIdentificationQuery8
     /// Business identifier code used to identify the trade party.
     /// </summary>
     [IsoId("_FS0mE5QTEeiok48Eh9lW9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Any BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnyBIC")]
     #endif
+    [IsoXmlTag("AnyBIC")]
+    [IsoSimpleType(IsoSimpleType.AnyBICDec2014Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICDec2014Identifier? AnyBIC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +78,13 @@ public partial record TradePartyIdentificationQuery8
     /// Unique and unambiguous identification of the client counterparty.
     /// </summary>
     [IsoId("_FS0mFZQTEeiok48Eh9lW9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntId")]
+    [IsoSimpleType(IsoSimpleType.Max50Text)]
     [StringLength(maximumLength: 50 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax50Text? ClientIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +97,11 @@ public partial record TradePartyIdentificationQuery8
     /// Field can be queried for not reported value.
     /// </summary>
     [IsoId("_FS0mF5QTEeiok48Eh9lW9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Reported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NotRptd")]
     #endif
+    [IsoXmlTag("NotRptd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotReported1Code? NotReported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

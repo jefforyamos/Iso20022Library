@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_ZI_1kUKTEeWuG5hmkcJWSQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope34
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
     [IsoId("_ZlQ60UKTEeWuG5hmkcJWSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ModificationScopeIndication { get; init; } 
+    public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope34
     /// Address of the organisation.
     /// </summary>
     [IsoId("_ZlQ600KTEeWuG5hmkcJWSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Postal Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstlAdr")]
     #endif
+    [IsoXmlTag("PstlAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PostalAddress21 PostalAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PostalAddress21 PostalAddress { get; init; } 
+    public required PostalAddress21 PostalAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PostalAddress21 PostalAddress { get; init; } 
     #else

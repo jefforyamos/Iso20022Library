@@ -21,7 +21,7 @@ public enum CancellationReason4Code
 {
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_bYQPtdp-Ed-ak6NoX_4Aeg_-834209191")]
@@ -30,7 +30,7 @@ public enum CancellationReason4Code
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bYQPttp-Ed-ak6NoX_4Aeg_-834209170")]
@@ -39,7 +39,7 @@ public enum CancellationReason4Code
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_bYQPt9p-Ed-ak6NoX_4Aeg_-834209140")]
@@ -48,7 +48,7 @@ public enum CancellationReason4Code
     
     /// <summary>
     /// Currency of the payment is incorrect.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_bYQPuNp-Ed-ak6NoX_4Aeg_-834209109")]
@@ -57,7 +57,7 @@ public enum CancellationReason4Code
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_bYQPudp-Ed-ak6NoX_4Aeg_-834209079")]
@@ -66,7 +66,7 @@ public enum CancellationReason4Code
     
     /// <summary>
     /// Cancellation requested because an investigation request has been received and no remediation is possible.
-    /// Encoded/decoded by serializers as "CUTA".
+    /// Encoded/decoded by serializers as &quot;CUTA&quot;.
     /// </summary>
     [EnumMember(Value = "CUTA")]
     [IsoId("_bYaAsNp-Ed-ak6NoX_4Aeg_1991989224")]

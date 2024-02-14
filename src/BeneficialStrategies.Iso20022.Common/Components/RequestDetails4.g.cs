@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of one or several keys of the request.
 /// </summary>
 [IsoId("_SuwKFgEcEeCQm6a_G2yO_w_-1482671344")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record RequestDetails4
     /// Key for which the specific data is returned, for example, a BIC.
     /// </summary>
     [IsoId("_SuwKFwEcEeCQm6a_G2yO_w_1787384874")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Key")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Key")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Key { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Key { get; init; } 
+    public required System.String Key { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Key { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record RequestDetails4
     /// Data being returned.
     /// </summary>
     [IsoId("_SuwKGAEcEeCQm6a_G2yO_w_-56014594")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptData")]
     #endif
+    [IsoXmlTag("RptData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportParameter1? ReportData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

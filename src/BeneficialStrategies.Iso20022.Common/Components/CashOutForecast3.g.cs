@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cash movements out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
 /// </summary>
 [IsoId("_SksIUNp-Ed-ak6NoX_4Aeg_1915292616")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Out Forecast")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CashOutForecast3
     /// Date on which cash is available.
     /// </summary>
     [IsoId("_SksIUdp-Ed-ak6NoX_4Aeg_1916213081")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshSttlmDt")]
     #endif
+    [IsoXmlTag("CshSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate CashSettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly CashSettlementDate { get; init; } 
+    public required System.DateOnly CashSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly CashSettlementDate { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record CashOutForecast3
     /// Sub-total amount of the cash flow out, expressed as an amount of money.
     /// </summary>
     [IsoId("_SksIUtp-Ed-ak6NoX_4Aeg_1916213151")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubTtlAmt")]
     #endif
+    [IsoXmlTag("SubTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,11 @@ public partial record CashOutForecast3
     /// Sub-total amount of the cash flow out, expressed as a number of units.
     /// </summary>
     [IsoId("_SksIU9p-Ed-ak6NoX_4Aeg_1916213565")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Total Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubTtlUnitsNb")]
     #endif
+    [IsoXmlTag("SubTtlUnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? SubTotalUnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,12 @@ public partial record CashOutForecast3
     /// Indicates whether the estimated cash flow out is exceptional.
     /// </summary>
     [IsoId("_SksIVNp-Ed-ak6NoX_4Aeg_1916214941")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exceptional Cash Flow Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcptnlCshFlowInd")]
     #endif
+    [IsoXmlTag("XcptnlCshFlowInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ExceptionalCashFlowIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +122,11 @@ public partial record CashOutForecast3
     /// Breakdown of cash out amounts, eg, by transaction or order type.
     /// </summary>
     [IsoId("_SksIVdp-Ed-ak6NoX_4Aeg_1916216157")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Out Breakdown Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshOutBrkdwnDtls")]
     #endif
+    [IsoXmlTag("CshOutBrkdwnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundCashOutBreakdown2? CashOutBreakdownDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

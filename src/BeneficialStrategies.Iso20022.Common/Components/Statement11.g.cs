@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics of the statement.
 /// </summary>
 [IsoId("_QqNYqNp-Ed-ak6NoX_4Aeg_1581649258")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,12 +52,11 @@ public partial record Statement11
     /// Sequential number of the report.
     /// </summary>
     [IsoId("_QqWikNp-Ed-ak6NoX_4Aeg_1581649569")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptNb")]
     #endif
+    [IsoXmlTag("RptNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Number3Choice_? ReportNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,15 +69,13 @@ public partial record Statement11
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
     [IsoId("_QqWikdp-Ed-ak6NoX_4Aeg_582984840")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("QryRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? QueryReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,15 +88,13 @@ public partial record Statement11
     /// Reference common to all pages of a statement.
     /// </summary>
     [IsoId("_QqWiktp-Ed-ak6NoX_4Aeg_275343763")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StmtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StatementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,16 +107,15 @@ public partial record Statement11
     /// Period for the statement.
     /// </summary>
     [IsoId("_QqWik9p-Ed-ak6NoX_4Aeg_1581649268")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtPrd")]
     #endif
+    [IsoXmlTag("StmtPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period2Choice_ StatementPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Period2Choice_ StatementPeriod { get; init; } 
+    public required Period2Choice_ StatementPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Period2Choice_ StatementPeriod { get; init; } 
     #else
@@ -134,12 +126,11 @@ public partial record Statement11
     /// Frequency of the statement.
     /// </summary>
     [IsoId("_QqWilNp-Ed-ak6NoX_4Aeg_1581649289")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frqcy")]
     #endif
+    [IsoXmlTag("Frqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency4Choice_? Frequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +143,11 @@ public partial record Statement11
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
     [IsoId("_QqWildp-Ed-ak6NoX_4Aeg_1581649290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdTp")]
     #endif
+    [IsoXmlTag("UpdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdateType2Choice_? UpdateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,16 +160,15 @@ public partial record Statement11
     /// Type of balance on which the statement is prepared.
     /// </summary>
     [IsoId("_QqWiltp-Ed-ak6NoX_4Aeg_1581649568")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtBsis")]
     #endif
+    [IsoXmlTag("StmtBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatementBasis2Choice_ StatementBasis { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatementBasis2Choice_ StatementBasis { get; init; } 
+    public required StatementBasis2Choice_ StatementBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatementBasis2Choice_ StatementBasis { get; init; } 
     #else
@@ -190,16 +179,16 @@ public partial record Statement11
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
     [IsoId("_QqWil9p-Ed-ak6NoX_4Aeg_1581649567")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activity Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtyInd")]
     #endif
+    [IsoXmlTag("ActvtyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ActivityIndicator { get; init; } 
+    public required System.String ActivityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ActivityIndicator { get; init; } 
     #else
@@ -210,16 +199,16 @@ public partial record Statement11
     /// Indicates whether the statement reports holdings at subsafekeeping account level.
     /// </summary>
     [IsoId("_QqWimNp-Ed-ak6NoX_4Aeg_1569096174")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Account Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubAcctInd")]
     #endif
+    [IsoXmlTag("SubAcctInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator SubAccountIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SubAccountIndicator { get; init; } 
+    public required System.String SubAccountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SubAccountIndicator { get; init; } 
     #else

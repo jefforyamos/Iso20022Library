@@ -20,7 +20,7 @@ public enum InstitutionalClassificationCode
 {
     /// <summary>
     /// In the case of a merger, the Issuer or the Counterparty is the surviving company.
-    /// Encoded/decoded by serializers as "SURV".
+    /// Encoded/decoded by serializers as &quot;SURV&quot;.
     /// </summary>
     [EnumMember(Value = "SURV")]
     [IsoId("_D2jWAFIiEeGxk_7PmgdPEg")]
@@ -29,7 +29,7 @@ public enum InstitutionalClassificationCode
     
     /// <summary>
     /// In the case of a merger, the Issuer or the Counterparty is the discontinued company.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_SD0F8FIiEeGxk_7PmgdPEg")]
@@ -38,7 +38,7 @@ public enum InstitutionalClassificationCode
     
     /// <summary>
     /// In the case of a merger, the Issuer or the Counterparty is a subsidiary.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_hV7lIFIiEeGxk_7PmgdPEg")]
@@ -47,7 +47,7 @@ public enum InstitutionalClassificationCode
     
     /// <summary>
     /// In the case of a merger, the classification of the Issuer or the Counterparty is unknown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_2iiFwFIiEeGxk_7PmgdPEg")]
@@ -56,7 +56,7 @@ public enum InstitutionalClassificationCode
     
     /// <summary>
     /// In the case of a merger, the Issuer or the Counterparty is a parent company.
-    /// Encoded/decoded by serializers as "PRNT".
+    /// Encoded/decoded by serializers as &quot;PRNT&quot;.
     /// </summary>
     [EnumMember(Value = "PRNT")]
     [IsoId("_NJOBIHb2EeGgn5GmpWx6yw")]

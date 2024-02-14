@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of data specified for the fixing of a non deliverable trade.
 /// </summary>
 [IsoId("_THtV2Np-Ed-ak6NoX_4Aeg_855669497")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Closing Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,16 @@ public partial record ClosingData2
     /// Date at which the trading parties have agreed on a valuation rate for a non deliverable trade.
     /// </summary>
     [IsoId("_TH3G0Np-Ed-ak6NoX_4Aeg_855669499")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDt")]
     #endif
+    [IsoXmlTag("TradDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate TradeDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly TradeDate { get; init; } 
+    public required System.DateOnly TradeDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly TradeDate { get; init; } 
     #else
@@ -75,19 +73,17 @@ public partial record ClosingData2
     /// Refers to the identification of a trade assigned by the trading side of a non deliverable forward trade.
     /// </summary>
     [IsoId("_TH3G0dp-Ed-ak6NoX_4Aeg_863054176")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NtfctnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text NotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NotificationIdentification { get; init; } 
+    public required System.String NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NotificationIdentification { get; init; } 
     #else
@@ -98,15 +94,13 @@ public partial record ClosingData2
     /// Reference common to the parties of a trade.
     /// </summary>
     [IsoId("_TH3G0tp-Ed-ak6NoX_4Aeg_855669540")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Common Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmonRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CmonRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CommonReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,15 +113,13 @@ public partial record ClosingData2
     /// Refers to the identification of a previous event in the life of a non deliverable forward trade.
     /// </summary>
     [IsoId("_TH3G09p-Ed-ak6NoX_4Aeg_863054236")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,15 +132,13 @@ public partial record ClosingData2
     /// Describes the reason for the cancellation or the amendment.
     /// </summary>
     [IsoId("_TH3G1Np-Ed-ak6NoX_4Aeg_863054211")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amend Or Cancel Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmdOrCclRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AmdOrCclRsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,16 +151,15 @@ public partial record ClosingData2
     /// Specifies the amounts traded at the valuation of a non-deliverable trade.
     /// </summary>
     [IsoId("_TH3G1dp-Ed-ak6NoX_4Aeg_863054332")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAmts")]
     #endif
+    [IsoXmlTag("TradAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountsAndValueDate1 TradeAmounts { get; init; } 
+    public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountsAndValueDate1 TradeAmounts { get; init; } 
     #else
@@ -181,16 +170,15 @@ public partial record ClosingData2
     /// Rate obtained at valuation time by following the valuation conditions (agreed upon by the trading parties at the opening of the non-deliverable contract).
     /// </summary>
     [IsoId("_TH3G1tp-Ed-ak6NoX_4Aeg_863054297")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnRate")]
     #endif
+    [IsoXmlTag("ValtnRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate1 ValuationRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate1 ValuationRate { get; init; } 
+    public required AgreedRate1 ValuationRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate1 ValuationRate { get; init; } 
     #else
@@ -201,16 +189,15 @@ public partial record ClosingData2
     /// Set of parameters used to calculate the valuation rate to be applied to a non-deliverable agreement.
     /// </summary>
     [IsoId("_TH3G19p-Ed-ak6NoX_4Aeg_863054272")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnInf")]
     #endif
+    [IsoXmlTag("ValtnInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ValuationData2 ValuationInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ValuationData2 ValuationInformation { get; init; } 
+    public required ValuationData2 ValuationInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ValuationData2 ValuationInformation { get; init; } 
     #else

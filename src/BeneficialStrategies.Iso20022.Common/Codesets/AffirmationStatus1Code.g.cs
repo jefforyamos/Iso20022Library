@@ -21,7 +21,7 @@ public enum AffirmationStatus1Code
 {
     /// <summary>
     /// Status of the transaction is affirmed.
-    /// Encoded/decoded by serializers as "AFFI".
+    /// Encoded/decoded by serializers as &quot;AFFI&quot;.
     /// </summary>
     [EnumMember(Value = "AFFI")]
     [IsoId("_bndJUNp-Ed-ak6NoX_4Aeg_589689024")]
@@ -30,7 +30,7 @@ public enum AffirmationStatus1Code
     
     /// <summary>
     /// Status of the transaction is unaffirmed.
-    /// Encoded/decoded by serializers as "NAFI".
+    /// Encoded/decoded by serializers as &quot;NAFI&quot;.
     /// </summary>
     [EnumMember(Value = "NAFI")]
     [IsoId("_bndJUdp-Ed-ak6NoX_4Aeg_618318083")]

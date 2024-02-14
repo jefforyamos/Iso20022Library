@@ -21,7 +21,7 @@ public enum Quantity2Code
 {
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
-    /// Encoded/decoded by serializers as "QALL".
+    /// Encoded/decoded by serializers as &quot;QALL&quot;.
     /// </summary>
     [EnumMember(Value = "QALL")]
     [IsoId("_ZXgf8Np-Ed-ak6NoX_4Aeg_274124253")]
@@ -30,7 +30,7 @@ public enum Quantity2Code
     
     /// <summary>
     /// Quantity has not been established.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ZXgf8dp-Ed-ak6NoX_4Aeg_391412322")]
@@ -39,7 +39,7 @@ public enum Quantity2Code
     
     /// <summary>
     /// Quantity is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZXgf8tp-Ed-ak6NoX_4Aeg_678624841")]

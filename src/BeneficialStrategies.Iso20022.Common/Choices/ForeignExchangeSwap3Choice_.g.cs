@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ForeignExchangeSwap3Choice.DataSetAction))]
     [KnownType(typeof(ForeignExchangeSwap3Choice.Transaction))]
     [IsoId("_E2DFYcESEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange Swap 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

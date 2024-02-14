@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CommissionBasis1Choice.Code))]
     [KnownType(typeof(CommissionBasis1Choice.Proprietary))]
     [IsoId("_LgZzgRuCEeOqSdXzJ0oydA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Basis 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

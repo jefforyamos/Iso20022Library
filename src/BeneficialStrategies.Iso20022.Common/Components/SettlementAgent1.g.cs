@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Bank used by a central counterparty to allow for the convenient settlement of obligations between a central counterparty and a clearing member, typically in commercial bank money.
 /// </summary>
 [IsoId("_R_WoILIjEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Agent")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record SettlementAgent1
     /// Identifies the settlement agent.
     /// </summary>
     [IsoId("_ZYv3kLIjEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record SettlementAgent1
     /// CCP’s account at the settlement agent.
     /// </summary>
     [IsoId("_cMw3ULIjEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     public PaymentAccount1? Account { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _cMw3ULIjEeaYqc4G3TTwhA
     

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient3Choice
     /// Identification of a cryptographic symetric key, previously exchanged between the initiator and the recipient.
     /// </summary>
     [IsoId("_c8uDQFc0EeOi-M6GtW0vCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Identifier")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient3Choice
         /// Identification of the cryptographic key.
         /// </summary>
         [IsoId("_Sw1NvAEcEeCQm6a_G2yO_w_-1402944648")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("KeyId")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax140Text KeyIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String KeyIdentification { get; init; } 
+        public required System.String KeyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String KeyIdentification { get; init; } 
         #else
@@ -80,19 +76,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient3Choice
         /// Version of the cryptographic key.
         /// </summary>
         [IsoId("_Sw1NvQEcEeCQm6a_G2yO_w_-792542720")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Version")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyVrsn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("KeyVrsn")]
+        [IsoSimpleType(IsoSimpleType.Exact10Text)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExact10Text KeyVersion { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String KeyVersion { get; init; } 
+        public required System.String KeyVersion { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String KeyVersion { get; init; } 
         #else
@@ -103,12 +96,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient3Choice
         /// Identification used for derivation of a unique key from a master key provided for the data protection.
         /// </summary>
         [IsoId("_Sw1NvgEcEeCQm6a_G2yO_w_-1001700130")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Derivation Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DerivtnId")]
         #endif
+        [IsoXmlTag("DerivtnId")]
+        [IsoSimpleType(IsoSimpleType.Min5Max16Binary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMin5Max16Binary? DerivationIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

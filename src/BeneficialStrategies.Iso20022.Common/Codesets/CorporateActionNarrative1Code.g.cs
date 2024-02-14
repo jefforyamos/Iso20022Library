@@ -21,7 +21,7 @@ public enum CorporateActionNarrative1Code
 {
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message.
-    /// Encoded/decoded by serializers as "TAXE".
+    /// Encoded/decoded by serializers as &quot;TAXE&quot;.
     /// </summary>
     [EnumMember(Value = "TAXE")]
     [IsoId("_bK2F0dp-Ed-ak6NoX_4Aeg_24208786")]
@@ -30,7 +30,7 @@ public enum CorporateActionNarrative1Code
     
     /// <summary>
     /// Provides information required for the registration.
-    /// Encoded/decoded by serializers as "REGI".
+    /// Encoded/decoded by serializers as &quot;REGI&quot;.
     /// </summary>
     [EnumMember(Value = "REGI")]
     [IsoId("_bK2F0tp-Ed-ak6NoX_4Aeg_24208815")]
@@ -39,7 +39,7 @@ public enum CorporateActionNarrative1Code
     
     /// <summary>
     /// Certification process for withholding tax reduction or exemption based on the tax status of the holder.
-    /// Encoded/decoded by serializers as "WTRC".
+    /// Encoded/decoded by serializers as &quot;WTRC&quot;.
     /// </summary>
     [EnumMember(Value = "WTRC")]
     [IsoId("_bK2F09p-Ed-ak6NoX_4Aeg_24209063")]
@@ -48,7 +48,7 @@ public enum CorporateActionNarrative1Code
     
     /// <summary>
     /// In the context of a corporate action, an International Central Securities Depository (ICSD) refuses a mark-up/mark-down confirmation sent by the account servicer.
-    /// Encoded/decoded by serializers as "RFMC".
+    /// Encoded/decoded by serializers as &quot;RFMC&quot;.
     /// </summary>
     [EnumMember(Value = "RFMC")]
     [IsoId("_bK2F1Np-Ed-ak6NoX_4Aeg_24209085")]
@@ -57,7 +57,7 @@ public enum CorporateActionNarrative1Code
     
     /// <summary>
     /// International Central Securities Depository (ICSD) chases the authorisation from the account servicer in order to process the exchange from global temporary to global permanent.
-    /// Encoded/decoded by serializers as "PAUT".
+    /// Encoded/decoded by serializers as &quot;PAUT&quot;.
     /// </summary>
     [EnumMember(Value = "PAUT")]
     [IsoId("_bK2F1dp-Ed-ak6NoX_4Aeg_24209116")]
@@ -66,7 +66,7 @@ public enum CorporateActionNarrative1Code
     
     /// <summary>
     /// Confirmation of transfer of interests between International Central Securities Depositories (ICSDs) following a corporate actions.
-    /// Encoded/decoded by serializers as "CTIN".
+    /// Encoded/decoded by serializers as &quot;CTIN&quot;.
     /// </summary>
     [EnumMember(Value = "CTIN")]
     [IsoId("_bK2F1tp-Ed-ak6NoX_4Aeg_24209125")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the breakdown of a reported amount that can be split across a range of assets: bonds, cash, equities, or another asset class.
 /// </summary>
 [IsoId("_J02CgDWzEemdWfjs3tykFQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reporting Asset Breakdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReportingAssetBreakdown1
     /// Class of the asset which is a component of the breakdown.
     /// </summary>
     [IsoId("_f9yPkDWzEemdWfjs3tykFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Asset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgAsstTp")]
     #endif
+    [IsoXmlTag("RptgAsstTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProductType6Code ReportingAssetType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProductType6Code ReportingAssetType { get; init; } 
+    public required ProductType6Code ReportingAssetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProductType6Code ReportingAssetType { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record ReportingAssetBreakdown1
     /// Identifies the reporting asset.
     /// </summary>
     [IsoId("_xu3rkDWzEemdWfjs3tykFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,16 @@ public partial record ReportingAssetBreakdown1
     /// Value of the reporting asset.
     /// </summary>
     [IsoId("_9bzMwDWzEemdWfjs3tykFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

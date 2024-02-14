@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References61Choice
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_kuQbcUHOEeazV4RAqPV71g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.References61Choice
         /// Reference issued by a party to identify an instruction, transaction or a message.
         /// </summary>
         [IsoId("_u5IuAzbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ref")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Ref")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Reference { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Reference { get; init; } 
+        public required System.String Reference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Reference { get; init; } 
         #else
@@ -79,12 +75,11 @@ namespace BeneficialStrategies.Iso20022.Choices.References61Choice
         /// Issuer of the reference.
         /// </summary>
         [IsoId("_u5IuBTbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reference Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RefIssr")]
         #endif
+        [IsoXmlTag("RefIssr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification113? ReferenceIssuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,15 +92,13 @@ namespace BeneficialStrategies.Iso20022.Choices.References61Choice
         /// Name of the message.
         /// </summary>
         [IsoId("_u5IuBzbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Message Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MsgNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MsgNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MessageName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ProtectionMethod1Code
 {
     /// <summary>
     /// Other code assigned by national organisation.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_UuoZgZyBEeuo7tDc4CDHXg")]
@@ -30,7 +30,7 @@ public enum ProtectionMethod1Code
     
     /// <summary>
     /// Other privately assigned code.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_U3W3sZyBEeuo7tDc4CDHXg")]
@@ -39,7 +39,7 @@ public enum ProtectionMethod1Code
     
     /// <summary>
     /// Secure element method.
-    /// Encoded/decoded by serializers as "SELM".
+    /// Encoded/decoded by serializers as &quot;SELM&quot;.
     /// </summary>
     [EnumMember(Value = "SELM")]
     [IsoId("_VdBJgZyBEeuo7tDc4CDHXg")]
@@ -48,7 +48,7 @@ public enum ProtectionMethod1Code
     
     /// <summary>
     /// Secure enclave method.
-    /// Encoded/decoded by serializers as "SNCL".
+    /// Encoded/decoded by serializers as &quot;SNCL&quot;.
     /// </summary>
     [EnumMember(Value = "SNCL")]
     [IsoId("_VdwJUZyBEeuo7tDc4CDHXg")]
@@ -57,7 +57,7 @@ public enum ProtectionMethod1Code
     
     /// <summary>
     /// Software protection method.
-    /// Encoded/decoded by serializers as "SOFT".
+    /// Encoded/decoded by serializers as &quot;SOFT&quot;.
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_VegXQZyBEeuo7tDc4CDHXg")]
@@ -66,7 +66,7 @@ public enum ProtectionMethod1Code
     
     /// <summary>
     /// Trusted execution environment method.
-    /// Encoded/decoded by serializers as "TEEN".
+    /// Encoded/decoded by serializers as &quot;TEEN&quot;.
     /// </summary>
     [EnumMember(Value = "TEEN")]
     [IsoId("_VfMTwZyBEeuo7tDc4CDHXg")]

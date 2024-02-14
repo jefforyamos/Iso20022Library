@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Other parties information.
 /// </summary>
 [IsoId("_eadcZ-aOEd-q8fx_Zl_34A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record OtherParties11
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
     [IsoId("_eadcaeaOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Invstr")]
     #endif
+    [IsoXmlTag("Invstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification37Choice_? Investor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record OtherParties11
     /// Foreign Financial Institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>
     [IsoId("_eadca-aOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Qualified Foreign Intermediary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QlfdFrgnIntrmy")]
     #endif
+    [IsoXmlTag("QlfdFrgnIntrmy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43Choice_? QualifiedForeignIntermediary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record OtherParties11
     /// Identification of the stock exchange to which transaction reporting will be done.
     /// </summary>
     [IsoId("_eadcbeaOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stock Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StockXchg")]
     #endif
+    [IsoXmlTag("StockXchg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43Choice_? StockExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record OtherParties11
     /// Institution to which a trade must be reported.
     /// </summary>
     [IsoId("_eadcb-aOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Regulator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradRgltr")]
     #endif
+    [IsoXmlTag("TradRgltr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43Choice_? TradeRegulator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record OtherParties11
     /// Party responsible for the administration of a tri-party collateral transaction including collateral allocation, marking to market and substitution of collateral.
     /// </summary>
     [IsoId("_eadcceaOEd-q8fx_Zl_34A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triparty Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrptyAgt")]
     #endif
+    [IsoXmlTag("TrptyAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43Choice_? TripartyAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

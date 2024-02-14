@@ -21,7 +21,7 @@ public enum SecuritiesBalanceType13Code
 {
     /// <summary>
     /// Balance of financial instruments that are blocked.
-    /// Encoded/decoded by serializers as "BLOK".
+    /// Encoded/decoded by serializers as &quot;BLOK&quot;.
     /// </summary>
     [EnumMember(Value = "BLOK")]
     [IsoId("_ZAHTpNp-Ed-ak6NoX_4Aeg_1235423103")]
@@ -30,7 +30,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of financial instruments that are freely available with no specific additional status.
-    /// Encoded/decoded by serializers as "AWAS".
+    /// Encoded/decoded by serializers as &quot;AWAS&quot;.
     /// </summary>
     [EnumMember(Value = "AWAS")]
     [IsoId("_ZAHTpdp-Ed-ak6NoX_4Aeg_-1406916685")]
@@ -39,7 +39,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of financial instruments that are available.
-    /// Encoded/decoded by serializers as "AVAI".
+    /// Encoded/decoded by serializers as &quot;AVAI&quot;.
     /// </summary>
     [EnumMember(Value = "AVAI")]
     [IsoId("_ZAHTptp-Ed-ak6NoX_4Aeg_-1698874423")]
@@ -48,7 +48,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of financial instruments that are registered (in nominee name or in the name of the beneficial owner).
-    /// Encoded/decoded by serializers as "NOMI".
+    /// Encoded/decoded by serializers as &quot;NOMI&quot;.
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_ZAHTp9p-Ed-ak6NoX_4Aeg_-1520755751")]
@@ -57,7 +57,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of securities that belong to and is kept in the safekeeping account indicated within this message, and that are pledged.
-    /// Encoded/decoded by serializers as "PLED".
+    /// Encoded/decoded by serializers as &quot;PLED&quot;.
     /// </summary>
     [EnumMember(Value = "PLED")]
     [IsoId("_ZAHTqNp-Ed-ak6NoX_4Aeg_238350750")]
@@ -66,7 +66,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
-    /// Encoded/decoded by serializers as "REGO".
+    /// Encoded/decoded by serializers as &quot;REGO&quot;.
     /// </summary>
     [EnumMember(Value = "REGO")]
     [IsoId("_ZAHTqdp-Ed-ak6NoX_4Aeg_203511436")]
@@ -75,7 +75,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of financial instruments that may only be sold under certain conditions or require legal documents.
-    /// Encoded/decoded by serializers as "RSTR".
+    /// Encoded/decoded by serializers as &quot;RSTR&quot;.
     /// </summary>
     [EnumMember(Value = "RSTR")]
     [IsoId("_ZAREoNp-Ed-ak6NoX_4Aeg_-88446302")]
@@ -84,7 +84,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ZAREodp-Ed-ak6NoX_4Aeg_89672370")]
@@ -93,7 +93,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
-    /// Encoded/decoded by serializers as "SPOS".
+    /// Encoded/decoded by serializers as &quot;SPOS&quot;.
     /// </summary>
     [EnumMember(Value = "SPOS")]
     [IsoId("_ZAREotp-Ed-ak6NoX_4Aeg_851706518")]
@@ -102,7 +102,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of securities that could not be registered due to foreign ownership limitation.
-    /// Encoded/decoded by serializers as "UNRG".
+    /// Encoded/decoded by serializers as &quot;UNRG&quot;.
     /// </summary>
     [EnumMember(Value = "UNRG")]
     [IsoId("_ZAREo9p-Ed-ak6NoX_4Aeg_-1790633270")]
@@ -111,7 +111,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has been received.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_ZAREpNp-Ed-ak6NoX_4Aeg_-2082591008")]
@@ -120,7 +120,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// In issuer agent / depository communication, balance of issued financial instruments for which legal documentation has not yet been received.
-    /// Encoded/decoded by serializers as "QUAS".
+    /// Encoded/decoded by serializers as &quot;QUAS&quot;.
     /// </summary>
     [EnumMember(Value = "QUAS")]
     [IsoId("_ZAREpdp-Ed-ak6NoX_4Aeg_-1904472336")]
@@ -129,7 +129,7 @@ public enum SecuritiesBalanceType13Code
     
     /// <summary>
     /// Balance of securities that are eligible for use for collateral purposes.
-    /// Encoded/decoded by serializers as "COLA".
+    /// Encoded/decoded by serializers as &quot;COLA&quot;.
     /// </summary>
     [EnumMember(Value = "COLA")]
     [IsoId("_ZAREptp-Ed-ak6NoX_4Aeg_875091232")]

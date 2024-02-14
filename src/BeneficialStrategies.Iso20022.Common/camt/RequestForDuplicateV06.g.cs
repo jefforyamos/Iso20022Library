@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The RequestForDuplicate message is sent by the case assignee to the case creator or case assigner.|This message is used to request a copy of the original payment instruction considered in the case.|Usage|The RequestForDuplicate message:|- must be answered with a Duplicate message;|- must be used when a case assignee requests a copy of the original payment instruction. This occurs, for example, when the case assignee cannot trace the payment instruction based on the elements mentioned in the case assignment message;|- covers one and only one instruction at a time. If several payment instruction copies are needed by the case assignee, then multiple RequestForDuplicate messages must be sent|- must be used exclusively between the case assignee and its case creator/case assigner.")]
 [IsoId("_eX_OpW2PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request For Duplicate V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record RequestForDuplicateV06 : IOuterRecord<RequestForDuplicateV
     /// Usage: The assigner must be the sender of this confirmation and the assignee must be the receiver.
     /// </summary>
     [IsoId("_eX_Op22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment5 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment5 Assignment { get; init; } 
+    public required CaseAssignment5 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment5 Assignment { get; init; } 
     #else
@@ -104,12 +101,11 @@ public partial record RequestForDuplicateV06 : IOuterRecord<RequestForDuplicateV
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_eX_OqW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case5? Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +118,11 @@ public partial record RequestForDuplicateV06 : IOuterRecord<RequestForDuplicateV
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_eX_Oq22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,7 +135,7 @@ public partial record RequestForDuplicateV06 : IOuterRecord<RequestForDuplicateV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestForDuplicateV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestForDuplicateV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestForDuplicateV06Document ToDocument()
     {
@@ -150,7 +145,7 @@ public partial record RequestForDuplicateV06 : IOuterRecord<RequestForDuplicateV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForDuplicateV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestForDuplicateV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestForDuplicateV06Document : IOuterDocument<RequestForDuplicateV06>
@@ -167,7 +162,7 @@ public partial record RequestForDuplicateV06Document : IOuterDocument<RequestFor
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestForDuplicateV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestForDuplicateV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestForDuplicateV06 Message { get; init; }

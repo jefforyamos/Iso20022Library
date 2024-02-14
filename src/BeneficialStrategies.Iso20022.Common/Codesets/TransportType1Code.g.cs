@@ -21,7 +21,7 @@ public enum TransportType1Code
 {
     /// <summary>
     /// Air
-    /// Encoded/decoded by serializers as "AIRR".
+    /// Encoded/decoded by serializers as &quot;AIRR&quot;.
     /// </summary>
     [EnumMember(Value = "AIRR")]
     [IsoId("_VCaiATEwEemzCpWiCwK4aQ")]
@@ -30,7 +30,7 @@ public enum TransportType1Code
     
     /// <summary>
     /// Bus
-    /// Encoded/decoded by serializers as "BUSS".
+    /// Encoded/decoded by serializers as &quot;BUSS&quot;.
     /// </summary>
     [EnumMember(Value = "BUSS")]
     [IsoId("_VW-cwTEwEemzCpWiCwK4aQ")]
@@ -39,7 +39,7 @@ public enum TransportType1Code
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_VX30oTEwEemzCpWiCwK4aQ")]
@@ -48,7 +48,7 @@ public enum TransportType1Code
     
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_VuhaETEwEemzCpWiCwK4aQ")]
@@ -57,7 +57,7 @@ public enum TransportType1Code
     
     /// <summary>
     /// Rail
-    /// Encoded/decoded by serializers as "RAIL".
+    /// Encoded/decoded by serializers as &quot;RAIL&quot;.
     /// </summary>
     [EnumMember(Value = "RAIL")]
     [IsoId("_Vvki8TEwEemzCpWiCwK4aQ")]
@@ -66,7 +66,7 @@ public enum TransportType1Code
     
     /// <summary>
     /// Ship
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_V6JbQTEwEemzCpWiCwK4aQ")]

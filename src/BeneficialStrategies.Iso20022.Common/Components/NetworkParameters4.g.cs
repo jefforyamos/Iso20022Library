@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters to communicate with a host.
 /// </summary>
 [IsoId("_lpCy4WpUEeSR-ZWLvO-1dg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Network Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NetworkParameters4
     /// Type of communication network.
     /// </summary>
     [IsoId("_9_FJoGpUEeSR-ZWLvO-1dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Network Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtwkTp")]
     #endif
+    [IsoXmlTag("NtwkTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetworkType1Code NetworkType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NetworkType1Code NetworkType { get; init; } 
+    public required NetworkType1Code NetworkType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NetworkType1Code NetworkType { get; init; } 
     #else
@@ -69,22 +66,20 @@ public partial record NetworkParameters4
     #endif
     
     /// <summary>
-    /// Value of the address. The value of an internet protocol address contains the IP address or the DNS (Domain Name Server) address, followed by the character ': ' and the port number if the default port is not used. The value of a public telephone address contains the phone number with possible prefix and extensions.
+    /// Value of the address. The value of an internet protocol address contains the IP address or the DNS (Domain Name Server) address, followed by the character &apos;: &apos; and the port number if the default port is not used. The value of a public telephone address contains the phone number with possible prefix and extensions.
     /// </summary>
     [IsoId("_BalAIGpVEeSR-ZWLvO-1dg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdrVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdrVal")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text AddressValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AddressValue { get; init; } 
+    public required System.String AddressValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AddressValue { get; init; } 
     #else

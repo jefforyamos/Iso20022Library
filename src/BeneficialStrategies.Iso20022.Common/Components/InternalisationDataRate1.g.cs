@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the volume and value percentage rates of internalised settlement instructions.
 /// </summary>
 [IsoId("_3T-LI-3tEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Internalisation Data Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record InternalisationDataRate1
     /// Specifies the rate, in terms of volume, of the failed internalised settlement instructions compared to the total volume, of internalised settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
     [IsoId("_3T-LJe3tEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volume Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VolPctg")]
     #endif
+    [IsoXmlTag("VolPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate VolumePercentage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal VolumePercentage { get; init; } 
+    public required System.Decimal VolumePercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal VolumePercentage { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record InternalisationDataRate1
     /// Specifies the rate, in terms of value, of the failed internalised settlement instructions compared to the total value of internalised settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
     [IsoId("_3T-LJO3tEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Value { get; init; } 
+    public required System.Decimal Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Value { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType12FormatChoice
     /// Standard code to specify the type of rate.
     /// </summary>
     [IsoId("_RnTTAtp-Ed-ak6NoX_4Aeg_-1511308649")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType12FormatChoice
         /// Specifies the type of rate.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RateType12Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RateType12Code Value { get; init; } 
+        public required RateType12Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RateType12Code Value { get; init; } 
         #else

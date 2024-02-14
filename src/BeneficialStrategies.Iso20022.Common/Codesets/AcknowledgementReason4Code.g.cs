@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum AcknowledgementReason4Code
 {
     /// <summary>
-    /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_bpPSAdp-Ed-ak6NoX_4Aeg_-966580559")]
@@ -30,7 +30,7 @@ public enum AcknowledgementReason4Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_bpPSAtp-Ed-ak6NoX_4Aeg_-925024563")]
@@ -39,7 +39,7 @@ public enum AcknowledgementReason4Code
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
-    /// Encoded/decoded by serializers as "NSTP".
+    /// Encoded/decoded by serializers as &quot;NSTP&quot;.
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_bpPSA9p-Ed-ak6NoX_4Aeg_-856682877")]
@@ -48,7 +48,7 @@ public enum AcknowledgementReason4Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bpPSBNp-Ed-ak6NoX_4Aeg_1167272842")]

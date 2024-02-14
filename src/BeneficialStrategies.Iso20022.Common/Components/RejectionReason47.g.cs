@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides reasons of rejecting transactions.
 /// </summary>
 [IsoId("_j8wpua4cEemB_csI4yyKLA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejection Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record RejectionReason47
     /// Identification of a transaction.
     /// </summary>
     [IsoId("_kBO6Aa4cEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification1Choice_ TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentification1Choice_ TransactionIdentification { get; init; } 
+    public required TransactionIdentification1Choice_ TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentification1Choice_ TransactionIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record RejectionReason47
     /// Information on status of submitted transactions.
     /// </summary>
     [IsoId("_kBO6A64cEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingMessageStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportingMessageStatus1Code Status { get; init; } 
+    public required ReportingMessageStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportingMessageStatus1Code Status { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record RejectionReason47
     /// Acceptance criteria of the transaction.
     /// </summary>
     [IsoId("_kBO6Ba4cEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Validation Rule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldVldtnRule")]
     #endif
+    [IsoXmlTag("DtldVldtnRule")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? DetailedValidationRule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

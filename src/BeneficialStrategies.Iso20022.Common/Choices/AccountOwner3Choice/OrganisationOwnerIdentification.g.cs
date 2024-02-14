@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOwner3Choice
     /// Identification of the organisation that legally owns the account.
     /// </summary>
     [IsoId("_6hURE5TIEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Owner Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOwner3Choice
         /// Identification of the organisation.
         /// </summary>
         [IsoId("_AhTdk5TJEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification182Choice_? Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,15 +61,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOwner3Choice
         #endif
         
         /// <summary>
-        /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
+        /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 &quot;Financial Services - Legal Entity Identifier (LEI)&quot;.
         /// </summary>
         [IsoId("_AhTdlZTJEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Legal Entity Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LglNttyIdr")]
         #endif
+        [IsoXmlTag("LglNttyIdr")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

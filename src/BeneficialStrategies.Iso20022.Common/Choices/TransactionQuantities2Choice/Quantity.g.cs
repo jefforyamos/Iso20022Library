@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionQuantities2Choice
     /// Specifies the quantity (such as securities) in the underlying transaction.
     /// </summary>
     [IsoId("_tqJEMlkyEeGeoaLUQk__nA_-160606030")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

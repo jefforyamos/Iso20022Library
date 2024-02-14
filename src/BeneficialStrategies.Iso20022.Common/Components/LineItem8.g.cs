@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Calculation of the current situation of a baseline as a result of the submission of a commercial data set.
 /// </summary>
 [IsoId("_RaVOCNp-Ed-ak6NoX_4Aeg_1564459654")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Line Item")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -58,12 +56,11 @@ public partial record LineItem8
     /// Calculated information about the goods of the underlying transaction.
     /// </summary>
     [IsoId("_Rae_ANp-Ed-ak6NoX_4Aeg_1565380180")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Item Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineItmDtls")]
     #endif
+    [IsoXmlTag("LineItmDtls")]
     public LineItemDetails8? LineItemDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Rae_ANp-Ed-ak6NoX_4Aeg_1565380180
     
@@ -71,16 +68,16 @@ public partial record LineItem8
     /// Line items total amount as indicated in the baseline.
     /// </summary>
     [IsoId("_Rae_Adp-Ed-ak6NoX_4Aeg_1564459693")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ordered Line Items Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrdLineItmsTtlAmt")]
     #endif
+    [IsoXmlTag("OrdrdLineItmsTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount OrderedLineItemsTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OrderedLineItemsTotalAmount { get; init; } 
+    public required System.Decimal OrderedLineItemsTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OrderedLineItemsTotalAmount { get; init; } 
     #else
@@ -91,16 +88,16 @@ public partial record LineItem8
     /// Line items total amount accepted by a data set submission(s).
     /// </summary>
     [IsoId("_Rae_Atp-Ed-ak6NoX_4Aeg_1564459963")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted Line Items Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptdLineItmsTtlAmt")]
     #endif
+    [IsoXmlTag("AccptdLineItmsTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount AcceptedLineItemsTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AcceptedLineItemsTotalAmount { get; init; } 
+    public required System.Decimal AcceptedLineItemsTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AcceptedLineItemsTotalAmount { get; init; } 
     #else
@@ -111,16 +108,16 @@ public partial record LineItem8
     /// Difference between the ordered and the accepted line items total amount.
     /// </summary>
     [IsoId("_Rae_A9p-Ed-ak6NoX_4Aeg_1564460055")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outstanding Line Items Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutsdngLineItmsTtlAmt")]
     #endif
+    [IsoXmlTag("OutsdngLineItmsTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount OutstandingLineItemsTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OutstandingLineItemsTotalAmount { get; init; } 
+    public required System.Decimal OutstandingLineItemsTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OutstandingLineItemsTotalAmount { get; init; } 
     #else
@@ -131,16 +128,16 @@ public partial record LineItem8
     /// Line item total amount for which a mismatched data set has been submitted and has not yet been accepted or rejected.
     /// </summary>
     [IsoId("_Rae_BNp-Ed-ak6NoX_4Aeg_1564459994")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Line Items Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgLineItmsTtlAmt")]
     #endif
+    [IsoXmlTag("PdgLineItmsTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount PendingLineItemsTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PendingLineItemsTotalAmount { get; init; } 
+    public required System.Decimal PendingLineItemsTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PendingLineItemsTotalAmount { get; init; } 
     #else
@@ -151,16 +148,16 @@ public partial record LineItem8
     /// Total net amount as indicated in the baseline.
     /// </summary>
     [IsoId("_Rae_Bdp-Ed-ak6NoX_4Aeg_1565380057")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ordered Total Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrdTtlNetAmt")]
     #endif
+    [IsoXmlTag("OrdrdTtlNetAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount OrderedTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OrderedTotalNetAmount { get; init; } 
+    public required System.Decimal OrderedTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OrderedTotalNetAmount { get; init; } 
     #else
@@ -171,16 +168,16 @@ public partial record LineItem8
     /// Total net amount accepted by a data set submission.
     /// </summary>
     [IsoId("_Rae_Btp-Ed-ak6NoX_4Aeg_1565380118")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted Total Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptdTtlNetAmt")]
     #endif
+    [IsoXmlTag("AccptdTtlNetAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount AcceptedTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AcceptedTotalNetAmount { get; init; } 
+    public required System.Decimal AcceptedTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AcceptedTotalNetAmount { get; init; } 
     #else
@@ -191,16 +188,16 @@ public partial record LineItem8
     /// Total net amount for which a mismatched data set has been submitted and has not yet been accepted or rejected.
     /// </summary>
     [IsoId("_Rae_B9p-Ed-ak6NoX_4Aeg_1565380148")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outstanding Total Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutsdngTtlNetAmt")]
     #endif
+    [IsoXmlTag("OutsdngTtlNetAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount OutstandingTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OutstandingTotalNetAmount { get; init; } 
+    public required System.Decimal OutstandingTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OutstandingTotalNetAmount { get; init; } 
     #else
@@ -211,16 +208,16 @@ public partial record LineItem8
     /// Difference between the ordered and the accepted total net amount.
     /// </summary>
     [IsoId("_Rae_CNp-Ed-ak6NoX_4Aeg_1565380119")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Total Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgTtlNetAmt")]
     #endif
+    [IsoXmlTag("PdgTtlNetAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount PendingTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PendingTotalNetAmount { get; init; } 
+    public required System.Decimal PendingTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PendingTotalNetAmount { get; init; } 
     #else

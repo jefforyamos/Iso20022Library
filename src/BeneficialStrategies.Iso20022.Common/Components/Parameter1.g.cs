@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters associated to a cryptographic algorithm.
 /// </summary>
 [IsoId("_Sw--tQEcEeCQm6a_G2yO_w_1068010819")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Parameter1
     /// Initialisation vector of a cipher block chaining (CBC) mode encryption.
     /// </summary>
     [IsoId("_Sw--tgEcEeCQm6a_G2yO_w_498114806")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initialisation Vector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlstnVctr")]
     #endif
+    [IsoXmlTag("InitlstnVctr")]
+    [IsoSimpleType(IsoSimpleType.Max500Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Binary? InitialisationVector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

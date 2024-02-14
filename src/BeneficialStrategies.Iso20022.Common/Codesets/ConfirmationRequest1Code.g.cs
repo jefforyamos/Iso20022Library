@@ -21,7 +21,7 @@ public enum ConfirmationRequest1Code
 {
     /// <summary>
     /// To confirm the trade.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_lrBcsX6IEeSAlrUr1Vow5g")]
@@ -30,7 +30,7 @@ public enum ConfirmationRequest1Code
     
     /// <summary>
     /// To reject the confirmation of the trade.
-    /// Encoded/decoded by serializers as "CNRR".
+    /// Encoded/decoded by serializers as &quot;CNRR&quot;.
     /// </summary>
     [EnumMember(Value = "CNRR")]
     [IsoId("_lwYd0X6IEeSAlrUr1Vow5g")]
@@ -39,7 +39,7 @@ public enum ConfirmationRequest1Code
     
     /// <summary>
     /// To inquire about the status of the trade confirmation.
-    /// Encoded/decoded by serializers as "STAT".
+    /// Encoded/decoded by serializers as &quot;STAT&quot;.
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_l1rNgX6IEeSAlrUr1Vow5g")]

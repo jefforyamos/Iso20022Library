@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment context in which the transaction is performed.
 /// </summary>
 [IsoId("_yOE7cWl9EeSxgrJ0GX4SQQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record PaymentContext11
     /// Indicates whether the transaction has been initiated by a card physically present or not.
     /// </summary>
     [IsoId("_ybUtQWl9EeSxgrJ0GX4SQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPres")]
     #endif
+    [IsoXmlTag("CardPres")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,12 @@ public partial record PaymentContext11
     /// Indicates whether the transaction has been initiated in presence of the cardholder or not.
     /// </summary>
     [IsoId("_ybUtQ2l9EeSxgrJ0GX4SQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrPres")]
     #endif
+    [IsoXmlTag("CrdhldrPres")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +85,12 @@ public partial record PaymentContext11
     /// On-line or off-line context of the transaction.
     /// </summary>
     [IsoId("_ybUtRWl9EeSxgrJ0GX4SQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Line Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnLineCntxt")]
     #endif
+    [IsoXmlTag("OnLineCntxt")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OnLineContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +103,11 @@ public partial record PaymentContext11
     /// Human attendance at the POI location during the transaction.
     /// </summary>
     [IsoId("_ybUtR2l9EeSxgrJ0GX4SQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncCntxt")]
     #endif
+    [IsoXmlTag("AttndncCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,12 +120,11 @@ public partial record PaymentContext11
     /// Indicates the environment of the transaction.
     /// </summary>
     [IsoId("_ybUtSWl9EeSxgrJ0GX4SQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxEnvt")]
     #endif
+    [IsoXmlTag("TxEnvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionEnvironment1Code? TransactionEnvironment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +137,11 @@ public partial record PaymentContext11
     /// Identifies the type of the communication channels used by the cardholder to the acceptor system.
     /// </summary>
     [IsoId("_ybUtS2l9EeSxgrJ0GX4SQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxChanl")]
     #endif
+    [IsoXmlTag("TxChanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionChannel3Code? TransactionChannel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,16 +154,15 @@ public partial record PaymentContext11
     /// Entry mode of the card data.
     /// </summary>
     [IsoId("_ybUtTWl9EeSxgrJ0GX4SQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Data Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardDataNtryMd")]
     #endif
+    [IsoXmlTag("CardDataNtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardDataReading1Code CardDataEntryMode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardDataReading1Code CardDataEntryMode { get; init; } 
+    public required CardDataReading1Code CardDataEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardDataReading1Code CardDataEntryMode { get; init; } 
     #else
@@ -179,12 +173,11 @@ public partial record PaymentContext11
     /// Indicator of a card entry mode fallback.
     /// </summary>
     [IsoId("_ybUtT2l9EeSxgrJ0GX4SQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fallback Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FllbckInd")]
     #endif
+    [IsoXmlTag("FllbckInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardFallback1Code? FallbackIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

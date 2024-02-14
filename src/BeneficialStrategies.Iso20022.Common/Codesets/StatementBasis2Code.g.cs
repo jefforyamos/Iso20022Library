@@ -21,7 +21,7 @@ public enum StatementBasis2Code
 {
     /// <summary>
     /// The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_ZQD0INp-Ed-ak6NoX_4Aeg_-1755151069")]
@@ -30,7 +30,7 @@ public enum StatementBasis2Code
     
     /// <summary>
     /// The statement is based on trade date positions.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_ZQD0Idp-Ed-ak6NoX_4Aeg_-1755150482")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionMandatoryVoluntary3Choice.Code))]
     [KnownType(typeof(CorporateActionMandatoryVoluntary3Choice.Proprietary))]
     [IsoId("_e9j1tzndEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Mandatory Voluntary 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

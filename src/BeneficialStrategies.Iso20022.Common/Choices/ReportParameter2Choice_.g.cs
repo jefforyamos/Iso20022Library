@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportParameter2Choice.Currency))]
     [KnownType(typeof(ReportParameter2Choice.UserDefined))]
     [IsoId("_U11EiNp-Ed-ak6NoX_4Aeg_-922147524")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Parameter 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

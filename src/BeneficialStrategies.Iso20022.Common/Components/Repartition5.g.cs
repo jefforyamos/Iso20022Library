@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates how the amount of the investment plan is split amongst the funds.
 /// </summary>
 [IsoId("_1RgcgU_eEeaB8-OWTiMVrQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Repartition")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Repartition5
     /// Amount, units or percentage of financial instrument invested or withdrawn.
     /// </summary>
     [IsoId("_1p5uYU_eEeaB8-OWTiMVrQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitsOrAmountOrPercentage1Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitsOrAmountOrPercentage1Choice_ Quantity { get; init; } 
+    public required UnitsOrAmountOrPercentage1Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitsOrAmountOrPercentage1Choice_ Quantity { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Repartition5
     /// Detailed information about the security or investment fund.
     /// </summary>
     [IsoId("_1p5uY0_eEeaB8-OWTiMVrQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrm")]
     #endif
+    [IsoXmlTag("FinInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument56 FinancialInstrument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument56 FinancialInstrument { get; init; } 
+    public required FinancialInstrument56 FinancialInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument56 FinancialInstrument { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record Repartition5
     /// When a fund has multiple currencies within same ISIN, this indicates the currency of the savings or withdrawal plan.
     /// </summary>
     [IsoId("_1p5uZU_eEeaB8-OWTiMVrQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Of Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyOfPlan")]
     #endif
+    [IsoXmlTag("CcyOfPlan")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? CurrencyOfPlan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

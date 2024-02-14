@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains the details of an invalid payment event.
 /// </summary>
 [IsoId("_TQLzHKJuEeaLbOzg6lYrCA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Event")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,16 +55,16 @@ public partial record PaymentEvent3
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
     [IsoId("_xTJt0T77EeiJbZ2wCAV0-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UETR")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UETR")]
     #endif
+    [IsoXmlTag("UETR")]
+    [IsoSimpleType(IsoSimpleType.UUIDv4Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoUUIDv4Identifier UETR { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String UETR { get; init; } 
+    public required System.String UETR { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String UETR { get; init; } 
     #else
@@ -79,15 +77,13 @@ public partial record PaymentEvent3
     /// To be used when there is a choice of processing services or processing service levels.
     /// </summary>
     [IsoId("__-SuwaJxEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizSvc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BizSvc")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BusinessService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,16 +96,16 @@ public partial record PaymentEvent3
     /// Indicates whether the requestor institution participates in the payment transaction identified by the unique end to end transaction reference identification  (UETR).
     /// </summary>
     [IsoId("_HNcdEaJyEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ptcpt")]
     #endif
+    [IsoXmlTag("Ptcpt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Participant { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Participant { get; init; } 
+    public required System.String Participant { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Participant { get; init; } 
     #else
@@ -120,19 +116,17 @@ public partial record PaymentEvent3
     /// Reference assigned by the network when sending the payment.
     /// </summary>
     [IsoId("_GHjzEqJyEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Network Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtwkRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NtwkRef")]
+    [IsoSimpleType(IsoSimpleType.Max50Text)]
     [StringLength(maximumLength: 50 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax50Text NetworkReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NetworkReference { get; init; } 
+    public required System.String NetworkReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NetworkReference { get; init; } 
     #else
@@ -143,19 +137,17 @@ public partial record PaymentEvent3
     /// Identifies the original message name identifier to which the message refers.
     /// </summary>
     [IsoId("_GHjzE6JyEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Name Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgNmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgNmId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageNameIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageNameIdentification { get; init; } 
+    public required System.String MessageNameIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageNameIdentification { get; init; } 
     #else
@@ -167,19 +159,17 @@ public partial record PaymentEvent3
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
     [IsoId("_eXdFk6JyEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InstructionIdentification { get; init; } 
+    public required System.String InstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InstructionIdentification { get; init; } 
     #else
@@ -192,16 +182,16 @@ public partial record PaymentEvent3
     /// The sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
     [IsoId("_eXdFlKJyEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fr")]
     #endif
+    [IsoXmlTag("Fr")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier From { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String From { get; init; } 
+    public required System.String From { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String From { get; init; } 
     #else
@@ -213,12 +203,12 @@ public partial record PaymentEvent3
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
     [IsoId("_eXdFlaJyEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="To")]
     #endif
+    [IsoXmlTag("To")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? To { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -231,16 +221,15 @@ public partial record PaymentEvent3
     /// Specifies the reason why the event is invalid.
     /// </summary>
     [IsoId("_pF0swKJyEeaLbOzg6lYrCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invalidity Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvldtyRsn")]
     #endif
+    [IsoXmlTag("InvldtyRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInvalidEventReason1Code InvalidityReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string InvalidityReason { get; init; } 
+    public required string InvalidityReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string InvalidityReason { get; init; } 
     #else

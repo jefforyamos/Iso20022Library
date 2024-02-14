@@ -21,7 +21,7 @@ public enum CardServiceType4Code
 {
     /// <summary>
     /// Partial reconciliation of the day.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_GQgWgU-DEeePXdaAO32Uew")]
@@ -30,7 +30,7 @@ public enum CardServiceType4Code
     
     /// <summary>
     /// Final reconciliation.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_HStaYk-DEeePXdaAO32Uew")]
@@ -39,7 +39,7 @@ public enum CardServiceType4Code
     
     /// <summary>
     /// National defined code.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_H7LIkk-DEeePXdaAO32Uew")]
@@ -48,7 +48,7 @@ public enum CardServiceType4Code
     
     /// <summary>
     /// Private defined code.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_IH-Ock-DEeePXdaAO32Uew")]

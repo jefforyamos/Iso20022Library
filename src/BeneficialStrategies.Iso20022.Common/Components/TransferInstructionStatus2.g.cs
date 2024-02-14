@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instruction status.
 /// </summary>
 [IsoId("_RQWypdp-Ed-ak6NoX_4Aeg_-1720727029")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Instruction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransferInstructionStatus2
     /// Status of the transfer is accepted, sent to next party, matched, already executed, or settled.
     /// </summary>
     [IsoId("_RQWyptp-Ed-ak6NoX_4Aeg_-1720727003")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferStatus2Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferStatus2Code Status { get; init; } 
+    public required TransferStatus2Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferStatus2Code Status { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TransferInstructionStatus2
     /// Reason for the status.
     /// </summary>
     [IsoId("_RQWyp9p-Ed-ak6NoX_4Aeg_919583835")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

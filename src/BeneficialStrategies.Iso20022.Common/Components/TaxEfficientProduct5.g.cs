@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics of a tax efficient product.
 /// </summary>
 [IsoId("_aNbAIZNNEemQB_8XA98K0Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Efficient Product")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TaxEfficientProduct5
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
     [IsoId("_alOcI5NNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Efficient Product Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxEffcntPdctTp")]
     #endif
+    [IsoXmlTag("TaxEffcntPdctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
+    public required TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record TaxEfficientProduct5
     /// Indicates that all the current fiscal year’s products are included.
     /// </summary>
     [IsoId("_mgyu4ZNQEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Year")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurYr")]
     #endif
+    [IsoXmlTag("CurYr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CurrentYear { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record TaxEfficientProduct5
     /// Indicates whether, for the current year, the product contains a cash asset for transfer.
     /// </summary>
     [IsoId("_alOcJZNNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Component Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCmpntInd")]
     #endif
+    [IsoXmlTag("CshCmpntInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CashComponentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,11 @@ public partial record TaxEfficientProduct5
     /// Investment plans issued during previous years.
     /// </summary>
     [IsoId("_alOcJ5NNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsYrs")]
     #endif
+    [IsoXmlTag("PrvsYrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PreviousYear4? PreviousYears { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,12 @@ public partial record TaxEfficientProduct5
     /// Subscriptions from the previous subscription year.
     /// </summary>
     [IsoId("_Z0BH4DOOEeqjy7_SkdcoGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Year Subscription Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsYrSbcptAmt")]
     #endif
+    [IsoXmlTag("PrvsYrSbcptAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? PreviousYearSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +139,12 @@ public partial record TaxEfficientProduct5
     /// Amount subscribed in all previous years.
     /// </summary>
     [IsoId("_eKOTIDOOEeqjy7_SkdcoGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Years Subscription Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsYrsSbcptAmt")]
     #endif
+    [IsoXmlTag("PrvsYrsSbcptAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? PreviousYearsSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +157,12 @@ public partial record TaxEfficientProduct5
     /// Date the investment plan started.
     /// </summary>
     [IsoId("_alOcKZNNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of First Subscription")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfFrstSbcpt")]
     #endif
+    [IsoXmlTag("DtOfFrstSbcpt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfFirstSubscription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +175,11 @@ public partial record TaxEfficientProduct5
     /// Amounts already subscribed for the current year.
     /// </summary>
     [IsoId("_alOcK5NNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Year Subscription Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurYrSbcptDtls")]
     #endif
+    [IsoXmlTag("CurYrSbcptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubscriptionInformation2? CurrentYearSubscriptionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +192,11 @@ public partial record TaxEfficientProduct5
     /// Bonus paid out or withdrawn.
     /// </summary>
     [IsoId("_alOcLZNNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bonus Or Withdrawal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnsOrWdrwl")]
     #endif
+    [IsoXmlTag("BnsOrWdrwl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BonusWithdrawal2? BonusOrWithdrawal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,18 +206,16 @@ public partial record TaxEfficientProduct5
     #endif
     
     /// <summary>
-    /// Alternative identification for the transferor (ceding party), for example, the 'ISA manager Z reference' in the UK. 
+    /// Alternative identification for the transferor (ceding party), for example, the &apos;ISA manager Z reference&apos; in the UK. 
     /// </summary>
     [IsoId("__u1BEJzGEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transferor Alternate Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfrAltrnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TrfrAltrnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransferorAlternateIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,12 +228,12 @@ public partial record TaxEfficientProduct5
     /// Total amount subscribed over the lifetime of the product.
     /// </summary>
     [IsoId("_Jm9j0JzHEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Subscription Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSbcptAmt")]
     #endif
+    [IsoXmlTag("TtlSbcptAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,12 +246,11 @@ public partial record TaxEfficientProduct5
     /// Another amount such as the total qualifying additions in the year of transfer, interest capitalised in the current year, total outstanding dividend and so on.
     /// </summary>
     [IsoId("_kEJ0UJzHEembF9M4GR6EAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAmt")]
     #endif
+    [IsoXmlTag("OthrAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherAmount3? OtherAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,12 +263,12 @@ public partial record TaxEfficientProduct5
     /// Date the first qualifying additional amount was made to the product.  Qualifying additional amounts may be made to a Lifetime Individual Savings Account (LISA) product.
     /// </summary>
     [IsoId("_CtM9UDOOEeqjy7_SkdcoGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date First Qualifying Addition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtFrstQlfygAddtn")]
     #endif
+    [IsoXmlTag("DtFrstQlfygAddtn")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateFirstQualifyingAddition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,12 +281,11 @@ public partial record TaxEfficientProduct5
     /// Identification of the investor as assigned by a tax authority. 
     /// </summary>
     [IsoId("_alOcL5NNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Tax Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrTaxRef")]
     #endif
+    [IsoXmlTag("InvstrTaxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReference2? InvestorTaxReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,12 +298,11 @@ public partial record TaxEfficientProduct5
     /// Value of the investments to follow.
     /// </summary>
     [IsoId("_alOcMZNNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investments To Follow Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtsToFllwVal")]
     #endif
+    [IsoXmlTag("InvstmtsToFllwVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndAmount2? InvestmentsToFollowValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -326,12 +315,11 @@ public partial record TaxEfficientProduct5
     /// Information about an innovative finance product.
     /// </summary>
     [IsoId("_alOcM5NNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Innovative Finance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InnvtvFinc")]
     #endif
+    [IsoXmlTag("InnvtvFinc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InnovativeFinance1? InnovativeFinance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -344,12 +332,12 @@ public partial record TaxEfficientProduct5
     /// Lowest investment amount in the current year, used to calculate a tax deduction amount.
     /// </summary>
     [IsoId("_alOcNZNNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lowest Invested Amount Current Year")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LwstInvstdAmtCurYr")]
     #endif
+    [IsoXmlTag("LwstInvstdAmtCurYr")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? LowestInvestedAmountCurrentYear { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -362,12 +350,12 @@ public partial record TaxEfficientProduct5
     /// Amount of money from which the tax deduction is calculated. 
     /// </summary>
     [IsoId("_alOcN5NNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Calculation Base")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxClctnBase")]
     #endif
+    [IsoXmlTag("TaxClctnBase")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TaxCalculationBase { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -380,12 +368,12 @@ public partial record TaxEfficientProduct5
     /// Unused tax deduction amount.
     /// </summary>
     [IsoId("_alOcOZNNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unused Tax Deduction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UusdTaxDdctn")]
     #endif
+    [IsoXmlTag("UusdTaxDdctn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? UnusedTaxDeduction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -398,12 +386,12 @@ public partial record TaxEfficientProduct5
     /// Amount of money invested.
     /// </summary>
     [IsoId("_alOcO5NNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Investment Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurInvstmtAmt")]
     #endif
+    [IsoXmlTag("CurInvstmtAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -416,12 +404,11 @@ public partial record TaxEfficientProduct5
     /// Estimated value of the assets of the tax efficient product to be transferred.
     /// </summary>
     [IsoId("_alOcPZNNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Estimated Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstmtdVal")]
     #endif
+    [IsoXmlTag("EstmtdVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndAmount2? EstimatedValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -434,12 +421,11 @@ public partial record TaxEfficientProduct5
     /// Additional information about the tax efficient product.
     /// </summary>
     [IsoId("_alOcP5NNEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

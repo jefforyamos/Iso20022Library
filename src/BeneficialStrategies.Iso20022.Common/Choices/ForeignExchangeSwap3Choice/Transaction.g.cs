@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
     /// Provides the details of the foreign exchange transaction as reported by the reporting agent.
     /// </summary>
     [IsoId("_FAmvk8ESEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -64,16 +62,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Defines the status of the reported transaction, that is details on whether the transaction is a new transaction, an amendment of a previously reported transaction, a cancellation of a previously reported transaction or a correction to a previously reported and rejected transaction.
         /// </summary>
         [IsoId("_sHWPocEUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reported Transaction Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RptdTxSts")]
         #endif
+        [IsoXmlTag("RptdTxSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
+        public required TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
         #else
@@ -84,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Provides the novation status for the transaction.
         /// </summary>
         [IsoId("_nIOqQcEUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Novation Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NvtnSts")]
         #endif
+        [IsoXmlTag("NvtnSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public NovationStatus1Code? NovationStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,12 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Where the transaction has been booked by the head office or the reporting agent cannot be identified by a unique branch-specific LEI, the reporting agent must provide the LEI of the head office.
         /// </summary>
         [IsoId("_sHWPo8EUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Branch Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BrnchId")]
         #endif
+        [IsoXmlTag("BrnchId")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? BranchIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,15 +118,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime.
         /// </summary>
         [IsoId("_sHWPpcEUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Unique Transaction Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UnqTxIdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("UnqTxIdr")]
+        [IsoSimpleType(IsoSimpleType.Max105Text)]
         [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax105Text? UniqueTransactionIdentifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,19 +137,17 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Internal unique transaction identifier used by the reporting agent for each transaction.
         /// </summary>
         [IsoId("_sHWPp8EUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Transaction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryTxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PrtryTxId")]
+        [IsoSimpleType(IsoSimpleType.Max105Text)]
         [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax105Text ProprietaryTransactionIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ProprietaryTransactionIdentification { get; init; } 
+        public required System.String ProprietaryTransactionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ProprietaryTransactionIdentification { get; init; } 
         #else
@@ -166,15 +158,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Original proprietary transaction identifier used by the reporting agent to indicate the proprietary transaction identification of the transaction which is novated.
         /// </summary>
         [IsoId("_SXaRQcEVEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Related Proprietary Transaction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RltdPrtryTxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("RltdPrtryTxId")]
+        [IsoSimpleType(IsoSimpleType.Max105Text)]
         [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax105Text? RelatedProprietaryTransactionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,15 +177,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Internal unique proprietary transaction identifier as assigned by the counterparty of the reporting agent for each transaction.
         /// </summary>
         [IsoId("_sHWPqcEUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty Proprietary Transaction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPtyPrtryTxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("CtrPtyPrtryTxId")]
+        [IsoSimpleType(IsoSimpleType.Max105Text)]
         [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax105Text? CounterpartyProprietaryTransactionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -208,16 +196,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Identification of the counterparty of the reporting agent for the reported transaction.
         /// </summary>
         [IsoId("_sHWPq8EUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPtyId")]
         #endif
+        [IsoXmlTag("CtrPtyId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CounterpartyIdentification3Choice_ CounterpartyIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CounterpartyIdentification3Choice_ CounterpartyIdentification { get; init; } 
+        public required CounterpartyIdentification3Choice_ CounterpartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CounterpartyIdentification3Choice_ CounterpartyIdentification { get; init; } 
         #else
@@ -231,16 +218,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
         /// </summary>
         [IsoId("_sHWPrcEUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Trade Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TradDt")]
         #endif
+        [IsoXmlTag("TradDt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DateAndDateTimeChoice_ TradeDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DateAndDateTimeChoice_ TradeDate { get; init; } 
+        public required DateAndDateTimeChoice_ TradeDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DateAndDateTimeChoice_ TradeDate { get; init; } 
         #else
@@ -251,16 +237,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Date on which one party sells to the other a specified amount of a specified currency against payment of an agreed amount of a specified different currency based on an agreed foreign exchange rate known as foreign exchange spot rate.
         /// </summary>
         [IsoId("_sHWPr8EUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Spot Value Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SpotValDt")]
         #endif
+        [IsoXmlTag("SpotValDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate SpotValueDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly SpotValueDate { get; init; } 
+        public required System.DateOnly SpotValueDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly SpotValueDate { get; init; } 
         #else
@@ -271,16 +257,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Date on which the foreign exchange swap transaction expires and the currency sold on the value date is repurchased.
         /// </summary>
         [IsoId("_sHWPscEUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Maturity Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MtrtyDt")]
         #endif
+        [IsoXmlTag("MtrtyDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate MaturityDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly MaturityDate { get; init; } 
+        public required System.DateOnly MaturityDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly MaturityDate { get; init; } 
         #else
@@ -291,16 +277,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Defines whether the amount of money reported under the transaction nominal amount is bought or sold on the spot value date.
         /// </summary>
         [IsoId("_sHWPs8EUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxTp")]
         #endif
+        [IsoXmlTag("TxTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesTransactionType15Code TransactionType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesTransactionType15Code TransactionType { get; init; } 
+        public required SecuritiesTransactionType15Code TransactionType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesTransactionType15Code TransactionType { get; init; } 
         #else
@@ -311,16 +296,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Specifies the nominal amount of the foreign exchange swap, that is the amount bought/sold on the spot value date and reported as an absolute value.
         /// </summary>
         [IsoId("_sHWPtcEUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Nominal Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxNmnlAmt")]
         #endif
+        [IsoXmlTag("TxNmnlAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal TransactionNominalAmount { get; init; } 
+        public required System.Decimal TransactionNominalAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal TransactionNominalAmount { get; init; } 
         #else
@@ -331,16 +316,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Provides the details of the foreign exchange transaction.
         /// </summary>
         [IsoId("_sHWPt8EUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Foreign Exchange")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FX")]
         #endif
+        [IsoXmlTag("FX")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ForeignExchange1 ForeignExchange { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ForeignExchange1 ForeignExchange { get; init; } 
+        public required ForeignExchange1 ForeignExchange { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ForeignExchange1 ForeignExchange { get; init; } 
         #else
@@ -351,12 +335,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice
         /// Additional information that can not be captured in the structured fields and/or any other specific block.
         /// </summary>
         [IsoId("_sHWPucEUEea7jLfvGi1PDw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

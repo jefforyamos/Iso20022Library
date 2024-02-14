@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NotificationCancellationRequestStatus1Choice.ProcessedStatus))]
     [KnownType(typeof(NotificationCancellationRequestStatus1Choice.RejectedStatus))]
     [IsoId("_RiYWw9p-Ed-ak6NoX_4Aeg_-987032957")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Cancellation Request Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

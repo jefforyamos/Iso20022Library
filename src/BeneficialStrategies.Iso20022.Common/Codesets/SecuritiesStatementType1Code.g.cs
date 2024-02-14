@@ -21,7 +21,7 @@ public enum SecuritiesStatementType1Code
 {
     /// <summary>
     /// Statement is a custody statement.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_ZF7As9p-Ed-ak6NoX_4Aeg_-1354761291")]
@@ -30,7 +30,7 @@ public enum SecuritiesStatementType1Code
     
     /// <summary>
     /// Statement is an accounting statement.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_ZF7AtNp-Ed-ak6NoX_4Aeg_-1354760395")]

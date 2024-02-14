@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope and Usage|The MarketClaimCreation message is sent by an account servicer to an account holder to advise of the creation of a market claim transaction on a securities account, for example by a CSD that has automatically generated market claims on a mandatory distribution type of corporate action event. The MarketClaimCreation message may also be sent by an account holder to its account holder, to instruct settlement of a bilaterally agreed (as opposed to centrally generated) market claim for a corporate action event.|This message definition is intended for use with the Business Application Header (BAH).")]
 [IsoId("_PT1lANsDEeqmdMJWobugpw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Market Claim Creation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// References of the transaction for which the securities settlement condition modification is requested.
     /// </summary>
     [IsoId("_0BRJstsYEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRef")]
     #endif
+    [IsoXmlTag("TxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References25 TransactionReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References25 TransactionReference { get; init; } 
+    public required References25 TransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References25 TransactionReference { get; init; } 
     #else
@@ -102,16 +99,15 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_BA078dsPEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -122,16 +118,15 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// Information about the related settlement instruction for which the market claim has been created.
     /// </summary>
     [IsoId("_SOQsMC2sEeuVt5XRmyhHiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Settlement Instruction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdSttlmInstrDtls")]
     #endif
+    [IsoXmlTag("RltdSttlmInstrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RelatedSettlementInstruction1 RelatedSettlementInstructionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RelatedSettlementInstruction1 RelatedSettlementInstructionDetails { get; init; } 
+    public required RelatedSettlementInstruction1 RelatedSettlementInstructionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RelatedSettlementInstruction1 RelatedSettlementInstructionDetails { get; init; } 
     #else
@@ -142,16 +137,15 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// General information about the safekeeping account, owner and account balance.
     /// </summary>
     [IsoId("_GfnaodvlEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification46 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification46 AccountDetails { get; init; } 
+    public required AccountIdentification46 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification46 AccountDetails { get; init; } 
     #else
@@ -162,12 +156,11 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// Information about the corporate action event.
     /// </summary>
     [IsoId("_uBOHsC2qEeuVt5XRmyhHiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnDtls")]
     #endif
+    [IsoXmlTag("CorpActnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateAction59? CorporateActionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,16 +173,15 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// Type of market claim creation requested.
     /// </summary>
     [IsoId("_-UDPQC2lEeuVt5XRmyhHiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Claim Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktClmTp")]
     #endif
+    [IsoXmlTag("MktClmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketClaimType1Code MarketClaimType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketClaimType1Code MarketClaimType { get; init; } 
+    public required MarketClaimType1Code MarketClaimType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketClaimType1Code MarketClaimType { get; init; } 
     #else
@@ -200,16 +192,15 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// Detailed information about the related corporate action option and related movements to which the market claim is linked.
     /// </summary>
     [IsoId("_Lxm88NsaEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Claim Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktClmDtls")]
     #endif
+    [IsoXmlTag("MktClmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption185 MarketClaimDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionOption185 MarketClaimDetails { get; init; } 
+    public required CorporateActionOption185 MarketClaimDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionOption185 MarketClaimDetails { get; init; } 
     #else
@@ -220,12 +211,11 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
     [IsoId("_otNmFNsZEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivering Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrgSttlmPties")]
     #endif
+    [IsoXmlTag("DlvrgSttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties75? DeliveringSettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -238,12 +228,11 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
     [IsoId("_7yIv1NvaEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgSttlmPties")]
     #endif
+    [IsoXmlTag("RcvgSttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties75? ReceivingSettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -256,12 +245,11 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_hhuxcdsGEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -274,7 +262,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MarketClaimCreationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MarketClaimCreationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MarketClaimCreationV01Document ToDocument()
     {
@@ -284,7 +272,7 @@ public partial record MarketClaimCreationV01 : IOuterRecord<MarketClaimCreationV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarketClaimCreationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MarketClaimCreationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MarketClaimCreationV01Document : IOuterDocument<MarketClaimCreationV01>
@@ -301,7 +289,7 @@ public partial record MarketClaimCreationV01Document : IOuterDocument<MarketClai
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MarketClaimCreationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MarketClaimCreationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketClaimCreationV01 Message { get; init; }

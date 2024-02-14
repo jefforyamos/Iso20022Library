@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Date and place of birth of a person.
 /// </summary>
 [IsoId("_jU8IEa9UEeeJJK1oRb-jTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Date And Place Of Birth")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record DateAndPlaceOfBirth1
     /// Date on which a person is born.
     /// </summary>
     [IsoId("_jexZga9UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Birth Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BirthDt")]
     #endif
+    [IsoXmlTag("BirthDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate BirthDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly BirthDate { get; init; } 
+    public required System.DateOnly BirthDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly BirthDate { get; init; } 
     #else
@@ -73,15 +71,13 @@ public partial record DateAndPlaceOfBirth1
     /// Province where a person was born.
     /// </summary>
     [IsoId("_jexZg69UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Province Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvcOfBirth")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrvcOfBirth")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,19 +90,17 @@ public partial record DateAndPlaceOfBirth1
     /// City where a person was born.
     /// </summary>
     [IsoId("_jexZha9UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("City Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CityOfBirth")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CityOfBirth")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CityOfBirth { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CityOfBirth { get; init; } 
+    public required System.String CityOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CityOfBirth { get; init; } 
     #else
@@ -117,16 +111,15 @@ public partial record DateAndPlaceOfBirth1
     /// Country where a person was born.
     /// </summary>
     [IsoId("_jexZh69UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfBirth")]
     #endif
+    [IsoXmlTag("CtryOfBirth")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode CountryOfBirth { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string CountryOfBirth { get; init; } 
+    public required string CountryOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string CountryOfBirth { get; init; } 
     #else

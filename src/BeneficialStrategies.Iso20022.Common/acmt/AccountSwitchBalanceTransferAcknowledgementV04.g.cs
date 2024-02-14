@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"The AccountSwitchBalanceTransferAcknowledgement message is sent by the previous account servicer to the new account servicer in response to the AccountSwitchRequestBalanceTransfer message. It confirms the status of the old account and the balance of the account on closure. In the case of a negative closing balance, the old account servicer provides details of the nominated account to which payment should be made from the new account servicer.")]
 [IsoId("_KOlm6dcDEeq_l4BJLVUF2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Switch Balance Transfer Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     /// Unique identification for the message.
     /// </summary>
     [IsoId("_KOlm69cDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     /// Contains information about the details of the account switch.
     /// </summary>
     [IsoId("_KOlm7dcDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Switch Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSwtchDtls")]
     #endif
+    [IsoXmlTag("AcctSwtchDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
+    public required AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #else
@@ -118,16 +114,15 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     /// Account held at the old Account Servicer being switched to the new Account Servicer.
     /// </summary>
     [IsoId("_KOlm79cDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OdAcct")]
     #endif
+    [IsoXmlTag("OdAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount41 OldAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount41 OldAccount { get; init; } 
+    public required CashAccount41 OldAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount41 OldAccount { get; init; } 
     #else
@@ -138,16 +133,15 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     /// Balance of the old account.
     /// </summary>
     [IsoId("_KOlm8dcDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old Account Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OdAcctBal")]
     #endif
+    [IsoXmlTag("OdAcctBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection5 OldAccountBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection5 OldAccountBalance { get; init; } 
+    public required AmountAndDirection5 OldAccountBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection5 OldAccountBalance { get; init; } 
     #else
@@ -159,12 +153,11 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     /// Usage: In the case of a negative closing balance of the old account, and where the old account servicer wishes any payment from the new account servicer to be addressed to an alternate account, this will be specified here.
     /// </summary>
     [IsoId("_KOlm89cDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTrf")]
     #endif
+    [IsoXmlTag("BalTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceTransfer4? BalanceTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,12 +170,11 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_KOlm9dcDEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -195,7 +187,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountSwitchBalanceTransferAcknowledgementV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountSwitchBalanceTransferAcknowledgementV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountSwitchBalanceTransferAcknowledgementV04Document ToDocument()
     {
@@ -205,7 +197,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04 : IOuterRec
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchBalanceTransferAcknowledgementV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountSwitchBalanceTransferAcknowledgementV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountSwitchBalanceTransferAcknowledgementV04Document : IOuterDocument<AccountSwitchBalanceTransferAcknowledgementV04>
@@ -222,7 +214,7 @@ public partial record AccountSwitchBalanceTransferAcknowledgementV04Document : I
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountSwitchBalanceTransferAcknowledgementV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountSwitchBalanceTransferAcknowledgementV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountSwitchBalanceTransferAcknowledgementV04 Message { get; init; }

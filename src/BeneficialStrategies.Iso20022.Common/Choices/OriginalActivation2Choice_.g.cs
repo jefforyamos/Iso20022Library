@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OriginalActivation2Choice.OriginalDebtorIdentification))]
     [KnownType(typeof(OriginalActivation2Choice.OriginalActivationData))]
     [IsoId("_UNr4PeH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Activation 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

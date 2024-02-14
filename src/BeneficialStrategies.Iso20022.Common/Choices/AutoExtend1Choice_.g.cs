@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AutoExtend1Choice.Years))]
     [KnownType(typeof(AutoExtend1Choice.Date))]
     [IsoId("_95V5enltEeG7BsjMvd1mEw_-1540173231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Auto Extend 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

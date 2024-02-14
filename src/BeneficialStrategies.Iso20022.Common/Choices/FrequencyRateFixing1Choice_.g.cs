@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FrequencyRateFixing1Choice.Code))]
     [KnownType(typeof(FrequencyRateFixing1Choice.NumberOfDays))]
     [IsoId("_OPAdMI9PEeqMo4JxiuZGSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency Rate Fixing 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

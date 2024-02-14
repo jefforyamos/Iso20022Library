@@ -22,7 +22,7 @@ public enum MessageFunction25Code
 {
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_KsoZoemuEemNVKPwszFC-A")]

@@ -21,7 +21,7 @@ public enum Direction1Code
 {
     /// <summary>
     /// Down.
-    /// Encoded/decoded by serializers as "DRDW".
+    /// Encoded/decoded by serializers as &quot;DRDW&quot;.
     /// </summary>
     [EnumMember(Value = "DRDW")]
     [IsoId("_awK8Atp-Ed-ak6NoX_4Aeg_1520758160")]
@@ -30,7 +30,7 @@ public enum Direction1Code
     
     /// <summary>
     /// Up.
-    /// Encoded/decoded by serializers as "DRUP".
+    /// Encoded/decoded by serializers as &quot;DRUP&quot;.
     /// </summary>
     [EnumMember(Value = "DRUP")]
     [IsoId("_awK8A9p-Ed-ak6NoX_4Aeg_1752561964")]

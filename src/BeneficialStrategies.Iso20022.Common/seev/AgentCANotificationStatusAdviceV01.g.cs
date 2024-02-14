@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to report the status, or change in status, of a notification advice or notification cancellation request.|Usage|When this message is used to report the status of a notification advice then the building block Agent Corporate Action Notification Advice Identification must be present.|When this message is used to provide the status of a notification cancellation request then the building block Notification Cancellation Request Identification must be present.")]
 [IsoId("_TReSOdEwEd-BzquC8wXy7w_-1525445298")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent CA Notification Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord<AgentCAN
     /// Identification assigned by the Sender to unambiguously identify the status advice.
     /// </summary>
     [IsoId("_TReSOtEwEd-BzquC8wXy7w_-885544808")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord<AgentCAN
     /// Identification of the linked Agent CA Notification Advice for which a status is given.
     /// </summary>
     [IsoId("_TReSO9EwEd-BzquC8wXy7w_-867070991")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Notification Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCANtfctnAdvcId")]
     #endif
+    [IsoXmlTag("AgtCANtfctnAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCANotificationAdviceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCANotificationAdviceIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCANotificationAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCANotificationAdviceIdentification { get; init; } 
     #else
@@ -124,16 +120,15 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord<AgentCAN
     /// Identification of the linked Agent CA Notification Cancellation Request for which a status is given.
     /// </summary>
     [IsoId("_TReSPNEwEd-BzquC8wXy7w_-853220988")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Notification Cancellation Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCANtfctnCxlReqId")]
     #endif
+    [IsoXmlTag("AgtCANtfctnCxlReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCANotificationCancellationRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCANotificationCancellationRequestIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCANotificationCancellationRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCANotificationCancellationRequestIdentification { get; init; } 
     #else
@@ -144,16 +139,15 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord<AgentCAN
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TRoDMNEwEd-BzquC8wXy7w_-1070148838")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionInformation2 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionInformation2 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionInformation2 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionInformation2 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -164,16 +158,15 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord<AgentCAN
     /// Status of the Notification Cancellation Request sent by the issuer (agent).
     /// </summary>
     [IsoId("_TRoDMdEwEd-BzquC8wXy7w_-979644850")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Cancellation Request Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnCxlReqSts")]
     #endif
+    [IsoXmlTag("NtfctnCxlReqSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationCancellationRequestStatus1Choice_ NotificationCancellationRequestStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NotificationCancellationRequestStatus1Choice_ NotificationCancellationRequestStatus { get; init; } 
+    public required NotificationCancellationRequestStatus1Choice_ NotificationCancellationRequestStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NotificationCancellationRequestStatus1Choice_ NotificationCancellationRequestStatus { get; init; } 
     #else
@@ -184,16 +177,15 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord<AgentCAN
     /// Status of the notification advice sent by the issuer (agent).
     /// </summary>
     [IsoId("_TRoDMtEwEd-BzquC8wXy7w_-982413026")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Advice Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnAdvcSts")]
     #endif
+    [IsoXmlTag("NtfctnAdvcSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationAdviceStatus1Choice_ NotificationAdviceStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NotificationAdviceStatus1Choice_ NotificationAdviceStatus { get; init; } 
+    public required NotificationAdviceStatus1Choice_ NotificationAdviceStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NotificationAdviceStatus1Choice_ NotificationAdviceStatus { get; init; } 
     #else
@@ -204,7 +196,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord<AgentCAN
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AgentCANotificationStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AgentCANotificationStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AgentCANotificationStatusAdviceV01Document ToDocument()
     {
@@ -214,7 +206,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord<AgentCAN
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCANotificationStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AgentCANotificationStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AgentCANotificationStatusAdviceV01Document : IOuterDocument<AgentCANotificationStatusAdviceV01>
@@ -231,7 +223,7 @@ public partial record AgentCANotificationStatusAdviceV01Document : IOuterDocumen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AgentCANotificationStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AgentCANotificationStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentCANotificationStatusAdviceV01 Message { get; init; }

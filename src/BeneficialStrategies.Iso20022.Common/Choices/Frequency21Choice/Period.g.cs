@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency21Choice
     /// Frequency expressed as a proprietary code.
     /// </summary>
     [IsoId("_6GkgCR7yEeSxevWRRWxNAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency21Choice
         /// Period for which the number of instructions are to be created and processed.
         /// </summary>
         [IsoId("_1bz5sB71EeSxevWRRWxNAg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Frequency6Code Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Frequency6Code Type { get; init; } 
+        public required Frequency6Code Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Frequency6Code Type { get; init; } 
         #else
@@ -77,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency21Choice
         /// Number of instructions to be created and processed during the specified period.
         /// </summary>
         [IsoId("_OPlVUB72EeSxevWRRWxNAg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Count Per Period")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CntPerPrd")]
         #endif
+        [IsoXmlTag("CntPerPrd")]
+        [IsoSimpleType(IsoSimpleType.DecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoDecimalNumber CountPerPeriod { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 CountPerPeriod { get; init; } 
+        public required System.UInt64 CountPerPeriod { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 CountPerPeriod { get; init; } 
         #else

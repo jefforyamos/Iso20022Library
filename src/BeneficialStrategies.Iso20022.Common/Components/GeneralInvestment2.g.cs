@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a general investment.
 /// </summary>
 [IsoId("_hoXEsZNuEembCsVG-3f_AA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("General Investment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record GeneralInvestment2
     /// Type of investment.
     /// </summary>
     [IsoId("_h9fnMZNuEembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeneralInvestmentAccountType2Choice_? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record GeneralInvestment2
     /// Specifies whether the account is, for example, in a nominee name or own name.
     /// </summary>
     [IsoId("_J7IRsDOQEeqjy7_SkdcoGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ownership Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OwnrshTp")]
     #endif
+    [IsoXmlTag("OwnrshTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountOwnershipType6Code? OwnershipType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record GeneralInvestment2
     /// Amount of money invested.
     /// </summary>
     [IsoId("_h9fnM5NuEembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Investment Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurInvstmtAmt")]
     #endif
+    [IsoXmlTag("CurInvstmtAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record GeneralInvestment2
     /// Estimated value of the assets.
     /// </summary>
     [IsoId("_h9fnNZNuEembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Estimated Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstmtdVal")]
     #endif
+    [IsoXmlTag("EstmtdVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndAmount2? EstimatedValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record GeneralInvestment2
     /// Additional information about the portfolio.
     /// </summary>
     [IsoId("_h9fnN5NuEembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

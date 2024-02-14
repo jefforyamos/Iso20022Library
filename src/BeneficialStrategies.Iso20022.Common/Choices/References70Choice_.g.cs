@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References70Choice.ClientCollateralInstructionIdentification))]
     [KnownType(typeof(References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification))]
     [IsoId("_21pbMFSLEemTt7251YwCKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References 70 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

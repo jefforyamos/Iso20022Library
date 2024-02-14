@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information to identify funds order(s).
 /// </summary>
 [IsoId("_RMVOSdp-Ed-ak6NoX_4Aeg_-22206736")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Message And Business Reference")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record MessageAndBusinessReference4
     /// Reference to a linked message sent in a proprietary way or reference of a system.
     /// </summary>
     [IsoId("_RMVOStp-Ed-ak6NoX_4Aeg_-22206345")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRef")]
     #endif
+    [IsoXmlTag("OthrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? OtherReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record MessageAndBusinessReference4
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_RMVOS9p-Ed-ak6NoX_4Aeg_-22206716")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record MessageAndBusinessReference4
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_RMVOTNp-Ed-ak6NoX_4Aeg_-14820633")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record MessageAndBusinessReference4
     /// Unique and unambiguous identifiers of one or more indiviudal order instructions or individual order cancellation requests.
     /// </summary>
     [IsoId("_RMVOTdp-Ed-ak6NoX_4Aeg_-14820658")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrRef")]
     #endif
+    [IsoXmlTag("OrdrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundOrder2? OrderReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

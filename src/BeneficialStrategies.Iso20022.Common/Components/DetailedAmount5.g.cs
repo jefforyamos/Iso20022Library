@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed amounts associated with the total amount of transaction.
 /// </summary>
 [IsoId("_QaMvIDAqEeOqioR9srQH1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record DetailedAmount5
     /// Cash-back amount.
     /// </summary>
     [IsoId("_R55K0DArEeOqioR9srQH1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Back")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshBck")]
     #endif
+    [IsoXmlTag("CshBck")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CashBack { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record DetailedAmount5
     /// Gratuity amount.
     /// </summary>
     [IsoId("_H5yF4DAtEeOqioR9srQH1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gratuity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Grtty")]
     #endif
+    [IsoXmlTag("Grtty")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? Gratuity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record DetailedAmount5
     /// Fees amount.
     /// </summary>
     [IsoId("_x29u8DAsEeOqioR9srQH1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fees")]
     #endif
+    [IsoXmlTag("Fees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? Fees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,11 @@ public partial record DetailedAmount5
     /// Global rebate of the transaction. This amount is counted as a negative amount.
     /// </summary>
     [IsoId("_6tylsDAsEeOqioR9srQH1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rebate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rbt")]
     #endif
+    [IsoXmlTag("Rbt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? Rebate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record DetailedAmount5
     /// Value added tax amount.
     /// </summary>
     [IsoId("_A-JJcDAtEeOqioR9srQH1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Added Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValAddedTax")]
     #endif
+    [IsoXmlTag("ValAddedTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? ValueAddedTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

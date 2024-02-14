@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General information that unambiguously identifies a document, such as identification number and issue date time.
 /// </summary>
 [IsoId("_S-ZIkAEcEeCQm6a_G2yO_w_-1398499112")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document General Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record DocumentGeneralInformation2
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
     [IsoId("_S-ZIkQEcEeCQm6a_G2yO_w_-1690456850")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocTp")]
     #endif
+    [IsoXmlTag("DocTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentType1Code DocumentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDocumentType1Code DocumentType { get; init; } 
+    public required ExternalDocumentType1Code DocumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDocumentType1Code DocumentType { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record DocumentGeneralInformation2
     /// Unique identifier of the document.
     /// </summary>
     [IsoId("_S-ZIkgEcEeCQm6a_G2yO_w_-1512338178")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DocNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text DocumentNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DocumentNumber { get; init; } 
+    public required System.String DocumentNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DocumentNumber { get; init; } 
     #else
@@ -95,15 +90,13 @@ public partial record DocumentGeneralInformation2
     /// Specifies the identification sequence number for a specific couple sender/receiver.
     /// </summary>
     [IsoId("_S-ZIkwEcEeCQm6a_G2yO_w_-166388554")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Receiver Sequence Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrRcvrSeqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SndrRcvrSeqId")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SenderReceiverSequenceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +109,12 @@ public partial record DocumentGeneralInformation2
     /// Issue date of the document.
     /// </summary>
     [IsoId("_S-ZIlAEcEeCQm6a_G2yO_w_-1163460907")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,15 +127,13 @@ public partial record DocumentGeneralInformation2
     /// URL (Uniform Resource Locator) where the document can be found.
     /// </summary>
     [IsoId("_S-ZIlQEcEeCQm6a_G2yO_w_2134434036")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("URL")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="URL")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("URL")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? URL { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +146,11 @@ public partial record DocumentGeneralInformation2
     /// Attached binary file for this document.
     /// </summary>
     [IsoId("_S-ZIlgEcEeCQm6a_G2yO_w_1137361683")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attached Binary File")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchdBinryFile")]
     #endif
+    [IsoXmlTag("AttchdBinryFile")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BinaryFile1? AttachedBinaryFile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

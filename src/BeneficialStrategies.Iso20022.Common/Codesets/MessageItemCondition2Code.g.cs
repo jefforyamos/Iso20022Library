@@ -21,7 +21,7 @@ public enum MessageItemCondition2Code
 {
     /// <summary>
     /// Message item must be present.
-    /// Encoded/decoded by serializers as "MNDT".
+    /// Encoded/decoded by serializers as &quot;MNDT&quot;.
     /// </summary>
     [EnumMember(Value = "MNDT")]
     [IsoId("_a4Tu8XC8Ee2bmOA3bkVsMg")]
@@ -30,7 +30,7 @@ public enum MessageItemCondition2Code
     
     /// <summary>
     /// Message item must be present with the configured value.
-    /// Encoded/decoded by serializers as "CFVL".
+    /// Encoded/decoded by serializers as &quot;CFVL&quot;.
     /// </summary>
     [EnumMember(Value = "CFVL")]
     [IsoId("_a4Tu83C8Ee2bmOA3bkVsMg")]
@@ -39,7 +39,7 @@ public enum MessageItemCondition2Code
     
     /// <summary>
     /// Message item has the configured value if the item is absent.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_a4Tu9XC8Ee2bmOA3bkVsMg")]
@@ -48,7 +48,7 @@ public enum MessageItemCondition2Code
     
     /// <summary>
     /// Message item must have one of the configured values.
-    /// Encoded/decoded by serializers as "ALWV".
+    /// Encoded/decoded by serializers as &quot;ALWV&quot;.
     /// </summary>
     [EnumMember(Value = "ALWV")]
     [IsoId("_a4Tu93C8Ee2bmOA3bkVsMg")]
@@ -57,7 +57,7 @@ public enum MessageItemCondition2Code
     
     /// <summary>
     /// Message item has to be present if available.
-    /// Encoded/decoded by serializers as "IFAV".
+    /// Encoded/decoded by serializers as &quot;IFAV&quot;.
     /// </summary>
     [EnumMember(Value = "IFAV")]
     [IsoId("_a4Tu-XC8Ee2bmOA3bkVsMg")]
@@ -66,7 +66,7 @@ public enum MessageItemCondition2Code
     
     /// <summary>
     /// Message item is present if it was present in a previous related message with the same value.
-    /// Encoded/decoded by serializers as "COPY".
+    /// Encoded/decoded by serializers as &quot;COPY&quot;.
     /// </summary>
     [EnumMember(Value = "COPY")]
     [IsoId("_a4Tu-3C8Ee2bmOA3bkVsMg")]
@@ -75,7 +75,7 @@ public enum MessageItemCondition2Code
     
     /// <summary>
     /// Message item is not supported and has to be absent.
-    /// Encoded/decoded by serializers as "UNSP".
+    /// Encoded/decoded by serializers as &quot;UNSP&quot;.
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_a4Tu_XC8Ee2bmOA3bkVsMg")]
@@ -84,7 +84,7 @@ public enum MessageItemCondition2Code
     
     /// <summary>
     /// Minimum set of values to use in messages.
-    /// Encoded/decoded by serializers as "LMNV".
+    /// Encoded/decoded by serializers as &quot;LMNV&quot;.
     /// </summary>
     [EnumMember(Value = "LMNV")]
     [IsoId("_ediJMXC8Ee2bmOA3bkVsMg")]

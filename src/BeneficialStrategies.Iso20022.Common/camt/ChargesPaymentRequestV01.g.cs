@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"The ChargesPaymentRequest message is sent by a financial institution to another financial institution to request the payment of charges, interest and/or other expenses which are previously unknown to the receiver.")]
 [IsoId("_Q2jcwKdBEeqY6dwgI6s5vg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charges Payment Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ChargesPaymentRequestV01 : IOuterRecord<ChargesPaymentRequ
     /// Set of characteristics shared by all individual charges records included in the message.
     /// </summary>
     [IsoId("_jGeDASkYEeuBrrgCSpsocg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader102 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader102 GroupHeader { get; init; } 
+    public required GroupHeader102 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader102 GroupHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ChargesPaymentRequestV01 : IOuterRecord<ChargesPaymentRequ
     /// Provides information on the charges to be paid by the charge bearer(s) related to the processing of the underlying transaction.
     /// </summary>
     [IsoId("_5ShVQKdBEeqY6dwgI6s5vg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrgs")]
     #endif
+    [IsoXmlTag("Chrgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargesRecord5 Charges { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargesRecord5 Charges { get; init; } 
+    public required ChargesRecord5 Charges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargesRecord5 Charges { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ChargesPaymentRequestV01 : IOuterRecord<ChargesPaymentRequ
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_fu1SMbR_Eeq3lpO-mRtrig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ChargesPaymentRequestV01 : IOuterRecord<ChargesPaymentRequ
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ChargesPaymentRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ChargesPaymentRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ChargesPaymentRequestV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ChargesPaymentRequestV01 : IOuterRecord<ChargesPaymentRequ
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChargesPaymentRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ChargesPaymentRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ChargesPaymentRequestV01Document : IOuterDocument<ChargesPaymentRequestV01>
@@ -161,7 +156,7 @@ public partial record ChargesPaymentRequestV01Document : IOuterDocument<ChargesP
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ChargesPaymentRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ChargesPaymentRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargesPaymentRequestV01 Message { get; init; }

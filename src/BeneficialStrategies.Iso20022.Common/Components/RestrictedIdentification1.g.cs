@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to an identification, eg, party identification or account identification.
 /// </summary>
 [IsoId("_WHL-ttp-Ed-ak6NoX_4Aeg_-856211268")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Restricted Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record RestrictedIdentification1
     /// Name or number assigned by an entity to enable recognition of that entity, eg, account identifier.
     /// </summary>
     [IsoId("_WHL-t9p-Ed-ak6NoX_4Aeg_-856211226")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.RestrictedSMNDACodeText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedSMNDACodeText Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else

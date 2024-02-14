@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about investment plans issued during previous years.
 /// </summary>
 [IsoId("_zhY78U7eEeifNrXGwadPmg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Previous Year")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PreviousYear4
     /// Investment plans issued during previous years.
     /// </summary>
     [IsoId("_zxwTM07eEeifNrXGwadPmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsYrs")]
     #endif
+    [IsoXmlTag("PrvsYrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PreviousYear1Choice_ PreviousYears { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PreviousYear1Choice_ PreviousYears { get; init; } 
+    public required PreviousYear1Choice_ PreviousYears { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PreviousYear1Choice_ PreviousYears { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record PreviousYear4
     /// Indicates whether the product contains a cash asset for transfer from previous years.
     /// </summary>
     [IsoId("_zxwTNU7eEeifNrXGwadPmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Component Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCmpntInd")]
     #endif
+    [IsoXmlTag("CshCmpntInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CashComponentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

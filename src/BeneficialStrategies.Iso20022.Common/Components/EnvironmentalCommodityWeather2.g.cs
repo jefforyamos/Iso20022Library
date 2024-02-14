@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines commodity sub-product attributes of an environmental derivative of type weather.
 /// </summary>
 [IsoId("_Dqy6gU8SEe2PGo0mhYCh1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Environmental Commodity Weather")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record EnvironmentalCommodityWeather2
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
     [IsoId("_Drp2IU8SEe2PGo0mhYCh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BasePdct")]
     #endif
+    [IsoXmlTag("BasePdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassProductType3Code BaseProduct { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AssetClassProductType3Code BaseProduct { get; init; } 
+    public required AssetClassProductType3Code BaseProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AssetClassProductType3Code BaseProduct { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record EnvironmentalCommodityWeather2
     /// Sub-product for the underlying asset class.
     /// </summary>
     [IsoId("_Drp2I08SEe2PGo0mhYCh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubPdct")]
     #endif
+    [IsoXmlTag("SubPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassSubProductType30Code? SubProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Ratio of the American or Global Depository Receipt(s) per ordinary share(s).
 /// </summary>
 [IsoId("_1hE44DL3EeKU9IrkkToqcw_-385014275")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CorporateActionRateSD2
     /// Receipts quantity (base) of the American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
     [IsoId("_1hE44TL3EeKU9IrkkToqcw_-599097563")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receipt Base Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RctBaseQty")]
     #endif
+    [IsoXmlTag("RctBaseQty")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ReceiptBaseQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record CorporateActionRateSD2
     ///  Ordinary shares quantity of the American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
     [IsoId("_1hE44jL3EeKU9IrkkToqcw_1099881985")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ordinary Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdnryShr")]
     #endif
+    [IsoXmlTag("OrdnryShr")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? OrdinaryShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

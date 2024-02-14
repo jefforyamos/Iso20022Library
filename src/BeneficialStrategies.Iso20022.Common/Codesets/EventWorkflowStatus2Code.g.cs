@@ -21,7 +21,7 @@ public enum EventWorkflowStatus2Code
 {
     /// <summary>
     /// Announcement record has been deleted/ removed as an invalid record.
-    /// Encoded/decoded by serializers as "WSDE".
+    /// Encoded/decoded by serializers as &quot;WSDE&quot;.
     /// </summary>
     [EnumMember(Value = "WSDE")]
     [IsoId("_1ygnJDL3EeKU9IrkkToqcw_-651436427")]
@@ -30,7 +30,7 @@ public enum EventWorkflowStatus2Code
     
     /// <summary>
     /// Validation has determined event is being cancelled by the issuer/offeror. Either all information was in agreement (STP) or if manual validation was necessary authorised review and changes/updates were performed.
-    /// Encoded/decoded by serializers as "WSCN".
+    /// Encoded/decoded by serializers as &quot;WSCN&quot;.
     /// </summary>
     [EnumMember(Value = "WSCN")]
     [IsoId("_1ygnJTL3EeKU9IrkkToqcw_-1341432055")]

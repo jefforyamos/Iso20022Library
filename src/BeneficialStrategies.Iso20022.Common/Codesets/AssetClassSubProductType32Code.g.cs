@@ -21,7 +21,7 @@ public enum AssetClassSubProductType32Code
 {
     /// <summary>
     /// Commodity of type wet freight.
-    /// Encoded/decoded by serializers as "WETF".
+    /// Encoded/decoded by serializers as &quot;WETF&quot;.
     /// </summary>
     [EnumMember(Value = "WETF")]
     [IsoId("_RB1uw1rdEeWN79Bl6BUd3g")]

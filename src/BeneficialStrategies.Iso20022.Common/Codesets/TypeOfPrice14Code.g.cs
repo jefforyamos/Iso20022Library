@@ -21,7 +21,7 @@ public enum TypeOfPrice14Code
 {
     /// <summary>
     /// Price is an average execution price.
-    /// Encoded/decoded by serializers as "AVER".
+    /// Encoded/decoded by serializers as &quot;AVER&quot;.
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("_Yx9i4dp-Ed-ak6NoX_4Aeg_-1357807596")]

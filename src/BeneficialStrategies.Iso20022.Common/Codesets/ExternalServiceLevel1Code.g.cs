@@ -23,7 +23,7 @@ public enum ExternalServiceLevel1Code
 {
     /// <summary>
     /// Payment through internal book transfer.
-    /// Encoded/decoded by serializers as "BKTR".
+    /// Encoded/decoded by serializers as &quot;BKTR&quot;.
     /// </summary>
     [EnumMember(Value = "BKTR")]
     [IsoId("_t8zlGPRYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Tracked Customer Credit Transfer.
-    /// Encoded/decoded by serializers as "G001".
+    /// Encoded/decoded by serializers as &quot;G001&quot;.
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_t8zlG_RYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Tracked Stop and Recall 
-    /// Encoded/decoded by serializers as "G002".
+    /// Encoded/decoded by serializers as &quot;G002&quot;.
     /// </summary>
     [EnumMember(Value = "G002")]
     [IsoId("_t8zlHvRYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Tracked Outbound Corporate Transfer.
-    /// Encoded/decoded by serializers as "G003".
+    /// Encoded/decoded by serializers as &quot;G003&quot;.
     /// </summary>
     [EnumMember(Value = "G003")]
     [IsoId("_t89WEvRYEeuLhpyIdtJzwg")]
@@ -59,7 +59,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Tracked Financial Institution Transfer.
-    /// Encoded/decoded by serializers as "G004".
+    /// Encoded/decoded by serializers as &quot;G004&quot;.
     /// </summary>
     [EnumMember(Value = "G004")]
     [IsoId("_t89WFfRYEeuLhpyIdtJzwg")]
@@ -68,7 +68,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payments must be executed following the NPC Area Payment scheme.
-    /// Encoded/decoded by serializers as "NPCA".
+    /// Encoded/decoded by serializers as &quot;NPCA&quot;.
     /// </summary>
     [EnumMember(Value = "NPCA")]
     [IsoId("_t89WGPRYEeuLhpyIdtJzwg")]
@@ -77,7 +77,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payment must be executed as a non-urgent transaction with priority settlement.
-    /// Encoded/decoded by serializers as "NUGP".
+    /// Encoded/decoded by serializers as &quot;NUGP&quot;.
     /// </summary>
     [EnumMember(Value = "NUGP")]
     [IsoId("_t9GgAvRYEeuLhpyIdtJzwg")]
@@ -86,7 +86,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payment must be executed as a non-urgent transaction, which is typically identified as an ACH or low value transaction. 
-    /// Encoded/decoded by serializers as "NURG".
+    /// Encoded/decoded by serializers as &quot;NURG&quot;.
     /// </summary>
     [EnumMember(Value = "NURG")]
     [IsoId("_t9GgBfRYEeuLhpyIdtJzwg")]
@@ -95,7 +95,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Transaction must be processed according to the EBA Priority Service.
-    /// Encoded/decoded by serializers as "PRPT".
+    /// Encoded/decoded by serializers as &quot;PRPT&quot;.
     /// </summary>
     [EnumMember(Value = "PRPT")]
     [IsoId("_t9GgCPRYEeuLhpyIdtJzwg")]
@@ -104,7 +104,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payment must be executed with same day value to the creditor.
-    /// Encoded/decoded by serializers as "SDVA".
+    /// Encoded/decoded by serializers as &quot;SDVA&quot;.
     /// </summary>
     [EnumMember(Value = "SDVA")]
     [IsoId("_t9GgC_RYEeuLhpyIdtJzwg")]
@@ -113,7 +113,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payment must be executed following the Single Euro Payments Area scheme.
-    /// Encoded/decoded by serializers as "SEPA".
+    /// Encoded/decoded by serializers as &quot;SEPA&quot;.
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_t9GgDvRYEeuLhpyIdtJzwg")]
@@ -122,7 +122,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payment execution following the cheque agreement and traveller cheque agreement of the German Banking Industry Committee (Die Deutsche Kreditwirtschaft - DK) and Deutsche Bundesbank – Scheck Verrechnung Deutschland
-    /// Encoded/decoded by serializers as "SVDE".
+    /// Encoded/decoded by serializers as &quot;SVDE&quot;.
     /// </summary>
     [EnumMember(Value = "SVDE")]
     [IsoId("_t9QRAvRYEeuLhpyIdtJzwg")]
@@ -131,7 +131,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payment must be executed as an urgent transaction cleared through a real-time gross settlement system, which is typically identified as a wire or high value transaction.  
-    /// Encoded/decoded by serializers as "URGP".
+    /// Encoded/decoded by serializers as &quot;URGP&quot;.
     /// </summary>
     [EnumMember(Value = "URGP")]
     [IsoId("_t9QRBfRYEeuLhpyIdtJzwg")]
@@ -140,7 +140,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payment must be executed as an urgent transaction cleared through a real-time net settlement system, which is typically identified as a wire or high value transaction.  
-    /// Encoded/decoded by serializers as "URNS".
+    /// Encoded/decoded by serializers as &quot;URNS&quot;.
     /// </summary>
     [EnumMember(Value = "URNS")]
     [IsoId("_t9aCAvRYEeuLhpyIdtJzwg")]
@@ -149,7 +149,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Used for payment initiation to identify that a Payment or Direct Debit initiation must be executed as an instant or real-time payment instrument.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_ThOEoVD-Eey6cYDbEubNXg")]
@@ -158,7 +158,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Request to Pay (RTP) transaction refers to an RTP scheme (such as for example the SEPA Request to Pay (SRTP) scheme).
-    /// Encoded/decoded by serializers as "SRTP".
+    /// Encoded/decoded by serializers as &quot;SRTP&quot;.
     /// </summary>
     [EnumMember(Value = "SRTP")]
     [IsoId("_Tt5OsVD-Eey6cYDbEubNXg")]
@@ -167,7 +167,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Scheck Verarbeitung Austria (Cheque Processing).
-    /// Encoded/decoded by serializers as "SVAT".
+    /// Encoded/decoded by serializers as &quot;SVAT&quot;.
     /// </summary>
     [EnumMember(Value = "SVAT")]
     [IsoId("_HouqgY5FEeyANo-d7JlQ1A")]
@@ -176,7 +176,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Specifies the service conditions applicable to a tracked exceptions and investigations case.
-    /// Encoded/decoded by serializers as "G006".
+    /// Encoded/decoded by serializers as &quot;G006&quot;.
     /// </summary>
     [EnumMember(Value = "G006")]
     [IsoId("_G0Cf4eAjEey0k8vo1GQhqQ")]
@@ -185,7 +185,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Specifies the service level for a tracked inbound customer credit transfer.
-    /// Encoded/decoded by serializers as "G007".
+    /// Encoded/decoded by serializers as &quot;G007&quot;.
     /// </summary>
     [EnumMember(Value = "G007")]
     [IsoId("_HFnYEeAjEey0k8vo1GQhqQ")]
@@ -194,7 +194,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Tracked Instant Customer Credit Transfer.
-    /// Encoded/decoded by serializers as "G005".
+    /// Encoded/decoded by serializers as &quot;G005&quot;.
     /// </summary>
     [EnumMember(Value = "G005")]
     [IsoId("_HTL6AeAjEey0k8vo1GQhqQ")]
@@ -203,7 +203,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Specifies the service level for a tracked low-value cross-border customer credit transfer.
-    /// Encoded/decoded by serializers as "G009".
+    /// Encoded/decoded by serializers as &quot;G009&quot;.
     /// </summary>
     [EnumMember(Value = "G009")]
     [IsoId("_HdnBUeAjEey0k8vo1GQhqQ")]
@@ -212,7 +212,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Transaction is to be treated as an advice and only applied to the account of the creditor or next agent after settlement of the cover has been confirmed.
-    /// Encoded/decoded by serializers as "WFSM".
+    /// Encoded/decoded by serializers as &quot;WFSM&quot;.
     /// </summary>
     [EnumMember(Value = "WFSM")]
     [IsoId("_T8HuAmvcEe2F6NrIyOmXcA")]
@@ -221,7 +221,7 @@ public enum ExternalServiceLevel1Code
     
     /// <summary>
     /// Payment is executed following a Euro One-Leg Out Scheme.
-    /// Encoded/decoded by serializers as "EOLO".
+    /// Encoded/decoded by serializers as &quot;EOLO&quot;.
     /// </summary>
     [EnumMember(Value = "EOLO")]
     [IsoId("_9m6qUv7KEe2ORYPQEd-Clg")]

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionIdentification1Choice.MarginReporting))]
     [KnownType(typeof(TransactionIdentification1Choice.CollateralReuse))]
     [IsoId("_DD0DMK7LEemZxoEFHjN-AQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

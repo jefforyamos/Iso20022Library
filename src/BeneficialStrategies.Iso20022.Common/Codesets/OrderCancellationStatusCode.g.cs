@@ -21,7 +21,7 @@ public enum OrderCancellationStatusCode
 {
     /// <summary>
     /// Order cancellation request has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_aQk19Np-Ed-ak6NoX_4Aeg_117683450")]
@@ -30,7 +30,7 @@ public enum OrderCancellationStatusCode
     
     /// <summary>
     /// Order cancellation request is pending, The order cancellation request has been received but this does not indicate the order has been cancelled.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_aQk19dp-Ed-ak6NoX_4Aeg_131534414")]
@@ -39,7 +39,7 @@ public enum OrderCancellationStatusCode
     
     /// <summary>
     /// Status of the order cancellation request is completed. The cancellation request has been accepted and processed; the order has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_aQk19tp-Ed-ak6NoX_4Aeg_573306707")]
@@ -48,7 +48,7 @@ public enum OrderCancellationStatusCode
     
     /// <summary>
     /// Status of the order cancellation request is received, that is, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_XxrFEdcPEeaX5rvhR0a-OQ")]

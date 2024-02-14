@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Timeframe2Choice
     /// An agreed number of days after the renunciation of title documents are received used to define standard timeframes in Redemption e.g R+3 Redemption settlement cycle.
     /// </summary>
     [IsoId("_UAyS4Np-Ed-ak6NoX_4Aeg_348286018")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Renunciation Plus")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Timeframe2Choice
         /// Number of objects represented as an integer.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RPlus")]
         #endif
+        [IsoXmlTag("RPlus")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Value { get; init; } 
+        public required System.UInt64 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Value { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument16Choice
     /// Settlement instructions for a payment by draft.
     /// </summary>
     [IsoId("_MgQvZRdKEeK5g-3oYI0_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bankers Draft Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument16Choice
         /// Party to which a cheque is made payable.
         /// </summary>
         [IsoId("_QbdK-tp-Ed-ak6NoX_4Aeg_-2038541815")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payee Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PyeeId")]
         #endif
+        [IsoXmlTag("PyeeId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NameAndAddress5 PayeeIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NameAndAddress5 PayeeIdentification { get; init; } 
+        public required NameAndAddress5 PayeeIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NameAndAddress5 PayeeIdentification { get; init; } 
         #else

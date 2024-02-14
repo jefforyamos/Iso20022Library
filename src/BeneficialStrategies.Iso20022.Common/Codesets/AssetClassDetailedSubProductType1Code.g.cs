@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType1Code
 {
     /// <summary>
     /// Commodity attribute of type feed wheat.
-    /// Encoded/decoded by serializers as "FWHT".
+    /// Encoded/decoded by serializers as &quot;FWHT&quot;.
     /// </summary>
     [EnumMember(Value = "FWHT")]
     [IsoId("_96wFSSY7EeWAO6hFQSFUmw")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType1Code
     
     /// <summary>
     /// Commodity attribute of type soybeans.
-    /// Encoded/decoded by serializers as "SOYB".
+    /// Encoded/decoded by serializers as &quot;SOYB&quot;.
     /// </summary>
     [EnumMember(Value = "SOYB")]
     [IsoId("_96wFSiY7EeWAO6hFQSFUmw")]
@@ -39,7 +39,7 @@ public enum AssetClassDetailedSubProductType1Code
     
     /// <summary>
     /// Commodity attribute of type rapeseed.
-    /// Encoded/decoded by serializers as "RPSD".
+    /// Encoded/decoded by serializers as &quot;RPSD&quot;.
     /// </summary>
     [EnumMember(Value = "RPSD")]
     [IsoId("_96wFRyY7EeWAO6hFQSFUmw")]
@@ -48,7 +48,7 @@ public enum AssetClassDetailedSubProductType1Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_96wFSyY7EeWAO6hFQSFUmw")]
@@ -57,7 +57,7 @@ public enum AssetClassDetailedSubProductType1Code
     
     /// <summary>
     /// Commodity attribute of type maize.
-    /// Encoded/decoded by serializers as "CORN".
+    /// Encoded/decoded by serializers as &quot;CORN&quot;.
     /// </summary>
     [EnumMember(Value = "CORN")]
     [IsoId("_96wFSCY7EeWAO6hFQSFUmw")]
@@ -66,7 +66,7 @@ public enum AssetClassDetailedSubProductType1Code
     
     /// <summary>
     /// Commodity attribute of type rice.
-    /// Encoded/decoded by serializers as "RICE".
+    /// Encoded/decoded by serializers as &quot;RICE&quot;.
     /// </summary>
     [EnumMember(Value = "RICE")]
     [IsoId("_C5a1AfwfEeW4Wthd0Ze_kA")]

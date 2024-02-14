@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NumberCount2Choice
     /// Sequential number of the instruction in a range of linked settlement instructions.
     /// </summary>
     [IsoId("_JaoZcygdEey2k_sfZmJz4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Instruction Number")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.NumberCount2Choice
         /// Specifies a numeric string with a maximum length of 6 digits.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CurInstrNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("CurInstrNb")]
+        [IsoSimpleType(IsoSimpleType.Max6NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax6NumericText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

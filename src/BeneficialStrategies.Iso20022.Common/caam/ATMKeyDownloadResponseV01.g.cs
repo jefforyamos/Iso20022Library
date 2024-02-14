@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caam;
 /// </summary>
 [Description(@"The ATMKeyDownloadResponse message is sent from an acquirer to an ATM in response to an ATMKeyDownloadRequest message, to download of one or several cryptographic keys.")]
 [IsoId("_doLoYItREeST3ocKVc8_qA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Key Download Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMKeyDownloadResponseV01 : IOuterRecord<ATMKeyDownloadRes
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_k16aYItREeST3ocKVc8_qA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header20 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header20 Header { get; init; } 
+    public required Header20 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header20 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMKeyDownloadResponseV01 : IOuterRecord<ATMKeyDownloadRes
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_uXuu4ItREeST3ocKVc8_qA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATM Key Download Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMKeyDwnldRspn")]
     #endif
+    [IsoXmlTag("PrtctdATMKeyDwnldRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMKeyDownloadResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMKeyDownloadResponseV01 : IOuterRecord<ATMKeyDownloadRes
     /// Information related to the response of an ATM key download from an ATM manager.
     /// </summary>
     [IsoId("_561lsItREeST3ocKVc8_qA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Key Download Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMKeyDwnldRspn")]
     #endif
+    [IsoXmlTag("ATMKeyDwnldRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMKeyDownloadResponse1? ATMKeyDownloadResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMKeyDownloadResponseV01 : IOuterRecord<ATMKeyDownloadRes
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_-i7yMItREeST3ocKVc8_qA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType13? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMKeyDownloadResponseV01 : IOuterRecord<ATMKeyDownloadRes
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMKeyDownloadResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMKeyDownloadResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMKeyDownloadResponseV01Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMKeyDownloadResponseV01 : IOuterRecord<ATMKeyDownloadRes
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMKeyDownloadResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMKeyDownloadResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMKeyDownloadResponseV01Document : IOuterDocument<ATMKeyDownloadResponseV01>
@@ -176,7 +170,7 @@ public partial record ATMKeyDownloadResponseV01Document : IOuterDocument<ATMKeyD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMKeyDownloadResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMKeyDownloadResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMKeyDownloadResponseV01 Message { get; init; }

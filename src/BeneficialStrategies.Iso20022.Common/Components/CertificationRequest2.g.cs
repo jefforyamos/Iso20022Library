@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information of the certificate to create.
 /// </summary>
 [IsoId("_Bv1XkY4SEeW6h7rGyYlyTg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Certification Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record CertificationRequest2
     /// Version of the certificate request information data structure.
     /// </summary>
     [IsoId("_B8DOoY4SEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record CertificationRequest2
     /// Distinguished name of the certificate subject, the entity whose public key is to be certified.
     /// </summary>
     [IsoId("_jCXvQI4SEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subject Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbjtNm")]
     #endif
+    [IsoXmlTag("SbjtNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CertificateIssuer1? SubjectName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +84,15 @@ public partial record CertificationRequest2
     /// Information about the public key being certified.
     /// </summary>
     [IsoId("_I9cYUI4TEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subject Public Key Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbjtPblcKeyInf")]
     #endif
+    [IsoXmlTag("SbjtPblcKeyInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
+    public required PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
     #else
@@ -107,12 +103,11 @@ public partial record CertificationRequest2
     /// Attribute of the certificate service to be put in the certificate extensions, or to be used for the request.
     /// </summary>
     [IsoId("_ECnAkI4UEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attribute")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Attr")]
     #endif
+    [IsoXmlTag("Attr")]
     public RelativeDistinguishedName2? Attribute { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ECnAkI4UEeW6h7rGyYlyTg
     

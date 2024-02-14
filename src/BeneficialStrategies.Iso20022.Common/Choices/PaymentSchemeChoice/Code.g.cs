@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchemeChoice
     /// Specifies the channel through which the payment instruction is to be processed in coded form.
     /// </summary>
     [IsoId("_QHyBD9p-Ed-ak6NoX_4Aeg_-1149658812")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchemeChoice
         /// Specifies a type of payment system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CashClearingSystem2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CashClearingSystem2Code Value { get; init; } 
+        public required CashClearingSystem2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CashClearingSystem2Code Value { get; init; } 
         #else

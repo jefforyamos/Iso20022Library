@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Deposit of an amount of money defined in cash notes and/or coins.
 /// </summary>
 [IsoId("_t0kyllkyEeGeoaLUQk__nA_-1150554853")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Deposit")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record CashDeposit1
     /// Specifies the note or coin denomination, including the currency, such as a 50 euro note.
     /// </summary>
     [IsoId("_t0ujkFkyEeGeoaLUQk__nA_1181780870")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Note Denomination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoteDnmtn")]
     #endif
+    [IsoXmlTag("NoteDnmtn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount NoteDenomination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal NoteDenomination { get; init; } 
+    public required System.Decimal NoteDenomination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal NoteDenomination { get; init; } 
     #else
@@ -73,19 +71,16 @@ public partial record CashDeposit1
     /// Specifies the number of notes of the same denomination in the deposit.
     /// </summary>
     [IsoId("_t0ujkVkyEeGeoaLUQk__nA_-1821036106")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Notes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfNotes")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfNotes")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText NumberOfNotes { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NumberOfNotes { get; init; } 
+    public required System.String NumberOfNotes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NumberOfNotes { get; init; } 
     #else
@@ -96,16 +91,16 @@ public partial record CashDeposit1
     /// Specifies the total amount of money in the cash deposit, that is the note denomination times the number of notes.
     /// </summary>
     [IsoId("_t0ujklkyEeGeoaLUQk__nA_-754114545")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

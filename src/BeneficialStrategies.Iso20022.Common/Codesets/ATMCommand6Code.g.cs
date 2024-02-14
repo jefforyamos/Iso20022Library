@@ -21,7 +21,7 @@ public enum ATMCommand6Code
 {
     /// <summary>
     /// Provide the ATM counters, resetting those that are applicable.
-    /// Encoded/decoded by serializers as "ABAL".
+    /// Encoded/decoded by serializers as &quot;ABAL&quot;.
     /// </summary>
     [EnumMember(Value = "ABAL")]
     [IsoId("_-OwDcV_REeeD0NpJQPACzA")]
@@ -30,7 +30,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Status of the ATM required by the ATM manager.
-    /// Encoded/decoded by serializers as "ASTS".
+    /// Encoded/decoded by serializers as &quot;ASTS&quot;.
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_-OwDc1_REeeD0NpJQPACzA")]
@@ -39,7 +39,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Update the ATM configuration parameters.
-    /// Encoded/decoded by serializers as "CFGT".
+    /// Encoded/decoded by serializers as &quot;CFGT&quot;.
     /// </summary>
     [EnumMember(Value = "CFGT")]
     [IsoId("_-OwDdV_REeeD0NpJQPACzA")]
@@ -48,7 +48,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CCNT".
+    /// Encoded/decoded by serializers as &quot;CCNT&quot;.
     /// </summary>
     [EnumMember(Value = "CCNT")]
     [IsoId("_-OwDd1_REeeD0NpJQPACzA")]
@@ -57,7 +57,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Perform a disconnection followed by a reconnection.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_-OwDeV_REeeD0NpJQPACzA")]
@@ -66,7 +66,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Activate cryptographic keys.
-    /// Encoded/decoded by serializers as "KACT".
+    /// Encoded/decoded by serializers as &quot;KACT&quot;.
     /// </summary>
     [EnumMember(Value = "KACT")]
     [IsoId("_-OwDe1_REeeD0NpJQPACzA")]
@@ -75,7 +75,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Deactivate cryptographic keys.
-    /// Encoded/decoded by serializers as "KDAC".
+    /// Encoded/decoded by serializers as &quot;KDAC&quot;.
     /// </summary>
     [EnumMember(Value = "KDAC")]
     [IsoId("_-OwDfV_REeeD0NpJQPACzA")]
@@ -84,7 +84,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Start a cryptographic key download.
-    /// Encoded/decoded by serializers as "KDWL".
+    /// Encoded/decoded by serializers as &quot;KDWL&quot;.
     /// </summary>
     [EnumMember(Value = "KDWL")]
     [IsoId("_-OwDf1_REeeD0NpJQPACzA")]
@@ -93,7 +93,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Remove cryptographic keys.
-    /// Encoded/decoded by serializers as "KRMV".
+    /// Encoded/decoded by serializers as &quot;KRMV&quot;.
     /// </summary>
     [EnumMember(Value = "KRMV")]
     [IsoId("_-OwDgV_REeeD0NpJQPACzA")]
@@ -102,7 +102,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Update the configuration of the hardware security module on the ATM.
-    /// Encoded/decoded by serializers as "SCFU".
+    /// Encoded/decoded by serializers as &quot;SCFU&quot;.
     /// </summary>
     [EnumMember(Value = "SCFU")]
     [IsoId("_-OwDg1_REeeD0NpJQPACzA")]
@@ -111,7 +111,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Update the security scheme of the hardware security module on the ATM.
-    /// Encoded/decoded by serializers as "SSCU".
+    /// Encoded/decoded by serializers as &quot;SSCU&quot;.
     /// </summary>
     [EnumMember(Value = "SSCU")]
     [IsoId("_-OwDhV_REeeD0NpJQPACzA")]
@@ -120,7 +120,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Update the status of the hardware security module on the ATM.
-    /// Encoded/decoded by serializers as "SSTU".
+    /// Encoded/decoded by serializers as &quot;SSTU&quot;.
     /// </summary>
     [EnumMember(Value = "SSTU")]
     [IsoId("_-OwDh1_REeeD0NpJQPACzA")]
@@ -129,7 +129,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Send a specific message to initiate a process.
-    /// Encoded/decoded by serializers as "SNDM".
+    /// Encoded/decoded by serializers as &quot;SNDM&quot;.
     /// </summary>
     [EnumMember(Value = "SNDM")]
     [IsoId("_-OwDiV_REeeD0NpJQPACzA")]
@@ -138,7 +138,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Replace an existing key using a Higher Level Authority (HLA) key. In the TR34 scheme this would be used to implement a HLA Rebind operation.
-    /// Encoded/decoded by serializers as "HKCG".
+    /// Encoded/decoded by serializers as &quot;HKCG&quot;.
     /// </summary>
     [EnumMember(Value = "HKCG")]
     [IsoId("___KRIV_REeeD0NpJQPACzA")]
@@ -147,7 +147,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Remove a cryptographic key using a Higher Level Authority key (HLA). In the TR34 scheme this would be used to implement a HLA Unbind operation.
-    /// Encoded/decoded by serializers as "HKRV".
+    /// Encoded/decoded by serializers as &quot;HKRV&quot;.
     /// </summary>
     [EnumMember(Value = "HKRV")]
     [IsoId("_AIxgIV_SEeeD0NpJQPACzA")]
@@ -156,7 +156,7 @@ public enum ATMCommand6Code
     
     /// <summary>
     /// Replaces an existing cryptographic key. In a TR34 scheme this would be used to implement a Rebind operation.
-    /// Encoded/decoded by serializers as "KCHG".
+    /// Encoded/decoded by serializers as &quot;KCHG&quot;.
     /// </summary>
     [EnumMember(Value = "KCHG")]
     [IsoId("_Av38YV_SEeeD0NpJQPACzA")]

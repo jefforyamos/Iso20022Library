@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralValueCriteriaDefinition2Choice.QueryName))]
     [KnownType(typeof(CollateralValueCriteriaDefinition2Choice.NewCriteria))]
     [IsoId("_zV1FIeFgEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value Criteria Definition 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

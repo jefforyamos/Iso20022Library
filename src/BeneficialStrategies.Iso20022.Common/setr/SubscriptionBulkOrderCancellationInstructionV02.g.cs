@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The SubscriptionBulkOrderCancellationInstruction message is sent by an instructing party, eg, an investment manager or its authorised representative, to an executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.|This message is sent to cancel a previously sent SubscriptionBulkOrder instruction.|Usage|The SubscriptionBulkOrderCancellationInstruction message is used to cancel the entire previously sent SubscriptionBulkOrder message and all the individual orders that it contained. There is no amendment, but a cancellation and re-instruct policy.|This message must contain the reference of the message to be cancelled. This message may also contain all the details of the message to be cancelled, but this is not recommended.|The deadline and acceptance of a cancellation instruction is subject to a service level agreement (SLA). This cancellation message is a cancellation instruction. There is no automatic acceptance of the cancellation instruction.|The rejection or acceptance of a cancellation message instruction is made using an OrderCancellationStatusReport message.")]
 [IsoId("_xNqYKNE7Ed-BzquC8wXy7w_1852659752")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Bulk Order Cancellation Instruction V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,12 +80,11 @@ public partial record SubscriptionBulkOrderCancellationInstructionV02 : IOuterRe
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
     [IsoId("_xNqYKdE7Ed-BzquC8wXy7w_-990894652")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
+    [IsoXmlTag("MstrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +97,11 @@ public partial record SubscriptionBulkOrderCancellationInstructionV02 : IOuterRe
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_xN0JINE7Ed-BzquC8wXy7w_-744316127")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,16 +114,15 @@ public partial record SubscriptionBulkOrderCancellationInstructionV02 : IOuterRe
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_xN0JIdE7Ed-BzquC8wXy7w_-736003012")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference3 PreviousReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReference3 PreviousReference { get; init; } 
+    public required AdditionalReference3 PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReference3 PreviousReference { get; init; } 
     #else
@@ -138,12 +133,11 @@ public partial record SubscriptionBulkOrderCancellationInstructionV02 : IOuterRe
     /// Common information related to all the orders to be cancelled.
     /// </summary>
     [IsoId("_xN0JItE7Ed-BzquC8wXy7w_-1477589886")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order To Be Cancelled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrToBeCanc")]
     #endif
+    [IsoXmlTag("OrdrToBeCanc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubscriptionBulkOrderInstruction1? OrderToBeCancelled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,7 +150,7 @@ public partial record SubscriptionBulkOrderCancellationInstructionV02 : IOuterRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SubscriptionBulkOrderCancellationInstructionV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SubscriptionBulkOrderCancellationInstructionV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SubscriptionBulkOrderCancellationInstructionV02Document ToDocument()
     {
@@ -166,7 +160,7 @@ public partial record SubscriptionBulkOrderCancellationInstructionV02 : IOuterRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SubscriptionBulkOrderCancellationInstructionV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SubscriptionBulkOrderCancellationInstructionV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SubscriptionBulkOrderCancellationInstructionV02Document : IOuterDocument<SubscriptionBulkOrderCancellationInstructionV02>
@@ -183,7 +177,7 @@ public partial record SubscriptionBulkOrderCancellationInstructionV02Document : 
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SubscriptionBulkOrderCancellationInstructionV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SubscriptionBulkOrderCancellationInstructionV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionBulkOrderCancellationInstructionV02 Message { get; init; }

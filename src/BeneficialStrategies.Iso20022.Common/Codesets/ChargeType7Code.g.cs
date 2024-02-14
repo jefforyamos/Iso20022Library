@@ -21,7 +21,7 @@ public enum ChargeType7Code
 {
     /// <summary>
     /// Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.
-    /// Encoded/decoded by serializers as "MANF".
+    /// Encoded/decoded by serializers as &quot;MANF&quot;.
     /// </summary>
     [EnumMember(Value = "MANF")]
     [IsoId("_Vlzv-dp-Ed-ak6NoX_4Aeg_-1483959498")]
@@ -30,7 +30,7 @@ public enum ChargeType7Code
     
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BEND".
+    /// Encoded/decoded by serializers as &quot;BEND&quot;.
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_Vl9g8Np-Ed-ak6NoX_4Aeg_-1483959203")]
@@ -39,7 +39,7 @@ public enum ChargeType7Code
     
     /// <summary>
     /// Fee paid for advisory services rendered.
-    /// Encoded/decoded by serializers as "ADVI".
+    /// Encoded/decoded by serializers as &quot;ADVI&quot;.
     /// </summary>
     [EnumMember(Value = "ADVI")]
     [IsoId("_Vl9g8dp-Ed-ak6NoX_4Aeg_-1223527582")]
@@ -48,7 +48,7 @@ public enum ChargeType7Code
     
     /// <summary>
     /// Fee paid to a custodian in respect of custodial services.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_Vl9g8tp-Ed-ak6NoX_4Aeg_-1211518630")]
@@ -57,7 +57,7 @@ public enum ChargeType7Code
     
     /// <summary>
     /// Fee paid in respect of publications made.
-    /// Encoded/decoded by serializers as "PUBL".
+    /// Encoded/decoded by serializers as &quot;PUBL&quot;.
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_Vl9g89p-Ed-ak6NoX_4Aeg_-1184737330")]
@@ -66,7 +66,7 @@ public enum ChargeType7Code
     
     /// <summary>
     /// Fee paid for accounting services rendered.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_Vl9g9Np-Ed-ak6NoX_4Aeg_-1157032381")]
@@ -75,7 +75,7 @@ public enum ChargeType7Code
     
     /// <summary>
     /// Another type of charge.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vl9g9dp-Ed-ak6NoX_4Aeg_1890586208")]
@@ -83,8 +83,8 @@ public enum ChargeType7Code
     Other = ChargeTypeCode.Other, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
-    /// Encoded/decoded by serializers as "EQUL".
+    /// The part of an investor&apos;s subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
+    /// Encoded/decoded by serializers as &quot;EQUL&quot;.
     /// </summary>
     [EnumMember(Value = "EQUL")]
     [IsoId("_Vl9g9tp-Ed-ak6NoX_4Aeg_753326519")]

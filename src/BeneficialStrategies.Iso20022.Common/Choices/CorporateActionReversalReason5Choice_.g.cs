@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionReversalReason5Choice.Code))]
     [KnownType(typeof(CorporateActionReversalReason5Choice.Proprietary))]
     [IsoId("_ryV6pzQVEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Reversal Reason 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CancellationRight1Choice.Code))]
     [KnownType(typeof(CancellationRight1Choice.Proprietary))]
     [IsoId("_z8OCgDhOEeaTjZWmPo-9OA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Right 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

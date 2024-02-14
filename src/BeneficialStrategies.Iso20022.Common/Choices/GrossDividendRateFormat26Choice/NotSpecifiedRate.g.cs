@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat26Choice
     /// Value of the rate not specified.
     /// </summary>
     [IsoId("_ctnLgZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Specified Rate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat26Choice
         /// Specifies the type of rate.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NotSpcfdRate")]
         #endif
+        [IsoXmlTag("NotSpcfdRate")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RateType13Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RateType13Code Value { get; init; } 
+        public required RateType13Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RateType13Code Value { get; init; } 
         #else

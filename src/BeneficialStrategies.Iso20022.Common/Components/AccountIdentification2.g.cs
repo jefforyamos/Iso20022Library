@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique identifier of an account, as assigned by the account servicer.
 /// </summary>
 [IsoId("_WHfgudp-Ed-ak6NoX_4Aeg_655013533")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,19 +46,19 @@ public partial record AccountIdentification2
     #nullable enable
     
     /// <summary>
-    /// International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 "Banking and related financial services - International Bank Account Number (IBAN)" version 1997-10-01, or later revisions.
+    /// International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 &quot;Banking and related financial services - International Bank Account Number (IBAN)&quot; version 1997-10-01, or later revisions.
     /// </summary>
     [IsoId("_WHfgutp-Ed-ak6NoX_4Aeg_701188999")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("IBAN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IBAN")]
     #endif
+    [IsoXmlTag("IBAN")]
+    [IsoSimpleType(IsoSimpleType.IBANIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoIBANIdentifier IBAN { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IBAN { get; init; } 
+    public required System.String IBAN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IBAN { get; init; } 
     #else

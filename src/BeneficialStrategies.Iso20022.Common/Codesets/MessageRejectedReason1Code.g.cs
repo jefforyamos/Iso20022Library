@@ -21,7 +21,7 @@ public enum MessageRejectedReason1Code
 {
     /// <summary>
     /// Request contains an invalid or unrecognised business reference.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_aL9bsdp-Ed-ak6NoX_4Aeg_1732404066")]
@@ -30,7 +30,7 @@ public enum MessageRejectedReason1Code
     
     /// <summary>
     /// Instructing party is not allowed to ask for a status for that specific order.
-    /// Encoded/decoded by serializers as "NALO".
+    /// Encoded/decoded by serializers as &quot;NALO&quot;.
     /// </summary>
     [EnumMember(Value = "NALO")]
     [IsoId("_aL9bstp-Ed-ak6NoX_4Aeg_1732404091")]

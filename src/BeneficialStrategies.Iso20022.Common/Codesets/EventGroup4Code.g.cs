@@ -21,7 +21,7 @@ public enum EventGroup4Code
 {
     /// <summary>
     /// Distribution domain events.
-    /// Encoded/decoded by serializers as "DISN".
+    /// Encoded/decoded by serializers as &quot;DISN&quot;.
     /// </summary>
     [EnumMember(Value = "DISN")]
     [IsoId("_mGuugQB8EeqouY-yI_q3qQ")]
@@ -30,7 +30,7 @@ public enum EventGroup4Code
     
     /// <summary>
     /// General domain events.
-    /// Encoded/decoded by serializers as "GENL".
+    /// Encoded/decoded by serializers as &quot;GENL&quot;.
     /// </summary>
     [EnumMember(Value = "GENL")]
     [IsoId("_mLWIwQB8EeqouY-yI_q3qQ")]
@@ -39,7 +39,7 @@ public enum EventGroup4Code
     
     /// <summary>
     /// Redemption domain events.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_mPg3EQB8EeqouY-yI_q3qQ")]
@@ -48,7 +48,7 @@ public enum EventGroup4Code
     
     /// <summary>
     /// Reorganization domain events.
-    /// Encoded/decoded by serializers as "REOR".
+    /// Encoded/decoded by serializers as &quot;REOR&quot;.
     /// </summary>
     [EnumMember(Value = "REOR")]
     [IsoId("_mT0vUQB8EeqouY-yI_q3qQ")]

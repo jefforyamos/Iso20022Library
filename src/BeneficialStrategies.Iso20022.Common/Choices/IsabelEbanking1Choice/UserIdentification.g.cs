@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IsabelEbanking1Choice
     /// Identification of the e-banking through a user identification.
     /// </summary>
     [IsoId("_juo4UMm7EeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.IsabelEbanking1Choice
         /// Specifies an alphanumeric string with a maximum length of 13 characters.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UsrId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("UsrId")]
+        [IsoSimpleType(IsoSimpleType.Max13AlphaNumericText)]
         [StringLength(maximumLength: 13 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax13AlphaNumericText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

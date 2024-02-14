@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Taxonomy for financial and non financial counterparties.
 /// </summary>
 [IsoId("_Qlef265pEeuo-IflVgGqiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Sector Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateSectorCriteria5
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
     [IsoId("_Q2nTIa5pEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution Sector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FISctr")]
     #endif
+    [IsoXmlTag("FISctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialPartySectorType2Code? FinancialInstitutionSector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record CorporateSectorCriteria5
     /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
     [IsoId("_Q2nTI65pEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Financial Institution Sector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NFISctr")]
     #endif
+    [IsoXmlTag("NFISctr")]
+    [IsoSimpleType(IsoSimpleType.NACEDomainIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNACEDomainIdentifier? NonFinancialInstitutionSector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record CorporateSectorCriteria5
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
     [IsoId("_Q2nTJa5pEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Reported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NotRptd")]
     #endif
+    [IsoXmlTag("NotRptd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotReported1Code? NotReported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

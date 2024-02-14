@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityPaper1Choice.Pulp))]
     [KnownType(typeof(AssetClassCommodityPaper1Choice.RecoveredPaper))]
     [IsoId("_0bsBIFrxEeWN79Bl6BUd3g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity Paper 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

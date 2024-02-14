@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CountrySubdivision1Choice.Code))]
     [KnownType(typeof(CountrySubdivision1Choice.Proprietary))]
     [IsoId("_93jww3ltEeG7BsjMvd1mEw_-652907596")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Subdivision 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

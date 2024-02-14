@@ -21,7 +21,7 @@ public enum NotReported1Code
 {
     /// <summary>
     /// Value not reported by the party.
-    /// Encoded/decoded by serializers as "NORP".
+    /// Encoded/decoded by serializers as &quot;NORP&quot;.
     /// </summary>
     [EnumMember(Value = "NORP")]
     [IsoId("_WhKP8dGfEeaQk737TH1Fzw")]

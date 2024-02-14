@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates derivative contract was tranched.
 /// </summary>
 [IsoId("_d9OP8Q06EeuJ1fOEB4bQXA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tranche")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Tranche3
     /// Indicates the lower point at which the level of losses in the underlying portfolio reduces the notional of the tranche.
     /// </summary>
     [IsoId("_eS8oUw06EeuJ1fOEB4bQXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attachment Point")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchmntPt")]
     #endif
+    [IsoXmlTag("AttchmntPt")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? AttachmentPoint { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record Tranche3
     /// Indicates the point beyond which the losses in the underlying portfolio no longer reduce the notional of the tranche.
     /// </summary>
     [IsoId("_eS8oVQ06EeuJ1fOEB4bQXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detachment Point")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtchmntPt")]
     #endif
+    [IsoXmlTag("DtchmntPt")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? DetachmentPoint { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

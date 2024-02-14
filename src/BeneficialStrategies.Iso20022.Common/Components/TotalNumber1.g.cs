@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Settlement transaction numbering information.
 /// </summary>
 [IsoId("_Qr_hWNp-Ed-ak6NoX_4Aeg_-606322098")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Number")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record TotalNumber1
     /// Sequential number of the instruction in a range of linked settlement instructions.
     /// </summary>
     [IsoId("_Qr_hWdp-Ed-ak6NoX_4Aeg_-2082263388")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Instruction Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurInstrNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CurInstrNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText CurrentInstructionNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CurrentInstructionNumber { get; init; } 
+    public required System.String CurrentInstructionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CurrentInstructionNumber { get; init; } 
     #else
@@ -75,19 +70,16 @@ public partial record TotalNumber1
     /// Total number of settlement instructions that are linked together.
     /// </summary>
     [IsoId("_Qr_hWtp-Ed-ak6NoX_4Aeg_-1935589206")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Of Linked Instructions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlOfLkdInstrs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlOfLkdInstrs")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText TotalOfLinkedInstructions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalOfLinkedInstructions { get; init; } 
+    public required System.String TotalOfLinkedInstructions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalOfLinkedInstructions { get; init; } 
     #else

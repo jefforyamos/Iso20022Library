@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesAccountAuditTrailOrOperationalError3Choice.SecuritiesAccountAuditTrailReport))]
     [KnownType(typeof(SecuritiesAccountAuditTrailOrOperationalError3Choice.OperationalError))]
     [IsoId("_AvnmYTp0Eemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account Audit Trail Or Operational Error 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

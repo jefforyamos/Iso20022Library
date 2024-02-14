@@ -21,7 +21,7 @@ public enum WeekDay2Code
 {
     /// <summary>
     /// Wednesday.
-    /// Encoded/decoded by serializers as "WEDD".
+    /// Encoded/decoded by serializers as &quot;WEDD&quot;.
     /// </summary>
     [EnumMember(Value = "WEDD")]
     [IsoId("_ArjrhS-pEeWvZpCvNOLJLQ")]
@@ -30,7 +30,7 @@ public enum WeekDay2Code
     
     /// <summary>
     /// Tuesday.
-    /// Encoded/decoded by serializers as "TUED".
+    /// Encoded/decoded by serializers as &quot;TUED&quot;.
     /// </summary>
     [EnumMember(Value = "TUED")]
     [IsoId("_Arjrhy-pEeWvZpCvNOLJLQ")]
@@ -39,7 +39,7 @@ public enum WeekDay2Code
     
     /// <summary>
     /// Thursday.
-    /// Encoded/decoded by serializers as "THUD".
+    /// Encoded/decoded by serializers as &quot;THUD&quot;.
     /// </summary>
     [EnumMember(Value = "THUD")]
     [IsoId("_ArjriS-pEeWvZpCvNOLJLQ")]
@@ -48,7 +48,7 @@ public enum WeekDay2Code
     
     /// <summary>
     /// Sunday.
-    /// Encoded/decoded by serializers as "SUND".
+    /// Encoded/decoded by serializers as &quot;SUND&quot;.
     /// </summary>
     [EnumMember(Value = "SUND")]
     [IsoId("_Arjriy-pEeWvZpCvNOLJLQ")]
@@ -57,7 +57,7 @@ public enum WeekDay2Code
     
     /// <summary>
     /// Saturday.
-    /// Encoded/decoded by serializers as "SATD".
+    /// Encoded/decoded by serializers as &quot;SATD&quot;.
     /// </summary>
     [EnumMember(Value = "SATD")]
     [IsoId("_ArjrjS-pEeWvZpCvNOLJLQ")]
@@ -66,7 +66,7 @@ public enum WeekDay2Code
     
     /// <summary>
     /// Monday.
-    /// Encoded/decoded by serializers as "MOND".
+    /// Encoded/decoded by serializers as &quot;MOND&quot;.
     /// </summary>
     [EnumMember(Value = "MOND")]
     [IsoId("_Arjrjy-pEeWvZpCvNOLJLQ")]
@@ -75,7 +75,7 @@ public enum WeekDay2Code
     
     /// <summary>
     /// Friday.
-    /// Encoded/decoded by serializers as "FRID".
+    /// Encoded/decoded by serializers as &quot;FRID&quot;.
     /// </summary>
     [EnumMember(Value = "FRID")]
     [IsoId("_ArjrkS-pEeWvZpCvNOLJLQ")]

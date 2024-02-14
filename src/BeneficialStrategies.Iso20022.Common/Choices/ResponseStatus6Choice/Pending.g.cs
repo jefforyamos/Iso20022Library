@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus6Choice
     /// Pending status of an instruction, advice or request.
     /// </summary>
     [IsoId("_mdrUlTzpEeWeNtT0s2RbkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

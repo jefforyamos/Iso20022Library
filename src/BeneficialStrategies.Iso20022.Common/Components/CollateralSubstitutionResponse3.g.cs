@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the rejected collateral substitution.
 /// </summary>
 [IsoId("_FS7TSytJEeyOa655cLd-DQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Substitution Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record CollateralSubstitutionResponse3
     /// Reference to the collateral substitution request identification.
     /// </summary>
     [IsoId("_FqxLgStJEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Substitution Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSbstitnReqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollSbstitnReqId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CollateralSubstitutionRequestIdentification { get; init; } 
+    public required System.String CollateralSubstitutionRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CollateralSubstitutionRequestIdentification { get; init; } 
     #else
@@ -76,16 +72,16 @@ public partial record CollateralSubstitutionResponse3
     /// Specifies the collateral substitution amount that is rejected.
     /// </summary>
     [IsoId("_FqxLgytJEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdAmt")]
     #endif
+    [IsoXmlTag("RjctdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount RejectedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal RejectedAmount { get; init; } 
+    public required System.Decimal RejectedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal RejectedAmount { get; init; } 
     #else
@@ -96,16 +92,15 @@ public partial record CollateralSubstitutionResponse3
     /// Specifies the reasons why the collateral substitution is rejected.
     /// </summary>
     [IsoId("_FqxLhStJEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReason68Code RejectionReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectionReason68Code RejectionReason { get; init; } 
+    public required RejectionReason68Code RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectionReason68Code RejectionReason { get; init; } 
     #else
@@ -116,15 +111,13 @@ public partial record CollateralSubstitutionResponse3
     /// Provides additional information about the collateral substitution request rejection.
     /// </summary>
     [IsoId("_FqxLhytJEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RjctnRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? RejectionReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

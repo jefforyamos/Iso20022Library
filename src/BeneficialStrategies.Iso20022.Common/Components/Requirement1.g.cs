@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the margin requirements for the variation margin and optionally the segregated independent amount.
 /// </summary>
 [IsoId("_Ul4kA9p-Ed-ak6NoX_4Aeg_1931035123")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Requirement1
     /// Provides details about the margin requirements for the variation margin.
     /// </summary>
     [IsoId("_Ul4kBNp-Ed-ak6NoX_4Aeg_-362986859")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnRqrmnt")]
     #endif
+    [IsoXmlTag("VartnMrgnRqrmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginRequirement1 VariationMarginRequirement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarginRequirement1 VariationMarginRequirement { get; init; } 
+    public required MarginRequirement1 VariationMarginRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarginRequirement1 VariationMarginRequirement { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Requirement1
     /// Provides details about the margin requirements for the segregated independent amount.
     /// </summary>
     [IsoId("_Ul4kBdp-Ed-ak6NoX_4Aeg_-1666534406")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgrtdIndpdntAmtRqrmnt")]
     #endif
+    [IsoXmlTag("SgrtdIndpdntAmtRqrmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginRequirement1? SegregatedIndependentAmountRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

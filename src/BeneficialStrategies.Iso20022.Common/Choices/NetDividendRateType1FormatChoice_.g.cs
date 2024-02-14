@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NetDividendRateType1FormatChoice.Code))]
     [KnownType(typeof(NetDividendRateType1FormatChoice.Proprietary))]
     [IsoId("_Rms2GNp-Ed-ak6NoX_4Aeg_-2087879060")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Dividend Rate Type 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum NonFinancialResponseRiskCode
 {
     /// <summary>
     /// An authorisation is expected from the POI to manage risk.
-    /// Encoded/decoded by serializers as "ONLN".
+    /// Encoded/decoded by serializers as &quot;ONLN&quot;.
     /// </summary>
     [EnumMember(Value = "ONLN")]
     [IsoId("_MuDscC_wEeugIJ3Gvoevmg")]
@@ -30,7 +30,7 @@ public enum NonFinancialResponseRiskCode
     
     /// <summary>
     /// A decline of the transaction is expected by the POI to manage risk.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_qv-A4C_wEeugIJ3Gvoevmg")]
@@ -39,7 +39,7 @@ public enum NonFinancialResponseRiskCode
     
     /// <summary>
     /// The POI is able to assess the risk by himself.
-    /// Encoded/decoded by serializers as "NCHG".
+    /// Encoded/decoded by serializers as &quot;NCHG&quot;.
     /// </summary>
     [EnumMember(Value = "NCHG")]
     [IsoId("_vf1CQC_wEeugIJ3Gvoevmg")]

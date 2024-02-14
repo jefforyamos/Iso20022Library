@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
     /// Indicates that the investment was made in a repurchase agreement.
     /// </summary>
     [IsoId("_AIsK8LJXEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Agreement")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -60,16 +58,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
         /// Date on which the repurchase agreement matures.
         /// </summary>
         [IsoId("_oxf3gbJVEeaYqc4G3TTwhA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Maturity Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MtrtyDt")]
         #endif
+        [IsoXmlTag("MtrtyDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate MaturityDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly MaturityDate { get; init; } 
+        public required System.DateOnly MaturityDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly MaturityDate { get; init; } 
         #else
@@ -80,16 +78,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
         /// Specifies the repurchase price at maturity of the repo.
         /// </summary>
         [IsoId("_oxf3g7JVEeaYqc4G3TTwhA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Second Leg Price")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ScndLegPric")]
         #endif
+        [IsoXmlTag("ScndLegPric")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount SecondLegPrice { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal SecondLegPrice { get; init; } 
+        public required System.Decimal SecondLegPrice { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal SecondLegPrice { get; init; } 
         #else
@@ -100,16 +98,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
         /// Specifies the dirty price of the underlying security or securities in repo.
         /// </summary>
         [IsoId("_-lqgULboEeaqL_M7XFD7PQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Collateral Market Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CollMktVal")]
         #endif
+        [IsoXmlTag("CollMktVal")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount CollateralMarketValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal CollateralMarketValue { get; init; } 
+        public required System.Decimal CollateralMarketValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal CollateralMarketValue { get; init; } 
         #else
@@ -120,16 +118,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
         /// Identifies the counterparty to the repurchase agreement.
         /// </summary>
         [IsoId("_oxf3hbJVEeaYqc4G3TTwhA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPty")]
         #endif
+        [IsoXmlTag("CtrPty")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoLEIIdentifier Counterparty { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Counterparty { get; init; } 
+        public required System.String Counterparty { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Counterparty { get; init; } 
         #else
@@ -140,16 +138,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
         /// Specifies the type of repurchase agreement.
         /// </summary>
         [IsoId("_3JXU8LJVEeaYqc4G3TTwhA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Repurchase Agreement Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RpAgrmtTp")]
         #endif
+        [IsoXmlTag("RpAgrmtTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RepurchaseAgreementType3Choice_ RepurchaseAgreementType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RepurchaseAgreementType3Choice_ RepurchaseAgreementType { get; init; } 
+        public required RepurchaseAgreementType3Choice_ RepurchaseAgreementType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RepurchaseAgreementType3Choice_ RepurchaseAgreementType { get; init; } 
         #else
@@ -160,12 +157,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
         /// Identifies the triparty repurchase agent.
         /// </summary>
         [IsoId("_63_i0LJVEeaYqc4G3TTwhA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Triparty Agent Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrptyAgtId")]
         #endif
+        [IsoXmlTag("TrptyAgtId")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? TripartyAgentIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

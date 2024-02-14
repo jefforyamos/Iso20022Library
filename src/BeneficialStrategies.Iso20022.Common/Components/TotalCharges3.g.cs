@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Total amount of charges.
 /// </summary>
 [IsoId("_RttdDNp-Ed-ak6NoX_4Aeg_-26727186")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Charges")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record TotalCharges3
     /// Total value of the charges for a specific order.
     /// </summary>
     [IsoId("_RttdDdp-Ed-ak6NoX_4Aeg_-26725711")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount Of Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtOfChrgs")]
     #endif
+    [IsoXmlTag("TtlAmtOfChrgs")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfCharges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record TotalCharges3
     /// Information related to a specific charge.
     /// </summary>
     [IsoId("_RttdDtp-Ed-ak6NoX_4Aeg_-26724668")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgDtls")]
     #endif
+    [IsoXmlTag("ChrgDtls")]
     public Charge18? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RttdDtp-Ed-ak6NoX_4Aeg_-26724668
     

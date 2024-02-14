@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to the cardholder.
 /// </summary>
 [IsoId("_47TdkS_uEeO4w-IWHJMI9g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cardholder")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Cardholder5
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
     [IsoId("_5KB2ES_uEeO4w-IWHJMI9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PersonIdentification7? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record Cardholder5
     /// Cardholder name associated with the card.
     /// </summary>
     [IsoId("_5KB2Ey_uEeO4w-IWHJMI9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max45Text)]
     [StringLength(maximumLength: 45 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax45Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record Cardholder5
     /// Language selected for the cardholder interface during the transaction.
     /// </summary>
     [IsoId("_5KB2FS_uEeO4w-IWHJMI9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lang")]
     #endif
+    [IsoXmlTag("Lang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO2ALanguageCode? Language { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record Cardholder5
     /// Postal address of the owner of the payment card.
     /// </summary>
     [IsoId("_wPxEAEt9EeOC3MFxIpMwug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billing Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BllgAdr")]
     #endif
+    [IsoXmlTag("BllgAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress13? BillingAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,11 @@ public partial record Cardholder5
     /// Postal address for delivery of goods or services.
     /// </summary>
     [IsoId("_dHy7UEuCEeOC3MFxIpMwug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shipping Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShppgAdr")]
     #endif
+    [IsoXmlTag("ShppgAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress13? ShippingAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +129,11 @@ public partial record Cardholder5
     /// Data related to the authentication of the cardholder.
     /// </summary>
     [IsoId("_5KB2Fy_uEeO4w-IWHJMI9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Authntcn")]
     #endif
+    [IsoXmlTag("Authntcn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderAuthentication5? Authentication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,15 +143,14 @@ public partial record Cardholder5
     #endif
     
     /// <summary>
-    /// Numeric characters of the cardholder's address for verification.
+    /// Numeric characters of the cardholder&apos;s address for verification.
     /// </summary>
     [IsoId("_5KB2GS_uEeO4w-IWHJMI9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdrVrfctn")]
     #endif
+    [IsoXmlTag("AdrVrfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddressVerification1? AddressVerification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,15 +163,13 @@ public partial record Cardholder5
     /// Identifies personal data related to the cardholder.
     /// </summary>
     [IsoId("_5KB2Gy_uEeO4w-IWHJMI9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Personal Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrsnlData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrsnlData")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? PersonalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

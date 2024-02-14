@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestSt
     /// Provides status information related to a instruction cancellation request completed.
     /// </summary>
     [IsoId("_8rhp40GWEeWqy4niLuXETA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Completed")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
     /// Card transaction details for the individual transaction, as recorded at the POI (point of interaction).
     /// </summary>
     [IsoId("_t6ZGtFkyEeGeoaLUQk__nA_97770603")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Service in addition to the main service.
         /// </summary>
         [IsoId("_t58aw1kyEeGeoaLUQk__nA_-877465578")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Service")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlSvc")]
         #endif
+        [IsoXmlTag("AddtlSvc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CardPaymentServiceType2Code? AdditionalService { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
         /// </summary>
         [IsoId("_t58axFkyEeGeoaLUQk__nA_95506098")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Category")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxCtgy")]
         #endif
+        [IsoXmlTag("TxCtgy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,15 +81,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
         /// </summary>
         [IsoId("_t6FksFkyEeGeoaLUQk__nA_1800136738")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sale Reconciliation Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SaleRcncltnId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SaleRcncltnId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,15 +100,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Unique reference of the sales as provided by the merchant.
         /// </summary>
         [IsoId("_t6FksVkyEeGeoaLUQk__nA_882698409")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sale Reference Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SaleRefNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SaleRefNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? SaleReferenceNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,15 +119,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Sequential number of the card transaction, as assigned by the POI (Point of Interaction). |Usage: The sequential number is increased incrementally for each transaction.
         /// </summary>
         [IsoId("_t6FkslkyEeGeoaLUQk__nA_1131399274")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sequence Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SeqNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SeqNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? SequenceNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +138,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Identification of the transaction assigned by the POI (Point Of Interaction).
         /// </summary>
         [IsoId("_t6Fks1kyEeGeoaLUQk__nA_588414190")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxId")]
         #endif
+        [IsoXmlTag("TxId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TransactionIdentifier1? TransactionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,12 +155,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Product purchased with the transaction.
         /// </summary>
         [IsoId("_t6FktFkyEeGeoaLUQk__nA_-807094894")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pdct")]
         #endif
+        [IsoXmlTag("Pdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Product2? Product { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -184,12 +172,12 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Date when the deposit was validated by the financial institution that collected the cash.
         /// </summary>
         [IsoId("_t6PVsFkyEeGeoaLUQk__nA_1719363359")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Validation Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VldtnDt")]
         #endif
+        [IsoXmlTag("VldtnDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? ValidationDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,15 +191,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction1Choice
         /// Usage: The sequential number is increased incrementally for each transaction.
         /// </summary>
         [IsoId("_t6PVsVkyEeGeoaLUQk__nA_-667251474")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Validation Sequence Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VldtnSeqNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("VldtnSeqNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? ValidationSequenceNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

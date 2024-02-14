@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a document.
 /// </summary>
 [IsoId("_8QbAo5NLEeWGlc8L7oPDIg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document Number")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DocumentNumber14
     /// Number used to identify a message or document.
     /// </summary>
     [IsoId("_8QbApZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
+    [IsoXmlTag("Nb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentNumber6Choice_ Number { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentNumber6Choice_ Number { get; init; } 
+    public required DocumentNumber6Choice_ Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentNumber6Choice_ Number { get; init; } 
     #else

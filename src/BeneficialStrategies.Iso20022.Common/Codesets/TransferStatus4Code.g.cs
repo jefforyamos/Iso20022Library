@@ -21,7 +21,7 @@ public enum TransferStatus4Code
 {
     /// <summary>
     /// Transfer or settlement instruction has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_3USnQSY-EeW_ZNn8gbfY7Q")]
@@ -30,7 +30,7 @@ public enum TransferStatus4Code
     
     /// <summary>
     /// Transfer or settlement instruction is fully executed and the confirmation is sent.
-    /// Encoded/decoded by serializers as "COSE".
+    /// Encoded/decoded by serializers as &quot;COSE&quot;.
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_3kg0kSY-EeW_ZNn8gbfY7Q")]
@@ -39,7 +39,7 @@ public enum TransferStatus4Code
     
     /// <summary>
     /// Transfer or settlement instruction is matched.
-    /// Encoded/decoded by serializers as "MACH".
+    /// Encoded/decoded by serializers as &quot;MACH&quot;.
     /// </summary>
     [EnumMember(Value = "MACH")]
     [IsoId("_3-_xISY-EeW_ZNn8gbfY7Q")]
@@ -48,7 +48,7 @@ public enum TransferStatus4Code
     
     /// <summary>
     /// Instruction has been received, that is, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_4VKOYSY-EeW_ZNn8gbfY7Q")]
@@ -57,7 +57,7 @@ public enum TransferStatus4Code
     
     /// <summary>
     /// Transfer or settlement instruction has been sent to the next party, that is, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_4taWUSY-EeW_ZNn8gbfY7Q")]
@@ -66,7 +66,7 @@ public enum TransferStatus4Code
     
     /// <summary>
     /// Transfer or settlement instruction is settled.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_5FEBUSY-EeW_ZNn8gbfY7Q")]
@@ -75,7 +75,7 @@ public enum TransferStatus4Code
     
     /// <summary>
     /// Portfolio transfer is complete.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_5j3dMSY-EeW_ZNn8gbfY7Q")]

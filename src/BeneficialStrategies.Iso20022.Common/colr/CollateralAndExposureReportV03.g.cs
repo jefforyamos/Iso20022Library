@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope|The CollateralAndExposureReport message is sent:|- either by the collateral giver, or its collateral manager, to the collateral taker, or its collateral manager, or|- or by the collateral taker, or its collateral manager to the collateral giver, or its collateral manager||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CollateralAndExposureReport is used to provide the details of the valuation of the collateral, that is, the valuation of securities collateral, cash collateral or other type of collateral, posted at a specific calculation date.")]
 [IsoId("_XAW1sYFrEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral And Exposure Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record CollateralAndExposureReportV03 : IOuterRecord<CollateralAn
     /// Provides information about the report such as the report identification, the report date and time or the report frequency.
     /// </summary>
     [IsoId("_XAW1s4FrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptParams")]
     #endif
+    [IsoXmlTag("RptParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportParameters5 ReportParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportParameters5 ReportParameters { get; init; } 
+    public required ReportParameters5 ReportParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportParameters5 ReportParameters { get; init; } 
     #else
@@ -105,12 +102,11 @@ public partial record CollateralAndExposureReportV03 : IOuterRecord<CollateralAn
     /// Specifies the page number and an indicator of whether it is the only or last page, or if there are additional pages. 
     /// </summary>
     [IsoId("_XAW1tYFrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination? Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,16 +119,15 @@ public partial record CollateralAndExposureReportV03 : IOuterRecord<CollateralAn
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
     /// </summary>
     [IsoId("_XAW1t4FrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgtn")]
     #endif
+    [IsoXmlTag("Oblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Obligation4 Obligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Obligation4 Obligation { get; init; } 
+    public required Obligation4 Obligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Obligation4 Obligation { get; init; } 
     #else
@@ -143,12 +138,11 @@ public partial record CollateralAndExposureReportV03 : IOuterRecord<CollateralAn
     /// Agreement details for the over the counter market.
     /// </summary>
     [IsoId("_XAW1uYFrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Agrmt")]
     #endif
+    [IsoXmlTag("Agrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Agreement4? Agreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,16 +155,15 @@ public partial record CollateralAndExposureReportV03 : IOuterRecord<CollateralAn
     /// Provides details on the collateral report.
     /// </summary>
     [IsoId("_XAW1u4FrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollRpt")]
     #endif
+    [IsoXmlTag("CollRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Collateral13 CollateralReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Collateral13 CollateralReport { get; init; } 
+    public required Collateral13 CollateralReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Collateral13 CollateralReport { get; init; } 
     #else
@@ -181,12 +174,11 @@ public partial record CollateralAndExposureReportV03 : IOuterRecord<CollateralAn
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_XAW1vYFrEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,7 +191,7 @@ public partial record CollateralAndExposureReportV03 : IOuterRecord<CollateralAn
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CollateralAndExposureReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CollateralAndExposureReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CollateralAndExposureReportV03Document ToDocument()
     {
@@ -209,7 +201,7 @@ public partial record CollateralAndExposureReportV03 : IOuterRecord<CollateralAn
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralAndExposureReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CollateralAndExposureReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CollateralAndExposureReportV03Document : IOuterDocument<CollateralAndExposureReportV03>
@@ -226,7 +218,7 @@ public partial record CollateralAndExposureReportV03Document : IOuterDocument<Co
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CollateralAndExposureReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CollateralAndExposureReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAndExposureReportV03 Message { get; init; }

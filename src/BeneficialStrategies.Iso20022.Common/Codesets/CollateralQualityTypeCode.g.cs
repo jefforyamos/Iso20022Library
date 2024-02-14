@@ -21,7 +21,7 @@ public enum CollateralQualityTypeCode
 {
     /// <summary>
     /// Security that is classified as investment grade according to external ratings.
-    /// Encoded/decoded by serializers as "INVG".
+    /// Encoded/decoded by serializers as &quot;INVG&quot;.
     /// </summary>
     [EnumMember(Value = "INVG")]
     [IsoId("_TmHhcC7YEea1cMkrGwA6Gg")]
@@ -30,7 +30,7 @@ public enum CollateralQualityTypeCode
     
     /// <summary>
     /// Security with a rating different than investment grade.
-    /// Encoded/decoded by serializers as "NIVG".
+    /// Encoded/decoded by serializers as &quot;NIVG&quot;.
     /// </summary>
     [EnumMember(Value = "NIVG")]
     [IsoId("_Tnv5IC7YEea1cMkrGwA6Gg")]
@@ -39,7 +39,7 @@ public enum CollateralQualityTypeCode
     
     /// <summary>
     /// Security without a rating assigned.
-    /// Encoded/decoded by serializers as "NOTR".
+    /// Encoded/decoded by serializers as &quot;NOTR&quot;.
     /// </summary>
     [EnumMember(Value = "NOTR")]
     [IsoId("_TpY34C7YEea1cMkrGwA6Gg")]
@@ -48,7 +48,7 @@ public enum CollateralQualityTypeCode
     
     /// <summary>
     /// Collateral quality type is not applicable.
-    /// Encoded/decoded by serializers as "NOAP".
+    /// Encoded/decoded by serializers as &quot;NOAP&quot;.
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_mr6hEMkVEeeiAIB1i4AlQw")]

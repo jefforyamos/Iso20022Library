@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The SecurityActivityReport message is sent by the executing party to an instructing party containing information about changes on securities reference data.||Scope and usage: |It aims at informing about the changes occurred during a business date for securities reference data.")]
 [IsoId("_jTtYqx62Eeu31YsWNiv_cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Activity Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,12 +74,11 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord<SecurityActivityA
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_Bv1S0ZIxEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +91,15 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord<SecurityActivityA
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
     /// </summary>
     [IsoId("_jTtYux62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination1 Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination1 Pagination { get; init; } 
+    public required Pagination1 Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination1 Pagination { get; init; } 
     #else
@@ -114,16 +110,15 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord<SecurityActivityA
     /// Activity report of changes occurred for a financial instrument defined in the system.
     /// </summary>
     [IsoId("_jTtYwR62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Activity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyActvty")]
     #endif
+    [IsoXmlTag("SctyActvty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityStatement3 SecurityActivity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityStatement3 SecurityActivity { get; init; } 
+    public required SecurityStatement3 SecurityActivity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityStatement3 SecurityActivity { get; init; } 
     #else
@@ -134,12 +129,11 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord<SecurityActivityA
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jTtYwx62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,7 +146,7 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord<SecurityActivityA
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecurityActivityAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecurityActivityAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecurityActivityAdviceV01Document ToDocument()
     {
@@ -162,7 +156,7 @@ public partial record SecurityActivityAdviceV01 : IOuterRecord<SecurityActivityA
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityActivityAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecurityActivityAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecurityActivityAdviceV01Document : IOuterDocument<SecurityActivityAdviceV01>
@@ -179,7 +173,7 @@ public partial record SecurityActivityAdviceV01Document : IOuterDocument<Securit
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecurityActivityAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecurityActivityAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityActivityAdviceV01 Message { get; init; }

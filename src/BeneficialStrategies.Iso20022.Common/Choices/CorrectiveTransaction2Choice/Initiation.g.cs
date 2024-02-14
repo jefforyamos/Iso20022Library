@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice
     /// Set of elements used to reference the details of the corrective payment initiation.
     /// </summary>
     [IsoId("_wZd04WXqEeap-P22vGV91g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice
         /// Set of elements used to provide corrective information for the group header of the message under investigation.
         /// </summary>
         [IsoId("_wjMYpWXqEeap-P22vGV91g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Group Header")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="GrpHdr")]
         #endif
+        [IsoXmlTag("GrpHdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CorrectiveGroupInformation1? GroupHeader { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,15 +71,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice
         /// Unique identification, as assigned by a sending party, to unambiguously identify the payment information group within the message.
         /// </summary>
         [IsoId("_wjMYp2XqEeap-P22vGV91g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment Information Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtInfId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PmtInfId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? PaymentInformationIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +90,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice
         /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.||Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
         /// </summary>
         [IsoId("_wjMYqWXqEeap-P22vGV91g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Instruction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InstrId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("InstrId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? InstructionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,15 +109,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice
         /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.||Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.||Usage: In case there are technical limitations to pass on multiple references, the end-to-end identification must be passed on throughout the entire end-to-end chain.
         /// </summary>
         [IsoId("_wjMYq2XqEeap-P22vGV91g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("End To End Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EndToEndId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("EndToEndId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? EndToEndIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,16 +128,16 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice
         /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
         /// </summary>
         [IsoId("_wjMYrWXqEeap-P22vGV91g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Instructed Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InstdAmt")]
         #endif
+        [IsoXmlTag("InstdAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveOrHistoricCurrencyAndAmount InstructedAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal InstructedAmount { get; init; } 
+        public required System.Decimal InstructedAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal InstructedAmount { get; init; } 
         #else
@@ -155,15 +146,14 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice
         
         /// <summary>
         /// Date or date time at which the initiating party requests the clearing agent to process the payment. 
-        /// Usage: This is the date or date time on which the debtor's account is to be debited. If payment by cheque, the date when the cheque must be generated by the bank.
+        /// Usage: This is the date or date time on which the debtor&apos;s account is to be debited. If payment by cheque, the date when the cheque must be generated by the bank.
         /// </summary>
         [IsoId("_wjMYr2XqEeap-P22vGV91g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Requested Execution Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ReqdExctnDt")]
         #endif
+        [IsoXmlTag("ReqdExctnDt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndDateTimeChoice_? RequestedExecutionDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +166,12 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice
         /// Date at which the creditor requests the amount of money to be collected from the debtor.
         /// </summary>
         [IsoId("_wjMYsWXqEeap-P22vGV91g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Requested Collection Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ReqdColltnDt")]
         #endif
+        [IsoXmlTag("ReqdColltnDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? RequestedCollectionDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Number23Choice
     /// Number of maximum 35 text, with the possibility to provide an issuer for the number identification.
     /// </summary>
     [IsoId("_5NbJrZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Long")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Number23Choice
         /// Identification assigned by an institution.
         /// </summary>
         [IsoId("_WeJGLNp-Ed-ak6NoX_4Aeg_1842470173")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINXMax30Text)]
         [StringLength(maximumLength: 30 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINXMax30Text Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -79,15 +75,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Number23Choice
         /// Name of the identification scheme.
         /// </summary>
         [IsoId("_WeSQENp-Ed-ak6NoX_4Aeg_-151674533")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Scheme Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SchmeNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SchmeNm")]
+        [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
         [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax4AlphaNumericText? SchemeName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,15 +94,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Number23Choice
         /// Entity that assigns the identification.
         /// </summary>
         [IsoId("_WeSQEdp-Ed-ak6NoX_4Aeg_-2145819239")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Issr")]
+        [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
         [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax4AlphaNumericText? Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

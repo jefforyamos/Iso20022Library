@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Nature or use of the account.
 /// </summary>
 [IsoId("_T4SeN9p-Ed-ak6NoX_4Aeg_-1717865628")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Account Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CashAccountType2
     /// Account type, in a coded form.
     /// </summary>
     [IsoId("_T4SeONp-Ed-ak6NoX_4Aeg_-1686465493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccountType4Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccountType4Code Code { get; init; } 
+    public required CashAccountType4Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccountType4Code Code { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record CashAccountType2
     /// Nature or use of the account in a proprietary form.
     /// </summary>
     [IsoId("_T4SeOdp-Ed-ak6NoX_4Aeg_-1643987013")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prtry")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Proprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Proprietary { get; init; } 
+    public required System.String Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Proprietary { get; init; } 
     #else

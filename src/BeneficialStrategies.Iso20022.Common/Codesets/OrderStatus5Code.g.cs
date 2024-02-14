@@ -21,7 +21,7 @@ public enum OrderStatus5Code
 {
     /// <summary>
     /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aSEqx9p-Ed-ak6NoX_4Aeg_1838875056")]
@@ -30,7 +30,7 @@ public enum OrderStatus5Code
     
     /// <summary>
     /// Order is accepted and is ready for execution (execution is the moment when pricing is applied).
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aSEqyNp-Ed-ak6NoX_4Aeg_1838874961")]
@@ -39,7 +39,7 @@ public enum OrderStatus5Code
     
     /// <summary>
     /// Order is already executed and confirmation has been sent.
-    /// Encoded/decoded by serializers as "COSE".
+    /// Encoded/decoded by serializers as &quot;COSE&quot;.
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_aSN0sNp-Ed-ak6NoX_4Aeg_1838874996")]
@@ -48,7 +48,7 @@ public enum OrderStatus5Code
     
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_aSN0sdp-Ed-ak6NoX_4Aeg_1838875038")]
@@ -57,7 +57,7 @@ public enum OrderStatus5Code
     
     /// <summary>
     /// Communication problems with the next party.
-    /// Encoded/decoded by serializers as "CPNP".
+    /// Encoded/decoded by serializers as &quot;CPNP&quot;.
     /// </summary>
     [EnumMember(Value = "CPNP")]
     [IsoId("_aSN0stp-Ed-ak6NoX_4Aeg_1838875133")]
@@ -66,7 +66,7 @@ public enum OrderStatus5Code
     
     /// <summary>
     /// Order is settled. The cash is credited or debited.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_aSN0s9p-Ed-ak6NoX_4Aeg_-1101289239")]
@@ -75,7 +75,7 @@ public enum OrderStatus5Code
     
     /// <summary>
     /// Order is accepted and is ready for execution (execution is the moment when pricing is applied). Cash is settled, but the order is not executed.
-    /// Encoded/decoded by serializers as "CSNE".
+    /// Encoded/decoded by serializers as &quot;CSNE&quot;.
     /// </summary>
     [EnumMember(Value = "CSNE")]
     [IsoId("_aSN0tNp-Ed-ak6NoX_4Aeg_-1074505844")]

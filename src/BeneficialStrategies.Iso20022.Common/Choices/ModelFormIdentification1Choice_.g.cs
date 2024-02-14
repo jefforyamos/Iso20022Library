@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ModelFormIdentification1Choice.Code))]
     [KnownType(typeof(ModelFormIdentification1Choice.Proprietary))]
     [IsoId("_929T03ltEeG7BsjMvd1mEw_-115804936")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Model Form Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

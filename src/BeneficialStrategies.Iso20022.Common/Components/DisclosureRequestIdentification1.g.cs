@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information identifying the disclosure request for shareholders identification published by the issuer or third party nominated by the issuer in order to receive the disclosure responses from intermediaries in the custody chain.
 /// </summary>
 [IsoId("_im8pMDqgEemL_ewJY9QP1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Disclosure Request Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record DisclosureRequestIdentification1
     /// Official and unique reference assigned to a shareholders identification disclosure request process by the issuer or third party nominated by him.
     /// </summary>
     [IsoId("_O-niQzqhEemL_ewJY9QP1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Disclosure Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrDsclsrReqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssrDsclsrReqId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerDisclosureRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IssuerDisclosureRequestIdentification { get; init; } 
+    public required System.String IssuerDisclosureRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IssuerDisclosureRequestIdentification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record DisclosureRequestIdentification1
     /// Identifies the financial instrument.
     /// </summary>
     [IsoId("_O-niRDqhEemL_ewJY9QP1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record DisclosureRequestIdentification1
     /// Date set by the issuer on which shareholders identity is determined based on the settled positions struck in the books of the Issuer CSD or any other first intermediary at the close of business day. 
     /// </summary>
     [IsoId("_O-niRTqhEemL_ewJY9QP1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shareholders Disclosure Record Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrhldrsDsclsrRcrdDt")]
     #endif
+    [IsoXmlTag("ShrhldrsDsclsrRcrdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
+    public required DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum IntermediateSecurityDistributionType1Code
 {
     /// <summary>
     /// Distribution of reverser rights.
-    /// Encoded/decoded by serializers as "BIDS".
+    /// Encoded/decoded by serializers as &quot;BIDS&quot;.
     /// </summary>
     [EnumMember(Value = "BIDS")]
     [IsoId("_aZ-CiNp-Ed-ak6NoX_4Aeg_1639683803")]
@@ -30,7 +30,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Distribution of bonus rights.
-    /// Encoded/decoded by serializers as "BONU".
+    /// Encoded/decoded by serializers as &quot;BONU&quot;.
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_aaHMcNp-Ed-ak6NoX_4Aeg_1639683831")]
@@ -39,7 +39,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Distribution of dividend reinvestment securities.
-    /// Encoded/decoded by serializers as "DRIP".
+    /// Encoded/decoded by serializers as &quot;DRIP&quot;.
     /// </summary>
     [EnumMember(Value = "DRIP")]
     [IsoId("_aaHMcdp-Ed-ak6NoX_4Aeg_1639683832")]
@@ -48,7 +48,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Distribution of cash to shareholders, in proportion to their equity holding. Ordinary dividends are recurring and regular. Shareholder must take cash and may be offered a choice of currency.
-    /// Encoded/decoded by serializers as "DVCA".
+    /// Encoded/decoded by serializers as &quot;DVCA&quot;.
     /// </summary>
     [EnumMember(Value = "DVCA")]
     [IsoId("_aaHMctp-Ed-ak6NoX_4Aeg_1639683862")]
@@ -57,7 +57,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Distribution of dividend option.
-    /// Encoded/decoded by serializers as "DVOP".
+    /// Encoded/decoded by serializers as &quot;DVOP&quot;.
     /// </summary>
     [EnumMember(Value = "DVOP")]
     [IsoId("_aaHMc9p-Ed-ak6NoX_4Aeg_1639683863")]
@@ -66,7 +66,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Distribution of subscription rights.
-    /// Encoded/decoded by serializers as "EXRI".
+    /// Encoded/decoded by serializers as &quot;EXRI&quot;.
     /// </summary>
     [EnumMember(Value = "EXRI")]
     [IsoId("_aaHMdNp-Ed-ak6NoX_4Aeg_1639683864")]
@@ -75,7 +75,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Distribution of open offer rights.
-    /// Encoded/decoded by serializers as "PRIO".
+    /// Encoded/decoded by serializers as &quot;PRIO&quot;.
     /// </summary>
     [EnumMember(Value = "PRIO")]
     [IsoId("_aaHMddp-Ed-ak6NoX_4Aeg_1639683885")]
@@ -84,7 +84,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Dividend or interest paid in the form of scrip.
-    /// Encoded/decoded by serializers as "DVSC".
+    /// Encoded/decoded by serializers as &quot;DVSC&quot;.
     /// </summary>
     [EnumMember(Value = "DVSC")]
     [IsoId("_aaHMdtp-Ed-ak6NoX_4Aeg_1639683893")]
@@ -93,7 +93,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Dividend paid to shareholders in the form of shares of stock.
-    /// Encoded/decoded by serializers as "DVSE".
+    /// Encoded/decoded by serializers as &quot;DVSE&quot;.
     /// </summary>
     [EnumMember(Value = "DVSE")]
     [IsoId("_aaHMd9p-Ed-ak6NoX_4Aeg_1639683894")]
@@ -102,7 +102,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// Interest payment distributed to holders of an interest bearing asset.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_aaHMeNp-Ed-ak6NoX_4Aeg_1639684133")]
@@ -111,7 +111,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// A distribution of cash, assets or both.
-    /// Encoded/decoded by serializers as "LIQU".
+    /// Encoded/decoded by serializers as &quot;LIQU&quot;.
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_aaHMedp-Ed-ak6NoX_4Aeg_1639684141")]
@@ -120,7 +120,7 @@ public enum IntermediateSecurityDistributionType1Code
     
     /// <summary>
     /// A distribution of subsidiary stock to the shareholders.
-    /// Encoded/decoded by serializers as "SOFF".
+    /// Encoded/decoded by serializers as &quot;SOFF&quot;.
     /// </summary>
     [EnumMember(Value = "SOFF")]
     [IsoId("_aaQ9cNp-Ed-ak6NoX_4Aeg_1639684164")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the mandate to be cancelled.
 /// </summary>
 [IsoId("_tlX48lkyEeGeoaLUQk__nA_1031601865")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Cancellation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record MandateCancellation2
     /// Provides information on the original message.
     /// </summary>
     [IsoId("_tlX481kyEeGeoaLUQk__nA_-257428226")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgInf")]
     #endif
+    [IsoXmlTag("OrgnlMsgInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record MandateCancellation2
     /// Provides detailed information on the cancellation reason.
     /// </summary>
     [IsoId("_tlX49FkyEeGeoaLUQk__nA_503336927")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
+    [IsoXmlTag("CxlRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCancellationReason1 CancellationReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentCancellationReason1 CancellationReason { get; init; } 
+    public required PaymentCancellationReason1 CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentCancellationReason1 CancellationReason { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record MandateCancellation2
     /// Provides the original mandate data.
     /// </summary>
     [IsoId("_tlhp8FkyEeGeoaLUQk__nA_33260517")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Mandate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMndt")]
     #endif
+    [IsoXmlTag("OrgnlMndt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMandate2Choice_ OriginalMandate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalMandate2Choice_ OriginalMandate { get; init; } 
+    public required OriginalMandate2Choice_ OriginalMandate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalMandate2Choice_ OriginalMandate { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum OptionParty1Code
 {
     /// <summary>
     /// Seller in a trade.
-    /// Encoded/decoded by serializers as "SLLR".
+    /// Encoded/decoded by serializers as &quot;SLLR&quot;.
     /// </summary>
     [EnumMember(Value = "SLLR")]
     [IsoId("_aP_AE9p-Ed-ak6NoX_4Aeg_-1870012986")]
@@ -30,7 +30,7 @@ public enum OptionParty1Code
     
     /// <summary>
     /// Buyer in a trade.
-    /// Encoded/decoded by serializers as "BYER".
+    /// Encoded/decoded by serializers as &quot;BYER&quot;.
     /// </summary>
     [EnumMember(Value = "BYER")]
     [IsoId("_aP_AFNp-Ed-ak6NoX_4Aeg_-1870012969")]

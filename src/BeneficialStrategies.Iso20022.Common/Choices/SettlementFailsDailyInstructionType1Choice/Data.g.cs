@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyInstructionT
     /// Aggregated data of settlement instructions.
     /// </summary>
     [IsoId("_em0REzOlEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,16 +57,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyInstructionT
         /// Fails due to delivery versus payment (DVP) settlement transactions, covers both delivery versus payment and receive versus payment transactions. 
         /// </summary>
         [IsoId("_MTNhYTOmEeqX8uoQQ3KffQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Delivery Versus Payment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DlvryVrssPmt")]
         #endif
+        [IsoXmlTag("DlvryVrssPmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDailyFailureReason1Choice_ DeliveryVersusPayment { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDailyFailureReason1Choice_ DeliveryVersusPayment { get; init; } 
+        public required SettlementDailyFailureReason1Choice_ DeliveryVersusPayment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDailyFailureReason1Choice_ DeliveryVersusPayment { get; init; } 
         #else
@@ -79,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyInstructionT
         /// Fails due to delivery with payment (DWP) settlement transactions, covers both delivery with payment (DWP) and receive with payment (RWP) transactions. 
         /// </summary>
         [IsoId("_MTNhYzOmEeqX8uoQQ3KffQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Delivery With Payment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DlvryWthPmt")]
         #endif
+        [IsoXmlTag("DlvryWthPmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDailyFailureReason1Choice_ DeliveryWithPayment { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDailyFailureReason1Choice_ DeliveryWithPayment { get; init; } 
+        public required SettlementDailyFailureReason1Choice_ DeliveryWithPayment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDailyFailureReason1Choice_ DeliveryWithPayment { get; init; } 
         #else
@@ -99,16 +95,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyInstructionT
         /// Fails due to payment free of delivery (PFOD) settlement transactions, covers both debit payment free of delivery (DPFOD) and credit payment free of delivery (CPFOD) transactions.
         /// </summary>
         [IsoId("_MTNhZTOmEeqX8uoQQ3KffQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment Free Of Delivery")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtFreeOfDlvry")]
         #endif
+        [IsoXmlTag("PmtFreeOfDlvry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDailyFailureReason1Choice_ PaymentFreeOfDelivery { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDailyFailureReason1Choice_ PaymentFreeOfDelivery { get; init; } 
+        public required SettlementDailyFailureReason1Choice_ PaymentFreeOfDelivery { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDailyFailureReason1Choice_ PaymentFreeOfDelivery { get; init; } 
         #else
@@ -119,16 +114,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyInstructionT
         /// Fails due to free of payment (FoP) settlement transactions, covers both deliver free of payment (DFoP) and receive free of payment (RFoP) transactions.
         /// </summary>
         [IsoId("_MTNhZzOmEeqX8uoQQ3KffQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Free Of Payment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FreeOfPmt")]
         #endif
+        [IsoXmlTag("FreeOfPmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDailyFailureReason1Choice_ FreeOfPayment { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDailyFailureReason1Choice_ FreeOfPayment { get; init; } 
+        public required SettlementDailyFailureReason1Choice_ FreeOfPayment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDailyFailureReason1Choice_ FreeOfPayment { get; init; } 
         #else

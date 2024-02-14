@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CreditorReferenceType1Choice.Code))]
     [KnownType(typeof(CreditorReferenceType1Choice.Proprietary))]
     [IsoId("_T3_jStp-Ed-ak6NoX_4Aeg_651436639")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Reference Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

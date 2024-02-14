@@ -22,7 +22,7 @@ public enum ExternalStatusReasonCode
 {
     /// <summary>
     /// Clearing process aborted due to timeout.   
-    /// Encoded/decoded by serializers as "AB01".
+    /// Encoded/decoded by serializers as &quot;AB01&quot;.
     /// </summary>
     [EnumMember(Value = "AB01")]
     [IsoId("_t9aCA_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Clearing process aborted due to a fatal error.   
-    /// Encoded/decoded by serializers as "AB02".
+    /// Encoded/decoded by serializers as &quot;AB02&quot;.
     /// </summary>
     [EnumMember(Value = "AB02")]
     [IsoId("_t9jzAPRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Settlement aborted due to timeout.   
-    /// Encoded/decoded by serializers as "AB03".
+    /// Encoded/decoded by serializers as &quot;AB03&quot;.
     /// </summary>
     [EnumMember(Value = "AB03")]
     [IsoId("_t9jzA_RYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Settlement process aborted due to a fatal error.   
-    /// Encoded/decoded by serializers as "AB04".
+    /// Encoded/decoded by serializers as &quot;AB04&quot;.
     /// </summary>
     [EnumMember(Value = "AB04")]
     [IsoId("_t9s88PRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction stopped due to timeout at the Creditor Agent.
-    /// Encoded/decoded by serializers as "AB05".
+    /// Encoded/decoded by serializers as &quot;AB05&quot;.
     /// </summary>
     [EnumMember(Value = "AB05")]
     [IsoId("_t9s88_RYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction stopped due to timeout at the Instructed Agent.
-    /// Encoded/decoded by serializers as "AB06".
+    /// Encoded/decoded by serializers as &quot;AB06&quot;.
     /// </summary>
     [EnumMember(Value = "AB06")]
     [IsoId("_t9s89vRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Agent of message is not online.|Generic usage if it cannot be determined who exactly is not online.
-    /// Encoded/decoded by serializers as "AB07".
+    /// Encoded/decoded by serializers as &quot;AB07&quot;.
     /// </summary>
     [EnumMember(Value = "AB07")]
     [IsoId("_t92t8PRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor Agent is not online.
-    /// Encoded/decoded by serializers as "AB08".
+    /// Encoded/decoded by serializers as &quot;AB08&quot;.
     /// </summary>
     [EnumMember(Value = "AB08")]
     [IsoId("_t92t8_RYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction stopped due to error at the Creditor Agent.
-    /// Encoded/decoded by serializers as "AB09".
+    /// Encoded/decoded by serializers as &quot;AB09&quot;.
     /// </summary>
     [EnumMember(Value = "AB09")]
     [IsoId("_t92t9vRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction stopped due to error at the Instructed Agent.
-    /// Encoded/decoded by serializers as "AB10".
+    /// Encoded/decoded by serializers as &quot;AB10&quot;.
     /// </summary>
     [EnumMember(Value = "AB10")]
     [IsoId("_t92t-fRYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction stopped due to timeout at the Debtor Agent.
-    /// Encoded/decoded by serializers as "AB11".
+    /// Encoded/decoded by serializers as &quot;AB11&quot;.
     /// </summary>
     [EnumMember(Value = "AB11")]
     [IsoId("_t92t_PRYEeuLhpyIdtJzwg")]
@@ -121,7 +121,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Account number is invalid or missing.   |
-    /// Encoded/decoded by serializers as "AC01".
+    /// Encoded/decoded by serializers as &quot;AC01&quot;.
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_t-Ae8PRYEeuLhpyIdtJzwg")]
@@ -130,7 +130,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor account number invalid or missing
-    /// Encoded/decoded by serializers as "AC02".
+    /// Encoded/decoded by serializers as &quot;AC02&quot;.
     /// </summary>
     [EnumMember(Value = "AC02")]
     [IsoId("_t-Ae8_RYEeuLhpyIdtJzwg")]
@@ -139,7 +139,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor account number invalid or missing
-    /// Encoded/decoded by serializers as "AC03".
+    /// Encoded/decoded by serializers as &quot;AC03&quot;.
     /// </summary>
     [EnumMember(Value = "AC03")]
     [IsoId("_t-Jo4PRYEeuLhpyIdtJzwg")]
@@ -147,8 +147,8 @@ public enum ExternalStatusReasonCode
     InvalidCreditorAccountNumber,
     
     /// <summary>
-    /// Account number specified has been closed on the bank of account's books. 
-    /// Encoded/decoded by serializers as "AC04".
+    /// Account number specified has been closed on the bank of account&apos;s books. 
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_t-Jo4_RYEeuLhpyIdtJzwg")]
@@ -157,7 +157,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor account number closed
-    /// Encoded/decoded by serializers as "AC05".
+    /// Encoded/decoded by serializers as &quot;AC05&quot;.
     /// </summary>
     [EnumMember(Value = "AC05")]
     [IsoId("_t-Jo5vRYEeuLhpyIdtJzwg")]
@@ -166,7 +166,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "AC06".
+    /// Encoded/decoded by serializers as &quot;AC06&quot;.
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_t-Jo6fRYEeuLhpyIdtJzwg")]
@@ -175,7 +175,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor account number closed
-    /// Encoded/decoded by serializers as "AC07".
+    /// Encoded/decoded by serializers as &quot;AC07&quot;.
     /// </summary>
     [EnumMember(Value = "AC07")]
     [IsoId("_t-Jo7PRYEeuLhpyIdtJzwg")]
@@ -184,7 +184,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Branch code is invalid or missing
-    /// Encoded/decoded by serializers as "AC08".
+    /// Encoded/decoded by serializers as &quot;AC08&quot;.
     /// </summary>
     [EnumMember(Value = "AC08")]
     [IsoId("_t-TZ4PRYEeuLhpyIdtJzwg")]
@@ -193,7 +193,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Account currency is invalid or missing
-    /// Encoded/decoded by serializers as "AC09".
+    /// Encoded/decoded by serializers as &quot;AC09&quot;.
     /// </summary>
     [EnumMember(Value = "AC09")]
     [IsoId("_t-TZ4_RYEeuLhpyIdtJzwg")]
@@ -202,7 +202,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor account currency is invalid or missing
-    /// Encoded/decoded by serializers as "AC10".
+    /// Encoded/decoded by serializers as &quot;AC10&quot;.
     /// </summary>
     [EnumMember(Value = "AC10")]
     [IsoId("_t-TZ5vRYEeuLhpyIdtJzwg")]
@@ -211,7 +211,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor account currency is invalid or missing
-    /// Encoded/decoded by serializers as "AC11".
+    /// Encoded/decoded by serializers as &quot;AC11&quot;.
     /// </summary>
     [EnumMember(Value = "AC11")]
     [IsoId("_t-TZ6fRYEeuLhpyIdtJzwg")]
@@ -220,7 +220,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Account type missing or invalid.|Generic usage if cannot specify between group and payment information levels
-    /// Encoded/decoded by serializers as "AC12".
+    /// Encoded/decoded by serializers as &quot;AC12&quot;.
     /// </summary>
     [EnumMember(Value = "AC12")]
     [IsoId("_t-TZ7PRYEeuLhpyIdtJzwg")]
@@ -229,7 +229,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor account type missing or invalid
-    /// Encoded/decoded by serializers as "AC13".
+    /// Encoded/decoded by serializers as &quot;AC13&quot;.
     /// </summary>
     [EnumMember(Value = "AC13")]
     [IsoId("_t-cj0PRYEeuLhpyIdtJzwg")]
@@ -238,7 +238,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor account type missing or invalid
-    /// Encoded/decoded by serializers as "AC14".
+    /// Encoded/decoded by serializers as &quot;AC14&quot;.
     /// </summary>
     [EnumMember(Value = "AC14")]
     [IsoId("_t-cj0_RYEeuLhpyIdtJzwg")]
@@ -247,7 +247,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The account details for the counterparty have changed.
-    /// Encoded/decoded by serializers as "AC15".
+    /// Encoded/decoded by serializers as &quot;AC15&quot;.
     /// </summary>
     [EnumMember(Value = "AC15")]
     [IsoId("_t-cj1vRYEeuLhpyIdtJzwg")]
@@ -256,7 +256,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Credit or debit card number is invalid.
-    /// Encoded/decoded by serializers as "AC16".
+    /// Encoded/decoded by serializers as &quot;AC16&quot;.
     /// </summary>
     [EnumMember(Value = "AC16")]
     [IsoId("_t-cj2fRYEeuLhpyIdtJzwg")]
@@ -265,7 +265,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction forbidden on this type of account (formerly NoAgreement)
-    /// Encoded/decoded by serializers as "AG01".
+    /// Encoded/decoded by serializers as &quot;AG01&quot;.
     /// </summary>
     [EnumMember(Value = "AG01")]
     [IsoId("_t-cj3PRYEeuLhpyIdtJzwg")]
@@ -274,7 +274,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver
-    /// Encoded/decoded by serializers as "AG02".
+    /// Encoded/decoded by serializers as &quot;AG02&quot;.
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_t-mU0PRYEeuLhpyIdtJzwg")]
@@ -283,7 +283,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction type not supported/authorized on this account 
-    /// Encoded/decoded by serializers as "AG03".
+    /// Encoded/decoded by serializers as &quot;AG03&quot;.
     /// </summary>
     [EnumMember(Value = "AG03")]
     [IsoId("_t-mU0_RYEeuLhpyIdtJzwg")]
@@ -292,7 +292,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Agent country code is missing or invalid.|Generic usage if cannot specify between group and payment information levels.
-    /// Encoded/decoded by serializers as "AG04".
+    /// Encoded/decoded by serializers as &quot;AG04&quot;.
     /// </summary>
     [EnumMember(Value = "AG04")]
     [IsoId("_t-mU1vRYEeuLhpyIdtJzwg")]
@@ -301,7 +301,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor agent country code is missing or invalid
-    /// Encoded/decoded by serializers as "AG05".
+    /// Encoded/decoded by serializers as &quot;AG05&quot;.
     /// </summary>
     [EnumMember(Value = "AG05")]
     [IsoId("_t-mU2fRYEeuLhpyIdtJzwg")]
@@ -310,7 +310,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor agent country code is missing or invalid
-    /// Encoded/decoded by serializers as "AG06".
+    /// Encoded/decoded by serializers as &quot;AG06&quot;.
     /// </summary>
     [EnumMember(Value = "AG06")]
     [IsoId("_t-mU3PRYEeuLhpyIdtJzwg")]
@@ -318,8 +318,8 @@ public enum ExternalStatusReasonCode
     InvalidCreditorAgentCountry,
     
     /// <summary>
-    /// Debtor account cannot be debited for a generic reason.|Code value may be used in general purposes and as a replacement for AM04 if debtor bank does not reveal its customer's insufficient funds for privacy reasons
-    /// Encoded/decoded by serializers as "AG07".
+    /// Debtor account cannot be debited for a generic reason.|Code value may be used in general purposes and as a replacement for AM04 if debtor bank does not reveal its customer&apos;s insufficient funds for privacy reasons
+    /// Encoded/decoded by serializers as &quot;AG07&quot;.
     /// </summary>
     [EnumMember(Value = "AG07")]
     [IsoId("_t-wF0PRYEeuLhpyIdtJzwg")]
@@ -328,7 +328,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction failed due to invalid or missing user or access right
-    /// Encoded/decoded by serializers as "AG08".
+    /// Encoded/decoded by serializers as &quot;AG08&quot;.
     /// </summary>
     [EnumMember(Value = "AG08")]
     [IsoId("_t-wF0_RYEeuLhpyIdtJzwg")]
@@ -337,7 +337,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Original payment never received.
-    /// Encoded/decoded by serializers as "AG09".
+    /// Encoded/decoded by serializers as &quot;AG09&quot;.
     /// </summary>
     [EnumMember(Value = "AG09")]
     [IsoId("_t-wF1vRYEeuLhpyIdtJzwg")]
@@ -346,7 +346,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Agent of message is suspended from the Real Time Payment system.|Generic usage if it cannot be determined who exactly is suspended.
-    /// Encoded/decoded by serializers as "AG10".
+    /// Encoded/decoded by serializers as &quot;AG10&quot;.
     /// </summary>
     [EnumMember(Value = "AG10")]
     [IsoId("_t-wF2fRYEeuLhpyIdtJzwg")]
@@ -355,7 +355,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor Agent of message is suspended from the Real Time Payment system.
-    /// Encoded/decoded by serializers as "AG11".
+    /// Encoded/decoded by serializers as &quot;AG11&quot;.
     /// </summary>
     [EnumMember(Value = "AG11")]
     [IsoId("_t-wF3PRYEeuLhpyIdtJzwg")]
@@ -364,7 +364,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Payment orders made by transferring funds from one account to another at the same financial institution (bank or payment institution) are not allowed.
-    /// Encoded/decoded by serializers as "AG12".
+    /// Encoded/decoded by serializers as &quot;AG12&quot;.
     /// </summary>
     [EnumMember(Value = "AG12")]
     [IsoId("_t-5PwPRYEeuLhpyIdtJzwg")]
@@ -373,7 +373,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Returned payments derived from previously returned transactions are not allowed.
-    /// Encoded/decoded by serializers as "AG13".
+    /// Encoded/decoded by serializers as &quot;AG13&quot;.
     /// </summary>
     [EnumMember(Value = "AG13")]
     [IsoId("_t-5Pw_RYEeuLhpyIdtJzwg")]
@@ -382,7 +382,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Agent in the payment workflow is incorrect
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_t_DAwPRYEeuLhpyIdtJzwg")]
@@ -391,7 +391,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Specified message amount is equal to zero
-    /// Encoded/decoded by serializers as "AM01".
+    /// Encoded/decoded by serializers as &quot;AM01&quot;.
     /// </summary>
     [EnumMember(Value = "AM01")]
     [IsoId("_t_DAw_RYEeuLhpyIdtJzwg")]
@@ -400,7 +400,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Specific transaction/message amount is greater than allowed maximum
-    /// Encoded/decoded by serializers as "AM02".
+    /// Encoded/decoded by serializers as &quot;AM02&quot;.
     /// </summary>
     [EnumMember(Value = "AM02")]
     [IsoId("_t_DAxvRYEeuLhpyIdtJzwg")]
@@ -409,7 +409,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Specified message amount is an non processable currency outside of existing agreement
-    /// Encoded/decoded by serializers as "AM03".
+    /// Encoded/decoded by serializers as &quot;AM03&quot;.
     /// </summary>
     [EnumMember(Value = "AM03")]
     [IsoId("_t_DAyfRYEeuLhpyIdtJzwg")]
@@ -418,7 +418,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
-    /// Encoded/decoded by serializers as "AM04".
+    /// Encoded/decoded by serializers as &quot;AM04&quot;.
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_t_MxwPRYEeuLhpyIdtJzwg")]
@@ -427,7 +427,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Duplication
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_t_Mxw_RYEeuLhpyIdtJzwg")]
@@ -436,7 +436,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Specified transaction amount is less than agreed minimum.
-    /// Encoded/decoded by serializers as "AM06".
+    /// Encoded/decoded by serializers as &quot;AM06&quot;.
     /// </summary>
     [EnumMember(Value = "AM06")]
     [IsoId("_t_MxxvRYEeuLhpyIdtJzwg")]
@@ -445,7 +445,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Amount specified in message has been blocked by regulatory authorities.
-    /// Encoded/decoded by serializers as "AM07".
+    /// Encoded/decoded by serializers as &quot;AM07&quot;.
     /// </summary>
     [EnumMember(Value = "AM07")]
     [IsoId("_t_V7sPRYEeuLhpyIdtJzwg")]
@@ -454,7 +454,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Amount received is not the amount agreed or expected
-    /// Encoded/decoded by serializers as "AM09".
+    /// Encoded/decoded by serializers as &quot;AM09&quot;.
     /// </summary>
     [EnumMember(Value = "AM09")]
     [IsoId("_t_V7s_RYEeuLhpyIdtJzwg")]
@@ -463,7 +463,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Sum of instructed amounts does not equal the control sum.
-    /// Encoded/decoded by serializers as "AM10".
+    /// Encoded/decoded by serializers as &quot;AM10&quot;.
     /// </summary>
     [EnumMember(Value = "AM10")]
     [IsoId("_t_V7tvRYEeuLhpyIdtJzwg")]
@@ -472,7 +472,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction currency is invalid or missing
-    /// Encoded/decoded by serializers as "AM11".
+    /// Encoded/decoded by serializers as &quot;AM11&quot;.
     /// </summary>
     [EnumMember(Value = "AM11")]
     [IsoId("_t_V7ufRYEeuLhpyIdtJzwg")]
@@ -481,7 +481,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Amount is invalid or missing
-    /// Encoded/decoded by serializers as "AM12".
+    /// Encoded/decoded by serializers as &quot;AM12&quot;.
     /// </summary>
     [EnumMember(Value = "AM12")]
     [IsoId("_t_V7vPRYEeuLhpyIdtJzwg")]
@@ -490,7 +490,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction amount exceeds limits set by clearing system
-    /// Encoded/decoded by serializers as "AM13".
+    /// Encoded/decoded by serializers as &quot;AM13&quot;.
     /// </summary>
     [EnumMember(Value = "AM13")]
     [IsoId("_t_fssPRYEeuLhpyIdtJzwg")]
@@ -499,7 +499,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction amount exceeds limits agreed between bank and client
-    /// Encoded/decoded by serializers as "AM14".
+    /// Encoded/decoded by serializers as &quot;AM14&quot;.
     /// </summary>
     [EnumMember(Value = "AM14")]
     [IsoId("_t_fss_RYEeuLhpyIdtJzwg")]
@@ -508,7 +508,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction amount below minimum set by clearing system
-    /// Encoded/decoded by serializers as "AM15".
+    /// Encoded/decoded by serializers as &quot;AM15&quot;.
     /// </summary>
     [EnumMember(Value = "AM15")]
     [IsoId("_t_fstvRYEeuLhpyIdtJzwg")]
@@ -517,7 +517,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Control Sum at the Group level is invalid
-    /// Encoded/decoded by serializers as "AM16".
+    /// Encoded/decoded by serializers as &quot;AM16&quot;.
     /// </summary>
     [EnumMember(Value = "AM16")]
     [IsoId("_t_fsufRYEeuLhpyIdtJzwg")]
@@ -526,7 +526,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Control Sum at the Payment Information level is invalid
-    /// Encoded/decoded by serializers as "AM17".
+    /// Encoded/decoded by serializers as &quot;AM17&quot;.
     /// </summary>
     [EnumMember(Value = "AM17")]
     [IsoId("_t_o2oPRYEeuLhpyIdtJzwg")]
@@ -535,7 +535,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Number of transactions is invalid or missing.|Generic usage if cannot specify between group and payment information levels.
-    /// Encoded/decoded by serializers as "AM18".
+    /// Encoded/decoded by serializers as &quot;AM18&quot;.
     /// </summary>
     [EnumMember(Value = "AM18")]
     [IsoId("_t_o2o_RYEeuLhpyIdtJzwg")]
@@ -544,7 +544,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Number of transactions at the Group level is invalid or missing
-    /// Encoded/decoded by serializers as "AM19".
+    /// Encoded/decoded by serializers as &quot;AM19&quot;.
     /// </summary>
     [EnumMember(Value = "AM19")]
     [IsoId("_t_o2pvRYEeuLhpyIdtJzwg")]
@@ -553,7 +553,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Number of transactions at the Payment Information level is invalid
-    /// Encoded/decoded by serializers as "AM20".
+    /// Encoded/decoded by serializers as &quot;AM20&quot;.
     /// </summary>
     [EnumMember(Value = "AM20")]
     [IsoId("_t_ynoPRYEeuLhpyIdtJzwg")]
@@ -562,7 +562,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction amount exceeds limits agreed between bank and client.
-    /// Encoded/decoded by serializers as "AM21".
+    /// Encoded/decoded by serializers as &quot;AM21&quot;.
     /// </summary>
     [EnumMember(Value = "AM21")]
     [IsoId("_t_yno_RYEeuLhpyIdtJzwg")]
@@ -571,7 +571,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Unable to apply zero amount to designated account. For example, where the rules of a service allow the use of zero amount payments, however the back-office system is unable to apply the funds to the account. If the rules of a service prohibit the use of zero amount payments, then code AM01 is used to report the error condition.
-    /// Encoded/decoded by serializers as "AM22".
+    /// Encoded/decoded by serializers as &quot;AM22&quot;.
     /// </summary>
     [EnumMember(Value = "AM22")]
     [IsoId("_t_ynpvRYEeuLhpyIdtJzwg")]
@@ -580,7 +580,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction amount exceeds settlement limit.
-    /// Encoded/decoded by serializers as "AM23".
+    /// Encoded/decoded by serializers as &quot;AM23&quot;.
     /// </summary>
     [EnumMember(Value = "AM23")]
     [IsoId("_t_ynqfRYEeuLhpyIdtJzwg")]
@@ -589,7 +589,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Identification of end customer is not consistent with associated account number. (formerly CreditorConsistency).
-    /// Encoded/decoded by serializers as "BE01".
+    /// Encoded/decoded by serializers as &quot;BE01&quot;.
     /// </summary>
     [EnumMember(Value = "BE01")]
     [IsoId("_t_ynrPRYEeuLhpyIdtJzwg")]
@@ -597,8 +597,8 @@ public enum ExternalStatusReasonCode
     InconsistenWithEndCustomer,
     
     /// <summary>
-    /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
-    /// Encoded/decoded by serializers as "BE04".
+    /// Specification of creditor&apos;s address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
+    /// Encoded/decoded by serializers as &quot;BE04&quot;.
     /// </summary>
     [EnumMember(Value = "BE04")]
     [IsoId("_t_7xkPRYEeuLhpyIdtJzwg")]
@@ -607,7 +607,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Party who initiated the message is not recognised by the end customer
-    /// Encoded/decoded by serializers as "BE05".
+    /// Encoded/decoded by serializers as &quot;BE05&quot;.
     /// </summary>
     [EnumMember(Value = "BE05")]
     [IsoId("_t_7xk_RYEeuLhpyIdtJzwg")]
@@ -616,7 +616,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// End customer specified is not known at associated Sort/National Bank Code or does no longer exist in the books
-    /// Encoded/decoded by serializers as "BE06".
+    /// Encoded/decoded by serializers as &quot;BE06&quot;.
     /// </summary>
     [EnumMember(Value = "BE06")]
     [IsoId("_t_7xlvRYEeuLhpyIdtJzwg")]
@@ -624,8 +624,8 @@ public enum ExternalStatusReasonCode
     UnknownEndCustomer,
     
     /// <summary>
-    /// Specification of debtor's address, which is required for payment, is missing/not correct.
-    /// Encoded/decoded by serializers as "BE07".
+    /// Specification of debtor&apos;s address, which is required for payment, is missing/not correct.
+    /// Encoded/decoded by serializers as &quot;BE07&quot;.
     /// </summary>
     [EnumMember(Value = "BE07")]
     [IsoId("_uAFikPRYEeuLhpyIdtJzwg")]
@@ -634,7 +634,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor name is missing
-    /// Encoded/decoded by serializers as "BE08".
+    /// Encoded/decoded by serializers as &quot;BE08&quot;.
     /// </summary>
     [EnumMember(Value = "BE08")]
     [IsoId("_uAFik_RYEeuLhpyIdtJzwg")]
@@ -643,7 +643,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Country code is missing or Invalid.|Generic usage if cannot specifically identify debtor or creditor
-    /// Encoded/decoded by serializers as "BE09".
+    /// Encoded/decoded by serializers as &quot;BE09&quot;.
     /// </summary>
     [EnumMember(Value = "BE09")]
     [IsoId("_uAFilvRYEeuLhpyIdtJzwg")]
@@ -652,7 +652,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor country code is missing or invalid
-    /// Encoded/decoded by serializers as "BE10".
+    /// Encoded/decoded by serializers as &quot;BE10&quot;.
     /// </summary>
     [EnumMember(Value = "BE10")]
     [IsoId("_uAFimfRYEeuLhpyIdtJzwg")]
@@ -661,7 +661,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor country code is missing or invalid
-    /// Encoded/decoded by serializers as "BE11".
+    /// Encoded/decoded by serializers as &quot;BE11&quot;.
     /// </summary>
     [EnumMember(Value = "BE11")]
     [IsoId("_uAPTkPRYEeuLhpyIdtJzwg")]
@@ -670,7 +670,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Country code of residence is missing or Invalid.|Generic usage if cannot specifically identify debtor or creditor
-    /// Encoded/decoded by serializers as "BE12".
+    /// Encoded/decoded by serializers as &quot;BE12&quot;.
     /// </summary>
     [EnumMember(Value = "BE12")]
     [IsoId("_uAPTk_RYEeuLhpyIdtJzwg")]
@@ -678,8 +678,8 @@ public enum ExternalStatusReasonCode
     InvalidCountryOfResidence,
     
     /// <summary>
-    /// Country code of debtor's residence is missing or Invalid
-    /// Encoded/decoded by serializers as "BE13".
+    /// Country code of debtor&apos;s residence is missing or Invalid
+    /// Encoded/decoded by serializers as &quot;BE13&quot;.
     /// </summary>
     [EnumMember(Value = "BE13")]
     [IsoId("_uAPTlvRYEeuLhpyIdtJzwg")]
@@ -687,8 +687,8 @@ public enum ExternalStatusReasonCode
     InvalidDebtorCountryOfResidence,
     
     /// <summary>
-    /// Country code of creditor's residence is missing or Invalid
-    /// Encoded/decoded by serializers as "BE14".
+    /// Country code of creditor&apos;s residence is missing or Invalid
+    /// Encoded/decoded by serializers as &quot;BE14&quot;.
     /// </summary>
     [EnumMember(Value = "BE14")]
     [IsoId("_uAPTmfRYEeuLhpyIdtJzwg")]
@@ -697,7 +697,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Identification code missing or invalid.|Generic usage if cannot specifically identify debtor or creditor.
-    /// Encoded/decoded by serializers as "BE15".
+    /// Encoded/decoded by serializers as &quot;BE15&quot;.
     /// </summary>
     [EnumMember(Value = "BE15")]
     [IsoId("_uAPTnPRYEeuLhpyIdtJzwg")]
@@ -706,7 +706,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor or Ultimate Debtor identification code missing or invalid
-    /// Encoded/decoded by serializers as "BE16".
+    /// Encoded/decoded by serializers as &quot;BE16&quot;.
     /// </summary>
     [EnumMember(Value = "BE16")]
     [IsoId("_uAYdgPRYEeuLhpyIdtJzwg")]
@@ -715,7 +715,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor or Ultimate Creditor identification code missing or invalid
-    /// Encoded/decoded by serializers as "BE17".
+    /// Encoded/decoded by serializers as &quot;BE17&quot;.
     /// </summary>
     [EnumMember(Value = "BE17")]
     [IsoId("_uAYdg_RYEeuLhpyIdtJzwg")]
@@ -724,7 +724,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Contact details missing or invalid
-    /// Encoded/decoded by serializers as "BE18".
+    /// Encoded/decoded by serializers as &quot;BE18&quot;.
     /// </summary>
     [EnumMember(Value = "BE18")]
     [IsoId("_uAYdhvRYEeuLhpyIdtJzwg")]
@@ -733,7 +733,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Charge bearer code for transaction type is invalid
-    /// Encoded/decoded by serializers as "BE19".
+    /// Encoded/decoded by serializers as &quot;BE19&quot;.
     /// </summary>
     [EnumMember(Value = "BE19")]
     [IsoId("_uAiOgPRYEeuLhpyIdtJzwg")]
@@ -742,7 +742,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Name length exceeds local rules for payment type.
-    /// Encoded/decoded by serializers as "BE20".
+    /// Encoded/decoded by serializers as &quot;BE20&quot;.
     /// </summary>
     [EnumMember(Value = "BE20")]
     [IsoId("_uAiOg_RYEeuLhpyIdtJzwg")]
@@ -751,7 +751,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Name missing or invalid.  Generic usage if cannot specifically identify debtor or creditor.
-    /// Encoded/decoded by serializers as "BE21".
+    /// Encoded/decoded by serializers as &quot;BE21&quot;.
     /// </summary>
     [EnumMember(Value = "BE21")]
     [IsoId("_uAiOhvRYEeuLhpyIdtJzwg")]
@@ -760,7 +760,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor name is missing
-    /// Encoded/decoded by serializers as "BE22".
+    /// Encoded/decoded by serializers as &quot;BE22&quot;.
     /// </summary>
     [EnumMember(Value = "BE22")]
     [IsoId("_uAiOifRYEeuLhpyIdtJzwg")]
@@ -769,7 +769,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Phone number or email address, or any other proxy, used as the account proxy is unknown or invalid.
-    /// Encoded/decoded by serializers as "BE23".
+    /// Encoded/decoded by serializers as &quot;BE23&quot;.
     /// </summary>
     [EnumMember(Value = "BE23")]
     [IsoId("_uAr_gPRYEeuLhpyIdtJzwg")]
@@ -778,7 +778,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Credit transfer is not tagged as an Extended Remittance Information (ERI) transaction but contains ERI.
-    /// Encoded/decoded by serializers as "CERI".
+    /// Encoded/decoded by serializers as &quot;CERI&quot;.
     /// </summary>
     [EnumMember(Value = "CERI")]
     [IsoId("_uAr_g_RYEeuLhpyIdtJzwg")]
@@ -787,7 +787,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Value in Requested Execution Date or Requested Collection Date is too far in the future
-    /// Encoded/decoded by serializers as "CH03".
+    /// Encoded/decoded by serializers as &quot;CH03&quot;.
     /// </summary>
     [EnumMember(Value = "CH03")]
     [IsoId("_uAr_hvRYEeuLhpyIdtJzwg")]
@@ -796,7 +796,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Value in Requested Execution Date or Requested Collection Date is too far in the past
-    /// Encoded/decoded by serializers as "CH04".
+    /// Encoded/decoded by serializers as &quot;CH04&quot;.
     /// </summary>
     [EnumMember(Value = "CH04")]
     [IsoId("_uAr_ifRYEeuLhpyIdtJzwg")]
@@ -805,7 +805,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Element is not to be used at B- and C-Level
-    /// Encoded/decoded by serializers as "CH07".
+    /// Encoded/decoded by serializers as &quot;CH07&quot;.
     /// </summary>
     [EnumMember(Value = "CH07")]
     [IsoId("_uA1JcPRYEeuLhpyIdtJzwg")]
@@ -814,7 +814,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Mandate changes are not allowed
-    /// Encoded/decoded by serializers as "CH09".
+    /// Encoded/decoded by serializers as &quot;CH09&quot;.
     /// </summary>
     [EnumMember(Value = "CH09")]
     [IsoId("_uA1Jc_RYEeuLhpyIdtJzwg")]
@@ -823,7 +823,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Information on mandate changes are missing
-    /// Encoded/decoded by serializers as "CH10".
+    /// Encoded/decoded by serializers as &quot;CH10&quot;.
     /// </summary>
     [EnumMember(Value = "CH10")]
     [IsoId("_uA1JdvRYEeuLhpyIdtJzwg")]
@@ -832,7 +832,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Value in Creditor Identifier is incorrect
-    /// Encoded/decoded by serializers as "CH11".
+    /// Encoded/decoded by serializers as &quot;CH11&quot;.
     /// </summary>
     [EnumMember(Value = "CH11")]
     [IsoId("_uA-6cPRYEeuLhpyIdtJzwg")]
@@ -841,7 +841,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor Identifier is ambiguous at Transaction Level
-    /// Encoded/decoded by serializers as "CH12".
+    /// Encoded/decoded by serializers as &quot;CH12&quot;.
     /// </summary>
     [EnumMember(Value = "CH12")]
     [IsoId("_uA-6c_RYEeuLhpyIdtJzwg")]
@@ -850,7 +850,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Original Debtor Account is not to be used
-    /// Encoded/decoded by serializers as "CH13".
+    /// Encoded/decoded by serializers as &quot;CH13&quot;.
     /// </summary>
     [EnumMember(Value = "CH13")]
     [IsoId("_uA-6dvRYEeuLhpyIdtJzwg")]
@@ -859,7 +859,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Original Debtor Agent  is not to be used
-    /// Encoded/decoded by serializers as "CH14".
+    /// Encoded/decoded by serializers as &quot;CH14&quot;.
     /// </summary>
     [EnumMember(Value = "CH14")]
     [IsoId("_uA-6efRYEeuLhpyIdtJzwg")]
@@ -868,7 +868,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Content Remittance Information/Structured includes more than 140 characters
-    /// Encoded/decoded by serializers as "CH15".
+    /// Encoded/decoded by serializers as &quot;CH15&quot;.
     /// </summary>
     [EnumMember(Value = "CH15")]
     [IsoId("_uBIrcPRYEeuLhpyIdtJzwg")]
@@ -877,7 +877,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Content is incorrect
-    /// Encoded/decoded by serializers as "CH16".
+    /// Encoded/decoded by serializers as &quot;CH16&quot;.
     /// </summary>
     [EnumMember(Value = "CH16")]
     [IsoId("_uBIrc_RYEeuLhpyIdtJzwg")]
@@ -886,7 +886,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Element is not allowed
-    /// Encoded/decoded by serializers as "CH17".
+    /// Encoded/decoded by serializers as &quot;CH17&quot;.
     /// </summary>
     [EnumMember(Value = "CH17")]
     [IsoId("_uBIrdvRYEeuLhpyIdtJzwg")]
@@ -895,7 +895,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Values in Interbank Settlement Date or Requested Collection Date will be set to the next TARGET day
-    /// Encoded/decoded by serializers as "CH19".
+    /// Encoded/decoded by serializers as &quot;CH19&quot;.
     /// </summary>
     [EnumMember(Value = "CH19")]
     [IsoId("_uBIrefRYEeuLhpyIdtJzwg")]
@@ -904,7 +904,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Number of decimal points not compatible with the currency
-    /// Encoded/decoded by serializers as "CH20".
+    /// Encoded/decoded by serializers as &quot;CH20&quot;.
     /// </summary>
     [EnumMember(Value = "CH20")]
     [IsoId("_uBIrfPRYEeuLhpyIdtJzwg")]
@@ -913,7 +913,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Mandatory element is missing 
-    /// Encoded/decoded by serializers as "CH21".
+    /// Encoded/decoded by serializers as &quot;CH21&quot;.
     /// </summary>
     [EnumMember(Value = "CH21")]
     [IsoId("_uBR1YPRYEeuLhpyIdtJzwg")]
@@ -922,7 +922,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// SDD CORE and B2B not permitted within one message 
-    /// Encoded/decoded by serializers as "CH22".
+    /// Encoded/decoded by serializers as &quot;CH22&quot;.
     /// </summary>
     [EnumMember(Value = "CH22")]
     [IsoId("_uBR1Y_RYEeuLhpyIdtJzwg")]
@@ -931,7 +931,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Cheque has been presented in cheque clearing and settled on the creditor’s account.
-    /// Encoded/decoded by serializers as "CHQC".
+    /// Encoded/decoded by serializers as &quot;CHQC&quot;.
     /// </summary>
     [EnumMember(Value = "CHQC")]
     [IsoId("_uBR1ZvRYEeuLhpyIdtJzwg")]
@@ -940,7 +940,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor bank is not registered under this BIC in the CSM
-    /// Encoded/decoded by serializers as "CNOR".
+    /// Encoded/decoded by serializers as &quot;CNOR&quot;.
     /// </summary>
     [EnumMember(Value = "CNOR")]
     [IsoId("_uBbmYPRYEeuLhpyIdtJzwg")]
@@ -949,7 +949,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Currency of the payment is incorrect
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_uBbmY_RYEeuLhpyIdtJzwg")]
@@ -958,7 +958,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Cancellation requested by the Debtor
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_uBbmZvRYEeuLhpyIdtJzwg")]
@@ -967,7 +967,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor bank is not registered under this BIC in the CSM
-    /// Encoded/decoded by serializers as "DNOR".
+    /// Encoded/decoded by serializers as &quot;DNOR&quot;.
     /// </summary>
     [EnumMember(Value = "DNOR")]
     [IsoId("_uBbmafRYEeuLhpyIdtJzwg")]
@@ -976,7 +976,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The electronic signature(s) is/are correct
-    /// Encoded/decoded by serializers as "DS01".
+    /// Encoded/decoded by serializers as &quot;DS01&quot;.
     /// </summary>
     [EnumMember(Value = "DS01")]
     [IsoId("_uBbmbPRYEeuLhpyIdtJzwg")]
@@ -985,7 +985,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// An authorized user has cancelled the order
-    /// Encoded/decoded by serializers as "DS02".
+    /// Encoded/decoded by serializers as &quot;DS02&quot;.
     /// </summary>
     [EnumMember(Value = "DS02")]
     [IsoId("_uBlXYPRYEeuLhpyIdtJzwg")]
@@ -994,7 +994,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The user’s attempt to cancel the order was not successful 
-    /// Encoded/decoded by serializers as "DS03".
+    /// Encoded/decoded by serializers as &quot;DS03&quot;.
     /// </summary>
     [EnumMember(Value = "DS03")]
     [IsoId("_uBlXY_RYEeuLhpyIdtJzwg")]
@@ -1003,7 +1003,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The order was rejected by the bank side (for reasons concerning content)
-    /// Encoded/decoded by serializers as "DS04".
+    /// Encoded/decoded by serializers as &quot;DS04&quot;.
     /// </summary>
     [EnumMember(Value = "DS04")]
     [IsoId("_uBuhUPRYEeuLhpyIdtJzwg")]
@@ -1012,7 +1012,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The order was correct and could be forwarded for postprocessing
-    /// Encoded/decoded by serializers as "DS05".
+    /// Encoded/decoded by serializers as &quot;DS05&quot;.
     /// </summary>
     [EnumMember(Value = "DS05")]
     [IsoId("_uBuhU_RYEeuLhpyIdtJzwg")]
@@ -1021,7 +1021,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The order was transferred to VEU
-    /// Encoded/decoded by serializers as "DS06".
+    /// Encoded/decoded by serializers as &quot;DS06&quot;.
     /// </summary>
     [EnumMember(Value = "DS06")]
     [IsoId("_uBuhVvRYEeuLhpyIdtJzwg")]
@@ -1030,7 +1030,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// All actions concerning the order could be done by the EBICS bank server
-    /// Encoded/decoded by serializers as "DS07".
+    /// Encoded/decoded by serializers as &quot;DS07&quot;.
     /// </summary>
     [EnumMember(Value = "DS07")]
     [IsoId("_uBuhWfRYEeuLhpyIdtJzwg")]
@@ -1039,7 +1039,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The decompression of the file was not successful
-    /// Encoded/decoded by serializers as "DS08".
+    /// Encoded/decoded by serializers as &quot;DS08&quot;.
     /// </summary>
     [EnumMember(Value = "DS08")]
     [IsoId("_uB4SUPRYEeuLhpyIdtJzwg")]
@@ -1048,7 +1048,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The decryption of the file was not successful
-    /// Encoded/decoded by serializers as "DS09".
+    /// Encoded/decoded by serializers as &quot;DS09&quot;.
     /// </summary>
     [EnumMember(Value = "DS09")]
     [IsoId("_uB4SU_RYEeuLhpyIdtJzwg")]
@@ -1057,7 +1057,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Data signature is required.
-    /// Encoded/decoded by serializers as "DS0A".
+    /// Encoded/decoded by serializers as &quot;DS0A&quot;.
     /// </summary>
     [EnumMember(Value = "DS0A")]
     [IsoId("_uB4SVvRYEeuLhpyIdtJzwg")]
@@ -1066,7 +1066,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Data signature for the format is not available or invalid.
-    /// Encoded/decoded by serializers as "DS0B".
+    /// Encoded/decoded by serializers as &quot;DS0B&quot;.
     /// </summary>
     [EnumMember(Value = "DS0B")]
     [IsoId("_uB4SWfRYEeuLhpyIdtJzwg")]
@@ -1075,7 +1075,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The signer certificate is revoked.
-    /// Encoded/decoded by serializers as "DS0C".
+    /// Encoded/decoded by serializers as &quot;DS0C&quot;.
     /// </summary>
     [EnumMember(Value = "DS0C")]
     [IsoId("_uB4SXPRYEeuLhpyIdtJzwg")]
@@ -1084,7 +1084,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The signer certificate is not valid (revoked or not active).
-    /// Encoded/decoded by serializers as "DS0D".
+    /// Encoded/decoded by serializers as &quot;DS0D&quot;.
     /// </summary>
     [EnumMember(Value = "DS0D")]
     [IsoId("_uCBcQPRYEeuLhpyIdtJzwg")]
@@ -1093,7 +1093,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The signer certificate is not present.
-    /// Encoded/decoded by serializers as "DS0E".
+    /// Encoded/decoded by serializers as &quot;DS0E&quot;.
     /// </summary>
     [EnumMember(Value = "DS0E")]
     [IsoId("_uCBcQ_RYEeuLhpyIdtJzwg")]
@@ -1102,7 +1102,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The authority of the signer certification sending the certificate is unknown.
-    /// Encoded/decoded by serializers as "DS0F".
+    /// Encoded/decoded by serializers as &quot;DS0F&quot;.
     /// </summary>
     [EnumMember(Value = "DS0F")]
     [IsoId("_uCBcRvRYEeuLhpyIdtJzwg")]
@@ -1111,7 +1111,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Signer is not allowed to sign this operation type.
-    /// Encoded/decoded by serializers as "DS0G".
+    /// Encoded/decoded by serializers as &quot;DS0G&quot;.
     /// </summary>
     [EnumMember(Value = "DS0G")]
     [IsoId("_uCLNQPRYEeuLhpyIdtJzwg")]
@@ -1120,7 +1120,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Signer is not allowed to sign for this account.
-    /// Encoded/decoded by serializers as "DS0H".
+    /// Encoded/decoded by serializers as &quot;DS0H&quot;.
     /// </summary>
     [EnumMember(Value = "DS0H")]
     [IsoId("_uCLNQ_RYEeuLhpyIdtJzwg")]
@@ -1129,7 +1129,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The number of transaction is over the number allowed for this signer.
-    /// Encoded/decoded by serializers as "DS0K".
+    /// Encoded/decoded by serializers as &quot;DS0K&quot;.
     /// </summary>
     [EnumMember(Value = "DS0K")]
     [IsoId("_uCLNRvRYEeuLhpyIdtJzwg")]
@@ -1138,7 +1138,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The certificate is revoked for the first signer.
-    /// Encoded/decoded by serializers as "DS10".
+    /// Encoded/decoded by serializers as &quot;DS10&quot;.
     /// </summary>
     [EnumMember(Value = "DS10")]
     [IsoId("_uCLNSfRYEeuLhpyIdtJzwg")]
@@ -1147,7 +1147,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The certificate is not valid (revoked or not active) for the first signer.
-    /// Encoded/decoded by serializers as "DS11".
+    /// Encoded/decoded by serializers as &quot;DS11&quot;.
     /// </summary>
     [EnumMember(Value = "DS11")]
     [IsoId("_uCU-QPRYEeuLhpyIdtJzwg")]
@@ -1156,7 +1156,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The certificate is not present for the first signer.
-    /// Encoded/decoded by serializers as "DS12".
+    /// Encoded/decoded by serializers as &quot;DS12&quot;.
     /// </summary>
     [EnumMember(Value = "DS12")]
     [IsoId("_uCU-Q_RYEeuLhpyIdtJzwg")]
@@ -1165,7 +1165,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The authority of signer certification sending the certificate is unknown for the first signer.
-    /// Encoded/decoded by serializers as "DS13".
+    /// Encoded/decoded by serializers as &quot;DS13&quot;.
     /// </summary>
     [EnumMember(Value = "DS13")]
     [IsoId("_uCU-RvRYEeuLhpyIdtJzwg")]
@@ -1174,7 +1174,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The user is unknown on the server
-    /// Encoded/decoded by serializers as "DS14".
+    /// Encoded/decoded by serializers as &quot;DS14&quot;.
     /// </summary>
     [EnumMember(Value = "DS14")]
     [IsoId("_uCeIMPRYEeuLhpyIdtJzwg")]
@@ -1183,7 +1183,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The same signature has already been sent to the bank
-    /// Encoded/decoded by serializers as "DS15".
+    /// Encoded/decoded by serializers as &quot;DS15&quot;.
     /// </summary>
     [EnumMember(Value = "DS15")]
     [IsoId("_uCeIM_RYEeuLhpyIdtJzwg")]
@@ -1192,7 +1192,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The public key version is not correct. This code is returned when a customer sends signature files to the financial institution after conversion from an older program version (old ES format) to a new program version (new ES format) without having carried out re-initialisation with regard to a public key change.
-    /// Encoded/decoded by serializers as "DS16".
+    /// Encoded/decoded by serializers as &quot;DS16&quot;.
     /// </summary>
     [EnumMember(Value = "DS16")]
     [IsoId("_uCeINvRYEeuLhpyIdtJzwg")]
@@ -1201,7 +1201,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Order data and signatures don’t match
-    /// Encoded/decoded by serializers as "DS17".
+    /// Encoded/decoded by serializers as &quot;DS17&quot;.
     /// </summary>
     [EnumMember(Value = "DS17")]
     [IsoId("_uCeIOfRYEeuLhpyIdtJzwg")]
@@ -1210,7 +1210,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// File cannot be tested, the complete order has to be repeated. This code is returned in the event of a malfunction during the signature check, e.g. not enough storage space.
-    /// Encoded/decoded by serializers as "DS18".
+    /// Encoded/decoded by serializers as &quot;DS18&quot;.
     /// </summary>
     [EnumMember(Value = "DS18")]
     [IsoId("_uCn5MPRYEeuLhpyIdtJzwg")]
@@ -1219,7 +1219,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The user’s rights (concerning his signature) are insufficient to execute the order
-    /// Encoded/decoded by serializers as "DS19".
+    /// Encoded/decoded by serializers as &quot;DS19&quot;.
     /// </summary>
     [EnumMember(Value = "DS19")]
     [IsoId("_uCn5M_RYEeuLhpyIdtJzwg")]
@@ -1228,7 +1228,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The certificate is revoked for the second signer.
-    /// Encoded/decoded by serializers as "DS20".
+    /// Encoded/decoded by serializers as &quot;DS20&quot;.
     /// </summary>
     [EnumMember(Value = "DS20")]
     [IsoId("_uCn5NvRYEeuLhpyIdtJzwg")]
@@ -1237,7 +1237,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The certificate is not valid (revoked or not active) for the second signer.
-    /// Encoded/decoded by serializers as "DS21".
+    /// Encoded/decoded by serializers as &quot;DS21&quot;.
     /// </summary>
     [EnumMember(Value = "DS21")]
     [IsoId("_uCn5OfRYEeuLhpyIdtJzwg")]
@@ -1246,7 +1246,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The certificate is not present for the second signer.
-    /// Encoded/decoded by serializers as "DS22".
+    /// Encoded/decoded by serializers as &quot;DS22&quot;.
     /// </summary>
     [EnumMember(Value = "DS22")]
     [IsoId("_uCxqMPRYEeuLhpyIdtJzwg")]
@@ -1255,7 +1255,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The authority of signer certification sending the certificate is unknown for the second signer.
-    /// Encoded/decoded by serializers as "DS23".
+    /// Encoded/decoded by serializers as &quot;DS23&quot;.
     /// </summary>
     [EnumMember(Value = "DS23")]
     [IsoId("_uCxqM_RYEeuLhpyIdtJzwg")]
@@ -1264,7 +1264,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Waiting time expired due to incomplete order
-    /// Encoded/decoded by serializers as "DS24".
+    /// Encoded/decoded by serializers as &quot;DS24&quot;.
     /// </summary>
     [EnumMember(Value = "DS24")]
     [IsoId("_uCxqNvRYEeuLhpyIdtJzwg")]
@@ -1273,7 +1273,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The order file was deleted by the bank server |(for multiple reasons)
-    /// Encoded/decoded by serializers as "DS25".
+    /// Encoded/decoded by serializers as &quot;DS25&quot;.
     /// </summary>
     [EnumMember(Value = "DS25")]
     [IsoId("_uCxqOfRYEeuLhpyIdtJzwg")]
@@ -1282,7 +1282,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The same user has signed multiple times
-    /// Encoded/decoded by serializers as "DS26".
+    /// Encoded/decoded by serializers as &quot;DS26&quot;.
     /// </summary>
     [EnumMember(Value = "DS26")]
     [IsoId("_uCxqPPRYEeuLhpyIdtJzwg")]
@@ -1291,7 +1291,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The user is not yet activated (technically)
-    /// Encoded/decoded by serializers as "DS27".
+    /// Encoded/decoded by serializers as &quot;DS27&quot;.
     /// </summary>
     [EnumMember(Value = "DS27")]
     [IsoId("_uC60IPRYEeuLhpyIdtJzwg")]
@@ -1300,7 +1300,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Invalid date (eg, wrong or missing settlement date)
-    /// Encoded/decoded by serializers as "DT01".
+    /// Encoded/decoded by serializers as &quot;DT01&quot;.
     /// </summary>
     [EnumMember(Value = "DT01")]
     [IsoId("_uC60I_RYEeuLhpyIdtJzwg")]
@@ -1309,7 +1309,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Invalid creation date and time in Group Header (eg, historic date)
-    /// Encoded/decoded by serializers as "DT02".
+    /// Encoded/decoded by serializers as &quot;DT02&quot;.
     /// </summary>
     [EnumMember(Value = "DT02")]
     [IsoId("_uC60JvRYEeuLhpyIdtJzwg")]
@@ -1318,7 +1318,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Invalid non bank processing date (eg, weekend or local public holiday)
-    /// Encoded/decoded by serializers as "DT03".
+    /// Encoded/decoded by serializers as &quot;DT03&quot;.
     /// </summary>
     [EnumMember(Value = "DT03")]
     [IsoId("_uC60KfRYEeuLhpyIdtJzwg")]
@@ -1327,7 +1327,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Future date not supported
-    /// Encoded/decoded by serializers as "DT04".
+    /// Encoded/decoded by serializers as &quot;DT04&quot;.
     /// </summary>
     [EnumMember(Value = "DT04")]
     [IsoId("_uC60LPRYEeuLhpyIdtJzwg")]
@@ -1336,7 +1336,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Associated message, payment information block or transaction was received after agreed processing cut-off date, i.e., date in the past.
-    /// Encoded/decoded by serializers as "DT05".
+    /// Encoded/decoded by serializers as &quot;DT05&quot;.
     /// </summary>
     [EnumMember(Value = "DT05")]
     [IsoId("_uDElIPRYEeuLhpyIdtJzwg")]
@@ -1345,7 +1345,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Execution Date has been modified in order for transaction to be processed
-    /// Encoded/decoded by serializers as "DT06".
+    /// Encoded/decoded by serializers as &quot;DT06&quot;.
     /// </summary>
     [EnumMember(Value = "DT06")]
     [IsoId("_uDElI_RYEeuLhpyIdtJzwg")]
@@ -1354,7 +1354,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Message Identification is not unique.
-    /// Encoded/decoded by serializers as "DU01".
+    /// Encoded/decoded by serializers as &quot;DU01&quot;.
     /// </summary>
     [EnumMember(Value = "DU01")]
     [IsoId("_uDElJvRYEeuLhpyIdtJzwg")]
@@ -1363,7 +1363,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Payment Information Block is not unique.
-    /// Encoded/decoded by serializers as "DU02".
+    /// Encoded/decoded by serializers as &quot;DU02&quot;.
     /// </summary>
     [EnumMember(Value = "DU02")]
     [IsoId("_uDElKfRYEeuLhpyIdtJzwg")]
@@ -1372,7 +1372,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction is not unique.
-    /// Encoded/decoded by serializers as "DU03".
+    /// Encoded/decoded by serializers as &quot;DU03&quot;.
     /// </summary>
     [EnumMember(Value = "DU03")]
     [IsoId("_uDElLPRYEeuLhpyIdtJzwg")]
@@ -1381,7 +1381,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// End To End ID is not unique.
-    /// Encoded/decoded by serializers as "DU04".
+    /// Encoded/decoded by serializers as &quot;DU04&quot;.
     /// </summary>
     [EnumMember(Value = "DU04")]
     [IsoId("_uDNvEPRYEeuLhpyIdtJzwg")]
@@ -1390,7 +1390,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Instruction ID is not unique.
-    /// Encoded/decoded by serializers as "DU05".
+    /// Encoded/decoded by serializers as &quot;DU05&quot;.
     /// </summary>
     [EnumMember(Value = "DU05")]
     [IsoId("_uDNvE_RYEeuLhpyIdtJzwg")]
@@ -1399,7 +1399,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Payment is a duplicate of another payment
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_uDNvFvRYEeuLhpyIdtJzwg")]
@@ -1408,7 +1408,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Correspondent bank not possible.
-    /// Encoded/decoded by serializers as "ED01".
+    /// Encoded/decoded by serializers as &quot;ED01&quot;.
     /// </summary>
     [EnumMember(Value = "ED01")]
     [IsoId("_uDXgEPRYEeuLhpyIdtJzwg")]
@@ -1417,7 +1417,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Balance of payments complementary info is requested
-    /// Encoded/decoded by serializers as "ED03".
+    /// Encoded/decoded by serializers as &quot;ED03&quot;.
     /// </summary>
     [EnumMember(Value = "ED03")]
     [IsoId("_uDXgE_RYEeuLhpyIdtJzwg")]
@@ -1426,7 +1426,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Settlement of the transaction has failed.
-    /// Encoded/decoded by serializers as "ED05".
+    /// Encoded/decoded by serializers as &quot;ED05&quot;.
     /// </summary>
     [EnumMember(Value = "ED05")]
     [IsoId("_uDXgFvRYEeuLhpyIdtJzwg")]
@@ -1435,7 +1435,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Interbank settlement system not available.
-    /// Encoded/decoded by serializers as "ED06".
+    /// Encoded/decoded by serializers as &quot;ED06&quot;.
     /// </summary>
     [EnumMember(Value = "ED06")]
     [IsoId("_uDXgGfRYEeuLhpyIdtJzwg")]
@@ -1444,7 +1444,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Extended Remittance Information (ERI) option is not supported.
-    /// Encoded/decoded by serializers as "ERIN".
+    /// Encoded/decoded by serializers as &quot;ERIN&quot;.
     /// </summary>
     [EnumMember(Value = "ERIN")]
     [IsoId("_uDgqAPRYEeuLhpyIdtJzwg")]
@@ -1453,7 +1453,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// File Format incomplete or invalid
-    /// Encoded/decoded by serializers as "FF01".
+    /// Encoded/decoded by serializers as &quot;FF01&quot;.
     /// </summary>
     [EnumMember(Value = "FF01")]
     [IsoId("_uDgqA_RYEeuLhpyIdtJzwg")]
@@ -1462,7 +1462,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Syntax error reason is provided as narrative information in the additional reason information.
-    /// Encoded/decoded by serializers as "FF02".
+    /// Encoded/decoded by serializers as &quot;FF02&quot;.
     /// </summary>
     [EnumMember(Value = "FF02")]
     [IsoId("_uDgqBvRYEeuLhpyIdtJzwg")]
@@ -1471,7 +1471,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Payment Type Information is missing or invalid.|Generic usage if cannot specify Service Level or Local Instrument code
-    /// Encoded/decoded by serializers as "FF03".
+    /// Encoded/decoded by serializers as &quot;FF03&quot;.
     /// </summary>
     [EnumMember(Value = "FF03")]
     [IsoId("_uDqbAPRYEeuLhpyIdtJzwg")]
@@ -1480,7 +1480,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Service Level code is missing or invalid
-    /// Encoded/decoded by serializers as "FF04".
+    /// Encoded/decoded by serializers as &quot;FF04&quot;.
     /// </summary>
     [EnumMember(Value = "FF04")]
     [IsoId("_uDqbA_RYEeuLhpyIdtJzwg")]
@@ -1489,7 +1489,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Local Instrument code is missing or invalid
-    /// Encoded/decoded by serializers as "FF05".
+    /// Encoded/decoded by serializers as &quot;FF05&quot;.
     /// </summary>
     [EnumMember(Value = "FF05")]
     [IsoId("_uD0MAPRYEeuLhpyIdtJzwg")]
@@ -1498,7 +1498,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Category Purpose code is missing or invalid
-    /// Encoded/decoded by serializers as "FF06".
+    /// Encoded/decoded by serializers as &quot;FF06&quot;.
     /// </summary>
     [EnumMember(Value = "FF06")]
     [IsoId("_uD0MA_RYEeuLhpyIdtJzwg")]
@@ -1507,7 +1507,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Purpose is missing or invalid
-    /// Encoded/decoded by serializers as "FF07".
+    /// Encoded/decoded by serializers as &quot;FF07&quot;.
     /// </summary>
     [EnumMember(Value = "FF07")]
     [IsoId("_uD0MBvRYEeuLhpyIdtJzwg")]
@@ -1516,7 +1516,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// End to End Id missing or invalid
-    /// Encoded/decoded by serializers as "FF08".
+    /// Encoded/decoded by serializers as &quot;FF08&quot;.
     /// </summary>
     [EnumMember(Value = "FF08")]
     [IsoId("_uD0MCfRYEeuLhpyIdtJzwg")]
@@ -1525,7 +1525,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Cheque number missing or invalid
-    /// Encoded/decoded by serializers as "FF09".
+    /// Encoded/decoded by serializers as &quot;FF09&quot;.
     /// </summary>
     [EnumMember(Value = "FF09")]
     [IsoId("_uD0MDPRYEeuLhpyIdtJzwg")]
@@ -1534,7 +1534,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// File or transaction cannot be processed due to technical issues at the bank side
-    /// Encoded/decoded by serializers as "FF10".
+    /// Encoded/decoded by serializers as &quot;FF10&quot;.
     /// </summary>
     [EnumMember(Value = "FF10")]
     [IsoId("_uD9V8PRYEeuLhpyIdtJzwg")]
@@ -1543,7 +1543,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Clearing request rejected due it being subject to an abort operation.
-    /// Encoded/decoded by serializers as "FF11".
+    /// Encoded/decoded by serializers as &quot;FF11&quot;.
     /// </summary>
     [EnumMember(Value = "FF11")]
     [IsoId("_uD9V8_RYEeuLhpyIdtJzwg")]
@@ -1552,7 +1552,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.||In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is tracked. No further updates will follow from the Status Originator.|
-    /// Encoded/decoded by serializers as "G000".
+    /// Encoded/decoded by serializers as &quot;G000&quot;.
     /// </summary>
     [EnumMember(Value = "G000")]
     [IsoId("_uD9V9vRYEeuLhpyIdtJzwg")]
@@ -1561,7 +1561,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// In an FI To FI Customer Credit Transfer: The Status Originator transferred the payment to the next Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.||In a Financial Institution Credit Transfer with cover: The Status Originator performed the account booking and transferred the cover transaction to the next Reimbursement Agent or to a Market Infrastructure. The payment transfer is not tracked. No further updates will follow from the Status Originator.|
-    /// Encoded/decoded by serializers as "G001".
+    /// Encoded/decoded by serializers as &quot;G001&quot;.
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_uEHG8PRYEeuLhpyIdtJzwg")]
@@ -1570,7 +1570,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// In a FIToFI Customer Credit Transfer: Credit to the creditor’s account may not be confirmed same day. Update will follow from the Status Originator.|In a Financial Institution Credit Transfer with cover: Debit/credit to nostro account may not be confirmed same day or Financial Institution Credit Transfer may not be transferred same day. Update will follow from the Status Originator.
-    /// Encoded/decoded by serializers as "G002".
+    /// Encoded/decoded by serializers as &quot;G002&quot;.
     /// </summary>
     [EnumMember(Value = "G002")]
     [IsoId("_uEHG8_RYEeuLhpyIdtJzwg")]
@@ -1579,7 +1579,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// In a FIToFI Customer Credit Transfer: Credit to creditor’s account is pending receipt of required documents. The Status Originator has requested creditor to provide additional documentation. Update will follow from the Status Originator. |In a Financial Institution Credit Transfer with cover: Status Originator has requested a previous Agent to provide additional information/correct information. Update will follow from the Status Originator.
-    /// Encoded/decoded by serializers as "G003".
+    /// Encoded/decoded by serializers as &quot;G003&quot;.
     /// </summary>
     [EnumMember(Value = "G003")]
     [IsoId("_uEHG9vRYEeuLhpyIdtJzwg")]
@@ -1588,7 +1588,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// In a FIToFI Customer Credit Transfer: Credit to the creditor’s account is pending, status Originator is waiting for funds provided via a cover. Update will follow from the Status Originator.
-    /// Encoded/decoded by serializers as "G004".
+    /// Encoded/decoded by serializers as &quot;G004&quot;.
     /// </summary>
     [EnumMember(Value = "G004")]
     [IsoId("_uEQQ4PRYEeuLhpyIdtJzwg")]
@@ -1597,7 +1597,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Payment has been delivered to creditor agent with service level.
-    /// Encoded/decoded by serializers as "G005".
+    /// Encoded/decoded by serializers as &quot;G005&quot;.
     /// </summary>
     [EnumMember(Value = "G005")]
     [IsoId("_uEQQ4_RYEeuLhpyIdtJzwg")]
@@ -1606,7 +1606,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Payment has been delivered to creditor agent without service level.
-    /// Encoded/decoded by serializers as "G006".
+    /// Encoded/decoded by serializers as &quot;G006&quot;.
     /// </summary>
     [EnumMember(Value = "G006")]
     [IsoId("_uEQQ5vRYEeuLhpyIdtJzwg")]
@@ -1615,7 +1615,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Signature file was sent to the bank but the corresponding original file has not been sent yet.
-    /// Encoded/decoded by serializers as "ID01".
+    /// Encoded/decoded by serializers as &quot;ID01&quot;.
     /// </summary>
     [EnumMember(Value = "ID01")]
     [IsoId("_uEaB4PRYEeuLhpyIdtJzwg")]
@@ -1624,7 +1624,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// No Mandate
-    /// Encoded/decoded by serializers as "MD01".
+    /// Encoded/decoded by serializers as &quot;MD01&quot;.
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_uEaB4_RYEeuLhpyIdtJzwg")]
@@ -1633,7 +1633,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Mandate related information data required by the scheme is missing.
-    /// Encoded/decoded by serializers as "MD02".
+    /// Encoded/decoded by serializers as &quot;MD02&quot;.
     /// </summary>
     [EnumMember(Value = "MD02")]
     [IsoId("_uEaB5vRYEeuLhpyIdtJzwg")]
@@ -1641,8 +1641,8 @@ public enum ExternalStatusReasonCode
     MissingMandatoryInformationInMandate,
     
     /// <summary>
-    /// Creditor or creditor's agent should not have collected the direct debit
-    /// Encoded/decoded by serializers as "MD05".
+    /// Creditor or creditor&apos;s agent should not have collected the direct debit
+    /// Encoded/decoded by serializers as &quot;MD05&quot;.
     /// </summary>
     [EnumMember(Value = "MD05")]
     [IsoId("_uEaB6fRYEeuLhpyIdtJzwg")]
@@ -1651,7 +1651,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Return of funds requested by end customer
-    /// Encoded/decoded by serializers as "MD06".
+    /// Encoded/decoded by serializers as &quot;MD06&quot;.
     /// </summary>
     [EnumMember(Value = "MD06")]
     [IsoId("_uEaB7PRYEeuLhpyIdtJzwg")]
@@ -1660,7 +1660,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// End customer is deceased.
-    /// Encoded/decoded by serializers as "MD07".
+    /// Encoded/decoded by serializers as &quot;MD07&quot;.
     /// </summary>
     [EnumMember(Value = "MD07")]
     [IsoId("_uEjy4PRYEeuLhpyIdtJzwg")]
@@ -1669,7 +1669,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Reason has not been specified by end customer
-    /// Encoded/decoded by serializers as "MS02".
+    /// Encoded/decoded by serializers as &quot;MS02&quot;.
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_uEjy4_RYEeuLhpyIdtJzwg")]
@@ -1678,7 +1678,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "MS03".
+    /// Encoded/decoded by serializers as &quot;MS03&quot;.
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_uEjy5vRYEeuLhpyIdtJzwg")]
@@ -1687,7 +1687,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Reason is provided as narrative information in the additional reason information.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_uEs80PRYEeuLhpyIdtJzwg")]
@@ -1696,7 +1696,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Credit transfer is tagged as an Extended Remittance Information (ERI) transaction but does not contain ERI.
-    /// Encoded/decoded by serializers as "NERI".
+    /// Encoded/decoded by serializers as &quot;NERI&quot;.
     /// </summary>
     [EnumMember(Value = "NERI")]
     [IsoId("_uEs80_RYEeuLhpyIdtJzwg")]
@@ -1705,7 +1705,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
-    /// Encoded/decoded by serializers as "RC01".
+    /// Encoded/decoded by serializers as &quot;RC01&quot;.
     /// </summary>
     [EnumMember(Value = "RC01")]
     [IsoId("_uEs81vRYEeuLhpyIdtJzwg")]
@@ -1714,7 +1714,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Bank identifier is invalid or missing.|Generic usage if cannot specify between debit or credit account
-    /// Encoded/decoded by serializers as "RC02".
+    /// Encoded/decoded by serializers as &quot;RC02&quot;.
     /// </summary>
     [EnumMember(Value = "RC02")]
     [IsoId("_uEs82fRYEeuLhpyIdtJzwg")]
@@ -1723,7 +1723,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor bank identifier is invalid or missing
-    /// Encoded/decoded by serializers as "RC03".
+    /// Encoded/decoded by serializers as &quot;RC03&quot;.
     /// </summary>
     [EnumMember(Value = "RC03")]
     [IsoId("_uE2t0PRYEeuLhpyIdtJzwg")]
@@ -1732,7 +1732,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor bank identifier is invalid or missing
-    /// Encoded/decoded by serializers as "RC04".
+    /// Encoded/decoded by serializers as &quot;RC04&quot;.
     /// </summary>
     [EnumMember(Value = "RC04")]
     [IsoId("_uE2t0_RYEeuLhpyIdtJzwg")]
@@ -1741,7 +1741,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// BIC identifier is invalid or missing.|Generic usage if cannot specify between debit or credit account.
-    /// Encoded/decoded by serializers as "RC05".
+    /// Encoded/decoded by serializers as &quot;RC05&quot;.
     /// </summary>
     [EnumMember(Value = "RC05")]
     [IsoId("_uE2t1vRYEeuLhpyIdtJzwg")]
@@ -1750,7 +1750,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor BIC identifier is invalid or missing
-    /// Encoded/decoded by serializers as "RC06".
+    /// Encoded/decoded by serializers as &quot;RC06&quot;.
     /// </summary>
     [EnumMember(Value = "RC06")]
     [IsoId("_uE2t2fRYEeuLhpyIdtJzwg")]
@@ -1759,7 +1759,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor BIC identifier is invalid or missing
-    /// Encoded/decoded by serializers as "RC07".
+    /// Encoded/decoded by serializers as &quot;RC07&quot;.
     /// </summary>
     [EnumMember(Value = "RC07")]
     [IsoId("_uE2t3PRYEeuLhpyIdtJzwg")]
@@ -1768,7 +1768,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// ClearingSystemMemberidentifier is invalid or missing.|Generic usage if cannot specify between debit or credit account
-    /// Encoded/decoded by serializers as "RC08".
+    /// Encoded/decoded by serializers as &quot;RC08&quot;.
     /// </summary>
     [EnumMember(Value = "RC08")]
     [IsoId("_uFAe0PRYEeuLhpyIdtJzwg")]
@@ -1777,7 +1777,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor ClearingSystemMember identifier is invalid or missing
-    /// Encoded/decoded by serializers as "RC09".
+    /// Encoded/decoded by serializers as &quot;RC09&quot;.
     /// </summary>
     [EnumMember(Value = "RC09")]
     [IsoId("_uFAe0_RYEeuLhpyIdtJzwg")]
@@ -1786,7 +1786,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor ClearingSystemMember identifier is invalid or missing
-    /// Encoded/decoded by serializers as "RC10".
+    /// Encoded/decoded by serializers as &quot;RC10&quot;.
     /// </summary>
     [EnumMember(Value = "RC10")]
     [IsoId("_uFJowPRYEeuLhpyIdtJzwg")]
@@ -1795,7 +1795,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Intermediary Agent is invalid or missing
-    /// Encoded/decoded by serializers as "RC11".
+    /// Encoded/decoded by serializers as &quot;RC11&quot;.
     /// </summary>
     [EnumMember(Value = "RC11")]
     [IsoId("_uFJow_RYEeuLhpyIdtJzwg")]
@@ -1804,7 +1804,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Creditor Scheme Id is invalid or  missing
-    /// Encoded/decoded by serializers as "RC12".
+    /// Encoded/decoded by serializers as &quot;RC12&quot;.
     /// </summary>
     [EnumMember(Value = "RC12")]
     [IsoId("_uFJoxvRYEeuLhpyIdtJzwg")]
@@ -1813,7 +1813,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Conflict with R-Message
-    /// Encoded/decoded by serializers as "RCON".
+    /// Encoded/decoded by serializers as &quot;RCON&quot;.
     /// </summary>
     [EnumMember(Value = "RCON")]
     [IsoId("_uFJoyfRYEeuLhpyIdtJzwg")]
@@ -1822,7 +1822,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Further information regarding the intended recipient. 
-    /// Encoded/decoded by serializers as "RECI".
+    /// Encoded/decoded by serializers as &quot;RECI&quot;.
     /// </summary>
     [EnumMember(Value = "RECI")]
     [IsoId("_uFJozPRYEeuLhpyIdtJzwg")]
@@ -1831,7 +1831,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Transaction reference is not unique within the message.
-    /// Encoded/decoded by serializers as "RF01".
+    /// Encoded/decoded by serializers as &quot;RF01&quot;.
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_uFTZwPRYEeuLhpyIdtJzwg")]
@@ -1840,7 +1840,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Specification of the debtor’s account or unique identification needed for reasons of regulatory requirements is insufficient or missing
-    /// Encoded/decoded by serializers as "RR01".
+    /// Encoded/decoded by serializers as &quot;RR01&quot;.
     /// </summary>
     [EnumMember(Value = "RR01")]
     [IsoId("_uFTZw_RYEeuLhpyIdtJzwg")]
@@ -1849,7 +1849,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Specification of the debtor’s name and/or address needed for regulatory requirements is insufficient or missing.
-    /// Encoded/decoded by serializers as "RR02".
+    /// Encoded/decoded by serializers as &quot;RR02&quot;.
     /// </summary>
     [EnumMember(Value = "RR02")]
     [IsoId("_uFTZxvRYEeuLhpyIdtJzwg")]
@@ -1858,7 +1858,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Specification of the creditor’s name and/or address needed for regulatory requirements is insufficient or missing.
-    /// Encoded/decoded by serializers as "RR03".
+    /// Encoded/decoded by serializers as &quot;RR03&quot;.
     /// </summary>
     [EnumMember(Value = "RR03")]
     [IsoId("_uFTZyfRYEeuLhpyIdtJzwg")]
@@ -1867,7 +1867,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Regulatory Reason
-    /// Encoded/decoded by serializers as "RR04".
+    /// Encoded/decoded by serializers as &quot;RR04&quot;.
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_uFcjsPRYEeuLhpyIdtJzwg")]
@@ -1876,7 +1876,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Regulatory or Central Bank Reporting information missing, incomplete or invalid.
-    /// Encoded/decoded by serializers as "RR05".
+    /// Encoded/decoded by serializers as &quot;RR05&quot;.
     /// </summary>
     [EnumMember(Value = "RR05")]
     [IsoId("_uFcjs_RYEeuLhpyIdtJzwg")]
@@ -1885,7 +1885,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Tax information missing, incomplete or invalid.
-    /// Encoded/decoded by serializers as "RR06".
+    /// Encoded/decoded by serializers as &quot;RR06&quot;.
     /// </summary>
     [EnumMember(Value = "RR06")]
     [IsoId("_uFcjtvRYEeuLhpyIdtJzwg")]
@@ -1894,7 +1894,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Remittance information structure does not comply with rules for payment type.
-    /// Encoded/decoded by serializers as "RR07".
+    /// Encoded/decoded by serializers as &quot;RR07&quot;.
     /// </summary>
     [EnumMember(Value = "RR07")]
     [IsoId("_uFcjufRYEeuLhpyIdtJzwg")]
@@ -1903,7 +1903,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Remittance information truncated to comply with rules for payment type.
-    /// Encoded/decoded by serializers as "RR08".
+    /// Encoded/decoded by serializers as &quot;RR08&quot;.
     /// </summary>
     [EnumMember(Value = "RR08")]
     [IsoId("_uFcjvPRYEeuLhpyIdtJzwg")]
@@ -1912,7 +1912,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Structured creditor reference invalid or missing.
-    /// Encoded/decoded by serializers as "RR09".
+    /// Encoded/decoded by serializers as &quot;RR09&quot;.
     /// </summary>
     [EnumMember(Value = "RR09")]
     [IsoId("_uFmUsPRYEeuLhpyIdtJzwg")]
@@ -1921,7 +1921,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Character set supplied not valid for the country and payment type.
-    /// Encoded/decoded by serializers as "RR10".
+    /// Encoded/decoded by serializers as &quot;RR10&quot;.
     /// </summary>
     [EnumMember(Value = "RR10")]
     [IsoId("_uFmUs_RYEeuLhpyIdtJzwg")]
@@ -1930,7 +1930,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Invalid or missing identification of a bank proprietary service.
-    /// Encoded/decoded by serializers as "RR11".
+    /// Encoded/decoded by serializers as &quot;RR11&quot;.
     /// </summary>
     [EnumMember(Value = "RR11")]
     [IsoId("_uFwFsPRYEeuLhpyIdtJzwg")]
@@ -1939,7 +1939,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Invalid or missing identification required within a particular country or payment type.
-    /// Encoded/decoded by serializers as "RR12".
+    /// Encoded/decoded by serializers as &quot;RR12&quot;.
     /// </summary>
     [EnumMember(Value = "RR12")]
     [IsoId("_uFwFs_RYEeuLhpyIdtJzwg")]
@@ -1948,7 +1948,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Request for Cancellation is acknowledged following validation.
-    /// Encoded/decoded by serializers as "S000".
+    /// Encoded/decoded by serializers as &quot;S000&quot;.
     /// </summary>
     [EnumMember(Value = "S000")]
     [IsoId("_uFwFtvRYEeuLhpyIdtJzwg")]
@@ -1957,7 +1957,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Unique End-to-end Transaction Reference (UETR) relating to a payment has been identified as being associated with a Request for Cancellation.
-    /// Encoded/decoded by serializers as "S001".
+    /// Encoded/decoded by serializers as &quot;S001&quot;.
     /// </summary>
     [EnumMember(Value = "S001")]
     [IsoId("_uFwFufRYEeuLhpyIdtJzwg")]
@@ -1966,7 +1966,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Unique End-to-end Transaction Reference (UETR) relating to a payment has been prevent from traveling across a messaging network.
-    /// Encoded/decoded by serializers as "S002".
+    /// Encoded/decoded by serializers as &quot;S002&quot;.
     /// </summary>
     [EnumMember(Value = "S002")]
     [IsoId("_uF5PoPRYEeuLhpyIdtJzwg")]
@@ -1975,7 +1975,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Request for Cancellation has been forwarded to the payment processing/last payment processing agent.
-    /// Encoded/decoded by serializers as "S003".
+    /// Encoded/decoded by serializers as &quot;S003&quot;.
     /// </summary>
     [EnumMember(Value = "S003")]
     [IsoId("_uF5Po_RYEeuLhpyIdtJzwg")]
@@ -1984,7 +1984,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Request for Cancellation has been acknowledged as delivered to payment processing/last payment processing agent.
-    /// Encoded/decoded by serializers as "S004".
+    /// Encoded/decoded by serializers as &quot;S004&quot;.
     /// </summary>
     [EnumMember(Value = "S004")]
     [IsoId("_uF5PpvRYEeuLhpyIdtJzwg")]
@@ -1993,7 +1993,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Due to specific service offered by the Debtor Agent.
-    /// Encoded/decoded by serializers as "SL01".
+    /// Encoded/decoded by serializers as &quot;SL01&quot;.
     /// </summary>
     [EnumMember(Value = "SL01")]
     [IsoId("_uF5PqfRYEeuLhpyIdtJzwg")]
@@ -2002,7 +2002,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Due to specific service offered by the Creditor Agent.
-    /// Encoded/decoded by serializers as "SL02".
+    /// Encoded/decoded by serializers as &quot;SL02&quot;.
     /// </summary>
     [EnumMember(Value = "SL02")]
     [IsoId("_uF5PrPRYEeuLhpyIdtJzwg")]
@@ -2011,7 +2011,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Due to a specific service offered by the clearing system.
-    /// Encoded/decoded by serializers as "SL03".
+    /// Encoded/decoded by serializers as &quot;SL03&quot;.
     /// </summary>
     [EnumMember(Value = "SL03")]
     [IsoId("_uGDAoPRYEeuLhpyIdtJzwg")]
@@ -2020,7 +2020,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Whitelisting service offered by the Debtor Agent; Debtor has not included the Creditor on its “Whitelist” (yet). In the Whitelist the Debtor may list all allowed Creditors to debit Debtor bank account.
-    /// Encoded/decoded by serializers as "SL11".
+    /// Encoded/decoded by serializers as &quot;SL11&quot;.
     /// </summary>
     [EnumMember(Value = "SL11")]
     [IsoId("_uGDAo_RYEeuLhpyIdtJzwg")]
@@ -2029,7 +2029,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Blacklisting service offered by the Debtor Agent; Debtor included the Creditor on his “Blacklist”. In the Blacklist the Debtor may list all Creditors not allowed to debit Debtor bank account.
-    /// Encoded/decoded by serializers as "SL12".
+    /// Encoded/decoded by serializers as &quot;SL12&quot;.
     /// </summary>
     [EnumMember(Value = "SL12")]
     [IsoId("_uGDApvRYEeuLhpyIdtJzwg")]
@@ -2038,7 +2038,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Due to Maximum allowed Direct Debit Transactions per period service offered by the Debtor Agent.
-    /// Encoded/decoded by serializers as "SL13".
+    /// Encoded/decoded by serializers as &quot;SL13&quot;.
     /// </summary>
     [EnumMember(Value = "SL13")]
     [IsoId("_uGMxoPRYEeuLhpyIdtJzwg")]
@@ -2047,7 +2047,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Due to Maximum allowed Direct Debit Transaction amount service offered by the Debtor Agent.
-    /// Encoded/decoded by serializers as "SL14".
+    /// Encoded/decoded by serializers as &quot;SL14&quot;.
     /// </summary>
     [EnumMember(Value = "SL14")]
     [IsoId("_uGMxo_RYEeuLhpyIdtJzwg")]
@@ -2056,7 +2056,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The transmission of the file was not successful – it had to be aborted (for technical reasons)
-    /// Encoded/decoded by serializers as "TA01".
+    /// Encoded/decoded by serializers as &quot;TA01&quot;.
     /// </summary>
     [EnumMember(Value = "TA01")]
     [IsoId("_uGMxpvRYEeuLhpyIdtJzwg")]
@@ -2065,7 +2065,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// There is no data available (for download)
-    /// Encoded/decoded by serializers as "TD01".
+    /// Encoded/decoded by serializers as &quot;TD01&quot;.
     /// </summary>
     [EnumMember(Value = "TD01")]
     [IsoId("_uGMxqfRYEeuLhpyIdtJzwg")]
@@ -2074,7 +2074,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The file cannot be read (e.g. unknown format)
-    /// Encoded/decoded by serializers as "TD02".
+    /// Encoded/decoded by serializers as &quot;TD02&quot;.
     /// </summary>
     [EnumMember(Value = "TD02")]
     [IsoId("_uGV7kPRYEeuLhpyIdtJzwg")]
@@ -2083,7 +2083,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The file format is incomplete or invalid
-    /// Encoded/decoded by serializers as "TD03".
+    /// Encoded/decoded by serializers as &quot;TD03&quot;.
     /// </summary>
     [EnumMember(Value = "TD03")]
     [IsoId("_uGV7k_RYEeuLhpyIdtJzwg")]
@@ -2092,7 +2092,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Token is invalid.
-    /// Encoded/decoded by serializers as "TK01".
+    /// Encoded/decoded by serializers as &quot;TK01&quot;.
     /// </summary>
     [EnumMember(Value = "TK01")]
     [IsoId("_uGV7lvRYEeuLhpyIdtJzwg")]
@@ -2101,7 +2101,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Token used for the sender does not exist.
-    /// Encoded/decoded by serializers as "TK02".
+    /// Encoded/decoded by serializers as &quot;TK02&quot;.
     /// </summary>
     [EnumMember(Value = "TK02")]
     [IsoId("_uGV7mfRYEeuLhpyIdtJzwg")]
@@ -2110,7 +2110,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Token used for the receiver does not exist.
-    /// Encoded/decoded by serializers as "TK03".
+    /// Encoded/decoded by serializers as &quot;TK03&quot;.
     /// </summary>
     [EnumMember(Value = "TK03")]
     [IsoId("_uGV7nPRYEeuLhpyIdtJzwg")]
@@ -2119,7 +2119,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Token required for request is missing.
-    /// Encoded/decoded by serializers as "TK09".
+    /// Encoded/decoded by serializers as &quot;TK09&quot;.
     /// </summary>
     [EnumMember(Value = "TK09")]
     [IsoId("_uGfskvRYEeuLhpyIdtJzwg")]
@@ -2128,7 +2128,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Token found with counterparty mismatch. 
-    /// Encoded/decoded by serializers as "TKCM".
+    /// Encoded/decoded by serializers as &quot;TKCM&quot;.
     /// </summary>
     [EnumMember(Value = "TKCM")]
     [IsoId("_uGfslfRYEeuLhpyIdtJzwg")]
@@ -2137,7 +2137,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Single Use Token already used. 
-    /// Encoded/decoded by serializers as "TKSG".
+    /// Encoded/decoded by serializers as &quot;TKSG&quot;.
     /// </summary>
     [EnumMember(Value = "TKSG")]
     [IsoId("_uGpdkPRYEeuLhpyIdtJzwg")]
@@ -2146,7 +2146,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Token found with suspended status.
-    /// Encoded/decoded by serializers as "TKSP".
+    /// Encoded/decoded by serializers as &quot;TKSP&quot;.
     /// </summary>
     [EnumMember(Value = "TKSP")]
     [IsoId("_uGpdk_RYEeuLhpyIdtJzwg")]
@@ -2155,7 +2155,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Token found with value limit rule violation. 
-    /// Encoded/decoded by serializers as "TKVE".
+    /// Encoded/decoded by serializers as &quot;TKVE&quot;.
     /// </summary>
     [EnumMember(Value = "TKVE")]
     [IsoId("_uGpdlvRYEeuLhpyIdtJzwg")]
@@ -2164,7 +2164,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Token expired.
-    /// Encoded/decoded by serializers as "TKXP".
+    /// Encoded/decoded by serializers as &quot;TKXP&quot;.
     /// </summary>
     [EnumMember(Value = "TKXP")]
     [IsoId("_uGpdmfRYEeuLhpyIdtJzwg")]
@@ -2173,7 +2173,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Associated message, payment information block, or transaction was received after agreed processing cut-off time.
-    /// Encoded/decoded by serializers as "TM01".
+    /// Encoded/decoded by serializers as &quot;TM01&quot;.
     /// </summary>
     [EnumMember(Value = "TM01")]
     [IsoId("_uGyngPRYEeuLhpyIdtJzwg")]
@@ -2182,7 +2182,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The (technical) transmission of the file was successful.
-    /// Encoded/decoded by serializers as "TS01".
+    /// Encoded/decoded by serializers as &quot;TS01&quot;.
     /// </summary>
     [EnumMember(Value = "TS01")]
     [IsoId("_uGyng_RYEeuLhpyIdtJzwg")]
@@ -2191,7 +2191,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// The order was transferred to pass by accompanying note signed by hand
-    /// Encoded/decoded by serializers as "TS04".
+    /// Encoded/decoded by serializers as &quot;TS04&quot;.
     /// </summary>
     [EnumMember(Value = "TS04")]
     [IsoId("_uGynhvRYEeuLhpyIdtJzwg")]
@@ -2200,7 +2200,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Authorisation is cancelled.
-    /// Encoded/decoded by serializers as "CN01".
+    /// Encoded/decoded by serializers as &quot;CN01&quot;.
     /// </summary>
     [EnumMember(Value = "CN01")]
     [IsoId("_FGsTQAQnEey95qpfbNuEwg")]
@@ -2209,7 +2209,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Return following a cancellation request.
-    /// Encoded/decoded by serializers as "FOCR".
+    /// Encoded/decoded by serializers as &quot;FOCR&quot;.
     /// </summary>
     [EnumMember(Value = "FOCR")]
     [IsoId("_aWuiYAQnEey95qpfbNuEwg")]
@@ -2218,7 +2218,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Returned as a result of fraud.
-    /// Encoded/decoded by serializers as "FR01".
+    /// Encoded/decoded by serializers as &quot;FR01&quot;.
     /// </summary>
     [EnumMember(Value = "FR01")]
     [IsoId("_lnpdAAQnEey95qpfbNuEwg")]
@@ -2227,7 +2227,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// No response from Beneficiary.
-    /// Encoded/decoded by serializers as "NOAS".
+    /// Encoded/decoded by serializers as &quot;NOAS&quot;.
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_s1SIYAQnEey95qpfbNuEwg")]
@@ -2236,7 +2236,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Customer account is not compliant with regulatory requirements, for example FICA (in South Africa) or any other regulatory requirements which render an account inactive for certain processing.
-    /// Encoded/decoded by serializers as "NOCM".
+    /// Encoded/decoded by serializers as &quot;NOCM&quot;.
     /// </summary>
     [EnumMember(Value = "NOCM")]
     [IsoId("_x0nwMAQnEey95qpfbNuEwg")]
@@ -2245,7 +2245,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Return following investigation request and no remediation possible.
-    /// Encoded/decoded by serializers as "RUTA".
+    /// Encoded/decoded by serializers as &quot;RUTA&quot;.
     /// </summary>
     [EnumMember(Value = "RUTA")]
     [IsoId("_LzJHsAQoEey95qpfbNuEwg")]
@@ -2254,7 +2254,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_WirzkAQoEey95qpfbNuEwg")]
@@ -2263,7 +2263,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Request-to-pay Expiry Date and Time has already passed.
-    /// Encoded/decoded by serializers as "AEXR".
+    /// Encoded/decoded by serializers as &quot;AEXR&quot;.
     /// </summary>
     [EnumMember(Value = "AEXR")]
     [IsoId("_Q5m3QFEAEey6cYDbEubNXg")]
@@ -2272,7 +2272,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Request-to-pay has already been accepted by the Debtor.
-    /// Encoded/decoded by serializers as "ALAC".
+    /// Encoded/decoded by serializers as &quot;ALAC&quot;.
     /// </summary>
     [EnumMember(Value = "ALAC")]
     [IsoId("_fy_GUFEAEey6cYDbEubNXg")]
@@ -2281,7 +2281,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Request-to-pay has already been refused by the Debtor.
-    /// Encoded/decoded by serializers as "ARFR".
+    /// Encoded/decoded by serializers as &quot;ARFR&quot;.
     /// </summary>
     [EnumMember(Value = "ARFR")]
     [IsoId("_oVkLYFEAEey6cYDbEubNXg")]
@@ -2290,7 +2290,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Request-to-pay has already been rejected.
-    /// Encoded/decoded by serializers as "ARJR".
+    /// Encoded/decoded by serializers as &quot;ARJR&quot;.
     /// </summary>
     [EnumMember(Value = "ARJR")]
     [IsoId("_vFjRcFEAEey6cYDbEubNXg")]
@@ -2299,7 +2299,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Attachments to the request-to-pay are not supported.
-    /// Encoded/decoded by serializers as "ATNS".
+    /// Encoded/decoded by serializers as &quot;ATNS&quot;.
     /// </summary>
     [EnumMember(Value = "ATNS")]
     [IsoId("_22gFQFEAEey6cYDbEubNXg")]
@@ -2308,7 +2308,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Expiry date time of the request-to-pay is too far in the future.
-    /// Encoded/decoded by serializers as "EDTL".
+    /// Encoded/decoded by serializers as &quot;EDTL&quot;.
     /// </summary>
     [EnumMember(Value = "EDTL")]
     [IsoId("_BGThIFEBEey6cYDbEubNXg")]
@@ -2317,7 +2317,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Expiry date time of the request-to-pay is already reached.
-    /// Encoded/decoded by serializers as "EDTR".
+    /// Encoded/decoded by serializers as &quot;EDTR&quot;.
     /// </summary>
     [EnumMember(Value = "EDTR")]
     [IsoId("_c4VdoFEBEey6cYDbEubNXg")]
@@ -2326,7 +2326,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.
-    /// Encoded/decoded by serializers as "FRAD".
+    /// Encoded/decoded by serializers as &quot;FRAD&quot;.
     /// </summary>
     [EnumMember(Value = "FRAD")]
     [IsoId("_mt7CsFEBEey6cYDbEubNXg")]
@@ -2335,7 +2335,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Expiry date time of the request-to-pay is incorrect.
-    /// Encoded/decoded by serializers as "IEDT".
+    /// Encoded/decoded by serializers as &quot;IEDT&quot;.
     /// </summary>
     [EnumMember(Value = "IEDT")]
     [IsoId("_sXSe8FEBEey6cYDbEubNXg")]
@@ -2344,7 +2344,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// No initial request-to-pay has been received.
-    /// Encoded/decoded by serializers as "IRNR".
+    /// Encoded/decoded by serializers as &quot;IRNR&quot;.
     /// </summary>
     [EnumMember(Value = "IRNR")]
     [IsoId("_2VEWsFEBEey6cYDbEubNXg")]
@@ -2353,7 +2353,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// No existing agreement for receiving request-to-pay messages.
-    /// Encoded/decoded by serializers as "NOAR".
+    /// Encoded/decoded by serializers as &quot;NOAR&quot;.
     /// </summary>
     [EnumMember(Value = "NOAR")]
     [IsoId("_F4fBQFECEey6cYDbEubNXg")]
@@ -2362,7 +2362,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Requested payment guarantee (by Creditor) related to a request-to-pay cannot be provided.
-    /// Encoded/decoded by serializers as "NOPG".
+    /// Encoded/decoded by serializers as &quot;NOPG&quot;.
     /// </summary>
     [EnumMember(Value = "NOPG")]
     [IsoId("_PZ8JYFECEey6cYDbEubNXg")]
@@ -2371,7 +2371,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Recipient side of the request-to-pay (payer or its request-to-pay service provider) is not reachable.
-    /// Encoded/decoded by serializers as "NRCH".
+    /// Encoded/decoded by serializers as &quot;NRCH&quot;.
     /// </summary>
     [EnumMember(Value = "NRCH")]
     [IsoId("_fUStQFECEey6cYDbEubNXg")]
@@ -2380,7 +2380,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Type of payment requested in the request-to-pay is not supported by the payer.
-    /// Encoded/decoded by serializers as "PINS".
+    /// Encoded/decoded by serializers as &quot;PINS&quot;.
     /// </summary>
     [EnumMember(Value = "PINS")]
     [IsoId("_p2b2UFECEey6cYDbEubNXg")]
@@ -2389,7 +2389,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Request-to-pay has been received and can be processed further.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_z1_2wFECEey6cYDbEubNXg")]
@@ -2398,7 +2398,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Debtor does not support request-to-pay transactions.
-    /// Encoded/decoded by serializers as "RTNS".
+    /// Encoded/decoded by serializers as &quot;RTNS&quot;.
     /// </summary>
     [EnumMember(Value = "RTNS")]
     [IsoId("_FpMLkFEDEey6cYDbEubNXg")]
@@ -2407,7 +2407,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Identifier of the request-to-pay service provider is incorrect.
-    /// Encoded/decoded by serializers as "SPII".
+    /// Encoded/decoded by serializers as &quot;SPII&quot;.
     /// </summary>
     [EnumMember(Value = "SPII")]
     [IsoId("_SJFawFEDEey6cYDbEubNXg")]
@@ -2416,7 +2416,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Unknown Creditor.
-    /// Encoded/decoded by serializers as "UCRD".
+    /// Encoded/decoded by serializers as &quot;UCRD&quot;.
     /// </summary>
     [EnumMember(Value = "UCRD")]
     [IsoId("_aBpScFEDEey6cYDbEubNXg")]
@@ -2425,7 +2425,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Original payment is not eligible to be returned given its current status.
-    /// Encoded/decoded by serializers as "FF12".
+    /// Encoded/decoded by serializers as &quot;FF12&quot;.
     /// </summary>
     [EnumMember(Value = "FF12")]
     [IsoId("_9E8U8I4_EeyANo-d7JlQ1A")]
@@ -2434,7 +2434,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// No record of request for cancellation found.
-    /// Encoded/decoded by serializers as "FF13".
+    /// Encoded/decoded by serializers as &quot;FF13&quot;.
     /// </summary>
     [EnumMember(Value = "FF13")]
     [IsoId("_TTQKMI5AEeyANo-d7JlQ1A")]
@@ -2443,7 +2443,7 @@ public enum ExternalStatusReasonCode
     
     /// <summary>
     /// Rejection of a payment due to covering FI settlement not being received.
-    /// Encoded/decoded by serializers as "DC02".
+    /// Encoded/decoded by serializers as &quot;DC02&quot;.
     /// </summary>
     [EnumMember(Value = "DC02")]
     [IsoId("_79YjkOAbEey0k8vo1GQhqQ")]

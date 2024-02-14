@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Quantity of a security.
 /// </summary>
 [IsoId("_WNJcx9p-Ed-ak6NoX_4Aeg_-1314429173")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record FinancialInstrumentQuantity4
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
     [IsoId("_WNJcyNp-Ed-ak6NoX_4Aeg_-1314429142")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Unit")]
     #endif
+    [IsoXmlTag("Unit")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINDecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINDecimalNumber Unit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Unit { get; init; } 
+    public required System.UInt64 Unit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Unit { get; init; } 
     #else

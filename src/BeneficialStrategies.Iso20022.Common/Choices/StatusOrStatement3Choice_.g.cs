@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StatusOrStatement3Choice.StatusAdvice))]
     [KnownType(typeof(StatusOrStatement3Choice.Statement))]
     [IsoId("_CEeN0fJlEd-DocZblYEqZw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Or Statement 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

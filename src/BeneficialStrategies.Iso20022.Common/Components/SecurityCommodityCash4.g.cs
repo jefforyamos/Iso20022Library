@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indication of the type of assets subject of the transaction.
 /// </summary>
 [IsoId("_A1bcjcK3EeuFNp8LZAnorg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Commodity Cash")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SecurityCommodityCash4
     /// Data specific to securities being subject to the transaction.
     /// </summary>
     [IsoId("_A2yHY8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scty")]
     #endif
+    [IsoXmlTag("Scty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Security48? Security { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SecurityCommodityCash4
     /// Data specific to commodities being subject to the transaction.
     /// </summary>
     [IsoId("_A2yHZcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commodity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmmdty")]
     #endif
+    [IsoXmlTag("Cmmdty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commodity42? Commodity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SecurityCommodityCash4
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
     [IsoId("_A2yHZ8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Csh")]
     #endif
+    [IsoXmlTag("Csh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashCompare3? Cash { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides reason of the rejection of a standing instruction cancellation request.
 /// </summary>
 [IsoId("_Rk6tZNp-Ed-ak6NoX_4Aeg_1198444441")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Standing Instruction Cancellation Rejection Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionStandingInstructionCancellationRejectionSta
     /// The rejection reason.
     /// </summary>
     [IsoId("_Rk6tZdp-Ed-ak6NoX_4Aeg_1289872620")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     public RejectionReason10FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Rk6tZdp-Ed-ak6NoX_4Aeg_1289872620
     
@@ -57,15 +54,13 @@ public partial record CorporateActionStandingInstructionCancellationRejectionSta
     /// Additional information about the status.
     /// </summary>
     [IsoId("_Rk6tZtp-Ed-ak6NoX_4Aeg_1289872650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the amendment of the information that serves as a basis to debit an account.
 /// </summary>
 [IsoId("_UQacM-H7Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Debtor Activation Amendment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record DebtorActivationAmendment4
     /// Specific attributes provided the debtor, as requested by the creditor, for the activation request.
     /// </summary>
     [IsoId("_URmu4eH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Activation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrActvtn")]
     #endif
+    [IsoXmlTag("DbtrActvtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DebtorActivation4? DebtorActivation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record DebtorActivationAmendment4
     /// Further data related to the electronic invoice (e-invoice).
     /// </summary>
     [IsoId("_URmu4-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Electronic Invoice Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctrncInvcData")]
     #endif
+    [IsoXmlTag("ElctrncInvcData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ElectronicInvoice1? ElectronicInvoiceData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

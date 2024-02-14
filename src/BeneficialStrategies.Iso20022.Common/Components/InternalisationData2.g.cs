@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the aggregated data of internalised settlement instructions.
 /// </summary>
 [IsoId("_RCmFcO3uEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Internalisation Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record InternalisationData2
     /// Aggregated volume and value of internalised settlement instructions settled during the period covered by the report, for financial Instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
     [IsoId("_XApYQO3uEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sttld")]
     #endif
+    [IsoXmlTag("Sttld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationDataVolume1 Settled { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationDataVolume1 Settled { get; init; } 
+    public required InternalisationDataVolume1 Settled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationDataVolume1 Settled { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record InternalisationData2
     /// Aggregated volume and value of internalised settlement instructions failed during the period covered by the report, for financial Instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
     [IsoId("_ZQXYIO3uEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Faild")]
     #endif
+    [IsoXmlTag("Faild")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationDataVolume1 Failed { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationDataVolume1 Failed { get; init; } 
+    public required InternalisationDataVolume1 Failed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationDataVolume1 Failed { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record InternalisationData2
     /// Aggregated total volume and value of internalised settlement instructions performed (settled and failed) during the period covered by the report, for financial Instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
     [IsoId("_cRK2sO3uEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ttl")]
     #endif
+    [IsoXmlTag("Ttl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationDataVolume1 Total { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationDataVolume1 Total { get; init; } 
+    public required InternalisationDataVolume1 Total { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationDataVolume1 Total { get; init; } 
     #else

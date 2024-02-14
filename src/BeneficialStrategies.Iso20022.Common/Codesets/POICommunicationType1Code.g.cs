@@ -21,7 +21,7 @@ public enum POICommunicationType1Code
 {
     /// <summary>
     /// Communication with a host using Bluetooth.
-    /// Encoded/decoded by serializers as "BLTH".
+    /// Encoded/decoded by serializers as &quot;BLTH&quot;.
     /// </summary>
     [EnumMember(Value = "BLTH")]
     [IsoId("_EUWIYQx2EeKa_56Jbsi1RQ")]
@@ -30,7 +30,7 @@ public enum POICommunicationType1Code
     
     /// <summary>
     /// Ethernet port to communicate.
-    /// Encoded/decoded by serializers as "ETHR".
+    /// Encoded/decoded by serializers as &quot;ETHR&quot;.
     /// </summary>
     [EnumMember(Value = "ETHR")]
     [IsoId("_EaJOYQx2EeKa_56Jbsi1RQ")]
@@ -39,7 +39,7 @@ public enum POICommunicationType1Code
     
     /// <summary>
     /// Communication with a host using GPRS.
-    /// Encoded/decoded by serializers as "GPRS".
+    /// Encoded/decoded by serializers as &quot;GPRS&quot;.
     /// </summary>
     [EnumMember(Value = "GPRS")]
     [IsoId("_Eixl8Qx2EeKa_56Jbsi1RQ")]
@@ -48,7 +48,7 @@ public enum POICommunicationType1Code
     
     /// <summary>
     /// Communication with a host using GSM.
-    /// Encoded/decoded by serializers as "GSMF".
+    /// Encoded/decoded by serializers as &quot;GSMF&quot;.
     /// </summary>
     [EnumMember(Value = "GSMF")]
     [IsoId("_En1FEQx2EeKa_56Jbsi1RQ")]
@@ -57,7 +57,7 @@ public enum POICommunicationType1Code
     
     /// <summary>
     /// Communication with a host using Public Switching Telephone Network.
-    /// Encoded/decoded by serializers as "PSTN".
+    /// Encoded/decoded by serializers as &quot;PSTN&quot;.
     /// </summary>
     [EnumMember(Value = "PSTN")]
     [IsoId("_Et7tEQx2EeKa_56Jbsi1RQ")]
@@ -66,7 +66,7 @@ public enum POICommunicationType1Code
     
     /// <summary>
     /// Serial port to communicate.
-    /// Encoded/decoded by serializers as "RS23".
+    /// Encoded/decoded by serializers as &quot;RS23&quot;.
     /// </summary>
     [EnumMember(Value = "RS23")]
     [IsoId("_EzSuMwx2EeKa_56Jbsi1RQ")]
@@ -75,7 +75,7 @@ public enum POICommunicationType1Code
     
     /// <summary>
     /// Communication with a USB stick or any USB device.
-    /// Encoded/decoded by serializers as "USBD".
+    /// Encoded/decoded by serializers as &quot;USBD&quot;.
     /// </summary>
     [EnumMember(Value = "USBD")]
     [IsoId("_E76esQx2EeKa_56Jbsi1RQ")]
@@ -84,7 +84,7 @@ public enum POICommunicationType1Code
     
     /// <summary>
     /// Communication with a host from an USB port.
-    /// Encoded/decoded by serializers as "USBH".
+    /// Encoded/decoded by serializers as &quot;USBH&quot;.
     /// </summary>
     [EnumMember(Value = "USBH")]
     [IsoId("_FDWjcQx2EeKa_56Jbsi1RQ")]
@@ -93,7 +93,7 @@ public enum POICommunicationType1Code
     
     /// <summary>
     /// Wifi communication with another component.
-    /// Encoded/decoded by serializers as "WIFI".
+    /// Encoded/decoded by serializers as &quot;WIFI&quot;.
     /// </summary>
     [EnumMember(Value = "WIFI")]
     [IsoId("_FJdLcQx2EeKa_56Jbsi1RQ")]

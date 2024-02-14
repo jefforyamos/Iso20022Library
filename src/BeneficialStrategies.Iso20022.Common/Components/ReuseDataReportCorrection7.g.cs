@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates that the report is correcting the erroneous data fields of a previously submitted position.
 /// </summary>
 [IsoId("_76wJUa4bEemB_csI4yyKLA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reuse Data Report Correction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,15 +51,13 @@ public partial record ReuseDataReportCorrection7
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
     [IsoId("_7-7esa4bEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +70,16 @@ public partial record ReuseDataReportCorrection7
     /// Date and time of submission of the report to the entitled receiver.
     /// </summary>
     [IsoId("_7-7es64bEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgDtTm")]
     #endif
+    [IsoXmlTag("RptgDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ReportingDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ReportingDateTime { get; init; } 
+    public required System.DateTime ReportingDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ReportingDateTime { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record ReuseDataReportCorrection7
     /// Data specific to counterparties and related fields.
     /// </summary>
     [IsoId("_7-7eta4bEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyData")]
     #endif
+    [IsoXmlTag("CtrPtyData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData46 CounterpartyData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyData46 CounterpartyData { get; init; } 
+    public required CounterpartyData46 CounterpartyData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyData46 CounterpartyData { get; init; } 
     #else
@@ -114,12 +109,11 @@ public partial record ReuseDataReportCorrection7
     /// Provides the details of the security or cash pledged as collateral.
     /// </summary>
     [IsoId("_7-7et64bEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Component")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollCmpnt")]
     #endif
+    [IsoXmlTag("CollCmpnt")]
     public CollateralType12? CollateralComponent { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _7-7et64bEemB_csI4yyKLA
     
@@ -127,16 +121,16 @@ public partial record ReuseDataReportCorrection7
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
     [IsoId("_7-7eua4bEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Day")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtDay")]
     #endif
+    [IsoXmlTag("EvtDay")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EventDay { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly EventDay { get; init; } 
+    public required System.DateOnly EventDay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly EventDay { get; init; } 
     #else
@@ -147,12 +141,11 @@ public partial record ReuseDataReportCorrection7
     /// Information on funding sources used to finance margin loans.
     /// </summary>
     [IsoId("_7-7eu64bEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Funding Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndgSrc")]
     #endif
+    [IsoXmlTag("FndgSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundingSource1? FundingSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +158,11 @@ public partial record ReuseDataReportCorrection7
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_7-7eva4bEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

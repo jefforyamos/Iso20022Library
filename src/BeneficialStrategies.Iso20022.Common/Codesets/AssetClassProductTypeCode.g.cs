@@ -21,7 +21,7 @@ public enum AssetClassProductTypeCode
 {
     /// <summary>
     /// Commodity of type agricultural.
-    /// Encoded/decoded by serializers as "AGRI".
+    /// Encoded/decoded by serializers as &quot;AGRI&quot;.
     /// </summary>
     [EnumMember(Value = "AGRI")]
     [IsoId("_eSXiYAnYEeWa7rBfPECYsw")]
@@ -30,7 +30,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type energy.
-    /// Encoded/decoded by serializers as "NRGY".
+    /// Encoded/decoded by serializers as &quot;NRGY&quot;.
     /// </summary>
     [EnumMember(Value = "NRGY")]
     [IsoId("_epu5gAnYEeWa7rBfPECYsw")]
@@ -39,7 +39,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type environmental.
-    /// Encoded/decoded by serializers as "ENVR".
+    /// Encoded/decoded by serializers as &quot;ENVR&quot;.
     /// </summary>
     [EnumMember(Value = "ENVR")]
     [IsoId("_etJZ4AnYEeWa7rBfPECYsw")]
@@ -48,7 +48,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type freight.
-    /// Encoded/decoded by serializers as "FRGT".
+    /// Encoded/decoded by serializers as &quot;FRGT&quot;.
     /// </summary>
     [EnumMember(Value = "FRGT")]
     [IsoId("_evFTkAnYEeWa7rBfPECYsw")]
@@ -57,7 +57,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type fertilizer.
-    /// Encoded/decoded by serializers as "FRTL".
+    /// Encoded/decoded by serializers as &quot;FRTL&quot;.
     /// </summary>
     [EnumMember(Value = "FRTL")]
     [IsoId("_exBNQAnYEeWa7rBfPECYsw")]
@@ -66,7 +66,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type industrial product.
-    /// Encoded/decoded by serializers as "INDP".
+    /// Encoded/decoded by serializers as &quot;INDP&quot;.
     /// </summary>
     [EnumMember(Value = "INDP")]
     [IsoId("_eyqMAAnYEeWa7rBfPECYsw")]
@@ -75,7 +75,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type metal.
-    /// Encoded/decoded by serializers as "METL".
+    /// Encoded/decoded by serializers as &quot;METL&quot;.
     /// </summary>
     [EnumMember(Value = "METL")]
     [IsoId("_0Lg_8AnYEeWa7rBfPECYsw")]
@@ -84,7 +84,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type multi commodity exotic.
-    /// Encoded/decoded by serializers as "MCEX".
+    /// Encoded/decoded by serializers as &quot;MCEX&quot;.
     /// </summary>
     [EnumMember(Value = "MCEX")]
     [IsoId("_S2ITIQnZEeWa7rBfPECYsw")]
@@ -93,7 +93,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type paper.
-    /// Encoded/decoded by serializers as "PAPR".
+    /// Encoded/decoded by serializers as &quot;PAPR&quot;.
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_V1wF8AnZEeWa7rBfPECYsw")]
@@ -102,7 +102,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type polypropylene.
-    /// Encoded/decoded by serializers as "POLY".
+    /// Encoded/decoded by serializers as &quot;POLY&quot;.
     /// </summary>
     [EnumMember(Value = "POLY")]
     [IsoId("_ci9k0AnZEeWa7rBfPECYsw")]
@@ -111,7 +111,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type inflation.
-    /// Encoded/decoded by serializers as "INFL".
+    /// Encoded/decoded by serializers as &quot;INFL&quot;.
     /// </summary>
     [EnumMember(Value = "INFL")]
     [IsoId("_iUqdsAnZEeWa7rBfPECYsw")]
@@ -120,7 +120,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of type official economic statistic.
-    /// Encoded/decoded by serializers as "OEST".
+    /// Encoded/decoded by serializers as &quot;OEST&quot;.
     /// </summary>
     [EnumMember(Value = "OEST")]
     [IsoId("_lTipoAnZEeWa7rBfPECYsw")]
@@ -129,7 +129,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of other type C10.
-    /// Encoded/decoded by serializers as "OTHC".
+    /// Encoded/decoded by serializers as &quot;OTHC&quot;.
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_9vcX0AnZEeWa7rBfPECYsw")]
@@ -138,7 +138,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_AKnZwAnaEeWa7rBfPECYsw")]
@@ -147,7 +147,7 @@ public enum AssetClassProductTypeCode
     
     /// <summary>
     /// Index type of commodities.
-    /// Encoded/decoded by serializers as "INDX".
+    /// Encoded/decoded by serializers as &quot;INDX&quot;.
     /// </summary>
     [EnumMember(Value = "INDX")]
     [IsoId("_zkf6EE7JEe2PGo0mhYCh1g")]

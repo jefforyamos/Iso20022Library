@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The SettlementFailsAnnualReport is sent by a central securities depository or by a central bank operating a securities settlement system to the CSD competent authority to provide annual aggregated data on the number and the nature of settlement instructions which failed to settle on their intended settlement day. The report contains annual statistical information on the number and value of overall settlement instructions, settled instructions, and settlement fails that occurred during a specified period and within a given securities settlement system.")]
 [IsoId("_pq7TsUEXEeqXB_DgAcRqgw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Annual Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SettlementFailsAnnualReportV01 : IOuterRecord<SettlementFa
     /// Specifies parameters of the report.
     /// </summary>
     [IsoId("_pq7Ts0EXEeqXB_DgAcRqgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptHdr")]
     #endif
+    [IsoXmlTag("RptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsReportHeader2 ReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsReportHeader2 ReportHeader { get; init; } 
+    public required SettlementFailsReportHeader2 ReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsReportHeader2 ReportHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SettlementFailsAnnualReportV01 : IOuterRecord<SettlementFa
     /// Aggregated annual volume and value of settled, failed, total of failed settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
     [IsoId("_pq7TtUEXEeqXB_DgAcRqgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Annual Aggregate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnlAggt")]
     #endif
+    [IsoXmlTag("AnlAggt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsData4 AnnualAggregate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsData4 AnnualAggregate { get; init; } 
+    public required SettlementFailsData4 AnnualAggregate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsData4 AnnualAggregate { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SettlementFailsAnnualReportV01 : IOuterRecord<SettlementFa
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_pq7Tt0EXEeqXB_DgAcRqgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SettlementFailsAnnualReportV01 : IOuterRecord<SettlementFa
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SettlementFailsAnnualReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SettlementFailsAnnualReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SettlementFailsAnnualReportV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SettlementFailsAnnualReportV01 : IOuterRecord<SettlementFa
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementFailsAnnualReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SettlementFailsAnnualReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SettlementFailsAnnualReportV01Document : IOuterDocument<SettlementFailsAnnualReportV01>
@@ -161,7 +156,7 @@ public partial record SettlementFailsAnnualReportV01Document : IOuterDocument<Se
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SettlementFailsAnnualReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SettlementFailsAnnualReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsAnnualReportV01 Message { get; init; }

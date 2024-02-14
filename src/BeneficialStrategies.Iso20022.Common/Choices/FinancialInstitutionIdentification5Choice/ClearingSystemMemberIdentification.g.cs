@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
     /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
     /// </summary>
     [IsoId("_TFehONp-Ed-ak6NoX_4Aeg_1156630120")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Member Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

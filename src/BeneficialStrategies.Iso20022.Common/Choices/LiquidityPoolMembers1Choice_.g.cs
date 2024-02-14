@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LiquidityPoolMembers1Choice.HeadMemberDetails))]
     [KnownType(typeof(LiquidityPoolMembers1Choice.SubordinateMemberDetails))]
     [IsoId("_lgRlYCDsEeav65mEytrgaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquidity Pool Members 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

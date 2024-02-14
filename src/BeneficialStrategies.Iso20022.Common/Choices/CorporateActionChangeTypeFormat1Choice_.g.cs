@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionChangeTypeFormat1Choice.Code))]
     [KnownType(typeof(CorporateActionChangeTypeFormat1Choice.Proprietary))]
     [IsoId("_Q3Unldp-Ed-ak6NoX_4Aeg_524839573")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Change Type Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

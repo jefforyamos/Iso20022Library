@@ -21,7 +21,7 @@ public enum StandingInstructionType1Code
 {
     /// <summary>
     /// Standing instruction for a cash distribution.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_ZPw5Ndp-Ed-ak6NoX_4Aeg_-438291265")]
@@ -30,7 +30,7 @@ public enum StandingInstructionType1Code
     
     /// <summary>
     /// Standing instruction for the payment modality, gross or net.
-    /// Encoded/decoded by serializers as "PAYM".
+    /// Encoded/decoded by serializers as &quot;PAYM&quot;.
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_ZPw5Ntp-Ed-ak6NoX_4Aeg_-200022240")]
@@ -39,7 +39,7 @@ public enum StandingInstructionType1Code
     
     /// <summary>
     /// Standing instruction for a securities distribution.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ZPw5N9p-Ed-ak6NoX_4Aeg_1211066353")]

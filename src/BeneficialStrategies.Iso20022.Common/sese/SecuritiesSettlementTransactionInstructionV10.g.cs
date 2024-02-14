@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An account owner sends a SecuritiesSettlementTransactionInstruction to an account servicer to instruct the receipt or delivery of financial instruments with or without payment, physically or by book-entry.|The account owner/servicer relationship may be:|- a global custodian which has an account with a local custodian, or|- an investment management institution which manages a fund account opened at a custodian, or|- a broker which has an account with a custodian, or|- a central securities depository participant which has an account with a central securities depository, or|- a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure, or|- a central counterparty or a stock exchange or a trade matching utility which need to instruct the settlement of transactions to a central securities depository or another settlement market infrastructure.||Usage|The instruction may be linked to other settlement instructions, for example, for a turnaround or back-to-back, or other transactions, for example, foreign exchange deal, using the linkage functionality.|The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.")]
 [IsoId("_ec9aEQmDEeuQ1MenzX1l-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Settlement Transaction Instruction V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -95,19 +93,17 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Unambiguous identification of the transaction as known by the instructing party.
     /// </summary>
     [IsoId("_ec9aOQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -118,16 +114,15 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Provides settlement type and identification information.
     /// </summary>
     [IsoId("_ec9aOwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Type And Additional Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTpAndAddtlParams")]
     #endif
+    [IsoXmlTag("SttlmTpAndAddtlParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTypeAndAdditionalParameters19 SettlementTypeAndAdditionalParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementTypeAndAdditionalParameters19 SettlementTypeAndAdditionalParameters { get; init; } 
+    public required SettlementTypeAndAdditionalParameters19 SettlementTypeAndAdditionalParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementTypeAndAdditionalParameters19 SettlementTypeAndAdditionalParameters { get; init; } 
     #else
@@ -138,12 +133,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Count of the number of transactions linked.
     /// </summary>
     [IsoId("_ec9aPQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Counts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbCounts")]
     #endif
+    [IsoXmlTag("NbCounts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberCount1Choice_? NumberCounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +150,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Link to another transaction that must be processed after, before or at the same time.
     /// </summary>
     [IsoId("_ec9aPwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkages")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lnkgs")]
     #endif
+    [IsoXmlTag("Lnkgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Linkages54? Linkages { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,16 +167,15 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Details of the trade.
     /// </summary>
     [IsoId("_ec9aQQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDtls")]
     #endif
+    [IsoXmlTag("TradDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTradeDetails119 TradeDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesTradeDetails119 TradeDetails { get; init; } 
+    public required SecuritiesTradeDetails119 TradeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesTradeDetails119 TradeDetails { get; init; } 
     #else
@@ -194,16 +186,15 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
     [IsoId("_ec9aQwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -214,12 +205,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Elements characterising a financial instrument.
     /// </summary>
     [IsoId("_ec9aRQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmAttrbts")]
     #endif
+    [IsoXmlTag("FinInstrmAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributes91? FinancialInstrumentAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -232,16 +222,15 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Details related to the account and quantity involved in the transaction.
     /// </summary>
     [IsoId("_ec9aRwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity And Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyAndAcctDtls")]
     #endif
+    [IsoXmlTag("QtyAndAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityAndAccount79 QuantityAndAccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityAndAccount79 QuantityAndAccountDetails { get; init; } 
+    public required QuantityAndAccount79 QuantityAndAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityAndAccount79 QuantityAndAccountDetails { get; init; } 
     #else
@@ -252,16 +241,15 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
     /// </summary>
     [IsoId("_ec9aSQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmParams")]
     #endif
+    [IsoXmlTag("SttlmParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementDetails188 SettlementParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementDetails188 SettlementParameters { get; init; } 
+    public required SettlementDetails188 SettlementParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementDetails188 SettlementParameters { get; init; } 
     #else
@@ -272,12 +260,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
     [IsoId("_ec9aSwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Settlement Instruction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgSttlmInstrDtls")]
     #endif
+    [IsoXmlTag("StgSttlmInstrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StandingSettlementInstruction16? StandingSettlementInstructionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,12 +277,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
     [IsoId("_ec9aTQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivering Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrgSttlmPties")]
     #endif
+    [IsoXmlTag("DlvrgSttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties76? DeliveringSettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,12 +294,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
     [IsoId("_ec9aTwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgSttlmPties")]
     #endif
+    [IsoXmlTag("RcvgSttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties76? ReceivingSettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -326,12 +311,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Cash parties involved in the transaction if different from the securities settlement parties.
     /// </summary>
     [IsoId("_ec9aUQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshPties")]
     #endif
+    [IsoXmlTag("CshPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashParties36? CashParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -344,12 +328,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
     [IsoId("_ec9aUwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection94? SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -362,12 +345,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Other amounts than the settlement amount.
     /// </summary>
     [IsoId("_ec9aVQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAmts")]
     #endif
+    [IsoXmlTag("OthrAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherAmounts39? OtherAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -380,12 +362,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Other business parties relevant to the transaction.
     /// </summary>
     [IsoId("_ec9aVwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Business Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrBizPties")]
     #endif
+    [IsoXmlTag("OthrBizPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherParties33? OtherBusinessParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -398,12 +379,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Information for registration or physical settlement.
     /// </summary>
     [IsoId("_ec9aWQmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Physical Or Registration Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlPhysOrRegnDtls")]
     #endif
+    [IsoXmlTag("AddtlPhysOrRegnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegistrationParameters6? AdditionalPhysicalOrRegistrationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -416,12 +396,11 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_ec9aWwmDEeuQ1MenzX1l-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -434,7 +413,7 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesSettlementTransactionInstructionV10Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesSettlementTransactionInstructionV10Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesSettlementTransactionInstructionV10Document ToDocument()
     {
@@ -444,7 +423,7 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementTransactionInstructionV10"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesSettlementTransactionInstructionV10&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesSettlementTransactionInstructionV10Document : IOuterDocument<SecuritiesSettlementTransactionInstructionV10>
@@ -461,7 +440,7 @@ public partial record SecuritiesSettlementTransactionInstructionV10Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesSettlementTransactionInstructionV10"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesSettlementTransactionInstructionV10&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSettlementTransactionInstructionV10 Message { get; init; }

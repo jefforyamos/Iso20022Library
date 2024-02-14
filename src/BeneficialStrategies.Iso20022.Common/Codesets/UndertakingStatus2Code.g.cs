@@ -21,7 +21,7 @@ public enum UndertakingStatus2Code
 {
     /// <summary>
     /// Accepted.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_9NC3RnymEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum UndertakingStatus2Code
     
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_u-8y1n4EEeG05p8M2uqofg")]

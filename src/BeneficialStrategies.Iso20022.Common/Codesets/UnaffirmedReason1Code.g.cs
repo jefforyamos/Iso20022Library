@@ -21,7 +21,7 @@ public enum UnaffirmedReason1Code
 {
     /// <summary>
     /// Specifies the reason the counterparty has not affirmed.
-    /// Encoded/decoded by serializers as "NAFF".
+    /// Encoded/decoded by serializers as &quot;NAFF&quot;.
     /// </summary>
     [EnumMember(Value = "NAFF")]
     [IsoId("__qxMU9ojEeC60axPepSq7g_2031513196")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderWaiverReason1Choice
     /// Reason why an order has to be handled differently, probably in a manual fashion, because, for example, the investment manager has agreed a waiver to the terms.
     /// </summary>
     [IsoId("_SdiXdtp-Ed-ak6NoX_4Aeg_-249935305")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderWaiverReason1Choice
         /// Relates to non-standard orders, to handle them differently, probably in a manual fashion.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OrderWaiverReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OrderWaiverReason1Code Value { get; init; } 
+        public required OrderWaiverReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OrderWaiverReason1Code Value { get; init; } 
         #else

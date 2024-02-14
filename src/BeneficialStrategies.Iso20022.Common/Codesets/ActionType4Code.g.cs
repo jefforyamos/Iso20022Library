@@ -21,7 +21,7 @@ public enum ActionType4Code
 {
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CPTR".
+    /// Encoded/decoded by serializers as &quot;CPTR&quot;.
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_886RsXsNEeSR68OJvMfxJQ")]
@@ -30,7 +30,7 @@ public enum ActionType4Code
     
     /// <summary>
     /// Additional identification required (passport, ID card, etc.).
-    /// Encoded/decoded by serializers as "RQID".
+    /// Encoded/decoded by serializers as &quot;RQID&quot;.
     /// </summary>
     [EnumMember(Value = "RQID")]
     [IsoId("_-W7YoXsNEeSR68OJvMfxJQ")]
@@ -39,7 +39,7 @@ public enum ActionType4Code
     
     /// <summary>
     /// Referral has to be performed.
-    /// Encoded/decoded by serializers as "RFRL".
+    /// Encoded/decoded by serializers as &quot;RFRL&quot;.
     /// </summary>
     [EnumMember(Value = "RFRL")]
     [IsoId("_-k7_cXsNEeSR68OJvMfxJQ")]
@@ -48,7 +48,7 @@ public enum ActionType4Code
     
     /// <summary>
     /// Approve the transaction.
-    /// Encoded/decoded by serializers as "APPV".
+    /// Encoded/decoded by serializers as &quot;APPV&quot;.
     /// </summary>
     [EnumMember(Value = "APPV")]
     [IsoId("_S_kQQS6qEeWc7f-D6ByqMg")]
@@ -57,7 +57,7 @@ public enum ActionType4Code
     
     /// <summary>
     /// Block the card.
-    /// Encoded/decoded by serializers as "BLCK".
+    /// Encoded/decoded by serializers as &quot;BLCK&quot;.
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_TcMh4S6qEeWc7f-D6ByqMg")]
@@ -66,7 +66,7 @@ public enum ActionType4Code
     
     /// <summary>
     /// No reason for declining the transaction.
-    /// Encoded/decoded by serializers as "NDCL".
+    /// Encoded/decoded by serializers as &quot;NDCL&quot;.
     /// </summary>
     [EnumMember(Value = "NDCL")]
     [IsoId("_UMkO4S6qEeWc7f-D6ByqMg")]

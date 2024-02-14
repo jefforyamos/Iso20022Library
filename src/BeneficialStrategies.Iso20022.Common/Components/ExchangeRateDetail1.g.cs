@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the exchange rate.
 /// </summary>
 [IsoId("_g9N7sINmEeuHqfO1LgkE9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exchange Rate Detail")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ExchangeRateDetail1
     /// Identifies the party to which this detail applies.
     /// </summary>
     [IsoId("_50VUUINoEeuHqfO1LgkE9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Point")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndPt")]
     #endif
+    [IsoXmlTag("EndPt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Endpoint1Code? EndPoint { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record ExchangeRateDetail1
     /// Other nationally or privately defined endpoint.
     /// </summary>
     [IsoId("_JQ4h4INpEeuHqfO1LgkE9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other End Point")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrEndPt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrEndPt")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherEndPoint { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record ExchangeRateDetail1
     /// Identifies the counter currency used for currency conversion for the transaction party.
     /// </summary>
     [IsoId("_ZXsNYINpEeuHqfO1LgkE9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counter Currency Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CntrCcyCd")]
     #endif
+    [IsoXmlTag("CntrCcyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCurrencyCode? CounterCurrencyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record ExchangeRateDetail1
     /// Identifies the base currency used for currency conversion for the transaction party.
     /// </summary>
     [IsoId("_jZtE4INpEeuHqfO1LgkE9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Currency Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BaseCcyCd")]
     #endif
+    [IsoXmlTag("BaseCcyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO3NumericCurrencyCode? BaseCurrencyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,12 @@ public partial record ExchangeRateDetail1
     /// Contains the exchange rate.
     /// </summary>
     [IsoId("_zRp4MINtEeuHqfO1LgkE9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.BaseOne25Rate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOne25Rate? Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +130,11 @@ public partial record ExchangeRateDetail1
     /// Identifies the type of rate.
     /// </summary>
     [IsoId("_bcFjQIZ4EeuA-bTtGHZqdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateTp")]
     #endif
+    [IsoXmlTag("RateTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeRateType2Code? RateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,15 +147,13 @@ public partial record ExchangeRateDetail1
     /// Other type of rate defined privately or at national level.
     /// </summary>
     [IsoId("_PHyqoIZ5EeuSbct6WWD-Ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Rate Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRateTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrRateTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherRateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +166,11 @@ public partial record ExchangeRateDetail1
     /// Type of exchange rate agreement.
     /// </summary>
     [IsoId("_M4vHMIZ7EeuSbct6WWD-Ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrmtTp")]
     #endif
+    [IsoXmlTag("AgrmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeRateAgreementType1Code? AgreementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,15 +183,13 @@ public partial record ExchangeRateDetail1
     /// Other type of exchange rate agreement.
     /// </summary>
     [IsoId("_VgLeIIZ7EeuSbct6WWD-Ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Agreement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAgrmtTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrAgrmtTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherAgreementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

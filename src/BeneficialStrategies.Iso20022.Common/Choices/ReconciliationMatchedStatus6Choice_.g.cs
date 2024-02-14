@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReconciliationMatchedStatus6Choice.Matched))]
     [KnownType(typeof(ReconciliationMatchedStatus6Choice.NotMatched))]
     [IsoId("_C1J2hf_oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Matched Status 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

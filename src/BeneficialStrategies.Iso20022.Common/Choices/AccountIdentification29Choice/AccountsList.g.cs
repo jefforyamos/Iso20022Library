@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification29Choice
     /// Selected safekeeping accounts list to which the corporate action event applies.
     /// </summary>
     [IsoId("_xuYOKzq3EeWQ1Y7f8kds2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accounts List")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification29Choice
         /// Account where financial instruments are maintained.
         /// </summary>
         [IsoId("_w9u0VTq3EeWQ1Y7f8kds2A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Safekeeping Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SfkpgAcct")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SfkpgAcct")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text SafekeepingAccount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String SafekeepingAccount { get; init; } 
+        public required System.String SafekeepingAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String SafekeepingAccount { get; init; } 
         #else
@@ -79,12 +75,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification29Choice
         /// Party that legally owns the account.
         /// </summary>
         [IsoId("_w9u0XTq3EeWQ1Y7f8kds2A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnr")]
         #endif
+        [IsoXmlTag("AcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification92Choice_? AccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification29Choice
         /// Location where the financial instruments are/will be safekept.
         /// </summary>
         [IsoId("_w9u0ZTq3EeWQ1Y7f8kds2A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Safekeeping Place")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SfkpgPlc")]
         #endif
+        [IsoXmlTag("SfkpgPlc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SafekeepingPlaceFormat8Choice_? SafekeepingPlace { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

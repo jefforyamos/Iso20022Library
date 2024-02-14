@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Fund Processing Passsport (FPP) is a fully harmonised document with all key operational information that fund promoters should provide on their investment funds in order to facilitate their trading.
 /// </summary>
 [IsoId("_Q5ZrMtp-Ed-ak6NoX_4Aeg_1497334338")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Processing Passport")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -59,16 +57,15 @@ public partial record FundProcessingPassport1
     /// Date of last revision.
     /// </summary>
     [IsoId("_Q5ZrM9p-Ed-ak6NoX_4Aeg_781465456")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Updated Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdtdDt")]
     #endif
+    [IsoXmlTag("UpdtdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UpdatedDate UpdatedDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UpdatedDate UpdatedDate { get; init; } 
+    public required UpdatedDate UpdatedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UpdatedDate UpdatedDate { get; init; } 
     #else
@@ -79,16 +76,15 @@ public partial record FundProcessingPassport1
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
     [IsoId("_Q5ZrNNp-Ed-ak6NoX_4Aeg_-501321207")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification1 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification1 SecurityIdentification { get; init; } 
+    public required SecurityIdentification1 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification1 SecurityIdentification { get; init; } 
     #else
@@ -99,16 +95,15 @@ public partial record FundProcessingPassport1
     /// Principal entity appointed by the fund, to which orders should be submitted. Usually located in the country of domicile.
     /// </summary>
     [IsoId("_Q5ZrNdp-Ed-ak6NoX_4Aeg_-628195757")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Main Fund Order Desk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MainFndOrdrDsk")]
     #endif
+    [IsoXmlTag("MainFndOrdrDsk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContactAttributes1 MainFundOrderDesk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContactAttributes1 MainFundOrderDesk { get; init; } 
+    public required ContactAttributes1 MainFundOrderDesk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContactAttributes1 MainFundOrderDesk { get; init; } 
     #else
@@ -121,16 +116,15 @@ public partial record FundProcessingPassport1
     /// of the fund. For self-managed funds, this wlll often be a separate promoter or sponsor of the fund.
     /// </summary>
     [IsoId("_Q5ZrNtp-Ed-ak6NoX_4Aeg_-1464343138")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Management Company")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndMgmtCpny")]
     #endif
+    [IsoXmlTag("FndMgmtCpny")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContactAttributes1 FundManagementCompany { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContactAttributes1 FundManagementCompany { get; init; } 
+    public required ContactAttributes1 FundManagementCompany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContactAttributes1 FundManagementCompany { get; init; } 
     #else
@@ -141,16 +135,15 @@ public partial record FundProcessingPassport1
     /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
     /// </summary>
     [IsoId("_Q5ZrN9p-Ed-ak6NoX_4Aeg_547053647")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndDtls")]
     #endif
+    [IsoXmlTag("FndDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument20 FundDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument20 FundDetails { get; init; } 
+    public required FinancialInstrument20 FundDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument20 FundDetails { get; init; } 
     #else
@@ -161,16 +154,15 @@ public partial record FundProcessingPassport1
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
     [IsoId("_Q5ZrONp-Ed-ak6NoX_4Aeg_1029129650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Dealing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDealgChrtcs")]
     #endif
+    [IsoXmlTag("ValtnDealgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; init; } 
+    public required ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; init; } 
     #else
@@ -181,16 +173,15 @@ public partial record FundProcessingPassport1
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
     [IsoId("_Q5ZrOdp-Ed-ak6NoX_4Aeg_-477353454")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Restrictions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtRstrctns")]
     #endif
+    [IsoXmlTag("InvstmtRstrctns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentRestrictions2 InvestmentRestrictions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentRestrictions2 InvestmentRestrictions { get; init; } 
+    public required InvestmentRestrictions2 InvestmentRestrictions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentRestrictions2 InvestmentRestrictions { get; init; } 
     #else
@@ -201,16 +192,15 @@ public partial record FundProcessingPassport1
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
     [IsoId("_Q5jcMNp-Ed-ak6NoX_4Aeg_269854257")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptPrcgChrtcs")]
     #endif
+    [IsoXmlTag("SbcptPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
+    public required ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
     #else
@@ -221,16 +211,15 @@ public partial record FundProcessingPassport1
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
     [IsoId("_Q5jcMdp-Ed-ak6NoX_4Aeg_2027637475")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedPrcgChrtcs")]
     #endif
+    [IsoXmlTag("RedPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
+    public required ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
     #else
@@ -241,12 +230,11 @@ public partial record FundProcessingPassport1
     /// Account to or from which a cash entry is made.
     /// </summary>
     [IsoId("_Q5jcMtp-Ed-ak6NoX_4Aeg_-1685996653")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtls")]
     #endif
+    [IsoXmlTag("SttlmDtls")]
     public CashAccount22? SettlementDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Q5jcMtp-Ed-ak6NoX_4Aeg_-1685996653
     
@@ -254,12 +242,11 @@ public partial record FundProcessingPassport1
     /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
     /// </summary>
     [IsoId("_Q5jcM9p-Ed-ak6NoX_4Aeg_4177264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Market Annex")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclMktAnx")]
     #endif
+    [IsoXmlTag("LclMktAnx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalMarketAnnex2? LocalMarketAnnex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,12 +259,11 @@ public partial record FundProcessingPassport1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Q5jcNNp-Ed-ak6NoX_4Aeg_113830738")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

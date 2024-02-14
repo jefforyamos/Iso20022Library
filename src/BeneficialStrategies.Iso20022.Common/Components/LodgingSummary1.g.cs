@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data pertaining to a lodging transaction. 
 /// </summary>
 [IsoId("_npqEIPb_EeiW-auGnDPZIw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Lodging Summary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -41,18 +39,16 @@ public partial record LodgingSummary1
     #nullable enable
     
     /// <summary>
-    /// Contains the lodging company's invoice or billing ID reference number, referred to as a folio number. 
+    /// Contains the lodging company&apos;s invoice or billing ID reference number, referred to as a folio number. 
     /// </summary>
     [IsoId("_4mIMUfb_EeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Folio Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FolioNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FolioNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FolioNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record LodgingSummary1
     /// Details of the lodging property. 
     /// </summary>
     [IsoId("_npqEIvb_EeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Property")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prprty")]
     #endif
+    [IsoXmlTag("Prprty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LodgingProperty1? Property { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record LodgingSummary1
     /// Contains customer details.
     /// </summary>
     [IsoId("_npqEJPb_EeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cstmr")]
     #endif
+    [IsoXmlTag("Cstmr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Customer5? Customer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,15 +95,12 @@ public partial record LodgingSummary1
     /// Number of rooms within the reservation. 
     /// </summary>
     [IsoId("_LIyYwPcMEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Rooms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfRooms")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfRooms")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? NumberOfRooms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +113,11 @@ public partial record LodgingSummary1
     /// Contains the room details. 
     /// </summary>
     [IsoId("_npqEI_b_EeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Room")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Room")]
     #endif
+    [IsoXmlTag("Room")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LodgingRoom1? Room { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,15 +130,12 @@ public partial record LodgingSummary1
     /// Duration of stay in days.
     /// </summary>
     [IsoId("_zIKFxPcVEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Duration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Drtn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Drtn")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? Duration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +148,11 @@ public partial record LodgingSummary1
     /// Lodging transaction details.
     /// </summary>
     [IsoId("_npqEIfb_EeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Arrival")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Arrvl")]
     #endif
+    [IsoXmlTag("Arrvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DepartureOrArrival2? Arrival { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +165,11 @@ public partial record LodgingSummary1
     /// Contains departure details. 
     /// </summary>
     [IsoId("_CbURUPcXEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Departure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dprture")]
     #endif
+    [IsoXmlTag("Dprture")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DepartureOrArrival1? Departure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +182,12 @@ public partial record LodgingSummary1
     /// Indicates that the cardholder failed to arrive at the property and was therefore charged a no-show fee; property was not actually rented. 
     /// </summary>
     [IsoId("_fKVag_cXEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Show Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoShowInd")]
     #endif
+    [IsoXmlTag("NoShowInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +200,12 @@ public partial record LodgingSummary1
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
     [IsoId("_zIKFxfcVEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncInd")]
     #endif
+    [IsoXmlTag("InsrncInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,12 +218,12 @@ public partial record LodgingSummary1
     /// Amount of insurance.
     /// </summary>
     [IsoId("_-Xv4wPcXEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncAmt")]
     #endif
+    [IsoXmlTag("InsrncAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,12 +236,11 @@ public partial record LodgingSummary1
     /// Taxes related to the products or services. 
     /// </summary>
     [IsoId("_fKVahfcXEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTax")]
     #endif
+    [IsoXmlTag("TtlTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax33? TotalTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -269,12 +253,12 @@ public partial record LodgingSummary1
     /// Contains the total amount of lodging expenses.
     /// </summary>
     [IsoId("_GYQLgPcYEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmt")]
     #endif
+    [IsoXmlTag("TtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -287,12 +271,11 @@ public partial record LodgingSummary1
     /// Contains Authorised amount details.
     /// </summary>
     [IsoId("_fKVahPcXEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorised Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrsdAmt")]
     #endif
+    [IsoXmlTag("AuthrsdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthorisedAmount1? AuthorisedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -305,15 +288,13 @@ public partial record LodgingSummary1
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
     [IsoId("_zIKFxvcVEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary Commodity Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SummryCmmdtyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SummryCmmdtyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -326,12 +307,11 @@ public partial record LodgingSummary1
     /// Loyalty programme details. 
     /// </summary>
     [IsoId("_zIKFx_cVEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Programme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyPrgrmm")]
     #endif
+    [IsoXmlTag("LltyPrgrmm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -344,15 +324,13 @@ public partial record LodgingSummary1
     /// Additional user-defined data pertaining to the lodging. 
     /// </summary>
     [IsoId("_zIKFyPcVEeiW-auGnDPZIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlData")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

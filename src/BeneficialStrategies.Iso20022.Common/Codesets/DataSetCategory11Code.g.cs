@@ -21,7 +21,7 @@ public enum DataSetCategory11Code
 {
     /// <summary>
     /// Configuration parameters of the payment acquirer protocol.
-    /// Encoded/decoded by serializers as "ACQP".
+    /// Encoded/decoded by serializers as &quot;ACQP&quot;.
     /// </summary>
     [EnumMember(Value = "ACQP")]
     [IsoId("_LSf3EY4GEeWrZqsymMFdfg")]
@@ -30,7 +30,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Payment application specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_LSf3E44GEeWrZqsymMFdfg")]
@@ -39,7 +39,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Creation of a subset of the configuration parameters of an application.
-    /// Encoded/decoded by serializers as "APSB".
+    /// Encoded/decoded by serializers as &quot;APSB&quot;.
     /// </summary>
     [EnumMember(Value = "APSB")]
     [IsoId("_LSf3FY4GEeWrZqsymMFdfg")]
@@ -48,7 +48,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Download of cryptographic keys with the related information.
-    /// Encoded/decoded by serializers as "KDWL".
+    /// Encoded/decoded by serializers as &quot;KDWL&quot;.
     /// </summary>
     [EnumMember(Value = "KDWL")]
     [IsoId("_LSf3F44GEeWrZqsymMFdfg")]
@@ -57,7 +57,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Activate, deactivate or revoke loaded cryptographic keys.
-    /// Encoded/decoded by serializers as "KMGT".
+    /// Encoded/decoded by serializers as &quot;KMGT&quot;.
     /// </summary>
     [EnumMember(Value = "KMGT")]
     [IsoId("_LSf3GY4GEeWrZqsymMFdfg")]
@@ -66,7 +66,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Reporting on activity, status and error of a point of interaction.
-    /// Encoded/decoded by serializers as "RPRT".
+    /// Encoded/decoded by serializers as &quot;RPRT&quot;.
     /// </summary>
     [EnumMember(Value = "RPRT")]
     [IsoId("_LSf3G44GEeWrZqsymMFdfg")]
@@ -75,7 +75,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SWPK".
+    /// Encoded/decoded by serializers as &quot;SWPK&quot;.
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_LSf3HY4GEeWrZqsymMFdfg")]
@@ -84,7 +84,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSP".
+    /// Encoded/decoded by serializers as &quot;TMSP&quot;.
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_LSf3H44GEeWrZqsymMFdfg")]
@@ -93,7 +93,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MRPR".
+    /// Encoded/decoded by serializers as &quot;MRPR&quot;.
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_LSf3IY4GEeWrZqsymMFdfg")]
@@ -102,7 +102,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
-    /// Encoded/decoded by serializers as "TRPR".
+    /// Encoded/decoded by serializers as &quot;TRPR&quot;.
     /// </summary>
     [EnumMember(Value = "TRPR")]
     [IsoId("_LSf3I44GEeWrZqsymMFdfg")]
@@ -111,7 +111,7 @@ public enum DataSetCategory11Code
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CRTF".
+    /// Encoded/decoded by serializers as &quot;CRTF&quot;.
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_RkeLcY4GEeWrZqsymMFdfg")]

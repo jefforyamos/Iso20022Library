@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChargeType4Choice.Code))]
     [KnownType(typeof(ChargeType4Choice.Proprietary))]
     [IsoId("_gfFvsQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Type 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

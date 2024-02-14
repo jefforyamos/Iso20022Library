@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.ContainText))]
     [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.NotContainText))]
     [IsoId("_g7QEuGliEeGaMcKyqKNRfQ_-836272256")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification Search Criteria 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum DTCServiceType1Code
 {
     /// <summary>
     /// Cash In Lieu or Round Up service.
-    /// Encoded/decoded by serializers as "CILR".
+    /// Encoded/decoded by serializers as &quot;CILR&quot;.
     /// </summary>
     [EnumMember(Value = "CILR")]
     [IsoId("_14xnNTL3EeKU9IrkkToqcw_-623906197")]
@@ -30,7 +30,7 @@ public enum DTCServiceType1Code
     
     /// <summary>
     /// U.S. Tax Withholding service.
-    /// Encoded/decoded by serializers as "USTX".
+    /// Encoded/decoded by serializers as &quot;USTX&quot;.
     /// </summary>
     [EnumMember(Value = "USTX")]
     [IsoId("_14xnNjL3EeKU9IrkkToqcw_843242566")]
@@ -39,7 +39,7 @@ public enum DTCServiceType1Code
     
     /// <summary>
     /// Foreign Tax Relief service.
-    /// Encoded/decoded by serializers as "FTXR".
+    /// Encoded/decoded by serializers as &quot;FTXR&quot;.
     /// </summary>
     [EnumMember(Value = "FTXR")]
     [IsoId("_146xIDL3EeKU9IrkkToqcw_1672203018")]

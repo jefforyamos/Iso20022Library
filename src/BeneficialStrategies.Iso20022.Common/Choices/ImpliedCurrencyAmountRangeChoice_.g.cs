@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.EqualAmount))]
     [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount))]
     [IsoId("_PU-ECtp-Ed-ak6NoX_4Aeg_847262836")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Implied Currency Amount Range Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

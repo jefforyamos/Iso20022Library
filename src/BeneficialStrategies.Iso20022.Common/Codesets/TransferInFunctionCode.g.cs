@@ -21,7 +21,7 @@ public enum TransferInFunctionCode
 {
     /// <summary>
     /// The transfer-in is an advice and request, that is, the message is used to inform the receiver to expect an unsolicited transfer in confirmation and to request account information for the transfer.
-    /// Encoded/decoded by serializers as "ADRE".
+    /// Encoded/decoded by serializers as &quot;ADRE&quot;.
     /// </summary>
     [EnumMember(Value = "ADRE")]
     [IsoId("_kBA5QCVNEeWI0orciOKunQ")]
@@ -30,7 +30,7 @@ public enum TransferInFunctionCode
     
     /// <summary>
     /// The transfer-in is an instruction.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_Fq0hcCVOEeWI0orciOKunQ")]
@@ -39,7 +39,7 @@ public enum TransferInFunctionCode
     
     /// <summary>
     /// The transfer-in provides advice about account information for a transfer.
-    /// Encoded/decoded by serializers as "ADVI".
+    /// Encoded/decoded by serializers as &quot;ADVI&quot;.
     /// </summary>
     [EnumMember(Value = "ADVI")]
     [IsoId("_KOaocCVOEeWI0orciOKunQ")]
@@ -48,7 +48,7 @@ public enum TransferInFunctionCode
     
     /// <summary>
     /// The transfer-in is a confirmation (rather than an advice).
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_X8MAACVOEeWI0orciOKunQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the future status of the transaction by means of a code and a period.
 /// </summary>
 [IsoId("_RbFb9Np-Ed-ak6NoX_4Aeg_-2036389843")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TransactionStatus5
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_RbFb9dp-Ed-ak6NoX_4Aeg_-2036389841")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BaselineStatus3Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BaselineStatus3Code Status { get; init; } 
+    public required BaselineStatus3Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BaselineStatus3Code Status { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record TransactionStatus5
     /// Date and time at which the current status will change.
     /// </summary>
     [IsoId("_RbFb9tp-Ed-ak6NoX_4Aeg_-2036389782")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Change Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChngDtTm")]
     #endif
+    [IsoXmlTag("ChngDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ChangeDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ChangeDateTime { get; init; } 
+    public required System.DateTime ChangeDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ChangeDateTime { get; init; } 
     #else
@@ -92,15 +89,13 @@ public partial record TransactionStatus5
     /// Additional information on the reason for the time-out.
     /// </summary>
     [IsoId("_RbFb99p-Ed-ak6NoX_4Aeg_-149402521")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

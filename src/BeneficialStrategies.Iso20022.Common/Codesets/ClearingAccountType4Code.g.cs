@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum ClearingAccountType4Code
 {
     /// <summary>
-    /// Specifies that the account is used to register trades executed for the clearing member's customers.
-    /// Encoded/decoded by serializers as "CLIE".
+    /// Specifies that the account is used to register trades executed for the clearing member&apos;s customers.
+    /// Encoded/decoded by serializers as &quot;CLIE&quot;.
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_Gbdm4YJLEeuDe9SyRl5qeg")]
@@ -30,7 +30,7 @@ public enum ClearingAccountType4Code
     
     /// <summary>
     /// Specifies that the account is used to register trades executed for either the clearing member or its subsidiaries.
-    /// Encoded/decoded by serializers as "HOUS".
+    /// Encoded/decoded by serializers as &quot;HOUS&quot;.
     /// </summary>
     [EnumMember(Value = "HOUS")]
     [IsoId("_GmBREYJLEeuDe9SyRl5qeg")]

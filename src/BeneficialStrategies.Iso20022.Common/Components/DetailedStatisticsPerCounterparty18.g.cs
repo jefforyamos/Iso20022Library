@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
 [IsoId("_x82mtVyGEe24CqbZJK5XxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Statistics Per Counterparty")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,16 +55,16 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Reference date for statistics collection.
     /// </summary>
     [IsoId("_x9xMsVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefDt")]
     #endif
+    [IsoXmlTag("RefDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ReferenceDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ReferenceDate { get; init; } 
+    public required System.DateOnly ReferenceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ReferenceDate { get; init; } 
     #else
@@ -77,19 +75,16 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Total number of reports sent or received.
     /// </summary>
     [IsoId("_x9xMs1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Reports")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfRpts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfRpts")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfReports { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfReports { get; init; } 
+    public required System.String TotalNumberOfReports { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfReports { get; init; } 
     #else
@@ -100,19 +95,16 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Total number of reports accepted.
     /// </summary>
     [IsoId("_x9xMtVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Reports Accepted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfRptsAccptd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfRptsAccptd")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfReportsAccepted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfReportsAccepted { get; init; } 
+    public required System.String TotalNumberOfReportsAccepted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfReportsAccepted { get; init; } 
     #else
@@ -123,19 +115,16 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Total number of reports rejected.
     /// </summary>
     [IsoId("_x9xMt1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Reports Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfRptsRjctd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfRptsRjctd")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfReportsRejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfReportsRejected { get; init; } 
+    public required System.String TotalNumberOfReportsRejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfReportsRejected { get; init; } 
     #else
@@ -146,19 +135,16 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Total number of reports sent or received.
     /// </summary>
     [IsoId("_x9xMuVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTxs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfTxs")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfTransactions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfTransactions { get; init; } 
+    public required System.String TotalNumberOfTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfTransactions { get; init; } 
     #else
@@ -169,16 +155,15 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Total number of transactions accepted.
     /// </summary>
     [IsoId("_x9xMu1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Transactions Accepted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTxsAccptd")]
     #endif
+    [IsoXmlTag("TtlNbOfTxsAccptd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; init; } 
+    public required StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; init; } 
     #else
@@ -189,16 +174,15 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Total number of transactions rejected.
     /// </summary>
     [IsoId("_x9xMvVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Transactions Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTxsRjctd")]
     #endif
+    [IsoXmlTag("TtlNbOfTxsRjctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; init; } 
+    public required StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; init; } 
     #else
@@ -209,12 +193,11 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Total number of rejected derivatives submitted by the report submitting entity for the reporting counterparty which were then corrected within ten business days.
     /// </summary>
     [IsoId("_x9xMv1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Corrected Rejections")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCrrctdRjctns")]
     #endif
+    [IsoXmlTag("TtlCrrctdRjctns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatisticsPerActionType1? TotalCorrectedRejections { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +210,11 @@ public partial record DetailedStatisticsPerCounterparty18
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
     /// </summary>
     [IsoId("_x9xMwVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnSttstcs")]
     #endif
+    [IsoXmlTag("RjctnSttstcs")]
     public RejectionStatistics8? RejectionStatistics { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _x9xMwVyGEe24CqbZJK5XxA
     

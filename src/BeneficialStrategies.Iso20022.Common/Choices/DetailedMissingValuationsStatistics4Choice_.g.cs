@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DetailedMissingValuationsStatistics4Choice.DataSetAction))]
     [KnownType(typeof(DetailedMissingValuationsStatistics4Choice.Report))]
     [IsoId("_x0O2MVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Missing Valuations Statistics 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

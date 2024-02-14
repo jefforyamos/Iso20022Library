@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRangeChoice
     /// Range of valid amount values.
     /// </summary>
     [IsoId("_PVH1ANp-Ed-ak6NoX_4Aeg_-1220232112")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From To Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRangeChoice
         /// Lower boundary of a range of amount values.
         /// </summary>
         [IsoId("_PVH1BNp-Ed-ak6NoX_4Aeg_-1340961900")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("From Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrAmt")]
         #endif
+        [IsoXmlTag("FrAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AmountRangeBoundary1 FromAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AmountRangeBoundary1 FromAmount { get; init; } 
+        public required AmountRangeBoundary1 FromAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AmountRangeBoundary1 FromAmount { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRangeChoice
         /// Upper boundary of a range of amount values.
         /// </summary>
         [IsoId("_PVH1Bdp-Ed-ak6NoX_4Aeg_-1328032668")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("To Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ToAmt")]
         #endif
+        [IsoXmlTag("ToAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AmountRangeBoundary1 ToAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AmountRangeBoundary1 ToAmount { get; init; } 
+        public required AmountRangeBoundary1 ToAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AmountRangeBoundary1 ToAmount { get; init; } 
         #else

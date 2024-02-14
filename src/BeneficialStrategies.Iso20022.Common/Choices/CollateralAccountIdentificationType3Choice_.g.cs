@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralAccountIdentificationType3Choice.Type))]
     [KnownType(typeof(CollateralAccountIdentificationType3Choice.Proprietary))]
     [IsoId("_03MJ4a_XEeaiqo1qOdNaWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Account Identification Type 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_RElAcdp-Ed-ak6NoX_4Aeg_-397339482")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope2
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
     [IsoId("_RElActp-Ed-ak6NoX_4Aeg_-397339463")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification2Code ModificationScopeIndication { get; init; } 
+    public required DataModification2Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification2Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope2
     /// Alternative identification, for example, national registration identification number, passport number, or an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
     [IsoId("_RElAc9p-Ed-ak6NoX_4Aeg_726584597")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrId")]
     #endif
+    [IsoXmlTag("OthrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification9 OtherIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification9 OtherIdentification { get; init; } 
+    public required GenericIdentification9 OtherIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification9 OtherIdentification { get; init; } 
     #else

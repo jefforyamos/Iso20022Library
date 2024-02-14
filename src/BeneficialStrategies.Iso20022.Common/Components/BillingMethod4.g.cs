@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details for the tax calculation method C.
 /// </summary>
 [IsoId("_6QGNo5qlEeGSON8vddiWzQ_288570123")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Method")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record BillingMethod4
     /// Specifies the details of the taxable services using tax calculation method C.
     /// </summary>
     [IsoId("_6QGNpJqlEeGSON8vddiWzQ_-708502230")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Detail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcDtl")]
     #endif
+    [IsoXmlTag("SvcDtl")]
     public BillingServiceParameters2? ServiceDetail { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _6QGNpJqlEeGSON8vddiWzQ_-708502230
     
@@ -64,16 +61,15 @@ public partial record BillingMethod4
     /// Total amount of service charge to be taxed in the tax region’s host currency along with the supporting tax calculations. ||Usage: Used for tax calculation method C only, and only one per tax region may be specified.
     /// </summary>
     [IsoId("_6QGNpZqlEeGSON8vddiWzQ_-1819413649")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Calculation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxClctn")]
     #endif
+    [IsoXmlTag("TaxClctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxCalculation1 TaxCalculation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxCalculation1 TaxCalculation { get; init; } 
+    public required TaxCalculation1 TaxCalculation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxCalculation1 TaxCalculation { get; init; } 
     #else

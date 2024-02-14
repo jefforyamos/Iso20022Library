@@ -21,7 +21,7 @@ public enum InterestRequestSequence1Code
 {
     /// <summary>
     /// Indicates this is a new interest payment request.
-    /// Encoded/decoded by serializers as "INIT".
+    /// Encoded/decoded by serializers as &quot;INIT&quot;.
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_YbKMeNp-Ed-ak6NoX_4Aeg_-654514650")]
@@ -30,7 +30,7 @@ public enum InterestRequestSequence1Code
     
     /// <summary>
     /// Indicates this is an updated interest payement request.
-    /// Encoded/decoded by serializers as "UPDA".
+    /// Encoded/decoded by serializers as &quot;UPDA&quot;.
     /// </summary>
     [EnumMember(Value = "UPDA")]
     [IsoId("_YbT9cNp-Ed-ak6NoX_4Aeg_-200427381")]

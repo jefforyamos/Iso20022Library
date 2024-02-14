@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements that further details the information related to the type of payment.
 /// </summary>
 [IsoId("_TF7NJdp-Ed-ak6NoX_4Aeg_622781299")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Type Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaymentTypeInformation5
     /// Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply to the processing of the instruction.
     /// </summary>
     [IsoId("_TF7NJtp-Ed-ak6NoX_4Aeg_622781702")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrPrty")]
     #endif
+    [IsoXmlTag("InstrPrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority2Code? InstructionPriority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PaymentTypeInformation5
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
     [IsoId("_TF7NJ9p-Ed-ak6NoX_4Aeg_622781762")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcLvl")]
     #endif
+    [IsoXmlTag("SvcLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RestrictedProprietaryChoice_? ServiceLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PaymentTypeInformation5
     /// Specifies the clearing channel to be used for the instruction.
     /// </summary>
     [IsoId("_TGEXENp-Ed-ak6NoX_4Aeg_-1369500381")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrChanl")]
     #endif
+    [IsoXmlTag("ClrChanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record PaymentTypeInformation5
     /// User community specific instrument required for use within that user community.||Usage: When available, codes provided by local authorities should be used.
     /// </summary>
     [IsoId("_TGEXEdp-Ed-ak6NoX_4Aeg_-1918335259")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclInstrm")]
     #endif
+    [IsoXmlTag("LclInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RestrictedProprietaryChoice_? LocalInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

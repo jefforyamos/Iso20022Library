@@ -21,7 +21,7 @@ public enum SubscriptionChargeApplicationType1Code
 {
     /// <summary>
     /// Charges are accumulated and charged later.
-    /// Encoded/decoded by serializers as "ACCU".
+    /// Encoded/decoded by serializers as &quot;ACCU&quot;.
     /// </summary>
     [EnumMember(Value = "ACCU")]
     [IsoId("_10dH5jL3EeKU9IrkkToqcw_800343679")]
@@ -30,7 +30,7 @@ public enum SubscriptionChargeApplicationType1Code
     
     /// <summary>
     /// Charges are charged when instructed.
-    /// Encoded/decoded by serializers as "IMDT".
+    /// Encoded/decoded by serializers as &quot;IMDT&quot;.
     /// </summary>
     [EnumMember(Value = "IMDT")]
     [IsoId("_10mR0DL3EeKU9IrkkToqcw_-2027474854")]

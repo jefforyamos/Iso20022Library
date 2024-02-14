@@ -15,14 +15,12 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Collateral taker's answer to the collateral giver instruction.
+    /// Collateral taker&apos;s answer to the collateral giver instruction.
     /// </summary>
     [KnownType(typeof(ResponseStatus9Choice.Code))]
     [KnownType(typeof(ResponseStatus9Choice.Proprietary))]
     [IsoId("_cIPBMLzcEeivTd4NUfCi2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Status 9 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

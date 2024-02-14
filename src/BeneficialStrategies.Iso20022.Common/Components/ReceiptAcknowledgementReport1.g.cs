@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the original request. Identifies the message being acknowledged and its status.
 /// </summary>
 [IsoId("_jHt69O5NEeCisYr99QEiWA_-1586267634")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receipt Acknowledgement Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReceiptAcknowledgementReport1
     /// Reference of the request.
     /// </summary>
     [IsoId("_jH3E4O5NEeCisYr99QEiWA_-1954136940")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReferences RelatedReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReferences RelatedReference { get; init; } 
+    public required AdditionalReferences RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReferences RelatedReference { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReceiptAcknowledgementReport1
     /// Gives the status of the request.
     /// </summary>
     [IsoId("_jH3E4e5NEeCisYr99QEiWA_-375245615")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Handling")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqHdlg")]
     #endif
+    [IsoXmlTag("ReqHdlg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestHandling1 RequestHandling { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestHandling1 RequestHandling { get; init; } 
+    public required RequestHandling1 RequestHandling { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestHandling1 RequestHandling { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record ReceiptAcknowledgementReport1
     /// Identification of the original message for which the acknowledgement is sent.
     /// </summary>
     [IsoId("_jH3E4u5NEeCisYr99QEiWA_-864664947")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgId")]
     #endif
+    [IsoXmlTag("OrgnlMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageIdentification6? OriginalMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

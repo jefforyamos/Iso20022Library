@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CalendarOrBusinessError1Choice.CalendarData))]
     [KnownType(typeof(CalendarOrBusinessError1Choice.BusinessError))]
     [IsoId("_dVcQ2Im7Eeipw6hHPgB4Sw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calendar Or Business Error 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

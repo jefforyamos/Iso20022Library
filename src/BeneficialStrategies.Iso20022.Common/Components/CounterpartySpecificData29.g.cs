@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related specifically to counterparties.
 /// </summary>
 [IsoId("_nQXxmXg-Eeu3kecHd7QKUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Specific Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CounterpartySpecificData29
     /// Data specific to counterparties of the reported transaction/position.
     /// </summary>
     [IsoId("_ne8ZEXg-Eeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPty")]
     #endif
+    [IsoXmlTag("CtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeCounterpartyReport14 Counterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeCounterpartyReport14 Counterparty { get; init; } 
+    public required TradeCounterpartyReport14 Counterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeCounterpartyReport14 Counterparty { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record CounterpartySpecificData29
     /// Data specific to the valuation of the transaction.
     /// </summary>
     [IsoId("_ne8ZE3g-Eeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Valtn")]
     #endif
+    [IsoXmlTag("Valtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractValuationData6? Valuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,12 +87,11 @@ public partial record CounterpartySpecificData29
     /// Usage: This element is not present when there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
     [IsoId("_ne8ZFXg-Eeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Coll")]
     #endif
+    [IsoXmlTag("Coll")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeCollateralReport5? Collateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,16 +104,16 @@ public partial record CounterpartySpecificData29
     /// Indicates the date and time of the submission of the report to the trade repository.
     /// </summary>
     [IsoId("_ne8ZF3g-Eeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgTmStmp")]
     #endif
+    [IsoXmlTag("RptgTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ReportingTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ReportingTimeStamp { get; init; } 
+    public required System.DateTime ReportingTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ReportingTimeStamp { get; init; } 
     #else

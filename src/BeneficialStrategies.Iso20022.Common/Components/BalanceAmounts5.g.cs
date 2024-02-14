@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
 [IsoId("_WQRpQtp-Ed-ak6NoX_4Aeg_1054605263")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Amounts")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BalanceAmounts5
     /// Value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
     [IsoId("_WQRpQ9p-Ed-ak6NoX_4Aeg_1004561672")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgVal")]
     #endif
+    [IsoXmlTag("HldgVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection14 HoldingValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection14 HoldingValue { get; init; } 
+    public required AmountAndDirection14 HoldingValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection14 HoldingValue { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record BalanceAmounts5
     /// Previous value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
     [IsoId("_WQRpRNp-Ed-ak6NoX_4Aeg_-1103422100")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Holding Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsHldgVal")]
     #endif
+    [IsoXmlTag("PrvsHldgVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? PreviousHoldingValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record BalanceAmounts5
     /// Value of a financial instrument, as booked/acquired in an account. It may be used to establish capital gain tax liability.
     /// </summary>
     [IsoId("_WQRpRdp-Ed-ak6NoX_4Aeg_-425897652")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Book Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookVal")]
     #endif
+    [IsoXmlTag("BookVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? BookValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record BalanceAmounts5
     /// Difference between holding value and the book value.
     /// </summary>
     [IsoId("_WQRpRtp-Ed-ak6NoX_4Aeg_1761085872")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unrealised Gain Loss")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UrlsdGnLoss")]
     #endif
+    [IsoXmlTag("UrlsdGnLoss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? UnrealisedGainLoss { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record BalanceAmounts5
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
     [IsoId("_WQRpR9p-Ed-ak6NoX_4Aeg_-1116292121")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstAmt")]
     #endif
+    [IsoXmlTag("AcrdIntrstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

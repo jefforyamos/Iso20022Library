@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceFormat5Choice
     /// Provide eligible balance information in different formats.
     /// </summary>
     [IsoId("_kvec2Tq5EeWQ1Y7f8kds2A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligible Balance")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceFormat5Choice
         /// Sign of the quantity of security.
         /// </summary>
         [IsoId("_k7YK0zq5EeWQ1Y7f8kds2A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Short Long Position")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ShrtLngPos")]
         #endif
+        [IsoXmlTag("ShrtLngPos")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ShortLong1Code ShortLongPosition { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ShortLong1Code ShortLongPosition { get; init; } 
+        public required ShortLong1Code ShortLongPosition { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ShortLong1Code ShortLongPosition { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceFormat5Choice
         /// Quantity of security.
         /// </summary>
         [IsoId("_k7YK1Tq5EeWQ1Y7f8kds2A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Qty")]
         #endif
+        [IsoXmlTag("Qty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
+        public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
         #else

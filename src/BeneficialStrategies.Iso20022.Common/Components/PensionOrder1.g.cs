@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Order attached to a pension.
 /// </summary>
 [IsoId("_HAPJcLTpEeiENt6AoDfPXg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pension Order")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PensionOrder1
     /// Order attached to the pension policy, plan or scheme.
     /// </summary>
     [IsoId("_PU2D8LTpEeiENt6AoDfPXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PensionOrderType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PensionOrderType1Choice_ Type { get; init; } 
+    public required PensionOrderType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PensionOrderType1Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PensionOrder1
     /// Additional information about the pension order.
     /// </summary>
     [IsoId("_4z8_ALTqEeiENt6AoDfPXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

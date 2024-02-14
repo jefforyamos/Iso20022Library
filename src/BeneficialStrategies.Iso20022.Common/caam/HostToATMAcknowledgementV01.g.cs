@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caam;
 /// </summary>
 [Description(@"The HostToATMAcknowledgement message is sent by an ATM to a host to acknowledge the receipt of a HostToATMRequest message.")]
 [IsoId("_uoX0IItrEeSDLd7nI4Quzw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Host To ATM Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord<HostToATMAcknow
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_0sB_sItrEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header20 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header20 Header { get; init; } 
+    public required Header20 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header20 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord<HostToATMAcknow
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_7SogQItrEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Host To ATM Acknowledgement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdHstToATMAck")]
     #endif
+    [IsoXmlTag("PrtctdHstToATMAck")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedHostToATMAcknowledgement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord<HostToATMAcknow
     /// Information related to the acknowledgement from an ATM to contact the ATM manager.
     /// </summary>
     [IsoId("_FlTp8ItsEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host To ATM Acknowledgement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstToATMAck")]
     #endif
+    [IsoXmlTag("HstToATMAck")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HostToATMAcknowledgement1? HostToATMAcknowledgement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord<HostToATMAcknow
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_JNBXgItsEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord<HostToATMAcknow
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="HostToATMAcknowledgementV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;HostToATMAcknowledgementV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public HostToATMAcknowledgementV01Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record HostToATMAcknowledgementV01 : IOuterRecord<HostToATMAcknow
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="HostToATMAcknowledgementV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;HostToATMAcknowledgementV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record HostToATMAcknowledgementV01Document : IOuterDocument<HostToATMAcknowledgementV01>
@@ -176,7 +170,7 @@ public partial record HostToATMAcknowledgementV01Document : IOuterDocument<HostT
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="HostToATMAcknowledgementV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;HostToATMAcknowledgementV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required HostToATMAcknowledgementV01 Message { get; init; }

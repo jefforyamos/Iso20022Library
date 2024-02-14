@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|An account servicer, for example, a transfer agent sends the StatementOfInvestmentFundTransactionsCancellation message to the account owner, for example, an investment manager or its authorised representative to cancel a previously sent StatementOfInvestmentFundTransactions message.|Usage|The StatementOfInvestmentFundTransactionsCancellation message is used to cancel a previously sent StatementOfInvestmentFundTransactions message. This message must contain the reference of the message to be cancelled.|This message may also contain all the details of the message to be cancelled, but this is not recommended.")]
 [IsoId("_rfPPoQf7EeSNB7vR9dc0nw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statement Of Investment Fund Transactions Cancellation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV03 : IOu
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_rfPPowf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -100,12 +97,11 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV03 : IOu
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_rfPPpQf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +114,11 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV03 : IOu
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_rfPPpwf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,16 +131,15 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV03 : IOu
     /// Pagination of the message.
     /// </summary>
     [IsoId("_rfPPqQf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination MessagePagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination MessagePagination { get; init; } 
+    public required Pagination MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination MessagePagination { get; init; } 
     #else
@@ -156,12 +150,11 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV03 : IOu
     /// The Statement of Investment Fund Transactions message to cancel.
     /// </summary>
     [IsoId("_rfPPqwf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement To Be Cancelled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtToBeCanc")]
     #endif
+    [IsoXmlTag("StmtToBeCanc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatementOfInvestmentFundTransactions3? StatementToBeCancelled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,7 +167,7 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV03 : IOu
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatementOfInvestmentFundTransactionsCancellationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatementOfInvestmentFundTransactionsCancellationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatementOfInvestmentFundTransactionsCancellationV03Document ToDocument()
     {
@@ -184,7 +177,7 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV03 : IOu
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatementOfInvestmentFundTransactionsCancellationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatementOfInvestmentFundTransactionsCancellationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatementOfInvestmentFundTransactionsCancellationV03Document : IOuterDocument<StatementOfInvestmentFundTransactionsCancellationV03>
@@ -201,7 +194,7 @@ public partial record StatementOfInvestmentFundTransactionsCancellationV03Docume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatementOfInvestmentFundTransactionsCancellationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatementOfInvestmentFundTransactionsCancellationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatementOfInvestmentFundTransactionsCancellationV03 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a cryptographic algorithm and parameters for the MAC computation.
 /// </summary>
 [IsoId("__YZO0WkIEeS7zPBpvm732w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Algorithm Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AlgorithmIdentification15
     /// Identification of the MAC algorithm.
     /// </summary>
     [IsoId("__ll9UWkIEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
+    [IsoXmlTag("Algo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Algorithm12Code Algorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Algorithm12Code Algorithm { get; init; } 
+    public required Algorithm12Code Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Algorithm12Code Algorithm { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AlgorithmIdentification15
     /// Parameters associated to the MAC algorithm.
     /// </summary>
     [IsoId("__ll9U2kIEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Param")]
     #endif
+    [IsoXmlTag("Param")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Parameter7? Parameter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

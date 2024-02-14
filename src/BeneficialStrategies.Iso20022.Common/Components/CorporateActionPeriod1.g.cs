@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies periods.
 /// </summary>
 [IsoId("_Tfs_F9p-Ed-ak6NoX_4Aeg_780421229")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPeriod1
     /// Period during which the specified option, or all options of the event, remains valid, eg, offer period.
     /// </summary>
     [IsoId("_Tf2JANp-Ed-ak6NoX_4Aeg_251714373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnPrd")]
     #endif
+    [IsoXmlTag("ActnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? ActionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPeriod1
     /// Period during a take-over where any outstanding equity must be purchased by the take-over company.
     /// </summary>
     [IsoId("_Tf2JAdp-Ed-ak6NoX_4Aeg_884175340")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Compulsory Purchase Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmplsryPurchsPrd")]
     #endif
+    [IsoXmlTag("CmplsryPurchsPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? CompulsoryPurchasePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionPeriod1
     /// Period during which the interest rate has been applied.
     /// </summary>
     [IsoId("_Tf2JAtp-Ed-ak6NoX_4Aeg_1584193885")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstPrd")]
     #endif
+    [IsoXmlTag("IntrstPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? InterestPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionPeriod1
     /// Period during which the security is blocked.
     /// </summary>
     [IsoId("_Tf2JA9p-Ed-ak6NoX_4Aeg_786981224")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blocking Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckgPrd")]
     #endif
+    [IsoXmlTag("BlckgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? BlockingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionPeriod1
     /// Period during which the price of a security is determined.
     /// </summary>
     [IsoId("_Tf2JBNp-Ed-ak6NoX_4Aeg_-1721808638")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Calculation Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricClctnPrd")]
     #endif
+    [IsoXmlTag("PricClctnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? PriceCalculationPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

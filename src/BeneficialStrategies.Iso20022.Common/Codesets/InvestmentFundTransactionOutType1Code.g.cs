@@ -21,7 +21,7 @@ public enum InvestmentFundTransactionOutType1Code
 {
     /// <summary>
     /// Transaction is a redemption of an investment fund.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_aczUFNp-Ed-ak6NoX_4Aeg_1717851866")]
@@ -30,7 +30,7 @@ public enum InvestmentFundTransactionOutType1Code
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SWIO".
+    /// Encoded/decoded by serializers as &quot;SWIO&quot;.
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_aczUFdp-Ed-ak6NoX_4Aeg_1717851883")]
@@ -39,7 +39,7 @@ public enum InvestmentFundTransactionOutType1Code
     
     /// <summary>
     /// Transaction is an InSpecie.
-    /// Encoded/decoded by serializers as "INSP".
+    /// Encoded/decoded by serializers as &quot;INSP&quot;.
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_aczUFtp-Ed-ak6NoX_4Aeg_1717851901")]
@@ -48,7 +48,7 @@ public enum InvestmentFundTransactionOutType1Code
     
     /// <summary>
     /// Transaction is a cross out.
-    /// Encoded/decoded by serializers as "CROO".
+    /// Encoded/decoded by serializers as &quot;CROO&quot;.
     /// </summary>
     [EnumMember(Value = "CROO")]
     [IsoId("_aczUF9p-Ed-ak6NoX_4Aeg_1717851902")]

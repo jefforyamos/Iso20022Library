@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The CalendarQuery message is sent by the system member to the system administrator to request information on the the system status for specific calendar days.")]
 [IsoId("_DRJNKFuDEe29lKnE5APnfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Calendar Query V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CalendarQueryV02 : IOuterRecord<CalendarQueryV02,CalendarQ
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_DRJNKVuDEe29lKnE5APnfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader9 MessageHeader { get; init; } 
+    public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader9 MessageHeader { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CalendarQueryV02 : IOuterRecord<CalendarQueryV02,CalendarQ
     /// Defines the criteria to extract the calendar information.
     /// </summary>
     [IsoId("_DRJNKluDEe29lKnE5APnfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CalendarSearchCriteria1? SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record CalendarQueryV02 : IOuterRecord<CalendarQueryV02,CalendarQ
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_DRJNK1uDEe29lKnE5APnfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record CalendarQueryV02 : IOuterRecord<CalendarQueryV02,CalendarQ
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CalendarQueryV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CalendarQueryV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CalendarQueryV02Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record CalendarQueryV02 : IOuterRecord<CalendarQueryV02,CalendarQ
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CalendarQueryV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CalendarQueryV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CalendarQueryV02Document : IOuterDocument<CalendarQueryV02>
@@ -158,7 +153,7 @@ public partial record CalendarQueryV02Document : IOuterDocument<CalendarQueryV02
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CalendarQueryV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CalendarQueryV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CalendarQueryV02 Message { get; init; }

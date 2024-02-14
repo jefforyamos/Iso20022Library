@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxableIncomePerShareCalculated2
     /// Taxable income per share (TIS) calculated expressed as a code.
     /// </summary>
     [IsoId("_wmTxcThgEeamLZQeccJa7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxableIncomePerShareCalculated2
         /// Specifies whether the fund calculates a taxable interest per share (TIS).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TaxableIncomePerShareCalculated2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TaxableIncomePerShareCalculated2Code Value { get; init; } 
+        public required TaxableIncomePerShareCalculated2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TaxableIncomePerShareCalculated2Code Value { get; init; } 
         #else

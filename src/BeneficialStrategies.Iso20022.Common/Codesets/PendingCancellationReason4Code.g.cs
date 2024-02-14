@@ -21,7 +21,7 @@ public enum PendingCancellationReason4Code
 {
     /// <summary>
     /// Instruction received after the account servicers specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Z-QW4dp-Ed-ak6NoX_4Aeg_-2080565714")]
@@ -30,7 +30,7 @@ public enum PendingCancellationReason4Code
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Z-QW4tp-Ed-ak6NoX_4Aeg_-2052858643")]
@@ -39,7 +39,7 @@ public enum PendingCancellationReason4Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_Z-QW49p-Ed-ak6NoX_4Aeg_-1791501706")]
@@ -48,7 +48,7 @@ public enum PendingCancellationReason4Code
     
     /// <summary>
     /// Other reason.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Z-QW5Np-Ed-ak6NoX_4Aeg_-1763795962")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to search for calendar data.
 /// </summary>
 [IsoId("_w9W9hYm5Eeipw6hHPgB4Sw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Calendar Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CalendarSearchCriteria1
     /// Specifies the year for which the calendar information must be returned.
     /// </summary>
     [IsoId("_4unTUIm5Eeipw6hHPgB4Sw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Year")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Yr")]
     #endif
+    [IsoXmlTag("Yr")]
+    [IsoSimpleType(IsoSimpleType.ISOYear)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYear? Year { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record CalendarSearchCriteria1
     /// Specifies the month for which the calendar information must be returned.
     /// </summary>
     [IsoId("_6zc44Im5Eeipw6hHPgB4Sw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Month")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mnth")]
     #endif
+    [IsoXmlTag("Mnth")]
+    [IsoSimpleType(IsoSimpleType.ISOMonth)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOMonth? Month { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record CalendarSearchCriteria1
     /// Specifies the service or system for which the calendar information must be returned.
     /// </summary>
     [IsoId("_kKD0sIm6Eeipw6hHPgB4Sw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Svc")]
     #endif
+    [IsoXmlTag("Svc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemAndCurrency1? Service { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

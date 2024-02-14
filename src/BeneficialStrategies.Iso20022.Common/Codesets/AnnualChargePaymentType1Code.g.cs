@@ -21,7 +21,7 @@ public enum AnnualChargePaymentType1Code
 {
     /// <summary>
     /// Annual charge is deducted from the fund capital.
-    /// Encoded/decoded by serializers as "CAPL".
+    /// Encoded/decoded by serializers as &quot;CAPL&quot;.
     /// </summary>
     [EnumMember(Value = "CAPL")]
     [IsoId("_iTTggGAPEeiNMJ262H2pWg")]
@@ -30,7 +30,7 @@ public enum AnnualChargePaymentType1Code
     
     /// <summary>
     /// Annual charge is deducted from the fund income.
-    /// Encoded/decoded by serializers as "INCO".
+    /// Encoded/decoded by serializers as &quot;INCO&quot;.
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_iXy-8WAPEeiNMJ262H2pWg")]

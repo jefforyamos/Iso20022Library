@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Balance breakdown information.
 /// </summary>
 [IsoId("_m9_jwPNBEeCuA5Tr22BnwA_-274650344")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Portfolio Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PortfolioBalance1
     /// Summary balance information.
     /// </summary>
     [IsoId("_m9_jwfNBEeCuA5Tr22BnwA_1134139495")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SummryBal")]
     #endif
+    [IsoXmlTag("SummryBal")]
     public BalanceDetails5? SummaryBalance { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _m9_jwfNBEeCuA5Tr22BnwA_1134139495
     
@@ -57,12 +54,11 @@ public partial record PortfolioBalance1
     /// Detailed balance information.
     /// </summary>
     [IsoId("_m9_jwvNBEeCuA5Tr22BnwA_432347507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldBal")]
     #endif
+    [IsoXmlTag("DtldBal")]
     public BalanceDetails6? DetailedBalance { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _m9_jwvNBEeCuA5Tr22BnwA_432347507
     

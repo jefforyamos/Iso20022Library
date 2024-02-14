@@ -21,7 +21,7 @@ public enum BlockTrade1Code
 {
     /// <summary>
     /// Transaction is a block trade parent.
-    /// Encoded/decoded by serializers as "BLPA".
+    /// Encoded/decoded by serializers as &quot;BLPA&quot;.
     /// </summary>
     [EnumMember(Value = "BLPA")]
     [IsoId("_begotdp-Ed-ak6NoX_4Aeg_489423628")]
@@ -30,7 +30,7 @@ public enum BlockTrade1Code
     
     /// <summary>
     /// Transaction is a block trade child.
-    /// Encoded/decoded by serializers as "BLCH".
+    /// Encoded/decoded by serializers as &quot;BLCH&quot;.
     /// </summary>
     [EnumMember(Value = "BLCH")]
     [IsoId("_begottp-Ed-ak6NoX_4Aeg_535598920")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice between a fixed rate and a floating rate.
 /// </summary>
 [IsoId("_g9tac6x2Eem81-uIvTF5rQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InterestRate3
     /// Amount of the transaction.
     /// </summary>
     [IsoId("_hBu-wax2Eem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection53 Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection53 Amount { get; init; } 
+    public required AmountAndDirection53 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection53 Amount { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record InterestRate3
     /// Information on interest rates related to the transaction.
     /// </summary>
     [IsoId("_hBu-w6x2Eem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestRate20Choice_ InterestRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InterestRate20Choice_ InterestRate { get; init; } 
+    public required InterestRate20Choice_ InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InterestRate20Choice_ InterestRate { get; init; } 
     #else

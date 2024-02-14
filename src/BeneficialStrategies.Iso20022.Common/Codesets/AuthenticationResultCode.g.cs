@@ -21,7 +21,7 @@ public enum AuthenticationResultCode
 {
     /// <summary>
     /// The authentication didn’t succeed.
-    /// Encoded/decoded by serializers as "DENY".
+    /// Encoded/decoded by serializers as &quot;DENY&quot;.
     /// </summary>
     [EnumMember(Value = "DENY")]
     [IsoId("_pHOwwLABEeah1_v59tW6Rg")]
@@ -30,7 +30,7 @@ public enum AuthenticationResultCode
     
     /// <summary>
     /// The card does not participate in the authentication programme.
-    /// Encoded/decoded by serializers as "CARD".
+    /// Encoded/decoded by serializers as &quot;CARD&quot;.
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_vTZYELABEeah1_v59tW6Rg")]
@@ -39,7 +39,7 @@ public enum AuthenticationResultCode
     
     /// <summary>
     /// The authentication couldn’t be carried out.
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_zS4FYLABEeah1_v59tW6Rg")]
@@ -48,7 +48,7 @@ public enum AuthenticationResultCode
     
     /// <summary>
     /// Merchant not enrolled in the authentication programme.
-    /// Encoded/decoded by serializers as "MRCH".
+    /// Encoded/decoded by serializers as &quot;MRCH&quot;.
     /// </summary>
     [EnumMember(Value = "MRCH")]
     [IsoId("_41PhwLABEeah1_v59tW6Rg")]
@@ -57,7 +57,7 @@ public enum AuthenticationResultCode
     
     /// <summary>
     /// Authentication succeeded with a cryptogram.
-    /// Encoded/decoded by serializers as "CRPT".
+    /// Encoded/decoded by serializers as &quot;CRPT&quot;.
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_8GEZULABEeah1_v59tW6Rg")]
@@ -66,7 +66,7 @@ public enum AuthenticationResultCode
     
     /// <summary>
     /// Authentication succeeded without a cryptogram.
-    /// Encoded/decoded by serializers as "UCRP".
+    /// Encoded/decoded by serializers as &quot;UCRP&quot;.
     /// </summary>
     [EnumMember(Value = "UCRP")]
     [IsoId("__VGhILABEeah1_v59tW6Rg")]

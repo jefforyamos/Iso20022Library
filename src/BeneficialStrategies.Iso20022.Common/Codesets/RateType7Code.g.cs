@@ -21,7 +21,7 @@ public enum RateType7Code
 {
     /// <summary>
     /// Rate of the scheduled payment.
-    /// Encoded/decoded by serializers as "SCHD".
+    /// Encoded/decoded by serializers as &quot;SCHD&quot;.
     /// </summary>
     [EnumMember(Value = "SCHD")]
     [IsoId("_ZZmKpdp-Ed-ak6NoX_4Aeg_-218272353")]
@@ -30,7 +30,7 @@ public enum RateType7Code
     
     /// <summary>
     /// Rate of the unscheduled payment.
-    /// Encoded/decoded by serializers as "USCD".
+    /// Encoded/decoded by serializers as &quot;USCD&quot;.
     /// </summary>
     [EnumMember(Value = "USCD")]
     [IsoId("_ZZmKptp-Ed-ak6NoX_4Aeg_-218272323")]

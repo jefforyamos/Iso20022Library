@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"SCOPE|An instructing party sends a SecurityCreationRequest message to an executing/servicing party to request the creation of financial instrument static details in their system.||The instructing party - executing/servicing party relationship may be:|- Central Securities Depositories (CSD) who would like to publish security static data, or |- a Corporate, or|- a Bank, or|- a Market Infrastructure, or |- a Market Data Provider.||USAGE|The request is sent when the instructing party identified a gap in the securities coverage of the executing/servicing party. The instructing party needs this security to be set-up at the executing /servicing party to perform its activities.||Initiator: instructing party.")]
 [IsoId("_jTt_oR62Eeu31YsWNiv_cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Creation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,12 +86,11 @@ public partial record SecurityCreationRequestV01 : IOuterRecord<SecurityCreation
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_C0kGQZIxEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,16 +103,15 @@ public partial record SecurityCreationRequestV01 : IOuterRecord<SecurityCreation
     /// Represents the financial instruments details.
     /// </summary>
     [IsoId("_jTt_rx62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scty")]
     #endif
+    [IsoXmlTag("Scty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityAttributes10 Security { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityAttributes10 Security { get; init; } 
+    public required SecurityAttributes10 Security { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityAttributes10 Security { get; init; } 
     #else
@@ -126,12 +122,11 @@ public partial record SecurityCreationRequestV01 : IOuterRecord<SecurityCreation
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jTt_tR62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,7 +139,7 @@ public partial record SecurityCreationRequestV01 : IOuterRecord<SecurityCreation
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecurityCreationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecurityCreationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecurityCreationRequestV01Document ToDocument()
     {
@@ -154,7 +149,7 @@ public partial record SecurityCreationRequestV01 : IOuterRecord<SecurityCreation
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityCreationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecurityCreationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecurityCreationRequestV01Document : IOuterDocument<SecurityCreationRequestV01>
@@ -171,7 +166,7 @@ public partial record SecurityCreationRequestV01Document : IOuterDocument<Securi
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecurityCreationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecurityCreationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityCreationRequestV01 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide the total sum of entries per bank transaction code.
 /// </summary>
 [IsoId("_xkvGwaRgEeeKoo4sGOxgwA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Totals Per Bank Transaction Code")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,12 @@ public partial record TotalsPerBankTransactionCode5
     /// Number of individual entries for the bank transaction code.
     /// </summary>
     [IsoId("_xwGpQ6RgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Entries")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfNtries")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfNtries")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,12 +67,12 @@ public partial record TotalsPerBankTransactionCode5
     /// Total of all individual entries included in the report.
     /// </summary>
     [IsoId("_xwGpRaRgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sum")]
     #endif
+    [IsoXmlTag("Sum")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Sum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +85,11 @@ public partial record TotalsPerBankTransactionCode5
     /// Total debit or credit amount that is the result of the netted amounts for all debit and credit entries per bank transaction code.
     /// </summary>
     [IsoId("_xwGpR6RgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Net Entry")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNetNtry")]
     #endif
+    [IsoXmlTag("TtlNetNtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection35? TotalNetEntry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +102,11 @@ public partial record TotalsPerBankTransactionCode5
     /// Number of individual credit entries for the bank transaction code.
     /// </summary>
     [IsoId("__32nEaRgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Entries")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtNtries")]
     #endif
+    [IsoXmlTag("CdtNtries")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberAndSumOfTransactions1? CreditEntries { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +119,11 @@ public partial record TotalsPerBankTransactionCode5
     /// Number of individual debit entries for the bank transaction code.
     /// </summary>
     [IsoId("__YYc0aRgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debit Entries")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtNtries")]
     #endif
+    [IsoXmlTag("DbtNtries")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberAndSumOfTransactions1? DebitEntries { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,12 +136,12 @@ public partial record TotalsPerBankTransactionCode5
     /// Indicates whether the bank transaction code is related to booked or forecast items.
     /// </summary>
     [IsoId("_xwGpSaRgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Forecast Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FcstInd")]
     #endif
+    [IsoXmlTag("FcstInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ForecastIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,16 +154,15 @@ public partial record TotalsPerBankTransactionCode5
     /// Set of elements used to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
     [IsoId("_xwGpS6RgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Transaction Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkTxCd")]
     #endif
+    [IsoXmlTag("BkTxCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
+    public required BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
     #else
@@ -182,12 +173,11 @@ public partial record TotalsPerBankTransactionCode5
     /// Set of elements used to indicate when the booked amount of money will become available, that is can be accessed and starts generating interest.
     /// </summary>
     [IsoId("_xwGpTaRgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Availability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Avlbty")]
     #endif
+    [IsoXmlTag("Avlbty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAvailability1? Availability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +190,11 @@ public partial record TotalsPerBankTransactionCode5
     /// Indicates the date (and time) of the transaction summary.
     /// </summary>
     [IsoId("_0TZFYaRgEeeKoo4sGOxgwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

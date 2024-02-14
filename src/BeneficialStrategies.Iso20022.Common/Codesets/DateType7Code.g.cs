@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum DateType7Code
 {
     /// <summary>
-    /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
-    /// Encoded/decoded by serializers as "ONGO".
+    /// Ongoing basis, which indicates that the date is determined by &quot;ongoing basis&quot; process, for example &quot;au fil de l&apos;eau&quot;.
+    /// Encoded/decoded by serializers as &quot;ONGO&quot;.
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_ayjhptp-Ed-ak6NoX_4Aeg_24028541")]

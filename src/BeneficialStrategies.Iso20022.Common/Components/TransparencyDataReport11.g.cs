@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides for reporting qualitative details of equity instruments as part of Transparency calculations.
 /// </summary>
 [IsoId("_pVzQ4Wk3EeaLAKoEUNsD9g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transparency Data Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,15 +52,13 @@ public partial record TransparencyDataReport11
     /// This identification will be used in the status advice report sent back.
     /// </summary>
     [IsoId("_pfKBNWk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +71,16 @@ public partial record TransparencyDataReport11
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
     [IsoId("_pfKoQGk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -95,15 +91,13 @@ public partial record TransparencyDataReport11
     /// Full name or description of the financial instrument.
     /// </summary>
     [IsoId("_pfKoQmk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Full Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FullNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FullNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FullName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,12 @@ public partial record TransparencyDataReport11
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
     [IsoId("_pfKoRGk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgVn")]
     #endif
+    [IsoXmlTag("TradgVn")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? TradingVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,12 @@ public partial record TransparencyDataReport11
     /// Date for which the data is provided.
     /// </summary>
     [IsoId("_pfKoRmk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgDt")]
     #endif
+    [IsoXmlTag("RptgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ReportingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,16 +146,15 @@ public partial record TransparencyDataReport11
     /// Specifies the classification of the equity instrument.
     /// </summary>
     [IsoId("_pfKoSGk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmClssfctn")]
     #endif
+    [IsoXmlTag("FinInstrmClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EquityInstrumentReportingClassification1Code FinancialInstrumentClassification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EquityInstrumentReportingClassification1Code FinancialInstrumentClassification { get; init; } 
+    public required EquityInstrumentReportingClassification1Code FinancialInstrumentClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EquityInstrumentReportingClassification1Code FinancialInstrumentClassification { get; init; } 
     #else
@@ -173,12 +166,12 @@ public partial record TransparencyDataReport11
     /// For ETFs, the number of units issued for trading.
     /// </summary>
     [IsoId("_pfKoUGk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Outstanding Instruments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOutsdngInstrms")]
     #endif
+    [IsoXmlTag("NbOutsdngInstrms")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumberFraction5)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumberFraction5? NumberOutstandingInstruments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +184,12 @@ public partial record TransparencyDataReport11
     /// The total number of shares corresponding to holdings exceeding 5% of total voting rights of the issuer unless such a holding is held by a collective investment undertaking or a pension fund. This field is to be populated only when actual information is known.
     /// </summary>
     [IsoId("_pfKoUmk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holdings Exceeding Total Voting Right Threshold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgsExcdgTtlVtngRghtThrshld")]
     #endif
+    [IsoXmlTag("HldgsExcdgTtlVtngRghtThrshld")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumberFraction5)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumberFraction5? HoldingsExceedingTotalVotingRightThreshold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +202,12 @@ public partial record TransparencyDataReport11
     /// Issuance size of the certificate expressed in Euros.
     /// </summary>
     [IsoId("_pfKoVGk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuance Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssncSz")]
     #endif
+    [IsoXmlTag("IssncSz")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? IssuanceSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,12 +221,12 @@ public partial record TransparencyDataReport11
     /// After the first admission to trading of the instrument, the price of the instrument at the last trading day of the previous year, or at the end of the day on which a corporate action is effective. The price should be expressed in Euros. To be reported for shares and depositary receipts.
     /// </summary>
     [IsoId("_pfKoVmk3EeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrmPric")]
     #endif
+    [IsoXmlTag("InstrmPric")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? InstrumentPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

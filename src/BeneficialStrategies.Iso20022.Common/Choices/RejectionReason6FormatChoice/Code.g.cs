@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason6FormatChoice
     /// Standard code to specify the reason of a rejection of the notification advice.
     /// </summary>
     [IsoId("_Rofl1tp-Ed-ak6NoX_4Aeg_234326718")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason6FormatChoice
         /// Specifies the reason of a rejection of the notification advice.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RejectionReason6Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RejectionReason6Code Value { get; init; } 
+        public required RejectionReason6Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RejectionReason6Code Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the card payment transaction.
 /// </summary>
 [IsoId("_JO0mATJ5EeOqyZqt0rCZLg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CardPaymentEnvironment27
     /// Acquirer involved in the card payment.
     /// </summary>
     [IsoId("_Jd_qcTJ5EeOqyZqt0rCZLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acqrr")]
     #endif
+    [IsoXmlTag("Acqrr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer2? Acquirer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +67,11 @@ public partial record CardPaymentEnvironment27
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
     [IsoId("_Jd_qczJ5EeOqyZqt0rCZLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merchant")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mrchnt")]
     #endif
+    [IsoXmlTag("Mrchnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation8? Merchant { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +84,11 @@ public partial record CardPaymentEnvironment27
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
     [IsoId("_Jd_qdTJ5EeOqyZqt0rCZLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POI")]
     #endif
+    [IsoXmlTag("POI")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction3? POI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,16 +101,15 @@ public partial record CardPaymentEnvironment27
     /// Payment card performing the transaction.
     /// </summary>
     [IsoId("_Jd_qdzJ5EeOqyZqt0rCZLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Card")]
     #endif
+    [IsoXmlTag("Card")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCard8 Card { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentCard8 Card { get; init; } 
+    public required PaymentCard8 Card { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentCard8 Card { get; init; } 
     #else
@@ -126,12 +120,11 @@ public partial record CardPaymentEnvironment27
     /// Cardholder involved in the card payment.
     /// </summary>
     [IsoId("_Jd_qeTJ5EeOqyZqt0rCZLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Crdhldr")]
     #endif
+    [IsoXmlTag("Crdhldr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Cardholder6? Cardholder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,12 +137,11 @@ public partial record CardPaymentEnvironment27
     /// Replacement of the message element Cardholder by a digital envelope using a cryptographic key.
     /// </summary>
     [IsoId("_lK7rkDJ5EeOqyZqt0rCZLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Cardholder Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdCrdhldrData")]
     #endif
+    [IsoXmlTag("PrtctdCrdhldrData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType7? ProtectedCardholderData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

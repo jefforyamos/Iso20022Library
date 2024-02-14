@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeneralInvestmentAccountType1Choice.Code))]
     [KnownType(typeof(GeneralInvestmentAccountType1Choice.Proprietary))]
     [IsoId("_b9WV8F2cEeiFXdiLi_Nf4A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Investment Account Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnableToApplyJustification4Choice.MissingOrIncorrectInformation))]
     [KnownType(typeof(UnableToApplyJustification4Choice.PossibleDuplicateInstruction))]
     [IsoId("_7JifAdjKEeq5MfBBxQig1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unable To Apply Justification 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

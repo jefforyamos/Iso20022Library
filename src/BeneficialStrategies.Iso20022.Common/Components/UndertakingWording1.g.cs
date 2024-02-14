@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the wording for a demand guarantee, standby letter of credit or other undertaking.
 /// </summary>
 [IsoId("_94chlnltEeG7BsjMvd1mEw_-1148576989")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Wording")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record UndertakingWording1
     /// Wording template for the undertaking content made available for use with certain governance rules or made available by particular institutions.
     /// </summary>
     [IsoId("_94chl3ltEeG7BsjMvd1mEw_-840429331")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Model Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MdlForm")]
     #endif
+    [IsoXmlTag("MdlForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModelFormIdentification1? ModelForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record UndertakingWording1
     /// Language of the standard wording provided by the issuer.
     /// </summary>
     [IsoId("_94mSkHltEeG7BsjMvd1mEw_1792554294")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Wording Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdWrdgLang")]
     #endif
+    [IsoXmlTag("ReqdWrdgLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO2ALanguageCode? RequestedWordingLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record UndertakingWording1
     /// Terms and conditions of the undertaking.
     /// </summary>
     [IsoId("_94mSkXltEeG7BsjMvd1mEw_-752831189")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Terms And Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgTermsAndConds")]
     #endif
+    [IsoXmlTag("UdrtkgTermsAndConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Narrative1? UndertakingTermsAndConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

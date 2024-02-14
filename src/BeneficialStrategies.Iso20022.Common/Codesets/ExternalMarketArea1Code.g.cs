@@ -23,7 +23,7 @@ public enum ExternalMarketArea1Code
 {
     /// <summary>
     /// Any market area.
-    /// Encoded/decoded by serializers as "ANYY".
+    /// Encoded/decoded by serializers as &quot;ANYY&quot;.
     /// </summary>
     [EnumMember(Value = "ANYY")]
     [IsoId("_uUMxZfRYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Bank to bank cash movements.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_uUMxaPRYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Collections.
-    /// Encoded/decoded by serializers as "COLL".
+    /// Encoded/decoded by serializers as &quot;COLL&quot;.
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_uUMxa_RYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Precious metals and other commodities such as palm oil.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_uUWiYvRYEeuLhpyIdtJzwg")]
@@ -59,7 +59,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Payment in which one of the parties is not a financial institution.
-    /// Encoded/decoded by serializers as "COPA".
+    /// Encoded/decoded by serializers as &quot;COPA&quot;.
     /// </summary>
     [EnumMember(Value = "COPA")]
     [IsoId("_uUWiZfRYEeuLhpyIdtJzwg")]
@@ -68,7 +68,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Futures contracts, options, forward contracts, swaps, etc...
-    /// Encoded/decoded by serializers as "DERI".
+    /// Encoded/decoded by serializers as &quot;DERI&quot;.
     /// </summary>
     [EnumMember(Value = "DERI")]
     [IsoId("_uUgTYvRYEeuLhpyIdtJzwg")]
@@ -77,7 +77,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Documentary credits.
-    /// Encoded/decoded by serializers as "DOCC".
+    /// Encoded/decoded by serializers as &quot;DOCC&quot;.
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_uUgTZfRYEeuLhpyIdtJzwg")]
@@ -86,7 +86,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Foreign exchange.
-    /// Encoded/decoded by serializers as "FOEX".
+    /// Encoded/decoded by serializers as &quot;FOEX&quot;.
     /// </summary>
     [EnumMember(Value = "FOEX")]
     [IsoId("_uUgTaPRYEeuLhpyIdtJzwg")]
@@ -95,7 +95,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Guarantees.
-    /// Encoded/decoded by serializers as "GUAR".
+    /// Encoded/decoded by serializers as &quot;GUAR&quot;.
     /// </summary>
     [EnumMember(Value = "GUAR")]
     [IsoId("_uUgTa_RYEeuLhpyIdtJzwg")]
@@ -104,7 +104,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Letters of credit.
-    /// Encoded/decoded by serializers as "LETT".
+    /// Encoded/decoded by serializers as &quot;LETT&quot;.
     /// </summary>
     [EnumMember(Value = "LETT")]
     [IsoId("_uUpdUvRYEeuLhpyIdtJzwg")]
@@ -113,7 +113,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Loans and deposits.
-    /// Encoded/decoded by serializers as "LOAN".
+    /// Encoded/decoded by serializers as &quot;LOAN&quot;.
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_uUpdVfRYEeuLhpyIdtJzwg")]
@@ -122,7 +122,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Money markets.
-    /// Encoded/decoded by serializers as "MMKT".
+    /// Encoded/decoded by serializers as &quot;MMKT&quot;.
     /// </summary>
     [EnumMember(Value = "MMKT")]
     [IsoId("_uUpdWPRYEeuLhpyIdtJzwg")]
@@ -131,7 +131,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// FX forward trade for which only balance is settled.
-    /// Encoded/decoded by serializers as "NDLF".
+    /// Encoded/decoded by serializers as &quot;NDLF&quot;.
     /// </summary>
     [EnumMember(Value = "NDLF")]
     [IsoId("_uUpdW_RYEeuLhpyIdtJzwg")]
@@ -140,7 +140,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Offshore settlement.
-    /// Encoded/decoded by serializers as "OFFS".
+    /// Encoded/decoded by serializers as &quot;OFFS&quot;.
     /// </summary>
     [EnumMember(Value = "OFFS")]
     [IsoId("_uUpdXvRYEeuLhpyIdtJzwg")]
@@ -149,7 +149,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Onshore settlement.
-    /// Encoded/decoded by serializers as "ONSH".
+    /// Encoded/decoded by serializers as &quot;ONSH&quot;.
     /// </summary>
     [EnumMember(Value = "ONSH")]
     [IsoId("_uUzOUvRYEeuLhpyIdtJzwg")]
@@ -158,7 +158,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// FX Options, swap options, etc...
-    /// Encoded/decoded by serializers as "OPTI".
+    /// Encoded/decoded by serializers as &quot;OPTI&quot;.
     /// </summary>
     [EnumMember(Value = "OPTI")]
     [IsoId("_uUzOVfRYEeuLhpyIdtJzwg")]
@@ -167,7 +167,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Bonds, equities, futures...
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_uUzOWPRYEeuLhpyIdtJzwg")]
@@ -176,7 +176,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Documentary credits, collections, guarantees, letters of credit.
-    /// Encoded/decoded by serializers as "TFIN".
+    /// Encoded/decoded by serializers as &quot;TFIN&quot;.
     /// </summary>
     [EnumMember(Value = "TFIN")]
     [IsoId("_uUzOW_RYEeuLhpyIdtJzwg")]
@@ -185,7 +185,7 @@ public enum ExternalMarketArea1Code
     
     /// <summary>
     /// Cash management activities.
-    /// Encoded/decoded by serializers as "TREA".
+    /// Encoded/decoded by serializers as &quot;TREA&quot;.
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_uU8YQvRYEeuLhpyIdtJzwg")]

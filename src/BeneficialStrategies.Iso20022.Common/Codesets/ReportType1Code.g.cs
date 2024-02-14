@@ -21,7 +21,7 @@ public enum ReportType1Code
 {
     /// <summary>
     /// The report contains a baseline submitted for the first time.
-    /// Encoded/decoded by serializers as "FWIS".
+    /// Encoded/decoded by serializers as &quot;FWIS&quot;.
     /// </summary>
     [EnumMember(Value = "FWIS")]
     [IsoId("_ZTVxo9p-Ed-ak6NoX_4Aeg_302562336")]
@@ -30,7 +30,7 @@ public enum ReportType1Code
     
     /// <summary>
     /// The report contains a baseline that is resubmitted.
-    /// Encoded/decoded by serializers as "FWRE".
+    /// Encoded/decoded by serializers as &quot;FWRE&quot;.
     /// </summary>
     [EnumMember(Value = "FWRE")]
     [IsoId("_ZTVxpNp-Ed-ak6NoX_4Aeg_302562354")]
@@ -39,7 +39,7 @@ public enum ReportType1Code
     
     /// <summary>
     /// The report contains a baseline that is amended.
-    /// Encoded/decoded by serializers as "FWAM".
+    /// Encoded/decoded by serializers as &quot;FWAM&quot;.
     /// </summary>
     [EnumMember(Value = "FWAM")]
     [IsoId("_ZTVxpdp-Ed-ak6NoX_4Aeg_302562379")]

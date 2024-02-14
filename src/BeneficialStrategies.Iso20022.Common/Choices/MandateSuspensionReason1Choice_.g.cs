@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MandateSuspensionReason1Choice.Code))]
     [KnownType(typeof(MandateSuspensionReason1Choice.Proprietary))]
     [IsoId("_gW_7w4PDEeahmOIR_zFG6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandate Suspension Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

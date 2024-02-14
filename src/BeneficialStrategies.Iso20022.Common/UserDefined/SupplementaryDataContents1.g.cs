@@ -16,13 +16,11 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.UserDefined;
 
 /// <summary>
-/// Technical supplementary data structure that allows to specify any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'. 
+/// Technical supplementary data structure that allows to specify any valid XML Structure (e.g. through an XML Schema). The property namespace is set to &apos;any&apos;. 
 /// The content of the supplementary data MUST NOT be validated by the receiver (processContent=lax).
 /// </summary>
 [IsoId("_YWZBMdp-Ed-ak6NoX_4Aeg_-375411192")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Supplementary Data Contents")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif

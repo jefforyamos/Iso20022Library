@@ -21,7 +21,7 @@ public enum ATMMediaType1Code
 {
     /// <summary>
     /// Card media.
-    /// Encoded/decoded by serializers as "CARD".
+    /// Encoded/decoded by serializers as &quot;CARD&quot;.
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_JV2vAYqeEeS4a4abTJTSSw")]
@@ -30,7 +30,7 @@ public enum ATMMediaType1Code
     
     /// <summary>
     /// Coin media.
-    /// Encoded/decoded by serializers as "COIN".
+    /// Encoded/decoded by serializers as &quot;COIN&quot;.
     /// </summary>
     [EnumMember(Value = "COIN")]
     [IsoId("_Jcs94YqeEeS4a4abTJTSSw")]
@@ -39,7 +39,7 @@ public enum ATMMediaType1Code
     
     /// <summary>
     /// Non fixed value of the media, for instance gold, silver.
-    /// Encoded/decoded by serializers as "CMDT".
+    /// Encoded/decoded by serializers as &quot;CMDT&quot;.
     /// </summary>
     [EnumMember(Value = "CMDT")]
     [IsoId("_Jiqb8YqeEeS4a4abTJTSSw")]
@@ -48,7 +48,7 @@ public enum ATMMediaType1Code
     
     /// <summary>
     /// Coupon media.
-    /// Encoded/decoded by serializers as "CPNS".
+    /// Encoded/decoded by serializers as &quot;CPNS&quot;.
     /// </summary>
     [EnumMember(Value = "CPNS")]
     [IsoId("_JnvJMYqeEeS4a4abTJTSSw")]
@@ -57,7 +57,7 @@ public enum ATMMediaType1Code
     
     /// <summary>
     /// Bank note media.
-    /// Encoded/decoded by serializers as "NOTE".
+    /// Encoded/decoded by serializers as &quot;NOTE&quot;.
     /// </summary>
     [EnumMember(Value = "NOTE")]
     [IsoId("_J9VlwYqeEeS4a4abTJTSSw")]
@@ -66,7 +66,7 @@ public enum ATMMediaType1Code
     
     /// <summary>
     /// Stamp media.
-    /// Encoded/decoded by serializers as "STMP".
+    /// Encoded/decoded by serializers as &quot;STMP&quot;.
     /// </summary>
     [EnumMember(Value = "STMP")]
     [IsoId("_KFrpcYqeEeS4a4abTJTSSw")]
@@ -75,7 +75,7 @@ public enum ATMMediaType1Code
     
     /// <summary>
     /// Undetermined medias.
-    /// Encoded/decoded by serializers as "UDTM".
+    /// Encoded/decoded by serializers as &quot;UDTM&quot;.
     /// </summary>
     [EnumMember(Value = "UDTM")]
     [IsoId("_KMFzcYqeEeS4a4abTJTSSw")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies parameters of the report 
 /// </summary>
 [IsoId("_rJ-pkO3kEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Internaliser Report Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record SettlementInternaliserReportHeader1
     /// Provides the reporting timestamp, when the report was submitted from the Settlement Internaliser to the Competent Authority.
     /// </summary>
     [IsoId("_2Xg5AO3kEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -74,16 +72,16 @@ public partial record SettlementInternaliserReportHeader1
     /// Last day of the reporting period.
     /// </summary>
     [IsoId("_4oFNcO3kEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgDt")]
     #endif
+    [IsoXmlTag("RptgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ReportingDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ReportingDate { get; init; } 
+    public required System.DateOnly ReportingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ReportingDate { get; init; } 
     #else
@@ -94,16 +92,15 @@ public partial record SettlementInternaliserReportHeader1
     /// Specifies the currency of the reported transactions.
     /// </summary>
     [IsoId("_641IEO3kEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else
@@ -114,16 +111,15 @@ public partial record SettlementInternaliserReportHeader1
     /// Provides the status of the report.
     /// </summary>
     [IsoId("_eVMmQHBLEeeD5_FeE1GEtw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSts")]
     #endif
+    [IsoXmlTag("RptSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionOperationType4Code ReportStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionOperationType4Code ReportStatus { get; init; } 
+    public required TransactionOperationType4Code ReportStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionOperationType4Code ReportStatus { get; init; } 
     #else

@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus1Choice
 {
     /// <summary>
-    /// Indicates that the message is for information only, that is processing of client's instruction will not be supported by the Account Servicer.
+    /// Indicates that the message is for information only, that is processing of client&apos;s instruction will not be supported by the Account Servicer.
     /// </summary>
     [IsoId("_Q1O85tp-Ed-ak6NoX_4Aeg_-1955694222")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("For Information Only Indicator")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,17 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus1
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Indicates a "Yes" or "No" type of answer for an element.
+        /// Indicates a &quot;Yes&quot; or &quot;No&quot; type of answer for an element.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ForInfOnlyInd")]
         #endif
+        [IsoXmlTag("ForInfOnlyInd")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoYesNoIndicator Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

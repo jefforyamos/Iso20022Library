@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DerivativePartyIdentification1Ch
     /// Country and country sub-division of the reference entity.
     /// </summary>
     [IsoId("_sN3rEEW8EeWaZZ6gWK8UVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Sub Division")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DerivativePartyIdentification1Ch
         /// Code to identify a name of a unit resulting from the division of a country, dependency, or other area of special geopolitical interest contained in ISO 3166-1, on the basis of country names obtained from the United Nations (ISO 3166-2: Country subdivision code).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrySubDvsn")]
         #endif
+        [IsoXmlTag("CtrySubDvsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CountrySubDivisionCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Value { get; init; } 
+        public required string Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Value { get; init; } 
         #else

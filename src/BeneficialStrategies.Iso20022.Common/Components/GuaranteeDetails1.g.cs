@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the details of a guarantee.
 /// </summary>
 [IsoId("_OTgzMzc0-AOSNFX-8224501")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Guarantee Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record GuaranteeDetails1
     /// Party issuing the guarantee.
     /// </summary>
     [IsoId("_OTgzMzg4-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record GuaranteeDetails1
     /// Rank of the guarantee provider. A value of 1 means highest rank. Providers may have the same position.
     /// </summary>
     [IsoId("_OTgzMzg5-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pos")]
     #endif
+    [IsoXmlTag("Pos")]
+    [IsoSimpleType(IsoSimpleType.positiveInteger)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsopositiveInteger? Position { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +77,13 @@ public partial record GuaranteeDetails1
     /// Textual description of guarantee details.
     /// </summary>
     [IsoId("_OTgzMzkw-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,11 @@ public partial record GuaranteeDetails1
     /// Amount by time periods, maximum value applies at any given date.
     /// </summary>
     [IsoId("_OTgzMzkx-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guaranteed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntedAmt")]
     #endif
+    [IsoXmlTag("GrntedAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndPeriod1? GuaranteedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +113,11 @@ public partial record GuaranteeDetails1
     /// Amount not covered by the guarantee. Maximum value applies at any given date.
     /// </summary>
     [IsoId("_OTgzMzky-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Excess")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xcss")]
     #endif
+    [IsoXmlTag("Xcss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndPeriod1? Excess { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +130,11 @@ public partial record GuaranteeDetails1
     /// Covered percentage, the maximum value applies at any given date.
     /// </summary>
     [IsoId("_OTgzMzkz-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Covered Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CvrdPctg")]
     #endif
+    [IsoXmlTag("CvrdPctg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageAndPeriod1? CoveredPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +147,11 @@ public partial record GuaranteeDetails1
     /// Associated free form document.
     /// </summary>
     [IsoId("_OTgzMzk0-AOSNFX-8224502")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Associated Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssoctdDoc")]
     #endif
+    [IsoXmlTag("AssoctdDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,19 +164,15 @@ public partial record GuaranteeDetails1
     /// Additional information related to the demand.
     /// </summary>
     [IsoId("_OTgzMzk1-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

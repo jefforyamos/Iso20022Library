@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed statistics for submitted derivatives per action type.
 /// </summary>
 [IsoId("_GQMZcIAsEeirUu_C8Wn_0Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statistics Per Action Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record StatisticsPerActionType1
     /// Total number of derivatives which have been reported.
     /// </summary>
     [IsoId("_PBU34IAsEeirUu_C8Wn_0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="All")]
     #endif
+    [IsoXmlTag("All")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber All { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 All { get; init; } 
+    public required System.UInt64 All { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 All { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record StatisticsPerActionType1
     /// Number of derivatives which have been reported as new.
     /// </summary>
     [IsoId("_QMXusIAsEeirUu_C8Wn_0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="New")]
     #endif
+    [IsoXmlTag("New")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber New { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 New { get; init; } 
+    public required System.UInt64 New { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 New { get; init; } 
     #else
@@ -93,16 +91,16 @@ public partial record StatisticsPerActionType1
     /// Number of derivatives which have been reported as modified.
     /// </summary>
     [IsoId("_Rh5-QIAsEeirUu_C8Wn_0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mod")]
     #endif
+    [IsoXmlTag("Mod")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber Modification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Modification { get; init; } 
+    public required System.UInt64 Modification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Modification { get; init; } 
     #else

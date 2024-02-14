@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the service to be called.
 /// </summary>
 [IsoId("_J5wTgXG2Ee2TbaNWBpRZpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Service Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ServiceRequest6
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_KAGMEXG2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment79 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment79 Environment { get; init; } 
+    public required CardPaymentEnvironment79 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment79 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ServiceRequest6
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
     [IsoId("_KAGME3G2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentContext30 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentContext30 Context { get; init; } 
+    public required CardPaymentContext30 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentContext30 Context { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ServiceRequest6
     /// Define the type of service requested.
     /// </summary>
     [IsoId("_KAGMFXG2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcCntt")]
     #endif
+    [IsoXmlTag("SvcCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerService2Code ServiceContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetailerService2Code ServiceContent { get; init; } 
+    public required RetailerService2Code ServiceContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetailerService2Code ServiceContent { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record ServiceRequest6
     /// Content of the payment request.
     /// </summary>
     [IsoId("_KAGMF3G2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtReq")]
     #endif
+    [IsoXmlTag("PmtReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentRequest5? PaymentRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record ServiceRequest6
     /// Content of the reversal request.
     /// </summary>
     [IsoId("_KAGMGXG2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslReq")]
     #endif
+    [IsoXmlTag("RvslReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReversalRequest5? ReversalRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,11 @@ public partial record ServiceRequest6
     /// Content of a Balance Inquiry Request.
     /// </summary>
     [IsoId("_KAGMG3G2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Inquiry Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalNqryReq")]
     #endif
+    [IsoXmlTag("BalNqryReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceInquiryRequest6? BalanceInquiryRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +159,11 @@ public partial record ServiceRequest6
     /// Content of the Loyalty Request.
     /// </summary>
     [IsoId("_KAGMHXG2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyReq")]
     #endif
+    [IsoXmlTag("LltyReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyRequest5? LoyaltyRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +176,11 @@ public partial record ServiceRequest6
     /// Content of a Stored Value Request.
     /// </summary>
     [IsoId("_KAGMH3G2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stored Value Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StordValReq")]
     #endif
+    [IsoXmlTag("StordValReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueRequest6? StoredValueRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +193,11 @@ public partial record ServiceRequest6
     /// Content of the Batch Request.
     /// </summary>
     [IsoId("_KAGMIXG2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BtchReq")]
     #endif
+    [IsoXmlTag("BtchReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BatchRequest5? BatchRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +210,11 @@ public partial record ServiceRequest6
     /// Content of the Enable Service Request.
     /// </summary>
     [IsoId("_KAGMI3G2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enable Service Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NblSvcReq")]
     #endif
+    [IsoXmlTag("NblSvcReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnableServiceRequest5? EnableServiceRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +227,11 @@ public partial record ServiceRequest6
     /// Content of the Card Acquisition Request.
     /// </summary>
     [IsoId("_KAGMJXG2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Acquisition Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardAcqstnReq")]
     #endif
+    [IsoXmlTag("CardAcqstnReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAcquisitionRequest3? CardAcquisitionRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,12 +244,11 @@ public partial record ServiceRequest6
     /// Additional information incorporated as an extension to the message.
     /// </summary>
     [IsoId("_KAGMJ3G2Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

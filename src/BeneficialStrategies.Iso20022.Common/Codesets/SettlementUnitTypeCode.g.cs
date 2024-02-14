@@ -21,7 +21,7 @@ public enum SettlementUnitTypeCode
 {
     /// <summary>
     /// Represent the face amount, for example the principal of a debt instrument.
-    /// Encoded/decoded by serializers as "FAMT".
+    /// Encoded/decoded by serializers as &quot;FAMT&quot;.
     /// </summary>
     [EnumMember(Value = "FAMT")]
     [IsoId("_hblKk2liEeGaMcKyqKNRfQ_1606915778")]
@@ -30,7 +30,7 @@ public enum SettlementUnitTypeCode
     
     /// <summary>
     /// Represent the unit as a number, for example a number of shares.
-    /// Encoded/decoded by serializers as "UNIT".
+    /// Encoded/decoded by serializers as &quot;UNIT&quot;.
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_hblKlGliEeGaMcKyqKNRfQ_1719234918")]

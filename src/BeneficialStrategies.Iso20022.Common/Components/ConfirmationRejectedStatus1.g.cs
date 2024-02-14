@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status is rejected.
 /// </summary>
 [IsoId("_RM7EItp-Ed-ak6NoX_4Aeg_490888050")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Confirmation Rejected Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ConfirmationRejectedStatus1
     /// Reason for the rejected status.
     /// </summary>
     [IsoId("_RM7EI9p-Ed-ak6NoX_4Aeg_490888052")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectedConfirmationStatusReason1Code Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectedConfirmationStatusReason1Code Reason { get; init; } 
+    public required RejectedConfirmationStatusReason1Code Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectedConfirmationStatusReason1Code Reason { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record ConfirmationRejectedStatus1
     /// Reason for the rejected status.
     /// </summary>
     [IsoId("_RM7EJNp-Ed-ak6NoX_4Aeg_490888068")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedRsn")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedReason { get; init; } 
+    public required System.String ExtendedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedReason { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record ConfirmationRejectedStatus1
     /// Proprietary identification of the reason for a rejected status.
     /// </summary>
     [IsoId("_RM7EJdp-Ed-ak6NoX_4Aeg_490888104")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
+    [IsoXmlTag("DataSrcSchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification1 DataSourceScheme { get; init; } 
+    public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification1 DataSourceScheme { get; init; } 
     #else

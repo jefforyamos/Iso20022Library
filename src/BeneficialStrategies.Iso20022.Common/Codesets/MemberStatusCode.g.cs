@@ -21,7 +21,7 @@ public enum MemberStatusCode
 {
     /// <summary>
     /// Member is live on the system.
-    /// Encoded/decoded by serializers as "ENBL".
+    /// Encoded/decoded by serializers as &quot;ENBL&quot;.
     /// </summary>
     [EnumMember(Value = "ENBL")]
     [IsoId("_aLqgw9p-Ed-ak6NoX_4Aeg_-1869032550")]
@@ -30,7 +30,7 @@ public enum MemberStatusCode
     
     /// <summary>
     /// Member is temporarily not live on the system.
-    /// Encoded/decoded by serializers as "DSBL".
+    /// Encoded/decoded by serializers as &quot;DSBL&quot;.
     /// </summary>
     [EnumMember(Value = "DSBL")]
     [IsoId("_aLqgxNp-Ed-ak6NoX_4Aeg_-1869032549")]
@@ -39,7 +39,7 @@ public enum MemberStatusCode
     
     /// <summary>
     /// Member is no longer live on the system.
-    /// Encoded/decoded by serializers as "DLTD".
+    /// Encoded/decoded by serializers as &quot;DLTD&quot;.
     /// </summary>
     [EnumMember(Value = "DLTD")]
     [IsoId("_aLqgxdp-Ed-ak6NoX_4Aeg_-1869032548")]
@@ -48,7 +48,7 @@ public enum MemberStatusCode
     
     /// <summary>
     /// Member is joining and will soon be enabled on the system.
-    /// Encoded/decoded by serializers as "JOIN".
+    /// Encoded/decoded by serializers as &quot;JOIN&quot;.
     /// </summary>
     [EnumMember(Value = "JOIN")]
     [IsoId("_aLqgxtp-Ed-ak6NoX_4Aeg_-1869032540")]

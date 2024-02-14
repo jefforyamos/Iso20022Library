@@ -21,7 +21,7 @@ public enum CancelledStatusReason14Code
 {
     /// <summary>
     /// See narrative field for reason.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_LqRR0Sz0EeOsiuMH68so7Q")]

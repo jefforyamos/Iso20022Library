@@ -21,7 +21,7 @@ public enum CorporateActionFrequencyType4Code
 {
     /// <summary>
     /// Special Dividend with reinvestment component.
-    /// Encoded/decoded by serializers as "SPRE".
+    /// Encoded/decoded by serializers as &quot;SPRE&quot;.
     /// </summary>
     [EnumMember(Value = "SPRE")]
     [IsoId("_udHZoaFUEeSK_vfd3NHBGg")]

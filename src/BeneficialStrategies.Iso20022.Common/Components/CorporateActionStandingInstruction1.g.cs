@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the standing instruction.
 /// </summary>
 [IsoId("_UJbRidp-Ed-ak6NoX_4Aeg_852863952")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Standing Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CorporateActionStandingInstruction1
     /// Identifies whether the account Holders want their income to be paid net or gross of income tax (default is gross).
     /// </summary>
     [IsoId("_UJbRitp-Ed-ak6NoX_4Aeg_1113626304")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Or Gross")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetOrGrss")]
     #endif
+    [IsoXmlTag("NetOrGrss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingInstructionGrossNet1Code NetOrGross { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingInstructionGrossNet1Code NetOrGross { get; init; } 
+    public required StandingInstructionGrossNet1Code NetOrGross { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingInstructionGrossNet1Code NetOrGross { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record CorporateActionStandingInstruction1
     /// Provides information about the cash distribution standing instruction.
     /// </summary>
     [IsoId("_UJbRi9p-Ed-ak6NoX_4Aeg_-650296854")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Distribution Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshDstrbtnDtls")]
     #endif
+    [IsoXmlTag("CshDstrbtnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount17 CashDistributionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount17 CashDistributionDetails { get; init; } 
+    public required CashAccount17 CashDistributionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount17 CashDistributionDetails { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record CorporateActionStandingInstruction1
     /// Provides information about the securities distribution standing instruction.
     /// </summary>
     [IsoId("_UJbRjNp-Ed-ak6NoX_4Aeg_949052482")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Distribution Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesDstrbtnDtls")]
     #endif
+    [IsoXmlTag("SctiesDstrbtnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount6 SecuritiesDistributionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount6 SecuritiesDistributionDetails { get; init; } 
+    public required SecuritiesAccount6 SecuritiesDistributionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount6 SecuritiesDistributionDetails { get; init; } 
     #else
@@ -113,15 +108,13 @@ public partial record CorporateActionStandingInstruction1
     /// Additional information about the standing instruction.
     /// </summary>
     [IsoId("_UJkbcNp-Ed-ak6NoX_4Aeg_1012038453")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount related to the original transaction.
 /// </summary>
 [IsoId("_wYTrgEULEeea-M6VZkEPUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Transaction Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record OriginalTransactionAmount1
     /// Qualifies the amount of the transaction.
     /// </summary>
     [IsoId("_DMuMwEUMEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtQlfr")]
     #endif
+    [IsoXmlTag("AmtQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TypeOfAmount11Code? AmountQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record OriginalTransactionAmount1
     /// Actual amount of the transaction.
     /// </summary>
     [IsoId("_6jgewEUMEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAmt")]
     #endif
+    [IsoXmlTag("TxAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionAmount1 TransactionAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionAmount1 TransactionAmount { get; init; } 
+    public required TransactionAmount1 TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionAmount1 TransactionAmount { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record OriginalTransactionAmount1
     /// Amount to be billed to cardholder.
     /// </summary>
     [IsoId("_FHgzkEUOEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Billing Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrBllgAmt")]
     #endif
+    [IsoXmlTag("CrdhldrBllgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount4? CardholderBillingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record OriginalTransactionAmount1
     /// Amount used for reconciliation.
     /// </summary>
     [IsoId("_NEdcAEUOEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnAmt")]
     #endif
+    [IsoXmlTag("RcncltnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount4? ReconciliationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

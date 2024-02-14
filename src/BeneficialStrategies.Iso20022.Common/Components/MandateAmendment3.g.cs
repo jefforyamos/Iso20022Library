@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the mandate to be amended and gives details of the new mandate.
 /// </summary>
 [IsoId("_5sMy4SmeEeKdFJmzhTDOvQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Amendment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record MandateAmendment3
     /// Provides information on the original message.
     /// </summary>
     [IsoId("_5_bQ5SmeEeKdFJmzhTDOvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgInf")]
     #endif
+    [IsoXmlTag("OrgnlMsgInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,16 +68,15 @@ public partial record MandateAmendment3
     /// Provides detailed information on the amendment reason.
     /// </summary>
     [IsoId("_5_bQ6SmeEeKdFJmzhTDOvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amendment Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmdmntRsn")]
     #endif
+    [IsoXmlTag("AmdmntRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateAmendmentReason1 AmendmentReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateAmendmentReason1 AmendmentReason { get; init; } 
+    public required MandateAmendmentReason1 AmendmentReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateAmendmentReason1 AmendmentReason { get; init; } 
     #else
@@ -91,16 +87,15 @@ public partial record MandateAmendment3
     /// Provides the amended mandate data.
     /// </summary>
     [IsoId("_5_bQ7SmeEeKdFJmzhTDOvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mndt")]
     #endif
+    [IsoXmlTag("Mndt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Mandate3 Mandate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Mandate3 Mandate { get; init; } 
+    public required Mandate3 Mandate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Mandate3 Mandate { get; init; } 
     #else
@@ -111,16 +106,15 @@ public partial record MandateAmendment3
     /// Provides the original mandate data.
     /// </summary>
     [IsoId("_5_bQ8SmeEeKdFJmzhTDOvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Mandate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMndt")]
     #endif
+    [IsoXmlTag("OrgnlMndt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMandate2Choice_ OriginalMandate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalMandate2Choice_ OriginalMandate { get; init; } 
+    public required OriginalMandate2Choice_ OriginalMandate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalMandate2Choice_ OriginalMandate { get; init; } 
     #else
@@ -131,12 +125,11 @@ public partial record MandateAmendment3
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_6UlolimeEeKdFJmzhTDOvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

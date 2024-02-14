@@ -21,7 +21,7 @@ public enum MeetingCancellationReasonCode
 {
     /// <summary>
     /// Cancellation due to insufficient participation to the vote.
-    /// Encoded/decoded by serializers as "QORM".
+    /// Encoded/decoded by serializers as &quot;QORM&quot;.
     /// </summary>
     [EnumMember(Value = "QORM")]
     [IsoId("_aVM3Rdp-Ed-ak6NoX_4Aeg_1851096275")]
@@ -30,7 +30,7 @@ public enum MeetingCancellationReasonCode
     
     /// <summary>
     /// Cancellation due to a processing error.
-    /// Encoded/decoded by serializers as "PROC".
+    /// Encoded/decoded by serializers as &quot;PROC&quot;.
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_aVM3Rtp-Ed-ak6NoX_4Aeg_-2055992756")]
@@ -39,7 +39,7 @@ public enum MeetingCancellationReasonCode
     
     /// <summary>
     /// Cancellation due to another reason.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aVM3R9p-Ed-ak6NoX_4Aeg_-1646853934")]
@@ -48,7 +48,7 @@ public enum MeetingCancellationReasonCode
     
     /// <summary>
     /// Cancellation due to the meeting being cancelled by the issuer.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_aVWBMNp-Ed-ak6NoX_4Aeg_-2132220464")]

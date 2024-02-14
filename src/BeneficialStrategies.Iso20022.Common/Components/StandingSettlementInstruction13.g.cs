@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the standing settlement instruction to be applied.
 /// </summary>
 [IsoId("_sJHCEY-vEeaEa8S_GI1QNA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Settlement Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record StandingSettlementInstruction13
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
     [IsoId("_sYI8lY-vEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Standing Instruction Database")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmStgInstrDB")]
     #endif
+    [IsoXmlTag("SttlmStgInstrDB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementStandingInstructionDatabase4Choice_ SettlementStandingInstructionDatabase { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementStandingInstructionDatabase4Choice_ SettlementStandingInstructionDatabase { get; init; } 
+    public required SettlementStandingInstructionDatabase4Choice_ SettlementStandingInstructionDatabase { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementStandingInstructionDatabase4Choice_ SettlementStandingInstructionDatabase { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record StandingSettlementInstruction13
     /// Vendor of the Settlement Standing Instruction database requested to be consulted.
     /// </summary>
     [IsoId("_sYI8nY-vEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vendor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vndr")]
     #endif
+    [IsoXmlTag("Vndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification117Choice_? Vendor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record StandingSettlementInstruction13
     /// Delivering parties, other than the seller, needed for deriving the standing settlement instruction (for example, depository) or provided for information purposes (for example, instructing party settlement chain).
     /// </summary>
     [IsoId("_sYI8pY-vEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Delivering Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrDlvrgSttlmPties")]
     #endif
+    [IsoXmlTag("OthrDlvrgSttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties59? OtherDeliveringSettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record StandingSettlementInstruction13
     /// Receiving parties, other than the buyer, needed for deriving the standing settlement instruction (for example, depository) or provided for information purposes (for example, instructing party settlement chain).
     /// </summary>
     [IsoId("_sYI8rY-vEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Receiving Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRcvgSttlmPties")]
     #endif
+    [IsoXmlTag("OthrRcvgSttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties59? OtherReceivingSettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

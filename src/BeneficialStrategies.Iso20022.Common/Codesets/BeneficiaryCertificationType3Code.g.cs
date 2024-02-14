@@ -21,7 +21,7 @@ public enum BeneficiaryCertificationType3Code
 {
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
-    /// Encoded/decoded by serializers as "ACCI".
+    /// Encoded/decoded by serializers as &quot;ACCI&quot;.
     /// </summary>
     [EnumMember(Value = "ACCI")]
     [IsoId("_beD8wtp-Ed-ak6NoX_4Aeg_-1668344657")]
@@ -30,7 +30,7 @@ public enum BeneficiaryCertificationType3Code
     
     /// <summary>
     /// The holder of the security has to certify he is an Non-Company related person.
-    /// Encoded/decoded by serializers as "NCOM".
+    /// Encoded/decoded by serializers as &quot;NCOM&quot;.
     /// </summary>
     [EnumMember(Value = "NCOM")]
     [IsoId("_beD8w9p-Ed-ak6NoX_4Aeg_-1667421525")]
@@ -39,7 +39,7 @@ public enum BeneficiaryCertificationType3Code
     
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
-    /// Encoded/decoded by serializers as "QIBB".
+    /// Encoded/decoded by serializers as &quot;QIBB&quot;.
     /// </summary>
     [EnumMember(Value = "QIBB")]
     [IsoId("_beD8xNp-Ed-ak6NoX_4Aeg_-1667421153")]
@@ -48,7 +48,7 @@ public enum BeneficiaryCertificationType3Code
     
     /// <summary>
     /// See narrative field for certification requirements.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_beD8xdp-Ed-ak6NoX_4Aeg_1359889133")]

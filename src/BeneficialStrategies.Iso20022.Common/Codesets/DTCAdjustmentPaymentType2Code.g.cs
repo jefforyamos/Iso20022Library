@@ -21,7 +21,7 @@ public enum DTCAdjustmentPaymentType2Code
 {
     /// <summary>
     /// Adjusted for rights subscription related adjustment.
-    /// Encoded/decoded by serializers as "RRRA".
+    /// Encoded/decoded by serializers as &quot;RRRA&quot;.
     /// </summary>
     [EnumMember(Value = "RRRA")]
     [IsoId("_ux8KYXxtEeOCOoRiuJeDeg")]
@@ -30,7 +30,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// American Depository R issue fee charge adjustment.
-    /// Encoded/decoded by serializers as "RADC".
+    /// Encoded/decoded by serializers as &quot;RADC&quot;.
     /// </summary>
     [EnumMember(Value = "RADC")]
     [IsoId("_u63c4XxtEeOCOoRiuJeDeg")]
@@ -39,7 +39,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// ADR issue fee reversal adjustment.
-    /// Encoded/decoded by serializers as "RADR".
+    /// Encoded/decoded by serializers as &quot;RADR&quot;.
     /// </summary>
     [EnumMember(Value = "RADR")]
     [IsoId("_u9sucXxtEeOCOoRiuJeDeg")]
@@ -48,7 +48,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Cash in lieu related adjustment.
-    /// Encoded/decoded by serializers as "RCIL".
+    /// Encoded/decoded by serializers as &quot;RCIL&quot;.
     /// </summary>
     [EnumMember(Value = "RCIL")]
     [IsoId("_vIHOs3xtEeOCOoRiuJeDeg")]
@@ -57,7 +57,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Claim settlement related adjustment.
-    /// Encoded/decoded by serializers as "RRCL".
+    /// Encoded/decoded by serializers as &quot;RRCL&quot;.
     /// </summary>
     [EnumMember(Value = "RRCL")]
     [IsoId("_vKyvQXxtEeOCOoRiuJeDeg")]
@@ -66,7 +66,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Dividend payment on a DTC custody held security related adjustment.
-    /// Encoded/decoded by serializers as "RCDP".
+    /// Encoded/decoded by serializers as &quot;RCDP&quot;.
     /// </summary>
     [EnumMember(Value = "RCDP")]
     [IsoId("_vNdowXxtEeOCOoRiuJeDeg")]
@@ -75,7 +75,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Custody reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "RRCD".
+    /// Encoded/decoded by serializers as &quot;RRCD&quot;.
     /// </summary>
     [EnumMember(Value = "RRCD")]
     [IsoId("_vmdXkXxtEeOCOoRiuJeDeg")]
@@ -84,7 +84,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Dynamic rate change related adjustment.
-    /// Encoded/decoded by serializers as "RRDR".
+    /// Encoded/decoded by serializers as &quot;RRDR&quot;.
     /// </summary>
     [EnumMember(Value = "RRDR")]
     [IsoId("_vpI4IXxtEeOCOoRiuJeDeg")]
@@ -93,7 +93,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// FAIL (undelivered securities) transaction.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_vr0YsXxtEeOCOoRiuJeDeg")]
@@ -102,7 +102,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Fail tracking tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "TJXF".
+    /// Encoded/decoded by serializers as &quot;TJXF&quot;.
     /// </summary>
     [EnumMember(Value = "TJXF")]
     [IsoId("_v0JOQXxtEeOCOoRiuJeDeg")]
@@ -111,7 +111,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Intra-day reversal of original tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "TJXV".
+    /// Encoded/decoded by serializers as &quot;TJXV&quot;.
     /// </summary>
     [EnumMember(Value = "TJXV")]
     [IsoId("_v20u0XxtEeOCOoRiuJeDeg")]
@@ -120,7 +120,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Last day protect related adjustment.
-    /// Encoded/decoded by serializers as "RRRL".
+    /// Encoded/decoded by serializers as &quot;RRRL&quot;.
     /// </summary>
     [EnumMember(Value = "RRRL")]
     [IsoId("_v5gPYXxtEeOCOoRiuJeDeg")]
@@ -129,7 +129,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Legal reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "RRML".
+    /// Encoded/decoded by serializers as &quot;RRML&quot;.
     /// </summary>
     [EnumMember(Value = "RRML")]
     [IsoId("_v8U54XxtEeOCOoRiuJeDeg")]
@@ -138,7 +138,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Mandatory legal reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "RRLR".
+    /// Encoded/decoded by serializers as &quot;RRLR&quot;.
     /// </summary>
     [EnumMember(Value = "RRLR")]
     [IsoId("_wGcfM3xtEeOCOoRiuJeDeg")]
@@ -147,7 +147,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Mandatory reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "RRMD".
+    /// Encoded/decoded by serializers as &quot;RRMD&quot;.
     /// </summary>
     [EnumMember(Value = "RRMD")]
     [IsoId("_wOoK0XxtEeOCOoRiuJeDeg")]
@@ -156,7 +156,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Manual user tax adjustment.
-    /// Encoded/decoded by serializers as "TJXU".
+    /// Encoded/decoded by serializers as &quot;TJXU&quot;.
     /// </summary>
     [EnumMember(Value = "TJXU")]
     [IsoId("_wW9ncXxtEeOCOoRiuJeDeg")]
@@ -165,7 +165,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Miscellaneous (adjustment) transaction.
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_wZpIAXxtEeOCOoRiuJeDeg")]
@@ -174,7 +174,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Original (initial) tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "TJXO".
+    /// Encoded/decoded by serializers as &quot;TJXO&quot;.
     /// </summary>
     [EnumMember(Value = "TJXO")]
     [IsoId("_wcUokXxtEeOCOoRiuJeDeg")]
@@ -183,7 +183,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Mandatory over three year reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "RRR3".
+    /// Encoded/decoded by serializers as &quot;RRR3&quot;.
     /// </summary>
     [EnumMember(Value = "RRR3")]
     [IsoId("_wqAfQXxtEeOCOoRiuJeDeg")]
@@ -192,7 +192,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Original late tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "TJXL".
+    /// Encoded/decoded by serializers as &quot;TJXL&quot;.
     /// </summary>
     [EnumMember(Value = "TJXL")]
     [IsoId("_xOnBI3xtEeOCOoRiuJeDeg")]
@@ -201,7 +201,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Reserved for new user defined reason codes.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_xRbroXxtEeOCOoRiuJeDeg")]
@@ -210,7 +210,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Rate change tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "TJXT".
+    /// Encoded/decoded by serializers as &quot;TJXT&quot;.
     /// </summary>
     [EnumMember(Value = "TJXT")]
     [IsoId("_xUHMMXxtEeOCOoRiuJeDeg")]
@@ -219,7 +219,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Reclassification tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "TJXD".
+    /// Encoded/decoded by serializers as &quot;TJXD&quot;.
     /// </summary>
     [EnumMember(Value = "TJXD")]
     [IsoId("_xW72sXxtEeOCOoRiuJeDeg")]
@@ -228,7 +228,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Participant deposited a security within 10 days after a corporate action event has occurred.
-    /// Encoded/decoded by serializers as "RRD1".
+    /// Encoded/decoded by serializers as &quot;RRD1&quot;.
     /// </summary>
     [EnumMember(Value = "RRD1")]
     [IsoId("_xe-YYXxtEeOCOoRiuJeDeg")]
@@ -237,7 +237,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Participant deposited a security 10 days after a corporate action event has occurred.
-    /// Encoded/decoded by serializers as "RRD2".
+    /// Encoded/decoded by serializers as &quot;RRD2&quot;.
     /// </summary>
     [EnumMember(Value = "RRD2")]
     [IsoId("_xhzC4XxtEeOCOoRiuJeDeg")]
@@ -246,7 +246,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// REPO (repurchase agreement) transaction.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_xkejcXxtEeOCOoRiuJeDeg")]
@@ -255,7 +255,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Reversal related adjustment.
-    /// Encoded/decoded by serializers as "REVA".
+    /// Encoded/decoded by serializers as &quot;REVA&quot;.
     /// </summary>
     [EnumMember(Value = "REVA")]
     [IsoId("_xyApIXxtEeOCOoRiuJeDeg")]
@@ -264,7 +264,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Reversal of tax withholding related adjustment.
-    /// Encoded/decoded by serializers as "TJXR".
+    /// Encoded/decoded by serializers as &quot;TJXR&quot;.
     /// </summary>
     [EnumMember(Value = "TJXR")]
     [IsoId("_x0sJsXxtEeOCOoRiuJeDeg")]
@@ -273,7 +273,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Rights protect related adjustment.
-    /// Encoded/decoded by serializers as "RRRI".
+    /// Encoded/decoded by serializers as &quot;RRRI&quot;.
     /// </summary>
     [EnumMember(Value = "RRRI")]
     [IsoId("_x3XqQXxtEeOCOoRiuJeDeg")]
@@ -282,7 +282,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Rights sales related adjustment.
-    /// Encoded/decoded by serializers as "RRRS".
+    /// Encoded/decoded by serializers as &quot;RRRS&quot;.
     /// </summary>
     [EnumMember(Value = "RRRS")]
     [IsoId("_x_jV4XxtEeOCOoRiuJeDeg")]
@@ -291,7 +291,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Rights step up related adjustment.
-    /// Encoded/decoded by serializers as "RRRU".
+    /// Encoded/decoded by serializers as &quot;RRRU&quot;.
     /// </summary>
     [EnumMember(Value = "RRRU")]
     [IsoId("_yCO2cXxtEeOCOoRiuJeDeg")]
@@ -300,7 +300,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Rights subscription related adjustment.
-    /// Encoded/decoded by serializers as "RRRE".
+    /// Encoded/decoded by serializers as &quot;RRRE&quot;.
     /// </summary>
     [EnumMember(Value = "RRRE")]
     [IsoId("_zBKj4XxtEeOCOoRiuJeDeg")]
@@ -309,7 +309,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Stock loan transaction.
-    /// Encoded/decoded by serializers as "STOK".
+    /// Encoded/decoded by serializers as &quot;STOK&quot;.
     /// </summary>
     [EnumMember(Value = "STOK")]
     [IsoId("_zD2EcXxtEeOCOoRiuJeDeg")]
@@ -318,7 +318,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Tax instruction change related adjustment.
-    /// Encoded/decoded by serializers as "TJXI".
+    /// Encoded/decoded by serializers as &quot;TJXI&quot;.
     /// </summary>
     [EnumMember(Value = "TJXI")]
     [IsoId("_zMBwEXxtEeOCOoRiuJeDeg")]
@@ -327,7 +327,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Tender offer fraction related adjustment.
-    /// Encoded/decoded by serializers as "RRT2".
+    /// Encoded/decoded by serializers as &quot;RRT2&quot;.
     /// </summary>
     [EnumMember(Value = "RRT2")]
     [IsoId("_zOtQoXxtEeOCOoRiuJeDeg")]
@@ -336,7 +336,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Warrant Participant delete related adjustment.
-    /// Encoded/decoded by serializers as "RRWT".
+    /// Encoded/decoded by serializers as &quot;RRWT&quot;.
     /// </summary>
     [EnumMember(Value = "RRWT")]
     [IsoId("_zRYKIXxtEeOCOoRiuJeDeg")]
@@ -345,7 +345,7 @@ public enum DTCAdjustmentPaymentType2Code
     
     /// <summary>
     /// Warrant rate change related adjustment.
-    /// Encoded/decoded by serializers as "RRWC".
+    /// Encoded/decoded by serializers as &quot;RRWC&quot;.
     /// </summary>
     [EnumMember(Value = "RRWC")]
     [IsoId("_zZar0XxtEeOCOoRiuJeDeg")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemIdentification2Choice
     /// Clearing service selected for a transaction.
     /// </summary>
     [IsoId("_8BZ3QqMgEeCJ6YNENx4h-w_-129556950")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Infrastructure Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

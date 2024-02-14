@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_2eQ2UYmAEea2EL0wKRDnMQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope38
     /// Type of modification to be applied.
     /// </summary>
     [IsoId("_3DAiIYmAEea2EL0wKRDnMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ModificationScopeIndication { get; init; } 
+    public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope38
     /// Intermediary or other party related to the management of the account.
     /// </summary>
     [IsoId("_3DAiI4mAEea2EL0wKRDnMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrmy")]
     #endif
+    [IsoXmlTag("Intrmy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Intermediary36 Intermediary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Intermediary36 Intermediary { get; init; } 
+    public required Intermediary36 Intermediary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Intermediary36 Intermediary { get; init; } 
     #else

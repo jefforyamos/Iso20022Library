@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information on the received margin or collateral of the transaction.
 /// </summary>
 [IsoId("_J-eOwayHEem81-uIvTF5rQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Received Margin Or Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,12 @@ public partial record ReceivedMarginOrCollateral3
     /// Where initial margin is received on a portfolio basis, this field should include the overall value of initial margin received for the portfolio.
     /// </summary>
     [IsoId("_KC8fEayHEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnRcvd")]
     #endif
+    [IsoXmlTag("InitlMrgnRcvd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? InitialMarginReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +62,12 @@ public partial record ReceivedMarginOrCollateral3
     /// Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// </summary>
     [IsoId("_KC8fE6yHEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnRcvd")]
     #endif
+    [IsoXmlTag("VartnMrgnRcvd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? VariationMarginReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,12 +80,12 @@ public partial record ReceivedMarginOrCollateral3
     /// Value of collateral received in excess of the required collateral.
     /// </summary>
     [IsoId("_KC8fFayHEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Excess Collateral Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcssCollRcvd")]
     #endif
+    [IsoXmlTag("XcssCollRcvd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExcessCollateralReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

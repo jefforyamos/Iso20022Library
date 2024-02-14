@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies rates.
 /// </summary>
 [IsoId("_Tf2JBdp-Ed-ak6NoX_4Aeg_-1452767156")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionRate1
     /// Annual rate of a financial instrument.
     /// </summary>
     [IsoId("_Tf2JBtp-Ed-ak6NoX_4Aeg_-2054958770")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrst")]
     #endif
+    [IsoXmlTag("Intrst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat1Choice_? Interest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionRate1
     /// Index rate related to the interest rate of the forthcoming interest payment.
     /// </summary>
     [IsoId("_Tf2JB9p-Ed-ak6NoX_4Aeg_-1563128851")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdIndx")]
     #endif
+    [IsoXmlTag("RltdIndx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat1Choice_? RelatedIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +73,14 @@ public partial record CorporateActionRate1
     #endif
     
     /// <summary>
-    /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
+    /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term &quot;any and all&quot;.
     /// </summary>
     [IsoId("_Tf2JCNp-Ed-ak6NoX_4Aeg_-2024233567")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Sought")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgSght")]
     #endif
+    [IsoXmlTag("PctgSght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat1Choice_? PercentageSought { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionRate1
     /// Rate of discount for securities purchased through a reinvestment scheme as compared to the current market price of security.
     /// </summary>
     [IsoId("_Tf_6ANp-Ed-ak6NoX_4Aeg_-613289454")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvestment Discount To Market")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstmtDscntToMkt")]
     #endif
+    [IsoXmlTag("RinvstmtDscntToMkt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat1Choice_? ReinvestmentDiscountToMarket { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionRate1
     /// Margin allowed over or under a given rate.
     /// </summary>
     [IsoId("_Tf_6Adp-Ed-ak6NoX_4Aeg_377917731")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sprd")]
     #endif
+    [IsoXmlTag("Sprd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat1Choice_? Spread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionRate1
     /// Acceptable price increment used for submitting a bid.
     /// </summary>
     [IsoId("_Tf_6Atp-Ed-ak6NoX_4Aeg_440695672")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid Interval")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidIntrvl")]
     #endif
+    [IsoXmlTag("BidIntrvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndRateFormat3Choice_? BidInterval { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionRate1
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
     [IsoId("_Tf_6A9p-Ed-ak6NoX_4Aeg_-733274509")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrgs")]
     #endif
+    [IsoXmlTag("Chrgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat1Choice_? Charges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

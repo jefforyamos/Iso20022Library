@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Cho
     /// Query is executed on a weekly basis. The day of the week for the query execution should be specified.
     /// </summary>
     [IsoId("_lyvAwNGYEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Weekly")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Cho
         /// Specifies the day of the week of the delivery.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Wkly")]
         #endif
+        [IsoXmlTag("Wkly")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required WeekDay2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public WeekDay2Code Value { get; init; } 
+        public required WeekDay2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public WeekDay2Code Value { get; init; } 
         #else

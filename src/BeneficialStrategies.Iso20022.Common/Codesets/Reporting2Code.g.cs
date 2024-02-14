@@ -21,7 +21,7 @@ public enum Reporting2Code
 {
     /// <summary>
     /// Trade details are to be reported to a stock exchange.
-    /// Encoded/decoded by serializers as "STEX".
+    /// Encoded/decoded by serializers as &quot;STEX&quot;.
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_ZTMAo9p-Ed-ak6NoX_4Aeg_-495638960")]
@@ -30,7 +30,7 @@ public enum Reporting2Code
     
     /// <summary>
     /// Trade details are to be reported to a regulatory organisation.
-    /// Encoded/decoded by serializers as "REGU".
+    /// Encoded/decoded by serializers as &quot;REGU&quot;.
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("_ZTMApNp-Ed-ak6NoX_4Aeg_-255523631")]
@@ -39,7 +39,7 @@ public enum Reporting2Code
     
     /// <summary>
     /// Report is deferred, for example, because the order was executed in partial fills.
-    /// Encoded/decoded by serializers as "DEFR".
+    /// Encoded/decoded by serializers as &quot;DEFR&quot;.
     /// </summary>
     [EnumMember(Value = "DEFR")]
     [IsoId("_ZTMApdp-Ed-ak6NoX_4Aeg_-210271843")]

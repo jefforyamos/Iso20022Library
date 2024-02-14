@@ -21,7 +21,7 @@ public enum CashSettlementSystemCode
 {
     /// <summary>
     /// Settle money through Bank of Korea Wire.
-    /// Encoded/decoded by serializers as "BOKW".
+    /// Encoded/decoded by serializers as &quot;BOKW&quot;.
     /// </summary>
     [EnumMember(Value = "BOKW")]
     [IsoId("_a7WRR9p-Ed-ak6NoX_4Aeg_-901576197")]
@@ -30,7 +30,7 @@ public enum CashSettlementSystemCode
     
     /// <summary>
     /// Settle money through cheque.
-    /// Encoded/decoded by serializers as "CHEC".
+    /// Encoded/decoded by serializers as &quot;CHEC&quot;.
     /// </summary>
     [EnumMember(Value = "CHEC")]
     [IsoId("_a7WRSNp-Ed-ak6NoX_4Aeg_-901576196")]
@@ -39,7 +39,7 @@ public enum CashSettlementSystemCode
     
     /// <summary>
     /// Settle money through UK domestic.
-    /// Encoded/decoded by serializers as "GBSC".
+    /// Encoded/decoded by serializers as &quot;GBSC&quot;.
     /// </summary>
     [EnumMember(Value = "GBSC")]
     [IsoId("_a7fbMNp-Ed-ak6NoX_4Aeg_-901576180")]
@@ -48,7 +48,7 @@ public enum CashSettlementSystemCode
     
     /// <summary>
     /// Settle money through gross settlement system.
-    /// Encoded/decoded by serializers as "GROS".
+    /// Encoded/decoded by serializers as &quot;GROS&quot;.
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_a7fbMdp-Ed-ak6NoX_4Aeg_-901576179")]
@@ -57,7 +57,7 @@ public enum CashSettlementSystemCode
     
     /// <summary>
     /// Settle money through net settlement system.
-    /// Encoded/decoded by serializers as "NETS".
+    /// Encoded/decoded by serializers as &quot;NETS&quot;.
     /// </summary>
     [EnumMember(Value = "NETS")]
     [IsoId("_a7fbMtp-Ed-ak6NoX_4Aeg_-901576162")]
@@ -66,7 +66,7 @@ public enum CashSettlementSystemCode
     
     /// <summary>
     /// Settle money through CHIPS (US).
-    /// Encoded/decoded by serializers as "USCH".
+    /// Encoded/decoded by serializers as &quot;USCH&quot;.
     /// </summary>
     [EnumMember(Value = "USCH")]
     [IsoId("_a7fbM9p-Ed-ak6NoX_4Aeg_-901576137")]
@@ -75,7 +75,7 @@ public enum CashSettlementSystemCode
     
     /// <summary>
     /// Settle money through Fedwire (US).
-    /// Encoded/decoded by serializers as "USFW".
+    /// Encoded/decoded by serializers as &quot;USFW&quot;.
     /// </summary>
     [EnumMember(Value = "USFW")]
     [IsoId("_a7fbNNp-Ed-ak6NoX_4Aeg_-901576136")]

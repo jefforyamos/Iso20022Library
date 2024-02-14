@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeliveryInterconnectionPoint1Choice.Code))]
     [KnownType(typeof(DeliveryInterconnectionPoint1Choice.Proprietary))]
     [IsoId("_pRKJ0IOrEeWqmeP8QNJBew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Interconnection Point 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode3Choice
     /// Qualifies further the pending status.
     /// </summary>
     [IsoId("_RF7ESNp-Ed-ak6NoX_4Aeg_2006585750")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode3Choice
         /// Indicates that the state of a payment at the clearing agent side is pending.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PdgSts")]
         #endif
+        [IsoXmlTag("PdgSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingStatus4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingStatus4Code Value { get; init; } 
+        public required PendingStatus4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingStatus4Code Value { get; init; } 
         #else

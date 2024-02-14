@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the corporate action security option.
 /// </summary>
 [IsoId("_UGcO-dp-Ed-ak6NoX_4Aeg_221261687")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record SecuritiesOption6
     /// Provides description of the financial instrument related to securities movement.
     /// </summary>
     [IsoId("_UGcO-tp-Ed-ak6NoX_4Aeg_1939994154")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyDtls")]
     #endif
+    [IsoXmlTag("SctyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentAttributes5 SecurityDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentAttributes5 SecurityDetails { get; init; } 
+    public required FinancialInstrumentAttributes5 SecurityDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentAttributes5 SecurityDetails { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record SecuritiesOption6
     /// Specifies whether the value is a debit or credit.
     /// </summary>
     [IsoId("_UGcO-9p-Ed-ak6NoX_4Aeg_-248081376")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else
@@ -93,12 +89,11 @@ public partial record SecuritiesOption6
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
     [IsoId("_UGcO_Np-Ed-ak6NoX_4Aeg_2065989740")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Temporary Financial Instrument Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TempFinInstrmInd")]
     #endif
+    [IsoXmlTag("TempFinInstrmInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TemporaryFinancialInstrumentIndicator1Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +106,11 @@ public partial record SecuritiesOption6
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
     [IsoId("_UGcO_dp-Ed-ak6NoX_4Aeg_-1084488300")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Eligible Proceeds Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonElgblPrcdsInd")]
     #endif
+    [IsoXmlTag("NonElgblPrcdsInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +123,11 @@ public partial record SecuritiesOption6
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
     [IsoId("_UGl_8Np-Ed-ak6NoX_4Aeg_447619307")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitled Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitldQty")]
     #endif
+    [IsoXmlTag("EntitldQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity6Choice_? EntitledQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +140,11 @@ public partial record SecuritiesOption6
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
     [IsoId("_UGl_8dp-Ed-ak6NoX_4Aeg_-1981607815")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraction Disposition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrctnDspstn")]
     #endif
+    [IsoXmlTag("FrctnDspstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FractionDispositionType1Choice_? FractionDisposition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +157,11 @@ public partial record SecuritiesOption6
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
     [IsoId("_UGl_8tp-Ed-ak6NoX_4Aeg_-1013647412")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Option")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyOptn")]
     #endif
+    [IsoXmlTag("CcyOptn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +174,11 @@ public partial record SecuritiesOption6
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
     [IsoId("_UGl_89p-Ed-ak6NoX_4Aeg_1271363026")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgPrd")]
     #endif
+    [IsoXmlTag("TradgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1Choice_? TradingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,16 +191,15 @@ public partial record SecuritiesOption6
     /// Provides information about the dates related to securities movement.
     /// </summary>
     [IsoId("_UGl_9Np-Ed-ak6NoX_4Aeg_-1442347753")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtDtls")]
     #endif
+    [IsoXmlTag("DtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityDate2 DateDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityDate2 DateDetails { get; init; } 
+    public required SecurityDate2 DateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityDate2 DateDetails { get; init; } 
     #else
@@ -221,12 +210,11 @@ public partial record SecuritiesOption6
     /// Provides information about the rates related to securities movement.
     /// </summary>
     [IsoId("_UGl_9dp-Ed-ak6NoX_4Aeg_-391214681")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateDtls")]
     #endif
+    [IsoXmlTag("RateDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionRate7? RateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +227,11 @@ public partial record SecuritiesOption6
     /// Provides information about the prices related to securities movement.
     /// </summary>
     [IsoId("_UGl_9tp-Ed-ak6NoX_4Aeg_-475977169")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricDtls")]
     #endif
+    [IsoXmlTag("PricDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPrice10? PriceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

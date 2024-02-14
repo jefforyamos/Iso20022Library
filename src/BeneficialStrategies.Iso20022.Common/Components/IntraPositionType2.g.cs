@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Intra-position type used to specify pairs of from/to balances.
 /// </summary>
 [IsoId("_Vno_MeWYEeWvh8HbDeFFMA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Position Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record IntraPositionType2
     /// Balance from which the securities are moving.
     /// </summary>
     [IsoId("_VzY8M-WYEeWvh8HbDeFFMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalFr")]
     #endif
+    [IsoXmlTag("BalFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesSubBalanceTypeAndQuantityBreakdown3? BalanceFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record IntraPositionType2
     /// Balance to which the securities are moving.
     /// </summary>
     [IsoId("_VzY8O-WYEeWvh8HbDeFFMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTo")]
     #endif
+    [IsoXmlTag("BalTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesSubBalanceTypeAndQuantityBreakdown3? BalanceTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

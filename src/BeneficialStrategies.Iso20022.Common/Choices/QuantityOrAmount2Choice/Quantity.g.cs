@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityOrAmount2Choice
     /// Quantity is expressed in units, face amount or amortised amount.
     /// </summary>
     [IsoId("_wXH_kQeCEe2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

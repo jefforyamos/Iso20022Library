@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ModificationCancellationAllowed3Choice.Indicator))]
     [KnownType(typeof(ModificationCancellationAllowed3Choice.Proprietary))]
     [IsoId("_AYz-E9okEeC60axPepSq7g_1104436379")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Cancellation Allowed 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

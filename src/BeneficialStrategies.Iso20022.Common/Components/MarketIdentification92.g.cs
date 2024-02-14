@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details on a trading venue as per ISO 10383.
 /// </summary>
 [IsoId("_BP5vEX5sEeasY4u9QTizPQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Market Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,16 @@ public partial record MarketIdentification92
     /// Operating MIC of the venue.
     /// </summary>
     [IsoId("_Bc_v4X5sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operating")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oprg")]
     #endif
+    [IsoXmlTag("Oprg")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMICIdentifier Operating { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Operating { get; init; } 
+    public required System.String Operating { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Operating { get; init; } 
     #else
@@ -76,16 +74,16 @@ public partial record MarketIdentification92
     /// Segment MIC of the venue where it exists, otherwise the Operating MIC.
     /// </summary>
     [IsoId("_Bc_v435sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgmt")]
     #endif
+    [IsoXmlTag("Sgmt")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMICIdentifier Segment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Segment { get; init; } 
+    public required System.String Segment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Segment { get; init; } 
     #else
@@ -96,16 +94,15 @@ public partial record MarketIdentification92
     /// Define the type of Market Identification Code that is being supplied.
     /// </summary>
     [IsoId("_Bc_v5X5sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketIdentification1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketIdentification1Code Type { get; init; } 
+    public required MarketIdentification1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketIdentification1Code Type { get; init; } 
     #else
@@ -116,12 +113,11 @@ public partial record MarketIdentification92
     /// Provides the category of market the venue operates in.
     /// </summary>
     [IsoId("_Bc_v535sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctgy")]
     #endif
+    [IsoXmlTag("Ctgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingVenue1Code? Category { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,19 +130,17 @@ public partial record MarketIdentification92
     /// The name or description of the institution, market, or infrastructure.
     /// </summary>
     [IsoId("_Bc_v6X5sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Institution Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstnNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstnNm")]
+    [IsoSimpleType(IsoSimpleType.Max450Text)]
     [StringLength(maximumLength: 450 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax450Text InstitutionName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InstitutionName { get; init; } 
+    public required System.String InstitutionName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InstitutionName { get; init; } 
     #else
@@ -157,15 +151,13 @@ public partial record MarketIdentification92
     /// Known acronym of the institution, market, or infrastructure.
     /// </summary>
     [IsoId("_Bc_v635sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acronym")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acrnm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Acrnm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Acronym { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,15 +170,13 @@ public partial record MarketIdentification92
     /// City where the institution, market, or infrastructure operates.
     /// </summary>
     [IsoId("_Bc_v7X5sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("City")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="City")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("City")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? City { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,16 +189,15 @@ public partial record MarketIdentification92
     /// Two character country code and country name as per ISO 3166.
     /// </summary>
     [IsoId("_Bc_v735sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCodeAndName3 Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CountryCodeAndName3 Country { get; init; } 
+    public required CountryCodeAndName3 Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CountryCodeAndName3 Country { get; init; } 
     #else
@@ -219,15 +208,13 @@ public partial record MarketIdentification92
     /// The name of the national competent authority associated with the MIC.
     /// </summary>
     [IsoId("_Bc_v8X5sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authority Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrtyNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AuthrtyNm")]
+    [IsoSimpleType(IsoSimpleType.Max450Text)]
     [StringLength(maximumLength: 450 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax450Text? AuthorityName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,15 +227,13 @@ public partial record MarketIdentification92
     /// Website URI of the institution, market, or infrastructure.
     /// </summary>
     [IsoId("_Bc_v835sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Web Site")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WebSite")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("WebSite")]
+    [IsoSimpleType(IsoSimpleType.Max210Text)]
     [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? WebSite { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -261,15 +246,13 @@ public partial record MarketIdentification92
     /// Details additional information about the market operator.
     /// </summary>
     [IsoId("_Bc_v9X5sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Note")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Note")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Note")]
+    [IsoSimpleType(IsoSimpleType.Max450Text)]
     [StringLength(maximumLength: 450 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax450Text? Note { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -282,12 +265,11 @@ public partial record MarketIdentification92
     /// Additional information to help users identify the exchange or understand a modification.
     /// </summary>
     [IsoId("_Bc_v935sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mod")]
     #endif
+    [IsoXmlTag("Mod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? Modification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -300,12 +282,12 @@ public partial record MarketIdentification92
     /// First date of the MIC issuance.
     /// </summary>
     [IsoId("_Bc_v-X5sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDt")]
     #endif
+    [IsoXmlTag("CreDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CreationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -318,16 +300,15 @@ public partial record MarketIdentification92
     /// Details the validity of the specific record.
     /// </summary>
     [IsoId("_Bc_v-35sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyPrd")]
     #endif
+    [IsoXmlTag("VldtyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4Choice_ ValidityPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Period4Choice_ ValidityPeriod { get; init; } 
+    public required Period4Choice_ ValidityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Period4Choice_ ValidityPeriod { get; init; } 
     #else
@@ -338,12 +319,12 @@ public partial record MarketIdentification92
     /// Date when the market identification code was last modified.
     /// </summary>
     [IsoId("_Bc_v_X5sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsDt")]
     #endif
+    [IsoXmlTag("StsDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StatusDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,12 +337,12 @@ public partial record MarketIdentification92
     /// Date when this record was last modified.
     /// </summary>
     [IsoId("_Bc_v_35sEeasY4u9QTizPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Updated Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastUpdtdDt")]
     #endif
+    [IsoXmlTag("LastUpdtdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? LastUpdatedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

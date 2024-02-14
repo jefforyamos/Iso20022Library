@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Provides detailed information on the transaction and it's status to be updated in the tracker.
+/// Provides detailed information on the transaction and it&apos;s status to be updated in the tracker.
 /// </summary>
 [IsoId("_XZ_N8_WfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Status And Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TrackerStatusAndTransaction3
     /// Provides detailed information on the transaction status to be updated in the tracker.
     /// </summary>
     [IsoId("_XZ_N9_WfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerStatus3 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerStatus3 TransactionStatus { get; init; } 
+    public required TrackerStatus3 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerStatus3 TransactionStatus { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TrackerStatusAndTransaction3
     /// Key elements used to identify the original transaction(s) that is being referred to.
     /// </summary>
     [IsoId("_XZ_N-fWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerPaymentTransaction3 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerPaymentTransaction3 Transaction { get; init; } 
+    public required TrackerPaymentTransaction3 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerPaymentTransaction3 Transaction { get; init; } 
     #else

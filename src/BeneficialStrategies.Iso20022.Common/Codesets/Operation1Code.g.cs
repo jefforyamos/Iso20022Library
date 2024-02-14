@@ -21,7 +21,7 @@ public enum Operation1Code
 {
     /// <summary>
     /// Indicates a range delimited by two variables.
-    /// Encoded/decoded by serializers as "TILL".
+    /// Encoded/decoded by serializers as &quot;TILL&quot;.
     /// </summary>
     [EnumMember(Value = "TILL")]
     [IsoId("_aO8eRNp-Ed-ak6NoX_4Aeg_-2087974128")]
@@ -30,7 +30,7 @@ public enum Operation1Code
     
     /// <summary>
     /// Indicates either of two variables is valid, but not both.
-    /// Encoded/decoded by serializers as "ORRR".
+    /// Encoded/decoded by serializers as &quot;ORRR&quot;.
     /// </summary>
     [EnumMember(Value = "ORRR")]
     [IsoId("_aO8eRdp-Ed-ak6NoX_4Aeg_-2087974093")]
@@ -39,7 +39,7 @@ public enum Operation1Code
     
     /// <summary>
     /// Indicates that only when both variables are given, the operation is valid.
-    /// Encoded/decoded by serializers as "ANDD".
+    /// Encoded/decoded by serializers as &quot;ANDD&quot;.
     /// </summary>
     [EnumMember(Value = "ANDD")]
     [IsoId("_aO8eRtp-Ed-ak6NoX_4Aeg_-2087974033")]

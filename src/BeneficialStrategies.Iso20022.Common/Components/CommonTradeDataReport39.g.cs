@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to contract and transaction details.
 /// </summary>
 [IsoId("_phGVqQ1LEeqV4s5SpzR1dQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Common Trade Data Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CommonTradeDataReport39
     /// Data related to a trade contract.
     /// </summary>
     [IsoId("_ph2jkQ1LEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctData")]
     #endif
+    [IsoXmlTag("CtrctData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractType8? ContractData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record CommonTradeDataReport39
     /// Data related to a trade transaction.
     /// </summary>
     [IsoId("_ph2jkw1LEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxData")]
     #endif
+    [IsoXmlTag("TxData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeTransaction25 TransactionData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeTransaction25 TransactionData { get; init; } 
+    public required TradeTransaction25 TransactionData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeTransaction25 TransactionData { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record CommonTradeDataReport39
     /// Contract modification details expressed as an action type and a reporting level type.
     /// </summary>
     [IsoId("_ph2jlQ1LEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctMod")]
     #endif
+    [IsoXmlTag("CtrctMod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractModification1? ContractModification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

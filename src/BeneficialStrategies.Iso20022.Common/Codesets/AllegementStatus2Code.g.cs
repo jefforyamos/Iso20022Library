@@ -21,7 +21,7 @@ public enum AllegementStatus2Code
 {
     /// <summary>
     /// Allegement has been accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_75fyMa3DEeeBVbuVcoH9Nw")]
@@ -30,7 +30,7 @@ public enum AllegementStatus2Code
     
     /// <summary>
     /// Allegement is pending.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_7_5VIa3DEeeBVbuVcoH9Nw")]
@@ -39,7 +39,7 @@ public enum AllegementStatus2Code
     
     /// <summary>
     /// Transaction or report has been rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_8LgIMa3DEeeBVbuVcoH9Nw")]

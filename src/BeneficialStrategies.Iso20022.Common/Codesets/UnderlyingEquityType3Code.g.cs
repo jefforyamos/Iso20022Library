@@ -21,7 +21,7 @@ public enum UnderlyingEquityType3Code
 {
     /// <summary>
     /// Underlying is a basket.
-    /// Encoded/decoded by serializers as "BSKT".
+    /// Encoded/decoded by serializers as &quot;BSKT&quot;.
     /// </summary>
     [EnumMember(Value = "BSKT")]
     [IsoId("_rI7j8WlOEeaLAKoEUNsD9g")]

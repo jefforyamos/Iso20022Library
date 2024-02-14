@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice
     /// Mark-to-market pre-haircut value of other commodity collateral.
     /// </summary>
     [IsoId("_SUOCgBYIEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commodity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice
         /// Mark-to-market pre-haircut value.
         /// </summary>
         [IsoId("_0jm5cBYHEeejf-cbr8l5qw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Market Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MktVal")]
         #endif
+        [IsoXmlTag("MktVal")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd24Amount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAnd24Amount MarketValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal MarketValue { get; init; } 
+        public required System.Decimal MarketValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal MarketValue { get; init; } 
         #else
@@ -77,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice
         /// Specifies the type of commodity.
         /// </summary>
         [IsoId("_6IEnkBYHEeejf-cbr8l5qw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Commodity Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CmmdtyTp")]
         #endif
+        [IsoXmlTag("CmmdtyTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassDetailedSubProductType1Choice_ CommodityType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassDetailedSubProductType1Choice_ CommodityType { get; init; } 
+        public required AssetClassDetailedSubProductType1Choice_ CommodityType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassDetailedSubProductType1Choice_ CommodityType { get; init; } 
         #else

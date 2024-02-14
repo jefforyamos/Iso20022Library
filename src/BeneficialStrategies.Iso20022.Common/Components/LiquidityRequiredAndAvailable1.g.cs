@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Obligations of a legal entity or other financial construct that must be met in cash and the resources such legal entity of financial construct has available to meet those obligations.
 /// </summary>
 [IsoId("_IW-vwLbxEeaqL_M7XFD7PQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Liquidity Required And Available")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record LiquidityRequiredAndAvailable1
     /// Flows of resources that are estimated to be available to the CCP on each day of the reporting horizon. That is, balances as of close‐of‐business on day ‘T‐1’, then flows from day ‘T’ of the default to ‘T+5 onwards’.
     /// </summary>
     [IsoId("_UdHbI7bxEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquid Resources")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LqdRsrcs")]
     #endif
+    [IsoXmlTag("LqdRsrcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LiquidResources1 LiquidResources { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LiquidResources1 LiquidResources { get; init; } 
+    public required LiquidResources1 LiquidResources { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LiquidResources1 LiquidResources { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record LiquidityRequiredAndAvailable1
     /// Period of reporting of liquidity requirements and resources relative to a set date.
     /// </summary>
     [IsoId("_UdHbJLbxEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquidity Horizon")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LqdtyHrzn")]
     #endif
+    [IsoXmlTag("LqdtyHrzn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementDate6Code LiquidityHorizon { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementDate6Code LiquidityHorizon { get; init; } 
+    public required SettlementDate6Code LiquidityHorizon { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementDate6Code LiquidityHorizon { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record LiquidityRequiredAndAvailable1
     /// Total expected liquidity need under Scenario ID for the relevant currency over each day of the horizon from day T onwards.
     /// </summary>
     [IsoId("_UmNQQbbyEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stress Liquid Resource Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrssLqdRsrcRqrmnt")]
     #endif
+    [IsoXmlTag("StrssLqdRsrcRqrmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StressLiquidResourceRequirement1 StressLiquidResourceRequirement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StressLiquidResourceRequirement1 StressLiquidResourceRequirement { get; init; } 
+    public required StressLiquidResourceRequirement1 StressLiquidResourceRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StressLiquidResourceRequirement1 StressLiquidResourceRequirement { get; init; } 
     #else

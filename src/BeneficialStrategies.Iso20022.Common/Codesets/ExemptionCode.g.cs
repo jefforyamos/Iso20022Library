@@ -21,7 +21,7 @@ public enum ExemptionCode
 {
     /// <summary>
     /// Transaction is initiated by the Card Acceptor.
-    /// Encoded/decoded by serializers as "MINT".
+    /// Encoded/decoded by serializers as &quot;MINT&quot;.
     /// </summary>
     [EnumMember(Value = "MINT")]
     [IsoId("_1Ma54AxyEeqdx6buGpCCQw")]
@@ -30,7 +30,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// Transaction is one of a series of recurring payment.
-    /// Encoded/decoded by serializers as "RECP".
+    /// Encoded/decoded by serializers as &quot;RECP&quot;.
     /// </summary>
     [EnumMember(Value = "RECP")]
     [IsoId("_ElVkoAxzEeqdx6buGpCCQw")]
@@ -38,8 +38,8 @@ public enum ExemptionCode
     RecurringPayment,
     
     /// <summary>
-    /// Transaction's amount is low and could be processed without strong customer authentication.
-    /// Encoded/decoded by serializers as "LOWA".
+    /// Transaction&apos;s amount is low and could be processed without strong customer authentication.
+    /// Encoded/decoded by serializers as &quot;LOWA&quot;.
     /// </summary>
     [EnumMember(Value = "LOWA")]
     [IsoId("_MlRPoAxzEeqdx6buGpCCQw")]
@@ -48,7 +48,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// According to the transaction risk analysis the strong customer authentication is not mandated.
-    /// Encoded/decoded by serializers as "TRAE".
+    /// Encoded/decoded by serializers as &quot;TRAE&quot;.
     /// </summary>
     [EnumMember(Value = "TRAE")]
     [IsoId("_eBX6IAxzEeqdx6buGpCCQw")]
@@ -57,7 +57,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// Cardholder has enrolled the Card Acceptor in the exemption list of strong customer authentication.
-    /// Encoded/decoded by serializers as "TMBE".
+    /// Encoded/decoded by serializers as &quot;TMBE&quot;.
     /// </summary>
     [EnumMember(Value = "TMBE")]
     [IsoId("_Oi6yoAx0Eeqdx6buGpCCQw")]
@@ -66,7 +66,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// Card Acceptor is a strong customer authentication delegate.
-    /// Encoded/decoded by serializers as "SCAD".
+    /// Encoded/decoded by serializers as &quot;SCAD&quot;.
     /// </summary>
     [EnumMember(Value = "SCAD")]
     [IsoId("_fu2TIAx0Eeqdx6buGpCCQw")]
@@ -75,7 +75,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// Transaction is a secure corporate payment.
-    /// Encoded/decoded by serializers as "SCPE".
+    /// Encoded/decoded by serializers as &quot;SCPE&quot;.
     /// </summary>
     [EnumMember(Value = "SCPE")]
     [IsoId("_zgt7IAx0Eeqdx6buGpCCQw")]
@@ -84,7 +84,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// Payment is processed in a environment where strong customer authentication is inappropriate.
-    /// Encoded/decoded by serializers as "PKGE".
+    /// Encoded/decoded by serializers as &quot;PKGE&quot;.
     /// </summary>
     [EnumMember(Value = "PKGE")]
     [IsoId("_9fmmIAx0Eeqdx6buGpCCQw")]
@@ -93,7 +93,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// Payment account information exemption.
-    /// Encoded/decoded by serializers as "PAAC".
+    /// Encoded/decoded by serializers as &quot;PAAC&quot;.
     /// </summary>
     [EnumMember(Value = "PAAC")]
     [IsoId("_QyrHkBkqEeuGbrXbitsqoQ")]
@@ -102,7 +102,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// Contactless payment at point of sale exemption.
-    /// Encoded/decoded by serializers as "CTLS".
+    /// Encoded/decoded by serializers as &quot;CTLS&quot;.
     /// </summary>
     [EnumMember(Value = "CTLS")]
     [IsoId("_WB3wUBkqEeuGbrXbitsqoQ")]
@@ -111,7 +111,7 @@ public enum ExemptionCode
     
     /// <summary>
     /// Credit transfer between accounts held by the same natural or legal person exemption.
-    /// Encoded/decoded by serializers as "TRSP".
+    /// Encoded/decoded by serializers as &quot;TRSP&quot;.
     /// </summary>
     [EnumMember(Value = "TRSP")]
     [IsoId("_b6RHEBkqEeuGbrXbitsqoQ")]

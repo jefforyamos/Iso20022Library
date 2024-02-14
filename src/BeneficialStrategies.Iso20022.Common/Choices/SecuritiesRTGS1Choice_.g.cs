@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesRTGS1Choice.Indicator))]
     [KnownType(typeof(SecuritiesRTGS1Choice.Proprietary))]
     [IsoId("_QwBFt9p-Ed-ak6NoX_4Aeg_-613904769")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities RTGS 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

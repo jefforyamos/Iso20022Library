@@ -21,7 +21,7 @@ public enum EventFrequency10Code
 {
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_ASy8ISDVEeWCLu74WLgP4w")]
@@ -30,7 +30,7 @@ public enum EventFrequency10Code
     
     /// <summary>
     /// Event takes place as necessary.
-    /// Encoded/decoded by serializers as "ADHO".
+    /// Encoded/decoded by serializers as &quot;ADHO&quot;.
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_Aryq8SDVEeWCLu74WLgP4w")]

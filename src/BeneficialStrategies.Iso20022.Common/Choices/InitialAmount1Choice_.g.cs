@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InitialAmount1Choice.InitialNumberOfInstalments))]
     [KnownType(typeof(InitialAmount1Choice.Amount))]
     [IsoId("_Ru9ewCDaEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Amount 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

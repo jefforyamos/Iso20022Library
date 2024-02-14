@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details an individual country including its name and country code.
 /// </summary>
 [IsoId("_lv3_EYAMEeaYeOsLN4966A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Country Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record SecuritiesCountryIdentification2
     /// Two character country code and country name as per ISO 3166.
     /// </summary>
     [IsoId("_l7Ja8YAMEeaYeOsLN4966A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCodeAndName3 Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CountryCodeAndName3 Country { get; init; } 
+    public required CountryCodeAndName3 Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CountryCodeAndName3 Country { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record SecuritiesCountryIdentification2
     /// Flag which reflects if the country is a member of the EEA (European Economic Area) or not.
     /// </summary>
     [IsoId("_l7Ja84AMEeaYeOsLN4966A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("EEA Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EEACtry")]
     #endif
+    [IsoXmlTag("EEACtry")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator EEACountry { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EEACountry { get; init; } 
+    public required System.String EEACountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EEACountry { get; init; } 
     #else
@@ -93,12 +90,11 @@ public partial record SecuritiesCountryIdentification2
     /// Modification status for the record compared to the previous report.
     /// </summary>
     [IsoId("_l7Ja9YAMEeaYeOsLN4966A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mod")]
     #endif
+    [IsoXmlTag("Mod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? Modification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +107,15 @@ public partial record SecuritiesCountryIdentification2
     /// Details the validity of the specific record.
     /// </summary>
     [IsoId("_l7Ja94AMEeaYeOsLN4966A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyPrd")]
     #endif
+    [IsoXmlTag("VldtyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4Choice_ ValidityPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Period4Choice_ ValidityPeriod { get; init; } 
+    public required Period4Choice_ ValidityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Period4Choice_ ValidityPeriod { get; init; } 
     #else
@@ -131,12 +126,12 @@ public partial record SecuritiesCountryIdentification2
     /// Date when this record was last modified.
     /// </summary>
     [IsoId("_l7Ja-YAMEeaYeOsLN4966A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Updated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastUpdtd")]
     #endif
+    [IsoXmlTag("LastUpdtd")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LastUpdated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

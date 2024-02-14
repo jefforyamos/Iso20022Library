@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Execution of the subscription part, in a switch between investment funds or investment fund classes.
 /// </summary>
 [IsoId("_VX86K9p-Ed-ak6NoX_4Aeg_-468679588")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Switch Subscription Leg Execution")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,15 +55,13 @@ public partial record SwitchSubscriptionLegExecution2
     /// Unique technical identifier for an instance of a leg within a switch.
     /// </summary>
     [IsoId("_VX86LNp-Ed-ak6NoX_4Aeg_-468679398")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LegId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LegIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -78,15 +74,13 @@ public partial record SwitchSubscriptionLegExecution2
     /// Unique identifier for an instance of a leg execution within a switch confirmation.
     /// </summary>
     [IsoId("_VYGrINp-Ed-ak6NoX_4Aeg_-468679380")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Execution Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegExctnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LegExctnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LegExecutionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,16 +93,15 @@ public partial record SwitchSubscriptionLegExecution2
     /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
     /// </summary>
     [IsoId("_VYGrIdp-Ed-ak6NoX_4Aeg_-468679025")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmDtls")]
     #endif
+    [IsoXmlTag("FinInstrmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
+    public required FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
     #else
@@ -119,16 +112,15 @@ public partial record SwitchSubscriptionLegExecution2
     /// Number of investment fund units subscribed.
     /// </summary>
     [IsoId("_VYGrItp-Ed-ak6NoX_4Aeg_-468679569")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitsNb")]
     #endif
+    [IsoXmlTag("UnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
+    public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     #else
@@ -139,16 +131,16 @@ public partial record SwitchSubscriptionLegExecution2
     /// Net amount of money invested in a specific financial instrument by an investor, expressed in the currency requested by the investor.
     /// </summary>
     [IsoId("_VYGrI9p-Ed-ak6NoX_4Aeg_-468679553")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetAmt")]
     #endif
+    [IsoXmlTag("NetAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount NetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal NetAmount { get; init; } 
+    public required System.Decimal NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal NetAmount { get; init; } 
     #else
@@ -159,12 +151,12 @@ public partial record SwitchSubscriptionLegExecution2
     /// Gross amount of money invested in a specific financial instrument by an investor, expressed in the currency requested by the investor.
     /// </summary>
     [IsoId("_VYGrJNp-Ed-ak6NoX_4Aeg_-468679535")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssAmt")]
     #endif
+    [IsoXmlTag("GrssAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,16 +169,15 @@ public partial record SwitchSubscriptionLegExecution2
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
     [IsoId("_VYGrJdp-Ed-ak6NoX_4Aeg_-468679510")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDtTm")]
     #endif
+    [IsoXmlTag("TradDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTimeChoice_ TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     #else
@@ -197,16 +188,15 @@ public partial record SwitchSubscriptionLegExecution2
     /// Price at which the order was executed.
     /// </summary>
     [IsoId("_VYGrJtp-Ed-ak6NoX_4Aeg_-468679137")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricDtls")]
     #endif
+    [IsoXmlTag("PricDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitPrice5 PriceDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitPrice5 PriceDetails { get; init; } 
+    public required UnitPrice5 PriceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitPrice5 PriceDetails { get; init; } 
     #else
@@ -217,16 +207,16 @@ public partial record SwitchSubscriptionLegExecution2
     /// Indicates whether the dividend is included, ie, cum-dividend, in the executed price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
     [IsoId("_VYGrJ9p-Ed-ak6NoX_4Aeg_-468679493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cum Dividend Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CumDvddInd")]
     #endif
+    [IsoXmlTag("CumDvddInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CumDividendIndicator { get; init; } 
+    public required System.String CumDividendIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CumDividendIndicator { get; init; } 
     #else
@@ -237,12 +227,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Part of the price deemed as accrued income or profit rather than capital. The interim profit amount is used for tax purposes.
     /// </summary>
     [IsoId("_VYGrKNp-Ed-ak6NoX_4Aeg_-468679450")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interim Profit Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmPrftAmt")]
     #endif
+    [IsoXmlTag("IntrmPrftAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProfitAndLoss1Choice_? InterimProfitAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -255,12 +244,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
     [IsoId("_VYGrKdp-Ed-ak6NoX_4Aeg_-468679475")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Income Preference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncmPref")]
     #endif
+    [IsoXmlTag("IncmPref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncomePreference1Code? IncomePreference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -273,12 +261,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
     [IsoId("_VYGrKtp-Ed-ak6NoX_4Aeg_961157849")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdSttlmCcy")]
     #endif
+    [IsoXmlTag("ReqdSttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? RequestedSettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -291,12 +278,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
     [IsoId("_VYP1ENp-Ed-ak6NoX_4Aeg_961158174")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested NAV Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdNAVCcy")]
     #endif
+    [IsoXmlTag("ReqdNAVCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? RequestedNAVCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -309,12 +295,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Charge for the execution of an order.
     /// </summary>
     [IsoId("_VYP1Edp-Ed-ak6NoX_4Aeg_-468679077")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgGnlDtls")]
     #endif
+    [IsoXmlTag("ChrgGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalCharges2? ChargeGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -327,12 +312,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Commission for the execution of an investment fund order.
     /// </summary>
     [IsoId("_VYP1Etp-Ed-ak6NoX_4Aeg_-468679060")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnGnlDtls")]
     #endif
+    [IsoXmlTag("ComssnGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalCommissions2? CommissionGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -345,12 +329,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Tax applicable to execution of an investment fund order.
     /// </summary>
     [IsoId("_VYP1E9p-Ed-ak6NoX_4Aeg_-468679120")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxGnlDtls")]
     #endif
+    [IsoXmlTag("TaxGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalTaxes2? TaxGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -363,12 +346,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
     [IsoId("_VYP1FNp-Ed-ak6NoX_4Aeg_-468678965")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement And Custody Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAndCtdyDtls")]
     #endif
+    [IsoXmlTag("SttlmAndCtdyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundSettlementParameters3? SettlementAndCustodyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -381,16 +363,16 @@ public partial record SwitchSubscriptionLegExecution2
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
     [IsoId("_VYP1Fdp-Ed-ak6NoX_4Aeg_-468679433")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Delivery Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysDlvryInd")]
     #endif
+    [IsoXmlTag("PhysDlvryInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PhysicalDeliveryIndicator { get; init; } 
+    public required System.String PhysicalDeliveryIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PhysicalDeliveryIndicator { get; init; } 
     #else
@@ -401,12 +383,11 @@ public partial record SwitchSubscriptionLegExecution2
     /// Information related to physical delivery of the securities.
     /// </summary>
     [IsoId("_VYP1Ftp-Ed-ak6NoX_4Aeg_-468678699")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Delivery Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysDlvryDtls")]
     #endif
+    [IsoXmlTag("PhysDlvryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryParameters3? PhysicalDeliveryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

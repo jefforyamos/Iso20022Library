@@ -21,7 +21,7 @@ public enum SequenceType3Code
 {
     /// <summary>
     /// First collection of a series of direct debit instructions.
-    /// Encoded/decoded by serializers as "FRST".
+    /// Encoded/decoded by serializers as &quot;FRST&quot;.
     /// </summary>
     [EnumMember(Value = "FRST")]
     [IsoId("_t90OJFkyEeGeoaLUQk__nA_908612180")]
@@ -29,8 +29,8 @@ public enum SequenceType3Code
     First = SequenceTypeCode.First, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
-    /// Encoded/decoded by serializers as "RCUR".
+    /// Direct debit instruction where the debtor&apos;s authorisation is used for regular direct debit transactions initiated by the creditor.
+    /// Encoded/decoded by serializers as &quot;RCUR&quot;.
     /// </summary>
     [EnumMember(Value = "RCUR")]
     [IsoId("_t99_IFkyEeGeoaLUQk__nA_1026483165")]
@@ -39,7 +39,7 @@ public enum SequenceType3Code
     
     /// <summary>
     /// Final collection of a series of direct debit instructions.
-    /// Encoded/decoded by serializers as "FNAL".
+    /// Encoded/decoded by serializers as &quot;FNAL&quot;.
     /// </summary>
     [EnumMember(Value = "FNAL")]
     [IsoId("_t99_IVkyEeGeoaLUQk__nA_-1801335368")]
@@ -47,8 +47,8 @@ public enum SequenceType3Code
     Final = SequenceTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
-    /// Encoded/decoded by serializers as "OOFF".
+    /// Direct debit instruction where the debtor&apos;s authorisation is used to initiate one single direct debit transaction.
+    /// Encoded/decoded by serializers as &quot;OOFF&quot;.
     /// </summary>
     [EnumMember(Value = "OOFF")]
     [IsoId("_t99_IlkyEeGeoaLUQk__nA_1948646475")]
@@ -57,7 +57,7 @@ public enum SequenceType3Code
     
     /// <summary>
     /// Collection used to re-present previously reversed or returned direct debit transactions.
-    /// Encoded/decoded by serializers as "RPRE".
+    /// Encoded/decoded by serializers as &quot;RPRE&quot;.
     /// </summary>
     [EnumMember(Value = "RPRE")]
     [IsoId("_t99_I1kyEeGeoaLUQk__nA_-1832965217")]

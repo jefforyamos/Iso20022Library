@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Print Request message.
 /// </summary>
 [IsoId("_ySkXAN6qEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Print Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record DevicePrintRequest1
     /// Qualifies the type of document.
     /// </summary>
     [IsoId("_3LLEsN6qEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocQlfr")]
     #endif
+    [IsoXmlTag("DocQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentType7Code DocumentQualifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentType7Code DocumentQualifier { get; init; } 
+    public required DocumentType7Code DocumentQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentType7Code DocumentQualifier { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record DevicePrintRequest1
     /// Type of awaited response (none, immediate, after printing, after sound).
     /// </summary>
     [IsoId("_5zGJMN6qEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnMd")]
     #endif
+    [IsoXmlTag("RspnMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseMode1Code ResponseMode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseMode1Code ResponseMode { get; init; } 
+    public required ResponseMode1Code ResponseMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseMode1Code ResponseMode { get; init; } 
     #else
@@ -93,12 +89,12 @@ public partial record DevicePrintRequest1
     /// Flag that the print is integrated to other prints.
     /// </summary>
     [IsoId("_V2SuMN6rEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Integrated Print Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntgrtdPrtFlg")]
     #endif
+    [IsoXmlTag("IntgrtdPrtFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? IntegratedPrintFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +107,12 @@ public partial record DevicePrintRequest1
     /// Flag to require a physical signature by the Customer.
     /// </summary>
     [IsoId("_ZR8VsN6rEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Required Signature Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqrdSgntrFlg")]
     #endif
+    [IsoXmlTag("ReqrdSgntrFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RequiredSignatureFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,16 +125,15 @@ public partial record DevicePrintRequest1
     /// Content of the message to print.
     /// </summary>
     [IsoId("_cA4oMN6rEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Output Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutptCntt")]
     #endif
+    [IsoXmlTag("OutptCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActionMessage6 OutputContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ActionMessage6 OutputContent { get; init; } 
+    public required ActionMessage6 OutputContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ActionMessage6 OutputContent { get; init; } 
     #else

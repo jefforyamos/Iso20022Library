@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledStatus7Choice
     /// Reason for the cancelled status.
     /// </summary>
     [IsoId("_cqViq1hlEeSsH9MSoogb7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledStatus7Choice
         /// Specifies the reason why the instruction or instruction cancellation has been cancelled.
         /// </summary>
         [IsoId("_dHW11VhlEeSsH9MSoogb7Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RsnCd")]
         #endif
+        [IsoXmlTag("RsnCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CancelledReason5Choice_ ReasonCode { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CancelledReason5Choice_ ReasonCode { get; init; } 
+        public required CancelledReason5Choice_ ReasonCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CancelledReason5Choice_ ReasonCode { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledStatus7Choice
         /// Provides additional information about the processed instruction.
         /// </summary>
         [IsoId("_dHW13VhlEeSsH9MSoogb7Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Reason Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlRsnInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlRsnInf")]
+        [IsoSimpleType(IsoSimpleType.Max210Text)]
         [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax210Text? AdditionalReasonInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

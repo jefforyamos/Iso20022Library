@@ -21,7 +21,7 @@ public enum ActionType8Code
 {
     /// <summary>
     /// Approve the transaction.
-    /// Encoded/decoded by serializers as "APPV".
+    /// Encoded/decoded by serializers as &quot;APPV&quot;.
     /// </summary>
     [EnumMember(Value = "APPV")]
     [IsoId("_MHVkAUrCEeenp6hmNprBHg")]
@@ -30,7 +30,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// Block the card.
-    /// Encoded/decoded by serializers as "BLCK".
+    /// Encoded/decoded by serializers as &quot;BLCK&quot;.
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_M_48okrCEeenp6hmNprBHg")]
@@ -39,7 +39,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CPTR".
+    /// Encoded/decoded by serializers as &quot;CPTR&quot;.
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_NkoockrCEeenp6hmNprBHg")]
@@ -48,7 +48,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// Decline the transaction.
-    /// Encoded/decoded by serializers as "DCLN".
+    /// Encoded/decoded by serializers as &quot;DCLN&quot;.
     /// </summary>
     [EnumMember(Value = "DCLN")]
     [IsoId("_OFsHEkrCEeenp6hmNprBHg")]
@@ -57,7 +57,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// Additional identification required (passport, ID card, etc.).
-    /// Encoded/decoded by serializers as "RQID".
+    /// Encoded/decoded by serializers as &quot;RQID&quot;.
     /// </summary>
     [EnumMember(Value = "RQID")]
     [IsoId("_Orj0QkrCEeenp6hmNprBHg")]
@@ -66,7 +66,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// No reason for declining the transaction.
-    /// Encoded/decoded by serializers as "NDCL".
+    /// Encoded/decoded by serializers as &quot;NDCL&quot;.
     /// </summary>
     [EnumMember(Value = "NDCL")]
     [IsoId("_PjFSIkrCEeenp6hmNprBHg")]
@@ -75,7 +75,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// Referral has to be performed.
-    /// Encoded/decoded by serializers as "RFRL".
+    /// Encoded/decoded by serializers as &quot;RFRL&quot;.
     /// </summary>
     [EnumMember(Value = "RFRL")]
     [IsoId("_QmCj8krCEeenp6hmNprBHg")]
@@ -84,7 +84,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// Other action defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_RLezUkrCEeenp6hmNprBHg")]
@@ -93,7 +93,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// Other action defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_RWsk0krCEeenp6hmNprBHg")]
@@ -102,7 +102,7 @@ public enum ActionType8Code
     
     /// <summary>
     /// Further authentication required (e.g. one-time password)
-    /// Encoded/decoded by serializers as "STUA".
+    /// Encoded/decoded by serializers as &quot;STUA&quot;.
     /// </summary>
     [EnumMember(Value = "STUA")]
     [IsoId("_3eqrceChEee9RadpHmUgYw")]

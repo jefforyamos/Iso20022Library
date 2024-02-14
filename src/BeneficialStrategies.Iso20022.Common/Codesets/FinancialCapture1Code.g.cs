@@ -21,7 +21,7 @@ public enum FinancialCapture1Code
 {
     /// <summary>
     /// Financial capture of the transaction is performed by the acquirer during the authorisation exchange.
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_KR_d8X1DEeCF8NjrBemJWQ_-344306152")]
@@ -30,7 +30,7 @@ public enum FinancialCapture1Code
     
     /// <summary>
     /// Financial capture of the transaction is performed by the acquirer during the completion exchange.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_KR_d8n1DEeCF8NjrBemJWQ_1190732522")]
@@ -39,7 +39,7 @@ public enum FinancialCapture1Code
     
     /// <summary>
     /// Financial capture of the transaction is performed by the acquirer at the reception of a batch transfer.
-    /// Encoded/decoded by serializers as "BTCH".
+    /// Encoded/decoded by serializers as &quot;BTCH&quot;.
     /// </summary>
     [EnumMember(Value = "BTCH")]
     [IsoId("_KR_d831DEeCF8NjrBemJWQ_-1673145279")]

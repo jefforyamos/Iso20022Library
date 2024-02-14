@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CurrencyControlRequestOrLetter message is sent by the reporting party (respectively the registration agent) to the registration agent (respectively the reporting party) to send a currency control related letter or to request for supporting documents.")]
 [IsoId("_bf9R-22PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Control Request Or Letter V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record CurrencyControlRequestOrLetterV02 : IOuterRecord<CurrencyC
     /// Characteristics shared by all individual items included in the message.
     /// </summary>
     [IsoId("_bf9R_W2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlHeader5 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyControlHeader5 GroupHeader { get; init; } 
+    public required CurrencyControlHeader5 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyControlHeader5 GroupHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record CurrencyControlRequestOrLetterV02 : IOuterRecord<CurrencyC
     /// Supporting document request or letter details.
     /// </summary>
     [IsoId("_bf9R_22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Or Letter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqOrLttr")]
     #endif
+    [IsoXmlTag("ReqOrLttr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SupportingDocumentRequestOrLetter2 RequestOrLetter { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SupportingDocumentRequestOrLetter2 RequestOrLetter { get; init; } 
+    public required SupportingDocumentRequestOrLetter2 RequestOrLetter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SupportingDocumentRequestOrLetter2 RequestOrLetter { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record CurrencyControlRequestOrLetterV02 : IOuterRecord<CurrencyC
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_bf9SAW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record CurrencyControlRequestOrLetterV02 : IOuterRecord<CurrencyC
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CurrencyControlRequestOrLetterV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CurrencyControlRequestOrLetterV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CurrencyControlRequestOrLetterV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record CurrencyControlRequestOrLetterV02 : IOuterRecord<CurrencyC
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CurrencyControlRequestOrLetterV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CurrencyControlRequestOrLetterV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CurrencyControlRequestOrLetterV02Document : IOuterDocument<CurrencyControlRequestOrLetterV02>
@@ -161,7 +156,7 @@ public partial record CurrencyControlRequestOrLetterV02Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CurrencyControlRequestOrLetterV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CurrencyControlRequestOrLetterV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlRequestOrLetterV02 Message { get; init; }

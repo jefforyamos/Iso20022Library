@@ -21,7 +21,7 @@ public enum BalanceTransferWindowCode
 {
     /// <summary>
     /// Indicates out of business hours processing.
-    /// Encoded/decoded by serializers as "EARL".
+    /// Encoded/decoded by serializers as &quot;EARL&quot;.
     /// </summary>
     [EnumMember(Value = "EARL")]
     [IsoId("_zy5yoBE3EeafpqhYGpTDnw")]
@@ -30,7 +30,7 @@ public enum BalanceTransferWindowCode
     
     /// <summary>
     /// Indicates in business hours processing.
-    /// Encoded/decoded by serializers as "DAYH".
+    /// Encoded/decoded by serializers as &quot;DAYH&quot;.
     /// </summary>
     [EnumMember(Value = "DAYH")]
     [IsoId("_1rMJ8BE3EeafpqhYGpTDnw")]

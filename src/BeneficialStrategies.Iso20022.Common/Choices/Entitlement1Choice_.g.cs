@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Entitlement1Choice.EntitlementRatio))]
     [KnownType(typeof(Entitlement1Choice.EntitlementDescription))]
     [IsoId("_RDroltp-Ed-ak6NoX_4Aeg_278431032")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

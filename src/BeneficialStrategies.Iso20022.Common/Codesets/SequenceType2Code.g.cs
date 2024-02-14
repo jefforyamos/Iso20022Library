@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum SequenceType2Code
 {
     /// <summary>
-    /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
-    /// Encoded/decoded by serializers as "RCUR".
+    /// Direct debit instruction where the debtor&apos;s authorisation is used for regular direct debit transactions initiated by the creditor.
+    /// Encoded/decoded by serializers as &quot;RCUR&quot;.
     /// </summary>
     [EnumMember(Value = "RCUR")]
     [IsoId("_ZKPgCNp-Ed-ak6NoX_4Aeg_868377522")]
@@ -29,8 +29,8 @@ public enum SequenceType2Code
     Recurring = SequenceTypeCode.Recurring, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
-    /// Encoded/decoded by serializers as "OOFF".
+    /// Direct debit instruction where the debtor&apos;s authorisation is used to initiate one single direct debit transaction.
+    /// Encoded/decoded by serializers as &quot;OOFF&quot;.
     /// </summary>
     [EnumMember(Value = "OOFF")]
     [IsoId("_ZKZRANp-Ed-ak6NoX_4Aeg_868377553")]

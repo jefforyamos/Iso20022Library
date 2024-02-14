@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the collateral used in the transaction.
 /// </summary>
 [IsoId("_pzQL4c6fEeuUrZNOIIJRog")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CollateralData35
     /// Indication of the type of collateral component.
     /// </summary>
     [IsoId("_p1RlIc6fEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstTp")]
     #endif
+    [IsoXmlTag("AsstTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralType21? AssetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record CollateralData35
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
     [IsoId("_p1RlI86fEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Exposure Collateralisation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetXpsrCollstnInd")]
     #endif
+    [IsoXmlTag("NetXpsrCollstnInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record CollateralData35
     /// Identification of the collateral basket.
     /// </summary>
     [IsoId("_p1RlJc6fEeuUrZNOIIJRog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basket Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsktIdr")]
     #endif
+    [IsoXmlTag("BsktIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

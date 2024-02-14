@@ -22,7 +22,7 @@ public enum ExternalPackagingTypeCode
 {
     /// <summary>
     /// Packaging is high density polyethylene.
-    /// Encoded/decoded by serializers as "HDPE".
+    /// Encoded/decoded by serializers as &quot;HDPE&quot;.
     /// </summary>
     [EnumMember(Value = "HDPE")]
     [IsoId("_uIlXSfRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalPackagingTypeCode
     
     /// <summary>
     /// Packaging is low density polyethylene.
-    /// Encoded/decoded by serializers as "LDPE".
+    /// Encoded/decoded by serializers as &quot;LDPE&quot;.
     /// </summary>
     [EnumMember(Value = "LDPE")]
     [IsoId("_uIlXTPRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalPackagingTypeCode
     
     /// <summary>
     /// Packaging is linear low density polyethylene.
-    /// Encoded/decoded by serializers as "LLDP".
+    /// Encoded/decoded by serializers as &quot;LLDP&quot;.
     /// </summary>
     [EnumMember(Value = "LLDP")]
     [IsoId("_uIvIQPRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalPackagingTypeCode
     
     /// <summary>
     /// Other packaging type not otherwise specified.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_uIvIQ_RYEeuLhpyIdtJzwg")]

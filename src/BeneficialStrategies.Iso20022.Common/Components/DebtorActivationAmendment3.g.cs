@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details to identify a creditor enrolment to be amended and the new amended data.
 /// </summary>
 [IsoId("_UJ2hEeH7Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Debtor Activation Amendment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record DebtorActivationAmendment3
     /// Unique identification of the original instruction.
     /// </summary>
     [IsoId("_ULMk4eH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Business Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlBizInstr")]
     #endif
+    [IsoXmlTag("OrgnlBizInstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +67,11 @@ public partial record DebtorActivationAmendment3
     /// Provides detailed information on the amendment reason.
     /// </summary>
     [IsoId("_ULMk4-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amendment Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmdmntRsn")]
     #endif
+    [IsoXmlTag("AmdmntRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DebtorActivationAmendmentReason2? AmendmentReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,16 +84,15 @@ public partial record DebtorActivationAmendment3
     /// Provides the amended enrolment data.
     /// </summary>
     [IsoId("_ULMk5eH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amendment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amdmnt")]
     #endif
+    [IsoXmlTag("Amdmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DebtorActivationAmendment4 Amendment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DebtorActivationAmendment4 Amendment { get; init; } 
+    public required DebtorActivationAmendment4 Amendment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DebtorActivationAmendment4 Amendment { get; init; } 
     #else
@@ -108,16 +103,15 @@ public partial record DebtorActivationAmendment3
     /// Provides the original activation data.
     /// </summary>
     [IsoId("_ULMk5-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Activation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlActvtn")]
     #endif
+    [IsoXmlTag("OrgnlActvtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalActivation2Choice_ OriginalActivation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalActivation2Choice_ OriginalActivation { get; init; } 
+    public required OriginalActivation2Choice_ OriginalActivation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalActivation2Choice_ OriginalActivation { get; init; } 
     #else
@@ -128,12 +122,11 @@ public partial record DebtorActivationAmendment3
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_ULMk6eH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

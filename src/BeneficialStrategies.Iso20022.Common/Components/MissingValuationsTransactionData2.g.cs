@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information about the outstanding derivatives for which no valuation or outdated valuation has been reported.
 /// </summary>
 [IsoId("_x29aEVyGEe24CqbZJK5XxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Missing Valuations Transaction Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MissingValuationsTransactionData2
     /// Identification of a transaction.
     /// </summary>
     [IsoId("_x3tA8VyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeTransactionIdentification24 TransactionIdentification { get; init; } 
+    public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MissingValuationsTransactionData2
     /// Mark-to-market valuation of the contract, or mark-to-model valuation
     /// </summary>
     [IsoId("_x3tA81yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnAmt")]
     #endif
+    [IsoXmlTag("ValtnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection106? ValuationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record MissingValuationsTransactionData2
     /// Date and time of the valuation.
     /// </summary>
     [IsoId("_x3tA9VyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnTmStmp")]
     #endif
+    [IsoXmlTag("ValtnTmStmp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? ValuationTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

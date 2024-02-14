@@ -21,7 +21,7 @@ public enum IncomePreference1Code
 {
     /// <summary>
     /// Distribution in cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aV8eKNp-Ed-ak6NoX_4Aeg_-1613438305")]
@@ -30,7 +30,7 @@ public enum IncomePreference1Code
     
     /// <summary>
     /// Reinvestment of proceeds into securities.
-    /// Encoded/decoded by serializers as "DRIP".
+    /// Encoded/decoded by serializers as &quot;DRIP&quot;.
     /// </summary>
     [EnumMember(Value = "DRIP")]
     [IsoId("_aWGPINp-Ed-ak6NoX_4Aeg_-1601434888")]

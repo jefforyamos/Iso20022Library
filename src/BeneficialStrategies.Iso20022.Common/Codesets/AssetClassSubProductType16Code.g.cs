@@ -21,7 +21,7 @@ public enum AssetClassSubProductType16Code
 {
     /// <summary>
     /// Commodity of type precious metals.
-    /// Encoded/decoded by serializers as "PRME".
+    /// Encoded/decoded by serializers as &quot;PRME&quot;.
     /// </summary>
     [EnumMember(Value = "PRME")]
     [IsoId("_oLnOsQn0EeWnS-yHF1QhNQ")]

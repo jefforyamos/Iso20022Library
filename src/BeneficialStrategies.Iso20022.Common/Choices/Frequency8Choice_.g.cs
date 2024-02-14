@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Frequency8Choice.Code))]
     [KnownType(typeof(Frequency8Choice.Proprietary))]
     [IsoId("_m_xsdfNBEeCuA5Tr22BnwA_2080535464")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency 8 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

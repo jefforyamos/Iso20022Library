@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the interest rate derivative specific elements for interest rate derivatives as defined in the local regulation.
 /// </summary>
 [IsoId("_xJiqQWlIEeaLAKoEUNsD9g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Rate Derivative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InterestRateDerivative5
     /// Specific details on the underlying type of the interest rate derivative.
     /// </summary>
     [IsoId("_xSfx8WlIEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygTp")]
     #endif
+    [IsoXmlTag("UndrlygTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
+    public required InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record InterestRateDerivative5
     /// Populated when the underlying type is a bond or a bond future. Details the issuer and maturity date of the bond.
     /// </summary>
     [IsoId("_xSfx82lIEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Bond")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygBd")]
     #endif
+    [IsoXmlTag("UndrlygBd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BondDerivative2? UnderlyingBond { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,11 @@ public partial record InterestRateDerivative5
     /// Notional currency of a swaption.
     /// </summary>
     [IsoId("_xSfx9WlIEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Swaption Notional Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwptnNtnlCcy")]
     #endif
+    [IsoXmlTag("SwptnNtnlCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? SwaptionNotionalCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +103,12 @@ public partial record InterestRateDerivative5
     /// Maturity date of the underlying swap, populated for swaptions, futures on swaps and forwards on a swap only.
     /// </summary>
     [IsoId("_xSfx92lIEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Swap Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygSwpMtrtyDt")]
     #endif
+    [IsoXmlTag("UndrlygSwpMtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? UnderlyingSwapMaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +121,11 @@ public partial record InterestRateDerivative5
     /// Populated to define the inflation index.
     /// </summary>
     [IsoId("_xSfx-WlIEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inflation Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfltnIndx")]
     #endif
+    [IsoXmlTag("InfltnIndx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InflationIndex1Choice_? InflationIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,16 +138,15 @@ public partial record InterestRateDerivative5
     /// Provides the interest rate against a reference rate and term in number of days, weeks, months or years.
     /// </summary>
     [IsoId("_xSfx-2lIEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRateRef")]
     #endif
+    [IsoXmlTag("IntrstRateRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FloatingInterestRate8 InterestRateReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FloatingInterestRate8 InterestRateReference { get; init; } 
+    public required FloatingInterestRate8 InterestRateReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FloatingInterestRate8 InterestRateReference { get; init; } 
     #else

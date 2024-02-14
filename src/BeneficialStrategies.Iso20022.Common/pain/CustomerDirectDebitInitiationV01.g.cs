@@ -27,7 +27,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// This record is an implementation of the pain.008.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// The CustomerDirectDebitInitiation message is sent by the initiating party to the forwarding agent or creditor agent. It is used to request single or bulk collection(s) of funds from one or various debtor's account(s) for a creditor.
+/// The CustomerDirectDebitInitiation message is sent by the initiating party to the forwarding agent or creditor agent. It is used to request single or bulk collection(s) of funds from one or various debtor&apos;s account(s) for a creditor.
 /// Usage
 /// The CustomerDirectDebitInitiation message can contain one or more direct debit instructions.
 /// The message can be used in a direct or a relay scenario:
@@ -41,9 +41,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The CustomerDirectDebitInitiation message is sent by the initiating party to the forwarding agent or creditor agent. It is used to request single or bulk collection(s) of funds from one or various debtor's account(s) for a creditor.|Usage|The CustomerDirectDebitInitiation message can contain one or more direct debit instructions.|The message can be used in a direct or a relay scenario:|- In a direct scenario, the message is sent directly to the creditor agent. The creditor agent is the account servicer of the creditor.|- In a relay scenario, the message is sent to a forwarding agent. The forwarding agent acts as a concentrating financial institution. It will forward the CustomerDirectDebitInitiation message to the creditor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the creditor. This caters for example for the scenario of a payments factory initiating all payments on behalf of a large corporate.|The CustomerDirectDebitInitiation message can be used in domestic and cross-border scenarios.|The CustomerDirectDebitInitiation may or may not contain mandate related information, i.e. extracts from a mandate, such as MandateIdentification or DateOfSignature. The CustomerDirectDebitInitiation message must not be considered as a mandate.|The CustomerDirectDebitInitiation message must not be used by the creditor agent to execute the direct debit instruction(s). The FIToFICustomerDirectDebit message must be used instead.|If it is agreed to include the payment information related to the credit side only once (i.e. Grouped mode), the PaymentInformation block will be present only once. If it is agreed to repeat the payment information related to the credit side (i.e. Single mode), the PaymentInformation block must be present once per occurrence of the DirectDebitTransactionInformation block. The CustomerDirectDebitInitiation message also allows for a Mixed mode where the PaymentInformation block can be repeated and each PaymentInformation block can contain one or several DirectDebitTransactionInformation block(s).|Single|When grouping is set to Single, information for each individual instruction is included separately. This means the|PaymentInformation block is repeated, and present for each occurrence of the Direct Debit TransactionInformation block.|Grouped|When grouping is set to Grouped, the PaymentInformation block will be present once and the Direct Debit|TransactionInformation block will be repeated.|Mixed|When grouping is set to Mixed, the PaymentInformation block may be present once or may be repeated. Each sequence|of the PaymentInformation block may contain one or several Direct Debit TransactionInformation block(s).")]
 [IsoId("_GWuvhdEvEd-BzquC8wXy7w_143996786")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Customer Direct Debit Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -87,16 +85,15 @@ public partial record CustomerDirectDebitInitiationV01 : IOuterRecord<CustomerDi
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_GWuvhtEvEd-BzquC8wXy7w_143996882")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader1 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader1 GroupHeader { get; init; } 
+    public required GroupHeader1 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader1 GroupHeader { get; init; } 
     #else
@@ -107,16 +104,15 @@ public partial record CustomerDirectDebitInitiationV01 : IOuterRecord<CustomerDi
     /// Set of characteristics that apply to the credit side of the payment transactions included in the direct debit transaction initiation.
     /// </summary>
     [IsoId("_GWuvh9EvEd-BzquC8wXy7w_144917422")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInf")]
     #endif
+    [IsoXmlTag("PmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInstructionInformation2 PaymentInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentInstructionInformation2 PaymentInformation { get; init; } 
+    public required PaymentInstructionInformation2 PaymentInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentInstructionInformation2 PaymentInformation { get; init; } 
     #else
@@ -127,7 +123,7 @@ public partial record CustomerDirectDebitInitiationV01 : IOuterRecord<CustomerDi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CustomerDirectDebitInitiationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CustomerDirectDebitInitiationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CustomerDirectDebitInitiationV01Document ToDocument()
     {
@@ -137,7 +133,7 @@ public partial record CustomerDirectDebitInitiationV01 : IOuterRecord<CustomerDi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerDirectDebitInitiationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CustomerDirectDebitInitiationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CustomerDirectDebitInitiationV01Document : IOuterDocument<CustomerDirectDebitInitiationV01>
@@ -154,7 +150,7 @@ public partial record CustomerDirectDebitInitiationV01Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CustomerDirectDebitInitiationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CustomerDirectDebitInitiationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CustomerDirectDebitInitiationV01 Message { get; init; }

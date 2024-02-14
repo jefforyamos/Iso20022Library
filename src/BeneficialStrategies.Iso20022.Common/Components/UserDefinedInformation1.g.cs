@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
 /// </summary>
 [IsoId("_RKFyldp-Ed-ak6NoX_4Aeg_-1294803117")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("User Defined Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record UserDefinedInformation1
     /// Identifies the nature of the user information.
     /// </summary>
     [IsoId("_RKFyltp-Ed-ak6NoX_4Aeg_-1252319958")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Labl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Labl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Label { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Label { get; init; } 
+    public required System.String Label { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Label { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record UserDefinedInformation1
     /// Specifies the content of the user information.
     /// </summary>
     [IsoId("_RKFyl9p-Ed-ak6NoX_4Aeg_-978956797")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Inf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Inf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Information { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Information { get; init; } 
+    public required System.String Information { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Information { get; init; } 
     #else

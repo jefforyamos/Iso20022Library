@@ -21,7 +21,7 @@ public enum NotApplicable1Code
 {
     /// <summary>
     /// Not applicable (N/A).
-    /// Encoded/decoded by serializers as "NOAP".
+    /// Encoded/decoded by serializers as &quot;NOAP&quot;.
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_eTsTgYCCEeqdQubSe21TTw")]

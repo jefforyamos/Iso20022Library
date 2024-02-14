@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MemberReportOrError5Choice.Report))]
     [KnownType(typeof(MemberReportOrError5Choice.OperationalError))]
     [IsoId("_jUbLIXSbEeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Report Or Error 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

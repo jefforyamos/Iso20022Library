@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
 [IsoId("_wx1DhcWEEeiRga8tPu1L4Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Value And Notional")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record PositionSetValueAndNotional1
     /// Aggregations of all notional values of the derivatives pertaining to a position set.
     /// </summary>
     [IsoId("_wx1Dh8WEEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntnl")]
     #endif
+    [IsoXmlTag("Ntnl")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20Amount? Notional { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record PositionSetValueAndNotional1
     /// Aggregations of all values of the derivatives pertaining to a position set.
     /// </summary>
     [IsoId("_wx1DiMWEEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20Amount? Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The PartyAuditTrailReport message is sent by the executing party to an instructing party to provide detailed information on the requested party audit trail recorded in the system.")]
 [IsoId("_88xHgZeSEeen_cyMrluY4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Audit Trail Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,12 +73,11 @@ public partial record PartyAuditTrailReportV01 : IOuterRecord<PartyAuditTrailRep
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_QvJJ0VhGEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader12? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +90,15 @@ public partial record PartyAuditTrailReportV01 : IOuterRecord<PartyAuditTrailRep
     /// Provides the party audit trail data or error resulting from the audit trail query request.
     /// </summary>
     [IsoId("_88xHi5eSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptOrErr")]
     #endif
+    [IsoXmlTag("RptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyAuditTrailOrError1Choice_ ReportOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyAuditTrailOrError1Choice_ ReportOrError { get; init; } 
+    public required PartyAuditTrailOrError1Choice_ ReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyAuditTrailOrError1Choice_ ReportOrError { get; init; } 
     #else
@@ -113,12 +109,11 @@ public partial record PartyAuditTrailReportV01 : IOuterRecord<PartyAuditTrailRep
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_88xHjZeSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record PartyAuditTrailReportV01 : IOuterRecord<PartyAuditTrailRep
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PartyAuditTrailReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PartyAuditTrailReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PartyAuditTrailReportV01Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record PartyAuditTrailReportV01 : IOuterRecord<PartyAuditTrailRep
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyAuditTrailReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PartyAuditTrailReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PartyAuditTrailReportV01Document : IOuterDocument<PartyAuditTrailReportV01>
@@ -158,7 +153,7 @@ public partial record PartyAuditTrailReportV01Document : IOuterDocument<PartyAud
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PartyAuditTrailReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PartyAuditTrailReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyAuditTrailReportV01 Message { get; init; }

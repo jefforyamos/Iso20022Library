@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"The CollateralValueQuery message is sent by a system member (such as a directly connected party) to the system transaction administrator to query the current available value of securities for auto collateralisation for one specific or several cash accounts.")]
 [IsoId("_5SjM8TooEemaN9GkhmGkfg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Value Query V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CollateralValueQueryV01 : IOuterRecord<CollateralValueQuer
     /// Set of elements to identify the collateral value query message.
     /// </summary>
     [IsoId("_5SjM-TooEemaN9GkhmGkfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader3 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader3 MessageHeader { get; init; } 
+    public required MessageHeader3 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader3 MessageHeader { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CollateralValueQueryV01 : IOuterRecord<CollateralValueQuer
     /// Definition of the collateral query.
     /// </summary>
     [IsoId("_5SjM-zooEemaN9GkhmGkfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value Query Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollValQryDef")]
     #endif
+    [IsoXmlTag("CollValQryDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralValueCriteriaDefinition3Choice_? CollateralValueQueryDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record CollateralValueQueryV01 : IOuterRecord<CollateralValueQuer
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_5SjM_TooEemaN9GkhmGkfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record CollateralValueQueryV01 : IOuterRecord<CollateralValueQuer
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CollateralValueQueryV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CollateralValueQueryV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CollateralValueQueryV01Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record CollateralValueQueryV01 : IOuterRecord<CollateralValueQuer
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralValueQueryV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CollateralValueQueryV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CollateralValueQueryV01Document : IOuterDocument<CollateralValueQueryV01>
@@ -158,7 +153,7 @@ public partial record CollateralValueQueryV01Document : IOuterDocument<Collatera
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CollateralValueQueryV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CollateralValueQueryV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralValueQueryV01 Message { get; init; }

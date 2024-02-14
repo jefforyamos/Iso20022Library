@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.admi;
 /// </summary>
 [Description(@"The SystemEventAcknowledgement message is sent by a participant of a central system to the central system to acknowledge the notification of an occurrence of an event in a central system.|")]
 [IsoId("_-4fJISzhEeKZfox_pyYpTA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Event Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,19 +74,17 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord<SystemEventAc
     /// Unique and unambiguous identifier for the message, as assigned by the sender.
     /// </summary>
     [IsoId("_38ITWTp8EeKXK8qRvydwAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageIdentification { get; init; } 
+    public required System.String MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageIdentification { get; init; } 
     #else
@@ -99,15 +95,13 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord<SystemEventAc
     /// Represents the original reference of the system event notification for which the acknowledgement is given, as assigned by the central system.
     /// </summary>
     [IsoId("_-PT44DqNEeKXK8qRvydwAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originator Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgtrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgtrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginatorReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,15 +114,12 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord<SystemEventAc
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
     [IsoId("_Pq-14zqfEeKqTf3MbquCbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Session Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSsnIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SttlmSsnIdr")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +132,11 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord<SystemEventAc
     /// Details of the system event being acknowledged.
     /// </summary>
     [IsoId("_-4fJJSzhEeKZfox_pyYpTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledgement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AckDtls")]
     #endif
+    [IsoXmlTag("AckDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Event1? AcknowledgementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,12 +149,11 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord<SystemEventAc
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_E4uhVy53EeKwTrPDLMbLxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,7 +166,7 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord<SystemEventAc
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SystemEventAcknowledgementV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SystemEventAcknowledgementV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SystemEventAcknowledgementV01Document ToDocument()
     {
@@ -187,7 +176,7 @@ public partial record SystemEventAcknowledgementV01 : IOuterRecord<SystemEventAc
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SystemEventAcknowledgementV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SystemEventAcknowledgementV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SystemEventAcknowledgementV01Document : IOuterDocument<SystemEventAcknowledgementV01>
@@ -204,7 +193,7 @@ public partial record SystemEventAcknowledgementV01Document : IOuterDocument<Sys
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SystemEventAcknowledgementV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SystemEventAcknowledgementV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemEventAcknowledgementV01 Message { get; init; }

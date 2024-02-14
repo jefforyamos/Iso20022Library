@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about actions that may be taken on an account.
 /// </summary>
 [IsoId("_WK6_oCDNEeWPMvNwVtiMsA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investor Profile")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InvestorProfile1
     /// Type of profile.
     /// </summary>
     [IsoId("_rSMUUCDNEeWPMvNwVtiMsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProfileType1Choice_? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record InvestorProfile1
     /// Status of the profile.
     /// </summary>
     [IsoId("_k6XaICDOEeWPMvNwVtiMsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorProfileStatus1Choice_? Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record InvestorProfile1
     /// Information about the profile for treasury trading.
     /// </summary>
     [IsoId("__bXFMCDREeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Treasury")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trsr")]
     #endif
+    [IsoXmlTag("Trsr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TreasuryProfile1? Treasury { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record InvestorProfile1
     /// Information about the profile for high frequency trading.
     /// </summary>
     [IsoId("_GDj2UCDUEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("High Frequency Trading")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghFrqcyTradg")]
     #endif
+    [IsoXmlTag("HghFrqcyTradg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HighFrequencyTradingProfile1? HighFrequencyTrading { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record InvestorProfile1
     /// Information about the profile for a market marker.
     /// </summary>
     [IsoId("_9tFosCDVEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Maker")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktMakr")]
     #endif
+    [IsoXmlTag("MktMakr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketMakerProfile1? MarketMaker { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

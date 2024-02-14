@@ -21,7 +21,7 @@ public enum Algorithm23Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "EA2C".
+    /// Encoded/decoded by serializers as &quot;EA2C&quot;.
     /// </summary>
     [EnumMember(Value = "EA2C")]
     [IsoId("_WsvvgX0kEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
-    /// Encoded/decoded by serializers as "E3DC".
+    /// Encoded/decoded by serializers as &quot;E3DC&quot;.
     /// </summary>
     [EnumMember(Value = "E3DC")]
     [IsoId("_Wsvvg30kEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "EA9C".
+    /// Encoded/decoded by serializers as &quot;EA9C&quot;.
     /// </summary>
     [EnumMember(Value = "EA9C")]
     [IsoId("_WsvvhX0kEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "EA5C".
+    /// Encoded/decoded by serializers as &quot;EA5C&quot;.
     /// </summary>
     [EnumMember(Value = "EA5C")]
     [IsoId("_Wsvvh30kEemfrNOe0zHQyg")]
@@ -57,7 +57,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// AES (Advanced Encryption Standard) CTR (Counter) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "EA2R".
+    /// Encoded/decoded by serializers as &quot;EA2R&quot;.
     /// </summary>
     [EnumMember(Value = "EA2R")]
     [IsoId("_WsvviX0kEemfrNOe0zHQyg")]
@@ -66,7 +66,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// AES (Advanced Encryption Standard) CTR (Counter) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "EA9R".
+    /// Encoded/decoded by serializers as &quot;EA9R&quot;.
     /// </summary>
     [EnumMember(Value = "EA9R")]
     [IsoId("_Wsvvi30kEemfrNOe0zHQyg")]
@@ -75,7 +75,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// AES (Advanced Encryption Standard) CTR (Counter) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "EA5R".
+    /// Encoded/decoded by serializers as &quot;EA5R&quot;.
     /// </summary>
     [EnumMember(Value = "EA5R")]
     [IsoId("_WsvvjX0kEemfrNOe0zHQyg")]
@@ -84,7 +84,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// Triple DES (Data Encryption Standard) CTR (Counter) encryption with double length key (112 Bit) as defined in FIPS SP 800-38a.
-    /// Encoded/decoded by serializers as "E3DR".
+    /// Encoded/decoded by serializers as &quot;E3DR&quot;.
     /// </summary>
     [EnumMember(Value = "E3DR")]
     [IsoId("_Wsvvj30kEemfrNOe0zHQyg")]
@@ -93,7 +93,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with triple length key (168 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
-    /// Encoded/decoded by serializers as "E36C".
+    /// Encoded/decoded by serializers as &quot;E36C&quot;.
     /// </summary>
     [EnumMember(Value = "E36C")]
     [IsoId("_WsvvkX0kEemfrNOe0zHQyg")]
@@ -102,7 +102,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// Triple DES (Data Encryption Standard) CTR (Counter) encryption with triple length key (168 Bit) as defined in FIPS SP 800-38a.
-    /// Encoded/decoded by serializers as "E36R".
+    /// Encoded/decoded by serializers as &quot;E36R&quot;.
     /// </summary>
     [EnumMember(Value = "E36R")]
     [IsoId("_Wsvvk30kEemfrNOe0zHQyg")]
@@ -111,7 +111,7 @@ public enum Algorithm23Code
     
     /// <summary>
     /// The DEPRECATED Simple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with simple length key (56 Bit) as defined in FIPS PUB 81 - (ASN.1 Object Identifier: des-cbc).
-    /// Encoded/decoded by serializers as "SD5C".
+    /// Encoded/decoded by serializers as &quot;SD5C&quot;.
     /// </summary>
     [EnumMember(Value = "SD5C")]
     [IsoId("_WsvvlX0kEemfrNOe0zHQyg")]

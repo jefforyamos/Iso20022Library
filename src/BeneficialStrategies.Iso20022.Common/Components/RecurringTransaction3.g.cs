@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
 [IsoId("_hH4hcK4wEeWpsoxRhdX-8A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Recurring Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record RecurringTransaction3
     /// Date of first transfer.
     /// </summary>
     [IsoId("_hUsOba4wEeWpsoxRhdX-8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDt")]
     #endif
+    [IsoXmlTag("StartDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate StartDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly StartDate { get; init; } 
+    public required System.DateOnly StartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly StartDate { get; init; } 
     #else
@@ -72,12 +70,12 @@ public partial record RecurringTransaction3
     /// Number of transfers to perform.
     /// </summary>
     [IsoId("_hUsOa64wEeWpsoxRhdX-8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Occurrences")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfOcrncs")]
     #endif
+    [IsoXmlTag("NbOfOcrncs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfOccurrences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +88,16 @@ public partial record RecurringTransaction3
     /// Date of last transfer.
     /// </summary>
     [IsoId("_CTLosK4xEeWpsoxRhdX-8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndDt")]
     #endif
+    [IsoXmlTag("EndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EndDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly EndDate { get; init; } 
+    public required System.DateOnly EndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly EndDate { get; init; } 
     #else
@@ -110,12 +108,11 @@ public partial record RecurringTransaction3
     /// Period of the recurring transfer.
     /// </summary>
     [IsoId("_hUsOZ64wEeWpsoxRhdX-8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrdUnit")]
     #endif
+    [IsoXmlTag("PrdUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency3Code? PeriodUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +125,12 @@ public partial record RecurringTransaction3
     /// Day of the period when the transfer will be performed.
     /// </summary>
     [IsoId("_hUsOaa4wEeWpsoxRhdX-8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interval Day")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrvlDay")]
     #endif
+    [IsoXmlTag("IntrvlDay")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? IntervalDay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

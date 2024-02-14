@@ -21,7 +21,7 @@ public enum Standardisation1Code
 {
     /// <summary>
     /// Derivatives defined according to exchange specifications, but certain characteristics can be user defined.
-    /// Encoded/decoded by serializers as "FLEX".
+    /// Encoded/decoded by serializers as &quot;FLEX&quot;.
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_SRUj4YQDEeeCVYNDbDZB1g")]
@@ -30,7 +30,7 @@ public enum Standardisation1Code
     
     /// <summary>
     /// Custom-made instrument between two parties. Underlying|instruments, expiration date and contract size of the derivatives are not standardised.
-    /// Encoded/decoded by serializers as "NSTA".
+    /// Encoded/decoded by serializers as &quot;NSTA&quot;.
     /// </summary>
     [EnumMember(Value = "NSTA")]
     [IsoId("_SUJOYYQDEeeCVYNDbDZB1g")]
@@ -39,7 +39,7 @@ public enum Standardisation1Code
     
     /// <summary>
     /// The underlying instruments, expiration date and contract size of the derivatives are standardised.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_SYwooYQDEeeCVYNDbDZB1g")]

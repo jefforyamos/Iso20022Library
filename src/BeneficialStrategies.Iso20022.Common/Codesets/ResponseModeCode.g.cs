@@ -21,7 +21,7 @@ public enum ResponseModeCode
 {
     /// <summary>
     /// The Message Response is not required, except in case of error.
-    /// Encoded/decoded by serializers as "NREQ".
+    /// Encoded/decoded by serializers as &quot;NREQ&quot;.
     /// </summary>
     [EnumMember(Value = "NREQ")]
     [IsoId("_BRnwQN6rEeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum ResponseModeCode
     
     /// <summary>
     /// The Message Response is immediate, after taking into account the request.
-    /// Encoded/decoded by serializers as "IMMD".
+    /// Encoded/decoded by serializers as &quot;IMMD&quot;.
     /// </summary>
     [EnumMember(Value = "IMMD")]
     [IsoId("_DhWXMN6rEeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum ResponseModeCode
     
     /// <summary>
     /// The Print Response is required at the end of print.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_I-7aMN6rEeiwsev40qZGEQ")]
@@ -48,7 +48,7 @@ public enum ResponseModeCode
     
     /// <summary>
     /// The Sound Response is required at the end of play.
-    /// Encoded/decoded by serializers as "SEND".
+    /// Encoded/decoded by serializers as &quot;SEND&quot;.
     /// </summary>
     [EnumMember(Value = "SEND")]
     [IsoId("_LY_o4N6rEeiwsev40qZGEQ")]

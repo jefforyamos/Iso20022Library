@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnitOfMeasure6Choice.UnitOfMeasureCode))]
     [KnownType(typeof(UnitOfMeasure6Choice.OtherUnitOfMeasure))]
     [IsoId("_QMk1cfFSEee_LsXdoqzkWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// </summary>
 [Description(@"The message InvoiceAssignmentStatus is sent by a factoring service provider to a factoring client and, optionally, to an interested party as a response to assignments requests.|The factoring service provider returns a copy of items of corresponding requests together with an information about the status of treatment, for example acceptance, rejection or treatment not yet finished. A rejection can be the result of bad message syntax, but also for other motives such as risk, compliance or covenants.|For each reported financial item, the factoring service provider includes a reference to the corresponding item of the InvoiceFinancingRequest message and may include the referenced item as well as data from other related and referenced messages.|The message contains information about other parties to be notified and whether these parties are required to acknowledge the assignment.|The message can carry digital signatures if required by context.")]
 [IsoId("_OTgzNDQ5-AOSNFX-8224505")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Assignment Status V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmen
     /// Set of characteristics that unambiguously identify the assignment status, common parameters, documents and identifications.
     /// </summary>
     [IsoId("_OTgzNDUw-AOSNFX-8224505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BusinessLetter1 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BusinessLetter1 Header { get; init; } 
+    public required BusinessLetter1 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BusinessLetter1 Header { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmen
     /// List of assignments of financial items.
     /// </summary>
     [IsoId("_OTgzNDUx-AOSNFX-8224505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment List")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssgnmtList")]
     #endif
+    [IsoXmlTag("AssgnmtList")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancingItemList1 AssignmentList { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancingItemList1 AssignmentList { get; init; } 
+    public required FinancingItemList1 AssignmentList { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancingItemList1 AssignmentList { get; init; } 
     #else
@@ -120,15 +116,12 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmen
     /// Number of assignments.
     /// </summary>
     [IsoId("_OTgzNDUy-AOSNFX-8224505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssgnmtCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AssgnmtCnt")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? AssignmentCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,15 +134,12 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmen
     /// Total number of individual items in all assignments.
     /// </summary>
     [IsoId("_OTgzNDUz-AOSNFX-8224505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ItmCnt")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? ItemCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +152,12 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmen
     /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
     /// </summary>
     [IsoId("_OTgzNDU0-AOSNFX-8224505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Control Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrlSum")]
     #endif
+    [IsoXmlTag("CtrlSum")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ControlSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,12 +170,11 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmen
     /// Referenced or related business message.
     /// </summary>
     [IsoId("_OTgzNDU1-AOSNFX-8224505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attached Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchdMsg")]
     #endif
+    [IsoXmlTag("AttchdMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncapsulatedBusinessMessage1? AttachedMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,7 +187,7 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmen
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvoiceAssignmentStatusV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvoiceAssignmentStatusV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvoiceAssignmentStatusV01Document ToDocument()
     {
@@ -208,7 +197,7 @@ public partial record InvoiceAssignmentStatusV01 : IOuterRecord<InvoiceAssignmen
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceAssignmentStatusV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvoiceAssignmentStatusV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvoiceAssignmentStatusV01Document : IOuterDocument<InvoiceAssignmentStatusV01>
@@ -225,7 +214,7 @@ public partial record InvoiceAssignmentStatusV01Document : IOuterDocument<Invoic
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvoiceAssignmentStatusV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvoiceAssignmentStatusV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceAssignmentStatusV01 Message { get; init; }

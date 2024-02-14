@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingAmendmentResponseNotification message is sent by the advising party to the party that issued the undertaking, either directly or via one or more other parties, to notify the recipient of the acceptance or rejection by the beneficiary of the amendment. On receipt of this message or the UndertakingAmendmentResponse message, the issuer may also send the UndertakingAmendmentResponseNotification to the applicant.")]
 [IsoId("_9iPoEnltEeG7BsjMvd1mEw_-78549695")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amendment Response Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
     /// Details related to the proposed amendment response notification.
     /// </summary>
     [IsoId("_9iPoE3ltEeG7BsjMvd1mEw_-1088327263")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Response Notification Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntRspnNtfctnDtls")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntRspnNtfctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amendment9 UndertakingAmendmentResponseNotificationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amendment9 UndertakingAmendmentResponseNotificationDetails { get; init; } 
+    public required Amendment9 UndertakingAmendmentResponseNotificationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amendment9 UndertakingAmendmentResponseNotificationDetails { get; init; } 
     #else
@@ -95,15 +92,13 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
     /// Additional information reported by the beneficiary.
     /// </summary>
     [IsoId("_Xldnk387EeGx884K2iQOLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
     /// Digital signature of the response notification.
     /// </summary>
     [IsoId("_9iPoFHltEeG7BsjMvd1mEw_1375957956")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +128,7 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingAmendmentResponseNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingAmendmentResponseNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingAmendmentResponseNotificationV01Document ToDocument()
     {
@@ -144,7 +138,7 @@ public partial record UndertakingAmendmentResponseNotificationV01 : IOuterRecord
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentResponseNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingAmendmentResponseNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingAmendmentResponseNotificationV01Document : IOuterDocument<UndertakingAmendmentResponseNotificationV01>
@@ -161,7 +155,7 @@ public partial record UndertakingAmendmentResponseNotificationV01Document : IOut
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingAmendmentResponseNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingAmendmentResponseNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmendmentResponseNotificationV01 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension to specify rates of a corporate action.
 /// </summary>
 [IsoId("_LsY4IzLZEeGkgP4mOiMAHQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Dividend SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record DividendSD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_xoExQFO_EeGs_NnqHXQZkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,12 +62,11 @@ public partial record DividendSD1
     /// Provides the total annual dividend rate as announced by the Issuer.
     /// </summary>
     [IsoId("_bSUrMDLZEeGkgP4mOiMAHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Annual Dividend Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAnlDvddRate")]
     #endif
+    [IsoXmlTag("TtlAnlDvddRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat16Choice_? TotalAnnualDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -84,12 +79,11 @@ public partial record DividendSD1
     /// Provides the maximum annual total dividend rate as announced by the Issuer.
     /// </summary>
     [IsoId("_pHPk4DLfEeGkgP4mOiMAHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Annual Total Dividend Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAnlTtlDvddRate")]
     #endif
+    [IsoXmlTag("MaxAnlTtlDvddRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat16Choice_? MaximumAnnualTotalDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,12 +96,11 @@ public partial record DividendSD1
     /// Provides the minimum annual total dividend rate as announced by the Issuer.
     /// </summary>
     [IsoId("_sTihwDLfEeGkgP4mOiMAHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Annual Total Dividend Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinAnlTtlDvddRate")]
     #endif
+    [IsoXmlTag("MinAnlTtlDvddRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat16Choice_? MinimumAnnualTotalDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

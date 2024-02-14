@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains additional characteristics of addendum data.
 /// </summary>
 [IsoId("_IocXk_JZEeiJn9rM2Znz2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AdditionalCharacteristics1
     /// Identifies the specific classification or type of business.
     /// </summary>
     [IsoId("_IocXlPJZEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizTp")]
     #endif
+    [IsoXmlTag("BizTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristicDetails1? BusinessType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,12 +60,11 @@ public partial record AdditionalCharacteristics1
     /// business owner.
     /// </summary>
     [IsoId("_IocXlfJZEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ownr")]
     #endif
+    [IsoXmlTag("Ownr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristicDetails1? Owner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +77,11 @@ public partial record AdditionalCharacteristics1
     /// Identifies specific characteristics about the business certification type, such as small business, disadvantaged, or other certification type.
     /// </summary>
     [IsoId("_fs81AfJZEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Certfctn")]
     #endif
+    [IsoXmlTag("Certfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristicDetails1? Certification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +95,11 @@ public partial record AdditionalCharacteristics1
     /// the majority owner of the business.
     /// </summary>
     [IsoId("_gHCI8fJZEeiJn9rM2Znz2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Owner Ethnicity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OwnrEthncty")]
     #endif
+    [IsoXmlTag("OwnrEthncty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalCharacteristicDetails1? OwnerEthnicity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

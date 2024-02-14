@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Totals for the value of the holdings reported in the statement or page.
 /// </summary>
 [IsoId("_ReNoe9p-Ed-ak6NoX_4Aeg_939590328")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Value In Page And Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record TotalValueInPageAndStatement1
     /// Total value of positions reported in this message.
     /// </summary>
     [IsoId("_ReNofNp-Ed-ak6NoX_4Aeg_939590346")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Holdings Value Of Page")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlHldgsValOfPg")]
     #endif
+    [IsoXmlTag("TtlHldgsValOfPg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection6? TotalHoldingsValueOfPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record TotalValueInPageAndStatement1
     /// Total value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
     [IsoId("_ReNofdp-Ed-ak6NoX_4Aeg_939590371")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Holdings Value Of Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlHldgsValOfStmt")]
     #endif
+    [IsoXmlTag("TtlHldgsValOfStmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection6 TotalHoldingsValueOfStatement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection6 TotalHoldingsValueOfStatement { get; init; } 
+    public required AmountAndDirection6 TotalHoldingsValueOfStatement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection6 TotalHoldingsValueOfStatement { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record TotalValueInPageAndStatement1
     /// Total book value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
     [IsoId("_ReWyYNp-Ed-ak6NoX_4Aeg_-210339509")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Book Value Of Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlBookValOfStmt")]
     #endif
+    [IsoXmlTag("TtlBookValOfStmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection6? TotalBookValueOfStatement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record TotalValueInPageAndStatement1
     /// Total value of the holdings eligible for collateral purposes reported in this statement (a statement may comprise one or more messages).
     /// </summary>
     [IsoId("_ReWyYdp-Ed-ak6NoX_4Aeg_969143960")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Eligible Collateral Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlElgblCollVal")]
     #endif
+    [IsoXmlTag("TtlElgblCollVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection6? TotalEligibleCollateralValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

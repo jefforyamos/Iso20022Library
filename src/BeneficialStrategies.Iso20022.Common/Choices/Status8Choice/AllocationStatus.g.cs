@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status8Choice
     /// Provides the status of allocation of collateral to cover the instruction.
     /// </summary>
     [IsoId("_w2B7f0ABEeCaq78Ig8ATcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allocation Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

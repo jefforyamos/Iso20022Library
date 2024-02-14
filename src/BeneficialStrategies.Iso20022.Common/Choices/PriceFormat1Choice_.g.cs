@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceFormat1Choice.AmountPricePerAmount))]
     [KnownType(typeof(PriceFormat1Choice.NotSpecified))]
     [IsoId("_QatkFdp-Ed-ak6NoX_4Aeg_-958538176")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

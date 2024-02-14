@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CommodityDerivative2Choice.Freight))]
     [KnownType(typeof(CommodityDerivative2Choice.Energy))]
     [IsoId("_nZzFsU-nEeiVsYLJl6hleg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commodity Derivative 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum FractionDispositionType2Code
 {
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_arZww9p-Ed-ak6NoX_4Aeg_489032356")]
@@ -30,7 +30,7 @@ public enum FractionDispositionType2Code
     
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDDN".
+    /// Encoded/decoded by serializers as &quot;RDDN&quot;.
     /// </summary>
     [EnumMember(Value = "RDDN")]
     [IsoId("_arZwxNp-Ed-ak6NoX_4Aeg_513969161")]
@@ -39,7 +39,7 @@ public enum FractionDispositionType2Code
     
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDUP".
+    /// Encoded/decoded by serializers as &quot;RDUP&quot;.
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_arZwxdp-Ed-ak6NoX_4Aeg_789176096")]
@@ -48,7 +48,7 @@ public enum FractionDispositionType2Code
     
     /// <summary>
     /// If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_arZwxtp-Ed-ak6NoX_4Aeg_803952827")]

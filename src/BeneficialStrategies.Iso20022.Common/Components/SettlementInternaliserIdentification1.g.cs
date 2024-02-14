@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the identification of the settlement internaliser.
 /// </summary>
 [IsoId("_8dG-QO3kEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Internaliser Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -50,19 +48,19 @@ public partial record SettlementInternaliserIdentification1
     #nullable enable
     
     /// <summary>
-    /// Identification code of the settlement internaliser; Legal Entity Identifier (LEI) is a code allocated to a party as described in ISO 17442 'Financial Services - Legal Entity Identifier (LEI)'.
+    /// Identification code of the settlement internaliser; Legal Entity Identifier (LEI) is a code allocated to a party as described in ISO 17442 &apos;Financial Services - Legal Entity Identifier (LEI)&apos;.
     /// </summary>
     [IsoId("_BYNmUO3lEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LEI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LEI")]
     #endif
+    [IsoXmlTag("LEI")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier LEI { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LEI { get; init; } 
+    public required System.String LEI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LEI { get; init; } 
     #else
@@ -73,16 +71,15 @@ public partial record SettlementInternaliserIdentification1
     /// Identification of the liaison at the Settlement Internaliser.
     /// </summary>
     [IsoId("_C2FSgO3lEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responsible Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnsblPrsn")]
     #endif
+    [IsoXmlTag("RspnsblPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContactDetails4 ResponsiblePerson { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContactDetails4 ResponsiblePerson { get; init; } 
+    public required ContactDetails4 ResponsiblePerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContactDetails4 ResponsiblePerson { get; init; } 
     #else
@@ -93,16 +90,15 @@ public partial record SettlementInternaliserIdentification1
     /// Identifies the country code of the place of establishment of the Settlement Internaliser (i.e. head-office), relating to the data that the report concerns, using ISO 3166 2-character code.
     /// </summary>
     [IsoId("_lbE-wImwEeeMqMRHD1a9dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else
@@ -113,15 +109,12 @@ public partial record SettlementInternaliserIdentification1
     /// Identifies the code of the place of operation of the settlement internaliser (that is the branch), relating to the data that the report concerns.
     /// </summary>
     [IsoId("_wgfUUhJlEeiE15g1wPm3UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Branch Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrnchId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BrnchId")]
+    [IsoSimpleType(IsoSimpleType.Exact2UpperCaseAlphaText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2UpperCaseAlphaText? BranchIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BenchmarkCurveName6Choice.Index))]
     [KnownType(typeof(BenchmarkCurveName6Choice.Name))]
     [IsoId("_ZHdRcSc1EeaCIe3n1Gx9ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Benchmark Curve Name 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

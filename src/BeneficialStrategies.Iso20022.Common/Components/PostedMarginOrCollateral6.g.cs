@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information on the posted margin or collateral of the transaction.
 /// </summary>
 [IsoId("_Y75JsYmKEeybbN9emGqfiw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Posted Margin Or Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,12 @@ public partial record PostedMarginOrCollateral6
     /// Where initial margin is posted on a portfolio basis, this field should include the overall value of initial margin posted for the portfolio.
     /// </summary>
     [IsoId("_Y8_88YmKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Posted Pre Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnPstdPreHrcut")]
     #endif
+    [IsoXmlTag("InitlMrgnPstdPreHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPreHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +63,12 @@ public partial record PostedMarginOrCollateral6
     /// Post-haircut values of margins depend on associated risk of changes in collateral value and therefore on the nature of the collateral posted (or collected).
     /// </summary>
     [IsoId("_Y8_884mKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Posted Post Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnPstdPstHrcut")]
     #endif
+    [IsoXmlTag("InitlMrgnPstdPstHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -84,12 +82,12 @@ public partial record PostedMarginOrCollateral6
     /// Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// </summary>
     [IsoId("_Y8_89YmKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Posted Pre Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnPstdPreHrcut")]
     #endif
+    [IsoXmlTag("VartnMrgnPstdPreHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPreHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +102,12 @@ public partial record PostedMarginOrCollateral6
     /// Post-haircut values of margins depend on associated risk of changes in collateral value and therefore on the nature of the collateral posted (or collected).
     /// </summary>
     [IsoId("_Y8_894mKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Posted Post Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnPstdPstHrcut")]
     #endif
+    [IsoXmlTag("VartnMrgnPstdPstHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +120,12 @@ public partial record PostedMarginOrCollateral6
     /// Value of collateral posted in excess of the required collateral.
     /// </summary>
     [IsoId("_Y8_8-YmKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Excess Collateral Posted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcssCollPstd")]
     #endif
+    [IsoXmlTag("XcssCollPstd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? ExcessCollateralPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

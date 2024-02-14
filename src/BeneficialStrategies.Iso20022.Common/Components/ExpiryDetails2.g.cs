@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Expiry and extension information.
 /// </summary>
 [IsoId("_5uOnIoAAEeGOn4dfTT_QdQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Expiry Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ExpiryDetails2
     /// Terms defining when the undertaking will cease to be available.
     /// </summary>
     [IsoId("_5uOnKIAAEeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryTerms")]
     #endif
+    [IsoXmlTag("XpryTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpiryTerms2? ExpiryTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,19 +59,15 @@ public partial record ExpiryDetails2
     /// Additional information related to the expiry and expiry extension.
     /// </summary>
     [IsoId("_5uOnJYAAEeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Expiry Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlXpryInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlXpryInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalExpiryInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateAndDateTimeSearch5Choice.Date))]
     [KnownType(typeof(DateAndDateTimeSearch5Choice.DateTime))]
     [IsoId("_Ve-bjTp9EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date And Date Time Search 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

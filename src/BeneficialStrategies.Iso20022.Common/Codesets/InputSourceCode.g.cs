@@ -21,7 +21,7 @@ public enum InputSourceCode
 {
     /// <summary>
     /// File has been encoded.
-    /// Encoded/decoded by serializers as "NCOD".
+    /// Encoded/decoded by serializers as &quot;NCOD&quot;.
     /// </summary>
     [EnumMember(Value = "NCOD")]
     [IsoId("_alnpsMmMEeWAGphE2LvqeA")]
@@ -30,7 +30,7 @@ public enum InputSourceCode
     
     /// <summary>
     /// File has been uploaded through the CIS (Customer Identification System) system.
-    /// Encoded/decoded by serializers as "UCIS".
+    /// Encoded/decoded by serializers as &quot;UCIS&quot;.
     /// </summary>
     [EnumMember(Value = "UCIS")]
     [IsoId("_dgGd0MmMEeWAGphE2LvqeA")]
@@ -39,7 +39,7 @@ public enum InputSourceCode
     
     /// <summary>
     /// File has been uploaded manually.
-    /// Encoded/decoded by serializers as "UMNL".
+    /// Encoded/decoded by serializers as &quot;UMNL&quot;.
     /// </summary>
     [EnumMember(Value = "UMNL")]
     [IsoId("_iUrnIMmMEeWAGphE2LvqeA")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status report of an individual order of a bulk or multiple or switch order cancellation instruction that was previously received.
 /// </summary>
 [IsoId("_RMeYPNp-Ed-ak6NoX_4Aeg_-887862240")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Individual Order Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,15 +51,13 @@ public partial record IndividualOrderStatusAndReason4
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
     [IsoId("_RMeYPdp-Ed-ak6NoX_4Aeg_1308741188")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,19 +70,17 @@ public partial record IndividualOrderStatusAndReason4
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
     [IsoId("_RMeYPtp-Ed-ak6NoX_4Aeg_-116720316")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrdrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OrderReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OrderReference { get; init; } 
+    public required System.String OrderReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OrderReference { get; init; } 
     #else
@@ -94,18 +88,16 @@ public partial record IndividualOrderStatusAndReason4
     #endif
     
     /// <summary>
-    /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
+    /// Unique and unambiguous investor&apos;s identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
     [IsoId("_RMeYP9p-Ed-ak6NoX_4Aeg_-116720299")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,15 +110,13 @@ public partial record IndividualOrderStatusAndReason4
     /// Unique and unambiguous identifier for an order cancellation, as assigned by the instructing party.
     /// </summary>
     [IsoId("_RMoJMNp-Ed-ak6NoX_4Aeg_816035445")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CxlRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CancellationReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,16 +129,15 @@ public partial record IndividualOrderStatusAndReason4
     /// Cancellation status of the order.
     /// </summary>
     [IsoId("_RMoJMdp-Ed-ak6NoX_4Aeg_-887862198")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderCancellationStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderCancellationStatus1Code Status { get; init; } 
+    public required OrderCancellationStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderCancellationStatus1Code Status { get; init; } 
     #else
@@ -159,16 +148,15 @@ public partial record IndividualOrderStatusAndReason4
     /// Status of the individual order cancellation request is rejected.
     /// </summary>
     [IsoId("_RMoJMtp-Ed-ak6NoX_4Aeg_1303154650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjctd")]
     #endif
+    [IsoXmlTag("Rjctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectedStatus7 Rejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectedStatus7 Rejected { get; init; } 
+    public required RejectedStatus7 Rejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectedStatus7 Rejected { get; init; } 
     #else
@@ -179,12 +167,11 @@ public partial record IndividualOrderStatusAndReason4
     /// Party that initiates the status of the individual order cancellation.
     /// </summary>
     [IsoId("_RMoJM9p-Ed-ak6NoX_4Aeg_95905389")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsInitr")]
     #endif
+    [IsoXmlTag("StsInitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +184,11 @@ public partial record IndividualOrderStatusAndReason4
     /// Account information of the individual order cancellation for which the status is given.
     /// </summary>
     [IsoId("_RMoJNNp-Ed-ak6NoX_4Aeg_5464410")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcctDtls")]
     #endif
+    [IsoXmlTag("InvstmtAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount13? InvestmentAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +201,11 @@ public partial record IndividualOrderStatusAndReason4
     /// Financial instrument information of the individual order cancellation for which the status is given.
     /// </summary>
     [IsoId("_RMoJNdp-Ed-ak6NoX_4Aeg_19318173")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmDtls")]
     #endif
+    [IsoXmlTag("FinInstrmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument10? FinancialInstrumentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

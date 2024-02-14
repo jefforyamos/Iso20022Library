@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OffMarket1Choice
     /// Provides the BIC code of the systematic internaliser.
     /// </summary>
     [IsoId("_TCpPotp-Ed-ak6NoX_4Aeg_-1823256758")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Systematic Internaliser")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,17 @@ namespace BeneficialStrategies.Iso20022.Choices.OffMarket1Choice
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+        /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SystmtcIntlr")]
         #endif
+        [IsoXmlTag("SystmtcIntlr")]
+        [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoAnyBICIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

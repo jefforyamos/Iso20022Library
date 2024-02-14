@@ -22,7 +22,7 @@ public enum ExternalReportingSourceCode
 {
     /// <summary>
     /// Statement or Report is based on accounting data.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_t4fFxvRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// An account reconciliation system that provides full reconciliation that usually addresses checks
-    /// Encoded/decoded by serializers as "ARPF".
+    /// Encoded/decoded by serializers as &quot;ARPF&quot;.
     /// </summary>
     [EnumMember(Value = "ARPF")]
     [IsoId("_t4o2wPRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// An account reconciliation system that provides partial reconciliation that usually addresses checks
-    /// Encoded/decoded by serializers as "ARPP".
+    /// Encoded/decoded by serializers as &quot;ARPP&quot;.
     /// </summary>
     [EnumMember(Value = "ARPP")]
     [IsoId("_t4o2w_RYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// A sub-application that reports presentment totals
-    /// Encoded/decoded by serializers as "CTDB".
+    /// Encoded/decoded by serializers as &quot;CTDB&quot;.
     /// </summary>
     [EnumMember(Value = "CTDB")]
     [IsoId("_t4o2xvRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// Statement or Report is based on custody data.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_t4o2yfRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// Cash or deposit accounting system
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_t4o2zPRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// Deposit system that reports what has been collected from various financial institutions
-    /// Encoded/decoded by serializers as "DPCS".
+    /// Encoded/decoded by serializers as &quot;DPCS&quot;.
     /// </summary>
     [EnumMember(Value = "DPCS")]
     [IsoId("_t4yAsPRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// Processing system that captures and reports check data in a lockbox environment.
-    /// Encoded/decoded by serializers as "LKBX".
+    /// Encoded/decoded by serializers as &quot;LKBX&quot;.
     /// </summary>
     [EnumMember(Value = "LKBX")]
     [IsoId("_t4yAs_RYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// A system that reports consolidated remittance information obtained from various , i.e., ACH, wires, lockbox, etc.
-    /// Encoded/decoded by serializers as "RCPT".
+    /// Encoded/decoded by serializers as &quot;RCPT&quot;.
     /// </summary>
     [EnumMember(Value = "RCPT")]
     [IsoId("_t4yAtvRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// Transactions submitted directly from participant / PSO (Payment System Operator) applications.
-    /// Encoded/decoded by serializers as "PFRE".
+    /// Encoded/decoded by serializers as &quot;PFRE&quot;.
     /// </summary>
     [EnumMember(Value = "PFRE")]
     [IsoId("_zcu9MI5CEeyANo-d7JlQ1A")]
@@ -112,7 +112,7 @@ public enum ExternalReportingSourceCode
     
     /// <summary>
     /// Transaction submitted directly from PMI (Payment Market Infrastructure back-office system.
-    /// Encoded/decoded by serializers as "MIBO".
+    /// Encoded/decoded by serializers as &quot;MIBO&quot;.
     /// </summary>
     [EnumMember(Value = "MIBO")]
     [IsoId("_7_JqMI5CEeyANo-d7JlQ1A")]

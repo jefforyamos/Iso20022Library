@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amounts of the deposit transaction.
 /// </summary>
 [IsoId("_7175Qa4AEeWL1uap3dNhCQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record DetailedAmount16
     /// Link to the account for multi-account deposit.
     /// </summary>
     [IsoId("_FgDOIK4BEeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSeqNb")]
     #endif
+    [IsoXmlTag("AcctSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? AccountSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record DetailedAmount16
     /// Amount of the deposit to be made on the ATM after the approval of the deposit transaction.
     /// </summary>
     [IsoId("_8BHOga4AEeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount To Deposit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtToDpst")]
     #endif
+    [IsoXmlTag("AmtToDpst")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? AmountToDeposit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record DetailedAmount16
     /// Currency of the amount to deposit when different from the base currency of the ATM.
     /// </summary>
     [IsoId("_8BHOg64AEeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record DetailedAmount16
     /// Cashback amount value.
     /// </summary>
     [IsoId("_RuWLUK-TEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Back Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshBckAmt")]
     #endif
+    [IsoXmlTag("CshBckAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CashBackAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,11 @@ public partial record DetailedAmount16
     /// Deposit fees, accepted by the customer.
     /// </summary>
     [IsoId("_8BHOha4AEeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fees")]
     #endif
+    [IsoXmlTag("Fees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount13? Fees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,11 @@ public partial record DetailedAmount16
     /// Amount of the donation.
     /// </summary>
     [IsoId("_8BHOh64AEeWL1uap3dNhCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Donation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dontn")]
     #endif
+    [IsoXmlTag("Dontn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount13? Donation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

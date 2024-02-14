@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Year in which the ISA plan is issued.
 /// </summary>
 [IsoId("_Sv3dmNp-Ed-ak6NoX_4Aeg_98060804")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ISA Years Of Issue")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ISAYearsOfIssue1
     /// Current year ISA is an ISA that was issued during the current fiscal year.
     /// </summary>
     [IsoId("_Sv3dmdp-Ed-ak6NoX_4Aeg_98062664")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Year Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurYrTp")]
     #endif
+    [IsoXmlTag("CurYrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISAType1Code? CurrentYearType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,15 +66,13 @@ public partial record ISAYearsOfIssue1
     /// Current year ISA is an ISA that was issued during the current fiscal year.
     /// </summary>
     [IsoId("_Sv3dmtp-Ed-ak6NoX_4Aeg_642016687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Current Year Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedCurYrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedCurYrTp")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExtended350Code? ExtendedCurrentYearType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +85,16 @@ public partial record ISAYearsOfIssue1
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
     [IsoId("_Sv3dm9p-Ed-ak6NoX_4Aeg_1710283535")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Component Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCmpntInd")]
     #endif
+    [IsoXmlTag("CshCmpntInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CashComponentIndicator { get; init; } 
+    public required System.String CashComponentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CashComponentIndicator { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record ISAYearsOfIssue1
     /// Selection of investment plans issued during previous years.
     /// </summary>
     [IsoId("_Sv3dnNp-Ed-ak6NoX_4Aeg_1898859737")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsYrs")]
     #endif
+    [IsoXmlTag("PrvsYrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PreviousYear1? PreviousYears { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record ISAYearsOfIssue1
     /// Specifies the amounts already subscribed for the current year.
     /// </summary>
     [IsoId("_SwBOkNp-Ed-ak6NoX_4Aeg_1154359412")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Year Subscription Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurYrSbcptDtls")]
     #endif
+    [IsoXmlTag("CurYrSbcptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubscriptionInformation1? CurrentYearSubscriptionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

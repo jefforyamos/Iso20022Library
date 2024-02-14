@@ -29,9 +29,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeReport32Choice.Revive))]
     [KnownType(typeof(TradeReport32Choice.Other))]
     [IsoId("__e7PwWEUEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Report 32 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

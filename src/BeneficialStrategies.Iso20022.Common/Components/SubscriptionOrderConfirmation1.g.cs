@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Order confirmation details.
 /// </summary>
 [IsoId("_RNqrENp-Ed-ak6NoX_4Aeg_-910205350")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Order Confirmation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SubscriptionOrderConfirmation1
     /// Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.
     /// </summary>
     [IsoId("_RN0cANp-Ed-ak6NoX_4Aeg_-1268607948")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amendment Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmdmntInd")]
     #endif
+    [IsoXmlTag("AmdmntInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AmendmentIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AmendmentIndicator { get; init; } 
+    public required System.String AmendmentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AmendmentIndicator { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record SubscriptionOrderConfirmation1
     /// General information related to the execution of investment fund order.
     /// </summary>
     [IsoId("_RN0cAdp-Ed-ak6NoX_4Aeg_-909279847")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multiple Execution Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MltplExctnDtls")]
     #endif
+    [IsoXmlTag("MltplExctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionMultipleExecution3 MultipleExecutionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubscriptionMultipleExecution3 MultipleExecutionDetails { get; init; } 
+    public required SubscriptionMultipleExecution3 MultipleExecutionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubscriptionMultipleExecution3 MultipleExecutionDetails { get; init; } 
     #else
@@ -92,28 +89,24 @@ public partial record SubscriptionOrderConfirmation1
     /// Information about parties related to the transaction.
     /// </summary>
     [IsoId("_RN0cAtp-Ed-ak6NoX_4Aeg_-910202422")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Party Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdPtyDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdPtyDtls")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Intermediary9> RelatedPartyDetails { get; init; } = new ValueList<Intermediary9>(){};
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_RN0cA9p-Ed-ak6NoX_4Aeg_-909281259")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

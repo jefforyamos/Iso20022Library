@@ -21,7 +21,7 @@ public enum DayType1Code
 {
     /// <summary>
     /// Elapsed calendar days.
-    /// Encoded/decoded by serializers as "ACTU".
+    /// Encoded/decoded by serializers as &quot;ACTU&quot;.
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_ay2ck9p-Ed-ak6NoX_4Aeg_1678509570")]
@@ -30,7 +30,7 @@ public enum DayType1Code
     
     /// <summary>
     /// Elapsed business days.
-    /// Encoded/decoded by serializers as "BUSE".
+    /// Encoded/decoded by serializers as &quot;BUSE&quot;.
     /// </summary>
     [EnumMember(Value = "BUSE")]
     [IsoId("_ay2clNp-Ed-ak6NoX_4Aeg_1678509571")]

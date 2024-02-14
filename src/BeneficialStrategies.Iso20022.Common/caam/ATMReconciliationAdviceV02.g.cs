@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caam;
 /// </summary>
 [Description(@"The ATMReconciliationAdvice message is sent by an ATM to an acquirer or its agent to send all the counters of the ATM. It can be sent by an operator function or as a response of a command sent by an agent or a server.")]
 [IsoId("_HD6BMa47EeWRfYPBaeOY8w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Reconciliation Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMReconciliationAdviceV02 : IOuterRecord<ATMReconciliatio
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_HD6BM647EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header32 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header32 Header { get; init; } 
+    public required Header32 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header32 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMReconciliationAdviceV02 : IOuterRecord<ATMReconciliatio
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_HD6BNa47EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATM Reconciliation Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMRcncltnAdvc")]
     #endif
+    [IsoXmlTag("PrtctdATMRcncltnAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMReconciliationAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMReconciliationAdviceV02 : IOuterRecord<ATMReconciliatio
     /// Information related to the reconciliation of an ATM.
     /// </summary>
     [IsoId("_HD6BN647EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Reconciliation Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMRcncltnAdvc")]
     #endif
+    [IsoXmlTag("ATMRcncltnAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMReconciliationAdvice2? ATMReconciliationAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMReconciliationAdviceV02 : IOuterRecord<ATMReconciliatio
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_HD6BOa47EeWRfYPBaeOY8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMReconciliationAdviceV02 : IOuterRecord<ATMReconciliatio
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMReconciliationAdviceV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMReconciliationAdviceV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMReconciliationAdviceV02Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMReconciliationAdviceV02 : IOuterRecord<ATMReconciliatio
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMReconciliationAdviceV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMReconciliationAdviceV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMReconciliationAdviceV02Document : IOuterDocument<ATMReconciliationAdviceV02>
@@ -176,7 +170,7 @@ public partial record ATMReconciliationAdviceV02Document : IOuterDocument<ATMRec
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMReconciliationAdviceV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMReconciliationAdviceV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMReconciliationAdviceV02 Message { get; init; }

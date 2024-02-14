@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat15Choice
     /// Date is expressed using a code.
     /// </summary>
     [IsoId("_QmL0Qtp-Ed-ak6NoX_4Aeg_1184238779")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

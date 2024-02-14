@@ -21,7 +21,7 @@ public enum ValidationRuleNarrative1Code
 {
     /// <summary>
     /// Narrative.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_MEQ0kR-1EeuxStysDTgLiw")]

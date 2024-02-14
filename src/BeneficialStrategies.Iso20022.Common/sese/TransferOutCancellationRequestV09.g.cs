@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|The TransferOutCancellationRequest message is sent by an instructing party, for example, an investment manager or its authorised representative, to the executing party, for example, a transfer agent, to request the cancellation of a previously sent transfer out instruction.|Usage|The TransferOutCancellationRequest message is used to request the cancellation of one or more transfer out instructions.|There is no amendment, but a cancellation and re-instruct policy.|To request the cancellation of one or more transfer out instructions, the transfer reference of the transfer, as specified in the original TransferOutInstruction message, is specified in the transfer reference element.|The message identification of the original TransferOutInstruction message may also be quoted in PreviousReference but this is not recommended.|The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation.|The rejection or acceptance of a TransferOutCancellationRequest is made using a TransferCancellationStatusReport message.")]
 [IsoId("_LctLkZDhEem7fvtoGpNpow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Out Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_LctLk5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -104,12 +101,11 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_LctLlZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference11? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +118,11 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_LctLl5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference10? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +135,11 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_LctLmZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference10? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,15 +152,13 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
     [IsoId("_LctLm5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,16 +171,15 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     /// Reference of the transfer to be cancelled.
     /// </summary>
     [IsoId("_LctLnZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfRefs")]
     #endif
+    [IsoXmlTag("TrfRefs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferReference15 TransferReferences { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferReference15 TransferReferences { get; init; } 
+    public required TransferReference15 TransferReferences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferReference15 TransferReferences { get; init; } 
     #else
@@ -199,12 +190,11 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     /// Identifies the market practice to which the message conforms.
     /// </summary>
     [IsoId("_LctLn5DhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Practice Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktPrctcVrsn")]
     #endif
+    [IsoXmlTag("MktPrctcVrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketPracticeVersion1? MarketPracticeVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -217,12 +207,11 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_LctLoZDhEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation5? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -235,7 +224,7 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TransferOutCancellationRequestV09Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TransferOutCancellationRequestV09Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TransferOutCancellationRequestV09Document ToDocument()
     {
@@ -245,7 +234,7 @@ public partial record TransferOutCancellationRequestV09 : IOuterRecord<TransferO
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferOutCancellationRequestV09"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TransferOutCancellationRequestV09&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TransferOutCancellationRequestV09Document : IOuterDocument<TransferOutCancellationRequestV09>
@@ -262,7 +251,7 @@ public partial record TransferOutCancellationRequestV09Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TransferOutCancellationRequestV09"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TransferOutCancellationRequestV09&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferOutCancellationRequestV09 Message { get; init; }

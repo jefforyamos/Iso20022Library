@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies one or more agents involved in a transaction, with their role.
 /// </summary>
 [IsoId("_4zG7sKHHEeagRbKvRt3LnA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,15 +46,15 @@ public partial record AgentType1
     #nullable enable
     
     /// <summary>
-    /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+    /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
     /// </summary>
     [IsoId("_Wf_bUaHIEeagRbKvRt3LnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Any BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnyBIC")]
     #endif
+    [IsoXmlTag("AnyBIC")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     public System.String? AnyBIC { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Wf_bUaHIEeagRbKvRt3LnA
     
@@ -64,16 +62,15 @@ public partial record AgentType1
     /// Specifies the role of the party in the payment chain.
     /// </summary>
     [IsoId("_pNVEMKHIEeagRbKvRt3LnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentsPartyType1Code Role { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentsPartyType1Code Role { get; init; } 
+    public required PaymentsPartyType1Code Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentsPartyType1Code Role { get; init; } 
     #else

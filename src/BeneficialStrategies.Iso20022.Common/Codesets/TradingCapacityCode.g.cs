@@ -21,7 +21,7 @@ public enum TradingCapacityCode
 {
     /// <summary>
     /// Trading as Principal.
-    /// Encoded/decoded by serializers as "PRIN".
+    /// Encoded/decoded by serializers as &quot;PRIN&quot;.
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_YqqBB9p-Ed-ak6NoX_4Aeg_-1235714544")]
@@ -30,7 +30,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Crossing as a principal.
-    /// Encoded/decoded by serializers as "CPRN".
+    /// Encoded/decoded by serializers as &quot;CPRN&quot;.
     /// </summary>
     [EnumMember(Value = "CPRN")]
     [IsoId("_YqqBCNp-Ed-ak6NoX_4Aeg_-1235714518")]
@@ -39,7 +39,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.
-    /// Encoded/decoded by serializers as "RISP".
+    /// Encoded/decoded by serializers as &quot;RISP&quot;.
     /// </summary>
     [EnumMember(Value = "RISP")]
     [IsoId("_YqqBCdp-Ed-ak6NoX_4Aeg_-1235714457")]
@@ -47,8 +47,8 @@ public enum TradingCapacityCode
     RisklessPrincipal,
     
     /// <summary>
-    /// Trading for its firm. The transaction affects the firm's own account, not that of its customers.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Trading for its firm. The transaction affects the firm&apos;s own account, not that of its customers.
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_YqzyANp-Ed-ak6NoX_4Aeg_-1235714458")]
@@ -57,7 +57,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Trading as Agent on behalf of a customer.
-    /// Encoded/decoded by serializers as "AGEN".
+    /// Encoded/decoded by serializers as &quot;AGEN&quot;.
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_YqzyAdp-Ed-ak6NoX_4Aeg_-1235714536")]
@@ -66,7 +66,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Crossing as an agent.
-    /// Encoded/decoded by serializers as "CAGN".
+    /// Encoded/decoded by serializers as &quot;CAGN&quot;.
     /// </summary>
     [EnumMember(Value = "CAGN")]
     [IsoId("_YqzyAtp-Ed-ak6NoX_4Aeg_-1235714501")]
@@ -75,7 +75,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Acting as an agent for a party other than a customer.
-    /// Encoded/decoded by serializers as "OAGN".
+    /// Encoded/decoded by serializers as &quot;OAGN&quot;.
     /// </summary>
     [EnumMember(Value = "OAGN")]
     [IsoId("_YqzyA9p-Ed-ak6NoX_4Aeg_-1235714500")]
@@ -84,7 +84,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Acting as an agent for some executions and principal for others in the same transaction.
-    /// Encoded/decoded by serializers as "PRAG".
+    /// Encoded/decoded by serializers as &quot;PRAG&quot;.
     /// </summary>
     [EnumMember(Value = "PRAG")]
     [IsoId("_YqzyBNp-Ed-ak6NoX_4Aeg_-1235714483")]
@@ -93,7 +93,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Party acting as an agent for both customer and another person.
-    /// Encoded/decoded by serializers as "BAGN".
+    /// Encoded/decoded by serializers as &quot;BAGN&quot;.
     /// </summary>
     [EnumMember(Value = "BAGN")]
     [IsoId("__5XpAtojEeC60axPepSq7g_-733239966")]
@@ -102,7 +102,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Any legal person whose regular occupation or business is the provision of one or more investment services to third parties and/or the performance of one or more investment activities on a professional basis.
-    /// Encoded/decoded by serializers as "INFI".
+    /// Encoded/decoded by serializers as &quot;INFI&quot;.
     /// </summary>
     [EnumMember(Value = "INFI")]
     [IsoId("__5XpA9ojEeC60axPepSq7g_-19029889")]
@@ -111,7 +111,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Dealer or specialist that is trading for their own account in the OTC market. Market makers are expected to maintain an orderly market by being available to buy or sell.
-    /// Encoded/decoded by serializers as "MKTM".
+    /// Encoded/decoded by serializers as &quot;MKTM&quot;.
     /// </summary>
     [EnumMember(Value = "MKTM")]
     [IsoId("__5XpBNojEeC60axPepSq7g_899052693")]
@@ -120,7 +120,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Multilateral Trading Facility (MTF) is a multilateral system which brings together multiple third-party buying and selling interests in financial instruments in a way that results in a contract.
-    /// Encoded/decoded by serializers as "MLTF".
+    /// Encoded/decoded by serializers as &quot;MLTF&quot;.
     /// </summary>
     [EnumMember(Value = "MLTF")]
     [IsoId("__5XpBdojEeC60axPepSq7g_346468074")]
@@ -129,7 +129,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Regulated market on which financial instruments can be traded according to rules defined by the stock exchange.
-    /// Encoded/decoded by serializers as "RMKT".
+    /// Encoded/decoded by serializers as &quot;RMKT&quot;.
     /// </summary>
     [EnumMember(Value = "RMKT")]
     [IsoId("__5haANojEeC60axPepSq7g_-1947030189")]
@@ -138,7 +138,7 @@ public enum TradingCapacityCode
     
     /// <summary>
     /// Firms which, on an organised, frequent and systematic basis, deal on their own account by executing client orders outside a regulated market or an MTF. SIs have the obligation to provide, and make public, a definite bid and offer quote for liquid securities.
-    /// Encoded/decoded by serializers as "SINT".
+    /// Encoded/decoded by serializers as &quot;SINT&quot;.
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("__5haAdojEeC60axPepSq7g_259578030")]
@@ -146,8 +146,8 @@ public enum TradingCapacityCode
     SystematicInternaliser,
     
     /// <summary>
-    /// Party appointed by the Fund Management Company. It updates records of investor accounts to reflect the daily investor purchases, redemptions, switches, transfers, and re-registrations. It ensures the timely settlement of transactions, and may provide tax information to the investor and/or to its intermediaries. It may calculate, collect, and rebate commissions. It prepares and distributes confirmations reflecting transactions, resulting in unit or cash account movements to the investor or the investor's intermediary. It responds to inquiries concerning account status, and processes the income distribution.
-    /// Encoded/decoded by serializers as "TAGT".
+    /// Party appointed by the Fund Management Company. It updates records of investor accounts to reflect the daily investor purchases, redemptions, switches, transfers, and re-registrations. It ensures the timely settlement of transactions, and may provide tax information to the investor and/or to its intermediaries. It may calculate, collect, and rebate commissions. It prepares and distributes confirmations reflecting transactions, resulting in unit or cash account movements to the investor or the investor&apos;s intermediary. It responds to inquiries concerning account status, and processes the income distribution.
+    /// Encoded/decoded by serializers as &quot;TAGT&quot;.
     /// </summary>
     [EnumMember(Value = "TAGT")]
     [IsoId("__5haAtojEeC60axPepSq7g_1566773702")]

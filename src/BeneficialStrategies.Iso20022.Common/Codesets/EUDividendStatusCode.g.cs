@@ -21,7 +21,7 @@ public enum EUDividendStatusCode
 {
     /// <summary>
     /// Dividend is in the scope of the directive.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_aiUGMNp-Ed-ak6NoX_4Aeg_-1873978987")]
@@ -30,7 +30,7 @@ public enum EUDividendStatusCode
     
     /// <summary>
     /// Dividend is out of the scope of the directive.
-    /// Encoded/decoded by serializers as "DIVO".
+    /// Encoded/decoded by serializers as &quot;DIVO&quot;.
     /// </summary>
     [EnumMember(Value = "DIVO")]
     [IsoId("_aiUGMdp-Ed-ak6NoX_4Aeg_-1873978970")]
@@ -39,7 +39,7 @@ public enum EUDividendStatusCode
     
     /// <summary>
     /// Unknown whether the dividend is in or out of the scope of the directive.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aiUGMtp-Ed-ak6NoX_4Aeg_-1873978935")]

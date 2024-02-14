@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionToPerform1Choice.LoyaltyRequest))]
     [KnownType(typeof(TransactionToPerform1Choice.ReversalRequest))]
     [IsoId("_uF9jANuREeiB5uLfkg9ZJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction To Perform 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

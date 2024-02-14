@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Inquiry information for the transaction.
 /// </summary>
 [IsoId("_ALqDwYqzEeSIDtZ76p6McQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ATMTransaction7
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
     [IsoId("_AYBr04qzEeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifier1 TransactionIdentification { get; init; } 
+    public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifier1 TransactionIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ATMTransaction7
     /// Result of the inquiry service.
     /// </summary>
     [IsoId("_VhPFwCvLEeW-qbryg71zJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRspn")]
     #endif
+    [IsoXmlTag("TxRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType3 TransactionResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType3 TransactionResponse { get; init; } 
+    public required ResponseType3 TransactionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType3 TransactionResponse { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record ATMTransaction7
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
     [IsoId("_cRUScCvLEeW-qbryg71zJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action5? Action { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record ATMTransaction7
     /// Profile of the customer with the allowed services and restrictions.
     /// </summary>
     [IsoId("_nPPNAIqzEeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Service Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrSvcPrfl")]
     #endif
+    [IsoXmlTag("CstmrSvcPrfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCustomerProfile3? CustomerServiceProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record ATMTransaction7
     /// Dynamic currency conversion result.
     /// </summary>
     [IsoId("_AYBr34qzEeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Conversion")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyConvs")]
     #endif
+    [IsoXmlTag("CcyConvs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion3? CurrencyConversion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,11 @@ public partial record ATMTransaction7
     /// Account information associated to the customer.
     /// </summary>
     [IsoId("_AYBr14qzEeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctInf")]
     #endif
+    [IsoXmlTag("AcctInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAccount6? AccountInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +156,11 @@ public partial record ATMTransaction7
     /// Statement information of an account.
     /// </summary>
     [IsoId("_8fQUYIq7EeSHjtO_wHA7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Statement Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctStmtData")]
     #endif
+    [IsoXmlTag("AcctStmtData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMAccountStatement1? AccountStatementData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +173,11 @@ public partial record ATMTransaction7
     /// Exchange rate and calculated amount to be presented to the customer when the dispense currency or the deposit currency (target currency) is different to account currency (source currency).
     /// </summary>
     [IsoId("_dE4GQIq9EeSHjtO_wHA7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyXchg")]
     #endif
+    [IsoXmlTag("CcyXchg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion5? CurrencyExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +190,12 @@ public partial record ATMTransaction7
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
     [IsoId("_AYBr54qzEeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ICC Related Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ICCRltdData")]
     #endif
+    [IsoXmlTag("ICCRltdData")]
+    [IsoSimpleType(IsoSimpleType.Max10000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +208,11 @@ public partial record ATMTransaction7
     /// Maintenance command to perform on the ATM.
     /// </summary>
     [IsoId("_G4SFEIq5EeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmd")]
     #endif
+    [IsoXmlTag("Cmd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommand1? Command { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

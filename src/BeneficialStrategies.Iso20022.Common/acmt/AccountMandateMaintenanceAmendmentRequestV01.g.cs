@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|The AccountMandateMaintenanceAmendmentRequest message is sent from an organisation to a financial institution as part of the account maintenance process. It is sent in response to a request from the financial institution to send additional information. This update is only about mandate information.|Usage|This message should only be sent in response to a request from the financial institution. This update is only about mandate information. The organisation will specify under the Mandate tag the complete information as it should be in the financial institutions records after processing the update request. It is not possible to update the account characteristics or organisation information with this message.|It is possible to request to update the mandate information of several accounts, if these accounts must have exactly the same mandates.|This message could be sent together with other related documents.")]
 [IsoId("_rHdkCNE9Ed-BzquC8wXy7w_-266920575")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Mandate Maintenance Amendment Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     /// Set of elements for the identification of the message and related references.
     /// </summary>
     [IsoId("_rHdkCdE9Ed-BzquC8wXy7w_-1650659865")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References4 References { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References4 References { get; init; } 
+    public required References4 References { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References4 References { get; init; } 
     #else
@@ -103,12 +100,11 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     /// Specifies target dates.
     /// </summary>
     [IsoId("_rHnVANE9Ed-BzquC8wXy7w_1663722693")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Dates")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctDts")]
     #endif
+    [IsoXmlTag("CtrctDts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountContract2? ContractDates { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +117,11 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
     /// </summary>
     [IsoId("_rHnVAdE9Ed-BzquC8wXy7w_1467666004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Master Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygMstrAgrmt")]
     #endif
+    [IsoXmlTag("UndrlygMstrAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractDocument1? UnderlyingMasterAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,16 +134,15 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_rHnVAtE9Ed-BzquC8wXy7w_604759008")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountForAction1 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountForAction1 AccountIdentification { get; init; } 
+    public required AccountForAction1 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountForAction1 AccountIdentification { get; init; } 
     #else
@@ -159,16 +153,15 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme. |.
     /// </summary>
     [IsoId("_rHnVA9E9Ed-BzquC8wXy7w_-391901204")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrId")]
     #endif
+    [IsoXmlTag("AcctSvcrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #else
@@ -179,16 +172,15 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     /// Identification of the organisation requesting the change.
     /// </summary>
     [IsoId("_rHnVBNE9Ed-BzquC8wXy7w_142996449")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgId")]
     #endif
+    [IsoXmlTag("OrgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification6 OrganisationIdentification { get; init; } 
+    public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #else
@@ -199,12 +191,11 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     /// Information specifying the account mandate.
     /// </summary>
     [IsoId("_rHnVBdE9Ed-BzquC8wXy7w_-1737493661")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mndt")]
     #endif
+    [IsoXmlTag("Mndt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OperationMandate1? Mandate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -217,12 +208,11 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
     /// </summary>
     [IsoId("_rHnVBtE9Ed-BzquC8wXy7w_629134464")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature1? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -235,7 +225,7 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountMandateMaintenanceAmendmentRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountMandateMaintenanceAmendmentRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountMandateMaintenanceAmendmentRequestV01Document ToDocument()
     {
@@ -245,7 +235,7 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01 : IOuterRecor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountMandateMaintenanceAmendmentRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountMandateMaintenanceAmendmentRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountMandateMaintenanceAmendmentRequestV01Document : IOuterDocument<AccountMandateMaintenanceAmendmentRequestV01>
@@ -262,7 +252,7 @@ public partial record AccountMandateMaintenanceAmendmentRequestV01Document : IOu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountMandateMaintenanceAmendmentRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountMandateMaintenanceAmendmentRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountMandateMaintenanceAmendmentRequestV01 Message { get; init; }

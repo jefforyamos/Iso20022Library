@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed amounts associated with the total amount of transaction.
 /// </summary>
 [IsoId("_ddRJ8WkEEeS7zPBpvm732w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record DetailedAmount7
     /// Cash-back amount.
     /// </summary>
     [IsoId("_dqMLoWkEEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Back")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshBck")]
     #endif
+    [IsoXmlTag("CshBck")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CashBack { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record DetailedAmount7
     /// Gratuity amount.
     /// </summary>
     [IsoId("_dqMLo2kEEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gratuity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Grtty")]
     #endif
+    [IsoXmlTag("Grtty")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? Gratuity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record DetailedAmount7
     /// Fees amount.
     /// </summary>
     [IsoId("_dqMLpWkEEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fees")]
     #endif
+    [IsoXmlTag("Fees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? Fees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,11 @@ public partial record DetailedAmount7
     /// Global rebate of the transaction. This amount is counted as a negative amount.
     /// </summary>
     [IsoId("_dqMLp2kEEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rebate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rbt")]
     #endif
+    [IsoXmlTag("Rbt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? Rebate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record DetailedAmount7
     /// Value added tax amount.
     /// </summary>
     [IsoId("_dqMLqWkEEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Added Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValAddedTax")]
     #endif
+    [IsoXmlTag("ValAddedTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? ValueAddedTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +129,11 @@ public partial record DetailedAmount7
     /// Additional charge paid by the cardholder. For example airline credit card surcharge.
     /// </summary>
     [IsoId("_m6QBwGkEEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Surcharge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Srchrg")]
     #endif
+    [IsoXmlTag("Srchrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? Surcharge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

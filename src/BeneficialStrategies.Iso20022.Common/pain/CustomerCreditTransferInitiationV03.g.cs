@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The CustomerCreditTransferInitiation message is sent by the initiating party to the forwarding agent or debtor agent. It is used to request movement of funds from the debtor account to a creditor.|Usage|The CustomerCreditTransferInitiation message can contain one or more customer credit transfer instructions.|The CustomerCreditTransferInitiation message is used to exchange:|- One or more instances of a credit transfer initiation;|- Payment transactions that result in book transfers at the debtor agent or payments to another financial institution;|- Payment transactions that result in an electronic cash transfer to the creditor account or in the emission of a cheque.|The message can be used in a direct or a relay scenario:|- In a direct scenario, the message is sent directly to the debtor agent. The debtor agent is the account servicer of the debtor.|- In a relay scenario, the message is sent to a forwarding agent. The forwarding agent acts as a concentrating financial institution. It will forward the CustomerCreditTransferInitiation message to the debtor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the debtor. This caters for example for the scenario of a payments factory initiating all payments on behalf of a large corporate.|The CustomerCreditTransferInitiation message can be used in domestic and cross-border scenarios.|The CustomerCreditTransferInitiation message must not be used by the debtor agent to execute the credit transfer instruction(s). The FIToFICustomerCreditTransfer message must be used instead.")]
 [IsoId("_GWk-idEvEd-BzquC8wXy7w_-923555762")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Customer Credit Transfer Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -89,16 +87,15 @@ public partial record CustomerCreditTransferInitiationV03 : IOuterRecord<Custome
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_GWk-itEvEd-BzquC8wXy7w_-923555699")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader32 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader32 GroupHeader { get; init; } 
+    public required GroupHeader32 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader32 GroupHeader { get; init; } 
     #else
@@ -109,16 +106,15 @@ public partial record CustomerCreditTransferInitiationV03 : IOuterRecord<Custome
     /// Set of characteristics that applies to the debit side of the payment transactions included in the credit transfer initiation.
     /// </summary>
     [IsoId("_GWk-i9EvEd-BzquC8wXy7w_-916171020")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInf")]
     #endif
+    [IsoXmlTag("PmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInstructionInformation3 PaymentInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentInstructionInformation3 PaymentInformation { get; init; } 
+    public required PaymentInstructionInformation3 PaymentInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentInstructionInformation3 PaymentInformation { get; init; } 
     #else
@@ -129,7 +125,7 @@ public partial record CustomerCreditTransferInitiationV03 : IOuterRecord<Custome
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CustomerCreditTransferInitiationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CustomerCreditTransferInitiationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CustomerCreditTransferInitiationV03Document ToDocument()
     {
@@ -139,7 +135,7 @@ public partial record CustomerCreditTransferInitiationV03 : IOuterRecord<Custome
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustomerCreditTransferInitiationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CustomerCreditTransferInitiationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CustomerCreditTransferInitiationV03Document : IOuterDocument<CustomerCreditTransferInitiationV03>
@@ -156,7 +152,7 @@ public partial record CustomerCreditTransferInitiationV03Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CustomerCreditTransferInitiationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CustomerCreditTransferInitiationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CustomerCreditTransferInitiationV03 Message { get; init; }

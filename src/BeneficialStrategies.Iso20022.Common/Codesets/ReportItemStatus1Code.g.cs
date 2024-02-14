@@ -21,7 +21,7 @@ public enum ReportItemStatus1Code
 {
     /// <summary>
     /// Entry has been accepted by the receiver of the report.
-    /// Encoded/decoded by serializers as "ACPD".
+    /// Encoded/decoded by serializers as &quot;ACPD&quot;.
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_VMcTwUi5EeSlHoYg_EudVQ")]
@@ -30,7 +30,7 @@ public enum ReportItemStatus1Code
     
     /// <summary>
     /// Entry has been rejected by the receiver of the report.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_VbdnMUi5EeSlHoYg_EudVQ")]

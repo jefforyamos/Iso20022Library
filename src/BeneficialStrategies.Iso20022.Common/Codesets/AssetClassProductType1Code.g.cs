@@ -21,7 +21,7 @@ public enum AssetClassProductType1Code
 {
     /// <summary>
     /// Commodity of type agricultural.
-    /// Encoded/decoded by serializers as "AGRI".
+    /// Encoded/decoded by serializers as &quot;AGRI&quot;.
     /// </summary>
     [EnumMember(Value = "AGRI")]
     [IsoId("_eBGNYQnyEeWnS-yHF1QhNQ")]

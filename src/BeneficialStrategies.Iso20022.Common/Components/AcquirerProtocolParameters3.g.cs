@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Acceptor parameters dedicated to the acquirer protocol.
 /// </summary>
 [IsoId("_X2K2sR3kEeKWfegf-2AeBQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Protocol Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record AcquirerProtocolParameters3
     /// Identification of the acquirer using this protocol.
     /// </summary>
     [IsoId("_YBn4wR3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrId")]
     #endif
+    [IsoXmlTag("AcqrrId")]
     public GenericIdentification32? AcquirerIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _YBn4wR3kEeKWfegf-2AeBQ
     
@@ -64,15 +61,13 @@ public partial record AcquirerProtocolParameters3
     /// Identification of the payment application, user of the acquirer protocol.
     /// </summary>
     [IsoId("_YBn4xR3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +80,11 @@ public partial record AcquirerProtocolParameters3
     /// Acquirer host configuration.
     /// </summary>
     [IsoId("_YBn4yR3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hst")]
     #endif
+    [IsoXmlTag("Hst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerHostConfiguration2? Host { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +97,11 @@ public partial record AcquirerProtocolParameters3
     /// Acquirer protocol parameters of transactions performing an online authorisation.
     /// </summary>
     [IsoId("_YBn4zR3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Line Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnLineTx")]
     #endif
+    [IsoXmlTag("OnLineTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerProtocolParameters4? OnLineTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +114,11 @@ public partial record AcquirerProtocolParameters3
     /// Acquirer protocol parameters of transactions performing an offline authorisation.
     /// </summary>
     [IsoId("_YBn40R3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Off Line Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffLineTx")]
     #endif
+    [IsoXmlTag("OffLineTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerProtocolParameters4? OffLineTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +131,11 @@ public partial record AcquirerProtocolParameters3
     /// Configuration parameters of reconciliation exchanges.
     /// </summary>
     [IsoId("_YBn41R3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnXchg")]
     #endif
+    [IsoXmlTag("RcncltnXchg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeConfiguration2? ReconciliationExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,12 +148,12 @@ public partial record AcquirerProtocolParameters3
     /// Indicates the reconciliation period is assigned by the acquirer instead of the acceptor.
     /// </summary>
     [IsoId("_YBn42R3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation By Acquirer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnByAcqrr")]
     #endif
+    [IsoXmlTag("RcncltnByAcqrr")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ReconciliationByAcquirer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +166,12 @@ public partial record AcquirerProtocolParameters3
     /// Indicates the reconciliation total amounts are computed per currency.
     /// </summary>
     [IsoId("_YBn43R3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Totals Per Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlsPerCcy")]
     #endif
+    [IsoXmlTag("TtlsPerCcy")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TotalsPerCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +184,12 @@ public partial record AcquirerProtocolParameters3
     /// Indicates that totals in reconciliation or batch must be split per group of points of interaction and card product profiles when these informations are present in the transactions.
     /// </summary>
     [IsoId("_--AmkCmlEeKIjpr--01h3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Split Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpltTtls")]
     #endif
+    [IsoXmlTag("SpltTtls")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SplitTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,12 +202,12 @@ public partial record AcquirerProtocolParameters3
     /// Indicates that response messages and an AcceptorCompletionAdvice message following an authorisation exchange must contain protected or plain card data.
     /// </summary>
     [IsoId("_XNNHUB3mEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Data Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardDataVrfctn")]
     #endif
+    [IsoXmlTag("CardDataVrfctn")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardDataVerification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,12 +220,11 @@ public partial record AcquirerProtocolParameters3
     /// Types of transaction to include in the batch.
     /// </summary>
     [IsoId("_YBn44R3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch Transfer Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BtchTrfCntt")]
     #endif
+    [IsoXmlTag("BtchTrfCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BatchTransactionType1Code? BatchTransferContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,12 +237,11 @@ public partial record AcquirerProtocolParameters3
     /// Configuration of a message item.
     /// </summary>
     [IsoId("_YBn45R3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgItm")]
     #endif
+    [IsoXmlTag("MsgItm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageItemCondition1? MessageItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -265,16 +254,16 @@ public partial record AcquirerProtocolParameters3
     /// Indicator to require protection of sensitive card data in messages.
     /// </summary>
     [IsoId("_YBn46R3kEeKWfegf-2AeBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctCardData")]
     #endif
+    [IsoXmlTag("PrtctCardData")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator ProtectCardData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProtectCardData { get; init; } 
+    public required System.String ProtectCardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProtectCardData { get; init; } 
     #else

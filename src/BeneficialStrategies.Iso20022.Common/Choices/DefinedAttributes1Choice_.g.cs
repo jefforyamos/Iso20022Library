@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DefinedAttributes1Choice.QuantityDefinedAttributes))]
     [KnownType(typeof(DefinedAttributes1Choice.ValueDefinedAttributes))]
     [IsoId("_wa3m8OPJEea7_eMQH225xA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Defined Attributes 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

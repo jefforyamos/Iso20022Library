@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Costs and charges associated with the distribution or selling of a financial instrument. These may be one-off or recurring charges. These may be intended (ex ante) or actual (ex post).
 /// </summary>
 [IsoId("_nfxmIDciEeidBoT_PugKiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Costs And Charges")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CostsAndCharges1
     /// Reference date applicable to all ex ante cost and charge disclosures. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07160.
     /// </summary>
     [IsoId("_yV8bMIEgEeiw-daIkkmMqQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ex Ante Reference Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExAnteRefDt")]
     #endif
+    [IsoXmlTag("ExAnteRefDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExAnteReferenceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record CostsAndCharges1
     /// Reference date applicable to all ex post cost and charge disclosures. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08120.
     /// </summary>
     [IsoId("_BDgaMZ7NEein281BT9rIxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ex Post Reference Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExPstRefDt")]
     #endif
+    [IsoXmlTag("ExPstRefDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExPostReferenceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record CostsAndCharges1
     /// Individual cost or charge associated with the distribution of selling of the financial instrument. This may be one-off or recurring. This may be ex ante (intended) or post ante (actual).
     /// </summary>
     [IsoId("_6VRRcIwREeicrr-UkGlMQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Cost Or Charge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvCostOrChrg")]
     #endif
+    [IsoXmlTag("IndvCostOrChrg")]
     public IndividualCostOrCharge1? IndividualCostOrCharge { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _6VRRcIwREeicrr-UkGlMQA
     
@@ -93,12 +90,11 @@ public partial record CostsAndCharges1
     /// Additional information about costs and charges.
     /// </summary>
     [IsoId("_ZSKpMDcoEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

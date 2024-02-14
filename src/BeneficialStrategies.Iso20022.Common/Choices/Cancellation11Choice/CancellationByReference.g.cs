@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
     /// Reference of the transfer instruction to be cancelled.
     /// </summary>
     [IsoId("_8u6kcyPvEeWQjryFgN2ITg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation By Reference")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
         /// </summary>
         [IsoId("_HzyxIS8FEeO59oUFO5eLvw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Master Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MstrRef")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MstrRef")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MasterReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice
         /// Transfer and cancellation reference.
         /// </summary>
         [IsoId("_HzyxIy8FEeO59oUFO5eLvw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transfer References")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrfRefs")]
         #endif
+        [IsoXmlTag("TrfRefs")]
         public TransferReference8? TransferReferences { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _HzyxIy8FEeO59oUFO5eLvw
         

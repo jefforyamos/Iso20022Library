@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FailedSettlementReason1FormatCho
     /// Standard code to specify the reason of a settlement failure.
     /// </summary>
     [IsoId("_RmjsI9p-Ed-ak6NoX_4Aeg_-183406333")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FailedSettlementReason1FormatCho
         /// Specifies the reason of a settlement failure.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FailedSettlementReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FailedSettlementReason1Code Value { get; init; } 
+        public required FailedSettlementReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FailedSettlementReason1Code Value { get; init; } 
         #else

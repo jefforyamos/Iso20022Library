@@ -21,7 +21,7 @@ public enum UndertakingStatus3Code
 {
     /// <summary>
     /// Accepted.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_e_hVNn1VEeGlwNeVP9egyg")]
@@ -30,7 +30,7 @@ public enum UndertakingStatus3Code
     
     /// <summary>
     /// Undertaking not confirmed.
-    /// Encoded/decoded by serializers as "NCON".
+    /// Encoded/decoded by serializers as &quot;NCON&quot;.
     /// </summary>
     [EnumMember(Value = "NCON")]
     [IsoId("_fUrs5n1VEeGlwNeVP9egyg")]
@@ -39,7 +39,7 @@ public enum UndertakingStatus3Code
     
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_fr7INn1VEeGlwNeVP9egyg")]
@@ -48,7 +48,7 @@ public enum UndertakingStatus3Code
     
     /// <summary>
     /// Demand has been withdrawn.
-    /// Encoded/decoded by serializers as "WTHD".
+    /// Encoded/decoded by serializers as &quot;WTHD&quot;.
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_fyVSNn1VEeGlwNeVP9egyg")]
@@ -57,7 +57,7 @@ public enum UndertakingStatus3Code
     
     /// <summary>
     /// Change to counter-undertaking amount.
-    /// Encoded/decoded by serializers as "AMTC".
+    /// Encoded/decoded by serializers as &quot;AMTC&quot;.
     /// </summary>
     [EnumMember(Value = "AMTC")]
     [IsoId("_Emv1Fq-yEeGNi5z8K_XPKQ")]
@@ -66,7 +66,7 @@ public enum UndertakingStatus3Code
     
     /// <summary>
     /// Change to undertaking amount.
-    /// Encoded/decoded by serializers as "AMTU".
+    /// Encoded/decoded by serializers as &quot;AMTU&quot;.
     /// </summary>
     [EnumMember(Value = "AMTU")]
     [IsoId("_FA0h9q-yEeGNi5z8K_XPKQ")]

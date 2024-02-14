@@ -21,7 +21,7 @@ public enum AdditionalBusinessProcess2Code
 {
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "CLAI".
+    /// Encoded/decoded by serializers as &quot;CLAI&quot;.
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_bqbk0Np-Ed-ak6NoX_4Aeg_-230763075")]
@@ -30,7 +30,7 @@ public enum AdditionalBusinessProcess2Code
     
     /// <summary>
     /// Indicates a preadvice of movement reversal.
-    /// Encoded/decoded by serializers as "REVR".
+    /// Encoded/decoded by serializers as &quot;REVR&quot;.
     /// </summary>
     [EnumMember(Value = "REVR")]
     [IsoId("_bqbk0dp-Ed-ak6NoX_4Aeg_-1899985982")]
@@ -39,7 +39,7 @@ public enum AdditionalBusinessProcess2Code
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TAXR".
+    /// Encoded/decoded by serializers as &quot;TAXR&quot;.
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_bqbk0tp-Ed-ak6NoX_4Aeg_-215987823")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Batch management transaction.
 /// </summary>
 [IsoId("_6Cj1gZMqEeuleeHpFMMhmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Transaction141
     /// Identification of the batch management transaction.
     /// </summary>
     [IsoId("_6QrxEZMqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,15 +60,13 @@ public partial record Transaction141
     /// All the messages included within the batch will have the same batch identification value.
     /// </summary>
     [IsoId("_6QrxE5MqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BtchId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BtchId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? BatchIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,15 +80,13 @@ public partial record Transaction141
     /// Mandatory when the batch response has not the same identification as the batch initiation.
     /// </summary>
     [IsoId("_6QrxFZMqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Batch Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlBtchId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlBtchId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? OriginalBatchIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,12 @@ public partial record Transaction141
     /// For an end of batch acknowledgement, this is the last sequence number received in the sequence.
     /// </summary>
     [IsoId("_6QrxF5MqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Messages")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfMsgs")]
     #endif
+    [IsoXmlTag("NbOfMsgs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfMessages { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,12 @@ public partial record Transaction141
     /// Checksum of the series of messages received in the batch or until a checkpoint.
     /// </summary>
     [IsoId("_6QrxGZMqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch Checksum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BtchChcksm")]
     #endif
+    [IsoXmlTag("BtchChcksm")]
+    [IsoSimpleType(IsoSimpleType.Max35Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Binary? BatchChecksum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,12 +144,12 @@ public partial record Transaction141
     /// False: Acknowledgement not requested.
     /// </summary>
     [IsoId("_6QrxG5MqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Acknowledgement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqAck")]
     #endif
+    [IsoXmlTag("ReqAck")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RequestAcknowledgement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +162,11 @@ public partial record Transaction141
     /// Clearing data at batch level allowing clearing in different currencies.
     /// </summary>
     [IsoId("_6QrxHZMqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Batch Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrBtchData")]
     #endif
+    [IsoXmlTag("ClrBtchData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingBatchData2? ClearingBatchData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +179,11 @@ public partial record Transaction141
     /// Gross amount clearing totals.
     /// </summary>
     [IsoId("_6QrxH5MqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Control Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrCtrlTtls")]
     #endif
+    [IsoXmlTag("ClrCtrlTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingControlTotals2? ClearingControlTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,12 +196,11 @@ public partial record Transaction141
     /// Information or instructions relevant for the agent in charge of the clearing.
     /// </summary>
     [IsoId("_6QrxIZMqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtData")]
     #endif
+    [IsoXmlTag("AgtData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation21? AgentData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -223,12 +213,11 @@ public partial record Transaction141
     /// Record in batch.
     /// </summary>
     [IsoId("_6QrxI5MqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcrd")]
     #endif
+    [IsoXmlTag("Rcrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Record2? Record { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -241,12 +230,11 @@ public partial record Transaction141
     /// Contains additional data.
     /// </summary>
     [IsoId("_6QrxJZMqEeuleeHpFMMhmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

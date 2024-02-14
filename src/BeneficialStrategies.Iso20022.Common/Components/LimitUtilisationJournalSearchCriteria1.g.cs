@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to search for a limit.
 /// </summary>
 [IsoId("_jOa_4-5NEeCisYr99QEiWA_-1185186372")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit Utilisation Journal Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// Type of limit applied by the system at the present time.
     /// </summary>
     [IsoId("_jOa_5O5NEeCisYr99QEiWA_-1661846618")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtTp")]
     #endif
+    [IsoXmlTag("LmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LimitType4Code? LimitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,16 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// Date upon which journal activity takes place.
     /// </summary>
     [IsoId("_jOkw4O5NEeCisYr99QEiWA_-733934865")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Journal Activity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="JrnlActvtyDt")]
     #endif
+    [IsoXmlTag("JrnlActvtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate JournalActivityDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly JournalActivityDate { get; init; } 
+    public required System.DateOnly JournalActivityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly JournalActivityDate { get; init; } 
     #else
@@ -90,12 +87,11 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_jOkw4e5NEeCisYr99QEiWA_-766183687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +104,11 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// Currency unit used to specify the limit amount.
     /// </summary>
     [IsoId("_jOkw4u5NEeCisYr99QEiWA_658227287")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtCcy")]
     #endif
+    [IsoXmlTag("LmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +121,12 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// Owner of the account which is being queried.
     /// </summary>
     [IsoId("_jOkw4-5NEeCisYr99QEiWA_-1984336654")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
+    [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBICFIIdentifier? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,16 +139,15 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// Identification of the system member for which the limit is established.
     /// </summary>
     [IsoId("_jOkw5O5NEeCisYr99QEiWA_1853746946")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bilateral Limit Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BilLmtCtrPtyId")]
     #endif
+    [IsoXmlTag("BilLmtCtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
+    public required SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
     #else

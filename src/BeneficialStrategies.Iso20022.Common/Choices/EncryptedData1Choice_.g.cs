@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EncryptedData1Choice.BinaryData))]
     [KnownType(typeof(EncryptedData1Choice.HexadecimalBinaryValue))]
     [IsoId("_-on80-kLEemeDPHh-U9b6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Data 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

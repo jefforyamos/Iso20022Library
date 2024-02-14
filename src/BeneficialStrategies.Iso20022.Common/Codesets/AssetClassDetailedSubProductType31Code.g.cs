@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType31Code
 {
     /// <summary>
     /// Commodity attribute of type GASPOOL.
-    /// Encoded/decoded by serializers as "GASP".
+    /// Encoded/decoded by serializers as &quot;GASP&quot;.
     /// </summary>
     [EnumMember(Value = "GASP")]
     [IsoId("_sTWoAbv3EeiLRYqS-r-R-A")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType31Code
     
     /// <summary>
     /// Commodity attribute of type liquid natural gas.
-    /// Encoded/decoded by serializers as "LNGG".
+    /// Encoded/decoded by serializers as &quot;LNGG&quot;.
     /// </summary>
     [EnumMember(Value = "LNGG")]
     [IsoId("_sTWoA7v3EeiLRYqS-r-R-A")]
@@ -39,7 +39,7 @@ public enum AssetClassDetailedSubProductType31Code
     
     /// <summary>
     /// Commodity attribute of type NCG (NetConnect Germany).
-    /// Encoded/decoded by serializers as "NCGG".
+    /// Encoded/decoded by serializers as &quot;NCGG&quot;.
     /// </summary>
     [EnumMember(Value = "NCGG")]
     [IsoId("_sTWoBbv3EeiLRYqS-r-R-A")]
@@ -48,7 +48,7 @@ public enum AssetClassDetailedSubProductType31Code
     
     /// <summary>
     /// Commodity attribute of type TTF (Dutch Title Transfer Facility).
-    /// Encoded/decoded by serializers as "TTFG".
+    /// Encoded/decoded by serializers as &quot;TTFG&quot;.
     /// </summary>
     [EnumMember(Value = "TTFG")]
     [IsoId("_sTWoB7v3EeiLRYqS-r-R-A")]
@@ -57,7 +57,7 @@ public enum AssetClassDetailedSubProductType31Code
     
     /// <summary>
     /// Commodity attribute of type NBP (National Balancing Point).
-    /// Encoded/decoded by serializers as "NBPG".
+    /// Encoded/decoded by serializers as &quot;NBPG&quot;.
     /// </summary>
     [EnumMember(Value = "NBPG")]
     [IsoId("_sTWoCbv3EeiLRYqS-r-R-A")]
@@ -66,7 +66,7 @@ public enum AssetClassDetailedSubProductType31Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ubxtEbv3EeiLRYqS-r-R-A")]

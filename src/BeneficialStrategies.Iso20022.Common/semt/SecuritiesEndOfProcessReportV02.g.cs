@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|Sent by an executing party or an instructing party to the custodian or an affirming party to notify that all the necessary SecuritiesTradeConfirmation message or any other notification of the process have been sent.|It may also be sent through Central Matching Utility (CMU).|The instructing party is typically the investment manager or an intermediary system/vendor communicating on behalf of the investment manager.|The executing party is typically the broker/dealer or an intermediary system/vendor communicating on behalf of the broker/dealer.|The custodian or an affirming party is typically the custodian, trustee, financial institution, intermediary system/vendor communicating on behalf of them, or their agent.|The ISO 20022 Business Application Header must be used|Usage|Initiator: Executing Party, CMU or Instructing Party|Respondent: Custodian or an affirming party does not need to respond.")]
 [IsoId("_j5E4gQNmEe2P7e2qGFFOGg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities End Of Process Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,12 +82,11 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord<SecuritiesE
     /// Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).
     /// </summary>
     [IsoId("_j5E4hwNmEe2P7e2qGFFOGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination1? Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,16 +99,15 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord<SecuritiesE
     /// Notifies the type of report transmitted.
     /// </summary>
     [IsoId("_j5E4iQNmEe2P7e2qGFFOGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptGnlDtls")]
     #endif
+    [IsoXmlTag("RptGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Report6 ReportGeneralDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Report6 ReportGeneralDetails { get; init; } 
+    public required Report6 ReportGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Report6 ReportGeneralDetails { get; init; } 
     #else
@@ -122,12 +118,11 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord<SecuritiesE
     /// Parties involved in the confirmation of the details of a trade.
     /// </summary>
     [IsoId("_j5E4iwNmEe2P7e2qGFFOGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfPties")]
     #endif
+    [IsoXmlTag("ConfPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationParties7? ConfirmationParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +135,11 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord<SecuritiesE
     /// Party that identifies the underlying investor.
     /// </summary>
     [IsoId("_j5E4jQNmEe2P7e2qGFFOGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Invstr")]
     #endif
+    [IsoXmlTag("Invstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount220? Investor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +152,11 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord<SecuritiesE
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_j5E4jwNmEe2P7e2qGFFOGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,7 +169,7 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord<SecuritiesE
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesEndOfProcessReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesEndOfProcessReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesEndOfProcessReportV02Document ToDocument()
     {
@@ -186,7 +179,7 @@ public partial record SecuritiesEndOfProcessReportV02 : IOuterRecord<SecuritiesE
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesEndOfProcessReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesEndOfProcessReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesEndOfProcessReportV02Document : IOuterDocument<SecuritiesEndOfProcessReportV02>
@@ -203,7 +196,7 @@ public partial record SecuritiesEndOfProcessReportV02Document : IOuterDocument<S
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesEndOfProcessReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesEndOfProcessReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesEndOfProcessReportV02 Message { get; init; }

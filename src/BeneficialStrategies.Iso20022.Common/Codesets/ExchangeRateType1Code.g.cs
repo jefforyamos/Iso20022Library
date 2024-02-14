@@ -21,7 +21,7 @@ public enum ExchangeRateType1Code
 {
     /// <summary>
     /// Exchange rate applied is the spot rate.
-    /// Encoded/decoded by serializers as "SPOT".
+    /// Encoded/decoded by serializers as &quot;SPOT&quot;.
     /// </summary>
     [EnumMember(Value = "SPOT")]
     [IsoId("_ak11wNp-Ed-ak6NoX_4Aeg_-75535808")]
@@ -30,7 +30,7 @@ public enum ExchangeRateType1Code
     
     /// <summary>
     /// Exchange rate applied is the market rate at the time of the sale.
-    /// Encoded/decoded by serializers as "SALE".
+    /// Encoded/decoded by serializers as &quot;SALE&quot;.
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_ak11wdp-Ed-ak6NoX_4Aeg_-75535501")]
@@ -39,7 +39,7 @@ public enum ExchangeRateType1Code
     
     /// <summary>
     /// Exchange rate applied is the rate agreed between the parties.
-    /// Encoded/decoded by serializers as "AGRD".
+    /// Encoded/decoded by serializers as &quot;AGRD&quot;.
     /// </summary>
     [EnumMember(Value = "AGRD")]
     [IsoId("_ak11wtp-Ed-ak6NoX_4Aeg_-75535484")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information on the transaction status to be updated in the tracker.
 /// </summary>
 [IsoId("_cQn51wSrEeusZ4O-nsxv_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TrackerStatus4
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
     [IsoId("_cRFz4QSrEeusZ4O-nsxv_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentTransactionStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentTransactionStatus1Code Status { get; init; } 
+    public required ExternalPaymentTransactionStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentTransactionStatus1Code Status { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TrackerStatus4
     /// Date for the status.
     /// </summary>
     [IsoId("_cRFz4wSrEeusZ4O-nsxv_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record TrackerStatus4
     /// Provides detailed information on the status reason.
     /// </summary>
     [IsoId("_cRFz5QSrEeusZ4O-nsxv_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentStatusReason1? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record TrackerStatus4
     /// Provides detailed information on the return reason.
     /// </summary>
     [IsoId("_cRFz5wSrEeusZ4O-nsxv_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reject Return Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctRtrRsn")]
     #endif
+    [IsoXmlTag("RjctRtrRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentRejectReturnReason1? RejectReturnReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record TrackerStatus4
     /// Specifies whether the amount information matches the tracker record reference data or not.
     /// </summary>
     [IsoId("_c8NNcASrEeusZ4O-nsxv_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Inconsistency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtIncnsstncy")]
     #endif
+    [IsoXmlTag("AmtIncnsstncy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountConsistencyType1Code? AmountInconsistency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

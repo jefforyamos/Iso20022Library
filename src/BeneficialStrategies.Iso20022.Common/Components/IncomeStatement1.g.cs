@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Statement of the financial performance of a legal entity.
 /// </summary>
 [IsoId("_l_mSELIdEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Income Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -59,16 +57,16 @@ public partial record IncomeStatement1
     /// Specifies the clearing fees recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_tu0AgLIdEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrFees")]
     #endif
+    [IsoXmlTag("ClrFees")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount ClearingFees { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ClearingFees { get; init; } 
+    public required System.Decimal ClearingFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ClearingFees { get; init; } 
     #else
@@ -79,16 +77,16 @@ public partial record IncomeStatement1
     /// Other operating revenue recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_ykHikLIdEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Operating Revenue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrOprgRvn")]
     #endif
+    [IsoXmlTag("OthrOprgRvn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OtherOperatingRevenue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OtherOperatingRevenue { get; init; } 
+    public required System.Decimal OtherOperatingRevenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OtherOperatingRevenue { get; init; } 
     #else
@@ -99,16 +97,16 @@ public partial record IncomeStatement1
     /// Operating expenses recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_1uvrgLIdEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operating Expenses")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OprgExpnss")]
     #endif
+    [IsoXmlTag("OprgExpnss")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OperatingExpenses { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OperatingExpenses { get; init; } 
+    public required System.Decimal OperatingExpenses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OperatingExpenses { get; init; } 
     #else
@@ -119,16 +117,15 @@ public partial record IncomeStatement1
     /// Indicates the operating profit (true) or loss (false) recorded in the month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_-xeQQLIdEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operating Profit Or Loss")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OprgPrftOrLoss")]
     #endif
+    [IsoXmlTag("OprgPrftOrLoss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 OperatingProfitOrLoss { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 OperatingProfitOrLoss { get; init; } 
+    public required AmountAndDirection102 OperatingProfitOrLoss { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 OperatingProfitOrLoss { get; init; } 
     #else
@@ -139,16 +136,16 @@ public partial record IncomeStatement1
     /// Net interest income recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_stmlsLIeEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Interest Income")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetIntrstIncm")]
     #endif
+    [IsoXmlTag("NetIntrstIncm")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount NetInterestIncome { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal NetInterestIncome { get; init; } 
+    public required System.Decimal NetInterestIncome { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal NetInterestIncome { get; init; } 
     #else
@@ -159,16 +156,16 @@ public partial record IncomeStatement1
     /// Other non-operating revenue recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_491BMLIeEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Non Operating Revenue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrNonOprgRvn")]
     #endif
+    [IsoXmlTag("OthrNonOprgRvn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OtherNonOperatingRevenue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OtherNonOperatingRevenue { get; init; } 
+    public required System.Decimal OtherNonOperatingRevenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OtherNonOperatingRevenue { get; init; } 
     #else
@@ -179,16 +176,16 @@ public partial record IncomeStatement1
     /// Non-operating expenses recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_9nWxELIeEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Operating Expenses")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonOprgExpnss")]
     #endif
+    [IsoXmlTag("NonOprgExpnss")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount NonOperatingExpenses { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal NonOperatingExpenses { get; init; } 
+    public required System.Decimal NonOperatingExpenses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal NonOperatingExpenses { get; init; } 
     #else
@@ -199,16 +196,15 @@ public partial record IncomeStatement1
     /// Indicates the pre-tax profit (true) or loss (false) recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_csW6MLIfEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Tax Profit Or Loss")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PreTaxPrftOrLoss")]
     #endif
+    [IsoXmlTag("PreTaxPrftOrLoss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 PreTaxProfitOrLoss { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 PreTaxProfitOrLoss { get; init; } 
+    public required AmountAndDirection102 PreTaxProfitOrLoss { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 PreTaxProfitOrLoss { get; init; } 
     #else
@@ -219,16 +215,15 @@ public partial record IncomeStatement1
     /// Indicates the post-tax profit (true) or loss (false) recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
     [IsoId("_gcNQELIfEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Tax Profit Or Loss")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstTaxPrftOrLoss")]
     #endif
+    [IsoXmlTag("PstTaxPrftOrLoss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 PostTaxProfitOrLoss { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 PostTaxProfitOrLoss { get; init; } 
+    public required AmountAndDirection102 PostTaxProfitOrLoss { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 PostTaxProfitOrLoss { get; init; } 
     #else

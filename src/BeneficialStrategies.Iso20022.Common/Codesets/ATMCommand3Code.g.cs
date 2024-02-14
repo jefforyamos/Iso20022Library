@@ -21,7 +21,7 @@ public enum ATMCommand3Code
 {
     /// <summary>
     /// Provide the ATM counters, resetting those that are applicable.
-    /// Encoded/decoded by serializers as "ABAL".
+    /// Encoded/decoded by serializers as &quot;ABAL&quot;.
     /// </summary>
     [EnumMember(Value = "ABAL")]
     [IsoId("_pwUjQYtvEeSLQutgI1Ulfw")]
@@ -30,7 +30,7 @@ public enum ATMCommand3Code
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CCNT".
+    /// Encoded/decoded by serializers as &quot;CCNT&quot;.
     /// </summary>
     [EnumMember(Value = "CCNT")]
     [IsoId("_qQqQM4tvEeSLQutgI1Ulfw")]

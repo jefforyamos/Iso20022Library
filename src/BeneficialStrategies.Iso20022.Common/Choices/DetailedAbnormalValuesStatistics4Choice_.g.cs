@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DetailedAbnormalValuesStatistics4Choice.DataSetAction))]
     [KnownType(typeof(DetailedAbnormalValuesStatistics4Choice.Report))]
     [IsoId("_x32K4VyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Abnormal Values Statistics 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

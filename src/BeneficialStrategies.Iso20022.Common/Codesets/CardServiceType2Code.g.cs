@@ -21,7 +21,7 @@ public enum CardServiceType2Code
 {
     /// <summary>
     /// Close communication at application level to stop store and forward process.
-    /// Encoded/decoded by serializers as "SFDS".
+    /// Encoded/decoded by serializers as &quot;SFDS&quot;.
     /// </summary>
     [EnumMember(Value = "SFDS")]
     [IsoId("_gNOtAXvEEeSKFIcWw3l4Yw")]
@@ -30,7 +30,7 @@ public enum CardServiceType2Code
     
     /// <summary>
     /// Detection whether communication at application level is still active.
-    /// Encoded/decoded by serializers as "ECHO".
+    /// Encoded/decoded by serializers as &quot;ECHO&quot;.
     /// </summary>
     [EnumMember(Value = "ECHO")]
     [IsoId("_gYs9M3vEEeSKFIcWw3l4Yw")]
@@ -39,7 +39,7 @@ public enum CardServiceType2Code
     
     /// <summary>
     /// Establish communication at application level to start store and forward process.
-    /// Encoded/decoded by serializers as "SFEN".
+    /// Encoded/decoded by serializers as &quot;SFEN&quot;.
     /// </summary>
     [EnumMember(Value = "SFEN")]
     [IsoId("_gkU-Y3vEEeSKFIcWw3l4Yw")]
@@ -48,7 +48,7 @@ public enum CardServiceType2Code
     
     /// <summary>
     /// Terminate communication at application level.
-    /// Encoded/decoded by serializers as "SGNF".
+    /// Encoded/decoded by serializers as &quot;SGNF&quot;.
     /// </summary>
     [EnumMember(Value = "SGNF")]
     [IsoId("_gxJSY3vEEeSKFIcWw3l4Yw")]
@@ -57,7 +57,7 @@ public enum CardServiceType2Code
     
     /// <summary>
     /// Establish communication at application level.
-    /// Encoded/decoded by serializers as "SGNN".
+    /// Encoded/decoded by serializers as &quot;SGNN&quot;.
     /// </summary>
     [EnumMember(Value = "SGNN")]
     [IsoId("_g6ro43vEEeSKFIcWw3l4Yw")]

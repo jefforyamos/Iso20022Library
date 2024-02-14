@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information on the received margin or collateral of the transaction.
 /// </summary>
 [IsoId("_lgGRIYmKEeybbN9emGqfiw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Received Margin Or Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,12 @@ public partial record ReceivedMarginOrCollateral6
     /// Where initial margin is received on a portfolio basis, this field should include the overall value of initial margin received for the portfolio.
     /// </summary>
     [IsoId("_lhNEYYmKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Received Pre Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnRcvdPreHrcut")]
     #endif
+    [IsoXmlTag("InitlMrgnRcvdPreHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginReceivedPreHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +63,12 @@ public partial record ReceivedMarginOrCollateral6
     /// Post-haircut values of margins depend on associated risk of changes in collateral value and therefore on the nature of the collateral posted (or collected).
     /// </summary>
     [IsoId("_lhNEY4mKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Received Post Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnRcvdPstHrcut")]
     #endif
+    [IsoXmlTag("InitlMrgnRcvdPstHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginReceivedPostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -84,12 +82,12 @@ public partial record ReceivedMarginOrCollateral6
     /// Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// </summary>
     [IsoId("_lhNEZYmKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Received Pre Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnRcvdPreHrcut")]
     #endif
+    [IsoXmlTag("VartnMrgnRcvdPreHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginReceivedPreHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +102,12 @@ public partial record ReceivedMarginOrCollateral6
     /// Post-haircut values of margins depend on associated risk of changes in collateral value and therefore on the nature of the collateral posted (or collected).
     /// </summary>
     [IsoId("_lhNEZ4mKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Received Post Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnRcvdPstHrcut")]
     #endif
+    [IsoXmlTag("VartnMrgnRcvdPstHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginReceivedPostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +120,12 @@ public partial record ReceivedMarginOrCollateral6
     /// Value of collateral received in excess of the required collateral.
     /// </summary>
     [IsoId("_lhNEaYmKEeybbN9emGqfiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Excess Collateral Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcssCollRcvd")]
     #endif
+    [IsoXmlTag("XcssCollRcvd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? ExcessCollateralReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

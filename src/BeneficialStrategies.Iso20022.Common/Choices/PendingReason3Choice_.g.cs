@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingReason3Choice.Code))]
     [KnownType(typeof(PendingReason3Choice.Proprietary))]
     [IsoId("_UYBuM9p-Ed-ak6NoX_4Aeg_-707074176")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Reason 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

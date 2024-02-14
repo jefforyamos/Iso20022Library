@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The FinancialInstrumentReportingTransactionReport message is sent by the reporting agent to the competent authority to report on the securities transactions or by the competent authority to another competent authority when the transaction needs to be exchanged between the competent authorities.")]
 [IsoId("_4LUGT0RNEee7JdgA9zPESA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Reporting Transaction Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record FinancialInstrumentReportingTransactionReportV01 : IOuterR
     /// Provides the details of the reported securities transactions.
     /// </summary>
     [IsoId("_4LUGUURNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingTransactionType1Choice_ Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportingTransactionType1Choice_ Transaction { get; init; } 
+    public required ReportingTransactionType1Choice_ Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportingTransactionType1Choice_ Transaction { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record FinancialInstrumentReportingTransactionReportV01 : IOuterR
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_4LUGU0RNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record FinancialInstrumentReportingTransactionReportV01 : IOuterR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInstrumentReportingTransactionReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInstrumentReportingTransactionReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInstrumentReportingTransactionReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record FinancialInstrumentReportingTransactionReportV01 : IOuterR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingTransactionReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInstrumentReportingTransactionReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInstrumentReportingTransactionReportV01Document : IOuterDocument<FinancialInstrumentReportingTransactionReportV01>
@@ -140,7 +136,7 @@ public partial record FinancialInstrumentReportingTransactionReportV01Document :
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInstrumentReportingTransactionReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInstrumentReportingTransactionReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentReportingTransactionReportV01 Message { get; init; }

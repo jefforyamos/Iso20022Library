@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Card Reader Application Protocol Data Unit Request message.
 /// </summary>
 [IsoId("_m22qMN7BEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Send Application Protocol Data Unit Card Reader Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
     /// Class field of the Application Protocol Data Unit command (CLA).
     /// </summary>
     [IsoId("_sVzmMN7BEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clss")]
     #endif
+    [IsoXmlTag("Clss")]
+    [IsoSimpleType(IsoSimpleType.Min1Max256Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin1Max256Binary Class { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Class { get; init; } 
+    public required System.Byte[] Class { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Class { get; init; } 
     #else
@@ -74,16 +72,16 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
     /// Instruction field of the Application Protocol Data Unit command (INS).
     /// </summary>
     [IsoId("_u3PoMN7BEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Instr")]
     #endif
+    [IsoXmlTag("Instr")]
+    [IsoSimpleType(IsoSimpleType.Min1Max256Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin1Max256Binary Instruction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Instruction { get; init; } 
+    public required System.Byte[] Instruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Instruction { get; init; } 
     #else
@@ -94,16 +92,16 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
     /// Parameter 1 field of the Application Protocol Data Unit command
     /// </summary>
     [IsoId("_xNyBwN7BEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Param1")]
     #endif
+    [IsoXmlTag("Param1")]
+    [IsoSimpleType(IsoSimpleType.Min1Max256Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin1Max256Binary Parameter1 { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Parameter1 { get; init; } 
+    public required System.Byte[] Parameter1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Parameter1 { get; init; } 
     #else
@@ -114,16 +112,16 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
     /// Parameter 2 field of the Application Protocol Data Unit command
     /// </summary>
     [IsoId("_0qCoEe15Eei-V5h0ja04AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Param2")]
     #endif
+    [IsoXmlTag("Param2")]
+    [IsoSimpleType(IsoSimpleType.Min1Max256Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin1Max256Binary Parameter2 { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Parameter2 { get; init; } 
+    public required System.Byte[] Parameter2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Parameter2 { get; init; } 
     #else
@@ -134,12 +132,12 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
     /// Data field of the Application Protocol Data Unit command to send including the length.
     /// </summary>
     [IsoId("_APE2sN7CEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Data")]
     #endif
+    [IsoXmlTag("Data")]
+    [IsoSimpleType(IsoSimpleType.Min1Max256Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin1Max256Binary? Data { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +150,12 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
     /// Expected length of the data field of the Application Protocol Data Unit response to the command.
     /// </summary>
     [IsoId("_DORLsN7CEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdLngth")]
     #endif
+    [IsoXmlTag("XpctdLngth")]
+    [IsoSimpleType(IsoSimpleType.Min1Max256Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin1Max256Binary? ExpectedLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum BatchManagementType1Code
 {
     /// <summary>
     /// Acknowledgement requested by the originator to the destination (used with a notification message exclusively).
-    /// Encoded/decoded by serializers as "AKRQ".
+    /// Encoded/decoded by serializers as &quot;AKRQ&quot;.
     /// </summary>
     [EnumMember(Value = "AKRQ")]
     [IsoId("_UGUJIVAaEeedyPuM0kK2EQ")]
@@ -30,7 +30,7 @@ public enum BatchManagementType1Code
     
     /// <summary>
     /// Acknowledgement response by the destination to the originator (used with a notification message exclusively).
-    /// Encoded/decoded by serializers as "AKRP".
+    /// Encoded/decoded by serializers as &quot;AKRP&quot;.
     /// </summary>
     [EnumMember(Value = "AKRP")]
     [IsoId("_UYKuIlAaEeedyPuM0kK2EQ")]
@@ -39,7 +39,7 @@ public enum BatchManagementType1Code
     
     /// <summary>
     /// End of a collection or batch by the originator (used with a request message exclusively).
-    /// Encoded/decoded by serializers as "ENDB".
+    /// Encoded/decoded by serializers as &quot;ENDB&quot;.
     /// </summary>
     [EnumMember(Value = "ENDB")]
     [IsoId("_Uk0DAlAaEeedyPuM0kK2EQ")]
@@ -48,7 +48,7 @@ public enum BatchManagementType1Code
     
     /// <summary>
     /// Any other type of batch management transaction defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_UxKc8lAaEeedyPuM0kK2EQ")]
@@ -57,7 +57,7 @@ public enum BatchManagementType1Code
     
     /// <summary>
     /// Any other type of batch management transaction defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_VDne4lAaEeedyPuM0kK2EQ")]
@@ -66,7 +66,7 @@ public enum BatchManagementType1Code
     
     /// <summary>
     /// Initiation of a collection or batch by the originator (used with a request message exclusively).
-    /// Encoded/decoded by serializers as "STRT".
+    /// Encoded/decoded by serializers as &quot;STRT&quot;.
     /// </summary>
     [EnumMember(Value = "STRT")]
     [IsoId("_VQZ9slAaEeedyPuM0kK2EQ")]

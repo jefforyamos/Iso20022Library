@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.ChequeDeliveryMethod1Choice
 {
     /// <summary>
-    /// Specifies the delivery method of the cheque by the debtor's agent.
+    /// Specifies the delivery method of the cheque by the debtor&apos;s agent.
     /// </summary>
     [IsoId("_QbwF59p-Ed-ak6NoX_4Aeg_1044150030")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ChequeDeliveryMethod1Choice
         /// Specifies the method to be used in delivering a cheque to a party.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ChequeDelivery1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ChequeDelivery1Code Value { get; init; } 
+        public required ChequeDelivery1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ChequeDelivery1Code Value { get; init; } 
         #else

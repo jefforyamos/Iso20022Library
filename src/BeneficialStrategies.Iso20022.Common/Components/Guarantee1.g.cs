@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Form of protection where a third party guarantees the performance of a financial obligation.
 /// </summary>
 [IsoId("_-3_WEK_7EeaE9YROwd69hA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Guarantee")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Guarantee1
     /// Identification of guarantee provider.
     /// </summary>
     [IsoId("_S3vCAK_8EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Provider")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prvdr")]
     #endif
+    [IsoXmlTag("Prvdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification118Choice_ Provider { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification118Choice_ Provider { get; init; } 
+    public required PartyIdentification118Choice_ Provider { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification118Choice_ Provider { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record Guarantee1
     /// Value of the collateral guarantee.
     /// </summary>
     [IsoId("_WWJpoK_8EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

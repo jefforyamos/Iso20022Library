@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the terms of the foreign exchange transaction.
 /// </summary>
 [IsoId("_ui8bkQ3WEeW9YKj3GUmIEw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exchange Rate Basis")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ExchangeRateBasis1
     /// Usage: In the example one GBP equals xxxUSD, the unit currency is GBP.
     /// </summary>
     [IsoId("_ui8blg3WEeW9YKj3GUmIEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BaseCcy")]
     #endif
+    [IsoXmlTag("BaseCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode BaseCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string BaseCurrency { get; init; } 
+    public required string BaseCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string BaseCurrency { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ExchangeRateBasis1
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
     [IsoId("_ui8bng3WEeW9YKj3GUmIEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quoted Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtdCcy")]
     #endif
+    [IsoXmlTag("QtdCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode QuotedCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string QuotedCurrency { get; init; } 
+    public required string QuotedCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string QuotedCurrency { get; init; } 
     #else

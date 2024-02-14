@@ -21,7 +21,7 @@ public enum ProxyTypeCode
 {
     /// <summary>
     /// Chairman of the meeting is the proxy.
-    /// Encoded/decoded by serializers as "CHRM".
+    /// Encoded/decoded by serializers as &quot;CHRM&quot;.
     /// </summary>
     [EnumMember(Value = "CHRM")]
     [IsoId("_ZWnIE9p-Ed-ak6NoX_4Aeg_-149773313")]
@@ -30,7 +30,7 @@ public enum ProxyTypeCode
     
     /// <summary>
     /// Any type of proxy is allowed.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_ZWnIFNp-Ed-ak6NoX_4Aeg_-62960027")]
@@ -39,7 +39,7 @@ public enum ProxyTypeCode
     
     /// <summary>
     /// Proxy can only be a security holder.
-    /// Encoded/decoded by serializers as "HLDR".
+    /// Encoded/decoded by serializers as &quot;HLDR&quot;.
     /// </summary>
     [EnumMember(Value = "HLDR")]
     [IsoId("_ZWnIFdp-Ed-ak6NoX_4Aeg_-1999739739")]
@@ -48,7 +48,7 @@ public enum ProxyTypeCode
     
     /// <summary>
     /// Neutral proxy nominated by the issuer to execute votes on behalf of investors at the meeting.
-    /// Encoded/decoded by serializers as "NEPR".
+    /// Encoded/decoded by serializers as &quot;NEPR&quot;.
     /// </summary>
     [EnumMember(Value = "NEPR")]
     [IsoId("_NsuHIBrfEeyhRdHRjakS2w")]

@@ -21,7 +21,7 @@ public enum InvestmentNeed2Code
 {
     /// <summary>
     /// No specific need.
-    /// Encoded/decoded by serializers as "NSPE".
+    /// Encoded/decoded by serializers as &quot;NSPE&quot;.
     /// </summary>
     [EnumMember(Value = "NSPE")]
     [IsoId("_i8cCMaDtEequlaOyi6MUhw")]
@@ -30,7 +30,7 @@ public enum InvestmentNeed2Code
     
     /// <summary>
     /// Other specific need.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jD4G8aDtEequlaOyi6MUhw")]
@@ -39,7 +39,7 @@ public enum InvestmentNeed2Code
     
     /// <summary>
     /// Investment need is for Islamic banking.
-    /// Encoded/decoded by serializers as "ISLB".
+    /// Encoded/decoded by serializers as &quot;ISLB&quot;.
     /// </summary>
     [EnumMember(Value = "ISLB")]
     [IsoId("_jK3fwaDtEequlaOyi6MUhw")]

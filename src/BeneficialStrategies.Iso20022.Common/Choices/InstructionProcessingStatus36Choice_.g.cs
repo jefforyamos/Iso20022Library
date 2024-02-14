@@ -26,9 +26,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionProcessingStatus36Choice.Covered))]
     [KnownType(typeof(InstructionProcessingStatus36Choice.Uncovered))]
     [IsoId("_UUGOEf0oEeiKOe8GCUL1Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Processing Status 36 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

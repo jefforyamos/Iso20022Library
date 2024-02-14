@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
 [IsoId("_U49RA9p-Ed-ak6NoX_4Aeg_-2122379247")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PriceInformation1
     /// Value of the price, eg, as a currency and value.
     /// </summary>
     [IsoId("_U49RBNp-Ed-ak6NoX_4Aeg_-1294906390")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
+    public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record PriceInformation1
     /// Type of value in which the price is expressed.
     /// </summary>
     [IsoId("_U49RBdp-Ed-ak6NoX_4Aeg_-1379868804")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValTp")]
     #endif
+    [IsoXmlTag("ValTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValueType2Code? ValueType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record PriceInformation1
     /// Type and information about a price.
     /// </summary>
     [IsoId("_U49RBtp-Ed-ak6NoX_4Aeg_-851613313")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfPrice5Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfPrice5Code Type { get; init; } 
+    public required TypeOfPrice5Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfPrice5Code Type { get; init; } 
     #else
@@ -110,12 +105,11 @@ public partial record PriceInformation1
     /// Place from which the price was obtained.
     /// </summary>
     [IsoId("_U49RB9p-Ed-ak6NoX_4Aeg_-1267199751")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Of Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcOfPric")]
     #endif
+    [IsoXmlTag("SrcOfPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceSourceFormatChoice_? SourceOfPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record PriceInformation1
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
     [IsoId("_U49RCNp-Ed-ak6NoX_4Aeg_-1265350672")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quotation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtnDt")]
     #endif
+    [IsoXmlTag("QtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? QuotationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,12 @@ public partial record PriceInformation1
     /// Indicates whether the price is expressed as a yield. The absence of Yielded means it is not applicable.
     /// </summary>
     [IsoId("_U5HCANp-Ed-ak6NoX_4Aeg_-1233950935")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Yielded")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Yldd")]
     #endif
+    [IsoXmlTag("Yldd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Yielded { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

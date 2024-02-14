@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|An account servicer sends the CorporateActionEventProcessingStatusAdvice message to an account owner or its designated agent to report processing status of a corporate action event.|The account servicer uses this message to provide a reason as to why a corporate action event has not been completed by the announced payment dates.|Usage|The message may also be used to:|- re-send a message previously sent (the sub-function of the message is Duplicate),|- provide a third party with a copy of a message for information (the sub-function of the message is Copy),|- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 COEXISTENCE|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.")]
 [IsoId("_TTtt8NEwEd-BzquC8wXy7w_810172726")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Event Processing Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// Information that unambiguously identifies a CorporateActionEventProcessingStatusAdvice message as know by the account servicer.
     /// </summary>
     [IsoId("_TT230NEwEd-BzquC8wXy7w_-1592190322")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification11 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification11 Identification { get; init; } 
+    public required DocumentIdentification11 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification11 Identification { get; init; } 
     #else
@@ -104,12 +101,11 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// Identification of a previously sent notification document.
     /// </summary>
     [IsoId("_TT230dEwEd-BzquC8wXy7w_-1492451379")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
+    [IsoXmlTag("NtfctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification9? NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +118,11 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// Identification of other documents as well as the document number.
     /// </summary>
     [IsoId("_TT230tEwEd-BzquC8wXy7w_-1377010390")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Document Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrDocId")]
     #endif
+    [IsoXmlTag("OthrDocId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification14? OtherDocumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,16 +135,15 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TT2309EwEd-BzquC8wXy7w_328731625")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionGeneralInformation9 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionGeneralInformation9 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionGeneralInformation9 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionGeneralInformation9 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -160,16 +154,15 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// Information about the status of a corporate action.
     /// </summary>
     [IsoId("_TT231NEwEd-BzquC8wXy7w_577475720")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtPrcgSts")]
     #endif
+    [IsoXmlTag("EvtPrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventProcessingStatus1Choice_ EventProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EventProcessingStatus1Choice_ EventProcessingStatus { get; init; } 
+    public required EventProcessingStatus1Choice_ EventProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EventProcessingStatus1Choice_ EventProcessingStatus { get; init; } 
     #else
@@ -180,12 +173,11 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// Provides additional information.
     /// </summary>
     [IsoId("_TT231dEwEd-BzquC8wXy7w_-1625349929")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNarrative10? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,12 +190,11 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// Party that originated the message, if other than the sender.
     /// </summary>
     [IsoId("_TT231tEwEd-BzquC8wXy7w_-475652267")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgOrgtr")]
     #endif
+    [IsoXmlTag("MsgOrgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? MessageOriginator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -216,12 +207,11 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// Party that is the final destination of the message, if other than the receiver.
     /// </summary>
     [IsoId("_TT2319EwEd-BzquC8wXy7w_-220760440")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRcpt")]
     #endif
+    [IsoXmlTag("MsgRcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? MessageRecipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -234,12 +224,11 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_TUAo0NEwEd-BzquC8wXy7w_-555998656")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension2? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -252,7 +241,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CorporateActionEventProcessingStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CorporateActionEventProcessingStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CorporateActionEventProcessingStatusAdviceV01Document ToDocument()
     {
@@ -262,7 +251,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CorporateActionEventProcessingStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CorporateActionEventProcessingStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CorporateActionEventProcessingStatusAdviceV01Document : IOuterDocument<CorporateActionEventProcessingStatusAdviceV01>
@@ -279,7 +268,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CorporateActionEventProcessingStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CorporateActionEventProcessingStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventProcessingStatusAdviceV01 Message { get; init; }

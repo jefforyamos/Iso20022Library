@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Purpose3Choice
     /// Underlying reason for the SSI instruction, expressed as a code.
     /// </summary>
     [IsoId("_KU6yQyUOEeOgKIHGINc2Uw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Purpose Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,12 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Purpose3Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesPurpCd")]
         #endif
+        [IsoXmlTag("SctiesPurpCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalSecuritiesPurpose1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalSecuritiesPurpose1Code Value { get; init; } 
+        public required ExternalSecuritiesPurpose1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalSecuritiesPurpose1Code Value { get; init; } 
         #else

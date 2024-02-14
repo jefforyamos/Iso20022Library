@@ -21,7 +21,7 @@ public enum AgentRole1Code
 {
     /// <summary>
     /// Identification of the agent acting as main agent.
-    /// Encoded/decoded by serializers as "PRIN".
+    /// Encoded/decoded by serializers as &quot;PRIN&quot;.
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_bnmTR9p-Ed-ak6NoX_4Aeg_1607205276")]
@@ -30,7 +30,7 @@ public enum AgentRole1Code
     
     /// <summary>
     /// Identification of the agent acting as co-domicile or sub agent.
-    /// Encoded/decoded by serializers as "SUBA".
+    /// Encoded/decoded by serializers as &quot;SUBA&quot;.
     /// </summary>
     [EnumMember(Value = "SUBA")]
     [IsoId("_bnmTSNp-Ed-ak6NoX_4Aeg_1634910933")]

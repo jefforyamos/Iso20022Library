@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DrawdownStatus1Choice.Code))]
     [KnownType(typeof(DrawdownStatus1Choice.Proprietary))]
     [IsoId("_bM0XwFKiEeiSDqv62fL07g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Drawdown Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

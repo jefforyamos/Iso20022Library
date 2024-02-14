@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The InvoiceTaxReportStatusAdvice message is sent by the matching application to the party from which it received a message.|This message is used to acknowledge the InvoiceTaxReport message.")]
 [IsoId("_HjF1skshEeWvyKllQkSXyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Tax Report Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record InvoiceTaxReportStatusAdviceV01 : IOuterRecord<InvoiceTaxR
     /// Provides the status on the InvoiceTaxReport.
     /// </summary>
     [IsoId("_uitmYE53Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRptHdr")]
     #endif
+    [IsoXmlTag("StsRptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceTaxStatusReportHeader1 StatusReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvoiceTaxStatusReportHeader1 StatusReportHeader { get; init; } 
+    public required InvoiceTaxStatusReportHeader1 StatusReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvoiceTaxStatusReportHeader1 StatusReportHeader { get; init; } 
     #else
@@ -96,12 +93,11 @@ public partial record InvoiceTaxReportStatusAdviceV01 : IOuterRecord<InvoiceTaxR
     /// Provides the status on an individual transaction and the related reason if required.
     /// </summary>
     [IsoId("_PM8n8E54Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvoiceTaxReportTransactionStatus1? TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +111,11 @@ public partial record InvoiceTaxReportStatusAdviceV01 : IOuterRecord<InvoiceTaxR
     /// block.
     /// </summary>
     [IsoId("_XlusIE2ZEea-HpmqkM55Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,7 +128,7 @@ public partial record InvoiceTaxReportStatusAdviceV01 : IOuterRecord<InvoiceTaxR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvoiceTaxReportStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvoiceTaxReportStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvoiceTaxReportStatusAdviceV01Document ToDocument()
     {
@@ -143,7 +138,7 @@ public partial record InvoiceTaxReportStatusAdviceV01 : IOuterRecord<InvoiceTaxR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceTaxReportStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvoiceTaxReportStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvoiceTaxReportStatusAdviceV01Document : IOuterDocument<InvoiceTaxReportStatusAdviceV01>
@@ -160,7 +155,7 @@ public partial record InvoiceTaxReportStatusAdviceV01Document : IOuterDocument<I
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvoiceTaxReportStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvoiceTaxReportStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceTaxReportStatusAdviceV01 Message { get; init; }

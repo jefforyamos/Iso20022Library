@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateAndDateTimeSearch3Choice
     /// Patterns to search a date.
     /// </summary>
     [IsoId("_x03f45lcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Search")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

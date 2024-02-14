@@ -21,7 +21,7 @@ public enum ModalityOfCountingCode
 {
     /// <summary>
     /// Paper vote recorded and counted ahead of the meeting.
-    /// Encoded/decoded by serializers as "PVBM".
+    /// Encoded/decoded by serializers as &quot;PVBM&quot;.
     /// </summary>
     [EnumMember(Value = "PVBM")]
     [IsoId("_fLXyoK-uEemJ1NnLPsTFaw")]
@@ -30,7 +30,7 @@ public enum ModalityOfCountingCode
     
     /// <summary>
     /// Electronic vote recorded and counted ahead of the meeting.
-    /// Encoded/decoded by serializers as "EVBM".
+    /// Encoded/decoded by serializers as &quot;EVBM&quot;.
     /// </summary>
     [EnumMember(Value = "EVBM")]
     [IsoId("_uUoQwK-uEemJ1NnLPsTFaw")]
@@ -39,7 +39,7 @@ public enum ModalityOfCountingCode
     
     /// <summary>
     /// Electronic vote recorded and counted at the meeting.
-    /// Encoded/decoded by serializers as "EVAM".
+    /// Encoded/decoded by serializers as &quot;EVAM&quot;.
     /// </summary>
     [EnumMember(Value = "EVAM")]
     [IsoId("_04niMK-uEemJ1NnLPsTFaw")]
@@ -48,7 +48,7 @@ public enum ModalityOfCountingCode
     
     /// <summary>
     /// Physical attendance with vote at the meeting.
-    /// Encoded/decoded by serializers as "PVAM".
+    /// Encoded/decoded by serializers as &quot;PVAM&quot;.
     /// </summary>
     [EnumMember(Value = "PVAM")]
     [IsoId("__oPtoK-uEemJ1NnLPsTFaw")]

@@ -21,7 +21,7 @@ public enum FractionDispositionType9Code
 {
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_O5HAcWSCEeKFfdK0gKYFLQ")]
@@ -30,7 +30,7 @@ public enum FractionDispositionType9Code
     
     /// <summary>
     /// Round the entitlement down to the last full unit/minimum nominal quantity, fractions are discarded.
-    /// Encoded/decoded by serializers as "RDDN".
+    /// Encoded/decoded by serializers as &quot;RDDN&quot;.
     /// </summary>
     [EnumMember(Value = "RDDN")]
     [IsoId("_Pm4FYWSCEeKFfdK0gKYFLQ")]
@@ -39,7 +39,7 @@ public enum FractionDispositionType9Code
     
     /// <summary>
     /// If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down as specified in the respective RDUP and RDDN codes.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_Pvz-8WSCEeKFfdK0gKYFLQ")]
@@ -48,7 +48,7 @@ public enum FractionDispositionType9Code
     
     /// <summary>
     /// Round up to the next full unit/minimum nominal quantity at no cost.
-    /// Encoded/decoded by serializers as "RDUP".
+    /// Encoded/decoded by serializers as &quot;RDUP&quot;.
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_PypQgWSCEeKFfdK0gKYFLQ")]
@@ -57,7 +57,7 @@ public enum FractionDispositionType9Code
     
     /// <summary>
     /// Characteristics of the disposition of fractions are unknown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_QNn8UWSCEeKFfdK0gKYFLQ")]

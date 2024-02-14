@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the independent amount and how it was applied in the calculation.
 /// </summary>
 [IsoId("_UlI9KNp-Ed-ak6NoX_4Aeg_1173631516")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Independent Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record IndependentAmount1
     /// Provides the independant amount.
     /// </summary>
     [IsoId("_UlSuINp-Ed-ak6NoX_4Aeg_-2028501598")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -76,16 +74,15 @@ public partial record IndependentAmount1
     /// - segregated where it is treated independently of variation margin for segregation purposes.
     /// </summary>
     [IsoId("_UlSuIdp-Ed-ak6NoX_4Aeg_1427405925")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Convention")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cnvntn")]
     #endif
+    [IsoXmlTag("Cnvntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IndependentAmountConventionType1Code Convention { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IndependentAmountConventionType1Code Convention { get; init; } 
+    public required IndependentAmountConventionType1Code Convention { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IndependentAmountConventionType1Code Convention { get; init; } 
     #else

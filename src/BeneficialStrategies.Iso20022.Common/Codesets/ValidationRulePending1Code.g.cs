@@ -21,7 +21,7 @@ public enum ValidationRulePending1Code
 {
     /// <summary>
     /// Pending.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_JSdbUR-1EeuxStysDTgLiw")]

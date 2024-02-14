@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriod1Choice
     /// Period expressed with dates.
     /// </summary>
     [IsoId("_RF6mMa6AEeexrtTFgmVD3Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriod1Choice
         /// Start date of the range.
         /// </summary>
         [IsoId("_lhvG0YaDEee8r9VKRbnJSg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("From Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrDt")]
         #endif
+        [IsoXmlTag("FrDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate FromDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly FromDate { get; init; } 
+        public required System.DateOnly FromDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly FromDate { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriod1Choice
         /// End date of the range.
         /// </summary>
         [IsoId("_lhvG04aDEee8r9VKRbnJSg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("To Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ToDt")]
         #endif
+        [IsoXmlTag("ToDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate ToDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly ToDate { get; init; } 
+        public required System.DateOnly ToDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly ToDate { get; init; } 
         #else

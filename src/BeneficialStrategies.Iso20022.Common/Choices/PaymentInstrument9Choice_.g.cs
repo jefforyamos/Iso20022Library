@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument9Choice.ChequeDetails))]
     [KnownType(typeof(PaymentInstrument9Choice.AccountDetails))]
     [IsoId("_VKshR9p-Ed-ak6NoX_4Aeg_852770854")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Instrument 9 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

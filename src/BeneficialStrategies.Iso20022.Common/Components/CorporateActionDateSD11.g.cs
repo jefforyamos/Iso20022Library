@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action options date details.
 /// </summary>
 [IsoId("_CPKmse2KEeiWtrflKsFqHg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Date SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record CorporateActionDateSD11
     /// Xpath to the element that is being extended.
     /// </summary>
     [IsoId("_CzLSse2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record CorporateActionDateSD11
     /// Actual early expiration time as set by the issuer/offer/agent.
     /// </summary>
     [IsoId("_CzLSs-2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Early Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlEarlyXprtnDt")]
     #endif
+    [IsoXmlTag("ActlEarlyXprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ActualEarlyExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record CorporateActionDateSD11
     /// Last day protect instructions can be submitted to the issuer / agent.
     /// </summary>
     [IsoId("_CzLSte2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Protect Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlPrtctXprtnDt")]
     #endif
+    [IsoXmlTag("ActlPrtctXprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ActualProtectExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record CorporateActionDateSD11
     /// Last day protect instructions can be submitted to the issuer / agent for the early expiration.
     /// </summary>
     [IsoId("_CzLSt-2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Early Protect Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlEarlyPrtctXprtnDt")]
     #endif
+    [IsoXmlTag("ActlEarlyPrtctXprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ActualEarlyProtectExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,11 @@ public partial record CorporateActionDateSD11
     /// Last day protect instructions can be submitted to DTC for the early expiration.
     /// </summary>
     [IsoId("_CzLSue2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Early Protect Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCEarlyPrtctXprtnDt")]
     #endif
+    [IsoXmlTag("DTCEarlyPrtctXprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? DTCEarlyProtectExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +129,11 @@ public partial record CorporateActionDateSD11
     /// Last day cover early protect instructions can be submitted to the issuer / agent.
     /// </summary>
     [IsoId("_CzLSu-2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Early Cover Protect Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlEarlyCoverPrtctXprtnDt")]
     #endif
+    [IsoXmlTag("ActlEarlyCoverPrtctXprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ActualEarlyCoverProtectExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +146,11 @@ public partial record CorporateActionDateSD11
     /// Last day cover early protect instructions can be submitted to DTC.
     /// </summary>
     [IsoId("_CzLSve2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Early Cover Protect Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCEarlyCoverPrtctXprtnDt")]
     #endif
+    [IsoXmlTag("DTCEarlyCoverPrtctXprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? DTCEarlyCoverProtectExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +163,11 @@ public partial record CorporateActionDateSD11
     /// For Reorganization events, date at which instructions will be accepted by agent for payment.
     /// </summary>
     [IsoId("_CzLSv-2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Process To Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcToDt")]
     #endif
+    [IsoXmlTag("PrcToDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ProcessToDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +180,12 @@ public partial record CorporateActionDateSD11
     /// Date on which DTC expects to receive funds for distribution from the issuer / offeror.  It will be used before payout details are available.
     /// </summary>
     [IsoId("_ASDZwe2KEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Earliest Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCEarlstPmtDt")]
     #endif
+    [IsoXmlTag("DTCEarlstPmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DTCEarliestPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

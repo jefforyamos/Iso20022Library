@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
     /// Shares or some other fixed amount of derivative (such an ERIS future or swaption), or a fixed quantity of commodities.
     /// </summary>
     [IsoId("__F7tMOPJEea7_eMQH225xA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Defined Attributes")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,16 +57,15 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
         /// Quantity of product defined in the contract.
         /// </summary>
         [IsoId("_lvercMhjEeadgvwNGwK05w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Contract Size")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrctSz")]
         #endif
+        [IsoXmlTag("CtrctSz")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ContractSize1 ContractSize { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ContractSize1 ContractSize { get; init; } 
+        public required ContractSize1 ContractSize { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ContractSize1 ContractSize { get; init; } 
         #else
@@ -79,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
         /// Indicates whether the contract is cash/physical/optional settled.
         /// </summary>
         [IsoId("_ZPUhEMhkEeadgvwNGwK05w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Delivery Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DlvryTp")]
         #endif
+        [IsoXmlTag("DlvryTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PhysicalTransferType4Code DeliveryType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PhysicalTransferType4Code DeliveryType { get; init; } 
+        public required PhysicalTransferType4Code DeliveryType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PhysicalTransferType4Code DeliveryType { get; init; } 
         #else
@@ -99,16 +95,15 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
         /// Unique identifier for underlying or deliverable financial product on which final settlement price or equivalent is calculated.
         /// </summary>
         [IsoId("_dlsEYMhkEeadgvwNGwK05w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Underlying Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UndrlygId")]
         #endif
+        [IsoXmlTag("UndrlygId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GenericIdentification165 UnderlyingIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GenericIdentification165 UnderlyingIdentification { get; init; } 
+        public required GenericIdentification165 UnderlyingIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GenericIdentification165 UnderlyingIdentification { get; init; } 
         #else
@@ -119,16 +114,15 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
         /// Specifies the currency of price of underlying.
         /// </summary>
         [IsoId("_0ce18MhkEeadgvwNGwK05w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Price Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PricCcy")]
         #endif
+        [IsoXmlTag("PricCcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ActiveCurrencyCode PriceCurrency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string PriceCurrency { get; init; } 
+        public required string PriceCurrency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string PriceCurrency { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference2Ch
     /// Identification of the contract.
     /// </summary>
     [IsoId("_KVgWabMmEeueudaIbClZbQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference2Ch
         /// Identifies the document.
         /// </summary>
         [IsoId("_zSWHUbMmEeueudaIbClZbQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,12 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference2Ch
         /// Date of issuance of the document.
         /// </summary>
         [IsoId("_zSWHU7MmEeueudaIbClZbQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Date Of Issue")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtOfIsse")]
         #endif
+        [IsoXmlTag("DtOfIsse")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? DateOfIssue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

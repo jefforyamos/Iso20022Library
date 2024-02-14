@@ -21,7 +21,7 @@ public enum Validation2Code
 {
     /// <summary>
     /// Validation of the signature is successful.
-    /// Encoded/decoded by serializers as "OKAY".
+    /// Encoded/decoded by serializers as &quot;OKAY&quot;.
     /// </summary>
     [EnumMember(Value = "OKAY")]
     [IsoId("_H_9LkcmLEeWAGphE2LvqeA")]
@@ -30,7 +30,7 @@ public enum Validation2Code
     
     /// <summary>
     /// Validation of the signature has failed.
-    /// Encoded/decoded by serializers as "NTOK".
+    /// Encoded/decoded by serializers as &quot;NTOK&quot;.
     /// </summary>
     [EnumMember(Value = "NTOK")]
     [IsoId("_WPzBscnIEeWI4cSIO9foRA")]

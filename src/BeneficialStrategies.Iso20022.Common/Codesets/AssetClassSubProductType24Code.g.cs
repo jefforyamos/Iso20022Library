@@ -21,7 +21,7 @@ public enum AssetClassSubProductType24Code
 {
     /// <summary>
     /// Commodity of type coal.
-    /// Encoded/decoded by serializers as "COAL".
+    /// Encoded/decoded by serializers as &quot;COAL&quot;.
     /// </summary>
     [EnumMember(Value = "COAL")]
     [IsoId("_fK85IVrKEeWN79Bl6BUd3g")]

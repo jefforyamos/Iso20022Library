@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the foreign exchange.
 /// </summary>
 [IsoId("_8F9mqLu7EeSXxOgurgHGgw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ForeignExchange1
     /// Currency into which an amount is to be converted in a currency conversion.
     /// </summary>
     [IsoId("_8F9mrLu7EeSXxOgurgHGgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrgnCcy")]
     #endif
+    [IsoXmlTag("FrgnCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode ForeignCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ForeignCurrency { get; init; } 
+    public required string ForeignCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ForeignCurrency { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record ForeignExchange1
     /// Foreign exchange rate between the source and the foreign currency applicable to the first leg of the FX swap transaction. The foreign exchange spot rate will be reported as the number of foreign currency units per one unit of the source currency.
     /// </summary>
     [IsoId("_8F9mq7u7EeSXxOgurgHGgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Spot Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgSpotRate")]
     #endif
+    [IsoXmlTag("XchgSpotRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate ExchangeSpotRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ExchangeSpotRate { get; init; } 
+    public required System.Decimal ExchangeSpotRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ExchangeSpotRate { get; init; } 
     #else
@@ -95,16 +92,16 @@ public partial record ForeignExchange1
     /// This value can be either positive or negative.
     /// </summary>
     [IsoId("_c1A2wLu8EeSXxOgurgHGgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Forward Point")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgFwdPt")]
     #endif
+    [IsoXmlTag("XchgFwdPt")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber ExchangeForwardPoint { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ExchangeForwardPoint { get; init; } 
+    public required System.UInt64 ExchangeForwardPoint { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ExchangeForwardPoint { get; init; } 
     #else

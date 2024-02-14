@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the identification of the reported party through the sector and the location.
 /// </summary>
 [IsoId("_RsV18JfdEeSfnc-VXAEapg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sector And Location")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SectorAndLocation1
     /// Represents the counterparty institutional section (such as non-financial corporation, central bank.).
     /// </summary>
     [IsoId("_oLh_0JfdEeSfnc-VXAEapg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sctr")]
     #endif
+    [IsoXmlTag("Sctr")]
+    [IsoSimpleType(IsoSimpleType.SNA2008SectorIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoSNA2008SectorIdentifier Sector { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Sector { get; init; } 
+    public required System.String Sector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Sector { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record SectorAndLocation1
     /// Location of the country in which the counterparty is incorporated.
     /// </summary>
     [IsoId("_97X68JfeEeSfnc-VXAEapg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
+    [IsoXmlTag("Lctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Location { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Location { get; init; } 
+    public required string Location { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Location { get; init; } 
     #else

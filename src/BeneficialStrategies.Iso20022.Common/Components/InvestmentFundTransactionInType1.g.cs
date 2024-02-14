@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Investment fund transactions that result in cash movements into a fund, eg, subscription, switch-in.
 /// </summary>
 [IsoId("_UwBXdNp-Ed-ak6NoX_4Aeg_-452894639")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund Transaction In Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InvestmentFundTransactionInType1
     /// Type of transaction, expressed as a code.
     /// </summary>
     [IsoId("_UwBXddp-Ed-ak6NoX_4Aeg_19951473")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
+    [IsoXmlTag("Strd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentFundTransactionInType3Code Structured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentFundTransactionInType3Code Structured { get; init; } 
+    public required InvestmentFundTransactionInType3Code Structured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentFundTransactionInType3Code Structured { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record InvestmentFundTransactionInType1
     /// Additional information about the type of transaction.
     /// </summary>
     [IsoId("_UwBXdtp-Ed-ak6NoX_4Aeg_63354155")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

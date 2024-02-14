@@ -21,7 +21,7 @@ public enum InvestigationExecutionConfirmation2Code
 {
     /// <summary>
     /// Used when a requested cancellation is successful.
-    /// Encoded/decoded by serializers as "CNCL".
+    /// Encoded/decoded by serializers as &quot;CNCL&quot;.
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_abAkUNp-Ed-ak6NoX_4Aeg_-904367506")]
@@ -30,7 +30,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when a requested modification is successful.
-    /// Encoded/decoded by serializers as "MODI".
+    /// Encoded/decoded by serializers as &quot;MODI&quot;.
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_abAkUdp-Ed-ak6NoX_4Aeg_-904367489")]
@@ -39,7 +39,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when the result of an investigation is, or will be, the initiation of a payment instruction.
-    /// Encoded/decoded by serializers as "IPAY".
+    /// Encoded/decoded by serializers as &quot;IPAY&quot;.
     /// </summary>
     [EnumMember(Value = "IPAY")]
     [IsoId("_abAkUtp-Ed-ak6NoX_4Aeg_-904367212")]
@@ -48,7 +48,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when a transfer of funds has been initiated (a cover payment) to resolve a case.
-    /// Encoded/decoded by serializers as "ICOV".
+    /// Encoded/decoded by serializers as &quot;ICOV&quot;.
     /// </summary>
     [EnumMember(Value = "ICOV")]
     [IsoId("_abAkU9p-Ed-ak6NoX_4Aeg_-904367187")]
@@ -57,7 +57,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when a transfer of funds has been modified (a cover payment) to resolve a case.
-    /// Encoded/decoded by serializers as "MCOV".
+    /// Encoded/decoded by serializers as &quot;MCOV&quot;.
     /// </summary>
     [EnumMember(Value = "MCOV")]
     [IsoId("_abAkVNp-Ed-ak6NoX_4Aeg_-904367170")]
@@ -66,7 +66,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when additional information has been sent to the beneficiary of a payment.
-    /// Encoded/decoded by serializers as "INFO".
+    /// Encoded/decoded by serializers as &quot;INFO&quot;.
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_abAkVdp-Ed-ak6NoX_4Aeg_-904367151")]
@@ -75,7 +75,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when a payment has been checked and was correctly executed without any intervention.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_abAkVtp-Ed-ak6NoX_4Aeg_-904367135")]
@@ -84,7 +84,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when a payment will be cancelled to solve an investigation case.
-    /// Encoded/decoded by serializers as "CWFW".
+    /// Encoded/decoded by serializers as &quot;CWFW&quot;.
     /// </summary>
     [EnumMember(Value = "CWFW")]
     [IsoId("_abAkV9p-Ed-ak6NoX_4Aeg_-904367092")]
@@ -93,7 +93,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when the payment will be modified to solve an investigation case.
-    /// Encoded/decoded by serializers as "MWFW".
+    /// Encoded/decoded by serializers as &quot;MWFW&quot;.
     /// </summary>
     [EnumMember(Value = "MWFW")]
     [IsoId("_abAkWNp-Ed-ak6NoX_4Aeg_-904367091")]
@@ -102,7 +102,7 @@ public enum InvestigationExecutionConfirmation2Code
     
     /// <summary>
     /// Used when sender wants to respond to an assignment with an Unable To Apply workflow.
-    /// Encoded/decoded by serializers as "UWFW".
+    /// Encoded/decoded by serializers as &quot;UWFW&quot;.
     /// </summary>
     [EnumMember(Value = "UWFW")]
     [IsoId("_abAkWdp-Ed-ak6NoX_4Aeg_-1265299711")]

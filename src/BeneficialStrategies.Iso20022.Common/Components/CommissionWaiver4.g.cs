@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Non-enforcement of the right to all or part of a commission by the party entitled to the commission.
 /// </summary>
 [IsoId("_55smERuCEeOqSdXzJ0oydA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Commission Waiver")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CommissionWaiver4
     /// Form of the rebate, for example, cash.
     /// </summary>
     [IsoId("_HfvlABuDEeOqSdXzJ0oydA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrBsis")]
     #endif
+    [IsoXmlTag("InstrBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required WaivingInstruction1Choice_ InstructionBasis { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public WaivingInstruction1Choice_ InstructionBasis { get; init; } 
+    public required WaivingInstruction1Choice_ InstructionBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public WaivingInstruction1Choice_ InstructionBasis { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record CommissionWaiver4
     /// Proportion of the commission that is waived, for example, if the commission is 5% and half is waived, 2.5% should be stated in this field.
     /// </summary>
     [IsoId("_6QdgSRuCEeOqSdXzJ0oydA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Waived Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WvdRate")]
     #endif
+    [IsoXmlTag("WvdRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate WaivedRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal WaivedRate { get; init; } 
+    public required System.Decimal WaivedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal WaivedRate { get; init; } 
     #else

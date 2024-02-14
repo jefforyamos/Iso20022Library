@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies underlying instruments or index a derivative has.
 /// </summary>
 [IsoId("_HYrJV35aEea2k7EBUopqxw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record FinancialInstrument58
     /// Identification of the index on which the financial instrument is based.
     /// </summary>
     [IsoId("_HhTg4X5aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ISIN")]
     #endif
+    [IsoXmlTag("ISIN")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISINOct2015Identifier? ISIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,15 @@ public partial record FinancialInstrument58
     /// Name of the index on which the financial instrument is based.
     /// </summary>
     [IsoId("_HhTg435aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
+    [IsoXmlTag("Nm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FloatingInterestRate8 Name { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FloatingInterestRate8 Name { get; init; } 
+    public required FloatingInterestRate8 Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FloatingInterestRate8 Name { get; init; } 
     #else

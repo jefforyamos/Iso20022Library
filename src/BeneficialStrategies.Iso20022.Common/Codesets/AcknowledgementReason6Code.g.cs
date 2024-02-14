@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum AcknowledgementReason6Code
 {
     /// <summary>
-    /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_0mppcQlIEeGATtfOBToyew_818267667")]
@@ -30,7 +30,7 @@ public enum AcknowledgementReason6Code
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
-    /// Encoded/decoded by serializers as "SMPG".
+    /// Encoded/decoded by serializers as &quot;SMPG&quot;.
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_0mppcglIEeGATtfOBToyew_-243084292")]
@@ -39,7 +39,7 @@ public enum AcknowledgementReason6Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_0mppcwlIEeGATtfOBToyew_-64965620")]
@@ -48,7 +48,7 @@ public enum AcknowledgementReason6Code
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
-    /// Encoded/decoded by serializers as "NSTP".
+    /// Encoded/decoded by serializers as &quot;NSTP&quot;.
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_0mppdAlIEeGATtfOBToyew_-1062037973")]
@@ -57,7 +57,7 @@ public enum AcknowledgementReason6Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_0mppdQlIEeGATtfOBToyew_-1175877039")]

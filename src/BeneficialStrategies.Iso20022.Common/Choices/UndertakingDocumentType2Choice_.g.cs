@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UndertakingDocumentType2Choice.Code))]
     [KnownType(typeof(UndertakingDocumentType2Choice.Proprietary))]
     [IsoId("_we6lgDPGEeKaav-uUgD4RA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Document Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

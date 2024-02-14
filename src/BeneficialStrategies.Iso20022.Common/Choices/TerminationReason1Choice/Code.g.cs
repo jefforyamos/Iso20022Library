@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TerminationReason1Choice
     /// Termination reason.
     /// </summary>
     [IsoId("_932rsnltEeG7BsjMvd1mEw_1025821698")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TerminationReason1Choice
         /// Specifies the termination reason.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TerminationReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TerminationReason1Code Value { get; init; } 
+        public required TerminationReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TerminationReason1Code Value { get; init; } 
         #else

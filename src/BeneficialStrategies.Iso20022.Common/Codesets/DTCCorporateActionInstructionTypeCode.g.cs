@@ -21,7 +21,7 @@ public enum DTCCorporateActionInstructionTypeCode
 {
     /// <summary>
     /// Instruction on a option in corporate action.
-    /// Encoded/decoded by serializers as "ELCT".
+    /// Encoded/decoded by serializers as &quot;ELCT&quot;.
     /// </summary>
     [EnumMember(Value = "ELCT")]
     [IsoId("_12ZBkzL3EeKU9IrkkToqcw_-1001370478")]
@@ -30,7 +30,7 @@ public enum DTCCorporateActionInstructionTypeCode
     
     /// <summary>
     /// Instruction for a protect on a corporate action.
-    /// Encoded/decoded by serializers as "PRTC".
+    /// Encoded/decoded by serializers as &quot;PRTC&quot;.
     /// </summary>
     [EnumMember(Value = "PRTC")]
     [IsoId("_12ZBlDL3EeKU9IrkkToqcw_2076946910")]
@@ -39,7 +39,7 @@ public enum DTCCorporateActionInstructionTypeCode
     
     /// <summary>
     /// Withdrawal of previously submitted instruction.
-    /// Encoded/decoded by serializers as "WIIN".
+    /// Encoded/decoded by serializers as &quot;WIIN&quot;.
     /// </summary>
     [EnumMember(Value = "WIIN")]
     [IsoId("_12ZBlTL3EeKU9IrkkToqcw_1368059689")]
@@ -48,7 +48,7 @@ public enum DTCCorporateActionInstructionTypeCode
     
     /// <summary>
     /// Withdrawal of a previously submitted protect instruction.
-    /// Encoded/decoded by serializers as "WIPR".
+    /// Encoded/decoded by serializers as &quot;WIPR&quot;.
     /// </summary>
     [EnumMember(Value = "WIPR")]
     [IsoId("_12iLgDL3EeKU9IrkkToqcw_-305979129")]
@@ -57,7 +57,7 @@ public enum DTCCorporateActionInstructionTypeCode
     
     /// <summary>
     /// Instruction on covering a protect at the service provider.
-    /// Encoded/decoded by serializers as "CPSY".
+    /// Encoded/decoded by serializers as &quot;CPSY&quot;.
     /// </summary>
     [EnumMember(Value = "CPSY")]
     [IsoId("_12iLgTL3EeKU9IrkkToqcw_-628200838")]
@@ -66,7 +66,7 @@ public enum DTCCorporateActionInstructionTypeCode
     
     /// <summary>
     /// Instruction on covering a protect at the agent.
-    /// Encoded/decoded by serializers as "CPAG".
+    /// Encoded/decoded by serializers as &quot;CPAG&quot;.
     /// </summary>
     [EnumMember(Value = "CPAG")]
     [IsoId("_12iLgjL3EeKU9IrkkToqcw_-2135919619")]

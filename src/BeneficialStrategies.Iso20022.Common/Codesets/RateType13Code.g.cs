@@ -21,7 +21,7 @@ public enum RateType13Code
 {
     /// <summary>
     /// Rate is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q5kOIWtdEeCY4-KZ9JEyUQ_1754715972")]
@@ -30,7 +30,7 @@ public enum RateType13Code
     
     /// <summary>
     /// Rate will not be paid.
-    /// Encoded/decoded by serializers as "NILP".
+    /// Encoded/decoded by serializers as &quot;NILP&quot;.
     /// </summary>
     [EnumMember(Value = "NILP")]
     [IsoId("_q5kOImtdEeCY4-KZ9JEyUQ_-228191112")]

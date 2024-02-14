@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status report of a bulk or multiple or switch order cancellation instruction that was previously received.
 /// </summary>
 [IsoId("_RL4iV9p-Ed-ak6NoX_4Aeg_-1721469450")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Order Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record OrderStatusAndReason8
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
     [IsoId("_RL4iWNp-Ed-ak6NoX_4Aeg_441489185")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record OrderStatusAndReason8
     /// Cancellation status of the order.
     /// </summary>
     [IsoId("_RL4iWdp-Ed-ak6NoX_4Aeg_-1721469373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderCancellationStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderCancellationStatus1Code Status { get; init; } 
+    public required OrderCancellationStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderCancellationStatus1Code Status { get; init; } 
     #else
@@ -93,16 +88,15 @@ public partial record OrderStatusAndReason8
     /// Status of the order cancellation request is rejected.
     /// </summary>
     [IsoId("_RL4iWtp-Ed-ak6NoX_4Aeg_1437989574")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjctd")]
     #endif
+    [IsoXmlTag("Rjctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectedStatus7 Rejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectedStatus7 Rejected { get; init; } 
+    public required RejectedStatus7 Rejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectedStatus7 Rejected { get; init; } 
     #else
@@ -113,12 +107,11 @@ public partial record OrderStatusAndReason8
     /// Party that initiates the status of the order cancellation.
     /// </summary>
     [IsoId("_RMBsQNp-Ed-ak6NoX_4Aeg_124535247")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsInitr")]
     #endif
+    [IsoXmlTag("StsInitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

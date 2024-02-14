@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the transfer transaction amounts.
 /// </summary>
 [IsoId("_pgqcMa4uEeWLdt0vLARX2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record DetailedAmount17
     /// Amount to be transferred from the source account to the destination account.
     /// </summary>
     [IsoId("_pri2g64uEeWLdt0vLARX2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount To Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtToTrf")]
     #endif
+    [IsoXmlTag("AmtToTrf")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount AmountToTransfer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AmountToTransfer { get; init; } 
+    public required System.Decimal AmountToTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AmountToTransfer { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record DetailedAmount17
     /// Currency of the amount to be transferred.
     /// </summary>
     [IsoId("_pri2ha4uEeWLdt0vLARX2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record DetailedAmount17
     /// Transfer fees, accepted by the customer.
     /// </summary>
     [IsoId("_pri2h64uEeWLdt0vLARX2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fees")]
     #endif
+    [IsoXmlTag("Fees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount18? Fees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record DetailedAmount17
     /// Amount of the donation.
     /// </summary>
     [IsoId("_pri2ia4uEeWLdt0vLARX2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Donation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dontn")]
     #endif
+    [IsoXmlTag("Dontn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount18? Donation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

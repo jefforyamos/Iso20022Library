@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AffirmationStatus6Choice.Unaffirmed))]
     [KnownType(typeof(AffirmationStatus6Choice.ProprietaryStatus))]
     [IsoId("_A55R5NokEeC60axPepSq7g_-1061221633")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Affirmation Status 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum CollateralSubstitutionType1Code
 {
     /// <summary>
     /// Specifies if the collateral that is substituted was posted against the variation margin.
-    /// Encoded/decoded by serializers as "AVMG".
+    /// Encoded/decoded by serializers as &quot;AVMG&quot;.
     /// </summary>
     [EnumMember(Value = "AVMG")]
     [IsoId("_YcDkVdp-Ed-ak6NoX_4Aeg_168648303")]
@@ -30,7 +30,7 @@ public enum CollateralSubstitutionType1Code
     
     /// <summary>
     /// Specifies if the collateral that is substituted was posted against the independent amount.
-    /// Encoded/decoded by serializers as "ASIA".
+    /// Encoded/decoded by serializers as &quot;ASIA&quot;.
     /// </summary>
     [EnumMember(Value = "ASIA")]
     [IsoId("_YcDkVtp-Ed-ak6NoX_4Aeg_-914318971")]

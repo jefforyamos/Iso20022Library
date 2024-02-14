@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum RejectionReason30Code
 {
     /// <summary>
-    /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Unrecognised or invalid message sender&apos;s safekeeping account.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_2FoLZ_4wEeClUvPNHKL9Zw")]
@@ -30,7 +30,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_2FoLa_4wEeClUvPNHKL9Zw")]
@@ -38,8 +38,8 @@ public enum RejectionReason30Code
     QuantityRejection = RejectionReasonV2Code.QuantityRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_2FoLb_4wEeClUvPNHKL9Zw")]
@@ -48,7 +48,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_2FoLc_4wEeClUvPNHKL9Zw")]
@@ -57,7 +57,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_2FoLd_4wEeClUvPNHKL9Zw")]
@@ -66,7 +66,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid cash account.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_2FoLe_4wEeClUvPNHKL9Zw")]
@@ -75,7 +75,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid deal price.
-    /// Encoded/decoded by serializers as "DDEA".
+    /// Encoded/decoded by serializers as &quot;DDEA&quot;.
     /// </summary>
     [EnumMember(Value = "DDEA")]
     [IsoId("_2FoLf_4wEeClUvPNHKL9Zw")]
@@ -84,7 +84,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid trade date or requested trade date or future trade date.
-    /// Encoded/decoded by serializers as "DTRD".
+    /// Encoded/decoded by serializers as &quot;DTRD&quot;.
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_2FoLg_4wEeClUvPNHKL9Zw")]
@@ -93,7 +93,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid place of trade.
-    /// Encoded/decoded by serializers as "PLCE".
+    /// Encoded/decoded by serializers as &quot;PLCE&quot;.
     /// </summary>
     [EnumMember(Value = "PLCE")]
     [IsoId("_2FoLh_4wEeClUvPNHKL9Zw")]
@@ -102,7 +102,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Not possible to use the RTGS system instructed (NRTG or YRTG).
-    /// Encoded/decoded by serializers as "RTGS".
+    /// Encoded/decoded by serializers as &quot;RTGS&quot;.
     /// </summary>
     [EnumMember(Value = "RTGS")]
     [IsoId("_2FoLi_4wEeClUvPNHKL9Zw")]
@@ -111,7 +111,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid settlement amount currency.
-    /// Encoded/decoded by serializers as "NCRR".
+    /// Encoded/decoded by serializers as &quot;NCRR&quot;.
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_2FoLj_4wEeClUvPNHKL9Zw")]
@@ -120,7 +120,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Physical settlement is impossible for the instructed financial instrument.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_2FoLk_4wEeClUvPNHKL9Zw")]
@@ -129,7 +129,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_2FoLl_4wEeClUvPNHKL9Zw")]
@@ -138,7 +138,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid settlement amount.
-    /// Encoded/decoded by serializers as "DMON".
+    /// Encoded/decoded by serializers as &quot;DMON&quot;.
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_2FoLm_4wEeClUvPNHKL9Zw")]
@@ -147,7 +147,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MINO".
+    /// Encoded/decoded by serializers as &quot;MINO&quot;.
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_2FoLn_4wEeClUvPNHKL9Zw")]
@@ -156,7 +156,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid processing batch, that is, daytime/real-time while only possible to settle in overnight batch.
-    /// Encoded/decoded by serializers as "BATC".
+    /// Encoded/decoded by serializers as &quot;BATC&quot;.
     /// </summary>
     [EnumMember(Value = "BATC")]
     [IsoId("_2FoLo_4wEeClUvPNHKL9Zw")]
@@ -165,7 +165,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MUNO".
+    /// Encoded/decoded by serializers as &quot;MUNO&quot;.
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_2FoLp_4wEeClUvPNHKL9Zw")]
@@ -174,7 +174,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid tax status of the securities instructed.
-    /// Encoded/decoded by serializers as "TXST".
+    /// Encoded/decoded by serializers as &quot;TXST&quot;.
     /// </summary>
     [EnumMember(Value = "TXST")]
     [IsoId("_2FoLq_4wEeClUvPNHKL9Zw")]
@@ -183,7 +183,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid settlement system/method instructed.
-    /// Encoded/decoded by serializers as "SETS".
+    /// Encoded/decoded by serializers as &quot;SETS&quot;.
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_2FoLr_4wEeClUvPNHKL9Zw")]
@@ -192,7 +192,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised, invalid or missing common reference.
-    /// Encoded/decoded by serializers as "IIND".
+    /// Encoded/decoded by serializers as &quot;IIND&quot;.
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_2FoLs_4wEeClUvPNHKL9Zw")]
@@ -201,7 +201,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Corporate action pending on the financial instrument instructed.
-    /// Encoded/decoded by serializers as "CAEV".
+    /// Encoded/decoded by serializers as &quot;CAEV&quot;.
     /// </summary>
     [EnumMember(Value = "CAEV")]
     [IsoId("_2FoLt_4wEeClUvPNHKL9Zw")]
@@ -210,7 +210,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Impossible standing arrangements override instruction for the cash settlement system.
-    /// Encoded/decoded by serializers as "CASY".
+    /// Encoded/decoded by serializers as &quot;CASY&quot;.
     /// </summary>
     [EnumMember(Value = "CASY")]
     [IsoId("_2FoLu_4wEeClUvPNHKL9Zw")]
@@ -219,7 +219,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_2FoLv_4wEeClUvPNHKL9Zw")]
@@ -228,7 +228,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid settlement transaction type.
-    /// Encoded/decoded by serializers as "SETR".
+    /// Encoded/decoded by serializers as &quot;SETR&quot;.
     /// </summary>
     [EnumMember(Value = "SETR")]
     [IsoId("_2FoLw_4wEeClUvPNHKL9Zw")]
@@ -237,7 +237,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Required stamp duty information is missing.
-    /// Encoded/decoded by serializers as "SDUT".
+    /// Encoded/decoded by serializers as &quot;SDUT&quot;.
     /// </summary>
     [EnumMember(Value = "SDUT")]
     [IsoId("_2FoLx_4wEeClUvPNHKL9Zw")]
@@ -246,7 +246,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised, invalid or missing place of safekeeping.
-    /// Encoded/decoded by serializers as "INPS".
+    /// Encoded/decoded by serializers as &quot;INPS&quot;.
     /// </summary>
     [EnumMember(Value = "INPS")]
     [IsoId("_2FoLy_4wEeClUvPNHKL9Zw")]
@@ -255,7 +255,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_2FoLz_4wEeClUvPNHKL9Zw")]
@@ -264,7 +264,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid client of delivering or receiving party 1.
-    /// Encoded/decoded by serializers as "ICUS".
+    /// Encoded/decoded by serializers as &quot;ICUS&quot;.
     /// </summary>
     [EnumMember(Value = "ICUS")]
     [IsoId("_2FoL0_4wEeClUvPNHKL9Zw")]
@@ -273,7 +273,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid participant of delivering or receiving depository.
-    /// Encoded/decoded by serializers as "ICAG".
+    /// Encoded/decoded by serializers as &quot;ICAG&quot;.
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_2FoL1_4wEeClUvPNHKL9Zw")]
@@ -282,7 +282,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid depository.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_2FoL2_4wEeClUvPNHKL9Zw")]
@@ -291,7 +291,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Unrecognised or invalid client of delivering or receiving party 2.
-    /// Encoded/decoded by serializers as "IEXE".
+    /// Encoded/decoded by serializers as &quot;IEXE&quot;.
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_2FoL3_4wEeClUvPNHKL9Zw")]
@@ -300,7 +300,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Instruction aims at using an invalid balance.
-    /// Encoded/decoded by serializers as "INVB".
+    /// Encoded/decoded by serializers as &quot;INVB&quot;.
     /// </summary>
     [EnumMember(Value = "INVB")]
     [IsoId("_iBNyFv8FEeCCq-oUcJbFqw")]
@@ -309,7 +309,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Invalid or unrecognized link.
-    /// Encoded/decoded by serializers as "INVL".
+    /// Encoded/decoded by serializers as &quot;INVL&quot;.
     /// </summary>
     [EnumMember(Value = "INVL")]
     [IsoId("_ixDTlv8FEeCCq-oUcJbFqw")]
@@ -318,7 +318,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Invalid or unrecognized lot number.
-    /// Encoded/decoded by serializers as "INVN".
+    /// Encoded/decoded by serializers as &quot;INVN&quot;.
     /// </summary>
     [EnumMember(Value = "INVN")]
     [IsoId("_jN0IHv8FEeCCq-oUcJbFqw")]
@@ -327,7 +327,7 @@ public enum RejectionReason30Code
     
     /// <summary>
     /// Account servicer validation rule rejection.
-    /// Encoded/decoded by serializers as "VALR".
+    /// Encoded/decoded by serializers as &quot;VALR&quot;.
     /// </summary>
     [EnumMember(Value = "VALR")]
     [IsoId("_j3Yphv8FEeCCq-oUcJbFqw")]

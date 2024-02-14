@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the individual record of the file signature.
 /// </summary>
 [IsoId("_fhqo8KA3EeWiJt5KdX5iuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel Signature Record")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,15 @@ public partial record IsabelSignatureRecord1
     /// Type of the signature.
     /// </summary>
     [IsoId("_Uvx6EsnAEeWI4cSIO9foRA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgntrTp")]
     #endif
+    [IsoXmlTag("SgntrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignatureOriginType1Code SignatureType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SignatureOriginType1Code SignatureType { get; init; } 
+    public required SignatureOriginType1Code SignatureType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SignatureOriginType1Code SignatureType { get; init; } 
     #else
@@ -76,19 +73,17 @@ public partial record IsabelSignatureRecord1
     /// Serial number of the certificate.
     /// </summary>
     [IsoId("_ut-UQKMaEeWZDvWHgGXs7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Serial Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrlNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SrlNb")]
+    [IsoSimpleType(IsoSimpleType.Max20AlphaNumericText)]
     [StringLength(maximumLength: 20 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20AlphaNumericText SerialNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SerialNumber { get; init; } 
+    public required System.String SerialNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SerialNumber { get; init; } 
     #else
@@ -99,16 +94,16 @@ public partial record IsabelSignatureRecord1
     /// Electronic document which uses a digital signature to bind together a public key with an identity.
     /// </summary>
     [IsoId("_OG7hUMnBEeWI4cSIO9foRA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cert")]
     #endif
+    [IsoXmlTag("Cert")]
+    [IsoSimpleType(IsoSimpleType.Max4kBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4kBinary Certificate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Certificate { get; init; } 
+    public required System.Byte[] Certificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Certificate { get; init; } 
     #else
@@ -119,16 +114,16 @@ public partial record IsabelSignatureRecord1
     /// Mathematical scheme for demonstrating the authenticity of a digital message or document.
     /// </summary>
     [IsoId("_WHuH8MnBEeWI4cSIO9foRA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
+    [IsoSimpleType(IsoSimpleType.Max1kBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax1kBinary Signature { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Signature { get; init; } 
+    public required System.Byte[] Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Signature { get; init; } 
     #else
@@ -139,19 +134,17 @@ public partial record IsabelSignatureRecord1
     /// Effective method for calculating the signature using a finite sequence of instructions.
     /// </summary>
     [IsoId("_pPYVUMnBEeWI4cSIO9foRA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Algo")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text Algorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Algorithm { get; init; } 
+    public required System.String Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Algorithm { get; init; } 
     #else
@@ -162,19 +155,17 @@ public partial record IsabelSignatureRecord1
     /// Unique identification of the signer that issued the signature.
     /// </summary>
     [IsoId("_tcEYMMnBEeWI4cSIO9foRA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgnrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SgnrId")]
+    [IsoSimpleType(IsoSimpleType.Max13AlphaNumericText)]
     [StringLength(maximumLength: 13 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax13AlphaNumericText SignerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SignerIdentification { get; init; } 
+    public required System.String SignerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SignerIdentification { get; init; } 
     #else

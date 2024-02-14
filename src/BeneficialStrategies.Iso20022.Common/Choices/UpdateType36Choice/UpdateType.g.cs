@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.UpdateType36Choice
 {
     /// <summary>
-    /// Request to add, modify or delete data's of a security.
+    /// Request to add, modify or delete data&apos;s of a security.
     /// </summary>
     [IsoId("_QIOLUZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

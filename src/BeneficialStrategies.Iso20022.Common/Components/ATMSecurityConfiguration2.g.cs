@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration of the cryptographic keys.
 /// </summary>
 [IsoId("_Di0fIYr7EeSvuOJS0mmL0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Security Configuration")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record ATMSecurityConfiguration2
     /// Maximum number of symmetric keys the security module is able to manage.
     /// </summary>
     [IsoId("_QbPjEIr7EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Symmetric Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxSmmtrcKey")]
     #endif
+    [IsoXmlTag("MaxSmmtrcKey")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumSymmetricKey { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record ATMSecurityConfiguration2
     /// Maximum number of asymmetric keys the security module is able to manage.
     /// </summary>
     [IsoId("_T46j0Ir7EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Asymmetric Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAsmmtrcKey")]
     #endif
+    [IsoXmlTag("MaxAsmmtrcKey")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumAsymmetricKey { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record ATMSecurityConfiguration2
     /// Maximum RSA key length (in number of bytes), the security module is able to manage.
     /// </summary>
     [IsoId("_XJMBwIr7EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum RSA Key Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxRSAKeyLngth")]
     #endif
+    [IsoXmlTag("MaxRSAKeyLngth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumRSAKeyLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record ATMSecurityConfiguration2
     /// Maximum RSA root key length (in number of bytes), the security module is able to manage, if different from the maximum RSA key length.
     /// </summary>
     [IsoId("_acT_YIr7EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Root Key Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxRootKeyLngth")]
     #endif
+    [IsoXmlTag("MaxRootKeyLngth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumRootKeyLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

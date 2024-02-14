@@ -21,7 +21,7 @@ public enum CancellationProcess2Code
 {
     /// <summary>
     /// Card payment transaction may be cancelled by an advice only before closure of the reconciliation period or before the capture by batch.
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_wlXVoQu2Eeq4I6UJxZQ2Qw")]
@@ -30,7 +30,7 @@ public enum CancellationProcess2Code
     
     /// <summary>
     /// Card payment transaction cannot be cancelled by the acquirer.
-    /// Encoded/decoded by serializers as "NALW".
+    /// Encoded/decoded by serializers as &quot;NALW&quot;.
     /// </summary>
     [EnumMember(Value = "NALW")]
     [IsoId("_wlXVowu2Eeq4I6UJxZQ2Qw")]
@@ -39,7 +39,7 @@ public enum CancellationProcess2Code
     
     /// <summary>
     /// Card payment transaction may also be cancelled after the closure of the reconciliation period or after the capture by batch. In this case a cancellation request exchange is required.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_wlXVpQu2Eeq4I6UJxZQ2Qw")]
@@ -48,7 +48,7 @@ public enum CancellationProcess2Code
     
     /// <summary>
     /// Cancellation of the Card payment transaction is defined by the payment application.
-    /// Encoded/decoded by serializers as "APPL".
+    /// Encoded/decoded by serializers as &quot;APPL&quot;.
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_EFxigQxtEeqdx6buGpCCQw")]

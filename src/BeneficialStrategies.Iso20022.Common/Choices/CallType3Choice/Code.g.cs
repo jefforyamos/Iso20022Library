@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CallType3Choice
     /// Call type expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_fNbCweLcEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CallType3Choice
         /// Defines the type of execution of the call feature.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CallType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CallType1Code Value { get; init; } 
+        public required CallType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CallType1Code Value { get; init; } 
         #else

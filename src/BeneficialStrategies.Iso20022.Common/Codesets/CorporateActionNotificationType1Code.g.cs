@@ -21,7 +21,7 @@ public enum CorporateActionNotificationType1Code
 {
     /// <summary>
     /// New notification.
-    /// Encoded/decoded by serializers as "NEWM".
+    /// Encoded/decoded by serializers as &quot;NEWM&quot;.
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_bK_Pxtp-Ed-ak6NoX_4Aeg_724518620")]
@@ -30,7 +30,7 @@ public enum CorporateActionNotificationType1Code
     
     /// <summary>
     /// Notification replacing a previously sent notification.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_bK_Px9p-Ed-ak6NoX_4Aeg_724518628")]
@@ -39,7 +39,7 @@ public enum CorporateActionNotificationType1Code
     
     /// <summary>
     /// Notification sent as a reminder of an event taking place.
-    /// Encoded/decoded by serializers as "RMDR".
+    /// Encoded/decoded by serializers as &quot;RMDR&quot;.
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_bK_PyNp-Ed-ak6NoX_4Aeg_724518629")]

@@ -21,7 +21,7 @@ public enum UserInterface3Code
 {
     /// <summary>
     /// Acquirer.
-    /// Encoded/decoded by serializers as "ACQU".
+    /// Encoded/decoded by serializers as &quot;ACQU&quot;.
     /// </summary>
     [EnumMember(Value = "ACQU")]
     [IsoId("_ecl4wYO6EeSWSLYdc10LRg")]
@@ -30,7 +30,7 @@ public enum UserInterface3Code
     
     /// <summary>
     /// Agent.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_ejvpoYO6EeSWSLYdc10LRg")]
@@ -39,7 +39,7 @@ public enum UserInterface3Code
     
     /// <summary>
     /// Issuer.
-    /// Encoded/decoded by serializers as "ISSR".
+    /// Encoded/decoded by serializers as &quot;ISSR&quot;.
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_euVJAYO6EeSWSLYdc10LRg")]

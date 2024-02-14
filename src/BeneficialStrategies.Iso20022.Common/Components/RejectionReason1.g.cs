@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason to reject the message.
 /// </summary>
 [IsoId("_U3LIX9p-Ed-ak6NoX_4Aeg_-2025393824")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejection Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RejectionReason1
     /// Reason to reject the message.
     /// </summary>
     [IsoId("_U3USQNp-Ed-ak6NoX_4Aeg_-282709820")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageRejectedReason1Code Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageRejectedReason1Code Reason { get; init; } 
+    public required MessageRejectedReason1Code Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageRejectedReason1Code Reason { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record RejectionReason1
     /// Additional information about the rejection reason.
     /// </summary>
     [IsoId("_U3USQdp-Ed-ak6NoX_4Aeg_-282709803")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record RejectionReason1
     /// Linked previous reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
     [IsoId("_U3USQtp-Ed-ak6NoX_4Aeg_-425856419")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Message Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdMsgPrvsRef")]
     #endif
+    [IsoXmlTag("LkdMsgPrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? LinkedMessagePreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record RejectionReason1
     /// Linked other reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
     [IsoId("_U3USQ9p-Ed-ak6NoX_4Aeg_-71222051")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Message Other Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdMsgOthrRef")]
     #endif
+    [IsoXmlTag("LkdMsgOthrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? LinkedMessageOtherReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record RejectionReason1
     /// Linked related reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
     [IsoId("_U3USRNp-Ed-ak6NoX_4Aeg_1139278303")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Message Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdMsgRltdRef")]
     #endif
+    [IsoXmlTag("LkdMsgRltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? LinkedMessageRelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

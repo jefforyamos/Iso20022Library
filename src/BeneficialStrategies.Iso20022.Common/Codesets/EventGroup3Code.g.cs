@@ -21,7 +21,7 @@ public enum EventGroup3Code
 {
     /// <summary>
     /// Distribution domain events.
-    /// Encoded/decoded by serializers as "DISN".
+    /// Encoded/decoded by serializers as &quot;DISN&quot;.
     /// </summary>
     [EnumMember(Value = "DISN")]
     [IsoId("_y02d8egcEei5aPS232E3Mw")]

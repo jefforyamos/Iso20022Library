@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Changes in the schedule.
 /// </summary>
 [IsoId("_7X0dsBkbEeapYKOltfjd7A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Schedule Change Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record ScheduleChangeDetails1
     /// Date on which the schedule changes became effective.
     /// </summary>
     [IsoId("_PZrpgBkcEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Schedule Change Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchdlChngFctvDt")]
     #endif
+    [IsoXmlTag("SchdlChngFctvDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ScheduleChangeEffectiveDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ScheduleChangeEffectiveDate { get; init; } 
+    public required System.DateOnly ScheduleChangeEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ScheduleChangeEffectiveDate { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record ScheduleChangeDetails1
     /// Information about schedule.
     /// </summary>
     [IsoId("_ZLwAgBkcEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Schedule Entry")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchdlNtry")]
     #endif
+    [IsoXmlTag("SchdlNtry")]
     public ScheduleChangeEntry1? ScheduleEntry { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ZLwAgBkcEeapYKOltfjd7A
     

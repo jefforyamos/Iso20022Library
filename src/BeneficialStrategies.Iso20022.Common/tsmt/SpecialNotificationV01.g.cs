@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The SpecialNotification message is sent by the matching application to parties to the transaction, following the receipt of a SpecialRequest message.|The SpecialRequest message is sent by a party to the transaction to the matching application if special circumstances are such that it cannot take part any longer to a specific transaction or that it cannot fulfill its role in the transaction.|Usage|The SpecialNotification message is sent to the parties to the transaction so that they can take appropriate action.")]
 [IsoId("_uldKWNE8Ed-BzquC8wXy7w_-3505275")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Special Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
     /// Identifies the notification message.
     /// </summary>
     [IsoId("_ulm7UNE8Ed-BzquC8wXy7w_7576915")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
+    [IsoXmlTag("NtfctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 NotificationIdentification { get; init; } 
+    public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 NotificationIdentification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
     /// </summary>
     [IsoId("_ulm7UdE8Ed-BzquC8wXy7w_8501968")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -124,16 +120,15 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_ulm7UtE8Ed-BzquC8wXy7w_8499489")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
+    public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #else
@@ -144,16 +139,15 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_ulm7U9E8Ed-BzquC8wXy7w_8500107")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 TransactionStatus { get; init; } 
+    public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 TransactionStatus { get; init; } 
     #else
@@ -164,32 +158,28 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
     /// Reference to the transaction for the financial institution that is the sender of the acknowledged message.
     /// </summary>
     [IsoId("_ulm7VNE8Ed-BzquC8wXy7w_8502400")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Party that has sent the special request.
     /// </summary>
     [IsoId("_ulm7VdE8Ed-BzquC8wXy7w_1354069290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Initr")]
     #endif
+    [IsoXmlTag("Initr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 Initiator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 Initiator { get; init; } 
+    public required BICIdentification1 Initiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 Initiator { get; init; } 
     #else
@@ -200,16 +190,15 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
     /// Notification received by the matching application and forwarded to another party.
     /// </summary>
     [IsoId("_ulm7VtE8Ed-BzquC8wXy7w_1253406214")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntfctn")]
     #endif
+    [IsoXmlTag("Ntfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Notification1 Notification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Notification1 Notification { get; init; } 
+    public required Notification1 Notification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Notification1 Notification { get; init; } 
     #else
@@ -220,12 +209,11 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
     /// Information on the next processing step required.
     /// </summary>
     [IsoId("_ulm7V9E8Ed-BzquC8wXy7w_8500865")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -238,7 +226,7 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SpecialNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SpecialNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SpecialNotificationV01Document ToDocument()
     {
@@ -248,7 +236,7 @@ public partial record SpecialNotificationV01 : IOuterRecord<SpecialNotificationV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SpecialNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SpecialNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SpecialNotificationV01Document : IOuterDocument<SpecialNotificationV01>
@@ -265,7 +253,7 @@ public partial record SpecialNotificationV01Document : IOuterDocument<SpecialNot
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SpecialNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SpecialNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SpecialNotificationV01 Message { get; init; }

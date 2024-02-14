@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines a signing party and a digital signature made by this party.
 /// </summary>
 [IsoId("_OTgzMjI3-AOSNFX-8224493")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Qualified Party And XML Signature")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record QualifiedPartyAndXMLSignature1
     /// Identification of the signing party.
     /// </summary>
     [IsoId("_OTgzMjc0-AOSNFX-8224496")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record QualifiedPartyAndXMLSignature1
     /// Digital signature in XML-DSIG format and reference to signing party.
     /// </summary>
     [IsoId("_OTgzMjc2-AOSNFX-8224496")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignatureEnvelope Signature { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SignatureEnvelope Signature { get; init; } 
+    public required SignatureEnvelope Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SignatureEnvelope Signature { get; init; } 
     #else

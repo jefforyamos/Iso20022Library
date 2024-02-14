@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Result of performed verifications for the transaction.
 /// </summary>
 [IsoId("_9soGsYocEeSirOZJBRz_nA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Verification Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransactionVerificationResult5
     /// Method of verification that has been performed.
     /// </summary>
     [IsoId("_95gsIYocEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtd")]
     #endif
+    [IsoXmlTag("Mtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthenticationMethod7Code Method { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthenticationMethod7Code Method { get; init; } 
+    public required AuthenticationMethod7Code Method { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthenticationMethod7Code Method { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TransactionVerificationResult5
     /// Entity or device that has performed the verification.
     /// </summary>
     [IsoId("_95gsI4ocEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Verification Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VrfctnNtty")]
     #endif
+    [IsoXmlTag("VrfctnNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthenticationEntity2Code? VerificationEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record TransactionVerificationResult5
     /// Result of the verification.
     /// </summary>
     [IsoId("_95gsJYocEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rslt")]
     #endif
+    [IsoXmlTag("Rslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Verification1Code? Result { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +102,13 @@ public partial record TransactionVerificationResult5
     /// Additional result of the verification.
     /// </summary>
     [IsoId("_95gsJ4ocEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRslt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRslt")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,12 @@ public partial record TransactionVerificationResult5
     /// Token provided to the ATM for further proof of authentication.
     /// </summary>
     [IsoId("_YIjy8IodEeSirOZJBRz_nA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnTkn")]
     #endif
+    [IsoXmlTag("AuthntcnTkn")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? AuthenticationToken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

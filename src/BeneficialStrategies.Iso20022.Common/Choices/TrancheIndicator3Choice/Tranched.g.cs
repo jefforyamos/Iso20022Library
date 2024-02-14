@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrancheIndicator3Choice
     /// Indication that derivative contract is tranched.
     /// </summary>
     [IsoId("_nCVaUQ06EeuJ1fOEB4bQXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tranched")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TrancheIndicator3Choice
         /// Indicates the lower point at which the level of losses in the underlying portfolio reduces the notional of the tranche.
         /// </summary>
         [IsoId("_eS8oUw06EeuJ1fOEB4bQXA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Attachment Point")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AttchmntPt")]
         #endif
+        [IsoXmlTag("AttchmntPt")]
+        [IsoSimpleType(IsoSimpleType.BaseOneRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoBaseOneRate? AttachmentPoint { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +65,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TrancheIndicator3Choice
         /// Indicates the point beyond which the losses in the underlying portfolio no longer reduce the notional of the tranche.
         /// </summary>
         [IsoId("_eS8oVQ06EeuJ1fOEB4bQXA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Detachment Point")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtchmntPt")]
         #endif
+        [IsoXmlTag("DtchmntPt")]
+        [IsoSimpleType(IsoSimpleType.BaseOneRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoBaseOneRate? DetachmentPoint { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

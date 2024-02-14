@@ -21,7 +21,7 @@ public enum MessageClass1Code
 {
     /// <summary>
     /// Addendum class of messages.
-    /// Encoded/decoded by serializers as "ADDE".
+    /// Encoded/decoded by serializers as &quot;ADDE&quot;.
     /// </summary>
     [EnumMember(Value = "ADDE")]
     [IsoId("_MJCC8RtCEeqrvK3udMUsNQ")]
@@ -30,7 +30,7 @@ public enum MessageClass1Code
     
     /// <summary>
     /// Amendment class of messages.
-    /// Encoded/decoded by serializers as "AMDT".
+    /// Encoded/decoded by serializers as &quot;AMDT&quot;.
     /// </summary>
     [EnumMember(Value = "AMDT")]
     [IsoId("_MUMKERtCEeqrvK3udMUsNQ")]
@@ -39,7 +39,7 @@ public enum MessageClass1Code
     
     /// <summary>
     /// Authorisation class of messages.
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_Mfy9IRtCEeqrvK3udMUsNQ")]
@@ -48,7 +48,7 @@ public enum MessageClass1Code
     
     /// <summary>
     /// Card management class of messages.
-    /// Encoded/decoded by serializers as "CMGT".
+    /// Encoded/decoded by serializers as &quot;CMGT&quot;.
     /// </summary>
     [EnumMember(Value = "CMGT")]
     [IsoId("_M3wKIRtCEeqrvK3udMUsNQ")]
@@ -57,7 +57,7 @@ public enum MessageClass1Code
     
     /// <summary>
     /// Charge back class of messages.
-    /// Encoded/decoded by serializers as "CBCK".
+    /// Encoded/decoded by serializers as &quot;CBCK&quot;.
     /// </summary>
     [EnumMember(Value = "CBCK")]
     [IsoId("_NDgHIRtCEeqrvK3udMUsNQ")]
@@ -66,7 +66,7 @@ public enum MessageClass1Code
     
     /// <summary>
     /// Fee collection class of messages.
-    /// Encoded/decoded by serializers as "FEEC".
+    /// Encoded/decoded by serializers as &quot;FEEC&quot;.
     /// </summary>
     [EnumMember(Value = "FEEC")]
     [IsoId("_NJmvIRtCEeqrvK3udMUsNQ")]
@@ -75,7 +75,7 @@ public enum MessageClass1Code
     
     /// <summary>
     /// Financial class of messages.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_NPQrMRtCEeqrvK3udMUsNQ")]
@@ -84,7 +84,7 @@ public enum MessageClass1Code
     
     /// <summary>
     /// Inquiry class of messages.
-    /// Encoded/decoded by serializers as "INQY".
+    /// Encoded/decoded by serializers as &quot;INQY&quot;.
     /// </summary>
     [EnumMember(Value = "INQY")]
     [IsoId("_NbTjIRtCEeqrvK3udMUsNQ")]
@@ -93,7 +93,7 @@ public enum MessageClass1Code
     
     /// <summary>
     /// Verification class of messages.
-    /// Encoded/decoded by serializers as "VERI".
+    /// Encoded/decoded by serializers as &quot;VERI&quot;.
     /// </summary>
     [EnumMember(Value = "VERI")]
     [IsoId("_NjCi0RtCEeqrvK3udMUsNQ")]

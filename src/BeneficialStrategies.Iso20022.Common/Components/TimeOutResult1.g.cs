@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the time-out consequences.
 /// </summary>
 [IsoId("_Utx7w9p-Ed-ak6NoX_4Aeg_263935845")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Time Out Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TimeOutResult1
     /// Specifies the status of the transaction if no action is taken by the user.
     /// </summary>
     [IsoId("_Utx7xNp-Ed-ak6NoX_4Aeg_1691671340")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Future Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxFutrSts")]
     #endif
+    [IsoXmlTag("TxFutrSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus2 TransactionFutureStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus2 TransactionFutureStatus { get; init; } 
+    public required TransactionStatus2 TransactionFutureStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus2 TransactionFutureStatus { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TimeOutResult1
     /// Describes the time-out reason.
     /// </summary>
     [IsoId("_Utx7xdp-Ed-ak6NoX_4Aeg_653870877")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Out Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmOutEvt")]
     #endif
+    [IsoXmlTag("TmOutEvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeOutEvent1? TimeOutEvent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

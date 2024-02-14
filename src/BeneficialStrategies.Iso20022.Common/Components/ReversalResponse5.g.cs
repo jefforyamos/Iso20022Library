@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Response Data to a Reversal request.
 /// </summary>
 [IsoId("_7Q2AIVS5EeuUvsVXOV79DQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reversal Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ReversalResponse5
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
     [IsoId("_7W8oIVS5EeuUvsVXOV79DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleTxId")]
     #endif
+    [IsoXmlTag("SaleTxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
+    public required TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
     #else
@@ -73,15 +70,13 @@ public partial record ReversalResponse5
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
     [IsoId("_7W8oI1S5EeuUvsVXOV79DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Reference Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleRefId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SaleRefId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +89,15 @@ public partial record ReversalResponse5
     /// POI identification of the transaction in an unambiguous way.
     /// </summary>
     [IsoId("_7W8oJVS5EeuUvsVXOV79DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POITxId")]
     #endif
+    [IsoXmlTag("POITxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifier1 POITransactionIdentification { get; init; } 
+    public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #else
@@ -114,15 +108,13 @@ public partial record ReversalResponse5
     /// Unique identification of the reconciliation period between the acceptor and the acquirer.
     /// </summary>
     [IsoId("_7W8oJ1S5EeuUvsVXOV79DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Reconciliation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIRcncltnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("POIRcncltnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,15 +127,13 @@ public partial record ReversalResponse5
     /// Identification of the transaction given by the Issuer.
     /// </summary>
     [IsoId("_7W8oKVS5EeuUvsVXOV79DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Reference Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrRefData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssrRefData")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? IssuerReferenceData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,16 +146,15 @@ public partial record ReversalResponse5
     /// Result of reversal transaction.
     /// </summary>
     [IsoId("_7W8oK1S5EeuUvsVXOV79DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Transaction Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslTxRslt")]
     #endif
+    [IsoXmlTag("RvslTxRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerReversalResult3 ReversalTransactionResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetailerReversalResult3 ReversalTransactionResult { get; init; } 
+    public required RetailerReversalResult3 ReversalTransactionResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetailerReversalResult3 ReversalTransactionResult { get; init; } 
     #else
@@ -176,12 +165,12 @@ public partial record ReversalResponse5
     /// Amount that have been reverse.
     /// </summary>
     [IsoId("_7W8oLVS5EeuUvsVXOV79DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvsdAmt")]
     #endif
+    [IsoXmlTag("RvsdAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +183,11 @@ public partial record ReversalResponse5
     /// Various receipts linked to the reversal.
     /// </summary>
     [IsoId("_7W8oL1S5EeuUvsVXOV79DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receipt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rct")]
     #endif
+    [IsoXmlTag("Rct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentReceipt3? Receipt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

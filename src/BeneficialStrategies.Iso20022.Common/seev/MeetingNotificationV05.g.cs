@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|A notifying party, for example, an issuer, its agent or an intermediary, sends the MeetingNotification message to a party holding the right to vote, to announce a shareholders meeting.|Usage|The MeetingNotification message is used to announce a shareholders meeting, for example, it provides information on the participation details and requirements for the meeting, the vote parameters and the resolutions. The MeetingNotification message may also be used to announce an update.|To notify an update, the Amendment building block must be filled in. Any building block that is modified must be included in the amendment message. The information previously notified and not repeated in the amendment message remains valid.|To update the resolutions of the agenda, the complete list of resolutions must be repeated in the amendment message. The resolutions that are deleted should be assigned the status Withdrawn.|This message definition is intended for use with the Business Application Header.")]
 [IsoId("_xDAOX1tcEeSwKe7KuKvXhg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,12 +81,11 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Information specific to an amendment.
     /// </summary>
     [IsoId("_xDJ_BVtcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amendment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amdmnt")]
     #endif
+    [IsoXmlTag("Amdmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmendInformation1? Amendment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,16 +98,15 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Defines the global status of the event contained in the notification.
     /// </summary>
     [IsoId("_xDJ_B1tcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnSts")]
     #endif
+    [IsoXmlTag("NtfctnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationStatus2 NotificationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NotificationStatus2 NotificationStatus { get; init; } 
+    public required NotificationStatus2 NotificationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NotificationStatus2 NotificationStatus { get; init; } 
     #else
@@ -121,16 +117,15 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Specifies information about the meeting. This component contains meeting identifications, various deadlines, contact persons, electronic and postal locations for accessing information and proxy assignment parameters.
     /// </summary>
     [IsoId("_xDJ_CVtcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtg")]
     #endif
+    [IsoXmlTag("Mtg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingNotice4 Meeting { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MeetingNotice4 Meeting { get; init; } 
+    public required MeetingNotice4 Meeting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MeetingNotice4 Meeting { get; init; } 
     #else
@@ -141,32 +136,28 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Dates and details of the shareholders meeting.
     /// </summary>
     [IsoId("_xDJ_C1tcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtgDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MtgDtls")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<Meeting4> MeetingDetails { get; init; } = new ValueList<Meeting4>(){};
     
     /// <summary>
     /// Specifies the institution that is the issuer of the security to which the meeting applies.
     /// </summary>
     [IsoId("_xDJ_D1tcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
+    [IsoXmlTag("Issr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IssuerInformation2 Issuer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IssuerInformation2 Issuer { get; init; } 
+    public required IssuerInformation2 Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IssuerInformation2 Issuer { get; init; } 
     #else
@@ -177,60 +168,50 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Agents of the issuer.
     /// </summary>
     [IsoId("_xDJ_EVtcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrAgt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssrAgt")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<IssuerAgent2> IssuerAgent { get; init; } = new ValueList<IssuerAgent2>(){};
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
     [IsoId("_xDJ_E1tcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Scty")]
     [MinLength(1)]
     [MaxLength(200)]
-    #endif
     public ValueList<SecurityPosition8> Security { get; init; } = new ValueList<SecurityPosition8>(){};
     
     /// <summary>
     /// Detailed information of a resolution proposed to the vote.
     /// </summary>
     [IsoId("_xDJ_FVtcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resolution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsltn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsltn")]
     [MinLength(0)]
     [MaxLength(1000)]
-    #endif
     public ValueList<Resolution3> Resolution { get; init; } = new ValueList<Resolution3>(){};
     
     /// <summary>
     /// Specifies the conditions to be allowed to vote, the different voting methods and options, the voting deadlines and the parameters of the incentive premium.
     /// </summary>
     [IsoId("_xDJ_F1tcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vote")]
     #endif
+    [IsoXmlTag("Vote")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteParameters4? Vote { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,12 +224,11 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Specifies the entitlement ratio and the different deadlines for calculating the entitlement.
     /// </summary>
     [IsoId("_xDJ_GVtcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement Specification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitlmntSpcfctn")]
     #endif
+    [IsoXmlTag("EntitlmntSpcfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EntitlementAssessment3? EntitlementSpecification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -261,12 +241,11 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Specifies requirements relative to the use of Power of Attorney.
     /// </summary>
     [IsoId("_xDJ_G1tcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Power Of Attorney Requirements")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PwrOfAttnyRqrmnts")]
     #endif
+    [IsoXmlTag("PwrOfAttnyRqrmnts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PowerOfAttorneyRequirements3? PowerOfAttorneyRequirements { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -279,12 +258,11 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Provides additional narrative information about the corporate event.
     /// </summary>
     [IsoId("_xDJ_HVtcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateEventNarrative2? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -297,12 +275,11 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_dkX0oVtoEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -315,7 +292,7 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MeetingNotificationV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MeetingNotificationV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MeetingNotificationV05Document ToDocument()
     {
@@ -325,7 +302,7 @@ public partial record MeetingNotificationV05 : IOuterRecord<MeetingNotificationV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingNotificationV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MeetingNotificationV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MeetingNotificationV05Document : IOuterDocument<MeetingNotificationV05>
@@ -342,7 +319,7 @@ public partial record MeetingNotificationV05Document : IOuterDocument<MeetingNot
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MeetingNotificationV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MeetingNotificationV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingNotificationV05 Message { get; init; }

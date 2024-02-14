@@ -21,7 +21,7 @@ public enum RetailerService3Code
 {
     /// <summary>
     /// The POI System sends a response to a payment request (Purchase/refund/PWCB/MOTO Payment/...).
-    /// Encoded/decoded by serializers as "FSPP".
+    /// Encoded/decoded by serializers as &quot;FSPP&quot;.
     /// </summary>
     [EnumMember(Value = "FSPP")]
     [IsoId("_qmFC4dwtEeioifFt1dhnJA")]
@@ -30,7 +30,7 @@ public enum RetailerService3Code
     
     /// <summary>
     /// The POI System sends a response to a reversal request.
-    /// Encoded/decoded by serializers as "FSRP".
+    /// Encoded/decoded by serializers as &quot;FSRP&quot;.
     /// </summary>
     [EnumMember(Value = "FSRP")]
     [IsoId("_rgA7kdwtEeioifFt1dhnJA")]
@@ -39,7 +39,7 @@ public enum RetailerService3Code
     
     /// <summary>
     /// The POI System sends a response to a Balance Inquiry request.
-    /// Encoded/decoded by serializers as "FSIP".
+    /// Encoded/decoded by serializers as &quot;FSIP&quot;.
     /// </summary>
     [EnumMember(Value = "FSIP")]
     [IsoId("_sPsFAdwtEeioifFt1dhnJA")]
@@ -48,7 +48,7 @@ public enum RetailerService3Code
     
     /// <summary>
     /// The POI System sends a response to a batch processing request.
-    /// Encoded/decoded by serializers as "FSBP".
+    /// Encoded/decoded by serializers as &quot;FSBP&quot;.
     /// </summary>
     [EnumMember(Value = "FSBP")]
     [IsoId("_s3K7wdwtEeioifFt1dhnJA")]
@@ -57,7 +57,7 @@ public enum RetailerService3Code
     
     /// <summary>
     /// The POI System sends a response to a loyalty processing request.
-    /// Encoded/decoded by serializers as "FSLP".
+    /// Encoded/decoded by serializers as &quot;FSLP&quot;.
     /// </summary>
     [EnumMember(Value = "FSLP")]
     [IsoId("_tcgdcdwtEeioifFt1dhnJA")]
@@ -66,7 +66,7 @@ public enum RetailerService3Code
     
     /// <summary>
     /// The POI System sends a response to a stored value card or account request.
-    /// Encoded/decoded by serializers as "FSVP".
+    /// Encoded/decoded by serializers as &quot;FSVP&quot;.
     /// </summary>
     [EnumMember(Value = "FSVP")]
     [IsoId("_uLJFEdwtEeioifFt1dhnJA")]
@@ -75,7 +75,7 @@ public enum RetailerService3Code
     
     /// <summary>
     /// The POI System sends a response after enabling or not some service.
-    /// Encoded/decoded by serializers as "FSEP".
+    /// Encoded/decoded by serializers as &quot;FSEP&quot;.
     /// </summary>
     [EnumMember(Value = "FSEP")]
     [IsoId("_uvJKAdwtEeioifFt1dhnJA")]
@@ -84,7 +84,7 @@ public enum RetailerService3Code
     
     /// <summary>
     /// The POI System sends a response to a card data acquisition request.
-    /// Encoded/decoded by serializers as "FSAP".
+    /// Encoded/decoded by serializers as &quot;FSAP&quot;.
     /// </summary>
     [EnumMember(Value = "FSAP")]
     [IsoId("_vRGnkdwtEeioifFt1dhnJA")]
@@ -93,7 +93,7 @@ public enum RetailerService3Code
     
     /// <summary>
     /// The POI System sends a response to a reconciliation request.
-    /// Encoded/decoded by serializers as "FSCP".
+    /// Encoded/decoded by serializers as &quot;FSCP&quot;.
     /// </summary>
     [EnumMember(Value = "FSCP")]
     [IsoId("_wGk3AdwtEeioifFt1dhnJA")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on transaction and conducting counterparty.
 /// </summary>
 [IsoId("_CUwEIaxiEem81-uIvTF5rQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Transaction Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TradeTransactionIdentification4
     /// Unique code identifying the reporting counterparty.
     /// </summary>
     [IsoId("_CYn3gaxiEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCtrPty")]
     #endif
+    [IsoXmlTag("RptgCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TradeTransactionIdentification4
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
     [IsoId("_CYn3g6xiEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCtrPty")]
     #endif
+    [IsoXmlTag("OthrCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     #else
@@ -92,15 +88,13 @@ public partial record TradeTransactionIdentification4
     /// Unique trade Identifier (UTI) as agreed with the counterparty.
     /// </summary>
     [IsoId("_CYn3haxiEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Trade Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnqTradIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UnqTradIdr")]
+    [IsoSimpleType(IsoSimpleType.Max52Text)]
     [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +107,11 @@ public partial record TradeTransactionIdentification4
     /// Details related to the master agreement.
     /// </summary>
     [IsoId("_CYn3h6xiEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrAgrmt")]
     #endif
+    [IsoXmlTag("MstrAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MasterAgreement6? MasterAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,11 @@ public partial record TradeTransactionIdentification4
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
     [IsoId("_FbGxEKxiEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Lender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtLndr")]
     #endif
+    [IsoXmlTag("AgtLndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? AgentLender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +141,11 @@ public partial record TradeTransactionIdentification4
     /// Identification of the third party that administers the transaction.
     /// </summary>
     [IsoId("_GhJMEKxiEem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triparty Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrptyAgt")]
     #endif
+    [IsoXmlTag("TrptyAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? TripartyAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Charge or commission of the original individual order details that have been repaired so that the order can be accepted.
 /// </summary>
 [IsoId("_RLb2ZNp-Ed-ak6NoX_4Aeg_-1888312620")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Repaired Conditions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,32 +42,26 @@ public partial record RepairedConditions3
     /// Modified value of the charge applied on the order (the charge in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
     [IsoId("_RLb2Zdp-Ed-ak6NoX_4Aeg_-1888312329")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repaired Charge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RprdChrg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RprdChrg")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Charge19> RepairedCharge { get; init; } = new ValueList<Charge19>(){};
     
     /// <summary>
     /// Modified value of the commission applied on the order (the commission in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
     [IsoId("_RLb2Ztp-Ed-ak6NoX_4Aeg_-1888312610")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repaired Commission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RprdComssn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RprdComssn")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Commission11> RepairedCommission { get; init; } = new ValueList<Commission11>(){};
     
     

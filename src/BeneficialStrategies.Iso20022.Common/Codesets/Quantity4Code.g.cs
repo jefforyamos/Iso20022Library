@@ -21,7 +21,7 @@ public enum Quantity4Code
 {
     /// <summary>
     /// Quantity is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_mxyqZQCgEeGqP72A5EmwKQ")]
@@ -30,7 +30,7 @@ public enum Quantity4Code
     
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
-    /// Encoded/decoded by serializers as "ANYA".
+    /// Encoded/decoded by serializers as &quot;ANYA&quot;.
     /// </summary>
     [EnumMember(Value = "ANYA")]
     [IsoId("_n0ZW7gCgEeGqP72A5EmwKQ")]

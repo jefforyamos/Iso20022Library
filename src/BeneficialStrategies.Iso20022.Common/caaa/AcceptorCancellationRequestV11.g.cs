@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorCancellationRequest message is sent by an acceptor (or its agent) to the acquirer (or its agent), to request the cancellation of a successfully completed transaction. Cancellation should only occur before the transaction has been cleared.||")]
 [IsoId("_iBXV0U1EEeybj420QgWBkA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record AcceptorCancellationRequestV11 : IOuterRecord<AcceptorCanc
     /// Cancellation request message management information.
     /// </summary>
     [IsoId("_iBXV1U1EEeybj420QgWBkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header59 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header59 Header { get; init; } 
+    public required Header59 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header59 Header { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record AcceptorCancellationRequestV11 : IOuterRecord<AcceptorCanc
     /// Information related to the cancellation request.
     /// </summary>
     [IsoId("_iBXV101EEeybj420QgWBkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlReq")]
     #endif
+    [IsoXmlTag("CxlReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCancellationRequest11 CancellationRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorCancellationRequest11 CancellationRequest { get; init; } 
+    public required AcceptorCancellationRequest11 CancellationRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorCancellationRequest11 CancellationRequest { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record AcceptorCancellationRequestV11 : IOuterRecord<AcceptorCanc
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_iBXV2U1EEeybj420QgWBkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType31? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record AcceptorCancellationRequestV11 : IOuterRecord<AcceptorCanc
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorCancellationRequestV11Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorCancellationRequestV11Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorCancellationRequestV11Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record AcceptorCancellationRequestV11 : IOuterRecord<AcceptorCanc
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCancellationRequestV11"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorCancellationRequestV11&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorCancellationRequestV11Document : IOuterDocument<AcceptorCancellationRequestV11>
@@ -163,7 +158,7 @@ public partial record AcceptorCancellationRequestV11Document : IOuterDocument<Ac
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorCancellationRequestV11"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorCancellationRequestV11&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCancellationRequestV11 Message { get; init; }

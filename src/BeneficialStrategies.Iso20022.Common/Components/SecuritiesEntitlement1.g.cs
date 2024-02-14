@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides entitlement information.
 /// </summary>
 [IsoId("_UJRgh9p-Ed-ak6NoX_4Aeg_1912782907")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Entitlement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecuritiesEntitlement1
     /// Identification of the financial instrument.
     /// </summary>
     [IsoId("_UJRgiNp-Ed-ak6NoX_4Aeg_-1841926439")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification7 SecurityIdentification { get; init; } 
+    public required SecurityIdentification7 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification7 SecurityIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SecuritiesEntitlement1
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
     [IsoId("_UJbRgNp-Ed-ak6NoX_4Aeg_-1548244376")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitled Securities Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitldSctiesQty")]
     #endif
+    [IsoXmlTag("EntitldSctiesQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOrFaceAmount1Choice_ EntitledSecuritiesQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitOrFaceAmount1Choice_ EntitledSecuritiesQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ EntitledSecuritiesQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitOrFaceAmount1Choice_ EntitledSecuritiesQuantity { get; init; } 
     #else

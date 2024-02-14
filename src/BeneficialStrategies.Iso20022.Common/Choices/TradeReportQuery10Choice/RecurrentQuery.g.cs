@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery10Choice
     /// Query criteria specifically applied to recurrent queries.
     /// </summary>
     [IsoId("_esoLY91dEeqxpKDfBZC1vg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recurrent Query")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,19 +56,17 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery10Choice
         /// Defines the type of recurrent query which is requested.
         /// </summary>
         [IsoId("_et5Wsd1dEeqxpKDfBZC1vg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Query Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="QryTp")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("QryTp")]
+        [IsoSimpleType(IsoSimpleType.Max1000Text)]
         [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax1000Text QueryType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String QueryType { get; init; } 
+        public required System.String QueryType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String QueryType { get; init; } 
         #else
@@ -81,16 +77,15 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery10Choice
         /// Defines the requested frequency of the recurrent query.
         /// </summary>
         [IsoId("_et5Ws91dEeqxpKDfBZC1vg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Frequency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Frqcy")]
         #endif
+        [IsoXmlTag("Frqcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TradeQueryExecutionFrequency3 Frequency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TradeQueryExecutionFrequency3 Frequency { get; init; } 
+        public required TradeQueryExecutionFrequency3 Frequency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TradeQueryExecutionFrequency3 Frequency { get; init; } 
         #else
@@ -101,16 +96,16 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery10Choice
         /// Defines the date until which the query will be executed.
         /// </summary>
         [IsoId("_et5Wtd1dEeqxpKDfBZC1vg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Valid Until")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VldUntil")]
         #endif
+        [IsoXmlTag("VldUntil")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate ValidUntil { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly ValidUntil { get; init; } 
+        public required System.DateOnly ValidUntil { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly ValidUntil { get; init; } 
         #else

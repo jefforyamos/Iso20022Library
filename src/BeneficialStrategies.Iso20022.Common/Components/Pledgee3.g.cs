@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the entity to which the financial instruments are pledged.
 /// </summary>
 [IsoId("_X818odLGEeiN28wlpBQScw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pledgee")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Pledgee3
     /// Unique identification of the party.
     /// </summary>
     [IsoId("_YdRwM9LGEeiN28wlpBQScw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pledgee Type And Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PldgeeTpAndId")]
     #endif
+    [IsoXmlTag("PldgeeTpAndId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PledgeeFormat5Choice_? PledgeeTypeAndIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record Pledgee3
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
     [IsoId("_YdRwNdLGEeiN28wlpBQScw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LEI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LEI")]
     #endif
+    [IsoXmlTag("LEI")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

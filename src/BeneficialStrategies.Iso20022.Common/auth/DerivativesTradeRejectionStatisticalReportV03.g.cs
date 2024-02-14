@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The DerivativesTradeRejectionStatisticalReport message is sent by the trade repository (TR) to the report submitting entity, identifying the transactions rejected and the reasons for a rejection.")]
 [IsoId("_pVVvj2mFEe2DRvVJM2Qy-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivatives Trade Rejection Statistical Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record DerivativesTradeRejectionStatisticalReportV03 : IOuterReco
     /// Detailed information on rejections of derivative transactions.
     /// </summary>
     [IsoId("_pVVvkWmFEe2DRvVJM2Qy-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnSttstcs")]
     #endif
+    [IsoXmlTag("RjctnSttstcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerCounterparty17Choice_ RejectionStatistics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticsPerCounterparty17Choice_ RejectionStatistics { get; init; } 
+    public required StatisticsPerCounterparty17Choice_ RejectionStatistics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticsPerCounterparty17Choice_ RejectionStatistics { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record DerivativesTradeRejectionStatisticalReportV03 : IOuterReco
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_pVVvk2mFEe2DRvVJM2Qy-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record DerivativesTradeRejectionStatisticalReportV03 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DerivativesTradeRejectionStatisticalReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DerivativesTradeRejectionStatisticalReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DerivativesTradeRejectionStatisticalReportV03Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record DerivativesTradeRejectionStatisticalReportV03 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeRejectionStatisticalReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DerivativesTradeRejectionStatisticalReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DerivativesTradeRejectionStatisticalReportV03Document : IOuterDocument<DerivativesTradeRejectionStatisticalReportV03>
@@ -140,7 +136,7 @@ public partial record DerivativesTradeRejectionStatisticalReportV03Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DerivativesTradeRejectionStatisticalReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DerivativesTradeRejectionStatisticalReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativesTradeRejectionStatisticalReportV03 Message { get; init; }

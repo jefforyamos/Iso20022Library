@@ -21,7 +21,7 @@ public enum AuthenticationEntity1Code
 {
     /// <summary>
     /// Application in the chip card (Integrated Circuit Card), for instance an offline PIN verification.
-    /// Encoded/decoded by serializers as "ICCD".
+    /// Encoded/decoded by serializers as &quot;ICCD&quot;.
     /// </summary>
     [EnumMember(Value = "ICCD")]
     [IsoId("_TSESjgEcEeCQm6a_G2yO_w_2010756602")]
@@ -30,7 +30,7 @@ public enum AuthenticationEntity1Code
     
     /// <summary>
     /// Authorisation agent of the issuer.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_TSESjwEcEeCQm6a_G2yO_w_1127523315")]
@@ -39,7 +39,7 @@ public enum AuthenticationEntity1Code
     
     /// <summary>
     /// Merchant (for example signature verification by the attendant).
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TSESkAEcEeCQm6a_G2yO_w_-1384309028")]

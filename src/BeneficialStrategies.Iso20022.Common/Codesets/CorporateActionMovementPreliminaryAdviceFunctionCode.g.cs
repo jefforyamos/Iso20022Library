@@ -21,7 +21,7 @@ public enum CorporateActionMovementPreliminaryAdviceFunctionCode
 {
     /// <summary>
     /// Message is an entitlement.
-    /// Encoded/decoded by serializers as "ENTL".
+    /// Encoded/decoded by serializers as &quot;ENTL&quot;.
     /// </summary>
     [EnumMember(Value = "ENTL")]
     [IsoId("_u2ONQDQTEe2o-K1dwNg8Gg")]
@@ -30,7 +30,7 @@ public enum CorporateActionMovementPreliminaryAdviceFunctionCode
     
     /// <summary>
     /// Message is a preadvice of movement.
-    /// Encoded/decoded by serializers as "CAPA".
+    /// Encoded/decoded by serializers as &quot;CAPA&quot;.
     /// </summary>
     [EnumMember(Value = "CAPA")]
     [IsoId("_2oqO0DQTEe2o-K1dwNg8Gg")]

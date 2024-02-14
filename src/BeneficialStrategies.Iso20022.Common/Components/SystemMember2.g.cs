@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about a system and about a member of a system.
 /// </summary>
 [IsoId("_78fiFaMgEeCJ6YNENx4h-w_-1952044012")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Member")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record SystemMember2
     /// Identification of a particular cash clearing system.
     /// </summary>
     [IsoId("_78fiFqMgEeCJ6YNENx4h-w_-944964888")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysId")]
     #endif
+    [IsoXmlTag("SysId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record SystemMember2
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
     [IsoId("_78fiF6MgEeCJ6YNENx4h-w_963171998")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MmbId")]
     #endif
+    [IsoXmlTag("MmbId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MemberIdentification2Choice_ MemberIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MemberIdentification2Choice_ MemberIdentification { get; init; } 
+    public required MemberIdentification2Choice_ MemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MemberIdentification2Choice_ MemberIdentification { get; init; } 
     #else

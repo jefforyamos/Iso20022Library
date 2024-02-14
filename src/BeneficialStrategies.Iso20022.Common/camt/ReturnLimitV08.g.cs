@@ -44,9 +44,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The ReturnLimit message is sent by the transaction administrator to a member of the system.|It is used to provide information on the details of one or more limits set by the member (or on behalf of the member) and managed by the transaction administrator.|The ReturnLimit message can be sent as a response to a related GetLimit message (pull mode) or initiated by the transaction administrator (push mode). The push of information can take place either at prearranged times or as a warning or alarm when a problem has occurred.|Usage|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the limit(s) that the transaction administrator manages for the member.|The transaction administrator may also send a ReturnLimit message with pre-defined information at times previously agreed with the member or to warn the member about a particular problem that may have arisen and which needs attention.|The message from the transaction administrator can contain information on the following elements:|- type of risk and/or liquidity limit|- value of the limit(s) (default and/or current limit(s) for risk and/or liquidity management)|- identification of the system|- status of the limit(s) (default and/or current limit(s) for risk and/or liquidity management)|- point in time when the limit becomes effective|- identification of the counterparty|Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.")]
 [IsoId("_jwlcGRbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Return Limit V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -90,16 +88,15 @@ public partial record ReturnLimitV08 : IOuterRecord<ReturnLimitV08,ReturnLimitV0
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlcGxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader7 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader7 MessageHeader { get; init; } 
+    public required MessageHeader7 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader7 MessageHeader { get; init; } 
     #else
@@ -110,16 +107,15 @@ public partial record ReturnLimitV08 : IOuterRecord<ReturnLimitV08,ReturnLimitV0
     /// Reports on limits.
     /// </summary>
     [IsoId("_jwlcHRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptOrErr")]
     #endif
+    [IsoXmlTag("RptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitReportOrError4Choice_ ReportOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LimitReportOrError4Choice_ ReportOrError { get; init; } 
+    public required LimitReportOrError4Choice_ ReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LimitReportOrError4Choice_ ReportOrError { get; init; } 
     #else
@@ -130,12 +126,11 @@ public partial record ReturnLimitV08 : IOuterRecord<ReturnLimitV08,ReturnLimitV0
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlcHxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,7 +143,7 @@ public partial record ReturnLimitV08 : IOuterRecord<ReturnLimitV08,ReturnLimitV0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReturnLimitV08Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReturnLimitV08Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReturnLimitV08Document ToDocument()
     {
@@ -158,7 +153,7 @@ public partial record ReturnLimitV08 : IOuterRecord<ReturnLimitV08,ReturnLimitV0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReturnLimitV08"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReturnLimitV08&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReturnLimitV08Document : IOuterDocument<ReturnLimitV08>
@@ -175,7 +170,7 @@ public partial record ReturnLimitV08Document : IOuterDocument<ReturnLimitV08>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReturnLimitV08"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReturnLimitV08&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReturnLimitV08 Message { get; init; }

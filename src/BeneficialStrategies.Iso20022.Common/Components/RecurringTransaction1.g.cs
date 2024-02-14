@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
 [IsoId("_SpYh7gEcEeCQm6a_G2yO_w_-569860423")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Recurring Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,16 @@ public partial record RecurringTransaction1
     /// Indicates the recurring/instalment occurrence of the transaction (1 = 1st instalment, 2 = 2nd instalment, etc.).
     /// </summary>
     [IsoId("_SpiS4AEcEeCQm6a_G2yO_w_295359691")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SeqNb")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2NumericText SequenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SequenceNumber { get; init; } 
+    public required System.String SequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SequenceNumber { get; init; } 
     #else
@@ -77,16 +72,15 @@ public partial record RecurringTransaction1
     /// Period unit between consecutive payments (for example day, month, year).
     /// </summary>
     [IsoId("_SpiS4QEcEeCQm6a_G2yO_w_1632462586")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrdUnit")]
     #endif
+    [IsoXmlTag("PrdUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency4Code PeriodUnit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Frequency4Code PeriodUnit { get; init; } 
+    public required Frequency4Code PeriodUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Frequency4Code PeriodUnit { get; init; } 
     #else
@@ -97,16 +91,16 @@ public partial record RecurringTransaction1
     /// Number of period units between consecutive payments.
     /// </summary>
     [IsoId("_SpiS4gEcEeCQm6a_G2yO_w_-377494272")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtPrd")]
     #endif
+    [IsoXmlTag("InstlmtPrd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber InstalmentPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 InstalmentPeriod { get; init; } 
+    public required System.UInt64 InstalmentPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 InstalmentPeriod { get; init; } 
     #else
@@ -117,16 +111,16 @@ public partial record RecurringTransaction1
     /// Total number of instalment payments.
     /// </summary>
     [IsoId("_SpiS4wEcEeCQm6a_G2yO_w_-1926232913")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Payments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfPmts")]
     #endif
+    [IsoXmlTag("TtlNbOfPmts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumberOfPayments { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNumberOfPayments { get; init; } 
+    public required System.UInt64 TotalNumberOfPayments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNumberOfPayments { get; init; } 
     #else
@@ -137,12 +131,12 @@ public partial record RecurringTransaction1
     /// Interest charged in percentage for the total amount of payments.
     /// </summary>
     [IsoId("_SpiS5AEcEeCQm6a_G2yO_w_993672809")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstChrgs")]
     #endif
+    [IsoXmlTag("IntrstChrgs")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? InterestCharges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

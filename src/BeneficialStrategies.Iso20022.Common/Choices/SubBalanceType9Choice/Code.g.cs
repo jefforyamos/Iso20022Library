@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceType9Choice
     /// Reason a financial instrument is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
     [IsoId("_YekH-IjvEeONZKAAW4pOaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceType9Choice
         /// Specifies the type of the securities or investment fund balance.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesBalanceType14Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesBalanceType14Code Value { get; init; } 
+        public required SecuritiesBalanceType14Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesBalanceType14Code Value { get; init; } 
         #else

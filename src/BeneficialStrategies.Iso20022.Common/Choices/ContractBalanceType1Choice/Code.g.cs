@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractBalanceType1Choice
     /// Specifies the nature of a balance, in a coded form.
     /// </summary>
     [IsoId("_n3S3IwtKEeWkxvNyFrBT8Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractBalanceType1Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalContractBalanceType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalContractBalanceType1Code Value { get; init; } 
+        public required ExternalContractBalanceType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalContractBalanceType1Code Value { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum ConductClassificationCode
 {
     /// <summary>
     /// Standard.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_kd8QoBdvEeKYM7Bc71nDlA")]
@@ -30,7 +30,7 @@ public enum ConductClassificationCode
     
     /// <summary>
     /// Non standard or unusual.
-    /// Encoded/decoded by serializers as "NSTA".
+    /// Encoded/decoded by serializers as &quot;NSTA&quot;.
     /// </summary>
     [EnumMember(Value = "NSTA")]
     [IsoId("_kmuZMBdvEeKYM7Bc71nDlA")]
@@ -39,7 +39,7 @@ public enum ConductClassificationCode
     
     /// <summary>
     /// Reluctant.
-    /// Encoded/decoded by serializers as "RCLT".
+    /// Encoded/decoded by serializers as &quot;RCLT&quot;.
     /// </summary>
     [EnumMember(Value = "RCLT")]
     [IsoId("_kvhI0BdvEeKYM7Bc71nDlA")]

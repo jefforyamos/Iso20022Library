@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amounts linked to a securities balance, for example, holding value.
 /// </summary>
 [IsoId("_WQRpSNp-Ed-ak6NoX_4Aeg_-87925160")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Amounts")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BalanceAmounts6
     /// Value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
     [IsoId("_WQbaQNp-Ed-ak6NoX_4Aeg_1920939692")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgVal")]
     #endif
+    [IsoXmlTag("HldgVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection14 HoldingValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection14 HoldingValue { get; init; } 
+    public required AmountAndDirection14 HoldingValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection14 HoldingValue { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record BalanceAmounts6
     /// Value of a financial instrument, as booked/acquired in an account. It may be used to establish capital gain tax liability.
     /// </summary>
     [IsoId("_WQbaQdp-Ed-ak6NoX_4Aeg_-1396676687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Book Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookVal")]
     #endif
+    [IsoXmlTag("BookVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? BookValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record BalanceAmounts6
     /// Difference between holding value and the book value.
     /// </summary>
     [IsoId("_WQbaQtp-Ed-ak6NoX_4Aeg_20912616")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unrealised Gain Loss")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UrlsdGnLoss")]
     #endif
+    [IsoXmlTag("UrlsdGnLoss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection14? UnrealisedGainLoss { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

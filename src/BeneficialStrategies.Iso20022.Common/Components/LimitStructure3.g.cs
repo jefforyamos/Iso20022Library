@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Limit details of one particular limit set by the member and managed by the transaction administrator.
 /// </summary>
 [IsoId("_A1FWUW4-EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit Structure")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record LimitStructure3
     /// Identification of the default limit.
     /// </summary>
     [IsoId("_A_hEs24-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtId")]
     #endif
+    [IsoXmlTag("LmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitIdentification2Choice_ LimitIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LimitIdentification2Choice_ LimitIdentification { get; init; } 
+    public required LimitIdentification2Choice_ LimitIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LimitIdentification2Choice_ LimitIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record LimitStructure3
     /// New limit values.
     /// </summary>
     [IsoId("_A_hEtW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Limit Value Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewLmtValSet")]
     #endif
+    [IsoXmlTag("NewLmtValSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Limit8 NewLimitValueSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Limit8 NewLimitValueSet { get; init; } 
+    public required Limit8 NewLimitValueSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Limit8 NewLimitValueSet { get; init; } 
     #else

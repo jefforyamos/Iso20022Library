@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice
     /// Indicates that underlying identification is not available.
     /// </summary>
     [IsoId("_idD07Vo2Ee23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Not Available")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice
         /// Specifies the type of the underlying identification.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IdNotAvlbl")]
         #endif
+        [IsoXmlTag("IdNotAvlbl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required UnderlyingIdentification1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public UnderlyingIdentification1Code Value { get; init; } 
+        public required UnderlyingIdentification1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public UnderlyingIdentification1Code Value { get; init; } 
         #else

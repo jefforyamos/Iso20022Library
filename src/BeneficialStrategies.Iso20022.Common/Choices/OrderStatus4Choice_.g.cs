@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OrderStatus4Choice.InRepair))]
     [KnownType(typeof(OrderStatus4Choice.PartiallySettled))]
     [IsoId("_9XxY8UH8EeaV3ab_pHzFIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Status 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

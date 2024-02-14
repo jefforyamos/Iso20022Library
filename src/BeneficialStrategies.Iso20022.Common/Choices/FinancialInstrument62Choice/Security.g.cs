@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice
     /// Identification of the security.
     /// </summary>
     [IsoId("_qD51cZy1Eem54rMzia0iag")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice
         /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
         /// </summary>
         [IsoId("_ymDcs5y1Eem54rMzia0iag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecurityIdentification25Choice_ Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecurityIdentification25Choice_ Identification { get; init; } 
+        public required SecurityIdentification25Choice_ Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecurityIdentification25Choice_ Identification { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice
         /// Name of the financial instrument in free format text.
         /// </summary>
         [IsoId("_ymDctZy1Eem54rMzia0iag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,15 +92,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice
         /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
         /// </summary>
         [IsoId("_ymDct5y1Eem54rMzia0iag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Short Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ShrtNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("ShrtNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? ShortName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +111,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice
         /// Type of security.
         /// </summary>
         [IsoId("_ymDcuZy1Eem54rMzia0iag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Classification Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClssfctnTp")]
         #endif
+        [IsoXmlTag("ClssfctnTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ClassificationType32Choice_? ClassificationType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +128,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice
         /// Indicates whether the security is a restricted security.
         /// </summary>
         [IsoId("_ojOQYJy2Eem54rMzia0iag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Restricted Indicator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RstrctdInd")]
         #endif
+        [IsoXmlTag("RstrctdInd")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? RestrictedIndicator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +146,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument62Choice
         /// Alternative security offered in place of a restricted security.
         /// </summary>
         [IsoId("_4-IZEJy1Eem54rMzia0iag")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Alternate Security")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AltrnScty")]
         #endif
+        [IsoXmlTag("AltrnScty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrumentIdentification4? AlternateSecurity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

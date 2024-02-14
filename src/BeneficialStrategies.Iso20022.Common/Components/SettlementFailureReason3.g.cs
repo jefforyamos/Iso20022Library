@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the reason for the settlement fails as defined in the relevant regulation.
 /// </summary>
 [IsoId("_nWYekSGkEeqlG_HhjTmcZg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Failure Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -46,12 +44,12 @@ public partial record SettlementFailureReason3
     /// Duration of fails is value based.
     /// </summary>
     [IsoId("_nXq4ASGkEeqlG_HhjTmcZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Average Duration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvrgDrtn")]
     #endif
+    [IsoXmlTag("AvrgDrtn")]
+    [IsoSimpleType(IsoSimpleType.Max2Fraction1NonNegativeNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2Fraction1NonNegativeNumber? AverageDuration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +62,11 @@ public partial record SettlementFailureReason3
     /// Detailed description of the failure reasons.
     /// </summary>
     [IsoId("_nXq4AyGkEeqlG_HhjTmcZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
+    [IsoXmlTag("Desc")]
     public SettlementFailureReason2? Description { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _nXq4AyGkEeqlG_HhjTmcZg
     

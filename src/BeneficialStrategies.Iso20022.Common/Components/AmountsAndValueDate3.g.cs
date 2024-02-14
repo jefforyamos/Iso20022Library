@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the value date and the amounts traded in a foreign exchange option trade.
 /// </summary>
 [IsoId("_TImttNp-Ed-ak6NoX_4Aeg_128911716")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amounts And Value Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record AmountsAndValueDate3
     /// Call amount and currency of a foreign exchange option trade.
     /// </summary>
     [IsoId("_TImttdp-Ed-ak6NoX_4Aeg_128911718")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Call Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CallAmt")]
     #endif
+    [IsoXmlTag("CallAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount CallAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CallAmount { get; init; } 
+    public required System.Decimal CallAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CallAmount { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record AmountsAndValueDate3
     /// Put amount and currency of a foreign exchange option trade.
     /// </summary>
     [IsoId("_TImtttp-Ed-ak6NoX_4Aeg_128911993")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Put Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PutAmt")]
     #endif
+    [IsoXmlTag("PutAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount PutAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PutAmount { get; init; } 
+    public required System.Decimal PutAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PutAmount { get; init; } 
     #else
@@ -92,12 +90,12 @@ public partial record AmountsAndValueDate3
     /// Date on which the trade is settled, ie, the amounts are due.
     /// </summary>
     [IsoId("_TImtt9p-Ed-ak6NoX_4Aeg_128911758")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlSttlmDt")]
     #endif
+    [IsoXmlTag("FnlSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FinalSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

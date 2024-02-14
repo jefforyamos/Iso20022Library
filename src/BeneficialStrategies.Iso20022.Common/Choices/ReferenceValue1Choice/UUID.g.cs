@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice
     /// Universally Unique IDentifier (UUID) version 4.
     /// </summary>
     [IsoId("_lTDZIMePEeysUoBKYz1Ytw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UUID")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,17 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Universally Unique IDentifier (UUID) version 4, as described in IETC RFC 4122 "Universally Unique IDentifier (UUID) URN Namespace".
+        /// Universally Unique IDentifier (UUID) version 4, as described in IETC RFC 4122 &quot;Universally Unique IDentifier (UUID) URN Namespace&quot;.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UUID")]
         #endif
+        [IsoXmlTag("UUID")]
+        [IsoSimpleType(IsoSimpleType.UUIDv4Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoUUIDv4Identifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

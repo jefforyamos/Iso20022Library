@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentificationOrCashPurpos
     /// Underlying reason for the payment SSI instruction, expressed as a code.
     /// </summary>
     [IsoId("_3LyNoUiNEeOdL6nMHefDgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash SSI Purpose")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,12 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentificationOrCashPurpos
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshSSIPurp")]
         #endif
+        [IsoXmlTag("CshSSIPurp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalMarketArea1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalMarketArea1Code Value { get; init; } 
+        public required ExternalMarketArea1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalMarketArea1Code Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a cryptographic algorithm.
 /// </summary>
 [IsoId("_Sw--twEcEeCQm6a_G2yO_w_-1845073315")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Algorithm Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AlgorithmIdentification1
     /// Identification of the algorithm.
     /// </summary>
     [IsoId("_Sw--uAEcEeCQm6a_G2yO_w_-1157879065")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
+    [IsoXmlTag("Algo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Algorithm1Code Algorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Algorithm1Code Algorithm { get; init; } 
+    public required Algorithm1Code Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Algorithm1Code Algorithm { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AlgorithmIdentification1
     /// Parameters associated to the algorithm.
     /// </summary>
     [IsoId("_Sw--uQEcEeCQm6a_G2yO_w_1001350985")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Param")]
     #endif
+    [IsoXmlTag("Param")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Parameter1? Parameter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

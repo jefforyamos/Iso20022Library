@@ -21,7 +21,7 @@ public enum InvestorTypeV2Code
 {
     /// <summary>
     /// Investor is both professional and retail.
-    /// Encoded/decoded by serializers as "BOT2".
+    /// Encoded/decoded by serializers as &quot;BOT2&quot;.
     /// </summary>
     [EnumMember(Value = "BOT2")]
     [IsoId("_nezffbVMEeqkjqDuFVh1-A")]
@@ -30,7 +30,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is both professional per se and elective professional.
-    /// Encoded/decoded by serializers as "BOT3".
+    /// Encoded/decoded by serializers as &quot;BOT3&quot;.
     /// </summary>
     [EnumMember(Value = "BOT3")]
     [IsoId("_nezffrVMEeqkjqDuFVh1-A")]
@@ -39,7 +39,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is an elective professional.
-    /// Encoded/decoded by serializers as "EPRO".
+    /// Encoded/decoded by serializers as &quot;EPRO&quot;.
     /// </summary>
     [EnumMember(Value = "EPRO")]
     [IsoId("_nezff7VMEeqkjqDuFVh1-A")]
@@ -48,7 +48,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is eligible to receive income gross, for example, a pension scheme.
-    /// Encoded/decoded by serializers as "GROS".
+    /// Encoded/decoded by serializers as &quot;GROS&quot;.
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_nezfgLVMEeqkjqDuFVh1-A")]
@@ -57,7 +57,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is an institutional investor.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_nezfgbVMEeqkjqDuFVh1-A")]
@@ -66,7 +66,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is neither professional or retail.
-    /// Encoded/decoded by serializers as "NEI1".
+    /// Encoded/decoded by serializers as &quot;NEI1&quot;.
     /// </summary>
     [EnumMember(Value = "NEI1")]
     [IsoId("_nezfgrVMEeqkjqDuFVh1-A")]
@@ -75,7 +75,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is a physical person.
-    /// Encoded/decoded by serializers as "PPER".
+    /// Encoded/decoded by serializers as &quot;PPER&quot;.
     /// </summary>
     [EnumMember(Value = "PPER")]
     [IsoId("_nezfg7VMEeqkjqDuFVh1-A")]
@@ -84,7 +84,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is a professional or institutional investor.
-    /// Encoded/decoded by serializers as "PROF".
+    /// Encoded/decoded by serializers as &quot;PROF&quot;.
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_nezfhLVMEeqkjqDuFVh1-A")]
@@ -93,7 +93,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is professional or professional per se.
-    /// Encoded/decoded by serializers as "PRF2".
+    /// Encoded/decoded by serializers as &quot;PRF2&quot;.
     /// </summary>
     [EnumMember(Value = "PRF2")]
     [IsoId("_nezfhbVMEeqkjqDuFVh1-A")]
@@ -102,7 +102,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor meets the fund entry policy restriction.
-    /// Encoded/decoded by serializers as "QUAL".
+    /// Encoded/decoded by serializers as &quot;QUAL&quot;.
     /// </summary>
     [EnumMember(Value = "QUAL")]
     [IsoId("_nezfhrVMEeqkjqDuFVh1-A")]
@@ -111,7 +111,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is a retail investor.
-    /// Encoded/decoded by serializers as "RETL".
+    /// Encoded/decoded by serializers as &quot;RETL&quot;.
     /// </summary>
     [EnumMember(Value = "RETL")]
     [IsoId("_nezfh7VMEeqkjqDuFVh1-A")]
@@ -120,7 +120,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is both an institutional and an individual investor.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_nezfiLVMEeqkjqDuFVh1-A")]
@@ -129,7 +129,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is an employee.
-    /// Encoded/decoded by serializers as "STAF".
+    /// Encoded/decoded by serializers as &quot;STAF&quot;.
     /// </summary>
     [EnumMember(Value = "STAF")]
     [IsoId("_nezfibVMEeqkjqDuFVh1-A")]
@@ -138,7 +138,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is neither professional per se or elective professional.
-    /// Encoded/decoded by serializers as "NPRF".
+    /// Encoded/decoded by serializers as &quot;NPRF&quot;.
     /// </summary>
     [EnumMember(Value = "NPRF")]
     [IsoId("_qi4UcLVMEeqkjqDuFVh1-A")]
@@ -147,7 +147,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is professional per se but not elective professional.
-    /// Encoded/decoded by serializers as "PRF3".
+    /// Encoded/decoded by serializers as &quot;PRF3&quot;.
     /// </summary>
     [EnumMember(Value = "PRF3")]
     [IsoId("_uCo_4LVMEeqkjqDuFVh1-A")]
@@ -156,7 +156,7 @@ public enum InvestorTypeV2Code
     
     /// <summary>
     /// Investor is an elective professional but not professional per se.
-    /// Encoded/decoded by serializers as "PRF4".
+    /// Encoded/decoded by serializers as &quot;PRF4&quot;.
     /// </summary>
     [EnumMember(Value = "PRF4")]
     [IsoId("_3bjQALVMEeqkjqDuFVh1-A")]

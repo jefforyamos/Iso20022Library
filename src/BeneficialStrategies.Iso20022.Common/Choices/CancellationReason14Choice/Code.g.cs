@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason14Choice
     /// Reason for the cancellation request, in a coded form.
     /// </summary>
     [IsoId("_t3j1IVkyEeGeoaLUQk__nA_2050646614")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason14Choice
         /// Specifies the reason for requesting the cancellation of a payment instruction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CancellationReason5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CancellationReason5Code Value { get; init; } 
+        public required CancellationReason5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CancellationReason5Code Value { get; init; } 
         #else

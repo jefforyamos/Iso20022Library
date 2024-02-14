@@ -21,7 +21,7 @@ public enum SwitchTypeCode
 {
     /// <summary>
     /// Indicates a partial switch for an account.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_Tt_zgA2XEeStB9HSJRk0Qw")]
@@ -30,7 +30,7 @@ public enum SwitchTypeCode
     
     /// <summary>
     /// Indicates a full switch for an account.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_VwU3oA2XEeStB9HSJRk0Qw")]

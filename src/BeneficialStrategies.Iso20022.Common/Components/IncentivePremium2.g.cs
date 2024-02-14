@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cash premium made available if the securities holder consents or participates to an event.
 /// </summary>
 [IsoId("_TjIGjtp-Ed-ak6NoX_4Aeg_-593608139")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Incentive Premium")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,15 +52,13 @@ public partial record IncentivePremium2
     /// Description of the premium.
     /// </summary>
     [IsoId("_TjR3gNp-Ed-ak6NoX_4Aeg_-593607912")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +71,15 @@ public partial record IncentivePremium2
     /// Cash premium paid per security, per vote or per attendee.
     /// </summary>
     [IsoId("_TjR3gdp-Ed-ak6NoX_4Aeg_-593607904")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateOrAmountChoice_ Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceRateOrAmountChoice_ Amount { get; init; } 
+    public required PriceRateOrAmountChoice_ Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceRateOrAmountChoice_ Amount { get; init; } 
     #else
@@ -95,16 +90,16 @@ public partial record IncentivePremium2
     /// Number of securities giving right to a premium.
     /// </summary>
     [IsoId("_TjR3gtp-Ed-ak6NoX_4Aeg_-593607879")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Per Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PerScty")]
     #endif
+    [IsoXmlTag("PerScty")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber PerSecurity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 PerSecurity { get; init; } 
+    public required System.UInt64 PerSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 PerSecurity { get; init; } 
     #else
@@ -115,16 +110,16 @@ public partial record IncentivePremium2
     /// Number of votes giving right to a premium.
     /// </summary>
     [IsoId("_TjR3g9p-Ed-ak6NoX_4Aeg_-593607844")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Per Vote")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PerVote")]
     #endif
+    [IsoXmlTag("PerVote")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber PerVote { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 PerVote { get; init; } 
+    public required System.UInt64 PerVote { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 PerVote { get; init; } 
     #else
@@ -135,16 +130,16 @@ public partial record IncentivePremium2
     /// Indicates that the premium is given per attendee.
     /// </summary>
     [IsoId("_TjR3hNp-Ed-ak6NoX_4Aeg_-593607819")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Per Attendee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PerAttndee")]
     #endif
+    [IsoXmlTag("PerAttndee")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PerAttendee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PerAttendee { get; init; } 
+    public required System.String PerAttendee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PerAttendee { get; init; } 
     #else
@@ -155,12 +150,11 @@ public partial record IncentivePremium2
     /// Date/time for the payment of the premium.
     /// </summary>
     [IsoId("_TjR3hdp-Ed-ak6NoX_4Aeg_-593607802")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDt")]
     #endif
+    [IsoXmlTag("PmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat3Choice_? PaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

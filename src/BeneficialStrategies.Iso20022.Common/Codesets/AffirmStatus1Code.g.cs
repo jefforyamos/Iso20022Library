@@ -21,7 +21,7 @@ public enum AffirmStatus1Code
 {
     /// <summary>
     /// Notfies that the trade confimation was conpleted.
-    /// Encoded/decoded by serializers as "ATCN".
+    /// Encoded/decoded by serializers as &quot;ATCN&quot;.
     /// </summary>
     [EnumMember(Value = "ATCN")]
     [IsoId("_Nub5sXOxEeSG-OV0nXMl5w")]
@@ -30,7 +30,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Notfies the clearing status changed.
-    /// Encoded/decoded by serializers as "ATSC".
+    /// Encoded/decoded by serializers as &quot;ATSC&quot;.
     /// </summary>
     [EnumMember(Value = "ATSC")]
     [IsoId("_N0344XOxEeSG-OV0nXMl5w")]
@@ -39,7 +39,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Data was successfully matched.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_N7VGMXOxEeSG-OV0nXMl5w")]
@@ -48,7 +48,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Data was mismatched.
-    /// Encoded/decoded by serializers as "MISM".
+    /// Encoded/decoded by serializers as &quot;MISM&quot;.
     /// </summary>
     [EnumMember(Value = "MISM")]
     [IsoId("_OBfYkXOxEeSG-OV0nXMl5w")]
@@ -57,7 +57,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Model has errors.
-    /// Encoded/decoded by serializers as "MISE".
+    /// Encoded/decoded by serializers as &quot;MISE&quot;.
     /// </summary>
     [EnumMember(Value = "MISE")]
     [IsoId("_OHzb8XOxEeSG-OV0nXMl5w")]
@@ -66,7 +66,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Have no trading permissions.
-    /// Encoded/decoded by serializers as "NOTP".
+    /// Encoded/decoded by serializers as &quot;NOTP&quot;.
     /// </summary>
     [EnumMember(Value = "NOTP")]
     [IsoId("_OOAxoXOxEeSG-OV0nXMl5w")]
@@ -75,7 +75,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Query time was out of range.
-    /// Encoded/decoded by serializers as "OUOR".
+    /// Encoded/decoded by serializers as &quot;OUOR&quot;.
     /// </summary>
     [EnumMember(Value = "OUOR")]
     [IsoId("_OUS_0XOxEeSG-OV0nXMl5w")]
@@ -84,7 +84,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Query time was over system service time.
-    /// Encoded/decoded by serializers as "OUOS".
+    /// Encoded/decoded by serializers as &quot;OUOS&quot;.
     /// </summary>
     [EnumMember(Value = "OUOS")]
     [IsoId("_OaqGgXOxEeSG-OV0nXMl5w")]
@@ -93,7 +93,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Format of upload data was right, and system receives successfully.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_OhAmIXOxEeSG-OV0nXMl5w")]
@@ -102,7 +102,7 @@ public enum AffirmStatus1Code
     
     /// <summary>
     /// Format of upload data was wrong, and system receives unsuccessfully.
-    /// Encoded/decoded by serializers as "UNRE".
+    /// Encoded/decoded by serializers as &quot;UNRE&quot;.
     /// </summary>
     [EnumMember(Value = "UNRE")]
     [IsoId("_OnPxAXOxEeSG-OV0nXMl5w")]

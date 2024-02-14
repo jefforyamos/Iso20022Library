@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the participant and their operational status.
 /// </summary>
 [IsoId("_Odl2BdNSEeWCqoSJYcWUsg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Participant And Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ParticipantAndStatus1
     /// Identification of participant.
     /// </summary>
     [IsoId("_Odl2B9NSEeWCqoSJYcWUsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcptId")]
     #endif
+    [IsoXmlTag("PtcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification13 ParticipantIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstitutionIdentification13 ParticipantIdentification { get; init; } 
+    public required FinancialInstitutionIdentification13 ParticipantIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstitutionIdentification13 ParticipantIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ParticipantAndStatus1
     /// Set of elements used to indicate how to contact the participant.
     /// </summary>
     [IsoId("_Odl2BtNSEeWCqoSJYcWUsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant Contact Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcptCtctDtls")]
     #endif
+    [IsoXmlTag("PtcptCtctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactDetails2? ParticipantContactDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ParticipantAndStatus1
     /// Provides details on operational availability of the participant business service.
     /// </summary>
     [IsoId("_Odl2CdNSEeWCqoSJYcWUsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Availability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcAvlbty")]
     #endif
+    [IsoXmlTag("SvcAvlbty")]
     public ServiceAvailability1? ServiceAvailability { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Odl2CdNSEeWCqoSJYcWUsg
     

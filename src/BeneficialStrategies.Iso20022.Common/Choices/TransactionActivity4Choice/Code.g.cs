@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionActivity4Choice
     /// Transaction type expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_8VKXS5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionActivity4Choice
         /// Specifies the type of activity to which this transaction relates.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TransactionActivity1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TransactionActivity1Code Value { get; init; } 
+        public required TransactionActivity1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TransactionActivity1Code Value { get; init; } 
         #else

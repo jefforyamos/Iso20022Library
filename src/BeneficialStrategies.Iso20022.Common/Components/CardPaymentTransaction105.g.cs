@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cancellation response from the acquirer.
 /// </summary>
 [IsoId("_JnxGUS5CEeunNvJlR_vCbg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardPaymentTransaction105
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
     [IsoId("_JzU2ES5CEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnRslt")]
     #endif
+    [IsoXmlTag("AuthstnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthorisationResult16 AuthorisationResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthorisationResult16 AuthorisationResult { get; init; } 
+    public required AuthorisationResult16 AuthorisationResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthorisationResult16 AuthorisationResult { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CardPaymentTransaction105
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
     [IsoId("_JzU2Ey5CEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action11? Action { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

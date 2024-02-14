@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information to log.
 /// </summary>
 [IsoId("_TqzxMYO6EeSWSLYdc10LRg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Action Message")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ActionMessage3
     /// Destination of the information.
     /// </summary>
     [IsoId("_T37AIYO6EeSWSLYdc10LRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Destination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dstn")]
     #endif
+    [IsoXmlTag("Dstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UserInterface3Code Destination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UserInterface3Code Destination { get; init; } 
+    public required UserInterface3Code Destination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UserInterface3Code Destination { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record ActionMessage3
     /// Format of the content.
     /// </summary>
     [IsoId("_T37AI4O6EeSWSLYdc10LRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frmt")]
     #endif
+    [IsoXmlTag("Frmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputFormat1Code? Format { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,19 +86,17 @@ public partial record ActionMessage3
     /// Content of the information.
     /// </summary>
     [IsoId("_T37AJYO6EeSWSLYdc10LRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Cntt")]
+    [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20000Text Content { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Content { get; init; } 
+    public required System.String Content { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Content { get; init; } 
     #else

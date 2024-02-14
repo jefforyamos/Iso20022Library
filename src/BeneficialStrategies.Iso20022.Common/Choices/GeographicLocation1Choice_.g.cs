@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeographicLocation1Choice.GeographicCoordinates))]
     [KnownType(typeof(GeographicLocation1Choice.UTMCoordinates))]
     [IsoId("_4klZMIn4EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Geographic Location 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the information that is searched through specific criteria.
 /// </summary>
 [IsoId("_VKQvgTp9EemwKdP955WBJQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Balance Query Definition")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record IntraBalanceQueryDefinition9
     /// Defines the type of query.
     /// </summary>
     [IsoId("_VUPx8Tp9EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryTp")]
     #endif
+    [IsoXmlTag("QryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MovementResponseType1Code QueryType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MovementResponseType1Code QueryType { get; init; } 
+    public required MovementResponseType1Code QueryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MovementResponseType1Code QueryType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record IntraBalanceQueryDefinition9
     /// Defines the criteria to extract the intra-balance movement instruction information.
     /// </summary>
     [IsoId("_VUPx8zp9EemwKdP955WBJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
+    public required IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
     #else

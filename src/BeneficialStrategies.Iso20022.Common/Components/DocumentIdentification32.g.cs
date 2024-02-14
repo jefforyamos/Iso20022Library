@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a document as well as the document number and type of link.
 /// </summary>
 [IsoId("_ni5s8TnYEeWLJsP1cO-amg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DocumentIdentification32
     /// Unique identifier of the document (message) assigned either by the account servicer or the account owner.
     /// </summary>
     [IsoId("_nwmKsTnYEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification3Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification3Choice_ Identification { get; init; } 
+    public required DocumentIdentification3Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification3Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DocumentIdentification32
     /// Identification of the type of document.
     /// </summary>
     [IsoId("_nwmKuTnYEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocNb")]
     #endif
+    [IsoXmlTag("DocNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentNumber5Choice_? DocumentNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record DocumentIdentification32
     /// Specifies when this document is to be processed relative to another referred document.
     /// </summary>
     [IsoId("_nwmKwTnYEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkage Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkgTp")]
     #endif
+    [IsoXmlTag("LkgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition7Choice_? LinkageType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

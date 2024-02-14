@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OptionEventType1Choice.Code))]
     [KnownType(typeof(OptionEventType1Choice.Proprietary))]
     [IsoId("_8K8KkJR0Eeeymf3kpbtgrA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Event Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

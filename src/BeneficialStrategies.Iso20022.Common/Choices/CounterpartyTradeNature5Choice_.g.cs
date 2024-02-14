@@ -15,16 +15,14 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Nature of the reporting counterparty's company activities.
+    /// Nature of the reporting counterparty&apos;s company activities.
     /// </summary>
     [KnownType(typeof(CounterpartyTradeNature5Choice.FinancialInstitution))]
     [KnownType(typeof(CounterpartyTradeNature5Choice.NonFinancialInstitution))]
     [KnownType(typeof(CounterpartyTradeNature5Choice.CentralCounterParty))]
     [KnownType(typeof(CounterpartyTradeNature5Choice.Other))]
     [IsoId("_9qIT-bsAEea-m5tPqiasmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Trade Nature 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

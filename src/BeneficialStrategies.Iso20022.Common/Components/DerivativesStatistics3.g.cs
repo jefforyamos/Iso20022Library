@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass data validations.
 /// </summary>
 [IsoId("_NHlf5VfdEeqZr5K1Woax-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivatives Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record DerivativesStatistics3
     /// Total number of derivatives submitted by the report submitting entity for the reporting counterparty.
     /// </summary>
     [IsoId("_NeaEcVfdEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Submitted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSubmittd")]
     #endif
+    [IsoXmlTag("TtlSubmittd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerActionType1 TotalSubmitted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticsPerActionType1 TotalSubmitted { get; init; } 
+    public required StatisticsPerActionType1 TotalSubmitted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticsPerActionType1 TotalSubmitted { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record DerivativesStatistics3
     /// Total number of rejected derivatives submitted by the report submitting entity for the reporting counterparty.
     /// </summary>
     [IsoId("_NeaEc1fdEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlRjctd")]
     #endif
+    [IsoXmlTag("TtlRjctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerActionType1 TotalRejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticsPerActionType1 TotalRejected { get; init; } 
+    public required StatisticsPerActionType1 TotalRejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticsPerActionType1 TotalRejected { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record DerivativesStatistics3
     /// Total number of rejected derivatives submitted by the report submitting entity for the reporting counterparty which were then corrected within ten business days.
     /// </summary>
     [IsoId("_NeaEdVfdEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Corrected Rejections")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCrrctdRjctns")]
     #endif
+    [IsoXmlTag("TtlCrrctdRjctns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticsPerActionType1 TotalCorrectedRejections { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticsPerActionType1 TotalCorrectedRejections { get; init; } 
+    public required StatisticsPerActionType1 TotalCorrectedRejections { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticsPerActionType1 TotalCorrectedRejections { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record DerivativesStatistics3
     /// Identification of the most common data field in reported derivatives that has not passed the validation rule.
     /// </summary>
     [IsoId("_NeaEd1fdEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Top Rejection Reasons")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TopRjctnRsns")]
     #endif
+    [IsoXmlTag("TopRjctnRsns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TopReasonsForRejections2 TopRejectionReasons { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TopReasonsForRejections2 TopRejectionReasons { get; init; } 
+    public required TopReasonsForRejections2 TopRejectionReasons { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TopReasonsForRejections2 TopRejectionReasons { get; init; } 
     #else

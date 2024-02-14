@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.admi;
 /// </summary>
 [Description(@"Scope|The SystemEventNotification message is sent by a central system to notify the occurrence of an event in a central system.|Usage|The message can be used by a central settlement system to inform its participants of an event that is going to occur in the system, for instance that the system will be down at a certain time, etc.")]
 [IsoId("_pgC-EU7TEeSGH6dwL1uJcg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Event Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record SystemEventNotificationV02 : IOuterRecord<SystemEventNotif
     /// Detailed information about a system event.
     /// </summary>
     [IsoId("_pgC-E07TEeSGH6dwL1uJcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtInf")]
     #endif
+    [IsoXmlTag("EvtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Event2 EventInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Event2 EventInformation { get; init; } 
+    public required Event2 EventInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Event2 EventInformation { get; init; } 
     #else
@@ -98,7 +95,7 @@ public partial record SystemEventNotificationV02 : IOuterRecord<SystemEventNotif
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SystemEventNotificationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SystemEventNotificationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SystemEventNotificationV02Document ToDocument()
     {
@@ -108,7 +105,7 @@ public partial record SystemEventNotificationV02 : IOuterRecord<SystemEventNotif
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SystemEventNotificationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SystemEventNotificationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SystemEventNotificationV02Document : IOuterDocument<SystemEventNotificationV02>
@@ -125,7 +122,7 @@ public partial record SystemEventNotificationV02Document : IOuterDocument<System
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SystemEventNotificationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SystemEventNotificationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemEventNotificationV02 Message { get; init; }

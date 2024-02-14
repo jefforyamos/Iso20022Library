@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Period6Choice
     /// Standard code to specify the type of period.
     /// </summary>
     [IsoId("_joeDtbQYEeeKRKrD60ELBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Period6Choice
         /// Specifies the type of dates.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrdCd")]
         #endif
+        [IsoXmlTag("PrdCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DateType8Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DateType8Code Value { get; init; } 
+        public required DateType8Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DateType8Code Value { get; init; } 
         #else

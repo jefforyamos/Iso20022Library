@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// </summary>
 [Description(@"Scope|The WithdrawalNotification message is sent by a central system to notify the withdrawal of a trade which was previously notified to the receiver as an alleged trade.|Usage|The message is used to confirm the cancellation of a previously notified trade.||This message is obsolete please use WithdrawalNotificationV02 - fxtr.013.001.02")]
 [IsoId("_V5V16NE8Ed-BzquC8wXy7w_-1324281")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Withdrawal Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record WithdrawalNotificationV01 : IOuterRecord<WithdrawalNotific
     /// Reference assigned by the central matching system which is notifying the deletion of a previously reported trade.
     /// </summary>
     [IsoId("_V5e_0NE8Ed-BzquC8wXy7w_-2008623152")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching System Unique Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchgSysUnqRef")]
     #endif
+    [IsoXmlTag("MtchgSysUnqRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageReference MatchingSystemUniqueReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageReference MatchingSystemUniqueReference { get; init; } 
+    public required MessageReference MatchingSystemUniqueReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageReference MatchingSystemUniqueReference { get; init; } 
     #else
@@ -100,7 +97,7 @@ public partial record WithdrawalNotificationV01 : IOuterRecord<WithdrawalNotific
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="WithdrawalNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;WithdrawalNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public WithdrawalNotificationV01Document ToDocument()
     {
@@ -110,7 +107,7 @@ public partial record WithdrawalNotificationV01 : IOuterRecord<WithdrawalNotific
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="WithdrawalNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;WithdrawalNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record WithdrawalNotificationV01Document : IOuterDocument<WithdrawalNotificationV01>
@@ -127,7 +124,7 @@ public partial record WithdrawalNotificationV01Document : IOuterDocument<Withdra
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="WithdrawalNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;WithdrawalNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required WithdrawalNotificationV01 Message { get; init; }

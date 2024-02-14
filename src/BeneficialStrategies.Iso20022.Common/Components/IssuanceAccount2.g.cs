@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the account to or from which a securities entry is made and the usage type.
 /// </summary>
 [IsoId("_mzWcD-FgEeWIA4E9cYSxxQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Issuance Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record IssuanceAccount2
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_m8H9geFgEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuance Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssncAcct")]
     #endif
+    [IsoXmlTag("IssncAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 IssuanceAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount19 IssuanceAccount { get; init; } 
+    public required SecuritiesAccount19 IssuanceAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount19 IssuanceAccount { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record IssuanceAccount2
     /// Defines if the related issuance account is the primary account or not.
     /// </summary>
     [IsoId("_m8H9g-FgEeWIA4E9cYSxxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Account Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryAcctInd")]
     #endif
+    [IsoXmlTag("PmryAcctInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PrimaryAccountIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PrimaryAccountIndicator { get; init; } 
+    public required System.String PrimaryAccountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PrimaryAccountIndicator { get; init; } 
     #else

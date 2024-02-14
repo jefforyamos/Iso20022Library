@@ -21,7 +21,7 @@ public enum CancelledStatusReasonV2Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CANI".
+    /// Encoded/decoded by serializers as &quot;CANI&quot;.
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_a1h9I9p-Ed-ak6NoX_4Aeg_1210390516")]
@@ -30,7 +30,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CANS".
+    /// Encoded/decoded by serializers as &quot;CANS&quot;.
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_a1h9JNp-Ed-ak6NoX_4Aeg_1210390532")]
@@ -39,7 +39,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Instruction has been cancelled by the agent due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_a1h9Jdp-Ed-ak6NoX_4Aeg_1210390549")]
@@ -48,7 +48,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction is cancelled by the hub.
-    /// Encoded/decoded by serializers as "CANH".
+    /// Encoded/decoded by serializers as &quot;CANH&quot;.
     /// </summary>
     [EnumMember(Value = "CANH")]
     [IsoId("_a1h9Jtp-Ed-ak6NoX_4Aeg_1210390592")]
@@ -57,7 +57,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction is cancelled by the instructing party.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_a1h9J9p-Ed-ak6NoX_4Aeg_1210390593")]
@@ -66,7 +66,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.
-    /// Encoded/decoded by serializers as "CXLR".
+    /// Encoded/decoded by serializers as &quot;CXLR&quot;.
     /// </summary>
     [EnumMember(Value = "CXLR")]
     [IsoId("_a1h9KNp-Ed-ak6NoX_4Aeg_1210390609")]
@@ -75,7 +75,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CANO".
+    /// Encoded/decoded by serializers as &quot;CANO&quot;.
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_a1ruINp-Ed-ak6NoX_4Aeg_1210390610")]
@@ -84,7 +84,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction is cancelled by the transfer agent.
-    /// Encoded/decoded by serializers as "CNTA".
+    /// Encoded/decoded by serializers as &quot;CNTA&quot;.
     /// </summary>
     [EnumMember(Value = "CNTA")]
     [IsoId("_a1ruIdp-Ed-ak6NoX_4Aeg_1210390627")]
@@ -93,7 +93,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction is cancelled by the client.
-    /// Encoded/decoded by serializers as "CNCL".
+    /// Encoded/decoded by serializers as &quot;CNCL&quot;.
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_a1ruItp-Ed-ak6NoX_4Aeg_1210390644")]
@@ -102,7 +102,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction is cancelled by the intermediary.
-    /// Encoded/decoded by serializers as "CNIN".
+    /// Encoded/decoded by serializers as &quot;CNIN&quot;.
     /// </summary>
     [EnumMember(Value = "CNIN")]
     [IsoId("_a1ruI9p-Ed-ak6NoX_4Aeg_1210390645")]
@@ -111,7 +111,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Original transaction has been cancelled and replaced due to a corporate action.
-    /// Encoded/decoded by serializers as "CANT".
+    /// Encoded/decoded by serializers as &quot;CANT&quot;.
     /// </summary>
     [EnumMember(Value = "CANT")]
     [IsoId("_a1ruJNp-Ed-ak6NoX_4Aeg_1040198338")]
@@ -120,7 +120,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Original transaction has been cancelled and replaced to allow a partial or split settlement.
-    /// Encoded/decoded by serializers as "CANZ".
+    /// Encoded/decoded by serializers as &quot;CANZ&quot;.
     /// </summary>
     [EnumMember(Value = "CANZ")]
     [IsoId("_a1ruJdp-Ed-ak6NoX_4Aeg_1124237850")]
@@ -129,7 +129,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction has been cancelled due to a corporate action.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_a1ruJtp-Ed-ak6NoX_4Aeg_1420685614")]
@@ -138,7 +138,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction has been cancelled by the issuer/registrar.
-    /// Encoded/decoded by serializers as "CREG".
+    /// Encoded/decoded by serializers as &quot;CREG&quot;.
     /// </summary>
     [EnumMember(Value = "CREG")]
     [IsoId("_a1ruJ9p-Ed-ak6NoX_4Aeg_1510268130")]
@@ -147,7 +147,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Transaction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.
-    /// Encoded/decoded by serializers as "SCEX".
+    /// Encoded/decoded by serializers as &quot;SCEX&quot;.
     /// </summary>
     [EnumMember(Value = "SCEX")]
     [IsoId("_a1ruKNp-Ed-ak6NoX_4Aeg_1822417371")]
@@ -156,7 +156,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// See narrative field for reason.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_a1ruKdp-Ed-ak6NoX_4Aeg_905447230")]
@@ -165,7 +165,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_a11fINp-Ed-ak6NoX_4Aeg_91595256")]
@@ -174,7 +174,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Instruction is cancelled by a Third party.
-    /// Encoded/decoded by serializers as "CTHP".
+    /// Encoded/decoded by serializers as &quot;CTHP&quot;.
     /// </summary>
     [EnumMember(Value = "CTHP")]
     [IsoId("_DRBwh_5DEeClUvPNHKL9Zw")]
@@ -183,7 +183,7 @@ public enum CancelledStatusReasonV2Code
     
     /// <summary>
     /// Instruction has been cancelled because a buy-in has been initiated.
-    /// Encoded/decoded by serializers as "BYIY".
+    /// Encoded/decoded by serializers as &quot;BYIY&quot;.
     /// </summary>
     [EnumMember(Value = "BYIY")]
     [IsoId("_Fyz1UNB6EeihG9bKfarOOA")]

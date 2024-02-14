@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the collateral that will be substituted.
 /// </summary>
 [IsoId("_1LsPEYFvEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Substitution")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CollateralSubstitution5
     /// Indicates whether the collateral substitution request is new or updated.
     /// </summary>
     [IsoId("_1hkYc4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Substitution Sequence")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSbstitnSeq")]
     #endif
+    [IsoXmlTag("CollSbstitnSeq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; init; } 
+    public required CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record CollateralSubstitution5
     /// Cash value of the requested collateral substitution transfer in the base currency.
     /// </summary>
     [IsoId("_1hkYdYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Substitution Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbstitnRqrmnt")]
     #endif
+    [IsoXmlTag("SbstitnRqrmnt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount SubstitutionRequirement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal SubstitutionRequirement { get; init; } 
+    public required System.Decimal SubstitutionRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal SubstitutionRequirement { get; init; } 
     #else
@@ -93,16 +90,15 @@ public partial record CollateralSubstitution5
     /// Specifies if the collateral that is substituted was posted against the variation margin or the independent amount.
     /// </summary>
     [IsoId("_1hkYd4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Substitution Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSbstitnTp")]
     #endif
+    [IsoXmlTag("CollSbstitnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralSubstitutionType1Code CollateralSubstitutionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralSubstitutionType1Code CollateralSubstitutionType { get; init; } 
+    public required CollateralSubstitutionType1Code CollateralSubstitutionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralSubstitutionType1Code CollateralSubstitutionType { get; init; } 
     #else
@@ -113,15 +109,13 @@ public partial record CollateralSubstitution5
     /// Identifies the standard settlement instructions.
     /// </summary>
     [IsoId("_1hkYeYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standard Settlement Instructions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StdSttlmInstrs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StdSttlmInstrs")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? StandardSettlementInstructions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,11 @@ public partial record CollateralSubstitution5
     /// Collateral type is securities.
     /// </summary>
     [IsoId("_1hkYe4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesColl")]
     #endif
+    [IsoXmlTag("SctiesColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesCollateral7? SecuritiesCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record CollateralSubstitution5
     /// Collateral type is cash.
     /// </summary>
     [IsoId("_1hkYfYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshColl")]
     #endif
+    [IsoXmlTag("CshColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashCollateral5? CashCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +162,11 @@ public partial record CollateralSubstitution5
     /// Collateral type is other than securities or cash for example letter of credit.
     /// </summary>
     [IsoId("_1hkYf4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrColl")]
     #endif
+    [IsoXmlTag("OthrColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherCollateral7? OtherCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +179,11 @@ public partial record CollateralSubstitution5
     /// Provides details on the identification of previously sent and/or received message(s), in case of updated substitution request.
     /// </summary>
     [IsoId("_1hkYgYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdRefs")]
     #endif
+    [IsoXmlTag("LkdRefs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reference17? LinkedReferences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UniqueTransactionIdentifier1Choice.UniqueTransactionIdentifier))]
     [KnownType(typeof(UniqueTransactionIdentifier1Choice.Proprietary))]
     [IsoId("_t08DgAxeEeuoAcnnpX2x_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Transaction Identifier 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

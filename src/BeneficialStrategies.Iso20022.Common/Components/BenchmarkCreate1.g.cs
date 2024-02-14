@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the attributes of the benchmark, which is / are being created.
 /// </summary>
 [IsoId("_-mkGetOtEeilDKNlC_3bSg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Benchmark Create")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,15 +51,13 @@ public partial record BenchmarkCreate1
     /// Unique identifier of a record in a message used as part of error management and status advice messages.
     /// </summary>
     [IsoId("_-mkGfdOtEeilDKNlC_3bSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +70,15 @@ public partial record BenchmarkCreate1
     /// Unique identification of the benchmark.
     /// </summary>
     [IsoId("_-mkGf9OtEeilDKNlC_3bSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification19 Identification { get; init; } 
+    public required SecurityIdentification19 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification19 Identification { get; init; } 
     #else
@@ -94,16 +89,15 @@ public partial record BenchmarkCreate1
     /// Any other additional information about the benchmark.
     /// </summary>
     [IsoId("_-mktgNOtEeilDKNlC_3bSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BenchmarkDetail1 Other { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BenchmarkDetail1 Other { get; init; } 
+    public required BenchmarkDetail1 Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BenchmarkDetail1 Other { get; init; } 
     #else
@@ -114,16 +108,15 @@ public partial record BenchmarkCreate1
     /// Set of identifiers of the party who is administrating the benchmark.
     /// </summary>
     [IsoId("_-mktg9OtEeilDKNlC_3bSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Administrator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Admstr")]
     #endif
+    [IsoXmlTag("Admstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification136 Administrator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification136 Administrator { get; init; } 
+    public required PartyIdentification136 Administrator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification136 Administrator { get; init; } 
     #else
@@ -134,12 +127,11 @@ public partial record BenchmarkCreate1
     /// Set of identifiers of the party who is the supervised entity endorsing the benchmark.
     /// </summary>
     [IsoId("_-mktgdOtEeilDKNlC_3bSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Endorsing Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NdrsngPty")]
     #endif
+    [IsoXmlTag("NdrsngPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? EndorsingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record BenchmarkCreate1
     /// Status of the decision taken by a relevant institution concerning the benchmark.
     /// </summary>
     [IsoId("_-mkGe9OtEeilDKNlC_3bSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusDetail1? Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record BenchmarkCreate1
     /// Period of time when the associated record is technically valid.
     /// </summary>
     [IsoId("_-mktgtOtEeilDKNlC_3bSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Validity Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechVldtyPrd")]
     #endif
+    [IsoXmlTag("TechVldtyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? TechnicalValidityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record BenchmarkCreate1
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_-mkGftOtEeilDKNlC_3bSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

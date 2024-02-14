@@ -21,7 +21,7 @@ public enum Response10Code
 {
     /// <summary>
     /// Request is still in progress.
-    /// Encoded/decoded by serializers as "INPS".
+    /// Encoded/decoded by serializers as &quot;INPS&quot;.
     /// </summary>
     [EnumMember(Value = "INPS")]
     [IsoId("_SpLhgX0mEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum Response10Code
     
     /// <summary>
     /// Service is under review.
-    /// Encoded/decoded by serializers as "UNRV".
+    /// Encoded/decoded by serializers as &quot;UNRV&quot;.
     /// </summary>
     [EnumMember(Value = "UNRV")]
     [IsoId("_SpLhg30mEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum Response10Code
     
     /// <summary>
     /// Other type of processing result defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_SpLhhX0mEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum Response10Code
     
     /// <summary>
     /// Other type of processing result defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_SpLhh30mEemfrNOe0zHQyg")]
@@ -57,7 +57,7 @@ public enum Response10Code
     
     /// <summary>
     /// Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_bt7vcX06Eem0U9m89kippg")]
@@ -66,7 +66,7 @@ public enum Response10Code
     
     /// <summary>
     /// Processing OK. Information related to the result of the processing is contained in other parts of the response message.
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_cQcmoX06Eem0U9m89kippg")]

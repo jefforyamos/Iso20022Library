@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument25Choice.CreditTransferDetails))]
     [KnownType(typeof(PaymentInstrument25Choice.ChequeDetails))]
     [IsoId("_MoD1sf8REemYYvJytExgzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Instrument 25 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

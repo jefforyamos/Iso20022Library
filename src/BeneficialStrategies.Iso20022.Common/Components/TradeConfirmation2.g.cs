@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies time and type of contract confirmation.
 /// </summary>
 [IsoId("_8KV5lA27EeWmAKKPnqYEVQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Confirmation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TradeConfirmation2
     /// Specifies whether the contract was confirmed electronically or non-electronically.
     /// </summary>
     [IsoId("_8KV5lg27EeWmAKKPnqYEVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeConfirmationType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeConfirmationType1Code Type { get; init; } 
+    public required TradeConfirmationType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeConfirmationType1Code Type { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record TradeConfirmation2
     /// Date and time of the trade confirmation, indicating time zone in which the confirmation has taken place.
     /// </summary>
     [IsoId("_8KV5lQ27EeWmAKKPnqYEVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmStmp")]
     #endif
+    [IsoXmlTag("TmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TimeStamp { get; init; } 
+    public required System.DateTime TimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TimeStamp { get; init; } 
     #else

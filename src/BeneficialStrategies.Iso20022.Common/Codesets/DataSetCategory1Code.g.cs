@@ -21,7 +21,7 @@ public enum DataSetCategory1Code
 {
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SWPK".
+    /// Encoded/decoded by serializers as &quot;SWPK&quot;.
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_TS9qbgEcEeCQm6a_G2yO_w_-1746547399")]
@@ -30,7 +30,7 @@ public enum DataSetCategory1Code
     
     /// <summary>
     /// Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.
-    /// Encoded/decoded by serializers as "VDPR".
+    /// Encoded/decoded by serializers as &quot;VDPR&quot;.
     /// </summary>
     [EnumMember(Value = "VDPR")]
     [IsoId("_TS9qbwEcEeCQm6a_G2yO_w_176526559")]
@@ -39,7 +39,7 @@ public enum DataSetCategory1Code
     
     /// <summary>
     /// Acquirer specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "AQPR".
+    /// Encoded/decoded by serializers as &quot;AQPR&quot;.
     /// </summary>
     [EnumMember(Value = "AQPR")]
     [IsoId("_TS9qcAEcEeCQm6a_G2yO_w_-440892528")]
@@ -48,7 +48,7 @@ public enum DataSetCategory1Code
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MRPR".
+    /// Encoded/decoded by serializers as &quot;MRPR&quot;.
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_TTG0UAEcEeCQm6a_G2yO_w_-1979644489")]
@@ -57,7 +57,7 @@ public enum DataSetCategory1Code
     
     /// <summary>
     /// Batch upload of transaction data (data capture of a group of transactions).
-    /// Encoded/decoded by serializers as "TXCP".
+    /// Encoded/decoded by serializers as &quot;TXCP&quot;.
     /// </summary>
     [EnumMember(Value = "TXCP")]
     [IsoId("_TTG0UQEcEeCQm6a_G2yO_w_287601386")]
@@ -66,7 +66,7 @@ public enum DataSetCategory1Code
     
     /// <summary>
     /// Batch download response for the batch capture of transactions.
-    /// Encoded/decoded by serializers as "AKCP".
+    /// Encoded/decoded by serializers as &quot;AKCP&quot;.
     /// </summary>
     [EnumMember(Value = "AKCP")]
     [IsoId("_TTG0UgEcEeCQm6a_G2yO_w_-706664908")]
@@ -75,7 +75,7 @@ public enum DataSetCategory1Code
     
     /// <summary>
     /// Report of software configuration and parameter status.
-    /// Encoded/decoded by serializers as "STRP".
+    /// Encoded/decoded by serializers as &quot;STRP&quot;.
     /// </summary>
     [EnumMember(Value = "STRP")]
     [IsoId("_TTG0UwEcEeCQm6a_G2yO_w_1553921435")]
@@ -84,7 +84,7 @@ public enum DataSetCategory1Code
     
     /// <summary>
     /// Data needed to create a terminal management sub-domain.
-    /// Encoded/decoded by serializers as "DLGT".
+    /// Encoded/decoded by serializers as &quot;DLGT&quot;.
     /// </summary>
     [EnumMember(Value = "DLGT")]
     [IsoId("_TTG0VAEcEeCQm6a_G2yO_w_1217299308")]
@@ -93,7 +93,7 @@ public enum DataSetCategory1Code
     
     /// <summary>
     /// Configuration of management plan in the point of interaction.
-    /// Encoded/decoded by serializers as "MGTP".
+    /// Encoded/decoded by serializers as &quot;MGTP&quot;.
     /// </summary>
     [EnumMember(Value = "MGTP")]
     [IsoId("_TTG0VQEcEeCQm6a_G2yO_w_-2055533980")]

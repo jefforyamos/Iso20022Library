@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a frequency, format and delivery address for statements.
 /// </summary>
 [IsoId("_Xr9A8A1gEeKGXqvMN6jpiw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statement Frequency And Form")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record StatementFrequencyAndForm1
     /// Specifies the frequency for sending statements.
     /// </summary>
     [IsoId("_ip_b0A1gEeKGXqvMN6jpiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frqcy")]
     #endif
+    [IsoXmlTag("Frqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency7Code Frequency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Frequency7Code Frequency { get; init; } 
+    public required Frequency7Code Frequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Frequency7Code Frequency { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record StatementFrequencyAndForm1
     /// Specifies the communication method for statements.
     /// </summary>
     [IsoId("_v6zxoA1gEeKGXqvMN6jpiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Communication Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComMtd")]
     #endif
+    [IsoXmlTag("ComMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommunicationMethod2Choice_ CommunicationMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommunicationMethod2Choice_ CommunicationMethod { get; init; } 
+    public required CommunicationMethod2Choice_ CommunicationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommunicationMethod2Choice_ CommunicationMethod { get; init; } 
     #else
@@ -94,19 +90,17 @@ public partial record StatementFrequencyAndForm1
     /// Specifies the delivery address for statements.
     /// </summary>
     [IsoId("_5MpwcA1gEeKGXqvMN6jpiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DlvryAdr")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text DeliveryAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DeliveryAddress { get; init; } 
+    public required System.String DeliveryAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DeliveryAddress { get; init; } 
     #else
@@ -117,16 +111,15 @@ public partial record StatementFrequencyAndForm1
     /// Specifies the format for statements.
     /// </summary>
     [IsoId("__ID-8A1gEeKGXqvMN6jpiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frmt")]
     #endif
+    [IsoXmlTag("Frmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommunicationFormat1Choice_ Format { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommunicationFormat1Choice_ Format { get; init; } 
+    public required CommunicationFormat1Choice_ Format { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommunicationFormat1Choice_ Format { get; init; } 
     #else

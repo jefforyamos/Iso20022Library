@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnitOrFaceAmountOrCodeChoice.FaceAmount))]
     [KnownType(typeof(UnitOrFaceAmountOrCodeChoice.Code))]
     [IsoId("_SokixNp-Ed-ak6NoX_4Aeg_1106804694")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Or Face Amount Or Code Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

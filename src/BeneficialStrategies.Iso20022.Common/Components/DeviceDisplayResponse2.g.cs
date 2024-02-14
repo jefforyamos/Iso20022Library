@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Display Response message.
 /// </summary>
 [IsoId("__rLLMS8OEeu125Ip9zFcsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Display Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record DeviceDisplayResponse2
     /// Give result for display request.
     /// </summary>
     [IsoId("__2WgcS8OEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Output Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutptRslt")]
     #endif
+    [IsoXmlTag("OutptRslt")]
     public OutputResult2? OutputResult { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is __2WgcS8OEeu125Ip9zFcsQ
     

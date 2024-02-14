@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConsentTypeFormat1Choice.Code))]
     [KnownType(typeof(ConsentTypeFormat1Choice.Proprietary))]
     [IsoId("_aqkpwCHnEeOQ7qT4JUI53A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consent Type Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

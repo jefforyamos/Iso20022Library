@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Description of the elements that violated a rule.
 /// </summary>
 [IsoId("_RFLdZtp-Ed-ak6NoX_4Aeg_-642511348")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Element Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ElementIdentification3
     /// Specifies from the root of the message the complete path of the element that violated a rule.
     /// </summary>
     [IsoId("_RFLdZ9p-Ed-ak6NoX_4Aeg_-642511346")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Element Path")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElmtPth")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElmtPth")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text ElementPath { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ElementPath { get; init; } 
+    public required System.String ElementPath { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ElementPath { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record ElementIdentification3
     /// Name of the element.
     /// </summary>
     [IsoId("_RFLdaNp-Ed-ak6NoX_4Aeg_-642511288")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Element Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElmtNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElmtNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ElementName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ElementName { get; init; } 
+    public required System.String ElementName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ElementName { get; init; } 
     #else
@@ -98,15 +92,13 @@ public partial record ElementIdentification3
     /// Contents of the element.
     /// </summary>
     [IsoId("_RFUnUNp-Ed-ak6NoX_4Aeg_-642511305")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Element Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElmtVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElmtVal")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? ElementValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

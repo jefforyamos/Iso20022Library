@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action date details.
 /// </summary>
 [IsoId("_1hOp4TL3EeKU9IrkkToqcw_902048104")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Date SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionDateSD5
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1hOp4jL3EeKU9IrkkToqcw_-768158364")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,12 @@ public partial record CorporateActionDateSD5
     /// Last day on which DTC (The Depository Trust Corporation) will accept instructions for CD early redemptions. This is specific to CDs when the registered holder is deceased.
     /// </summary>
     [IsoId("_1hOp4zL3EeKU9IrkkToqcw_-40963530")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Last Day For Early Redemption")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCLastDayForEarlyRed")]
     #endif
+    [IsoXmlTag("DTCLastDayForEarlyRed")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DTCLastDayForEarlyRedemption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +88,12 @@ public partial record CorporateActionDateSD5
     /// Date when positions are captured and entitlements are calculated in the system at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1hOp5DL3EeKU9IrkkToqcw_-1151874949")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Position Capture Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCPosCaptrDt")]
     #endif
+    [IsoXmlTag("DTCPosCaptrDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DTCPositionCaptureDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +103,15 @@ public partial record CorporateActionDateSD5
     #endif
     
     /// <summary>
-    /// Last day to deposit securities at DTC and receive the entitlement for an event approaching record date. Issues that have a New York cut-off date have an out-of-town agent on DTC's records.
+    /// Last day to deposit securities at DTC and receive the entitlement for an event approaching record date. Issues that have a New York cut-off date have an out-of-town agent on DTC&apos;s records.
     /// </summary>
     [IsoId("_1hOp5TL3EeKU9IrkkToqcw_1682939943")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New York Cut Off Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewYorkCutOffDt")]
     #endif
+    [IsoXmlTag("NewYorkCutOffDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? NewYorkCutOffDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +124,12 @@ public partial record CorporateActionDateSD5
     /// Cutoff date for DTC (The Depository Trust Corporation) deposit and withdrawal activity. Certain events require an earlier cutoff date. This is typically used on event securities requiring the submission of bearer coupons. Those events usually stop deposit and withdrawal activity one month prior to the declared record date.
     /// </summary>
     [IsoId("_1hYa4DL3EeKU9IrkkToqcw_-1884832519")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Extended Cut Off Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCXtndedCutOffDt")]
     #endif
+    [IsoXmlTag("DTCXtndedCutOffDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DTCExtendedCutOffDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +142,12 @@ public partial record CorporateActionDateSD5
     /// Effective date as declared by the primary exchange that generally coincides with cessation of trading in the old security and commencement of trading in the new security.
     /// </summary>
     [IsoId("_1hYa4TL3EeKU9IrkkToqcw_1299223358")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date By Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDtByXchg")]
     #endif
+    [IsoXmlTag("FctvDtByXchg")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EffectiveDateByExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +160,12 @@ public partial record CorporateActionDateSD5
     /// Date that DTC received formal notification from the agent/issuer stating that the securities are null and void.
     /// </summary>
     [IsoId("_1hYa4jL3EeKU9IrkkToqcw_2008057450")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Declared Worthless")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtDclrdWrthls")]
     #endif
+    [IsoXmlTag("DtDclrdWrthls")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateDeclaredWorthless { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +178,12 @@ public partial record CorporateActionDateSD5
     /// Date when DTC participant positions will be deleted. Typically used for expired rights and warrants.
     /// </summary>
     [IsoId("_1hYa4zL3EeKU9IrkkToqcw_-1559715012")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delete Worthless Security Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DelWrthlsSctyDt")]
     #endif
+    [IsoXmlTag("DelWrthlsSctyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DeleteWorthlessSecurityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +196,12 @@ public partial record CorporateActionDateSD5
     /// Date on which securities will be exited to DTC participants from DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1hYa5DL3EeKU9IrkkToqcw_1624340865")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Exit Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCExitDt")]
     #endif
+    [IsoXmlTag("DTCExitDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DTCExitDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +214,12 @@ public partial record CorporateActionDateSD5
     /// Date on which a holder can begin to subscribe for new/additional shares.
     /// </summary>
     [IsoId("_1hYa5TL3EeKU9IrkkToqcw_2125928435")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Begin Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptBegnDt")]
     #endif
+    [IsoXmlTag("SbcptBegnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SubscriptionBeginDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

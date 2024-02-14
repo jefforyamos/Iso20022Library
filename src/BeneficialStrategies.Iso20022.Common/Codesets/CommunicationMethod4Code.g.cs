@@ -21,7 +21,7 @@ public enum CommunicationMethod4Code
 {
     /// <summary>
     /// Transmission by e-mail.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_-_hTkdL6EeSDLevdaFPXHw")]
@@ -30,7 +30,7 @@ public enum CommunicationMethod4Code
     
     /// <summary>
     /// Transmission by fax.
-    /// Encoded/decoded by serializers as "FAXI".
+    /// Encoded/decoded by serializers as &quot;FAXI&quot;.
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("__HQTQ9L6EeSDLevdaFPXHw")]
@@ -39,7 +39,7 @@ public enum CommunicationMethod4Code
     
     /// <summary>
     /// Transmission by file transfer.
-    /// Encoded/decoded by serializers as "FILE".
+    /// Encoded/decoded by serializers as &quot;FILE&quot;.
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("__QCb09L6EeSDLevdaFPXHw")]
@@ -48,7 +48,7 @@ public enum CommunicationMethod4Code
     
     /// <summary>
     /// Transmission on line, for example, in a web portal.
-    /// Encoded/decoded by serializers as "ONLI".
+    /// Encoded/decoded by serializers as &quot;ONLI&quot;.
     /// </summary>
     [EnumMember(Value = "ONLI")]
     [IsoId("__XK-k9L6EeSDLevdaFPXHw")]
@@ -57,7 +57,7 @@ public enum CommunicationMethod4Code
     
     /// <summary>
     /// Transmission by telephone.
-    /// Encoded/decoded by serializers as "PHON".
+    /// Encoded/decoded by serializers as &quot;PHON&quot;.
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("__ed5Y9L6EeSDLevdaFPXHw")]
@@ -66,7 +66,7 @@ public enum CommunicationMethod4Code
     
     /// <summary>
     /// Transmission by postal service.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("__lAmQ9L6EeSDLevdaFPXHw")]
@@ -75,7 +75,7 @@ public enum CommunicationMethod4Code
     
     /// <summary>
     /// Transmission by proprietary method.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("__r__E9L6EeSDLevdaFPXHw")]
@@ -84,7 +84,7 @@ public enum CommunicationMethod4Code
     
     /// <summary>
     /// Transmission by Swift (FIN).
-    /// Encoded/decoded by serializers as "SWMT".
+    /// Encoded/decoded by serializers as &quot;SWMT&quot;.
     /// </summary>
     [EnumMember(Value = "SWMT")]
     [IsoId("__y2N89L6EeSDLevdaFPXHw")]
@@ -93,7 +93,7 @@ public enum CommunicationMethod4Code
     
     /// <summary>
     /// Transmission by SWIFTNET.
-    /// Encoded/decoded by serializers as "SWMX".
+    /// Encoded/decoded by serializers as &quot;SWMX&quot;.
     /// </summary>
     [EnumMember(Value = "SWMX")]
     [IsoId("__5ir09L6EeSDLevdaFPXHw")]

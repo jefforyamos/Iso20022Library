@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the agreed amount and the collateral movement direction.
 /// </summary>
 [IsoId("_xv755YFvEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CollateralMovement7
     /// Provides the call amount that is agreed and that will result in a collateral movement.
     /// </summary>
     [IsoId("_yGZ5IYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrdAmt")]
     #endif
+    [IsoXmlTag("AgrdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AgreedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AgreedAmount { get; init; } 
+    public required System.Decimal AgreedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AgreedAmount { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record CollateralMovement7
     /// Provides the collateral movement direction that is a delivery and optionaly a return, or a return only.
     /// </summary>
     [IsoId("_yGZ5I4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement Direction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MvmntDrctn")]
     #endif
+    [IsoXmlTag("MvmntDrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralMovement4Choice_? MovementDirection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

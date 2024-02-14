@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This component define the environment, the context and the services to be used with this message.
 /// </summary>
 [IsoId("_2QiaAU6mEeyGi9JAv6wq7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record DeviceRequest5
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_2XXawU6mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentEnvironment78? Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record DeviceRequest5
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
     [IsoId("_2XYB0U6mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentContext29? Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +83,15 @@ public partial record DeviceRequest5
     /// Define the type of service requested.
     /// </summary>
     [IsoId("_2XYB006mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcCntt")]
     #endif
+    [IsoXmlTag("SvcCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerService8Code ServiceContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetailerService8Code ServiceContent { get; init; } 
+    public required RetailerService8Code ServiceContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetailerService8Code ServiceContent { get; init; } 
     #else
@@ -107,12 +102,11 @@ public partial record DeviceRequest5
     /// Content of the Display Request message.
     /// </summary>
     [IsoId("_2XYB1U6mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispReq")]
     #endif
+    [IsoXmlTag("DispReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceDisplayRequest4? DisplayRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record DeviceRequest5
     /// Content of the Input Request message.
     /// </summary>
     [IsoId("_2XYB106mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Input Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InptReq")]
     #endif
+    [IsoXmlTag("InptReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceInputRequest4? InputRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,11 @@ public partial record DeviceRequest5
     /// Content of the Print Request message.
     /// </summary>
     [IsoId("_2XYB2U6mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Print Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtReq")]
     #endif
+    [IsoXmlTag("PrtReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DevicePrintRequest4? PrintRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +153,11 @@ public partial record DeviceRequest5
     /// Content of the Resource Request message.
     /// </summary>
     [IsoId("_2XYB206mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Play Resource Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlayRsrcReq")]
     #endif
+    [IsoXmlTag("PlayRsrcReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DevicePlayResourceRequest1? PlayResourceRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +170,11 @@ public partial record DeviceRequest5
     /// Request a secure input for a PIN.
     /// </summary>
     [IsoId("_2XYB3U6mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secure Input Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScrInptReq")]
     #endif
+    [IsoXmlTag("ScrInptReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceSecureInputRequest4? SecureInputRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +187,11 @@ public partial record DeviceRequest5
     /// A service to send parameters to Card Reader to initialize a new communication with a card.
     /// </summary>
     [IsoId("_2XYB306mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initialisation Card Reader Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlstnCardRdrReq")]
     #endif
+    [IsoXmlTag("InitlstnCardRdrReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceInitialisationCardReaderRequest4? InitialisationCardReaderRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +204,11 @@ public partial record DeviceRequest5
     /// Content of the APDU (Application Protocol Data Unit) to send to the Card.
     /// </summary>
     [IsoId("_2XYB4U6mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Reader APDU Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardRdrAPDUReq")]
     #endif
+    [IsoXmlTag("CardRdrAPDUReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceSendApplicationProtocolDataUnitCardReaderRequest1? CardReaderAPDURequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,12 +221,11 @@ public partial record DeviceRequest5
     /// Content of the Power Off Card Reader Request message.
     /// </summary>
     [IsoId("_2XYB406mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Power Off Card Reader Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PwrOffCardRdrReq")]
     #endif
+    [IsoXmlTag("PwrOffCardRdrReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DevicePoweroffCardReaderRequest4? PowerOffCardReaderRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,12 +238,11 @@ public partial record DeviceRequest5
     /// Content of the Request message to transmit.
     /// </summary>
     [IsoId("_2XYB5U6mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transmission Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsmssnReq")]
     #endif
+    [IsoXmlTag("TrnsmssnReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceTransmitMessageRequest2? TransmissionRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -269,12 +255,11 @@ public partial record DeviceRequest5
     /// Content of the Input notification message.
     /// </summary>
     [IsoId("_2XYB506mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Input Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InptNtfctn")]
     #endif
+    [IsoXmlTag("InptNtfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceInputNotification4? InputNotification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -287,12 +272,11 @@ public partial record DeviceRequest5
     /// Additional information incorporated as an extension to the message.
     /// </summary>
     [IsoId("_2XYB6U6mEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

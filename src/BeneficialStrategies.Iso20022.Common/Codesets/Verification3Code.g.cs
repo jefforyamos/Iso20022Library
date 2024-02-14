@@ -21,7 +21,7 @@ public enum Verification3Code
 {
     /// <summary>
     /// Verification failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_u1PuQSYDEeym0KcvJF9aDQ")]
@@ -30,7 +30,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Further action required.
-    /// Encoded/decoded by serializers as "FUTA".
+    /// Encoded/decoded by serializers as &quot;FUTA&quot;.
     /// </summary>
     [EnumMember(Value = "FUTA")]
     [IsoId("_u50FMSYDEeym0KcvJF9aDQ")]
@@ -39,7 +39,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Information required to perform the verification was missing.
-    /// Encoded/decoded by serializers as "MISS".
+    /// Encoded/decoded by serializers as &quot;MISS&quot;.
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_u-LAwSYDEeym0KcvJF9aDQ")]
@@ -48,7 +48,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Not support the verification type
-    /// Encoded/decoded by serializers as "NOSP".
+    /// Encoded/decoded by serializers as &quot;NOSP&quot;.
     /// </summary>
     [EnumMember(Value = "NOSP")]
     [IsoId("_vCrtUSYDEeym0KcvJF9aDQ")]
@@ -57,7 +57,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Verification has not been performed.
-    /// Encoded/decoded by serializers as "NOVF".
+    /// Encoded/decoded by serializers as &quot;NOVF&quot;.
     /// </summary>
     [EnumMember(Value = "NOVF")]
     [IsoId("_vGt4wSYDEeym0KcvJF9aDQ")]
@@ -66,7 +66,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Other result of verification defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_vYRi0SYDEeym0KcvJF9aDQ")]
@@ -75,7 +75,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Other result of verification defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_vdmuwSYDEeym0KcvJF9aDQ")]
@@ -84,7 +84,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Verification was partially successful.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_vhphQSYDEeym0KcvJF9aDQ")]
@@ -93,7 +93,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Verification was successful.
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_vmhaMSYDEeym0KcvJF9aDQ")]
@@ -102,7 +102,7 @@ public enum Verification3Code
     
     /// <summary>
     /// Device or entity to perform the verification was unavailable.
-    /// Encoded/decoded by serializers as "ERRR".
+    /// Encoded/decoded by serializers as &quot;ERRR&quot;.
     /// </summary>
     [EnumMember(Value = "ERRR")]
     [IsoId("_vqukwSYDEeym0KcvJF9aDQ")]

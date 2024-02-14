@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
-/// Specifies the type of person's identification.
+/// Specifies the type of person&apos;s identification.
 /// </summary>
 [DataContract]
 [Serializable]
@@ -21,7 +21,7 @@ public enum PersonIdentificationType3Code
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "ARNU".
+    /// Encoded/decoded by serializers as &quot;ARNU&quot;.
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_aGvkiNp-Ed-ak6NoX_4Aeg_266470202")]
@@ -30,7 +30,7 @@ public enum PersonIdentificationType3Code
     
     /// <summary>
     /// Number assigned by a passport authority to a passport.
-    /// Encoded/decoded by serializers as "CCPT".
+    /// Encoded/decoded by serializers as &quot;CCPT&quot;.
     /// </summary>
     [EnumMember(Value = "CCPT")]
     [IsoId("_aGvkidp-Ed-ak6NoX_4Aeg_266470231")]
@@ -39,7 +39,7 @@ public enum PersonIdentificationType3Code
     
     /// <summary>
     /// Number assigned to an employer by a registration authority.
-    /// Encoded/decoded by serializers as "EMID".
+    /// Encoded/decoded by serializers as &quot;EMID&quot;.
     /// </summary>
     [EnumMember(Value = "EMID")]
     [IsoId("_aG5VgNp-Ed-ak6NoX_4Aeg_266470232")]
@@ -47,8 +47,8 @@ public enum PersonIdentificationType3Code
     EmployerIdentificationNumber = PersonIdentificationTypeV2Code.EmployerIdentificationNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Number assigned by a license authority to a driver's license.
-    /// Encoded/decoded by serializers as "DRLC".
+    /// Number assigned by a license authority to a driver&apos;s license.
+    /// Encoded/decoded by serializers as &quot;DRLC&quot;.
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_aG5Vgdp-Ed-ak6NoX_4Aeg_266470233")]
@@ -57,7 +57,7 @@ public enum PersonIdentificationType3Code
     
     /// <summary>
     /// Number assigned to a foreign investor (other than the alien number).
-    /// Encoded/decoded by serializers as "FINN".
+    /// Encoded/decoded by serializers as &quot;FINN&quot;.
     /// </summary>
     [EnumMember(Value = "FINN")]
     [IsoId("_aG5Vgtp-Ed-ak6NoX_4Aeg_266470261")]
@@ -66,7 +66,7 @@ public enum PersonIdentificationType3Code
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TXID".
+    /// Encoded/decoded by serializers as &quot;TXID&quot;.
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_aG5Vg9p-Ed-ak6NoX_4Aeg_266470262")]

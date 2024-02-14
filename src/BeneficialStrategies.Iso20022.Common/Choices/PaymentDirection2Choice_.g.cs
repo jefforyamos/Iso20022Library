@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentDirection2Choice.Indicator))]
     [KnownType(typeof(PaymentDirection2Choice.Proprietary))]
     [IsoId("_Qu-j5tp-Ed-ak6NoX_4Aeg_1993902591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Direction 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

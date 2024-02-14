@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
-/// Specifies the type of counterparty's action the response is related to.
+/// Specifies the type of counterparty&apos;s action the response is related to.
 /// </summary>
 [DataContract]
 [Serializable]
@@ -21,7 +21,7 @@ public enum CounterpartyResponseStatusReason1Code
 {
     /// <summary>
     /// Specifies that the response is related to an allegement from the counterparty.
-    /// Encoded/decoded by serializers as "CPTR".
+    /// Encoded/decoded by serializers as &quot;CPTR&quot;.
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_0mWuhQlIEeGATtfOBToyew_1912527419")]
@@ -30,7 +30,7 @@ public enum CounterpartyResponseStatusReason1Code
     
     /// <summary>
     /// Specifies that the response is related to the cancellation request of the counterparty.
-    /// Encoded/decoded by serializers as "CPCX".
+    /// Encoded/decoded by serializers as &quot;CPCX&quot;.
     /// </summary>
     [EnumMember(Value = "CPCX")]
     [IsoId("_0mgfgAlIEeGATtfOBToyew_1029294132")]
@@ -39,7 +39,7 @@ public enum CounterpartyResponseStatusReason1Code
     
     /// <summary>
     /// Specifies that the response is related to the modification request of the counterparty.
-    /// Encoded/decoded by serializers as "CPMD".
+    /// Encoded/decoded by serializers as &quot;CPMD&quot;.
     /// </summary>
     [EnumMember(Value = "CPMD")]
     [IsoId("_0mgfgQlIEeGATtfOBToyew_2030398404")]

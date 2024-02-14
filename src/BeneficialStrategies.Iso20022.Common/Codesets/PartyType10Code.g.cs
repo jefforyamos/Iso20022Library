@@ -21,7 +21,7 @@ public enum PartyType10Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_dnNTkXrgEeSlsoBd7x4P6A")]
@@ -30,7 +30,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_dtndkXrgEeSlsoBd7x4P6A")]
@@ -39,7 +39,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// Entity managing the ATM.
-    /// Encoded/decoded by serializers as "ATMG".
+    /// Encoded/decoded by serializers as &quot;ATMG&quot;.
     /// </summary>
     [EnumMember(Value = "ATMG")]
     [IsoId("_e5urYXrgEeSlsoBd7x4P6A")]
@@ -48,7 +48,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_ftit8XrgEeSlsoBd7x4P6A")]
@@ -57,7 +57,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DLIS".
+    /// Encoded/decoded by serializers as &quot;DLIS&quot;.
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_f-YmUXrgEeSlsoBd7x4P6A")]
@@ -66,7 +66,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// Entity hosting the ATM.
-    /// Encoded/decoded by serializers as "HSTG".
+    /// Encoded/decoded by serializers as &quot;HSTG&quot;.
     /// </summary>
     [EnumMember(Value = "HSTG")]
     [IsoId("_hm2Y8XrgEeSlsoBd7x4P6A")]
@@ -75,7 +75,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_h05cAXrgEeSlsoBd7x4P6A")]
@@ -84,7 +84,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_i5CZkXrgEeSlsoBd7x4P6A")]
@@ -93,7 +93,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// ATM initiating the transaction.
-    /// Encoded/decoded by serializers as "OATM".
+    /// Encoded/decoded by serializers as &quot;OATM&quot;.
     /// </summary>
     [EnumMember(Value = "OATM")]
     [IsoId("_jRkOUXrgEeSlsoBd7x4P6A")]
@@ -102,7 +102,7 @@ public enum PartyType10Code
     
     /// <summary>
     /// Point Of Interaction initiating the card payment transaction.
-    /// Encoded/decoded by serializers as "OPOI".
+    /// Encoded/decoded by serializers as &quot;OPOI&quot;.
     /// </summary>
     [EnumMember(Value = "OPOI")]
     [IsoId("_jYxCgXrgEeSlsoBd7x4P6A")]

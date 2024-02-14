@@ -21,7 +21,7 @@ public enum ReportSortedTypeCode
 {
     /// <summary>
     /// Type of criterion is a nation.
-    /// Encoded/decoded by serializers as "COUN".
+    /// Encoded/decoded by serializers as &quot;COUN&quot;.
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_VqbxRdp-Ed-ak6NoX_4Aeg_-2144991897")]
@@ -30,7 +30,7 @@ public enum ReportSortedTypeCode
     
     /// <summary>
     /// Type of criterion is an entity, eg, a financial institution.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_VqbxRtp-Ed-ak6NoX_4Aeg_-2144991896")]
@@ -39,7 +39,7 @@ public enum ReportSortedTypeCode
     
     /// <summary>
     /// Type of criterion is a currency, eg, the euro.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_VqbxR9p-Ed-ak6NoX_4Aeg_-2144991895")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat3Choice
     /// Ratio expressed as a quotient of quantities.
     /// </summary>
     [IsoId("_Q1ro1Np-Ed-ak6NoX_4Aeg_1437709945")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity To Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat3Choice
         /// Numerator of the quotient of quantities.
         /// </summary>
         [IsoId("_UMtPANp-Ed-ak6NoX_4Aeg_110025386")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Qty1")]
         #endif
+        [IsoXmlTag("Qty1")]
+        [IsoSimpleType(IsoSimpleType.DecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoDecimalNumber Quantity1 { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Quantity1 { get; init; } 
+        public required System.UInt64 Quantity1 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Quantity1 { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat3Choice
         /// Denominator of the quotient of quantities.
         /// </summary>
         [IsoId("_UMtPAdp-Ed-ak6NoX_4Aeg_154352706")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Qty2")]
         #endif
+        [IsoXmlTag("Qty2")]
+        [IsoSimpleType(IsoSimpleType.DecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoDecimalNumber Quantity2 { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Quantity2 { get; init; } 
+        public required System.UInt64 Quantity2 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Quantity2 { get; init; } 
         #else

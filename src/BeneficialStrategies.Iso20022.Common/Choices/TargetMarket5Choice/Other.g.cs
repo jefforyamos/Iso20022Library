@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TargetMarket5Choice
     /// Specifies whether the financial product is in scope of the target market parameter.
     /// </summary>
     [IsoId("_xfZQE7VLEeqkjqDuFVh1-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TargetMarket5Choice
         /// Specifies whether a financial product is in scope of a target market parameter.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Othr")]
         #endif
+        [IsoXmlTag("Othr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TargetMarket1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TargetMarket1Code Value { get; init; } 
+        public required TargetMarket1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TargetMarket1Code Value { get; init; } 
         #else

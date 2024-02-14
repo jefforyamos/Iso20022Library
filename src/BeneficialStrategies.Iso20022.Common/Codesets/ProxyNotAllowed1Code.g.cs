@@ -21,7 +21,7 @@ public enum ProxyNotAllowed1Code
 {
     /// <summary>
     /// Proxy not allowed.
-    /// Encoded/decoded by serializers as "NPRO".
+    /// Encoded/decoded by serializers as &quot;NPRO&quot;.
     /// </summary>
     [EnumMember(Value = "NPRO")]
     [IsoId("_jssAccjCEem7mOT-LZ2mYQ")]

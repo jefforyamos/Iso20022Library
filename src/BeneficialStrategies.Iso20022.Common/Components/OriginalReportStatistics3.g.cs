@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Statistical information on the processing of records included in the original report.
 /// </summary>
 [IsoId("_4h_4QdHEEeaokquJJ-K6uA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Report Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record OriginalReportStatistics3
     /// Total numbers of records included in the original file.
     /// </summary>
     [IsoId("_4rGw8dHEEeaokquJJ-K6uA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Records")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfRcrds")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfRcrds")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText TotalNumberOfRecords { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfRecords { get; init; } 
+    public required System.String TotalNumberOfRecords { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfRecords { get; init; } 
     #else
@@ -74,12 +69,11 @@ public partial record OriginalReportStatistics3
     /// Detailed information on the number of records for each records status.
     /// </summary>
     [IsoId("_4rGw89HEEeaokquJJ-K6uA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Records Per Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfRcrdsPerSts")]
     #endif
+    [IsoXmlTag("NbOfRcrdsPerSts")]
     public NumberOfRecordsPerStatus1? NumberOfRecordsPerStatus { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _4rGw89HEEeaokquJJ-K6uA
     

@@ -21,7 +21,7 @@ public enum TransactionEnvironment2Code
 {
     /// <summary>
     /// Private environment.
-    /// Encoded/decoded by serializers as "PRIV".
+    /// Encoded/decoded by serializers as &quot;PRIV&quot;.
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_d7rAgXsIEeSR68OJvMfxJQ")]
@@ -30,7 +30,7 @@ public enum TransactionEnvironment2Code
     
     /// <summary>
     /// Public environment.
-    /// Encoded/decoded by serializers as "PUBL".
+    /// Encoded/decoded by serializers as &quot;PUBL&quot;.
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_eDeRoXsIEeSR68OJvMfxJQ")]

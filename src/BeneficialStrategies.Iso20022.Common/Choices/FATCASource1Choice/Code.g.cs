@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FATCASource1Choice
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status expressed as a code.
     /// </summary>
     [IsoId("_pdKdkAjUEeS5F6qHcKOrew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FATCASource1Choice
         /// Specifies the source of Foreign Account Tax Compliance Act (FATCA) status.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FATCASourceStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FATCASourceStatus1Code Value { get; init; } 
+        public required FATCASourceStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FATCASourceStatus1Code Value { get; init; } 
         #else

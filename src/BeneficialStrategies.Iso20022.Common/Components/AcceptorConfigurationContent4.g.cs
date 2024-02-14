@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the acceptor configuration.
 /// </summary>
 [IsoId("_ClzOYWpbEeS4r8z7dKyh1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Configuration Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AcceptorConfigurationContent4
     /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
     /// </summary>
     [IsoId("_Q5IxIGpbEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Protocol Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSPrtcolParams")]
     #endif
+    [IsoXmlTag("TMSPrtcolParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TMSProtocolParameters1? TMSProtocolParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AcceptorConfigurationContent4
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
     [IsoId("_CzEOUWpbEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Protocol Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrPrtcolParams")]
     #endif
+    [IsoXmlTag("AcqrrPrtcolParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerProtocolParameters7? AcquirerProtocolParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record AcceptorConfigurationContent4
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
     [IsoId("_CzEOU2pbEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merchant Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrchntParams")]
     #endif
+    [IsoXmlTag("MrchntParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MerchantConfigurationParameters1? MerchantParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record AcceptorConfigurationContent4
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
     [IsoId("_CzEOVWpbEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlParams")]
     #endif
+    [IsoXmlTag("TermnlParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTerminalParameters2? TerminalParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record AcceptorConfigurationContent4
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
     [IsoId("_CzEOV2pbEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplParams")]
     #endif
+    [IsoXmlTag("ApplParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApplicationParameters4? ApplicationParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record AcceptorConfigurationContent4
     /// Acceptor parameters dedicated to the communication with an acquirer host or a terminal manager host.
     /// </summary>
     [IsoId("_CzEOWWpbEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Communication Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstComParams")]
     #endif
+    [IsoXmlTag("HstComParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HostCommunicationParameter3? HostCommunicationParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record AcceptorConfigurationContent4
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
     [IsoId("_CzEOW2pbEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyParams")]
     #endif
+    [IsoXmlTag("SctyParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityParameters3? SecurityParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TransferUnmatchedReason1Code
 {
     /// <summary>
     /// No potential match has been found.
-    /// Encoded/decoded by serializers as "CMIS".
+    /// Encoded/decoded by serializers as &quot;CMIS&quot;.
     /// </summary>
     [EnumMember(Value = "CMIS")]
     [IsoId("_VkBnQNp-Ed-ak6NoX_4Aeg_-384771592")]
@@ -30,7 +30,7 @@ public enum TransferUnmatchedReason1Code
     
     /// <summary>
     /// Counterparty has cancelled the transaction/instruction.
-    /// Encoded/decoded by serializers as "CPCA".
+    /// Encoded/decoded by serializers as &quot;CPCA&quot;.
     /// </summary>
     [EnumMember(Value = "CPCA")]
     [IsoId("_VkBnQdp-Ed-ak6NoX_4Aeg_-384771575")]
@@ -39,7 +39,7 @@ public enum TransferUnmatchedReason1Code
     
     /// <summary>
     /// Direction of transaction does not match: delivery instead of receipt or vice versa.
-    /// Encoded/decoded by serializers as "DELN".
+    /// Encoded/decoded by serializers as &quot;DELN&quot;.
     /// </summary>
     [EnumMember(Value = "DELN")]
     [IsoId("_VkBnQtp-Ed-ak6NoX_4Aeg_-384771557")]
@@ -48,7 +48,7 @@ public enum TransferUnmatchedReason1Code
     
     /// <summary>
     /// Financial instrument identification does not match or a financial instrument attribute differs.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_VkBnQ9p-Ed-ak6NoX_4Aeg_-384771515")]
@@ -56,8 +56,8 @@ public enum TransferUnmatchedReason1Code
     FinancialInstrument = TransferUnmatchedReasonCode.FinancialInstrument, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Settlement does not match: counterparty's instruction is for physical settlement, your instruction is not, or vice versa.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Settlement does not match: counterparty&apos;s instruction is for physical settlement, your instruction is not, or vice versa.
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_VkBnRNp-Ed-ak6NoX_4Aeg_-384771497")]
@@ -66,7 +66,7 @@ public enum TransferUnmatchedReason1Code
     
     /// <summary>
     /// Instruction has not been matched: it is a possible duplicate instruction.
-    /// Encoded/decoded by serializers as "PODU".
+    /// Encoded/decoded by serializers as &quot;PODU&quot;.
     /// </summary>
     [EnumMember(Value = "PODU")]
     [IsoId("_VkBnRdp-Ed-ak6NoX_4Aeg_-377386836")]
@@ -75,7 +75,7 @@ public enum TransferUnmatchedReason1Code
     
     /// <summary>
     /// Place of settlement does not match.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_VkBnRtp-Ed-ak6NoX_4Aeg_-377386819")]
@@ -84,7 +84,7 @@ public enum TransferUnmatchedReason1Code
     
     /// <summary>
     /// Settlement date or transfer date does not match.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_VkBnR9p-Ed-ak6NoX_4Aeg_-377386801")]
@@ -93,7 +93,7 @@ public enum TransferUnmatchedReason1Code
     
     /// <summary>
     /// Financial instrument quantity does not match.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_VkBnSNp-Ed-ak6NoX_4Aeg_-1926778684")]
@@ -102,7 +102,7 @@ public enum TransferUnmatchedReason1Code
     
     /// <summary>
     /// Another unmatched reason.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VkBnSdp-Ed-ak6NoX_4Aeg_-871193861")]

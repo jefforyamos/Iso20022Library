@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates that the claim for non receipt is effectively a missing cover.
 /// </summary>
 [IsoId("_T9zQWdp-Ed-ak6NoX_4Aeg_-539916461")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Missing Cover")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record MissingCover
     /// Indicates whether or not the claim is related to a missing cover.
     /// </summary>
     [IsoId("_T9zQWtp-Ed-ak6NoX_4Aeg_1790222510")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Missing Cover Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MssngCoverIndctn")]
     #endif
+    [IsoXmlTag("MssngCoverIndctn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MissingCoverIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MissingCoverIndication { get; init; } 
+    public required System.String MissingCoverIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MissingCoverIndication { get; init; } 
     #else

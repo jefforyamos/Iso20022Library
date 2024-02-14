@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Aim of the non financial request.
 /// </summary>
 [IsoId("_4bs1QC_pEeugIJ3Gvoevmg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Financial Request Content Component")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record NonFinancialRequestContentComponent1
     /// Type of non financial request that the Acceptor wants to be processed.
     /// </summary>
     [IsoId("_yZV_UC_rEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Financial Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonFinReqTp")]
     #endif
+    [IsoXmlTag("NonFinReqTp")]
     public NonFinancialRequestType1Code? NonFinancialRequestType { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _yZV_UC_rEeugIJ3Gvoevmg
     
@@ -57,12 +54,11 @@ public partial record NonFinancialRequestContentComponent1
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
     [IsoId("_HDGRkC_sEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction107? Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

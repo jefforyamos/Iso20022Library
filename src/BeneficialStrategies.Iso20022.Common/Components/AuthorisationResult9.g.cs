@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Outcome of the withdrawal authorisation.
 /// </summary>
 [IsoId("_TJtuMYp8EeS3NqNpgnMh2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Authorisation Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record AuthorisationResult9
     /// Type of party that has delivered or declined the card payment authorisation (the party is not identified).
     /// </summary>
     [IsoId("_TWFWQYp8EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnNtty")]
     #endif
+    [IsoXmlTag("AuthstnNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType13Code? AuthorisationEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record AuthorisationResult9
     /// Result of the authorisation.
     /// </summary>
     [IsoId("_98hTgIqCEeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnRspn")]
     #endif
+    [IsoXmlTag("AuthstnRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType3 AuthorisationResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType3 AuthorisationResponse { get; init; } 
+    public required ResponseType3 AuthorisationResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType3 AuthorisationResponse { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record AuthorisationResult9
     /// Trace of response by the entities in the path from the issuer to the ATM.
     /// </summary>
     [IsoId("_0Kuz4IqDEeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Trace")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnTrac")]
     #endif
+    [IsoXmlTag("RspnTrac")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseType4? ResponseTrace { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +102,13 @@ public partial record AuthorisationResult9
     /// Value assigned by the authorising party.
     /// </summary>
     [IsoId("_TWFWR4p8EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AuthstnCd")]
+    [IsoSimpleType(IsoSimpleType.Min6Max8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 6)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin6Max8Text? AuthorisationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record AuthorisationResult9
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
     [IsoId("_TWFWRYp8EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action5? Action { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

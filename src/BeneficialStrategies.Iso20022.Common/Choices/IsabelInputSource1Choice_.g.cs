@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IsabelInputSource1Choice.Code))]
     [KnownType(typeof(IsabelInputSource1Choice.Proprietary))]
     [IsoId("_OGcMMMmMEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Isabel Input Source 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

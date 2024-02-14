@@ -21,7 +21,7 @@ public enum AmountTypeCode
 {
     /// <summary>
     /// The amount is open.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_be0Ktdp-Ed-ak6NoX_4Aeg_-1173408141")]
@@ -30,7 +30,7 @@ public enum AmountTypeCode
     
     /// <summary>
     /// The amount is unkown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_be0Kttp-Ed-ak6NoX_4Aeg_-1173408110")]
@@ -39,7 +39,7 @@ public enum AmountTypeCode
     
     /// <summary>
     /// The amount represents a fixed value.
-    /// Encoded/decoded by serializers as "FIXD".
+    /// Encoded/decoded by serializers as &quot;FIXD&quot;.
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_T2GUUHySEeGAm6xykg3ebQ")]
@@ -48,7 +48,7 @@ public enum AmountTypeCode
     
     /// <summary>
     /// The amount represents the minimum value.
-    /// Encoded/decoded by serializers as "MINI".
+    /// Encoded/decoded by serializers as &quot;MINI&quot;.
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_pR68sHySEeGAm6xykg3ebQ")]
@@ -57,7 +57,7 @@ public enum AmountTypeCode
     
     /// <summary>
     /// The amount represents the maximum value.
-    /// Encoded/decoded by serializers as "MAXI".
+    /// Encoded/decoded by serializers as &quot;MAXI&quot;.
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_yv5TAHySEeGAm6xykg3ebQ")]

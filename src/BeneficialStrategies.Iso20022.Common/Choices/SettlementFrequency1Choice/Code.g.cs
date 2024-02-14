@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFrequency1Choice
     /// Settlement frequency expressed as a code.
     /// </summary>
     [IsoId("_nkfPUCDUEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFrequency1Choice
         /// Specifies the regularity of an event.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EventFrequency10Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EventFrequency10Code Value { get; init; } 
+        public required EventFrequency10Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EventFrequency10Code Value { get; init; } 
         #else

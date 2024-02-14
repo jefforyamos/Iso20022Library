@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnvironmental
     /// Other environmental commodity derivative.
     /// </summary>
     [IsoId("_qPKm4LvwEeiLRYqS-r-R-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnvironmental
         /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
         /// </summary>
         [IsoId("_0pEZ8bvwEeiLRYqS-r-R-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Base Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BasePdct")]
         #endif
+        [IsoXmlTag("BasePdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassProductType3Code BaseProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassProductType3Code BaseProduct { get; init; } 
+        public required AssetClassProductType3Code BaseProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassProductType3Code BaseProduct { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnvironmental
         /// Sub-product for the underlying asset class.
         /// </summary>
         [IsoId("_0pEZ87vwEeiLRYqS-r-R-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sub Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SubPdct")]
         #endif
+        [IsoXmlTag("SubPdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassSubProductType49Code SubProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassSubProductType49Code SubProduct { get; init; } 
+        public required AssetClassSubProductType49Code SubProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassSubProductType49Code SubProduct { get; init; } 
         #else

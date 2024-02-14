@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat7Choice
     /// Specifies a date code and a time.
     /// </summary>
     [IsoId("_Q237o9p-Ed-ak6NoX_4Aeg_1192656013")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Code And Time")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat7Choice
         /// Specifies the type of date.
         /// </summary>
         [IsoId("_Q2uKqdp-Ed-ak6NoX_4Aeg_-834882430")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Date Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtCd")]
         #endif
+        [IsoXmlTag("DtCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DateCode4Choice_ DateCode { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DateCode4Choice_ DateCode { get; init; } 
+        public required DateCode4Choice_ DateCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DateCode4Choice_ DateCode { get; init; } 
         #else
@@ -77,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat7Choice
         /// Specifies the time.
         /// </summary>
         [IsoId("_Q237oNp-Ed-ak6NoX_4Aeg_713469563")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tm")]
         #endif
+        [IsoXmlTag("Tm")]
+        [IsoSimpleType(IsoSimpleType.ISOTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISOTime Time { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.TimeOnly Time { get; init; } 
+        public required System.TimeOnly Time { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.TimeOnly Time { get; init; } 
         #else

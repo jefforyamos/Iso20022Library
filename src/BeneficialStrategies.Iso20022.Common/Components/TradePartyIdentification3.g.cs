@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity involved in an activity.
 /// </summary>
 [IsoId("_PdKWsdp-Ed-ak6NoX_4Aeg_-1580495666")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record TradePartyIdentification3
     /// Identifies the fund which is one of the parties in a treasury trade.
     /// </summary>
     [IsoId("_PdKWstp-Ed-ak6NoX_4Aeg_2125581687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndInf")]
     #endif
+    [IsoXmlTag("FndInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundIdentification2? FundInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record TradePartyIdentification3
     /// Specifies the party which submits a treasury trade to a matching system or to a settlement system or to a counterparty.
     /// </summary>
     [IsoId("_PdKWs9p-Ed-ak6NoX_4Aeg_-1580495262")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitgPty")]
     #endif
+    [IsoXmlTag("SubmitgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification8Choice_ SubmittingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification8Choice_ SubmittingParty { get; init; } 
+    public required PartyIdentification8Choice_ SubmittingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification8Choice_ SubmittingParty { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record TradePartyIdentification3
     /// Specifies the party which originated a treasury trade. This party may be the same as the submitting party.
     /// </summary>
     [IsoId("_PdKWtNp-Ed-ak6NoX_4Aeg_-1580495304")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradPty")]
     #endif
+    [IsoXmlTag("TradPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification8Choice_ TradeParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification8Choice_ TradeParty { get; init; } 
+    public required PartyIdentification8Choice_ TradeParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification8Choice_ TradeParty { get; init; } 
     #else

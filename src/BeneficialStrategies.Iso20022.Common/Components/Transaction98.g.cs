@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of transaction for a file action.
 /// </summary>
 [IsoId("_34WCMVEDEee94_dUz-hvgw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,15 +54,12 @@ public partial record Transaction98
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
     [IsoId("_gDGuUt0oEeil7LQldntseg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("MsgRsn")]
+    [IsoSimpleType(IsoSimpleType.Exact4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4NumericText? MessageReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +72,13 @@ public partial record Transaction98
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
     [IsoId("_gDGuU90oEeil7LQldntseg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Message Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrnMsgRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AltrnMsgRsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AlternateMessageReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,16 +91,15 @@ public partial record Transaction98
     /// Identification of the transaction.
     /// </summary>
     [IsoId("_4DaCw1EDEee94_dUz-hvgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification10 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentification10 TransactionIdentification { get; init; } 
+    public required TransactionIdentification10 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentification10 TransactionIdentification { get; init; } 
     #else
@@ -118,16 +110,15 @@ public partial record Transaction98
     /// Scope of file action.
     /// </summary>
     [IsoId("_7gBBUd0mEeil7LQldntseg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Action Scope")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileActnScp")]
     #endif
+    [IsoXmlTag("FileActnScp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FileActionScope1Code FileActionScope { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FileActionScope1Code FileActionScope { get; init; } 
+    public required FileActionScope1Code FileActionScope { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FileActionScope1Code FileActionScope { get; init; } 
     #else
@@ -139,16 +130,15 @@ public partial record Transaction98
     /// ISO 8583:87 bit 91
     /// </summary>
     [IsoId("_FNISAFEEEee94_dUz-hvgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileActnTp")]
     #endif
+    [IsoXmlTag("FileActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FileActionType1Code FileActionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FileActionType1Code FileActionType { get; init; } 
+    public required FileActionType1Code FileActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FileActionType1Code FileActionType { get; init; } 
     #else
@@ -159,15 +149,13 @@ public partial record Transaction98
     /// Other file action type in free text.
     /// </summary>
     [IsoId("_4DaCs1EDEee94_dUz-hvgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other File Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrFileActnTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrFileActnTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherFileActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,16 +168,15 @@ public partial record Transaction98
     /// Details pertaining to the file action.
     /// </summary>
     [IsoId("__AbpwFEEEee94_dUz-hvgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("File Action Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FileActnDtls")]
     #endif
+    [IsoXmlTag("FileActnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FileActionDetails1 FileActionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FileActionDetails1 FileActionDetails { get; init; } 
+    public required FileActionDetails1 FileActionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FileActionDetails1 FileActionDetails { get; init; } 
     #else
@@ -200,12 +187,11 @@ public partial record Transaction98
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
     [IsoId("_F7fykvF8EeiGNursv3uE_g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlFees")]
     #endif
+    [IsoXmlTag("AddtlFees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee1? AdditionalFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +204,11 @@ public partial record Transaction98
     /// Contains additional data.
     /// </summary>
     [IsoId("_BeTCARqnEeqH1IQNpbVpEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

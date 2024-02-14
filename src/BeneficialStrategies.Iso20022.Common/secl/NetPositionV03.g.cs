@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// </summary>
 [Description(@"Scope|The Net Position Report message is sent by the central counterparty (CCP) to a clearing member to confirm the net position of all trade legs reported during the day.||The message definition is intended for use with the ISO 20022 Business Application Header.||Usage|The central counterparty (CCP) nets all the positions per clearing account and sends the Net Position report message to the Clearing member.")]
 [IsoId("_9C7fsS0lEeSRe9rElPHBfg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Net Position V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV0
     /// Provides parameters of the margin report such as the creation date and time, the report currency or the calculation date and time.
     /// </summary>
     [IsoId("_9C7fsy0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptParams")]
     #endif
+    [IsoXmlTag("RptParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportParameters1 ReportParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportParameters1 ReportParameters { get; init; } 
+    public required ReportParameters1 ReportParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportParameters1 ReportParameters { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV0
     /// Provides information about the number of used pages.
     /// </summary>
     [IsoId("_9C7ftS0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination Pagination { get; init; } 
+    public required Pagination Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination Pagination { get; init; } 
     #else
@@ -124,16 +120,15 @@ public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV0
     /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
     /// </summary>
     [IsoId("_9C7fty0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification35Choice_ ClearingMember { get; init; } 
+    public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification35Choice_ ClearingMember { get; init; } 
     #else
@@ -142,15 +137,14 @@ public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV0
     
     /// <summary>
     /// Clearing organisation that will clear the trade.
-    /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
+    /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty&apos;s clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
     [IsoId("_9C7fuS0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Segment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSgmt")]
     #endif
+    [IsoXmlTag("ClrSgmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification35Choice_? ClearingSegment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,16 +157,15 @@ public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV0
     /// Provides the net position details such as the average deal price and net quantity.
     /// </summary>
     [IsoId("_9C7fuy0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Position Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetPosRpt")]
     #endif
+    [IsoXmlTag("NetPosRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetPosition3 NetPositionReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NetPosition3 NetPositionReport { get; init; } 
+    public required NetPosition3 NetPositionReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NetPosition3 NetPositionReport { get; init; } 
     #else
@@ -183,12 +176,11 @@ public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV0
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_9C7fvS0lEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,7 +193,7 @@ public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NetPositionV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NetPositionV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NetPositionV03Document ToDocument()
     {
@@ -211,7 +203,7 @@ public partial record NetPositionV03 : IOuterRecord<NetPositionV03,NetPositionV0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetPositionV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NetPositionV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NetPositionV03Document : IOuterDocument<NetPositionV03>
@@ -228,7 +220,7 @@ public partial record NetPositionV03Document : IOuterDocument<NetPositionV03>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NetPositionV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NetPositionV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetPositionV03 Message { get; init; }

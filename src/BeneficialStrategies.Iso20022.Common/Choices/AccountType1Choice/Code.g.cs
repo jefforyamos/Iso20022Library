@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountType1Choice
     /// Type of account expressed as a code.
     /// </summary>
     [IsoId("_o7Y0gBc8EeK5g-3oYI0_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountType1Choice
         /// Specifies the cash account type.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FundCashAccount3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FundCashAccount3Code Value { get; init; } 
+        public required FundCashAccount3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FundCashAccount3Code Value { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity14Choice
     /// Total quantity of securities to be settled.
     /// </summary>
     [IsoId("_QYSGhRgKEeKqWJINzXcn5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity14Choice
         /// Quantity expressed as a number, for example, a number of shares.
         /// </summary>
         [IsoId("_jQnpABgLEeKqWJINzXcn5g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Total Units Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TtlUnitsNb")]
         #endif
+        [IsoXmlTag("TtlUnitsNb")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
+        public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
         #else
@@ -76,16 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity14Choice
         /// Information about the units to be transferred.
         /// </summary>
         [IsoId("_swUdoBgLEeKqWJINzXcn5g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Unit Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UnitDtls")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("UnitDtls")]
         [MinLength(0)]
         [MaxLength(2)]
-        #endif
         public ValueList<Unit5> UnitDetails { get; init; } = new ValueList<Unit5>(){};
         
         

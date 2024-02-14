@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralCancellationType1Choice.Code))]
     [KnownType(typeof(CollateralCancellationType1Choice.Proprietary))]
     [IsoId("_QmogONp-Ed-ak6NoX_4Aeg_-847110751")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Cancellation Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

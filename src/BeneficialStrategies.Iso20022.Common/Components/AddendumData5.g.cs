@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Addendum data structure is applicable to certain merchant verticals that require industry-specific data within transaction messages. 
 /// </summary>
 [IsoId("_D9gQgSX7Eeym0KcvJF9aDQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Addendum Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AddendumData5
     /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
     /// </summary>
     [IsoId("_EFGGQSX7Eeym0KcvJF9aDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Instlmt")]
     #endif
+    [IsoXmlTag("Instlmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Instalment4? Instalment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AddendumData5
     /// Contains additional data for the addendum.
     /// </summary>
     [IsoId("_EFGGQyX7Eeym0KcvJF9aDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

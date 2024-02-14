@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Card programme or brand related to the transaction.
 /// </summary>
 [IsoId("_h6JQ4SuBEeyg-aG5nXcnfg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Programme")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CardProgramme2
     /// Card programme or brand proposed for the transaction.
     /// </summary>
     [IsoId("_h_TdsSuBEeyg-aG5nXcnfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Programme Proposed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPrgrmmPropsd")]
     #endif
+    [IsoXmlTag("CardPrgrmmPropsd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardProgrammeMode2? CardProgrammeProposed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,12 +60,11 @@ public partial record CardProgramme2
     /// ISO 8583:87 bit 24
     /// </summary>
     [IsoId("_h_TdsyuBEeyg-aG5nXcnfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Programme Applied")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPrgrmmApld")]
     #endif
+    [IsoXmlTag("CardPrgrmmApld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardProgrammeMode3? CardProgrammeApplied { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

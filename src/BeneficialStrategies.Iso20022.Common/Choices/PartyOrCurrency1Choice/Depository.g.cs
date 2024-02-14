@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrCurrency1Choice
     /// First party in the settlement chain. In a plain vanilla settlement, it is the Central Securities Depository where the counterparty requests to receive the financial instrument or from where the counterparty delivers the financial instruments.
     /// </summary>
     [IsoId("_o-ev0lhDEeOMYfRGLS0NbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Depository")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrCurrency1Choice
         /// Identification of the party.
         /// </summary>
         [IsoId("_HUH4QUiQEeOdL6nMHefDgg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PtyId")]
         #endif
+        [IsoXmlTag("PtyId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification75Choice_ PartyIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification75Choice_ PartyIdentification { get; init; } 
+        public required PartyIdentification75Choice_ PartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification75Choice_ PartyIdentification { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrCurrency1Choice
         /// Unambiguous identification of the transaction for the party identified.
         /// </summary>
         [IsoId("_HUH4RUiQEeOdL6nMHefDgg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Processing Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrcgId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PrcgId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? ProcessingIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

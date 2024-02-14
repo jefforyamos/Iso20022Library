@@ -21,7 +21,7 @@ public enum OrderDriverCode
 {
     /// <summary>
     /// Order is buy driven.
-    /// Encoded/decoded by serializers as "BUYI".
+    /// Encoded/decoded by serializers as &quot;BUYI&quot;.
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_aRBh4tp-Ed-ak6NoX_4Aeg_1502724820")]
@@ -30,7 +30,7 @@ public enum OrderDriverCode
     
     /// <summary>
     /// Order is sell driven.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_aRBh49p-Ed-ak6NoX_4Aeg_1502725190")]

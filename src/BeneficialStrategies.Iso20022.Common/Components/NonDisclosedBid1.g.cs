@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// List trading by which the buy-side provides details to the sell-side information about the sector, country, index and potential market impact of the financial instrument to be bought or sold. Using this information, the sell-side firms bid for the trade.
 /// </summary>
 [IsoId("_S0yZ2tp-Ed-ak6NoX_4Aeg_1294975941")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Disclosed Bid")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record NonDisclosedBid1
     /// Identifies a type of bid based on a common characteristic (the currency) of all securities of a list.
     /// </summary>
     [IsoId("_S0yZ29p-Ed-ak6NoX_4Aeg_1391021740")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid By Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidByCcy")]
     #endif
+    [IsoXmlTag("BidByCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? BidByCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record NonDisclosedBid1
     /// Identifies a type of bid based on a common characteristic (the sector) of all securities of a list.
     /// </summary>
     [IsoId("_S0yZ3Np-Ed-ak6NoX_4Aeg_1391021783")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid By Sector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidBySctr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BidBySctr")]
+    [IsoSimpleType(IsoSimpleType.Max128Text)]
     [StringLength(maximumLength: 128 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? BidBySector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record NonDisclosedBid1
     /// Identifies a type of bid based on a common characteristic (the index) of all securities of a list.
     /// </summary>
     [IsoId("_S0yZ3dp-Ed-ak6NoX_4Aeg_1391021801")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bid By Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BidByIndx")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BidByIndx")]
+    [IsoSimpleType(IsoSimpleType.Max128Text)]
     [StringLength(maximumLength: 128 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? BidByIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +97,12 @@ public partial record NonDisclosedBid1
     /// Indicates the side of the bid in the case of a non disclosed bidding process. Used instead of buy and sell side.|True = Side 1|False = Side 2.
     /// </summary>
     [IsoId("_S0yZ3tp-Ed-ak6NoX_4Aeg_1130979716")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SdInd")]
     #endif
+    [IsoXmlTag("SdInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SideIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +115,11 @@ public partial record NonDisclosedBid1
     /// Provides additionnal details about the liquidity of a financial instrument.
     /// </summary>
     [IsoId("_S0yZ39p-Ed-ak6NoX_4Aeg_1163301984")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquidity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lqdty")]
     #endif
+    [IsoXmlTag("Lqdty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Liquidity1? Liquidity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +132,11 @@ public partial record NonDisclosedBid1
     /// Details about the exchange for physical trade parameters.
     /// </summary>
     [IsoId("_S07jwNp-Ed-ak6NoX_4Aeg_-1312987174")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange For Physical Trade")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgForPhysTrad")]
     #endif
+    [IsoXmlTag("XchgForPhysTrad")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeForPhysicalTradeParameters1? ExchangeForPhysicalTrade { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

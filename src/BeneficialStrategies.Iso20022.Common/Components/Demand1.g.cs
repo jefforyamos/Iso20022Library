@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the demand.
 /// </summary>
 [IsoId("_-AylQnltEeG7BsjMvd1mEw_1908468693")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Demand")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record Demand1
     /// Unique and unambiguous identifier assigned by the presenting party to the demand.
     /// </summary>
     [IsoId("_-AylQ3ltEeG7BsjMvd1mEw_-2057301709")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,16 +73,15 @@ public partial record Demand1
     /// Type of demand.
     /// </summary>
     [IsoId("_-AylRHltEeG7BsjMvd1mEw_-1446215965")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DemandType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DemandType1Code Type { get; init; } 
+    public required DemandType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DemandType1Code Type { get; init; } 
     #else
@@ -97,16 +92,15 @@ public partial record Demand1
     /// Details related to the undertaking.
     /// </summary>
     [IsoId("_-AylRXltEeG7BsjMvd1mEw_-1068410070")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgId")]
     #endif
+    [IsoXmlTag("UdrtkgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking6 UndertakingIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Undertaking6 UndertakingIdentification { get; init; } 
+    public required Undertaking6 UndertakingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Undertaking6 UndertakingIdentification { get; init; } 
     #else
@@ -117,16 +111,15 @@ public partial record Demand1
     /// Details related to the demand amount.
     /// </summary>
     [IsoId("_-AylRnltEeG7BsjMvd1mEw_-2023766673")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demand Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmndAmt")]
     #endif
+    [IsoXmlTag("DmndAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmount3 DemandAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingAmount3 DemandAmount { get; init; } 
+    public required UndertakingAmount3 DemandAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingAmount3 DemandAmount { get; init; } 
     #else
@@ -137,15 +130,13 @@ public partial record Demand1
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
     [IsoId("_-A8WQHltEeG7BsjMvd1mEw_1331805812")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Advising Party Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdvsgPtyRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdvsgPtyRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,15 +149,13 @@ public partial record Demand1
     /// Unique and unambiguous identifier assigned by the second advising party to the undertaking.
     /// </summary>
     [IsoId("_8977YBVQEeKVqNjC36CBuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Second Advising Party Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndAdvsgPtyRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ScndAdvsgPtyRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecondAdvisingPartyReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,15 +168,13 @@ public partial record Demand1
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
     [IsoId("_-A8WQXltEeG7BsjMvd1mEw_-346168184")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmer Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnfrmrRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CnfrmrRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +187,11 @@ public partial record Demand1
     /// Details related to the settlement account.
     /// </summary>
     [IsoId("_-A8WQ3ltEeG7BsjMvd1mEw_-1782957178")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAcct")]
     #endif
+    [IsoXmlTag("SttlmAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount27? SettlementAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,15 +201,14 @@ public partial record Demand1
     #endif
     
     /// <summary>
-    /// Details of the beneficiary's presentation of documents.
+    /// Details of the beneficiary&apos;s presentation of documents.
     /// </summary>
     [IsoId("_-A8WRHltEeG7BsjMvd1mEw_-275427375")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PresntnDtls")]
     #endif
+    [IsoXmlTag("PresntnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Presentation2? PresentationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,12 +221,12 @@ public partial record Demand1
     /// Requested new expiry date as an alternative to payment of the demand.
     /// </summary>
     [IsoId("_-BGHQHltEeG7BsjMvd1mEw_257214418")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdXpryDt")]
     #endif
+    [IsoXmlTag("ReqdXpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RequestedExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,12 +239,11 @@ public partial record Demand1
     /// Document(s) presented for examination.
     /// </summary>
     [IsoId("_-BGHQXltEeG7BsjMvd1mEw_236846055")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demand Documentation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmndDcmnttn")]
     #endif
+    [IsoXmlTag("DmndDcmnttn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DemandDocumentation1? DemandDocumentation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,19 +256,15 @@ public partial record Demand1
     /// Additional information related to the demand.
     /// </summary>
     [IsoId("_-BGHQ3ltEeG7BsjMvd1mEw_188236729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

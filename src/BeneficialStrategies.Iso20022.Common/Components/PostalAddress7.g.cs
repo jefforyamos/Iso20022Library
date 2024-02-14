@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
 [IsoId("_WNJcz9p-Ed-ak6NoX_4Aeg_-1885159655")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Postal Address")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,34 +49,28 @@ public partial record PostalAddress7
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
     [IsoId("_WNJc0Np-Ed-ak6NoX_4Aeg_-1885159532")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Line")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdrLine")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdrLine")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax35Text)]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AddressLine { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
     [IsoId("_WNTNwNp-Ed-ak6NoX_4Aeg_-1885159162")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PstCd")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax8Text)]
     [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax8Text? PostCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,15 +83,13 @@ public partial record PostalAddress7
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
     [IsoId("_WNTNwdp-Ed-ak6NoX_4Aeg_-1885159101")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Town Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TwnNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TwnNm")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINMax23Text)]
     [StringLength(maximumLength: 23 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINMax23Text? TownName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,16 +102,15 @@ public partial record PostalAddress7
     /// Nation with its own government.
     /// </summary>
     [IsoId("_WNTNwtp-Ed-ak6NoX_4Aeg_-1885159254")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else

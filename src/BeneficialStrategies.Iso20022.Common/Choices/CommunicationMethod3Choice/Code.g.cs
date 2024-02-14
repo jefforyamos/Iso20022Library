@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationMethod3Choice
     /// Method of transmission expressed as a code.
     /// </summary>
     [IsoId("_a0TYAggqEeSUG-8hqXsVMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationMethod3Choice
         /// Communication method used for the transmission of documents.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CommunicationMethod1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CommunicationMethod1Code Value { get; init; } 
+        public required CommunicationMethod1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CommunicationMethod1Code Value { get; init; } 
         #else

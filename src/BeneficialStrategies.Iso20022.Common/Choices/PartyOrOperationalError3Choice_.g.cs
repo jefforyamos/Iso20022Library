@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyOrOperationalError3Choice.PartyReport))]
     [KnownType(typeof(PartyOrOperationalError3Choice.OperationalError))]
     [IsoId("_7VYvRVhLEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Or Operational Error 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

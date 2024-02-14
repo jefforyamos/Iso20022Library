@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionFeaturesFormat23Choice
     /// Standard code to specify the features that may apply to a corporate action option.
     /// </summary>
     [IsoId("_scbua5wqEeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionFeaturesFormat23Choice
         /// Specifies the features that may apply to a corporate action option.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OptionFeatures10Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OptionFeatures10Code Value { get; init; } 
+        public required OptionFeatures10Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OptionFeatures10Code Value { get; init; } 
         #else

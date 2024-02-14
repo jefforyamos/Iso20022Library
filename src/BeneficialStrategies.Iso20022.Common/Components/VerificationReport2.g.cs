@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the verification of identification data for which verification was requested.
 /// </summary>
 [IsoId("_tp2JQVkyEeGeoaLUQk__nA_-1657016641")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Verification Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record VerificationReport2
     /// Unique identification, as assigned by a sending party, to unambiguously identify the party and account identification information group within the original message.
     /// </summary>
     [IsoId("_tp2JQlkyEeGeoaLUQk__nA_1640878302")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalIdentification { get; init; } 
+    public required System.String OriginalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalIdentification { get; init; } 
     #else
@@ -75,16 +71,16 @@ public partial record VerificationReport2
     /// Identifies whether the party and/or account information received is correct.
     /// </summary>
     [IsoId("_tp2JQ1kyEeGeoaLUQk__nA_529966883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrfctn")]
     #endif
+    [IsoXmlTag("Vrfctn")]
+    [IsoSimpleType(IsoSimpleType.IdentificationVerificationIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoIdentificationVerificationIndicator Verification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Verification { get; init; } 
+    public required System.String Verification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Verification { get; init; } 
     #else
@@ -95,12 +91,11 @@ public partial record VerificationReport2
     /// Specifies the reason why the verified identification information is incorrect.
     /// </summary>
     [IsoId("_tp_6QFkyEeGeoaLUQk__nA_-1642296495")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VerificationReason1Choice_? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +108,11 @@ public partial record VerificationReport2
     /// Provides party and/or account identification information as given in the original message.
     /// </summary>
     [IsoId("_tp_6QVkyEeGeoaLUQk__nA_1037398288")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Party And Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPtyAndAcctId")]
     #endif
+    [IsoXmlTag("OrgnlPtyAndAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IdentificationInformation2? OriginalPartyAndAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record VerificationReport2
     /// Provides party and/or account identification information.
     /// </summary>
     [IsoId("_tp_6QlkyEeGeoaLUQk__nA_-1839979705")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Updated Party And Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdtdPtyAndAcctId")]
     #endif
+    [IsoXmlTag("UpdtdPtyAndAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IdentificationInformation2? UpdatedPartyAndAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

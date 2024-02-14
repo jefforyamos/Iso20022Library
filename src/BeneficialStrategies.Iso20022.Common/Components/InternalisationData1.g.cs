@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the aggregated data and failed rate of internalised settlement instructions.
 /// </summary>
 [IsoId("_WeS9UO3nEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Internalisation Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InternalisationData1
     /// Aggregated volume and value of settled,  failed, total of internalised settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
     [IsoId("_iT1jwO3uEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Aggt")]
     #endif
+    [IsoXmlTag("Aggt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData2 Aggregate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData2 Aggregate { get; init; } 
+    public required InternalisationData2 Aggregate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData2 Aggregate { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record InternalisationData1
     /// Rate of failed internalised settlement instructions compared to the total volume and value, of internalised settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
     [IsoId("_kjstkO3uEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failed Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FaildRate")]
     #endif
+    [IsoXmlTag("FaildRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationDataRate1 FailedRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationDataRate1 FailedRate { get; init; } 
+    public required InternalisationDataRate1 FailedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationDataRate1 FailedRate { get; init; } 
     #else

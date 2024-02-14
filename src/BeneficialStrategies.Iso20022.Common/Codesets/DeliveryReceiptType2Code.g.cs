@@ -21,7 +21,7 @@ public enum DeliveryReceiptType2Code
 {
     /// <summary>
     /// Settlement of the financial instrument and cash is separate.
-    /// Encoded/decoded by serializers as "FREE".
+    /// Encoded/decoded by serializers as &quot;FREE&quot;.
     /// </summary>
     [EnumMember(Value = "FREE")]
     [IsoId("_azJXhtp-Ed-ak6NoX_4Aeg_-2033362077")]
@@ -30,7 +30,7 @@ public enum DeliveryReceiptType2Code
     
     /// <summary>
     /// Settlement of the financial instrument and cash takes place in a delivery versus payment (DVP) environment, that is, through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "APMT".
+    /// Encoded/decoded by serializers as &quot;APMT&quot;.
     /// </summary>
     [EnumMember(Value = "APMT")]
     [IsoId("_azJXh9p-Ed-ak6NoX_4Aeg_-2033361692")]

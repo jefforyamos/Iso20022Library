@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Deposit taking institution with which a central counterparty has accounts used to concentrate cash funds before or after investment.
 /// </summary>
 [IsoId("_ph5wQBXrEeejf-cbr8l5qw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Concentration Agent")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record ConcentrationAgent1
     /// Identifies the concentration agent.
     /// </summary>
     [IsoId("_7oHHsBXrEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record ConcentrationAgent1
     /// Inflows and outflows to and from the CCP’s concentration accounts aggregated across all business lines / waterfalls. 
     /// </summary>
     [IsoId("_2W_MUBXrEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acct")]
     #endif
+    [IsoXmlTag("Acct")]
     public ConcentrationAccount1? Account { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _2W_MUBXrEeejf-cbr8l5qw
     

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BreakDown1Choice.ByPurchaseOrder))]
     [KnownType(typeof(BreakDown1Choice.ByCommercialInvoice))]
     [IsoId("_tbfaMBrYEeOVR9VN6fAMUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Break Down 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

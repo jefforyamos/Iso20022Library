@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
 /// </summary>
 [IsoId("_Sw3zQSqSEeyR9JrVGfaMKw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SettlementDetails205
     /// Indicates the date as known by the two parties to be used for matching purposes when settlement of securities occurs.
     /// </summary>
     [IsoId("_TJKXcSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDt")]
     #endif
+    [IsoXmlTag("TradDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TradeDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TradeDate { get; init; } 
+    public required System.DateTime TradeDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TradeDate { get; init; } 
     #else
@@ -72,12 +70,11 @@ public partial record SettlementDetails205
     /// Provides details on either the delivering or receiving settlement parties.
     /// </summary>
     [IsoId("_TJKXcyqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPties")]
     #endif
+    [IsoXmlTag("SttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties35Choice_? SettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +87,15 @@ public partial record SettlementDetails205
     /// Indicates the collateral ownership.
     /// </summary>
     [IsoId("_TJKXdSqSEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Ownership")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollOwnrsh")]
     #endif
+    [IsoXmlTag("CollOwnrsh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralOwnership4 CollateralOwnership { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralOwnership4 CollateralOwnership { get; init; } 
+    public required CollateralOwnership4 CollateralOwnership { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralOwnership4 CollateralOwnership { get; init; } 
     #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice4Choice.Price))]
     [KnownType(typeof(SecuritiesTransactionPrice4Choice.NoPrice))]
     [IsoId("_8Rc9cOI-EeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Transaction Price 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

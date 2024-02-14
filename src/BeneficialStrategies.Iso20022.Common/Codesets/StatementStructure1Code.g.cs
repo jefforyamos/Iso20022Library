@@ -21,7 +21,7 @@ public enum StatementStructure1Code
 {
     /// <summary>
     /// Statement is sorted by status.
-    /// Encoded/decoded by serializers as "STAT".
+    /// Encoded/decoded by serializers as &quot;STAT&quot;.
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_ZQD0J9p-Ed-ak6NoX_4Aeg_-1906483117")]
@@ -30,7 +30,7 @@ public enum StatementStructure1Code
     
     /// <summary>
     /// Statement is sorted by transaction.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_ZQD0KNp-Ed-ak6NoX_4Aeg_-1906483092")]

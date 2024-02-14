@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OvernightIndexSwap4Choice.DataSetAction))]
     [KnownType(typeof(OvernightIndexSwap4Choice.Transaction))]
     [IsoId("_GsPnd8EREea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Overnight Index Swap 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

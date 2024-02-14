@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to report on standing orders.
 /// </summary>
 [IsoId("_72-v8aMgEeCJ6YNENx4h-w_1129668542")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Order Return Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record StandingOrderReturnCriteria1
     /// Defines the criteria used to report on a multilateral balance.
     /// </summary>
     [IsoId("_72-v8qMgEeCJ6YNENx4h-w_1131789573")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Identification Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgOrdrIdInd")]
     #endif
+    [IsoXmlTag("StgOrdrIdInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? StandingOrderIdentificationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the standing order type is requested.
     /// </summary>
     [IsoId("_72-v86MgEeCJ6YNENx4h-w_-1572131023")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TpInd")]
     #endif
+    [IsoXmlTag("TpInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the system member identification is requested.
     /// </summary>
     [IsoId("_72-v9KMgEeCJ6YNENx4h-w_2068552367")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Member Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysMmbInd")]
     #endif
+    [IsoXmlTag("SysMmbInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? SystemMemberIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the responsible party identification is requested.
     /// </summary>
     [IsoId("_72-v9aMgEeCJ6YNENx4h-w_-1772327660")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responsible Party Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnsblPtyInd")]
     #endif
+    [IsoXmlTag("RspnsblPtyInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ResponsiblePartyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the account currency is requested.
     /// </summary>
     [IsoId("_72-v9qMgEeCJ6YNENx4h-w_58595509")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyInd")]
     #endif
+    [IsoXmlTag("CcyInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CurrencyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +132,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the account type is requested.
     /// </summary>
     [IsoId("_73H54KMgEeCJ6YNENx4h-w_512682778")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Account Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAcctInd")]
     #endif
+    [IsoXmlTag("DbtrAcctInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? DebtorAccountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +150,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the multilateral limit is requested.
     /// </summary>
     [IsoId("_73H54aMgEeCJ6YNENx4h-w_501584001")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Account Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrAcctInd")]
     #endif
+    [IsoXmlTag("CdtrAcctInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CreditorAccountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +168,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the associated pool account is requested.
     /// </summary>
     [IsoId("_73H54qMgEeCJ6YNENx4h-w_-721838563")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Associated Pool Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssoctdPoolAcct")]
     #endif
+    [IsoXmlTag("AssoctdPoolAcct")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AssociatedPoolAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +186,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the frequency is requested.
     /// </summary>
     [IsoId("_73H546MgEeCJ6YNENx4h-w_942244873")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrqcyInd")]
     #endif
+    [IsoXmlTag("FrqcyInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? FrequencyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +204,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the execution type is requested.
     /// </summary>
     [IsoId("_73H55KMgEeCJ6YNENx4h-w_-291151916")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Type Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnTpInd")]
     #endif
+    [IsoXmlTag("ExctnTpInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ExecutionTypeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +222,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the account standing order is requested.
     /// </summary>
     [IsoId("_73H55aMgEeCJ6YNENx4h-w_1111985929")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity From Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyFrInd")]
     #endif
+    [IsoXmlTag("VldtyFrInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ValidityFromIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +240,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the account owner information is requested.
     /// </summary>
     [IsoId("_73H55qMgEeCJ6YNENx4h-w_-886872152")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid To Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldToInd")]
     #endif
+    [IsoXmlTag("VldToInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ValidToIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +258,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the link set identification is requested.
     /// </summary>
     [IsoId("_73H556MgEeCJ6YNENx4h-w_-897970929")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Link Set Identification Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkSetIdInd")]
     #endif
+    [IsoXmlTag("LkSetIdInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? LinkSetIdentificationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +276,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the identification of a standing order within a link set is requested.
     /// </summary>
     [IsoId("_73Rq4KMgEeCJ6YNENx4h-w_1831649883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Link Set Order Identification Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkSetOrdrIdInd")]
     #endif
+    [IsoXmlTag("LkSetOrdrIdInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? LinkSetOrderIdentificationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +294,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the sequence of a standing order within a link set is requested.
     /// </summary>
     [IsoId("_73Rq4aMgEeCJ6YNENx4h-w_834577530")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Link Set Order Sequence Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkSetOrdrSeqInd")]
     #endif
+    [IsoXmlTag("LkSetOrdrSeqInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? LinkSetOrderSequenceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +312,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the total amount per standing order type is requested.
     /// </summary>
     [IsoId("_73Rq4qMgEeCJ6YNENx4h-w_175820900")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtInd")]
     #endif
+    [IsoXmlTag("TtlAmtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TotalAmountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -332,12 +330,12 @@ public partial record StandingOrderReturnCriteria1
     /// Indicates whether the zero sweeping indicator is requested.
     /// </summary>
     [IsoId("_73Rq46MgEeCJ6YNENx4h-w_1186558213")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Zero Sweep Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ZeroSweepInd")]
     #endif
+    [IsoXmlTag("ZeroSweepInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? ZeroSweepIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The MisMatchRejection message is sent by the party requested to accept or reject data set mis-matches to the matching application.|This message is used to reject mis-matches between data sets and the related baseline.|Usage|The MisMatchRejection message can be sent by the party requested to accept or reject data set mis-match to inform that it rejects the data set(s).|The message can be sent in response to a DataSetMatchReport message conveying mis-matches.|The information about the rejection of the mis-matched data sets will be forwarded by the matching application to the submitter of the data sets by a MisMatchRejectionNotification message.|The acceptance of mis-matched data sets can be achieved by sending a MisMatchAcceptance message.")]
 [IsoId("_scq46NE8Ed-BzquC8wXy7w_1101360695")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mis Match Rejection V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record MisMatchRejectionV02 : IOuterRecord<MisMatchRejectionV02,M
     /// Identifies the rejection message.
     /// </summary>
     [IsoId("_scq46dE8Ed-BzquC8wXy7w_1101360850")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnId")]
     #endif
+    [IsoXmlTag("RjctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RejectionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RejectionIdentification { get; init; } 
+    public required MessageIdentification1 RejectionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RejectionIdentification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record MisMatchRejectionV02 : IOuterRecord<MisMatchRejectionV02,M
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_scq46tE8Ed-BzquC8wXy7w_1101360765")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -125,12 +121,11 @@ public partial record MisMatchRejectionV02 : IOuterRecord<MisMatchRejectionV02,M
     /// Reference to the transaction for the requesting financial institution.
     /// </summary>
     [IsoId("_scq469E8Ed-BzquC8wXy7w_1101360819")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitrTxRef")]
     #endif
+    [IsoXmlTag("SubmitrTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,16 +138,15 @@ public partial record MisMatchRejectionV02 : IOuterRecord<MisMatchRejectionV02,M
     /// Reference to the identification of the report that contained the difference.
     /// </summary>
     [IsoId("_sc0C0NE8Ed-BzquC8wXy7w_1101360734")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Match Report Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetMtchRptRef")]
     #endif
+    [IsoXmlTag("DataSetMtchRptRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 DataSetMatchReportReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 DataSetMatchReportReference { get; init; } 
+    public required MessageIdentification1 DataSetMatchReportReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 DataSetMatchReportReference { get; init; } 
     #else
@@ -163,16 +157,15 @@ public partial record MisMatchRejectionV02 : IOuterRecord<MisMatchRejectionV02,M
     /// Reason why the user cannot accept the request.
     /// </summary>
     [IsoId("_sc0C0dE8Ed-BzquC8wXy7w_1101360788")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReason1Choice_ RejectionReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectionReason1Choice_ RejectionReason { get; init; } 
+    public required RejectionReason1Choice_ RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectionReason1Choice_ RejectionReason { get; init; } 
     #else
@@ -183,7 +176,7 @@ public partial record MisMatchRejectionV02 : IOuterRecord<MisMatchRejectionV02,M
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MisMatchRejectionV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MisMatchRejectionV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MisMatchRejectionV02Document ToDocument()
     {
@@ -193,7 +186,7 @@ public partial record MisMatchRejectionV02 : IOuterRecord<MisMatchRejectionV02,M
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MisMatchRejectionV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MisMatchRejectionV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MisMatchRejectionV02Document : IOuterDocument<MisMatchRejectionV02>
@@ -210,7 +203,7 @@ public partial record MisMatchRejectionV02Document : IOuterDocument<MisMatchReje
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MisMatchRejectionV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MisMatchRejectionV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MisMatchRejectionV02 Message { get; init; }

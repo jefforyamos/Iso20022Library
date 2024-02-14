@@ -22,7 +22,7 @@ public enum MessageFunction17Code
 {
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_6Wa1oemsEemNVKPwszFC-A")]
@@ -31,7 +31,7 @@ public enum MessageFunction17Code
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_7dPTwemsEemNVKPwszFC-A")]
@@ -40,7 +40,7 @@ public enum MessageFunction17Code
     
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_8JbrYemsEemNVKPwszFC-A")]

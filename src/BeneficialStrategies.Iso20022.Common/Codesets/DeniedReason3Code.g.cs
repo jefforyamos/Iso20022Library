@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum DeniedReason3Code
 {
     /// <summary>
-    /// Received after the account servicer's deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_a0MgYNp-Ed-ak6NoX_4Aeg_255961976")]
@@ -30,7 +30,7 @@ public enum DeniedReason3Code
     
     /// <summary>
     /// Repo call request was denied since another call already applies.
-    /// Encoded/decoded by serializers as "DCAL".
+    /// Encoded/decoded by serializers as &quot;DCAL&quot;.
     /// </summary>
     [EnumMember(Value = "DCAL")]
     [IsoId("_a0MgYdp-Ed-ak6NoX_4Aeg_255961977")]
@@ -39,7 +39,7 @@ public enum DeniedReason3Code
     
     /// <summary>
     /// Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.
-    /// Encoded/decoded by serializers as "DFOR".
+    /// Encoded/decoded by serializers as &quot;DFOR&quot;.
     /// </summary>
     [EnumMember(Value = "DFOR")]
     [IsoId("_a0MgYtp-Ed-ak6NoX_4Aeg_255962253")]
@@ -48,7 +48,7 @@ public enum DeniedReason3Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_a0MgY9p-Ed-ak6NoX_4Aeg_255962345")]
@@ -57,7 +57,7 @@ public enum DeniedReason3Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_a0MgZNp-Ed-ak6NoX_4Aeg_59995441")]

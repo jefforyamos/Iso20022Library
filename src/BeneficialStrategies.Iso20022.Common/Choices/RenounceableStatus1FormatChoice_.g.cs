@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RenounceableStatus1FormatChoice.Code))]
     [KnownType(typeof(RenounceableStatus1FormatChoice.Proprietary))]
     [IsoId("_RoygwNp-Ed-ak6NoX_4Aeg_-1304409096")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Renounceable Status 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

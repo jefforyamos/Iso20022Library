@@ -21,7 +21,7 @@ public enum GoodAndServiceDeliveryChannel1Code
 {
     /// <summary>
     /// Electronic delivery.
-    /// Encoded/decoded by serializers as "EDEL".
+    /// Encoded/decoded by serializers as &quot;EDEL&quot;.
     /// </summary>
     [EnumMember(Value = "EDEL")]
     [IsoId("_UWH5AT5KEeyHI64WSlzTlg")]
@@ -30,7 +30,7 @@ public enum GoodAndServiceDeliveryChannel1Code
     
     /// <summary>
     /// Pick up locally
-    /// Encoded/decoded by serializers as "PULC".
+    /// Encoded/decoded by serializers as &quot;PULC&quot;.
     /// </summary>
     [EnumMember(Value = "PULC")]
     [IsoId("_UbhWYT5KEeyHI64WSlzTlg")]
@@ -39,7 +39,7 @@ public enum GoodAndServiceDeliveryChannel1Code
     
     /// <summary>
     /// No delivery.
-    /// Encoded/decoded by serializers as "NDEL".
+    /// Encoded/decoded by serializers as &quot;NDEL&quot;.
     /// </summary>
     [EnumMember(Value = "NDEL")]
     [IsoId("_Uf_msT5KEeyHI64WSlzTlg")]
@@ -48,7 +48,7 @@ public enum GoodAndServiceDeliveryChannel1Code
     
     /// <summary>
     /// Other delivery channel defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_UlHXQT5KEeyHI64WSlzTlg")]
@@ -57,7 +57,7 @@ public enum GoodAndServiceDeliveryChannel1Code
     
     /// <summary>
     /// Other delivery channel defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_UqV1gT5KEeyHI64WSlzTlg")]
@@ -66,7 +66,7 @@ public enum GoodAndServiceDeliveryChannel1Code
     
     /// <summary>
     /// Shipping to cardholder billing address
-    /// Encoded/decoded by serializers as "SCBA".
+    /// Encoded/decoded by serializers as &quot;SCBA&quot;.
     /// </summary>
     [EnumMember(Value = "SCBA")]
     [IsoId("_UvaiwT5KEeyHI64WSlzTlg")]
@@ -75,7 +75,7 @@ public enum GoodAndServiceDeliveryChannel1Code
     
     /// <summary>
     /// Shipping to consumer specified shipping address
-    /// Encoded/decoded by serializers as "SCSA".
+    /// Encoded/decoded by serializers as &quot;SCSA&quot;.
     /// </summary>
     [EnumMember(Value = "SCSA")]
     [IsoId("_Uz-5sT5KEeyHI64WSlzTlg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides for reporting calculation results of non equity instruments as part of transparency.
 /// </summary>
 [IsoId("_rydgQaaWEeqM19y9ajxjTA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transparency Data Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,15 +51,13 @@ public partial record TransparencyDataReport20
     /// This identification will be used in the status advice report sent back.
     /// </summary>
     [IsoId("_r0GfBaaWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +70,15 @@ public partial record TransparencyDataReport20
     /// Identifies the financial instrument or the class of financial instruments to which the result relates.
     /// </summary>
     [IsoId("_r0GfB6aWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstrumentOrSubClassIdentification2Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstrumentOrSubClassIdentification2Choice_ Identification { get; init; } 
+    public required InstrumentOrSubClassIdentification2Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstrumentOrSubClassIdentification2Choice_ Identification { get; init; } 
     #else
@@ -94,15 +89,13 @@ public partial record TransparencyDataReport20
     /// Full name of the reporting entity.
     /// </summary>
     [IsoId("_r0GfCaaWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Full Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FullNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FullNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FullName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +108,12 @@ public partial record TransparencyDataReport20
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
     [IsoId("_r0GfC6aWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgVn")]
     #endif
+    [IsoXmlTag("TradgVn")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? TradingVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,12 +126,11 @@ public partial record TransparencyDataReport20
     /// Period to which the quantitative data fields relate.
     /// </summary>
     [IsoId("_r0GfDaaWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPrd")]
     #endif
+    [IsoXmlTag("RptgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ReportingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,12 +145,12 @@ public partial record TransparencyDataReport20
     /// When not present, this field should be treated as not applicable.
     /// </summary>
     [IsoId("_r0GfD6aWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquidity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lqdty")]
     #endif
+    [IsoXmlTag("Lqdty")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? Liquidity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,12 +163,11 @@ public partial record TransparencyDataReport20
     /// The pre-trade Large in Scale threshold.
     /// </summary>
     [IsoId("_r0GfEaaWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Trade Large In Scale Threshold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PreTradLrgInScaleThrshld")]
     #endif
+    [IsoXmlTag("PreTradLrgInScaleThrshld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TonsOrCurrency2Choice_? PreTradeLargeInScaleThreshold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,12 +180,11 @@ public partial record TransparencyDataReport20
     /// The post-trade Large in Scale threshold.
     /// </summary>
     [IsoId("_r0GfE6aWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Trade Large In Scale Threshold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstTradLrgInScaleThrshld")]
     #endif
+    [IsoXmlTag("PstTradLrgInScaleThrshld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TonsOrCurrency2Choice_? PostTradeLargeInScaleThreshold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,12 +197,11 @@ public partial record TransparencyDataReport20
     /// The pre-trade Size Specific to an Instrument threshold.
     /// </summary>
     [IsoId("_r0GfFaaWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Trade Instrument Size Specific Threshold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PreTradInstrmSzSpcfcThrshld")]
     #endif
+    [IsoXmlTag("PreTradInstrmSzSpcfcThrshld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TonsOrCurrency2Choice_? PreTradeInstrumentSizeSpecificThreshold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -225,12 +214,11 @@ public partial record TransparencyDataReport20
     /// The post-trade Size Specific to an Instrument threshold.
     /// </summary>
     [IsoId("_r0GfF6aWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Trade Instrument Size Specific Threshold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstTradInstrmSzSpcfcThrshld")]
     #endif
+    [IsoXmlTag("PstTradInstrmSzSpcfcThrshld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TonsOrCurrency2Choice_? PostTradeInstrumentSizeSpecificThreshold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,12 +231,11 @@ public partial record TransparencyDataReport20
     /// Statistics for a financial instrument generated as part of transparency calculations.
     /// </summary>
     [IsoId("_r0GfGaaWEeqM19y9ajxjTA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sttstcs")]
     #endif
+    [IsoXmlTag("Sttstcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatisticsTransparency2? Statistics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

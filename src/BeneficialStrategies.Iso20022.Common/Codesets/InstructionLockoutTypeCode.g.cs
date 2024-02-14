@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum InstructionLockoutTypeCode
 {
     /// <summary>
-    /// Event is locked out systemically for instruction processing. This relates to conversion or warrant events due to an "out of town" record date on the disbursed security.
-    /// Encoded/decoded by serializers as "SYSL".
+    /// Event is locked out systemically for instruction processing. This relates to conversion or warrant events due to an &quot;out of town&quot; record date on the disbursed security.
+    /// Encoded/decoded by serializers as &quot;SYSL&quot;.
     /// </summary>
     [EnumMember(Value = "SYSL")]
     [IsoId("_1hQL8A7wEeuZI5Sr_GAcuA")]
@@ -30,7 +30,7 @@ public enum InstructionLockoutTypeCode
     
     /// <summary>
     /// Event is locked out manually for instruction processing.  This relates to conversions, warrants and put events.
-    /// Encoded/decoded by serializers as "MANL".
+    /// Encoded/decoded by serializers as &quot;MANL&quot;.
     /// </summary>
     [EnumMember(Value = "MANL")]
     [IsoId("_EKGEoA7xEeuZI5Sr_GAcuA")]
@@ -39,7 +39,7 @@ public enum InstructionLockoutTypeCode
     
     /// <summary>
     /// Event is not locked out manually for instruction processing. This relates to conversions, warrants and put events.
-    /// Encoded/decoded by serializers as "NOTL".
+    /// Encoded/decoded by serializers as &quot;NOTL&quot;.
     /// </summary>
     [EnumMember(Value = "NOTL")]
     [IsoId("_KYW9sA7xEeuZI5Sr_GAcuA")]

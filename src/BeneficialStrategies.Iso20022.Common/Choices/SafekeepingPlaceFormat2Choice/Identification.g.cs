@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat2Choice
     /// Place of safekeeping expressed as a code and a narrative description.
     /// </summary>
     [IsoId("_SfVHN9p-Ed-ak6NoX_4Aeg_-2092013261")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat2Choice
         /// Place of safekeeping as a code.
         /// </summary>
         [IsoId("_SfVHMdp-Ed-ak6NoX_4Aeg_813979454")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Safekeeping Place Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SfkpgPlcTp")]
         #endif
+        [IsoXmlTag("SfkpgPlcTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SafekeepingPlace2Code SafekeepingPlaceType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SafekeepingPlace2Code SafekeepingPlaceType { get; init; } 
+        public required SafekeepingPlace2Code SafekeepingPlaceType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SafekeepingPlace2Code SafekeepingPlaceType { get; init; } 
         #else
@@ -76,11 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat2Choice
         /// Additional information about the place of safekeeping.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

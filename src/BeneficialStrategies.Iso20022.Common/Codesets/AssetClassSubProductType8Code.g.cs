@@ -21,7 +21,7 @@ public enum AssetClassSubProductType8Code
 {
     /// <summary>
     /// Commodity of type oil.
-    /// Encoded/decoded by serializers as "OILP".
+    /// Encoded/decoded by serializers as &quot;OILP&quot;.
     /// </summary>
     [EnumMember(Value = "OILP")]
     [IsoId("_913xIQnzEeWnS-yHF1QhNQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the net positions details.
 /// </summary>
 [IsoId("_Hkd7wS6aEeSQQqw1BT_aMg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Net Position")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,15 @@ public partial record NetPosition3
     /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).
     /// </summary>
     [IsoId("_H3p9gy6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrAcct")]
     #endif
+    [IsoXmlTag("ClrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount18 ClearingAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount18 ClearingAccount { get; init; } 
+    public required SecuritiesAccount18 ClearingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount18 ClearingAccount { get; init; } 
     #else
@@ -76,12 +73,11 @@ public partial record NetPosition3
     /// Provides the identification for the non-clearing member.
     /// </summary>
     [IsoId("_H3p9hS6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonClrMmb")]
     #endif
+    [IsoXmlTag("NonClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ public partial record NetPosition3
     /// An account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
     /// </summary>
     [IsoId("_H3p9hy6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryAcct")]
     #endif
+    [IsoXmlTag("DlvryAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? DeliveryAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,16 +107,15 @@ public partial record NetPosition3
     /// Provides details about the security identification.
     /// </summary>
     [IsoId("_H3p9iS6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -132,12 +126,11 @@ public partial record NetPosition3
     /// Provides the initial position amount.
     /// </summary>
     [IsoId("_H3p9iy6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Position Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlPosAmt")]
     #endif
+    [IsoXmlTag("InitlPosAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection21? InitialPositionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,16 +143,15 @@ public partial record NetPosition3
     /// Provides the net position amount.
     /// </summary>
     [IsoId("_H3p9jS6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Position Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetPosAmt")]
     #endif
+    [IsoXmlTag("NetPosAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection21 NetPositionAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection21 NetPositionAmount { get; init; } 
+    public required AmountAndDirection21 NetPositionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection21 NetPositionAmount { get; init; } 
     #else
@@ -170,12 +162,11 @@ public partial record NetPosition3
     /// Interest that has accumulated on a bond since the last interest payment up to, but not including, the settlement date.
     /// </summary>
     [IsoId("_H3p9jy6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstAmt")]
     #endif
+    [IsoXmlTag("AcrdIntrstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection21? AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +179,11 @@ public partial record NetPosition3
     /// This is the price of the trade.
     /// </summary>
     [IsoId("_H3p9kS6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Average Deal Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvrgDealPric")]
     #endif
+    [IsoXmlTag("AvrgDealPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? AverageDealPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,16 +196,15 @@ public partial record NetPosition3
     /// Identifies the quantity of the trade leg.
     /// </summary>
     [IsoId("_H3p9ky6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetQty")]
     #endif
+    [IsoXmlTag("NetQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ NetQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1Choice_ NetQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ NetQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1Choice_ NetQuantity { get; init; } 
     #else
@@ -226,16 +215,15 @@ public partial record NetPosition3
     /// Indicates the securities movement direction, that is, whether this is a delivery or return.
     /// </summary>
     [IsoId("_H3p9lS6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmntTp")]
     #endif
+    [IsoXmlTag("SctiesMvmntTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
+    public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     #else
@@ -246,16 +234,15 @@ public partial record NetPosition3
     /// Place at which a trade settles.
     /// </summary>
     [IsoId("_H3p9ly6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Depository")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dpstry")]
     #endif
+    [IsoXmlTag("Dpstry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification34Choice_ Depository { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification34Choice_ Depository { get; init; } 
+    public required PartyIdentification34Choice_ Depository { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification34Choice_ Depository { get; init; } 
     #else
@@ -266,12 +253,11 @@ public partial record NetPosition3
     /// Identifies the trading capacity of the seller.
     /// </summary>
     [IsoId("_H3p9mS6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Capacity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgCpcty")]
     #endif
+    [IsoXmlTag("TradgCpcty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingCapacity5Code? TradingCapacity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +270,11 @@ public partial record NetPosition3
     /// Place at which the security is traded.
     /// </summary>
     [IsoId("_H3p9my6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Trade")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfTrad")]
     #endif
+    [IsoXmlTag("PlcOfTrad")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification20? PlaceOfTrade { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +287,12 @@ public partial record NetPosition3
     /// Provides the date of the trade.
     /// </summary>
     [IsoId("_H3p9nS6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDt")]
     #endif
+    [IsoXmlTag("TradDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TradeDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +305,11 @@ public partial record NetPosition3
     /// Provides the contractual settlement date.
     /// </summary>
     [IsoId("_H3p9ny6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat15Choice_? SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +322,11 @@ public partial record NetPosition3
     /// Provides the trade leg details such as trade leg identification and trade type.
     /// </summary>
     [IsoId("_H3p9oS6aEeSQQqw1BT_aMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Leg Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradLegDtls")]
     #endif
+    [IsoXmlTag("TradLegDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeLeg10? TradeLegDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructedOrQuantityToReceive1Choice.InstructedQuantity))]
     [KnownType(typeof(InstructedOrQuantityToReceive1Choice.QuantityToReceive))]
     [IsoId("_UHCr6dp-Ed-ak6NoX_4Aeg_-1969996831")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Or Quantity To Receive 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

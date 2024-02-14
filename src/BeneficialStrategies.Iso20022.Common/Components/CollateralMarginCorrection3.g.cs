@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies details of the collateral margin data.
 /// </summary>
 [IsoId("_PcVkga4aEemB_csI4yyKLA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Margin Correction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,15 +52,13 @@ public partial record CollateralMarginCorrection3
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
     [IsoId("_PgqD0a4aEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +71,16 @@ public partial record CollateralMarginCorrection3
     /// Date and time of submission of the report to the trade repository.
     /// </summary>
     [IsoId("_PgqD064aEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgDtTm")]
     #endif
+    [IsoXmlTag("RptgDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ReportingDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ReportingDateTime { get; init; } 
+    public required System.DateTime ReportingDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ReportingDateTime { get; init; } 
     #else
@@ -95,16 +91,16 @@ public partial record CollateralMarginCorrection3
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
     [IsoId("_PgqD1a4aEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtDt")]
     #endif
+    [IsoXmlTag("EvtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EventDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly EventDate { get; init; } 
+    public required System.DateOnly EventDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly EventDate { get; init; } 
     #else
@@ -115,16 +111,15 @@ public partial record CollateralMarginCorrection3
     /// Data specific to counterparties of the reported transaction.
     /// </summary>
     [IsoId("_PgqD164aEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPty")]
     #endif
+    [IsoXmlTag("CtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Counterparty30 Counterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Counterparty30 Counterparty { get; init; } 
+    public required Counterparty30 Counterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Counterparty30 Counterparty { get; init; } 
     #else
@@ -135,19 +130,17 @@ public partial record CollateralMarginCorrection3
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>
     [IsoId("_PgqD2a4aEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Portfolio Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPrtflId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollPrtflId")]
+    [IsoSimpleType(IsoSimpleType.Max52Text)]
     [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax52Text CollateralPortfolioIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CollateralPortfolioIdentification { get; init; } 
+    public required System.String CollateralPortfolioIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CollateralPortfolioIdentification { get; init; } 
     #else
@@ -158,12 +151,11 @@ public partial record CollateralMarginCorrection3
     /// Information on posted collateral and margin.
     /// </summary>
     [IsoId("_PgqD264aEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posted Margin Or Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstdMrgnOrColl")]
     #endif
+    [IsoXmlTag("PstdMrgnOrColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostedMarginOrCollateral3? PostedMarginOrCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +168,11 @@ public partial record CollateralMarginCorrection3
     /// Information on received collateral and margin.
     /// </summary>
     [IsoId("_PgqD3a4aEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received Margin Or Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvdMrgnOrColl")]
     #endif
+    [IsoXmlTag("RcvdMrgnOrColl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReceivedMarginOrCollateral3? ReceivedMarginOrCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +185,11 @@ public partial record CollateralMarginCorrection3
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_PgqD364aEemB_csI4yyKLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

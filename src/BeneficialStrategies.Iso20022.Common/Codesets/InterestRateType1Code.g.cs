@@ -21,7 +21,7 @@ public enum InterestRateType1Code
 {
     /// <summary>
     /// Rate is fixed.
-    /// Encoded/decoded by serializers as "FIXE".
+    /// Encoded/decoded by serializers as &quot;FIXE&quot;.
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_y3adwbtKEeSmENFdxjMqzQ")]
@@ -30,7 +30,7 @@ public enum InterestRateType1Code
     
     /// <summary>
     /// Rate is variable.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_zCH48btKEeSmENFdxjMqzQ")]

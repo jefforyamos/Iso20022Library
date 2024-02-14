@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the ATM.
 /// </summary>
 [IsoId("_-clJMYtqEeSDLd7nI4Quzw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ATMEnvironment9
     /// Acquirer of the ATM transaction, in charge of the funds settlement with the issuer.
     /// </summary>
     [IsoId("_-pPsMYtqEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acqrr")]
     #endif
+    [IsoXmlTag("Acqrr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Acquirer7? Acquirer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,15 +66,13 @@ public partial record ATMEnvironment9
     /// Identification of the ATM manager.
     /// </summary>
     [IsoId("_-pPsM4tqEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Manager Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMMgrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ATMMgrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ATMManagerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +85,15 @@ public partial record ATMEnvironment9
     /// ATM information.
     /// </summary>
     [IsoId("_-pPsN4tqEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATM")]
     #endif
+    [IsoXmlTag("ATM")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AutomatedTellerMachine7 ATM { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AutomatedTellerMachine7 ATM { get; init; } 
+    public required AutomatedTellerMachine7 ATM { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AutomatedTellerMachine7 ATM { get; init; } 
     #else

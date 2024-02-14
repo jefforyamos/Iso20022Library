@@ -21,7 +21,7 @@ public enum CardholderVerificationCapability1Code
 {
     /// <summary>
     /// Manual signature verification.
-    /// Encoded/decoded by serializers as "MNSG".
+    /// Encoded/decoded by serializers as &quot;MNSG&quot;.
     /// </summary>
     [EnumMember(Value = "MNSG")]
     [IsoId("_TSg-dQEcEeCQm6a_G2yO_w_-1880835422")]
@@ -30,7 +30,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Online PIN (Personal Identification Number).
-    /// Encoded/decoded by serializers as "NPIN".
+    /// Encoded/decoded by serializers as &quot;NPIN&quot;.
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_TSg-dgEcEeCQm6a_G2yO_w_-1195154328")]
@@ -39,7 +39,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Offline PIN in clear (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FCPN".
+    /// Encoded/decoded by serializers as &quot;FCPN&quot;.
     /// </summary>
     [EnumMember(Value = "FCPN")]
     [IsoId("_TSg-dwEcEeCQm6a_G2yO_w_-870036821")]
@@ -48,7 +48,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Offline PIN encrypted (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FEPN".
+    /// Encoded/decoded by serializers as &quot;FEPN&quot;.
     /// </summary>
     [EnumMember(Value = "FEPN")]
     [IsoId("_TSg-eAEcEeCQm6a_G2yO_w_207983517")]
@@ -57,7 +57,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Offline digital signature analysis.
-    /// Encoded/decoded by serializers as "FDSG".
+    /// Encoded/decoded by serializers as &quot;FDSG&quot;.
     /// </summary>
     [EnumMember(Value = "FDSG")]
     [IsoId("_TSg-eQEcEeCQm6a_G2yO_w_2145208690")]
@@ -66,7 +66,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Offline biometrics.
-    /// Encoded/decoded by serializers as "FBIO".
+    /// Encoded/decoded by serializers as &quot;FBIO&quot;.
     /// </summary>
     [EnumMember(Value = "FBIO")]
     [IsoId("_TSg-egEcEeCQm6a_G2yO_w_169997474")]
@@ -75,7 +75,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Other manual verification, for example passport or drivers license.
-    /// Encoded/decoded by serializers as "MNVR".
+    /// Encoded/decoded by serializers as &quot;MNVR&quot;.
     /// </summary>
     [EnumMember(Value = "MNVR")]
     [IsoId("_TSg-ewEcEeCQm6a_G2yO_w_-584752400")]
@@ -84,7 +84,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Offline biographics.
-    /// Encoded/decoded by serializers as "FBIG".
+    /// Encoded/decoded by serializers as &quot;FBIG&quot;.
     /// </summary>
     [EnumMember(Value = "FBIG")]
     [IsoId("_TSg-fAEcEeCQm6a_G2yO_w_176012753")]
@@ -93,7 +93,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Account based digital signature.
-    /// Encoded/decoded by serializers as "APKI".
+    /// Encoded/decoded by serializers as &quot;APKI&quot;.
     /// </summary>
     [EnumMember(Value = "APKI")]
     [IsoId("_TSg-fQEcEeCQm6a_G2yO_w_-141763908")]
@@ -102,7 +102,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// PKI (Public Key Infrastructure) based digital signature.
-    /// Encoded/decoded by serializers as "PKIS".
+    /// Encoded/decoded by serializers as &quot;PKIS&quot;.
     /// </summary>
     [EnumMember(Value = "PKIS")]
     [IsoId("_TSg-fgEcEeCQm6a_G2yO_w_1795461265")]
@@ -111,7 +111,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Cardholder authentication data.
-    /// Encoded/decoded by serializers as "CHDT".
+    /// Encoded/decoded by serializers as &quot;CHDT&quot;.
     /// </summary>
     [EnumMember(Value = "CHDT")]
     [IsoId("_TSg-fwEcEeCQm6a_G2yO_w_-1833944105")]
@@ -120,7 +120,7 @@ public enum CardholderVerificationCapability1Code
     
     /// <summary>
     /// Three domain secure (three domain secure authentication of the cardholder).
-    /// Encoded/decoded by serializers as "SCEC".
+    /// Encoded/decoded by serializers as &quot;SCEC&quot;.
     /// </summary>
     [EnumMember(Value = "SCEC")]
     [IsoId("_TSg-gAEcEeCQm6a_G2yO_w_2143246530")]

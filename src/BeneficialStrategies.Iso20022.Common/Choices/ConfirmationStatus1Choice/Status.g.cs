@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationStatus1Choice
     /// Status of the order confirmation is accepted or received or sent to next party or there is a communication problem with next party. There is no reason attached.
     /// </summary>
     [IsoId("_1BFlFUhCEea8pJjypp-yMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationStatus1Choice
         /// Specifies the current status of an order confirmation or of an order confirmation amendment.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sts")]
         #endif
+        [IsoXmlTag("Sts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OrderConfirmationStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OrderConfirmationStatus1Code Value { get; init; } 
+        public required OrderConfirmationStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OrderConfirmationStatus1Code Value { get; init; } 
         #else

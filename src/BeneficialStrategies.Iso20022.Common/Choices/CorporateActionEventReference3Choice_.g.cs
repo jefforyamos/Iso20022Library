@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionEventReference3Choice.LinkedOfficialCorporateActionEventIdentification))]
     [KnownType(typeof(CorporateActionEventReference3Choice.LinkedCorporateActionIdentification))]
     [IsoId("_4VgxsTncEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Reference 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

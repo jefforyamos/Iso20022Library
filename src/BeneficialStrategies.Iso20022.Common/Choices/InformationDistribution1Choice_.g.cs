@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InformationDistribution1Choice.Code))]
     [KnownType(typeof(InformationDistribution1Choice.Proprietary))]
     [IsoId("_9jvwACCUEeWJd9HF2tO7BA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Distribution 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

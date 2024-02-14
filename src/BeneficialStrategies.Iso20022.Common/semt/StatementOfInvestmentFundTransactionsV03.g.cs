@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|An account servicer, for example, a transfer agent sends the StatementOfInvestmentFundTransactions message to the account owner, for example, an investment manager or its authorised representative to provide detailed transactions (increases and decreases) of holdings which occurred during a specified period of time.|Usage|The StatementOfInvestmentFundTransactions message is used to list the holdings transactions of a single (master) account or several sub-accounts.|This message should be used at a frequency agreed bi-laterally between the account servicer and the account owner.|This message must not be used in place of confirmation messages.")]
 [IsoId("_o3RH0Qf7EeSNB7vR9dc0nw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statement Of Investment Fund Transactions V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_o3RH1Qf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -103,12 +100,11 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_o3RH1wf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +117,11 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_o3RH2Qf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,16 +134,15 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// Pagination of the message.
     /// </summary>
     [IsoId("_o3RH2wf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination MessagePagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination MessagePagination { get; init; } 
+    public required Pagination MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination MessagePagination { get; init; } 
     #else
@@ -159,16 +153,15 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// General information related to the investment fund statement of transactions.
     /// </summary>
     [IsoId("_o3RH3Qf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtGnlDtls")]
     #endif
+    [IsoXmlTag("StmtGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Statement8 StatementGeneralDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Statement8 StatementGeneralDetails { get; init; } 
+    public required Statement8 StatementGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Statement8 StatementGeneralDetails { get; init; } 
     #else
@@ -179,16 +172,15 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// Information related to an investment account.
     /// </summary>
     [IsoId("_o3RH3wf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcctDtls")]
     #endif
+    [IsoXmlTag("InvstmtAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount43 InvestmentAccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount43 InvestmentAccountDetails { get; init; } 
+    public required InvestmentAccount43 InvestmentAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount43 InvestmentAccountDetails { get; init; } 
     #else
@@ -199,12 +191,11 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
     /// </summary>
     [IsoId("_o3RH4Qf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction On Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxOnAcct")]
     #endif
+    [IsoXmlTag("TxOnAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundTransactionsByFund3? TransactionOnAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -217,12 +208,11 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// The sub-account of the safekeeping or investment account.
     /// </summary>
     [IsoId("_o3RH4wf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubAcctDtls")]
     #endif
+    [IsoXmlTag("SubAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SubAccountIdentification36? SubAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -235,12 +225,11 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_o3RH5Qf7EeSNB7vR9dc0nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -253,7 +242,7 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatementOfInvestmentFundTransactionsV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatementOfInvestmentFundTransactionsV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatementOfInvestmentFundTransactionsV03Document ToDocument()
     {
@@ -263,7 +252,7 @@ public partial record StatementOfInvestmentFundTransactionsV03 : IOuterRecord<St
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatementOfInvestmentFundTransactionsV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatementOfInvestmentFundTransactionsV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatementOfInvestmentFundTransactionsV03Document : IOuterDocument<StatementOfInvestmentFundTransactionsV03>
@@ -280,7 +269,7 @@ public partial record StatementOfInvestmentFundTransactionsV03Document : IOuterD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatementOfInvestmentFundTransactionsV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatementOfInvestmentFundTransactionsV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatementOfInvestmentFundTransactionsV03 Message { get; init; }

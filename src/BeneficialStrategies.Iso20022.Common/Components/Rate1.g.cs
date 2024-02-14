@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements qualifying the interest rate.
 /// </summary>
 [IsoId("_SRnbU9p-Ed-ak6NoX_4Aeg_36879442")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Rate1
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument. |Example percentage rate: Rate expressed as a percentage, ie, in hundredths, eg, 0.7 is 7/10 of a percent, and 7.0 is 7%.|Example Textual rate: Rate is expressed as a text.
     /// </summary>
     [IsoId("_SRnbVNp-Ed-ak6NoX_4Aeg_225276293")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RateTypeChoice_ Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RateTypeChoice_ Rate { get; init; } 
+    public required RateTypeChoice_ Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RateTypeChoice_ Rate { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Rate1
     /// An amount range where the interest rate is applicable.
     /// </summary>
     [IsoId("_SRnbVdp-Ed-ak6NoX_4Aeg_-1476444438")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity Range")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyRg")]
     #endif
+    [IsoXmlTag("VldtyRg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyAndAmountRange? ValidityRange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

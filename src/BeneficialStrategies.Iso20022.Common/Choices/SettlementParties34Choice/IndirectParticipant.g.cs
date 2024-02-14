@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties34Choice
     /// Identification of the indirect participant of the reporting counterparty involved in the transaction.
     /// </summary>
     [IsoId("_viBlU8g4Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indirect Participant")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum Algorithm16Code
 {
     /// <summary>
     /// Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).
-    /// Encoded/decoded by serializers as "HS25".
+    /// Encoded/decoded by serializers as &quot;HS25&quot;.
     /// </summary>
     [EnumMember(Value = "HS25")]
     [IsoId("_nmiv4ds1Eee9e6xduATmQg")]
@@ -30,7 +30,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).
-    /// Encoded/decoded by serializers as "HS38".
+    /// Encoded/decoded by serializers as &quot;HS38&quot;.
     /// </summary>
     [EnumMember(Value = "HS38")]
     [IsoId("_nmiv49s1Eee9e6xduATmQg")]
@@ -39,7 +39,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).
-    /// Encoded/decoded by serializers as "HS51".
+    /// Encoded/decoded by serializers as &quot;HS51&quot;.
     /// </summary>
     [EnumMember(Value = "HS51")]
     [IsoId("_nmiv5ds1Eee9e6xduATmQg")]
@@ -48,7 +48,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// The DEPRECATED Message digest algorithm SHA-1 as defined in FIPS 180-1 - (ASN.1 Object Identifier: id-sha1).
-    /// Encoded/decoded by serializers as "HS01".
+    /// Encoded/decoded by serializers as &quot;HS01&quot;.
     /// </summary>
     [EnumMember(Value = "HS01")]
     [IsoId("_nmiv59s1Eee9e6xduATmQg")]
@@ -57,7 +57,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// Message digest algorithm SHA3-224 as defined in FIPS 202 - (ASN.1 Object Identifier: id-sha3-224).
-    /// Encoded/decoded by serializers as "SH31".
+    /// Encoded/decoded by serializers as &quot;SH31&quot;.
     /// </summary>
     [EnumMember(Value = "SH31")]
     [IsoId("_q_zxwds1Eee9e6xduATmQg")]
@@ -66,7 +66,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// Message digest algorithm SHA3-256 as defined in FIPS 202 - (ASN.1 Object Identifier: id-sha3-256).
-    /// Encoded/decoded by serializers as "SH32".
+    /// Encoded/decoded by serializers as &quot;SH32&quot;.
     /// </summary>
     [EnumMember(Value = "SH32")]
     [IsoId("_rF3Wcds1Eee9e6xduATmQg")]
@@ -75,7 +75,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// Message digest algorithm SHA3-384 as defined in FIPS 202 - (ASN.1 Object Identifier: id-sha3-384).
-    /// Encoded/decoded by serializers as "SH33".
+    /// Encoded/decoded by serializers as &quot;SH33&quot;.
     /// </summary>
     [EnumMember(Value = "SH33")]
     [IsoId("_r8LTYds1Eee9e6xduATmQg")]
@@ -84,7 +84,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// Message digest algorithm SHA3-512 as defined in FIPS 202 - (ASN.1 Object Identifier: id-sha3-512).
-    /// Encoded/decoded by serializers as "SH35".
+    /// Encoded/decoded by serializers as &quot;SH35&quot;.
     /// </summary>
     [EnumMember(Value = "SH35")]
     [IsoId("_v2yu0ds1Eee9e6xduATmQg")]
@@ -93,7 +93,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// Message digest algorithm SHAKE-128 as defined in FIPS 202 - (ASN.1 Object Identifier: id-shake128).
-    /// Encoded/decoded by serializers as "SHK1".
+    /// Encoded/decoded by serializers as &quot;SHK1&quot;.
     /// </summary>
     [EnumMember(Value = "SHK1")]
     [IsoId("_zzNhEds1Eee9e6xduATmQg")]
@@ -102,7 +102,7 @@ public enum Algorithm16Code
     
     /// <summary>
     /// Message digest algorithm SHAKE-256 as defined in FIPS 202 - (ASN.1 Object Identifier: id-shake256).
-    /// Encoded/decoded by serializers as "SHK2".
+    /// Encoded/decoded by serializers as &quot;SHK2&quot;.
     /// </summary>
     [EnumMember(Value = "SHK2")]
     [IsoId("_z6oXsds1Eee9e6xduATmQg")]

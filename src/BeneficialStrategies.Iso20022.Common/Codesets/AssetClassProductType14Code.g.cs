@@ -21,7 +21,7 @@ public enum AssetClassProductType14Code
 {
     /// <summary>
     /// Commodity of type official economic statistic.
-    /// Encoded/decoded by serializers as "OEST".
+    /// Encoded/decoded by serializers as &quot;OEST&quot;.
     /// </summary>
     [EnumMember(Value = "OEST")]
     [IsoId("_Zkr-xVrLEeWN79Bl6BUd3g")]

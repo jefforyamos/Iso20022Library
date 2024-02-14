@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingDemand message and other required documents are sent by the beneficiary to the party that issued the undertaking, either directly or via a presenting or nominated party. It is a demand for payment and may include a request to extend the undertaking expiry date. The demand itself must be contained in an enclosed file within the message or must be specified as narrative text within the message. It may contain other required documents in addition to the demand.")]
 [IsoId("_9hDVQnltEeG7BsjMvd1mEw_2036606327")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Demand V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingDemandV01 : IOuterRecord<UndertakingDemandV01,U
     /// Details of the demand.
     /// </summary>
     [IsoId("_9hDVQ3ltEeG7BsjMvd1mEw_-612873100")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Demand Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgDmndDtls")]
     #endif
+    [IsoXmlTag("UdrtkgDmndDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Demand1 UndertakingDemandDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Demand1 UndertakingDemandDetails { get; init; } 
+    public required Demand1 UndertakingDemandDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Demand1 UndertakingDemandDetails { get; init; } 
     #else
@@ -95,31 +92,26 @@ public partial record UndertakingDemandV01 : IOuterRecord<UndertakingDemandV01,U
     /// Additional information specific to the bank-to-bank communication.
     /// </summary>
     [IsoId("_AIs9UBVIEeKVqNjC36CBuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank To Bank Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkToBkInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BkToBkInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> BankToBankInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
     /// Digital signature of the demand.
     /// </summary>
     [IsoId("_9hDVRHltEeG7BsjMvd1mEw_-415271236")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,7 +124,7 @@ public partial record UndertakingDemandV01 : IOuterRecord<UndertakingDemandV01,U
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingDemandV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingDemandV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingDemandV01Document ToDocument()
     {
@@ -142,7 +134,7 @@ public partial record UndertakingDemandV01 : IOuterRecord<UndertakingDemandV01,U
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingDemandV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingDemandV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingDemandV01Document : IOuterDocument<UndertakingDemandV01>
@@ -159,7 +151,7 @@ public partial record UndertakingDemandV01Document : IOuterDocument<UndertakingD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingDemandV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingDemandV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingDemandV01 Message { get; init; }

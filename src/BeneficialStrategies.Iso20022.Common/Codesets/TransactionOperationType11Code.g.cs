@@ -21,7 +21,7 @@ public enum TransactionOperationType11Code
 {
     /// <summary>
     /// Transaction corrects errors in a previously sent transaction.
-    /// Encoded/decoded by serializers as "CORR".
+    /// Encoded/decoded by serializers as &quot;CORR&quot;.
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_AHVSkU2YEe2bQ-Ksk8mwQg")]
@@ -30,7 +30,7 @@ public enum TransactionOperationType11Code
     
     /// <summary>
     /// Indicates the report of the collateral data or of their modifications, but not the corrections of the previously reported collateral details.
-    /// Encoded/decoded by serializers as "MARU".
+    /// Encoded/decoded by serializers as &quot;MARU&quot;.
     /// </summary>
     [EnumMember(Value = "MARU")]
     [IsoId("_A3-sYU2YEe2bQ-Ksk8mwQg")]
@@ -39,7 +39,7 @@ public enum TransactionOperationType11Code
     
     /// <summary>
     /// Transaction is a new transaction.
-    /// Encoded/decoded by serializers as "NEWT".
+    /// Encoded/decoded by serializers as &quot;NEWT&quot;.
     /// </summary>
     [EnumMember(Value = "NEWT")]
     [IsoId("_BjAmYU2YEe2bQ-Ksk8mwQg")]
@@ -48,7 +48,7 @@ public enum TransactionOperationType11Code
     
     /// <summary>
     /// Cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to regulatory reporting requirements but was reported to a regulatory authority by mistake or a cancellation of duplicate report.
-    /// Encoded/decoded by serializers as "EROR".
+    /// Encoded/decoded by serializers as &quot;EROR&quot;.
     /// </summary>
     [EnumMember(Value = "EROR")]
     [IsoId("_LmjDUWW_Ee2JluottcAG9w")]

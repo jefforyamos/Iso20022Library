@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"Scope|The FinancialInstitutionCreditTransfer message is sent by a debtor financial institution to a creditor financial institution, directly or through other agents and/or a payment clearing and settlement system.|It is used to move funds from a debtor account to a creditor, where both debtor and creditor are financial institutions.|Usage|The FinancialInstitutionCreditTransfer message is exchanged between agents and can contain one or more credit transfer instructions where debtor and creditor are both financial institutions.|The FinancialInstitutionCreditTransfer message does not allow for grouping: a CreditTransferTransactionInformation block must be present for each credit transfer transaction.|The FinancialInstitutionCreditTransfer message can be used in domestic and cross-border scenarios.|")]
 [IsoId("_efpsyNEuEd-BzquC8wXy7w_-942514611")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Institution Credit Transfer V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord<Finan
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_efpsydEuEd-BzquC8wXy7w_-942514231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader4 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader4 GroupHeader { get; init; } 
+    public required GroupHeader4 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader4 GroupHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord<Finan
     /// Set of elements providing information specific to the individual credit transfer(s).
     /// </summary>
     [IsoId("_efpsytEuEd-BzquC8wXy7w_-941594069")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Transfer Transaction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtTrfTxInf")]
     #endif
+    [IsoXmlTag("CdtTrfTxInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditTransferTransactionInformation3 CreditTransferTransactionInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditTransferTransactionInformation3 CreditTransferTransactionInformation { get; init; } 
+    public required CreditTransferTransactionInformation3 CreditTransferTransactionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditTransferTransactionInformation3 CreditTransferTransactionInformation { get; init; } 
     #else
@@ -123,7 +119,7 @@ public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord<Finan
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInstitutionCreditTransferV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInstitutionCreditTransferV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInstitutionCreditTransferV01Document ToDocument()
     {
@@ -133,7 +129,7 @@ public partial record FinancialInstitutionCreditTransferV01 : IOuterRecord<Finan
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstitutionCreditTransferV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInstitutionCreditTransferV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInstitutionCreditTransferV01Document : IOuterDocument<FinancialInstitutionCreditTransferV01>
@@ -150,7 +146,7 @@ public partial record FinancialInstitutionCreditTransferV01Document : IOuterDocu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInstitutionCreditTransferV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInstitutionCreditTransferV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionCreditTransferV01 Message { get; init; }

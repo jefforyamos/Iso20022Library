@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of the status.
 /// </summary>
 [IsoId("_VPaCAPH9Eeaz_YGUGLjP6A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Detail")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record StatusDetail1
     /// Country of the institution relevant for the decision.
     /// </summary>
     [IsoId("_MvO2kD7yEee5faD4glTPKA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record StatusDetail1
     /// Details of the institution which is relevant for the decision.
     /// </summary>
     [IsoId("_J71NQfIDEeaz_YGUGLjP6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Competent Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmptntAuthrty")]
     #endif
+    [IsoXmlTag("CmptntAuthrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
+    public required SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
     #else
@@ -90,15 +86,13 @@ public partial record StatusDetail1
     /// Code indicating the status following the decision.
     /// </summary>
     [IsoId("_g_8Q0fH9Eeaz_YGUGLjP6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Sts")]
+    [IsoSimpleType(IsoSimpleType.Max10Text)]
     [StringLength(maximumLength: 10 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,19 +105,17 @@ public partial record StatusDetail1
     /// Code indicating the reason of the decision.
     /// </summary>
     [IsoId("_YID0sfH-Eeaz_YGUGLjP6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StsRsn")]
+    [IsoSimpleType(IsoSimpleType.Max10Text)]
     [StringLength(maximumLength: 10 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax10Text StatusReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String StatusReason { get; init; } 
+    public required System.String StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String StatusReason { get; init; } 
     #else
@@ -134,12 +126,11 @@ public partial record StatusDetail1
     /// Period of time when the decision is effective.
     /// </summary>
     [IsoId("_tG_sgTb5Eeer2ugaDqMdXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activity Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtyPrd")]
     #endif
+    [IsoXmlTag("ActvtyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period4Choice_? ActivityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,15 +143,13 @@ public partial record StatusDetail1
     /// Any other additional information about the decision.
     /// </summary>
     [IsoId("_uUdG8En5EeexwKvkdw4OGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Comment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Cmnt")]
+    [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? Comment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

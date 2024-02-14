@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Further information related to the processing of the charges instruction that may need to be acted upon by the instructed agent. The instruction may relate to an instruction that has to be executed by the instructed agent, or may be information required by the instructed agent.
 /// </summary>
 [IsoId("_8wlHkbt5Eeq_cfXrH83Rcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instruction For Instructed Agent")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InstructionForInstructedAgent1
     /// Coded information related to the processing of the payment instruction, provided by the initiating party, and intended for the instructed agent.
     /// </summary>
     [IsoId("_8xrTwbt5Eeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalInstructedAgentInstruction1Code? Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record InstructionForInstructedAgent1
     /// Further information complementing the coded instruction or instruction to the instructed agent that is bilaterally agreed or specific to a user community.
     /// </summary>
     [IsoId("_8xrTw7t5Eeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? InstructionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

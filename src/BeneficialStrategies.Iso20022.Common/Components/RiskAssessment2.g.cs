@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates to the card issuer the level of risk associated with the transaction.
 /// </summary>
 [IsoId("_hh16scSsEeuBjv5G5kw00g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Risk Assessment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record RiskAssessment2
     /// Entity providing an intermediate result of a risk assessment process.
     /// </summary>
     [IsoId("_hm9rQcSsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Assessment Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskAssmntNtty")]
     #endif
+    [IsoXmlTag("RskAssmntNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification200? RiskAssessmentEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record RiskAssessment2
     /// Type of risk assessment.
     /// </summary>
     [IsoId("_hm9rQ8SsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Assessment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskAssmntTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RskAssmntTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RiskAssessmentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record RiskAssessment2
     /// Transaction is identified as high risk.
     /// </summary>
     [IsoId("_xNnQAMSsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("High Risk Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghRskTx")]
     #endif
+    [IsoXmlTag("HghRskTx")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? HighRiskTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,15 +96,13 @@ public partial record RiskAssessment2
     /// Reason for indicating a certain level of risk for the transaction.
     /// </summary>
     [IsoId("_hm9rRcSsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,15 +115,13 @@ public partial record RiskAssessment2
     /// Risk assessment result.
     /// </summary>
     [IsoId("_hm9rR8SsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rslt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rslt")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Result { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +134,11 @@ public partial record RiskAssessment2
     /// Conditions noted for the risk assessment.
     /// </summary>
     [IsoId("_3xgWYMVSEeuPIIgba4mCug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Condition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskCond")]
     #endif
+    [IsoXmlTag("RskCond")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? RiskCondition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +151,11 @@ public partial record RiskAssessment2
     /// Additional risk data associated with the transaction.
     /// </summary>
     [IsoId("_hm9rScSsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Risk Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRskData")]
     #endif
+    [IsoXmlTag("AddtlRskData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalRiskData1? AdditionalRiskData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +168,11 @@ public partial record RiskAssessment2
     /// Recommended action based on risk assessment.
     /// </summary>
     [IsoId("_hm9rS8SsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recommended Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcmmnddActn")]
     #endif
+    [IsoXmlTag("RcmmnddActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionType8Code? RecommendedAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,15 +185,13 @@ public partial record RiskAssessment2
     /// Other recommended action based on risk assessment defined at national or private level.
     /// </summary>
     [IsoId("_hm9rTcSsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Recommended Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRcmmnddActn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrRcmmnddActn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherRecommendedAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,15 +204,13 @@ public partial record RiskAssessment2
     /// Additional details of recommended action or other recommended action. 
     /// </summary>
     [IsoId("_hm9rT8SsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recommended Action Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcmmnddActnDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcmmnddActnDtls")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? RecommendedActionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ProcessingPosition5Code
 {
     /// <summary>
     /// Specifies that the transactions/instructions are linked for information purposes only.
-    /// Encoded/decoded by serializers as "INFO".
+    /// Encoded/decoded by serializers as &quot;INFO&quot;.
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_-jjQIWaxEeWZev0W8F756g")]

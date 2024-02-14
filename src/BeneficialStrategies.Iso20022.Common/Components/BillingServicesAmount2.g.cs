@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Taxable service charge amount conversions to host currency.
 /// </summary>
 [IsoId("_6QP-p5qlEeGSON8vddiWzQ_460369359")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Services Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BillingServicesAmount2
     /// Sum of the original charge host amount and the service tax host amount values. It represents the total charge for a service (including taxes) expressed in the host currency.
     /// </summary>
     [IsoId("_6QP-qJqlEeGSON8vddiWzQ_-1570575712")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstAmt")]
     #endif
+    [IsoXmlTag("HstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 HostAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 HostAmount { get; init; } 
+    public required AmountAndDirection34 HostAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 HostAmount { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record BillingServicesAmount2
     /// Sum of the original charge host amount and the service tax host amount values but expressed in the settlement currency.
     /// </summary>
     [IsoId("_6QZvoJqlEeGSON8vddiWzQ_-536702994")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record BillingServicesAmount2
     /// Sum of the original charge host amount and the service tax host amount values but expressed in the pricing currency.
     /// </summary>
     [IsoId("_6QZvoZqlEeGSON8vddiWzQ_1108564441")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pricing Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricgAmt")]
     #endif
+    [IsoXmlTag("PricgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? PricingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the transportation of goods by air.
 /// </summary>
 [IsoId("_U78TmNp-Ed-ak6NoX_4Aeg_1136145440")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transport By Air")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TransportByAir1
     /// Place from where the goods must leave.
     /// </summary>
     [IsoId("_U78Tmdp-Ed-ak6NoX_4Aeg_885263197")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Departure Airport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DprtureAirprt")]
     #endif
+    [IsoXmlTag("DprtureAirprt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AirportName1Choice_? DepartureAirport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TransportByAir1
     /// Place where the goods must arrive.
     /// </summary>
     [IsoId("_U78Tmtp-Ed-ak6NoX_4Aeg_878799220")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Destination Airport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstnAirprt")]
     #endif
+    [IsoXmlTag("DstnAirprt")]
     public AirportName1Choice_? DestinationAirport { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _U78Tmtp-Ed-ak6NoX_4Aeg_878799220
     

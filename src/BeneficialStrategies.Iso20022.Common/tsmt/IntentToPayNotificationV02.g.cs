@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The IntentToPayNotification message is sent by a party to the matching application in order to provide details about a future payment.|This message contains details about an intention to pay a certain amount, on a certain date, in relation to one or several transactions known to the matching application.|Usage|The IntentToPayNotification message can be sent by a party to the transaction at any time as long as the transaction is established and not yet closed.|The message is unsolicited, that is, it is not sent in response to another message.")]
 [IsoId("_YyxioRVaEeOCqpkCrPgk4g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intent To Pay Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotif
     /// Identifies the notification message.
     /// </summary>
     [IsoId("_YyxioxVaEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
+    [IsoXmlTag("NtfctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 NotificationIdentification { get; init; } 
+    public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 NotificationIdentification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotif
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_YyxipRVaEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -124,12 +120,11 @@ public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotif
     /// Reference to the transaction for the requesting financial institution.
     /// </summary>
     [IsoId("_YyxipxVaEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitrTxRef")]
     #endif
+    [IsoXmlTag("SubmitrTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,16 +137,15 @@ public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotif
     /// The financial institution of the buyer, uniquely identified by its BIC. |.
     /// </summary>
     [IsoId("_YyxiqRVaEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrBk")]
     #endif
+    [IsoXmlTag("BuyrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 BuyerBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 BuyerBank { get; init; } 
+    public required BICIdentification1 BuyerBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 BuyerBank { get; init; } 
     #else
@@ -162,16 +156,15 @@ public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotif
     /// The financial institution of the seller, uniquely identified by its BIC. |.
     /// </summary>
     [IsoId("_YyxiqxVaEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrBk")]
     #endif
+    [IsoXmlTag("SellrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 SellerBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 SellerBank { get; init; } 
+    public required BICIdentification1 SellerBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 SellerBank { get; init; } 
     #else
@@ -182,16 +175,15 @@ public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotif
     /// Provides the details of the intention to pay.
     /// </summary>
     [IsoId("_YyxirRVaEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intent To Pay")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InttToPay")]
     #endif
+    [IsoXmlTag("InttToPay")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntentToPay2 IntentToPay { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IntentToPay2 IntentToPay { get; init; } 
+    public required IntentToPay2 IntentToPay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IntentToPay2 IntentToPay { get; init; } 
     #else
@@ -202,7 +194,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotif
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IntentToPayNotificationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IntentToPayNotificationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IntentToPayNotificationV02Document ToDocument()
     {
@@ -212,7 +204,7 @@ public partial record IntentToPayNotificationV02 : IOuterRecord<IntentToPayNotif
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntentToPayNotificationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IntentToPayNotificationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IntentToPayNotificationV02Document : IOuterDocument<IntentToPayNotificationV02>
@@ -229,7 +221,7 @@ public partial record IntentToPayNotificationV02Document : IOuterDocument<Intent
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IntentToPayNotificationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IntentToPayNotificationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntentToPayNotificationV02 Message { get; init; }

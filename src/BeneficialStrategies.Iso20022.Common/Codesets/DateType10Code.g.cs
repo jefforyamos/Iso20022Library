@@ -21,7 +21,7 @@ public enum DateType10Code
 {
     /// <summary>
     /// Blocking occurs until and inclusive of the meeting date.
-    /// Encoded/decoded by serializers as "MEET".
+    /// Encoded/decoded by serializers as &quot;MEET&quot;.
     /// </summary>
     [EnumMember(Value = "MEET")]
     [IsoId("_vqyAYTUIEe2tRf29bleifQ")]
@@ -30,7 +30,7 @@ public enum DateType10Code
     
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_xUSU0TUIEe2tRf29bleifQ")]
@@ -39,7 +39,7 @@ public enum DateType10Code
     
     /// <summary>
     /// Refer to additional information element for the date until when the securities are blocked.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_xjoYYTUIEe2tRf29bleifQ")]
@@ -48,7 +48,7 @@ public enum DateType10Code
     
     /// <summary>
     /// Blocking occurs until and inclusive of the record date of the event.
-    /// Encoded/decoded by serializers as "RDTE".
+    /// Encoded/decoded by serializers as &quot;RDTE&quot;.
     /// </summary>
     [EnumMember(Value = "RDTE")]
     [IsoId("_yZbX8TUIEe2tRf29bleifQ")]
@@ -57,7 +57,7 @@ public enum DateType10Code
     
     /// <summary>
     /// Unblocking will occur on payment date of the premium.
-    /// Encoded/decoded by serializers as "PPYD".
+    /// Encoded/decoded by serializers as &quot;PPYD&quot;.
     /// </summary>
     [EnumMember(Value = "PPYD")]
     [IsoId("_p3ogkTUJEe2tRf29bleifQ")]

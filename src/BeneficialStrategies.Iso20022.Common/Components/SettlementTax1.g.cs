@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Species the tax applicable for this settlement.
 /// </summary>
 [IsoId("_S0j3LAEcEeCQm6a_G2yO_w_811596505")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Tax")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SettlementTax1
     /// Type of tax applied.
     /// </summary>
     [IsoId("_S0j3LQEcEeCQm6a_G2yO_w_-664594537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TpCd")]
     #endif
+    [IsoXmlTag("TpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxTypeFormat1Choice_? TypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record SettlementTax1
     /// Monetary value resulting from the calculation of this tax, levy or duty.
     /// </summary>
     [IsoId("_S0j3LgEcEeCQm6a_G2yO_w_588725222")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculated Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctdAmt")]
     #endif
+    [IsoXmlTag("ClctdAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? CalculatedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record SettlementTax1
     /// Monetary value used as the basis on which this tax, levy or duty is calculated.
     /// </summary>
     [IsoId("_S0j3LwEcEeCQm6a_G2yO_w_-780660433")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsisAmt")]
     #endif
+    [IsoXmlTag("BsisAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? BasisAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record SettlementTax1
     /// Date of the tax point when this tax, levy or duty becomes applicable.
     /// </summary>
     [IsoId("_S0j3MAEcEeCQm6a_G2yO_w_-805508608")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Point Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxPtDt")]
     #endif
+    [IsoXmlTag("TaxPtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TaxPointDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

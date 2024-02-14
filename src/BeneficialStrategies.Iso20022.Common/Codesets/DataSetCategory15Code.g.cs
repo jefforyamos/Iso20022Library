@@ -21,7 +21,7 @@ public enum DataSetCategory15Code
 {
     /// <summary>
     /// Configuration parameters of the payment acquirer protocol.
-    /// Encoded/decoded by serializers as "ACQP".
+    /// Encoded/decoded by serializers as &quot;ACQP&quot;.
     /// </summary>
     [EnumMember(Value = "ACQP")]
     [IsoId("_2IRu0Q0aEeqUVL7sB4m7NA")]
@@ -30,7 +30,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Payment application specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_2IRu0w0aEeqUVL7sB4m7NA")]
@@ -39,7 +39,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Creation of a subset of the configuration parameters of an application.
-    /// Encoded/decoded by serializers as "APSB".
+    /// Encoded/decoded by serializers as &quot;APSB&quot;.
     /// </summary>
     [EnumMember(Value = "APSB")]
     [IsoId("_2IRu1Q0aEeqUVL7sB4m7NA")]
@@ -48,7 +48,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Download of cryptographic keys with the related information.
-    /// Encoded/decoded by serializers as "KDWL".
+    /// Encoded/decoded by serializers as &quot;KDWL&quot;.
     /// </summary>
     [EnumMember(Value = "KDWL")]
     [IsoId("_2IRu1w0aEeqUVL7sB4m7NA")]
@@ -57,7 +57,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Activate, deactivate or revoke loaded cryptographic keys.
-    /// Encoded/decoded by serializers as "KMGT".
+    /// Encoded/decoded by serializers as &quot;KMGT&quot;.
     /// </summary>
     [EnumMember(Value = "KMGT")]
     [IsoId("_2IRu2Q0aEeqUVL7sB4m7NA")]
@@ -66,7 +66,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Reporting on activity, status and error of a point of interaction.
-    /// Encoded/decoded by serializers as "RPRT".
+    /// Encoded/decoded by serializers as &quot;RPRT&quot;.
     /// </summary>
     [EnumMember(Value = "RPRT")]
     [IsoId("_2IRu2w0aEeqUVL7sB4m7NA")]
@@ -75,7 +75,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SWPK".
+    /// Encoded/decoded by serializers as &quot;SWPK&quot;.
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_2IRu3Q0aEeqUVL7sB4m7NA")]
@@ -84,7 +84,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSP".
+    /// Encoded/decoded by serializers as &quot;TMSP&quot;.
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_2IRu3w0aEeqUVL7sB4m7NA")]
@@ -93,7 +93,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MRPR".
+    /// Encoded/decoded by serializers as &quot;MRPR&quot;.
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_2IRu4Q0aEeqUVL7sB4m7NA")]
@@ -102,7 +102,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
-    /// Encoded/decoded by serializers as "TRPR".
+    /// Encoded/decoded by serializers as &quot;TRPR&quot;.
     /// </summary>
     [EnumMember(Value = "TRPR")]
     [IsoId("_2IRu4w0aEeqUVL7sB4m7NA")]
@@ -111,7 +111,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CRTF".
+    /// Encoded/decoded by serializers as &quot;CRTF&quot;.
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_2IRu5Q0aEeqUVL7sB4m7NA")]
@@ -120,7 +120,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Component of the Sale system.
-    /// Encoded/decoded by serializers as "SACP".
+    /// Encoded/decoded by serializers as &quot;SACP&quot;.
     /// </summary>
     [EnumMember(Value = "SACP")]
     [IsoId("_2IRu5w0aEeqUVL7sB4m7NA")]
@@ -129,7 +129,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Parameters related to the Sale to POI protocol.
-    /// Encoded/decoded by serializers as "SAPR".
+    /// Encoded/decoded by serializers as &quot;SAPR&quot;.
     /// </summary>
     [EnumMember(Value = "SAPR")]
     [IsoId("_2IRu6Q0aEeqUVL7sB4m7NA")]
@@ -138,7 +138,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Any repository used for recording log traces.
-    /// Encoded/decoded by serializers as "LOGF".
+    /// Encoded/decoded by serializers as &quot;LOGF&quot;.
     /// </summary>
     [EnumMember(Value = "LOGF")]
     [IsoId("_721NEQ0aEeqUVL7sB4m7NA")]
@@ -147,7 +147,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Report file generated by the POI.
-    /// Encoded/decoded by serializers as "RPFL".
+    /// Encoded/decoded by serializers as &quot;RPFL&quot;.
     /// </summary>
     [EnumMember(Value = "RPFL")]
     [IsoId("_BTZjcQ0bEeqUVL7sB4m7NA")]
@@ -156,7 +156,7 @@ public enum DataSetCategory15Code
     
     /// <summary>
     /// Configuration file relevant for the POI.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_B-5-kQ0bEeqUVL7sB4m7NA")]

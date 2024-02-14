@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityIdentification4Choice.ISIN))]
     [KnownType(typeof(SecurityIdentification4Choice.Proprietary))]
     [IsoId("_Qd1wltp-Ed-ak6NoX_4Aeg_1243215798")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// List of account owner and identifiers.
 /// </summary>
 [IsoId("_UHyvQCDvEeav65mEytrgaA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Owner And Identification List")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AccountOwnerAndIdentificationList1
     /// List of the identifier pairs.
     /// </summary>
     [IsoId("_qhLMECDvEeav65mEytrgaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("List")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="List")]
     #endif
+    [IsoXmlTag("List")]
     public AccountOwnerAndIdentification1? List { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _qhLMECDvEeav65mEytrgaA
     

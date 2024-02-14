@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a cash forecast report.
 /// </summary>
 [IsoId("_Uuhio9p-Ed-ak6NoX_4Aeg_-748628095")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Confirmed Cash Forecast Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FundConfirmedCashForecastReport1
     /// Information related to the cash-in and cash-out flows for a specific trade date as a result of investment fund transactions, for example, subscriptions, redemptions or switches to/from a specified investment fund.
     /// </summary>
     [IsoId("_UuhipNp-Ed-ak6NoX_4Aeg_-861874046")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Cash Forecast Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndCshFcstDtls")]
     #endif
+    [IsoXmlTag("FndCshFcstDtls")]
     public FundCashForecast1? FundCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _UuhipNp-Ed-ak6NoX_4Aeg_-861874046
     
@@ -57,12 +54,11 @@ public partial record FundConfirmedCashForecastReport1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Uuhipdp-Ed-ak6NoX_4Aeg_-786145834")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

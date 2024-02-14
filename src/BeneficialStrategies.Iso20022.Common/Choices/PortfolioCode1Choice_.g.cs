@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PortfolioCode1Choice.Portfolio))]
     [KnownType(typeof(PortfolioCode1Choice.NoCode))]
     [IsoId("_FQG3gHixEeqKjIYaFgh_2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Portfolio Code 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

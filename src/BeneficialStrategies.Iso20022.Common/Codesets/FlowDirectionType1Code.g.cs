@@ -21,7 +21,7 @@ public enum FlowDirectionType1Code
 {
     /// <summary>
     /// Amount of money received.
-    /// Encoded/decoded by serializers as "INCG".
+    /// Encoded/decoded by serializers as &quot;INCG&quot;.
     /// </summary>
     [EnumMember(Value = "INCG")]
     [IsoId("_aq9E09p-Ed-ak6NoX_4Aeg_124504902")]
@@ -30,7 +30,7 @@ public enum FlowDirectionType1Code
     
     /// <summary>
     /// Amount of money paid out.
-    /// Encoded/decoded by serializers as "OUTG".
+    /// Encoded/decoded by serializers as &quot;OUTG&quot;.
     /// </summary>
     [EnumMember(Value = "OUTG")]
     [IsoId("_aq9E1Np-Ed-ak6NoX_4Aeg_124504903")]

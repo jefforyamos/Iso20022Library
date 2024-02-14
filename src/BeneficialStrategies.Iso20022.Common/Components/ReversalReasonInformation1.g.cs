@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Further information on the reversal reason of the transaction.
 /// </summary>
 [IsoId("_TPKBodp-Ed-ak6NoX_4Aeg_157540470")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reversal Reason Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReversalReasonInformation1
     /// Party issuing the reversal.
     /// </summary>
     [IsoId("_TPKBotp-Ed-ak6NoX_4Aeg_157540608")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslOrgtr")]
     #endif
+    [IsoXmlTag("RvslOrgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8? ReversalOriginator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ReversalReasonInformation1
     /// Specifies the reason for the reversal.
     /// </summary>
     [IsoId("_TPKBo9p-Ed-ak6NoX_4Aeg_157540556")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslRsn")]
     #endif
+    [IsoXmlTag("RvslRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReversalReason1Choice_? ReversalReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record ReversalReasonInformation1
     /// Further details on the reversal reason.
     /// </summary>
     [IsoId("_TPKBpNp-Ed-ak6NoX_4Aeg_157540512")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Reversal Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRvslRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRvslRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalReversalReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

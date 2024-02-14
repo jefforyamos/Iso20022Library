@@ -21,7 +21,7 @@ public enum NetworkType1Code
 {
     /// <summary>
     /// Protocol of an IP network.
-    /// Encoded/decoded by serializers as "IPNW".
+    /// Encoded/decoded by serializers as &quot;IPNW&quot;.
     /// </summary>
     [EnumMember(Value = "IPNW")]
     [IsoId("_pr02YWpVEeSR-ZWLvO-1dg")]
@@ -30,7 +30,7 @@ public enum NetworkType1Code
     
     /// <summary>
     /// Protocol of a Public Switched Telephone Network (PSTN).
-    /// Encoded/decoded by serializers as "PSTN".
+    /// Encoded/decoded by serializers as &quot;PSTN&quot;.
     /// </summary>
     [EnumMember(Value = "PSTN")]
     [IsoId("_pyrsUWpVEeSR-ZWLvO-1dg")]

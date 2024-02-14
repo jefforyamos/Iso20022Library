@@ -7,5 +7,8 @@ namespace BeneficialStrategies.Iso20022.Framework;
 public interface IOuterDocument<TOuterRecord>
     where TOuterRecord: IOuterRecord
 {
+    /// <summary>
+    /// Contains the inner message that contains most of the message content.
+    /// </summary>
     public TOuterRecord Message { get; }
 }

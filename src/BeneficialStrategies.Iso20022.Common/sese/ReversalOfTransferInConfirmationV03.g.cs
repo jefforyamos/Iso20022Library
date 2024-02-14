@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An executing party, for example, a transfer agent, sends the ReversalOfTransferInConfirmation message to the instructing party, for example, an investment manager or its authorised representative, to cancel a previously sent TransferInConfirmation message.|Usage|The ReversalOfTransferInConfirmation message is used to reverse a previously sent TransferInConfirmation.|There are two ways to specify the reversal of the transfer in confirmation. Either:|- the business references, for example, TransferReference, TransferConfirmationIdentification, of the transfer confirmation are quoted, or,|- all the details of the transfer confirmation (this includes TransferReference and TransferConfirmationIdentification) are quoted but this is not recommended.|The message identification of the TransferInConfirmation message in which the transfer confirmation was conveyed may also be quoted in PreviousReference.|The message reference (MessageIdentification) of the TransferInInstruction message in which the transfer instruction was conveyed may also be quoted in RelatedReference.|It is also possible to request a reversal of a TransferInConfirmation by quoting its message reference (MessageIdentification) in PreviousReference.")]
 [IsoId("_9cSssfpbEeCPwaG9zjUPNQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reversal Of Transfer In Confirmation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord<Reversa
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_9cSsvfpbEeCPwaG9zjUPNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord<Reversa
     /// Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.
     /// </summary>
     [IsoId("_tbZjH_r3EeCJc7cZxzE2fg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References11 References { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References11 References { get; init; } 
+    public required References11 References { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References11 References { get; init; } 
     #else
@@ -125,12 +121,11 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord<Reversa
     /// Reference of the transfer in confirmation to be reversed.
     /// </summary>
     [IsoId("_9cSszfpbEeCPwaG9zjUPNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal By Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslByRef")]
     #endif
+    [IsoXmlTag("RvslByRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransferReference2? ReversalByReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +138,11 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord<Reversa
     /// Copy of the transfer in confirmation to reverse.
     /// </summary>
     [IsoId("_9cSs0fpbEeCPwaG9zjUPNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal By Transfer In Confirmation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslByTrfInConfDtls")]
     #endif
+    [IsoXmlTag("RvslByTrfInConfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransferIn6? ReversalByTransferInConfirmationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +155,11 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord<Reversa
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_9cSs1fpbEeCPwaG9zjUPNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation2? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,7 +172,7 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord<Reversa
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReversalOfTransferInConfirmationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReversalOfTransferInConfirmationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReversalOfTransferInConfirmationV03Document ToDocument()
     {
@@ -189,7 +182,7 @@ public partial record ReversalOfTransferInConfirmationV03 : IOuterRecord<Reversa
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReversalOfTransferInConfirmationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReversalOfTransferInConfirmationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReversalOfTransferInConfirmationV03Document : IOuterDocument<ReversalOfTransferInConfirmationV03>
@@ -206,7 +199,7 @@ public partial record ReversalOfTransferInConfirmationV03Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReversalOfTransferInConfirmationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReversalOfTransferInConfirmationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReversalOfTransferInConfirmationV03 Message { get; init; }

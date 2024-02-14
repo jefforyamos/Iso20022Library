@@ -27,7 +27,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// This record is an implementation of the reda.012.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// SCOPE
-/// An executing/servicing party sends a SecurityReport message to an instructing party to advise the last known image of securities data's.
+/// An executing/servicing party sends a SecurityReport message to an instructing party to advise the last known image of securities data&apos;s.
 /// 
 /// The report may be sent upon request (for example a query) of the instructing party or push by the executing/servicing party.
 /// 
@@ -42,9 +42,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"SCOPE|An executing/servicing party sends a SecurityReport message to an instructing party to advise the last known image of securities data's.||The report may be sent upon request (for example a query) of the instructing party or push by the executing/servicing party.||The instructing party - executing/servicing party relationship may be:|- Central Securities Depositories (CSD) who would like to publish security static data, or |- a Corporate, or|- a Bank, or|- a Market Infrastructure, or |- a Market Data Provider.||Initiator: executing/servicing party.")]
 [IsoId("_jTv05R62Eeu31YsWNiv_cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,12 +86,11 @@ public partial record SecurityReportV01 : IOuterRecord<SecurityReportV01,Securit
     /// Point to point reference elements, as assigned by the instructing party, to unambiguously identify the report message.
     /// </summary>
     [IsoId("_Y1e_wZIxEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader12? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,16 +103,15 @@ public partial record SecurityReportV01 : IOuterRecord<SecurityReportV01,Securit
     /// Provides details on the page number of the message.
     /// </summary>
     [IsoId("_jTv0-R62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination1 Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination1 Pagination { get; init; } 
+    public required Pagination1 Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination1 Pagination { get; init; } 
     #else
@@ -126,16 +122,15 @@ public partial record SecurityReportV01 : IOuterRecord<SecurityReportV01,Securit
     /// Provides the financial instruments details or error raised during the generation of the report.
     /// </summary>
     [IsoId("_jTv0-x62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyRptOrErr")]
     #endif
+    [IsoXmlTag("SctyRptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityOrOperationalError4Choice_ SecurityReportOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityOrOperationalError4Choice_ SecurityReportOrError { get; init; } 
+    public required SecurityOrOperationalError4Choice_ SecurityReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityOrOperationalError4Choice_ SecurityReportOrError { get; init; } 
     #else
@@ -146,12 +141,11 @@ public partial record SecurityReportV01 : IOuterRecord<SecurityReportV01,Securit
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jTv1AR62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,7 +158,7 @@ public partial record SecurityReportV01 : IOuterRecord<SecurityReportV01,Securit
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecurityReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecurityReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecurityReportV01Document ToDocument()
     {
@@ -174,7 +168,7 @@ public partial record SecurityReportV01 : IOuterRecord<SecurityReportV01,Securit
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecurityReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecurityReportV01Document : IOuterDocument<SecurityReportV01>
@@ -191,7 +185,7 @@ public partial record SecurityReportV01Document : IOuterDocument<SecurityReportV
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecurityReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecurityReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityReportV01 Message { get; init; }

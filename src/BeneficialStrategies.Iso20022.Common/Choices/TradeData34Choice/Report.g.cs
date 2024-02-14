@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData34Choice
     /// Information concerning the reporting at transaction level.
     /// </summary>
     [IsoId("_ArgEc8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData34Choice
         /// Status of the required transactions reconciliation or pairing.
         /// </summary>
         [IsoId("_AtBHYcK3EeuFNp8LZAnorg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Pairing Reconciliation Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PairgRcncltnSts")]
         #endif
+        [IsoXmlTag("PairgRcncltnSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public NumberOfReportsPerStatus4? PairingReconciliationStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData34Choice
         /// Data on transaction requiring reconciliation or pairing. 
         /// </summary>
         [IsoId("_AtBHY8K3EeuFNp8LZAnorg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reconciliation Report")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RcncltnRpt")]
         #endif
+        [IsoXmlTag("RcncltnRpt")]
         public ReconciliationReport8? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _AtBHY8K3EeuFNp8LZAnorg
         
@@ -80,12 +76,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData34Choice
         /// Additional information that can not be captured in the structured fields and/or any other specific block.
         /// </summary>
         [IsoId("_AtBHZcK3EeuFNp8LZAnorg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

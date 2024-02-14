@@ -21,7 +21,7 @@ public enum PensionOrderTypeCode
 {
     /// <summary>
     /// Pension policy, plan or scheme has been earmarked (set aside.)
-    /// Encoded/decoded by serializers as "EARM".
+    /// Encoded/decoded by serializers as &quot;EARM&quot;.
     /// </summary>
     [EnumMember(Value = "EARM")]
     [IsoId("_W4DWsLTpEeiENt6AoDfPXg")]
@@ -30,7 +30,7 @@ public enum PensionOrderTypeCode
     
     /// <summary>
     /// Sharing order for the pension policy, plan or scheme has been issued by a court.
-    /// Encoded/decoded by serializers as "SHAR".
+    /// Encoded/decoded by serializers as &quot;SHAR&quot;.
     /// </summary>
     [EnumMember(Value = "SHAR")]
     [IsoId("_hgtXcLTpEeiENt6AoDfPXg")]

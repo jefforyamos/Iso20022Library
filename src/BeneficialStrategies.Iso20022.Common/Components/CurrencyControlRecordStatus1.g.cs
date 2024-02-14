@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of each individual currency control record.
 /// </summary>
 [IsoId("_hI5IpAtOEeWkxvNyFrBT8Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Control Record Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record CurrencyControlRecordStatus1
     /// Unique and unambiguous identification of each entry/record within the package of transactions.
     /// </summary>
     [IsoId("_hI5IpgtOEeWkxvNyFrBT8Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RecordIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RecordIdentification { get; init; } 
+    public required System.String RecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RecordIdentification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record CurrencyControlRecordStatus1
     /// Defines the status of the reported record.
     /// </summary>
     [IsoId("_hI5IpQtOEeWkxvNyFrBT8Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticalReportingStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticalReportingStatus1Code Status { get; init; } 
+    public required StatisticalReportingStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticalReportingStatus1Code Status { get; init; } 
     #else
@@ -95,12 +90,11 @@ public partial record CurrencyControlRecordStatus1
     /// Provides detailed information on the status reason.
     /// </summary>
     [IsoId("_Fe-w4QtPEeWkxvNyFrBT8Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusReason1? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +107,12 @@ public partial record CurrencyControlRecordStatus1
     /// Provides the date and time when the status was issued.
     /// </summary>
     [IsoId("_X421cW5bEeW1GNjYvtuLyQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsDtTm")]
     #endif
+    [IsoXmlTag("StsDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StatusDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record CurrencyControlRecordStatus1
     /// Unique and unambiguous identification of the document.
     /// </summary>
     [IsoId("_DXmYMAtQEeWkxvNyFrBT8Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocId")]
     #endif
+    [IsoXmlTag("DocId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification28? DocumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceRateType3FormatChoice
     /// Standard code to specify the type of price rate.
     /// </summary>
     [IsoId("_RnAYFNp-Ed-ak6NoX_4Aeg_-1976498594")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceRateType3FormatChoice
         /// Specifies the type of price rate.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PriceRateType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PriceRateType3Code Value { get; init; } 
+        public required PriceRateType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PriceRateType3Code Value { get; init; } 
         #else

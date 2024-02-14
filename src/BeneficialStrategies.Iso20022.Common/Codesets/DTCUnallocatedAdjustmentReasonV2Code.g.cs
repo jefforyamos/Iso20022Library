@@ -21,7 +21,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
 {
     /// <summary>
     /// Company is taking a 30 day grace period.
-    /// Encoded/decoded by serializers as "SAGA".
+    /// Encoded/decoded by serializers as &quot;SAGA&quot;.
     /// </summary>
     [EnumMember(Value = "SAGA")]
     [IsoId("_n3w1i8MQEee-Vv_OVx0uAQ")]
@@ -30,7 +30,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Rate is not final. Rate is approximate.
-    /// Encoded/decoded by serializers as "APRR".
+    /// Encoded/decoded by serializers as &quot;APRR&quot;.
     /// </summary>
     [EnumMember(Value = "APRR")]
     [IsoId("_n3xcc8MQEee-Vv_OVx0uAQ")]
@@ -39,7 +39,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Incorrect announcement.
-    /// Encoded/decoded by serializers as "ANNG".
+    /// Encoded/decoded by serializers as &quot;ANNG&quot;.
     /// </summary>
     [EnumMember(Value = "ANNG")]
     [IsoId("_n3w1kcMQEee-Vv_OVx0uAQ")]
@@ -48,7 +48,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Incorrect payable date.
-    /// Encoded/decoded by serializers as "BDPD".
+    /// Encoded/decoded by serializers as &quot;BDPD&quot;.
     /// </summary>
     [EnumMember(Value = "BDPD")]
     [IsoId("_n3w1oMMQEee-Vv_OVx0uAQ")]
@@ -57,7 +57,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Cash rate for allocation is zero.
-    /// Encoded/decoded by serializers as "CSHR".
+    /// Encoded/decoded by serializers as &quot;CSHR&quot;.
     /// </summary>
     [EnumMember(Value = "CSHR")]
     [IsoId("_n3w1kMMQEee-Vv_OVx0uAQ")]
@@ -66,7 +66,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Cash rate for allocation is zero.
-    /// Encoded/decoded by serializers as "CSHU".
+    /// Encoded/decoded by serializers as &quot;CSHU&quot;.
     /// </summary>
     [EnumMember(Value = "CSHU")]
     [IsoId("_n3w1ncMQEee-Vv_OVx0uAQ")]
@@ -75,7 +75,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Payment is conditional and conditions have not been met yet.
-    /// Encoded/decoded by serializers as "COND".
+    /// Encoded/decoded by serializers as &quot;COND&quot;.
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_n3xcdsMQEee-Vv_OVx0uAQ")]
@@ -84,7 +84,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Issue is in default.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_n3w1ksMQEee-Vv_OVx0uAQ")]
@@ -93,7 +93,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Funds were not received by the agent.
-    /// Encoded/decoded by serializers as "ANFI".
+    /// Encoded/decoded by serializers as &quot;ANFI&quot;.
     /// </summary>
     [EnumMember(Value = "ANFI")]
     [IsoId("_n3w1ocMQEee-Vv_OVx0uAQ")]
@@ -102,7 +102,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to holiday in country of origin.
-    /// Encoded/decoded by serializers as "HICO".
+    /// Encoded/decoded by serializers as &quot;HICO&quot;.
     /// </summary>
     [EnumMember(Value = "HICO")]
     [IsoId("_n3w1isMQEee-Vv_OVx0uAQ")]
@@ -111,7 +111,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to insufficient funds received from the agent.
-    /// Encoded/decoded by serializers as "MASF".
+    /// Encoded/decoded by serializers as &quot;MASF&quot;.
     /// </summary>
     [EnumMember(Value = "MASF")]
     [IsoId("_n3xccsMQEee-Vv_OVx0uAQ")]
@@ -120,7 +120,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to issue that was not funded.
-    /// Encoded/decoded by serializers as "ISNF".
+    /// Encoded/decoded by serializers as &quot;ISNF&quot;.
     /// </summary>
     [EnumMember(Value = "ISNF")]
     [IsoId("_n3w1h8MQEee-Vv_OVx0uAQ")]
@@ -129,7 +129,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to issue that is not maturing.
-    /// Encoded/decoded by serializers as "NMAT".
+    /// Encoded/decoded by serializers as &quot;NMAT&quot;.
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_n3xccMMQEee-Vv_OVx0uAQ")]
@@ -138,7 +138,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Issues funded and/or identified after the cycle cut off.
-    /// Encoded/decoded by serializers as "LFID".
+    /// Encoded/decoded by serializers as &quot;LFID&quot;.
     /// </summary>
     [EnumMember(Value = "LFID")]
     [IsoId("_n3w1lcMQEee-Vv_OVx0uAQ")]
@@ -147,7 +147,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to items pending.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_n3w1nsMQEee-Vv_OVx0uAQ")]
@@ -156,7 +156,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Issue is being liquidated.
-    /// Encoded/decoded by serializers as "LIQD".
+    /// Encoded/decoded by serializers as &quot;LIQD&quot;.
     /// </summary>
     [EnumMember(Value = "LIQD")]
     [IsoId("_n3w1msMQEee-Vv_OVx0uAQ")]
@@ -165,7 +165,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Notional balance principal will not be paid.
-    /// Encoded/decoded by serializers as "NOTL".
+    /// Encoded/decoded by serializers as &quot;NOTL&quot;.
     /// </summary>
     [EnumMember(Value = "NOTL")]
     [IsoId("_n3w1jMMQEee-Vv_OVx0uAQ")]
@@ -174,7 +174,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reserved for new user defined reason codes.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_n3w1icMQEee-Vv_OVx0uAQ")]
@@ -183,7 +183,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due paid upon receipt of check.
-    /// Encoded/decoded by serializers as "PCHK".
+    /// Encoded/decoded by serializers as &quot;PCHK&quot;.
     /// </summary>
     [EnumMember(Value = "PCHK")]
     [IsoId("_n3w1n8MQEee-Vv_OVx0uAQ")]
@@ -192,7 +192,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to pending conversion of funds.
-    /// Encoded/decoded by serializers as "RRFX".
+    /// Encoded/decoded by serializers as &quot;RRFX&quot;.
     /// </summary>
     [EnumMember(Value = "RRFX")]
     [IsoId("_n3w1lMMQEee-Vv_OVx0uAQ")]
@@ -201,7 +201,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to recapitalisation and issue not funded.
-    /// Encoded/decoded by serializers as "RCNF".
+    /// Encoded/decoded by serializers as &quot;RCNF&quot;.
     /// </summary>
     [EnumMember(Value = "RCNF")]
     [IsoId("_n3w1jsMQEee-Vv_OVx0uAQ")]
@@ -210,7 +210,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is that due to redemption of rates, issue was not funded.
-    /// Encoded/decoded by serializers as "RRNF".
+    /// Encoded/decoded by serializers as &quot;RRNF&quot;.
     /// </summary>
     [EnumMember(Value = "RRNF")]
     [IsoId("_n3w1m8MQEee-Vv_OVx0uAQ")]
@@ -219,7 +219,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to released pledge position.
-    /// Encoded/decoded by serializers as "RPLG".
+    /// Encoded/decoded by serializers as &quot;RPLG&quot;.
     /// </summary>
     [EnumMember(Value = "RPLG")]
     [IsoId("_n3w1mcMQEee-Vv_OVx0uAQ")]
@@ -228,7 +228,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is that due to sale of asset, issue was not funded.
-    /// Encoded/decoded by serializers as "SANF".
+    /// Encoded/decoded by serializers as &quot;SANF&quot;.
     /// </summary>
     [EnumMember(Value = "SANF")]
     [IsoId("_n3w1mMMQEee-Vv_OVx0uAQ")]
@@ -237,7 +237,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to same day position capture.
-    /// Encoded/decoded by serializers as "SDPC".
+    /// Encoded/decoded by serializers as &quot;SDPC&quot;.
     /// </summary>
     [EnumMember(Value = "SDPC")]
     [IsoId("_n3w1nMMQEee-Vv_OVx0uAQ")]
@@ -246,7 +246,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to special distribution and the issue was not funded.
-    /// Encoded/decoded by serializers as "SPNF".
+    /// Encoded/decoded by serializers as &quot;SPNF&quot;.
     /// </summary>
     [EnumMember(Value = "SPNF")]
     [IsoId("_n3xcccMQEee-Vv_OVx0uAQ")]
@@ -255,7 +255,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Specific issues have been suppressed.
-    /// Encoded/decoded by serializers as "PUVF".
+    /// Encoded/decoded by serializers as &quot;PUVF&quot;.
     /// </summary>
     [EnumMember(Value = "PUVF")]
     [IsoId("_n3w1osMQEee-Vv_OVx0uAQ")]
@@ -264,7 +264,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to a call rescinded.
-    /// Encoded/decoded by serializers as "RESC".
+    /// Encoded/decoded by serializers as &quot;RESC&quot;.
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_n3w1jcMQEee-Vv_OVx0uAQ")]
@@ -273,7 +273,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to a CD accelerated maturity.
-    /// Encoded/decoded by serializers as "ERLY".
+    /// Encoded/decoded by serializers as &quot;ERLY&quot;.
     /// </summary>
     [EnumMember(Value = "ERLY")]
     [IsoId("_n3w1j8MQEee-Vv_OVx0uAQ")]
@@ -282,7 +282,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to a CHIPS Payment.
-    /// Encoded/decoded by serializers as "CHIP".
+    /// Encoded/decoded by serializers as &quot;CHIP&quot;.
     /// </summary>
     [EnumMember(Value = "CHIP")]
     [IsoId("_n3xcd8MQEee-Vv_OVx0uAQ")]
@@ -291,7 +291,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to a five day grace period.
-    /// Encoded/decoded by serializers as "FVDG".
+    /// Encoded/decoded by serializers as &quot;FVDG&quot;.
     /// </summary>
     [EnumMember(Value = "FVDG")]
     [IsoId("_n3w1lsMQEee-Vv_OVx0uAQ")]
@@ -300,7 +300,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to a failed bank; Federal Deposit Insurance Corporation assumed.
-    /// Encoded/decoded by serializers as "FDIC".
+    /// Encoded/decoded by serializers as &quot;FDIC&quot;.
     /// </summary>
     [EnumMember(Value = "FDIC")]
     [IsoId("_n3w1iMMQEee-Vv_OVx0uAQ")]
@@ -309,7 +309,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to pledged position.
-    /// Encoded/decoded by serializers as "PLEG".
+    /// Encoded/decoded by serializers as &quot;PLEG&quot;.
     /// </summary>
     [EnumMember(Value = "PLEG")]
     [IsoId("_n3xcdMMQEee-Vv_OVx0uAQ")]
@@ -318,7 +318,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to maturity for stock payment option.
-    /// Encoded/decoded by serializers as "MSTK".
+    /// Encoded/decoded by serializers as &quot;MSTK&quot;.
     /// </summary>
     [EnumMember(Value = "MSTK")]
     [IsoId("_n3xcdcMQEee-Vv_OVx0uAQ")]
@@ -327,7 +327,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to a church bond not funded.
-    /// Encoded/decoded by serializers as "CHBD".
+    /// Encoded/decoded by serializers as &quot;CHBD&quot;.
     /// </summary>
     [EnumMember(Value = "CHBD")]
     [IsoId("_n3w1k8MQEee-Vv_OVx0uAQ")]
@@ -336,7 +336,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to funds held at Chase for official foreign asset control.
-    /// Encoded/decoded by serializers as "OFAC".
+    /// Encoded/decoded by serializers as &quot;OFAC&quot;.
     /// </summary>
     [EnumMember(Value = "OFAC")]
     [IsoId("_n3w1l8MQEee-Vv_OVx0uAQ")]
@@ -345,7 +345,7 @@ public enum DTCUnallocatedAdjustmentReasonV2Code
     
     /// <summary>
     /// Reason is due to a Canadian depository inventory.
-    /// Encoded/decoded by serializers as "CDIN".
+    /// Encoded/decoded by serializers as &quot;CDIN&quot;.
     /// </summary>
     [EnumMember(Value = "CDIN")]
     [IsoId("_n3xceMMQEee-Vv_OVx0uAQ")]

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"The CreditorPaymentActivationRequestStatusReport message is sent by a party to the next party in the creditor payment activation request chain. It is used to inform the latter about the positive or negative status of a creditor payment activation request (either single or file).")]
 [IsoId("_eYI_722PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Payment Activation Request Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record CreditorPaymentActivationRequestStatusReportV07 : IOuterRe
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_eYI_-22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader87 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader87 GroupHeader { get; init; } 
+    public required GroupHeader87 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader87 GroupHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record CreditorPaymentActivationRequestStatusReportV07 : IOuterRe
     /// Original group information concerning the group of transactions, to which the status report message refers to.
     /// </summary>
     [IsoId("_eYI__W2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlGrpInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalGroupInformation30 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalGroupInformation30 OriginalGroupInformationAndStatus { get; init; } 
+    public required OriginalGroupInformation30 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalGroupInformation30 OriginalGroupInformationAndStatus { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record CreditorPaymentActivationRequestStatusReportV07 : IOuterRe
     /// Information concerning the original payment information, to which the status report message refers.
     /// </summary>
     [IsoId("_eYI__22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlPmtInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalPaymentInstruction31? OriginalPaymentInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +129,11 @@ public partial record CreditorPaymentActivationRequestStatusReportV07 : IOuterRe
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_eYJAAW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,7 +146,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV07 : IOuterRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CreditorPaymentActivationRequestStatusReportV07Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CreditorPaymentActivationRequestStatusReportV07Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CreditorPaymentActivationRequestStatusReportV07Document ToDocument()
     {
@@ -162,7 +156,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV07 : IOuterRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreditorPaymentActivationRequestStatusReportV07"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CreditorPaymentActivationRequestStatusReportV07&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CreditorPaymentActivationRequestStatusReportV07Document : IOuterDocument<CreditorPaymentActivationRequestStatusReportV07>
@@ -179,7 +173,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV07Document : 
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CreditorPaymentActivationRequestStatusReportV07"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CreditorPaymentActivationRequestStatusReportV07&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditorPaymentActivationRequestStatusReportV07 Message { get; init; }

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat20Choice
     /// Price expressed as a ratio: amount price per amount.
     /// </summary>
     [IsoId("_sKEj-eEJEd-udr336SN7mQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Price Per Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat20Choice
         /// Type of amount price.
         /// </summary>
         [IsoId("_QaHHJtp-Ed-ak6NoX_4Aeg_-219272751")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount Price Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AmtPricTp")]
         #endif
+        [IsoXmlTag("AmtPricTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AmountPriceType1Code AmountPriceType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AmountPriceType1Code AmountPriceType { get; init; } 
+        public required AmountPriceType1Code AmountPriceType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AmountPriceType1Code AmountPriceType { get; init; } 
         #else
@@ -78,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat20Choice
         /// Value of the price.
         /// </summary>
         [IsoId("_QaHHJ9p-Ed-ak6NoX_4Aeg_-219272726")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Price Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PricVal")]
         #endif
+        [IsoXmlTag("PricVal")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal PriceValue { get; init; } 
+        public required System.Decimal PriceValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal PriceValue { get; init; } 
         #else
@@ -98,16 +95,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat20Choice
         /// The amount on which the price is based.
         /// </summary>
         [IsoId("_QaHHKNp-Ed-ak6NoX_4Aeg_-219272709")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Vote expressed for one resolution.
 /// </summary>
 [IsoId("_d3vDAbqPEemCAOifqHrKJw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record Vote13
     /// Number of the resolution as specified by the issuer or its agent.
     /// </summary>
     [IsoId("_eJb3A7qPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrLabl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssrLabl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerLabel { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IssuerLabel { get; init; } 
+    public required System.String IssuerLabel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IssuerLabel { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record Vote13
     /// Number of votes in favour of one resolution.
     /// </summary>
     [IsoId("_eJb3BbqPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("For")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="For")]
     #endif
+    [IsoXmlTag("For")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? For { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record Vote13
     /// Number of votes against one resolution.
     /// </summary>
     [IsoId("_eJb3B7qPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Against")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Agnst")]
     #endif
+    [IsoXmlTag("Agnst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? Against { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record Vote13
     /// Number of votes expressed as abstain for one resolution.
     /// </summary>
     [IsoId("_eJb3CbqPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Abstain")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Abstn")]
     #endif
+    [IsoXmlTag("Abstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? Abstain { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record Vote13
     /// Number of votes withheld for one resolution.
     /// </summary>
     [IsoId("_eJb3C7qPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withhold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Wthhld")]
     #endif
+    [IsoXmlTag("Wthhld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? Withhold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +138,11 @@ public partial record Vote13
     /// Number of votes in line with the votes of the management.
     /// </summary>
     [IsoId("_eJb3DbqPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("With Management")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WthMgmt")]
     #endif
+    [IsoXmlTag("WthMgmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? WithManagement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +155,11 @@ public partial record Vote13
     /// Number of votes against the voting recommendation of the management.
     /// </summary>
     [IsoId("_eJb3D7qPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Against Management")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgnstMgmt")]
     #endif
+    [IsoXmlTag("AgnstMgmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? AgainstManagement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +172,11 @@ public partial record Vote13
     /// Number of votes for which decision is left to the party that will exercise the voting right.
     /// </summary>
     [IsoId("_eJb3EbqPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discretionary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dscrtnry")]
     #endif
+    [IsoXmlTag("Dscrtnry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? Discretionary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,15 +186,14 @@ public partial record Vote13
     #endif
     
     /// <summary>
-    /// Number of votes in favour for one year for "say on pay" type of resolution.
+    /// Number of votes in favour for one year for &quot;say on pay&quot; type of resolution.
     /// </summary>
     [IsoId("_eJb3E7qPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("One Year")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OneYr")]
     #endif
+    [IsoXmlTag("OneYr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? OneYear { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,15 +203,14 @@ public partial record Vote13
     #endif
     
     /// <summary>
-    /// Number of votes in favour of two years for "say on pay" type of resolution.
+    /// Number of votes in favour of two years for &quot;say on pay&quot; type of resolution.
     /// </summary>
     [IsoId("_eJb3FbqPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Two Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TwoYrs")]
     #endif
+    [IsoXmlTag("TwoYrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? TwoYears { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,15 +220,14 @@ public partial record Vote13
     #endif
     
     /// <summary>
-    /// Number of votes in favour of three years for "say on pay" type of resolution.
+    /// Number of votes in favour of three years for &quot;say on pay&quot; type of resolution.
     /// </summary>
     [IsoId("_eJb3F7qPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Three Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThreeYrs")]
     #endif
+    [IsoXmlTag("ThreeYrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? ThreeYears { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,12 +240,11 @@ public partial record Vote13
     /// Number of votes for which no action has been taken.
     /// </summary>
     [IsoId("_eJb3GbqPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoActn")]
     #endif
+    [IsoXmlTag("NoActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? NoAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,12 +257,11 @@ public partial record Vote13
     /// Vote is cast as empty but the vote is counted.
     /// </summary>
     [IsoId("_i8XagLqPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Blnk")]
     #endif
+    [IsoXmlTag("Blnk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? Blank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,28 +274,25 @@ public partial record Vote13
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
     [IsoId("_yEAvELqPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prtry")]
     [MinLength(0)]
     [MaxLength(4)]
-    #endif
     public ValueList<ProprietaryVote2> Proprietary { get; init; } = new ValueList<ProprietaryVote2>(){};
     
     /// <summary>
     /// Indicates the resolution was withdrawn at the meeting.
     /// </summary>
     [IsoId("_eJb3G7qPEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withdrawn")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Wdrwn")]
     #endif
+    [IsoXmlTag("Wdrwn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Withdrawn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TransparencyMethodology2Code
 {
     /// <summary>
     /// Calculation based on yearly cycle.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_IUk-oXvuEeanCNPcMT7sSg")]
@@ -30,7 +30,7 @@ public enum TransparencyMethodology2Code
     
     /// <summary>
     /// Results of calculations supporting Systematic Internaliser regime.
-    /// Encoded/decoded by serializers as "SINT".
+    /// Encoded/decoded by serializers as &quot;SINT&quot;.
     /// </summary>
     [EnumMember(Value = "SINT")]
     [IsoId("_IYpmUXvuEeanCNPcMT7sSg")]
@@ -39,7 +39,7 @@ public enum TransparencyMethodology2Code
     
     /// <summary>
     /// Calculation based on first Four Weeks of Trading for Equity Instruments.
-    /// Encoded/decoded by serializers as "FFWK".
+    /// Encoded/decoded by serializers as &quot;FFWK&quot;.
     /// </summary>
     [EnumMember(Value = "FFWK")]
     [IsoId("_IcsY0XvuEeanCNPcMT7sSg")]
@@ -48,7 +48,7 @@ public enum TransparencyMethodology2Code
     
     /// <summary>
     /// Estimation for New Equity Instruments.
-    /// Encoded/decoded by serializers as "ESTM".
+    /// Encoded/decoded by serializers as &quot;ESTM&quot;.
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_IgesoXvuEeanCNPcMT7sSg")]

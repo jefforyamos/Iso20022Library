@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification2Choice
     /// Provides the dispute notification details for the variation margin and optionaly the segregated independent amount.
     /// </summary>
     [IsoId("_KkjLoStOEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Notification Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification2Choice
         /// Provides the dispute notification details for the variation margin.
         /// </summary>
         [IsoId("_N2groStOEeyOa655cLd-DQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Variation Margin Dispute")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VartnMrgnDspt")]
         #endif
+        [IsoXmlTag("VartnMrgnDspt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required VariationMarginDispute1 VariationMarginDispute { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public VariationMarginDispute1 VariationMarginDispute { get; init; } 
+        public required VariationMarginDispute1 VariationMarginDispute { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public VariationMarginDispute1 VariationMarginDispute { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification2Choice
         /// Provides the dispute notification details for the segregated independent amount.
         /// </summary>
         [IsoId("_N2groytOEeyOa655cLd-DQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Segregated Independent Amount Dispute")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SgrtdIndpdntAmtDspt")]
         #endif
+        [IsoXmlTag("SgrtdIndpdntAmtDspt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SegregatedIndependentAmountDispute2? SegregatedIndependentAmountDispute { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

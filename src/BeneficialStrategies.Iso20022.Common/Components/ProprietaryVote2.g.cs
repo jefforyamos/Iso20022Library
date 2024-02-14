@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Proprietary vote type and quantity voted.
 /// </summary>
 [IsoId("_EarWo7qLEemCAOifqHrKJw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Vote")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ProprietaryVote2
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
     [IsoId("_EarWpbqLEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification30 Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification30 Code { get; init; } 
+    public required GenericIdentification30 Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification30 Code { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ProprietaryVote2
     /// Quantity of securities voted.
     /// </summary>
     [IsoId("_EarWpLqLEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     #else

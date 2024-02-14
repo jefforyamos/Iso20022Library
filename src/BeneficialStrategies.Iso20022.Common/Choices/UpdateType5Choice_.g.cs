@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UpdateType5Choice.Deletion))]
     [KnownType(typeof(UpdateType5Choice.Modification))]
     [IsoId("_0fppkAlIEeGATtfOBToyew_-1449233606")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Type 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

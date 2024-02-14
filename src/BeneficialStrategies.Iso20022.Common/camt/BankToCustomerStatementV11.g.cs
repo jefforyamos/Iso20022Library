@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The BankToCustomerStatement message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It is used to inform the account owner, or authorised party, of the entries booked to the account, and to provide the owner with balance information on the account at a given point in time.|Usage|The BankToCustomerStatement message can contain reports for more than one account. It provides information for cash management and/or reconciliation.|It contains information on booked entries only.|It can include underlying details of transactions that have been included in the entry.|The message is exchanged as defined between the account servicer and the account owner. It provides information on items that have been booked to the account and also balance information. Depending on services and schedule agreed between banks and their customers, statements may be generated and exchanged accordingly, for example for intraday or prior day periods.|It is possible that the receiver of the message is not the account owner, but a party entitled through arrangement with the account owner to receive the account information (also known as recipient).")]
 [IsoId("_8gJCcQ5qEe2xs7BqO31w6w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank To Customer Statement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record BankToCustomerStatementV11 : IOuterRecord<BankToCustomerSt
     /// Common information for the message.
     /// </summary>
     [IsoId("_8gJCdw5qEe2xs7BqO31w6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader81 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader81 GroupHeader { get; init; } 
+    public required GroupHeader81 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader81 GroupHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record BankToCustomerStatementV11 : IOuterRecord<BankToCustomerSt
     /// Reports on booked entries and balances for a cash account.
     /// </summary>
     [IsoId("_8gJpgQ5qEe2xs7BqO31w6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Stmt")]
     #endif
+    [IsoXmlTag("Stmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountStatement12 Statement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountStatement12 Statement { get; init; } 
+    public required AccountStatement12 Statement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountStatement12 Statement { get; init; } 
     #else
@@ -123,12 +119,11 @@ public partial record BankToCustomerStatementV11 : IOuterRecord<BankToCustomerSt
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_8gJpgw5qEe2xs7BqO31w6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,7 +136,7 @@ public partial record BankToCustomerStatementV11 : IOuterRecord<BankToCustomerSt
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BankToCustomerStatementV11Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BankToCustomerStatementV11Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BankToCustomerStatementV11Document ToDocument()
     {
@@ -151,7 +146,7 @@ public partial record BankToCustomerStatementV11 : IOuterRecord<BankToCustomerSt
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankToCustomerStatementV11"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BankToCustomerStatementV11&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BankToCustomerStatementV11Document : IOuterDocument<BankToCustomerStatementV11>
@@ -168,7 +163,7 @@ public partial record BankToCustomerStatementV11Document : IOuterDocument<BankTo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BankToCustomerStatementV11"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BankToCustomerStatementV11&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankToCustomerStatementV11 Message { get; init; }

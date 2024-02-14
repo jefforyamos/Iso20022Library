@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDateCode7Choice
     /// Settlement date expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_cU5zITqLEeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDateCode7Choice
         /// Specifies the date of settlement, in coded form.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementDate4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementDate4Code Value { get; init; } 
+        public required SettlementDate4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementDate4Code Value { get; init; } 
         #else

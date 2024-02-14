@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityMetal1Choice.NonPrecious))]
     [KnownType(typeof(AssetClassCommodityMetal1Choice.Precious))]
     [IsoId("_D1rdUw2rEeW72qLtWESimw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity Metal 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

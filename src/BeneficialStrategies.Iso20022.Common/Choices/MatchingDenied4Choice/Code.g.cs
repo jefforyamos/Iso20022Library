@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingDenied4Choice
     /// Specifies the execution of a matching denial process.
     /// </summary>
     [IsoId("_6GWWD5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingDenied4Choice
         /// Specifies the action to be performed on the matching process.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required MatchingProcess1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public MatchingProcess1Code Value { get; init; } 
+        public required MatchingProcess1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public MatchingProcess1Code Value { get; init; } 
         #else

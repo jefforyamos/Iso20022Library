@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Capabilities of the POI performing the transaction.
 /// </summary>
 [IsoId("_TGJWagEcEeCQm6a_G2yO_w_-1706794151")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Point Of Interaction Capabilities")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PointOfInteractionCapabilities1
     /// Card reading capabilities of the POI performing the transaction.
     /// </summary>
     [IsoId("_TGJWawEcEeCQm6a_G2yO_w_477826154")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Reading Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardRdngCpblties")]
     #endif
+    [IsoXmlTag("CardRdngCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading1Code? CardReadingCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PointOfInteractionCapabilities1
     /// Cardholder verification capabilities of the POI performing the transaction.
     /// </summary>
     [IsoId("_TGJWbAEcEeCQm6a_G2yO_w_1143315363")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Verification Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrVrfctnCpblties")]
     #endif
+    [IsoXmlTag("CrdhldrVrfctnCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PointOfInteractionCapabilities1
     /// On-line and off-line capabilities of the POI.
     /// </summary>
     [IsoId("_TGSgUAEcEeCQm6a_G2yO_w_1272910628")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Line Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnLineCpblties")]
     #endif
+    [IsoXmlTag("OnLineCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record PointOfInteractionCapabilities1
     /// Capabilities of the display components performing the transaction.
     /// </summary>
     [IsoId("_TGSgUQEcEeCQm6a_G2yO_w_666196014")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispCpblties")]
     #endif
+    [IsoXmlTag("DispCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisplayCapabilities1? DisplayCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,15 +110,12 @@ public partial record PointOfInteractionCapabilities1
     /// Number of columns of the printer component.
     /// </summary>
     [IsoId("_TGSgUgEcEeCQm6a_G2yO_w_-1182970689")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Print Line Width")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtLineWidth")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PrtLineWidth")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? PrintLineWidth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

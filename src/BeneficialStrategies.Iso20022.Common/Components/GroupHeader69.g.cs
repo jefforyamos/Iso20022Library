@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
 [IsoId("_w_FwIVnLEeOQYsoJizpkVw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Group Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record GroupHeader69
     /// Report identification, for example invoice number or report number from point of sales system.
     /// </summary>
     [IsoId("_xLvFAVnLEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,16 +73,16 @@ public partial record GroupHeader69
     /// Date at which the status report was created.
     /// </summary>
     [IsoId("_xLvFBVnLEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issued Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssdDt")]
     #endif
+    [IsoXmlTag("IssdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate IssuedDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly IssuedDate { get; init; } 
+    public required System.DateOnly IssuedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly IssuedDate { get; init; } 
     #else
@@ -97,16 +93,15 @@ public partial record GroupHeader69
     /// Specifies if the report is based on debit invoice, credit invoice, card transaction or cash transaction.
     /// </summary>
     [IsoId("_QUuWQFnMEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptCtgy")]
     #endif
+    [IsoXmlTag("RptCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentType1Code ReportCategory { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDocumentType1Code ReportCategory { get; init; } 
+    public required ExternalDocumentType1Code ReportCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDocumentType1Code ReportCategory { get; init; } 
     #else
@@ -117,16 +112,15 @@ public partial record GroupHeader69
     /// Specifies if the TaxReport is new, correction or remove.
     /// </summary>
     [IsoId("_Dn1M4FnMEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Report Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRptPurp")]
     #endif
+    [IsoXmlTag("TaxRptPurp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentType1Code TaxReportPurpose { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDocumentType1Code TaxReportPurpose { get; init; } 
+    public required ExternalDocumentType1Code TaxReportPurpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDocumentType1Code TaxReportPurpose { get; init; } 
     #else
@@ -137,15 +131,13 @@ public partial record GroupHeader69
     /// Original tax report identification, used for example original invoice number with credit notes.
     /// </summary>
     [IsoId("_e6lMYFnMEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +150,11 @@ public partial record GroupHeader69
     /// Details of tax representative. The corporate (seller) is allowed to use a tax representative for value added tax responsibilities in case the seller is not registered in a specific value added tax registry.
     /// </summary>
     [IsoId("_ocsb0FnMEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Tax Representative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrTaxRprtv")]
     #endif
+    [IsoXmlTag("SellrTaxRprtv")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification116? SellerTaxRepresentative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +167,11 @@ public partial record GroupHeader69
     /// Details of tax representative. The corporate (buyer) is allowed to use a tax representative for value added tax responsibilities in case the buyer is not registered in a specific value added tax registry.
     /// </summary>
     [IsoId("_t4-eUFnMEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Tax Representative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrTaxRprtv")]
     #endif
+    [IsoXmlTag("BuyrTaxRprtv")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification116? BuyerTaxRepresentative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +184,11 @@ public partial record GroupHeader69
     /// Specifies the language used in the message.
     /// </summary>
     [IsoId("_yQ0oUFnMEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Language Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LangCd")]
     #endif
+    [IsoXmlTag("LangCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? LanguageCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionProcessingReason2Choice.Reason))]
     [KnownType(typeof(InstructionProcessingReason2Choice.NoSpecifiedReason))]
     [IsoId("_Azo449okEeC60axPepSq7g_-1958453728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Processing Reason 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

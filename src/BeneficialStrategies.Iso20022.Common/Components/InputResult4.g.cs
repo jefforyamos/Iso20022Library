@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the result the input.
 /// </summary>
 [IsoId("_PenIAVFEEeyApZmLzm74zA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Input Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record InputResult4
     /// Type of Input device.
     /// </summary>
     [IsoId("_Pk258VFEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Device Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvcTp")]
     #endif
+    [IsoXmlTag("DvcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleCapabilities2Code DeviceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SaleCapabilities2Code DeviceType { get; init; } 
+    public required SaleCapabilities2Code DeviceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SaleCapabilities2Code DeviceType { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record InputResult4
     /// Qualifies the type of given information.
     /// </summary>
     [IsoId("_Pk2581FEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfQlfr")]
     #endif
+    [IsoXmlTag("InfQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InformationQualify1Code InformationQualifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InformationQualify1Code InformationQualifier { get; init; } 
+    public required InformationQualify1Code InformationQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InformationQualify1Code InformationQualifier { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record InputResult4
     /// Data resulting of input after POI or Sale processing.
     /// </summary>
     [IsoId("_Pk259VFEEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Input Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InptRsltData")]
     #endif
+    [IsoXmlTag("InptRsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InputResultData4 InputResultData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InputResultData4 InputResultData { get; init; } 
+    public required InputResultData4 InputResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InputResultData4 InputResultData { get; init; } 
     #else

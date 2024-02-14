@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Outcome of the application of a hypothetical scenario on the valuation of a set of portfolios of financial instruments.
 /// </summary>
 [IsoId("_vWmhcKs9Eeayv9XxdmMwKQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Scenario Stress Test Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ScenarioStressTestResult1
     /// Identification of the stressed account.
     /// </summary>
     [IsoId("_MERKUKs_Eeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification168 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification168 Identification { get; init; } 
+    public required GenericIdentification168 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification168 Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ScenarioStressTestResult1
     /// Result from the application of a stress test scenario to the positions in a cleared portfolio.
     /// </summary>
     [IsoId("_ZLzBQKs_Eeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Portfolio Stress Test Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtflStrssTstRslt")]
     #endif
+    [IsoXmlTag("PrtflStrssTstRslt")]
     public PortfolioStressTestResult1? PortfolioStressTestResult { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ZLzBQKs_Eeayv9XxdmMwKQ
     

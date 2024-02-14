@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Particular time span specified between a start time and an end time. The time period cannot exceed 24 hours.
 /// </summary>
 [IsoId("_xzaSke5pEemXBpiFxCCWFQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Time Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record TimePeriod2
     /// Time at which the time span starts.
     /// </summary>
     [IsoId("_yAj9we5pEemXBpiFxCCWFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrTm")]
     #endif
+    [IsoXmlTag("FrTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISOTime FromTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.TimeOnly FromTime { get; init; } 
+    public required System.TimeOnly FromTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.TimeOnly FromTime { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record TimePeriod2
     /// Time at which the time span ends.
     /// </summary>
     [IsoId("_yAj9w-5pEemXBpiFxCCWFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ToTm")]
     #endif
+    [IsoXmlTag("ToTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? ToTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

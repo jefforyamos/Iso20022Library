@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName4Choice
     /// Identifier of the index/benchmark of a floating rate bond, when an identifier exists.
     /// </summary>
     [IsoId("_1yco4QnVEeWa7rBfPECYsw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName4Choice
         /// Specifies a benchmark curve name.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Indx")]
         #endif
+        [IsoXmlTag("Indx")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BenchmarkCurveName2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BenchmarkCurveName2Code Value { get; init; } 
+        public required BenchmarkCurveName2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BenchmarkCurveName2Code Value { get; init; } 
         #else

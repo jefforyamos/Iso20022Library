@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding linkage details.
 /// </summary>
 [IsoId("_1UHa8jL3EeKU9IrkkToqcw_-607146504")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Event Reference SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record CorporateActionEventReferenceSD2
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1UHa8zL3EeKU9IrkkToqcw_-419438120")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record CorporateActionEventReferenceSD2
     /// Indicates the reason why two or more events are related.
     /// </summary>
     [IsoId("_1UHa9DL3EeKU9IrkkToqcw_1303167805")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkage Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkgTp")]
     #endif
+    [IsoXmlTag("LkgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCLinkType1Code LinkageType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DTCCLinkType1Code LinkageType { get; init; } 
+    public required DTCCLinkType1Code LinkageType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DTCCLinkType1Code LinkageType { get; init; } 
     #else
@@ -96,16 +91,16 @@ public partial record CorporateActionEventReferenceSD2
     /// Events can be linked together. This date represents the date on which the link was established.
     /// </summary>
     [IsoId("_1UHa9TL3EeKU9IrkkToqcw_-1708581925")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Link Added Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkAddedDt")]
     #endif
+    [IsoXmlTag("LkAddedDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate LinkAddedDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly LinkAddedDate { get; init; } 
+    public required System.DateOnly LinkAddedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly LinkAddedDate { get; init; } 
     #else
@@ -116,12 +111,12 @@ public partial record CorporateActionEventReferenceSD2
     /// Events can be linked together. This date represents the date on which the link was modified.
     /// </summary>
     [IsoId("_1UHa9jL3EeKU9IrkkToqcw_1601038639")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Link Modified Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkModfdDt")]
     #endif
+    [IsoXmlTag("LkModfdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LinkModifiedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status39Choice
     /// Provides the status of an instruction.
     /// </summary>
     [IsoId("_gEIFgDi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Processing Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

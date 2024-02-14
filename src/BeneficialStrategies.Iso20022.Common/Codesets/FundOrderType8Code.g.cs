@@ -21,7 +21,7 @@ public enum FundOrderType8Code
 {
     /// <summary>
     /// Investment fund order is part of a bed and breakfast transaction.
-    /// Encoded/decoded by serializers as "BEDB".
+    /// Encoded/decoded by serializers as &quot;BEDB&quot;.
     /// </summary>
     [EnumMember(Value = "BEDB")]
     [IsoId("_3gJ28UcuEeam48hW0M8V2Q")]
@@ -30,7 +30,7 @@ public enum FundOrderType8Code
     
     /// <summary>
     /// Investment fund order is related to an investment plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "INVP".
+    /// Encoded/decoded by serializers as &quot;INVP&quot;.
     /// </summary>
     [EnumMember(Value = "INVP")]
     [IsoId("_4NYJUUcuEeam48hW0M8V2Q")]
@@ -39,7 +39,7 @@ public enum FundOrderType8Code
     
     /// <summary>
     /// Investment fund order is executed with specific pre-advice conditions.
-    /// Encoded/decoded by serializers as "PREA".
+    /// Encoded/decoded by serializers as &quot;PREA&quot;.
     /// </summary>
     [EnumMember(Value = "PREA")]
     [IsoId("_4wpOcUcuEeam48hW0M8V2Q")]
@@ -48,7 +48,7 @@ public enum FundOrderType8Code
     
     /// <summary>
     /// Investment fund order is a regular savings plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RGSV".
+    /// Encoded/decoded by serializers as &quot;RGSV&quot;.
     /// </summary>
     [EnumMember(Value = "RGSV")]
     [IsoId("_5Pu-MUcuEeam48hW0M8V2Q")]
@@ -57,7 +57,7 @@ public enum FundOrderType8Code
     
     /// <summary>
     /// Investment fund order is paying extra money into to an existing plan (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RGSU".
+    /// Encoded/decoded by serializers as &quot;RGSU&quot;.
     /// </summary>
     [EnumMember(Value = "RGSU")]
     [IsoId("_5c-I8UcuEeam48hW0M8V2Q")]
@@ -66,7 +66,7 @@ public enum FundOrderType8Code
     
     /// <summary>
     /// Investment fund order is a dividend reinvestment (only applicable to a subscription).
-    /// Encoded/decoded by serializers as "RDIV".
+    /// Encoded/decoded by serializers as &quot;RDIV&quot;.
     /// </summary>
     [EnumMember(Value = "RDIV")]
     [IsoId("_6Bkq0UcuEeam48hW0M8V2Q")]
@@ -75,7 +75,7 @@ public enum FundOrderType8Code
     
     /// <summary>
     /// Investment fund order is a staff order.
-    /// Encoded/decoded by serializers as "STAF".
+    /// Encoded/decoded by serializers as &quot;STAF&quot;.
     /// </summary>
     [EnumMember(Value = "STAF")]
     [IsoId("_6fxpwUcuEeam48hW0M8V2Q")]
@@ -84,7 +84,7 @@ public enum FundOrderType8Code
     
     /// <summary>
     /// Investment fund order is for a withdrawal investment plan (only applicable to a redemption).
-    /// Encoded/decoded by serializers as "WIDP".
+    /// Encoded/decoded by serializers as &quot;WIDP&quot;.
     /// </summary>
     [EnumMember(Value = "WIDP")]
     [IsoId("_7D7fsUcuEeam48hW0M8V2Q")]

@@ -21,7 +21,7 @@ public enum ProposalTypeCode
 {
     /// <summary>
     /// Specifies this is an initial proposal.
-    /// Encoded/decoded by serializers as "INIT".
+    /// Encoded/decoded by serializers as &quot;INIT&quot;.
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_YdGGJ9p-Ed-ak6NoX_4Aeg_1552099762")]
@@ -30,7 +30,7 @@ public enum ProposalTypeCode
     
     /// <summary>
     /// Specifies this is a counter proposal.
-    /// Encoded/decoded by serializers as "COUN".
+    /// Encoded/decoded by serializers as &quot;COUN&quot;.
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_YdGGKNp-Ed-ak6NoX_4Aeg_917818427")]

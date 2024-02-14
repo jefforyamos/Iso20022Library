@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Document that a user must file with an authorised servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
 [IsoId("_KS3KYbb9Eeu9Cp6InX88Vw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Registered Contract")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,19 +54,17 @@ public partial record RegisteredContract15
     /// Unique and unambiguous identification of the registered contract closure.
     /// </summary>
     [IsoId("_KUN1Qbb9Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registered Contract Closure Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegdCtrctClsrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RegdCtrctClsrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RegisteredContractClosureIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RegisteredContractClosureIdentification { get; init; } 
+    public required System.String RegisteredContractClosureIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RegisteredContractClosureIdentification { get; init; } 
     #else
@@ -79,16 +75,15 @@ public partial record RegisteredContract15
     /// Party who registered the currency control contract.
     /// </summary>
     [IsoId("_KUOcV7b9Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPty")]
     #endif
+    [IsoXmlTag("RptgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty5 ReportingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeParty5 ReportingParty { get; init; } 
+    public required TradeParty5 ReportingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeParty5 ReportingParty { get; init; } 
     #else
@@ -99,16 +94,15 @@ public partial record RegisteredContract15
     /// Agent who registered the currency control contract.
     /// </summary>
     [IsoId("_KUOcWbb9Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnAgt")]
     #endif
+    [IsoXmlTag("RegnAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     #else
@@ -119,16 +113,15 @@ public partial record RegisteredContract15
     /// Original registered contract identification.
     /// </summary>
     [IsoId("_KUOcW7b9Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Registered Contract")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRegdCtrct")]
     #endif
+    [IsoXmlTag("OrgnlRegdCtrct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification29 OriginalRegisteredContract { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification29 OriginalRegisteredContract { get; init; } 
+    public required DocumentIdentification29 OriginalRegisteredContract { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification29 OriginalRegisteredContract { get; init; } 
     #else
@@ -139,16 +132,15 @@ public partial record RegisteredContract15
     /// Priority of the registered contract closure.
     /// </summary>
     [IsoId("_KUOcY7b9Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prty")]
     #endif
+    [IsoXmlTag("Prty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Priority2Code Priority { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Priority2Code Priority { get; init; } 
+    public required Priority2Code Priority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Priority2Code Priority { get; init; } 
     #else
@@ -159,16 +151,15 @@ public partial record RegisteredContract15
     /// Reason of the closure.
     /// </summary>
     [IsoId("_KUOcZbb9Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closure Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsrRsn")]
     #endif
+    [IsoXmlTag("ClsrRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContractClosureReason1Choice_ ClosureReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContractClosureReason1Choice_ ClosureReason { get; init; } 
+    public required ContractClosureReason1Choice_ ClosureReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContractClosureReason1Choice_ ClosureReason { get; init; } 
     #else
@@ -179,12 +170,11 @@ public partial record RegisteredContract15
     /// Contract cession details.
     /// </summary>
     [IsoId("_kmRMwLb9Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cession")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cssn")]
     #endif
+    [IsoXmlTag("Cssn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractCessionData1? Cession { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +187,11 @@ public partial record RegisteredContract15
     /// Documents provided as attachments to the contract registration closure request.
     /// </summary>
     [IsoId("_XWoJYLcCEeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attachment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Attchmnt")]
     #endif
+    [IsoXmlTag("Attchmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation5? Attachment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +204,11 @@ public partial record RegisteredContract15
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_KUOcZ7b9Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCANOServiceDataSD1 message extends ISO corporate action notification (CANO) message with DTCC validation service specific data elements that are not covered by the standard message.")]
 [IsoId("_1PgAsDL3EeKU9IrkkToqcw_-1681566292")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCANO Service Data SD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as supplementary data to notification general information.
     /// </summary>
     [IsoId("_1PgAsTL3EeKU9IrkkToqcw_1324370913")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnGnlInf")]
     #endif
+    [IsoXmlTag("NtfctnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNotificationSD6? NotificationGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as supplementary data to events linkage.
     /// </summary>
     [IsoId("_1PgAsjL3EeKU9IrkkToqcw_1207093876")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Events Linkage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtsLkg")]
     #endif
+    [IsoXmlTag("EvtsLkg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventReferenceSD2? EventsLinkage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as supplementary data to corporate action notification.
     /// </summary>
     [IsoId("_1PgAszL3EeKU9IrkkToqcw_-847715476")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnNtfctn")]
     #endif
+    [IsoXmlTag("CorpActnNtfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNotificationSD1? CorporateActionNotification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +117,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as supplementary data to underlying security.
     /// </summary>
     [IsoId("_1PgAtDL3EeKU9IrkkToqcw_-195598292")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygScty")]
     #endif
+    [IsoXmlTag("UndrlygScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributesSD7? UnderlyingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +134,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as corporate action details supplementary data.
     /// </summary>
     [IsoId("_1PgAtTL3EeKU9IrkkToqcw_1221991011")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnDtls")]
     #endif
+    [IsoXmlTag("CorpActnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionSD4? CorporateActionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +151,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as corporate action date details supplementary data.
     /// </summary>
     [IsoId("_1PgAtjL3EeKU9IrkkToqcw_-885992761")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnDtDtls")]
     #endif
+    [IsoXmlTag("CorpActnDtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDateSD4? CorporateActionDateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +168,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as supplementary data to option details.
     /// </summary>
     [IsoId("_1PpKoDL3EeKU9IrkkToqcw_531596542")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnDtls")]
     #endif
+    [IsoXmlTag("OptnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOptionSD5? OptionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +185,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as supplementary data to securities movement details.
     /// </summary>
     [IsoId("_1PpKoTL3EeKU9IrkkToqcw_-1504539626")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmntDtls")]
     #endif
+    [IsoXmlTag("SctiesMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesOptionSD4? SecuritiesMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +202,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as supplementary data to securities movement security details.
     /// </summary>
     [IsoId("_1PpKojL3EeKU9IrkkToqcw_-86950323")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement Security Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmntSctyDtls")]
     #endif
+    [IsoXmlTag("SctiesMvmntSctyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributesSD5? SecuritiesMovementSecurityDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +219,11 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     /// Information to be extended as cash movement supplementary data.
     /// </summary>
     [IsoId("_1PpKozL3EeKU9IrkkToqcw_565166861")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshMvmntDtls")]
     #endif
+    [IsoXmlTag("CshMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOptionSD5? CashMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,7 +236,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCANOServiceDataSD1V03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCANOServiceDataSD1V03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCANOServiceDataSD1V03Document ToDocument()
     {
@@ -258,7 +246,7 @@ public partial record DTCCCANOServiceDataSD1V03 : IOuterRecord<DTCCCANOServiceDa
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOServiceDataSD1V03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCANOServiceDataSD1V03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCANOServiceDataSD1V03Document : IOuterDocument<DTCCCANOServiceDataSD1V03>
@@ -275,7 +263,7 @@ public partial record DTCCCANOServiceDataSD1V03Document : IOuterDocument<DTCCCAN
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCANOServiceDataSD1V03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCANOServiceDataSD1V03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCANOServiceDataSD1V03 Message { get; init; }

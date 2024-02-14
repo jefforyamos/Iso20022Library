@@ -21,7 +21,7 @@ public enum NotificationType1Code
 {
     /// <summary>
     /// User must withdraw from transaction because of Force Majeure.
-    /// Encoded/decoded by serializers as "MWFT".
+    /// Encoded/decoded by serializers as &quot;MWFT&quot;.
     /// </summary>
     [EnumMember(Value = "MWFT")]
     [IsoId("_aODGZ9p-Ed-ak6NoX_4Aeg_959058836")]
@@ -30,7 +30,7 @@ public enum NotificationType1Code
     
     /// <summary>
     /// User is unable to submit data set(s).
-    /// Encoded/decoded by serializers as "CSDS".
+    /// Encoded/decoded by serializers as &quot;CSDS&quot;.
     /// </summary>
     [EnumMember(Value = "CSDS")]
     [IsoId("_aODGaNp-Ed-ak6NoX_4Aeg_963678886")]

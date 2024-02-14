@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the request of certificate management.
 /// </summary>
 [IsoId("_199JII4KEeW6h7rGyYlyTg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Certificate Management Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CertificateManagementRequest1
     /// Identification of the terminal or system using the certificate management service.
     /// </summary>
     [IsoId("_-IwAUI4KEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification72 POIIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification72 POIIdentification { get; init; } 
+    public required GenericIdentification72 POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification72 POIIdentification { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record CertificateManagementRequest1
     /// Identification of the TM or the MTM providing the Certificate Authority service.
     /// </summary>
     [IsoId("_1pe4gI4LEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMId")]
     #endif
+    [IsoXmlTag("TMId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification72? TMIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record CertificateManagementRequest1
     /// Requested certificate management service.
     /// </summary>
     [IsoId("__NSUkI4MEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertSvc")]
     #endif
+    [IsoXmlTag("CertSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentServiceType10Code CertificateService { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentServiceType10Code CertificateService { get; init; } 
+    public required CardPaymentServiceType10Code CertificateService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentServiceType10Code CertificateService { get; init; } 
     #else
@@ -110,15 +105,13 @@ public partial record CertificateManagementRequest1
     /// Identification of the client and server public key infrastructures containing the certificate. In addition, it may identify specific requirements of the customer.
     /// </summary>
     [IsoId("_L1GJoI4NEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Domain")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyDomn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctyDomn")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SecurityDomain { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,15 +124,13 @@ public partial record CertificateManagementRequest1
     /// PKCS#10 (Public Key Certificate Standard 10) certification request coded in base64 ASN.1/DER (Abstract Syntax Notation 1, Distinguished Encoding Rules) or PEM (Privacy Enhanced Message) format.
     /// </summary>
     [IsoId("_T2WqUI4NEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Binary Certification Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BinryCertfctnReq")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BinryCertfctnReq")]
+    [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20000Text? BinaryCertificationRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +143,11 @@ public partial record CertificateManagementRequest1
     /// Certification request PKCS#10 (Public Key Certificate Standard 10) for creation or renewal of an X.509 certificate.
     /// </summary>
     [IsoId("_O_f20I4SEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnReq")]
     #endif
+    [IsoXmlTag("CertfctnReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CertificationRequest1? CertificationRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +160,12 @@ public partial record CertificateManagementRequest1
     /// Created certificate. The certificate is ASN.1/DER encoded, for renewal or revocation of certificate.
     /// </summary>
     [IsoId("_vjgCoI4UEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntCert")]
     #endif
+    [IsoXmlTag("ClntCert")]
+    [IsoSimpleType(IsoSimpleType.Max10KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? ClientCertificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record CertificateManagementRequest1
     /// Identification of the white list element, for white list addition or removal.
     /// </summary>
     [IsoId("_bk04QI4VEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("White List Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhtListId")]
     #endif
+    [IsoXmlTag("WhtListId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteraction6? WhiteListIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

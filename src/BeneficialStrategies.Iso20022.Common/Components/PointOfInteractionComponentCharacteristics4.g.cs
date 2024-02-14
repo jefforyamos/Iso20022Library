@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Physical and logical characteristics of a POI component (Point of Interaction).
 /// </summary>
 [IsoId("_NvdkodwbEeeKpa-yxjuKzQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Point Of Interaction Component Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PointOfInteractionComponentCharacteristics4
     /// Memory characteristics of the component.
     /// </summary>
     [IsoId("_N40U8dwbEeeKpa-yxjuKzQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Memory")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mmry")]
     #endif
+    [IsoXmlTag("Mmry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MemoryCharacteristics1? Memory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PointOfInteractionComponentCharacteristics4
     /// Low level communication of the hardware or software component toward another component or an external entity.
     /// </summary>
     [IsoId("_N40U89wbEeeKpa-yxjuKzQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Communication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Com")]
     #endif
+    [IsoXmlTag("Com")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationCharacteristics3? Communication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record PointOfInteractionComponentCharacteristics4
     /// Number of security access modules (SAM).
     /// </summary>
     [IsoId("_N40U9dwbEeeKpa-yxjuKzQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Access Modules")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyAccsMdls")]
     #endif
+    [IsoXmlTag("SctyAccsMdls")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SecurityAccessModules { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,12 @@ public partial record PointOfInteractionComponentCharacteristics4
     /// Number of subscriber identity modules (SIM).
     /// </summary>
     [IsoId("_N40U99wbEeeKpa-yxjuKzQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscriber Identity Modules")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcbrIdntyMdls")]
     #endif
+    [IsoXmlTag("SbcbrIdntyMdls")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? SubscriberIdentityModules { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record PointOfInteractionComponentCharacteristics4
     /// Security characteristics of the component.
     /// </summary>
     [IsoId("_TIo94NwdEeeKpa-yxjuKzQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Element")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyElmt")]
     #endif
+    [IsoXmlTag("SctyElmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey13? SecurityElement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

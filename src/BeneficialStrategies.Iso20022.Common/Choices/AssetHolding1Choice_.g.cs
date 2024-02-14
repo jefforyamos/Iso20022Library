@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetHolding1Choice.Guarantee))]
     [KnownType(typeof(AssetHolding1Choice.Commodity))]
     [IsoId("_A8xYoK_5EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Holding 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

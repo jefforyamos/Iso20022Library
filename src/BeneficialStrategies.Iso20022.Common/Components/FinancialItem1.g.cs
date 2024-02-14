@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The component may include an external document describing details of the underlying trade object using an external schema.
 /// </summary>
 [IsoId("_OTgzMzMy-AOSNFX-8224500")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Item")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record FinancialItem1
     /// Parameters identifying the context of the item.
     /// </summary>
     [IsoId("_OTgzMzk3-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmCntxt")]
     #endif
+    [IsoXmlTag("ItmCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialItemParameters1 ItemContext { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialItemParameters1 ItemContext { get; init; } 
+    public required FinancialItemParameters1 ItemContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialItemParameters1 ItemContext { get; init; } 
     #else
@@ -74,12 +71,11 @@ public partial record FinancialItem1
     /// Identifier of financial document that is the base document for this item, for example an invoice number.
     /// </summary>
     [IsoId("_OTgzMzk4-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Document Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinDocRef")]
     #endif
+    [IsoXmlTag("FinDocRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? FinancialDocumentReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +88,15 @@ public partial record FinancialItem1
     /// Indicates whether the value is a debit or credit.
     /// </summary>
     [IsoId("_OTgzMzk5-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else
@@ -112,16 +107,15 @@ public partial record FinancialItem1
     /// Specifies the total amount related to the financial document.
     /// </summary>
     [IsoId("_OTgzNDAw-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmt")]
     #endif
+    [IsoXmlTag("TtlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceTotals1 TotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvoiceTotals1 TotalAmount { get; init; } 
+    public required InvoiceTotals1 TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvoiceTotals1 TotalAmount { get; init; } 
     #else
@@ -132,12 +126,12 @@ public partial record FinancialItem1
     /// Specifies the remaining monetary amount.
     /// </summary>
     [IsoId("_OTgzNDAx-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Due Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DueAmt")]
     #endif
+    [IsoXmlTag("DueAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DueAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,12 +144,11 @@ public partial record FinancialItem1
     /// Instalment information for payment.
     /// </summary>
     [IsoId("_OTgzNDAy-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtInf")]
     #endif
+    [IsoXmlTag("InstlmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Instalment2? InstalmentInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,15 +161,13 @@ public partial record FinancialItem1
     /// Additional proprietary textual information concerning the item.
     /// </summary>
     [IsoId("_OTgzNDA1-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,12 +180,11 @@ public partial record FinancialItem1
     /// Associated free form document, for example a delivery confirmation.
     /// </summary>
     [IsoId("_OTgzNDA2-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Associated Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssoctdDoc")]
     #endif
+    [IsoXmlTag("AssoctdDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,12 +197,11 @@ public partial record FinancialItem1
     /// Validation status of the item.
     /// </summary>
     [IsoId("_OTgzNDA3-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Status Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnStsInf")]
     #endif
+    [IsoXmlTag("VldtnStsInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -225,12 +214,11 @@ public partial record FinancialItem1
     /// Financing status if applicable for the item.
     /// </summary>
     [IsoId("_OTgzNDA4-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgSts")]
     #endif
+    [IsoXmlTag("FincgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingInformationAndStatus1? FinancingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,12 +231,11 @@ public partial record FinancialItem1
     /// Structured proprietary information concerning details of the financial item.
     /// </summary>
     [IsoId("_OTgzNDA0-AOSNFX-8224503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtryDtls")]
     #endif
+    [IsoXmlTag("PrtryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? ProprietaryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

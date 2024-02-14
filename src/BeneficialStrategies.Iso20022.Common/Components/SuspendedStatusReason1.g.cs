@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for a suspended status.
 /// </summary>
 [IsoId("_Uzce5dp-Ed-ak6NoX_4Aeg_-1152969325")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Suspended Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,31 +42,26 @@ public partial record SuspendedStatusReason1
     /// Reason for a suspended status in structured form.
     /// </summary>
     [IsoId("_Uzce5tp-Ed-ak6NoX_4Aeg_-1152969306")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Strd")]
     [MinLength(1)]
     [MaxLength(3)]
-    #endif
     public SimpleValueList<SuspendedStatusReason2Code> Structured { get; init; } = new SimpleValueList<SuspendedStatusReason2Code>(){};
     
     /// <summary>
     /// Reason for a suspended status in free format text.
     /// </summary>
     [IsoId("_Uzce59p-Ed-ak6NoX_4Aeg_-1152969265")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

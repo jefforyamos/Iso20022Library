@@ -21,7 +21,7 @@ public enum ReportingMessageStatus2Code
 {
     /// <summary>
     /// Whole message has been accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_Wl48AT5-Ee2Z1_pdMHu4SA")]
@@ -30,7 +30,7 @@ public enum ReportingMessageStatus2Code
     
     /// <summary>
     /// Message has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_Wl48CT5-Ee2Z1_pdMHu4SA")]
@@ -39,7 +39,7 @@ public enum ReportingMessageStatus2Code
     
     /// <summary>
     /// File containing the report has an incorrect filename.
-    /// Encoded/decoded by serializers as "INCF".
+    /// Encoded/decoded by serializers as &quot;INCF&quot;.
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_Wl48Dz5-Ee2Z1_pdMHu4SA")]
@@ -48,7 +48,7 @@ public enum ReportingMessageStatus2Code
     
     /// <summary>
     /// File containing the report is corrupted.
-    /// Encoded/decoded by serializers as "CRPT".
+    /// Encoded/decoded by serializers as &quot;CRPT&quot;.
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_Wl48ET5-Ee2Z1_pdMHu4SA")]
@@ -57,7 +57,7 @@ public enum ReportingMessageStatus2Code
     
     /// <summary>
     /// Message was rejected due to authorisation/permission issues.
-    /// Encoded/decoded by serializers as "NAUT".
+    /// Encoded/decoded by serializers as &quot;NAUT&quot;.
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_zlZYQT5-Ee2Z1_pdMHu4SA")]

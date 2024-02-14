@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"This message is a request for an Administrative service sent to POI System.")]
 [IsoId("_zWwx4YYBEemxIqbaFEE8-w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Administrative Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOIAdministrativeRequestV01 : IOuterRecord<SaleToPOI
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_zWwx44YBEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header37 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header37 Header { get; init; } 
+    public required Header37 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header37 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOIAdministrativeRequestV01 : IOuterRecord<SaleToPOI
     /// Information related to the administrative request.
     /// </summary>
     [IsoId("_zWwx5YYBEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Administrative Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdmstvReq")]
     #endif
+    [IsoXmlTag("AdmstvReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdministrativeRequest2 AdministrativeRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdministrativeRequest2 AdministrativeRequest { get; init; } 
+    public required AdministrativeRequest2 AdministrativeRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdministrativeRequest2 AdministrativeRequest { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SaleToPOIAdministrativeRequestV01 : IOuterRecord<SaleToPOI
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_zWwx54YBEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType18? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SaleToPOIAdministrativeRequestV01 : IOuterRecord<SaleToPOI
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOIAdministrativeRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOIAdministrativeRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOIAdministrativeRequestV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SaleToPOIAdministrativeRequestV01 : IOuterRecord<SaleToPOI
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIAdministrativeRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOIAdministrativeRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOIAdministrativeRequestV01Document : IOuterDocument<SaleToPOIAdministrativeRequestV01>
@@ -161,7 +156,7 @@ public partial record SaleToPOIAdministrativeRequestV01Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOIAdministrativeRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOIAdministrativeRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOIAdministrativeRequestV01 Message { get; init; }

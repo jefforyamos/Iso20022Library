@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum MemberTypeCode
 {
     /// <summary>
-    /// Member has full rights in the system. In principle, this membership status entails financial responsibility for its own operations and sponsored members' operations submitted to the system.
-    /// Encoded/decoded by serializers as "DRCT".
+    /// Member has full rights in the system. In principle, this membership status entails financial responsibility for its own operations and sponsored members&apos; operations submitted to the system.
+    /// Encoded/decoded by serializers as &quot;DRCT&quot;.
     /// </summary>
     [EnumMember(Value = "DRCT")]
     [IsoId("_aLzqtdp-Ed-ak6NoX_4Aeg_977880732")]
@@ -30,7 +30,7 @@ public enum MemberTypeCode
     
     /// <summary>
     /// Member has limited rights in the system specifications. In principle, this membership status entails no financial responsibility for its operations submitted to the system.
-    /// Encoded/decoded by serializers as "IDRT".
+    /// Encoded/decoded by serializers as &quot;IDRT&quot;.
     /// </summary>
     [EnumMember(Value = "IDRT")]
     [IsoId("_aLzqttp-Ed-ak6NoX_4Aeg_977880733")]
@@ -39,7 +39,7 @@ public enum MemberTypeCode
     
     /// <summary>
     /// Member has access to the system from a remote location or through remote technical means.
-    /// Encoded/decoded by serializers as "RMTE".
+    /// Encoded/decoded by serializers as &quot;RMTE&quot;.
     /// </summary>
     [EnumMember(Value = "RMTE")]
     [IsoId("_aLzqt9p-Ed-ak6NoX_4Aeg_977880734")]
@@ -48,7 +48,7 @@ public enum MemberTypeCode
     
     /// <summary>
     /// Member is entitled to access the Euro1 system of the Euro Banking Association (EBA).
-    /// Encoded/decoded by serializers as "EURO".
+    /// Encoded/decoded by serializers as &quot;EURO&quot;.
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_aLzquNp-Ed-ak6NoX_4Aeg_977880735")]
@@ -57,7 +57,7 @@ public enum MemberTypeCode
     
     /// <summary>
     /// Member is entitled to access the Step1 system of the Euro Banking Association (EBA).
-    /// Encoded/decoded by serializers as "STEP".
+    /// Encoded/decoded by serializers as &quot;STEP&quot;.
     /// </summary>
     [EnumMember(Value = "STEP")]
     [IsoId("_aLzqudp-Ed-ak6NoX_4Aeg_977880736")]

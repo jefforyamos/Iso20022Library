@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Encrypted data with encryption key.
 /// </summary>
 [IsoId("_AweZUaQuEeeWXKXf3KjtmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Enveloped Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record EnvelopedData6
     /// Version of the data structure.
     /// </summary>
     [IsoId("_A7ogcaQuEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record EnvelopedData6
     /// Session key or identification of the protection key used by the recipient.
     /// </summary>
     [IsoId("_A7ogc6QuEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcpt")]
     #endif
+    [IsoXmlTag("Rcpt")]
     public Recipient7Choice_? Recipient { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _A7ogc6QuEeeWXKXf3KjtmQ
     
@@ -75,12 +72,11 @@ public partial record EnvelopedData6
     /// Encrypted data with an encryption key.
     /// </summary>
     [IsoId("_P_dJcP_jEeiDc7RC4MJZbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdCntt")]
     #endif
+    [IsoXmlTag("NcrptdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncryptedContent5? EncryptedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

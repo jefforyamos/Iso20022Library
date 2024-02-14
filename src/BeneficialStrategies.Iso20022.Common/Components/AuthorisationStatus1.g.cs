@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Authorisation status about the fraudulent transaction.
 /// </summary>
 [IsoId("_HhcNkHbNEeef9c2nwgY9Xw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Authorisation Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -46,12 +44,12 @@ public partial record AuthorisationStatus1
     /// True: transaction was authorised
     /// </summary>
     [IsoId("_yZqtIHbNEeef9c2nwgY9Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnInd")]
     #endif
+    [IsoXmlTag("AuthstnInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AuthorisationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +62,11 @@ public partial record AuthorisationStatus1
     /// Indicates the entity which authorised the transaction (if relevant).
     /// </summary>
     [IsoId("_9p_x4HbNEeef9c2nwgY9Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnNtty")]
     #endif
+    [IsoXmlTag("AuthstnNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType26Code? AuthorisationEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,15 +79,13 @@ public partial record AuthorisationStatus1
     /// Other type of authorisation entity.
     /// </summary>
     [IsoId("_jsIsQHbOEeef9c2nwgY9Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Authorisation Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAuthstnNtty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrAuthstnNtty")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherAuthorisationEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

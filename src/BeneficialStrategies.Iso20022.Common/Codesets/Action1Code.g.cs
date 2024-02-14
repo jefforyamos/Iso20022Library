@@ -21,7 +21,7 @@ public enum Action1Code
 {
     /// <summary>
     /// Request to submit a twin baseline.
-    /// Encoded/decoded by serializers as "SBTW".
+    /// Encoded/decoded by serializers as &quot;SBTW&quot;.
     /// </summary>
     [EnumMember(Value = "SBTW")]
     [IsoId("_bpi0CNp-Ed-ak6NoX_4Aeg_722866594")]
@@ -30,7 +30,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to resubmit a twin baseline.
-    /// Encoded/decoded by serializers as "RSTW".
+    /// Encoded/decoded by serializers as &quot;RSTW&quot;.
     /// </summary>
     [EnumMember(Value = "RSTW")]
     [IsoId("_bpr98Np-Ed-ak6NoX_4Aeg_722866612")]
@@ -39,7 +39,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to resubmit a baseline.
-    /// Encoded/decoded by serializers as "RSBS".
+    /// Encoded/decoded by serializers as &quot;RSBS&quot;.
     /// </summary>
     [EnumMember(Value = "RSBS")]
     [IsoId("_bpr98dp-Ed-ak6NoX_4Aeg_722866637")]
@@ -48,7 +48,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to accept or reject mismatched data set(s).
-    /// Encoded/decoded by serializers as "ARDM".
+    /// Encoded/decoded by serializers as &quot;ARDM&quot;.
     /// </summary>
     [EnumMember(Value = "ARDM")]
     [IsoId("_bpr98tp-Ed-ak6NoX_4Aeg_722866638")]
@@ -57,7 +57,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to accept or reject a request for a change of status of the baseline.
-    /// Encoded/decoded by serializers as "ARCS".
+    /// Encoded/decoded by serializers as &quot;ARCS&quot;.
     /// </summary>
     [EnumMember(Value = "ARCS")]
     [IsoId("_bpr989p-Ed-ak6NoX_4Aeg_722866655")]
@@ -66,7 +66,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to accept or reject a request for an extension of the period of validity of the status of the baseline.
-    /// Encoded/decoded by serializers as "ARES".
+    /// Encoded/decoded by serializers as &quot;ARES&quot;.
     /// </summary>
     [EnumMember(Value = "ARES")]
     [IsoId("_bpr99Np-Ed-ak6NoX_4Aeg_722866672")]
@@ -75,7 +75,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to wait until the baseline is established.
-    /// Encoded/decoded by serializers as "WAIT".
+    /// Encoded/decoded by serializers as &quot;WAIT&quot;.
     /// </summary>
     [EnumMember(Value = "WAIT")]
     [IsoId("_bpr99dp-Ed-ak6NoX_4Aeg_-394921817")]
@@ -84,7 +84,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to update and resend.
-    /// Encoded/decoded by serializers as "UPDT".
+    /// Encoded/decoded by serializers as &quot;UPDT&quot;.
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_bpr99tp-Ed-ak6NoX_4Aeg_-98474441")]
@@ -93,7 +93,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to submit data set(s).
-    /// Encoded/decoded by serializers as "SBDS".
+    /// Encoded/decoded by serializers as &quot;SBDS&quot;.
     /// </summary>
     [EnumMember(Value = "SBDS")]
     [IsoId("_bpr999p-Ed-ak6NoX_4Aeg_-851340559")]
@@ -102,7 +102,7 @@ public enum Action1Code
     
     /// <summary>
     /// Request to accept or reject a request for a baseline amendment.
-    /// Encoded/decoded by serializers as "ARBA".
+    /// Encoded/decoded by serializers as &quot;ARBA&quot;.
     /// </summary>
     [EnumMember(Value = "ARBA")]
     [IsoId("_bpr9-Np-Ed-ak6NoX_4Aeg_1978739457")]

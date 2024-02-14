@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DisabledStatusReason1Choice.NoSpecifiedReason))]
     [KnownType(typeof(DisabledStatusReason1Choice.Reason))]
     [IsoId("_RfDOYUzAEeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disabled Status Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

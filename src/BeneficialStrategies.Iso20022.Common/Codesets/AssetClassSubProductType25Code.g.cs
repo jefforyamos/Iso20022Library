@@ -21,7 +21,7 @@ public enum AssetClassSubProductType25Code
 {
     /// <summary>
     /// Commodity of type distillates.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_h7wM2VrKEeWN79Bl6BUd3g")]

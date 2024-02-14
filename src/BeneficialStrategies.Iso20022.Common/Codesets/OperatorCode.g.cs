@@ -21,7 +21,7 @@ public enum OperatorCode
 {
     /// <summary>
     /// Smaller than.
-    /// Encoded/decoded by serializers as "SMAL".
+    /// Encoded/decoded by serializers as &quot;SMAL&quot;.
     /// </summary>
     [EnumMember(Value = "SMAL")]
     [IsoId("_aPPZMdp-Ed-ak6NoX_4Aeg_336257297")]
@@ -30,7 +30,7 @@ public enum OperatorCode
     
     /// <summary>
     /// Smaller or equal to.
-    /// Encoded/decoded by serializers as "SMEQ".
+    /// Encoded/decoded by serializers as &quot;SMEQ&quot;.
     /// </summary>
     [EnumMember(Value = "SMEQ")]
     [IsoId("_aPPZMtp-Ed-ak6NoX_4Aeg_336257298")]
@@ -39,7 +39,7 @@ public enum OperatorCode
     
     /// <summary>
     /// Greater than.
-    /// Encoded/decoded by serializers as "GREA".
+    /// Encoded/decoded by serializers as &quot;GREA&quot;.
     /// </summary>
     [EnumMember(Value = "GREA")]
     [IsoId("_aPPZM9p-Ed-ak6NoX_4Aeg_336257299")]
@@ -48,7 +48,7 @@ public enum OperatorCode
     
     /// <summary>
     /// Greater or equal to.
-    /// Encoded/decoded by serializers as "GREQ".
+    /// Encoded/decoded by serializers as &quot;GREQ&quot;.
     /// </summary>
     [EnumMember(Value = "GREQ")]
     [IsoId("_aPPZNNp-Ed-ak6NoX_4Aeg_336257300")]
@@ -57,7 +57,7 @@ public enum OperatorCode
     
     /// <summary>
     /// Equal to.
-    /// Encoded/decoded by serializers as "EQAL".
+    /// Encoded/decoded by serializers as &quot;EQAL&quot;.
     /// </summary>
     [EnumMember(Value = "EQAL")]
     [IsoId("_aPPZNdp-Ed-ak6NoX_4Aeg_336257301")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
     /// Provides the ability to describe the instrument through a description and main characteristics.
     /// </summary>
     [IsoId("_TBKB8tp-Ed-ak6NoX_4Aeg_-1421894924")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Description")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
         /// Description of the security.
         /// </summary>
         [IsoId("_S1FUwNp-Ed-ak6NoX_4Aeg_1287302984")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Description")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Desc")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Desc")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? Description { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
         /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, eg, common share with voting rights, fully paid, or registered.
         /// </summary>
         [IsoId("_S1FUwdp-Ed-ak6NoX_4Aeg_1023322278")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Classification Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClssfctnTp")]
         #endif
+        [IsoXmlTag("ClssfctnTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SecurityClassificationType1Choice_? ClassificationType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
         /// Provides the place of listing using a market identifier code (MIC).
         /// </summary>
         [IsoId("_S1FUwtp-Ed-ak6NoX_4Aeg_1288222996")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Place Of Listing")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PlcOfListg")]
         #endif
+        [IsoXmlTag("PlcOfListg")]
+        [IsoSimpleType(IsoSimpleType.MICIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMICIdentifier? PlaceOfListing { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +101,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
         /// Exercise date/time of a derivative contract.
         /// </summary>
         [IsoId("_S1FUw9p-Ed-ak6NoX_4Aeg_1288223013")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Exercise Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ExrcDt")]
         #endif
+        [IsoXmlTag("ExrcDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? ExerciseDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +119,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
         /// Maturity date/time at which an interest bearing security becomes due.
         /// </summary>
         [IsoId("_S1FUxNp-Ed-ak6NoX_4Aeg_1288223031")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Maturity Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MtrtyDt")]
         #endif
+        [IsoXmlTag("MtrtyDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? MaturityDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,12 +137,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
         /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
         /// </summary>
         [IsoId("_S1FUxdp-Ed-ak6NoX_4Aeg_1288223048")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Option Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OptnTp")]
         #endif
+        [IsoXmlTag("OptnTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public OptionTypeCode? OptionType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,12 +154,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
         /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
         /// </summary>
         [IsoId("_S1FUxtp-Ed-ak6NoX_4Aeg_1288223066")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Strike Price")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StrkPric")]
         #endif
+        [IsoXmlTag("StrkPric")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PriceRateOrAmountChoice_? StrikePrice { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,12 +171,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice
         /// Indicates the ratio or multiplying factor used to convert one contract into a quantity. In the case of an equity or a bond, the price multiplier is 1.
         /// </summary>
         [IsoId("_S1FUx9p-Ed-ak6NoX_4Aeg_1288223091")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Multiplier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Mltplr")]
         #endif
+        [IsoXmlTag("Mltplr")]
+        [IsoSimpleType(IsoSimpleType.BaseOneRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoBaseOneRate? Multiplier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

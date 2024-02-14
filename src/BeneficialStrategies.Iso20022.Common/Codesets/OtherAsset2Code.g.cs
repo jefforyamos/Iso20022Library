@@ -21,7 +21,7 @@ public enum OtherAsset2Code
 {
     /// <summary>
     /// Asset is a discretionary investment manager account
-    /// Encoded/decoded by serializers as "DIMA".
+    /// Encoded/decoded by serializers as &quot;DIMA&quot;.
     /// </summary>
     [EnumMember(Value = "DIMA")]
     [IsoId("_fnEmYZNCEemQB_8XA98K0Q")]
@@ -30,7 +30,7 @@ public enum OtherAsset2Code
     
     /// <summary>
     /// Asset is an external investment account.
-    /// Encoded/decoded by serializers as "EXIA".
+    /// Encoded/decoded by serializers as &quot;EXIA&quot;.
     /// </summary>
     [EnumMember(Value = "EXIA")]
     [IsoId("_fsbAcZNCEemQB_8XA98K0Q")]
@@ -38,8 +38,8 @@ public enum OtherAsset2Code
     ExternalAccount = OtherAssetCode.ExternalAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Property that is not real estate. Also known as 'movable chattels'.
-    /// Encoded/decoded by serializers as "MOVE".
+    /// Property that is not real estate. Also known as &apos;movable chattels&apos;.
+    /// Encoded/decoded by serializers as &quot;MOVE&quot;.
     /// </summary>
     [EnumMember(Value = "MOVE")]
     [IsoId("_fyX3cZNCEemQB_8XA98K0Q")]
@@ -48,7 +48,7 @@ public enum OtherAsset2Code
     
     /// <summary>
     /// Property that is real estate.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_f5EVUZNCEemQB_8XA98K0Q")]
@@ -57,7 +57,7 @@ public enum OtherAsset2Code
     
     /// <summary>
     /// Asset is a trustee investment plan (TIP).
-    /// Encoded/decoded by serializers as "TIPP".
+    /// Encoded/decoded by serializers as &quot;TIPP&quot;.
     /// </summary>
     [EnumMember(Value = "TIPP")]
     [IsoId("_f_UuUZNCEemQB_8XA98K0Q")]

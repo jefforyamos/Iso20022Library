@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Preparation/bringing to market of a security (also known as primary market or Initial Public Offering (IPO) issuance).
 /// </summary>
 [IsoId("_r6TOIWf2Eembv_9KtOEw8g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Issuance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Issuance6
     /// Indicates where the financial instrument was issued.
     /// </summary>
     [IsoId("_sG_mUWf2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Place")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssePlc")]
     #endif
+    [IsoXmlTag("IssePlc")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMICIdentifier? IssuePlace { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record Issuance6
     /// Country where a security is issued by the issuer or its agent.
     /// </summary>
     [IsoId("_sG_mX2f2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Issue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfIsse")]
     #endif
+    [IsoXmlTag("CtryOfIsse")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfIssue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record Issuance6
     /// Date/time at which the security was made available.
     /// </summary>
     [IsoId("_sG_mZ2f2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record Issuance6
     /// Date/time, as announced by the issuer, at which the securities will be issued.
     /// </summary>
     [IsoId("_sG_mb2f2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Announcement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnncmntDt")]
     #endif
+    [IsoXmlTag("AnncmntDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? AnnouncementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,11 @@ public partial record Issuance6
     /// Legal entity that has the right to issue securities.
     /// </summary>
     [IsoId("_sG_mcWf2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Organisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrOrg")]
     #endif
+    [IsoXmlTag("IssrOrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? IssuerOrganisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,11 @@ public partial record Issuance6
     /// Total original amount or quantity published.
     /// </summary>
     [IsoId("_sG_mc2f2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Nominal Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseNmnlAmt")]
     #endif
+    [IsoXmlTag("IsseNmnlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? IssueNominalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +147,12 @@ public partial record Issuance6
     /// Figure used as a control to verify whether the information provided is correct. It represents the issue size multiplied by the issue price.
     /// </summary>
     [IsoId("_sG_mdWf2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Full Issued Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FullIssdAmt")]
     #endif
+    [IsoXmlTag("FullIssdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FullIssuedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +165,12 @@ public partial record Issuance6
     /// Represents the total amount/quantity of the proceeds from the sale of all securities in the initial offering. This amount/quantity is known after the new issue is priced.
     /// </summary>
     [IsoId("_sG_md2f2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseSz")]
     #endif
+    [IsoXmlTag("IsseSz")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? IssueSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +183,11 @@ public partial record Issuance6
     /// Initial issue price of the asset.
     /// </summary>
     [IsoId("_sG_meWf2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssePric")]
     #endif
+    [IsoXmlTag("IssePric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValue1? IssuePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +200,11 @@ public partial record Issuance6
     /// Way in which the issue will be marketed to the primary market, via individual dealers (so called non syndicated distribution) or via a syndicate of managers, underwriters and selling group members (so called syndicated distribution).
     /// </summary>
     [IsoId("_sG_me2f2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuance Distribution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssncDstrbtn")]
     #endif
+    [IsoXmlTag("IssncDstrbtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionType31Choice_? IssuanceDistribution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +217,11 @@ public partial record Issuance6
     /// Jurisdiction (country, county, state, province, city) of the issue.
     /// </summary>
     [IsoId("_sG_mfWf2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Governing Law")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GovngLaw")]
     #endif
+    [IsoXmlTag("GovngLaw")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Jurisdiction1? GoverningLaw { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

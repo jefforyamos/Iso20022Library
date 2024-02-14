@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed statistics on derivatives submitted for reconciliation per group of derivative contract.
 /// </summary>
 [IsoId("_5fxLwVfcEeqZr5K1Woax-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Statistics Per Derivative Contract Group")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReconciliationStatisticsPerDerivativeContractGroup3
     /// Detailed statistics on privately traded over-the-counter derivatives.
     /// </summary>
     [IsoId("_53z4UVfcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("OTC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OTC")]
     #endif
+    [IsoXmlTag("OTC")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationStatisticsPerDerivativeType3 OTC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationStatisticsPerDerivativeType3 OTC { get; init; } 
+    public required ReconciliationStatisticsPerDerivativeType3 OTC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationStatisticsPerDerivativeType3 OTC { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReconciliationStatisticsPerDerivativeContractGroup3
     /// Detailed statistics on exchange-traded derivatives.
     /// </summary>
     [IsoId("_53z4U1fcEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ETD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ETD")]
     #endif
+    [IsoXmlTag("ETD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationStatisticsPerDerivativeType3 ETD { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationStatisticsPerDerivativeType3 ETD { get; init; } 
+    public required ReconciliationStatisticsPerDerivativeType3 ETD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationStatisticsPerDerivativeType3 ETD { get; init; } 
     #else

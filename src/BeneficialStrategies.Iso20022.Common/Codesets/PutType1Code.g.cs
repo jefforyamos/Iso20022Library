@@ -21,7 +21,7 @@ public enum PutType1Code
 {
     /// <summary>
     /// Type of execution of the put feature is mandatory.
-    /// Encoded/decoded by serializers as "MAND".
+    /// Encoded/decoded by serializers as &quot;MAND&quot;.
     /// </summary>
     [EnumMember(Value = "MAND")]
     [IsoId("_ha1ju2liEeGaMcKyqKNRfQ_126631193")]
@@ -30,7 +30,7 @@ public enum PutType1Code
     
     /// <summary>
     /// Type of execution of the put feature is optional.
-    /// Encoded/decoded by serializers as "OPTI".
+    /// Encoded/decoded by serializers as &quot;OPTI&quot;.
     /// </summary>
     [EnumMember(Value = "OPTI")]
     [IsoId("_ha1jvGliEeGaMcKyqKNRfQ_-1580269150")]
@@ -39,7 +39,7 @@ public enum PutType1Code
     
     /// <summary>
     /// Type of execution of the put feature could be optional or mandatory.
-    /// Encoded/decoded by serializers as "TWOS".
+    /// Encoded/decoded by serializers as &quot;TWOS&quot;.
     /// </summary>
     [EnumMember(Value = "TWOS")]
     [IsoId("_ha1jvWliEeGaMcKyqKNRfQ_-113120387")]

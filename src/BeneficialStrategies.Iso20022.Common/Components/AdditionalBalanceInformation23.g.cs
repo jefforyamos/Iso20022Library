@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Sub-balances providing additional information on a specific position but that is not to be accounted for in the building of the aggregate balance, for example, registered.
 /// </summary>
 [IsoId("_ciApNzi8Eeydid5dcNPKvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Balance Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AdditionalBalanceInformation23
     /// Reason for the sub-balance.
     /// </summary>
     [IsoId("_ciApPTi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Balance Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubBalTp")]
     #endif
+    [IsoXmlTag("SubBalTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubBalanceType14Choice_ SubBalanceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubBalanceType14Choice_ SubBalanceType { get; init; } 
+    public required SubBalanceType14Choice_ SubBalanceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubBalanceType14Choice_ SubBalanceType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AdditionalBalanceInformation23
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_ciApRTi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubBalanceQuantity9Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubBalanceQuantity9Choice_ Quantity { get; init; } 
+    public required SubBalanceQuantity9Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubBalanceQuantity9Choice_ Quantity { get; init; } 
     #else
@@ -92,15 +88,13 @@ public partial record AdditionalBalanceInformation23
     /// Provides additional subbalance information.
     /// </summary>
     [IsoId("_ciApTTi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Balance Additional Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubBalAddtlDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SubBalAddtlDtls")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINXMax140Text? SubBalanceAdditionalDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the trade status report.
 /// </summary>
 [IsoId("_-C4P-HltEeG7BsjMvd1mEw_2067370861")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Status Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TradeStatusReport1
     /// Information concerning the original message to which the TradeStatusReport is sent in response.
     /// </summary>
     [IsoId("_-C4P-XltEeG7BsjMvd1mEw_420163937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgDtls")]
     #endif
+    [IsoXmlTag("OrgnlMsgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMessage1 OriginalMessageDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalMessage1 OriginalMessageDetails { get; init; } 
+    public required OriginalMessage1 OriginalMessageDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalMessage1 OriginalMessageDetails { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TradeStatusReport1
     /// Specifies the processing status of the original message.
     /// </summary>
     [IsoId("_-DCA8HltEeG7BsjMvd1mEw_95108517")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingStatus1Code Status { get; init; } 
+    public required UndertakingStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingStatus1Code Status { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record TradeStatusReport1
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
     [IsoId("_-DCA8XltEeG7BsjMvd1mEw_-415310632")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReasonInformation8? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,15 +105,13 @@ public partial record TradeStatusReport1
     /// Additional information related to the report.
     /// </summary>
     [IsoId("_-DCA8nltEeG7BsjMvd1mEw_-952635895")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

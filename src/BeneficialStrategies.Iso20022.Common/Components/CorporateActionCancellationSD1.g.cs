@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding linkage details.
 /// </summary>
 [IsoId("_1cdeoTL3EeKU9IrkkToqcw_-445567817")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Cancellation SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record CorporateActionCancellationSD1
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1cdeojL3EeKU9IrkkToqcw_-559406883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -77,19 +73,17 @@ public partial record CorporateActionCancellationSD1
     /// Reference assigned by the account servicer to unambiguously identify a related corporate action event.
     /// </summary>
     [IsoId("_1cdeozL3EeKU9IrkkToqcw_-51875322")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Corporate Action Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdCorpActnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LkdCorpActnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text LinkedCorporateActionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LinkedCorporateActionIdentification { get; init; } 
+    public required System.String LinkedCorporateActionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LinkedCorporateActionIdentification { get; init; } 
     #else
@@ -100,16 +94,15 @@ public partial record CorporateActionCancellationSD1
     /// Indicates the reason why two or more events are related.
     /// </summary>
     [IsoId("_1cdepDL3EeKU9IrkkToqcw_-1442640170")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkage Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkgTp")]
     #endif
+    [IsoXmlTag("LkgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCLinkType1Code LinkageType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DTCCLinkType1Code LinkageType { get; init; } 
+    public required DTCCLinkType1Code LinkageType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DTCCLinkType1Code LinkageType { get; init; } 
     #else
@@ -120,16 +113,16 @@ public partial record CorporateActionCancellationSD1
     /// Events can be linked together. This date represents the date on which the link was established.
     /// </summary>
     [IsoId("_1cdepTL3EeKU9IrkkToqcw_858182420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Link Added Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkAddedDt")]
     #endif
+    [IsoXmlTag("LkAddedDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate LinkAddedDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly LinkAddedDate { get; init; } 
+    public required System.DateOnly LinkAddedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly LinkAddedDate { get; init; } 
     #else
@@ -140,12 +133,12 @@ public partial record CorporateActionCancellationSD1
     /// Events can be linked together. This date represents the date on which the link was modified.
     /// </summary>
     [IsoId("_1cnPoDL3EeKU9IrkkToqcw_1855254773")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Link Modified Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkModfdDt")]
     #endif
+    [IsoXmlTag("LkModfdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LinkModifiedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

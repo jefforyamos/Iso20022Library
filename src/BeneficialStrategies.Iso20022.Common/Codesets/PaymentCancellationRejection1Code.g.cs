@@ -21,7 +21,7 @@ public enum PaymentCancellationRejection1Code
 {
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of regulatory rules.
-    /// Encoded/decoded by serializers as "LEGL".
+    /// Encoded/decoded by serializers as &quot;LEGL&quot;.
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_zb9ZoQ93EeGeV5vP7Mvdig_323838395")]
@@ -30,7 +30,7 @@ public enum PaymentCancellationRejection1Code
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of an agent refuses to cancel.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_zb9Zog93EeGeV5vP7Mvdig_-596999348")]
@@ -39,7 +39,7 @@ public enum PaymentCancellationRejection1Code
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of a customer decision (Creditor).
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_zb9Zow93EeGeV5vP7Mvdig_749712831")]

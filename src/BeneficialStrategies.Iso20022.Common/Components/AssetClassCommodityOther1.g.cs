@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines commodity attributes of a derivative where the type is other.
 /// </summary>
 [IsoId("_gBj-8Fr0EeWN79Bl6BUd3g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Asset Class Commodity Other")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AssetClassCommodityOther1
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
     [IsoId("_DQTkoFr1EeWN79Bl6BUd3g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BasePdct")]
     #endif
+    [IsoXmlTag("BasePdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassProductType15Code BaseProduct { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AssetClassProductType15Code BaseProduct { get; init; } 
+    public required AssetClassProductType15Code BaseProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AssetClassProductType15Code BaseProduct { get; init; } 
     #else

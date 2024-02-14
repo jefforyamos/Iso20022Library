@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the opening and valuation conditions for the non deliverable forward.
 /// </summary>
 [IsoId("_lUCXwJR9Eeak6e8_Fc5fQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Deliverable Forward Conditions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record NonDeliverableForwardConditions1
     /// Specifies whether the instruction is an NDF opening or fixing.
     /// </summary>
     [IsoId("_OiuGoJR-Eeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngInd")]
     #endif
+    [IsoXmlTag("OpngInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator OpeningIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OpeningIndicator { get; init; } 
+    public required System.String OpeningIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OpeningIndicator { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record NonDeliverableForwardConditions1
     /// Specifies either the conditions for an NDF oepning or an NDF fixing confirmation.
     /// </summary>
     [IsoId("_MFrkkJUPEeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Fixing Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngFxgConds")]
     #endif
+    [IsoXmlTag("OpngFxgConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NDFOpeningFixing1Choice_ OpeningFixingConditions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NDFOpeningFixing1Choice_ OpeningFixingConditions { get; init; } 
+    public required NDFOpeningFixing1Choice_ OpeningFixingConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NDFOpeningFixing1Choice_ OpeningFixingConditions { get; init; } 
     #else

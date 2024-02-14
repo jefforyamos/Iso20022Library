@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityMetal1Choice
     /// Non-precious metal commodity derivative.
     /// </summary>
     [IsoId("_D1rdVA2rEeW72qLtWESimw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Precious")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityMetal1Choice
         /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
         /// </summary>
         [IsoId("_NogpVg2rEeW72qLtWESimw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Base Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BasePdct")]
         #endif
+        [IsoXmlTag("BasePdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassProductType7Code BaseProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassProductType7Code BaseProduct { get; init; } 
+        public required AssetClassProductType7Code BaseProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassProductType7Code BaseProduct { get; init; } 
         #else
@@ -78,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityMetal1Choice
         /// Sub-product for the underlying asset class.
         /// </summary>
         [IsoId("_NogpVQ2rEeW72qLtWESimw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sub Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SubPdct")]
         #endif
+        [IsoXmlTag("SubPdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassSubProductType15Code SubProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassSubProductType15Code SubProduct { get; init; } 
+        public required AssetClassSubProductType15Code SubProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassSubProductType15Code SubProduct { get; init; } 
         #else
@@ -98,16 +94,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityMetal1Choice
         /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
         /// </summary>
         [IsoId("_NogpVw2rEeW72qLtWESimw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Sub Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlSubPdct")]
         #endif
+        [IsoXmlTag("AddtlSubPdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassDetailedSubProductType10Code AdditionalSubProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassDetailedSubProductType10Code AdditionalSubProduct { get; init; } 
+        public required AssetClassDetailedSubProductType10Code AdditionalSubProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassDetailedSubProductType10Code AdditionalSubProduct { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the return indicators and the investigation result.
 /// </summary>
 [IsoId("_o8EakzzuEeGl7N0Cd54dlw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Return Indicator")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record ReturnIndicator1
     /// Specifies the dates between which period the response results relate to.
     /// </summary>
     [IsoId("_c3ykVUMYEeGOTYFglkhSbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnPrd")]
     #endif
+    [IsoXmlTag("RspnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateOrDateTimePeriodChoice_? ResponsePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record ReturnIndicator1
     /// Identifies the authority request type as a code.
     /// </summary>
     [IsoId("_rb9kgTzuEeGl7N0Cd54dlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authority Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrtyReqTp")]
     #endif
+    [IsoXmlTag("AuthrtyReqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthorityRequestType1 AuthorityRequestType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthorityRequestType1 AuthorityRequestType { get; init; } 
+    public required AuthorityRequestType1 AuthorityRequestType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthorityRequestType1 AuthorityRequestType { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record ReturnIndicator1
     /// Provides the investigation result.
     /// </summary>
     [IsoId("_uWrCITzuEeGl7N0Cd54dlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnRslt")]
     #endif
+    [IsoXmlTag("InvstgtnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigationResult1Choice_ InvestigationResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestigationResult1Choice_ InvestigationResult { get; init; } 
+    public required InvestigationResult1Choice_ InvestigationResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestigationResult1Choice_ InvestigationResult { get; init; } 
     #else
@@ -110,15 +105,13 @@ public partial record ReturnIndicator1
     /// Additional information, in free text form, to complement the investigation result.
     /// </summary>
     [IsoId("_10Z_ATzuEeGl7N0Cd54dlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

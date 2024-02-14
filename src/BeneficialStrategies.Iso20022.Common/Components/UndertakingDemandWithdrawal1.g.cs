@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the demand withdrawal notification.
 /// </summary>
 [IsoId("_-Br9JnltEeG7BsjMvd1mEw_1678341433")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Demand Withdrawal")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UndertakingDemandWithdrawal1
     /// Details related to the identification of the undertaking.
     /// </summary>
     [IsoId("_-Br9J3ltEeG7BsjMvd1mEw_149297181")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgId")]
     #endif
+    [IsoXmlTag("UdrtkgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking6 UndertakingIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Undertaking6 UndertakingIdentification { get; init; } 
+    public required Undertaking6 UndertakingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Undertaking6 UndertakingIdentification { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record UndertakingDemandWithdrawal1
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
     [IsoId("_-Br9KHltEeG7BsjMvd1mEw_-1462957369")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Advising Party Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdvsgPtyRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdvsgPtyRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record UndertakingDemandWithdrawal1
     /// Details related to the demand.
     /// </summary>
     [IsoId("_-B1uIHltEeG7BsjMvd1mEw_-2032107044")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demand Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmndDtls")]
     #endif
+    [IsoXmlTag("DmndDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Demand3 DemandDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Demand3 DemandDetails { get; init; } 
+    public required Demand3 DemandDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Demand3 DemandDetails { get; init; } 
     #else
@@ -113,15 +107,13 @@ public partial record UndertakingDemandWithdrawal1
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
     [IsoId("_-B1uIXltEeG7BsjMvd1mEw_1834937574")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmer Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnfrmrRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CnfrmrRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OffMarket1Choice.OffMarketIndicator))]
     [KnownType(typeof(OffMarket1Choice.SystematicInternaliser))]
     [IsoId("_TCpPoNp-Ed-ak6NoX_4Aeg_2009784706")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Off Market 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

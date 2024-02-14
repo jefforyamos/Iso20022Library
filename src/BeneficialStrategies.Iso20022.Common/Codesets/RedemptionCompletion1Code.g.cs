@@ -21,7 +21,7 @@ public enum RedemptionCompletion1Code
 {
     /// <summary>
     /// It is not necessary to send more redemption order instructions to the executing party to complete the redemption, the executing will generate redemption confirmations automatically.
-    /// Encoded/decoded by serializers as "RED0".
+    /// Encoded/decoded by serializers as &quot;RED0&quot;.
     /// </summary>
     [EnumMember(Value = "RED0")]
     [IsoId("_MMME0TwxEeaFzejt0Yw_3A")]
@@ -30,7 +30,7 @@ public enum RedemptionCompletion1Code
     
     /// <summary>
     /// Additional redemption order instructions must be sent to the executing party order to have the rest of the redemption executed.
-    /// Encoded/decoded by serializers as "RED1".
+    /// Encoded/decoded by serializers as &quot;RED1&quot;.
     /// </summary>
     [EnumMember(Value = "RED1")]
     [IsoId("_MWTqITwxEeaFzejt0Yw_3A")]

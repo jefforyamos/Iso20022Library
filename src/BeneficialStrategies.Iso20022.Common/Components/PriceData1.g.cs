@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the details of the price applicable to the derivative transaction.
 /// </summary>
 [IsoId("_hM_uQHizEeqKjIYaFgh_2g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PriceData1
     /// Indicates the price per derivative excluding, where applicable: fees, taxes or commissions.
     /// </summary>
     [IsoId("_nPhRYXizEeqKjIYaFgh_2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice17Choice_? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PriceData1
     /// Specifies the effective date and end date of the schedule for derivative transactions with prices varying throughout the life of the transaction.
     /// </summary>
     [IsoId("_olN5AXizEeqKjIYaFgh_2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Schedule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricSchdl")]
     #endif
+    [IsoXmlTag("PricSchdl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Schedule1? PriceSchedule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PriceData1
     /// Specifies the unit of measure in which the price is expressed.
     /// </summary>
     [IsoId("_N--_EX_3EeqdQubSe21TTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitOfMeasr")]
     #endif
+    [IsoXmlTag("UnitOfMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure12Code? UnitOfMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,12 @@ public partial record PriceData1
     /// Number of units of the underlying instrument represented by a single derivative contract.
     /// </summary>
     [IsoId("_p2moYXizEeqKjIYaFgh_2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Multiplier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricMltplr")]
     #endif
+    [IsoXmlTag("PricMltplr")]
+    [IsoSimpleType(IsoSimpleType.LongFraction19DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLongFraction19DecimalNumber? PriceMultiplier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|The IdentificationVerificationReport message is sent by an assigner to an assignee. It is used to confirm whether or not the presented party and/or account identification information is correct.|Usage|The IdentificationVerificationReport message is sent as a response to an IdentificationVerificationRequest message.|The IdentificationVerificationReport message can contain one or more reports.|The IdentificationVerificationReport message may include a reason if the presented party and/or account identification information is confirmed to be incorrect.|The IdentificationVerificationReport message may include the correct party and/or account identification information.")]
 [IsoId("_dgmtEwyYEeukGOovyT2RcQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Identification Verification Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord<Identif
     /// Identifies the identification assignment.
     /// </summary>
     [IsoId("_dgmtFAyYEeukGOovyT2RcQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationAssignment3 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationAssignment3 Assignment { get; init; } 
+    public required IdentificationAssignment3 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationAssignment3 Assignment { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord<Identif
     /// Provides for the reference to the original identification assignment.
     /// </summary>
     [IsoId("_dgnUEgyYEeukGOovyT2RcQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlAssgnmt")]
     #endif
+    [IsoXmlTag("OrgnlAssgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageIdentification7? OriginalAssignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,16 +116,15 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord<Identif
     /// Information concerning the verification of the identification data for which verification was requested.
     /// </summary>
     [IsoId("_dgnUEAyYEeukGOovyT2RcQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rpt")]
     #endif
+    [IsoXmlTag("Rpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VerificationReport4 Report { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VerificationReport4 Report { get; init; } 
+    public required VerificationReport4 Report { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VerificationReport4 Report { get; init; } 
     #else
@@ -140,12 +135,11 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord<Identif
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_dgnUEQyYEeukGOovyT2RcQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +152,7 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord<Identif
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IdentificationVerificationReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IdentificationVerificationReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IdentificationVerificationReportV03Document ToDocument()
     {
@@ -168,7 +162,7 @@ public partial record IdentificationVerificationReportV03 : IOuterRecord<Identif
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IdentificationVerificationReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IdentificationVerificationReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IdentificationVerificationReportV03Document : IOuterDocument<IdentificationVerificationReportV03>
@@ -185,7 +179,7 @@ public partial record IdentificationVerificationReportV03Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IdentificationVerificationReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IdentificationVerificationReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationVerificationReportV03 Message { get; init; }

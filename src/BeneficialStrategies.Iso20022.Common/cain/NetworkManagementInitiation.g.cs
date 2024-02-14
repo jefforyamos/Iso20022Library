@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The NetworkManagementInitiation message covers the range of activities to control the operating condition of the network and may be initiated by any party to an acquirer, an issuer or an agent.")]
 [IsoId("_C8o9QHvDEeSKFIcWw3l4Yw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Network Management Initiation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record NetworkManagementInitiation : IOuterRecord<NetworkManageme
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_OAJuAHvDEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header17 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header17 Header { get; init; } 
+    public required Header17 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header17 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record NetworkManagementInitiation : IOuterRecord<NetworkManageme
     /// Information related to the network management.
     /// </summary>
     [IsoId("_WcxVAHvDEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Network Management Initiation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtwkMgmtInitn")]
     #endif
+    [IsoXmlTag("NtwkMgmtInitn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerNetworkManagementInitiation1 NetworkManagementInitiationValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerNetworkManagementInitiation1 NetworkManagementInitiationValue { get; init; } 
+    public required AcquirerNetworkManagementInitiation1 NetworkManagementInitiationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerNetworkManagementInitiation1 NetworkManagementInitiationValue { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record NetworkManagementInitiation : IOuterRecord<NetworkManageme
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_46J5wHvEEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record NetworkManagementInitiation : IOuterRecord<NetworkManageme
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NetworkManagementInitiationDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NetworkManagementInitiationDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NetworkManagementInitiationDocument ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record NetworkManagementInitiation : IOuterRecord<NetworkManageme
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetworkManagementInitiation"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NetworkManagementInitiation&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NetworkManagementInitiationDocument : IOuterDocument<NetworkManagementInitiation>
@@ -161,7 +156,7 @@ public partial record NetworkManagementInitiationDocument : IOuterDocument<Netwo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NetworkManagementInitiation"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NetworkManagementInitiation&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetworkManagementInitiation Message { get; init; }

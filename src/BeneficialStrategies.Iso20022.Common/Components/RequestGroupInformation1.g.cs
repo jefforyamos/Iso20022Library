@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics that unambiguously identify the global invoice financing request.
 /// </summary>
 [IsoId("_TiYfoNp-Ed-ak6NoX_4Aeg_1465496511")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request Group Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,22 +50,20 @@ public partial record RequestGroupInformation1
     #nullable enable
     
     /// <summary>
-    /// Point to point reference assigned by the financing requestor to unambiguously identify the invoice financing request message.||Usage: The financing requestor has to make sure that 'GroupIdentification' is unique for a pre-agreed period.
+    /// Point to point reference assigned by the financing requestor to unambiguously identify the invoice financing request message.||Usage: The financing requestor has to make sure that &apos;GroupIdentification&apos; is unique for a pre-agreed period.
     /// </summary>
     [IsoId("_TiYfodp-Ed-ak6NoX_4Aeg_1465496537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("GrpId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text GroupIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String GroupIdentification { get; init; } 
+    public required System.String GroupIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String GroupIdentification { get; init; } 
     #else
@@ -78,16 +74,16 @@ public partial record RequestGroupInformation1
     /// Date and time on which the invoice financing request was created.
     /// </summary>
     [IsoId("_TiYfotp-Ed-ak6NoX_4Aeg_1465496553")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -98,34 +94,27 @@ public partial record RequestGroupInformation1
     /// User identification or any user key that allows to check if the financing requestor is allowed to ask for invoice financing.||Usage: the content is not of a technical nature, but reflects the organisational structure at the requesting side.|The authorisation element can typically be used in case the financing requestor acts on behalf of one or more suppliers.
     /// </summary>
     [IsoId("_TiYfo9p-Ed-ak6NoX_4Aeg_515663679")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Authstn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Authstn")]
+    [IsoSimpleType(IsoSimpleType.Max128Text)]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 128 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> Authorisation { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
     /// Specifies the number of single invoice financing requests included in the bulk request message.
     /// </summary>
     [IsoId("_TiYfpNp-Ed-ak6NoX_4Aeg_1465496571")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Invoice Requests")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfInvcReqs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfInvcReqs")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? NumberOfInvoiceRequests { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +127,12 @@ public partial record RequestGroupInformation1
     /// Total amount of the bulk invoice financing request. It is composed by the sum of the total amounts of all invoices included in the financing request.
     /// </summary>
     [IsoId("_TiYfpdp-Ed-ak6NoX_4Aeg_1465496613")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Bulk Invoice Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlBlkInvcAmt")]
     #endif
+    [IsoXmlTag("TtlBlkInvcAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,16 +145,15 @@ public partial record RequestGroupInformation1
     /// Reference currency of the invoice financing request.
     /// </summary>
     [IsoId("_TiYfptp-Ed-ak6NoX_4Aeg_1465496631")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else
@@ -176,15 +164,13 @@ public partial record RequestGroupInformation1
     /// Specifies the financing method related to invoice financing (eg collection mandate).
     /// </summary>
     [IsoId("_TiYfp9p-Ed-ak6NoX_4Aeg_1465496648")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgAgrmt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FincgAgrmt")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? FinancingAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,16 +183,15 @@ public partial record RequestGroupInformation1
     /// Party that requests the invoice financing, on behalf of a creditor.
     /// </summary>
     [IsoId("_TiYfqNp-Ed-ak6NoX_4Aeg_1465497021")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financing Requestor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FincgRqstr")]
     #endif
+    [IsoXmlTag("FincgRqstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndAccount6 FinancingRequestor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentificationAndAccount6 FinancingRequestor { get; init; } 
+    public required PartyIdentificationAndAccount6 FinancingRequestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentificationAndAccount6 FinancingRequestor { get; init; } 
     #else
@@ -217,12 +202,11 @@ public partial record RequestGroupInformation1
     /// Financial institution that receives the request from the financing requestor and forwards it to the first agent for execution.
     /// </summary>
     [IsoId("_TiYfqdp-Ed-ak6NoX_4Aeg_1465497004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyAgt")]
     #endif
+    [IsoXmlTag("IntrmyAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -235,16 +219,15 @@ public partial record RequestGroupInformation1
     /// Financial institution of financing requestor to which an invoice financing request is addressed.
     /// </summary>
     [IsoId("_TiiQoNp-Ed-ak6NoX_4Aeg_1465496752")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstAgt")]
     #endif
+    [IsoXmlTag("FrstAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification6 FirstAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstitutionIdentification6 FirstAgent { get; init; } 
+    public required FinancialInstitutionIdentification6 FirstAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstitutionIdentification6 FirstAgent { get; init; } 
     #else
@@ -255,12 +238,11 @@ public partial record RequestGroupInformation1
     /// Agreements between financing requestor and his bank concerning conditions about the service of invoice financing, based on specific contractual schemes.
     /// </summary>
     [IsoId("_TiiQodp-Ed-ak6NoX_4Aeg_1465496695")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Clauses")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrmtClauses")]
     #endif
+    [IsoXmlTag("AgrmtClauses")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreementClauses1? AgreementClauses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -273,12 +255,11 @@ public partial record RequestGroupInformation1
     /// Additional information about the financing request.
     /// </summary>
     [IsoId("_TiiQotp-Ed-ak6NoX_4Aeg_-1564243574")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation1? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentLineType1Choice
     /// Line identification type in a coded form.
     /// </summary>
     [IsoId("__rM9WabkEeKvUvwX_r3tzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentLineType1Choice
         /// Specifies the document line type as published in an external document type code list.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalDocumentLineType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalDocumentLineType1Code Value { get; init; } 
+        public required ExternalDocumentLineType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalDocumentLineType1Code Value { get; init; } 
         #else

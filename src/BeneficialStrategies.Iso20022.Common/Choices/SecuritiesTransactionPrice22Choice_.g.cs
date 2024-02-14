@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice22Choice.DigitalTokenPrice))]
     [KnownType(typeof(SecuritiesTransactionPrice22Choice.NoPrice))]
     [IsoId("_i5c_MZiuEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Transaction Price 22 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

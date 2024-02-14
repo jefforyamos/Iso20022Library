@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The LiquidityDebitTransfer message is sent by a member to the transaction administrator.|It is used to request a transfer of funds between two accounts belonging to the same member or the same group of accounts, and being held at the transaction administrator.|Usage|At any time during the operating hours of the system, and to perform the appropriate liquidity management, the member can request the transaction administrator to execute the transfer of funds between two accounts that the transaction administrator maintains for the member. For instance, this may be an action resulting from a Get/Return Account pair of messages.|The LiquidityDebitTransfer message can be used when the transactions to/from the member are unbalanced in value for the business day, or to unlock pending transactions at the end of day.|The member can request the transfer by identifying the accounts stored at the transaction administrator:|- If the accounts involved in the requested transfer are known without doubt to the transaction administrator, it is possible to indicate only the type of the account to be credited.|- If, on the contrary, more clarity is desired, it is possible to identify the accounts from and to which the funds should be transferred.|Note that transfers are processed only when the balance in the account to be debited is sufficient to pass the liquidity transfer instruction and remain positive. Based on the criteria received within the LiquidityDebitTransfer message, the transaction administrator will execute or reject the requested transfer.|In principle, the transaction administrator may send a Receipt message as a reply to the liquidity transfer request. To verify the outcome of the request, the member may submit a GetTransaction or GetAccount message with the appropriate search criteria.")]
 [IsoId("_jwlbtxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Liquidity Debit Transfer V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record LiquidityDebitTransferV05 : IOuterRecord<LiquidityDebitTra
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbuRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record LiquidityDebitTransferV05 : IOuterRecord<LiquidityDebitTra
     /// Details of the liquidity debit transfer.
     /// </summary>
     [IsoId("_jwlbuxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquidity Debit Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LqdtyDbtTrf")]
     #endif
+    [IsoXmlTag("LqdtyDbtTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LiquidityDebitTransfer2 LiquidityDebitTransfer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LiquidityDebitTransfer2 LiquidityDebitTransfer { get; init; } 
+    public required LiquidityDebitTransfer2 LiquidityDebitTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LiquidityDebitTransfer2 LiquidityDebitTransfer { get; init; } 
     #else
@@ -126,12 +122,11 @@ public partial record LiquidityDebitTransferV05 : IOuterRecord<LiquidityDebitTra
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlbvRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,7 +139,7 @@ public partial record LiquidityDebitTransferV05 : IOuterRecord<LiquidityDebitTra
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="LiquidityDebitTransferV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;LiquidityDebitTransferV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public LiquidityDebitTransferV05Document ToDocument()
     {
@@ -154,7 +149,7 @@ public partial record LiquidityDebitTransferV05 : IOuterRecord<LiquidityDebitTra
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="LiquidityDebitTransferV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;LiquidityDebitTransferV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record LiquidityDebitTransferV05Document : IOuterDocument<LiquidityDebitTransferV05>
@@ -171,7 +166,7 @@ public partial record LiquidityDebitTransferV05Document : IOuterDocument<Liquidi
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="LiquidityDebitTransferV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;LiquidityDebitTransferV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LiquidityDebitTransferV05 Message { get; init; }

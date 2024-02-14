@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralStatus3Choice.Pending))]
     [KnownType(typeof(CollateralStatus3Choice.Proprietary))]
     [IsoId("_K3a_kOCdEei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Status 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

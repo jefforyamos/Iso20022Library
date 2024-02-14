@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"This message is an extension used by TSE/JASDEC and its community to provide supplementary data to the CorporateActionNotification 002V04, which is the restricted version that supports the coexistence of ISO messages.")]
 [IsoId("_oznswV_DEeK92NuVSnCzFw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("TSEJASDEC Corporate Action Notification Subset SD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to an identification of a security by proprietary or domestic identification scheme.
     /// </summary>
     [IsoId("_oznsyV_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrId")]
     #endif
+    [IsoXmlTag("OthrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherIdentification2SD1? OtherIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide additional information about rates and amounts related to a corporate action option.
     /// </summary>
     [IsoId("_oznszV_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate And Amount Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateAndAmtDtls")]
     #endif
+    [IsoXmlTag("RateAndAmtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DividendSD1? RateAndAmountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide more information for the underlying security.
     /// </summary>
     [IsoId("_ozns0V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygScty")]
     #endif
+    [IsoXmlTag("UndrlygScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributes23SD1? UnderlyingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +117,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide information about the securities quantity linked to a corporate action.
     /// </summary>
     [IsoId("_ozns1V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesQty")]
     #endif
+    [IsoXmlTag("SctiesQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionQuantity4SD2? SecuritiesQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +134,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to specify additional information related to the type of dividend.
     /// </summary>
     [IsoId("_ozns2V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddTp")]
     #endif
+    [IsoXmlTag("DvddTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DividendTypeFormat4SD1? DividendType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +151,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide additional corporate action details information.
     /// </summary>
     [IsoId("_ozns3V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnDtls")]
     #endif
+    [IsoXmlTag("CorpActnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateAction6SD1? CorporateActionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +168,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide information about the entity making the offer (when it is different from the issuing company).
     /// </summary>
     [IsoId("_6-_agGCTEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offeror")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Offerr")]
     #endif
+    [IsoXmlTag("Offerr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation6SD3? Offeror { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +185,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to capture the new to old ratio with higher precision.
     /// </summary>
     [IsoId("_ozns4V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateDtls")]
     #endif
+    [IsoXmlTag("RateDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionRate19SD1? RateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +202,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension for the stage in the corporate action event life cycle.
     /// </summary>
     [IsoId("_ozns5V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Stage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtStag")]
     #endif
+    [IsoXmlTag("EvtStag")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionEventStageFormat4SD1? EventStage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +219,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension for the features that may apply to a corporate action option.
     /// </summary>
     [IsoId("_ozns6V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Features")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnFeatrs")]
     #endif
+    [IsoXmlTag("OptnFeatrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionFeaturesFormat8SD1? OptionFeatures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,12 +236,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide information on additional corporate action dates.
     /// </summary>
     [IsoId("_ozns7V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtDtls")]
     #endif
+    [IsoXmlTag("DtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate21SD1? DateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +253,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide breakdown details as used by custody banks for tax processing and asset valuation.
     /// </summary>
     [IsoId("_ozns8V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Dividend Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssDvddRate")]
     #endif
+    [IsoXmlTag("GrssDvddRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GrossDividendRateFormat6SD1? GrossDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +270,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide information about the dates related to securities movement.
     /// </summary>
     [IsoId("_ozns9V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmntDtDtls")]
     #endif
+    [IsoXmlTag("SctiesMvmntDtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityDate8SD1? SecuritiesMovementDateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +287,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide extra parameters of the securities of the counterparties in a merger or exchange offer.
     /// </summary>
     [IsoId("_ozns-V_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmntDtls")]
     #endif
+    [IsoXmlTag("SctiesMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesOption22SD1? SecuritiesMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +304,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide the new name of a company following a name change.
     /// </summary>
     [IsoId("_ozntAV_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Company Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewCpnyNm")]
     #endif
+    [IsoXmlTag("NewCpnyNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation6SD2? NewCompanyName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +321,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension for the name of the Issuer Agent.
     /// </summary>
     [IsoId("_ozntBV_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrAgt")]
     #endif
+    [IsoXmlTag("IssrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentificationSD1? IssuerAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,12 +338,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide additional taxation information related to the corporate action event.
     /// </summary>
     [IsoId("_ozntCV_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxation Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxtnConds")]
     #endif
+    [IsoXmlTag("TaxtnConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation5SD1? TaxationConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -374,12 +355,11 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     /// Extension to provide additional narrative information in the local language.
     /// </summary>
     [IsoId("_ozntDV_DEeK92NuVSnCzFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNarrative17SD1? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -392,7 +372,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TSEJASDECCorporateActionNotificationSubsetSD1V02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TSEJASDECCorporateActionNotificationSubsetSD1V02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TSEJASDECCorporateActionNotificationSubsetSD1V02Document ToDocument()
     {
@@ -402,7 +382,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02 : IOuterR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TSEJASDECCorporateActionNotificationSubsetSD1V02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TSEJASDECCorporateActionNotificationSubsetSD1V02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02Document : IOuterDocument<TSEJASDECCorporateActionNotificationSubsetSD1V02>
@@ -419,7 +399,7 @@ public partial record TSEJASDECCorporateActionNotificationSubsetSD1V02Document :
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TSEJASDECCorporateActionNotificationSubsetSD1V02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TSEJASDECCorporateActionNotificationSubsetSD1V02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TSEJASDECCorporateActionNotificationSubsetSD1V02 Message { get; init; }

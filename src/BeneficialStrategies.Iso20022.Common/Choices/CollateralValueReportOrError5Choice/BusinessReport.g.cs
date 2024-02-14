@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
     /// Provides information specific to the collateral value reports included in the message.
     /// </summary>
     [IsoId("_-DiXcTpvEemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
         /// Unique identification, as assigned by the account servicer, to unambiguously identify the account on which information is requested.
         /// </summary>
         [IsoId("_-ORAwTpvEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshAcct")]
         #endif
+        [IsoXmlTag("CshAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CashAccount38 CashAccount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CashAccount38 CashAccount { get; init; } 
+        public required CashAccount38 CashAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CashAccount38 CashAccount { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
         /// Party that legally owns the account.
         /// </summary>
         [IsoId("_wBoGcjpwEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshAcctOwnr")]
         #endif
+        [IsoXmlTag("CshAcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemPartyIdentification11? CashAccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
         /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
         /// </summary>
         [IsoId("_wBoGczpwEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Account Servicer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshAcctSvcr")]
         #endif
+        [IsoXmlTag("CshAcctSvcr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +107,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
         /// Unique and unambiguous identification of the securities account owner.
         /// </summary>
         [IsoId("_-ORAwzpvEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesAcctOwnr")]
         #endif
+        [IsoXmlTag("SctiesAcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemPartyIdentification8? SecuritiesAccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +124,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
         /// Party that manages the securities account on behalf of the account owner.
         /// </summary>
         [IsoId("_-ORAxTpvEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Account Servicer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesAcctSvcr")]
         #endif
+        [IsoXmlTag("SctiesAcctSvcr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification136? SecuritiesAccountServicer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +141,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
         /// Provides information specific to the report on collateral value positions.
         /// </summary>
         [IsoId("_-ORAxzpvEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Collateral Value Report")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CollValRpt")]
         #endif
+        [IsoXmlTag("CollValRpt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralValueReportOrError6Choice_? CollateralValueReport { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

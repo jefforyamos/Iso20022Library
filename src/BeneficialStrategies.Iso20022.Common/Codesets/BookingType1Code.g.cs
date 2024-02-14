@@ -21,7 +21,7 @@ public enum BookingType1Code
 {
     /// <summary>
     /// Booking type is regular.
-    /// Encoded/decoded by serializers as "REGU".
+    /// Encoded/decoded by serializers as &quot;REGU&quot;.
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("_bU1IRtp-Ed-ak6NoX_4Aeg_-626502093")]
@@ -30,7 +30,7 @@ public enum BookingType1Code
     
     /// <summary>
     /// Order is to be booked out as a CFD.
-    /// Encoded/decoded by serializers as "CFOD".
+    /// Encoded/decoded by serializers as &quot;CFOD&quot;.
     /// </summary>
     [EnumMember(Value = "CFOD")]
     [IsoId("_bU-SMNp-Ed-ak6NoX_4Aeg_-626502041")]
@@ -39,7 +39,7 @@ public enum BookingType1Code
     
     /// <summary>
     /// Order is to be booked out as an OTC derivative (for example, Swap).
-    /// Encoded/decoded by serializers as "TRSW".
+    /// Encoded/decoded by serializers as &quot;TRSW&quot;.
     /// </summary>
     [EnumMember(Value = "TRSW")]
     [IsoId("_bU-SMdp-Ed-ak6NoX_4Aeg_-626501775")]

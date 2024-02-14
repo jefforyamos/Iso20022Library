@@ -21,7 +21,7 @@ public enum OrderStatus7Code
 {
     /// <summary>
     /// Order is accepted and is ready for execution (execution is the moment when pricing is applied).
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_WOpRl9p-Ed-ak6NoX_4Aeg_1655560203")]
@@ -30,7 +30,7 @@ public enum OrderStatus7Code
     
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_WOybgNp-Ed-ak6NoX_4Aeg_1655560233")]
@@ -39,7 +39,7 @@ public enum OrderStatus7Code
     
     /// <summary>
     /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_WOybgdp-Ed-ak6NoX_4Aeg_1655560262")]

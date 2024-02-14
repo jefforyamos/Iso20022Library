@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional indicators on the transaction.
 /// </summary>
 [IsoId("_ZVa-kGhoEeaqBY_HJicULw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Transaction Indicator")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record SecuritiesTransactionIndicator2
     /// Indicates whether the transaction was executed under a pre-trade waiver.
     /// </summary>
     [IsoId("_ZmkY8WhoEeaqBY_HJicULw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Waiver Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WvrInd")]
     #endif
+    [IsoXmlTag("WvrInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingWaiverType1Code? WaiverIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record SecuritiesTransactionIndicator2
     /// Indicates a short sell concluded by the investment agent on its own accounts or on behalf of a client, as described in the local regulation.
     /// </summary>
     [IsoId("_ZmkY82hoEeaqBY_HJicULw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Selling Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtSellgInd")]
     #endif
+    [IsoXmlTag("ShrtSellgInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Side5Code? ShortSellingIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record SecuritiesTransactionIndicator2
     /// Indicates the type of transaction in accordance with the local regulation.
     /// </summary>
     [IsoId("_ZmkY9WhoEeaqBY_HJicULw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("OTC Post Trade Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OTCPstTradInd")]
     #endif
+    [IsoXmlTag("OTCPstTradInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingWaiverType3Code? OTCPostTradeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +100,12 @@ public partial record SecuritiesTransactionIndicator2
     /// Indicates whether the transaction is objectively measurable as reducing risks directly relating to the commercial activity of the entity executing the transaction.
     /// </summary>
     [IsoId("_ZmkY92hoEeaqBY_HJicULw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Reducing Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskRdcgTx")]
     #endif
+    [IsoXmlTag("RskRdcgTx")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RiskReducingTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,16 +118,16 @@ public partial record SecuritiesTransactionIndicator2
     /// Indicates whether the transaction falls within the scope of activity to be reported under the Securities Financing Transactions Regulation.
     /// </summary>
     [IsoId("_ZmkY-WhoEeaqBY_HJicULw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Financing Transaction Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesFincgTxInd")]
     #endif
+    [IsoXmlTag("SctiesFincgTxInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator SecuritiesFinancingTransactionIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SecuritiesFinancingTransactionIndicator { get; init; } 
+    public required System.String SecuritiesFinancingTransactionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SecuritiesFinancingTransactionIndicator { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the amount for a digital token identifier.
 /// </summary>
 [IsoId("_NxPbgANiEe2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Digital Token Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record DigitalTokenAmount1
     /// Specifies the digital token identifier (DTI).
     /// </summary>
     [IsoId("_XQvb0ANiEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Idr")]
     #endif
+    [IsoXmlTag("Idr")]
+    [IsoSimpleType(IsoSimpleType.DTI2021Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDTI2021Identifier? Identifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,16 @@ public partial record DigitalTokenAmount1
     /// Quantity of digital tokens expressed as a number, for example, a number of blockchain tokens.
     /// </summary>
     [IsoId("_dmVr8QNiEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Unit")]
     #endif
+    [IsoXmlTag("Unit")]
+    [IsoSimpleType(IsoSimpleType.Max30DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax30DecimalNumber Unit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Unit { get; init; } 
+    public required System.UInt64 Unit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Unit { get; init; } 
     #else
@@ -89,15 +87,12 @@ public partial record DigitalTokenAmount1
     /// Provides a description of the digital token identifier.
     /// </summary>
     [IsoId("_FY9sgANjEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax30Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

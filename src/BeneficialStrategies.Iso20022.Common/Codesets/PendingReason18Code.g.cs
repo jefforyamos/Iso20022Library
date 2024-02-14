@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum PendingReason18Code
 {
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_U_0-v-XzEemEj48jhmlA0Q")]
@@ -30,7 +30,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_U_0-xOXzEemEj48jhmlA0Q")]
@@ -39,7 +39,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Pending receipt of beneficiary owner details.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_U_0-weXzEemEj48jhmlA0Q")]
@@ -48,7 +48,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Awaiting receipt of adequate certification.
-    /// Encoded/decoded by serializers as "MCER".
+    /// Encoded/decoded by serializers as &quot;MCER&quot;.
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_U_0-xeXzEemEj48jhmlA0Q")]
@@ -57,7 +57,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "MONY".
+    /// Encoded/decoded by serializers as &quot;MONY&quot;.
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_U_0-veXzEemEj48jhmlA0Q")]
@@ -66,7 +66,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_U_0-xuXzEemEj48jhmlA0Q")]
@@ -75,7 +75,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_U_0-x-XzEemEj48jhmlA0Q")]
@@ -84,7 +84,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_U_0-vuXzEemEj48jhmlA0Q")]
@@ -93,7 +93,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// The instruction is pending receipt of securities, for example, from a purchase or loan.
-    /// Encoded/decoded by serializers as "PENR".
+    /// Encoded/decoded by serializers as &quot;PENR&quot;.
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_U_0-wOXzEemEj48jhmlA0Q")]
@@ -102,7 +102,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Certificate number error.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_U_0-w-XzEemEj48jhmlA0Q")]
@@ -111,7 +111,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Unrecognised or invalid instructed cash amount.
-    /// Encoded/decoded by serializers as "DQCS".
+    /// Encoded/decoded by serializers as &quot;DQCS&quot;.
     /// </summary>
     [EnumMember(Value = "DQCS")]
     [IsoId("_U_0-wuXzEemEj48jhmlA0Q")]
@@ -120,7 +120,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Tax rate provided is incorrect. It falls outside the acceptable values for that investment country.
-    /// Encoded/decoded by serializers as "ITAX".
+    /// Encoded/decoded by serializers as &quot;ITAX&quot;.
     /// </summary>
     [EnumMember(Value = "ITAX")]
     [IsoId("_aCN6geXzEemEj48jhmlA0Q")]
@@ -129,7 +129,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Tax rate is not consistent with the documentation in place.
-    /// Encoded/decoded by serializers as "NTAX".
+    /// Encoded/decoded by serializers as &quot;NTAX&quot;.
     /// </summary>
     [EnumMember(Value = "NTAX")]
     [IsoId("_bEa-YeXzEemEj48jhmlA0Q")]
@@ -138,7 +138,7 @@ public enum PendingReason18Code
     
     /// <summary>
     /// Tax rate is missing.
-    /// Encoded/decoded by serializers as "MTAX".
+    /// Encoded/decoded by serializers as &quot;MTAX&quot;.
     /// </summary>
     [EnumMember(Value = "MTAX")]
     [IsoId("_bxNL4eXzEemEj48jhmlA0Q")]

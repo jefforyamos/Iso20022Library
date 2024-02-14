@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum TransactionReversalReason1Code
 {
     /// <summary>
-    /// Account number specified has been closed on the Receiver's books.
-    /// Encoded/decoded by serializers as "AC04".
+    /// Account number specified has been closed on the Receiver&apos;s books.
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_YuFId9p-Ed-ak6NoX_4Aeg_1201920053")]
@@ -30,7 +30,7 @@ public enum TransactionReversalReason1Code
     
     /// <summary>
     /// This message appears to have been duplicated.
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_YuFIeNp-Ed-ak6NoX_4Aeg_1202840611")]
@@ -39,7 +39,7 @@ public enum TransactionReversalReason1Code
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver.
-    /// Encoded/decoded by serializers as "AG02".
+    /// Encoded/decoded by serializers as &quot;AG02&quot;.
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_YuO5cNp-Ed-ak6NoX_4Aeg_1202842147")]
@@ -48,7 +48,7 @@ public enum TransactionReversalReason1Code
     
     /// <summary>
     /// Mandate is cancelled or invalid.
-    /// Encoded/decoded by serializers as "MD01".
+    /// Encoded/decoded by serializers as &quot;MD01&quot;.
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_YuO5cdp-Ed-ak6NoX_4Aeg_1204688750")]
@@ -56,8 +56,8 @@ public enum TransactionReversalReason1Code
     NoMandate = TransactionReasonCode.NoMandate, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Creditor or creditor's agent should not have collected the direct debit.
-    /// Encoded/decoded by serializers as "MD05".
+    /// Creditor or creditor&apos;s agent should not have collected the direct debit.
+    /// Encoded/decoded by serializers as &quot;MD05&quot;.
     /// </summary>
     [EnumMember(Value = "MD05")]
     [IsoId("_YuO5ctp-Ed-ak6NoX_4Aeg_1205611187")]

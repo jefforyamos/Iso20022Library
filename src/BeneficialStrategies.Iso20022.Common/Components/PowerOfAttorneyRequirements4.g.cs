@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Conditions to get power of attorney.
 /// </summary>
 [IsoId("_loYSf609EemDtrWpq90Ckg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Power Of Attorney Requirements")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,31 +42,26 @@ public partial record PowerOfAttorneyRequirements4
     /// Authority that must validate the power of attorney.
     /// </summary>
     [IsoId("_l-Zlpa09EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglRqrmnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LglRqrmnt")]
     [MinLength(0)]
     [MaxLength(4)]
-    #endif
     public SimpleValueList<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = new SimpleValueList<PowerOfAttorneyLegalisation1Code>(){};
     
     /// <summary>
     /// Documents needed to obtain a valid power of attorney.
     /// </summary>
     [IsoId("_l-Zlp609EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Documentation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrDcmnttn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrDcmnttn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? OtherDocumentation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +74,11 @@ public partial record PowerOfAttorneyRequirements4
     /// Date by which the requested documents must be provided.
     /// </summary>
     [IsoId("_l-Zlqa09EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Submission Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocSubmissnDdln")]
     #endif
+    [IsoXmlTag("DocSubmissnDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? DocumentSubmissionDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

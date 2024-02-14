@@ -21,7 +21,7 @@ public enum OrderQuantityType2Code
 {
     /// <summary>
     /// Order is placed by unit.
-    /// Encoded/decoded by serializers as "UNIT".
+    /// Encoded/decoded by serializers as &quot;UNIT&quot;.
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_aRVD4dp-Ed-ak6NoX_4Aeg_-1092421681")]
@@ -30,7 +30,7 @@ public enum OrderQuantityType2Code
     
     /// <summary>
     /// Order is placed by amount of money.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aRVD4tp-Ed-ak6NoX_4Aeg_-1092421663")]

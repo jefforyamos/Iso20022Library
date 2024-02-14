@@ -21,7 +21,7 @@ public enum CurrencyConversionResponse1Code
 {
     /// <summary>
     /// Dynamic currency conversion may be offered to the cardholder.
-    /// Encoded/decoded by serializers as "ODCC".
+    /// Encoded/decoded by serializers as &quot;ODCC&quot;.
     /// </summary>
     [EnumMember(Value = "ODCC")]
     [IsoId("_iDXIoUesEeODR7vDcYOqmg")]
@@ -30,7 +30,7 @@ public enum CurrencyConversionResponse1Code
     
     /// <summary>
     /// Transaction authorised with dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCCA".
+    /// Encoded/decoded by serializers as &quot;DCCA&quot;.
     /// </summary>
     [EnumMember(Value = "DCCA")]
     [IsoId("_iK9lc0esEeODR7vDcYOqmg")]
@@ -39,7 +39,7 @@ public enum CurrencyConversionResponse1Code
     
     /// <summary>
     /// The card is not valid for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "ICRD".
+    /// Encoded/decoded by serializers as &quot;ICRD&quot;.
     /// </summary>
     [EnumMember(Value = "ICRD")]
     [IsoId("_iOrn0UesEeODR7vDcYOqmg")]
@@ -48,7 +48,7 @@ public enum CurrencyConversionResponse1Code
     
     /// <summary>
     /// The card acceptor has not been recognised.
-    /// Encoded/decoded by serializers as "IMER".
+    /// Encoded/decoded by serializers as &quot;IMER&quot;.
     /// </summary>
     [EnumMember(Value = "IMER")]
     [IsoId("_iYN-U0esEeODR7vDcYOqmg")]
@@ -57,7 +57,7 @@ public enum CurrencyConversionResponse1Code
     
     /// <summary>
     /// Dynamic currency conversion service cannot be offered for this card product.
-    /// Encoded/decoded by serializers as "IPRD".
+    /// Encoded/decoded by serializers as &quot;IPRD&quot;.
     /// </summary>
     [EnumMember(Value = "IPRD")]
     [IsoId("_ib8nwUesEeODR7vDcYOqmg")]
@@ -66,7 +66,7 @@ public enum CurrencyConversionResponse1Code
     
     /// <summary>
     /// Exchange rates are not available.
-    /// Encoded/decoded by serializers as "IRAT".
+    /// Encoded/decoded by serializers as &quot;IRAT&quot;.
     /// </summary>
     [EnumMember(Value = "IRAT")]
     [IsoId("_iipss0esEeODR7vDcYOqmg")]
@@ -75,7 +75,7 @@ public enum CurrencyConversionResponse1Code
     
     /// <summary>
     /// Dynamic currency conversion is not available for other reason.
-    /// Encoded/decoded by serializers as "NDCC".
+    /// Encoded/decoded by serializers as &quot;NDCC&quot;.
     /// </summary>
     [EnumMember(Value = "NDCC")]
     [IsoId("_ipWxo0esEeODR7vDcYOqmg")]

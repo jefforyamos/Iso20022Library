@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuorumQuantity1Choice
     /// Minimum quantity of securities, expressed as a percentage, required to hold a meeting.
     /// </summary>
     [IsoId("_RDiep9p-Ed-ak6NoX_4Aeg_-2055367797")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Quantity Percentage")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.QuorumQuantity1Choice
         /// Rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="QrmQtyPctg")]
         #endif
+        [IsoXmlTag("QrmQtyPctg")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPercentageRate Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Value { get; init; } 
+        public required System.Decimal Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Value { get; init; } 
         #else

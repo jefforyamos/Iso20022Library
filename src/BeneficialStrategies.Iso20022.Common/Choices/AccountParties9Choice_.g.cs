@@ -15,16 +15,14 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Information about a party's account.
+    /// Information about a party&apos;s account.
     /// </summary>
     [KnownType(typeof(AccountParties9Choice.PrimaryOwner))]
     [KnownType(typeof(AccountParties9Choice.Trustee))]
     [KnownType(typeof(AccountParties9Choice.Nominee))]
     [KnownType(typeof(AccountParties9Choice.JointOwner))]
     [IsoId("_PD3vCSCBEeWhHbfCMWc1cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Parties 9 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

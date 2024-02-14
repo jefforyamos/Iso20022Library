@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the status and optionally the sub status.
 /// </summary>
 [IsoId("_X3w_o4xlEeKdxfnzD2sqyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status And Sub Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record StatusAndSubStatus1
     /// Status expressed as a code.
     /// </summary>
     [IsoId("_nBafUIxlEeKdxfnzD2sqyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsCd")]
     #endif
+    [IsoXmlTag("StsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status13Choice_ StatusCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status13Choice_ StatusCode { get; init; } 
+    public required Status13Choice_ StatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status13Choice_ StatusCode { get; init; } 
     #else
@@ -71,15 +68,12 @@ public partial record StatusAndSubStatus1
     /// Sub status expressed as a code.
     /// </summary>
     [IsoId("_0h_vcIxlEeKdxfnzD2sqyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubStsCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SubStsCd")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SubStatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

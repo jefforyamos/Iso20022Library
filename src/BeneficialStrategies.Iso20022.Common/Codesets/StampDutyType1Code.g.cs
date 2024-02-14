@@ -21,7 +21,7 @@ public enum StampDutyType1Code
 {
     /// <summary>
     /// SDRT paid outside of CSD on corporate action.
-    /// Encoded/decoded by serializers as "SDRU".
+    /// Encoded/decoded by serializers as &quot;SDRU&quot;.
     /// </summary>
     [EnumMember(Value = "SDRU")]
     [IsoId("_ZPdXM9p-Ed-ak6NoX_4Aeg_497267445")]
@@ -30,7 +30,7 @@ public enum StampDutyType1Code
     
     /// <summary>
     /// SDRT paid on another transaction.
-    /// Encoded/decoded by serializers as "SDRT".
+    /// Encoded/decoded by serializers as &quot;SDRT&quot;.
     /// </summary>
     [EnumMember(Value = "SDRT")]
     [IsoId("_ZPdXNNp-Ed-ak6NoX_4Aeg_514814980")]
@@ -39,7 +39,7 @@ public enum StampDutyType1Code
     
     /// <summary>
     /// Stamp duty not applicable.
-    /// Encoded/decoded by serializers as "SDRN".
+    /// Encoded/decoded by serializers as &quot;SDRN&quot;.
     /// </summary>
     [EnumMember(Value = "SDRN")]
     [IsoId("_ZPdXNdp-Ed-ak6NoX_4Aeg_775244648")]
@@ -48,7 +48,7 @@ public enum StampDutyType1Code
     
     /// <summary>
     /// Exempt, for any other reason.
-    /// Encoded/decoded by serializers as "SDRQ".
+    /// Encoded/decoded by serializers as &quot;SDRQ&quot;.
     /// </summary>
     [EnumMember(Value = "SDRQ")]
     [IsoId("_ZPdXNtp-Ed-ak6NoX_4Aeg_814957832")]

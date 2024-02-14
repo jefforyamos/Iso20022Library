@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AllocationStatus1Choice.PartiallyAllocated))]
     [KnownType(typeof(AllocationStatus1Choice.Proprietary))]
     [IsoId("_D01G0N_-EeiVRbNQx5-Vhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allocation Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

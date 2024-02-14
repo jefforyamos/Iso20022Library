@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Acceptor configuration to be downloaded from the terminal management system.
 /// </summary>
 [IsoId("_oHe8gWpaEeS4r8z7dKyh1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Configuration")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record AcceptorConfiguration4
     /// Identification of the point of interaction for terminal management.
     /// </summary>
     [IsoId("_oV8PQWpaEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification71? POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record AcceptorConfiguration4
     /// Identification of the terminal management system (TMS) sending the acceptor parameters.
     /// </summary>
     [IsoId("_oV8PQ2paEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Manager Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlMgrId")]
     #endif
+    [IsoXmlTag("TermnlMgrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification71 TerminalManagerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification71 TerminalManagerIdentification { get; init; } 
+    public required GenericIdentification71 TerminalManagerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification71 TerminalManagerIdentification { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record AcceptorConfiguration4
     /// Data set containing the acceptor parameters of a point of interaction (POI).
     /// </summary>
     [IsoId("_oV8PRWpaEeS4r8z7dKyh1g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSet")]
     #endif
+    [IsoXmlTag("DataSet")]
     public TerminalManagementDataSet14? DataSet { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _oV8PRWpaEeS4r8z7dKyh1g
     

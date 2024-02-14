@@ -21,7 +21,7 @@ public enum ProductCodeType1Code
 {
     /// <summary>
     /// European Article Number of type-13 also known as International Article Number
-    /// Encoded/decoded by serializers as "EA13".
+    /// Encoded/decoded by serializers as &quot;EA13&quot;.
     /// </summary>
     [EnumMember(Value = "EA13")]
     [IsoId("_tdo10UrMEeenp6hmNprBHg")]
@@ -30,7 +30,7 @@ public enum ProductCodeType1Code
     
     /// <summary>
     /// European Article Number of type-8 also known as International Article Number
-    /// Encoded/decoded by serializers as "EAN8".
+    /// Encoded/decoded by serializers as &quot;EAN8&quot;.
     /// </summary>
     [EnumMember(Value = "EAN8")]
     [IsoId("_tpm1QkrMEeenp6hmNprBHg")]
@@ -39,7 +39,7 @@ public enum ProductCodeType1Code
     
     /// <summary>
     /// Global Trade Item Number (GTIN) is an identifier for trade items.
-    /// Encoded/decoded by serializers as "GTIN".
+    /// Encoded/decoded by serializers as &quot;GTIN&quot;.
     /// </summary>
     [EnumMember(Value = "GTIN")]
     [IsoId("_t1sJckrMEeenp6hmNprBHg")]
@@ -48,7 +48,7 @@ public enum ProductCodeType1Code
     
     /// <summary>
     /// Other type of product code classification.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_uJB8MkrMEeenp6hmNprBHg")]
@@ -57,7 +57,7 @@ public enum ProductCodeType1Code
     
     /// <summary>
     /// Price look-up codes, commonly called PLU codes, PLU numbers, PLUs, produce codes, or produce labels, are identification numbers affixed to produce in grocery stores and supermarkets
-    /// Encoded/decoded by serializers as "PLUP".
+    /// Encoded/decoded by serializers as &quot;PLUP&quot;.
     /// </summary>
     [EnumMember(Value = "PLUP")]
     [IsoId("_uauJIkrMEeenp6hmNprBHg")]
@@ -66,7 +66,7 @@ public enum ProductCodeType1Code
     
     /// <summary>
     /// RSS 14 barcode (Reduce Space Symbology) encodes the full  EAN item identification in a symbol that can be omnidirectionally scanned by suitably configured point-of-sale laser scanners.
-    /// Encoded/decoded by serializers as "RS14".
+    /// Encoded/decoded by serializers as &quot;RS14&quot;.
     /// </summary>
     [EnumMember(Value = "RS14")]
     [IsoId("_uqTdQkrMEeenp6hmNprBHg")]
@@ -75,7 +75,7 @@ public enum ProductCodeType1Code
     
     /// <summary>
     /// Uniform Product Code - A-type
-    /// Encoded/decoded by serializers as "UPCA".
+    /// Encoded/decoded by serializers as &quot;UPCA&quot;.
     /// </summary>
     [EnumMember(Value = "UPCA")]
     [IsoId("_u1CGkkrMEeenp6hmNprBHg")]
@@ -84,7 +84,7 @@ public enum ProductCodeType1Code
     
     /// <summary>
     /// Uniform Product Code E-Type
-    /// Encoded/decoded by serializers as "UPCE".
+    /// Encoded/decoded by serializers as &quot;UPCE&quot;.
     /// </summary>
     [EnumMember(Value = "UPCE")]
     [IsoId("_vCpEwkrMEeenp6hmNprBHg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Commercial agreement in which the buyer agrees to pay the seller an amount of cash. Some aspects of the payment may be defined in the agreement, eg, the method of the payment.
 /// </summary>
 [IsoId("_TJMjkNp-Ed-ak6NoX_4Aeg_-1139165617")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Premium Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record PremiumAmount2
     /// Specifies the calculation method of the premium amount.
     /// </summary>
     [IsoId("_TJMjkdp-Ed-ak6NoX_4Aeg_822493926")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Premium Quote")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrmQt")]
     #endif
+    [IsoXmlTag("PrmQt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PremiumQuote1Choice_? PremiumQuote { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,16 @@ public partial record PremiumAmount2
     /// Result of the calculation of the premium amount on the basis of the premium quote and one of the amounts of the underlying foreign exchange trade.
     /// </summary>
     [IsoId("_TJMjktp-Ed-ak6NoX_4Aeg_-1139165615")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -90,16 +87,16 @@ public partial record PremiumAmount2
     /// Date on which the premium must be settled.
     /// </summary>
     [IsoId("_TJMjk9p-Ed-ak6NoX_4Aeg_-1139165592")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly SettlementDate { get; init; } 
+    public required System.DateOnly SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly SettlementDate { get; init; } 
     #else
@@ -110,12 +107,11 @@ public partial record PremiumAmount2
     /// Party that settles the premium amount on behalf of the paying party. It may contain the BIC of a central settlement system, eg. CLSBUS33.
     /// </summary>
     [IsoId("_TJMjlNp-Ed-ak6NoX_4Aeg_-1139165531")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPty")]
     #endif
+    [IsoXmlTag("SttlmPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification8Choice_? SettlementParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

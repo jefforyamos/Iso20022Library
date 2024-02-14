@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus6Choice
     /// Status advising on the rejection of the instruction.
     /// </summary>
     [IsoId("_sSu2tV6uEeSyc4g_pm5hbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus6Choice
         /// Reason advising the rejection of the instruction.
         /// </summary>
         [IsoId("_RCfVw9p-Ed-ak6NoX_4Aeg_-1090217196")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InstructionRejectionStatus1Choice_ Reason { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InstructionRejectionStatus1Choice_ Reason { get; init; } 
+        public required InstructionRejectionStatus1Choice_ Reason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InstructionRejectionStatus1Choice_ Reason { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus6Choice
         /// Additional information about the reason.
         /// </summary>
         [IsoId("_RCfVxNp-Ed-ak6NoX_4Aeg_-1755939689")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

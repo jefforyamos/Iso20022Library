@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about a corporate action election amendment request.
 /// </summary>
 [IsoId("_UJ39ctp-Ed-ak6NoX_4Aeg_-1290336513")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Election")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CorporateActionElection2
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
     [IsoId("_UJ39c9p-Ed-ak6NoX_4Aeg_-1233077575")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionOption1FormatChoice_ OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #else
@@ -73,19 +70,16 @@ public partial record CorporateActionElection2
     /// Number identifying the available corporate action options.
     /// </summary>
     [IsoId("_UJ39dNp-Ed-ak6NoX_4Aeg_-1233077544")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OptnNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText OptionNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OptionNumber { get; init; } 
+    public required System.String OptionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OptionNumber { get; init; } 
     #else
@@ -96,16 +90,15 @@ public partial record CorporateActionElection2
     /// New instructed securities quantity after the amendment.
     /// </summary>
     [IsoId("_UJ39ddp-Ed-ak6NoX_4Aeg_-1233077543")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Instructed Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewInstdQty")]
     #endif
+    [IsoXmlTag("NewInstdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOrFaceAmount1Choice_ NewInstructedQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitOrFaceAmount1Choice_ NewInstructedQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ NewInstructedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitOrFaceAmount1Choice_ NewInstructedQuantity { get; init; } 
     #else
@@ -116,15 +109,13 @@ public partial record CorporateActionElection2
     /// The reason for the amendment request.
     /// </summary>
     [IsoId("_UJ39dtp-Ed-ak6NoX_4Aeg_-1222919883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

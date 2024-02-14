@@ -21,7 +21,7 @@ public enum PendingFailingReason1Code
 {
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jpvb4ekIEemm4qhb2yFPOw")]

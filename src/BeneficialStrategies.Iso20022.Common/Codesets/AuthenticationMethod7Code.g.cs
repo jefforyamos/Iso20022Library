@@ -21,7 +21,7 @@ public enum AuthenticationMethod7Code
 {
     /// <summary>
     /// A token is used to verify an already performed authentication.
-    /// Encoded/decoded by serializers as "TOKA".
+    /// Encoded/decoded by serializers as &quot;TOKA&quot;.
     /// </summary>
     [EnumMember(Value = "TOKA")]
     [IsoId("_BIbxIYobEeSirOZJBRz_nA")]
@@ -30,7 +30,7 @@ public enum AuthenticationMethod7Code
     
     /// <summary>
     /// Biometric authentication of the cardholder.
-    /// Encoded/decoded by serializers as "BIOM".
+    /// Encoded/decoded by serializers as &quot;BIOM&quot;.
     /// </summary>
     [EnumMember(Value = "BIOM")]
     [IsoId("_CGhKAYobEeSirOZJBRz_nA")]
@@ -39,7 +39,7 @@ public enum AuthenticationMethod7Code
     
     /// <summary>
     /// Customer mobile device.
-    /// Encoded/decoded by serializers as "MOBL".
+    /// Encoded/decoded by serializers as &quot;MOBL&quot;.
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_CV8tIYobEeSirOZJBRz_nA")]
@@ -48,7 +48,7 @@ public enum AuthenticationMethod7Code
     
     /// <summary>
     /// Other customer authentication.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ChAGkYobEeSirOZJBRz_nA")]
@@ -57,7 +57,7 @@ public enum AuthenticationMethod7Code
     
     /// <summary>
     /// Off-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FPIN".
+    /// Encoded/decoded by serializers as &quot;FPIN&quot;.
     /// </summary>
     [EnumMember(Value = "FPIN")]
     [IsoId("_DaprYYobEeSirOZJBRz_nA")]
@@ -66,7 +66,7 @@ public enum AuthenticationMethod7Code
     
     /// <summary>
     /// On-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "NPIN".
+    /// Encoded/decoded by serializers as &quot;NPIN&quot;.
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_DgP9EYobEeSirOZJBRz_nA")]
@@ -75,7 +75,7 @@ public enum AuthenticationMethod7Code
     
     /// <summary>
     /// Authentication by a password.
-    /// Encoded/decoded by serializers as "PSWD".
+    /// Encoded/decoded by serializers as &quot;PSWD&quot;.
     /// </summary>
     [EnumMember(Value = "PSWD")]
     [IsoId("_FZTJYYobEeSirOZJBRz_nA")]
@@ -84,7 +84,7 @@ public enum AuthenticationMethod7Code
     
     /// <summary>
     /// Electronic commerce transaction secured with the X.509 certificate of a customer.
-    /// Encoded/decoded by serializers as "SCRT".
+    /// Encoded/decoded by serializers as &quot;SCRT&quot;.
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_FquQkYobEeSirOZJBRz_nA")]
@@ -93,7 +93,7 @@ public enum AuthenticationMethod7Code
     
     /// <summary>
     /// Channel-encrypted transaction.
-    /// Encoded/decoded by serializers as "SCNL".
+    /// Encoded/decoded by serializers as &quot;SCNL&quot;.
     /// </summary>
     [EnumMember(Value = "SCNL")]
     [IsoId("_G1VpkYobEeSirOZJBRz_nA")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context in which the card payment transaction is performed.
 /// </summary>
 [IsoId("_qDPEQEbWEeeIjf8aP9KbJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Context1
     /// Contains point of interaction information specific to a given transaction that may change from transaction to transaction.
     /// </summary>
     [IsoId("_8Q-nEEbWEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Point Of Service Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtOfSvcCntxt")]
     #endif
+    [IsoXmlTag("PtOfSvcCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PointOfServiceContext1 PointOfServiceContext { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PointOfServiceContext1 PointOfServiceContext { get; init; } 
+    public required PointOfServiceContext1 PointOfServiceContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PointOfServiceContext1 PointOfServiceContext { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Context1
     /// Context of the card payment transaction.
     /// </summary>
     [IsoId("_G7Y7UEbXEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxCntxt")]
     #endif
+    [IsoXmlTag("TxCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionContext1 TransactionContext { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionContext1 TransactionContext { get; init; } 
+    public required TransactionContext1 TransactionContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionContext1 TransactionContext { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record Context1
     /// Contain validation result and/or data to be validated.
     /// </summary>
     [IsoId("_kSCoEEbeEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrfctn")]
     #endif
+    [IsoXmlTag("Vrfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Verification1? Verification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record Context1
     /// Context of risk associated with the transaction.
     /// </summary>
     [IsoId("_uRO1EEbeEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskCntxt")]
     #endif
+    [IsoXmlTag("RskCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskContext1? RiskContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record Context1
     /// Context of the sale associated with the card payment transaction.
     /// </summary>
     [IsoId("_6W8CoEbeEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleCntxt")]
     #endif
+    [IsoXmlTag("SaleCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleContext7? SaleContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

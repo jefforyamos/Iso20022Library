@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General information about the collateral agreement.
 /// </summary>
 [IsoId("_OH70CAGOEeutW5-TpeYJhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Obligation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Obligation6
     /// One of the entities associated with the collateral agreement and type of the CCP membership type where the counterparty is a CCP.
     /// </summary>
     [IsoId("_OH8bEAGOEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyA")]
     #endif
+    [IsoXmlTag("PtyA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification242 PartyA { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification242 PartyA { get; init; } 
+    public required PartyIdentification242 PartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification242 PartyA { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record Obligation6
     /// Party that is acting on behalf of party A and that offers collateral management services.
     /// </summary>
     [IsoId("_OH70DAGOEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Servicing Party A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcgPtyA")]
     #endif
+    [IsoXmlTag("SvcgPtyA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification178Choice_? ServicingPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,15 @@ public partial record Obligation6
     /// Other entity associated with the collateral agreement and type of the CCP membership type where the counterparty is a CCP.
     /// </summary>
     [IsoId("_OH70CgGOEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyB")]
     #endif
+    [IsoXmlTag("PtyB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification242 PartyB { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification242 PartyB { get; init; } 
+    public required PartyIdentification242 PartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification242 PartyB { get; init; } 
     #else
@@ -111,12 +106,11 @@ public partial record Obligation6
     /// Party that is acting on behalf of party B and that offers collateral management services.
     /// </summary>
     [IsoId("_OH8bEQGOEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Servicing Party B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcgPtyB")]
     #endif
+    [IsoXmlTag("SvcgPtyB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification178Choice_? ServicingPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +123,11 @@ public partial record Obligation6
     /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
     /// </summary>
     [IsoId("_OH70CQGOEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollAcctId")]
     #endif
+    [IsoXmlTag("CollAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralAccount3? CollateralAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +140,11 @@ public partial record Obligation6
     /// Underlying business area or type of trade causing the collateral movement.
     /// </summary>
     [IsoId("_OH70DQGOEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrTp")]
     #endif
+    [IsoXmlTag("XpsrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExposureType5Code? ExposureType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,16 +157,15 @@ public partial record Obligation6
     /// Close of business date on which the initiating party is valuing the margin call.
     /// </summary>
     [IsoId("_OH70CwGOEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDt")]
     #endif
+    [IsoXmlTag("ValtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTime2Choice_ ValuationDate { get; init; } 
+    public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTime2Choice_ ValuationDate { get; init; } 
     #else

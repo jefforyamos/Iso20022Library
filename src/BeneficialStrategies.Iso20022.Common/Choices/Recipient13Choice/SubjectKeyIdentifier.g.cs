@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.Recipient13Choice
 {
     /// <summary>
-    /// Specifies the recipient's certificate by a key identifier.
+    /// Specifies the recipient&apos;s certificate by a key identifier.
     /// </summary>
     [IsoId("_d9kLgHDDEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subject Key Identifier")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient13Choice
         /// Specifies a binary string with a maximum length of 140 binary bytes.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SbjtKeyIdr")]
         #endif
+        [IsoXmlTag("SbjtKeyIdr")]
+        [IsoSimpleType(IsoSimpleType.Max140Binary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax140Binary Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Byte[] Value { get; init; } 
+        public required System.Byte[] Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Byte[] Value { get; init; } 
         #else

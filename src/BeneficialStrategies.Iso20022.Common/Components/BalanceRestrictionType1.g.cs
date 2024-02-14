@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Type providing further information on balance restrictions.
 /// </summary>
 [IsoId("_8H0BRqMgEeCJ6YNENx4h-w_-1462773614")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Restriction Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BalanceRestrictionType1
     /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
     /// </summary>
     [IsoId("_8H0BR6MgEeCJ6YNENx4h-w_-1080256634")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification1 Type { get; init; } 
+    public required GenericIdentification1 Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification1 Type { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record BalanceRestrictionType1
     /// Description of the restriction.
     /// </summary>
     [IsoId("_8H0BSKMgEeCJ6YNENx4h-w_1112293165")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record BalanceRestrictionType1
     /// Classification of the type of processing restriction that the system should apply for the restriction.
     /// </summary>
     [IsoId("_8H0BSaMgEeCJ6YNENx4h-w_-1123411091")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgTp")]
     #endif
+    [IsoXmlTag("PrcgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingType1Choice_? ProcessingType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

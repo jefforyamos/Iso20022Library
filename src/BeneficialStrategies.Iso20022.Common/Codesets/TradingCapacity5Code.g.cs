@@ -21,7 +21,7 @@ public enum TradingCapacity5Code
 {
     /// <summary>
     /// Trading as Principal.
-    /// Encoded/decoded by serializers as "PRIN".
+    /// Encoded/decoded by serializers as &quot;PRIN&quot;.
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_Yaall9p-Ed-ak6NoX_4Aeg_524208854")]
@@ -30,7 +30,7 @@ public enum TradingCapacity5Code
     
     /// <summary>
     /// Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.
-    /// Encoded/decoded by serializers as "RISP".
+    /// Encoded/decoded by serializers as &quot;RISP&quot;.
     /// </summary>
     [EnumMember(Value = "RISP")]
     [IsoId("_YaalmNp-Ed-ak6NoX_4Aeg_789078674")]
@@ -39,7 +39,7 @@ public enum TradingCapacity5Code
     
     /// <summary>
     /// Trading as Agent on behalf of a customer.
-    /// Encoded/decoded by serializers as "AGEN".
+    /// Encoded/decoded by serializers as &quot;AGEN&quot;.
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_YajvgNp-Ed-ak6NoX_4Aeg_1711241984")]

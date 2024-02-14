@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashInOrOut4Choice.CashInPaymentInstrument))]
     [KnownType(typeof(CashInOrOut4Choice.CashOutPaymentInstrument))]
     [IsoId("_VKP1Utp-Ed-ak6NoX_4Aeg_-1582566074")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Or Out 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

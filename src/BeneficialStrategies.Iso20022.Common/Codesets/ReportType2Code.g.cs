@@ -21,7 +21,7 @@ public enum ReportType2Code
 {
     /// <summary>
     /// The report is precalculated. This type of report is sent when an amendment is proposed.
-    /// Encoded/decoded by serializers as "PREC".
+    /// Encoded/decoded by serializers as &quot;PREC&quot;.
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_ZTVxp9p-Ed-ak6NoX_4Aeg_-1137964591")]
@@ -30,7 +30,7 @@ public enum ReportType2Code
     
     /// <summary>
     /// The report is calculated on the basis of a dataset matched with a baseline.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_ZTVxqNp-Ed-ak6NoX_4Aeg_-1137964548")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Double volume cap report.
 /// </summary>
 [IsoId("_7YvFaeJBEeWWKb0jFHxViQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Volume Cap Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,15 +55,13 @@ public partial record VolumeCapReport2
     /// This identification will be used in the status advice report sent back.
     /// </summary>
     [IsoId("_7YvsdOJBEeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -78,16 +74,16 @@ public partial record VolumeCapReport2
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
     [IsoId("_7YvsduJBEeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -98,16 +94,15 @@ public partial record VolumeCapReport2
     /// Currency of the transaction.
     /// </summary>
     [IsoId("_7YvsdeJBEeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else
@@ -118,16 +113,16 @@ public partial record VolumeCapReport2
     /// Total traded volume of the instrument in this specific reporting period.
     /// </summary>
     [IsoId("_7YvscuJBEeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Trading Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTradgVol")]
     #endif
+    [IsoXmlTag("TtlTradgVol")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount TotalTradingVolume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalTradingVolume { get; init; } 
+    public required System.Decimal TotalTradingVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalTradingVolume { get; init; } 
     #else
@@ -138,16 +133,16 @@ public partial record VolumeCapReport2
     /// Total volume of trading under reference price waiver as defined under the local regulation.
     /// </summary>
     [IsoId("_7Yvsd-JBEeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Reference Price Trading Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlRefPricTradgVol")]
     #endif
+    [IsoXmlTag("TtlRefPricTradgVol")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount TotalReferencePriceTradingVolume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalReferencePriceTradingVolume { get; init; } 
+    public required System.Decimal TotalReferencePriceTradingVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalReferencePriceTradingVolume { get; init; } 
     #else
@@ -158,16 +153,16 @@ public partial record VolumeCapReport2
     /// Total volume of trading under negotiated transactions waiver as defined under the local regulation.
     /// </summary>
     [IsoId("_7YvsceJBEeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Negotiated Transactions Trading Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNgtdTxsTradgVol")]
     #endif
+    [IsoXmlTag("TtlNgtdTxsTradgVol")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount TotalNegotiatedTransactionsTradingVolume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalNegotiatedTransactionsTradingVolume { get; init; } 
+    public required System.Decimal TotalNegotiatedTransactionsTradingVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalNegotiatedTransactionsTradingVolume { get; init; } 
     #else

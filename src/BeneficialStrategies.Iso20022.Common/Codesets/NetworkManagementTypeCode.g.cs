@@ -22,7 +22,7 @@ public enum NetworkManagementTypeCode
 {
     /// <summary>
     /// Disable receipt of store and forward advice and notification messages.
-    /// Encoded/decoded by serializers as "DSFW".
+    /// Encoded/decoded by serializers as &quot;DSFW&quot;.
     /// </summary>
     [EnumMember(Value = "DSFW")]
     [IsoId("_xhPBsFWOEeeiG_nL4vgKnQ")]
@@ -31,7 +31,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Detects whether communication at application level is still active.
-    /// Encoded/decoded by serializers as "ECTS".
+    /// Encoded/decoded by serializers as &quot;ECTS&quot;.
     /// </summary>
     [EnumMember(Value = "ECTS")]
     [IsoId("_8HWEwFWOEeeiG_nL4vgKnQ")]
@@ -40,7 +40,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Enable receipt of store and forward advice and notification messages.
-    /// Encoded/decoded by serializers as "ESFW".
+    /// Encoded/decoded by serializers as &quot;ESFW&quot;.
     /// </summary>
     [EnumMember(Value = "ESFW")]
     [IsoId("_IAxJ0FWPEeeiG_nL4vgKnQ")]
@@ -49,7 +49,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Establish communication at application level.
-    /// Encoded/decoded by serializers as "SGNN".
+    /// Encoded/decoded by serializers as &quot;SGNN&quot;.
     /// </summary>
     [EnumMember(Value = "SGNN")]
     [IsoId("_RrN14FWPEeeiG_nL4vgKnQ")]
@@ -58,7 +58,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Terminate communication at application level.
-    /// Encoded/decoded by serializers as "SGNF".
+    /// Encoded/decoded by serializers as &quot;SGNF&quot;.
     /// </summary>
     [EnumMember(Value = "SGNF")]
     [IsoId("_aDGG0FWPEeeiG_nL4vgKnQ")]
@@ -67,7 +67,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Other type of communication management service defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_hQJjYFWPEeeiG_nL4vgKnQ")]
@@ -76,7 +76,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Other type of network management service defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_mJURwFWPEeeiG_nL4vgKnQ")]
@@ -85,7 +85,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// System condition/target system unavailable
-    /// Encoded/decoded by serializers as "TSUN".
+    /// Encoded/decoded by serializers as &quot;TSUN&quot;.
     /// </summary>
     [EnumMember(Value = "TSUN")]
     [IsoId("_jZ4pkMWSEeiCfKAZkk6ZAQ")]
@@ -93,8 +93,8 @@ public enum NetworkManagementTypeCode
     TargetSystemUnavailable,
     
     /// <summary>
-    /// System condition/message originator's system in backup.
-    /// Encoded/decoded by serializers as "MOSB".
+    /// System condition/message originator&apos;s system in backup.
+    /// Encoded/decoded by serializers as &quot;MOSB&quot;.
     /// </summary>
     [EnumMember(Value = "MOSB")]
     [IsoId("_7XAxEMWSEeiCfKAZkk6ZAQ")]
@@ -103,7 +103,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// System condition/special instruction
-    /// Encoded/decoded by serializers as "SPIN".
+    /// Encoded/decoded by serializers as &quot;SPIN&quot;.
     /// </summary>
     [EnumMember(Value = "SPIN")]
     [IsoId("_B_vYkMWTEeiCfKAZkk6ZAQ")]
@@ -112,7 +112,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// System condition/initiate alternate routing
-    /// Encoded/decoded by serializers as "IART".
+    /// Encoded/decoded by serializers as &quot;IART&quot;.
     /// </summary>
     [EnumMember(Value = "IART")]
     [IsoId("_GYQQ8MWTEeiCfKAZkk6ZAQ")]
@@ -121,7 +121,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Clock synchronization
-    /// Encoded/decoded by serializers as "SYCL".
+    /// Encoded/decoded by serializers as &quot;SYCL&quot;.
     /// </summary>
     [EnumMember(Value = "SYCL")]
     [IsoId("_t9eusMWTEeiCfKAZkk6ZAQ")]
@@ -130,7 +130,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Enable the receipt of recurring billing.
-    /// Encoded/decoded by serializers as "ERBI".
+    /// Encoded/decoded by serializers as &quot;ERBI&quot;.
     /// </summary>
     [EnumMember(Value = "ERBI")]
     [IsoId("_N_pjcOkHEemeDPHh-U9b6w")]
@@ -139,7 +139,7 @@ public enum NetworkManagementTypeCode
     
     /// <summary>
     /// Disable the receipt of recurring billing.
-    /// Encoded/decoded by serializers as "DRBI".
+    /// Encoded/decoded by serializers as &quot;DRBI&quot;.
     /// </summary>
     [EnumMember(Value = "DRBI")]
     [IsoId("_ZWuJYOkHEemeDPHh-U9b6w")]

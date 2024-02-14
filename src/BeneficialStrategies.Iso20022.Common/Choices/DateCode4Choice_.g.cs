@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateCode4Choice.Code))]
     [KnownType(typeof(DateCode4Choice.Proprietary))]
     [IsoId("_Q2uKpdp-Ed-ak6NoX_4Aeg_398585783")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Code 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

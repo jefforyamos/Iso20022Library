@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The DerivativesTradeReportQuery message is sent by the supervisory authority system to the trade repositories, to query data based on the search criteria for the trade transaction as defined by the system user.")]
 [IsoId("_pVWWkWmFEe2DRvVJM2Qy-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivatives Trade Report Query V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record DerivativesTradeReportQueryV03 : IOuterRecord<DerivativesT
     /// Indicates the authority that requests the query report.
     /// </summary>
     [IsoId("_pVWWk2mFEe2DRvVJM2Qy-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requesting Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RqstngAuthrty")]
     #endif
+    [IsoXmlTag("RqstngAuthrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification121Choice_ RequestingAuthority { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification121Choice_ RequestingAuthority { get; init; } 
+    public required PartyIdentification121Choice_ RequestingAuthority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification121Choice_ RequestingAuthority { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record DerivativesTradeReportQueryV03 : IOuterRecord<DerivativesT
     /// Criteria for defining recurrent and ad-hoc queries.
     /// </summary>
     [IsoId("_pVWWlWmFEe2DRvVJM2Qy-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Query Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradQryData")]
     #endif
+    [IsoXmlTag("TradQryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeReportQuery16Choice_ TradeQueryData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeReportQuery16Choice_ TradeQueryData { get; init; } 
+    public required TradeReportQuery16Choice_ TradeQueryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeReportQuery16Choice_ TradeQueryData { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record DerivativesTradeReportQueryV03 : IOuterRecord<DerivativesT
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_pVWWl2mFEe2DRvVJM2Qy-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record DerivativesTradeReportQueryV03 : IOuterRecord<DerivativesT
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DerivativesTradeReportQueryV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DerivativesTradeReportQueryV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DerivativesTradeReportQueryV03Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record DerivativesTradeReportQueryV03 : IOuterRecord<DerivativesT
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DerivativesTradeReportQueryV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DerivativesTradeReportQueryV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DerivativesTradeReportQueryV03Document : IOuterDocument<DerivativesTradeReportQueryV03>
@@ -161,7 +156,7 @@ public partial record DerivativesTradeReportQueryV03Document : IOuterDocument<De
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DerivativesTradeReportQueryV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DerivativesTradeReportQueryV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativesTradeReportQueryV03 Message { get; init; }

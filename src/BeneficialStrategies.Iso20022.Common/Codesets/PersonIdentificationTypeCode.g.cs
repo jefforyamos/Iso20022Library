@@ -21,7 +21,7 @@ public enum PersonIdentificationTypeCode
 {
     /// <summary>
     /// Number assigned by a passport authority to a passport.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_aG5Vhdp-Ed-ak6NoX_4Aeg_1218140653")]
@@ -30,7 +30,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Account issued by the Central Provident Fund Board (Singapore).
-    /// Encoded/decoded by serializers as "CPFA".
+    /// Encoded/decoded by serializers as &quot;CPFA&quot;.
     /// </summary>
     [EnumMember(Value = "CPFA")]
     [IsoId("_aG5Vhtp-Ed-ak6NoX_4Aeg_1230147055")]
@@ -39,7 +39,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Supplementary retirement scheme account number.
-    /// Encoded/decoded by serializers as "SRSA".
+    /// Encoded/decoded by serializers as &quot;SRSA&quot;.
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_aG5Vh9p-Ed-ak6NoX_4Aeg_1248616162")]
@@ -48,7 +48,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// National registration identification number. In Singapore this is known as the NRIC.
-    /// Encoded/decoded by serializers as "NRIN".
+    /// Encoded/decoded by serializers as &quot;NRIN&quot;.
     /// </summary>
     [EnumMember(Value = "NRIN")]
     [IsoId("_aG5ViNp-Ed-ak6NoX_4Aeg_1273549056")]
@@ -57,7 +57,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Another type of identification type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aHCfcNp-Ed-ak6NoX_4Aeg_1286479435")]
@@ -65,8 +65,8 @@ public enum PersonIdentificationTypeCode
     Other,
     
     /// <summary>
-    /// Number assigned by a license authority to a driver's license.
-    /// Encoded/decoded by serializers as "DRLC".
+    /// Number assigned by a license authority to a driver&apos;s license.
+    /// Encoded/decoded by serializers as &quot;DRLC&quot;.
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_aHCfcdp-Ed-ak6NoX_4Aeg_89548299")]
@@ -75,7 +75,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Number assigned by a social security agency.
-    /// Encoded/decoded by serializers as "SOCS".
+    /// Encoded/decoded by serializers as &quot;SOCS&quot;.
     /// </summary>
     [EnumMember(Value = "SOCS")]
     [IsoId("_aHCfctp-Ed-ak6NoX_4Aeg_89548317")]
@@ -84,7 +84,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "AREG".
+    /// Encoded/decoded by serializers as &quot;AREG&quot;.
     /// </summary>
     [EnumMember(Value = "AREG")]
     [IsoId("_aHCfc9p-Ed-ak6NoX_4Aeg_89548334")]
@@ -93,7 +93,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Number assigned by a national authority to an identity card.
-    /// Encoded/decoded by serializers as "IDCD".
+    /// Encoded/decoded by serializers as &quot;IDCD&quot;.
     /// </summary>
     [EnumMember(Value = "IDCD")]
     [IsoId("_aHCfdNp-Ed-ak6NoX_4Aeg_95089905")]
@@ -102,7 +102,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Number assigned to an employer by a registration authority.
-    /// Encoded/decoded by serializers as "EMID".
+    /// Encoded/decoded by serializers as &quot;EMID&quot;.
     /// </summary>
     [EnumMember(Value = "EMID")]
     [IsoId("_aHCfddp-Ed-ak6NoX_4Aeg_95089922")]
@@ -111,7 +111,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Driver number, assigned by the fleet manager.
-    /// Encoded/decoded by serializers as "DRVR".
+    /// Encoded/decoded by serializers as &quot;DRVR&quot;.
     /// </summary>
     [EnumMember(Value = "DRVR")]
     [IsoId("_TZESYAEcEeCQm6a_G2yO_w_883476316")]
@@ -120,7 +120,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Employee number assigned by the company.
-    /// Encoded/decoded by serializers as "EEID".
+    /// Encoded/decoded by serializers as &quot;EEID&quot;.
     /// </summary>
     [EnumMember(Value = "EEID")]
     [IsoId("_TZESYQEcEeCQm6a_G2yO_w_1815250358")]
@@ -129,7 +129,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Gun license number as assigned by a gun licensing authority.
-    /// Encoded/decoded by serializers as "GUNL".
+    /// Encoded/decoded by serializers as &quot;GUNL&quot;.
     /// </summary>
     [EnumMember(Value = "GUNL")]
     [IsoId("_dhJyUFASEeKdE_ZuDLMHLA_1124149451")]
@@ -138,7 +138,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Post office card number as assigned by a national post office.
-    /// Encoded/decoded by serializers as "POCD".
+    /// Encoded/decoded by serializers as &quot;POCD&quot;.
     /// </summary>
     [EnumMember(Value = "POCD")]
     [IsoId("_dhTjUFASEeKdE_ZuDLMHLA_-2120692470")]
@@ -147,7 +147,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Temporary tax processing number (used in the domestic adoption of a child).
-    /// Encoded/decoded by serializers as "ATIN".
+    /// Encoded/decoded by serializers as &quot;ATIN&quot;.
     /// </summary>
     [EnumMember(Value = "ATIN")]
     [IsoId("_xpyHoGXEEeSrv8256XoCZg")]
@@ -156,7 +156,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Tax processing number.
-    /// Encoded/decoded by serializers as "ITIN".
+    /// Encoded/decoded by serializers as &quot;ITIN&quot;.
     /// </summary>
     [EnumMember(Value = "ITIN")]
     [IsoId("_x1FYsGXEEeSrv8256XoCZg")]
@@ -165,7 +165,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Generic tax identification number.
-    /// Encoded/decoded by serializers as "GTIN".
+    /// Encoded/decoded by serializers as &quot;GTIN&quot;.
     /// </summary>
     [EnumMember(Value = "GTIN")]
     [IsoId("_x6ljwGXEEeSrv8256XoCZg")]
@@ -174,7 +174,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Global intermediary tax identification number.
-    /// Encoded/decoded by serializers as "GIIN".
+    /// Encoded/decoded by serializers as &quot;GIIN&quot;.
     /// </summary>
     [EnumMember(Value = "GIIN")]
     [IsoId("_IyzkQCCnEeWJd9HF2tO7BA")]
@@ -183,7 +183,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Number that identifies the type of investor registered at a securities and exchange commission.
-    /// Encoded/decoded by serializers as "NINV".
+    /// Encoded/decoded by serializers as &quot;NINV&quot;.
     /// </summary>
     [EnumMember(Value = "NINV")]
     [IsoId("_a3p-ECDZEeWCLu74WLgP4w")]
@@ -192,7 +192,7 @@ public enum PersonIdentificationTypeCode
     
     /// <summary>
     /// Number, typically assigned by a government to describe ownership, administrative and authoritative relations.
-    /// Encoded/decoded by serializers as "INCL".
+    /// Encoded/decoded by serializers as &quot;INCL&quot;.
     /// </summary>
     [EnumMember(Value = "INCL")]
     [IsoId("_kfymsCMuEeWw25nezi_B1g")]

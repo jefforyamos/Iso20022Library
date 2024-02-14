@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of a non-received card.
 /// </summary>
 [IsoId("_c5HM8HdVEeeKH6vrEwvLHA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Not Received Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CardNotReceivedDetails1
     /// Date of card when mailed to the cardholder.
     /// </summary>
     [IsoId("_F9o6QHdWEeeKH6vrEwvLHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of Card Mailed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfCardMld")]
     #endif
+    [IsoXmlTag("DtOfCardMld")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate DateOfCardMailed { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly DateOfCardMailed { get; init; } 
+    public required System.DateOnly DateOfCardMailed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly DateOfCardMailed { get; init; } 
     #else
@@ -72,12 +70,11 @@ public partial record CardNotReceivedDetails1
     /// Address where card was mailed to.
     /// </summary>
     [IsoId("_OtxTIHdWEeeKH6vrEwvLHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mailing Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MlngAdr")]
     #endif
+    [IsoXmlTag("MlngAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address1? MailingAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,15 +87,13 @@ public partial record CardNotReceivedDetails1
     /// Unstructured mailing address where card was mailed to.
     /// </summary>
     [IsoId("_52qAQWdyEemXfKijhrqa-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mailing Address Unstructured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MlngAdrUstrd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MlngAdrUstrd")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? MailingAddressUnstructured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,19 +106,17 @@ public partial record CardNotReceivedDetails1
     /// Postal code where the card was mailed from.
     /// </summary>
     [IsoId("_Yh5foHdWEeeKH6vrEwvLHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mailed From Postal Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MldFrPstlCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MldFrPstlCd")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax16Text MailedFromPostalCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MailedFromPostalCode { get; init; } 
+    public required System.String MailedFromPostalCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MailedFromPostalCode { get; init; } 
     #else
@@ -134,12 +127,12 @@ public partial record CardNotReceivedDetails1
     /// Date of the beginning of validation of the card.
     /// </summary>
     [IsoId("_1cCTsHdWEeeKH6vrEwvLHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldFr")]
     #endif
+    [IsoXmlTag("VldFr")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValidFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +147,12 @@ public partial record CardNotReceivedDetails1
     /// False: Card does not provide a Card Security Code.
     /// </summary>
     [IsoId("_k0umYHdaEeeKH6vrEwvLHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Security Code Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardSctyCdInd")]
     #endif
+    [IsoXmlTag("CardSctyCdInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardSecurityCodeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,12 +165,11 @@ public partial record CardNotReceivedDetails1
     /// Identifies the security capabilities of the card.
     /// </summary>
     [IsoId("_9PS30HdaEeeKH6vrEwvLHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Security Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardSctyCpblty")]
     #endif
+    [IsoXmlTag("CardSctyCpblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardSecurityCapability1? CardSecurityCapability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

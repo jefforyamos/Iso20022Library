@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationProcessingStatus8Cho
     /// Modification request will not be executed.
     /// </summary>
     [IsoId("_6QCdP5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denied")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

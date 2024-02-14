@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Error or rejection transaction.
 /// </summary>
 [IsoId("_g8sk0YgoEeu8-LhY4KPfWg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Transaction155
     /// Transaction Identification of the Error message.
     /// </summary>
     [IsoId("_hCNW8YgoEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentification12 TransactionIdentification { get; init; } 
+    public required TransactionIdentification12 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentification12 TransactionIdentification { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record Transaction155
     ///  ISO 8583:2003, bit 18
     /// </summary>
     [IsoId("_hCNW84goEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error Detail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ErrDtl")]
     #endif
+    [IsoXmlTag("ErrDtl")]
     public ErrorDetails2? ErrorDetail { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _hCNW84goEeu8-LhY4KPfWg
     
@@ -85,12 +81,12 @@ public partial record Transaction155
     /// Original request that caused the party to reject it.
     /// </summary>
     [IsoId("_hCN-AYgoEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsg")]
     #endif
+    [IsoXmlTag("OrgnlMsg")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? OriginalMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +99,11 @@ public partial record Transaction155
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
     [IsoId("_hCN-A4goEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlFee")]
     #endif
+    [IsoXmlTag("AddtlFee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee2? AdditionalFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +116,11 @@ public partial record Transaction155
     /// Contains additional data.
     /// </summary>
     [IsoId("_hCN-BYgoEeu8-LhY4KPfWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

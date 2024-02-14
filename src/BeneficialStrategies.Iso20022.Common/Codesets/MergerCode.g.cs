@@ -20,7 +20,7 @@ public enum MergerCode
 {
     /// <summary>
     /// The merger regulatory condition is unknown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_98CTsFOzEeGs_NnqHXQZkw")]
@@ -29,7 +29,7 @@ public enum MergerCode
     
     /// <summary>
     /// The merger regulatory condition is: no general shareholders meeting at discontinued company or subsidiary to be acquired.
-    /// Encoded/decoded by serializers as "OMIT".
+    /// Encoded/decoded by serializers as &quot;OMIT&quot;.
     /// </summary>
     [EnumMember(Value = "OMIT")]
     [IsoId("__x6QMFOzEeGs_NnqHXQZkw")]

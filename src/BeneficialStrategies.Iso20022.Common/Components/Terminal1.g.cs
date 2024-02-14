@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment terminal or ATM performing the transaction
 /// </summary>
 [IsoId("_O6I3sECOEeeXpbqDpLawug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Terminal")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Terminal1
     /// Identification of the terminal performing the transaction.
     /// </summary>
     [IsoId("_nLdGgECOEeeXpbqDpLawug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlId")]
     #endif
+    [IsoXmlTag("TermnlId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalIdentification1 TerminalIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalIdentification1 TerminalIdentification { get; init; } 
+    public required TerminalIdentification1 TerminalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalIdentification1 TerminalIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Terminal1
     /// Type of terminal.
     /// </summary>
     [IsoId("_6H0FARqYEeqH1IQNpbVpEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminalType1Code? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,13 @@ public partial record Terminal1
     /// Other type of terminal.
     /// </summary>
     [IsoId("_7oE94RqYEeqH1IQNpbVpEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record Terminal1
     /// Capabilities of the terminal
     /// </summary>
     [IsoId("_CCx9YEqXEeenp6hmNprBHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cpblties")]
     #endif
+    [IsoXmlTag("Cpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Capabilities1? Capabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record Terminal1
     /// Type of terminal integration at a point of service location.
     /// </summary>
     [IsoId("_Ugjk0RV9EeiTbY4xN42WAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Integration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlIntgtn")]
     #endif
+    [IsoXmlTag("TermnlIntgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminalIntegrationCategory1Code? TerminalIntegration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +140,12 @@ public partial record Terminal1
     /// False: The terminal is operated indoor
     /// </summary>
     [IsoId("_WkEUsRV9EeiTbY4xN42WAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outdoor Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutdrInd")]
     #endif
+    [IsoXmlTag("OutdrInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OutdoorIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +161,12 @@ public partial record Terminal1
     /// ISO 8583:93 bit 22-4, ISO 8583:2003 bit 22-3.
     /// </summary>
     [IsoId("_YegoIRV9EeiTbY4xN42WAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Off Premises Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffPrmissInd")]
     #endif
+    [IsoXmlTag("OffPrmissInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OffPremisesIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,12 +181,12 @@ public partial record Terminal1
     /// False: The terminal is not located on board.
     /// </summary>
     [IsoId("_qGJ6YdIhEeirx-13kKhDlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Board Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnBrdInd")]
     #endif
+    [IsoXmlTag("OnBrdInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OnBoardIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,12 +199,11 @@ public partial record Terminal1
     /// Data related to the components of the POI (Point Of Interaction) performing the transactions.
     /// </summary>
     [IsoId("_LXOZ0NIfEeirx-13kKhDlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Component")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POICmpnt")]
     #endif
+    [IsoXmlTag("POICmpnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponent8? POIComponent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

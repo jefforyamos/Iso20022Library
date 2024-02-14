@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Document that a user must file with an authorised servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
 [IsoId("_PYcRcbGJEeuSTr8k0UEM8A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Registered Contract")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record RegisteredContract14
     /// Unique and unambiguous identification of the registered contract amendment request.
     /// </summary>
     [IsoId("_PZZTsbGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registered Contract Amendment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegdCtrctAmdmntId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RegdCtrctAmdmntId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RegisteredContractAmendmentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RegisteredContractAmendmentIdentification { get; init; } 
+    public required System.String RegisteredContractAmendmentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RegisteredContractAmendmentIdentification { get; init; } 
     #else
@@ -77,19 +73,17 @@ public partial record RegisteredContract14
     /// Identification of the original contract registration, as registered with the registration agent.
     /// </summary>
     [IsoId("_PZZTubGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Registered Contract Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRegdCtrctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlRegdCtrctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalRegisteredContractIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalRegisteredContractIdentification { get; init; } 
+    public required System.String OriginalRegisteredContractIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalRegisteredContractIdentification { get; init; } 
     #else
@@ -100,16 +94,15 @@ public partial record RegisteredContract14
     /// Priority requested for the amendment of the registered contract.
     /// </summary>
     [IsoId("_PZZTwbGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prty")]
     #endif
+    [IsoXmlTag("Prty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Priority2Code Priority { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Priority2Code Priority { get; init; } 
+    public required Priority2Code Priority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Priority2Code Priority { get; init; } 
     #else
@@ -120,16 +113,15 @@ public partial record RegisteredContract14
     /// Amendment details of the registered contract for the registered contract.
     /// </summary>
     [IsoId("_PZZTw7GJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctrct")]
     #endif
+    [IsoXmlTag("Ctrct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnderlyingContract3Choice_ Contract { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnderlyingContract3Choice_ Contract { get; init; } 
+    public required UnderlyingContract3Choice_ Contract { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnderlyingContract3Choice_ Contract { get; init; } 
     #else
@@ -140,12 +132,11 @@ public partial record RegisteredContract14
     /// Contract balance on date of contract registration.
     /// </summary>
     [IsoId("_PZZTxbGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctBal")]
     #endif
+    [IsoXmlTag("CtrctBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractBalance1? ContractBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +149,11 @@ public partial record RegisteredContract14
     /// Type of the payment schedule provided in the contract.
     /// </summary>
     [IsoId("_PZZTx7GJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Schedule Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtSchdlTp")]
     #endif
+    [IsoXmlTag("PmtSchdlTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentScheduleType2Choice_? PaymentScheduleType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,15 +166,13 @@ public partial record RegisteredContract14
     /// Further additional information on the amendment.
     /// </summary>
     [IsoId("_PZZTybGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max1025Text)]
     [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +185,11 @@ public partial record RegisteredContract14
     /// Documents provided as attachments to the contract registration amendment request.
     /// </summary>
     [IsoId("_PZZTy7GJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attachment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Attchmnt")]
     #endif
+    [IsoXmlTag("Attchmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation5? Attachment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +202,11 @@ public partial record RegisteredContract14
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_PZZTzbGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

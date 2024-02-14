@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General Information, indicating the function of the message.
 /// </summary>
 [IsoId("_Su5UBAEcEeCQm6a_G2yO_w_-1968950823")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("General Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record GeneralInformation3
     /// Unique and unambiguous identifier for the message, as assigned by the sender.
     /// </summary>
     [IsoId("_Su5UBQEcEeCQm6a_G2yO_w_-1613875024")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageIdentification { get; init; } 
+    public required System.String MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageIdentification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record GeneralInformation3
     /// Indicates whether the message is sent as a request or as a response.
     /// </summary>
     [IsoId("_Su5UBgEcEeCQm6a_G2yO_w_-49509778")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgFctn")]
     #endif
+    [IsoXmlTag("MsgFctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageFunction2Code MessageFunction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageFunction2Code MessageFunction { get; init; } 
+    public required MessageFunction2Code MessageFunction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageFunction2Code MessageFunction { get; init; } 
     #else
@@ -95,15 +90,13 @@ public partial record GeneralInformation3
     /// Reference to the request message for which the notification is sent.
     /// </summary>
     [IsoId("_Su5UBwEcEeCQm6a_G2yO_w_28051799")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ReqRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RequestReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

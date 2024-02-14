@@ -21,7 +21,7 @@ public enum EventFrequency2Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_ajgZA9p-Ed-ak6NoX_4Aeg_-443553352")]
@@ -30,7 +30,7 @@ public enum EventFrequency2Code
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SEMI".
+    /// Encoded/decoded by serializers as &quot;SEMI&quot;.
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_ajgZBNp-Ed-ak6NoX_4Aeg_-443553332")]
@@ -39,7 +39,7 @@ public enum EventFrequency2Code
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QUTR".
+    /// Encoded/decoded by serializers as &quot;QUTR&quot;.
     /// </summary>
     [EnumMember(Value = "QUTR")]
     [IsoId("_ajgZBdp-Ed-ak6NoX_4Aeg_-443553331")]
@@ -48,7 +48,7 @@ public enum EventFrequency2Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ajgZBtp-Ed-ak6NoX_4Aeg_-443553301")]
@@ -57,7 +57,7 @@ public enum EventFrequency2Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_ajgZB9p-Ed-ak6NoX_4Aeg_-443553270")]
@@ -66,7 +66,7 @@ public enum EventFrequency2Code
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_ajgZCNp-Ed-ak6NoX_4Aeg_-443553269")]
@@ -75,7 +75,7 @@ public enum EventFrequency2Code
     
     /// <summary>
     /// Event cannot take place, because, for example, the fund is closed.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_ajpi8Np-Ed-ak6NoX_4Aeg_-339540172")]

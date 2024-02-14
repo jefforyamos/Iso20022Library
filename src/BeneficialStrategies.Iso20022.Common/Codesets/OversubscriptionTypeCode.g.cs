@@ -21,7 +21,7 @@ public enum OversubscriptionTypeCode
 {
     /// <summary>
     /// Unlimited oversubscription.
-    /// Encoded/decoded by serializers as "UNLD".
+    /// Encoded/decoded by serializers as &quot;UNLD&quot;.
     /// </summary>
     [EnumMember(Value = "UNLD")]
     [IsoId("_1puekDL3EeKU9IrkkToqcw_2035989338")]
@@ -30,7 +30,7 @@ public enum OversubscriptionTypeCode
     
     /// <summary>
     /// The subscription is limited by quantity or percentage.
-    /// Encoded/decoded by serializers as "LTDB".
+    /// Encoded/decoded by serializers as &quot;LTDB&quot;.
     /// </summary>
     [EnumMember(Value = "LTDB")]
     [IsoId("_1puekTL3EeKU9IrkkToqcw_684397253")]
@@ -39,7 +39,7 @@ public enum OversubscriptionTypeCode
     
     /// <summary>
     /// No oversubscription is allowed.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_1puekjL3EeKU9IrkkToqcw_613549737")]

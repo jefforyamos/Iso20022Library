@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information needed due to regulatory and/or statutory requirements.
 /// </summary>
 [IsoId("_SnYP89p-Ed-ak6NoX_4Aeg_-2022088805")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Regulatory Reporting")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record RegulatoryReporting2
     /// Identifies whether the regulatory reporting information applies to the debit side, to the credit side or to both debit and credit sides of the transaction.
     /// </summary>
     [IsoId("_SnYP9Np-Ed-ak6NoX_4Aeg_-1566793972")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debit Credit Reporting Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtCdtRptgInd")]
     #endif
+    [IsoXmlTag("DbtCdtRptgInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegulatoryReportingType1Code? DebitCreditReportingIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record RegulatoryReporting2
     /// Entity requiring the regulatory reporting information.
     /// </summary>
     [IsoId("_SnYP9dp-Ed-ak6NoX_4Aeg_-688527268")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Authrty")]
     #endif
+    [IsoXmlTag("Authrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegulatoryAuthority? Authority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record RegulatoryReporting2
     /// Details related to the regulatory reporting information.
     /// </summary>
     [IsoId("_SnYP9tp-Ed-ak6NoX_4Aeg_2118187672")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Regulatory Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgltryDtls")]
     #endif
+    [IsoXmlTag("RgltryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StructuredRegulatoryReporting2? RegulatoryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

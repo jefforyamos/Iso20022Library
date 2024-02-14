@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the conditions for the NDF opening.
 /// </summary>
 [IsoId("_epxpwJR-Eeak6e8_Fc5fQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Opening Conditions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record OpeningConditions1
     /// Specifies the settlement currency of the non deliverable trade.
     /// </summary>
     [IsoId("_teDWYJR-Eeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string SettlementCurrency { get; init; } 
+    public required string SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string SettlementCurrency { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record OpeningConditions1
     /// Specifies the valuation date for a non deliverable trade.
     /// </summary>
     [IsoId("_XAtxMJR_Eeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDt")]
     #endif
+    [IsoXmlTag("ValtnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValuationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValuationDate { get; init; } 
+    public required System.DateOnly ValuationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValuationDate { get; init; } 
     #else
@@ -92,16 +89,13 @@ public partial record OpeningConditions1
     /// Specifies the rate source associated with the non deliverable trade.
     /// </summary>
     [IsoId("_q4iDMJUOEeak6e8_Fc5fQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Rate Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmRateSrc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SttlmRateSrc")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<SettlementRateSource1> SettlementRateSource { get; init; } = new ValueList<SettlementRateSource1>(){};
     
     

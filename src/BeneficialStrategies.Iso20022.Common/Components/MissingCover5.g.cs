@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional cover details for the claim non receipt.
 /// </summary>
 [IsoId("_dOHw4dcZEeqRFcf2R4bPBw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Missing Cover")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record MissingCover5
     /// Indicates whether or not the claim is related to a missing cover.
     /// </summary>
     [IsoId("_dQdTMdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Missing Cover Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MssngCoverInd")]
     #endif
+    [IsoXmlTag("MssngCoverInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MissingCoverIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MissingCoverIndicator { get; init; } 
+    public required System.String MissingCoverIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MissingCoverIndicator { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record MissingCover5
     /// Set of elements provided to update incorrect settlement information for the cover related to the received payment instruction.
     /// </summary>
     [IsoId("_dQdTM9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cover Correction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CoverCrrctn")]
     #endif
+    [IsoXmlTag("CoverCrrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementInstruction13? CoverCorrection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

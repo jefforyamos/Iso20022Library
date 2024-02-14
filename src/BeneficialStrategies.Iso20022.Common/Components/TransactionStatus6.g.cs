@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the future status of the transaction by means of a code
 /// </summary>
 [IsoId("_w_JcYMX1EeiSF9q-coWegA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TransactionStatus6
     /// Provides the status after comparing the exposure and the collateral required for the transaction.
     /// </summary>
     [IsoId("_JCKzsMX6EeiSF9q-coWegA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Coverage Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CvrgSts")]
     #endif
+    [IsoXmlTag("CvrgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralStatus1Code? CoverageStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TransactionStatus6
     /// Indicates whether the transaction is pending initiation or has been initiated.
     /// </summary>
     [IsoId("_P4TlEMX6EeiSF9q-coWegA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnSts")]
     #endif
+    [IsoXmlTag("ExctnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralStatus2Choice_? ExecutionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

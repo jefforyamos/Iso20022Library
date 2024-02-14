@@ -21,7 +21,7 @@ public enum OptionEventType1Code
 {
     /// <summary>
     /// Notice of a close out of the position.
-    /// Encoded/decoded by serializers as "CLST".
+    /// Encoded/decoded by serializers as &quot;CLST&quot;.
     /// </summary>
     [EnumMember(Value = "CLST")]
     [IsoId("_FFj5wcR1EeOg-a7zWL_U0A")]
@@ -30,7 +30,7 @@ public enum OptionEventType1Code
     
     /// <summary>
     /// First confirmation.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_FNK9ocR1EeOg-a7zWL_U0A")]
@@ -39,7 +39,7 @@ public enum OptionEventType1Code
     
     /// <summary>
     /// Notice of a knock-in. The option has a specified spot level, which, if touched during the knock-in period, triggers the option into existence. Prior to that level being touched, no option exists.
-    /// Encoded/decoded by serializers as "KNIN".
+    /// Encoded/decoded by serializers as &quot;KNIN&quot;.
     /// </summary>
     [EnumMember(Value = "KNIN")]
     [IsoId("_FbHTAcR1EeOg-a7zWL_U0A")]
@@ -48,7 +48,7 @@ public enum OptionEventType1Code
     
     /// <summary>
     /// Notice of a knock-out. The option has a specified spot level, which, if touched during the knock-out period, terminates the option.
-    /// Encoded/decoded by serializers as "KNOC".
+    /// Encoded/decoded by serializers as &quot;KNOC&quot;.
     /// </summary>
     [EnumMember(Value = "KNOC")]
     [IsoId("_FiiwscR1EeOg-a7zWL_U0A")]
@@ -57,7 +57,7 @@ public enum OptionEventType1Code
     
     /// <summary>
     /// Another type of event.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_FqH_YcR1EeOg-a7zWL_U0A")]
@@ -66,7 +66,7 @@ public enum OptionEventType1Code
     
     /// <summary>
     /// Notice of a trigger hit.
-    /// Encoded/decoded by serializers as "TRIG".
+    /// Encoded/decoded by serializers as &quot;TRIG&quot;.
     /// </summary>
     [EnumMember(Value = "TRIG")]
     [IsoId("_FxfLocR1EeOg-a7zWL_U0A")]

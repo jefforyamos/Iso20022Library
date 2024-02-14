@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AddressType3Choice
     /// Type of address expressed as a code.
     /// </summary>
     [IsoId("_C7IDQRb-EeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AddressType3Choice
         /// Specifies the type of address.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AddressType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AddressType2Code Value { get; init; } 
+        public required AddressType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AddressType2Code Value { get; init; } 
         #else

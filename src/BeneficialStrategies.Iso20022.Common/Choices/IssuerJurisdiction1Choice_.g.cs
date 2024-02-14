@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IssuerJurisdiction1Choice.CountryCode))]
     [KnownType(typeof(IssuerJurisdiction1Choice.Other))]
     [IsoId("_qFVoIIfXEeu9_PKSQNOmdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Jurisdiction 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

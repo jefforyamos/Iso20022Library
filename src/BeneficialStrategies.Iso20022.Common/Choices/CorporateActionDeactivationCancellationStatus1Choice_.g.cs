@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionDeactivationCancellationStatus1Choice.ProcessedStatus))]
     [KnownType(typeof(CorporateActionDeactivationCancellationStatus1Choice.RejectedStatus))]
     [IsoId("_RiYWwNp-Ed-ak6NoX_4Aeg_1248187111")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Deactivation Cancellation Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

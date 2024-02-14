@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData36Choice
     /// Information concerning the reporting at transaction level.
     /// </summary>
     [IsoId("_Mxpko8K8EeuMhqg3CsEu6Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

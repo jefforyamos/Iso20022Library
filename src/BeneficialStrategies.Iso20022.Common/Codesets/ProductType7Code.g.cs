@@ -21,7 +21,7 @@ public enum ProductType7Code
 {
     /// <summary>
     /// Asset type is sovereign.
-    /// Encoded/decoded by serializers as "SVGN".
+    /// Encoded/decoded by serializers as &quot;SVGN&quot;.
     /// </summary>
     [EnumMember(Value = "SVGN")]
     [IsoId("_1dWbwTXwEemdWfjs3tykFQ")]
@@ -30,7 +30,7 @@ public enum ProductType7Code
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_25u6MTXwEemdWfjs3tykFQ")]
@@ -39,7 +39,7 @@ public enum ProductType7Code
     
     /// <summary>
     /// Other asset type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_3aUewTXwEemdWfjs3tykFQ")]

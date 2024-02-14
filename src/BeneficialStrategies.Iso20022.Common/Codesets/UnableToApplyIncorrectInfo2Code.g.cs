@@ -21,7 +21,7 @@ public enum UnableToApplyIncorrectInfo2Code
 {
     /// <summary>
     /// RelatedReference is incorrect.
-    /// Encoded/decoded by serializers as "IN01".
+    /// Encoded/decoded by serializers as &quot;IN01&quot;.
     /// </summary>
     [EnumMember(Value = "IN01")]
     [IsoId("_YzcwqNp-Ed-ak6NoX_4Aeg_-718887494")]
@@ -30,7 +30,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// BankOperationCode is incorrect.
-    /// Encoded/decoded by serializers as "IN02".
+    /// Encoded/decoded by serializers as &quot;IN02&quot;.
     /// </summary>
     [EnumMember(Value = "IN02")]
     [IsoId("_Yzl6kNp-Ed-ak6NoX_4Aeg_-718887477")]
@@ -39,7 +39,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// InstructionCode is incorrect.
-    /// Encoded/decoded by serializers as "IN03".
+    /// Encoded/decoded by serializers as &quot;IN03&quot;.
     /// </summary>
     [EnumMember(Value = "IN03")]
     [IsoId("_Yzl6kdp-Ed-ak6NoX_4Aeg_-718887417")]
@@ -48,7 +48,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// RequestedExecutionDate is incorrect.
-    /// Encoded/decoded by serializers as "IN04".
+    /// Encoded/decoded by serializers as &quot;IN04&quot;.
     /// </summary>
     [EnumMember(Value = "IN04")]
     [IsoId("_Yzl6ktp-Ed-ak6NoX_4Aeg_-718887400")]
@@ -57,7 +57,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// ValueDate is incorrect.
-    /// Encoded/decoded by serializers as "IN05".
+    /// Encoded/decoded by serializers as &quot;IN05&quot;.
     /// </summary>
     [EnumMember(Value = "IN05")]
     [IsoId("_Yzl6k9p-Ed-ak6NoX_4Aeg_-718887347")]
@@ -66,7 +66,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// InterbankSettledAmount is incorrect.
-    /// Encoded/decoded by serializers as "IN06".
+    /// Encoded/decoded by serializers as &quot;IN06&quot;.
     /// </summary>
     [EnumMember(Value = "IN06")]
     [IsoId("_Yzl6lNp-Ed-ak6NoX_4Aeg_-718887057")]
@@ -75,7 +75,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// Debtor is incorrect.
-    /// Encoded/decoded by serializers as "IN07".
+    /// Encoded/decoded by serializers as &quot;IN07&quot;.
     /// </summary>
     [EnumMember(Value = "IN07")]
     [IsoId("_Yzl6ldp-Ed-ak6NoX_4Aeg_-718887056")]
@@ -84,7 +84,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// DebtorAccount is incorrect.
-    /// Encoded/decoded by serializers as "IN08".
+    /// Encoded/decoded by serializers as &quot;IN08&quot;.
     /// </summary>
     [EnumMember(Value = "IN08")]
     [IsoId("_Yzl6ltp-Ed-ak6NoX_4Aeg_-718887039")]
@@ -93,7 +93,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// ReceiverCorrespondent is incorrect.
-    /// Encoded/decoded by serializers as "IN09".
+    /// Encoded/decoded by serializers as &quot;IN09&quot;.
     /// </summary>
     [EnumMember(Value = "IN09")]
     [IsoId("_Yzl6l9p-Ed-ak6NoX_4Aeg_-718886979")]
@@ -102,7 +102,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// ThirdReimbursementInstitution is incorrect.
-    /// Encoded/decoded by serializers as "IN10".
+    /// Encoded/decoded by serializers as &quot;IN10&quot;.
     /// </summary>
     [EnumMember(Value = "IN10")]
     [IsoId("_Yzl6mNp-Ed-ak6NoX_4Aeg_-718886962")]
@@ -111,7 +111,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// PaymentScheme is incorrect.
-    /// Encoded/decoded by serializers as "IN11".
+    /// Encoded/decoded by serializers as &quot;IN11&quot;.
     /// </summary>
     [EnumMember(Value = "IN11")]
     [IsoId("_Yzl6mdp-Ed-ak6NoX_4Aeg_-718886919")]
@@ -120,7 +120,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// AccountOfBeneficiaryInstitution is incorrect.
-    /// Encoded/decoded by serializers as "IN12".
+    /// Encoded/decoded by serializers as &quot;IN12&quot;.
     /// </summary>
     [EnumMember(Value = "IN12")]
     [IsoId("_Yzl6mtp-Ed-ak6NoX_4Aeg_-718886884")]
@@ -129,7 +129,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// Creditor is incorrect.
-    /// Encoded/decoded by serializers as "IN13".
+    /// Encoded/decoded by serializers as &quot;IN13&quot;.
     /// </summary>
     [EnumMember(Value = "IN13")]
     [IsoId("_YzvrkNp-Ed-ak6NoX_4Aeg_-718886859")]
@@ -138,7 +138,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// CreditorAccount is incorrect.
-    /// Encoded/decoded by serializers as "IN14".
+    /// Encoded/decoded by serializers as &quot;IN14&quot;.
     /// </summary>
     [EnumMember(Value = "IN14")]
     [IsoId("_Yzvrkdp-Ed-ak6NoX_4Aeg_-718886842")]
@@ -147,7 +147,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// RemittanceInformation is incorrect.
-    /// Encoded/decoded by serializers as "IN15".
+    /// Encoded/decoded by serializers as &quot;IN15&quot;.
     /// </summary>
     [EnumMember(Value = "IN15")]
     [IsoId("_Yzvrktp-Ed-ak6NoX_4Aeg_-718886789")]
@@ -156,7 +156,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// PaymentPurpose is incorrect.
-    /// Encoded/decoded by serializers as "IN16".
+    /// Encoded/decoded by serializers as &quot;IN16&quot;.
     /// </summary>
     [EnumMember(Value = "IN16")]
     [IsoId("_Yzvrk9p-Ed-ak6NoX_4Aeg_-718886512")]
@@ -165,7 +165,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// DetailsOfCharges is incorrect.
-    /// Encoded/decoded by serializers as "IN17".
+    /// Encoded/decoded by serializers as &quot;IN17&quot;.
     /// </summary>
     [EnumMember(Value = "IN17")]
     [IsoId("_YzvrlNp-Ed-ak6NoX_4Aeg_-718886470")]
@@ -174,7 +174,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// SenderToReceiverInformation is incorrect.
-    /// Encoded/decoded by serializers as "IN18".
+    /// Encoded/decoded by serializers as &quot;IN18&quot;.
     /// </summary>
     [EnumMember(Value = "IN18")]
     [IsoId("_Yzvrldp-Ed-ak6NoX_4Aeg_-718886435")]
@@ -183,7 +183,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// InstructionForFinalAgent is incorrect.
-    /// Encoded/decoded by serializers as "IN19".
+    /// Encoded/decoded by serializers as &quot;IN19&quot;.
     /// </summary>
     [EnumMember(Value = "IN19")]
     [IsoId("_Yzvrltp-Ed-ak6NoX_4Aeg_-718886392")]
@@ -192,7 +192,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// Name and Account of Creditor mismatched.
-    /// Encoded/decoded by serializers as "MM20".
+    /// Encoded/decoded by serializers as &quot;MM20&quot;.
     /// </summary>
     [EnumMember(Value = "MM20")]
     [IsoId("_Yzvrl9p-Ed-ak6NoX_4Aeg_-718886109")]
@@ -201,7 +201,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// Name and Account of Debtor mismatched.
-    /// Encoded/decoded by serializers as "MM21".
+    /// Encoded/decoded by serializers as &quot;MM21&quot;.
     /// </summary>
     [EnumMember(Value = "MM21")]
     [IsoId("_YzvrmNp-Ed-ak6NoX_4Aeg_-718886084")]
@@ -210,7 +210,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// Name and Account of FinalAgent mismatched.
-    /// Encoded/decoded by serializers as "MM22".
+    /// Encoded/decoded by serializers as &quot;MM22&quot;.
     /// </summary>
     [EnumMember(Value = "MM22")]
     [IsoId("_Yzvrmdp-Ed-ak6NoX_4Aeg_-718886067")]
@@ -219,7 +219,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// Insufficient or incoherent details about the debtor with respect to regulatory requirements.
-    /// Encoded/decoded by serializers as "MM23".
+    /// Encoded/decoded by serializers as &quot;MM23&quot;.
     /// </summary>
     [EnumMember(Value = "MM23")]
     [IsoId("_Yz5ckNp-Ed-ak6NoX_4Aeg_-718886014")]
@@ -228,7 +228,7 @@ public enum UnableToApplyIncorrectInfo2Code
     
     /// <summary>
     /// Insufficient or incoherent details about the creditor with respect to regulatory requirements.
-    /// Encoded/decoded by serializers as "MM24".
+    /// Encoded/decoded by serializers as &quot;MM24&quot;.
     /// </summary>
     [EnumMember(Value = "MM24")]
     [IsoId("_Yz5ckdp-Ed-ak6NoX_4Aeg_-718885893")]

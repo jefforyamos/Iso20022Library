@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice
     /// Range of valid percentage rates.
     /// </summary>
     [IsoId("_7_LCoKMgEeCJ6YNENx4h-w_-1139827354")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From To")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice
         /// Lower boundary of a range of percentage rates.
         /// </summary>
         [IsoId("_7_BRpqMgEeCJ6YNENx4h-w_-455806218")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("From")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Fr")]
         #endif
+        [IsoXmlTag("Fr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PercentageRangeBoundary1 From { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PercentageRangeBoundary1 From { get; init; } 
+        public required PercentageRangeBoundary1 From { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PercentageRangeBoundary1 From { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice
         /// Upper boundary of a range of percentage rates.
         /// </summary>
         [IsoId("_7_BRp6MgEeCJ6YNENx4h-w_898182717")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("To")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="To")]
         #endif
+        [IsoXmlTag("To")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PercentageRangeBoundary1 To { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PercentageRangeBoundary1 To { get; init; } 
+        public required PercentageRangeBoundary1 To { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PercentageRangeBoundary1 To { get; init; } 
         #else

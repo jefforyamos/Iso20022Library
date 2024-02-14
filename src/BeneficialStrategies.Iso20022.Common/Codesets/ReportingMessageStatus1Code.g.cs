@@ -21,7 +21,7 @@ public enum ReportingMessageStatus1Code
 {
     /// <summary>
     /// Whole message has been accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_-d9yUdHCEeaokquJJ-K6uA")]
@@ -30,7 +30,7 @@ public enum ReportingMessageStatus1Code
     
     /// <summary>
     /// Message has passed syntactical validation but further validations have not been completed yet.
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_-0GaYtHCEeaokquJJ-K6uA")]
@@ -39,7 +39,7 @@ public enum ReportingMessageStatus1Code
     
     /// <summary>
     /// Message has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_-1bQEdHCEeaokquJJ-K6uA")]
@@ -48,7 +48,7 @@ public enum ReportingMessageStatus1Code
     
     /// <summary>
     /// Message has been received but not processed yet.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_-2rNQdHCEeaokquJJ-K6uA")]
@@ -57,7 +57,7 @@ public enum ReportingMessageStatus1Code
     
     /// <summary>
     /// Message has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_-8aB0dHCEeaokquJJ-K6uA")]
@@ -66,7 +66,7 @@ public enum ReportingMessageStatus1Code
     
     /// <summary>
     /// Reminder of a non received message.
-    /// Encoded/decoded by serializers as "RMDR".
+    /// Encoded/decoded by serializers as &quot;RMDR&quot;.
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("__UTkctHCEeaokquJJ-K6uA")]
@@ -75,7 +75,7 @@ public enum ReportingMessageStatus1Code
     
     /// <summary>
     /// Message has been accepted with warnings.
-    /// Encoded/decoded by serializers as "WARN".
+    /// Encoded/decoded by serializers as &quot;WARN&quot;.
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("__rYnstHCEeaokquJJ-K6uA")]
@@ -84,7 +84,7 @@ public enum ReportingMessageStatus1Code
     
     /// <summary>
     /// File containing the report has an incorrect filename.
-    /// Encoded/decoded by serializers as "INCF".
+    /// Encoded/decoded by serializers as &quot;INCF&quot;.
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_UanZQevBEealxoQGKU9EVQ")]
@@ -93,7 +93,7 @@ public enum ReportingMessageStatus1Code
     
     /// <summary>
     /// File containing the report is corrupted.
-    /// Encoded/decoded by serializers as "CRPT".
+    /// Encoded/decoded by serializers as &quot;CRPT&quot;.
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_UeMRsevBEealxoQGKU9EVQ")]

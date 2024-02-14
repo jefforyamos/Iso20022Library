@@ -21,7 +21,7 @@ public enum TradeMarket2Code
 {
     /// <summary>
     /// Transaction has an origin and a destination in the same country and is made in the currency of that country.
-    /// Encoded/decoded by serializers as "DMST".
+    /// Encoded/decoded by serializers as &quot;DMST&quot;.
     /// </summary>
     [EnumMember(Value = "DMST")]
     [IsoId("_pKLSwZhyEeumhIk_Pv20Lg")]
@@ -30,7 +30,7 @@ public enum TradeMarket2Code
     
     /// <summary>
     /// Transaction has an origin in one country and a destination in another and is made in the currency of either the origin or destination country.
-    /// Encoded/decoded by serializers as "FRGN".
+    /// Encoded/decoded by serializers as &quot;FRGN&quot;.
     /// </summary>
     [EnumMember(Value = "FRGN")]
     [IsoId("_pRn-kZhyEeumhIk_Pv20Lg")]

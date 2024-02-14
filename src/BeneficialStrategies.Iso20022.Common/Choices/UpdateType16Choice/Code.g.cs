@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType16Choice
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
     [IsoId("_cfq12ZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType16Choice
         /// Specifies the nature of a statement update, for example, it is a complete statement.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StatementUpdateType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StatementUpdateType1Code Value { get; init; } 
+        public required StatementUpdateType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StatementUpdateType1Code Value { get; init; } 
         #else

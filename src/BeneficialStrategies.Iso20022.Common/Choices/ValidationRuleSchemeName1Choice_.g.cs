@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ValidationRuleSchemeName1Choice.Code))]
     [KnownType(typeof(ValidationRuleSchemeName1Choice.Proprietary))]
     [IsoId("_kAjWY9jGEeSD0e0ybx5L5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Rule Scheme Name 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

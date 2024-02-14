@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ServiceLevel8Choice.Code))]
     [KnownType(typeof(ServiceLevel8Choice.Proprietary))]
     [IsoId("_QJa_zNp-Ed-ak6NoX_4Aeg_1912716963")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Level 8 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

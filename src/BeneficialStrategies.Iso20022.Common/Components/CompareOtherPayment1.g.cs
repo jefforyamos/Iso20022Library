@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies two values to compare related to payment data attributes not reported in dedicated fields.
 /// </summary>
 [IsoId("_5w6zAYpbEeyVdPSarESe_A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Compare Other Payment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CompareOtherPayment1
     /// Specifies whether the information on the other payment types are matching or not.
     /// </summary>
     [IsoId("_LD9oIIpcEeyVdPSarESe_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Payment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPmtTp")]
     #endif
+    [IsoXmlTag("OthrPmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOtherPaymentType1? OtherPaymentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CompareOtherPayment1
     /// Specifies whether the information on the other payment amounts are matching or not.
     /// </summary>
     [IsoId("_O1IMoIpcEeyVdPSarESe_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Payment Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPmtAmt")]
     #endif
+    [IsoXmlTag("OthrPmtAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection3? OtherPaymentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CompareOtherPayment1
     /// Specifies whether the information on the other payment dates are matching or not.
     /// </summary>
     [IsoId("_SP2AAIpcEeyVdPSarESe_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPmtDt")]
     #endif
+    [IsoXmlTag("OthrPmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? OtherPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CompareOtherPayment1
     /// Specifies whether the information on the other payment payers are matching or not.
     /// </summary>
     [IsoId("_WcZgAIpcEeyVdPSarESe_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Payment Payer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPmtPyer")]
     #endif
+    [IsoXmlTag("OthrPmtPyer")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification7? OtherPaymentPayer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CompareOtherPayment1
     /// Specifies whether the information on the other payment receivers are matching or not.
     /// </summary>
     [IsoId("_Z0F0kIpcEeyVdPSarESe_A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Payment Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPmtRcvr")]
     #endif
+    [IsoXmlTag("OthrPmtRcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOrganisationIdentification7? OtherPaymentReceiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

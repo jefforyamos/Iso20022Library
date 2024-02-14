@@ -21,7 +21,7 @@ public enum ATMDevice2Code
 {
     /// <summary>
     /// Alarm sensors, such as tamper, seismic or heat sensors.
-    /// Encoded/decoded by serializers as "ALRM".
+    /// Encoded/decoded by serializers as &quot;ALRM&quot;.
     /// </summary>
     [EnumMember(Value = "ALRM")]
     [IsoId("_6MaQYYqtEeSIDtZ76p6McQ")]
@@ -30,7 +30,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Device scanning barcodes using any scanning technology.
-    /// Encoded/decoded by serializers as "BRCD".
+    /// Encoded/decoded by serializers as &quot;BRCD&quot;.
     /// </summary>
     [EnumMember(Value = "BRCD")]
     [IsoId("_6VDPA4qtEeSIDtZ76p6McQ")]
@@ -39,7 +39,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Camera, recorder, video mixer.
-    /// Encoded/decoded by serializers as "CAMR".
+    /// Encoded/decoded by serializers as &quot;CAMR&quot;.
     /// </summary>
     [EnumMember(Value = "CAMR")]
     [IsoId("_6WicwYqtEeSIDtZ76p6McQ")]
@@ -48,7 +48,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Device dispensing card to a consumer.
-    /// Encoded/decoded by serializers as "CRDD".
+    /// Encoded/decoded by serializers as &quot;CRDD&quot;.
     /// </summary>
     [EnumMember(Value = "CRDD")]
     [IsoId("_6jM_w4qtEeSIDtZ76p6McQ")]
@@ -57,7 +57,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Device to read and optionally write card with various entry modes.
-    /// Encoded/decoded by serializers as "CRDR".
+    /// Encoded/decoded by serializers as &quot;CRDR&quot;.
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_6oH8AYqtEeSIDtZ76p6McQ")]
@@ -66,7 +66,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Device dispensing cash in an automated environment, or with an operator present.
-    /// Encoded/decoded by serializers as "CSHD".
+    /// Encoded/decoded by serializers as &quot;CSHD&quot;.
     /// </summary>
     [EnumMember(Value = "CSHD")]
     [IsoId("_6w6ro4qtEeSIDtZ76p6McQ")]
@@ -75,7 +75,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Device accepting in-out of items as coupons, documents, bills and coins.
-    /// Encoded/decoded by serializers as "CSHI".
+    /// Encoded/decoded by serializers as &quot;CSHI&quot;.
     /// </summary>
     [EnumMember(Value = "CSHI")]
     [IsoId("_62Ii04qtEeSIDtZ76p6McQ")]
@@ -84,7 +84,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Compound device with cash in module, cash dispenser, and cash exchange.
-    /// Encoded/decoded by serializers as "CSHR".
+    /// Encoded/decoded by serializers as &quot;CSHR&quot;.
     /// </summary>
     [EnumMember(Value = "CSHR")]
     [IsoId("_6-LEgYqtEeSIDtZ76p6McQ")]
@@ -93,7 +93,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Check reader and check image scanner.
-    /// Encoded/decoded by serializers as "CHCK".
+    /// Encoded/decoded by serializers as &quot;CHCK&quot;.
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_7G90I4qtEeSIDtZ76p6McQ")]
@@ -102,7 +102,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Customer display and keyboard.
-    /// Encoded/decoded by serializers as "CDIS".
+    /// Encoded/decoded by serializers as &quot;CDIS&quot;.
     /// </summary>
     [EnumMember(Value = "CDIS")]
     [IsoId("_7Ido8YqtEeSIDtZ76p6McQ")]
@@ -111,7 +111,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Device for the deposit of media in envelopes or deposit of bags containing bulk media.
-    /// Encoded/decoded by serializers as "DPST".
+    /// Encoded/decoded by serializers as &quot;DPST&quot;.
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_7hMSAYqtEeSIDtZ76p6McQ")]
@@ -120,7 +120,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Printer for full-size forms documents and supporting the printing of text and graphic.
-    /// Encoded/decoded by serializers as "DPRN".
+    /// Encoded/decoded by serializers as &quot;DPRN&quot;.
     /// </summary>
     [EnumMember(Value = "DPRN")]
     [IsoId("_7pFpwYqtEeSIDtZ76p6McQ")]
@@ -129,7 +129,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Door sensors, such as cabinet, safe or vandal shield doors.
-    /// Encoded/decoded by serializers as "DOOR".
+    /// Encoded/decoded by serializers as &quot;DOOR&quot;.
     /// </summary>
     [EnumMember(Value = "DOOR")]
     [IsoId("_7yCKYYqtEeSIDtZ76p6McQ")]
@@ -138,7 +138,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Self service device processing items.
-    /// Encoded/decoded by serializers as "INPM".
+    /// Encoded/decoded by serializers as &quot;INPM&quot;.
     /// </summary>
     [EnumMember(Value = "INPM")]
     [IsoId("_75e2MYqtEeSIDtZ76p6McQ")]
@@ -147,7 +147,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Event log.
-    /// Encoded/decoded by serializers as "JRNL".
+    /// Encoded/decoded by serializers as &quot;JRNL&quot;.
     /// </summary>
     [EnumMember(Value = "JRNL")]
     [IsoId("_8BYN8YqtEeSIDtZ76p6McQ")]
@@ -156,7 +156,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.
-    /// Encoded/decoded by serializers as "JPRN".
+    /// Encoded/decoded by serializers as &quot;JPRN&quot;.
     /// </summary>
     [EnumMember(Value = "JPRN")]
     [IsoId("_8MtUMYqtEeSIDtZ76p6McQ")]
@@ -165,7 +165,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Other sensors and indicators unit.
-    /// Encoded/decoded by serializers as "SNSR".
+    /// Encoded/decoded by serializers as &quot;SNSR&quot;.
     /// </summary>
     [EnumMember(Value = "SNSR")]
     [IsoId("_8YoQUYqtEeSIDtZ76p6McQ")]
@@ -174,7 +174,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Passbook device supporting automatic positioning of the book.
-    /// Encoded/decoded by serializers as "PSBK".
+    /// Encoded/decoded by serializers as &quot;PSBK&quot;.
     /// </summary>
     [EnumMember(Value = "PSBK")]
     [IsoId("_8g-UAYqtEeSIDtZ76p6McQ")]
@@ -183,7 +183,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Hardware security module allowing the PIN (Personal Identification Number) entry, secure storing of cryptographic keys, and other cryptographic functions.
-    /// Encoded/decoded by serializers as "PINR".
+    /// Encoded/decoded by serializers as &quot;PINR&quot;.
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_8oa_0YqtEeSIDtZ76p6McQ")]
@@ -192,7 +192,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Receipt printer used to print cut sheet documents.
-    /// Encoded/decoded by serializers as "RPRN".
+    /// Encoded/decoded by serializers as &quot;RPRN&quot;.
     /// </summary>
     [EnumMember(Value = "RPRN")]
     [IsoId("_8wxDgYqtEeSIDtZ76p6McQ")]
@@ -201,7 +201,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Device incorporating both the capabilities to scan inserted documents and optionally to print on them.
-    /// Encoded/decoded by serializers as "SCAN".
+    /// Encoded/decoded by serializers as &quot;SCAN&quot;.
     /// </summary>
     [EnumMember(Value = "SCAN")]
     [IsoId("_840MQYqtEeSIDtZ76p6McQ")]
@@ -210,7 +210,7 @@ public enum ATMDevice2Code
     
     /// <summary>
     /// Receipt of the withdrawal transactions.
-    /// Encoded/decoded by serializers as "RWDR".
+    /// Encoded/decoded by serializers as &quot;RWDR&quot;.
     /// </summary>
     [EnumMember(Value = "RWDR")]
     [IsoId("_YA_OIY65EeSUpManOYhRpw")]

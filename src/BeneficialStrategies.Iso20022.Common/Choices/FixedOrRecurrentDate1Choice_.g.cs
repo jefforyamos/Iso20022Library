@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FixedOrRecurrentDate1Choice.FixedDate))]
     [KnownType(typeof(FixedOrRecurrentDate1Choice.RecurrentDate))]
     [IsoId("_98LLBnltEeG7BsjMvd1mEw_-980384765")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fixed Or Recurrent Date 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

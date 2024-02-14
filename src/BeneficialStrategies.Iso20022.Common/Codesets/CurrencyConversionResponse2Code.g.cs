@@ -21,7 +21,7 @@ public enum CurrencyConversionResponse2Code
 {
     /// <summary>
     /// Dynamic currency conversion may be offered to the cardholder.
-    /// Encoded/decoded by serializers as "ODCC".
+    /// Encoded/decoded by serializers as &quot;ODCC&quot;.
     /// </summary>
     [EnumMember(Value = "ODCC")]
     [IsoId("_QZPRUa4ZEeW_TaP-ygI0SQ")]
@@ -30,7 +30,7 @@ public enum CurrencyConversionResponse2Code
     
     /// <summary>
     /// The card is not valid for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "ICRD".
+    /// Encoded/decoded by serializers as &quot;ICRD&quot;.
     /// </summary>
     [EnumMember(Value = "ICRD")]
     [IsoId("_QZPRVa4ZEeW_TaP-ygI0SQ")]
@@ -39,7 +39,7 @@ public enum CurrencyConversionResponse2Code
     
     /// <summary>
     /// Dynamic currency conversion service cannot be offered for this card product.
-    /// Encoded/decoded by serializers as "IPRD".
+    /// Encoded/decoded by serializers as &quot;IPRD&quot;.
     /// </summary>
     [EnumMember(Value = "IPRD")]
     [IsoId("_QZPRWa4ZEeW_TaP-ygI0SQ")]
@@ -48,7 +48,7 @@ public enum CurrencyConversionResponse2Code
     
     /// <summary>
     /// Exchange rates are not available.
-    /// Encoded/decoded by serializers as "IRAT".
+    /// Encoded/decoded by serializers as &quot;IRAT&quot;.
     /// </summary>
     [EnumMember(Value = "IRAT")]
     [IsoId("_QZPRW64ZEeW_TaP-ygI0SQ")]
@@ -57,7 +57,7 @@ public enum CurrencyConversionResponse2Code
     
     /// <summary>
     /// Dynamic currency conversion is not available for other reason.
-    /// Encoded/decoded by serializers as "NDCC".
+    /// Encoded/decoded by serializers as &quot;NDCC&quot;.
     /// </summary>
     [EnumMember(Value = "NDCC")]
     [IsoId("_QZPRXa4ZEeW_TaP-ygI0SQ")]
@@ -66,7 +66,7 @@ public enum CurrencyConversionResponse2Code
     
     /// <summary>
     /// The ATM manager is not valid for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "IAMG".
+    /// Encoded/decoded by serializers as &quot;IAMG&quot;.
     /// </summary>
     [EnumMember(Value = "IAMG")]
     [IsoId("_Ulf2Ya4ZEeW_TaP-ygI0SQ")]
@@ -75,7 +75,7 @@ public enum CurrencyConversionResponse2Code
     
     /// <summary>
     /// The ATM is not valid for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "IATM".
+    /// Encoded/decoded by serializers as &quot;IATM&quot;.
     /// </summary>
     [EnumMember(Value = "IATM")]
     [IsoId("_UsWsUa4ZEeW_TaP-ygI0SQ")]

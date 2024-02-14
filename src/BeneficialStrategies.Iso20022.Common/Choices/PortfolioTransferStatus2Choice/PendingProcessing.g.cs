@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioTransferStatus2Choice
     /// Processing of the instruction/request is pending.
     /// </summary>
     [IsoId("_sRb8YukGEemm4qhb2yFPOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Processing")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

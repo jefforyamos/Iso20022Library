@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides constrains on a range of business values.
 /// </summary>
 [IsoId("_Q7pG59p-Ed-ak6NoX_4Aeg_-736773993")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount Or Percentage Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AmountOrPercentageRange
     /// Indication of the relationship between two variables.
     /// </summary>
     [IsoId("_Q7pG6Np-Ed-ak6NoX_4Aeg_-228359499")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Opr")]
     #endif
+    [IsoXmlTag("Opr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Operation1Code? Operation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,16 +59,13 @@ public partial record AmountOrPercentageRange
     /// Indicates one of the constraints of a range of business values.
     /// </summary>
     [IsoId("_Q7yQ0Np-Ed-ak6NoX_4Aeg_-364732588")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Term")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Term")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Term")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Term1> Term { get; init; } = new ValueList<Term1>(){};
     
     

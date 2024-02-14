@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the type and amount of the cash reinvestment in a given currency.
 /// </summary>
 [IsoId("_08jc8JLiEeelrYORFsXWZg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reinvested Cash Type And Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReinvestedCashTypeAndAmount1
     /// Provides details on the type of the cash reinvestment in a given currency.
     /// </summary>
     [IsoId("_TpPMsJLjEeelrYORFsXWZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReinvestmentType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReinvestmentType1Code Type { get; init; } 
+    public required ReinvestmentType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReinvestmentType1Code Type { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record ReinvestedCashTypeAndAmount1
     /// Provides details on the amount of the cash reinvestment in a given currency.
     /// </summary>
     [IsoId("_ZdId8JLjEeelrYORFsXWZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvested Cash Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstdCshAmt")]
     #endif
+    [IsoXmlTag("RinvstdCshAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount ReinvestedCashAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ReinvestedCashAmount { get; init; } 
+    public required System.Decimal ReinvestedCashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ReinvestedCashAmount { get; init; } 
     #else

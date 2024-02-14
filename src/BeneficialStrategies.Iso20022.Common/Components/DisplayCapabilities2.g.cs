@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The capabilities of the display components performing the transaction.
 /// </summary>
 [IsoId("_OdbxQS9KEeOlZIh7PImd0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Display Capabilities")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record DisplayCapabilities2
     /// Type of display (for example merchant or cardholder).
     /// </summary>
     [IsoId("_Ot8ScS9KEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispTp")]
     #endif
+    [IsoXmlTag("DispTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UserInterface2Code DisplayType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UserInterface2Code DisplayType { get; init; } 
+    public required UserInterface2Code DisplayType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UserInterface2Code DisplayType { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record DisplayCapabilities2
     /// Number of lines of the display component.
     /// </summary>
     [IsoId("_Ot8Scy9KEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Lines")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfLines")]
     #endif
+    [IsoXmlTag("NbOfLines")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber NumberOfLines { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 NumberOfLines { get; init; } 
+    public required System.UInt64 NumberOfLines { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 NumberOfLines { get; init; } 
     #else
@@ -93,16 +90,16 @@ public partial record DisplayCapabilities2
     /// Number of columns of the display component.
     /// </summary>
     [IsoId("_Ot8SdS9KEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Width")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineWidth")]
     #endif
+    [IsoXmlTag("LineWidth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber LineWidth { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 LineWidth { get; init; } 
+    public required System.UInt64 LineWidth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 LineWidth { get; init; } 
     #else

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RatioFormat1Choice.AmountToAmount))]
     [KnownType(typeof(RatioFormat1Choice.NotSpecifiedRate))]
     [IsoId("_Rjuamtp-Ed-ak6NoX_4Aeg_-320337061")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ratio Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

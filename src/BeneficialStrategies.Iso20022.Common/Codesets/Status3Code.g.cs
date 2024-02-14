@@ -21,7 +21,7 @@ public enum Status3Code
 {
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_ZQggE9p-Ed-ak6NoX_4Aeg_-780737301")]
@@ -30,7 +30,7 @@ public enum Status3Code
     
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZQggFNp-Ed-ak6NoX_4Aeg_-763187538")]
@@ -39,7 +39,7 @@ public enum Status3Code
     
     /// <summary>
     /// No instruction has been received (to be used in a reminder).
-    /// Encoded/decoded by serializers as "NOIN".
+    /// Encoded/decoded by serializers as &quot;NOIN&quot;.
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_ZQggFdp-Ed-ak6NoX_4Aeg_-748412104")]
@@ -48,7 +48,7 @@ public enum Status3Code
     
     /// <summary>
     /// Processing has been completed.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ZQggFtp-Ed-ak6NoX_4Aeg_-734560081")]
@@ -57,7 +57,7 @@ public enum Status3Code
     
     /// <summary>
     /// Instruction has been received by Issuer.
-    /// Encoded/decoded by serializers as "RCIS".
+    /// Encoded/decoded by serializers as &quot;RCIS&quot;.
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_ZQggF9p-Ed-ak6NoX_4Aeg_-719784966")]
@@ -66,7 +66,7 @@ public enum Status3Code
     
     /// <summary>
     /// Standing instruction is applied.
-    /// Encoded/decoded by serializers as "STIN".
+    /// Encoded/decoded by serializers as &quot;STIN&quot;.
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_ZQggGNp-Ed-ak6NoX_4Aeg_-695771510")]

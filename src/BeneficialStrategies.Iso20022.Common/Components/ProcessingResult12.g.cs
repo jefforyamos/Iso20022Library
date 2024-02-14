@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Outcome of the verification processing of the transaction.
 /// </summary>
 [IsoId("_AkN0cahPEeuOaMA1YOy5YQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Processing Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ProcessingResult12
     /// Data pertaining to the approval of the transaction.
     /// </summary>
     [IsoId("_Ss6t0MSsEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Approval Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApprvlData")]
     #endif
+    [IsoXmlTag("ApprvlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApprovalData1? ApprovalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ProcessingResult12
     /// Result of the processing.
     /// </summary>
     [IsoId("_ApeH4ahPEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsltData")]
     #endif
+    [IsoXmlTag("RsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData11? ResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record ProcessingResult12
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
     [IsoId("_ApeH46hPEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRsltData")]
     #endif
+    [IsoXmlTag("OrgnlRsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData7? OriginalResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +95,12 @@ public partial record ProcessingResult12
     /// True: Action Required.
     /// </summary>
     [IsoId("_ApeH5ahPEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnReqrd")]
     #endif
+    [IsoXmlTag("ActnReqrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ActionRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +113,11 @@ public partial record ProcessingResult12
     /// Set of actions to be performed.
     /// </summary>
     [IsoId("_ApeH56hPEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action13? Action { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +130,11 @@ public partial record ProcessingResult12
     /// Additional action to perform.
     /// </summary>
     [IsoId("_ApeH6ahPEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlActn")]
     #endif
+    [IsoXmlTag("AddtlActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalAction1? AdditionalAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +148,11 @@ public partial record ProcessingResult12
     /// ISO 8583 bit 44
     /// </summary>
     [IsoId("_ApeH66hPEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation29? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

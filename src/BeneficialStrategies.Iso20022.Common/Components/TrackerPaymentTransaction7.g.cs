@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Key elements used to identify the original transaction(s) that is being referred to.
 /// </summary>
 [IsoId("_n7bpJ2RPEeqImsG9JNoSQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Payment Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TrackerPaymentTransaction7
     /// Provides information on the original tracked message that contained the transaction.
     /// </summary>
     [IsoId("_oC8mYWRPEeqImsG9JNoSQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracked Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckdMsgId")]
     #endif
+    [IsoXmlTag("TrckdMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessInstruction4? TrackedMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TrackerPaymentTransaction7
     /// Party that provides information on the alert status and related details.
     /// </summary>
     [IsoId("_oC8mY2RPEeqImsG9JNoSQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Informing Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckrInfrmgPty")]
     #endif
+    [IsoXmlTag("TrckrInfrmgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TrackerPaymentTransaction7
     /// Party that is updated on the alert status and related details.
     /// </summary>
     [IsoId("_oC8mZWRPEeqImsG9JNoSQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Informed Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckrInfrmdPty")]
     #endif
+    [IsoXmlTag("TrckrInfrmdPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TrackerPaymentTransaction7
     /// Set of elements used to reference a payment instruction.
     /// </summary>
     [IsoId("_oC8mZ2RPEeqImsG9JNoSQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtId")]
     #endif
+    [IsoXmlTag("PmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentIdentification10? PaymentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record TrackerPaymentTransaction7
     /// Agreement under which or rules under which the payment transaction should be processed.
     /// </summary>
     [IsoId("_oC8maWRPEeqImsG9JNoSQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcLvl")]
     #endif
+    [IsoXmlTag("SvcLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

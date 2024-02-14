@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the date and location(s) of a general meeting.
 /// </summary>
 [IsoId("_8FEVwfM6EeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Meeting6
     /// Date and time at which the meeting will take place.
     /// </summary>
     [IsoId("_8Z26A_M6EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date And Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtAndTm")]
     #endif
+    [IsoXmlTag("DtAndTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat58Choice_ DateAndTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat58Choice_ DateAndTime { get; init; } 
+    public required DateFormat58Choice_ DateAndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat58Choice_ DateAndTime { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Meeting6
     /// Status of the meeting date.
     /// </summary>
     [IsoId("_8Z26BfM6EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtSts")]
     #endif
+    [IsoXmlTag("DtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MeetingDateStatus2Code? DateStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record Meeting6
     /// Indicates whether a minimum number of security representation is required to hold a meeting.
     /// </summary>
     [IsoId("_8Z26B_M6EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QrmReqrd")]
     #endif
+    [IsoXmlTag("QrmReqrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? QuorumRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,28 +103,24 @@ public partial record Meeting6
     /// Location at which the meeting will take place.
     /// </summary>
     [IsoId("_8Z26CfM6EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Lctn")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<LocationFormat1Choice_> Location { get; init; } = new ValueList<LocationFormat1Choice_>(){};
     
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
     [IsoId("_8Z26C_M6EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QrmQty")]
     #endif
+    [IsoXmlTag("QrmQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuorumQuantity1Choice_? QuorumQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,15 +133,13 @@ public partial record Meeting6
     /// Address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
     [IsoId("_8Z26DfM6EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("URL Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="URLAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("URLAdr")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? URLAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

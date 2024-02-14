@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|The AccountRequestRejection message is sent from a financial institution to an organisation. This message is sent in response to a request message from the organisation, if the business content is not valid.|Usage.")]
 [IsoId("_woeVgNE9Ed-BzquC8wXy7w_-218865244")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Request Rejection V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record AccountRequestRejectionV01 : IOuterRecord<AccountRequestRe
     /// Set of elements for the identification of the message and related references.
     /// </summary>
     [IsoId("_woeVgdE9Ed-BzquC8wXy7w_1279035715")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References6 References { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References6 References { get; init; } 
+    public required References6 References { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References6 References { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record AccountRequestRejectionV01 : IOuterRecord<AccountRequestRe
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
     [IsoId("_woeVgtE9Ed-BzquC8wXy7w_1907806637")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrId")]
     #endif
+    [IsoXmlTag("AcctSvcrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification4 AccountServicerIdentification { get; init; } 
     #else
@@ -119,12 +115,11 @@ public partial record AccountRequestRejectionV01 : IOuterRecord<AccountRequestRe
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_woeVg9E9Ed-BzquC8wXy7w_-730305383")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountForAction1? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,16 +132,15 @@ public partial record AccountRequestRejectionV01 : IOuterRecord<AccountRequestRe
     /// Identifier for an organisation.
     /// </summary>
     [IsoId("_woeVhNE9Ed-BzquC8wXy7w_1969662038")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgId")]
     #endif
+    [IsoXmlTag("OrgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification6 OrganisationIdentification { get; init; } 
+    public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #else
@@ -157,12 +151,11 @@ public partial record AccountRequestRejectionV01 : IOuterRecord<AccountRequestRe
     /// Contains the signature with its components, namely signed info, signature value, key info and the object.
     /// </summary>
     [IsoId("_woeVhdE9Ed-BzquC8wXy7w_2030179826")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature1? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,7 +168,7 @@ public partial record AccountRequestRejectionV01 : IOuterRecord<AccountRequestRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountRequestRejectionV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountRequestRejectionV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountRequestRejectionV01Document ToDocument()
     {
@@ -185,7 +178,7 @@ public partial record AccountRequestRejectionV01 : IOuterRecord<AccountRequestRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountRequestRejectionV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountRequestRejectionV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountRequestRejectionV01Document : IOuterDocument<AccountRequestRejectionV01>
@@ -202,7 +195,7 @@ public partial record AccountRequestRejectionV01Document : IOuterDocument<Accoun
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountRequestRejectionV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountRequestRejectionV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountRequestRejectionV01 Message { get; init; }

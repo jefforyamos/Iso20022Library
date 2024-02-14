@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCACNSD1 message extends ISO corporate action cancellation advice (CACN) message with DTCC corporate action elements not covered in the standard message.")]
 [IsoId("_Vk6qOTDmEey2N-DB7H7A5A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCACNSD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCACNSD1V11 : IOuterRecord<DTCCCACNSD1V11,DTCCCACNSD1V1
     /// Page number of the message and continuation indicator to indicate that the multi-parts message is to continue or that the message is the last page of the multi-parts message.
     /// </summary>
     [IsoId("_Vk6qOzDmEey2N-DB7H7A5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination1? Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCACNSD1V11 : IOuterRecord<DTCCCACNSD1V11,DTCCCACNSD1V1
     /// Notification information to be extended as supplementary data to cancellation advice.
     /// </summary>
     [IsoId("_Vk6qPTDmEey2N-DB7H7A5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntfctn")]
     #endif
+    [IsoXmlTag("Ntfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNotificationSD10? Notification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,11 @@ public partial record DTCCCACNSD1V11 : IOuterRecord<DTCCCACNSD1V11,DTCCCACNSD1V1
     /// Information to be extended as supplementary data to general information.
     /// </summary>
     [IsoId("_Vk6qPzDmEey2N-DB7H7A5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GnlInf")]
     #endif
+    [IsoXmlTag("GnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionGeneralInformationSD48? GeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +117,11 @@ public partial record DTCCCACNSD1V11 : IOuterRecord<DTCCCACNSD1V11,DTCCCACNSD1V1
     /// Information to be extended as supplementary data to underlying security details.
     /// </summary>
     [IsoId("_Vk6qQTDmEey2N-DB7H7A5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygScty")]
     #endif
+    [IsoXmlTag("UndrlygScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributesSD20? UnderlyingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +134,11 @@ public partial record DTCCCACNSD1V11 : IOuterRecord<DTCCCACNSD1V11,DTCCCACNSD1V1
     /// Information to be extended as supplementary data to events linkage.
     /// </summary>
     [IsoId("_Vk6qQzDmEey2N-DB7H7A5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Events Linkage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtsLkg")]
     #endif
+    [IsoXmlTag("EvtsLkg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionCancellationSD3? EventsLinkage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +151,11 @@ public partial record DTCCCACNSD1V11 : IOuterRecord<DTCCCACNSD1V11,DTCCCACNSD1V1
     /// Information to be extended as external comments to cancellation advice.
     /// </summary>
     [IsoId("_Vk6qRTDmEey2N-DB7H7A5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Comments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCmnts")]
     #endif
+    [IsoXmlTag("XtrnlCmnts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionCancellationSD4? ExternalComments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,7 +168,7 @@ public partial record DTCCCACNSD1V11 : IOuterRecord<DTCCCACNSD1V11,DTCCCACNSD1V1
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCACNSD1V11Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCACNSD1V11Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCACNSD1V11Document ToDocument()
     {
@@ -186,7 +178,7 @@ public partial record DTCCCACNSD1V11 : IOuterRecord<DTCCCACNSD1V11,DTCCCACNSD1V1
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCACNSD1V11"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCACNSD1V11&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCACNSD1V11Document : IOuterDocument<DTCCCACNSD1V11>
@@ -203,7 +195,7 @@ public partial record DTCCCACNSD1V11Document : IOuterDocument<DTCCCACNSD1V11>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCACNSD1V11"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCACNSD1V11&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCACNSD1V11 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details an individual currency including details on which country trades the currency.
 /// </summary>
 [IsoId("_c7l_wX58EeaUaa1DpZmwUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Currency Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record SecuritiesCurrencyIdentification2
     /// Details the currency name and ISO 4217 currency code.
     /// </summary>
     [IsoId("_dGAgAX58EeaUaa1DpZmwUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCodeAndName1 Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyCodeAndName1 Currency { get; init; } 
+    public required CurrencyCodeAndName1 Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyCodeAndName1 Currency { get; init; } 
     #else
@@ -74,12 +71,12 @@ public partial record SecuritiesCurrencyIdentification2
     /// Fractional digit for the currency, that is, the number of decimals to use.
     /// </summary>
     [IsoId("_dGAgA358EeaUaa1DpZmwUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fractional Digit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrctnlDgt")]
     #endif
+    [IsoXmlTag("FrctnlDgt")]
+    [IsoSimpleType(IsoSimpleType.Max1Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1Number? FractionalDigit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +89,15 @@ public partial record SecuritiesCurrencyIdentification2
     /// Details the country name and ISO 3166 country code.
     /// </summary>
     [IsoId("_dGAgBX58EeaUaa1DpZmwUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryDtls")]
     #endif
+    [IsoXmlTag("CtryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCodeAndName3 CountryDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CountryCodeAndName3 CountryDetails { get; init; } 
+    public required CountryCodeAndName3 CountryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CountryCodeAndName3 CountryDetails { get; init; } 
     #else
@@ -112,16 +108,16 @@ public partial record SecuritiesCurrencyIdentification2
     /// Specifies if a currency is a pre Euro currency or not.
     /// </summary>
     [IsoId("_dGAgB358EeaUaa1DpZmwUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Euro")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PreEuro")]
     #endif
+    [IsoXmlTag("PreEuro")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator PreEuro { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PreEuro { get; init; } 
+    public required System.String PreEuro { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PreEuro { get; init; } 
     #else
@@ -132,12 +128,11 @@ public partial record SecuritiesCurrencyIdentification2
     /// Modification status for the record compared to the previous report.
     /// </summary>
     [IsoId("_dGAgCX58EeaUaa1DpZmwUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mod")]
     #endif
+    [IsoXmlTag("Mod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? Modification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,16 +145,15 @@ public partial record SecuritiesCurrencyIdentification2
     /// Details the validity of the specific record.
     /// </summary>
     [IsoId("_dGAgC358EeaUaa1DpZmwUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validity Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtyPrd")]
     #endif
+    [IsoXmlTag("VldtyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4Choice_ ValidityPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Period4Choice_ ValidityPeriod { get; init; } 
+    public required Period4Choice_ ValidityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Period4Choice_ ValidityPeriod { get; init; } 
     #else
@@ -170,12 +164,12 @@ public partial record SecuritiesCurrencyIdentification2
     /// Date when this record was last modified.
     /// </summary>
     [IsoId("_dGAgDX58EeaUaa1DpZmwUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Updated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastUpdtd")]
     #endif
+    [IsoXmlTag("LastUpdtd")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LastUpdated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Encrypted data with an encryption key.
 /// </summary>
 [IsoId("_kPJ2gQ0tEeqUVL7sB4m7NA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Encrypted Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record EncryptedContent6
     /// Type of data which have been encrypted.
     /// </summary>
     [IsoId("_kbu58Q0tEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttTp")]
     #endif
+    [IsoXmlTag("CnttTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentType2Code ContentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentType2Code ContentType { get; init; } 
+    public required ContentType2Code ContentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentType2Code ContentType { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record EncryptedContent6
     /// Algorithm used to encrypt the data.
     /// </summary>
     [IsoId("_kbu58w0tEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Encryption Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttNcrptnAlgo")]
     #endif
+    [IsoXmlTag("CnttNcrptnAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlgorithmIdentification29? ContentEncryptionAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,16 @@ public partial record EncryptedContent6
     /// Encrypted data, result of the content encryption.
     /// </summary>
     [IsoId("_kbu59Q0tEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdData")]
     #endif
+    [IsoXmlTag("NcrptdData")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax100KBinary EncryptedData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] EncryptedData { get; init; } 
+    public required System.Byte[] EncryptedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] EncryptedData { get; init; } 
     #else

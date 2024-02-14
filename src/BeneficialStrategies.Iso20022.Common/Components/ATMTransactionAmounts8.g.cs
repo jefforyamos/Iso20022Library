@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Limit of amounts for the customer.
 /// </summary>
 [IsoId("_ucGeUa-VEeWJvLRJ8PsD_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Transaction Amounts")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ATMTransactionAmounts8
     /// Default currency of the limits.
     /// </summary>
     [IsoId("_uoeGYa-VEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record ATMTransactionAmounts8
     /// Maximum amount allowed for a transaction in the service.
     /// </summary>
     [IsoId("_uoeGY6-VEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Possible Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxPssblAmt")]
     #endif
+    [IsoXmlTag("MaxPssblAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MaximumPossibleAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record ATMTransactionAmounts8
     /// Minimum amount allowed for a transaction in the service.
     /// </summary>
     [IsoId("_uoeGZa-VEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Possible Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinPssblAmt")]
     #endif
+    [IsoXmlTag("MinPssblAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MinimumPossibleAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,11 @@ public partial record ATMTransactionAmounts8
     /// Additional amount that may be displayed to the customer, for instance the daily limit or the daily balance for the service.
     /// </summary>
     [IsoId("_uoeGZ6-VEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlAmt")]
     #endif
+    [IsoXmlTag("AddtlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTransactionAmounts7? AdditionalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record ATMTransactionAmounts8
     /// Limit of deposited media for the customer.
     /// </summary>
     [IsoId("_3g-YIK-VEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deposit Limits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DpstLmts")]
     #endif
+    [IsoXmlTag("DpstLmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTransactionAmounts9? DepositLimits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

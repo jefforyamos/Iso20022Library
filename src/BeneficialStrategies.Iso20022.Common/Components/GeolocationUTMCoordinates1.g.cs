@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the geographic location using the WGS84 ellipsoid spatial reference system.
 /// </summary>
 [IsoId("_IRYb8Nj-EeiojJsa6FYyew")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Geolocation UTM Coordinates")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record GeolocationUTMCoordinates1
     /// UTM grid zone combination of the longitude zone (1 to 60) and the latitude band (C to X, excluding I and O).
     /// </summary>
     [IsoId("_S03o0Nj-EeiojJsa6FYyew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UTM Zone")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UTMZone")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UTMZone")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text UTMZone { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String UTMZone { get; init; } 
+    public required System.String UTMZone { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String UTMZone { get; init; } 
     #else
@@ -78,19 +74,17 @@ public partial record GeolocationUTMCoordinates1
     /// coordinate system.
     /// </summary>
     [IsoId("_bxdJUNj-EeiojJsa6FYyew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UTM Eastward")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UTMEstwrd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UTMEstwrd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text UTMEastward { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String UTMEastward { get; init; } 
+    public required System.String UTMEastward { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String UTMEastward { get; init; } 
     #else
@@ -102,19 +96,17 @@ public partial record GeolocationUTMCoordinates1
     /// coordinate system.
     /// </summary>
     [IsoId("_iqNJ0Nj-EeiojJsa6FYyew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UTM Northward")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UTMNrthwrd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UTMNrthwrd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text UTMNorthward { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String UTMNorthward { get; init; } 
+    public required System.String UTMNorthward { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String UTMNorthward { get; init; } 
     #else

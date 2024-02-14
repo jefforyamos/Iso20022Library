@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caam;
 /// </summary>
 [Description(@"The ATMDiagnosticRequest message is sent from an ATM to an acquirer to verify the availability of the acquirer. The acquirer will also validate that this ATM is a valid ATM for its particular network.")]
 [IsoId("_eF4ZkItoEeSDLd7nI4Quzw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Diagnostic Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMDiagnosticRequestV01 : IOuterRecord<ATMDiagnosticReques
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_kpsE0ItoEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header20 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header20 Header { get; init; } 
+    public required Header20 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header20 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMDiagnosticRequestV01 : IOuterRecord<ATMDiagnosticReques
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_qo84kItoEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATM Diagnostic Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMDgnstcReq")]
     #endif
+    [IsoXmlTag("PrtctdATMDgnstcReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMDiagnosticRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMDiagnosticRequestV01 : IOuterRecord<ATMDiagnosticReques
     /// Information related to the request of a diagnostic from an ATM.
     /// </summary>
     [IsoId("_yPB5IItoEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Diagnostic Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMDgnstcReq")]
     #endif
+    [IsoXmlTag("ATMDgnstcReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMDiagnosticRequest1? ATMDiagnosticRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMDiagnosticRequestV01 : IOuterRecord<ATMDiagnosticReques
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_19OpMItoEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMDiagnosticRequestV01 : IOuterRecord<ATMDiagnosticReques
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMDiagnosticRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMDiagnosticRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMDiagnosticRequestV01Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMDiagnosticRequestV01 : IOuterRecord<ATMDiagnosticReques
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMDiagnosticRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMDiagnosticRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMDiagnosticRequestV01Document : IOuterDocument<ATMDiagnosticRequestV01>
@@ -176,7 +170,7 @@ public partial record ATMDiagnosticRequestV01Document : IOuterDocument<ATMDiagno
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMDiagnosticRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMDiagnosticRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMDiagnosticRequestV01 Message { get; init; }

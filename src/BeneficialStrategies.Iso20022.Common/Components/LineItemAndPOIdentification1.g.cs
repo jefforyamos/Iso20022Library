@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the line item number and the purchase order.
 /// </summary>
 [IsoId("_RaVOBdp-Ed-ak6NoX_4Aeg_-1742051329")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Line Item And PO Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record LineItemAndPOIdentification1
     /// Identification assigned to a line item.
     /// </summary>
     [IsoId("_RaVOBtp-Ed-ak6NoX_4Aeg_-1638617880")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Item Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineItmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LineItmId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     public System.String? LineItemIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RaVOBtp-Ed-ak6NoX_4Aeg_-1638617880
     
@@ -67,16 +63,15 @@ public partial record LineItemAndPOIdentification1
     /// Reference to the purchase order containing the line item.
     /// </summary>
     [IsoId("_RaVOB9p-Ed-ak6NoX_4Aeg_-1399423976")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purchase Order Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PurchsOrdrRef")]
     #endif
+    [IsoXmlTag("PurchsOrdrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #else

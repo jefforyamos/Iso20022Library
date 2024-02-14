@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the account as the search criteria for the financial institution to do the investigation.
 /// </summary>
 [IsoId("_06D5001FEeGAs6v-iSb2RQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account And Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AccountAndParties1
     /// Specifies the account for the investigation.
     /// </summary>
     [IsoId("_3FiS_E1FEeGAs6v-iSb2RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount25 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount25 Identification { get; init; } 
+    public required CashAccount25 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount25 Identification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AccountAndParties1
     /// Specifies the investigated parties related to the account such as the owner, beneficiary, signatory or any party playing a role in that account for which the investigation needs to be done.
     /// </summary>
     [IsoId("_AX1IbE4wEeGFgOSp_IATnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigated Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtdPties")]
     #endif
+    [IsoXmlTag("InvstgtdPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigatedParties1Choice_ InvestigatedParties { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestigatedParties1Choice_ InvestigatedParties { get; init; } 
+    public required InvestigatedParties1Choice_ InvestigatedParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestigatedParties1Choice_ InvestigatedParties { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record AccountAndParties1
     /// Identifies the authority request type as a code.
     /// </summary>
     [IsoId("_EcwSUUyvEeGcV5yVhSZuNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authority Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrtyReqTp")]
     #endif
+    [IsoXmlTag("AuthrtyReqTp")]
     public AuthorityRequestType1? AuthorityRequestType { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _EcwSUUyvEeGcV5yVhSZuNw
     

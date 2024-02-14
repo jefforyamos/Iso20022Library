@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information on the cash amount and haircut or margin.
 /// </summary>
 [IsoId("_3b8rIP_-Eemefbt-QjTNnA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount Haircut Margin")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AmountHaircutMargin1
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
     [IsoId("_MiDiMP__Eemefbt-QjTNnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection53 Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection53 Amount { get; init; } 
+    public required AmountAndDirection53 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection53 Amount { get; init; } 
     #else
@@ -73,12 +70,12 @@ public partial record AmountHaircutMargin1
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
     [IsoId("_QrRaUP__Eemefbt-QjTNnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut Or Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HrcutOrMrgn")]
     #endif
+    [IsoXmlTag("HrcutOrMrgn")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? HaircutOrMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

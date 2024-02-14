@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|This message is sent by a party to the next party in the creditor payment activation request chain.|It is used to inform the latter about the positive or negative status of a creditor payment activation request (either single or file).")]
 [IsoId("_GV_IptEvEd-BzquC8wXy7w_1012339931")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Payment Activation Request Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record CreditorPaymentActivationRequestStatusReportV01 : IOuterRe
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_GWISkNEvEd-BzquC8wXy7w_335049287")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader46 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader46 GroupHeader { get; init; } 
+    public required GroupHeader46 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader46 GroupHeader { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record CreditorPaymentActivationRequestStatusReportV01 : IOuterRe
     /// Original group information concerning the group of transactions, to which the status report message refers to.
     /// </summary>
     [IsoId("_GWISkdEvEd-BzquC8wXy7w_1282037289")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlGrpInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalGroupInformation25 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalGroupInformation25 OriginalGroupInformationAndStatus { get; init; } 
+    public required OriginalGroupInformation25 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalGroupInformation25 OriginalGroupInformationAndStatus { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record CreditorPaymentActivationRequestStatusReportV01 : IOuterRe
     /// Information concerning the original payment information, to which the status report message refers.
     /// </summary>
     [IsoId("_GWISktEvEd-BzquC8wXy7w_-534994905")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlPmtInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalPaymentInformation5? OriginalPaymentInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV01 : IOuterRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CreditorPaymentActivationRequestStatusReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CreditorPaymentActivationRequestStatusReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CreditorPaymentActivationRequestStatusReportV01Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV01 : IOuterRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CreditorPaymentActivationRequestStatusReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CreditorPaymentActivationRequestStatusReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CreditorPaymentActivationRequestStatusReportV01Document : IOuterDocument<CreditorPaymentActivationRequestStatusReportV01>
@@ -163,7 +158,7 @@ public partial record CreditorPaymentActivationRequestStatusReportV01Document : 
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CreditorPaymentActivationRequestStatusReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CreditorPaymentActivationRequestStatusReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditorPaymentActivationRequestStatusReportV01 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Assumed obligations that are required to be met in cash under a hypothetical stress scenario.
 /// </summary>
 [IsoId("_yh7egLJPEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Stress Liquid Resource Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record StressLiquidResourceRequirement1
     /// Liquidity needs arising from ‘operational’ procedures over the stress horizon. This includes (but is not necessarily limited to) repayment of excess cash collateral to members, cash to non‐cash collateral substitutions by members, reductions in margin requirements and related cash collateral and provision of liquidity to facilitate settlement / delivery for non‐defaulting members.
     /// </summary>
     [IsoId("_4Pv88LJPEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operational Outflow")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OprlOutflw")]
     #endif
+    [IsoXmlTag("OprlOutflw")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 OperationalOutflow { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 OperationalOutflow { get; init; } 
+    public required AmountAndDirection102 OperationalOutflow { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 OperationalOutflow { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record StressLiquidResourceRequirement1
     /// Variation margin payment obligation of the CCP that is modelled to arise due to the default of CM1 and CM2 over the stress horizon.
     /// </summary>
     [IsoId("_8MqecLJPEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Payment Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnPmtOblgtn")]
     #endif
+    [IsoXmlTag("VartnMrgnPmtOblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 VariationMarginPaymentObligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 VariationMarginPaymentObligation { get; init; } 
+    public required AmountAndDirection102 VariationMarginPaymentObligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 VariationMarginPaymentObligation { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record StressLiquidResourceRequirement1
     /// Liquidity needed by the CCP to fulfil the settlement/delivery obligations arising from the cleared trades of defaulting CM1 and CM2.
     /// </summary>
     [IsoId("_Bv7SsLJQEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Or Delivery")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmOrDlvry")]
     #endif
+    [IsoXmlTag("SttlmOrDlvry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 SettlementOrDelivery { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 SettlementOrDelivery { get; init; } 
+    public required AmountAndDirection102 SettlementOrDelivery { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 SettlementOrDelivery { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record StressLiquidResourceRequirement1
     /// Other liquidity requirements not captured elsewhere. 
     /// </summary>
     [IsoId("_D1OLQLJQEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 Other { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 Other { get; init; } 
+    public required AmountAndDirection102 Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 Other { get; init; } 
     #else

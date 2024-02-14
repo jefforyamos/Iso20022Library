@@ -21,7 +21,7 @@ public enum Algorithm11Code
 {
     /// <summary>
     /// Message digest algorithm SHA-256 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha256).
-    /// Encoded/decoded by serializers as "HS25".
+    /// Encoded/decoded by serializers as &quot;HS25&quot;.
     /// </summary>
     [EnumMember(Value = "HS25")]
     [IsoId("_yLO4UWi4EeS87LmvcA55sg")]
@@ -30,7 +30,7 @@ public enum Algorithm11Code
     
     /// <summary>
     /// Message digest algorithm SHA-384 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha384).
-    /// Encoded/decoded by serializers as "HS38".
+    /// Encoded/decoded by serializers as &quot;HS38&quot;.
     /// </summary>
     [EnumMember(Value = "HS38")]
     [IsoId("_yLO4U2i4EeS87LmvcA55sg")]
@@ -39,7 +39,7 @@ public enum Algorithm11Code
     
     /// <summary>
     /// Message digest algorithm SHA-512 as defined in FIPS 180-1 and 2 - (ASN.1 Object Identifier: id-sha512).
-    /// Encoded/decoded by serializers as "HS51".
+    /// Encoded/decoded by serializers as &quot;HS51&quot;.
     /// </summary>
     [EnumMember(Value = "HS51")]
     [IsoId("_yLO4VWi4EeS87LmvcA55sg")]
@@ -48,7 +48,7 @@ public enum Algorithm11Code
     
     /// <summary>
     /// The DEPRECATED Message digest algorithm SHA-1 as defined in FIPS 180-1 - (ASN.1 Object Identifier: id-sha1).
-    /// Encoded/decoded by serializers as "HS01".
+    /// Encoded/decoded by serializers as &quot;HS01&quot;.
     /// </summary>
     [EnumMember(Value = "HS01")]
     [IsoId("_I6AWUWi5EeS87LmvcA55sg")]

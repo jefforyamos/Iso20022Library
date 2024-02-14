@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Card Acquisition Response message.
 /// </summary>
 [IsoId("_eq2jANxZEeioifFt1dhnJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Acquisition Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardAcquisitionResponse1
     /// Unique identification of a POI transaction.
     /// </summary>
     [IsoId("_faoksNxaEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POITxId")]
     #endif
+    [IsoXmlTag("POITxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifier1 POITransactionIdentification { get; init; } 
+    public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifier1 POITransactionIdentification { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record CardAcquisitionResponse1
     /// Type of payment card.
     /// </summary>
     [IsoId("_ifQzUNxaEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Brand")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtBrnd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PmtBrnd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PaymentBrand { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record CardAcquisitionResponse1
     /// Language used to display messages to the customer.
     /// </summary>
     [IsoId("_lnOCwNxaEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrLang")]
     #endif
+    [IsoXmlTag("CstmrLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? CustomerLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record CardAcquisitionResponse1
     /// Loyalty account information.
     /// </summary>
     [IsoId("_YVTEQNxbEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyAcct")]
     #endif
+    [IsoXmlTag("LltyAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyAccount1? LoyaltyAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record CardAcquisitionResponse1
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
     [IsoId("_clbcsNxbEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrOrdr")]
     #endif
+    [IsoXmlTag("CstmrOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerOrder1? CustomerOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

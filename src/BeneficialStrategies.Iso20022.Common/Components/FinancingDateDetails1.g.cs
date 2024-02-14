@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Includes a set of dates (e.g. credit date) related to settlement of the financing amount.
 /// </summary>
 [IsoId("_T8KRktp-Ed-ak6NoX_4Aeg_1418174558")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financing Date Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record FinancingDateDetails1
     /// Date on which the financing transaction has been booked in an account.
     /// </summary>
     [IsoId("_T8KRk9p-Ed-ak6NoX_4Aeg_-558847054")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Book Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookDt")]
     #endif
+    [IsoXmlTag("BookDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BookDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,16 @@ public partial record FinancingDateDetails1
     /// Date on which a financed amount has been credited.
     /// </summary>
     [IsoId("_T8KRlNp-Ed-ak6NoX_4Aeg_-183898526")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDt")]
     #endif
+    [IsoXmlTag("CdtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate CreditDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly CreditDate { get; init; } 
+    public required System.DateOnly CreditDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly CreditDate { get; init; } 
     #else
@@ -89,12 +87,12 @@ public partial record FinancingDateDetails1
     /// Date on which a financed amount has been debited.
     /// </summary>
     [IsoId("_T8KRldp-Ed-ak6NoX_4Aeg_-69382352")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debit Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtDt")]
     #endif
+    [IsoXmlTag("DbtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DebitDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

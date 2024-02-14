@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information and conditions provided for the physical attendance to the meeting.  
 /// </summary>
 [IsoId("_Ky03MK4kEemG7MmivSuE5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Attendance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,31 +42,26 @@ public partial record Attendance1
     /// Conditions for physical admittance to general meeting.
     /// </summary>
     [IsoId("_rvsg4K4kEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Admission Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdmssnConds")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdmssnConds")]
     [MinLength(0)]
     [MaxLength(7)]
-    #endif
     public ValueList<AttendanceAdmissionConditions1> AdmissionConditions { get; init; } = new ValueList<AttendanceAdmissionConditions1>(){};
     
     /// <summary>
     /// Specifies how to order the attendance card or to give notice of attendance.
     /// </summary>
     [IsoId("_aLaKw64kEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ConfInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ConfirmationInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +74,11 @@ public partial record Attendance1
     /// Date and time by which the beneficial owner or agent must provide notification of its intention to participate in the meeting. This deadline is set by an intermediary.
     /// </summary>
     [IsoId("_aLaKxK4kEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfDdln")]
     #endif
+    [IsoXmlTag("ConfDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? ConfirmationDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,12 +91,11 @@ public partial record Attendance1
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
     [IsoId("_aLaKxa4kEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfMktDdln")]
     #endif
+    [IsoXmlTag("ConfMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? ConfirmationMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

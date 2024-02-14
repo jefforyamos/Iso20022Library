@@ -21,7 +21,7 @@ public enum CardPaymentServiceType8Code
 {
     /// <summary>
     /// Aggregation of low payments.
-    /// Encoded/decoded by serializers as "AGGR".
+    /// Encoded/decoded by serializers as &quot;AGGR&quot;.
     /// </summary>
     [EnumMember(Value = "AGGR")]
     [IsoId("_LBMBwXsvEeSTS7uHCe8FPQ")]
@@ -30,7 +30,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Card payment with cash-back.
-    /// Encoded/decoded by serializers as "CSHB".
+    /// Encoded/decoded by serializers as &quot;CSHB&quot;.
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_LlfosXsvEeSTS7uHCe8FPQ")]
@@ -39,7 +39,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Amount and notes values are chosen by the customer.
-    /// Encoded/decoded by serializers as "CSWD".
+    /// Encoded/decoded by serializers as &quot;CSWD&quot;.
     /// </summary>
     [EnumMember(Value = "CSWD")]
     [IsoId("_L0wMsXsvEeSTS7uHCe8FPQ")]
@@ -48,7 +48,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Dynamic currency conversion (DCC).
-    /// Encoded/decoded by serializers as "DCCV".
+    /// Encoded/decoded by serializers as &quot;DCCV&quot;.
     /// </summary>
     [EnumMember(Value = "DCCV")]
     [IsoId("_NKkJEXsvEeSTS7uHCe8FPQ")]
@@ -57,7 +57,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Card payment with gratuity.
-    /// Encoded/decoded by serializers as "GRTT".
+    /// Encoded/decoded by serializers as &quot;GRTT&quot;.
     /// </summary>
     [EnumMember(Value = "GRTT")]
     [IsoId("_NYAvMXsvEeSTS7uHCe8FPQ")]
@@ -66,7 +66,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Instalment payment transaction performed by the acceptor or the acquirer.
-    /// Encoded/decoded by serializers as "INSA".
+    /// Encoded/decoded by serializers as &quot;INSA&quot;.
     /// </summary>
     [EnumMember(Value = "INSA")]
     [IsoId("_NtmksXsvEeSTS7uHCe8FPQ")]
@@ -75,7 +75,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Instalment payment transaction performed by the card issuer.
-    /// Encoded/decoded by serializers as "INSI".
+    /// Encoded/decoded by serializers as &quot;INSI&quot;.
     /// </summary>
     [EnumMember(Value = "INSI")]
     [IsoId("_ROSdMXsvEeSTS7uHCe8FPQ")]
@@ -84,7 +84,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Loyalty services.
-    /// Encoded/decoded by serializers as "LOYT".
+    /// Encoded/decoded by serializers as &quot;LOYT&quot;.
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_SVeHsXsvEeSTS7uHCe8FPQ")]
@@ -93,7 +93,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// No show after reservation.
-    /// Encoded/decoded by serializers as "NRES".
+    /// Encoded/decoded by serializers as &quot;NRES&quot;.
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_S7FWMXsvEeSTS7uHCe8FPQ")]
@@ -102,7 +102,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Withdrawal transaction was pre-authorised by another channel (amount could be absent).
-    /// Encoded/decoded by serializers as "AUWS".
+    /// Encoded/decoded by serializers as &quot;AUWS&quot;.
     /// </summary>
     [EnumMember(Value = "AUWS")]
     [IsoId("_Te2xoXsvEeSTS7uHCe8FPQ")]
@@ -111,7 +111,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Amount and Notes Values are pre-defined by the customer profile.
-    /// Encoded/decoded by serializers as "PFWD".
+    /// Encoded/decoded by serializers as &quot;PFWD&quot;.
     /// </summary>
     [EnumMember(Value = "PFWD")]
     [IsoId("_UwHlMXsvEeSTS7uHCe8FPQ")]
@@ -120,7 +120,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Purchase and corporate data.
-    /// Encoded/decoded by serializers as "PUCO".
+    /// Encoded/decoded by serializers as &quot;PUCO&quot;.
     /// </summary>
     [EnumMember(Value = "PUCO")]
     [IsoId("_U4bzsXsvEeSTS7uHCe8FPQ")]
@@ -129,7 +129,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Recurring payment.
-    /// Encoded/decoded by serializers as "RECP".
+    /// Encoded/decoded by serializers as &quot;RECP&quot;.
     /// </summary>
     [EnumMember(Value = "RECP")]
     [IsoId("_VxRgMXsvEeSTS7uHCe8FPQ")]
@@ -138,7 +138,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Solicited available funds.
-    /// Encoded/decoded by serializers as "SOAF".
+    /// Encoded/decoded by serializers as &quot;SOAF&quot;.
     /// </summary>
     [EnumMember(Value = "SOAF")]
     [IsoId("_V9jBoXsvEeSTS7uHCe8FPQ")]
@@ -147,7 +147,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Customer pressed a button associated with a withdrawal of unique amount and notes mix.
-    /// Encoded/decoded by serializers as "SDWD".
+    /// Encoded/decoded by serializers as &quot;SDWD&quot;.
     /// </summary>
     [EnumMember(Value = "SDWD")]
     [IsoId("_W3BAQXsvEeSTS7uHCe8FPQ")]
@@ -156,7 +156,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Voice authorisation.
-    /// Encoded/decoded by serializers as "VCAU".
+    /// Encoded/decoded by serializers as &quot;VCAU&quot;.
     /// </summary>
     [EnumMember(Value = "VCAU")]
     [IsoId("_XGMEsXsvEeSTS7uHCe8FPQ")]
@@ -165,7 +165,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Payment of goods or services which are not refundable, for instance low cost airline tickets.
-    /// Encoded/decoded by serializers as "NRFD".
+    /// Encoded/decoded by serializers as &quot;NRFD&quot;.
     /// </summary>
     [EnumMember(Value = "NRFD")]
     [IsoId("_PZpogYIOEeSvPp7yXrNQIw")]
@@ -174,7 +174,7 @@ public enum CardPaymentServiceType8Code
     
     /// <summary>
     /// Instant transaction.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_qWNyQS-JEeWfYucYWs4iQg")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party7Choice
     /// Identification of a financial institution.
     /// </summary>
     [IsoId("_PbFTENp-Ed-ak6NoX_4Aeg_2127848193")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Party7Choice
         /// Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
         /// </summary>
         [IsoId("_TFB1Rdp-Ed-ak6NoX_4Aeg_-736059286")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Institution Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstnId")]
         #endif
+        [IsoXmlTag("FinInstnId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialInstitutionIdentification7 FinancialInstitutionIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialInstitutionIdentification7 FinancialInstitutionIdentification { get; init; } 
+        public required FinancialInstitutionIdentification7 FinancialInstitutionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialInstitutionIdentification7 FinancialInstitutionIdentification { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party7Choice
         /// Identifies a specific branch of a financial institution.||Usage: This component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
         /// </summary>
         [IsoId("_TFB1Rtp-Ed-ak6NoX_4Aeg_-1911467512")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Branch Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BrnchId")]
         #endif
+        [IsoXmlTag("BrnchId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchData2? BranchIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

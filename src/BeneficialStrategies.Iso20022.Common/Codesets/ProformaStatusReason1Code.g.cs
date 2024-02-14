@@ -21,7 +21,7 @@ public enum ProformaStatusReason1Code
 {
     /// <summary>
     /// Modification to the account data is in process.
-    /// Encoded/decoded by serializers as "MODI".
+    /// Encoded/decoded by serializers as &quot;MODI&quot;.
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_kDXs0U_vEeaB8-OWTiMVrQ")]
@@ -30,7 +30,7 @@ public enum ProformaStatusReason1Code
     
     /// <summary>
     /// Account opening is waiting for rights holder information.
-    /// Encoded/decoded by serializers as "RIGH".
+    /// Encoded/decoded by serializers as &quot;RIGH&quot;.
     /// </summary>
     [EnumMember(Value = "RIGH")]
     [IsoId("_kWRasU_vEeaB8-OWTiMVrQ")]

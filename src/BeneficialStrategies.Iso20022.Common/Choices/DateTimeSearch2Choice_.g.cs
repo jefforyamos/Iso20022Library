@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateTimeSearch2Choice.EqualDateTime))]
     [KnownType(typeof(DateTimeSearch2Choice.NotEqualDateTime))]
     [IsoId("_68F8RX3sEeibM9CPDGCw0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time Search 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

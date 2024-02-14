@@ -21,7 +21,7 @@ public enum BillingCurrencyType1Code
 {
     /// <summary>
     /// Currency type used for the billing is the account currency.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_6WXNtJqlEeGSON8vddiWzQ_42035703")]
@@ -30,7 +30,7 @@ public enum BillingCurrencyType1Code
     
     /// <summary>
     /// Currency type used for the billing is the settlement currency.
-    /// Encoded/decoded by serializers as "STLM".
+    /// Encoded/decoded by serializers as &quot;STLM&quot;.
     /// </summary>
     [EnumMember(Value = "STLM")]
     [IsoId("_6WXNtZqlEeGSON8vddiWzQ_-2111377502")]
@@ -39,7 +39,7 @@ public enum BillingCurrencyType1Code
     
     /// <summary>
     /// Currency type used for the billing is the pricing currency.
-    /// Encoded/decoded by serializers as "PRCG".
+    /// Encoded/decoded by serializers as &quot;PRCG&quot;.
     /// </summary>
     [EnumMember(Value = "PRCG")]
     [IsoId("_6WXNtpqlEeGSON8vddiWzQ_-644228739")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Risk tolerance of an investor for which a financial instrument is targeted.
 /// </summary>
 [IsoId("_vPux4DcWEeidBoT_PugKiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Risk Tolerance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record RiskTolerance1
     /// Specifies the Summary Risk Indicator (SRI). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04010.
     /// </summary>
     [IsoId("_Dz71wDcXEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Tolerance PRIIPS Methodology")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskTlrncePRIIPSMthdlgy")]
     #endif
+    [IsoXmlTag("RskTlrncePRIIPSMthdlgy")]
+    [IsoSimpleType(IsoSimpleType.Max1Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1Number? RiskTolerancePRIIPSMethodology { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record RiskTolerance1
     /// Specifies the Synthetic Risk and Reward Indicator (SRRI). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04020.
     /// </summary>
     [IsoId("_PJpw0DcXEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Tolerance UCITS Methodology")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskTlrnceUCITSMthdlgy")]
     #endif
+    [IsoXmlTag("RskTlrnceUCITSMthdlgy")]
+    [IsoSimpleType(IsoSimpleType.Max1Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1Number? RiskToleranceUCITSMethodology { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record RiskTolerance1
     /// Specifies the risk tolerance for non-PRIIPs and non-UCITS instructions. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04030.
     /// </summary>
     [IsoId("_TkUlUDcXEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Tolerance Internal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskTlrnceIntl")]
     #endif
+    [IsoXmlTag("RskTlrnceIntl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskLevel1Code? RiskToleranceInternal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record RiskTolerance1
     /// Specifies the Summary Risk Indicator (SRI) for a Spanish product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04040.
     /// </summary>
     [IsoId("_cMIIoDcXEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Tolerance For Non PRIIPS And Non UCITS Spain")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskTlrnceForNonPRIIPSAndNonUCITSES")]
     #endif
+    [IsoXmlTag("RskTlrnceForNonPRIIPSAndNonUCITSES")]
+    [IsoSimpleType(IsoSimpleType.Max1Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1Number? RiskToleranceForNonPRIIPSAndNonUCITSSpain { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,11 @@ public partial record RiskTolerance1
     /// Specifies the risk tolerance for a German product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04050.
     /// </summary>
     [IsoId("_hrhwkDcXEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not For Investors With The Lowest Risk Tolerance Germany")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NotForInvstrsWthTheLwstRskTlrnceDE")]
     #endif
+    [IsoXmlTag("NotForInvstrsWthTheLwstRskTlrnceDE")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket2Code? NotForInvestorsWithTheLowestRiskToleranceGermany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,11 @@ public partial record RiskTolerance1
     /// Specifies another type of risk tolerance.
     /// </summary>
     [IsoId("_An9MgDcYEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherTargetMarketRiskTolerance1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum CancellationCompleteStatusReason1Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CANI".
+    /// Encoded/decoded by serializers as &quot;CANI&quot;.
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_Vjk7Utp-Ed-ak6NoX_4Aeg_1328122502")]
@@ -30,7 +30,7 @@ public enum CancellationCompleteStatusReason1Code
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CANS".
+    /// Encoded/decoded by serializers as &quot;CANS&quot;.
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_Vjk7U9p-Ed-ak6NoX_4Aeg_1339203856")]
@@ -39,7 +39,7 @@ public enum CancellationCompleteStatusReason1Code
     
     /// <summary>
     /// Transaction is cancelled by the agent.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_Vjk7VNp-Ed-ak6NoX_4Aeg_1351207826")]
@@ -48,7 +48,7 @@ public enum CancellationCompleteStatusReason1Code
     
     /// <summary>
     /// Other (see additional information).
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vjk7Vdp-Ed-ak6NoX_4Aeg_1579319938")]

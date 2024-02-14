@@ -21,7 +21,7 @@ public enum MaturityRedemptionTypeCode
 {
     /// <summary>
     /// Indicates that the type of redemption at maturity is final.
-    /// Encoded/decoded by serializers as "FRED".
+    /// Encoded/decoded by serializers as &quot;FRED&quot;.
     /// </summary>
     [EnumMember(Value = "FRED")]
     [IsoId("_Ygq-kNp-Ed-ak6NoX_4Aeg_-429554626")]
@@ -30,7 +30,7 @@ public enum MaturityRedemptionTypeCode
     
     /// <summary>
     /// Indicates that the type of redemption at maturity is partial without reduction.
-    /// Encoded/decoded by serializers as "PRNR".
+    /// Encoded/decoded by serializers as &quot;PRNR&quot;.
     /// </summary>
     [EnumMember(Value = "PRNR")]
     [IsoId("_Ygq-kdp-Ed-ak6NoX_4Aeg_1647932478")]
@@ -39,7 +39,7 @@ public enum MaturityRedemptionTypeCode
     
     /// <summary>
     /// Indicates that the type of redemption at maturity is partial with reduction.
-    /// Encoded/decoded by serializers as "PRWR".
+    /// Encoded/decoded by serializers as &quot;PRWR&quot;.
     /// </summary>
     [EnumMember(Value = "PRWR")]
     [IsoId("_Ygq-ktp-Ed-ak6NoX_4Aeg_707096487")]
@@ -48,7 +48,7 @@ public enum MaturityRedemptionTypeCode
     
     /// <summary>
     /// Indicates that the type of redemption at maturity is drawing at random.
-    /// Encoded/decoded by serializers as "RNDM".
+    /// Encoded/decoded by serializers as &quot;RNDM&quot;.
     /// </summary>
     [EnumMember(Value = "RNDM")]
     [IsoId("_Yg0vkNp-Ed-ak6NoX_4Aeg_-1966313104")]
@@ -57,7 +57,7 @@ public enum MaturityRedemptionTypeCode
     
     /// <summary>
     /// Indicates that the type of redemption at maturity is drawing pro-rata.
-    /// Encoded/decoded by serializers as "PRRA".
+    /// Encoded/decoded by serializers as &quot;PRRA&quot;.
     /// </summary>
     [EnumMember(Value = "PRRA")]
     [IsoId("_Yg0vkdp-Ed-ak6NoX_4Aeg_-453490734")]
@@ -66,7 +66,7 @@ public enum MaturityRedemptionTypeCode
     
     /// <summary>
     /// Indicates that the type of redemption at maturity is call.
-    /// Encoded/decoded by serializers as "CALL".
+    /// Encoded/decoded by serializers as &quot;CALL&quot;.
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_Yg0vktp-Ed-ak6NoX_4Aeg_-717923259")]
@@ -75,7 +75,7 @@ public enum MaturityRedemptionTypeCode
     
     /// <summary>
     /// Indicates that the type of redemption at maturity is put.
-    /// Encoded/decoded by serializers as "PUUT".
+    /// Encoded/decoded by serializers as &quot;PUUT&quot;.
     /// </summary>
     [EnumMember(Value = "PUUT")]
     [IsoId("_Yg0vk9p-Ed-ak6NoX_4Aeg_1234744459")]

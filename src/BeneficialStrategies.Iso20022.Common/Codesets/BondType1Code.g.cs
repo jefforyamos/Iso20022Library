@@ -21,7 +21,7 @@ public enum BondType1Code
 {
     /// <summary>
     /// Bond of type sovereign bond.
-    /// Encoded/decoded by serializers as "EUSB".
+    /// Encoded/decoded by serializers as &quot;EUSB&quot;.
     /// </summary>
     [EnumMember(Value = "EUSB")]
     [IsoId("_z95C0XwXEeWa36CuR-uOCw")]
@@ -30,7 +30,7 @@ public enum BondType1Code
     
     /// <summary>
     /// Bond of type other public bond.
-    /// Encoded/decoded by serializers as "OEPB".
+    /// Encoded/decoded by serializers as &quot;OEPB&quot;.
     /// </summary>
     [EnumMember(Value = "OEPB")]
     [IsoId("_0jKTEXwXEeWa36CuR-uOCw")]
@@ -39,7 +39,7 @@ public enum BondType1Code
     
     /// <summary>
     /// Bond of type convertible bond.
-    /// Encoded/decoded by serializers as "CVTB".
+    /// Encoded/decoded by serializers as &quot;CVTB&quot;.
     /// </summary>
     [EnumMember(Value = "CVTB")]
     [IsoId("_1H1tcXwXEeWa36CuR-uOCw")]
@@ -48,7 +48,7 @@ public enum BondType1Code
     
     /// <summary>
     /// Bond of type corporate Bond.
-    /// Encoded/decoded by serializers as "CRPB".
+    /// Encoded/decoded by serializers as &quot;CRPB&quot;.
     /// </summary>
     [EnumMember(Value = "CRPB")]
     [IsoId("_1huNEXwXEeWa36CuR-uOCw")]
@@ -57,7 +57,7 @@ public enum BondType1Code
     
     /// <summary>
     /// Bond of type covered Bond.
-    /// Encoded/decoded by serializers as "CVDB".
+    /// Encoded/decoded by serializers as &quot;CVDB&quot;.
     /// </summary>
     [EnumMember(Value = "CVDB")]
     [IsoId("_15wSkXwXEeWa36CuR-uOCw")]
@@ -66,7 +66,7 @@ public enum BondType1Code
     
     /// <summary>
     /// Other bond type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_2V1KkXwXEeWa36CuR-uOCw")]

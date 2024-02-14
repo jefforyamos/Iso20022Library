@@ -21,7 +21,7 @@ public enum TransferRejectedStatusReason1Code
 {
     /// <summary>
     /// Cash settlement date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_VjusU9p-Ed-ak6NoX_4Aeg_456943894")]
@@ -30,7 +30,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Place of settlement is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_VjusVNp-Ed-ak6NoX_4Aeg_456944361")]
@@ -39,7 +39,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Identification of the security is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_VjusVdp-Ed-ak6NoX_4Aeg_464330688")]
@@ -48,7 +48,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// There are not enough securities in the account to process the instruction.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_VjusVtp-Ed-ak6NoX_4Aeg_465253262")]
@@ -57,7 +57,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// One or several settlement parties are not recognised or are invalid.
-    /// Encoded/decoded by serializers as "ISTP".
+    /// Encoded/decoded by serializers as &quot;ISTP&quot;.
     /// </summary>
     [EnumMember(Value = "ISTP")]
     [IsoId("_VjusV9p-Ed-ak6NoX_4Aeg_464331073")]
@@ -66,7 +66,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Certificate number is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "ICTN".
+    /// Encoded/decoded by serializers as &quot;ICTN&quot;.
     /// </summary>
     [EnumMember(Value = "ICTN")]
     [IsoId("_VjusWNp-Ed-ak6NoX_4Aeg_464331540")]
@@ -75,7 +75,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Investment account identification is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_VjusWdp-Ed-ak6NoX_4Aeg_464331952")]
@@ -84,7 +84,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Acquisition date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IAQD".
+    /// Encoded/decoded by serializers as &quot;IAQD&quot;.
     /// </summary>
     [EnumMember(Value = "IAQD")]
     [IsoId("_Vj32QNp-Ed-ak6NoX_4Aeg_464332479")]
@@ -93,7 +93,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Investment account is blocked due to a corporate action.
-    /// Encoded/decoded by serializers as "BLCA".
+    /// Encoded/decoded by serializers as &quot;BLCA&quot;.
     /// </summary>
     [EnumMember(Value = "BLCA")]
     [IsoId("_Vj32Qdp-Ed-ak6NoX_4Aeg_465252718")]
@@ -102,7 +102,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
-    /// Encoded/decoded by serializers as "DOCC".
+    /// Encoded/decoded by serializers as &quot;DOCC&quot;.
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_Vj32Qtp-Ed-ak6NoX_4Aeg_465253150")]
@@ -111,7 +111,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Identification of the security and the security name are not the same.
-    /// Encoded/decoded by serializers as "IDNA".
+    /// Encoded/decoded by serializers as &quot;IDNA&quot;.
     /// </summary>
     [EnumMember(Value = "IDNA")]
     [IsoId("_Vj32Q9p-Ed-ak6NoX_4Aeg_465253768")]
@@ -120,7 +120,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Order contains physical delivery details but the fund can not be physically delivered.
-    /// Encoded/decoded by serializers as "DLVY".
+    /// Encoded/decoded by serializers as &quot;DLVY&quot;.
     /// </summary>
     [EnumMember(Value = "DLVY")]
     [IsoId("_Vj32RNp-Ed-ak6NoX_4Aeg_465253803")]
@@ -129,7 +129,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Legally impossible to cancel.
-    /// Encoded/decoded by serializers as "LEGL".
+    /// Encoded/decoded by serializers as &quot;LEGL&quot;.
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_Vj32Rdp-Ed-ak6NoX_4Aeg_466176266")]
@@ -138,7 +138,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NSLA".
+    /// Encoded/decoded by serializers as &quot;NSLA&quot;.
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_Vj32Rtp-Ed-ak6NoX_4Aeg_1361236867")]
@@ -147,7 +147,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Another reason for the status rejected.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vj32R9p-Ed-ak6NoX_4Aeg_4303597")]
@@ -156,7 +156,7 @@ public enum TransferRejectedStatusReason1Code
     
     /// <summary>
     /// Financial instrument quantity is invalid.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Vj32SNp-Ed-ak6NoX_4Aeg_-902559429")]

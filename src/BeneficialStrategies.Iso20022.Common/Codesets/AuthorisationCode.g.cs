@@ -21,7 +21,7 @@ public enum AuthorisationCode
 {
     /// <summary>
     /// Indicates a file has been pre authorised or approved within the originating customer environment and no further approval is required.
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_bjlV8dp-Ed-ak6NoX_4Aeg_-1817309753")]
@@ -30,7 +30,7 @@ public enum AuthorisationCode
     
     /// <summary>
     /// Indicates that a file requires additional file level approval, with the ability to view both the payment information block and supporting customer credit transaction detail.
-    /// Encoded/decoded by serializers as "FDET".
+    /// Encoded/decoded by serializers as &quot;FDET&quot;.
     /// </summary>
     [EnumMember(Value = "FDET")]
     [IsoId("_bjlV8tp-Ed-ak6NoX_4Aeg_-1056326828")]
@@ -39,7 +39,7 @@ public enum AuthorisationCode
     
     /// <summary>
     /// Indicates that a file requires additional file level approval, with the ability to view only the payment information block level information.
-    /// Encoded/decoded by serializers as "FSUM".
+    /// Encoded/decoded by serializers as &quot;FSUM&quot;.
     /// </summary>
     [EnumMember(Value = "FSUM")]
     [IsoId("_bjlV89p-Ed-ak6NoX_4Aeg_-899328936")]
@@ -48,7 +48,7 @@ public enum AuthorisationCode
     
     /// <summary>
     /// Indicates that a file requires all customer transactions to be authorised or approved.
-    /// Encoded/decoded by serializers as "ILEV".
+    /// Encoded/decoded by serializers as &quot;ILEV&quot;.
     /// </summary>
     [EnumMember(Value = "ILEV")]
     [IsoId("_bjlV9Np-Ed-ak6NoX_4Aeg_-584409191")]

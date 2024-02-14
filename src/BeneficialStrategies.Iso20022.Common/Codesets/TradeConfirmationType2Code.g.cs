@@ -21,7 +21,7 @@ public enum TradeConfirmationType2Code
 {
     /// <summary>
     /// Non-confirmed.
-    /// Encoded/decoded by serializers as "NCNF".
+    /// Encoded/decoded by serializers as &quot;NCNF&quot;.
     /// </summary>
     [EnumMember(Value = "NCNF")]
     [IsoId("_HQSTQQ28EeWmAKKPnqYEVQ")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
     /// Underlying registered contract is a commercial trade.
     /// </summary>
     [IsoId("_JgnYg249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -60,12 +58,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Contract document referenced from this trade agreement.
         /// </summary>
         [IsoId("_KAgZgW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Contract Document Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrctDocId")]
         #endif
+        [IsoXmlTag("CtrctDocId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DocumentIdentification22? ContractDocumentIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -78,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Amount of the trade contract.
         /// </summary>
         [IsoId("_KAgZg249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else
@@ -98,12 +95,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Party that is specified as the buyer for this trade agreement.
         /// </summary>
         [IsoId("_KAgZhW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Buyer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Buyr")]
         #endif
+        [IsoXmlTag("Buyr")]
         public TradeParty5? Buyer { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _KAgZhW49EeiU9cctagi5ow
         
@@ -111,12 +107,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Party that is specified as the seller for this trade agreement.
         /// </summary>
         [IsoId("_KAgZh249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Seller")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sellr")]
         #endif
+        [IsoXmlTag("Sellr")]
         public TradeParty5? Seller { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _KAgZh249EeiU9cctagi5ow
         
@@ -124,16 +119,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Planned final payment date at the time of issuance.
         /// </summary>
         [IsoId("_KAgZiW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Maturity Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MtrtyDt")]
         #endif
+        [IsoXmlTag("MtrtyDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate MaturityDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly MaturityDate { get; init; } 
+        public required System.DateOnly MaturityDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly MaturityDate { get; init; } 
         #else
@@ -144,16 +139,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Indicates whether the contract duration is extended or not.
         /// </summary>
         [IsoId("_KAgZi249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Prolongation Flag")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrlngtnFlg")]
         #endif
+        [IsoXmlTag("PrlngtnFlg")]
+        [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoTrueFalseIndicator ProlongationFlag { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ProlongationFlag { get; init; } 
+        public required System.String ProlongationFlag { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ProlongationFlag { get; init; } 
         #else
@@ -164,16 +159,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Start date of the trade contract.
         /// </summary>
         [IsoId("_KAgZjW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Start Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StartDt")]
         #endif
+        [IsoXmlTag("StartDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate StartDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly StartDate { get; init; } 
+        public required System.DateOnly StartDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly StartDate { get; init; } 
         #else
@@ -184,16 +179,15 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Currency in which the trade is being settled.
         /// </summary>
         [IsoId("_KAgZj249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settlement Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttlmCcy")]
         #endif
+        [IsoXmlTag("SttlmCcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ActiveCurrencyCode SettlementCurrency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string SettlementCurrency { get; init; } 
+        public required string SettlementCurrency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string SettlementCurrency { get; init; } 
         #else
@@ -204,12 +198,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Provides details on the currency exchange rate and contract.
         /// </summary>
         [IsoId("_KAgZkW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Exchange Rate Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="XchgRateInf")]
         #endif
+        [IsoXmlTag("XchgRateInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ExchangeRate1? ExchangeRateInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,12 +215,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Schedule of the payments defined for the trade contract.
         /// </summary>
         [IsoId("_KAgZk249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment Schedule")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtSchdl")]
         #endif
+        [IsoXmlTag("PmtSchdl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InterestPaymentDateRange1? PaymentSchedule { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,12 +232,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Schedule of the shipment.
         /// </summary>
         [IsoId("_KAgZlW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Shipment Schedule")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ShipmntSchdl")]
         #endif
+        [IsoXmlTag("ShipmntSchdl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ShipmentSchedule2Choice_? ShipmentSchedule { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -258,12 +249,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Documents provided as attachments to the trade contract.
         /// </summary>
         [IsoId("_KAgZl249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Attachment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Attchmnt")]
         #endif
+        [IsoXmlTag("Attchmnt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DocumentGeneralInformation3? Attachment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

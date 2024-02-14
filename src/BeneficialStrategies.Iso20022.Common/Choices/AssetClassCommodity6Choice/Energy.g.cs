@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity6Choice
     /// Energy commodities.
     /// </summary>
     [IsoId("_1bgUExZXEe2QNcZTDeoKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Energy")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

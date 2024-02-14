@@ -21,7 +21,7 @@ public enum IssuerTaxabilityV2Code
 {
     /// <summary>
     /// The relevant proceeds are taxable.
-    /// Encoded/decoded by serializers as "TXBL".
+    /// Encoded/decoded by serializers as &quot;TXBL&quot;.
     /// </summary>
     [EnumMember(Value = "TXBL")]
     [IsoId("_gBpAo4lyEeavwKddCbm3hg")]

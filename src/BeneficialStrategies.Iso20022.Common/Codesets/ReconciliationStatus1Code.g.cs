@@ -21,7 +21,7 @@ public enum ReconciliationStatus1Code
 {
     /// <summary>
     /// Indicator of reconciliation of derivatives for which all the reconcilable fields are not within the allowed tolerances.
-    /// Encoded/decoded by serializers as "NREC".
+    /// Encoded/decoded by serializers as &quot;NREC&quot;.
     /// </summary>
     [EnumMember(Value = "NREC")]
     [IsoId("_oQJDcZSZEeyTze01ewG2Qw")]
@@ -30,7 +30,7 @@ public enum ReconciliationStatus1Code
     
     /// <summary>
     /// Indicator of reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
-    /// Encoded/decoded by serializers as "RECO".
+    /// Encoded/decoded by serializers as &quot;RECO&quot;.
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_oU6OsZSZEeyTze01ewG2Qw")]

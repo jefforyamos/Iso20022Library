@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GDPRDataConsent1Choice.Code))]
     [KnownType(typeof(GDPRDataConsent1Choice.Proprietary))]
     [IsoId("_His4MJTTEemC09f0MxYkRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("GDPR Data Consent 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

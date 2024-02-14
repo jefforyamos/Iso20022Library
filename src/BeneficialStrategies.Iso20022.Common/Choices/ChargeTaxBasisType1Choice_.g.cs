@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChargeTaxBasisType1Choice.Code))]
     [KnownType(typeof(ChargeTaxBasisType1Choice.Proprietary))]
     [IsoId("_AdIdYtokEeC60axPepSq7g_397232246")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Tax Basis Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

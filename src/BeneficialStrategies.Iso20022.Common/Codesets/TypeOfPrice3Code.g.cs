@@ -21,7 +21,7 @@ public enum TypeOfPrice3Code
 {
     /// <summary>
     /// Price is an average execution price.
-    /// Encoded/decoded by serializers as "AVER".
+    /// Encoded/decoded by serializers as &quot;AVER&quot;.
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("__z225NojEeC60axPepSq7g_-2134523685")]
@@ -30,7 +30,7 @@ public enum TypeOfPrice3Code
     
     /// <summary>
     /// Price is an override of the average price.
-    /// Encoded/decoded by serializers as "AVOV".
+    /// Encoded/decoded by serializers as &quot;AVOV&quot;.
     /// </summary>
     [EnumMember(Value = "AVOV")]
     [IsoId("__z225dojEeC60axPepSq7g_-2145622462")]
@@ -39,7 +39,7 @@ public enum TypeOfPrice3Code
     
     /// <summary>
     /// Price is a gross execution price. The price is an all inclusive price, ie, including all charges, fees, and taxes.
-    /// Encoded/decoded by serializers as "GREX".
+    /// Encoded/decoded by serializers as &quot;GREX&quot;.
     /// </summary>
     [EnumMember(Value = "GREX")]
     [IsoId("__0An4NojEeC60axPepSq7g_-1515416890")]
@@ -47,8 +47,8 @@ public enum TypeOfPrice3Code
     GrossOfAll = TypeOfPriceCode.GrossOfAll, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Price is a net price, ie, net only of local broker's commission, local fees and local taxes.
-    /// Encoded/decoded by serializers as "NET2".
+    /// Price is a net price, ie, net only of local broker&apos;s commission, local fees and local taxes.
+    /// Encoded/decoded by serializers as &quot;NET2&quot;.
     /// </summary>
     [EnumMember(Value = "NET2")]
     [IsoId("__0An4dojEeC60axPepSq7g_-1471209616")]
@@ -57,7 +57,7 @@ public enum TypeOfPrice3Code
     
     /// <summary>
     /// Price is a net price, ie, net of all charges, fees and taxes.
-    /// Encoded/decoded by serializers as "NET1".
+    /// Encoded/decoded by serializers as &quot;NET1&quot;.
     /// </summary>
     [EnumMember(Value = "NET1")]
     [IsoId("__0An4tojEeC60axPepSq7g_1799597409")]
@@ -66,7 +66,7 @@ public enum TypeOfPrice3Code
     
     /// <summary>
     /// Price is equal to the nominal or face value of the instrument.
-    /// Encoded/decoded by serializers as "PARV".
+    /// Encoded/decoded by serializers as &quot;PARV&quot;.
     /// </summary>
     [EnumMember(Value = "PARV")]
     [IsoId("__0An49ojEeC60axPepSq7g_-2066929852")]
@@ -75,7 +75,7 @@ public enum TypeOfPrice3Code
     
     /// <summary>
     /// Price is a rounded average price.
-    /// Encoded/decoded by serializers as "RDAV".
+    /// Encoded/decoded by serializers as &quot;RDAV&quot;.
     /// </summary>
     [EnumMember(Value = "RDAV")]
     [IsoId("__0An5NojEeC60axPepSq7g_749789904")]

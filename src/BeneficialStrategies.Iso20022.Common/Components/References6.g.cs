@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements for the identification of the message and related references.
 /// </summary>
 [IsoId("_QoQ34Np-Ed-ak6NoX_4Aeg_126946620")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("References")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record References6
     /// Identify the type of rejected request.
     /// </summary>
     [IsoId("_QoQ34dp-Ed-ak6NoX_4Aeg_452951458")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdReqTp")]
     #endif
+    [IsoXmlTag("RjctdReqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UseCases1Code RejectedRequestType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UseCases1Code RejectedRequestType { get; init; } 
+    public required UseCases1Code RejectedRequestType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UseCases1Code RejectedRequestType { get; init; } 
     #else
@@ -74,15 +71,13 @@ public partial record References6
     /// Reason of the message rejection.
     /// </summary>
     [IsoId("_QoQ34tp-Ed-ak6NoX_4Aeg_1011680219")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RjctnRsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     public System.String? RejectionReason { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _QoQ34tp-Ed-ak6NoX_4Aeg_1011680219
     
@@ -90,16 +85,15 @@ public partial record References6
     /// Identification of the rejected request message.
     /// </summary>
     [IsoId("_QoQ349p-Ed-ak6NoX_4Aeg_1990600533")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdReqId")]
     #endif
+    [IsoXmlTag("RjctdReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RejectedRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RejectedRequestIdentification { get; init; } 
+    public required MessageIdentification1 RejectedRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RejectedRequestIdentification { get; init; } 
     #else
@@ -110,16 +104,15 @@ public partial record References6
     /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
     /// </summary>
     [IsoId("_QoQ35Np-Ed-ak6NoX_4Aeg_2049703827")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -130,16 +123,15 @@ public partial record References6
     /// Identifies a process by a unique identifier and the date and time when the first message belonging to the process was created by the sender. The process identification remains the same in all messages belonging to the same process, from the initial request message to the final account report closing the process.
     /// </summary>
     [IsoId("_QoQ35dp-Ed-ak6NoX_4Aeg_-1977439900")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Process Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcId")]
     #endif
+    [IsoXmlTag("PrcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ProcessIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 ProcessIdentification { get; init; } 
+    public required MessageIdentification1 ProcessIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 ProcessIdentification { get; init; } 
     #else
@@ -150,15 +142,13 @@ public partial record References6
     /// File name of a document logically related to the request.
     /// </summary>
     [IsoId("_QoQ35tp-Ed-ak6NoX_4Aeg_-564165494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attached Document Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchdDocNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AttchdDocNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AttachedDocumentName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters of the asymmetric encryption algorithm.
 /// </summary>
 [IsoId("_pOdcgaRZEeeWXKXf3KjtmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Parameter13
     /// Identification of the digest algorithm.
     /// </summary>
     [IsoId("_pZxUo6RZEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm20Code? DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Parameter13
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
     [IsoId("_pZxUpaRZEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mask Generator Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MskGnrtrAlgo")]
     #endif
+    [IsoXmlTag("MskGnrtrAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AlgorithmIdentification26? MaskGeneratorAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

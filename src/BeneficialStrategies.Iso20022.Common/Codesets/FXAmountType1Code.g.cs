@@ -21,7 +21,7 @@ public enum FXAmountType1Code
 {
     /// <summary>
     /// Zwischengewinn.
-    /// Encoded/decoded by serializers as "ZWIS".
+    /// Encoded/decoded by serializers as &quot;ZWIS&quot;.
     /// </summary>
     [EnumMember(Value = "ZWIS")]
     [IsoId("_FIOukQNzEe2-vqzwMUAewg")]
@@ -30,7 +30,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_FXHfIQNzEe2-vqzwMUAewg")]
@@ -39,7 +39,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax is a value added tax.
-    /// Encoded/decoded by serializers as "VATA".
+    /// Encoded/decoded by serializers as &quot;VATA&quot;.
     /// </summary>
     [EnumMember(Value = "VATA")]
     [IsoId("_Fm6OoQNzEe2-vqzwMUAewg")]
@@ -48,7 +48,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax levied on a transfer.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_FpyjgQNzEe2-vqzwMUAewg")]
@@ -57,7 +57,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax levied on a transaction.
-    /// Encoded/decoded by serializers as "TRAX".
+    /// Encoded/decoded by serializers as &quot;TRAX&quot;.
     /// </summary>
     [EnumMember(Value = "TRAX")]
     [IsoId("_FsstkQNzEe2-vqzwMUAewg")]
@@ -66,7 +66,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax collected by a stock exchange.
-    /// Encoded/decoded by serializers as "STEX".
+    /// Encoded/decoded by serializers as &quot;STEX&quot;.
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_FyksEQNzEe2-vqzwMUAewg")]
@@ -75,7 +75,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "STAM".
+    /// Encoded/decoded by serializers as &quot;STAM&quot;.
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_F4efwQNzEe2-vqzwMUAewg")]
@@ -84,7 +84,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Another type of commission or fees.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_GDyX4QNzEe2-vqzwMUAewg")]
@@ -93,7 +93,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax is a country, national, or federal tax that is usually charged by the custodian.
-    /// Encoded/decoded by serializers as "COUN".
+    /// Encoded/decoded by serializers as &quot;COUN&quot;.
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_GJdiEQNzEe2-vqzwMUAewg")]
@@ -102,7 +102,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax that is charged by a local settlement system or local jurisdiction.
-    /// Encoded/decoded by serializers as "LOCL".
+    /// Encoded/decoded by serializers as &quot;LOCL&quot;.
     /// </summary>
     [EnumMember(Value = "LOCL")]
     [IsoId("_GPIsQQNzEe2-vqzwMUAewg")]
@@ -110,8 +110,8 @@ public enum FXAmountType1Code
     LocalTax = FXAmountTypeCode.LocalTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Local broker's commission amount.
-    /// Encoded/decoded by serializers as "LOCO".
+    /// Local broker&apos;s commission amount.
+    /// Encoded/decoded by serializers as &quot;LOCO&quot;.
     /// </summary>
     [EnumMember(Value = "LOCO")]
     [IsoId("_GSF5oQNzEe2-vqzwMUAewg")]
@@ -120,7 +120,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Local tax (Ertrag Besitzanteilig) yield liable for interest down payment tax.
-    /// Encoded/decoded by serializers as "LYDT".
+    /// Encoded/decoded by serializers as &quot;LYDT&quot;.
     /// </summary>
     [EnumMember(Value = "LYDT")]
     [IsoId("_GdpCUQNzEe2-vqzwMUAewg")]
@@ -129,7 +129,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Local tax (Zinstopf) offset interest per unit against tax exempt amount (variation to offset interest per unit in relation to tax exempt amount).
-    /// Encoded/decoded by serializers as "LOTE".
+    /// Encoded/decoded by serializers as &quot;LOTE&quot;.
     /// </summary>
     [EnumMember(Value = "LOTE")]
     [IsoId("_GgilUQNzEe2-vqzwMUAewg")]
@@ -138,7 +138,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Local tax (ZAS pflichtige Zinsen) - interest liable for interest down payment tax (proportion of gross interest per unit/interim profits that is not covered by the credit in the interest pool).
-    /// Encoded/decoded by serializers as "LIDT".
+    /// Encoded/decoded by serializers as &quot;LIDT&quot;.
     /// </summary>
     [EnumMember(Value = "LIDT")]
     [IsoId("_GjzUsQNzEe2-vqzwMUAewg")]
@@ -146,8 +146,8 @@ public enum FXAmountType1Code
     GermanLocalTax2 = FXAmountTypeCode.GermanLocalTax2, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Executing broker's commission amount.
-    /// Encoded/decoded by serializers as "EXEC".
+    /// Executing broker&apos;s commission amount.
+    /// Encoded/decoded by serializers as &quot;EXEC&quot;.
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_GmsQoQNzEe2-vqzwMUAewg")]
@@ -156,7 +156,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTR".
+    /// Encoded/decoded by serializers as &quot;EUTR&quot;.
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_GpqFEQNzEe2-vqzwMUAewg")]
@@ -164,8 +164,8 @@ public enum FXAmountType1Code
     EUTaxRetention = FXAmountTypeCode.EUTaxRetention, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
-    /// Encoded/decoded by serializers as "EQUL".
+    /// Investor&apos;s subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
+    /// Encoded/decoded by serializers as &quot;EQUL&quot;.
     /// </summary>
     [EnumMember(Value = "EQUL")]
     [IsoId("_GsmEUQNzEe2-vqzwMUAewg")]
@@ -174,7 +174,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
-    /// Encoded/decoded by serializers as "COAX".
+    /// Encoded/decoded by serializers as &quot;COAX&quot;.
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_GzWMkQNzEe2-vqzwMUAewg")]
@@ -183,7 +183,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "AKTI".
+    /// Encoded/decoded by serializers as &quot;AKTI&quot;.
     /// </summary>
     [EnumMember(Value = "AKTI")]
     [IsoId("_HfrHEQNzEe2-vqzwMUAewg")]
@@ -192,7 +192,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Early redemption fees.
-    /// Encoded/decoded by serializers as "ERFE".
+    /// Encoded/decoded by serializers as &quot;ERFE&quot;.
     /// </summary>
     [EnumMember(Value = "ERFE")]
     [IsoId("_BC4SoQRLEe29PP19jELcvQ")]
@@ -201,7 +201,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Entrance fees amount
-    /// Encoded/decoded by serializers as "ENTF".
+    /// Encoded/decoded by serializers as &quot;ENTF&quot;.
     /// </summary>
     [EnumMember(Value = "ENTF")]
     [IsoId("_BJOyQQRLEe29PP19jELcvQ")]
@@ -210,7 +210,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Margin amount related commissions and fees.
-    /// Encoded/decoded by serializers as "MARG".
+    /// Encoded/decoded by serializers as &quot;MARG&quot;.
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_BbEJIQRLEe29PP19jELcvQ")]
@@ -219,7 +219,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Fee charged for matching and/or confirmation.
-    /// Encoded/decoded by serializers as "MACO".
+    /// Encoded/decoded by serializers as &quot;MACO&quot;.
     /// </summary>
     [EnumMember(Value = "MACO")]
     [IsoId("_BgcYYQRLEe29PP19jELcvQ")]
@@ -228,7 +228,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount representing the difference between the cost and the current price of a security. In the context of securities settlement, it is the amount paid or received when the instructions are netted or paired off.
-    /// Encoded/decoded by serializers as "ANTO".
+    /// Encoded/decoded by serializers as &quot;ANTO&quot;.
     /// </summary>
     [EnumMember(Value = "ANTO")]
     [IsoId("_BxPNcQRLEe29PP19jELcvQ")]
@@ -237,7 +237,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Rebate or bonification fees or commission amount.
-    /// Encoded/decoded by serializers as "CREB".
+    /// Encoded/decoded by serializers as &quot;CREB&quot;.
     /// </summary>
     [EnumMember(Value = "CREB")]
     [IsoId("_B68jEQRLEe29PP19jELcvQ")]
@@ -246,7 +246,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Fees, drawdown, or other reduction from or in addition to the deal price.
-    /// Encoded/decoded by serializers as "SPCN".
+    /// Encoded/decoded by serializers as &quot;SPCN&quot;.
     /// </summary>
     [EnumMember(Value = "SPCN")]
     [IsoId("_CGdPgQRLEe29PP19jELcvQ")]
@@ -255,7 +255,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Subscription interest.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_CQSg8QRLEe29PP19jELcvQ")]
@@ -264,7 +264,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Total amount of all commissions or fees
-    /// Encoded/decoded by serializers as "TOTL".
+    /// Encoded/decoded by serializers as &quot;TOTL&quot;.
     /// </summary>
     [EnumMember(Value = "TOTL")]
     [IsoId("_CV2WYQRLEe29PP19jELcvQ")]
@@ -273,7 +273,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Trade deal amount fees.
-    /// Encoded/decoded by serializers as "DEAL".
+    /// Encoded/decoded by serializers as &quot;DEAL&quot;.
     /// </summary>
     [EnumMember(Value = "DEAL")]
     [IsoId("_CbcBAQRLEe29PP19jELcvQ")]
@@ -282,7 +282,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount of interest earned on a debt, such as a bond, but not yet collected.
-    /// Encoded/decoded by serializers as "ACRU".
+    /// Encoded/decoded by serializers as &quot;ACRU&quot;.
     /// </summary>
     [EnumMember(Value = "ACRU")]
     [IsoId("_DIgiYQRLEe29PP19jELcvQ")]
@@ -291,7 +291,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount paid by investors when selling mutual fund shares.
-    /// Encoded/decoded by serializers as "BAKL".
+    /// Encoded/decoded by serializers as &quot;BAKL&quot;.
     /// </summary>
     [EnumMember(Value = "BAKL")]
     [IsoId("_DcWEYQRLEe29PP19jELcvQ")]
@@ -300,7 +300,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount of money that cannot be categorised by another qualifier.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_DjywMQRLEe29PP19jELcvQ")]
@@ -309,7 +309,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Charge of the correspondent bank for transferring money.
-    /// Encoded/decoded by serializers as "CBCH".
+    /// Encoded/decoded by serializers as &quot;CBCH&quot;.
     /// </summary>
     [EnumMember(Value = "CBCH")]
     [IsoId("_Dox94QRLEe29PP19jELcvQ")]
@@ -318,7 +318,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Local tax (ZAS Anrechnungsbetrag) subject to interest down payment tax (proportion of interest liable for interest down payment tax/interim profit that is not covered by the tax exempt amount).
-    /// Encoded/decoded by serializers as "LADT".
+    /// Encoded/decoded by serializers as &quot;LADT&quot;.
     /// </summary>
     [EnumMember(Value = "LADT")]
     [IsoId("_5X7cUQROEe29PP19jELcvQ")]
@@ -327,7 +327,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Aggregate amount of discount.
-    /// Encoded/decoded by serializers as "DSCA".
+    /// Encoded/decoded by serializers as &quot;DSCA&quot;.
     /// </summary>
     [EnumMember(Value = "DSCA")]
     [IsoId("_5w25sQROEe29PP19jELcvQ")]
@@ -336,7 +336,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount due and payable to a hedge counterparty under a hedge agreement during the relevant period.
-    /// Encoded/decoded by serializers as "HDGE".
+    /// Encoded/decoded by serializers as &quot;HDGE&quot;.
     /// </summary>
     [EnumMember(Value = "HDGE")]
     [IsoId("_6mPCgQROEe29PP19jELcvQ")]
@@ -345,7 +345,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount of money defined as a discount on a new issue or on a tranche of an existing issue.
-    /// Encoded/decoded by serializers as "ISDI".
+    /// Encoded/decoded by serializers as &quot;ISDI&quot;.
     /// </summary>
     [EnumMember(Value = "ISDI")]
     [IsoId("_6rYBMQROEe29PP19jELcvQ")]
@@ -354,7 +354,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Tax levied on a payment.
-    /// Encoded/decoded by serializers as "LEVY".
+    /// Encoded/decoded by serializers as &quot;LEVY&quot;.
     /// </summary>
     [EnumMember(Value = "LEVY")]
     [IsoId("_6_-_QQROEe29PP19jELcvQ")]
@@ -363,7 +363,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Posting/settlement amount in its original currency when conversion from/into another currency has occurred.
-    /// Encoded/decoded by serializers as "OCMT".
+    /// Encoded/decoded by serializers as &quot;OCMT&quot;.
     /// </summary>
     [EnumMember(Value = "OCMT")]
     [IsoId("_Jx-iAQRREe29PP19jELcvQ")]
@@ -372,7 +372,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Difference between the amount of money of the first leg and the amount of the second leg of the transaction.
-    /// Encoded/decoded by serializers as "PRMA".
+    /// Encoded/decoded by serializers as &quot;PRMA&quot;.
     /// </summary>
     [EnumMember(Value = "PRMA")]
     [IsoId("_KrKMwQRREe29PP19jELcvQ")]
@@ -381,7 +381,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount is an on top margin.
-    /// Encoded/decoded by serializers as "OTMG".
+    /// Encoded/decoded by serializers as &quot;OTMG&quot;.
     /// </summary>
     [EnumMember(Value = "OTMG")]
     [IsoId("_KzZiwQRREe29PP19jELcvQ")]
@@ -390,7 +390,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount of money charged by a regulatory authority, for example, Securities and Exchange fees.
-    /// Encoded/decoded by serializers as "REGF".
+    /// Encoded/decoded by serializers as &quot;REGF&quot;.
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_K76lkQRREe29PP19jELcvQ")]
@@ -399,7 +399,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount of any other remuneration received or to be received by the broker in connection with the transaction.
-    /// Encoded/decoded by serializers as "REMU".
+    /// Encoded/decoded by serializers as &quot;REMU&quot;.
     /// </summary>
     [EnumMember(Value = "REMU")]
     [IsoId("_LAPE4QRREe29PP19jELcvQ")]
@@ -408,7 +408,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Counter value of a foreign exchange conversion.
-    /// Encoded/decoded by serializers as "RESU".
+    /// Encoded/decoded by serializers as &quot;RESU&quot;.
     /// </summary>
     [EnumMember(Value = "RESU")]
     [IsoId("_LHoGUQRREe29PP19jELcvQ")]
@@ -416,8 +416,8 @@ public enum FXAmountType1Code
     ResultingAmount = FXAmountTypeCode.ResultingAmount, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Financial metric used to assess a firm's financial health by revealing the proportion of money left over from revenues after accounting for the cost of goods sold. Gross profit margin serves as the source for paying additional expenses and future savings.
-    /// Encoded/decoded by serializers as "SAMG".
+    /// Financial metric used to assess a firm&apos;s financial health by revealing the proportion of money left over from revenues after accounting for the cost of goods sold. Gross profit margin serves as the source for paying additional expenses and future savings.
+    /// Encoded/decoded by serializers as &quot;SAMG&quot;.
     /// </summary>
     [EnumMember(Value = "SAMG")]
     [IsoId("_LMcU4QRREe29PP19jELcvQ")]
@@ -426,7 +426,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount of all settled transactions.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_LTZRcQRREe29PP19jELcvQ")]
@@ -435,7 +435,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_LwDYQQRREe29PP19jELcvQ")]
@@ -445,7 +445,7 @@ public enum FXAmountType1Code
     /// <summary>
     /// Amount of unpaid interest (on bonds which have defaulted and have subsequently 
     /// restructured), which is capitalized and added to the original principal amount of the bond.
-    /// Encoded/decoded by serializers as "ACCA".
+    /// Encoded/decoded by serializers as &quot;ACCA&quot;.
     /// </summary>
     [EnumMember(Value = "ACCA")]
     [IsoId("_Uxn0gQRTEe29PP19jELcvQ")]
@@ -454,7 +454,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Difference between the deal price and another reference price.
-    /// Encoded/decoded by serializers as "PRDF".
+    /// Encoded/decoded by serializers as &quot;PRDF&quot;.
     /// </summary>
     [EnumMember(Value = "PRDF")]
     [IsoId("_VEj-oQRTEe29PP19jELcvQ")]
@@ -463,7 +463,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount of the expected refund.
-    /// Encoded/decoded by serializers as "REFD".
+    /// Encoded/decoded by serializers as &quot;REFD&quot;.
     /// </summary>
     [EnumMember(Value = "REFD")]
     [IsoId("_VYF-oQRTEe29PP19jELcvQ")]
@@ -472,7 +472,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Amount retained by a fund and paid out later at a time decided by the fund.
-    /// Encoded/decoded by serializers as "PRWI".
+    /// Encoded/decoded by serializers as &quot;PRWI&quot;.
     /// </summary>
     [EnumMember(Value = "PRWI")]
     [IsoId("_VyBhkQRTEe29PP19jELcvQ")]
@@ -481,7 +481,7 @@ public enum FXAmountType1Code
     
     /// <summary>
     /// Charge or commission paid by the investor to a distributor/intermediary or other service provider for the provision of financial research.
-    /// Encoded/decoded by serializers as "RSCH".
+    /// Encoded/decoded by serializers as &quot;RSCH&quot;.
     /// </summary>
     [EnumMember(Value = "RSCH")]
     [IsoId("_V8ByIQRTEe29PP19jELcvQ")]

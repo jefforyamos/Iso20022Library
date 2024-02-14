@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdditionalAmount1Choice.AdditionalCashIn))]
     [KnownType(typeof(AdditionalAmount1Choice.ResultingCashOut))]
     [IsoId("_hlWuoEG_EeaNEqIb_fgRZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Amount 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

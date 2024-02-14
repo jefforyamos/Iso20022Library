@@ -21,7 +21,7 @@ public enum DisplayMethodCode
 {
     /// <summary>
     /// Indicates that original quantity must be used.
-    /// Encoded/decoded by serializers as "INIT".
+    /// Encoded/decoded by serializers as &quot;INIT&quot;.
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_awUtA9p-Ed-ak6NoX_4Aeg_751651641")]
@@ -30,7 +30,7 @@ public enum DisplayMethodCode
     
     /// <summary>
     /// Indicates that Quantity must be refreshed.
-    /// Encoded/decoded by serializers as "NEW1".
+    /// Encoded/decoded by serializers as &quot;NEW1&quot;.
     /// </summary>
     [EnumMember(Value = "NEW1")]
     [IsoId("_awUtBNp-Ed-ak6NoX_4Aeg_1093354350")]
@@ -39,7 +39,7 @@ public enum DisplayMethodCode
     
     /// <summary>
     /// Randomize value.
-    /// Encoded/decoded by serializers as "RAND".
+    /// Encoded/decoded by serializers as &quot;RAND&quot;.
     /// </summary>
     [EnumMember(Value = "RAND")]
     [IsoId("_awUtBdp-Ed-ak6NoX_4Aeg_1226340443")]

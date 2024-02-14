@@ -21,7 +21,7 @@ public enum QRCodeErrorCorrectionCode
 {
     /// <summary>
     /// Reed-Solomon error correction  7%
-    /// Encoded/decoded by serializers as "L007".
+    /// Encoded/decoded by serializers as &quot;L007&quot;.
     /// </summary>
     [EnumMember(Value = "L007")]
     [IsoId("_-CY0YNuaEeiB5uLfkg9ZJA")]
@@ -30,7 +30,7 @@ public enum QRCodeErrorCorrectionCode
     
     /// <summary>
     /// Reed-Solomon error correction 15%
-    /// Encoded/decoded by serializers as "M015".
+    /// Encoded/decoded by serializers as &quot;M015&quot;.
     /// </summary>
     [EnumMember(Value = "M015")]
     [IsoId("_C9HB8NubEeiB5uLfkg9ZJA")]
@@ -39,7 +39,7 @@ public enum QRCodeErrorCorrectionCode
     
     /// <summary>
     /// Reed-Solomon error correction 25%
-    /// Encoded/decoded by serializers as "Q025".
+    /// Encoded/decoded by serializers as &quot;Q025&quot;.
     /// </summary>
     [EnumMember(Value = "Q025")]
     [IsoId("_F43BYNubEeiB5uLfkg9ZJA")]
@@ -48,7 +48,7 @@ public enum QRCodeErrorCorrectionCode
     
     /// <summary>
     /// Reed-Solomon error correction 30%
-    /// Encoded/decoded by serializers as "H030".
+    /// Encoded/decoded by serializers as &quot;H030&quot;.
     /// </summary>
     [EnumMember(Value = "H030")]
     [IsoId("_IqPj4NubEeiB5uLfkg9ZJA")]

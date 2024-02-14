@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExecutingParty1Choice.Algorithm))]
     [KnownType(typeof(ExecutingParty1Choice.Client))]
     [IsoId("_FVhI0ViJEea-d4CsgzjlAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Executing Party 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

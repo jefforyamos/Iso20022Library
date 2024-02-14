@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Digest computed on the identified data.
 /// </summary>
 [IsoId("_LcnkgVW-EeOlEMHvp-ipJg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Digested Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,12 @@ public partial record DigestedData3
     /// Version of the data structure.
     /// </summary>
     [IsoId("_LnfXwVW-EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +68,11 @@ public partial record DigestedData3
     /// Identification of a digest algorithm.
     /// </summary>
     [IsoId("_LnfXw1W-EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     public AlgorithmIdentification5? DigestAlgorithm { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _LnfXw1W-EeOlEMHvp-ipJg
     
@@ -83,16 +80,15 @@ public partial record DigestedData3
     /// Data on which the digest is computed.
     /// </summary>
     [IsoId("_LnfXxVW-EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encapsulated Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcpsltdCntt")]
     #endif
+    [IsoXmlTag("NcpsltdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EncapsulatedContent2 EncapsulatedContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EncapsulatedContent2 EncapsulatedContent { get; init; } 
+    public required EncapsulatedContent2 EncapsulatedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EncapsulatedContent2 EncapsulatedContent { get; init; } 
     #else
@@ -103,19 +99,17 @@ public partial record DigestedData3
     /// Result of data-digesting process.
     /// </summary>
     [IsoId("_LnfXx1W-EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dgst")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Dgst")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Digest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Digest { get; init; } 
+    public required System.String Digest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Digest { get; init; } 
     #else

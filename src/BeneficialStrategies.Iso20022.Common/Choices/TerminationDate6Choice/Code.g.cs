@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TerminationDate6Choice
     /// Closing date/time or maturity date/time of the transaction expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_hUd9b7PvEeelzbgsFa3sqQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

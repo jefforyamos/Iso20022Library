@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Channel1Choice.Code))]
     [KnownType(typeof(Channel1Choice.Proprietary))]
     [IsoId("_93Z_wHltEeG7BsjMvd1mEw_-1487139441")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Channel 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

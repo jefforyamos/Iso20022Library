@@ -21,7 +21,7 @@ public enum FundOrderType6Code
 {
     /// <summary>
     /// All type of orders.
-    /// Encoded/decoded by serializers as "ALLL".
+    /// Encoded/decoded by serializers as &quot;ALLL&quot;.
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_oC2e0RKuEeKj15WxqwlXPw")]
@@ -30,7 +30,7 @@ public enum FundOrderType6Code
     
     /// <summary>
     /// Investment fund order is a redemption.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_oh_48RKuEeKj15WxqwlXPw")]
@@ -39,7 +39,7 @@ public enum FundOrderType6Code
     
     /// <summary>
     /// Investment fund order is a subscription.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_o6vJERKuEeKj15WxqwlXPw")]
@@ -48,7 +48,7 @@ public enum FundOrderType6Code
     
     /// <summary>
     /// Switch out or switch from.
-    /// Encoded/decoded by serializers as "SWII".
+    /// Encoded/decoded by serializers as &quot;SWII&quot;.
     /// </summary>
     [EnumMember(Value = "SWII")]
     [IsoId("_pct0wRKuEeKj15WxqwlXPw")]
@@ -57,7 +57,7 @@ public enum FundOrderType6Code
     
     /// <summary>
     /// Switch in or switch to.
-    /// Encoded/decoded by serializers as "SWIO".
+    /// Encoded/decoded by serializers as &quot;SWIO&quot;.
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_pt_yARKuEeKj15WxqwlXPw")]
@@ -66,7 +66,7 @@ public enum FundOrderType6Code
     
     /// <summary>
     /// Transfer in.
-    /// Encoded/decoded by serializers as "TRAI".
+    /// Encoded/decoded by serializers as &quot;TRAI&quot;.
     /// </summary>
     [EnumMember(Value = "TRAI")]
     [IsoId("_p4ubURKuEeKj15WxqwlXPw")]
@@ -75,7 +75,7 @@ public enum FundOrderType6Code
     
     /// <summary>
     /// Transfer out.
-    /// Encoded/decoded by serializers as "TRAO".
+    /// Encoded/decoded by serializers as &quot;TRAO&quot;.
     /// </summary>
     [EnumMember(Value = "TRAO")]
     [IsoId("_qBEfARKuEeKj15WxqwlXPw")]

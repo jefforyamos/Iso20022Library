@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a set of cards which shares the same functionalities.
 /// </summary>
 [IsoId("_qe2mAHC8Ee2bmOA3bkVsMg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bin Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record BinRange1
     /// Lower value of BIN in the range.
     /// </summary>
     [IsoId("_6yFj8HC8Ee2bmOA3bkVsMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lower Bin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LwrBin")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("LwrBin")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText LowerBin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LowerBin { get; init; } 
+    public required System.String LowerBin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LowerBin { get; init; } 
     #else
@@ -75,19 +70,16 @@ public partial record BinRange1
     /// Higher value of BIN in the range.
     /// </summary>
     [IsoId("_-Bh7cHC8Ee2bmOA3bkVsMg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Higher Bin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghrBin")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("HghrBin")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText HigherBin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String HigherBin { get; init; } 
+    public required System.String HigherBin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String HigherBin { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum ProvidedCode
 {
     /// <summary>
     /// Provided.
-    /// Encoded/decoded by serializers as "PROV".
+    /// Encoded/decoded by serializers as &quot;PROV&quot;.
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_EOnjEBKFEeKj15WxqwlXPw")]
@@ -30,7 +30,7 @@ public enum ProvidedCode
     
     /// <summary>
     /// Not provided.
-    /// Encoded/decoded by serializers as "NPRO".
+    /// Encoded/decoded by serializers as &quot;NPRO&quot;.
     /// </summary>
     [EnumMember(Value = "NPRO")]
     [IsoId("_EiSF8BKFEeKj15WxqwlXPw")]

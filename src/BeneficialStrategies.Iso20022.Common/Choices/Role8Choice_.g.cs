@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Role8Choice.Code))]
     [KnownType(typeof(Role8Choice.Proprietary))]
     [IsoId("_hn_C8dyREeqKxsvOxFQHKA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role 8 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

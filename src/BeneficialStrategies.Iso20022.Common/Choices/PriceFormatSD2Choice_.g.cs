@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceFormatSD2Choice.NotSpecifiedPrice))]
     [KnownType(typeof(PriceFormatSD2Choice.AmountPricePerFinancialInstrumentQuantity))]
     [IsoId("_siRLoaFWEeSK_vfd3NHBGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Format SD 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

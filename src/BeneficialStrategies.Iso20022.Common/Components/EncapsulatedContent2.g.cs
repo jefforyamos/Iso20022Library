@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data to authenticate.
 /// </summary>
 [IsoId("_2rQgUVW7EeOlEMHvp-ipJg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Encapsulated Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record EncapsulatedContent2
     /// Type of data which have been authenticated.
     /// </summary>
     [IsoId("_22k_gVW7EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttTp")]
     #endif
+    [IsoXmlTag("CnttTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentType1Code ContentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentType1Code ContentType { get; init; } 
+    public required ContentType1Code ContentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentType1Code ContentType { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record EncapsulatedContent2
     /// Actual data to authenticate.
     /// </summary>
     [IsoId("_22k_g1W7EeOlEMHvp-ipJg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntt")]
     #endif
+    [IsoXmlTag("Cntt")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? Content { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

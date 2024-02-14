@@ -27,16 +27,14 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// This record is an implementation of the sese.013.001.02 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// An executing party, eg, a (old) plan manager, sends the PEPOrISAOrPortfolioTransferConfirmation message to the instructing party, eg, a (new) plan manager, to confirm the transfer of one or more PEP or ISA or portfolio products from the client's account at the old plan manager to the client's account at the new plan manager through a nominee account.
+/// An executing party, eg, a (old) plan manager, sends the PEPOrISAOrPortfolioTransferConfirmation message to the instructing party, eg, a (new) plan manager, to confirm the transfer of one or more PEP or ISA or portfolio products from the client&apos;s account at the old plan manager to the client&apos;s account at the new plan manager through a nominee account.
 /// Usage
 /// The PEPOrISAOrPortfolioTransferConfirmation message is used to confirm the transfer of one or more PEP or ISA or portfolio products.
 /// The reference of each product transfer confirmation is identified in TransferConfirmationIdentification. The reference of the original product transfer is specified in TransferInstructionReference. The message identification of the PEPOrISAPOrPortfolioTransferInstruction message in which the product transfers were conveyed may also be quoted in RelatedReference.
 /// </summary>
 [Description(@"Scope|An executing party, eg, a (old) plan manager, sends the PEPOrISAOrPortfolioTransferConfirmation message to the instructing party, eg, a (new) plan manager, to confirm the transfer of one or more PEP or ISA or portfolio products from the client's account at the old plan manager to the client's account at the new plan manager through a nominee account.|Usage|The PEPOrISAOrPortfolioTransferConfirmation message is used to confirm the transfer of one or more PEP or ISA or portfolio products.|The reference of each product transfer confirmation is identified in TransferConfirmationIdentification. The reference of the original product transfer is specified in TransferInstructionReference. The message identification of the PEPOrISAPOrPortfolioTransferInstruction message in which the product transfers were conveyed may also be quoted in RelatedReference.")]
 [IsoId("_kezKy9E5Ed-BzquC8wXy7w_-1426890235")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("PEP Or ISA Or Portfolio Transfer Confirmation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Identifies the message.
     /// </summary>
     [IsoId("_kezKzNE5Ed-BzquC8wXy7w_2045616687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRef")]
     #endif
+    [IsoXmlTag("MsgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageReference { get; init; } 
+    public required MessageIdentification1 MessageReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageReference { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_kezKzdE5Ed-BzquC8wXy7w_-1776508711")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_ke87wNE5Ed-BzquC8wXy7w_-1475441471")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +133,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_ke87wdE5Ed-BzquC8wXy7w_-1094027263")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +150,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Information identifying the primary individual investor, eg, name, address, social security number and date of birth.
     /// </summary>
     [IsoId("_ke87wtE5Ed-BzquC8wXy7w_-1345302241")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Individual Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryIndvInvstr")]
     #endif
+    [IsoXmlTag("PmryIndvInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? PrimaryIndividualInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +167,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Information identifying the secondary individual investor, eg, name, address, social security number and date of birth.
     /// </summary>
     [IsoId("_ke87w9E5Ed-BzquC8wXy7w_-1057165624")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secondary Individual Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndryIndvInvstr")]
     #endif
+    [IsoXmlTag("ScndryIndvInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? SecondaryIndividualInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +184,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Information identifying the other individual investors, eg, name, address, social security number and date of birth.
     /// </summary>
     [IsoId("_ke87xNE5Ed-BzquC8wXy7w_1311997483")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Individual Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrIndvInvstr")]
     #endif
+    [IsoXmlTag("OthrIndvInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? OtherIndividualInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,12 +201,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Information identifying the primary corporate investor, eg, name and address.
     /// </summary>
     [IsoId("_ke87xdE5Ed-BzquC8wXy7w_1458836732")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Corporate Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryCorpInvstr")]
     #endif
+    [IsoXmlTag("PmryCorpInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation4? PrimaryCorporateInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,12 +218,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Information identifying the secondary corporate investor, eg, name and address.
     /// </summary>
     [IsoId("_ke87xtE5Ed-BzquC8wXy7w_1788534354")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secondary Corporate Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndryCorpInvstr")]
     #endif
+    [IsoXmlTag("ScndryCorpInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation4? SecondaryCorporateInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -246,12 +235,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Information identifying the other corporate investors, eg, name and address.
     /// </summary>
     [IsoId("_ke87x9E5Ed-BzquC8wXy7w_1758058484")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Corporate Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCorpInvstr")]
     #endif
+    [IsoXmlTag("OthrCorpInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation4? OtherCorporateInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -264,16 +252,15 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Identification of an account owned by the investor at the old plan manager (account servicer).
     /// </summary>
     [IsoId("_kfGswNE5Ed-BzquC8wXy7w_1391141115")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntAcct")]
     #endif
+    [IsoXmlTag("ClntAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Account5 ClientAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Account5 ClientAccount { get; init; } 
+    public required Account5 ClientAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Account5 ClientAccount { get; init; } 
     #else
@@ -284,12 +271,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
     /// </summary>
     [IsoId("_kfGswdE5Ed-BzquC8wXy7w_-1657996907")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nominee Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmneeAcct")]
     #endif
+    [IsoXmlTag("NmneeAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account6? NomineeAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,16 +288,15 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Information related to the institution to which the financial instrument is to be transferred.
     /// </summary>
     [IsoId("_kfGswtE5Ed-BzquC8wXy7w_-1518546709")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Plan Manager")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewPlanMgr")]
     #endif
+    [IsoXmlTag("NewPlanMgr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ NewPlanManager { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification2Choice_ NewPlanManager { get; init; } 
+    public required PartyIdentification2Choice_ NewPlanManager { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification2Choice_ NewPlanManager { get; init; } 
     #else
@@ -322,12 +307,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).
     /// </summary>
     [IsoId("_kfGsw9E5Ed-BzquC8wXy7w_713137154")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcct")]
     #endif
+    [IsoXmlTag("CshAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount11? CashAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -340,16 +324,15 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Provides information related to the asset(s) transferred.
     /// </summary>
     [IsoId("_kfGsxNE5Ed-BzquC8wXy7w_-671220762")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctTrf")]
     #endif
+    [IsoXmlTag("PdctTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PEPISATransfer4 ProductTransfer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PEPISATransfer4 ProductTransfer { get; init; } 
+    public required PEPISATransfer4 ProductTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PEPISATransfer4 ProductTransfer { get; init; } 
     #else
@@ -360,12 +343,11 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_kfGsxdE5Ed-BzquC8wXy7w_-686452185")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -378,7 +360,7 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PEPOrISAOrPortfolioTransferConfirmationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PEPOrISAOrPortfolioTransferConfirmationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PEPOrISAOrPortfolioTransferConfirmationV02Document ToDocument()
     {
@@ -388,7 +370,7 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord<
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PEPOrISAOrPortfolioTransferConfirmationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PEPOrISAOrPortfolioTransferConfirmationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PEPOrISAOrPortfolioTransferConfirmationV02Document : IOuterDocument<PEPOrISAOrPortfolioTransferConfirmationV02>
@@ -405,7 +387,7 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02Document : IOute
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PEPOrISAOrPortfolioTransferConfirmationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PEPOrISAOrPortfolioTransferConfirmationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PEPOrISAOrPortfolioTransferConfirmationV02 Message { get; init; }

@@ -21,7 +21,7 @@ public enum InstructionLockout1Code
 {
     /// <summary>
     /// System suspended elections processing based on business rules.
-    /// Encoded/decoded by serializers as "SYLK".
+    /// Encoded/decoded by serializers as &quot;SYLK&quot;.
     /// </summary>
     [EnumMember(Value = "SYLK")]
     [IsoId("_1tJmBDL3EeKU9IrkkToqcw_-1287259278")]
@@ -30,7 +30,7 @@ public enum InstructionLockout1Code
     
     /// <summary>
     /// DTC (the Depository Trust Company) personnel suspended elections processing.
-    /// Encoded/decoded by serializers as "MALK".
+    /// Encoded/decoded by serializers as &quot;MALK&quot;.
     /// </summary>
     [EnumMember(Value = "MALK")]
     [IsoId("_1tTXADL3EeKU9IrkkToqcw_964591391")]
@@ -39,7 +39,7 @@ public enum InstructionLockout1Code
     
     /// <summary>
     /// Eligible for elections processing.
-    /// Encoded/decoded by serializers as "NOLO".
+    /// Encoded/decoded by serializers as &quot;NOLO&quot;.
     /// </summary>
     [EnumMember(Value = "NOLO")]
     [IsoId("_1tTXATL3EeKU9IrkkToqcw_1289708898")]

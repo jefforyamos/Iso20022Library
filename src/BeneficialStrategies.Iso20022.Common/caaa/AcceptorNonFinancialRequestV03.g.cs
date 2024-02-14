@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorNonFinancialRequest message is sent by the POI to receive additional information from the Acquirer (or its agent).")]
 [IsoId("_fCT48XMnEe2vXY6MoVq19w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Non Financial Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcceptorNonFinancialRequestV03 : IOuterRecord<AcceptorNonF
     /// Non Financial request message management information.
     /// </summary>
     [IsoId("_fCT483MnEe2vXY6MoVq19w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header70 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header70 Header { get; init; } 
+    public required Header70 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header70 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcceptorNonFinancialRequestV03 : IOuterRecord<AcceptorNonF
     /// Information related to the non financial request.
     /// </summary>
     [IsoId("_fCT49XMnEe2vXY6MoVq19w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Financial Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonFinReq")]
     #endif
+    [IsoXmlTag("NonFinReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonFinancialRequestComponent3 NonFinancialRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NonFinancialRequestComponent3 NonFinancialRequest { get; init; } 
+    public required NonFinancialRequestComponent3 NonFinancialRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NonFinancialRequestComponent3 NonFinancialRequest { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AcceptorNonFinancialRequestV03 : IOuterRecord<AcceptorNonF
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_fCT493MnEe2vXY6MoVq19w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType36? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AcceptorNonFinancialRequestV03 : IOuterRecord<AcceptorNonF
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorNonFinancialRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorNonFinancialRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorNonFinancialRequestV03Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AcceptorNonFinancialRequestV03 : IOuterRecord<AcceptorNonF
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorNonFinancialRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorNonFinancialRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorNonFinancialRequestV03Document : IOuterDocument<AcceptorNonFinancialRequestV03>
@@ -161,7 +156,7 @@ public partial record AcceptorNonFinancialRequestV03Document : IOuterDocument<Ac
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorNonFinancialRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorNonFinancialRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorNonFinancialRequestV03 Message { get; init; }

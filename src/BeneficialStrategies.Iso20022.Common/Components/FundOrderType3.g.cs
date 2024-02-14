@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the category of the investment fund order.
 /// </summary>
 [IsoId("_TSu6Etp-Ed-ak6NoX_4Aeg_1141291305")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Order Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FundOrderType3
     /// Specifies the category of the investment fund order.
     /// </summary>
     [IsoId("_TSu6E9p-Ed-ak6NoX_4Aeg_1141291307")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrTp")]
     #endif
+    [IsoXmlTag("OrdrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundOrderType4Code OrderType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FundOrderType4Code OrderType { get; init; } 
+    public required FundOrderType4Code OrderType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FundOrderType4Code OrderType { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record FundOrderType3
     /// Specifies the category of the investment fund order.
     /// </summary>
     [IsoId("_TSu6FNp-Ed-ak6NoX_4Aeg_1141291995")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Order Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedOrdrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedOrdrTp")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedOrderType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedOrderType { get; init; } 
+    public required System.String ExtendedOrderType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedOrderType { get; init; } 
     #else

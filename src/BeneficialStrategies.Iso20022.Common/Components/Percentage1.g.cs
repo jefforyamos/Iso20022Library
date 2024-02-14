@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Rate information.
 /// </summary>
 [IsoId("_99Ei5nltEeG7BsjMvd1mEw_171384620")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Percentage")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record Percentage1
     /// Percentage of an amount.
     /// </summary>
     [IsoId("_99Ei53ltEeG7BsjMvd1mEw_-1531427799")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Rate { get; init; } 
+    public required System.Decimal Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Rate { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record Percentage1
     /// Indication of what the percentage is relative to.
     /// </summary>
     [IsoId("_99Ei6HltEeG7BsjMvd1mEw_880195488")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Relative To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltvTo")]
     #endif
+    [IsoXmlTag("RltvTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRelativeTo1Code RelativeTo { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalRelativeTo1Code RelativeTo { get; init; } 
+    public required ExternalRelativeTo1Code RelativeTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalRelativeTo1Code RelativeTo { get; init; } 
     #else

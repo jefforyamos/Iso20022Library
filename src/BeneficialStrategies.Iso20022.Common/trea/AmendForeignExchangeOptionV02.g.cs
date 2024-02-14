@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// </summary>
 [Description(@"Scope|The AmendForeignExchangeOption message is sent by a participant to a central system or to a counterparty to notify the amendment of a foreign currency option contract.|Usage|The message contains a Related Reference to link it to the previously sent notification and may contain an reason for amendment.|This message is only suitable for Simple (i.e. not Barrier) Vanilla (i.e. not Binary, Digital, Notouch) Foreign Exchange Options.")]
 [IsoId("_HQD4WNE8Ed-BzquC8wXy7w_-1614590929")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amend Foreign Exchange Option V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord<AmendForeignE
     /// Provides reference and date of the foreign exchange option trade which is amended.
     /// </summary>
     [IsoId("_HQD4WdE8Ed-BzquC8wXy7w_-277529666")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradInf")]
     #endif
+    [IsoXmlTag("TradInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement2 TradeInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeAgreement2 TradeInformation { get; init; } 
+    public required TradeAgreement2 TradeInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeAgreement2 TradeInformation { get; init; } 
     #else
@@ -102,16 +99,15 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord<AmendForeignE
     /// Specifies the trading side of the currency option trade which is amended.
     /// </summary>
     [IsoId("_HQD4WtE8Ed-BzquC8wXy7w_-515469288")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification4 TradingSideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification4 TradingSideIdentification { get; init; } 
+    public required TradePartyIdentification4 TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification4 TradingSideIdentification { get; init; } 
     #else
@@ -122,16 +118,15 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord<AmendForeignE
     /// Specifies the counterparty of the currency option trade which is amended.
     /// </summary>
     [IsoId("_HQD4W9E8Ed-BzquC8wXy7w_296306803")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification4 CounterpartySideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification4 CounterpartySideIdentification { get; init; } 
+    public required TradePartyIdentification4 CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification4 CounterpartySideIdentification { get; init; } 
     #else
@@ -142,16 +137,15 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord<AmendForeignE
     /// Specifies the parameters of the currency option which is bought by the trading side.
     /// </summary>
     [IsoId("_HQNCQNE8Ed-BzquC8wXy7w_1463318138")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Optn")]
     #endif
+    [IsoXmlTag("Optn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Option3 Option { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Option3 Option { get; init; } 
+    public required Option3 Option { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Option3 Option { get; init; } 
     #else
@@ -162,7 +156,7 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord<AmendForeignE
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AmendForeignExchangeOptionV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AmendForeignExchangeOptionV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AmendForeignExchangeOptionV02Document ToDocument()
     {
@@ -172,7 +166,7 @@ public partial record AmendForeignExchangeOptionV02 : IOuterRecord<AmendForeignE
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendForeignExchangeOptionV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AmendForeignExchangeOptionV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AmendForeignExchangeOptionV02Document : IOuterDocument<AmendForeignExchangeOptionV02>
@@ -189,7 +183,7 @@ public partial record AmendForeignExchangeOptionV02Document : IOuterDocument<Ame
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AmendForeignExchangeOptionV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AmendForeignExchangeOptionV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmendForeignExchangeOptionV02 Message { get; init; }

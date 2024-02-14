@@ -21,7 +21,7 @@ public enum ResolutionStatus2Code
 {
     /// <summary>
     /// Meeting resolution has been accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_S5RIgV64EeSjaerr_EM7AQ")]
@@ -30,7 +30,7 @@ public enum ResolutionStatus2Code
     
     /// <summary>
     /// Meeting resolution has been rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_TCMbAV64EeSjaerr_EM7AQ")]
@@ -39,7 +39,7 @@ public enum ResolutionStatus2Code
     
     /// <summary>
     /// Meeting resolution has been withdrawn.
-    /// Encoded/decoded by serializers as "WDRA".
+    /// Encoded/decoded by serializers as &quot;WDRA&quot;.
     /// </summary>
     [EnumMember(Value = "WDRA")]
     [IsoId("_TK-jkV64EeSjaerr_EM7AQ")]

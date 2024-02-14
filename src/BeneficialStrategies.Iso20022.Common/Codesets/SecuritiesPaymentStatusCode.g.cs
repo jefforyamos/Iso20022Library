@@ -21,7 +21,7 @@ public enum SecuritiesPaymentStatusCode
 {
     /// <summary>
     /// Security is fully paid.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_ZFx2wtp-Ed-ak6NoX_4Aeg_274626433")]
@@ -30,7 +30,7 @@ public enum SecuritiesPaymentStatusCode
     
     /// <summary>
     /// Security is nill paid.
-    /// Encoded/decoded by serializers as "NILL".
+    /// Encoded/decoded by serializers as &quot;NILL&quot;.
     /// </summary>
     [EnumMember(Value = "NILL")]
     [IsoId("_ZFx2w9p-Ed-ak6NoX_4Aeg_274626464")]
@@ -39,7 +39,7 @@ public enum SecuritiesPaymentStatusCode
     
     /// <summary>
     /// Security is partially paid.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_ZFx2xNp-Ed-ak6NoX_4Aeg_274626494")]

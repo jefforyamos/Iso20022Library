@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the security or cash pledged as collateral.
 /// </summary>
 [IsoId("_MAdVYcpnEem6kd3Y9uIDqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CollateralType12
     /// Provides the details of the security pledged as collateral.
     /// </summary>
     [IsoId("_MEoqwcpnEem6kd3Y9uIDqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scty")]
     #endif
+    [IsoXmlTag("Scty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityReuseData1? Security { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CollateralType12
     /// Provides details on the type and amount of the cash reinvestment in a given currency and the average interest rate received.
     /// </summary>
     [IsoId("_MEoqw8pnEem6kd3Y9uIDqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Csh")]
     #endif
+    [IsoXmlTag("Csh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashReuseData1? Cash { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

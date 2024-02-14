@@ -21,7 +21,7 @@ public enum BeneficiaryCertificationCompletion1Code
 {
     /// <summary>
     /// Certification is not required for this fund.
-    /// Encoded/decoded by serializers as "NCER".
+    /// Encoded/decoded by serializers as &quot;NCER&quot;.
     /// </summary>
     [EnumMember(Value = "NCER")]
     [IsoId("_bdn35Np-Ed-ak6NoX_4Aeg_-737437594")]
@@ -30,7 +30,7 @@ public enum BeneficiaryCertificationCompletion1Code
     
     /// <summary>
     /// Electronic certification is acceptable.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_bdn35dp-Ed-ak6NoX_4Aeg_-737437577")]
@@ -39,7 +39,7 @@ public enum BeneficiaryCertificationCompletion1Code
     
     /// <summary>
     /// Electronic certification is not acceptable and is required in physical form.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_bdn35tp-Ed-ak6NoX_4Aeg_-737437559")]

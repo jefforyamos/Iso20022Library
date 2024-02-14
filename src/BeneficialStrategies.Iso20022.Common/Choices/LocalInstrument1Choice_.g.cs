@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LocalInstrument1Choice.Code))]
     [KnownType(typeof(LocalInstrument1Choice.Proprietary))]
     [IsoId("_TGhDB9p-Ed-ak6NoX_4Aeg_-2017969290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Instrument 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

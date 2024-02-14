@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context in which the card payment transaction is performed.
 /// </summary>
 [IsoId("_7_YWUs5eEeiEmaZryQQ14Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Context9
     /// Context of the card payment transaction.
     /// </summary>
     [IsoId("_7_YWU85eEeiEmaZryQQ14Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxCntxt")]
     #endif
+    [IsoXmlTag("TxCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionContext3? TransactionContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

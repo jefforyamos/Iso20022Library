@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension for UnderlyingSecurity.
 /// </summary>
 [IsoId("_7_9PY1IwEeGxk_7PmgdPEg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes 23 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record FinancialInstrumentAttributes23SD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_0mZxUFPEEeGs_NnqHXQZkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +71,15 @@ public partial record FinancialInstrumentAttributes23SD1
     /// ※イベントタイプがMRGRの場合に、存続会社or消滅会社、親会社or子会社の通知を見分けるために必要。.
     /// </summary>
     [IsoId("_ll5nsFIxEeGxk_7PmgdPEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Effective Date Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstFctvDtClssfctn")]
     #endif
+    [IsoXmlTag("PstFctvDtClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstitutionalClassificationCode PostEffectiveDateClassification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstitutionalClassificationCode PostEffectiveDateClassification { get; init; } 
+    public required InstitutionalClassificationCode PostEffectiveDateClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstitutionalClassificationCode PostEffectiveDateClassification { get; init; } 
     #else

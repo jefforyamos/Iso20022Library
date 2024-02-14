@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementParties32Choice.CentralSecuritiesDepositoryParticipant))]
     [KnownType(typeof(SettlementParties32Choice.IndirectParticipant))]
     [IsoId("_AvxQobQ0EemI67HK7aviyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parties 32 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

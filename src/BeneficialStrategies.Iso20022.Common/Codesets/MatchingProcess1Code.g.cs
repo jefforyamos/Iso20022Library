@@ -21,7 +21,7 @@ public enum MatchingProcess1Code
 {
     /// <summary>
     /// The referenced transaction is requested to be unmatched.
-    /// Encoded/decoded by serializers as "UNMT".
+    /// Encoded/decoded by serializers as &quot;UNMT&quot;.
     /// </summary>
     [EnumMember(Value = "UNMT")]
     [IsoId("_aU58V9p-Ed-ak6NoX_4Aeg_65054355")]
@@ -30,7 +30,7 @@ public enum MatchingProcess1Code
     
     /// <summary>
     /// Matching process is to be resumed for the referenced transaction.
-    /// Encoded/decoded by serializers as "MTRE".
+    /// Encoded/decoded by serializers as &quot;MTRE&quot;.
     /// </summary>
     [EnumMember(Value = "MTRE")]
     [IsoId("_aU58WNp-Ed-ak6NoX_4Aeg_65054356")]

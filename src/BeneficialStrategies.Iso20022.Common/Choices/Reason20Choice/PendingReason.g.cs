@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason20Choice
     /// Specifies the reason why the instruction has a pending status.
     /// </summary>
     [IsoId("_gAQ5jTi8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

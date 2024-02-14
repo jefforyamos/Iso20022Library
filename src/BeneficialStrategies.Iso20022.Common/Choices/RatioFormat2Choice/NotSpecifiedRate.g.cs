@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat2Choice
     /// The value of the ratio is not specified.
     /// </summary>
     [IsoId("_Rj3kiNp-Ed-ak6NoX_4Aeg_1125895713")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Specified Rate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

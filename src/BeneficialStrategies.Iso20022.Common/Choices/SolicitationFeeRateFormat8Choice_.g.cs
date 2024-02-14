@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SolicitationFeeRateFormat8Choice.AmountToQuantity))]
     [KnownType(typeof(SolicitationFeeRateFormat8Choice.Amount))]
     [IsoId("_NlMNz2NZEeW4z96Yfj3Wng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Solicitation Fee Rate Format 8 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

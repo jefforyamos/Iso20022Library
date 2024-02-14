@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProfitAndLoss1Choice.Profit))]
     [KnownType(typeof(ProfitAndLoss1Choice.Loss))]
     [IsoId("_Q65gCNp-Ed-ak6NoX_4Aeg_-931034423")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Profit And Loss 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus1FormatChoice.Code))]
     [KnownType(typeof(ProcessingStatus1FormatChoice.Proprietary))]
     [IsoId("_Rnv-89p-Ed-ak6NoX_4Aeg_-1083184127")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

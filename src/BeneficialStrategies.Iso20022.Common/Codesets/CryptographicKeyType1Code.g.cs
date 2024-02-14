@@ -21,7 +21,7 @@ public enum CryptographicKeyType1Code
 {
     /// <summary>
     /// Data encryption standard.
-    /// Encoded/decoded by serializers as "DESC".
+    /// Encoded/decoded by serializers as &quot;DESC&quot;.
     /// </summary>
     [EnumMember(Value = "DESC")]
     [IsoId("_KU0vhX1DEeCF8NjrBemJWQ_2128463419")]
@@ -30,7 +30,7 @@ public enum CryptographicKeyType1Code
     
     /// <summary>
     /// Advanced encryption standard.
-    /// Encoded/decoded by serializers as "AESC".
+    /// Encoded/decoded by serializers as &quot;AESC&quot;.
     /// </summary>
     [EnumMember(Value = "AESC")]
     [IsoId("_KU0vhn1DEeCF8NjrBemJWQ_-2088353466")]
@@ -39,7 +39,7 @@ public enum CryptographicKeyType1Code
     
     /// <summary>
     /// Rivest, Shamir and Adleman.
-    /// Encoded/decoded by serializers as "RSAC".
+    /// Encoded/decoded by serializers as &quot;RSAC&quot;.
     /// </summary>
     [EnumMember(Value = "RSAC")]
     [IsoId("_KU0vh31DEeCF8NjrBemJWQ_-1222392590")]
@@ -48,7 +48,7 @@ public enum CryptographicKeyType1Code
     
     /// <summary>
     /// Elliptic-curve cryptography.
-    /// Encoded/decoded by serializers as "ECCC".
+    /// Encoded/decoded by serializers as &quot;ECCC&quot;.
     /// </summary>
     [EnumMember(Value = "ECCC")]
     [IsoId("_KU0viH1DEeCF8NjrBemJWQ_-505240776")]

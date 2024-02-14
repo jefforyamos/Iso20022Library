@@ -22,7 +22,7 @@ public enum ExternalCancellationReason1Code
 {
     /// <summary>
     /// Wrong account number in Credit Transfer.
-    /// Encoded/decoded by serializers as "AC03".
+    /// Encoded/decoded by serializers as &quot;AC03&quot;.
     /// </summary>
     [EnumMember(Value = "AC03")]
     [IsoId("_uXeu5fRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_uXof4vRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Amount is not the amount agreed or expected.
-    /// Encoded/decoded by serializers as "AM09".
+    /// Encoded/decoded by serializers as &quot;AM09&quot;.
     /// </summary>
     [EnumMember(Value = "AM09")]
     [IsoId("_uXof5fRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Debtor or Ultimate Debtor identification code missing or invalid.
-    /// Encoded/decoded by serializers as "BE16".
+    /// Encoded/decoded by serializers as &quot;BE16&quot;.
     /// </summary>
     [EnumMember(Value = "BE16")]
     [IsoId("_uXyQ4vRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Cover payments has either been returned or cancelled.
-    /// Encoded/decoded by serializers as "COVR".
+    /// Encoded/decoded by serializers as &quot;COVR&quot;.
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_uXyQ5fRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Currency of the payment is incorrect.|
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_uXyQ6PRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_uX7a0vRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Cancellation requested because an investigation request has been received and no remediation is possible.
-    /// Encoded/decoded by serializers as "CUTA".
+    /// Encoded/decoded by serializers as &quot;CUTA&quot;.
     /// </summary>
     [EnumMember(Value = "CUTA")]
     [IsoId("_uX7a1fRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Cancellation requested because the original payment order expired due to time-out.
-    /// Encoded/decoded by serializers as "DS24".
+    /// Encoded/decoded by serializers as &quot;DS24&quot;.
     /// </summary>
     [EnumMember(Value = "DS24")]
     [IsoId("_uYFL0vRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Invalid date (for example, wrong or missing settlement date).
-    /// Encoded/decoded by serializers as "DT01".
+    /// Encoded/decoded by serializers as &quot;DT01&quot;.
     /// </summary>
     [EnumMember(Value = "DT01")]
     [IsoId("_uYFL1fRYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_uYFL2PRYEeuLhpyIdtJzwg")]
@@ -121,7 +121,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.
-    /// Encoded/decoded by serializers as "FRAD".
+    /// Encoded/decoded by serializers as &quot;FRAD&quot;.
     /// </summary>
     [EnumMember(Value = "FRAD")]
     [IsoId("_uYOVwvRYEeuLhpyIdtJzwg")]
@@ -130,7 +130,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// To complement a rejection response, suggesting the request for cancelation should be forwarded to the next agent in the payment transaction chain.
-    /// Encoded/decoded by serializers as "FRNA".
+    /// Encoded/decoded by serializers as &quot;FRNA&quot;.
     /// </summary>
     [EnumMember(Value = "FRNA")]
     [IsoId("_uYOVxfRYEeuLhpyIdtJzwg")]
@@ -139,7 +139,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Direct Debit Tracking recalled as Mandate Cancelled 
-    /// Encoded/decoded by serializers as "FRTR".
+    /// Encoded/decoded by serializers as &quot;FRTR&quot;.
     /// </summary>
     [EnumMember(Value = "FRTR")]
     [IsoId("_uYOVyPRYEeuLhpyIdtJzwg")]
@@ -148,7 +148,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// To express the wish to establish a bilateral indemnity agreement.
-    /// Encoded/decoded by serializers as "INDM".
+    /// Encoded/decoded by serializers as &quot;INDM&quot;.
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_uYOVy_RYEeuLhpyIdtJzwg")]
@@ -157,7 +157,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// The underlying transaction in relation to an RTP was modified.
-    /// Encoded/decoded by serializers as "MODT".
+    /// Encoded/decoded by serializers as &quot;MODT&quot;.
     /// </summary>
     [EnumMember(Value = "MODT")]
     [IsoId("_uYOVzvRYEeuLhpyIdtJzwg")]
@@ -166,7 +166,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// The underlying transaction in relation to an RTP was already paid (via other means).
-    /// Encoded/decoded by serializers as "PAID".
+    /// Encoded/decoded by serializers as &quot;PAID&quot;.
     /// </summary>
     [EnumMember(Value = "PAID")]
     [IsoId("_uYYGwvRYEeuLhpyIdtJzwg")]
@@ -175,7 +175,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// The payment is cancelled since a cash amount rendered was not correct or goods or a service was not rendered to the customer, e.g. in an e-commerce situation.
-    /// Encoded/decoded by serializers as "SVNR".
+    /// Encoded/decoded by serializers as &quot;SVNR&quot;.
     /// </summary>
     [EnumMember(Value = "SVNR")]
     [IsoId("_uYYGxfRYEeuLhpyIdtJzwg")]
@@ -184,7 +184,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Cancellation requested by System Member to Settlement System Administrator to indicate that the cancellation request must not be forwarded further in the chain.
-    /// Encoded/decoded by serializers as "SYAD".
+    /// Encoded/decoded by serializers as &quot;SYAD&quot;.
     /// </summary>
     [EnumMember(Value = "SYAD")]
     [IsoId("_uYh3wvRYEeuLhpyIdtJzwg")]
@@ -193,7 +193,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Cancellation requested following technical problems resulting in an erroneous transaction.
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_uYh3xfRYEeuLhpyIdtJzwg")]
@@ -202,7 +202,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_uYrBsvRYEeuLhpyIdtJzwg")]
@@ -211,7 +211,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Cancellation or request for return requested by the Debtor specifically due to one or more errors by debtor in the original Credit Transfer. Usage: This code can be used for any error in the original Credit Transfer made by the Debtor. Can also be used if multiple errors were made in the original Credit Transfer.
-    /// Encoded/decoded by serializers as "ENUE".
+    /// Encoded/decoded by serializers as &quot;ENUE&quot;.
     /// </summary>
     [EnumMember(Value = "ENUE")]
     [IsoId("_qvBlgQQyEey95qpfbNuEwg")]
@@ -221,7 +221,7 @@ public enum ExternalCancellationReason1Code
     /// <summary>
     /// The Debtor is requesting a return of the payment because the payment was not properly authorized.
     /// Usage: This code can be used in the case where a Credit Transfer was made without proper authorization from the Debtor. This could be due to compromised end user credentials.
-    /// Encoded/decoded by serializers as "UAPA".
+    /// Encoded/decoded by serializers as &quot;UAPA&quot;.
     /// </summary>
     [EnumMember(Value = "UAPA")]
     [IsoId("_q-OfIQQyEey95qpfbNuEwg")]
@@ -230,7 +230,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Reason is provided as narrative information in the additional reason information.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_l3VBUQQzEey95qpfbNuEwg")]
@@ -239,7 +239,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Debtor account number invalid or missing.
-    /// Encoded/decoded by serializers as "AC02".
+    /// Encoded/decoded by serializers as &quot;AC02&quot;.
     /// </summary>
     [EnumMember(Value = "AC02")]
     [IsoId("_pPR0kQQzEey95qpfbNuEwg")]
@@ -248,7 +248,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Process a cancellation request but batch already settled.
-    /// Encoded/decoded by serializers as "BIAS".
+    /// Encoded/decoded by serializers as &quot;BIAS&quot;.
     /// </summary>
     [EnumMember(Value = "BIAS")]
     [IsoId("_6KrlgQTSEey95qpfbNuEwg")]
@@ -257,7 +257,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Process a cancellation request with incorrect reference to original batch.
-    /// Encoded/decoded by serializers as "INCR".
+    /// Encoded/decoded by serializers as &quot;INCR&quot;.
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_6mjCIQTSEey95qpfbNuEwg")]
@@ -266,7 +266,7 @@ public enum ExternalCancellationReason1Code
     
     /// <summary>
     /// Duplication of a request-to-pay message.
-    /// Encoded/decoded by serializers as "DRTP".
+    /// Encoded/decoded by serializers as &quot;DRTP&quot;.
     /// </summary>
     [EnumMember(Value = "DRTP")]
     [IsoId("_Umy2gVEHEey6cYDbEubNXg")]

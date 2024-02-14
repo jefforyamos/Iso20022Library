@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IssuerOfferorTaxabilityIndicator1Choice.Code))]
     [KnownType(typeof(IssuerOfferorTaxabilityIndicator1Choice.Proprietary))]
     [IsoId("_DUEMcIlzEeavwKddCbm3hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Offeror Taxability Indicator 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

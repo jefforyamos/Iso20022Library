@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorrectiveTransaction5Choice.Initiation))]
     [KnownType(typeof(CorrectiveTransaction5Choice.Interbank))]
     [IsoId("_tNTsINizEeq5MfBBxQig1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corrective Transaction 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

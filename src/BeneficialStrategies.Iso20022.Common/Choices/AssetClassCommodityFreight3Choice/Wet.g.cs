@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight3Choic
     /// Wet freight commodity derivative.
     /// </summary>
     [IsoId("_VcEcU7v5EeiLRYqS-r-R-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wet")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight3Choic
         /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
         /// </summary>
         [IsoId("_ozV9kbv6EeiLRYqS-r-R-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Base Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BasePdct")]
         #endif
+        [IsoXmlTag("BasePdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassProductType4Code BaseProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassProductType4Code BaseProduct { get; init; } 
+        public required AssetClassProductType4Code BaseProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassProductType4Code BaseProduct { get; init; } 
         #else
@@ -78,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight3Choic
         /// Sub-product for the underlying asset class.
         /// </summary>
         [IsoId("_ozV9k7v6EeiLRYqS-r-R-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sub Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SubPdct")]
         #endif
+        [IsoXmlTag("SubPdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassSubProductType32Code SubProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassSubProductType32Code SubProduct { get; init; } 
+        public required AssetClassSubProductType32Code SubProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassSubProductType32Code SubProduct { get; init; } 
         #else
@@ -98,16 +94,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight3Choic
         /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
         /// </summary>
         [IsoId("_ozV9lbv6EeiLRYqS-r-R-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Sub Product")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlSubPdct")]
         #endif
+        [IsoXmlTag("AddtlSubPdct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassDetailedSubProductType34Code AdditionalSubProduct { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassDetailedSubProductType34Code AdditionalSubProduct { get; init; } 
+        public required AssetClassDetailedSubProductType34Code AdditionalSubProduct { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassDetailedSubProductType34Code AdditionalSubProduct { get; init; } 
         #else

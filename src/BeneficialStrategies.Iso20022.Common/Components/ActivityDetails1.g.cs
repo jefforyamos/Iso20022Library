@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the activities that took place during a certain period for one trade transaction.
 /// </summary>
 [IsoId("_RJDQwNp-Ed-ak6NoX_4Aeg_2070733092")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Activity Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record ActivityDetails1
     /// Date and time when the activity occurred.
     /// </summary>
     [IsoId("_RJDQwdp-Ed-ak6NoX_4Aeg_-1926860432")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtTm")]
     #endif
+    [IsoXmlTag("DtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime DateTime { get; init; } 
+    public required System.DateTime DateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime DateTime { get; init; } 
     #else
@@ -73,16 +71,15 @@ public partial record ActivityDetails1
     /// Description of the reported activities.
     /// </summary>
     [IsoId("_RJDQwtp-Ed-ak6NoX_4Aeg_-108739135")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actvty")]
     #endif
+    [IsoXmlTag("Actvty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Activity1 Activity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Activity1 Activity { get; init; } 
+    public required Activity1 Activity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Activity1 Activity { get; init; } 
     #else
@@ -93,16 +90,15 @@ public partial record ActivityDetails1
     /// Financial institution which initiated the activity.
     /// </summary>
     [IsoId("_RJDQw9p-Ed-ak6NoX_4Aeg_-1724607144")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Initr")]
     #endif
+    [IsoXmlTag("Initr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 Initiator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 Initiator { get; init; } 
+    public required BICIdentification1 Initiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 Initiator { get; init; } 
     #else

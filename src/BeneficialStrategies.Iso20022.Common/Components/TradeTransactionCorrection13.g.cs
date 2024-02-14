@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates that the report is correcting the erroneous data fields of a previously submitted position.
 /// </summary>
 [IsoId("_GPXEQczsEeux2uvSBFU54Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Transaction Correction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record TradeTransactionCorrection13
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
     [IsoId("_GRkqwczsEeux2uvSBFU54Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record TradeTransactionCorrection13
     /// Data specific to counterparties and related fields.
     /// </summary>
     [IsoId("_GRkqw8zsEeux2uvSBFU54Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Specific Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySpcfcData")]
     #endif
+    [IsoXmlTag("CtrPtySpcfcData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData88 CounterpartySpecificData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyData88 CounterpartySpecificData { get; init; } 
+    public required CounterpartyData88 CounterpartySpecificData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyData88 CounterpartySpecificData { get; init; } 
     #else
@@ -93,12 +88,11 @@ public partial record TradeTransactionCorrection13
     /// Details of the loan used for financing the transaction.
     /// </summary>
     [IsoId("_GRkqxczsEeux2uvSBFU54Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loan Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LnData")]
     #endif
+    [IsoXmlTag("LnData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionLoanData31Choice_? LoanData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +105,11 @@ public partial record TradeTransactionCorrection13
     /// Provides the details of the collateral used in the transaction.
     /// </summary>
     [IsoId("_GRkqx8zsEeux2uvSBFU54Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollData")]
     #endif
+    [IsoXmlTag("CollData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionCollateralData18Choice_? CollateralData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,16 +122,15 @@ public partial record TradeTransactionCorrection13
     /// Information concerning the reported transaction level type.
     /// </summary>
     [IsoId("_GRkqyczsEeux2uvSBFU54Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Level Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LvlTp")]
     #endif
+    [IsoXmlTag("LvlTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ModificationLevel1Code LevelType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ModificationLevel1Code LevelType { get; init; } 
+    public required ModificationLevel1Code LevelType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ModificationLevel1Code LevelType { get; init; } 
     #else
@@ -149,12 +141,11 @@ public partial record TradeTransactionCorrection13
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_GRkqy8zsEeux2uvSBFU54Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

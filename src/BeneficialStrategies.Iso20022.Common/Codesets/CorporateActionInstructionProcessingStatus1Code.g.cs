@@ -21,7 +21,7 @@ public enum CorporateActionInstructionProcessingStatus1Code
 {
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_bKZZ5dp-Ed-ak6NoX_4Aeg_-1187289407")]
@@ -30,7 +30,7 @@ public enum CorporateActionInstructionProcessingStatus1Code
     
     /// <summary>
     /// Default action is taken.
-    /// Encoded/decoded by serializers as "DFLA".
+    /// Encoded/decoded by serializers as &quot;DFLA&quot;.
     /// </summary>
     [EnumMember(Value = "DFLA")]
     [IsoId("_bKZZ5tp-Ed-ak6NoX_4Aeg_-426524254")]
@@ -39,7 +39,7 @@ public enum CorporateActionInstructionProcessingStatus1Code
     
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing. In other words, this means that the instruction has been received, is processable and has been validated for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bKZZ59p-Ed-ak6NoX_4Aeg_27563015")]
@@ -47,8 +47,8 @@ public enum CorporateActionInstructionProcessingStatus1Code
     Accepted = CorporateActionInstructionProcessingStatusCode.Accepted, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Instruction's processing is pending.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Instruction&apos;s processing is pending.
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_bKZZ6Np-Ed-ak6NoX_4Aeg_1494711778")]
@@ -57,7 +57,7 @@ public enum CorporateActionInstructionProcessingStatus1Code
     
     /// <summary>
     /// Instruction has been rejected for further processing due to system reasons.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_bKZZ6dp-Ed-ak6NoX_4Aeg_1858486184")]
@@ -66,7 +66,7 @@ public enum CorporateActionInstructionProcessingStatus1Code
     
     /// <summary>
     /// Standing instruction is applied.
-    /// Encoded/decoded by serializers as "STIN".
+    /// Encoded/decoded by serializers as &quot;STIN&quot;.
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_bKjK4Np-Ed-ak6NoX_4Aeg_-1982393843")]

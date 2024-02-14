@@ -21,7 +21,7 @@ public enum AmountType1Code
 {
     /// <summary>
     /// The amount is open.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_be0Kstp-Ed-ak6NoX_4Aeg_334790348")]
@@ -30,7 +30,7 @@ public enum AmountType1Code
     
     /// <summary>
     /// The amount is unkown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_be0Ks9p-Ed-ak6NoX_4Aeg_334790370")]

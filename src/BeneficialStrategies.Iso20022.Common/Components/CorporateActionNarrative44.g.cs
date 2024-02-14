@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information such as the taxation conditions.
 /// </summary>
 [IsoId("_4XQCke6MEeqc-LCjwLsUVg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Narrative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionNarrative44
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
     [IsoId("_4roXI-6MEeqc-LCjwLsUVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offeror")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Offerr")]
     #endif
+    [IsoXmlTag("Offerr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation3? Offeror { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionNarrative44
     /// Provides the new name of a company following a name change.
     /// </summary>
     [IsoId("_4roXK-6MEeqc-LCjwLsUVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Company Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewCpnyNm")]
     #endif
+    [IsoXmlTag("NewCpnyNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedAdditionalInformation3? NewCompanyName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionNarrative44
     /// Provides the web address published for the event, that is, the address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
     [IsoId("_4roXM-6MEeqc-LCjwLsUVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("URL Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="URLAdr")]
     #endif
+    [IsoXmlTag("URLAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UpdatedURLlnformation4? URLAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

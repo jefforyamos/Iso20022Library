@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FailingStatus1Choice.NoSpecifiedReason))]
     [KnownType(typeof(FailingStatus1Choice.Reason))]
     [IsoId("_UZqs9tp-Ed-ak6NoX_4Aeg_1207630782")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failing Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

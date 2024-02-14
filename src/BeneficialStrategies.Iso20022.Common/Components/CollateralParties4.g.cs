@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the collateral counterparty(ies) of Party A with his eligibility set profile.
 /// </summary>
 [IsoId("_WfxEk_osEeiAfJEqh4xF_Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralParties4
     /// Counterparty of party A. 
     /// </summary>
     [IsoId("_WfxElPosEeiAfJEqh4xF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyB")]
     #endif
+    [IsoXmlTag("PtyB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification232 PartyB { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification232 PartyB { get; init; } 
+    public required PartyIdentification232 PartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification232 PartyB { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CollateralParties4
     /// Party that instructs party B to settle the instruction on its behalf.
     /// </summary>
     [IsoId("_WfxElfosEeiAfJEqh4xF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Party B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntPtyB")]
     #endif
+    [IsoXmlTag("ClntPtyB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification232? ClientPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record CollateralParties4
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
     [IsoId("_2lmYkfosEeiAfJEqh4xF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligibility Set Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgbltySetPrfl")]
     #endif
+    [IsoXmlTag("ElgbltySetPrfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification37? EligibilitySetProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

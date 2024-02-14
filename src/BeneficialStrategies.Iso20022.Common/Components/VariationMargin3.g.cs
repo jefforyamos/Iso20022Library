@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Margin required to cover the risk because of the price fluctuations occurred on the unsettled exposures towards central counterparty.
 /// </summary>
 [IsoId("_-eWgAKMOEeCojJW5vEuTEQ_-52349864")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Variation Margin")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record VariationMargin3
     /// Provides details about the security identification.
     /// </summary>
     [IsoId("_-eWgAaMOEeCojJW5vEuTEQ_-317540862")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record VariationMargin3
     /// Margin required to cover the risk because of the price fluctuations occurred on the unsettled exposures towards the central counterparty.
     /// </summary>
     [IsoId("_-eWgAqMOEeCojJW5vEuTEQ_-166188930")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Variation Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlVartnMrgn")]
     #endif
+    [IsoXmlTag("TtlVartnMrgn")]
     public TotalVariationMargin1? TotalVariationMargin { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _-eWgAqMOEeCojJW5vEuTEQ_-166188930
     
@@ -82,16 +78,15 @@ public partial record VariationMargin3
     /// Net unrealised profit or loss on the value of the netted, gross and failing positions.
     /// </summary>
     [IsoId("_-eWgA6MOEeCojJW5vEuTEQ_-1163261283")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Mark To Market")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlMrkToMkt")]
     #endif
+    [IsoXmlTag("TtlMrkToMkt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount2 TotalMarkToMarket { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount2 TotalMarkToMarket { get; init; } 
+    public required Amount2 TotalMarkToMarket { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount2 TotalMarkToMarket { get; init; } 
     #else
@@ -102,12 +97,11 @@ public partial record VariationMargin3
     /// Unrealised net loss calculated at the participant portfolio level.
     /// </summary>
     [IsoId("_-eWgBKMOEeCojJW5vEuTEQ_2134633660")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mark To Market Netted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrkToMktNetd")]
     #endif
+    [IsoXmlTag("MrkToMktNetd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? MarkToMarketNetted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +114,11 @@ public partial record VariationMargin3
     /// Unrealised net loss calculated in that market/boundary.
     /// </summary>
     [IsoId("_-eWgBaMOEeCojJW5vEuTEQ_1137561307")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mark To Market Gross")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrkToMktGrss")]
     #endif
+    [IsoXmlTag("MrkToMktGrss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? MarkToMarketGross { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +131,11 @@ public partial record VariationMargin3
     /// Sum of the unrealised loss without taking profit into consideration.
     /// </summary>
     [IsoId("_-eWgBqMOEeCojJW5vEuTEQ_1906471397")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mark To Market Fails")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrkToMktFls")]
     #endif
+    [IsoXmlTag("MrkToMktFls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? MarkToMarketFails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +148,11 @@ public partial record VariationMargin3
     /// Haircut applied to the absolute value of the participants net positions. Calculation depends on a participants credit rating.
     /// </summary>
     [IsoId("_-eWgB6MOEeCojJW5vEuTEQ_909399044")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fails Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlsHrcut")]
     #endif
+    [IsoXmlTag("FlsHrcut")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount2? FailsHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

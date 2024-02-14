@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BookingUnit1Choice.Code))]
     [KnownType(typeof(BookingUnit1Choice.Proprietary))]
     [IsoId("_Q-6dVtp-Ed-ak6NoX_4Aeg_1716011738")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Booking Unit 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

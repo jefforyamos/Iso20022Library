@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType4Code
 {
     /// <summary>
     /// Commodity attribute of type lampante.
-    /// Encoded/decoded by serializers as "LAMP".
+    /// Encoded/decoded by serializers as &quot;LAMP&quot;.
     /// </summary>
     [EnumMember(Value = "LAMP")]
     [IsoId("_6BOAsVq5EeWN79Bl6BUd3g")]

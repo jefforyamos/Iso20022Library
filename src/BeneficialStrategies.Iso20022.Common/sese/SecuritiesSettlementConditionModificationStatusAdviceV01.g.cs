@@ -42,9 +42,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|An account servicer sends a SecuritiesSettlementConditionsModificationStatusAdvice to an account owner to advise the status of a modification request previously instructed by the account owner.||The account servicer/owner relationship may be:|- a central securities depository or another settlement market infrastructure acting on behalf of their participants|- an agent (sub-custodian) acting on behalf of their global custodian customer, or |- a custodian acting on behalf of an investment management institution or a broker/dealer.||Usage|A SecuritiesSettlementConditionsModificatioRequest may contain requests on multiple transactions. However, one SecuritiesSettlementConditionsModificationStatusAdvice must be sent per transaction modified unless the SecuritiesSettlementConditionsModificationRequest is rejected as a whole.			||The message may also be used to: ||- re-send a message previously sent (the sub-function of the message is Duplicate) ||- provide a third party with a copy of a message for information (the sub-function of the message is Copy) ||- re-send to a third party a copy of a message for information (the sub-function of the message is Copy Duplicate).|ISO 15022 - 20022 Coexistence|This ISO 20022 message is reversed engineered from ISO 15022. Both standards will coexist for a certain number of years. Until this coexistence period ends, the usage of certain data types is restricted to ensure interoperability between ISO 15022 and 20022 users. Compliance to these rules is mandatory in a coexistence environment. The coexistence restrictions are described in a Textual Rule linked to the Message Items they concern. These coexistence textual rules are clearly identified as follows: “CoexistenceXxxxRule”.|.")]
 [IsoId("_1MtSiNE5Ed-BzquC8wXy7w_985101267")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Settlement Condition Modification Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -89,16 +87,15 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Information that unambiguously identifies a SecuritiesSettlementConditionModificationStatusAdvice message as known by the account servicer.
     /// </summary>
     [IsoId("_1MtSidE5Ed-BzquC8wXy7w_-909459027")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification11 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification11 Identification { get; init; } 
+    public required DocumentIdentification11 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification11 Identification { get; init; } 
     #else
@@ -109,16 +106,15 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Identification of the SecuritiesSettlementConditionsModificationRequest.
     /// </summary>
     [IsoId("_1MtSitE5Ed-BzquC8wXy7w_686324124")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqRef")]
     #endif
+    [IsoXmlTag("ReqRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Identification1 RequestReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Identification1 RequestReference { get; init; } 
+    public required Identification1 RequestReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Identification1 RequestReference { get; init; } 
     #else
@@ -129,12 +125,11 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_1MtSi9E5Ed-BzquC8wXy7w_-444926450")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification13Choice_? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +142,11 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_1M3DgNE5Ed-BzquC8wXy7w_-1178239149")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount13? SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +159,11 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Details of the request.
     /// </summary>
     [IsoId("_1M3DgdE5Ed-BzquC8wXy7w_1414149203")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqDtls")]
     #endif
+    [IsoXmlTag("ReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RequestDetails1? RequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,16 +176,15 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Provides details on the processing status of the request.
     /// </summary>
     [IsoId("_1M3DgtE5Ed-BzquC8wXy7w_-14563881")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingStatus5Choice_ ProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingStatus5Choice_ ProcessingStatus { get; init; } 
+    public required ProcessingStatus5Choice_ ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingStatus5Choice_ ProcessingStatus { get; init; } 
     #else
@@ -203,12 +195,11 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Party that originated the message, if other than the sender.
     /// </summary>
     [IsoId("_1M3Dg9E5Ed-BzquC8wXy7w_-1853560413")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Originator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgOrgtr")]
     #endif
+    [IsoXmlTag("MsgOrgtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? MessageOriginator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +212,11 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Party that is the final destination of the message, if other than the receiver.
     /// </summary>
     [IsoId("_1M3DhNE5Ed-BzquC8wXy7w_-1768597367")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRcpt")]
     #endif
+    [IsoXmlTag("MsgRcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification10Choice_? MessageRecipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +229,11 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_1M3DhdE5Ed-BzquC8wXy7w_-1483229932")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension2? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,7 +246,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesSettlementConditionModificationStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesSettlementConditionModificationStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesSettlementConditionModificationStatusAdviceV01Document ToDocument()
     {
@@ -267,7 +256,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01 :
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesSettlementConditionModificationStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesSettlementConditionModificationStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesSettlementConditionModificationStatusAdviceV01Document : IOuterDocument<SecuritiesSettlementConditionModificationStatusAdviceV01>
@@ -284,7 +273,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV01Do
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesSettlementConditionModificationStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesSettlementConditionModificationStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesSettlementConditionModificationStatusAdviceV01 Message { get; init; }

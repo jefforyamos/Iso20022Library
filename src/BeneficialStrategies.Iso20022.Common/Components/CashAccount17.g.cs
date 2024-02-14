@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the cash account.
 /// </summary>
 [IsoId("_SQINk9p-Ed-ak6NoX_4Aeg_-1116675143")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CashAccount17
     /// Identification of the cash account.
     /// </summary>
     [IsoId("_SQINlNp-Ed-ak6NoX_4Aeg_-521005462")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccountIdentification1Choice_ AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccountIdentification1Choice_ AccountIdentification { get; init; } 
+    public required CashAccountIdentification1Choice_ AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccountIdentification1Choice_ AccountIdentification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record CashAccount17
     /// Currency of the payment.
     /// </summary>
     [IsoId("_SQINldp-Ed-ak6NoX_4Aeg_1500837063")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtCcy")]
     #endif
+    [IsoXmlTag("PmtCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode PaymentCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string PaymentCurrency { get; init; } 
+    public required string PaymentCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string PaymentCurrency { get; init; } 
     #else
@@ -93,12 +89,11 @@ public partial record CashAccount17
     /// Identification of the party that owns the account.
     /// </summary>
     [IsoId("_SQINltp-Ed-ak6NoX_4Aeg_781895629")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnrId")]
     #endif
+    [IsoXmlTag("AcctOwnrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +106,16 @@ public partial record CashAccount17
     /// Identification of the cash correspondent back.
     /// </summary>
     [IsoId("_SQINl9p-Ed-ak6NoX_4Aeg_-1046488323")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Correspondent Bank Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrspdtBkId")]
     #endif
+    [IsoXmlTag("CrspdtBkId")]
+    [IsoSimpleType(IsoSimpleType.BICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICIdentifier CorrespondentBankIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CorrespondentBankIdentification { get; init; } 
+    public required System.String CorrespondentBankIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CorrespondentBankIdentification { get; init; } 
     #else

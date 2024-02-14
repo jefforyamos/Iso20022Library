@@ -30,13 +30,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// A report user, for example, a professional investor, investment fund distributor, market data provider, regulator or other interested party sends the InvestmentFundReportRequest message to the report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider to request a report.
 /// The InvestmentFundReportRequest message can be used to request one or many fund processing passport reports.
 /// Usage
-/// If the InvestmentFundReportRequest message is used to request a fund processing passport then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund processing passport report that is specified as "no criteria" means that the request is a request for all fund processing passports.
+/// If the InvestmentFundReportRequest message is used to request a fund processing passport then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund processing passport report that is specified as &quot;no criteria&quot; means that the request is a request for all fund processing passports.
 /// </summary>
 [Description(@"Scope|A report user, for example, a professional investor, investment fund distributor, market data provider, regulator or other interested party sends the InvestmentFundReportRequest message to the report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider to request a report.|The InvestmentFundReportRequest message can be used to request one or many fund processing passport reports.|Usage|If the InvestmentFundReportRequest message is used to request a fund processing passport then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund processing passport report that is specified as ""no criteria"" means that the request is a request for all fund processing passports.")]
 [IsoId("_Zsax2NEvEd-BzquC8wXy7w_-630681424")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund Report Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord<InvestmentFu
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_Zsax2dEvEd-BzquC8wXy7w_-760876160")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -100,12 +97,11 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord<InvestmentFu
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_Zsax2tEvEd-BzquC8wXy7w_62177576")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +114,11 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord<InvestmentFu
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_Zsax29EvEd-BzquC8wXy7w_1615234816")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,16 +131,15 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord<InvestmentFu
     /// Parameters for which the fund processing passport report is requested.
     /// </summary>
     [IsoId("_Zsax3NEvEd-BzquC8wXy7w_436796647")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Processing Passport Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FPPRpt")]
     #endif
+    [IsoXmlTag("FPPRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundParameters3Choice_ FundProcessingPassportReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FundParameters3Choice_ FundProcessingPassportReport { get; init; } 
+    public required FundParameters3Choice_ FundProcessingPassportReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FundParameters3Choice_ FundProcessingPassportReport { get; init; } 
     #else
@@ -156,7 +150,7 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord<InvestmentFu
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvestmentFundReportRequestV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvestmentFundReportRequestV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvestmentFundReportRequestV02Document ToDocument()
     {
@@ -166,7 +160,7 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord<InvestmentFu
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvestmentFundReportRequestV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvestmentFundReportRequestV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvestmentFundReportRequestV02Document : IOuterDocument<InvestmentFundReportRequestV02>
@@ -183,7 +177,7 @@ public partial record InvestmentFundReportRequestV02Document : IOuterDocument<In
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvestmentFundReportRequestV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvestmentFundReportRequestV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentFundReportRequestV02 Message { get; init; }

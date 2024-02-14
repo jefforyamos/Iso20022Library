@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// ***is all the elements required/used in today, should we simplify?***
 /// </summary>
 [IsoId("_L3fC4Ss9EeySlt9bF77XfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record CollateralParameters12
     /// Specifies the type of collateral instruction.
     /// </summary>
     [IsoId("_MOvFQSs9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Instruction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollInstrTp")]
     #endif
+    [IsoXmlTag("CollInstrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
+    public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record CollateralParameters12
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
     [IsoId("_MOvFQys9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrTp")]
     #endif
+    [IsoXmlTag("XpsrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExposureType23Choice_ ExposureType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExposureType23Choice_ ExposureType { get; init; } 
+    public required ExposureType23Choice_ ExposureType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExposureType23Choice_ ExposureType { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record CollateralParameters12
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
     [IsoId("_MOvFRSs9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSd")]
     #endif
+    [IsoXmlTag("CollSd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralRole1Code CollateralSide { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralRole1Code CollateralSide { get; init; } 
+    public required CollateralRole1Code CollateralSide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralRole1Code CollateralSide { get; init; } 
     #else
@@ -114,12 +109,11 @@ public partial record CollateralParameters12
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>
     [IsoId("_MOvFRys9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Process")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPrc")]
     #endif
+    [IsoXmlTag("SttlmPrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification30? SettlementProcess { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,12 +126,11 @@ public partial record CollateralParameters12
     /// Specifies the priority with which the instruction needs to be executed.
     /// </summary>
     [IsoId("_MOvFSSs9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prty")]
     #endif
+    [IsoXmlTag("Prty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification30? Priority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,12 +143,12 @@ public partial record CollateralParameters12
     /// Specifies whether the allocation of the collateral is manual or automatic.
     /// </summary>
     [IsoId("_MOvFSys9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Automatic Allocation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AutomtcAllcn")]
     #endif
+    [IsoXmlTag("AutomtcAllcn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AutomaticAllocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +161,12 @@ public partial record CollateralParameters12
     /// Indicates whether the proposed collateral movements can be accepted.
     /// </summary>
     [IsoId("_MOvFTSs9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Approved")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollApprvd")]
     #endif
+    [IsoXmlTag("CollApprvd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CollateralApproved { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -186,12 +179,12 @@ public partial record CollateralParameters12
     /// Indicates whether the proposed collateral movements have settled or no
     /// </summary>
     [IsoId("_MOvFTys9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Approved")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmApprvd")]
     #endif
+    [IsoXmlTag("SttlmApprvd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SettlementApproved { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

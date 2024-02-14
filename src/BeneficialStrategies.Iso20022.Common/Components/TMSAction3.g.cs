@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Single terminal management action to be performed by the point of interaction.
 /// </summary>
 [IsoId("_8fKyYTV_EeODSIIQsYYKhw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("TMS Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TMSAction3
     /// Types of action to be performed by a point of interaction (POI).
     /// </summary>
     [IsoId("_8vr6oTV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementAction1Code Type { get; init; } 
+    public required TerminalManagementAction1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementAction1Code Type { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record TMSAction3
     /// Communication parameters of the terminal management system to contact.
     /// </summary>
     [IsoId("_8vr6ozV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetworkParameters1? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,11 @@ public partial record TMSAction3
     /// Data set on which the action has to be performed.
     /// </summary>
     [IsoId("_8vr6pTV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetId")]
     #endif
+    [IsoXmlTag("DataSetId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DataSetIdentification3? DataSetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +103,15 @@ public partial record TMSAction3
     /// Event on which the action has to be activated by the point of interaction (POI).
     /// </summary>
     [IsoId("_8vr6pzV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trggr")]
     #endif
+    [IsoXmlTag("Trggr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementActionTrigger1Code Trigger { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementActionTrigger1Code Trigger { get; init; } 
+    public required TerminalManagementActionTrigger1Code Trigger { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementActionTrigger1Code Trigger { get; init; } 
     #else
@@ -128,12 +122,11 @@ public partial record TMSAction3
     /// Additional process to perform before starting or after completing the action by the point of interaction (POI).
     /// </summary>
     [IsoId("_8vr6qTV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Process")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlPrc")]
     #endif
+    [IsoXmlTag("AddtlPrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TerminalManagementAdditionalProcess1Code? AdditionalProcess { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,11 @@ public partial record TMSAction3
     /// Definition of retry process if activation of the action fails.
     /// </summary>
     [IsoId("_FGE90DWAEeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Re Try")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReTry")]
     #endif
+    [IsoXmlTag("ReTry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessRetry2? ReTry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +156,11 @@ public partial record TMSAction3
     /// Date and time the action has to be performed.
     /// </summary>
     [IsoId("_8vr6qzV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Condition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmCond")]
     #endif
+    [IsoXmlTag("TmCond")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessTiming3? TimeCondition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +173,12 @@ public partial record TMSAction3
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
     [IsoId("_8vr6rTV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMChllng")]
     #endif
+    [IsoXmlTag("TMChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? TMChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +191,12 @@ public partial record TMSAction3
     /// Certificate chain for the encryption of temporary transport key of the key to inject.
     /// </summary>
     [IsoId("_8vr6rzV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Encipherment Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KeyNcphrmntCert")]
     #endif
+    [IsoXmlTag("KeyNcphrmntCert")]
+    [IsoSimpleType(IsoSimpleType.Max10KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? KeyEnciphermentCertificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +209,11 @@ public partial record TMSAction3
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
     [IsoId("_8vr6sTV_EeODSIIQsYYKhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ErrActn")]
     #endif
+    [IsoXmlTag("ErrActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ErrorAction2? ErrorAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

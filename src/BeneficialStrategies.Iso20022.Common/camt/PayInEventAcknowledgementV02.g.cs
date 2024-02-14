@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"The PayInEventAcknowledgement message is sent by a participant of a central system to the central system to confirm a PayInSchedule or a PayInCall has been received.|")]
 [IsoId("_eii_URnXEeKKXqHkeUjBbw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pay In Event Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,19 +75,17 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord<PayInEventAckn
     /// Unique and unambiguous identifier for the message, as assigned by the sender.
     /// </summary>
     [IsoId("_1VTQczp7EeKXK8qRvydwAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageIdentification { get; init; } 
+    public required System.String MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageIdentification { get; init; } 
     #else
@@ -100,15 +96,12 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord<PayInEventAckn
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
     [IsoId("_SY6S7R3bEeKXIbeXfdPzuw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Session Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSsnIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SttlmSsnIdr")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,16 +114,15 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord<PayInEventAckn
     /// Details of the pay in schedule or pay in call being acknowledged.
     /// </summary>
     [IsoId("_eii_VxnXEeKKXqHkeUjBbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledgement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AckDtls")]
     #endif
+    [IsoXmlTag("AckDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcknowledgementDetails1Choice_ AcknowledgementDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcknowledgementDetails1Choice_ AcknowledgementDetails { get; init; } 
+    public required AcknowledgementDetails1Choice_ AcknowledgementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcknowledgementDetails1Choice_ AcknowledgementDetails { get; init; } 
     #else
@@ -141,12 +133,11 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord<PayInEventAckn
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Cu8KTy53EeKwTrPDLMbLxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,7 +150,7 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord<PayInEventAckn
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PayInEventAcknowledgementV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PayInEventAcknowledgementV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PayInEventAcknowledgementV02Document ToDocument()
     {
@@ -169,7 +160,7 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord<PayInEventAckn
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PayInEventAcknowledgementV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PayInEventAcknowledgementV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PayInEventAcknowledgementV02Document : IOuterDocument<PayInEventAcknowledgementV02>
@@ -186,7 +177,7 @@ public partial record PayInEventAcknowledgementV02Document : IOuterDocument<PayI
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PayInEventAcknowledgementV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PayInEventAcknowledgementV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PayInEventAcknowledgementV02 Message { get; init; }

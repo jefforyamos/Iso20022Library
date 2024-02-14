@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsDSS))]
     [KnownType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsCountry))]
     [IsoId("_RB5f5Np-Ed-ak6NoX_4Aeg_-418949931")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

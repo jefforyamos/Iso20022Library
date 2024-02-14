@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for a pending settlement status.
 /// </summary>
 [IsoId("_U1YYkNp-Ed-ak6NoX_4Aeg_-1256636316")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pending Settlement Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PendingSettlementStatusReason1
     /// Reason for a settlement pending status in structured form.
     /// </summary>
     [IsoId("_U1YYkdp-Ed-ak6NoX_4Aeg_-913088435")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
+    [IsoXmlTag("Strd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PendingSettlementStatusReason1Code Structured { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PendingSettlementStatusReason1Code Structured { get; init; } 
+    public required PendingSettlementStatusReason1Code Structured { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PendingSettlementStatusReason1Code Structured { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record PendingSettlementStatusReason1
     /// Additional information about the reason for the settlement pending status in textual form.
     /// </summary>
     [IsoId("_U1YYktp-Ed-ak6NoX_4Aeg_-888151424")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about short positions.
 /// </summary>
 [IsoId("_shPDYAx3EeazkbJaoKTIIw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Short Positions Report Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ShortPositionsReportDetails1
     /// Identification of participant account.
     /// </summary>
     [IsoId("_CJhacAx4EeazkbJaoKTIIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcptId")]
     #endif
+    [IsoXmlTag("PtcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ShortPositionsReportDetails1
     /// Information about participant account number.
     /// </summary>
     [IsoId("_EJegAAx4EeazkbJaoKTIIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcptAcct")]
     #endif
+    [IsoXmlTag("PtcptAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount24 ParticipantAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount24 ParticipantAccount { get; init; } 
+    public required CashAccount24 ParticipantAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount24 ParticipantAccount { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record ShortPositionsReportDetails1
     /// Information about participant account balance.
     /// </summary>
     [IsoId("_Hri4kAx4EeazkbJaoKTIIw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Position Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtPosAmt")]
     #endif
+    [IsoXmlTag("ShrtPosAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount ShortPositionAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ShortPositionAmount { get; init; } 
+    public required System.Decimal ShortPositionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ShortPositionAmount { get; init; } 
     #else

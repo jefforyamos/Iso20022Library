@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice
     /// Identifier of a security assigned by the Japanese QUICK identification scheme for financial instruments.
     /// </summary>
     [IsoId("_CSq4QSGQEeW7gKYhAMEFCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("QUICK")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice
         /// Identifier of a security assigned by the Japanese QUICK identification scheme for financial instruments.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="QUICK")]
         #endif
+        [IsoXmlTag("QUICK")]
+        [IsoSimpleType(IsoSimpleType.QUICKIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoQUICKIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the signature of an Isabel file.
 /// </summary>
 [IsoId("_Z-CoUKA3EeWiJt5KdX5iuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel Signature")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record IsabelSignature2
     /// Common signature elements applicable to all signature records.
     /// </summary>
     [IsoId("_LLcEwKA5EeWiJt5KdX5iuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsabelSignatureHash1 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IsabelSignatureHash1 Header { get; init; } 
+    public required IsabelSignatureHash1 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IsabelSignatureHash1 Header { get; init; } 
     #else
@@ -72,35 +69,30 @@ public partial record IsabelSignature2
     /// Individual record of the file signature.
     /// </summary>
     [IsoId("_M8gZwKA5EeWiJt5KdX5iuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcrd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rcrd")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<IsabelSignatureRecord1> Record { get; init; } = new ValueList<IsabelSignatureRecord1>(){};
     
     /// <summary>
     /// Random data related to the signature.
     /// </summary>
     [IsoId("_PbEG4KA5EeWiJt5KdX5iuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Random Block")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RandBlck")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RandBlck")]
+    [IsoSimpleType(IsoSimpleType.Max64Text)]
     [StringLength(maximumLength: 64 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax64Text RandomBlock { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RandomBlock { get; init; } 
+    public required System.String RandomBlock { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RandomBlock { get; init; } 
     #else

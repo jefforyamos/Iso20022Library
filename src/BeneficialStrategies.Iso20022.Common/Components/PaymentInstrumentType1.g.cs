@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies a payment instrument type as the search criteria for the financial institution to do the investigation.
 /// </summary>
 [IsoId("_KRjfA01KEeGAs6v-iSb2RQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Instrument Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record PaymentInstrumentType1
     /// Provides the card number.
     /// </summary>
     [IsoId("_Mvp5PE1KEeGAs6v-iSb2RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CardNb")]
+    [IsoSimpleType(IsoSimpleType.Min8Max28NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin8Max28NumericText CardNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CardNumber { get; init; } 
+    public required System.String CardNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CardNumber { get; init; } 
     #else
@@ -74,12 +69,11 @@ public partial record PaymentInstrumentType1
     /// Identifies the authority request type as a code.
     /// </summary>
     [IsoId("_PgYUYU1KEeGAs6v-iSb2RQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authority Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrtyReqTp")]
     #endif
+    [IsoXmlTag("AuthrtyReqTp")]
     public AuthorityRequestType1? AuthorityRequestType { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _PgYUYU1KEeGAs6v-iSb2RQ
     
@@ -87,15 +81,13 @@ public partial record PaymentInstrumentType1
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
     [IsoId("_pJiNaV0wEeGwFY7pvwHH-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

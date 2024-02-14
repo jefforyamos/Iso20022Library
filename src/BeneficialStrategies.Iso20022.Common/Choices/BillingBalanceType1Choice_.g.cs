@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BillingBalanceType1Choice.Code))]
     [KnownType(typeof(BillingBalanceType1Choice.Proprietary))]
     [IsoId("_6Q_lhJqlEeGSON8vddiWzQ_-1443313206")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billing Balance Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

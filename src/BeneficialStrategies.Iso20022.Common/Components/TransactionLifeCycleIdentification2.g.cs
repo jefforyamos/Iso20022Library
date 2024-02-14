@@ -20,13 +20,11 @@ namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique global identification structure used to match transactions throughout their lifecycle (for example, authorisation to financial, financial to chargebacks, etc.). 
-/// It shall contain the same value in all messages throughout a transaction's lifecycle.
+/// It shall contain the same value in all messages throughout a transaction&apos;s lifecycle.
 /// ISO 8583:2003 bit 21
 /// </summary>
 [IsoId("_LoxEIMWaEeiCfKAZkk6ZAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Life Cycle Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,16 @@ public partial record TransactionLifeCycleIdentification2
     /// ISO 8583:2003 bit 21-2
     /// </summary>
     [IsoId("_Lztv4cWaEeiCfKAZkk6ZAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Exact15Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact15Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else

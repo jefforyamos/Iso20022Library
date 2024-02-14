@@ -21,7 +21,7 @@ public enum SettlementConditionModificationStatusStatusCode
 {
     /// <summary>
     /// Instruction has been acknowledged/accepted by the account servicer.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZK_t8dp-Ed-ak6NoX_4Aeg_-1855259727")]
@@ -30,7 +30,7 @@ public enum SettlementConditionModificationStatusStatusCode
     
     /// <summary>
     /// Instruction has been rejected for further processing.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_ZK_t8tp-Ed-ak6NoX_4Aeg_-316471285")]
@@ -39,7 +39,7 @@ public enum SettlementConditionModificationStatusStatusCode
     
     /// <summary>
     /// Modification Request will not be executed.
-    /// Encoded/decoded by serializers as "DEND".
+    /// Encoded/decoded by serializers as &quot;DEND&quot;.
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_ZK_t89p-Ed-ak6NoX_4Aeg_-339767045")]
@@ -48,7 +48,7 @@ public enum SettlementConditionModificationStatusStatusCode
     
     /// <summary>
     /// Modification has been completed.
-    /// Encoded/decoded by serializers as "MODC".
+    /// Encoded/decoded by serializers as &quot;MODC&quot;.
     /// </summary>
     [EnumMember(Value = "MODC")]
     [IsoId("_ZK_t9Np-Ed-ak6NoX_4Aeg_1475845866")]
@@ -57,7 +57,7 @@ public enum SettlementConditionModificationStatusStatusCode
     
     /// <summary>
     /// Modification is pending. At this time, it is unknown whether the modification can be affected.
-    /// Encoded/decoded by serializers as "MODP".
+    /// Encoded/decoded by serializers as &quot;MODP&quot;.
     /// </summary>
     [EnumMember(Value = "MODP")]
     [IsoId("_ZK_t9dp-Ed-ak6NoX_4Aeg_476350512")]

@@ -21,7 +21,7 @@ public enum PhysicalTransferType4Code
 {
     /// <summary>
     /// Physical transfer.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_tMiAQYBAEeall68-KLgmUw")]
@@ -30,7 +30,7 @@ public enum PhysicalTransferType4Code
     
     /// <summary>
     /// Determined by a third party or optional for counterparty.
-    /// Encoded/decoded by serializers as "OPTL".
+    /// Encoded/decoded by serializers as &quot;OPTL&quot;.
     /// </summary>
     [EnumMember(Value = "OPTL")]
     [IsoId("_tbaJwYBAEeall68-KLgmUw")]
@@ -39,7 +39,7 @@ public enum PhysicalTransferType4Code
     
     /// <summary>
     /// Cash transfer.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_tmRV8YBAEeall68-KLgmUw")]

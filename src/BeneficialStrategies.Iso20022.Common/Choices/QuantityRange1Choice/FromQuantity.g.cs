@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice
     /// Lower boundary of a range of quantity values.
     /// </summary>
     [IsoId("_jtRfEO5NEeCisYr99QEiWA_-377163681")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice
         /// Quantity value of the range limit.
         /// </summary>
         [IsoId("_jtapAO5NEeCisYr99QEiWA_-330775982")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Boundary")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Bdry")]
         #endif
+        [IsoXmlTag("Bdry")]
+        [IsoSimpleType(IsoSimpleType.DecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoDecimalNumber Boundary { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Boundary { get; init; } 
+        public required System.UInt64 Boundary { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Boundary { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice
         /// Indicates whether the boundary quantity is included in the range of quantity values.
         /// </summary>
         [IsoId("_jtapAe5NEeCisYr99QEiWA_279625946")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Included")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Incl")]
         #endif
+        [IsoXmlTag("Incl")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoYesNoIndicator Included { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Included { get; init; } 
+        public required System.String Included { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Included { get; init; } 
         #else

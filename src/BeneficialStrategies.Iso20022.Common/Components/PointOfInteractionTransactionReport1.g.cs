@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Transaction Report information for one transaction.
 /// </summary>
 [IsoId("_li9A4N6WEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Point Of Interaction Transaction Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PointOfInteractionTransactionReport1
     /// Response for this specific transaction.
     /// </summary>
     [IsoId("_r5azsN6WEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspn")]
     #endif
+    [IsoXmlTag("Rspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType9 Response { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType9 Response { get; init; } 
+    public required ResponseType9 Response { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType9 Response { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PointOfInteractionTransactionReport1
     /// Data responded to a Payment request.
     /// </summary>
     [IsoId("_6DVUsN6WEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtRspn")]
     #endif
+    [IsoXmlTag("PmtRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentResponse1? PaymentResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

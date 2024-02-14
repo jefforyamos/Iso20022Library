@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification34Choice.NameAndAddress))]
     [KnownType(typeof(PartyIdentification34Choice.Country))]
     [IsoId("_QPiO0Np-Ed-ak6NoX_4Aeg_1306764655")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification 34 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

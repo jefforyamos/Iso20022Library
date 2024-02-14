@@ -21,7 +21,7 @@ public enum ATMServiceType5Code
 {
     /// <summary>
     /// Modification of the card PIN value.
-    /// Encoded/decoded by serializers as "PINC".
+    /// Encoded/decoded by serializers as &quot;PINC&quot;.
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_djyvg4rAEeSgLpgNvMAP2g")]
@@ -30,7 +30,7 @@ public enum ATMServiceType5Code
     
     /// <summary>
     /// Resetting of a PIN.
-    /// Encoded/decoded by serializers as "PINR".
+    /// Encoded/decoded by serializers as &quot;PINR&quot;.
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_djyvhYrAEeSgLpgNvMAP2g")]
@@ -39,7 +39,7 @@ public enum ATMServiceType5Code
     
     /// <summary>
     /// Unblock the PIN.
-    /// Encoded/decoded by serializers as "PINU".
+    /// Encoded/decoded by serializers as &quot;PINU&quot;.
     /// </summary>
     [EnumMember(Value = "PINU")]
     [IsoId("_djyvh4rAEeSgLpgNvMAP2g")]

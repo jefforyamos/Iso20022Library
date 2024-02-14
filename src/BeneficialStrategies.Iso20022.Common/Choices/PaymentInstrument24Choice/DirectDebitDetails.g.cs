@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
     /// Settlement instructions for a payment by direct debit.
     /// </summary>
     [IsoId("_Jmv4w5TBEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direct Debit Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
         /// </summary>
         [IsoId("_bCsyQ5TBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrAcct")]
         #endif
+        [IsoXmlTag("DbtrAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountIdentificationAndName5 DebtorAccount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountIdentificationAndName5 DebtorAccount { get; init; } 
+        public required AccountIdentificationAndName5 DebtorAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountIdentificationAndName5 DebtorAccount { get; init; } 
         #else
@@ -77,12 +74,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Party that owes the cash to the creditor/final party. The debtor is also the debit account owner.
         /// </summary>
         [IsoId("_bCsyRZTBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dbtr")]
         #endif
+        [IsoXmlTag("Dbtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification125Choice_? Debtor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +91,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Number assigned by a tax authority to an entity.
         /// </summary>
         [IsoId("_bCsyR5TBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Tax Identification Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrTaxIdNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("DbtrTaxIdNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? DebtorTaxIdentificationNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,15 +110,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Number assigned by a national registration authority to an entity.
         /// </summary>
         [IsoId("_bCsySZTBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor National Registration Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrNtlRegnNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("DbtrNtlRegnNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? DebtorNationalRegistrationNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +129,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
         /// </summary>
         [IsoId("_bCsyS5TBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cdtr")]
         #endif
+        [IsoXmlTag("Cdtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification125Choice_? Creditor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,16 +146,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Financial institution that receives the direct debit instruction from the creditor or other authorised party.
         /// </summary>
         [IsoId("_bCsyTZTBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrAgt")]
         #endif
+        [IsoXmlTag("DbtrAgt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialInstitutionIdentification11Choice_ DebtorAgent { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialInstitutionIdentification11Choice_ DebtorAgent { get; init; } 
+        public required FinancialInstitutionIdentification11Choice_ DebtorAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialInstitutionIdentification11Choice_ DebtorAgent { get; init; } 
         #else
@@ -175,12 +165,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
         /// </summary>
         [IsoId("_bCsyT5TBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Agent Branch")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrAgtBrnch")]
         #endif
+        [IsoXmlTag("DbtrAgtBrnch")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchData4? DebtorAgentBranch { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +182,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Financial institution that receives the payment transaction on behalf of the creditor, or other nominated party, and credits the account.
         /// </summary>
         [IsoId("_bCsyUZTBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrAgt")]
         #endif
+        [IsoXmlTag("CdtrAgt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstitutionIdentification11Choice_? CreditorAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,12 +199,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
         /// </summary>
         [IsoId("_bCsyU5TBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Agent Branch")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrAgtBrnch")]
         #endif
+        [IsoXmlTag("CdtrAgtBrnch")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchData4? CreditorAgentBranch { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,15 +216,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Reference assigned to a creditor by its financial institution, or relevant authority, authorising the creditor to take part in a direct debit scheme.
         /// </summary>
         [IsoId("_bCsyVZTBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Registration Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RegnId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("RegnId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? RegistrationIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -250,15 +235,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice
         /// Reference of the direct debit mandate that has been agreed upon by the debtor and creditor.
         /// </summary>
         [IsoId("_bCsyV5TBEemqYPWMBuVawg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Mandate Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MndtId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MndtId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MandateIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

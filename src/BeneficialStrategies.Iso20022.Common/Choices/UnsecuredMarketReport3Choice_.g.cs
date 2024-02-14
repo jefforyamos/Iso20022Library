@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnsecuredMarketReport3Choice.DataSetAction))]
     [KnownType(typeof(UnsecuredMarketReport3Choice.Transaction))]
     [IsoId("_Gm8z9aifEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unsecured Market Report 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

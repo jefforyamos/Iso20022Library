@@ -21,7 +21,7 @@ public enum OptionStyle3Code
 {
     /// <summary>
     /// Option can be exercised before or on expiry date.
-    /// Encoded/decoded by serializers as "AMER".
+    /// Encoded/decoded by serializers as &quot;AMER&quot;.
     /// </summary>
     [EnumMember(Value = "AMER")]
     [IsoId("_aQR7Adp-Ed-ak6NoX_4Aeg_-930718664")]
@@ -30,7 +30,7 @@ public enum OptionStyle3Code
     
     /// <summary>
     /// Option that can be exercised on expiry date only.
-    /// Encoded/decoded by serializers as "EURO".
+    /// Encoded/decoded by serializers as &quot;EURO&quot;.
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_aQR7Atp-Ed-ak6NoX_4Aeg_1489236661")]
@@ -39,7 +39,7 @@ public enum OptionStyle3Code
     
     /// <summary>
     /// Option where the payoff is not determined by the underlying price at maturity but by the average underlying price over some pre-set period of time.
-    /// Encoded/decoded by serializers as "ASIA".
+    /// Encoded/decoded by serializers as &quot;ASIA&quot;.
     /// </summary>
     [EnumMember(Value = "ASIA")]
     [IsoId("_aQR7A9p-Ed-ak6NoX_4Aeg_1517866290")]

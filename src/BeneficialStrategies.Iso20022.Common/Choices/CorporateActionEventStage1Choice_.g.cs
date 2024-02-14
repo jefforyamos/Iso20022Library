@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionEventStage1Choice.Code))]
     [KnownType(typeof(CorporateActionEventStage1Choice.Proprietary))]
     [IsoId("_Qsl-QNp-Ed-ak6NoX_4Aeg_526490390")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Stage 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

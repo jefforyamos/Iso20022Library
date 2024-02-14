@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(QuantityOrTerm1Choice.SchedulePeriod))]
     [KnownType(typeof(QuantityOrTerm1Choice.Term))]
     [IsoId("_VVI-wCJDEe2zWP9pqvmqdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Or Term 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

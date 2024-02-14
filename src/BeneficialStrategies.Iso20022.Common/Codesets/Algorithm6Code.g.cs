@@ -21,7 +21,7 @@ public enum Algorithm6Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) CBC (Chaining Block Cypher) encryption with a 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "EA2C".
+    /// Encoded/decoded by serializers as &quot;EA2C&quot;.
     /// </summary>
     [EnumMember(Value = "EA2C")]
     [IsoId("_1z-joQiuEeKn9O5oyej_zw")]
@@ -30,7 +30,7 @@ public enum Algorithm6Code
     
     /// <summary>
     /// Triple DES (Data Encryption Standard) CBC (Chaining Block Cypher) encryption with double length key (112 Bit) as defined in FIPS PUB 46-3 - (ASN.1 Object Identifier: des-ede3-cbc).
-    /// Encoded/decoded by serializers as "E3DC".
+    /// Encoded/decoded by serializers as &quot;E3DC&quot;.
     /// </summary>
     [EnumMember(Value = "E3DC")]
     [IsoId("_2AxCcwiuEeKn9O5oyej_zw")]

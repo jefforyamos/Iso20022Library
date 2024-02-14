@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to report on a payment transaction.
 /// </summary>
 [IsoId("_yNepoZlbEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Return Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TransactionReturnCriteria5
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
     [IsoId("_yV4-w5lbEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment To Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtToRtrCrit")]
     #endif
+    [IsoXmlTag("PmtToRtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemReturnCriteria2? PaymentToReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TransactionReturnCriteria5
     /// Origin of the payment (be it a member or a system or both).
     /// </summary>
     [IsoId("_yV4-xZlbEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment From Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtFrRtrCrit")]
     #endif
+    [IsoXmlTag("PmtFrRtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemReturnCriteria2? PaymentFromReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TransactionReturnCriteria5
     /// Defines the criteria used to report on the cash entry.
     /// </summary>
     [IsoId("_yV4-x5lbEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Cash Entry Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctCshNtryRtrCrit")]
     #endif
+    [IsoXmlTag("AcctCshNtryRtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountCashEntryReturnCriteria3? AccountCashEntryReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TransactionReturnCriteria5
     /// Defines the criteria used to report on the payment.
     /// </summary>
     [IsoId("_yV4-yZlbEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtRtrCrit")]
     #endif
+    [IsoXmlTag("PmtRtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentReturnCriteria4? PaymentReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes information needed to identify a change in the party related static data, the time when it was performed and the user requesting the change and approving it.
 /// </summary>
 [IsoId("_HK6rsWjHEeiCUdTMLdZoIg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Audit Trail")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record PartyAuditTrail1
     /// Individual record of the party audit trail.
     /// </summary>
     [IsoId("_GLdVoWjOEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcrd")]
     #endif
+    [IsoXmlTag("Rcrd")]
     public UpdateLogPartyRecord1Choice_? Record { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _GLdVoWjOEeiRg5NzP0jkQg
     
@@ -65,16 +62,16 @@ public partial record PartyAuditTrail1
     /// Timestamp of the change.
     /// </summary>
     [IsoId("_HZNmZ2jHEeiCUdTMLdZoIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operation Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OprTmStmp")]
     #endif
+    [IsoXmlTag("OprTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime OperationTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime OperationTimeStamp { get; init; } 
+    public required System.DateTime OperationTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime OperationTimeStamp { get; init; } 
     #else
@@ -85,19 +82,17 @@ public partial record PartyAuditTrail1
     /// User who instructed the change.
     /// </summary>
     [IsoId("_HZNmaWjHEeiCUdTMLdZoIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing User")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgUsr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstgUsr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text InstructingUser { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InstructingUser { get; init; } 
+    public required System.String InstructingUser { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InstructingUser { get; init; } 
     #else
@@ -108,15 +103,13 @@ public partial record PartyAuditTrail1
     /// User who approved the change instructed by the instructing user.
     /// </summary>
     [IsoId("_HZNma2jHEeiCUdTMLdZoIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Approving User")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApprvgUsr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ApprvgUsr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? ApprovingUser { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

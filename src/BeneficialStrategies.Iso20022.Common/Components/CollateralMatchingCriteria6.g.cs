@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Compares information related to both sides of a collateral.
 /// </summary>
 [IsoId("_A0ExqcK3EeuFNp8LZAnorg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Matching Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CollateralMatchingCriteria6
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
     [IsoId("_A1bcg8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Uncollateralised Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UncollsdFlg")]
     #endif
+    [IsoXmlTag("UncollsdFlg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator3? UncollateralisedFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CollateralMatchingCriteria6
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
     [IsoId("_A1bchcK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Exposure Collateralisation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetXpsrCollstnInd")]
     #endif
+    [IsoXmlTag("NetXpsrCollstnInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator3? NetExposureCollateralisationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CollateralMatchingCriteria6
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
     [IsoId("_A1bch8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollValDt")]
     #endif
+    [IsoXmlTag("CollValDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? CollateralValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CollateralMatchingCriteria6
     /// Specifies whether the information on the component type is matching or not.
     /// </summary>
     [IsoId("_A1bcicK3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstTp")]
     #endif
+    [IsoXmlTag("AsstTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityCommodityCash4? AssetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CollateralMatchingCriteria6
     /// Specifies whether the values defined as security identification are matching or not.
     /// </summary>
     [IsoId("_A1bci8K3EeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basket Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsktIdr")]
     #endif
+    [IsoXmlTag("BsktIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareSecurityIdentification4? BasketIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

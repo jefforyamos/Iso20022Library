@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification3Choic
     /// Set of elements used to indicate which information is missing or incorrect.
     /// </summary>
     [IsoId("_S_E3FUgoEeaGKYpLDboHPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Missing Or Incorrect Information")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,12 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification3Choic
         /// Indicates whether the request is related to an AML (Anti Money Laundering) investigation or not.
         /// </summary>
         [IsoId("_eA4sw0gqEeaGKYpLDboHPQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Anti Money Laundering Request")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AMLReq")]
         #endif
+        [IsoXmlTag("AMLReq")]
+        [IsoSimpleType(IsoSimpleType.AMLIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoAMLIndicator? AntiMoneyLaunderingRequest { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,32 +65,26 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification3Choic
         /// Indicates the missing information.
         /// </summary>
         [IsoId("_eA4sxUgqEeaGKYpLDboHPQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Missing Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MssngInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MssngInf")]
         [MinLength(0)]
         [MaxLength(10)]
-        #endif
         public ValueList<UnableToApplyMissing1> MissingInformation { get; init; } = new ValueList<UnableToApplyMissing1>(){};
         
         /// <summary>
         /// Indicates, in a coded form, the incorrect information.
         /// </summary>
         [IsoId("_eA4sx0gqEeaGKYpLDboHPQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Incorrect Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IncrrctInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("IncrrctInf")]
         [MinLength(0)]
         [MaxLength(10)]
-        #endif
         public ValueList<UnableToApplyIncorrect1> IncorrectInformation { get; init; } = new ValueList<UnableToApplyIncorrect1>(){};
         
         

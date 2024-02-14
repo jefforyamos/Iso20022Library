@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
 [IsoId("_pLNREY-wEeaEa8S_GI1QNA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Commission")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Commission24
     /// Specification of the commission type.
     /// </summary>
     [IsoId("_paqpY4-wEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommissionType6Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommissionType6Choice_ Type { get; init; } 
+    public required CommissionType6Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommissionType6Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Commission24
     /// Amount of money due to a party as compensation for a service.
     /// </summary>
     [IsoId("_paqpa4-wEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Comssn")]
     #endif
+    [IsoXmlTag("Comssn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrRate2Choice_ Commission { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrRate2Choice_ Commission { get; init; } 
+    public required AmountOrRate2Choice_ Commission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrRate2Choice_ Commission { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record Commission24
     /// Information related to an identification, eg, party identification or account identification.
     /// </summary>
     [IsoId("_paqpeY-wEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptId")]
     #endif
+    [IsoXmlTag("RcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification117? RecipientIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,12 @@ public partial record Commission24
     /// Date at which an operation is triggered to calculate, for instance, a commission, fee, asset values, etc.
     /// </summary>
     [IsoId("_paqpgY-wEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnDt")]
     #endif
+    [IsoXmlTag("ClctnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CalculationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,11 @@ public partial record Commission24
     /// Total value of the commissions for a specific trade.
     /// </summary>
     [IsoId("_paqpg4-wEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Commission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlComssn")]
     #endif
+    [IsoXmlTag("TtlComssn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection29? TotalCommission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +140,12 @@ public partial record Commission24
     /// Amount that results of the calculation of VAT on net fees, according to the transaction current tariffs.
     /// </summary>
     [IsoId("_paqphY-wEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total VAT Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlVATAmt")]
     #endif
+    [IsoXmlTag("TtlVATAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalVATAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +158,12 @@ public partial record Commission24
     /// Specifies the VAT rate.
     /// </summary>
     [IsoId("_paqph4-wEeaEa8S_GI1QNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("VAT Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VATRate")]
     #endif
+    [IsoXmlTag("VATRate")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? VATRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

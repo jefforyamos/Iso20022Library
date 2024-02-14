@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderWaiverReason3Choice
     /// Reason for the waiver expressed as a code.
     /// </summary>
     [IsoId("_PibkEToREeabspMEjqY5TQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderWaiverReason3Choice
         /// Relates to non-standard orders, to handle them differently, probably in a manual fashion.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OrderWaiverReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OrderWaiverReason1Code Value { get; init; } 
+        public required OrderWaiverReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OrderWaiverReason1Code Value { get; init; } 
         #else

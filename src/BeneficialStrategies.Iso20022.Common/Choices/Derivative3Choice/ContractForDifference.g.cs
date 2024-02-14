@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice
     /// Details specific for Contract for difference (CFDs).
     /// </summary>
     [IsoId("_xH-zaSe0Eei12pGEsJIAeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract For Difference")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice
         /// Underlying type of the contract for difference.
         /// </summary>
         [IsoId("_Mb3u0WlQEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Underlying Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UndrlygTp")]
         #endif
+        [IsoXmlTag("UndrlygTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required UnderlyingContractForDifferenceType3Code UnderlyingType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public UnderlyingContractForDifferenceType3Code UnderlyingType { get; init; } 
+        public required UnderlyingContractForDifferenceType3Code UnderlyingType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public UnderlyingContractForDifferenceType3Code UnderlyingType { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice
         /// Currency 1 of the underlying currency pair.
         /// </summary>
         [IsoId("_Mb3u02lQEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Notional Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NtnlCcy1")]
         #endif
+        [IsoXmlTag("NtnlCcy1")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ActiveOrHistoricCurrencyCode? NotionalCurrency1 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice
         /// Currency 2 of the underlying currency pair.
         /// </summary>
         [IsoId("_Mb3u1WlQEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Notional Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NtnlCcy2")]
         #endif
+        [IsoXmlTag("NtnlCcy2")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ActiveOrHistoricCurrencyCode? NotionalCurrency2 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice
     /// Information about code and number of transfer.
     /// </summary>
     [IsoId("_WJO-ECc7Eea7avjfd7yDAA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Event")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice
         /// Code of fund transfer event.
         /// </summary>
         [IsoId("_Mmm70Cc8Eea7avjfd7yDAA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Event Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EvtCd")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("EvtCd")]
+        [IsoSimpleType(IsoSimpleType.Max4Text)]
         [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax4Text EventCode { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String EventCode { get; init; } 
+        public required System.String EventCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String EventCode { get; init; } 
         #else
@@ -79,15 +75,12 @@ namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice
         /// Event number related to the event code.
         /// </summary>
         [IsoId("_ReAIkCc8Eea7avjfd7yDAA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Event Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EvtNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("EvtNb")]
+        [IsoSimpleType(IsoSimpleType.Max3NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax3NumericText? EventNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

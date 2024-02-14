@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
     /// Details of the static data audit trail retrieved from the system.
     /// </summary>
     [IsoId("_bcWXkWc-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Audit Trail")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -60,19 +58,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
         /// Name of the field whose value has been changed.
         /// </summary>
         [IsoId("_kzm1AO5NEeCisYr99QEiWA_1740662573")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Field Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FldNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("FldNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text FieldName { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String FieldName { get; init; } 
+        public required System.String FieldName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String FieldName { get; init; } 
         #else
@@ -83,19 +79,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
         /// Value of the field before the change.
         /// </summary>
         [IsoId("_kzm1Ae5NEeCisYr99QEiWA_-998075288")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Old Field Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OdFldVal")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OdFldVal")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax350Text OldFieldValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String OldFieldValue { get; init; } 
+        public required System.String OldFieldValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String OldFieldValue { get; init; } 
         #else
@@ -106,19 +100,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
         /// Value of the field after the change.
         /// </summary>
         [IsoId("_kzm1Au5NEeCisYr99QEiWA_-1286976113")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("New Field Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NewFldVal")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("NewFldVal")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax350Text NewFieldValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String NewFieldValue { get; init; } 
+        public required System.String NewFieldValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String NewFieldValue { get; init; } 
         #else
@@ -129,16 +121,16 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
         /// Timestamp of the change.
         /// </summary>
         [IsoId("_kzm1A-5NEeCisYr99QEiWA_-1287417640")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Operation Time Stamp")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OprTmStmp")]
         #endif
+        [IsoXmlTag("OprTmStmp")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODateTime OperationTimeStamp { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateTime OperationTimeStamp { get; init; } 
+        public required System.DateTime OperationTimeStamp { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateTime OperationTimeStamp { get; init; } 
         #else
@@ -149,19 +141,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
         /// User who instructed the change.
         /// </summary>
         [IsoId("_kzm1BO5NEeCisYr99QEiWA_-1840195094")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Instructing User")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InstgUsr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("InstgUsr")]
+        [IsoSimpleType(IsoSimpleType.Max256Text)]
         [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax256Text InstructingUser { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String InstructingUser { get; init; } 
+        public required System.String InstructingUser { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String InstructingUser { get; init; } 
         #else
@@ -172,15 +162,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
         /// User who approved the change instructed by the instructing user.
         /// </summary>
         [IsoId("_kzm1Be5NEeCisYr99QEiWA_276002183")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Approving User")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ApprvgUsr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("ApprvgUsr")]
+        [IsoSimpleType(IsoSimpleType.Max256Text)]
         [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax256Text? ApprovingUser { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

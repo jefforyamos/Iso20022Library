@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Description of the financial instrument.
 /// </summary>
 [IsoId("_TzEnC9p-Ed-ak6NoX_4Aeg_-492471323")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FinancialInstrumentAttributes7
     /// Identifies the financial instrument.
     /// </summary>
     [IsoId("_TzOYANp-Ed-ak6NoX_4Aeg_-492471262")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification11 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification11 SecurityIdentification { get; init; } 
+    public required SecurityIdentification11 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification11 SecurityIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record FinancialInstrumentAttributes7
     /// Place where the referenced financial instrument is listed.
     /// </summary>
     [IsoId("_TzOYAdp-Ed-ak6NoX_4Aeg_-492471193")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Listing")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfListg")]
     #endif
+    [IsoXmlTag("PlcOfListg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification2? PlaceOfListing { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record FinancialInstrumentAttributes7
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
     [IsoId("_TzOYAtp-Ed-ak6NoX_4Aeg_1370288810")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Day Count Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DayCntBsis")]
     #endif
+    [IsoXmlTag("DayCntBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethodFormat1Choice_? DayCountBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record FinancialInstrumentAttributes7
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI).
     /// </summary>
     [IsoId("_TzOYA9p-Ed-ak6NoX_4Aeg_1384597013")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssfctnTp")]
     #endif
+    [IsoXmlTag("ClssfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClassificationType2Choice_? ClassificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record FinancialInstrumentAttributes7
     /// Specifies how an option can be exercised.
     /// </summary>
     [IsoId("_TzOYBNp-Ed-ak6NoX_4Aeg_-2022865997")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnStyle")]
     #endif
+    [IsoXmlTag("OptnStyle")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionStyle4Choice_? OptionStyle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,11 @@ public partial record FinancialInstrumentAttributes7
     /// Currency in which a financial instrument is currently denominated.
     /// </summary>
     [IsoId("_TzOYBdp-Ed-ak6NoX_4Aeg_-2022866626")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denomination Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DnmtnCcy")]
     #endif
+    [IsoXmlTag("DnmtnCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? DenominationCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +153,12 @@ public partial record FinancialInstrumentAttributes7
     /// Next payment date of an interest bearing financial instrument.
     /// </summary>
     [IsoId("_TzOYBtp-Ed-ak6NoX_4Aeg_1765745019")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Next Coupon Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NxtCpnDt")]
     #endif
+    [IsoXmlTag("NxtCpnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? NextCouponDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +171,12 @@ public partial record FinancialInstrumentAttributes7
     /// Date on which an order expires or at which a privilege or offer terminates.
     /// </summary>
     [IsoId("_TzOYB9p-Ed-ak6NoX_4Aeg_1757431509")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +189,12 @@ public partial record FinancialInstrumentAttributes7
     /// Date on which the interest rate or redemption price will be/was calculated according to the terms of the issue.
     /// </summary>
     [IsoId("_TzOYCNp-Ed-ak6NoX_4Aeg_1765745482")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating Rate Fixing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FltgRateFxgDt")]
     #endif
+    [IsoXmlTag("FltgRateFxgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FloatingRateFixingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,12 +207,12 @@ public partial record FinancialInstrumentAttributes7
     /// Date on which a financial instrument becomes due and assets are to be repaid.
     /// </summary>
     [IsoId("_TzXh8Np-Ed-ak6NoX_4Aeg_1765744552")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,12 +225,12 @@ public partial record FinancialInstrumentAttributes7
     /// Date on which the financial instrument is issued.
     /// </summary>
     [IsoId("_TzXh8dp-Ed-ak6NoX_4Aeg_1765744492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseDt")]
     #endif
+    [IsoXmlTag("IsseDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? IssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,12 +243,12 @@ public partial record FinancialInstrumentAttributes7
     /// Date on which a financial instrument is called away/redeemed before its scheduled maturity.
     /// </summary>
     [IsoId("_TzXh8tp-Ed-ak6NoX_4Aeg_1765744689")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Next Callable Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NxtCllblDt")]
     #endif
+    [IsoXmlTag("NxtCllblDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? NextCallableDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -269,12 +261,12 @@ public partial record FinancialInstrumentAttributes7
     /// Date on which a holder of a financial instrument has the right to request redemption of the principal amount prior to its scheduled maturity date.
     /// </summary>
     [IsoId("_TzXh89p-Ed-ak6NoX_4Aeg_1765745404")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Putable Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PutblDt")]
     #endif
+    [IsoXmlTag("PutblDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PutableDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -287,12 +279,12 @@ public partial record FinancialInstrumentAttributes7
     /// Date on which an interest bearing financial instrument begins to accrue interest.
     /// </summary>
     [IsoId("_TzXh9Np-Ed-ak6NoX_4Aeg_1757431389")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dated Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtdDt")]
     #endif
+    [IsoXmlTag("DtdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DatedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -305,12 +297,12 @@ public partial record FinancialInstrumentAttributes7
     /// Deadline by which a convertible security must be converted, according to the terms of the issue.
     /// </summary>
     [IsoId("_TzXh9dp-Ed-ak6NoX_4Aeg_1756509787")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsDt")]
     #endif
+    [IsoXmlTag("ConvsDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ConversionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -323,12 +315,11 @@ public partial record FinancialInstrumentAttributes7
     /// Annual rate of a financial instrument.
     /// </summary>
     [IsoId("_TzhS8Np-Ed-ak6NoX_4Aeg_1765743544")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -341,12 +332,11 @@ public partial record FinancialInstrumentAttributes7
     /// Interest rate applicable to the next interest payment period in relation to variable rate instruments.
     /// </summary>
     [IsoId("_TzhS8dp-Ed-ak6NoX_4Aeg_1765745104")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Next Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NxtIntrstRate")]
     #endif
+    [IsoXmlTag("NxtIntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? NextInterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -359,12 +349,11 @@ public partial record FinancialInstrumentAttributes7
     /// Percentage of the underlying assets of a fund that represents a debt and is in the scope of the EU Savings directive.
     /// </summary>
     [IsoId("_TzhS8tp-Ed-ak6NoX_4Aeg_-2052877234")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Of Debt Claim")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgOfDebtClm")]
     #endif
+    [IsoXmlTag("PctgOfDebtClm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? PercentageOfDebtClaim { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -377,12 +366,11 @@ public partial record FinancialInstrumentAttributes7
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) until the next redemption (factor) date.
     /// </summary>
     [IsoId("_TzhS89p-Ed-ak6NoX_4Aeg_-1414197508")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsFctr")]
     #endif
+    [IsoXmlTag("PrvsFctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? PreviousFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -395,12 +383,11 @@ public partial record FinancialInstrumentAttributes7
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) that will applicable after the redemption (factor) date.
     /// </summary>
     [IsoId("_TzhS9Np-Ed-ak6NoX_4Aeg_-1390184406")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Next Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NxtFctr")]
     #endif
+    [IsoXmlTag("NxtFctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat3Choice_? NextFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -413,12 +400,11 @@ public partial record FinancialInstrumentAttributes7
     /// Also known as Minimum Nominal Value. Minimum nominal quantity of financial instrument that must be purchased/sold.
     /// </summary>
     [IsoId("_TzhS9dp-Ed-ak6NoX_4Aeg_-1776741405")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Nominal Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinNmnlQty")]
     #endif
+    [IsoXmlTag("MinNmnlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumNominalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -431,12 +417,11 @@ public partial record FinancialInstrumentAttributes7
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
     [IsoId("_TzhS9tp-Ed-ak6NoX_4Aeg_-1767506184")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Exercisable Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinExrcblQty")]
     #endif
+    [IsoXmlTag("MinExrcblQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -449,12 +434,11 @@ public partial record FinancialInstrumentAttributes7
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
     [IsoId("_TzhS99p-Ed-ak6NoX_4Aeg_-1750884349")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Exercisable Multiple Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinExrcblMltplQty")]
     #endif
+    [IsoXmlTag("MinExrcblMltplQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -467,12 +451,11 @@ public partial record FinancialInstrumentAttributes7
     /// Ratio or multiplying factor used to convert one contract into a financial instrument quantity.
     /// </summary>
     [IsoId("_TzhS-Np-Ed-ak6NoX_4Aeg_-1706555855")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctSz")]
     #endif
+    [IsoXmlTag("CtrctSz")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? ContractSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

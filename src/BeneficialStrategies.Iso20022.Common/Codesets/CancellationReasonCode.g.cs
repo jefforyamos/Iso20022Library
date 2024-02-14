@@ -21,7 +21,7 @@ public enum CancellationReasonCode
 {
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bYaAstp-Ed-ak6NoX_4Aeg_870293849")]
@@ -30,7 +30,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_bYaAs9p-Ed-ak6NoX_4Aeg_870294322")]
@@ -39,7 +39,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Currency of the payment is incorrect.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_bYaAtNp-Ed-ak6NoX_4Aeg_870294347")]
@@ -48,7 +48,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_bYaAtdp-Ed-ak6NoX_4Aeg_870294364")]
@@ -57,7 +57,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_bYaAttp-Ed-ak6NoX_4Aeg_870294382")]
@@ -66,7 +66,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Payment is a suspicious payment.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_bYaAt9p-Ed-ak6NoX_4Aeg_881376013")]
@@ -75,7 +75,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Insufficient or incoherent details about the debtor with respect to regulatory requirements.
-    /// Encoded/decoded by serializers as "MM23".
+    /// Encoded/decoded by serializers as &quot;MM23&quot;.
     /// </summary>
     [EnumMember(Value = "MM23")]
     [IsoId("_bYaAuNp-Ed-ak6NoX_4Aeg_-1860763140")]
@@ -84,7 +84,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Insufficient or incoherent details about the creditor with respect to regulatory requirements.
-    /// Encoded/decoded by serializers as "MM24".
+    /// Encoded/decoded by serializers as &quot;MM24&quot;.
     /// </summary>
     [EnumMember(Value = "MM24")]
     [IsoId("_bYjKoNp-Ed-ak6NoX_4Aeg_-1731468970")]
@@ -93,7 +93,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Cancellation requested because an investigation request has been received and no remediation is possible.
-    /// Encoded/decoded by serializers as "CUTA".
+    /// Encoded/decoded by serializers as &quot;CUTA&quot;.
     /// </summary>
     [EnumMember(Value = "CUTA")]
     [IsoId("_bYjKodp-Ed-ak6NoX_4Aeg_1014049617")]
@@ -102,7 +102,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Cancellation requested following technical problems resulting in an erroneous transaction.
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_t9NxNFkyEeGeoaLUQk__nA_-772063853")]
@@ -111,7 +111,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.
-    /// Encoded/decoded by serializers as "FRAD".
+    /// Encoded/decoded by serializers as &quot;FRAD&quot;.
     /// </summary>
     [EnumMember(Value = "FRAD")]
     [IsoId("_t9XiMFkyEeGeoaLUQk__nA_34147394")]
@@ -120,7 +120,7 @@ public enum CancellationReasonCode
     
     /// <summary>
     /// Cover payment has been cancelled or returned.
-    /// Encoded/decoded by serializers as "COVR".
+    /// Encoded/decoded by serializers as &quot;COVR&quot;.
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_rCYTIByoEeispO42NVVLrw")]

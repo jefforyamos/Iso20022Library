@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Related financial instrument into which the security can be converted.
 /// </summary>
 [IsoId("_A39YNdokEeC60axPepSq7g_1995898844")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Underlying Ratio")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UnderlyingRatio1
     /// Number of held securities for the exercise.
     /// </summary>
     [IsoId("_A39YNtokEeC60axPepSq7g_-1719900614")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Quantity Denominator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygQtyDnmtr")]
     #endif
+    [IsoXmlTag("UndrlygQtyDnmtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityDenominator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1Choice_ UnderlyingQuantityDenominator { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityDenominator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1Choice_ UnderlyingQuantityDenominator { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UnderlyingRatio1
     /// Number of related securities for the exercise.
     /// </summary>
     [IsoId("_A39YN9okEeC60axPepSq7g_1060347119")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Quantity Numerator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygQtyNmrtr")]
     #endif
+    [IsoXmlTag("UndrlygQtyNmrtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityNumerator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity1Choice_ UnderlyingQuantityNumerator { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityNumerator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity1Choice_ UnderlyingQuantityNumerator { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record UnderlyingRatio1
     /// Related security into which the security can be converted.
     /// </summary>
     [IsoId("_A39YONokEeC60axPepSq7g_-177745809")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdFinInstrmId")]
     #endif
+    [IsoXmlTag("RltdFinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification14? RelatedFinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The InitialBaselineSubmission message is sent by the initiator of a transaction to the matching application.|This message is used to initiate a transaction.|Usage|The InitialBaselineSubmission message can be sent by a party to register a transaction in the matching application. The message can be submitted with either lodge or push-through instruction.|When the push-through instruction is present, the matching application acknowledges the receipt of the message to the sender by sending an Acknowledgement message, stores the submitted information and informs the counterparty about the registration of the transaction by sending a FullPushThroughReport message. With the BaselineReSubmission message the counterparty responds with matching baseline information in order to establish the transaction (baseline).|When the lodge instruction is present, the matching application acknowledges the receipt of the message to the sender by sending an Acknowledgement message and stores the submitted information. No matching of the submitted baseline data with other baseline information will take place. For example the submission of an InitialBaselineSubmission message containing a lodge instruction establishes the transaction (baseline) in the matching application.|The InitialBaselineSubmission message consists of data which relates to the purchasing agreement covered by the transaction, for example line item details, shipping details.")]
 [IsoId("_7DK6cdNTEeK-v49t1oWkNA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Initial Baseline Submission V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     /// Identifies the submitted information.
     /// </summary>
     [IsoId("_7DK6ddNTEeK-v49t1oWkNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submission Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmissnId")]
     #endif
+    [IsoXmlTag("SubmissnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 SubmissionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 SubmissionIdentification { get; init; } 
+    public required MessageIdentification1 SubmissionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 SubmissionIdentification { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     /// Reference to the transaction for the requesting financial institution.
     /// </summary>
     [IsoId("_7DK6d9NTEeK-v49t1oWkNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitrTxRef")]
     #endif
+    [IsoXmlTag("SubmitrTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation SubmitterTransactionReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation SubmitterTransactionReference { get; init; } 
+    public required SimpleIdentificationInformation SubmitterTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation SubmitterTransactionReference { get; init; } 
     #else
@@ -126,16 +122,15 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     /// Specifies the instruction requested by the submitter by means of a code.
     /// </summary>
     [IsoId("_7DK6edNTEeK-v49t1oWkNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Instr")]
     #endif
+    [IsoXmlTag("Instr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstructionType1 Instruction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstructionType1 Instruction { get; init; } 
+    public required InstructionType1 Instruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstructionType1 Instruction { get; init; } 
     #else
@@ -146,16 +141,15 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     /// Specifies the commercial details of the underlying transaction.
     /// </summary>
     [IsoId("_7DK6e9NTEeK-v49t1oWkNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Baseline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Baseln")]
     #endif
+    [IsoXmlTag("Baseln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Baseline4 Baseline { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Baseline4 Baseline { get; init; } 
+    public required Baseline4 Baseline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Baseline4 Baseline { get; init; } 
     #else
@@ -166,12 +160,11 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     /// Person to be contacted in the organisation of the buyer.
     /// </summary>
     [IsoId("_7DK6fdNTEeK-v49t1oWkNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrCtctPrsn")]
     #endif
+    [IsoXmlTag("BuyrCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? BuyerContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -184,12 +177,11 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     /// Person to be contacted in the organisation of the seller.
     /// </summary>
     [IsoId("_7DK6f9NTEeK-v49t1oWkNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrCtctPrsn")]
     #endif
+    [IsoXmlTag("SellrCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? SellerContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,19 +191,18 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     #endif
     
     /// <summary>
-    /// Person to be contacted in the seller's bank or buyer's bank.
+    /// Person to be contacted in the seller&apos;s bank or buyer&apos;s bank.
     /// </summary>
     [IsoId("_NtDmsDAaEeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkCtctPrsn")]
     #endif
+    [IsoXmlTag("BkCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankContactPerson1Choice_ BankContactPerson { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BankContactPerson1Choice_ BankContactPerson { get; init; } 
+    public required BankContactPerson1Choice_ BankContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BankContactPerson1Choice_ BankContactPerson { get; init; } 
     #else
@@ -219,15 +210,14 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     #endif
     
     /// <summary>
-    /// Person to be contacted in another bank than seller or buyer's bank.
+    /// Person to be contacted in another bank than seller or buyer&apos;s bank.
     /// </summary>
     [IsoId("_7DK6hdNTEeK-v49t1oWkNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Bank Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrBkCtctPrsn")]
     #endif
+    [IsoXmlTag("OthrBkCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification3? OtherBankContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,7 +230,7 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InitialBaselineSubmissionV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InitialBaselineSubmissionV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InitialBaselineSubmissionV04Document ToDocument()
     {
@@ -250,7 +240,7 @@ public partial record InitialBaselineSubmissionV04 : IOuterRecord<InitialBaselin
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InitialBaselineSubmissionV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InitialBaselineSubmissionV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InitialBaselineSubmissionV04Document : IOuterDocument<InitialBaselineSubmissionV04>
@@ -267,7 +257,7 @@ public partial record InitialBaselineSubmissionV04Document : IOuterDocument<Init
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InitialBaselineSubmissionV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InitialBaselineSubmissionV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InitialBaselineSubmissionV04 Message { get; init; }

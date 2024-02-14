@@ -21,7 +21,7 @@ public enum UserInterface5Code
 {
     /// <summary>
     /// Cardholder display or interface.
-    /// Encoded/decoded by serializers as "CDSP".
+    /// Encoded/decoded by serializers as &quot;CDSP&quot;.
     /// </summary>
     [EnumMember(Value = "CDSP")]
     [IsoId("_7SQisa13EeWMg5rOByfExw")]
@@ -30,7 +30,7 @@ public enum UserInterface5Code
     
     /// <summary>
     /// Cardholder receipt.
-    /// Encoded/decoded by serializers as "CRCP".
+    /// Encoded/decoded by serializers as &quot;CRCP&quot;.
     /// </summary>
     [EnumMember(Value = "CRCP")]
     [IsoId("_7SQis613EeWMg5rOByfExw")]
@@ -39,7 +39,7 @@ public enum UserInterface5Code
     
     /// <summary>
     /// Other interface of the cardholder, for instance e-mail or smartphone message.
-    /// Encoded/decoded by serializers as "CRDO".
+    /// Encoded/decoded by serializers as &quot;CRDO&quot;.
     /// </summary>
     [EnumMember(Value = "CRDO")]
     [IsoId("_7SQiua13EeWMg5rOByfExw")]

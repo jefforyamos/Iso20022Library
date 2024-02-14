@@ -21,7 +21,7 @@ public enum AccountTypeCode
 {
     /// <summary>
     /// Cash account.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_brxoodp-Ed-ak6NoX_4Aeg_-841858447")]
@@ -30,7 +30,7 @@ public enum AccountTypeCode
     
     /// <summary>
     /// Securities account.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_brxootp-Ed-ak6NoX_4Aeg_-841858438")]

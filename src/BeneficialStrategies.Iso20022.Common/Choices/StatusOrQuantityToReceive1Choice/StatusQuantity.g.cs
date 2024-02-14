@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrQuantityToReceive1Choice
     /// Quantity of securities that has been assigned the status indicated.
     /// </summary>
     [IsoId("_UGvw8Np-Ed-ak6NoX_4Aeg_1067930264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// Swiss Bank Code - identifies Swiss institutions on the Swiss national clearing system.
     /// </summary>
     [IsoId("_TDY2g9p-Ed-ak6NoX_4Aeg_-896562601")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Swiss BC Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// Swiss Bank Code. Identifies Swiss institutions on the Swiss national clearing system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CHBC")]
         #endif
+        [IsoXmlTag("CHBC")]
+        [IsoSimpleType(IsoSimpleType.SwissBCIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoSwissBCIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

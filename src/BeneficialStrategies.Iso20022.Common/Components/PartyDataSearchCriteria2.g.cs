@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of search criteria for querying party reference data.
 /// </summary>
 [IsoId("_5ry10Z9wEeejnerJgFeC2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Data Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PartyDataSearchCriteria2
     /// Specifies the opening date of the party.
     /// </summary>
     [IsoId("_55esgZ9wEeejnerJgFeC2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngDt")]
     #endif
+    [IsoXmlTag("OpngDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? OpeningDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PartyDataSearchCriteria2
     /// Specifies the closing date of the party.
     /// </summary>
     [IsoId("_55esg59wEeejnerJgFeC2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsgDt")]
     #endif
+    [IsoXmlTag("ClsgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? ClosingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PartyDataSearchCriteria2
     /// Specifies the type classification of the party.
     /// </summary>
     [IsoId("_55eshZ9wEeejnerJgFeC2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyType1Choice_? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record PartyDataSearchCriteria2
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
     [IsoId("_PhqX0Ip_EeiEt5E1WBt_2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responsible Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnsblPtyId")]
     #endif
+    [IsoXmlTag("RspnsblPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record PartyDataSearchCriteria2
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
     [IsoId("_55esiZ9wEeejnerJgFeC2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification136? PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,15 +127,13 @@ public partial record PartyDataSearchCriteria2
     /// Specifies the identification of a restriction.
     /// </summary>
     [IsoId("_55esi59wEeejnerJgFeC2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RstrctnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RstrctnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RestrictionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +146,11 @@ public partial record PartyDataSearchCriteria2
     /// Specifies the date when the restriction for the party has been issued.
     /// </summary>
     [IsoId("_55esjZ9wEeejnerJgFeC2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RstrctnIsseDt")]
     #endif
+    [IsoXmlTag("RstrctnIsseDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeSearch4Choice_? RestrictionIssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +163,11 @@ public partial record PartyDataSearchCriteria2
     /// Specifies the type of residence where the party has its permanent home or principal establishment.
     /// </summary>
     [IsoId("_NhaAEowbEei289CGNqs21g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Residence Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ResTp")]
     #endif
+    [IsoXmlTag("ResTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResidenceType1Code? ResidenceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +180,11 @@ public partial record PartyDataSearchCriteria2
     /// Specifies whether the party is locked or not, and the reason for this status, when required.
     /// </summary>
     [IsoId("_NhaAE4wbEei289CGNqs21g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lock Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LckSts")]
     #endif
+    [IsoXmlTag("LckSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyLockStatus1? LockStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

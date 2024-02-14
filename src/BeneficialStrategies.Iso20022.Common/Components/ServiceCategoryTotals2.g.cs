@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies totals related to the invoice.
 /// </summary>
 [IsoId("_mQH0X-F6EeWCAvUNsZ5u6g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Service Category Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record ServiceCategoryTotals2
     /// Unique identification of an securities account or cash account belonging to billed customer.
     /// </summary>
     [IsoId("_ma_AgeF6EeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification38Choice_? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +67,12 @@ public partial record ServiceCategoryTotals2
     /// BIC of the party which is invoiced by the CSD/NCB.
     /// </summary>
     [IsoId("_ma_Ag-F6EeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billed Customer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlldCstmrId")]
     #endif
+    [IsoXmlTag("BlldCstmrId")]
+    [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBICFIIdentifier? BilledCustomerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +85,12 @@ public partial record ServiceCategoryTotals2
     /// Total amount subject to tax.
     /// </summary>
     [IsoId("_ma_AheF6EeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Taxable Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTaxblAmt")]
     #endif
+    [IsoXmlTag("TtlTaxblAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalTaxableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +103,12 @@ public partial record ServiceCategoryTotals2
     /// Sum of all tax amounts related to the invoice.
     /// </summary>
     [IsoId("_ma_Ah-F6EeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Tax Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTaxAmt")]
     #endif
+    [IsoXmlTag("TtlTaxAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,16 +121,16 @@ public partial record ServiceCategoryTotals2
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice adjustment amount (discounts, allowances and charges) and total tax amounts.
     /// </summary>
     [IsoId("_ma_AieF6EeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Invoice Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlInvcAmt")]
     #endif
+    [IsoXmlTag("TtlInvcAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalInvoiceAmount { get; init; } 
+    public required System.Decimal TotalInvoiceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalInvoiceAmount { get; init; } 
     #else
@@ -144,19 +141,17 @@ public partial record ServiceCategoryTotals2
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
     [IsoId("_ma_Ai-F6EeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcCtgy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SvcCtgy")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText ServiceCategory { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ServiceCategory { get; init; } 
+    public required System.String ServiceCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ServiceCategory { get; init; } 
     #else
@@ -167,12 +162,11 @@ public partial record ServiceCategoryTotals2
     /// Specifies totals related to the invoice.
     /// </summary>
     [IsoId("_ma_AjeF6EeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Item Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcItmTtls")]
     #endif
+    [IsoXmlTag("SvcItmTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ServiceItemTotals1? ServiceItemTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

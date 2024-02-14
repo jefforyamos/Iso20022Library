@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat7Choice
     /// Specifies the type of date.
     /// </summary>
     [IsoId("_Q237pNp-Ed-ak6NoX_4Aeg_1802797297")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

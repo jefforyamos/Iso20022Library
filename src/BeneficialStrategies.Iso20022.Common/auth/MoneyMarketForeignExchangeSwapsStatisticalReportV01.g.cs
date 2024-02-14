@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The MoneyMarketSecuredMarketStatisticalReport message is sent by the reporting agents to the relevant competent authority, to report all daily Foreign Exchange Swaps (FX Swaps) transactions.")]
 [IsoId("_wXy2MZ2SEeW_58xcYxhewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Money Market Foreign Exchange Swaps Statistical Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01 : IOut
     /// Provides the elements specific to the report.
     /// </summary>
     [IsoId("_wXy2M52SEeW_58xcYxhewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptHdr")]
     #endif
+    [IsoXmlTag("RptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MoneyMarketReportHeader1 ReportHeader { get; init; } 
+    public required MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01 : IOut
     /// Provides the reason why no activity is reported or the required list of transactions for the foreign exchange swaps segment.
     /// </summary>
     [IsoId("_wXy2NZ2SEeW_58xcYxhewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange Swaps Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FXSwpsRpt")]
     #endif
+    [IsoXmlTag("FXSwpsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForeignExchangeSwap2Choice_ ForeignExchangeSwapsReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ForeignExchangeSwap2Choice_ ForeignExchangeSwapsReport { get; init; } 
+    public required ForeignExchangeSwap2Choice_ ForeignExchangeSwapsReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ForeignExchangeSwap2Choice_ ForeignExchangeSwapsReport { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01 : IOut
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_wXy2N52SEeW_58xcYxhewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01 : IOut
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MoneyMarketForeignExchangeSwapsStatisticalReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MoneyMarketForeignExchangeSwapsStatisticalReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MoneyMarketForeignExchangeSwapsStatisticalReportV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01 : IOut
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketForeignExchangeSwapsStatisticalReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MoneyMarketForeignExchangeSwapsStatisticalReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01Document : IOuterDocument<MoneyMarketForeignExchangeSwapsStatisticalReportV01>
@@ -161,7 +156,7 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV01Documen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MoneyMarketForeignExchangeSwapsStatisticalReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MoneyMarketForeignExchangeSwapsStatisticalReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoneyMarketForeignExchangeSwapsStatisticalReportV01 Message { get; init; }

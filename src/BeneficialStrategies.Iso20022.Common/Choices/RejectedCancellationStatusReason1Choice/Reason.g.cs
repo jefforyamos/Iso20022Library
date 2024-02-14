@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedCancellationStatusReason
     /// Reason for the rejected status.
     /// </summary>
     [IsoId("_RXptddp-Ed-ak6NoX_4Aeg_890850306")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedCancellationStatusReason
         /// Reason for which a cancellation is rejected.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RejectedCancellationStatusReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RejectedCancellationStatusReason1Code Value { get; init; } 
+        public required RejectedCancellationStatusReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RejectedCancellationStatusReason1Code Value { get; init; } 
         #else

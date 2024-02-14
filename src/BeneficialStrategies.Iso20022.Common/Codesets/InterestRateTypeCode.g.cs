@@ -21,7 +21,7 @@ public enum InterestRateTypeCode
 {
     /// <summary>
     /// Rate is fixed.
-    /// Encoded/decoded by serializers as "FIXE".
+    /// Encoded/decoded by serializers as &quot;FIXE&quot;.
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_b3lpIe7nEeK-Kt3xkpFJcA_207640149")]
@@ -30,7 +30,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// No specific repurchase rate applies to the transaction Repo, only a forfeit.
-    /// Encoded/decoded by serializers as "FORF".
+    /// Encoded/decoded by serializers as &quot;FORF&quot;.
     /// </summary>
     [EnumMember(Value = "FORF")]
     [IsoId("_b3uzEO7nEeK-Kt3xkpFJcA_-1709364962")]
@@ -39,7 +39,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Rate is variable.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_b3uzE-7nEeK-Kt3xkpFJcA_-1666520361")]
@@ -48,7 +48,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Rate of the scheduled payment.
-    /// Encoded/decoded by serializers as "SCHD".
+    /// Encoded/decoded by serializers as &quot;SCHD&quot;.
     /// </summary>
     [EnumMember(Value = "SCHD")]
     [IsoId("_b3uzEe7nEeK-Kt3xkpFJcA_1933373909")]
@@ -57,7 +57,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Rate of the unscheduled payment.
-    /// Encoded/decoded by serializers as "USCD".
+    /// Encoded/decoded by serializers as &quot;USCD&quot;.
     /// </summary>
     [EnumMember(Value = "USCD")]
     [IsoId("_b3uzEu7nEeK-Kt3xkpFJcA_1718331141")]
@@ -66,7 +66,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Discount.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_OlFpwCRtEemoiMEiwtMpyw")]
@@ -75,7 +75,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Fixed rate underlying exposure (for life).
-    /// Encoded/decoded by serializers as "FXRL".
+    /// Encoded/decoded by serializers as &quot;FXRL&quot;.
     /// </summary>
     [EnumMember(Value = "FXRL")]
     [IsoId("_SiYlwCRtEemoiMEiwtMpyw")]
@@ -84,7 +84,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Fixed rate underlying exposure with compulsory future switch to floating.
-    /// Encoded/decoded by serializers as "FLCF".
+    /// Encoded/decoded by serializers as &quot;FLCF&quot;.
     /// </summary>
     [EnumMember(Value = "FLCF")]
     [IsoId("_VFNH0CRtEemoiMEiwtMpyw")]
@@ -93,7 +93,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Fixed with future periodic resets.
-    /// Encoded/decoded by serializers as "FXPR".
+    /// Encoded/decoded by serializers as &quot;FXPR&quot;.
     /// </summary>
     [EnumMember(Value = "FXPR")]
     [IsoId("_Y1woUCRtEemoiMEiwtMpyw")]
@@ -102,7 +102,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure linked to one index that will revert to another index in the future.
-    /// Encoded/decoded by serializers as "FINX".
+    /// Encoded/decoded by serializers as &quot;FINX&quot;.
     /// </summary>
     [EnumMember(Value = "FINX")]
     [IsoId("_b1yq0CRtEemoiMEiwtMpyw")]
@@ -111,7 +111,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure (for life).
-    /// Encoded/decoded by serializers as "FLIF".
+    /// Encoded/decoded by serializers as &quot;FLIF&quot;.
     /// </summary>
     [EnumMember(Value = "FLIF")]
     [IsoId("_eYTq4CRtEemoiMEiwtMpyw")]
@@ -120,7 +120,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure with cap.
-    /// Encoded/decoded by serializers as "CAPP".
+    /// Encoded/decoded by serializers as &quot;CAPP&quot;.
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_g6qS4CRtEemoiMEiwtMpyw")]
@@ -129,7 +129,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure with floor.
-    /// Encoded/decoded by serializers as "FLFL".
+    /// Encoded/decoded by serializers as &quot;FLFL&quot;.
     /// </summary>
     [EnumMember(Value = "FLFL")]
     [IsoId("_jfr0YCRtEemoiMEiwtMpyw")]
@@ -138,7 +138,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Floating rate underlying exposure with both floor and cap.
-    /// Encoded/decoded by serializers as "FLCA".
+    /// Encoded/decoded by serializers as &quot;FLCA&quot;.
     /// </summary>
     [EnumMember(Value = "FLCA")]
     [IsoId("_l9Fq8CRtEemoiMEiwtMpyw")]
@@ -147,7 +147,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Modular.
-    /// Encoded/decoded by serializers as "MODE".
+    /// Encoded/decoded by serializers as &quot;MODE&quot;.
     /// </summary>
     [EnumMember(Value = "MODE")]
     [IsoId("_pAGwACRtEemoiMEiwtMpyw")]
@@ -156,7 +156,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Obligor Swapped.
-    /// Encoded/decoded by serializers as "OBLS".
+    /// Encoded/decoded by serializers as &quot;OBLS&quot;.
     /// </summary>
     [EnumMember(Value = "OBLS")]
     [IsoId("_rCZ-8CRtEemoiMEiwtMpyw")]
@@ -165,7 +165,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Any other type of interest rate that can be applied.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_tvX7gCRtEemoiMEiwtMpyw")]
@@ -174,7 +174,7 @@ public enum InterestRateTypeCode
     
     /// <summary>
     /// Interest rate type is Switch Optionality.
-    /// Encoded/decoded by serializers as "SWIC".
+    /// Encoded/decoded by serializers as &quot;SWIC&quot;.
     /// </summary>
     [EnumMember(Value = "SWIC")]
     [IsoId("_3jp5ACRtEemoiMEiwtMpyw")]

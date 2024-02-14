@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies details of the electronic invoice.
 /// </summary>
 [IsoId("_7qk3ikWdEempSe_3C1a9EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Electronic Invoice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ElectronicInvoice1
     /// Type of elements to be presented in the electronic invoice (e-invoice).
     /// </summary>
     [IsoId("_4OShYUWeEempSe_3C1a9EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PresntmntTp")]
     #endif
+    [IsoXmlTag("PresntmntTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PresentmentType1Code PresentmentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PresentmentType1Code PresentmentType { get; init; } 
+    public required PresentmentType1Code PresentmentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PresentmentType1Code PresentmentType { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information for tax reporting.
 /// </summary>
 [IsoId("_fh93EZS6EemqYPWMBuVawg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Reporting")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TaxReporting3
     /// Country of taxation of the organisation or individual person.
     /// </summary>
     [IsoId("_f1mkwZS6EemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxation Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxtnCtry")]
     #endif
+    [IsoXmlTag("TaxtnCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode TaxationCountry { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string TaxationCountry { get; init; } 
+    public required string TaxationCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string TaxationCountry { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record TaxReporting3
     /// Tax rate to be applied.
     /// </summary>
     [IsoId("_f1mkw5S6EemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRate")]
     #endif
+    [IsoXmlTag("TaxRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record TaxReporting3
     /// Party that pays the tax.
     /// </summary>
     [IsoId("_f1mkxZS6EemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Payer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxPyer")]
     #endif
+    [IsoXmlTag("TaxPyer")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification125Choice_? TaxPayer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record TaxReporting3
     /// Party that receives the tax.
     /// </summary>
     [IsoId("_f1mkx5S6EemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRcpt")]
     #endif
+    [IsoXmlTag("TaxRcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification125Choice_? TaxRecipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,11 @@ public partial record TaxReporting3
     /// Cash account information for the payment of tax.
     /// </summary>
     [IsoId("_f1mkyZS6EemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcctDtls")]
     #endif
+    [IsoXmlTag("CshAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount204? CashAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,15 +137,13 @@ public partial record TaxReporting3
     /// Additional information for the reporting of tax.
     /// </summary>
     [IsoId("_f1mky5S6EemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

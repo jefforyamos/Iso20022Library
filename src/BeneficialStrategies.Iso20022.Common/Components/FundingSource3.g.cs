@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Funding sources used to finance margin loans.
 /// </summary>
 [IsoId("_Z9DqP2uBEeu7Sr851GoLXg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Funding Source")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FundingSource3
     /// Type of a funding used.
     /// </summary>
     [IsoId("_Z-6rYWuBEeu7Sr851GoLXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundingSourceType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FundingSourceType1Code Type { get; init; } 
+    public required FundingSourceType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FundingSourceType1Code Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record FundingSource3
     /// Market value of funding sources in base currency.
     /// </summary>
     [IsoId("_Z-6rY2uBEeu7Sr851GoLXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection53 MarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection53 MarketValue { get; init; } 
+    public required AmountAndDirection53 MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection53 MarketValue { get; init; } 
     #else

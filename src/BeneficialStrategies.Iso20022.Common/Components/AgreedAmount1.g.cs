@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the agreed amount for the variation margin and optionaly the segregated independent amount.
 /// </summary>
 [IsoId("_UmCVAtp-Ed-ak6NoX_4Aeg_-442441347")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agreed Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AgreedAmount1
     /// Provides details about the agreed amount for the variation margin.
     /// </summary>
     [IsoId("_UmCVA9p-Ed-ak6NoX_4Aeg_-885757742")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnAmt")]
     #endif
+    [IsoXmlTag("VartnMrgnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount1 VariationMarginAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount1 VariationMarginAmount { get; init; } 
+    public required Amount1 VariationMarginAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount1 VariationMarginAmount { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AgreedAmount1
     /// Provides details about the agreed amount for the segregated independent amount.
     /// </summary>
     [IsoId("_UmCVBNp-Ed-ak6NoX_4Aeg_-223051895")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgrtdIndpdntAmt")]
     #endif
+    [IsoXmlTag("SgrtdIndpdntAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount1? SegregatedIndependentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

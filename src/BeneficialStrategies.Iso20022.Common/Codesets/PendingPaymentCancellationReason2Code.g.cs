@@ -21,7 +21,7 @@ public enum PendingPaymentCancellationReason2Code
 {
     /// <summary>
     /// Cancellation indemnity is required. 
-    /// Encoded/decoded by serializers as "INDM".
+    /// Encoded/decoded by serializers as &quot;INDM&quot;.
     /// </summary>
     [EnumMember(Value = "INDM")]
     [IsoId("_8g490SCMEei5H9PsIMzTkw")]

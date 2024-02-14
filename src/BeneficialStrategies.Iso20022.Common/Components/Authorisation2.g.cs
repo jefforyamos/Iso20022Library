@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Autorisation of the mandate holder.
 /// </summary>
 [IsoId("_xZZNIw3wEeKGXqvMN6jpiw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Authorisation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Authorisation2
     /// Maximum amount allowed by the mandate for each transaction.
     /// </summary>
     [IsoId("_xujkxQ3wEeKGXqvMN6jpiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Amount By Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAmtByTx")]
     #endif
+    [IsoXmlTag("MaxAmtByTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FixedAmountOrUnlimited1Choice_? MaximumAmountByTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Authorisation2
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
     [IsoId("_xujkyQ3wEeKGXqvMN6jpiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Amount By Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAmtByPrd")]
     #endif
+    [IsoXmlTag("MaxAmtByPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaximumAmountByPeriod1? MaximumAmountByPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Authorisation2
     /// Specifies the maximum amount for each bulk submission.
     /// </summary>
     [IsoId("_RK4zUA3yEeKGXqvMN6jpiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Amount By Bulk Submission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAmtByBlkSubmissn")]
     #endif
+    [IsoXmlTag("MaxAmtByBlkSubmissn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FixedAmountOrUnlimited1Choice_? MaximumAmountByBulkSubmission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

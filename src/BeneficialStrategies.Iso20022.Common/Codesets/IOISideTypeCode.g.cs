@@ -21,7 +21,7 @@ public enum IOISideTypeCode
 {
     /// <summary>
     /// Order is buy driven.
-    /// Encoded/decoded by serializers as "BUYI".
+    /// Encoded/decoded by serializers as &quot;BUYI&quot;.
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("_adZJ89p-Ed-ak6NoX_4Aeg_336256306")]
@@ -30,7 +30,7 @@ public enum IOISideTypeCode
     
     /// <summary>
     /// Order is sell driven.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_adZJ9Np-Ed-ak6NoX_4Aeg_336256307")]
@@ -39,7 +39,7 @@ public enum IOISideTypeCode
     
     /// <summary>
     /// The side of the indication of interest is not disclosed.
-    /// Encoded/decoded by serializers as "UNDI".
+    /// Encoded/decoded by serializers as &quot;UNDI&quot;.
     /// </summary>
     [EnumMember(Value = "UNDI")]
     [IsoId("_adZJ9dp-Ed-ak6NoX_4Aeg_336256308")]
@@ -48,7 +48,7 @@ public enum IOISideTypeCode
     
     /// <summary>
     /// Indicates, in the case of a multileg instrument,that the sides of the legs are the same as defined at the creation of the multileg instrument.
-    /// Encoded/decoded by serializers as "DEFI".
+    /// Encoded/decoded by serializers as &quot;DEFI&quot;.
     /// </summary>
     [EnumMember(Value = "DEFI")]
     [IsoId("_adZJ9tp-Ed-ak6NoX_4Aeg_336256309")]
@@ -57,7 +57,7 @@ public enum IOISideTypeCode
     
     /// <summary>
     /// Indicates, in the case of a multileg instrument,that the sides of the legs are the opposite of their definition at the creation of the multileg instrument.
-    /// Encoded/decoded by serializers as "OPPO".
+    /// Encoded/decoded by serializers as &quot;OPPO&quot;.
     /// </summary>
     [EnumMember(Value = "OPPO")]
     [IsoId("_adZJ99p-Ed-ak6NoX_4Aeg_336256310")]

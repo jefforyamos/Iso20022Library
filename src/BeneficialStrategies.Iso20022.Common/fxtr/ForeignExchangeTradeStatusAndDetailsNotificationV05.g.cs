@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// </summary>
 [Description(@"Scope||The ForeignExchangeTradeStatusAndDetails message is sent by a central system to the participant to provide notification of the status and details of a foreign exchange trade.||Usage||The notification is sent by a central settlement system to the two trading parties after it has received foreign exchange trade instructions from both.")]
 [IsoId("_mJe8QQM-Ee2nqoJcXIhTdw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange Trade Status And Details Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Provides information on the status of a foreign exchange trade in the central system.
     /// </summary>
     [IsoId("_mJe8RwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsDtls")]
     #endif
+    [IsoXmlTag("StsDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeData14 StatusDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeData14 StatusDetails { get; init; } 
+    public required TradeData14 StatusDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeData14 StatusDetails { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// General information related to the foreign exchange trade.
     /// </summary>
     [IsoId("_mJe8SQM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradInf")]
     #endif
+    [IsoXmlTag("TradInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement12 TradeInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeAgreement12 TradeInformation { get; init; } 
+    public required TradeAgreement12 TradeInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeAgreement12 TradeInformation { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Party(ies) on the trading side of the foreign exchange trade.
     /// </summary>
     [IsoId("_mJe8SwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification8 TradingSideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification8 TradingSideIdentification { get; init; } 
+    public required TradePartyIdentification8 TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification8 TradingSideIdentification { get; init; } 
     #else
@@ -143,16 +138,15 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Party(ies) on the counterparty side of the foreign exchange trade.
     /// </summary>
     [IsoId("_mJe8TQM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification8 CounterpartySideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification8 CounterpartySideIdentification { get; init; } 
+    public required TradePartyIdentification8 CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification8 CounterpartySideIdentification { get; init; } 
     #else
@@ -163,16 +157,15 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Amounts of the foreign exchange trade.
     /// </summary>
     [IsoId("_mJe8TwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAmts")]
     #endif
+    [IsoXmlTag("TradAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate6 TradeAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountsAndValueDate6 TradeAmounts { get; init; } 
+    public required AmountsAndValueDate6 TradeAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountsAndValueDate6 TradeAmounts { get; init; } 
     #else
@@ -183,16 +176,15 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Exchange rate as agreed by the traders.
     /// </summary>
     [IsoId("_mJe8UQM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreed Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrdRate")]
     #endif
+    [IsoXmlTag("AgrdRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate3 AgreedRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate3 AgreedRate { get; init; } 
+    public required AgreedRate3 AgreedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate3 AgreedRate { get; init; } 
     #else
@@ -203,12 +195,11 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Provides the opening and fixing information for an NDF trade.
     /// </summary>
     [IsoId("_mJe8UwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Deliverable Forward Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NDFConds")]
     #endif
+    [IsoXmlTag("NDFConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonDeliverableForwardConditions2? NonDeliverableForwardConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +212,11 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Settlement instructions for the amounts received by the trading side.
     /// </summary>
     [IsoId("_mJe8VQM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Settlement Instructions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdSttlmInstrs")]
     #endif
+    [IsoXmlTag("TradgSdSttlmInstrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties120? TradingSideSettlementInstructions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +229,11 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Settlement instructions for the amounts received by the counterparty.
     /// </summary>
     [IsoId("_mJe8VwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Settlement Instructions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdSttlmInstrs")]
     #endif
+    [IsoXmlTag("CtrPtySdSttlmInstrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties120? CounterpartySideSettlementInstructions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,12 +246,11 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Additional Information about the foreign exchange trade.
     /// </summary>
     [IsoId("_mJe8WQM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GnlInf")]
     #endif
+    [IsoXmlTag("GnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeneralInformation8? GeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +263,11 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Details of the split trade.
     /// </summary>
     [IsoId("_mJe8WwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Split Trade Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpltTradInf")]
     #endif
+    [IsoXmlTag("SpltTradInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SplitTradeDetails4? SplitTradeInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -293,12 +280,11 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.
     /// </summary>
     [IsoId("_mJe8XQM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Regulatory Reporting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgltryRptg")]
     #endif
+    [IsoXmlTag("RgltryRptg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegulatoryReporting7? RegulatoryReporting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -311,12 +297,11 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_mJe8XwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -329,7 +314,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ForeignExchangeTradeStatusAndDetailsNotificationV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ForeignExchangeTradeStatusAndDetailsNotificationV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ForeignExchangeTradeStatusAndDetailsNotificationV05Document ToDocument()
     {
@@ -339,7 +324,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05 : IOut
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeStatusAndDetailsNotificationV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ForeignExchangeTradeStatusAndDetailsNotificationV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05Document : IOuterDocument<ForeignExchangeTradeStatusAndDetailsNotificationV05>
@@ -356,7 +341,7 @@ public partial record ForeignExchangeTradeStatusAndDetailsNotificationV05Documen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ForeignExchangeTradeStatusAndDetailsNotificationV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ForeignExchangeTradeStatusAndDetailsNotificationV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForeignExchangeTradeStatusAndDetailsNotificationV05 Message { get; init; }

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Amount3Choice.AmountWithCurrency))]
     [KnownType(typeof(Amount3Choice.AmountWithoutCurrency))]
     [IsoId("_750BhaMgEeCJ6YNENx4h-w_-899399961")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

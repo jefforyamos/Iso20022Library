@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum PendingReason16Code
 {
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_kz3q8bLJEemDyeh7tbvg1w")]
@@ -30,7 +30,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Additional documents requested missing.
-    /// Encoded/decoded by serializers as "ADDM".
+    /// Encoded/decoded by serializers as &quot;ADDM&quot;.
     /// </summary>
     [EnumMember(Value = "ADDM")]
     [IsoId("_zPni0bLJEemDyeh7tbvg1w")]
@@ -39,7 +39,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_3mRaAbLJEemDyeh7tbvg1w")]
@@ -48,7 +48,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Deadline to register is missed.
-    /// Encoded/decoded by serializers as "DREM".
+    /// Encoded/decoded by serializers as &quot;DREM&quot;.
     /// </summary>
     [EnumMember(Value = "DREM")]
     [IsoId("_C8coEbLKEemDyeh7tbvg1w")]
@@ -57,7 +57,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Pending receipt of beneficiary owner details.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_HJ4R0bLKEemDyeh7tbvg1w")]
@@ -66,7 +66,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Missing or invalid power of attorney.
-    /// Encoded/decoded by serializers as "IPOA".
+    /// Encoded/decoded by serializers as &quot;IPOA&quot;.
     /// </summary>
     [EnumMember(Value = "IPOA")]
     [IsoId("_YKdd8bLKEemDyeh7tbvg1w")]
@@ -75,7 +75,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Position is less than required threshold.
-    /// Encoded/decoded by serializers as "IPOS".
+    /// Encoded/decoded by serializers as &quot;IPOS&quot;.
     /// </summary>
     [EnumMember(Value = "IPOS")]
     [IsoId("_lv5_8bLKEemDyeh7tbvg1w")]
@@ -84,7 +84,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_4W2s8bLKEemDyeh7tbvg1w")]
@@ -93,7 +93,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_5tcFYbLKEemDyeh7tbvg1w")]
@@ -102,7 +102,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Insufficient or no registered position.
-    /// Encoded/decoded by serializers as "NPOS".
+    /// Encoded/decoded by serializers as &quot;NPOS&quot;.
     /// </summary>
     [EnumMember(Value = "NPOS")]
     [IsoId("_F5UMYbLLEemDyeh7tbvg1w")]
@@ -111,7 +111,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Invalid registration discrepancy.
-    /// Encoded/decoded by serializers as "IREG".
+    /// Encoded/decoded by serializers as &quot;IREG&quot;.
     /// </summary>
     [EnumMember(Value = "IREG")]
     [IsoId("_GqtNEbLLEemDyeh7tbvg1w")]
@@ -120,7 +120,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_IgGBYbLLEemDyeh7tbvg1w")]
@@ -129,7 +129,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// Invalid Proxy Information.
-    /// Encoded/decoded by serializers as "PRXY".
+    /// Encoded/decoded by serializers as &quot;PRXY&quot;.
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_ViIUUbLLEemDyeh7tbvg1w")]
@@ -138,7 +138,7 @@ public enum PendingReason16Code
     
     /// <summary>
     /// The instruction is pending receipt of securities, for example, from a purchase or loan.
-    /// Encoded/decoded by serializers as "PENR".
+    /// Encoded/decoded by serializers as &quot;PENR&quot;.
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_XtFI8bLLEemDyeh7tbvg1w")]

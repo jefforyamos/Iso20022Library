@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// </summary>
 [Description(@"Scope|The FinancialInvoice message is used to support the provision of financial and related services where there is a requirement to exchange invoice information.|Usage|While the prime function of the FinancialInvoice message is as a request from the seller to the buyer for payment, the FinancialInvoice message can also serve to evidence an invoice in support of a financial service such as invoice factoring, letters of credit, and bank payment obligations, to enable Web based services such as electronic bill payment and presentment, and as the basis to transfer invoice information via third parties such as e-invoicing service providers.|A consequence of the receipt of an invoice by the buyer is that it acts as a trigger for the use of related messages that are already defined in ISO 20022, notably where the information contained in the Financial Invoice enables payment for the goods or services received, and/or is provided in support of a request for invoice financing. While certain of these related messages, such as the CreditTransfer and PaymentInitiation messages, are shown in the sequence diagram they are out of scope. They are shown only to illustrate a given scenario and to place the invoice in the context of the financial banking processes that might be conducted between different financial institutions.|The use of self-billing by the buyer to the seller, where the buyer acts as the invoice issuer or the process of handling an incorrect invoice, is not in scope.")]
 [IsoId("_BU_0In1LEeCF8NjrBemJWQ_-1866907401")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Invoice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record FinancialInvoiceV01 : IOuterRecord<FinancialInvoiceV01,Fin
     /// Collection of data that is exchanged between two or more parties in written, printed or electronic form. It contains general data relevant to the main body of the invoice such as date of issue, currency code and identification number.
     /// </summary>
     [IsoId("_BU_0I31LEeCF8NjrBemJWQ_-1198026434")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcHdr")]
     #endif
+    [IsoXmlTag("InvcHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceHeader1 InvoiceHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvoiceHeader1 InvoiceHeader { get; init; } 
+    public required InvoiceHeader1 InvoiceHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvoiceHeader1 InvoiceHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record FinancialInvoiceV01 : IOuterRecord<FinancialInvoiceV01,Fin
     /// Commercial information such as terms of commerce, parties, and documentation, related to the trading agreement under which this invoice is issued.
     /// </summary>
     [IsoId("_BU_0JH1LEeCF8NjrBemJWQ_-1506571269")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAgrmt")]
     #endif
+    [IsoXmlTag("TradAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement6 TradeAgreement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeAgreement6 TradeAgreement { get; init; } 
+    public required TradeAgreement6 TradeAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeAgreement6 TradeAgreement { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record FinancialInvoiceV01 : IOuterRecord<FinancialInvoiceV01,Fin
     /// Supply chain shipping arrangements for delivery of invoiced products and/or services.
     /// </summary>
     [IsoId("_BU_0JX1LEeCF8NjrBemJWQ_-1892382855")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Delivery")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDlvry")]
     #endif
+    [IsoXmlTag("TradDlvry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeDelivery1 TradeDelivery { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeDelivery1 TradeDelivery { get; init; } 
+    public required TradeDelivery1 TradeDelivery { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeDelivery1 TradeDelivery { get; init; } 
     #else
@@ -143,16 +138,15 @@ public partial record FinancialInvoiceV01 : IOuterRecord<FinancialInvoiceV01,Fin
     /// Settlement information that enables the financial reconciliation and payment of this invoice.
     /// </summary>
     [IsoId("_BU_0Jn1LEeCF8NjrBemJWQ_1308887526")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradSttlm")]
     #endif
+    [IsoXmlTag("TradSttlm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeSettlement1 TradeSettlement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeSettlement1 TradeSettlement { get; init; } 
+    public required TradeSettlement1 TradeSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeSettlement1 TradeSettlement { get; init; } 
     #else
@@ -163,12 +157,11 @@ public partial record FinancialInvoiceV01 : IOuterRecord<FinancialInvoiceV01,Fin
     /// Unit of information in this invoice showning the related provision of products and/or services and monetary summations reported as a discrete line item.
     /// </summary>
     [IsoId("_BU_0J31LEeCF8NjrBemJWQ_-1744265877")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineItm")]
     #endif
+    [IsoXmlTag("LineItm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LineItem10? LineItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -181,7 +174,7 @@ public partial record FinancialInvoiceV01 : IOuterRecord<FinancialInvoiceV01,Fin
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInvoiceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInvoiceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInvoiceV01Document ToDocument()
     {
@@ -191,7 +184,7 @@ public partial record FinancialInvoiceV01 : IOuterRecord<FinancialInvoiceV01,Fin
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInvoiceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInvoiceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInvoiceV01Document : IOuterDocument<FinancialInvoiceV01>
@@ -208,7 +201,7 @@ public partial record FinancialInvoiceV01Document : IOuterDocument<FinancialInvo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInvoiceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInvoiceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInvoiceV01 Message { get; init; }

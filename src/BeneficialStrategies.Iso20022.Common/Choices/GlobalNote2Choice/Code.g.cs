@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GlobalNote2Choice
     /// Global note expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_TsvfweLaEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GlobalNote2Choice
         /// Identifies if the security will be issued in New Global Note (NGN) or Classical Global Note (CGN).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GlobalNote1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GlobalNote1Code Value { get; init; } 
+        public required GlobalNote1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GlobalNote1Code Value { get; init; } 
         #else

@@ -19,9 +19,7 @@ namespace BeneficialStrategies.Iso20022.UserDefined;
 /// The Any element without further validation processing.
 /// </summary>
 [IsoId("_RreBWNp-Ed-ak6NoX_4Aeg_-72452402")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Skip Processing")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif

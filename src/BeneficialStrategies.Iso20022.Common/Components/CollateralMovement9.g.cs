@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of collateral that will be delivered and the date to be reported.
 /// </summary>
 [IsoId("_WPYN8ILaEeWrrO9HojbPQA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralMovement9
     /// Specifies the type of collateral.
     /// </summary>
     [IsoId("_k6GggILbEeWrrO9HojbPQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollTp")]
     #endif
+    [IsoXmlTag("CollTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralType1Code CollateralType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralType1Code CollateralType { get; init; } 
+    public required CollateralType1Code CollateralType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralType1Code CollateralType { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record CollateralMovement9
     /// Date by which the collateral movement must be executed.
     /// </summary>
     [IsoId("_r2gR8ILbEeWrrO9HojbPQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

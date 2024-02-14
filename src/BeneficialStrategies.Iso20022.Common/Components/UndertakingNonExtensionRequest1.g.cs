@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the non extension request.
 /// </summary>
 [IsoId("_-D6xxnltEeG7BsjMvd1mEw_-1432358339")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Non Extension Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UndertakingNonExtensionRequest1
     /// Details related to the requesting party.
     /// </summary>
     [IsoId("_-D6xx3ltEeG7BsjMvd1mEw_-452692672")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requesting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RqstngPty")]
     #endif
+    [IsoXmlTag("RqstngPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 RequestingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification43 RequestingParty { get; init; } 
+    public required PartyIdentification43 RequestingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification43 RequestingParty { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UndertakingNonExtensionRequest1
     /// Details related to the identification of the undertaking.
     /// </summary>
     [IsoId("_-D6xyHltEeG7BsjMvd1mEw_747345040")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgId")]
     #endif
+    [IsoXmlTag("UdrtkgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking9 UndertakingIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Undertaking9 UndertakingIdentification { get; init; } 
+    public required Undertaking9 UndertakingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Undertaking9 UndertakingIdentification { get; init; } 
     #else

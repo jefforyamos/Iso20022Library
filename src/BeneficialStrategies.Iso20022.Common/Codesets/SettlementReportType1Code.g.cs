@@ -21,7 +21,7 @@ public enum SettlementReportType1Code
 {
     /// <summary>
     /// Final settlement position.
-    /// Encoded/decoded by serializers as "FIPO".
+    /// Encoded/decoded by serializers as &quot;FIPO&quot;.
     /// </summary>
     [EnumMember(Value = "FIPO")]
     [IsoId("_UfqLIVdKEeeIAMBcVOw01w")]
@@ -30,7 +30,7 @@ public enum SettlementReportType1Code
     
     /// <summary>
     /// Other type of settlement report defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_U01J4VdKEeeIAMBcVOw01w")]
@@ -39,7 +39,7 @@ public enum SettlementReportType1Code
     
     /// <summary>
     /// Other settlement report defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_U_OcAVdKEeeIAMBcVOw01w")]
@@ -48,7 +48,7 @@ public enum SettlementReportType1Code
     
     /// <summary>
     /// Interim settlement position.
-    /// Encoded/decoded by serializers as "INPO".
+    /// Encoded/decoded by serializers as &quot;INPO&quot;.
     /// </summary>
     [EnumMember(Value = "INPO")]
     [IsoId("_VY-YwVdKEeeIAMBcVOw01w")]

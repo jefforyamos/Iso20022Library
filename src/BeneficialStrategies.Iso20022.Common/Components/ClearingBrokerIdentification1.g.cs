@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
 /// </summary>
 [IsoId("_KYvvc4uZEeKYr_965Eh8aQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing Broker Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ClearingBrokerIdentification1
     /// Distinguishes the client leg from the central counterparty (CCP) leg in the clearing broker identification.
     /// </summary>
     [IsoId("_s1IrIIuZEeKYr_965Eh8aQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SdInd")]
     #endif
+    [IsoXmlTag("SdInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SideIndicator1Code SideIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SideIndicator1Code SideIndicator { get; init; } 
+    public required SideIndicator1Code SideIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SideIndicator1Code SideIndicator { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record ClearingBrokerIdentification1
     /// Specifies the identification assigned to the clearing broker.
     /// </summary>
     [IsoId("_1RBSUIuZEeKYr_965Eh8aQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Broker Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrBrkrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClrBrkrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ClearingBrokerIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ClearingBrokerIdentification { get; init; } 
+    public required System.String ClearingBrokerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ClearingBrokerIdentification { get; init; } 
     #else

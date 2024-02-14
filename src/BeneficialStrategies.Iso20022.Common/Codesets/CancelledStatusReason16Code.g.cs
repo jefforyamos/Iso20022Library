@@ -21,7 +21,7 @@ public enum CancelledStatusReason16Code
 {
     /// <summary>
     /// Transaction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.
-    /// Encoded/decoded by serializers as "SCEX".
+    /// Encoded/decoded by serializers as &quot;SCEX&quot;.
     /// </summary>
     [EnumMember(Value = "SCEX")]
     [IsoId("_Nxq3oeNlEeifxbo8DBFfuw")]
@@ -30,7 +30,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_N1-v4eNlEeifxbo8DBFfuw")]
@@ -39,7 +39,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.
-    /// Encoded/decoded by serializers as "CXLR".
+    /// Encoded/decoded by serializers as &quot;CXLR&quot;.
     /// </summary>
     [EnumMember(Value = "CXLR")]
     [IsoId("_OEaNceNlEeifxbo8DBFfuw")]
@@ -48,7 +48,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Instruction has been cancelled because a buy-in has been initiated.
-    /// Encoded/decoded by serializers as "BYIY".
+    /// Encoded/decoded by serializers as &quot;BYIY&quot;.
     /// </summary>
     [EnumMember(Value = "BYIY")]
     [IsoId("_O0UAYeNlEeifxbo8DBFfuw")]
@@ -57,7 +57,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Instruction is cancelled by a Third party.
-    /// Encoded/decoded by serializers as "CTHP".
+    /// Encoded/decoded by serializers as &quot;CTHP&quot;.
     /// </summary>
     [EnumMember(Value = "CTHP")]
     [IsoId("_Ry5RYeNlEeifxbo8DBFfuw")]
@@ -66,7 +66,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Original transaction has been cancelled and replaced to allow a partial or split settlement.
-    /// Encoded/decoded by serializers as "CANZ".
+    /// Encoded/decoded by serializers as &quot;CANZ&quot;.
     /// </summary>
     [EnumMember(Value = "CANZ")]
     [IsoId("_Zpc98eNlEeifxbo8DBFfuw")]
@@ -75,7 +75,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Original transaction has been cancelled and replaced due to a corporate action.
-    /// Encoded/decoded by serializers as "CANT".
+    /// Encoded/decoded by serializers as &quot;CANT&quot;.
     /// </summary>
     [EnumMember(Value = "CANT")]
     [IsoId("_aNv90eNlEeifxbo8DBFfuw")]
@@ -84,7 +84,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Instruction has been cancelled by the agent due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_bURhAeNlEeifxbo8DBFfuw")]
@@ -93,7 +93,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CANS".
+    /// Encoded/decoded by serializers as &quot;CANS&quot;.
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_b8IyQeNlEeifxbo8DBFfuw")]
@@ -102,7 +102,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CANI".
+    /// Encoded/decoded by serializers as &quot;CANI&quot;.
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_c5ImAeNlEeifxbo8DBFfuw")]
@@ -111,7 +111,7 @@ public enum CancelledStatusReason16Code
     
     /// <summary>
     /// Transaction has been cancelled due to a corporate action.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_owhK0eQBEeifxbo8DBFfuw")]

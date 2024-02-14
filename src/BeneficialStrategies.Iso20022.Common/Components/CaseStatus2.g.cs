@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the status of an investigation case.
 /// </summary>
 [IsoId("_T-GLS9p-Ed-ak6NoX_4Aeg_-1949574113")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Case Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CaseStatus2
     /// Date and time of the status.
     /// </summary>
     [IsoId("_T-GLTNp-Ed-ak6NoX_4Aeg_-1949574096")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtTm")]
     #endif
+    [IsoXmlTag("DtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime DateTime { get; init; } 
+    public required System.DateTime DateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime DateTime { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record CaseStatus2
     /// Status of the case.
     /// </summary>
     [IsoId("_T-P8QNp-Ed-ak6NoX_4Aeg_-1949574078")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CaseSts")]
     #endif
+    [IsoXmlTag("CaseSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseStatus2Code CaseStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseStatus2Code CaseStatus { get; init; } 
+    public required CaseStatus2Code CaseStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseStatus2Code CaseStatus { get; init; } 
     #else
@@ -92,15 +89,13 @@ public partial record CaseStatus2
     /// Free text justification of the status.
     /// </summary>
     [IsoId("_T-P8Qdp-Ed-ak6NoX_4Aeg_-1949574053")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

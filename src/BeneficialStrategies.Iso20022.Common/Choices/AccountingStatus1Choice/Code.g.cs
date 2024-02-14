@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountingStatus1Choice
     /// Accounting status expressed as a code.
     /// </summary>
     [IsoId("_CuqKUCDEEeWPMvNwVtiMsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountingStatus1Choice
         /// Specifies the accounting status.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountingStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountingStatus1Code Value { get; init; } 
+        public required AccountingStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountingStatus1Code Value { get; init; } 
         #else

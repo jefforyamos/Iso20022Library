@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FiscalYear1Choice.StartDate))]
     [KnownType(typeof(FiscalYear1Choice.EndDate))]
     [IsoId("_534EEFxREeW8MLuBzR10cg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fiscal Year 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

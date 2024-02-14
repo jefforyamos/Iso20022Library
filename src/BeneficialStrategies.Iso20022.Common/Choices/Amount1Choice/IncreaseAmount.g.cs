@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Amount1Choice
     /// Amount of increase, and currency.
     /// </summary>
     [IsoId("_95C-hXltEeG7BsjMvd1mEw_2080243605")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Increase Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Amount1Choice
         /// A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IncrAmt")]
         #endif
+        [IsoXmlTag("IncrAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Value { get; init; } 
+        public required System.Decimal Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Value { get; init; } 
         #else

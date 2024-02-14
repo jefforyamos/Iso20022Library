@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about an undertaking.
 /// </summary>
 [IsoId("_9zFgdXltEeG7BsjMvd1mEw_1035435998")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,15 @@ public partial record Undertaking4
     /// Name of the requested local undertaking such as, demand guarantee, standby letter of credit, surety.
     /// </summary>
     [IsoId("_9zFgdnltEeG7BsjMvd1mEw_-864566025")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
+    [IsoXmlTag("Nm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingName1Code Name { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingName1Code Name { get; init; } 
+    public required UndertakingName1Code Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingName1Code Name { get; init; } 
     #else
@@ -76,16 +73,15 @@ public partial record Undertaking4
     /// Type of the requested local undertaking such as performance, payment.
     /// </summary>
     [IsoId("_9zOqYHltEeG7BsjMvd1mEw_-1636131870")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUndertakingType1Code Type { get; init; } 
+    public required ExternalUndertakingType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUndertakingType1Code Type { get; init; } 
     #else
@@ -96,12 +92,11 @@ public partial record Undertaking4
     /// Party requested to be named in the local undertaking as the party on whose behalf the undertaking is issued.
     /// </summary>
     [IsoId("_9zOqYXltEeG7BsjMvd1mEw_-1559280949")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicant")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Applcnt")]
     #endif
+    [IsoXmlTag("Applcnt")]
     public PartyIdentification43? Applicant { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _9zOqYXltEeG7BsjMvd1mEw_-1559280949
     
@@ -109,12 +104,11 @@ public partial record Undertaking4
     /// Party in whose favour the requested local undertaking is to be issued.
     /// </summary>
     [IsoId("_9zOqYnltEeG7BsjMvd1mEw_1081181075")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bnfcry")]
     #endif
+    [IsoXmlTag("Bnfcry")]
     public PartyIdentification43? Beneficiary { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _9zOqYnltEeG7BsjMvd1mEw_1081181075
     
@@ -122,12 +116,12 @@ public partial record Undertaking4
     /// Date on which the requested local undertaking is to be issued.
     /// </summary>
     [IsoId("_9zOqY3ltEeG7BsjMvd1mEw_-930204574")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of Issuance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfIssnc")]
     #endif
+    [IsoXmlTag("DtOfIssnc")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DateOfIssuance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +134,11 @@ public partial record Undertaking4
     /// Party asked to advise the requested local undertaking to the beneficiary or to another advising party at the request of the local undertaking issuer.
     /// </summary>
     [IsoId("_WeZCcxSDEeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Advising Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdvsgPty")]
     #endif
+    [IsoXmlTag("AdvsgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? AdvisingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +151,11 @@ public partial record Undertaking4
     /// Additional party asked to advise the requested local undertaking.
     /// </summary>
     [IsoId("_rP0C8xSDEeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Second Advising Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndAdvsgPty")]
     #endif
+    [IsoXmlTag("ScndAdvsgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? SecondAdvisingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,16 +168,15 @@ public partial record Undertaking4
     /// Details related to the amount of the local undertaking.
     /// </summary>
     [IsoId("_9zOqZHltEeG7BsjMvd1mEw_-1709390526")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Undertaking Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclUdrtkgAmt")]
     #endif
+    [IsoXmlTag("LclUdrtkgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmount1 LocalUndertakingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingAmount1 LocalUndertakingAmount { get; init; } 
+    public required UndertakingAmount1 LocalUndertakingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingAmount1 LocalUndertakingAmount { get; init; } 
     #else
@@ -196,16 +187,15 @@ public partial record Undertaking4
     /// Details related to the expiry of the requested local undertaking.
     /// </summary>
     [IsoId("_9zYbYXltEeG7BsjMvd1mEw_1290133370")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDtls")]
     #endif
+    [IsoXmlTag("XpryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExpiryDetails1 ExpiryDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExpiryDetails1 ExpiryDetails { get; init; } 
+    public required ExpiryDetails1 ExpiryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExpiryDetails1 ExpiryDetails { get; init; } 
     #else
@@ -216,12 +206,12 @@ public partial record Undertaking4
     /// Indicates whether or not the advising bank (confirmer) is requested to add its confirmation to the undertaking.
     /// </summary>
     [IsoId("_56z_IxSAEeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfInd")]
     #endif
+    [IsoXmlTag("ConfInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ConfirmationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -234,12 +224,11 @@ public partial record Undertaking4
     /// Party, in addition to the other parties specified in the requested local undertaking, that is also related to the requested local undertaking.
     /// </summary>
     [IsoId("_9zYbYnltEeG7BsjMvd1mEw_-1413623178")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlPty")]
     #endif
+    [IsoXmlTag("AddtlPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndType1? AdditionalParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -252,16 +241,15 @@ public partial record Undertaking4
     /// Rules and laws governing the requested local undertaking.
     /// </summary>
     [IsoId("_9zYbY3ltEeG7BsjMvd1mEw_1952872268")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Governance Rules And Law")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GovncRulesAndLaw")]
     #endif
+    [IsoXmlTag("GovncRulesAndLaw")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
+    public required GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
     #else
@@ -272,12 +260,11 @@ public partial record Undertaking4
     /// Details of the underlying transaction for which the undertaking is issued.
     /// </summary>
     [IsoId("_NC1go31qEeGlwNeVP9egyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygTx")]
     #endif
+    [IsoXmlTag("UndrlygTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingTradeTransaction1? UnderlyingTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,12 +277,11 @@ public partial record Undertaking4
     /// Presentation details related to the undertaking.
     /// </summary>
     [IsoId("_aUeqkxSAEeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PresntnDtls")]
     #endif
+    [IsoXmlTag("PresntnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Presentation1? PresentationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,16 +294,15 @@ public partial record Undertaking4
     /// Wording details and text for the requested local undertaking.
     /// </summary>
     [IsoId("_AOEX1RR_EeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Wording")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgWrdg")]
     #endif
+    [IsoXmlTag("UdrtkgWrdg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingWording1 UndertakingWording { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingWording1 UndertakingWording { get; init; } 
+    public required UndertakingWording1 UndertakingWording { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingWording1 UndertakingWording { get; init; } 
     #else
@@ -328,12 +313,12 @@ public partial record Undertaking4
     /// Indicates that multiple demands are not permitted.
     /// </summary>
     [IsoId("_SbTu4xSAEeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multiple Demand Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MltplDmndInd")]
     #endif
+    [IsoXmlTag("MltplDmndInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? MultipleDemandIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -346,12 +331,12 @@ public partial record Undertaking4
     /// Indicates that partial demands/drawings are not permitted.
     /// </summary>
     [IsoId("_En7ekxSAEeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial Demand Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlDmndInd")]
     #endif
+    [IsoXmlTag("PrtlDmndInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PartialDemandIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -364,12 +349,11 @@ public partial record Undertaking4
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
     [IsoId("_9zOqZXltEeG7BsjMvd1mEw_998876300")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Charges Payable By")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfChrgsPyblBy")]
     #endif
+    [IsoXmlTag("ConfChrgsPyblBy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -382,12 +366,11 @@ public partial record Undertaking4
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the transfer charges.
     /// </summary>
     [IsoId("_9zYbYHltEeG7BsjMvd1mEw_1020340301")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Charges Payable By")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfChrgsPyblBy")]
     #endif
+    [IsoXmlTag("TrfChrgsPyblBy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalTypeOfParty1Code? TransferChargesPayableBy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -400,12 +383,11 @@ public partial record Undertaking4
     /// Details related to a variation in amount that is automatically applied.
     /// </summary>
     [IsoId("_WEveQxSBEeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Automatic Amount Variation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AutomtcAmtVartn")]
     #endif
+    [IsoXmlTag("AutomtcAmtVartn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AutomaticVariation1? AutomaticAmountVariation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -418,12 +400,11 @@ public partial record Undertaking4
     /// Details of the communication channel.
     /// </summary>
     [IsoId("_TSG81X8LEeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryChanl")]
     #endif
+    [IsoXmlTag("DlvryChanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -436,12 +417,12 @@ public partial record Undertaking4
     /// Indicates whether the requested local undertaking is transferable.
     /// </summary>
     [IsoId("_4WwA0xR_EeKyNbjzgBLUcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfInd")]
     #endif
+    [IsoXmlTag("TrfInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TransferIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -454,19 +435,15 @@ public partial record Undertaking4
     /// Additional information related to the requested local undertaking.
     /// </summary>
     [IsoId("_9ziMYHltEeG7BsjMvd1mEw_228131973")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

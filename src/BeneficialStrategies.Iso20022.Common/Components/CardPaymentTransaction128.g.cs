@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Authorisation response from the acquirer.
 /// </summary>
 [IsoId("_LTvzAXG7Ee2TbaNWBpRZpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardPaymentTransaction128
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
     [IsoId("_LaAMAXG7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnRslt")]
     #endif
+    [IsoXmlTag("AuthstnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthorisationResult17 AuthorisationResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthorisationResult17 AuthorisationResult { get; init; } 
+    public required AuthorisationResult17 AuthorisationResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthorisationResult17 AuthorisationResult { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CardPaymentTransaction128
     /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
     /// </summary>
     [IsoId("_LaAzEXG7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Verification Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxVrfctnRslt")]
     #endif
+    [IsoXmlTag("TxVrfctnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionVerificationResult4? TransactionVerificationResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record CardPaymentTransaction128
     /// Product code which are allowed by the payment card.
     /// </summary>
     [IsoId("_LaAzE3G7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allowed Product Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllwdPdctCd")]
     #endif
+    [IsoXmlTag("AllwdPdctCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product4? AllowedProductCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record CardPaymentTransaction128
     /// Product code not allowed by the payment card.
     /// </summary>
     [IsoId("_LaCoQXG7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Allowed Product Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NotAllwdPdctCd")]
     #endif
+    [IsoXmlTag("NotAllwdPdctCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product4? NotAllowedProductCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record CardPaymentTransaction128
     /// Products that may be added to the purchase after the authorisation.
     /// </summary>
     [IsoId("_LaDPUXG7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Available Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlAvlblPdct")]
     #endif
+    [IsoXmlTag("AddtlAvlblPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product5? AdditionalAvailableProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,11 @@ public partial record CardPaymentTransaction128
     /// Balance and currency code of the account, related to the payment.
     /// </summary>
     [IsoId("_LaDPU3G7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection93? Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +153,11 @@ public partial record CardPaymentTransaction128
     /// Encrypted balance of the account.
     /// </summary>
     [IsoId("_LaDPVXG7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdBal")]
     #endif
+    [IsoXmlTag("PrtctdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType35? ProtectedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +170,11 @@ public partial record CardPaymentTransaction128
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
     [IsoId("_LaDPV3G7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action14? Action { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +187,11 @@ public partial record CardPaymentTransaction128
     /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider. The currency conversion has to be proposed to the cardholder.
     /// </summary>
     [IsoId("_LaDPWXG7Ee2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Conversion Eligibility")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyConvsElgblty")]
     #endif
+    [IsoXmlTag("CcyConvsElgblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion26? CurrencyConversionEligibility { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

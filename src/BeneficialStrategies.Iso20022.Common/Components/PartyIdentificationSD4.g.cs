@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
 /// </summary>
 [IsoId("_1VTtwjL3EeKU9IrkkToqcw_-1706678617")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PartyIdentificationSD4
     /// Identifies a contact person by a name, a given name and an address.
     /// </summary>
     [IsoId("_1VTtwzL3EeKU9IrkkToqcw_-1820517683")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctPrsn")]
     #endif
+    [IsoXmlTag("CtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? ContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PartyIdentificationSD4
     /// Identifies the organisation which is represented by a person or for which a person works.
     /// </summary>
     [IsoId("_1VTtxDL3EeKU9IrkkToqcw_1477377260")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Employing Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EmplngPty")]
     #endif
+    [IsoXmlTag("EmplngPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentificationSD3? EmployingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

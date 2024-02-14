@@ -22,7 +22,7 @@ public enum ExternalModelFormIdentificationCode
 {
     /// <summary>
     /// ISP98 model form for standby incorporating annexed form of payment demand with statement.
-    /// Encoded/decoded by serializers as "ISP1".
+    /// Encoded/decoded by serializers as &quot;ISP1&quot;.
     /// </summary>
     [EnumMember(Value = "ISP1")]
     [IsoId("_uPScM_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// ISP98 model form or standby providing for extension and incorporating annexed form of payment demand with alternative non-extension statement.
-    /// Encoded/decoded by serializers as "ISP2".
+    /// Encoded/decoded by serializers as &quot;ISP2&quot;.
     /// </summary>
     [EnumMember(Value = "ISP2")]
     [IsoId("_uPScNvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// ISP98 model form or standby providing for reduction and incorporating annexed form of reduction demand. 
-    /// Encoded/decoded by serializers as "ISP3".
+    /// Encoded/decoded by serializers as &quot;ISP3&quot;.
     /// </summary>
     [EnumMember(Value = "ISP3")]
     [IsoId("_uPbmIPRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// ISP98 model form for standby providing for transfer and incorporating annexed form of transfer demand.
-    /// Encoded/decoded by serializers as "ISP4".
+    /// Encoded/decoded by serializers as &quot;ISP4&quot;.
     /// </summary>
     [EnumMember(Value = "ISP4")]
     [IsoId("_uPbmI_RYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// ISP98 model form for simplified demand only standby.
-    /// Encoded/decoded by serializers as "ISP5".
+    /// Encoded/decoded by serializers as &quot;ISP5&quot;.
     /// </summary>
     [EnumMember(Value = "ISP5")]
     [IsoId("_uPbmJvRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// ISP98 model form for counter standby with annexed form of local bank undertaking.
-    /// Encoded/decoded by serializers as "ISP6".
+    /// Encoded/decoded by serializers as &quot;ISP6&quot;.
     /// </summary>
     [EnumMember(Value = "ISP6")]
     [IsoId("_uPbmKfRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// ISP98 model form for standby requiring confirmation.
-    /// Encoded/decoded by serializers as "ISP7".
+    /// Encoded/decoded by serializers as &quot;ISP7&quot;.
     /// </summary>
     [EnumMember(Value = "ISP7")]
     [IsoId("_uPlXIPRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// ISP98 model form for confirmation of standby.
-    /// Encoded/decoded by serializers as "ISP8".
+    /// Encoded/decoded by serializers as &quot;ISP8&quot;.
     /// </summary>
     [EnumMember(Value = "ISP8")]
     [IsoId("_uPlXI_RYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// Model form for demand guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).
-    /// Encoded/decoded by serializers as "UDG1".
+    /// Encoded/decoded by serializers as &quot;UDG1&quot;.
     /// </summary>
     [EnumMember(Value = "UDG1")]
     [IsoId("_uPlXJvRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalModelFormIdentificationCode
     
     /// <summary>
     /// Model form for counter-guarantee defined in the latest version of the ICC Uniform Rules For Demand Guarantees (URDG).
-    /// Encoded/decoded by serializers as "UDG2".
+    /// Encoded/decoded by serializers as &quot;UDG2&quot;.
     /// </summary>
     [EnumMember(Value = "UDG2")]
     [IsoId("_uPvIIPRYEeuLhpyIdtJzwg")]

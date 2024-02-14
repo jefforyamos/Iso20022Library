@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LegalStructure1Choice
     /// Legal structure of the financial instrument expressed as a code.
     /// </summary>
     [IsoId("_nv7r0DQeEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.LegalStructure1Choice
         /// Specifies the legal structure of a financial instrument as defined in the scope of European MiFID Template (EMT) reference 00060.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required LegalStructureFinancialInstrument1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public LegalStructureFinancialInstrument1Code Value { get; init; } 
+        public required LegalStructureFinancialInstrument1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public LegalStructureFinancialInstrument1Code Value { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum AMFDoctrine1Code
 {
     /// <summary>
     /// Approach based on a significantly engaging methodology.
-    /// Encoded/decoded by serializers as "AMF1".
+    /// Encoded/decoded by serializers as &quot;AMF1&quot;.
     /// </summary>
     [EnumMember(Value = "AMF1")]
     [IsoId("_SYhvQdA-EeuSBa1PsnseFg")]
@@ -30,7 +30,7 @@ public enum AMFDoctrine1Code
     
     /// <summary>
     /// Approach not meeting central communication standards or based on limited communication standards.
-    /// Encoded/decoded by serializers as "AMF3".
+    /// Encoded/decoded by serializers as &quot;AMF3&quot;.
     /// </summary>
     [EnumMember(Value = "AMF3")]
     [IsoId("_Se75QdA-EeuSBa1PsnseFg")]
@@ -39,7 +39,7 @@ public enum AMFDoctrine1Code
     
     /// <summary>
     /// Approach based on a non-significantly engaging methodology.
-    /// Encoded/decoded by serializers as "AMF2".
+    /// Encoded/decoded by serializers as &quot;AMF2&quot;.
     /// </summary>
     [EnumMember(Value = "AMF2")]
     [IsoId("_SlWDQdA-EeuSBa1PsnseFg")]

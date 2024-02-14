@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Special conditions for the loan.
 /// </summary>
 [IsoId("_pqRrgdOCEeSQ_-lmj1tzfw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Special Condition")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SpecialCondition1
     /// Incoming amount on special conditions.
     /// </summary>
     [IsoId("_uNbGkNOCEeSQ_-lmj1tzfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incoming Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncmgAmt")]
     #endif
+    [IsoXmlTag("IncmgAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount IncomingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal IncomingAmount { get; init; } 
+    public required System.Decimal IncomingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal IncomingAmount { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record SpecialCondition1
     /// Outgoing amount on special conditions.
     /// </summary>
     [IsoId("_xOYWINOCEeSQ_-lmj1tzfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outgoing Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutgngAmt")]
     #endif
+    [IsoXmlTag("OutgngAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OutgoingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OutgoingAmount { get; init; } 
+    public required System.Decimal OutgoingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OutgoingAmount { get; init; } 
     #else
@@ -92,12 +90,12 @@ public partial record SpecialCondition1
     /// Incoming amount to other account on special conditions.
     /// </summary>
     [IsoId("_9TKtYwtLEeWkxvNyFrBT8Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incoming Amount To Other Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncmgAmtToOthrAcct")]
     #endif
+    [IsoXmlTag("IncmgAmtToOthrAcct")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? IncomingAmountToOtherAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +108,12 @@ public partial record SpecialCondition1
     /// Outgoing payment amount from other account on special conditions.
     /// </summary>
     [IsoId("_HfRVAAtMEeWkxvNyFrBT8Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment From Other Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtFrOthrAcct")]
     #endif
+    [IsoXmlTag("PmtFrOthrAcct")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? PaymentFromOtherAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TransactionIndividualStatus5Code
 {
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_Cj0s50JIEeinU6Cqu8f2Ow")]
@@ -30,7 +30,7 @@ public enum TransactionIndividualStatus5Code
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
-    /// Encoded/decoded by serializers as "ACSP".
+    /// Encoded/decoded by serializers as &quot;ACSP&quot;.
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_Cj0s5kJIEeinU6Cqu8f2Ow")]
@@ -38,8 +38,8 @@ public enum TransactionIndividualStatus5Code
     AcceptedSettlementInProcess = PaymentStatusCode.AcceptedSettlementInProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Settlement on the creditor's account has been completed. 
-    /// Encoded/decoded by serializers as "ACCC".
+    /// Settlement on the creditor&apos;s account has been completed. 
+    /// Encoded/decoded by serializers as &quot;ACCC&quot;.
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_rIE6kYXnEeizLI4uNYSjtg")]

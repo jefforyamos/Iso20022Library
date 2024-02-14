@@ -21,7 +21,7 @@ public enum ExternalDocumentLineType1Code
 {
     /// <summary>
     /// Line item reference is an additional product identification assigned by the manufacturer.
-    /// Encoded/decoded by serializers as "ADPI".
+    /// Encoded/decoded by serializers as &quot;ADPI&quot;.
     /// </summary>
     [EnumMember(Value = "ADPI")]
     [IsoId("_uSQ3vvRYEeuLhpyIdtJzwg")]
@@ -30,7 +30,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is an alternate International Standard Book Number (ISBN).
-    /// Encoded/decoded by serializers as "AISB".
+    /// Encoded/decoded by serializers as &quot;AISB&quot;.
     /// </summary>
     [EnumMember(Value = "AISB")]
     [IsoId("_uSaosvRYEeuLhpyIdtJzwg")]
@@ -39,7 +39,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is an asset number.
-    /// Encoded/decoded by serializers as "ASNB".
+    /// Encoded/decoded by serializers as &quot;ASNB&quot;.
     /// </summary>
     [EnumMember(Value = "ASNB")]
     [IsoId("_uSaotfRYEeuLhpyIdtJzwg")]
@@ -48,7 +48,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a catalog number.
-    /// Encoded/decoded by serializers as "CTNB".
+    /// Encoded/decoded by serializers as &quot;CTNB&quot;.
     /// </summary>
     [EnumMember(Value = "CTNB")]
     [IsoId("_uSaouPRYEeuLhpyIdtJzwg")]
@@ -56,8 +56,8 @@ public enum ExternalDocumentLineType1Code
     CatalogNumber = ExternalDocumentLineTypeCode.CatalogNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Line item reference is Dun & Bradstreet Standard Product and Service code.
-    /// Encoded/decoded by serializers as "DBSP".
+    /// Line item reference is Dun &amp; Bradstreet Standard Product and Service code.
+    /// Encoded/decoded by serializers as &quot;DBSP&quot;.
     /// </summary>
     [EnumMember(Value = "DBSP")]
     [IsoId("_uSjyovRYEeuLhpyIdtJzwg")]
@@ -66,7 +66,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is an European Article Number (EAN).
-    /// Encoded/decoded by serializers as "EANN".
+    /// Encoded/decoded by serializers as &quot;EANN&quot;.
     /// </summary>
     [EnumMember(Value = "EANN")]
     [IsoId("_uSjypfRYEeuLhpyIdtJzwg")]
@@ -75,7 +75,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is an equipment identification number.
-    /// Encoded/decoded by serializers as "EINB".
+    /// Encoded/decoded by serializers as &quot;EINB&quot;.
     /// </summary>
     [EnumMember(Value = "EINB")]
     [IsoId("_uSjyqPRYEeuLhpyIdtJzwg")]
@@ -84,7 +84,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a general specification number.
-    /// Encoded/decoded by serializers as "GSNB".
+    /// Encoded/decoded by serializers as &quot;GSNB&quot;.
     /// </summary>
     [EnumMember(Value = "GSNB")]
     [IsoId("_uStjovRYEeuLhpyIdtJzwg")]
@@ -93,7 +93,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a Health Care Industry Bar Code (HIBC)
-    /// Encoded/decoded by serializers as "HIBC".
+    /// Encoded/decoded by serializers as &quot;HIBC&quot;.
     /// </summary>
     [EnumMember(Value = "HIBC")]
     [IsoId("_uStjpfRYEeuLhpyIdtJzwg")]
@@ -102,7 +102,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is an International Standard Book Number (ISBN).
-    /// Encoded/decoded by serializers as "ISBN".
+    /// Encoded/decoded by serializers as &quot;ISBN&quot;.
     /// </summary>
     [EnumMember(Value = "ISBN")]
     [IsoId("_uStjqPRYEeuLhpyIdtJzwg")]
@@ -111,7 +111,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a lot number.
-    /// Encoded/decoded by serializers as "LTNB".
+    /// Encoded/decoded by serializers as &quot;LTNB&quot;.
     /// </summary>
     [EnumMember(Value = "LTNB")]
     [IsoId("_uS3UovRYEeuLhpyIdtJzwg")]
@@ -120,7 +120,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a model number
-    /// Encoded/decoded by serializers as "MDNB".
+    /// Encoded/decoded by serializers as &quot;MDNB&quot;.
     /// </summary>
     [EnumMember(Value = "MDNB")]
     [IsoId("_uS3UpfRYEeuLhpyIdtJzwg")]
@@ -129,7 +129,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a part reference number.
-    /// Encoded/decoded by serializers as "PRNB".
+    /// Encoded/decoded by serializers as &quot;PRNB&quot;.
     /// </summary>
     [EnumMember(Value = "PRNB")]
     [IsoId("_uS3UqPRYEeuLhpyIdtJzwg")]
@@ -138,7 +138,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a product type code.
-    /// Encoded/decoded by serializers as "PTCD".
+    /// Encoded/decoded by serializers as &quot;PTCD&quot;.
     /// </summary>
     [EnumMember(Value = "PTCD")]
     [IsoId("_uS3Uq_RYEeuLhpyIdtJzwg")]
@@ -147,7 +147,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a stock number.
-    /// Encoded/decoded by serializers as "SKNB".
+    /// Encoded/decoded by serializers as &quot;SKNB&quot;.
     /// </summary>
     [EnumMember(Value = "SKNB")]
     [IsoId("_uS3UrvRYEeuLhpyIdtJzwg")]
@@ -156,7 +156,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a style number.
-    /// Encoded/decoded by serializers as "STNB".
+    /// Encoded/decoded by serializers as &quot;STNB&quot;.
     /// </summary>
     [EnumMember(Value = "STNB")]
     [IsoId("_uTAekvRYEeuLhpyIdtJzwg")]
@@ -165,7 +165,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is a technical order number.
-    /// Encoded/decoded by serializers as "TONB".
+    /// Encoded/decoded by serializers as &quot;TONB&quot;.
     /// </summary>
     [EnumMember(Value = "TONB")]
     [IsoId("_uTAelfRYEeuLhpyIdtJzwg")]
@@ -174,7 +174,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is an UPC consumer package code.
-    /// Encoded/decoded by serializers as "UPCC".
+    /// Encoded/decoded by serializers as &quot;UPCC&quot;.
     /// </summary>
     [EnumMember(Value = "UPCC")]
     [IsoId("_uTAemPRYEeuLhpyIdtJzwg")]
@@ -183,7 +183,7 @@ public enum ExternalDocumentLineType1Code
     
     /// <summary>
     /// Line item reference is an Universal Product Number.
-    /// Encoded/decoded by serializers as "UPNB".
+    /// Encoded/decoded by serializers as &quot;UPNB&quot;.
     /// </summary>
     [EnumMember(Value = "UPNB")]
     [IsoId("_uTKPkvRYEeuLhpyIdtJzwg")]

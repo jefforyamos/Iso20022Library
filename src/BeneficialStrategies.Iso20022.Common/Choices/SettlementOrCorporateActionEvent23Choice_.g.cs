@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementOrCorporateActionEvent23Choice.SecuritiesTransactionType))]
     [KnownType(typeof(SettlementOrCorporateActionEvent23Choice.CorporateActionEventType))]
     [IsoId("_xpNoQaOAEeeDTpy0mhI4TQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Or Corporate Action Event 23 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

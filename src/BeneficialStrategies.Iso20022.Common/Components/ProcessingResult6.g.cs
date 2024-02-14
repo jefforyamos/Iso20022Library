@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Outcome of the verification processing of the transaction.
 /// </summary>
 [IsoId("_2JXScfBlEeesZ516Jn5sHw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Processing Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ProcessingResult6
     /// Result of the processing.
     /// </summary>
     [IsoId("_2WAnUfBlEeesZ516Jn5sHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsltData")]
     #endif
+    [IsoXmlTag("RsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData6? ResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ProcessingResult6
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
     [IsoId("__fwPQRs2EeqrvK3udMUsNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRsltData")]
     #endif
+    [IsoXmlTag("OrgnlRsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData1? OriginalResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,12 +78,12 @@ public partial record ProcessingResult6
     /// True: Action Required.
     /// </summary>
     [IsoId("_2WAnU_BlEeesZ516Jn5sHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnReqrd")]
     #endif
+    [IsoXmlTag("ActnReqrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ActionRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +96,11 @@ public partial record ProcessingResult6
     /// Set of actions to be performed.
     /// </summary>
     [IsoId("_2WAnVfBlEeesZ516Jn5sHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Action9? Action { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +113,11 @@ public partial record ProcessingResult6
     /// Additional action to perform.
     /// </summary>
     [IsoId("_2WAnV_BlEeesZ516Jn5sHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlActn")]
     #endif
+    [IsoXmlTag("AddtlActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalAction1? AdditionalAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +131,11 @@ public partial record ProcessingResult6
     /// ISO 8583 bit 44
     /// </summary>
     [IsoId("_2WAnWfBlEeesZ516Jn5sHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation20? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

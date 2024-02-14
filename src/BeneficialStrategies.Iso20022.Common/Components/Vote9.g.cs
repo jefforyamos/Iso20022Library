@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Decision of the voting party for one resolution.
 /// </summary>
 [IsoId("_CijmgV69EeSjaerr_EM7AQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record Vote9
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
     [IsoId("_C_kSoV69EeSjaerr_EM7AQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrLabl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssrLabl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerLabel { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IssuerLabel { get; init; } 
+    public required System.String IssuerLabel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IssuerLabel { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record Vote9
     /// Specifies the different instructions that can be used to vote.
     /// </summary>
     [IsoId("_C_kSo169EeSjaerr_EM7AQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Option")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteOptn")]
     #endif
+    [IsoXmlTag("VoteOptn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VoteInstruction3Code VoteOption { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VoteInstruction3Code VoteOption { get; init; } 
+    public required VoteInstruction3Code VoteOption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VoteInstruction3Code VoteOption { get; init; } 
     #else

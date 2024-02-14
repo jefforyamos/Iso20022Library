@@ -21,7 +21,7 @@ public enum ResidualCashCode
 {
     /// <summary>
     /// Residual cash to be transferred.
-    /// Encoded/decoded by serializers as "RCTR".
+    /// Encoded/decoded by serializers as &quot;RCTR&quot;.
     /// </summary>
     [EnumMember(Value = "RCTR")]
     [IsoId("_rpeD8fpeEeCLMa5EIHtDrg")]
@@ -30,7 +30,7 @@ public enum ResidualCashCode
     
     /// <summary>
     /// Residual Cash not to be transferred.
-    /// Encoded/decoded by serializers as "NRCT".
+    /// Encoded/decoded by serializers as &quot;NRCT&quot;.
     /// </summary>
     [EnumMember(Value = "NRCT")]
     [IsoId("_2wSAV_peEeCLMa5EIHtDrg")]

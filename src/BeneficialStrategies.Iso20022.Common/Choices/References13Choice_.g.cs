@@ -27,9 +27,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References13Choice.TradeIdentification))]
     [KnownType(typeof(References13Choice.OtherTransactionIdentification))]
     [IsoId("_-1br8fuZEd-Qm92hXFsDlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References 13 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OptionDateOrPeriod1Choice.EarliestExerciseDate))]
     [KnownType(typeof(OptionDateOrPeriod1Choice.NoticePeriod))]
     [IsoId("_FBT61jU7EeWITbq5W8H-2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Date Or Period 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

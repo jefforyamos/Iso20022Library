@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus1Choice
     /// Proprietary status related to the event processing.
     /// </summary>
     [IsoId("_Qx8_YNp-Ed-ak6NoX_4Aeg_1493935136")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus1Choice
         /// Proprietary identification of the status related to an instruction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtrySts")]
         #endif
+        [IsoXmlTag("PrtrySts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GenericIdentification20 Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GenericIdentification20 Value { get; init; } 
+        public required GenericIdentification20 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GenericIdentification20 Value { get; init; } 
         #else
@@ -72,12 +71,11 @@ namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus1Choice
         /// Proprietary identification of the reason related to a proprietary status.
         /// </summary>
         [IsoId("_UatOw9p-Ed-ak6NoX_4Aeg_-1512024757")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryRsn")]
         #endif
+        [IsoXmlTag("PrtryRsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ProprietaryReason1? ProprietaryReason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

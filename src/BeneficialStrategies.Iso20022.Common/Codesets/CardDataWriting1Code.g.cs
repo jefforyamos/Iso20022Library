@@ -22,7 +22,7 @@ public enum CardDataWriting1Code
 {
     /// <summary>
     /// ICC contactless proximity
-    /// Encoded/decoded by serializers as "ICPY".
+    /// Encoded/decoded by serializers as &quot;ICPY&quot;.
     /// </summary>
     [EnumMember(Value = "ICPY")]
     [IsoId("_0rnaU0epEee9r7QjOdsbFw")]
@@ -31,7 +31,7 @@ public enum CardDataWriting1Code
     
     /// <summary>
     /// Magnetic stripe.
-    /// Encoded/decoded by serializers as "MGST".
+    /// Encoded/decoded by serializers as &quot;MGST&quot;.
     /// </summary>
     [EnumMember(Value = "MGST")]
     [IsoId("_0rnaVUepEee9r7QjOdsbFw")]
@@ -40,7 +40,7 @@ public enum CardDataWriting1Code
     
     /// <summary>
     /// ICC contact capability
-    /// Encoded/decoded by serializers as "ICCY".
+    /// Encoded/decoded by serializers as &quot;ICCY&quot;.
     /// </summary>
     [EnumMember(Value = "ICCY")]
     [IsoId("_0rnaV0epEee9r7QjOdsbFw")]
@@ -49,7 +49,7 @@ public enum CardDataWriting1Code
     
     /// <summary>
     /// Magstripe image contactless proximity
-    /// Encoded/decoded by serializers as "MSIP".
+    /// Encoded/decoded by serializers as &quot;MSIP&quot;.
     /// </summary>
     [EnumMember(Value = "MSIP")]
     [IsoId("_0rnaX0epEee9r7QjOdsbFw")]
@@ -58,7 +58,7 @@ public enum CardDataWriting1Code
     
     /// <summary>
     /// Other national capability type assigned at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_0rnaY0epEee9r7QjOdsbFw")]
@@ -67,7 +67,7 @@ public enum CardDataWriting1Code
     
     /// <summary>
     /// Unspecified capability.
-    /// Encoded/decoded by serializers as "UNSP".
+    /// Encoded/decoded by serializers as &quot;UNSP&quot;.
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_0rnaZ0epEee9r7QjOdsbFw")]
@@ -76,7 +76,7 @@ public enum CardDataWriting1Code
     
     /// <summary>
     /// Other card reading capability assigned on a private basis.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_0rnaaUepEee9r7QjOdsbFw")]

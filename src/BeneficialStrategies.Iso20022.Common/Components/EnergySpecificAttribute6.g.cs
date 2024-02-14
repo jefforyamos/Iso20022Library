@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Attributes of energy related derivatives.
 /// </summary>
 [IsoId("_b-a7sZjgEeqkLZLH6DK3UQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Energy Specific Attribute")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record EnergySpecificAttribute6
     /// Indicates the delivery point(s) of market area(s) for energy derivative contracts.
     /// </summary>
     [IsoId("_b-3noZjgEeqkLZLH6DK3UQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Point Or Zone")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryPtOrZone")]
     #endif
+    [IsoXmlTag("DlvryPtOrZone")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryInterconnectionPoint1Choice_? DeliveryPointOrZone { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record EnergySpecificAttribute6
     /// Identification of the border(s) or border point(s) of a transportation contract.
     /// </summary>
     [IsoId("_b-3no5jgEeqkLZLH6DK3UQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inter Connection Point")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrCnnctnPt")]
     #endif
+    [IsoXmlTag("IntrCnnctnPt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryInterconnectionPoint1Choice_? InterConnectionPoint { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record EnergySpecificAttribute6
     /// Identification of the delivery profile.
     /// </summary>
     [IsoId("_b-3npZjgEeqkLZLH6DK3UQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Load Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LdTp")]
     #endif
+    [IsoXmlTag("LdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnergyLoadType1Code? LoadType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record EnergySpecificAttribute6
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
     [IsoId("_b-3np5jgEeqkLZLH6DK3UQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Attribute")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryAttr")]
     #endif
+    [IsoXmlTag("DlvryAttr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnergyDeliveryAttribute5? DeliveryAttribute { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

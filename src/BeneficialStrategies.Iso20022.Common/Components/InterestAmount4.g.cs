@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the elements related to the interest amount calculation.
 /// </summary>
 [IsoId("_AFlH0StNEeyOa655cLd-DQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,16 +55,15 @@ public partial record InterestAmount4
     /// Indicates whether the interest request is new or updated.
     /// </summary>
     [IsoId("_Ad3sAytNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Request Sequence")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstReqSeq")]
     #endif
+    [IsoXmlTag("IntrstReqSeq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestRequestSequence1Code InterestRequestSequence { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InterestRequestSequence1Code InterestRequestSequence { get; init; } 
+    public required InterestRequestSequence1Code InterestRequestSequence { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InterestRequestSequence1Code InterestRequestSequence { get; init; } 
     #else
@@ -77,16 +74,15 @@ public partial record InterestAmount4
     /// Period for which the calculation has been performed.
     /// </summary>
     [IsoId("_Ad3sBStNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstPrd")]
     #endif
+    [IsoXmlTag("IntrstPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DatePeriod2 InterestPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DatePeriod2 InterestPeriod { get; init; } 
+    public required DatePeriod2 InterestPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DatePeriod2 InterestPeriod { get; init; } 
     #else
@@ -97,16 +93,16 @@ public partial record InterestAmount4
     /// Amount of money representing an interest payment.
     /// </summary>
     [IsoId("_Ad3sBytNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstAmt")]
     #endif
+    [IsoXmlTag("AcrdIntrstAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AccruedInterestAmount { get; init; } 
+    public required System.Decimal AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AccruedInterestAmount { get; init; } 
     #else
@@ -117,16 +113,16 @@ public partial record InterestAmount4
     /// Agreed date for the interest payment.
     /// </summary>
     [IsoId("_Ad3sCStNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValueDate { get; init; } 
+    public required System.DateOnly ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValueDate { get; init; } 
     #else
@@ -137,16 +133,15 @@ public partial record InterestAmount4
     /// Indicates whether the interest will be settled in cash or rolled in the existing collateral balance.
     /// </summary>
     [IsoId("_Ad3sCytNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstMtd")]
     #endif
+    [IsoXmlTag("IntrstMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestMethod1Code InterestMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InterestMethod1Code InterestMethod { get; init; } 
+    public required InterestMethod1Code InterestMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InterestMethod1Code InterestMethod { get; init; } 
     #else
@@ -157,12 +152,11 @@ public partial record InterestAmount4
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
     [IsoId("_Ad3sDStNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRate1Choice_? InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +169,11 @@ public partial record InterestAmount4
     /// Specifies the computation method of (accrued) interest of the security.
     /// </summary>
     [IsoId("_Ad3sDytNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Day Count Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DayCntBsis")]
     #endif
+    [IsoXmlTag("DayCntBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestComputationMethod2Code? DayCountBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +186,12 @@ public partial record InterestAmount4
     /// Amount or percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
     [IsoId("_Ad3sEStNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applied Withholding Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApldWhldgTax")]
     #endif
+    [IsoXmlTag("ApldWhldgTax")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AppliedWithholdingTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,12 +204,11 @@ public partial record InterestAmount4
     /// Specifies whether the interest is simple or compounded.
     /// </summary>
     [IsoId("_Ad3sEytNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnMtd")]
     #endif
+    [IsoXmlTag("ClctnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CalculationMethod1Code? CalculationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,12 +221,11 @@ public partial record InterestAmount4
     /// Specifies the periodicity of the calculation of the interest.
     /// </summary>
     [IsoId("_Ad3sFStNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnFrqcy")]
     #endif
+    [IsoXmlTag("ClctnFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency1Code? CalculationFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,16 +238,15 @@ public partial record InterestAmount4
     /// Specifies whether the collateral has been posted against the variation margin, the segregated independent amount or to cover any other risk defined with a proprietary code.
     /// </summary>
     [IsoId("_Ad3sFytNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPurp")]
     #endif
+    [IsoXmlTag("CollPurp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralPurpose1Choice_ CollateralPurpose { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralPurpose1Choice_ CollateralPurpose { get; init; } 
+    public required CollateralPurpose1Choice_ CollateralPurpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralPurpose1Choice_ CollateralPurpose { get; init; } 
     #else
@@ -267,12 +257,11 @@ public partial record InterestAmount4
     /// Provides details about the opening collateral balance.
     /// </summary>
     [IsoId("_Ad3sGStNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Collateral Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngCollBal")]
     #endif
+    [IsoXmlTag("OpngCollBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralBalance1? OpeningCollateralBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -285,16 +274,15 @@ public partial record InterestAmount4
     /// Provides details about the closing collateral balance.
     /// </summary>
     [IsoId("_Ad3sGytNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closing Collateral Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsgCollBal")]
     #endif
+    [IsoXmlTag("ClsgCollBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralBalance1 ClosingCollateralBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralBalance1 ClosingCollateralBalance { get; init; } 
+    public required CollateralBalance1 ClosingCollateralBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralBalance1 ClosingCollateralBalance { get; init; } 
     #else
@@ -305,15 +293,13 @@ public partial record InterestAmount4
     /// Identifies the standard settlement instructions.
     /// </summary>
     [IsoId("_Ad3sHStNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standard Settlement Instructions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StdSttlmInstrs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StdSttlmInstrs")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? StandardSettlementInstructions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -326,15 +312,13 @@ public partial record InterestAmount4
     /// Additionnal information related to interest request.
     /// </summary>
     [IsoId("_Ad3sHytNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max210Text)]
     [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -347,12 +331,11 @@ public partial record InterestAmount4
     /// Additional references linked to the updated interest payement request.
     /// </summary>
     [IsoId("_Ad3sIStNEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefDtls")]
     #endif
+    [IsoXmlTag("RefDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reference20? ReferenceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

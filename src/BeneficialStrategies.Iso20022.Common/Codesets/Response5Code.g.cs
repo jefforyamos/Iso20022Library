@@ -21,7 +21,7 @@ public enum Response5Code
 {
     /// <summary>
     /// Processing OK. Information related to the result of the processing is contained in other parts of the response message.
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_GZQ5UdxXEeioifFt1dhnJA")]
@@ -30,7 +30,7 @@ public enum Response5Code
     
     /// <summary>
     /// Processing of the request fails for various reasons. Some further processing according to the type of requested service, the context of the process, and some additional precision about the failure notified in the ErrorCondition data element.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_Gf9-QdxXEeioifFt1dhnJA")]
@@ -39,7 +39,7 @@ public enum Response5Code
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_G0YvEdxXEeioifFt1dhnJA")]

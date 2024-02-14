@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements of a cash distribution that will be withheld by a tax authority.
 /// </summary>
 [IsoId("_haio02liEeGaMcKyqKNRfQ_-1955007741")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security With Holding Tax")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecurityWithHoldingTax1
     /// Value of the withholding tax as rate, amount or not specified.
     /// </summary>
     [IsoId("_haio1GliEeGaMcKyqKNRfQ_-987543376")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Tax Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgTaxVal")]
     #endif
+    [IsoXmlTag("WhldgTaxVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RateAndAmountFormat1Choice_ WithholdingTaxValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RateAndAmountFormat1Choice_ WithholdingTaxValue { get; init; } 
+    public required RateAndAmountFormat1Choice_ WithholdingTaxValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RateAndAmountFormat1Choice_ WithholdingTaxValue { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SecurityWithHoldingTax1
     /// Represents the tax authority.
     /// </summary>
     [IsoId("_haio1WliEeGaMcKyqKNRfQ_1903420370")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice
     /// Source of a price quotation when it is not the local market.
     /// </summary>
     [IsoId("_RCDQ5dp-Ed-ak6NoX_4Aeg_1149070716")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Local Market Place")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice
         /// Source of the price.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PricSrc")]
         #endif
+        [IsoXmlTag("PricSrc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PriceSource1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PriceSource1Code Value { get; init; } 
+        public required PriceSource1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PriceSource1Code Value { get; init; } 
         #else
@@ -72,15 +71,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice
         /// Additional information about the source of a price.
         /// </summary>
         [IsoId("_QelXcdp-Ed-ak6NoX_4Aeg_404714109")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Narrative")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nrrtv")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nrrtv")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Narrative { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

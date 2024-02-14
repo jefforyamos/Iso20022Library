@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
 [IsoId("_TmaED9p-Ed-ak6NoX_4Aeg_596881925")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Obligation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record PaymentObligation1
     /// Bank that has to pay under the obligation.
     /// </summary>
     [IsoId("_Tmj1ANp-Ed-ak6NoX_4Aeg_1171310523")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligor Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OblgrBk")]
     #endif
+    [IsoXmlTag("OblgrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 ObligorBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 ObligorBank { get; init; } 
+    public required BICIdentification1 ObligorBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 ObligorBank { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record PaymentObligation1
     /// Bank that will be paid under the obligation.
     /// </summary>
     [IsoId("_Tmj1Adp-Ed-ak6NoX_4Aeg_1183317260")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptBk")]
     #endif
+    [IsoXmlTag("RcptBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 RecipientBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 RecipientBank { get; init; } 
+    public required BICIdentification1 RecipientBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 RecipientBank { get; init; } 
     #else
@@ -95,16 +91,16 @@ public partial record PaymentObligation1
     /// Maximum amount that will be paid under the obligation.
     /// </summary>
     [IsoId("_Tmj1Atp-Ed-ak6NoX_4Aeg_1036477395")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -115,16 +111,16 @@ public partial record PaymentObligation1
     /// Maximum amount that will be paid under the obligation, expressed as a percentage of the purchase order net amount.
     /// </summary>
     [IsoId("_Tmj1A9p-Ed-ak6NoX_4Aeg_68097507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pctg")]
     #endif
+    [IsoXmlTag("Pctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Percentage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Percentage { get; init; } 
+    public required System.Decimal Percentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Percentage { get; init; } 
     #else
@@ -135,12 +131,12 @@ public partial record PaymentObligation1
     /// Amount of the charges taken by the obligor bank.
     /// </summary>
     [IsoId("_Tmj1BNp-Ed-ak6NoX_4Aeg_-899180987")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsAmt")]
     #endif
+    [IsoXmlTag("ChrgsAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ChargesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,12 +149,12 @@ public partial record PaymentObligation1
     /// Amount of the charges expressed as a percentage of the amount paid by the obligor bank.
     /// </summary>
     [IsoId("_Tmj1Bdp-Ed-ak6NoX_4Aeg_-870552237")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsPctg")]
     #endif
+    [IsoXmlTag("ChrgsPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ChargesPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,16 +167,16 @@ public partial record PaymentObligation1
     /// Date at which the obligation will expire.
     /// </summary>
     [IsoId("_Tmj1Btp-Ed-ak6NoX_4Aeg_1478843016")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ExpiryDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ExpiryDate { get; init; } 
+    public required System.DateOnly ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ExpiryDate { get; init; } 
     #else
@@ -191,12 +187,11 @@ public partial record PaymentObligation1
     /// Country of which the law governs the bank payment obligation.
     /// </summary>
     [IsoId("_Tmj1B9p-Ed-ak6NoX_4Aeg_-154804792")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicable Law")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AplblLaw")]
     #endif
+    [IsoXmlTag("AplblLaw")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? ApplicableLaw { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +204,11 @@ public partial record PaymentObligation1
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
     [IsoId("_Tms-8Np-Ed-ak6NoX_4Aeg_1971081576")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTerms")]
     #endif
+    [IsoXmlTag("PmtTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTerms2? PaymentTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +221,11 @@ public partial record PaymentObligation1
     /// Instruction between two clearing agents stipulating the cash transfer characteristics between the two parties.
     /// </summary>
     [IsoId("_Tms-8dp-Ed-ak6NoX_4Aeg_-935706746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTerms")]
     #endif
+    [IsoXmlTag("SttlmTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTerms2? SettlementTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

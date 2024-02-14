@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.DataSetAction))]
     [KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.Report))]
     [IsoId("_rqy-iVowEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Missing Margin Information Statistics 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

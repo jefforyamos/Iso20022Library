@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntermediateSecuritiesDistributionTypeFormat5Choice.Code))]
     [KnownType(typeof(IntermediateSecuritiesDistributionTypeFormat5Choice.Proprietary))]
     [IsoId("_waQgQeAYEd-D2OAFXdoRmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediate Securities Distribution Type Format 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

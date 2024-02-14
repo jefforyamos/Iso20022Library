@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionLoanData17Choice.SecuritiesLending))]
     [KnownType(typeof(TransactionLoanData17Choice.MarginLending))]
     [IsoId("_1xq-Pa1KEemojPqsRBB5Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Loan Data 17 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

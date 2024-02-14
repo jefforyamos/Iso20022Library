@@ -21,7 +21,7 @@ public enum IssuanceTypeCode
 {
     /// <summary>
     /// Undertaking issued direct to the beneficiary.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_okhB0H4LEeG05p8M2uqofg")]
@@ -30,7 +30,7 @@ public enum IssuanceTypeCode
     
     /// <summary>
     /// Undertaking issued to the beneficiary via an advising party.
-    /// Encoded/decoded by serializers as "ISAD".
+    /// Encoded/decoded by serializers as &quot;ISAD&quot;.
     /// </summary>
     [EnumMember(Value = "ISAD")]
     [IsoId("_2S0k4H4LEeG05p8M2uqofg")]
@@ -39,7 +39,7 @@ public enum IssuanceTypeCode
     
     /// <summary>
     /// Undertaking issued to the beneficiary via a confirming party.
-    /// Encoded/decoded by serializers as "ISCO".
+    /// Encoded/decoded by serializers as &quot;ISCO&quot;.
     /// </summary>
     [EnumMember(Value = "ISCO")]
     [IsoId("_-OEkMH4LEeG05p8M2uqofg")]
@@ -48,7 +48,7 @@ public enum IssuanceTypeCode
     
     /// <summary>
     /// Counter-undertaking issued to a correspondent with a request to issue a local undertaking.
-    /// Encoded/decoded by serializers as "CRQL".
+    /// Encoded/decoded by serializers as &quot;CRQL&quot;.
     /// </summary>
     [EnumMember(Value = "CRQL")]
     [IsoId("_HetpIH4MEeG05p8M2uqofg")]
@@ -57,7 +57,7 @@ public enum IssuanceTypeCode
     
     /// <summary>
     /// Counter-undertaking issued to a correspondent with a request to issue another counter-undertaking.
-    /// Encoded/decoded by serializers as "CRQC".
+    /// Encoded/decoded by serializers as &quot;CRQC&quot;.
     /// </summary>
     [EnumMember(Value = "CRQC")]
     [IsoId("_cyhlAH4MEeG05p8M2uqofg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice of formats to express the type of cash balance.
 /// </summary>
 [IsoId("_Rl0FQdp-Ed-ak6NoX_4Aeg_-1191454030")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Balance Type 1 Format Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CashBalanceType1FormatType
     /// Standard code to specify the type of cash balance.
     /// </summary>
     [IsoId("_Rl0FQtp-Ed-ak6NoX_4Aeg_736479285")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashBalanceType1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashBalanceType1Code Code { get; init; } 
+    public required CashBalanceType1Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashBalanceType1Code Code { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CashBalanceType1FormatType
     /// Proprietary code to express the type of cash balance.
     /// </summary>
     [IsoId("_Rl0FQ9p-Ed-ak6NoX_4Aeg_736479254")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
+    [IsoXmlTag("Prtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification13 Proprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification13 Proprietary { get; init; } 
+    public required GenericIdentification13 Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification13 Proprietary { get; init; } 
     #else

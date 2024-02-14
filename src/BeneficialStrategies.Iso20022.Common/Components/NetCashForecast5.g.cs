@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Net cash movement to a fund as a result of investment funds transactions.
 /// </summary>
 [IsoId("_EYWw0V-JEeS7xuKaq75oiQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Net Cash Forecast")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record NetCashForecast5
     /// Date on which cash is available.
     /// </summary>
     [IsoId("_EzlUQ1-JEeS7xuKaq75oiQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshSttlmDt")]
     #endif
+    [IsoXmlTag("CshSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CashSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,12 @@ public partial record NetCashForecast5
     /// Net amount of the cash flow, expressed as an amount of money.
     /// </summary>
     [IsoId("_EzlURV-JEeS7xuKaq75oiQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetAmt")]
     #endif
+    [IsoXmlTag("NetAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +85,11 @@ public partial record NetCashForecast5
     /// Net amount, expressed as a number of units.
     /// </summary>
     [IsoId("_EzlUR1-JEeS7xuKaq75oiQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetUnitsNb")]
     #endif
+    [IsoXmlTag("NetUnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? NetUnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,16 +102,15 @@ public partial record NetCashForecast5
     /// Specifies the direction of the cash flow from the perspective of the fund.
     /// </summary>
     [IsoId("_EzlUSV-JEeS7xuKaq75oiQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Flow Direction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlowDrctn")]
     #endif
+    [IsoXmlTag("FlowDrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FlowDirectionType1Code FlowDirection { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FlowDirectionType1Code FlowDirection { get; init; } 
+    public required FlowDirectionType1Code FlowDirection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FlowDirectionType1Code FlowDirection { get; init; } 
     #else

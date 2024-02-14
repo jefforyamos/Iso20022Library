@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the parameters to calculate the local reporting time.
 /// </summary>
 [IsoId("_RKPjkNp-Ed-ak6NoX_4Aeg_-688976051")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("UTC Offset")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record UTCOffset1
     /// Indicates whether the offset is before or after 00: 00 hour UTC.
     /// </summary>
     [IsoId("_RKPjkdp-Ed-ak6NoX_4Aeg_-597549067")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sign")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgn")]
     #endif
+    [IsoXmlTag("Sgn")]
+    [IsoSimpleType(IsoSimpleType.PlusOrMinusIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPlusOrMinusIndicator Sign { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Sign { get; init; } 
+    public required System.String Sign { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Sign { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record UTCOffset1
     /// Offset of the reporting time, in hours, before or after 00: 00 hour UTC.
     /// </summary>
     [IsoId("_RKPjktp-Ed-ak6NoX_4Aeg_-316800485")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Hours")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfHrs")]
     #endif
+    [IsoXmlTag("NbOfHrs")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISOTime NumberOfHours { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.TimeOnly NumberOfHours { get; init; } 
+    public required System.TimeOnly NumberOfHours { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.TimeOnly NumberOfHours { get; init; } 
     #else

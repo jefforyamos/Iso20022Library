@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the securities market transaction report related header details.
 /// </summary>
 [IsoId("_Xt9fc8v5EeSxLrW9hropkQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Market Report Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecuritiesMarketReportHeader1
     /// Identification of the venue which generates the report.
     /// </summary>
     [IsoId("_Xt9fdcv5EeSxLrW9hropkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgNtty")]
     #endif
+    [IsoXmlTag("RptgNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradingVenueIdentification1Choice_ ReportingEntity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradingVenueIdentification1Choice_ ReportingEntity { get; init; } 
+    public required TradingVenueIdentification1Choice_ ReportingEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradingVenueIdentification1Choice_ ReportingEntity { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SecuritiesMarketReportHeader1
     /// Date or date range the report relates to.
     /// </summary>
     [IsoId("_BlHMcjd6EeWebbGLlGzH3g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPrd")]
     #endif
+    [IsoXmlTag("RptgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4Choice_ ReportingPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Period4Choice_ ReportingPeriod { get; init; } 
+    public required Period4Choice_ ReportingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Period4Choice_ ReportingPeriod { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record SecuritiesMarketReportHeader1
     /// Date and time of the report originally submitted by the reporting entity when the file is generated for submission to their reporting authority.
     /// </summary>
     [IsoId("_g6lmcL4BEeWvRsMSLyTf-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submission Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmissnDtTm")]
     #endif
+    [IsoXmlTag("SubmissnDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? SubmissionDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

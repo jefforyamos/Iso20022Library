@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the aggregated data per transaction type for a settlement internaliser.
 /// </summary>
 [IsoId("_ZsjzoO3oEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Internaliser Transaction Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record SettlementInternaliserTransactionType1
     /// Purchase or sale of securities.
     /// </summary>
     [IsoId("_5qB10O3oEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Buy Or Sell")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesBuyOrSell")]
     #endif
+    [IsoXmlTag("SctiesBuyOrSell")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 SecuritiesBuyOrSell { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 SecuritiesBuyOrSell { get; init; } 
+    public required InternalisationData1 SecuritiesBuyOrSell { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 SecuritiesBuyOrSell { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record SettlementInternaliserTransactionType1
     /// Relates to securities transfers aiming to provide or to return collateral.
     /// </summary>
     [IsoId("__U4f0O3oEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Management Operation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollMgmtOpr")]
     #endif
+    [IsoXmlTag("CollMgmtOpr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 CollateralManagementOperation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 CollateralManagementOperation { get; init; } 
+    public required InternalisationData1 CollateralManagementOperation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 CollateralManagementOperation { get; init; } 
     #else
@@ -95,16 +91,15 @@ public partial record SettlementInternaliserTransactionType1
     /// Relates to a securities lending or borrowing operation.
     /// </summary>
     [IsoId("_D0A9kO3pEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Lending Or Borrowing")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesLndgOrBrrwg")]
     #endif
+    [IsoXmlTag("SctiesLndgOrBrrwg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 SecuritiesLendingOrBorrowing { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 SecuritiesLendingOrBorrowing { get; init; } 
+    public required InternalisationData1 SecuritiesLendingOrBorrowing { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 SecuritiesLendingOrBorrowing { get; init; } 
     #else
@@ -115,16 +110,15 @@ public partial record SettlementInternaliserTransactionType1
     /// Repurchase transactions.
     /// </summary>
     [IsoId("_GQqmMO3pEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpAgrmt")]
     #endif
+    [IsoXmlTag("RpAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 RepurchaseAgreement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 RepurchaseAgreement { get; init; } 
+    public required InternalisationData1 RepurchaseAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 RepurchaseAgreement { get; init; } 
     #else
@@ -135,16 +129,15 @@ public partial record SettlementInternaliserTransactionType1
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
     [IsoId("_RMMfoO3pEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTxs")]
     #endif
+    [IsoXmlTag("OthrTxs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 OtherTransactions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 OtherTransactions { get; init; } 
+    public required InternalisationData1 OtherTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 OtherTransactions { get; init; } 
     #else

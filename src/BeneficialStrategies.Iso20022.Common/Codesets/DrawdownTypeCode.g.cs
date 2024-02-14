@@ -21,7 +21,7 @@ public enum DrawdownTypeCode
 {
     /// <summary>
     /// Drawdown type is flexi-access.
-    /// Encoded/decoded by serializers as "FLEX".
+    /// Encoded/decoded by serializers as &quot;FLEX&quot;.
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_kBqAgFNdEeijdq8ilaxyOA")]
@@ -30,7 +30,7 @@ public enum DrawdownTypeCode
     
     /// <summary>
     /// Drawdown type is capped.
-    /// Encoded/decoded by serializers as "CAPP".
+    /// Encoded/decoded by serializers as &quot;CAPP&quot;.
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_oKCLIFNdEeijdq8ilaxyOA")]
@@ -39,7 +39,7 @@ public enum DrawdownTypeCode
     
     /// <summary>
     /// Drawdown type is both flexi-access and capped.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_VwLq4JNwEembCsVG-3f_AA")]

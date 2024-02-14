@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instrument specific technical data to support identification.
 /// </summary>
 [IsoId("_NUoVYB5REeWc9bJOIIhUUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Record Technical Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record RecordTechnicalData1
     /// Defines the date and time when the report was originally received by the national competent authority.
     /// </summary>
     [IsoId("_RydWIB5SEeWc9bJOIIhUUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receipt Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RctDtTm")]
     #endif
+    [IsoXmlTag("RctDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ReceiptDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ReceiptDateTime { get; init; } 
+    public required System.DateTime ReceiptDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ReceiptDateTime { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record RecordTechnicalData1
     /// Describes the reason for the exchange of the transaction report between the competent authorities.
     /// </summary>
     [IsoId("_TaRd8B5REeWc9bJOIIhUUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRsn")]
     #endif
+    [IsoXmlTag("XchgRsn")]
     public AuthorityExchangeReason1Code? ExchangeReason { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _TaRd8B5REeWc9bJOIIhUUw
     

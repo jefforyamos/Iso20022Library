@@ -21,7 +21,7 @@ public enum ESGFocus1Code
 {
     /// <summary>
     /// Main focus will be environmental.
-    /// Encoded/decoded by serializers as "ENVR".
+    /// Encoded/decoded by serializers as &quot;ENVR&quot;.
     /// </summary>
     [EnumMember(Value = "ENVR")]
     [IsoId("_RHqrsdA7EeuSBa1PsnseFg")]
@@ -30,7 +30,7 @@ public enum ESGFocus1Code
     
     /// <summary>
     /// Main focus will be governance.
-    /// Encoded/decoded by serializers as "GOVR".
+    /// Encoded/decoded by serializers as &quot;GOVR&quot;.
     /// </summary>
     [EnumMember(Value = "GOVR")]
     [IsoId("_RN7EsdA7EeuSBa1PsnseFg")]
@@ -39,7 +39,7 @@ public enum ESGFocus1Code
     
     /// <summary>
     /// Main focus will be social.
-    /// Encoded/decoded by serializers as "SOCL".
+    /// Encoded/decoded by serializers as &quot;SOCL&quot;.
     /// </summary>
     [EnumMember(Value = "SOCL")]
     [IsoId("_RW2-QdA7EeuSBa1PsnseFg")]

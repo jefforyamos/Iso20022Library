@@ -21,7 +21,7 @@ public enum PhysicalTransferTypeCode
 {
     /// <summary>
     /// Physical transfer.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_Xi4DgfrqEeCJc7cZxzE2fg")]
@@ -30,7 +30,7 @@ public enum PhysicalTransferTypeCode
     
     /// <summary>
     /// Dematerialised transfer.
-    /// Encoded/decoded by serializers as "DEMT".
+    /// Encoded/decoded by serializers as &quot;DEMT&quot;.
     /// </summary>
     [EnumMember(Value = "DEMT")]
     [IsoId("_mSc2V_rqEeCJc7cZxzE2fg")]
@@ -39,7 +39,7 @@ public enum PhysicalTransferTypeCode
     
     /// <summary>
     /// Cash transfer.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_L5wXwM5NEeSc85GUbgBycw")]
@@ -48,7 +48,7 @@ public enum PhysicalTransferTypeCode
     
     /// <summary>
     /// Determined by a third party or optional for counterparty.
-    /// Encoded/decoded by serializers as "OPTN".
+    /// Encoded/decoded by serializers as &quot;OPTN&quot;.
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_OPQ2kM5NEeSc85GUbgBycw")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType4Choice
     /// Request type is an enquiry on a position or a transaction.
     /// </summary>
     [IsoId("_i375o5IhEeect698_YsnIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enquiry")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,12 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType4Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Enqry")]
         #endif
+        [IsoXmlTag("Enqry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalEnquiryRequestType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalEnquiryRequestType1Code Value { get; init; } 
+        public required ExternalEnquiryRequestType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalEnquiryRequestType1Code Value { get; init; } 
         #else

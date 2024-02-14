@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PledgeeFormat4Choice.Identification))]
     [KnownType(typeof(PledgeeFormat4Choice.Proprietary))]
     [IsoId("_W1AgMZj3EeWn2ur3BXxtdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pledgee Format 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

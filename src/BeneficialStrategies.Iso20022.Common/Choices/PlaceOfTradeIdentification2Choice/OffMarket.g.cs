@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification2Choic
     /// Indicates that the trade was executed off -exchange.
     /// </summary>
     [IsoId("_TCfeptp-Ed-ak6NoX_4Aeg_-1421688662")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Off Market")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

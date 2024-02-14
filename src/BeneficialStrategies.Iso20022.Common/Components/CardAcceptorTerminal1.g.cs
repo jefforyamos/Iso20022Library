@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment terminal or ATM performing the transaction.
 /// </summary>
 [IsoId("_Yqs_gHrvEeSz_of_1TY14A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Acceptor Terminal")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CardAcceptorTerminal1
     /// It correspond to the ISO 8583 field number 41.
     /// </summary>
     [IsoId("_DxCzkHrwEeSz_of_1TY14A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification32 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification32 Identification { get; init; } 
+    public required GenericIdentification32 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification32 Identification { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record CardAcceptorTerminal1
     /// Location of the terminal.
     /// </summary>
     [IsoId("_ICRYMHrwEeSz_of_1TY14A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
+    [IsoXmlTag("Lctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress18? Location { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,15 @@ public partial record CardAcceptorTerminal1
     /// Capabilities of the terminal performing the transaction.
     /// </summary>
     [IsoId("_NqmSoHrwEeSz_of_1TY14A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cpblties")]
     #endif
+    [IsoXmlTag("Cpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PointOfInteractionCapabilities4 Capabilities { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PointOfInteractionCapabilities4 Capabilities { get; init; } 
+    public required PointOfInteractionCapabilities4 Capabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PointOfInteractionCapabilities4 Capabilities { get; init; } 
     #else

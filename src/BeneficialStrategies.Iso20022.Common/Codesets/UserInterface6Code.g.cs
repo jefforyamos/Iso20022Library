@@ -21,7 +21,7 @@ public enum UserInterface6Code
 {
     /// <summary>
     /// Cardholder display or interface.
-    /// Encoded/decoded by serializers as "CDSP".
+    /// Encoded/decoded by serializers as &quot;CDSP&quot;.
     /// </summary>
     [EnumMember(Value = "CDSP")]
     [IsoId("_WEr4MU9HEeeg87n1YQSQ_A")]
@@ -30,7 +30,7 @@ public enum UserInterface6Code
     
     /// <summary>
     /// Cardholder receipt.
-    /// Encoded/decoded by serializers as "CRCP".
+    /// Encoded/decoded by serializers as &quot;CRCP&quot;.
     /// </summary>
     [EnumMember(Value = "CRCP")]
     [IsoId("_Wkv4UU9HEeeg87n1YQSQ_A")]
@@ -39,7 +39,7 @@ public enum UserInterface6Code
     
     /// <summary>
     /// Merchant display or interface.
-    /// Encoded/decoded by serializers as "MDSP".
+    /// Encoded/decoded by serializers as &quot;MDSP&quot;.
     /// </summary>
     [EnumMember(Value = "MDSP")]
     [IsoId("_W4nPgU9HEeeg87n1YQSQ_A")]
@@ -48,7 +48,7 @@ public enum UserInterface6Code
     
     /// <summary>
     /// Merchant receipt.
-    /// Encoded/decoded by serializers as "MRCP".
+    /// Encoded/decoded by serializers as &quot;MRCP&quot;.
     /// </summary>
     [EnumMember(Value = "MRCP")]
     [IsoId("_XfIc8U9HEeeg87n1YQSQ_A")]
@@ -57,7 +57,7 @@ public enum UserInterface6Code
     
     /// <summary>
     /// Other interface of the cardholder, for instance e-mail or smartphone message.
-    /// Encoded/decoded by serializers as "CRDO".
+    /// Encoded/decoded by serializers as &quot;CRDO&quot;.
     /// </summary>
     [EnumMember(Value = "CRDO")]
     [IsoId("_YDNaYU9HEeeg87n1YQSQ_A")]
@@ -66,7 +66,7 @@ public enum UserInterface6Code
     
     /// <summary>
     /// File used to store the message.
-    /// Encoded/decoded by serializers as "FILE".
+    /// Encoded/decoded by serializers as &quot;FILE&quot;.
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_gu274U9HEeeg87n1YQSQ_A")]
@@ -75,7 +75,7 @@ public enum UserInterface6Code
     
     /// <summary>
     /// Information dedicated to a software application related to a device belonging to the cardholder.
-    /// Encoded/decoded by serializers as "CHAP".
+    /// Encoded/decoded by serializers as &quot;CHAP&quot;.
     /// </summary>
     [EnumMember(Value = "CHAP")]
     [IsoId("_2k6pMU9HEeeg87n1YQSQ_A")]
@@ -84,7 +84,7 @@ public enum UserInterface6Code
     
     /// <summary>
     /// Information dedicated to a software application related to a device belonging to the merchant.
-    /// Encoded/decoded by serializers as "MRAP".
+    /// Encoded/decoded by serializers as &quot;MRAP&quot;.
     /// </summary>
     [EnumMember(Value = "MRAP")]
     [IsoId("_8Yc4oU9IEeeg87n1YQSQ_A")]
@@ -93,7 +93,7 @@ public enum UserInterface6Code
     
     /// <summary>
     /// Other interface of the merchant for instance e-mail or smartphone message.
-    /// Encoded/decoded by serializers as "MRIN".
+    /// Encoded/decoded by serializers as &quot;MRIN&quot;.
     /// </summary>
     [EnumMember(Value = "MRIN")]
     [IsoId("_QDYyMU9JEeeg87n1YQSQ_A")]

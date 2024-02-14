@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AmountOrPercentage1Choice.DefinedAmount))]
     [KnownType(typeof(AmountOrPercentage1Choice.PercentageAmount))]
     [IsoId("_986x5nltEeG7BsjMvd1mEw_930379145")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Or Percentage 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

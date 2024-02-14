@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.cafm;
 /// </summary>
 [Description(@"The FileActionInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer).||This message is used to inquire, add, change, delete or replace a file or a record.")]
 [IsoId("_LQXFYIKwEeu4svNQ5N-l6w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("File Action Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record FileActionInitiationV02 : IOuterRecord<FileActionInitiatio
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_LQXFYoKwEeu4svNQ5N-l6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header68 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header68 Header { get; init; } 
+    public required Header68 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header68 Header { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record FileActionInitiationV02 : IOuterRecord<FileActionInitiatio
     /// Information related to the initiation of a file action.
     /// </summary>
     [IsoId("_LQXFZIKwEeu4svNQ5N-l6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FileActionInitiation2 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FileActionInitiation2 Body { get; init; } 
+    public required FileActionInitiation2 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FileActionInitiation2 Body { get; init; } 
     #else
@@ -119,12 +115,11 @@ public partial record FileActionInitiationV02 : IOuterRecord<FileActionInitiatio
     /// It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.
     /// </summary>
     [IsoId("_LQXFZoKwEeu4svNQ5N-l6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,7 +132,7 @@ public partial record FileActionInitiationV02 : IOuterRecord<FileActionInitiatio
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FileActionInitiationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FileActionInitiationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FileActionInitiationV02Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record FileActionInitiationV02 : IOuterRecord<FileActionInitiatio
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FileActionInitiationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FileActionInitiationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FileActionInitiationV02Document : IOuterDocument<FileActionInitiationV02>
@@ -164,7 +159,7 @@ public partial record FileActionInitiationV02Document : IOuterDocument<FileActio
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FileActionInitiationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FileActionInitiationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FileActionInitiationV02 Message { get; init; }

@@ -21,7 +21,7 @@ public enum RemarketingMarginType1Code
 {
     /// <summary>
     /// Agreed margin.
-    /// Encoded/decoded by serializers as "AGRE".
+    /// Encoded/decoded by serializers as &quot;AGRE&quot;.
     /// </summary>
     [EnumMember(Value = "AGRE")]
     [IsoId("_aUJuZdp-Ed-ak6NoX_4Aeg_818404999")]
@@ -30,7 +30,7 @@ public enum RemarketingMarginType1Code
     
     /// <summary>
     /// Alternative margin.
-    /// Encoded/decoded by serializers as "ALTE".
+    /// Encoded/decoded by serializers as &quot;ALTE&quot;.
     /// </summary>
     [EnumMember(Value = "ALTE")]
     [IsoId("_aUJuZtp-Ed-ak6NoX_4Aeg_1072371865")]

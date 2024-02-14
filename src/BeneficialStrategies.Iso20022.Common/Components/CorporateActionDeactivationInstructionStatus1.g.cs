@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides status of the deactivation instruction.
 /// </summary>
 [IsoId("_RjRuptp-Ed-ak6NoX_4Aeg_491823442")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Deactivation Instruction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record CorporateActionDeactivationInstructionStatus1
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
     [IsoId("_RjRup9p-Ed-ak6NoX_4Aeg_-5830420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,15 +67,12 @@ public partial record CorporateActionDeactivationInstructionStatus1
     /// Number identifying the available corporate action options.
     /// </summary>
     [IsoId("_RjbfoNp-Ed-ak6NoX_4Aeg_-5830390")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OptnNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? OptionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +85,15 @@ public partial record CorporateActionDeactivationInstructionStatus1
     /// Provides information about the processing status of the instruction.
     /// </summary>
     [IsoId("_Rjbfodp-Ed-ak6NoX_4Aeg_1462046019")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processed Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcdSts")]
     #endif
+    [IsoXmlTag("PrcdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
+    public required CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
     #else
@@ -111,16 +104,15 @@ public partial record CorporateActionDeactivationInstructionStatus1
     /// Provides information about the rejection status.
     /// </summary>
     [IsoId("_Rjbfotp-Ed-ak6NoX_4Aeg_1560861725")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdSts")]
     #endif
+    [IsoXmlTag("RjctdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
+    public required CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
     #else

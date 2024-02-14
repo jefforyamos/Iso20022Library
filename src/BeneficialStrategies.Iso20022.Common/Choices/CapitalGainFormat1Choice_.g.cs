@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CapitalGainFormat1Choice.Code))]
     [KnownType(typeof(CapitalGainFormat1Choice.Proprietary))]
     [IsoId("_Q3K2mNp-Ed-ak6NoX_4Aeg_1034483400")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capital Gain Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

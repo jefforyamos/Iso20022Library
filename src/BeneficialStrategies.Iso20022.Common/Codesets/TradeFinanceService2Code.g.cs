@@ -21,7 +21,7 @@ public enum TradeFinanceService2Code
 {
     /// <summary>
     /// Code for level 1 services.
-    /// Encoded/decoded by serializers as "LEV1".
+    /// Encoded/decoded by serializers as &quot;LEV1&quot;.
     /// </summary>
     [EnumMember(Value = "LEV1")]
     [IsoId("_Ymocptp-Ed-ak6NoX_4Aeg_-547265145")]
@@ -30,7 +30,7 @@ public enum TradeFinanceService2Code
     
     /// <summary>
     /// Code for level 2 services.
-    /// Encoded/decoded by serializers as "LEV2".
+    /// Encoded/decoded by serializers as &quot;LEV2&quot;.
     /// </summary>
     [EnumMember(Value = "LEV2")]
     [IsoId("_Ymocp9p-Ed-ak6NoX_4Aeg_-543571648")]
@@ -39,7 +39,7 @@ public enum TradeFinanceService2Code
     
     /// <summary>
     /// Code for level 3 services.
-    /// Encoded/decoded by serializers as "LEV3".
+    /// Encoded/decoded by serializers as &quot;LEV3&quot;.
     /// </summary>
     [EnumMember(Value = "LEV3")]
     [IsoId("_YmocqNp-Ed-ak6NoX_4Aeg_-530643751")]

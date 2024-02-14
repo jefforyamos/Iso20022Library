@@ -22,7 +22,7 @@ public enum ValidationRuleIssuanceType1Code
 {
     /// <summary>
     /// Undertaking issued direct.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_ykFHMSBqEeugLNJneiyzbA")]
@@ -31,7 +31,7 @@ public enum ValidationRuleIssuanceType1Code
     
     /// <summary>
     /// Undertaking issued via confirming party.
-    /// Encoded/decoded by serializers as "ISCO".
+    /// Encoded/decoded by serializers as &quot;ISCO&quot;.
     /// </summary>
     [EnumMember(Value = "ISCO")]
     [IsoId("_yxUR8SBqEeugLNJneiyzbA")]
@@ -40,7 +40,7 @@ public enum ValidationRuleIssuanceType1Code
     
     /// <summary>
     /// Undertaking issued via advising party.
-    /// Encoded/decoded by serializers as "ISAD".
+    /// Encoded/decoded by serializers as &quot;ISAD&quot;.
     /// </summary>
     [EnumMember(Value = "ISAD")]
     [IsoId("_y3r_sSBqEeugLNJneiyzbA")]

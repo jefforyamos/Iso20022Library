@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amounts of the withdrawal transaction.
 /// </summary>
 [IsoId("_gtlD0YokEeSaAcF2oE2GNQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Detailed Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record DetailedAmount12
     /// Amount to be dispensed by the ATM after the approval of the withdrawal transaction.
     /// </summary>
     [IsoId("_g6XipYokEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount To Dispense")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtToDspns")]
     #endif
+    [IsoXmlTag("AmtToDspns")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount AmountToDispense { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AmountToDispense { get; init; } 
+    public required System.Decimal AmountToDispense { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AmountToDispense { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record DetailedAmount12
     /// Currency of the amount to dispense when different from the base currency of the ATM.
     /// </summary>
     [IsoId("_8-oeoIokEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record DetailedAmount12
     /// Withdrawal fees, accepted by the customer.
     /// </summary>
     [IsoId("_NvDH0IolEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fees")]
     #endif
+    [IsoXmlTag("Fees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount13? Fees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record DetailedAmount12
     /// Amount of the donation.
     /// </summary>
     [IsoId("_g4F1QIolEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Donation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dontn")]
     #endif
+    [IsoXmlTag("Dontn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount13? Donation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information from the underlying payment instruction which cannot be transferred in a regular statement message.
 /// </summary>
 [IsoId("_PgmFMdp-Ed-ak6NoX_4Aeg_-1588306924")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Complementary Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaymentComplementaryInformation
     /// Remittance information.
     /// </summary>
     [IsoId("_PgmFMtp-Ed-ak6NoX_4Aeg_143459089")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remittance Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtChc")]
     #endif
+    [IsoXmlTag("RmtChc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemittanceInformation3Choice_? RemittanceChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PaymentComplementaryInformation
     /// Debtor or Ordering customer of the payment instruction.
     /// </summary>
     [IsoId("_PgmFM9p-Ed-ak6NoX_4Aeg_959853172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dbtr")]
     #endif
+    [IsoXmlTag("Dbtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification1? Debtor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PaymentComplementaryInformation
     /// Debtor account or Ordering customer account.
     /// </summary>
     [IsoId("_PgmFNNp-Ed-ak6NoX_4Aeg_1084527548")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAcct")]
     #endif
+    [IsoXmlTag("DbtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount3? DebtorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record PaymentComplementaryInformation
     /// First Agent or Field 52 in Fin messages.
     /// </summary>
     [IsoId("_PgmFNdp-Ed-ak6NoX_4Aeg_1915694934")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstAgt")]
     #endif
+    [IsoXmlTag("FrstAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification? FirstAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record PaymentComplementaryInformation
     /// Instructed amount of the payment instruction (Field 33B).
     /// </summary>
     [IsoId("_PgmFNtp-Ed-ak6NoX_4Aeg_1310523944")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountType1Choice_? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record PaymentComplementaryInformation
     /// Indicates the account used to cover a payment.
     /// </summary>
     [IsoId("_PgmFN9p-Ed-ak6NoX_4Aeg_-1751542726")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nostro Vostro Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NstrVstrAcct")]
     #endif
+    [IsoXmlTag("NstrVstrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount3? NostroVostroAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record PaymentComplementaryInformation
     /// Intermediary bank.
     /// </summary>
     [IsoId("_PgmFONp-Ed-ak6NoX_4Aeg_-1119854487")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrmy")]
     #endif
+    [IsoXmlTag("Intrmy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Intermediary1? Intermediary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record PaymentComplementaryInformation
     /// Correspondent of the first agent (Field 53 in MT202).
     /// </summary>
     [IsoId("_PgmFOdp-Ed-ak6NoX_4Aeg_-290532610")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Settlement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstSttlmAgt")]
     #endif
+    [IsoXmlTag("FrstSttlmAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification? FirstSettlementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record PaymentComplementaryInformation
     /// Correspondent of the Final agent (Field 54 of Mt 202).
     /// </summary>
     [IsoId("_PgvPINp-Ed-ak6NoX_4Aeg_53941590")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Settlement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastSttlmAgt")]
     #endif
+    [IsoXmlTag("LastSttlmAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification? LastSettlementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record PaymentComplementaryInformation
     /// Equivalent to Field 55 in MT202.
     /// </summary>
     [IsoId("_PgvPIdp-Ed-ak6NoX_4Aeg_938673746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Settlement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmySttlmAgt")]
     #endif
+    [IsoXmlTag("IntrmySttlmAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification? IntermediarySettlementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record PaymentComplementaryInformation
     /// Creditor or Beneficiary customer of the payment instruction.
     /// </summary>
     [IsoId("_PgvPItp-Ed-ak6NoX_4Aeg_1469699713")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cdtr")]
     #endif
+    [IsoXmlTag("Cdtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification1? Creditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +229,11 @@ public partial record PaymentComplementaryInformation
     /// Creditor account or Beneficiary customer account.
     /// </summary>
     [IsoId("_PgvPI9p-Ed-ak6NoX_4Aeg_1772613182")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrAcct")]
     #endif
+    [IsoXmlTag("CdtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount3? CreditorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,19 +246,15 @@ public partial record PaymentComplementaryInformation
     /// Unformatted information from the sender to the receiver.
     /// </summary>
     [IsoId("_PgvPJNp-Ed-ak6NoX_4Aeg_1618675914")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender To Receiver Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrToRcvrInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SndrToRcvrInf")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(6)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> SenderToReceiverInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentification23Choice.ForAllAccounts))]
     [KnownType(typeof(AccountIdentification23Choice.AccountsListAndBalanceDetails))]
     [IsoId("_IU89ASqdEeObprHJy8Zrxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification 23 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

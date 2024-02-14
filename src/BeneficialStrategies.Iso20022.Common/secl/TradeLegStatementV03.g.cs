@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// </summary>
 [Description(@"Scope|The TradeLegStatement message is sent by the central counterparty (CCP) to a clearing member to report all trades that have been executed by the trading platform.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The TradeLegStatement message may be either sent:|- during the day (to report trades execution by batch) or|- as an end of day report.")]
 [IsoId("_DlZHIS0mEeSRe9rElPHBfg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Leg Statement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,T
     /// Provides various statement parameters such as the statement identification, the statement date and time or the statement frequency.
     /// </summary>
     [IsoId("_DlZuMS0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtParams")]
     #endif
+    [IsoXmlTag("StmtParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Statement31 StatementParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Statement31 StatementParameters { get; init; } 
+    public required Statement31 StatementParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Statement31 StatementParameters { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,T
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
     /// </summary>
     [IsoId("_DlZuMy0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination Pagination { get; init; } 
+    public required Pagination Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination Pagination { get; init; } 
     #else
@@ -126,16 +122,15 @@ public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,T
     /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
     /// </summary>
     [IsoId("_DlZuNS0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification35Choice_ ClearingMember { get; init; } 
+    public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification35Choice_ ClearingMember { get; init; } 
     #else
@@ -146,12 +141,11 @@ public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,T
     /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).
     /// </summary>
     [IsoId("_DlZuNy0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrAcct")]
     #endif
+    [IsoXmlTag("ClrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount18? ClearingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,16 +158,15 @@ public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,T
     /// Provides the statement details.
     /// </summary>
     [IsoId("_DlZuOS0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtDtls")]
     #endif
+    [IsoXmlTag("StmtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeLegStatement3 StatementDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeLegStatement3 StatementDetails { get; init; } 
+    public required TradeLegStatement3 StatementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeLegStatement3 StatementDetails { get; init; } 
     #else
@@ -184,12 +177,11 @@ public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,T
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_DlZuOy0mEeSRe9rElPHBfg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -202,7 +194,7 @@ public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,T
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TradeLegStatementV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TradeLegStatementV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TradeLegStatementV03Document ToDocument()
     {
@@ -212,7 +204,7 @@ public partial record TradeLegStatementV03 : IOuterRecord<TradeLegStatementV03,T
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TradeLegStatementV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TradeLegStatementV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TradeLegStatementV03Document : IOuterDocument<TradeLegStatementV03>
@@ -229,7 +221,7 @@ public partial record TradeLegStatementV03Document : IOuterDocument<TradeLegStat
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TradeLegStatementV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TradeLegStatementV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeLegStatementV03 Message { get; init; }

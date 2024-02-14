@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a threshold level and a threshold basis for passing resolutions at general meetings.
 /// </summary>
 [IsoId("_IyKJABuMEeyhRdHRjakS2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Voting Rights Threshold")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record VotingRightsThreshold1
     /// Voting rights threshold required for a resolution to pass in percentage or in quantity.
     /// </summary>
     [IsoId("_hM2WQBuMEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Threshold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Thrshld")]
     #endif
+    [IsoXmlTag("Thrshld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NumberOrPercentage1Choice_ Threshold { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NumberOrPercentage1Choice_ Threshold { get; init; } 
+    public required NumberOrPercentage1Choice_ Threshold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NumberOrPercentage1Choice_ Threshold { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record VotingRightsThreshold1
     /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.
     /// </summary>
     [IsoId("_lbAYwBuMEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Threshold Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThrshldBsis")]
     #endif
+    [IsoXmlTag("ThrshldBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ThresholdBasis1Choice_? ThresholdBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

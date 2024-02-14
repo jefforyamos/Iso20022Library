@@ -21,7 +21,7 @@ public enum CorporateActionNotificationType2Code
 {
     /// <summary>
     /// Notification sent to void a previously sent notification due to the withdrawal of the event by the issuer.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_bLJAwdp-Ed-ak6NoX_4Aeg_746682216")]
@@ -30,7 +30,7 @@ public enum CorporateActionNotificationType2Code
     
     /// <summary>
     /// Notification requesting the cancellation of a previously sent notification.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bLJAwtp-Ed-ak6NoX_4Aeg_746682237")]

@@ -21,7 +21,7 @@ public enum ConsentType1Code
 {
     /// <summary>
     /// Change in the terms and conditions of the bond.
-    /// Encoded/decoded by serializers as "CTRM".
+    /// Encoded/decoded by serializers as &quot;CTRM&quot;.
     /// </summary>
     [EnumMember(Value = "CTRM")]
     [IsoId("_Wr3YgSHnEeOQ7qT4JUI53A")]
@@ -30,7 +30,7 @@ public enum ConsentType1Code
     
     /// <summary>
     /// Change in the due and payable conditions.
-    /// Encoded/decoded by serializers as "DUPY".
+    /// Encoded/decoded by serializers as &quot;DUPY&quot;.
     /// </summary>
     [EnumMember(Value = "DUPY")]
     [IsoId("_WzTdQSHnEeOQ7qT4JUI53A")]

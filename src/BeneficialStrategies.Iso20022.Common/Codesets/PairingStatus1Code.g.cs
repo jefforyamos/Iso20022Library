@@ -21,7 +21,7 @@ public enum PairingStatus1Code
 {
     /// <summary>
     /// Transaction has been paired.
-    /// Encoded/decoded by serializers as "PARD".
+    /// Encoded/decoded by serializers as &quot;PARD&quot;.
     /// </summary>
     [EnumMember(Value = "PARD")]
     [IsoId("_sPf1AV54Ee2a_-MvhEjKmA")]
@@ -30,7 +30,7 @@ public enum PairingStatus1Code
     
     /// <summary>
     /// Transaction has not been paired.
-    /// Encoded/decoded by serializers as "UNPR".
+    /// Encoded/decoded by serializers as &quot;UNPR&quot;.
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_sPf1Al54Ee2a_-MvhEjKmA")]

@@ -27,7 +27,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// This record is an implementation of the semt.004.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// The CustodyStatementOfHoldingsCancellation message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a local agent (sub-custodian) acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.
+/// The CustodyStatementOfHoldingsCancellation message is sent by an account servicer to the account owner or the account owner&apos;s designated agent. The account servicer may be a local agent (sub-custodian) acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.
 /// This message is used to cancel a previously sent CustodyStatementOfHoldings message.
 /// Usage
 /// The CustodyStatementOfHoldingsCancellation message is sent by an account servicer to the account owner to cancel a previously sent CustodyStatementOfHoldings message.
@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|The CustodyStatementOfHoldingsCancellation message is sent by an account servicer to the account owner or the account owner's designated agent. The account servicer may be a local agent (sub-custodian) acting on behalf of its global custodian customer, a custodian acting on behalf of an investment management institution or a broker/dealer, a fund administrator or fund intermediary, trustee or registrar, etc.|This message is used to cancel a previously sent CustodyStatementOfHoldings message.|Usage|The CustodyStatementOfHoldingsCancellation message is sent by an account servicer to the account owner to cancel a previously sent CustodyStatementOfHoldings message.|This message must contain the reference of the message to be cancelled. This message may also contain details of the message to be cancelled, but this is not recommended.")]
 [IsoId("_MXYVe9FSEd-BzquC8wXy7w_1108713826")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Custody Statement Of Holdings Cancellation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record CustodyStatementOfHoldingsCancellation : IOuterRecord<Cust
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_MXYVfNFSEd-BzquC8wXy7w_1620345511")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference2 PreviousReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReference2 PreviousReference { get; init; } 
+    public required AdditionalReference2 PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReference2 PreviousReference { get; init; } 
     #else
@@ -101,12 +98,11 @@ public partial record CustodyStatementOfHoldingsCancellation : IOuterRecord<Cust
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_MXYVfdFSEd-BzquC8wXy7w_1938037635")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,16 +115,15 @@ public partial record CustodyStatementOfHoldingsCancellation : IOuterRecord<Cust
     /// Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).
     /// </summary>
     [IsoId("_MXYVftFSEd-BzquC8wXy7w_1983699054")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination MessagePagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination MessagePagination { get; init; } 
+    public required Pagination MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination MessagePagination { get; init; } 
     #else
@@ -139,12 +134,11 @@ public partial record CustodyStatementOfHoldingsCancellation : IOuterRecord<Cust
     /// The Custody Statement of Holdings message to cancel.
     /// </summary>
     [IsoId("_MXhfYNFSEd-BzquC8wXy7w_-1021887814")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement To Be Cancelled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtToBeCanc")]
     #endif
+    [IsoXmlTag("StmtToBeCanc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustodyStatementOfHoldings1? StatementToBeCancelled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,7 +151,7 @@ public partial record CustodyStatementOfHoldingsCancellation : IOuterRecord<Cust
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CustodyStatementOfHoldingsCancellationDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CustodyStatementOfHoldingsCancellationDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CustodyStatementOfHoldingsCancellationDocument ToDocument()
     {
@@ -167,7 +161,7 @@ public partial record CustodyStatementOfHoldingsCancellation : IOuterRecord<Cust
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CustodyStatementOfHoldingsCancellation"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CustodyStatementOfHoldingsCancellation&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CustodyStatementOfHoldingsCancellationDocument : IOuterDocument<CustodyStatementOfHoldingsCancellation>
@@ -184,7 +178,7 @@ public partial record CustodyStatementOfHoldingsCancellationDocument : IOuterDoc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CustodyStatementOfHoldingsCancellation"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CustodyStatementOfHoldingsCancellation&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CustodyStatementOfHoldingsCancellation Message { get; init; }

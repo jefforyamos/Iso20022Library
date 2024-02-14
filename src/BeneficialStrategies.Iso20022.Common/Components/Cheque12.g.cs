@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics related to a cheque instruction, such as cheque type or cheque number.
 /// </summary>
 [IsoId("_AtvYwf8REemYYvJytExgzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cheque")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record Cheque12
     /// Unique and unambiguous identifier for the cheque as assigned by the financial institution.
     /// </summary>
     [IsoId("_BS7wgf8REemYYvJytExgzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record Cheque12
     /// Party to which the cheque is made payable.
     /// </summary>
     [IsoId("_BS7wg_8REemYYvJytExgzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payee Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyeeId")]
     #endif
+    [IsoXmlTag("PyeeId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification139? PayeeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record Cheque12
     /// Financial institution on which the cheque is drawn, that is, the financial institution that services the account of the entity that issued the cheque.
     /// </summary>
     [IsoId("_BS7whf8REemYYvJytExgzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Drawee Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrweeId")]
     #endif
+    [IsoXmlTag("DrweeId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstitutionIdentification17? DraweeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record Cheque12
     /// Account owner that issues the cheque ordering the drawee bank to pay a specific amount, upon demand, to the payee.
     /// </summary>
     [IsoId("_BS7wh_8REemYYvJytExgzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Drawer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrwrId")]
     #endif
+    [IsoXmlTag("DrwrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification139? DrawerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

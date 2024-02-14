@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies coprorate action dates.
 /// </summary>
 [IsoId("_TfQTJNp-Ed-ak6NoX_4Aeg_901406419")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionDate3
     /// Date/time at which the distribution is due to take place (cash and/or securities).
     /// </summary>
     [IsoId("_TfQTJdp-Ed-ak6NoX_4Aeg_93344284")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDt")]
     #endif
+    [IsoXmlTag("PmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? PaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionDate3
     /// Date/time at which securities become available for sale.
     /// </summary>
     [IsoId("_TfQTJtp-Ed-ak6NoX_4Aeg_-1737531965")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblDt")]
     #endif
+    [IsoXmlTag("AvlblDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? AvailableDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionDate3
     /// Date/time at which a security will be entitled to a dividend.
     /// </summary>
     [IsoId("_TfQTJ9p-Ed-ak6NoX_4Aeg_1745390082")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Ranking Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddRnkgDt")]
     #endif
+    [IsoXmlTag("DvddRnkgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? DividendRankingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionDate3
     /// Date on which security will assimilate, become fungible, or have the same rights to dividends as the parent issue.
     /// </summary>
     [IsoId("_TfQTKNp-Ed-ak6NoX_4Aeg_538944912")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pari Passu Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrpssDt")]
     #endif
+    [IsoXmlTag("PrpssDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? PariPassuDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionDate3
     /// Date/time at which new securities begin trading.
     /// </summary>
     [IsoId("_TfQTKdp-Ed-ak6NoX_4Aeg_-1737531873")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Dealing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstDealgDt")]
     #endif
+    [IsoXmlTag("FrstDealgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? FirstDealingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionDate3
     /// Date/time at which a payment can be made, eg, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
     [IsoId("_TfaEINp-Ed-ak6NoX_4Aeg_21312129")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Earliest Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlstPmtDt")]
     #endif
+    [IsoXmlTag("EarlstPmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? EarliestPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

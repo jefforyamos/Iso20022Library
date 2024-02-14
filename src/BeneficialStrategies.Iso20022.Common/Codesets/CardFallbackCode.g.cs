@@ -21,7 +21,7 @@ public enum CardFallbackCode
 {
     /// <summary>
     /// No card fall-back during the transaction in progress.
-    /// Encoded/decoded by serializers as "NFLB".
+    /// Encoded/decoded by serializers as &quot;NFLB&quot;.
     /// </summary>
     [EnumMember(Value = "NFLB")]
     [IsoId("_WDZrUGkCEeS7zPBpvm732w")]
@@ -30,7 +30,7 @@ public enum CardFallbackCode
     
     /// <summary>
     /// Card fall-back occurred during the transaction in progress. The previous transaction on the terminal was successful.
-    /// Encoded/decoded by serializers as "SFLB".
+    /// Encoded/decoded by serializers as &quot;SFLB&quot;.
     /// </summary>
     [EnumMember(Value = "SFLB")]
     [IsoId("_ZaPEQGkCEeS7zPBpvm732w")]
@@ -39,7 +39,7 @@ public enum CardFallbackCode
     
     /// <summary>
     /// Card fall-back occurred during the transaction in progress. The previous transaction on the terminal failed.
-    /// Encoded/decoded by serializers as "FFLB".
+    /// Encoded/decoded by serializers as &quot;FFLB&quot;.
     /// </summary>
     [EnumMember(Value = "FFLB")]
     [IsoId("_e2q3wGkCEeS7zPBpvm732w")]

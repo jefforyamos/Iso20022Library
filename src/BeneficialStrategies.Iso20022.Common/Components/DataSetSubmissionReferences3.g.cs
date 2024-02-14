@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides references to the submitted data set both for the matching application and for the user.
 /// </summary>
 [IsoId("_RaCTE9p-Ed-ak6NoX_4Aeg_204942196")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Data Set Submission References")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record DataSetSubmissionReferences3
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_RaCTFNp-Ed-ak6NoX_4Aeg_204942206")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record DataSetSubmissionReferences3
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
     [IsoId("_RaCTFdp-Ed-ak6NoX_4Aeg_-47752600")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purchase Order Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PurchsOrdrRef")]
     #endif
+    [IsoXmlTag("PurchsOrdrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #else
@@ -96,15 +91,13 @@ public partial record DataSetSubmissionReferences3
     /// Provides reference to the transaction for the financial institution that submits the data set.
     /// </summary>
     [IsoId("_RaCTFtp-Ed-ak6NoX_4Aeg_204942227")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SubmitrTxRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubmitterTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,16 +110,16 @@ public partial record DataSetSubmissionReferences3
     /// Specifies that this message should force the matching application to match all data sets it has received so far for the transaction identified by the transaction identification.
     /// </summary>
     [IsoId("_RaCTF9p-Ed-ak6NoX_4Aeg_-109669347")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Forced Match")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ForcdMtch")]
     #endif
+    [IsoXmlTag("ForcdMtch")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ForcedMatch { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ForcedMatch { get; init; } 
+    public required System.String ForcedMatch { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ForcedMatch { get; init; } 
     #else

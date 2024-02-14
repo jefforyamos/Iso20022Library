@@ -21,7 +21,7 @@ public enum InstalmentPeriodCode
 {
     /// <summary>
     /// Monthly instalment period.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ji469duTEei2qvU6FBLZYA")]
@@ -30,7 +30,7 @@ public enum InstalmentPeriodCode
     
     /// <summary>
     /// Annual instalment period.
-    /// Encoded/decoded by serializers as "ANNU".
+    /// Encoded/decoded by serializers as &quot;ANNU&quot;.
     /// </summary>
     [EnumMember(Value = "ANNU")]
     [IsoId("_ji469NuTEei2qvU6FBLZYA")]

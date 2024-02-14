@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the management plan.
 /// </summary>
 [IsoId("_KsEK1n1DEeCF8NjrBemJWQ_-2099895989")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Management Plan Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ManagementPlanContent1
     /// Terminal management action to be performed by the point of interaction (POI).
     /// </summary>
     [IsoId("_KsN70H1DEeCF8NjrBemJWQ_2003915516")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actn")]
     #endif
+    [IsoXmlTag("Actn")]
     public TMSAction1? Action { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _KsN70H1DEeCF8NjrBemJWQ_2003915516
     

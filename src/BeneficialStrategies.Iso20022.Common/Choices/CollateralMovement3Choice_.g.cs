@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralMovement3Choice.CollateralMovementDirection))]
     [KnownType(typeof(CollateralMovement3Choice.Return))]
     [IsoId("_QQNJlV9-EeSMgPeFpRHeJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Movement 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

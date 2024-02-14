@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Value of the public component of a RSA key.
 /// </summary>
 [IsoId("_uH2O4Y4SEeW6h7rGyYlyTg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Public RSA Key")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record PublicRSAKey2
     /// Asymmetric cryptographic algorithm.
     /// </summary>
     [IsoId("_8M_koI4SEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
+    [IsoXmlTag("Algo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm7Code? Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record PublicRSAKey2
     /// Public key value.
     /// </summary>
     [IsoId("_Bo07MI4TEeW6h7rGyYlyTg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Public Key Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PblcKeyVal")]
     #endif
+    [IsoXmlTag("PblcKeyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PublicRSAKey1 PublicKeyValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PublicRSAKey1 PublicKeyValue { get; init; } 
+    public required PublicRSAKey1 PublicKeyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PublicRSAKey1 PublicKeyValue { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum AssetClassSubProductType44Code
 {
     /// <summary>
     /// Commodity of type urea and ammonium nitrite.
-    /// Encoded/decoded by serializers as "UAAN".
+    /// Encoded/decoded by serializers as &quot;UAAN&quot;.
     /// </summary>
     [EnumMember(Value = "UAAN")]
     [IsoId("_voxdC1r3EeWN79Bl6BUd3g")]

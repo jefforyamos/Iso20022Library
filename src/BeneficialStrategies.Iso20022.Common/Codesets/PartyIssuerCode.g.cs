@@ -21,7 +21,7 @@ public enum PartyIssuerCode
 {
     /// <summary>
     /// Based in Luxembourg, the holding, clearing and settlement agency for certain international securities, especially Eurobonds.
-    /// Encoded/decoded by serializers as "CEDE".
+    /// Encoded/decoded by serializers as &quot;CEDE&quot;.
     /// </summary>
     [EnumMember(Value = "CEDE")]
     [IsoId("_VtaMx9p-Ed-ak6NoX_4Aeg_335333606")]
@@ -30,7 +30,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Caja de Valores S.A.
-    /// Encoded/decoded by serializers as "CAVL".
+    /// Encoded/decoded by serializers as &quot;CAVL&quot;.
     /// </summary>
     [EnumMember(Value = "CAVL")]
     [IsoId("_VtaMyNp-Ed-ak6NoX_4Aeg_335333607")]
@@ -39,7 +39,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Austraclear Limited.
-    /// Encoded/decoded by serializers as "ACLR".
+    /// Encoded/decoded by serializers as &quot;ACLR&quot;.
     /// </summary>
     [EnumMember(Value = "ACLR")]
     [IsoId("_VtaMydp-Ed-ak6NoX_4Aeg_335333608")]
@@ -48,7 +48,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Australian Bank State Branch Code.
-    /// Encoded/decoded by serializers as "AUAU".
+    /// Encoded/decoded by serializers as &quot;AUAU&quot;.
     /// </summary>
     [EnumMember(Value = "AUAU")]
     [IsoId("_Vtj9wNp-Ed-ak6NoX_4Aeg_335333617")]
@@ -57,7 +57,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Clearing House Electronic Settlements Systems.
-    /// Encoded/decoded by serializers as "CHES".
+    /// Encoded/decoded by serializers as &quot;CHES&quot;.
     /// </summary>
     [EnumMember(Value = "CHES")]
     [IsoId("_Vtj9wdp-Ed-ak6NoX_4Aeg_335333618")]
@@ -66,7 +66,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Austrian Bankleitzahl.
-    /// Encoded/decoded by serializers as "ATAT".
+    /// Encoded/decoded by serializers as &quot;ATAT&quot;.
     /// </summary>
     [EnumMember(Value = "ATAT")]
     [IsoId("_Vtj9wtp-Ed-ak6NoX_4Aeg_335333619")]
@@ -75,7 +75,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// OKB - Oesterreichische Kontrollbank AG.
-    /// Encoded/decoded by serializers as "OEKO".
+    /// Encoded/decoded by serializers as &quot;OEKO&quot;.
     /// </summary>
     [EnumMember(Value = "OEKO")]
     [IsoId("_Vtj9w9p-Ed-ak6NoX_4Aeg_335333620")]
@@ -84,7 +84,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// CIK - Caisse Interprofessionelle de Depots et de Virements de Titres S.A.
-    /// Encoded/decoded by serializers as "CIKB".
+    /// Encoded/decoded by serializers as &quot;CIKB&quot;.
     /// </summary>
     [EnumMember(Value = "CIKB")]
     [IsoId("_Vtj9xNp-Ed-ak6NoX_4Aeg_335333621")]
@@ -93,7 +93,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Euroclear.
-    /// Encoded/decoded by serializers as "EOCC".
+    /// Encoded/decoded by serializers as &quot;EOCC&quot;.
     /// </summary>
     [EnumMember(Value = "EOCC")]
     [IsoId("_Vtj9xdp-Ed-ak6NoX_4Aeg_335333622")]
@@ -102,7 +102,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Banque Nationale de Belgique.
-    /// Encoded/decoded by serializers as "NBBE".
+    /// Encoded/decoded by serializers as &quot;NBBE&quot;.
     /// </summary>
     [EnumMember(Value = "NBBE")]
     [IsoId("_Vtj9xtp-Ed-ak6NoX_4Aeg_335333623")]
@@ -111,7 +111,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// CLC - Camara de Liquidacao e Custodia S.A. (Brazil).
-    /// Encoded/decoded by serializers as "CLCB".
+    /// Encoded/decoded by serializers as &quot;CLCB&quot;.
     /// </summary>
     [EnumMember(Value = "CLCB")]
     [IsoId("_Vtj9x9p-Ed-ak6NoX_4Aeg_335333624")]
@@ -120,7 +120,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// CDS - Canadian Depository for Securities Limited.
-    /// Encoded/decoded by serializers as "CDSL".
+    /// Encoded/decoded by serializers as &quot;CDSL&quot;.
     /// </summary>
     [EnumMember(Value = "CDSL")]
     [IsoId("_Vtj9yNp-Ed-ak6NoX_4Aeg_335333625")]
@@ -129,7 +129,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Canadian Payments Association Payment Routing Number.
-    /// Encoded/decoded by serializers as "CACC".
+    /// Encoded/decoded by serializers as &quot;CACC&quot;.
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_Vtj9ydp-Ed-ak6NoX_4Aeg_335333626")]
@@ -138,7 +138,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Chile Central Securities Depository Deposito Central de Valores.
-    /// Encoded/decoded by serializers as "CSDD".
+    /// Encoded/decoded by serializers as &quot;CSDD&quot;.
     /// </summary>
     [EnumMember(Value = "CSDD")]
     [IsoId("_Vtj9ytp-Ed-ak6NoX_4Aeg_335333634")]
@@ -146,8 +146,8 @@ public enum PartyIssuerCode
     CentralSecuritiesDepositoryDepositoCentralValores = IssuerCode.CentralSecuritiesDepositoryDepositoCentralValores, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Shanghai Securities Central Clearing & Registration Company.
-    /// Encoded/decoded by serializers as "SCRC".
+    /// Shanghai Securities Central Clearing &amp; Registration Company.
+    /// Encoded/decoded by serializers as &quot;SCRC&quot;.
     /// </summary>
     [EnumMember(Value = "SCRC")]
     [IsoId("_VttHsNp-Ed-ak6NoX_4Aeg_335333635")]
@@ -156,7 +156,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Shenzhen Securities Clearing Company.
-    /// Encoded/decoded by serializers as "SSCC".
+    /// Encoded/decoded by serializers as &quot;SSCC&quot;.
     /// </summary>
     [EnumMember(Value = "SSCC")]
     [IsoId("_VttHsdp-Ed-ak6NoX_4Aeg_335333636")]
@@ -165,7 +165,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Colombia Central Depository System.
-    /// Encoded/decoded by serializers as "CDSY".
+    /// Encoded/decoded by serializers as &quot;CDSY&quot;.
     /// </summary>
     [EnumMember(Value = "CDSY")]
     [IsoId("_VttHstp-Ed-ak6NoX_4Aeg_335333637")]
@@ -174,7 +174,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Denmark Vaerdipapircentralen.
-    /// Encoded/decoded by serializers as "VPDK".
+    /// Encoded/decoded by serializers as &quot;VPDK&quot;.
     /// </summary>
     [EnumMember(Value = "VPDK")]
     [IsoId("_VttHs9p-Ed-ak6NoX_4Aeg_335333638")]
@@ -183,7 +183,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Finnish Central Securities Depository Limited.
-    /// Encoded/decoded by serializers as "APKE".
+    /// Encoded/decoded by serializers as &quot;APKE&quot;.
     /// </summary>
     [EnumMember(Value = "APKE")]
     [IsoId("_VttHtNp-Ed-ak6NoX_4Aeg_335333639")]
@@ -192,7 +192,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// French R.I.B.
-    /// Encoded/decoded by serializers as "FRRI".
+    /// Encoded/decoded by serializers as &quot;FRRI&quot;.
     /// </summary>
     [EnumMember(Value = "FRRI")]
     [IsoId("_VttHtdp-Ed-ak6NoX_4Aeg_335333648")]
@@ -201,7 +201,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Societe Interprofessional Pour La Compensation des Valeurs Mobiliers in France.
-    /// Encoded/decoded by serializers as "SICV".
+    /// Encoded/decoded by serializers as &quot;SICV&quot;.
     /// </summary>
     [EnumMember(Value = "SICV")]
     [IsoId("_VttHttp-Ed-ak6NoX_4Aeg_335333649")]
@@ -210,7 +210,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// The Prague Stock Exchange.
-    /// Encoded/decoded by serializers as "XPRA".
+    /// Encoded/decoded by serializers as &quot;XPRA&quot;.
     /// </summary>
     [EnumMember(Value = "XPRA")]
     [IsoId("_VttHt9p-Ed-ak6NoX_4Aeg_335333650")]
@@ -219,7 +219,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Bundesausichtsamt fur den Wertpapierhandel.
-    /// Encoded/decoded by serializers as "BUWE".
+    /// Encoded/decoded by serializers as &quot;BUWE&quot;.
     /// </summary>
     [EnumMember(Value = "BUWE")]
     [IsoId("_VttHuNp-Ed-ak6NoX_4Aeg_335333651")]
@@ -228,7 +228,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Deutsche Boerse AG: Deutsche Terminborse.
-    /// Encoded/decoded by serializers as "XDTB".
+    /// Encoded/decoded by serializers as &quot;XDTB&quot;.
     /// </summary>
     [EnumMember(Value = "XDTB")]
     [IsoId("_VttHudp-Ed-ak6NoX_4Aeg_335333652")]
@@ -237,7 +237,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Deutsche Boerse AG: Frankfurter Wertpapierborse.
-    /// Encoded/decoded by serializers as "XFRA".
+    /// Encoded/decoded by serializers as &quot;XFRA&quot;.
     /// </summary>
     [EnumMember(Value = "XFRA")]
     [IsoId("_Vt24sNp-Ed-ak6NoX_4Aeg_335333653")]
@@ -246,7 +246,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Deutsche Boerse AG: XETRA (exchange electronic trading).
-    /// Encoded/decoded by serializers as "XETR".
+    /// Encoded/decoded by serializers as &quot;XETR&quot;.
     /// </summary>
     [EnumMember(Value = "XETR")]
     [IsoId("_Vt24sdp-Ed-ak6NoX_4Aeg_335333654")]
@@ -255,7 +255,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Deutsche Borse Clearing AG.
-    /// Encoded/decoded by serializers as "DAKV".
+    /// Encoded/decoded by serializers as &quot;DAKV&quot;.
     /// </summary>
     [EnumMember(Value = "DAKV")]
     [IsoId("_Vt24stp-Ed-ak6NoX_4Aeg_335333655")]
@@ -264,7 +264,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Deutsche Bundesbank.
-    /// Encoded/decoded by serializers as "MARK".
+    /// Encoded/decoded by serializers as &quot;MARK&quot;.
     /// </summary>
     [EnumMember(Value = "MARK")]
     [IsoId("_Vt24s9p-Ed-ak6NoX_4Aeg_335333656")]
@@ -273,7 +273,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// German Bankleitzahl.
-    /// Encoded/decoded by serializers as "DEBL".
+    /// Encoded/decoded by serializers as &quot;DEBL&quot;.
     /// </summary>
     [EnumMember(Value = "DEBL")]
     [IsoId("_Vt24tNp-Ed-ak6NoX_4Aeg_335333657")]
@@ -282,7 +282,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Zentraler Kreditausschuss.
-    /// Encoded/decoded by serializers as "ZEKR".
+    /// Encoded/decoded by serializers as &quot;ZEKR&quot;.
     /// </summary>
     [EnumMember(Value = "ZEKR")]
     [IsoId("_Vt24tdp-Ed-ak6NoX_4Aeg_335333665")]
@@ -291,7 +291,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Hong KongCentral Clearing and Securities Settlement System.
-    /// Encoded/decoded by serializers as "CCAS".
+    /// Encoded/decoded by serializers as &quot;CCAS&quot;.
     /// </summary>
     [EnumMember(Value = "CCAS")]
     [IsoId("_Vt24ttp-Ed-ak6NoX_4Aeg_335333666")]
@@ -300,7 +300,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Hong Kong National Clearing System.
-    /// Encoded/decoded by serializers as "HKCH".
+    /// Encoded/decoded by serializers as &quot;HKCH&quot;.
     /// </summary>
     [EnumMember(Value = "HKCH")]
     [IsoId("_Vt24t9p-Ed-ak6NoX_4Aeg_335333667")]
@@ -309,7 +309,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// India National Securities Depositary.
-    /// Encoded/decoded by serializers as "NSDL".
+    /// Encoded/decoded by serializers as &quot;NSDL&quot;.
     /// </summary>
     [EnumMember(Value = "NSDL")]
     [IsoId("_Vt24uNp-Ed-ak6NoX_4Aeg_335333668")]
@@ -318,7 +318,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Indonesian Securities Central Depository.
-    /// Encoded/decoded by serializers as "KDEI".
+    /// Encoded/decoded by serializers as &quot;KDEI&quot;.
     /// </summary>
     [EnumMember(Value = "KDEI")]
     [IsoId("_Vt24udp-Ed-ak6NoX_4Aeg_335333669")]
@@ -327,7 +327,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Irish National Clearing Code.
-    /// Encoded/decoded by serializers as "IESC".
+    /// Encoded/decoded by serializers as &quot;IESC&quot;.
     /// </summary>
     [EnumMember(Value = "IESC")]
     [IsoId("_Vt24utp-Ed-ak6NoX_4Aeg_335333670")]
@@ -336,7 +336,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Israel Tel Aviv Stock Exchange.
-    /// Encoded/decoded by serializers as "XTAE".
+    /// Encoded/decoded by serializers as &quot;XTAE&quot;.
     /// </summary>
     [EnumMember(Value = "XTAE")]
     [IsoId("_VuApsNp-Ed-ak6NoX_4Aeg_335333679")]
@@ -345,7 +345,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Italian Domestic Identification Code.
-    /// Encoded/decoded by serializers as "ITIT".
+    /// Encoded/decoded by serializers as &quot;ITIT&quot;.
     /// </summary>
     [EnumMember(Value = "ITIT")]
     [IsoId("_VuApsdp-Ed-ak6NoX_4Aeg_335333680")]
@@ -354,7 +354,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Italy - Monte Titoli.
-    /// Encoded/decoded by serializers as "MOTI".
+    /// Encoded/decoded by serializers as &quot;MOTI&quot;.
     /// </summary>
     [EnumMember(Value = "MOTI")]
     [IsoId("_VuApstp-Ed-ak6NoX_4Aeg_335333681")]
@@ -363,7 +363,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Japan Securities Clearing Corporation.
-    /// Encoded/decoded by serializers as "JSCC".
+    /// Encoded/decoded by serializers as &quot;JSCC&quot;.
     /// </summary>
     [EnumMember(Value = "JSCC")]
     [IsoId("_VuAps9p-Ed-ak6NoX_4Aeg_335333682")]
@@ -372,7 +372,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Japan Securities Depository Center.
-    /// Encoded/decoded by serializers as "JSDC".
+    /// Encoded/decoded by serializers as &quot;JSDC&quot;.
     /// </summary>
     [EnumMember(Value = "JSDC")]
     [IsoId("_VuAptNp-Ed-ak6NoX_4Aeg_335333683")]
@@ -381,7 +381,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Korea Securities Depository.
-    /// Encoded/decoded by serializers as "KSDC".
+    /// Encoded/decoded by serializers as &quot;KSDC&quot;.
     /// </summary>
     [EnumMember(Value = "KSDC")]
     [IsoId("_VuAptdp-Ed-ak6NoX_4Aeg_335333684")]
@@ -390,7 +390,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Malaysian Central Depositary.
-    /// Encoded/decoded by serializers as "MCDY".
+    /// Encoded/decoded by serializers as &quot;MCDY&quot;.
     /// </summary>
     [EnumMember(Value = "MCDY")]
     [IsoId("_VuApttp-Ed-ak6NoX_4Aeg_335333685")]
@@ -399,7 +399,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Mexico S.D. Indeval, S.A. de C.V.
-    /// Encoded/decoded by serializers as "INDE".
+    /// Encoded/decoded by serializers as &quot;INDE&quot;.
     /// </summary>
     [EnumMember(Value = "INDE")]
     [IsoId("_VuApt9p-Ed-ak6NoX_4Aeg_335333686")]
@@ -408,7 +408,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Amsterdamse Effectenbeurs.
-    /// Encoded/decoded by serializers as "XAMS".
+    /// Encoded/decoded by serializers as &quot;XAMS&quot;.
     /// </summary>
     [EnumMember(Value = "XAMS")]
     [IsoId("_VuApuNp-Ed-ak6NoX_4Aeg_335333687")]
@@ -417,7 +417,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Nederlands Centraal Instituut voor Giraal Effectenverkeer.
-    /// Encoded/decoded by serializers as "NECI".
+    /// Encoded/decoded by serializers as &quot;NECI&quot;.
     /// </summary>
     [EnumMember(Value = "NECI")]
     [IsoId("_VuApudp-Ed-ak6NoX_4Aeg_335333688")]
@@ -426,7 +426,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// New Zealand National Clearing Code.
-    /// Encoded/decoded by serializers as "NZBA".
+    /// Encoded/decoded by serializers as &quot;NZBA&quot;.
     /// </summary>
     [EnumMember(Value = "NZBA")]
     [IsoId("_VuJzoNp-Ed-ak6NoX_4Aeg_335333696")]
@@ -435,7 +435,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// New Zealand Stock Exchange.
-    /// Encoded/decoded by serializers as "XNZE".
+    /// Encoded/decoded by serializers as &quot;XNZE&quot;.
     /// </summary>
     [EnumMember(Value = "XNZE")]
     [IsoId("_VuJzodp-Ed-ak6NoX_4Aeg_335333697")]
@@ -444,7 +444,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Norway Verdipapirsentralen.
-    /// Encoded/decoded by serializers as "VPSN".
+    /// Encoded/decoded by serializers as &quot;VPSN&quot;.
     /// </summary>
     [EnumMember(Value = "VPSN")]
     [IsoId("_VuJzotp-Ed-ak6NoX_4Aeg_335333698")]
@@ -453,7 +453,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Philippine Central Depositary.
-    /// Encoded/decoded by serializers as "PCDY".
+    /// Encoded/decoded by serializers as &quot;PCDY&quot;.
     /// </summary>
     [EnumMember(Value = "PCDY")]
     [IsoId("_VuJzo9p-Ed-ak6NoX_4Aeg_335333699")]
@@ -462,7 +462,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Poland National Depository for Securities.
-    /// Encoded/decoded by serializers as "KDPW".
+    /// Encoded/decoded by serializers as &quot;KDPW&quot;.
     /// </summary>
     [EnumMember(Value = "KDPW")]
     [IsoId("_VuJzpNp-Ed-ak6NoX_4Aeg_335333700")]
@@ -471,7 +471,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Portugal Central de Valores de Mobiliaros.
-    /// Encoded/decoded by serializers as "CVMP".
+    /// Encoded/decoded by serializers as &quot;CVMP&quot;.
     /// </summary>
     [EnumMember(Value = "CVMP")]
     [IsoId("_VuJzpdp-Ed-ak6NoX_4Aeg_335333701")]
@@ -480,7 +480,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Portuguese National Clearing Code.
-    /// Encoded/decoded by serializers as "PTIF".
+    /// Encoded/decoded by serializers as &quot;PTIF&quot;.
     /// </summary>
     [EnumMember(Value = "PTIF")]
     [IsoId("_VuJzptp-Ed-ak6NoX_4Aeg_335333710")]
@@ -489,7 +489,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Associacao para a Prestacao de Servicios as Bolsas de Valores.
-    /// Encoded/decoded by serializers as "XCVM".
+    /// Encoded/decoded by serializers as &quot;XCVM&quot;.
     /// </summary>
     [EnumMember(Value = "XCVM")]
     [IsoId("_VuJzp9p-Ed-ak6NoX_4Aeg_335333711")]
@@ -498,7 +498,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Russian Central Bank Identification Code.
-    /// Encoded/decoded by serializers as "RUIC".
+    /// Encoded/decoded by serializers as &quot;RUIC&quot;.
     /// </summary>
     [EnumMember(Value = "RUIC")]
     [IsoId("_VuJzqNp-Ed-ak6NoX_4Aeg_335333712")]
@@ -507,7 +507,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Central Depository Pte Ltd.
-    /// Encoded/decoded by serializers as "CDPL".
+    /// Encoded/decoded by serializers as &quot;CDPL&quot;.
     /// </summary>
     [EnumMember(Value = "CDPL")]
     [IsoId("_VuJzqdp-Ed-ak6NoX_4Aeg_335333713")]
@@ -516,7 +516,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Singapore International Monetary Exchange Limited.
-    /// Encoded/decoded by serializers as "XSIM".
+    /// Encoded/decoded by serializers as &quot;XSIM&quot;.
     /// </summary>
     [EnumMember(Value = "XSIM")]
     [IsoId("_VuTkoNp-Ed-ak6NoX_4Aeg_335333714")]
@@ -525,7 +525,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// The Bratislava Stock Exchange.
-    /// Encoded/decoded by serializers as "XBRA".
+    /// Encoded/decoded by serializers as &quot;XBRA&quot;.
     /// </summary>
     [EnumMember(Value = "XBRA")]
     [IsoId("_VuTkodp-Ed-ak6NoX_4Aeg_335333715")]
@@ -534,7 +534,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// South African National Clearing Code.
-    /// Encoded/decoded by serializers as "ZABS".
+    /// Encoded/decoded by serializers as &quot;ZABS&quot;.
     /// </summary>
     [EnumMember(Value = "ZABS")]
     [IsoId("_VuTkotp-Ed-ak6NoX_4Aeg_335333716")]
@@ -543,7 +543,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Strate Clearing and Settlement (Proprietary) Limited.
-    /// Encoded/decoded by serializers as "STRA".
+    /// Encoded/decoded by serializers as &quot;STRA&quot;.
     /// </summary>
     [EnumMember(Value = "STRA")]
     [IsoId("_VuTko9p-Ed-ak6NoX_4Aeg_335333717")]
@@ -552,7 +552,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Banco de Espana.
-    /// Encoded/decoded by serializers as "ESPB".
+    /// Encoded/decoded by serializers as &quot;ESPB&quot;.
     /// </summary>
     [EnumMember(Value = "ESPB")]
     [IsoId("_VuTkpNp-Ed-ak6NoX_4Aeg_335333718")]
@@ -561,7 +561,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Servicio de Compensacion y Liquidacion de Valores.
-    /// Encoded/decoded by serializers as "SCLV".
+    /// Encoded/decoded by serializers as &quot;SCLV&quot;.
     /// </summary>
     [EnumMember(Value = "SCLV")]
     [IsoId("_VuTkpdp-Ed-ak6NoX_4Aeg_335333719")]
@@ -570,7 +570,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Spanish Domestic Interbanking Code.
-    /// Encoded/decoded by serializers as "ESES".
+    /// Encoded/decoded by serializers as &quot;ESES&quot;.
     /// </summary>
     [EnumMember(Value = "ESES")]
     [IsoId("_VuTkptp-Ed-ak6NoX_4Aeg_335333727")]
@@ -579,7 +579,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Sweden Vardepapperscentralen.
-    /// Encoded/decoded by serializers as "VPCS".
+    /// Encoded/decoded by serializers as &quot;VPCS&quot;.
     /// </summary>
     [EnumMember(Value = "VPCS")]
     [IsoId("_VuTkp9p-Ed-ak6NoX_4Aeg_335333728")]
@@ -588,7 +588,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// SIS - SEGA/Intersettle.
-    /// Encoded/decoded by serializers as "SCOM".
+    /// Encoded/decoded by serializers as &quot;SCOM&quot;.
     /// </summary>
     [EnumMember(Value = "SCOM")]
     [IsoId("_VuTkqNp-Ed-ak6NoX_4Aeg_335333729")]
@@ -597,7 +597,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Swiss Clearing System.
-    /// Encoded/decoded by serializers as "CHSW".
+    /// Encoded/decoded by serializers as &quot;CHSW&quot;.
     /// </summary>
     [EnumMember(Value = "CHSW")]
     [IsoId("_VuTkqdp-Ed-ak6NoX_4Aeg_335333730")]
@@ -606,7 +606,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Thailand Securities Depository Company Limited.
-    /// Encoded/decoded by serializers as "TSDC".
+    /// Encoded/decoded by serializers as &quot;TSDC&quot;.
     /// </summary>
     [EnumMember(Value = "TSDC")]
     [IsoId("_VuTkqtp-Ed-ak6NoX_4Aeg_335333731")]
@@ -615,7 +615,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Taiwan Securities Central Depository Co Limited.
-    /// Encoded/decoded by serializers as "TSCD".
+    /// Encoded/decoded by serializers as &quot;TSCD&quot;.
     /// </summary>
     [EnumMember(Value = "TSCD")]
     [IsoId("_VudVoNp-Ed-ak6NoX_4Aeg_335333732")]
@@ -624,7 +624,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Turkey Takasbank.
-    /// Encoded/decoded by serializers as "TVSB".
+    /// Encoded/decoded by serializers as &quot;TVSB&quot;.
     /// </summary>
     [EnumMember(Value = "TVSB")]
     [IsoId("_VudVodp-Ed-ak6NoX_4Aeg_335333741")]
@@ -633,7 +633,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// UK Domestic Sort Code.
-    /// Encoded/decoded by serializers as "GBSC".
+    /// Encoded/decoded by serializers as &quot;GBSC&quot;.
     /// </summary>
     [EnumMember(Value = "GBSC")]
     [IsoId("_VudVotp-Ed-ak6NoX_4Aeg_335333742")]
@@ -642,7 +642,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Bank of England (Central Moneymarkets Office).
-    /// Encoded/decoded by serializers as "BKEN".
+    /// Encoded/decoded by serializers as &quot;BKEN&quot;.
     /// </summary>
     [EnumMember(Value = "BKEN")]
     [IsoId("_VudVo9p-Ed-ak6NoX_4Aeg_335333743")]
@@ -651,7 +651,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// CRESTCo Ltd. Company operating two real-time securities settlement services: CREST (for UK, Irish and international securities and government bonds) and CMO (UK money market instrument settlement).
-    /// Encoded/decoded by serializers as "CRST".
+    /// Encoded/decoded by serializers as &quot;CRST&quot;.
     /// </summary>
     [EnumMember(Value = "CRST")]
     [IsoId("_VudVpNp-Ed-ak6NoX_4Aeg_335333744")]
@@ -660,7 +660,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// UK Financial Services Authority.
-    /// Encoded/decoded by serializers as "FSAU".
+    /// Encoded/decoded by serializers as &quot;FSAU&quot;.
     /// </summary>
     [EnumMember(Value = "FSAU")]
     [IsoId("_VudVpdp-Ed-ak6NoX_4Aeg_335333745")]
@@ -669,7 +669,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// The London Clearing House.
-    /// Encoded/decoded by serializers as "LCHL".
+    /// Encoded/decoded by serializers as &quot;LCHL&quot;.
     /// </summary>
     [EnumMember(Value = "LCHL")]
     [IsoId("_VudVptp-Ed-ak6NoX_4Aeg_335333746")]
@@ -678,7 +678,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// UK - International Securities Market Association.
-    /// Encoded/decoded by serializers as "XISM".
+    /// Encoded/decoded by serializers as &quot;XISM&quot;.
     /// </summary>
     [EnumMember(Value = "XISM")]
     [IsoId("_VudVp9p-Ed-ak6NoX_4Aeg_335333747")]
@@ -687,7 +687,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// London Stock Exchange.
-    /// Encoded/decoded by serializers as "XLON".
+    /// Encoded/decoded by serializers as &quot;XLON&quot;.
     /// </summary>
     [EnumMember(Value = "XLON")]
     [IsoId("_VudVqNp-Ed-ak6NoX_4Aeg_335333748")]
@@ -696,7 +696,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// American Stock Exchange.
-    /// Encoded/decoded by serializers as "XASE".
+    /// Encoded/decoded by serializers as &quot;XASE&quot;.
     /// </summary>
     [EnumMember(Value = "XASE")]
     [IsoId("_VudVqdp-Ed-ak6NoX_4Aeg_335333749")]
@@ -705,7 +705,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Depository Trust Company.
-    /// Encoded/decoded by serializers as "DTCC".
+    /// Encoded/decoded by serializers as &quot;DTCC&quot;.
     /// </summary>
     [EnumMember(Value = "DTCC")]
     [IsoId("_VumfkNp-Ed-ak6NoX_4Aeg_335333750")]
@@ -714,7 +714,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// USA Emerging Markets Clearing Corporation.
-    /// Encoded/decoded by serializers as "EMCC".
+    /// Encoded/decoded by serializers as &quot;EMCC&quot;.
     /// </summary>
     [EnumMember(Value = "EMCC")]
     [IsoId("_Vumfkdp-Ed-ak6NoX_4Aeg_335333758")]
@@ -723,7 +723,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Fedwire Routing Number.
-    /// Encoded/decoded by serializers as "USFW".
+    /// Encoded/decoded by serializers as &quot;USFW&quot;.
     /// </summary>
     [EnumMember(Value = "USFW")]
     [IsoId("_Vumfktp-Ed-ak6NoX_4Aeg_335333759")]
@@ -732,7 +732,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Provider of trade netting and settlement for the US Government securities marketplace.
-    /// Encoded/decoded by serializers as "GSCC".
+    /// Encoded/decoded by serializers as &quot;GSCC&quot;.
     /// </summary>
     [EnumMember(Value = "GSCC")]
     [IsoId("_Vumfk9p-Ed-ak6NoX_4Aeg_335333760")]
@@ -741,7 +741,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// International Securities Clearing Corporation.
-    /// Encoded/decoded by serializers as "ISCC".
+    /// Encoded/decoded by serializers as &quot;ISCC&quot;.
     /// </summary>
     [EnumMember(Value = "ISCC")]
     [IsoId("_VumflNp-Ed-ak6NoX_4Aeg_335333761")]
@@ -750,7 +750,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Mortgage Backed Securities Clearing Corporation.
-    /// Encoded/decoded by serializers as "MBSC".
+    /// Encoded/decoded by serializers as &quot;MBSC&quot;.
     /// </summary>
     [EnumMember(Value = "MBSC")]
     [IsoId("_Vumfldp-Ed-ak6NoX_4Aeg_335333762")]
@@ -759,7 +759,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// National Association Securities Dealers.
-    /// Encoded/decoded by serializers as "XNAS".
+    /// Encoded/decoded by serializers as &quot;XNAS&quot;.
     /// </summary>
     [EnumMember(Value = "XNAS")]
     [IsoId("_Vumfltp-Ed-ak6NoX_4Aeg_335333763")]
@@ -767,8 +767,8 @@ public enum PartyIssuerCode
     NationalAssociationSecuritiesDealers = IssuerCode.NationalAssociationSecuritiesDealers, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// National Association of Securities Dealers Automated Quotation Service "NASDAQ" / National Market System.
-    /// Encoded/decoded by serializers as "XNMS".
+    /// National Association of Securities Dealers Automated Quotation Service &quot;NASDAQ&quot; / National Market System.
+    /// Encoded/decoded by serializers as &quot;XNMS&quot;.
     /// </summary>
     [EnumMember(Value = "XNMS")]
     [IsoId("_Vumfl9p-Ed-ak6NoX_4Aeg_335333772")]
@@ -777,7 +777,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// National Securities Clearing Corporation.
-    /// Encoded/decoded by serializers as "NSCC".
+    /// Encoded/decoded by serializers as &quot;NSCC&quot;.
     /// </summary>
     [EnumMember(Value = "NSCC")]
     [IsoId("_VumfmNp-Ed-ak6NoX_4Aeg_335333773")]
@@ -786,7 +786,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// New York Clearing House.
-    /// Encoded/decoded by serializers as "NYCH".
+    /// Encoded/decoded by serializers as &quot;NYCH&quot;.
     /// </summary>
     [EnumMember(Value = "NYCH")]
     [IsoId("_Vumfmdp-Ed-ak6NoX_4Aeg_335333774")]
@@ -795,7 +795,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// New York Stock Exchange.
-    /// Encoded/decoded by serializers as "XNYS".
+    /// Encoded/decoded by serializers as &quot;XNYS&quot;.
     /// </summary>
     [EnumMember(Value = "XNYS")]
     [IsoId("_Vumfmtp-Ed-ak6NoX_4Aeg_335333775")]
@@ -804,7 +804,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Options Clearing Corporation.
-    /// Encoded/decoded by serializers as "OCCX".
+    /// Encoded/decoded by serializers as &quot;OCCX&quot;.
     /// </summary>
     [EnumMember(Value = "OCCX")]
     [IsoId("_VuwQkNp-Ed-ak6NoX_4Aeg_335333776")]
@@ -813,7 +813,7 @@ public enum PartyIssuerCode
     
     /// <summary>
     /// Participant Trust Company.
-    /// Encoded/decoded by serializers as "PTCY".
+    /// Encoded/decoded by serializers as &quot;PTCY&quot;.
     /// </summary>
     [EnumMember(Value = "PTCY")]
     [IsoId("_VuwQkdp-Ed-ak6NoX_4Aeg_335333777")]

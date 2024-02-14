@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BusinessProcessType1Choice.Code))]
     [KnownType(typeof(BusinessProcessType1Choice.Proprietary))]
     [IsoId("_AcY2hNokEeC60axPepSq7g_-749390701")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Process Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

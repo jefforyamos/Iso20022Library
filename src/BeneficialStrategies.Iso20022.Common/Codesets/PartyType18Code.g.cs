@@ -21,7 +21,7 @@ public enum PartyType18Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_kWWKsUqLEeenp6hmNprBHg")]
@@ -30,7 +30,7 @@ public enum PartyType18Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_lyQIAUqLEeenp6hmNprBHg")]
@@ -39,7 +39,7 @@ public enum PartyType18Code
     
     /// <summary>
     /// Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "CSCH".
+    /// Encoded/decoded by serializers as &quot;CSCH&quot;.
     /// </summary>
     [EnumMember(Value = "CSCH")]
     [IsoId("_l_O0EUqLEeenp6hmNprBHg")]
@@ -48,7 +48,7 @@ public enum PartyType18Code
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_pSO14UqLEeenp6hmNprBHg")]

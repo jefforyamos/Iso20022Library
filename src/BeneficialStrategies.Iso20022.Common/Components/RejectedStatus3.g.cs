@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status is rejected.
 /// </summary>
 [IsoId("_U23mVNp-Ed-ak6NoX_4Aeg_-2053158623")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejected Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,32 +42,26 @@ public partial record RejectedStatus3
     /// Reason for a rejected status in the report.
     /// </summary>
     [IsoId("_U23mVdp-Ed-ak6NoX_4Aeg_96799303")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
     [MinLength(1)]
     [MaxLength(10)]
-    #endif
     public ValueList<RejectedStatusReason6> Reason { get; init; } = new ValueList<RejectedStatusReason6>(){};
     
     /// <summary>
     /// Proprietary identification of a reason for a rejected status in the report.
     /// </summary>
     [IsoId("_U23mVtp-Ed-ak6NoX_4Aeg_-2053158562")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DataSrcSchme")]
     [MinLength(1)]
     [MaxLength(10)]
-    #endif
     public ValueList<GenericIdentification1> DataSourceScheme { get; init; } = new ValueList<GenericIdentification1>(){};
     
     

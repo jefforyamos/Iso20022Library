@@ -21,7 +21,7 @@ public enum CancelledStatusReason3Code
 {
     /// <summary>
     /// Transaction is cancelled by the transfer agent.
-    /// Encoded/decoded by serializers as "CNTA".
+    /// Encoded/decoded by serializers as &quot;CNTA&quot;.
     /// </summary>
     [EnumMember(Value = "CNTA")]
     [IsoId("_a0yWQ9p-Ed-ak6NoX_4Aeg_2105332427")]
@@ -30,7 +30,7 @@ public enum CancelledStatusReason3Code
     
     /// <summary>
     /// Transaction is cancelled by the client.
-    /// Encoded/decoded by serializers as "CNCL".
+    /// Encoded/decoded by serializers as &quot;CNCL&quot;.
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_a0yWRNp-Ed-ak6NoX_4Aeg_2105332450")]
@@ -39,7 +39,7 @@ public enum CancelledStatusReason3Code
     
     /// <summary>
     /// Transaction is cancelled by the intermediary.
-    /// Encoded/decoded by serializers as "CNIN".
+    /// Encoded/decoded by serializers as &quot;CNIN&quot;.
     /// </summary>
     [EnumMember(Value = "CNIN")]
     [IsoId("_a0yWRdp-Ed-ak6NoX_4Aeg_2105332467")]

@@ -21,7 +21,7 @@ public enum ChargeTypeCode
 {
     /// <summary>
     /// Fee paid to a broker for services provided.
-    /// Encoded/decoded by serializers as "BRKF".
+    /// Encoded/decoded by serializers as &quot;BRKF&quot;.
     /// </summary>
     [EnumMember(Value = "BRKF")]
     [IsoId("_a9u24Np-Ed-ak6NoX_4Aeg_1216745738")]
@@ -30,7 +30,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee paid for services provided.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_a9u24dp-Ed-ak6NoX_4Aeg_-1939920132")]
@@ -39,7 +39,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BEND".
+    /// Encoded/decoded by serializers as &quot;BEND&quot;.
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_a9u24tp-Ed-ak6NoX_4Aeg_-1943223710")]
@@ -48,7 +48,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "FEND".
+    /// Encoded/decoded by serializers as &quot;FEND&quot;.
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a9u249p-Ed-ak6NoX_4Aeg_-1943223709")]
@@ -57,7 +57,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// In investment funds, charge related to a switch transaction.
-    /// Encoded/decoded by serializers as "SWIT".
+    /// Encoded/decoded by serializers as &quot;SWIT&quot;.
     /// </summary>
     [EnumMember(Value = "SWIT")]
     [IsoId("_a9u25Np-Ed-ak6NoX_4Aeg_-1943223708")]
@@ -66,7 +66,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// In investment funds, a charge payable by the investor covering bid-offer spreads and dealing charges for the underlying investments. The dilution levy is paid to the fund for the benefit of other unit holders.
-    /// Encoded/decoded by serializers as "DLEV".
+    /// Encoded/decoded by serializers as &quot;DLEV&quot;.
     /// </summary>
     [EnumMember(Value = "DLEV")]
     [IsoId("_a9u25dp-Ed-ak6NoX_4Aeg_-329415246")]
@@ -75,7 +75,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_a9u25tp-Ed-ak6NoX_4Aeg_-329415245")]
@@ -84,7 +84,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee paid to an investment manager for services. The fee usually includes fund administration costs and investor relationship management. Typically, the amount paid is a percentage of the assets under management.
-    /// Encoded/decoded by serializers as "MANF".
+    /// Encoded/decoded by serializers as &quot;MANF&quot;.
     /// </summary>
     [EnumMember(Value = "MANF")]
     [IsoId("_a9u259p-Ed-ak6NoX_4Aeg_729082922")]
@@ -93,7 +93,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_a94A0Np-Ed-ak6NoX_4Aeg_729082931")]
@@ -102,7 +102,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee charged for matching and/or confirmation.
-    /// Encoded/decoded by serializers as "MACO".
+    /// Encoded/decoded by serializers as &quot;MACO&quot;.
     /// </summary>
     [EnumMember(Value = "MACO")]
     [IsoId("_a94A0dp-Ed-ak6NoX_4Aeg_21503873")]
@@ -111,7 +111,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_a94A0tp-Ed-ak6NoX_4Aeg_21504150")]
@@ -120,7 +120,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
-    /// Encoded/decoded by serializers as "REGF".
+    /// Encoded/decoded by serializers as &quot;REGF&quot;.
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_a94A09p-Ed-ak6NoX_4Aeg_21504185")]
@@ -129,7 +129,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_a94A1Np-Ed-ak6NoX_4Aeg_21504245")]
@@ -138,7 +138,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee paid for the provision of financial services.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_a94A1dp-Ed-ak6NoX_4Aeg_21504553")]
@@ -147,7 +147,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charges, drawdown, or other reduction from or in addition to the deal price.
-    /// Encoded/decoded by serializers as "SPCN".
+    /// Encoded/decoded by serializers as &quot;SPCN&quot;.
     /// </summary>
     [EnumMember(Value = "SPCN")]
     [IsoId("_a94A1tp-Ed-ak6NoX_4Aeg_21504606")]
@@ -156,7 +156,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Portion of charge that the fund is entitled to receive, that cannot be reduced by an intermediary.
-    /// Encoded/decoded by serializers as "PACQ".
+    /// Encoded/decoded by serializers as &quot;PACQ&quot;.
     /// </summary>
     [EnumMember(Value = "PACQ")]
     [IsoId("_a94A19p-Ed-ak6NoX_4Aeg_-1068334940")]
@@ -165,7 +165,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee charged to the investor for early redemption of the fund.
-    /// Encoded/decoded by serializers as "PENA".
+    /// Encoded/decoded by serializers as &quot;PENA&quot;.
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_a94A2Np-Ed-ak6NoX_4Aeg_-2055235441")]
@@ -174,7 +174,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Deferred sales charge.
-    /// Encoded/decoded by serializers as "CDSC".
+    /// Encoded/decoded by serializers as &quot;CDSC&quot;.
     /// </summary>
     [EnumMember(Value = "CDSC")]
     [IsoId("_a94A2dp-Ed-ak6NoX_4Aeg_-2055235424")]
@@ -183,7 +183,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Another type of charge.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_a-Bx0Np-Ed-ak6NoX_4Aeg_-1628569358")]
@@ -191,8 +191,8 @@ public enum ChargeTypeCode
     Other,
     
     /// <summary>
-    /// The part of an investor's subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
-    /// Encoded/decoded by serializers as "EQUL".
+    /// The part of an investor&apos;s subscription amount that is held by the fund in order to pay incentive or performance fees at the end of the fiscal year.
+    /// Encoded/decoded by serializers as &quot;EQUL&quot;.
     /// </summary>
     [EnumMember(Value = "EQUL")]
     [IsoId("_a-Bx0dp-Ed-ak6NoX_4Aeg_-575593958")]
@@ -201,7 +201,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// In investment funds, the charge of the correspondent bank for transferring money.
-    /// Encoded/decoded by serializers as "CBCH".
+    /// Encoded/decoded by serializers as &quot;CBCH&quot;.
     /// </summary>
     [EnumMember(Value = "CBCH")]
     [IsoId("_a-Bx0tp-Ed-ak6NoX_4Aeg_-609044555")]
@@ -210,7 +210,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
-    /// Encoded/decoded by serializers as "PREM".
+    /// Encoded/decoded by serializers as &quot;PREM&quot;.
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_a-Bx09p-Ed-ak6NoX_4Aeg_1033900373")]
@@ -219,7 +219,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge paid at the time of the first subscription.
-    /// Encoded/decoded by serializers as "INIT".
+    /// Encoded/decoded by serializers as &quot;INIT&quot;.
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_a-Bx1Np-Ed-ak6NoX_4Aeg_-1896103317")]
@@ -228,7 +228,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee paid for advisory services rendered.
-    /// Encoded/decoded by serializers as "ADVI".
+    /// Encoded/decoded by serializers as &quot;ADVI&quot;.
     /// </summary>
     [EnumMember(Value = "ADVI")]
     [IsoId("_a-Bx1dp-Ed-ak6NoX_4Aeg_1192404257")]
@@ -237,7 +237,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee paid to a custodian in respect of custodial services.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_a-Bx1tp-Ed-ak6NoX_4Aeg_1192404317")]
@@ -246,7 +246,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee paid in respect of publications made.
-    /// Encoded/decoded by serializers as "PUBL".
+    /// Encoded/decoded by serializers as &quot;PUBL&quot;.
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_a-Bx19p-Ed-ak6NoX_4Aeg_1192404342")]
@@ -255,7 +255,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee paid for accounting services rendered.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_a-Bx2Np-Ed-ak6NoX_4Aeg_1192404594")]
@@ -264,7 +264,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for signature services.
-    /// Encoded/decoded by serializers as "SIGN".
+    /// Encoded/decoded by serializers as &quot;SIGN&quot;.
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_a-Bx2dp-Ed-ak6NoX_4Aeg_1274994337")]
@@ -273,7 +273,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for storage of goods at destination.
-    /// Encoded/decoded by serializers as "STDE".
+    /// Encoded/decoded by serializers as &quot;STDE&quot;.
     /// </summary>
     [EnumMember(Value = "STDE")]
     [IsoId("_a-Li0Np-Ed-ak6NoX_4Aeg_1274995439")]
@@ -282,7 +282,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for storage of goods at origin.
-    /// Encoded/decoded by serializers as "STOR".
+    /// Encoded/decoded by serializers as &quot;STOR&quot;.
     /// </summary>
     [EnumMember(Value = "STOR")]
     [IsoId("_a-Li0dp-Ed-ak6NoX_4Aeg_1274995734")]
@@ -291,7 +291,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for packaging of goods.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_a-Li0tp-Ed-ak6NoX_4Aeg_1274995829")]
@@ -300,7 +300,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for pick-up of goods.
-    /// Encoded/decoded by serializers as "PICK".
+    /// Encoded/decoded by serializers as &quot;PICK&quot;.
     /// </summary>
     [EnumMember(Value = "PICK")]
     [IsoId("_a-Li09p-Ed-ak6NoX_4Aeg_1274996154")]
@@ -309,7 +309,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for dangerous goods.
-    /// Encoded/decoded by serializers as "DNGR".
+    /// Encoded/decoded by serializers as &quot;DNGR&quot;.
     /// </summary>
     [EnumMember(Value = "DNGR")]
     [IsoId("_a-Li1Np-Ed-ak6NoX_4Aeg_1274996327")]
@@ -318,7 +318,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for security.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_a-Li1dp-Ed-ak6NoX_4Aeg_1274996412")]
@@ -327,7 +327,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is a premium for insurance.
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_a-Li1tp-Ed-ak6NoX_4Aeg_1274996760")]
@@ -336,7 +336,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for the collection of the freight.
-    /// Encoded/decoded by serializers as "COLF".
+    /// Encoded/decoded by serializers as &quot;COLF&quot;.
     /// </summary>
     [EnumMember(Value = "COLF")]
     [IsoId("_a-Li19p-Ed-ak6NoX_4Aeg_1274997093")]
@@ -345,7 +345,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for clearance and handling of goods at origin.
-    /// Encoded/decoded by serializers as "CHOR".
+    /// Encoded/decoded by serializers as &quot;CHOR&quot;.
     /// </summary>
     [EnumMember(Value = "CHOR")]
     [IsoId("_a-Li2Np-Ed-ak6NoX_4Aeg_1274997163")]
@@ -354,7 +354,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for clearance and handling of goods at destination.
-    /// Encoded/decoded by serializers as "CHDE".
+    /// Encoded/decoded by serializers as &quot;CHDE&quot;.
     /// </summary>
     [EnumMember(Value = "CHDE")]
     [IsoId("_a-Li2dp-Ed-ak6NoX_4Aeg_1274997265")]
@@ -363,7 +363,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is an airway bill fee.
-    /// Encoded/decoded by serializers as "AIRF".
+    /// Encoded/decoded by serializers as &quot;AIRF&quot;.
     /// </summary>
     [EnumMember(Value = "AIRF")]
     [IsoId("_a-Li2tp-Ed-ak6NoX_4Aeg_1274997620")]
@@ -372,7 +372,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge is for transport.
-    /// Encoded/decoded by serializers as "TRPT".
+    /// Encoded/decoded by serializers as &quot;TRPT&quot;.
     /// </summary>
     [EnumMember(Value = "TRPT")]
     [IsoId("_a-UswNp-Ed-ak6NoX_4Aeg_1274997690")]
@@ -381,7 +381,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charges paid by the investor to the Fund Company for subscription and redemption orders.
-    /// Encoded/decoded by serializers as "UCIC".
+    /// Encoded/decoded by serializers as &quot;UCIC&quot;.
     /// </summary>
     [EnumMember(Value = "UCIC")]
     [IsoId("_a-Uswdp-Ed-ak6NoX_4Aeg_-1007099196")]
@@ -390,7 +390,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Specially agreed front-end load.
-    /// Encoded/decoded by serializers as "SFEN".
+    /// Encoded/decoded by serializers as &quot;SFEN&quot;.
     /// </summary>
     [EnumMember(Value = "SFEN")]
     [IsoId("_a-Uswtp-Ed-ak6NoX_4Aeg_-373701440")]
@@ -399,7 +399,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge linked to an ADR (American Depositary Receipt).
-    /// Encoded/decoded by serializers as "ADRF".
+    /// Encoded/decoded by serializers as &quot;ADRF&quot;.
     /// </summary>
     [EnumMember(Value = "ADRF")]
     [IsoId("_a-Usw9p-Ed-ak6NoX_4Aeg_-555458219")]
@@ -408,7 +408,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Fee linked to the cancellation of an issuance.
-    /// Encoded/decoded by serializers as "ISSC".
+    /// Encoded/decoded by serializers as &quot;ISSC&quot;.
     /// </summary>
     [EnumMember(Value = "ISSC")]
     [IsoId("_a-UsxNp-Ed-ak6NoX_4Aeg_-555458188")]
@@ -417,7 +417,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Miscellaneous fee.
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_a-Usxdp-Ed-ak6NoX_4Aeg_-555458157")]
@@ -426,7 +426,7 @@ public enum ChargeTypeCode
     
     /// <summary>
     /// Charge linked to the issuance of security.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_a-Usxtp-Ed-ak6NoX_4Aeg_-555458127")]

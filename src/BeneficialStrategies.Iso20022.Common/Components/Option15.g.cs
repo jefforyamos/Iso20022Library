@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contracts which grant to the holder either the privilege to purchase or the privilege to sell the assets specified at a predetermined price or formula at or within a time in the future.
 /// </summary>
 [IsoId("_PPNyoWp7EemmaZLSPtWX5A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Option15
     /// Specifies whether the option contract settles at the open or close of the market.
     /// </summary>
     [IsoId("_PbLyEWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Settlement Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnSttlmStyle")]
     #endif
+    [IsoXmlTag("OptnSttlmStyle")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettleStyle2Choice_? OptionSettlementStyle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record Option15
     /// Deadline by which a convertible security must be converted according to the terms of the issue.
     /// </summary>
     [IsoId("_PbLyE2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsDt")]
     #endif
+    [IsoXmlTag("ConvsDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ConversionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record Option15
     /// Amount of money for which goods, services or assets are offered, sold, or bought.
     /// </summary>
     [IsoId("_PbLyFWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strike Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrkPric")]
     #endif
+    [IsoXmlTag("StrkPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? StrikePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record Option15
     /// Minimum quantity of securities that must be exercised.
     /// </summary>
     [IsoId("_PbMZJWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Exercisable Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinExrcblQty")]
     #endif
+    [IsoXmlTag("MinExrcblQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record Option15
     /// Period during which a convertible security may be converted according to the terms of the issue.
     /// </summary>
     [IsoId("_PbMZJ2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConvsPrd")]
     #endif
+    [IsoXmlTag("ConvsPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriod1Choice_? ConversionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,11 @@ public partial record Option15
     /// Specifies how an option can be exercised (American, European, Bermudan).
     /// </summary>
     [IsoId("_PbMZKWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnStyle")]
     #endif
+    [IsoXmlTag("OptnStyle")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionStyle1Choice_? OptionStyle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record Option15
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
     [IsoId("_PbMZK2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType8Choice_? OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +162,12 @@ public partial record Option15
     /// Used for derivatives. The number of shares/units for the financial instrument involved in the option trade.
     /// </summary>
     [IsoId("_PbMZLWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strike Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrkVal")]
     #endif
+    [IsoXmlTag("StrkVal")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? StrikeValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +180,12 @@ public partial record Option15
     /// Used for derivatives. Multiplier applied to the strike price for the purpose of calculating the settlement value.
     /// </summary>
     [IsoId("_PbMZNWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strike Multiplier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrkMltplr")]
     #endif
+    [IsoXmlTag("StrkMltplr")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? StrikeMultiplier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +198,11 @@ public partial record Option15
     /// Method under which assignment was conducted.
     /// </summary>
     [IsoId("_PbMZPWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Assignment Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrmAssgnmtMtd")]
     #endif
+    [IsoXmlTag("InstrmAssgnmtMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssignmentMethod2Choice_? InstrumentAssignmentMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +215,12 @@ public partial record Option15
     /// Number allocated by options exchanges to record that an option has undergone a change in its contract specifications (particularly adjustment of the strike price).
     /// </summary>
     [IsoId("_PbMZRWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VrsnNb")]
     #endif
+    [IsoXmlTag("VrsnNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? VersionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,15 +233,13 @@ public partial record Option15
     /// Financial center where option expires.
     /// </summary>
     [IsoId("_PbMZTWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryLctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XpryLctn")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4AlphaNumericText? ExpiryLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +252,11 @@ public partial record Option15
     /// Specifies whether the terms of the security (underlying instruments, expiration date, contract size) are defined according to the exchange specifications or whether they can be user defined.
     /// </summary>
     [IsoId("_PbMZT2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standardisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Stdstn")]
     #endif
+    [IsoXmlTag("Stdstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Standardisation3Choice_? Standardisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,12 +269,11 @@ public partial record Option15
     /// Specifies the party which is the buyer or the seller.
     /// </summary>
     [IsoId("_PbMZUWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Party Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgPtyRole")]
     #endif
+    [IsoXmlTag("TradgPtyRole")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionParty3Choice_? TradingPartyRole { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -299,12 +286,12 @@ public partial record Option15
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
     [IsoId("_PbMZU2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctSz")]
     #endif
+    [IsoXmlTag("CtrctSz")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? ContractSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -317,12 +304,11 @@ public partial record Option15
     /// Provides more information about the underlying instrument.
     /// </summary>
     [IsoId("_PbMZVWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Underlying Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlUndrlygAttrbts")]
     #endif
+    [IsoXmlTag("AddtlUndrlygAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

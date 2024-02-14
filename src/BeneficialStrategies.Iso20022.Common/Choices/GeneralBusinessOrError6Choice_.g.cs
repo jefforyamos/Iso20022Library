@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeneralBusinessOrError6Choice.BusinessError))]
     [KnownType(typeof(GeneralBusinessOrError6Choice.GeneralBusiness))]
     [IsoId("_MYGmp5lgEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Business Or Error 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum RejectionReason6Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZlhGxtp-Ed-ak6NoX_4Aeg_-394875620")]
@@ -30,7 +30,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// A second option is mandatory.
-    /// Encoded/decoded by serializers as "SECO".
+    /// Encoded/decoded by serializers as &quot;SECO&quot;.
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("_ZlhGx9p-Ed-ak6NoX_4Aeg_-394875589")]
@@ -39,7 +39,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Party is not defined as an agent.
-    /// Encoded/decoded by serializers as "AGID".
+    /// Encoded/decoded by serializers as &quot;AGID&quot;.
     /// </summary>
     [EnumMember(Value = "AGID")]
     [IsoId("_ZlhGyNp-Ed-ak6NoX_4Aeg_-394875558")]
@@ -48,7 +48,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Period Ending Date or Code is missing.
-    /// Encoded/decoded by serializers as "ENDP".
+    /// Encoded/decoded by serializers as &quot;ENDP&quot;.
     /// </summary>
     [EnumMember(Value = "ENDP")]
     [IsoId("_ZlqQsNp-Ed-ak6NoX_4Aeg_-394875557")]
@@ -57,7 +57,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Period Starting Date or Code is missing.
-    /// Encoded/decoded by serializers as "STAR".
+    /// Encoded/decoded by serializers as &quot;STAR&quot;.
     /// </summary>
     [EnumMember(Value = "STAR")]
     [IsoId("_ZlqQsdp-Ed-ak6NoX_4Aeg_-394875527")]
@@ -66,7 +66,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Resulting amount must be filled in as Exchange rate is present.
-    /// Encoded/decoded by serializers as "RESU".
+    /// Encoded/decoded by serializers as &quot;RESU&quot;.
     /// </summary>
     [EnumMember(Value = "RESU")]
     [IsoId("_ZlqQstp-Ed-ak6NoX_4Aeg_-394875497")]
@@ -75,7 +75,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Security type does not match with the type of corporate action.
-    /// Encoded/decoded by serializers as "SECT".
+    /// Encoded/decoded by serializers as &quot;SECT&quot;.
     /// </summary>
     [EnumMember(Value = "SECT")]
     [IsoId("_ZlqQs9p-Ed-ak6NoX_4Aeg_-394875466")]
@@ -84,7 +84,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// The disperse security is not eligible in the I(CSD) Service Provider Owner.
-    /// Encoded/decoded by serializers as "DISP".
+    /// Encoded/decoded by serializers as &quot;DISP&quot;.
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_ZlqQtNp-Ed-ak6NoX_4Aeg_-394875435")]
@@ -93,7 +93,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// The security is not eligible.
-    /// Encoded/decoded by serializers as "ELIG".
+    /// Encoded/decoded by serializers as &quot;ELIG&quot;.
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_ZlqQtdp-Ed-ak6NoX_4Aeg_-394875404")]
@@ -102,7 +102,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// There cannot be a resulting amount without an exchange rate.
-    /// Encoded/decoded by serializers as "XRAT".
+    /// Encoded/decoded by serializers as &quot;XRAT&quot;.
     /// </summary>
     [EnumMember(Value = "XRAT")]
     [IsoId("_ZlqQttp-Ed-ak6NoX_4Aeg_-394875157")]
@@ -111,7 +111,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Value date is before payment date.
-    /// Encoded/decoded by serializers as "VALU".
+    /// Encoded/decoded by serializers as &quot;VALU&quot;.
     /// </summary>
     [EnumMember(Value = "VALU")]
     [IsoId("_ZlqQt9p-Ed-ak6NoX_4Aeg_-394875126")]
@@ -120,7 +120,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Accrued interest is not applicable for this type of security.
-    /// Encoded/decoded by serializers as "ACRU".
+    /// Encoded/decoded by serializers as &quot;ACRU&quot;.
     /// </summary>
     [EnumMember(Value = "ACRU")]
     [IsoId("_ZlqQuNp-Ed-ak6NoX_4Aeg_-394875064")]
@@ -129,7 +129,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Agent has no access to the service.
-    /// Encoded/decoded by serializers as "NOAC".
+    /// Encoded/decoded by serializers as &quot;NOAC&quot;.
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_ZlqQudp-Ed-ak6NoX_4Aeg_-393955062")]
@@ -138,7 +138,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Certification Indicator is not filled in.
-    /// Encoded/decoded by serializers as "MCER".
+    /// Encoded/decoded by serializers as &quot;MCER&quot;.
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_Zl0BsNp-Ed-ak6NoX_4Aeg_-393955031")]
@@ -147,7 +147,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Date is not a business day for the security market.
-    /// Encoded/decoded by serializers as "BDAY".
+    /// Encoded/decoded by serializers as &quot;BDAY&quot;.
     /// </summary>
     [EnumMember(Value = "BDAY")]
     [IsoId("_Zl0Bsdp-Ed-ak6NoX_4Aeg_-393955000")]
@@ -156,7 +156,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Effective date is after the payment date.
-    /// Encoded/decoded by serializers as "PDAY".
+    /// Encoded/decoded by serializers as &quot;PDAY&quot;.
     /// </summary>
     [EnumMember(Value = "PDAY")]
     [IsoId("_Zl0Bstp-Ed-ak6NoX_4Aeg_-393954908")]
@@ -165,7 +165,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Gross amount is less than net amount.
-    /// Encoded/decoded by serializers as "GAMN".
+    /// Encoded/decoded by serializers as &quot;GAMN&quot;.
     /// </summary>
     [EnumMember(Value = "GAMN")]
     [IsoId("_Zl0Bs9p-Ed-ak6NoX_4Aeg_-393954877")]
@@ -174,7 +174,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// One option must be marked as the default.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_Zl0BtNp-Ed-ak6NoX_4Aeg_-393954816")]
@@ -183,7 +183,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Party is not active.
-    /// Encoded/decoded by serializers as "NPAT".
+    /// Encoded/decoded by serializers as &quot;NPAT&quot;.
     /// </summary>
     [EnumMember(Value = "NPAT")]
     [IsoId("_Zl0Btdp-Ed-ak6NoX_4Aeg_-393954785")]
@@ -192,7 +192,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Period Ending date is before Period Starting date.
-    /// Encoded/decoded by serializers as "PERI".
+    /// Encoded/decoded by serializers as &quot;PERI&quot;.
     /// </summary>
     [EnumMember(Value = "PERI")]
     [IsoId("_Zl0Bttp-Ed-ak6NoX_4Aeg_-393954507")]
@@ -201,7 +201,7 @@ public enum RejectionReason6Code
     
     /// <summary>
     /// Record date is after payment date.
-    /// Encoded/decoded by serializers as "RDTE".
+    /// Encoded/decoded by serializers as &quot;RDTE&quot;.
     /// </summary>
     [EnumMember(Value = "RDTE")]
     [IsoId("_Zl0Bt9p-Ed-ak6NoX_4Aeg_-393954476")]

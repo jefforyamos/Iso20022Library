@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionNarrative4Choice
     /// Standard code to specify the narrative type of the message.
     /// </summary>
     [IsoId("_c4ciiZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionNarrative4Choice
         /// Specifies the narrative type of a corporate action.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CorporateActionNarrative1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CorporateActionNarrative1Code Value { get; init; } 
+        public required CorporateActionNarrative1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CorporateActionNarrative1Code Value { get; init; } 
         #else

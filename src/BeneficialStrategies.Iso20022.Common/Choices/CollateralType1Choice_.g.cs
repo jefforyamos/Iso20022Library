@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralType1Choice.Code))]
     [KnownType(typeof(CollateralType1Choice.Proprietary))]
     [IsoId("_AYhDItokEeC60axPepSq7g_4649686")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

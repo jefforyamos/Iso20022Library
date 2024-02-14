@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus9Choice
     /// Specifies the status of the response expressed as a code.
     /// </summary>
     [IsoId("_OIky8LzdEeivTd4NUfCi2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus9Choice
         /// Specifies the status of the received collateral message (collateral claim, a collateral proposal or a proposal/request for collateral substitution) from a collateral management perspective.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ResponseStatus2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ResponseStatus2Code Value { get; init; } 
+        public required ResponseStatus2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ResponseStatus2Code Value { get; init; } 
         #else

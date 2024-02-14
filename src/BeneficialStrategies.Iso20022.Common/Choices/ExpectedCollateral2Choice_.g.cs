@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExpectedCollateral2Choice.ExpectedCollateralDetails))]
     [KnownType(typeof(ExpectedCollateral2Choice.SegregatedIndependentAmount))]
     [IsoId("_-UW_QYLZEeWrrO9HojbPQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Collateral 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

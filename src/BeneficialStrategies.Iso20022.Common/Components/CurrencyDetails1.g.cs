@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of a currency.
 /// </summary>
 [IsoId("_Ycu9YGkGEeS7zPBpvm732w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CurrencyDetails1
     /// Alpha currency code (ISO 4217, 3 alphanumeric characters).
     /// </summary>
     [IsoId("_izPeMGkGEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alpha Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AlphaCd")]
     #endif
+    [IsoXmlTag("AlphaCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode AlphaCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string AlphaCode { get; init; } 
+    public required string AlphaCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string AlphaCode { get; init; } 
     #else
@@ -73,19 +70,16 @@ public partial record CurrencyDetails1
     /// Numeric currency code (ISO 4217, 3 numeric characters).
     /// </summary>
     [IsoId("_qeujMGkGEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Numeric Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmrcCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NmrcCd")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText NumericCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NumericCode { get; init; } 
+    public required System.String NumericCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NumericCode { get; init; } 
     #else
@@ -96,16 +90,16 @@ public partial record CurrencyDetails1
     /// Maximal number of digits after the decimal separator for the currency.
     /// </summary>
     [IsoId("_3mVSoGkGEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Decimal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dcml")]
     #endif
+    [IsoXmlTag("Dcml")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Decimal { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Decimal { get; init; } 
+    public required System.UInt64 Decimal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Decimal { get; init; } 
     #else
@@ -116,15 +110,13 @@ public partial record CurrencyDetails1
     /// Full name of the currency.
     /// </summary>
     [IsoId("_8Ry8MGkGEeS7zPBpvm732w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

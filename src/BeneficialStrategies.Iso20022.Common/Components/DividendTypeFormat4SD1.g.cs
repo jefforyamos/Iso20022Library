@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension to specify additional information related to the type of dividend.
 /// </summary>
 [IsoId("_hZyZszLOEeGkgP4mOiMAHQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Dividend Type Format 4 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,15 +52,13 @@ public partial record DividendTypeFormat4SD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_TTCoUFPGEeGs_NnqHXQZkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,16 +73,16 @@ public partial record DividendTypeFormat4SD1
     /// ProvisionalDividendFlag can only be used with corporate action event type code DVCA.
     /// </summary>
     [IsoId("_M9HrwDLPEeGkgP4mOiMAHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Provisional Dividend Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsnlDvddFlg")]
     #endif
+    [IsoXmlTag("PrvsnlDvddFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ProvisionalDividendFlag { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProvisionalDividendFlag { get; init; } 
+    public required System.String ProvisionalDividendFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProvisionalDividendFlag { get; init; } 
     #else
@@ -98,16 +94,16 @@ public partial record DividendTypeFormat4SD1
     /// CommemorativeDividendFlag can only be used with corporate action event type code DVCA.
     /// </summary>
     [IsoId("_0OHUADLREeGkgP4mOiMAHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commemorative Dividend Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CommrtvDvddFlg")]
     #endif
+    [IsoXmlTag("CommrtvDvddFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CommemorativeDividendFlag { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CommemorativeDividendFlag { get; init; } 
+    public required System.String CommemorativeDividendFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CommemorativeDividendFlag { get; init; } 
     #else
@@ -120,16 +116,16 @@ public partial record DividendTypeFormat4SD1
     /// SpecialDividendFlag can only be used with corporate action event type code DVCA.
     /// </summary>
     [IsoId("_f6l7ADLSEeGkgP4mOiMAHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Special Dividend Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpclDvddFlg")]
     #endif
+    [IsoXmlTag("SpclDvddFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator SpecialDividendFlag { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SpecialDividendFlag { get; init; } 
+    public required System.String SpecialDividendFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SpecialDividendFlag { get; init; } 
     #else

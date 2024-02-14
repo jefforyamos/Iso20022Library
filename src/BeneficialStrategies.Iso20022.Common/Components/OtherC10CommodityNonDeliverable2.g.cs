@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines commodity sub-product attributes of an other c10 of type non-deliverable.
 /// </summary>
 [IsoId("_lcX3YXvyEeanCNPcMT7sSg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other C 10 Commodity Non Deliverable")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record OtherC10CommodityNonDeliverable2
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
     [IsoId("_llSi0XvyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BasePdct")]
     #endif
+    [IsoXmlTag("BasePdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassProductType11Code BaseProduct { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AssetClassProductType11Code BaseProduct { get; init; } 
+    public required AssetClassProductType11Code BaseProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AssetClassProductType11Code BaseProduct { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record OtherC10CommodityNonDeliverable2
     /// Sub-product for the underlying asset class.
     /// </summary>
     [IsoId("_llTJ4XvyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubPdct")]
     #endif
+    [IsoXmlTag("SubPdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassSubProductType48Code? SubProduct { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

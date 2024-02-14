@@ -21,7 +21,7 @@ public enum ATMMediaType2Code
 {
     /// <summary>
     /// Card media.
-    /// Encoded/decoded by serializers as "CARD".
+    /// Encoded/decoded by serializers as &quot;CARD&quot;.
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_p3YXEa4CEeWL1uap3dNhCQ")]
@@ -30,7 +30,7 @@ public enum ATMMediaType2Code
     
     /// <summary>
     /// Coin media.
-    /// Encoded/decoded by serializers as "COIN".
+    /// Encoded/decoded by serializers as &quot;COIN&quot;.
     /// </summary>
     [EnumMember(Value = "COIN")]
     [IsoId("_p3YXE64CEeWL1uap3dNhCQ")]
@@ -39,7 +39,7 @@ public enum ATMMediaType2Code
     
     /// <summary>
     /// Non fixed value of the media, for instance gold, silver.
-    /// Encoded/decoded by serializers as "CMDT".
+    /// Encoded/decoded by serializers as &quot;CMDT&quot;.
     /// </summary>
     [EnumMember(Value = "CMDT")]
     [IsoId("_p3YXFa4CEeWL1uap3dNhCQ")]
@@ -48,7 +48,7 @@ public enum ATMMediaType2Code
     
     /// <summary>
     /// Coupon media.
-    /// Encoded/decoded by serializers as "CPNS".
+    /// Encoded/decoded by serializers as &quot;CPNS&quot;.
     /// </summary>
     [EnumMember(Value = "CPNS")]
     [IsoId("_p3YXF64CEeWL1uap3dNhCQ")]
@@ -57,7 +57,7 @@ public enum ATMMediaType2Code
     
     /// <summary>
     /// Bank note media.
-    /// Encoded/decoded by serializers as "NOTE".
+    /// Encoded/decoded by serializers as &quot;NOTE&quot;.
     /// </summary>
     [EnumMember(Value = "NOTE")]
     [IsoId("_p3YXGa4CEeWL1uap3dNhCQ")]
@@ -66,7 +66,7 @@ public enum ATMMediaType2Code
     
     /// <summary>
     /// Stamp media.
-    /// Encoded/decoded by serializers as "STMP".
+    /// Encoded/decoded by serializers as &quot;STMP&quot;.
     /// </summary>
     [EnumMember(Value = "STMP")]
     [IsoId("_p3YXG64CEeWL1uap3dNhCQ")]
@@ -75,7 +75,7 @@ public enum ATMMediaType2Code
     
     /// <summary>
     /// Undetermined medias.
-    /// Encoded/decoded by serializers as "UDTM".
+    /// Encoded/decoded by serializers as &quot;UDTM&quot;.
     /// </summary>
     [EnumMember(Value = "UDTM")]
     [IsoId("_p3YXHa4CEeWL1uap3dNhCQ")]
@@ -84,7 +84,7 @@ public enum ATMMediaType2Code
     
     /// <summary>
     /// Check media.
-    /// Encoded/decoded by serializers as "CHCK".
+    /// Encoded/decoded by serializers as &quot;CHCK&quot;.
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_thyzUa4CEeWL1uap3dNhCQ")]

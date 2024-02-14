@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"Scope|The FinancialInstitutionToFinancialInstitutionCustomerCreditTransfer message is sent by the debtor agent to the creditor agent, directly or through other agents and/or a payment clearing and settlement system. It is used to move funds from a debtor account to a creditor.|Usage|The FIToFICustomerCreditTransfer message is exchanged between agents and can contain one or more customer credit transfer instructions.|The FIToFICustomerCreditTransfer message does not allow for grouping: a CreditTransferTransactionInformation block must be present for each credit transfer transaction.|The FIToFICustomerCreditTransfer message can be used in different ways:|- If the instructing agent and the instructed agent wish to use their direct account relationship in the currency of the transfer then the message contains both the funds for the customer transfer(s) as well as the payment details;|- If the instructing agent and the instructed agent have no direct account relationship in the currency of the transfer, or do not wish to use their account relationship, then other (reimbursement) agents will be involved to cover for the customer transfer(s). The FIToFICustomerCreditTransfer contains only the payment details and the instructing agent must cover the customer transfer by sending a FinancialInstitutionCreditTransfer to a reimbursement agent. This payment method is called the Cover method;|- If more than two financial institutions are involved in the payment chain and if the FIToFICustomerCreditTransfer is sent from one financial institution to the next financial institution in the payment chain, then the payment method is called the Serial method.|The FIToFICustomerCreditTransfer message can be used in domestic and cross-border scenarios.")]
 [IsoId("_ehlmftEuEd-BzquC8wXy7w_1416831280")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("FI To FI Customer Credit Transfer V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record FIToFICustomerCreditTransferV02 : IOuterRecord<FIToFICusto
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_ehlmf9EuEd-BzquC8wXy7w_1416831536")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader33 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader33 GroupHeader { get; init; } 
+    public required GroupHeader33 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader33 GroupHeader { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record FIToFICustomerCreditTransferV02 : IOuterRecord<FIToFICusto
     /// Set of elements providing information specific to the individual credit transfer(s).
     /// </summary>
     [IsoId("_ehvXcNEuEd-BzquC8wXy7w_1416831589")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Transfer Transaction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtTrfTxInf")]
     #endif
+    [IsoXmlTag("CdtTrfTxInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditTransferTransactionInformation11 CreditTransferTransactionInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditTransferTransactionInformation11 CreditTransferTransactionInformation { get; init; } 
+    public required CreditTransferTransactionInformation11 CreditTransferTransactionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditTransferTransactionInformation11 CreditTransferTransactionInformation { get; init; } 
     #else
@@ -125,7 +121,7 @@ public partial record FIToFICustomerCreditTransferV02 : IOuterRecord<FIToFICusto
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FIToFICustomerCreditTransferV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FIToFICustomerCreditTransferV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FIToFICustomerCreditTransferV02Document ToDocument()
     {
@@ -135,7 +131,7 @@ public partial record FIToFICustomerCreditTransferV02 : IOuterRecord<FIToFICusto
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFICustomerCreditTransferV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FIToFICustomerCreditTransferV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FIToFICustomerCreditTransferV02Document : IOuterDocument<FIToFICustomerCreditTransferV02>
@@ -152,7 +148,7 @@ public partial record FIToFICustomerCreditTransferV02Document : IOuterDocument<F
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FIToFICustomerCreditTransferV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FIToFICustomerCreditTransferV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FIToFICustomerCreditTransferV02 Message { get; init; }

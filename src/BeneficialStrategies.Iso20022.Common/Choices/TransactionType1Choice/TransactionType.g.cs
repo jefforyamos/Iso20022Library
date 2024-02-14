@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1Choice
     /// Type of investment fund transaction.
     /// </summary>
     [IsoId("_OAv0gAf_EeSaceXTzyiZRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

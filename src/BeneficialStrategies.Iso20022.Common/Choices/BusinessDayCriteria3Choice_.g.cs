@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BusinessDayCriteria3Choice.QueryName))]
     [KnownType(typeof(BusinessDayCriteria3Choice.NewCriteria))]
     [IsoId("_x84MZ5lcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Day Criteria 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

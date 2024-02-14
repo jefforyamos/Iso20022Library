@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Event notification type and status.
 /// </summary>
 [IsoId("_9QWS-67OEemG7MmivSuE5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification General Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NotificationGeneralInformation1
     /// Type of notification.
     /// </summary>
     [IsoId("_9QWS_a7OEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnTp")]
     #endif
+    [IsoXmlTag("NtfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationType3Code NotificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NotificationType3Code NotificationType { get; init; } 
+    public required NotificationType3Code NotificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NotificationType3Code NotificationType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record NotificationGeneralInformation1
     /// Status of the details of the event.
     /// </summary>
     [IsoId("_9QgD8K7OEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnSts")]
     #endif
+    [IsoXmlTag("NtfctnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventStatus1 NotificationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EventStatus1 NotificationStatus { get; init; } 
+    public required EventStatus1 NotificationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EventStatus1 NotificationStatus { get; init; } 
     #else

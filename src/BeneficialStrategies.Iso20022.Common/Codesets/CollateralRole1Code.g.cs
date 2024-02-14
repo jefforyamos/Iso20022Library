@@ -21,7 +21,7 @@ public enum CollateralRole1Code
 {
     /// <summary>
     /// Collateral giver.
-    /// Encoded/decoded by serializers as "GIVE".
+    /// Encoded/decoded by serializers as &quot;GIVE&quot;.
     /// </summary>
     [EnumMember(Value = "GIVE")]
     [IsoId("_qHyVISDCEeaned5xL18mUQ")]
@@ -30,7 +30,7 @@ public enum CollateralRole1Code
     
     /// <summary>
     /// Collateral taker. 
-    /// Encoded/decoded by serializers as "TAKE".
+    /// Encoded/decoded by serializers as &quot;TAKE&quot;.
     /// </summary>
     [EnumMember(Value = "TAKE")]
     [IsoId("_qPOZ4SDCEeaned5xL18mUQ")]

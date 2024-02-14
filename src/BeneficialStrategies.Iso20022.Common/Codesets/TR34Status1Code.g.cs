@@ -21,7 +21,7 @@ public enum TR34Status1Code
 {
     /// <summary>
     /// The device is bound.
-    /// Encoded/decoded by serializers as "BUND".
+    /// Encoded/decoded by serializers as &quot;BUND&quot;.
     /// </summary>
     [EnumMember(Value = "BUND")]
     [IsoId("_MpMAQbTjEeeQy4o2AayYHg")]
@@ -30,7 +30,7 @@ public enum TR34Status1Code
     
     /// <summary>
     /// The device is unbound.
-    /// Encoded/decoded by serializers as "UBND".
+    /// Encoded/decoded by serializers as &quot;UBND&quot;.
     /// </summary>
     [EnumMember(Value = "UBND")]
     [IsoId("_MtU5YbTjEeeQy4o2AayYHg")]

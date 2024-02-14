@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a related settlement instruction.
 /// </summary>
 [IsoId("_oefNAC2sEeuVt5XRmyhHiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Related Settlement Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record RelatedSettlementInstruction1
     /// Unambiguous identification of the related settlement instruction assigned by the account holder.
     /// </summary>
     [IsoId("_cx_1YNvWEeqmdMJWobugpw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Settlement Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdSttlmInstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdSttlmInstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RelatedSettlementInstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RelatedSettlementInstructionIdentification { get; init; } 
+    public required System.String RelatedSettlementInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RelatedSettlementInstructionIdentification { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record RelatedSettlementInstruction1
     /// Quantity of securities for which the market claim has been raised.
     /// </summary>
     [IsoId("_Fr_pAC2tEeuVt5XRmyhHiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Settlement Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdSttlmQty")]
     #endif
+    [IsoXmlTag("RltdSttlmQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity18Choice_? RelatedSettlementQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

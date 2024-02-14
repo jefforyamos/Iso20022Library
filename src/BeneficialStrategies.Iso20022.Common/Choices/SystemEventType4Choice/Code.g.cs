@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType4Choice
     /// Type of system event that has occurred, expressed in a coded form.
     /// </summary>
     [IsoId("_eFPKI3hkEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType4Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalSystemEventType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalSystemEventType1Code Value { get; init; } 
+        public required ExternalSystemEventType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalSystemEventType1Code Value { get; init; } 
         #else

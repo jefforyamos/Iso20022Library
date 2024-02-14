@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationStatus1Choice
     /// Liquidity transfer request type, in a coded form.
     /// </summary>
     [IsoId("_8JAUFqMgEeCJ6YNENx4h-w_2012662901")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationStatus1Choice
         /// Specifies the current status of a limit.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ReservationStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ReservationStatus1Code Value { get; init; } 
+        public required ReservationStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ReservationStatus1Code Value { get; init; } 
         #else

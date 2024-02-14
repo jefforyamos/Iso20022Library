@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates in which direction the intention is to transfer the ownership of a financial instrument.
 /// </summary>
 [IsoId("_S4XSQNp-Ed-ak6NoX_4Aeg_2090952843")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Order Side")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record OrderSide1
     /// Coded list to specify the side of the order.
     /// </summary>
     [IsoId("_S4XSQdp-Ed-ak6NoX_4Aeg_2133432264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sd")]
     #endif
+    [IsoXmlTag("Sd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Side1Code? Side { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record OrderSide1
     /// Indicates whether the status request is applicable for all orders.|Yes = all orders|No = status for orders matching certain criteria further specified in this message.
     /// </summary>
     [IsoId("_S4XSQtp-Ed-ak6NoX_4Aeg_-2032239627")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Orders Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllOrdrsInd")]
     #endif
+    [IsoXmlTag("AllOrdrsInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AllOrdersIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

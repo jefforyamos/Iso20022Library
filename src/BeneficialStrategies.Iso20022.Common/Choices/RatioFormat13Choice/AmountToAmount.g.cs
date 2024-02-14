@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat13Choice
     /// Ratio expressed as a quotient of amounts.
     /// </summary>
     [IsoId("_fejJFQgYEeCVlvYcV4HKqQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount To Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat13Choice
         /// Numerator of the quotient of amounts.
         /// </summary>
         [IsoId("_WPPHetp-Ed-ak6NoX_4Aeg_-917310424")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt1")]
         #endif
+        [IsoXmlTag("Amt1")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount1 { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount1 { get; init; } 
+        public required System.Decimal Amount1 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount1 { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat13Choice
         /// Denominator of the quotient of amounts.
         /// </summary>
         [IsoId("_WPPHe9p-Ed-ak6NoX_4Aeg_1383512166")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt2")]
         #endif
+        [IsoXmlTag("Amt2")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount2 { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount2 { get; init; } 
+        public required System.Decimal Amount2 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount2 { get; init; } 
         #else

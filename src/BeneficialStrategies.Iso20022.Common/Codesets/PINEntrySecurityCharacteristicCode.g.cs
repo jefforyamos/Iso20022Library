@@ -21,7 +21,7 @@ public enum PINEntrySecurityCharacteristicCode
 {
     /// <summary>
     /// PIN entry is protected via a secure hardware solution.
-    /// Encoded/decoded by serializers as "SECH".
+    /// Encoded/decoded by serializers as &quot;SECH&quot;.
     /// </summary>
     [EnumMember(Value = "SECH")]
     [IsoId("_ZexIcKH3EeuiuNcvKhXmNQ")]
@@ -30,7 +30,7 @@ public enum PINEntrySecurityCharacteristicCode
     
     /// <summary>
     /// PIN entry is protected via an approved software solution.
-    /// Encoded/decoded by serializers as "SECS".
+    /// Encoded/decoded by serializers as &quot;SECS&quot;.
     /// </summary>
     [EnumMember(Value = "SECS")]
     [IsoId("_tKYXcKH3EeuiuNcvKhXmNQ")]
@@ -39,7 +39,7 @@ public enum PINEntrySecurityCharacteristicCode
     
     /// <summary>
     /// Other nationally assigned code.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_AsLjIKH4EeuiuNcvKhXmNQ")]
@@ -48,7 +48,7 @@ public enum PINEntrySecurityCharacteristicCode
     
     /// <summary>
     /// Other privately assigned code.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_FOFBAKH4EeuiuNcvKhXmNQ")]

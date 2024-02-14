@@ -21,7 +21,7 @@ public enum TransactionEnvironmentCode
 {
     /// <summary>
     /// Merchant environment.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TVWQDAEcEeCQm6a_G2yO_w_-194113759")]
@@ -30,7 +30,7 @@ public enum TransactionEnvironmentCode
     
     /// <summary>
     /// Private environment.
-    /// Encoded/decoded by serializers as "PRIV".
+    /// Encoded/decoded by serializers as &quot;PRIV&quot;.
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_TVWQDQEcEeCQm6a_G2yO_w_1617784466")]
@@ -39,7 +39,7 @@ public enum TransactionEnvironmentCode
     
     /// <summary>
     /// Public environment.
-    /// Encoded/decoded by serializers as "PUBL".
+    /// Encoded/decoded by serializers as &quot;PUBL&quot;.
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_TVWQDgEcEeCQm6a_G2yO_w_-226084523")]
@@ -48,7 +48,7 @@ public enum TransactionEnvironmentCode
     
     /// <summary>
     /// Bank environment.
-    /// Encoded/decoded by serializers as "BRCH".
+    /// Encoded/decoded by serializers as &quot;BRCH&quot;.
     /// </summary>
     [EnumMember(Value = "BRCH")]
     [IsoId("_qPp6oHsIEeSR68OJvMfxJQ")]
@@ -57,7 +57,7 @@ public enum TransactionEnvironmentCode
     
     /// <summary>
     /// Other environments, for instance a mall or an airport.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ttxAQHsIEeSR68OJvMfxJQ")]

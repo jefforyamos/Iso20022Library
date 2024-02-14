@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// </summary>
 [Description(@"Update of the acceptor configuration to be dowloaded by the terminal management system.")]
 [IsoId("_TsQpkTZ8EeOP_KvUKe29ng")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Configuration Update V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record AcceptorConfigurationUpdateV03 : IOuterRecord<AcceptorConf
     /// Set of characteristics related to the transfer of the acceptor parameters.
     /// </summary>
     [IsoId("_TsQpkzZ8EeOP_KvUKe29ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header4 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header4 Header { get; init; } 
+    public required Header4 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header4 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record AcceptorConfigurationUpdateV03 : IOuterRecord<AcceptorConf
     /// Acceptor configuration to be downloaded from the terminal management system.
     /// </summary>
     [IsoId("_TsQplTZ8EeOP_KvUKe29ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acceptor Configuration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptrCfgtn")]
     #endif
+    [IsoXmlTag("AccptrCfgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorConfiguration3 AcceptorConfiguration { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorConfiguration3 AcceptorConfiguration { get; init; } 
+    public required AcceptorConfiguration3 AcceptorConfiguration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorConfiguration3 AcceptorConfiguration { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record AcceptorConfigurationUpdateV03 : IOuterRecord<AcceptorConf
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_TsQplzZ8EeOP_KvUKe29ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType9 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType9 SecurityTrailer { get; init; } 
+    public required ContentInformationType9 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType9 SecurityTrailer { get; init; } 
     #else
@@ -137,7 +132,7 @@ public partial record AcceptorConfigurationUpdateV03 : IOuterRecord<AcceptorConf
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorConfigurationUpdateV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorConfigurationUpdateV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorConfigurationUpdateV03Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record AcceptorConfigurationUpdateV03 : IOuterRecord<AcceptorConf
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorConfigurationUpdateV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorConfigurationUpdateV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorConfigurationUpdateV03Document : IOuterDocument<AcceptorConfigurationUpdateV03>
@@ -164,7 +159,7 @@ public partial record AcceptorConfigurationUpdateV03Document : IOuterDocument<Ac
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorConfigurationUpdateV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorConfigurationUpdateV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorConfigurationUpdateV03 Message { get; init; }

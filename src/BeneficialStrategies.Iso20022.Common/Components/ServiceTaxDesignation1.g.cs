@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Designates the tax calculation to be applied on a service.
 /// </summary>
 [IsoId("_6RJWjpqlEeGSON8vddiWzQ_-263337197")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Service Tax Designation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ServiceTaxDesignation1
     /// Identifies the taxable status of the service.
     /// </summary>
     [IsoId("_6RJWj5qlEeGSON8vddiWzQ_1442912136")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ServiceTaxDesignation1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ServiceTaxDesignation1Code Code { get; init; } 
+    public required ServiceTaxDesignation1Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ServiceTaxDesignation1Code Code { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record ServiceTaxDesignation1
     /// Defines the tax region associated with the service. This element must be present if taxes are involved with any portion of the statement.
     /// </summary>
     [IsoId("_6RJWkJqlEeGSON8vddiWzQ_115283382")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Region")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rgn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rgn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Region { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record ServiceTaxDesignation1
     /// Provides free form explanations of the various tax codes used within the statement.
     /// </summary>
     [IsoId("_6RSgcJqlEeGSON8vddiWzQ_1740386990")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRsn")]
     #endif
+    [IsoXmlTag("TaxRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReason1? TaxReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

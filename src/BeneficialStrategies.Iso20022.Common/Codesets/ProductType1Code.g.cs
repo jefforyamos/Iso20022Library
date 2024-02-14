@@ -21,7 +21,7 @@ public enum ProductType1Code
 {
     /// <summary>
     /// Identifies categories of instruments issued by federal agencies.
-    /// Encoded/decoded by serializers as "AGEN".
+    /// Encoded/decoded by serializers as &quot;AGEN&quot;.
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_ZWKcItp-Ed-ak6NoX_4Aeg_-1124617360")]
@@ -30,7 +30,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of instruments that are commodities.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_ZWKcI9p-Ed-ak6NoX_4Aeg_-1124617335")]
@@ -39,7 +39,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of instruments issued by corporates.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_ZWKcJNp-Ed-ak6NoX_4Aeg_-1124617334")]
@@ -48,7 +48,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of currency instruments.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_ZWKcJdp-Ed-ak6NoX_4Aeg_-1124617318")]
@@ -57,7 +57,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_ZWKcJtp-Ed-ak6NoX_4Aeg_-1124617317")]
@@ -66,7 +66,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of obligations issued by a government.
-    /// Encoded/decoded by serializers as "GOVE".
+    /// Encoded/decoded by serializers as &quot;GOVE&quot;.
     /// </summary>
     [EnumMember(Value = "GOVE")]
     [IsoId("_ZWKcJ9p-Ed-ak6NoX_4Aeg_-1124617300")]
@@ -75,7 +75,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of loans.
-    /// Encoded/decoded by serializers as "LOAN".
+    /// Encoded/decoded by serializers as &quot;LOAN&quot;.
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_ZWKcKNp-Ed-ak6NoX_4Aeg_-1124617282")]
@@ -84,7 +84,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of short-term debt securities maturing in less than one year.
-    /// Encoded/decoded by serializers as "MOMA".
+    /// Encoded/decoded by serializers as &quot;MOMA&quot;.
     /// </summary>
     [EnumMember(Value = "MOMA")]
     [IsoId("_ZWKcKdp-Ed-ak6NoX_4Aeg_-1124617265")]
@@ -93,7 +93,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of mortgage securities.
-    /// Encoded/decoded by serializers as "MORT".
+    /// Encoded/decoded by serializers as &quot;MORT&quot;.
     /// </summary>
     [EnumMember(Value = "MORT")]
     [IsoId("_ZWUNINp-Ed-ak6NoX_4Aeg_-1124617264")]
@@ -102,7 +102,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of securities issued by states and local governments.
-    /// Encoded/decoded by serializers as "MUNI".
+    /// Encoded/decoded by serializers as &quot;MUNI&quot;.
     /// </summary>
     [EnumMember(Value = "MUNI")]
     [IsoId("_ZWUNIdp-Ed-ak6NoX_4Aeg_-1124617240")]
@@ -111,7 +111,7 @@ public enum ProductType1Code
     
     /// <summary>
     /// Identifies categories of financing instruments.
-    /// Encoded/decoded by serializers as "FINA".
+    /// Encoded/decoded by serializers as &quot;FINA&quot;.
     /// </summary>
     [EnumMember(Value = "FINA")]
     [IsoId("_ZWUNItp-Ed-ak6NoX_4Aeg_-1124617223")]

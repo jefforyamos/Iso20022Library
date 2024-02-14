@@ -21,7 +21,7 @@ public enum Frequency3Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_YajviNp-Ed-ak6NoX_4Aeg_-13891401")]
@@ -30,7 +30,7 @@ public enum Frequency3Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_YatggNp-Ed-ak6NoX_4Aeg_1480230163")]
@@ -39,7 +39,7 @@ public enum Frequency3Code
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QURT".
+    /// Encoded/decoded by serializers as &quot;QURT&quot;.
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_Yatggdp-Ed-ak6NoX_4Aeg_-363638826")]
@@ -48,7 +48,7 @@ public enum Frequency3Code
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "MIAN".
+    /// Encoded/decoded by serializers as &quot;MIAN&quot;.
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_Yatggtp-Ed-ak6NoX_4Aeg_397126327")]
@@ -57,7 +57,7 @@ public enum Frequency3Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_Yatgg9p-Ed-ak6NoX_4Aeg_79349666")]
@@ -66,7 +66,7 @@ public enum Frequency3Code
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_YatghNp-Ed-ak6NoX_4Aeg_-34489400")]
@@ -75,7 +75,7 @@ public enum Frequency3Code
     
     /// <summary>
     /// Event takes place every ten business days.
-    /// Encoded/decoded by serializers as "TEND".
+    /// Encoded/decoded by serializers as &quot;TEND&quot;.
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_Yatghdp-Ed-ak6NoX_4Aeg_1685625308")]

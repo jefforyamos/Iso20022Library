@@ -21,7 +21,7 @@ public enum AccountLevel2Code
 {
     /// <summary>
     /// Intermediate level within an account hierarchy.
-    /// Encoded/decoded by serializers as "INTM".
+    /// Encoded/decoded by serializers as &quot;INTM&quot;.
     /// </summary>
     [EnumMember(Value = "INTM")]
     [IsoId("_6Uas95qlEeGSON8vddiWzQ_-77486222")]
@@ -30,7 +30,7 @@ public enum AccountLevel2Code
     
     /// <summary>
     /// Highest level within an account hierarchy.
-    /// Encoded/decoded by serializers as "SMRY".
+    /// Encoded/decoded by serializers as &quot;SMRY&quot;.
     /// </summary>
     [EnumMember(Value = "SMRY")]
     [IsoId("_6Ukd8JqlEeGSON8vddiWzQ_1446759063")]
@@ -39,7 +39,7 @@ public enum AccountLevel2Code
     
     /// <summary>
     /// Account is a real deposit/current account.
-    /// Encoded/decoded by serializers as "DETL".
+    /// Encoded/decoded by serializers as &quot;DETL&quot;.
     /// </summary>
     [EnumMember(Value = "DETL")]
     [IsoId("_6Ukd8ZqlEeGSON8vddiWzQ_-2087443080")]

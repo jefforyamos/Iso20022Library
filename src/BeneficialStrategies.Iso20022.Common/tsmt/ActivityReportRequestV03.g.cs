@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The ActivityReportRequest message is sent by any party involved in a transaction to the matching application.|This message is used to request a report on all transactions for which an activity has taken place within a given time span.|Usage|The ActivityReportRequest message can be sent|- at a pre-determined time. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within the last 24 hours.|- on demand. The message requests a report on all transactions that the requester is involved in and for which an activity has taken place within a time span specified by the requester.")]
 [IsoId("_iE0UQNE8Ed-BzquC8wXy7w_1228841128")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Activity Report Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record ActivityReportRequestV03 : IOuterRecord<ActivityReportRequ
     /// Identifies the request message.
     /// </summary>
     [IsoId("_iE0UQdE8Ed-BzquC8wXy7w_1228841159")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqId")]
     #endif
+    [IsoXmlTag("ReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RequestIdentification { get; init; } 
+    public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RequestIdentification { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record ActivityReportRequestV03 : IOuterRecord<ActivityReportRequ
     /// Specifies the entities of the submitter for which the activities have to be reported.
     /// </summary>
     [IsoId("_iE0UQtE8Ed-BzquC8wXy7w_1228841591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entities To Be Reported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NttiesToBeRptd")]
     #endif
+    [IsoXmlTag("NttiesToBeRptd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BICIdentification1? EntitiesToBeReported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,16 +116,15 @@ public partial record ActivityReportRequestV03 : IOuterRecord<ActivityReportRequ
     /// Specifies the period for which activities have to be reported.
     /// </summary>
     [IsoId("_iE0UQ9E8Ed-BzquC8wXy7w_1228841529")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptPrd")]
     #endif
+    [IsoXmlTag("RptPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateTimePeriodDetails1 ReportPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateTimePeriodDetails1 ReportPeriod { get; init; } 
+    public required DateTimePeriodDetails1 ReportPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateTimePeriodDetails1 ReportPeriod { get; init; } 
     #else
@@ -140,7 +135,7 @@ public partial record ActivityReportRequestV03 : IOuterRecord<ActivityReportRequ
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ActivityReportRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ActivityReportRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ActivityReportRequestV03Document ToDocument()
     {
@@ -150,7 +145,7 @@ public partial record ActivityReportRequestV03 : IOuterRecord<ActivityReportRequ
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ActivityReportRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ActivityReportRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ActivityReportRequestV03Document : IOuterDocument<ActivityReportRequestV03>
@@ -167,7 +162,7 @@ public partial record ActivityReportRequestV03Document : IOuterDocument<Activity
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ActivityReportRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ActivityReportRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActivityReportRequestV03 Message { get; init; }

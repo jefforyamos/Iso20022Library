@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectionOrRepairStatus4Choice.NoSpecifiedReason))]
     [KnownType(typeof(RejectionOrRepairStatus4Choice.Reason))]
     [IsoId("_UUmmwtp-Ed-ak6NoX_4Aeg_2139855666")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Or Repair Status 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

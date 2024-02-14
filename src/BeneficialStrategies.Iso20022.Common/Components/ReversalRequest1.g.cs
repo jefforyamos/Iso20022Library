@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data to request a Reversal.
 /// </summary>
 [IsoId("_bclOENuGEeiB5uLfkg9ZJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reversal Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ReversalRequest1
     /// Original transaction to reverse.
     /// </summary>
     [IsoId("_kIAtINuGEeiB5uLfkg9ZJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtTx")]
     #endif
+    [IsoXmlTag("OrgnlPmtTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction91? OriginalPaymentTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record ReversalRequest1
     /// Reason for this reversal.
     /// </summary>
     [IsoId("_pHwkoNuGEeiB5uLfkg9ZJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslRsn")]
     #endif
+    [IsoXmlTag("RvslRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReversalReason1Code ReversalReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReversalReason1Code ReversalReason { get; init; } 
+    public required ReversalReason1Code ReversalReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReversalReason1Code ReversalReason { get; init; } 
     #else
@@ -89,12 +85,12 @@ public partial record ReversalRequest1
     /// Amount to reverse (total or partial).
     /// </summary>
     [IsoId("_OsLBMNuHEeiB5uLfkg9ZJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvsdAmt")]
     #endif
+    [IsoXmlTag("RvsdAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record ReversalRequest1
     /// Specific Customer Order linked with the reversal.
     /// </summary>
     [IsoId("_SDiloNuHEeiB5uLfkg9ZJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrOrdr")]
     #endif
+    [IsoXmlTag("CstmrOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerOrder1? CustomerOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

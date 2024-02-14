@@ -21,7 +21,7 @@ public enum FinancialInstrumentContractType2Code
 {
     /// <summary>
     /// Contract of type contracts for difference.
-    /// Encoded/decoded by serializers as "CFDS".
+    /// Encoded/decoded by serializers as &quot;CFDS&quot;.
     /// </summary>
     [EnumMember(Value = "CFDS")]
     [IsoId("_6FDLkZHrEeabEPkKgPJPcA")]
@@ -30,7 +30,7 @@ public enum FinancialInstrumentContractType2Code
     
     /// <summary>
     /// Contract of type forward rate agreement.
-    /// Encoded/decoded by serializers as "FRAS".
+    /// Encoded/decoded by serializers as &quot;FRAS&quot;.
     /// </summary>
     [EnumMember(Value = "FRAS")]
     [IsoId("_6mlLUZHrEeabEPkKgPJPcA")]
@@ -39,7 +39,7 @@ public enum FinancialInstrumentContractType2Code
     
     /// <summary>
     /// Contract of type future.
-    /// Encoded/decoded by serializers as "FUTR".
+    /// Encoded/decoded by serializers as &quot;FUTR&quot;.
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("_7jFP0ZHrEeabEPkKgPJPcA")]
@@ -48,7 +48,7 @@ public enum FinancialInstrumentContractType2Code
     
     /// <summary>
     /// Contract of type forward.
-    /// Encoded/decoded by serializers as "FORW".
+    /// Encoded/decoded by serializers as &quot;FORW&quot;.
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_8OmSAZHrEeabEPkKgPJPcA")]
@@ -57,7 +57,7 @@ public enum FinancialInstrumentContractType2Code
     
     /// <summary>
     /// Contract of type option.
-    /// Encoded/decoded by serializers as "OPTN".
+    /// Encoded/decoded by serializers as &quot;OPTN&quot;.
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_8o0v4ZHrEeabEPkKgPJPcA")]
@@ -66,7 +66,7 @@ public enum FinancialInstrumentContractType2Code
     
     /// <summary>
     /// Contract of type spread betting.
-    /// Encoded/decoded by serializers as "SPDB".
+    /// Encoded/decoded by serializers as &quot;SPDB&quot;.
     /// </summary>
     [EnumMember(Value = "SPDB")]
     [IsoId("_9HN8EZHrEeabEPkKgPJPcA")]
@@ -75,7 +75,7 @@ public enum FinancialInstrumentContractType2Code
     
     /// <summary>
     /// Contract of type swap.
-    /// Encoded/decoded by serializers as "SWAP".
+    /// Encoded/decoded by serializers as &quot;SWAP&quot;.
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_9yJIYZHrEeabEPkKgPJPcA")]
@@ -84,7 +84,7 @@ public enum FinancialInstrumentContractType2Code
     
     /// <summary>
     /// Contract of type swaption.
-    /// Encoded/decoded by serializers as "SWPT".
+    /// Encoded/decoded by serializers as &quot;SWPT&quot;.
     /// </summary>
     [EnumMember(Value = "SWPT")]
     [IsoId("_-I73wZHrEeabEPkKgPJPcA")]
@@ -93,7 +93,7 @@ public enum FinancialInstrumentContractType2Code
     
     /// <summary>
     /// Contract of other financial instrument contract type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_-oFR4ZHrEeabEPkKgPJPcA")]

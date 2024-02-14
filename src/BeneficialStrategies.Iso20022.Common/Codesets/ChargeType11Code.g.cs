@@ -21,7 +21,7 @@ public enum ChargeType11Code
 {
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BEND".
+    /// Encoded/decoded by serializers as &quot;BEND&quot;.
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_a8ikENp-Ed-ak6NoX_4Aeg_2072866134")]
@@ -30,7 +30,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "FEND".
+    /// Encoded/decoded by serializers as &quot;FEND&quot;.
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a8ikEdp-Ed-ak6NoX_4Aeg_2072866135")]
@@ -39,7 +39,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// In investment funds, charge related to a switch transaction.
-    /// Encoded/decoded by serializers as "SWIT".
+    /// Encoded/decoded by serializers as &quot;SWIT&quot;.
     /// </summary>
     [EnumMember(Value = "SWIT")]
     [IsoId("_a8ikEtp-Ed-ak6NoX_4Aeg_2072866151")]
@@ -48,7 +48,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// In investment funds, a charge payable by the investor covering bid-offer spreads and dealing charges for the underlying investments. The dilution levy is paid to the fund for the benefit of other unit holders.
-    /// Encoded/decoded by serializers as "DLEV".
+    /// Encoded/decoded by serializers as &quot;DLEV&quot;.
     /// </summary>
     [EnumMember(Value = "DLEV")]
     [IsoId("_a8ikE9p-Ed-ak6NoX_4Aeg_2072866169")]
@@ -57,7 +57,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_a8ikFNp-Ed-ak6NoX_4Aeg_2072866170")]
@@ -66,7 +66,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Fee charged to the investor for early redemption of the fund.
-    /// Encoded/decoded by serializers as "PENA".
+    /// Encoded/decoded by serializers as &quot;PENA&quot;.
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_a8ikFdp-Ed-ak6NoX_4Aeg_2072866194")]
@@ -75,7 +75,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_a8ikFtp-Ed-ak6NoX_4Aeg_2072866211")]
@@ -84,7 +84,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
-    /// Encoded/decoded by serializers as "REGF".
+    /// Encoded/decoded by serializers as &quot;REGF&quot;.
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_a8ikF9p-Ed-ak6NoX_4Aeg_2072866229")]
@@ -93,7 +93,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_a8ikGNp-Ed-ak6NoX_4Aeg_2072866230")]
@@ -102,7 +102,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Fee paid for the provision of financial services.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_a8ikGdp-Ed-ak6NoX_4Aeg_2072866254")]
@@ -111,7 +111,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Deferred sales charge.
-    /// Encoded/decoded by serializers as "CDSC".
+    /// Encoded/decoded by serializers as &quot;CDSC&quot;.
     /// </summary>
     [EnumMember(Value = "CDSC")]
     [IsoId("_a8ruANp-Ed-ak6NoX_4Aeg_2072866271")]
@@ -120,7 +120,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// In investment funds, the charge of the correspondent bank for transferring money.
-    /// Encoded/decoded by serializers as "CBCH".
+    /// Encoded/decoded by serializers as &quot;CBCH&quot;.
     /// </summary>
     [EnumMember(Value = "CBCH")]
     [IsoId("_a8ruAdp-Ed-ak6NoX_4Aeg_2072866289")]
@@ -129,7 +129,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
-    /// Encoded/decoded by serializers as "PREM".
+    /// Encoded/decoded by serializers as &quot;PREM&quot;.
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_a8ruAtp-Ed-ak6NoX_4Aeg_2072866306")]
@@ -138,7 +138,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Charge paid at the time of the first subscription.
-    /// Encoded/decoded by serializers as "INIT".
+    /// Encoded/decoded by serializers as &quot;INIT&quot;.
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_a8ruA9p-Ed-ak6NoX_4Aeg_2072866324")]
@@ -147,7 +147,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Fee paid to a broker for services provided.
-    /// Encoded/decoded by serializers as "BRKF".
+    /// Encoded/decoded by serializers as &quot;BRKF&quot;.
     /// </summary>
     [EnumMember(Value = "BRKF")]
     [IsoId("_a8ruBNp-Ed-ak6NoX_4Aeg_520427293")]
@@ -156,7 +156,7 @@ public enum ChargeType11Code
     
     /// <summary>
     /// Charges paid by the investor to the Fund Company for subscription and redemption orders.
-    /// Encoded/decoded by serializers as "UCIC".
+    /// Encoded/decoded by serializers as &quot;UCIC&quot;.
     /// </summary>
     [EnumMember(Value = "UCIC")]
     [IsoId("_a8ruBdp-Ed-ak6NoX_4Aeg_989573292")]

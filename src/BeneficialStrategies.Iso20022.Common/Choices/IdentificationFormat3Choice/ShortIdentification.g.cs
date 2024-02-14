@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationFormat3Choice
     /// Format expressed as a short identification.
     /// </summary>
     [IsoId("_qmP-cUEFEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationFormat3Choice
         /// Specifies an upper case alphanumeric string with a length of three characters.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ShrtId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("ShrtId")]
+        [IsoSimpleType(IsoSimpleType.Exact3UpperCaseAlphaNumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExact3UpperCaseAlphaNumericText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

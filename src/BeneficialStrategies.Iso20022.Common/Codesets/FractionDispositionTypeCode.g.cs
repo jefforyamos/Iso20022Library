@@ -21,7 +21,7 @@ public enum FractionDispositionTypeCode
 {
     /// <summary>
     /// Buy securities up to next whole number.
-    /// Encoded/decoded by serializers as "BUYU".
+    /// Encoded/decoded by serializers as &quot;BUYU&quot;.
     /// </summary>
     [EnumMember(Value = "BUYU")]
     [IsoId("_arsrtNp-Ed-ak6NoX_4Aeg_1809424364")]
@@ -30,7 +30,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Fractional part of cash. Take cash in lieu of fractions.
-    /// Encoded/decoded by serializers as "CINL".
+    /// Encoded/decoded by serializers as &quot;CINL&quot;.
     /// </summary>
     [EnumMember(Value = "CINL")]
     [IsoId("_arsrtdp-Ed-ak6NoX_4Aeg_-1469668539")]
@@ -39,7 +39,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Pre-allocate shares only if fully dealt.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_arsrttp-Ed-ak6NoX_4Aeg_-2052994838")]
@@ -48,7 +48,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// No fractional shares are allowed.
-    /// Encoded/decoded by serializers as "NOFR".
+    /// Encoded/decoded by serializers as &quot;NOFR&quot;.
     /// </summary>
     [EnumMember(Value = "NOFR")]
     [IsoId("_ar2csNp-Ed-ak6NoX_4Aeg_-2052994807")]
@@ -57,7 +57,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// In case of a partial fill, pro-rate the allocations.
-    /// Encoded/decoded by serializers as "PROR".
+    /// Encoded/decoded by serializers as &quot;PROR&quot;.
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_ar2csdp-Ed-ak6NoX_4Aeg_-2052994746")]
@@ -66,7 +66,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDUP".
+    /// Encoded/decoded by serializers as &quot;RDUP&quot;.
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_ar2cstp-Ed-ak6NoX_4Aeg_-2052994684")]
@@ -75,7 +75,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDDN".
+    /// Encoded/decoded by serializers as &quot;RDDN&quot;.
     /// </summary>
     [EnumMember(Value = "RDDN")]
     [IsoId("_ar2cs9p-Ed-ak6NoX_4Aeg_-2052994623")]
@@ -84,7 +84,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_ar2ctNp-Ed-ak6NoX_4Aeg_-2052994345")]
@@ -93,7 +93,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_ar2ctdp-Ed-ak6NoX_4Aeg_-2052994314")]
@@ -102,7 +102,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Do not pro-rate; discuss first.
-    /// Encoded/decoded by serializers as "TALK".
+    /// Encoded/decoded by serializers as &quot;TALK&quot;.
     /// </summary>
     [EnumMember(Value = "TALK")]
     [IsoId("_ar2cttp-Ed-ak6NoX_4Aeg_-2052994253")]
@@ -111,7 +111,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Pre-allocate according to the amounts shown in a linked allocation instruction.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_ar2ct9p-Ed-ak6NoX_4Aeg_-2052994200")]
@@ -120,7 +120,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Indicates that if the fraction is greater than or equal to 0.5 of the value should be rounded up; otherwise rounded down.
-    /// Encoded/decoded by serializers as "SSTD".
+    /// Encoded/decoded by serializers as &quot;SSTD&quot;.
     /// </summary>
     [EnumMember(Value = "SSTD")]
     [IsoId("_ar2cuNp-Ed-ak6NoX_4Aeg_-1405726779")]
@@ -129,7 +129,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Indicates that fractional value should be retained; no rounding.
-    /// Encoded/decoded by serializers as "RETA".
+    /// Encoded/decoded by serializers as &quot;RETA&quot;.
     /// </summary>
     [EnumMember(Value = "RETA")]
     [IsoId("_ar2cudp-Ed-ak6NoX_4Aeg_-1405726719")]
@@ -138,7 +138,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Let fractions expire worthless.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_ar2cutp-Ed-ak6NoX_4Aeg_-1309540572")]
@@ -147,7 +147,7 @@ public enum FractionDispositionTypeCode
     
     /// <summary>
     /// Characteristics of the disposition of fractions are unknown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ar_moNp-Ed-ak6NoX_4Aeg_-831003678")]

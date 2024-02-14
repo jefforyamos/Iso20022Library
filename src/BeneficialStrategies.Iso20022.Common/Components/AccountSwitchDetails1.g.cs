@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the account switch, including its status and any response codes.
 /// </summary>
 [IsoId("_8m2xcQ2ZEeSNWNtJlXOAhg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Switch Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record AccountSwitchDetails1
     /// Unique number that provides unique and unambiguous identification of the account switch. 
     /// </summary>
     [IsoId("_vm6TwA2aEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnqRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UnqRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text UniqueReferenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String UniqueReferenceNumber { get; init; } 
+    public required System.String UniqueReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String UniqueReferenceNumber { get; init; } 
     #else
@@ -77,19 +73,17 @@ public partial record AccountSwitchDetails1
     /// Usage: Where one or more account switches have taken place since the original account switch this field contains the unique number that relates to the switch that transferred the account to the latest new account servicer.
     /// </summary>
     [IsoId("_cbscEA2aEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Routing Unique Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtgUnqRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RtgUnqRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RoutingUniqueReferenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RoutingUniqueReferenceNumber { get; init; } 
+    public required System.String RoutingUniqueReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RoutingUniqueReferenceNumber { get; init; } 
     #else
@@ -100,12 +94,12 @@ public partial record AccountSwitchDetails1
     /// Date and time that the request was received by the central switch service, populated by the central switch service only.
     /// </summary>
     [IsoId("_f7vbYA2aEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Received Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchRcvdDtTm")]
     #endif
+    [IsoXmlTag("SwtchRcvdDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? SwitchReceivedDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +112,12 @@ public partial record AccountSwitchDetails1
     /// Date on which the account switch is expected to have completed. The value is the same as the targeted switch date if the switch completes in the expected timeline.
     /// </summary>
     [IsoId("_o9RtUA2aEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchDt")]
     #endif
+    [IsoXmlTag("SwtchDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SwitchDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,16 +131,15 @@ public partial record AccountSwitchDetails1
     /// Usage: A full switch indicates the transfer of the full balance of the account and associated payment mandates. A partial switch indicates the transfer of certain payment mandates to a new account.
     /// </summary>
     [IsoId("_jB57EA2aEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchTp")]
     #endif
+    [IsoXmlTag("SwtchTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SwitchType1Code SwitchType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SwitchType1Code SwitchType { get; init; } 
+    public required SwitchType1Code SwitchType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SwitchType1Code SwitchType { get; init; } 
     #else
@@ -157,12 +150,11 @@ public partial record AccountSwitchDetails1
     /// State of the account switch at the time the message is sent.
     /// </summary>
     [IsoId("_mPEaoA2aEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchSts")]
     #endif
+    [IsoXmlTag("SwtchSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SwitchStatus1Code? SwitchStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +167,11 @@ public partial record AccountSwitchDetails1
     /// Identifies the processing window in which the balance transfer will be processed on the day of the account switch.
     /// </summary>
     [IsoId("_s39aMA2aEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Transfer Window")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTrfWndw")]
     #endif
+    [IsoXmlTag("BalTrfWndw")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceTransferWindow1Code? BalanceTransferWindow { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +184,11 @@ public partial record AccountSwitchDetails1
     /// Response code and additional information.
     /// </summary>
     [IsoId("_wTtyIBE7EeafpqhYGpTDnw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspn")]
     #endif
+    [IsoXmlTag("Rspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseDetails1? Response { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum CompanyAssignerCode
 {
     /// <summary>
     /// Associated Canadian Car Rental Operators
-    /// Encoded/decoded by serializers as "ACCR".
+    /// Encoded/decoded by serializers as &quot;ACCR&quot;.
     /// </summary>
     [EnumMember(Value = "ACCR")]
     [IsoId("__paNMFyoEeeve7Je9cXtkQ")]
@@ -30,7 +30,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// American Car Rental Association.
-    /// Encoded/decoded by serializers as "ACRA".
+    /// Encoded/decoded by serializers as &quot;ACRA&quot;.
     /// </summary>
     [EnumMember(Value = "ACRA")]
     [IsoId("_G_hfIFypEeeve7Je9cXtkQ")]
@@ -39,7 +39,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// Any relevant association in charge of assigning an identification to a company.
-    /// Encoded/decoded by serializers as "ASSO".
+    /// Encoded/decoded by serializers as &quot;ASSO&quot;.
     /// </summary>
     [EnumMember(Value = "ASSO")]
     [IsoId("_PcAjQFypEeeve7Je9cXtkQ")]
@@ -48,7 +48,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// Identification assigned by the company itself.
-    /// Encoded/decoded by serializers as "CPNY".
+    /// Encoded/decoded by serializers as &quot;CPNY&quot;.
     /// </summary>
     [EnumMember(Value = "CPNY")]
     [IsoId("_a15MoFypEeeve7Je9cXtkQ")]
@@ -57,7 +57,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// Identification assigned by a travel agency.
-    /// Encoded/decoded by serializers as "TRAG".
+    /// Encoded/decoded by serializers as &quot;TRAG&quot;.
     /// </summary>
     [EnumMember(Value = "TRAG")]
     [IsoId("_g5JvkFypEeeve7Je9cXtkQ")]
@@ -66,7 +66,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// Legal authority assigning an identification to a company (for example, a local, regional or national authority).
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_nDQhYFypEeeve7Je9cXtkQ")]
@@ -75,7 +75,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// European Car and Truck Rental Association
-    /// Encoded/decoded by serializers as "ECAT".
+    /// Encoded/decoded by serializers as &quot;ECAT&quot;.
     /// </summary>
     [EnumMember(Value = "ECAT")]
     [IsoId("_wI9hoFypEeeve7Je9cXtkQ")]
@@ -84,7 +84,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// Legal Entity Identifier.
-    /// Encoded/decoded by serializers as "LEII".
+    /// Encoded/decoded by serializers as &quot;LEII&quot;.
     /// </summary>
     [EnumMember(Value = "LEII")]
     [IsoId("_3xh1gFypEeeve7Je9cXtkQ")]
@@ -93,7 +93,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// Other company assigner entity defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_uZGCMGMaEeexSYCBvAp_qA")]
@@ -102,7 +102,7 @@ public enum CompanyAssignerCode
     
     /// <summary>
     /// Other company assigner entity defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_1gm3cGMaEeexSYCBvAp_qA")]

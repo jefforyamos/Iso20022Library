@@ -22,7 +22,7 @@ public enum ExternalUndertakingStatusCategory1Code
 {
     /// <summary>
     /// Status is related to an undertaking amendment.
-    /// Encoded/decoded by serializers as "AMND".
+    /// Encoded/decoded by serializers as &quot;AMND&quot;.
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_uRhQ2_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalUndertakingStatusCategory1Code
     
     /// <summary>
     /// Status is related to a counter-undertaking amount.
-    /// Encoded/decoded by serializers as "AMTC".
+    /// Encoded/decoded by serializers as &quot;AMTC&quot;.
     /// </summary>
     [EnumMember(Value = "AMTC")]
     [IsoId("_uRrB0vRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalUndertakingStatusCategory1Code
     
     /// <summary>
     /// Status is related to an undertaking amount.
-    /// Encoded/decoded by serializers as "AMTU".
+    /// Encoded/decoded by serializers as &quot;AMTU&quot;.
     /// </summary>
     [EnumMember(Value = "AMTU")]
     [IsoId("_uRrB1fRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalUndertakingStatusCategory1Code
     
     /// <summary>
     /// Status is related to an undertaking application.
-    /// Encoded/decoded by serializers as "APPL".
+    /// Encoded/decoded by serializers as &quot;APPL&quot;.
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_uRrB2PRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalUndertakingStatusCategory1Code
     
     /// <summary>
     /// Status is related to an undertaking amendment requested by the beneficiary.
-    /// Encoded/decoded by serializers as "BAMD".
+    /// Encoded/decoded by serializers as &quot;BAMD&quot;.
     /// </summary>
     [EnumMember(Value = "BAMD")]
     [IsoId("_uRrB2_RYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalUndertakingStatusCategory1Code
     
     /// <summary>
     /// Status is related to an undertaking confirmation.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uRrB3vRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalUndertakingStatusCategory1Code
     
     /// <summary>
     /// Status is related to an undertaking demand.
-    /// Encoded/decoded by serializers as "DEMD".
+    /// Encoded/decoded by serializers as &quot;DEMD&quot;.
     /// </summary>
     [EnumMember(Value = "DEMD")]
     [IsoId("_uR0LwvRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalUndertakingStatusCategory1Code
     
     /// <summary>
     /// Status is related to an undertaking non-extension request.
-    /// Encoded/decoded by serializers as "NEXT".
+    /// Encoded/decoded by serializers as &quot;NEXT&quot;.
     /// </summary>
     [EnumMember(Value = "NEXT")]
     [IsoId("_uR0LxfRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalUndertakingStatusCategory1Code
     
     /// <summary>
     /// Status is related to an undertaking termination.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_uR0LyPRYEeuLhpyIdtJzwg")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity49Choice
     /// Choice between different quantity of security formats.
     /// </summary>
     [IsoId("_K-7tURuyEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

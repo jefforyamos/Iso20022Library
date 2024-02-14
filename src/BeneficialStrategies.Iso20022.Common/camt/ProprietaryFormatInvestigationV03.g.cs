@@ -32,13 +32,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The user should ensure that an existing standard message cannot be used before using the proprietary message.
 /// As defined in the scope, this ProprietaryFormatInvestigation message may only be used when bilaterally agreed.
 /// It is used as an envelope for a non standard message and provides means to manage an exception or investigation which falls outside the scope or capability of any other formatted message.
-/// The ProprietaryData element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|.
+/// The ProprietaryData element must contain a well formed XML document. This means XML special characters such as &apos;&lt;&apos; must be used in a way that is consistent with XML well-formedness criteria.|.
 /// </summary>
 [Description(@"Scope|The Proprietary Format Investigation message type is used by financial institutions, with their own offices, and/or with other financial institutions with which they have established bilateral agreements.|Usage|The user should ensure that an existing standard message cannot be used before using the proprietary message.|As defined in the scope, this ProprietaryFormatInvestigation message may only be used when bilaterally agreed.|It is used as an envelope for a non standard message and provides means to manage an exception or investigation which falls outside the scope or capability of any other formatted message.|The ProprietaryData element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|.")]
 [IsoId("_sW_aQlkyEeGeoaLUQk__nA_781357375")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Format Investigation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record ProprietaryFormatInvestigationV03 : IOuterRecord<Proprieta
     /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage Rule: the Assigner must be the sender of this confirmation and the Assignee must be the receiver.
     /// </summary>
     [IsoId("_sXJLQFkyEeGeoaLUQk__nA_1165442141")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment3 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment3 Assignment { get; init; } 
+    public required CaseAssignment3 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment3 Assignment { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record ProprietaryFormatInvestigationV03 : IOuterRecord<Proprieta
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_sXJLQVkyEeGeoaLUQk__nA_282208854")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case3 Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case3 Case { get; init; } 
+    public required Case3 Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case3 Case { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record ProprietaryFormatInvestigationV03 : IOuterRecord<Proprieta
     /// Proprietary information.
     /// </summary>
     [IsoId("_sXJLQlkyEeGeoaLUQk__nA_168369788")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtryData")]
     #endif
+    [IsoXmlTag("PrtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProprietaryData4 ProprietaryData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProprietaryData4 ProprietaryData { get; init; } 
+    public required ProprietaryData4 ProprietaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProprietaryData4 ProprietaryData { get; init; } 
     #else
@@ -143,12 +138,11 @@ public partial record ProprietaryFormatInvestigationV03 : IOuterRecord<Proprieta
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_sXJLQ1kyEeGeoaLUQk__nA_1922221803")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,7 +155,7 @@ public partial record ProprietaryFormatInvestigationV03 : IOuterRecord<Proprieta
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ProprietaryFormatInvestigationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ProprietaryFormatInvestigationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ProprietaryFormatInvestigationV03Document ToDocument()
     {
@@ -171,7 +165,7 @@ public partial record ProprietaryFormatInvestigationV03 : IOuterRecord<Proprieta
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ProprietaryFormatInvestigationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ProprietaryFormatInvestigationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ProprietaryFormatInvestigationV03Document : IOuterDocument<ProprietaryFormatInvestigationV03>
@@ -188,7 +182,7 @@ public partial record ProprietaryFormatInvestigationV03Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ProprietaryFormatInvestigationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ProprietaryFormatInvestigationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProprietaryFormatInvestigationV03 Message { get; init; }

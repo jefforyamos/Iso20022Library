@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodity5Choice.OfficialEconomicStatistics))]
     [KnownType(typeof(AssetClassCommodity5Choice.Other))]
     [IsoId("_omaPsbtIEeiLRYqS-r-R-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

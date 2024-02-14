@@ -21,7 +21,7 @@ public enum EligibilityTypeCode
 {
     /// <summary>
     /// Eligibility applies at securities level.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_jBmr4u5NEeCisYr99QEiWA_-356717849")]
@@ -31,7 +31,7 @@ public enum EligibilityTypeCode
     /// <summary>
     /// Eligibility applies at the level of issuer CSD.
     /// All of the securities issued by the issuer CSD are eligible.
-    /// Encoded/decoded by serializers as "ISCS".
+    /// Encoded/decoded by serializers as &quot;ISCS&quot;.
     /// </summary>
     [EnumMember(Value = "ISCS")]
     [IsoId("_jBmr4-5NEeCisYr99QEiWA_597315770")]
@@ -41,7 +41,7 @@ public enum EligibilityTypeCode
     /// <summary>
     /// Eligibility applies at country level.
     /// All of the securities issued in that country are eligible.
-    /// Encoded/decoded by serializers as "CTRY".
+    /// Encoded/decoded by serializers as &quot;CTRY&quot;.
     /// </summary>
     [EnumMember(Value = "CTRY")]
     [IsoId("_jBmr5O5NEeCisYr99QEiWA_1479587050")]

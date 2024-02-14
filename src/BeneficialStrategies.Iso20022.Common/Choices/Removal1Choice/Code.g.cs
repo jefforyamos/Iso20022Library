@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Removal1Choice
     /// Specifies the removal processing change requested expressed as a code.
     /// </summary>
     [IsoId("_xeEJoPkREeicy5Zn42b9bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Removal1Choice
         /// Specifies the removal process.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialInstrumentRemoval1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialInstrumentRemoval1Code Value { get; init; } 
+        public required FinancialInstrumentRemoval1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialInstrumentRemoval1Code Value { get; init; } 
         #else

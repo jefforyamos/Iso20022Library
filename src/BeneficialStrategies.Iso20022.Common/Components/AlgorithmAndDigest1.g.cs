@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines a cryptographic digest algorithm and value.
 /// </summary>
 [IsoId("_OTgzMjQw-AOSNFX-8224494")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Algorithm And Digest")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AlgorithmAndDigest1
     /// Digest algorithm used to create the digest.
     /// </summary>
     [IsoId("_OTgzMjcy-AOSNFX-8224496")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Algorithm5Code DigestAlgorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Algorithm5Code DigestAlgorithm { get; init; } 
+    public required Algorithm5Code DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Algorithm5Code DigestAlgorithm { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record AlgorithmAndDigest1
     /// Result of data-digesting process.
     /// </summary>
     [IsoId("_OTgzMjcz-AOSNFX-8224496")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dgst")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Dgst")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Digest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Digest { get; init; } 
+    public required System.String Digest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Digest { get; init; } 
     #else

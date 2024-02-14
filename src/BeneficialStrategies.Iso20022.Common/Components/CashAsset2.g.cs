@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a cash asset.
 /// </summary>
 [IsoId("_v2844ZNDEemQB_8XA98K0Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Asset")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CashAsset2
     /// Type of cash asset.
     /// </summary>
     [IsoId("_wLLccZNDEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Asset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAsstTp")]
     #endif
+    [IsoXmlTag("CshAsstTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAssetType1Choice_ CashAssetType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAssetType1Choice_ CashAssetType { get; init; } 
+    public required CashAssetType1Choice_ CashAssetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAssetType1Choice_ CashAssetType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CashAsset2
     /// Currency of the asset in the holding.
     /// </summary>
     [IsoId("_PdRmYJNEEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgCcy")]
     #endif
+    [IsoXmlTag("HldgCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode HoldingCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string HoldingCurrency { get; init; } 
+    public required string HoldingCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string HoldingCurrency { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record CashAsset2
     /// Additional information about the cash asset.
     /// </summary>
     [IsoId("_wLLcc5NDEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

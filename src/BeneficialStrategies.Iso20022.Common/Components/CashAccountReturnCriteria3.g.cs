@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to report on an account.
 /// </summary>
 [IsoId("_71ydIaMgEeCJ6YNENx4h-w_1757739430")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Account Return Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CashAccountReturnCriteria3
     /// Indicates whether the account name is requested.
     /// </summary>
     [IsoId("_71ydIqMgEeCJ6YNENx4h-w_72900079")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmInd")]
     #endif
+    [IsoXmlTag("NmInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? NameIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record CashAccountReturnCriteria3
     /// Indicates whether the account currency is requested.
     /// </summary>
     [IsoId("_71ydI6MgEeCJ6YNENx4h-w_368889736")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyInd")]
     #endif
+    [IsoXmlTag("CcyInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? CurrencyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record CashAccountReturnCriteria3
     /// Indicates whether the account type is requested.
     /// </summary>
     [IsoId("_71ydJKMgEeCJ6YNENx4h-w_1291053046")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TpInd")]
     #endif
+    [IsoXmlTag("TpInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record CashAccountReturnCriteria3
     /// Indicates whether the multilateral limit is requested.
     /// </summary>
     [IsoId("_71ydJaMgEeCJ6YNENx4h-w_536303172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multilateral Limit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MulLmtInd")]
     #endif
+    [IsoXmlTag("MulLmtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? MultilateralLimitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,11 @@ public partial record CashAccountReturnCriteria3
     /// Defines the criteria used to report on a multilateral balance.
     /// </summary>
     [IsoId("_71ydJqMgEeCJ6YNENx4h-w_698432703")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multilateral Balance Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MulBalRtrCrit")]
     #endif
+    [IsoXmlTag("MulBalRtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalanceReturnCriteria? MultilateralBalanceReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +131,12 @@ public partial record CashAccountReturnCriteria3
     /// Indicates whether the bilateral limit is requested.
     /// </summary>
     [IsoId("_71ydJ6MgEeCJ6YNENx4h-w_515299923")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bilateral Limit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BilLmtInd")]
     #endif
+    [IsoXmlTag("BilLmtInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? BilateralLimitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +149,11 @@ public partial record CashAccountReturnCriteria3
     /// Defines the criteria used to report on a bilateral balance.
     /// </summary>
     [IsoId("_717nEKMgEeCJ6YNENx4h-w_212243408")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bilateral Balance Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BilBalRtrCrit")]
     #endif
+    [IsoXmlTag("BilBalRtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashBalanceReturnCriteria? BilateralBalanceReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +166,12 @@ public partial record CashAccountReturnCriteria3
     /// Indicates whether the account standing order is requested.
     /// </summary>
     [IsoId("_717nEaMgEeCJ6YNENx4h-w_1264966299")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgOrdrInd")]
     #endif
+    [IsoXmlTag("StgOrdrInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? StandingOrderIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +184,12 @@ public partial record CashAccountReturnCriteria3
     /// Indicates whether the account owner information is requested.
     /// </summary>
     [IsoId("_717nEqMgEeCJ6YNENx4h-w_472230382")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnrInd")]
     #endif
+    [IsoXmlTag("AcctOwnrInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountOwnerIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +202,12 @@ public partial record CashAccountReturnCriteria3
     /// Indicates whether the account servicer information is requested.
     /// </summary>
     [IsoId("_717nE6MgEeCJ6YNENx4h-w_797347889")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrInd")]
     #endif
+    [IsoXmlTag("AcctSvcrInd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRequestedIndicator? AccountServicerIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

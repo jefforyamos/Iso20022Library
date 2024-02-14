@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType2Choice
     /// Request type is an enquiry on a position or a transaction.
     /// </summary>
     [IsoId("_76G8dKMgEeCJ6YNENx4h-w_-1836773968")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enquiry")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType2Choice
         /// Specifies the request used to further detail the type of information that will be queried.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Enqry")]
         #endif
+        [IsoXmlTag("Enqry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RequestType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RequestType2Code Value { get; init; } 
+        public required RequestType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RequestType2Code Value { get; init; } 
         #else

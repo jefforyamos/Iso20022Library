@@ -21,7 +21,7 @@ public enum CardTransactionRiskReason1Code
 {
     /// <summary>
     /// Suspicious approve or decline pattern.
-    /// Encoded/decoded by serializers as "APDP".
+    /// Encoded/decoded by serializers as &quot;APDP&quot;.
     /// </summary>
     [EnumMember(Value = "APDP")]
     [IsoId("_CN5foXsNEeSR68OJvMfxJQ")]
@@ -30,7 +30,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious sequence of approve and decline messages.
-    /// Encoded/decoded by serializers as "APDL".
+    /// Encoded/decoded by serializers as &quot;APDL&quot;.
     /// </summary>
     [EnumMember(Value = "APDL")]
     [IsoId("_CTaRwXsNEeSR68OJvMfxJQ")]
@@ -39,7 +39,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious authorization activity.
-    /// Encoded/decoded by serializers as "ATHA".
+    /// Encoded/decoded by serializers as &quot;ATHA&quot;.
     /// </summary>
     [EnumMember(Value = "ATHA")]
     [IsoId("_CYxS4XsNEeSR68OJvMfxJQ")]
@@ -48,7 +48,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Compromised card.
-    /// Encoded/decoded by serializers as "CRDC".
+    /// Encoded/decoded by serializers as &quot;CRDC&quot;.
     /// </summary>
     [EnumMember(Value = "CRDC")]
     [IsoId("_CfEvMXsNEeSR68OJvMfxJQ")]
@@ -57,7 +57,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious electronic commerce activity.
-    /// Encoded/decoded by serializers as "ECMA".
+    /// Encoded/decoded by serializers as &quot;ECMA&quot;.
     /// </summary>
     [EnumMember(Value = "ECMA")]
     [IsoId("_CkcXYXsNEeSR68OJvMfxJQ")]
@@ -66,7 +66,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Expiry date mismatch.
-    /// Encoded/decoded by serializers as "EXCD".
+    /// Encoded/decoded by serializers as &quot;EXCD&quot;.
     /// </summary>
     [EnumMember(Value = "EXCD")]
     [IsoId("_CsC0MXsNEeSR68OJvMfxJQ")]
@@ -75,7 +75,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious foreign activity.
-    /// Encoded/decoded by serializers as "FGNA".
+    /// Encoded/decoded by serializers as &quot;FGNA&quot;.
     /// </summary>
     [EnumMember(Value = "FGNA")]
     [IsoId("_CxZ1UXsNEeSR68OJvMfxJQ")]
@@ -84,7 +84,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious geographic activity.
-    /// Encoded/decoded by serializers as "GEOA".
+    /// Encoded/decoded by serializers as &quot;GEOA&quot;.
     /// </summary>
     [EnumMember(Value = "GEOA")]
     [IsoId("_C2xdgXsNEeSR68OJvMfxJQ")]
@@ -93,7 +93,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// High Risk MCC (Merchant Category Code).
-    /// Encoded/decoded by serializers as "MCCH".
+    /// Encoded/decoded by serializers as &quot;MCCH&quot;.
     /// </summary>
     [EnumMember(Value = "MCCH")]
     [IsoId("_C84FgXsNEeSR68OJvMfxJQ")]
@@ -102,7 +102,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious manual card data entry mode.
-    /// Encoded/decoded by serializers as "KEYA".
+    /// Encoded/decoded by serializers as &quot;KEYA&quot;.
     /// </summary>
     [EnumMember(Value = "KEYA")]
     [IsoId("_DFhEIXsNEeSR68OJvMfxJQ")]
@@ -111,7 +111,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious MCC (Merchant Category Code) activity.
-    /// Encoded/decoded by serializers as "MCCA".
+    /// Encoded/decoded by serializers as &quot;MCCA&quot;.
     /// </summary>
     [EnumMember(Value = "MCCA")]
     [IsoId("_DK4sUXsNEeSR68OJvMfxJQ")]
@@ -120,7 +120,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious amount.
-    /// Encoded/decoded by serializers as "AMNT".
+    /// Encoded/decoded by serializers as &quot;AMNT&quot;.
     /// </summary>
     [EnumMember(Value = "AMNT")]
     [IsoId("_DQchwXsNEeSR68OJvMfxJQ")]
@@ -129,7 +129,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious fraudulent cardholder.
-    /// Encoded/decoded by serializers as "CRDF".
+    /// Encoded/decoded by serializers as &quot;CRDF&quot;.
     /// </summary>
     [EnumMember(Value = "CRDF")]
     [IsoId("_DYylcXsNEeSR68OJvMfxJQ")]
@@ -138,7 +138,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious fraudulent merchant.
-    /// Encoded/decoded by serializers as "MRCF".
+    /// Encoded/decoded by serializers as &quot;MRCF&quot;.
     /// </summary>
     [EnumMember(Value = "MRCF")]
     [IsoId("_DeoHsXsNEeSR68OJvMfxJQ")]
@@ -147,7 +147,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious transaction cumulated amount at merchant.
-    /// Encoded/decoded by serializers as "TXCA".
+    /// Encoded/decoded by serializers as &quot;TXCA&quot;.
     /// </summary>
     [EnumMember(Value = "TXCA")]
     [IsoId("_DkI50XsNEeSR68OJvMfxJQ")]
@@ -156,7 +156,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious transaction number at merchant.
-    /// Encoded/decoded by serializers as "TXNB".
+    /// Encoded/decoded by serializers as &quot;TXNB&quot;.
     /// </summary>
     [EnumMember(Value = "TXNB")]
     [IsoId("_DpgiAXsNEeSR68OJvMfxJQ")]
@@ -165,7 +165,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious transaction time.
-    /// Encoded/decoded by serializers as "TXTM".
+    /// Encoded/decoded by serializers as &quot;TXTM&quot;.
     /// </summary>
     [EnumMember(Value = "TXTM")]
     [IsoId("_Du3jIXsNEeSR68OJvMfxJQ")]
@@ -174,7 +174,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious transaction time interval.
-    /// Encoded/decoded by serializers as "TMIN".
+    /// Encoded/decoded by serializers as &quot;TMIN&quot;.
     /// </summary>
     [EnumMember(Value = "TMIN")]
     [IsoId("_D01BMXsNEeSR68OJvMfxJQ")]
@@ -183,7 +183,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious transaction type.
-    /// Encoded/decoded by serializers as "TXTP".
+    /// Encoded/decoded by serializers as &quot;TXTP&quot;.
     /// </summary>
     [EnumMember(Value = "TXTP")]
     [IsoId("_D9E-QXsNEeSR68OJvMfxJQ")]
@@ -192,7 +192,7 @@ public enum CardTransactionRiskReason1Code
     
     /// <summary>
     /// Suspicious unattended terminal activity.
-    /// Encoded/decoded by serializers as "UATA".
+    /// Encoded/decoded by serializers as &quot;UATA&quot;.
     /// </summary>
     [EnumMember(Value = "UATA")]
     [IsoId("_ECb_YXsNEeSR68OJvMfxJQ")]

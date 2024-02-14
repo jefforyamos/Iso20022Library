@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy4Choice
     /// Indicates that no proxy is allowed for a meeting.
     /// </summary>
     [IsoId("_fCkac_M7EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy Not Allowed")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy4Choice
         /// Indicates that the assignment of a proxy is not allowed for the meeting.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrxyNotAllwd")]
         #endif
+        [IsoXmlTag("PrxyNotAllwd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ProxyNotAllowed1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ProxyNotAllowed1Code Value { get; init; } 
+        public required ProxyNotAllowed1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ProxyNotAllowed1Code Value { get; init; } 
         #else

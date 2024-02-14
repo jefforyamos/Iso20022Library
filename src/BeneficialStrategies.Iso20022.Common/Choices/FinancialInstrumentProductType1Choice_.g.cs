@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentProductType1Choice.Code))]
     [KnownType(typeof(FinancialInstrumentProductType1Choice.Proprietary))]
     [IsoId("_TuJqx9p-Ed-ak6NoX_4Aeg_1973024995")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Product Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

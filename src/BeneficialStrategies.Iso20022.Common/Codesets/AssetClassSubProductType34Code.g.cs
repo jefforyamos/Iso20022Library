@@ -21,7 +21,7 @@ public enum AssetClassSubProductType34Code
 {
     /// <summary>
     /// Commodity of type manufacturing.
-    /// Encoded/decoded by serializers as "MFTG".
+    /// Encoded/decoded by serializers as &quot;MFTG&quot;.
     /// </summary>
     [EnumMember(Value = "MFTG")]
     [IsoId("_z68wwVrfEeWN79Bl6BUd3g")]

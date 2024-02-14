@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amendment transaction.
 /// </summary>
 [IsoId("_Mt51QVW5EeeiG_nL4vgKnQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Transaction102
     /// Detailed description of an error that caused the message to be corrected/amended. Transmitted for further analysis.
     /// </summary>
     [IsoId("_M6lmYVW5EeeiG_nL4vgKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amended Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmddData")]
     #endif
+    [IsoXmlTag("AmddData")]
     public DetailedError1? AmendedData { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _M6lmYVW5EeeiG_nL4vgKnQ
     
@@ -64,16 +61,15 @@ public partial record Transaction102
     /// Identification of the transaction.
     /// </summary>
     [IsoId("_M6lmZVW5EeeiG_nL4vgKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentification10 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentification10 TransactionIdentification { get; init; } 
+    public required TransactionIdentification10 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentification10 TransactionIdentification { get; init; } 
     #else
@@ -84,12 +80,12 @@ public partial record Transaction102
     /// Original message before correction/amendment.
     /// </summary>
     [IsoId("_M6lmY1W5EeeiG_nL4vgKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsg")]
     #endif
+    [IsoXmlTag("OrgnlMsg")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? OriginalMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,12 +98,12 @@ public partial record Transaction102
     /// Message amended.
     /// </summary>
     [IsoId("_M6lmaVW5EeeiG_nL4vgKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Amended")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgAmdd")]
     #endif
+    [IsoXmlTag("MsgAmdd")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? MessageAmended { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,11 @@ public partial record Transaction102
     /// Contains additional data.
     /// </summary>
     [IsoId("_aD1CwRqmEeqH1IQNpbVpEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The details of a specific trading session.
 /// </summary>
 [IsoId("_S0oo3dp-Ed-ak6NoX_4Aeg_-1794649600")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trading Session")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record TradingSession1
     /// Identification of a specific execution time bracket code through its trading session name or description.
     /// </summary>
     [IsoId("_S0oo3tp-Ed-ak6NoX_4Aeg_-1733697860")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Session Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSsnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TradgSsnId")]
+    [IsoSimpleType(IsoSimpleType.Max128Text)]
     [StringLength(maximumLength: 128 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? TradingSessionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +61,13 @@ public partial record TradingSession1
     /// Optional market assigned sub identifier for a trading session. Usage is determined by market or counterparties.
     /// </summary>
     [IsoId("_S0yZ0Np-Ed-ak6NoX_4Aeg_-365329415")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Session Sub Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSsnSubId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TradgSsnSubId")]
+    [IsoSimpleType(IsoSimpleType.Max128Text)]
     [StringLength(maximumLength: 128 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax128Text? TradingSessionSubIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

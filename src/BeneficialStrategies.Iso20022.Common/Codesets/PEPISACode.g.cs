@@ -21,7 +21,7 @@ public enum PEPISACode
 {
     /// <summary>
     /// Personal equity plan.
-    /// Encoded/decoded by serializers as "PEPT".
+    /// Encoded/decoded by serializers as &quot;PEPT&quot;.
     /// </summary>
     [EnumMember(Value = "PEPT")]
     [IsoId("_aGcpktp-Ed-ak6NoX_4Aeg_-1535050554")]
@@ -30,7 +30,7 @@ public enum PEPISACode
     
     /// <summary>
     /// Individual savings account.
-    /// Encoded/decoded by serializers as "ISAT".
+    /// Encoded/decoded by serializers as &quot;ISAT&quot;.
     /// </summary>
     [EnumMember(Value = "ISAT")]
     [IsoId("_aGcpk9p-Ed-ak6NoX_4Aeg_-1061285641")]

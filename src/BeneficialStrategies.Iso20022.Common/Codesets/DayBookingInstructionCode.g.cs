@@ -21,7 +21,7 @@ public enum DayBookingInstructionCode
 {
     /// <summary>
     /// Can trigger booking without reference to the order initiator.
-    /// Encoded/decoded by serializers as "AUTO".
+    /// Encoded/decoded by serializers as &quot;AUTO&quot;.
     /// </summary>
     [EnumMember(Value = "AUTO")]
     [IsoId("_ay2ckNp-Ed-ak6NoX_4Aeg_335336067")]
@@ -30,7 +30,7 @@ public enum DayBookingInstructionCode
     
     /// <summary>
     /// Speak with order initiator before booking.
-    /// Encoded/decoded by serializers as "TALK".
+    /// Encoded/decoded by serializers as &quot;TALK&quot;.
     /// </summary>
     [EnumMember(Value = "TALK")]
     [IsoId("_ay2ckdp-Ed-ak6NoX_4Aeg_335336068")]

@@ -21,7 +21,7 @@ public enum EncryptionFormat2Code
 {
     /// <summary>
     /// Format of a cryptographic key specified by the ANSI X9 TR-31 standard.
-    /// Encoded/decoded by serializers as "TR31".
+    /// Encoded/decoded by serializers as &quot;TR31&quot;.
     /// </summary>
     [EnumMember(Value = "TR31")]
     [IsoId("_-pI2EdtnEee9e6xduATmQg")]
@@ -30,7 +30,7 @@ public enum EncryptionFormat2Code
     
     /// <summary>
     /// Format of a cryptographic key specified by the ANSI X9 TR-34 standard.
-    /// Encoded/decoded by serializers as "TR34".
+    /// Encoded/decoded by serializers as &quot;TR34&quot;.
     /// </summary>
     [EnumMember(Value = "TR34")]
     [IsoId("_-pI2E9tnEee9e6xduATmQg")]
@@ -39,7 +39,7 @@ public enum EncryptionFormat2Code
     
     /// <summary>
     /// Format of a cryptographic key specified by the ISO20038 standard.
-    /// Encoded/decoded by serializers as "I238".
+    /// Encoded/decoded by serializers as &quot;I238&quot;.
     /// </summary>
     [EnumMember(Value = "I238")]
     [IsoId("__uLLgdtnEee9e6xduATmQg")]

@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The AddendumInitiation message is sent by an acquirer or an agent to an issuer to provide supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. ||The supplemental data is associated with an authorization or financial message.")]
 [IsoId("_RHEuodkcEeizh_fAW7LywQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Addendum Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record AddendumInitiationV01 : IOuterRecord<AddendumInitiationV01
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_RHF8wdkcEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header48 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header48 Header { get; init; } 
+    public required Header48 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header48 Header { get; init; } 
     #else
@@ -97,12 +94,11 @@ public partial record AddendumInitiationV01 : IOuterRecord<AddendumInitiationV01
     /// The AddendumInitiation is used to provide supplemental data in addition to that which is required to complete an authorization initiation or financial initiation. The supplemental data is associated with an authorization or financial message.
     /// </summary>
     [IsoId("_61gpsNkeEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AddendumInitiation1? Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +111,11 @@ public partial record AddendumInitiationV01 : IOuterRecord<AddendumInitiationV01
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_RHF8xdkcEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,7 +128,7 @@ public partial record AddendumInitiationV01 : IOuterRecord<AddendumInitiationV01
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AddendumInitiationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AddendumInitiationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AddendumInitiationV01Document ToDocument()
     {
@@ -143,7 +138,7 @@ public partial record AddendumInitiationV01 : IOuterRecord<AddendumInitiationV01
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AddendumInitiationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AddendumInitiationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AddendumInitiationV01Document : IOuterDocument<AddendumInitiationV01>
@@ -160,7 +155,7 @@ public partial record AddendumInitiationV01Document : IOuterDocument<AddendumIni
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AddendumInitiationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AddendumInitiationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AddendumInitiationV01 Message { get; init; }

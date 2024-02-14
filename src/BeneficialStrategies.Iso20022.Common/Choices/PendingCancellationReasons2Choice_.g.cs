@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingCancellationReasons2Choice.Code))]
     [KnownType(typeof(PendingCancellationReasons2Choice.Proprietary))]
     [IsoId("_UYBuNtp-Ed-ak6NoX_4Aeg_-1094614549")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Cancellation Reasons 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -28,15 +28,13 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The IntraBalanceMovementCancellationQuery message is sent from an account owner/requestor to a settlement infrastructure to query for the status of intra-balance movement cancellation instruction(s) based on a set of search criteria or business attributes.
 /// The message may also be used to: 
-/// - re-send a message sent by the account owner to the account servicer (the sub-function of the message is "Duplicate") 
-/// - provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy") 
-/// - re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is "Copy Duplicate").
+/// - re-send a message sent by the account owner to the account servicer (the sub-function of the message is &quot;Duplicate&quot;) 
+/// - provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is &quot;Copy&quot;) 
+/// - re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is &quot;Copy Duplicate&quot;).
 /// </summary>
 [Description(@"The IntraBalanceMovementCancellationQuery message is sent from an account owner/requestor to a settlement infrastructure to query for the status of intra-balance movement cancellation instruction(s) based on a set of search criteria or business attributes.|The message may also be used to: |- re-send a message sent by the account owner to the account servicer (the sub-function of the message is ""Duplicate"") |- provide a third party with a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy"") |- re-send to a third party a copy of a message being sent by the account owner for information (the sub-function of the message is ""Copy Duplicate"").")]
 [IsoId("_DLjZYTncEem7JZMuWtwtsg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Balance Movement Cancellation Query V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,12 +77,11 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord<In
     /// Unambiguous identification of the message as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
     [IsoId("_DLjZaTncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification51? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,16 +94,15 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord<In
     /// Defines the intra-balance movement cancellation query criteria.
     /// </summary>
     [IsoId("_DLjZazncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryDef")]
     #endif
+    [IsoXmlTag("QryDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraBalanceQueryDefinition7 QueryDefinition { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IntraBalanceQueryDefinition7 QueryDefinition { get; init; } 
+    public required IntraBalanceQueryDefinition7 QueryDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IntraBalanceQueryDefinition7 QueryDefinition { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord<In
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_DLjZbTncEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord<In
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IntraBalanceMovementCancellationQueryV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IntraBalanceMovementCancellationQueryV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IntraBalanceMovementCancellationQueryV01Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record IntraBalanceMovementCancellationQueryV01 : IOuterRecord<In
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IntraBalanceMovementCancellationQueryV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IntraBalanceMovementCancellationQueryV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IntraBalanceMovementCancellationQueryV01Document : IOuterDocument<IntraBalanceMovementCancellationQueryV01>
@@ -162,7 +157,7 @@ public partial record IntraBalanceMovementCancellationQueryV01Document : IOuterD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IntraBalanceMovementCancellationQueryV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IntraBalanceMovementCancellationQueryV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraBalanceMovementCancellationQueryV01 Message { get; init; }

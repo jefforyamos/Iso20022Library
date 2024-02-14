@@ -21,7 +21,7 @@ public enum DataModificationCode
 {
     /// <summary>
     /// Insert a new set of data.
-    /// Encoded/decoded by serializers as "INSE".
+    /// Encoded/decoded by serializers as &quot;INSE&quot;.
     /// </summary>
     [EnumMember(Value = "INSE")]
     [IsoId("_ax9EuNp-Ed-ak6NoX_4Aeg_1708524214")]
@@ -30,7 +30,7 @@ public enum DataModificationCode
     
     /// <summary>
     /// Update the details of an existing set of data.
-    /// Encoded/decoded by serializers as "UPDT".
+    /// Encoded/decoded by serializers as &quot;UPDT&quot;.
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_ayG1sNp-Ed-ak6NoX_4Aeg_1821193248")]
@@ -39,7 +39,7 @@ public enum DataModificationCode
     
     /// <summary>
     /// Delete an existing set of data.
-    /// Encoded/decoded by serializers as "DELT".
+    /// Encoded/decoded by serializers as &quot;DELT&quot;.
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_ayG1sdp-Ed-ak6NoX_4Aeg_2075163954")]

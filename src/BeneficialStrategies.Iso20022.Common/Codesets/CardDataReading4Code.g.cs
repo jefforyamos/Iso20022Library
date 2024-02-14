@@ -21,7 +21,7 @@ public enum CardDataReading4Code
 {
     /// <summary>
     /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "ECTL".
+    /// Encoded/decoded by serializers as &quot;ECTL&quot;.
     /// </summary>
     [EnumMember(Value = "ECTL")]
     [IsoId("_KJE4wYn7EeShMpas3885ww")]
@@ -30,7 +30,7 @@ public enum CardDataReading4Code
     
     /// <summary>
     /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
-    /// Encoded/decoded by serializers as "CICC".
+    /// Encoded/decoded by serializers as &quot;CICC&quot;.
     /// </summary>
     [EnumMember(Value = "CICC")]
     [IsoId("_KP7HoYn7EeShMpas3885ww")]
@@ -39,7 +39,7 @@ public enum CardDataReading4Code
     
     /// <summary>
     /// Magnetic stripe.
-    /// Encoded/decoded by serializers as "MGST".
+    /// Encoded/decoded by serializers as &quot;MGST&quot;.
     /// </summary>
     [EnumMember(Value = "MGST")]
     [IsoId("_KX-QYYn7EeShMpas3885ww")]
@@ -48,7 +48,7 @@ public enum CardDataReading4Code
     
     /// <summary>
     /// Contactless proximity reader.
-    /// Encoded/decoded by serializers as "CTLS".
+    /// Encoded/decoded by serializers as &quot;CTLS&quot;.
     /// </summary>
     [EnumMember(Value = "CTLS")]
     [IsoId("_LaEmkYn7EeShMpas3885ww")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PreviousYear1Choice.AllPreviousYears))]
     [KnownType(typeof(PreviousYear1Choice.SpecificPreviousYears))]
     [IsoId("_3fxScUXfEeGY6MkiuzuPOA_-1781639499")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Year 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

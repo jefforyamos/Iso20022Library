@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indication of the type of assets subject of the transaction.
 /// </summary>
 [IsoId("_dXdmwbQwEemI67HK7aviyg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Commodity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SecurityCommodity8
     /// Data specific to securities being subject to the transaction.
     /// </summary>
     [IsoId("_dbVaAbQwEemI67HK7aviyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scty")]
     #endif
+    [IsoXmlTag("Scty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Security15? Security { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SecurityCommodity8
     /// Data specific to commodities being subject to the transaction.
     /// </summary>
     [IsoId("_dbVaA7QwEemI67HK7aviyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commodity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmmdty")]
     #endif
+    [IsoXmlTag("Cmmdty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commodity20? Commodity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

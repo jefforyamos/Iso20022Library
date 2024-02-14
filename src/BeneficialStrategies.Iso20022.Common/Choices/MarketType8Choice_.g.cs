@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketType8Choice.Code))]
     [KnownType(typeof(MarketType8Choice.Proprietary))]
     [IsoId("_Ql4SQtp-Ed-ak6NoX_4Aeg_1045554562")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Type 8 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

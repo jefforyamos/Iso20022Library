@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Net cash movement to a fund as a result of investment funds transactions.
 /// </summary>
 [IsoId("_Si5_pdp-Ed-ak6NoX_4Aeg_1538517625")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Net Cash Forecast")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record NetCashForecast3
     /// Net amount of the cash flow, expressed as an amount of money.
     /// </summary>
     [IsoId("_Si5_ptp-Ed-ak6NoX_4Aeg_1538517912")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetAmt")]
     #endif
+    [IsoXmlTag("NetAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record NetCashForecast3
     /// Net amount, expressed as a number of units.
     /// </summary>
     [IsoId("_Si5_p9p-Ed-ak6NoX_4Aeg_1538517937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetUnitsNb")]
     #endif
+    [IsoXmlTag("NetUnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? NetUnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +84,15 @@ public partial record NetCashForecast3
     /// Specifies the direction of the cash flow from the perspective of the fund.
     /// </summary>
     [IsoId("_Si5_qNp-Ed-ak6NoX_4Aeg_1538517972")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Flow Direction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlowDrctn")]
     #endif
+    [IsoXmlTag("FlowDrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FlowDirectionType1Code FlowDirection { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FlowDirectionType1Code FlowDirection { get; init; } 
+    public required FlowDirectionType1Code FlowDirection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FlowDirectionType1Code FlowDirection { get; init; } 
     #else

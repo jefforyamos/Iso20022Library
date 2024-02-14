@@ -22,7 +22,7 @@ public enum MessageFunction37Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_lp1m8emuEemNVKPwszFC-A")]
@@ -31,7 +31,7 @@ public enum MessageFunction37Code
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_m5bmkemuEemNVKPwszFC-A")]
@@ -40,7 +40,7 @@ public enum MessageFunction37Code
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_nhTe4emuEemNVKPwszFC-A")]
@@ -49,7 +49,7 @@ public enum MessageFunction37Code
     
     /// <summary>
     /// Notification about the status of a transaction.
-    /// Encoded/decoded by serializers as "STNO".
+    /// Encoded/decoded by serializers as &quot;STNO&quot;.
     /// </summary>
     [EnumMember(Value = "STNO")]
     [IsoId("_osSrUemuEemNVKPwszFC-A")]
@@ -58,7 +58,7 @@ public enum MessageFunction37Code
     
     /// <summary>
     /// Message function is a status request.
-    /// Encoded/decoded by serializers as "STRQ".
+    /// Encoded/decoded by serializers as &quot;STRQ&quot;.
     /// </summary>
     [EnumMember(Value = "STRQ")]
     [IsoId("_pBkXwemuEemNVKPwszFC-A")]
@@ -67,7 +67,7 @@ public enum MessageFunction37Code
     
     /// <summary>
     /// Advice about the status of a transaction.
-    /// Encoded/decoded by serializers as "STAD".
+    /// Encoded/decoded by serializers as &quot;STAD&quot;.
     /// </summary>
     [EnumMember(Value = "STAD")]
     [IsoId("_reXxYemuEemNVKPwszFC-A")]

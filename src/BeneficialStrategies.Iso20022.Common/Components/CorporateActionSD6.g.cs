@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details about the lottery.
 /// </summary>
 [IsoId("_1RIYZTL3EeKU9IrkkToqcw_-395277893")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CorporateActionSD6
     /// Status of the fields of lottery record.
     /// </summary>
     [IsoId("_1RSJYDL3EeKU9IrkkToqcw_1163055922")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lottery Record Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtryRcrdSts")]
     #endif
+    [IsoXmlTag("LtryRcrdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required WorkflowStatus1Code LotteryRecordStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public WorkflowStatus1Code LotteryRecordStatus { get; init; } 
+    public required WorkflowStatus1Code LotteryRecordStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public WorkflowStatus1Code LotteryRecordStatus { get; init; } 
     #else

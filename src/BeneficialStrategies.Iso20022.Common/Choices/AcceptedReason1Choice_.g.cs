@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AcceptedReason1Choice.Code))]
     [KnownType(typeof(AcceptedReason1Choice.Proprietary))]
     [IsoId("_QyjcV9p-Ed-ak6NoX_4Aeg_831638355")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

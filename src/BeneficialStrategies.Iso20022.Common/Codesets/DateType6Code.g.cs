@@ -21,7 +21,7 @@ public enum DateType6Code
 {
     /// <summary>
     /// Open-dated, which indicates that the date has not been established.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ayjhotp-Ed-ak6NoX_4Aeg_988349228")]
@@ -30,7 +30,7 @@ public enum DateType6Code
     
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ayjho9p-Ed-ak6NoX_4Aeg_988349289")]
@@ -38,8 +38,8 @@ public enum DateType6Code
     Unknown = DateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
-    /// Encoded/decoded by serializers as "ONGO".
+    /// Ongoing basis, which indicates that the date is determined by &quot;ongoing basis&quot; process, for example &quot;au fil de l&apos;eau&quot;.
+    /// Encoded/decoded by serializers as &quot;ONGO&quot;.
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_ayjhpNp-Ed-ak6NoX_4Aeg_988349381")]

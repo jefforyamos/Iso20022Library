@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the investment account ownership with respect to new issue allocation for a hedge fund.
 /// </summary>
 [IsoId("_0BdZcQgpEeSUG-8hqXsVMQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("New Issue Allocation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record NewIssueAllocation2
     /// Indicates whether the investor is eligible to participate in the profits and losses from a new issue.
     /// </summary>
     [IsoId("_0cGHAwgpEeSUG-8hqXsVMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restricted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rstrctd")]
     #endif
+    [IsoXmlTag("Rstrctd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Restricted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Restricted { get; init; } 
+    public required System.String Restricted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Restricted { get; init; } 
     #else
@@ -71,15 +69,13 @@ public partial record NewIssueAllocation2
     /// Reason for exemption.
     /// </summary>
     [IsoId("_0cGHBQgpEeSUG-8hqXsVMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exempt Person Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XmptPrsnRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XmptPrsnRsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ExemptPersonReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,14 @@ public partial record NewIssueAllocation2
     #endif
     
     /// <summary>
-    /// Conditions applicable when the investor is covered by the "de minimis" exemption.
+    /// Conditions applicable when the investor is covered by the &quot;de minimis&quot; exemption.
     /// </summary>
     [IsoId("_7u93sAgpEeSUG-8hqXsVMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("De Minimus")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DeMnms")]
     #endif
+    [IsoXmlTag("DeMnms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeMinimus1Choice_? DeMinimus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

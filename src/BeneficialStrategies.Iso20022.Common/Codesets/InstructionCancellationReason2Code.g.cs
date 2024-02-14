@@ -21,7 +21,7 @@ public enum InstructionCancellationReason2Code
 {
     /// <summary>
     /// Instruction has been cancelled as per your request.
-    /// Encoded/decoded by serializers as "CANI".
+    /// Encoded/decoded by serializers as &quot;CANI&quot;.
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_aXIw9dp-Ed-ak6NoX_4Aeg_-1158791466")]
@@ -30,7 +30,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Instruction has been cancelled by the settlement system.
-    /// Encoded/decoded by serializers as "CANS".
+    /// Encoded/decoded by serializers as &quot;CANS&quot;.
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_aXIw9tp-Ed-ak6NoX_4Aeg_-1158791438")]
@@ -39,7 +39,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Instruction has been cancelled by the agent.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_aXIw99p-Ed-ak6NoX_4Aeg_-1158791437")]
@@ -48,7 +48,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Instruction has been cancelled by another party than the instructing party, for example, market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CANO".
+    /// Encoded/decoded by serializers as &quot;CANO&quot;.
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_aXSh8Np-Ed-ak6NoX_4Aeg_-1158791190")]
@@ -57,7 +57,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Original instruction has been cancelled and replaced due to a corporate action.
-    /// Encoded/decoded by serializers as "CANT".
+    /// Encoded/decoded by serializers as &quot;CANT&quot;.
     /// </summary>
     [EnumMember(Value = "CANT")]
     [IsoId("_aXSh8dp-Ed-ak6NoX_4Aeg_-1158791189")]
@@ -66,7 +66,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Original instruction has been cancelled and replaced to allow a partial or split settlement.
-    /// Encoded/decoded by serializers as "CANZ".
+    /// Encoded/decoded by serializers as &quot;CANZ&quot;.
     /// </summary>
     [EnumMember(Value = "CANZ")]
     [IsoId("_aXSh8tp-Ed-ak6NoX_4Aeg_-1158791160")]
@@ -75,7 +75,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Instruction has been cancelled due to a corporate action.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_aXSh89p-Ed-ak6NoX_4Aeg_-1158791159")]
@@ -84,7 +84,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Instruction has been cancelled by the issuer/registrar.
-    /// Encoded/decoded by serializers as "CREG".
+    /// Encoded/decoded by serializers as &quot;CREG&quot;.
     /// </summary>
     [EnumMember(Value = "CREG")]
     [IsoId("_aXSh9Np-Ed-ak6NoX_4Aeg_-1158791158")]
@@ -93,7 +93,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Instruction has expired.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_aXSh9dp-Ed-ak6NoX_4Aeg_-1158791129")]
@@ -102,7 +102,7 @@ public enum InstructionCancellationReason2Code
     
     /// <summary>
     /// Instruction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.
-    /// Encoded/decoded by serializers as "SCEX".
+    /// Encoded/decoded by serializers as &quot;SCEX&quot;.
     /// </summary>
     [EnumMember(Value = "SCEX")]
     [IsoId("_aXSh9tp-Ed-ak6NoX_4Aeg_-1158791098")]

@@ -21,7 +21,7 @@ public enum InvestorRestrictionTypeCode
 {
     /// <summary>
     /// Restriction applies to a legal resident.
-    /// Encoded/decoded by serializers as "LERE".
+    /// Encoded/decoded by serializers as &quot;LERE&quot;.
     /// </summary>
     [EnumMember(Value = "LERE")]
     [IsoId("_adQAA9p-Ed-ak6NoX_4Aeg_1438807698")]
@@ -30,7 +30,7 @@ public enum InvestorRestrictionTypeCode
     
     /// <summary>
     /// Restriction applies to a citizen.
-    /// Encoded/decoded by serializers as "CITI".
+    /// Encoded/decoded by serializers as &quot;CITI&quot;.
     /// </summary>
     [EnumMember(Value = "CITI")]
     [IsoId("_adQABNp-Ed-ak6NoX_4Aeg_1439730879")]
@@ -39,7 +39,7 @@ public enum InvestorRestrictionTypeCode
     
     /// <summary>
     /// Restriction applies to an individual.
-    /// Encoded/decoded by serializers as "INDV".
+    /// Encoded/decoded by serializers as &quot;INDV&quot;.
     /// </summary>
     [EnumMember(Value = "INDV")]
     [IsoId("_adQABdp-Ed-ak6NoX_4Aeg_1441575812")]

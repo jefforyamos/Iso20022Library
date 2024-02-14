@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateOrDateTimePeriod3Choice.Date))]
     [KnownType(typeof(DateOrDateTimePeriod3Choice.DateTime))]
     [IsoId("_Fk5tk_1bEeiAfJEqh4xF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Or Date Time Period 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

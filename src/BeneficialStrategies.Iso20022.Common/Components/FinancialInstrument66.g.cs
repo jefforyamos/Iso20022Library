@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
 [IsoId("_SOTuYTf4Eei6RvewLQWEqw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record FinancialInstrument66
     /// Indicates whether it is possible to hold bearer units/shares in this class in certified form.
     /// </summary>
     [IsoId("_SerFpzf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Bearer Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysBrScties")]
     #endif
+    [IsoXmlTag("PhysBrScties")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PhysicalBearerSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record FinancialInstrument66
     /// Indicates whether it is possible to hold bearer units/shares in paperless form.
     /// </summary>
     [IsoId("_SerFqTf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dematerialised Bearer Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmtrlsdBrScties")]
     #endif
+    [IsoXmlTag("DmtrlsdBrScties")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DematerialisedBearerSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record FinancialInstrument66
     /// Indicates whether it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
     [IsoId("_SerFqzf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Registered Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysRegdScties")]
     #endif
+    [IsoXmlTag("PhysRegdScties")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PhysicalRegisteredSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record FinancialInstrument66
     /// Indicates whether it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
     [IsoId("_SerFrTf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dematerialised Registered Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmtrlsdRegdScties")]
     #endif
+    [IsoXmlTag("DmtrlsdRegdScties")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DematerialisedRegisteredSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,11 @@ public partial record FinancialInstrument66
     /// Income policy relating to the class type, that is, if income is paid out or retained in the fund.
     /// </summary>
     [IsoId("_SerFrzf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Distribution Policy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstrbtnPlcy")]
     #endif
+    [IsoXmlTag("DstrbtnPlcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +131,11 @@ public partial record FinancialInstrument66
     /// Dividend policy of the fund, for example, cash, units.
     /// </summary>
     [IsoId("_SerFsTf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Policy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddPlcy")]
     #endif
+    [IsoXmlTag("DvddPlcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DividendPolicy1Code? DividendPolicy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +148,11 @@ public partial record FinancialInstrument66
     /// Frequency with which the income is allocated to investors.
     /// </summary>
     [IsoId("_SerFszf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddFrqcy")]
     #endif
+    [IsoXmlTag("DvddFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency5Code? DividendFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +165,11 @@ public partial record FinancialInstrument66
     /// Frequency with which the reinvestment takes place, this is the same or less than the dividend frequency.
     /// </summary>
     [IsoId("_SerFtTf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvestment Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstmtFrqcy")]
     #endif
+    [IsoXmlTag("RinvstmtFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency5Code? ReinvestmentFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +182,12 @@ public partial record FinancialInstrument66
     /// Indicates whether a front end charge on subscription orders for this class can be applied.
     /// </summary>
     [IsoId("_SerFtzf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Front End Load")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrntEndLd")]
     #endif
+    [IsoXmlTag("FrntEndLd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FrontEndLoad { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +200,12 @@ public partial record FinancialInstrument66
     /// Indicates whether an exit charge (for example, CDSC) on redemption orders for this class can be applied.
     /// </summary>
     [IsoId("_SerFuTf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Back End Load")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BckEndLd")]
     #endif
+    [IsoXmlTag("BckEndLd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? BackEndLoad { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +218,12 @@ public partial record FinancialInstrument66
     /// Indicates whether a separate fee for switching between sub-funds of the same umbrella can be applied.
     /// </summary>
     [IsoId("_SerFuzf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchFee")]
     #endif
+    [IsoXmlTag("SwtchFee")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SwitchFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +236,11 @@ public partial record FinancialInstrument66
     /// Indicates whether the investment fund class is subject to the European Union Saving Directive.
     /// </summary>
     [IsoId("_SerFvTf4Eei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("EU Savings Directive")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EUSvgsDrctv")]
     #endif
+    [IsoXmlTag("EUSvgsDrctv")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EUSavingsDirective1Code? EUSavingsDirective { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +253,12 @@ public partial record FinancialInstrument66
     /// Date on which the fund is open for investment.
     /// </summary>
     [IsoId("_dbUTUGAOEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Launch Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LnchDt")]
     #endif
+    [IsoXmlTag("LnchDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LaunchDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +271,12 @@ public partial record FinancialInstrument66
     /// Date on which the fund is closed to investment.
     /// </summary>
     [IsoId("_hlU1oGAOEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndEndDt")]
     #endif
+    [IsoXmlTag("FndEndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FundEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +289,12 @@ public partial record FinancialInstrument66
     /// Date the fund closes.
     /// </summary>
     [IsoId("_nm8Z0GAOEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Termination Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermntnDt")]
     #endif
+    [IsoXmlTag("TermntnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TerminationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +307,12 @@ public partial record FinancialInstrument66
     /// Date on which the discount period of the newly launched investment fund ends.
     /// </summary>
     [IsoId("_sjGKwGAOEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Offer End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlOfferEndDt")]
     #endif
+    [IsoXmlTag("InitlOfferEndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? InitialOfferEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -332,12 +325,12 @@ public partial record FinancialInstrument66
     /// Date on which valuation of the investment fund class is suspended.
     /// </summary>
     [IsoId("_0h-s4GAOEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspension Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SspnsnStartDt")]
     #endif
+    [IsoXmlTag("SspnsnStartDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SuspensionStartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -350,12 +343,12 @@ public partial record FinancialInstrument66
     /// Date on which valuation of the investment fund class is unsuspended.
     /// </summary>
     [IsoId("_4LaRsGAOEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspension End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SspnsnEndDt")]
     #endif
+    [IsoXmlTag("SspnsnEndDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SuspensionEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -368,12 +361,12 @@ public partial record FinancialInstrument66
     /// Maturity date of the product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00065. In EMT v1, the element Maturity Date is reference 05090.
     /// </summary>
     [IsoId("_JolpEYBiEei8Q7I_11BpAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -386,12 +379,12 @@ public partial record FinancialInstrument66
     /// Indicates whether the fund is close-ended.
     /// </summary>
     [IsoId("_8w-HkGAOEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closed End Fund")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsdEndFnd")]
     #endif
+    [IsoXmlTag("ClsdEndFnd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ClosedEndFund { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -404,12 +397,12 @@ public partial record FinancialInstrument66
     /// Indicates whether equalisation is applied.
     /// </summary>
     [IsoId("_B4yV8GAPEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equalisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Equlstn")]
     #endif
+    [IsoXmlTag("Equlstn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Equalisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -422,12 +415,12 @@ public partial record FinancialInstrument66
     /// Indicates whether the fund is eligible for a tax efficient product.
     /// </summary>
     [IsoId("_InaKEGAPEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Efficient Product Eligible")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxEffcntPdctElgbl")]
     #endif
+    [IsoXmlTag("TaxEffcntPdctElgbl")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TaxEfficientProductEligible { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -440,12 +433,12 @@ public partial record FinancialInstrument66
     /// Indicates whether the fund is authorised by the regulatory compliance authority.
     /// </summary>
     [IsoId("_McY3kGAPEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorised")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Authrsd")]
     #endif
+    [IsoXmlTag("Authrsd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Authorised { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -458,12 +451,12 @@ public partial record FinancialInstrument66
     /// Indicates whether the fund is compliant with the Retail Distribution Review (RDR).
     /// </summary>
     [IsoId("_QT8X8GAPEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("RDR Compliant")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RDRCmplnt")]
     #endif
+    [IsoXmlTag("RDRCmplnt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RDRCompliant { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -476,12 +469,11 @@ public partial record FinancialInstrument66
     /// Specifies from where the management fee is taken.
     /// </summary>
     [IsoId("_T2Oy8GAPEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Management Fee Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MgmtFeeSrc")]
     #endif
+    [IsoXmlTag("MgmtFeeSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AnnualChargePaymentType1Code? ManagementFeeSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -494,12 +486,12 @@ public partial record FinancialInstrument66
     /// Indicates whether there is a performance fee feature. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00045.
     /// </summary>
     [IsoId("_pAPSkGAPEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Performance Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrfrmncFee")]
     #endif
+    [IsoXmlTag("PrfrmncFee")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PerformanceFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -512,12 +504,11 @@ public partial record FinancialInstrument66
     /// Additional information about the fund.
     /// </summary>
     [IsoId("_OKRH8WAKEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

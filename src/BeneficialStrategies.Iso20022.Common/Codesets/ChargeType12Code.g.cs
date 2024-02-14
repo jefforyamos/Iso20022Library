@@ -21,7 +21,7 @@ public enum ChargeType12Code
 {
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BEND".
+    /// Encoded/decoded by serializers as &quot;BEND&quot;.
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_a8ruB9p-Ed-ak6NoX_4Aeg_-1066086887")]
@@ -30,7 +30,7 @@ public enum ChargeType12Code
     
     /// <summary>
     /// Charge that has been reduced from the standard initial charge levied by a fund, eg, during a launch period or as negotiated by a funds supermarket / discount broker.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_a8ruCNp-Ed-ak6NoX_4Aeg_-1066086869")]
@@ -39,7 +39,7 @@ public enum ChargeType12Code
     
     /// <summary>
     /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "FEND".
+    /// Encoded/decoded by serializers as &quot;FEND&quot;.
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a8ruCdp-Ed-ak6NoX_4Aeg_-1066086844")]
@@ -48,7 +48,7 @@ public enum ChargeType12Code
     
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_a81fANp-Ed-ak6NoX_4Aeg_-1066086827")]
@@ -57,7 +57,7 @@ public enum ChargeType12Code
     
     /// <summary>
     /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
-    /// Encoded/decoded by serializers as "REGF".
+    /// Encoded/decoded by serializers as &quot;REGF&quot;.
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_a81fAdp-Ed-ak6NoX_4Aeg_-1066086809")]
@@ -66,7 +66,7 @@ public enum ChargeType12Code
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_a81fAtp-Ed-ak6NoX_4Aeg_-1066086792")]
@@ -75,7 +75,7 @@ public enum ChargeType12Code
     
     /// <summary>
     /// Charges, drawdown, or other reduction from or in addition to the deal price.
-    /// Encoded/decoded by serializers as "SPCN".
+    /// Encoded/decoded by serializers as &quot;SPCN&quot;.
     /// </summary>
     [EnumMember(Value = "SPCN")]
     [IsoId("_a81fA9p-Ed-ak6NoX_4Aeg_-1066086774")]
@@ -84,7 +84,7 @@ public enum ChargeType12Code
     
     /// <summary>
     /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_a81fBNp-Ed-ak6NoX_4Aeg_-1066086749")]

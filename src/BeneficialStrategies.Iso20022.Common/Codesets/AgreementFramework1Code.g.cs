@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum AgreementFramework1Code
 {
     /// <summary>
-    /// French Banker's Association Agreement.
-    /// Encoded/decoded by serializers as "FBAA".
+    /// French Banker&apos;s Association Agreement.
+    /// Encoded/decoded by serializers as &quot;FBAA&quot;.
     /// </summary>
     [EnumMember(Value = "FBAA")]
     [IsoId("_YbdHYNp-Ed-ak6NoX_4Aeg_2036640841")]
@@ -29,8 +29,8 @@ public enum AgreementFramework1Code
     FBAAgreement = AgreementFrameworkCode.FBAAgreement, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// British Banker's Association Agreement.
-    /// Encoded/decoded by serializers as "BBAA".
+    /// British Banker&apos;s Association Agreement.
+    /// Encoded/decoded by serializers as &quot;BBAA&quot;.
     /// </summary>
     [EnumMember(Value = "BBAA")]
     [IsoId("_YbdHYdp-Ed-ak6NoX_4Aeg_-1672379429")]
@@ -39,7 +39,7 @@ public enum AgreementFramework1Code
     
     /// <summary>
     /// German Rahmenvertrag Agreement.
-    /// Encoded/decoded by serializers as "DERV".
+    /// Encoded/decoded by serializers as &quot;DERV&quot;.
     /// </summary>
     [EnumMember(Value = "DERV")]
     [IsoId("_YbdHYtp-Ed-ak6NoX_4Aeg_1243904924")]
@@ -48,7 +48,7 @@ public enum AgreementFramework1Code
     
     /// <summary>
     /// International Swaps and Derivatives Association Agreement.
-    /// Encoded/decoded by serializers as "ISDA".
+    /// Encoded/decoded by serializers as &quot;ISDA&quot;.
     /// </summary>
     [EnumMember(Value = "ISDA")]
     [IsoId("_YbdHY9p-Ed-ak6NoX_4Aeg_1130065858")]
@@ -57,7 +57,7 @@ public enum AgreementFramework1Code
     
     /// <summary>
     /// No information about the master agreement is available.
-    /// Encoded/decoded by serializers as "NONR".
+    /// Encoded/decoded by serializers as &quot;NONR&quot;.
     /// </summary>
     [EnumMember(Value = "NONR")]
     [IsoId("_YbdHZNp-Ed-ak6NoX_4Aeg_1232806147")]

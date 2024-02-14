@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStandingInstructionDat
     /// Settlement standing instruction database expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_AbgFsNokEeC60axPepSq7g_-1180537680")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStandingInstructionDat
         /// Indicates what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementStandingInstructionDatabase1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementStandingInstructionDatabase1Code Value { get; init; } 
+        public required SettlementStandingInstructionDatabase1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementStandingInstructionDatabase1Code Value { get; init; } 
         #else

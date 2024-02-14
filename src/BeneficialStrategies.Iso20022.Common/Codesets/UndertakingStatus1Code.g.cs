@@ -21,7 +21,7 @@ public enum UndertakingStatus1Code
 {
     /// <summary>
     /// Accepted in accordance with technical validation.
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_gYwzlnymEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum UndertakingStatus1Code
     
     /// <summary>
     /// Pending further processing.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_i6nFRnymEeGWJuGCfvwOsQ")]
@@ -39,7 +39,7 @@ public enum UndertakingStatus1Code
     
     /// <summary>
     /// Received.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_kDL25nymEeGWJuGCfvwOsQ")]
@@ -48,7 +48,7 @@ public enum UndertakingStatus1Code
     
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_kTSIZnymEeGWJuGCfvwOsQ")]

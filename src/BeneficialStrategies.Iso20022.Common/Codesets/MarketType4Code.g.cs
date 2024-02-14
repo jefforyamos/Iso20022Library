@@ -21,7 +21,7 @@ public enum MarketType4Code
 {
     /// <summary>
     /// The place is a fund (transfer agent, fund itself, etc.).
-    /// Encoded/decoded by serializers as "FUND".
+    /// Encoded/decoded by serializers as &quot;FUND&quot;.
     /// </summary>
     [EnumMember(Value = "FUND")]
     [IsoId("_aUmaVdp-Ed-ak6NoX_4Aeg_-1841693350")]
@@ -30,7 +30,7 @@ public enum MarketType4Code
     
     /// <summary>
     /// The place is a local market.
-    /// Encoded/decoded by serializers as "LMAR".
+    /// Encoded/decoded by serializers as &quot;LMAR&quot;.
     /// </summary>
     [EnumMember(Value = "LMAR")]
     [IsoId("_aUmaVtp-Ed-ak6NoX_4Aeg_-790560278")]
@@ -39,7 +39,7 @@ public enum MarketType4Code
     
     /// <summary>
     /// The place is theoretical.
-    /// Encoded/decoded by serializers as "THEO".
+    /// Encoded/decoded by serializers as &quot;THEO&quot;.
     /// </summary>
     [EnumMember(Value = "THEO")]
     [IsoId("_aUmaV9p-Ed-ak6NoX_4Aeg_1996754313")]
@@ -48,7 +48,7 @@ public enum MarketType4Code
     
     /// <summary>
     /// The place is a vendor.
-    /// Encoded/decoded by serializers as "VEND".
+    /// Encoded/decoded by serializers as &quot;VEND&quot;.
     /// </summary>
     [EnumMember(Value = "VEND")]
     [IsoId("_aUmaWNp-Ed-ak6NoX_4Aeg_-831064220")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the card payment transaction
 /// </summary>
 [IsoId("_K4fNUcVeEeuips4fuphvoQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TransactionContext10
     /// Card programme or brand related to the transaction.
     /// </summary>
     [IsoId("_K9540cVeEeuips4fuphvoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Programme Applied")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPrgrmmApld")]
     #endif
+    [IsoXmlTag("CardPrgrmmApld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardProgrammeMode3? CardProgrammeApplied { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TransactionContext10
     /// Contains information that identifies or is specific to a transaction jurisdiction.
     /// </summary>
     [IsoId("_UkLPgMVeEeuips4fuphvoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Jurisdiction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Jursdctn")]
     #endif
+    [IsoXmlTag("Jursdctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Jurisdiction2? Jurisdiction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TransactionContext10
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
     [IsoId("_6HDeMcpEEeuuJ571wNLKkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSvc")]
     #endif
+    [IsoXmlTag("SttlmSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementService4? SettlementService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TransactionContext10
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
     [IsoId("_BagdscpFEeuuJ571wNLKkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcncltn")]
     #endif
+    [IsoXmlTag("Rcncltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reconciliation3? Reconciliation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record TransactionContext10
     /// Additional transaction context data.
     /// </summary>
     [IsoId("_VLKJccV-Eeua2vd9tJAtHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

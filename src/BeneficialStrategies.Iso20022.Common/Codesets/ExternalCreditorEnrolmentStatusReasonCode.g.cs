@@ -22,7 +22,7 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
 {
     /// <summary>
     /// Already existing creditor.
-    /// Encoded/decoded by serializers as "ACRD".
+    /// Encoded/decoded by serializers as &quot;ACRD&quot;.
     /// </summary>
     [EnumMember(Value = "ACRD")]
     [IsoId("_uvUnI_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
     
     /// <summary>
     /// Duplication.
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_uvUnJvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
     
     /// <summary>
     /// Invalid file format.
-    /// Encoded/decoded by serializers as "FF01".
+    /// Encoded/decoded by serializers as &quot;FF01&quot;.
     /// </summary>
     [EnumMember(Value = "FF01")]
     [IsoId("_uvUnKfRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
     
     /// <summary>
     /// Reference is not unique.
-    /// Encoded/decoded by serializers as "RF01".
+    /// Encoded/decoded by serializers as &quot;RF01&quot;.
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_uveYIPRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
     
     /// <summary>
     /// Regulatory Reason.
-    /// Encoded/decoded by serializers as "RR04".
+    /// Encoded/decoded by serializers as &quot;RR04&quot;.
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_uveYI_RYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
     
     /// <summary>
     /// Invalid character set.
-    /// Encoded/decoded by serializers as "RR10".
+    /// Encoded/decoded by serializers as &quot;RR10&quot;.
     /// </summary>
     [EnumMember(Value = "RR10")]
     [IsoId("_uvoJIPRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalCreditorEnrolmentStatusReasonCode
     
     /// <summary>
     /// Technical rejection.
-    /// Encoded/decoded by serializers as "TRJT".
+    /// Encoded/decoded by serializers as &quot;TRJT&quot;.
     /// </summary>
     [EnumMember(Value = "TRJT")]
     [IsoId("_uvoJI_RYEeuLhpyIdtJzwg")]

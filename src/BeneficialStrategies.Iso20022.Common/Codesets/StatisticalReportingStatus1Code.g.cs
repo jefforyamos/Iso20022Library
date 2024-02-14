@@ -21,7 +21,7 @@ public enum StatisticalReportingStatus1Code
 {
     /// <summary>
     /// Transaction or report has been accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_iNhH8djFEeSD0e0ybx5L5Q")]
@@ -30,7 +30,7 @@ public enum StatisticalReportingStatus1Code
     
     /// <summary>
     /// Transaction or report has passed syntactical and semantical validation.
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_iUXW0djFEeSD0e0ybx5L5Q")]
@@ -39,7 +39,7 @@ public enum StatisticalReportingStatus1Code
     
     /// <summary>
     /// Report has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_iaw5wdjFEeSD0e0ybx5L5Q")]
@@ -48,7 +48,7 @@ public enum StatisticalReportingStatus1Code
     
     /// <summary>
     /// Processing of transaction or report is pending.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_ijYqQdjFEeSD0e0ybx5L5Q")]
@@ -57,7 +57,7 @@ public enum StatisticalReportingStatus1Code
     
     /// <summary>
     /// Report has been received.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_ipfSQdjFEeSD0e0ybx5L5Q")]
@@ -66,7 +66,7 @@ public enum StatisticalReportingStatus1Code
     
     /// <summary>
     /// Transaction or report has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_ixYC8djFEeSD0e0ybx5L5Q")]
@@ -75,7 +75,7 @@ public enum StatisticalReportingStatus1Code
     
     /// <summary>
     /// Reminder of a non received report.
-    /// Encoded/decoded by serializers as "RMDR".
+    /// Encoded/decoded by serializers as &quot;RMDR&quot;.
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_2_4jUe2wEeS-SNPe_7uMwA")]
@@ -84,7 +84,7 @@ public enum StatisticalReportingStatus1Code
     
     /// <summary>
     /// File containing the report has an incorrect filename.
-    /// Encoded/decoded by serializers as "INCF".
+    /// Encoded/decoded by serializers as &quot;INCF&quot;.
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_c9R3Ye8AEeSo-uJuUW33Ew")]
@@ -93,7 +93,7 @@ public enum StatisticalReportingStatus1Code
     
     /// <summary>
     /// File containing the report is corrupted.
-    /// Encoded/decoded by serializers as "CRPT".
+    /// Encoded/decoded by serializers as &quot;CRPT&quot;.
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_urYQ0e8AEeSo-uJuUW33Ew")]

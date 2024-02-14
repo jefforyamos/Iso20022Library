@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics related to a cheque instruction, such as cheque type or cheque number.
 /// </summary>
 [IsoId("_tcJEcFkyEeGeoaLUQk__nA_-387134073")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cheque")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Cheque7
     /// Specifies the type of cheque to be issued.
     /// </summary>
     [IsoId("_tcJEcVkyEeGeoaLUQk__nA_976404247")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChqTp")]
     #endif
+    [IsoXmlTag("ChqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChequeType2Code? ChequeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record Cheque7
     /// Unique and unambiguous identifier for a cheque as assigned by the agent.
     /// </summary>
     [IsoId("_tcJEclkyEeGeoaLUQk__nA_-1044651388")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChqNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ChqNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ChequeNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record Cheque7
     /// Identifies the party that ordered the issuance of the cheque.
     /// </summary>
     [IsoId("_tcJEc1kyEeGeoaLUQk__nA_-1205181364")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChqFr")]
     #endif
+    [IsoXmlTag("ChqFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress10? ChequeFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +92,14 @@ public partial record Cheque7
     #endif
     
     /// <summary>
-    /// Specifies the delivery method of the cheque by the debtor's agent.
+    /// Specifies the delivery method of the cheque by the debtor&apos;s agent.
     /// </summary>
     [IsoId("_tcSOYFkyEeGeoaLUQk__nA_-1812000377")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryMtd")]
     #endif
+    [IsoXmlTag("DlvryMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ChequeDeliveryMethod1Choice_? DeliveryMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,15 +109,14 @@ public partial record Cheque7
     #endif
     
     /// <summary>
-    /// Party to whom the debtor's agent needs to send the cheque.
+    /// Party to whom the debtor&apos;s agent needs to send the cheque.
     /// </summary>
     [IsoId("_tcSOYVkyEeGeoaLUQk__nA_-1843971141")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliver To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrTo")]
     #endif
+    [IsoXmlTag("DlvrTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress10? DeliverTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +129,11 @@ public partial record Cheque7
     /// Urgency or order of importance that the originator would like the recipient of the payment instruction to apply to the processing of the payment instruction.
     /// </summary>
     [IsoId("_tcSOYlkyEeGeoaLUQk__nA_-2054191839")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrPrty")]
     #endif
+    [IsoXmlTag("InstrPrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Priority2Code? InstructionPriority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,15 +143,15 @@ public partial record Cheque7
     #endif
     
     /// <summary>
-    /// Date when the draft becomes payable and the debtor's account is debited.
+    /// Date when the draft becomes payable and the debtor&apos;s account is debited.
     /// </summary>
     [IsoId("_tcSOY1kyEeGeoaLUQk__nA_-1432691134")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChqMtrtyDt")]
     #endif
+    [IsoXmlTag("ChqMtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ChequeMaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,18 +161,16 @@ public partial record Cheque7
     #endif
     
     /// <summary>
-    /// Identifies, in a coded form, the cheque layout, company logo and digitised signature to be used to print the cheque, as agreed between the initiating party and the debtor's agent.
+    /// Identifies, in a coded form, the cheque layout, company logo and digitised signature to be used to print the cheque, as agreed between the initiating party and the debtor&apos;s agent.
     /// </summary>
     [IsoId("_tcSOZFkyEeGeoaLUQk__nA_1601985680")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Forms Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrmsCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FrmsCd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? FormsCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,34 +183,28 @@ public partial record Cheque7
     /// Information that needs to be printed on a cheque, used by the payer to add miscellaneous information.
     /// </summary>
     [IsoId("_tcb_YFkyEeGeoaLUQk__nA_-631615173")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Memo Field")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MemoFld")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MemoFld")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> MemoField { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
     /// Regional area in which the cheque can be cleared, when a country has no nation-wide cheque clearing organisation.
     /// </summary>
     [IsoId("_tcb_YVkyEeGeoaLUQk__nA_200714969")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Regional Clearing Zone")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgnlClrZone")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RgnlClrZone")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RegionalClearingZone { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -234,15 +217,13 @@ public partial record Cheque7
     /// Specifies the print location of the cheque.
     /// </summary>
     [IsoId("_tcb_YlkyEeGeoaLUQk__nA_-1913299118")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Print Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtLctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtLctn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PrintLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -255,19 +236,15 @@ public partial record Cheque7
     /// Signature to be used by the cheque servicer on a specific cheque to be printed.
     /// </summary>
     [IsoId("_tcb_Y1kyEeGeoaLUQk__nA_-667422494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Sgntr")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> Signature { get; init; } = new SimpleValueList<System.String>(){};
     
     

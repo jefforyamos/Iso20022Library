@@ -21,7 +21,7 @@ public enum NonFinancialRequestType2Code
 {
     /// <summary>
     /// According to several parameters of a transaction, an Intermediary Agent helps an Acceptor to identify the more relevant Acquirer to process the transaction.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_hiZBUXC8Ee2bmOA3bkVsMg")]
@@ -30,7 +30,7 @@ public enum NonFinancialRequestType2Code
     
     /// <summary>
     /// The Intermediary Agent or Acquirer provides the PaymentAccountReference to use to process the transaction.
-    /// Encoded/decoded by serializers as "PARQ".
+    /// Encoded/decoded by serializers as &quot;PARQ&quot;.
     /// </summary>
     [EnumMember(Value = "PARQ")]
     [IsoId("_hiZBU3C8Ee2bmOA3bkVsMg")]
@@ -39,7 +39,7 @@ public enum NonFinancialRequestType2Code
     
     /// <summary>
     /// The Intermediary Agent or Acquirer helps the Acceptor to assess the risk management of the transaction.
-    /// Encoded/decoded by serializers as "RISK".
+    /// Encoded/decoded by serializers as &quot;RISK&quot;.
     /// </summary>
     [EnumMember(Value = "RISK")]
     [IsoId("_hiZBVXC8Ee2bmOA3bkVsMg")]
@@ -48,7 +48,7 @@ public enum NonFinancialRequestType2Code
     
     /// <summary>
     /// The Intermediary Agent or Acquirer provides the token to use to process the transaction.
-    /// Encoded/decoded by serializers as "TOKN".
+    /// Encoded/decoded by serializers as &quot;TOKN&quot;.
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_hiZBV3C8Ee2bmOA3bkVsMg")]
@@ -57,7 +57,7 @@ public enum NonFinancialRequestType2Code
     
     /// <summary>
     /// Indicates a request which implies to receive additional information.
-    /// Encoded/decoded by serializers as "ADDR".
+    /// Encoded/decoded by serializers as &quot;ADDR&quot;.
     /// </summary>
     [EnumMember(Value = "ADDR")]
     [IsoId("_mQM0QXC8Ee2bmOA3bkVsMg")]
@@ -66,7 +66,7 @@ public enum NonFinancialRequestType2Code
     
     /// <summary>
     /// Request to receive acquirer instalment plans.
-    /// Encoded/decoded by serializers as "INSM".
+    /// Encoded/decoded by serializers as &quot;INSM&quot;.
     /// </summary>
     [EnumMember(Value = "INSM")]
     [IsoId("_maVnsXC8Ee2bmOA3bkVsMg")]

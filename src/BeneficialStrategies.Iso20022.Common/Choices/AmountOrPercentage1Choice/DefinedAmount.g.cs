@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage1Choice
     /// Details related to a defined monetary amount.
     /// </summary>
     [IsoId("_986x53ltEeG7BsjMvd1mEw_-1070364431")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Defined Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,16 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage1Choice
         /// Variation amount and currency.
         /// </summary>
         [IsoId("_945NhHltEeG7BsjMvd1mEw_1236951493")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Variation Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VartnAmt")]
         #endif
+        [IsoXmlTag("VartnAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount VariationAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal VariationAmount { get; init; } 
+        public required System.Decimal VariationAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal VariationAmount { get; init; } 
         #else
@@ -76,12 +74,12 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage1Choice
         /// Calculated undertaking available balance amount resulting from the application of the variation amount.
         /// </summary>
         [IsoId("_95C-gHltEeG7BsjMvd1mEw_1336485232")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Balance Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BalAmt")]
         #endif
+        [IsoXmlTag("BalAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoActiveCurrencyAndAmount? BalanceAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

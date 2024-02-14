@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
 [IsoId("_UzmP6dp-Ed-ak6NoX_4Aeg_-2005620583")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,19 +54,17 @@ public partial record TransferStatusAndReason
     /// Business reference of the transfer instruction.
     /// </summary>
     [IsoId("_UzmP6tp-Ed-ak6NoX_4Aeg_-1918809978")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TrfRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransferReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransferReference { get; init; } 
+    public required System.String TransferReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransferReference { get; init; } 
     #else
@@ -79,16 +75,15 @@ public partial record TransferStatusAndReason
     /// Instruction status and the reason for the status.
     /// </summary>
     [IsoId("_UzvZ0Np-Ed-ak6NoX_4Aeg_-1559464937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferInstructionStatus Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferInstructionStatus Status { get; init; } 
+    public required TransferInstructionStatus Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferInstructionStatus Status { get; init; } 
     #else
@@ -99,16 +94,15 @@ public partial record TransferStatusAndReason
     /// Status of the transfer instruction is pending settlement.
     /// </summary>
     [IsoId("_UzvZ0dp-Ed-ak6NoX_4Aeg_-1496751882")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgSttlm")]
     #endif
+    [IsoXmlTag("PdgSttlm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PendingSettlementStatusChoice_ PendingSettlement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PendingSettlementStatusChoice_ PendingSettlement { get; init; } 
+    public required PendingSettlementStatusChoice_ PendingSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PendingSettlementStatusChoice_ PendingSettlement { get; init; } 
     #else
@@ -119,16 +113,15 @@ public partial record TransferStatusAndReason
     /// Status of the transfer instruction is unmatched.
     /// </summary>
     [IsoId("_UzvZ0tp-Ed-ak6NoX_4Aeg_-1839191")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unmatched")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Umtchd")]
     #endif
+    [IsoXmlTag("Umtchd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferUnmatchedStatus Unmatched { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferUnmatchedStatus Unmatched { get; init; } 
+    public required TransferUnmatchedStatus Unmatched { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferUnmatchedStatus Unmatched { get; init; } 
     #else
@@ -139,16 +132,15 @@ public partial record TransferStatusAndReason
     /// Status is in repair.
     /// </summary>
     [IsoId("_UzvZ09p-Ed-ak6NoX_4Aeg_-1844925356")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("In Repair")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InRpr")]
     #endif
+    [IsoXmlTag("InRpr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InRepairStatus2Choice_ InRepair { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InRepairStatus2Choice_ InRepair { get; init; } 
+    public required InRepairStatus2Choice_ InRepair { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InRepairStatus2Choice_ InRepair { get; init; } 
     #else
@@ -159,16 +151,15 @@ public partial record TransferStatusAndReason
     /// Status of the transfer instructed is rejected.
     /// </summary>
     [IsoId("_UzvZ1Np-Ed-ak6NoX_4Aeg_-1634364494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjctd")]
     #endif
+    [IsoXmlTag("Rjctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectedStatus3Choice_ Rejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectedStatus3Choice_ Rejected { get; init; } 
+    public required RejectedStatus3Choice_ Rejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectedStatus3Choice_ Rejected { get; init; } 
     #else
@@ -179,12 +170,11 @@ public partial record TransferStatusAndReason
     /// Party that initiates the status.
     /// </summary>
     [IsoId("_UzvZ1dp-Ed-ak6NoX_4Aeg_933459085")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsInitr")]
     #endif
+    [IsoXmlTag("StsInitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification1Choice_? StatusInitiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

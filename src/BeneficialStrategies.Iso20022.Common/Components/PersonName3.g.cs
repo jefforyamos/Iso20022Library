@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies a person via its first name and surname.
 /// </summary>
 [IsoId("_FhKN1bqcEemCAOifqHrKJw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Person Name")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -49,15 +47,14 @@ public partial record PersonName3
     #nullable enable
     
     /// <summary>
-    /// Prefix, as a title before a person's name.
+    /// Prefix, as a title before a person&apos;s name.
     /// </summary>
     [IsoId("_LmDvgbqcEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name Prefix")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmPrfx")]
     #endif
+    [IsoXmlTag("NmPrfx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NamePrefix2Code? NamePrefix { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,19 +67,17 @@ public partial record PersonName3
     /// First name(s) by which a natural person is known.
     /// </summary>
     [IsoId("_FhKN2LqcEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FrstNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text FirstName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FirstName { get; init; } 
+    public required System.String FirstName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FirstName { get; init; } 
     #else
@@ -93,19 +88,17 @@ public partial record PersonName3
     /// Name (s) by which a natural person is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_FhKN2bqcEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Surname")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Srnm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Srnm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text Surname { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Surname { get; init; } 
+    public required System.String Surname { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Surname { get; init; } 
     #else
@@ -116,12 +109,11 @@ public partial record PersonName3
     /// Postal address of the party.
     /// </summary>
     [IsoId("_FhKN17qcEemCAOifqHrKJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress26? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

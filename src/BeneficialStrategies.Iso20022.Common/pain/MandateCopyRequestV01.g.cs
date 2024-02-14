@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The MandateCopyRequest message is sent by the initiator of the request to his agent. The initiator can either be the debtor or the creditor.|The MandateCopyRequest message is forwarded by the agent of the initiator to the agent of the counterparty.|A MandateCopyRequest message is used to request a copy of an existing mandate. If accepted, the mandate copy can be sent using the MandateAcceptanceReport message.|Usage|The MandateCopyRequest message can contain one or more copy requests.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.|The MandateCopyRequest message can be used in domestic and cross-border scenarios.|")]
 [IsoId("_fptHIG6qEeaUkthD_kt0tA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Copy Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record MandateCopyRequestV01 : IOuterRecord<MandateCopyRequestV01
     /// Set of characteristics to identify the message and parties playing a role in the mandate copy request, but which are not part of the mandate.
     /// </summary>
     [IsoId("_9EgQ4G6tEeaUkthD_kt0tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader47 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader47 GroupHeader { get; init; } 
+    public required GroupHeader47 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader47 GroupHeader { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record MandateCopyRequestV01 : IOuterRecord<MandateCopyRequestV01
     /// Set of information used to identify the mandate for which a copy is requested.
     /// </summary>
     [IsoId("_WQnekG6vEeaUkthD_kt0tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Copy Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygCpyReqDtls")]
     #endif
+    [IsoXmlTag("UndrlygCpyReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateCopy1 UnderlyingCopyRequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateCopy1 UnderlyingCopyRequestDetails { get; init; } 
+    public required MandateCopy1 UnderlyingCopyRequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateCopy1 UnderlyingCopyRequestDetails { get; init; } 
     #else
@@ -125,12 +121,11 @@ public partial record MandateCopyRequestV01 : IOuterRecord<MandateCopyRequestV01
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_eHtPQW6yEeaUkthD_kt0tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,7 +138,7 @@ public partial record MandateCopyRequestV01 : IOuterRecord<MandateCopyRequestV01
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MandateCopyRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MandateCopyRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MandateCopyRequestV01Document ToDocument()
     {
@@ -153,7 +148,7 @@ public partial record MandateCopyRequestV01 : IOuterRecord<MandateCopyRequestV01
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateCopyRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MandateCopyRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MandateCopyRequestV01Document : IOuterDocument<MandateCopyRequestV01>
@@ -170,7 +165,7 @@ public partial record MandateCopyRequestV01Document : IOuterDocument<MandateCopy
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MandateCopyRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MandateCopyRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateCopyRequestV01 Message { get; init; }

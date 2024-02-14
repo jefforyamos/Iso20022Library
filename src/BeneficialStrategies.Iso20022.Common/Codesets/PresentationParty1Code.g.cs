@@ -21,7 +21,7 @@ public enum PresentationParty1Code
 {
     /// <summary>
     /// Presentation made either to the issuer or other nominated party.
-    /// Encoded/decoded by serializers as "ETHR".
+    /// Encoded/decoded by serializers as &quot;ETHR&quot;.
     /// </summary>
     [EnumMember(Value = "ETHR")]
     [IsoId("_cu64tnyeEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum PresentationParty1Code
     
     /// <summary>
     /// Presentation made exclusively to the confirmer.
-    /// Encoded/decoded by serializers as "EXCN".
+    /// Encoded/decoded by serializers as &quot;EXCN&quot;.
     /// </summary>
     [EnumMember(Value = "EXCN")]
     [IsoId("_c1xupnyeEeGWJuGCfvwOsQ")]
@@ -39,7 +39,7 @@ public enum PresentationParty1Code
     
     /// <summary>
     /// Presentation made exclusively to the issuer.
-    /// Encoded/decoded by serializers as "EXIS".
+    /// Encoded/decoded by serializers as &quot;EXIS&quot;.
     /// </summary>
     [EnumMember(Value = "EXIS")]
     [IsoId("_c-toNnyeEeGWJuGCfvwOsQ")]

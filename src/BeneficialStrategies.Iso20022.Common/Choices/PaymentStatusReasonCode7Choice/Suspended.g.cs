@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice
     /// Reason why the payment status is suspended.
     /// </summary>
     [IsoId("_Ny9DxZlPEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspended")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice
         /// Specifies the reason the transaction/instruction is suspended.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sspd")]
         #endif
+        [IsoXmlTag("Sspd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SuspendedStatusReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SuspendedStatusReason1Code Value { get; init; } 
+        public required SuspendedStatusReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SuspendedStatusReason1Code Value { get; init; } 
         #else

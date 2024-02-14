@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the margin call request.
 /// </summary>
 [IsoId("_Uk_MJdp-Ed-ak6NoX_4Aeg_138884862")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Call")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record MarginCall1
     /// Sum of the exposures of all transactions which are in the favour of party A. That is, all transactions which would have an amount payable by party B to party A if they were being terminated.
     /// </summary>
     [IsoId("_Uk_MJtp-Ed-ak6NoX_4Aeg_-1579631561")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposed Amount Party A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsdAmtPtyA")]
     #endif
+    [IsoXmlTag("XpsdAmtPtyA")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record MarginCall1
     /// Sum of the exposures of all transactions which are in the favour of party B. That is, all transactions which would have an amount payable by party A to party B if they were being terminated.
     /// </summary>
     [IsoId("_Uk_MJ9p-Ed-ak6NoX_4Aeg_1154819457")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposed Amount Party B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsdAmtPtyB")]
     #endif
+    [IsoXmlTag("XpsdAmtPtyB")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,12 +80,11 @@ public partial record MarginCall1
     /// - gross in which two separate variation margin requirements will be determined.
     /// </summary>
     [IsoId("_Uk_MKNp-Ed-ak6NoX_4Aeg_1509089912")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Convention")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrCnvntn")]
     #endif
+    [IsoXmlTag("XpsrCnvntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExposureConventionType1Code? ExposureConvention { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +97,11 @@ public partial record MarginCall1
     /// Amount applied as an add-on to the exposure (to party A) usually intended to cover a possible increase in exposure before the next valuation date.
     /// </summary>
     [IsoId("_Uk_MKdp-Ed-ak6NoX_4Aeg_1988654401")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Independent Amount Party A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndpdntAmtPtyA")]
     #endif
+    [IsoXmlTag("IndpdntAmtPtyA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregatedIndependentAmount1? IndependentAmountPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +114,11 @@ public partial record MarginCall1
     /// An amount applied as an add-on to the exposure (to party B) usually intended to cover a possible increase in exposure before the next valuation date.
     /// </summary>
     [IsoId("_UlI9INp-Ed-ak6NoX_4Aeg_-957268284")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Independent Amount Party B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndpdntAmtPtyB")]
     #endif
+    [IsoXmlTag("IndpdntAmtPtyB")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregatedIndependentAmount1? IndependentAmountPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +131,11 @@ public partial record MarginCall1
     /// Provides information like threshold amount, threshold type, minimum transfer amount, rouding amount or rounding convention, that applies to either the variation margin or the segregated independent amount.
     /// </summary>
     [IsoId("_UlI9Idp-Ed-ak6NoX_4Aeg_1932695356")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnTerms")]
     #endif
+    [IsoXmlTag("MrgnTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginTerms1Choice_? MarginTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +148,11 @@ public partial record MarginCall1
     /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties with a segregation between variation margin and segregated independent amount.
     /// </summary>
     [IsoId("_UlI9Itp-Ed-ak6NoX_4Aeg_-381594311")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollBal")]
     #endif
+    [IsoXmlTag("CollBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralBalance1Choice_? CollateralBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

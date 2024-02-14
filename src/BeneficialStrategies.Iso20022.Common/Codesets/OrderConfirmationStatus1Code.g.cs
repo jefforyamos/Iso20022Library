@@ -21,7 +21,7 @@ public enum OrderConfirmationStatus1Code
 {
     /// <summary>
     /// Order confirmation or order confirmation cancellation instruction or order confirmation amendment has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_aQ4X8dp-Ed-ak6NoX_4Aeg_-1681562215")]
@@ -30,7 +30,7 @@ public enum OrderConfirmationStatus1Code
     
     /// <summary>
     /// Communication problems with the next party.
-    /// Encoded/decoded by serializers as "CPNP".
+    /// Encoded/decoded by serializers as &quot;CPNP&quot;.
     /// </summary>
     [EnumMember(Value = "CPNP")]
     [IsoId("_aQ4X8tp-Ed-ak6NoX_4Aeg_1277403271")]
@@ -39,7 +39,7 @@ public enum OrderConfirmationStatus1Code
     
     /// <summary>
     /// Order confirmation or order confirmation amendment is accepted.
-    /// Encoded/decoded by serializers as "COAC".
+    /// Encoded/decoded by serializers as &quot;COAC&quot;.
     /// </summary>
     [EnumMember(Value = "COAC")]
     [IsoId("_aQ4X89p-Ed-ak6NoX_4Aeg_-1681562310")]
@@ -48,7 +48,7 @@ public enum OrderConfirmationStatus1Code
     
     /// <summary>
     /// Order confirmation or order confirmation amendment is received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "CREC".
+    /// Encoded/decoded by serializers as &quot;CREC&quot;.
     /// </summary>
     [EnumMember(Value = "CREC")]
     [IsoId("_aQ4X9Np-Ed-ak6NoX_4Aeg_-1681562275")]

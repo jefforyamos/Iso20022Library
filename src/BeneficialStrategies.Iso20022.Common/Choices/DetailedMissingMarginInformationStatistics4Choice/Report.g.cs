@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformation
     /// Detailed information on statistics per combination of counterparties.
     /// </summary>
     [IsoId("_rsDiw1owEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformation
         /// Number of outstanding derivatives. 
         /// </summary>
         [IsoId("_rtPOgVowEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number Of Outstanding Derivatives")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NbOfOutsdngDerivs")]
         #endif
+        [IsoXmlTag("NbOfOutsdngDerivs")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber NumberOfOutstandingDerivatives { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
+        public required System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 NumberOfOutstandingDerivatives { get; init; } 
         #else
@@ -78,16 +76,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformation
         /// Number of outstanding derivatives with no margin information.
         /// </summary>
         [IsoId("_rtPOg1owEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number Of Outstanding Derivatives With No Margin Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NbOfOutsdngDerivsWthNoMrgnInf")]
         #endif
+        [IsoXmlTag("NbOfOutsdngDerivsWthNoMrgnInf")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber NumberOfOutstandingDerivativesWithNoMarginInformation { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 NumberOfOutstandingDerivativesWithNoMarginInformation { get; init; } 
+        public required System.UInt64 NumberOfOutstandingDerivativesWithNoMarginInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 NumberOfOutstandingDerivativesWithNoMarginInformation { get; init; } 
         #else
@@ -98,16 +96,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformation
         /// Number of outstanding derivatives with outdated margin information.
         /// </summary>
         [IsoId("_rtPOhVowEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number Of Outstanding Derivatives With Outdated Margin Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NbOfOutsdngDerivsWthOutdtdMrgnInf")]
         #endif
+        [IsoXmlTag("NbOfOutsdngDerivsWthOutdtdMrgnInf")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber NumberOfOutstandingDerivativesWithOutdatedMarginInformation { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedMarginInformation { get; init; } 
+        public required System.UInt64 NumberOfOutstandingDerivativesWithOutdatedMarginInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 NumberOfOutstandingDerivativesWithOutdatedMarginInformation { get; init; } 
         #else
@@ -118,12 +116,11 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformation
         /// Details of the outstanding derivatives for which no margin information has been reported, or the margin information that was reported is dated more than fourteen calendar days earlier than the day.
         /// </summary>
         [IsoId("_rtPOh1owEe23K4GXSpBSeg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Warnings")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Wrnngs")]
         #endif
+        [IsoXmlTag("Wrnngs")]
         public MissingMarginData2? Warnings { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _rtPOh1owEe23K4GXSpBSeg
         

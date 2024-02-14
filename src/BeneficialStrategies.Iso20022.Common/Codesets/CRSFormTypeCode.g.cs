@@ -21,7 +21,7 @@ public enum CRSFormTypeCode
 {
     /// <summary>
     /// Self certification as a separate document.
-    /// Encoded/decoded by serializers as "CER1".
+    /// Encoded/decoded by serializers as &quot;CER1&quot;.
     /// </summary>
     [EnumMember(Value = "CER1")]
     [IsoId("_vycYIENvEeaS-NnwLNvMPg")]
@@ -30,7 +30,7 @@ public enum CRSFormTypeCode
     
     /// <summary>
     /// Self certification as a document included into contract of the account opening.
-    /// Encoded/decoded by serializers as "CER2".
+    /// Encoded/decoded by serializers as &quot;CER2&quot;.
     /// </summary>
     [EnumMember(Value = "CER2")]
     [IsoId("_z6-TwENvEeaS-NnwLNvMPg")]
@@ -39,7 +39,7 @@ public enum CRSFormTypeCode
     
     /// <summary>
     /// Certificate of residence.
-    /// Encoded/decoded by serializers as "CER3".
+    /// Encoded/decoded by serializers as &quot;CER3&quot;.
     /// </summary>
     [EnumMember(Value = "CER3")]
     [IsoId("_10rAUENvEeaS-NnwLNvMPg")]
@@ -48,7 +48,7 @@ public enum CRSFormTypeCode
     
     /// <summary>
     /// Certificate of Identification issued by a government.
-    /// Encoded/decoded by serializers as "CER4".
+    /// Encoded/decoded by serializers as &quot;CER4&quot;.
     /// </summary>
     [EnumMember(Value = "CER4")]
     [IsoId("_6LeogENvEeaS-NnwLNvMPg")]
@@ -57,7 +57,7 @@ public enum CRSFormTypeCode
     
     /// <summary>
     /// Official documentation issued by a government for the entity.
-    /// Encoded/decoded by serializers as "CER5".
+    /// Encoded/decoded by serializers as &quot;CER5&quot;.
     /// </summary>
     [EnumMember(Value = "CER5")]
     [IsoId("_8ZtaoENvEeaS-NnwLNvMPg")]
@@ -66,7 +66,7 @@ public enum CRSFormTypeCode
     
     /// <summary>
     /// Financial statement, third party credit report, bankruptcy filing or a securities regulator report.
-    /// Encoded/decoded by serializers as "CER6".
+    /// Encoded/decoded by serializers as &quot;CER6&quot;.
     /// </summary>
     [EnumMember(Value = "CER6")]
     [IsoId("_-616oENvEeaS-NnwLNvMPg")]
@@ -75,7 +75,7 @@ public enum CRSFormTypeCode
     
     /// <summary>
     /// Standardised industry coding system for the entity.
-    /// Encoded/decoded by serializers as "CER7".
+    /// Encoded/decoded by serializers as &quot;CER7&quot;.
     /// </summary>
     [EnumMember(Value = "CER7")]
     [IsoId("_CmzPAENwEeaS-NnwLNvMPg")]
@@ -84,7 +84,7 @@ public enum CRSFormTypeCode
     
     /// <summary>
     /// Publicly available information for the entity.
-    /// Encoded/decoded by serializers as "CER8".
+    /// Encoded/decoded by serializers as &quot;CER8&quot;.
     /// </summary>
     [EnumMember(Value = "CER8")]
     [IsoId("_H3fFgENwEeaS-NnwLNvMPg")]

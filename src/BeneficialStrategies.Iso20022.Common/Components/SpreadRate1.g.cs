@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Margin over or under an index that determines the repurchase rate expressed as a rate or an amount.
 /// </summary>
 [IsoId("_Q-niYtp-Ed-ak6NoX_4Aeg_-1715964179")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Spread Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SpreadRate1
     /// Specifies the sign of the rate.
     /// </summary>
     [IsoId("_Q-niY9p-Ed-ak6NoX_4Aeg_1222158444")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sign")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgn")]
     #endif
+    [IsoXmlTag("Sgn")]
+    [IsoSimpleType(IsoSimpleType.PlusOrMinusIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPlusOrMinusIndicator Sign { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Sign { get; init; } 
+    public required System.String Sign { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Sign { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record SpreadRate1
     /// Specifies if the spreadf is expressed as an amount or a rate.
     /// </summary>
     [IsoId("_Q-niZNp-Ed-ak6NoX_4Aeg_88699368")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Or Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateOrAmt")]
     #endif
+    [IsoXmlTag("RateOrAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrRate1Choice_ RateOrAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrRate1Choice_ RateOrAmount { get; init; } 
+    public required AmountOrRate1Choice_ RateOrAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrRate1Choice_ RateOrAmount { get; init; } 
     #else

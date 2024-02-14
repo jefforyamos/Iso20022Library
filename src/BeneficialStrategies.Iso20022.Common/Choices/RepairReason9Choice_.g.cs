@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepairReason9Choice.Code))]
     [KnownType(typeof(RepairReason9Choice.Proprietary))]
     [IsoId("_A5mW8NokEeC60axPepSq7g_-1465147117")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repair Reason 9 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

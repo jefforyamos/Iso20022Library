@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines how the CSD is linked to the security.
 /// </summary>
 [IsoId("_x-0e8Wc-EemvNLufWGIVOQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security CSD Link")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SecurityCSDLink7
     /// Defines the date since when the CSD is linked to the security.
     /// </summary>
     [IsoId("_yJ6UoWc-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldFr")]
     #endif
+    [IsoXmlTag("VldFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ ValidFrom { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTime2Choice_ ValidFrom { get; init; } 
+    public required DateAndDateTime2Choice_ ValidFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTime2Choice_ ValidFrom { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SecurityCSDLink7
     /// Defines the date until when the CSD is linked to the security.
     /// </summary>
     [IsoId("_yJ6Uo2c-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valid To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldTo")]
     #endif
+    [IsoXmlTag("VldTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? ValidTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record SecurityCSDLink7
     /// Specify if the involved CSD (issuer/technical issuer/investor) is also the maintainer of related reference data.
     /// </summary>
     [IsoId("_yJ6UpWc-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Maintenance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyMntnc")]
     #endif
+    [IsoXmlTag("SctyMntnc")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SecurityMaintenance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record SecurityCSDLink7
     /// CSD Issuer of a security.
     /// </summary>
     [IsoId("_yJ6Up2c-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrCSD")]
     #endif
+    [IsoXmlTag("IssrCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification2Choice_? IssuerCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,11 @@ public partial record SecurityCSDLink7
     /// CSD Investor of a security.
     /// </summary>
     [IsoId("_yJ6UqWc-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrCSD")]
     #endif
+    [IsoXmlTag("InvstrCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification2Choice_? InvestorCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +137,11 @@ public partial record SecurityCSDLink7
     /// Technical issuer of a security.
     /// </summary>
     [IsoId("_yJ6Uq2c-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Issuer CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechIssrCSD")]
     #endif
+    [IsoXmlTag("TechIssrCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemPartyIdentification2Choice_? TechnicalIssuerCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +154,11 @@ public partial record SecurityCSDLink7
     /// Account to or from which a securities entry is made.
     /// </summary>
     [IsoId("_yJ6UrWc-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuance Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssncAcct")]
     #endif
+    [IsoXmlTag("IssncAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IssuanceAccount2? IssuanceAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

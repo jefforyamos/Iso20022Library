@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies a payment instruction by a simple set of characteristics which provides an unambiguous indentification of the instruction.
 /// </summary>
 [IsoId("_Pg5AI9p-Ed-ak6NoX_4Aeg_-2108565597")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Instruction Reference Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record PaymentInstructionReferenceDetails2
     /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
     /// </summary>
     [IsoId("_Pg5AJNp-Ed-ak6NoX_4Aeg_-2107642032")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Instruction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PmtInstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PaymentInstructionReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PaymentInstructionReference { get; init; } 
+    public required System.String PaymentInstructionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PaymentInstructionReference { get; init; } 
     #else
@@ -76,16 +72,16 @@ public partial record PaymentInstructionReferenceDetails2
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
     [IsoId("_Pg5AJdp-Ed-ak6NoX_4Aeg_-2106719051")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrBkValDt")]
     #endif
+    [IsoXmlTag("IntrBkValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate InterbankValueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly InterbankValueDate { get; init; } 
+    public required System.DateOnly InterbankValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly InterbankValueDate { get; init; } 
     #else
@@ -96,16 +92,16 @@ public partial record PaymentInstructionReferenceDetails2
     /// The identification of the instructing agent that transmitted the payment instruction.
     /// </summary>
     [IsoId("_Pg5AJtp-Ed-ak6NoX_4Aeg_-2106718120")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing Agent Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgAgtId")]
     #endif
+    [IsoXmlTag("InstgAgtId")]
+    [IsoSimpleType(IsoSimpleType.BICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICIdentifier InstructingAgentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InstructingAgentIdentification { get; init; } 
+    public required System.String InstructingAgentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InstructingAgentIdentification { get; init; } 
     #else

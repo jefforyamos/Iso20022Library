@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References62Choice.PreviousReference))]
     [KnownType(typeof(References62Choice.OtherReference))]
     [IsoId("_UvMkUUg9Eea8pJjypp-yMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References 62 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

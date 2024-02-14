@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The GetBusinessDayInformation message is sent by a member to the transaction administrator.|It is used to request information on different types of administrative data linked to the system.|Usage|The transaction administrator is in charge of providing the members with business information. The term business day information covers all information related to the management of the system, not related to the transactions created in the system. The type of business day information available can vary depending on the system.|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the static data of the system.|The member can request information based on the following elements:|- identification of the system|- currency within the system concerned|- status of the system|- period of availability of a given currency linked to the system concerned (in case the system handles more than one currency)|- closure information (dates when the system will be inactive and reasons for this inactivity)|- event indicator (types of event and precise timing of their occurrence within the system concerned)|This message will be replied to by a ReturnBusinessDayInformation message. Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.")]
 [IsoId("_jwlbbxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Get Business Day Information V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord<GetBusinessDay
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbcRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader9 MessageHeader { get; init; } 
+    public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader9 MessageHeader { get; init; } 
     #else
@@ -108,12 +105,11 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord<GetBusinessDay
     /// Defines the business day information query criteria.
     /// </summary>
     [IsoId("_jwlbcxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Day Information Query Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizDayInfQryDef")]
     #endif
+    [IsoXmlTag("BizDayInfQryDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessDayQuery2? BusinessDayInformationQueryDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +122,11 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord<GetBusinessDay
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlbdRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,7 +139,7 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord<GetBusinessDay
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="GetBusinessDayInformationV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;GetBusinessDayInformationV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public GetBusinessDayInformationV05Document ToDocument()
     {
@@ -154,7 +149,7 @@ public partial record GetBusinessDayInformationV05 : IOuterRecord<GetBusinessDay
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetBusinessDayInformationV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;GetBusinessDayInformationV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record GetBusinessDayInformationV05Document : IOuterDocument<GetBusinessDayInformationV05>
@@ -171,7 +166,7 @@ public partial record GetBusinessDayInformationV05Document : IOuterDocument<GetB
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="GetBusinessDayInformationV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;GetBusinessDayInformationV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GetBusinessDayInformationV05 Message { get; init; }

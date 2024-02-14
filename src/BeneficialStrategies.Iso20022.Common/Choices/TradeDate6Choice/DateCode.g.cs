@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeDate6Choice
     /// Date expressed as a code.
     /// </summary>
     [IsoId("_5TGUaZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

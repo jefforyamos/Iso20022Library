@@ -21,7 +21,7 @@ public enum SecuritiesSettlementStatusCode
 {
     /// <summary>
     /// Instruction is pending. Settlement at the instructed settlement date is still possible.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZF7AsNp-Ed-ak6NoX_4Aeg_1416111561")]
@@ -30,7 +30,7 @@ public enum SecuritiesSettlementStatusCode
     
     /// <summary>
     /// Instruction is failing. Settlement at the instructed settlement date is no longer possible.
-    /// Encoded/decoded by serializers as "PENF".
+    /// Encoded/decoded by serializers as &quot;PENF&quot;.
     /// </summary>
     [EnumMember(Value = "PENF")]
     [IsoId("_ZF7Asdp-Ed-ak6NoX_4Aeg_1446590809")]
@@ -39,7 +39,7 @@ public enum SecuritiesSettlementStatusCode
     
     /// <summary>
     /// Instruction is unsettled.
-    /// Encoded/decoded by serializers as "USET".
+    /// Encoded/decoded by serializers as &quot;USET&quot;.
     /// </summary>
     [EnumMember(Value = "USET")]
     [IsoId("_mmp9WUABEeCaq78Ig8ATcA")]
@@ -48,7 +48,7 @@ public enum SecuritiesSettlementStatusCode
     
     /// <summary>
     /// Part of the instruction remains unsettled.
-    /// Encoded/decoded by serializers as "PAIN".
+    /// Encoded/decoded by serializers as &quot;PAIN&quot;.
     /// </summary>
     [EnumMember(Value = "PAIN")]
     [IsoId("_OBoIWUABEeCaq78Ig8ATcA")]
@@ -57,7 +57,7 @@ public enum SecuritiesSettlementStatusCode
     
     /// <summary>
     /// Full settlement.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_iYMY0UABEeCaq78Ig8ATcA")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Global collateral status of all transactions covered in the message, in the reporting currency, that is, the total of the exposure amount, of the posted collateral, of the margin amounts, of the accrued interest, of the fees or commissions and of the principals. In addition, it provides collateral-specific information.
 /// </summary>
 [IsoId("_5qoZgRIlEeyLzJfz3xPQNA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Overall Collateral Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record OverallCollateralDetails2
     /// Provides details on the collateral valuation.
     /// </summary>
     [IsoId("_6CxMsRIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnAmts")]
     #endif
+    [IsoXmlTag("ValtnAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAmount15 ValuationAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralAmount15 ValuationAmounts { get; init; } 
+    public required CollateralAmount15 ValuationAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralAmount15 ValuationAmounts { get; init; } 
     #else
@@ -72,12 +69,12 @@ public partial record OverallCollateralDetails2
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
     [IsoId("_6CxMsxIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnRate")]
     #endif
+    [IsoXmlTag("MrgnRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? MarginRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +87,11 @@ public partial record OverallCollateralDetails2
     /// Provides the status after comparing the total collateral required and the total collateral value of all transactions covered in the message.
     /// </summary>
     [IsoId("_6CxMtRIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Collateral Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GblCollSts")]
     #endif
+    [IsoXmlTag("GblCollSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralStatus1Code? GlobalCollateralStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +104,15 @@ public partial record OverallCollateralDetails2
     /// Valuation date/time of both the collateral and the exposure.
     /// </summary>
     [IsoId("_6CxMtxIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDt")]
     #endif
+    [IsoXmlTag("ValtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTime2Choice_ ValuationDate { get; init; } 
+    public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTime2Choice_ ValuationDate { get; init; } 
     #else
@@ -128,15 +123,13 @@ public partial record OverallCollateralDetails2
     /// Provides additional information on the collateral.
     /// </summary>
     [IsoId("_6CxMuRIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Additional Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollAddtlDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollAddtlDtls")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? CollateralAdditionalDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

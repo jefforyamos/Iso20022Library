@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementUpdateTypeCodeAndDSSCod
     /// Update type expressed as a code.
     /// </summary>
     [IsoId("_sXPbwQaUEe2-DuDrUXkg2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Update Type As Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementUpdateTypeCodeAndDSSCod
         /// Specifies the nature of a statement update, for example, it is a complete statement.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StmtUpdTpAsCd")]
         #endif
+        [IsoXmlTag("StmtUpdTpAsCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StatementUpdateType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StatementUpdateType1Code Value { get; init; } 
+        public required StatementUpdateType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StatementUpdateType1Code Value { get; init; } 
         #else

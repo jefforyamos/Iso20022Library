@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SequenceRange1Choice
     /// Particular sequence range specified between a start sequence and an end sequence.
     /// </summary>
     [IsoId("_64OLoIy3EeeGkvZr3jtnCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From To Sequence")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SequenceRange1Choice
         /// Start sequence of the range.
         /// </summary>
         [IsoId("_9nPeAIy0EeeGkvZr3jtnCQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("From Sequence")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrSeq")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("FrSeq")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text FromSequence { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String FromSequence { get; init; } 
+        public required System.String FromSequence { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String FromSequence { get; init; } 
         #else
@@ -80,19 +76,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SequenceRange1Choice
         /// End sequence of the range.
         /// </summary>
         [IsoId("__3Gn0Iy0EeeGkvZr3jtnCQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("To Sequence")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ToSeq")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("ToSeq")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text ToSequence { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ToSequence { get; init; } 
+        public required System.String ToSequence { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ToSequence { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction1Choice
     /// Set of elements used to reference the details of the original interbank payment transaction.
     /// </summary>
     [IsoId("_P9DXutp-Ed-ak6NoX_4Aeg_-479786889")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interbank")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction1Choice
         /// Set of elements used to provide information on the original messsage.
         /// </summary>
         [IsoId("_P86NyNp-Ed-ak6NoX_4Aeg_1527556208")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Group Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlGrpInf")]
         #endif
+        [IsoXmlTag("OrgnlGrpInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public UnderlyingGroupInformation1? OriginalGroupInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,15 +72,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction1Choice
         /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
         /// </summary>
         [IsoId("_P9DXsNp-Ed-ak6NoX_4Aeg_1526635598")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Instruction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlInstrId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OrgnlInstrId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,15 +91,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction1Choice
         /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
         /// </summary>
         [IsoId("_P9DXsdp-Ed-ak6NoX_4Aeg_1527555623")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original End To End Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlEndToEndId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OrgnlEndToEndId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,15 +110,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction1Choice
         /// Unique identification, as assigned by the original first instructing agent, to unambiguously identify the transaction.
         /// </summary>
         [IsoId("_P9DXstp-Ed-ak6NoX_4Aeg_1527555653")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Transaction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlTxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OrgnlTxId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,16 +129,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction1Choice
         /// Amount of money, as provided in the original transaction, to be moved between the instructing agent and the instructed agent.
         /// </summary>
         [IsoId("_P9DXs9p-Ed-ak6NoX_4Aeg_1527555684")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Interbank Settlement Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlIntrBkSttlmAmt")]
         #endif
+        [IsoXmlTag("OrgnlIntrBkSttlmAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal OriginalInterbankSettlementAmount { get; init; } 
+        public required System.Decimal OriginalInterbankSettlementAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal OriginalInterbankSettlementAmount { get; init; } 
         #else
@@ -158,16 +149,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction1Choice
         /// Date, as provided in the original transaction, on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
         /// </summary>
         [IsoId("_P9DXtNp-Ed-ak6NoX_4Aeg_1527555715")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Interbank Settlement Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlIntrBkSttlmDt")]
         #endif
+        [IsoXmlTag("OrgnlIntrBkSttlmDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate OriginalInterbankSettlementDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly OriginalInterbankSettlementDate { get; init; } 
+        public required System.DateOnly OriginalInterbankSettlementDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly OriginalInterbankSettlementDate { get; init; } 
         #else

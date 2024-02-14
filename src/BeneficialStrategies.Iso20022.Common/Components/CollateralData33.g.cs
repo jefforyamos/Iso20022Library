@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the collateral used in the transaction.
 /// </summary>
 [IsoId("_QMn0QcguEeuGrNSsxk3B0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CollateralData33
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
     [IsoId("_QOdAQ8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Exposure Collateralisation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetXpsrCollstnInd")]
     #endif
+    [IsoXmlTag("NetXpsrCollstnInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record CollateralData33
     /// Indication of the type of collateral component.
     /// </summary>
     [IsoId("_QOdARcguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Component Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpntTp")]
     #endif
+    [IsoXmlTag("CmpntTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralType6Code? ComponentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record CollateralData33
     /// Currency of unit of cash collateral component.
     /// </summary>
     [IsoId("_QOdAR8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Collateral Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCollCcy")]
     #endif
+    [IsoXmlTag("CshCollCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? CashCollateralCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record CollateralData33
     /// Currency of price of unit of collateral component.
     /// </summary>
     [IsoId("_QOdAScguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricCcy")]
     #endif
+    [IsoXmlTag("PricCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? PriceCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record CollateralData33
     /// Code that classifies the risk of the security.
     /// </summary>
     [IsoId("_QOdAS8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quality")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qlty")]
     #endif
+    [IsoXmlTag("Qlty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralQualityType1Code? Quality { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,11 @@ public partial record CollateralData33
     /// Maturity of the security.
     /// </summary>
     [IsoId("_QOdATcguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtrty")]
     #endif
+    [IsoXmlTag("Mtrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractTerm6Choice_? Maturity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record CollateralData33
     /// Jurisdiction of the issuer of the security used as collateral. 
     /// </summary>
     [IsoId("_QOdAT8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Jurisdiction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrJursdctn")]
     #endif
+    [IsoXmlTag("IssrJursdctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IssuerJurisdiction1Choice_? IssuerJurisdiction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +162,11 @@ public partial record CollateralData33
     /// Classification of the type of the security.
     /// </summary>
     [IsoId("_QOdAUcguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesLendingType3Choice_? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +179,11 @@ public partial record CollateralData33
     /// Trade Repository to which the other counterparty reported.
     /// </summary>
     [IsoId("_QOdAU8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Repository")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradRpstry")]
     #endif
+    [IsoXmlTag("TradRpstry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? TradeRepository { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +196,11 @@ public partial record CollateralData33
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
     [IsoId("_QOdAVcguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnFlg")]
     #endif
+    [IsoXmlTag("RcncltnFlg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReconciliationFlag2? ReconciliationFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +213,11 @@ public partial record CollateralData33
     /// Provides details on the type and amount of the cash reinvestment in a given currency.
     /// </summary>
     [IsoId("_QOdAV8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvested Cash")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstdCsh")]
     #endif
+    [IsoXmlTag("RinvstdCsh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReinvestedCashTypeAndAmount2? ReinvestedCash { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

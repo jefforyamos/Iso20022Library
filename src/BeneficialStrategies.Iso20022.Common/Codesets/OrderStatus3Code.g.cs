@@ -21,7 +21,7 @@ public enum OrderStatus3Code
 {
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_Vep_E9p-Ed-ak6NoX_4Aeg_-913662626")]
@@ -30,7 +30,7 @@ public enum OrderStatus3Code
     
     /// <summary>
     /// Order with an Order Cancel Request pending, used to confirm receipt of an Order Cancel Request. Does not indicate that the order has been cancelled.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_Vep_FNp-Ed-ak6NoX_4Aeg_-887802624")]
@@ -39,7 +39,7 @@ public enum OrderStatus3Code
     
     /// <summary>
     /// Request for cancellation instruction for the order has been accepted and processed; the order has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_Vep_Fdp-Ed-ak6NoX_4Aeg_-672621299")]

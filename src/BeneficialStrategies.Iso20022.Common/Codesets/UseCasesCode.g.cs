@@ -21,7 +21,7 @@ public enum UseCasesCode
 {
     /// <summary>
     /// Code indicating the opening of an account.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_Ya3Rgtp-Ed-ak6NoX_4Aeg_1759403756")]
@@ -30,7 +30,7 @@ public enum UseCasesCode
     
     /// <summary>
     /// Code indicating the maintenance of an account.
-    /// Encoded/decoded by serializers as "MNTN".
+    /// Encoded/decoded by serializers as &quot;MNTN&quot;.
     /// </summary>
     [EnumMember(Value = "MNTN")]
     [IsoId("_Ya3Rg9p-Ed-ak6NoX_4Aeg_1772332772")]
@@ -39,7 +39,7 @@ public enum UseCasesCode
     
     /// <summary>
     /// Code indicating the closing of an account.
-    /// Encoded/decoded by serializers as "CLSG".
+    /// Encoded/decoded by serializers as &quot;CLSG&quot;.
     /// </summary>
     [EnumMember(Value = "CLSG")]
     [IsoId("_Ya3RhNp-Ed-ak6NoX_4Aeg_1784340417")]
@@ -48,7 +48,7 @@ public enum UseCasesCode
     
     /// <summary>
     /// Code indicating the view of an account.
-    /// Encoded/decoded by serializers as "VIEW".
+    /// Encoded/decoded by serializers as &quot;VIEW&quot;.
     /// </summary>
     [EnumMember(Value = "VIEW")]
     [IsoId("_Ya3Rhdp-Ed-ak6NoX_4Aeg_2026301994")]

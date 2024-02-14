@@ -21,7 +21,7 @@ public enum Algorithm19Code
 {
     /// <summary>
     /// Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).
-    /// Encoded/decoded by serializers as "ERS2".
+    /// Encoded/decoded by serializers as &quot;ERS2&quot;.
     /// </summary>
     [EnumMember(Value = "ERS2")]
     [IsoId("_8tjagdtkEee9e6xduATmQg")]
@@ -30,7 +30,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// The DEPRECATED Signature algorithms with RSA (PKCS #1 version 2.1), using SHA-1 digest algorithm - (ASN.1 Object Identifier: sha1WithRSAEncryption).
-    /// Encoded/decoded by serializers as "ERS1".
+    /// Encoded/decoded by serializers as &quot;ERS1&quot;.
     /// </summary>
     [EnumMember(Value = "ERS1")]
     [IsoId("_8tjag9tkEee9e6xduATmQg")]
@@ -39,7 +39,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Signature algorithm with Appendix, Probabilistic Signature Scheme (PKCS #1 version 2.1), - (ASN.1 Object Identifier: id-RSASSA-PSS).
-    /// Encoded/decoded by serializers as "RPSS".
+    /// Encoded/decoded by serializers as &quot;RPSS&quot;.
     /// </summary>
     [EnumMember(Value = "RPSS")]
     [IsoId("_8tjahdtkEee9e6xduATmQg")]
@@ -48,7 +48,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Fifth Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
-    /// Encoded/decoded by serializers as "ECC5".
+    /// Encoded/decoded by serializers as &quot;ECC5&quot;.
     /// </summary>
     [EnumMember(Value = "ECC5")]
     [IsoId("_AqfxMdtlEee9e6xduATmQg")]
@@ -57,7 +57,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// First Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
-    /// Encoded/decoded by serializers as "ECC1".
+    /// Encoded/decoded by serializers as &quot;ECC1&quot;.
     /// </summary>
     [EnumMember(Value = "ECC1")]
     [IsoId("_AvuPcdtlEee9e6xduATmQg")]
@@ -66,7 +66,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Fourth Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
-    /// Encoded/decoded by serializers as "ECC4".
+    /// Encoded/decoded by serializers as &quot;ECC4&quot;.
     /// </summary>
     [EnumMember(Value = "ECC4")]
     [IsoId("_A0_J8dtlEee9e6xduATmQg")]
@@ -75,7 +75,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Second Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
-    /// Encoded/decoded by serializers as "ECC2".
+    /// Encoded/decoded by serializers as &quot;ECC2&quot;.
     /// </summary>
     [EnumMember(Value = "ECC2")]
     [IsoId("_A5yxcdtlEee9e6xduATmQg")]
@@ -84,7 +84,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Third Elliptic Cryptographic Curve Algorithm identified by EMVCo Nextgen.
-    /// Encoded/decoded by serializers as "ECC3".
+    /// Encoded/decoded by serializers as &quot;ECC3&quot;.
     /// </summary>
     [EnumMember(Value = "ECC3")]
     [IsoId("_A_gX4dtlEee9e6xduATmQg")]
@@ -93,7 +93,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Signature algorithms with RSA, using SHA3-256 digest algorithm. (ASN.1 Object Identifier: id-rsassa-pkcs1-v1-5-with-sha3-256).
-    /// Encoded/decoded by serializers as "ERS3".
+    /// Encoded/decoded by serializers as &quot;ERS3&quot;.
     /// </summary>
     [EnumMember(Value = "ERS3")]
     [IsoId("_C3GLoNtlEee9e6xduATmQg")]
@@ -102,7 +102,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Elliptic Curve Signature with the Curve P-256 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).
-    /// Encoded/decoded by serializers as "ECP2".
+    /// Encoded/decoded by serializers as &quot;ECP2&quot;.
     /// </summary>
     [EnumMember(Value = "ECP2")]
     [IsoId("_ZZURwd6OEeeCre2qFaLC2A")]
@@ -111,7 +111,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Elliptic Curve Signature with the Curve P-384 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).
-    /// Encoded/decoded by serializers as "ECP3".
+    /// Encoded/decoded by serializers as &quot;ECP3&quot;.
     /// </summary>
     [EnumMember(Value = "ECP3")]
     [IsoId("_ZeXJ0d6OEeeCre2qFaLC2A")]
@@ -120,7 +120,7 @@ public enum Algorithm19Code
     
     /// <summary>
     /// Elliptic Curve Signature with the Curve P-512 as defined by the Federal Information Processing Standards (FIPS 186-4 - July, 2013 - Digital Signature Standard).
-    /// Encoded/decoded by serializers as "ECP5".
+    /// Encoded/decoded by serializers as &quot;ECP5&quot;.
     /// </summary>
     [EnumMember(Value = "ECP5")]
     [IsoId("_ZkqmId6OEeeCre2qFaLC2A")]

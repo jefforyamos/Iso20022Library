@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyType1Choice
     /// Type of party.
     /// </summary>
     [IsoId("_92zi0nltEeG7BsjMvd1mEw_1857043507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyType1Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalTypeOfParty1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalTypeOfParty1Code Value { get; init; } 
+        public required ExternalTypeOfParty1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalTypeOfParty1Code Value { get; init; } 
         #else

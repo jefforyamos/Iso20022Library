@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus3Choice
     /// The status of an instruction, advice or request.
     /// </summary>
     [IsoId("_0j-I4glIEeGATtfOBToyew_-1415910547")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

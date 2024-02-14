@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data to request a Batch service.
 /// </summary>
 [IsoId("_dwiMsNuREeiB5uLfkg9ZJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Batch Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record BatchRequest1
     /// Flag to remove all the transactions.
     /// </summary>
     [IsoId("_qPtDINuREeiB5uLfkg9ZJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remove All Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmvAllFlg")]
     #endif
+    [IsoXmlTag("RmvAllFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? RemoveAllFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record BatchRequest1
     /// Content of the Batch Request message.
     /// </summary>
     [IsoId("_td75sNuREeiB5uLfkg9ZJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction To Perform")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxToPrfrm")]
     #endif
+    [IsoXmlTag("TxToPrfrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionToPerform1Choice_? TransactionToPerform { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

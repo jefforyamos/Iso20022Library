@@ -21,7 +21,7 @@ public enum ChargeBearerType3Code
 {
     /// <summary>
     /// In a credit transfer context, means that transaction charges on the sender side are to be borne by the debtor, transaction charges on the receiver side are to be borne by the creditor. In a direct debit context, means that transaction charges on the sender side are to be borne by the creditor, transaction charges on the receiver side are to be borne by the debtor.
-    /// Encoded/decoded by serializers as "SHAR".
+    /// Encoded/decoded by serializers as &quot;SHAR&quot;.
     /// </summary>
     [EnumMember(Value = "SHAR")]
     [IsoId("_jY5hIaXeEeaBtJ1HvhzRtg")]
@@ -30,7 +30,7 @@ public enum ChargeBearerType3Code
     
     /// <summary>
     /// All transaction charges are to be borne by the debtor.
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_jree4KXeEeaBtJ1HvhzRtg")]
@@ -39,7 +39,7 @@ public enum ChargeBearerType3Code
     
     /// <summary>
     /// All transaction charges are to be borne by the creditor.
-    /// Encoded/decoded by serializers as "CRED".
+    /// Encoded/decoded by serializers as &quot;CRED&quot;.
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_j4Ia0qXeEeaBtJ1HvhzRtg")]

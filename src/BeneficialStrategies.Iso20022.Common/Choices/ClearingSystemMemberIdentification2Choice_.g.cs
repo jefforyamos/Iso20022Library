@@ -41,9 +41,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingSystemMemberIdentification2Choice.PolishNationalClearingCode))]
     [KnownType(typeof(ClearingSystemMemberIdentification2Choice.OtherClearingCodeIdentification))]
     [IsoId("_TCzAqtp-Ed-ak6NoX_4Aeg_1989939445")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System Member Identification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

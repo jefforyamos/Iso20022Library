@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"The ChequePresentmentNotification message is sent by a drawer bank, or a bank acting on behalf of the drawer bank to the bank on which a/several cheque(s) has been drawn (the drawee bank).|It is used to advise the drawee bank, or confirm to an enquiring bank, the details concerning the cheque(s) referred to in the message.")]
 [IsoId("_QqKNkbSJEeq3lpO-mRtrig")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cheque Presentment Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord<ChequePres
     /// Set of characteristics shared by all individual cheques included in the message.
     /// </summary>
     [IsoId("_GCVd0Sm6EeutWNGMV2XKIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader103 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader103 GroupHeader { get; init; } 
+    public required GroupHeader103 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader103 GroupHeader { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord<ChequePres
     /// Specifies the details of the cheque.
     /// </summary>
     [IsoId("_tGFUsbtlEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chq")]
     #endif
+    [IsoXmlTag("Chq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Cheque13 Cheque { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Cheque13 Cheque { get; init; } 
+    public required Cheque13 Cheque { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Cheque13 Cheque { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord<ChequePres
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_V-H6o7tlEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord<ChequePres
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ChequePresentmentNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ChequePresentmentNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ChequePresentmentNotificationV01Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record ChequePresentmentNotificationV01 : IOuterRecord<ChequePres
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChequePresentmentNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ChequePresentmentNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ChequePresentmentNotificationV01Document : IOuterDocument<ChequePresentmentNotificationV01>
@@ -162,7 +157,7 @@ public partial record ChequePresentmentNotificationV01Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ChequePresentmentNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ChequePresentmentNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChequePresentmentNotificationV01 Message { get; init; }

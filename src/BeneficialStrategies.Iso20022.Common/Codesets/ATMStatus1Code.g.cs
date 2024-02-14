@@ -21,7 +21,7 @@ public enum ATMStatus1Code
 {
     /// <summary>
     /// Component is in service.
-    /// Encoded/decoded by serializers as "INSV".
+    /// Encoded/decoded by serializers as &quot;INSV&quot;.
     /// </summary>
     [EnumMember(Value = "INSV")]
     [IsoId("_pVnK0YqLEeSRT5rEzcAHEw")]
@@ -30,7 +30,7 @@ public enum ATMStatus1Code
     
     /// <summary>
     /// ATM out of service.
-    /// Encoded/decoded by serializers as "OUTS".
+    /// Encoded/decoded by serializers as &quot;OUTS&quot;.
     /// </summary>
     [EnumMember(Value = "OUTS")]
     [IsoId("_pZx5IYqLEeSRT5rEzcAHEw")]

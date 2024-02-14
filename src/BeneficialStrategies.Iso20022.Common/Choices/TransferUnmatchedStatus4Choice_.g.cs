@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransferUnmatchedStatus4Choice.ExtendedReason))]
     [KnownType(typeof(TransferUnmatchedStatus4Choice.DataSourceScheme))]
     [IsoId("_knN1kZM5EemKz5EOjv82iQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Unmatched Status 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

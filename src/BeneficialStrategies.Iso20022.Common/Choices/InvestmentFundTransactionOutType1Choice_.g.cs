@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestmentFundTransactionOutType1Choice.Code))]
     [KnownType(typeof(InvestmentFundTransactionOutType1Choice.Proprietary))]
     [IsoId("_SxyAcRMJEeSopak1K45eVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Fund Transaction Out Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

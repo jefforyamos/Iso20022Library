@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the reponse to the interest payment request.
 /// </summary>
 [IsoId("_Qki1hNp-Ed-ak6NoX_4Aeg_1044109408")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InterestResponse1
     /// Provides the type of the response, either accepted or rejected.
     /// </summary>
     [IsoId("_Qki1hdp-Ed-ak6NoX_4Aeg_-1991695647")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnTp")]
     #endif
+    [IsoXmlTag("RspnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status4Code ResponseType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status4Code ResponseType { get; init; } 
+    public required Status4Code ResponseType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status4Code ResponseType { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record InterestResponse1
     /// Provides a reason for rejection identified using a code or a proprietary format.
     /// </summary>
     [IsoId("_Qki1htp-Ed-ak6NoX_4Aeg_749006670")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RejectionReason21FormatChoice_? RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,15 +86,13 @@ public partial record InterestResponse1
     /// Provides additional information on the rejection reason.
     /// </summary>
     [IsoId("_Qki1h9p-Ed-ak6NoX_4Aeg_-1579101885")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RjctnRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? RejectionReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,19 +105,17 @@ public partial record InterestResponse1
     /// Provides the reference to the interest payment request.
     /// </summary>
     [IsoId("_Qki1iNp-Ed-ak6NoX_4Aeg_1472856857")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Payment Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstPmtReqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IntrstPmtReqId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InterestPaymentRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InterestPaymentRequestIdentification { get; init; } 
+    public required System.String InterestPaymentRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InterestPaymentRequestIdentification { get; init; } 
     #else

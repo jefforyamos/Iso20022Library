@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Direction2Choice
     /// Identifies whether the reporting counterparty is the buyer or the seller as determined at the time of transaction.|
     /// </summary>
     [IsoId("_oKFn03g-Eeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Direction2Choice
         /// Specifies if a trade party is a buyer or a seller.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPtySd")]
         #endif
+        [IsoXmlTag("CtrPtySd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OptionParty1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OptionParty1Code Value { get; init; } 
+        public required OptionParty1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OptionParty1Code Value { get; init; } 
         #else

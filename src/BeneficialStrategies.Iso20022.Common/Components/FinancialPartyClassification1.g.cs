@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the classification of a financial institution.
 /// </summary>
 [IsoId("_1OBykan9EemdLtwzt4CWxg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Party Classification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FinancialPartyClassification1
     /// Classification of the business activities of the reporting counterparty.
     /// </summary>
     [IsoId("_1VoPYan9EemdLtwzt4CWxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clssfctn")]
     #endif
+    [IsoXmlTag("Clssfctn")]
     public FinancialPartySectorType2Code? Classification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _1VoPYan9EemdLtwzt4CWxg
     
@@ -57,12 +54,11 @@ public partial record FinancialPartyClassification1
     /// Nature business activities of the reporting counterparty as an investment fund.
     /// </summary>
     [IsoId("_1VoPY6n9EemdLtwzt4CWxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Fund Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtFndClssfctn")]
     #endif
+    [IsoXmlTag("InvstmtFndClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundType2Code? InvestmentFundClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

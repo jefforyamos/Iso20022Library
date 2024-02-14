@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Information about an individual's consent to use personal data under the General Protection Regulation (GDPR) 2016/679 regulation.
+/// Information about an individual&apos;s consent to use personal data under the General Protection Regulation (GDPR) 2016/679 regulation.
 /// </summary>
 [IsoId("_7r9TsJTSEemC09f0MxYkRg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("GDPR Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record GDPRData1
     /// Type of consent.
     /// </summary>
     [IsoId("_BaPFIJTTEemC09f0MxYkRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consent Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnsntTp")]
     #endif
+    [IsoXmlTag("CnsntTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GDPRDataConsent1Choice_ ConsentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GDPRDataConsent1Choice_ ConsentType { get; init; } 
+    public required GDPRDataConsent1Choice_ ConsentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GDPRDataConsent1Choice_ ConsentType { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record GDPRData1
     /// Indicates whether consent has been given.
     /// </summary>
     [IsoId("_6seTAJTaEemC09f0MxYkRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consent Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnsntInd")]
     #endif
+    [IsoXmlTag("CnsntInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ConsentIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ConsentIndicator { get; init; } 
+    public required System.String ConsentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ConsentIndicator { get; init; } 
     #else
@@ -93,16 +90,16 @@ public partial record GDPRData1
     /// Date of the consent.
     /// </summary>
     [IsoId("_-uSioJTaEemC09f0MxYkRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consent Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnsntDt")]
     #endif
+    [IsoXmlTag("CnsntDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ConsentDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ConsentDate { get; init; } 
+    public required System.DateOnly ConsentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ConsentDate { get; init; } 
     #else

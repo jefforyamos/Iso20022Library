@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reports either on the reservation or on a business error.
 /// </summary>
 [IsoId("_DgmhZ24-EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reservation Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReservationReport6
     /// Identification of the reservation on which information is requested.
     /// </summary>
     [IsoId("_Dqby024-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsvatnId")]
     #endif
+    [IsoXmlTag("RsvatnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReservationIdentification2 ReservationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReservationIdentification2 ReservationIdentification { get; init; } 
+    public required ReservationIdentification2 ReservationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReservationIdentification2 ReservationIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReservationReport6
     /// Requested information on the limit.
     /// </summary>
     [IsoId("_Dqby1W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsvatnOrErr")]
     #endif
+    [IsoXmlTag("RsvatnOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReservationOrError9Choice_ ReservationOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReservationOrError9Choice_ ReservationOrError { get; init; } 
+    public required ReservationOrError9Choice_ ReservationOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReservationOrError9Choice_ ReservationOrError { get; init; } 
     #else

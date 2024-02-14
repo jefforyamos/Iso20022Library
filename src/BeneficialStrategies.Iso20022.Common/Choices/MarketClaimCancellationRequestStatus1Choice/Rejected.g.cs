@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClaimCancellationRequestSt
     /// Provides status information related to a cancellation request rejected for further processing due to system (data) reasons.
     /// </summary>
     [IsoId("_1Tcqadx4EeqESbVR5AloZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

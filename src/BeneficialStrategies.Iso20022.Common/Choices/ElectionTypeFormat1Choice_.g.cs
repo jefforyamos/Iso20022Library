@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ElectionTypeFormat1Choice.Code))]
     [KnownType(typeof(ElectionTypeFormat1Choice.Proprietary))]
     [IsoId("_Q3K2ktp-Ed-ak6NoX_4Aeg_1718215958")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Type Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

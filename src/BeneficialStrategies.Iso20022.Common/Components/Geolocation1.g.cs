@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Geographic location specified by geographic or UTM coordinates.
 /// </summary>
 [IsoId("_4ORaINj8EeiojJsa6FYyew")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Geolocation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Geolocation1
     /// Geographic location specified by geographic coordinates.
     /// </summary>
     [IsoId("_A7PU0Nj-EeiojJsa6FYyew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Geographic Coordinates")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GeogcCordints")]
     #endif
+    [IsoXmlTag("GeogcCordints")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeolocationGeographicCoordinates1? GeographicCoordinates { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Geolocation1
     /// Geographic location specified by UTM coordinates.
     /// </summary>
     [IsoId("_wMXuUNj-EeiojJsa6FYyew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UTM Coordinates")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UTMCordints")]
     #endif
+    [IsoXmlTag("UTMCordints")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GeolocationUTMCoordinates1? UTMCoordinates { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

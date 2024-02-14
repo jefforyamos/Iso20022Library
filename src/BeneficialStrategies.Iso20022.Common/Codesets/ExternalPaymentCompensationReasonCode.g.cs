@@ -22,7 +22,7 @@ public enum ExternalPaymentCompensationReasonCode
 {
     /// <summary>
     /// Compensation requested for value date correction.
-    /// Encoded/decoded by serializers as "VADA".
+    /// Encoded/decoded by serializers as &quot;VADA&quot;.
     /// </summary>
     [EnumMember(Value = "VADA")]
     [IsoId("_vvidwIjXEeeDW7_wB-eK_g")]

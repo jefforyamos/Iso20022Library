@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform3Choice
     /// Content of the Payment Request message.
     /// </summary>
     [IsoId("_xaZiUS8QEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Request")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform3Choice
         /// Data associated with the Transaction.
         /// </summary>
         [IsoId("_7oeOIS83Eeu125Ip9zFcsQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment Transaction")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtTx")]
         #endif
+        [IsoXmlTag("PmtTx")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CardPaymentTransaction110? PaymentTransaction { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform3Choice
         /// Data linked to card loyalty during payment.
         /// </summary>
         [IsoId("_7oeOIy83Eeu125Ip9zFcsQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Loyalty Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LltyData")]
         #endif
+        [IsoXmlTag("LltyData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public LoyaltyRequestData2? LoyaltyData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

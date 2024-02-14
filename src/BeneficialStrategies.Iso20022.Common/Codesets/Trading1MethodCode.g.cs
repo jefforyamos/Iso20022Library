@@ -21,7 +21,7 @@ public enum Trading1MethodCode
 {
     /// <summary>
     /// Trade executed through an electronic trading system.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_YqgQA9p-Ed-ak6NoX_4Aeg_2750610")]
@@ -30,7 +30,7 @@ public enum Trading1MethodCode
     
     /// <summary>
     /// Trade executed over the phone.
-    /// Encoded/decoded by serializers as "PHON".
+    /// Encoded/decoded by serializers as &quot;PHON&quot;.
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_YqgQBNp-Ed-ak6NoX_4Aeg_32300524")]
@@ -39,7 +39,7 @@ public enum Trading1MethodCode
     
     /// <summary>
     /// Trade executed through a broker.
-    /// Encoded/decoded by serializers as "BROK".
+    /// Encoded/decoded by serializers as &quot;BROK&quot;.
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_YqgQBdp-Ed-ak6NoX_4Aeg_48002593")]

@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The DataSetMatchReport message is sent by the matching application to the parties involved in a data set match.|This message is used to either|- inform about the successful match of data sets submitted with the instruction match or pre-match (DataSetSubmission message) and the related baseline,or|- inform about mis-matches found between data sets submitted with the instruction match or pre-match (DataSetSubmission message) and the related baseline.|Usage|The DataSetMatchReport message can be sent by the matching application to the party requesting a data set pre-match for a transaction established in the push-through mode. In the outlined scenario, the DataSetMatchReport message will either inform about the successful pre-match or list the mis-matches between the data set(s) conveyed with the DataSetSubmission message and the related baseline.|or|The DataSetMatchReport message can be sent by the matching application to the parties involved in a data set match for a transaction established in the push-through mode. In the outlined scenario, the DataSetMatchReport message will either inform about the successful match or list the mis-matches between the data set(s) conveyed with the DataSetSubmission message and the related baseline.|or|The DataSetMatchReport message can be sent by the matching application to the party requesting a data set match or pre-match for a transaction established in the lodge mode. In the outlined scenario, the DataSetMatchReport will either inform about the successful match or list the mis-matches between the data set(s) conveyed with the DataSetSubmission message and the related baseline.")]
 [IsoId("_m1ZuaNE8Ed-BzquC8wXy7w_-439674056")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Data Set Match Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -94,16 +92,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Identifies the report.
     /// </summary>
     [IsoId("_m1i4UNE8Ed-BzquC8wXy7w_-439673685")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
+    [IsoXmlTag("RptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 ReportIdentification { get; init; } 
+    public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 ReportIdentification { get; init; } 
     #else
@@ -114,16 +111,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_m1i4UdE8Ed-BzquC8wXy7w_-439673654")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -134,16 +130,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_m1i4UtE8Ed-BzquC8wXy7w_-439673715")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
+    public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #else
@@ -154,16 +149,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_m1i4U9E8Ed-BzquC8wXy7w_-439673623")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 TransactionStatus { get; init; } 
+    public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 TransactionStatus { get; init; } 
     #else
@@ -174,32 +168,28 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
     [IsoId("_m1i4VNE8Ed-BzquC8wXy7w_-439673775")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_m1i4VdE8Ed-BzquC8wXy7w_-439673168")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Buyer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification26 Buyer { get; init; } 
+    public required PartyIdentification26 Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification26 Buyer { get; init; } 
     #else
@@ -210,16 +200,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_m1i4VtE8Ed-BzquC8wXy7w_-439673229")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Seller { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification26 Seller { get; init; } 
+    public required PartyIdentification26 Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification26 Seller { get; init; } 
     #else
@@ -230,16 +219,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// The financial institution of the buyer, uniquely identified by its BIC.
     /// </summary>
     [IsoId("_m1i4V9E8Ed-BzquC8wXy7w_-439673291")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrBk")]
     #endif
+    [IsoXmlTag("BuyrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 BuyerBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 BuyerBank { get; init; } 
+    public required BICIdentification1 BuyerBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 BuyerBank { get; init; } 
     #else
@@ -250,16 +238,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// The financial institution of the seller, uniquely identified by its BIC.
     /// </summary>
     [IsoId("_m1spUNE8Ed-BzquC8wXy7w_-439673345")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrBk")]
     #endif
+    [IsoXmlTag("SellrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 SellerBank { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 SellerBank { get; init; } 
+    public required BICIdentification1 SellerBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 SellerBank { get; init; } 
     #else
@@ -270,12 +257,11 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Identifies the documents compared in this report.
     /// </summary>
     [IsoId("_m1spUdE8Ed-BzquC8wXy7w_-439674053")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Compared Document Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpardDocRef")]
     #endif
+    [IsoXmlTag("CmpardDocRef")]
     public DocumentIdentification10? ComparedDocumentReference { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _m1spUdE8Ed-BzquC8wXy7w_-439674053
     
@@ -283,16 +269,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Specifies whether the data set was submitted for match or pre-match.
     /// </summary>
     [IsoId("_m1spUtE8Ed-BzquC8wXy7w_-439673137")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submission Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmissnTp")]
     #endif
+    [IsoXmlTag("SubmissnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportType3 SubmissionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportType3 SubmissionType { get; init; } 
+    public required ReportType3 SubmissionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportType3 SubmissionType { get; init; } 
     #else
@@ -303,16 +288,15 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Description of the differences between the data set(s) and the baseline.
     /// </summary>
     [IsoId("_m1spU9E8Ed-BzquC8wXy7w_-439674024")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rpt")]
     #endif
+    [IsoXmlTag("Rpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MisMatchReport3 Report { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MisMatchReport3 Report { get; init; } 
+    public required MisMatchReport3 Report { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MisMatchReport3 Report { get; init; } 
     #else
@@ -323,12 +307,11 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     /// Information on the next processing step required.
     /// </summary>
     [IsoId("_m1spVNE8Ed-BzquC8wXy7w_-439673260")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -341,7 +324,7 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DataSetMatchReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DataSetMatchReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DataSetMatchReportV03Document ToDocument()
     {
@@ -351,7 +334,7 @@ public partial record DataSetMatchReportV03 : IOuterRecord<DataSetMatchReportV03
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DataSetMatchReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DataSetMatchReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DataSetMatchReportV03Document : IOuterDocument<DataSetMatchReportV03>
@@ -368,7 +351,7 @@ public partial record DataSetMatchReportV03Document : IOuterDocument<DataSetMatc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DataSetMatchReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DataSetMatchReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetMatchReportV03 Message { get; init; }

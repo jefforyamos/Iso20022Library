@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Range of percentage rates.
 /// </summary>
 [IsoId("_7_BRpaMgEeCJ6YNENx4h-w_873727815")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("From To Percentage Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FromToPercentageRange1
     /// Lower boundary of a range of percentage rates.
     /// </summary>
     [IsoId("_7_BRpqMgEeCJ6YNENx4h-w_-455806218")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fr")]
     #endif
+    [IsoXmlTag("Fr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PercentageRangeBoundary1 From { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PercentageRangeBoundary1 From { get; init; } 
+    public required PercentageRangeBoundary1 From { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PercentageRangeBoundary1 From { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record FromToPercentageRange1
     /// Upper boundary of a range of percentage rates.
     /// </summary>
     [IsoId("_7_BRp6MgEeCJ6YNENx4h-w_898182717")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="To")]
     #endif
+    [IsoXmlTag("To")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PercentageRangeBoundary1 To { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PercentageRangeBoundary1 To { get; init; } 
+    public required PercentageRangeBoundary1 To { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PercentageRangeBoundary1 To { get; init; } 
     #else

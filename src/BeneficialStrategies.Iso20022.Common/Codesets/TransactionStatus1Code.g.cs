@@ -21,7 +21,7 @@ public enum TransactionStatus1Code
 {
     /// <summary>
     /// Transaction has been reversed.
-    /// Encoded/decoded by serializers as "RVSL".
+    /// Encoded/decoded by serializers as &quot;RVSL&quot;.
     /// </summary>
     [EnumMember(Value = "RVSL")]
     [IsoId("_zdmYYA93EeGeV5vP7Mvdig_-1941849246")]
@@ -30,7 +30,7 @@ public enum TransactionStatus1Code
     
     /// <summary>
     /// Transaction has been rebooked.
-    /// Encoded/decoded by serializers as "REBO".
+    /// Encoded/decoded by serializers as &quot;REBO&quot;.
     /// </summary>
     [EnumMember(Value = "REBO")]
     [IsoId("_zdmYYQ93EeGeV5vP7Mvdig_-595137067")]
@@ -39,7 +39,7 @@ public enum TransactionStatus1Code
     
     /// <summary>
     /// Transaction has been cancelled.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_zdmYYg93EeGeV5vP7Mvdig_880282350")]

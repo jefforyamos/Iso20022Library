@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Mask generator function cryptographic algorithm and parameters.
 /// </summary>
 [IsoId("_KpAzMQusEeK6BpGAixa3eA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Algorithm Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AlgorithmIdentification8
     /// Mask generator function cryptographic algorithm.
     /// </summary>
     [IsoId("_K1NcIQusEeK6BpGAixa3eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
+    [IsoXmlTag("Algo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Algorithm8Code Algorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Algorithm8Code Algorithm { get; init; } 
+    public required Algorithm8Code Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Algorithm8Code Algorithm { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AlgorithmIdentification8
     /// Parameters associated to the mask generator function cryptographic algorithm.
     /// </summary>
     [IsoId("_K1NcJQusEeK6BpGAixa3eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Param")]
     #endif
+    [IsoXmlTag("Param")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Parameter3? Parameter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

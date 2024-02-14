@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension to SecuritiesMovementDetails.
 /// </summary>
 [IsoId("_qQG0M1IJEeGxk_7PmgdPEg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Option 22 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record SecuritiesOption22SD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_Nif7IFPIEeGs_NnqHXQZkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,19 +71,17 @@ public partial record SecuritiesOption22SD1
     ///  銘柄名（銘柄略称）.
     /// </summary>
     [IsoId("_z3KcEGHCEeGknP6xAc4fKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Abbreviated Local Language Security Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AbbrvtdLclLangSctyNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AbbrvtdLclLangSctyNm")]
+    [IsoSimpleType(IsoSimpleType.Max240Text)]
     [StringLength(maximumLength: 240 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax240Text AbbreviatedLocalLanguageSecurityName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AbbreviatedLocalLanguageSecurityName { get; init; } 
+    public required System.String AbbreviatedLocalLanguageSecurityName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AbbreviatedLocalLanguageSecurityName { get; init; } 
     #else

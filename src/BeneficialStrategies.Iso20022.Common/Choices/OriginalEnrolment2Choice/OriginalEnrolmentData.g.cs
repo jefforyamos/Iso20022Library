@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice
     /// Provides the original enrolment data.
     /// </summary>
     [IsoId("_UZbOI-H7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Enrolment Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice
         /// Detailed activation data related to the creditor enrolment.
         /// </summary>
         [IsoId("_UalrweH7Eeqbls7Gk4-ckA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Enrolment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Enrlmnt")]
         #endif
+        [IsoXmlTag("Enrlmnt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CreditorServiceEnrolment1 Enrolment { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CreditorServiceEnrolment1 Enrolment { get; init; } 
+        public required CreditorServiceEnrolment1 Enrolment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CreditorServiceEnrolment1 Enrolment { get; init; } 
         #else
@@ -78,15 +75,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice
         /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another, such as the brand name.
         /// </summary>
         [IsoId("_Ualrw-H7Eeqbls7Gk4-ckA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Trading Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrTradgNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("CdtrTradgNm")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax140Text? CreditorTradingName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,16 +94,15 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice
         /// Party to which an amount of money is due.
         /// </summary>
         [IsoId("_UalrxeH7Eeqbls7Gk4-ckA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cdtr")]
         #endif
+        [IsoXmlTag("Cdtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RTPPartyIdentification1 Creditor { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RTPPartyIdentification1 Creditor { get; init; } 
+        public required RTPPartyIdentification1 Creditor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RTPPartyIdentification1 Creditor { get; init; } 
         #else
@@ -119,12 +113,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice
         /// Ultimate party to which an amount of money is due.
         /// </summary>
         [IsoId("_Ualrx-H7Eeqbls7Gk4-ckA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Ultimate Creditor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UltmtCdtr")]
         #endif
+        [IsoXmlTag("UltmtCdtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public RTPPartyIdentification1? UltimateCreditor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,16 +130,16 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice
         /// Classification of a business by the types of goods or services it provides.
         /// </summary>
         [IsoId("_UalryeH7Eeqbls7Gk4-ckA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Merchant Category Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MrchntCtgyCd")]
         #endif
+        [IsoXmlTag("MrchntCtgyCd")]
+        [IsoSimpleType(IsoSimpleType.MerchantCategoryCodeIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMerchantCategoryCodeIdentifier MerchantCategoryCode { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String MerchantCategoryCode { get; init; } 
+        public required System.String MerchantCategoryCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String MerchantCategoryCode { get; init; } 
         #else
@@ -157,12 +150,12 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice
         /// Commercial logo of the creditor.
         /// </summary>
         [IsoId("_Ualry-H7Eeqbls7Gk4-ckA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Logo")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrLogo")]
         #endif
+        [IsoXmlTag("CdtrLogo")]
+        [IsoSimpleType(IsoSimpleType.Max10KBinary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax10KBinary? CreditorLogo { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

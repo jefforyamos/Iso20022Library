@@ -21,7 +21,7 @@ public enum ResourceAction1Code
 {
     /// <summary>
     /// Pause the media resource in progress as specified in the message.
-    /// Encoded/decoded by serializers as "PAUS".
+    /// Encoded/decoded by serializers as &quot;PAUS&quot;.
     /// </summary>
     [EnumMember(Value = "PAUS")]
     [IsoId("_Zlf9AS8AEeu125Ip9zFcsQ")]
@@ -30,7 +30,7 @@ public enum ResourceAction1Code
     
     /// <summary>
     /// Start the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "STAS".
+    /// Encoded/decoded by serializers as &quot;STAS&quot;.
     /// </summary>
     [EnumMember(Value = "STAS")]
     [IsoId("_ZpxZAS8AEeu125Ip9zFcsQ")]
@@ -39,7 +39,7 @@ public enum ResourceAction1Code
     
     /// <summary>
     /// Play in a loop the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "LOOP".
+    /// Encoded/decoded by serializers as &quot;LOOP&quot;.
     /// </summary>
     [EnumMember(Value = "LOOP")]
     [IsoId("_Zu6XsS8AEeu125Ip9zFcsQ")]
@@ -48,7 +48,7 @@ public enum ResourceAction1Code
     
     /// <summary>
     /// Resume the progress of the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "RESU".
+    /// Encoded/decoded by serializers as &quot;RESU&quot;.
     /// </summary>
     [EnumMember(Value = "RESU")]
     [IsoId("_ZzjAES8AEeu125Ip9zFcsQ")]
@@ -57,7 +57,7 @@ public enum ResourceAction1Code
     
     /// <summary>
     /// Set the default volume of sounds.
-    /// Encoded/decoded by serializers as "DVOL".
+    /// Encoded/decoded by serializers as &quot;DVOL&quot;.
     /// </summary>
     [EnumMember(Value = "DVOL")]
     [IsoId("_Z4VZcS8AEeu125Ip9zFcsQ")]
@@ -66,7 +66,7 @@ public enum ResourceAction1Code
     
     /// <summary>
     /// Stop the media resource in progress.
-    /// Encoded/decoded by serializers as "STOS".
+    /// Encoded/decoded by serializers as &quot;STOS&quot;.
     /// </summary>
     [EnumMember(Value = "STOS")]
     [IsoId("_Z9HLwS8AEeu125Ip9zFcsQ")]

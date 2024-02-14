@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Net position of a segregated holding, in a single security, within the overall position held in a securities account. A securities balance is calculated from the sum of securities' receipts minus the sum of securities' deliveries.
+/// Net position of a segregated holding, in a single security, within the overall position held in a securities account. A securities balance is calculated from the sum of securities&apos; receipts minus the sum of securities&apos; deliveries.
 /// </summary>
 [IsoId("_5W2LlZNLEeWGlc8L7oPDIg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Balance10
     /// Indication that the position is short or long.
     /// </summary>
     [IsoId("_5W2Ll5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Long Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtLngInd")]
     #endif
+    [IsoXmlTag("ShrtLngInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShortLong1Code ShortLongIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ShortLong1Code ShortLongIndicator { get; init; } 
+    public required ShortLong1Code ShortLongIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ShortLong1Code ShortLongIndicator { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Balance10
     /// Total quantity of financial instruments of the balance.
     /// </summary>
     [IsoId("_5W2Ln5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceQuantity10Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BalanceQuantity10Choice_ Quantity { get; init; } 
+    public required BalanceQuantity10Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BalanceQuantity10Choice_ Quantity { get; init; } 
     #else

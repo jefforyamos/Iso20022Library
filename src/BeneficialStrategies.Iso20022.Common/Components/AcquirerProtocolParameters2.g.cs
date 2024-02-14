@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Acceptor parameters dedicated to the acquirer protocol.
 /// </summary>
 [IsoId("_Kszxs31DEeCF8NjrBemJWQ_-1699240032")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Protocol Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AcquirerProtocolParameters2
     /// Mode for the financial capture of the transaction by the acquirer.
     /// </summary>
     [IsoId("_KszxtH1DEeCF8NjrBemJWQ_2024624055")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Capture")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinCaptr")]
     #endif
+    [IsoXmlTag("FinCaptr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialCapture1Code FinancialCapture { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialCapture1Code FinancialCapture { get; init; } 
+    public required FinancialCapture1Code FinancialCapture { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialCapture1Code FinancialCapture { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AcquirerProtocolParameters2
     /// Configuration of the batch transfers.
     /// </summary>
     [IsoId("_KszxtX1DEeCF8NjrBemJWQ_-1127119411")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BtchTrf")]
     #endif
+    [IsoXmlTag("BtchTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeConfiguration1? BatchTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record AcquirerProtocolParameters2
     /// Configuration parameters of completion exchanges.
     /// </summary>
     [IsoId("_Kszxtn1DEeCF8NjrBemJWQ_2069303361")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Completion Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpltnXchg")]
     #endif
+    [IsoXmlTag("CmpltnXchg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeConfiguration1? CompletionExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

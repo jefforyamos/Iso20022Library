@@ -21,7 +21,7 @@ public enum FundPaymentType1Code
 {
     /// <summary>
     /// Payment instrument is a bankers draft.
-    /// Encoded/decoded by serializers as "DRAF".
+    /// Encoded/decoded by serializers as &quot;DRAF&quot;.
     /// </summary>
     [EnumMember(Value = "DRAF")]
     [IsoId("_wli18V8xEeicg40_9gK9vQ")]
@@ -30,7 +30,7 @@ public enum FundPaymentType1Code
     
     /// <summary>
     /// Payment instrument is a cash account.
-    /// Encoded/decoded by serializers as "CACC".
+    /// Encoded/decoded by serializers as &quot;CACC&quot;.
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_wqTaIV8xEeicg40_9gK9vQ")]
@@ -39,7 +39,7 @@ public enum FundPaymentType1Code
     
     /// <summary>
     /// Payment instrument is a cheque.
-    /// Encoded/decoded by serializers as "CHEQ".
+    /// Encoded/decoded by serializers as &quot;CHEQ&quot;.
     /// </summary>
     [EnumMember(Value = "CHEQ")]
     [IsoId("_w1dhQV8xEeicg40_9gK9vQ")]
@@ -48,7 +48,7 @@ public enum FundPaymentType1Code
     
     /// <summary>
     /// Payment instrument is a credit transfer.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_w9Cv8V8xEeicg40_9gK9vQ")]
@@ -57,7 +57,7 @@ public enum FundPaymentType1Code
     
     /// <summary>
     /// Payment instrument is a direct debit.
-    /// Encoded/decoded by serializers as "DDEB".
+    /// Encoded/decoded by serializers as &quot;DDEB&quot;.
     /// </summary>
     [EnumMember(Value = "DDEB")]
     [IsoId("_xC2dAV8xEeicg40_9gK9vQ")]
@@ -66,7 +66,7 @@ public enum FundPaymentType1Code
     
     /// <summary>
     /// Payment instrument is a payment card.
-    /// Encoded/decoded by serializers as "CARD".
+    /// Encoded/decoded by serializers as &quot;CARD&quot;.
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_xIzUAV8xEeicg40_9gK9vQ")]

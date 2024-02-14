@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityOtherC102Choice.Deliverable))]
     [KnownType(typeof(AssetClassCommodityOtherC102Choice.NonDeliverable))]
     [IsoId("_lTiEcXvyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity Other C 102 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

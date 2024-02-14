@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FailedSettlementReason1FormatChoice.Code))]
     [KnownType(typeof(FailedSettlementReason1FormatChoice.Proprietary))]
     [IsoId("_RmjsItp-Ed-ak6NoX_4Aeg_220367712")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failed Settlement Reason 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

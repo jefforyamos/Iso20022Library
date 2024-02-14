@@ -21,7 +21,7 @@ public enum AllegementStatus1Code
 {
     /// <summary>
     /// Allegement has been cancelled since the previous delta statement. The allegement was cancelled because of a mistake by the sender or because the alleging party cancelled its instruction.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bopcIdp-Ed-ak6NoX_4Aeg_611999120")]
@@ -30,7 +30,7 @@ public enum AllegementStatus1Code
     
     /// <summary>
     /// Allegement has been removed since the previous delta statement. The allegement was removed because the alleged party sent its instruction.
-    /// Encoded/decoded by serializers as "REMO".
+    /// Encoded/decoded by serializers as &quot;REMO&quot;.
     /// </summary>
     [EnumMember(Value = "REMO")]
     [IsoId("_bopcItp-Ed-ak6NoX_4Aeg_611999162")]

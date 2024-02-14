@@ -21,7 +21,7 @@ public enum OpeningClosing1Code
 {
     /// <summary>
     /// Indicates that the trade is to close a position.
-    /// Encoded/decoded by serializers as "CLOP".
+    /// Encoded/decoded by serializers as &quot;CLOP&quot;.
     /// </summary>
     [EnumMember(Value = "CLOP")]
     [IsoId("_aOytR9p-Ed-ak6NoX_4Aeg_1340458350")]
@@ -30,7 +30,7 @@ public enum OpeningClosing1Code
     
     /// <summary>
     /// Indicates that the trade is to open a position.
-    /// Encoded/decoded by serializers as "OPEP".
+    /// Encoded/decoded by serializers as &quot;OPEP&quot;.
     /// </summary>
     [EnumMember(Value = "OPEP")]
     [IsoId("_aOytSNp-Ed-ak6NoX_4Aeg_1926405376")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Environment of the transaction.
 /// </summary>
 [IsoId("_hI8j0XvDEeSKFIcWw3l4Yw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction Environment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CardTransactionEnvironment6
     /// Institution initiator of the reconciliation (correspond to the ISO 8583 field 94).
     /// </summary>
     [IsoId("_hV6o0XvDEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sending Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndgInstn")]
     #endif
+    [IsoXmlTag("SndgInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification73 SendingInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification73 SendingInstitution { get; init; } 
+    public required GenericIdentification73 SendingInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification73 SendingInstitution { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CardTransactionEnvironment6
     /// Institution destination of the reconciliation (correspond to the ISO 8583 field 93).
     /// </summary>
     [IsoId("_hV6o03vDEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgInstn")]
     #endif
+    [IsoXmlTag("RcvgInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification73 ReceivingInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification73 ReceivingInstitution { get; init; } 
+    public required GenericIdentification73 ReceivingInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification73 ReceivingInstitution { get; init; } 
     #else

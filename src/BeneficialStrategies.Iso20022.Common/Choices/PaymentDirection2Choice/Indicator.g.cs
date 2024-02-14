@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentDirection2Choice
     /// Indicates the direction of payment for asset or mortgage backed securities, ie, whether the repaid capital is distributed (payment direction is down) or capitalized (payment direction is up).
     /// </summary>
     [IsoId("_Qu-j59p-Ed-ak6NoX_4Aeg_1880063525")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indicator")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentDirection2Choice
         /// The direction of capital repayment for asset backed securities.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ind")]
         #endif
+        [IsoXmlTag("Ind")]
+        [IsoSimpleType(IsoSimpleType.PaymentDirectionIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPaymentDirectionIndicator Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

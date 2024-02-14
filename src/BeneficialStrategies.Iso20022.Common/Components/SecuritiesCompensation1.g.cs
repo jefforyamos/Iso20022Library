@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the securities compensation such as the depository and the total settlement amount.
 /// </summary>
 [IsoId("_Uot1kdp-Ed-ak6NoX_4Aeg_-1569066973")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Compensation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecuritiesCompensation1
     /// Place where settlement of the securities takes place.
     /// </summary>
     [IsoId("_Uot1ktp-Ed-ak6NoX_4Aeg_2036151037")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Depository")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dpstry")]
     #endif
+    [IsoXmlTag("Dpstry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification34Choice_ Depository { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification34Choice_ Depository { get; init; } 
+    public required PartyIdentification34Choice_ Depository { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification34Choice_ Depository { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SecuritiesCompensation1
     /// Provides the total amount of money to be settled.
     /// </summary>
     [IsoId("_Uot1k9p-Ed-ak6NoX_4Aeg_-183187365")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAmt")]
     #endif
+    [IsoXmlTag("SttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection20 SettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection20 SettlementAmount { get; init; } 
+    public required AmountAndDirection20 SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection20 SettlementAmount { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record SecuritiesCompensation1
     /// Amount of money related to the fees for the securities compensation.
     /// </summary>
     [IsoId("_Uot1lNp-Ed-ak6NoX_4Aeg_-846472432")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fees")]
     #endif
+    [IsoXmlTag("Fees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection20? Fees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

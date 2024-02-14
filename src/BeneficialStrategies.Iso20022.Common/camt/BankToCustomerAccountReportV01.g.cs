@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Bank-to-Customer Account Report message is sent by the account servicer to an account owner or to a party authorised by the account owner to receive the message. It can be used to inform the account owner, or authorised party, of the entries reported to the account, and/or to provide the owner with balance information on the account at a given point in time.|Usage|The Bank-to-Customer Account Report message can contain reports for more than 1 account. It provides information for cash management and/or reconciliation. It can be used to:|- report pending and booked items;|- provide balance information|It can include underlying details of transactions that have been included in the entry.|It is possible that the receiver of the message is not the account owner, but a party entitled by the account owner to receive the account information (also known as recipient).|For a statement that is required due to local legal stipulations, the Bank-to-Customer Account Statement message should be used.")]
 [IsoId("_HpTM0tE-Ed-BzquC8wXy7w_1604757380")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank To Customer Account Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record BankToCustomerAccountReportV01 : IOuterRecord<BankToCustom
     /// Common information for the message.
     /// </summary>
     [IsoId("_HpTM09E-Ed-BzquC8wXy7w_-825021148")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader23 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader23 GroupHeader { get; init; } 
+    public required GroupHeader23 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader23 GroupHeader { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record BankToCustomerAccountReportV01 : IOuterRecord<BankToCustom
     /// Reports on a cash account.
     /// </summary>
     [IsoId("_HpTM1NE-Ed-BzquC8wXy7w_-1335280264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rpt")]
     #endif
+    [IsoXmlTag("Rpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountReport9 Report { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountReport9 Report { get; init; } 
+    public required AccountReport9 Report { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountReport9 Report { get; init; } 
     #else
@@ -124,7 +120,7 @@ public partial record BankToCustomerAccountReportV01 : IOuterRecord<BankToCustom
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BankToCustomerAccountReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BankToCustomerAccountReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BankToCustomerAccountReportV01Document ToDocument()
     {
@@ -134,7 +130,7 @@ public partial record BankToCustomerAccountReportV01 : IOuterRecord<BankToCustom
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankToCustomerAccountReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BankToCustomerAccountReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BankToCustomerAccountReportV01Document : IOuterDocument<BankToCustomerAccountReportV01>
@@ -151,7 +147,7 @@ public partial record BankToCustomerAccountReportV01Document : IOuterDocument<Ba
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BankToCustomerAccountReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BankToCustomerAccountReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankToCustomerAccountReportV01 Message { get; init; }

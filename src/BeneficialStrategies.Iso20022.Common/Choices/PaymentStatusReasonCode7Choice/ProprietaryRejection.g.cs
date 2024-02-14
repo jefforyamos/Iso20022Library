@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice
     /// Defines the reason that has been used by the Target2 SSP system to reject the transaction.
     /// </summary>
     [IsoId("_Ny9Dy5lPEee-Zps0fZQaFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Rejection")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice
         /// Defines the reason why the Target2 SSP system has rejected the transaction.
         /// </summary>
         [IsoId("_N7lbUZlPEee-Zps0fZQaFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Status Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryStsRsn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PrtryStsRsn")]
+        [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
         [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax4AlphaNumericText ProprietaryStatusReason { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ProprietaryStatusReason { get; init; } 
+        public required System.String ProprietaryStatusReason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ProprietaryStatusReason { get; init; } 
         #else
@@ -80,19 +76,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReasonCode7Choice
         /// Provides detailed information about the reason why the Target2 SSP system has rejected the transaction.
         /// </summary>
         [IsoId("_N7lbU5lPEee-Zps0fZQaFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Rsn")]
+        [IsoSimpleType(IsoSimpleType.Max256Text)]
         [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax256Text Reason { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Reason { get; init; } 
+        public required System.String Reason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Reason { get; init; } 
         #else

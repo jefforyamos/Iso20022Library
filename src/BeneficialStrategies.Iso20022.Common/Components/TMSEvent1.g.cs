@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Result of an individual terminal management action performed by the point of interaction.
 /// </summary>
 [IsoId("_KsXs0n1DEeCF8NjrBemJWQ_359264692")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("TMS Event")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record TMSEvent1
     /// Date time of the terminal management action performed by the point of interaction.
     /// </summary>
     [IsoId("_KsXs031DEeCF8NjrBemJWQ_-355627508")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmStmp")]
     #endif
+    [IsoXmlTag("TmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TimeStamp { get; init; } 
+    public required System.DateTime TimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TimeStamp { get; init; } 
     #else
@@ -73,16 +71,15 @@ public partial record TMSEvent1
     /// Final result of the processed terminal management action.
     /// </summary>
     [IsoId("_KsXs1H1DEeCF8NjrBemJWQ_-40771667")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rslt")]
     #endif
+    [IsoXmlTag("Rslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementActionResult1Code Result { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementActionResult1Code Result { get; init; } 
+    public required TerminalManagementActionResult1Code Result { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementActionResult1Code Result { get; init; } 
     #else
@@ -93,16 +90,15 @@ public partial record TMSEvent1
     /// Identification of the terminal management action performed by the point of interaction.
     /// </summary>
     [IsoId("_KsXs1X1DEeCF8NjrBemJWQ_-1842873575")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnId")]
     #endif
+    [IsoXmlTag("ActnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TMSActionIdentification1 ActionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TMSActionIdentification1 ActionIdentification { get; init; } 
+    public required TMSActionIdentification1 ActionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TMSActionIdentification1 ActionIdentification { get; init; } 
     #else
@@ -113,15 +109,13 @@ public partial record TMSEvent1
     /// Additional information related to a failure.
     /// </summary>
     [IsoId("_KsXs1n1DEeCF8NjrBemJWQ_-1952002664")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Error Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlErrInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlErrInf")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalErrorInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TransactionChannelCode
 {
     /// <summary>
     /// Mail order.
-    /// Encoded/decoded by serializers as "MAIL".
+    /// Encoded/decoded by serializers as &quot;MAIL&quot;.
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_TVWQBwEcEeCQm6a_G2yO_w_977545378")]
@@ -30,7 +30,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Telephone order.
-    /// Encoded/decoded by serializers as "TLPH".
+    /// Encoded/decoded by serializers as &quot;TLPH&quot;.
     /// </summary>
     [EnumMember(Value = "TLPH")]
     [IsoId("_TVWQCAEcEeCQm6a_G2yO_w_1632008527")]
@@ -39,7 +39,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Electronic commerce.
-    /// Encoded/decoded by serializers as "ECOM".
+    /// Encoded/decoded by serializers as &quot;ECOM&quot;.
     /// </summary>
     [EnumMember(Value = "ECOM")]
     [IsoId("_TVWQCQEcEeCQm6a_G2yO_w_-1433707025")]
@@ -48,7 +48,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Payment on television.
-    /// Encoded/decoded by serializers as "TVPY".
+    /// Encoded/decoded by serializers as &quot;TVPY&quot;.
     /// </summary>
     [EnumMember(Value = "TVPY")]
     [IsoId("_TVWQCgEcEeCQm6a_G2yO_w_-2041458064")]
@@ -57,7 +57,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Office or branch.
-    /// Encoded/decoded by serializers as "BRAN".
+    /// Encoded/decoded by serializers as &quot;BRAN&quot;.
     /// </summary>
     [EnumMember(Value = "BRAN")]
     [IsoId("_TaM_UBRFEeOKWo1NF21OVw")]
@@ -66,7 +66,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Home banking.
-    /// Encoded/decoded by serializers as "HOBA".
+    /// Encoded/decoded by serializers as &quot;HOBA&quot;.
     /// </summary>
     [EnumMember(Value = "HOBA")]
     [IsoId("_TwXckBRFEeOKWo1NF21OVw")]
@@ -75,7 +75,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Financial advisor.
-    /// Encoded/decoded by serializers as "FIAD".
+    /// Encoded/decoded by serializers as &quot;FIAD&quot;.
     /// </summary>
     [EnumMember(Value = "FIAD")]
     [IsoId("_UBVQwBRFEeOKWo1NF21OVw")]
@@ -84,7 +84,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Payment performed through a cardholder mobile device.
-    /// Encoded/decoded by serializers as "MOBL".
+    /// Encoded/decoded by serializers as &quot;MOBL&quot;.
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_0EyQwGkBEeS7zPBpvm732w")]
@@ -93,7 +93,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Electronic commerce with cardholder authentication.
-    /// Encoded/decoded by serializers as "SECM".
+    /// Encoded/decoded by serializers as &quot;SECM&quot;.
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_3fSowGkBEeS7zPBpvm732w")]
@@ -102,7 +102,7 @@ public enum TransactionChannelCode
     
     /// <summary>
     /// Payment performed through a merchant mobile device.
-    /// Encoded/decoded by serializers as "MPOS".
+    /// Encoded/decoded by serializers as &quot;MPOS&quot;.
     /// </summary>
     [EnumMember(Value = "MPOS")]
     [IsoId("_BAAuQLDHEeaW-9Sj0pzN5A")]

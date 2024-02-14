@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed shareholding balance information for an account.
 /// </summary>
 [IsoId("_lprEMDttEemIf7eyjCwinw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Shareholding Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ShareholdingBalance1
     /// Identifies the category of shareholding.
     /// </summary>
     [IsoId("_pv8WADttEemIf7eyjCwinw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shareholding Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrhldgTp")]
     #endif
+    [IsoXmlTag("ShrhldgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShareholdingType1Code ShareholdingType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ShareholdingType1Code ShareholdingType { get; init; } 
+    public required ShareholdingType1Code ShareholdingType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ShareholdingType1Code ShareholdingType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ShareholdingBalance1
     /// Number of shares of this type of shareholding or with this date of shareholding held by the account owner.
     /// </summary>
     [IsoId("_JW05YD59EemPvNTzinB5Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record ShareholdingBalance1
     /// Date as from when the shares have been held by the shareholder on its account.
     /// </summary>
     [IsoId("_IZQocD5-EemPvNTzinB5Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Date Of Shareholding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlDtOfShrhldg")]
     #endif
+    [IsoXmlTag("InitlDtOfShrhldg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat57Choice_? InitialDateOfShareholding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record ShareholdingBalance1
     /// Third party who is authorised to take specific actions on behalf of the shareholder.
     /// </summary>
     [IsoId("_ssY78D6BEemPvNTzinB5Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Third Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThrdPty")]
     #endif
+    [IsoXmlTag("ThrdPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification218? ThirdParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record ShareholdingBalance1
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_4CPcET6QEemPvNTzinB5Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

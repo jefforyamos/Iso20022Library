@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics related to the protocol.
 /// </summary>
 [IsoId("_qtlCIUGKEeyZG7AU5fJYtQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record Header68
     /// Identifies the type of process related to the message.
     /// </summary>
     [IsoId("_qx5hcUGKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgFctn")]
     #endif
+    [IsoXmlTag("MsgFctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageFunction44Code MessageFunction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageFunction44Code MessageFunction { get; init; } 
+    public required MessageFunction44Code MessageFunction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageFunction44Code MessageFunction { get; init; } 
     #else
@@ -74,19 +71,17 @@ public partial record Header68
     /// Version of the acquirer to issuer protocol specifications.
     /// </summary>
     [IsoId("_qx5hc0GKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protocol Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtcolVrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrtcolVrsn")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2048Text ProtocolVersion { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProtocolVersion { get; init; } 
+    public required System.String ProtocolVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProtocolVersion { get; init; } 
     #else
@@ -97,15 +92,13 @@ public partial record Header68
     /// Unique identification of an exchange of messages between two parties.
     /// </summary>
     [IsoId("_qx5hdUGKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XchgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ExchangeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,15 +111,12 @@ public partial record Header68
     /// Number of retransmission of the message. Incremented by one for each retransmission.
     /// </summary>
     [IsoId("_qx5hd0GKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Re Transmission Counter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReTrnsmssnCntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ReTrnsmssnCntr")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? ReTransmissionCounter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,16 +129,16 @@ public partial record Header68
     /// Date and time at which the message was sent.
     /// </summary>
     [IsoId("_qx5heUGKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -159,12 +149,11 @@ public partial record Header68
     /// Information related to the batch and the collection to which the message belongs if any.
     /// </summary>
     [IsoId("_qx5he0GKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch Management Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BtchMgmtInf")]
     #endif
+    [IsoXmlTag("BtchMgmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BatchManagementInformation1? BatchManagementInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,16 +166,15 @@ public partial record Header68
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
     [IsoId("_qx5hfUGKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiating Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitgPty")]
     #endif
+    [IsoXmlTag("InitgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification183 InitiatingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification183 InitiatingParty { get; init; } 
+    public required GenericIdentification183 InitiatingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification183 InitiatingParty { get; init; } 
     #else
@@ -197,12 +185,11 @@ public partial record Header68
     /// Unique identification of the partner that is the recipient of the message exchange.
     /// </summary>
     [IsoId("_qx5hf0GKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptPty")]
     #endif
+    [IsoXmlTag("RcptPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification183? RecipientParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -216,12 +203,11 @@ public partial record Header68
     /// ISO 8583:93/2003 bit 59
     /// </summary>
     [IsoId("_qx5hgUGKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trace Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TracData")]
     #endif
+    [IsoXmlTag("TracData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? TraceData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -234,12 +220,11 @@ public partial record Header68
     /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
     /// </summary>
     [IsoId("_qx5hg0GKEeyZG7AU5fJYtQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Traceability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tracblt")]
     #endif
+    [IsoXmlTag("Tracblt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Traceability9? Traceability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

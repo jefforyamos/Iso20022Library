@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus98Choice.Treated))]
     [KnownType(typeof(ProcessingStatus98Choice.ProprietaryStatus))]
     [IsoId("_xnOQMQarEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 98 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

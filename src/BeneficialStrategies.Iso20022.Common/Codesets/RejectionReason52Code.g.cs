@@ -21,7 +21,7 @@ public enum RejectionReason52Code
 {
     /// <summary>
     /// Disclosure request identification is invalid or unknown.
-    /// Encoded/decoded by serializers as "IDRI".
+    /// Encoded/decoded by serializers as &quot;IDRI&quot;.
     /// </summary>
     [EnumMember(Value = "IDRI")]
     [IsoId("_v9mNMcAWEembi_x1QDJfxw")]
@@ -30,7 +30,7 @@ public enum RejectionReason52Code
     
     /// <summary>
     /// Disclosure response identification is invalid or unknown.
-    /// Encoded/decoded by serializers as "IDRJ".
+    /// Encoded/decoded by serializers as &quot;IDRJ&quot;.
     /// </summary>
     [EnumMember(Value = "IDRJ")]
     [IsoId("_wFLb4cAWEembi_x1QDJfxw")]
@@ -39,7 +39,7 @@ public enum RejectionReason52Code
     
     /// <summary>
     /// Service for which the information was sent is not offered.
-    /// Encoded/decoded by serializers as "SVNO".
+    /// Encoded/decoded by serializers as &quot;SVNO&quot;.
     /// </summary>
     [EnumMember(Value = "SVNO")]
     [IsoId("_2dH1YcAWEembi_x1QDJfxw")]

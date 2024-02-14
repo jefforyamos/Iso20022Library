@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details of the interest calculation.
 /// </summary>
 [IsoId("_iNo2MYPLEeWLIolfk4fFwQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Calculation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record InterestCalculation4
     /// Indicates the calculation date of the interest amount.
     /// </summary>
     [IsoId("_ioRjwYPLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnDt")]
     #endif
+    [IsoXmlTag("ClctnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate CalculationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly CalculationDate { get; init; } 
+    public required System.DateOnly CalculationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly CalculationDate { get; init; } 
     #else
@@ -74,12 +72,11 @@ public partial record InterestCalculation4
     /// Provides the identification of the collateral account.
     /// </summary>
     [IsoId("_ioRjw4PLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollAcctId")]
     #endif
+    [IsoXmlTag("CollAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralAccount2? CollateralAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +89,15 @@ public partial record InterestCalculation4
     /// Provides the collateral amount used to calculate the interest amount and includes debit/short or credit/long positions.
     /// </summary>
     [IsoId("_ioRjxYPLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Principal Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvPrncplAmt")]
     #endif
+    [IsoXmlTag("FctvPrncplAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection20 EffectivePrincipalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection20 EffectivePrincipalAmount { get; init; } 
+    public required AmountAndDirection20 EffectivePrincipalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection20 EffectivePrincipalAmount { get; init; } 
     #else
@@ -112,12 +108,11 @@ public partial record InterestCalculation4
     /// Provides the collateral amount posted before taking into account the collateral movement amount.
     /// </summary>
     [IsoId("_ioRjx4PLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Principal Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrncplAmt")]
     #endif
+    [IsoXmlTag("PrncplAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection20? PrincipalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +125,11 @@ public partial record InterestCalculation4
     /// Provides the additional amount of collateral posted between two calculation dates.
     /// </summary>
     [IsoId("_ioatsYPLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MvmntAmt")]
     #endif
+    [IsoXmlTag("MvmntAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection20? MovementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +142,12 @@ public partial record InterestCalculation4
     /// Indicates the number of days for the calculation of the interest.
     /// </summary>
     [IsoId("_ioats4PLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Days")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfDays")]
     #endif
+    [IsoXmlTag("NbOfDays")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfDays { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,16 +160,16 @@ public partial record InterestCalculation4
     /// Specifies the percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
     [IsoId("_ioattYPLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvRate")]
     #endif
+    [IsoXmlTag("FctvRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate EffectiveRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal EffectiveRate { get; init; } 
+    public required System.Decimal EffectiveRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal EffectiveRate { get; init; } 
     #else
@@ -186,12 +180,12 @@ public partial record InterestCalculation4
     /// Specifies the percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
     [IsoId("_ioatt4PLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -204,12 +198,12 @@ public partial record InterestCalculation4
     /// Indicates the differences in interest rates.
     /// </summary>
     [IsoId("_ioatuYPLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sprd")]
     #endif
+    [IsoXmlTag("Sprd")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Spread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,16 +216,15 @@ public partial record InterestCalculation4
     /// Specifies the amount of money representing an interest payment.
     /// </summary>
     [IsoId("_ioatu4PLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstAmt")]
     #endif
+    [IsoXmlTag("AcrdIntrstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection20 AccruedInterestAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection20 AccruedInterestAmount { get; init; } 
+    public required AmountAndDirection20 AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection20 AccruedInterestAmount { get; init; } 
     #else
@@ -242,12 +235,12 @@ public partial record InterestCalculation4
     /// Specifies the total amount of money representing an interest payment.
     /// </summary>
     [IsoId("_ioatvYPLEeWLIolfk4fFwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregated Interest Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AggtdIntrstAmt")]
     #endif
+    [IsoXmlTag("AggtdIntrstAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

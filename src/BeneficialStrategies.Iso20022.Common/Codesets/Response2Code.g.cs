@@ -21,7 +21,7 @@ public enum Response2Code
 {
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_-2kqIWqHEeS8RZDTbvnB_A")]
@@ -30,7 +30,7 @@ public enum Response2Code
     
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("__G0Fk2qHEeS8RZDTbvnB_A")]

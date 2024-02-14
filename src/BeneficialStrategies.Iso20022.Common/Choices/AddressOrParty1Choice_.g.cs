@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AddressOrParty1Choice.NewAddress))]
     [KnownType(typeof(AddressOrParty1Choice.NewBeneficiary))]
     [IsoId("_-EhOtHltEeG7BsjMvd1mEw_136442454")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Or Party 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

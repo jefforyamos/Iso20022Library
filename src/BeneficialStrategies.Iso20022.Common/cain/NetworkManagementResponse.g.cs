@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The NetworkManagementResponse message is sent by an acquirer, an issuer or an agent to answer to an NetworkManagementInitiation message.")]
 [IsoId("_Goob8HvFEeSKFIcWw3l4Yw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Network Management Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record NetworkManagementResponse : IOuterRecord<NetworkManagement
     /// Information related to the protocol management.
     /// </summary>
     [IsoId("_UehNsHvFEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header17 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header17 Header { get; init; } 
+    public required Header17 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header17 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record NetworkManagementResponse : IOuterRecord<NetworkManagement
     /// Information related to the response to the network management.
     /// </summary>
     [IsoId("_gRKVUHvFEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Network Management Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtwkMgmtRspn")]
     #endif
+    [IsoXmlTag("NtwkMgmtRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcquirerNetworkManagementResponse1 NetworkManagementResponseValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcquirerNetworkManagementResponse1 NetworkManagementResponseValue { get; init; } 
+    public required AcquirerNetworkManagementResponse1 NetworkManagementResponseValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcquirerNetworkManagementResponse1 NetworkManagementResponseValue { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record NetworkManagementResponse : IOuterRecord<NetworkManagement
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_OCK_4HvGEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record NetworkManagementResponse : IOuterRecord<NetworkManagement
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NetworkManagementResponseDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NetworkManagementResponseDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NetworkManagementResponseDocument ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record NetworkManagementResponse : IOuterRecord<NetworkManagement
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetworkManagementResponse"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NetworkManagementResponse&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NetworkManagementResponseDocument : IOuterDocument<NetworkManagementResponse>
@@ -161,7 +156,7 @@ public partial record NetworkManagementResponseDocument : IOuterDocument<Network
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NetworkManagementResponse"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NetworkManagementResponse&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetworkManagementResponse Message { get; init; }

@@ -21,7 +21,7 @@ public enum RepairReason3Code
 {
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_Zt3Kdtp-Ed-ak6NoX_4Aeg_1265326437")]

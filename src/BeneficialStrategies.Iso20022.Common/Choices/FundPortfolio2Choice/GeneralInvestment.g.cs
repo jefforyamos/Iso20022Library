@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio2Choice
     /// Portfolio is a general investment.
     /// </summary>
     [IsoId("_pEam004aEeiQHa-q1Uephw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Investment")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio2Choice
         /// Type of investment.
         /// </summary>
         [IsoId("_lboOIE4NEeiQHa-q1Uephw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public GeneralInvestmentAccountType1Choice_? Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio2Choice
         /// Amount of money invested.
         /// </summary>
         [IsoId("_JnLksqqwEeirN7VYUwRpeQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Current Investment Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CurInvstmtAmt")]
         #endif
+        [IsoXmlTag("CurInvstmtAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +82,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio2Choice
         /// Estimated value of the assets.
         /// </summary>
         [IsoId("_JnLks6qwEeirN7VYUwRpeQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Estimated Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EstmtdVal")]
         #endif
+        [IsoXmlTag("EstmtdVal")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndAmount2? EstimatedValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +99,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio2Choice
         /// Additional information about the portfolio.
         /// </summary>
         [IsoId("_yHL6wE4NEeiQHa-q1Uephw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
+        [IsoXmlTag("AddtlInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AdditionalInformation15? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

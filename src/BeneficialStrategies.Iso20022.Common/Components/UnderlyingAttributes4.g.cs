@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional details on the underlying. In securities financing deals, it is used to identify and provide information on the collateral.
 /// </summary>
 [IsoId("_1RJ4sWp7EemmaZLSPtWX5A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Underlying Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record UnderlyingAttributes4
     /// Percent of the strike price that this underlying represents.
     /// </summary>
     [IsoId("_1cvdoWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allocation Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllcnPctg")]
     #endif
+    [IsoXmlTag("AllcnPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? AllocationPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record UnderlyingAttributes4
     /// Unit amount of the underlying security.
     /// </summary>
     [IsoId("_1cwEt2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record UnderlyingAttributes4
     /// Indicates order settlement period for the underlying instrument. Represents the number of days until settlement; for example, 2 means T+1 settlement, 4 means T+3 settlement, 5 means T+4 settlement.
     /// </summary>
     [IsoId("_1cwEuWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTp")]
     #endif
+    [IsoXmlTag("SttlmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementType3Choice_? SettlementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +91,15 @@ public partial record UnderlyingAttributes4
     #endif
     
     /// <summary>
-    /// Cash amount associated with the underlying component. Necessary for derivatives that deliver into more than one underlying instrument and one of the underlying's is a fixed cash value.
+    /// Cash amount associated with the underlying component. Necessary for derivatives that deliver into more than one underlying instrument and one of the underlying&apos;s is a fixed cash value.
     /// </summary>
     [IsoId("_1cwEwWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAmt")]
     #endif
+    [IsoXmlTag("CshAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,15 +112,13 @@ public partial record UnderlyingAttributes4
     /// Represents how the cash will be calculated. Indicates that the cash is either fixed or a difference value (difference between strike and current underlying price).
     /// </summary>
     [IsoId("_1cwEyWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CshTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CashType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +131,11 @@ public partial record UnderlyingAttributes4
     /// In a financing deal, clean price (percent-of-par or per unit) of the underlying security or basket.
     /// </summary>
     [IsoId("_1cwE0Wp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,15 +145,14 @@ public partial record UnderlyingAttributes4
     #endif
     
     /// <summary>
-    /// In a financing deal, price (percent-of-par or per unit) of the underlying security or basket. "Dirty" means it includes accrued interest.
+    /// In a financing deal, price (percent-of-par or per unit) of the underlying security or basket. &quot;Dirty&quot; means it includes accrued interest.
     /// </summary>
     [IsoId("_1cwE2Wp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dirty Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrtyPric")]
     #endif
+    [IsoXmlTag("DrtyPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? DirtyPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +165,11 @@ public partial record UnderlyingAttributes4
     /// In a financing deal, price (percent-of-par or per unit) of the underlying security or basket at the end of the agreement.
     /// </summary>
     [IsoId("_1cwE4Wp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndPric")]
     #endif
+    [IsoXmlTag("EndPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? EndPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +182,12 @@ public partial record UnderlyingAttributes4
     /// Currency value attributed to this collateral at the start of the agreement.
     /// </summary>
     [IsoId("_1cwE6Wp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartVal")]
     #endif
+    [IsoXmlTag("StartVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? StartValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +200,12 @@ public partial record UnderlyingAttributes4
     /// Currency value currently attributed to this collateral.
     /// </summary>
     [IsoId("_1cwE8Wp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurVal")]
     #endif
+    [IsoXmlTag("CurVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CurrentValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +218,12 @@ public partial record UnderlyingAttributes4
     /// Currency value attributed to this collateral at the end of the agreement.
     /// </summary>
     [IsoId("_1cwE-Wp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndVal")]
     #endif
+    [IsoXmlTag("EndVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? EndValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +236,11 @@ public partial record UnderlyingAttributes4
     /// Unit amount of the underlying security (shares) adjusted for pending corporate action not yet allocated.
     /// </summary>
     [IsoId("_1cwFAWp7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjusted Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdjstdQty")]
     #endif
+    [IsoXmlTag("AdjstdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? AdjustedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +253,12 @@ public partial record UnderlyingAttributes4
     /// Foreign exchange rate used to compute the current value.
     /// </summary>
     [IsoId("_1cwFA2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRate")]
     #endif
+    [IsoXmlTag("XchgRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,12 +271,12 @@ public partial record UnderlyingAttributes4
     /// Maximum notional value for a financial instrument that is capped.
     /// </summary>
     [IsoId("_1cwFC2p7EemmaZLSPtWX5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cap Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CapVal")]
     #endif
+    [IsoXmlTag("CapVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CapValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionReport8Choice
     /// Indicates an update of a contract valuation or collateral.
     /// </summary>
     [IsoId("_bRuGmxLBEeqctpBfTmLJnw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Update")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,28 +47,24 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionReport8Choice
         /// Trade transaction data details.
         /// </summary>
         [IsoId("_HEbGEQ1LEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty Specific Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPtySpcfcData")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("CtrPtySpcfcData")]
         [MinLength(1)]
         [MaxLength(2)]
-        #endif
         public ValueList<CounterpartySpecificData23> CounterpartySpecificData { get; init; } = new ValueList<CounterpartySpecificData23>(){};
         
         /// <summary>
         /// Trade transaction data details.
         /// </summary>
         [IsoId("_HEbGEw1LEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Common Trade Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CmonTradData")]
         #endif
+        [IsoXmlTag("CmonTradData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CommonTradeDataReport36? CommonTradeData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +77,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionReport8Choice
         /// Specifies technical attributes of the message.
         /// </summary>
         [IsoId("_HEbGFQ1LEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Technical Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TechAttrbts")]
         #endif
+        [IsoXmlTag("TechAttrbts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TechnicalAttributes1? TechnicalAttributes { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +94,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionReport8Choice
         /// Additional information that can not be captured in the structured fields and/or any other specific block.
         /// </summary>
         [IsoId("_HEbGFw1LEeqV4s5SpzR1dQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

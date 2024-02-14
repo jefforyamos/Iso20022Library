@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason45Choice
     /// Rejected reason expressed as a code.
     /// </summary>
     [IsoId("_XD5rgeijEeuLe8v4JEtDDg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason45Choice
         /// Specifies the reason for a transfer or settlement instruction rejected status.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RejectedStatusReason13Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RejectedStatusReason13Code Value { get; init; } 
+        public required RejectedStatusReason13Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RejectedStatusReason13Code Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Media mix selected.
 /// </summary>
 [IsoId("_SOOfEYq4EeSIDtZ76p6McQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Media Mix")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record ATMMediaMix2
     /// Number of notes or coins.
     /// </summary>
     [IsoId("_SbVuA4q4EeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
+    [IsoXmlTag("Nb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Number { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Number { get; init; } 
+    public required System.UInt64 Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Number { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record ATMMediaMix2
     /// Unit value.
     /// </summary>
     [IsoId("_SbVuBYq4EeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitVal")]
     #endif
+    [IsoXmlTag("UnitVal")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount UnitValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal UnitValue { get; init; } 
+    public required System.Decimal UnitValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal UnitValue { get; init; } 
     #else

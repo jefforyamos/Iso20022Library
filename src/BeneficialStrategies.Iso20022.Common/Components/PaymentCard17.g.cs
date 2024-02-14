@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Card performing the withdrawal transaction.
 /// </summary>
 [IsoId("_rCe_gYqPEeSRT5rEzcAHEw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Card")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PaymentCard17
     /// Entry mode that used to obtain the card data.
     /// </summary>
     [IsoId("_rOjFkYqPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Data Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardDataNtryMd")]
     #endif
+    [IsoXmlTag("CardDataNtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardDataReading1Code CardDataEntryMode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardDataReading1Code CardDataEntryMode { get; init; } 
+    public required CardDataReading1Code CardDataEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardDataReading1Code CardDataEntryMode { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PaymentCard17
     /// Indicate the occurrence of a fall-back on the card entry mode.
     /// </summary>
     [IsoId("_rOjFk4qPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fallback Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FllbckInd")]
     #endif
+    [IsoXmlTag("FllbckInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardFallback1Code? FallbackIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record PaymentCard17
     /// Replacement of the message element PlainCardData by a digital envelope using a cryptographic key.
     /// </summary>
     [IsoId("_rOjFlYqPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdCardData")]
     #endif
+    [IsoXmlTag("PrtctdCardData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedCardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record PaymentCard17
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
     [IsoId("_rOjFl4qPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plain Card Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlainCardData")]
     #endif
+    [IsoXmlTag("PlainCardData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlainCardData14? PlainCardData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,15 +119,13 @@ public partial record PaymentCard17
     /// Country code assigned to the card by the card issuer.
     /// </summary>
     [IsoId("_rOjFmYqPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Country Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardCtryCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CardCtryCd")]
+    [IsoSimpleType(IsoSimpleType.Max3Text)]
     [StringLength(maximumLength: 3 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? CardCountryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,15 +138,12 @@ public partial record PaymentCard17
     /// Currency code of the card issuer (ISO 4217 numeric code).
     /// </summary>
     [IsoId("_rOjFm4qPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Currency Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardCcyCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("CardCcyCd")]
+    [IsoSimpleType(IsoSimpleType.Exact3AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3AlphaNumericText? CardCurrencyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +156,12 @@ public partial record PaymentCard17
     /// Balance of the captured card or epurse if available.
     /// </summary>
     [IsoId("_22upoIqPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Retained Card Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtndCardBal")]
     #endif
+    [IsoXmlTag("RtndCardBal")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? RetainedCardBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

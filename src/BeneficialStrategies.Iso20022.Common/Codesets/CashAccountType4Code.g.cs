@@ -21,7 +21,7 @@ public enum CashAccountType4Code
 {
     /// <summary>
     /// Account used for the payment of cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_a3Us4Np-Ed-ak6NoX_4Aeg_-1444721331")]
@@ -30,7 +30,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for charges if different from the account for payment.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_a3Us4dp-Ed-ak6NoX_4Aeg_-1444721313")]
@@ -39,7 +39,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for commission if different from the account for payment.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_a3Us4tp-Ed-ak6NoX_4Aeg_-1444721288")]
@@ -48,7 +48,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for taxes if different from the account for payment.
-    /// Encoded/decoded by serializers as "TAXE".
+    /// Encoded/decoded by serializers as &quot;TAXE&quot;.
     /// </summary>
     [EnumMember(Value = "TAXE")]
     [IsoId("_a3Us49p-Ed-ak6NoX_4Aeg_-1444721271")]
@@ -57,7 +57,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for payment of income if different from the current cash account.
-    /// Encoded/decoded by serializers as "CISH".
+    /// Encoded/decoded by serializers as &quot;CISH&quot;.
     /// </summary>
     [EnumMember(Value = "CISH")]
     [IsoId("_a3Us5Np-Ed-ak6NoX_4Aeg_-1444721036")]
@@ -66,7 +66,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for trading if different from the current cash account.
-    /// Encoded/decoded by serializers as "TRAS".
+    /// Encoded/decoded by serializers as &quot;TRAS&quot;.
     /// </summary>
     [EnumMember(Value = "TRAS")]
     [IsoId("_a3Us5dp-Ed-ak6NoX_4Aeg_-1444721019")]
@@ -75,7 +75,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
-    /// Encoded/decoded by serializers as "SACC".
+    /// Encoded/decoded by serializers as &quot;SACC&quot;.
     /// </summary>
     [EnumMember(Value = "SACC")]
     [IsoId("_a3Us5tp-Ed-ak6NoX_4Aeg_-1444721018")]
@@ -84,7 +84,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used to post debits and credits when no specific account has been nominated.
-    /// Encoded/decoded by serializers as "CACC".
+    /// Encoded/decoded by serializers as &quot;CACC&quot;.
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_a3Us59p-Ed-ak6NoX_4Aeg_-1444721001")]
@@ -93,7 +93,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for savings.
-    /// Encoded/decoded by serializers as "SVGS".
+    /// Encoded/decoded by serializers as &quot;SVGS&quot;.
     /// </summary>
     [EnumMember(Value = "SVGS")]
     [IsoId("_a3Us6Np-Ed-ak6NoX_4Aeg_-1444720976")]
@@ -102,7 +102,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for overnight deposits.
-    /// Encoded/decoded by serializers as "ONDP".
+    /// Encoded/decoded by serializers as &quot;ONDP&quot;.
     /// </summary>
     [EnumMember(Value = "ONDP")]
     [IsoId("_a3Us6dp-Ed-ak6NoX_4Aeg_-1444720959")]
@@ -111,7 +111,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for a marginal lending facility.
-    /// Encoded/decoded by serializers as "MGLD".
+    /// Encoded/decoded by serializers as &quot;MGLD&quot;.
     /// </summary>
     [EnumMember(Value = "MGLD")]
     [IsoId("_a3ed4Np-Ed-ak6NoX_4Aeg_-1444720940")]
@@ -120,7 +120,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for non-resident external.
-    /// Encoded/decoded by serializers as "NREX".
+    /// Encoded/decoded by serializers as &quot;NREX&quot;.
     /// </summary>
     [EnumMember(Value = "NREX")]
     [IsoId("_a3ed4dp-Ed-ak6NoX_4Aeg_-1385617969")]
@@ -129,7 +129,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for money markets if different from the cash account.
-    /// Encoded/decoded by serializers as "MOMA".
+    /// Encoded/decoded by serializers as &quot;MOMA&quot;.
     /// </summary>
     [EnumMember(Value = "MOMA")]
     [IsoId("_a3ed4tp-Ed-ak6NoX_4Aeg_-1385617950")]
@@ -138,7 +138,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account used for loans.
-    /// Encoded/decoded by serializers as "LOAN".
+    /// Encoded/decoded by serializers as &quot;LOAN&quot;.
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_a3ed49p-Ed-ak6NoX_4Aeg_-1385617925")]
@@ -147,7 +147,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Accounts used for salary payments.
-    /// Encoded/decoded by serializers as "SLRY".
+    /// Encoded/decoded by serializers as &quot;SLRY&quot;.
     /// </summary>
     [EnumMember(Value = "SLRY")]
     [IsoId("_a3ed5Np-Ed-ak6NoX_4Aeg_-1385617908")]
@@ -156,7 +156,7 @@ public enum CashAccountType4Code
     
     /// <summary>
     /// Account is used for overdrafts.
-    /// Encoded/decoded by serializers as "ODFT".
+    /// Encoded/decoded by serializers as &quot;ODFT&quot;.
     /// </summary>
     [EnumMember(Value = "ODFT")]
     [IsoId("_a3ed5dp-Ed-ak6NoX_4Aeg_-1385617890")]

@@ -21,7 +21,7 @@ public enum RetailerService9Code
 {
     /// <summary>
     /// One system responds to the other system for a display request.
-    /// Encoded/decoded by serializers as "DDYP".
+    /// Encoded/decoded by serializers as &quot;DDYP&quot;.
     /// </summary>
     [EnumMember(Value = "DDYP")]
     [IsoId("_YsANsd7EEeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum RetailerService9Code
     
     /// <summary>
     /// One system responds to the other System for a input request.
-    /// Encoded/decoded by serializers as "DINP".
+    /// Encoded/decoded by serializers as &quot;DINP&quot;.
     /// </summary>
     [EnumMember(Value = "DINP")]
     [IsoId("_ZT7wYd7EEeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum RetailerService9Code
     
     /// <summary>
     /// One system responds to the other System for a print request.
-    /// Encoded/decoded by serializers as "DPRP".
+    /// Encoded/decoded by serializers as &quot;DPRP&quot;.
     /// </summary>
     [EnumMember(Value = "DPRP")]
     [IsoId("_aC3S8d7EEeiwsev40qZGEQ")]
@@ -48,7 +48,7 @@ public enum RetailerService9Code
     
     /// <summary>
     /// One system responds to the other System for a play sound request.
-    /// Encoded/decoded by serializers as "DSOP".
+    /// Encoded/decoded by serializers as &quot;DSOP&quot;.
     /// </summary>
     [EnumMember(Value = "DSOP")]
     [IsoId("_a3Assd7EEeiwsev40qZGEQ")]
@@ -57,7 +57,7 @@ public enum RetailerService9Code
     
     /// <summary>
     /// One system responds to the other System for secure data input.
-    /// Encoded/decoded by serializers as "DSIP".
+    /// Encoded/decoded by serializers as &quot;DSIP&quot;.
     /// </summary>
     [EnumMember(Value = "DSIP")]
     [IsoId("_cnBRwd7EEeiwsev40qZGEQ")]
@@ -66,7 +66,7 @@ public enum RetailerService9Code
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader initialisation.
-    /// Encoded/decoded by serializers as "DCIP".
+    /// Encoded/decoded by serializers as &quot;DCIP&quot;.
     /// </summary>
     [EnumMember(Value = "DCIP")]
     [IsoId("_dfCe4d7EEeiwsev40qZGEQ")]
@@ -75,7 +75,7 @@ public enum RetailerService9Code
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader Application Protocol Data Unit sending.
-    /// Encoded/decoded by serializers as "DCAP".
+    /// Encoded/decoded by serializers as &quot;DCAP&quot;.
     /// </summary>
     [EnumMember(Value = "DCAP")]
     [IsoId("_eE2hsd7EEeiwsev40qZGEQ")]
@@ -84,7 +84,7 @@ public enum RetailerService9Code
     
     /// <summary>
     /// The POI system responds to the Sale System for a card reader power off.
-    /// Encoded/decoded by serializers as "DCPP".
+    /// Encoded/decoded by serializers as &quot;DCPP&quot;.
     /// </summary>
     [EnumMember(Value = "DCPP")]
     [IsoId("_fRKj0d7EEeiwsev40qZGEQ")]
@@ -93,7 +93,7 @@ public enum RetailerService9Code
     
     /// <summary>
     /// The POI system responds to the Sale System after a message transmission.
-    /// Encoded/decoded by serializers as "DCOP".
+    /// Encoded/decoded by serializers as &quot;DCOP&quot;.
     /// </summary>
     [EnumMember(Value = "DCOP")]
     [IsoId("_gJwYsd7EEeiwsev40qZGEQ")]

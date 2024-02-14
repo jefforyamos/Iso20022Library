@@ -21,7 +21,7 @@ public enum ConfirmationCancellationReasonCode
 {
     /// <summary>
     /// Confirmation is cancelled because the back end load amount is incorrect.
-    /// Encoded/decoded by serializers as "BENA".
+    /// Encoded/decoded by serializers as &quot;BENA&quot;.
     /// </summary>
     [EnumMember(Value = "BENA")]
     [IsoId("_kXaoIFM6EeaOrcVOcDJQkA")]
@@ -30,7 +30,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because it will be replaced.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_kejK4FM6EeaOrcVOcDJQkA")]
@@ -39,7 +39,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the cash has not been received.
-    /// Encoded/decoded by serializers as "CSHN".
+    /// Encoded/decoded by serializers as &quot;CSHN&quot;.
     /// </summary>
     [EnumMember(Value = "CSHN")]
     [IsoId("_kjKlIFM6EeaOrcVOcDJQkA")]
@@ -48,7 +48,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the cash amount is incorrect.
-    /// Encoded/decoded by serializers as "CSHW".
+    /// Encoded/decoded by serializers as &quot;CSHW&quot;.
     /// </summary>
     [EnumMember(Value = "CSHW")]
     [IsoId("_knoOYFM6EeaOrcVOcDJQkA")]
@@ -57,7 +57,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the settlement date is incorrect.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_kr8GoFM6EeaOrcVOcDJQkA")]
@@ -66,7 +66,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the trade date is incorrect.
-    /// Encoded/decoded by serializers as "DDEA".
+    /// Encoded/decoded by serializers as &quot;DDEA&quot;.
     /// </summary>
     [EnumMember(Value = "DDEA")]
     [IsoId("_zO_gYFM6EeaOrcVOcDJQkA")]
@@ -75,7 +75,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the discount amount is incorrect.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_zVP5YFM6EeaOrcVOcDJQkA")]
@@ -84,7 +84,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the discount amount has an incorrect currency.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_zbo1QFM6EeaOrcVOcDJQkA")]
@@ -93,7 +93,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the settlement amount is incorrect.
-    /// Encoded/decoded by serializers as "DMON".
+    /// Encoded/decoded by serializers as &quot;DMON&quot;.
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_ziCYMFM6EeaOrcVOcDJQkA")]
@@ -102,7 +102,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the financial instrument quantity is incorrect.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_ziMJMFM6EeaOrcVOcDJQkA")]
@@ -111,7 +111,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the exchange rate is incorrect.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("__wnN4FM6EeaOrcVOcDJQkA")]
@@ -120,7 +120,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because a fee or commission amount is incorrect.
-    /// Encoded/decoded by serializers as "FEEE".
+    /// Encoded/decoded by serializers as &quot;FEEE&quot;.
     /// </summary>
     [EnumMember(Value = "FEEE")]
     [IsoId("_ChD8QFM7EeaOrcVOcDJQkA")]
@@ -129,7 +129,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the front end load amount is incorrect.
-    /// Encoded/decoded by serializers as "FENA".
+    /// Encoded/decoded by serializers as &quot;FENA&quot;.
     /// </summary>
     [EnumMember(Value = "FENA")]
     [IsoId("_CndfMFM7EeaOrcVOcDJQkA")]
@@ -138,7 +138,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the gross amount is incorrect.
-    /// Encoded/decoded by serializers as "GROA".
+    /// Encoded/decoded by serializers as &quot;GROA&quot;.
     /// </summary>
     [EnumMember(Value = "GROA")]
     [IsoId("_CuAMEFM7EeaOrcVOcDJQkA")]
@@ -147,7 +147,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the gross amount has an incorrect currency.
-    /// Encoded/decoded by serializers as "GROC".
+    /// Encoded/decoded by serializers as &quot;GROC&quot;.
     /// </summary>
     [EnumMember(Value = "GROC")]
     [IsoId("_CuAMEVM7EeaOrcVOcDJQkA")]
@@ -156,7 +156,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because of an incorrect minimum traded quantity or cash amount.
-    /// Encoded/decoded by serializers as "MINI".
+    /// Encoded/decoded by serializers as &quot;MINI&quot;.
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_C0ZvAFM7EeaOrcVOcDJQkA")]
@@ -165,7 +165,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the settlement amount has an incorrect currency.
-    /// Encoded/decoded by serializers as "NCRR".
+    /// Encoded/decoded by serializers as &quot;NCRR&quot;.
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_PCh4wFM7EeaOrcVOcDJQkA")]
@@ -174,7 +174,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the net amount is incorrect.
-    /// Encoded/decoded by serializers as "NETA".
+    /// Encoded/decoded by serializers as &quot;NETA&quot;.
     /// </summary>
     [EnumMember(Value = "NETA")]
     [IsoId("_PJEloFM7EeaOrcVOcDJQkA")]
@@ -183,7 +183,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the net amount has an incorrect currency.
-    /// Encoded/decoded by serializers as "NETC".
+    /// Encoded/decoded by serializers as &quot;NETC&quot;.
     /// </summary>
     [EnumMember(Value = "NETC")]
     [IsoId("_PJEloVM7EeaOrcVOcDJQkA")]
@@ -192,7 +192,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because of an incorrect operation.
-    /// Encoded/decoded by serializers as "OPER".
+    /// Encoded/decoded by serializers as &quot;OPER&quot;.
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_PPn5kFM7EeaOrcVOcDJQkA")]
@@ -201,7 +201,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation contains an invalid business reference.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_PPn5kVM7EeaOrcVOcDJQkA")]
@@ -210,7 +210,7 @@ public enum ConfirmationCancellationReasonCode
     
     /// <summary>
     /// Confirmation is cancelled because the settlement method is incorrect.
-    /// Encoded/decoded by serializers as "SETS".
+    /// Encoded/decoded by serializers as &quot;SETS&quot;.
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_WKidQFM7EeaOrcVOcDJQkA")]

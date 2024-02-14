@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType5Choice
     /// Fee (charge/commission) expressed as a code.
     /// </summary>
     [IsoId("_-Oqwojh4EeaH-93K5JKmzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType5Choice
         /// Specifies the type of service for which a fee e is asked or paid.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestmentFundFee1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestmentFundFee1Code Value { get; init; } 
+        public required InvestmentFundFee1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestmentFundFee1Code Value { get; init; } 
         #else

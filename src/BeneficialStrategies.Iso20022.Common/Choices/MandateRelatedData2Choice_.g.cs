@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MandateRelatedData2Choice.DirectDebitMandate))]
     [KnownType(typeof(MandateRelatedData2Choice.CreditTransferMandate))]
     [IsoId("_a24zwdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandate Related Data 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

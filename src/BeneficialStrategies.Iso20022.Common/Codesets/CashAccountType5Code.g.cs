@@ -21,7 +21,7 @@ public enum CashAccountType5Code
 {
     /// <summary>
     /// Account is for the coverage of lending.
-    /// Encoded/decoded by serializers as "LEND".
+    /// Encoded/decoded by serializers as &quot;LEND&quot;.
     /// </summary>
     [EnumMember(Value = "LEND")]
     [IsoId("_2pYDQSCyEeWJd9HF2tO7BA")]
@@ -30,7 +30,7 @@ public enum CashAccountType5Code
     
     /// <summary>
     /// Account is for collateral.
-    /// Encoded/decoded by serializers as "COLL".
+    /// Encoded/decoded by serializers as &quot;COLL&quot;.
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_3W53oSCyEeWJd9HF2tO7BA")]
@@ -39,7 +39,7 @@ public enum CashAccountType5Code
     
     /// <summary>
     /// Account is for financial settlements.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_34FSESCyEeWJd9HF2tO7BA")]
@@ -48,7 +48,7 @@ public enum CashAccountType5Code
     
     /// <summary>
     /// Account is for margin returns.
-    /// Encoded/decoded by serializers as "MARR".
+    /// Encoded/decoded by serializers as &quot;MARR&quot;.
     /// </summary>
     [EnumMember(Value = "MARR")]
     [IsoId("__NxGMSCyEeWJd9HF2tO7BA")]
@@ -57,7 +57,7 @@ public enum CashAccountType5Code
     
     /// <summary>
     /// Account is an segregated account.
-    /// Encoded/decoded by serializers as "SEGT".
+    /// Encoded/decoded by serializers as &quot;SEGT&quot;.
     /// </summary>
     [EnumMember(Value = "SEGT")]
     [IsoId("__yXoESCyEeWJd9HF2tO7BA")]

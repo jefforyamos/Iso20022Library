@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria2Choice
     /// Explicitly defines the query criteria.
     /// </summary>
     [IsoId("_4GLX1ZlaEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Criteria")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria2Choice
         /// Name of the query defined by the search criteria and return criteria.
         /// </summary>
         [IsoId("_4OF9s5laEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("New Query Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NewQryNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("NewQryNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? NewQueryName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria2Choice
         /// Defines the criteria to be used to extract the account information.
         /// </summary>
         [IsoId("_4OF9tZlaEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Search Criteria")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SchCrit")]
         #endif
+        [IsoXmlTag("SchCrit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashAccountSearchCriteria6? SearchCriteria { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +83,11 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria2Choice
         /// Defines the expected account report.
         /// </summary>
         [IsoId("_4OF9t5laEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Return Criteria")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RtrCrit")]
         #endif
+        [IsoXmlTag("RtrCrit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashAccountReturnCriteria4? ReturnCriteria { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

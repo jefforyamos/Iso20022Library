@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Guarantee funds details.
 /// </summary>
 [IsoId("_IhrDAB92EeapDZRA0Hb6ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Guarantee Funds")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record GuaranteeFunds1
     /// Type for the guarantee funds used.
     /// </summary>
     [IsoId("_V6KHEB92EeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guarantee Funds Usage Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntFndsUsgTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("GrntFndsUsgTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text GuaranteeFundsUsageType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String GuaranteeFundsUsageType { get; init; } 
+    public required System.String GuaranteeFundsUsageType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String GuaranteeFundsUsageType { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record GuaranteeFunds1
     /// Owner and account number of the guarantee fund.
     /// </summary>
     [IsoId("_VZlMICciEeaBPexHR4QTEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guarantee Fund Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntFndInf")]
     #endif
+    [IsoXmlTag("GrntFndInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GuaranteeFundInformation1? GuaranteeFundInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

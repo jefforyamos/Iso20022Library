@@ -21,7 +21,7 @@ public enum OptionNumberCode
 {
     /// <summary>
     /// The corporate action instruction is unsolicited, that is, the instruction has not been preceded by a corporate action notification.
-    /// Encoded/decoded by serializers as "UNSO".
+    /// Encoded/decoded by serializers as &quot;UNSO&quot;.
     /// </summary>
     [EnumMember(Value = "UNSO")]
     [IsoId("_aP_AEdp-Ed-ak6NoX_4Aeg_2061898890")]

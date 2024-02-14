@@ -22,7 +22,7 @@ public enum LocationCategory2Code
 {
     /// <summary>
     /// Customer home.
-    /// Encoded/decoded by serializers as "HOME".
+    /// Encoded/decoded by serializers as &quot;HOME&quot;.
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_KdgXoXsIEeSR68OJvMfxJQ")]
@@ -31,7 +31,7 @@ public enum LocationCategory2Code
     
     /// <summary>
     /// Aboard a bus, train, ship, airplane, taxi, etc.
-    /// Encoded/decoded by serializers as "ABRD".
+    /// Encoded/decoded by serializers as &quot;ABRD&quot;.
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_w3820VDhEeuJG-g6zrGRtg")]
@@ -40,7 +40,7 @@ public enum LocationCategory2Code
     
     /// <summary>
     /// Fixed location, for example in a shop.
-    /// Encoded/decoded by serializers as "FIXD".
+    /// Encoded/decoded by serializers as &quot;FIXD&quot;.
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_w-zswVDhEeuJG-g6zrGRtg")]
@@ -49,7 +49,7 @@ public enum LocationCategory2Code
     
     /// <summary>
     /// Nomadic location.
-    /// Encoded/decoded by serializers as "NMDC".
+    /// Encoded/decoded by serializers as &quot;NMDC&quot;.
     /// </summary>
     [EnumMember(Value = "NMDC")]
     [IsoId("_0crh0VDhEeuJG-g6zrGRtg")]

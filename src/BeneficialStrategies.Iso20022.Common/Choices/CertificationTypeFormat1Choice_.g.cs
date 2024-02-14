@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CertificationTypeFormat1Choice.Code))]
     [KnownType(typeof(CertificationTypeFormat1Choice.Proprietary))]
     [IsoId("_Q3BFl9p-Ed-ak6NoX_4Aeg_-917118670")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Type Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

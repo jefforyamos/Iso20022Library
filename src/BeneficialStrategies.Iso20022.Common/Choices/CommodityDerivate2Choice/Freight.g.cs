@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice
     /// Details specific to freight derivatives.
     /// </summary>
     [IsoId("_zwLKwWlHEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Freight")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice
         /// Specification of the size related to the freight sub type. Field to be populated when the base product field is equal to freight.
         /// </summary>
         [IsoId("_z5EBAWlHEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Size")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sz")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Sz")]
+        [IsoSimpleType(IsoSimpleType.Max25Text)]
         [StringLength(maximumLength: 25 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax25Text Size { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Size { get; init; } 
+        public required System.String Size { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Size { get; init; } 
         #else
@@ -80,19 +76,17 @@ namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice
         /// Details the specific route or time charter average. Field to be populated when the base product field is equal to freight.
         /// </summary>
         [IsoId("_z5EBA2lHEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Average Time Charter")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AvrgTmChrtr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AvrgTmChrtr")]
+        [IsoSimpleType(IsoSimpleType.Max25Text)]
         [StringLength(maximumLength: 25 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax25Text AverageTimeCharter { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String AverageTimeCharter { get; init; } 
+        public required System.String AverageTimeCharter { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String AverageTimeCharter { get; init; } 
         #else

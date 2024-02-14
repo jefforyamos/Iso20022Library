@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_L_D6ISCBEeWhHbfCMWc1cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope26
     /// Specifies the type of modification to be applied.
     /// </summary>
     [IsoId("_Ma9zASCBEeWhHbfCMWc1cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ModificationScopeIndication { get; init; } 
+    public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ModificationScopeIndication { get; init; } 
     #else
@@ -69,19 +66,18 @@ public partial record ModificationScope26
     #endif
     
     /// <summary>
-    /// Intermediary or other party related to the management of the account. In some markets, when this intermediary is a party acting on behalf of the investor for which it has opened an account at, for example, a central securities depository or international central securities depository, this party is known by the investor as the 'account controller'.
+    /// Intermediary or other party related to the management of the account. In some markets, when this intermediary is a party acting on behalf of the investor for which it has opened an account at, for example, a central securities depository or international central securities depository, this party is known by the investor as the &apos;account controller&apos;.
     /// </summary>
     [IsoId("_Ma9zAyCBEeWhHbfCMWc1cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrmy")]
     #endif
+    [IsoXmlTag("Intrmy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Intermediary36 Intermediary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Intermediary36 Intermediary { get; init; } 
+    public required Intermediary36 Intermediary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Intermediary36 Intermediary { get; init; } 
     #else

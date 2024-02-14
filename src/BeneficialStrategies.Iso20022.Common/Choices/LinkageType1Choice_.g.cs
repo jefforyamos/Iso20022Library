@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LinkageType1Choice.Code))]
     [KnownType(typeof(LinkageType1Choice.Proprietary))]
     [IsoId("_QtyREdp-Ed-ak6NoX_4Aeg_-1874530301")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkage Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

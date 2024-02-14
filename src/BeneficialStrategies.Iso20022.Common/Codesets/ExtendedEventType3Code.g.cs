@@ -21,7 +21,7 @@ public enum ExtendedEventType3Code
 {
     /// <summary>
     /// Security, usually a form of a derivative, for which the agent or issuer has decided to terminate the derivative based on a change to the underlying security(ies) or a change in strategy. Distinguishes from Mandatory Exchange, Exchange Offer event types mapped to the same ISO event type code.
-    /// Encoded/decoded by serializers as "TMTN".
+    /// Encoded/decoded by serializers as &quot;TMTN&quot;.
     /// </summary>
     [EnumMember(Value = "TMTN")]
     [IsoId("_VygL0Z5REeWsgrkrngh7Ew")]

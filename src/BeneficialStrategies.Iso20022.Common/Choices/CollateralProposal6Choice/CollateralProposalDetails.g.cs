@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal6Choice
     /// Provides details about the proposal for the variation margin and optionally the segregated independent amount.
     /// </summary>
     [IsoId("_5woB4SqREeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Proposal Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal6Choice
         /// Provides details about the proposal for the variation margin.
         /// </summary>
         [IsoId("_8XqVkSqREeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Variation Margin")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VartnMrgn")]
         #endif
+        [IsoXmlTag("VartnMrgn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CollateralMovement12 VariationMargin { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CollateralMovement12 VariationMargin { get; init; } 
+        public required CollateralMovement12 VariationMargin { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CollateralMovement12 VariationMargin { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal6Choice
         /// Provides details about the proposal for the segregated independent amount.
         /// </summary>
         [IsoId("_8XqVkyqREeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Segregated Independent Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SgrtdIndpdntAmt")]
         #endif
+        [IsoXmlTag("SgrtdIndpdntAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralMovement12? SegregatedIndependentAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

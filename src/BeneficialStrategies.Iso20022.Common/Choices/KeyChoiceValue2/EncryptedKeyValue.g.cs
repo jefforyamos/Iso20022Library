@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2
     /// Encrypted value of the cryptographic key.
     /// </summary>
     [IsoId("_FjgS0bTqEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Key Value")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2
         /// Type of data protection.
         /// </summary>
         [IsoId("_Us-c0WizEeS87LmvcA55sg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Content Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CnttTp")]
         #endif
+        [IsoXmlTag("CnttTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ContentType2Code ContentType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ContentType2Code ContentType { get; init; } 
+        public required ContentType2Code ContentType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ContentType2Code ContentType { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2
         /// Data protection by encryption or by a digital envelope, with an encryption key.
         /// </summary>
         [IsoId("_Us-c02izEeS87LmvcA55sg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Enveloped Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EnvlpdData")]
         #endif
+        [IsoXmlTag("EnvlpdData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EnvelopedData4 EnvelopedData { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EnvelopedData4 EnvelopedData { get; init; } 
+        public required EnvelopedData4 EnvelopedData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EnvelopedData4 EnvelopedData { get; init; } 
         #else

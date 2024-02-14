@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous way to identify a person.
 /// </summary>
 [IsoId("_jJrTQa9UEeeJJK1oRb-jTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Person Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PersonIdentification13
     /// Date and place of birth of a person.
     /// </summary>
     [IsoId("_jU7hA69UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date And Place Of Birth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtAndPlcOfBirth")]
     #endif
+    [IsoXmlTag("DtAndPlcOfBirth")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndPlaceOfBirth1? DateAndPlaceOfBirth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PersonIdentification13
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
     [IsoId("_jU7hBa9UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericPersonIdentification1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

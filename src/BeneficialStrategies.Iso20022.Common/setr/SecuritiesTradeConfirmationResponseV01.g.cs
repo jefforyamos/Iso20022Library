@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|Sent by an instructing party, a custodian or an affirming party to an executing party (local matching) or to Central Matching Utility (CMU) to affirm (accept) or disaffirm (reject) (central matching) the SecuritiesTradeConfirmation message. If accepting the SecuritiesTradeConfirmation message, then the trade is ready for settlement processing. If rejecting the SecuritiesTradeConfirmation message, then the trade is not ready for settlement.|The executing party is typically the broker/dealer or an intermediary system/vendor communicating on behalf of the broker/dealer.|The instructing party is typically the investment manager or an intermediary system/vendor communicating on behalf of the investment manager or of other categories of investors.|The custodian or an affirming party is typically the custodian, trustee, financial institution, intermediary system/vendor communicating on behalf of them, or their agent.|The ISO 20022 Business Application Header must be used|Usage|Initiator: Both in local and central matching, the Initiator may be the Instructing Party, Custodian or Affirming party.|Respondent: Executing party does not need to respond if an affirmation. Executing party may respond with modification or cancellation of the rejected SecuritiesTradeConfirmation message.")]
 [IsoId("_QZAf5eQXEeCGktPI9k4Dlw_433053053")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Trade Confirmation Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord<Secu
     /// Information that unambiguously identifies an SecuritiesTradeConfirmationResponse message as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
     [IsoId("_QZAf5uQXEeCGktPI9k4Dlw_29401960")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactiontIdentification4 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactiontIdentification4 Identification { get; init; } 
+    public required TransactiontIdentification4 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactiontIdentification4 Identification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord<Secu
     /// Link to another transaction that must be processed after, before or at the same time.
     /// </summary>
     [IsoId("_QZAf5-QXEeCGktPI9k4Dlw_-804271867")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Refs")]
     #endif
+    [IsoXmlTag("Refs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Linkages15 References { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Linkages15 References { get; init; } 
+    public required Linkages15 References { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Linkages15 References { get; init; } 
     #else
@@ -125,16 +121,15 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord<Secu
     /// Provides details on the processing status of the trade.
     /// </summary>
     [IsoId("_QZAf6OQXEeCGktPI9k4Dlw_-1145789065")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusAndReason10 Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatusAndReason10 Status { get; init; } 
+    public required StatusAndReason10 Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatusAndReason10 Status { get; init; } 
     #else
@@ -145,12 +140,11 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord<Secu
     /// Provides clearing member information.
     /// </summary>
     [IsoId("_QZAf6eQXEeCGktPI9k4Dlw_1899696329")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrDtls")]
     #endif
+    [IsoXmlTag("ClrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Clearing3? ClearingDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,12 +157,11 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord<Secu
     /// Parties involved in the confirmation of the details of a trade.
     /// </summary>
     [IsoId("_QZKQ4OQXEeCGktPI9k4Dlw_-1695268832")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfPties")]
     #endif
+    [IsoXmlTag("ConfPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationParties3? ConfirmationParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -181,12 +174,11 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord<Secu
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_QZKQ4eQXEeCGktPI9k4Dlw_499478370")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,7 +191,7 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord<Secu
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesTradeConfirmationResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesTradeConfirmationResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesTradeConfirmationResponseV01Document ToDocument()
     {
@@ -209,7 +201,7 @@ public partial record SecuritiesTradeConfirmationResponseV01 : IOuterRecord<Secu
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesTradeConfirmationResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesTradeConfirmationResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesTradeConfirmationResponseV01Document : IOuterDocument<SecuritiesTradeConfirmationResponseV01>
@@ -226,7 +218,7 @@ public partial record SecuritiesTradeConfirmationResponseV01Document : IOuterDoc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesTradeConfirmationResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesTradeConfirmationResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTradeConfirmationResponseV01 Message { get; init; }

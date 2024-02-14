@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
 [IsoId("_YsBOUQCnEeqouY-yI_q3qQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Quantity SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SecuritiesQuantitySD7
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
     [IsoId("_ZAQY9QCnEeqouY-yI_q3qQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Oversubscription Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlOvrsbcptQty")]
     #endif
+    [IsoXmlTag("TtlOvrsbcptQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -59,15 +56,14 @@ public partial record SecuritiesQuantitySD7
     #endif
     
     /// <summary>
-    /// Quantity covered but transactions not in "MADE" status.
+    /// Quantity covered but transactions not in &quot;MADE&quot; status.
     /// </summary>
     [IsoId("_ZAQY9wCnEeqouY-yI_q3qQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interim Covered Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmCvrdQty")]
     #endif
+    [IsoXmlTag("IntrmCvrdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SecuritiesQuantitySD7
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
     [IsoId("_T-6pNACrEeqouY-yI_q3qQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conditional Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CondlQty")]
     #endif
+    [IsoXmlTag("CondlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? ConditionalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

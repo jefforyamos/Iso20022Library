@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Party that provides services to investors relating to financial products (Investment Funds).
 /// </summary>
 [IsoId("_ONg8kZ-xEeO1d8sv7xazyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intermediary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Intermediary28
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
     [IsoId("_OtXhU5-xEeO1d8sv7xazyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification100 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification100 Identification { get; init; } 
+    public required PartyIdentification100 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification100 Identification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Intermediary28
     /// Function performed by the intermediary.
     /// </summary>
     [IsoId("_OtXhVZ-xEeO1d8sv7xazyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Role5Choice_ Role { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Role5Choice_ Role { get; init; } 
+    public required Role5Choice_ Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Role5Choice_ Role { get; init; } 
     #else

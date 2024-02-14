@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateAndAmountFormat54Choice
     /// Value is expressed as a rate type and a percentage rate.
     /// </summary>
     [IsoId("_Tmj9fdEDEeetfps_dpxRmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Type And Rate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.RateAndAmountFormat54Choice
         /// Value expressed as a rate type.
         /// </summary>
         [IsoId("_oGkXodBcEee0mNiKMkpGNQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RateTp")]
         #endif
+        [IsoXmlTag("RateTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DeemedRateType2Choice_ RateType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DeemedRateType2Choice_ RateType { get; init; } 
+        public required DeemedRateType2Choice_ RateType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DeemedRateType2Choice_ RateType { get; init; } 
         #else
@@ -77,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.RateAndAmountFormat54Choice
         /// Value expressed as a rate.
         /// </summary>
         [IsoId("_oGkXo9BcEee0mNiKMkpGNQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rate")]
         #endif
+        [IsoXmlTag("Rate")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPercentageRate Rate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Rate { get; init; } 
+        public required System.Decimal Rate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Rate { get; init; } 
         #else

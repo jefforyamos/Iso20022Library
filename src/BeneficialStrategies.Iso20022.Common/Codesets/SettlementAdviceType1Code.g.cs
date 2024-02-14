@@ -21,7 +21,7 @@ public enum SettlementAdviceType1Code
 {
     /// <summary>
     /// Settlement advice related to an undertaking amendment.
-    /// Encoded/decoded by serializers as "AMND".
+    /// Encoded/decoded by serializers as &quot;AMND&quot;.
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_KhLZFnyiEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum SettlementAdviceType1Code
     
     /// <summary>
     /// Settlement advice related to an automatic booking of charges.
-    /// Encoded/decoded by serializers as "ACHG".
+    /// Encoded/decoded by serializers as &quot;ACHG&quot;.
     /// </summary>
     [EnumMember(Value = "ACHG")]
     [IsoId("_Km_tNnyiEeGWJuGCfvwOsQ")]
@@ -39,7 +39,7 @@ public enum SettlementAdviceType1Code
     
     /// <summary>
     /// Settlement advice related to a claim for payment.
-    /// Encoded/decoded by serializers as "CLAM".
+    /// Encoded/decoded by serializers as &quot;CLAM&quot;.
     /// </summary>
     [EnumMember(Value = "CLAM")]
     [IsoId("_Ks9LRnyiEeGWJuGCfvwOsQ")]
@@ -48,7 +48,7 @@ public enum SettlementAdviceType1Code
     
     /// <summary>
     /// Settlement advice related to correspondent bank charges.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_KzNkRnyiEeGWJuGCfvwOsQ")]
@@ -57,7 +57,7 @@ public enum SettlementAdviceType1Code
     
     /// <summary>
     /// Settlement advice related to an undertaking issuance.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_K5xfRnyiEeGWJuGCfvwOsQ")]
@@ -66,7 +66,7 @@ public enum SettlementAdviceType1Code
     
     /// <summary>
     /// Settlement advice related to a manual booking of charges.
-    /// Encoded/decoded by serializers as "MCHG".
+    /// Encoded/decoded by serializers as &quot;MCHG&quot;.
     /// </summary>
     [EnumMember(Value = "MCHG")]
     [IsoId("_LALpRnyiEeGWJuGCfvwOsQ")]
@@ -75,7 +75,7 @@ public enum SettlementAdviceType1Code
     
     /// <summary>
     /// Settlement advice related to a refund.
-    /// Encoded/decoded by serializers as "REFD".
+    /// Encoded/decoded by serializers as &quot;REFD&quot;.
     /// </summary>
     [EnumMember(Value = "REFD")]
     [IsoId("_LHfLJnyiEeGWJuGCfvwOsQ")]
@@ -84,7 +84,7 @@ public enum SettlementAdviceType1Code
     
     /// <summary>
     /// Settlement advice related to an undertaking termination.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_LOCfFnyiEeGWJuGCfvwOsQ")]

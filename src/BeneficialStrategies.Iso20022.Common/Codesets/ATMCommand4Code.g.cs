@@ -21,7 +21,7 @@ public enum ATMCommand4Code
 {
     /// <summary>
     /// Provide the ATM counters, resetting those that are applicable.
-    /// Encoded/decoded by serializers as "ABAL".
+    /// Encoded/decoded by serializers as &quot;ABAL&quot;.
     /// </summary>
     [EnumMember(Value = "ABAL")]
     [IsoId("_pnbUIa2BEeWMg5rOByfExw")]
@@ -30,7 +30,7 @@ public enum ATMCommand4Code
     
     /// <summary>
     /// Status of the ATM required by the ATM manager.
-    /// Encoded/decoded by serializers as "ASTS".
+    /// Encoded/decoded by serializers as &quot;ASTS&quot;.
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_pnbUI62BEeWMg5rOByfExw")]
@@ -39,7 +39,7 @@ public enum ATMCommand4Code
     
     /// <summary>
     /// Update the ATM configuration parameters.
-    /// Encoded/decoded by serializers as "CFGT".
+    /// Encoded/decoded by serializers as &quot;CFGT&quot;.
     /// </summary>
     [EnumMember(Value = "CFGT")]
     [IsoId("_pnbUJa2BEeWMg5rOByfExw")]
@@ -48,7 +48,7 @@ public enum ATMCommand4Code
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "CCNT".
+    /// Encoded/decoded by serializers as &quot;CCNT&quot;.
     /// </summary>
     [EnumMember(Value = "CCNT")]
     [IsoId("_pnbUJ62BEeWMg5rOByfExw")]
@@ -57,7 +57,7 @@ public enum ATMCommand4Code
     
     /// <summary>
     /// Perform a disconnection followed by a reconnection.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_pnbUKa2BEeWMg5rOByfExw")]
@@ -66,7 +66,7 @@ public enum ATMCommand4Code
     
     /// <summary>
     /// Send a specific message to initiate a process.
-    /// Encoded/decoded by serializers as "SNDM".
+    /// Encoded/decoded by serializers as &quot;SNDM&quot;.
     /// </summary>
     [EnumMember(Value = "SNDM")]
     [IsoId("_pnbUK62BEeWMg5rOByfExw")]
@@ -75,7 +75,7 @@ public enum ATMCommand4Code
     
     /// <summary>
     /// Provide the value of the ATM counters, no reinitialisation of the counters.
-    /// Encoded/decoded by serializers as "RPTC".
+    /// Encoded/decoded by serializers as &quot;RPTC&quot;.
     /// </summary>
     [EnumMember(Value = "RPTC")]
     [IsoId("_rZ0e0a2BEeWMg5rOByfExw")]

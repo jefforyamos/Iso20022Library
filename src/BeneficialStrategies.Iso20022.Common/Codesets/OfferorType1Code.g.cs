@@ -21,7 +21,7 @@ public enum OfferorType1Code
 {
     /// <summary>
     /// Offeror is the issuing company.
-    /// Encoded/decoded by serializers as "SELF".
+    /// Encoded/decoded by serializers as &quot;SELF&quot;.
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_1pa8ljL3EeKU9IrkkToqcw_2101612018")]
@@ -30,7 +30,7 @@ public enum OfferorType1Code
     
     /// <summary>
     /// Offer is made by the third party.
-    /// Encoded/decoded by serializers as "THRD".
+    /// Encoded/decoded by serializers as &quot;THRD&quot;.
     /// </summary>
     [EnumMember(Value = "THRD")]
     [IsoId("_1pktkDL3EeKU9IrkkToqcw_1987772952")]

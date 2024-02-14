@@ -21,7 +21,7 @@ public enum OfferTypeCode
 {
     /// <summary>
     /// Securities holder has the right to disagree with a mandatory event. This right is not inherent in all offers and therefore must be noted in announcements only when applicable.
-    /// Encoded/decoded by serializers as "DISS".
+    /// Encoded/decoded by serializers as &quot;DISS&quot;.
     /// </summary>
     [EnumMember(Value = "DISS")]
     [IsoId("_aOWBVNp-Ed-ak6NoX_4Aeg_1637119886")]
@@ -30,7 +30,7 @@ public enum OfferTypeCode
     
     /// <summary>
     /// Exchange of Restricted to Unrestricted (or vice versa).
-    /// Encoded/decoded by serializers as "ERUN".
+    /// Encoded/decoded by serializers as &quot;ERUN&quot;.
     /// </summary>
     [EnumMember(Value = "ERUN")]
     [IsoId("_aOWBVdp-Ed-ak6NoX_4Aeg_1653742587")]
@@ -39,7 +39,7 @@ public enum OfferTypeCode
     
     /// <summary>
     /// Securities will be accepted in the order they have been submitted until the target number of quantity sought is reached.
-    /// Encoded/decoded by serializers as "FCFS".
+    /// Encoded/decoded by serializers as &quot;FCFS&quot;.
     /// </summary>
     [EnumMember(Value = "FCFS")]
     [IsoId("_aOWBVtp-Ed-ak6NoX_4Aeg_1877232404")]
@@ -48,7 +48,7 @@ public enum OfferTypeCode
     
     /// <summary>
     /// Final or last offer to holders subject to offer conditions being reached, for example, 50 percent accepted on a tender.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_aOWBV9p-Ed-ak6NoX_4Aeg_1922484994")]
@@ -57,7 +57,7 @@ public enum OfferTypeCode
     
     /// <summary>
     /// Tender offer for a security that is priced below the current trading price of that instrument.
-    /// Encoded/decoded by serializers as "MINI".
+    /// Encoded/decoded by serializers as &quot;MINI&quot;.
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_aOWBWNp-Ed-ak6NoX_4Aeg_1939108742")]
@@ -66,7 +66,7 @@ public enum OfferTypeCode
     
     /// <summary>
     /// Offer made by the offeror for a portion of the outstanding shares not already owned by the offeror.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_aOWBWdp-Ed-ak6NoX_4Aeg_1952039931")]
@@ -75,7 +75,7 @@ public enum OfferTypeCode
     
     /// <summary>
     /// Offer launched by a company, in possession of a large number of the shares (90% - 95%) of a company (generally as a result of a tender offer), in order to acquire the remaining shares of that company.
-    /// Encoded/decoded by serializers as "SQUE".
+    /// Encoded/decoded by serializers as &quot;SQUE&quot;.
     /// </summary>
     [EnumMember(Value = "SQUE")]
     [IsoId("_aOfyUNp-Ed-ak6NoX_4Aeg_1966814341")]

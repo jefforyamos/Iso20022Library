@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the type of opening instruction and identification of the application request.
 /// </summary>
 [IsoId("_9UTJoQjgEeSI9qETkJHgqw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Account Opening")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InvestmentAccountOpening1
     /// Specifies if the account opening instruction is about a newly created account or a supplementary account.
     /// </summary>
     [IsoId("_9uyGMQjgEeSI9qETkJHgqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngTp")]
     #endif
+    [IsoXmlTag("OpngTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountOpeningType1Code OpeningType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountOpeningType1Code OpeningType { get; init; } 
+    public required AccountOpeningType1Code OpeningType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountOpeningType1Code OpeningType { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record InvestmentAccountOpening1
     /// Unique and unambiguous identifier of the account opening request at application level.
     /// </summary>
     [IsoId("_9uyGMwjgEeSI9qETkJHgqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,18 +84,16 @@ public partial record InvestmentAccountOpening1
     #endif
     
     /// <summary>
-    /// Unique and unambiguous investor's identification of a transfer.
+    /// Unique and unambiguous investor&apos;s identification of a transfer.
     /// </summary>
     [IsoId("_GdTVggjhEeSI9qETkJHgqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,11 @@ public partial record InvestmentAccountOpening1
     /// Unambiguous identification of the transfer as allocated by the counterparty.
     /// </summary>
     [IsoId("_GdTVgwjhEeSI9qETkJHgqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyRef")]
     #endif
+    [IsoXmlTag("CtrPtyRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? CounterpartyReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

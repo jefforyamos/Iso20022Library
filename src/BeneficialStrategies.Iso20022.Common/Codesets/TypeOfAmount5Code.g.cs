@@ -21,7 +21,7 @@ public enum TypeOfAmount5Code
 {
     /// <summary>
     /// Cash-back amount.
-    /// Encoded/decoded by serializers as "CSHB".
+    /// Encoded/decoded by serializers as &quot;CSHB&quot;.
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_JB5b0Xs1EeSTS7uHCe8FPQ")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount5Code
     
     /// <summary>
     /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
-    /// Encoded/decoded by serializers as "DCNT".
+    /// Encoded/decoded by serializers as &quot;DCNT&quot;.
     /// </summary>
     [EnumMember(Value = "DCNT")]
     [IsoId("_JW-7A3s1EeSTS7uHCe8FPQ")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount5Code
     
     /// <summary>
     /// Fees.
-    /// Encoded/decoded by serializers as "FEES".
+    /// Encoded/decoded by serializers as &quot;FEES&quot;.
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_KEPCk3s1EeSTS7uHCe8FPQ")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount5Code
     
     /// <summary>
     /// Gratuity amount.
-    /// Encoded/decoded by serializers as "GRTY".
+    /// Encoded/decoded by serializers as &quot;GRTY&quot;.
     /// </summary>
     [EnumMember(Value = "GRTY")]
     [IsoId("_KM4oQXs1EeSTS7uHCe8FPQ")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount5Code
     
     /// <summary>
     /// Extra fee for a purchase or a withdrawal.
-    /// Encoded/decoded by serializers as "SRCH".
+    /// Encoded/decoded by serializers as &quot;SRCH&quot;.
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_KqKaI3s1EeSTS7uHCe8FPQ")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount5Code
     
     /// <summary>
     /// Value added tax amount.
-    /// Encoded/decoded by serializers as "VATX".
+    /// Encoded/decoded by serializers as &quot;VATX&quot;.
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_KxCeM3s1EeSTS7uHCe8FPQ")]
@@ -75,7 +75,7 @@ public enum TypeOfAmount5Code
     
     /// <summary>
     /// Commission, for example for DCC (Dynamic Currency Conversion) transactions.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_7D9GwdPHEeSFn54OzS96Iw")]
@@ -84,7 +84,7 @@ public enum TypeOfAmount5Code
     
     /// <summary>
     /// Donation amount.
-    /// Encoded/decoded by serializers as "DONN".
+    /// Encoded/decoded by serializers as &quot;DONN&quot;.
     /// </summary>
     [EnumMember(Value = "DONN")]
     [IsoId("_Zu6dgS70EeWc7f-D6ByqMg")]
@@ -93,7 +93,7 @@ public enum TypeOfAmount5Code
     
     /// <summary>
     /// Taxes applicable to the transaction.
-    /// Encoded/decoded by serializers as "TAXT".
+    /// Encoded/decoded by serializers as &quot;TAXT&quot;.
     /// </summary>
     [EnumMember(Value = "TAXT")]
     [IsoId("_W5BZAS71EeWDa4uwlWChEA")]

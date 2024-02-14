@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MeetingCancellationReason1Choice.Code))]
     [KnownType(typeof(MeetingCancellationReason1Choice.Proprietary))]
     [IsoId("_RCWL0dp-Ed-ak6NoX_4Aeg_1417276542")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Cancellation Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

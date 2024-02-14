@@ -21,7 +21,7 @@ public enum ListStatusTypeCode
 {
     /// <summary>
     /// Status is an acknowledgement of the ListOrder.
-    /// Encoded/decoded by serializers as "ACKN".
+    /// Encoded/decoded by serializers as &quot;ACKN&quot;.
     /// </summary>
     [EnumMember(Value = "ACKN")]
     [IsoId("_afe0pNp-Ed-ak6NoX_4Aeg_-113022536")]
@@ -30,7 +30,7 @@ public enum ListStatusTypeCode
     
     /// <summary>
     /// Status is a response to a previously sent StatusRequest.
-    /// Encoded/decoded by serializers as "RESP".
+    /// Encoded/decoded by serializers as &quot;RESP&quot;.
     /// </summary>
     [EnumMember(Value = "RESP")]
     [IsoId("_afe0pdp-Ed-ak6NoX_4Aeg_435548983")]
@@ -39,7 +39,7 @@ public enum ListStatusTypeCode
     
     /// <summary>
     /// Status indicates that the ListOrder has been executed.
-    /// Encoded/decoded by serializers as "ADON".
+    /// Encoded/decoded by serializers as &quot;ADON&quot;.
     /// </summary>
     [EnumMember(Value = "ADON")]
     [IsoId("_afe0ptp-Ed-ak6NoX_4Aeg_-1600157522")]
@@ -48,7 +48,7 @@ public enum ListStatusTypeCode
     
     /// <summary>
     /// Status indicates that any of the individual orders of the ListOrder have a status that requires something to be done.
-    /// Encoded/decoded by serializers as "ALER".
+    /// Encoded/decoded by serializers as &quot;ALER&quot;.
     /// </summary>
     [EnumMember(Value = "ALER")]
     [IsoId("_afe0p9p-Ed-ak6NoX_4Aeg_-1492105658")]
@@ -57,7 +57,7 @@ public enum ListStatusTypeCode
     
     /// <summary>
     /// Status indicates that the Execution has started.
-    /// Encoded/decoded by serializers as "EXST".
+    /// Encoded/decoded by serializers as &quot;EXST&quot;.
     /// </summary>
     [EnumMember(Value = "EXST")]
     [IsoId("_afe0qNp-Ed-ak6NoX_4Aeg_-1372044609")]
@@ -66,7 +66,7 @@ public enum ListStatusTypeCode
     
     /// <summary>
     /// Status indicated that time limit for the order has expired.
-    /// Encoded/decoded by serializers as "TIME".
+    /// Encoded/decoded by serializers as &quot;TIME&quot;.
     /// </summary>
     [EnumMember(Value = "TIME")]
     [IsoId("_afoloNp-Ed-ak6NoX_4Aeg_286598761")]

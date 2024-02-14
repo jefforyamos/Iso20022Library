@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This entity shall store the parties from the first three levels: the system operator, the central securities depositaries, the participants of the central securities depositaries, the national central banks and payment banks.
 /// </summary>
 [IsoId("_klv_Mu5NEeCisYr99QEiWA_234780156")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Party")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,15 @@ public partial record SystemParty1
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
     [IsoId("_klv_M-5NEeCisYr99QEiWA_-1745842741")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification1 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification1 Identification { get; init; } 
+    public required SystemPartyIdentification1 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification1 Identification { get; init; } 
     #else
@@ -76,12 +73,11 @@ public partial record SystemParty1
     /// Information that locates and identifies a specific address.
     /// </summary>
     [IsoId("_klv_NO5NEeCisYr99QEiWA_-925270798")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adr")]
     #endif
+    [IsoXmlTag("Adr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress10? Address { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +90,16 @@ public partial record SystemParty1
     /// Specifies the opening date of the party.
     /// </summary>
     [IsoId("_kl5JIO5NEeCisYr99QEiWA_462370045")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngDt")]
     #endif
+    [IsoXmlTag("OpngDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate OpeningDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly OpeningDate { get; init; } 
+    public required System.DateOnly OpeningDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly OpeningDate { get; init; } 
     #else
@@ -114,12 +110,12 @@ public partial record SystemParty1
     /// Specifies the closing date of the party.
     /// </summary>
     [IsoId("_kl5JIe5NEeCisYr99QEiWA_624499576")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsgDt")]
     #endif
+    [IsoXmlTag("ClsgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ClosingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,16 +128,15 @@ public partial record SystemParty1
     /// Specifies the type classification of the party.
     /// </summary>
     [IsoId("_kl5JIu5NEeCisYr99QEiWA_-1396556059")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyType1Code Type { get; init; } 
+    public required SystemPartyType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyType1Code Type { get; init; } 
     #else
@@ -152,12 +147,11 @@ public partial record SystemParty1
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
     [IsoId("_kl5JI-5NEeCisYr99QEiWA_-49843880")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechAdr")]
     #endif
+    [IsoXmlTag("TechAdr")]
     public TechnicalIdentification1Choice_? TechnicalAddress { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _kl5JI-5NEeCisYr99QEiWA_-49843880
     
@@ -165,12 +159,11 @@ public partial record SystemParty1
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
     [IsoId("_kl5JJO5NEeCisYr99QEiWA_1946756214")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Specific Attribute")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktSpcfcAttr")]
     #endif
+    [IsoXmlTag("MktSpcfcAttr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketSpecificAttribute1? MarketSpecificAttribute { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,16 +176,15 @@ public partial record SystemParty1
     /// Specifies the name by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_kl5JJe5NEeCisYr99QEiWA_211748246")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
+    [IsoXmlTag("Nm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyName1 Name { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyName1 Name { get; init; } 
+    public required PartyName1 Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyName1 Name { get; init; } 
     #else
@@ -203,12 +195,11 @@ public partial record SystemParty1
     /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
     [IsoId("_kmC6IO5NEeCisYr99QEiWA_-2987803")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rstrctn")]
     #endif
+    [IsoXmlTag("Rstrctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemRestriction1? Restriction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

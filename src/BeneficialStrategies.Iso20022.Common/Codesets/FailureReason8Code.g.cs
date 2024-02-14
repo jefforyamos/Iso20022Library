@@ -21,7 +21,7 @@ public enum FailureReason8Code
 {
     /// <summary>
     /// Card has been retained by the ATM or the terminal.
-    /// Encoded/decoded by serializers as "CDRT".
+    /// Encoded/decoded by serializers as &quot;CDRT&quot;.
     /// </summary>
     [EnumMember(Value = "CDRT")]
     [IsoId("_tLl-Ya5FEeWCgYcWSNgX5g")]
@@ -30,7 +30,7 @@ public enum FailureReason8Code
     
     /// <summary>
     /// ATM manager has requested to capture the card.
-    /// Encoded/decoded by serializers as "CDCP".
+    /// Encoded/decoded by serializers as &quot;CDCP&quot;.
     /// </summary>
     [EnumMember(Value = "CDCP")]
     [IsoId("_tV4i065FEeWCgYcWSNgX5g")]
@@ -39,7 +39,7 @@ public enum FailureReason8Code
     
     /// <summary>
     /// Customer cancellation, for example removing the card before the end of the transaction.
-    /// Encoded/decoded by serializers as "CUCL".
+    /// Encoded/decoded by serializers as &quot;CUCL&quot;.
     /// </summary>
     [EnumMember(Value = "CUCL")]
     [IsoId("_th8o465FEeWCgYcWSNgX5g")]
@@ -48,7 +48,7 @@ public enum FailureReason8Code
     
     /// <summary>
     /// Customer has left the card in the ATM or a motorised card reader.
-    /// Encoded/decoded by serializers as "CDFG".
+    /// Encoded/decoded by serializers as &quot;CDFG&quot;.
     /// </summary>
     [EnumMember(Value = "CDFG")]
     [IsoId("_uU69865FEeWCgYcWSNgX5g")]
@@ -57,7 +57,7 @@ public enum FailureReason8Code
     
     /// <summary>
     /// Suspected malfunction.
-    /// Encoded/decoded by serializers as "MALF".
+    /// Encoded/decoded by serializers as &quot;MALF&quot;.
     /// </summary>
     [EnumMember(Value = "MALF")]
     [IsoId("_upyas65FEeWCgYcWSNgX5g")]
@@ -66,7 +66,7 @@ public enum FailureReason8Code
     
     /// <summary>
     /// Security error has occurred in the authorisation response message sent by the acquirer.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_vc0aI65FEeWCgYcWSNgX5g")]
@@ -75,7 +75,7 @@ public enum FailureReason8Code
     
     /// <summary>
     /// Card payment transaction fails because the merchant suspect a fraud.
-    /// Encoded/decoded by serializers as "SFRD".
+    /// Encoded/decoded by serializers as &quot;SFRD&quot;.
     /// </summary>
     [EnumMember(Value = "SFRD")]
     [IsoId("_vomMU65FEeWCgYcWSNgX5g")]
@@ -84,7 +84,7 @@ public enum FailureReason8Code
     
     /// <summary>
     /// Unable to capture the card as requested.
-    /// Encoded/decoded by serializers as "UCPT".
+    /// Encoded/decoded by serializers as &quot;UCPT&quot;.
     /// </summary>
     [EnumMember(Value = "UCPT")]
     [IsoId("_wAJJo65FEeWCgYcWSNgX5g")]

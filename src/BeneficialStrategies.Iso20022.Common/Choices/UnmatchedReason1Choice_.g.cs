@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnmatchedReason1Choice.Code))]
     [KnownType(typeof(UnmatchedReason1Choice.Proprietary))]
     [IsoId("_UZ9n6Np-Ed-ak6NoX_4Aeg_-758917820")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unmatched Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

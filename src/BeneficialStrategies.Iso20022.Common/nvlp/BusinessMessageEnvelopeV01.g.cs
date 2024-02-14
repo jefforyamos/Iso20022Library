@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.nvlp;
 /// </summary>
 [Description(@"The BusinessMessageEnvelope is a technical message container used to bundle a business application header with a message definition, typically to support processing or transport. It may contain and define additional data elements that apply to the message instance container.")]
 [IsoId("_C7O-UQJ9Ee2MF-ort1OTzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Message Envelope V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,12 +74,11 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord<BusinessMessageE
     /// Rule: The external schema must be an official ISO 20022 Business Application Header.
     /// </summary>
     [IsoId("_vln_FAJ9Ee2o0-v8T2Svrw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LaxPayload? Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,16 +92,15 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord<BusinessMessageE
     /// Rule: The external schema must be an official ISO 20022 Message Definition.
     /// </summary>
     [IsoId("_vln_FQJ9Ee2o0-v8T2Svrw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Doc")]
     #endif
+    [IsoXmlTag("Doc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LaxPayload Document { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LaxPayload Document { get; init; } 
+    public required LaxPayload Document { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LaxPayload Document { get; init; } 
     #else
@@ -115,12 +111,11 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord<BusinessMessageE
     /// Reference related to the delivery of the business message whilst in transit from sending to receiving business application.
     /// </summary>
     [IsoId("_vln_FgJ9Ee2o0-v8T2Svrw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reference22? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,12 +128,11 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord<BusinessMessageE
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_vln_FwJ9Ee2o0-v8T2Svrw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,7 +145,7 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord<BusinessMessageE
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BusinessMessageEnvelopeV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BusinessMessageEnvelopeV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BusinessMessageEnvelopeV01Document ToDocument()
     {
@@ -161,7 +155,7 @@ public partial record BusinessMessageEnvelopeV01 : IOuterRecord<BusinessMessageE
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BusinessMessageEnvelopeV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BusinessMessageEnvelopeV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BusinessMessageEnvelopeV01Document : IOuterDocument<BusinessMessageEnvelopeV01>
@@ -178,7 +172,7 @@ public partial record BusinessMessageEnvelopeV01Document : IOuterDocument<Busine
     public const string DocumentElementName = "BizMsgEnvlp";
     
     /// <summary>
-    /// The instance of <seealso cref="BusinessMessageEnvelopeV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BusinessMessageEnvelopeV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BusinessMessageEnvelopeV01 Message { get; init; }

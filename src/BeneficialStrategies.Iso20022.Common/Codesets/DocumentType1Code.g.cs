@@ -21,7 +21,7 @@ public enum DocumentType1Code
 {
     /// <summary>
     /// Document is an invoice claiming payment for the supply of metered services, for example gas or electricity supplied to a fixed meter.
-    /// Encoded/decoded by serializers as "MSIN".
+    /// Encoded/decoded by serializers as &quot;MSIN&quot;.
     /// </summary>
     [EnumMember(Value = "MSIN")]
     [IsoId("_axXO1dp-Ed-ak6NoX_4Aeg_1703334296")]
@@ -30,7 +30,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is a credit note for the final amount settled for a commercial transaction.
-    /// Encoded/decoded by serializers as "CNFA".
+    /// Encoded/decoded by serializers as &quot;CNFA&quot;.
     /// </summary>
     [EnumMember(Value = "CNFA")]
     [IsoId("_axXO1tp-Ed-ak6NoX_4Aeg_1703334297")]
@@ -39,7 +39,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is a debit note for the final amount settled for a commercial transaction.
-    /// Encoded/decoded by serializers as "DNFA".
+    /// Encoded/decoded by serializers as &quot;DNFA&quot;.
     /// </summary>
     [EnumMember(Value = "DNFA")]
     [IsoId("_axXO19p-Ed-ak6NoX_4Aeg_1703334298")]
@@ -48,7 +48,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is an invoice.
-    /// Encoded/decoded by serializers as "CINV".
+    /// Encoded/decoded by serializers as &quot;CINV&quot;.
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_axXO2Np-Ed-ak6NoX_4Aeg_1703334299")]
@@ -57,7 +57,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is a credit note.
-    /// Encoded/decoded by serializers as "CREN".
+    /// Encoded/decoded by serializers as &quot;CREN&quot;.
     /// </summary>
     [EnumMember(Value = "CREN")]
     [IsoId("_axg_0Np-Ed-ak6NoX_4Aeg_1703334307")]
@@ -66,7 +66,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is a debit note.
-    /// Encoded/decoded by serializers as "DEBN".
+    /// Encoded/decoded by serializers as &quot;DEBN&quot;.
     /// </summary>
     [EnumMember(Value = "DEBN")]
     [IsoId("_axg_0dp-Ed-ak6NoX_4Aeg_1703334308")]
@@ -75,7 +75,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is an invoice for the hiring of human resources or renting goods or equipment.
-    /// Encoded/decoded by serializers as "HIRI".
+    /// Encoded/decoded by serializers as &quot;HIRI&quot;.
     /// </summary>
     [EnumMember(Value = "HIRI")]
     [IsoId("_axg_0tp-Ed-ak6NoX_4Aeg_1703334309")]
@@ -84,7 +84,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is an invoice issued by the debtor.
-    /// Encoded/decoded by serializers as "SBIN".
+    /// Encoded/decoded by serializers as &quot;SBIN&quot;.
     /// </summary>
     [EnumMember(Value = "SBIN")]
     [IsoId("_axg_09p-Ed-ak6NoX_4Aeg_1703334310")]
@@ -93,7 +93,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is a remittance advice sent separately from the current transaction.
-    /// Encoded/decoded by serializers as "RADM".
+    /// Encoded/decoded by serializers as &quot;RADM&quot;.
     /// </summary>
     [EnumMember(Value = "RADM")]
     [IsoId("_axg_1Np-Ed-ak6NoX_4Aeg_1703334311")]
@@ -102,7 +102,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario.
-    /// Encoded/decoded by serializers as "RPIN".
+    /// Encoded/decoded by serializers as &quot;RPIN&quot;.
     /// </summary>
     [EnumMember(Value = "RPIN")]
     [IsoId("_axg_1dp-Ed-ak6NoX_4Aeg_1703334312")]
@@ -111,7 +111,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is an agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.
-    /// Encoded/decoded by serializers as "CMCN".
+    /// Encoded/decoded by serializers as &quot;CMCN&quot;.
     /// </summary>
     [EnumMember(Value = "CMCN")]
     [IsoId("_axg_1tp-Ed-ak6NoX_4Aeg_1703334569")]
@@ -120,7 +120,7 @@ public enum DocumentType1Code
     
     /// <summary>
     /// Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers.
-    /// Encoded/decoded by serializers as "FXDR".
+    /// Encoded/decoded by serializers as &quot;FXDR&quot;.
     /// </summary>
     [EnumMember(Value = "FXDR")]
     [IsoId("_axg_19p-Ed-ak6NoX_4Aeg_1703334570")]
@@ -128,8 +128,8 @@ public enum DocumentType1Code
     ForeignExchangeDealReference = DocumentTypeCode.ForeignExchangeDealReference, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Document is a statement of the transactions posted to the debtor's account at the supplier.
-    /// Encoded/decoded by serializers as "SOAC".
+    /// Document is a statement of the transactions posted to the debtor&apos;s account at the supplier.
+    /// Encoded/decoded by serializers as &quot;SOAC&quot;.
     /// </summary>
     [EnumMember(Value = "SOAC")]
     [IsoId("_axg_2Np-Ed-ak6NoX_4Aeg_1703334571")]

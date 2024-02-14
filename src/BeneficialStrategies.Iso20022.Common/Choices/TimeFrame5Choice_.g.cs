@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeFrame5Choice.TradePlus))]
     [KnownType(typeof(TimeFrame5Choice.Prepayment))]
     [IsoId("_UAew7Np-Ed-ak6NoX_4Aeg_1119548920")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Frame 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

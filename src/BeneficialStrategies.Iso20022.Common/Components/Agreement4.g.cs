@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Agreement details for the over the counter market.
 /// </summary>
 [IsoId("_6T7_AYbEEeWguotXa4lFgg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agreement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record Agreement4
     /// Full details of the supporting legal agreement under which the margin call can be issued and/or governed.
     /// </summary>
     [IsoId("_6qZXMYbEEeWguotXa4lFgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrmtDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AgrmtDtls")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text AgreementDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AgreementDetails { get; init; } 
+    public required System.String AgreementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AgreementDetails { get; init; } 
     #else
@@ -76,15 +72,13 @@ public partial record Agreement4
     /// Common reference to the agreement between the two counterparties.
     /// </summary>
     [IsoId("_6qZXM4bEEeWguotXa4lFgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrmtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AgrmtId")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AgreementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,16 +91,16 @@ public partial record Agreement4
     /// Date on which the collateral agreement was signed.
     /// </summary>
     [IsoId("_6qZXNYbEEeWguotXa4lFgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrmtDt")]
     #endif
+    [IsoXmlTag("AgrmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate AgreementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly AgreementDate { get; init; } 
+    public required System.DateOnly AgreementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly AgreementDate { get; init; } 
     #else
@@ -117,16 +111,15 @@ public partial record Agreement4
     /// Denomination currency as specified in the collateral agreement.
     /// </summary>
     [IsoId("_6qZXN4bEEeWguotXa4lFgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BaseCcy")]
     #endif
+    [IsoXmlTag("BaseCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode BaseCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string BaseCurrency { get; init; } 
+    public required string BaseCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string BaseCurrency { get; init; } 
     #else
@@ -137,12 +130,11 @@ public partial record Agreement4
     /// Specifies the underlying master agreement.
     /// </summary>
     [IsoId("_6qZXOYbEEeWguotXa4lFgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Framework")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrmtFrmwk")]
     #endif
+    [IsoXmlTag("AgrmtFrmwk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreementFramework1Choice_? AgreementFramework { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

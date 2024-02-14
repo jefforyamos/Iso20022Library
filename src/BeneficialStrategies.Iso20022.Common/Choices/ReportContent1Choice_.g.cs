@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportContent1Choice.Binary))]
     [KnownType(typeof(ReportContent1Choice.ProtectedData))]
     [IsoId("_HsTagMlWEeuJ35KoBRZFOg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Content 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

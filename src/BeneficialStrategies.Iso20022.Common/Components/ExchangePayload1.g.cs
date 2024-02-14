@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This component includes the exchanged ISO20022 documents.
 /// </summary>
 [IsoId("_jLluU-5NEeCisYr99QEiWA_-2124206208")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exchange Payload")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ExchangePayload1
     /// The respective ISO 20022 standard document.
     /// </summary>
     [IsoId("_jLluVO5NEeCisYr99QEiWA_1978501179")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Any")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Any")]
     #endif
+    [IsoXmlTag("Any")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LaxProcessing Any { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LaxProcessing Any { get; init; } 
+    public required LaxProcessing Any { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LaxProcessing Any { get; init; } 
     #else

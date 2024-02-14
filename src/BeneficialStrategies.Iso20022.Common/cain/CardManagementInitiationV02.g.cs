@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The CardManagementInitiation message is sent by the acquirer to an issuer or agent to fulfil a request initiated by the cardholder at the point of service for an operation on the card account.")]
 [IsoId("_Ke1EQYEPEeu6D49Gi-ZPwQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Management Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record CardManagementInitiationV02 : IOuterRecord<CardManagementI
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_Ke1EQ4EPEeu6D49Gi-ZPwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header60 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header60 Header { get; init; } 
+    public required Header60 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header60 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record CardManagementInitiationV02 : IOuterRecord<CardManagementI
     /// Information related to the card management initiation.
     /// </summary>
     [IsoId("_Ke1ERYEPEeu6D49Gi-ZPwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardManagementInitiation2 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardManagementInitiation2 Body { get; init; } 
+    public required CardManagementInitiation2 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardManagementInitiation2 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record CardManagementInitiationV02 : IOuterRecord<CardManagementI
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_Ke1ER4EPEeu6D49Gi-ZPwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record CardManagementInitiationV02 : IOuterRecord<CardManagementI
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CardManagementInitiationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CardManagementInitiationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CardManagementInitiationV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record CardManagementInitiationV02 : IOuterRecord<CardManagementI
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CardManagementInitiationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CardManagementInitiationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CardManagementInitiationV02Document : IOuterDocument<CardManagementInitiationV02>
@@ -161,7 +156,7 @@ public partial record CardManagementInitiationV02Document : IOuterDocument<CardM
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CardManagementInitiationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CardManagementInitiationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardManagementInitiationV02 Message { get; init; }

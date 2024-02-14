@@ -21,7 +21,7 @@ public enum RejectedStatusReason9Code
 {
     /// <summary>
     /// Identification of the security is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_ZfQtwNp-Ed-ak6NoX_4Aeg_-2116537053")]
@@ -30,7 +30,7 @@ public enum RejectedStatusReason9Code
     
     /// <summary>
     /// Identification of the security and the security name are not the same.
-    /// Encoded/decoded by serializers as "IDNA".
+    /// Encoded/decoded by serializers as &quot;IDNA&quot;.
     /// </summary>
     [EnumMember(Value = "IDNA")]
     [IsoId("_ZfQtwdp-Ed-ak6NoX_4Aeg_-2115616477")]
@@ -39,7 +39,7 @@ public enum RejectedStatusReason9Code
     
     /// <summary>
     /// Order reference is a duplicate of a previously received order.
-    /// Encoded/decoded by serializers as "ORRF".
+    /// Encoded/decoded by serializers as &quot;ORRF&quot;.
     /// </summary>
     [EnumMember(Value = "ORRF")]
     [IsoId("_ZfQtwtp-Ed-ak6NoX_4Aeg_-2115615018")]
@@ -48,7 +48,7 @@ public enum RejectedStatusReason9Code
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NSLA".
+    /// Encoded/decoded by serializers as &quot;NSLA&quot;.
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ZfQtw9p-Ed-ak6NoX_4Aeg_-2115614504")]
@@ -57,7 +57,7 @@ public enum RejectedStatusReason9Code
     
     /// <summary>
     /// Financial instrument quantity is invalid.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_ZfQtxNp-Ed-ak6NoX_4Aeg_-2115613141")]
@@ -66,7 +66,7 @@ public enum RejectedStatusReason9Code
     
     /// <summary>
     /// Unrecognised or invalid Settlement Amount Currency.
-    /// Encoded/decoded by serializers as "NCRR".
+    /// Encoded/decoded by serializers as &quot;NCRR&quot;.
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_ZfQtxdp-Ed-ak6NoX_4Aeg_-2114692392")]
@@ -75,7 +75,7 @@ public enum RejectedStatusReason9Code
     
     /// <summary>
     /// Unrecognised or invalid Place of Trade.
-    /// Encoded/decoded by serializers as "PLCE".
+    /// Encoded/decoded by serializers as &quot;PLCE&quot;.
     /// </summary>
     [EnumMember(Value = "PLCE")]
     [IsoId("_ZfQtxtp-Ed-ak6NoX_4Aeg_1568215816")]
@@ -84,7 +84,7 @@ public enum RejectedStatusReason9Code
     
     /// <summary>
     /// Unrecognised or invalid trade date or requested trade date or future trade date.
-    /// Encoded/decoded by serializers as "DTRD".
+    /// Encoded/decoded by serializers as &quot;DTRD&quot;.
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_ZfQtx9p-Ed-ak6NoX_4Aeg_-2096913482")]

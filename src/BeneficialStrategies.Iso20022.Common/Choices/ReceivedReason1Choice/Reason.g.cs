@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReceivedReason1Choice
     /// Reason for the received status.
     /// </summary>
     [IsoId("_9wz1b1jqEeOnqqBHs8Gasw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

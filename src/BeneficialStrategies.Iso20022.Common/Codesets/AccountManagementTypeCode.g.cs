@@ -21,7 +21,7 @@ public enum AccountManagementTypeCode
 {
     /// <summary>
     /// Refers to an account opening instruction message.
-    /// Encoded/decoded by serializers as "ACCO".
+    /// Encoded/decoded by serializers as &quot;ACCO&quot;.
     /// </summary>
     [EnumMember(Value = "ACCO")]
     [IsoId("_bqvG19p-Ed-ak6NoX_4Aeg_-521166332")]
@@ -30,7 +30,7 @@ public enum AccountManagementTypeCode
     
     /// <summary>
     /// Refers to an account modification instruction message.
-    /// Encoded/decoded by serializers as "ACCM".
+    /// Encoded/decoded by serializers as &quot;ACCM&quot;.
     /// </summary>
     [EnumMember(Value = "ACCM")]
     [IsoId("_bqvG2Np-Ed-ak6NoX_4Aeg_-521166290")]
@@ -39,7 +39,7 @@ public enum AccountManagementTypeCode
     
     /// <summary>
     /// Refers to a get account details message.
-    /// Encoded/decoded by serializers as "GACC".
+    /// Encoded/decoded by serializers as &quot;GACC&quot;.
     /// </summary>
     [EnumMember(Value = "GACC")]
     [IsoId("_bq4QwNp-Ed-ak6NoX_4Aeg_-1703346432")]
@@ -48,7 +48,7 @@ public enum AccountManagementTypeCode
     
     /// <summary>
     /// Refers to an account closure instruction message.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_zMhlcFSeEeatgN-VQ0eFlQ")]
@@ -57,7 +57,7 @@ public enum AccountManagementTypeCode
     
     /// <summary>
     /// Refers to the account status.
-    /// Encoded/decoded by serializers as "ACST".
+    /// Encoded/decoded by serializers as &quot;ACST&quot;.
     /// </summary>
     [EnumMember(Value = "ACST")]
     [IsoId("_1p7XcKTsEeamspXrHzHkQw")]

@@ -21,7 +21,7 @@ public enum ATMServiceType4Code
 {
     /// <summary>
     /// Ask for account statement information to a related custumer account.
-    /// Encoded/decoded by serializers as "ASTS".
+    /// Encoded/decoded by serializers as &quot;ASTS&quot;.
     /// </summary>
     [EnumMember(Value = "ASTS")]
     [IsoId("_q0NdsYq1EeSIDtZ76p6McQ")]
@@ -30,7 +30,7 @@ public enum ATMServiceType4Code
     
     /// <summary>
     /// Balance inquiry.
-    /// Encoded/decoded by serializers as "BLCQ".
+    /// Encoded/decoded by serializers as &quot;BLCQ&quot;.
     /// </summary>
     [EnumMember(Value = "BLCQ")]
     [IsoId("_rAu2w4q1EeSIDtZ76p6McQ")]
@@ -39,7 +39,7 @@ public enum ATMServiceType4Code
     
     /// <summary>
     /// Deposit of items.
-    /// Encoded/decoded by serializers as "DPST".
+    /// Encoded/decoded by serializers as &quot;DPST&quot;.
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_r33TE4q1EeSIDtZ76p6McQ")]
@@ -48,7 +48,7 @@ public enum ATMServiceType4Code
     
     /// <summary>
     /// Modification of the card PIN value.
-    /// Encoded/decoded by serializers as "PINC".
+    /// Encoded/decoded by serializers as &quot;PINC&quot;.
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_sHXHo4q1EeSIDtZ76p6McQ")]
@@ -57,7 +57,7 @@ public enum ATMServiceType4Code
     
     /// <summary>
     /// Standard withdrawal of items.
-    /// Encoded/decoded by serializers as "STDR".
+    /// Encoded/decoded by serializers as &quot;STDR&quot;.
     /// </summary>
     [EnumMember(Value = "STDR")]
     [IsoId("_tePbA4q1EeSIDtZ76p6McQ")]
@@ -66,7 +66,7 @@ public enum ATMServiceType4Code
     
     /// <summary>
     /// Amount and notes Values are pre-defined by the customer profile.
-    /// Encoded/decoded by serializers as "PRFL".
+    /// Encoded/decoded by serializers as &quot;PRFL&quot;.
     /// </summary>
     [EnumMember(Value = "PRFL")]
     [IsoId("_ttIyo4q1EeSIDtZ76p6McQ")]
@@ -75,7 +75,7 @@ public enum ATMServiceType4Code
     
     /// <summary>
     /// Withdrawal transaction was pre-authorised by another channel, for instance a mobile. The amount could be absent from the withdrawal request message.
-    /// Encoded/decoded by serializers as "PATH".
+    /// Encoded/decoded by serializers as &quot;PATH&quot;.
     /// </summary>
     [EnumMember(Value = "PATH")]
     [IsoId("_uqYeA4q1EeSIDtZ76p6McQ")]
@@ -84,7 +84,7 @@ public enum ATMServiceType4Code
     
     /// <summary>
     /// Amount and notes values are chosen by the customer.
-    /// Encoded/decoded by serializers as "CHSN".
+    /// Encoded/decoded by serializers as &quot;CHSN&quot;.
     /// </summary>
     [EnumMember(Value = "CHSN")]
     [IsoId("_-zpAkYq1EeSIDtZ76p6McQ")]

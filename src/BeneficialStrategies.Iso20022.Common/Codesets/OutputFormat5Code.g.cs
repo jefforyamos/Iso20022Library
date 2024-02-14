@@ -21,7 +21,7 @@ public enum OutputFormat5Code
 {
     /// <summary>
     /// Other type of output of message defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_bKsXwclUEeuJ35KoBRZFOg")]
@@ -30,7 +30,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Other type of output format defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_btaqUclUEeuJ35KoBRZFOg")]
@@ -39,7 +39,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "TEXT".
+    /// Encoded/decoded by serializers as &quot;TEXT&quot;.
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_hhloYslUEeuJ35KoBRZFOg")]
@@ -48,7 +48,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Uniform Resource Locator (URL) reference for the message.
-    /// Encoded/decoded by serializers as "URLI".
+    /// Encoded/decoded by serializers as &quot;URLI&quot;.
     /// </summary>
     [EnumMember(Value = "URLI")]
     [IsoId("_iCEfQclUEeuJ35KoBRZFOg")]
@@ -57,7 +57,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "HTML".
+    /// Encoded/decoded by serializers as &quot;HTML&quot;.
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_qSpOUslUEeuJ35KoBRZFOg")]
@@ -66,7 +66,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// A formatted print line.
-    /// Encoded/decoded by serializers as "PLIN".
+    /// Encoded/decoded by serializers as &quot;PLIN&quot;.
     /// </summary>
     [EnumMember(Value = "PLIN")]
     [IsoId("_rjgZQslUEeuJ35KoBRZFOg")]
@@ -75,7 +75,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Java Syntax Object Notation format.
-    /// Encoded/decoded by serializers as "JSON".
+    /// Encoded/decoded by serializers as &quot;JSON&quot;.
     /// </summary>
     [EnumMember(Value = "JSON")]
     [IsoId("_uDqB0slUEeuJ35KoBRZFOg")]
@@ -84,7 +84,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// eXtensible Markup Language format.
-    /// Encoded/decoded by serializers as "XMLF".
+    /// Encoded/decoded by serializers as &quot;XMLF&quot;.
     /// </summary>
     [EnumMember(Value = "XMLF")]
     [IsoId("_ulcgQclUEeuJ35KoBRZFOg")]
@@ -93,7 +93,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Electronic data interchange for administration, commerce and transport.
-    /// Encoded/decoded by serializers as "EDIF".
+    /// Encoded/decoded by serializers as &quot;EDIF&quot;.
     /// </summary>
     [EnumMember(Value = "EDIF")]
     [IsoId("_viTKEslUEeuJ35KoBRZFOg")]
@@ -102,7 +102,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Comma separated value format.
-    /// Encoded/decoded by serializers as "CSVF".
+    /// Encoded/decoded by serializers as &quot;CSVF&quot;.
     /// </summary>
     [EnumMember(Value = "CSVF")]
     [IsoId("_wd9hEslUEeuJ35KoBRZFOg")]
@@ -111,7 +111,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Joint Photographic Experts Group format.
-    /// Encoded/decoded by serializers as "JPEG".
+    /// Encoded/decoded by serializers as &quot;JPEG&quot;.
     /// </summary>
     [EnumMember(Value = "JPEG")]
     [IsoId("_w_v_gMlUEeuJ35KoBRZFOg")]
@@ -120,7 +120,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Portable Document Format.
-    /// Encoded/decoded by serializers as "PDFF".
+    /// Encoded/decoded by serializers as &quot;PDFF&quot;.
     /// </summary>
     [EnumMember(Value = "PDFF")]
     [IsoId("_x23NsslUEeuJ35KoBRZFOg")]
@@ -129,7 +129,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Portable Network Graphics format.
-    /// Encoded/decoded by serializers as "PNGF".
+    /// Encoded/decoded by serializers as &quot;PNGF&quot;.
     /// </summary>
     [EnumMember(Value = "PNGF")]
     [IsoId("_yYLLAclUEeuJ35KoBRZFOg")]
@@ -138,7 +138,7 @@ public enum OutputFormat5Code
     
     /// <summary>
     /// Scalable vector graphic format.
-    /// Encoded/decoded by serializers as "SVGF".
+    /// Encoded/decoded by serializers as &quot;SVGF&quot;.
     /// </summary>
     [EnumMember(Value = "SVGF")]
     [IsoId("_0G8Z8slUEeuJ35KoBRZFOg")]

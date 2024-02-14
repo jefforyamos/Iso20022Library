@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// EU PSD2 Strong Consumer Authentication data.
 /// </summary>
 [IsoId("_umTNkAMfEeujMs2LsB3mMw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Strong Customer Authentication")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record StrongCustomerAuthentication1
     /// Boolean flag indicating whether the transaction is subject to Strong Customer Authentication requirements (True) or not (False).
     /// </summary>
     [IsoId("_6dGccAMfEeujMs2LsB3mMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subject To SCA")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbjtToSCA")]
     #endif
+    [IsoXmlTag("SbjtToSCA")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SubjectToSCA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record StrongCustomerAuthentication1
     /// Strong customer authentication exemption detail.
     /// </summary>
     [IsoId("_gEuy0AMlEeujMs2LsB3mMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exemption")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xmptn")]
     #endif
+    [IsoXmlTag("Xmptn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Exemption1? Exemption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record StrongCustomerAuthentication1
     /// Authentication performed by a delegated authority (for example by a wallet solution).
     /// </summary>
     [IsoId("_5g2V8AMnEeubkNI1IXQTVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegated Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtdAuthrty")]
     #endif
+    [IsoXmlTag("DlgtdAuthrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttestationValue1Code? DelegatedAuthority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record StrongCustomerAuthentication1
     /// Waiver claimed for a transaction subject to Strong Customer Authentication.
     /// </summary>
     [IsoId("_DuufMAMoEeubkNI1IXQTVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Waiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Wvr")]
     #endif
+    [IsoXmlTag("Wvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttestationValue1Code? Waiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,15 +111,13 @@ public partial record StrongCustomerAuthentication1
     /// Reason why authentication was not performed.
     /// </summary>
     [IsoId("_PuZWMAMoEeubkNI1IXQTVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason Authentication Not Performed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsnAuthntcnNotPrfrmd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RsnAuthntcnNotPrfrmd")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? ReasonAuthenticationNotPerformed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

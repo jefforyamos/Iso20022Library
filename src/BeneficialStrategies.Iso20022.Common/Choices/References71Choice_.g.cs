@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References71Choice.TripartyCollateralStatusAdviceIdentification))]
     [KnownType(typeof(References71Choice.TripartyCollateralAndExposureReportIdentification))]
     [IsoId("_KDxvryAaEeu4a6pNulzZ4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References 71 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

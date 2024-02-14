@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectionReason7FormatChoice.Code))]
     [KnownType(typeof(RejectionReason7FormatChoice.Proprietary))]
     [IsoId("_Rofl2Np-Ed-ak6NoX_4Aeg_-1503733328")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason 7 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

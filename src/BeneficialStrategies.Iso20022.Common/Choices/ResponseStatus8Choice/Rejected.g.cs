@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus8Choice
     /// Rejected status of an instruction, advice or request.
     /// </summary>
     [IsoId("_Vl2wKZNSEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

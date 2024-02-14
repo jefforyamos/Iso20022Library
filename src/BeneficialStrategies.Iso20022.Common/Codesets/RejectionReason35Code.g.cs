@@ -21,7 +21,7 @@ public enum RejectionReason35Code
 {
     /// <summary>
     /// Unrecognised or invalid cash account.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_jWeIou5NEeCisYr99QEiWA_732299625")]
@@ -29,8 +29,8 @@ public enum RejectionReason35Code
     CashAccount = RejectionReasonV2Code.CashAccount, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_jWeIo-5NEeCisYr99QEiWA_-329052334")]
@@ -39,7 +39,7 @@ public enum RejectionReason35Code
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_jWeIpO5NEeCisYr99QEiWA_-150933662")]
@@ -48,7 +48,7 @@ public enum RejectionReason35Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_jWnSkO5NEeCisYr99QEiWA_-442891400")]
@@ -57,7 +57,7 @@ public enum RejectionReason35Code
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_jWnSke5NEeCisYr99QEiWA_-264772728")]
@@ -66,7 +66,7 @@ public enum RejectionReason35Code
     
     /// <summary>
     /// Instruction could not be found.
-    /// Encoded/decoded by serializers as "NRGN".
+    /// Encoded/decoded by serializers as &quot;NRGN&quot;.
     /// </summary>
     [EnumMember(Value = "NRGN")]
     [IsoId("_jWnSku5NEeCisYr99QEiWA_1213359397")]
@@ -75,7 +75,7 @@ public enum RejectionReason35Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jWnSk-5NEeCisYr99QEiWA_-1326124687")]
@@ -84,7 +84,7 @@ public enum RejectionReason35Code
     
     /// <summary>
     /// Invalid or unrecognized modification request.
-    /// Encoded/decoded by serializers as "INVM".
+    /// Encoded/decoded by serializers as &quot;INVM&quot;.
     /// </summary>
     [EnumMember(Value = "INVM")]
     [IsoId("_AzkQYnglEeGqN5NokjUPnw_-1651616515")]
@@ -93,7 +93,7 @@ public enum RejectionReason35Code
     
     /// <summary>
     /// Invalid or unrecognized link.
-    /// Encoded/decoded by serializers as "INVL".
+    /// Encoded/decoded by serializers as &quot;INVL&quot;.
     /// </summary>
     [EnumMember(Value = "INVL")]
     [IsoId("_AzkQY3glEeGqN5NokjUPnw_-2048316852")]

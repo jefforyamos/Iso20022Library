@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgentRole1FormatChoice
     /// Standard code to specify the role of the agent.
     /// </summary>
     [IsoId("_RlgjSNp-Ed-ak6NoX_4Aeg_349250144")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AgentRole1FormatChoice
         /// Specifies the role of the agent.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AgentRole2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AgentRole2Code Value { get; init; } 
+        public required AgentRole2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AgentRole2Code Value { get; init; } 
         #else

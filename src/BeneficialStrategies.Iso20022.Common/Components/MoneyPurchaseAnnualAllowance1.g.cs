@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a Money Purchase Annual Allowance (MPAA).
 /// </summary>
 [IsoId("_YYAkcFK7EeiSDqv62fL07g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Money Purchase Annual Allowance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record MoneyPurchaseAnnualAllowance1
     /// Indicates whether the annual allowance has been triggered.
     /// </summary>
     [IsoId("_havwQFK7EeiSDqv62fL07g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triggered")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trggrd")]
     #endif
+    [IsoXmlTag("Trggrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Triggered { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Triggered { get; init; } 
+    public required System.String Triggered { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Triggered { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record MoneyPurchaseAnnualAllowance1
     /// Date the annual allowance is taken.
     /// </summary>
     [IsoId("_kmRREFK7EeiSDqv62fL07g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triggered Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrggrdDt")]
     #endif
+    [IsoXmlTag("TrggrdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TriggeredDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

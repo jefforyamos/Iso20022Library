@@ -21,7 +21,7 @@ public enum CancelledStatusReason7Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CANI".
+    /// Encoded/decoded by serializers as &quot;CANI&quot;.
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_a1F4R9p-Ed-ak6NoX_4Aeg_-1968314209")]
@@ -30,7 +30,7 @@ public enum CancelledStatusReason7Code
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CANS".
+    /// Encoded/decoded by serializers as &quot;CANS&quot;.
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_a1F4SNp-Ed-ak6NoX_4Aeg_-1968313962")]

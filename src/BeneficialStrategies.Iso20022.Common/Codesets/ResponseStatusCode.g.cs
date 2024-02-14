@@ -21,7 +21,7 @@ public enum ResponseStatusCode
 {
     /// <summary>
     /// Part of the collateral is accepted, a part rejected.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_Y94fAdp-Ed-ak6NoX_4Aeg_-2007141387")]
@@ -30,7 +30,7 @@ public enum ResponseStatusCode
     
     /// <summary>
     /// Claim, substitution, proposal is fully accepted.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_Y94fAtp-Ed-ak6NoX_4Aeg_-1286794697")]
@@ -39,7 +39,7 @@ public enum ResponseStatusCode
     
     /// <summary>
     /// Claim, substitution, proposal is fully rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_Y94fA9p-Ed-ak6NoX_4Aeg_-1200908229")]
@@ -48,7 +48,7 @@ public enum ResponseStatusCode
     
     /// <summary>
     /// Party A agrees with the return part of the substitution and accepts to wait for the proposal of the new collateral.
-    /// Encoded/decoded by serializers as "SUBR".
+    /// Encoded/decoded by serializers as &quot;SUBR&quot;.
     /// </summary>
     [EnumMember(Value = "SUBR")]
     [IsoId("_Y94fBNp-Ed-ak6NoX_4Aeg_-1161198752")]
@@ -57,7 +57,7 @@ public enum ResponseStatusCode
     
     /// <summary>
     /// Collateral giver instruction details are confirmed.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_dS5_gcf0EemlRYW9CHJ8_Q")]
@@ -66,7 +66,7 @@ public enum ResponseStatusCode
     
     /// <summary>
     /// Collateral giver instruction details are not recognised.
-    /// Encoded/decoded by serializers as "DKNY".
+    /// Encoded/decoded by serializers as &quot;DKNY&quot;.
     /// </summary>
     [EnumMember(Value = "DKNY")]
     [IsoId("_euTmgcf0EemlRYW9CHJ8_Q")]

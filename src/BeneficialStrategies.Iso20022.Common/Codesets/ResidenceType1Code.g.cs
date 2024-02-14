@@ -21,7 +21,7 @@ public enum ResidenceType1Code
 {
     /// <summary>
     /// Residence is domestic.
-    /// Encoded/decoded by serializers as "DMST".
+    /// Encoded/decoded by serializers as &quot;DMST&quot;.
     /// </summary>
     [EnumMember(Value = "DMST")]
     [IsoId("_LFI20WjNEeiRg5NzP0jkQg")]
@@ -30,7 +30,7 @@ public enum ResidenceType1Code
     
     /// <summary>
     /// Residence is foreign.
-    /// Encoded/decoded by serializers as "FRGN".
+    /// Encoded/decoded by serializers as &quot;FRGN&quot;.
     /// </summary>
     [EnumMember(Value = "FRGN")]
     [IsoId("_LOpYIWjNEeiRg5NzP0jkQg")]
@@ -39,7 +39,7 @@ public enum ResidenceType1Code
     
     /// <summary>
     /// Residence is mixed
-    /// Encoded/decoded by serializers as "MXED".
+    /// Encoded/decoded by serializers as &quot;MXED&quot;.
     /// </summary>
     [EnumMember(Value = "MXED")]
     [IsoId("_LYfQoWjNEeiRg5NzP0jkQg")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice1Choice
     /// Proprietary price specification of the underlying transaction.
     /// </summary>
     [IsoId("_RUrR9tp-Ed-ak6NoX_4Aeg_969960515")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice1Choice
         /// Identifies the type of price reported.
         /// </summary>
         [IsoId("_RUhg9Np-Ed-ak6NoX_4Aeg_1603762562")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Tp")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Type { get; init; } 
+        public required System.String Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Type { get; init; } 
         #else
@@ -80,16 +76,16 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice1Choice
         /// Proprietary price specification related to the underlying transaction.
         /// </summary>
         [IsoId("_RUhg9dp-Ed-ak6NoX_4Aeg_426005158")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Price")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pric")]
         #endif
+        [IsoXmlTag("Pric")]
+        [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoCurrencyAndAmount Price { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Price { get; init; } 
+        public required System.Decimal Price { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Price { get; init; } 
         #else

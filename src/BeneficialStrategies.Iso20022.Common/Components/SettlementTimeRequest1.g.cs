@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information on the requested settlement time of the instruction.
 /// </summary>
 [IsoId("_QHyBEdp-Ed-ak6NoX_4Aeg_564730971")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Time Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,19 +46,19 @@ public partial record SettlementTimeRequest1
     #nullable enable
     
     /// <summary>
-    /// Time by which the funds must be credited, with confirmation, to the CLS Bank's account at the central bank, expressed in Central European Time (CET).
+    /// Time by which the funds must be credited, with confirmation, to the CLS Bank&apos;s account at the central bank, expressed in Central European Time (CET).
     /// </summary>
     [IsoId("_QHyBEtp-Ed-ak6NoX_4Aeg_605366498")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CLS Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CLSTm")]
     #endif
+    [IsoXmlTag("CLSTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISOTime CLSTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.TimeOnly CLSTime { get; init; } 
+    public required System.TimeOnly CLSTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.TimeOnly CLSTime { get; init; } 
     #else

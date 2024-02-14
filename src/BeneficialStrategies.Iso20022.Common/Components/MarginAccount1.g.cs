@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.
 /// </summary>
 [IsoId("_vzEGEHYDEee_qcLXasnA4g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MarginAccount1
     /// Unique identifier of the margin account.
     /// </summary>
     [IsoId("_1kQBkHYDEee_qcLXasnA4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification118Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification118Choice_ Identification { get; init; } 
+    public required PartyIdentification118Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification118Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MarginAccount1
     /// Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.
     /// </summary>
     [IsoId("_5-_HgHYDEee_qcLXasnA4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PosAcct")]
     #endif
+    [IsoXmlTag("PosAcct")]
     public PositionAccount1? PositionAccount { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _5-_HgHYDEee_qcLXasnA4g
     

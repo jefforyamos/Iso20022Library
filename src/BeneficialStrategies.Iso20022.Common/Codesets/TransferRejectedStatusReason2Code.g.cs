@@ -21,7 +21,7 @@ public enum TransferRejectedStatusReason2Code
 {
     /// <summary>
     /// Cash settlement date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_YurlaNp-Ed-ak6NoX_4Aeg_-1404400474")]
@@ -30,7 +30,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Place of settlement is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_Yu0vUNp-Ed-ak6NoX_4Aeg_-1404400439")]
@@ -39,7 +39,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Identification of the security is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_Yu0vUdp-Ed-ak6NoX_4Aeg_-1404400421")]
@@ -48,7 +48,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// There are not enough securities in the account to process the instruction.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_Yu0vUtp-Ed-ak6NoX_4Aeg_-1404400396")]
@@ -57,7 +57,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// One or several settlement parties are not recognised or are invalid.
-    /// Encoded/decoded by serializers as "ISTP".
+    /// Encoded/decoded by serializers as &quot;ISTP&quot;.
     /// </summary>
     [EnumMember(Value = "ISTP")]
     [IsoId("_Yu0vU9p-Ed-ak6NoX_4Aeg_-1404400379")]
@@ -66,7 +66,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Certificate number is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "ICTN".
+    /// Encoded/decoded by serializers as &quot;ICTN&quot;.
     /// </summary>
     [EnumMember(Value = "ICTN")]
     [IsoId("_Yu0vVNp-Ed-ak6NoX_4Aeg_-1404400361")]
@@ -75,7 +75,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Investment account identification is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_Yu0vVdp-Ed-ak6NoX_4Aeg_-1404400319")]
@@ -84,7 +84,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Acquisition date is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "IAQD".
+    /// Encoded/decoded by serializers as &quot;IAQD&quot;.
     /// </summary>
     [EnumMember(Value = "IAQD")]
     [IsoId("_Yu0vVtp-Ed-ak6NoX_4Aeg_-1404400301")]
@@ -93,7 +93,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Investment account is blocked due to a corporate action.
-    /// Encoded/decoded by serializers as "BLCA".
+    /// Encoded/decoded by serializers as &quot;BLCA&quot;.
     /// </summary>
     [EnumMember(Value = "BLCA")]
     [IsoId("_Yu0vV9p-Ed-ak6NoX_4Aeg_-1404400241")]
@@ -102,7 +102,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Investment account is blocked until certain legal proceedings are completed, for example, legal documents from the successor, legal proceedings due to bankruptcy.
-    /// Encoded/decoded by serializers as "DOCC".
+    /// Encoded/decoded by serializers as &quot;DOCC&quot;.
     /// </summary>
     [EnumMember(Value = "DOCC")]
     [IsoId("_Yu0vWNp-Ed-ak6NoX_4Aeg_-1404400224")]
@@ -111,7 +111,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Identification of the security and the security name are not the same.
-    /// Encoded/decoded by serializers as "IDNA".
+    /// Encoded/decoded by serializers as &quot;IDNA&quot;.
     /// </summary>
     [EnumMember(Value = "IDNA")]
     [IsoId("_Yu0vWdp-Ed-ak6NoX_4Aeg_-1404400206")]
@@ -120,7 +120,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Order contains physical delivery details but the fund can not be physically delivered.
-    /// Encoded/decoded by serializers as "DLVY".
+    /// Encoded/decoded by serializers as &quot;DLVY&quot;.
     /// </summary>
     [EnumMember(Value = "DLVY")]
     [IsoId("_Yu-gUNp-Ed-ak6NoX_4Aeg_-1404399964")]
@@ -129,7 +129,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Legally impossible to cancel.
-    /// Encoded/decoded by serializers as "LEGL".
+    /// Encoded/decoded by serializers as &quot;LEGL&quot;.
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_Yu-gUdp-Ed-ak6NoX_4Aeg_-1404399947")]
@@ -138,7 +138,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NSLA".
+    /// Encoded/decoded by serializers as &quot;NSLA&quot;.
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_Yu-gUtp-Ed-ak6NoX_4Aeg_-1404399912")]
@@ -147,7 +147,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Financial instrument quantity is invalid.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Yu-gU9p-Ed-ak6NoX_4Aeg_-1404399834")]
@@ -156,7 +156,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Investor name and address is not recognised.
-    /// Encoded/decoded by serializers as "INUK".
+    /// Encoded/decoded by serializers as &quot;INUK&quot;.
     /// </summary>
     [EnumMember(Value = "INUK")]
     [IsoId("_Yu-gVNp-Ed-ak6NoX_4Aeg_-940729188")]
@@ -165,7 +165,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Investor data is insufficient. Applicable when the mandated market practice is not followed.
-    /// Encoded/decoded by serializers as "INID".
+    /// Encoded/decoded by serializers as &quot;INID&quot;.
     /// </summary>
     [EnumMember(Value = "INID")]
     [IsoId("_Yu-gVdp-Ed-ak6NoX_4Aeg_-940729163")]
@@ -174,7 +174,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Account servicer is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "INAC".
+    /// Encoded/decoded by serializers as &quot;INAC&quot;.
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_Yu-gVtp-Ed-ak6NoX_4Aeg_-940729146")]
@@ -183,7 +183,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Nominee account is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "INNA".
+    /// Encoded/decoded by serializers as &quot;INNA&quot;.
     /// </summary>
     [EnumMember(Value = "INNA")]
     [IsoId("_Yu-gV9p-Ed-ak6NoX_4Aeg_-940728863")]
@@ -192,7 +192,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// New plan manager is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "INPM".
+    /// Encoded/decoded by serializers as &quot;INPM&quot;.
     /// </summary>
     [EnumMember(Value = "INPM")]
     [IsoId("_Yu-gWNp-Ed-ak6NoX_4Aeg_-940728845")]
@@ -201,7 +201,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Partial transfer of current year is not allowed, that is, it is not possible to transfer one asset for the current year as other assets are held for the current year.
-    /// Encoded/decoded by serializers as "CYPA".
+    /// Encoded/decoded by serializers as &quot;CYPA&quot;.
     /// </summary>
     [EnumMember(Value = "CYPA")]
     [IsoId("_YvIRUNp-Ed-ak6NoX_4Aeg_-940728760")]
@@ -210,7 +210,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Partial transfer is not supported. Applicable when tax years are rolled up and because, for example, a transfer request for tax year 2000 only is received, it is not possible to process the transfer as the investor holds other tax years as well.
-    /// Encoded/decoded by serializers as "PTNS".
+    /// Encoded/decoded by serializers as &quot;PTNS&quot;.
     /// </summary>
     [EnumMember(Value = "PTNS")]
     [IsoId("_YvIRUdp-Ed-ak6NoX_4Aeg_-940728743")]
@@ -219,7 +219,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Financial instrument is not valid for the requested tax year.
-    /// Encoded/decoded by serializers as "FTAX".
+    /// Encoded/decoded by serializers as &quot;FTAX&quot;.
     /// </summary>
     [EnumMember(Value = "FTAX")]
     [IsoId("_YvIRUtp-Ed-ak6NoX_4Aeg_-940728665")]
@@ -228,7 +228,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// ISA type is not recognised or invalid.
-    /// Encoded/decoded by serializers as "ISAT".
+    /// Encoded/decoded by serializers as &quot;ISAT&quot;.
     /// </summary>
     [EnumMember(Value = "ISAT")]
     [IsoId("_YvIRU9p-Ed-ak6NoX_4Aeg_-940728353")]
@@ -237,7 +237,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Cash account is not recognised or invalid.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_YvIRVNp-Ed-ak6NoX_4Aeg_-940728336")]
@@ -246,7 +246,7 @@ public enum TransferRejectedStatusReason2Code
     
     /// <summary>
     /// Transfer reference is a duplicate of a previously received transfer.
-    /// Encoded/decoded by serializers as "TREF".
+    /// Encoded/decoded by serializers as &quot;TREF&quot;.
     /// </summary>
     [EnumMember(Value = "TREF")]
     [IsoId("_YvIRVdp-Ed-ak6NoX_4Aeg_-659603425")]

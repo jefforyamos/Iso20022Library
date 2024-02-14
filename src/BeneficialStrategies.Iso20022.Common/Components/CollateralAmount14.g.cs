@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Deal amount details.
 /// </summary>
 [IsoId("_k9T14RIlEeyLzJfz3xPQNA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CollateralAmount14
     /// Amount of the principal. 
     /// </summary>
     [IsoId("_lUQWQRIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CollateralAmount14
     /// Amount of principal plus interests at termination.
     /// </summary>
     [IsoId("_lUQWQxIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Termination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Termntn")]
     #endif
+    [IsoXmlTag("Termntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? Termination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CollateralAmount14
     /// Specifies the accrued interest on the value of the principal trade, in the currency of the principal trade.
     /// </summary>
     [IsoId("_lUQWRRIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Acrd")]
     #endif
+    [IsoXmlTag("Acrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? Accrued { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CollateralAmount14
     /// Value of collateral offered or sought. 
     /// </summary>
     [IsoId("_lUQWRxIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Sought")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValSght")]
     #endif
+    [IsoXmlTag("ValSght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? ValueSought { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CollateralAmount14
     /// Transaction amount effectively processed by the TPA taking into account the matching tolerance threshold.
     /// </summary>
     [IsoId("_lUQWSRIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undisputed Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdsptdTx")]
     #endif
+    [IsoXmlTag("UdsptdTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection49? UndisputedTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

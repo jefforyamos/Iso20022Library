@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the Financial Institution responding to the request.
 /// </summary>
 [IsoId("_SuwKHAEcEeCQm6a_G2yO_w_2135472976")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Responder Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record ResponderDetails1
     /// Date and time at which the response was created.
     /// </summary>
     [IsoId("_SuwKHQEcEeCQm6a_G2yO_w_-495861824")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtTmStmp")]
     #endif
+    [IsoXmlTag("DtTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DateTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime DateTimeStamp { get; init; } 
+    public required System.DateTime DateTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime DateTimeStamp { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record ResponderDetails1
     /// Identification of the responder.
     /// </summary>
     [IsoId("_Su5UAAEcEeCQm6a_G2yO_w_569448861")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspndr")]
     #endif
+    [IsoXmlTag("Rspndr")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier Responder { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Responder { get; init; } 
+    public required System.String Responder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Responder { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockedReason1Choice
     /// Reason expressed as a code.
     /// </summary>
     [IsoId("_rKbmwBHdEeKVqeHljBM1MQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockedReason1Choice
         /// Specifies the reason an account is blocked.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BlockedReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BlockedReason1Code Value { get; init; } 
+        public required BlockedReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BlockedReason1Code Value { get; init; } 
         #else

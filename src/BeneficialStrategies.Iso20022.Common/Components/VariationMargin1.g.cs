@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Elements used to calculate the collateral margin call for the variation margin.
 /// </summary>
 [IsoId("_UnE22tp-Ed-ak6NoX_4Aeg_12968577")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Variation Margin")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record VariationMargin1
     /// Amount of unsecured exposure a counterparty will accept before issuing a margin call in the base currency.
     /// </summary>
     [IsoId("_UnOn0Np-Ed-ak6NoX_4Aeg_-1210355091")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Threshold Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThrshldAmt")]
     #endif
+    [IsoXmlTag("ThrshldAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount ThresholdAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ThresholdAmount { get; init; } 
+    public required System.Decimal ThresholdAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ThresholdAmount { get; init; } 
     #else
@@ -74,12 +72,11 @@ public partial record VariationMargin1
     /// Specifies if the threshold amount is secured or unsecured.
     /// </summary>
     [IsoId("_UnOn0dp-Ed-ak6NoX_4Aeg_-554608677")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Threshold Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThrshldTp")]
     #endif
+    [IsoXmlTag("ThrshldTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ThresholdType1Code? ThresholdType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +89,16 @@ public partial record VariationMargin1
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of variation margin).
     /// </summary>
     [IsoId("_UnOn0tp-Ed-ak6NoX_4Aeg_1747658948")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Transfer Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinTrfAmt")]
     #endif
+    [IsoXmlTag("MinTrfAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MinimumTransferAmount { get; init; } 
+    public required System.Decimal MinimumTransferAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MinimumTransferAmount { get; init; } 
     #else
@@ -112,16 +109,16 @@ public partial record VariationMargin1
     /// Amount specified to avoid the need to transfer uneven amounts of collateral.
     /// </summary>
     [IsoId("_UnOn09p-Ed-ak6NoX_4Aeg_-1680572847")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rounding Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RndgAmt")]
     #endif
+    [IsoXmlTag("RndgAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount RoundingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal RoundingAmount { get; init; } 
+    public required System.Decimal RoundingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal RoundingAmount { get; init; } 
     #else
@@ -132,16 +129,15 @@ public partial record VariationMargin1
     /// Defines how the rounding amount was applied in the calculation. For example, should the amount of collateral required be rounded up, down, to the closer integral multiple specified or not rounded.
     /// </summary>
     [IsoId("_UnOn1Np-Ed-ak6NoX_4Aeg_2069494905")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rounding Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RndgMtd")]
     #endif
+    [IsoXmlTag("RndgMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RoundingMethod1Code RoundingMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RoundingMethod1Code RoundingMethod { get; init; } 
+    public required RoundingMethod1Code RoundingMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RoundingMethod1Code RoundingMethod { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Total amount of commissions related to a specific order.
 /// </summary>
 [IsoId("_RrxjX9p-Ed-ak6NoX_4Aeg_-940532207")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Commissions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record TotalCommissions3
     /// Total value of the commissions for a specific order.
     /// </summary>
     [IsoId("_Rr6tQNp-Ed-ak6NoX_4Aeg_-940531964")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount Of Commissions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtOfComssns")]
     #endif
+    [IsoXmlTag("TtlAmtOfComssns")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfCommissions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record TotalCommissions3
     /// Information related to a specific commission.
     /// </summary>
     [IsoId("_Rr6tQdp-Ed-ak6NoX_4Aeg_-940531912")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnDtls")]
     #endif
+    [IsoXmlTag("ComssnDtls")]
     public Commission10? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Rr6tQdp-Ed-ak6NoX_4Aeg_-940531912
     

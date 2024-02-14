@@ -21,7 +21,7 @@ public enum CorporateActionTransactionCategory1Code
 {
     /// <summary>
     /// Reported event types belong to the cash dividend category.
-    /// Encoded/decoded by serializers as "TC05".
+    /// Encoded/decoded by serializers as &quot;TC05&quot;.
     /// </summary>
     [EnumMember(Value = "TC05")]
     [IsoId("_11C9wTL3EeKU9IrkkToqcw_-892482550")]
@@ -30,7 +30,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the unit Investment trust security category.
-    /// Encoded/decoded by serializers as "TC10".
+    /// Encoded/decoded by serializers as &quot;TC10&quot;.
     /// </summary>
     [EnumMember(Value = "TC10")]
     [IsoId("_11C9wjL3EeKU9IrkkToqcw_-306535524")]
@@ -39,7 +39,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the straight through processing category.
-    /// Encoded/decoded by serializers as "TC15".
+    /// Encoded/decoded by serializers as &quot;TC15&quot;.
     /// </summary>
     [EnumMember(Value = "TC15")]
     [IsoId("_11C9wzL3EeKU9IrkkToqcw_-725069114")]
@@ -48,7 +48,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the corporate bond category.
-    /// Encoded/decoded by serializers as "TC20".
+    /// Encoded/decoded by serializers as &quot;TC20&quot;.
     /// </summary>
     [EnumMember(Value = "TC20")]
     [IsoId("_11C9xDL3EeKU9IrkkToqcw_-1360100960")]
@@ -57,7 +57,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the municipal bond category.
-    /// Encoded/decoded by serializers as "TC25".
+    /// Encoded/decoded by serializers as &quot;TC25&quot;.
     /// </summary>
     [EnumMember(Value = "TC25")]
     [IsoId("_11C9xTL3EeKU9IrkkToqcw_107047803")]
@@ -66,7 +66,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the stock distribution category.
-    /// Encoded/decoded by serializers as "TC30".
+    /// Encoded/decoded by serializers as &quot;TC30&quot;.
     /// </summary>
     [EnumMember(Value = "TC30")]
     [IsoId("_11C9xjL3EeKU9IrkkToqcw_-282080622")]
@@ -75,7 +75,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the optional dividend category.
-    /// Encoded/decoded by serializers as "TC35".
+    /// Encoded/decoded by serializers as &quot;TC35&quot;.
     /// </summary>
     [EnumMember(Value = "TC35")]
     [IsoId("_11MuwDL3EeKU9IrkkToqcw_1548842547")]
@@ -84,7 +84,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the foreign record date notice category.
-    /// Encoded/decoded by serializers as "TC38".
+    /// Encoded/decoded by serializers as &quot;TC38&quot;.
     /// </summary>
     [EnumMember(Value = "TC38")]
     [IsoId("_11MuwTL3EeKU9IrkkToqcw_2002929816")]
@@ -93,7 +93,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the dividend reinvestment category.
-    /// Encoded/decoded by serializers as "TC40".
+    /// Encoded/decoded by serializers as &quot;TC40&quot;.
     /// </summary>
     [EnumMember(Value = "TC40")]
     [IsoId("_11MuwjL3EeKU9IrkkToqcw_-1531272327")]
@@ -102,7 +102,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the tax exempt dividend service category.
-    /// Encoded/decoded by serializers as "TC41".
+    /// Encoded/decoded by serializers as &quot;TC41&quot;.
     /// </summary>
     [EnumMember(Value = "TC41")]
     [IsoId("_11MuwzL3EeKU9IrkkToqcw_-64123564")]
@@ -111,7 +111,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the direct registration service category.
-    /// Encoded/decoded by serializers as "TC42".
+    /// Encoded/decoded by serializers as &quot;TC42&quot;.
     /// </summary>
     [EnumMember(Value = "TC42")]
     [IsoId("_11MuxDL3EeKU9IrkkToqcw_-1252003185")]
@@ -120,7 +120,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the special distribution category.
-    /// Encoded/decoded by serializers as "TC43".
+    /// Encoded/decoded by serializers as &quot;TC43&quot;.
     /// </summary>
     [EnumMember(Value = "TC43")]
     [IsoId("_11MuxTL3EeKU9IrkkToqcw_-776602817")]
@@ -129,7 +129,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the reorganisation category.
-    /// Encoded/decoded by serializers as "TC45".
+    /// Encoded/decoded by serializers as &quot;TC45&quot;.
     /// </summary>
     [EnumMember(Value = "TC45")]
     [IsoId("_11MuxjL3EeKU9IrkkToqcw_-787701594")]
@@ -138,7 +138,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the recapitalization record date notice category.
-    /// Encoded/decoded by serializers as "TC46".
+    /// Encoded/decoded by serializers as &quot;TC46&quot;.
     /// </summary>
     [EnumMember(Value = "TC46")]
     [IsoId("_11V4sDL3EeKU9IrkkToqcw_1201252015")]
@@ -147,7 +147,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the liquidation record date notice category.
-    /// Encoded/decoded by serializers as "TC47".
+    /// Encoded/decoded by serializers as &quot;TC47&quot;.
     /// </summary>
     [EnumMember(Value = "TC47")]
     [IsoId("_11V4sTL3EeKU9IrkkToqcw_-1626566518")]
@@ -156,7 +156,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the sales of assets record date notice category.
-    /// Encoded/decoded by serializers as "TC48".
+    /// Encoded/decoded by serializers as &quot;TC48&quot;.
     /// </summary>
     [EnumMember(Value = "TC48")]
     [IsoId("_11V4sjL3EeKU9IrkkToqcw_1461623903")]
@@ -165,7 +165,7 @@ public enum CorporateActionTransactionCategory1Code
     
     /// <summary>
     /// Reported event types belong to the redemptions record date notice category.
-    /// Encoded/decoded by serializers as "TC49".
+    /// Encoded/decoded by serializers as &quot;TC49&quot;.
     /// </summary>
     [EnumMember(Value = "TC49")]
     [IsoId("_11V4szL3EeKU9IrkkToqcw_151444510")]

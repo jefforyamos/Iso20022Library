@@ -22,14 +22,12 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
     /// <summary>
     /// Personal Identification Number data.
     /// ISO 13492 and ISO 9564-1
-    /// ISO 8583:87 bit 52 & bit 53 or bit 110
-    /// ISO 8583:93 bit 52 & bit 53 or bit 111
-    /// ISO 8583:2003 bit 52 & bit 53 or bit 50
+    /// ISO 8583:87 bit 52 &amp; bit 53 or bit 110
+    /// ISO 8583:93 bit 52 &amp; bit 53 or bit 111
+    /// ISO 8583:2003 bit 52 &amp; bit 53 or bit 50
     /// </summary>
     [IsoId("_4EhKppaNEemfCcEf5rVTyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -63,15 +61,12 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// Binary, length of 1
         /// </summary>
         [IsoId("_1o494InMEeiHerJAHfwamw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Control")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ctrl")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("Ctrl")]
+        [IsoSimpleType(IsoSimpleType.Exact1HexBinaryText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoExact1HexBinaryText? Control { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,15 +81,12 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// lengths of 6 or 8 
         /// </summary>
         [IsoId("_d0W1wotNEei2ytxdCDTOFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Set Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeySetIdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("KeySetIdr")]
+        [IsoSimpleType(IsoSimpleType.Max8NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax8NumericText? KeySetIdentifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,15 +101,12 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// Binary, lengths of 5, 8, 16 or 32 
         /// </summary>
         [IsoId("_03k44InQEeiHerJAHfwamw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Derived Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrvdInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("DrvdInf")]
+        [IsoSimpleType(IsoSimpleType.Max32HexBinaryText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax32HexBinaryText? DerivedInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,15 +120,12 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// ISO 13492
         /// </summary>
         [IsoId("_XqXiYInREeiHerJAHfwamw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Algorithm")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Algo")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("Algo")]
+        [IsoSimpleType(IsoSimpleType.Max2NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax2NumericText? Algorithm { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,15 +139,12 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// ISO 13492
         /// </summary>
         [IsoId("_u95wootNEei2ytxdCDTOFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Length")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyLngth")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("KeyLngth")]
+        [IsoSimpleType(IsoSimpleType.Max4NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax4NumericText? KeyLength { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,15 +158,12 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// ISO 13492
         /// </summary>
         [IsoId("_W9lC8YnTEeiHerJAHfwamw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Protection")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyPrtcn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("KeyPrtcn")]
+        [IsoSimpleType(IsoSimpleType.Max2NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax2NumericText? KeyProtection { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,15 +178,12 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// Length of 2 or 5
         /// </summary>
         [IsoId("_85vZYotNEei2ytxdCDTOFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Index")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyIndx")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("KeyIndx")]
+        [IsoSimpleType(IsoSimpleType.Max5NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax5NumericText? KeyIndex { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,19 +196,16 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// As defined in ISO 9564-1. 
         /// </summary>
         [IsoId("_DiyMQYnVEeiHerJAHfwamw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("PIN Block Format")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PINBlckFrmt")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("PINBlckFrmt")]
+        [IsoSimpleType(IsoSimpleType.Max2NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax2NumericText PINBlockFormat { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String PINBlockFormat { get; init; } 
+        public required System.String PINBlockFormat { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String PINBlockFormat { get; init; } 
         #else
@@ -243,19 +217,16 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice
         /// Binary, length of 8 or 16
         /// </summary>
         [IsoId("_BbKmMInaEei2ytxdCDTOFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Encrypted PIN Block")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NcrptdPINBlck")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("NcrptdPINBlck")]
+        [IsoSimpleType(IsoSimpleType.Max16HexBinaryText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax16HexBinaryText EncryptedPINBlock { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String EncryptedPINBlock { get; init; } 
+        public required System.String EncryptedPINBlock { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String EncryptedPINBlock { get; init; } 
         #else

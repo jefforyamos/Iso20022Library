@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPurpose1Choice
     /// Provides the collateral purpose using an ISO 20022 code.
     /// </summary>
     [IsoId("_Qkr_dNp-Ed-ak6NoX_4Aeg_1309725745")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPurpose1Choice
         /// Indicates whether the collateral has been posted against the variation margin or the segregated independent amount.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CollateralPurpose1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CollateralPurpose1Code Value { get; init; } 
+        public required CollateralPurpose1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CollateralPurpose1Code Value { get; init; } 
         #else

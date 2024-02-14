@@ -21,7 +21,7 @@ public enum InformationDistributionCode
 {
     /// <summary>
     /// Paper distribution.
-    /// Encoded/decoded by serializers as "PAPR".
+    /// Encoded/decoded by serializers as &quot;PAPR&quot;.
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_LZJgIBOCEeKjmvxNCObNeQ")]
@@ -30,7 +30,7 @@ public enum InformationDistributionCode
     
     /// <summary>
     /// Electronic distribution.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_LjIikBOCEeKjmvxNCObNeQ")]
@@ -39,7 +39,7 @@ public enum InformationDistributionCode
     
     /// <summary>
     /// No distribution.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_s8JEkCCUEeWJd9HF2tO7BA")]

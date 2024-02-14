@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details related to the status of the order.
 /// </summary>
 [IsoId("_Oqd4sQd3Ee2fOITqoTnSLQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record StatusAndReason46
     /// Status of affirmation of a trade.
     /// </summary>
     [IsoId("_O8WS5Qd3Ee2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Affirmation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AffirmSts")]
     #endif
+    [IsoXmlTag("AffirmSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AffirmationStatus10Choice_ AffirmationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AffirmationStatus10Choice_ AffirmationStatus { get; init; } 
+    public required AffirmationStatus10Choice_ AffirmationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AffirmationStatus10Choice_ AffirmationStatus { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record StatusAndReason46
     /// Specifies the reason why the instruction has an unaffirmed status.
     /// </summary>
     [IsoId("_O8WS7Qd3Ee2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unaffirmed Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UaffrmdRsn")]
     #endif
+    [IsoXmlTag("UaffrmdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnaffirmedReason3Choice_? UnaffirmedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,13 @@ public partial record StatusAndReason46
     /// Provides additional information about the reason in narrative form.
     /// </summary>
     [IsoId("_O8WS7wd3Ee2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max210Text)]
     [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

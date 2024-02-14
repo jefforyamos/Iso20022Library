@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceQuantity1Choice
     /// Total quantity of financial instruments of the balance.
     /// </summary>
     [IsoId("_RCDQ6Np-Ed-ak6NoX_4Aeg_1736172221")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

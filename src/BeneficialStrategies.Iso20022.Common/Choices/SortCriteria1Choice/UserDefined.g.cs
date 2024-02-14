@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SortCriteria1Choice
     /// User-defined way of indicating how the information is broken down.
     /// </summary>
     [IsoId("_U1-1htp-Ed-ak6NoX_4Aeg_1863721996")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Defined")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice
     /// Lower boundary of a range of percentage rates.
     /// </summary>
     [IsoId("_7_BRqaMgEeCJ6YNENx4h-w_-1383081859")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice
         /// Percentage rate of the range limit.
         /// </summary>
         [IsoId("_8GekiKMgEeCJ6YNENx4h-w_1727044493")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Boundary Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BdryRate")]
         #endif
+        [IsoXmlTag("BdryRate")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPercentageRate BoundaryRate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal BoundaryRate { get; init; } 
+        public required System.Decimal BoundaryRate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal BoundaryRate { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice
         /// Indicates whether the boundary percentage rate is included in the range of percentage rates.
         /// </summary>
         [IsoId("_8GekiaMgEeCJ6YNENx4h-w_-1807157650")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Included")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Incl")]
         #endif
+        [IsoXmlTag("Incl")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoYesNoIndicator Included { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Included { get; init; } 
+        public required System.String Included { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Included { get; init; } 
         #else

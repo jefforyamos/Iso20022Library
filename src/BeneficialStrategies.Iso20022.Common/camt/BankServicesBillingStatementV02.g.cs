@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The BankServicesBillingStatement message is used to send from a Financial Institution (FI) to its wholesale customers (corporations, governments, institutions, etc.), information describing the FI’s billing of services rendered in the form of an electronic statement in a standardised format. The BankServicesBillingStatement is a periodic (usually end of month) recounting of all service chargeable events that occurred during a reporting cycle, typically a calendar month, along with detailed tax and currency translation information. Account balance information, although strongly recommended, is not required.|Usage|The BankServicesBillingStatement message is designed to provide details related to invoices (or an advice of debit) which a financial institution may supply to its customers. The BankServicesBillingStatement is not expressly designed to be an invoice, nor to replace invoices currently in use. The message may be used as an invoice by agreement between the sender and the receiver. No regulatory or legislative requirements were considered when creating this message standard. Users of the BankServicesBillingStatement message are cautioned to be aware of any regulatory or legal requirement for invoices before replacing existing invoices.|The BankServicesBillingStatement message can supply the detail supporting separate invoices or debits but it is not the invoice or advice of debit of record. The BankServicesBillingStatement message must accurately reflect all the charge and tax related events that occurred during the calendar month and how the FI and taxing authorities were compensated for these events. The BankServicesBillingStatement does not ask the financial institution to revise its established pricing and billing procedures. |How, when and what the customer is actually charged for remains in place. The BankServicesBillingStatement message asks the financial institution to aggregate and report what actually happened during the calendar month.|The BankServicesBillingStatement message is intended for use with the ISO 20022 Business Application Header.")]
 [IsoId("_sHrTETqxEeWZFYSPlduMhw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank Services Billing Statement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record BankServicesBillingStatementV02 : IOuterRecord<BankService
     /// Provides header details on the billing statement report.
     /// </summary>
     [IsoId("_sHrTEzqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptHdr")]
     #endif
+    [IsoXmlTag("RptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportHeader3 ReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportHeader3 ReportHeader { get; init; } 
+    public required ReportHeader3 ReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportHeader3 ReportHeader { get; init; } 
     #else
@@ -102,16 +99,15 @@ public partial record BankServicesBillingStatementV02 : IOuterRecord<BankService
     /// Group of bank services billing statements with the same sender and receiver characteristics.
     /// </summary>
     [IsoId("_sHrTFTqxEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billing Statement Group")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BllgStmtGrp")]
     #endif
+    [IsoXmlTag("BllgStmtGrp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatementGroup2 BillingStatementGroup { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatementGroup2 BillingStatementGroup { get; init; } 
+    public required StatementGroup2 BillingStatementGroup { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatementGroup2 BillingStatementGroup { get; init; } 
     #else
@@ -122,7 +118,7 @@ public partial record BankServicesBillingStatementV02 : IOuterRecord<BankService
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BankServicesBillingStatementV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BankServicesBillingStatementV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BankServicesBillingStatementV02Document ToDocument()
     {
@@ -132,7 +128,7 @@ public partial record BankServicesBillingStatementV02 : IOuterRecord<BankService
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BankServicesBillingStatementV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BankServicesBillingStatementV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BankServicesBillingStatementV02Document : IOuterDocument<BankServicesBillingStatementV02>
@@ -149,7 +145,7 @@ public partial record BankServicesBillingStatementV02Document : IOuterDocument<B
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BankServicesBillingStatementV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BankServicesBillingStatementV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankServicesBillingStatementV02 Message { get; init; }

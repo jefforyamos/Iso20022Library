@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice
     /// Identifier for Belgian securities.
     /// </summary>
     [IsoId("_Qd1wk9p-Ed-ak6NoX_4Aeg_-722284454")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Belgian")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice
         /// Identifier for Belgian securities.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Belgn")]
         #endif
+        [IsoXmlTag("Belgn")]
+        [IsoSimpleType(IsoSimpleType.BelgianIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoBelgianIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

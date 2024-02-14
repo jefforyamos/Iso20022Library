@@ -21,7 +21,7 @@ public enum ChargeType10Code
 {
     /// <summary>
     /// Sales charge paid by the investor when redeeming an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "BEND".
+    /// Encoded/decoded by serializers as &quot;BEND&quot;.
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_a8YzFdp-Ed-ak6NoX_4Aeg_1180340741")]
@@ -30,7 +30,7 @@ public enum ChargeType10Code
     
     /// <summary>
     /// Sales charge paid immediately by the investor when subscribing to an investment such as an investment fund.
-    /// Encoded/decoded by serializers as "FEND".
+    /// Encoded/decoded by serializers as &quot;FEND&quot;.
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a8YzFtp-Ed-ak6NoX_4Aeg_1180341007")]
@@ -39,7 +39,7 @@ public enum ChargeType10Code
     
     /// <summary>
     /// Fee charged to the investor for early redemption of the fund.
-    /// Encoded/decoded by serializers as "PENA".
+    /// Encoded/decoded by serializers as &quot;PENA&quot;.
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_a8YzF9p-Ed-ak6NoX_4Aeg_-434933629")]

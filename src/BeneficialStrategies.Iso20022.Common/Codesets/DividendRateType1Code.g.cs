@@ -21,7 +21,7 @@ public enum DividendRateType1Code
 {
     /// <summary>
     /// Rate relating to the underlying security for which tax is charged.
-    /// Encoded/decoded by serializers as "TXBL".
+    /// Encoded/decoded by serializers as &quot;TXBL&quot;.
     /// </summary>
     [EnumMember(Value = "TXBL")]
     [IsoId("_q3yFdGtdEeCY4-KZ9JEyUQ_-747091417")]

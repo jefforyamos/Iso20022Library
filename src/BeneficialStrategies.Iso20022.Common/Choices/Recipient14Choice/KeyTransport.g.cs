@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient14Choice
     /// Encryption key using previously distributed asymmetric public key.
     /// </summary>
     [IsoId("_4SHA4XDEEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Transport")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient14Choice
         /// Version of the data structure.
         /// </summary>
         [IsoId("_9qw9EXDDEe2MCaKO5AtGsA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Version")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Vrsn")]
         #endif
+        [IsoXmlTag("Vrsn")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoNumber? Version { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient14Choice
         /// Identification of a cryptographic asymmetric key for the recipient.
         /// </summary>
         [IsoId("_9qw9E3DDEe2MCaKO5AtGsA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Recipient Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RcptId")]
         #endif
+        [IsoXmlTag("RcptId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Recipient13Choice_ RecipientIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Recipient13Choice_ RecipientIdentification { get; init; } 
+        public required Recipient13Choice_ RecipientIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Recipient13Choice_ RecipientIdentification { get; init; } 
         #else
@@ -96,16 +93,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient14Choice
         /// Algorithm to encrypt the key encryption key (KEK).
         /// </summary>
         [IsoId("_9qw9FXDDEe2MCaKO5AtGsA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Encryption Algorithm")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyNcrptnAlgo")]
         #endif
+        [IsoXmlTag("KeyNcrptnAlgo")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AlgorithmIdentification19 KeyEncryptionAlgorithm { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AlgorithmIdentification19 KeyEncryptionAlgorithm { get; init; } 
+        public required AlgorithmIdentification19 KeyEncryptionAlgorithm { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AlgorithmIdentification19 KeyEncryptionAlgorithm { get; init; } 
         #else
@@ -116,16 +112,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient14Choice
         /// Encrypted key encryption key (KEK).
         /// </summary>
         [IsoId("_9qyLMXDDEe2MCaKO5AtGsA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Encrypted Key")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NcrptdKey")]
         #endif
+        [IsoXmlTag("NcrptdKey")]
+        [IsoSimpleType(IsoSimpleType.Max5000Binary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax5000Binary EncryptedKey { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Byte[] EncryptedKey { get; init; } 
+        public required System.Byte[] EncryptedKey { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Byte[] EncryptedKey { get; init; } 
         #else

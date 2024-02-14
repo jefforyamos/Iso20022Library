@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"The Net Report message is sent to a participant by a central system to provide details of the of the bi-lateral payment obligations, calculated by the central system per currency.")]
 [IsoId("_2YFYQJUlEeaYkf5FCqYMeA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Net Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record NetReportV01 : IOuterRecord<NetReportV01,NetReportV01Docum
     /// Specifies the meta data associated with the net report.
     /// </summary>
     [IsoId("_bs5gUJUrEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Report Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetRptData")]
     #endif
+    [IsoXmlTag("NetRptData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetReportData1 NetReportData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NetReportData1 NetReportData { get; init; } 
+    public required NetReportData1 NetReportData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NetReportData1 NetReportData { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record NetReportV01 : IOuterRecord<NetReportV01,NetReportV01Docum
     /// Describes the participant receiving the net report.
     /// </summary>
     [IsoId("_TX-x4JUtEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Service Participant Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetSvcPtcptId")]
     #endif
+    [IsoXmlTag("NetSvcPtcptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
+    public required PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record NetReportV01 : IOuterRecord<NetReportV01,NetReportV01Docum
     /// Describes the counterparty participant involved in (all of) the obligations of the report.
     /// </summary>
     [IsoId("_98aukJU0EeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Service Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetSvcCtrPtyId")]
     #endif
+    [IsoXmlTag("NetSvcCtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? NetServiceCounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,16 +130,15 @@ public partial record NetReportV01 : IOuterRecord<NetReportV01,NetReportV01Docum
     /// Provides the amount, direct parties or netting groups involved in the obligation.
     /// </summary>
     [IsoId("_0OAIgJU0EeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetOblgtn")]
     #endif
+    [IsoXmlTag("NetOblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetObligation1 NetObligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NetObligation1 NetObligation { get; init; } 
+    public required NetObligation1 NetObligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NetObligation1 NetObligation { get; init; } 
     #else
@@ -155,12 +149,11 @@ public partial record NetReportV01 : IOuterRecord<NetReportV01,NetReportV01Docum
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_RA5FEJU1EeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,7 +166,7 @@ public partial record NetReportV01 : IOuterRecord<NetReportV01,NetReportV01Docum
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NetReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NetReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NetReportV01Document ToDocument()
     {
@@ -183,7 +176,7 @@ public partial record NetReportV01 : IOuterRecord<NetReportV01,NetReportV01Docum
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NetReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NetReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NetReportV01Document : IOuterDocument<NetReportV01>
@@ -200,7 +193,7 @@ public partial record NetReportV01Document : IOuterDocument<NetReportV01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NetReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NetReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetReportV01 Message { get; init; }

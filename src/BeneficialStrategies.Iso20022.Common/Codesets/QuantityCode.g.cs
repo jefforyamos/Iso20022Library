@@ -21,7 +21,7 @@ public enum QuantityCode
 {
     /// <summary>
     /// Quantity has not been established.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ZXgf9Np-Ed-ak6NoX_4Aeg_746966356")]
@@ -30,7 +30,7 @@ public enum QuantityCode
     
     /// <summary>
     /// Quantity is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_ZXgf9dp-Ed-ak6NoX_4Aeg_746966416")]
@@ -39,7 +39,7 @@ public enum QuantityCode
     
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
-    /// Encoded/decoded by serializers as "QALL".
+    /// Encoded/decoded by serializers as &quot;QALL&quot;.
     /// </summary>
     [EnumMember(Value = "QALL")]
     [IsoId("_ZXgf9tp-Ed-ak6NoX_4Aeg_1023951187")]
@@ -48,7 +48,7 @@ public enum QuantityCode
     
     /// <summary>
     /// Instruction applies to the entire eligible balance of underlying securities.
-    /// Encoded/decoded by serializers as "ANYA".
+    /// Encoded/decoded by serializers as &quot;ANYA&quot;.
     /// </summary>
     [EnumMember(Value = "ANYA")]
     [IsoId("_EWP5F_mWEeCcAY_zfcalaA")]

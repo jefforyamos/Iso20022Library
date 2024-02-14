@@ -21,7 +21,7 @@ public enum ExternalGarnishmentTypeCode
 {
     /// <summary>
     /// Garnishment from a third party payer for Child Support
-    /// Encoded/decoded by serializers as "GNCS".
+    /// Encoded/decoded by serializers as &quot;GNCS&quot;.
     /// </summary>
     [EnumMember(Value = "GNCS")]
     [IsoId("_uTKPk_RYEeuLhpyIdtJzwg")]
@@ -30,7 +30,7 @@ public enum ExternalGarnishmentTypeCode
     
     /// <summary>
     /// Garnishment from a direct payer for Child Support
-    /// Encoded/decoded by serializers as "GNDP".
+    /// Encoded/decoded by serializers as &quot;GNDP&quot;.
     /// </summary>
     [EnumMember(Value = "GNDP")]
     [IsoId("_uTUAkPRYEeuLhpyIdtJzwg")]
@@ -39,7 +39,7 @@ public enum ExternalGarnishmentTypeCode
     
     /// <summary>
     /// Garnishment from a third party payer to taxing agency
-    /// Encoded/decoded by serializers as "GTPP".
+    /// Encoded/decoded by serializers as &quot;GTPP&quot;.
     /// </summary>
     [EnumMember(Value = "GTPP")]
     [IsoId("_uTUAk_RYEeuLhpyIdtJzwg")]

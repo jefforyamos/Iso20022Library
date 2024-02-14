@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PresentationMedium1Choice.Code))]
     [KnownType(typeof(PresentationMedium1Choice.Proprietary))]
     [IsoId("_93_1o3ltEeG7BsjMvd1mEw_-1462896243")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentation Medium 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

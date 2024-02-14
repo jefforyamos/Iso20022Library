@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Service provider parameters of the point of interaction (POI).
 /// </summary>
 [IsoId("_YQodoVFMEeyApZmLzm74zA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Service Provider Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ServiceProviderParameters2
     /// Type of action for the configuration parameters.
     /// </summary>
     [IsoId("_YW_kUVFMEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTp")]
     #endif
+    [IsoXmlTag("ActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code ActionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementAction3Code ActionType { get; init; } 
+    public required TerminalManagementAction3Code ActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementAction3Code ActionType { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record ServiceProviderParameters2
     /// Identification of the service provider.
     /// </summary>
     [IsoId("_YW_kU1FMEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Provider Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcPrvdrId")]
     #endif
+    [IsoXmlTag("SvcPrvdrId")]
     public GenericIdentification176? ServiceProviderIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _YW_kU1FMEeyApZmLzm74zA
     
@@ -85,19 +81,17 @@ public partial record ServiceProviderParameters2
     /// Version of the service provider parameters.
     /// </summary>
     [IsoId("_YW_kVVFMEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Version { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Version { get; init; } 
+    public required System.String Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Version { get; init; } 
     #else
@@ -108,15 +102,13 @@ public partial record ServiceProviderParameters2
     /// Identification of payment application relevant for this service provider.
     /// </summary>
     [IsoId("_YW_kV1FMEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ApplId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ApplicationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +121,11 @@ public partial record ServiceProviderParameters2
     /// Service provider host configuration.
     /// </summary>
     [IsoId("_YW_kWVFMEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hst")]
     #endif
+    [IsoXmlTag("Hst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcquirerHostConfiguration9? Host { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +138,11 @@ public partial record ServiceProviderParameters2
     /// Identification of non financial action supported by the Service Provider.
     /// </summary>
     [IsoId("_YW_kW1FMEeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Financial Action Supported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonFinActnSpprtd")]
     #endif
+    [IsoXmlTag("NonFinActnSpprtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonFinancialRequestType1Code? NonFinancialActionSupported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

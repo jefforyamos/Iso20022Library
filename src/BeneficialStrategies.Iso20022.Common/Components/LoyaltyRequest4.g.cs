@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data to request a loyalty service. A Loyalty request contents : the loyalty transaction request and the loyalty data if any.
 /// </summary>
 [IsoId("_0bPAIU30Eey_VecAUE-C9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Loyalty Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record LoyaltyRequest4
     /// To retrieve Card Acquisition Data.
     /// </summary>
     [IsoId("_0hjDgU30Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrOrdr")]
     #endif
+    [IsoXmlTag("CstmrOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerOrder1? CustomerOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record LoyaltyRequest4
     /// Data related to the loyalty transaction.
     /// </summary>
     [IsoId("_0hjDg030Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LoyaltyTransaction4 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LoyaltyTransaction4 Transaction { get; init; } 
+    public required LoyaltyTransaction4 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LoyaltyTransaction4 Transaction { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record LoyaltyRequest4
     /// Data related to a Loyalty program or account.
     /// </summary>
     [IsoId("_0hjDhU30Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Data")]
     #endif
+    [IsoXmlTag("Data")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyRequestData3? Data { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

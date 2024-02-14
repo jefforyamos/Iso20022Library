@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BlockTrade1Choice.Code))]
     [KnownType(typeof(BlockTrade1Choice.Proprietary))]
     [IsoId("_QvuKwtp-Ed-ak6NoX_4Aeg_333347197")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Trade 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

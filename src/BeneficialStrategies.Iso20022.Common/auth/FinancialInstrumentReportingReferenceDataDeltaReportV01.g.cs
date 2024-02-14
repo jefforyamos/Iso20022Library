@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The FinancialInstrumentReportingReferenceDataDeltaReport message is sent by the trading venues to the national competent authority to report on changes that have occurred in the base data between reference data file generation.")]
 [IsoId("_4LUGKURNEee7JdgA9zPESA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Reporting Reference Data Delta Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
     /// Header information related to the global report.
     /// </summary>
     [IsoId("_4LUGK0RNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptHdr")]
     #endif
+    [IsoXmlTag("RptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesMarketReportHeader1 ReportHeader { get; init; } 
+    public required SecuritiesMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesMarketReportHeader1 ReportHeader { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
     /// Provides the details of the reference data that have been updated (since the last report).
     /// </summary>
     [IsoId("_4LUGLURNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrm")]
     #endif
+    [IsoXmlTag("FinInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesReferenceDeltaStatusReport2Choice_? FinancialInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_4LUGL0RNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInstrumentReportingReferenceDataDeltaReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInstrumentReportingReferenceDataDeltaReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInstrumentReportingReferenceDataDeltaReportV01Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01 : 
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingReferenceDataDeltaReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInstrumentReportingReferenceDataDeltaReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01Document : IOuterDocument<FinancialInstrumentReportingReferenceDataDeltaReportV01>
@@ -158,7 +153,7 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV01Doc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInstrumentReportingReferenceDataDeltaReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInstrumentReportingReferenceDataDeltaReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentReportingReferenceDataDeltaReportV01 Message { get; init; }

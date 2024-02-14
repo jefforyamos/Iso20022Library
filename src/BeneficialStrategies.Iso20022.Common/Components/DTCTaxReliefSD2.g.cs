@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// DTC (The Depository Trust Company) Tax Relief service election details.
 /// </summary>
 [IsoId("_1b3BsjL3EeKU9IrkkToqcw_-1727266611")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTC Tax Relief SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record DTCTaxReliefSD2
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1b3BszL3EeKU9IrkkToqcw_892961340")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record DTCTaxReliefSD2
     /// Provides information about the defined tax relief categories used by DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1b3BtDL3EeKU9IrkkToqcw_1733228081")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Tax Relief Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCTaxRlfCtgy")]
     #endif
+    [IsoXmlTag("DTCTaxRlfCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCTaxReliefSD1 DTCTaxReliefCategory { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DTCTaxReliefSD1 DTCTaxReliefCategory { get; init; } 
+    public required DTCTaxReliefSD1 DTCTaxReliefCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DTCTaxReliefSD1 DTCTaxReliefCategory { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record DTCTaxReliefSD2
     /// Instructed quantity for DTC Tax Relief service elections.
     /// </summary>
     [IsoId("_1b3BtTL3EeKU9IrkkToqcw_-633817074")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrQty")]
     #endif
+    [IsoXmlTag("InstrQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity15Choice_ InstructionQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity15Choice_ InstructionQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ InstructionQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity15Choice_ InstructionQuantity { get; init; } 
     #else

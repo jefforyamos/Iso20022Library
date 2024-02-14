@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsCode))]
     [KnownType(typeof(StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsDSS))]
     [IsoId("_Q7Cp89p-Ed-ak6NoX_4Aeg_2025558930")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Update Type Code And DSS Code Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a generic type of identification requested for a person.
 /// </summary>
 [IsoId("_lvDzgnFwEemaN4ndAVY1ZQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Generic Person Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record GenericPersonType1
     /// Specifies whether the private type for the customer identification is requested or not.
     /// </summary>
     [IsoId("_lvDzhHFwEemaN4ndAVY1ZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Reqd")]
     #endif
+    [IsoXmlTag("Reqd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator Requested { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Requested { get; init; } 
+    public required System.String Requested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Requested { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record GenericPersonType1
     /// Name of the identification scheme.
     /// </summary>
     [IsoId("_lvDzhnFwEemaN4ndAVY1ZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scheme Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchmeNm")]
     #endif
+    [IsoXmlTag("SchmeNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
+    public required PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     #else

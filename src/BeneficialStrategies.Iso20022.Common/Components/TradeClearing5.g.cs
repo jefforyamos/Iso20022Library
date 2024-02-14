@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the clearing of the contract.
 /// </summary>
 [IsoId("_BIv4sexYEemioJdkOVFBdw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Clearing")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TradeClearing5
     /// Indicates, whether the reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation and both counterparties to the contract are subject to the clearing obligation, as of the time of execution of the contract.
     /// </summary>
     [IsoId("_BT5_0exYEemioJdkOVFBdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrOblgtn")]
     #endif
+    [IsoXmlTag("ClrOblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingObligationType1Code? ClearingObligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TradeClearing5
     /// Indicator of whether the transaction has been cleared, or is intended to be cleared, by a central counterparty.
     /// </summary>
     [IsoId("_BT5_0-xYEemioJdkOVFBdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSts")]
     #endif
+    [IsoXmlTag("ClrSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Cleared12Choice_? ClearingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +77,12 @@ public partial record TradeClearing5
     /// Usage: When absent, default value is false.
     /// </summary>
     [IsoId("_BT5_1exYEemioJdkOVFBdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Group")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraGrp")]
     #endif
+    [IsoXmlTag("IntraGrp")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? IntraGroup { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

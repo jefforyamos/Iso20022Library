@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the account.
 /// </summary>
 [IsoId("_UK6fTNp-Ed-ak6NoX_4Aeg_-1336818380")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proceeds Delivery")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ProceedsDelivery1
     /// identification of the securities account to which the securities have to be delivered.
     /// </summary>
     [IsoId("_ULEQQNp-Ed-ak6NoX_4Aeg_-1218609739")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesAcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctiesAcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SecuritiesAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SecuritiesAccountIdentification { get; init; } 
+    public required System.String SecuritiesAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SecuritiesAccountIdentification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record ProceedsDelivery1
     /// Identification of the cash account to which the cash has to be delivered.
     /// </summary>
     [IsoId("_ULEQQdp-Ed-ak6NoX_4Aeg_-1258318117")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcctId")]
     #endif
+    [IsoXmlTag("CshAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccountIdentification1Choice_ CashAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccountIdentification1Choice_ CashAccountIdentification { get; init; } 
+    public required CashAccountIdentification1Choice_ CashAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccountIdentification1Choice_ CashAccountIdentification { get; init; } 
     #else
@@ -95,12 +90,11 @@ public partial record ProceedsDelivery1
     /// Identification of the party that owns the account.
     /// </summary>
     [IsoId("_ULEQQtp-Ed-ak6NoX_4Aeg_-1318346642")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnrId")]
     #endif
+    [IsoXmlTag("AcctOwnrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +107,11 @@ public partial record ProceedsDelivery1
     /// Identification of the institution servicing the account.
     /// </summary>
     [IsoId("_ULEQQ9p-Ed-ak6NoX_4Aeg_-1220127792")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcrId")]
     #endif
+    [IsoXmlTag("AcctSvcrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? AccountServicerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data captured from on board diagnostic systems
 /// </summary>
 [IsoId("_9D_nY9kGEeizh_fAW7LywQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("On Board Diagnostics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,12 @@ public partial record OnBoardDiagnostics1
     /// Expressed in hours
     /// </summary>
     [IsoId("_u84Q0NkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine Idle Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnIdleTm")]
     #endif
+    [IsoXmlTag("NgnIdleTm")]
+    [IsoSimpleType(IsoSimpleType.Max10NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumberFraction2? EngineIdleTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +62,12 @@ public partial record OnBoardDiagnostics1
     /// Expressed in hours
     /// </summary>
     [IsoId("_wPuYwNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine Total Idle Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnTtlIdleTm")]
     #endif
+    [IsoXmlTag("NgnTtlIdleTm")]
+    [IsoSimpleType(IsoSimpleType.Max10NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumberFraction2? EngineTotalIdleTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,12 +80,12 @@ public partial record OnBoardDiagnostics1
     /// Number of hours the engine has been running (including idle time) as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_R21uwNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine Hours")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnHrs")]
     #endif
+    [IsoXmlTag("NgnHrs")]
+    [IsoSimpleType(IsoSimpleType.Max10NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumberFraction2? EngineHours { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +99,12 @@ public partial record OnBoardDiagnostics1
     /// Expressed in hours
     /// </summary>
     [IsoId("_qG2WANkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine Total Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnTtlTm")]
     #endif
+    [IsoXmlTag("NgnTtlTm")]
+    [IsoSimpleType(IsoSimpleType.Max6NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? EngineTotalTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,15 +117,12 @@ public partial record OnBoardDiagnostics1
     /// Engine load measured as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_mjVzANkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine Load")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnLd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NgnLd")]
+    [IsoSimpleType(IsoSimpleType.Max12NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax12NumericText? EngineLoad { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,15 +135,12 @@ public partial record OnBoardDiagnostics1
     /// Maximum revolutions per minute experienced by the crankshaft of the vehicle engine as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_kxxuwNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine RPM")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnRPM")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NgnRPM")]
+    [IsoSimpleType(IsoSimpleType.Max5NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? EngineRPM { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +153,12 @@ public partial record OnBoardDiagnostics1
     /// Temperature of the engine oil as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_oVyBANkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine Oil Temperature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnOilTmprtr")]
     #endif
+    [IsoXmlTag("NgnOilTmprtr")]
+    [IsoSimpleType(IsoSimpleType.Max6NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? EngineOilTemperature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,15 +171,12 @@ public partial record OnBoardDiagnostics1
     /// Pressure of the engine oil as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_x5PUQNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine Oil Pressure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnOilPrssr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NgnOilPrssr")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? EngineOilPressure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,15 +189,12 @@ public partial record OnBoardDiagnostics1
     /// Time remaining before next oil change expressed as a percentage, as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_z4z_UNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Engine Oil Life Remaining")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NgnOilLifeRmng")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NgnOilLifeRmng")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3NumericText? EngineOilLifeRemaining { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,15 +207,13 @@ public partial record OnBoardDiagnostics1
     /// Check engine status as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_h77jANkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Check Engine Warning Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChckNgnWrngSts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ChckNgnWrngSts")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CheckEngineWarningStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,15 +226,12 @@ public partial record OnBoardDiagnostics1
     /// Fuel tank start level reading as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_TvYkwNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fuel Tank Level Start")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FuelTankLvlStart")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("FuelTankLvlStart")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? FuelTankLevelStart { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,15 +244,12 @@ public partial record OnBoardDiagnostics1
     /// Current fuel tank gauge level reading as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_Vz3lANkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fuel Gauge Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FuelGaugeLvl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("FuelGaugeLvl")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? FuelGaugeLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +262,12 @@ public partial record OnBoardDiagnostics1
     /// Fuel economy expressed in terms of the amount of fuel consumed per unit of travel as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_jYVPkNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fuel Economy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FuelEcnmy")]
     #endif
+    [IsoXmlTag("FuelEcnmy")]
+    [IsoSimpleType(IsoSimpleType.Max6NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? FuelEconomy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +280,12 @@ public partial record OnBoardDiagnostics1
     /// Number of hours the refrigeration unit has been in operation.
     /// </summary>
     [IsoId("_0T3D8f2kEeiS2rs-hXBB5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Refrigeration Hours")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrgrtnHrs")]
     #endif
+    [IsoXmlTag("RfrgrtnHrs")]
+    [IsoSimpleType(IsoSimpleType.Max10NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10NumberFraction2? RefrigerationHours { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +298,12 @@ public partial record OnBoardDiagnostics1
     /// Temperature of the refrigeration unit/trailer as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_OTQTQNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Refrigeration Temperature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrgrtnTmprtr")]
     #endif
+    [IsoXmlTag("RfrgrtnTmprtr")]
+    [IsoSimpleType(IsoSimpleType.Max6NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? RefrigerationTemperature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +316,12 @@ public partial record OnBoardDiagnostics1
     /// Temperature of the coolant as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_Z8DiYNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Coolant Temperature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CoolntTmprtr")]
     #endif
+    [IsoXmlTag("CoolntTmprtr")]
+    [IsoSimpleType(IsoSimpleType.Max6NumberFraction2)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax6NumberFraction2? CoolantTemperature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,15 +334,12 @@ public partial record OnBoardDiagnostics1
     /// Voltage of the vehicle battery as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_YdD00NkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Battery Voltage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BttryVltg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BttryVltg")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? BatteryVoltage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -377,15 +352,12 @@ public partial record OnBoardDiagnostics1
     /// Number of occurrences of hard breaking as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_r8khgNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hard Braking")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HardBrakg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("HardBrakg")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? HardBraking { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -398,15 +370,12 @@ public partial record OnBoardDiagnostics1
     /// Number of occurrences of hard acceleration as determined by the vehicle monitoring system.
     /// </summary>
     [IsoId("_tgqxgNkIEeizh_fAW7LywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hard Acceleration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HardAcclrtn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("HardAcclrtn")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? HardAcceleration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

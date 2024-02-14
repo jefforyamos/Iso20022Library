@@ -22,7 +22,7 @@ public enum ExternalAgentInstruction1Code
 {
     /// <summary>
     /// (Ultimate) creditor must be paid by cheque. 
-    /// Encoded/decoded by serializers as "CHQB".
+    /// Encoded/decoded by serializers as &quot;CHQB&quot;.
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_uaUAe_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// Amount of money must be held for the (ultimate) creditor, who will call. Pay on identification. 
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_uaUAfvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// Additional Information to an inquiry reason must be provided. 
-    /// Encoded/decoded by serializers as "INQR".
+    /// Encoded/decoded by serializers as &quot;INQR&quot;.
     /// </summary>
     [EnumMember(Value = "INQR")]
     [IsoId("_uadxcvRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// (Ultimate) creditor to be paid only after verification of identity. 
-    /// Encoded/decoded by serializers as "PBEN".
+    /// Encoded/decoded by serializers as &quot;PBEN&quot;.
     /// </summary>
     [EnumMember(Value = "PBEN")]
     [IsoId("_uadxdfRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// Please advise/contact next agent by phone. 
-    /// Encoded/decoded by serializers as "PHOA".
+    /// Encoded/decoded by serializers as &quot;PHOA&quot;.
     /// </summary>
     [EnumMember(Value = "PHOA")]
     [IsoId("_uam7YvRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by phone. 
-    /// Encoded/decoded by serializers as "PHOB".
+    /// Encoded/decoded by serializers as &quot;PHOB&quot;.
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_uam7ZfRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// Please advise/contact next agent by the most efficient means of telecommunication. 
-    /// Encoded/decoded by serializers as "TELA".
+    /// Encoded/decoded by serializers as &quot;TELA&quot;.
     /// </summary>
     [EnumMember(Value = "TELA")]
     [IsoId("_uawsYvRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// Please advise/contact (ultimate) creditor/claimant by the most efficient means of telecommunication. 
-    /// Encoded/decoded by serializers as "TELB".
+    /// Encoded/decoded by serializers as &quot;TELB&quot;.
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_uawsZfRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// Payment instruction will be valid and eligible for execution from the date and time stipulated. 
-    /// Encoded/decoded by serializers as "TFRO".
+    /// Encoded/decoded by serializers as &quot;TFRO&quot;.
     /// </summary>
     [EnumMember(Value = "TFRO")]
     [IsoId("_uawsaPRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalAgentInstruction1Code
     
     /// <summary>
     /// Payment instruction is valid and eligible for execution until the date and time stipulated. Otherwise, the payment instruction will be rejected. 
-    /// Encoded/decoded by serializers as "TTIL".
+    /// Encoded/decoded by serializers as &quot;TTIL&quot;.
     /// </summary>
     [EnumMember(Value = "TTIL")]
     [IsoId("_ua6dYvRYEeuLhpyIdtJzwg")]

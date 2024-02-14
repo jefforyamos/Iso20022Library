@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Point of interaction parameters related to the security of software application and application protocol.
 /// </summary>
 [IsoId("_Jjm7YTZ4EeOP_KvUKe29ng")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SecurityParameters2
     /// Point of interaction challenge for cryptographic key injection.
     /// </summary>
     [IsoId("_J1bEITZ4EeOP_KvUKe29ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIChllng")]
     #endif
+    [IsoXmlTag("POIChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? POIChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record SecurityParameters2
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
     [IsoId("_J1bEIzZ4EeOP_KvUKe29ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Challenge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMChllng")]
     #endif
+    [IsoXmlTag("TMChllng")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? TMChallenge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record SecurityParameters2
     /// Key to inject in the point of interaction, protected by the temporary key previously sent.
     /// </summary>
     [IsoId("_J1bEJTZ4EeOP_KvUKe29ng")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Symmetric Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SmmtrcKey")]
     #endif
+    [IsoXmlTag("SmmtrcKey")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CryptographicKey4? SymmetricKey { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

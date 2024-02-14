@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Liability and assets that arise for a clearing member with respect to a central counterparty.
 /// </summary>
 [IsoId("_BTNckKpwEeamNLogr5TkIQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Initial Margin Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record InitialMarginRequirement1
     /// Liability a clearing member has to a central counterparty with respect to potential future exposures.
     /// </summary>
     [IsoId("_iLGYQKpzEeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Exposure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnXpsr")]
     #endif
+    [IsoXmlTag("InitlMrgnXpsr")]
     public InitialMarginExposure1? InitialMarginExposure { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _iLGYQKpzEeamNLogr5TkIQ
     
@@ -64,16 +61,16 @@ public partial record InitialMarginRequirement1
     /// Total value of any credits offsetable against initial margin requirements at the end of day. For example, net liquidating value of option positions, contingent variation margin, delivery credits.
     /// </summary>
     [IsoId("_rCMxQKpyEeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cdt")]
     #endif
+    [IsoXmlTag("Cdt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Credit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Credit { get; init; } 
+    public required System.Decimal Credit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Credit { get; init; } 
     #else

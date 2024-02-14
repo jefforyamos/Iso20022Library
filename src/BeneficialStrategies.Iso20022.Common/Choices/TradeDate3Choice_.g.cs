@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeDate3Choice.Date))]
     [KnownType(typeof(TradeDate3Choice.DateCode))]
     [IsoId("_-axnlqMOEeCojJW5vEuTEQ_-1297910471")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

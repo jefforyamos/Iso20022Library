@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status19Choice
     /// Status of affirmation of a trade.
     /// </summary>
     [IsoId("_9HwpkzqpEeWyoP0PbocV1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Affirmation Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

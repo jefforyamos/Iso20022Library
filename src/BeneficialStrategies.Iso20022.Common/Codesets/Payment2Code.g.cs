@@ -21,7 +21,7 @@ public enum Payment2Code
 {
     /// <summary>
     /// The cash payment occurs or will occur upon receipt of proceeds from the issuer.
-    /// Encoded/decoded by serializers as "ACTU".
+    /// Encoded/decoded by serializers as &quot;ACTU&quot;.
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_KIs2sbXPEeiTob_PrFFUxA")]

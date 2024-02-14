@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed invoice data.
 /// </summary>
 [IsoId("_YJ1FgDD0EeO9waS4ina8CA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Invoice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CardPaymentInvoice1
     /// General data relevant to the main body of the invoice such as date of issue, currency code and identification number.
     /// </summary>
     [IsoId("_ozV1cDD0EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcHdr")]
     #endif
+    [IsoXmlTag("InvcHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceHeader1 InvoiceHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvoiceHeader1 InvoiceHeader { get; init; } 
+    public required InvoiceHeader1 InvoiceHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvoiceHeader1 InvoiceHeader { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record CardPaymentInvoice1
     /// Contractual details related to the agreement between parties.
     /// </summary>
     [IsoId("_ubYcADD0EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAgrmt")]
     #endif
+    [IsoXmlTag("TradAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement6 TradeAgreement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeAgreement6 TradeAgreement { get; init; } 
+    public required TradeAgreement6 TradeAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeAgreement6 TradeAgreement { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record CardPaymentInvoice1
     /// Supply chain shipping arrangements for delivery of invoiced products and/or services.
     /// </summary>
     [IsoId("_ymbgIDD0EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Delivery")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDlvry")]
     #endif
+    [IsoXmlTag("TradDlvry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeDelivery1 TradeDelivery { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeDelivery1 TradeDelivery { get; init; } 
+    public required TradeDelivery1 TradeDelivery { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeDelivery1 TradeDelivery { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record CardPaymentInvoice1
     /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
     /// </summary>
     [IsoId("_3mI7YDD0EeO9waS4ina8CA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineItm")]
     #endif
+    [IsoXmlTag("LineItm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LineItem10? LineItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

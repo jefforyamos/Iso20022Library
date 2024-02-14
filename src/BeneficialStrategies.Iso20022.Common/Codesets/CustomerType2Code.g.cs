@@ -21,7 +21,7 @@ public enum CustomerType2Code
 {
     /// <summary>
     /// Consumer
-    /// Encoded/decoded by serializers as "CSMR".
+    /// Encoded/decoded by serializers as &quot;CSMR&quot;.
     /// </summary>
     [EnumMember(Value = "CSMR")]
     [IsoId("_56414S7QEemIy6A-26wnAg")]
@@ -30,7 +30,7 @@ public enum CustomerType2Code
     
     /// <summary>
     /// Company
-    /// Encoded/decoded by serializers as "CPNY".
+    /// Encoded/decoded by serializers as &quot;CPNY&quot;.
     /// </summary>
     [EnumMember(Value = "CPNY")]
     [IsoId("_6R19US7QEemIy6A-26wnAg")]

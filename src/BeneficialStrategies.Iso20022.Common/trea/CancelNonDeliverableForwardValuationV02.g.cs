@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// </summary>
 [Description(@"Scope|The CancelNonDeliverableForwardValuation message is sent by a participant to a central system or to a counterparty to notify the cancellation of the valuation of a non deliverable trade previously confirmed by the sender.|Usage|The message will contain a Related Reference to link it to the previously sent notification. It may contain a reason for cancellation.")]
 [IsoId("_MYoUotE8Ed-BzquC8wXy7w_-340131062")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancel Non Deliverable Forward Valuation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord<Can
     /// Provides references and date of the valuation of the non deliverable trade which is cancelled.
     /// </summary>
     [IsoId("_MYoUo9E8Ed-BzquC8wXy7w_-745317673")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradInf")]
     #endif
+    [IsoXmlTag("TradInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement2 TradeInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeAgreement2 TradeInformation { get; init; } 
+    public required TradeAgreement2 TradeInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeAgreement2 TradeInformation { get; init; } 
     #else
@@ -98,12 +95,11 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord<Can
     /// Specifies the trading side of the non deliverable trade which is cancelled.
     /// </summary>
     [IsoId("_MYoUpNE8Ed-BzquC8wXy7w_200370128")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentification3? TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord<Can
     /// Specifies the counterparty of the non deliverable trade which is cancelled.
     /// </summary>
     [IsoId("_MYoUpdE8Ed-BzquC8wXy7w_67383181")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentification3? CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +129,11 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord<Can
     /// Specifies the amounts of the valuation of the non deliverable trade which is cancelled.
     /// </summary>
     [IsoId("_MYoUptE8Ed-BzquC8wXy7w_-761938752")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAmts")]
     #endif
+    [IsoXmlTag("TradAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountsAndValueDate1? TradeAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +146,11 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord<Can
     /// Specifies the valuation rate of the valuation of the non deliverable trade which is cancelled.
     /// </summary>
     [IsoId("_MYoUp9E8Ed-BzquC8wXy7w_-748089195")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnRate")]
     #endif
+    [IsoXmlTag("ValtnRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreedRate1? ValuationRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +163,11 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord<Can
     /// Specifies the valuation information of the valuation of the non deliverable trade which is cancelled.
     /// </summary>
     [IsoId("_MYoUqNE8Ed-BzquC8wXy7w_-750859823")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnInf")]
     #endif
+    [IsoXmlTag("ValtnInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValuationData2? ValuationInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,7 +180,7 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord<Can
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CancelNonDeliverableForwardValuationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CancelNonDeliverableForwardValuationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CancelNonDeliverableForwardValuationV02Document ToDocument()
     {
@@ -198,7 +190,7 @@ public partial record CancelNonDeliverableForwardValuationV02 : IOuterRecord<Can
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CancelNonDeliverableForwardValuationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CancelNonDeliverableForwardValuationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CancelNonDeliverableForwardValuationV02Document : IOuterDocument<CancelNonDeliverableForwardValuationV02>
@@ -215,7 +207,7 @@ public partial record CancelNonDeliverableForwardValuationV02Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CancelNonDeliverableForwardValuationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CancelNonDeliverableForwardValuationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancelNonDeliverableForwardValuationV02 Message { get; init; }

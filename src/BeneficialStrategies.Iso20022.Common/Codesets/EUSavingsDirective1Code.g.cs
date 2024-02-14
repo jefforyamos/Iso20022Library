@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
-/// Indicates whether or not the fund is subject to reporting under the EU Savings Directive. Enter "Variable" if the status of the fund is likely to change from time to time.
+/// Indicates whether or not the fund is subject to reporting under the EU Savings Directive. Enter &quot;Variable&quot; if the status of the fund is likely to change from time to time.
 /// </summary>
 [DataContract]
 [Serializable]
@@ -21,7 +21,7 @@ public enum EUSavingsDirective1Code
 {
     /// <summary>
     /// Investment Fund is in the scope of the directive.
-    /// Encoded/decoded by serializers as "EUSI".
+    /// Encoded/decoded by serializers as &quot;EUSI&quot;.
     /// </summary>
     [EnumMember(Value = "EUSI")]
     [IsoId("_aiUGNNp-Ed-ak6NoX_4Aeg_796430025")]
@@ -30,7 +30,7 @@ public enum EUSavingsDirective1Code
     
     /// <summary>
     /// Investment Fund is out of the scope of the directive.
-    /// Encoded/decoded by serializers as "EUSO".
+    /// Encoded/decoded by serializers as &quot;EUSO&quot;.
     /// </summary>
     [EnumMember(Value = "EUSO")]
     [IsoId("_aiUGNdp-Ed-ak6NoX_4Aeg_796430056")]
@@ -39,7 +39,7 @@ public enum EUSavingsDirective1Code
     
     /// <summary>
     /// Investment Fund may vary for inclusion in the scope of the directive.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_ai58ENp-Ed-ak6NoX_4Aeg_796430057")]

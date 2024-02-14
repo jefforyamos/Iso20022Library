@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about total instructed balance.
 /// </summary>
 [IsoId("_S-ax05cFEee8S7xwGG7Veg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instructed Balance Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InstructedBalanceDetails7
     /// Provides information about the total instructed balance.
     /// </summary>
     [IsoId("_TOVcoZcFEee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Instructed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlInstdBal")]
     #endif
+    [IsoXmlTag("TtlInstdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceFormat5Choice_ TotalInstructedBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BalanceFormat5Choice_ TotalInstructedBalance { get; init; } 
+    public required BalanceFormat5Choice_ TotalInstructedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BalanceFormat5Choice_ TotalInstructedBalance { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record InstructedBalanceDetails7
     /// Provide instructed balance breakdown information per option.
     /// </summary>
     [IsoId("_TOVco5cFEee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnDtls")]
     #endif
+    [IsoXmlTag("OptnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructedCorporateActionOption8? OptionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

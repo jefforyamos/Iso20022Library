@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The TransactionReportRequest message is sent by a party involved in a transaction to the matching application.|This message is used to request a report on details of transactions registered in the matching application.|Usage|The TransactionReportRequest message can be sent by either party involved in a transaction to request a report on a variety of details of all transactions that the requester is involved in. For example, the message can be used to request a report on all transactions that the requester is involved in with a certain customer.")]
 [IsoId("_15W1yNE8Ed-BzquC8wXy7w_-2039439363")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Report Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record TransactionReportRequestV03 : IOuterRecord<TransactionRepo
     /// Identifies the request message.
     /// </summary>
     [IsoId("_15W1ydE8Ed-BzquC8wXy7w_-2039438961")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqId")]
     #endif
+    [IsoXmlTag("ReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RequestIdentification { get; init; } 
+    public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RequestIdentification { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record TransactionReportRequestV03 : IOuterRecord<TransactionRepo
     /// Parameters to be used as criteria for the content of the transaction report.
     /// </summary>
     [IsoId("_15W1ytE8Ed-BzquC8wXy7w_-2039439323")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Specification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSpcfctn")]
     #endif
+    [IsoXmlTag("RptSpcfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportSpecification4 ReportSpecification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportSpecification4 ReportSpecification { get; init; } 
+    public required ReportSpecification4 ReportSpecification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportSpecification4 ReportSpecification { get; init; } 
     #else
@@ -120,7 +116,7 @@ public partial record TransactionReportRequestV03 : IOuterRecord<TransactionRepo
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TransactionReportRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TransactionReportRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TransactionReportRequestV03Document ToDocument()
     {
@@ -130,7 +126,7 @@ public partial record TransactionReportRequestV03 : IOuterRecord<TransactionRepo
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransactionReportRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TransactionReportRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TransactionReportRequestV03Document : IOuterDocument<TransactionReportRequestV03>
@@ -147,7 +143,7 @@ public partial record TransactionReportRequestV03Document : IOuterDocument<Trans
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TransactionReportRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TransactionReportRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionReportRequestV03 Message { get; init; }

@@ -21,7 +21,7 @@ public enum GeneralInvestmentAccountType2Code
 {
     /// <summary>
     /// Any type of general investment account.
-    /// Encoded/decoded by serializers as "ANYY".
+    /// Encoded/decoded by serializers as &quot;ANYY&quot;.
     /// </summary>
     [EnumMember(Value = "ANYY")]
     [IsoId("_PDJ8YZgJEemu1vK8dsrXIw")]
@@ -30,7 +30,7 @@ public enum GeneralInvestmentAccountType2Code
     
     /// <summary>
     /// General shares or equity savings account.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_PI9CYZgJEemu1vK8dsrXIw")]

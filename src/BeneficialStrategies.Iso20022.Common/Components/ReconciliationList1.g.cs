@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a list of reconciliation information concerning financial items.
 /// </summary>
 [IsoId("_OTgzMTk5-AOSNFX-8224490")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation List")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -60,16 +58,16 @@ public partial record ReconciliationList1
     /// Date of creation of this document.
     /// </summary>
     [IsoId("_OTgzNDE5-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate Date { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly Date { get; init; } 
+    public required System.DateOnly Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly Date { get; init; } 
     #else
@@ -80,12 +78,11 @@ public partial record ReconciliationList1
     /// Reference to related documents for example to original assignment in a status response or retry.
     /// </summary>
     [IsoId("_OTgzNDIw-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdDoc")]
     #endif
+    [IsoXmlTag("RltdDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? RelatedDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,16 +95,15 @@ public partial record ReconciliationList1
     /// Party to be advised.
     /// </summary>
     [IsoId("_OTgzNDIx-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcpt")]
     #endif
+    [IsoXmlTag("Rcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedPartyIdentification1 Recipient { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QualifiedPartyIdentification1 Recipient { get; init; } 
+    public required QualifiedPartyIdentification1 Recipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QualifiedPartyIdentification1 Recipient { get; init; } 
     #else
@@ -118,16 +114,15 @@ public partial record ReconciliationList1
     /// Informing party.
     /// </summary>
     [IsoId("_OTgzNDIy-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Advisor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Advsr")]
     #endif
+    [IsoXmlTag("Advsr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedPartyIdentification1 Advisor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QualifiedPartyIdentification1 Advisor { get; init; } 
+    public required QualifiedPartyIdentification1 Advisor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QualifiedPartyIdentification1 Advisor { get; init; } 
     #else
@@ -138,16 +133,15 @@ public partial record ReconciliationList1
     /// Identification parameters.
     /// </summary>
     [IsoId("_OTgzNDIz-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Params")]
     #endif
+    [IsoXmlTag("Params")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialItemParameters1 Parameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialItemParameters1 Parameters { get; init; } 
+    public required FinancialItemParameters1 Parameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialItemParameters1 Parameters { get; init; } 
     #else
@@ -158,16 +152,15 @@ public partial record ReconciliationList1
     /// Reference to a payment instruction.
     /// </summary>
     [IsoId("_OTgzNDI0-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtRef")]
     #endif
+    [IsoXmlTag("PmtRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentIdentification1 PaymentReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentIdentification1 PaymentReference { get; init; } 
+    public required PaymentIdentification1 PaymentReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentIdentification1 PaymentReference { get; init; } 
     #else
@@ -178,16 +171,15 @@ public partial record ReconciliationList1
     /// Set of elements used to further specify the type of transaction.
     /// </summary>
     [IsoId("_OTgzNDI1-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Means")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtMeans")]
     #endif
+    [IsoXmlTag("PmtMeans")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentMeans1 PaymentMeans { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentMeans1 PaymentMeans { get; init; } 
+    public required PaymentMeans1 PaymentMeans { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentMeans1 PaymentMeans { get; init; } 
     #else
@@ -198,16 +190,16 @@ public partial record ReconciliationList1
     /// Effective date of payment.
     /// </summary>
     [IsoId("_OTgzNDI2-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDt")]
     #endif
+    [IsoXmlTag("PmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate PaymentDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly PaymentDate { get; init; } 
+    public required System.DateOnly PaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly PaymentDate { get; init; } 
     #else
@@ -218,16 +210,15 @@ public partial record ReconciliationList1
     /// Terms of the payment.
     /// </summary>
     [IsoId("_OTgzNDI3-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTerms")]
     #endif
+    [IsoXmlTag("PmtTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentTerms6 PaymentTerms { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentTerms6 PaymentTerms { get; init; } 
+    public required PaymentTerms6 PaymentTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentTerms6 PaymentTerms { get; init; } 
     #else
@@ -238,16 +229,16 @@ public partial record ReconciliationList1
     /// Amount of the referenced payment.
     /// </summary>
     [IsoId("_OTgzNDI4-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtAmt")]
     #endif
+    [IsoXmlTag("PmtAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount PaymentAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PaymentAmount { get; init; } 
+    public required System.Decimal PaymentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PaymentAmount { get; init; } 
     #else
@@ -258,12 +249,11 @@ public partial record ReconciliationList1
     /// Financial item impacted by the payment.
     /// </summary>
     [IsoId("_OTgzNDI5-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Itm")]
     #endif
+    [IsoXmlTag("Itm")]
     public FinancialItem1? Item { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _OTgzNDI5-AOSNFX-8224504
     
@@ -271,19 +261,16 @@ public partial record ReconciliationList1
     /// Number of individual items contained in the list.
     /// </summary>
     [IsoId("_OTgzNDMw-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ItmCnt")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText ItemCount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ItemCount { get; init; } 
+    public required System.String ItemCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ItemCount { get; init; } 
     #else
@@ -294,12 +281,12 @@ public partial record ReconciliationList1
     /// Total of all individual amounts included in the list, irrespective of currencies.
     /// </summary>
     [IsoId("_OTgzNDMx-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Control Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrlSum")]
     #endif
+    [IsoXmlTag("CtrlSum")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ControlSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -312,12 +299,11 @@ public partial record ReconciliationList1
     /// Associated free form document.
     /// </summary>
     [IsoId("_OTgzNDMy-AOSNFX-8224504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Associated Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssoctdDoc")]
     #endif
+    [IsoXmlTag("AssoctdDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedDocumentInformation1? AssociatedDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -330,15 +316,13 @@ public partial record ReconciliationList1
     /// Additional proprietary formal information concerning the list.
     /// </summary>
     [IsoId("_OTgzNDMz-AOSNFX-8224505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -351,12 +335,11 @@ public partial record ReconciliationList1
     /// Validation status of the list.
     /// </summary>
     [IsoId("_OTgzNDM0-AOSNFX-8224505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Status Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnStsInf")]
     #endif
+    [IsoXmlTag("VldtnStsInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum PendingReason17Code
 {
     /// <summary>
     /// Awaiting confirmation from the counterparty.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_Es9YUeBkEeiVRbNQx5-Vhg")]

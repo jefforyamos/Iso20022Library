@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the collateral valuation.
 /// </summary>
 [IsoId("_jXJ68RImEeyLzJfz3xPQNA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CollateralAmount16
     /// Total value of posted collateral (post-haircut) expressed in the reporting currency.
     /// </summary>
     [IsoId("_juZWQxImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Of Collateral Held")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValOfCollHeld")]
     #endif
+    [IsoXmlTag("ValOfCollHeld")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount ValueOfCollateralHeld { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ValueOfCollateralHeld { get; init; } 
+    public required System.Decimal ValueOfCollateralHeld { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ValueOfCollateralHeld { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record CollateralAmount16
     /// Total exposure amount between the giver and taker expressed in the reporting currency.
     /// </summary>
     [IsoId("_juZWRRImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Exposure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlXpsr")]
     #endif
+    [IsoXmlTag("TtlXpsr")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount TotalExposure { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalExposure { get; init; } 
+    public required System.Decimal TotalExposure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalExposure { get; init; } 
     #else
@@ -92,12 +90,11 @@ public partial record CollateralAmount16
     /// The difference between the total collateral value and the total collateral required.
     /// </summary>
     [IsoId("_juZWRxImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mrgn")]
     #endif
+    [IsoXmlTag("Mrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? Margin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +107,12 @@ public partial record CollateralAmount16
     /// Collateral is required to cover interest that accrues on the exposure. Margin amount would thus be the difference between collateral required and collateral value (that is COVA).
     /// </summary>
     [IsoId("_juZWSRImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Collateral Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCollReqrd")]
     #endif
+    [IsoXmlTag("TtlCollReqrd")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCollateralRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +125,12 @@ public partial record CollateralAmount16
     /// Total amount of money accrued interest computed in the case of interest bearing financial instruments.
     /// </summary>
     [IsoId("_juZWSxImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Accrued Interest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAcrdIntrst")]
     #endif
+    [IsoXmlTag("TtlAcrdIntrst")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalAccruedInterest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +143,12 @@ public partial record CollateralAmount16
     /// Total value of own collateral in the reporting currency.
     /// </summary>
     [IsoId("_juZWTRImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Value Of Own Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlValOfOwnColl")]
     #endif
+    [IsoXmlTag("TtlValOfOwnColl")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfOwnCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +161,12 @@ public partial record CollateralAmount16
     /// Total value of reused/rehypotheticated collateral in the reporting currency.
     /// </summary>
     [IsoId("_juZWTxImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Value Of Reused Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlValOfReusdColl")]
     #endif
+    [IsoXmlTag("TtlValOfReusdColl")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfReusedCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +179,12 @@ public partial record CollateralAmount16
     /// Total of principals in the reporting currency.
     /// </summary>
     [IsoId("_juZWURImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Of Principals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlOfPrncpls")]
     #endif
+    [IsoXmlTag("TtlOfPrncpls")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalOfPrincipals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +197,12 @@ public partial record CollateralAmount16
     /// Value of incoming collateral, to be settled in the reporting currency.
     /// </summary>
     [IsoId("_juZWUxImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Pending Collateral In")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlPdgCollIn")]
     #endif
+    [IsoXmlTag("TtlPdgCollIn")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalPendingCollateralIn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +215,12 @@ public partial record CollateralAmount16
     /// Value of outgoing collateral, to be settled in the reporting currency.
     /// </summary>
     [IsoId("_juZWVRImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Pending Collateral Out")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlPdgCollOut")]
     #endif
+    [IsoXmlTag("TtlPdgCollOut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalPendingCollateralOut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,12 +233,12 @@ public partial record CollateralAmount16
     /// Total value of undelivered intended transaction cash amount.
     /// </summary>
     [IsoId("_juZWVxImEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Cash Failed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCshFaild")]
     #endif
+    [IsoXmlTag("TtlCshFaild")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFailed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

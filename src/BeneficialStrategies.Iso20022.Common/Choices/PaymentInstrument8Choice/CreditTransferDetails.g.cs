@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument8Choice
     /// Payment instrument between a debtor and a creditor, which flows through one or more financial institutions or systems.
     /// </summary>
     [IsoId("_VKshQ9p-Ed-ak6NoX_4Aeg_-703231405")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Transfer Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -53,18 +51,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument8Choice
         #nullable enable
         
         /// <summary>
-        /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
+        /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts&apos; receivable system.
         /// </summary>
         [IsoId("_VRiwJdp-Ed-ak6NoX_4Aeg_-1711379630")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ref")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Ref")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Reference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,16 +73,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument8Choice
         /// Party that receives an amount of money from the debtor. The creditor is also the credit account owner.
         /// </summary>
         [IsoId("_VRiwJtp-Ed-ak6NoX_4Aeg_-1711379576")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrDtls")]
         #endif
+        [IsoXmlTag("CdtrDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Creditor2 CreditorDetails { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Creditor2 CreditorDetails { get; init; } 
+        public required Creditor2 CreditorDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Creditor2 CreditorDetails { get; init; } 
         #else
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument8Choice
         /// Party that owes an amount of money to the creditor. The debtor is also the debit account owner.
         /// </summary>
         [IsoId("_VRiwJ9p-Ed-ak6NoX_4Aeg_-1711379585")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrDtls")]
         #endif
+        [IsoXmlTag("DbtrDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Debtor2? DebtorDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

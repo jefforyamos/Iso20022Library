@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on loan and collateral matching criteria.
 /// </summary>
 [IsoId("_C9D1V__oEemm3skPVSMJQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Matching Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record MatchingCriteria7
     /// Compares information related to both sides of a loan.
     /// </summary>
     [IsoId("_DA7osf_oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Matching Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyMtchgCrit")]
     #endif
+    [IsoXmlTag("CtrPtyMtchgCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartyMatchingCriteria1? CounterpartyMatchingCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record MatchingCriteria7
     /// Compares information related to both sides of a loan.
     /// </summary>
     [IsoId("_DA7os__oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loan Matching Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LnMtchgCrit")]
     #endif
+    [IsoXmlTag("LnMtchgCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoanMatchingCriteria6? LoanMatchingCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record MatchingCriteria7
     /// Compares information related to both sides of a collateral.
     /// </summary>
     [IsoId("_DA7otf_oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Matching Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollMtchgCrit")]
     #endif
+    [IsoXmlTag("CollMtchgCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralMatchingCriteria3? CollateralMatchingCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

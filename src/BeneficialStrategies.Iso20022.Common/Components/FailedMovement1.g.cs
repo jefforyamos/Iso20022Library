@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about a movement that failed the settlement.
 /// </summary>
 [IsoId("_UIrqo9p-Ed-ak6NoX_4Aeg_2140472900")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Failed Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record FailedMovement1
     /// Amount of cash.
     /// </summary>
     [IsoId("_UIrqpNp-Ed-ak6NoX_4Aeg_389375421")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAmt")]
     #endif
+    [IsoXmlTag("CshAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CashAmount { get; init; } 
+    public required System.Decimal CashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CashAmount { get; init; } 
     #else
@@ -73,16 +71,15 @@ public partial record FailedMovement1
     /// Quantity of the financial instrument.
     /// </summary>
     [IsoId("_UIrqpdp-Ed-ak6NoX_4Aeg_-613888276")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesQty")]
     #endif
+    [IsoXmlTag("SctiesQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     #else
@@ -93,12 +90,11 @@ public partial record FailedMovement1
     /// Identification of the financial instrument.
     /// </summary>
     [IsoId("_UIrqptp-Ed-ak6NoX_4Aeg_-647134478")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification7? SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +107,15 @@ public partial record FailedMovement1
     /// The reason for the settlement failure.
     /// </summary>
     [IsoId("_UIrqp9p-Ed-ak6NoX_4Aeg_-124106569")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FailedSettlementReason1FormatChoice_ Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FailedSettlementReason1FormatChoice_ Reason { get; init; } 
+    public required FailedSettlementReason1FormatChoice_ Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FailedSettlementReason1FormatChoice_ Reason { get; init; } 
     #else

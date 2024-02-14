@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashSettlementSystem1Choice.Code))]
     [KnownType(typeof(CashSettlementSystem1Choice.Proprietary))]
     [IsoId("_Qv3Ut9p-Ed-ak6NoX_4Aeg_-955027637")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Settlement System 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

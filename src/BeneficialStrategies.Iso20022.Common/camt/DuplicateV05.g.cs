@@ -30,13 +30,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// The Duplicate message is used by financial institutions, with their own offices, and/or with other financial institutions with which they have established bilateral agreements. It allows to exchange duplicate payment instructions.
 /// Usage
 /// This message must be sent in response to a Request For Duplicate message.
-/// The Duplicate Data element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|.
+/// The Duplicate Data element must contain a well formed XML document. This means XML special characters such as &apos;&lt;&apos; must be used in a way that is consistent with XML well-formedness criteria.|.
 /// </summary>
 [Description(@"Scope|The Duplicate message is used by financial institutions, with their own offices, and/or with other financial institutions with which they have established bilateral agreements. It allows to exchange duplicate payment instructions.|Usage|This message must be sent in response to a Request For Duplicate message.|The Duplicate Data element must contain a well formed XML document. This means XML special characters such as '<' must be used in a way that is consistent with XML well-formedness criteria.|.")]
 [IsoId("_nNMjUaqDEeeMmtkfa8-zPg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Duplicate V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record DuplicateV05 : IOuterRecord<DuplicateV05,DuplicateV05Docum
     /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
     /// </summary>
     [IsoId("_nNMjU6qDEeeMmtkfa8-zPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment4 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment4 Assignment { get; init; } 
+    public required CaseAssignment4 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment4 Assignment { get; init; } 
     #else
@@ -100,12 +97,11 @@ public partial record DuplicateV05 : IOuterRecord<DuplicateV05,DuplicateV05Docum
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_nNMjVaqDEeeMmtkfa8-zPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Case4? Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,16 +114,15 @@ public partial record DuplicateV05 : IOuterRecord<DuplicateV05,DuplicateV05Docum
     /// Duplicate of a previously sent message.
     /// </summary>
     [IsoId("_nNMjV6qDEeeMmtkfa8-zPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Duplicate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dplct")]
     #endif
+    [IsoXmlTag("Dplct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProprietaryData7 Duplicate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProprietaryData7 Duplicate { get; init; } 
+    public required ProprietaryData7 Duplicate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProprietaryData7 Duplicate { get; init; } 
     #else
@@ -138,12 +133,11 @@ public partial record DuplicateV05 : IOuterRecord<DuplicateV05,DuplicateV05Docum
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_nNMjWaqDEeeMmtkfa8-zPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,7 +150,7 @@ public partial record DuplicateV05 : IOuterRecord<DuplicateV05,DuplicateV05Docum
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DuplicateV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DuplicateV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DuplicateV05Document ToDocument()
     {
@@ -166,7 +160,7 @@ public partial record DuplicateV05 : IOuterRecord<DuplicateV05,DuplicateV05Docum
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DuplicateV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DuplicateV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DuplicateV05Document : IOuterDocument<DuplicateV05>
@@ -183,7 +177,7 @@ public partial record DuplicateV05Document : IOuterDocument<DuplicateV05>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DuplicateV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DuplicateV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DuplicateV05 Message { get; init; }

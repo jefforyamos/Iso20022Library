@@ -21,7 +21,7 @@ public enum CommissionType7Code
 {
     /// <summary>
     /// Commission for subscribing to an investment, paid at the time of the subscription.
-    /// Encoded/decoded by serializers as "FEND".
+    /// Encoded/decoded by serializers as &quot;FEND&quot;.
     /// </summary>
     [EnumMember(Value = "FEND")]
     [IsoId("_a_9riNp-Ed-ak6NoX_4Aeg_1912267481")]
@@ -30,7 +30,7 @@ public enum CommissionType7Code
     
     /// <summary>
     /// Commission for redeeming an investment, when an investor redeems an investment fund within a certain period of time.
-    /// Encoded/decoded by serializers as "BEND".
+    /// Encoded/decoded by serializers as &quot;BEND&quot;.
     /// </summary>
     [EnumMember(Value = "BEND")]
     [IsoId("_bAHcgNp-Ed-ak6NoX_4Aeg_1912267490")]

@@ -21,7 +21,7 @@ public enum Algorithm4Code
 {
     /// <summary>
     /// Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).
-    /// Encoded/decoded by serializers as "ERS2".
+    /// Encoded/decoded by serializers as &quot;ERS2&quot;.
     /// </summary>
     [EnumMember(Value = "ERS2")]
     [IsoId("_3MPT4QiqEeKn9O5oyej_zw")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details about the MIFID classification of the account owner.
 /// </summary>
 [IsoId("_WsmcQxOAEeKjmvxNCObNeQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mi FID Classification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MiFIDClassification1
     /// MiFID classification of the account owner.
     /// </summary>
     [IsoId("_wcTUoBOAEeKjmvxNCObNeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Clssfctn")]
     #endif
+    [IsoXmlTag("Clssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderOriginatorEligibility1Code Classification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderOriginatorEligibility1Code Classification { get; init; } 
+    public required OrderOriginatorEligibility1Code Classification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderOriginatorEligibility1Code Classification { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record MiFIDClassification1
     /// Additional information about the source of classification.
     /// </summary>
     [IsoId("_XomVABOBEeKjmvxNCObNeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Narrative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nrrtv")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nrrtv")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Narrative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

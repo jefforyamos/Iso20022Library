@@ -22,7 +22,7 @@ public enum ExternalEffectiveDateParameter1Code
 {
     /// <summary>
     /// Relates to the settlement date.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_uU8YRfRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalEffectiveDateParameter1Code
     
     /// <summary>
     /// Relates to the trade date.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_uU8YSPRYEeuLhpyIdtJzwg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Element containing all information needed to identify who triggered the request.
 /// </summary>
 [IsoId("_Bn_c4RBcEeqgJK7e3n_EXA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trigger Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record TriggerInformation2
     /// Actor who trigger the request.
     /// </summary>
     [IsoId("_By5FURBcEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trigger Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrggrSrc")]
     #endif
+    [IsoXmlTag("TrggrSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyType5Code TriggerSource { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyType5Code TriggerSource { get; init; } 
+    public required PartyType5Code TriggerSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyType5Code TriggerSource { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record TriggerInformation2
     /// Identification of the trigger source.
     /// </summary>
     [IsoId("_By5FUxBcEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SrcId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SourceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SourceIdentification { get; init; } 
+    public required System.String SourceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SourceIdentification { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record TriggerInformation2
     /// Identification of the type of the call.
     /// </summary>
     [IsoId("_By5FVRBcEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trigger Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrggrTp")]
     #endif
+    [IsoXmlTag("TrggrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExchangePolicy2Code TriggerType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExchangePolicy2Code TriggerType { get; init; } 
+    public required ExchangePolicy2Code TriggerType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExchangePolicy2Code TriggerType { get; init; } 
     #else
@@ -116,15 +110,13 @@ public partial record TriggerInformation2
     /// Additional information related to request.
     /// </summary>
     [IsoId("_By5FVxBcEeqgJK7e3n_EXA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

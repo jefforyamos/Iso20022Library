@@ -21,7 +21,7 @@ public enum PartyType16Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_FuP8Qa1_EeWMg5rOByfExw")]
@@ -30,7 +30,7 @@ public enum PartyType16Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_FuP8Q61_EeWMg5rOByfExw")]
@@ -39,7 +39,7 @@ public enum PartyType16Code
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DLIS".
+    /// Encoded/decoded by serializers as &quot;DLIS&quot;.
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_FuP8Ra1_EeWMg5rOByfExw")]
@@ -48,7 +48,7 @@ public enum PartyType16Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_FuP8R61_EeWMg5rOByfExw")]
@@ -57,7 +57,7 @@ public enum PartyType16Code
     
     /// <summary>
     /// Application on the terminal which has initiated the transaction.
-    /// Encoded/decoded by serializers as "OTRM".
+    /// Encoded/decoded by serializers as &quot;OTRM&quot;.
     /// </summary>
     [EnumMember(Value = "OTRM")]
     [IsoId("_FuP8Sa1_EeWMg5rOByfExw")]
@@ -66,7 +66,7 @@ public enum PartyType16Code
     
     /// <summary>
     /// The bank of the source account.
-    /// Encoded/decoded by serializers as "BKAF".
+    /// Encoded/decoded by serializers as &quot;BKAF&quot;.
     /// </summary>
     [EnumMember(Value = "BKAF")]
     [IsoId("_KDSC0a1_EeWMg5rOByfExw")]
@@ -75,7 +75,7 @@ public enum PartyType16Code
     
     /// <summary>
     /// The bank of the destination account.
-    /// Encoded/decoded by serializers as "BKAT".
+    /// Encoded/decoded by serializers as &quot;BKAT&quot;.
     /// </summary>
     [EnumMember(Value = "BKAT")]
     [IsoId("_KK4foa1_EeWMg5rOByfExw")]
@@ -84,7 +84,7 @@ public enum PartyType16Code
     
     /// <summary>
     /// Entity managing the ATM.
-    /// Encoded/decoded by serializers as "ATMG".
+    /// Encoded/decoded by serializers as &quot;ATMG&quot;.
     /// </summary>
     [EnumMember(Value = "ATMG")]
     [IsoId("_KcUN4a1_EeWMg5rOByfExw")]

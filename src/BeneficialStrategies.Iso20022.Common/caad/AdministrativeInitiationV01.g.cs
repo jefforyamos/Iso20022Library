@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caad;
 /// </summary>
 [Description(@"The AdministrativeInitiation message usually sent by any party (processor, clearing or settlement agent) to any party to inform anything that supports the business and technical infrastructure between parties.")]
 [IsoId("_wvW8wDNEEeylu6lH-gut-A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Administrative Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AdministrativeInitiationV01 : IOuterRecord<AdministrativeI
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_BSBd0TNFEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header66 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header66 Header { get; init; } 
+    public required Header66 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header66 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AdministrativeInitiationV01 : IOuterRecord<AdministrativeI
     /// Information related to the financial initiation.
     /// </summary>
     [IsoId("_Kp-EoTNFEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdministrativeInitiation1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdministrativeInitiation1 Body { get; init; } 
+    public required AdministrativeInitiation1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdministrativeInitiation1 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AdministrativeInitiationV01 : IOuterRecord<AdministrativeI
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_EzkR8TNFEeylu6lH-gut-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AdministrativeInitiationV01 : IOuterRecord<AdministrativeI
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AdministrativeInitiationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AdministrativeInitiationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AdministrativeInitiationV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AdministrativeInitiationV01 : IOuterRecord<AdministrativeI
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AdministrativeInitiationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AdministrativeInitiationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AdministrativeInitiationV01Document : IOuterDocument<AdministrativeInitiationV01>
@@ -161,7 +156,7 @@ public partial record AdministrativeInitiationV01Document : IOuterDocument<Admin
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AdministrativeInitiationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AdministrativeInitiationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdministrativeInitiationV01 Message { get; init; }

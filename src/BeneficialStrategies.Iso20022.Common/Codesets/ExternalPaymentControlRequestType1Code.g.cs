@@ -23,7 +23,7 @@ public enum ExternalPaymentControlRequestType1Code
 {
     /// <summary>
     /// Type is a request to release the pending transactions.
-    /// Encoded/decoded by serializers as "RT01".
+    /// Encoded/decoded by serializers as &quot;RT01&quot;.
     /// </summary>
     [EnumMember(Value = "RT01")]
     [IsoId("_udl9-PRYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalPaymentControlRequestType1Code
     
     /// <summary>
     /// Type is a request to hold normal transactions.
-    /// Encoded/decoded by serializers as "RT02".
+    /// Encoded/decoded by serializers as &quot;RT02&quot;.
     /// </summary>
     [EnumMember(Value = "RT02")]
     [IsoId("_udl9-_RYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalPaymentControlRequestType1Code
     
     /// <summary>
     /// Type is a request to cancel a transaction.
-    /// Encoded/decoded by serializers as "RT03".
+    /// Encoded/decoded by serializers as &quot;RT03&quot;.
     /// </summary>
     [EnumMember(Value = "RT03")]
     [IsoId("_udl9_vRYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalPaymentControlRequestType1Code
     
     /// <summary>
     /// Type is a request to change the sequence of the transactions.
-    /// Encoded/decoded by serializers as "RT04".
+    /// Encoded/decoded by serializers as &quot;RT04&quot;.
     /// </summary>
     [EnumMember(Value = "RT04")]
     [IsoId("_udvH4vRYEeuLhpyIdtJzwg")]
@@ -59,7 +59,7 @@ public enum ExternalPaymentControlRequestType1Code
     
     /// <summary>
     /// Type is a request to release the suspicious transactions.
-    /// Encoded/decoded by serializers as "RT05".
+    /// Encoded/decoded by serializers as &quot;RT05&quot;.
     /// </summary>
     [EnumMember(Value = "RT05")]
     [IsoId("_udvH5fRYEeuLhpyIdtJzwg")]

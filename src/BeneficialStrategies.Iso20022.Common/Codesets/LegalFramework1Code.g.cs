@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum LegalFramework1Code
 {
     /// <summary>
-    /// Relates to the French legal framework for repos, that is, relates to a "Pension Livrée".
-    /// Encoded/decoded by serializers as "FRAN".
+    /// Relates to the French legal framework for repos, that is, relates to a &quot;Pension Livrée&quot;.
+    /// Encoded/decoded by serializers as &quot;FRAN&quot;.
     /// </summary>
     [EnumMember(Value = "FRAN")]
     [IsoId("_ad115Np-Ed-ak6NoX_4Aeg_-1247950171")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassAttributes1Choice
     /// Asset class is a non-financial instrument of type interest rate.
     /// </summary>
     [IsoId("_id4oJe94EeW7gabYEJmWIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassAttributes1Choice
         /// Currency in which leg 2 of the swap is denominated, in case of swaptions where the underlying swap is multi-currency.
         /// </summary>
         [IsoId("_pqvkNcnYEeWpf-ImB_F2gQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Notional Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrNtnlCcy")]
         #endif
+        [IsoXmlTag("OthrNtnlCcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ActiveOrHistoricCurrencyCode OtherNotionalCurrency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string OtherNotionalCurrency { get; init; } 
+        public required string OtherNotionalCurrency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string OtherNotionalCurrency { get; init; } 
         #else

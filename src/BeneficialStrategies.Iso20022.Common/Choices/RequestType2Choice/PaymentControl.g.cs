@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType2Choice
     /// Request type is a control command on a set of transactions.
     /// </summary>
     [IsoId("_76G8c6MgEeCJ6YNENx4h-w_-1082024094")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Control")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType2Choice
         /// Specifies the request used to further detail the type of information that will be queried.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtCtrl")]
         #endif
+        [IsoXmlTag("PmtCtrl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RequestType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RequestType1Code Value { get; init; } 
+        public required RequestType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RequestType1Code Value { get; init; } 
         #else

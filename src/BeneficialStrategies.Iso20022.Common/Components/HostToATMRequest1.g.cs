@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the request to an ATM to contact the ATM manager.
 /// </summary>
 [IsoId("_nkIKwItqEeSDLd7nI4Quzw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Host To ATM Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record HostToATMRequest1
     /// Environment of the ATM.
     /// </summary>
     [IsoId("_FLX8cItrEeSDLd7nI4Quzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMEnvironment9 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMEnvironment9 Environment { get; init; } 
+    public required ATMEnvironment9 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMEnvironment9 Environment { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record HostToATMRequest1
     /// Identification of the entity issuing the command.
     /// </summary>
     [IsoId("_DovRwCydEeWT0qwwEKj7sA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdId")]
     #endif
+    [IsoXmlTag("CmdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record HostToATMRequest1
     /// Message that have to be sent by the ATM.
     /// </summary>
     [IsoId("_WvQl0CvQEeW-qbryg71zJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Message Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdMsgFctn")]
     #endif
+    [IsoXmlTag("XpctdMsgFctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageFunction8Code ExpectedMessageFunction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageFunction8Code ExpectedMessageFunction { get; init; } 
+    public required MessageFunction8Code ExpectedMessageFunction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageFunction8Code ExpectedMessageFunction { get; init; } 
     #else

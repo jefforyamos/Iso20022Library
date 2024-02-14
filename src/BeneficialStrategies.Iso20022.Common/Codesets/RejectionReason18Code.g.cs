@@ -21,7 +21,7 @@ public enum RejectionReason18Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_Zir1Ntp-Ed-ak6NoX_4Aeg_-940679430")]
@@ -30,7 +30,7 @@ public enum RejectionReason18Code
     
     /// <summary>
     /// Insufficient balance.
-    /// Encoded/decoded by serializers as "INHO".
+    /// Encoded/decoded by serializers as &quot;INHO&quot;.
     /// </summary>
     [EnumMember(Value = "INHO")]
     [IsoId("_Zir1N9p-Ed-ak6NoX_4Aeg_-940679369")]
@@ -39,7 +39,7 @@ public enum RejectionReason18Code
     
     /// <summary>
     /// Instruction/Request arrives too late.
-    /// Encoded/decoded by serializers as "LATT".
+    /// Encoded/decoded by serializers as &quot;LATT&quot;.
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_Zir1ONp-Ed-ak6NoX_4Aeg_-940679338")]

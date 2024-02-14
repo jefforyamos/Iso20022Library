@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice
     /// Identifier of a security assigned by the Consolidated Tape Association.
     /// </summary>
     [IsoId("_Qdr_ltp-Ed-ak6NoX_4Aeg_1064399405")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CTA")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice
         /// Identifier of a security assigned by the Consolidated Tape Association.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CTA")]
         #endif
+        [IsoXmlTag("CTA")]
+        [IsoSimpleType(IsoSimpleType.ConsolidatedTapeAssociationIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoConsolidatedTapeAssociationIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

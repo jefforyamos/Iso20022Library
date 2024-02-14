@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMSignature2Choice
     /// Digital signature of implicit data depending on the security scheme download procedure.
     /// </summary>
     [IsoId("_iFHDYbTwEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMSignature2Choice
         /// Type of data protection.
         /// </summary>
         [IsoId("_NjOT0YtNEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Content Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CnttTp")]
         #endif
+        [IsoXmlTag("CnttTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ContentType2Code ContentType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ContentType2Code ContentType { get; init; } 
+        public required ContentType2Code ContentType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ContentType2Code ContentType { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMSignature2Choice
         /// Data protected by a digital signatures.
         /// </summary>
         [IsoId("_NjOT14tNEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Signed Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SgndData")]
         #endif
+        [IsoXmlTag("SgndData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SignedData4 SignedData { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SignedData4 SignedData { get; init; } 
+        public required SignedData4 SignedData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SignedData4 SignedData { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction5Choice
     /// Reference details on the underlying statement cash entry.
     /// </summary>
     [IsoId("_ISFv5W49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Entry")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction5Choice
         /// Set of elements used to provide information on the original message.
         /// </summary>
         [IsoId("_ebdM8c4zEeis464yZacv2g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Group Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlGrpInf")]
         #endif
+        [IsoXmlTag("OrgnlGrpInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public OriginalGroupInformation29? OriginalGroupInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,15 +64,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction5Choice
         /// Unique identification, as assigned by the account servicer, to unambiguously identify the original statement.
         /// </summary>
         [IsoId("_ebdM884zEeis464yZacv2g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Statement Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlStmtId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OrgnlStmtId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? OriginalStatementIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,15 +83,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction5Choice
         /// Original unique identification, as assigned by the account servicer, to unambiguously identify the original entry.
         /// </summary>
         [IsoId("_ebdM9c4zEeis464yZacv2g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Entry Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlNtryId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OrgnlNtryId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? OriginalEntryIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +102,12 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction5Choice
         /// Universally unique identifier to provide the original end-to-end reference of a payment transaction.
         /// </summary>
         [IsoId("_afVVoc4zEeis464yZacv2g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original UETR")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlUETR")]
         #endif
+        [IsoXmlTag("OrgnlUETR")]
+        [IsoSimpleType(IsoSimpleType.UUIDv4Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoUUIDv4Identifier? OriginalUETR { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

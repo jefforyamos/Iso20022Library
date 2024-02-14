@@ -21,7 +21,7 @@ public enum MatchingStatus1Code
 {
     /// <summary>
     /// Instruction has been matched.
-    /// Encoded/decoded by serializers as "MACH".
+    /// Encoded/decoded by serializers as &quot;MACH&quot;.
     /// </summary>
     [EnumMember(Value = "MACH")]
     [IsoId("_aVDGRNp-Ed-ak6NoX_4Aeg_189804200")]
@@ -30,7 +30,7 @@ public enum MatchingStatus1Code
     
     /// <summary>
     /// Instruction has not been matched.
-    /// Encoded/decoded by serializers as "NMAT".
+    /// Encoded/decoded by serializers as &quot;NMAT&quot;.
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_aVDGRdp-Ed-ak6NoX_4Aeg_234135671")]

@@ -21,7 +21,7 @@ public enum TransactionChannel3Code
 {
     /// <summary>
     /// Mail order.
-    /// Encoded/decoded by serializers as "MAIL".
+    /// Encoded/decoded by serializers as &quot;MAIL&quot;.
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_sfvK8WkBEeS7zPBpvm732w")]
@@ -30,7 +30,7 @@ public enum TransactionChannel3Code
     
     /// <summary>
     /// Telephone order.
-    /// Encoded/decoded by serializers as "TLPH".
+    /// Encoded/decoded by serializers as &quot;TLPH&quot;.
     /// </summary>
     [EnumMember(Value = "TLPH")]
     [IsoId("_sfvK82kBEeS7zPBpvm732w")]
@@ -39,7 +39,7 @@ public enum TransactionChannel3Code
     
     /// <summary>
     /// Electronic commerce.
-    /// Encoded/decoded by serializers as "ECOM".
+    /// Encoded/decoded by serializers as &quot;ECOM&quot;.
     /// </summary>
     [EnumMember(Value = "ECOM")]
     [IsoId("_sfvK9WkBEeS7zPBpvm732w")]
@@ -48,7 +48,7 @@ public enum TransactionChannel3Code
     
     /// <summary>
     /// Payment on television.
-    /// Encoded/decoded by serializers as "TVPY".
+    /// Encoded/decoded by serializers as &quot;TVPY&quot;.
     /// </summary>
     [EnumMember(Value = "TVPY")]
     [IsoId("_sfvK92kBEeS7zPBpvm732w")]
@@ -57,7 +57,7 @@ public enum TransactionChannel3Code
     
     /// <summary>
     /// Electronic commerce with cardholder authentication.
-    /// Encoded/decoded by serializers as "SECM".
+    /// Encoded/decoded by serializers as &quot;SECM&quot;.
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_9IwLoWkBEeS7zPBpvm732w")]
@@ -66,7 +66,7 @@ public enum TransactionChannel3Code
     
     /// <summary>
     /// Payment performed through a cardholder mobile device.
-    /// Encoded/decoded by serializers as "MOBL".
+    /// Encoded/decoded by serializers as &quot;MOBL&quot;.
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_9T2oYWkBEeS7zPBpvm732w")]

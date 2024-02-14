@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the members of a system.
 /// </summary>
 [IsoId("_W1ihMXSeEeiH1ZOt2UD8vQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Member")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Member6
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, for example, returns or rejects.
     /// </summary>
     [IsoId("_XBEbwXSeEeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Return Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MmbRtrAdr")]
     #endif
+    [IsoXmlTag("MmbRtrAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MemberIdentification3Choice_? MemberReturnAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Member6
     /// Person to be contacted in a given organisation.
     /// </summary>
     [IsoId("_XBEbw3SeEeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctRef")]
     #endif
+    [IsoXmlTag("CtctRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentificationAndAddress1? ContactReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Member6
     /// Number, or virtual address, used for communication.
     /// </summary>
     [IsoId("_XBEbxXSeEeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Communication Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComAdr")]
     #endif
+    [IsoXmlTag("ComAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationAddress8? CommunicationAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

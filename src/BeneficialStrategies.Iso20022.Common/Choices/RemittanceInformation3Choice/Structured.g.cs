@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice
     /// Information in structured form, that is supplied to enable the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an account receivable system.
     /// </summary>
     [IsoId("_Rb-MwNp-Ed-ak6NoX_4Aeg_506340239")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice
         /// Specifies the nature of the referred document/transaction, eg, invoice or credit note.
         /// </summary>
         [IsoId("_QFjMZ9p-Ed-ak6NoX_4Aeg_-1152515234")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Referred Document Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RfrdDocTp")]
         #endif
+        [IsoXmlTag("RfrdDocTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DocumentType1Code? ReferredDocumentType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,12 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice
         /// Date associated with the referred document, eg, date of issue.
         /// </summary>
         [IsoId("_QFjMaNp-Ed-ak6NoX_4Aeg_-1151592780")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Referred Document Related Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RfrdDocRltdDt")]
         #endif
+        [IsoXmlTag("RfrdDocRltdDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? ReferredDocumentRelatedDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +82,11 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice
         /// Amount of money and currency of a document referred to in the remittance section. The amount is typically either the original amount due and payable, or the amount actually remitted for the referred document.
         /// </summary>
         [IsoId("_QFsWUNp-Ed-ak6NoX_4Aeg_-479270891")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Referred Document Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RfrdDocAmt")]
         #endif
+        [IsoXmlTag("RfrdDocAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReferredDocumentAmount1Choice_? ReferredDocumentAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,15 +99,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice
         /// Unique and unambiguous identification of a document that distinguishes that document from another document referred to in the remittance information, usually assigned by the originator of the referred document/transaction.
         /// </summary>
         [IsoId("_QFsWUdp-Ed-ak6NoX_4Aeg_-1151593080")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Document Reference Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DocRefNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("DocRefNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? DocumentReferenceNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,18 +115,16 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice
         #endif
         
         /// <summary>
-        /// Unique and unambiguous reference assigned by the creditor to refer to the payment transaction.||Usage: if available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the cash.||If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
+        /// Unique and unambiguous reference assigned by the creditor to refer to the payment transaction.||Usage: if available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the cash.||If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor&apos;s reference or payment remittance identification should be quoted in the end-to-end transaction identification.
         /// </summary>
         [IsoId("_QFsWUtp-Ed-ak6NoX_4Aeg_-521744082")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrRef")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("CdtrRef")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? CreditorReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,12 +137,11 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice
         /// Identification of the organization issuing the invoice when different than the creditor or final party.
         /// </summary>
         [IsoId("_QFsWU9p-Ed-ak6NoX_4Aeg_-1258212847")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Invoicer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Invcr")]
         #endif
+        [IsoXmlTag("Invcr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification1? Invoicer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,12 +154,11 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice
         /// Identification of the party to whom an invoice is issued, when different than the originator or debtor.
         /// </summary>
         [IsoId("_QFsWVNp-Ed-ak6NoX_4Aeg_-1543580746")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Invoicee")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Invcee")]
         #endif
+        [IsoXmlTag("Invcee")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification1? Invoicee { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

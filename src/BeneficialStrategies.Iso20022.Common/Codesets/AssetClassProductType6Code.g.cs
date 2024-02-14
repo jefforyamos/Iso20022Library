@@ -21,7 +21,7 @@ public enum AssetClassProductType6Code
 {
     /// <summary>
     /// Commodity of type industrial product.
-    /// Encoded/decoded by serializers as "INDP".
+    /// Encoded/decoded by serializers as &quot;INDP&quot;.
     /// </summary>
     [EnumMember(Value = "INDP")]
     [IsoId("_lpqhQQnyEeWnS-yHF1QhNQ")]

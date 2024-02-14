@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasis8Choice
     /// Statement basis expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_bZQ9MTp-EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasis8Choice
         /// Specifies the type of balances on which the statement is prepared.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StatementBasis2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StatementBasis2Code Value { get; init; } 
+        public required StatementBasis2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StatementBasis2Code Value { get; init; } 
         #else

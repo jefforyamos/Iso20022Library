@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
 [IsoId("_oRNJEc9JEeubvZK8CMH-Eg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PositionSetMetrics12
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
     [IsoId("_oTj5g89JEeubvZK8CMH-Eg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volume Metrics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VolMtrcs")]
     #endif
+    [IsoXmlTag("VolMtrcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VolumeMetrics6? VolumeMetrics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -64,12 +61,12 @@ public partial record PositionSetMetrics12
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
     [IsoId("_oTj5hc9JEeubvZK8CMH-Eg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut Or Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HrcutOrMrgn")]
     #endif
+    [IsoXmlTag("HrcutOrMrgn")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? HaircutOrMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,12 +79,11 @@ public partial record PositionSetMetrics12
     /// Quantity of the securities other than bonds.
     /// </summary>
     [IsoId("_oTj5h89JEeubvZK8CMH-Eg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Or Nominal Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyOrNmnlAmt")]
     #endif
+    [IsoXmlTag("QtyOrNmnlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityNominalValue2Choice_? QuantityOrNominalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CounterpartyTradeNature7Choice.FinancialInstitution))]
     [KnownType(typeof(CounterpartyTradeNature7Choice.NonFinancialInstitution))]
     [IsoId("_-N5Qman9EemdLtwzt4CWxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Trade Nature 7 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

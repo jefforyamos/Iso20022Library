@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"Scope|The AcceptorCancellationAdviceResponse message is sent by the acquirer to acknowledge the proper reception of the AcceptorCancellationAdvice. The message can be sent directly to the card acceptor or through an agent.|Usage|The AcceptorCancellationAdviceResponse message should be accepted by the card acceptor unless the message received was invalid.")]
 [IsoId("_dy5SQqMVEeCJ6YNENx4h-w_-1253418701")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Cancellation Advice Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord<Accep
     /// Cancellation advice response message management information.
     /// </summary>
     [IsoId("_dy5SQ6MVEeCJ6YNENx4h-w_-1226388965")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header2 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header2 Header { get; init; } 
+    public required Header2 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header2 Header { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord<Accep
     /// Information related to the cancellation advice response.
     /// </summary>
     [IsoId("_dy5SRKMVEeCJ6YNENx4h-w_-1962834050")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acceptor Cancellation Advice Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptrCxlAdvcRspn")]
     #endif
+    [IsoXmlTag("AccptrCxlAdvcRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCancellationAdviceResponse1 AcceptorCancellationAdviceResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorCancellationAdviceResponse1 AcceptorCancellationAdviceResponse { get; init; } 
+    public required AcceptorCancellationAdviceResponse1 AcceptorCancellationAdviceResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorCancellationAdviceResponse1 AcceptorCancellationAdviceResponse { get; init; } 
     #else
@@ -120,16 +116,15 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord<Accep
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_dy5SRaMVEeCJ6YNENx4h-w_1091066003")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType3 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType3 SecurityTrailer { get; init; } 
+    public required ContentInformationType3 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType3 SecurityTrailer { get; init; } 
     #else
@@ -140,7 +135,7 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord<Accep
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorCancellationAdviceResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorCancellationAdviceResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorCancellationAdviceResponseV01Document ToDocument()
     {
@@ -150,7 +145,7 @@ public partial record AcceptorCancellationAdviceResponseV01 : IOuterRecord<Accep
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCancellationAdviceResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorCancellationAdviceResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorCancellationAdviceResponseV01Document : IOuterDocument<AcceptorCancellationAdviceResponseV01>
@@ -167,7 +162,7 @@ public partial record AcceptorCancellationAdviceResponseV01Document : IOuterDocu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorCancellationAdviceResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorCancellationAdviceResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCancellationAdviceResponseV01 Message { get; init; }

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus25Choice
     /// Provides the status of settlement of an instruction/financial instrument movement.
     /// </summary>
     [IsoId("_8QcPs5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus25Choice
         /// Provides the status of settlement of an instruction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesSettlementStatus2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesSettlementStatus2Code Value { get; init; } 
+        public required SecuritiesSettlementStatus2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesSettlementStatus2Code Value { get; init; } 
         #else

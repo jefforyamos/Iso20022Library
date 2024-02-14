@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|An account servicer, eg, a registrar, transfer agent or custodian bank sends the AccountDetailsConfirmation message to an account owner, eg, an investor to confirm the opening of an investment fund account, execution of an AccountModificationInstruction or to return information requested in a GetAccountDetails message.|Usage|The AccountDetailsConfirmation message is used to confirm the opening of an account, modification of an account or the provision of information requested in a previously sent GetAccountDetails message. The message contains detailed information relevant to the opened account.|When the AccountDetailsConfirmation is used to confirm execution of an AccountModificationInstruction message, it contains the modified subsets of account details that were specified in the AccountModificationInstruction.|When the AccountDetailsConfirmation is used to reply to a GetAccountDetails message, it returns the selected subsets of account details that were specified in the GetAccountDetails message.")]
 [IsoId("_o6y4K9E9Ed-BzquC8wXy7w_-1762172506")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Details Confirmation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Identifies the message.
     /// </summary>
     [IsoId("_o6y4LNE9Ed-BzquC8wXy7w_-1885939941")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -101,12 +98,11 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Identifies a related order.
     /// </summary>
     [IsoId("_o68pINE9Ed-BzquC8wXy7w_203534418")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrRef")]
     #endif
+    [IsoXmlTag("OrdrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundOrder4? OrderReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +115,11 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_o68pIdE9Ed-BzquC8wXy7w_-1762172463")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,16 +132,15 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Provide detailed information about the request or instruction which triggered this confirmation.
     /// </summary>
     [IsoId("_o68pItE9Ed-BzquC8wXy7w_-1762172095")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfDtls")]
     #endif
+    [IsoXmlTag("ConfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountManagementConfirmation1 ConfirmationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountManagementConfirmation1 ConfirmationDetails { get; init; } 
+    public required AccountManagementConfirmation1 ConfirmationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountManagementConfirmation1 ConfirmationDetails { get; init; } 
     #else
@@ -157,12 +151,11 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Confirmation of the information related to a selected investment account.
     /// </summary>
     [IsoId("_o68pI9E9Ed-BzquC8wXy7w_-1762172042")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcct")]
     #endif
+    [IsoXmlTag("InvstmtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount27? InvestmentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +168,11 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Confirmation of information related to parties who are related to a selected investment account.
     /// </summary>
     [IsoId("_o68pJNE9Ed-BzquC8wXy7w_-1762171905")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctPties")]
     #endif
+    [IsoXmlTag("AcctPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountParties5? AccountParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,28 +185,24 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Confirmation of information related to intermediaries who are related to a selected investment account.
     /// </summary>
     [IsoId("_o68pJdE9Ed-BzquC8wXy7w_-1762171845")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediaries")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrmies")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Intrmies")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Intermediary12> Intermediaries { get; init; } = new ValueList<Intermediary12>(){};
     
     /// <summary>
     /// Placement agent for the hedge fund industry.
     /// </summary>
     [IsoId("_o68pJtE9Ed-BzquC8wXy7w_-1762171473")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Placement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Plcmnt")]
     #endif
+    [IsoXmlTag("Plcmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredAgent1? Placement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +215,11 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Eligibility conditions applicable when there is an allocation of new issues for hedge fund account opening.
     /// </summary>
     [IsoId("_o7FzENE9Ed-BzquC8wXy7w_-1761251466")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Issue Allocation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewIsseAllcn")]
     #endif
+    [IsoXmlTag("NewIsseAllcn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NewIssueAllocation1? NewIssueAllocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,44 +232,37 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Confirmation of the information related to a savings plan that is related to a selected investment account.
     /// </summary>
     [IsoId("_o7FzEdE9Ed-BzquC8wXy7w_-1762171940")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Savings Investment Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvgsInvstmtPlan")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SvgsInvstmtPlan")]
     [MinLength(0)]
     [MaxLength(50)]
-    #endif
     public ValueList<InvestmentPlan4> SavingsInvestmentPlan { get; init; } = new ValueList<InvestmentPlan4>(){};
     
     /// <summary>
     /// Confirmation of the information related to a withrawal plan that is related to a selected investment account.
     /// </summary>
     [IsoId("_o7FzEtE9Ed-BzquC8wXy7w_-1762172000")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withdrawal Investment Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WdrwlInvstmtPlan")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("WdrwlInvstmtPlan")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<InvestmentPlan4> WithdrawalInvestmentPlan { get; init; } = new ValueList<InvestmentPlan4>(){};
     
     /// <summary>
     /// Confirmation of the cash settlement standing instruction associated to the investment fund transaction.
     /// </summary>
     [IsoId("_o7FzE9E9Ed-BzquC8wXy7w_-1762171568")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshSttlm")]
     #endif
+    [IsoXmlTag("CshSttlm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundCashSettlementInformation3? CashSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -295,28 +275,24 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     /// Identifies documents to be provided for the account opening.
     /// </summary>
     [IsoId("_o7FzFNE9Ed-BzquC8wXy7w_-1762171533")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Level Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcLvlAgrmt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SvcLvlAgrmt")]
     [MinLength(0)]
     [MaxLength(30)]
-    #endif
     public ValueList<DocumentToSend1> ServiceLevelAgreement { get; init; } = new ValueList<DocumentToSend1>(){};
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_o7FzFdE9Ed-BzquC8wXy7w_-1762172420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -329,7 +305,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountDetailsConfirmationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountDetailsConfirmationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountDetailsConfirmationV02Document ToDocument()
     {
@@ -339,7 +315,7 @@ public partial record AccountDetailsConfirmationV02 : IOuterRecord<AccountDetail
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountDetailsConfirmationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountDetailsConfirmationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountDetailsConfirmationV02Document : IOuterDocument<AccountDetailsConfirmationV02>
@@ -356,7 +332,7 @@ public partial record AccountDetailsConfirmationV02Document : IOuterDocument<Acc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountDetailsConfirmationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountDetailsConfirmationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountDetailsConfirmationV02 Message { get; init; }

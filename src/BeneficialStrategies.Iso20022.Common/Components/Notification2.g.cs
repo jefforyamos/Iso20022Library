@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the type of notification required.
 /// </summary>
 [IsoId("_j2Sv8DnmEeW7UoCHqpiMaQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record Notification2
     /// Type of notification.
     /// </summary>
     [IsoId("_vifRUDnmEeW7UoCHqpiMaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NtfctnTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text NotificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NotificationType { get; init; } 
+    public required System.String NotificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NotificationType { get; init; } 
     #else
@@ -75,16 +71,16 @@ public partial record Notification2
     /// Indicates whether the notification is required.
     /// </summary>
     [IsoId("_xG6RcDnmEeW7UoCHqpiMaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Reqrd")]
     #endif
+    [IsoXmlTag("Reqrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Required { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Required { get; init; } 
+    public required System.String Required { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Required { get; init; } 
     #else
@@ -95,12 +91,11 @@ public partial record Notification2
     /// Specifies how the notification is sent.
     /// </summary>
     [IsoId("_2IHhgTnmEeW7UoCHqpiMaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Distribution Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstrbtnTp")]
     #endif
+    [IsoXmlTag("DstrbtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InformationDistribution1Choice_? DistributionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

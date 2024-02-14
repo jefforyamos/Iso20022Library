@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionStatus5Choice.GlobalInstructionStatus))]
     [KnownType(typeof(InstructionStatus5Choice.DetailedInstructionStatus))]
     [IsoId("_rZPC4V6uEeSyc4g_pm5hbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Status 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

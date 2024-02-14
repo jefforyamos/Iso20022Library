@@ -21,7 +21,7 @@ public enum TradingCapacity3Code
 {
     /// <summary>
     /// Trading as Principal.
-    /// Encoded/decoded by serializers as "PRIN".
+    /// Encoded/decoded by serializers as &quot;PRIN&quot;.
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_YqgQB9p-Ed-ak6NoX_4Aeg_-72074817")]
@@ -30,7 +30,7 @@ public enum TradingCapacity3Code
     
     /// <summary>
     /// Crossing as a principal.
-    /// Encoded/decoded by serializers as "CPRN".
+    /// Encoded/decoded by serializers as &quot;CPRN&quot;.
     /// </summary>
     [EnumMember(Value = "CPRN")]
     [IsoId("_YqgQCNp-Ed-ak6NoX_4Aeg_-72074799")]
@@ -39,7 +39,7 @@ public enum TradingCapacity3Code
     
     /// <summary>
     /// Trading as a riskless principal, ie, the order to buy(sell) has been simultaneously offset by an order to sell (buy) with another party.
-    /// Encoded/decoded by serializers as "RISP".
+    /// Encoded/decoded by serializers as &quot;RISP&quot;.
     /// </summary>
     [EnumMember(Value = "RISP")]
     [IsoId("_YqqBANp-Ed-ak6NoX_4Aeg_-72074774")]
@@ -47,8 +47,8 @@ public enum TradingCapacity3Code
     RisklessPrincipal = TradingCapacityCode.RisklessPrincipal, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Trading for its firm. The transaction affects the firm's own account, not that of its customers.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Trading for its firm. The transaction affects the firm&apos;s own account, not that of its customers.
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_YqqBAdp-Ed-ak6NoX_4Aeg_-72074773")]
@@ -57,7 +57,7 @@ public enum TradingCapacity3Code
     
     /// <summary>
     /// Trading as Agent on behalf of a customer.
-    /// Encoded/decoded by serializers as "AGEN".
+    /// Encoded/decoded by serializers as &quot;AGEN&quot;.
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_YqqBAtp-Ed-ak6NoX_4Aeg_-72074757")]
@@ -66,7 +66,7 @@ public enum TradingCapacity3Code
     
     /// <summary>
     /// Crossing as an agent.
-    /// Encoded/decoded by serializers as "CAGN".
+    /// Encoded/decoded by serializers as &quot;CAGN&quot;.
     /// </summary>
     [EnumMember(Value = "CAGN")]
     [IsoId("_YqqBA9p-Ed-ak6NoX_4Aeg_-72074739")]
@@ -75,7 +75,7 @@ public enum TradingCapacity3Code
     
     /// <summary>
     /// Acting as an agent for a party other than a customer.
-    /// Encoded/decoded by serializers as "OAGN".
+    /// Encoded/decoded by serializers as &quot;OAGN&quot;.
     /// </summary>
     [EnumMember(Value = "OAGN")]
     [IsoId("_YqqBBNp-Ed-ak6NoX_4Aeg_-72074738")]
@@ -84,7 +84,7 @@ public enum TradingCapacity3Code
     
     /// <summary>
     /// Acting as an agent for some executions and principal for others in the same transaction.
-    /// Encoded/decoded by serializers as "PRAG".
+    /// Encoded/decoded by serializers as &quot;PRAG&quot;.
     /// </summary>
     [EnumMember(Value = "PRAG")]
     [IsoId("_YqqBBdp-Ed-ak6NoX_4Aeg_-71154750")]

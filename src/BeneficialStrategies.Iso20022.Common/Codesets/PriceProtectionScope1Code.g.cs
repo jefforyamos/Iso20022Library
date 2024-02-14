@@ -21,7 +21,7 @@ public enum PriceProtectionScope1Code
 {
     /// <summary>
     /// Price protection is local (for example, Exchange, ECN, ATS).
-    /// Encoded/decoded by serializers as "LOCA".
+    /// Encoded/decoded by serializers as &quot;LOCA&quot;.
     /// </summary>
     [EnumMember(Value = "LOCA")]
     [IsoId("_aIreN9p-Ed-ak6NoX_4Aeg_-469828845")]
@@ -30,7 +30,7 @@ public enum PriceProtectionScope1Code
     
     /// <summary>
     /// Price protection is national (across all national markets).
-    /// Encoded/decoded by serializers as "NATI".
+    /// Encoded/decoded by serializers as &quot;NATI&quot;.
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_aIreONp-Ed-ak6NoX_4Aeg_-469828551")]
@@ -39,7 +39,7 @@ public enum PriceProtectionScope1Code
     
     /// <summary>
     /// Price protection is global (across all markets).
-    /// Encoded/decoded by serializers as "GLOB".
+    /// Encoded/decoded by serializers as &quot;GLOB&quot;.
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_aI1PMNp-Ed-ak6NoX_4Aeg_-469828498")]

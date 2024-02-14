@@ -21,7 +21,7 @@ public enum PegTypeCode
 {
     /// <summary>
     /// Order pegged against a fixed amount (local best bid or offer, at time of order).
-    /// Encoded/decoded by serializers as "FIXE".
+    /// Encoded/decoded by serializers as &quot;FIXE&quot;.
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_Z9zq9tp-Ed-ak6NoX_4Aeg_396098933")]
@@ -30,7 +30,7 @@ public enum PegTypeCode
     
     /// <summary>
     /// Order pegged against the last price.
-    /// Encoded/decoded by serializers as "LAST".
+    /// Encoded/decoded by serializers as &quot;LAST&quot;.
     /// </summary>
     [EnumMember(Value = "LAST")]
     [IsoId("_Z9zq99p-Ed-ak6NoX_4Aeg_396098975")]
@@ -39,7 +39,7 @@ public enum PegTypeCode
     
     /// <summary>
     /// Order pegged against the current market price. Relative to the offering if buying and relative to the bid if selling.
-    /// Encoded/decoded by serializers as "MARK".
+    /// Encoded/decoded by serializers as &quot;MARK&quot;.
     /// </summary>
     [EnumMember(Value = "MARK")]
     [IsoId("_Z9zq-Np-Ed-ak6NoX_4Aeg_396099018")]
@@ -48,7 +48,7 @@ public enum PegTypeCode
     
     /// <summary>
     /// Order pegged against the mid price, which is the average between the offer and bid prices.
-    /// Encoded/decoded by serializers as "MIDP".
+    /// Encoded/decoded by serializers as &quot;MIDP&quot;.
     /// </summary>
     [EnumMember(Value = "MIDP")]
     [IsoId("_Z9804Np-Ed-ak6NoX_4Aeg_396099053")]
@@ -57,7 +57,7 @@ public enum PegTypeCode
     
     /// <summary>
     /// Order pegged against the opening price.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_Z9804dp-Ed-ak6NoX_4Aeg_396099088")]
@@ -66,7 +66,7 @@ public enum PegTypeCode
     
     /// <summary>
     /// Order pegged against the primary market where the financial instrument is traded. It is relative to the offering if buying and relative to the bid if selling.
-    /// Encoded/decoded by serializers as "PRIM".
+    /// Encoded/decoded by serializers as &quot;PRIM&quot;.
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_Z9804tp-Ed-ak6NoX_4Aeg_396099347")]
@@ -75,7 +75,7 @@ public enum PegTypeCode
     
     /// <summary>
     /// Order pegged against the volume weighted average price for the day.
-    /// Encoded/decoded by serializers as "VWAP".
+    /// Encoded/decoded by serializers as &quot;VWAP&quot;.
     /// </summary>
     [EnumMember(Value = "VWAP")]
     [IsoId("_Z98049p-Ed-ak6NoX_4Aeg_396099390")]
@@ -84,7 +84,7 @@ public enum PegTypeCode
     
     /// <summary>
     /// Pegged order representing a stop order with a stop price pegged to trail a specified distance behind the last price. The price of a trailing stop to buy can never increase, and the price of a trailing stop to sell can never decrease.
-    /// Encoded/decoded by serializers as "TRST".
+    /// Encoded/decoded by serializers as &quot;TRST&quot;.
     /// </summary>
     [EnumMember(Value = "TRST")]
     [IsoId("_Z9805Np-Ed-ak6NoX_4Aeg_421956459")]
@@ -93,7 +93,7 @@ public enum PegTypeCode
     
     /// <summary>
     /// Order pegged against a limit price.
-    /// Encoded/decoded by serializers as "LIMI".
+    /// Encoded/decoded by serializers as &quot;LIMI&quot;.
     /// </summary>
     [EnumMember(Value = "LIMI")]
     [IsoId("_Z-Gl4Np-Ed-ak6NoX_4Aeg_437656943")]

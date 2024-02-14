@@ -21,8 +21,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum ExternalPaymentTransactionStatusCode
 {
     /// <summary>
-    /// Settlement on the creditor's account has been completed.
-    /// Encoded/decoded by serializers as "ACCC".
+    /// Settlement on the creditor&apos;s account has been completed.
+    /// Encoded/decoded by serializers as &quot;ACCC&quot;.
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_uV_hKfRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Preceding check of technical validation was successful. Customer profile check was also successful.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_uWIrEPRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Preceding check of technical validation and customer profile was successful and an automatic funds check was positive.
-    /// Encoded/decoded by serializers as "ACFC".
+    /// Encoded/decoded by serializers as &quot;ACFC&quot;.
     /// </summary>
     [EnumMember(Value = "ACFC")]
     [IsoId("_uWIrE_RYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Payment instruction to issue a cheque has been accepted, and the cheque has been issued but not yet been deposited or cleared.
-    /// Encoded/decoded by serializers as "ACIS".
+    /// Encoded/decoded by serializers as &quot;ACIS&quot;.
     /// </summary>
     [EnumMember(Value = "ACIS")]
     [IsoId("_uWIrFvRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Settlement completed.|Usage : this can be used by a Market Infrastructure reporting to Infrastructure Participant or an Account Servicer to Account Owner to report that the transaction account entry has been completed.|Warning : this status is provided for transaction status reasons, not for financial information. It can only be used after bilateral agreement|
-    /// Encoded/decoded by serializers as "ACSC".
+    /// Encoded/decoded by serializers as &quot;ACSC&quot;.
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_uWIrGfRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment instruction has been accepted for execution.
-    /// Encoded/decoded by serializers as "ACSP".
+    /// Encoded/decoded by serializers as &quot;ACSP&quot;.
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_uWIrHPRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Authentication and syntactical and semantical validation are successful
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_uWScEPRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Instruction is accepted but a change will be made, such as date or remittance not sent.
-    /// Encoded/decoded by serializers as "ACWC".
+    /// Encoded/decoded by serializers as &quot;ACWC&quot;.
     /// </summary>
     [EnumMember(Value = "ACWC")]
     [IsoId("_uWScE_RYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Payment instruction included in the credit transfer is accepted without being posted to the creditor customer’s account.
-    /// Encoded/decoded by serializers as "ACWP".
+    /// Encoded/decoded by serializers as &quot;ACWP&quot;.
     /// </summary>
     [EnumMember(Value = "ACWP")]
     [IsoId("_uWcNEPRYEeuLhpyIdtJzwg")]
@@ -102,8 +102,8 @@ public enum ExternalPaymentTransactionStatusCode
     AcceptedWithoutPosting,
     
     /// <summary>
-    /// Payment transaction previously reported with status 'ACWP' is blocked, for example, funds will neither be posted to the Creditor's account, nor be returned to the Debtor.
-    /// Encoded/decoded by serializers as "BLCK".
+    /// Payment transaction previously reported with status &apos;ACWP&apos; is blocked, for example, funds will neither be posted to the Creditor&apos;s account, nor be returned to the Debtor.
+    /// Encoded/decoded by serializers as &quot;BLCK&quot;.
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_uWcNE_RYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Payment initiation has been successfully cancelled after having received a request for cancellation.|Usage: code to be used in the context of APIs only.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_uWcNFvRYEeuLhpyIdtJzwg")]
@@ -121,7 +121,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Cash has been picked up by the Creditor.
-    /// Encoded/decoded by serializers as "CPUC".
+    /// Encoded/decoded by serializers as &quot;CPUC&quot;.
     /// </summary>
     [EnumMember(Value = "CPUC")]
     [IsoId("_uWcNGfRYEeuLhpyIdtJzwg")]
@@ -130,7 +130,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Payment initiation needs multiple authentications, where some but not yet all have been performed. Syntactical and semantical validations are successful.
-    /// Encoded/decoded by serializers as "PATC".
+    /// Encoded/decoded by serializers as &quot;PATC&quot;.
     /// </summary>
     [EnumMember(Value = "PATC")]
     [IsoId("_uWlXAPRYEeuLhpyIdtJzwg")]
@@ -139,7 +139,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Payment instruction is pending. Further checks and status update will be performed.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_uWlXA_RYEeuLhpyIdtJzwg")]
@@ -148,7 +148,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Request for Payment has been presented to the Debtor.
-    /// Encoded/decoded by serializers as "PRES".
+    /// Encoded/decoded by serializers as &quot;PRES&quot;.
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_uWvIAPRYEeuLhpyIdtJzwg")]
@@ -157,7 +157,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Payment instruction has been received.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_uWvIA_RYEeuLhpyIdtJzwg")]
@@ -166,7 +166,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Payment instruction has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_uW4R8PRYEeuLhpyIdtJzwg")]
@@ -175,7 +175,7 @@ public enum ExternalPaymentTransactionStatusCode
     
     /// <summary>
     /// Status of transaction released from the Debtor Agent and accepted by the clearing.
-    /// Encoded/decoded by serializers as "ACPD".
+    /// Encoded/decoded by serializers as &quot;ACPD&quot;.
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_MjE0EOGIEeyiZZWde7CbVw")]

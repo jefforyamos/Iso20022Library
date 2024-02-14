@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriorityNumeric5Choice
     /// Specifies the execution priority of the instruction with a number between 0001 and 9999.
     /// </summary>
     [IsoId("_5Pg0WpNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Numeric")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PriorityNumeric5Choice
         /// Specifies a numeric string with an exact length of 4 digits.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nmrc")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("Nmrc")]
+        [IsoSimpleType(IsoSimpleType.Exact4NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExact4NumericText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

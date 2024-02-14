@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the payment transactions.
 /// </summary>
 [IsoId("_WxDT3249EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TransactionReport5
     /// Reference to the instruction related to the payment for which information is requested.
     /// </summary>
     [IsoId("_W6b5U249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtId")]
     #endif
+    [IsoXmlTag("PmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentIdentification6Choice_ PaymentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentIdentification6Choice_ PaymentIdentification { get; init; } 
+    public required PaymentIdentification6Choice_ PaymentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentIdentification6Choice_ PaymentIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TransactionReport5
     /// Requested information on the payment transaction when information has not been found.
     /// </summary>
     [IsoId("_W6b5VW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxOrErr")]
     #endif
+    [IsoXmlTag("TxOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionOrError4Choice_ TransactionOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionOrError4Choice_ TransactionOrError { get; init; } 
+    public required TransactionOrError4Choice_ TransactionOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionOrError4Choice_ TransactionOrError { get; init; } 
     #else

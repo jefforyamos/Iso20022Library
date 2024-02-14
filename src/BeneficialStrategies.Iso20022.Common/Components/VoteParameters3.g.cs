@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information describing how the voting process is organised.
 /// </summary>
 [IsoId("_TjkycNp-Ed-ak6NoX_4Aeg_-423421287")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,12 @@ public partial record VoteParameters3
     /// Number of holdings required for a vote.
     /// </summary>
     [IsoId("_Tjkycdp-Ed-ak6NoX_4Aeg_-1389784353")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity Required To Vote")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesQtyReqrdToVote")]
     #endif
+    [IsoXmlTag("SctiesQtyReqrdToVote")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? SecuritiesQuantityRequiredToVote { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,16 +69,16 @@ public partial record VoteParameters3
     /// Specifies whether it is allowed to only vote on a part of the entire holding, leaving part of the position un-voted.
     /// </summary>
     [IsoId("_Tjkyctp-Ed-ak6NoX_4Aeg_-1514722196")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial Vote Allowed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlVoteAllwd")]
     #endif
+    [IsoXmlTag("PrtlVoteAllwd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PartialVoteAllowed { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PartialVoteAllowed { get; init; } 
+    public required System.String PartialVoteAllowed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PartialVoteAllowed { get; init; } 
     #else
@@ -91,16 +89,16 @@ public partial record VoteParameters3
     /// Specifies whether it is allowed to vote in different directions for the entire holding.
     /// </summary>
     [IsoId("_Tjkyc9p-Ed-ak6NoX_4Aeg_884127308")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Split Vote Allowed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpltVoteAllwd")]
     #endif
+    [IsoXmlTag("SpltVoteAllwd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator SplitVoteAllowed { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SplitVoteAllowed { get; init; } 
+    public required System.String SplitVoteAllowed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SplitVoteAllowed { get; init; } 
     #else
@@ -111,12 +109,11 @@ public partial record VoteParameters3
     /// Date and time by which the vote instructions should be submitted to the intermediary.
     /// </summary>
     [IsoId("_TjkydNp-Ed-ak6NoX_4Aeg_2098979730")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteDdln")]
     #endif
+    [IsoXmlTag("VoteDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? VoteDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +126,11 @@ public partial record VoteParameters3
     /// Date and time by which the vote instructions should be submitted to the intermediary (STP mode).
     /// </summary>
     [IsoId("_Tjkyddp-Ed-ak6NoX_4Aeg_104835024")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote STP Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteSTPDdln")]
     #endif
+    [IsoXmlTag("VoteSTPDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? VoteSTPDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +143,11 @@ public partial record VoteParameters3
     /// Date and time by which the vote instructions should be submitted to the issuer.
     /// </summary>
     [IsoId("_Tjkydtp-Ed-ak6NoX_4Aeg_-1723879606")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteMktDdln")]
     #endif
+    [IsoXmlTag("VoteMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? VoteMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +160,11 @@ public partial record VoteParameters3
     /// Indicates the different methods that can be used to vote.
     /// </summary>
     [IsoId("_Tjkyd9p-Ed-ak6NoX_4Aeg_1003187298")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Methods")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteMthds")]
     #endif
+    [IsoXmlTag("VoteMthds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteMethods2? VoteMethods { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +177,11 @@ public partial record VoteParameters3
     /// Electronic location, e-mail or URL address, where the voting ballot can be requested.
     /// </summary>
     [IsoId("_TjkyeNp-Ed-ak6NoX_4Aeg_445071518")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Voting Ballot Electronic Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VtngBlltElctrncAdr")]
     #endif
+    [IsoXmlTag("VtngBlltElctrncAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationAddress4? VotingBallotElectronicAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,12 +194,11 @@ public partial record VoteParameters3
     /// Specifies the postal address where the voting ballot can be requested.
     /// </summary>
     [IsoId("_TjujcNp-Ed-ak6NoX_4Aeg_407467062")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Voting Ballot Request Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VtngBlltReqAdr")]
     #endif
+    [IsoXmlTag("VtngBlltReqAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress1? VotingBallotRequestAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,12 +211,11 @@ public partial record VoteParameters3
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary.
     /// </summary>
     [IsoId("_Tjujcdp-Ed-ak6NoX_4Aeg_574486957")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Revocability Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvcbltyDdln")]
     #endif
+    [IsoXmlTag("RvcbltyDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RevocabilityDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -237,12 +228,11 @@ public partial record VoteParameters3
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary (STP mode).
     /// </summary>
     [IsoId("_Tjujctp-Ed-ak6NoX_4Aeg_-104409894")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Revocability STP Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvcbltySTPDdln")]
     #endif
+    [IsoXmlTag("RvcbltySTPDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RevocabilitySTPDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -255,12 +245,11 @@ public partial record VoteParameters3
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is set by the issuer.
     /// </summary>
     [IsoId("_Tjujc9p-Ed-ak6NoX_4Aeg_542516193")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Revocability Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvcbltyMktDdln")]
     #endif
+    [IsoXmlTag("RvcbltyMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? RevocabilityMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -273,16 +262,16 @@ public partial record VoteParameters3
     /// Indicates whether beneficiary details (eg name and address) must be supplied in order to take part to a meeting.
     /// </summary>
     [IsoId("_TjujdNp-Ed-ak6NoX_4Aeg_333865223")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficial Owner Disclosure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfclOwnrDsclsr")]
     #endif
+    [IsoXmlTag("BnfclOwnrDsclsr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator BeneficialOwnerDisclosure { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BeneficialOwnerDisclosure { get; init; } 
+    public required System.String BeneficialOwnerDisclosure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BeneficialOwnerDisclosure { get; init; } 
     #else
@@ -293,28 +282,24 @@ public partial record VoteParameters3
     /// Identifies the possible types of voting instructions. When used at the resolution level, it supersedes the value specified in the meeting notice.
     /// </summary>
     [IsoId("_Tjujddp-Ed-ak6NoX_4Aeg_545143664")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteInstrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("VoteInstrTp")]
     [MinLength(0)]
     [MaxLength(8)]
-    #endif
     public SimpleValueList<VoteInstruction2Code> VoteInstructionType { get; init; } = new SimpleValueList<VoteInstruction2Code>(){};
     
     /// <summary>
     /// Cash premium paid to the security holder when voting.
     /// </summary>
     [IsoId("_Tjujdtp-Ed-ak6NoX_4Aeg_1260060452")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incentive Premium")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncntivPrm")]
     #endif
+    [IsoXmlTag("IncntivPrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IncentivePremium3? IncentivePremium { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -327,12 +312,11 @@ public partial record VoteParameters3
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium.
     /// </summary>
     [IsoId("_Tjujd9p-Ed-ak6NoX_4Aeg_944267151")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote With Premium Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteWthPrmDdln")]
     #endif
+    [IsoXmlTag("VoteWthPrmDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? VoteWithPremiumDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -345,12 +329,11 @@ public partial record VoteParameters3
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium (STP mode).
     /// </summary>
     [IsoId("_TjujeNp-Ed-ak6NoX_4Aeg_1284515354")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote With Premium STP Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteWthPrmSTPDdln")]
     #endif
+    [IsoXmlTag("VoteWthPrmSTPDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? VoteWithPremiumSTPDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -363,12 +346,11 @@ public partial record VoteParameters3
     /// Date and time by which the vote instructions should be submitted to the issuer to take advantage of the premium.
     /// </summary>
     [IsoId("_Tjujedp-Ed-ak6NoX_4Aeg_-304924554")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote With Premium Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteWthPrmMktDdln")]
     #endif
+    [IsoXmlTag("VoteWthPrmMktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat2Choice_? VoteWithPremiumMarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -381,15 +363,13 @@ public partial record VoteParameters3
     /// Additional information on specific requirements for allowing a person to vote.
     /// </summary>
     [IsoId("_Tj3tYNp-Ed-ak6NoX_4Aeg_-736540281")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Voting Requirements")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlVtngRqrmnts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlVtngRqrmnts")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalVotingRequirements { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

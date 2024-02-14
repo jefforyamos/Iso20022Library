@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Results of a scenario used to test whether a legal entity or other financial construct has sufficient liquid resources to meet its obligations as they arise.
 /// </summary>
 [IsoId("_PwgG8LJPEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Liquidity Stress Test Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record LiquidityStressTestResult1
     /// CCP’s internal unique identifier of the stress scenario that generates the reported liquidity need.
     /// </summary>
     [IsoId("_W2YkgLJPEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record LiquidityStressTestResult1
     /// Identification of assumed defaulters under the stress scenario.
     /// </summary>
     [IsoId("_fBdIgLJPEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scenario Defaulters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScnroDfltrs")]
     #endif
+    [IsoXmlTag("ScnroDfltrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CoverTwoDefaulters1 ScenarioDefaulters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CoverTwoDefaulters1 ScenarioDefaulters { get; init; } 
+    public required CoverTwoDefaulters1 ScenarioDefaulters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CoverTwoDefaulters1 ScenarioDefaulters { get; init; } 
     #else
@@ -92,19 +87,16 @@ public partial record LiquidityStressTestResult1
     #endif
     
     /// <summary>
-    /// Indicates the stressed resources and liquidity requirements under the liquidity stress test. The balance of resources are reported as of day ‘T‐1’. The requirements and any flows of resources are reported on their respective day from day ’ T’ to ‘T+5'.
+    /// Indicates the stressed resources and liquidity requirements under the liquidity stress test. The balance of resources are reported as of day ‘T‐1’. The requirements and any flows of resources are reported on their respective day from day ’ T’ to ‘T+5&apos;.
     /// </summary>
     [IsoId("_E8PuQLbxEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Liquidity Required And Available")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LqdtyReqrdAndAvlbl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LqdtyReqrdAndAvlbl")]
     [MinLength(6)]
     [MaxLength(6)]
-    #endif
     public ValueList<LiquidityRequiredAndAvailable1> LiquidityRequiredAndAvailable { get; init; } = new ValueList<LiquidityRequiredAndAvailable1>(){};
     
     

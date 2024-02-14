@@ -21,7 +21,7 @@ public enum SecuritiesExitReasonCode
 {
     /// <summary>
     /// Shares are restricted.
-    /// Encoded/decoded by serializers as "REST".
+    /// Encoded/decoded by serializers as &quot;REST&quot;.
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_10TW4TL3EeKU9IrkkToqcw_-297324899")]
@@ -30,7 +30,7 @@ public enum SecuritiesExitReasonCode
     
     /// <summary>
     /// Shares are non transferable.
-    /// Encoded/decoded by serializers as "NTRN".
+    /// Encoded/decoded by serializers as &quot;NTRN&quot;.
     /// </summary>
     [EnumMember(Value = "NTRN")]
     [IsoId("_10TW4jL3EeKU9IrkkToqcw_-471335363")]
@@ -39,7 +39,7 @@ public enum SecuritiesExitReasonCode
     
     /// <summary>
     /// Other reason.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_10TW4zL3EeKU9IrkkToqcw_849534733")]

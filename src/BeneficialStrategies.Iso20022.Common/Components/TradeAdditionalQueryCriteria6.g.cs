@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Query criteria regarding action type, product classification, venue of execution, asset class, corporate sector nature of counterparty.
 /// </summary>
 [IsoId("_4eqOvf_lEemm3skPVSMJQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Additional Query Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TradeAdditionalQueryCriteria6
     /// Code list of the action types allowed as query criteria.
     /// </summary>
     [IsoId("_4irzE__lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTp")]
     #endif
+    [IsoXmlTag("ActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionOperationType6Code? ActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TradeAdditionalQueryCriteria6
     /// Indicates the execution venue of the reported transaction.
     /// </summary>
     [IsoId("_4irzFf_lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnVn")]
     #endif
+    [IsoXmlTag("ExctnVn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTradeVenueCriteria1Choice_? ExecutionVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TradeAdditionalQueryCriteria6
     /// Indicates the nature of the reporting counterparty (if it is a central counterparty (CCP), a financial counterparty, a non-financial counterparty or another type of counterparty).
     /// </summary>
     [IsoId("_4irzF__lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nature Of Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtrOfCtrPty")]
     #endif
+    [IsoXmlTag("NtrOfCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyNatureType1Code? NatureOfCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TradeAdditionalQueryCriteria6
     /// Specifies the corporate sector of the reporting counterparty.
     /// </summary>
     [IsoId("_4irzGf_lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Sector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpSctr")]
     #endif
+    [IsoXmlTag("CorpSctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateSectorCriteria4? CorporateSector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum RejectionReason9Code
 {
     /// <summary>
     /// Cancellation is not allowed.
-    /// Encoded/decoded by serializers as "NCAN".
+    /// Encoded/decoded by serializers as &quot;NCAN&quot;.
     /// </summary>
     [EnumMember(Value = "NCAN")]
     [IsoId("_ZmQto9p-Ed-ak6NoX_4Aeg_920218233")]
@@ -30,7 +30,7 @@ public enum RejectionReason9Code
     
     /// <summary>
     /// Instruction/Request arrives too late.
-    /// Encoded/decoded by serializers as "LATT".
+    /// Encoded/decoded by serializers as &quot;LATT&quot;.
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_ZmQtpNp-Ed-ak6NoX_4Aeg_920218264")]
@@ -39,7 +39,7 @@ public enum RejectionReason9Code
     
     /// <summary>
     /// The election advice is already cancelled.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_ZmQtpdp-Ed-ak6NoX_4Aeg_920218294")]
@@ -48,7 +48,7 @@ public enum RejectionReason9Code
     
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZmQtptp-Ed-ak6NoX_4Aeg_920218325")]

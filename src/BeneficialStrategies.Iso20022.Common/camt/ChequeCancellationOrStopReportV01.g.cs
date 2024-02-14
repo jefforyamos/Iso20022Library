@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"The ChequeCancellationOrStopReport message is sent by the drawee agent (on which a cheque is drawn) to the drawer agent or the agent acting on behalf of the drawer agent to indicate what actions have been taken in attempting to cancel the presentment and/or stop the payment of the cheque referred to in the message.")]
 [IsoId("_QUITMbSJEeq3lpO-mRtrig")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cheque Cancellation Or Stop Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ChequeCancellationOrStopReportV01 : IOuterRecord<ChequeCan
     /// Set of characteristics shared by all individual cheques included in the message.
     /// </summary>
     [IsoId("_GewUESm6EeutWNGMV2XKIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader103 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader103 GroupHeader { get; init; } 
+    public required GroupHeader103 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader103 GroupHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ChequeCancellationOrStopReportV01 : IOuterRecord<ChequeCan
     /// Specifies the details of the cheque.
     /// </summary>
     [IsoId("_s-k9grtwEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chq")]
     #endif
+    [IsoXmlTag("Chq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Cheque14 Cheque { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Cheque14 Cheque { get; init; } 
+    public required Cheque14 Cheque { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Cheque14 Cheque { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ChequeCancellationOrStopReportV01 : IOuterRecord<ChequeCan
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Vgrws7tlEeq_cfXrH83Rcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ChequeCancellationOrStopReportV01 : IOuterRecord<ChequeCan
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ChequeCancellationOrStopReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ChequeCancellationOrStopReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ChequeCancellationOrStopReportV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ChequeCancellationOrStopReportV01 : IOuterRecord<ChequeCan
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChequeCancellationOrStopReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ChequeCancellationOrStopReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ChequeCancellationOrStopReportV01Document : IOuterDocument<ChequeCancellationOrStopReportV01>
@@ -161,7 +156,7 @@ public partial record ChequeCancellationOrStopReportV01Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ChequeCancellationOrStopReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ChequeCancellationOrStopReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChequeCancellationOrStopReportV01 Message { get; init; }

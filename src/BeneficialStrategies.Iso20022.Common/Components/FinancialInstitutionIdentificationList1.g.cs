@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// List of centralised branch identifiers.
 /// </summary>
 [IsoId("_3iqTICD0Eeav65mEytrgaA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Institution Identification List")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FinancialInstitutionIdentificationList1
     /// Repeated identifiers.
     /// </summary>
     [IsoId("_Bwxs8CD1Eeav65mEytrgaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("List")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="List")]
     #endif
+    [IsoXmlTag("List")]
     public FinancialInstitutionIdentification9? List { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Bwxs8CD1Eeav65mEytrgaA
     

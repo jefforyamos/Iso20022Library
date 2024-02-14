@@ -21,7 +21,7 @@ public enum QueryOrderStatusCode
 {
     /// <summary>
     /// Query for orders which are not confirmed by a party.
-    /// Encoded/decoded by serializers as "QUCO".
+    /// Encoded/decoded by serializers as &quot;QUCO&quot;.
     /// </summary>
     [EnumMember(Value = "QUCO")]
     [IsoId("_HiymcA2NEeSwB74WgTbh4Q")]
@@ -30,7 +30,7 @@ public enum QueryOrderStatusCode
     
     /// <summary>
     /// Query for all orders.
-    /// Encoded/decoded by serializers as "QUAO".
+    /// Encoded/decoded by serializers as &quot;QUAO&quot;.
     /// </summary>
     [EnumMember(Value = "QUAO")]
     [IsoId("_KJzE8A2NEeSwB74WgTbh4Q")]
@@ -39,7 +39,7 @@ public enum QueryOrderStatusCode
     
     /// <summary>
     /// Query for orders have been partially executed.
-    /// Encoded/decoded by serializers as "QPEO".
+    /// Encoded/decoded by serializers as &quot;QPEO&quot;.
     /// </summary>
     [EnumMember(Value = "QPEO")]
     [IsoId("_nTiX0A4oEeSvVsudrRLaVg")]
@@ -48,7 +48,7 @@ public enum QueryOrderStatusCode
     
     /// <summary>
     /// Query for orders have been completely executed.
-    /// Encoded/decoded by serializers as "QFEO".
+    /// Encoded/decoded by serializers as &quot;QFEO&quot;.
     /// </summary>
     [EnumMember(Value = "QFEO")]
     [IsoId("_B0iKQA4pEeSvVsudrRLaVg")]
@@ -57,7 +57,7 @@ public enum QueryOrderStatusCode
     
     /// <summary>
     /// Query for all orders for a party.
-    /// Encoded/decoded by serializers as "QOFP".
+    /// Encoded/decoded by serializers as &quot;QOFP&quot;.
     /// </summary>
     [EnumMember(Value = "QOFP")]
     [IsoId("_7Rxz0B0OEeStecMDdGBmFg")]

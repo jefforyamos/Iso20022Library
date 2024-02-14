@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status of the transfer cancellation is rejected.
 /// </summary>
 [IsoId("_RQf8kNp-Ed-ak6NoX_4Aeg_1498754509")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Cancellation Rejected Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TransferCancellationRejectedStatus1
     /// Reason for the rejected status.
     /// </summary>
     [IsoId("_RQf8kdp-Ed-ak6NoX_4Aeg_1498754535")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationRejectedReason1Code Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationRejectedReason1Code Reason { get; init; } 
+    public required CancellationRejectedReason1Code Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationRejectedReason1Code Reason { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record TransferCancellationRejectedStatus1
     /// Reason for the rejected status.
     /// </summary>
     [IsoId("_RQf8ktp-Ed-ak6NoX_4Aeg_1498754551")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedRsn")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedReason { get; init; } 
+    public required System.String ExtendedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedReason { get; init; } 
     #else
@@ -95,16 +90,13 @@ public partial record TransferCancellationRejectedStatus1
     /// Proprietary identification of the reason for the rejected status.
     /// </summary>
     [IsoId("_RQf8k9p-Ed-ak6NoX_4Aeg_1498757014")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DataSrcSchme")]
     [MinLength(1)]
     [MaxLength(10)]
-    #endif
     public ValueList<GenericIdentification1> DataSourceScheme { get; init; } = new ValueList<GenericIdentification1>(){};
     
     

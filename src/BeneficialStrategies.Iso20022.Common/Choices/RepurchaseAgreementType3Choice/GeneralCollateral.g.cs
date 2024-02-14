@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType3Choice
     /// Indicates that the repurchase agreement allows for the sale and repurchase of any of a selection of assets from a pool of eligible assets.
     /// </summary>
     [IsoId("_BqvK8-oaEeadseq5W5YLvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Collateral")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType3Choice
         /// ISINs of allocated securities of general collateral where known.
         /// </summary>
         [IsoId("_plT7AfnbEeaHA8tUPpXMKA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmId")]
         #endif
+        [IsoXmlTag("FinInstrmId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrument59? FinancialInstrumentIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,12 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType3Choice
         /// List of eligible securities to be allocated where known.
         /// </summary>
         [IsoId("_M-XbUeoaEeadseq5W5YLvQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Eligible Financial Instrument Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ElgblFinInstrmId")]
         #endif
+        [IsoXmlTag("ElgblFinInstrmId")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISINOct2015Identifier? EligibleFinancialInstrumentIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

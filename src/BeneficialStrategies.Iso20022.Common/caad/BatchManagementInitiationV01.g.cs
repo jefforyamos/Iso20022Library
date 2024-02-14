@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.caad;
 /// </summary>
 [Description(@"The BatchManagementInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer) connected to a network.||This message provides flow control information enabling a series of messages in batches and batches in collections to start, end or require checkpoints during the flow.")]
 [IsoId("_CcEcRVW9EeeiG_nL4vgKnQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Batch Management Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record BatchManagementInitiationV01 : IOuterRecord<BatchManagemen
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_CcEcR1W9EeeiG_nL4vgKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header38 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header38 Header { get; init; } 
+    public required Header38 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header38 Header { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record BatchManagementInitiationV01 : IOuterRecord<BatchManagemen
     /// Information related to the batch management.
     /// </summary>
     [IsoId("_CcEcSFW9EeeiG_nL4vgKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BatchManagementInitiation1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BatchManagementInitiation1 Body { get; init; } 
+    public required BatchManagementInitiation1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BatchManagementInitiation1 Body { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record BatchManagementInitiationV01 : IOuterRecord<BatchManagemen
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_CcEcRlW9EeeiG_nL4vgKnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record BatchManagementInitiationV01 : IOuterRecord<BatchManagemen
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BatchManagementInitiationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BatchManagementInitiationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BatchManagementInitiationV01Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record BatchManagementInitiationV01 : IOuterRecord<BatchManagemen
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BatchManagementInitiationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BatchManagementInitiationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BatchManagementInitiationV01Document : IOuterDocument<BatchManagementInitiationV01>
@@ -163,7 +158,7 @@ public partial record BatchManagementInitiationV01Document : IOuterDocument<Batc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BatchManagementInitiationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BatchManagementInitiationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BatchManagementInitiationV01 Message { get; init; }

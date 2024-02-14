@@ -44,9 +44,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Notification Of Case Assignment message is sent by a case assignee to a case creator/case assigner.|This message is used to inform the case assigner that:|- the assignee is reassigning the case to the next agent in the transaction processing chain for further action|- the assignee will work on the case himself, without re-assigning it to another party, and therefore indicating that the re-assignment has reached its end-point|Usage|The Notification Of Case Assignment message is used to notify the case creator or case assigner of further action undertaken by the case assignee in a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|The Notification Of Case Assignment message|- covers one and only one case at a time. If the case assignee needs to inform a case creator or case assigner about several cases, then multiple Notification Of Case Assignment messages must be sent|- except in the case where it is used to indicate that an agent is doing the correction himself, this message must be forwarded by all subsequent case assigner(s) until it reaches the case creator|- must not be used in place of a Resolution Of Investigation or a Case Status Report message.")]
 [IsoId("_JvSziNE_Ed-BzquC8wXy7w_1651385282")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification Of Case Assignment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -92,16 +90,15 @@ public partial record NotificationOfCaseAssignment : IOuterRecord<NotificationOf
     /// Specifies generic information about the notification.|The receiver of a notification is necessarily the party which assigned the case to the sender.
     /// </summary>
     [IsoId("_JvSzidE_Ed-BzquC8wXy7w_-896449818")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportHeader Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportHeader Header { get; init; } 
+    public required ReportHeader Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportHeader Header { get; init; } 
     #else
@@ -112,16 +109,15 @@ public partial record NotificationOfCaseAssignment : IOuterRecord<NotificationOf
     /// Identifies the case.
     /// </summary>
     [IsoId("_JvckgNE_Ed-BzquC8wXy7w_-710886689")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case Case { get; init; } 
+    public required Case Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case Case { get; init; } 
     #else
@@ -132,16 +128,15 @@ public partial record NotificationOfCaseAssignment : IOuterRecord<NotificationOf
     /// Identifies the current assignment of the case. ||The Assigner must be the emitter of the notification.|The Assignee must be another Party in the payment chain.
     /// </summary>
     [IsoId("_JvckgdE_Ed-BzquC8wXy7w_-367336847")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment Assignment { get; init; } 
+    public required CaseAssignment Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment Assignment { get; init; } 
     #else
@@ -152,16 +147,15 @@ public partial record NotificationOfCaseAssignment : IOuterRecord<NotificationOf
     /// Information about the type of action taken.
     /// </summary>
     [IsoId("_JvckgtE_Ed-BzquC8wXy7w_-354409827")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntfctn")]
     #endif
+    [IsoXmlTag("Ntfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseForwardingNotification Notification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseForwardingNotification Notification { get; init; } 
+    public required CaseForwardingNotification Notification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseForwardingNotification Notification { get; init; } 
     #else
@@ -172,7 +166,7 @@ public partial record NotificationOfCaseAssignment : IOuterRecord<NotificationOf
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NotificationOfCaseAssignmentDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NotificationOfCaseAssignmentDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NotificationOfCaseAssignmentDocument ToDocument()
     {
@@ -182,7 +176,7 @@ public partial record NotificationOfCaseAssignment : IOuterRecord<NotificationOf
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationOfCaseAssignment"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NotificationOfCaseAssignment&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NotificationOfCaseAssignmentDocument : IOuterDocument<NotificationOfCaseAssignment>
@@ -199,7 +193,7 @@ public partial record NotificationOfCaseAssignmentDocument : IOuterDocument<Noti
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NotificationOfCaseAssignment"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NotificationOfCaseAssignment&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationOfCaseAssignment Message { get; init; }

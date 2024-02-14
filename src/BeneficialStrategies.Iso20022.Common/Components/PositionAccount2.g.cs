@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.
 /// </summary>
 [IsoId("_8V3FELbhEeaqL_M7XFD7PQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PositionAccount2
     /// Unique internal identification of the position account.
     /// </summary>
     [IsoId("_EmAWULbiEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification165 Identification { get; init; } 
+    public required GenericIdentification165 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification165 Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PositionAccount2
     /// Position in a financial instrument or set of financial instruments.
     /// </summary>
     [IsoId("_tRiU0bbiEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pos")]
     #endif
+    [IsoXmlTag("Pos")]
     public Position1? Position { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _tRiU0bbiEeaqL_M7XFD7PQ
     

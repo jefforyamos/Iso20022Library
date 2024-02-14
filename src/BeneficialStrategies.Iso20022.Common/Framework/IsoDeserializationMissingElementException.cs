@@ -1,5 +1,6 @@
 ﻿namespace BeneficialStrategies.Iso20022.Framework;
 
+#if DECLARE_INTERNALSERIALIZATION
 public class IsoDeserializationMissingElementException : System.Exception
 {
     public IsoDeserializationMissingElementException(Type deserializationTargetType, string localName)
@@ -7,3 +8,4 @@ public class IsoDeserializationMissingElementException : System.Exception
     {
     }
 }
+#endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NettingIdentification2Choice
     /// Describes the individual trading party.
     /// </summary>
     [IsoId("_CKT6AQN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Party")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

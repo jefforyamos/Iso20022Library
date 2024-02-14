@@ -21,7 +21,7 @@ public enum AttestationValue1Code
 {
     /// <summary>
     /// Attestation claimed.
-    /// Encoded/decoded by serializers as "CLAI".
+    /// Encoded/decoded by serializers as &quot;CLAI&quot;.
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_J41_cQMlEeujMs2LsB3mMw")]
@@ -30,7 +30,7 @@ public enum AttestationValue1Code
     
     /// <summary>
     /// Attestation validated.
-    /// Encoded/decoded by serializers as "HONO".
+    /// Encoded/decoded by serializers as &quot;HONO&quot;.
     /// </summary>
     [EnumMember(Value = "HONO")]
     [IsoId("_KERMUQMlEeujMs2LsB3mMw")]
@@ -39,7 +39,7 @@ public enum AttestationValue1Code
     
     /// <summary>
     /// Attestation not claimed.
-    /// Encoded/decoded by serializers as "NCLA".
+    /// Encoded/decoded by serializers as &quot;NCLA&quot;.
     /// </summary>
     [EnumMember(Value = "NCLA")]
     [IsoId("_KOxzMQMlEeujMs2LsB3mMw")]
@@ -48,7 +48,7 @@ public enum AttestationValue1Code
     
     /// <summary>
     /// Attestation failed validation.
-    /// Encoded/decoded by serializers as "NHON".
+    /// Encoded/decoded by serializers as &quot;NHON&quot;.
     /// </summary>
     [EnumMember(Value = "NHON")]
     [IsoId("_H6g1EQMmEeujMs2LsB3mMw")]

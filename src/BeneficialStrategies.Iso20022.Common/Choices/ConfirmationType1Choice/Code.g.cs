@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationType1Choice
     /// Confirmation type expressed as a code.
     /// </summary>
     [IsoId("_tv-sYUzLEeafiMTDrtSnyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationType1Choice
         /// Refer to an account management instruction ie, either an account opening instruction or an account modification instruction or a get account details message.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountManagementType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountManagementType2Code Value { get; init; } 
+        public required AccountManagementType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountManagementType2Code Value { get; init; } 
         #else

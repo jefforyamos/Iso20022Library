@@ -21,7 +21,7 @@ public enum MeetingDateStatus1Code
 {
     /// <summary>
     /// Meeting date is tentative.
-    /// Encoded/decoded by serializers as "TNTA".
+    /// Encoded/decoded by serializers as &quot;TNTA&quot;.
     /// </summary>
     [EnumMember(Value = "TNTA")]
     [IsoId("_aVWBMtp-Ed-ak6NoX_4Aeg_1034907041")]
@@ -30,7 +30,7 @@ public enum MeetingDateStatus1Code
     
     /// <summary>
     /// Meeting date is confirmed.
-    /// Encoded/decoded by serializers as "CNFR".
+    /// Encoded/decoded by serializers as &quot;CNFR&quot;.
     /// </summary>
     [EnumMember(Value = "CNFR")]
     [IsoId("_aVWBM9p-Ed-ak6NoX_4Aeg_1049683942")]
@@ -39,7 +39,7 @@ public enum MeetingDateStatus1Code
     
     /// <summary>
     /// Meeting date has been cancelled.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_aVWBNNp-Ed-ak6NoX_4Aeg_1064459735")]
@@ -48,7 +48,7 @@ public enum MeetingDateStatus1Code
     
     /// <summary>
     /// Meeting could not take place as the quorum was not reached.
-    /// Encoded/decoded by serializers as "NOQO".
+    /// Encoded/decoded by serializers as &quot;NOQO&quot;.
     /// </summary>
     [EnumMember(Value = "NOQO")]
     [IsoId("_aVWBNdp-Ed-ak6NoX_4Aeg_-1791743871")]

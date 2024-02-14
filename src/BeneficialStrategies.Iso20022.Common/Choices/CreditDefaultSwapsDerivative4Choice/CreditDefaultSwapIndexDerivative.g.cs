@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative4Cho
     /// A credit default swap derivative on an index.
     /// </summary>
     [IsoId("_xSzjVye0Eei12pGEsJIAeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Default Swap Index Derivative")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,12 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative4Cho
         /// Derivative on a credit default swap with the ISIN code of the underlying swap.
         /// </summary>
         [IsoId("__ZOEYie0Eei12pGEsJIAeQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Underlying Credit Default Swap Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UndrlygCdtDfltSwpId")]
         #endif
+        [IsoXmlTag("UndrlygCdtDfltSwpId")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISINOct2015Identifier? UnderlyingCreditDefaultSwapIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +72,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative4Cho
         /// Describes the Credit Default Swap Index specific details the derivative is being made on.
         /// </summary>
         [IsoId("_xczM1Se0Eei12pGEsJIAeQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Underlying Credit Default Swap Index")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UndrlygCdtDfltSwpIndx")]
         #endif
+        [IsoXmlTag("UndrlygCdtDfltSwpIndx")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CreditDefaultSwapIndex3 UnderlyingCreditDefaultSwapIndex { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CreditDefaultSwapIndex3 UnderlyingCreditDefaultSwapIndex { get; init; } 
+        public required CreditDefaultSwapIndex3 UnderlyingCreditDefaultSwapIndex { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CreditDefaultSwapIndex3 UnderlyingCreditDefaultSwapIndex { get; init; } 
         #else

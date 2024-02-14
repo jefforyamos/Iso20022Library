@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingStatus34Choice.Unmatched))]
     [KnownType(typeof(MatchingStatus34Choice.Proprietary))]
     [IsoId("_yZ5IBxUHEeuZw7VHHgrHLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Status 34 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

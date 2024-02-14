@@ -21,7 +21,7 @@ public enum SettlementDate1Code
 {
     /// <summary>
     /// Transfer is to be effected as soon as possible.
-    /// Encoded/decoded by serializers as "ASAP".
+    /// Encoded/decoded by serializers as &quot;ASAP&quot;.
     /// </summary>
     [EnumMember(Value = "ASAP")]
     [IsoId("_ZK_t99p-Ed-ak6NoX_4Aeg_581713029")]
@@ -30,7 +30,7 @@ public enum SettlementDate1Code
     
     /// <summary>
     /// Transfer is to be effected at the end of the contract.
-    /// Encoded/decoded by serializers as "ENDC".
+    /// Encoded/decoded by serializers as &quot;ENDC&quot;.
     /// </summary>
     [EnumMember(Value = "ENDC")]
     [IsoId("_ZK_t-Np-Ed-ak6NoX_4Aeg_581713038")]
@@ -39,7 +39,7 @@ public enum SettlementDate1Code
     
     /// <summary>
     /// Settlement takes place when the financial instrument is issued by the issuer.
-    /// Encoded/decoded by serializers as "WHIF".
+    /// Encoded/decoded by serializers as &quot;WHIF&quot;.
     /// </summary>
     [EnumMember(Value = "WHIF")]
     [IsoId("_ZLI34Np-Ed-ak6NoX_4Aeg_-732074064")]

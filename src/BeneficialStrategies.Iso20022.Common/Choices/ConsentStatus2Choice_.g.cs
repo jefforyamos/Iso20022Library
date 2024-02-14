@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConsentStatus2Choice.NoSpecifiedReason))]
     [KnownType(typeof(ConsentStatus2Choice.Reason))]
     [IsoId("_0jhc8QlIEeGATtfOBToyew_-1079502867")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consent Status 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuredMarketReport4Choice.DataSetAction))]
     [KnownType(typeof(SecuredMarketReport4Choice.Transaction))]
     [IsoId("_GQHsIcEREea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secured Market Report 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

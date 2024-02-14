@@ -21,7 +21,7 @@ public enum AdditionalIdentificationType1Code
 {
     /// <summary>
     /// Other Additional Identification defined at a private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_JyUzMS7SEemIy6A-26wnAg")]
@@ -30,7 +30,7 @@ public enum AdditionalIdentificationType1Code
     
     /// <summary>
     /// Other Additional Identification defined at a national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_J2Pp4S7SEemIy6A-26wnAg")]
@@ -39,7 +39,7 @@ public enum AdditionalIdentificationType1Code
     
     /// <summary>
     /// Contains the North American Industry Classification System (NAICS) code assigned to the card acceptor.
-    /// Encoded/decoded by serializers as "ICSN".
+    /// Encoded/decoded by serializers as &quot;ICSN&quot;.
     /// </summary>
     [EnumMember(Value = "ICSN")]
     [IsoId("_J38TAS7SEemIy6A-26wnAg")]
@@ -48,7 +48,7 @@ public enum AdditionalIdentificationType1Code
     
     /// <summary>
     /// Contains the Austin-Tetra Number assigned to the card acceptor.
-    /// Encoded/decoded by serializers as "ATNU".
+    /// Encoded/decoded by serializers as &quot;ATNU&quot;.
     /// </summary>
     [EnumMember(Value = "ATNU")]
     [IsoId("_J7TwES7SEemIy6A-26wnAg")]

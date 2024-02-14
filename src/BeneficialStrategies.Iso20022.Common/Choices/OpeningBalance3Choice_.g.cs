@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OpeningBalance3Choice.FirstOpeningBalance))]
     [KnownType(typeof(OpeningBalance3Choice.IntermediaryOpeningBalance))]
     [IsoId("_Lu4l8QgHEeSxsfb1OEDVsw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Balance 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

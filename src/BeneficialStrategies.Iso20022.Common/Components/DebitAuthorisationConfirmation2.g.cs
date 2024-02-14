@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies whether or not the debit authorisation is granted.
 /// </summary>
 [IsoId("_T9pfVdp-Ed-ak6NoX_4Aeg_-1701633190")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Debit Authorisation Confirmation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record DebitAuthorisationConfirmation2
     /// Code expressing the decision taken by the account owner relative to the request for debit authorization.
     /// </summary>
     [IsoId("_T9pfVtp-Ed-ak6NoX_4Aeg_-1701633188")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debit Authorisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtAuthstn")]
     #endif
+    [IsoXmlTag("DbtAuthstn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator DebitAuthorisation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DebitAuthorisation { get; init; } 
+    public required System.String DebitAuthorisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DebitAuthorisation { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record DebitAuthorisationConfirmation2
     /// Amount of money authorised for debit. |Usage: The party approving the debit may want to authorise the amount less charges and may only be prepared to approve the debit for value today rather than the original value date.
     /// </summary>
     [IsoId("_T9zQUNp-Ed-ak6NoX_4Aeg_-1701633129")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount To Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtToDbt")]
     #endif
+    [IsoXmlTag("AmtToDbt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AmountToDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,12 @@ public partial record DebitAuthorisationConfirmation2
     /// Value date for debiting the amount.
     /// </summary>
     [IsoId("_T9zQUdp-Ed-ak6NoX_4Aeg_-1701632850")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date To Debit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDtToDbt")]
     #endif
+    [IsoXmlTag("ValDtToDbt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDateToDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +105,13 @@ public partial record DebitAuthorisationConfirmation2
     /// Specifies the reason for the debit authorisation request.
     /// </summary>
     [IsoId("_T9zQUtp-Ed-ak6NoX_4Aeg_-1701632820")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rsn")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

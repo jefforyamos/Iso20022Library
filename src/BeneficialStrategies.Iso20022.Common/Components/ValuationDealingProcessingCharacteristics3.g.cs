@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Valuation dealing processing characteristics linked to the instrument, that is, not to the market.
 /// </summary>
 [IsoId("_DovC8UlNEeiZP-CimVE7Hg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Valuation Dealing Processing Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Frequency of the valuation.
     /// </summary>
     [IsoId("_D4puQ0lNEeiZP-CimVE7Hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnFrqcy")]
     #endif
+    [IsoXmlTag("ValtnFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency5Code? ValuationFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Further details regarding the dealing frequency, for example, Tuesday (for weekly dealing) or last business day of the month.
     /// </summary>
     [IsoId("_D4puRUlNEeiZP-CimVE7Hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Frequency Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnFrqcyDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ValtnFrqcyDesc")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ValuationFrequencyDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Valuation time of the fund.
     /// </summary>
     [IsoId("_lx4-wF80Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnTm")]
     #endif
+    [IsoXmlTag("ValtnTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? ValuationTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,12 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
     [IsoId("_D4puR0lNEeiZP-CimVE7Hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Decimalisation Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DcmlstnUnits")]
     #endif
+    [IsoXmlTag("DcmlstnUnits")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? DecimalisationUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +114,12 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Number of decimal places to which the price is rounded.
     /// </summary>
     [IsoId("_D4puSUlNEeiZP-CimVE7Hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Decimalisation Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DcmlstnPric")]
     #endif
+    [IsoXmlTag("DcmlstnPric")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? DecimalisationPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +132,12 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Indicates whether the fund has two prices.
     /// </summary>
     [IsoId("_D4puS0lNEeiZP-CimVE7Hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dual Fund Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DualFndInd")]
     #endif
+    [IsoXmlTag("DualFndInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DualFundIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +150,11 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Type of pricing calculation method.
     /// </summary>
     [IsoId("_D4puTUlNEeiZP-CimVE7Hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricMtd")]
     #endif
+    [IsoXmlTag("PricMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceMethod1Code? PriceMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +167,11 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Currencies in which the prices for the investment fund class are published by the fund management company.
     /// </summary>
     [IsoId("_D4puT0lNEeiZP-CimVE7Hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricCcy")]
     #endif
+    [IsoXmlTag("PricCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? PriceCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +184,11 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// Additional information about the valuation dealing characteristics.
     /// </summary>
     [IsoId("_TaV6cWAKEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

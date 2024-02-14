@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxExemptionReasonFormatChoice.Unstructured))]
     [KnownType(typeof(TaxExemptionReasonFormatChoice.Structured))]
     [IsoId("_UzJj8tp-Ed-ak6NoX_4Aeg_-1748201270")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Exemption Reason Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

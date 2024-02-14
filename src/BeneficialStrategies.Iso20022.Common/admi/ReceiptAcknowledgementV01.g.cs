@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.admi;
 /// </summary>
 [Description(@"The ReceiptAcknowledgement message is sent by the transaction administrator to a member of the system and vice versa. It is sent to acknowledge the receipt of one or multiple messages sent previously. The Acknowledgement message is 1) an application receipt acknowledgement and 2) conveys information about the processing of the original message(s). In case of 2) the ReceiptAcknowledgement can be used as a Generic error message, which provides information about the status (e.g. rejection, acceptance) of an instruction.")]
 [IsoId("_4MJ7oZb3Eee4htziCyV8eA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receipt Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord<ReceiptAcknowledg
     /// Specifies the identification the message.
     /// </summary>
     [IsoId("_4MJ7o5b3Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader10 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader10 MessageIdentification { get; init; } 
+    public required MessageHeader10 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader10 MessageIdentification { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord<ReceiptAcknowledg
     /// Provides report details on the request.
     /// </summary>
     [IsoId("_4MJ7pZb3Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rpt")]
     #endif
+    [IsoXmlTag("Rpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceiptAcknowledgementReport2 Report { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReceiptAcknowledgementReport2 Report { get; init; } 
+    public required ReceiptAcknowledgementReport2 Report { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReceiptAcknowledgementReport2 Report { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord<ReceiptAcknowledg
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_4MJ7p5b3Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord<ReceiptAcknowledg
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReceiptAcknowledgementV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReceiptAcknowledgementV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReceiptAcknowledgementV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ReceiptAcknowledgementV01 : IOuterRecord<ReceiptAcknowledg
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReceiptAcknowledgementV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReceiptAcknowledgementV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReceiptAcknowledgementV01Document : IOuterDocument<ReceiptAcknowledgementV01>
@@ -161,7 +156,7 @@ public partial record ReceiptAcknowledgementV01Document : IOuterDocument<Receipt
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReceiptAcknowledgementV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReceiptAcknowledgementV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceiptAcknowledgementV01 Message { get; init; }

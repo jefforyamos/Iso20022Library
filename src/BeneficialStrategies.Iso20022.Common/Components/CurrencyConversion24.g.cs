@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider.
 /// </summary>
 [IsoId("_y6QXsVE4EeyApZmLzm74zA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Conversion")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CurrencyConversion24
     /// True if the cardholder has accepted the currency conversion that the acquirer has proposed.
     /// </summary>
     [IsoId("_zAtlAVE4EeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted By Cardholder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptdByCrdhldr")]
     #endif
+    [IsoXmlTag("AccptdByCrdhldr")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AcceptedByCardholder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record CurrencyConversion24
     /// Conversion between the currency of a card acceptor and the currency of a cardholder, provided by a dedicated service provider.
     /// </summary>
     [IsoId("_zAtlA1E4EeyApZmLzm74zA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conversion")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Convs")]
     #endif
+    [IsoXmlTag("Convs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyConversion23? Conversion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

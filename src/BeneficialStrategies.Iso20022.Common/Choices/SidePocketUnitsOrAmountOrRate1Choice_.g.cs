@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SidePocketUnitsOrAmountOrRate1Choice.OrderedAmount))]
     [KnownType(typeof(SidePocketUnitsOrAmountOrRate1Choice.HoldingsRate))]
     [IsoId("_Rhe-4dp-Ed-ak6NoX_4Aeg_-1345719140")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Side Pocket Units Or Amount Or Rate 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

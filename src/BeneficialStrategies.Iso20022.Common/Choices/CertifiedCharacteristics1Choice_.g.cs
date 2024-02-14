@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CertifiedCharacteristics1Choice.HealthIndication))]
     [KnownType(typeof(CertifiedCharacteristics1Choice.PhytosanitaryIndication))]
     [IsoId("_TnJq6Np-Ed-ak6NoX_4Aeg_524312074")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certified Characteristics 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

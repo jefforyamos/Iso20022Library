@@ -21,7 +21,7 @@ public enum CollateralPool1Code
 {
     /// <summary>
     /// Collateral is not of pool type.
-    /// Encoded/decoded by serializers as "NOPL".
+    /// Encoded/decoded by serializers as &quot;NOPL&quot;.
     /// </summary>
     [EnumMember(Value = "NOPL")]
     [IsoId("_CvAqQd7GEeSaBeqd_btViQ")]
@@ -30,7 +30,7 @@ public enum CollateralPool1Code
     
     /// <summary>
     /// Collateral is of pool type.
-    /// Encoded/decoded by serializers as "POOL".
+    /// Encoded/decoded by serializers as &quot;POOL&quot;.
     /// </summary>
     [EnumMember(Value = "POOL")]
     [IsoId("_Czndcd7GEeSaBeqd_btViQ")]

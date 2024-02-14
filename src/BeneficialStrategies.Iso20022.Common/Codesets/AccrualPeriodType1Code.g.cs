@@ -21,7 +21,7 @@ public enum AccrualPeriodType1Code
 {
     /// <summary>
     /// Long first payment period is applicable.
-    /// Encoded/decoded by serializers as "LONG".
+    /// Encoded/decoded by serializers as &quot;LONG&quot;.
     /// </summary>
     [EnumMember(Value = "LONG")]
     [IsoId("_10Ab8TL3EeKU9IrkkToqcw_151248487")]
@@ -30,7 +30,7 @@ public enum AccrualPeriodType1Code
     
     /// <summary>
     /// Regular first payment period is applicable.
-    /// Encoded/decoded by serializers as "FREG".
+    /// Encoded/decoded by serializers as &quot;FREG&quot;.
     /// </summary>
     [EnumMember(Value = "FREG")]
     [IsoId("_10Ab8jL3EeKU9IrkkToqcw_476365994")]
@@ -39,7 +39,7 @@ public enum AccrualPeriodType1Code
     
     /// <summary>
     /// Short first payment period is applicable.
-    /// Encoded/decoded by serializers as "SHRT".
+    /// Encoded/decoded by serializers as &quot;SHRT&quot;.
     /// </summary>
     [EnumMember(Value = "SHRT")]
     [IsoId("_10Ab8zL3EeKU9IrkkToqcw_-455570526")]
@@ -48,7 +48,7 @@ public enum AccrualPeriodType1Code
     
     /// <summary>
     /// First year of payment is applicable.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_10Ab9DL3EeKU9IrkkToqcw_-1483257")]
@@ -57,7 +57,7 @@ public enum AccrualPeriodType1Code
     
     /// <summary>
     /// Extra long payment period is applicable.
-    /// Encoded/decoded by serializers as "XLNG".
+    /// Encoded/decoded by serializers as &quot;XLNG&quot;.
     /// </summary>
     [EnumMember(Value = "XLNG")]
     [IsoId("_10Ab9TL3EeKU9IrkkToqcw_584463769")]
@@ -66,7 +66,7 @@ public enum AccrualPeriodType1Code
     
     /// <summary>
     /// Default payment period is applicable.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_10Ab9jL3EeKU9IrkkToqcw_2051612532")]
@@ -75,7 +75,7 @@ public enum AccrualPeriodType1Code
     
     /// <summary>
     /// Payment has not been done.
-    /// Encoded/decoded by serializers as "OMIT".
+    /// Encoded/decoded by serializers as &quot;OMIT&quot;.
     /// </summary>
     [EnumMember(Value = "OMIT")]
     [IsoId("_10Jl4DL3EeKU9IrkkToqcw_-794219174")]

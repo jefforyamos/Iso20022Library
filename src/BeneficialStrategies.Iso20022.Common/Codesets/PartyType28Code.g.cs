@@ -21,7 +21,7 @@ public enum PartyType28Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_GNPvMdwBEeeOusYHZbyj7w")]
@@ -30,7 +30,7 @@ public enum PartyType28Code
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_GNPvM9wBEeeOusYHZbyj7w")]
@@ -39,7 +39,7 @@ public enum PartyType28Code
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_GNPvO9wBEeeOusYHZbyj7w")]
@@ -48,7 +48,7 @@ public enum PartyType28Code
     
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_GNPvPdwBEeeOusYHZbyj7w")]
@@ -57,7 +57,7 @@ public enum PartyType28Code
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_GNPvP9wBEeeOusYHZbyj7w")]
@@ -66,7 +66,7 @@ public enum PartyType28Code
     
     /// <summary>
     /// Provider of an electronic wallet
-    /// Encoded/decoded by serializers as "WLPR".
+    /// Encoded/decoded by serializers as &quot;WLPR&quot;.
     /// </summary>
     [EnumMember(Value = "WLPR")]
     [IsoId("_KYSzUdwBEeeOusYHZbyj7w")]
@@ -75,7 +75,7 @@ public enum PartyType28Code
     
     /// <summary>
     /// Issuer is the entitled party.
-    /// Encoded/decoded by serializers as "ISUR".
+    /// Encoded/decoded by serializers as &quot;ISUR&quot;.
     /// </summary>
     [EnumMember(Value = "ISUR")]
     [IsoId("_0Hsb0UNKEeiut6dbx3wnBg")]

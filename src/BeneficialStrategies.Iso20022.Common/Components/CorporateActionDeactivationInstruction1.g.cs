@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the deactivation.
 /// </summary>
 [IsoId("_UJuMddp-Ed-ak6NoX_4Aeg_-1685692105")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Deactivation Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CorporateActionDeactivationInstruction1
     /// Date and time at which the CSD must deactivate the corporate action event or the option.
     /// </summary>
     [IsoId("_UJuMdtp-Ed-ak6NoX_4Aeg_1692268967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deactivation Date And Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DeactvtnDtAndTm")]
     #endif
+    [IsoXmlTag("DeactvtnDtAndTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DeactivationDateAndTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime DeactivationDateAndTime { get; init; } 
+    public required System.DateTime DeactivationDateAndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime DeactivationDateAndTime { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record CorporateActionDeactivationInstruction1
     /// Provides information about the option, when the deactivation instruction applies at the level of a corporate action option.
     /// </summary>
     [IsoId("_UJuMd9p-Ed-ak6NoX_4Aeg_972006480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnDtls")]
     #endif
+    [IsoXmlTag("OptnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOption2? OptionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

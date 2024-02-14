@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies two values to compare for a number of maximum 5 digits.
 /// </summary>
 [IsoId("_Nifesa5jEeuo-IflVgGqiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Compare Number")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CompareNumber6
     /// Information for the first side of the transaction.
     /// </summary>
     [IsoId("_NxsYUa5jEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val1")]
     #endif
+    [IsoXmlTag("Val1")]
+    [IsoSimpleType(IsoSimpleType.Max5Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5Number? Value1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record CompareNumber6
     /// Information for the second side of the transaction.
     /// </summary>
     [IsoId("_NxsYU65jEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val2")]
     #endif
+    [IsoXmlTag("Val2")]
+    [IsoSimpleType(IsoSimpleType.Max5Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5Number? Value2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

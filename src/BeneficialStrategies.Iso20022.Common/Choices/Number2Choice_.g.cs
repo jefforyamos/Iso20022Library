@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Number2Choice.Short))]
     [KnownType(typeof(Number2Choice.Long))]
     [IsoId("_Qu0y5Np-Ed-ak6NoX_4Aeg_-1987698151")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

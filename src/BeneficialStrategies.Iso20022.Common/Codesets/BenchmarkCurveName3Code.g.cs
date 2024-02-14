@@ -21,7 +21,7 @@ public enum BenchmarkCurveName3Code
 {
     /// <summary>
     /// Euro Short Term Rate
-    /// Encoded/decoded by serializers as "ESTR".
+    /// Encoded/decoded by serializers as &quot;ESTR&quot;.
     /// </summary>
     [EnumMember(Value = "ESTR")]
     [IsoId("_zGuDoax1Eem81-uIvTF5rQ")]
@@ -30,7 +30,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Australian Financial Markets Association (AFMA) Bank-Bill Reference Rate (BBSW).
-    /// Encoded/decoded by serializers as "BBSW".
+    /// Encoded/decoded by serializers as &quot;BBSW&quot;.
     /// </summary>
     [EnumMember(Value = "BBSW")]
     [IsoId("_0dTcEax1Eem81-uIvTF5rQ")]
@@ -39,7 +39,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Budapest Interbank Offered Rate.
-    /// Encoded/decoded by serializers as "BUBO".
+    /// Encoded/decoded by serializers as &quot;BUBO&quot;.
     /// </summary>
     [EnumMember(Value = "BUBO")]
     [IsoId("_08JUMax1Eem81-uIvTF5rQ")]
@@ -48,7 +48,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Canadian Dollar Offered Rate.
-    /// Encoded/decoded by serializers as "CDOR".
+    /// Encoded/decoded by serializers as &quot;CDOR&quot;.
     /// </summary>
     [EnumMember(Value = "CDOR")]
     [IsoId("_1JkFIax1Eem81-uIvTF5rQ")]
@@ -57,7 +57,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Copenhagen Interbank Offered Rate.
-    /// Encoded/decoded by serializers as "CIBO".
+    /// Encoded/decoded by serializers as &quot;CIBO&quot;.
     /// </summary>
     [EnumMember(Value = "CIBO")]
     [IsoId("_1Sf-sax1Eem81-uIvTF5rQ")]
@@ -66,7 +66,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Euro OverNight Index Average rate.
-    /// Encoded/decoded by serializers as "EONA".
+    /// Encoded/decoded by serializers as &quot;EONA&quot;.
     /// </summary>
     [EnumMember(Value = "EONA")]
     [IsoId("_1vtfIax1Eem81-uIvTF5rQ")]
@@ -75,7 +75,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Euro OverNight Index Average swap rate.
-    /// Encoded/decoded by serializers as "EONS".
+    /// Encoded/decoded by serializers as &quot;EONS&quot;.
     /// </summary>
     [EnumMember(Value = "EONS")]
     [IsoId("_14NT0ax1Eem81-uIvTF5rQ")]
@@ -84,7 +84,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Euro Interbank Offer Rate is the rate at which Euro inter-bank term deposits within the Euro zone are offered by one prime bank to another prime bank.
-    /// Encoded/decoded by serializers as "EURI".
+    /// Encoded/decoded by serializers as &quot;EURI&quot;.
     /// </summary>
     [EnumMember(Value = "EURI")]
     [IsoId("_2QDMEax1Eem81-uIvTF5rQ")]
@@ -93,7 +93,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Rate for the eurodollars, time deposits denominated in U.S. dollars at banks outside the United States, and thus are not under the jurisdiction of the Federal Reserve.
-    /// Encoded/decoded by serializers as "EUUS".
+    /// Encoded/decoded by serializers as &quot;EUUS&quot;.
     /// </summary>
     [EnumMember(Value = "EUUS")]
     [IsoId("_2kUL4ax1Eem81-uIvTF5rQ")]
@@ -102,7 +102,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Swiss Franc LIBOR rate.
-    /// Encoded/decoded by serializers as "EUCH".
+    /// Encoded/decoded by serializers as &quot;EUCH&quot;.
     /// </summary>
     [EnumMember(Value = "EUCH")]
     [IsoId("_2s0Akax1Eem81-uIvTF5rQ")]
@@ -111,7 +111,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Portion of a synthetic curve that is composed of Eurodollar or Treasury or similar Futures and Swap rates. The term usually begins at 3 months to 2 years for the futures strip component with the Swaps filling in the points to 10 years and beyond.
-    /// Encoded/decoded by serializers as "FUSW".
+    /// Encoded/decoded by serializers as &quot;FUSW&quot;.
     /// </summary>
     [EnumMember(Value = "FUSW")]
     [IsoId("_3J3wAax1Eem81-uIvTF5rQ")]
@@ -119,8 +119,8 @@ public enum BenchmarkCurveName3Code
     FutureSWAP = BenchmarkCurveNameCode.FutureSWAP, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// GCF Repo Index, the Depository Trust & Clearing Corporation (DTCC) general collateral finance repurchase agreements index.
-    /// Encoded/decoded by serializers as "GCFR".
+    /// GCF Repo Index, the Depository Trust &amp; Clearing Corporation (DTCC) general collateral finance repurchase agreements index.
+    /// Encoded/decoded by serializers as &quot;GCFR&quot;.
     /// </summary>
     [EnumMember(Value = "GCFR")]
     [IsoId("_3mezgax1Eem81-uIvTF5rQ")]
@@ -129,7 +129,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Worldwide common reference rate value for fixed interest rate swap rates, as defined by the International Swaps and Derivatives Association (ISDA).
-    /// Encoded/decoded by serializers as "ISDA".
+    /// Encoded/decoded by serializers as &quot;ISDA&quot;.
     /// </summary>
     [EnumMember(Value = "ISDA")]
     [IsoId("_3_ODoax1Eem81-uIvTF5rQ")]
@@ -138,7 +138,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Johannesburg Interbank Agreed Rate.
-    /// Encoded/decoded by serializers as "JIBA".
+    /// Encoded/decoded by serializers as &quot;JIBA&quot;.
     /// </summary>
     [EnumMember(Value = "JIBA")]
     [IsoId("_4HkHUax1Eem81-uIvTF5rQ")]
@@ -148,7 +148,7 @@ public enum BenchmarkCurveName3Code
     /// <summary>
     /// Rate at which major international banks are willing to take deposits from one another, is normally 1/8 percent below LIBOR.
     /// London InterBank Bid Rate, the rate bid by banks on Eurocurrency deposits; the international rate that banks lend to other banks.
-    /// Encoded/decoded by serializers as "LIBI".
+    /// Encoded/decoded by serializers as &quot;LIBI&quot;.
     /// </summary>
     [EnumMember(Value = "LIBI")]
     [IsoId("_4VufIax1Eem81-uIvTF5rQ")]
@@ -157,7 +157,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// London Interbank Offered Rate, the interest rate that major international banks in London charge each other for borrowing.
-    /// Encoded/decoded by serializers as "LIBO".
+    /// Encoded/decoded by serializers as &quot;LIBO&quot;.
     /// </summary>
     [EnumMember(Value = "LIBO")]
     [IsoId("_4eXdwax1Eem81-uIvTF5rQ")]
@@ -166,7 +166,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Moscow Prime Offered Rate.
-    /// Encoded/decoded by serializers as "MOSP".
+    /// Encoded/decoded by serializers as &quot;MOSP&quot;.
     /// </summary>
     [EnumMember(Value = "MOSP")]
     [IsoId("_4tHrcax1Eem81-uIvTF5rQ")]
@@ -175,7 +175,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Benchmark curve used for municipals based on the best credit rating for municipal market debt.
-    /// Encoded/decoded by serializers as "MAAA".
+    /// Encoded/decoded by serializers as &quot;MAAA&quot;.
     /// </summary>
     [EnumMember(Value = "MAAA")]
     [IsoId("_43270ax1Eem81-uIvTF5rQ")]
@@ -184,7 +184,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Norwegian Interbank Offered Rate.
-    /// Encoded/decoded by serializers as "NIBO".
+    /// Encoded/decoded by serializers as &quot;NIBO&quot;.
     /// </summary>
     [EnumMember(Value = "NIBO")]
     [IsoId("_5QvV4ax1Eem81-uIvTF5rQ")]
@@ -193,7 +193,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Pfandbriefe security is a collateralised bullet bond backed by either mortgage loans or loans to the public sector. Pfandbriefe differ from traditional asset-backed securities in significant ways. The most important difference is that Pfandbriefe carry no pre-payment risk since they remain on the balance sheet of the issuing institution. Therefore, their spreads over sovereign bonds are attributable to liquidity and credit quality alone. New indices have been created and existing indices have been modified in response to the growing importance of the Pfandbriefe market. The Deutsche Borse has three synthetic indices called REX, JEX, and PEX. The Pfandbriefe curve is used as a reference for credit as well as mortgage market.
-    /// Encoded/decoded by serializers as "PFAN".
+    /// Encoded/decoded by serializers as &quot;PFAN&quot;.
     /// </summary>
     [EnumMember(Value = "PFAN")]
     [IsoId("_5ZYUgax1Eem81-uIvTF5rQ")]
@@ -202,7 +202,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Czech Fixing of Interest Rates on Interbank Deposits.
-    /// Encoded/decoded by serializers as "PRBO".
+    /// Encoded/decoded by serializers as &quot;PRBO&quot;.
     /// </summary>
     [EnumMember(Value = "PRBO")]
     [IsoId("_53Cg4ax1Eem81-uIvTF5rQ")]
@@ -211,7 +211,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Stockholm Interbank Offered Rate.
-    /// Encoded/decoded by serializers as "STBO".
+    /// Encoded/decoded by serializers as &quot;STBO&quot;.
     /// </summary>
     [EnumMember(Value = "STBO")]
     [IsoId("_5_iVkax1Eem81-uIvTF5rQ")]
@@ -220,7 +220,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// In curve construction, Swap is the long portion of the curve constituting about 3 years to 30 years term.||The exchange of one security, currency or interest rate for another to change the maturity (bonds), or quality of issues (stocks or bonds), or because investment objectives have changed.
-    /// Encoded/decoded by serializers as "SWAP".
+    /// Encoded/decoded by serializers as &quot;SWAP&quot;.
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_6U_oMax1Eem81-uIvTF5rQ")]
@@ -229,7 +229,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Tel Aviv Interbank Offered Rate.
-    /// Encoded/decoded by serializers as "TLBO".
+    /// Encoded/decoded by serializers as &quot;TLBO&quot;.
     /// </summary>
     [EnumMember(Value = "TLBO")]
     [IsoId("_6dom0ax1Eem81-uIvTF5rQ")]
@@ -238,7 +238,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Tokyo Interbank Offered Rate.
-    /// Encoded/decoded by serializers as "TIBO".
+    /// Encoded/decoded by serializers as &quot;TIBO&quot;.
     /// </summary>
     [EnumMember(Value = "TIBO")]
     [IsoId("_6silgax1Eem81-uIvTF5rQ")]
@@ -247,7 +247,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Treasury benchmark that comes in three types: the yield curve, the par curve, and the spot curve. All curves also have a constituent time series.
-    /// Encoded/decoded by serializers as "TREA".
+    /// Encoded/decoded by serializers as &quot;TREA&quot;.
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_68MLEax1Eem81-uIvTF5rQ")]
@@ -256,7 +256,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Warsaw Interbank Offered Rate.
-    /// Encoded/decoded by serializers as "WIBO".
+    /// Encoded/decoded by serializers as &quot;WIBO&quot;.
     /// </summary>
     [EnumMember(Value = "WIBO")]
     [IsoId("_7FR1oax1Eem81-uIvTF5rQ")]
@@ -265,7 +265,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Secured Overnight Financing Rate.
-    /// Encoded/decoded by serializers as "SOFR".
+    /// Encoded/decoded by serializers as &quot;SOFR&quot;.
     /// </summary>
     [EnumMember(Value = "SOFR")]
     [IsoId("_a08SkbUMEemybd4mhF9NIA")]
@@ -274,7 +274,7 @@ public enum BenchmarkCurveName3Code
     
     /// <summary>
     /// Sterling Over Night Index Average.
-    /// Encoded/decoded by serializers as "SONA".
+    /// Encoded/decoded by serializers as &quot;SONA&quot;.
     /// </summary>
     [EnumMember(Value = "SONA")]
     [IsoId("_bNdgQbUMEemybd4mhF9NIA")]

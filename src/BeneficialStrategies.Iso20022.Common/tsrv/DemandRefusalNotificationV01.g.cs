@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The DemandRefusalNotification message is sent to the beneficiary or presenter by the party obligated on the undertaking and to whom a demand for payment has been made, either directly or via one or more advising parties. It notifies the beneficiary or presenter that the demand has been refused.")]
 [IsoId("_9iijAHltEeG7BsjMvd1mEw_2131850524")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Demand Refusal Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord<DemandRefusalN
     /// Details of the demand refusal notification.
     /// </summary>
     [IsoId("_9iijAXltEeG7BsjMvd1mEw_1591105840")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demand Refusal Notification Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmndRfslNtfctnDtls")]
     #endif
+    [IsoXmlTag("DmndRfslNtfctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DemandRefusal1? DemandRefusalNotificationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord<DemandRefusalN
     /// Digital signature of the notification.
     /// </summary>
     [IsoId("_9iijAnltEeG7BsjMvd1mEw_-509775412")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,7 +100,7 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord<DemandRefusalN
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DemandRefusalNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DemandRefusalNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DemandRefusalNotificationV01Document ToDocument()
     {
@@ -114,7 +110,7 @@ public partial record DemandRefusalNotificationV01 : IOuterRecord<DemandRefusalN
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DemandRefusalNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DemandRefusalNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DemandRefusalNotificationV01Document : IOuterDocument<DemandRefusalNotificationV01>
@@ -131,7 +127,7 @@ public partial record DemandRefusalNotificationV01Document : IOuterDocument<Dema
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DemandRefusalNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DemandRefusalNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DemandRefusalNotificationV01 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Trade settlement monetary summation specified for this supply chain trade settlement.
 /// </summary>
 [IsoId("_SucoHAEcEeCQm6a_G2yO_w_1990739481")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Line Item Monetary Summation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record LineItemMonetarySummation1
     /// Monetary value of the line amount total being reported in this trade settlement monetary summation.
     /// </summary>
     [IsoId("_SucoHQEcEeCQm6a_G2yO_w_203579898")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineTtlAmt")]
     #endif
+    [IsoXmlTag("LineTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? LineTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record LineItemMonetarySummation1
     /// Monetary value of the total of all allowance amounts being reported in this line item monetary summation.
     /// </summary>
     [IsoId("_SucoHgEcEeCQm6a_G2yO_w_-156792154")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allowance Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllwncTtlAmt")]
     #endif
+    [IsoXmlTag("AllwncTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? AllowanceTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record LineItemMonetarySummation1
     /// Monetary value of the total of all charge amounts being reported in this line item monetary summation.
     /// </summary>
     [IsoId("_SucoHwEcEeCQm6a_G2yO_w_197422641")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgTtlAmt")]
     #endif
+    [IsoXmlTag("ChrgTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? ChargeTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record LineItemMonetarySummation1
     /// Monetary value of the total of all tax amounts being reported in this line item monetary summation.
     /// </summary>
     [IsoId("_SucoIAEcEeCQm6a_G2yO_w_1261442565")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxTtlAmt")]
     #endif
+    [IsoXmlTag("TaxTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? TaxTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record LineItemMonetarySummation1
     /// Monetary value of the total of all tax basis amounts being reported in this line item monetary summation.
     /// </summary>
     [IsoId("_SumZEAEcEeCQm6a_G2yO_w_-860871799")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Basis Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxBsisTtlAmt")]
     #endif
+    [IsoXmlTag("TaxBsisTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? TaxBasisTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +132,12 @@ public partial record LineItemMonetarySummation1
     /// Monetary value of an amount being reported for information in this line item monetary summation.
     /// </summary>
     [IsoId("_SumZEQEcEeCQm6a_G2yO_w_1109201490")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfAmt")]
     #endif
+    [IsoXmlTag("InfAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? InformationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

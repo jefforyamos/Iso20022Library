@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportingSource1Choice.Code))]
     [KnownType(typeof(ReportingSource1Choice.Proprietary))]
     [IsoId("_RqIkkdp-Ed-ak6NoX_4Aeg_-1706426921")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Source 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorBatchTransferResponse is sent by the acquirer (or its agent) to inform the acceptor (or its agent) of the transfer in a previous AcceptorBatchTransfer of a collection of transactions.")]
 [IsoId("_kicoMWmZEeSQ1udc47rf0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Batch Transfer Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record AcceptorBatchTransferResponseV04 : IOuterRecord<AcceptorBa
     /// Capture advice response message management information.
     /// </summary>
     [IsoId("_kidPQ2mZEeSQ1udc47rf0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header12 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header12 Header { get; init; } 
+    public required Header12 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header12 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record AcceptorBatchTransferResponseV04 : IOuterRecord<AcceptorBa
     /// Information related to the previously sent set of transaction.
     /// </summary>
     [IsoId("_kidPRWmZEeSQ1udc47rf0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch Transfer Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BtchTrfRspn")]
     #endif
+    [IsoXmlTag("BtchTrfRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentBatchTransferResponse3 BatchTransferResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentBatchTransferResponse3 BatchTransferResponse { get; init; } 
+    public required CardPaymentBatchTransferResponse3 BatchTransferResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentBatchTransferResponse3 BatchTransferResponse { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record AcceptorBatchTransferResponseV04 : IOuterRecord<AcceptorBa
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_kidPR2mZEeSQ1udc47rf0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType12 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType12 SecurityTrailer { get; init; } 
+    public required ContentInformationType12 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType12 SecurityTrailer { get; init; } 
     #else
@@ -137,7 +132,7 @@ public partial record AcceptorBatchTransferResponseV04 : IOuterRecord<AcceptorBa
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorBatchTransferResponseV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorBatchTransferResponseV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorBatchTransferResponseV04Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record AcceptorBatchTransferResponseV04 : IOuterRecord<AcceptorBa
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorBatchTransferResponseV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorBatchTransferResponseV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorBatchTransferResponseV04Document : IOuterDocument<AcceptorBatchTransferResponseV04>
@@ -164,7 +159,7 @@ public partial record AcceptorBatchTransferResponseV04Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorBatchTransferResponseV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorBatchTransferResponseV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorBatchTransferResponseV04 Message { get; init; }

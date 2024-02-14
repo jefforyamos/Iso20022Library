@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason14Choice
     /// Specifies additional information about the processed instruction.
     /// </summary>
     [IsoId("_ux5oLVhpEeS8HfHHd4stCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledged Accepted Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

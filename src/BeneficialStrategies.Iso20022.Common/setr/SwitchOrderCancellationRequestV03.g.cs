@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|An instructing party, for example, an investment manager or its authorised representative, sends the SwitchOrderCancellationRequest message to the executing party, for example, a transfer agent, to request the cancellation of a previously sent SwitchOrder instruction.|Usage|The SwitchOrderCancellationRequest is used to cancel the entire previously sent SwitchOrder instruction and all the individual legs that it contains. There is no amendment, but a cancellation and re-instruct policy.|There are two ways to specify the switch cancellation. Either:|- the order reference of the original switch order is quoted, or,|- all the details of the original switch order (this includes the OrderReference) are quoted, but this is not recommended.|The message identification of the SwitchOrder message may also be quoted in PreviousReference.|It is also possible to request the cancellation of a SwitchOrder message by quoting its message identification in PreviousReference, but this is not recommended.|The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation request.|The rejection or acceptance of a SwitchOrderCancellationRequest is made using an OrderCancellationStatusReport message.")]
 [IsoId("_6CayWNE7Ed-BzquC8wXy7w_1787145028")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Switch Order Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord<SwitchOrd
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_6CayWdE7Ed-BzquC8wXy7w_264063025")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -105,12 +102,11 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord<SwitchOrd
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_6CayWtE7Ed-BzquC8wXy7w_1787145131")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,12 +119,11 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord<SwitchOrd
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_6Cj8QNE7Ed-BzquC8wXy7w_1787145191")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +136,11 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord<SwitchOrd
     /// References of the switch orders to be cancelled.
     /// </summary>
     [IsoId("_6Cj8QdE7Ed-BzquC8wXy7w_1302905087")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation By Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlByRef")]
     #endif
+    [IsoXmlTag("CxlByRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundOrder1? CancellationByReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,12 +153,11 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord<SwitchOrd
     /// Common information related to all the switch orders to be cancelled.
     /// </summary>
     [IsoId("_6Cj8QtE7Ed-BzquC8wXy7w_1787145055")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation By Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlByOrdrDtls")]
     #endif
+    [IsoXmlTag("CxlByOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SwitchOrderInstruction2? CancellationByOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,12 +170,11 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord<SwitchOrd
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_6Cj8Q9E7Ed-BzquC8wXy7w_-925024126")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation2? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -195,7 +187,7 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord<SwitchOrd
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SwitchOrderCancellationRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SwitchOrderCancellationRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SwitchOrderCancellationRequestV03Document ToDocument()
     {
@@ -205,7 +197,7 @@ public partial record SwitchOrderCancellationRequestV03 : IOuterRecord<SwitchOrd
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderCancellationRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SwitchOrderCancellationRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SwitchOrderCancellationRequestV03Document : IOuterDocument<SwitchOrderCancellationRequestV03>
@@ -222,7 +214,7 @@ public partial record SwitchOrderCancellationRequestV03Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SwitchOrderCancellationRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SwitchOrderCancellationRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SwitchOrderCancellationRequestV03 Message { get; init; }

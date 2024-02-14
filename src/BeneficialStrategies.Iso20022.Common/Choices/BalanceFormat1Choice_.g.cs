@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BalanceFormat1Choice.EligibleBalance))]
     [KnownType(typeof(BalanceFormat1Choice.NotEligibleBalance))]
     [IsoId("_Q0of-tp-Ed-ak6NoX_4Aeg_86295556")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

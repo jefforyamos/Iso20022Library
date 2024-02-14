@@ -21,7 +21,7 @@ public enum CardPaymentServiceType4Code
 {
     /// <summary>
     /// Card payment transaction transfer from person to person.
-    /// Encoded/decoded by serializers as "TP2P".
+    /// Encoded/decoded by serializers as &quot;TP2P&quot;.
     /// </summary>
     [EnumMember(Value = "TP2P")]
     [IsoId("_DAJl8R0nEeK5OKMB21JFBg")]
@@ -30,7 +30,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Card payment transaction transfer from person to business.
-    /// Encoded/decoded by serializers as "TP2B".
+    /// Encoded/decoded by serializers as &quot;TP2B&quot;.
     /// </summary>
     [EnumMember(Value = "TP2B")]
     [IsoId("_DO3-cR0nEeK5OKMB21JFBg")]
@@ -39,7 +39,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Balance enquiry.
-    /// Encoded/decoded by serializers as "BALC".
+    /// Encoded/decoded by serializers as &quot;BALC&quot;.
     /// </summary>
     [EnumMember(Value = "BALC")]
     [IsoId("_GWYh8R0nEeK5OKMB21JFBg")]
@@ -48,7 +48,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Card activation.
-    /// Encoded/decoded by serializers as "CACT".
+    /// Encoded/decoded by serializers as &quot;CACT&quot;.
     /// </summary>
     [EnumMember(Value = "CACT")]
     [IsoId("_GuL98x0nEeK5OKMB21JFBg")]
@@ -57,7 +57,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Card payment.
-    /// Encoded/decoded by serializers as "CRDP".
+    /// Encoded/decoded by serializers as &quot;CRDP&quot;.
     /// </summary>
     [EnumMember(Value = "CRDP")]
     [IsoId("_HJahYR0nEeK5OKMB21JFBg")]
@@ -66,7 +66,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Transfer of funds to and/or from a card account.
-    /// Encoded/decoded by serializers as "CAFT".
+    /// Encoded/decoded by serializers as &quot;CAFT&quot;.
     /// </summary>
     [EnumMember(Value = "CAFT")]
     [IsoId("_HmbNgR0nEeK5OKMB21JFBg")]
@@ -75,7 +75,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Card verification.
-    /// Encoded/decoded by serializers as "CAVR".
+    /// Encoded/decoded by serializers as &quot;CAVR&quot;.
     /// </summary>
     [EnumMember(Value = "CAVR")]
     [IsoId("_H9VRox0nEeK5OKMB21JFBg")]
@@ -84,7 +84,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.
-    /// Encoded/decoded by serializers as "CSHW".
+    /// Encoded/decoded by serializers as &quot;CSHW&quot;.
     /// </summary>
     [EnumMember(Value = "CSHW")]
     [IsoId("_IS55AR0nEeK5OKMB21JFBg")]
@@ -93,7 +93,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Card payment with cash-back.
-    /// Encoded/decoded by serializers as "CSHB".
+    /// Encoded/decoded by serializers as &quot;CSHB&quot;.
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_JaUNAR0nEeK5OKMB21JFBg")]
@@ -102,7 +102,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Cash deposit.
-    /// Encoded/decoded by serializers as "CSHD".
+    /// Encoded/decoded by serializers as &quot;CSHD&quot;.
     /// </summary>
     [EnumMember(Value = "CSHD")]
     [IsoId("_JtNT0x0nEeK5OKMB21JFBg")]
@@ -111,7 +111,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Deferred payment.
-    /// Encoded/decoded by serializers as "DEFR".
+    /// Encoded/decoded by serializers as &quot;DEFR&quot;.
     /// </summary>
     [EnumMember(Value = "DEFR")]
     [IsoId("_KGf9kR0nEeK5OKMB21JFBg")]
@@ -120,7 +120,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Loading or reloading non-financial account.
-    /// Encoded/decoded by serializers as "LOAD".
+    /// Encoded/decoded by serializers as &quot;LOAD&quot;.
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_Kxy9Ux0nEeK5OKMB21JFBg")]
@@ -129,7 +129,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Original credit.
-    /// Encoded/decoded by serializers as "ORCR".
+    /// Encoded/decoded by serializers as &quot;ORCR&quot;.
     /// </summary>
     [EnumMember(Value = "ORCR")]
     [IsoId("_LXlK8R0nEeK5OKMB21JFBg")]
@@ -138,7 +138,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// PIN (Personal Identification Number) change.
-    /// Encoded/decoded by serializers as "PINC".
+    /// Encoded/decoded by serializers as &quot;PINC&quot;.
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_MTYr4R0nEeK5OKMB21JFBg")]
@@ -147,7 +147,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Quasi-cash.
-    /// Encoded/decoded by serializers as "QUCH".
+    /// Encoded/decoded by serializers as &quot;QUCH&quot;.
     /// </summary>
     [EnumMember(Value = "QUCH")]
     [IsoId("_Mx4lwR0nEeK5OKMB21JFBg")]
@@ -156,7 +156,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Refund transaction.
-    /// Encoded/decoded by serializers as "RFND".
+    /// Encoded/decoded by serializers as &quot;RFND&quot;.
     /// </summary>
     [EnumMember(Value = "RFND")]
     [IsoId("_NHnlMR0nEeK5OKMB21JFBg")]
@@ -165,7 +165,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Reservation (pre-authorisation).
-    /// Encoded/decoded by serializers as "RESA".
+    /// Encoded/decoded by serializers as &quot;RESA&quot;.
     /// </summary>
     [EnumMember(Value = "RESA")]
     [IsoId("_NoWTsx0nEeK5OKMB21JFBg")]
@@ -174,7 +174,7 @@ public enum CardPaymentServiceType4Code
     
     /// <summary>
     /// Card validity check.
-    /// Encoded/decoded by serializers as "VALC".
+    /// Encoded/decoded by serializers as &quot;VALC&quot;.
     /// </summary>
     [EnumMember(Value = "VALC")]
     [IsoId("_N2xxQR0nEeK5OKMB21JFBg")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FloatingRateIdentification3Choic
     /// List of floating rate curves.
     /// </summary>
     [IsoId("_GRIIQQ1IEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FloatingRateIdentification3Choic
         /// Specifies a benchmark curve name.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BenchmarkCurveName3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BenchmarkCurveName3Code Value { get; init; } 
+        public required BenchmarkCurveName3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BenchmarkCurveName3Code Value { get; init; } 
         #else

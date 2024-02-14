@@ -21,7 +21,7 @@ public enum ATMServiceType6Code
 {
     /// <summary>
     /// Making change between media types.
-    /// Encoded/decoded by serializers as "MCHG".
+    /// Encoded/decoded by serializers as &quot;MCHG&quot;.
     /// </summary>
     [EnumMember(Value = "MCHG")]
     [IsoId("_P5EiUa3_EeWL1uap3dNhCQ")]
@@ -30,7 +30,7 @@ public enum ATMServiceType6Code
     
     /// <summary>
     /// Deposit of media items unverified by the ATM, for instance in an envelope.
-    /// Encoded/decoded by serializers as "DPSN".
+    /// Encoded/decoded by serializers as &quot;DPSN&quot;.
     /// </summary>
     [EnumMember(Value = "DPSN")]
     [IsoId("_QHYEE63_EeWL1uap3dNhCQ")]
@@ -39,7 +39,7 @@ public enum ATMServiceType6Code
     
     /// <summary>
     /// Deposit of media items verified by the ATM.
-    /// Encoded/decoded by serializers as "DPSV".
+    /// Encoded/decoded by serializers as &quot;DPSV&quot;.
     /// </summary>
     [EnumMember(Value = "DPSV")]
     [IsoId("_QbvKg63_EeWL1uap3dNhCQ")]

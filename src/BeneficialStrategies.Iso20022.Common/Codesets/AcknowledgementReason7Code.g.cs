@@ -21,7 +21,7 @@ public enum AcknowledgementReason7Code
 {
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
-    /// Encoded/decoded by serializers as "NSTP".
+    /// Encoded/decoded by serializers as &quot;NSTP&quot;.
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_D0GuMSqAEeO3oOoGGWHH4A")]
@@ -30,7 +30,7 @@ public enum AcknowledgementReason7Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_D7GHASqAEeO3oOoGGWHH4A")]

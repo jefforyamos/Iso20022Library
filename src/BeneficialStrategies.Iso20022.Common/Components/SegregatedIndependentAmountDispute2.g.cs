@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides for the segregated independent amount, the dispute details like the dispute amount or the dispute date and the resolution type details.
 /// </summary>
 [IsoId("_dCiJ4StOEeyOa655cLd-DQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Segregated Independent Amount Dispute")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SegregatedIndependentAmountDispute2
     /// Details of the disputed instruction.
     /// </summary>
     [IsoId("_da94AStOEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsptDtls")]
     #endif
+    [IsoXmlTag("DsptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Dispute1 DisputeDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Dispute1 DisputeDetails { get; init; } 
+    public required Dispute1 DisputeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Dispute1 DisputeDetails { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SegregatedIndependentAmountDispute2
     /// Specifies the type of dispute that is to be resolved regarding the disputed collateral amount.
     /// </summary>
     [IsoId("_da94AytOEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Resolution Type 1 Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsptRsltnTp1Chc")]
     #endif
+    [IsoXmlTag("DsptRsltnTp1Chc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisputeResolutionType1Choice_? DisputeResolutionType1Choice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

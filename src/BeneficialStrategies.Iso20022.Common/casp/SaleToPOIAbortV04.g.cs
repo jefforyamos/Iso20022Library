@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"The SaleToPOIAbort message is sent by a sale system to abort process on POI.")]
 [IsoId("_qwrssU7AEeyGi9JAv6wq7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Abort V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOIAbortV04 : IOuterRecord<SaleToPOIAbortV04,SaleToP
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_qwrss07AEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header41 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header41 Header { get; init; } 
+    public required Header41 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header41 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOIAbortV04 : IOuterRecord<SaleToPOIAbortV04,SaleToP
     /// Information related to an abort request.
     /// </summary>
     [IsoId("_qwrstU7AEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Abort")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Abrt")]
     #endif
+    [IsoXmlTag("Abrt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemAbort5 Abort { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemAbort5 Abort { get; init; } 
+    public required SystemAbort5 Abort { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemAbort5 Abort { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SaleToPOIAbortV04 : IOuterRecord<SaleToPOIAbortV04,SaleToP
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_qwrst07AEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType29? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SaleToPOIAbortV04 : IOuterRecord<SaleToPOIAbortV04,SaleToP
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOIAbortV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOIAbortV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOIAbortV04Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SaleToPOIAbortV04 : IOuterRecord<SaleToPOIAbortV04,SaleToP
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIAbortV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOIAbortV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOIAbortV04Document : IOuterDocument<SaleToPOIAbortV04>
@@ -161,7 +156,7 @@ public partial record SaleToPOIAbortV04Document : IOuterDocument<SaleToPOIAbortV
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOIAbortV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOIAbortV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOIAbortV04 Message { get; init; }

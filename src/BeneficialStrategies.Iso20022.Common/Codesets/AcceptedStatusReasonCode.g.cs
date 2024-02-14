@@ -21,7 +21,7 @@ public enum AcceptedStatusReasonCode
 {
     /// <summary>
     /// Status of the account modification instruction is accepted but modification of the account data will not be carried out for the sector code.
-    /// Encoded/decoded by serializers as "SECT".
+    /// Encoded/decoded by serializers as &quot;SECT&quot;.
     /// </summary>
     [EnumMember(Value = "SECT")]
     [IsoId("_2GWm0GBmEeaR1OOiVxm3Gg")]
@@ -30,7 +30,7 @@ public enum AcceptedStatusReasonCode
     
     /// <summary>
     /// Status of the account modification instruction is accepted but modification of the account data will not be carried out for the place.
-    /// Encoded/decoded by serializers as "PLAC".
+    /// Encoded/decoded by serializers as &quot;PLAC&quot;.
     /// </summary>
     [EnumMember(Value = "PLAC")]
     [IsoId("_DsPNsGBnEeaR1OOiVxm3Gg")]

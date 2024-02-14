@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason7Choice
     /// Reason for the rejected status expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_sv4bSFj7EeOgwYxfAV02bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason7Choice
         /// The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalRejectedReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalRejectedReason1Code Value { get; init; } 
+        public required ExternalRejectedReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalRejectedReason1Code Value { get; init; } 
         #else

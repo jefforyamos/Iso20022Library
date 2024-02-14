@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMovementStatus1Ch
     /// Provides information about the rejection status.
     /// </summary>
     [IsoId("_RiPM2Np-Ed-ak6NoX_4Aeg_-1502312147")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMovementStatus1Ch
         /// The rejection reason.
         /// </summary>
         [IsoId("_Rkw8aNp-Ed-ak6NoX_4Aeg_-1516165446")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         public RejectionReason13FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _Rkw8aNp-Ed-ak6NoX_4Aeg_-1516165446
         
@@ -62,15 +59,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMovementStatus1Ch
         /// Additional information about the status.
         /// </summary>
         [IsoId("_Rk6tYNp-Ed-ak6NoX_4Aeg_-1516165445")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

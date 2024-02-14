@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details for the trading under waiver of the instrument.
 /// </summary>
 [IsoId("__YT0wJuKEeaPcol5ibnfBQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trading Under Waivers Percentage")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record TradingUnderWaiversPercentage1
     /// Total percentage of trading under waiver of the instrument in this specific reporting period on this trading venue.
     /// </summary>
     [IsoId("_V9BX0JuLEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Under Waiver Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgUdrWvrPctg")]
     #endif
+    [IsoXmlTag("TradgUdrWvrPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate TradingUnderWaiverPercentage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TradingUnderWaiverPercentage { get; init; } 
+    public required System.Decimal TradingUnderWaiverPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TradingUnderWaiverPercentage { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record TradingUnderWaiversPercentage1
     /// The venue this trading under waiver percentage is in relation to.
     /// </summary>
     [IsoId("_ri_asJuLEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgVn")]
     #endif
+    [IsoXmlTag("TradgVn")]
+    [IsoSimpleType(IsoSimpleType.MICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMICIdentifier TradingVenue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TradingVenue { get; init; } 
+    public required System.String TradingVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TradingVenue { get; init; } 
     #else
@@ -92,15 +90,13 @@ public partial record TradingUnderWaiversPercentage1
     /// Information for interpreting the result.
     /// </summary>
     [IsoId("_wreiAJuMEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disclaimer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dsclmr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Dsclmr")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Disclaimer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

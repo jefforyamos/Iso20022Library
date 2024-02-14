@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PreviousYear1Choice
     /// Selection of investment plans issued during previous years.
     /// </summary>
     [IsoId("_3fxSc0XfEeGY6MkiuzuPOA_1191226349")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Specific Previous Years")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PreviousYear1Choice
         /// Year represented by YYYY (ISO 8601).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SpcfcPrvsYrs")]
         #endif
+        [IsoXmlTag("SpcfcPrvsYrs")]
+        [IsoSimpleType(IsoSimpleType.ISOYear)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISOYear Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt16 Value { get; init; } 
+        public required System.UInt16 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt16 Value { get; init; } 
         #else

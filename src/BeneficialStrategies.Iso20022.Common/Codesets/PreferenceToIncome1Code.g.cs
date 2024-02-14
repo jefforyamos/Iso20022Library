@@ -21,7 +21,7 @@ public enum PreferenceToIncome1Code
 {
     /// <summary>
     /// Indicates an ordinary/common preference to income.
-    /// Encoded/decoded by serializers as "ORDN".
+    /// Encoded/decoded by serializers as &quot;ORDN&quot;.
     /// </summary>
     [EnumMember(Value = "ORDN")]
     [IsoId("_aIFoVtp-Ed-ak6NoX_4Aeg_-943073945")]
@@ -30,7 +30,7 @@ public enum PreferenceToIncome1Code
     
     /// <summary>
     /// Indicates a preferred claim upon income and assets.
-    /// Encoded/decoded by serializers as "PFRD".
+    /// Encoded/decoded by serializers as &quot;PFRD&quot;.
     /// </summary>
     [EnumMember(Value = "PFRD")]
     [IsoId("_aIFoV9p-Ed-ak6NoX_4Aeg_-943073928")]

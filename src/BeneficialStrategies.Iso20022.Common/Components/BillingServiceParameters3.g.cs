@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the detailed parameters a service to be billed.
 /// </summary>
 [IsoId("_a5J_YTq2EeWZFYSPlduMhw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Service Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BillingServiceParameters3
     /// Specifies the details to fully identify the bank service.
     /// </summary>
     [IsoId("_bBKr0Tq2EeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkSvc")]
     #endif
+    [IsoXmlTag("BkSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingServiceIdentification3 BankService { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingServiceIdentification3 BankService { get; init; } 
+    public required BillingServiceIdentification3 BankService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingServiceIdentification3 BankService { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record BillingServiceParameters3
     /// Count or number of items (volume) involved in the charge.
     /// </summary>
     [IsoId("_bBKr0zq2EeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vol")]
     #endif
+    [IsoXmlTag("Vol")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? Volume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

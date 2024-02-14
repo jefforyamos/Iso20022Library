@@ -21,7 +21,7 @@ public enum SecuritiesTransactionType11Code
 {
     /// <summary>
     /// Relates to the issue of medium and short term paper (CP, CD, MTN, notes.) under a program and without syndication arrangement.
-    /// Encoded/decoded by serializers as "NSYN".
+    /// Encoded/decoded by serializers as &quot;NSYN&quot;.
     /// </summary>
     [EnumMember(Value = "NSYN")]
     [IsoId("_ha_UsmliEeGaMcKyqKNRfQ_-1686330340")]
@@ -30,7 +30,7 @@ public enum SecuritiesTransactionType11Code
     
     /// <summary>
     /// Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.
-    /// Encoded/decoded by serializers as "SYND".
+    /// Encoded/decoded by serializers as &quot;SYND&quot;.
     /// </summary>
     [EnumMember(Value = "SYND")]
     [IsoId("_ha_Us2liEeGaMcKyqKNRfQ_835025507")]

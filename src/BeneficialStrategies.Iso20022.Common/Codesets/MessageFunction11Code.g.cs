@@ -21,7 +21,7 @@ public enum MessageFunction11Code
 {
     /// <summary>
     /// Provide the ATM counters resettting those that are applicable.
-    /// Encoded/decoded by serializers as "BALN".
+    /// Encoded/decoded by serializers as &quot;BALN&quot;.
     /// </summary>
     [EnumMember(Value = "BALN")]
     [IsoId("_e61o4a1xEeWMg5rOByfExw")]
@@ -30,7 +30,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Acknowledgement of a completion advice.
-    /// Encoded/decoded by serializers as "CMPA".
+    /// Encoded/decoded by serializers as &quot;CMPA&quot;.
     /// </summary>
     [EnumMember(Value = "CMPA")]
     [IsoId("_e61o461xEeWMg5rOByfExw")]
@@ -39,7 +39,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Advice of an ATM transaction completion.
-    /// Encoded/decoded by serializers as "CMPD".
+    /// Encoded/decoded by serializers as &quot;CMPD&quot;.
     /// </summary>
     [EnumMember(Value = "CMPD")]
     [IsoId("_e61o5a1xEeWMg5rOByfExw")]
@@ -48,7 +48,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Global ATM commands.
-    /// Encoded/decoded by serializers as "ACMD".
+    /// Encoded/decoded by serializers as &quot;ACMD&quot;.
     /// </summary>
     [EnumMember(Value = "ACMD")]
     [IsoId("_e61o561xEeWMg5rOByfExw")]
@@ -57,7 +57,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Maintenance commands to perform.
-    /// Encoded/decoded by serializers as "DVCC".
+    /// Encoded/decoded by serializers as &quot;DVCC&quot;.
     /// </summary>
     [EnumMember(Value = "DVCC")]
     [IsoId("_e61o6a1xEeWMg5rOByfExw")]
@@ -66,7 +66,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request for a diagnostic.
-    /// Encoded/decoded by serializers as "DIAQ".
+    /// Encoded/decoded by serializers as &quot;DIAQ&quot;.
     /// </summary>
     [EnumMember(Value = "DIAQ")]
     [IsoId("_e61o661xEeWMg5rOByfExw")]
@@ -75,7 +75,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Response to a diagnostic request.
-    /// Encoded/decoded by serializers as "DIAP".
+    /// Encoded/decoded by serializers as &quot;DIAP&quot;.
     /// </summary>
     [EnumMember(Value = "DIAP")]
     [IsoId("_e61o7a1xEeWMg5rOByfExw")]
@@ -84,7 +84,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Global status of the ATM.
-    /// Encoded/decoded by serializers as "GSTS".
+    /// Encoded/decoded by serializers as &quot;GSTS&quot;.
     /// </summary>
     [EnumMember(Value = "GSTS")]
     [IsoId("_e61o761xEeWMg5rOByfExw")]
@@ -93,7 +93,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request for an inquiry.
-    /// Encoded/decoded by serializers as "INQQ".
+    /// Encoded/decoded by serializers as &quot;INQQ&quot;.
     /// </summary>
     [EnumMember(Value = "INQQ")]
     [IsoId("_e61o8a1xEeWMg5rOByfExw")]
@@ -102,7 +102,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Response to an inquiry request.
-    /// Encoded/decoded by serializers as "INQP".
+    /// Encoded/decoded by serializers as &quot;INQP&quot;.
     /// </summary>
     [EnumMember(Value = "INQP")]
     [IsoId("_e61o861xEeWMg5rOByfExw")]
@@ -111,7 +111,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request for a key download.
-    /// Encoded/decoded by serializers as "KYAQ".
+    /// Encoded/decoded by serializers as &quot;KYAQ&quot;.
     /// </summary>
     [EnumMember(Value = "KYAQ")]
     [IsoId("_e61o9a1xEeWMg5rOByfExw")]
@@ -120,7 +120,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Response to a key download.
-    /// Encoded/decoded by serializers as "KYAP".
+    /// Encoded/decoded by serializers as &quot;KYAP&quot;.
     /// </summary>
     [EnumMember(Value = "KYAP")]
     [IsoId("_e61o961xEeWMg5rOByfExw")]
@@ -129,7 +129,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request for a cardholder PIN management.
-    /// Encoded/decoded by serializers as "PINQ".
+    /// Encoded/decoded by serializers as &quot;PINQ&quot;.
     /// </summary>
     [EnumMember(Value = "PINQ")]
     [IsoId("_e61o-a1xEeWMg5rOByfExw")]
@@ -138,7 +138,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Response to a cardholder PIN management request.
-    /// Encoded/decoded by serializers as "PINP".
+    /// Encoded/decoded by serializers as &quot;PINP&quot;.
     /// </summary>
     [EnumMember(Value = "PINP")]
     [IsoId("_e61o-61xEeWMg5rOByfExw")]
@@ -147,7 +147,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Rejected request message.
-    /// Encoded/decoded by serializers as "RJAQ".
+    /// Encoded/decoded by serializers as &quot;RJAQ&quot;.
     /// </summary>
     [EnumMember(Value = "RJAQ")]
     [IsoId("_e61o_a1xEeWMg5rOByfExw")]
@@ -156,7 +156,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Rejected response message.
-    /// Encoded/decoded by serializers as "RJAP".
+    /// Encoded/decoded by serializers as &quot;RJAP&quot;.
     /// </summary>
     [EnumMember(Value = "RJAP")]
     [IsoId("_e61o_61xEeWMg5rOByfExw")]
@@ -165,7 +165,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Response of a withdrawal transaction.
-    /// Encoded/decoded by serializers as "WITV".
+    /// Encoded/decoded by serializers as &quot;WITV&quot;.
     /// </summary>
     [EnumMember(Value = "WITV")]
     [IsoId("_e61pAa1xEeWMg5rOByfExw")]
@@ -174,7 +174,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Acknowledgement of a withdrawal transaction advice.
-    /// Encoded/decoded by serializers as "WITK".
+    /// Encoded/decoded by serializers as &quot;WITK&quot;.
     /// </summary>
     [EnumMember(Value = "WITK")]
     [IsoId("_e61pA61xEeWMg5rOByfExw")]
@@ -183,7 +183,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request for a withdrawal transaction.
-    /// Encoded/decoded by serializers as "WITQ".
+    /// Encoded/decoded by serializers as &quot;WITQ&quot;.
     /// </summary>
     [EnumMember(Value = "WITQ")]
     [IsoId("_e61pBa1xEeWMg5rOByfExw")]
@@ -192,7 +192,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Response to a withdrawal transaction request.
-    /// Encoded/decoded by serializers as "WITP".
+    /// Encoded/decoded by serializers as &quot;WITP&quot;.
     /// </summary>
     [EnumMember(Value = "WITP")]
     [IsoId("_e61pB61xEeWMg5rOByfExw")]
@@ -201,7 +201,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request the value of the ATM counters.
-    /// Encoded/decoded by serializers as "INQC".
+    /// Encoded/decoded by serializers as &quot;INQC&quot;.
     /// </summary>
     [EnumMember(Value = "INQC")]
     [IsoId("_e61pCa1xEeWMg5rOByfExw")]
@@ -210,7 +210,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Acknowledgement of a request from a host to an ATM for contacting.
-    /// Encoded/decoded by serializers as "H2AP".
+    /// Encoded/decoded by serializers as &quot;H2AP&quot;.
     /// </summary>
     [EnumMember(Value = "H2AP")]
     [IsoId("_e61pC61xEeWMg5rOByfExw")]
@@ -219,7 +219,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request from a host to an ATM to be contacted by this ATM.
-    /// Encoded/decoded by serializers as "H2AQ".
+    /// Encoded/decoded by serializers as &quot;H2AQ&quot;.
     /// </summary>
     [EnumMember(Value = "H2AQ")]
     [IsoId("_e61pDa1xEeWMg5rOByfExw")]
@@ -228,7 +228,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Logical or physical operation on the ATM.
-    /// Encoded/decoded by serializers as "TMOP".
+    /// Encoded/decoded by serializers as &quot;TMOP&quot;.
     /// </summary>
     [EnumMember(Value = "TMOP")]
     [IsoId("_e61pD61xEeWMg5rOByfExw")]
@@ -237,7 +237,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Security Commands.
-    /// Encoded/decoded by serializers as "CSEC".
+    /// Encoded/decoded by serializers as &quot;CSEC&quot;.
     /// </summary>
     [EnumMember(Value = "CSEC")]
     [IsoId("_e61pEa1xEeWMg5rOByfExw")]
@@ -246,7 +246,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Security detailed report.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_e61pE61xEeWMg5rOByfExw")]
@@ -255,7 +255,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Result of the key download with the status of the downloaded keys including key check values.
-    /// Encoded/decoded by serializers as "SKSC".
+    /// Encoded/decoded by serializers as &quot;SKSC&quot;.
     /// </summary>
     [EnumMember(Value = "SKSC")]
     [IsoId("_e61pFa1xEeWMg5rOByfExw")]
@@ -264,7 +264,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Status of cryptographic keys.
-    /// Encoded/decoded by serializers as "SSTS".
+    /// Encoded/decoded by serializers as &quot;SSTS&quot;.
     /// </summary>
     [EnumMember(Value = "SSTS")]
     [IsoId("_e61pF61xEeWMg5rOByfExw")]
@@ -273,7 +273,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Acknowledgement of a deposit completion advice.
-    /// Encoded/decoded by serializers as "DPSK".
+    /// Encoded/decoded by serializers as &quot;DPSK&quot;.
     /// </summary>
     [EnumMember(Value = "DPSK")]
     [IsoId("_lLyCga1xEeWMg5rOByfExw")]
@@ -282,7 +282,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Advice of an ATM deposit transaction completion.
-    /// Encoded/decoded by serializers as "DPSV".
+    /// Encoded/decoded by serializers as &quot;DPSV&quot;.
     /// </summary>
     [EnumMember(Value = "DPSV")]
     [IsoId("_lT-VMa1xEeWMg5rOByfExw")]
@@ -291,7 +291,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request for a deposit.
-    /// Encoded/decoded by serializers as "DPSQ".
+    /// Encoded/decoded by serializers as &quot;DPSQ&quot;.
     /// </summary>
     [EnumMember(Value = "DPSQ")]
     [IsoId("_ld0Nsa1xEeWMg5rOByfExw")]
@@ -300,7 +300,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Response to a deposit request.
-    /// Encoded/decoded by serializers as "DPSP".
+    /// Encoded/decoded by serializers as &quot;DPSP&quot;.
     /// </summary>
     [EnumMember(Value = "DPSP")]
     [IsoId("_lmAgYa1xEeWMg5rOByfExw")]
@@ -309,7 +309,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Acknowledgement of an exception advice.
-    /// Encoded/decoded by serializers as "EXPK".
+    /// Encoded/decoded by serializers as &quot;EXPK&quot;.
     /// </summary>
     [EnumMember(Value = "EXPK")]
     [IsoId("_mGqWYa1xEeWMg5rOByfExw")]
@@ -318,7 +318,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Advice of an ATM exception.
-    /// Encoded/decoded by serializers as "EXPV".
+    /// Encoded/decoded by serializers as &quot;EXPV&quot;.
     /// </summary>
     [EnumMember(Value = "EXPV")]
     [IsoId("_mOakMa1xEeWMg5rOByfExw")]
@@ -327,7 +327,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Request for a fund transfer.
-    /// Encoded/decoded by serializers as "TRFQ".
+    /// Encoded/decoded by serializers as &quot;TRFQ&quot;.
     /// </summary>
     [EnumMember(Value = "TRFQ")]
     [IsoId("_n5vdka1xEeWMg5rOByfExw")]
@@ -336,7 +336,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Response to a fund transfer request.
-    /// Encoded/decoded by serializers as "TRFP".
+    /// Encoded/decoded by serializers as &quot;TRFP&quot;.
     /// </summary>
     [EnumMember(Value = "TRFP")]
     [IsoId("_oCFhQa1xEeWMg5rOByfExw")]
@@ -345,7 +345,7 @@ public enum MessageFunction11Code
     
     /// <summary>
     /// Provide the value of the ATM counters, no reinitialisation of the counters.
-    /// Encoded/decoded by serializers as "RPTC".
+    /// Encoded/decoded by serializers as &quot;RPTC&quot;.
     /// </summary>
     [EnumMember(Value = "RPTC")]
     [IsoId("_rsA1Ua1xEeWMg5rOByfExw")]

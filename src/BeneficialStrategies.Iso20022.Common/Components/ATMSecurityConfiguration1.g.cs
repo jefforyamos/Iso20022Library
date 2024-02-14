@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration parameters in use by the security device.
 /// </summary>
 [IsoId("_4FKwEIr6EeSvuOJS0mmL0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Security Configuration")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ATMSecurityConfiguration1
     /// Configuration of the cryptographic keys.
     /// </summary>
     [IsoId("_LT8SEIr7EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Keys")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Keys")]
     #endif
+    [IsoXmlTag("Keys")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration2? Keys { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ATMSecurityConfiguration1
     /// Configuration of the encryption or digital envelope, if the security module is able to perform encryption.
     /// </summary>
     [IsoId("_vEEGgIr7EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encryption")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ncrptn")]
     #endif
+    [IsoXmlTag("Ncrptn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration3? Encryption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record ATMSecurityConfiguration1
     /// MAC (Message Authentication Code) algorithm the security module is able to manage.
     /// </summary>
     [IsoId("_gRAscIr8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("MAC Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MACAlgo")]
     #endif
+    [IsoXmlTag("MACAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm12Code? MACAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record ATMSecurityConfiguration1
     /// Digest algorithm the security module is able to manage.
     /// </summary>
     [IsoId("_kEKN8Ir8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm11Code? DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record ATMSecurityConfiguration1
     /// Configuration of the digital signatures if the security module is able to perform digital signatures with an asymmetric key.
     /// </summary>
     [IsoId("_2MDAYIr8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration4? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record ATMSecurityConfiguration1
     /// Configuration of the PIN online verification.
     /// </summary>
     [IsoId("_fAcnAIr9EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PIN")]
     #endif
+    [IsoXmlTag("PIN")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration5? PIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record ATMSecurityConfiguration1
     /// Mechanism used to protect the message of the ATM protocol.
     /// </summary>
     [IsoId("_KGeSAIr-EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Protection")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPrtcn")]
     #endif
+    [IsoXmlTag("MsgPrtcn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageProtection1Code? MessageProtection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Eligible and not eligible balance of securities for a corporate action event.
 /// </summary>
 [IsoId("_R-ZkYNp-Ed-ak6NoX_4Aeg_934462706")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Balance Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionBalanceDetails1
     /// Total quantity of financial instruments of the balance.
     /// </summary>
     [IsoId("_R-ZkYdp-Ed-ak6NoX_4Aeg_-1336738407")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Eligible Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlElgblBal")]
     #endif
+    [IsoXmlTag("TtlElgblBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3Choice_? TotalEligibleBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionBalanceDetails1
     /// Balance of financial instruments that are blocked.
     /// </summary>
     [IsoId("_R-ZkYtp-Ed-ak6NoX_4Aeg_-1051370518")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blocked Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckdBal")]
     #endif
+    [IsoXmlTag("BlckdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? BlockedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-ZkY9p-Ed-ak6NoX_4Aeg_-892527784")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Borrowed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrrwdBal")]
     #endif
+    [IsoXmlTag("BrrwdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? BorrowedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-ZkZNp-Ed-ak6NoX_4Aeg_-132192272")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral In Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollInBal")]
     #endif
+    [IsoXmlTag("CollInBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? CollateralInBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-ZkZdp-Ed-ak6NoX_4Aeg_-101714032")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Out Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollOutBal")]
     #endif
+    [IsoXmlTag("CollOutBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? CollateralOutBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-ZkZtp-Ed-ak6NoX_4Aeg_-75856916")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Loan Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnLnBal")]
     #endif
+    [IsoXmlTag("OnLnBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? OnLoanBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-ZkZ9p-Ed-ak6NoX_4Aeg_-61079941")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Delivery Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgDlvryBal")]
     #endif
+    [IsoXmlTag("PdgDlvryBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? PendingDeliveryBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-ZkaNp-Ed-ak6NoX_4Aeg_-36144565")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Receipt Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgRctBal")]
     #endif
+    [IsoXmlTag("PdgRctBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? PendingReceiptBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-iuUNp-Ed-ak6NoX_4Aeg_-22292087")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Out For Registration Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutForRegnBal")]
     #endif
+    [IsoXmlTag("OutForRegnBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? OutForRegistrationBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-iuUdp-Ed-ak6NoX_4Aeg_7259667")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Position Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPosBal")]
     #endif
+    [IsoXmlTag("SttlmPosBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? SettlementPositionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-iuUtp-Ed-ak6NoX_4Aeg_34042191")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Street Position Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrtPosBal")]
     #endif
+    [IsoXmlTag("StrtPosBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? StreetPositionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +229,11 @@ public partial record CorporateActionBalanceDetails1
     /// Balance of securities based on trade date, for example, includes all pending transactions in addition to the balance of settled transactions.
     /// </summary>
     [IsoId("_R-iuU9p-Ed-ak6NoX_4Aeg_52513455")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date Position Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDtPosBal")]
     #endif
+    [IsoXmlTag("TradDtPosBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? TradeDatePositionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-iuVNp-Ed-ak6NoX_4Aeg_348041673")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("In Transshipment Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InTrnsShipmntBal")]
     #endif
+    [IsoXmlTag("InTrnsShipmntBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? InTransshipmentBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +263,11 @@ public partial record CorporateActionBalanceDetails1
     /// Quantity of securities in the sub-balance.
     /// </summary>
     [IsoId("_R-iuVdp-Ed-ak6NoX_4Aeg_377593427")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registered Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegdBal")]
     #endif
+    [IsoXmlTag("RegdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? RegisteredBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +280,11 @@ public partial record CorporateActionBalanceDetails1
     /// Position that account holders should return to the account servicer to participate in the event or to fulfil their obligation for the event to be complete, for example, return of securities for late announced drawing.
     /// </summary>
     [IsoId("_R-iuVtp-Ed-ak6NoX_4Aeg_394218139")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligated Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OblgtdBal")]
     #endif
+    [IsoXmlTag("OblgtdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? ObligatedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +297,11 @@ public partial record CorporateActionBalanceDetails1
     /// Balance of uninstructed position.
     /// </summary>
     [IsoId("_R-iuV9p-Ed-ak6NoX_4Aeg_1566328553")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Uninstructed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UinstdBal")]
     #endif
+    [IsoXmlTag("UinstdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? UninstructedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -332,12 +314,11 @@ public partial record CorporateActionBalanceDetails1
     /// Balance of instructed position.
     /// </summary>
     [IsoId("_R-iuWNp-Ed-ak6NoX_4Aeg_1555229776")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdBal")]
     #endif
+    [IsoXmlTag("InstdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? InstructedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -350,12 +331,11 @@ public partial record CorporateActionBalanceDetails1
     /// Balance that has been affected by the process run through the event.
     /// </summary>
     [IsoId("_R-iuWdp-Ed-ak6NoX_4Aeg_387417315")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Affected Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AfctdBal")]
     #endif
+    [IsoXmlTag("AfctdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? AffectedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -368,12 +348,11 @@ public partial record CorporateActionBalanceDetails1
     /// Balance that has not been affected by the process run through the event.
     /// </summary>
     [IsoId("_R-sfUNp-Ed-ak6NoX_4Aeg_-969929365")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unaffected Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UafctdBal")]
     #endif
+    [IsoXmlTag("UafctdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceFormat1Choice_? UnaffectedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

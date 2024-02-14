@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides a settlement party by a choice between a BIC or a name and address or a party identification.
 /// </summary>
 [IsoId("_Box6QQN1Ee2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record SettlementParties120
     /// Financial institution from which cash will be transferred.
     /// </summary>
     [IsoId("_BuMlwQN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryAgt")]
     #endif
+    [IsoXmlTag("DlvryAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? DeliveryAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record SettlementParties120
     /// Party, within the settlement chain, between the delivery and receiving agents.
     /// </summary>
     [IsoId("_BuMlwwN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrmy")]
     #endif
+    [IsoXmlTag("Intrmy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? Intermediary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +83,15 @@ public partial record SettlementParties120
     /// Financial institution where the payee will receive the funds.
     /// </summary>
     [IsoId("_BuMlxQN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgAgt")]
     #endif
+    [IsoXmlTag("RcvgAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification242Choice_ ReceivingAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification242Choice_ ReceivingAgent { get; init; } 
+    public required PartyIdentification242Choice_ ReceivingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification242Choice_ ReceivingAgent { get; init; } 
     #else
@@ -107,12 +102,11 @@ public partial record SettlementParties120
     /// Ultimate institution that will receive the funds when different from the trading or counterparty side.
     /// </summary>
     [IsoId("_BuMlxwN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryInstn")]
     #endif
+    [IsoXmlTag("BnfcryInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? BeneficiaryInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

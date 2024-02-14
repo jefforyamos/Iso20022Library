@@ -21,7 +21,7 @@ public enum SettlementDate5Code
 {
     /// <summary>
     /// Settlement takes place under the standard rules applicable to the market and instrument.
-    /// Encoded/decoded by serializers as "REGU".
+    /// Encoded/decoded by serializers as &quot;REGU&quot;.
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("__wR-dNojEeC60axPepSq7g_-2042913404")]
@@ -30,7 +30,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place on the trade date.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("__wR-ddojEeC60axPepSq7g_-518845108")]
@@ -39,7 +39,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place on the day after trade date.
-    /// Encoded/decoded by serializers as "NXTD".
+    /// Encoded/decoded by serializers as &quot;NXTD&quot;.
     /// </summary>
     [EnumMember(Value = "NXTD")]
     [IsoId("__wbvcNojEeC60axPepSq7g_1934277231")]
@@ -48,7 +48,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus one business day.
-    /// Encoded/decoded by serializers as "TONE".
+    /// Encoded/decoded by serializers as &quot;TONE&quot;.
     /// </summary>
     [EnumMember(Value = "TONE")]
     [IsoId("__wbvcdojEeC60axPepSq7g_-1599924912")]
@@ -57,7 +57,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus two business days.
-    /// Encoded/decoded by serializers as "TTWO".
+    /// Encoded/decoded by serializers as &quot;TTWO&quot;.
     /// </summary>
     [EnumMember(Value = "TTWO")]
     [IsoId("__wbvctojEeC60axPepSq7g_230998257")]
@@ -66,7 +66,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus three business days.
-    /// Encoded/decoded by serializers as "TTRE".
+    /// Encoded/decoded by serializers as &quot;TTRE&quot;.
     /// </summary>
     [EnumMember(Value = "TTRE")]
     [IsoId("__wbvc9ojEeC60axPepSq7g_1755066553")]
@@ -75,7 +75,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus four business days.
-    /// Encoded/decoded by serializers as "TFOR".
+    /// Encoded/decoded by serializers as &quot;TFOR&quot;.
     /// </summary>
     [EnumMember(Value = "TFOR")]
     [IsoId("__wbvdNojEeC60axPepSq7g_685085526")]
@@ -84,7 +84,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place on the trade date plus five business days.
-    /// Encoded/decoded by serializers as "TFIV".
+    /// Encoded/decoded by serializers as &quot;TFIV&quot;.
     /// </summary>
     [EnumMember(Value = "TFIV")]
     [IsoId("__wbvddojEeC60axPepSq7g_1010203033")]
@@ -93,7 +93,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place at the choice/option of the seller.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("__wk5YNojEeC60axPepSq7g_-40862622")]
@@ -102,7 +102,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place when the financial instrument is distributed.
-    /// Encoded/decoded by serializers as "WDIS".
+    /// Encoded/decoded by serializers as &quot;WDIS&quot;.
     /// </summary>
     [EnumMember(Value = "WDIS")]
     [IsoId("__wk5YdojEeC60axPepSq7g_1814515449")]
@@ -111,7 +111,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement takes place when the financial instrument is issued or distributed.
-    /// Encoded/decoded by serializers as "WHID".
+    /// Encoded/decoded by serializers as &quot;WHID&quot;.
     /// </summary>
     [EnumMember(Value = "WHID")]
     [IsoId("__wk5YtojEeC60axPepSq7g_-1719686694")]
@@ -119,8 +119,8 @@ public enum SettlementDate5Code
     WhenIssuedOrDistributed = SettlementDateCode.WhenIssuedOrDistributed, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Settlement takes place as a result of a "to be announced" trade.
-    /// Encoded/decoded by serializers as "TBAT".
+    /// Settlement takes place as a result of a &quot;to be announced&quot; trade.
+    /// Encoded/decoded by serializers as &quot;TBAT&quot;.
     /// </summary>
     [EnumMember(Value = "TBAT")]
     [IsoId("__wk5Y9ojEeC60axPepSq7g_-195618398")]
@@ -129,7 +129,7 @@ public enum SettlementDate5Code
     
     /// <summary>
     /// Settlement is to be done when the security is issued.
-    /// Encoded/decoded by serializers as "WISS".
+    /// Encoded/decoded by serializers as &quot;WISS&quot;.
     /// </summary>
     [EnumMember(Value = "WISS")]
     [IsoId("__wk5ZNojEeC60axPepSq7g_1464768024")]

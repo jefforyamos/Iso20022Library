@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Further information required for the settlement the transaction.
 /// </summary>
 [IsoId("_QIOs8Np-Ed-ak6NoX_4Aeg_252070899")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SettlementInformation1
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
     [IsoId("_QIOs8dp-Ed-ak6NoX_4Aeg_365664027")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmMtd")]
     #endif
+    [IsoXmlTag("SttlmMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementMethod1Code SettlementMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementMethod1Code SettlementMethod { get; init; } 
+    public required SettlementMethod1Code SettlementMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementMethod1Code SettlementMethod { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SettlementInformation1
     /// A specific purpose account used to post debit and credit entries as a result of the transaction.
     /// </summary>
     [IsoId("_QIOs8tp-Ed-ak6NoX_4Aeg_1798967708")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmAcct")]
     #endif
+    [IsoXmlTag("SttlmAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? SettlementAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record SettlementInformation1
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
     [IsoId("_QIOs89p-Ed-ak6NoX_4Aeg_2088028158")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing System")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSys")]
     #endif
+    [IsoXmlTag("ClrSys")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingSystemIdentification1Choice_? ClearingSystem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record SettlementInformation1
     /// Agent through which the instructing agent will reimburse the instructed agent.||Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
     [IsoId("_QIOs9Np-Ed-ak6NoX_4Aeg_-1849535834")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing Reimbursement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgRmbrsmntAgt")]
     #endif
+    [IsoXmlTag("InstgRmbrsmntAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification3? InstructingReimbursementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record SettlementInformation1
     /// Unambiguous identification of the account of the instructing reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
     [IsoId("_QIOs9dp-Ed-ak6NoX_4Aeg_-2069254144")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing Reimbursement Agent Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgRmbrsmntAgtAcct")]
     #endif
+    [IsoXmlTag("InstgRmbrsmntAgtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? InstructingReimbursementAgentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,11 @@ public partial record SettlementInformation1
     /// Agent at which the instructed agent will be reimbursed.||Usage: If InstructedReimbursementAgent contains a branch of the InstructedAgent, then the instructed agent will claim reimbursement from that branch/will be paid by that branch.||Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
     [IsoId("_QIOs9tp-Ed-ak6NoX_4Aeg_-1862466137")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Reimbursement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdRmbrsmntAgt")]
     #endif
+    [IsoXmlTag("InstdRmbrsmntAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification3? InstructedReimbursementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +153,11 @@ public partial record SettlementInformation1
     /// Unambiguous identification of the account of the instructed reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
     [IsoId("_QIOs99p-Ed-ak6NoX_4Aeg_-2005533042")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Reimbursement Agent Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdRmbrsmntAgtAcct")]
     #endif
+    [IsoXmlTag("InstdRmbrsmntAgtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? InstructedReimbursementAgentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,15 +167,14 @@ public partial record SettlementInformation1
     #endif
     
     /// <summary>
-    /// Instructed agent's branch where the amount of money will be made available when different from the instructed reimbursement agent.
+    /// Instructed agent&apos;s branch where the amount of money will be made available when different from the instructed reimbursement agent.
     /// </summary>
     [IsoId("_QIYd8Np-Ed-ak6NoX_4Aeg_-521074442")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Third Reimbursement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThrdRmbrsmntAgt")]
     #endif
+    [IsoXmlTag("ThrdRmbrsmntAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification3? ThirdReimbursementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,12 +187,11 @@ public partial record SettlementInformation1
     /// Unambiguous identification of the account of the third reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
     [IsoId("_QIYd8dp-Ed-ak6NoX_4Aeg_1945291302")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Third Reimbursement Agent Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThrdRmbrsmntAgtAcct")]
     #endif
+    [IsoXmlTag("ThrdRmbrsmntAgtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? ThirdReimbursementAgentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

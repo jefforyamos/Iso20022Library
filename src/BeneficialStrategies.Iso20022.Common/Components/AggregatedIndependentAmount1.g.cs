@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Independent amount could be defined at a trade level or portfolio level. It is assumed that their treatment will be based on the exposure convention that is whether netted together or treated on a gross basis.
 /// </summary>
 [IsoId("_UlI9I9p-Ed-ak6NoX_4Aeg_1735271850")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Aggregated Independent Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AggregatedIndependentAmount1
     /// Total independent amount defined in the confirmations of individual trades.
     /// </summary>
     [IsoId("_UlI9JNp-Ed-ak6NoX_4Aeg_-1821696591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trad")]
     #endif
+    [IsoXmlTag("Trad")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndependentAmount1? Trade { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AggregatedIndependentAmount1
     /// Portfolio level independent amount that reflects portfolio change over a short time period using statistical techniques such as volatility and risk factor correlations.
     /// </summary>
     [IsoId("_UlI9Jdp-Ed-ak6NoX_4Aeg_1452502446")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value At Risk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValAtRsk")]
     #endif
+    [IsoXmlTag("ValAtRsk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndependentAmount1? ValueAtRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record AggregatedIndependentAmount1
     /// Portfolio level independent amount related to parties net open position. Net open position means the total of the net long FX and the net options in respect of each currency where: net long FX for any currency shall be the net amount (if any) of that currency which the party “A” is long as against party “B” in respect of all FX transactions.
     /// </summary>
     [IsoId("_UlI9Jtp-Ed-ak6NoX_4Aeg_1859006819")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Open Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetOpnPos")]
     #endif
+    [IsoXmlTag("NetOpnPos")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndependentAmount1? NetOpenPosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record AggregatedIndependentAmount1
     /// Any other amount that should be considered to calculate the independent amount.
     /// </summary>
     [IsoId("_UlI9J9p-Ed-ak6NoX_4Aeg_-928458678")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAmt")]
     #endif
+    [IsoXmlTag("OthrAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndependentAmount2? OtherAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

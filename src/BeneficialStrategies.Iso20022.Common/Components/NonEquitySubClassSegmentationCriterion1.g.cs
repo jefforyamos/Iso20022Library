@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the sub-class according to one of the segmentation criteria defined as per local regulation.
 /// </summary>
 [IsoId("_HcjrYGkjEeq2H8ygpnTfYw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Equity Sub Class Segmentation Criterion")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NonEquitySubClassSegmentationCriterion1
     /// Criteria used to segment classes of derivative instruments into sub classes as per local regulation.
     /// </summary>
     [IsoId("_c6RKIGkjEeq2H8ygpnTfYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Criteria Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CritNm")]
     #endif
+    [IsoXmlTag("CritNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonEquitySubClassSegmentationCriteria1Code CriteriaName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NonEquitySubClassSegmentationCriteria1Code CriteriaName { get; init; } 
+    public required NonEquitySubClassSegmentationCriteria1Code CriteriaName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NonEquitySubClassSegmentationCriteria1Code CriteriaName { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record NonEquitySubClassSegmentationCriterion1
     /// Value identifying the sub class with respect to a segmentation criteria as per local regulation.
     /// </summary>
     [IsoId("_uW3j4GkjEeq2H8ygpnTfYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Criteria Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CritVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CritVal")]
+    [IsoSimpleType(IsoSimpleType.Max1000Text)]
     [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax1000Text CriteriaValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CriteriaValue { get; init; } 
+    public required System.String CriteriaValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CriteriaValue { get; init; } 
     #else

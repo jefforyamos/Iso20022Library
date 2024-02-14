@@ -21,7 +21,7 @@ public enum RepairReason1Code
 {
     /// <summary>
     /// Unrecognised or invalid processing batch, that is, daytime/realtime while only possible to settle in overnight batch.
-    /// Encoded/decoded by serializers as "BATC".
+    /// Encoded/decoded by serializers as &quot;BATC&quot;.
     /// </summary>
     [EnumMember(Value = "BATC")]
     [IsoId("_Zsq3ptp-Ed-ak6NoX_4Aeg_-1096933854")]
@@ -30,7 +30,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid transaction call delay.
-    /// Encoded/decoded by serializers as "CADE".
+    /// Encoded/decoded by serializers as &quot;CADE&quot;.
     /// </summary>
     [EnumMember(Value = "CADE")]
     [IsoId("_Zsq3p9p-Ed-ak6NoX_4Aeg_-1096933824")]
@@ -39,7 +39,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Corporate action pending on the financial instrument instructed.
-    /// Encoded/decoded by serializers as "CAEV".
+    /// Encoded/decoded by serializers as &quot;CAEV&quot;.
     /// </summary>
     [EnumMember(Value = "CAEV")]
     [IsoId("_Zsq3qNp-Ed-ak6NoX_4Aeg_-1096933823")]
@@ -48,7 +48,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid cash account.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Zs0BkNp-Ed-ak6NoX_4Aeg_-1096933793")]
@@ -57,7 +57,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Impossible standing arrangements override instruction for the cash settlement system.
-    /// Encoded/decoded by serializers as "CASY".
+    /// Encoded/decoded by serializers as &quot;CASY&quot;.
     /// </summary>
     [EnumMember(Value = "CASY")]
     [IsoId("_Zs0Bkdp-Ed-ak6NoX_4Aeg_-1096933792")]
@@ -66,7 +66,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_Zs0Bktp-Ed-ak6NoX_4Aeg_-1096933791")]
@@ -75,7 +75,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid deal price.
-    /// Encoded/decoded by serializers as "DDEA".
+    /// Encoded/decoded by serializers as &quot;DDEA&quot;.
     /// </summary>
     [EnumMember(Value = "DDEA")]
     [IsoId("_Zs0Bk9p-Ed-ak6NoX_4Aeg_-1096933763")]
@@ -84,7 +84,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid place of settlement.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_Zs0BlNp-Ed-ak6NoX_4Aeg_-1096933762")]
@@ -93,7 +93,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid settlement amount.
-    /// Encoded/decoded by serializers as "DMON".
+    /// Encoded/decoded by serializers as &quot;DMON&quot;.
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_Zs0Bldp-Ed-ak6NoX_4Aeg_-1096933732")]
@@ -102,7 +102,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid settlement quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Zs0Bltp-Ed-ak6NoX_4Aeg_-1096933702")]
@@ -111,7 +111,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_Zs0Bl9p-Ed-ak6NoX_4Aeg_-1096933701")]
@@ -120,7 +120,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid trade date.
-    /// Encoded/decoded by serializers as "DTRD".
+    /// Encoded/decoded by serializers as &quot;DTRD&quot;.
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_Zs0BmNp-Ed-ak6NoX_4Aeg_-1096933671")]
@@ -129,7 +129,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid forfeit amount.
-    /// Encoded/decoded by serializers as "FORF".
+    /// Encoded/decoded by serializers as &quot;FORF&quot;.
     /// </summary>
     [EnumMember(Value = "FORF")]
     [IsoId("_Zs0Bmdp-Ed-ak6NoX_4Aeg_-1096933670")]
@@ -138,7 +138,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid receiving or delivering agent.
-    /// Encoded/decoded by serializers as "ICAG".
+    /// Encoded/decoded by serializers as &quot;ICAG&quot;.
     /// </summary>
     [EnumMember(Value = "ICAG")]
     [IsoId("_Zs0Bmtp-Ed-ak6NoX_4Aeg_-1096933423")]
@@ -147,7 +147,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid receiving or delivering custodian.
-    /// Encoded/decoded by serializers as "ICUS".
+    /// Encoded/decoded by serializers as &quot;ICUS&quot;.
     /// </summary>
     [EnumMember(Value = "ICUS")]
     [IsoId("_Zs9ykNp-Ed-ak6NoX_4Aeg_-1096933422")]
@@ -156,7 +156,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid buyer or seller.
-    /// Encoded/decoded by serializers as "IEXE".
+    /// Encoded/decoded by serializers as &quot;IEXE&quot;.
     /// </summary>
     [EnumMember(Value = "IEXE")]
     [IsoId("_Zs9ykdp-Ed-ak6NoX_4Aeg_-1096933393")]
@@ -165,7 +165,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised, invalid or missing common reference.
-    /// Encoded/decoded by serializers as "IIND".
+    /// Encoded/decoded by serializers as &quot;IIND&quot;.
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_Zs9yktp-Ed-ak6NoX_4Aeg_-1096933362")]
@@ -174,7 +174,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid letter of guarantee indicator instructed.
-    /// Encoded/decoded by serializers as "LEOG".
+    /// Encoded/decoded by serializers as &quot;LEOG&quot;.
     /// </summary>
     [EnumMember(Value = "LEOG")]
     [IsoId("_Zs9yk9p-Ed-ak6NoX_4Aeg_-1096933331")]
@@ -183,7 +183,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MINO".
+    /// Encoded/decoded by serializers as &quot;MINO&quot;.
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_Zs9ylNp-Ed-ak6NoX_4Aeg_-1096933330")]
@@ -192,7 +192,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MUNO".
+    /// Encoded/decoded by serializers as &quot;MUNO&quot;.
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_Zs9yldp-Ed-ak6NoX_4Aeg_-1096933301")]
@@ -201,7 +201,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid settlement amount currency.
-    /// Encoded/decoded by serializers as "NCRR".
+    /// Encoded/decoded by serializers as &quot;NCRR&quot;.
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_Zs9yltp-Ed-ak6NoX_4Aeg_-1096933300")]
@@ -210,7 +210,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Physical settlement is impossible for the instructed financial instrument.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_Zs9yl9p-Ed-ak6NoX_4Aeg_-1096933270")]
@@ -219,7 +219,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid place of trade.
-    /// Encoded/decoded by serializers as "PLCE".
+    /// Encoded/decoded by serializers as &quot;PLCE&quot;.
     /// </summary>
     [EnumMember(Value = "PLCE")]
     [IsoId("_Zs9ymNp-Ed-ak6NoX_4Aeg_-1096933269")]
@@ -228,7 +228,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_Zs9ymdp-Ed-ak6NoX_4Aeg_-1096932992")]
@@ -237,7 +237,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid termination transaction amount.
-    /// Encoded/decoded by serializers as "REPA".
+    /// Encoded/decoded by serializers as &quot;REPA&quot;.
     /// </summary>
     [EnumMember(Value = "REPA")]
     [IsoId("_ZtHjkNp-Ed-ak6NoX_4Aeg_-1096932991")]
@@ -246,7 +246,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid repurchase rate.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_ZtHjkdp-Ed-ak6NoX_4Aeg_-1096932990")]
@@ -255,7 +255,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid premium amount.
-    /// Encoded/decoded by serializers as "REPP".
+    /// Encoded/decoded by serializers as &quot;REPP&quot;.
     /// </summary>
     [EnumMember(Value = "REPP")]
     [IsoId("_ZtHjktp-Ed-ak6NoX_4Aeg_-1096932961")]
@@ -264,7 +264,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid repurchase rate type.
-    /// Encoded/decoded by serializers as "RERT".
+    /// Encoded/decoded by serializers as &quot;RERT&quot;.
     /// </summary>
     [EnumMember(Value = "RERT")]
     [IsoId("_ZtHjk9p-Ed-ak6NoX_4Aeg_-1096932930")]
@@ -273,7 +273,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid spread rate.
-    /// Encoded/decoded by serializers as "RSPR".
+    /// Encoded/decoded by serializers as &quot;RSPR&quot;.
     /// </summary>
     [EnumMember(Value = "RSPR")]
     [IsoId("_ZtHjlNp-Ed-ak6NoX_4Aeg_-1096932929")]
@@ -282,7 +282,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Impossible to use the RTGS system instructed (NRTG or YRTG).
-    /// Encoded/decoded by serializers as "RTGS".
+    /// Encoded/decoded by serializers as &quot;RTGS&quot;.
     /// </summary>
     [EnumMember(Value = "RTGS")]
     [IsoId("_ZtHjldp-Ed-ak6NoX_4Aeg_-1096932928")]
@@ -290,8 +290,8 @@ public enum RepairReason1Code
     ImpossibleToUseTheRTGSSystemInstructed = RepairReasonCode.ImpossibleToUseTheRTGSSystemInstructed, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Unrecognised or invalid message sender&apos;s safekeeping account.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_ZtHjltp-Ed-ak6NoX_4Aeg_-1096932900")]
@@ -300,7 +300,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid settlement transaction type.
-    /// Encoded/decoded by serializers as "SETR".
+    /// Encoded/decoded by serializers as &quot;SETR&quot;.
     /// </summary>
     [EnumMember(Value = "SETR")]
     [IsoId("_ZtHjl9p-Ed-ak6NoX_4Aeg_-1096932869")]
@@ -309,7 +309,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid settlement system/method instructed.
-    /// Encoded/decoded by serializers as "SETS".
+    /// Encoded/decoded by serializers as &quot;SETS&quot;.
     /// </summary>
     [EnumMember(Value = "SETS")]
     [IsoId("_ZtHjmNp-Ed-ak6NoX_4Aeg_-1096932868")]
@@ -318,7 +318,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid closing date/time.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_ZtHjmdp-Ed-ak6NoX_4Aeg_-1096932838")]
@@ -327,7 +327,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid tax status of the securities instructed.
-    /// Encoded/decoded by serializers as "TXST".
+    /// Encoded/decoded by serializers as &quot;TXST&quot;.
     /// </summary>
     [EnumMember(Value = "TXST")]
     [IsoId("_ZtHjmtp-Ed-ak6NoX_4Aeg_-1096932808")]
@@ -336,7 +336,7 @@ public enum RepairReason1Code
     
     /// <summary>
     /// Unrecognised or invalid variable rate support (repurchase agreement).
-    /// Encoded/decoded by serializers as "VASU".
+    /// Encoded/decoded by serializers as &quot;VASU&quot;.
     /// </summary>
     [EnumMember(Value = "VASU")]
     [IsoId("_ZtQtgNp-Ed-ak6NoX_4Aeg_-1096932807")]

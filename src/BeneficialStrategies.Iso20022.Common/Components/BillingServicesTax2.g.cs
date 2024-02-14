@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides for regional taxes on the service.
 /// </summary>
 [IsoId("_6RcRcJqlEeGSON8vddiWzQ_-480249725")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Services Tax")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record BillingServicesTax2
     /// Identification number of the specific region tax used to calculate the tax.
     /// </summary>
     [IsoId("_6RcRcZqlEeGSON8vddiWzQ_-1477322078")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Number { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Number { get; init; } 
+    public required System.String Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Number { get; init; } 
     #else
@@ -76,15 +72,13 @@ public partial record BillingServicesTax2
     /// Name used to describe the tax (such as the national value added tax).
     /// </summary>
     [IsoId("_6RcRcpqlEeGSON8vddiWzQ_1706733799")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max40Text)]
     [StringLength(maximumLength: 40 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax40Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,16 +91,16 @@ public partial record BillingServicesTax2
     /// Rate used to calculate the tax.
     /// </summary>
     [IsoId("_6RcRc5qlEeGSON8vddiWzQ_-173571841")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Rate { get; init; } 
+    public required System.UInt64 Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Rate { get; init; } 
     #else
@@ -114,19 +108,18 @@ public partial record BillingServicesTax2
     #endif
     
     /// <summary>
-    /// Amount of the tax obligation expressed in the tax region's pricing currency.
+    /// Amount of the tax obligation expressed in the tax region&apos;s pricing currency.
     /// </summary>
     [IsoId("_6RcRdJqlEeGSON8vddiWzQ_126308982")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pricing Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricgAmt")]
     #endif
+    [IsoXmlTag("PricgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 PricingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 PricingAmount { get; init; } 
+    public required AmountAndDirection34 PricingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 PricingAmount { get; init; } 
     #else

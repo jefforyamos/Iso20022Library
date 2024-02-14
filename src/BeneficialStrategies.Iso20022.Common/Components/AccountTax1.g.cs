@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes account taxing parameters.
 /// </summary>
 [IsoId("_6TYLKJqlEeGSON8vddiWzQ_-1311079011")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Tax")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AccountTax1
     /// Defines the calculation method on how the taxes are applied on the account.
     /// </summary>
     [IsoId("_6TYLKZqlEeGSON8vddiWzQ_-1424918077")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnMtd")]
     #endif
+    [IsoXmlTag("ClctnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
+    public required BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record AccountTax1
     /// Identifies the tax region in which the account resides.
     /// </summary>
     [IsoId("_6TYLKpqlEeGSON8vddiWzQ_1872976866")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Region")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rgn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rgn")]
+    [IsoSimpleType(IsoSimpleType.Max40Text)]
     [StringLength(maximumLength: 40 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax40Text? Region { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +84,14 @@ public partial record AccountTax1
     #endif
     
     /// <summary>
-    /// Specifies the country of residence, when the account owner does not reside in the account's tax region.||Usage: If present, the account owner does not reside in the account's tax region.
+    /// Specifies the country of residence, when the account owner does not reside in the account&apos;s tax region.||Usage: If present, the account owner does not reside in the account&apos;s tax region.
     /// </summary>
     [IsoId("_6TYLK5qlEeGSON8vddiWzQ_-765795978")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Residence Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonResCtry")]
     #endif
+    [IsoXmlTag("NonResCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResidenceLocation1Choice_? NonResidenceCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

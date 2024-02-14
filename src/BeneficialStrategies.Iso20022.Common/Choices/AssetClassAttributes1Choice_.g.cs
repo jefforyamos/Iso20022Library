@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassAttributes1Choice.ForeignExchange))]
     [KnownType(typeof(AssetClassAttributes1Choice.Both))]
     [IsoId("_id4oJO94EeW7gabYEJmWIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Attributes 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OpeningClosing1Choice.Code))]
     [KnownType(typeof(OpeningClosing1Choice.Proprietary))]
     [IsoId("_Qs45Ndp-Ed-ak6NoX_4Aeg_-775464350")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Closing 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

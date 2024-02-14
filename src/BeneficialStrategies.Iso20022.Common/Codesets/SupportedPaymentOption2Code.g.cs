@@ -21,7 +21,7 @@ public enum SupportedPaymentOption2Code
 {
     /// <summary>
     /// The entity supports a partial approval of the payment transaction.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_ZonJwU7GEeyGi9JAv6wq7Q")]
@@ -30,7 +30,7 @@ public enum SupportedPaymentOption2Code
     
     /// <summary>
     /// The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).
-    /// Encoded/decoded by serializers as "MSRV".
+    /// Encoded/decoded by serializers as &quot;MSRV&quot;.
     /// </summary>
     [EnumMember(Value = "MSRV")]
     [IsoId("_ZonJw07GEeyGi9JAv6wq7Q")]
@@ -39,7 +39,7 @@ public enum SupportedPaymentOption2Code
     
     /// <summary>
     /// The sender support IssuerInstalment proposals to the Cardholder.
-    /// Encoded/decoded by serializers as "INSI".
+    /// Encoded/decoded by serializers as &quot;INSI&quot;.
     /// </summary>
     [EnumMember(Value = "INSI")]
     [IsoId("_hbKgEU7GEeyGi9JAv6wq7Q")]
@@ -48,7 +48,7 @@ public enum SupportedPaymentOption2Code
     
     /// <summary>
     /// The sender is able to support Single Tap transaction.
-    /// Encoded/decoded by serializers as "PINQ".
+    /// Encoded/decoded by serializers as &quot;PINQ&quot;.
     /// </summary>
     [EnumMember(Value = "PINQ")]
     [IsoId("_hk3OoU7GEeyGi9JAv6wq7Q")]

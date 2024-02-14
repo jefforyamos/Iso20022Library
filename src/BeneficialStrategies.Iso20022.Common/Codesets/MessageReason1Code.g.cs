@@ -21,8 +21,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum MessageReason1Code
 {
     /// <summary>
-    /// Stand-in processing at the acquirer's option.
-    /// Encoded/decoded by serializers as "ASTD".
+    /// Stand-in processing at the acquirer&apos;s option.
+    /// Encoded/decoded by serializers as &quot;ASTD&quot;.
     /// </summary>
     [EnumMember(Value = "ASTD")]
     [IsoId("_-hPuQXs5EeSTS7uHCe8FPQ")]
@@ -31,7 +31,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Amount inconsistent between request and response.
-    /// Encoded/decoded by serializers as "AMNT".
+    /// Encoded/decoded by serializers as &quot;AMNT&quot;.
     /// </summary>
     [EnumMember(Value = "AMNT")]
     [IsoId("_-q29Q3s5EeSTS7uHCe8FPQ")]
@@ -40,7 +40,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Card acceptor forced to be online.
-    /// Encoded/decoded by serializers as "ASPC".
+    /// Encoded/decoded by serializers as &quot;ASPC&quot;.
     /// </summary>
     [EnumMember(Value = "ASPC")]
     [IsoId("_-0uD43s5EeSTS7uHCe8FPQ")]
@@ -49,7 +49,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Integrated circuit card declines the transaction after the authorisation.
-    /// Encoded/decoded by serializers as "CDCL".
+    /// Encoded/decoded by serializers as &quot;CDCL&quot;.
     /// </summary>
     [EnumMember(Value = "CDCL")]
     [IsoId("_-6bDQXs5EeSTS7uHCe8FPQ")]
@@ -58,7 +58,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Transaction performed offline by the card.
-    /// Encoded/decoded by serializers as "COFF".
+    /// Encoded/decoded by serializers as &quot;COFF&quot;.
     /// </summary>
     [EnumMember(Value = "COFF")]
     [IsoId("__AIps3s5EeSTS7uHCe8FPQ")]
@@ -67,7 +67,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Random online decided by the card.
-    /// Encoded/decoded by serializers as "CRND".
+    /// Encoded/decoded by serializers as &quot;CRND&quot;.
     /// </summary>
     [EnumMember(Value = "CRND")]
     [IsoId("__GJyIXs5EeSTS7uHCe8FPQ")]
@@ -76,7 +76,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Card left by the cardholder.
-    /// Encoded/decoded by serializers as "CRTN".
+    /// Encoded/decoded by serializers as &quot;CRTN&quot;.
     /// </summary>
     [EnumMember(Value = "CRTN")]
     [IsoId("__TOk03s5EeSTS7uHCe8FPQ")]
@@ -85,7 +85,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Card cannot process offline the transaction.
-    /// Encoded/decoded by serializers as "CUNB".
+    /// Encoded/decoded by serializers as &quot;CUNB&quot;.
     /// </summary>
     [EnumMember(Value = "CUNB")]
     [IsoId("__U2VcXs5EeSTS7uHCe8FPQ")]
@@ -94,7 +94,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Customer cancellation, for example removing the chip card after sending the authorisation, but before the end of the transaction.
-    /// Encoded/decoded by serializers as "CCAN".
+    /// Encoded/decoded by serializers as &quot;CCAN&quot;.
     /// </summary>
     [EnumMember(Value = "CCAN")]
     [IsoId("__bwOs3s5EeSTS7uHCe8FPQ")]
@@ -103,7 +103,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Deactivated key must be replaced.
-    /// Encoded/decoded by serializers as "KDAC".
+    /// Encoded/decoded by serializers as &quot;KDAC&quot;.
     /// </summary>
     [EnumMember(Value = "KDAC")]
     [IsoId("__j4P8Xs5EeSTS7uHCe8FPQ")]
@@ -112,7 +112,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Response message was invalid (for example a problem of format or security).
-    /// Encoded/decoded by serializers as "ERRP".
+    /// Encoded/decoded by serializers as &quot;ERRP&quot;.
     /// </summary>
     [EnumMember(Value = "ERRP")]
     [IsoId("__p4KQXs5EeSTS7uHCe8FPQ")]
@@ -121,7 +121,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Transaction above or under the floor limit.
-    /// Encoded/decoded by serializers as "FLRL".
+    /// Encoded/decoded by serializers as &quot;FLRL&quot;.
     /// </summary>
     [EnumMember(Value = "FLRL")]
     [IsoId("__yzcw3s5EeSTS7uHCe8FPQ")]
@@ -130,7 +130,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Verification of the key has failed.
-    /// Encoded/decoded by serializers as "KINV".
+    /// Encoded/decoded by serializers as &quot;KINV&quot;.
     /// </summary>
     [EnumMember(Value = "KINV")]
     [IsoId("__-uY4Xs5EeSTS7uHCe8FPQ")]
@@ -139,7 +139,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Issuer signed off.
-    /// Encoded/decoded by serializers as "ISGN".
+    /// Encoded/decoded by serializers as &quot;ISGN&quot;.
     /// </summary>
     [EnumMember(Value = "ISGN")]
     [IsoId("_AHprY3s6EeSTS7uHCe8FPQ")]
@@ -147,8 +147,8 @@ public enum MessageReason1Code
     IssuerSignedOff = MessageReasonCode.IssuerSignedOff, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Stand-in processing at the issuer's option.
-    /// Encoded/decoded by serializers as "ISTD".
+    /// Stand-in processing at the issuer&apos;s option.
+    /// Encoded/decoded by serializers as &quot;ISTD&quot;.
     /// </summary>
     [EnumMember(Value = "ISTD")]
     [IsoId("_AMjZgXs6EeSTS7uHCe8FPQ")]
@@ -157,7 +157,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Issuer timed out on request.
-    /// Encoded/decoded by serializers as "ITIM".
+    /// Encoded/decoded by serializers as &quot;ITIM&quot;.
     /// </summary>
     [EnumMember(Value = "ITIM")]
     [IsoId("_AWtbE3s6EeSTS7uHCe8FPQ")]
@@ -166,7 +166,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Issuer unavailable.
-    /// Encoded/decoded by serializers as "IUNV".
+    /// Encoded/decoded by serializers as &quot;IUNV&quot;.
     /// </summary>
     [EnumMember(Value = "IUNV")]
     [IsoId("_Ahxbk3s6EeSTS7uHCe8FPQ")]
@@ -175,7 +175,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// End of key life cycle.
-    /// Encoded/decoded by serializers as "ENDK".
+    /// Encoded/decoded by serializers as &quot;ENDK&quot;.
     /// </summary>
     [EnumMember(Value = "ENDK")]
     [IsoId("_At-rk3s6EeSTS7uHCe8FPQ")]
@@ -184,7 +184,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Suspected malfunction (for example card reader defect, or printer out of order).
-    /// Encoded/decoded by serializers as "MLFC".
+    /// Encoded/decoded by serializers as &quot;MLFC&quot;.
     /// </summary>
     [EnumMember(Value = "MLFC")]
     [IsoId("_AzzmwXs6EeSTS7uHCe8FPQ")]
@@ -193,7 +193,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Offline authorisation declined the transaction.
-    /// Encoded/decoded by serializers as "FDCL".
+    /// Encoded/decoded by serializers as &quot;FDCL&quot;.
     /// </summary>
     [EnumMember(Value = "FDCL")]
     [IsoId("_A-l6cns6EeSTS7uHCe8FPQ")]
@@ -202,7 +202,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Online authorisation declined the transaction.
-    /// Encoded/decoded by serializers as "NDCL".
+    /// Encoded/decoded by serializers as &quot;NDCL&quot;.
     /// </summary>
     [EnumMember(Value = "NDCL")]
     [IsoId("_BKqnk3s6EeSTS7uHCe8FPQ")]
@@ -211,7 +211,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Forced online by card acceptor, terminal, card, or the issuer.
-    /// Encoded/decoded by serializers as "FORC".
+    /// Encoded/decoded by serializers as &quot;FORC&quot;.
     /// </summary>
     [EnumMember(Value = "FORC")]
     [IsoId("_BVjo83s6EeSTS7uHCe8FPQ")]
@@ -220,7 +220,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Keys not synchronised.
-    /// Encoded/decoded by serializers as "KSYN".
+    /// Encoded/decoded by serializers as &quot;KSYN&quot;.
     /// </summary>
     [EnumMember(Value = "KSYN")]
     [IsoId("_BgSSQ3s6EeSTS7uHCe8FPQ")]
@@ -229,7 +229,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Cardholder did not take the presented items.
-    /// Encoded/decoded by serializers as "UDSP".
+    /// Encoded/decoded by serializers as &quot;UDSP&quot;.
     /// </summary>
     [EnumMember(Value = "UDSP")]
     [IsoId("_B9Kbg3s6EeSTS7uHCe8FPQ")]
@@ -238,7 +238,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Unable to send the message.
-    /// Encoded/decoded by serializers as "USND".
+    /// Encoded/decoded by serializers as &quot;USND&quot;.
     /// </summary>
     [EnumMember(Value = "USND")]
     [IsoId("_CI7moXs6EeSTS7uHCe8FPQ")]
@@ -247,7 +247,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Card acceptor device unable to complete transaction after the authorisation response (for example, the written signature invalid).
-    /// Encoded/decoded by serializers as "UCMP".
+    /// Encoded/decoded by serializers as &quot;UCMP&quot;.
     /// </summary>
     [EnumMember(Value = "UCMP")]
     [IsoId("_CPs9AXs6EeSTS7uHCe8FPQ")]
@@ -256,7 +256,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Response to the authorisation received too late.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_CbbE03s6EeSTS7uHCe8FPQ")]
@@ -265,7 +265,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Waiting for response from the receiver, or no response was received (for example connection release before receiving the response).
-    /// Encoded/decoded by serializers as "TIMO".
+    /// Encoded/decoded by serializers as &quot;TIMO&quot;.
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_CjifA3s6EeSTS7uHCe8FPQ")]
@@ -274,7 +274,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Terminal cannot process offline the transaction.
-    /// Encoded/decoded by serializers as "TUNB".
+    /// Encoded/decoded by serializers as &quot;TUNB&quot;.
     /// </summary>
     [EnumMember(Value = "TUNB")]
     [IsoId("_CpeH4Xs6EeSTS7uHCe8FPQ")]
@@ -283,7 +283,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Random online decided by the terminal.
-    /// Encoded/decoded by serializers as "TRND".
+    /// Encoded/decoded by serializers as &quot;TRND&quot;.
     /// </summary>
     [EnumMember(Value = "TRND")]
     [IsoId("_CwhyIXs6EeSTS7uHCe8FPQ")]
@@ -292,7 +292,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Transaction performed offline by the terminal.
-    /// Encoded/decoded by serializers as "TOFF".
+    /// Encoded/decoded by serializers as &quot;TOFF&quot;.
     /// </summary>
     [EnumMember(Value = "TOFF")]
     [IsoId("_C7azg3s6EeSTS7uHCe8FPQ")]
@@ -301,7 +301,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Card transaction failed because the merchant suspected a fraud.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_DHaoI3s6EeSTS7uHCe8FPQ")]
@@ -310,7 +310,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Security reasons.
-    /// Encoded/decoded by serializers as "KSEC".
+    /// Encoded/decoded by serializers as &quot;KSEC&quot;.
     /// </summary>
     [EnumMember(Value = "KSEC")]
     [IsoId("_DSNi4ns6EeSTS7uHCe8FPQ")]
@@ -319,7 +319,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Receiver unavailable.
-    /// Encoded/decoded by serializers as "RUNV".
+    /// Encoded/decoded by serializers as &quot;RUNV&quot;.
     /// </summary>
     [EnumMember(Value = "RUNV")]
     [IsoId("_DZVekns6EeSTS7uHCe8FPQ")]
@@ -328,7 +328,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Receiver timed out on request.
-    /// Encoded/decoded by serializers as "RTIM".
+    /// Encoded/decoded by serializers as &quot;RTIM&quot;.
     /// </summary>
     [EnumMember(Value = "RTIM")]
     [IsoId("_DgQl8Xs6EeSTS7uHCe8FPQ")]
@@ -336,8 +336,8 @@ public enum MessageReason1Code
     ReceiverTimeout = MessageReasonCode.ReceiverTimeout, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Stand-in processing at the receiver's option.
-    /// Encoded/decoded by serializers as "RSTD".
+    /// Stand-in processing at the receiver&apos;s option.
+    /// Encoded/decoded by serializers as &quot;RSTD&quot;.
     /// </summary>
     [EnumMember(Value = "RSTD")]
     [IsoId("_DrFV43s6EeSTS7uHCe8FPQ")]
@@ -346,7 +346,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Receiver signed off.
-    /// Encoded/decoded by serializers as "RSGN".
+    /// Encoded/decoded by serializers as &quot;RSGN&quot;.
     /// </summary>
     [EnumMember(Value = "RSGN")]
     [IsoId("_DxITgXs6EeSTS7uHCe8FPQ")]
@@ -355,7 +355,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Partial reversal.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_D9DPo3s6EeSTS7uHCe8FPQ")]
@@ -364,7 +364,7 @@ public enum MessageReason1Code
     
     /// <summary>
     /// Inconsistency between the items deposited and their declared value.
-    /// Encoded/decoded by serializers as "IDPS".
+    /// Encoded/decoded by serializers as &quot;IDPS&quot;.
     /// </summary>
     [EnumMember(Value = "IDPS")]
     [IsoId("_5XbO8X1dEemWqr5azFRqdA")]

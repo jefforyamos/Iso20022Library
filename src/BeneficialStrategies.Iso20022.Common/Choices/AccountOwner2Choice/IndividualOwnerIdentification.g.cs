@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOwner2Choice
     /// Identification of the individual person that legally owns the account.
     /// </summary>
     [IsoId("_-VSBMYoVEeahcZ3Nzs1Qag")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Owner Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

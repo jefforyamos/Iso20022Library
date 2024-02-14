@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References37Choice.OtherMessageIdentification))]
     [KnownType(typeof(References37Choice.TotalPortfolioValuationReportIdentification))]
     [IsoId("_tWL8sQ34EeKN_Y-2Awiamw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("References 37 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

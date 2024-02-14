@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the summation of the call amounts per margin type and optionaly the default fund amount (only for CCP).
 /// </summary>
 [IsoId("_9b69MKMPEeCojJW5vEuTEQ_2035479962")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Call Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record MarginCallResult3
     /// Specifies the total amount required by the clearing member to participate to the default fund.
     /// </summary>
     [IsoId("_9b69MaMPEeCojJW5vEuTEQ_-1627281393")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Fund Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltFndAmt")]
     #endif
+    [IsoXmlTag("DfltFndAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? DefaultFundAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,15 @@ public partial record MarginCallResult3
     /// Provides the summation of the call amounts for the variation margin and the segregated independent amount or the segregated independent amount only or the total margin call amount only.
     /// </summary>
     [IsoId("_9b69MqMPEeCojJW5vEuTEQ_-118727081")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Call Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnCallRslt")]
     #endif
+    [IsoXmlTag("MrgnCallRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginCallResult2Choice_ MarginCallResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarginCallResult2Choice_ MarginCallResult { get; init; } 
+    public required MarginCallResult2Choice_ MarginCallResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarginCallResult2Choice_ MarginCallResult { get; init; } 
     #else

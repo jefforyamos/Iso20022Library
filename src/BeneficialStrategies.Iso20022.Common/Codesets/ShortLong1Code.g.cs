@@ -21,7 +21,7 @@ public enum ShortLong1Code
 {
     /// <summary>
     /// Position is short, that is, the balance is negative.
-    /// Encoded/decoded by serializers as "SHOR".
+    /// Encoded/decoded by serializers as &quot;SHOR&quot;.
     /// </summary>
     [EnumMember(Value = "SHOR")]
     [IsoId("_ZOtwU9p-Ed-ak6NoX_4Aeg_179013074")]
@@ -30,7 +30,7 @@ public enum ShortLong1Code
     
     /// <summary>
     /// Position is long, that is, the balance is positive.
-    /// Encoded/decoded by serializers as "LONG".
+    /// Encoded/decoded by serializers as &quot;LONG&quot;.
     /// </summary>
     [EnumMember(Value = "LONG")]
     [IsoId("_ZOtwVNp-Ed-ak6NoX_4Aeg_1366496716")]

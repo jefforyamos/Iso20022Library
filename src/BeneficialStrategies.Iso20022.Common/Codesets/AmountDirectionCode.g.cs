@@ -21,7 +21,7 @@ public enum AmountDirectionCode
 {
     /// <summary>
     /// Operation is a decrease.
-    /// Encoded/decoded by serializers as "DBIT".
+    /// Encoded/decoded by serializers as &quot;DBIT&quot;.
     /// </summary>
     [EnumMember(Value = "DBIT")]
     [IsoId("_boymFtp-Ed-ak6NoX_4Aeg_-1454013233")]
@@ -30,7 +30,7 @@ public enum AmountDirectionCode
     
     /// <summary>
     /// Operation is an increase.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_boymF9p-Ed-ak6NoX_4Aeg_-1454013216")]
@@ -39,7 +39,7 @@ public enum AmountDirectionCode
     
     /// <summary>
     /// Credit entry used to reverse a previously booked debit entry.
-    /// Encoded/decoded by serializers as "RVDB".
+    /// Encoded/decoded by serializers as &quot;RVDB&quot;.
     /// </summary>
     [EnumMember(Value = "RVDB")]
     [IsoId("_boymGNp-Ed-ak6NoX_4Aeg_-1454013198")]
@@ -48,7 +48,7 @@ public enum AmountDirectionCode
     
     /// <summary>
     /// Debit entry used to reverse a previously booked credit entry.
-    /// Encoded/decoded by serializers as "RVCD".
+    /// Encoded/decoded by serializers as &quot;RVCD&quot;.
     /// </summary>
     [EnumMember(Value = "RVCD")]
     [IsoId("_bo8XENp-Ed-ak6NoX_4Aeg_-1454013156")]

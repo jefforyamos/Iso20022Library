@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Transparency calculation specific details for an energy commodity.
 /// </summary>
 [IsoId("_0hU8oU-nEeiVsYLJl6hleg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Commodity Derivative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CommodityDerivative6
     /// Place where the delivery and the cash settlement of the base product occurs. 
     /// </summary>
     [IsoId("_0qs7EU-nEeiVsYLJl6hleg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmLctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SttlmLctn")]
+    [IsoSimpleType(IsoSimpleType.Max25Text)]
     [StringLength(maximumLength: 25 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax25Text SettlementLocation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SettlementLocation { get; init; } 
+    public required System.String SettlementLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SettlementLocation { get; init; } 
     #else

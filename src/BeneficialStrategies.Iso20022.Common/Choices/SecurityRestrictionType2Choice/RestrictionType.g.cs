@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityRestrictionType2Choice
     /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
     /// </summary>
     [IsoId("_dF_Po-LxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restriction Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityRestrictionType2Choice
         /// Specifies the type of restriction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RstrctnTp")]
         #endif
+        [IsoXmlTag("RstrctnTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RestrictionType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RestrictionType1Code Value { get; init; } 
+        public required RestrictionType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RestrictionType1Code Value { get; init; } 
         #else

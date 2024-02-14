@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the response to the network management.
 /// </summary>
 [IsoId("_aNF6EHvFEeSKFIcWw3l4Yw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Network Management Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AcquirerNetworkManagementResponse1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_mn0VYHvFEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransactionEnvironment6 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardTransactionEnvironment6 Environment { get; init; } 
+    public required CardTransactionEnvironment6 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardTransactionEnvironment6 Environment { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AcquirerNetworkManagementResponse1
     /// Network management transaction.
     /// </summary>
     [IsoId("_uCunwHvFEeSKFIcWw3l4Yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransaction12 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardTransaction12 Transaction { get; init; } 
+    public required CardTransaction12 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardTransaction12 Transaction { get; init; } 
     #else

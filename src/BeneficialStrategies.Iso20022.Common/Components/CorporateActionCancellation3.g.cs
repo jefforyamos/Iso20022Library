@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Corporate action event cancellation status and reason.
 /// </summary>
 [IsoId("_OgdE4SXaEeOFIcNWlDEvdQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Cancellation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CorporateActionCancellation3
     /// Specifies reasons for cancellation of a corporate action event.
     /// </summary>
     [IsoId("_O42WwSXaEeOFIcNWlDEvdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsnCd")]
     #endif
+    [IsoXmlTag("CxlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
+    public required CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record CorporateActionCancellation3
     /// Additional information about cancellation of a corporate action event.
     /// </summary>
     [IsoId("_O42WySXaEeOFIcNWlDEvdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CxlRsn")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? CancellationReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record CorporateActionCancellation3
     /// Specifies the status of the details of the event.
     /// </summary>
     [IsoId("_O42W0SXaEeOFIcNWlDEvdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventStatus1 ProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionEventStatus1 ProcessingStatus { get; init; } 
+    public required CorporateActionEventStatus1 ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionEventStatus1 ProcessingStatus { get; init; } 
     #else

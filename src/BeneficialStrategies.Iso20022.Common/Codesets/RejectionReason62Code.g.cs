@@ -21,7 +21,7 @@ public enum RejectionReason62Code
 {
     /// <summary>
     /// Instruction has a reference identical to another previously received instruction.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_XhXCkRIvEeyHZKWo4KVxBw")]
@@ -29,8 +29,8 @@ public enum RejectionReason62Code
     ReferenceRejection = RejectionReasonV3Code.ReferenceRejection, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_XhXCkxIvEeyHZKWo4KVxBw")]
@@ -39,7 +39,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid client collateral instruction identification.
-    /// Encoded/decoded by serializers as "CCIX".
+    /// Encoded/decoded by serializers as &quot;CCIX&quot;.
     /// </summary>
     [EnumMember(Value = "CCIX")]
     [IsoId("_XhXClRIvEeyHZKWo4KVxBw")]
@@ -48,7 +48,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid Client Collateral Transaction Identification.
-    /// Encoded/decoded by serializers as "CCTI".
+    /// Encoded/decoded by serializers as &quot;CCTI&quot;.
     /// </summary>
     [EnumMember(Value = "CCTI")]
     [IsoId("_XhXClxIvEeyHZKWo4KVxBw")]
@@ -57,7 +57,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised, invalid or missing common reference.
-    /// Encoded/decoded by serializers as "IIND".
+    /// Encoded/decoded by serializers as &quot;IIND&quot;.
     /// </summary>
     [EnumMember(Value = "IIND")]
     [IsoId("_XhXCmRIvEeyHZKWo4KVxBw")]
@@ -66,7 +66,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or Invalid Party A.
-    /// Encoded/decoded by serializers as "PTYA".
+    /// Encoded/decoded by serializers as &quot;PTYA&quot;.
     /// </summary>
     [EnumMember(Value = "PTYA")]
     [IsoId("_XhXCmxIvEeyHZKWo4KVxBw")]
@@ -75,7 +75,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or Invalid Party B
-    /// Encoded/decoded by serializers as "PTYB".
+    /// Encoded/decoded by serializers as &quot;PTYB&quot;.
     /// </summary>
     [EnumMember(Value = "PTYB")]
     [IsoId("_XhXCnRIvEeyHZKWo4KVxBw")]
@@ -84,7 +84,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or Invalid Triparty Agent
-    /// Encoded/decoded by serializers as "ITPA".
+    /// Encoded/decoded by serializers as &quot;ITPA&quot;.
     /// </summary>
     [EnumMember(Value = "ITPA")]
     [IsoId("_XhXCnxIvEeyHZKWo4KVxBw")]
@@ -93,7 +93,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_XhXCoRIvEeyHZKWo4KVxBw")]
@@ -102,7 +102,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid Party A Safekeeping Account
-    /// Encoded/decoded by serializers as "SAFA".
+    /// Encoded/decoded by serializers as &quot;SAFA&quot;.
     /// </summary>
     [EnumMember(Value = "SAFA")]
     [IsoId("_XhXCoxIvEeyHZKWo4KVxBw")]
@@ -111,7 +111,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or Invalid Party B Safekeeping Account.
-    /// Encoded/decoded by serializers as "SAFB".
+    /// Encoded/decoded by serializers as &quot;SAFB&quot;.
     /// </summary>
     [EnumMember(Value = "SAFB")]
     [IsoId("_XhXCpRIvEeyHZKWo4KVxBw")]
@@ -120,7 +120,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Invalid execution date/time
-    /// Encoded/decoded by serializers as "REDT".
+    /// Encoded/decoded by serializers as &quot;REDT&quot;.
     /// </summary>
     [EnumMember(Value = "REDT")]
     [IsoId("_XhXCpxIvEeyHZKWo4KVxBw")]
@@ -129,7 +129,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid settlement process instructed.
-    /// Encoded/decoded by serializers as "SEPR".
+    /// Encoded/decoded by serializers as &quot;SEPR&quot;.
     /// </summary>
     [EnumMember(Value = "SEPR")]
     [IsoId("_XhXCqRIvEeyHZKWo4KVxBw")]
@@ -138,7 +138,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Number of lookback days not supported.
-    /// Encoded/decoded by serializers as "LBDR".
+    /// Encoded/decoded by serializers as &quot;LBDR&quot;.
     /// </summary>
     [EnumMember(Value = "LBDR")]
     [IsoId("_XhXCqxIvEeyHZKWo4KVxBw")]
@@ -147,7 +147,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Day count basis not supported.
-    /// Encoded/decoded by serializers as "DCBR".
+    /// Encoded/decoded by serializers as &quot;DCBR&quot;.
     /// </summary>
     [EnumMember(Value = "DCBR")]
     [IsoId("_XhXCrRIvEeyHZKWo4KVxBw")]
@@ -156,7 +156,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Compound simple accrual calculation is not supported.
-    /// Encoded/decoded by serializers as "CSAC".
+    /// Encoded/decoded by serializers as &quot;CSAC&quot;.
     /// </summary>
     [EnumMember(Value = "CSAC")]
     [IsoId("_XhXCrxIvEeyHZKWo4KVxBw")]
@@ -165,7 +165,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid closing date/time.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_XhXCsRIvEeyHZKWo4KVxBw")]
@@ -174,7 +174,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid trade date or requested trade date or future trade date.
-    /// Encoded/decoded by serializers as "DTRD".
+    /// Encoded/decoded by serializers as &quot;DTRD&quot;.
     /// </summary>
     [EnumMember(Value = "DTRD")]
     [IsoId("_XhXCsxIvEeyHZKWo4KVxBw")]
@@ -183,7 +183,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid settlement date.
-    /// Encoded/decoded by serializers as "DDAT".
+    /// Encoded/decoded by serializers as &quot;DDAT&quot;.
     /// </summary>
     [EnumMember(Value = "DDAT")]
     [IsoId("_XhXCtRIvEeyHZKWo4KVxBw")]
@@ -192,7 +192,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid settlement amount currency.
-    /// Encoded/decoded by serializers as "NCRR".
+    /// Encoded/decoded by serializers as &quot;NCRR&quot;.
     /// </summary>
     [EnumMember(Value = "NCRR")]
     [IsoId("_XhXCtxIvEeyHZKWo4KVxBw")]
@@ -201,7 +201,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// This is an unrecognised or invalid Eligibility Set Profile.
-    /// Encoded/decoded by serializers as "IESP".
+    /// Encoded/decoded by serializers as &quot;IESP&quot;.
     /// </summary>
     [EnumMember(Value = "IESP")]
     [IsoId("_XhXCuRIvEeyHZKWo4KVxBw")]
@@ -210,7 +210,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// This is an unrecognised or invalid Exposure Type (used when a proprietary code is sent).
-    /// Encoded/decoded by serializers as "IEXT".
+    /// Encoded/decoded by serializers as &quot;IEXT&quot;.
     /// </summary>
     [EnumMember(Value = "IEXT")]
     [IsoId("_XhXCuxIvEeyHZKWo4KVxBw")]
@@ -219,7 +219,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid Preferential Basket identification.
-    /// Encoded/decoded by serializers as "IPBI".
+    /// Encoded/decoded by serializers as &quot;IPBI&quot;.
     /// </summary>
     [EnumMember(Value = "IPBI")]
     [IsoId("_XhXCvRIvEeyHZKWo4KVxBw")]
@@ -228,7 +228,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid Rate Index Type (used when a proprietary code is sent).
-    /// Encoded/decoded by serializers as "IRIT".
+    /// Encoded/decoded by serializers as &quot;IRIT&quot;.
     /// </summary>
     [EnumMember(Value = "IRIT")]
     [IsoId("_XhXCvxIvEeyHZKWo4KVxBw")]
@@ -237,7 +237,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Termination amount currency not supported.
-    /// Encoded/decoded by serializers as "TMAC".
+    /// Encoded/decoded by serializers as &quot;TMAC&quot;.
     /// </summary>
     [EnumMember(Value = "TMAC")]
     [IsoId("_XhXCwRIvEeyHZKWo4KVxBw")]
@@ -246,7 +246,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid termination transaction amount.
-    /// Encoded/decoded by serializers as "REPA".
+    /// Encoded/decoded by serializers as &quot;REPA&quot;.
     /// </summary>
     [EnumMember(Value = "REPA")]
     [IsoId("_XhXCwxIvEeyHZKWo4KVxBw")]
@@ -255,7 +255,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Transaction amount currency not supported.
-    /// Encoded/decoded by serializers as "TXAC".
+    /// Encoded/decoded by serializers as &quot;TXAC&quot;.
     /// </summary>
     [EnumMember(Value = "TXAC")]
     [IsoId("_XhXCxRIvEeyHZKWo4KVxBw")]
@@ -264,7 +264,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// More than one instruction match the criteria.
-    /// Encoded/decoded by serializers as "NRGM".
+    /// Encoded/decoded by serializers as &quot;NRGM&quot;.
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_XhXCxxIvEeyHZKWo4KVxBw")]
@@ -273,7 +273,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Transaction amount breakdown currency differs from transaction amount currency.
-    /// Encoded/decoded by serializers as "TABC".
+    /// Encoded/decoded by serializers as &quot;TABC&quot;.
     /// </summary>
     [EnumMember(Value = "TABC")]
     [IsoId("_XhXCyRIvEeyHZKWo4KVxBw")]
@@ -282,7 +282,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// This is an unrecognised or invalid Collateral Transaction Type.
-    /// Encoded/decoded by serializers as "ICTT".
+    /// Encoded/decoded by serializers as &quot;ICTT&quot;.
     /// </summary>
     [EnumMember(Value = "ICTT")]
     [IsoId("_XhXCyxIvEeyHZKWo4KVxBw")]
@@ -291,7 +291,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Cancellation, modification or termination request has been rejected since the instruction could not be found.
-    /// Encoded/decoded by serializers as "NRJN".
+    /// Encoded/decoded by serializers as &quot;NRJN&quot;.
     /// </summary>
     [EnumMember(Value = "NRJN")]
     [IsoId("_XhXCzRIvEeyHZKWo4KVxBw")]
@@ -300,7 +300,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Instruction has been rejected as the corresponding allegement was cancelled.
-    /// Encoded/decoded by serializers as "NFCA".
+    /// Encoded/decoded by serializers as &quot;NFCA&quot;.
     /// </summary>
     [EnumMember(Value = "NFCA")]
     [IsoId("_XhXCzxIvEeyHZKWo4KVxBw")]
@@ -309,7 +309,7 @@ public enum RejectionReason62Code
     
     /// <summary>
     /// Unrecognised or invalid closing closing amount.
-    /// Encoded/decoded by serializers as "CTRA".
+    /// Encoded/decoded by serializers as &quot;CTRA&quot;.
     /// </summary>
     [EnumMember(Value = "CTRA")]
     [IsoId("_XhXC0RIvEeyHZKWo4KVxBw")]

@@ -21,7 +21,7 @@ public enum LegalStructure1Code
 {
     /// <summary>
     /// Legal structure is a state.
-    /// Encoded/decoded by serializers as "STAE".
+    /// Encoded/decoded by serializers as &quot;STAE&quot;.
     /// </summary>
     [EnumMember(Value = "STAE")]
     [IsoId("_VbY_4X0lEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum LegalStructure1Code
     
     /// <summary>
     /// Legal structure is a province.
-    /// Encoded/decoded by serializers as "PVIN".
+    /// Encoded/decoded by serializers as &quot;PVIN&quot;.
     /// </summary>
     [EnumMember(Value = "PVIN")]
     [IsoId("_VbY_430lEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum LegalStructure1Code
     
     /// <summary>
     /// Legal structure is a municipal.
-    /// Encoded/decoded by serializers as "MUNI".
+    /// Encoded/decoded by serializers as &quot;MUNI&quot;.
     /// </summary>
     [EnumMember(Value = "MUNI")]
     [IsoId("_VbY_5X0lEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum LegalStructure1Code
     
     /// <summary>
     /// Legal structure is a county.
-    /// Encoded/decoded by serializers as "CNTY".
+    /// Encoded/decoded by serializers as &quot;CNTY&quot;.
     /// </summary>
     [EnumMember(Value = "CNTY")]
     [IsoId("_VbY_530lEemfrNOe0zHQyg")]
@@ -57,7 +57,7 @@ public enum LegalStructure1Code
     
     /// <summary>
     /// Legal structure is a state.
-    /// Encoded/decoded by serializers as "NATI".
+    /// Encoded/decoded by serializers as &quot;NATI&quot;.
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_VbY_6X0lEemfrNOe0zHQyg")]

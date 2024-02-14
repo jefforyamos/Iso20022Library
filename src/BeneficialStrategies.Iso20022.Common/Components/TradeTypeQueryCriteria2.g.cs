@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the query criteria related to transaction types.
 /// </summary>
 [IsoId("_14z4PRfMEeyPHpqpKwtFdw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Type Query Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TradeTypeQueryCriteria2
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
     [IsoId("_2PddoRfMEeyPHpqpKwtFdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oprtr")]
     #endif
+    [IsoXmlTag("Oprtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Operation3Code Operator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Operation3Code Operator { get; init; } 
+    public required Operation3Code Operator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Operation3Code Operator { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TradeTypeQueryCriteria2
     /// Query criteria related to the type of the securities financing transaction.
     /// </summary>
     [IsoId("_2PddoxfMEeyPHpqpKwtFdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Financing Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesFincgTxTp")]
     #endif
+    [IsoXmlTag("SctiesFincgTxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExposureType10Code? SecuritiesFinancingTransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record TradeTypeQueryCriteria2
     /// Query criteria related to the type of the collateral component.
     /// </summary>
     [IsoId("_2PddpRfMEeyPHpqpKwtFdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Component Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollCmpntTp")]
     #endif
+    [IsoXmlTag("CollCmpntTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralType6Code? CollateralComponentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

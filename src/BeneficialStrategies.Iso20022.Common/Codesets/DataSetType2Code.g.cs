@@ -21,7 +21,7 @@ public enum DataSetType2Code
 {
     /// <summary>
     /// Data set is a baseline.
-    /// Encoded/decoded by serializers as "BASE".
+    /// Encoded/decoded by serializers as &quot;BASE&quot;.
     /// </summary>
     [EnumMember(Value = "BASE")]
     [IsoId("_ayG1s9p-Ed-ak6NoX_4Aeg_597609124")]
@@ -30,7 +30,7 @@ public enum DataSetType2Code
     
     /// <summary>
     /// Data set is a transport data set.
-    /// Encoded/decoded by serializers as "TRDS".
+    /// Encoded/decoded by serializers as &quot;TRDS&quot;.
     /// </summary>
     [EnumMember(Value = "TRDS")]
     [IsoId("_ayG1tNp-Ed-ak6NoX_4Aeg_597609125")]
@@ -39,7 +39,7 @@ public enum DataSetType2Code
     
     /// <summary>
     /// Data set is a commercial data set.
-    /// Encoded/decoded by serializers as "CODS".
+    /// Encoded/decoded by serializers as &quot;CODS&quot;.
     /// </summary>
     [EnumMember(Value = "CODS")]
     [IsoId("_ayG1tdp-Ed-ak6NoX_4Aeg_597609154")]
@@ -48,7 +48,7 @@ public enum DataSetType2Code
     
     /// <summary>
     /// Data set is an insurance data set.
-    /// Encoded/decoded by serializers as "INDS".
+    /// Encoded/decoded by serializers as &quot;INDS&quot;.
     /// </summary>
     [EnumMember(Value = "INDS")]
     [IsoId("_ayG1ttp-Ed-ak6NoX_4Aeg_672416869")]
@@ -57,7 +57,7 @@ public enum DataSetType2Code
     
     /// <summary>
     /// Data set is a certificate data set.
-    /// Encoded/decoded by serializers as "CEDS".
+    /// Encoded/decoded by serializers as &quot;CEDS&quot;.
     /// </summary>
     [EnumMember(Value = "CEDS")]
     [IsoId("_ayG1t9p-Ed-ak6NoX_4Aeg_925458258")]
@@ -66,7 +66,7 @@ public enum DataSetType2Code
     
     /// <summary>
     /// Data set is an other special certificate data set.
-    /// Encoded/decoded by serializers as "OCDS".
+    /// Encoded/decoded by serializers as &quot;OCDS&quot;.
     /// </summary>
     [EnumMember(Value = "OCDS")]
     [IsoId("_ayG1uNp-Ed-ak6NoX_4Aeg_940237322")]

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCARESD1 message extends ISO corporate action movement reversal advice message with DTCC corporate action elements not covered in the standard message.")]
 [IsoId("_Vk6qxTDmEey2N-DB7H7A5A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCARESD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCARESD1V04 : IOuterRecord<DTCCCARESD1V04,DTCCCARESD1V0
     /// Information to be extended as supplementary data to corporate action general information.
     /// </summary>
     [IsoId("_Vk6qxzDmEey2N-DB7H7A5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionGeneralInformationSD53? CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCARESD1V04 : IOuterRecord<DTCCCARESD1V04,DTCCCARESD1V0
     /// Information to be extended as supplementary data to underlying security details.
     /// </summary>
     [IsoId("_Vk6qyTDmEey2N-DB7H7A5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygScty")]
     #endif
+    [IsoXmlTag("UndrlygScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributesSD20? UnderlyingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,7 +100,7 @@ public partial record DTCCCARESD1V04 : IOuterRecord<DTCCCARESD1V04,DTCCCARESD1V0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCARESD1V04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCARESD1V04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCARESD1V04Document ToDocument()
     {
@@ -114,7 +110,7 @@ public partial record DTCCCARESD1V04 : IOuterRecord<DTCCCARESD1V04,DTCCCARESD1V0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCARESD1V04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCARESD1V04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCARESD1V04Document : IOuterDocument<DTCCCARESD1V04>
@@ -131,7 +127,7 @@ public partial record DTCCCARESD1V04Document : IOuterDocument<DTCCCARESD1V04>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCARESD1V04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCARESD1V04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCARESD1V04 Message { get; init; }

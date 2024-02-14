@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice
     /// Details specific for emission allowance derivatives.
     /// </summary>
     [IsoId("_8Z6RoGlQEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Emission Allowance")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice
         /// Specifies an mission allowance type.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EmssnAllwnc")]
         #endif
+        [IsoXmlTag("EmssnAllwnc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EmissionAllowanceProductType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EmissionAllowanceProductType1Code Value { get; init; } 
+        public required EmissionAllowanceProductType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EmissionAllowanceProductType1Code Value { get; init; } 
         #else

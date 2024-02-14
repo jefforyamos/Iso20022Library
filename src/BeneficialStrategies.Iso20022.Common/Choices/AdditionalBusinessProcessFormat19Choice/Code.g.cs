@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.AdditionalBusinessProcessFormat19Choice
 {
     /// <summary>
-    /// Standard code to specify the additional business process "tax refund" linked to a corporate action event.
+    /// Standard code to specify the additional business process &quot;tax refund&quot; linked to a corporate action event.
     /// </summary>
     [IsoId("_aN1PoRewEeyroI8qKgB7Mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalBusinessProcessFormat1
         /// Specifies the additional business process linked to a corporate action event.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AdditionalBusinessProcess11Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AdditionalBusinessProcess11Code Value { get; init; } 
+        public required AdditionalBusinessProcess11Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AdditionalBusinessProcess11Code Value { get; init; } 
         #else

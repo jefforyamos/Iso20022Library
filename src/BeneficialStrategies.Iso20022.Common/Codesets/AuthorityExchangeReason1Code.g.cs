@@ -21,7 +21,7 @@ public enum AuthorityExchangeReason1Code
 {
     /// <summary>
     /// Competent Authority for Instrument.
-    /// Encoded/decoded by serializers as "CAFI".
+    /// Encoded/decoded by serializers as &quot;CAFI&quot;.
     /// </summary>
     [EnumMember(Value = "CAFI")]
     [IsoId("_rlz04R5REeWc9bJOIIhUUw")]
@@ -30,7 +30,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Ad Hoc Request.
-    /// Encoded/decoded by serializers as "ADHR".
+    /// Encoded/decoded by serializers as &quot;ADHR&quot;.
     /// </summary>
     [EnumMember(Value = "ADHR")]
     [IsoId("_5imKETB_EeWZkK_S04LJWA")]
@@ -39,7 +39,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Basket Constituent.
-    /// Encoded/decoded by serializers as "CABC".
+    /// Encoded/decoded by serializers as &quot;CABC&quot;.
     /// </summary>
     [EnumMember(Value = "CABC")]
     [IsoId("_0HVJUTCBEeWCk5pWnqPoYw")]
@@ -48,7 +48,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Buyer Branch.
-    /// Encoded/decoded by serializers as "CABB".
+    /// Encoded/decoded by serializers as &quot;CABB&quot;.
     /// </summary>
     [EnumMember(Value = "CABB")]
     [IsoId("_0P8SwTCBEeWCk5pWnqPoYw")]
@@ -57,7 +57,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Decision Making Branch.
-    /// Encoded/decoded by serializers as "CADB".
+    /// Encoded/decoded by serializers as &quot;CADB&quot;.
     /// </summary>
     [EnumMember(Value = "CADB")]
     [IsoId("_0UjtATCBEeWCk5pWnqPoYw")]
@@ -66,7 +66,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Direct Underlying.
-    /// Encoded/decoded by serializers as "CADU".
+    /// Encoded/decoded by serializers as &quot;CADU&quot;.
     /// </summary>
     [EnumMember(Value = "CADU")]
     [IsoId("_0Z4R4TCBEeWCk5pWnqPoYw")]
@@ -75,7 +75,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Executing Branch.
-    /// Encoded/decoded by serializers as "CAEB".
+    /// Encoded/decoded by serializers as &quot;CAEB&quot;.
     /// </summary>
     [EnumMember(Value = "CAEB")]
     [IsoId("_0eg6QTCBEeWCk5pWnqPoYw")]
@@ -84,7 +84,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Index.
-    /// Encoded/decoded by serializers as "CAIX".
+    /// Encoded/decoded by serializers as &quot;CAIX&quot;.
     /// </summary>
     [EnumMember(Value = "CAIX")]
     [IsoId("_09euMTCBEeWCk5pWnqPoYw")]
@@ -93,7 +93,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Membership Branch.
-    /// Encoded/decoded by serializers as "CAMB".
+    /// Encoded/decoded by serializers as &quot;CAMB&quot;.
     /// </summary>
     [EnumMember(Value = "CAMB")]
     [IsoId("_1I3e0TCBEeWCk5pWnqPoYw")]
@@ -102,7 +102,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Seller Branch.
-    /// Encoded/decoded by serializers as "CASB".
+    /// Encoded/decoded by serializers as &quot;CASB&quot;.
     /// </summary>
     [EnumMember(Value = "CASB")]
     [IsoId("_1NgHMTCBEeWCk5pWnqPoYw")]
@@ -111,7 +111,7 @@ public enum AuthorityExchangeReason1Code
     
     /// <summary>
     /// Competent Authority for Trading Venue.
-    /// Encoded/decoded by serializers as "CATV".
+    /// Encoded/decoded by serializers as &quot;CATV&quot;.
     /// </summary>
     [EnumMember(Value = "CATV")]
     [IsoId("_1UxM0TCBEeWCk5pWnqPoYw")]

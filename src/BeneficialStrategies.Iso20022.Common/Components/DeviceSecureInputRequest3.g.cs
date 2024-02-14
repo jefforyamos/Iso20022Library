@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Request a secure input for a PIN.
 /// </summary>
 [IsoId("_3Q3kMS_FEeugIJ3Gvoevmg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Secure Input Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DeviceSecureInputRequest3
     /// Type of PIN Service.
     /// </summary>
     [IsoId("_3f3pgS_FEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PINReqTp")]
     #endif
+    [IsoXmlTag("PINReqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PINRequestType1Code PINRequestType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PINRequestType1Code PINRequestType { get; init; } 
+    public required PINRequestType1Code PINRequestType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PINRequestType1Code PINRequestType { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record DeviceSecureInputRequest3
     /// Identify the PIN verification method and keys.
     /// </summary>
     [IsoId("_3f3pgy_FEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PIN Verification Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PINVrfctnMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PINVrfctnMtd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? PINVerificationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record DeviceSecureInputRequest3
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
     [IsoId("_3f3phS_FEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Waiting Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxWtgTm")]
     #endif
+    [IsoXmlTag("MaxWtgTm")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumWaitingTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,12 @@ public partial record DeviceSecureInputRequest3
     /// Indicates, when the user press a key, if a beep has to be generated.
     /// </summary>
     [IsoId("_3f3phy_FEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beep Key Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BeepKeyFlg")]
     #endif
+    [IsoXmlTag("BeepKeyFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BeepKeyFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,11 @@ public partial record DeviceSecureInputRequest3
     /// Enciphered PIN and related information.
     /// </summary>
     [IsoId("_3f3piS_FEeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder PIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrPIN")]
     #endif
+    [IsoXmlTag("CrdhldrPIN")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLinePIN8? CardholderPIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

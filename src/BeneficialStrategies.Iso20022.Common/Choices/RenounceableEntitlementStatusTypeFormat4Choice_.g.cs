@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RenounceableEntitlementStatusTypeFormat4Choice.Code))]
     [KnownType(typeof(RenounceableEntitlementStatusTypeFormat4Choice.Proprietary))]
     [IsoId("_c5Lh45KQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Renounceable Entitlement Status Type Format 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

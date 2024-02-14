@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// </summary>
 [Description(@"Scope|The InvoiceFinancingCancellationRequest message is sent by the Financing Requestor to the Intermediary Agent (relay scenario) or First Agent (direct scenario). It is used to request the cancellation of a previously sent financing request.|Usage|The InvoiceFinancingCancellationRequest message is used by the Financing Requestor to request the cancellation of a previously sent financing request.|It is not possible to send a cancellation request for a single invoice contained in a bulk invoice financing request.|The InvoiceFinancingCancellationRequest message contains references (original group identification and original creation date and time) of the original financing request message to which is referred.|As for InvoiceFinancingRequest, the message can be used in a direct or a relay scenario:|- In a direct scenario, the message is sent directly to the First Agent. The First Agent is the account servicer of the Financing Requestor.|- In a relay scenario, the message is sent to an Intermediary Agent. The Intermediary Agent forwards the InvoiceFinancingCancellingRequest message to the First Agent.")]
 [IsoId("_BUjIPn1LEeCF8NjrBemJWQ_-1871971623")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Financing Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord<Invo
     /// Unique and unambiguous identification of the message.
     /// </summary>
     [IsoId("_BUjIP31LEeCF8NjrBemJWQ_-2121755534")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlReqId")]
     #endif
+    [IsoXmlTag("CxlReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 CancellationRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 CancellationRequestIdentification { get; init; } 
+    public required MessageIdentification1 CancellationRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 CancellationRequestIdentification { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord<Invo
     /// Set of information related to the cancellation request, such as actors involved and identification of the original invoice financing request to which the cancellation request refers.
     /// </summary>
     [IsoId("_BUsSIH1LEeCF8NjrBemJWQ_-1725175047")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Request Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlReqInf")]
     #endif
+    [IsoXmlTag("CxlReqInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationRequestInformation1 CancellationRequestInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationRequestInformation1 CancellationRequestInformation { get; init; } 
+    public required CancellationRequestInformation1 CancellationRequestInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationRequestInformation1 CancellationRequestInformation { get; init; } 
     #else
@@ -124,7 +120,7 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord<Invo
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvoiceFinancingCancellationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvoiceFinancingCancellationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvoiceFinancingCancellationRequestV01Document ToDocument()
     {
@@ -134,7 +130,7 @@ public partial record InvoiceFinancingCancellationRequestV01 : IOuterRecord<Invo
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceFinancingCancellationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvoiceFinancingCancellationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvoiceFinancingCancellationRequestV01Document : IOuterDocument<InvoiceFinancingCancellationRequestV01>
@@ -151,7 +147,7 @@ public partial record InvoiceFinancingCancellationRequestV01Document : IOuterDoc
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvoiceFinancingCancellationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvoiceFinancingCancellationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceFinancingCancellationRequestV01 Message { get; init; }

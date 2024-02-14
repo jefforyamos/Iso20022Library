@@ -21,7 +21,7 @@ public enum NewSecuritiesIssuanceType2Code
 {
     /// <summary>
     /// Funds have been placed in escrow by a trustee or agent to ensure payment on a portion of the outstanding balance of the original security on maturity date. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
-    /// Encoded/decoded by serializers as "DEFE".
+    /// Encoded/decoded by serializers as &quot;DEFE&quot;.
     /// </summary>
     [EnumMember(Value = "DEFE")]
     [IsoId("_27hL0Sp3EeO3oOoGGWHH4A")]
@@ -30,7 +30,7 @@ public enum NewSecuritiesIssuanceType2Code
     
     /// <summary>
     /// Securities proceeds are not new issues.
-    /// Encoded/decoded by serializers as "EXIS".
+    /// Encoded/decoded by serializers as &quot;EXIS&quot;.
     /// </summary>
     [EnumMember(Value = "EXIS")]
     [IsoId("_3AbhASp3EeO3oOoGGWHH4A")]
@@ -39,7 +39,7 @@ public enum NewSecuritiesIssuanceType2Code
     
     /// <summary>
     /// Securities proceeds are newly issued.
-    /// Encoded/decoded by serializers as "NEIS".
+    /// Encoded/decoded by serializers as &quot;NEIS&quot;.
     /// </summary>
     [EnumMember(Value = "NEIS")]
     [IsoId("_3FoxISp3EeO3oOoGGWHH4A")]
@@ -48,7 +48,7 @@ public enum NewSecuritiesIssuanceType2Code
     
     /// <summary>
     /// Funds will not be guaranteed at maturity by the issuer or paying agent for this newly issued non-defeased security. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
-    /// Encoded/decoded by serializers as "NDEF".
+    /// Encoded/decoded by serializers as &quot;NDEF&quot;.
     /// </summary>
     [EnumMember(Value = "NDEF")]
     [IsoId("_3Ks3USp3EeO3oOoGGWHH4A")]
@@ -57,7 +57,7 @@ public enum NewSecuritiesIssuanceType2Code
     
     /// <summary>
     /// Not known whether the securities proceeds are newly issued or not.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_3PdbgSp3EeO3oOoGGWHH4A")]

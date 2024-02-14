@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the cash-in and cash-out flows by a user defined parameter/s.
 /// </summary>
 [IsoId("_KigjuQatEeS3lpTattq7hg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Breakdown By User Defined Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BreakdownByUserDefinedParameter3
     /// Party for which the cash flow is being reported.
     /// </summary>
     [IsoId("_K78-YwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount42? Party { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record BreakdownByUserDefinedParameter3
     /// Country for which the cash flow is being reported.
     /// </summary>
     [IsoId("_K78-ZQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record BreakdownByUserDefinedParameter3
     /// Currency for which the cash flow is being reported.
     /// </summary>
     [IsoId("_K78-ZwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record BreakdownByUserDefinedParameter3
     /// Parameter for which the cash flow is being reported.
     /// </summary>
     [IsoId("_K78-aQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Defined")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrDfnd")]
     #endif
+    [IsoXmlTag("UsrDfnd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DataFormat2Choice_? UserDefined { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record BreakdownByUserDefinedParameter3
     /// Cash movement into the fund as a result of transactions in shares in an investment fund, for example, subscriptions or switch-ins.
     /// </summary>
     [IsoId("_K78-awatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInFcst")]
     #endif
+    [IsoXmlTag("CshInFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInForecast5? CashInForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record BreakdownByUserDefinedParameter3
     /// Cash movement out of the fund as a result of transactions in shares in an investment fund, for example, redemptions or switch-outs.
     /// </summary>
     [IsoId("_K78-bQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Out Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshOutFcst")]
     #endif
+    [IsoXmlTag("CshOutFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOutForecast5? CashOutForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record BreakdownByUserDefinedParameter3
     /// Net cash as a result of the cash-in and cash-out flows specified for the user defined parameter.
     /// </summary>
     [IsoId("_K78-bwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Cash Forecast")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetCshFcst")]
     #endif
+    [IsoXmlTag("NetCshFcst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast4? NetCashForecast { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

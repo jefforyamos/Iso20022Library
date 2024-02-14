@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityClassificationType3Choice.CFI))]
     [KnownType(typeof(SecurityClassificationType3Choice.AlternateClassification))]
     [IsoId("_R_yWIf35EeimOuZbLgw0bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Classification Type 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

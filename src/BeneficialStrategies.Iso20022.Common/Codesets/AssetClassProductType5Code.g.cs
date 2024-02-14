@@ -21,7 +21,7 @@ public enum AssetClassProductType5Code
 {
     /// <summary>
     /// Commodity of type fertilizer.
-    /// Encoded/decoded by serializers as "FRTL".
+    /// Encoded/decoded by serializers as &quot;FRTL&quot;.
     /// </summary>
     [EnumMember(Value = "FRTL")]
     [IsoId("_ie4nUQnyEeWnS-yHF1QhNQ")]

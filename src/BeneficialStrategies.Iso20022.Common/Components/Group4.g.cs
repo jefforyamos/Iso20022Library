@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Group of parties with their related security certificate.
 /// </summary>
 [IsoId("_IuZ4hW49EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Group")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record Group4
     /// Specifies the identification of the group.
     /// </summary>
     [IsoId("_I5uXoW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("GrpId")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText GroupIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String GroupIdentification { get; init; } 
+    public required System.String GroupIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String GroupIdentification { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record Group4
     /// Specifies a party and related certificate.
     /// </summary>
     [IsoId("_I5uXo249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pty")]
     #endif
+    [IsoXmlTag("Pty")]
     public PartyAndCertificate4? Party { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _I5uXo249EeiU9cctagi5ow
     

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains the details of the package
 /// </summary>
 [IsoId("_l2yNwZF_EeukDPgU2BMkjQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Shipping Package")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record ShippingPackage2
     /// Contains the identification number for the packages being shipped and is also used for pickup number. 
     /// </summary>
     [IsoId("_l8yIEZF_EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracking Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckgNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TrckgNb")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? TrackingNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record ShippingPackage2
     /// Supplier or provider of the delivery services.
     /// </summary>
     [IsoId("_l8yIE5F_EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Spplr")]
     #endif
+    [IsoXmlTag("Spplr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification260? Supplier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record ShippingPackage2
     /// Contains the date the package is picked up.
     /// </summary>
     [IsoId("_7Ip_kCbSEeyhZIgCcGlTyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pickup Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PckpDt")]
     #endif
+    [IsoXmlTag("PckpDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PickupDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,12 @@ public partial record ShippingPackage2
     /// Contains the time the package is picked up.
     /// </summary>
     [IsoId("_l8yIFZF_EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pickup Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PckpTm")]
     #endif
+    [IsoXmlTag("PckpTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? PickupTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +114,11 @@ public partial record ShippingPackage2
     /// Delivery information. 
     /// </summary>
     [IsoId("_l8yIF5F_EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dlvry")]
     #endif
+    [IsoXmlTag("Dlvry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryInformation4? Delivery { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +131,11 @@ public partial record ShippingPackage2
     /// Weight details.
     /// </summary>
     [IsoId("_l8yIGZF_EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Weight")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Wght")]
     #endif
+    [IsoXmlTag("Wght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure2? Weight { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +148,11 @@ public partial record ShippingPackage2
     /// Contains the product details.
     /// </summary>
     [IsoId("_l8yIG5F_EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pdct")]
     #endif
+    [IsoXmlTag("Pdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product7? Product { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +165,12 @@ public partial record ShippingPackage2
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
     [IsoId("_l8yIHZF_EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncInd")]
     #endif
+    [IsoXmlTag("InsrncInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +183,12 @@ public partial record ShippingPackage2
     /// Amount of insurance.
     /// </summary>
     [IsoId("_l8yIH5F_EeukDPgU2BMkjQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncAmt")]
     #endif
+    [IsoXmlTag("InsrncAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashAccountIdentification6Choice.IBAN))]
     [KnownType(typeof(CashAccountIdentification6Choice.Proprietary))]
     [IsoId("_WO8Mitp-Ed-ak6NoX_4Aeg_-720963071")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Identification 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

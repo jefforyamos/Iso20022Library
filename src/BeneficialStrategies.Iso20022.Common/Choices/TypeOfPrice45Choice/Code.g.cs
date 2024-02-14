@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfPrice45Choice
     /// Type of price expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_8bg2h5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfPrice45Choice
         /// Specifies the type of price and information about the price.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TypeOfPrice16Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TypeOfPrice16Code Value { get; init; } 
+        public required TypeOfPrice16Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TypeOfPrice16Code Value { get; init; } 
         #else

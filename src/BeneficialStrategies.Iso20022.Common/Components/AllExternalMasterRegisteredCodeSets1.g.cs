@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// </summary>
 [IsoId("_3toyJW_HEe2g-IPZC9d7tA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("All External Master Registered Code Sets")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -172,16 +170,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyLG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Accepted Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlAccptdRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlAccptdRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAcceptedReasonCode ExternalAcceptedReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalAcceptedReasonCode ExternalAcceptedReasonCode { get; init; } 
+    public required ExternalAcceptedReasonCode ExternalAcceptedReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalAcceptedReasonCode ExternalAcceptedReasonCode { get; init; } 
     #else
@@ -191,16 +188,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnA2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Account Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlAcctIdCd")]
     #endif
+    [IsoXmlTag("XtrnlAcctIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAccountIdentificationCode ExternalAccountIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalAccountIdentificationCode ExternalAccountIdentificationCode { get; init; } 
+    public required ExternalAccountIdentificationCode ExternalAccountIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalAccountIdentificationCode ExternalAccountIdentificationCode { get; init; } 
     #else
@@ -210,16 +206,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_9W_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Agent Instruction Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlAgtInstrCd")]
     #endif
+    [IsoXmlTag("XtrnlAgtInstrCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAgentInstructionCode ExternalAgentInstructionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalAgentInstructionCode ExternalAgentInstructionCode { get; init; } 
+    public required ExternalAgentInstructionCode ExternalAgentInstructionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalAgentInstructionCode ExternalAgentInstructionCode { get; init; } 
     #else
@@ -229,16 +224,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAa2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Agreement Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlAgrmtTpCd")]
     #endif
+    [IsoXmlTag("XtrnlAgrmtTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAgreementTypeCode ExternalAgreementTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalAgreementTypeCode ExternalAgreementTypeCode { get; init; } 
+    public required ExternalAgreementTypeCode ExternalAgreementTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalAgreementTypeCode ExternalAgreementTypeCode { get; init; } 
     #else
@@ -248,16 +242,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAXG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Authentication Channel Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlAuthntcnChanlCd")]
     #endif
+    [IsoXmlTag("XtrnlAuthntcnChanlCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAuthenticationChannelCode ExternalAuthenticationChannelCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalAuthenticationChannelCode ExternalAuthenticationChannelCode { get; init; } 
+    public required ExternalAuthenticationChannelCode ExternalAuthenticationChannelCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalAuthenticationChannelCode ExternalAuthenticationChannelCode { get; init; } 
     #else
@@ -267,16 +260,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyOG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Authentication Method Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlAuthntcnMtdCd")]
     #endif
+    [IsoXmlTag("XtrnlAuthntcnMtdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAuthenticationMethodCode ExternalAuthenticationMethodCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalAuthenticationMethodCode { get; init; } 
+    public required string ExternalAuthenticationMethodCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalAuthenticationMethodCode { get; init; } 
     #else
@@ -286,16 +278,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqATW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Authority Exchange Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlAuthrtyXchgRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlAuthrtyXchgRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAuthorityExchangeReasonCode ExternalAuthorityExchangeReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalAuthorityExchangeReasonCode ExternalAuthorityExchangeReasonCode { get; init; } 
+    public required ExternalAuthorityExchangeReasonCode ExternalAuthorityExchangeReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalAuthorityExchangeReasonCode ExternalAuthorityExchangeReasonCode { get; init; } 
     #else
@@ -305,16 +296,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAKm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Authority Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlAuthrtyIdCd")]
     #endif
+    [IsoXmlTag("XtrnlAuthrtyIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalAuthorityIdentificationCode ExternalAuthorityIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalAuthorityIdentificationCode ExternalAuthorityIdentificationCode { get; init; } 
+    public required ExternalAuthorityIdentificationCode ExternalAuthorityIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalAuthorityIdentificationCode ExternalAuthorityIdentificationCode { get; init; } 
     #else
@@ -324,16 +314,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnG2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Balance Sub Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBalSubTpCd")]
     #endif
+    [IsoXmlTag("XtrnlBalSubTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBalanceSubTypeCode ExternalBalanceSubTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalBalanceSubTypeCode ExternalBalanceSubTypeCode { get; init; } 
+    public required ExternalBalanceSubTypeCode ExternalBalanceSubTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalBalanceSubTypeCode ExternalBalanceSubTypeCode { get; init; } 
     #else
@@ -343,16 +332,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAHG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Balance Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBalTpCd")]
     #endif
+    [IsoXmlTag("XtrnlBalTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBalanceTypeCode ExternalBalanceTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalBalanceTypeCode ExternalBalanceTypeCode { get; init; } 
+    public required ExternalBalanceTypeCode ExternalBalanceTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalBalanceTypeCode ExternalBalanceTypeCode { get; init; } 
     #else
@@ -362,16 +350,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAaG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Bank Transaction Domain Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBkTxDomnCd")]
     #endif
+    [IsoXmlTag("XtrnlBkTxDomnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionDomainCode ExternalBankTransactionDomainCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalBankTransactionDomainCode { get; init; } 
+    public required string ExternalBankTransactionDomainCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalBankTransactionDomainCode { get; init; } 
     #else
@@ -381,16 +368,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_8W_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Bank Transaction Family Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBkTxFmlyCd")]
     #endif
+    [IsoXmlTag("XtrnlBkTxFmlyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionFamilyCode ExternalBankTransactionFamilyCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalBankTransactionFamilyCode { get; init; } 
+    public required string ExternalBankTransactionFamilyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalBankTransactionFamilyCode { get; init; } 
     #else
@@ -400,16 +386,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAIm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Bank Transaction Sub Family Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBkTxSubFmlyCd")]
     #endif
+    [IsoXmlTag("XtrnlBkTxSubFmlyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionSubFamilyCode ExternalBankTransactionSubFamilyCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalBankTransactionSubFamilyCode { get; init; } 
+    public required string ExternalBankTransactionSubFamilyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalBankTransactionSubFamilyCode { get; init; } 
     #else
@@ -419,16 +404,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY7m_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Billing Balance Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBllgBalTpCd")]
     #endif
+    [IsoXmlTag("XtrnlBllgBalTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBillingBalanceTypeCode ExternalBillingBalanceTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalBillingBalanceTypeCode ExternalBillingBalanceTypeCode { get; init; } 
+    public required ExternalBillingBalanceTypeCode ExternalBillingBalanceTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalBillingBalanceTypeCode ExternalBillingBalanceTypeCode { get; init; } 
     #else
@@ -438,16 +422,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAJm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Billing Compensation Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBllgCompstnTpCd")]
     #endif
+    [IsoXmlTag("XtrnlBllgCompstnTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBillingCompensationTypeCode ExternalBillingCompensationTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalBillingCompensationTypeCode ExternalBillingCompensationTypeCode { get; init; } 
+    public required ExternalBillingCompensationTypeCode ExternalBillingCompensationTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalBillingCompensationTypeCode ExternalBillingCompensationTypeCode { get; init; } 
     #else
@@ -457,16 +440,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY72_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Billing Rate Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBllgRateIdCd")]
     #endif
+    [IsoXmlTag("XtrnlBllgRateIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBillingRateIdentificationCode ExternalBillingRateIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalBillingRateIdentificationCode ExternalBillingRateIdentificationCode { get; init; } 
+    public required ExternalBillingRateIdentificationCode ExternalBillingRateIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalBillingRateIdentificationCode ExternalBillingRateIdentificationCode { get; init; } 
     #else
@@ -476,16 +458,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAD2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Cancellation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCxlRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlCxlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCancellationReasonCode ExternalCancellationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCancellationReasonCode ExternalCancellationReasonCode { get; init; } 
+    public required ExternalCancellationReasonCode ExternalCancellationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCancellationReasonCode ExternalCancellationReasonCode { get; init; } 
     #else
@@ -495,16 +476,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyMW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Card Transaction Category Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCardTxCtgyCd")]
     #endif
+    [IsoXmlTag("XtrnlCardTxCtgyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCardTransactionCategoryCode ExternalCardTransactionCategoryCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalCardTransactionCategoryCode { get; init; } 
+    public required string ExternalCardTransactionCategoryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalCardTransactionCategoryCode { get; init; } 
     #else
@@ -514,16 +494,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnEG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Cash Account Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCshAcctTpCd")]
     #endif
+    [IsoXmlTag("XtrnlCshAcctTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCashAccountTypeCode ExternalCashAccountTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCashAccountTypeCode ExternalCashAccountTypeCode { get; init; } 
+    public required ExternalCashAccountTypeCode ExternalCashAccountTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCashAccountTypeCode ExternalCashAccountTypeCode { get; init; } 
     #else
@@ -533,16 +512,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnKG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Cash Clearing System Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCshClrSysCd")]
     #endif
+    [IsoXmlTag("XtrnlCshClrSysCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCashClearingSystemCode ExternalCashClearingSystemCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCashClearingSystemCode ExternalCashClearingSystemCode { get; init; } 
+    public required ExternalCashClearingSystemCode ExternalCashClearingSystemCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCashClearingSystemCode ExternalCashClearingSystemCode { get; init; } 
     #else
@@ -552,16 +530,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAGW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Category Purpose Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCtgyPurpCd")]
     #endif
+    [IsoXmlTag("XtrnlCtgyPurpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCategoryPurposeCode ExternalCategoryPurposeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCategoryPurposeCode ExternalCategoryPurposeCode { get; init; } 
+    public required ExternalCategoryPurposeCode ExternalCategoryPurposeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCategoryPurposeCode ExternalCategoryPurposeCode { get; init; } 
     #else
@@ -571,16 +548,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyVm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Channel Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlChanlCd")]
     #endif
+    [IsoXmlTag("XtrnlChanlCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChannelCode ExternalChannelCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalChannelCode ExternalChannelCode { get; init; } 
+    public required ExternalChannelCode ExternalChannelCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalChannelCode ExternalChannelCode { get; init; } 
     #else
@@ -590,16 +566,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyOW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Charge Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlChrgTpCd")]
     #endif
+    [IsoXmlTag("XtrnlChrgTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChargeTypeCode ExternalChargeTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalChargeTypeCode ExternalChargeTypeCode { get; init; } 
+    public required ExternalChargeTypeCode ExternalChargeTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalChargeTypeCode ExternalChargeTypeCode { get; init; } 
     #else
@@ -609,16 +584,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAN2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Cheque Agent Instruction Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlChqAgtInstrCd")]
     #endif
+    [IsoXmlTag("XtrnlChqAgtInstrCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChequeAgentInstructionCode ExternalChequeAgentInstructionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalChequeAgentInstructionCode { get; init; } 
+    public required string ExternalChequeAgentInstructionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalChequeAgentInstructionCode { get; init; } 
     #else
@@ -628,16 +602,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqASm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Cheque Cancellation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlChqCxlRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlChqCxlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChequeCancellationReasonCode ExternalChequeCancellationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalChequeCancellationReasonCode { get; init; } 
+    public required string ExternalChequeCancellationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalChequeCancellationReasonCode { get; init; } 
     #else
@@ -647,16 +620,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyNm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Cheque Cancellation Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlChqCxlStsCd")]
     #endif
+    [IsoXmlTag("XtrnlChqCxlStsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChequeCancellationStatusCode ExternalChequeCancellationStatusCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalChequeCancellationStatusCode { get; init; } 
+    public required string ExternalChequeCancellationStatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalChequeCancellationStatusCode { get; init; } 
     #else
@@ -666,16 +638,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnDm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Claim Non Receipt Rejection Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlClmNonRctRjctnCd")]
     #endif
+    [IsoXmlTag("XtrnlClmNonRctRjctnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalClaimNonReceiptRejectionCode ExternalClaimNonReceiptRejectionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalClaimNonReceiptRejectionCode ExternalClaimNonReceiptRejectionCode { get; init; } 
+    public required ExternalClaimNonReceiptRejectionCode ExternalClaimNonReceiptRejectionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalClaimNonReceiptRejectionCode ExternalClaimNonReceiptRejectionCode { get; init; } 
     #else
@@ -685,16 +656,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAAm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Clearing System Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlClrSysIdCd")]
     #endif
+    [IsoXmlTag("XtrnlClrSysIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalClearingSystemIdentificationCode ExternalClearingSystemIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalClearingSystemIdentificationCode ExternalClearingSystemIdentificationCode { get; init; } 
+    public required ExternalClearingSystemIdentificationCode ExternalClearingSystemIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalClearingSystemIdentificationCode ExternalClearingSystemIdentificationCode { get; init; } 
     #else
@@ -704,16 +674,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAI2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Clearing System Member Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlClrSysMmbCd")]
     #endif
+    [IsoXmlTag("XtrnlClrSysMmbCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalClearingSystemMemberCode ExternalClearingSystemMemberCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalClearingSystemMemberCode { get; init; } 
+    public required string ExternalClearingSystemMemberCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalClearingSystemMemberCode { get; init; } 
     #else
@@ -723,16 +692,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAH2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Communication Format Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlComFrmtCd")]
     #endif
+    [IsoXmlTag("XtrnlComFrmtCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCommunicationFormatCode ExternalCommunicationFormatCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalCommunicationFormatCode { get; init; } 
+    public required string ExternalCommunicationFormatCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalCommunicationFormatCode { get; init; } 
     #else
@@ -742,16 +710,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAYm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Contract Balance Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCtrctBalTpCd")]
     #endif
+    [IsoXmlTag("XtrnlCtrctBalTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalContractBalanceTypeCode ExternalContractBalanceTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalContractBalanceTypeCode ExternalContractBalanceTypeCode { get; init; } 
+    public required ExternalContractBalanceTypeCode ExternalContractBalanceTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalContractBalanceTypeCode ExternalContractBalanceTypeCode { get; init; } 
     #else
@@ -761,16 +728,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAA2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Contract Closure Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCtrctClsrRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlCtrctClsrRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalContractClosureReasonCode ExternalContractClosureReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalContractClosureReasonCode ExternalContractClosureReasonCode { get; init; } 
+    public required ExternalContractClosureReasonCode ExternalContractClosureReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalContractClosureReasonCode ExternalContractClosureReasonCode { get; init; } 
     #else
@@ -780,16 +746,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_9m_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Credit Line Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCdtLineTpCd")]
     #endif
+    [IsoXmlTag("XtrnlCdtLineTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditLineTypeCode ExternalCreditLineTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalCreditLineTypeCode { get; init; } 
+    public required string ExternalCreditLineTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalCreditLineTypeCode { get; init; } 
     #else
@@ -799,16 +764,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOHm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Creditor Agent Instruction Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCdtrAgtInstrCd")]
     #endif
+    [IsoXmlTag("XtrnlCdtrAgtInstrCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditorAgentInstructionCode ExternalCreditorAgentInstructionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCreditorAgentInstructionCode ExternalCreditorAgentInstructionCode { get; init; } 
+    public required ExternalCreditorAgentInstructionCode ExternalCreditorAgentInstructionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCreditorAgentInstructionCode ExternalCreditorAgentInstructionCode { get; init; } 
     #else
@@ -818,16 +782,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqARG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Creditor Enrolment Amendment Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCdtrEnrlmntAmdmntRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlCdtrEnrlmntAmdmntRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditorEnrolmentAmendmentReasonCode ExternalCreditorEnrolmentAmendmentReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCreditorEnrolmentAmendmentReasonCode ExternalCreditorEnrolmentAmendmentReasonCode { get; init; } 
+    public required ExternalCreditorEnrolmentAmendmentReasonCode ExternalCreditorEnrolmentAmendmentReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCreditorEnrolmentAmendmentReasonCode ExternalCreditorEnrolmentAmendmentReasonCode { get; init; } 
     #else
@@ -837,16 +800,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqATm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Creditor Enrolment Cancellation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCdtrEnrlmntCxlRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlCdtrEnrlmntCxlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditorEnrolmentCancellationReasonCode ExternalCreditorEnrolmentCancellationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCreditorEnrolmentCancellationReasonCode ExternalCreditorEnrolmentCancellationReasonCode { get; init; } 
+    public required ExternalCreditorEnrolmentCancellationReasonCode ExternalCreditorEnrolmentCancellationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCreditorEnrolmentCancellationReasonCode ExternalCreditorEnrolmentCancellationReasonCode { get; init; } 
     #else
@@ -856,16 +818,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyVG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Creditor Enrolment Status Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlCdtrEnrlmntStsRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlCdtrEnrlmntStsRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalCreditorEnrolmentStatusReasonCode ExternalCreditorEnrolmentStatusReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalCreditorEnrolmentStatusReasonCode ExternalCreditorEnrolmentStatusReasonCode { get; init; } 
+    public required ExternalCreditorEnrolmentStatusReasonCode ExternalCreditorEnrolmentStatusReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalCreditorEnrolmentStatusReasonCode ExternalCreditorEnrolmentStatusReasonCode { get; init; } 
     #else
@@ -875,16 +836,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY52_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Date Frequency Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDtFrqcyCd")]
     #endif
+    [IsoXmlTag("XtrnlDtFrqcyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDateFrequencyCode ExternalDateFrequencyCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDateFrequencyCode ExternalDateFrequencyCode { get; init; } 
+    public required ExternalDateFrequencyCode ExternalDateFrequencyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDateFrequencyCode ExternalDateFrequencyCode { get; init; } 
     #else
@@ -894,16 +854,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_8G_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Debtor Activation Amendment Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDbtrActvtnAmdmntRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlDbtrActvtnAmdmntRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDebtorActivationAmendmentReasonCode ExternalDebtorActivationAmendmentReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDebtorActivationAmendmentReasonCode ExternalDebtorActivationAmendmentReasonCode { get; init; } 
+    public required ExternalDebtorActivationAmendmentReasonCode ExternalDebtorActivationAmendmentReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDebtorActivationAmendmentReasonCode ExternalDebtorActivationAmendmentReasonCode { get; init; } 
     #else
@@ -913,16 +872,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOEW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Debtor Activation Cancellation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDbtrActvtnCxlRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlDbtrActvtnCxlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDebtorActivationCancellationReasonCode ExternalDebtorActivationCancellationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDebtorActivationCancellationReasonCode ExternalDebtorActivationCancellationReasonCode { get; init; } 
+    public required ExternalDebtorActivationCancellationReasonCode ExternalDebtorActivationCancellationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDebtorActivationCancellationReasonCode ExternalDebtorActivationCancellationReasonCode { get; init; } 
     #else
@@ -932,16 +890,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyT2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Debtor Activation Status Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDbtrActvtnStsRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlDbtrActvtnStsRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDebtorActivationStatusReasonCode ExternalDebtorActivationStatusReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDebtorActivationStatusReasonCode ExternalDebtorActivationStatusReasonCode { get; init; } 
+    public required ExternalDebtorActivationStatusReasonCode ExternalDebtorActivationStatusReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDebtorActivationStatusReasonCode ExternalDebtorActivationStatusReasonCode { get; init; } 
     #else
@@ -951,16 +908,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqADW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Debtor Agent Instruction Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDbtrAgtInstrCd")]
     #endif
+    [IsoXmlTag("XtrnlDbtrAgtInstrCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDebtorAgentInstructionCode ExternalDebtorAgentInstructionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDebtorAgentInstructionCode ExternalDebtorAgentInstructionCode { get; init; } 
+    public required ExternalDebtorAgentInstructionCode ExternalDebtorAgentInstructionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDebtorAgentInstructionCode ExternalDebtorAgentInstructionCode { get; init; } 
     #else
@@ -970,16 +926,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqABG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Discount Amount Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDscntAmtTpCd")]
     #endif
+    [IsoXmlTag("XtrnlDscntAmtTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDiscountAmountTypeCode ExternalDiscountAmountTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDiscountAmountTypeCode ExternalDiscountAmountTypeCode { get; init; } 
+    public required ExternalDiscountAmountTypeCode ExternalDiscountAmountTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDiscountAmountTypeCode ExternalDiscountAmountTypeCode { get; init; } 
     #else
@@ -989,16 +944,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyQ2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Discrepancy Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDscrpncyCd")]
     #endif
+    [IsoXmlTag("XtrnlDscrpncyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDiscrepancyCode ExternalDiscrepancyCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalDiscrepancyCode { get; init; } 
+    public required string ExternalDiscrepancyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalDiscrepancyCode { get; init; } 
     #else
@@ -1008,16 +962,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOEG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Document Format Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDocFrmtCd")]
     #endif
+    [IsoXmlTag("XtrnlDocFrmtCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentFormatCode ExternalDocumentFormatCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDocumentFormatCode ExternalDocumentFormatCode { get; init; } 
+    public required ExternalDocumentFormatCode ExternalDocumentFormatCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDocumentFormatCode ExternalDocumentFormatCode { get; init; } 
     #else
@@ -1027,16 +980,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAIW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Document Line Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDocLineTpCd")]
     #endif
+    [IsoXmlTag("XtrnlDocLineTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentLineTypeCode ExternalDocumentLineTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDocumentLineTypeCode ExternalDocumentLineTypeCode { get; init; } 
+    public required ExternalDocumentLineTypeCode ExternalDocumentLineTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDocumentLineTypeCode ExternalDocumentLineTypeCode { get; init; } 
     #else
@@ -1046,16 +998,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAUG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Document Purpose Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDocPurpCd")]
     #endif
+    [IsoXmlTag("XtrnlDocPurpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentPurposeCode ExternalDocumentPurposeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDocumentPurposeCode ExternalDocumentPurposeCode { get; init; } 
+    public required ExternalDocumentPurposeCode ExternalDocumentPurposeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDocumentPurposeCode ExternalDocumentPurposeCode { get; init; } 
     #else
@@ -1065,16 +1016,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnHm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Document Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlDocTpCd")]
     #endif
+    [IsoXmlTag("XtrnlDocTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalDocumentTypeCode ExternalDocumentTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalDocumentTypeCode ExternalDocumentTypeCode { get; init; } 
+    public required ExternalDocumentTypeCode ExternalDocumentTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalDocumentTypeCode ExternalDocumentTypeCode { get; init; } 
     #else
@@ -1084,16 +1034,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqALG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Effective Date Parameter Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlFctvDtParamCd")]
     #endif
+    [IsoXmlTag("XtrnlFctvDtParamCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalEffectiveDateParameterCode ExternalEffectiveDateParameterCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalEffectiveDateParameterCode ExternalEffectiveDateParameterCode { get; init; } 
+    public required ExternalEffectiveDateParameterCode ExternalEffectiveDateParameterCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalEffectiveDateParameterCode ExternalEffectiveDateParameterCode { get; init; } 
     #else
@@ -1103,16 +1052,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnFG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Encrypted Element Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlNcrptdElmtIdCd")]
     #endif
+    [IsoXmlTag("XtrnlNcrptdElmtIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalEncryptedElementIdentificationCode ExternalEncryptedElementIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalEncryptedElementIdentificationCode ExternalEncryptedElementIdentificationCode { get; init; } 
+    public required ExternalEncryptedElementIdentificationCode ExternalEncryptedElementIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalEncryptedElementIdentificationCode ExternalEncryptedElementIdentificationCode { get; init; } 
     #else
@@ -1122,16 +1070,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAPm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Enquiry Request Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlEnqryReqTpCd")]
     #endif
+    [IsoXmlTag("XtrnlEnqryReqTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalEnquiryRequestTypeCode ExternalEnquiryRequestTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalEnquiryRequestTypeCode ExternalEnquiryRequestTypeCode { get; init; } 
+    public required ExternalEnquiryRequestTypeCode ExternalEnquiryRequestTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalEnquiryRequestTypeCode ExternalEnquiryRequestTypeCode { get; init; } 
     #else
@@ -1141,16 +1088,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyO2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Entry Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlNtryStsCd")]
     #endif
+    [IsoXmlTag("XtrnlNtryStsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalEntryStatusCode ExternalEntryStatusCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalEntryStatusCode ExternalEntryStatusCode { get; init; } 
+    public required ExternalEntryStatusCode ExternalEntryStatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalEntryStatusCode ExternalEntryStatusCode { get; init; } 
     #else
@@ -1160,16 +1106,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOG2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Financial Institution Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlFIIdCd")]
     #endif
+    [IsoXmlTag("XtrnlFIIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalFinancialInstitutionIdentificationCode ExternalFinancialInstitutionIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalFinancialInstitutionIdentificationCode { get; init; } 
+    public required string ExternalFinancialInstitutionIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalFinancialInstitutionIdentificationCode { get; init; } 
     #else
@@ -1179,16 +1124,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnCG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Financial Instrument Identification Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlFinInstrmIdTpCd")]
     #endif
+    [IsoXmlTag("XtrnlFinInstrmIdTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalFinancialInstrumentIdentificationTypeCode ExternalFinancialInstrumentIdentificationTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalFinancialInstrumentIdentificationTypeCode ExternalFinancialInstrumentIdentificationTypeCode { get; init; } 
+    public required ExternalFinancialInstrumentIdentificationTypeCode ExternalFinancialInstrumentIdentificationTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalFinancialInstrumentIdentificationTypeCode ExternalFinancialInstrumentIdentificationTypeCode { get; init; } 
     #else
@@ -1198,16 +1142,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyQW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Financial Instrument Product Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlFinInstrmPdctTpCd")]
     #endif
+    [IsoXmlTag("XtrnlFinInstrmPdctTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalFinancialInstrumentProductTypeCode ExternalFinancialInstrumentProductTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalFinancialInstrumentProductTypeCode { get; init; } 
+    public required string ExternalFinancialInstrumentProductTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalFinancialInstrumentProductTypeCode { get; init; } 
     #else
@@ -1217,16 +1160,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAY2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Garnishment Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlGrnshmtTpCd")]
     #endif
+    [IsoXmlTag("XtrnlGrnshmtTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalGarnishmentTypeCode ExternalGarnishmentTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalGarnishmentTypeCode ExternalGarnishmentTypeCode { get; init; } 
+    public required ExternalGarnishmentTypeCode ExternalGarnishmentTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalGarnishmentTypeCode ExternalGarnishmentTypeCode { get; init; } 
     #else
@@ -1236,16 +1178,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAOm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Incoterms Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlIncotrmsCd")]
     #endif
+    [IsoXmlTag("XtrnlIncotrmsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalIncotermsCode ExternalIncotermsCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalIncotermsCode ExternalIncotermsCode { get; init; } 
+    public required ExternalIncotermsCode ExternalIncotermsCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalIncotermsCode ExternalIncotermsCode { get; init; } 
     #else
@@ -1255,16 +1196,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnCm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Information Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlInfTpCd")]
     #endif
+    [IsoXmlTag("XtrnlInfTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInformationTypeCode ExternalInformationTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalInformationTypeCode ExternalInformationTypeCode { get; init; } 
+    public required ExternalInformationTypeCode ExternalInformationTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalInformationTypeCode ExternalInformationTypeCode { get; init; } 
     #else
@@ -1274,16 +1214,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAEG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Instructed Agent Instruction Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlInstdAgtInstrCd")]
     #endif
+    [IsoXmlTag("XtrnlInstdAgtInstrCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInstructedAgentInstructionCode ExternalInstructedAgentInstructionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalInstructedAgentInstructionCode { get; init; } 
+    public required string ExternalInstructedAgentInstructionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalInstructedAgentInstructionCode { get; init; } 
     #else
@@ -1293,16 +1232,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyQm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Invalid Event Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlInvldEvtRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlInvldEvtRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInvalidEventReasonCode ExternalInvalidEventReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalInvalidEventReasonCode { get; init; } 
+    public required string ExternalInvalidEventReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalInvalidEventReasonCode { get; init; } 
     #else
@@ -1312,16 +1250,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyN2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Invalid Payments Event Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlInvldPmtsEvtCd")]
     #endif
+    [IsoXmlTag("XtrnlInvldPmtsEvtCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInvalidPaymentsEventCode ExternalInvalidPaymentsEventCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalInvalidPaymentsEventCode { get; init; } 
+    public required string ExternalInvalidPaymentsEventCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalInvalidPaymentsEventCode { get; init; } 
     #else
@@ -1331,16 +1268,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAU2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Investigation Execution Confirmation Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlInvstgtnExctnConfCd")]
     #endif
+    [IsoXmlTag("XtrnlInvstgtnExctnConfCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalInvestigationExecutionConfirmationCode ExternalInvestigationExecutionConfirmationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalInvestigationExecutionConfirmationCode ExternalInvestigationExecutionConfirmationCode { get; init; } 
+    public required ExternalInvestigationExecutionConfirmationCode ExternalInvestigationExecutionConfirmationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalInvestigationExecutionConfirmationCode ExternalInvestigationExecutionConfirmationCode { get; init; } 
     #else
@@ -1350,16 +1286,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqACm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Letter Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlLttrTpCd")]
     #endif
+    [IsoXmlTag("XtrnlLttrTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalLetterTypeCode ExternalLetterTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalLetterTypeCode ExternalLetterTypeCode { get; init; } 
+    public required ExternalLetterTypeCode ExternalLetterTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalLetterTypeCode ExternalLetterTypeCode { get; init; } 
     #else
@@ -1369,16 +1304,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnLG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Local Instrument Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlLclInstrmCd")]
     #endif
+    [IsoXmlTag("XtrnlLclInstrmCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalLocalInstrumentCode ExternalLocalInstrumentCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalLocalInstrumentCode ExternalLocalInstrumentCode { get; init; } 
+    public required ExternalLocalInstrumentCode ExternalLocalInstrumentCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalLocalInstrumentCode ExternalLocalInstrumentCode { get; init; } 
     #else
@@ -1388,16 +1322,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAAG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Mandate Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlMndtRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlMndtRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMandateReasonCode ExternalMandateReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalMandateReasonCode ExternalMandateReasonCode { get; init; } 
+    public required ExternalMandateReasonCode ExternalMandateReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalMandateReasonCode ExternalMandateReasonCode { get; init; } 
     #else
@@ -1407,16 +1340,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAEm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Mandate Setup Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlMndtStpRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlMndtStpRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMandateSetupReasonCode ExternalMandateSetupReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalMandateSetupReasonCode { get; init; } 
+    public required string ExternalMandateSetupReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalMandateSetupReasonCode { get; init; } 
     #else
@@ -1426,16 +1358,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnDG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Mandate Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlMndtStsCd")]
     #endif
+    [IsoXmlTag("XtrnlMndtStsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMandateStatusCode ExternalMandateStatusCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalMandateStatusCode ExternalMandateStatusCode { get; init; } 
+    public required ExternalMandateStatusCode ExternalMandateStatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalMandateStatusCode ExternalMandateStatusCode { get; init; } 
     #else
@@ -1445,16 +1376,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOE2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Mandate Suspension Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlMndtSspnsnRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlMndtSspnsnRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMandateSuspensionReasonCode ExternalMandateSuspensionReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalMandateSuspensionReasonCode ExternalMandateSuspensionReasonCode { get; init; } 
+    public required ExternalMandateSuspensionReasonCode ExternalMandateSuspensionReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalMandateSuspensionReasonCode ExternalMandateSuspensionReasonCode { get; init; } 
     #else
@@ -1464,16 +1394,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOGW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Market Infrastructure Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlMktInfrstrctrCd")]
     #endif
+    [IsoXmlTag("XtrnlMktInfrstrctrCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalMarketInfrastructureCode ExternalMarketInfrastructureCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalMarketInfrastructureCode ExternalMarketInfrastructureCode { get; init; } 
+    public required ExternalMarketInfrastructureCode ExternalMarketInfrastructureCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalMarketInfrastructureCode ExternalMarketInfrastructureCode { get; init; } 
     #else
@@ -1483,16 +1412,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY5m_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Model Form Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlMdlFormIdCd")]
     #endif
+    [IsoXmlTag("XtrnlMdlFormIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalModelFormIdentificationCode ExternalModelFormIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalModelFormIdentificationCode ExternalModelFormIdentificationCode { get; init; } 
+    public required ExternalModelFormIdentificationCode ExternalModelFormIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalModelFormIdentificationCode ExternalModelFormIdentificationCode { get; init; } 
     #else
@@ -1502,16 +1430,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAYG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Narrative Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlNrrtvTpCd")]
     #endif
+    [IsoXmlTag("XtrnlNrrtvTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalNarrativeTypeCode ExternalNarrativeTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalNarrativeTypeCode ExternalNarrativeTypeCode { get; init; } 
+    public required ExternalNarrativeTypeCode ExternalNarrativeTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalNarrativeTypeCode ExternalNarrativeTypeCode { get; init; } 
     #else
@@ -1521,16 +1448,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqALm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Notification Cancellation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlNtfctnCxlRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlNtfctnCxlRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalNotificationCancellationReasonCode ExternalNotificationCancellationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalNotificationCancellationReasonCode { get; init; } 
+    public required string ExternalNotificationCancellationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalNotificationCancellationReasonCode { get; init; } 
     #else
@@ -1540,16 +1466,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqADm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Organisation Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlOrgIdCd")]
     #endif
+    [IsoXmlTag("XtrnlOrgIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalOrganisationIdentificationCode ExternalOrganisationIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalOrganisationIdentificationCode ExternalOrganisationIdentificationCode { get; init; } 
+    public required ExternalOrganisationIdentificationCode ExternalOrganisationIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalOrganisationIdentificationCode ExternalOrganisationIdentificationCode { get; init; } 
     #else
@@ -1559,16 +1484,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_82_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Packaging Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPackgngTpCd")]
     #endif
+    [IsoXmlTag("XtrnlPackgngTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPackagingTypeCode ExternalPackagingTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPackagingTypeCode ExternalPackagingTypeCode { get; init; } 
+    public required ExternalPackagingTypeCode ExternalPackagingTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPackagingTypeCode ExternalPackagingTypeCode { get; init; } 
     #else
@@ -1578,16 +1502,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAaW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment Cancellation Rejection Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtCxlRjctnCd")]
     #endif
+    [IsoXmlTag("XtrnlPmtCxlRjctnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentCancellationRejectionCode ExternalPaymentCancellationRejectionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentCancellationRejectionCode ExternalPaymentCancellationRejectionCode { get; init; } 
+    public required ExternalPaymentCancellationRejectionCode ExternalPaymentCancellationRejectionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentCancellationRejectionCode ExternalPaymentCancellationRejectionCode { get; init; } 
     #else
@@ -1597,16 +1520,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyNW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment Compensation Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtCompstnRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlPmtCompstnRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentCompensationReasonCode ExternalPaymentCompensationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentCompensationReasonCode ExternalPaymentCompensationReasonCode { get; init; } 
+    public required ExternalPaymentCompensationReasonCode ExternalPaymentCompensationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentCompensationReasonCode ExternalPaymentCompensationReasonCode { get; init; } 
     #else
@@ -1616,16 +1538,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqARm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment Control Request Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtCtrlReqTpCd")]
     #endif
+    [IsoXmlTag("XtrnlPmtCtrlReqTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentControlRequestTypeCode ExternalPaymentControlRequestTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentControlRequestTypeCode ExternalPaymentControlRequestTypeCode { get; init; } 
+    public required ExternalPaymentControlRequestTypeCode ExternalPaymentControlRequestTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentControlRequestTypeCode ExternalPaymentControlRequestTypeCode { get; init; } 
     #else
@@ -1635,16 +1556,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnCW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment Group Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtGrpStsCd")]
     #endif
+    [IsoXmlTag("XtrnlPmtGrpStsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentGroupStatusCode ExternalPaymentGroupStatusCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentGroupStatusCode ExternalPaymentGroupStatusCode { get; init; } 
+    public required ExternalPaymentGroupStatusCode ExternalPaymentGroupStatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentGroupStatusCode ExternalPaymentGroupStatusCode { get; init; } 
     #else
@@ -1654,16 +1574,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnJG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment Modification Rejection Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtModRjctnCd")]
     #endif
+    [IsoXmlTag("XtrnlPmtModRjctnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentModificationRejectionCode ExternalPaymentModificationRejectionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentModificationRejectionCode ExternalPaymentModificationRejectionCode { get; init; } 
+    public required ExternalPaymentModificationRejectionCode ExternalPaymentModificationRejectionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentModificationRejectionCode ExternalPaymentModificationRejectionCode { get; init; } 
     #else
@@ -1673,16 +1592,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAT2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment Role Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtRoleCd")]
     #endif
+    [IsoXmlTag("XtrnlPmtRoleCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentRoleCode ExternalPaymentRoleCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentRoleCode ExternalPaymentRoleCode { get; init; } 
+    public required ExternalPaymentRoleCode ExternalPaymentRoleCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentRoleCode ExternalPaymentRoleCode { get; init; } 
     #else
@@ -1692,16 +1610,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY8G_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment Status Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtStsRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlPmtStsRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentStatusReasonCode ExternalPaymentStatusReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentStatusReasonCode ExternalPaymentStatusReasonCode { get; init; } 
+    public required ExternalPaymentStatusReasonCode ExternalPaymentStatusReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentStatusReasonCode ExternalPaymentStatusReasonCode { get; init; } 
     #else
@@ -1711,16 +1628,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAb2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment Transaction Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtTxStsCd")]
     #endif
+    [IsoXmlTag("XtrnlPmtTxStsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentTransactionStatusCode ExternalPaymentTransactionStatusCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentTransactionStatusCode ExternalPaymentTransactionStatusCode { get; init; } 
+    public required ExternalPaymentTransactionStatusCode ExternalPaymentTransactionStatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentTransactionStatusCode ExternalPaymentTransactionStatusCode { get; init; } 
     #else
@@ -1730,16 +1646,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyKG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Pending Processing Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPdgPrcgRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlPdgPrcgRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPendingProcessingReasonCode ExternalPendingProcessingReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPendingProcessingReasonCode ExternalPendingProcessingReasonCode { get; init; } 
+    public required ExternalPendingProcessingReasonCode ExternalPendingProcessingReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPendingProcessingReasonCode ExternalPendingProcessingReasonCode { get; init; } 
     #else
@@ -1749,16 +1664,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_9G_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Person Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPrsnIdCd")]
     #endif
+    [IsoXmlTag("XtrnlPrsnIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPersonIdentificationCode ExternalPersonIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPersonIdentificationCode ExternalPersonIdentificationCode { get; init; } 
+    public required ExternalPersonIdentificationCode ExternalPersonIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPersonIdentificationCode ExternalPersonIdentificationCode { get; init; } 
     #else
@@ -1768,16 +1682,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_-m_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Proxy Account Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPrxyAcctTpCd")]
     #endif
+    [IsoXmlTag("XtrnlPrxyAcctTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalProxyAccountTypeCode ExternalProxyAccountTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalProxyAccountTypeCode ExternalProxyAccountTypeCode { get; init; } 
+    public required ExternalProxyAccountTypeCode ExternalProxyAccountTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalProxyAccountTypeCode ExternalProxyAccountTypeCode { get; init; } 
     #else
@@ -1787,16 +1700,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_-2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Purpose And Market Area Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPurpAndMktAreaCd")]
     #endif
+    [IsoXmlTag("XtrnlPurpAndMktAreaCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPurposeAndMarketAreaCode ExternalPurposeAndMarketAreaCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPurposeAndMarketAreaCode ExternalPurposeAndMarketAreaCode { get; init; } 
+    public required ExternalPurposeAndMarketAreaCode ExternalPurposeAndMarketAreaCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPurposeAndMarketAreaCode ExternalPurposeAndMarketAreaCode { get; init; } 
     #else
@@ -1806,16 +1718,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnKW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Purpose Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPurpCd")]
     #endif
+    [IsoXmlTag("XtrnlPurpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPurposeCode ExternalPurposeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPurposeCode ExternalPurposeCode { get; init; } 
+    public required ExternalPurposeCode ExternalPurposeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPurposeCode ExternalPurposeCode { get; init; } 
     #else
@@ -1825,16 +1736,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAVm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Rates And Tenors Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRatesAndTnrsCd")]
     #endif
+    [IsoXmlTag("XtrnlRatesAndTnrsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRatesAndTenorsCode ExternalRatesAndTenorsCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalRatesAndTenorsCode ExternalRatesAndTenorsCode { get; init; } 
+    public required ExternalRatesAndTenorsCode ExternalRatesAndTenorsCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalRatesAndTenorsCode ExternalRatesAndTenorsCode { get; init; } 
     #else
@@ -1844,16 +1754,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAZ2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Received Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRcvdRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlRcvdRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReceivedReasonCode ExternalReceivedReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalReceivedReasonCode ExternalReceivedReasonCode { get; init; } 
+    public required ExternalReceivedReasonCode ExternalReceivedReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalReceivedReasonCode ExternalReceivedReasonCode { get; init; } 
     #else
@@ -1863,16 +1772,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAV2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Rejected Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRjctdRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlRjctdRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRejectedReasonCode ExternalRejectedReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalRejectedReasonCode ExternalRejectedReasonCode { get; init; } 
+    public required ExternalRejectedReasonCode ExternalRejectedReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalRejectedReasonCode ExternalRejectedReasonCode { get; init; } 
     #else
@@ -1882,16 +1790,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAOG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Relative To Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRltvToCd")]
     #endif
+    [IsoXmlTag("XtrnlRltvToCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRelativeToCode ExternalRelativeToCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalRelativeToCode ExternalRelativeToCode { get; init; } 
+    public required ExternalRelativeToCode ExternalRelativeToCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalRelativeToCode ExternalRelativeToCode { get; init; } 
     #else
@@ -1901,16 +1808,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAB2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Reporting Source Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRptgSrcCd")]
     #endif
+    [IsoXmlTag("XtrnlRptgSrcCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReportingSourceCode ExternalReportingSourceCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalReportingSourceCode ExternalReportingSourceCode { get; init; } 
+    public required ExternalReportingSourceCode ExternalReportingSourceCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalReportingSourceCode ExternalReportingSourceCode { get; init; } 
     #else
@@ -1920,16 +1826,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAR2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Re Presentment Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRePresntmntRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlRePresntmntRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalRePresentmentReasonCode ExternalRePresentmentReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalRePresentmentReasonCode ExternalRePresentmentReasonCode { get; init; } 
+    public required ExternalRePresentmentReasonCode ExternalRePresentmentReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalRePresentmentReasonCode ExternalRePresentmentReasonCode { get; init; } 
     #else
@@ -1939,16 +1844,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnD2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Reservation Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRsvatnTpCd")]
     #endif
+    [IsoXmlTag("XtrnlRsvatnTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReservationTypeCode ExternalReservationTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalReservationTypeCode ExternalReservationTypeCode { get; init; } 
+    public required ExternalReservationTypeCode ExternalReservationTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalReservationTypeCode ExternalReservationTypeCode { get; init; } 
     #else
@@ -1958,16 +1862,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyJ2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Return Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRtrRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlRtrRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReturnReasonCode ExternalReturnReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalReturnReasonCode ExternalReturnReasonCode { get; init; } 
+    public required ExternalReturnReasonCode ExternalReturnReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalReturnReasonCode ExternalReturnReasonCode { get; init; } 
     #else
@@ -1977,16 +1880,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY5G_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Reversal Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRvslRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlRvslRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalReversalReasonCode ExternalReversalReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalReversalReasonCode ExternalReversalReasonCode { get; init; } 
+    public required ExternalReversalReasonCode ExternalReversalReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalReversalReasonCode ExternalReversalReasonCode { get; init; } 
     #else
@@ -1996,16 +1898,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOF2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Securities Lending Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSctiesLndgTpCd")]
     #endif
+    [IsoXmlTag("XtrnlSctiesLndgTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSecuritiesLendingTypeCode ExternalSecuritiesLendingTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalSecuritiesLendingTypeCode { get; init; } 
+    public required string ExternalSecuritiesLendingTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalSecuritiesLendingTypeCode { get; init; } 
     #else
@@ -2015,16 +1916,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY6W_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Securities Purpose 1 Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSctiesPurp1Cd")]
     #endif
+    [IsoXmlTag("XtrnlSctiesPurp1Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
+    public required ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
     #else
@@ -2034,16 +1934,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAYW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Securities Update Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSctiesUpdRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlSctiesUpdRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSecuritiesUpdateReasonCode ExternalSecuritiesUpdateReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalSecuritiesUpdateReasonCode { get; init; } 
+    public required string ExternalSecuritiesUpdateReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalSecuritiesUpdateReasonCode { get; init; } 
     #else
@@ -2053,16 +1952,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tp_-G_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Service Level Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSvcLvlCd")]
     #endif
+    [IsoXmlTag("XtrnlSvcLvlCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalServiceLevelCode ExternalServiceLevelCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalServiceLevelCode ExternalServiceLevelCode { get; init; } 
+    public required ExternalServiceLevelCode ExternalServiceLevelCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalServiceLevelCode ExternalServiceLevelCode { get; init; } 
     #else
@@ -2072,16 +1970,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyK2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Shipment Condition Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlShipmntCondCd")]
     #endif
+    [IsoXmlTag("XtrnlShipmntCondCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalShipmentConditionCode ExternalShipmentConditionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalShipmentConditionCode ExternalShipmentConditionCode { get; init; } 
+    public required ExternalShipmentConditionCode ExternalShipmentConditionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalShipmentConditionCode ExternalShipmentConditionCode { get; init; } 
     #else
@@ -2091,16 +1988,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyLW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Status Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlStsRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlStsRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalStatusReasonCode ExternalStatusReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalStatusReasonCode ExternalStatusReasonCode { get; init; } 
+    public required ExternalStatusReasonCode ExternalStatusReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalStatusReasonCode ExternalStatusReasonCode { get; init; } 
     #else
@@ -2110,16 +2006,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAJW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External System Balance Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSysBalTpCd")]
     #endif
+    [IsoXmlTag("XtrnlSysBalTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemBalanceTypeCode ExternalSystemBalanceTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalSystemBalanceTypeCode ExternalSystemBalanceTypeCode { get; init; } 
+    public required ExternalSystemBalanceTypeCode ExternalSystemBalanceTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalSystemBalanceTypeCode ExternalSystemBalanceTypeCode { get; init; } 
     #else
@@ -2129,16 +2024,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyUW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External System Error Handling Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSysErrHdlgCd")]
     #endif
+    [IsoXmlTag("XtrnlSysErrHdlgCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemErrorHandlingCode ExternalSystemErrorHandlingCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalSystemErrorHandlingCode ExternalSystemErrorHandlingCode { get; init; } 
+    public required ExternalSystemErrorHandlingCode ExternalSystemErrorHandlingCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalSystemErrorHandlingCode ExternalSystemErrorHandlingCode { get; init; } 
     #else
@@ -2148,16 +2042,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqACW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External System Event Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSysEvtTpCd")]
     #endif
+    [IsoXmlTag("XtrnlSysEvtTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemEventTypeCode ExternalSystemEventTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalSystemEventTypeCode ExternalSystemEventTypeCode { get; init; } 
+    public required ExternalSystemEventTypeCode ExternalSystemEventTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalSystemEventTypeCode ExternalSystemEventTypeCode { get; init; } 
     #else
@@ -2167,16 +2060,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqANG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External System Member Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSysMmbTpCd")]
     #endif
+    [IsoXmlTag("XtrnlSysMmbTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemMemberTypeCode ExternalSystemMemberTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalSystemMemberTypeCode ExternalSystemMemberTypeCode { get; init; } 
+    public required ExternalSystemMemberTypeCode ExternalSystemMemberTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalSystemMemberTypeCode ExternalSystemMemberTypeCode { get; init; } 
     #else
@@ -2186,16 +2078,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY4m_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External System Party Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlSysPtyTpCd")]
     #endif
+    [IsoXmlTag("XtrnlSysPtyTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalSystemPartyTypeCode ExternalSystemPartyTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalSystemPartyTypeCode { get; init; } 
+    public required string ExternalSystemPartyTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalSystemPartyTypeCode { get; init; } 
     #else
@@ -2205,16 +2096,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyU2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Tax Amount Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlTaxAmtTpCd")]
     #endif
+    [IsoXmlTag("XtrnlTaxAmtTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTaxAmountTypeCode ExternalTaxAmountTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalTaxAmountTypeCode ExternalTaxAmountTypeCode { get; init; } 
+    public required ExternalTaxAmountTypeCode ExternalTaxAmountTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalTaxAmountTypeCode ExternalTaxAmountTypeCode { get; init; } 
     #else
@@ -2224,16 +2114,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnLm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Technical Input Channel Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlTechInptChanlCd")]
     #endif
+    [IsoXmlTag("XtrnlTechInptChanlCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTechnicalInputChannelCode ExternalTechnicalInputChannelCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalTechnicalInputChannelCode ExternalTechnicalInputChannelCode { get; init; } 
+    public required ExternalTechnicalInputChannelCode ExternalTechnicalInputChannelCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalTechnicalInputChannelCode ExternalTechnicalInputChannelCode { get; init; } 
     #else
@@ -2243,16 +2132,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAHm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Trade Market Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlTradMktCd")]
     #endif
+    [IsoXmlTag("XtrnlTradMktCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTradeMarketCode ExternalTradeMarketCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalTradeMarketCode ExternalTradeMarketCode { get; init; } 
+    public required ExternalTradeMarketCode ExternalTradeMarketCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalTradeMarketCode ExternalTradeMarketCode { get; init; } 
     #else
@@ -2262,16 +2150,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqnHG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Trade Transaction Condition Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlTradTxCondCd")]
     #endif
+    [IsoXmlTag("XtrnlTradTxCondCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTradeTransactionConditionCode ExternalTradeTransactionConditionCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalTradeTransactionConditionCode ExternalTradeTransactionConditionCode { get; init; } 
+    public required ExternalTradeTransactionConditionCode ExternalTradeTransactionConditionCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalTradeTransactionConditionCode ExternalTradeTransactionConditionCode { get; init; } 
     #else
@@ -2281,16 +2168,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAC2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Type Of Party Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlTpOfPtyCd")]
     #endif
+    [IsoXmlTag("XtrnlTpOfPtyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalTypeOfPartyCode ExternalTypeOfPartyCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalTypeOfPartyCode ExternalTypeOfPartyCode { get; init; } 
+    public required ExternalTypeOfPartyCode ExternalTypeOfPartyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalTypeOfPartyCode ExternalTypeOfPartyCode { get; init; } 
     #else
@@ -2300,16 +2186,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAEW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Unable To Apply Incorrect Data Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlUblToApplyIncrrctDataCd")]
     #endif
+    [IsoXmlTag("XtrnlUblToApplyIncrrctDataCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUnableToApplyIncorrectDataCode ExternalUnableToApplyIncorrectDataCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUnableToApplyIncorrectDataCode ExternalUnableToApplyIncorrectDataCode { get; init; } 
+    public required ExternalUnableToApplyIncorrectDataCode ExternalUnableToApplyIncorrectDataCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUnableToApplyIncorrectDataCode ExternalUnableToApplyIncorrectDataCode { get; init; } 
     #else
@@ -2319,16 +2204,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqANW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Unable To Apply Missing Data Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlUblToApplyMssngDataCd")]
     #endif
+    [IsoXmlTag("XtrnlUblToApplyMssngDataCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUnableToApplyMissingDataCode ExternalUnableToApplyMissingDataCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUnableToApplyMissingDataCode ExternalUnableToApplyMissingDataCode { get; init; } 
+    public required ExternalUnableToApplyMissingDataCode ExternalUnableToApplyMissingDataCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUnableToApplyMissingDataCode ExternalUnableToApplyMissingDataCode { get; init; } 
     #else
@@ -2338,16 +2222,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3toyS2_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Underlying Trade Transaction Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlUndrlygTradTxTpCd")]
     #endif
+    [IsoXmlTag("XtrnlUndrlygTradTxTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUnderlyingTradeTransactionTypeCode ExternalUnderlyingTradeTransactionTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUnderlyingTradeTransactionTypeCode ExternalUnderlyingTradeTransactionTypeCode { get; init; } 
+    public required ExternalUnderlyingTradeTransactionTypeCode ExternalUnderlyingTradeTransactionTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUnderlyingTradeTransactionTypeCode ExternalUnderlyingTradeTransactionTypeCode { get; init; } 
     #else
@@ -2357,16 +2240,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAFW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Undertaking Amount Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlUdrtkgAmtTpCd")]
     #endif
+    [IsoXmlTag("XtrnlUdrtkgAmtTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingAmountTypeCode ExternalUndertakingAmountTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUndertakingAmountTypeCode ExternalUndertakingAmountTypeCode { get; init; } 
+    public required ExternalUndertakingAmountTypeCode ExternalUndertakingAmountTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUndertakingAmountTypeCode ExternalUndertakingAmountTypeCode { get; init; } 
     #else
@@ -2376,16 +2258,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOFm_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Undertaking Document Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlUdrtkgDocTpCd")]
     #endif
+    [IsoXmlTag("XtrnlUdrtkgDocTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingDocumentTypeCode ExternalUndertakingDocumentTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUndertakingDocumentTypeCode ExternalUndertakingDocumentTypeCode { get; init; } 
+    public required ExternalUndertakingDocumentTypeCode ExternalUndertakingDocumentTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUndertakingDocumentTypeCode ExternalUndertakingDocumentTypeCode { get; init; } 
     #else
@@ -2395,16 +2276,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAKG_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Undertaking Status Category Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlUdrtkgStsCtgyCd")]
     #endif
+    [IsoXmlTag("XtrnlUdrtkgStsCtgyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingStatusCategoryCode ExternalUndertakingStatusCategoryCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUndertakingStatusCategoryCode ExternalUndertakingStatusCategoryCode { get; init; } 
+    public required ExternalUndertakingStatusCategoryCode ExternalUndertakingStatusCategoryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUndertakingStatusCategoryCode ExternalUndertakingStatusCategoryCode { get; init; } 
     #else
@@ -2414,16 +2294,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tqAUW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Undertaking Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlUdrtkgTpCd")]
     #endif
+    [IsoXmlTag("XtrnlUdrtkgTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUndertakingTypeCode ExternalUndertakingTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUndertakingTypeCode ExternalUndertakingTypeCode { get; init; } 
+    public required ExternalUndertakingTypeCode ExternalUndertakingTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUndertakingTypeCode ExternalUndertakingTypeCode { get; init; } 
     #else
@@ -2433,16 +2312,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3tpY7G_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Validation Rule Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlVldtnRuleIdCd")]
     #endif
+    [IsoXmlTag("XtrnlVldtnRuleIdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalValidationRuleIdentificationCode ExternalValidationRuleIdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalValidationRuleIdentificationCode ExternalValidationRuleIdentificationCode { get; init; } 
+    public required ExternalValidationRuleIdentificationCode ExternalValidationRuleIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalValidationRuleIdentificationCode ExternalValidationRuleIdentificationCode { get; init; } 
     #else
@@ -2452,16 +2330,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_3trOFW_HEe2g-IPZC9d7tA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Verification Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlVrfctnRsnCd")]
     #endif
+    [IsoXmlTag("XtrnlVrfctnRsnCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalVerificationReasonCode ExternalVerificationReasonCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalVerificationReasonCode ExternalVerificationReasonCode { get; init; } 
+    public required ExternalVerificationReasonCode ExternalVerificationReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalVerificationReasonCode ExternalVerificationReasonCode { get; init; } 
     #else
@@ -2471,16 +2348,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_xi3wc3C-Ee2QDe42vpiOiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Benchmark Curve Name Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlBchmkCrvNmCd")]
     #endif
+    [IsoXmlTag("XtrnlBchmkCrvNmCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBenchmarkCurveNameCode ExternalBenchmarkCurveNameCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalBenchmarkCurveNameCode ExternalBenchmarkCurveNameCode { get; init; } 
+    public required ExternalBenchmarkCurveNameCode ExternalBenchmarkCurveNameCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalBenchmarkCurveNameCode ExternalBenchmarkCurveNameCode { get; init; } 
     #else
@@ -2490,16 +2366,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_xi3wdHC-Ee2QDe42vpiOiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Party Relationship Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPtyRltshTpCd")]
     #endif
+    [IsoXmlTag("XtrnlPtyRltshTpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPartyRelationshipTypeCode ExternalPartyRelationshipTypeCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ExternalPartyRelationshipTypeCode { get; init; } 
+    public required string ExternalPartyRelationshipTypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ExternalPartyRelationshipTypeCode { get; init; } 
     #else
@@ -2509,16 +2384,15 @@ public partial record AllExternalMasterRegisteredCodeSets1
     /// <summary>
     /// </summary>
     [IsoId("_xi3wdXC-Ee2QDe42vpiOiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Unit Of Measure Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlUnitOfMeasrCd")]
     #endif
+    [IsoXmlTag("XtrnlUnitOfMeasrCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalUnitOfMeasureCode ExternalUnitOfMeasureCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalUnitOfMeasureCode ExternalUnitOfMeasureCode { get; init; } 
+    public required ExternalUnitOfMeasureCode ExternalUnitOfMeasureCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalUnitOfMeasureCode ExternalUnitOfMeasureCode { get; init; } 
     #else

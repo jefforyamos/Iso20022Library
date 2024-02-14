@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the final agent.
 /// </summary>
 [IsoId("_Prd4cdp-Ed-ak6NoX_4Aeg_-1258143330")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instruction For Final Agent")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,31 +42,26 @@ public partial record InstructionForFinalAgent
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the final agent, in coded form.
     /// </summary>
     [IsoId("_Prd4ctp-Ed-ak6NoX_4Aeg_-357710298")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Cd")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public SimpleValueList<Instruction3Code> Code { get; init; } = new SimpleValueList<Instruction3Code>(){};
     
     /// <summary>
     /// Instruction to the final agent that is specific to a user community and is required for use within that user community.||Usage: The proprietary element should only be used when the coded element does not provide sufficient codes or when the selected code in the coded element needs to be supplemented by additional information such as a passport number or telephone number.
     /// </summary>
     [IsoId("_Prd4c9p-Ed-ak6NoX_4Aeg_-100044573")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prtry")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

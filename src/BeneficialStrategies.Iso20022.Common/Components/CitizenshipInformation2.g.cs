@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about an individual person.
 /// </summary>
 [IsoId("_PECrwa18EeaD5sjjwBUhkQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Citizenship Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CitizenshipInformation2
     /// Country where a person was born or is legally accepted as belonging to the country.
     /// </summary>
     [IsoId("_PbGg4a18EeaD5sjjwBUhkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nationality")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ntlty")]
     #endif
+    [IsoXmlTag("Ntlty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NationalityCode Nationality { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Nationality { get; init; } 
+    public required string Nationality { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Nationality { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record CitizenshipInformation2
     /// Indicates whether the person is a legal minor. This may depend on the nationality, the domicile country or the transaction in which the person is involved.
     /// </summary>
     [IsoId("_PbGg4618EeaD5sjjwBUhkQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minor Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MnrInd")]
     #endif
+    [IsoXmlTag("MnrInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MinorIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MinorIndicator { get; init; } 
+    public required System.String MinorIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MinorIndicator { get; init; } 
     #else

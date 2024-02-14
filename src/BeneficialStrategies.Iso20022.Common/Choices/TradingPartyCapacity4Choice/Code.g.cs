@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingPartyCapacity4Choice
     /// Trading capacity expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_HrWewZBjEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingPartyCapacity4Choice
         /// Specifies the role of a trading party in a transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TradingCapacity4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TradingCapacity4Code Value { get; init; } 
+        public required TradingCapacity4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TradingCapacity4Code Value { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum BalanceStatus1Code
 {
     /// <summary>
     /// Balance corresponding to the pending transactions.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_bkLL0Np-Ed-ak6NoX_4Aeg_992302531")]
@@ -30,7 +30,7 @@ public enum BalanceStatus1Code
     
     /// <summary>
     /// Final status of a transaction when the associated transfer of cash has been successfully processed.
-    /// Encoded/decoded by serializers as "STLD".
+    /// Encoded/decoded by serializers as &quot;STLD&quot;.
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_bkLL0dp-Ed-ak6NoX_4Aeg_992302584")]

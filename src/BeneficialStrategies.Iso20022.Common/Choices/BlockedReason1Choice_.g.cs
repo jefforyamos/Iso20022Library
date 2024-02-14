@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BlockedReason1Choice.Reason))]
     [KnownType(typeof(BlockedReason1Choice.Proprietary))]
     [IsoId("_WFqMcxHdEeKVqeHljBM1MQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blocked Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

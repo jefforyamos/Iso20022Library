@@ -21,7 +21,7 @@ public enum DataSetCategory17Code
 {
     /// <summary>
     /// Acquirer specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "AQPR".
+    /// Encoded/decoded by serializers as &quot;AQPR&quot;.
     /// </summary>
     [EnumMember(Value = "AQPR")]
     [IsoId("_uJwTYVEHEeyApZmLzm74zA")]
@@ -30,7 +30,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Payment application specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_uJxhgVEHEeyApZmLzm74zA")]
@@ -39,7 +39,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Batch upload of transaction data (data capture of a group of transactions).
-    /// Encoded/decoded by serializers as "TXCP".
+    /// Encoded/decoded by serializers as &quot;TXCP&quot;.
     /// </summary>
     [EnumMember(Value = "TXCP")]
     [IsoId("_uJxhg1EHEeyApZmLzm74zA")]
@@ -48,7 +48,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Batch download response for the batch capture of transactions.
-    /// Encoded/decoded by serializers as "AKCP".
+    /// Encoded/decoded by serializers as &quot;AKCP&quot;.
     /// </summary>
     [EnumMember(Value = "AKCP")]
     [IsoId("_uJxhhVEHEeyApZmLzm74zA")]
@@ -57,7 +57,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Data needed to create a terminal management sub-domain.
-    /// Encoded/decoded by serializers as "DLGT".
+    /// Encoded/decoded by serializers as &quot;DLGT&quot;.
     /// </summary>
     [EnumMember(Value = "DLGT")]
     [IsoId("_uJxhh1EHEeyApZmLzm74zA")]
@@ -66,7 +66,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Configuration of management plan in the point of interaction.
-    /// Encoded/decoded by serializers as "MGTP".
+    /// Encoded/decoded by serializers as &quot;MGTP&quot;.
     /// </summary>
     [EnumMember(Value = "MGTP")]
     [IsoId("_uJxhiVEHEeyApZmLzm74zA")]
@@ -75,7 +75,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MRPR".
+    /// Encoded/decoded by serializers as &quot;MRPR&quot;.
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_uJxhi1EHEeyApZmLzm74zA")]
@@ -84,7 +84,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
-    /// Encoded/decoded by serializers as "SCPR".
+    /// Encoded/decoded by serializers as &quot;SCPR&quot;.
     /// </summary>
     [EnumMember(Value = "SCPR")]
     [IsoId("_uJxhjVEHEeyApZmLzm74zA")]
@@ -93,7 +93,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SWPK".
+    /// Encoded/decoded by serializers as &quot;SWPK&quot;.
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_uJyIkVEHEeyApZmLzm74zA")]
@@ -102,7 +102,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Report of software configuration and parameter status.
-    /// Encoded/decoded by serializers as "STRP".
+    /// Encoded/decoded by serializers as &quot;STRP&quot;.
     /// </summary>
     [EnumMember(Value = "STRP")]
     [IsoId("_uJyIk1EHEeyApZmLzm74zA")]
@@ -111,7 +111,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
-    /// Encoded/decoded by serializers as "TRPR".
+    /// Encoded/decoded by serializers as &quot;TRPR&quot;.
     /// </summary>
     [EnumMember(Value = "TRPR")]
     [IsoId("_uJyIlVEHEeyApZmLzm74zA")]
@@ -120,7 +120,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.
-    /// Encoded/decoded by serializers as "VDPR".
+    /// Encoded/decoded by serializers as &quot;VDPR&quot;.
     /// </summary>
     [EnumMember(Value = "VDPR")]
     [IsoId("_uJyIl1EHEeyApZmLzm74zA")]
@@ -129,7 +129,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Any combination of configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "PARA".
+    /// Encoded/decoded by serializers as &quot;PARA&quot;.
     /// </summary>
     [EnumMember(Value = "PARA")]
     [IsoId("_uJyImVEHEeyApZmLzm74zA")]
@@ -138,7 +138,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSP".
+    /// Encoded/decoded by serializers as &quot;TMSP&quot;.
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_uJyIm1EHEeyApZmLzm74zA")]
@@ -147,7 +147,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CRTF".
+    /// Encoded/decoded by serializers as &quot;CRTF&quot;.
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_uJyInVEHEeyApZmLzm74zA")]
@@ -156,7 +156,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Any repository used for recording log traces.
-    /// Encoded/decoded by serializers as "LOGF".
+    /// Encoded/decoded by serializers as &quot;LOGF&quot;.
     /// </summary>
     [EnumMember(Value = "LOGF")]
     [IsoId("_uJyIn1EHEeyApZmLzm74zA")]
@@ -165,7 +165,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Trigger for CertificateManagementRequest.
-    /// Encoded/decoded by serializers as "CMRQ".
+    /// Encoded/decoded by serializers as &quot;CMRQ&quot;.
     /// </summary>
     [EnumMember(Value = "CMRQ")]
     [IsoId("_uJyIoVEHEeyApZmLzm74zA")]
@@ -174,7 +174,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Media file managed by an application of the POI.
-    /// Encoded/decoded by serializers as "MDFL".
+    /// Encoded/decoded by serializers as &quot;MDFL&quot;.
     /// </summary>
     [EnumMember(Value = "MDFL")]
     [IsoId("_uJyIo1EHEeyApZmLzm74zA")]
@@ -183,7 +183,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Configuration file relevant for the POI.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uJyIp1EHEeyApZmLzm74zA")]
@@ -192,7 +192,7 @@ public enum DataSetCategory17Code
     
     /// <summary>
     /// Report file generated by the POI.
-    /// Encoded/decoded by serializers as "RPFL".
+    /// Encoded/decoded by serializers as &quot;RPFL&quot;.
     /// </summary>
     [EnumMember(Value = "RPFL")]
     [IsoId("_uJyIqVEHEeyApZmLzm74zA")]

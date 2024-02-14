@@ -21,7 +21,7 @@ public enum OnLineCapability1Code
 {
     /// <summary>
     /// Off-line only capable.
-    /// Encoded/decoded by serializers as "OFLN".
+    /// Encoded/decoded by serializers as &quot;OFLN&quot;.
     /// </summary>
     [EnumMember(Value = "OFLN")]
     [IsoId("_TTZvTwEcEeCQm6a_G2yO_w_-1526230168")]
@@ -30,7 +30,7 @@ public enum OnLineCapability1Code
     
     /// <summary>
     /// On-line only capable.
-    /// Encoded/decoded by serializers as "ONLN".
+    /// Encoded/decoded by serializers as &quot;ONLN&quot;.
     /// </summary>
     [EnumMember(Value = "ONLN")]
     [IsoId("_TTZvUAEcEeCQm6a_G2yO_w_-1586477855")]
@@ -39,7 +39,7 @@ public enum OnLineCapability1Code
     
     /// <summary>
     /// Off-line capable with possible on-line requests to the acquirer.
-    /// Encoded/decoded by serializers as "SMON".
+    /// Encoded/decoded by serializers as &quot;SMON&quot;.
     /// </summary>
     [EnumMember(Value = "SMON")]
     [IsoId("_TTZvUQEcEeCQm6a_G2yO_w_350747318")]

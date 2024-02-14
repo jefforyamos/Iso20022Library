@@ -21,7 +21,7 @@ public enum CorporateActionReversalReason2Code
 {
     /// <summary>
     /// Difference in day count basis.
-    /// Encoded/decoded by serializers as "DCBD".
+    /// Encoded/decoded by serializers as &quot;DCBD&quot;.
     /// </summary>
     [EnumMember(Value = "DCBD")]
     [IsoId("_bu5sMTQVEe2o-K1dwNg8Gg")]
@@ -30,7 +30,7 @@ public enum CorporateActionReversalReason2Code
     
     /// <summary>
     /// Funds have not been received.
-    /// Encoded/decoded by serializers as "FNRC".
+    /// Encoded/decoded by serializers as &quot;FNRC&quot;.
     /// </summary>
     [EnumMember(Value = "FNRC")]
     [IsoId("_b8T2EjQVEe2o-K1dwNg8Gg")]
@@ -39,7 +39,7 @@ public enum CorporateActionReversalReason2Code
     
     /// <summary>
     /// Entitlement date is incorrect.
-    /// Encoded/decoded by serializers as "IRED".
+    /// Encoded/decoded by serializers as &quot;IRED&quot;.
     /// </summary>
     [EnumMember(Value = "IRED")]
     [IsoId("_cI-ZEjQVEe2o-K1dwNg8Gg")]
@@ -48,7 +48,7 @@ public enum CorporateActionReversalReason2Code
     
     /// <summary>
     /// Event level tax rate is incorrect.
-    /// Encoded/decoded by serializers as "IETR".
+    /// Encoded/decoded by serializers as &quot;IETR&quot;.
     /// </summary>
     [EnumMember(Value = "IETR")]
     [IsoId("_cLqgsTQVEe2o-K1dwNg8Gg")]
@@ -57,7 +57,7 @@ public enum CorporateActionReversalReason2Code
     
     /// <summary>
     /// Payment currency is incorrect.
-    /// Encoded/decoded by serializers as "IPCU".
+    /// Encoded/decoded by serializers as &quot;IPCU&quot;.
     /// </summary>
     [EnumMember(Value = "IPCU")]
     [IsoId("_cVDGMTQVEe2o-K1dwNg8Gg")]
@@ -66,7 +66,7 @@ public enum CorporateActionReversalReason2Code
     
     /// <summary>
     /// Price is incorrect.
-    /// Encoded/decoded by serializers as "IPRI".
+    /// Encoded/decoded by serializers as &quot;IPRI&quot;.
     /// </summary>
     [EnumMember(Value = "IPRI")]
     [IsoId("_celcsjQVEe2o-K1dwNg8Gg")]
@@ -75,7 +75,7 @@ public enum CorporateActionReversalReason2Code
     
     /// <summary>
     /// Value date is incorrect.
-    /// Encoded/decoded by serializers as "IVAD".
+    /// Encoded/decoded by serializers as &quot;IVAD&quot;.
     /// </summary>
     [EnumMember(Value = "IVAD")]
     [IsoId("_chRkUTQVEe2o-K1dwNg8Gg")]
@@ -84,7 +84,7 @@ public enum CorporateActionReversalReason2Code
     
     /// <summary>
     /// Payment will occur outside of clearing system.
-    /// Encoded/decoded by serializers as "POCS".
+    /// Encoded/decoded by serializers as &quot;POCS&quot;.
     /// </summary>
     [EnumMember(Value = "POCS")]
     [IsoId("_cj9E4TQVEe2o-K1dwNg8Gg")]
@@ -93,7 +93,7 @@ public enum CorporateActionReversalReason2Code
     
     /// <summary>
     /// Payment is not due.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_cmyWcTQVEe2o-K1dwNg8Gg")]

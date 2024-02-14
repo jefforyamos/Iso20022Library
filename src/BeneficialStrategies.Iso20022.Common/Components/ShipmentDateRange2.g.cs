@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a shipment schedule, that is the quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
 /// </summary>
 [IsoId("_Sp5_hdp-Ed-ak6NoX_4Aeg_-1202382033")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Shipment Date Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record ShipmentDateRange2
     /// Sub quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
     /// </summary>
     [IsoId("_Sp5_htp-Ed-ak6NoX_4Aeg_-1202382015")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Quantity Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubQtyVal")]
     #endif
+    [IsoXmlTag("SubQtyVal")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber SubQuantityValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 SubQuantityValue { get; init; } 
+    public required System.UInt64 SubQuantityValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 SubQuantityValue { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record ShipmentDateRange2
     /// Earliest date whereby the goods must be shipped.
     /// </summary>
     [IsoId("_Sp5_h9p-Ed-ak6NoX_4Aeg_-876378095")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Earliest Shipment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlstShipmntDt")]
     #endif
+    [IsoXmlTag("EarlstShipmntDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EarliestShipmentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,12 @@ public partial record ShipmentDateRange2
     /// Latest date whereby the goods must be shipped.
     /// </summary>
     [IsoId("_SqDwgNp-Ed-ak6NoX_4Aeg_-1202381938")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Latest Shipment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LatstShipmntDt")]
     #endif
+    [IsoXmlTag("LatstShipmntDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LatestShipmentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TradeStatus2Code
 {
     /// <summary>
     /// Trade is validated.
-    /// Encoded/decoded by serializers as "VALI".
+    /// Encoded/decoded by serializers as &quot;VALI&quot;.
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_Vp_FWNp-Ed-ak6NoX_4Aeg_1624593448")]
@@ -30,7 +30,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Trade passed regulatory check.
-    /// Encoded/decoded by serializers as "REGC".
+    /// Encoded/decoded by serializers as &quot;REGC&quot;.
     /// </summary>
     [EnumMember(Value = "REGC")]
     [IsoId("_VqIPQNp-Ed-ak6NoX_4Aeg_1624593076")]
@@ -39,7 +39,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Trade is invalid.
-    /// Encoded/decoded by serializers as "INVA".
+    /// Encoded/decoded by serializers as &quot;INVA&quot;.
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_VqIPQdp-Ed-ak6NoX_4Aeg_1624593077")]
@@ -48,7 +48,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Trade settlement is rejected.
-    /// Encoded/decoded by serializers as "SRJC".
+    /// Encoded/decoded by serializers as &quot;SRJC&quot;.
     /// </summary>
     [EnumMember(Value = "SRJC")]
     [IsoId("_VqIPQtp-Ed-ak6NoX_4Aeg_1624593094")]
@@ -57,7 +57,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Trade is suspended for regulatory reasons.
-    /// Encoded/decoded by serializers as "REGS".
+    /// Encoded/decoded by serializers as &quot;REGS&quot;.
     /// </summary>
     [EnumMember(Value = "REGS")]
     [IsoId("_VqIPQ9p-Ed-ak6NoX_4Aeg_1624593111")]
@@ -66,7 +66,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Trade is unmatched.
-    /// Encoded/decoded by serializers as "UMTC".
+    /// Encoded/decoded by serializers as &quot;UMTC&quot;.
     /// </summary>
     [EnumMember(Value = "UMTC")]
     [IsoId("_VqIPRNp-Ed-ak6NoX_4Aeg_1624593129")]
@@ -75,7 +75,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Trade is matched.
-    /// Encoded/decoded by serializers as "FMTC".
+    /// Encoded/decoded by serializers as &quot;FMTC&quot;.
     /// </summary>
     [EnumMember(Value = "FMTC")]
     [IsoId("_VqIPRdp-Ed-ak6NoX_4Aeg_1624593137")]
@@ -84,7 +84,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Trade is rescinded.
-    /// Encoded/decoded by serializers as "RSCD".
+    /// Encoded/decoded by serializers as &quot;RSCD&quot;.
     /// </summary>
     [EnumMember(Value = "RSCD")]
     [IsoId("_VqIPRtp-Ed-ak6NoX_4Aeg_1624593154")]
@@ -93,7 +93,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Settlement is complete.
-    /// Encoded/decoded by serializers as "STLD".
+    /// Encoded/decoded by serializers as &quot;STLD&quot;.
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_VqIPR9p-Ed-ak6NoX_4Aeg_1624593171")]
@@ -101,8 +101,8 @@ public enum TradeStatus2Code
     Settled = TradeStatusCode.Settled, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.
-    /// Encoded/decoded by serializers as "PSTL".
+    /// Part, but not all, of a Trade&apos;s value has settled, and no further elements of the Trade&apos;s value are expected to be settled.
+    /// Encoded/decoded by serializers as &quot;PSTL&quot;.
     /// </summary>
     [EnumMember(Value = "PSTL")]
     [IsoId("_VqIPSNp-Ed-ak6NoX_4Aeg_1624593189")]
@@ -110,8 +110,8 @@ public enum TradeStatus2Code
     PartiallySettled = TradeStatusCode.PartiallySettled, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Both the Opening and the Valuation details of an NDF trade have been matched with corresponding details of a counterparty's NDF trade.
-    /// Encoded/decoded by serializers as "VMTC".
+    /// Both the Opening and the Valuation details of an NDF trade have been matched with corresponding details of a counterparty&apos;s NDF trade.
+    /// Encoded/decoded by serializers as &quot;VMTC&quot;.
     /// </summary>
     [EnumMember(Value = "VMTC")]
     [IsoId("_VqIPSdp-Ed-ak6NoX_4Aeg_1624593431")]
@@ -120,7 +120,7 @@ public enum TradeStatus2Code
     
     /// <summary>
     /// Trade is rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_VqIPStp-Ed-ak6NoX_4Aeg_1624593432")]

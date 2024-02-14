@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information used to book the executions of a trade.
 /// </summary>
 [IsoId("_S7fe0dp-Ed-ak6NoX_4Aeg_200823651")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Booking")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Booking1
     /// Indicates whether or not automatic booking can occur.
     /// </summary>
     [IsoId("_S7fe0tp-Ed-ak6NoX_4Aeg_239609654")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Day Booking")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DayBookg")]
     #endif
+    [IsoXmlTag("DayBookg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DayBookingInstruction1Code? DayBooking { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Booking1
     /// Indicates what constitutes a bookable unit, ie, a partial execution, or an aggregated execution.
     /// </summary>
     [IsoId("_S7fe09p-Ed-ak6NoX_4Aeg_239609671")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Booking Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookgUnit")]
     #endif
+    [IsoXmlTag("BookgUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BookingUnit1Choice_? BookingUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Booking1
     /// Indicates the method of preallocation.
     /// </summary>
     [IsoId("_S7fe1Np-Ed-ak6NoX_4Aeg_1917594065")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Allocation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PreAllcnMtd")]
     #endif
+    [IsoXmlTag("PreAllcnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PreAllocationMethod1Code? PreAllocationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Booking1
     /// Method for booking out an order.
     /// </summary>
     [IsoId("_S7fe1dp-Ed-ak6NoX_4Aeg_-573735757")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Booking Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BookgTp")]
     #endif
+    [IsoXmlTag("BookgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BookingType1Code? BookingType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

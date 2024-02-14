@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the balance for the billing services.
 /// </summary>
 [IsoId("_6SL4XZqlEeGSON8vddiWzQ_313331951")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record BillingBalance1
     /// Defines the type of balance.
     /// </summary>
     [IsoId("_6SL4XpqlEeGSON8vddiWzQ_1633836895")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingBalanceType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingBalanceType1Choice_ Type { get; init; } 
+    public required BillingBalanceType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingBalanceType1Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record BillingBalance1
     /// Balance value.
     /// </summary>
     [IsoId("_6SVpUJqlEeGSON8vddiWzQ_-315097006")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 Value { get; init; } 
+    public required AmountAndDirection34 Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 Value { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record BillingBalance1
     /// Identifies the currency type used to report the balance. This is not the ISO code.
     /// </summary>
     [IsoId("_6SVpUZqlEeGSON8vddiWzQ_69385719")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyTp")]
     #endif
+    [IsoXmlTag("CcyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingCurrencyType1Code? CurrencyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

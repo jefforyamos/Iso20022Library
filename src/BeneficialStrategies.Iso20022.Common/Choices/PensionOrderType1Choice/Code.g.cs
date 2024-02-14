@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PensionOrderType1Choice
     /// Type of order attached to the pension policy, plan or scheme expressed as a code.
     /// </summary>
     [IsoId("_BlYN0LTqEeiENt6AoDfPXg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PensionOrderType1Choice
         /// Specifies a type of order attached to a pension.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PensionOrderType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PensionOrderType1Code Value { get; init; } 
+        public required PensionOrderType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PensionOrderType1Code Value { get; init; } 
         #else

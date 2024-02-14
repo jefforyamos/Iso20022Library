@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstitutionIdentification4Choice.BIC))]
     [KnownType(typeof(FinancialInstitutionIdentification4Choice.NameAndAddress))]
     [IsoId("_QEzlhtp-Ed-ak6NoX_4Aeg_-827596048")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution Identification 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

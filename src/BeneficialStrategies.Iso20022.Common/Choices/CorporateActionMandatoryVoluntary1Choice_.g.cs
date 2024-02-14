@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionMandatoryVoluntary1Choice.Code))]
     [KnownType(typeof(CorporateActionMandatoryVoluntary1Choice.Proprietary))]
     [IsoId("_Q4XJZ9p-Ed-ak6NoX_4Aeg_557244388")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Mandatory Voluntary 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

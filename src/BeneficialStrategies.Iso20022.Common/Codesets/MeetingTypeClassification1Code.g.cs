@@ -21,7 +21,7 @@ public enum MeetingTypeClassification1Code
 {
     /// <summary>
     /// Meeting held periodically to approve the financial statements and to elect the board members and the auditors.
-    /// Encoded/decoded by serializers as "AMET".
+    /// Encoded/decoded by serializers as &quot;AMET&quot;.
     /// </summary>
     [EnumMember(Value = "AMET")]
     [IsoId("_aVytIdp-Ed-ak6NoX_4Aeg_1004565745")]
@@ -30,7 +30,7 @@ public enum MeetingTypeClassification1Code
     
     /// <summary>
     /// Meeting which is planned in the by-laws.
-    /// Encoded/decoded by serializers as "OMET".
+    /// Encoded/decoded by serializers as &quot;OMET&quot;.
     /// </summary>
     [EnumMember(Value = "OMET")]
     [IsoId("_aVytItp-Ed-ak6NoX_4Aeg_1059976450")]
@@ -39,7 +39,7 @@ public enum MeetingTypeClassification1Code
     
     /// <summary>
     /// Meeting for holders of a specific type of asset, for example, preferred shares, bonds.
-    /// Encoded/decoded by serializers as "CLAS".
+    /// Encoded/decoded by serializers as &quot;CLAS&quot;.
     /// </summary>
     [EnumMember(Value = "CLAS")]
     [IsoId("_aVytI9p-Ed-ak6NoX_4Aeg_1072904286")]
@@ -48,7 +48,7 @@ public enum MeetingTypeClassification1Code
     
     /// <summary>
     /// Meeting is the result of an obligation or a decision made by the issuer as opposed to voting rights holder initiated, for example, contested meeting.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_aVytJNp-Ed-ak6NoX_4Aeg_1079369382")]
@@ -57,7 +57,7 @@ public enum MeetingTypeClassification1Code
     
     /// <summary>
     /// Meeting is the result of a request or an action of a voting right holder(s), for example, contested meeting.
-    /// Encoded/decoded by serializers as "VRHI".
+    /// Encoded/decoded by serializers as &quot;VRHI&quot;.
     /// </summary>
     [EnumMember(Value = "VRHI")]
     [IsoId("_aVytJdp-Ed-ak6NoX_4Aeg_1093220956")]
@@ -66,7 +66,7 @@ public enum MeetingTypeClassification1Code
     
     /// <summary>
     /// Specifies that the meeting is the result of a legal proceeding.
-    /// Encoded/decoded by serializers as "CORT".
+    /// Encoded/decoded by serializers as &quot;CORT&quot;.
     /// </summary>
     [EnumMember(Value = "CORT")]
     [IsoId("_aVytJtp-Ed-ak6NoX_4Aeg_1117234257")]

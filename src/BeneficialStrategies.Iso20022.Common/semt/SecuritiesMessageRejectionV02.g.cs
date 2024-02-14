@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|An account servicer, for example, a registrar, transfer agent or custodian bank, sends the SecuritiesMessageRejection message to the account owner, for example, an investor or its authorised agent, to reject a previously received message on which action cannot be taken.|The message may also be sent by an executing party, for example, transfer agent to the instructing party, for example, investment manager or its authorised representative to reject a previously received message on which action cannot be taken.|Usage|The SecuritiesMessageRejection message is used for the following reasons:|- the executing party does not recognise the linked reference, so the executing party cannot process the message|- the instructing party should not have sent the message.|Reasons that a receiver does not expect a message include no SLA in place between the Sender and the Receiver.|The SecuritiesMessageRejection message must not be used to reject an instruction message that cannot be processed for business reasons, for example, if information is missing in an instruction message or because securities are not available for settlement.")]
 [IsoId("_MaWw_NFSEd-BzquC8wXy7w_-365444555")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Message Rejection V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record SecuritiesMessageRejectionV02 : IOuterRecord<SecuritiesMes
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_MaWw_dFSEd-BzquC8wXy7w_2101589408")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record SecuritiesMessageRejectionV02 : IOuterRecord<SecuritiesMes
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_MaWw_tFSEd-BzquC8wXy7w_-365444294")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference3 RelatedReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReference3 RelatedReference { get; init; } 
+    public required AdditionalReference3 RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReference3 RelatedReference { get; init; } 
     #else
@@ -125,16 +121,15 @@ public partial record SecuritiesMessageRejectionV02 : IOuterRecord<SecuritiesMes
     /// Reason to reject the message.
     /// </summary>
     [IsoId("_Magh8NFSEd-BzquC8wXy7w_-365444259")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReason3 Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectionReason3 Reason { get; init; } 
+    public required RejectionReason3 Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectionReason3 Reason { get; init; } 
     #else
@@ -145,7 +140,7 @@ public partial record SecuritiesMessageRejectionV02 : IOuterRecord<SecuritiesMes
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesMessageRejectionV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesMessageRejectionV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesMessageRejectionV02Document ToDocument()
     {
@@ -155,7 +150,7 @@ public partial record SecuritiesMessageRejectionV02 : IOuterRecord<SecuritiesMes
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesMessageRejectionV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesMessageRejectionV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesMessageRejectionV02Document : IOuterDocument<SecuritiesMessageRejectionV02>
@@ -172,7 +167,7 @@ public partial record SecuritiesMessageRejectionV02Document : IOuterDocument<Sec
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesMessageRejectionV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesMessageRejectionV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesMessageRejectionV02 Message { get; init; }

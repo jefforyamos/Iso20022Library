@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The ModifyReservation message is used to request modifications in the details of one particular reservation set by the member and managed by the transaction administrator.|Usage|After the receipt of a ModifyReservation message the transaction administrator checks whether the amount of liquidity on the member account is sufficient to set the reservation.|If there is enough liquidity available, the requested amount will be reserved. In case the requested amount exceeds the available liquidity, only the available liquidity will be reserved. The difference will not be blocked at a later point, even if the account balance of the member reaches the level of the initial reservation request.|The reservation can be effected directly by the member, who has the possibility to: |- reset the reserved liquidity to zero|- change the reservation amount during the day with immediate effect|- input a default reservation amount for the following day(s); valid until a new reservation amount is requested|After the receipt of a ModifyReservation message the transaction administrator checks whether the amount of liquidity on the member account is sufficient to set the reservation.")]
 [IsoId("_ThUsgdb6Eeq_l4BJLVUF2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modify Reservation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record ModifyReservationV06 : IOuterRecord<ModifyReservationV06,M
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_ThUsh9b6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record ModifyReservationV06 : IOuterRecord<ModifyReservationV06,M
     /// Identification of the default reservation.
     /// </summary>
     [IsoId("_ThUsidb6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsvatnId")]
     #endif
+    [IsoXmlTag("RsvatnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrentOrDefaultReservation3Choice_ ReservationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrentOrDefaultReservation3Choice_ ReservationIdentification { get; init; } 
+    public required CurrentOrDefaultReservation3Choice_ ReservationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrentOrDefaultReservation3Choice_ ReservationIdentification { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record ModifyReservationV06 : IOuterRecord<ModifyReservationV06,M
     /// New reservation values.
     /// </summary>
     [IsoId("_ThUsi9b6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Reservation Value Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewRsvatnValSet")]
     #endif
+    [IsoXmlTag("NewRsvatnValSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Reservation4 NewReservationValueSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Reservation4 NewReservationValueSet { get; init; } 
+    public required Reservation4 NewReservationValueSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Reservation4 NewReservationValueSet { get; init; } 
     #else
@@ -137,12 +132,11 @@ public partial record ModifyReservationV06 : IOuterRecord<ModifyReservationV06,M
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_ThUsjdb6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,7 +149,7 @@ public partial record ModifyReservationV06 : IOuterRecord<ModifyReservationV06,M
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ModifyReservationV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ModifyReservationV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ModifyReservationV06Document ToDocument()
     {
@@ -165,7 +159,7 @@ public partial record ModifyReservationV06 : IOuterRecord<ModifyReservationV06,M
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ModifyReservationV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ModifyReservationV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ModifyReservationV06Document : IOuterDocument<ModifyReservationV06>
@@ -182,7 +176,7 @@ public partial record ModifyReservationV06Document : IOuterDocument<ModifyReserv
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ModifyReservationV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ModifyReservationV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ModifyReservationV06 Message { get; init; }

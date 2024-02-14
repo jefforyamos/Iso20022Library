@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExemptionReasonType1Choice.ExemptionReason))]
     [KnownType(typeof(ExemptionReasonType1Choice.Proprietary))]
     [IsoId("_RgSsGNp-Ed-ak6NoX_4Aeg_340862287")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exemption Reason Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

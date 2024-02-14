@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FormOfSecurity2Choice
     /// Form of the security expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_QvHt19p-Ed-ak6NoX_4Aeg_2137358938")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FormOfSecurity2Choice
         /// Form of a financial instrument.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FormOfSecurity1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FormOfSecurity1Code Value { get; init; } 
+        public required FormOfSecurity1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FormOfSecurity1Code Value { get; init; } 
         #else

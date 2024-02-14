@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionInformationStatus
     /// Provides information about the rejection status.
     /// </summary>
     [IsoId("_RiPM1Np-Ed-ak6NoX_4Aeg_-878703757")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionInformationStatus
         /// The rejection reason.
         /// </summary>
         [IsoId("_Rknyddp-Ed-ak6NoX_4Aeg_35582095")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         public RejectionReason15FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _Rknyddp-Ed-ak6NoX_4Aeg_35582095
         
@@ -62,15 +59,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionInformationStatus
         /// Additional information about the status.
         /// </summary>
         [IsoId("_Rknydtp-Ed-ak6NoX_4Aeg_35582096")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

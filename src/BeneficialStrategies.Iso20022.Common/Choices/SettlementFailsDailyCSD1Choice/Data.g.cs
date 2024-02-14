@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyCSD1Choice
     /// Aggregated data of settlement instructions.
     /// </summary>
     [IsoId("_Umrp4zOaEeqBfed1bmSPqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyCSD1Choice
         /// Intra-CSD settlement instructions data.
         /// </summary>
         [IsoId("_MUG5QTOmEeqX8uoQQ3KffQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intra CSD")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IntraCSD")]
         #endif
+        [IsoXmlTag("IntraCSD")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
+        public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyCSD1Choice
         /// Cross-CSD settlement instructions data.
         /// </summary>
         [IsoId("_MUG5QzOmEeqX8uoQQ3KffQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cross CSD")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CrossCSD")]
         #endif
+        [IsoXmlTag("CrossCSD")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
+        public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
         #else

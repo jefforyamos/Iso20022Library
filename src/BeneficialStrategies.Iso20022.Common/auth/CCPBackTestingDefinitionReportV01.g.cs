@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPBackTestingDefinitionReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the methodology used to carry out backtesting.")]
 [IsoId("_lfCcNjW0EemdWfjs3tykFQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Back Testing Definition Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CCPBackTestingDefinitionReportV01 : IOuterRecord<CCPBackTe
     /// Details parameters and methodology used to conduct the back test.
     /// </summary>
     [IsoId("_lfCcNzW0EemdWfjs3tykFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Methodology")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mthdlgy")]
     #endif
+    [IsoXmlTag("Mthdlgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BackTestingMethodology1 Methodology { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BackTestingMethodology1 Methodology { get; init; } 
+    public required BackTestingMethodology1 Methodology { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BackTestingMethodology1 Methodology { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CCPBackTestingDefinitionReportV01 : IOuterRecord<CCPBackTe
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_lfCcODW0EemdWfjs3tykFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record CCPBackTestingDefinitionReportV01 : IOuterRecord<CCPBackTe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPBackTestingDefinitionReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPBackTestingDefinitionReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPBackTestingDefinitionReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record CCPBackTestingDefinitionReportV01 : IOuterRecord<CCPBackTe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPBackTestingDefinitionReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPBackTestingDefinitionReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPBackTestingDefinitionReportV01Document : IOuterDocument<CCPBackTestingDefinitionReportV01>
@@ -140,7 +136,7 @@ public partial record CCPBackTestingDefinitionReportV01Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPBackTestingDefinitionReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPBackTestingDefinitionReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPBackTestingDefinitionReportV01 Message { get; init; }

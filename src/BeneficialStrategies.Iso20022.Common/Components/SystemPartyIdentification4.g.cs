@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique identification, as assigned by the executing system, to unambiguously identify the party in the system.
 /// </summary>
 [IsoId("_jPKmw-5NEeCisYr99QEiWA_578360019")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record SystemPartyIdentification4
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
     [IsoId("_jPKmxO5NEeCisYr99QEiWA_1870157368")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBICFIIdentifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record SystemPartyIdentification4
     /// Unique identification of the party responsible (national central bank or central securities depositary) for the party reference data.
     /// </summary>
     [IsoId("_jPUXwO5NEeCisYr99QEiWA_-1904747478")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responsible Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnsblPtyId")]
     #endif
+    [IsoXmlTag("RspnsblPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CSDOrNCB1Choice_? ResponsiblePartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

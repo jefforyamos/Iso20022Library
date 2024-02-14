@@ -21,7 +21,7 @@ public enum QueryType3Code
 {
     /// <summary>
     /// Specifies that the query requests that all matching items be returned.
-    /// Encoded/decoded by serializers as "ALLL".
+    /// Encoded/decoded by serializers as &quot;ALLL&quot;.
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_ZXqQ99p-Ed-ak6NoX_4Aeg_1181990669")]
@@ -30,7 +30,7 @@ public enum QueryType3Code
     
     /// <summary>
     /// Specifies that the query requests that only new matching items since the last similar query be returned.
-    /// Encoded/decoded by serializers as "CHNG".
+    /// Encoded/decoded by serializers as &quot;CHNG&quot;.
     /// </summary>
     [EnumMember(Value = "CHNG")]
     [IsoId("_ZXqQ-Np-Ed-ak6NoX_4Aeg_1181990712")]
@@ -39,7 +39,7 @@ public enum QueryType3Code
     
     /// <summary>
     /// Specifies that the query requests that only items that have changed since the last query be returned.
-    /// Encoded/decoded by serializers as "MODF".
+    /// Encoded/decoded by serializers as &quot;MODF&quot;.
     /// </summary>
     [EnumMember(Value = "MODF")]
     [IsoId("_ZXza4Np-Ed-ak6NoX_4Aeg_1181990713")]

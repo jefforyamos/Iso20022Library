@@ -21,7 +21,7 @@ public enum AccountUsageType1Code
 {
     /// <summary>
     /// Investor.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_ayRoIRKDEeKj15WxqwlXPw")]
@@ -30,7 +30,7 @@ public enum AccountUsageType1Code
     
     /// <summary>
     /// Settlement participant.
-    /// Encoded/decoded by serializers as "SETP".
+    /// Encoded/decoded by serializers as &quot;SETP&quot;.
     /// </summary>
     [EnumMember(Value = "SETP")]
     [IsoId("_a6Uw4RKDEeKj15WxqwlXPw")]

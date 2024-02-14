@@ -21,7 +21,7 @@ public enum FinancialAdvice1Code
 {
     /// <summary>
     /// Advice has been received from an independent financial advisor.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_an-pUdp-Ed-ak6NoX_4Aeg_236854692")]
@@ -30,7 +30,7 @@ public enum FinancialAdvice1Code
     
     /// <summary>
     /// Advice has not been received from an independent financial advisor.
-    /// Encoded/decoded by serializers as "NREC".
+    /// Encoded/decoded by serializers as &quot;NREC&quot;.
     /// </summary>
     [EnumMember(Value = "NREC")]
     [IsoId("_an-pUtp-Ed-ak6NoX_4Aeg_240547799")]
@@ -39,7 +39,7 @@ public enum FinancialAdvice1Code
     
     /// <summary>
     /// It is not known whether or not advice has been received from an independent financial advisor.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_an-pU9p-Ed-ak6NoX_4Aeg_244241759")]

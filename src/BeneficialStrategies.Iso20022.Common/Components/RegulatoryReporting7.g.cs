@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Usage: It is not to be used on regular trade confirmations. Although some fields, for example, unique transaction identifier and prior unique transaction identifier, might be used on regular trade confirmations.
 /// </summary>
 [IsoId("_VB4PMQNwEe2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Regulatory Reporting")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,11 @@ public partial record RegulatoryReporting7
     /// Regulatory transaction reporting information from the Trading Side party.
     /// </summary>
     [IsoId("_VHDDEQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Transaction Reporting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdTxRptg")]
     #endif
+    [IsoXmlTag("TradgSdTxRptg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingSideTransactionReporting2? TradingSideTransactionReporting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,12 +60,11 @@ public partial record RegulatoryReporting7
     /// Regulatory transaction reporting information from the Counterparty Side party.
     /// </summary>
     [IsoId("_VHDDEwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Transaction Reporting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdTxRptg")]
     #endif
+    [IsoXmlTag("CtrPtySdTxRptg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartySideTransactionReporting2? CounterpartySideTransactionReporting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,12 +78,11 @@ public partial record RegulatoryReporting7
     /// clearing trades, collecting and maintaining margins, regulating delivery and reporting trade data. This can also be known as a Central Counterparty (CCP).
     /// </summary>
     [IsoId("_VHDDFQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Central Counterparty Clearing House")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CntrlCtrPtyClrHs")]
     #endif
+    [IsoXmlTag("CntrlCtrPtyClrHs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? CentralCounterpartyClearingHouse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,12 +95,11 @@ public partial record RegulatoryReporting7
     /// Identifies the party that is a member of the clearing house and that acts as a liaison between the investor and the Central Counterparty (CCP).
     /// </summary>
     [IsoId("_VHDDFwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Broker")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrBrkr")]
     #endif
+    [IsoXmlTag("ClrBrkr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? ClearingBroker { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +112,11 @@ public partial record RegulatoryReporting7
     /// Identifies the party that is exempt from a clearing obligation.
     /// </summary>
     [IsoId("_VHDDGQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Exception Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrXcptnPty")]
     #endif
+    [IsoXmlTag("ClrXcptnPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? ClearingExceptionParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +129,11 @@ public partial record RegulatoryReporting7
     /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
     /// </summary>
     [IsoId("_VHDDGwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Broker Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrBrkrId")]
     #endif
+    [IsoXmlTag("ClrBrkrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +146,12 @@ public partial record RegulatoryReporting7
     /// Specifies whether the contract is above or below the clearing threshold. Where No indicates the contract is below the clearing threshold and Yes indicates the contract is above the clearing threshold.
     /// </summary>
     [IsoId("_VHDDHQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Threshold Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrThrshldInd")]
     #endif
+    [IsoXmlTag("ClrThrshldInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ClearingThresholdIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,15 +164,13 @@ public partial record RegulatoryReporting7
     /// Specifies the reference number assigned by the Central Counterparty (CCP).
     /// </summary>
     [IsoId("_VHDDHwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cleared Product Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrdPdctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClrdPdctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClearedProductIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +183,11 @@ public partial record RegulatoryReporting7
     /// Specifies the underlying product type.
     /// </summary>
     [IsoId("_VHDDIQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Product Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygPdctIdr")]
     #endif
+    [IsoXmlTag("UndrlygPdctIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,12 +200,11 @@ public partial record RegulatoryReporting7
     /// Specifies whether the trade is a pre-allocation or a post-allocation trade, or whether the trade is unallocated.
     /// </summary>
     [IsoId("_VHDDIwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allocation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllcnInd")]
     #endif
+    [IsoXmlTag("AllcnInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AllocationIndicator1Code? AllocationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,12 +217,11 @@ public partial record RegulatoryReporting7
     /// Specifies whether the transaction is collateralised.
     /// </summary>
     [IsoId("_VHDDJQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateralisation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollstnInd")]
     #endif
+    [IsoXmlTag("CollstnInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralisationIndicator1Code? CollateralisationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,15 +234,13 @@ public partial record RegulatoryReporting7
     /// Specifies the trading venue of the transaction.
     /// </summary>
     [IsoId("_VHDDJwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnVn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ExctnVn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ExecutionVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -268,12 +253,11 @@ public partial record RegulatoryReporting7
     /// Specifies the date and time of the execution of the transaction in Coordinated Universal Time (UTC).
     /// </summary>
     [IsoId("_VHDDKQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Timestamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnTmstmp")]
     #endif
+    [IsoXmlTag("ExctnTmstmp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? ExecutionTimestamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -286,12 +270,12 @@ public partial record RegulatoryReporting7
     /// Specifies whether the reportable transaction has one or more additional terms or provisions, other than those listed in the required real-time data fields, that materially affects the price of the reportable transaction.
     /// </summary>
     [IsoId("_VHDDKwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Standard Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonStdFlg")]
     #endif
+    [IsoXmlTag("NonStdFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NonStandardFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -304,15 +288,12 @@ public partial record RegulatoryReporting7
     /// Specifies the common reference or correlation identification for a swap transaction where the near and far leg are confirmed separately.
     /// </summary>
     [IsoId("_VHDDLQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Link Swap Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkSwpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("LkSwpId")]
+    [IsoSimpleType(IsoSimpleType.Exact42Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact42Text? LinkSwapIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -325,12 +306,12 @@ public partial record RegulatoryReporting7
     /// Specifies the financial nature of the reporting counterparty.
     /// </summary>
     [IsoId("_VHDDLwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Nature Of The Counterparty Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinNtrOfTheCtrPtyInd")]
     #endif
+    [IsoXmlTag("FinNtrOfTheCtrPtyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FinancialNatureOfTheCounterpartyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -343,12 +324,12 @@ public partial record RegulatoryReporting7
     /// Specifies if the collateral is posted on a portfolio basis.
     /// </summary>
     [IsoId("_VHDDMQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Portfolio Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPrtflInd")]
     #endif
+    [IsoXmlTag("CollPrtflInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CollateralPortfolioIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -361,15 +342,13 @@ public partial record RegulatoryReporting7
     /// Identifies the portfolio code to which the trade belongs if the collateral is posted on a portfolio basis (and not trade by trade).
     /// </summary>
     [IsoId("_VHDDMwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Portfolio Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPrtflCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollPrtflCd")]
+    [IsoSimpleType(IsoSimpleType.Max10Text)]
     [StringLength(maximumLength: 10 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10Text? CollateralPortfolioCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -382,12 +361,12 @@ public partial record RegulatoryReporting7
     /// Indicates if the trade results from portfolio compression.
     /// </summary>
     [IsoId("_VHDDNQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Portfolio Compression Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtflCmprssnInd")]
     #endif
+    [IsoXmlTag("PrtflCmprssnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PortfolioCompressionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -400,12 +379,11 @@ public partial record RegulatoryReporting7
     /// Specifies the corporate sector of the counterparty.
     /// </summary>
     [IsoId("_VHDDNwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Sector Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpSctrInd")]
     #endif
+    [IsoXmlTag("CorpSctrInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateSectorIdentifier1Code? CorporateSectorIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -418,12 +396,12 @@ public partial record RegulatoryReporting7
     /// Specifies whether the counterparty has entered into a trade with a non-European Economic Area (EEA) counterparty that is not subject to the reporting obligation.
     /// </summary>
     [IsoId("_VHDDOQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade With Non EEA Counterparty Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradWthNonEEACtrPtyInd")]
     #endif
+    [IsoXmlTag("TradWthNonEEACtrPtyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TradeWithNonEEACounterpartyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -436,12 +414,12 @@ public partial record RegulatoryReporting7
     /// Indicate if a reported trade falls under the definition of intragroup transaction, as defined by European Securities and Markets Authority (ESMA) in the Technical Standards.
     /// </summary>
     [IsoId("_VHDDOwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intragroup Trade Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtrgrpTradInd")]
     #endif
+    [IsoXmlTag("NtrgrpTradInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? IntragroupTradeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -451,15 +429,15 @@ public partial record RegulatoryReporting7
     #endif
     
     /// <summary>
-    /// Specifies whether the contract is objectively measurable as directly linked to the non-financial counterparty's commercial or treasury financing activity.
+    /// Specifies whether the contract is objectively measurable as directly linked to the non-financial counterparty&apos;s commercial or treasury financing activity.
     /// </summary>
     [IsoId("_VHDDPQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commercial Or Treasury Financing Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComrclOrTrsrFincgInd")]
     #endif
+    [IsoXmlTag("ComrclOrTrsrFincgInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CommercialOrTreasuryFinancingIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -472,12 +450,11 @@ public partial record RegulatoryReporting7
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
     [IsoId("_VHDDPwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -490,12 +467,12 @@ public partial record RegulatoryReporting7
     /// Specifies the date and time of the confirmation of the trade in Universal Time Coordinated (UTC).
     /// </summary>
     [IsoId("_VHDDQQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Date And Timestamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfDtAndTmstmp")]
     #endif
+    [IsoXmlTag("ConfDtAndTmstmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ConfirmationDateAndTimestamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -508,12 +485,12 @@ public partial record RegulatoryReporting7
     /// Specifies the time at which the Central Counterparty (CCP) has legally taken on the clearing of the trade in Universal Time Coordinated (UTC).
     /// </summary>
     [IsoId("_VHDDQwNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Timestamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrTmstmp")]
     #endif
+    [IsoXmlTag("ClrTmstmp")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? ClearingTimestamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -526,12 +503,11 @@ public partial record RegulatoryReporting7
     /// Provides the commission and fee type anf amout or rate.
     /// </summary>
     [IsoId("_vk2-oANwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commissions And Fees")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnsAndFees")]
     #endif
+    [IsoXmlTag("ComssnsAndFees")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FXCommissionOrFee1? CommissionsAndFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -544,15 +520,13 @@ public partial record RegulatoryReporting7
     /// Specifies additional information that might be required by the regulator.
     /// </summary>
     [IsoId("_VHDDRQNwEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Reporting Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRptgInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRptgInf")]
+    [IsoSimpleType(IsoSimpleType.Max210Text)]
     [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax210Text? AdditionalReportingInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

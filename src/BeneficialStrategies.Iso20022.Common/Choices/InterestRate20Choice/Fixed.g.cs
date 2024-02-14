@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate20Choice
     /// Details of the fixed rate.
     /// </summary>
     [IsoId("_hFv8Eax2Eem81-uIvTF5rQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fixed")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,12 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate20Choice
         /// Annualised interest rate on the principal amount of the repurchase transaction in accordance with the day count convention.
         /// </summary>
         [IsoId("_g04ioayDEem81-uIvTF5rQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rate")]
         #endif
+        [IsoXmlTag("Rate")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoPercentageRate? Rate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +65,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate20Choice
         /// Method for calculating the accrued interest on the principal amount for a fixed rate.
         /// </summary>
         [IsoId("_g04io6yDEem81-uIvTF5rQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Day Count Basis")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DayCntBsis")]
         #endif
+        [IsoXmlTag("DayCntBsis")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

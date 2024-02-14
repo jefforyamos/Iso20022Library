@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the multimodal or the individual transport of goods.
 /// </summary>
 [IsoId("_Stoo-Np-Ed-ak6NoX_4Aeg_165416872")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transport Means")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransportMeans1
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
     [IsoId("_Stoo-dp-Ed-ak6NoX_4Aeg_165417133")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Transport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvTrnsprt")]
     #endif
+    [IsoXmlTag("IndvTrnsprt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SingleTransport4 IndividualTransport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SingleTransport4 IndividualTransport { get; init; } 
+    public required SingleTransport4 IndividualTransport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SingleTransport4 IndividualTransport { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TransportMeans1
     /// Specifies the different movements and places and their role in a multimodal conveyance of goods.
     /// </summary>
     [IsoId("_Stoo-tp-Ed-ak6NoX_4Aeg_165417254")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multimodal Transport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MltmdlTrnsprt")]
     #endif
+    [IsoXmlTag("MltmdlTrnsprt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MultimodalTransport3? MultimodalTransport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

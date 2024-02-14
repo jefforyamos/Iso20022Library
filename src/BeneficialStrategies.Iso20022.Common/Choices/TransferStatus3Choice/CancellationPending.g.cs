@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus3Choice
     /// Status of the transfer is cancellation pending.
     /// </summary>
     [IsoId("_aeWNYVNUEeijdq8ilaxyOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Pending")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

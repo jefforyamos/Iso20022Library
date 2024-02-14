@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeToMaturity2Choice
     /// Provides the time to maturity when no period is provide.
     /// </summary>
     [IsoId("__aOTk65OEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Special")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeToMaturity2Choice
         /// Specifies blank or not available codes.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Spcl")]
         #endif
+        [IsoXmlTag("Spcl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SpecialPurpose2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SpecialPurpose2Code Value { get; init; } 
+        public required SpecialPurpose2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SpecialPurpose2Code Value { get; init; } 
         #else

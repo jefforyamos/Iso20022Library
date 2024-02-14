@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope|The InterestPaymentStatement message is sent by either the collateral giver or its collateral manager to the collateral taker or its collateral manager. It is used to report the interest amounts calculated based on the effective posted collateral amount, over a specific period of time agreed by both parties.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The InterestPaymentStatement message is used for reporting the interest per period on collateral held.")]
 [IsoId("_J4Yk4SgrEeyB747fKu7_rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Interest Payment Statement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,19 +82,17 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
     [IsoId("_J4Yk6SgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -107,12 +103,11 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
     /// Agreement details for the over the counter market.
     /// </summary>
     [IsoId("_J4Yk6ygrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Agrmt")]
     #endif
+    [IsoXmlTag("Agrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Agreement4? Agreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,16 +120,15 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
     /// </summary>
     [IsoId("_J4Yk7SgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgtn")]
     #endif
+    [IsoXmlTag("Oblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Obligation9 Obligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Obligation9 Obligation { get; init; } 
+    public required Obligation9 Obligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Obligation9 Obligation { get; init; } 
     #else
@@ -145,16 +139,15 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
     /// Provides general information on the report such as the statement identification.
     /// </summary>
     [IsoId("_J4Yk7ygrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtParams")]
     #endif
+    [IsoXmlTag("StmtParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Statement85 StatementParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Statement85 StatementParameters { get; init; } 
+    public required Statement85 StatementParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Statement85 StatementParameters { get; init; } 
     #else
@@ -165,12 +158,11 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
     /// Page number of the message (within a statement) and continuation indicator to indicate that the statement is to continue or that the message is the last page of the statement.
     /// </summary>
     [IsoId("_J4Yk8SgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Pagination1? Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,16 +175,15 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
     /// Provides details on the interest statement.
     /// </summary>
     [IsoId("_J4Yk8ygrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstStmt")]
     #endif
+    [IsoXmlTag("IntrstStmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestStatement5 InterestStatement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InterestStatement5 InterestStatement { get; init; } 
+    public required InterestStatement5 InterestStatement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InterestStatement5 InterestStatement { get; init; } 
     #else
@@ -203,12 +194,11 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_J4Yk9SgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,7 +211,7 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InterestPaymentStatementV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InterestPaymentStatementV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InterestPaymentStatementV05Document ToDocument()
     {
@@ -231,7 +221,7 @@ public partial record InterestPaymentStatementV05 : IOuterRecord<InterestPayment
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InterestPaymentStatementV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InterestPaymentStatementV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InterestPaymentStatementV05Document : IOuterDocument<InterestPaymentStatementV05>
@@ -248,7 +238,7 @@ public partial record InterestPaymentStatementV05Document : IOuterDocument<Inter
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InterestPaymentStatementV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InterestPaymentStatementV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InterestPaymentStatementV05 Message { get; init; }

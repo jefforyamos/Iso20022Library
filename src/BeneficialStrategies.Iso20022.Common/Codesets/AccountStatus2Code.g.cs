@@ -21,7 +21,7 @@ public enum AccountStatus2Code
 {
     /// <summary>
     /// Account can be used for its intended purpose.
-    /// Encoded/decoded by serializers as "ENAB".
+    /// Encoded/decoded by serializers as &quot;ENAB&quot;.
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_brett9p-Ed-ak6NoX_4Aeg_-427843353")]
@@ -30,7 +30,7 @@ public enum AccountStatus2Code
     
     /// <summary>
     /// Account cannot be used for its intended purpose, either temporarily or permanently.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_bretuNp-Ed-ak6NoX_4Aeg_-426923282")]
@@ -39,7 +39,7 @@ public enum AccountStatus2Code
     
     /// <summary>
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
-    /// Encoded/decoded by serializers as "FORM".
+    /// Encoded/decoded by serializers as &quot;FORM&quot;.
     /// </summary>
     [EnumMember(Value = "FORM")]
     [IsoId("_brn3oNp-Ed-ak6NoX_4Aeg_-413993874")]

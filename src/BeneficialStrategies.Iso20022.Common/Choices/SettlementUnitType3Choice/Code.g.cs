@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementUnitType3Choice
     /// Settlement unit type expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_d8mHgeLxEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementUnitType3Choice
         /// Type of settlement foreseen for the security.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementUnitType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementUnitType1Code Value { get; init; } 
+        public required SettlementUnitType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementUnitType1Code Value { get; init; } 
         #else

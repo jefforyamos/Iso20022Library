@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus30Choice
     /// Specifies the reason why the transaction or instruction is cancelled.
     /// </summary>
     [IsoId("_T_qoARIwEeydmIVkS03esw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancelled")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

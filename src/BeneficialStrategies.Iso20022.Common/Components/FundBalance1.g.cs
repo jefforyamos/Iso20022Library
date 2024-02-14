@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Balances of units and cash derived from investment fund orders.
 /// </summary>
 [IsoId("_zGdM0QdEEeSyIPzOZ6VzBQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FundBalance1
     /// Total number of units from orders placed in units.
     /// </summary>
     [IsoId("_DmM8wAdFEeSyIPzOZ6VzBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Units From Unit Orders")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlUnitsFrUnitOrdrs")]
     #endif
+    [IsoXmlTag("TtlUnitsFrUnitOrdrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? TotalUnitsFromUnitOrders { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record FundBalance1
     /// Number of units derived from orders placed in cash.
     /// </summary>
     [IsoId("_UwVtgAdFEeSyIPzOZ6VzBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Units From Cash Orders")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlUnitsFrCshOrdrs")]
     #endif
+    [IsoXmlTag("TtlUnitsFrCshOrdrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? TotalUnitsFromCashOrders { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record FundBalance1
     /// Total amount of cash derived from orders placed as units.
     /// </summary>
     [IsoId("_MLMcoAdFEeSyIPzOZ6VzBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Cash From Unit Orders")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCshFrUnitOrdrs")]
     #endif
+    [IsoXmlTag("TtlCshFrUnitOrdrs")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromUnitOrders { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,12 @@ public partial record FundBalance1
     /// Total amount of cash from orders placed in cash.
     /// </summary>
     [IsoId("_RgyoUAdFEeSyIPzOZ6VzBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Cash From Cash Orders")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCshFrCshOrdrs")]
     #endif
+    [IsoXmlTag("TtlCshFrCshOrdrs")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromCashOrders { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

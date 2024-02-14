@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Resulting debit or credit amount of the netted amounts for all debit and credit entries.
 /// </summary>
 [IsoId("_mK6yUSmjEeKdFJmzhTDOvQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount And Direction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record AmountAndDirection35
     /// Resulting amount of the netted amounts for all debit and credit entries.
     /// </summary>
     [IsoId("_mgrm8SmjEeKdFJmzhTDOvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.NonNegativeDecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNonNegativeDecimalNumber Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Amount { get; init; } 
+    public required System.UInt64 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Amount { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record AmountAndDirection35
     /// Indicates whether the amount is a credit or a debit amount.
     /// </summary>
     [IsoId("_mgrm9SmjEeKdFJmzhTDOvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtInd")]
     #endif
+    [IsoXmlTag("CdtDbtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditDebitCode CreditDebitIndicator { get; init; } 
+    public required CreditDebitCode CreditDebitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditDebitCode CreditDebitIndicator { get; init; } 
     #else

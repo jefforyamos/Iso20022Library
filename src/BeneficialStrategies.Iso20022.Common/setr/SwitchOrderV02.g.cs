@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The SwitchOrder message is sent by an instructing party, eg, an investment manager or its authorised representative, to an executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party. The intermediary party is, for example, an intermediary or a concentrator.|This message is used to instruct the executing party to switch from a specified amount/quantity of specified financial instruments to a specified amount/quantity of different financial instruments.|Usage|The SwitchOrder message is used when the instructing party, ie, an investor, wants to change its investments within the same fund family, according to the terms of the prospectus.")]
 [IsoId("_8JIAINE7Ed-BzquC8wXy7w_-1831529909")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Switch Order V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,12 +77,11 @@ public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV0
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
     [IsoId("_8JIAIdE7Ed-BzquC8wXy7w_-63767357")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
+    [IsoXmlTag("MstrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +94,11 @@ public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV0
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_8JIAItE7Ed-BzquC8wXy7w_-65614926")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +111,11 @@ public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV0
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_8JIAI9E7Ed-BzquC8wXy7w_-61918547")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,16 +128,15 @@ public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV0
     /// Information related to the switch order.
     /// </summary>
     [IsoId("_8JIAJNE7Ed-BzquC8wXy7w_-1318052005")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchOrdrDtls")]
     #endif
+    [IsoXmlTag("SwtchOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SwitchOrder2 SwitchOrderDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SwitchOrder2 SwitchOrderDetails { get; init; } 
+    public required SwitchOrder2 SwitchOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SwitchOrder2 SwitchOrderDetails { get; init; } 
     #else
@@ -153,28 +147,24 @@ public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV0
     /// The information related to an intermediary.
     /// </summary>
     [IsoId("_8JIAJdE7Ed-BzquC8wXy7w_383217301")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmyDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IntrmyDtls")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Intermediary4> IntermediaryDetails { get; init; } = new ValueList<Intermediary4>(){};
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
     [IsoId("_8JRKENE7Ed-BzquC8wXy7w_-578035973")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation1? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +177,11 @@ public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV0
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_8JRKEdE7Ed-BzquC8wXy7w_72236090")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,7 +194,7 @@ public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SwitchOrderV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SwitchOrderV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SwitchOrderV02Document ToDocument()
     {
@@ -215,7 +204,7 @@ public partial record SwitchOrderV02 : IOuterRecord<SwitchOrderV02,SwitchOrderV0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SwitchOrderV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SwitchOrderV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SwitchOrderV02Document : IOuterDocument<SwitchOrderV02>
@@ -232,7 +221,7 @@ public partial record SwitchOrderV02Document : IOuterDocument<SwitchOrderV02>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SwitchOrderV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SwitchOrderV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SwitchOrderV02 Message { get; init; }

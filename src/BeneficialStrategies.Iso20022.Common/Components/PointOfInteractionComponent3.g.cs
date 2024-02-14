@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to a component of the POI performing the transaction.
 /// </summary>
 [IsoId("_mhI4IAySEeK5P9Ihqok3VA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Point Of Interaction Component")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PointOfInteractionComponent3
     /// Type of component belonging to a POI Terminal.
     /// </summary>
     [IsoId("_1uTl4AySEeK5P9Ihqok3VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required POIComponentType3Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public POIComponentType3Code Type { get; init; } 
+    public required POIComponentType3Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public POIComponentType3Code Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PointOfInteractionComponent3
     /// Identification of the POI component.
     /// </summary>
     [IsoId("_EZQXYAyTEeK5P9Ihqok3VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PointOfInteractionComponentIdentification1 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PointOfInteractionComponentIdentification1 Identification { get; init; } 
+    public required PointOfInteractionComponentIdentification1 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PointOfInteractionComponentIdentification1 Identification { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record PointOfInteractionComponent3
     /// Status of the POI component.
     /// </summary>
     [IsoId("_YFaY8AyTEeK5P9Ihqok3VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentStatus1? Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record PointOfInteractionComponent3
     /// Identification of the standard for which the component complies with.
     /// </summary>
     [IsoId("_r4fh4AyTEeK5P9Ihqok3VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standard Compliance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StdCmplc")]
     #endif
+    [IsoXmlTag("StdCmplc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification48? StandardCompliance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record PointOfInteractionComponent3
     /// Characteristics of a POI component.
     /// </summary>
     [IsoId("_4DJg4AyTEeK5P9Ihqok3VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrtcs")]
     #endif
+    [IsoXmlTag("Chrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentCharacteristics1? Characteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,11 @@ public partial record PointOfInteractionComponent3
     /// Assessments for the component of the point of interaction.
     /// </summary>
     [IsoId("_QtXX4AyUEeK5P9Ihqok3VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assessment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assmnt")]
     #endif
+    [IsoXmlTag("Assmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentAssessment1? Assessment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

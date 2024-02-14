@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catp;
 /// </summary>
 [Description(@"The ATMReject message is sent by any entity to reject a received message.")]
 [IsoId("_DvwXcIrFEeSRwL6n4K9igA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Reject V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ATMRejectV01 : IOuterRecord<ATMRejectV01,ATMRejectV01Docum
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_fyheoIrFEeSRwL6n4K9igA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header22 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header22 Header { get; init; } 
+    public required Header22 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header22 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ATMRejectV01 : IOuterRecord<ATMRejectV01,ATMRejectV01Docum
     /// Information related to the reject of a message from an ATM or an ATM manager.
     /// </summary>
     [IsoId("_3TnxcIrFEeSRwL6n4K9igA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Reject")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMRjct")]
     #endif
+    [IsoXmlTag("ATMRjct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMReject1 ATMReject { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMReject1 ATMReject { get; init; } 
+    public required ATMReject1 ATMReject { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMReject1 ATMReject { get; init; } 
     #else
@@ -116,7 +112,7 @@ public partial record ATMRejectV01 : IOuterRecord<ATMRejectV01,ATMRejectV01Docum
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMRejectV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMRejectV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMRejectV01Document ToDocument()
     {
@@ -126,7 +122,7 @@ public partial record ATMRejectV01 : IOuterRecord<ATMRejectV01,ATMRejectV01Docum
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMRejectV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMRejectV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMRejectV01Document : IOuterDocument<ATMRejectV01>
@@ -143,7 +139,7 @@ public partial record ATMRejectV01Document : IOuterDocument<ATMRejectV01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMRejectV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMRejectV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMRejectV01 Message { get; init; }

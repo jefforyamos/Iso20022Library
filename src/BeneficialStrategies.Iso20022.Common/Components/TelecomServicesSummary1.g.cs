@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Telecom services summary component carries summary level telephony billing data. 
 /// </summary>
 [IsoId("_3YH6X_e-Eei89sMSHxl1ew")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Telecom Services Summary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TelecomServicesSummary1
     /// Contains the details of the customer. Also known as the user of the service.
     /// </summary>
     [IsoId("_3YK9qfe-Eei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cstmr")]
     #endif
+    [IsoXmlTag("Cstmr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Customer6? Customer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record TelecomServicesSummary1
     /// Contains the billing period start date for telecommunication or related services.
     /// </summary>
     [IsoId("_3YIhYve-Eei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billing Statement Period Start")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BllgStmtPrdStart")]
     #endif
+    [IsoXmlTag("BllgStmtPrdStart")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BillingStatementPeriodStart { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record TelecomServicesSummary1
     /// Contains the billing period end date for telecommunication or related services.
     /// </summary>
     [IsoId("_tFwnwffAEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billing Statement Period End")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BllgStmtPrdEnd")]
     #endif
+    [IsoXmlTag("BllgStmtPrdEnd")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BillingStatementPeriodEnd { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,11 @@ public partial record TelecomServicesSummary1
     /// Summary of the charges associated with the billing event. 
     /// </summary>
     [IsoId("_3YK9p_e-Eei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billing Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BllgEvt")]
     #endif
+    [IsoXmlTag("BllgEvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount10? BillingEvent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record TelecomServicesSummary1
     /// Total of taxes applicable to the billing amount.
     /// </summary>
     [IsoId("_sjf9UffCEei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTax")]
     #endif
+    [IsoXmlTag("TtlTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax33? TotalTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,15 +129,13 @@ public partial record TelecomServicesSummary1
     /// Additional user-defined data pertaining to the shipment.
     /// </summary>
     [IsoId("_3YK9oPe-Eei89sMSHxl1ew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlData")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

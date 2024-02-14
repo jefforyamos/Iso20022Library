@@ -21,7 +21,7 @@ public enum CustodianRecordAgreementType1Code
 {
     /// <summary>
     /// Custodian record agrees with the composite record.
-    /// Encoded/decoded by serializers as "AGRE".
+    /// Encoded/decoded by serializers as &quot;AGRE&quot;.
     /// </summary>
     [EnumMember(Value = "AGRE")]
     [IsoId("_11fpsjL3EeKU9IrkkToqcw_-291543411")]
@@ -30,7 +30,7 @@ public enum CustodianRecordAgreementType1Code
     
     /// <summary>
     /// Custodian record disagrees with the composite record.
-    /// Encoded/decoded by serializers as "DAGR".
+    /// Encoded/decoded by serializers as &quot;DAGR&quot;.
     /// </summary>
     [EnumMember(Value = "DAGR")]
     [IsoId("_11fpszL3EeKU9IrkkToqcw_151445081")]
@@ -39,7 +39,7 @@ public enum CustodianRecordAgreementType1Code
     
     /// <summary>
     /// No composite record available.
-    /// Encoded/decoded by serializers as "NCOP".
+    /// Encoded/decoded by serializers as &quot;NCOP&quot;.
     /// </summary>
     [EnumMember(Value = "NCOP")]
     [IsoId("_11fptDL3EeKU9IrkkToqcw_1073608391")]

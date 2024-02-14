@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Knowledge and/or experience of an investor.
 /// </summary>
 [IsoId("_40olsDcNEeiIxKQErQxblg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investor Knowledge")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -47,12 +45,11 @@ public partial record InvestorKnowledge1
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 02010.
     /// </summary>
     [IsoId("__tmooDcNEeiIxKQErQxblg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basic Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsicInvstr")]
     #endif
+    [IsoXmlTag("BsicInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? BasicInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -68,12 +65,11 @@ public partial record InvestorKnowledge1
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 02020.
     /// </summary>
     [IsoId("_BDJfQDcOEeiIxKQErQxblg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Informed Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfrmdInvstr")]
     #endif
+    [IsoXmlTag("InfrmdInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? InformedInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +84,11 @@ public partial record InvestorKnowledge1
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 02030.
     /// </summary>
     [IsoId("_CY1f0DcOEeiIxKQErQxblg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Advanced Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdvncdInvstr")]
     #endif
+    [IsoXmlTag("AdvncdInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? AdvancedInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record InvestorKnowledge1
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 02040.
     /// </summary>
     [IsoId("_EbwZ0DcOEeiIxKQErQxblg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expert Investor Germany")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExprtInvstrDE")]
     #endif
+    [IsoXmlTag("ExprtInvstrDE")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? ExpertInvestorGermany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record InvestorKnowledge1
     /// Type of investor knowledge and experience for which the financial instrument is targeted.
     /// </summary>
     [IsoId("_uChRgDcOEeiIxKQErQxblg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherTargetMarketInvestorKnowledge1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

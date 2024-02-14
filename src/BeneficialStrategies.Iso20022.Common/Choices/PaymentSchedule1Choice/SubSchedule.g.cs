@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchedule1Choice
     /// Specifies a payment sub-schedule, that is the amount of money that must be paid no sooner than the expected date and no later than the latest shipment date.
     /// </summary>
     [IsoId("_Bhnbc9OAEeSQ_-lmj1tzfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Schedule")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchedule1Choice
         /// Unique and unambiguous identification of the payment schedule.
         /// </summary>
         [IsoId("_L71Bg9OJEeSQ_-lmj1tzfw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment Schedule Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtSchdlId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PmtSchdlId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? PaymentScheduleIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -78,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchedule1Choice
         /// Amount that must be paid no sooner than the expected payment date and no later than the due date.
         /// </summary>
         [IsoId("_L71BgdOJEeSQ_-lmj1tzfw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else
@@ -98,12 +94,12 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchedule1Choice
         /// Expected date whereby the amount must be paid.
         /// </summary>
         [IsoId("_L71BgNOJEeSQ_-lmj1tzfw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Expected Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="XpctdDt")]
         #endif
+        [IsoXmlTag("XpctdDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? ExpectedDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,16 +112,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchedule1Choice
         /// Latest date whereby the amount of money must be paid.
         /// </summary>
         [IsoId("_L71Bf9OJEeSQ_-lmj1tzfw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Due Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DueDt")]
         #endif
+        [IsoXmlTag("DueDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate DueDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly DueDate { get; init; } 
+        public required System.DateOnly DueDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly DueDate { get; init; } 
         #else

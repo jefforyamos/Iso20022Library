@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information on the delegation of a maintenance action or maintenance function.
 /// </summary>
 [IsoId("_8v84AU6nEeyGi9JAv6wq7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Maintenance Delegation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MaintenanceDelegation13
     /// Type of delegation action.
     /// </summary>
     [IsoId("_82xRsU6nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtnTp")]
     #endif
+    [IsoXmlTag("DlgtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementAction3Code DelegationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementAction3Code DelegationType { get; init; } 
+    public required TerminalManagementAction3Code DelegationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementAction3Code DelegationType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MaintenanceDelegation13
     /// Maintenance service to be delegated.
     /// </summary>
     [IsoId("_82x4wU6nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maintenance Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MntncSvc")]
     #endif
+    [IsoXmlTag("MntncSvc")]
     public DataSetCategory16Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _82x4wU6nEeyGi9JAv6wq7Q
     
@@ -84,12 +80,12 @@ public partial record MaintenanceDelegation13
     /// Flag to indicate that the delegated maintenance must be performed on a subset of the terminal estate.
     /// </summary>
     [IsoId("_82x4w06nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial Delegation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlDlgtn")]
     #endif
+    [IsoXmlTag("PrtlDlgtn")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PartialDelegation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,15 +98,13 @@ public partial record MaintenanceDelegation13
     /// Subset of the terminal estate for the delegated actions, for instance for pilot or key deactivation). The subset may be expressed as a list of POI or terminal estate subset identifier.
     /// </summary>
     [IsoId("_82x4xU6nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Subset")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POISubset")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("POISubset")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? POISubset { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,12 +117,11 @@ public partial record MaintenanceDelegation13
     /// Information for the MTM to build or include delegated actions in the management plan of the POI.
     /// </summary>
     [IsoId("_82x4x06nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegated Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtdActn")]
     #endif
+    [IsoXmlTag("DlgtdActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaintenanceDelegateAction7? DelegatedAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,15 +134,13 @@ public partial record MaintenanceDelegation13
     /// Identification of the delegation scope assigned by the MTM.
     /// </summary>
     [IsoId("_82x4yU6nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegation Scope Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtnScpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DlgtnScpId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DelegationScopeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +153,12 @@ public partial record MaintenanceDelegation13
     /// This element contains all information relevant to the DelegationScopeIdentification. The format of this element is out of scope of this definition.
     /// </summary>
     [IsoId("_82x4y06nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegation Scope Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtnScpDef")]
     #endif
+    [IsoXmlTag("DlgtnScpDef")]
+    [IsoSimpleType(IsoSimpleType.Max3000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? DelegationScopeDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,12 +171,12 @@ public partial record MaintenanceDelegation13
     /// Certificate path of the terminal manager.
     /// </summary>
     [IsoId("_82x4zU6nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cert")]
     #endif
+    [IsoXmlTag("Cert")]
+    [IsoSimpleType(IsoSimpleType.Max10KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? Certificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,12 +189,11 @@ public partial record MaintenanceDelegation13
     /// Association of the TM identifier and the MTM identifier of a POI.
     /// </summary>
     [IsoId("_82x4z06nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification Association")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIIdAssoctn")]
     #endif
+    [IsoXmlTag("POIIdAssoctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -216,12 +206,11 @@ public partial record MaintenanceDelegation13
     /// Identification of the key to manage or to download.
     /// </summary>
     [IsoId("_82x40U6nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Symmetric Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SmmtrcKey")]
     #endif
+    [IsoXmlTag("SmmtrcKey")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KEKIdentifier5? SymmetricKey { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -234,12 +223,11 @@ public partial record MaintenanceDelegation13
     /// Configuration parameters of the terminal manager to be sent by the MTM.
     /// </summary>
     [IsoId("_82x4006nEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parameter Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ParamDataSet")]
     #endif
+    [IsoXmlTag("ParamDataSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AcceptorConfigurationDataSet3? ParameterDataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

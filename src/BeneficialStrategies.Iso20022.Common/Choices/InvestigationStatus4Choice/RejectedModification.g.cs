@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus4Choice
     /// Reason for the rejection of a modification request, in a coded form.
     /// </summary>
     [IsoId("_nbwAlYmxEeeKR__nUfxjwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Modification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// Austrian Bankleitzahl - identifies Austrian financial institutions on the Austrian national clearing system.
     /// </summary>
     [IsoId("_TDY2iNp-Ed-ak6NoX_4Aeg_-896562588")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Austrian Bankleitzahl Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// Austrian Bankleitzahl. Identifies Austrian financial institutions on the Austrian national clearing system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ATBLZ")]
         #endif
+        [IsoXmlTag("ATBLZ")]
+        [IsoSimpleType(IsoSimpleType.AustrianBankleitzahlIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoAustrianBankleitzahlIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

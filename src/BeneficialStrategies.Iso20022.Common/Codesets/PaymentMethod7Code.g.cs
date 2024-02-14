@@ -21,7 +21,7 @@ public enum PaymentMethod7Code
 {
     /// <summary>
     /// Written order to a bank to pay a certain amount of money from one person to another person.
-    /// Encoded/decoded by serializers as "CHK".
+    /// Encoded/decoded by serializers as &quot;CHK&quot;.
     /// </summary>
     [EnumMember(Value = "CHK")]
     [IsoId("_YbT9ddp-Ed-ak6NoX_4Aeg_-1320976702")]
@@ -30,7 +30,7 @@ public enum PaymentMethod7Code
     
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer.
-    /// Encoded/decoded by serializers as "TRF".
+    /// Encoded/decoded by serializers as &quot;TRF&quot;.
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_YbT9dtp-Ed-ak6NoX_4Aeg_-2113712619")]

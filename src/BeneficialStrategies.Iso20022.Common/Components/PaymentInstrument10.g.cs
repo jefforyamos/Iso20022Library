@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
 [IsoId("_ZwdwcRQxEeKebsB9eKJSkA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PaymentInstrument10
     /// Currency associated with the payment instrument.
     /// </summary>
     [IsoId("_aFLcPRQxEeKebsB9eKJSkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string SettlementCurrency { get; init; } 
+    public required string SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string SettlementCurrency { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PaymentInstrument10
     /// Choice of payment instruments.
     /// </summary>
     [IsoId("_95deABdJEeK5g-3oYI0_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtInstrm")]
     #endif
+    [IsoXmlTag("PmtInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInstrument16Choice_ PaymentInstrument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentInstrument16Choice_ PaymentInstrument { get; init; } 
+    public required PaymentInstrument16Choice_ PaymentInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentInstrument16Choice_ PaymentInstrument { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record PaymentInstrument10
     /// Percentage of the dividend payment not to be reinvested.
     /// </summary>
     [IsoId("_kPDPMBQxEeKebsB9eKJSkA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dividend Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvddPctg")]
     #endif
+    [IsoXmlTag("DvddPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageBoundedRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

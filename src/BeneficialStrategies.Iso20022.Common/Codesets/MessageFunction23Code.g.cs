@@ -22,7 +22,7 @@ public enum MessageFunction23Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_W52kcemuEemNVKPwszFC-A")]
@@ -31,7 +31,7 @@ public enum MessageFunction23Code
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_YVDXIemuEemNVKPwszFC-A")]

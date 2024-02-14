@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum CorporateActionDeadline1Code
 {
     /// <summary>
-    /// Issuer or issuer's agent deadline to respond, with an election instruction, to an outstanding offer or privilege.
-    /// Encoded/decoded by serializers as "MKDT".
+    /// Issuer or issuer&apos;s agent deadline to respond, with an election instruction, to an outstanding offer or privilege.
+    /// Encoded/decoded by serializers as &quot;MKDT&quot;.
     /// </summary>
     [EnumMember(Value = "MKDT")]
     [IsoId("_bDPpCdp-Ed-ak6NoX_4Aeg_803900500")]
@@ -30,7 +30,7 @@ public enum CorporateActionDeadline1Code
     
     /// <summary>
     /// Date on which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
-    /// Encoded/decoded by serializers as "RDDT".
+    /// Encoded/decoded by serializers as &quot;RDDT&quot;.
     /// </summary>
     [EnumMember(Value = "RDDT")]
     [IsoId("_bDZaANp-Ed-ak6NoX_4Aeg_819599893")]
@@ -39,7 +39,7 @@ public enum CorporateActionDeadline1Code
     
     /// <summary>
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event, giving the holder eligibility to incentives. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
-    /// Encoded/decoded by serializers as "EARD".
+    /// Encoded/decoded by serializers as &quot;EARD&quot;.
     /// </summary>
     [EnumMember(Value = "EARD")]
     [IsoId("_bDZaAdp-Ed-ak6NoX_4Aeg_842687467")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates on an order that the trader wishes to display one price in the market but will accept trades at another price.
 /// </summary>
 [IsoId("_SyZ0PNp-Ed-ak6NoX_4Aeg_1464463754")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Discretion Instructions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -58,16 +56,16 @@ public partial record DiscretionInstructions1
     /// Information for the executing party about the price to be obtained for an order. It is expressed as an offset from a reference price such as the market price or last trade price.
     /// </summary>
     [IsoId("_SyZ0Pdp-Ed-ak6NoX_4Aeg_1506944896")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offset")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Offset")]
     #endif
+    [IsoXmlTag("Offset")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Offset { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Offset { get; init; } 
+    public required System.Decimal Offset { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Offset { get; init; } 
     #else
@@ -78,16 +76,16 @@ public partial record DiscretionInstructions1
     /// Indicates whether the offset should be added or subtracted from the related price.
     /// </summary>
     [IsoId("_SyZ0Ptp-Ed-ak6NoX_4Aeg_1509714576")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offset Sign")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffsetSgn")]
     #endif
+    [IsoXmlTag("OffsetSgn")]
+    [IsoSimpleType(IsoSimpleType.PlusOrMinusIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPlusOrMinusIndicator OffsetSign { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OffsetSign { get; init; } 
+    public required System.String OffsetSign { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OffsetSign { get; init; } 
     #else
@@ -98,16 +96,15 @@ public partial record DiscretionInstructions1
     /// Identify the type of price an offset is related to. The offset can either be added or subtracted.
     /// </summary>
     [IsoId("_Syi-INp-Ed-ak6NoX_4Aeg_1505097016")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Price Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdPricTp")]
     #endif
+    [IsoXmlTag("RltdPricTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfDiscretionPrice1Code RelatedPriceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfDiscretionPrice1Code RelatedPriceType { get; init; } 
+    public required TypeOfDiscretionPrice1Code RelatedPriceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfDiscretionPrice1Code RelatedPriceType { get; init; } 
     #else
@@ -118,16 +115,15 @@ public partial record DiscretionInstructions1
     /// Describes whether discretion price is static/fixed or floats.
     /// </summary>
     [IsoId("_Syi-Idp-Ed-ak6NoX_4Aeg_-1123942563")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Move Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MvTp")]
     #endif
+    [IsoXmlTag("MvTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoveType1Code MoveType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MoveType1Code MoveType { get; init; } 
+    public required MoveType1Code MoveType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MoveType1Code MoveType { get; init; } 
     #else
@@ -138,19 +134,17 @@ public partial record DiscretionInstructions1
     /// Specifies the nature of the resulting discretion price (e.g. or better limit, strict limit etc).
     /// </summary>
     [IsoId("_Syi-Itp-Ed-ak6NoX_4Aeg_-1110089593")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LmtTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text LimitType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LimitType { get; init; } 
+    public required System.String LimitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LimitType { get; init; } 
     #else
@@ -161,19 +155,17 @@ public partial record DiscretionInstructions1
     /// If the calculated discretion price is not a valid tick price, specifies how to round the price (e.g. to be more or less aggressive).
     /// </summary>
     [IsoId("_Syi-I9p-Ed-ak6NoX_4Aeg_-1098080503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Round Direction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RndDrctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RndDrctn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RoundDirection { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RoundDirection { get; init; } 
+    public required System.String RoundDirection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RoundDirection { get; init; } 
     #else
@@ -181,19 +173,18 @@ public partial record DiscretionInstructions1
     #endif
     
     /// <summary>
-    /// The scope of "related to" price of the discretion (e.g. local, global etc).
+    /// The scope of &quot;related to&quot; price of the discretion (e.g. local, global etc).
     /// </summary>
     [IsoId("_Syi-JNp-Ed-ak6NoX_4Aeg_-1082381651")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scope")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scp")]
     #endif
+    [IsoXmlTag("Scp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceProtectionScope2Code Scope { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceProtectionScope2Code Scope { get; init; } 
+    public required PriceProtectionScope2Code Scope { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceProtectionScope2Code Scope { get; init; } 
     #else
@@ -204,16 +195,15 @@ public partial record DiscretionInstructions1
     /// Describes the type of Discretion Offset.
     /// </summary>
     [IsoId("_Syi-Jdp-Ed-ak6NoX_4Aeg_-980921869")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffsetTp")]
     #endif
+    [IsoXmlTag("OffsetTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OffsetType1Code OffsetType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OffsetType1Code OffsetType { get; init; } 
+    public required OffsetType1Code OffsetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OffsetType1Code OffsetType { get; init; } 
     #else

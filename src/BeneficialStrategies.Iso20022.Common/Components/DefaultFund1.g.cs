@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information such as the default fund account identification or the default fund amount.
 /// </summary>
 [IsoId("_UqpvS9p-Ed-ak6NoX_4Aeg_1890910429")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Default Fund")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record DefaultFund1
     /// Specifies the account identification of the clearing member at the ICSD (International Central Securities Depository) or at the central bank.
     /// </summary>
     [IsoId("_UqpvTNp-Ed-ak6NoX_4Aeg_82468307")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Fund Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltFndAcct")]
     #endif
+    [IsoXmlTag("DfltFndAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification4Choice_ DefaultFundAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification4Choice_ DefaultFundAccount { get; init; } 
+    public required AccountIdentification4Choice_ DefaultFundAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification4Choice_ DefaultFundAccount { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record DefaultFund1
     /// Total amount required by the clearing member to participate to the default fund.
     /// </summary>
     [IsoId("_UqpvTdp-Ed-ak6NoX_4Aeg_107176358")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Default Fund Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlDfltFndAmt")]
     #endif
+    [IsoXmlTag("TtlDfltFndAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalDefaultFundAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalDefaultFundAmount { get; init; } 
+    public required System.Decimal TotalDefaultFundAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalDefaultFundAmount { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record DefaultFund1
     /// Provides details about the contribution to the default fund by trading venues/products.
     /// </summary>
     [IsoId("_UqzgQNp-Ed-ak6NoX_4Aeg_-799365417")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contribution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntrbtn")]
     #endif
+    [IsoXmlTag("Cntrbtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contribution1? Contribution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,12 @@ public partial record DefaultFund1
     /// Additional amount that the clearing member will have to provide to cover a risk increase. This results from a risk management decision depending on central counterparty specific criteria.
     /// </summary>
     [IsoId("_UqzgQdp-Ed-ak6NoX_4Aeg_1324320952")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Increase Coverage Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncrCvrgAmt")]
     #endif
+    [IsoXmlTag("IncrCvrgAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

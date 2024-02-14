@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The StatusChangeRequest message is sent by a party involved in a transaction to the matching application.|This message is used to request a change in the status of a transaction.|Usage|The StatusChangeRequest message can be sent by either party involved in a transaction to the matching application to request a change in the status of a transaction.|The matching application will pass on the request by sending a StatusChangeRequestNotification message to the counterparty which can accept or reject the request by sending a SatausChangeRequestAcceptance or StatusChangeRequestRejection message.")]
 [IsoId("_xjvgaNE8Ed-BzquC8wXy7w_-2117703681")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Change Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record StatusChangeRequestV02 : IOuterRecord<StatusChangeRequestV
     /// Identifies the request message.
     /// </summary>
     [IsoId("_xjvgadE8Ed-BzquC8wXy7w_-2117703678")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqId")]
     #endif
+    [IsoXmlTag("ReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RequestIdentification { get; init; } 
+    public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RequestIdentification { get; init; } 
     #else
@@ -102,16 +99,15 @@ public partial record StatusChangeRequestV02 : IOuterRecord<StatusChangeRequestV
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_xjvgatE8Ed-BzquC8wXy7w_-2117703649")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -122,12 +118,11 @@ public partial record StatusChangeRequestV02 : IOuterRecord<StatusChangeRequestV
     /// Reference to the transaction for the requesting financial institution.
     /// </summary>
     [IsoId("_xjvga9E8Ed-BzquC8wXy7w_-2117703588")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitrTxRef")]
     #endif
+    [IsoXmlTag("SubmitrTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,16 +135,15 @@ public partial record StatusChangeRequestV02 : IOuterRecord<StatusChangeRequestV
     /// Specifies the baseline status requested by the submitter by means of a code.
     /// </summary>
     [IsoId("_xjvgbNE8Ed-BzquC8wXy7w_-2117703618")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdSts")]
     #endif
+    [IsoXmlTag("ReqdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus3 RequestedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus3 RequestedStatus { get; init; } 
+    public required TransactionStatus3 RequestedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus3 RequestedStatus { get; init; } 
     #else
@@ -160,12 +154,11 @@ public partial record StatusChangeRequestV02 : IOuterRecord<StatusChangeRequestV
     /// Specifies the reason for the request to change status.
     /// </summary>
     [IsoId("_xjvgbdE8Ed-BzquC8wXy7w_-2117703557")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqRsn")]
     #endif
+    [IsoXmlTag("ReqRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Reason2? RequestReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,7 +171,7 @@ public partial record StatusChangeRequestV02 : IOuterRecord<StatusChangeRequestV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatusChangeRequestV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatusChangeRequestV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatusChangeRequestV02Document ToDocument()
     {
@@ -188,7 +181,7 @@ public partial record StatusChangeRequestV02 : IOuterRecord<StatusChangeRequestV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusChangeRequestV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatusChangeRequestV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatusChangeRequestV02Document : IOuterDocument<StatusChangeRequestV02>
@@ -205,7 +198,7 @@ public partial record StatusChangeRequestV02Document : IOuterDocument<StatusChan
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatusChangeRequestV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatusChangeRequestV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusChangeRequestV02 Message { get; init; }

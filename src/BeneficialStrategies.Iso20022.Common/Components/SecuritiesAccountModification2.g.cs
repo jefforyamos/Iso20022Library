@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of the modification to be applied on the securities account reference data.
 /// </summary>
 [IsoId("_70DO0Tp0Eemk2e6qGBk8IQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Account Modification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecuritiesAccountModification2
     /// Specifies the type of requested modification.
     /// </summary>
     [IsoId("_7-eWITp0Eemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScpIndctn")]
     #endif
+    [IsoXmlTag("ScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ScopeIndication { get; init; } 
+    public required DataModification1Code ScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SecuritiesAccountModification2
     /// Specifies which elements to be modified for the securities account reference data.
     /// </summary>
     [IsoId("_7-eWIzp0Eemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdMod")]
     #endif
+    [IsoXmlTag("ReqdMod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccountModification2Choice_ RequestedModification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccountModification2Choice_ RequestedModification { get; init; } 
+    public required SecuritiesAccountModification2Choice_ RequestedModification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccountModification2Choice_ RequestedModification { get; init; } 
     #else

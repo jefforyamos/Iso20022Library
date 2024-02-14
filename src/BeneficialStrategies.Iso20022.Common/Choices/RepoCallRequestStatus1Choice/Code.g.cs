@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepoCallRequestStatus1Choice
     /// Provides the status of the repurchase agreement call request.
     /// </summary>
     [IsoId("_UXIWVtp-Ed-ak6NoX_4Aeg_-695454195")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RepoCallRequestStatus1Choice
         /// Specifies additional information about the status of the repurchase agreement call processed instruction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RepoCallRequestStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RepoCallRequestStatus1Code Value { get; init; } 
+        public required RepoCallRequestStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RepoCallRequestStatus1Code Value { get; init; } 
         #else

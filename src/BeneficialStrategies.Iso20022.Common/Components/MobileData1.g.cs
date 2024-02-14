@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to the mobile of stakeholder.
 /// </summary>
 [IsoId("_4xhf4NtnEeipuvJHTHIw9A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mobile Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,12 @@ public partial record MobileData1
     /// Identifies the country of a mobile phone operator.
     /// </summary>
     [IsoId("_CMZe4NtoEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mobile Country Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MobCtryCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("MobCtryCd")]
+    [IsoSimpleType(IsoSimpleType.Min2Max3AlphaText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3AlphaText? MobileCountryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +60,12 @@ public partial record MobileData1
     /// Identifies the mobile phone operator inside a country.
     /// </summary>
     [IsoId("_HCayoNtoEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mobile Network Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MobNtwkCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("MobNtwkCd")]
+    [IsoSimpleType(IsoSimpleType.Min2Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin2Max3NumericText? MobileNetworkCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,15 +78,13 @@ public partial record MobileData1
     /// Masked Mobile Subscriber Integrated Service Digital Network.
     /// </summary>
     [IsoId("_LdzY0NtoEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mobile Masked MSISDN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MobMskdMSISDN")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MobMskdMSISDN")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MobileMaskedMSISDN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +97,11 @@ public partial record MobileData1
     /// Geographic location specified by geographic or UTM coordinates.
     /// </summary>
     [IsoId("_QX7wgNtoEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Geolocation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Glctn")]
     #endif
+    [IsoXmlTag("Glctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Geolocation1? Geolocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +114,11 @@ public partial record MobileData1
     /// Sensitive information related to the mobile phone.
     /// </summary>
     [IsoId("_ULBnoNtoEeipuvJHTHIw9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sensitive Mobile Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SnstvMobData")]
     #endif
+    [IsoXmlTag("SnstvMobData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SensitiveMobileData1? SensitiveMobileData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +131,11 @@ public partial record MobileData1
     /// Sensitive information related to the mobile phone, protected by CMS.
     /// </summary>
     [IsoId("_o7pE8NtqEeiXqq0XHEoNUA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected Mobile Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdMobData")]
     #endif
+    [IsoXmlTag("PrtctdMobData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType17? ProtectedMobileData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

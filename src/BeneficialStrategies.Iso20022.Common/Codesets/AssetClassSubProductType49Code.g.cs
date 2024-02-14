@@ -21,7 +21,7 @@ public enum AssetClassSubProductType49Code
 {
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_QA-HkbvjEeiLRYqS-r-R-A")]

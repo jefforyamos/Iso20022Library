@@ -21,7 +21,7 @@ public enum TypeTransactionTotals2Code
 {
     /// <summary>
     /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_b5dCUSqPEeKu3rbsflh_TQ")]
@@ -30,7 +30,7 @@ public enum TypeTransactionTotals2Code
     
     /// <summary>
     /// Reversal of credit transactions (cancellation).
-    /// Encoded/decoded by serializers as "CRDR".
+    /// Encoded/decoded by serializers as &quot;CRDR&quot;.
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_cICQ4SqPEeKu3rbsflh_TQ")]
@@ -39,7 +39,7 @@ public enum TypeTransactionTotals2Code
     
     /// <summary>
     /// Debit transactions on the cardholder account.
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_cTpD8SqPEeKu3rbsflh_TQ")]
@@ -48,7 +48,7 @@ public enum TypeTransactionTotals2Code
     
     /// <summary>
     /// Reversal of debit transactions (cancellation).
-    /// Encoded/decoded by serializers as "DBTR".
+    /// Encoded/decoded by serializers as &quot;DBTR&quot;.
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_cgIn0SqPEeKu3rbsflh_TQ")]
@@ -57,7 +57,7 @@ public enum TypeTransactionTotals2Code
     
     /// <summary>
     /// Declined transactions.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_csVQwSqPEeKu3rbsflh_TQ")]
@@ -66,7 +66,7 @@ public enum TypeTransactionTotals2Code
     
     /// <summary>
     /// Failed transactions.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_c539gSqPEeKu3rbsflh_TQ")]

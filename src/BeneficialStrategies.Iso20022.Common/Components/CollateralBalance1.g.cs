@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the collateral held by party A and/or B.
 /// </summary>
 [IsoId("_UmfA9tp-Ed-ak6NoX_4Aeg_1045581242")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CollateralBalance1
     /// Collateral currently held by party A.
     /// </summary>
     [IsoId("_UmfA99p-Ed-ak6NoX_4Aeg_-266938996")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Held By Party A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HeldByPtyA")]
     #endif
+    [IsoXmlTag("HeldByPtyA")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount HeldByPartyA { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal HeldByPartyA { get; init; } 
+    public required System.Decimal HeldByPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal HeldByPartyA { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record CollateralBalance1
     /// Collateral currently held by party B.
     /// </summary>
     [IsoId("_UmfA-Np-Ed-ak6NoX_4Aeg_-332033306")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Held By Party B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HeldByPtyB")]
     #endif
+    [IsoXmlTag("HeldByPtyB")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount HeldByPartyB { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal HeldByPartyB { get; init; } 
+    public required System.Decimal HeldByPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal HeldByPartyB { get; init; } 
     #else

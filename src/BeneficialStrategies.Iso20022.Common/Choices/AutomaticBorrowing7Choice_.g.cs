@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AutomaticBorrowing7Choice.Code))]
     [KnownType(typeof(AutomaticBorrowing7Choice.Proprietary))]
     [IsoId("_GG1RwTt4EeW638lNyHKv7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Automatic Borrowing 7 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

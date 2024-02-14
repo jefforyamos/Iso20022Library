@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Media mix selected.
 /// </summary>
 [IsoId("_E2lAYIonEeSaAcF2oE2GNQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Media Mix")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,12 @@ public partial record ATMMediaMix1
     /// Logical unit number of the cash dispenser.
     /// </summary>
     [IsoId("_Sk_RIIonEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Unit Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshUnitNb")]
     #endif
+    [IsoXmlTag("CshUnitNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? CashUnitNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +68,16 @@ public partial record ATMMediaMix1
     /// Number of notes or coins.
     /// </summary>
     [IsoId("_YNkqQIonEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
+    [IsoXmlTag("Nb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Number { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Number { get; init; } 
+    public required System.UInt64 Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Number { get; init; } 
     #else
@@ -90,16 +88,16 @@ public partial record ATMMediaMix1
     /// Unit value.
     /// </summary>
     [IsoId("_dJkqMIonEeSaAcF2oE2GNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitVal")]
     #endif
+    [IsoXmlTag("UnitVal")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount UnitValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal UnitValue { get; init; } 
+    public required System.Decimal UnitValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal UnitValue { get; init; } 
     #else

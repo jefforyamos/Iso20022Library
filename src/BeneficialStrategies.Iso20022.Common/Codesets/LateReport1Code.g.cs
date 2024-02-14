@@ -21,7 +21,7 @@ public enum LateReport1Code
 {
     /// <summary>
     /// The confirmation is late.
-    /// Encoded/decoded by serializers as "LAT1".
+    /// Encoded/decoded by serializers as &quot;LAT1&quot;.
     /// </summary>
     [EnumMember(Value = "LAT1")]
     [IsoId("_adsE6dp-Ed-ak6NoX_4Aeg_-1032043364")]
@@ -30,7 +30,7 @@ public enum LateReport1Code
     
     /// <summary>
     /// The confirmation is late because the trade was executed as a number of partials.
-    /// Encoded/decoded by serializers as "LAT2".
+    /// Encoded/decoded by serializers as &quot;LAT2&quot;.
     /// </summary>
     [EnumMember(Value = "LAT2")]
     [IsoId("_adsE6tp-Ed-ak6NoX_4Aeg_-1032043339")]

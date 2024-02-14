@@ -26,13 +26,11 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// <summary>
 /// This record is an implementation of the camt.105.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
-/// The ChargesPaymentNotification message is sent by the account servicing institution to the account owner to advise charges, interest or other adjustments to the owner's account.  It provides details of charges which are previously unknown to the Receiver.
+/// The ChargesPaymentNotification message is sent by the account servicing institution to the account owner to advise charges, interest or other adjustments to the owner&apos;s account.  It provides details of charges which are previously unknown to the Receiver.
 /// </summary>
 [Description(@"The ChargesPaymentNotification message is sent by the account servicing institution to the account owner to advise charges, interest or other adjustments to the owner's account.  It provides details of charges which are previously unknown to the Receiver.")]
 [IsoId("_rZb4ILR_Eeq3lpO-mRtrig")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charges Payment Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ChargesPaymentNotificationV01 : IOuterRecord<ChargesPaymen
     /// Set of characteristics shared by all individual charges records included in the message.
     /// </summary>
     [IsoId("_6g9sYSm5EeutWNGMV2XKIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader102 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader102 GroupHeader { get; init; } 
+    public required GroupHeader102 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader102 GroupHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ChargesPaymentNotificationV01 : IOuterRecord<ChargesPaymen
     /// Provides information on the charges to be paid by the charge bearer(s) related to the processing of the underlying transaction.
     /// </summary>
     [IsoId("_DgpvxrSAEeq3lpO-mRtrig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrgs")]
     #endif
+    [IsoXmlTag("Chrgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargesRecord4 Charges { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargesRecord4 Charges { get; init; } 
+    public required ChargesRecord4 Charges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargesRecord4 Charges { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ChargesPaymentNotificationV01 : IOuterRecord<ChargesPaymen
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_Dgpvx7SAEeq3lpO-mRtrig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ChargesPaymentNotificationV01 : IOuterRecord<ChargesPaymen
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ChargesPaymentNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ChargesPaymentNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ChargesPaymentNotificationV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ChargesPaymentNotificationV01 : IOuterRecord<ChargesPaymen
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ChargesPaymentNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ChargesPaymentNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ChargesPaymentNotificationV01Document : IOuterDocument<ChargesPaymentNotificationV01>
@@ -161,7 +156,7 @@ public partial record ChargesPaymentNotificationV01Document : IOuterDocument<Cha
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ChargesPaymentNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ChargesPaymentNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargesPaymentNotificationV01 Message { get; init; }

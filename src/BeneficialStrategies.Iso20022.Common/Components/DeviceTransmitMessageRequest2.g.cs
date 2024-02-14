@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Request message to transmit.
 /// </summary>
 [IsoId("_Hi8mMQ0sEeqUVL7sB4m7NA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Transmit Message Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record DeviceTransmitMessageRequest2
     /// Transport address.
     /// </summary>
     [IsoId("_H1Mz0Q0sEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Destination Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstnAdr")]
     #endif
+    [IsoXmlTag("DstnAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetworkParameters7 DestinationAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NetworkParameters7 DestinationAddress { get; init; } 
+    public required NetworkParameters7 DestinationAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NetworkParameters7 DestinationAddress { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record DeviceTransmitMessageRequest2
     /// Maximum time in seconds of transmission.
     /// </summary>
     [IsoId("_H1Mz0w0sEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Transmission Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxTrnsmssnTm")]
     #endif
+    [IsoXmlTag("MaxTrnsmssnTm")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber MaximumTransmissionTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 MaximumTransmissionTime { get; init; } 
+    public required System.UInt64 MaximumTransmissionTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 MaximumTransmissionTime { get; init; } 
     #else
@@ -93,12 +90,12 @@ public partial record DeviceTransmitMessageRequest2
     /// Defines the timeout to receive an answer.
     /// </summary>
     [IsoId("_H1Mz1Q0sEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Waiting Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxWtgTm")]
     #endif
+    [IsoXmlTag("MaxWtgTm")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumWaitingTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +108,16 @@ public partial record DeviceTransmitMessageRequest2
     /// Content of the message to be transmitted.
     /// </summary>
     [IsoId("_H1Mz1w0sEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message To Send")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgToSnd")]
     #endif
+    [IsoXmlTag("MsgToSnd")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax100KBinary MessageToSend { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] MessageToSend { get; init; } 
+    public required System.Byte[] MessageToSend { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] MessageToSend { get; init; } 
     #else

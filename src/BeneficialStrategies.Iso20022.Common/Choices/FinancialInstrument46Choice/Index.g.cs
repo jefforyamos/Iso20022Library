@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument46Choice
     /// Name of the index on which the financial instrument is based.
     /// </summary>
     [IsoId("_X1A7UL38EeWvRsMSLyTf-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument46Choice
         /// Specifies a benchmark curve name.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Indx")]
         #endif
+        [IsoXmlTag("Indx")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BenchmarkCurveName2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BenchmarkCurveName2Code Value { get; init; } 
+        public required BenchmarkCurveName2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BenchmarkCurveName2Code Value { get; init; } 
         #else

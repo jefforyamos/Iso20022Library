@@ -21,7 +21,7 @@ public enum ClearingSideCode
 {
     /// <summary>
     /// Clearing member is on the buying side.
-    /// Encoded/decoded by serializers as "BUYI".
+    /// Encoded/decoded by serializers as &quot;BUYI&quot;.
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("__1M6tNojEeC60axPepSq7g_1642995487")]
@@ -30,7 +30,7 @@ public enum ClearingSideCode
     
     /// <summary>
     /// Clearing member is on the selling side.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("__1M6tdojEeC60axPepSq7g_937880872")]
@@ -39,7 +39,7 @@ public enum ClearingSideCode
     
     /// <summary>
     /// Clearing member is on the lending side.
-    /// Encoded/decoded by serializers as "LEND".
+    /// Encoded/decoded by serializers as &quot;LEND&quot;.
     /// </summary>
     [EnumMember(Value = "LEND")]
     [IsoId("__1M6ttojEeC60axPepSq7g_-1133302535")]
@@ -48,7 +48,7 @@ public enum ClearingSideCode
     
     /// <summary>
     /// Clearing member is on the borrowing side.
-    /// Encoded/decoded by serializers as "BORW".
+    /// Encoded/decoded by serializers as &quot;BORW&quot;.
     /// </summary>
     [EnumMember(Value = "BORW")]
     [IsoId("__1WEoNojEeC60axPepSq7g_1986473736")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Target market criteria.
 /// </summary>
 [IsoId("_z1KXQDQpEeifw8iDiyZLmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Target Market")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TargetMarket1
     /// Investor for which the financial instrument is targeted.
     /// </summary>
     [IsoId("_CQTyMDQqEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrTp")]
     #endif
+    [IsoXmlTag("InvstrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorType1? InvestorType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TargetMarket1
     /// Knowledge and/or experience of the investor.
     /// </summary>
     [IsoId("_EkCIUDQqEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Knowledge And Or Experience")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KnwldgAndOrExprnc")]
     #endif
+    [IsoXmlTag("KnwldgAndOrExprnc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorKnowledge1? KnowledgeAndOrExperience { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TargetMarket1
     /// Investor’s ability to bear losses.
     /// </summary>
     [IsoId("_GIdvgDQqEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ability To Bear Losses")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AbltyToBearLosses")]
     #endif
+    [IsoXmlTag("AbltyToBearLosses")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LossBearing1? AbilityToBearLosses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TargetMarket1
     /// Investor’s tolerance to risk.
     /// </summary>
     [IsoId("_I7IrcDQqEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Tolerance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskTlrnce")]
     #endif
+    [IsoXmlTag("RskTlrnce")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskTolerance1? RiskTolerance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record TargetMarket1
     /// Investor’s investment requirements.
     /// </summary>
     [IsoId("_Kap9cDQqEeifw8iDiyZLmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Objectives And Needs")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntObjctvsAndNeeds")]
     #endif
+    [IsoXmlTag("ClntObjctvsAndNeeds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestorRequirements1? ClientObjectivesAndNeeds { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record TargetMarket1
     /// Other target market parameter.
     /// </summary>
     [IsoId("_ykOcsD8SEeih8-WNbS6hbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherTargetMarket1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

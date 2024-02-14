@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateFormat1Choice
     /// Value is not specified.
     /// </summary>
     [IsoId("_UPh5iNp-Ed-ak6NoX_4Aeg_-1534892500")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Specified Rate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

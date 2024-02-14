@@ -21,7 +21,7 @@ public enum CaseForwardingNotification2Code
 {
     /// <summary>
     /// Case has been forwarded to the next party for further investigation.
-    /// Encoded/decoded by serializers as "FTHI".
+    /// Encoded/decoded by serializers as &quot;FTHI&quot;.
     /// </summary>
     [EnumMember(Value = "FTHI")]
     [IsoId("_a2SLFdp-Ed-ak6NoX_4Aeg_-638403848")]
@@ -30,7 +30,7 @@ public enum CaseForwardingNotification2Code
     
     /// <summary>
     /// Case has been forwarded to the next party for cancellation.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_a2SLFtp-Ed-ak6NoX_4Aeg_-638403614")]
@@ -39,7 +39,7 @@ public enum CaseForwardingNotification2Code
     
     /// <summary>
     /// Case has been forwarded to the next party for modification.
-    /// Encoded/decoded by serializers as "MODI".
+    /// Encoded/decoded by serializers as &quot;MODI&quot;.
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_a2SLF9p-Ed-ak6NoX_4Aeg_-638403589")]
@@ -48,7 +48,7 @@ public enum CaseForwardingNotification2Code
     
     /// <summary>
     /// Case has been forwarded to obtain authorisation to debit.
-    /// Encoded/decoded by serializers as "DTAU".
+    /// Encoded/decoded by serializers as &quot;DTAU&quot;.
     /// </summary>
     [EnumMember(Value = "DTAU")]
     [IsoId("_a2SLGNp-Ed-ak6NoX_4Aeg_-638403537")]
@@ -57,7 +57,7 @@ public enum CaseForwardingNotification2Code
     
     /// <summary>
     /// Additional information has been forwarded to the creditor.
-    /// Encoded/decoded by serializers as "SAIN".
+    /// Encoded/decoded by serializers as &quot;SAIN&quot;.
     /// </summary>
     [EnumMember(Value = "SAIN")]
     [IsoId("_a2bVANp-Ed-ak6NoX_4Aeg_-638403494")]
@@ -66,7 +66,7 @@ public enum CaseForwardingNotification2Code
     
     /// <summary>
     /// Case is taken up by an assigned agent.
-    /// Encoded/decoded by serializers as "FIAG".
+    /// Encoded/decoded by serializers as &quot;FIAG&quot;.
     /// </summary>
     [EnumMember(Value = "FIAG")]
     [IsoId("_a2bVAdp-Ed-ak6NoX_4Aeg_-638403493")]

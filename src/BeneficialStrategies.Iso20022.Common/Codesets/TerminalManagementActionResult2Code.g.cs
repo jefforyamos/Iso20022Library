@@ -21,7 +21,7 @@ public enum TerminalManagementActionResult2Code
 {
     /// <summary>
     /// Problem to connect while performing the action.
-    /// Encoded/decoded by serializers as "CNTE".
+    /// Encoded/decoded by serializers as &quot;CNTE&quot;.
     /// </summary>
     [EnumMember(Value = "CNTE")]
     [IsoId("_wh7IcYr3EeSvuOJS0mmL0g")]
@@ -30,7 +30,7 @@ public enum TerminalManagementActionResult2Code
     
     /// <summary>
     /// Data transferred has a wrong format.
-    /// Encoded/decoded by serializers as "FMTE".
+    /// Encoded/decoded by serializers as &quot;FMTE&quot;.
     /// </summary>
     [EnumMember(Value = "FMTE")]
     [IsoId("_ws0w44r3EeSvuOJS0mmL0g")]
@@ -39,7 +39,7 @@ public enum TerminalManagementActionResult2Code
     
     /// <summary>
     /// Hardware error.
-    /// Encoded/decoded by serializers as "HRDW".
+    /// Encoded/decoded by serializers as &quot;HRDW&quot;.
     /// </summary>
     [EnumMember(Value = "HRDW")]
     [IsoId("_w1T-g4r3EeSvuOJS0mmL0g")]
@@ -48,7 +48,7 @@ public enum TerminalManagementActionResult2Code
     
     /// <summary>
     /// Action is not supported.
-    /// Encoded/decoded by serializers as "NSUP".
+    /// Encoded/decoded by serializers as &quot;NSUP&quot;.
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_x7CQcor3EeSvuOJS0mmL0g")]
@@ -57,7 +57,7 @@ public enum TerminalManagementActionResult2Code
     
     /// <summary>
     /// Security error.
-    /// Encoded/decoded by serializers as "SECR".
+    /// Encoded/decoded by serializers as &quot;SECR&quot;.
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_yF5co4r3EeSvuOJS0mmL0g")]
@@ -66,7 +66,7 @@ public enum TerminalManagementActionResult2Code
     
     /// <summary>
     /// Action was successfully performed.
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_yNUTQYr3EeSvuOJS0mmL0g")]
@@ -75,7 +75,7 @@ public enum TerminalManagementActionResult2Code
     
     /// <summary>
     /// Data transferred has a wrong syntax.
-    /// Encoded/decoded by serializers as "SYNE".
+    /// Encoded/decoded by serializers as &quot;SYNE&quot;.
     /// </summary>
     [EnumMember(Value = "SYNE")]
     [IsoId("_zAQME4r3EeSvuOJS0mmL0g")]
@@ -84,7 +84,7 @@ public enum TerminalManagementActionResult2Code
     
     /// <summary>
     /// Timeout expired during the data transfer.
-    /// Encoded/decoded by serializers as "TIMO".
+    /// Encoded/decoded by serializers as &quot;TIMO&quot;.
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_zG0HE4r3EeSvuOJS0mmL0g")]
@@ -93,7 +93,7 @@ public enum TerminalManagementActionResult2Code
     
     /// <summary>
     /// Cryptographic key reference used for the data signature is not valid.
-    /// Encoded/decoded by serializers as "UKRF".
+    /// Encoded/decoded by serializers as &quot;UKRF&quot;.
     /// </summary>
     [EnumMember(Value = "UKRF")]
     [IsoId("_zbnSY4r3EeSvuOJS0mmL0g")]

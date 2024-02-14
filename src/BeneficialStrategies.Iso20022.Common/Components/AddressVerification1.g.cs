@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Numeric characters of the cardholder's address for verification.
+/// Numeric characters of the cardholder&apos;s address for verification.
 /// </summary>
 [IsoId("_SqbqxgEcEeCQm6a_G2yO_w_1267025270")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Address Verification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -41,18 +39,15 @@ public partial record AddressVerification1
     #nullable enable
     
     /// <summary>
-    /// Numeric characters from the cardholder's address excluding the postal code (that is street number).
+    /// Numeric characters from the cardholder&apos;s address excluding the postal code (that is street number).
     /// </summary>
     [IsoId("_SqbqxwEcEeCQm6a_G2yO_w_-502786467")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Digits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdrDgts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AdrDgts")]
+    [IsoSimpleType(IsoSimpleType.Max5NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? AddressDigits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,18 +57,15 @@ public partial record AddressVerification1
     #endif
     
     /// <summary>
-    /// Numeric characters from the cardholder's postal code.
+    /// Numeric characters from the cardholder&apos;s postal code.
     /// </summary>
     [IsoId("_SqbqyAEcEeCQm6a_G2yO_w_-1460020434")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Postal Code Digits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstlCdDgts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PstlCdDgts")]
+    [IsoSimpleType(IsoSimpleType.Max5NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5NumericText? PostalCodeDigits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

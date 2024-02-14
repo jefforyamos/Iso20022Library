@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the CA entitlement.
 /// </summary>
 [IsoId("_UJIWmdp-Ed-ak6NoX_4Aeg_1024355345")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Entitlement Advice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record EntitlementAdvice1
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
     [IsoId("_UJIWmtp-Ed-ak6NoX_4Aeg_1854599346")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionOption1FormatChoice_ OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #else
@@ -72,19 +69,16 @@ public partial record EntitlementAdvice1
     /// Number identifying the available corporate action options.
     /// </summary>
     [IsoId("_UJIWm9p-Ed-ak6NoX_4Aeg_1854599377")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OptnNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText OptionNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OptionNumber { get; init; } 
+    public required System.String OptionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OptionNumber { get; init; } 
     #else
@@ -95,12 +89,11 @@ public partial record EntitlementAdvice1
     /// Date on which the holders of securities are/will be recorded for the income being paid or for entitlement to the rights or offer/privilege.
     /// </summary>
     [IsoId("_UJIWnNp-Ed-ak6NoX_4Aeg_235074739")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcrdDt")]
     #endif
+    [IsoXmlTag("RcrdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? RecordDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,11 @@ public partial record EntitlementAdvice1
     /// Date on which securities/cash will be paid.
     /// </summary>
     [IsoId("_UJRggNp-Ed-ak6NoX_4Aeg_295101123")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDt")]
     #endif
+    [IsoXmlTag("PmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? PaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +123,11 @@ public partial record EntitlementAdvice1
     /// Provides information about the entitlement and the entitled account.
     /// </summary>
     [IsoId("_UJRggdp-Ed-ak6NoX_4Aeg_-1335835024")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account And Distribution Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctAndDstrbtnDtls")]
     #endif
+    [IsoXmlTag("AcctAndDstrbtnDtls")]
     public Entitlement1? AccountAndDistributionDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _UJRggdp-Ed-ak6NoX_4Aeg_-1335835024
     

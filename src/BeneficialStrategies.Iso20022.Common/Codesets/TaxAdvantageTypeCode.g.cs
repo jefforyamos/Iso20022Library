@@ -21,7 +21,7 @@ public enum TaxAdvantageTypeCode
 {
     /// <summary>
     /// Tax advantage type is: Concessional Goods and Services Tax.
-    /// Encoded/decoded by serializers as "CGST".
+    /// Encoded/decoded by serializers as &quot;CGST&quot;.
     /// </summary>
     [EnumMember(Value = "CGST")]
     [IsoId("_Eovz4Ff2EeOuDtoQo1qilA")]
@@ -30,7 +30,7 @@ public enum TaxAdvantageTypeCode
     
     /// <summary>
     /// Tax advantage type is not applicable.
-    /// Encoded/decoded by serializers as "NOAP".
+    /// Encoded/decoded by serializers as &quot;NOAP&quot;.
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_IRSn4Ff2EeOuDtoQo1qilA")]
@@ -39,7 +39,7 @@ public enum TaxAdvantageTypeCode
     
     /// <summary>
     /// Tax advantage type is not available.
-    /// Encoded/decoded by serializers as "NOAV".
+    /// Encoded/decoded by serializers as &quot;NOAV&quot;.
     /// </summary>
     [EnumMember(Value = "NOAV")]
     [IsoId("_LT6EUFf2EeOuDtoQo1qilA")]
@@ -48,7 +48,7 @@ public enum TaxAdvantageTypeCode
     
     /// <summary>
     /// Other type of tax advantage type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_0G6HUFf3EeOuDtoQo1qilA")]
@@ -57,7 +57,7 @@ public enum TaxAdvantageTypeCode
     
     /// <summary>
     /// Tax advantage type is: pooled development fund Rebta.
-    /// Encoded/decoded by serializers as "PDFR".
+    /// Encoded/decoded by serializers as &quot;PDFR&quot;.
     /// </summary>
     [EnumMember(Value = "PDFR")]
     [IsoId("_3b_z0Ff3EeOuDtoQo1qilA")]

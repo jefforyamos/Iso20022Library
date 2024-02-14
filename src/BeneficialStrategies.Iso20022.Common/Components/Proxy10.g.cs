@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a proxy appointed to represent a party authorised to vote at a shareholders meeting and proxy vote.
 /// </summary>
 [IsoId("_7sZ4CfNXEeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proxy")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Proxy10
     /// Type of proxy.
     /// </summary>
     [IsoId("_8HobZfNXEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrxyTp")]
     #endif
+    [IsoXmlTag("PrxyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProxyType2Code ProxyType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProxyType2Code ProxyType { get; init; } 
+    public required ProxyType2Code ProxyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProxyType2Code ProxyType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Proxy10
     /// Person, other than the chairman of the meeting, assigned by the security holder as the proxy.
     /// </summary>
     [IsoId("_8HobZ_NXEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Person Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrsnDtls")]
     #endif
+    [IsoXmlTag("PrsnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson42? PersonDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

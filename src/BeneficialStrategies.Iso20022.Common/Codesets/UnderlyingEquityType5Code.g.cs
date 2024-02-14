@@ -21,7 +21,7 @@ public enum UnderlyingEquityType5Code
 {
     /// <summary>
     /// Underlying is of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Q7CIIYHCEeaalK9UbuVGFw")]
@@ -30,7 +30,7 @@ public enum UnderlyingEquityType5Code
     
     /// <summary>
     /// Underlying is an exchange traded fund.
-    /// Encoded/decoded by serializers as "ETFS".
+    /// Encoded/decoded by serializers as &quot;ETFS&quot;.
     /// </summary>
     [EnumMember(Value = "ETFS")]
     [IsoId("_RTu8AYHCEeaalK9UbuVGFw")]
@@ -39,7 +39,7 @@ public enum UnderlyingEquityType5Code
     
     /// <summary>
     /// Underlying is a share.
-    /// Encoded/decoded by serializers as "SHRS".
+    /// Encoded/decoded by serializers as &quot;SHRS&quot;.
     /// </summary>
     [EnumMember(Value = "SHRS")]
     [IsoId("_SPsN8YHCEeaalK9UbuVGFw")]
@@ -48,7 +48,7 @@ public enum UnderlyingEquityType5Code
     
     /// <summary>
     /// Underlying is a stock dividend.
-    /// Encoded/decoded by serializers as "DVSE".
+    /// Encoded/decoded by serializers as &quot;DVSE&quot;.
     /// </summary>
     [EnumMember(Value = "DVSE")]
     [IsoId("_Ta0kUYHCEeaalK9UbuVGFw")]

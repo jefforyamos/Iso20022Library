@@ -21,7 +21,7 @@ public enum MeetingDateStatus2Code
 {
     /// <summary>
     /// Meeting date is confirmed.
-    /// Encoded/decoded by serializers as "CNFR".
+    /// Encoded/decoded by serializers as &quot;CNFR&quot;.
     /// </summary>
     [EnumMember(Value = "CNFR")]
     [IsoId("_M6Qg8a4oEemG7MmivSuE5g")]
@@ -30,7 +30,7 @@ public enum MeetingDateStatus2Code
     
     /// <summary>
     /// Meeting date is tentative.
-    /// Encoded/decoded by serializers as "TNTA".
+    /// Encoded/decoded by serializers as &quot;TNTA&quot;.
     /// </summary>
     [EnumMember(Value = "TNTA")]
     [IsoId("_NIP5oq4oEemG7MmivSuE5g")]

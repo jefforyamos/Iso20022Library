@@ -21,7 +21,7 @@ public enum ReportingRecordStatus1Code
 {
     /// <summary>
     /// Record has been accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_MJ6IcdHEEeaokquJJ-K6uA")]
@@ -30,7 +30,7 @@ public enum ReportingRecordStatus1Code
     
     /// <summary>
     /// Record has been accepted, following a pending status.
-    /// Encoded/decoded by serializers as "ACPD".
+    /// Encoded/decoded by serializers as &quot;ACPD&quot;.
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_MOBMYdHEEeaokquJJ-K6uA")]
@@ -39,7 +39,7 @@ public enum ReportingRecordStatus1Code
     
     /// <summary>
     /// Processing of the record is pending (some validation rules have been executed but some have not and the final status is not known yet).
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_MhF5YtHEEeaokquJJ-K6uA")]
@@ -48,7 +48,7 @@ public enum ReportingRecordStatus1Code
     
     /// <summary>
     /// Recrod has been received but not processed yet.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_MiV2kdHEEeaokquJJ-K6uA")]
@@ -57,7 +57,7 @@ public enum ReportingRecordStatus1Code
     
     /// <summary>
     /// Record has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_MjqFMdHEEeaokquJJ-K6uA")]
@@ -66,7 +66,7 @@ public enum ReportingRecordStatus1Code
     
     /// <summary>
     /// Record has been rejected, following a pending status.
-    /// Encoded/decoded by serializers as "RJPD".
+    /// Encoded/decoded by serializers as &quot;RJPD&quot;.
     /// </summary>
     [EnumMember(Value = "RJPD")]
     [IsoId("_MlNkYdHEEeaokquJJ-K6uA")]
@@ -75,7 +75,7 @@ public enum ReportingRecordStatus1Code
     
     /// <summary>
     /// Record has been accepted with warnings.
-    /// Encoded/decoded by serializers as "WARN".
+    /// Encoded/decoded by serializers as &quot;WARN&quot;.
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_Mt0t0dHEEeaokquJJ-K6uA")]

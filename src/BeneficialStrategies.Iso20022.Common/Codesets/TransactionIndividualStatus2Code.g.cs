@@ -21,7 +21,7 @@ public enum TransactionIndividualStatus2Code
 {
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_Yr2T2Np-Ed-ak6NoX_4Aeg_916455781")]

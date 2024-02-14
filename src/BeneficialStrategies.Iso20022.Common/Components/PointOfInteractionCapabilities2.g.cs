@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Capabilities of the POI (Point Of Interaction) performing the transaction.
 /// </summary>
 [IsoId("_Lo4wkS9LEeOlZIh7PImd0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Point Of Interaction Capabilities")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PointOfInteractionCapabilities2
     /// Card reading capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
     [IsoId("_L5jp0S9LEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Reading Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardRdngCpblties")]
     #endif
+    [IsoXmlTag("CardRdngCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading1Code? CardReadingCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PointOfInteractionCapabilities2
     /// Cardholder verification capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
     [IsoId("_L5jp0y9LEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Verification Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrVrfctnCpblties")]
     #endif
+    [IsoXmlTag("CrdhldrVrfctnCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PointOfInteractionCapabilities2
     /// On-line and off-line capabilities of the POI (Point Of Interaction).
     /// </summary>
     [IsoId("_L5jp1S9LEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Line Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnLineCpblties")]
     #endif
+    [IsoXmlTag("OnLineCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record PointOfInteractionCapabilities2
     /// Capabilities of the display components performing the transaction.
     /// </summary>
     [IsoId("_L5jp1y9LEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispCpblties")]
     #endif
+    [IsoXmlTag("DispCpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisplayCapabilities2? DisplayCapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,12 @@ public partial record PointOfInteractionCapabilities2
     /// Number of columns of the printer component.
     /// </summary>
     [IsoId("_L5jp2S9LEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Print Line Width")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtLineWidth")]
     #endif
+    [IsoXmlTag("PrtLineWidth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PrintLineWidth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,11 @@ public partial record PointOfInteractionCapabilities2
     /// Available language in the display and printer interface.
     /// </summary>
     [IsoId("_Ek1CgC9MEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblLang")]
     #endif
+    [IsoXmlTag("AvlblLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISO2ALanguageCode? AvailableLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

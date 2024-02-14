@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the status details about the collateral substitution.
 /// </summary>
 [IsoId("_UnrTxNp-Ed-ak6NoX_4Aeg_-2119738374")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Confirmation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record CollateralConfirmation1
     /// Reference to the collateral substitution request identification.
     /// </summary>
     [IsoId("_UnrTxdp-Ed-ak6NoX_4Aeg_-2130532228")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Substitution Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSbstitnReqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollSbstitnReqId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CollateralSubstitutionRequestIdentification { get; init; } 
+    public required System.String CollateralSubstitutionRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CollateralSubstitutionRequestIdentification { get; init; } 
     #else
@@ -75,15 +71,13 @@ public partial record CollateralConfirmation1
     /// Reference to the collateral substitution response identification.
     /// </summary>
     [IsoId("_UnrTxtp-Ed-ak6NoX_4Aeg_2051423832")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Substitution Response Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSbstitnRspnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollSbstitnRspnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CollateralSubstitutionResponseIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,16 +90,15 @@ public partial record CollateralConfirmation1
     /// Provides details about the status of the collateral substitution, either released or returned.
     /// </summary>
     [IsoId("_UnrTx9p-Ed-ak6NoX_4Aeg_-785691192")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfTp")]
     #endif
+    [IsoXmlTag("ConfTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralSubstitutionConfirmation1Code ConfirmationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralSubstitutionConfirmation1Code ConfirmationType { get; init; } 
+    public required CollateralSubstitutionConfirmation1Code ConfirmationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralSubstitutionConfirmation1Code ConfirmationType { get; init; } 
     #else
@@ -116,15 +109,13 @@ public partial record CollateralConfirmation1
     /// Allows to provides additional comments on the collateral substitution status.
     /// </summary>
     [IsoId("_UnrTyNp-Ed-ak6NoX_4Aeg_1518492847")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Comment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Cmnt")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Comment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

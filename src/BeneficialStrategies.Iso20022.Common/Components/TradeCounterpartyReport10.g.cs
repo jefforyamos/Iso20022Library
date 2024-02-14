@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to parties in the contract.
 /// </summary>
 [IsoId("_zSqiYZQJEeiILOjNP8ro1w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Counterparty Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record TradeCounterpartyReport10
     /// Identification of the reporting counterparty.
     /// </summary>
     [IsoId("_zdUTMZQJEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCtrPty")]
     #endif
+    [IsoXmlTag("RptgCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Counterparty27 ReportingCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Counterparty27 ReportingCounterparty { get; init; } 
+    public required Counterparty27 ReportingCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Counterparty27 ReportingCounterparty { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record TradeCounterpartyReport10
     /// Identification of the other counterparty in the transaction.
     /// </summary>
     [IsoId("_zdUTM5QJEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCtrPty")]
     #endif
+    [IsoXmlTag("OthrCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Counterparty28 OtherCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Counterparty28 OtherCounterparty { get; init; } 
+    public required Counterparty28 OtherCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Counterparty28 OtherCounterparty { get; init; } 
     #else
@@ -93,12 +89,11 @@ public partial record TradeCounterpartyReport10
     /// Identification of the broker as an intermediary for the reporting counterparty.
     /// </summary>
     [IsoId("_zdUTNZQJEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Broker")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Brkr")]
     #endif
+    [IsoXmlTag("Brkr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? Broker { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +106,11 @@ public partial record TradeCounterpartyReport10
     /// Identification of the submitting agent in the case where the reporting counterparty has delegated the submission of the report to a third party or to the other counterparty.
     /// </summary>
     [IsoId("_zdUTN5QJEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitting Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitgAgt")]
     #endif
+    [IsoXmlTag("SubmitgAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? SubmittingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +123,11 @@ public partial record TradeCounterpartyReport10
     /// Identification of the clearing member in the case where the trade is cleared.
     /// </summary>
     [IsoId("_zdUTOZQJEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? ClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,16 +140,15 @@ public partial record TradeCounterpartyReport10
     /// Identification of the beneficiary who is subject to the rights and obligations arising from the contract.
     /// </summary>
     [IsoId("_zdUTO5QJEeiILOjNP8ro1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bnfcry")]
     #endif
+    [IsoXmlTag("Bnfcry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification9Choice_ Beneficiary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification9Choice_ Beneficiary { get; init; } 
+    public required OrganisationIdentification9Choice_ Beneficiary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification9Choice_ Beneficiary { get; init; } 
     #else

@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum TrackerPaymentStatus1Code
 {
     /// <summary>
-    /// Settlement on the creditor's account has been completed. 
-    /// Encoded/decoded by serializers as "ACCC".
+    /// Settlement on the creditor&apos;s account has been completed. 
+    /// Encoded/decoded by serializers as &quot;ACCC&quot;.
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_bARq4fpPEemXaqBx8S4XSg")]
@@ -30,7 +30,7 @@ public enum TrackerPaymentStatus1Code
     
     /// <summary>
     /// All preceding checks such as technical validation and customer profile were successful and therefore the payment initiation has been accepted for execution.
-    /// Encoded/decoded by serializers as "ACSP".
+    /// Encoded/decoded by serializers as &quot;ACSP&quot;.
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_bIa6QfpPEemXaqBx8S4XSg")]
@@ -39,7 +39,7 @@ public enum TrackerPaymentStatus1Code
     
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_bPzUofpPEemXaqBx8S4XSg")]

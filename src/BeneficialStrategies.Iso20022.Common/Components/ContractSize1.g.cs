@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of an underlying of a derivative or security that constitutes one lot of such derivative on an exchange.
 /// </summary>
 [IsoId("_SCZ9ILb6EeabfchHYoktpA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Size")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record ContractSize1
     /// Specifies the total quantity of financial product to be delivered as per the terms of the contract.
     /// </summary>
     [IsoId("_QTnOILb8EeabfchHYoktpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lot Size")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LotSz")]
     #endif
+    [IsoXmlTag("LotSz")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber LotSize { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 LotSize { get; init; } 
+    public required System.UInt64 LotSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 LotSize { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record ContractSize1
     /// Specifies the unit of underlying.
     /// </summary>
     [IsoId("_O0sZELb8EeabfchHYoktpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Unit")]
     #endif
+    [IsoXmlTag("Unit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOfMeasure5Choice_? Unit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

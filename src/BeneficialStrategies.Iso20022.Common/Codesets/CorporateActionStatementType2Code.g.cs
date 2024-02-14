@@ -21,7 +21,7 @@ public enum CorporateActionStatementType2Code
 {
     /// <summary>
     /// Statement contains missing instructions.
-    /// Encoded/decoded by serializers as "MISS".
+    /// Encoded/decoded by serializers as &quot;MISS&quot;.
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_03aEEbtEEeilsanBGAzy4A")]
@@ -30,7 +30,7 @@ public enum CorporateActionStatementType2Code
     
     /// <summary>
     /// Statement contains all instructions.
-    /// Encoded/decoded by serializers as "ALLL".
+    /// Encoded/decoded by serializers as &quot;ALLL&quot;.
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_03aEE7tEEeilsanBGAzy4A")]
@@ -39,7 +39,7 @@ public enum CorporateActionStatementType2Code
     
     /// <summary>
     /// Balance information with no instruction details provided.
-    /// Encoded/decoded by serializers as "BALO".
+    /// Encoded/decoded by serializers as &quot;BALO&quot;.
     /// </summary>
     [EnumMember(Value = "BALO")]
     [IsoId("_WIwwAbtFEeilsanBGAzy4A")]
@@ -48,7 +48,7 @@ public enum CorporateActionStatementType2Code
     
     /// <summary>
     /// Balance information with instruction details.
-    /// Encoded/decoded by serializers as "BALI".
+    /// Encoded/decoded by serializers as &quot;BALI&quot;.
     /// </summary>
     [EnumMember(Value = "BALI")]
     [IsoId("_WSKjortFEeilsanBGAzy4A")]

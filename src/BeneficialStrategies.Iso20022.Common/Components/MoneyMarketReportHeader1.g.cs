@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the money market statistical report instrument related header details.
 /// </summary>
 [IsoId("_MVvycJfiEeSfnc-VXAEapg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Money Market Report Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record MoneyMarketReportHeader1
     /// Agent which is subject to reporting requirements.
     /// </summary>
     [IsoId("_ziweIJfaEeS92bWS8Fjfig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgAgt")]
     #endif
+    [IsoXmlTag("RptgAgt")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier ReportingAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReportingAgent { get; init; } 
+    public required System.String ReportingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReportingAgent { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record MoneyMarketReportHeader1
     /// Beginning and ending date-time to which the transaction data refers (trade date in case of new transactions and date of amendment in case of revisions).
     /// </summary>
     [IsoId("_WRwIkZfiEeSfnc-VXAEapg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefPrd")]
     #endif
+    [IsoXmlTag("RefPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateTimePeriod1 ReferencePeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateTimePeriod1 ReferencePeriod { get; init; } 
+    public required DateTimePeriod1 ReferencePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateTimePeriod1 ReferencePeriod { get; init; } 
     #else

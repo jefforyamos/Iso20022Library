@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status25Choice
     /// Status code.
     /// </summary>
     [IsoId("_E09yoUQTEealVdmlTDXWkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Status25Choice
         /// Specifies the status of an account management instruction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sts")]
         #endif
+        [IsoXmlTag("Sts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountManagementStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountManagementStatus1Code Value { get; init; } 
+        public required AccountManagementStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountManagementStatus1Code Value { get; init; } 
         #else

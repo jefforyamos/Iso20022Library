@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|An account servicer sends a TotalPortfolioValuationReport to an account owner to provide detailed valuation information for a portfolio.|Usage|The TotalPortfolioValuationReport will be sent by the account servicer to the account owner on an agreed basis. The report may also be requested using a SecuritiesStatementQuery.|The TotalPortfolioValuationReport is used to report on a portfolio without Investment Funds; or to report on a portfolio when an investment fund is regarded as a portfolio containing, only one or multiple investment funds|The TotalPortfolioValuationReport may also be used to:|- re-send a message previously sent (the CopyDuplicate value is DUPL),|- provide a third party with a copy of a message for information (the CopyDuplicate value is COPY),|- re-send to a third party a copy of a message for information (the CopyDuplicate value is CODU).")]
 [IsoId("_Fyx0CdHWEd-BzquC8wXy7w_-475830186")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Portfolio Valuation Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortf
     /// Page number of the message (within the report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
     [IsoId("_Fyx0C9HWEd-BzquC8wXy7w_822256636")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination Pagination { get; init; } 
+    public required Pagination Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination Pagination { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortf
     /// General information related to the total portfolio valuation report.
     /// </summary>
     [IsoId("_Fyx0DNHWEd-BzquC8wXy7w_-958164327")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptGnlDtls")]
     #endif
+    [IsoXmlTag("RptGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Report4 ReportGeneralDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Report4 ReportGeneralDetails { get; init; } 
+    public required Report4 ReportGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Report4 ReportGeneralDetails { get; init; } 
     #else
@@ -126,16 +122,15 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortf
     /// Details of the account. The account may represent an investment portfolio or a fund.
     /// </summary>
     [IsoId("_Fy7lANHWEd-BzquC8wXy7w_-1255643998")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount21 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount21 AccountDetails { get; init; } 
+    public required SecuritiesAccount21 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount21 AccountDetails { get; init; } 
     #else
@@ -146,16 +141,15 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortf
     /// Valuation information of the portfolio. In some markets a fund of funds or an investment fund is regarded as a portfolio.
     /// </summary>
     [IsoId("_Fy7lAdHWEd-BzquC8wXy7w_-658833918")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Portfolio Valuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlPrtflValtn")]
     #endif
+    [IsoXmlTag("TtlPrtflValtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TotalPortfolioValuation1 TotalPortfolioValuation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TotalPortfolioValuation1 TotalPortfolioValuation { get; init; } 
+    public required TotalPortfolioValuation1 TotalPortfolioValuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TotalPortfolioValuation1 TotalPortfolioValuation { get; init; } 
     #else
@@ -166,12 +160,11 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortf
     /// Balance breakdown information.
     /// </summary>
     [IsoId("_Fy7lAtHWEd-BzquC8wXy7w_-1598852057")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PortfolioBalance1? Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -184,12 +177,11 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortf
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_s1GtwGtdEeCY4-KZ9JEyUQ_-1722914512")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -202,7 +194,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortf
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TotalPortfolioValuationReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TotalPortfolioValuationReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TotalPortfolioValuationReportV01Document ToDocument()
     {
@@ -212,7 +204,7 @@ public partial record TotalPortfolioValuationReportV01 : IOuterRecord<TotalPortf
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TotalPortfolioValuationReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TotalPortfolioValuationReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TotalPortfolioValuationReportV01Document : IOuterDocument<TotalPortfolioValuationReportV01>
@@ -229,7 +221,7 @@ public partial record TotalPortfolioValuationReportV01Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TotalPortfolioValuationReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TotalPortfolioValuationReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TotalPortfolioValuationReportV01 Message { get; init; }

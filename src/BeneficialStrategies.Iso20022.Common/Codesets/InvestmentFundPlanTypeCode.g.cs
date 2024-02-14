@@ -21,7 +21,7 @@ public enum InvestmentFundPlanTypeCode
 {
     /// <summary>
     /// Savings investment plan.
-    /// Encoded/decoded by serializers as "INVP".
+    /// Encoded/decoded by serializers as &quot;INVP&quot;.
     /// </summary>
     [EnumMember(Value = "INVP")]
     [IsoId("_xwSXgF9BEeicg40_9gK9vQ")]
@@ -30,7 +30,7 @@ public enum InvestmentFundPlanTypeCode
     
     /// <summary>
     /// Withdrawal plan.
-    /// Encoded/decoded by serializers as "WTHP".
+    /// Encoded/decoded by serializers as &quot;WTHP&quot;.
     /// </summary>
     [EnumMember(Value = "WTHP")]
     [IsoId("_0aRRgF9BEeicg40_9gK9vQ")]
@@ -39,7 +39,7 @@ public enum InvestmentFundPlanTypeCode
     
     /// <summary>
     /// Switch plan.
-    /// Encoded/decoded by serializers as "SWIP".
+    /// Encoded/decoded by serializers as &quot;SWIP&quot;.
     /// </summary>
     [EnumMember(Value = "SWIP")]
     [IsoId("_2F9XQF9BEeicg40_9gK9vQ")]

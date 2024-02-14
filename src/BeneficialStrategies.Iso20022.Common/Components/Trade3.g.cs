@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the foreign exchange trade including Spot\Forward\NDF that is captured.
 /// </summary>
 [IsoId("_IWV_wA2MEeSw7Op2IIeBeQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -59,16 +57,16 @@ public partial record Trade3
     /// Price of the execution of the trade.
     /// </summary>
     [IsoId("_aPM3sQ2MEeSw7Op2IIeBeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnPric")]
     #endif
+    [IsoXmlTag("ExctnPric")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ExecutionPrice { get; init; } 
+    public required System.Decimal ExecutionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ExecutionPrice { get; init; } 
     #else
@@ -79,16 +77,16 @@ public partial record Trade3
     /// Amount of trade in trading currency.
     /// </summary>
     [IsoId("_ZP3hoQ2MEeSw7Op2IIeBeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastQty")]
     #endif
+    [IsoXmlTag("LastQty")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount LastQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal LastQuantity { get; init; } 
+    public required System.Decimal LastQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal LastQuantity { get; init; } 
     #else
@@ -99,16 +97,15 @@ public partial record Trade3
     /// Specifies the settlment period of the foreign exchange trade.
     /// </summary>
     [IsoId("_5e0S4IaBEeSspsEopx56mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTp")]
     #endif
+    [IsoXmlTag("SttlmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementDateCode SettlementType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementDateCode SettlementType { get; init; } 
+    public required SettlementDateCode SettlementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementDateCode SettlementType { get; init; } 
     #else
@@ -119,16 +116,16 @@ public partial record Trade3
     /// Specifies the date on which the trade will be settled.
     /// </summary>
     [IsoId("_zqtBsQ2MEeSw7Op2IIeBeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly SettlementDate { get; init; } 
+    public required System.DateOnly SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly SettlementDate { get; init; } 
     #else
@@ -139,16 +136,15 @@ public partial record Trade3
     /// Specifies the valuation rate used for the trade.
     /// </summary>
     [IsoId("_doQmQYaCEeSspsEopx56mg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnRate")]
     #endif
+    [IsoXmlTag("ValtnRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate3 ValuationRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate3 ValuationRate { get; init; } 
+    public required AgreedRate3 ValuationRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate3 ValuationRate { get; init; } 
     #else
@@ -159,12 +155,12 @@ public partial record Trade3
     /// Specifies the forward points of the trade if needed.
     /// </summary>
     [IsoId("_N8HR8YaMEeSzIqahkBT6cQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Forward Points")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FwdPts")]
     #endif
+    [IsoXmlTag("FwdPts")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ForwardPoints { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,16 +173,16 @@ public partial record Trade3
     /// Amount of trade in corresponding currency.
     /// </summary>
     [IsoId("_WyqfYQ2MEeSw7Op2IIeBeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculated Counterparty Currency Last Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctdCtrPtyCcyLastQty")]
     #endif
+    [IsoXmlTag("ClctdCtrPtyCcyLastQty")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    public required System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #else
@@ -197,16 +193,16 @@ public partial record Trade3
     /// Specifies the value date of spot transaction.
     /// </summary>
     [IsoId("_zV_V9A2MEeSw7Op2IIeBeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValueDate { get; init; } 
+    public required System.DateOnly ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValueDate { get; init; } 
     #else
@@ -217,16 +213,16 @@ public partial record Trade3
     /// Measurement of the amount of the trade values converted in the US dollars.
     /// </summary>
     [IsoId("_sqMCcIaEEeSzIqahkBT6cQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskAmt")]
     #endif
+    [IsoXmlTag("RskAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal RiskAmount { get; init; } 
+    public required System.Decimal RiskAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal RiskAmount { get; init; } 
     #else
@@ -237,16 +233,15 @@ public partial record Trade3
     /// Security identification of the trade.
     /// </summary>
     [IsoId("_U5Fn8IaIEeSzIqahkBT6cQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification18 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification18 SecurityIdentification { get; init; } 
+    public required SecurityIdentification18 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification18 SecurityIdentification { get; init; } 
     #else
@@ -257,12 +252,11 @@ public partial record Trade3
     /// Specifies the ISO code of the fixing currency.
     /// </summary>
     [IsoId("_4irkELMeEeSOJaFmPosvyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fixing Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FxgCcy")]
     #endif
+    [IsoXmlTag("FxgCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyCode? FixingCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +269,12 @@ public partial record Trade3
     /// Date at which the rate determination is made in the NDF trade.
     /// </summary>
     [IsoId("_YuYQwESYEeS6cOLECtYLrA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fixing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FxgDt")]
     #endif
+    [IsoXmlTag("FxgDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FixingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -293,12 +287,12 @@ public partial record Trade3
     /// Indicates whether the spot trade is produced by the option.
     /// </summary>
     [IsoId("_r_EfUESNEeS6cOLECtYLrA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnInd")]
     #endif
+    [IsoXmlTag("OptnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OptionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,15 +302,15 @@ public partial record Trade3
     #endif
     
     /// <summary>
-    /// Indicate the trade whether it's exchange delta.
+    /// Indicate the trade whether it&apos;s exchange delta.
     /// </summary>
     [IsoId("_o6Tt0ESNEeS6cOLECtYLrA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delta Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DltaInd")]
     #endif
+    [IsoXmlTag("DltaInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DeltaIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -329,15 +323,13 @@ public partial record Trade3
     /// Some associated trade reference needs to be specified.
     /// </summary>
     [IsoId("_CP330YaNEeSzIqahkBT6cQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Associated Trade Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssoctdTradRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AssoctdTradRef")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AssociatedTradeReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

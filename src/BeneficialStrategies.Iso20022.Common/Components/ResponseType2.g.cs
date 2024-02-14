@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Response of a requested service.
 /// </summary>
 [IsoId("_MGZDwXuGEeSZrqGdHyoIrw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Response Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ResponseType2
     /// Result of the request message or advice message.
     /// </summary>
     [IsoId("_w3tPcHuGEeSZrqGdHyoIrw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rslt")]
     #endif
+    [IsoXmlTag("Rslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Response3Code Result { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Response3Code Result { get; init; } 
+    public required Response3Code Result { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Response3Code Result { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ResponseType2
     /// Detail of the result.
     /// </summary>
     [IsoId("_vcAUMHuLEeSZrqGdHyoIrw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsltDtls")]
     #endif
+    [IsoXmlTag("RsltDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultDetail1Code? ResultDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,13 @@ public partial record ResponseType2
     /// Additional information to be logged for further examination.
     /// </summary>
     [IsoId("_QIlfIHuMEeSZrqGdHyoIrw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Result Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRsltInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRsltInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalResultInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"The PayInCall message is sent by a central settlement system to request additional funding from a settlement member impacted by a failure situation.")]
 [IsoId("_FsXYwS43EeK7-OZOLIksSw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pay In Call V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record PayInCallV02 : IOuterRecord<PayInCallV02,PayInCallV02Docum
     /// Party for which the PayInCall is generated.
     /// </summary>
     [IsoId("_FsXYxS43EeK7-OZOLIksSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification73Choice_ PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification73Choice_ PartyIdentification { get; init; } 
+    public required PartyIdentification73Choice_ PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification73Choice_ PartyIdentification { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record PayInCallV02 : IOuterRecord<PayInCallV02,PayInCallV02Docum
     /// Contains the report generation information and the report items.
     /// </summary>
     [IsoId("_FsXYyS43EeK7-OZOLIksSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptData")]
     #endif
+    [IsoXmlTag("RptData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportData5 ReportData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportData5 ReportData { get; init; } 
+    public required ReportData5 ReportData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportData5 ReportData { get; init; } 
     #else
@@ -116,15 +112,12 @@ public partial record PayInCallV02 : IOuterRecord<PayInCallV02,PayInCallV02Docum
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
     [IsoId("_-6XNzzqdEeKqTf3MbquCbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Session Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSsnIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SttlmSsnIdr")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +130,11 @@ public partial record PayInCallV02 : IOuterRecord<PayInCallV02,PayInCallV02Docum
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_CGzMPS53EeKwTrPDLMbLxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,7 +147,7 @@ public partial record PayInCallV02 : IOuterRecord<PayInCallV02,PayInCallV02Docum
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PayInCallV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PayInCallV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PayInCallV02Document ToDocument()
     {
@@ -165,7 +157,7 @@ public partial record PayInCallV02 : IOuterRecord<PayInCallV02,PayInCallV02Docum
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PayInCallV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PayInCallV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PayInCallV02Document : IOuterDocument<PayInCallV02>
@@ -182,7 +174,7 @@ public partial record PayInCallV02Document : IOuterDocument<PayInCallV02>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PayInCallV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PayInCallV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PayInCallV02 Message { get; init; }

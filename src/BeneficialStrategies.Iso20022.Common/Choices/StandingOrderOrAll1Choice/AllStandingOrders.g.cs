@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll1Choice
     /// Identification of all standing orders defined with specific characteristics.
     /// </summary>
     [IsoId("_790-0KMgEeCJ6YNENx4h-w_1737485731")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Standing Orders")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll1Choice
         /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.|.
         /// </summary>
         [IsoId("_790-0qMgEeCJ6YNENx4h-w_-1404472770")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Acct")]
         #endif
+        [IsoXmlTag("Acct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CashAccount24 Account { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CashAccount24 Account { get; init; } 
+        public required CashAccount24 Account { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CashAccount24 Account { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll1Choice
         /// Party that legally owns the account.
         /// </summary>
         [IsoId("_790-06MgEeCJ6YNENx4h-w_2086659832")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnr")]
         #endif
+        [IsoXmlTag("AcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

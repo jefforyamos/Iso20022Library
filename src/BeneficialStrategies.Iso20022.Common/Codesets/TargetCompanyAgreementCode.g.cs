@@ -20,7 +20,7 @@ public enum TargetCompanyAgreementCode
 {
     /// <summary>
     /// No agreement of the target company.
-    /// Encoded/decoded by serializers as "AGNO".
+    /// Encoded/decoded by serializers as &quot;AGNO&quot;.
     /// </summary>
     [EnumMember(Value = "AGNO")]
     [IsoId("_rXO_wDFZEeGpgKb_ecoJPw")]
@@ -29,7 +29,7 @@ public enum TargetCompanyAgreementCode
     
     /// <summary>
     /// Agreement of the target company.
-    /// Encoded/decoded by serializers as "AGYS".
+    /// Encoded/decoded by serializers as &quot;AGYS&quot;.
     /// </summary>
     [EnumMember(Value = "AGYS")]
     [IsoId("_rG1zUDFZEeGpgKb_ecoJPw")]
@@ -38,7 +38,7 @@ public enum TargetCompanyAgreementCode
     
     /// <summary>
     /// Agreement of the target company is not decided.
-    /// Encoded/decoded by serializers as "AGND".
+    /// Encoded/decoded by serializers as &quot;AGND&quot;.
     /// </summary>
     [EnumMember(Value = "AGND")]
     [IsoId("_SYM54DFaEeGpgKb_ecoJPw")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus7Choice
     /// Status applicable globally to the meeting instruction message.
     /// </summary>
     [IsoId("_8bzrA6-nEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Instruction Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

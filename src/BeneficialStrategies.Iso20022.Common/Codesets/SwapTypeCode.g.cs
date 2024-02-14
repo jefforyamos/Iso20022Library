@@ -21,7 +21,7 @@ public enum SwapTypeCode
 {
     /// <summary>
     /// Float to Float Multi Currency Swap.
-    /// Encoded/decoded by serializers as "FFMC".
+    /// Encoded/decoded by serializers as &quot;FFMC&quot;.
     /// </summary>
     [EnumMember(Value = "FFMC")]
     [IsoId("_lG-OQCSpEeWsI5Sp3-B3zg")]
@@ -30,7 +30,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Inflation Multi Currency Swap.
-    /// Encoded/decoded by serializers as "IFMC".
+    /// Encoded/decoded by serializers as &quot;IFMC&quot;.
     /// </summary>
     [EnumMember(Value = "IFMC")]
     [IsoId("_ssZukSSpEeWsI5Sp3-B3zg")]
@@ -39,7 +39,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Float to Float Single Currency Swap.
-    /// Encoded/decoded by serializers as "FFSC".
+    /// Encoded/decoded by serializers as &quot;FFSC&quot;.
     /// </summary>
     [EnumMember(Value = "FFSC")]
     [IsoId("_w4rhwSSpEeWsI5Sp3-B3zg")]
@@ -48,7 +48,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Fixed to Fixed Single Currency Swap.
-    /// Encoded/decoded by serializers as "XXSC".
+    /// Encoded/decoded by serializers as &quot;XXSC&quot;.
     /// </summary>
     [EnumMember(Value = "XXSC")]
     [IsoId("_0g6MsSSpEeWsI5Sp3-B3zg")]
@@ -57,7 +57,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Overnight Index Multi Currency Swap.
-    /// Encoded/decoded by serializers as "OSMC".
+    /// Encoded/decoded by serializers as &quot;OSMC&quot;.
     /// </summary>
     [EnumMember(Value = "OSMC")]
     [IsoId("_CDckoiSqEeWsI5Sp3-B3zg")]
@@ -66,7 +66,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Overnight Index Single Currency Swap.
-    /// Encoded/decoded by serializers as "OSSC".
+    /// Encoded/decoded by serializers as &quot;OSSC&quot;.
     /// </summary>
     [EnumMember(Value = "OSSC")]
     [IsoId("_CDckoySqEeWsI5Sp3-B3zg")]
@@ -75,7 +75,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Fixed to Float Multi Currency Swap.
-    /// Encoded/decoded by serializers as "XFMC".
+    /// Encoded/decoded by serializers as &quot;XFMC&quot;.
     /// </summary>
     [EnumMember(Value = "XFMC")]
     [IsoId("_N-NtgiSqEeWsI5Sp3-B3zg")]
@@ -84,7 +84,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Fixed to Float Single Currency Swap.
-    /// Encoded/decoded by serializers as "XFSC".
+    /// Encoded/decoded by serializers as &quot;XFSC&quot;.
     /// </summary>
     [EnumMember(Value = "XFSC")]
     [IsoId("_N-NtgySqEeWsI5Sp3-B3zg")]
@@ -93,7 +93,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Fixed to Fixed Multi Currency Swap.
-    /// Encoded/decoded by serializers as "XXMC".
+    /// Encoded/decoded by serializers as &quot;XXMC&quot;.
     /// </summary>
     [EnumMember(Value = "XXMC")]
     [IsoId("_OtCiYiSqEeWsI5Sp3-B3zg")]
@@ -102,7 +102,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Inflation Single Currency Swap.
-    /// Encoded/decoded by serializers as "IFSC".
+    /// Encoded/decoded by serializers as &quot;IFSC&quot;.
     /// </summary>
     [EnumMember(Value = "IFSC")]
     [IsoId("_OtCiYySqEeWsI5Sp3-B3zg")]
@@ -111,7 +111,7 @@ public enum SwapTypeCode
     
     /// <summary>
     /// Fixed to Face Value
-    /// Encoded/decoded by serializers as "FTFV".
+    /// Encoded/decoded by serializers as &quot;FTFV&quot;.
     /// </summary>
     [EnumMember(Value = "FTFV")]
     [IsoId("_82X2wNW3EeyVKLlq2-NhyA")]

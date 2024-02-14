@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The FullPushThroughReport message is sent by the matching application to a party involved in a transaction.|This message is used to pass on information that the matching application has received from the submitter. The forwarded information can originate from an InitialBaselineSubmission or BaselineReSubmission or BaselineAmendmentRequest message.|Usage|The FullPushThroughReport message can be sent by the matching application to a party to convey|- the details of an InitialBaselineSubmission message that it has obtained, or|- the details of a BaselineResubmission message that it has obtained, or|- the details of a BaselineAmendmentRequest message that it has obtained.")]
 [IsoId("_paNNeNE8Ed-BzquC8wXy7w_-1602880214")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Full Push Through Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Identifies the report.
     /// </summary>
     [IsoId("_paNNedE8Ed-BzquC8wXy7w_-1602880211")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
+    [IsoXmlTag("RptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 ReportIdentification { get; init; } 
+    public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 ReportIdentification { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_paNNetE8Ed-BzquC8wXy7w_-1602880178")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -126,12 +122,11 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_paNNe9E8Ed-BzquC8wXy7w_-1602879810")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,16 +139,15 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_paNNfNE8Ed-BzquC8wXy7w_-1602880093")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 TransactionStatus { get; init; } 
+    public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 TransactionStatus { get; init; } 
     #else
@@ -164,32 +158,28 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Reference to the transaction for the financial institution which submitted the baseline.
     /// </summary>
     [IsoId("_paW-cNE8Ed-BzquC8wXy7w_-1602879793")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Specifies the type of report.
     /// </summary>
     [IsoId("_paW-cdE8Ed-BzquC8wXy7w_-1602880136")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptPurp")]
     #endif
+    [IsoXmlTag("RptPurp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportType1 ReportPurpose { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportType1 ReportPurpose { get; init; } 
+    public required ReportType1 ReportPurpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportType1 ReportPurpose { get; init; } 
     #else
@@ -200,16 +190,15 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Specifies the commercial details of the underlying transaction.
     /// </summary>
     [IsoId("_paW-ctE8Ed-BzquC8wXy7w_-1602879673")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pushed Through Baseline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PushdThrghBaseln")]
     #endif
+    [IsoXmlTag("PushdThrghBaseln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Baseline3 PushedThroughBaseline { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Baseline3 PushedThroughBaseline { get; init; } 
+    public required Baseline3 PushedThroughBaseline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Baseline3 PushedThroughBaseline { get; init; } 
     #else
@@ -220,12 +209,11 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Person to be contacted in the organisation of the buyer.
     /// </summary>
     [IsoId("_paW-c9E8Ed-BzquC8wXy7w_-1602879715")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrCtctPrsn")]
     #endif
+    [IsoXmlTag("BuyrCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? BuyerContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -238,12 +226,11 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Person to be contacted in the organisation of the seller.
     /// </summary>
     [IsoId("_paW-dNE8Ed-BzquC8wXy7w_-1602879163")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrCtctPrsn")]
     #endif
+    [IsoXmlTag("SellrCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? SellerContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -253,15 +240,14 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     #endif
     
     /// <summary>
-    /// Person to be contacted in the buyer's bank.
+    /// Person to be contacted in the buyer&apos;s bank.
     /// </summary>
     [IsoId("_paW-ddE8Ed-BzquC8wXy7w_-1602879518")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Bank Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrBkCtctPrsn")]
     #endif
+    [IsoXmlTag("BuyrBkCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? BuyerBankContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -271,15 +257,14 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     #endif
     
     /// <summary>
-    /// Person to be contacted in the seller's bank.
+    /// Person to be contacted in the seller&apos;s bank.
     /// </summary>
     [IsoId("_paW-dtE8Ed-BzquC8wXy7w_-1602879638")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Bank Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrBkCtctPrsn")]
     #endif
+    [IsoXmlTag("SellrBkCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? SellerBankContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -289,15 +274,14 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     #endif
     
     /// <summary>
-    /// Person to be contacted in another bank than the seller or buyer's bank.
+    /// Person to be contacted in another bank than the seller or buyer&apos;s bank.
     /// </summary>
     [IsoId("_paW-d9E8Ed-BzquC8wXy7w_-595440751")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Bank Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrBkCtctPrsn")]
     #endif
+    [IsoXmlTag("OthrBkCtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification3? OtherBankContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -310,12 +294,11 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     /// Information on the next processing step required.
     /// </summary>
     [IsoId("_pagIYNE8Ed-BzquC8wXy7w_-1602879750")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -328,7 +311,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FullPushThroughReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FullPushThroughReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FullPushThroughReportV03Document ToDocument()
     {
@@ -338,7 +321,7 @@ public partial record FullPushThroughReportV03 : IOuterRecord<FullPushThroughRep
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FullPushThroughReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FullPushThroughReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FullPushThroughReportV03Document : IOuterDocument<FullPushThroughReportV03>
@@ -355,7 +338,7 @@ public partial record FullPushThroughReportV03Document : IOuterDocument<FullPush
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FullPushThroughReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FullPushThroughReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FullPushThroughReportV03 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Transport key or key encryption key (KEK) identification for the recipient.
 /// </summary>
 [IsoId("_SxIvtAEcEeCQm6a_G2yO_w_1837772326")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Certificate Identifier")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CertificateIdentifier1
     /// Certificate issuer name and serial number (see X.509).
     /// </summary>
     [IsoId("_SxIvtQEcEeCQm6a_G2yO_w_942906832")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer And Serial Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrAndSrlNb")]
     #endif
+    [IsoXmlTag("IssrAndSrlNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IssuerAndSerialNumber1 IssuerAndSerialNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IssuerAndSerialNumber1 IssuerAndSerialNumber { get; init; } 
+    public required IssuerAndSerialNumber1 IssuerAndSerialNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IssuerAndSerialNumber1 IssuerAndSerialNumber { get; init; } 
     #else

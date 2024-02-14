@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Rates1Choice
     /// Details about the variable rate.
     /// </summary>
     [IsoId("_VdT5QHg2EeuXJdYjLmnO3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Floating")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,12 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Rates1Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Fltg")]
         #endif
+        [IsoXmlTag("Fltg")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalRatesAndTenors1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalRatesAndTenors1Code Value { get; init; } 
+        public required ExternalRatesAndTenors1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalRatesAndTenors1Code Value { get; init; } 
         #else

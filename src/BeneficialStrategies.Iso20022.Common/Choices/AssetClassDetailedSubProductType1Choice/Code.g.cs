@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassDetailedSubProductType
     /// Specifies the type of commodity.
     /// </summary>
     [IsoId("_ZDUjII16Eeet3cKIYK84nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassDetailedSubProductType
         /// Sub product code list for commodity derivatives.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassDetailedSubProductType16Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassDetailedSubProductType16Code Value { get; init; } 
+        public required AssetClassDetailedSubProductType16Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassDetailedSubProductType16Code Value { get; init; } 
         #else

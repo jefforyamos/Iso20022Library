@@ -21,7 +21,7 @@ public enum TradeCounterpartyTypeCode
 {
     /// <summary>
     /// Specifies that party to the transaction is a Reporting Counterparty.
-    /// Encoded/decoded by serializers as "REPC".
+    /// Encoded/decoded by serializers as &quot;REPC&quot;.
     /// </summary>
     [EnumMember(Value = "REPC")]
     [IsoId("_AgatECR8Ee2VuKUpJ7HXPg")]
@@ -30,7 +30,7 @@ public enum TradeCounterpartyTypeCode
     
     /// <summary>
     /// Specifies that party to the transaction is an Other Counterparty.
-    /// Encoded/decoded by serializers as "OTHC".
+    /// Encoded/decoded by serializers as &quot;OTHC&quot;.
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_DLsnkCR8Ee2VuKUpJ7HXPg")]
@@ -39,7 +39,7 @@ public enum TradeCounterpartyTypeCode
     
     /// <summary>
     /// Specifies that party to the transaction is a Broker.
-    /// Encoded/decoded by serializers as "BROK".
+    /// Encoded/decoded by serializers as &quot;BROK&quot;.
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_OnUWUCR8Ee2VuKUpJ7HXPg")]
@@ -48,7 +48,7 @@ public enum TradeCounterpartyTypeCode
     
     /// <summary>
     /// Specifies that party to the transaction is a Submitting Agent.
-    /// Encoded/decoded by serializers as "SBMA".
+    /// Encoded/decoded by serializers as &quot;SBMA&quot;.
     /// </summary>
     [EnumMember(Value = "SBMA")]
     [IsoId("_QITn8CR8Ee2VuKUpJ7HXPg")]
@@ -57,7 +57,7 @@ public enum TradeCounterpartyTypeCode
     
     /// <summary>
     /// Specifies that party to the transaction is a Clearing Member.
-    /// Encoded/decoded by serializers as "CLEM".
+    /// Encoded/decoded by serializers as &quot;CLEM&quot;.
     /// </summary>
     [EnumMember(Value = "CLEM")]
     [IsoId("_R-ftgCR8Ee2VuKUpJ7HXPg")]
@@ -66,7 +66,7 @@ public enum TradeCounterpartyTypeCode
     
     /// <summary>
     /// Specifies that party to the transaction is a Beneficiary.
-    /// Encoded/decoded by serializers as "BENE".
+    /// Encoded/decoded by serializers as &quot;BENE&quot;.
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_T-wVECR8Ee2VuKUpJ7HXPg")]
@@ -75,7 +75,7 @@ public enum TradeCounterpartyTypeCode
     
     /// <summary>
     /// Specifies that party to the transaction is an Executing Agent.
-    /// Encoded/decoded by serializers as "EXEA".
+    /// Encoded/decoded by serializers as &quot;EXEA&quot;.
     /// </summary>
     [EnumMember(Value = "EXEA")]
     [IsoId("_WtZFkCR8Ee2VuKUpJ7HXPg")]
@@ -84,7 +84,7 @@ public enum TradeCounterpartyTypeCode
     
     /// <summary>
     /// Specifies that party to the transaction is an Entity Responsible For Report.
-    /// Encoded/decoded by serializers as "ERFR".
+    /// Encoded/decoded by serializers as &quot;ERFR&quot;.
     /// </summary>
     [EnumMember(Value = "ERFR")]
     [IsoId("_xA_40CxqEe2xAdY9t5fB3g")]

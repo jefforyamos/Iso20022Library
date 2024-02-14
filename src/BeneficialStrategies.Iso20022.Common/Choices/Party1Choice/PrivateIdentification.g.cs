@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
     /// Unique and unambiguous identification of a person, eg, passport.
     /// </summary>
     [IsoId("_Rca4udp-Ed-ak6NoX_4Aeg_-69784778")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Private Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -60,22 +58,20 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         #nullable enable
         
         /// <summary>
-        /// Number assigned by a license authority to a driver's license.
+        /// Number assigned by a license authority to a driver&apos;s license.
         /// </summary>
         [IsoId("_QDwctdp-Ed-ak6NoX_4Aeg_1404901307")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Drivers License Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrvrsLicNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("DrvrsLicNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text DriversLicenseNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String DriversLicenseNumber { get; init; } 
+        public required System.String DriversLicenseNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String DriversLicenseNumber { get; init; } 
         #else
@@ -86,19 +82,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         /// Number assigned by a social security agency.
         /// </summary>
         [IsoId("_QD6NoNp-Ed-ak6NoX_4Aeg_1404902315")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Social Security Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SclSctyNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SclSctyNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text SocialSecurityNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String SocialSecurityNumber { get; init; } 
+        public required System.String SocialSecurityNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String SocialSecurityNumber { get; init; } 
         #else
@@ -109,19 +103,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         /// Number assigned by a government agency to identify foreign nationals.
         /// </summary>
         [IsoId("_QD6Nodp-Ed-ak6NoX_4Aeg_1404902764")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Alien Registration Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AlnRegnNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AlnRegnNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text AlienRegistrationNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String AlienRegistrationNumber { get; init; } 
+        public required System.String AlienRegistrationNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String AlienRegistrationNumber { get; init; } 
         #else
@@ -132,19 +124,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         /// Number assigned by a passport authority to a passport.
         /// </summary>
         [IsoId("_QD6Notp-Ed-ak6NoX_4Aeg_1404903125")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Passport Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PsptNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PsptNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text PassportNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String PassportNumber { get; init; } 
+        public required System.String PassportNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String PassportNumber { get; init; } 
         #else
@@ -155,19 +145,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         /// Number assigned by a tax authority to an entity.
         /// </summary>
         [IsoId("_QD6No9p-Ed-ak6NoX_4Aeg_1404903365")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tax Identification Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TaxIdNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TaxIdNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text TaxIdentificationNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String TaxIdentificationNumber { get; init; } 
+        public required System.String TaxIdentificationNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String TaxIdentificationNumber { get; init; } 
         #else
@@ -178,19 +166,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         /// Number assigned by a national authority to an identity card.
         /// </summary>
         [IsoId("_QD6NpNp-Ed-ak6NoX_4Aeg_-1540075051")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identity Card Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IdntyCardNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("IdntyCardNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text IdentityCardNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String IdentityCardNumber { get; init; } 
+        public required System.String IdentityCardNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String IdentityCardNumber { get; init; } 
         #else
@@ -201,19 +187,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         /// Number assigned to an employer by a registration authority.
         /// </summary>
         [IsoId("_QD6Npdp-Ed-ak6NoX_4Aeg_1404903678")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Employer Identification Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MplyrIdNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MplyrIdNb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text EmployerIdentificationNumber { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String EmployerIdentificationNumber { get; init; } 
+        public required System.String EmployerIdentificationNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String EmployerIdentificationNumber { get; init; } 
         #else
@@ -224,16 +208,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         /// Identifier issued to a person for which no specific identifier has been defined.
         /// </summary>
         [IsoId("_QD6Nptp-Ed-ak6NoX_4Aeg_-1268666477")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrId")]
         #endif
+        [IsoXmlTag("OthrId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GenericIdentification4 OtherIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GenericIdentification4 OtherIdentification { get; init; } 
+        public required GenericIdentification4 OtherIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GenericIdentification4 OtherIdentification { get; init; } 
         #else
@@ -244,15 +227,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party1Choice
         /// Entity that assigns the identifier.
         /// </summary>
         [IsoId("_QD6Np9p-Ed-ak6NoX_4Aeg_-2082130067")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Issr")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

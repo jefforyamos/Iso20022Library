@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// List of criteria following the AND logic.
 /// </summary>
 [IsoId("_JdNs8N6QEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Search And")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record SearchAnd1
     /// Identifier of target element.
     /// </summary>
     [IsoId("_Sh7OsN6QEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trgt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Trgt")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax500Text Target { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Target { get; init; } 
+    public required System.String Target { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Target { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record SearchAnd1
     /// Comparison operator used to evaluate matching transactions vs criteria.
     /// </summary>
     [IsoId("_VruRMN6QEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oprtr")]
     #endif
+    [IsoXmlTag("Oprtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Operator1Code Operator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Operator1Code Operator { get; init; } 
+    public required Operator1Code Operator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Operator1Code Operator { get; init; } 
     #else
@@ -96,19 +91,17 @@ public partial record SearchAnd1
     /// Reference value to be used when evaluating against the target element value using the criteria operator.
     /// </summary>
     [IsoId("_Y_OCQN6QEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax500Text Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Value { get; init; } 
+    public required System.String Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Value { get; init; } 
     #else

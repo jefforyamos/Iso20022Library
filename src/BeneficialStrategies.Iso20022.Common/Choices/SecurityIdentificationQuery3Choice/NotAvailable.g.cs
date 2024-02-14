@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery3Choi
     /// Usage: N/A means that value was not available at the time of the reporting.
     /// </summary>
     [IsoId("_P-19BdGgEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Available")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery3Choi
         /// Specifies a not available value code.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NotAvlbl")]
         #endif
+        [IsoXmlTag("NotAvlbl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NotAvailable1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NotAvailable1Code Value { get; init; } 
+        public required NotAvailable1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NotAvailable1Code Value { get; init; } 
         #else

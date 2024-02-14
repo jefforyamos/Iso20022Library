@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Outcome of the processing of the batch.
 /// </summary>
 [IsoId("_Rq4CoFA0EeedyPuM0kK2EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Processing Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ProcessingResult3
     /// Result information related to the processing of the transaction.
     /// </summary>
     [IsoId("_6HHA4FA0EeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsltData")]
     #endif
+    [IsoXmlTag("RsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResultData2 ResultData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResultData2 ResultData { get; init; } 
+    public required ResultData2 ResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResultData2 ResultData { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ProcessingResult3
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
     [IsoId("_2UFw8Rs2EeqrvK3udMUsNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRsltData")]
     #endif
+    [IsoXmlTag("OrgnlRsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData1? OriginalResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

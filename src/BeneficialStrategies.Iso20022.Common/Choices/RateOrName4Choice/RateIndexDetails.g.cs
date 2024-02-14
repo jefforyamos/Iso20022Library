@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice
     /// Pricing expressed as a rate index type or a rate name. Lookback and crystallization days.
     /// </summary>
     [IsoId("_KwKzkxIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Index Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice
         /// Specifies the rate type as an index type or by its name.
         /// </summary>
         [IsoId("_LIAr0RIlEeyLzJfz3xPQNA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BenchmarkCurveName13Choice_ Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BenchmarkCurveName13Choice_ Type { get; init; } 
+        public required BenchmarkCurveName13Choice_ Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BenchmarkCurveName13Choice_ Type { get; init; } 
         #else
@@ -76,15 +73,12 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice
         /// Number of days prior to the current day to source the rate.
         /// </summary>
         [IsoId("_LIAr0xIlEeyLzJfz3xPQNA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Look Back Days")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LookBckDays")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("LookBckDays")]
+        [IsoSimpleType(IsoSimpleType.Max3NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax3NumericText? LookBackDays { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +91,11 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice
         /// Identifies the penultimate accrual date of the transaction to the final (repurchase) date. Crystallising the penultimate fixing into a fixed rate for the final business day. This will allow for parties to send timely settlement instructions for the repurchase leg of the transaction. Default value is 1 day.
         /// </summary>
         [IsoId("_LIAr1RIlEeyLzJfz3xPQNA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Crystallisation Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CrstllstnDt")]
         #endif
+        [IsoXmlTag("CrstllstnDt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CrystallisationDay1? CrystallisationDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +108,11 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice
         /// Specifies the tenor of the interest rate index (when the interest rate is calculated).
         /// </summary>
         [IsoId("_LIAr1xIlEeyLzJfz3xPQNA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tenor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tnr")]
         #endif
+        [IsoXmlTag("Tnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InterestRateIndexTenor2Code? Tenor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,12 +125,11 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice
         /// Rate Index currency.
         /// </summary>
         [IsoId("_LIAr2RIlEeyLzJfz3xPQNA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ccy")]
         #endif
+        [IsoXmlTag("Ccy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

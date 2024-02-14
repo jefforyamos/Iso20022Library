@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SequenceRange1Choice.EqualSequence))]
     [KnownType(typeof(SequenceRange1Choice.NotEqualSequence))]
     [IsoId("_rsIb84y3EeeGkvZr3jtnCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Range 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

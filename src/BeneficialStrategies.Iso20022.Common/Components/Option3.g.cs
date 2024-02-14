@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// List of elements which provide the parameters of an option trade.
 /// </summary>
 [IsoId("_TLSOQNp-Ed-ak6NoX_4Aeg_-1226899977")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,16 +55,15 @@ public partial record Option3
     /// Specifies the call and the put amount of the underlying foreign exchange trade.
     /// </summary>
     [IsoId("_TLSOQdp-Ed-ak6NoX_4Aeg_-1226899590")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnAmts")]
     #endif
+    [IsoXmlTag("OptnAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate2 OptionAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountsAndValueDate2 OptionAmounts { get; init; } 
+    public required AmountsAndValueDate2 OptionAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountsAndValueDate2 OptionAmounts { get; init; } 
     #else
@@ -77,16 +74,15 @@ public partial record Option3
     /// Specifies the rate of exchange at which the foreign exchange option has been struck.
     /// </summary>
     [IsoId("_TLSOQtp-Ed-ak6NoX_4Aeg_-1226899555")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strike Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrkPric")]
     #endif
+    [IsoXmlTag("StrkPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate1 StrikePrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate1 StrikePrice { get; init; } 
+    public required AgreedRate1 StrikePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate1 StrikePrice { get; init; } 
     #else
@@ -97,16 +93,15 @@ public partial record Option3
     /// Defines how an option can be exercised.
     /// </summary>
     [IsoId("_TLSOQ9p-Ed-ak6NoX_4Aeg_-1226899975")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exercise Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExrcStyle")]
     #endif
+    [IsoXmlTag("ExrcStyle")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionStyle2Code ExerciseStyle { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionStyle2Code ExerciseStyle { get; init; } 
+    public required OptionStyle2Code ExerciseStyle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionStyle2Code ExerciseStyle { get; init; } 
     #else
@@ -117,12 +112,12 @@ public partial record Option3
     /// First date on which an american option can be exercised.
     /// </summary>
     [IsoId("_TLSORNp-Ed-ak6NoX_4Aeg_-1226899694")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Earliest Exercise Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlstExrcDt")]
     #endif
+    [IsoXmlTag("EarlstExrcDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? EarliestExerciseDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,16 +130,16 @@ public partial record Option3
     /// Date on which a privilege (eg, option, right, warrant.) expires. If it is an European option, the option holder can only exercise the right or let it lapse on expiry date. If it is an American option, the option holder can exercise the right up to the expiry date.
     /// </summary>
     [IsoId("_TLSORdp-Ed-ak6NoX_4Aeg_-1226899676")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date And Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDtAndTm")]
     #endif
+    [IsoXmlTag("XpryDtAndTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ExpiryDateAndTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ExpiryDateAndTime { get; init; } 
+    public required System.DateTime ExpiryDateAndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ExpiryDateAndTime { get; init; } 
     #else
@@ -155,19 +150,17 @@ public partial record Option3
     /// Financial center where option expires.
     /// </summary>
     [IsoId("_TLSORtp-Ed-ak6NoX_4Aeg_-1226899651")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryLctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XpryLctn")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText ExpiryLocation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExpiryLocation { get; init; } 
+    public required System.String ExpiryLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExpiryLocation { get; init; } 
     #else
@@ -178,16 +171,15 @@ public partial record Option3
     /// Indicates whether the trade is to be settled as principal or netted off against another trade.
     /// </summary>
     [IsoId("_TLSOR9p-Ed-ak6NoX_4Aeg_-1226899634")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTp")]
     #endif
+    [IsoXmlTag("SttlmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementType1Code SettlementType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementType1Code SettlementType { get; init; } 
+    public required SettlementType1Code SettlementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementType1Code SettlementType { get; init; } 
     #else
@@ -198,15 +190,13 @@ public partial record Option3
     /// Free format text that may contain information on the option.
     /// </summary>
     [IsoId("_TLSOSNp-Ed-ak6NoX_4Aeg_-1226899616")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Option Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlOptnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlOptnInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalOptionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,16 +209,15 @@ public partial record Option3
     /// Specifies the amount of the premium of a foreign exchange option trade and its settlement place.
     /// </summary>
     [IsoId("_TLb_QNp-Ed-ak6NoX_4Aeg_-1197044330")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Premium")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prm")]
     #endif
+    [IsoXmlTag("Prm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PremiumAmount2 Premium { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PremiumAmount2 Premium { get; init; } 
+    public required PremiumAmount2 Premium { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PremiumAmount2 Premium { get; init; } 
     #else

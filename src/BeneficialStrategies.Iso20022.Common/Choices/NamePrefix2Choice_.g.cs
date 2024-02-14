@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NamePrefix2Choice.NamePrefix))]
     [KnownType(typeof(NamePrefix2Choice.ExtendedNamePrefix))]
     [IsoId("_HMqgQQ2fEeSNWNtJlXOAhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name Prefix 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

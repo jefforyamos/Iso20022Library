@@ -21,7 +21,7 @@ public enum RoundingDirection1Code
 {
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDUP".
+    /// Encoded/decoded by serializers as &quot;RDUP&quot;.
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_Y-Bo9tp-Ed-ak6NoX_4Aeg_2066033827")]
@@ -30,7 +30,7 @@ public enum RoundingDirection1Code
     
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDWN".
+    /// Encoded/decoded by serializers as &quot;RDWN&quot;.
     /// </summary>
     [EnumMember(Value = "RDWN")]
     [IsoId("_Y-Bo99p-Ed-ak6NoX_4Aeg_2066033828")]
@@ -39,7 +39,7 @@ public enum RoundingDirection1Code
     
     /// <summary>
     /// Round up or down to the nearest whole number.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_Y-Bo-Np-Ed-ak6NoX_4Aeg_-1599090070")]
@@ -48,7 +48,7 @@ public enum RoundingDirection1Code
     
     /// <summary>
     /// Do not round.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_Y-LZ8Np-Ed-ak6NoX_4Aeg_-1566769655")]

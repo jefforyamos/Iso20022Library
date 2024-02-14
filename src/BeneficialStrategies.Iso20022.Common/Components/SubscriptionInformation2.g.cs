@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about cumulative subscriptions.
 /// </summary>
 [IsoId("_bgNQUU7dEeifNrXGwadPmg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SubscriptionInformation2
     /// Date of the first subscription in the current year.
     /// </summary>
     [IsoId("_bxBThU7dEeifNrXGwadPmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of First Subscription")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfFrstSbcpt")]
     #endif
+    [IsoXmlTag("DtOfFrstSbcpt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate DateOfFirstSubscription { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly DateOfFirstSubscription { get; init; } 
+    public required System.DateOnly DateOfFirstSubscription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly DateOfFirstSubscription { get; init; } 
     #else
@@ -72,12 +70,12 @@ public partial record SubscriptionInformation2
     /// Amount subscribed in the current tax year into equities (not including dividends).
     /// </summary>
     [IsoId("_bxBTh07dEeifNrXGwadPmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equity Component")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EqtyCmpnt")]
     #endif
+    [IsoXmlTag("EqtyCmpnt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? EquityComponent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +88,12 @@ public partial record SubscriptionInformation2
     /// Amount subscribed in the current tax year into cash.
     /// </summary>
     [IsoId("_bxBTiU7dEeifNrXGwadPmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Component")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCmpnt")]
     #endif
+    [IsoXmlTag("CshCmpnt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? CashComponent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +106,16 @@ public partial record SubscriptionInformation2
     /// Total amount subscribed in the current tax year.
     /// </summary>
     [IsoId("_bxBTi07dEeifNrXGwadPmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount Year To Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtYrToDt")]
     #endif
+    [IsoXmlTag("TtlAmtYrToDt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount TotalAmountYearToDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalAmountYearToDate { get; init; } 
+    public required System.Decimal TotalAmountYearToDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalAmountYearToDate { get; init; } 
     #else

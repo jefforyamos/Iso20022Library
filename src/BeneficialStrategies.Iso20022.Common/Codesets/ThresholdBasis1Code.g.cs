@@ -21,7 +21,7 @@ public enum ThresholdBasis1Code
 {
     /// <summary>
     /// Basis is the total number of shares issued.
-    /// Encoded/decoded by serializers as "ALSH".
+    /// Encoded/decoded by serializers as &quot;ALSH&quot;.
     /// </summary>
     [EnumMember(Value = "ALSH")]
     [IsoId("_KOf5QRuOEeyhRdHRjakS2w")]
@@ -30,7 +30,7 @@ public enum ThresholdBasis1Code
     
     /// <summary>
     /// Basis is the total number of shares represented at the meeting by attendees. 
-    /// Encoded/decoded by serializers as "ALSM".
+    /// Encoded/decoded by serializers as &quot;ALSM&quot;.
     /// </summary>
     [EnumMember(Value = "ALSM")]
     [IsoId("_KUwSQRuOEeyhRdHRjakS2w")]
@@ -39,7 +39,7 @@ public enum ThresholdBasis1Code
     
     /// <summary>
     /// Basis is the total number of vote cast for a resolution.
-    /// Encoded/decoded by serializers as "ALVO".
+    /// Encoded/decoded by serializers as &quot;ALVO&quot;.
     /// </summary>
     [EnumMember(Value = "ALVO")]
     [IsoId("_KbArQRuOEeyhRdHRjakS2w")]

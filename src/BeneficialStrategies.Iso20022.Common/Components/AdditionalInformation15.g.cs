@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information.
 /// </summary>
 [IsoId("_tmecgZCkEeiQvr1XXv37hw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AdditionalInformation15
     /// Type of additional information.
     /// </summary>
     [IsoId("_t2iRwZCkEeiQvr1XXv37hw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfTp")]
     #endif
+    [IsoXmlTag("InfTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification36 InformationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification36 InformationType { get; init; } 
+    public required GenericIdentification36 InformationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification36 InformationType { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record AdditionalInformation15
     /// Value of the additional information.
     /// </summary>
     [IsoId("_t2iRw5CkEeiQvr1XXv37hw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InfVal")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text InformationValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InformationValue { get; init; } 
+    public required System.String InformationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InformationValue { get; init; } 
     #else

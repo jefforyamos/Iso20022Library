@@ -21,7 +21,7 @@ public enum CCPMemberTypeCode
 {
     /// <summary>
     /// Futures Commission Merchant.
-    /// Encoded/decoded by serializers as "FCMC".
+    /// Encoded/decoded by serializers as &quot;FCMC&quot;.
     /// </summary>
     [EnumMember(Value = "FCMC")]
     [IsoId("_P0ZikAGeEeutW5-TpeYJhA")]
@@ -30,7 +30,7 @@ public enum CCPMemberTypeCode
     
     /// <summary>
     /// General Clearing Member.
-    /// Encoded/decoded by serializers as "GCMB".
+    /// Encoded/decoded by serializers as &quot;GCMB&quot;.
     /// </summary>
     [EnumMember(Value = "GCMB")]
     [IsoId("_clwVMAGeEeutW5-TpeYJhA")]
@@ -39,7 +39,7 @@ public enum CCPMemberTypeCode
     
     /// <summary>
     /// Direct Clearing Member.
-    /// Encoded/decoded by serializers as "DCMB".
+    /// Encoded/decoded by serializers as &quot;DCMB&quot;.
     /// </summary>
     [EnumMember(Value = "DCMB")]
     [IsoId("_hDGqQAGeEeutW5-TpeYJhA")]
@@ -48,7 +48,7 @@ public enum CCPMemberTypeCode
     
     /// <summary>
     /// Sponsored Clearing Member.
-    /// Encoded/decoded by serializers as "SCMB".
+    /// Encoded/decoded by serializers as &quot;SCMB&quot;.
     /// </summary>
     [EnumMember(Value = "SCMB")]
     [IsoId("_rxAXYAGeEeutW5-TpeYJhA")]
@@ -57,7 +57,7 @@ public enum CCPMemberTypeCode
     
     /// <summary>
     /// Agent Clearing Member.
-    /// Encoded/decoded by serializers as "ACMB".
+    /// Encoded/decoded by serializers as &quot;ACMB&quot;.
     /// </summary>
     [EnumMember(Value = "ACMB")]
     [IsoId("_xBv4QAGeEeutW5-TpeYJhA")]
@@ -66,7 +66,7 @@ public enum CCPMemberTypeCode
     
     /// <summary>
     /// Clearing House.
-    /// Encoded/decoded by serializers as "CCPX".
+    /// Encoded/decoded by serializers as &quot;CCPX&quot;.
     /// </summary>
     [EnumMember(Value = "CCPX")]
     [IsoId("_57SEwAGeEeutW5-TpeYJhA")]

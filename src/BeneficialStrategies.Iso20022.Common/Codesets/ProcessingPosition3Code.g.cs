@@ -21,7 +21,7 @@ public enum ProcessingPosition3Code
 {
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed after the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "AFTE".
+    /// Encoded/decoded by serializers as &quot;AFTE&quot;.
     /// </summary>
     [EnumMember(Value = "AFTE")]
     [IsoId("_aK6559p-Ed-ak6NoX_4Aeg_-1877116893")]
@@ -30,7 +30,7 @@ public enum ProcessingPosition3Code
     
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed with the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_aK656Np-Ed-ak6NoX_4Aeg_-1877116876")]
@@ -39,7 +39,7 @@ public enum ProcessingPosition3Code
     
     /// <summary>
     /// Specifies that the transaction/instruction is to be executed before the linked transaction/instruction.
-    /// Encoded/decoded by serializers as "BEFO".
+    /// Encoded/decoded by serializers as &quot;BEFO&quot;.
     /// </summary>
     [EnumMember(Value = "BEFO")]
     [IsoId("_aLED0Np-Ed-ak6NoX_4Aeg_-1877116833")]
@@ -48,7 +48,7 @@ public enum ProcessingPosition3Code
     
     /// <summary>
     /// Specifies that the transactions/instructions are linked for information purposes only.
-    /// Encoded/decoded by serializers as "INFO".
+    /// Encoded/decoded by serializers as &quot;INFO&quot;.
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_aLED0dp-Ed-ak6NoX_4Aeg_-1877116816")]

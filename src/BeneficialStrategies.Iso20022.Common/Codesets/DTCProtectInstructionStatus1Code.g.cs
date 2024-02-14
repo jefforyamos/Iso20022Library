@@ -21,7 +21,7 @@ public enum DTCProtectInstructionStatus1Code
 {
     /// <summary>
     /// Instruction pending release or delete from approval function.
-    /// Encoded/decoded by serializers as "PENA".
+    /// Encoded/decoded by serializers as &quot;PENA&quot;.
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_MS-eUZIdEeaNbfbSYshZYw")]
@@ -30,7 +30,7 @@ public enum DTCProtectInstructionStatus1Code
     
     /// <summary>
     /// Client instruction withdrawn for events with withdrawal privilege.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_McjREZIdEeaNbfbSYshZYw")]
@@ -39,7 +39,7 @@ public enum DTCProtectInstructionStatus1Code
     
     /// <summary>
     /// Protect instruction has been fully covered.
-    /// Encoded/decoded by serializers as "COVR".
+    /// Encoded/decoded by serializers as &quot;COVR&quot;.
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_MoTOEZIdEeaNbfbSYshZYw")]
@@ -48,7 +48,7 @@ public enum DTCProtectInstructionStatus1Code
     
     /// <summary>
     /// Protect instruction has expired.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_NdphsZIdEeaNbfbSYshZYw")]
@@ -57,7 +57,7 @@ public enum DTCProtectInstructionStatus1Code
     
     /// <summary>
     /// Protect instruction which has not been fully covered. Will include partial covers.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_N2nbUZIdEeaNbfbSYshZYw")]

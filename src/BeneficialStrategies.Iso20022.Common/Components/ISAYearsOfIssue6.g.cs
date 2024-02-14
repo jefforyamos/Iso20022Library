@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Year in which the ISA plan is issued.
 /// </summary>
 [IsoId("_3gg5VEXfEeGY6MkiuzuPOA_-1852894636")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ISA Years Of Issue")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ISAYearsOfIssue6
     /// ISA that was issued during the current fiscal year.
     /// </summary>
     [IsoId("_3gqDQEXfEeGY6MkiuzuPOA_-1966733702")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Year")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurYr")]
     #endif
+    [IsoXmlTag("CurYr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrentYearType2Choice_? CurrentYear { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ISAYearsOfIssue6
     /// Selection of investment plans issued during previous years.
     /// </summary>
     [IsoId("_3gqDQUXfEeGY6MkiuzuPOA_334088888")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Years")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsYrs")]
     #endif
+    [IsoXmlTag("PrvsYrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PreviousYearChoice_? PreviousYears { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

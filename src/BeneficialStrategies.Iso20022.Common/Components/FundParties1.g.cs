@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parties related to an investment fund.
 /// </summary>
 [IsoId("_FCdpMF_6EeiNMJ262H2pWg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FundParties1
     /// Guarantor of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00080.
     /// </summary>
     [IsoId("_KGpUwV_6EeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guarantor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Guarntr")]
     #endif
+    [IsoXmlTag("Guarntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes5? Guarantor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record FundParties1
     /// Party that regularly monitors compliance with the legal regulations.
     /// </summary>
     [IsoId("_Nn5N8l_6EeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Auditor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Audtr")]
     #endif
+    [IsoXmlTag("Audtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes5? Auditor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record FundParties1
     /// Legal owner of the financial instrument. However, the beneficiary has the equitable or beneficial ownership.
     /// </summary>
     [IsoId("_Nn5N81_6EeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trustee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trstee")]
     #endif
+    [IsoXmlTag("Trstee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactAttributes5? Trustee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record FundParties1
     /// Other type of party.
     /// </summary>
     [IsoId("_F-x3wWALEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPty")]
     #endif
+    [IsoXmlTag("OthrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedParty13? OtherParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Branch2Choice
     /// Identification of the branch office of a reporting counterparty.
     /// </summary>
     [IsoId("_6YyU4UqQEeeLKviVB0vAnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

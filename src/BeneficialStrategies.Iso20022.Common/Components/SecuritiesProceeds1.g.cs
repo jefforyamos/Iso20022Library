@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides securities proceeds information.
 /// </summary>
 [IsoId("_UK6fR9p-Ed-ak6NoX_4Aeg_1911486700")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Proceeds")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecuritiesProceeds1
     /// Identification of the financial instrument.
     /// </summary>
     [IsoId("_UK6fSNp-Ed-ak6NoX_4Aeg_-1868154085")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification7 SecurityIdentification { get; init; } 
+    public required SecurityIdentification7 SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification7 SecurityIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SecuritiesProceeds1
     /// The quantity of financial instruments that is posted.
     /// </summary>
     [IsoId("_UK6fSdp-Ed-ak6NoX_4Aeg_-1868154084")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Posting Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstngQty")]
     #endif
+    [IsoXmlTag("PstngQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     #else
@@ -92,31 +88,26 @@ public partial record SecuritiesProceeds1
     /// Provides information about the account that is debited/credited.
     /// </summary>
     [IsoId("_UK6fStp-Ed-ak6NoX_4Aeg_-1386075125")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctDtls")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<SecuritiesAccount10> AccountDetails { get; init; } = new ValueList<SecuritiesAccount10>(){};
     
     /// <summary>
     /// Provides reconciliation information.
     /// </summary>
     [IsoId("_UK6fS9p-Ed-ak6NoX_4Aeg_1005212096")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcncltnDtls")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? ReconciliationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

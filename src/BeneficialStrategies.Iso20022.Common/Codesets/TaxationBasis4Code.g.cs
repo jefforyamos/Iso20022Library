@@ -21,7 +21,7 @@ public enum TaxationBasis4Code
 {
     /// <summary>
     /// Charge/tax basis is a lump sum.
-    /// Encoded/decoded by serializers as "FLAT".
+    /// Encoded/decoded by serializers as &quot;FLAT&quot;.
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_ZScZyNp-Ed-ak6NoX_4Aeg_752961378")]
@@ -30,7 +30,7 @@ public enum TaxationBasis4Code
     
     /// <summary>
     /// Charges/tax basis is per unit of financial instrument.
-    /// Encoded/decoded by serializers as "PERU".
+    /// Encoded/decoded by serializers as &quot;PERU&quot;.
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("_ZSljsNp-Ed-ak6NoX_4Aeg_752961403")]
@@ -39,7 +39,7 @@ public enum TaxationBasis4Code
     
     /// <summary>
     /// Charge/Commission/tax basis is based on the gross amount.
-    /// Encoded/decoded by serializers as "GRAM".
+    /// Encoded/decoded by serializers as &quot;GRAM&quot;.
     /// </summary>
     [EnumMember(Value = "GRAM")]
     [IsoId("_ZSljsdp-Ed-ak6NoX_4Aeg_771431735")]
@@ -48,7 +48,7 @@ public enum TaxationBasis4Code
     
     /// <summary>
     /// Charge/commission/tax basis is based on the net amount.
-    /// Encoded/decoded by serializers as "NEAM".
+    /// Encoded/decoded by serializers as &quot;NEAM&quot;.
     /// </summary>
     [EnumMember(Value = "NEAM")]
     [IsoId("_ZSljstp-Ed-ak6NoX_4Aeg_771431777")]

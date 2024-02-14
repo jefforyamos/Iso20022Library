@@ -22,7 +22,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Account switch is terminated. 
     /// Usage: Terminated status should be used when the account switch service receives and validates a terminate switch request.
-    /// Encoded/decoded by serializers as "TMTN".
+    /// Encoded/decoded by serializers as &quot;TMTN&quot;.
     /// </summary>
     [EnumMember(Value = "TMTN")]
     [IsoId("_A8UVYBE3EeafpqhYGpTDnw")]
@@ -32,7 +32,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Information is requested for the account switch. 
     /// Usage: Requested status should be used when the account switch service receives and validates an information request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_FQSE8BE3EeafpqhYGpTDnw")]
@@ -42,7 +42,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Account switch is rejected. 
     /// Usage: Rejected status should be used when account switch service receives and validates an information response request rejecting the account switch.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_JyqrABE3EeafpqhYGpTDnw")]
@@ -52,7 +52,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Redirection ended at the end of the redirection period. 
     /// Usage: Indicates the cessation of account redirection by a particular service.
-    /// Encoded/decoded by serializers as "REDE".
+    /// Encoded/decoded by serializers as &quot;REDE&quot;.
     /// </summary>
     [EnumMember(Value = "REDE")]
     [IsoId("_MpyCEBE3EeafpqhYGpTDnw")]
@@ -62,7 +62,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Request for redirection. 
     /// Usage: Redirection status should be used when the account switch service receives and validates the first redirection request.
-    /// Encoded/decoded by serializers as "REDT".
+    /// Encoded/decoded by serializers as &quot;REDT&quot;.
     /// </summary>
     [EnumMember(Value = "REDT")]
     [IsoId("_PpO1wBE3EeafpqhYGpTDnw")]
@@ -72,7 +72,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Account switch is completed.
     /// Usage: Completed status should be used when account switch service receives and validates a notify account switch complete request.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_R2gloBE3EeafpqhYGpTDnw")]
@@ -82,7 +82,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Balance transfer responded.
     /// Usage: Balance transfer responded staus should be used when the account switch service receives and validates an acknowledge balance transfer request.
-    /// Encoded/decoded by serializers as "BTRS".
+    /// Encoded/decoded by serializers as &quot;BTRS&quot;.
     /// </summary>
     [EnumMember(Value = "BTRS")]
     [IsoId("_Ybv0QBE3EeafpqhYGpTDnw")]
@@ -92,7 +92,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Account balance transfer is requested.
     /// Usage: Balance transfer requested status should be used when account switch service receives and validates a request balance transfer request.
-    /// Encoded/decoded by serializers as "BTRQ".
+    /// Encoded/decoded by serializers as &quot;BTRQ&quot;.
     /// </summary>
     [EnumMember(Value = "BTRQ")]
     [IsoId("_cTBn0BE3EeafpqhYGpTDnw")]
@@ -102,7 +102,7 @@ public enum SwitchStatusCode
     /// <summary>
     /// Account switch is accepted.
     /// Usage: Accepted status should be used when account switch service receives and validates an information response request accepting the switch.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_kXGL8BE3EeafpqhYGpTDnw")]

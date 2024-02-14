@@ -21,7 +21,7 @@ public enum UnderlyingProductIdentifierCode
 {
     /// <summary>
     /// Underlying product type of the transaction is a Foreign Exchange Forward.
-    /// Encoded/decoded by serializers as "FORW".
+    /// Encoded/decoded by serializers as &quot;FORW&quot;.
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_hVYioCjmEeK1Sbo8NpBROA")]
@@ -30,7 +30,7 @@ public enum UnderlyingProductIdentifierCode
     
     /// <summary>
     /// Underlying product type of the transaction is a Foreign Exchange Non Deliverable Forward.
-    /// Encoded/decoded by serializers as "NDFO".
+    /// Encoded/decoded by serializers as &quot;NDFO&quot;.
     /// </summary>
     [EnumMember(Value = "NDFO")]
     [IsoId("_l4StICjmEeK1Sbo8NpBROA")]
@@ -39,7 +39,7 @@ public enum UnderlyingProductIdentifierCode
     
     /// <summary>
     /// Underlying product type of the transaction is Foreign Exchange Spot.
-    /// Encoded/decoded by serializers as "SPOT".
+    /// Encoded/decoded by serializers as &quot;SPOT&quot;.
     /// </summary>
     [EnumMember(Value = "SPOT")]
     [IsoId("_n1NFwCjmEeK1Sbo8NpBROA")]
@@ -48,7 +48,7 @@ public enum UnderlyingProductIdentifierCode
     
     /// <summary>
     /// Underlying product type of the transaction is a Foreign Exchange SWAP.
-    /// Encoded/decoded by serializers as "SWAP".
+    /// Encoded/decoded by serializers as &quot;SWAP&quot;.
     /// </summary>
     [EnumMember(Value = "SWAP")]
     [IsoId("_qTSRwCjmEeK1Sbo8NpBROA")]

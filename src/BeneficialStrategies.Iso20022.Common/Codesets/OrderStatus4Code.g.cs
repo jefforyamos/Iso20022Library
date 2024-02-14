@@ -21,7 +21,7 @@ public enum OrderStatus4Code
 {
     /// <summary>
     /// Order is accepted and is ready for execution (execution is the moment when pricing is applied).
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aR65w9p-Ed-ak6NoX_4Aeg_329337861")]
@@ -30,7 +30,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order is already executed and confirmation has been sent.
-    /// Encoded/decoded by serializers as "COSE".
+    /// Encoded/decoded by serializers as &quot;COSE&quot;.
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_aR65xNp-Ed-ak6NoX_4Aeg_330260418")]
@@ -39,7 +39,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order has been sent to the next party, eg, the next intermediary.
-    /// Encoded/decoded by serializers as "STNP".
+    /// Encoded/decoded by serializers as &quot;STNP&quot;.
     /// </summary>
     [EnumMember(Value = "STNP")]
     [IsoId("_aR65xdp-Ed-ak6NoX_4Aeg_330260898")]
@@ -48,7 +48,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order has been received, ie, technical validation of the message is ok, and the message is now at the receiving side.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aR65xtp-Ed-ak6NoX_4Aeg_330260941")]
@@ -57,7 +57,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order is settled. The cash is credited or debited.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_aR65x9p-Ed-ak6NoX_4Aeg_966938848")]
@@ -66,7 +66,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Communication problems with the next party.
-    /// Encoded/decoded by serializers as "CPNP".
+    /// Encoded/decoded by serializers as &quot;CPNP&quot;.
     /// </summary>
     [EnumMember(Value = "CPNP")]
     [IsoId("_aSEqwNp-Ed-ak6NoX_4Aeg_966938883")]
@@ -75,7 +75,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order confirmation cancellation has been sent and will be followed by a confirmation amendment, or a confirmation amendment has been sent.
-    /// Encoded/decoded by serializers as "CNFC".
+    /// Encoded/decoded by serializers as &quot;CNFC&quot;.
     /// </summary>
     [EnumMember(Value = "CNFC")]
     [IsoId("_aSEqwdp-Ed-ak6NoX_4Aeg_966939233")]
@@ -84,7 +84,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order has been partially filled, and is done for the day, ie, no further executions will take place today.
-    /// Encoded/decoded by serializers as "DONE".
+    /// Encoded/decoded by serializers as &quot;DONE&quot;.
     /// </summary>
     [EnumMember(Value = "DONE")]
     [IsoId("_aSEqwtp-Ed-ak6NoX_4Aeg_-2113826740")]
@@ -93,7 +93,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order has been partially filled and will not be filled further.
-    /// Encoded/decoded by serializers as "DONF".
+    /// Encoded/decoded by serializers as &quot;DONF&quot;.
     /// </summary>
     [EnumMember(Value = "DONF")]
     [IsoId("_aSEqw9p-Ed-ak6NoX_4Aeg_1047712210")]
@@ -102,7 +102,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order is open.
-    /// Encoded/decoded by serializers as "OPOD".
+    /// Encoded/decoded by serializers as &quot;OPOD&quot;.
     /// </summary>
     [EnumMember(Value = "OPOD")]
     [IsoId("_aSEqxNp-Ed-ak6NoX_4Aeg_1085577922")]
@@ -111,7 +111,7 @@ public enum OrderStatus4Code
     
     /// <summary>
     /// Order confirmation received from agent is invalid.
-    /// Encoded/decoded by serializers as "IACO".
+    /// Encoded/decoded by serializers as &quot;IACO&quot;.
     /// </summary>
     [EnumMember(Value = "IACO")]
     [IsoId("_aSEqxdp-Ed-ak6NoX_4Aeg_-1148340037")]

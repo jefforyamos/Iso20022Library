@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance5Choice
     /// Sum of the opening balance and all entries booked to the account at the close of the statement period.
     /// </summary>
     [IsoId("_8bhd_5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

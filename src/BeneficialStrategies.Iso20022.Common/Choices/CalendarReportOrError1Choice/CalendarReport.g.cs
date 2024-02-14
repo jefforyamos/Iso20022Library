@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CalendarReportOrError1Choice
     /// Provides the calendar information related to the system.
     /// </summary>
     [IsoId("_dVcQ44m7Eeipw6hHPgB4Sw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calendar Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CalendarReportOrError1Choice
         /// Identification of the service or system for which the calendar information is provided.
         /// </summary>
         [IsoId("_G00uIYm8Eeipw6hHPgB4Sw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Service")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Svc")]
         #endif
+        [IsoXmlTag("Svc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemAndCurrency1? Service { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +71,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CalendarReportOrError1Choice
         /// Requested information on the calendar or business error report when information has not been found.
         /// </summary>
         [IsoId("_dVcQ34m7Eeipw6hHPgB4Sw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Calendar Or Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CalOrErr")]
         #endif
+        [IsoXmlTag("CalOrErr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
+        public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
         #else

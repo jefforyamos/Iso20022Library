@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Full report data or reporting data of a single tranche of the full report.
 /// </summary>
 [IsoId("_UsI9Btp-Ed-ak6NoX_4Aeg_1382074733")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Report Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,22 +46,20 @@ public partial record ProprietaryReportData
     #nullable enable
     
     /// <summary>
-    /// IMPLEMENTORS WARNING - This element is replaced by the ANY XML type in the schema. Therefore, the XML tag <Data> does not appear in an actual XML instance.
+    /// IMPLEMENTORS WARNING - This element is replaced by the ANY XML type in the schema. Therefore, the XML tag &lt;Data&gt; does not appear in an actual XML instance.
     /// </summary>
     [IsoId("_UsI9B9p-Ed-ak6NoX_4Aeg_1926953180")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Data")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Data")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Data { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Data { get; init; } 
+    public required System.String Data { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Data { get; init; } 
     #else

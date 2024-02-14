@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StandingOrderOrError4Choice.StandingOrder))]
     [KnownType(typeof(StandingOrderOrError4Choice.BusinessError))]
     [IsoId("_kIiN9RbvEeOy-PlRuFSUzQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Or Error 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

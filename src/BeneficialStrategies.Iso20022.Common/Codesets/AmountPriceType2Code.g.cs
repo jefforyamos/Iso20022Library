@@ -21,7 +21,7 @@ public enum AmountPriceType2Code
 {
     /// <summary>
     /// Price expressed as a currency and amount per unit or per share.
-    /// Encoded/decoded by serializers as "ACTU".
+    /// Encoded/decoded by serializers as &quot;ACTU&quot;.
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_beqZtNp-Ed-ak6NoX_4Aeg_-777647527")]

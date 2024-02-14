@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Limit for a percentage rate range.
 /// </summary>
 [IsoId("_8Gekh6MgEeCJ6YNENx4h-w_1560024598")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Percentage Range Boundary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record PercentageRangeBoundary1
     /// Percentage rate of the range limit.
     /// </summary>
     [IsoId("_8GekiKMgEeCJ6YNENx4h-w_1727044493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Boundary Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BdryRate")]
     #endif
+    [IsoXmlTag("BdryRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate BoundaryRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal BoundaryRate { get; init; } 
+    public required System.Decimal BoundaryRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal BoundaryRate { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record PercentageRangeBoundary1
     /// Indicates whether the boundary percentage rate is included in the range of percentage rates.
     /// </summary>
     [IsoId("_8GekiaMgEeCJ6YNENx4h-w_-1807157650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Included")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Incl")]
     #endif
+    [IsoXmlTag("Incl")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Included { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Included { get; init; } 
+    public required System.String Included { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Included { get; init; } 
     #else

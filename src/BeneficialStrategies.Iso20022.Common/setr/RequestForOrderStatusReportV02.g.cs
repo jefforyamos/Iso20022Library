@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|The RequestForOrderStatusReport is sent by an instructing party, eg, an investment manager or its authorised representative, to the executing party, eg, a transfer agent. There may be one or more intermediary parties between the instructing party and the executing party.|This message requests the status of one or several order instruction or order cancellation messages.|Usage|The RequestForOrderStatusReport message is used to request the status of:|- one or several order messages,|- one or several cancellation messages,|- one or several individual orders within a bulk or multiple order message.|If the RequestForOrderStatusReport message is used to request the status of several messages, then the instructing party will receive several reply messages from the executing party, ie, several OrderInstructionStatusReport messages and/or OrderCancellationStatusReport messages. The number of reply messages will match the number of references stated in the RequestForOrderStatusReport message.|The RequestForOrderStatusReport message may not be used to request the status of an investment account, a transfer or the status of a financial instrument.")]
 [IsoId("_wWrFyNE7Ed-BzquC8wXy7w_-1373686594")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request For Order Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record RequestForOrderStatusReportV02 : IOuterRecord<RequestForOr
     /// Information to identify the order(s) for which the status is requested.
     /// </summary>
     [IsoId("_wWrFydE7Ed-BzquC8wXy7w_93958643")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqDtls")]
     #endif
+    [IsoXmlTag("ReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageAndBusinessReference2 RequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageAndBusinessReference2 RequestDetails { get; init; } 
+    public required MessageAndBusinessReference2 RequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageAndBusinessReference2 RequestDetails { get; init; } 
     #else
@@ -104,7 +101,7 @@ public partial record RequestForOrderStatusReportV02 : IOuterRecord<RequestForOr
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestForOrderStatusReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestForOrderStatusReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestForOrderStatusReportV02Document ToDocument()
     {
@@ -114,7 +111,7 @@ public partial record RequestForOrderStatusReportV02 : IOuterRecord<RequestForOr
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestForOrderStatusReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestForOrderStatusReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestForOrderStatusReportV02Document : IOuterDocument<RequestForOrderStatusReportV02>
@@ -131,7 +128,7 @@ public partial record RequestForOrderStatusReportV02Document : IOuterDocument<Re
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestForOrderStatusReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestForOrderStatusReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestForOrderStatusReportV02 Message { get; init; }

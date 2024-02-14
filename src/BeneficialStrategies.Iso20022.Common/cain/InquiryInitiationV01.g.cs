@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The InquiryInitiation message is sent by an acquirer or agent to an issuer to request information related to the card (e.g. about a cardholder, the availability of funds, etc.).")]
 [IsoId("_ggro1VdREeeIAMBcVOw01w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Inquiry Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record InquiryInitiationV01 : IOuterRecord<InquiryInitiationV01,I
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_ggro11dREeeIAMBcVOw01w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header39 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header39 Header { get; init; } 
+    public required Header39 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header39 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record InquiryInitiationV01 : IOuterRecord<InquiryInitiationV01,I
     /// Information related to the inquiry initiation.
     /// </summary>
     [IsoId("_ggro2FdREeeIAMBcVOw01w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InquiryInitiation1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InquiryInitiation1 Body { get; init; } 
+    public required InquiryInitiation1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InquiryInitiation1 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record InquiryInitiationV01 : IOuterRecord<InquiryInitiationV01,I
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_ggro1ldREeeIAMBcVOw01w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record InquiryInitiationV01 : IOuterRecord<InquiryInitiationV01,I
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InquiryInitiationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InquiryInitiationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InquiryInitiationV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record InquiryInitiationV01 : IOuterRecord<InquiryInitiationV01,I
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InquiryInitiationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InquiryInitiationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InquiryInitiationV01Document : IOuterDocument<InquiryInitiationV01>
@@ -161,7 +156,7 @@ public partial record InquiryInitiationV01Document : IOuterDocument<InquiryIniti
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InquiryInitiationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InquiryInitiationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InquiryInitiationV01 Message { get; init; }

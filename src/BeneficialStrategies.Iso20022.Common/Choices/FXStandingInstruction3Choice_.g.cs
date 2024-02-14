@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FXStandingInstruction3Choice.Indicator))]
     [KnownType(typeof(FXStandingInstruction3Choice.Proprietary))]
     [IsoId("_Aamt1NokEeC60axPepSq7g_1602416385")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("FX Standing Instruction 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

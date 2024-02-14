@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// </summary>
 [Description(@"Scope|The MarginReport message is sent by the central counterparty (CCP) to a clearing member to report on:|- the exposure resulting from the trade positions|- the value of the collateral held by the CCP (market value of this collateral) and|- the resulting difference representing the risk encountered by the CCP.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|There are four possibilities to report the above information. Indeed, the margin report may be structured as follows:|- per clearing member: the report will only show the information for the clearing member, or|- per clearing member and per financial instrument: the report will show the information for the clearing member, structured by security identification, or|- per clearing member and per non clearing member: the report will show the information for the clearing member (that is for global clearing member only) structured by non clearing member(s), or|- per clearing member and per non clearing member and per security identification: the report will show the information for the clearing member (global clearing member only) structured by non clearing member(s) and by security identification.")]
 [IsoId("_-hxndaMOEeCojJW5vEuTEQ_-1836673720")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -91,16 +89,15 @@ public partial record MarginReportV02 : IOuterRecord<MarginReportV02,MarginRepor
     /// Provides parameters of the margin report such as the creation date and time, the report currency or the calculation date and time.
     /// </summary>
     [IsoId("_-hxndqMOEeCojJW5vEuTEQ_-1337157018")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptParams")]
     #endif
+    [IsoXmlTag("RptParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportParameters3 ReportParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportParameters3 ReportParameters { get; init; } 
+    public required ReportParameters3 ReportParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportParameters3 ReportParameters { get; init; } 
     #else
@@ -111,16 +108,15 @@ public partial record MarginReportV02 : IOuterRecord<MarginReportV02,MarginRepor
     /// Page number of the message (within a report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
     [IsoId("_-h7YcKMOEeCojJW5vEuTEQ_1347382157")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination Pagination { get; init; } 
+    public required Pagination Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination Pagination { get; init; } 
     #else
@@ -131,16 +127,15 @@ public partial record MarginReportV02 : IOuterRecord<MarginReportV02,MarginRepor
     /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
     /// </summary>
     [IsoId("_-h7YcaMOEeCojJW5vEuTEQ_1960737925")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification35Choice_ ClearingMember { get; init; } 
+    public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification35Choice_ ClearingMember { get; init; } 
     #else
@@ -151,12 +146,11 @@ public partial record MarginReportV02 : IOuterRecord<MarginReportV02,MarginRepor
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
     [IsoId("_-h7YcqMOEeCojJW5vEuTEQ_-1484768145")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSummry")]
     #endif
+    [IsoXmlTag("RptSummry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginCalculation1? ReportSummary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,16 +163,15 @@ public partial record MarginReportV02 : IOuterRecord<MarginReportV02,MarginRepor
     /// Provides the margin report details.
     /// </summary>
     [IsoId("_-h7Yc6MOEeCojJW5vEuTEQ_963665572")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptDtls")]
     #endif
+    [IsoXmlTag("RptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginReport2 ReportDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarginReport2 ReportDetails { get; init; } 
+    public required MarginReport2 ReportDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarginReport2 ReportDetails { get; init; } 
     #else
@@ -186,15 +179,14 @@ public partial record MarginReportV02 : IOuterRecord<MarginReportV02,MarginRepor
     #endif
     
     /// <summary>
-    /// Additional information that can't be captured in the structured fields and/or any other specific block.
+    /// Additional information that can&apos;t be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_-h7YdKMOEeCojJW5vEuTEQ_-33406781")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,7 +199,7 @@ public partial record MarginReportV02 : IOuterRecord<MarginReportV02,MarginRepor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MarginReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MarginReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MarginReportV02Document ToDocument()
     {
@@ -217,7 +209,7 @@ public partial record MarginReportV02 : IOuterRecord<MarginReportV02,MarginRepor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarginReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MarginReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MarginReportV02Document : IOuterDocument<MarginReportV02>
@@ -234,7 +226,7 @@ public partial record MarginReportV02Document : IOuterDocument<MarginReportV02>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MarginReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MarginReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginReportV02 Message { get; init; }

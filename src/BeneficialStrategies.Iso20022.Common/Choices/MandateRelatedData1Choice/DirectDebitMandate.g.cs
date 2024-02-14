@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
     /// Specific direct debit mandate data.
     /// </summary>
     [IsoId("_su3YKslxEem0vqvvoqYsqQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direct Debit Mandate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
         /// </summary>
         [IsoId("_Acqrx249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Mandate Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MndtId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MndtId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MandateIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Date on which the direct debit mandate has been signed by the debtor.
         /// </summary>
         [IsoId("_AcqryW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Date Of Signature")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtOfSgntr")]
         #endif
+        [IsoXmlTag("DtOfSgntr")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? DateOfSignature { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +84,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Indicator notifying whether the underlying mandate is amended or not.
         /// </summary>
         [IsoId("_Acqry249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amendment Indicator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AmdmntInd")]
         #endif
+        [IsoXmlTag("AmdmntInd")]
+        [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoTrueFalseIndicator? AmendmentIndicator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +102,11 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// List of mandate elements that have been modified.
         /// </summary>
         [IsoId("_AcqrzW49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amendment Information Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AmdmntInfDtls")]
         #endif
+        [IsoXmlTag("AmdmntInfDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AmendmentInformationDetails13? AmendmentInformationDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,15 +119,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Additional security provisions, such as a digital signature, as provided by the debtor.
         /// </summary>
         [IsoId("_Acqrz249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Electronic Signature")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ElctrncSgntr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("ElctrncSgntr")]
+        [IsoSimpleType(IsoSimpleType.Max1025Text)]
         [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax1025Text? ElectronicSignature { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,12 +138,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Date of the first collection of a direct debit as per the mandate.
         /// </summary>
         [IsoId("_Acqr0W49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("First Collection Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrstColltnDt")]
         #endif
+        [IsoXmlTag("FrstColltnDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? FirstCollectionDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,12 +156,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Date of the final collection of a direct debit as per the mandate.
         /// </summary>
         [IsoId("_Acqr0249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Final Collection Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FnlColltnDt")]
         #endif
+        [IsoXmlTag("FnlColltnDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? FinalCollectionDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -181,12 +174,11 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Regularity with which direct debit instructions are to be created and processed.
         /// </summary>
         [IsoId("_Acqr1W49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Frequency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Frqcy")]
         #endif
+        [IsoXmlTag("Frqcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Frequency36Choice_? Frequency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,12 +191,11 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Reason for the direct debit mandate to allow the user to distinguish between different mandates for the same creditor.
         /// </summary>
         [IsoId("_Acqr1249EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MandateSetupReason1Choice_? Reason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -217,15 +208,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice
         /// Specifies the number of days the direct debit instruction must be tracked.
         /// </summary>
         [IsoId("_Acqr2W49EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tracking Days")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrckgDays")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("TrckgDays")]
+        [IsoSimpleType(IsoSimpleType.Exact2NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoExact2NumericText? TrackingDays { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

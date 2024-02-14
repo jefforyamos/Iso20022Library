@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Used to subscribe or unsubscribe for the receipt of a certain message.
 /// </summary>
 [IsoId("_Q78B09p-Ed-ak6NoX_4Aeg_-246540997")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Subscription Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,13 @@ public partial record SubscriptionRequest
     /// Used to subscribe or unsubscribe for the receipt of a certain message.
     /// </summary>
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptReq")]
     #endif
+    [IsoXmlTag("SbcptReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SubscriptionRequest1Code Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SubscriptionRequest1Code Value { get; init; } 
+    public required SubscriptionRequest1Code Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SubscriptionRequest1Code Value { get; init; } 
     #else

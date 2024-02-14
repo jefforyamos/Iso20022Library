@@ -21,7 +21,7 @@ public enum RejectionReason15Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZhMnc9p-Ed-ak6NoX_4Aeg_-1572959091")]

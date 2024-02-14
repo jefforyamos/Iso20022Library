@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a person, or a non-financial institution.
 /// </summary>
 [IsoId("_Pb-D5Np-Ed-ak6NoX_4Aeg_196982310")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification And Contact Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyIdentificationAndContactInformation1
     /// Identification of the party.
     /// </summary>
     [IsoId("_Pb-D5dp-Ed-ak6NoX_4Aeg_-41534987")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification8 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification8 PartyIdentification { get; init; } 
+    public required PartyIdentification8 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification8 PartyIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PartyIdentificationAndContactInformation1
     /// Information needed to contact a physical person related to the party, such as name, phone number, email address.
     /// </summary>
     [IsoId("_Pb-D5tp-Ed-ak6NoX_4Aeg_975951300")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctInf")]
     #endif
+    [IsoXmlTag("CtctInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? ContactInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

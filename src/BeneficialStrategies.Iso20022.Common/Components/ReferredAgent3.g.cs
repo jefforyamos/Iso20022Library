@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the placement agent identification for a hedge fund if the investor was referred by one.
 /// </summary>
 [IsoId("_hyxAAZRBEemqYPWMBuVawg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Referred Agent")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ReferredAgent3
     /// Indicates if the investor was referred by a placement agent.
     /// </summary>
     [IsoId("_iGjes5RBEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rfrd")]
     #endif
+    [IsoXmlTag("Rfrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Referred1Code Referred { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Referred1Code Referred { get; init; } 
+    public required Referred1Code Referred { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Referred1Code Referred { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ReferredAgent3
     /// Placement agent that referred the investor.
     /// </summary>
     [IsoId("_iGjetZRBEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred Placement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrdPlcmntAgt")]
     #endif
+    [IsoXmlTag("RfrdPlcmntAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification125Choice_? ReferredPlacementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

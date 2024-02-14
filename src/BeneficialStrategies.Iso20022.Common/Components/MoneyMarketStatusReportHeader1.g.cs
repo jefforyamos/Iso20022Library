@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the money market statistical status report header details.
 /// </summary>
 [IsoId("_olkndNjLEeSD0e0ybx5L5Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Money Market Status Report Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record MoneyMarketStatusReportHeader1
     /// Agent which is subject to reporting requirements.
     /// </summary>
     [IsoId("_oluYcNjLEeSD0e0ybx5L5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgAgt")]
     #endif
+    [IsoXmlTag("RptgAgt")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier ReportingAgent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReportingAgent { get; init; } 
+    public required System.String ReportingAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReportingAgent { get; init; } 
     #else
@@ -74,16 +72,15 @@ public partial record MoneyMarketStatusReportHeader1
     /// For periodic reporting this is the first and the last day to which the transaction data in the status message refers (trade date or amendment date in case of corrections).
     /// </summary>
     [IsoId("_oluYctjLEeSD0e0ybx5L5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPrd")]
     #endif
+    [IsoXmlTag("RptgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateTimePeriod1 ReportingPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateTimePeriod1 ReportingPeriod { get; init; } 
+    public required DateTimePeriod1 ReportingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateTimePeriod1 ReportingPeriod { get; init; } 
     #else
@@ -94,16 +91,15 @@ public partial record MoneyMarketStatusReportHeader1
     /// Provides the status for the full report.
     /// </summary>
     [IsoId("_oluYcdjLEeSD0e0ybx5L5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSts")]
     #endif
+    [IsoXmlTag("RptSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatisticalReportingStatus1Code ReportStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatisticalReportingStatus1Code ReportStatus { get; init; } 
+    public required StatisticalReportingStatus1Code ReportStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatisticalReportingStatus1Code ReportStatus { get; init; } 
     #else
@@ -114,12 +110,11 @@ public partial record MoneyMarketStatusReportHeader1
     /// Provides the details of the rule which could not be validated.
     /// </summary>
     [IsoId("_Bqe1sd7HEeSaBeqd_btViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Rule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnRule")]
     #endif
+    [IsoXmlTag("VldtnRule")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

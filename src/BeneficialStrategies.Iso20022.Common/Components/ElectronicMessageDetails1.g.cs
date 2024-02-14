@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Summary of electronic message details.
 /// </summary>
 [IsoId("_kmUEIAepEeaA3oFk37UuZA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Electronic Message Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record ElectronicMessageDetails1
     /// Information about separate electronic system information message.
     /// </summary>
     [IsoId("_cxD_sBa-Eea0P4Zamlsl-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Electronic System Information Message Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctrncSysInfMsgIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElctrncSysInfMsgIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ElectronicSystemInformationMessageIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ElectronicSystemInformationMessageIdentifier { get; init; } 
+    public required System.String ElectronicSystemInformationMessageIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ElectronicSystemInformationMessageIdentifier { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record ElectronicMessageDetails1
     /// Information about packet of electronic system messages.
     /// </summary>
     [IsoId("_w6t1kBa-Eea0P4Zamlsl-Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Electronic System Information Message Packet Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctrncSysInfMsgPacketIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElctrncSysInfMsgPacketIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ElectronicSystemInformationMessagePacketIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

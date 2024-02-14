@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the extended parameters for an Isabel payment file.
 /// </summary>
 [IsoId("_AfkC0KA3EeWiJt5KdX5iuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel Extended Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record IsabelExtendedHeader1
     /// SEPA related information for a payment file.
     /// </summary>
     [IsoId("_BZu2wMmREeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("SEPA")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SEPA")]
     #endif
+    [IsoXmlTag("SEPA")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsabelSEPAFile1? SEPA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record IsabelExtendedHeader1
     /// Belgian bank protocol number (BPN) of the receiving bank.
     /// </summary>
     [IsoId("_IBl7kMmREeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("BPN Financial Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BPNFI")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BPNFI")]
+    [IsoSimpleType(IsoSimpleType.Max3Text)]
     [StringLength(maximumLength: 3 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? BPNFinancialInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record IsabelExtendedHeader1
     /// Business identification code of the receiving bank.
     /// </summary>
     [IsoId("_NbCsgMmREeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("BIC Financial Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BICFI")]
     #endif
+    [IsoXmlTag("BICFI")]
+    [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBICFIIdentifier? BICFinancialInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

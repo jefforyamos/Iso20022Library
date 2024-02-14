@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
 [IsoId("_VOajqtp-Ed-ak6NoX_4Aeg_299421149")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receive Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReceiveInformation1
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
     [IsoId("_VOajq9p-Ed-ak6NoX_4Aeg_1705715833")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parties Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPtiesDtls")]
     #endif
+    [IsoXmlTag("SttlmPtiesDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
+    public required ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record ReceiveInformation1
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
     [IsoId("_VOajrNp-Ed-ak6NoX_4Aeg_-307930090")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Transfer Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysTrfInd")]
     #endif
+    [IsoXmlTag("PhysTrfInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator PhysicalTransferIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PhysicalTransferIndicator { get; init; } 
+    public required System.String PhysicalTransferIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PhysicalTransferIndicator { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record ReceiveInformation1
     /// Parameters of a physical delivery.
     /// </summary>
     [IsoId("_VOkUoNp-Ed-ak6NoX_4Aeg_1436213913")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Physical Transfer Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PhysTrfDtls")]
     #endif
+    [IsoXmlTag("PhysTrfDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeliveryParameters2? PhysicalTransferDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

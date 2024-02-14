@@ -21,7 +21,7 @@ public enum PartyType21Code
 {
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_3Apa8U0uEeea0Mdu1TOzDQ")]
@@ -30,7 +30,7 @@ public enum PartyType21Code
     
     /// <summary>
     /// Holder of a payment card.
-    /// Encoded/decoded by serializers as "CRDH".
+    /// Encoded/decoded by serializers as &quot;CRDH&quot;.
     /// </summary>
     [EnumMember(Value = "CRDH")]
     [IsoId("_3W3ikk0uEeea0Mdu1TOzDQ")]
@@ -39,7 +39,7 @@ public enum PartyType21Code
     
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_4jfGsk0uEeea0Mdu1TOzDQ")]
@@ -48,7 +48,7 @@ public enum PartyType21Code
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_4x3g8k0uEeea0Mdu1TOzDQ")]

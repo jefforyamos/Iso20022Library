@@ -22,7 +22,7 @@ public enum ExternalTypeOfParty1Code
 {
     /// <summary>
     /// Party advising the undertaking.
-    /// Encoded/decoded by serializers as "ADVP".
+    /// Encoded/decoded by serializers as &quot;ADVP&quot;.
     /// </summary>
     [EnumMember(Value = "ADVP")]
     [IsoId("_uQCDG_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Any bank.
-    /// Encoded/decoded by serializers as "ANYB".
+    /// Encoded/decoded by serializers as &quot;ANYB&quot;.
     /// </summary>
     [EnumMember(Value = "ANYB")]
     [IsoId("_uQCDHvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Party named in the undertaking as the “applicant”. 
-    /// Encoded/decoded by serializers as "APPL".
+    /// Encoded/decoded by serializers as &quot;APPL&quot;.
     /// </summary>
     [EnumMember(Value = "APPL")]
     [IsoId("_uQL0EvRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Party in whose favour the undertaking (or counter-undertaking) is issued.
-    /// Encoded/decoded by serializers as "BENE".
+    /// Encoded/decoded by serializers as &quot;BENE&quot;.
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_uQL0FfRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Party that adds its undertaking to honour the undertaking.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uQL0GPRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Beneficiary of the second counter-undertaking.
-    /// Encoded/decoded by serializers as "CUB2".
+    /// Encoded/decoded by serializers as &quot;CUB2&quot;.
     /// </summary>
     [EnumMember(Value = "CUB2")]
     [IsoId("_uQL0G_RYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Beneficiary of the third counter-undertaking.
-    /// Encoded/decoded by serializers as "CUB3".
+    /// Encoded/decoded by serializers as &quot;CUB3&quot;.
     /// </summary>
     [EnumMember(Value = "CUB3")]
     [IsoId("_uQL0HvRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Party that issues the undertaking (or counter-undertaking). 
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_uQU-AvRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Party obligated to reimburse the issuer. 
-    /// Encoded/decoded by serializers as "OBLG".
+    /// Encoded/decoded by serializers as &quot;OBLG&quot;.
     /// </summary>
     [EnumMember(Value = "OBLG")]
     [IsoId("_uQU-BfRYEeuLhpyIdtJzwg")]
@@ -102,8 +102,8 @@ public enum ExternalTypeOfParty1Code
     Obligor = ExternalTypeOfPartyCode.Obligor, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Party requested to issue an undertaking on behalf of the applicant. Also known as the ordering institution or applicant's bank.
-    /// Encoded/decoded by serializers as "ORDR".
+    /// Party requested to issue an undertaking on behalf of the applicant. Also known as the ordering institution or applicant&apos;s bank.
+    /// Encoded/decoded by serializers as &quot;ORDR&quot;.
     /// </summary>
     [EnumMember(Value = "ORDR")]
     [IsoId("_uQevAvRYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Party nominated to receive presentation. 
-    /// Encoded/decoded by serializers as "PRES".
+    /// Encoded/decoded by serializers as &quot;PRES&quot;.
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_uQevBfRYEeuLhpyIdtJzwg")]
@@ -121,7 +121,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Second advising party.
-    /// Encoded/decoded by serializers as "SADV".
+    /// Encoded/decoded by serializers as &quot;SADV&quot;.
     /// </summary>
     [EnumMember(Value = "SADV")]
     [IsoId("_uQevCPRYEeuLhpyIdtJzwg")]
@@ -130,7 +130,7 @@ public enum ExternalTypeOfParty1Code
     
     /// <summary>
     /// Party located at specified address.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_uQevC_RYEeuLhpyIdtJzwg")]

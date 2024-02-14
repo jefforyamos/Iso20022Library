@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(VoteInstructionForMeetingResolution1Choice.VoteIndication))]
     [KnownType(typeof(VoteInstructionForMeetingResolution1Choice.Shareholder))]
     [IsoId("_TK1iUNp-Ed-ak6NoX_4Aeg_853994638")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction For Meeting Resolution 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

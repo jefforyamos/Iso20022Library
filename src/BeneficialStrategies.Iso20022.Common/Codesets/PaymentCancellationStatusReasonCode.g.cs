@@ -21,7 +21,7 @@ public enum PaymentCancellationStatusReasonCode
 {
     /// <summary>
     /// Stop and recall request forwarded to processing/last agent but delivery acknowledgement not received.
-    /// Encoded/decoded by serializers as "S003".
+    /// Encoded/decoded by serializers as &quot;S003&quot;.
     /// </summary>
     [EnumMember(Value = "S003")]
     [IsoId("_eKFIkB04EeiYoZGjIMHr2A")]
@@ -30,7 +30,7 @@ public enum PaymentCancellationStatusReasonCode
     
     /// <summary>
     /// Stop and recall request forwarded to processing/last agent and delivery acknowledgement received.
-    /// Encoded/decoded by serializers as "S004".
+    /// Encoded/decoded by serializers as &quot;S004&quot;.
     /// </summary>
     [EnumMember(Value = "S004")]
     [IsoId("_g-vokR04EeiYoZGjIMHr2A")]
@@ -39,7 +39,7 @@ public enum PaymentCancellationStatusReasonCode
     
     /// <summary>
     /// Payment instruction stopped because the UETR was cancelled.
-    /// Encoded/decoded by serializers as "S002".
+    /// Encoded/decoded by serializers as &quot;S002&quot;.
     /// </summary>
     [EnumMember(Value = "S002")]
     [IsoId("_Nk17gD4wEei1cqDe0mKAOg")]
@@ -48,7 +48,7 @@ public enum PaymentCancellationStatusReasonCode
     
     /// <summary>
     /// Stop and recall request sent to the tracking system.
-    /// Encoded/decoded by serializers as "S000".
+    /// Encoded/decoded by serializers as &quot;S000&quot;.
     /// </summary>
     [EnumMember(Value = "S000")]
     [IsoId("_zr5ksIEkEei51tn2YGQhvg")]
@@ -57,7 +57,7 @@ public enum PaymentCancellationStatusReasonCode
     
     /// <summary>
     /// Stop and recall request added to cancellation list.
-    /// Encoded/decoded by serializers as "S001".
+    /// Encoded/decoded by serializers as &quot;S001&quot;.
     /// </summary>
     [EnumMember(Value = "S001")]
     [IsoId("_EDHqwIElEei51tn2YGQhvg")]

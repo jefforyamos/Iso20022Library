@@ -21,7 +21,7 @@ public enum AwaitingCancellationReason1Code
 {
     /// <summary>
     /// Cancellation has not been received yet.
-    /// Encoded/decoded by serializers as "WCAN".
+    /// Encoded/decoded by serializers as &quot;WCAN&quot;.
     /// </summary>
     [EnumMember(Value = "WCAN")]
     [IsoId("__0Ti0tojEeC60axPepSq7g_323091822")]

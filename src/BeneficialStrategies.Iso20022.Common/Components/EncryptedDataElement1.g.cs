@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Structure to encrypt data elements.
 /// </summary>
 [IsoId("_5yR_YMVvEeem1auQ2bBhWw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Encrypted Data Element")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record EncryptedDataElement1
     /// These codes have the same value as the tag assignments shown in ISO 13492 for the data encryption dataset.  The codes are variable in length and conform to ISO/IEC 8825-1.
     /// </summary>
     [IsoId("_CVXScE4kEeqJcrFc0K-9yg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalEncryptedElementIdentification1Code? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,15 +67,13 @@ public partial record EncryptedDataElement1
     /// Other identification scheme for identifying the element that has been encrypted.
     /// </summary>
     [IsoId("_KZY7kMVwEeem1auQ2bBhWw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +86,15 @@ public partial record EncryptedDataElement1
     /// Encrypted data element.
     /// </summary>
     [IsoId("_RW6HUMVwEeem1auQ2bBhWw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdData")]
     #endif
+    [IsoXmlTag("NcrptdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EncryptedData1Choice_ EncryptedData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EncryptedData1Choice_ EncryptedData { get; init; } 
+    public required EncryptedData1Choice_ EncryptedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EncryptedData1Choice_ EncryptedData { get; init; } 
     #else
@@ -111,12 +105,11 @@ public partial record EncryptedDataElement1
     /// Format of the raw data prior to encryption.
     /// </summary>
     [IsoId("_PCUMwAHwEeiJObvChJn-OA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clear Text Data Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClearTxtDataFrmt")]
     #endif
+    [IsoXmlTag("ClearTxtDataFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncryptedDataFormat1Code? ClearTextDataFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,15 +122,13 @@ public partial record EncryptedDataElement1
     /// Other national or private format of the raw data prior to encryption.
     /// </summary>
     [IsoId("_KH4C8E4YEeqJcrFc0K-9yg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Clear Text Data Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrClearTxtDataFrmt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrClearTxtDataFrmt")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherClearTextDataFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

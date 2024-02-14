@@ -20,7 +20,7 @@ public enum NoticePeriodTypeCode
 {
     /// <summary>
     /// The notice period is expressed in banking working days.
-    /// Encoded/decoded by serializers as "BKWD".
+    /// Encoded/decoded by serializers as &quot;BKWD&quot;.
     /// </summary>
     [EnumMember(Value = "BKWD")]
     [IsoId("_aNwLcdp-Ed-ak6NoX_4Aeg_-1131461794")]
@@ -29,7 +29,7 @@ public enum NoticePeriodTypeCode
     
     /// <summary>
     /// The notice period is expressed in calendar days.
-    /// Encoded/decoded by serializers as "DAYC".
+    /// Encoded/decoded by serializers as &quot;DAYC&quot;.
     /// </summary>
     [EnumMember(Value = "DAYC")]
     [IsoId("_aNwLctp-Ed-ak6NoX_4Aeg_-852557806")]
@@ -38,7 +38,7 @@ public enum NoticePeriodTypeCode
     
     /// <summary>
     /// The notice period is expressed in months.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_aNwLc9p-Ed-ak6NoX_4Aeg_-833163063")]
@@ -47,7 +47,7 @@ public enum NoticePeriodTypeCode
     
     /// <summary>
     /// The notice period is expressed in weeks.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_aNwLdNp-Ed-ak6NoX_4Aeg_-816539570")]
@@ -56,7 +56,7 @@ public enum NoticePeriodTypeCode
     
     /// <summary>
     /// The notice period is expressed in working days.
-    /// Encoded/decoded by serializers as "WOKD".
+    /// Encoded/decoded by serializers as &quot;WOKD&quot;.
     /// </summary>
     [EnumMember(Value = "WOKD")]
     [IsoId("_aNwLddp-Ed-ak6NoX_4Aeg_-792530041")]
@@ -65,7 +65,7 @@ public enum NoticePeriodTypeCode
     
     /// <summary>
     /// The notice period is expressed in years.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_aNwLdtp-Ed-ak6NoX_4Aeg_-774982225")]

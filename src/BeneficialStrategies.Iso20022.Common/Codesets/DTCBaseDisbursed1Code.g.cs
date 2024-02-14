@@ -21,7 +21,7 @@ public enum DTCBaseDisbursed1Code
 {
     /// <summary>
     /// Based on base security.
-    /// Encoded/decoded by serializers as "BASE".
+    /// Encoded/decoded by serializers as &quot;BASE&quot;.
     /// </summary>
     [EnumMember(Value = "BASE")]
     [IsoId("_1qBZhDL3EeKU9IrkkToqcw_-1482681313")]
@@ -30,7 +30,7 @@ public enum DTCBaseDisbursed1Code
     
     /// <summary>
     /// Based on disbursed security.
-    /// Encoded/decoded by serializers as "DISB".
+    /// Encoded/decoded by serializers as &quot;DISB&quot;.
     /// </summary>
     [EnumMember(Value = "DISB")]
     [IsoId("_1qBZhTL3EeKU9IrkkToqcw_-1596520379")]

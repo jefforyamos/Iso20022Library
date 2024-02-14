@@ -21,7 +21,7 @@ public enum ChargeType17Code
 {
     /// <summary>
     /// Charge paid for the postage.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_TQuOtAEcEeCQm6a_G2yO_w_-860308422")]
@@ -30,7 +30,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Fee charged by a regulatory authority, eg, Securities and Exchange fees.
-    /// Encoded/decoded by serializers as "REGF".
+    /// Encoded/decoded by serializers as &quot;REGF&quot;.
     /// </summary>
     [EnumMember(Value = "REGF")]
     [IsoId("_TQuOtQEcEeCQm6a_G2yO_w_-1566692032")]
@@ -39,7 +39,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Charge for shipping, including the insurance of securities.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_TQuOtgEcEeCQm6a_G2yO_w_-1577790809")]
@@ -48,7 +48,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Fee paid for the provision of financial services.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_TQuOtwEcEeCQm6a_G2yO_w_-110642046")]
@@ -57,7 +57,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Another type of charge.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_TQuOuAEcEeCQm6a_G2yO_w_981104540")]
@@ -66,7 +66,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// In investment funds, pre-arranged addition to the trade amount based on the published net asset value.
-    /// Encoded/decoded by serializers as "PREM".
+    /// Encoded/decoded by serializers as &quot;PREM&quot;.
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_TQuOuQEcEeCQm6a_G2yO_w_49770569")]
@@ -75,7 +75,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Charge is for packaging of goods.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_TQuOugEcEeCQm6a_G2yO_w_-756432644")]
@@ -84,7 +84,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Charge is for pick-up of goods.
-    /// Encoded/decoded by serializers as "PICK".
+    /// Encoded/decoded by serializers as &quot;PICK&quot;.
     /// </summary>
     [EnumMember(Value = "PICK")]
     [IsoId("_TQuOuwEcEeCQm6a_G2yO_w_710716119")]
@@ -93,7 +93,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Charge is for security.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_TQuOvAEcEeCQm6a_G2yO_w_360968694")]
@@ -102,7 +102,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Charge is a premium for insurance.
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_TQuOvQEcEeCQm6a_G2yO_w_1060959384")]
@@ -111,7 +111,7 @@ public enum ChargeType17Code
     
     /// <summary>
     /// Miscellaneous fee.
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_TQuOvgEcEeCQm6a_G2yO_w_-970868659")]

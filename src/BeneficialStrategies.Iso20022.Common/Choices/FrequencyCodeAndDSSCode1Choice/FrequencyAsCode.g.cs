@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyCodeAndDSSCode1Choice
     /// Frequency expressed as a code.
     /// </summary>
     [IsoId("_Q7Vk5tp-Ed-ak6NoX_4Aeg_1533373116")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency As Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyCodeAndDSSCode1Choice
         /// Specifies the regularity of an event.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrqcyAsCd")]
         #endif
+        [IsoXmlTag("FrqcyAsCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EventFrequency1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EventFrequency1Code Value { get; init; } 
+        public required EventFrequency1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EventFrequency1Code Value { get; init; } 
         #else

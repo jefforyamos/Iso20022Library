@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the submitting entity and Settlement Internaliser of the report.
 /// </summary>
 [IsoId("_x6_YcO3mEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Internaliser")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,15 @@ public partial record SettlementInternaliser1
     /// Identifies the submitting entity and settlement Internaliser of the report.
     /// </summary>
     [IsoId("_29gQEO3mEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserIdentification1 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementInternaliserIdentification1 Identification { get; init; } 
+    public required SettlementInternaliserIdentification1 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementInternaliserIdentification1 Identification { get; init; } 
     #else
@@ -79,16 +76,15 @@ public partial record SettlementInternaliser1
     /// performed during the period covered by the report, for all financial instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
     [IsoId("_7EFD4O3mEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Overall Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OvrllTtl")]
     #endif
+    [IsoXmlTag("OvrllTtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 OverallTotal { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 OverallTotal { get; init; } 
+    public required InternalisationData1 OverallTotal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 OverallTotal { get; init; } 
     #else
@@ -99,16 +95,15 @@ public partial record SettlementInternaliser1
     /// Classification of a financial instrument according to the categories defined in the relevant legislation.
     /// </summary>
     [IsoId("_99b2oO3mEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrm")]
     #endif
+    [IsoXmlTag("FinInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
+    public required SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
     #else
@@ -119,16 +114,15 @@ public partial record SettlementInternaliser1
     /// Classification of securities movements according to the categories defined in the relevant legislation.
     /// </summary>
     [IsoId("_ErEMQO3nEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTp")]
     #endif
+    [IsoXmlTag("TxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserTransactionType1 TransactionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementInternaliserTransactionType1 TransactionType { get; init; } 
+    public required SettlementInternaliserTransactionType1 TransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementInternaliserTransactionType1 TransactionType { get; init; } 
     #else
@@ -136,19 +130,18 @@ public partial record SettlementInternaliser1
     #endif
     
     /// <summary>
-    /// Classification of a settlement internaliser's clients as referred to in the relevant legislation.
+    /// Classification of a settlement internaliser&apos;s clients as referred to in the relevant legislation.
     /// </summary>
     [IsoId("_FjS0wO3nEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntTp")]
     #endif
+    [IsoXmlTag("ClntTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserClientType1 ClientType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementInternaliserClientType1 ClientType { get; init; } 
+    public required SettlementInternaliserClientType1 ClientType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementInternaliserClientType1 ClientType { get; init; } 
     #else
@@ -159,16 +152,15 @@ public partial record SettlementInternaliser1
     /// Covers cash payments related to securities transactions.
     /// </summary>
     [IsoId("_H-wKkO3nEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Cash Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlCshTrf")]
     #endif
+    [IsoXmlTag("TtlCshTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InternalisationData1 TotalCashTransfer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InternalisationData1 TotalCashTransfer { get; init; } 
+    public required InternalisationData1 TotalCashTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InternalisationData1 TotalCashTransfer { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Financial instrument where the value of the instrument derives from another financial instrument, benchmark or index.
 /// </summary>
 [IsoId("_63apwLbkEeaqL_M7XFD7PQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Derivative3
     /// Hierarchy of classification of a derivative.
     /// </summary>
     [IsoId("_hUAMALcHEeabfchHYoktpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivClssfctn")]
     #endif
+    [IsoXmlTag("DerivClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativeClassification1 DerivativeClassification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DerivativeClassification1 DerivativeClassification { get; init; } 
+    public required DerivativeClassification1 DerivativeClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DerivativeClassification1 DerivativeClassification { get; init; } 
     #else
@@ -71,28 +68,24 @@ public partial record Derivative3
     /// Rate(s) that determine(s)) the value of the swap during the lifetime of the trade. Where both rates are fixed this does not need to be reported.
     /// </summary>
     [IsoId("_iQdcUMhiEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Underlying Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivUndrlygLeg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DerivUndrlygLeg")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<DerivativeUnderlyingLeg1> DerivativeUnderlyingLeg { get; init; } = new ValueList<DerivativeUnderlyingLeg1>(){};
     
     /// <summary>
     /// Option specific attributes.
     /// </summary>
     [IsoId("_a8zBcMhiEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnAttrbts")]
     #endif
+    [IsoXmlTag("OptnAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Option14? OptionAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

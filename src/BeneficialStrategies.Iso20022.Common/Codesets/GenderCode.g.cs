@@ -21,7 +21,7 @@ public enum GenderCode
 {
     /// <summary>
     /// Individual is a male.
-    /// Encoded/decoded by serializers as "MALE".
+    /// Encoded/decoded by serializers as &quot;MALE&quot;.
     /// </summary>
     [EnumMember(Value = "MALE")]
     [IsoId("_atyWaNp-Ed-ak6NoX_4Aeg_319238514")]
@@ -30,7 +30,7 @@ public enum GenderCode
     
     /// <summary>
     /// Individual is a female.
-    /// Encoded/decoded by serializers as "FEMA".
+    /// Encoded/decoded by serializers as &quot;FEMA&quot;.
     /// </summary>
     [EnumMember(Value = "FEMA")]
     [IsoId("_at8HYNp-Ed-ak6NoX_4Aeg_332166896")]

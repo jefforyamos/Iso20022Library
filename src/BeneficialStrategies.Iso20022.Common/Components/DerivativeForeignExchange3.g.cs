@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Attributes of non-financial instrument of type foreign exchange as underlying.
 /// </summary>
 [IsoId("_8LPcAXvyEeanCNPcMT7sSg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivative Foreign Exchange")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record DerivativeForeignExchange3
     /// Type of the underlying currency.
     /// </summary>
     [IsoId("_8UQ1IXvyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("FX Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FxTp")]
     #endif
+    [IsoXmlTag("FxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetFXSubProductType1Code? FXType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record DerivativeForeignExchange3
     /// Underlying currency 2 of the currency pair (the currency 1 will be populated in the notional currency).
     /// </summary>
     [IsoId("_8UQ1I3vyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Notional Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrNtnlCcy")]
     #endif
+    [IsoXmlTag("OthrNtnlCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? OtherNotionalCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

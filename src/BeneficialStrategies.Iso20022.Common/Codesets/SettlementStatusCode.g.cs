@@ -21,7 +21,7 @@ public enum SettlementStatusCode
 {
     /// <summary>
     /// Settlement is awaiting authorisation.
-    /// Encoded/decoded by serializers as "AAUT".
+    /// Encoded/decoded by serializers as &quot;AAUT&quot;.
     /// </summary>
     [EnumMember(Value = "AAUT")]
     [IsoId("_ZMoFoNp-Ed-ak6NoX_4Aeg_1554255343")]
@@ -30,7 +30,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Settlement is accepted for settlement.
-    /// Encoded/decoded by serializers as "ASTL".
+    /// Encoded/decoded by serializers as &quot;ASTL&quot;.
     /// </summary>
     [EnumMember(Value = "ASTL")]
     [IsoId("_ZMoFodp-Ed-ak6NoX_4Aeg_1608742231")]
@@ -39,7 +39,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Settlement has been created.
-    /// Encoded/decoded by serializers as "STCR".
+    /// Encoded/decoded by serializers as &quot;STCR&quot;.
     /// </summary>
     [EnumMember(Value = "STCR")]
     [IsoId("_ZMoFotp-Ed-ak6NoX_4Aeg_1691859101")]
@@ -48,7 +48,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Settlement is rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_ZMoFo9p-Ed-ak6NoX_4Aeg_1793447312")]
@@ -57,7 +57,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Settlement is split.
-    /// Encoded/decoded by serializers as "SPLT".
+    /// Encoded/decoded by serializers as &quot;SPLT&quot;.
     /// </summary>
     [EnumMember(Value = "SPLT")]
     [IsoId("_ZMoFpNp-Ed-ak6NoX_4Aeg_2007706027")]
@@ -65,8 +65,8 @@ public enum SettlementStatusCode
     Split,
     
     /// <summary>
-    /// Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.
-    /// Encoded/decoded by serializers as "PSTL".
+    /// Part, but not all, of a Trade&apos;s value has settled, and no further elements of the Trade&apos;s value are expected to be settled.
+    /// Encoded/decoded by serializers as &quot;PSTL&quot;.
     /// </summary>
     [EnumMember(Value = "PSTL")]
     [IsoId("_ZMoFpdp-Ed-ak6NoX_4Aeg_2040029261")]
@@ -75,7 +75,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Settlement is complete.
-    /// Encoded/decoded by serializers as "STLD".
+    /// Encoded/decoded by serializers as &quot;STLD&quot;.
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_ZMoFptp-Ed-ak6NoX_4Aeg_2053880097")]
@@ -84,7 +84,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Settlement is awaiting confirmation of creation.
-    /// Encoded/decoded by serializers as "ACCF".
+    /// Encoded/decoded by serializers as &quot;ACCF&quot;.
     /// </summary>
     [EnumMember(Value = "ACCF")]
     [IsoId("_ZMoFp9p-Ed-ak6NoX_4Aeg_2067732102")]
@@ -93,7 +93,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Settlement is awaiting confirmation of rescind.
-    /// Encoded/decoded by serializers as "ARCF".
+    /// Encoded/decoded by serializers as &quot;ARCF&quot;.
     /// </summary>
     [EnumMember(Value = "ARCF")]
     [IsoId("_ZMoFqNp-Ed-ak6NoX_4Aeg_-1741459880")]
@@ -102,7 +102,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Instruction is matched.
-    /// Encoded/decoded by serializers as "MTCH".
+    /// Encoded/decoded by serializers as &quot;MTCH&quot;.
     /// </summary>
     [EnumMember(Value = "MTCH")]
     [IsoId("_HudkwAFzEeutW5-TpeYJhA")]
@@ -111,7 +111,7 @@ public enum SettlementStatusCode
     
     /// <summary>
     /// Instruction is unmatched.
-    /// Encoded/decoded by serializers as "NMAT".
+    /// Encoded/decoded by serializers as &quot;NMAT&quot;.
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_c6-l0AFzEeutW5-TpeYJhA")]

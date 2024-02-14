@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed description of the differences.
 /// </summary>
 [IsoId("_UsvZ8dp-Ed-ak6NoX_4Aeg_-1609439696")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Validation Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record ValidationResult4
     /// Sequential number assigned to the mismatch.
     /// </summary>
     [IsoId("_UsvZ8tp-Ed-ak6NoX_4Aeg_-1609439419")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqNb")]
     #endif
+    [IsoXmlTag("SeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber SequenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 SequenceNumber { get; init; } 
+    public required System.UInt64 SequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 SequenceNumber { get; init; } 
     #else
@@ -73,19 +71,17 @@ public partial record ValidationResult4
     /// Coded identification of the matching rule that is violated by the contents of each baseline.
     /// </summary>
     [IsoId("_UsvZ89p-Ed-ak6NoX_4Aeg_-1609439460")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rule Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RuleId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RuleId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RuleIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RuleIdentification { get; init; } 
+    public required System.String RuleIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RuleIdentification { get; init; } 
     #else
@@ -96,19 +92,17 @@ public partial record ValidationResult4
     /// Detailed description of the rule.
     /// </summary>
     [IsoId("_UsvZ9Np-Ed-ak6NoX_4Aeg_-1609439436")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rule Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RuleDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RuleDesc")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text RuleDescription { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RuleDescription { get; init; } 
+    public required System.String RuleDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RuleDescription { get; init; } 
     #else
@@ -119,12 +113,11 @@ public partial record ValidationResult4
     /// Description of the element that creates the mismatch.
     /// </summary>
     [IsoId("_UsvZ9dp-Ed-ak6NoX_4Aeg_-1609439383")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mis Matched Element")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MisMtchdElmt")]
     #endif
+    [IsoXmlTag("MisMtchdElmt")]
     public ElementIdentification1? MisMatchedElement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _UsvZ9dp-Ed-ak6NoX_4Aeg_-1609439383
     

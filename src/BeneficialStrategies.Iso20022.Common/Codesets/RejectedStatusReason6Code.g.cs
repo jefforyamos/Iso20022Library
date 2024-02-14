@@ -21,7 +21,7 @@ public enum RejectedStatusReason6Code
 {
     /// <summary>
     /// Investment account identification is not recognised or is invalid.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_ZdnvAtp-Ed-ak6NoX_4Aeg_281881272")]
@@ -30,7 +30,7 @@ public enum RejectedStatusReason6Code
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NSLA".
+    /// Encoded/decoded by serializers as &quot;NSLA&quot;.
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ZdnvA9p-Ed-ak6NoX_4Aeg_598649737")]

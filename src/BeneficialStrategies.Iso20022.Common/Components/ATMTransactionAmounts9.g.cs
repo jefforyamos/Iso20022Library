@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Limit of deposited media for the customer.
 /// </summary>
 [IsoId("_OVrpka-XEeWJvLRJ8PsD_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Transaction Amounts")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ATMTransactionAmounts9
     /// Type of media.
     /// </summary>
     [IsoId("_Og2-0a-XEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Media Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MdiaTp")]
     #endif
+    [IsoXmlTag("MdiaTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMMediaType2Code MediaType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMMediaType2Code MediaType { get; init; } 
+    public required ATMMediaType2Code MediaType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMMediaType2Code MediaType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ATMTransactionAmounts9
     /// Currency of the media.
     /// </summary>
     [IsoId("_Og2-1a-XEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record ATMTransactionAmounts9
     /// Minimum number of media.
     /// </summary>
     [IsoId("_Og2-16-XEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinNb")]
     #endif
+    [IsoXmlTag("MinNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,12 @@ public partial record ATMTransactionAmounts9
     /// Maximum number of media.
     /// </summary>
     [IsoId("_Og2-2a-XEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxNb")]
     #endif
+    [IsoXmlTag("MaxNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,12 @@ public partial record ATMTransactionAmounts9
     /// True if limits may be displayed to the customer on the ATM.
     /// </summary>
     [IsoId("_h9Ss4K-YEeWJvLRJ8PsD_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispFlg")]
     #endif
+    [IsoXmlTag("DispFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DisplayFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum PartyIdentificationType1Code
 {
     /// <summary>
     /// Member identification of the FX trading system.
-    /// Encoded/decoded by serializers as "FXID".
+    /// Encoded/decoded by serializers as &quot;FXID&quot;.
     /// </summary>
     [EnumMember(Value = "FXID")]
     [IsoId("_2jqYYYA2EeSUJZYcWGKkkw")]
@@ -30,7 +30,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// English short name of FX system.
-    /// Encoded/decoded by serializers as "FXSN".
+    /// Encoded/decoded by serializers as &quot;FXSN&quot;.
     /// </summary>
     [EnumMember(Value = "FXSN")]
     [IsoId("_2oP9cYA2EeSUJZYcWGKkkw")]
@@ -39,7 +39,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Name of the firm group.
-    /// Encoded/decoded by serializers as "INGN".
+    /// Encoded/decoded by serializers as &quot;INGN&quot;.
     /// </summary>
     [EnumMember(Value = "INGN")]
     [IsoId("_2su00YA2EeSUJZYcWGKkkw")]
@@ -48,7 +48,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Institution identification in com star system.
-    /// Encoded/decoded by serializers as "IICS".
+    /// Encoded/decoded by serializers as &quot;IICS&quot;.
     /// </summary>
     [EnumMember(Value = "IICS")]
     [IsoId("_2xOTQYA2EeSUJZYcWGKkkw")]
@@ -57,7 +57,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Internal team that traders belong.
-    /// Encoded/decoded by serializers as "IGBT".
+    /// Encoded/decoded by serializers as &quot;IGBT&quot;.
     /// </summary>
     [EnumMember(Value = "IGBT")]
     [IsoId("_21sjkYA2EeSUJZYcWGKkkw")]
@@ -66,7 +66,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Specifies the maket makers.
-    /// Encoded/decoded by serializers as "MAMA".
+    /// Encoded/decoded by serializers as &quot;MAMA&quot;.
     /// </summary>
     [EnumMember(Value = "MAMA")]
     [IsoId("_26Q6gYA2EeSUJZYcWGKkkw")]
@@ -75,7 +75,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Identify members or clients.
-    /// Encoded/decoded by serializers as "MEOC".
+    /// Encoded/decoded by serializers as &quot;MEOC&quot;.
     /// </summary>
     [EnumMember(Value = "MEOC")]
     [IsoId("_2-vx4YA2EeSUJZYcWGKkkw")]
@@ -84,7 +84,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Type of the trading members.
-    /// Encoded/decoded by serializers as "METY".
+    /// Encoded/decoded by serializers as &quot;METY&quot;.
     /// </summary>
     [EnumMember(Value = "METY")]
     [IsoId("_3GA3gYA2EeSUJZYcWGKkkw")]
@@ -93,7 +93,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Specifies the non maket makers.
-    /// Encoded/decoded by serializers as "NOMM".
+    /// Encoded/decoded by serializers as &quot;NOMM&quot;.
     /// </summary>
     [EnumMember(Value = "NOMM")]
     [IsoId("_3N1WwYA2EeSUJZYcWGKkkw")]
@@ -102,7 +102,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Specifies other system.
-    /// Encoded/decoded by serializers as "OSCO".
+    /// Encoded/decoded by serializers as &quot;OSCO&quot;.
     /// </summary>
     [EnumMember(Value = "OSCO")]
     [IsoId("_3VsSQYA2EeSUJZYcWGKkkw")]
@@ -111,7 +111,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Password of the trading system.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_3bsMkYA2EeSUJZYcWGKkkw")]
@@ -120,7 +120,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Phone number of the trading members.
-    /// Encoded/decoded by serializers as "PONU".
+    /// Encoded/decoded by serializers as &quot;PONU&quot;.
     /// </summary>
     [EnumMember(Value = "PONU")]
     [IsoId("_3iIy0YA2EeSUJZYcWGKkkw")]
@@ -129,7 +129,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Postal address of the trading members.
-    /// Encoded/decoded by serializers as "POAD".
+    /// Encoded/decoded by serializers as &quot;POAD&quot;.
     /// </summary>
     [EnumMember(Value = "POAD")]
     [IsoId("_3nRxgYA2EeSUJZYcWGKkkw")]
@@ -138,7 +138,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Member identification of the RMB trading system
-    /// Encoded/decoded by serializers as "RMID".
+    /// Encoded/decoded by serializers as &quot;RMID&quot;.
     /// </summary>
     [EnumMember(Value = "RMID")]
     [IsoId("_3soLkYA2EeSUJZYcWGKkkw")]
@@ -147,7 +147,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Legal chinese short title of the trading members.
-    /// Encoded/decoded by serializers as "SLCN".
+    /// Encoded/decoded by serializers as &quot;SLCN&quot;.
     /// </summary>
     [EnumMember(Value = "SLCN")]
     [IsoId("_3xxKQYA2EeSUJZYcWGKkkw")]
@@ -156,7 +156,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Legal short title of the trading members.
-    /// Encoded/decoded by serializers as "SLNF".
+    /// Encoded/decoded by serializers as &quot;SLNF&quot;.
     /// </summary>
     [EnumMember(Value = "SLNF")]
     [IsoId("_32Sd4YA2EeSUJZYcWGKkkw")]
@@ -165,7 +165,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Chinese names for the traders.
-    /// Encoded/decoded by serializers as "TACN".
+    /// Encoded/decoded by serializers as &quot;TACN&quot;.
     /// </summary>
     [EnumMember(Value = "TACN")]
     [IsoId("_369igYA2EeSUJZYcWGKkkw")]
@@ -174,7 +174,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Specifies the traders.
-    /// Encoded/decoded by serializers as "TRCO".
+    /// Encoded/decoded by serializers as &quot;TRCO&quot;.
     /// </summary>
     [EnumMember(Value = "TRCO")]
     [IsoId("_3_tfoYA2EeSUJZYcWGKkkw")]
@@ -183,7 +183,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Names for the traders.
-    /// Encoded/decoded by serializers as "TANA".
+    /// Encoded/decoded by serializers as &quot;TANA&quot;.
     /// </summary>
     [EnumMember(Value = "TANA")]
     [IsoId("_4FhzwYA2EeSUJZYcWGKkkw")]
@@ -192,7 +192,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Input the user of trading system.
-    /// Encoded/decoded by serializers as "USIT".
+    /// Encoded/decoded by serializers as &quot;USIT&quot;.
     /// </summary>
     [EnumMember(Value = "USIT")]
     [IsoId("_4QrT0YA2EeSUJZYcWGKkkw")]
@@ -201,7 +201,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// User name of the trading system.
-    /// Encoded/decoded by serializers as "USNA".
+    /// Encoded/decoded by serializers as &quot;USNA&quot;.
     /// </summary>
     [EnumMember(Value = "USNA")]
     [IsoId("_4W8T4YA2EeSUJZYcWGKkkw")]
@@ -210,7 +210,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Agent input the user of the trading system.
-    /// Encoded/decoded by serializers as "AUIT".
+    /// Encoded/decoded by serializers as &quot;AUIT&quot;.
     /// </summary>
     [EnumMember(Value = "AUIT")]
     [IsoId("_5GMmkYA2EeSUJZYcWGKkkw")]
@@ -219,7 +219,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Identification of the branch.
-    /// Encoded/decoded by serializers as "BRID".
+    /// Encoded/decoded by serializers as &quot;BRID&quot;.
     /// </summary>
     [EnumMember(Value = "BRID")]
     [IsoId("_5K12AYA2EeSUJZYcWGKkkw")]
@@ -228,7 +228,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Specifies clearing institution.
-    /// Encoded/decoded by serializers as "CLIN".
+    /// Encoded/decoded by serializers as &quot;CLIN&quot;.
     /// </summary>
     [EnumMember(Value = "CLIN")]
     [IsoId("_5m5f4YA2EeSUJZYcWGKkkw")]
@@ -237,7 +237,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Identification of the collateral management institution.
-    /// Encoded/decoded by serializers as "CMID".
+    /// Encoded/decoded by serializers as &quot;CMID&quot;.
     /// </summary>
     [EnumMember(Value = "CMID")]
     [IsoId("_5rjWYYA2EeSUJZYcWGKkkw")]
@@ -246,7 +246,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Name of the collateral management institution.
-    /// Encoded/decoded by serializers as "COIN".
+    /// Encoded/decoded by serializers as &quot;COIN&quot;.
     /// </summary>
     [EnumMember(Value = "COIN")]
     [IsoId("_5wEqAYA2EeSUJZYcWGKkkw")]
@@ -255,7 +255,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Contact method of the traders.
-    /// Encoded/decoded by serializers as "CMOT".
+    /// Encoded/decoded by serializers as &quot;CMOT&quot;.
     /// </summary>
     [EnumMember(Value = "CMOT")]
     [IsoId("_50mksYA2EeSUJZYcWGKkkw")]
@@ -264,7 +264,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Contact name of the trading members.
-    /// Encoded/decoded by serializers as "CONU".
+    /// Encoded/decoded by serializers as &quot;CONU&quot;.
     /// </summary>
     [EnumMember(Value = "CONU")]
     [IsoId("_55K7oYA2EeSUJZYcWGKkkw")]
@@ -273,7 +273,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Institution of custody management.
-    /// Encoded/decoded by serializers as "CMIN".
+    /// Encoded/decoded by serializers as &quot;CMIN&quot;.
     /// </summary>
     [EnumMember(Value = "CMIN")]
     [IsoId("_59rBIYA2EeSUJZYcWGKkkw")]
@@ -282,7 +282,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Trade confimation person name.
-    /// Encoded/decoded by serializers as "DECN".
+    /// Encoded/decoded by serializers as &quot;DECN&quot;.
     /// </summary>
     [EnumMember(Value = "DECN")]
     [IsoId("_6CLGoYA2EeSUJZYcWGKkkw")]
@@ -291,7 +291,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Department of the trading members.
-    /// Encoded/decoded by serializers as "DEPA".
+    /// Encoded/decoded by serializers as &quot;DEPA&quot;.
     /// </summary>
     [EnumMember(Value = "DEPA")]
     [IsoId("_6GsaQYA2EeSUJZYcWGKkkw")]
@@ -300,7 +300,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Specifies eligible of counterparty.
-    /// Encoded/decoded by serializers as "ELCO".
+    /// Encoded/decoded by serializers as &quot;ELCO&quot;.
     /// </summary>
     [EnumMember(Value = "ELCO")]
     [IsoId("_6LMfwYA2EeSUJZYcWGKkkw")]
@@ -309,7 +309,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Place of execution.
-    /// Encoded/decoded by serializers as "EXVE".
+    /// Encoded/decoded by serializers as &quot;EXVE&quot;.
     /// </summary>
     [EnumMember(Value = "EXVE")]
     [IsoId("_6PuacYA2EeSUJZYcWGKkkw")]
@@ -318,7 +318,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Specifies the firm.
-    /// Encoded/decoded by serializers as "FICO".
+    /// Encoded/decoded by serializers as &quot;FICO&quot;.
     /// </summary>
     [EnumMember(Value = "FICO")]
     [IsoId("_6VKUEYA2EeSUJZYcWGKkkw")]
@@ -327,7 +327,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Identification of the firm.
-    /// Encoded/decoded by serializers as "FIID".
+    /// Encoded/decoded by serializers as &quot;FIID&quot;.
     /// </summary>
     [EnumMember(Value = "FIID")]
     [IsoId("_6bflkYA2EeSUJZYcWGKkkw")]
@@ -336,7 +336,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Legal chinese full title of the trading members.
-    /// Encoded/decoded by serializers as "FLCN".
+    /// Encoded/decoded by serializers as &quot;FLCN&quot;.
     /// </summary>
     [EnumMember(Value = "FLCN")]
     [IsoId("_6gFxsYA2EeSUJZYcWGKkkw")]
@@ -345,7 +345,7 @@ public enum PartyIdentificationType1Code
     
     /// <summary>
     /// Legal full title of the trading members.
-    /// Encoded/decoded by serializers as "FLNF".
+    /// Encoded/decoded by serializers as &quot;FLNF&quot;.
     /// </summary>
     [EnumMember(Value = "FLNF")]
     [IsoId("_6knsYYA2EeSUJZYcWGKkkw")]

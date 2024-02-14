@@ -21,7 +21,7 @@ public enum TypeOfPrice9Code
 {
     /// <summary>
     /// Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.
-    /// Encoded/decoded by serializers as "BIDE".
+    /// Encoded/decoded by serializers as &quot;BIDE&quot;.
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_YyZnx9p-Ed-ak6NoX_4Aeg_-571640820")]
@@ -30,7 +30,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.
-    /// Encoded/decoded by serializers as "OFFR".
+    /// Encoded/decoded by serializers as &quot;OFFR&quot;.
     /// </summary>
     [EnumMember(Value = "OFFR")]
     [IsoId("_YyZnyNp-Ed-ak6NoX_4Aeg_-571640795")]
@@ -39,7 +39,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.
-    /// Encoded/decoded by serializers as "NAVL".
+    /// Encoded/decoded by serializers as &quot;NAVL&quot;.
     /// </summary>
     [EnumMember(Value = "NAVL")]
     [IsoId("_YyjYwNp-Ed-ak6NoX_4Aeg_-571640778")]
@@ -48,7 +48,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the calculated creation price of a dual-priced investment fund (creation-cancellation prices) and the highest possible buying price of the units before the initial charge. The actual buying or offer price, which includes charges, will be higher.
-    /// Encoded/decoded by serializers as "CREA".
+    /// Encoded/decoded by serializers as &quot;CREA&quot;.
     /// </summary>
     [EnumMember(Value = "CREA")]
     [IsoId("_YyjYwdp-Ed-ak6NoX_4Aeg_-571640718")]
@@ -57,7 +57,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the calculated cancellation price of a dual-priced investment fund (creation-cancellation price), and the lowest possible valuation of the units on any one-day. The actual selling or bid price is usually higher.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_YyjYwtp-Ed-ak6NoX_4Aeg_-571640700")]
@@ -66,7 +66,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the non-official interim price given to an investor before the executed price.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_YyjYw9p-Ed-ak6NoX_4Aeg_-571640640")]
@@ -75,7 +75,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the calculated net asset value price of a single-priced investment fund. The price is adjusted to take into account the dealing costs due to individual large deals, or due to a significant imbalance in volumes of subscriptions vs redemptions, as an alternative to dilution levy.
-    /// Encoded/decoded by serializers as "SWNG".
+    /// Encoded/decoded by serializers as &quot;SWNG&quot;.
     /// </summary>
     [EnumMember(Value = "SWNG")]
     [IsoId("_YyjYxNp-Ed-ak6NoX_4Aeg_-571640623")]
@@ -84,7 +84,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the average price between the bid and offer prices.
-    /// Encoded/decoded by serializers as "MIDD".
+    /// Encoded/decoded by serializers as &quot;MIDD&quot;.
     /// </summary>
     [EnumMember(Value = "MIDD")]
     [IsoId("_YyjYxdp-Ed-ak6NoX_4Aeg_-571640328")]
@@ -93,7 +93,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the price used when reinvesting units after distribution.
-    /// Encoded/decoded by serializers as "RINV".
+    /// Encoded/decoded by serializers as &quot;RINV&quot;.
     /// </summary>
     [EnumMember(Value = "RINV")]
     [IsoId("_YyjYxtp-Ed-ak6NoX_4Aeg_-571640311")]
@@ -102,7 +102,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the price used when transferring units between products.
-    /// Encoded/decoded by serializers as "SWIC".
+    /// Encoded/decoded by serializers as &quot;SWIC&quot;.
     /// </summary>
     [EnumMember(Value = "SWIC")]
     [IsoId("_YyjYx9p-Ed-ak6NoX_4Aeg_-571639908")]
@@ -111,7 +111,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is the net income of a financial instrument, calculated on each dealing day, and divided by all the units outstanding on that day.
-    /// Encoded/decoded by serializers as "DDVR".
+    /// Encoded/decoded by serializers as &quot;DDVR&quot;.
     /// </summary>
     [EnumMember(Value = "DDVR")]
     [IsoId("_YyjYyNp-Ed-ak6NoX_4Aeg_-571639830")]
@@ -120,7 +120,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// True offer price.
-    /// Encoded/decoded by serializers as "ACTU".
+    /// Encoded/decoded by serializers as &quot;ACTU&quot;.
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_YyjYydp-Ed-ak6NoX_4Aeg_-571639770")]
@@ -129,7 +129,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// The original NAV before the price of the investment fund was swung.
-    /// Encoded/decoded by serializers as "NAUP".
+    /// Encoded/decoded by serializers as &quot;NAUP&quot;.
     /// </summary>
     [EnumMember(Value = "NAUP")]
     [IsoId("_YyjYytp-Ed-ak6NoX_4Aeg_-571639735")]
@@ -138,7 +138,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is a guaranteed price.
-    /// Encoded/decoded by serializers as "GUAR".
+    /// Encoded/decoded by serializers as &quot;GUAR&quot;.
     /// </summary>
     [EnumMember(Value = "GUAR")]
     [IsoId("_YytJwNp-Ed-ak6NoX_4Aeg_52660274")]
@@ -147,7 +147,7 @@ public enum TypeOfPrice9Code
     
     /// <summary>
     /// Price is an estimated net asset value per unit.
-    /// Encoded/decoded by serializers as "ENAV".
+    /// Encoded/decoded by serializers as &quot;ENAV&quot;.
     /// </summary>
     [EnumMember(Value = "ENAV")]
     [IsoId("_YytJwdp-Ed-ak6NoX_4Aeg_52660299")]

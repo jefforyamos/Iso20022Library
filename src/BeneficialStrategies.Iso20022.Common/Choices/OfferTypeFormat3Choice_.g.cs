@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OfferTypeFormat3Choice.Code))]
     [KnownType(typeof(OfferTypeFormat3Choice.Proprietary))]
     [IsoId("_q9LvwS87EeKNZpaVtgp8Wg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offer Type Format 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

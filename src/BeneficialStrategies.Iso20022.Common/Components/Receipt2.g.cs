@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the request.
 /// </summary>
 [IsoId("_SoDHcZIdEeect698_YsnIA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receipt")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Receipt2
     /// Identification of the original request message.
     /// </summary>
     [IsoId("_SyVr45IdEeect698_YsnIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgId")]
     #endif
+    [IsoXmlTag("OrgnlMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
+    public required OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Receipt2
     /// Identification of the original transaction identification, when the request for which the receipt is generated is a payment transaction.
     /// </summary>
     [IsoId("_W_fBwJIdEeect698_YsnIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtId")]
     #endif
+    [IsoXmlTag("OrgnlPmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentIdentification5Choice_? OriginalPaymentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record Receipt2
     /// Gives the status of the request.
     /// </summary>
     [IsoId("_SyVr5ZIdEeect698_YsnIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Handling")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqHdlg")]
     #endif
+    [IsoXmlTag("ReqHdlg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RequestHandling1? RequestHandling { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

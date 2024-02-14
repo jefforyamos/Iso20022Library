@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data to request a Stored Value service (Prepaid card or account).
 /// </summary>
 [IsoId("_zsqYsS84Eeu125Ip9zFcsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Stored Value Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record StoredValueRequest4
     /// Data related to the stored value card.
     /// </summary>
     [IsoId("_z5FrIS84Eeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Data")]
     #endif
+    [IsoXmlTag("Data")]
     public StoredValueData4? Data { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _z5FrIS84Eeu125Ip9zFcsQ
     

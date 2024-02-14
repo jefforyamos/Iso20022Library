@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information on the transaction alert status notification from the tracker.
 /// </summary>
 [IsoId("_epS_xc78EemEIuVuDudp4g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Alert Notification Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TrackerAlertNotificationStatus1
     /// Specifies the status of an alert, in a coded form.
     /// </summary>
     [IsoId("_epS_xs78EemEIuVuDudp4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alert Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AlrtSts")]
     #endif
+    [IsoXmlTag("AlrtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerAlertStatus1Choice_ AlertStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerAlertStatus1Choice_ AlertStatus { get; init; } 
+    public required TrackerAlertStatus1Choice_ AlertStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerAlertStatus1Choice_ AlertStatus { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TrackerAlertNotificationStatus1
     /// Provides detailed information on the status reason.
     /// </summary>
     [IsoId("_epS_x878EemEIuVuDudp4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerAlertStatusReason1Choice_? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +85,13 @@ public partial record TrackerAlertNotificationStatus1
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
     [IsoId("_epS_yc78EemEIuVuDudp4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the status of the cancellation of a payment transaction.
 /// </summary>
 [IsoId("_jiiu0CX7Eei7VPGVFTQkxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Transaction Cancellation Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PaymentTransactionCancellationStatus1
     /// Specifies the status of a cancellation request.
     /// </summary>
     [IsoId("_yenskCX7Eei7VPGVFTQkxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Cancellation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxCxlSts")]
     #endif
+    [IsoXmlTag("TxCxlSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
+    public required CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
     #else

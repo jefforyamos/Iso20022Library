@@ -21,7 +21,7 @@ public enum ATMDevice1Code
 {
     /// <summary>
     /// Customer display and keyboard.
-    /// Encoded/decoded by serializers as "CDIS".
+    /// Encoded/decoded by serializers as &quot;CDIS&quot;.
     /// </summary>
     [EnumMember(Value = "CDIS")]
     [IsoId("_dJrg0YqIEeSRT5rEzcAHEw")]
@@ -30,7 +30,7 @@ public enum ATMDevice1Code
     
     /// <summary>
     /// Printer for full-size forms documents and supporting the printing of text and graphic.
-    /// Encoded/decoded by serializers as "DPRN".
+    /// Encoded/decoded by serializers as &quot;DPRN&quot;.
     /// </summary>
     [EnumMember(Value = "DPRN")]
     [IsoId("_dOmdEYqIEeSRT5rEzcAHEw")]
@@ -39,7 +39,7 @@ public enum ATMDevice1Code
     
     /// <summary>
     /// Event log.
-    /// Encoded/decoded by serializers as "JRNL".
+    /// Encoded/decoded by serializers as &quot;JRNL&quot;.
     /// </summary>
     [EnumMember(Value = "JRNL")]
     [IsoId("_dTqjQYqIEeSRT5rEzcAHEw")]
@@ -48,7 +48,7 @@ public enum ATMDevice1Code
     
     /// <summary>
     /// Continuous form device used to record a hardcopy audit trail of transactions, and for certain report printing requirements.
-    /// Encoded/decoded by serializers as "JPRN".
+    /// Encoded/decoded by serializers as &quot;JPRN&quot;.
     /// </summary>
     [EnumMember(Value = "JPRN")]
     [IsoId("_dY4acYqIEeSRT5rEzcAHEw")]
@@ -57,7 +57,7 @@ public enum ATMDevice1Code
     
     /// <summary>
     /// Receipt printer used to print cut sheet documents.
-    /// Encoded/decoded by serializers as "RPRN".
+    /// Encoded/decoded by serializers as &quot;RPRN&quot;.
     /// </summary>
     [EnumMember(Value = "RPRN")]
     [IsoId("_desukYqIEeSRT5rEzcAHEw")]
@@ -66,7 +66,7 @@ public enum ATMDevice1Code
     
     /// <summary>
     /// Receipt of the withdrawal transactions.
-    /// Encoded/decoded by serializers as "RWDR".
+    /// Encoded/decoded by serializers as &quot;RWDR&quot;.
     /// </summary>
     [EnumMember(Value = "RWDR")]
     [IsoId("_djnDwYqIEeSRT5rEzcAHEw")]

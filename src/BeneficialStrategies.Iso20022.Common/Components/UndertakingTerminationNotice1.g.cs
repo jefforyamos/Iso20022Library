@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the notification of the termination of an undertaking.
 /// </summary>
 [IsoId("_97ufHHltEeG7BsjMvd1mEw_-864278160")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Termination Notice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UndertakingTerminationNotice1
     /// Details related to the identification of the undertaking.
     /// </summary>
     [IsoId("_974QEHltEeG7BsjMvd1mEw_1656167276")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgId")]
     #endif
+    [IsoXmlTag("UdrtkgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking9 UndertakingIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Undertaking9 UndertakingIdentification { get; init; } 
+    public required Undertaking9 UndertakingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Undertaking9 UndertakingIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UndertakingTerminationNotice1
     /// Details related to the termination of the undertaking.
     /// </summary>
     [IsoId("_974QEXltEeG7BsjMvd1mEw_1055156994")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Termination Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermntnDtls")]
     #endif
+    [IsoXmlTag("TermntnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingTermination3 TerminationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingTermination3 TerminationDetails { get; init; } 
+    public required UndertakingTermination3 TerminationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingTermination3 TerminationDetails { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record UndertakingTerminationNotice1
     /// Document or template enclosed in the termination notification.
     /// </summary>
     [IsoId("_974QE3ltEeG7BsjMvd1mEw_1574400589")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enclosed File")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NclsdFile")]
     #endif
+    [IsoXmlTag("NclsdFile")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,19 +105,15 @@ public partial record UndertakingTerminationNotice1
     /// Additional information related to the notification.
     /// </summary>
     [IsoId("_974QFHltEeG7BsjMvd1mEw_1143129336")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

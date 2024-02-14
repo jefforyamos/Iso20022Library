@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice
 {
     /// <summary>
-    /// Conditions applicable when the investor is covered by the "de minimis" exemption.
+    /// Conditions applicable when the investor is covered by the &quot;de minimis&quot; exemption.
     /// </summary>
     [IsoId("_CgNiAggqEeSUG-8hqXsVMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("De Minimus Applicable")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice
         /// Indicates whether the investor permits its beneficial owners that are restricted persons, if any, to participate in profits and losses allocated to the investor that are attribute to new issue securities.
         /// </summary>
         [IsoId("_RSSsUdp-Ed-ak6NoX_4Aeg_-1045122513")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("New Issue Permission")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NewIssePrmssn")]
         #endif
+        [IsoXmlTag("NewIssePrmssn")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoYesNoIndicator NewIssuePermission { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String NewIssuePermission { get; init; } 
+        public required System.String NewIssuePermission { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String NewIssuePermission { get; init; } 
         #else
@@ -76,12 +74,12 @@ namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice
         /// Percentage of the new issue profits and losses that it receives to beneficial owners that are restricted persons.
         /// </summary>
         [IsoId("_RSSsUtp-Ed-ak6NoX_4Aeg_-1042351920")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Percentage")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pctg")]
         #endif
+        [IsoXmlTag("Pctg")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoPercentageRate? Percentage { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

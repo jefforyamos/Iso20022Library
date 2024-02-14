@@ -21,7 +21,7 @@ public enum RejectedCancellationStatusReason1Code
 {
     /// <summary>
     /// Request contains an invalid or unrecognised business reference.
-    /// Encoded/decoded by serializers as "REFE".
+    /// Encoded/decoded by serializers as &quot;REFE&quot;.
     /// </summary>
     [EnumMember(Value = "REFE")]
     [IsoId("_ZbPJZ9p-Ed-ak6NoX_4Aeg_1582722964")]
@@ -30,7 +30,7 @@ public enum RejectedCancellationStatusReason1Code
     
     /// <summary>
     /// The cancellation request has been rejected since more than one instruction match to the cancellation criteria.
-    /// Encoded/decoded by serializers as "NRGM".
+    /// Encoded/decoded by serializers as &quot;NRGM&quot;.
     /// </summary>
     [EnumMember(Value = "NRGM")]
     [IsoId("_ZbPJaNp-Ed-ak6NoX_4Aeg_1582722965")]
@@ -39,7 +39,7 @@ public enum RejectedCancellationStatusReason1Code
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NSLA".
+    /// Encoded/decoded by serializers as &quot;NSLA&quot;.
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ZbYTUNp-Ed-ak6NoX_4Aeg_1582722981")]

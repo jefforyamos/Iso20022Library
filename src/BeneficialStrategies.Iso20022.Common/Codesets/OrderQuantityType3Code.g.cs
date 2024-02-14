@@ -21,7 +21,7 @@ public enum OrderQuantityType3Code
 {
     /// <summary>
     /// Order is placed by unit.
-    /// Encoded/decoded by serializers as "UNIT".
+    /// Encoded/decoded by serializers as &quot;UNIT&quot;.
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_aRVD5Np-Ed-ak6NoX_4Aeg_-122386355")]
@@ -30,7 +30,7 @@ public enum OrderQuantityType3Code
     
     /// <summary>
     /// Order is placed by amount of money.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aRVD5dp-Ed-ak6NoX_4Aeg_-122386320")]
@@ -39,7 +39,7 @@ public enum OrderQuantityType3Code
     
     /// <summary>
     /// For futures - units of Measure per Time Unit (if used - must specify UnitofMeasure and TimeUnit.
-    /// Encoded/decoded by serializers as "UMPU".
+    /// Encoded/decoded by serializers as &quot;UMPU&quot;.
     /// </summary>
     [EnumMember(Value = "UMPU")]
     [IsoId("_aRVD5tp-Ed-ak6NoX_4Aeg_-122385935")]

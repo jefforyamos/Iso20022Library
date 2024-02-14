@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NumberOrPercentage1Choice.ThresholdPercentage))]
     [KnownType(typeof(NumberOrPercentage1Choice.ThresholdNumber))]
     [IsoId("_U1n_kK4pEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Or Percentage 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

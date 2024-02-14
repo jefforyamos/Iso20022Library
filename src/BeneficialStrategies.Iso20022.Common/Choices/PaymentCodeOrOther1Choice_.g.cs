@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentCodeOrOther1Choice.PaymentDueDate))]
     [KnownType(typeof(PaymentCodeOrOther1Choice.OtherPaymentTerms))]
     [IsoId("_ogNJwNP8EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Code Or Other 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum TypeOfPrice10Code
 {
     /// <summary>
     /// Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.
-    /// Encoded/decoded by serializers as "BIDE".
+    /// Encoded/decoded by serializers as &quot;BIDE&quot;.
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_Yw6aBdp-Ed-ak6NoX_4Aeg_1125062318")]
@@ -30,7 +30,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.
-    /// Encoded/decoded by serializers as "OFFR".
+    /// Encoded/decoded by serializers as &quot;OFFR&quot;.
     /// </summary>
     [EnumMember(Value = "OFFR")]
     [IsoId("_Yw6aBtp-Ed-ak6NoX_4Aeg_1125062342")]
@@ -39,7 +39,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.
-    /// Encoded/decoded by serializers as "NAVL".
+    /// Encoded/decoded by serializers as &quot;NAVL&quot;.
     /// </summary>
     [EnumMember(Value = "NAVL")]
     [IsoId("_YxELANp-Ed-ak6NoX_4Aeg_1125062359")]
@@ -48,7 +48,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the calculated creation price of a dual-priced investment fund (creation-cancellation prices) and the highest possible buying price of the units before the initial charge. The actual buying or offer price, which includes charges, will be higher.
-    /// Encoded/decoded by serializers as "CREA".
+    /// Encoded/decoded by serializers as &quot;CREA&quot;.
     /// </summary>
     [EnumMember(Value = "CREA")]
     [IsoId("_YxELAdp-Ed-ak6NoX_4Aeg_1125062377")]
@@ -57,7 +57,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the calculated cancellation price of a dual-priced investment fund (creation-cancellation price), and the lowest possible valuation of the units on any one-day. The actual selling or bid price is usually higher.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_YxELAtp-Ed-ak6NoX_4Aeg_1125062378")]
@@ -66,7 +66,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the non-official interim price given to an investor before the executed price.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_YxELA9p-Ed-ak6NoX_4Aeg_1125062402")]
@@ -75,7 +75,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the calculated net asset value price of a single-priced investment fund. The price is adjusted to take into account the dealing costs due to individual large deals, or due to a significant imbalance in volumes of subscriptions vs redemptions, as an alternative to dilution levy.
-    /// Encoded/decoded by serializers as "SWNG".
+    /// Encoded/decoded by serializers as &quot;SWNG&quot;.
     /// </summary>
     [EnumMember(Value = "SWNG")]
     [IsoId("_YxELBNp-Ed-ak6NoX_4Aeg_1125062419")]
@@ -84,7 +84,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the average price between the bid and offer prices.
-    /// Encoded/decoded by serializers as "MIDD".
+    /// Encoded/decoded by serializers as &quot;MIDD&quot;.
     /// </summary>
     [EnumMember(Value = "MIDD")]
     [IsoId("_YxELBdp-Ed-ak6NoX_4Aeg_1125062437")]
@@ -93,7 +93,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the price used when reinvesting units after distribution.
-    /// Encoded/decoded by serializers as "RINV".
+    /// Encoded/decoded by serializers as &quot;RINV&quot;.
     /// </summary>
     [EnumMember(Value = "RINV")]
     [IsoId("_YxELBtp-Ed-ak6NoX_4Aeg_1125062454")]
@@ -102,7 +102,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the price used when transferring units between products.
-    /// Encoded/decoded by serializers as "SWIC".
+    /// Encoded/decoded by serializers as &quot;SWIC&quot;.
     /// </summary>
     [EnumMember(Value = "SWIC")]
     [IsoId("_YxELB9p-Ed-ak6NoX_4Aeg_1125062472")]
@@ -111,7 +111,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// Price is the net income of a financial instrument, calculated on each dealing day, and divided by all the units outstanding on that day.
-    /// Encoded/decoded by serializers as "DDVR".
+    /// Encoded/decoded by serializers as &quot;DDVR&quot;.
     /// </summary>
     [EnumMember(Value = "DDVR")]
     [IsoId("_YxELCNp-Ed-ak6NoX_4Aeg_1125062473")]
@@ -120,7 +120,7 @@ public enum TypeOfPrice10Code
     
     /// <summary>
     /// True offer price.
-    /// Encoded/decoded by serializers as "ACTU".
+    /// Encoded/decoded by serializers as &quot;ACTU&quot;.
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_YxELCdp-Ed-ak6NoX_4Aeg_1125062745")]

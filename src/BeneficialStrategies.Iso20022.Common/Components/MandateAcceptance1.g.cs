@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the mandate, which is being accepted.
 /// </summary>
 [IsoId("_RBmk9tp-Ed-ak6NoX_4Aeg_-1832843790")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Acceptance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record MandateAcceptance1
     /// Set of elements used to provide information on the original messsage.
     /// </summary>
     [IsoId("_RBmk99p-Ed-ak6NoX_4Aeg_-184360758")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgInf")]
     #endif
+    [IsoXmlTag("OrgnlMsgInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record MandateAcceptance1
     /// Set of elements used to provide detailed information on the acceptance result.
     /// </summary>
     [IsoId("_RBmk-Np-Ed-ak6NoX_4Aeg_-2005150257")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acceptance Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptncRslt")]
     #endif
+    [IsoXmlTag("AccptncRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptanceResult6 AcceptanceResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptanceResult6 AcceptanceResult { get; init; } 
+    public required AcceptanceResult6 AcceptanceResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptanceResult6 AcceptanceResult { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record MandateAcceptance1
     /// Set of elements used to provide the original mandate data.
     /// </summary>
     [IsoId("_RBvu4Np-Ed-ak6NoX_4Aeg_-557460763")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Mandate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMndt")]
     #endif
+    [IsoXmlTag("OrgnlMndt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalMandate1Choice_ OriginalMandate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalMandate1Choice_ OriginalMandate { get; init; } 
+    public required OriginalMandate1Choice_ OriginalMandate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalMandate1Choice_ OriginalMandate { get; init; } 
     #else

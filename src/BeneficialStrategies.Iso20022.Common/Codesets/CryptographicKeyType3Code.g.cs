@@ -21,7 +21,7 @@ public enum CryptographicKeyType3Code
 {
     /// <summary>
     /// AES (Advanced Encryption Standard) 128 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES2".
+    /// Encoded/decoded by serializers as &quot;AES2&quot;.
     /// </summary>
     [EnumMember(Value = "AES2")]
     [IsoId("_A4GNEWp0EeSMqvBfBY1c9A")]
@@ -30,7 +30,7 @@ public enum CryptographicKeyType3Code
     
     /// <summary>
     /// Data encryption standard key of 112 bits (without the parity bits).
-    /// Encoded/decoded by serializers as "EDE3".
+    /// Encoded/decoded by serializers as &quot;EDE3&quot;.
     /// </summary>
     [EnumMember(Value = "EDE3")]
     [IsoId("_A4GNE2p0EeSMqvBfBY1c9A")]
@@ -39,7 +39,7 @@ public enum CryptographicKeyType3Code
     
     /// <summary>
     /// DUKPT (Derived Unique Key Per Transaction) key, as specified in ANSI X9.24-2009 Annex A.
-    /// Encoded/decoded by serializers as "DKP9".
+    /// Encoded/decoded by serializers as &quot;DKP9&quot;.
     /// </summary>
     [EnumMember(Value = "DKP9")]
     [IsoId("_A4GNFWp0EeSMqvBfBY1c9A")]
@@ -48,7 +48,7 @@ public enum CryptographicKeyType3Code
     
     /// <summary>
     /// AES (Advanced Encryption Standard) encryption with a 192 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES9".
+    /// Encoded/decoded by serializers as &quot;AES9&quot;.
     /// </summary>
     [EnumMember(Value = "AES9")]
     [IsoId("_Ej_QAWp0EeSMqvBfBY1c9A")]
@@ -57,7 +57,7 @@ public enum CryptographicKeyType3Code
     
     /// <summary>
     /// AES (Advanced Encryption Standard) encryption with a 256 bits cryptographic key as defined by the Federal Information Processing Standards (FIPS 197 – November 6, 2001 - Advanced Encryption Standard).
-    /// Encoded/decoded by serializers as "AES5".
+    /// Encoded/decoded by serializers as &quot;AES5&quot;.
     /// </summary>
     [EnumMember(Value = "AES5")]
     [IsoId("_E4s7wWp0EeSMqvBfBY1c9A")]
@@ -66,7 +66,7 @@ public enum CryptographicKeyType3Code
     
     /// <summary>
     /// Data encryption standard key of 168 bits (without the parity bits).
-    /// Encoded/decoded by serializers as "EDE4".
+    /// Encoded/decoded by serializers as &quot;EDE4&quot;.
     /// </summary>
     [EnumMember(Value = "EDE4")]
     [IsoId("_FL6ysWp0EeSMqvBfBY1c9A")]

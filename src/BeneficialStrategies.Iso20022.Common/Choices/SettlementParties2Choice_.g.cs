@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementParties2Choice.DeliveringSettlementParties))]
     [KnownType(typeof(SettlementParties2Choice.ReceivingSettlementParties))]
     [IsoId("_-an2laMOEeCojJW5vEuTEQ_-1750301164")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parties 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

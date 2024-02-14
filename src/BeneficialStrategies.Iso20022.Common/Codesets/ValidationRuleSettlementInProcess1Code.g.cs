@@ -21,7 +21,7 @@ public enum ValidationRuleSettlementInProcess1Code
 {
     /// <summary>
     /// Accepted settlement in process.
-    /// Encoded/decoded by serializers as "ACSP".
+    /// Encoded/decoded by serializers as &quot;ACSP&quot;.
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_C55eASE6EeuIZ4Hf6difAw")]

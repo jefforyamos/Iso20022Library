@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Account on which a securities entry is made.
 /// </summary>
 [IsoId("_9nv3AVV2Eea1MPROA61PoQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Safekeeping Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record SafekeepingAccount7
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_-A4vwVV2Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount19 AccountIdentification { get; init; } 
+    public required SecuritiesAccount19 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount19 AccountIdentification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record SafekeepingAccount7
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_-A4vw1V2Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification100 AccountOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification100 AccountOwner { get; init; } 
+    public required PartyIdentification100 AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification100 AccountOwner { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record SafekeepingAccount7
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
     [IsoId("_-A4vxVV2Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSvcr")]
     #endif
+    [IsoXmlTag("AcctSvcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification100 AccountServicer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification100 AccountServicer { get; init; } 
+    public required PartyIdentification100 AccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification100 AccountServicer { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record SafekeepingAccount7
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
     [IsoId("_-A4vx1V2Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficial Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfclOwnr")]
     #endif
+    [IsoXmlTag("BnfclOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficialOwner2? BeneficialOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record SafekeepingAccount7
     /// Report on the net position of a financial instrument on the account, for a certain date. The agent, for example, a trade intermediary, may also be specified.
     /// </summary>
     [IsoId("_GbAcYVV3Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalDtls")]
     #endif
+    [IsoXmlTag("BalDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregateHoldingBalance3? BalanceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +142,11 @@ public partial record SafekeepingAccount7
     /// Holdings of level 1.
     /// </summary>
     [IsoId("_-A4vzVV2Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Sub Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSubLvl1")]
     #endif
+    [IsoXmlTag("AcctSubLvl1")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountSubLevel11? AccountSubLevel1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +159,11 @@ public partial record SafekeepingAccount7
     /// Difference in holdings between the safekeeping account and the sub-accounts of level 1.
     /// </summary>
     [IsoId("_-A4vz1V2Eea1MPROA61PoQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Sub Level 1 Difference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSubLvl1Diff")]
     #endif
+    [IsoXmlTag("AcctSubLvl1Diff")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregateHoldingBalance2? AccountSubLevel1Difference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

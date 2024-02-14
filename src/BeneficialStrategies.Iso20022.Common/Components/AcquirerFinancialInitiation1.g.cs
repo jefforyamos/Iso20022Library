@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to financial authorisation.
 /// </summary>
 [IsoId("_oCk1QHubEeSBS-QFUaKA-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acquirer Financial Initiation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AcquirerFinancialInitiation1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_0e5zEHubEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransactionEnvironment1 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardTransactionEnvironment1 Environment { get; init; } 
+    public required CardTransactionEnvironment1 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardTransactionEnvironment1 Environment { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record AcquirerFinancialInitiation1
     /// Context in which the transaction is performed.
     /// </summary>
     [IsoId("_4QgccHubEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntxt")]
     #endif
+    [IsoXmlTag("Cntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransactionContext1 Context { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardTransactionContext1 Context { get; init; } 
+    public required CardTransactionContext1 Context { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardTransactionContext1 Context { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record AcquirerFinancialInitiation1
     /// Card transaction for which the financial authorisation has been requested.
     /// </summary>
     [IsoId("_93sucHubEeSBS-QFUaKA-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardTransaction5 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardTransaction5 Transaction { get; init; } 
+    public required CardTransaction5 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardTransaction5 Transaction { get; init; } 
     #else

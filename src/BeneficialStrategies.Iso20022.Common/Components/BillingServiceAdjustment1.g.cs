@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the billing adjustments for a specific service.
 /// </summary>
 [IsoId("_6Oww7pqlEeGSON8vddiWzQ_453454713")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Service Adjustment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record BillingServiceAdjustment1
     /// Identifies the type of adjustment.
     /// </summary>
     [IsoId("_6Oww75qlEeGSON8vddiWzQ_1574741940")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ServiceAdjustmentType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ServiceAdjustmentType1Code Type { get; init; } 
+    public required ServiceAdjustmentType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ServiceAdjustmentType1Code Type { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record BillingServiceAdjustment1
     /// Free-form description and clarification of the adjustment.
     /// </summary>
     [IsoId("_6O560JqlEeGSON8vddiWzQ_-1074957921")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Description { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Description { get; init; } 
+    public required System.String Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Description { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record BillingServiceAdjustment1
     /// Amount of the adjustment, expressed in the settlement currency.||Usage: If the amount would reduce charges due then the amount should be negatively signed.
     /// </summary>
     [IsoId("_6O560ZqlEeGSON8vddiWzQ_463830521")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 Amount { get; init; } 
+    public required AmountAndDirection34 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 Amount { get; init; } 
     #else
@@ -116,12 +110,11 @@ public partial record BillingServiceAdjustment1
     /// Specifies whether the balance amount requires an adjustment.
     /// </summary>
     [IsoId("_6O560pqlEeGSON8vddiWzQ_661454739")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Required Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalReqrdAmt")]
     #endif
+    [IsoXmlTag("BalReqrdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? BalanceRequiredAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,12 @@ public partial record BillingServiceAdjustment1
     /// Date on which the situation causing the service adjustment occurred. If the date is not known then used the last day of the month in which the situation occurred or the date of the billing statement which reported the original service to which this adjustment applies.
     /// </summary>
     [IsoId("_6O5605qlEeGSON8vddiWzQ_-241284094")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ErrDt")]
     #endif
+    [IsoXmlTag("ErrDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ErrorDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,18 +142,16 @@ public partial record BillingServiceAdjustment1
     #endif
     
     /// <summary>
-    /// Financial institution's own, internal service identification code, used to uniquely identify the service within the financial institution.
+    /// Financial institution&apos;s own, internal service identification code, used to uniquely identify the service within the financial institution.
     /// </summary>
     [IsoId("_6O561JqlEeGSON8vddiWzQ_-823688632")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjustment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdjstmntId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AdjstmntId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdjustmentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +164,11 @@ public partial record BillingServiceAdjustment1
     /// Defines the financial institution sub-service identification if the financial institution service identification code is used for more than one service.
     /// </summary>
     [IsoId("_6O561ZqlEeGSON8vddiWzQ_821578803")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubSvc")]
     #endif
+    [IsoXmlTag("SubSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingSubServiceIdentification1? SubService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +181,11 @@ public partial record BillingServiceAdjustment1
     /// Change in the service price, expressed in the pricing currency. A negative value indicates a price reduction.
     /// </summary>
     [IsoId("_6O561pqlEeGSON8vddiWzQ_-1934600051")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricChng")]
     #endif
+    [IsoXmlTag("PricChng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? PriceChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +198,11 @@ public partial record BillingServiceAdjustment1
     /// Price that was applied to the service, prior to the change, expressed in the pricing currency.
     /// </summary>
     [IsoId("_6O5615qlEeGSON8vddiWzQ_1655252630")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPric")]
     #endif
+    [IsoXmlTag("OrgnlPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? OriginalPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +215,11 @@ public partial record BillingServiceAdjustment1
     /// New, adjusted service price, expressed in the pricing currency.
     /// </summary>
     [IsoId("_6O562JqlEeGSON8vddiWzQ_480061605")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewPric")]
     #endif
+    [IsoXmlTag("NewPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? NewPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +232,12 @@ public partial record BillingServiceAdjustment1
     /// Change in the service volume. A negative value indicates a volume reduction.
     /// </summary>
     [IsoId("_6PDr0JqlEeGSON8vddiWzQ_2125329040")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volume Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VolChng")]
     #endif
+    [IsoXmlTag("VolChng")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? VolumeChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +250,12 @@ public partial record BillingServiceAdjustment1
     /// Original service volume.
     /// </summary>
     [IsoId("_6PDr0ZqlEeGSON8vddiWzQ_-1006641385")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlVol")]
     #endif
+    [IsoXmlTag("OrgnlVol")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? OriginalVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,12 +268,12 @@ public partial record BillingServiceAdjustment1
     /// New, adjusted service volume.
     /// </summary>
     [IsoId("_6PDr0pqlEeGSON8vddiWzQ_-630849814")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewVol")]
     #endif
+    [IsoXmlTag("NewVol")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? NewVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -299,12 +286,11 @@ public partial record BillingServiceAdjustment1
     /// Service charge that was applied to the service, prior to the change, expressed in the pricing currency.
     /// </summary>
     [IsoId("_6PDr05qlEeGSON8vddiWzQ_-1335964429")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Charge Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlChrgAmt")]
     #endif
+    [IsoXmlTag("OrgnlChrgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? OriginalChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -317,12 +303,11 @@ public partial record BillingServiceAdjustment1
     /// New, adjusted service charge, expressed in the pricing currency.
     /// </summary>
     [IsoId("_6PDr1JqlEeGSON8vddiWzQ_1783811842")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Charge Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewChrgAmt")]
     #endif
+    [IsoXmlTag("NewChrgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? NewChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

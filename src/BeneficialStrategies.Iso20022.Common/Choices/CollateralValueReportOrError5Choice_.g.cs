@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralValueReportOrError5Choice.BusinessReport))]
     [KnownType(typeof(CollateralValueReportOrError5Choice.OperationalError))]
     [IsoId("_95GpHzpvEemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value Report Or Error 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

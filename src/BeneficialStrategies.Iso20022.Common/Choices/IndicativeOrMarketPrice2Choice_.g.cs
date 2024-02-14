@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IndicativeOrMarketPrice2Choice.IndicativePrice))]
     [KnownType(typeof(IndicativeOrMarketPrice2Choice.MarketPrice))]
     [IsoId("_UKwuRdp-Ed-ak6NoX_4Aeg_-1375580741")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indicative Or Market Price 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

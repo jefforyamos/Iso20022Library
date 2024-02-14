@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the requested reporting period.
 /// </summary>
 [IsoId("_vN1qlRN5EeumtumXS98aGg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reporting Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReportingPeriod5
     /// Specifies a date range.
     /// </summary>
     [IsoId("_vO4zcRN5EeumtumXS98aGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From To Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrToDt")]
     #endif
+    [IsoXmlTag("FrToDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DatePeriod3 FromToDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DatePeriod3 FromToDate { get; init; } 
+    public required DatePeriod3 FromToDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DatePeriod3 FromToDate { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record ReportingPeriod5
     /// Specifies a time range.
     /// </summary>
     [IsoId("_vO4zcxN5EeumtumXS98aGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From To Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrToTm")]
     #endif
+    [IsoXmlTag("FrToTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimePeriodDetails1? FromToTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record ReportingPeriod5
     /// Specifies whether all matching items need to be reported or only those items that are new or have changed since the last similar request was made.
     /// </summary>
     [IsoId("_vO4zdRN5EeumtumXS98aGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QueryType3Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QueryType3Code Type { get; init; } 
+    public required QueryType3Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QueryType3Code Type { get; init; } 
     #else

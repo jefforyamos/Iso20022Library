@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SubBalanceType1Choice.SubBalanceType))]
     [KnownType(typeof(SubBalanceType1Choice.Proprietary))]
     [IsoId("_QZ9WINp-Ed-ak6NoX_4Aeg_219927874")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Balance Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

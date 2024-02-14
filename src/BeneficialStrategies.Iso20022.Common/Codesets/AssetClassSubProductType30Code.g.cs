@@ -21,7 +21,7 @@ public enum AssetClassSubProductType30Code
 {
     /// <summary>
     /// Commodity of type weather.
-    /// Encoded/decoded by serializers as "WTHR".
+    /// Encoded/decoded by serializers as &quot;WTHR&quot;.
     /// </summary>
     [EnumMember(Value = "WTHR")]
     [IsoId("_f4vr41rNEeWN79Bl6BUd3g")]

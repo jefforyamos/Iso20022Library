@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reconciliation transaction
 /// </summary>
 [IsoId("_onnzYYv9EeuC5632vxUfGg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Transaction135
     /// Type of reconciliation.
     /// </summary>
     [IsoId("_otJMkYv9EeuC5632vxUfGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnFctn")]
     #endif
+    [IsoXmlTag("RcncltnFctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationFunction1Code ReconciliationFunction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationFunction1Code ReconciliationFunction { get; init; } 
+    public required ReconciliationFunction1Code ReconciliationFunction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationFunction1Code ReconciliationFunction { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record Transaction135
     /// A code to indicate the activity type to be reconciled.
     /// </summary>
     [IsoId("_EYGlACX_Eeym0KcvJF9aDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Activity Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnActvtyTp")]
     #endif
+    [IsoXmlTag("RcncltnActvtyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReconciliationActivityType1Code? ReconciliationActivityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,15 +86,13 @@ public partial record Transaction135
     /// Other reconciliation activity type defined at private or national level
     /// </summary>
     [IsoId("_MDkJ8CYBEeym0KcvJF9aDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Reconciliation Activity Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRcncltnActvtyTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrRcncltnActvtyTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherReconciliationActivityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +105,15 @@ public partial record Transaction135
     /// Type of reconciliation.
     /// </summary>
     [IsoId("_otJMk4v9EeuC5632vxUfGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnTp")]
     #endif
+    [IsoXmlTag("RcncltnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardServiceType4Code ReconciliationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardServiceType4Code ReconciliationType { get; init; } 
+    public required CardServiceType4Code ReconciliationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardServiceType4Code ReconciliationType { get; init; } 
     #else
@@ -131,15 +124,13 @@ public partial record Transaction135
     /// Other type of reconciliation.
     /// </summary>
     [IsoId("_otJMlYv9EeuC5632vxUfGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Reconciliation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRcncltnTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrRcncltnTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherReconciliationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +143,11 @@ public partial record Transaction135
     /// Identification of the transaction.
     /// </summary>
     [IsoId("_otJMl4v9EeuC5632vxUfGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,15 +161,12 @@ public partial record Transaction135
     /// ISO 4217
     /// </summary>
     [IsoId("_otJMmYv9EeuC5632vxUfGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdCcy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ReqdCcy")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? RequestedCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +179,11 @@ public partial record Transaction135
     /// Totals of the reconciliation.
     /// </summary>
     [IsoId("_otJMm4v9EeuC5632vxUfGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnTtls")]
     #endif
+    [IsoXmlTag("RcncltnTtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionTotals13? ReconciliationTotals { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,12 +196,11 @@ public partial record Transaction135
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
     [IsoId("_otJzoYv9EeuC5632vxUfGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlFee")]
     #endif
+    [IsoXmlTag("AddtlFee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee2? AdditionalFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,12 +213,11 @@ public partial record Transaction135
     /// Contains additional data.
     /// </summary>
     [IsoId("_otJzo4v9EeuC5632vxUfGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

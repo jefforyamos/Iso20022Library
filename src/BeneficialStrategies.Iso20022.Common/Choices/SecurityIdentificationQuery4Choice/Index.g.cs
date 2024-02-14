@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery4Choi
     /// Identification of the index on which the financial instrument is based.
     /// </summary>
     [IsoId("_PJPwqZNeEeytjZlcgApf6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

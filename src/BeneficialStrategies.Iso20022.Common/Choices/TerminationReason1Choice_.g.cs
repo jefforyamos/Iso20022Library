@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TerminationReason1Choice.Code))]
     [KnownType(typeof(TerminationReason1Choice.Proprietary))]
     [IsoId("_932rsXltEeG7BsjMvd1mEw_1357060754")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Termination Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

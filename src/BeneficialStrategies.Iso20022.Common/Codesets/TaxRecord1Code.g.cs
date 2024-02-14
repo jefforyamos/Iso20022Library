@@ -21,7 +21,7 @@ public enum TaxRecord1Code
 {
     /// <summary>
     /// Tax record is related to the withholding tax.
-    /// Encoded/decoded by serializers as "WHTX".
+    /// Encoded/decoded by serializers as &quot;WHTX&quot;.
     /// </summary>
     [EnumMember(Value = "WHTX")]
     [IsoId("_YiBCaNp-Ed-ak6NoX_4Aeg_278106712")]
@@ -30,7 +30,7 @@ public enum TaxRecord1Code
     
     /// <summary>
     /// Tax record is related to the value added tax.
-    /// Encoded/decoded by serializers as "VATX".
+    /// Encoded/decoded by serializers as &quot;VATX&quot;.
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_YiKMUNp-Ed-ak6NoX_4Aeg_278106740")]
@@ -39,7 +39,7 @@ public enum TaxRecord1Code
     
     /// <summary>
     /// Tax record is related to the income payment details.
-    /// Encoded/decoded by serializers as "INCP".
+    /// Encoded/decoded by serializers as &quot;INCP&quot;.
     /// </summary>
     [EnumMember(Value = "INCP")]
     [IsoId("_YiKMUdp-Ed-ak6NoX_4Aeg_278106771")]
@@ -48,7 +48,7 @@ public enum TaxRecord1Code
     
     /// <summary>
     /// Tax record is related to the total amount for income payments.
-    /// Encoded/decoded by serializers as "TLAI".
+    /// Encoded/decoded by serializers as &quot;TLAI&quot;.
     /// </summary>
     [EnumMember(Value = "TLAI")]
     [IsoId("_YiKMUtp-Ed-ak6NoX_4Aeg_278106772")]
@@ -57,7 +57,7 @@ public enum TaxRecord1Code
     
     /// <summary>
     /// Tax record is related to the money payments details.
-    /// Encoded/decoded by serializers as "MONP".
+    /// Encoded/decoded by serializers as &quot;MONP&quot;.
     /// </summary>
     [EnumMember(Value = "MONP")]
     [IsoId("_YiKMU9p-Ed-ak6NoX_4Aeg_278106802")]
@@ -66,7 +66,7 @@ public enum TaxRecord1Code
     
     /// <summary>
     /// Tax record is related to the total amount for money payments.
-    /// Encoded/decoded by serializers as "TLAM".
+    /// Encoded/decoded by serializers as &quot;TLAM&quot;.
     /// </summary>
     [EnumMember(Value = "TLAM")]
     [IsoId("_YiKMVNp-Ed-ak6NoX_4Aeg_278107073")]
@@ -75,7 +75,7 @@ public enum TaxRecord1Code
     
     /// <summary>
     /// Other tax record type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YiKMVdp-Ed-ak6NoX_4Aeg_278107081")]

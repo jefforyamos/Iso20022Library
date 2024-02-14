@@ -21,7 +21,7 @@ public enum PrePaymentSpeedCode
 {
     /// <summary>
     /// Prepayment speed schedule is Single Monthly Mortality, ie, the percentage of outstanding mortgage loan principal prepays in one month.
-    /// Encoded/decoded by serializers as "SIMM".
+    /// Encoded/decoded by serializers as &quot;SIMM&quot;.
     /// </summary>
     [EnumMember(Value = "SIMM")]
     [IsoId("_aIYjRNp-Ed-ak6NoX_4Aeg_336258037")]
@@ -30,7 +30,7 @@ public enum PrePaymentSpeedCode
     
     /// <summary>
     /// Measure of prepayment as a percentage of the current outstanding loan balance, expressed as a compound annual rate.
-    /// Encoded/decoded by serializers as "COPR".
+    /// Encoded/decoded by serializers as &quot;COPR&quot;.
     /// </summary>
     [EnumMember(Value = "COPR")]
     [IsoId("_aIYjRdp-Ed-ak6NoX_4Aeg_336258038")]
@@ -39,7 +39,7 @@ public enum PrePaymentSpeedCode
     
     /// <summary>
     /// Measure of prepayment as a monthly percentage of the original loan balance.
-    /// Encoded/decoded by serializers as "ABPS".
+    /// Encoded/decoded by serializers as &quot;ABPS&quot;.
     /// </summary>
     [EnumMember(Value = "ABPS")]
     [IsoId("_aIYjRtp-Ed-ak6NoX_4Aeg_336258039")]
@@ -48,7 +48,7 @@ public enum PrePaymentSpeedCode
     
     /// <summary>
     /// Repayment measure for nonamortizing assets not subject to prepayment. It is calculated by dividing the sum of the interest and principal payments received in a month by the outstanding balance.
-    /// Encoded/decoded by serializers as "MOPR".
+    /// Encoded/decoded by serializers as &quot;MOPR&quot;.
     /// </summary>
     [EnumMember(Value = "MOPR")]
     [IsoId("_aIYjR9p-Ed-ak6NoX_4Aeg_336258040")]
@@ -57,7 +57,7 @@ public enum PrePaymentSpeedCode
     
     /// <summary>
     /// Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the final Constant Prepayment Rate of the Home Equity Prepayment Curve (10-month seasoning scale composed of even step-ups, terminating at the final Home Equity Prepayment percentage in the 10th month).
-    /// Encoded/decoded by serializers as "HOEP".
+    /// Encoded/decoded by serializers as &quot;HOEP&quot;.
     /// </summary>
     [EnumMember(Value = "HOEP")]
     [IsoId("_aIYjSNp-Ed-ak6NoX_4Aeg_336258041")]
@@ -66,7 +66,7 @@ public enum PrePaymentSpeedCode
     
     /// <summary>
     /// Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the Bonds Market Association prepayment Curve.
-    /// Encoded/decoded by serializers as "BOMA".
+    /// Encoded/decoded by serializers as &quot;BOMA&quot;.
     /// </summary>
     [EnumMember(Value = "BOMA")]
     [IsoId("_aIYjSdp-Ed-ak6NoX_4Aeg_336258042")]
@@ -75,7 +75,7 @@ public enum PrePaymentSpeedCode
     
     /// <summary>
     /// Refers to the pricing speed of a transaction as defined in the prospectus and is specific to the issue which are normally priced at 100 percent PPC.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_aIiUQNp-Ed-ak6NoX_4Aeg_336258043")]
@@ -84,7 +84,7 @@ public enum PrePaymentSpeedCode
     
     /// <summary>
     /// Contains the type of prepayment speed of the financial instrument, expressed as a percentage of the Manufactured Housing Prepayment Curve (24-month seasoning scale composed of even step-ups).
-    /// Encoded/decoded by serializers as "MAHP".
+    /// Encoded/decoded by serializers as &quot;MAHP&quot;.
     /// </summary>
     [EnumMember(Value = "MAHP")]
     [IsoId("_aIiUQdp-Ed-ak6NoX_4Aeg_336258044")]

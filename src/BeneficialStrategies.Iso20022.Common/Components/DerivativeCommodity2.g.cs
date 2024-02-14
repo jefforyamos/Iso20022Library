@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the details of a commodity derivative.
 /// </summary>
 [IsoId("_e-bjmXvyEeanCNPcMT7sSg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivative Commodity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DerivativeCommodity2
     /// Commodity product attributes.
     /// </summary>
     [IsoId("_fHZ5YXvyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pdct")]
     #endif
+    [IsoXmlTag("Pdct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetClassCommodity3Choice_ Product { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AssetClassCommodity3Choice_ Product { get; init; } 
+    public required AssetClassCommodity3Choice_ Product { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AssetClassCommodity3Choice_ Product { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DerivativeCommodity2
     /// Transaction type as specified by the trading venue.
     /// </summary>
     [IsoId("_fHZ5Y3vyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTp")]
     #endif
+    [IsoXmlTag("TxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassTransactionType1Code? TransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record DerivativeCommodity2
     /// Final price type as specified by the trading venue.
     /// </summary>
     [IsoId("_fHZ5ZXvyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Price Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlPricTp")]
     #endif
+    [IsoXmlTag("FnlPricTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetPriceType1Code? FinalPriceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

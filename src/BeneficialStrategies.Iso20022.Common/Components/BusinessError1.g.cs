@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the business error details.
 /// </summary>
 [IsoId("_hW9wV2liEeGaMcKyqKNRfQ_1431206011")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Error")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BusinessError1
     /// Way(s) of identifying the security.
     /// </summary>
     [IsoId("_hW9wWGliEeGaMcKyqKNRfQ_536353207")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record BusinessError1
     /// Provides the business error.
     /// </summary>
     [IsoId("_hW9wWWliEeGaMcKyqKNRfQ_-1167546325")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizErr")]
     #endif
+    [IsoXmlTag("BizErr")]
     public ErrorHandling3? BusinessError { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _hW9wWWliEeGaMcKyqKNRfQ_-1167546325
     

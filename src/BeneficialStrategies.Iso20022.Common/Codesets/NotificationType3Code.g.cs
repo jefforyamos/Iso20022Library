@@ -21,7 +21,7 @@ public enum NotificationType3Code
 {
     /// <summary>
     /// New notification.
-    /// Encoded/decoded by serializers as "NEWM".
+    /// Encoded/decoded by serializers as &quot;NEWM&quot;.
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_1FTusa7PEemG7MmivSuE5g")]
@@ -30,7 +30,7 @@ public enum NotificationType3Code
     
     /// <summary>
     /// Notification replacing a previously sent notification.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_1SZvgq7PEemG7MmivSuE5g")]
@@ -39,7 +39,7 @@ public enum NotificationType3Code
     
     /// <summary>
     /// Notification sent as a reminder of an event taking place.
-    /// Encoded/decoded by serializers as "RMDR".
+    /// Encoded/decoded by serializers as &quot;RMDR&quot;.
     /// </summary>
     [EnumMember(Value = "RMDR")]
     [IsoId("_1avMIq7PEemG7MmivSuE5g")]

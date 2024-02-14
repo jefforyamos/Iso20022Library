@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The FinancialInstrumentReportingStatusAdvice message is sent by the national competent authority to the reporting agent to provide a status advice for the correctness, issues or errors that arise from the submitted report.")]
 [IsoId("_4LUGQURNEee7JdgA9zPESA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Reporting Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record FinancialInstrumentReportingStatusAdviceV01 : IOuterRecord
     /// Status advice report.
     /// </summary>
     [IsoId("_4LUGQ0RNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsAdvc")]
     #endif
+    [IsoXmlTag("StsAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageReportHeader4 StatusAdvice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageReportHeader4 StatusAdvice { get; init; } 
+    public required MessageReportHeader4 StatusAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageReportHeader4 StatusAdvice { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record FinancialInstrumentReportingStatusAdviceV01 : IOuterRecord
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_4LUGRURNEee7JdgA9zPESA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record FinancialInstrumentReportingStatusAdviceV01 : IOuterRecord
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInstrumentReportingStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInstrumentReportingStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInstrumentReportingStatusAdviceV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record FinancialInstrumentReportingStatusAdviceV01 : IOuterRecord
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInstrumentReportingStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInstrumentReportingStatusAdviceV01Document : IOuterDocument<FinancialInstrumentReportingStatusAdviceV01>
@@ -140,7 +136,7 @@ public partial record FinancialInstrumentReportingStatusAdviceV01Document : IOut
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInstrumentReportingStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInstrumentReportingStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentReportingStatusAdviceV01 Message { get; init; }

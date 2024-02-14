@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information on the number of transactions that are reported with a specific transaction status.
 /// </summary>
 [IsoId("_4rGw9dHEEeaokquJJ-K6uA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Number Of Records Per Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record NumberOfRecordsPerStatus1
     /// Number of individual records contained in the message, detailed per status.
     /// </summary>
     [IsoId("_40TJMdHEEeaokquJJ-K6uA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Number Of Records")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldNbOfRcrds")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DtldNbOfRcrds")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText DetailedNumberOfRecords { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DetailedNumberOfRecords { get; init; } 
+    public required System.String DetailedNumberOfRecords { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DetailedNumberOfRecords { get; init; } 
     #else
@@ -75,16 +70,15 @@ public partial record NumberOfRecordsPerStatus1
     /// Common transaction status for all individual records reported.
     /// </summary>
     [IsoId("_40TJM9HEEeaokquJJ-K6uA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldSts")]
     #endif
+    [IsoXmlTag("DtldSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportingRecordStatus1Code DetailedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportingRecordStatus1Code DetailedStatus { get; init; } 
+    public required ReportingRecordStatus1Code DetailedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportingRecordStatus1Code DetailedStatus { get; init; } 
     #else

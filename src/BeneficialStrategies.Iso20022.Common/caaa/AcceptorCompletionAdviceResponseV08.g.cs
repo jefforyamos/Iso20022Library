@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorCompletionAdviceResponse message is sent by the acquirer (or its agent) to acknowledge the acceptor (or its agent) of the outcome of the payment transaction, and the transfer the financial data of the transaction contained in the completion advice.")]
 [IsoId("_46JYoQudEeqw5uEXxQ9H4g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Completion Advice Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcceptorCompletionAdviceResponseV08 : IOuterRecord<Accepto
     /// Completion advice response message management information.
     /// </summary>
     [IsoId("_46JYpQudEeqw5uEXxQ9H4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header58 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header58 Header { get; init; } 
+    public required Header58 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header58 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcceptorCompletionAdviceResponseV08 : IOuterRecord<Accepto
     /// Information related to the completion advice response.
     /// </summary>
     [IsoId("_46JYpwudEeqw5uEXxQ9H4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Completion Advice Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpltnAdvcRspn")]
     #endif
+    [IsoXmlTag("CmpltnAdvcRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCompletionAdviceResponse8 CompletionAdviceResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorCompletionAdviceResponse8 CompletionAdviceResponse { get; init; } 
+    public required AcceptorCompletionAdviceResponse8 CompletionAdviceResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorCompletionAdviceResponse8 CompletionAdviceResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AcceptorCompletionAdviceResponseV08 : IOuterRecord<Accepto
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_46JYqQudEeqw5uEXxQ9H4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType24? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AcceptorCompletionAdviceResponseV08 : IOuterRecord<Accepto
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorCompletionAdviceResponseV08Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorCompletionAdviceResponseV08Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorCompletionAdviceResponseV08Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AcceptorCompletionAdviceResponseV08 : IOuterRecord<Accepto
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCompletionAdviceResponseV08"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorCompletionAdviceResponseV08&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorCompletionAdviceResponseV08Document : IOuterDocument<AcceptorCompletionAdviceResponseV08>
@@ -161,7 +156,7 @@ public partial record AcceptorCompletionAdviceResponseV08Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorCompletionAdviceResponseV08"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorCompletionAdviceResponseV08&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCompletionAdviceResponseV08 Message { get; init; }

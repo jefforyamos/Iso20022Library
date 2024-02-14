@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderType1Choice
     /// Liquidity transfer standing order type, in a coded form.
     /// </summary>
     [IsoId("_73bb4aMgEeCJ6YNENx4h-w_-1852211918")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderType1Choice
         /// Specifies the type of standing order, such as a user defined standing order or a predefined liquidity transfer.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StandingOrderType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StandingOrderType1Code Value { get; init; } 
+        public required StandingOrderType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StandingOrderType1Code Value { get; init; } 
         #else

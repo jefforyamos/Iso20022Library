@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action details.
 /// </summary>
 [IsoId("_1dNFgTL3EeKU9IrkkToqcw_-574697348")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionSD3
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1dNFgjL3EeKU9IrkkToqcw_-1571769701")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -71,15 +67,14 @@ public partial record CorporateActionSD3
     #endif
     
     /// <summary>
-    /// Indicates whether the notice received was universal or specific to securities registered in DTC's nominee name.
+    /// Indicates whether the notice received was universal or specific to securities registered in DTC&apos;s nominee name.
     /// </summary>
     [IsoId("_1dNFgzL3EeKU9IrkkToqcw_-2114754785")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notice Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtceTp")]
     #endif
+    [IsoXmlTag("NtceTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NoticeType1Code? NoticeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record CorporateActionSD3
     /// Amount of cash set aside by the offeror. This is the maximum amount that the offeror is willing to pay out to the holders who elect to take part in the offer.
     /// </summary>
     [IsoId("_1dNFhDL3EeKU9IrkkToqcw_1845185232")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Cash Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtCshVal")]
     #endif
+    [IsoXmlTag("EvtCshVal")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? EventCashValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,12 @@ public partial record CorporateActionSD3
     /// Number of shares the issuer is creating as part of the event.
     /// </summary>
     [IsoId("_1dNFhTL3EeKU9IrkkToqcw_47598821")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Shares To Be Issued")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfShrsToBeIssd")]
     #endif
+    [IsoXmlTag("NbOfShrsToBeIssd")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? NumberOfSharesToBeIssued { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,12 @@ public partial record CorporateActionSD3
     /// Total number of shares that are part of the offer for example subscription offer.
     /// </summary>
     [IsoId("_1dNFhjL3EeKU9IrkkToqcw_-1832706819")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Shares Offered")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfShrsOfferd")]
     #endif
+    [IsoXmlTag("TtlNbOfShrsOfferd")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? TotalNumberOfSharesOffered { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,15 +141,13 @@ public partial record CorporateActionSD3
     /// Name of the company that will remain (possibly a new name), usually designated after a merger.
     /// </summary>
     [IsoId("_1dW2gDL3EeKU9IrkkToqcw_1249464996")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Surviving Company")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrvvgCpny")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SrvvgCpny")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? SurvivingCompany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +160,12 @@ public partial record CorporateActionSD3
     /// Number of additional days used to establish a DTC processing cutoff date. For example, DTC typically adds a cutoff off day (making it one business day prior) to the record date for issues with agents outside NYC. This allows time for DTC to deliver the securities.
     /// </summary>
     [IsoId("_1dW2gTL3EeKU9IrkkToqcw_1351349058")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cut Off Days")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CutOffDays")]
     #endif
+    [IsoXmlTag("CutOffDays")]
+    [IsoSimpleType(IsoSimpleType.Max3Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Number? CutOffDays { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +178,11 @@ public partial record CorporateActionSD3
     /// Indicator that identifies the type of interface an event agent has with DTC (The Depository Trust Corporation). It defines how time sensitive instruction and withdrawal process is. Offline (non automated) agent will have earlier deadlines which will be reflected in response deadlines but importantly withdrawal procedures for manual agent require hard copy sign off from the agent that has to be delivered to DTC to proceed with withdrawal.
     /// </summary>
     [IsoId("_1dW2gjL3EeKU9IrkkToqcw_-983725307")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Automated Offer Program")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCAutomtdOfferPrgm")]
     #endif
+    [IsoXmlTag("DTCAutomtdOfferPrgm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAutoOfferProgram1Code? DTCAutomatedOfferProgram { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +195,11 @@ public partial record CorporateActionSD3
     /// Indicates whether the recycling of instructions for eligible positions is set to end early or late at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1dW2gzL3EeKU9IrkkToqcw_26595572")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Recycle Cut Off Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCRcyclCutOffInd")]
     #endif
+    [IsoXmlTag("DTCRcyclCutOffInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CutOff1Code? DTCRecycleCutOffIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -221,12 +212,11 @@ public partial record CorporateActionSD3
     /// Indicates whether instructions processing is temporarily suspended for this event at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1dW2hDL3EeKU9IrkkToqcw_1701661713")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Instruction Lockout Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCInstrLckoutInd")]
     #endif
+    [IsoXmlTag("DTCInstrLckoutInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InstructionLockout1Code? DTCInstructionLockoutIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +229,11 @@ public partial record CorporateActionSD3
     /// Denotes whether the first accrual period for debt instruments is either long or short, compared to the normal accrual period of the security.
     /// </summary>
     [IsoId("_1dW2hTL3EeKU9IrkkToqcw_1470545610")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Long Short Payment Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LngShrtPmtInd")]
     #endif
+    [IsoXmlTag("LngShrtPmtInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccrualPeriodType1Code? LongShortPaymentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,12 +246,11 @@ public partial record CorporateActionSD3
     /// Indicates whether or not the payment for a liquidation event is interim or final.
     /// </summary>
     [IsoId("_1dW2hjL3EeKU9IrkkToqcw_-142207276")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interim Final Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmFnlInd")]
     #endif
+    [IsoXmlTag("IntrmFnlInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterimFinalPayment1Code? InterimFinalIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +263,11 @@ public partial record CorporateActionSD3
     /// Type of oversubscription on the event.
     /// </summary>
     [IsoId("_1dgAcDL3EeKU9IrkkToqcw_-373323379")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Oversubscription Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OvrsbcptTp")]
     #endif
+    [IsoXmlTag("OvrsbcptTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OversubscriptionType1Code? OversubscriptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -293,12 +280,12 @@ public partial record CorporateActionSD3
     /// Indicates whether the payment made by the issuer is based on a stated condition.
     /// </summary>
     [IsoId("_1dgAcTL3EeKU9IrkkToqcw_-807660494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conditional Payment Applicable Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CondlPmtAplblFlg")]
     #endif
+    [IsoXmlTag("CondlPmtAplblFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ConditionalPaymentApplicableFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -311,12 +298,12 @@ public partial record CorporateActionSD3
     /// Indicates whether there is a solicitation fee on the event. This fee is paid by the soliciting dealer.
     /// </summary>
     [IsoId("_1dgAcjL3EeKU9IrkkToqcw_-1918571913")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Solicitation Dealer Fee Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SlctnDealrFeeFlg")]
     #endif
+    [IsoXmlTag("SlctnDealrFeeFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SolicitationDealerFeeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -329,12 +316,12 @@ public partial record CorporateActionSD3
     /// Indicates whether positions held in Custody program are eligible for instruction processing at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1dgAczL3EeKU9IrkkToqcw_1023262675")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Custody Eligible Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCCtdyElgblFlg")]
     #endif
+    [IsoXmlTag("DTCCtdyElgblFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCCustodyEligibleFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -347,12 +334,12 @@ public partial record CorporateActionSD3
     /// Indicates whether the event is eligible for Custody Reorganisation service at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1dgAdDL3EeKU9IrkkToqcw_-937311712")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Reorganisation Custody Eligible Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCReorgCtdyElgblFlg")]
     #endif
+    [IsoXmlTag("DTCReorgCtdyElgblFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCReorganisationCustodyEligibleFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -365,12 +352,12 @@ public partial record CorporateActionSD3
     /// Indicates whether the event is eligible for Reorganisation Deposit Service at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1dgAdTL3EeKU9IrkkToqcw_1477349944")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Reorganisation Deposit Eligible Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCReorgDpstElgblFlg")]
     #endif
+    [IsoXmlTag("DTCReorgDpstElgblFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DTCReorganisationDepositEligibleFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -383,12 +370,12 @@ public partial record CorporateActionSD3
     /// Indicates whether shares outside of DTC need to be delivered to the agent in order to receive entitlement.
     /// </summary>
     [IsoId("_1dgAdjL3EeKU9IrkkToqcw_952385551")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Surrender Shares To Agent Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrrndrShrsToAgtFlg")]
     #endif
+    [IsoXmlTag("SrrndrShrsToAgtFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SurrenderSharesToAgentFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -401,12 +388,12 @@ public partial record CorporateActionSD3
     /// Indicates that the holder has the privilege to buy additional rights. Upon exercising this privilege, the holder may subscribe to one additional share of the new security in lieu of fractional shares to which the holder might otherwise be entitled.
     /// </summary>
     [IsoId("_1dpxcDL3EeKU9IrkkToqcw_-1081368416")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Step Up Privilege Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StepUpPrvlgFlg")]
     #endif
+    [IsoXmlTag("StepUpPrvlgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StepUpPrivilegeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -419,12 +406,12 @@ public partial record CorporateActionSD3
     /// Indicates whether holders of rights will be afforded the opportunity to subscribe to purchase extra shares that are not picked up by the remaining holders.
     /// </summary>
     [IsoId("_1dpxcTL3EeKU9IrkkToqcw_2102687461")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rights Oversubscription Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RghtsOvrsbcptFlg")]
     #endif
+    [IsoXmlTag("RghtsOvrsbcptFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RightsOversubscriptionFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -437,12 +424,12 @@ public partial record CorporateActionSD3
     /// Indicates whether the shareholder will be able to round up his/her subscription in the event his/her rights are less than the requirement.
     /// </summary>
     [IsoId("_1dpxcjL3EeKU9IrkkToqcw_-668873768")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rights Round Up Privilege Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RghtsRndUpPrvlgFlg")]
     #endif
+    [IsoXmlTag("RghtsRndUpPrvlgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RightsRoundUpPrivilegeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -455,12 +442,12 @@ public partial record CorporateActionSD3
     /// Indicates whether rights can be transferred.
     /// </summary>
     [IsoId("_1dpxczL3EeKU9IrkkToqcw_-1779785187")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rights Transferable Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RghtsTrfblFlg")]
     #endif
+    [IsoXmlTag("RghtsTrfblFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RightsTransferableFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -473,12 +460,11 @@ public partial record CorporateActionSD3
     /// Provides details of certificates that have been called for redemption.
     /// </summary>
     [IsoId("_1dpxdDL3EeKU9IrkkToqcw_-459504869")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertDtls")]
     #endif
+    [IsoXmlTag("CertDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionSD5? CertificateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

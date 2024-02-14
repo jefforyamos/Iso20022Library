@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"The SaleToPOISessionManagementResponse message is sent by a POI to provide the result of an administrative service related to session management.")]
 [IsoId("_2hkSEXO-Ee2pK6udhxEaHA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Session Management Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOISessionManagementResponseV05 : IOuterRecord<SaleT
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_2hk5IXO-Ee2pK6udhxEaHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header41 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header41 Header { get; init; } 
+    public required Header41 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header41 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOISessionManagementResponseV05 : IOuterRecord<SaleT
     /// Information related to the response of a session management request.
     /// </summary>
     [IsoId("_2hlgMXO-Ee2pK6udhxEaHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Session Management Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SsnMgmtRspn")]
     #endif
+    [IsoXmlTag("SsnMgmtRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SessionManagementResponse6 SessionManagementResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SessionManagementResponse6 SessionManagementResponse { get; init; } 
+    public required SessionManagementResponse6 SessionManagementResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SessionManagementResponse6 SessionManagementResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SaleToPOISessionManagementResponseV05 : IOuterRecord<SaleT
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_2hlgM3O-Ee2pK6udhxEaHA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType33? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SaleToPOISessionManagementResponseV05 : IOuterRecord<SaleT
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOISessionManagementResponseV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOISessionManagementResponseV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOISessionManagementResponseV05Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SaleToPOISessionManagementResponseV05 : IOuterRecord<SaleT
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOISessionManagementResponseV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOISessionManagementResponseV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOISessionManagementResponseV05Document : IOuterDocument<SaleToPOISessionManagementResponseV05>
@@ -161,7 +156,7 @@ public partial record SaleToPOISessionManagementResponseV05Document : IOuterDocu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOISessionManagementResponseV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOISessionManagementResponseV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOISessionManagementResponseV05 Message { get; init; }

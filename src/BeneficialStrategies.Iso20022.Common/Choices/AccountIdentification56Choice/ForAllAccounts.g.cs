@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification56Choice
     /// All safekeeping accounts that own an underlying financial instrument.
     /// </summary>
     [IsoId("_Q6fvUzgDEe23pOhj-2WbKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("For All Accounts")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification56Choice
         /// Standard code to specify that announcement applies to all safekeeping accounts that own underlying financial instrument.
         /// </summary>
         [IsoId("_QSgqVNp-Ed-ak6NoX_4Aeg_-758816150")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IdCd")]
         #endif
+        [IsoXmlTag("IdCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SafekeepingAccountIdentification1Code IdentificationCode { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SafekeepingAccountIdentification1Code IdentificationCode { get; init; } 
+        public required SafekeepingAccountIdentification1Code IdentificationCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SafekeepingAccountIdentification1Code IdentificationCode { get; init; } 
         #else

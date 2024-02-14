@@ -21,7 +21,7 @@ public enum AssetClassSubProductType20Code
 {
     /// <summary>
     /// Commodity of type dairy.
-    /// Encoded/decoded by serializers as "DIRY".
+    /// Encoded/decoded by serializers as &quot;DIRY&quot;.
     /// </summary>
     [EnumMember(Value = "DIRY")]
     [IsoId("_prJicVq_EeWN79Bl6BUd3g")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification8Choice
     /// Identification of a party by a BIC and an Alternative Identifier.
     /// </summary>
     [IsoId("_Q7pG4Np-Ed-ak6NoX_4Aeg_1657637865")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("BIC Or BEI")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -53,15 +51,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification8Choice
         #nullable enable
         
         /// <summary>
-        /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+        /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BICOrBEI")]
         #endif
+        [IsoXmlTag("BICOrBEI")]
+        [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoAnyBICIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else
@@ -72,19 +72,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification8Choice
         /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
         /// </summary>
         [IsoId("_QQkwp9p-Ed-ak6NoX_4Aeg_1555128116")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Alternative Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AltrntvIdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AltrntvIdr")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [MinLength(0)]
         [MaxLength(10)]
-        #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         public SimpleValueList<System.String> AlternativeIdentifier { get; init; } = new SimpleValueList<System.String>(){};
         
         

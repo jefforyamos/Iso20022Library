@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the proceeds movements.
 /// </summary>
 [IsoId("_Ri1Csdp-Ed-ak6NoX_4Aeg_1504216884")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proceeds Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ProceedsMovement1
     /// Provides information about the movement of the cash proceeds.
     /// </summary>
     [IsoId("_Ri1Cstp-Ed-ak6NoX_4Aeg_-2002064127")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Proceeds Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshPrcdsMvmntDtls")]
     #endif
+    [IsoXmlTag("CshPrcdsMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashProceeds1? CashProceedsMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ProceedsMovement1
     /// Provides information about the movement of the securities proceeds.
     /// </summary>
     [IsoId("_Ri1Cs9p-Ed-ak6NoX_4Aeg_-2011300771")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Proceeds Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesPrcdsMvmntDtls")]
     #endif
+    [IsoXmlTag("SctiesPrcdsMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesProceeds1? SecuritiesProceedsMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record ProceedsMovement1
     /// Provides information about the tax voucher.
     /// </summary>
     [IsoId("_Ri1CtNp-Ed-ak6NoX_4Aeg_-1986363312")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDtls")]
     #endif
+    [IsoXmlTag("TaxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxVoucher1? TaxDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

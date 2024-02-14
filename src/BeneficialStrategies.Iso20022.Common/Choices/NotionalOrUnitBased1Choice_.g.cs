@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NotionalOrUnitBased1Choice.Code))]
     [KnownType(typeof(NotionalOrUnitBased1Choice.Proprietary))]
     [IsoId("_jltcEJ9VEeqxTNfi5y7ywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Or Unit Based 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

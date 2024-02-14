@@ -21,7 +21,7 @@ public enum MessageFunction5Code
 {
     /// <summary>
     /// Request for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FAUQ".
+    /// Encoded/decoded by serializers as &quot;FAUQ&quot;.
     /// </summary>
     [EnumMember(Value = "FAUQ")]
     [IsoId("_jGozoWpsEeSMqvBfBY1c9A")]
@@ -30,7 +30,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Request for cancellation.
-    /// Encoded/decoded by serializers as "CCAQ".
+    /// Encoded/decoded by serializers as &quot;CCAQ&quot;.
     /// </summary>
     [EnumMember(Value = "CCAQ")]
     [IsoId("_jGozo2psEeSMqvBfBY1c9A")]
@@ -39,7 +39,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Advice for completion without financial capture.
-    /// Encoded/decoded by serializers as "CMPV".
+    /// Encoded/decoded by serializers as &quot;CMPV&quot;.
     /// </summary>
     [EnumMember(Value = "CMPV")]
     [IsoId("_jGozpWpsEeSMqvBfBY1c9A")]
@@ -48,7 +48,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Request for diagnostic.
-    /// Encoded/decoded by serializers as "DGNP".
+    /// Encoded/decoded by serializers as &quot;DGNP&quot;.
     /// </summary>
     [EnumMember(Value = "DGNP")]
     [IsoId("_jGozp2psEeSMqvBfBY1c9A")]
@@ -57,7 +57,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Request for reconciliation.
-    /// Encoded/decoded by serializers as "RCLQ".
+    /// Encoded/decoded by serializers as &quot;RCLQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCLQ")]
     [IsoId("_jGozqWpsEeSMqvBfBY1c9A")]
@@ -66,7 +66,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Advice for cancellation.
-    /// Encoded/decoded by serializers as "CCAV".
+    /// Encoded/decoded by serializers as &quot;CCAV&quot;.
     /// </summary>
     [EnumMember(Value = "CCAV")]
     [IsoId("_jGozq2psEeSMqvBfBY1c9A")]
@@ -75,7 +75,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Transfer the financial data as a collection of transction.
-    /// Encoded/decoded by serializers as "BTCH".
+    /// Encoded/decoded by serializers as &quot;BTCH&quot;.
     /// </summary>
     [EnumMember(Value = "BTCH")]
     [IsoId("_jGozrWpsEeSMqvBfBY1c9A")]
@@ -84,7 +84,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Advice for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FRVA".
+    /// Encoded/decoded by serializers as &quot;FRVA&quot;.
     /// </summary>
     [EnumMember(Value = "FRVA")]
     [IsoId("_jGozr2psEeSMqvBfBY1c9A")]
@@ -93,7 +93,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// The initiator requests an authorisation without financial impact to complete the transaction.
-    /// Encoded/decoded by serializers as "AUTQ".
+    /// Encoded/decoded by serializers as &quot;AUTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AUTQ")]
     [IsoId("_jGozsWpsEeSMqvBfBY1c9A")]
@@ -102,7 +102,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Advice for completion with financial capture.
-    /// Encoded/decoded by serializers as "FCMV".
+    /// Encoded/decoded by serializers as &quot;FCMV&quot;.
     /// </summary>
     [EnumMember(Value = "FCMV")]
     [IsoId("_jGozs2psEeSMqvBfBY1c9A")]
@@ -111,7 +111,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Reversal advice of an authorisation or a financial message.
-    /// Encoded/decoded by serializers as "REVV".
+    /// Encoded/decoded by serializers as &quot;REVV&quot;.
     /// </summary>
     [EnumMember(Value = "REVV")]
     [IsoId("_jGoztWpsEeSMqvBfBY1c9A")]
@@ -120,7 +120,7 @@ public enum MessageFunction5Code
     
     /// <summary>
     /// Request for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCCQ".
+    /// Encoded/decoded by serializers as &quot;DCCQ&quot;.
     /// </summary>
     [EnumMember(Value = "DCCQ")]
     [IsoId("_nmCXIWpsEeSMqvBfBY1c9A")]

@@ -21,7 +21,7 @@ public enum AffirmStatusCode
 {
     /// <summary>
     /// Data was successfully matched.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_HDYCEEStEeSTS-T7FO4CUQ")]
@@ -30,7 +30,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Format of upload data was right, and system receives successfully.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_JjXSkEStEeSTS-T7FO4CUQ")]
@@ -39,7 +39,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Data was mismatched.
-    /// Encoded/decoded by serializers as "MISM".
+    /// Encoded/decoded by serializers as &quot;MISM&quot;.
     /// </summary>
     [EnumMember(Value = "MISM")]
     [IsoId("_MD9nEEStEeSTS-T7FO4CUQ")]
@@ -48,7 +48,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Query time was over system service time.
-    /// Encoded/decoded by serializers as "OUOS".
+    /// Encoded/decoded by serializers as &quot;OUOS&quot;.
     /// </summary>
     [EnumMember(Value = "OUOS")]
     [IsoId("_O4ngAEStEeSTS-T7FO4CUQ")]
@@ -57,7 +57,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Query time was out of range.
-    /// Encoded/decoded by serializers as "OUOR".
+    /// Encoded/decoded by serializers as &quot;OUOR&quot;.
     /// </summary>
     [EnumMember(Value = "OUOR")]
     [IsoId("_RA4NAEStEeSTS-T7FO4CUQ")]
@@ -66,7 +66,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Notfies that the trade confimation was conpleted.
-    /// Encoded/decoded by serializers as "ATCN".
+    /// Encoded/decoded by serializers as &quot;ATCN&quot;.
     /// </summary>
     [EnumMember(Value = "ATCN")]
     [IsoId("_UB5uAEStEeSTS-T7FO4CUQ")]
@@ -75,7 +75,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Format of upload data was wrong, and system receives unsuccessfully.
-    /// Encoded/decoded by serializers as "UNRE".
+    /// Encoded/decoded by serializers as &quot;UNRE&quot;.
     /// </summary>
     [EnumMember(Value = "UNRE")]
     [IsoId("_XgxBkEStEeSTS-T7FO4CUQ")]
@@ -84,7 +84,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Model has errors.
-    /// Encoded/decoded by serializers as "MISE".
+    /// Encoded/decoded by serializers as &quot;MISE&quot;.
     /// </summary>
     [EnumMember(Value = "MISE")]
     [IsoId("_Y7ViIEStEeSTS-T7FO4CUQ")]
@@ -93,7 +93,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Notfies the clearing status changed.
-    /// Encoded/decoded by serializers as "ATSC".
+    /// Encoded/decoded by serializers as &quot;ATSC&quot;.
     /// </summary>
     [EnumMember(Value = "ATSC")]
     [IsoId("_bC0MAEStEeSTS-T7FO4CUQ")]
@@ -102,7 +102,7 @@ public enum AffirmStatusCode
     
     /// <summary>
     /// Have no trading permissions.
-    /// Encoded/decoded by serializers as "NOTP".
+    /// Encoded/decoded by serializers as &quot;NOTP&quot;.
     /// </summary>
     [EnumMember(Value = "NOTP")]
     [IsoId("_duHUoEStEeSTS-T7FO4CUQ")]

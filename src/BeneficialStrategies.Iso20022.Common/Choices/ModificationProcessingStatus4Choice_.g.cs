@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ModificationProcessingStatus4Choice.Modified))]
     [KnownType(typeof(ModificationProcessingStatus4Choice.Proprietary))]
     [IsoId("_gUOMsVhgEeS8HfHHd4stCA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Processing Status 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

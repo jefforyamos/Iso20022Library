@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingSettlementStatus3Choice
     /// Reason for the settlement pending status.
     /// </summary>
     [IsoId("_LrsCYyY4EeW_ZNn8gbfY7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingSettlementStatus3Choice
         /// Specifies the reason for a transfer or settlement instruction settlement pending status.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingSettlementStatusReason2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingSettlementStatusReason2Code Value { get; init; } 
+        public required PendingSettlementStatusReason2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingSettlementStatusReason2Code Value { get; init; } 
         #else

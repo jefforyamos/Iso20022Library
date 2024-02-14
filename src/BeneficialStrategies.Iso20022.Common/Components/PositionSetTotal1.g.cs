@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
 [IsoId("_HG95hcWFEeiRga8tPu1L4Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Total")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record PositionSetTotal1
     /// Refers to the number of trades contained in the position set.
     /// </summary>
     [IsoId("_HG95hsWFEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Trades")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfTrds")]
     #endif
+    [IsoXmlTag("NbOfTrds")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20PositiveNumber? NumberOfTrades { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record PositionSetTotal1
     /// Aggregations of all positive values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
     [IsoId("_HG95k8WFEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Positive")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Postv")]
     #endif
+    [IsoXmlTag("Postv")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetValueAndNotional1? Positive { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record PositionSetTotal1
     /// Aggregations of all negative values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
     [IsoId("_HG95jcWFEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Negative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Neg")]
     #endif
+    [IsoXmlTag("Neg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetValueAndNotional1? Negative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

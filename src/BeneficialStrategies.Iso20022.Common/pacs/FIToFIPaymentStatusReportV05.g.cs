@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"Scope|The FinancialInstitutionToFinancialInstitutionPaymentStatusReport message is sent by an instructed agent to the previous party in the payment chain. It is used to inform this party about the positive or negative status of an instruction (either single or file). It is also used to report on a pending instruction.|Usage|The FIToFIPaymentStatusReport message is exchanged between agents to provide status information about instructions previously sent. Its usage will always be governed by a bilateral agreement between the agents.|The FIToFIPaymentStatusReport message can be used to provide information about the status (e.g. rejection, acceptance) of a credit transfer instruction, a direct debit instruction, as well as other intra-agent instructions (for example FIToFIPaymentCancellationRequest).|The FIToFIPaymentStatusReport message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|The FIToFIPaymentStatusReport message can be used in domestic and cross-border scenarios.")]
 [IsoId("_FXEtkSGnEeKjd4jizyIDGA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("FI To FI Payment Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record FIToFIPaymentStatusReportV05 : IOuterRecord<FIToFIPaymentS
     /// Set of characteristics shared by all individual transactions included in the status report message.
     /// </summary>
     [IsoId("_FXEtoyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader53 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader53 GroupHeader { get; init; } 
+    public required GroupHeader53 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader53 GroupHeader { get; init; } 
     #else
@@ -102,16 +99,15 @@ public partial record FIToFIPaymentStatusReportV05 : IOuterRecord<FIToFIPaymentS
     /// Original group information concerning the group of transactions, to which the status report message refers to.
     /// </summary>
     [IsoId("_FXEtpyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlGrpInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalGroupHeader1 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalGroupHeader1 OriginalGroupInformationAndStatus { get; init; } 
+    public required OriginalGroupHeader1 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalGroupHeader1 OriginalGroupInformationAndStatus { get; init; } 
     #else
@@ -122,12 +118,11 @@ public partial record FIToFIPaymentStatusReportV05 : IOuterRecord<FIToFIPaymentS
     /// Information concerning the original transactions, to which the status report message refers.
     /// </summary>
     [IsoId("_FXEtqyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInfAndSts")]
     #endif
+    [IsoXmlTag("TxInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction43? TransactionInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +135,11 @@ public partial record FIToFIPaymentStatusReportV05 : IOuterRecord<FIToFIPaymentS
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_FXEtryGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +152,7 @@ public partial record FIToFIPaymentStatusReportV05 : IOuterRecord<FIToFIPaymentS
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FIToFIPaymentStatusReportV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FIToFIPaymentStatusReportV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FIToFIPaymentStatusReportV05Document ToDocument()
     {
@@ -168,7 +162,7 @@ public partial record FIToFIPaymentStatusReportV05 : IOuterRecord<FIToFIPaymentS
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFIPaymentStatusReportV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FIToFIPaymentStatusReportV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FIToFIPaymentStatusReportV05Document : IOuterDocument<FIToFIPaymentStatusReportV05>
@@ -185,7 +179,7 @@ public partial record FIToFIPaymentStatusReportV05Document : IOuterDocument<FITo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FIToFIPaymentStatusReportV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FIToFIPaymentStatusReportV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FIToFIPaymentStatusReportV05 Message { get; init; }

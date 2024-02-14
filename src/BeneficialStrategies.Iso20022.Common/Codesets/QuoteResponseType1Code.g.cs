@@ -21,7 +21,7 @@ public enum QuoteResponseType1Code
 {
     /// <summary>
     /// Acceptance by a party of the conditions of a quote.
-    /// Encoded/decoded by serializers as "HILI".
+    /// Encoded/decoded by serializers as &quot;HILI&quot;.
     /// </summary>
     [EnumMember(Value = "HILI")]
     [IsoId("_ZX9L6Np-Ed-ak6NoX_4Aeg_-1103387160")]
@@ -30,7 +30,7 @@ public enum QuoteResponseType1Code
     
     /// <summary>
     /// Rejection of the conditions of a quote and proposition of new quote details.
-    /// Encoded/decoded by serializers as "COUN".
+    /// Encoded/decoded by serializers as &quot;COUN&quot;.
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_ZYG84Np-Ed-ak6NoX_4Aeg_-1103386770")]
@@ -39,7 +39,7 @@ public enum QuoteResponseType1Code
     
     /// <summary>
     /// Rejection of the conditions of a quote due to its expiry.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_ZYG84dp-Ed-ak6NoX_4Aeg_-1103386727")]
@@ -48,7 +48,7 @@ public enum QuoteResponseType1Code
     
     /// <summary>
     /// Purchase of a contract to offset a previously established short position.
-    /// Encoded/decoded by serializers as "COVE".
+    /// Encoded/decoded by serializers as &quot;COVE&quot;.
     /// </summary>
     [EnumMember(Value = "COVE")]
     [IsoId("_ZYG84tp-Ed-ak6NoX_4Aeg_-1103386436")]
@@ -57,7 +57,7 @@ public enum QuoteResponseType1Code
     
     /// <summary>
     /// Trade completed with a third party, counter-party.
-    /// Encoded/decoded by serializers as "DONE".
+    /// Encoded/decoded by serializers as &quot;DONE&quot;.
     /// </summary>
     [EnumMember(Value = "DONE")]
     [IsoId("_ZYG849p-Ed-ak6NoX_4Aeg_-1103386401")]
@@ -66,7 +66,7 @@ public enum QuoteResponseType1Code
     
     /// <summary>
     /// Rejection of the conditions of a quote because the offer is being declined.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_ZYG85Np-Ed-ak6NoX_4Aeg_-1103386359")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat4Choice
     /// The date is not specified, eg, the date is unknown.
     /// </summary>
     [IsoId("_RlgjRdp-Ed-ak6NoX_4Aeg_-1279748182")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Specified Date")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat4Choice
         /// Specifies the type of dates.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NotSpcfdDt")]
         #endif
+        [IsoXmlTag("NotSpcfdDt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DateType6Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DateType6Code Value { get; init; } 
+        public required DateType6Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DateType6Code Value { get; init; } 
         #else

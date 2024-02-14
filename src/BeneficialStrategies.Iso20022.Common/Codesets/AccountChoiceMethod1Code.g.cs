@@ -21,7 +21,7 @@ public enum AccountChoiceMethod1Code
 {
     /// <summary>
     /// Account selected in an account list.
-    /// Encoded/decoded by serializers as "ACSL".
+    /// Encoded/decoded by serializers as &quot;ACSL&quot;.
     /// </summary>
     [EnumMember(Value = "ACSL")]
     [IsoId("_ojWosXs7EeSTS7uHCe8FPQ")]
@@ -30,7 +30,7 @@ public enum AccountChoiceMethod1Code
     
     /// <summary>
     /// Account identification is entered by the customer.
-    /// Encoded/decoded by serializers as "ENTR".
+    /// Encoded/decoded by serializers as &quot;ENTR&quot;.
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_ot0MQ3s7EeSTS7uHCe8FPQ")]
@@ -39,7 +39,7 @@ public enum AccountChoiceMethod1Code
     
     /// <summary>
     /// Account is selected according to the configuration.
-    /// Encoded/decoded by serializers as "IMAC".
+    /// Encoded/decoded by serializers as &quot;IMAC&quot;.
     /// </summary>
     [EnumMember(Value = "IMAC")]
     [IsoId("_o4i1k3s7EeSTS7uHCe8FPQ")]
@@ -48,7 +48,7 @@ public enum AccountChoiceMethod1Code
     
     /// <summary>
     /// Type of account is selected according to the configuration.
-    /// Encoded/decoded by serializers as "IMPL".
+    /// Encoded/decoded by serializers as &quot;IMPL&quot;.
     /// </summary>
     [EnumMember(Value = "IMPL")]
     [IsoId("_o--0wXs7EeSTS7uHCe8FPQ")]
@@ -57,7 +57,7 @@ public enum AccountChoiceMethod1Code
     
     /// <summary>
     /// Account is not selected by the customer or a profile, but by the issuer.
-    /// Encoded/decoded by serializers as "NOSL".
+    /// Encoded/decoded by serializers as &quot;NOSL&quot;.
     /// </summary>
     [EnumMember(Value = "NOSL")]
     [IsoId("_pJsP83s7EeSTS7uHCe8FPQ")]
@@ -66,7 +66,7 @@ public enum AccountChoiceMethod1Code
     
     /// <summary>
     /// Type of account selected in a list.
-    /// Encoded/decoded by serializers as "TPSL".
+    /// Encoded/decoded by serializers as &quot;TPSL&quot;.
     /// </summary>
     [EnumMember(Value = "TPSL")]
     [IsoId("_pREDQ3s7EeSTS7uHCe8FPQ")]

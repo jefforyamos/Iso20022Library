@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExchangeRateReportOrError1Choice.CurrencyExchangeReport))]
     [KnownType(typeof(ExchangeRateReportOrError1Choice.OperationalError))]
     [IsoId("_77JeQ6MgEeCJ6YNENx4h-w_1304764556")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate Report Or Error 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

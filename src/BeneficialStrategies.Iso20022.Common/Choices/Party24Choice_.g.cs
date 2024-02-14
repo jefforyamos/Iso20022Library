@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Party24Choice.Organisation))]
     [KnownType(typeof(Party24Choice.IndividualPerson))]
     [IsoId("_Zivv0WW8EeSHcOWXSsMhqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party 24 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

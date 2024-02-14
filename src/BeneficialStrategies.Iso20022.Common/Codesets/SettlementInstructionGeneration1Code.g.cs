@@ -21,7 +21,7 @@ public enum SettlementInstructionGeneration1Code
 {
     /// <summary>
     /// Specifies if the ETC service provider is to generate a settlement instruction.
-    /// Encoded/decoded by serializers as "GENS".
+    /// Encoded/decoded by serializers as &quot;GENS&quot;.
     /// </summary>
     [EnumMember(Value = "GENS")]
     [IsoId("__wk5ZtojEeC60axPepSq7g_899535056")]
@@ -30,7 +30,7 @@ public enum SettlementInstructionGeneration1Code
     
     /// <summary>
     /// Specifies if the ETC service provider is not to generate a settlement instruction where a previous agreement to do so exists.
-    /// Encoded/decoded by serializers as "NOGE".
+    /// Encoded/decoded by serializers as &quot;NOGE&quot;.
     /// </summary>
     [EnumMember(Value = "NOGE")]
     [IsoId("__wuqYNojEeC60axPepSq7g_710317607")]

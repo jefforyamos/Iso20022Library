@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ThresholdBasis1Choice
     /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings and provided as a code value.
     /// </summary>
     [IsoId("_4JOLYBuMEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ThresholdBasis1Choice
         /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ThresholdBasis1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ThresholdBasis1Code Value { get; init; } 
+        public required ThresholdBasis1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ThresholdBasis1Code Value { get; init; } 
         #else

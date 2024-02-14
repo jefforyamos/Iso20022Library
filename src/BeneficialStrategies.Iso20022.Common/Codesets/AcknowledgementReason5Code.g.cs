@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum AcknowledgementReason5Code
 {
     /// <summary>
-    /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_bpPSBtp-Ed-ak6NoX_4Aeg_-27223806")]
@@ -30,7 +30,7 @@ public enum AcknowledgementReason5Code
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
-    /// Encoded/decoded by serializers as "SMPG".
+    /// Encoded/decoded by serializers as &quot;SMPG&quot;.
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_bpPSB9p-Ed-ak6NoX_4Aeg_1110394808")]
@@ -39,7 +39,7 @@ public enum AcknowledgementReason5Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bpPSCNp-Ed-ak6NoX_4Aeg_180042807")]
@@ -48,7 +48,7 @@ public enum AcknowledgementReason5Code
     
     /// <summary>
     /// Execution is conditional to the execution of a process linked to the currency of the transaction.
-    /// Encoded/decoded by serializers as "CDCY".
+    /// Encoded/decoded by serializers as &quot;CDCY&quot;.
     /// </summary>
     [EnumMember(Value = "CDCY")]
     [IsoId("_bpZDANp-Ed-ak6NoX_4Aeg_1232765698")]
@@ -57,7 +57,7 @@ public enum AcknowledgementReason5Code
     
     /// <summary>
     /// Execution is conditional to the execution of a process at the registrar.
-    /// Encoded/decoded by serializers as "CDRG".
+    /// Encoded/decoded by serializers as &quot;CDRG&quot;.
     /// </summary>
     [EnumMember(Value = "CDRG")]
     [IsoId("_bpZDAdp-Ed-ak6NoX_4Aeg_1991941032")]
@@ -66,7 +66,7 @@ public enum AcknowledgementReason5Code
     
     /// <summary>
     /// Execution is conditional to the execution of a process of realignment at the issuer CSD.
-    /// Encoded/decoded by serializers as "CDRE".
+    /// Encoded/decoded by serializers as &quot;CDRE&quot;.
     /// </summary>
     [EnumMember(Value = "CDRE")]
     [IsoId("_bpZDAtp-Ed-ak6NoX_4Aeg_148072043")]
@@ -75,7 +75,7 @@ public enum AcknowledgementReason5Code
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
-    /// Encoded/decoded by serializers as "NSTP".
+    /// Encoded/decoded by serializers as &quot;NSTP&quot;.
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_bpZDA9p-Ed-ak6NoX_4Aeg_-780265528")]
@@ -84,7 +84,7 @@ public enum AcknowledgementReason5Code
     
     /// <summary>
     /// Instruction registration is accepted but the registration is not in full, that is, not with voting rights.
-    /// Encoded/decoded by serializers as "RQWV".
+    /// Encoded/decoded by serializers as &quot;RQWV&quot;.
     /// </summary>
     [EnumMember(Value = "RQWV")]
     [IsoId("_bpZDBNp-Ed-ak6NoX_4Aeg_865001907")]
@@ -93,7 +93,7 @@ public enum AcknowledgementReason5Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_bpZDBdp-Ed-ak6NoX_4Aeg_-1891176947")]

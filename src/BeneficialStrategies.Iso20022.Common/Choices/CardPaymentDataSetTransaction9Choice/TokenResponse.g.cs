@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction9Ch
     /// Response to a token computation.
     /// </summary>
     [IsoId("_eVYgwC_2EeugIJ3Gvoevmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Response")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction9Ch
         /// Identification of an element in a sequence.
         /// </summary>
         [IsoId("_8UVdQC_1EeugIJ3Gvoevmg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Sequence Counter")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxSeqCntr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("TxSeqCntr")]
+        [IsoSimpleType(IsoSimpleType.Max9NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String TransactionSequenceCounter { get; init; } 
+        public required System.String TransactionSequenceCounter { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String TransactionSequenceCounter { get; init; } 
         #else
@@ -80,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction9Ch
         /// Environment of the transaction.
         /// </summary>
         [IsoId("_-Is94S_1EeugIJ3Gvoevmg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Environment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Envt")]
         #endif
+        [IsoXmlTag("Envt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CardPaymentEnvironment77 Environment { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CardPaymentEnvironment77 Environment { get; init; } 
+        public required CardPaymentEnvironment77 Environment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CardPaymentEnvironment77 Environment { get; init; } 
         #else

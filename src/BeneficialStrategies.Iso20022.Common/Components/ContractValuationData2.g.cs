@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to contract valuation.
 /// </summary>
 [IsoId("_rIFrmUDWEeWOL-OsSq2h6w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Valuation Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ContractValuationData2
     /// Mark to market valuation of the contract, or mark to model valuation. The CCP’s valuation to be used for a cleared trade.
     /// </summary>
     [IsoId("_rS83wUDWEeWOL-OsSq2h6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctVal")]
     #endif
+    [IsoXmlTag("CtrctVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection54 ContractValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection54 ContractValue { get; init; } 
+    public required AmountAndDirection54 ContractValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection54 ContractValue { get; init; } 
     #else
@@ -74,16 +71,16 @@ public partial record ContractValuationData2
     /// Usage: For mark-to-market valuation the date and time of publishing of reference prices shall be reported.
     /// </summary>
     [IsoId("_rS83w0DWEeWOL-OsSq2h6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmStmp")]
     #endif
+    [IsoXmlTag("TmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TimeStamp { get; init; } 
+    public required System.DateTime TimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TimeStamp { get; init; } 
     #else
@@ -94,16 +91,15 @@ public partial record ContractValuationData2
     /// Indicate whether valuation was performed mark to market, mark to model or provided by the CCP.
     /// </summary>
     [IsoId("_rS83xUDWEeWOL-OsSq2h6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ValuationType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ValuationType1Code Type { get; init; } 
+    public required ValuationType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ValuationType1Code Type { get; init; } 
     #else

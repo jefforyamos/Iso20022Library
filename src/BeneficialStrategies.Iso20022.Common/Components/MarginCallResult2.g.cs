@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the summation of the call amounts for the variation margin and optionaly the segregated independent amount.
 /// </summary>
 [IsoId("_UlvaFtp-Ed-ak6NoX_4Aeg_-1833234715")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Call Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MarginCallResult2
     /// Provides the summation of the call amounts for the variation margin amount only.
     /// </summary>
     [IsoId("_UlvaF9p-Ed-ak6NoX_4Aeg_-1196189794")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnRslt")]
     #endif
+    [IsoXmlTag("VartnMrgnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Result1 VariationMarginResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Result1 VariationMarginResult { get; init; } 
+    public required Result1 VariationMarginResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Result1 VariationMarginResult { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MarginCallResult2
     /// Provides the summation of the call amounts for the segregated independent amount.
     /// </summary>
     [IsoId("_UlvaGNp-Ed-ak6NoX_4Aeg_872246105")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgrtdIndpdntAmt")]
     #endif
+    [IsoXmlTag("SgrtdIndpdntAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Result1? SegregatedIndependentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

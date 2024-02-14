@@ -21,7 +21,7 @@ public enum AssetClassSubProductType35Code
 {
     /// <summary>
     /// Commodity of type containerboard.
-    /// Encoded/decoded by serializers as "CBRD".
+    /// Encoded/decoded by serializers as &quot;CBRD&quot;.
     /// </summary>
     [EnumMember(Value = "CBRD")]
     [IsoId("_mxGD8VryEeWN79Bl6BUd3g")]

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.admi;
 /// </summary>
 [Description(@"The Processing Request message is sent by a participant to a central system to request the initiation of a system process suported by a central system.")]
 [IsoId("_4X6DQJXbEeaYkf5FCqYMeA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Processing Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,19 +74,17 @@ public partial record ProcessingRequestV01 : IOuterRecord<ProcessingRequestV01,P
     /// Unique and unambiguous identifier for the message, as assigned by the sender.
     /// </summary>
     [IsoId("_Tos68ZXcEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageIdentification { get; init; } 
+    public required System.String MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageIdentification { get; init; } 
     #else
@@ -99,15 +95,12 @@ public partial record ProcessingRequestV01 : IOuterRecord<ProcessingRequestV01,P
     /// Indicates the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
     [IsoId("_V3DB0ZXcEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Session Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSsnIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SttlmSsnIdr")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,16 +113,15 @@ public partial record ProcessingRequestV01 : IOuterRecord<ProcessingRequestV01,P
     /// Contains the details of the processing request.
     /// </summary>
     [IsoId("_K1IXEJXdEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Req")]
     #endif
+    [IsoXmlTag("Req")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestDetails19 Request { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestDetails19 Request { get; init; } 
+    public required RequestDetails19 Request { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestDetails19 Request { get; init; } 
     #else
@@ -140,7 +132,7 @@ public partial record ProcessingRequestV01 : IOuterRecord<ProcessingRequestV01,P
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ProcessingRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ProcessingRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ProcessingRequestV01Document ToDocument()
     {
@@ -150,7 +142,7 @@ public partial record ProcessingRequestV01 : IOuterRecord<ProcessingRequestV01,P
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ProcessingRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ProcessingRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ProcessingRequestV01Document : IOuterDocument<ProcessingRequestV01>
@@ -167,7 +159,7 @@ public partial record ProcessingRequestV01Document : IOuterDocument<ProcessingRe
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ProcessingRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ProcessingRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingRequestV01 Message { get; init; }

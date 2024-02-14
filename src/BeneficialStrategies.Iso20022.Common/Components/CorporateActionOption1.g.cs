@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the CA option.
 /// </summary>
 [IsoId("_UFsoGdp-Ed-ak6NoX_4Aeg_-1064577856")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,19 +53,16 @@ public partial record CorporateActionOption1
     /// Number identifying the available corporate action options.
     /// </summary>
     [IsoId("_UFsoGtp-Ed-ak6NoX_4Aeg_-963912936")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OptnNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText OptionNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OptionNumber { get; init; } 
+    public required System.String OptionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OptionNumber { get; init; } 
     #else
@@ -78,16 +73,15 @@ public partial record CorporateActionOption1
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
     [IsoId("_UFsoG9p-Ed-ak6NoX_4Aeg_-963912905")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionOption1FormatChoice_ OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     #else
@@ -98,16 +92,15 @@ public partial record CorporateActionOption1
     /// Specifies the status of the option.
     /// </summary>
     [IsoId("_UFsoHNp-Ed-ak6NoX_4Aeg_-921431062")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Availability Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnAvlbtySts")]
     #endif
+    [IsoXmlTag("OptnAvlbtySts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventStatus2FormatChoice_ OptionAvailabilityStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionEventStatus2FormatChoice_ OptionAvailabilityStatus { get; init; } 
+    public required CorporateActionEventStatus2FormatChoice_ OptionAvailabilityStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionEventStatus2FormatChoice_ OptionAvailabilityStatus { get; init; } 
     #else
@@ -118,12 +111,12 @@ public partial record CorporateActionOption1
     /// Whether or not certification is required from the account owner. |Yes: certification required |No: no certification required.
     /// </summary>
     [IsoId("_UF2ZENp-Ed-ak6NoX_4Aeg_-548329043")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnInd")]
     #endif
+    [IsoXmlTag("CertfctnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +129,11 @@ public partial record CorporateActionOption1
     /// Type of certification which is required.
     /// </summary>
     [IsoId("_UF2ZEdp-Ed-ak6NoX_4Aeg_-477217373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnTp")]
     #endif
+    [IsoXmlTag("CertfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +146,11 @@ public partial record CorporateActionOption1
     /// Identification of a temporary security used for processing reasons, eg, contra security used in the US.
     /// </summary>
     [IsoId("_UF2ZEtp-Ed-ak6NoX_4Aeg_1198048231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assented Line Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssntdLineSctyId")]
     #endif
+    [IsoXmlTag("AssntdLineSctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification7? AssentedLineSecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,15 +163,13 @@ public partial record CorporateActionOption1
     /// Identification of the safekeeping account held by an agent at the CSD.
     /// </summary>
     [IsoId("_UF2ZE9p-Ed-ak6NoX_4Aeg_-65255820")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Securities Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtSctiesAcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AgtSctiesAcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AgentSecuritiesAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +182,11 @@ public partial record CorporateActionOption1
     /// Identification of the cash account held by an agent at the CSD.
     /// </summary>
     [IsoId("_UF2ZFNp-Ed-ak6NoX_4Aeg_-532715793")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Cash Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCshAcctId")]
     #endif
+    [IsoXmlTag("AgtCshAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification2Choice_? AgentCashAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,12 +199,11 @@ public partial record CorporateActionOption1
     /// Specifies the conditions that apply to the offer.
     /// </summary>
     [IsoId("_UF2ZFdp-Ed-ak6NoX_4Aeg_-616320822")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offer Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OfferTp")]
     #endif
+    [IsoXmlTag("OfferTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OfferType1FormatChoice_? OfferType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,12 +216,11 @@ public partial record CorporateActionOption1
     /// Type of intermediates securities distribution, eg, stock dividend, reverse right.
     /// </summary>
     [IsoId("_UF2ZFtp-Ed-ak6NoX_4Aeg_-616320520")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediate Securities Distribution Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmdtSctiesDstrbtnTp")]
     #endif
+    [IsoXmlTag("IntrmdtSctiesDstrbtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,16 +233,16 @@ public partial record CorporateActionOption1
     /// Indicates whether withdrawal of instruction is allowed.
     /// </summary>
     [IsoId("_UF2ZF9p-Ed-ak6NoX_4Aeg_1839983467")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withdrawal Allowed Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WdrwlAllwdInd")]
     #endif
+    [IsoXmlTag("WdrwlAllwdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator WithdrawalAllowedIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String WithdrawalAllowedIndicator { get; init; } 
+    public required System.String WithdrawalAllowedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String WithdrawalAllowedIndicator { get; init; } 
     #else
@@ -267,16 +253,16 @@ public partial record CorporateActionOption1
     /// Indicates whether change of instruction is allowed.
     /// </summary>
     [IsoId("_UF2ZGNp-Ed-ak6NoX_4Aeg_-2128058199")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Change Allowed Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChngAllwdInd")]
     #endif
+    [IsoXmlTag("ChngAllwdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ChangeAllowedIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ChangeAllowedIndicator { get; init; } 
+    public required System.String ChangeAllowedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ChangeAllowedIndicator { get; init; } 
     #else
@@ -287,12 +273,11 @@ public partial record CorporateActionOption1
     /// Provides information about the dates related to a CA option.
     /// </summary>
     [IsoId("_UF2ZGdp-Ed-ak6NoX_4Aeg_-1100900730")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtDtls")]
     #endif
+    [IsoXmlTag("DtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionDate4? DateDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -305,12 +290,11 @@ public partial record CorporateActionOption1
     /// Provides information about rates and amounts related to a CA option.
     /// </summary>
     [IsoId("_UF_jANp-Ed-ak6NoX_4Aeg_-488676195")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate And Amount Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateAndAmtDtls")]
     #endif
+    [IsoXmlTag("RateAndAmtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionRate2? RateAndAmountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -323,12 +307,11 @@ public partial record CorporateActionOption1
     /// Provides information about the prices related to a CA option.
     /// </summary>
     [IsoId("_UF_jAdp-Ed-ak6NoX_4Aeg_-693561752")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricDtls")]
     #endif
+    [IsoXmlTag("PricDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPrice1? PriceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -341,12 +324,11 @@ public partial record CorporateActionOption1
     /// Provides information about the periods related to a CA option.
     /// </summary>
     [IsoId("_UF_jAtp-Ed-ak6NoX_4Aeg_-928157510")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrdDtls")]
     #endif
+    [IsoXmlTag("PrdDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionPeriod2? PeriodDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -359,12 +341,11 @@ public partial record CorporateActionOption1
     /// Provides information about the securities movement linked to the CA option.
     /// </summary>
     [IsoId("_UF_jA9p-Ed-ak6NoX_4Aeg_3077583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmntDtls")]
     #endif
+    [IsoXmlTag("SctiesMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityOption1? SecuritiesMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -377,12 +358,11 @@ public partial record CorporateActionOption1
     /// Provides information about the cash movement linked to the CA option.
     /// </summary>
     [IsoId("_UF_jBNp-Ed-ak6NoX_4Aeg_-127876028")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshMvmntDtls")]
     #endif
+    [IsoXmlTag("CshMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOption1? CashMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -395,12 +375,11 @@ public partial record CorporateActionOption1
     /// Provides information about the agents linked to the CA option.
     /// </summary>
     [IsoId("_UF_jBdp-Ed-ak6NoX_4Aeg_1521015328")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Other Agent Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnOthrAgtDtls")]
     #endif
+    [IsoXmlTag("CorpActnOthrAgtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionAgent1? CorporateActionOtherAgentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -413,12 +392,11 @@ public partial record CorporateActionOption1
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
     [IsoId("_UF_jBtp-Ed-ak6NoX_4Aeg_398627756")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraction Disposition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrctnDspstn")]
     #endif
+    [IsoXmlTag("FrctnDspstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FractionDispositionType1FormatChoice_? FractionDisposition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -431,12 +409,12 @@ public partial record CorporateActionOption1
     /// ndicates whether redemption charges apply.
     /// </summary>
     [IsoId("_UF_jB9p-Ed-ak6NoX_4Aeg_2102524745")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Charges Applied Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedChrgsApldInd")]
     #endif
+    [IsoXmlTag("RedChrgsApldInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RedemptionChargesAppliedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -449,12 +427,11 @@ public partial record CorporateActionOption1
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
     [IsoId("_UF_jCNp-Ed-ak6NoX_4Aeg_330286965")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Features")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnFeatrs")]
     #endif
+    [IsoXmlTag("OptnFeatrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionFeatures1FormatChoice_? OptionFeatures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -467,12 +444,11 @@ public partial record CorporateActionOption1
     /// Provides additional information.
     /// </summary>
     [IsoId("_UF_jCdp-Ed-ak6NoX_4Aeg_-710459371")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnAddtlInf")]
     #endif
+    [IsoXmlTag("CorpActnAddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionNarrative1? CorporateActionAdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

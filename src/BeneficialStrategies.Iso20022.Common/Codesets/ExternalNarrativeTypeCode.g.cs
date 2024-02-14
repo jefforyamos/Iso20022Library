@@ -22,7 +22,7 @@ public enum ExternalNarrativeTypeCode
 {
     /// <summary>
     /// Narrative text describing the additional terms and conditions.
-    /// Encoded/decoded by serializers as "ADDI".
+    /// Encoded/decoded by serializers as &quot;ADDI&quot;.
     /// </summary>
     [EnumMember(Value = "ADDI")]
     [IsoId("_uPvII_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalNarrativeTypeCode
     
     /// <summary>
     /// Narrative text describing the charge details.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_uPvIJvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalNarrativeTypeCode
     
     /// <summary>
     /// Narrative text describing the drawing details.
-    /// Encoded/decoded by serializers as "DRAW".
+    /// Encoded/decoded by serializers as &quot;DRAW&quot;.
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_uP4SEPRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalNarrativeTypeCode
     
     /// <summary>
     /// Narrative text describing the assignment of proceeds terms and conditions.
-    /// Encoded/decoded by serializers as "PRAS".
+    /// Encoded/decoded by serializers as &quot;PRAS&quot;.
     /// </summary>
     [EnumMember(Value = "PRAS")]
     [IsoId("_uP4SE_RYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalNarrativeTypeCode
     
     /// <summary>
     /// Narrative text describing the terms of effectiveness.
-    /// Encoded/decoded by serializers as "TEFF".
+    /// Encoded/decoded by serializers as &quot;TEFF&quot;.
     /// </summary>
     [EnumMember(Value = "TEFF")]
     [IsoId("_uP4SFvRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalNarrativeTypeCode
     
     /// <summary>
     /// Narrative text describing the transfer terms and conditions.
-    /// Encoded/decoded by serializers as "TRNF".
+    /// Encoded/decoded by serializers as &quot;TRNF&quot;.
     /// </summary>
     [EnumMember(Value = "TRNF")]
     [IsoId("_uP4SGfRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalNarrativeTypeCode
     
     /// <summary>
     /// Narrative text describing the terms of variation.
-    /// Encoded/decoded by serializers as "TVAR".
+    /// Encoded/decoded by serializers as &quot;TVAR&quot;.
     /// </summary>
     [EnumMember(Value = "TVAR")]
     [IsoId("_uP4SHPRYEeuLhpyIdtJzwg")]

@@ -21,7 +21,7 @@ public enum AccountInformationTypeCode
 {
     /// <summary>
     /// Account number of securities custodians.
-    /// Encoded/decoded by serializers as "SCAN".
+    /// Encoded/decoded by serializers as &quot;SCAN&quot;.
     /// </summary>
     [EnumMember(Value = "SCAN")]
     [IsoId("_GecKoEa-EeSm2psHh_KSCw")]
@@ -30,7 +30,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Account name of securities custodians.
-    /// Encoded/decoded by serializers as "SCAA".
+    /// Encoded/decoded by serializers as &quot;SCAA&quot;.
     /// </summary>
     [EnumMember(Value = "SCAA")]
     [IsoId("_GjtsMEa-EeSm2psHh_KSCw")]
@@ -39,7 +39,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Margin settlement account number of CDC.
-    /// Encoded/decoded by serializers as "MSAN".
+    /// Encoded/decoded by serializers as &quot;MSAN&quot;.
     /// </summary>
     [EnumMember(Value = "MSAN")]
     [IsoId("_GmGR0Ea-EeSm2psHh_KSCw")]
@@ -48,7 +48,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Custodian account number of margin.
-    /// Encoded/decoded by serializers as "MCAN".
+    /// Encoded/decoded by serializers as &quot;MCAN&quot;.
     /// </summary>
     [EnumMember(Value = "MCAN")]
     [IsoId("_GoWUkEa-EeSm2psHh_KSCw")]
@@ -57,7 +57,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Settlement bank name of margin.
-    /// Encoded/decoded by serializers as "MSBN".
+    /// Encoded/decoded by serializers as &quot;MSBN&quot;.
     /// </summary>
     [EnumMember(Value = "MSBN")]
     [IsoId("_GqtsEEa-EeSm2psHh_KSCw")]
@@ -66,7 +66,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of intermediary bank for contra currency.
-    /// Encoded/decoded by serializers as "IBNC".
+    /// Encoded/decoded by serializers as &quot;IBNC&quot;.
     /// </summary>
     [EnumMember(Value = "IBNC")]
     [IsoId("_GtONgEa-EeSm2psHh_KSCw")]
@@ -75,7 +75,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of beneficiary institution for dealt currency.
-    /// Encoded/decoded by serializers as "BIND".
+    /// Encoded/decoded by serializers as &quot;BIND&quot;.
     /// </summary>
     [EnumMember(Value = "BIND")]
     [IsoId("_GtPboEa-EeSm2psHh_KSCw")]
@@ -84,7 +84,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// BIC code of correspondent bank for contra currency.
-    /// Encoded/decoded by serializers as "CBBC".
+    /// Encoded/decoded by serializers as &quot;CBBC&quot;.
     /// </summary>
     [EnumMember(Value = "CBBC")]
     [IsoId("_GvgFcEa-EeSm2psHh_KSCw")]
@@ -93,7 +93,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// BIC code of beneficiary institution for dealt currency.
-    /// Encoded/decoded by serializers as "BIBD".
+    /// Encoded/decoded by serializers as &quot;BIBD&quot;.
     /// </summary>
     [EnumMember(Value = "BIBD")]
     [IsoId("_GxTcQEa-EeSm2psHh_KSCw")]
@@ -102,7 +102,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of correspondent bank for contra currency.
-    /// Encoded/decoded by serializers as "CBNC".
+    /// Encoded/decoded by serializers as &quot;CBNC&quot;.
     /// </summary>
     [EnumMember(Value = "CBNC")]
     [IsoId("_GzkGEEa-EeSm2psHh_KSCw")]
@@ -111,7 +111,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Number of beneficiary institution for dealt currency.
-    /// Encoded/decoded by serializers as "BIDC".
+    /// Encoded/decoded by serializers as &quot;BIDC&quot;.
     /// </summary>
     [EnumMember(Value = "BIDC")]
     [IsoId("_G1Xc4Ea-EeSm2psHh_KSCw")]
@@ -120,7 +120,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Number of correspondent bank for contra currency.
-    /// Encoded/decoded by serializers as "CBCC".
+    /// Encoded/decoded by serializers as &quot;CBCC&quot;.
     /// </summary>
     [EnumMember(Value = "CBCC")]
     [IsoId("_G1y6sEa-EeSm2psHh_KSCw")]
@@ -129,7 +129,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of correspondent bank for dealt currency.
-    /// Encoded/decoded by serializers as "CBND".
+    /// Encoded/decoded by serializers as &quot;CBND&quot;.
     /// </summary>
     [EnumMember(Value = "CBND")]
     [IsoId("_G3sYIEa-EeSm2psHh_KSCw")]
@@ -138,7 +138,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// BIC code of beneficiary institution for contra currency.
-    /// Encoded/decoded by serializers as "BIBC".
+    /// Encoded/decoded by serializers as &quot;BIBC&quot;.
     /// </summary>
     [EnumMember(Value = "BIBC")]
     [IsoId("_G5hkIEa-EeSm2psHh_KSCw")]
@@ -147,7 +147,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// BIC code of correspondent bank for dealt currency.
-    /// Encoded/decoded by serializers as "CBBD".
+    /// Encoded/decoded by serializers as &quot;CBBD&quot;.
     /// </summary>
     [EnumMember(Value = "CBBD")]
     [IsoId("_G7vKoEa-EeSm2psHh_KSCw")]
@@ -156,7 +156,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of beneficiary institution for contra currency.
-    /// Encoded/decoded by serializers as "BINC".
+    /// Encoded/decoded by serializers as &quot;BINC&quot;.
     /// </summary>
     [EnumMember(Value = "BINC")]
     [IsoId("_G9nZ8Ea-EeSm2psHh_KSCw")]
@@ -165,7 +165,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Number of correspondent bank for dealt currency.
-    /// Encoded/decoded by serializers as "CBDC".
+    /// Encoded/decoded by serializers as &quot;CBDC&quot;.
     /// </summary>
     [EnumMember(Value = "CBDC")]
     [IsoId("_G_iFgEa-EeSm2psHh_KSCw")]
@@ -174,7 +174,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Number of beneficiary institution for contra currency.
-    /// Encoded/decoded by serializers as "BICC".
+    /// Encoded/decoded by serializers as &quot;BICC&quot;.
     /// </summary>
     [EnumMember(Value = "BICC")]
     [IsoId("_HBwTEEa-EeSm2psHh_KSCw")]
@@ -183,7 +183,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of intermediary bank for dealt currency.
-    /// Encoded/decoded by serializers as "IBND".
+    /// Encoded/decoded by serializers as &quot;IBND&quot;.
     /// </summary>
     [EnumMember(Value = "IBND")]
     [IsoId("_HDn7UEa-EeSm2psHh_KSCw")]
@@ -192,7 +192,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Note for contra currency.
-    /// Encoded/decoded by serializers as "NOCC".
+    /// Encoded/decoded by serializers as &quot;NOCC&quot;.
     /// </summary>
     [EnumMember(Value = "NOCC")]
     [IsoId("_HFb5MEa-EeSm2psHh_KSCw")]
@@ -201,7 +201,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// BIC code of intermediary bank for dealt currency.
-    /// Encoded/decoded by serializers as "IBBD".
+    /// Encoded/decoded by serializers as &quot;IBBD&quot;.
     /// </summary>
     [EnumMember(Value = "IBBD")]
     [IsoId("_HF3XAEa-EeSm2psHh_KSCw")]
@@ -210,7 +210,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Number of intermediary bank for contra currency.
-    /// Encoded/decoded by serializers as "IBCC".
+    /// Encoded/decoded by serializers as &quot;IBCC&quot;.
     /// </summary>
     [EnumMember(Value = "IBCC")]
     [IsoId("_HJiWEEa-EeSm2psHh_KSCw")]
@@ -219,7 +219,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Number of intermediary bank for dealt currency.
-    /// Encoded/decoded by serializers as "IBDC".
+    /// Encoded/decoded by serializers as &quot;IBDC&quot;.
     /// </summary>
     [EnumMember(Value = "IBDC")]
     [IsoId("_HLW7AEa-EeSm2psHh_KSCw")]
@@ -228,7 +228,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Account chinese name of securities custodians.
-    /// Encoded/decoded by serializers as "SCAC".
+    /// Encoded/decoded by serializers as &quot;SCAC&quot;.
     /// </summary>
     [EnumMember(Value = "SCAC")]
     [IsoId("_HzIFoEa-EeSm2psHh_KSCw")]
@@ -237,7 +237,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Specifies the current account.
-    /// Encoded/decoded by serializers as "CUAC".
+    /// Encoded/decoded by serializers as &quot;CUAC&quot;.
     /// </summary>
     [EnumMember(Value = "CUAC")]
     [IsoId("_H1h5YEa-EeSm2psHh_KSCw")]
@@ -246,7 +246,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Specifies the deposit account.
-    /// Encoded/decoded by serializers as "DEAC".
+    /// Encoded/decoded by serializers as &quot;DEAC&quot;.
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_H33bsEa-EeSm2psHh_KSCw")]
@@ -255,7 +255,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Description of multi currency account.
-    /// Encoded/decoded by serializers as "MCAD".
+    /// Encoded/decoded by serializers as &quot;MCAD&quot;.
     /// </summary>
     [EnumMember(Value = "MCAD")]
     [IsoId("_H4S5gEa-EeSm2psHh_KSCw")]
@@ -264,7 +264,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Margin settlement account number of other institutions.
-    /// Encoded/decoded by serializers as "OMSA".
+    /// Encoded/decoded by serializers as &quot;OMSA&quot;.
     /// </summary>
     [EnumMember(Value = "OMSA")]
     [IsoId("_H6YkMEa-EeSm2psHh_KSCw")]
@@ -273,7 +273,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Margin settlement account number of CFETS.
-    /// Encoded/decoded by serializers as "CMSA".
+    /// Encoded/decoded by serializers as &quot;CMSA&quot;.
     /// </summary>
     [EnumMember(Value = "CMSA")]
     [IsoId("_H8mxwEa-EeSm2psHh_KSCw")]
@@ -282,7 +282,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Code of securities custodian institution.
-    /// Encoded/decoded by serializers as "SCIC".
+    /// Encoded/decoded by serializers as &quot;SCIC&quot;.
     /// </summary>
     [EnumMember(Value = "SCIC")]
     [IsoId("_H-bWsEa-EeSm2psHh_KSCw")]
@@ -291,7 +291,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Code of margin custodian institution.
-    /// Encoded/decoded by serializers as "MCIC".
+    /// Encoded/decoded by serializers as &quot;MCIC&quot;.
     /// </summary>
     [EnumMember(Value = "MCIC")]
     [IsoId("_H-20gEa-EeSm2psHh_KSCw")]
@@ -300,7 +300,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Settlement bank sort code of margin.
-    /// Encoded/decoded by serializers as "MSBS".
+    /// Encoded/decoded by serializers as &quot;MSBS&quot;.
     /// </summary>
     [EnumMember(Value = "MSBS")]
     [IsoId("_IArZcEa-EeSm2psHh_KSCw")]
@@ -309,7 +309,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Status of cash account.
-    /// Encoded/decoded by serializers as "SOCA".
+    /// Encoded/decoded by serializers as &quot;SOCA&quot;.
     /// </summary>
     [EnumMember(Value = "SOCA")]
     [IsoId("_IChMgEa-EeSm2psHh_KSCw")]
@@ -318,7 +318,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Status of securities custodian account.
-    /// Encoded/decoded by serializers as "SSCA".
+    /// Encoded/decoded by serializers as &quot;SSCA&quot;.
     /// </summary>
     [EnumMember(Value = "SSCA")]
     [IsoId("_IExPQEa-EeSm2psHh_KSCw")]
@@ -327,7 +327,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Custodian account name of margin.
-    /// Encoded/decoded by serializers as "MCAA".
+    /// Encoded/decoded by serializers as &quot;MCAA&quot;.
     /// </summary>
     [EnumMember(Value = "MCAA")]
     [IsoId("_IGkmEEa-EeSm2psHh_KSCw")]
@@ -336,7 +336,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Settlement account name of margin.
-    /// Encoded/decoded by serializers as "MSAA".
+    /// Encoded/decoded by serializers as &quot;MSAA&quot;.
     /// </summary>
     [EnumMember(Value = "MSAA")]
     [IsoId("_IIZyEEa-EeSm2psHh_KSCw")]
@@ -345,7 +345,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Account name of fund custodian.
-    /// Encoded/decoded by serializers as "FCAA".
+    /// Encoded/decoded by serializers as &quot;FCAA&quot;.
     /// </summary>
     [EnumMember(Value = "FCAA")]
     [IsoId("_IKn_oEa-EeSm2psHh_KSCw")]
@@ -354,7 +354,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Account number of fund custodian.
-    /// Encoded/decoded by serializers as "FCAN".
+    /// Encoded/decoded by serializers as &quot;FCAN&quot;.
     /// </summary>
     [EnumMember(Value = "FCAN")]
     [IsoId("_IKpNwEa-EeSm2psHh_KSCw")]
@@ -363,7 +363,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of fund custodian bank.
-    /// Encoded/decoded by serializers as "FCBN".
+    /// Encoded/decoded by serializers as &quot;FCBN&quot;.
     /// </summary>
     [EnumMember(Value = "FCBN")]
     [IsoId("_IMirMEa-EeSm2psHh_KSCw")]
@@ -372,7 +372,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of securities custodian institution.
-    /// Encoded/decoded by serializers as "SCIN".
+    /// Encoded/decoded by serializers as &quot;SCIN&quot;.
     /// </summary>
     [EnumMember(Value = "SCIN")]
     [IsoId("_IOZsYEa-EeSm2psHh_KSCw")]
@@ -381,7 +381,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Name of margin custodian institution.
-    /// Encoded/decoded by serializers as "MCIN".
+    /// Encoded/decoded by serializers as &quot;MCIN&quot;.
     /// </summary>
     [EnumMember(Value = "MCIN")]
     [IsoId("_IQnS4Ea-EeSm2psHh_KSCw")]
@@ -390,7 +390,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// Note for dealt currency.
-    /// Encoded/decoded by serializers as "NODC".
+    /// Encoded/decoded by serializers as &quot;NODC&quot;.
     /// </summary>
     [EnumMember(Value = "NODC")]
     [IsoId("_hvOIUEbLEeSm2psHh_KSCw")]
@@ -399,7 +399,7 @@ public enum AccountInformationTypeCode
     
     /// <summary>
     /// BIC code of intermediary bank for contra currency.
-    /// Encoded/decoded by serializers as "IBBC".
+    /// Encoded/decoded by serializers as &quot;IBBC&quot;.
     /// </summary>
     [EnumMember(Value = "IBBC")]
     [IsoId("_VpQmoEbMEeSm2psHh_KSCw")]

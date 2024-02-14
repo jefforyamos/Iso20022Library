@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NotionalOrUnitBased1Choice
     /// Type of unit basis for a financial instrument expressed as a code.
     /// </summary>
     [IsoId("_EltSQJ9WEeqxTNfi5y7ywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.NotionalOrUnitBased1Choice
         /// Specifies the unit basis of a financial instrument.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NotionalOrUnitBased1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NotionalOrUnitBased1Code Value { get; init; } 
+        public required NotionalOrUnitBased1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NotionalOrUnitBased1Code Value { get; init; } 
         #else

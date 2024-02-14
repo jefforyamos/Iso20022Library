@@ -46,9 +46,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The GetAccount message is sent by a member to the transaction administrator.|It is used to request information on the details of one or more accounts held at the transaction administrator, including information on the balances.|Usage|At any time during the operating hours of the system, the member can query the transaction administrator to get information about the account(s) that the transaction administrator maintains for the member.|For example, this may be necessary in order to perform the appropriate liquidity management and the funds transfers between accounts.|The member can request information about accounts through a series of criteria, corresponding to the known information stored at the transaction administrator.|The query can concern one or more specific accounts, accounts of a particular identification, or a particular type. The purpose of the query may be to obtain one or more types of balance.|The member can request information based on the following elements:|- account identification|- account type (this element can be used to refine the query when the account identification represents, for example, a group of accounts)|- balance type (if not present, all balances are requested)|- type of counterparty: bilateral or multilateral (note that, by default, a balance is multilateral unless a particular counterparty is specified)|- identification of the counterparty when a bilateral balance is requested|- balance value date (if not present in the GetAccount message, the ReturnAccount message will contain the latest available balance)|This message will be answered by a ReturnAccount message.|Additional information on the generic design of the Get/Return messages can be found in the section How to Use the Cash Management Messages.")]
 [IsoId("_jwlbZxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Get Account V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -91,16 +89,15 @@ public partial record GetAccountV07 : IOuterRecord<GetAccountV07,GetAccountV07Do
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbaRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader9 MessageHeader { get; init; } 
+    public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader9 MessageHeader { get; init; } 
     #else
@@ -111,12 +108,11 @@ public partial record GetAccountV07 : IOuterRecord<GetAccountV07,GetAccountV07Do
     /// Defines the account query criteria.
     /// </summary>
     [IsoId("_jwlbaxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Query Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctQryDef")]
     #endif
+    [IsoXmlTag("AcctQryDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountQuery3? AccountQueryDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +125,11 @@ public partial record GetAccountV07 : IOuterRecord<GetAccountV07,GetAccountV07Do
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlbbRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,7 +142,7 @@ public partial record GetAccountV07 : IOuterRecord<GetAccountV07,GetAccountV07Do
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="GetAccountV07Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;GetAccountV07Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public GetAccountV07Document ToDocument()
     {
@@ -157,7 +152,7 @@ public partial record GetAccountV07 : IOuterRecord<GetAccountV07,GetAccountV07Do
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetAccountV07"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;GetAccountV07&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record GetAccountV07Document : IOuterDocument<GetAccountV07>
@@ -174,7 +169,7 @@ public partial record GetAccountV07Document : IOuterDocument<GetAccountV07>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="GetAccountV07"/> is required.
+    /// The instance of &lt;seealso cref=&quot;GetAccountV07&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GetAccountV07 Message { get; init; }

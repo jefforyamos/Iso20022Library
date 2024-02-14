@@ -21,7 +21,7 @@ public enum TransactionEnvironment1Code
 {
     /// <summary>
     /// Merchant environment.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TUJ9MAEcEeCQm6a_G2yO_w_765796733")]
@@ -30,7 +30,7 @@ public enum TransactionEnvironment1Code
     
     /// <summary>
     /// Private environment.
-    /// Encoded/decoded by serializers as "PRIV".
+    /// Encoded/decoded by serializers as &quot;PRIV&quot;.
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_TUJ9MQEcEeCQm6a_G2yO_w_1751770309")]
@@ -39,7 +39,7 @@ public enum TransactionEnvironment1Code
     
     /// <summary>
     /// Public environment.
-    /// Encoded/decoded by serializers as "PUBL".
+    /// Encoded/decoded by serializers as &quot;PUBL&quot;.
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_TUJ9MgEcEeCQm6a_G2yO_w_-376057534")]

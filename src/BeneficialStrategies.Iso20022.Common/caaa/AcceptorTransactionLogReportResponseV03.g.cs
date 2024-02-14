@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"This AcceptorTransactionLogReportResponse message is sent by an Acquirer or its IntermediaryAgent to provide the report previously expected by a POI.")]
 [IsoId("_gO2yUXMsEe2vXY6MoVq19w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Transaction Log Report Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcceptorTransactionLogReportResponseV03 : IOuterRecord<Acc
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_gO2yU3MsEe2vXY6MoVq19w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header70 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header70 Header { get; init; } 
+    public required Header70 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header70 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcceptorTransactionLogReportResponseV03 : IOuterRecord<Acc
     /// Information related to the response of a report request.
     /// </summary>
     [IsoId("_gO2yVXMsEe2vXY6MoVq19w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptRspn")]
     #endif
+    [IsoXmlTag("RptRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportResponse6 ReportResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportResponse6 ReportResponse { get; init; } 
+    public required ReportResponse6 ReportResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportResponse6 ReportResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AcceptorTransactionLogReportResponseV03 : IOuterRecord<Acc
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_gO2yV3MsEe2vXY6MoVq19w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType36? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AcceptorTransactionLogReportResponseV03 : IOuterRecord<Acc
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorTransactionLogReportResponseV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorTransactionLogReportResponseV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorTransactionLogReportResponseV03Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AcceptorTransactionLogReportResponseV03 : IOuterRecord<Acc
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorTransactionLogReportResponseV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorTransactionLogReportResponseV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorTransactionLogReportResponseV03Document : IOuterDocument<AcceptorTransactionLogReportResponseV03>
@@ -161,7 +156,7 @@ public partial record AcceptorTransactionLogReportResponseV03Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorTransactionLogReportResponseV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorTransactionLogReportResponseV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorTransactionLogReportResponseV03 Message { get; init; }

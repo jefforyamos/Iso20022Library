@@ -21,7 +21,7 @@ public enum ProductCategory1Code
 {
     /// <summary>
     /// Classification of goods as developed by the Customs Cooperation council.
-    /// Encoded/decoded by serializers as "HRTR".
+    /// Encoded/decoded by serializers as &quot;HRTR&quot;.
     /// </summary>
     [EnumMember(Value = "HRTR")]
     [IsoId("_aLXl0Np-Ed-ak6NoX_4Aeg_1456527208")]
@@ -30,7 +30,7 @@ public enum ProductCategory1Code
     
     /// <summary>
     /// Product identifier used by the retail industry.
-    /// Encoded/decoded by serializers as "QOTA".
+    /// Encoded/decoded by serializers as &quot;QOTA&quot;.
     /// </summary>
     [EnumMember(Value = "QOTA")]
     [IsoId("_aLXl0dp-Ed-ak6NoX_4Aeg_1456527268")]
@@ -39,7 +39,7 @@ public enum ProductCategory1Code
     
     /// <summary>
     /// Product Group Code.
-    /// Encoded/decoded by serializers as "PRGP".
+    /// Encoded/decoded by serializers as &quot;PRGP&quot;.
     /// </summary>
     [EnumMember(Value = "PRGP")]
     [IsoId("_aLXl0tp-Ed-ak6NoX_4Aeg_1456527285")]
@@ -48,7 +48,7 @@ public enum ProductCategory1Code
     
     /// <summary>
     /// Line of business code.
-    /// Encoded/decoded by serializers as "LOBU".
+    /// Encoded/decoded by serializers as &quot;LOBU&quot;.
     /// </summary>
     [EnumMember(Value = "LOBU")]
     [IsoId("_aLXl09p-Ed-ak6NoX_4Aeg_1456527286")]
@@ -57,7 +57,7 @@ public enum ProductCategory1Code
     
     /// <summary>
     /// Code for gender.
-    /// Encoded/decoded by serializers as "GNDR".
+    /// Encoded/decoded by serializers as &quot;GNDR&quot;.
     /// </summary>
     [EnumMember(Value = "GNDR")]
     [IsoId("_aLXl1Np-Ed-ak6NoX_4Aeg_1456527520")]

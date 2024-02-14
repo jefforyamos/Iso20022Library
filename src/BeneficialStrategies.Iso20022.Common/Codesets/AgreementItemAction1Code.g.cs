@@ -22,7 +22,7 @@ public enum AgreementItemAction1Code
 {
     /// <summary>
     /// Deactivate agreement item.
-    /// Encoded/decoded by serializers as "DEAC".
+    /// Encoded/decoded by serializers as &quot;DEAC&quot;.
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_OTMxOTY3-AOSNFX-0262741")]
@@ -31,7 +31,7 @@ public enum AgreementItemAction1Code
     
     /// <summary>
     /// Hold the agreement item.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_OTMxOTY2-AOSNFX-0262741")]
@@ -40,7 +40,7 @@ public enum AgreementItemAction1Code
     
     /// <summary>
     /// Modify agreement item information.
-    /// Encoded/decoded by serializers as "MDFY".
+    /// Encoded/decoded by serializers as &quot;MDFY&quot;.
     /// </summary>
     [EnumMember(Value = "MDFY")]
     [IsoId("_OTMxOTY1-AOSNFX-0262740")]
@@ -49,7 +49,7 @@ public enum AgreementItemAction1Code
     
     /// <summary>
     /// Reactivate agreement item.
-    /// Encoded/decoded by serializers as "REAC".
+    /// Encoded/decoded by serializers as &quot;REAC&quot;.
     /// </summary>
     [EnumMember(Value = "REAC")]
     [IsoId("_OTMxOTY4-AOSNFX-0262741")]
@@ -58,7 +58,7 @@ public enum AgreementItemAction1Code
     
     /// <summary>
     /// Register item as new agreement.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_OTMxOTY0-AOSNFX-0262740")]
@@ -67,7 +67,7 @@ public enum AgreementItemAction1Code
     
     /// <summary>
     /// Send status with full agreement information details.
-    /// Encoded/decoded by serializers as "SYNC".
+    /// Encoded/decoded by serializers as &quot;SYNC&quot;.
     /// </summary>
     [EnumMember(Value = "SYNC")]
     [IsoId("_OTMxOTcw-AOSNFX-0262741")]
@@ -76,7 +76,7 @@ public enum AgreementItemAction1Code
     
     /// <summary>
     /// Verify agreement item information.
-    /// Encoded/decoded by serializers as "VRFY".
+    /// Encoded/decoded by serializers as &quot;VRFY&quot;.
     /// </summary>
     [EnumMember(Value = "VRFY")]
     [IsoId("_OTMxOTY5-AOSNFX-0262741")]

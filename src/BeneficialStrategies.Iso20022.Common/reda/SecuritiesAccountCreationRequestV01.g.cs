@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The SecuritiesAccountCreationRequest message message is sent by an instructing party to the executing party to instruct the creation of a new securities account with the required account attributes details.|||Usage:||Processing and confirmation of the securities account creation request message are provided via a SecuritiesAccountStatusAdvice message.")]
 [IsoId("_KAlNzZ2fEem_Be8NuxvF7Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Account Creation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,12 +76,11 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord<Securit
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_gl0bMJ5GEemQg7pJhFUUYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,16 +93,15 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord<Securit
     /// Securities account to be created in the executing party system.
     /// </summary>
     [IsoId("_KAu-l52fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesAcct")]
     #endif
+    [IsoXmlTag("SctiesAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemSecuritiesAccount7 SecuritiesAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemSecuritiesAccount7 SecuritiesAccount { get; init; } 
+    public required SystemSecuritiesAccount7 SecuritiesAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemSecuritiesAccount7 SecuritiesAccount { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord<Securit
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_KAu-mZ2fEem_Be8NuxvF7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord<Securit
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesAccountCreationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesAccountCreationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesAccountCreationRequestV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SecuritiesAccountCreationRequestV01 : IOuterRecord<Securit
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesAccountCreationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesAccountCreationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesAccountCreationRequestV01Document : IOuterDocument<SecuritiesAccountCreationRequestV01>
@@ -161,7 +156,7 @@ public partial record SecuritiesAccountCreationRequestV01Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesAccountCreationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesAccountCreationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccountCreationRequestV01 Message { get; init; }

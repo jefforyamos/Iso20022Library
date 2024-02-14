@@ -22,7 +22,7 @@ public enum ExternalUndertakingType1Code
 {
     /// <summary>
     /// Undertaking in support of an advance payment obligation.
-    /// Encoded/decoded by serializers as "APAY".
+    /// Encoded/decoded by serializers as &quot;APAY&quot;.
     /// </summary>
     [EnumMember(Value = "APAY")]
     [IsoId("_uR0Ly_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a commercial obligation.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_uR98wvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a customs duty obligation.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_uR98xfRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking representing the primary means of payment.
-    /// Encoded/decoded by serializers as "DPAY".
+    /// Encoded/decoded by serializers as &quot;DPAY&quot;.
     /// </summary>
     [EnumMember(Value = "DPAY")]
     [IsoId("_uR98yPRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a financial obligation.
-    /// Encoded/decoded by serializers as "FINC".
+    /// Encoded/decoded by serializers as &quot;FINC&quot;.
     /// </summary>
     [EnumMember(Value = "FINC")]
     [IsoId("_uR98y_RYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a insurance obligation.
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_uR98zvRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of an Industrial Revenue Board (IRB) obligation.
-    /// Encoded/decoded by serializers as "IRBO".
+    /// Encoded/decoded by serializers as &quot;IRBO&quot;.
     /// </summary>
     [EnumMember(Value = "IRBO")]
     [IsoId("_uSHtwvRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a maintenance obligation.
-    /// Encoded/decoded by serializers as "MAIN".
+    /// Encoded/decoded by serializers as &quot;MAIN&quot;.
     /// </summary>
     [EnumMember(Value = "MAIN")]
     [IsoId("_uSHtxfRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a payment obligation.
-    /// Encoded/decoded by serializers as "PAYM".
+    /// Encoded/decoded by serializers as &quot;PAYM&quot;.
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_uSHtyPRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a performance obligation.
-    /// Encoded/decoded by serializers as "PERF".
+    /// Encoded/decoded by serializers as &quot;PERF&quot;.
     /// </summary>
     [EnumMember(Value = "PERF")]
     [IsoId("_uSHty_RYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a monetary retention obligation.
-    /// Encoded/decoded by serializers as "RETN".
+    /// Encoded/decoded by serializers as &quot;RETN&quot;.
     /// </summary>
     [EnumMember(Value = "RETN")]
     [IsoId("_uSQ3svRYEeuLhpyIdtJzwg")]
@@ -121,7 +121,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a sea transportation obligation.
-    /// Encoded/decoded by serializers as "SHIP".
+    /// Encoded/decoded by serializers as &quot;SHIP&quot;.
     /// </summary>
     [EnumMember(Value = "SHIP")]
     [IsoId("_uSQ3tfRYEeuLhpyIdtJzwg")]
@@ -130,7 +130,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a tender or bid obligation.
-    /// Encoded/decoded by serializers as "TEND".
+    /// Encoded/decoded by serializers as &quot;TEND&quot;.
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_uSQ3uPRYEeuLhpyIdtJzwg")]
@@ -139,7 +139,7 @@ public enum ExternalUndertakingType1Code
     
     /// <summary>
     /// Undertaking in support of a warranty obligation.
-    /// Encoded/decoded by serializers as "WARR".
+    /// Encoded/decoded by serializers as &quot;WARR&quot;.
     /// </summary>
     [EnumMember(Value = "WARR")]
     [IsoId("_uSQ3u_RYEeuLhpyIdtJzwg")]

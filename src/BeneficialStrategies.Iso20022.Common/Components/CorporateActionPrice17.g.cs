@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies prices of a corporate action.
 /// </summary>
 [IsoId("_oc_1SeEJEd-udr336SN7mQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPrice17
     /// Maximum or cap price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
     [IsoId("_oc_1S-EJEd-udr336SN7mQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxPric")]
     #endif
+    [IsoXmlTag("MaxPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat19Choice_? MaximumPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPrice17
     /// Minimum or floor price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
     [IsoId("_oc_1TeEJEd-udr336SN7mQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinPric")]
     #endif
+    [IsoXmlTag("MinPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormat19Choice_? MinimumPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

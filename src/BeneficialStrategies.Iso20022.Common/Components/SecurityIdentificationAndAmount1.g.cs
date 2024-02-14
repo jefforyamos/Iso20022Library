@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the current valuation of a security.
 /// </summary>
 [IsoId("_HfBSwK_7EeaE9YROwd69hA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Identification And Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record SecurityIdentificationAndAmount1
     /// ISIN of the outright investment.
     /// </summary>
     [IsoId("_RK0CoK_7EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record SecurityIdentificationAndAmount1
     /// Value of the outright investment according to the CCP’s system of record.
     /// </summary>
     [IsoId("_ULeXQK_7EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd24Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd24Amount MarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MarketValue { get; init; } 
+    public required System.Decimal MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MarketValue { get; init; } 
     #else
@@ -93,16 +91,15 @@ public partial record SecurityIdentificationAndAmount1
     /// Type of a financial instrument: an equity, bond or other.
     /// </summary>
     [IsoId("_kn10ADXsEemdWfjs3tykFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmTp")]
     #endif
+    [IsoXmlTag("FinInstrmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProductType7Code FinancialInstrumentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProductType7Code FinancialInstrumentType { get; init; } 
+    public required ProductType7Code FinancialInstrumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProductType7Code FinancialInstrumentType { get; init; } 
     #else

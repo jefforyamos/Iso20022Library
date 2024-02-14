@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the transaction at the point of service.
 /// </summary>
 [IsoId("_AFupAahMEeuOaMA1YOy5YQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Point Of Service Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,12 +52,12 @@ public partial record PointOfServiceContext3
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-6.
     /// </summary>
     [IsoId("_ALHfUahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPres")]
     #endif
+    [IsoXmlTag("CardPres")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,12 +73,12 @@ public partial record PointOfServiceContext3
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-5
     /// </summary>
     [IsoId("_ALHfU6hMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrPres")]
     #endif
+    [IsoXmlTag("CrdhldrPres")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,12 +94,12 @@ public partial record PointOfServiceContext3
     /// ISO 8583:2003 bit 22-3
     /// </summary>
     [IsoId("_ALHfVahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Activated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrActvtd")]
     #endif
+    [IsoXmlTag("CrdhldrActvtd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardholderActivated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record PointOfServiceContext3
     /// False: Transaction not initiated through a transponder.
     /// </summary>
     [IsoId("_ALHfV6hMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transponder Initiated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnspndrInittd")]
     #endif
+    [IsoXmlTag("TrnspndrInittd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TransponderInitiated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +136,12 @@ public partial record PointOfServiceContext3
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-4, ISO 8583:2003 bit 22-3
     /// </summary>
     [IsoId("_ALHfWahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attended Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttnddInd")]
     #endif
+    [IsoXmlTag("AttnddInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AttendedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,15 +154,12 @@ public partial record PointOfServiceContext3
     /// Transaction category level on an unattended terminal.
     /// </summary>
     [IsoId("_ALHfW6hMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unattended Level Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UattnddLvlCtgy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("UattnddLvlCtgy")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35NumericText? UnattendedLevelCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -181,12 +176,12 @@ public partial record PointOfServiceContext3
     /// ISO 8583:2003 bit 22-3
     /// </summary>
     [IsoId("_ALHfXahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("E Commerce Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EComrcInd")]
     #endif
+    [IsoXmlTag("EComrcInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ECommerceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,12 +194,11 @@ public partial record PointOfServiceContext3
     /// Contains electronic commerce data. 
     /// </summary>
     [IsoId("_ALHfX6hMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("E Commerce Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EComrcData")]
     #endif
+    [IsoXmlTag("EComrcData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ECommerceData1? ECommerceData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -217,12 +211,11 @@ public partial record PointOfServiceContext3
     /// A code that identifies the type of MOTO transaction.
     /// </summary>
     [IsoId("_ALHfYahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("MOTO Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MOTOCd")]
     #endif
+    [IsoXmlTag("MOTOCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MOTO1Code? MOTOCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -235,12 +228,12 @@ public partial record PointOfServiceContext3
     /// Indicates a transit transaction.
     /// </summary>
     [IsoId("_6Pu9kDHVEeyTT91yHXSlSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnstInd")]
     #endif
+    [IsoXmlTag("TrnstInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TransitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -255,12 +248,12 @@ public partial record PointOfServiceContext3
     /// False: partial approval is not supported
     /// </summary>
     [IsoId("_ALHfY6hMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial Approval Supported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlApprvlSpprtd")]
     #endif
+    [IsoXmlTag("PrtlApprvlSpprtd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PartialApprovalSupported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +268,12 @@ public partial record PointOfServiceContext3
     /// False: The authorisation was not delayed
     /// </summary>
     [IsoId("_ALHfZahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delayed Authorisation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DelydAuthstnInd")]
     #endif
+    [IsoXmlTag("DelydAuthstnInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DelayedAuthorisationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -294,12 +287,11 @@ public partial record PointOfServiceContext3
     /// ISO 8583:2003 bit 22-4
     /// </summary>
     [IsoId("_ALHfZ6hMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyChrtcs")]
     #endif
+    [IsoXmlTag("SctyChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityCharacteristics1Code? SecurityCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -312,15 +304,13 @@ public partial record PointOfServiceContext3
     /// Other security characteristics.
     /// </summary>
     [IsoId("_ALHfaahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Security Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrSctyChrtcs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrSctyChrtcs")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherSecurityCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -334,16 +324,15 @@ public partial record PointOfServiceContext3
     /// ISO 8583:87 bit 22 (1-2), ISO 8583:93 bit 22-7, ISO 8583:2003 bit 22-1
     /// </summary>
     [IsoId("_ALHfa6hMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Data Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardDataNtryMd")]
     #endif
+    [IsoXmlTag("CardDataNtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardDataReading10Code CardDataEntryMode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardDataReading10Code CardDataEntryMode { get; init; } 
+    public required CardDataReading10Code CardDataEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardDataReading10Code CardDataEntryMode { get; init; } 
     #else
@@ -354,15 +343,13 @@ public partial record PointOfServiceContext3
     /// Other type of card data entry mode.
     /// </summary>
     [IsoId("_ALHfbahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Card Data Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCardDataNtryMd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrCardDataNtryMd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherCardDataEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -375,12 +362,11 @@ public partial record PointOfServiceContext3
     /// Method used to present a QR Code at the point of service.
     /// </summary>
     [IsoId("_bWNlMMV4Eeua2vd9tJAtHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("QR Code Presentment Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QRCdPresntmntMd")]
     #endif
+    [IsoXmlTag("QRCdPresntmntMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QRCodePresentmentMode1Code? QRCodePresentmentMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -393,15 +379,13 @@ public partial record PointOfServiceContext3
     /// Other method of QR Code presentment.
     /// </summary>
     [IsoId("_kZNPsMV4Eeua2vd9tJAtHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other QR Code Presentment Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrQRCdPresntmntMd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrQRCdPresntmntMd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherQRCodePresentmentMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -414,12 +398,12 @@ public partial record PointOfServiceContext3
     /// Terminal has reused temporary secure stored card data.
     /// </summary>
     [IsoId("_ONHacKhMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Temporary Secure Card Data Reused")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TempScrCardDataReusd")]
     #endif
+    [IsoXmlTag("TempScrCardDataReusd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TemporarySecureCardDataReused { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -432,15 +416,13 @@ public partial record PointOfServiceContext3
     /// Storage location of payment credential (for example, Acceptor or third party wallet).
     /// </summary>
     [IsoId("_ALHfb6hMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Storage Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StorgLctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StorgLctn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? StorageLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -453,12 +435,11 @@ public partial record PointOfServiceContext3
     /// Data used to assign specific conditions at the card acceptor location and decided by bilateral agreements.
     /// </summary>
     [IsoId("_ALIGYahMEeuOaMA1YOy5YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Special Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpclConds")]
     #endif
+    [IsoXmlTag("SpclConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SpecialConditions1? SpecialConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -471,12 +452,11 @@ public partial record PointOfServiceContext3
     /// Additional point of service context data.
     /// </summary>
     [IsoId("_Y4FnMMXLEeumGdYElfgmbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

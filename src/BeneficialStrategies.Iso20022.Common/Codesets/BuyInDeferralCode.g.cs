@@ -21,7 +21,7 @@ public enum BuyInDeferralCode
 {
     /// <summary>
     /// Buy-in is not deferred.
-    /// Encoded/decoded by serializers as "DEFN".
+    /// Encoded/decoded by serializers as &quot;DEFN&quot;.
     /// </summary>
     [EnumMember(Value = "DEFN")]
     [IsoId("_4hbCEJwVEeqtp-LOti013g")]
@@ -30,7 +30,7 @@ public enum BuyInDeferralCode
     
     /// <summary>
     /// Buy-in is deferred.
-    /// Encoded/decoded by serializers as "DEFY".
+    /// Encoded/decoded by serializers as &quot;DEFY&quot;.
     /// </summary>
     [EnumMember(Value = "DEFY")]
     [IsoId("_4llwYJwVEeqtp-LOti013g")]

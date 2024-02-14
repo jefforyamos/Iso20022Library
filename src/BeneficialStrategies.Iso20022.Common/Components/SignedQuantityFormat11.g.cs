@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Signed quantity of security formats.
 /// </summary>
 [IsoId("_JWK_2RuyEeyhRdHRjakS2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Signed Quantity Format")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SignedQuantityFormat11
     /// Sign of the quantity of security.
     /// </summary>
     [IsoId("_JrCcgRuyEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Long Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtLngPos")]
     #endif
+    [IsoXmlTag("ShrtLngPos")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShortLong1Code ShortLongPosition { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ShortLong1Code ShortLongPosition { get; init; } 
+    public required ShortLong1Code ShortLongPosition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ShortLong1Code ShortLongPosition { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SignedQuantityFormat11
     /// Choice between different quantity of security formats.
     /// </summary>
     [IsoId("_JrCcgxuyEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyChc")]
     #endif
+    [IsoXmlTag("QtyChc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity48Choice_ QuantityChoice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity48Choice_ QuantityChoice { get; init; } 
+    public required Quantity48Choice_ QuantityChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity48Choice_ QuantityChoice { get; init; } 
     #else

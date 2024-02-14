@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EligibilityIdentification2Choice.FinancialInstrumentIdentification))]
     [KnownType(typeof(EligibilityIdentification2Choice.IssuerCSDIdentification))]
     [IsoId("_oDDY8eLXEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligibility Identification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

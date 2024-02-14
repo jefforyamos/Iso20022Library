@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice
     /// Cheque drawn by a bank on itself or its agent. A person who owes money to another buys the draft from a bank for cash and hands it to the creditor.
     /// </summary>
     [IsoId("_weKLITbsEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bankers Draft Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,15 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice
         /// Unique and unambiguous identifier for a cheque as assigned by the financial institution.
         /// </summary>
         [IsoId("_w3AI4TbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nb")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Number { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,16 +73,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice
         /// Party to which a cheque is made payable.
         /// </summary>
         [IsoId("_w3AI4zbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payee Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PyeeId")]
         #endif
+        [IsoXmlTag("PyeeId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification113 PayeeIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification113 PayeeIdentification { get; init; } 
+        public required PartyIdentification113 PayeeIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification113 PayeeIdentification { get; init; } 
         #else
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice
         /// Financial institution on which a cheque is drawn, that is, the financial institution that services the account of the entity that issued the cheque.
         /// </summary>
         [IsoId("_w3AI5TbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Drawee Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrweeId")]
         #endif
+        [IsoXmlTag("DrweeId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstitutionIdentification10? DraweeIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +109,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice
         /// Account owner that issues a cheque ordering the drawee bank to pay a specific amount, upon demand, to the payee.
         /// </summary>
         [IsoId("_w3AI5zbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Drawer Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrwrId")]
         #endif
+        [IsoXmlTag("DrwrId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification113? DrawerIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

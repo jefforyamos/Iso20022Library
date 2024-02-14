@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
 [IsoId("_SpnEn9p-Ed-ak6NoX_4Aeg_-1297466325")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transported Goods")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransportedGoods1
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
     [IsoId("_SpnEoNp-Ed-ak6NoX_4Aeg_-2040138462")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purchase Order Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PurchsOrdrRef")]
     #endif
+    [IsoXmlTag("PurchsOrdrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification7 PurchaseOrderReference { get; init; } 
+    public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification7 PurchaseOrderReference { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TransportedGoods1
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
     [IsoId("_Spw1kNp-Ed-ak6NoX_4Aeg_-1205114783")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Goods Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GoodsDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("GoodsDesc")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? GoodsDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record TransportedGoods1
     /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
     /// </summary>
     [IsoId("_Spw1kdp-Ed-ak6NoX_4Aeg_-1285621274")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Defined Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrDfndInf")]
     #endif
+    [IsoXmlTag("BuyrDfndInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UserDefinedInformation1? BuyerDefinedInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record TransportedGoods1
     /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
     /// </summary>
     [IsoId("_Spw1ktp-Ed-ak6NoX_4Aeg_-1295781121")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Defined Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrDfndInf")]
     #endif
+    [IsoXmlTag("SellrDfndInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UserDefinedInformation1? SellerDefinedInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

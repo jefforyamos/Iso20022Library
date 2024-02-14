@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the billing rate.
 /// </summary>
 [IsoId("_6QGNppqlEeGSON8vddiWzQ_1919554496")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record BillingRate1
     /// Defines the type of rate or factor.
     /// </summary>
     [IsoId("_6QP-oJqlEeGSON8vddiWzQ_-585660341")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingRateIdentification1Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingRateIdentification1Choice_ Identification { get; init; } 
+    public required BillingRateIdentification1Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingRateIdentification1Choice_ Identification { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record BillingRate1
     /// Value of the rate or factor identified in the rate identification.
     /// </summary>
     [IsoId("_6QP-oZqlEeGSON8vddiWzQ_-1751808782")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Value { get; init; } 
+    public required System.Decimal Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Value { get; init; } 
     #else
@@ -92,12 +89,12 @@ public partial record BillingRate1
     /// Number of days in the statement period. ||Usage: Used along with DaysInYear for time dependent per annum rate value.
     /// </summary>
     [IsoId("_6QP-opqlEeGSON8vddiWzQ_-1641402761")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Days In Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DaysInPrd")]
     #endif
+    [IsoXmlTag("DaysInPrd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? DaysInPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +107,12 @@ public partial record BillingRate1
     /// Number of days in the year.||Usage: Used along with DaysInPeriod for time dependent per annum rate value.
     /// </summary>
     [IsoId("_6QP-o5qlEeGSON8vddiWzQ_-1276728980")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Days In Year")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DaysInYr")]
     #endif
+    [IsoXmlTag("DaysInYr")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? DaysInYear { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

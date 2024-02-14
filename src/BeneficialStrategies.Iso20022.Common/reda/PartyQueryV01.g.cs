@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"Scope:|The PartyQuery message is sent by a central securities depository, a national central bank, a central securities depository participant, a central counter party, a payment bank, a trading party or a stock exchange to the executing party to query for the party reference data of a party defined in the system.")]
 [IsoId("_6z5WgZeSEeen_cyMrluY4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Query V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,12 +73,11 @@ public partial record PartyQueryV01 : IOuterRecord<PartyQueryV01,PartyQueryV01Do
     /// Point to point reference elements, as assigned by the instructing party, to unambiguously identify the query message.
     /// </summary>
     [IsoId("_6z5Wg5eSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader2? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +90,15 @@ public partial record PartyQueryV01 : IOuterRecord<PartyQueryV01,PartyQueryV01Do
     /// Defines the criteria to be used to query the party reference data by the executing system.
     /// </summary>
     [IsoId("_6z5WiZeSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyDataSearchCriteria2 SearchCriteria { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyDataSearchCriteria2 SearchCriteria { get; init; } 
+    public required PartyDataSearchCriteria2 SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyDataSearchCriteria2 SearchCriteria { get; init; } 
     #else
@@ -113,12 +109,11 @@ public partial record PartyQueryV01 : IOuterRecord<PartyQueryV01,PartyQueryV01Do
     /// Defines the expected party reference data to be returned.
     /// </summary>
     [IsoId("_6z5Wi5eSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrCrit")]
     #endif
+    [IsoXmlTag("RtrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyDataReturnCriteria2? ReturnCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record PartyQueryV01 : IOuterRecord<PartyQueryV01,PartyQueryV01Do
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_6z5WjZeSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record PartyQueryV01 : IOuterRecord<PartyQueryV01,PartyQueryV01Do
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PartyQueryV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PartyQueryV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PartyQueryV01Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record PartyQueryV01 : IOuterRecord<PartyQueryV01,PartyQueryV01Do
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyQueryV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PartyQueryV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PartyQueryV01Document : IOuterDocument<PartyQueryV01>
@@ -176,7 +170,7 @@ public partial record PartyQueryV01Document : IOuterDocument<PartyQueryV01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PartyQueryV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PartyQueryV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyQueryV01 Message { get; init; }

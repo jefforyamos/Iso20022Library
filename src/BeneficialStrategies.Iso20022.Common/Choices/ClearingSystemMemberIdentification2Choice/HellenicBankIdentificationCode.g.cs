@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// Hellenic Bank Identification Code - identifies Hellenic financial institutions on the Hellenic national clearing system.
     /// </summary>
     [IsoId("_TDPFg9p-Ed-ak6NoX_4Aeg_-1906990554")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hellenic Bank Identification Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// Hellenic Bank Identification Code Identifier. Identifies Greek financial institutions on the Greek national clearing system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="GRHEBIC")]
         #endif
+        [IsoXmlTag("GRHEBIC")]
+        [IsoSimpleType(IsoSimpleType.HellenicBankIdentificationCodeIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoHellenicBankIdentificationCodeIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

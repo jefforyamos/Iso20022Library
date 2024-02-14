@@ -21,7 +21,7 @@ public enum RejectReason2Code
 {
     /// <summary>
     /// Not possible to process the message, for instance the security module is unavailable, the hardware is unavailable, or there is a problem of resource.
-    /// Encoded/decoded by serializers as "UNPR".
+    /// Encoded/decoded by serializers as &quot;UNPR&quot;.
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_QSOjUWp1EeSMqvBfBY1c9A")]
@@ -30,7 +30,7 @@ public enum RejectReason2Code
     
     /// <summary>
     /// Invalid envelope of the message.
-    /// Encoded/decoded by serializers as "IMSG".
+    /// Encoded/decoded by serializers as &quot;IMSG&quot;.
     /// </summary>
     [EnumMember(Value = "IMSG")]
     [IsoId("_QSOjU2p1EeSMqvBfBY1c9A")]
@@ -39,7 +39,7 @@ public enum RejectReason2Code
     
     /// <summary>
     /// Invalid message: At least one of the data element or data structure is not present, the format, or the content of one data element or one data structure is not correct.
-    /// Encoded/decoded by serializers as "PARS".
+    /// Encoded/decoded by serializers as &quot;PARS&quot;.
     /// </summary>
     [EnumMember(Value = "PARS")]
     [IsoId("_QSOjVWp1EeSMqvBfBY1c9A")]
@@ -48,7 +48,7 @@ public enum RejectReason2Code
     
     /// <summary>
     /// Security error (for example an invalid key or an incorrect MAC value).
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_QSOjV2p1EeSMqvBfBY1c9A")]
@@ -57,7 +57,7 @@ public enum RejectReason2Code
     
     /// <summary>
     /// Invalid identification data for the sender.
-    /// Encoded/decoded by serializers as "INTP".
+    /// Encoded/decoded by serializers as &quot;INTP&quot;.
     /// </summary>
     [EnumMember(Value = "INTP")]
     [IsoId("_QSOjWWp1EeSMqvBfBY1c9A")]
@@ -66,7 +66,7 @@ public enum RejectReason2Code
     
     /// <summary>
     /// Invalid identification data for the the receiver.
-    /// Encoded/decoded by serializers as "RCPP".
+    /// Encoded/decoded by serializers as &quot;RCPP&quot;.
     /// </summary>
     [EnumMember(Value = "RCPP")]
     [IsoId("_QSOjW2p1EeSMqvBfBY1c9A")]
@@ -74,8 +74,8 @@ public enum RejectReason2Code
     RecipientParty = RejectReasonCode.RecipientParty, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Version of the protocol couldn't be supported by the recipient.
-    /// Encoded/decoded by serializers as "VERS".
+    /// Version of the protocol couldn&apos;t be supported by the recipient.
+    /// Encoded/decoded by serializers as &quot;VERS&quot;.
     /// </summary>
     [EnumMember(Value = "VERS")]
     [IsoId("_QSOjX2p1EeSMqvBfBY1c9A")]
@@ -84,7 +84,7 @@ public enum RejectReason2Code
     
     /// <summary>
     /// Type of message the recipient receives is unknow or unsupported.
-    /// Encoded/decoded by serializers as "MSGT".
+    /// Encoded/decoded by serializers as &quot;MSGT&quot;.
     /// </summary>
     [EnumMember(Value = "MSGT")]
     [IsoId("_QSOjYWp1EeSMqvBfBY1c9A")]

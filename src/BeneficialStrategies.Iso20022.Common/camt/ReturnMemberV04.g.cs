@@ -39,14 +39,12 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// - membership status
 /// - type of member
 /// - contact details for the member: name, address
-/// - identification of the member's account
+/// - identification of the member&apos;s account
 /// - identification of contact persons for the member, their role and details.
 /// </summary>
 [Description(@"Scope|The ReturnMember message is sent by the transaction administrator to a member of the system.|It is used to provide information on static data maintained by the transaction administrator and related to the participants in the system and their membership status vis-a-vis this system.|The ReturnMember message can be sent as a response to a related GetMember message (pull mode) or initiated by the transaction administrator (push mode). The push of information can take place either at prearranged times or as a warning or alarm when a problem has occurred.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, that is, not related to the transactions entered into in the system. The type of business information available can vary depending on the system. Among other things, it can refer to information about the membership of the system.|The member can request information about the members of the system through a series of criteria, corresponding to the known information stored within the transaction administrator. Based on the criteria received within the request, the transaction administrator will select items that will match with the request and report them to the requestor.|The transaction administrator may also send a Return Member message with pre-defined information at times previously agreed with the member or to warn the member about a particular problem that may have arisen and which needs the member(s) attention.|The message from the transaction administrator can contain information based on the following elements:|- identification of the member within the system|- membership status|- type of member|- contact details for the member: name, address|- identification of the member's account|- identification of contact persons for the member, their role and details.")]
 [IsoId("_jwlcIRbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Return Member V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -90,16 +88,15 @@ public partial record ReturnMemberV04 : IOuterRecord<ReturnMemberV04,ReturnMembe
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlcIxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader7 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader7 MessageHeader { get; init; } 
+    public required MessageHeader7 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader7 MessageHeader { get; init; } 
     #else
@@ -110,16 +107,15 @@ public partial record ReturnMemberV04 : IOuterRecord<ReturnMemberV04,ReturnMembe
     /// Reports on members.
     /// </summary>
     [IsoId("_jwlcJRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptOrErr")]
     #endif
+    [IsoXmlTag("RptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MemberReportOrError5Choice_ ReportOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MemberReportOrError5Choice_ ReportOrError { get; init; } 
+    public required MemberReportOrError5Choice_ ReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MemberReportOrError5Choice_ ReportOrError { get; init; } 
     #else
@@ -130,12 +126,11 @@ public partial record ReturnMemberV04 : IOuterRecord<ReturnMemberV04,ReturnMembe
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlcJxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,7 +143,7 @@ public partial record ReturnMemberV04 : IOuterRecord<ReturnMemberV04,ReturnMembe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReturnMemberV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReturnMemberV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReturnMemberV04Document ToDocument()
     {
@@ -158,7 +153,7 @@ public partial record ReturnMemberV04 : IOuterRecord<ReturnMemberV04,ReturnMembe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReturnMemberV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReturnMemberV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReturnMemberV04Document : IOuterDocument<ReturnMemberV04>
@@ -175,7 +170,7 @@ public partial record ReturnMemberV04Document : IOuterDocument<ReturnMemberV04>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReturnMemberV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReturnMemberV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReturnMemberV04 Message { get; init; }

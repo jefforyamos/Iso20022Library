@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeDate4Choice
     /// Date and time at which the securities are to be traded.
     /// </summary>
     [IsoId("_AXK_UtokEeC60axPepSq7g_1512121673")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

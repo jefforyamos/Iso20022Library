@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Acknowledgement information relative to corporate action reorganisation instructions.
 /// </summary>
 [IsoId("_uuvg0MVsEeeprYdSN88o0Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Acknowledgement SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -46,12 +44,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: the participant does not agree.
     /// </summary>
     [IsoId("_ab-VwMVtEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terms Acknowledgement Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermsAckInd")]
     #endif
+    [IsoXmlTag("TermsAckInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TermsAcknowledgementIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,12 +64,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: decline.
     /// </summary>
     [IsoId("_G6TQcMVuEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition 1 Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cond1Ind")]
     #endif
+    [IsoXmlTag("Cond1Ind")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition1Indicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +84,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: decline.
     /// </summary>
     [IsoId("_PH6yIcVuEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition 2 Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cond2Ind")]
     #endif
+    [IsoXmlTag("Cond2Ind")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition2Indicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +104,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: decline.
     /// </summary>
     [IsoId("_SIuQscVuEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition 3 Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cond3Ind")]
     #endif
+    [IsoXmlTag("Cond3Ind")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition3Indicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +124,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: decline.
     /// </summary>
     [IsoId("_UbasEcVuEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition 4 Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cond4Ind")]
     #endif
+    [IsoXmlTag("Cond4Ind")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition4Indicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +144,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: decline.
     /// </summary>
     [IsoId("_WQNDccVuEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition 5 Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cond5Ind")]
     #endif
+    [IsoXmlTag("Cond5Ind")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition5Indicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,12 +164,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: decline.
     /// </summary>
     [IsoId("_XQeNocVuEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition 6 Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cond6Ind")]
     #endif
+    [IsoXmlTag("Cond6Ind")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Condition6Indicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -186,12 +184,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: not acknowledged.
     /// </summary>
     [IsoId("_5Jm10MVvEeeprYdSN88o0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjudication Of Incompetency Acknowledgement Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdjdctnOfIncmptncyAckInd")]
     #endif
+    [IsoXmlTag("AdjdctnOfIncmptncyAckInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AdjudicationOfIncompetencyAcknowledgementIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +204,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: not acknowledged.
     /// </summary>
     [IsoId("_jiDgUMX4EeexPc-mfUU5zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Documentation Thirty Months Retention Acknowledgement Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglDcmnttnThrtyMnthsRtntnAckInd")]
     #endif
+    [IsoXmlTag("LglDcmnttnThrtyMnthsRtntnAckInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -226,12 +224,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: not acknowledged.
     /// </summary>
     [IsoId("_TBjtAMX5EeexPc-mfUU5zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Deletion Acknowledgement Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrDeltnAckInd")]
     #endif
+    [IsoXmlTag("InstrDeltnAckInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? InstructionDeletionAcknowledgementIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -246,12 +244,12 @@ public partial record CorporateActionAcknowledgementSD1
     /// No: not acknowledged.
     /// </summary>
     [IsoId("_uFPVwMX5EeexPc-mfUU5zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Potential Loss Acknowledgement Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PotntlLossAckInd")]
     #endif
+    [IsoXmlTag("PotntlLossAckInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PotentialLossAcknowledgementIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum BalanceAdjustmentType1Code
 {
     /// <summary>
     /// Adjustment applies to the average ledger (book) balance.
-    /// Encoded/decoded by serializers as "LDGR".
+    /// Encoded/decoded by serializers as &quot;LDGR&quot;.
     /// </summary>
     [EnumMember(Value = "LDGR")]
     [IsoId("_6URjBZqlEeGSON8vddiWzQ_-1813350112")]
@@ -30,7 +30,7 @@ public enum BalanceAdjustmentType1Code
     
     /// <summary>
     /// Adjustment applies to the average float (unavailable) balance.
-    /// Encoded/decoded by serializers as "FLOT".
+    /// Encoded/decoded by serializers as &quot;FLOT&quot;.
     /// </summary>
     [EnumMember(Value = "FLOT")]
     [IsoId("_6URjBpqlEeGSON8vddiWzQ_-1052584959")]
@@ -39,7 +39,7 @@ public enum BalanceAdjustmentType1Code
     
     /// <summary>
     /// Adjustment applies to the average collected (book less float) balance.
-    /// Encoded/decoded by serializers as "CLLD".
+    /// Encoded/decoded by serializers as &quot;CLLD&quot;.
     /// </summary>
     [EnumMember(Value = "CLLD")]
     [IsoId("_6URjB5qlEeGSON8vddiWzQ_414563804")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
 /// </summary>
 [IsoId("_0esxkK_8EeaE9YROwd69hA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralAccount4
     /// Identification of the collateral account.
     /// </summary>
     [IsoId("_BBT9k6_9EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification165 Identification { get; init; } 
+    public required GenericIdentification165 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification165 Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CollateralAccount4
     /// Specifies the financial instruments placed as collateral.
     /// </summary>
     [IsoId("_BBT9la_9EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Holding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstHldg")]
     #endif
+    [IsoXmlTag("AsstHldg")]
     public AssetHolding1? AssetHolding { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _BBT9la_9EeaE9YROwd69hA
     

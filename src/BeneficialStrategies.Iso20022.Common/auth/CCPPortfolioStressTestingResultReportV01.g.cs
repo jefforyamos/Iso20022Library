@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPPortfolioStressTestingResultReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the results of the stress testing carried out by the central counterparty on clearing member positions.")]
 [IsoId("_YI3SceUSEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Portfolio Stress Testing Result Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CCPPortfolioStressTestingResultReportV01 : IOuterRecord<CC
     /// Identification of the stressed account, and data on the simulated profits and losses resulting from the application of a stress test scenario to the positions in a cleared portfolio.
     /// </summary>
     [IsoId("_YI3SeeUSEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scenario Stress Test Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScnroStrssTstRslt")]
     #endif
+    [IsoXmlTag("ScnroStrssTstRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ScenarioStressTestResult1 ScenarioStressTestResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ScenarioStressTestResult1 ScenarioStressTestResult { get; init; } 
+    public required ScenarioStressTestResult1 ScenarioStressTestResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ScenarioStressTestResult1 ScenarioStressTestResult { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CCPPortfolioStressTestingResultReportV01 : IOuterRecord<CC
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_YI3Se-USEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record CCPPortfolioStressTestingResultReportV01 : IOuterRecord<CC
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPPortfolioStressTestingResultReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPPortfolioStressTestingResultReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPPortfolioStressTestingResultReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record CCPPortfolioStressTestingResultReportV01 : IOuterRecord<CC
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPPortfolioStressTestingResultReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPPortfolioStressTestingResultReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPPortfolioStressTestingResultReportV01Document : IOuterDocument<CCPPortfolioStressTestingResultReportV01>
@@ -140,7 +136,7 @@ public partial record CCPPortfolioStressTestingResultReportV01Document : IOuterD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPPortfolioStressTestingResultReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPPortfolioStressTestingResultReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPPortfolioStressTestingResultReportV01 Message { get; init; }

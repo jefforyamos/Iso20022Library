@@ -21,7 +21,7 @@ public enum OptionFeatures8Code
 {
     /// <summary>
     /// Option is offered by the account servicer only.
-    /// Encoded/decoded by serializers as "ASVO".
+    /// Encoded/decoded by serializers as &quot;ASVO&quot;.
     /// </summary>
     [EnumMember(Value = "ASVO")]
     [IsoId("_-OkuoWOQEeW4z96Yfj3Wng")]
@@ -30,7 +30,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Indicates that the holder needs to instruct at beneficiary owner level only.
-    /// Encoded/decoded by serializers as "BOIS".
+    /// Encoded/decoded by serializers as &quot;BOIS&quot;.
     /// </summary>
     [EnumMember(Value = "BOIS")]
     [IsoId("_-Okuo2OQEeW4z96Yfj3Wng")]
@@ -39,7 +39,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Feature whereby the holder can elect to place a condition on the acceptance of the option.
-    /// Encoded/decoded by serializers as "COND".
+    /// Encoded/decoded by serializers as &quot;COND&quot;.
     /// </summary>
     [EnumMember(Value = "COND")]
     [IsoId("_-OkupWOQEeW4z96Yfj3Wng")]
@@ -48,7 +48,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Maximum cash option, may be subject to scaling, as such you may receive a combination of cash and securities outturn.
-    /// Encoded/decoded by serializers as "MAXC".
+    /// Encoded/decoded by serializers as &quot;MAXC&quot;.
     /// </summary>
     [EnumMember(Value = "MAXC")]
     [IsoId("_-Okup2OQEeW4z96Yfj3Wng")]
@@ -57,7 +57,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Maximum stock option, may be subject to scaling, as such you may receive a combination of securities and cash outturn.
-    /// Encoded/decoded by serializers as "MAXS".
+    /// Encoded/decoded by serializers as &quot;MAXS&quot;.
     /// </summary>
     [EnumMember(Value = "MAXS")]
     [IsoId("_-OkuqWOQEeW4z96Yfj3Wng")]
@@ -65,8 +65,8 @@ public enum OptionFeatures8Code
     MaximumSecurities = OptionFeaturesCode.MaximumSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Feature whereby the holder must elect directly to the issuer's agent (issuer only supported option).
-    /// Encoded/decoded by serializers as "NOSE".
+    /// Feature whereby the holder must elect directly to the issuer&apos;s agent (issuer only supported option).
+    /// Encoded/decoded by serializers as &quot;NOSE&quot;.
     /// </summary>
     [EnumMember(Value = "NOSE")]
     [IsoId("_-Okuq2OQEeW4z96Yfj3Wng")]
@@ -75,7 +75,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Tender or exchange with the odd lot preference.
-    /// Encoded/decoded by serializers as "OPLF".
+    /// Encoded/decoded by serializers as &quot;OPLF&quot;.
     /// </summary>
     [EnumMember(Value = "OPLF")]
     [IsoId("_-OkurWOQEeW4z96Yfj3Wng")]
@@ -84,7 +84,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Option applicability is not subject to the account owner decision but depends on the terms defined by the issuer, for example in the case of equity linked notes or warrants.
-    /// Encoded/decoded by serializers as "CAOS".
+    /// Encoded/decoded by serializers as &quot;CAOS&quot;.
     /// </summary>
     [EnumMember(Value = "CAOS")]
     [IsoId("_-Okur2OQEeW4z96Yfj3Wng")]
@@ -93,7 +93,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Indicates the previously sent instructions becomes invalid. This is only applicable after a market deadline extension.
-    /// Encoded/decoded by serializers as "PINS".
+    /// Encoded/decoded by serializers as &quot;PINS&quot;.
     /// </summary>
     [EnumMember(Value = "PINS")]
     [IsoId("_-Okus2OQEeW4z96Yfj3Wng")]
@@ -102,7 +102,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Feature whereby the option can be subject to pro ration in case, for example, of over-subscription.
-    /// Encoded/decoded by serializers as "PROR".
+    /// Encoded/decoded by serializers as &quot;PROR&quot;.
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_-Okut2OQEeW4z96Yfj3Wng")]
@@ -111,7 +111,7 @@ public enum OptionFeatures8Code
     
     /// <summary>
     /// Reduced withholding tax rate applies to the option.
-    /// Encoded/decoded by serializers as "VVPR".
+    /// Encoded/decoded by serializers as &quot;VVPR&quot;.
     /// </summary>
     [EnumMember(Value = "VVPR")]
     [IsoId("_-OkuuWOQEeW4z96Yfj3Wng")]

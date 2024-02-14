@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Communication channel information.
 /// </summary>
 [IsoId("_9yCXl3ltEeG7BsjMvd1mEw_167324952")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Communication Channel")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CommunicationChannel1
     /// Method by which the original undertaking or proposed amendment is to be made available.
     /// </summary>
     [IsoId("_QEJog38KEeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtd")]
     #endif
+    [IsoXmlTag("Mtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalChannel1Code Method { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalChannel1Code Method { get; init; } 
+    public required ExternalChannel1Code Method { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalChannel1Code Method { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CommunicationChannel1
     /// Type of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
     [IsoId("_9yCXmXltEeG7BsjMvd1mEw_-988253345")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliver To Party Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrToPtyTp")]
     #endif
+    [IsoXmlTag("DlvrToPtyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyType1Choice_ DeliverToPartyType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyType1Choice_ DeliverToPartyType { get; init; } 
+    public required PartyType1Choice_ DeliverToPartyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyType1Choice_ DeliverToPartyType { get; init; } 
     #else
@@ -92,15 +88,13 @@ public partial record CommunicationChannel1
     /// Name of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
     [IsoId("_9yMIkHltEeG7BsjMvd1mEw_493546087")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliver To Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrToNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DlvrToNm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? DeliverToName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +107,11 @@ public partial record CommunicationChannel1
     /// Address of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
     [IsoId("_9yMIkXltEeG7BsjMvd1mEw_-657472540")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deliver To Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvrToAdr")]
     #endif
+    [IsoXmlTag("DlvrToAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress6? DeliverToAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

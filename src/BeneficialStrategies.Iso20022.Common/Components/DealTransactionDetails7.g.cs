@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the triparty collateral transaction deal.
 /// </summary>
 [IsoId("_b2hQgRIlEeyLzJfz3xPQNA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Deal Transaction Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DealTransactionDetails7
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
     [IsoId("_cQTCcRIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closing Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsgDt")]
     #endif
+    [IsoXmlTag("ClsgDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ClosingDate4Choice_ ClosingDate { get; init; } 
+    public required ClosingDate4Choice_ ClosingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ClosingDate4Choice_ ClosingDate { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DealTransactionDetails7
     /// Provide deal amount details.
     /// </summary>
     [IsoId("_cQTCcxIlEeyLzJfz3xPQNA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deal Details Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealDtlsAmt")]
     #endif
+    [IsoXmlTag("DealDtlsAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralAmount14? DealDetailsAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

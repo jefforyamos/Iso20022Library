@@ -21,7 +21,7 @@ public enum OutputFormat4Code
 {
     /// <summary>
     /// File name and location identification for stored messages or data.
-    /// Encoded/decoded by serializers as "FLNM".
+    /// Encoded/decoded by serializers as &quot;FLNM&quot;.
     /// </summary>
     [EnumMember(Value = "FLNM")]
     [IsoId("_zz2zIX0lEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum OutputFormat4Code
     
     /// <summary>
     /// Predefined configured messages, identified by a reference.
-    /// Encoded/decoded by serializers as "MREF".
+    /// Encoded/decoded by serializers as &quot;MREF&quot;.
     /// </summary>
     [EnumMember(Value = "MREF")]
     [IsoId("_zz2zI30lEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum OutputFormat4Code
     
     /// <summary>
     /// Other type of output of message defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_zz2zJX0lEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum OutputFormat4Code
     
     /// <summary>
     /// Other type of output format defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_zz2zJ30lEemfrNOe0zHQyg")]
@@ -57,7 +57,7 @@ public enum OutputFormat4Code
     
     /// <summary>
     /// Short message service
-    /// Encoded/decoded by serializers as "SMSI".
+    /// Encoded/decoded by serializers as &quot;SMSI&quot;.
     /// </summary>
     [EnumMember(Value = "SMSI")]
     [IsoId("_zz2zKX0lEemfrNOe0zHQyg")]
@@ -66,7 +66,7 @@ public enum OutputFormat4Code
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "TEXT".
+    /// Encoded/decoded by serializers as &quot;TEXT&quot;.
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_zz2zK30lEemfrNOe0zHQyg")]
@@ -75,7 +75,7 @@ public enum OutputFormat4Code
     
     /// <summary>
     /// Uniform Resource Locator (URL) reference for the message.
-    /// Encoded/decoded by serializers as "URLI".
+    /// Encoded/decoded by serializers as &quot;URLI&quot;.
     /// </summary>
     [EnumMember(Value = "URLI")]
     [IsoId("_zz2zLX0lEemfrNOe0zHQyg")]
@@ -84,7 +84,7 @@ public enum OutputFormat4Code
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "HTML".
+    /// Encoded/decoded by serializers as &quot;HTML&quot;.
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_zz2zL30lEemfrNOe0zHQyg")]

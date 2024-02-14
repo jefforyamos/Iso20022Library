@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"This message is a Response for several kind of device services exchanged between the Sale System (Merchant I.S.) and the POI system (Card Acceptor system).")]
 [IsoId("_ZORUIYYDEemxIqbaFEE8-w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Device Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOIDeviceResponseV01 : IOuterRecord<SaleToPOIDeviceR
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_ZORUI4YDEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header37 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header37 Header { get; init; } 
+    public required Header37 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header37 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOIDeviceResponseV01 : IOuterRecord<SaleToPOIDeviceR
     /// Information related to the response of a device request.
     /// </summary>
     [IsoId("_ZORUJYYDEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Device Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvcRspn")]
     #endif
+    [IsoXmlTag("DvcRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeviceResponse2 DeviceResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DeviceResponse2 DeviceResponse { get; init; } 
+    public required DeviceResponse2 DeviceResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DeviceResponse2 DeviceResponse { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SaleToPOIDeviceResponseV01 : IOuterRecord<SaleToPOIDeviceR
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_ZORUJ4YDEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType18? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SaleToPOIDeviceResponseV01 : IOuterRecord<SaleToPOIDeviceR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOIDeviceResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOIDeviceResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOIDeviceResponseV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SaleToPOIDeviceResponseV01 : IOuterRecord<SaleToPOIDeviceR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIDeviceResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOIDeviceResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOIDeviceResponseV01Document : IOuterDocument<SaleToPOIDeviceResponseV01>
@@ -161,7 +156,7 @@ public partial record SaleToPOIDeviceResponseV01Document : IOuterDocument<SaleTo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOIDeviceResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOIDeviceResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOIDeviceResponseV01 Message { get; init; }

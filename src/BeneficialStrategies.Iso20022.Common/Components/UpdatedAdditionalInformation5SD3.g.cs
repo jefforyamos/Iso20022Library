@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension for updated additional information.
 /// </summary>
 [IsoId("_X9K4QaXREeOkjarA2DHHxg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Updated Additional Information 5 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record UpdatedAdditionalInformation5SD3
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_YYUjM6XREeOkjarA2DHHxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +63,11 @@ public partial record UpdatedAdditionalInformation5SD3
     /// 一株あたりの交付金先等の額.
     /// </summary>
     [IsoId("_YYUjNaXREeOkjarA2DHHxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Distribution Amount Per Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstrbtnAmtPerShr")]
     #endif
+    [IsoXmlTag("DstrbtnAmtPerShr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat36Choice_? DistributionAmountPerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +80,12 @@ public partial record UpdatedAdditionalInformation5SD3
     /// Rate information of how much net asset decrease happens as a result of the fund distribution.
     /// </summary>
     [IsoId("_YYUjN6XREeOkjarA2DHHxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Asset Decrease Ratio")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetAsstDcrRatio")]
     #endif
+    [IsoXmlTag("NetAsstDcrRatio")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? NetAssetDecreaseRatio { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +99,11 @@ public partial record UpdatedAdditionalInformation5SD3
     /// 一株あたり利益剰余金の額.
     /// </summary>
     [IsoId("_YYUjOaXREeOkjarA2DHHxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accumulated Profit Per Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcmltdPrftPerShr")]
     #endif
+    [IsoXmlTag("AcmltdPrftPerShr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat36Choice_? AccumulatedProfitPerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,12 +117,11 @@ public partial record UpdatedAdditionalInformation5SD3
     /// 一株あたりみなし配当の額.
     /// </summary>
     [IsoId("_YYUjO6XREeOkjarA2DHHxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deemed Dividend Per Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmdDvddPerShr")]
     #endif
+    [IsoXmlTag("DmdDvddPerShr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat36Choice_? DeemedDividendPerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,12 +135,11 @@ public partial record UpdatedAdditionalInformation5SD3
     /// 一株あたりみなし譲渡収入の額.
     /// </summary>
     [IsoId("_YYUjPaXREeOkjarA2DHHxg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Residual Distribution Amount Per Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsdlDstrbtnAmtPerShr")]
     #endif
+    [IsoXmlTag("RsdlDstrbtnAmtPerShr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateAndAmountFormat36Choice_? ResidualDistributionAmountPerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

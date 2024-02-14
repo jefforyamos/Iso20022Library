@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Report entry details.
 /// </summary>
 [IsoId("_WH67kBj6EeapYKOltfjd7A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CBRF Report Entry")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record CBRFReportEntry1
     /// Name of the message.
     /// </summary>
     [IsoId("_pRNgoBj6EeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageName { get; init; } 
+    public required System.String MessageName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageName { get; init; } 
     #else
@@ -75,19 +71,16 @@ public partial record CBRFReportEntry1
     /// Total number of entries in the group.
     /// </summary>
     [IsoId("_dXICUBj8EeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Entries")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfNtries")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TtlNbOfNtries")]
+    [IsoSimpleType(IsoSimpleType.Max9NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax9NumericText TotalNumberOfEntries { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TotalNumberOfEntries { get; init; } 
+    public required System.String TotalNumberOfEntries { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TotalNumberOfEntries { get; init; } 
     #else
@@ -98,12 +91,11 @@ public partial record CBRFReportEntry1
     /// Information identifying electronic messages.
     /// </summary>
     [IsoId("_99e7YBj6EeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgDtls")]
     #endif
+    [IsoXmlTag("MsgDtls")]
     public ElectronicMessageDetails1? MessageDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _99e7YBj6EeapYKOltfjd7A
     

@@ -21,7 +21,7 @@ public enum CardServiceType5Code
 {
     /// <summary>
     /// Convey the key to the receiver.
-    /// Encoded/decoded by serializers as "KYDL".
+    /// Encoded/decoded by serializers as &quot;KYDL&quot;.
     /// </summary>
     [EnumMember(Value = "KYDL")]
     [IsoId("_8u0YcX0kEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum CardServiceType5Code
     
     /// <summary>
     /// National defined code.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_8u0Yd30kEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum CardServiceType5Code
     
     /// <summary>
     /// Private defined code.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_8u0YeX0kEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum CardServiceType5Code
     
     /// <summary>
     /// Deactivate the specified key.
-    /// Encoded/decoded by serializers as "DEKY".
+    /// Encoded/decoded by serializers as &quot;DEKY&quot;.
     /// </summary>
     [EnumMember(Value = "DEKY")]
     [IsoId("_XFuv8ZJcEemtzI0l4QED6w")]
@@ -57,7 +57,7 @@ public enum CardServiceType5Code
     
     /// <summary>
     /// Request new key to be generated and conveyed.
-    /// Encoded/decoded by serializers as "RQKY".
+    /// Encoded/decoded by serializers as &quot;RQKY&quot;.
     /// </summary>
     [EnumMember(Value = "RQKY")]
     [IsoId("_FFXUMa4bEemYtqDpusmLsQ")]

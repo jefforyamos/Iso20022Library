@@ -22,7 +22,7 @@ public enum MessageFunction18Code
 {
     /// <summary>
     /// Request to initiate the transfer of a batch (response expected).
-    /// Encoded/decoded by serializers as "BTRQ".
+    /// Encoded/decoded by serializers as &quot;BTRQ&quot;.
     /// </summary>
     [EnumMember(Value = "BTRQ")]
     [IsoId("_cAK-IVAWEeedyPuM0kK2EQ")]
@@ -31,7 +31,7 @@ public enum MessageFunction18Code
     
     /// <summary>
     /// Notification to initiate the transfer of a batch (no response expected).
-    /// Encoded/decoded by serializers as "BTNF".
+    /// Encoded/decoded by serializers as &quot;BTNF&quot;.
     /// </summary>
     [EnumMember(Value = "BTNF")]
     [IsoId("_cOdRwlAWEeedyPuM0kK2EQ")]
@@ -40,7 +40,7 @@ public enum MessageFunction18Code
     
     /// <summary>
     /// Notification to initiate the transfer of a collection (no response expected).
-    /// Encoded/decoded by serializers as "CLNF".
+    /// Encoded/decoded by serializers as &quot;CLNF&quot;.
     /// </summary>
     [EnumMember(Value = "CLNF")]
     [IsoId("_cgdAslAWEeedyPuM0kK2EQ")]
@@ -49,7 +49,7 @@ public enum MessageFunction18Code
     
     /// <summary>
     /// Request to initiate the transfer of a collection (response expected).
-    /// Encoded/decoded by serializers as "CLRQ".
+    /// Encoded/decoded by serializers as &quot;CLRQ&quot;.
     /// </summary>
     [EnumMember(Value = "CLRQ")]
     [IsoId("_cyAqwlAWEeedyPuM0kK2EQ")]

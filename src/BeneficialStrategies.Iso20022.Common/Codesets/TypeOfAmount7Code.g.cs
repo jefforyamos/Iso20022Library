@@ -21,7 +21,7 @@ public enum TypeOfAmount7Code
 {
     /// <summary>
     /// Fees.
-    /// Encoded/decoded by serializers as "FEES".
+    /// Encoded/decoded by serializers as &quot;FEES&quot;.
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_NBM3MYN-EeSNofOeou9G3A")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount7Code
     
     /// <summary>
     /// Fees amount from the card issuer.
-    /// Encoded/decoded by serializers as "FEEI".
+    /// Encoded/decoded by serializers as &quot;FEEI&quot;.
     /// </summary>
     [EnumMember(Value = "FEEI")]
     [IsoId("_NWACgYN-EeSNofOeou9G3A")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount7Code
     
     /// <summary>
     /// Interchange fees.
-    /// Encoded/decoded by serializers as "FEEH".
+    /// Encoded/decoded by serializers as &quot;FEEH&quot;.
     /// </summary>
     [EnumMember(Value = "FEEH")]
     [IsoId("_gi3gAYN-EeSNofOeou9G3A")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount7Code
     
     /// <summary>
     /// Processing fees.
-    /// Encoded/decoded by serializers as "FEEP".
+    /// Encoded/decoded by serializers as &quot;FEEP&quot;.
     /// </summary>
     [EnumMember(Value = "FEEP")]
     [IsoId("_nk6mcYN-EeSNofOeou9G3A")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount7Code
     
     /// <summary>
     /// International service assessment fees.
-    /// Encoded/decoded by serializers as "FEEA".
+    /// Encoded/decoded by serializers as &quot;FEEA&quot;.
     /// </summary>
     [EnumMember(Value = "FEEA")]
     [IsoId("_63UEMYN-EeSNofOeou9G3A")]

@@ -21,7 +21,7 @@ public enum RejectionReason55Code
 {
     /// <summary>
     /// Disagreement in beneficial ownership.
-    /// Encoded/decoded by serializers as "BENO".
+    /// Encoded/decoded by serializers as &quot;BENO&quot;.
     /// </summary>
     [EnumMember(Value = "BENO")]
     [IsoId("_8E9YIekJEemm4qhb2yFPOw")]
@@ -30,7 +30,7 @@ public enum RejectionReason55Code
     
     /// <summary>
     /// Corporate action pending on the financial instrument instructed.
-    /// Encoded/decoded by serializers as "CAEV".
+    /// Encoded/decoded by serializers as &quot;CAEV&quot;.
     /// </summary>
     [EnumMember(Value = "CAEV")]
     [IsoId("_AXmSAekKEemm4qhb2yFPOw")]
@@ -39,7 +39,7 @@ public enum RejectionReason55Code
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_CvfWcekKEemm4qhb2yFPOw")]
@@ -48,7 +48,7 @@ public enum RejectionReason55Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_T9KjYekKEemm4qhb2yFPOw")]
@@ -57,7 +57,7 @@ public enum RejectionReason55Code
     
     /// <summary>
     /// Instruction has not been matched. It is a possible duplicate instruction.
-    /// Encoded/decoded by serializers as "PODU".
+    /// Encoded/decoded by serializers as &quot;PODU&quot;.
     /// </summary>
     [EnumMember(Value = "PODU")]
     [IsoId("_P4QuEekLEemm4qhb2yFPOw")]
@@ -65,8 +65,8 @@ public enum RejectionReason55Code
     PossibleDuplicate = RejectionReasonV3Code.PossibleDuplicate, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Unrecognised or invalid message sender&apos;s safekeeping account.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_V9wFoekLEemm4qhb2yFPOw")]
@@ -75,7 +75,7 @@ public enum RejectionReason55Code
     
     /// <summary>
     /// Standing Settlement Instruction is unknown or invalid.
-    /// Encoded/decoded by serializers as "SSID".
+    /// Encoded/decoded by serializers as &quot;SSID&quot;.
     /// </summary>
     [EnumMember(Value = "SSID")]
     [IsoId("_kHyicekLEemm4qhb2yFPOw")]
@@ -84,7 +84,7 @@ public enum RejectionReason55Code
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_FJq80emtEemUgrefIx730g")]

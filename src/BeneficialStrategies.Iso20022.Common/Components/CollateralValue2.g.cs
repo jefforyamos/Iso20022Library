@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details of the collateral reference data.
 /// </summary>
 [IsoId("_cLR5seLXEeWFtOV72FbX9w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Value")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record CollateralValue2
     /// Identification of a security by an ISIN.
     /// </summary>
     [IsoId("_cWS24eLXEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SecurityIdentification { get; init; } 
+    public required System.String SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SecurityIdentification { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record CollateralValue2
     /// Valuation date for the price.
     /// </summary>
     [IsoId("_cWS24-LXEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDt")]
     #endif
+    [IsoXmlTag("ValtnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ValuationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ValuationDate { get; init; } 
+    public required System.DateOnly ValuationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ValuationDate { get; init; } 
     #else
@@ -93,12 +91,11 @@ public partial record CollateralValue2
     /// Provides details of the currency of the valuation.
     /// </summary>
     [IsoId("_cWS25eLXEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnCcy")]
     #endif
+    [IsoXmlTag("ValtnCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? ValuationCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +108,15 @@ public partial record CollateralValue2
     /// Provides details of the price provided for the security.
     /// </summary>
     [IsoId("_cWS25-LXEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnPric")]
     #endif
+    [IsoXmlTag("ValtnPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
+    public required AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
     #else

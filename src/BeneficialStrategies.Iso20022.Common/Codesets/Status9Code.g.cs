@@ -21,7 +21,7 @@ public enum Status9Code
 {
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_8eAnIfNvEeqRfth943bvEA")]
@@ -30,7 +30,7 @@ public enum Status9Code
     
     /// <summary>
     /// Attendance is confirmed at the meeting.
-    /// Encoded/decoded by serializers as "ATTC".
+    /// Encoded/decoded by serializers as &quot;ATTC&quot;.
     /// </summary>
     [EnumMember(Value = "ATTC")]
     [IsoId("_9EsMofNvEeqRfth943bvEA")]
@@ -39,7 +39,7 @@ public enum Status9Code
     
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_9qfBUfNvEeqRfth943bvEA")]
@@ -48,7 +48,7 @@ public enum Status9Code
     
     /// <summary>
     /// Instruction has been cancelled by the agent, for example, due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_94UpAfNvEeqRfth943bvEA")]
@@ -57,7 +57,7 @@ public enum Status9Code
     
     /// <summary>
     /// Accepted and sent along the chain.
-    /// Encoded/decoded by serializers as "FRWD".
+    /// Encoded/decoded by serializers as &quot;FRWD&quot;.
     /// </summary>
     [EnumMember(Value = "FRWD")]
     [IsoId("_-fmEYfNvEeqRfth943bvEA")]
@@ -66,7 +66,7 @@ public enum Status9Code
     
     /// <summary>
     /// Instruction has been received by Issuer, equivalent to the confirmation of receipt of votes cast electronically.
-    /// Encoded/decoded by serializers as "RCIS".
+    /// Encoded/decoded by serializers as &quot;RCIS&quot;.
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("__E8NIfNvEeqRfth943bvEA")]
@@ -75,7 +75,7 @@ public enum Status9Code
     
     /// <summary>
     /// Rights holder has been registered to participate to the meeting.
-    /// Encoded/decoded by serializers as "REGM".
+    /// Encoded/decoded by serializers as &quot;REGM&quot;.
     /// </summary>
     [EnumMember(Value = "REGM")]
     [IsoId("__qkpwfNvEeqRfth943bvEA")]
@@ -84,7 +84,7 @@ public enum Status9Code
     
     /// <summary>
     /// Standing instruction is applied.
-    /// Encoded/decoded by serializers as "STIN".
+    /// Encoded/decoded by serializers as &quot;STIN&quot;.
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_AMfrEfNwEeqRfth943bvEA")]

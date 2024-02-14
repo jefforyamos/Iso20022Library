@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason19Choice
     /// Specifies the reason why the instruction has a pending processing status.
     /// </summary>
     [IsoId("_8NNHIytXEeyhipY4f42fZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Processing Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

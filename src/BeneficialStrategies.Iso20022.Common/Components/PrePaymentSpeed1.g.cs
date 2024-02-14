@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type and rate of prepayment speed of the fixed income instrument.
 /// </summary>
 [IsoId("_S1PFy9p-Ed-ak6NoX_4Aeg_8504632")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pre Payment Speed")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PrePaymentSpeed1
     /// Specifies the type of prepayment speed of the fixed income instrument in coded form.
     /// </summary>
     [IsoId("_S1PFzNp-Ed-ak6NoX_4Aeg_48215879")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PrePaymentSpeed1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PrePaymentSpeed1Code Type { get; init; } 
+    public required PrePaymentSpeed1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PrePaymentSpeed1Code Type { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record PrePaymentSpeed1
     /// Rate of prepayment speed of the fixed income instrument.
     /// </summary>
     [IsoId("_S1PFzdp-Ed-ak6NoX_4Aeg_-1501448660")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Rate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Rate { get; init; } 
+    public required System.Decimal Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Rate { get; init; } 
     #else

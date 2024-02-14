@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies all the parties involved in a serial payment transaction.
 /// </summary>
 [IsoId("_wPuVwDMlEeit26XNYhRFqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Customer Credit Transfer Transaction Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CustomerCreditTransferTransactionParties1
     /// Financial institution servicing an account for the debtor.
     /// </summary>
     [IsoId("_e2UkgDMmEeit26XNYhRFqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrAgt")]
     #endif
+    [IsoXmlTag("DbtrAgt")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? DebtorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -59,15 +57,15 @@ public partial record CustomerCreditTransferTransactionParties1
     #endif
     
     /// <summary>
-    /// Agent through which the instructing agent (identified in the "From" element) will reimburse the instructed agent (identified in the "To" element).
+    /// Agent through which the instructing agent (identified in the &quot;From&quot; element) will reimburse the instructed agent (identified in the &quot;To&quot; element).
     /// </summary>
     [IsoId("_UDjTkTMoEeit26XNYhRFqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructing Reimbursement Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstgRmbrsmntAgt")]
     #endif
+    [IsoXmlTag("InstgRmbrsmntAgt")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? InstructingReimbursementAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record CustomerCreditTransferTransactionParties1
     /// Financial institution servicing an account for the creditor.
     /// </summary>
     [IsoId("_UJZu0TMmEeit26XNYhRFqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrAgt")]
     #endif
+    [IsoXmlTag("CdtrAgt")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAnyBICIdentifier? CreditorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

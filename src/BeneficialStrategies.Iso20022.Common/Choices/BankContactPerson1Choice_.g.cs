@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BankContactPerson1Choice.BuyerBankContactPerson))]
     [KnownType(typeof(BankContactPerson1Choice.SellerBankContactPerson))]
     [IsoId("_eCkSADAZEeOKib24wnHaFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Contact Person 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

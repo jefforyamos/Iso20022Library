@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the return excess cash type and the collateral currency.
 /// </summary>
 [IsoId("_hAr8AALpEeutW5-TpeYJhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Return Excess Cash")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReturnExcessCash1
     /// Identifies the return excess cash type.
     /// </summary>
     [IsoId("_8whgIALpEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Excess Cash Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrXcssCshTp")]
     #endif
+    [IsoXmlTag("RtrXcssCshTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReturnExcessCash1Choice_ ReturnExcessCashType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReturnExcessCash1Choice_ ReturnExcessCashType { get; init; } 
+    public required ReturnExcessCash1Choice_ ReturnExcessCashType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReturnExcessCash1Choice_ ReturnExcessCashType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReturnExcessCash1
     /// Currency of the cash collateral.
     /// </summary>
     [IsoId("_I7x8EALqEeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Collateral Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCollCcy")]
     #endif
+    [IsoXmlTag("CshCollCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode CashCollateralCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string CashCollateralCurrency { get; init; } 
+    public required string CashCollateralCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string CashCollateralCurrency { get; init; } 
     #else

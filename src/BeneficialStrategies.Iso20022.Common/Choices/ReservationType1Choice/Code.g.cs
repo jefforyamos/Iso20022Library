@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationType1Choice
     /// Liquidity transfer request type, in a coded form.
     /// </summary>
     [IsoId("_8JKFEaMgEeCJ6YNENx4h-w_799887441")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationType1Choice
         /// Specifies the precise type of reservation.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ReservationType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ReservationType2Code Value { get; init; } 
+        public required ReservationType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ReservationType2Code Value { get; init; } 
         #else

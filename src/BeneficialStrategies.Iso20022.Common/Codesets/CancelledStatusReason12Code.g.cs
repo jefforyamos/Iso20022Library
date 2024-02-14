@@ -21,7 +21,7 @@ public enum CancelledStatusReason12Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CANI".
+    /// Encoded/decoded by serializers as &quot;CANI&quot;.
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_1MLxpz9kEeCuVfEpWlZb5g")]
@@ -30,7 +30,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CANS".
+    /// Encoded/decoded by serializers as &quot;CANS&quot;.
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_1MLxqz9kEeCuVfEpWlZb5g")]
@@ -39,7 +39,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Instruction has been cancelled by the agent due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_1MLxrz9kEeCuVfEpWlZb5g")]
@@ -48,7 +48,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Transaction is rejected by the executing party, the rejection is final therefore the order is cancelled in the system.
-    /// Encoded/decoded by serializers as "CXLR".
+    /// Encoded/decoded by serializers as &quot;CXLR&quot;.
     /// </summary>
     [EnumMember(Value = "CXLR")]
     [IsoId("_1MLxsz9kEeCuVfEpWlZb5g")]
@@ -57,7 +57,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Original transaction has been cancelled and replaced due to a corporate action.
-    /// Encoded/decoded by serializers as "CANT".
+    /// Encoded/decoded by serializers as &quot;CANT&quot;.
     /// </summary>
     [EnumMember(Value = "CANT")]
     [IsoId("_1MLxtz9kEeCuVfEpWlZb5g")]
@@ -66,7 +66,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Original transaction has been cancelled and replaced to allow a partial or split settlement.
-    /// Encoded/decoded by serializers as "CANZ".
+    /// Encoded/decoded by serializers as &quot;CANZ&quot;.
     /// </summary>
     [EnumMember(Value = "CANZ")]
     [IsoId("_1MLxuz9kEeCuVfEpWlZb5g")]
@@ -75,7 +75,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Transaction has been cancelled due to a corporate action.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_1MLxvz9kEeCuVfEpWlZb5g")]
@@ -84,7 +84,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Transaction has been cancelled; the security no longer exists or is no longer eligible on the market instructed. For corporate action related cancellation, CORP should be used.
-    /// Encoded/decoded by serializers as "SCEX".
+    /// Encoded/decoded by serializers as &quot;SCEX&quot;.
     /// </summary>
     [EnumMember(Value = "SCEX")]
     [IsoId("_1MLxwz9kEeCuVfEpWlZb5g")]
@@ -93,7 +93,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_1MLxxz9kEeCuVfEpWlZb5g")]
@@ -102,7 +102,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CANO".
+    /// Encoded/decoded by serializers as &quot;CANO&quot;.
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_1MLxyz9kEeCuVfEpWlZb5g")]
@@ -111,7 +111,7 @@ public enum CancelledStatusReason12Code
     
     /// <summary>
     /// Transaction has been cancelled by the issuer/registrar.
-    /// Encoded/decoded by serializers as "CREG".
+    /// Encoded/decoded by serializers as &quot;CREG&quot;.
     /// </summary>
     [EnumMember(Value = "CREG")]
     [IsoId("_q12LwGtdEeCY4-KZ9JEyUQ_324041150")]

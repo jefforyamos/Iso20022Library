@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentScheduleType2Choice.Code))]
     [KnownType(typeof(PaymentScheduleType2Choice.Proprietary))]
     [IsoId("_TXFdkbb1Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Schedule Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

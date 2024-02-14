@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Batch Response message.
 /// </summary>
 [IsoId("_DpHiYNxWEeioifFt1dhnJA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Batch Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BatchResponse1
     /// Performed transaction content.
     /// </summary>
     [IsoId("_M84MwNxWEeioifFt1dhnJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Performed Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrfrmdTx")]
     #endif
+    [IsoXmlTag("PrfrmdTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PerformedTransaction1? PerformedTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

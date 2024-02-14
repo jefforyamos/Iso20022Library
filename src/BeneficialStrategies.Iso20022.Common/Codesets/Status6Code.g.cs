@@ -21,7 +21,7 @@ public enum Status6Code
 {
     /// <summary>
     /// Instruction has been rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_kpxjkO5NEeCisYr99QEiWA_-61748503")]
@@ -30,7 +30,7 @@ public enum Status6Code
     
     /// <summary>
     /// Processing has been completed.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_kpxjke5NEeCisYr99QEiWA_203121317")]
@@ -39,7 +39,7 @@ public enum Status6Code
     
     /// <summary>
     /// Instruction is queued.
-    /// Encoded/decoded by serializers as "QUED".
+    /// Encoded/decoded by serializers as &quot;QUED&quot;.
     /// </summary>
     [EnumMember(Value = "QUED")]
     [IsoId("_kpxjku5NEeCisYr99QEiWA_-1861474063")]

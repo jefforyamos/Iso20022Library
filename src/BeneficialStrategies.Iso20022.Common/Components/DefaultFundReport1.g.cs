@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the calculation of the default fund and the collateral that has been posted by the clearing member.
 /// </summary>
 [IsoId("_-ddILaMOEeCojJW5vEuTEQ_1402285716")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Default Fund Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record DefaultFundReport1
     /// Provides details about the calculation of the clearing member contribution to the default fund.
     /// </summary>
     [IsoId("_-ddILqMOEeCojJW5vEuTEQ_1576502363")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Fund Calculation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltFndClctn")]
     #endif
+    [IsoXmlTag("DfltFndClctn")]
     public DefaultFund1? DefaultFundCalculation { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _-ddILqMOEeCojJW5vEuTEQ_1576502363
     
@@ -64,12 +61,11 @@ public partial record DefaultFundReport1
     /// Provides details about the collateral held.
     /// </summary>
     [IsoId("_-ddIL6MOEeCojJW5vEuTEQ_-1115881016")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollDesc")]
     #endif
+    [IsoXmlTag("CollDesc")]
     public Collateral3? CollateralDescription { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _-ddIL6MOEeCojJW5vEuTEQ_-1115881016
     
@@ -77,16 +73,15 @@ public partial record DefaultFundReport1
     /// Excess amount that the central counterparty will restitute to the clearing member or deficit to be provided by the member for the guarantee fund.
     /// </summary>
     [IsoId("_-dm5IKMOEeCojJW5vEuTEQ_-1642876959")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Excess Or Deficit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetXcssOrDfcit")]
     #endif
+    [IsoXmlTag("NetXcssOrDfcit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection21 NetExcessOrDeficit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection21 NetExcessOrDeficit { get; init; } 
+    public required AmountAndDirection21 NetExcessOrDeficit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection21 NetExcessOrDeficit { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesBalanceType1Choice
     /// Balance reason in structured format.
     /// </summary>
     [IsoId("_U11Ehtp-Ed-ak6NoX_4Aeg_1393739597")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesBalanceType1Choice
         /// Specifies the nature of the securities or investment fund balance.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Strd")]
         #endif
+        [IsoXmlTag("Strd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesBalanceType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesBalanceType1Code Value { get; init; } 
+        public required SecuritiesBalanceType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesBalanceType1Code Value { get; init; } 
         #else

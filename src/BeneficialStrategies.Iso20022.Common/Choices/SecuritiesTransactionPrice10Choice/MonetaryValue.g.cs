@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice10Choi
     /// Indicates that price is expressed as a monetary value.
     /// </summary>
     [IsoId("_QtL74f9iEea3W_f2lS_aiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Monetary Value")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice10Choi
         /// Amount of money that results in an increase (positively signed) or decrease (negatively signed), with specification of the currency.
         /// </summary>
         [IsoId("_qosZ0UDWEeWOL-OsSq2h6w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveOrHistoricCurrencyAnd20Amount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else
@@ -77,12 +75,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice10Choi
         /// Usage: When absent, the amount is positive.
         /// </summary>
         [IsoId("_qosZ00DWEeWOL-OsSq2h6w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sign")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sgn")]
         #endif
+        [IsoXmlTag("Sgn")]
+        [IsoSimpleType(IsoSimpleType.PlusOrMinusIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoPlusOrMinusIndicator? Sign { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

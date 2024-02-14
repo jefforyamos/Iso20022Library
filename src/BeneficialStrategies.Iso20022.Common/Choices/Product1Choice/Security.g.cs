@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
     /// Attributes relating to cleared securities.
     /// </summary>
     [IsoId("_QapNsLVQEeadLcJesEbkTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
         /// Specifies the ISIN of the collateral.
         /// </summary>
         [IsoId("_9iE2ILVYEeadLcJesEbkTQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISINOct2015Identifier Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
         /// Identifies the security issuer.
         /// </summary>
         [IsoId("_DnQrsLVZEeadLcJesEbkTQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
+        [IsoXmlTag("Issr")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoLEIIdentifier Issuer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Issuer { get; init; } 
+        public required System.String Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Issuer { get; init; } 
         #else
@@ -97,12 +95,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
         /// Sector for the security issuer, for example, 0500.
         /// </summary>
         [IsoId("_Hr6M4LVZEeadLcJesEbkTQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sector")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sctr")]
         #endif
+        [IsoXmlTag("Sctr")]
+        [IsoSimpleType(IsoSimpleType.SNA2008SectorIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoSNA2008SectorIdentifier? Sector { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

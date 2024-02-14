@@ -21,7 +21,7 @@ public enum ChargeType8Code
 {
     /// <summary>
     /// Charge is for signature services.
-    /// Encoded/decoded by serializers as "SIGN".
+    /// Encoded/decoded by serializers as &quot;SIGN&quot;.
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_a9SK9dp-Ed-ak6NoX_4Aeg_-1526379993")]
@@ -30,7 +30,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for storage of goods at destination.
-    /// Encoded/decoded by serializers as "STDE".
+    /// Encoded/decoded by serializers as &quot;STDE&quot;.
     /// </summary>
     [EnumMember(Value = "STDE")]
     [IsoId("_a9SK9tp-Ed-ak6NoX_4Aeg_-1526379992")]
@@ -39,7 +39,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for storage of goods at origin.
-    /// Encoded/decoded by serializers as "STOR".
+    /// Encoded/decoded by serializers as &quot;STOR&quot;.
     /// </summary>
     [EnumMember(Value = "STOR")]
     [IsoId("_a9SK99p-Ed-ak6NoX_4Aeg_-1526379976")]
@@ -48,7 +48,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for packaging of goods.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_a9SK-Np-Ed-ak6NoX_4Aeg_-1526379958")]
@@ -57,7 +57,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for pick-up of goods.
-    /// Encoded/decoded by serializers as "PICK".
+    /// Encoded/decoded by serializers as &quot;PICK&quot;.
     /// </summary>
     [EnumMember(Value = "PICK")]
     [IsoId("_a9b78Np-Ed-ak6NoX_4Aeg_-1526379933")]
@@ -66,7 +66,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for dangerous goods.
-    /// Encoded/decoded by serializers as "DNGR".
+    /// Encoded/decoded by serializers as &quot;DNGR&quot;.
     /// </summary>
     [EnumMember(Value = "DNGR")]
     [IsoId("_a9b78dp-Ed-ak6NoX_4Aeg_-1526379932")]
@@ -75,7 +75,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for security.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_a9b78tp-Ed-ak6NoX_4Aeg_-1526379916")]
@@ -84,7 +84,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is a premium for insurance.
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_a9b789p-Ed-ak6NoX_4Aeg_-1526379898")]
@@ -93,7 +93,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for the collection of the freight.
-    /// Encoded/decoded by serializers as "COLF".
+    /// Encoded/decoded by serializers as &quot;COLF&quot;.
     /// </summary>
     [EnumMember(Value = "COLF")]
     [IsoId("_a9b79Np-Ed-ak6NoX_4Aeg_-1526379873")]
@@ -102,7 +102,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for clearance and handling of goods at origin.
-    /// Encoded/decoded by serializers as "CHOR".
+    /// Encoded/decoded by serializers as &quot;CHOR&quot;.
     /// </summary>
     [EnumMember(Value = "CHOR")]
     [IsoId("_a9b79dp-Ed-ak6NoX_4Aeg_-1526379872")]
@@ -111,7 +111,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for clearance and handling of goods at destination.
-    /// Encoded/decoded by serializers as "CHDE".
+    /// Encoded/decoded by serializers as &quot;CHDE&quot;.
     /// </summary>
     [EnumMember(Value = "CHDE")]
     [IsoId("_a9b79tp-Ed-ak6NoX_4Aeg_-1526379856")]
@@ -120,7 +120,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is an airway bill fee.
-    /// Encoded/decoded by serializers as "AIRF".
+    /// Encoded/decoded by serializers as &quot;AIRF&quot;.
     /// </summary>
     [EnumMember(Value = "AIRF")]
     [IsoId("_a9b799p-Ed-ak6NoX_4Aeg_-1526379838")]
@@ -129,7 +129,7 @@ public enum ChargeType8Code
     
     /// <summary>
     /// Charge is for transport.
-    /// Encoded/decoded by serializers as "TRPT".
+    /// Encoded/decoded by serializers as &quot;TRPT&quot;.
     /// </summary>
     [EnumMember(Value = "TRPT")]
     [IsoId("_a9b7-Np-Ed-ak6NoX_4Aeg_1348844149")]

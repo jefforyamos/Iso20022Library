@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExPostCostCalculationBasis1Choice.Code))]
     [KnownType(typeof(ExPostCostCalculationBasis1Choice.Proprietary))]
     [IsoId("_Wb5bQJ9XEeqxTNfi5y7ywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ex Post Cost Calculation Basis 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

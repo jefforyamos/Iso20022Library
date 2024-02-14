@@ -21,7 +21,7 @@ public enum BlockedReason1Code
 {
     /// <summary>
     /// Bankruptcy.
-    /// Encoded/decoded by serializers as "BKRP".
+    /// Encoded/decoded by serializers as &quot;BKRP&quot;.
     /// </summary>
     [EnumMember(Value = "BKRP")]
     [IsoId("_WeMLwRHeEeKVqeHljBM1MQ")]
@@ -30,7 +30,7 @@ public enum BlockedReason1Code
     
     /// <summary>
     /// Commitment.
-    /// Encoded/decoded by serializers as "CMMT".
+    /// Encoded/decoded by serializers as &quot;CMMT&quot;.
     /// </summary>
     [EnumMember(Value = "CMMT")]
     [IsoId("_Wm-7YRHeEeKVqeHljBM1MQ")]
@@ -39,7 +39,7 @@ public enum BlockedReason1Code
     
     /// <summary>
     /// Confiscation.
-    /// Encoded/decoded by serializers as "CNFS".
+    /// Encoded/decoded by serializers as &quot;CNFS&quot;.
     /// </summary>
     [EnumMember(Value = "CNFS")]
     [IsoId("_WyKQoRHeEeKVqeHljBM1MQ")]
@@ -48,7 +48,7 @@ public enum BlockedReason1Code
     
     /// <summary>
     /// Reserved in contemplation of death.
-    /// Encoded/decoded by serializers as "MORT".
+    /// Encoded/decoded by serializers as &quot;MORT&quot;.
     /// </summary>
     [EnumMember(Value = "MORT")]
     [IsoId("_XAKQYRHeEeKVqeHljBM1MQ")]
@@ -57,7 +57,7 @@ public enum BlockedReason1Code
     
     /// <summary>
     /// Pledged.
-    /// Encoded/decoded by serializers as "PLDG".
+    /// Encoded/decoded by serializers as &quot;PLDG&quot;.
     /// </summary>
     [EnumMember(Value = "PLDG")]
     [IsoId("_XOK3MRHeEeKVqeHljBM1MQ")]
@@ -66,7 +66,7 @@ public enum BlockedReason1Code
     
     /// <summary>
     /// Reregistration.
-    /// Encoded/decoded by serializers as "TRPE".
+    /// Encoded/decoded by serializers as &quot;TRPE&quot;.
     /// </summary>
     [EnumMember(Value = "TRPE")]
     [IsoId("_XYTqoRHeEeKVqeHljBM1MQ")]
@@ -75,7 +75,7 @@ public enum BlockedReason1Code
     
     /// <summary>
     /// Transfer.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_Xmw9YRHeEeKVqeHljBM1MQ")]

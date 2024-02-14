@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Query criteria regarding action type, product classification, venue of execution, asset class, corporate sector nature of counterparty.
 /// </summary>
 [IsoId("_bc-yEdGREeaQk737TH1Fzw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Additional Query Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TradeAdditionalQueryCriteria3
     /// Code list of the action types allowed as query criteria.
     /// </summary>
     [IsoId("_bmONodGREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnTp")]
     #endif
+    [IsoXmlTag("ActnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionOperationType3Code? ActionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TradeAdditionalQueryCriteria3
     /// Indicates the execution venue of the reported transaction.
     /// </summary>
     [IsoId("_bmONo9GREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Venue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnVn")]
     #endif
+    [IsoXmlTag("ExctnVn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTradeVenueCriteria1Choice_? ExecutionVenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TradeAdditionalQueryCriteria3
     /// Indicates the nature of the reporting counterparty (if is a CCP, a financial, non-financial counterparty or other type of counterparty).
     /// </summary>
     [IsoId("_bmONpdGREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nature Of Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtrOfCtrPty")]
     #endif
+    [IsoXmlTag("NtrOfCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyNatureType1Code? NatureOfCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TradeAdditionalQueryCriteria3
     /// Specifies the corporate sector of the reporting counterparty.
     /// </summary>
     [IsoId("_bmONp9GREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Sector")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpSctr")]
     #endif
+    [IsoXmlTag("CorpSctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateSectorCriteria3? CorporateSector { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record TradeAdditionalQueryCriteria3
     /// Code list of available values for asset class criteria.
     /// </summary>
     [IsoId("_bmONqdGREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstClss")]
     #endif
+    [IsoXmlTag("AsstClss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductType4Code? AssetClass { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record TradeAdditionalQueryCriteria3
     /// Indicates the product classification of the reported transaction.
     /// </summary>
     [IsoId("_bmONq9GREeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctClssfctn")]
     #endif
+    [IsoXmlTag("PdctClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductClassificationCriteria1? ProductClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

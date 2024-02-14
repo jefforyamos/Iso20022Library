@@ -21,7 +21,7 @@ public enum Side5Code
 {
     /// <summary>
     /// An order to sell a security that the seller does not own; a sale effected by delivering a security borrowed by, or for the account of, the seller. Can only be executed on a plus or zero plus tick.
-    /// Encoded/decoded by serializers as "SESH".
+    /// Encoded/decoded by serializers as &quot;SESH&quot;.
     /// </summary>
     [EnumMember(Value = "SESH")]
     [IsoId("_J93mcezkEeSBf_ghFpb9rQ")]
@@ -30,7 +30,7 @@ public enum Side5Code
     
     /// <summary>
     /// Order is sell driven.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_KGQtcezkEeSBf_ghFpb9rQ")]
@@ -39,7 +39,7 @@ public enum Side5Code
     
     /// <summary>
     /// Short sale exempt from short-sale rules.
-    /// Encoded/decoded by serializers as "SSEX".
+    /// Encoded/decoded by serializers as &quot;SSEX&quot;.
     /// </summary>
     [EnumMember(Value = "SSEX")]
     [IsoId("_Kaep8ezkEeSBf_ghFpb9rQ")]
@@ -48,7 +48,7 @@ public enum Side5Code
     
     /// <summary>
     /// The side of the indication of interest is not disclosed.
-    /// Encoded/decoded by serializers as "UNDI".
+    /// Encoded/decoded by serializers as &quot;UNDI&quot;.
     /// </summary>
     [EnumMember(Value = "UNDI")]
     [IsoId("_KA-CwaiqEeWRLJcxVQAwmw")]

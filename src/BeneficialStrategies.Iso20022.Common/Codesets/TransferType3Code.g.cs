@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum TransferType3Code
 {
     /// <summary>
-    /// Transfer the security as an asset in specie, that is, 'in its actual form'.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Transfer the security as an asset in specie, that is, &apos;in its actual form&apos;.
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_y8BcMcVaEei2doMlOscgeg")]
@@ -30,7 +30,7 @@ public enum TransferType3Code
     
     /// <summary>
     /// Transfer as cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_zB1JQcVaEei2doMlOscgeg")]
@@ -39,7 +39,7 @@ public enum TransferType3Code
     
     /// <summary>
     /// ISIN is converted to another ISIN and then transferred.
-    /// Encoded/decoded by serializers as "CONV".
+    /// Encoded/decoded by serializers as &quot;CONV&quot;.
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_zHfFUcVaEei2doMlOscgeg")]

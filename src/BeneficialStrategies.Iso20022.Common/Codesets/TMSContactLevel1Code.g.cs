@@ -21,7 +21,7 @@ public enum TMSContactLevel1Code
 {
     /// <summary>
     /// Terminal management system has to be contacted before the next transaction.
-    /// Encoded/decoded by serializers as "CRIT".
+    /// Encoded/decoded by serializers as &quot;CRIT&quot;.
     /// </summary>
     [EnumMember(Value = "CRIT")]
     [IsoId("_TUAMNgEcEeCQm6a_G2yO_w_-1249727148")]
@@ -30,7 +30,7 @@ public enum TMSContactLevel1Code
     
     /// <summary>
     /// Terminal management system has to be contacted as soon as possible (for example after reconciliation).
-    /// Encoded/decoded by serializers as "ASAP".
+    /// Encoded/decoded by serializers as &quot;ASAP&quot;.
     /// </summary>
     [EnumMember(Value = "ASAP")]
     [IsoId("_TUAMNwEcEeCQm6a_G2yO_w_-1944834992")]
@@ -39,7 +39,7 @@ public enum TMSContactLevel1Code
     
     /// <summary>
     /// Terminal management system has to be contacted at the date and time provided.
-    /// Encoded/decoded by serializers as "DTIM".
+    /// Encoded/decoded by serializers as &quot;DTIM&quot;.
     /// </summary>
     [EnumMember(Value = "DTIM")]
     [IsoId("_TUAMOAEcEeCQm6a_G2yO_w_2032355643")]

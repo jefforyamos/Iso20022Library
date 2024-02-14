@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Vote15Choice.VotePerAgendaResolution))]
     [KnownType(typeof(Vote15Choice.VoteForAllAgendaResolutions))]
     [IsoId("_9DJBZ_NXEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote 15 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

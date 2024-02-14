@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentIdentification6Choice
     /// Identification through a unique product identifier.
     /// </summary>
     [IsoId("_xzhRNSyGEe2xAdY9t5fB3g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Product Identifier")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of incorrect information.
 /// </summary>
 [IsoId("_f2qNhUgoEeaGKYpLDboHPQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Unable To Apply Incorrect")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record UnableToApplyIncorrect1
     /// Specifies the missing information in a coded form.
     /// </summary>
     [IsoId("_q8AC40grEeaGKYpLDboHPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnableToApplyIncorrectInformation4Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnableToApplyIncorrectInformation4Code Code { get; init; } 
+    public required UnableToApplyIncorrectInformation4Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnableToApplyIncorrectInformation4Code Code { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record UnableToApplyIncorrect1
     /// Further details about the incorrect information.
     /// </summary>
     [IsoId("_q8AC5EgrEeaGKYpLDboHPQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Incorrect Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlIncrrctInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlIncrrctInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AdditionalIncorrectInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

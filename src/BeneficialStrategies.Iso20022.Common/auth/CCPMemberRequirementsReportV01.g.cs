@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPMemberRequirementsReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the collateral requirements that a central counterparty obligates a clearing member post at the central counterparty.")]
 [IsoId("_daMXQeUUEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Member Requirements Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord<CCPMemberReq
     /// Obligations of a clearing member with respect to a central counterparty that are calculated based on intraday positions.
     /// </summary>
     [IsoId("_daMXSeUUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Day Requirement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraDayRqrmntAmt")]
     #endif
+    [IsoXmlTag("IntraDayRqrmntAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntraDayRequirement1 IntraDayRequirementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IntraDayRequirement1 IntraDayRequirementAmount { get; init; } 
+    public required IntraDayRequirement1 IntraDayRequirementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IntraDayRequirement1 IntraDayRequirementAmount { get; init; } 
     #else
@@ -97,12 +94,11 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord<CCPMemberReq
     /// Describes an instance of an intraday margin call being made against a margin account.
     /// </summary>
     [IsoId("_daMXS-UUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Day Margin Call")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraDayMrgnCall")]
     #endif
+    [IsoXmlTag("IntraDayMrgnCall")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IntraDayMarginCall1? IntraDayMarginCall { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,16 +111,15 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord<CCPMemberReq
     /// Obligations of a clearing member with respect to a central counterparty that are calculated based on end of day positions.
     /// </summary>
     [IsoId("_daMXTeUUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Of Day Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndOfDayRqrmnt")]
     #endif
+    [IsoXmlTag("EndOfDayRqrmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EndOfDayRequirement2 EndOfDayRequirement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EndOfDayRequirement2 EndOfDayRequirement { get; init; } 
+    public required EndOfDayRequirement2 EndOfDayRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EndOfDayRequirement2 EndOfDayRequirement { get; init; } 
     #else
@@ -135,16 +130,15 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord<CCPMemberReq
     /// Requirement for a clearing member to post collateral at a central counterparty with respect to a default fund.
     /// </summary>
     [IsoId("_daMXT-UUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Fund Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltFndRqrmnt")]
     #endif
+    [IsoXmlTag("DfltFndRqrmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DefaultFundRequirement1 DefaultFundRequirement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DefaultFundRequirement1 DefaultFundRequirement { get; init; } 
+    public required DefaultFundRequirement1 DefaultFundRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DefaultFundRequirement1 DefaultFundRequirement { get; init; } 
     #else
@@ -155,12 +149,11 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord<CCPMemberReq
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_daMXUeUUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,7 +166,7 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord<CCPMemberReq
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPMemberRequirementsReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPMemberRequirementsReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPMemberRequirementsReportV01Document ToDocument()
     {
@@ -183,7 +176,7 @@ public partial record CCPMemberRequirementsReportV01 : IOuterRecord<CCPMemberReq
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPMemberRequirementsReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPMemberRequirementsReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPMemberRequirementsReportV01Document : IOuterDocument<CCPMemberRequirementsReportV01>
@@ -200,7 +193,7 @@ public partial record CCPMemberRequirementsReportV01Document : IOuterDocument<CC
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPMemberRequirementsReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPMemberRequirementsReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPMemberRequirementsReportV01 Message { get; init; }

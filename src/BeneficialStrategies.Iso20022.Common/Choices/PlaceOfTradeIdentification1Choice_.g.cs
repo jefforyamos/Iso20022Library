@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PlaceOfTradeIdentification1Choice.Party))]
     [KnownType(typeof(PlaceOfTradeIdentification1Choice.OverTheCounter))]
     [IsoId("_TCWUu9p-Ed-ak6NoX_4Aeg_-2100921873")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Trade Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

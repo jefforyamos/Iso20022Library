@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus1Choice
     /// Status applying to individual instructions of a MeetingInstruction.
     /// </summary>
     [IsoId("_RWnLqdp-Ed-ak6NoX_4Aeg_-1745275553")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Instruction Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus1Choice
         /// Identifies the detailed instruction within an instruction message.
         /// </summary>
         [IsoId("_RWnLoNp-Ed-ak6NoX_4Aeg_-2110986462")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Instruction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InstrId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("InstrId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text InstructionIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String InstructionIdentification { get; init; } 
+        public required System.String InstructionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String InstructionIdentification { get; init; } 
         #else
@@ -80,15 +76,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus1Choice
         /// Identifies the safekeeping account.
         /// </summary>
         [IsoId("_RWnLodp-Ed-ak6NoX_4Aeg_1822881804")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AcctId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? AccountIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,15 +95,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus1Choice
         /// Identifies the subaccount of the safekeeping account.
         /// </summary>
         [IsoId("_RWnLotp-Ed-ak6NoX_4Aeg_-2130380809")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sub Account Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SubAcctId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SubAcctId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? SubAccountIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,16 +114,15 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus1Choice
         /// Status applying to individual instructions of a MeetingInstruction.
         /// </summary>
         [IsoId("_RWnLo9p-Ed-ak6NoX_4Aeg_1301124445")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Instruction Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InstrSts")]
         #endif
+        [IsoXmlTag("InstrSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InstructionStatus2Choice_ InstructionStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InstructionStatus2Choice_ InstructionStatus { get; init; } 
+        public required InstructionStatus2Choice_ InstructionStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InstructionStatus2Choice_ InstructionStatus { get; init; } 
         #else

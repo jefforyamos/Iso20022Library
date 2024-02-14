@@ -21,7 +21,7 @@ public enum AssetClassSubProductType22Code
 {
     /// <summary>
     /// Commodity of type livestock.
-    /// Encoded/decoded by serializers as "LSTK".
+    /// Encoded/decoded by serializers as &quot;LSTK&quot;.
     /// </summary>
     [EnumMember(Value = "LSTK")]
     [IsoId("_kxU3UVrAEeWN79Bl6BUd3g")]

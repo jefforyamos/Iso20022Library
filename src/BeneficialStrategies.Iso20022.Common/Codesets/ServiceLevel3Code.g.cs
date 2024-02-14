@@ -21,7 +21,7 @@ public enum ServiceLevel3Code
 {
     /// <summary>
     /// Payment must be executed following the Single Euro Payments Area scheme.
-    /// Encoded/decoded by serializers as "SEPA".
+    /// Encoded/decoded by serializers as &quot;SEPA&quot;.
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_VwsKQdp-Ed-ak6NoX_4Aeg_-228092481")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(VoteThroughNetwork1Choice.VoteChannel))]
     [KnownType(typeof(VoteThroughNetwork1Choice.VoteDirectlyToIssuer))]
     [IsoId("_qNpVMDT7Ee2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Through Network 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

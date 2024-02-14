@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope and Usage|The MarketClaimCancellationRequestStatusAdvice message is sent by an account servicer to an account holder to provide the status of a market claim transaction cancellation request.|This message definition is intended for use with the Business Application Header (BAH).")]
 [IsoId("_ygQkkNsFEeqmdMJWobugpw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Market Claim Cancellation Request Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     /// Identification of the related market claim cancellation request document for which the status is provided.
     /// </summary>
     [IsoId("_r6OtoNx3EeqESbVR5AloZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Claim Cancellation Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktClmCxlReqId")]
     #endif
+    [IsoXmlTag("MktClmCxlReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification9 MarketClaimCancellationRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification9 MarketClaimCancellationRequestIdentification { get; init; } 
+    public required DocumentIdentification9 MarketClaimCancellationRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification9 MarketClaimCancellationRequestIdentification { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     /// References of the transaction for which the securities settlement condition modification is requested.
     /// </summary>
     [IsoId("_x1AqBNx3EeqESbVR5AloZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRef")]
     #endif
+    [IsoXmlTag("TxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required References26 TransactionReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public References26 TransactionReference { get; init; } 
+    public required References26 TransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public References26 TransactionReference { get; init; } 
     #else
@@ -120,16 +116,15 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_x1AqBdx3EeqESbVR5AloZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionGeneralInformation157 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -140,16 +135,15 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     /// Status information about the processing of the market claim cancellation request.
     /// </summary>
     [IsoId("_7H81ANx3EeqESbVR5AloZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Claim Cancellation Request Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktClmCxlReqSts")]
     #endif
+    [IsoXmlTag("MktClmCxlReqSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketClaimCancellationRequestStatus1Choice_ MarketClaimCancellationRequestStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketClaimCancellationRequestStatus1Choice_ MarketClaimCancellationRequestStatus { get; init; } 
+    public required MarketClaimCancellationRequestStatus1Choice_ MarketClaimCancellationRequestStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketClaimCancellationRequestStatus1Choice_ MarketClaimCancellationRequestStatus { get; init; } 
     #else
@@ -160,12 +154,11 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     /// Detailed information about the related corporate action option and related movements to which the market claim is linked.
     /// </summary>
     [IsoId("_x1AqBtx3EeqESbVR5AloZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Claim Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktClmDtls")]
     #endif
+    [IsoXmlTag("MktClmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOption185? MarketClaimDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,12 +171,11 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_S5Y80SgaEeuYwc3diVMizA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -196,7 +188,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MarketClaimCancellationRequestStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MarketClaimCancellationRequestStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MarketClaimCancellationRequestStatusAdviceV01Document ToDocument()
     {
@@ -206,7 +198,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MarketClaimCancellationRequestStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MarketClaimCancellationRequestStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MarketClaimCancellationRequestStatusAdviceV01Document : IOuterDocument<MarketClaimCancellationRequestStatusAdviceV01>
@@ -223,7 +215,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MarketClaimCancellationRequestStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MarketClaimCancellationRequestStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketClaimCancellationRequestStatusAdviceV01 Message { get; init; }

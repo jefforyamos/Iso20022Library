@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|The IdentificationVerificationRequest message is sent by an assigner to an assignee. It is used to request the verification of party and/or account identification information.|Usage|The IdentificationVerificationRequest message is sent before the sending of one or several transactions messages.|The IdentificationVerificationRequest message can contain one or more verification requests.")]
 [IsoId("_sRylWGtdEeCY4-KZ9JEyUQ_-1959332273")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Identification Verification Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record IdentificationVerificationRequestV01 : IOuterRecord<Identi
     /// Identifies the identification assignment.
     /// </summary>
     [IsoId("_sRylWWtdEeCY4-KZ9JEyUQ_-1079532632")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationAssignment1 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationAssignment1 Assignment { get; init; } 
+    public required IdentificationAssignment1 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationAssignment1 Assignment { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record IdentificationVerificationRequestV01 : IOuterRecord<Identi
     /// Information concerning the identification data that is requested to be verified.
     /// </summary>
     [IsoId("_sRylWmtdEeCY4-KZ9JEyUQ_731202779")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Verification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrfctn")]
     #endif
+    [IsoXmlTag("Vrfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationVerification1 Verification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationVerification1 Verification { get; init; } 
+    public required IdentificationVerification1 Verification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationVerification1 Verification { get; init; } 
     #else
@@ -120,7 +116,7 @@ public partial record IdentificationVerificationRequestV01 : IOuterRecord<Identi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IdentificationVerificationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IdentificationVerificationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IdentificationVerificationRequestV01Document ToDocument()
     {
@@ -130,7 +126,7 @@ public partial record IdentificationVerificationRequestV01 : IOuterRecord<Identi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IdentificationVerificationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IdentificationVerificationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IdentificationVerificationRequestV01Document : IOuterDocument<IdentificationVerificationRequestV01>
@@ -147,7 +143,7 @@ public partial record IdentificationVerificationRequestV01Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IdentificationVerificationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IdentificationVerificationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationVerificationRequestV01 Message { get; init; }

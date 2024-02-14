@@ -21,7 +21,7 @@ public enum TypeOfAmount21Code
 {
     /// <summary>
     /// Interchange fee.
-    /// Encoded/decoded by serializers as "INTC".
+    /// Encoded/decoded by serializers as &quot;INTC&quot;.
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_EL_NsaH_EeuiuNcvKhXmNQ")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount21Code
     
     /// <summary>
     /// Processing fees.
-    /// Encoded/decoded by serializers as "FEEP".
+    /// Encoded/decoded by serializers as &quot;FEEP&quot;.
     /// </summary>
     [EnumMember(Value = "FEEP")]
     [IsoId("_EL_Ns6H_EeuiuNcvKhXmNQ")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount21Code
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_EL_NtaH_EeuiuNcvKhXmNQ")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount21Code
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_EL_Nt6H_EeuiuNcvKhXmNQ")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount21Code
     
     /// <summary>
     /// International service assessment fees.
-    /// Encoded/decoded by serializers as "FEEA".
+    /// Encoded/decoded by serializers as &quot;FEEA&quot;.
     /// </summary>
     [EnumMember(Value = "FEEA")]
     [IsoId("_EL_NuaH_EeuiuNcvKhXmNQ")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount21Code
     
     /// <summary>
     /// Interchange fee applicable to cash back amount.
-    /// Encoded/decoded by serializers as "CSIF".
+    /// Encoded/decoded by serializers as &quot;CSIF&quot;.
     /// </summary>
     [EnumMember(Value = "CSIF")]
     [IsoId("_UQGKgaH_EeuiuNcvKhXmNQ")]
@@ -75,7 +75,7 @@ public enum TypeOfAmount21Code
     
     /// <summary>
     /// Maximum applicable interchange fee.
-    /// Encoded/decoded by serializers as "MXIF".
+    /// Encoded/decoded by serializers as &quot;MXIF&quot;.
     /// </summary>
     [EnumMember(Value = "MXIF")]
     [IsoId("_WF3ZUaH_EeuiuNcvKhXmNQ")]
@@ -84,7 +84,7 @@ public enum TypeOfAmount21Code
     
     /// <summary>
     /// Minimum interchange fee applicable.
-    /// Encoded/decoded by serializers as "MNIF".
+    /// Encoded/decoded by serializers as &quot;MNIF&quot;.
     /// </summary>
     [EnumMember(Value = "MNIF")]
     [IsoId("_WpWg4aH_EeuiuNcvKhXmNQ")]

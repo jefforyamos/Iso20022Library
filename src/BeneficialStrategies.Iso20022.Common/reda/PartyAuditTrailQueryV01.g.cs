@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The PartyAuditTrailQuery message is sent by an instructing party to the executing party to query for the party audit trail recorded in the system.")]
 [IsoId("_-fQN8ZeSEeen_cyMrluY4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Audit Trail Query V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,12 +73,11 @@ public partial record PartyAuditTrailQueryV01 : IOuterRecord<PartyAuditTrailQuer
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_LFFxEVhGEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +90,15 @@ public partial record PartyAuditTrailQueryV01 : IOuterRecord<PartyAuditTrailQuer
     /// Defines the criteria to be used to query the party audit trail by the executing system.
     /// </summary>
     [IsoId("_-fQN-ZeSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyAuditTrailSearchCriteria2 SearchCriteria { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyAuditTrailSearchCriteria2 SearchCriteria { get; init; } 
+    public required PartyAuditTrailSearchCriteria2 SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyAuditTrailSearchCriteria2 SearchCriteria { get; init; } 
     #else
@@ -113,12 +109,11 @@ public partial record PartyAuditTrailQueryV01 : IOuterRecord<PartyAuditTrailQuer
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_-fQN-5eSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record PartyAuditTrailQueryV01 : IOuterRecord<PartyAuditTrailQuer
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PartyAuditTrailQueryV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PartyAuditTrailQueryV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PartyAuditTrailQueryV01Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record PartyAuditTrailQueryV01 : IOuterRecord<PartyAuditTrailQuer
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyAuditTrailQueryV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PartyAuditTrailQueryV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PartyAuditTrailQueryV01Document : IOuterDocument<PartyAuditTrailQueryV01>
@@ -158,7 +153,7 @@ public partial record PartyAuditTrailQueryV01Document : IOuterDocument<PartyAudi
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PartyAuditTrailQueryV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PartyAuditTrailQueryV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyAuditTrailQueryV01 Message { get; init; }

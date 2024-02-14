@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The FinancialResponse message is sent by an issuer or an agent to an acquirer in response to a FinancialInitiation message.")]
 [IsoId("_aga5FVTsEeeeIYOiLZFQGg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record FinancialResponseV02 : IOuterRecord<FinancialResponseV02,F
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_agkDAVTsEeeeIYOiLZFQGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header42 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header42 Header { get; init; } 
+    public required Header42 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header42 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record FinancialResponseV02 : IOuterRecord<FinancialResponseV02,F
     /// Information related to the financial response.
     /// </summary>
     [IsoId("_agkDAFTsEeeeIYOiLZFQGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialResponse1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialResponse1 Body { get; init; } 
+    public required FinancialResponse1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialResponse1 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record FinancialResponseV02 : IOuterRecord<FinancialResponseV02,F
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_agkDA1TsEeeeIYOiLZFQGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record FinancialResponseV02 : IOuterRecord<FinancialResponseV02,F
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialResponseV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialResponseV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialResponseV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record FinancialResponseV02 : IOuterRecord<FinancialResponseV02,F
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialResponseV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialResponseV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialResponseV02Document : IOuterDocument<FinancialResponseV02>
@@ -161,7 +156,7 @@ public partial record FinancialResponseV02Document : IOuterDocument<FinancialRes
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialResponseV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialResponseV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialResponseV02 Message { get; init; }

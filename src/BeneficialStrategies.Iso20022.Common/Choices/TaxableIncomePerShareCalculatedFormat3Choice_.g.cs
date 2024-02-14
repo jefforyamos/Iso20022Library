@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxableIncomePerShareCalculatedFormat3Choice.Code))]
     [KnownType(typeof(TaxableIncomePerShareCalculatedFormat3Choice.Proprietary))]
     [IsoId("_RaMwQUEGEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Income Per Share Calculated Format 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

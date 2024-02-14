@@ -22,7 +22,7 @@ public enum FundType2Code
     /// <summary>
     /// Fund of which at least one unit or share class is traded throughout the day on at
     /// least one trading venue and with at least one market maker which takes action to ensure that the price of its units or shares on the trading venue does not vary significantly from its net asset value and, where applicable, from its indicative net asset value.|
-    /// Encoded/decoded by serializers as "ETFT".
+    /// Encoded/decoded by serializers as &quot;ETFT&quot;.
     /// </summary>
     [EnumMember(Value = "ETFT")]
     [IsoId("_gipicVKVEee26cwI-oG0JQ")]
@@ -31,7 +31,7 @@ public enum FundType2Code
     
     /// <summary>
     /// Indication that a fund is a public debt constant net asset value money market fund, low volatility net asset value money market fund or variable net asset value money market fund.
-    /// Encoded/decoded by serializers as "MMFT".
+    /// Encoded/decoded by serializers as &quot;MMFT&quot;.
     /// </summary>
     [EnumMember(Value = "MMFT")]
     [IsoId("_gowxgVKVEee26cwI-oG0JQ")]
@@ -40,7 +40,7 @@ public enum FundType2Code
     
     /// <summary>
     /// Other type of an investment fund. 
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_gukekVKVEee26cwI-oG0JQ")]
@@ -49,7 +49,7 @@ public enum FundType2Code
     
     /// <summary>
     /// Listed real investment company.
-    /// Encoded/decoded by serializers as "REIT".
+    /// Encoded/decoded by serializers as &quot;REIT&quot;.
     /// </summary>
     [EnumMember(Value = "REIT")]
     [IsoId("_g0YysVKVEee26cwI-oG0JQ")]

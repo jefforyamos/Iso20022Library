@@ -21,7 +21,7 @@ public enum TypeTransactionTotals3Code
 {
     /// <summary>
     /// Credit transactions (refund, account, cash service, as defined in the transaction service type).
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_56GB4dxhEeioifFt1dhnJA")]
@@ -30,7 +30,7 @@ public enum TypeTransactionTotals3Code
     
     /// <summary>
     /// Reversal of credit transactions (cancellation).
-    /// Encoded/decoded by serializers as "CRDR".
+    /// Encoded/decoded by serializers as &quot;CRDR&quot;.
     /// </summary>
     [EnumMember(Value = "CRDR")]
     [IsoId("_59X_YdxhEeioifFt1dhnJA")]
@@ -39,7 +39,7 @@ public enum TypeTransactionTotals3Code
     
     /// <summary>
     /// Debit transactions on the cardholder account.
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_6ApV0dxhEeioifFt1dhnJA")]
@@ -48,7 +48,7 @@ public enum TypeTransactionTotals3Code
     
     /// <summary>
     /// Reversal of debit transactions (cancellation).
-    /// Encoded/decoded by serializers as "DBTR".
+    /// Encoded/decoded by serializers as &quot;DBTR&quot;.
     /// </summary>
     [EnumMember(Value = "DBTR")]
     [IsoId("_6EFEUdxhEeioifFt1dhnJA")]
@@ -57,7 +57,7 @@ public enum TypeTransactionTotals3Code
     
     /// <summary>
     /// Declined transactions.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_6HIYUdxhEeioifFt1dhnJA")]
@@ -66,7 +66,7 @@ public enum TypeTransactionTotals3Code
     
     /// <summary>
     /// Failed transactions.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_6KQk0dxhEeioifFt1dhnJA")]
@@ -75,7 +75,7 @@ public enum TypeTransactionTotals3Code
     
     /// <summary>
     /// Outstanding Reservation transactions.
-    /// Encoded/decoded by serializers as "RESV".
+    /// Encoded/decoded by serializers as &quot;RESV&quot;.
     /// </summary>
     [EnumMember(Value = "RESV")]
     [IsoId("_6NjwcdxhEeioifFt1dhnJA")]

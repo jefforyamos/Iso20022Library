@@ -22,7 +22,7 @@ public enum ExternalDocumentFormatCode
 {
     /// <summary>
     /// Document format is PDF.
-    /// Encoded/decoded by serializers as "DPDF".
+    /// Encoded/decoded by serializers as &quot;DPDF&quot;.
     /// </summary>
     [EnumMember(Value = "DPDF")]
     [IsoId("_uPIrM_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalDocumentFormatCode
     
     /// <summary>
     /// Document format is XML.
-    /// Encoded/decoded by serializers as "DXML".
+    /// Encoded/decoded by serializers as &quot;DXML&quot;.
     /// </summary>
     [EnumMember(Value = "DXML")]
     [IsoId("_uPIrNvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalDocumentFormatCode
     
     /// <summary>
     /// Document format is a spreadsheet.
-    /// Encoded/decoded by serializers as "SDSH".
+    /// Encoded/decoded by serializers as &quot;SDSH&quot;.
     /// </summary>
     [EnumMember(Value = "SDSH")]
     [IsoId("_uPIrOfRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalDocumentFormatCode
     
     /// <summary>
     /// Document format is Word.
-    /// Encoded/decoded by serializers as "WORD".
+    /// Encoded/decoded by serializers as &quot;WORD&quot;.
     /// </summary>
     [EnumMember(Value = "WORD")]
     [IsoId("_uPIrPPRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalDocumentFormatCode
     
     /// <summary>
     /// Document format is XSLT.
-    /// Encoded/decoded by serializers as "XSLT".
+    /// Encoded/decoded by serializers as &quot;XSLT&quot;.
     /// </summary>
     [EnumMember(Value = "XSLT")]
     [IsoId("_uPScMPRYEeuLhpyIdtJzwg")]

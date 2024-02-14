@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contract by which an amount of money in exchange for future repayment of the principal amount along with interest or other finance charges.
 /// </summary>
 [IsoId("_2n360bGIEeuSTr8k0UEM8A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Loan Contract")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record LoanContract3
     /// Contract document referenced from this loan agreement.
     /// </summary>
     [IsoId("_2o1kIbGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Document Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctDocId")]
     #endif
+    [IsoXmlTag("CtrctDocId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification22 ContractDocumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification22 ContractDocumentIdentification { get; init; } 
+    public required DocumentIdentification22 ContractDocumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification22 ContractDocumentIdentification { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record LoanContract3
     /// Type code of the loan contract.
     /// </summary>
     [IsoId("_o_ORYLb6Eeu9Cp6InX88Vw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loan Type Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LnTpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LnTpId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? LoanTypeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +88,11 @@ public partial record LoanContract3
     /// Party that is specified as the buyer for this loan agreement.
     /// </summary>
     [IsoId("_2o1kI7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     public TradeParty5? Buyer { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _2o1kI7GIEeuSTr8k0UEM8A
     
@@ -106,12 +100,11 @@ public partial record LoanContract3
     /// Party that is specified as the seller for this loan agreement.
     /// </summary>
     [IsoId("_2o1kJbGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     public TradeParty5? Seller { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _2o1kJbGIEeuSTr8k0UEM8A
     
@@ -119,12 +112,12 @@ public partial record LoanContract3
     /// Loan amount as defined in the contract.
     /// </summary>
     [IsoId("_2o1kJ7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +130,12 @@ public partial record LoanContract3
     /// Planned final repayment date at the time of issuance.
     /// </summary>
     [IsoId("_2o1kKbGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyDt")]
     #endif
+    [IsoXmlTag("MtrtyDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? MaturityDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +149,12 @@ public partial record LoanContract3
     /// When absent, the flag meaning is NotApplicable.
     /// </summary>
     [IsoId("_2o1kK7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Prolongation Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrlngtnFlg")]
     #endif
+    [IsoXmlTag("PrlngtnFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ProlongationFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +167,12 @@ public partial record LoanContract3
     /// Start date of the loan contract.
     /// </summary>
     [IsoId("_2o1kLbGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartDt")]
     #endif
+    [IsoXmlTag("StartDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? StartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +185,11 @@ public partial record LoanContract3
     /// Currency in which the loan is being settled.
     /// </summary>
     [IsoId("_2o1kL7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,12 +202,11 @@ public partial record LoanContract3
     /// Special conditions applicable when the amount is credited outside of the country.
     /// </summary>
     [IsoId("_2o1kMbGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Special Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpclConds")]
     #endif
+    [IsoXmlTag("SpclConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SpecialCondition1? SpecialConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,15 +219,12 @@ public partial record LoanContract3
     /// Loan duration in a coded form.
     /// </summary>
     [IsoId("_2o1kM7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Duration Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrtnCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DrtnCd")]
+    [IsoSimpleType(IsoSimpleType.Exact1NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact1NumericText? DurationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -249,12 +237,11 @@ public partial record LoanContract3
     /// Interest rate for the loan.
     /// </summary>
     [IsoId("_2o1kNbGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRate2Choice_? InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -267,12 +254,11 @@ public partial record LoanContract3
     /// One part or division of the loan, used to define the repayment.
     /// </summary>
     [IsoId("_2o1kN7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tranche")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trch")]
     #endif
+    [IsoXmlTag("Trch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoanContractTranche1? Tranche { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -285,12 +271,11 @@ public partial record LoanContract3
     /// Schedule of the payments defined for the loan contract.
     /// </summary>
     [IsoId("_2o1kObGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Schedule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtSchdl")]
     #endif
+    [IsoXmlTag("PmtSchdl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentSchedule1? PaymentSchedule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -303,12 +288,11 @@ public partial record LoanContract3
     /// Schedule of the interest payments defined for the loan contract.
     /// </summary>
     [IsoId("_2o1kO7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Schedule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstSchdl")]
     #endif
+    [IsoXmlTag("IntrstSchdl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestPaymentSchedule1? InterestSchedule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -321,16 +305,16 @@ public partial record LoanContract3
     /// Loan is an intra company loan.
     /// </summary>
     [IsoId("_2o1kPbGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Company Loan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraCpnyLn")]
     #endif
+    [IsoXmlTag("IntraCpnyLn")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator IntraCompanyLoan { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IntraCompanyLoan { get; init; } 
+    public required System.String IntraCompanyLoan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IntraCompanyLoan { get; init; } 
     #else
@@ -341,12 +325,11 @@ public partial record LoanContract3
     /// Details of the collateral for the loan.
     /// </summary>
     [IsoId("_2o1kP7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Coll")]
     #endif
+    [IsoXmlTag("Coll")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractCollateral1? Collateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -359,12 +342,11 @@ public partial record LoanContract3
     /// Loan offered by a group of lenders (called a syndicate) who work together to provide funds for a single borrower.
     /// </summary>
     [IsoId("_2o1kQbGIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Syndicated Loan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndctdLn")]
     #endif
+    [IsoXmlTag("SndctdLn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SyndicatedLoan2? SyndicatedLoan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -377,12 +359,11 @@ public partial record LoanContract3
     /// Documents provided as attachments to the loan contract.
     /// </summary>
     [IsoId("_2o1kQ7GIEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attachment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Attchmnt")]
     #endif
+    [IsoXmlTag("Attchmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation5? Attachment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

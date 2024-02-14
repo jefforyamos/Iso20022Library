@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCANOEligibleBalanceSD1 message extends ISO corporate action notification (Eligible Balance market practice) message with DTCC corporate action eligible balance elements not covered in the standard message.")]
 [IsoId("_1NtQ8TL3EeKU9IrkkToqcw_-768253967")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCANO Eligible Balance SD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCANOEligibleBalanceSD1V01 : IOuterRecord<DTCCCANOEligi
     /// Extension block for the information to be extended as account balance.
     /// </summary>
     [IsoId("_1NtQ8jL3EeKU9IrkkToqcw_-169736027")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctBal")]
     #endif
+    [IsoXmlTag("AcctBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountBalanceExtensionSD1? AccountBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,7 +83,7 @@ public partial record DTCCCANOEligibleBalanceSD1V01 : IOuterRecord<DTCCCANOEligi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCANOEligibleBalanceSD1V01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCANOEligibleBalanceSD1V01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCANOEligibleBalanceSD1V01Document ToDocument()
     {
@@ -96,7 +93,7 @@ public partial record DTCCCANOEligibleBalanceSD1V01 : IOuterRecord<DTCCCANOEligi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOEligibleBalanceSD1V01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCANOEligibleBalanceSD1V01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCANOEligibleBalanceSD1V01Document : IOuterDocument<DTCCCANOEligibleBalanceSD1V01>
@@ -113,7 +110,7 @@ public partial record DTCCCANOEligibleBalanceSD1V01Document : IOuterDocument<DTC
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCANOEligibleBalanceSD1V01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCANOEligibleBalanceSD1V01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCANOEligibleBalanceSD1V01 Message { get; init; }

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingSettlementStatusChoice.DataSourceScheme))]
     [KnownType(typeof(PendingSettlementStatusChoice.NoReason))]
     [IsoId("_U1POpdp-Ed-ak6NoX_4Aeg_-1501368338")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Settlement Status Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

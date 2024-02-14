@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Passenger ticket information for the cardholder. 
 /// </summary>
 [IsoId("_E2tJY_QcEeihCvvpsmGI2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Passenger Transport")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PassengerTransport1
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. Acquirers can submit one occurrence of this component for each airline, railway, or travel agency transaction to provide general ticket information.
     /// </summary>
     [IsoId("_E2tJZfQcEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Summry")]
     #endif
+    [IsoXmlTag("Summry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PassengerTransportSummary1? Summary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record PassengerTransport1
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. Acquirers can submit multiple occurrences of this component for each airline, railway, or travel agency transaction to provide general ticket information.
     /// </summary>
     [IsoId("_E2tJZPQcEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trip Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TripLeg")]
     #endif
+    [IsoXmlTag("TripLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TripLeg1? TripLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record PassengerTransport1
     /// Contains additional charges related to or during transit (for example, baggage fee, in-flight purchase). These are separate from the original ticket purchase.
     /// </summary>
     [IsoId("_oA_s4PQcEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ancillary Purchase")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AncllryPurchs")]
     #endif
+    [IsoXmlTag("AncllryPurchs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AncillaryPurchase1? AncillaryPurchase { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record PassengerTransport1
     /// Vehicle for hire for passenger transport - excludes vehicles driven by a renter.  Examples include, but are not limited to, taxi, chauffered limousine, boats.
     /// </summary>
     [IsoId("_3YFysPQcEeihCvvpsmGI2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hired Vehicle Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HirdVhclDtls")]
     #endif
+    [IsoXmlTag("HirdVhclDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public HiredVehicle1? HiredVehicleDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

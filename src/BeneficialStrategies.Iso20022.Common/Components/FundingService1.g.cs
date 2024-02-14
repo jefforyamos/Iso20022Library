@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Funds related service such as a payment or a transfer related to the transaction.
 /// </summary>
 [IsoId("_FtqT8EUWEeea-M6VZkEPUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Funding Service")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FundingService1
     /// Funding service details.
     /// </summary>
     [IsoId("_-V_tYEUWEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Funding Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndgSvc")]
     #endif
+    [IsoXmlTag("FndgSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransferService1? FundingService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record FundingService1
     /// Source of funding.
     /// </summary>
     [IsoId("_FMXIQEUXEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Funding Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndgSrc")]
     #endif
+    [IsoXmlTag("FndgSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundingSource2? FundingSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record FundingService1
     /// Information for claiming funds.
     /// </summary>
     [IsoId("_1WYNYBcUEeiM-L8iKEr4sw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Claim Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClmInf")]
     #endif
+    [IsoXmlTag("ClmInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClaimInformation1? ClaimInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

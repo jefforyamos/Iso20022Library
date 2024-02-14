@@ -21,7 +21,7 @@ public enum AccountLevel1Code
 {
     /// <summary>
     /// Intermediate level within an account hierarchy.
-    /// Encoded/decoded by serializers as "INTM".
+    /// Encoded/decoded by serializers as &quot;INTM&quot;.
     /// </summary>
     [EnumMember(Value = "INTM")]
     [IsoId("_6Uas9JqlEeGSON8vddiWzQ_1340728454")]
@@ -30,7 +30,7 @@ public enum AccountLevel1Code
     
     /// <summary>
     /// Highest level within an account hierarchy.
-    /// Encoded/decoded by serializers as "SMRY".
+    /// Encoded/decoded by serializers as &quot;SMRY&quot;.
     /// </summary>
     [EnumMember(Value = "SMRY")]
     [IsoId("_6Uas9ZqlEeGSON8vddiWzQ_1794815723")]

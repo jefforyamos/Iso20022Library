@@ -21,7 +21,7 @@ public enum ResourceActionCode
 {
     /// <summary>
     /// Set the default volume of sounds.
-    /// Encoded/decoded by serializers as "DVOL".
+    /// Encoded/decoded by serializers as &quot;DVOL&quot;.
     /// </summary>
     [EnumMember(Value = "DVOL")]
     [IsoId("_f977MS7_Eeu125Ip9zFcsQ")]
@@ -30,7 +30,7 @@ public enum ResourceActionCode
     
     /// <summary>
     /// Start the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "STAS".
+    /// Encoded/decoded by serializers as &quot;STAS&quot;.
     /// </summary>
     [EnumMember(Value = "STAS")]
     [IsoId("_mCpPoS7_Eeu125Ip9zFcsQ")]
@@ -39,7 +39,7 @@ public enum ResourceActionCode
     
     /// <summary>
     /// Play in a loop the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "LOOP".
+    /// Encoded/decoded by serializers as &quot;LOOP&quot;.
     /// </summary>
     [EnumMember(Value = "LOOP")]
     [IsoId("_m1zK4S7_Eeu125Ip9zFcsQ")]
@@ -48,7 +48,7 @@ public enum ResourceActionCode
     
     /// <summary>
     /// Stop the media resource in progress.
-    /// Encoded/decoded by serializers as "STOS".
+    /// Encoded/decoded by serializers as &quot;STOS&quot;.
     /// </summary>
     [EnumMember(Value = "STOS")]
     [IsoId("_89VCsS7_Eeu125Ip9zFcsQ")]
@@ -57,7 +57,7 @@ public enum ResourceActionCode
     
     /// <summary>
     /// Pause the media resource in progress as specified in the message.
-    /// Encoded/decoded by serializers as "PAUS".
+    /// Encoded/decoded by serializers as &quot;PAUS&quot;.
     /// </summary>
     [EnumMember(Value = "PAUS")]
     [IsoId("_DYgWYS8AEeu125Ip9zFcsQ")]
@@ -66,7 +66,7 @@ public enum ResourceActionCode
     
     /// <summary>
     /// Resume the progress of the media resource as specified in the message.
-    /// Encoded/decoded by serializers as "RESU".
+    /// Encoded/decoded by serializers as &quot;RESU&quot;.
     /// </summary>
     [EnumMember(Value = "RESU")]
     [IsoId("_D5h_0S8AEeu125Ip9zFcsQ")]

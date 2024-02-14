@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation2Choice
     /// Identification of a person.
     /// </summary>
     [IsoId("_-GX-RQkiEeWGouz230Xp5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Person")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,19 +57,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation2Choice
         /// First name of a person (also known as given name).
         /// </summary>
         [IsoId("_AifA0vPZEeS_qLctCs2aRQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("First Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrstNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("FrstNm")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax140Text FirstName { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String FirstName { get; init; } 
+        public required System.String FirstName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String FirstName { get; init; } 
         #else
@@ -82,19 +78,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation2Choice
         /// Name by which a party is known and which is usually used to identify that party.
         /// </summary>
         [IsoId("_AifA0_PZEeS_qLctCs2aRQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax140Text Name { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Name { get; init; } 
+        public required System.String Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Name { get; init; } 
         #else
@@ -105,16 +99,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation2Choice
         /// Date on which a person is born.
         /// </summary>
         [IsoId("_BzRTQfPZEeS_qLctCs2aRQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Birth Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BirthDt")]
         #endif
+        [IsoXmlTag("BirthDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate BirthDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly BirthDate { get; init; } 
+        public required System.DateOnly BirthDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly BirthDate { get; init; } 
         #else
@@ -125,16 +119,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation2Choice
         /// Unique identification of a person, as assigned by an institution, using an identification scheme.
         /// </summary>
         [IsoId("_98J3xfPYEeS_qLctCs2aRQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Othr")]
         #endif
+        [IsoXmlTag("Othr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GenericPersonIdentification1 Other { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GenericPersonIdentification1 Other { get; init; } 
+        public required GenericPersonIdentification1 Other { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GenericPersonIdentification1 Other { get; init; } 
         #else

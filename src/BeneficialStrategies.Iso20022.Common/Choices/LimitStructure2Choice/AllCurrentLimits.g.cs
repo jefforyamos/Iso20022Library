@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitStructure2Choice
     /// Identification of the current limit.
     /// </summary>
     [IsoId("__vDiZW49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Current Limits")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitStructure2Choice
         /// Identification of a particular cash clearing system.
         /// </summary>
         [IsoId("_ACk7U24-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("System Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SysId")]
         #endif
+        [IsoXmlTag("SysId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemIdentification2Choice_? SystemIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +71,15 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitStructure2Choice
         /// Nature of the risk management limit.
         /// </summary>
         [IsoId("_ACk7VW4-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required LimitType1Choice_ Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public LimitType1Choice_ Type { get; init; } 
+        public required LimitType1Choice_ Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public LimitType1Choice_ Type { get; init; } 
         #else
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitStructure2Choice
         /// Owner of the account which is being queried.
         /// </summary>
         [IsoId("_ACk7V24-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnr")]
         #endif
+        [IsoXmlTag("AcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +107,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitStructure2Choice
         /// Unique and unambiguous identification for the account between the account owner and the account servicer.
         /// </summary>
         [IsoId("_ACk7WW4-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctId")]
         #endif
+        [IsoXmlTag("AcctId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AccountIdentification4Choice_? AccountIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

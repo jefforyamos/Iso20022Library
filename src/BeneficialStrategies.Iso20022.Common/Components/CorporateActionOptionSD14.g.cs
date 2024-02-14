@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option details.
 /// </summary>
 [IsoId("_eEjNwQ7sEeuZI5Sr_GAcuA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Option SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record CorporateActionOptionSD14
     /// Xpath to the element that is being extended.
     /// </summary>
     [IsoId("_eZ-rMQ7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record CorporateActionOptionSD14
     /// Used for options that have particular proprietary feature that cannot be represented in the standard ISO message.
     /// </summary>
     [IsoId("_eZ-rMw7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Option Features")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedOptnFeatrs")]
     #endif
+    [IsoXmlTag("XtndedOptnFeatrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,12 @@ public partial record CorporateActionOptionSD14
     /// Indicates whether the option is declared as default by the issuer/offeror, and will be treated as default by the issuer/offeror if no elections is made.
     /// </summary>
     [IsoId("_eZ-rOw7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Option Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltOptnFlg")]
     #endif
+    [IsoXmlTag("DfltOptnFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DefaultOptionFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,12 @@ public partial record CorporateActionOptionSD14
     /// Indicates whether optional dividend supplementary data are required in the ISO 20022 corporate action instruction (CAIN) message for this event.
     /// </summary>
     [IsoId("_eZ-rSQ7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Optional Dividend Supplementary Data Required Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnlDvddSplmtryDataReqrdFlg")]
     #endif
+    [IsoXmlTag("OptnlDvddSplmtryDataReqrdFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OptionalDividendSupplementaryDataRequiredFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +114,12 @@ public partial record CorporateActionOptionSD14
     /// Indicates whether the cash debit for the oversubscription charge is made at the time of instruction submission.
     /// </summary>
     [IsoId("_eZ-rSw7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Oversubscription Charge Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OvrsbcptChrgFlg")]
     #endif
+    [IsoXmlTag("OvrsbcptChrgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OversubscriptionChargeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +132,12 @@ public partial record CorporateActionOptionSD14
     /// Indicates whether the cash debit for the protect charge is made at the time of instruction submission.
     /// </summary>
     [IsoId("_eZ-rTQ7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Charge Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctChrgFlg")]
     #endif
+    [IsoXmlTag("PrtctChrgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +150,12 @@ public partial record CorporateActionOptionSD14
     /// Indicates whether the cash debit for the step-up charge is made at the time of instruction submission.
     /// </summary>
     [IsoId("_eZ-rTw7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Step Up Charge Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StepUpChrgFlg")]
     #endif
+    [IsoXmlTag("StepUpChrgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StepUpChargeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +168,12 @@ public partial record CorporateActionOptionSD14
     /// Indicates whether the cash debit for the subscription charge is made at the time of instruction submission.
     /// </summary>
     [IsoId("_eZ-rUQ7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Charge Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptChrgFlg")]
     #endif
+    [IsoXmlTag("SbcptChrgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SubscriptionChargeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +186,12 @@ public partial record CorporateActionOptionSD14
     /// Determines the disposition of odd lot quantities resulting from proration. Depending on the event, if the remaining quantity (instructed quantity – accepted prorated quantity) is an odd lot, it may be added to the accepted instruction quantity. 
     /// </summary>
     [IsoId("_s6LlQA7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Back End Odd Lot Quantity Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BckEndOddLotQtyFlg")]
     #endif
+    [IsoXmlTag("BckEndOddLotQtyFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? BackEndOddLotQuantityFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +204,12 @@ public partial record CorporateActionOptionSD14
     /// Identifies whether the exemption is in effect. Some offers stipulate that instructions submitted on odd lot positions will be exempted from any proration if submitted in full. 
     /// </summary>
     [IsoId("_KMmWcA7tEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Front End Odd Lot Quantity Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrntEndOddLotQtyFlg")]
     #endif
+    [IsoXmlTag("FrntEndOddLotQtyFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FrontEndOddLotQuantityFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +222,12 @@ public partial record CorporateActionOptionSD14
     /// Indicates, whether an option for certain events may have a full condition indicator, meaning that either the conditional quantity must be instructed in full (equal to the instructed quantity) or zero must be instructed.  
     /// </summary>
     [IsoId("_FExrkA7uEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Full Condition Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FullCondFlg")]
     #endif
+    [IsoXmlTag("FullCondFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? FullConditionFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,18 +237,15 @@ public partial record CorporateActionOptionSD14
     #endif
     
     /// <summary>
-    /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (event details, options, movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related activity types 74, and 54. If event details and cash option are sourced from the activity type 74, then activity type 74 will be in RDP reference number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP reference number based on DTCC event group (reorganization, distribution, or redemption).
+    /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (event details, options, movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related activity types 74, and 54. If event details and cash option are sourced from the activity type 74, then activity type 74 will be in RDP reference number in event details, and also on the cash option. The activity type 54 will be &quot;on&quot; the security option. Also, usage rules will specify the different layouts of the RDP reference number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>
     [IsoId("_eZ-rUw7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("RDP Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RDPRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("RDPRefNb")]
+    [IsoSimpleType(IsoSimpleType.Exact32AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,15 +258,12 @@ public partial record CorporateActionOptionSD14
     /// Number of conditions for a given option that must be acknowledged upon submission of instruction for voluntary reorganisation events.
     /// </summary>
     [IsoId("_eZ-rVQ7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfConds")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("NbOfConds")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? NumberOfConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -287,28 +276,24 @@ public partial record CorporateActionOptionSD14
     /// Identification of the tax category as issuers, their agents, or tax authorities may require a breakdown of holders at a category level that have requested to receive a distribution at a favourable rate of tax.
     /// </summary>
     [IsoId("_eZ-rVw7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxCtgy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TaxCtgy")]
     [MinLength(0)]
     [MaxLength(99)]
-    #endif
     public ValueList<TaxCategory1> TaxCategory { get; init; } = new ValueList<TaxCategory1>(){};
     
     /// <summary>
     /// Indicates how fractional positions will be handled for events with prorated options.
     /// </summary>
     [IsoId("_eZ-rWQ7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proration Rounding Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrratnRndgInd")]
     #endif
+    [IsoXmlTag("PrratnRndgInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FractionDispositionType12Code? ProrationRoundingIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -321,12 +306,12 @@ public partial record CorporateActionOptionSD14
     /// Decimal above which numbers are rounded for prorated options. For example if the rounding factor is 0.5, numbers of 0.5 and above will be rounded up.
     /// </summary>
     [IsoId("_eZ-rWw7sEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proration Fraction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrratnFrctn")]
     #endif
+    [IsoXmlTag("PrratnFrctn")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ProrationFraction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -339,16 +324,13 @@ public partial record CorporateActionOptionSD14
     /// Participation in the event requires that certain conditions be met by the holder for certain voluntary options.
     /// </summary>
     [IsoId("_tMDJoA7yEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnConds")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OptnConds")]
     [MinLength(0)]
     [MaxLength(6)]
-    #endif
     public ValueList<OptionConditions1> OptionConditions { get; init; } = new ValueList<OptionConditions1>(){};
     
     

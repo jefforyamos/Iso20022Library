@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExposureType23Choice
     /// Specifies the underlying business area/type of trade causing the exposure expressed as a code.
     /// </summary>
     [IsoId("_LgF2kSs9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ExposureType23Choice
         /// Specifies the underlying business area/type of trade causing the collateral movement.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExposureType14Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExposureType14Code Value { get; init; } 
+        public required ExposureType14Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExposureType14Code Value { get; init; } 
         #else

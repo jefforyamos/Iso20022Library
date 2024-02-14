@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderBreakdownType1Choice
     /// Order breakdown type expressed as a code.
     /// </summary>
     [IsoId("_4Ff_gjhjEeamLZQeccJa7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderBreakdownType1Choice
         /// Specifies the category of the investment fund order.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FundOrderType5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FundOrderType5Code Value { get; init; } 
+        public required FundOrderType5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FundOrderType5Code Value { get; init; } 
         #else

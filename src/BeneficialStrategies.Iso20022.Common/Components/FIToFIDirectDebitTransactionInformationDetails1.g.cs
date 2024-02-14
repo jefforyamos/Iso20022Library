@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements providing information specific to the individual direct debit(s).
 /// </summary>
 [IsoId("_U68zAAbvEearf7_vc3OyqQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("FI To FI Direct Debit Transaction Information Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FIToFIDirectDebitTransactionInformationDetails1
     /// Common characteristics for all individual transactions included in the message.
     /// </summary>
     [IsoId("_eLGvwAbvEearf7_vc3OyqQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader63 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader63 GroupHeader { get; init; } 
+    public required GroupHeader63 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader63 GroupHeader { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record FIToFIDirectDebitTransactionInformationDetails1
     /// Characteristics that apply to the credit side of the payment transaction(s) included in the message.
     /// </summary>
     [IsoId("_iCkJgAbvEearf7_vc3OyqQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtInstr")]
     #endif
+    [IsoXmlTag("CdtInstr")]
     public CreditTransferTransaction9? CreditInstruction { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _iCkJgAbvEearf7_vc3OyqQ
     
@@ -84,12 +80,11 @@ public partial record FIToFIDirectDebitTransactionInformationDetails1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_7HBTgBkZEeapYKOltfjd7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

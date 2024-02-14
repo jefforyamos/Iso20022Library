@@ -21,7 +21,7 @@ public enum Priority2Code
 {
     /// <summary>
     /// Priority level is high.
-    /// Encoded/decoded by serializers as "HIGH".
+    /// Encoded/decoded by serializers as &quot;HIGH&quot;.
     /// </summary>
     [EnumMember(Value = "HIGH")]
     [IsoId("_aKLTBdp-Ed-ak6NoX_4Aeg_-216681953")]
@@ -30,7 +30,7 @@ public enum Priority2Code
     
     /// <summary>
     /// Priority level is normal.
-    /// Encoded/decoded by serializers as "NORM".
+    /// Encoded/decoded by serializers as &quot;NORM&quot;.
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_aKLTBtp-Ed-ak6NoX_4Aeg_-190820973")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the third party.
 /// </summary>
 [IsoId("_iumBkPQ-EeqAradXpAelDQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Third Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ThirdPartyIdentification1
     /// Role played by the third party.
     /// </summary>
     [IsoId("_q9sxAPQ-EeqAradXpAelDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyRole3Code Role { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyRole3Code Role { get; init; } 
+    public required PartyRole3Code Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyRole3Code Role { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ThirdPartyIdentification1
     /// Identification of the third party legal entity.
     /// </summary>
     [IsoId("_xOpKoPQ-EeqAradXpAelDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Person Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglPrsnId")]
     #endif
+    [IsoXmlTag("LglPrsnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification221? LegalPersonIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

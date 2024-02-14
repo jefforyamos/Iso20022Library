@@ -21,7 +21,7 @@ public enum EncryptionFormatCode
 {
     /// <summary>
     /// Format of a cryptographic key specified by the ANSI X9 TR-31 standard.
-    /// Encoded/decoded by serializers as "TR31".
+    /// Encoded/decoded by serializers as &quot;TR31&quot;.
     /// </summary>
     [EnumMember(Value = "TR31")]
     [IsoId("_wFGHsGi3EeS87LmvcA55sg")]
@@ -30,7 +30,7 @@ public enum EncryptionFormatCode
     
     /// <summary>
     /// Format of a cryptographic key specified by the ANSI X9 TR-34 standard.
-    /// Encoded/decoded by serializers as "TR34".
+    /// Encoded/decoded by serializers as &quot;TR34&quot;.
     /// </summary>
     [EnumMember(Value = "TR34")]
     [IsoId("_7jHDIGi3EeS87LmvcA55sg")]
@@ -39,7 +39,7 @@ public enum EncryptionFormatCode
     
     /// <summary>
     /// Format of a cryptographic key specified by the ISO20038 standard.
-    /// Encoded/decoded by serializers as "I238".
+    /// Encoded/decoded by serializers as &quot;I238&quot;.
     /// </summary>
     [EnumMember(Value = "I238")]
     [IsoId("_1ucL8NtnEee9e6xduATmQg")]
@@ -48,7 +48,7 @@ public enum EncryptionFormatCode
     
     /// <summary>
     /// Cipher Block Chaining mode of encryption
-    /// Encoded/decoded by serializers as "CBCE".
+    /// Encoded/decoded by serializers as &quot;CBCE&quot;.
     /// </summary>
     [EnumMember(Value = "CBCE")]
     [IsoId("_zgUX4nx8EemHsOqJOzMVfg")]
@@ -57,7 +57,7 @@ public enum EncryptionFormatCode
     
     /// <summary>
     /// CTC encryption mode.
-    /// Encoded/decoded by serializers as "CTCE".
+    /// Encoded/decoded by serializers as &quot;CTCE&quot;.
     /// </summary>
     [EnumMember(Value = "CTCE")]
     [IsoId("_zgUX43x8EemHsOqJOzMVfg")]

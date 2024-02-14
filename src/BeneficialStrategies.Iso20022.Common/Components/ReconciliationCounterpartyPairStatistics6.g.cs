@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed statistics on derivatives submitted for reconciliation per counterparty pair.
 /// </summary>
 [IsoId("_cHKG8VovEe23K4GXSpBSeg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Counterparty Pair Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReconciliationCounterpartyPairStatistics6
     /// Data specific to counterparties and related fields.
     /// </summary>
     [IsoId("_cIzswVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyId")]
     #endif
+    [IsoXmlTag("CtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData91 CounterpartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyData91 CounterpartyIdentification { get; init; } 
+    public required CounterpartyData91 CounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyData91 CounterpartyIdentification { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record ReconciliationCounterpartyPairStatistics6
     /// Number of all reports per status on derivatives submitted for reconciliation per counterparty pair.
     /// </summary>
     [IsoId("_cIzsw1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTxs")]
     #endif
+    [IsoXmlTag("TtlNbOfTxs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumberOfTransactions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNumberOfTransactions { get; init; } 
+    public required System.UInt64 TotalNumberOfTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNumberOfTransactions { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record ReconciliationCounterpartyPairStatistics6
     /// Data on transaction requiring reconciliation or pairing. 
     /// </summary>
     [IsoId("_cIzsxVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnRpt")]
     #endif
+    [IsoXmlTag("RcncltnRpt")]
     public ReconciliationReport14? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _cIzsxVovEe23K4GXSpBSeg
     

@@ -21,7 +21,7 @@ public enum CorporateActionCalculationMethod1Code
 {
     /// <summary>
     /// Pro-rata for drawings.
-    /// Encoded/decoded by serializers as "PROR".
+    /// Encoded/decoded by serializers as &quot;PROR&quot;.
     /// </summary>
     [EnumMember(Value = "PROR")]
     [IsoId("_bCgCI9p-Ed-ak6NoX_4Aeg_-666370477")]
@@ -30,7 +30,7 @@ public enum CorporateActionCalculationMethod1Code
     
     /// <summary>
     /// Lottery for drawings.
-    /// Encoded/decoded by serializers as "LOTT".
+    /// Encoded/decoded by serializers as &quot;LOTT&quot;.
     /// </summary>
     [EnumMember(Value = "LOTT")]
     [IsoId("_bCgCJNp-Ed-ak6NoX_4Aeg_-666370476")]
@@ -39,7 +39,7 @@ public enum CorporateActionCalculationMethod1Code
     
     /// <summary>
     /// Reduction of nominal for partial redemption.
-    /// Encoded/decoded by serializers as "NOMI".
+    /// Encoded/decoded by serializers as &quot;NOMI&quot;.
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_bCgCJdp-Ed-ak6NoX_4Aeg_-666370467")]
@@ -48,7 +48,7 @@ public enum CorporateActionCalculationMethod1Code
     
     /// <summary>
     /// Without reduction of nominal (via pool factor) for partial redemption.
-    /// Encoded/decoded by serializers as "NNOM".
+    /// Encoded/decoded by serializers as &quot;NNOM&quot;.
     /// </summary>
     [EnumMember(Value = "NNOM")]
     [IsoId("_bCgCJtp-Ed-ak6NoX_4Aeg_-666370446")]

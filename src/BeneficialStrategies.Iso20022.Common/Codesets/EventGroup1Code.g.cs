@@ -21,7 +21,7 @@ public enum EventGroup1Code
 {
     /// <summary>
     /// Redemption domain events.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_1tTXAzL3EeKU9IrkkToqcw_-766484011")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option securities movement details.
 /// </summary>
 [IsoId("_1gMIEjL3EeKU9IrkkToqcw_385488940")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Option SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record SecuritiesOptionSD4
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1gMIEzL3EeKU9IrkkToqcw_-611583413")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -77,19 +73,16 @@ public partial record SecuritiesOptionSD4
     /// Unique number associated with a payout within an option.
     /// </summary>
     [IsoId("_1gMIFDL3EeKU9IrkkToqcw_260551097")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payout Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyoutNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PyoutNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText PayoutNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PayoutNumber { get; init; } 
+    public required System.String PayoutNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PayoutNumber { get; init; } 
     #else
@@ -100,16 +93,15 @@ public partial record SecuritiesOptionSD4
     /// Describes the type of payout associated with the event.
     /// </summary>
     [IsoId("_1gMIFTL3EeKU9IrkkToqcw_-1542715842")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payout Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyoutTp")]
     #endif
+    [IsoXmlTag("PyoutTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCPayoutType2Code PayoutType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DTCCPayoutType2Code PayoutType { get; init; } 
+    public required DTCCPayoutType2Code PayoutType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DTCCPayoutType2Code PayoutType { get; init; } 
     #else
@@ -120,16 +112,15 @@ public partial record SecuritiesOptionSD4
     /// Workflow status of the payout.
     /// </summary>
     [IsoId("_1gVSADL3EeKU9IrkkToqcw_29434994")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payout Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PyoutSts")]
     #endif
+    [IsoXmlTag("PyoutSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required WorkflowStatus1Code PayoutStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public WorkflowStatus1Code PayoutStatus { get; init; } 
+    public required WorkflowStatus1Code PayoutStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public WorkflowStatus1Code PayoutStatus { get; init; } 
     #else

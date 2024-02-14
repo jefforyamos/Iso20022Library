@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of collateral calculated pre-haircut and/or post-haircut.
 /// </summary>
 [IsoId("_SUuMwFfVEeqqKf65rDYWYw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pre Post Haircut")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record PrePostHaircut1
     /// Indicates the amount of collateral calculated pre-haircut.
     /// </summary>
     [IsoId("_ikXEIFfVEeqqKf65rDYWYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pre Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PreHrcut")]
     #endif
+    [IsoXmlTag("PreHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PreHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record PrePostHaircut1
     /// Indicates the amount of collateral calculated post-haircut.
     /// </summary>
     [IsoId("_j8ulQFfVEeqqKf65rDYWYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstHrcut")]
     #endif
+    [IsoXmlTag("PstHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

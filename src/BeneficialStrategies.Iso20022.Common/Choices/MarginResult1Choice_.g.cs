@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginResult1Choice.ExcessAmount))]
     [KnownType(typeof(MarginResult1Choice.DeficitAmount))]
     [IsoId("_Qk1wddp-Ed-ak6NoX_4Aeg_-1613861504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Result 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

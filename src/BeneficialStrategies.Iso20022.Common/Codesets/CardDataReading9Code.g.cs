@@ -21,7 +21,7 @@ public enum CardDataReading9Code
 {
     /// <summary>
     /// Unknown card reading capability.
-    /// Encoded/decoded by serializers as "UNKW".
+    /// Encoded/decoded by serializers as &quot;UNKW&quot;.
     /// </summary>
     [EnumMember(Value = "UNKW")]
     [IsoId("_JDP14ZlfEeu76rs9yGlfEg")]
@@ -30,7 +30,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// Other national capability type assigned at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_JtshEZlfEeu76rs9yGlfEg")]
@@ -39,7 +39,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// Other card reading capability assigned on a private basis.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_J0hh0ZlfEeu76rs9yGlfEg")]
@@ -48,7 +48,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// Card details captured via camera.
-    /// Encoded/decoded by serializers as "CAMR".
+    /// Encoded/decoded by serializers as &quot;CAMR&quot;.
     /// </summary>
     [EnumMember(Value = "CAMR")]
     [IsoId("_N2p6gZlfEeu76rs9yGlfEg")]
@@ -57,7 +57,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// Key entered.
-    /// Encoded/decoded by serializers as "KEEN".
+    /// Encoded/decoded by serializers as &quot;KEEN&quot;.
     /// </summary>
     [EnumMember(Value = "KEEN")]
     [IsoId("_ujzGIZlfEeu76rs9yGlfEg")]
@@ -66,7 +66,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// ICC contactless proximity
-    /// Encoded/decoded by serializers as "ICPY".
+    /// Encoded/decoded by serializers as &quot;ICPY&quot;.
     /// </summary>
     [EnumMember(Value = "ICPY")]
     [IsoId("_05JGUazhEeurLutE1vUWxQ")]
@@ -75,7 +75,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// Optical coded reading capabilities (e.g. barcode, QR code, etc.)
-    /// Encoded/decoded by serializers as "OPTC".
+    /// Encoded/decoded by serializers as &quot;OPTC&quot;.
     /// </summary>
     [EnumMember(Value = "OPTC")]
     [IsoId("_iyilMa7BEeuhTp7lI6XAzA")]
@@ -84,7 +84,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// Card information are stored on a file.
-    /// Encoded/decoded by serializers as "CDFL".
+    /// Encoded/decoded by serializers as &quot;CDFL&quot;.
     /// </summary>
     [EnumMember(Value = "CDFL")]
     [IsoId("_b9Nm8cmuEeuF1f85xf6dbg")]
@@ -93,7 +93,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// Card details were obtained via a mobile banking application.
-    /// Encoded/decoded by serializers as "MBNK".
+    /// Encoded/decoded by serializers as &quot;MBNK&quot;.
     /// </summary>
     [EnumMember(Value = "MBNK")]
     [IsoId("_4QIqAcmuEeuF1f85xf6dbg")]
@@ -102,7 +102,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// Card details were obtained via a token.
-    /// Encoded/decoded by serializers as "TOKN".
+    /// Encoded/decoded by serializers as &quot;TOKN&quot;.
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_OuQc4cmvEeuF1f85xf6dbg")]
@@ -111,7 +111,7 @@ public enum CardDataReading9Code
     
     /// <summary>
     /// ICC contact capability
-    /// Encoded/decoded by serializers as "ICCY".
+    /// Encoded/decoded by serializers as &quot;ICCY&quot;.
     /// </summary>
     [EnumMember(Value = "ICCY")]
     [IsoId("_XJ0T8cmvEeuF1f85xf6dbg")]

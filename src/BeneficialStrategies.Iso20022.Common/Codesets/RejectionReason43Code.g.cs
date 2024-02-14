@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum RejectionReason43Code
 {
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_DX1sAVhXEeSewsfsZR0hxA")]
@@ -30,7 +30,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Instruction is rejected since the provided certification is incorrect or incomplete.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_JQPp01hXEeSewsfsZR0hxA")]
@@ -39,7 +39,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// For tax reclaim, the reclaim is invalid for the tax authorities.
-    /// Encoded/decoded by serializers as "INVA".
+    /// Encoded/decoded by serializers as &quot;INVA&quot;.
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_MA_TI1hXEeSewsfsZR0hxA")]
@@ -48,7 +48,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Invalid option type.
-    /// Encoded/decoded by serializers as "OPTY".
+    /// Encoded/decoded by serializers as &quot;OPTY&quot;.
     /// </summary>
     [EnumMember(Value = "OPTY")]
     [IsoId("_TdYMM1hXEeSewsfsZR0hxA")]
@@ -57,7 +57,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Linked reference is unknown.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_V54q41hXEeSewsfsZR0hxA")]
@@ -66,7 +66,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_bYtEA1hXEeSewsfsZR0hxA")]
@@ -75,7 +75,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Instructed position exceeds the eligible balance.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_cnQh01hXEeSewsfsZR0hxA")]
@@ -84,7 +84,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_dmo7M1hXEeSewsfsZR0hxA")]
@@ -93,7 +93,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Mismatch between option number and option type.
-    /// Encoded/decoded by serializers as "NMTY".
+    /// Encoded/decoded by serializers as &quot;NMTY&quot;.
     /// </summary>
     [EnumMember(Value = "NMTY")]
     [IsoId("_fMQOI1hXEeSewsfsZR0hxA")]
@@ -102,7 +102,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Rejected due to missing beneficiary owner details.
-    /// Encoded/decoded by serializers as "BOIS".
+    /// Encoded/decoded by serializers as &quot;BOIS&quot;.
     /// </summary>
     [EnumMember(Value = "BOIS")]
     [IsoId("_h0Xf41hXEeSewsfsZR0hxA")]
@@ -111,7 +111,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Option is not valid; it has been cancelled by the market or service provider, and cannot be responded to. Any responses already processed against this option are considered void and new responses will be required.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_lJ3cE1hXEeSewsfsZR0hxA")]
@@ -120,7 +120,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, for example, expired option.
-    /// Encoded/decoded by serializers as "INTV".
+    /// Encoded/decoded by serializers as &quot;INTV&quot;.
     /// </summary>
     [EnumMember(Value = "INTV")]
     [IsoId("_lf4vY1hXEeSewsfsZR0hxA")]
@@ -129,7 +129,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Unrecognised option number.
-    /// Encoded/decoded by serializers as "OPNM".
+    /// Encoded/decoded by serializers as &quot;OPNM&quot;.
     /// </summary>
     [EnumMember(Value = "OPNM")]
     [IsoId("_mWMFQ1hXEeSewsfsZR0hxA")]
@@ -138,7 +138,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_m7FiE1hXEeSewsfsZR0hxA")]
@@ -147,7 +147,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_pFJl41hXEeSewsfsZR0hxA")]
@@ -156,7 +156,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Reclaim is refused by the tax authorities.
-    /// Encoded/decoded by serializers as "REFT".
+    /// Encoded/decoded by serializers as &quot;REFT&quot;.
     /// </summary>
     [EnumMember(Value = "REFT")]
     [IsoId("_qCv2k1hXEeSewsfsZR0hxA")]
@@ -164,8 +164,8 @@ public enum RejectionReason43Code
     RefusedByTaxAuthorities = RejectionReasonV2Code.RefusedByTaxAuthorities, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Unrecognised or invalid message sender&apos;s safekeeping account.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_th6FE1hXEeSewsfsZR0hxA")]
@@ -174,7 +174,7 @@ public enum RejectionReason43Code
     
     /// <summary>
     /// Unrecognised event number.
-    /// Encoded/decoded by serializers as "EVNM".
+    /// Encoded/decoded by serializers as &quot;EVNM&quot;.
     /// </summary>
     [EnumMember(Value = "EVNM")]
     [IsoId("_wDep81hXEeSewsfsZR0hxA")]

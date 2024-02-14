@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Transaction Report Request message.
 /// </summary>
 [IsoId("_wej3AN6PEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Transaction Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReportTransactionRequest1
     /// Eligibility parameters for a transaction to be part of transaction report.
     /// </summary>
     [IsoId("_4eXmMN6PEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     public SearchCriteria1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _4eXmMN6PEeiwsev40qZGEQ
     
@@ -57,12 +54,11 @@ public partial record ReportTransactionRequest1
     /// Indicates the ordering in which the resulting transaction reports should be returned.
     /// </summary>
     [IsoId("_sN1MMN6QEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Output Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchOutptOrdr")]
     #endif
+    [IsoXmlTag("SchOutptOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SearchOutputOrder1? SearchOutputOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,12 +71,12 @@ public partial record ReportTransactionRequest1
     /// Indicates the order used for the criteria.
     /// </summary>
     [IsoId("_OLrKsN6REeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Descending Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscndgOrdr")]
     #endif
+    [IsoXmlTag("DscndgOrdr")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DescendingOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +89,12 @@ public partial record ReportTransactionRequest1
     /// Index of the first transaction matching the search criteria.
     /// </summary>
     [IsoId("_RUyQsN6REeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Start")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckStart")]
     #endif
+    [IsoXmlTag("BlckStart")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? BlockStart { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,12 +107,12 @@ public partial record ReportTransactionRequest1
     /// Index of the last transaction matching the search criteria.
     /// </summary>
     [IsoId("_WEN0QN6REeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Block Stop")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckStop")]
     #endif
+    [IsoXmlTag("BlckStop")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? BlockStop { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum SettlementQueryTypeCode
 {
     /// <summary>
     /// Queries settlement instructions based on criteria excluding statuses.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_j4JSUO5NEeCisYr99QEiWA_-2074590614")]
@@ -30,7 +30,7 @@ public enum SettlementQueryTypeCode
     
     /// <summary>
     /// Queries settlement instructions based on criteria that includes statuses.
-    /// Encoded/decoded by serializers as "STTS".
+    /// Encoded/decoded by serializers as &quot;STTS&quot;.
     /// </summary>
     [EnumMember(Value = "STTS")]
     [IsoId("_j4JSUe5NEeCisYr99QEiWA_965427297")]
@@ -39,7 +39,7 @@ public enum SettlementQueryTypeCode
     
     /// <summary>
     /// Queries settlement instructions based on criteria that includes statuses during a period.
-    /// Encoded/decoded by serializers as "STPD".
+    /// Encoded/decoded by serializers as &quot;STPD&quot;.
     /// </summary>
     [EnumMember(Value = "STPD")]
     [IsoId("_j4JSUu5NEeCisYr99QEiWA_-206849825")]

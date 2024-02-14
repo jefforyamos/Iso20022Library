@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Event notification type and status.
 /// </summary>
 [IsoId("_DRyj4RrgEeyhRdHRjakS2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification General Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NotificationGeneralInformation3
     /// Type of notification.
     /// </summary>
     [IsoId("_DujYYRrgEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnTp")]
     #endif
+    [IsoXmlTag("NtfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationType3Code NotificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NotificationType3Code NotificationType { get; init; } 
+    public required NotificationType3Code NotificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NotificationType3Code NotificationType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record NotificationGeneralInformation3
     /// Status of the details of the event.
     /// </summary>
     [IsoId("_DujYaRrgEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnSts")]
     #endif
+    [IsoXmlTag("NtfctnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventStatus1 NotificationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EventStatus1 NotificationStatus { get; init; } 
+    public required EventStatus1 NotificationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EventStatus1 NotificationStatus { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record NotificationGeneralInformation3
     /// Indicates whether the announcement was initiated by the first intermediary in the custody chain in accordance with SRD II.
     /// </summary>
     [IsoId("_DujYcRrgEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shareholder Rights Directive Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrhldrRghtsDrctvInd")]
     #endif
+    [IsoXmlTag("ShrhldrRghtsDrctvInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ShareholderRightsDirectiveIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,12 @@ public partial record NotificationGeneralInformation3
     /// Indicates whether a specific confirmation of holding together with a participation and/or vote instruction is required by the issuer (for instance as required in the German Stock Corporation Act paragraph 67c section 3).
     /// </summary>
     [IsoId("_Pj09QBrgEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Of Holding Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfOfHldgReqrd")]
     #endif
+    [IsoXmlTag("ConfOfHldgReqrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ConfirmationOfHoldingRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

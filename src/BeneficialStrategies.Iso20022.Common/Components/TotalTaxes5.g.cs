@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information regarding the total amount of taxes.
 /// </summary>
 [IsoId("_WKLBTNp-Ed-ak6NoX_4Aeg_-1710794276")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Taxes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TotalTaxes5
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
     [IsoId("_WKULMNp-Ed-ak6NoX_4Aeg_-1709874182")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("EU Capital Gain")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EUCptlGn")]
     #endif
+    [IsoXmlTag("EUCptlGn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EUCapitalGain2Code? EUCapitalGain { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record TotalTaxes5
     /// Percentage of the underlying assets of the funds that represents a debt and is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June).
     /// </summary>
     [IsoId("_WKULMdp-Ed-ak6NoX_4Aeg_-1709874006")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Of Debt Claim")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgOfDebtClm")]
     #endif
+    [IsoXmlTag("PctgOfDebtClm")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageOfDebtClaim { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,16 +77,13 @@ public partial record TotalTaxes5
     /// Information related to a specific tax.
     /// </summary>
     [IsoId("_WKULMtp-Ed-ak6NoX_4Aeg_-1709873727")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TaxDtls")]
     [MinLength(0)]
     [MaxLength(7)]
-    #endif
     public ValueList<Tax20> TaxDetails { get; init; } = new ValueList<Tax20>(){};
     
     

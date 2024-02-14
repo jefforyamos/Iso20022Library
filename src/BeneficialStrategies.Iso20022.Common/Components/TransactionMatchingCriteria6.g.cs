@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Compares information related to both sides of a transaction.
 /// </summary>
 [IsoId("_v_bxkVoyEe23K4GXSpBSeg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Matching Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reporting tracking numbers are matching or not.
     /// </summary>
     [IsoId("_wBBF8VoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Tracking Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptTrckgNb")]
     #endif
+    [IsoXmlTag("RptTrckgNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareText2? ReportTrackingNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the Unique Transaction Identifiers are matching or not.
     /// </summary>
     [IsoId("_wBBF81oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Transaction Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnqTxIdr")]
     #endif
+    [IsoXmlTag("UnqTxIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUniqueTransactionIdentifier2? UniqueTransactionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the Prior Unique Transaction Identifiers are matching or not.
     /// </summary>
     [IsoId("_wBBF9VoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Prior Unique Transaction Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrrUnqTxIdr")]
     #endif
+    [IsoXmlTag("PrrUnqTxIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUniqueTransactionIdentifier2? PriorUniqueTransactionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the Subsequent Position Unique Transaction Identifiers are matching or not.
     /// </summary>
     [IsoId("_wBBF91oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subsequent Position Unique Transaction Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbsqntPosUnqTxIdr")]
     #endif
+    [IsoXmlTag("SbsqntPosUnqTxIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUniqueTransactionIdentifier2? SubsequentPositionUniqueTransactionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the delta are matching or not.
     /// </summary>
     [IsoId("_wBBF-VoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delta")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dlta")]
     #endif
+    [IsoXmlTag("Dlta")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareLongFraction19DecimalNumber1? Delta { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the trade confirmations are matching or not.
     /// </summary>
     [IsoId("_wBBF-1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Confirmation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradConf")]
     #endif
+    [IsoXmlTag("TradConf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTradeConfirmation2? TradeConfirmation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the trade clearing obligations are matching or not.
     /// </summary>
     [IsoId("_wBBF_VoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Clearing Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradClrOblgtn")]
     #endif
+    [IsoXmlTag("TradClrOblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTradeClearingObligation1? TradeClearingObligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the trade clearing statuses are matching or not.
     /// </summary>
     [IsoId("_wBBF_1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Clearing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradClrSts")]
     #endif
+    [IsoXmlTag("TradClrSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTradeClearingStatus3? TradeClearingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the master agreement types are matching or not.
     /// </summary>
     [IsoId("_wBBGAVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Agreement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrAgrmtTp")]
     #endif
+    [IsoXmlTag("MstrAgrmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareMasterAgreementType1? MasterAgreementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the master agreement versions are matching or not.
     /// </summary>
     [IsoId("_wBBGA1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Agreement Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrAgrmtVrsn")]
     #endif
+    [IsoXmlTag("MstrAgrmtVrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareMax50Text1? MasterAgreementVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the intra groups are matching or not.
     /// </summary>
     [IsoId("_wBBGBVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Group")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraGrp")]
     #endif
+    [IsoXmlTag("IntraGrp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator3? IntraGroup { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +229,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the post trade risk reductions are matching or not.
     /// </summary>
     [IsoId("_wBBGB1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Trade Risk Reduction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstTradRskRdctn")]
     #endif
+    [IsoXmlTag("PstTradRskRdctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ComparePostTradeRiskReduction2? PostTradeRiskReduction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the derivative event are matching or not.
     /// </summary>
     [IsoId("_wBBGCVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivEvt")]
     #endif
+    [IsoXmlTag("DerivEvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDerivativeEvent1? DerivativeEvent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +263,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the platform identifiers are matching or not.
     /// </summary>
     [IsoId("_wBBGC1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Platform Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PltfmIdr")]
     #endif
+    [IsoXmlTag("PltfmIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareMICIdentifier3? PlatformIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +280,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the execution time stamps are matching or not.
     /// </summary>
     [IsoId("_wBBGDVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Execution Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctnTmStmp")]
     #endif
+    [IsoXmlTag("ExctnTmStmp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDateTime3? ExecutionTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +297,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the effective dates are matching or not.
     /// </summary>
     [IsoId("_wBBGD1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDt")]
     #endif
+    [IsoXmlTag("FctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? EffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -332,12 +314,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the expiration dates are matching or not.
     /// </summary>
     [IsoId("_wBBGEVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XprtnDt")]
     #endif
+    [IsoXmlTag("XprtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? ExpirationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -350,12 +331,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the early termination dates are matching or not.
     /// </summary>
     [IsoId("_wBBGE1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Termination Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlyTermntnDt")]
     #endif
+    [IsoXmlTag("EarlyTermntnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? EarlyTerminationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -368,12 +348,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the settlement dates are matching or not.
     /// </summary>
     [IsoId("_wBBGFVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -386,12 +365,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the delivery types are matching or not.
     /// </summary>
     [IsoId("_wBBGF1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryTp")]
     #endif
+    [IsoXmlTag("DlvryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDeliveryType1? DeliveryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -404,12 +382,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the the transaction prices are matching or not.
     /// </summary>
     [IsoId("_wBBGGVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxPric")]
     #endif
+    [IsoXmlTag("TxPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice5? TransactionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -422,12 +399,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
     [IsoId("_wBBGG1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Schedule Unadjusted Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricSchdlUadjstdFctvDt")]
     #endif
+    [IsoXmlTag("PricSchdlUadjstdFctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? PriceScheduleUnadjustedEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -440,12 +416,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
     [IsoId("_wBBGHVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Schedule Unadjusted End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricSchdlUadjstdEndDt")]
     #endif
+    [IsoXmlTag("PricSchdlUadjstdEndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? PriceScheduleUnadjustedEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -458,12 +433,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the transaction price in effect between the unadjusted effective and end date are matching or not.
     /// </summary>
     [IsoId("_wBBGH1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Schedule Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSchdlPric")]
     #endif
+    [IsoXmlTag("TxSchdlPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice5? TransactionSchedulePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -476,12 +450,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the package prices are matching or not.
     /// </summary>
     [IsoId("_wBBGIVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Package Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PackgPric")]
     #endif
+    [IsoXmlTag("PackgPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice5? PackagePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -494,12 +467,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the notional amount first legs are matching or not.
     /// </summary>
     [IsoId("_wBBGI1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Amount First Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlAmtFrstLeg")]
     #endif
+    [IsoXmlTag("NtnlAmtFrstLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection3? NotionalAmountFirstLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -512,12 +484,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
     [IsoId("_wBBGJVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Amount First Leg Unadjusted Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlAmtFrstLegUadjstdFctvDt")]
     #endif
+    [IsoXmlTag("NtnlAmtFrstLegUadjstdFctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? NotionalAmountFirstLegUnadjustedEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -530,12 +501,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
     [IsoId("_wBBGJ1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Amount First Leg Unadjusted End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlAmtFrstLegUadjstdEndDt")]
     #endif
+    [IsoXmlTag("NtnlAmtFrstLegUadjstdEndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? NotionalAmountFirstLegUnadjustedEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -548,12 +518,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the notional amount in effect on associated effective date of first legs are matching or not.
     /// </summary>
     [IsoId("_wBBGKVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Amount First Leg Schedule Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlAmtFrstLegSchdlAmt")]
     #endif
+    [IsoXmlTag("NtnlAmtFrstLegSchdlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection3? NotionalAmountFirstLegScheduleAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -566,12 +535,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the notional quantity first legs are matching or not.
     /// </summary>
     [IsoId("_wBBGK1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Quantity First Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlQtyFrstLeg")]
     #endif
+    [IsoXmlTag("NtnlQtyFrstLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareLongFraction19DecimalNumber1? NotionalQuantityFirstLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -584,12 +552,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
     [IsoId("_wBBGLVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Quantity First Leg Unadjusted Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlQtyFrstLegUadjstdFctvDt")]
     #endif
+    [IsoXmlTag("NtnlQtyFrstLegUadjstdFctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? NotionalQuantityFirstLegUnadjustedEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -602,12 +569,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
     [IsoId("_wBBGL1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Quantity First Leg Unadjusted End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlQtyFrstLegUadjstdEndDt")]
     #endif
+    [IsoXmlTag("NtnlQtyFrstLegUadjstdEndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? NotionalQuantityFirstLegUnadjustedEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -620,12 +586,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the notional quantity in effect on associated effective date of first legs are matching or not.
     /// </summary>
     [IsoId("_wBBGMVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Quantity First Leg Schedule Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlQtyFrstLegSchdlQty")]
     #endif
+    [IsoXmlTag("NtnlQtyFrstLegSchdlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareLongFraction19DecimalNumber1? NotionalQuantityFirstLegScheduleQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -638,12 +603,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the notional amount second legs are matching or not.
     /// </summary>
     [IsoId("_wBBGM1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Amount Second Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlAmtScndLeg")]
     #endif
+    [IsoXmlTag("NtnlAmtScndLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNotionalAmount1? NotionalAmountSecondLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -656,12 +620,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
     [IsoId("_wBBGNVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Amount Second Leg Unadjusted Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlAmtScndLegUadjstdFctvDt")]
     #endif
+    [IsoXmlTag("NtnlAmtScndLegUadjstdFctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? NotionalAmountSecondLegUnadjustedEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -674,12 +637,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
     [IsoId("_wBBGN1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Amount Second Leg Unadjusted End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlAmtScndLegUadjstdEndDt")]
     #endif
+    [IsoXmlTag("NtnlAmtScndLegUadjstdEndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? NotionalAmountSecondLegUnadjustedEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -692,12 +654,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the notional amount in effect on associated effective date of second legs are matching or not.
     /// </summary>
     [IsoId("_wBBGOVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Amount Second Leg Schedule Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlAmtScndLegSchdlAmt")]
     #endif
+    [IsoXmlTag("NtnlAmtScndLegSchdlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection3? NotionalAmountSecondLegScheduleAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -710,12 +671,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the notional quantity second legs are matching or not.
     /// </summary>
     [IsoId("_wBBGO1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Quantity Second Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlQtyScndLeg")]
     #endif
+    [IsoXmlTag("NtnlQtyScndLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareLongFraction19DecimalNumber1? NotionalQuantitySecondLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -728,12 +688,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
     [IsoId("_wBBGPVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Quantity Second Leg Unadjusted Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlQtyScndLegUadjstdFctvDt")]
     #endif
+    [IsoXmlTag("NtnlQtyScndLegUadjstdFctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? NotionalQuantitySecondLegUnadjustedEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -746,12 +705,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
     [IsoId("_wBBGP1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Quantity Second Leg Unadjusted End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlQtyScndLegUadjstdEndDt")]
     #endif
+    [IsoXmlTag("NtnlQtyScndLegUadjstdEndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? NotionalQuantitySecondLegUnadjustedEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -764,12 +722,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the notional quantity in effect on associated effective date of second legs are matching or not.
     /// </summary>
     [IsoId("_wBBGQVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Quantity Second Leg Schedule Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlQtyScndLegSchdlQty")]
     #endif
+    [IsoXmlTag("NtnlQtyScndLegSchdlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareLongFraction19DecimalNumber1? NotionalQuantitySecondLegScheduleQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -782,12 +739,11 @@ public partial record TransactionMatchingCriteria6
     /// Payment related to elements not reported in dedicated fields.
     /// </summary>
     [IsoId("_wBBGQ1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Payment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPmt")]
     #endif
+    [IsoXmlTag("OthrPmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOtherPayment1? OtherPayment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -800,12 +756,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interest fixed rate legs are matching or not.
     /// </summary>
     [IsoId("_wBBGRVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Fixed Rate First Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFxdRateFrstLeg")]
     #endif
+    [IsoXmlTag("IntrstFxdRateFrstLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice7? InterestFixedRateFirstLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -818,12 +773,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
     [IsoId("_wBBGR1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Fixed Rate First Leg Day Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFxdRateFrstLegDayCnt")]
     #endif
+    [IsoXmlTag("IntrstFxdRateFrstLegDayCnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDayCount1? InterestFixedRateFirstLegDayCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -836,12 +790,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
     [IsoId("_wBBGSVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Fixed Rate First Leg Payment Frequency Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFxdRateFrstLegPmtFrqcyUnit")]
     #endif
+    [IsoXmlTag("IntrstFxdRateFrstLegPmtFrqcyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFrequencyUnit1? InterestFixedRateFirstLegPaymentFrequencyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -854,12 +807,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
     [IsoId("_wBBGS1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Fixed Rate First Leg Payment Frequency Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFxdRateFrstLegPmtFrqcyVal")]
     #endif
+    [IsoXmlTag("IntrstFxdRateFrstLegPmtFrqcyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? InterestFixedRateFirstLegPaymentFrequencyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -872,12 +824,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interest floating rate identifiers are matching or not.
     /// </summary>
     [IsoId("_wBBGTVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegId")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareISINIdentifier4? InterestFloatingRateFirstLegIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -890,12 +841,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interest floating rate codes are matching or not.
     /// </summary>
     [IsoId("_wBBGT1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegCd")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareBenchmarkCode1? InterestFloatingRateFirstLegCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -908,12 +858,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interest floating rate names are matching or not.
     /// </summary>
     [IsoId("_wBBGUVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegNm")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareMax350Text1? InterestFloatingRateFirstLegName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -926,12 +875,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
     [IsoId("_wBBGU1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Day Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegDayCnt")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegDayCnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDayCount1? InterestFloatingRateFirstLegDayCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -944,12 +892,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
     [IsoId("_wBBGVVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Payment Frequency Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegPmtFrqcyUnit")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegPmtFrqcyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegPaymentFrequencyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -962,12 +909,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
     [IsoId("_wBBGV1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Payment Frequency Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegPmtFrqcyVal")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegPmtFrqcyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? InterestFloatingRateFirstLegPaymentFrequencyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -980,12 +926,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reference period units are matching or not.
     /// </summary>
     [IsoId("_wBBGWVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Reference Period Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegRefPrdUnit")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegRefPrdUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegReferencePeriodUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -998,12 +943,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reference period values are matching or not.
     /// </summary>
     [IsoId("_wBBGW1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Reference Period Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegRefPrdVal")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegRefPrdVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? InterestFloatingRateFirstLegReferencePeriodValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1016,12 +960,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reset frequency units are matching or not.
     /// </summary>
     [IsoId("_wBBGXVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Reset Frequency Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegRstFrqcyUnit")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegRstFrqcyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegResetFrequencyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1034,12 +977,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reset frequency values are matching or not.
     /// </summary>
     [IsoId("_wBBGX1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Reset Frequency Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegRstFrqcyVal")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegRstFrqcyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? InterestFloatingRateFirstLegResetFrequencyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1052,12 +994,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the spreads are matching or not.
     /// </summary>
     [IsoId("_wBBGYVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate First Leg Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateFrstLegSprd")]
     #endif
+    [IsoXmlTag("IntrstFltgRateFrstLegSprd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice8? InterestFloatingRateFirstLegSpread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1070,12 +1011,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interest fixed rate legs are matching or not.
     /// </summary>
     [IsoId("_wBBGY1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate Fixed Second Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRateFxdScndLeg")]
     #endif
+    [IsoXmlTag("IntrstRateFxdScndLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice7? InterestRateFixedSecondLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1088,12 +1028,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
     [IsoId("_wBBGZVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Fixed Rate Second Leg Day Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFxdRateScndLegDayCnt")]
     #endif
+    [IsoXmlTag("IntrstFxdRateScndLegDayCnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDayCount1? InterestFixedRateSecondLegDayCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1106,12 +1045,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
     [IsoId("_wBBGZ1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Fixed Rate Second Leg Payment Frequency Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFxdRateScndLegPmtFrqcyUnit")]
     #endif
+    [IsoXmlTag("IntrstFxdRateScndLegPmtFrqcyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFrequencyUnit1? InterestFixedRateSecondLegPaymentFrequencyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1124,12 +1062,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
     [IsoId("_wBBGaVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Fixed Rate Second Leg Payment Frequency Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFxdRateScndLegPmtFrqcyVal")]
     #endif
+    [IsoXmlTag("IntrstFxdRateScndLegPmtFrqcyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? InterestFixedRateSecondLegPaymentFrequencyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1142,12 +1079,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interest floating rate identifiers are matching or not.
     /// </summary>
     [IsoId("_wBBGa1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegId")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareISINIdentifier4? InterestFloatingRateSecondLegIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1160,12 +1096,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interest floating rate codes are matching or not.
     /// </summary>
     [IsoId("_wBBGbVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegCd")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareBenchmarkCode1? InterestFloatingRateSecondLegCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1178,12 +1113,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interest floating rate names are matching or not.
     /// </summary>
     [IsoId("_wBBGb1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegNm")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareMax350Text1? InterestFloatingRateSecondLegName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1196,12 +1130,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
     [IsoId("_wBBGcVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Day Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegDayCnt")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegDayCnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDayCount1? InterestFloatingRateSecondLegDayCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1214,12 +1147,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
     [IsoId("_wBBGc1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Payment Frequency Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegPmtFrqcyUnit")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegPmtFrqcyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegPaymentFrequencyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1232,12 +1164,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
     [IsoId("_wBBGdVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Payment Frequency Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegPmtFrqcyVal")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegPmtFrqcyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? InterestFloatingRateSecondLegPaymentFrequencyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1250,12 +1181,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reference period units are matching or not.
     /// </summary>
     [IsoId("_wBBGd1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Reference Period Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegRefPrdUnit")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegRefPrdUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegReferencePeriodUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1268,12 +1198,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reference period values are matching or not.
     /// </summary>
     [IsoId("_wBBGeVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Reference Period Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegRefPrdVal")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegRefPrdVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? InterestFloatingRateSecondLegReferencePeriodValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1286,12 +1215,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reset frequency units are matching or not.
     /// </summary>
     [IsoId("_wBBGe1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Reset Frequency Unit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegRstFrqcyUnit")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegRstFrqcyUnit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegResetFrequencyUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1304,12 +1232,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the reset frequency values are matching or not.
     /// </summary>
     [IsoId("_wBBGfVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Reset Frequency Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegRstFrqcyVal")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegRstFrqcyVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber5? InterestFloatingRateSecondLegResetFrequencyValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1322,12 +1249,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the spreads are matching or not.
     /// </summary>
     [IsoId("_wBBGf1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Floating Rate Second Leg Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstFltgRateScndLegSprd")]
     #endif
+    [IsoXmlTag("IntrstFltgRateScndLegSprd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice8? InterestFloatingRateSecondLegSpread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1340,12 +1266,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the package spreads are matching or not.
     /// </summary>
     [IsoId("_wBBGgVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Package Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PackgSprd")]
     #endif
+    [IsoXmlTag("PackgSprd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice8? PackageSpread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1358,12 +1283,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the currency exchange rates are matching or not.
     /// </summary>
     [IsoId("_wBBGg1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyXchgRate")]
     #endif
+    [IsoXmlTag("CcyXchgRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareExchangeRate1? CurrencyExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1376,12 +1300,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the forward currency exchange rates are matching or not.
     /// </summary>
     [IsoId("_wBBGhVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Forward Exchange Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyFwdXchgRate")]
     #endif
+    [IsoXmlTag("CcyFwdXchgRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareExchangeRate1? CurrencyForwardExchangeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1394,12 +1317,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the currency exchange rate basis are matching or not.
     /// </summary>
     [IsoId("_wBBGh1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Exchange Rate Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyXchgRateBsis")]
     #endif
+    [IsoXmlTag("CcyXchgRateBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareExchangeRateBasis1? CurrencyExchangeRateBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1412,12 +1334,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the commodities are matching or not.
     /// </summary>
     [IsoId("_wBBGiVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commodity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmmdty")]
     #endif
+    [IsoXmlTag("Cmmdty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCommodityAssetClass4? Commodity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1430,12 +1351,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the delivery points or zones are matching or not.
     /// </summary>
     [IsoId("_wBBGi1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Energy Delivery Point Or Zone")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NrgyDlvryPtOrZone")]
     #endif
+    [IsoXmlTag("NrgyDlvryPtOrZone")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDeliveryInterconnectionPoint1? EnergyDeliveryPointOrZone { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1448,12 +1368,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the interconnection points are matching or not.
     /// </summary>
     [IsoId("_wBBGjVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Energy Inter Connection Point")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NrgyIntrCnnctnPt")]
     #endif
+    [IsoXmlTag("NrgyIntrCnnctnPt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDeliveryInterconnectionPoint1? EnergyInterConnectionPoint { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1466,12 +1385,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the load types are matching or not.
     /// </summary>
     [IsoId("_wBBGj1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Energy Load Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NrgyLdTp")]
     #endif
+    [IsoXmlTag("NrgyLdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareEnergyLoadType1? EnergyLoadType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1484,12 +1402,11 @@ public partial record TransactionMatchingCriteria6
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
     [IsoId("_wBBGkVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Attribute")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryAttr")]
     #endif
+    [IsoXmlTag("DlvryAttr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareEnergyDeliveryAttribute1? DeliveryAttribute { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1502,12 +1419,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the option types are matching or not.
     /// </summary>
     [IsoId("_wBBGk1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOptionType1? OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1520,12 +1436,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the exercise styles are matching or not.
     /// </summary>
     [IsoId("_wBBGlVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Exercise Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnExrcStyle")]
     #endif
+    [IsoXmlTag("OptnExrcStyle")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareOptionStyle1? OptionExerciseStyle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1538,12 +1453,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the strike prices are matching or not.
     /// </summary>
     [IsoId("_wBBGl1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Strike Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnStrkPric")]
     #endif
+    [IsoXmlTag("OptnStrkPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice4? OptionStrikePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1556,12 +1470,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
     [IsoId("_wBBGmVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Strike Price Schedule Unadjusted Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnStrkPricSchdlUadjstdFctvDt")]
     #endif
+    [IsoXmlTag("OptnStrkPricSchdlUadjstdFctvDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? OptionStrikePriceScheduleUnadjustedEffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1574,12 +1487,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
     [IsoId("_wBBGm1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Strike Price Schedule Unadjusted End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnStrkPricSchdlUadjstdEndDt")]
     #endif
+    [IsoXmlTag("OptnStrkPricSchdlUadjstdEndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? OptionStrikePriceScheduleUnadjustedEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1592,12 +1504,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the strike price in effect on associated effective dates are matching or not.
     /// </summary>
     [IsoId("_wBBGnVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Strike Price Schedule Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnStrkPricSchdlAmt")]
     #endif
+    [IsoXmlTag("OptnStrkPricSchdlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnitPrice4? OptionStrikePriceScheduleAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1610,12 +1521,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the premium amounts are matching or not.
     /// </summary>
     [IsoId("_wBBGn1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Premium Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnPrmAmt")]
     #endif
+    [IsoXmlTag("OptnPrmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareActiveOrHistoricCurrencyAndAmount4? OptionPremiumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1628,12 +1538,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the premium payment dates are matching or not.
     /// </summary>
     [IsoId("_wBBGoVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Premium Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnPrmPmtDt")]
     #endif
+    [IsoXmlTag("OptnPrmPmtDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? OptionPremiumPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1646,12 +1555,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the maturity date of the underlying are matching or not.
     /// </summary>
     [IsoId("_wBBGo1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Maturity Date Of Underlying")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnMtrtyDtOfUndrlyg")]
     #endif
+    [IsoXmlTag("OptnMtrtyDtOfUndrlyg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareDate3? OptionMaturityDateOfUnderlying { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1664,12 +1572,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the credity seniority are matching or not.
     /// </summary>
     [IsoId("_wBBGpVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Seniority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtSnrty")]
     #endif
+    [IsoXmlTag("CdtSnrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareSeniorityType1? CreditSeniority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1682,12 +1589,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the credit reference parties are matching or not.
     /// </summary>
     [IsoId("_wBBGp1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Reference Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtRefPty")]
     #endif
+    [IsoXmlTag("CdtRefPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareReferenceParty1? CreditReferenceParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1700,12 +1606,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the credit series are matching or not.
     /// </summary>
     [IsoId("_wBBGqVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Series")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtSrs")]
     #endif
+    [IsoXmlTag("CdtSrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber7? CreditSeries { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1718,12 +1623,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the credit versions are matching or not.
     /// </summary>
     [IsoId("_wBBGq1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtVrsn")]
     #endif
+    [IsoXmlTag("CdtVrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareNumber7? CreditVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1736,12 +1640,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the index factors are matching or not.
     /// </summary>
     [IsoId("_wBBGrVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Index Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtIndxFctr")]
     #endif
+    [IsoXmlTag("CdtIndxFctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ComparePercentageRate3? CreditIndexFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1754,12 +1657,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the credit tranches are matching or not.
     /// </summary>
     [IsoId("_wBBGr1oyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Tranche")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtTrch")]
     #endif
+    [IsoXmlTag("CdtTrch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrancheIndicator1? CreditTranche { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -1772,12 +1674,11 @@ public partial record TransactionMatchingCriteria6
     /// Specifies whether the information on the levels are matching or not.
     /// </summary>
     [IsoId("_wBBGsVoyEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lvl")]
     #endif
+    [IsoXmlTag("Lvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareReportingLevelType2? Level { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

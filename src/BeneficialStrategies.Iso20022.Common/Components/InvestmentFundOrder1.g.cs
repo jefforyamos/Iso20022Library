@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reference of an order, order cancellation and master reference.
 /// </summary>
 [IsoId("_TSlwKNp-Ed-ak6NoX_4Aeg_-337332402")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund Order")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record InvestmentFundOrder1
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
     [IsoId("_TSu6ENp-Ed-ak6NoX_4Aeg_-2008589874")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MstrRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MasterReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record InvestmentFundOrder1
     /// Reference of an order and order cancellation.
     /// </summary>
     [IsoId("_TSu6Edp-Ed-ak6NoX_4Aeg_1448063042")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order References")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrRefs")]
     #endif
+    [IsoXmlTag("OrdrRefs")]
     public InvestmentFundOrder5? OrderReferences { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _TSu6Edp-Ed-ak6NoX_4Aeg_1448063042
     

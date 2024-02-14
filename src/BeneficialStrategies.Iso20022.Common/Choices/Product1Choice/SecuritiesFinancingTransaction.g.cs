@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
     /// Attributes relating to repurchase agreement cleared by the CCP.
     /// </summary>
     [IsoId("_L8Gl0LVQEeadLcJesEbkTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Financing Transaction")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
         /// Specifies attributes of a derivative based on Final ISDA Taxonomy v1.0 and Final ISDA Taxonomy v2.0.
         /// </summary>
         [IsoId("_EBtPIDXHEemdWfjs3tykFQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Product Classification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PdctClssfctn")]
         #endif
+        [IsoXmlTag("PdctClssfctn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ProductClassification1 ProductClassification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ProductClassification1 ProductClassification { get; init; } 
+        public required ProductClassification1 ProductClassification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ProductClassification1 ProductClassification { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
         /// Indicates whether the repo is a general collateral repo or specific repo.
         /// </summary>
         [IsoId("_aYveibcREeabfchHYoktpA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Repurchase Agreement Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RpAgrmtTp")]
         #endif
+        [IsoXmlTag("RpAgrmtTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
+        public required RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
         #else
@@ -97,12 +93,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice
         /// Identifier for triparty agent if applicable.
         /// </summary>
         [IsoId("_aYvei7cREeabfchHYoktpA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Triparty Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrptyAgt")]
         #endif
+        [IsoXmlTag("TrptyAgt")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? TripartyAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

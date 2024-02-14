@@ -22,7 +22,7 @@ public enum LocationCategory4Code
     /// <summary>
     /// Aboard is used when the sale is done in a vehicle (e.g a bus, train, ship, airplane,
     /// taxi, etc).
-    /// Encoded/decoded by serializers as "ABRD".
+    /// Encoded/decoded by serializers as &quot;ABRD&quot;.
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_nvDDhFDfEeu8Rss-tto59A")]
@@ -32,7 +32,7 @@ public enum LocationCategory4Code
     /// <summary>
     /// Nomadic is used when the merchant is traveling to different locations (e.g fair or
     /// sport events, home delivery, food truck).
-    /// Encoded/decoded by serializers as "NMDC".
+    /// Encoded/decoded by serializers as &quot;NMDC&quot;.
     /// </summary>
     [EnumMember(Value = "NMDC")]
     [IsoId("_nvMNcFDfEeu8Rss-tto59A")]
@@ -41,7 +41,7 @@ public enum LocationCategory4Code
     
     /// <summary>
     /// Fixed location, for example in a shop.
-    /// Encoded/decoded by serializers as "FIXD".
+    /// Encoded/decoded by serializers as &quot;FIXD&quot;.
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_nvMNcVDfEeu8Rss-tto59A")]
@@ -50,7 +50,7 @@ public enum LocationCategory4Code
     
     /// <summary>
     /// Virtual Shop is used for any ecommerce solution.
-    /// Encoded/decoded by serializers as "VIRT".
+    /// Encoded/decoded by serializers as &quot;VIRT&quot;.
     /// </summary>
     [EnumMember(Value = "VIRT")]
     [IsoId("_nvMNclDfEeu8Rss-tto59A")]

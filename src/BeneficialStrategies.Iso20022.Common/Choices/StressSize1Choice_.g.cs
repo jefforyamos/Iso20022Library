@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StressSize1Choice.Relative))]
     [KnownType(typeof(StressSize1Choice.Absolute))]
     [IsoId("_itPG0Ks1Eeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stress Size 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum Response1Code
 {
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_TUAMMQEcEeCQm6a_G2yO_w_-710959612")]
@@ -30,7 +30,7 @@ public enum Response1Code
     
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_TUAMMgEcEeCQm6a_G2yO_w_-1594192899")]
@@ -39,7 +39,7 @@ public enum Response1Code
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_TUAMMwEcEeCQm6a_G2yO_w_-563960777")]
@@ -48,7 +48,7 @@ public enum Response1Code
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_TUAMNAEcEeCQm6a_G2yO_w_150956011")]

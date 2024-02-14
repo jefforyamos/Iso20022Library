@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
 /// </summary>
 [IsoId("_8MCksR2xEeKyZ4l838zwaQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Verification Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record TransactionVerificationResult2
     /// Result of an e-commerce authentication process.
     /// </summary>
     [IsoId("_8YFcoR2xEeKyZ4l838zwaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Electronic Commerce Authentication Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctrncComrcAuthntcnRslt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ElctrncComrcAuthntcnRslt")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? ElectronicCommerceAuthenticationResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record TransactionVerificationResult2
     /// Result of the printed card security code (CSC) validation.
     /// </summary>
     [IsoId("_8YFcpR2xEeKyZ4l838zwaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSC Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSCRslt")]
     #endif
+    [IsoXmlTag("CSCRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CSCResult1Code? CSCResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record TransactionVerificationResult2
     /// Result of the cardholder verification address checks on the street number and the postal code.
     /// </summary>
     [IsoId("_8YFcqR2xEeKyZ4l838zwaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Address Verification Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrAdrVrfctnRslt")]
     #endif
+    [IsoXmlTag("CrdhldrAdrVrfctnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderAddressVerificationResult1Code? CardholderAddressVerificationResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,15 +95,13 @@ public partial record TransactionVerificationResult2
     /// Product code for which the authorisation was declined.
     /// </summary>
     [IsoId("_8YFcrR2xEeKyZ4l838zwaQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declined Product Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclndPdctCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DclndPdctCd")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? DeclinedProductCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

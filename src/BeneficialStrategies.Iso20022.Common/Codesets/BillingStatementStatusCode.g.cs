@@ -21,7 +21,7 @@ public enum BillingStatementStatusCode
 {
     /// <summary>
     /// Statement is the original statement.
-    /// Encoded/decoded by serializers as "ORGN".
+    /// Encoded/decoded by serializers as &quot;ORGN&quot;.
     /// </summary>
     [EnumMember(Value = "ORGN")]
     [IsoId("_6VUE15qlEeGSON8vddiWzQ_25393892")]
@@ -30,7 +30,7 @@ public enum BillingStatementStatusCode
     
     /// <summary>
     /// Statement replaces the original statement.
-    /// Encoded/decoded by serializers as "RPLC".
+    /// Encoded/decoded by serializers as &quot;RPLC&quot;.
     /// </summary>
     [EnumMember(Value = "RPLC")]
     [IsoId("_6Vd10JqlEeGSON8vddiWzQ_1981252080")]
@@ -39,7 +39,7 @@ public enum BillingStatementStatusCode
     
     /// <summary>
     /// Statement is a test statement.
-    /// Encoded/decoded by serializers as "TEST".
+    /// Encoded/decoded by serializers as &quot;TEST&quot;.
     /// </summary>
     [EnumMember(Value = "TEST")]
     [IsoId("_6Vd10ZqlEeGSON8vddiWzQ_612239661")]

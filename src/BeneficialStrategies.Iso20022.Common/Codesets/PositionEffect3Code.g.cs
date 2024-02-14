@@ -21,7 +21,7 @@ public enum PositionEffect3Code
 {
     /// <summary>
     /// First in, first out. Results in a position obtained after having sold in priority the securities bought chronologically.
-    /// Encoded/decoded by serializers as "FIFO".
+    /// Encoded/decoded by serializers as &quot;FIFO&quot;.
     /// </summary>
     [EnumMember(Value = "FIFO")]
     [IsoId("_yHm-4SDLEeWPMvNwVtiMsA")]
@@ -30,7 +30,7 @@ public enum PositionEffect3Code
     
     /// <summary>
     /// Last in, last out. Results in a position obtained after having sold in priority the securities bought chronologically.
-    /// Encoded/decoded by serializers as "LIFO".
+    /// Encoded/decoded by serializers as &quot;LIFO&quot;.
     /// </summary>
     [EnumMember(Value = "LIFO")]
     [IsoId("_-qssASDLEeWPMvNwVtiMsA")]

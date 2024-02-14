@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// </summary>
 [Description(@"The UndertakingApplication message is sent by the party requesting issuance of the undertaking (applicant or obligor) to the party issuing the undertaking. It is used to request the issuance of an undertaking (demand guarantee or standby letter of credit or suretyship) or counter-undertaking (counter-guarantee or counter-standby or suretyship), and provides details on the applicable rules, terms, conditions and content of the undertaking to be issued.")]
 [IsoId("_9fRMkHltEeG7BsjMvd1mEw_980511566")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Application V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingApplicationV01 : IOuterRecord<UndertakingApplic
     /// Details of the application for an independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be collected on the presentation of documents that comply with its terms and conditions.
     /// </summary>
     [IsoId("_9fRMkXltEeG7BsjMvd1mEw_-1409870883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Application Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgApplDtls")]
     #endif
+    [IsoXmlTag("UdrtkgApplDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking1 UndertakingApplicationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Undertaking1 UndertakingApplicationDetails { get; init; } 
+    public required Undertaking1 UndertakingApplicationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Undertaking1 UndertakingApplicationDetails { get; init; } 
     #else
@@ -95,31 +92,26 @@ public partial record UndertakingApplicationV01 : IOuterRecord<UndertakingApplic
     /// Instructions specific to the bank receiving the message.
     /// </summary>
     [IsoId("__KBlo3_5EeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructions To Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrsToBk")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrsToBk")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> InstructionsToBank { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
     /// Digital signature of the undertaking application.
     /// </summary>
     [IsoId("_9fRMknltEeG7BsjMvd1mEw_-448392239")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,7 +124,7 @@ public partial record UndertakingApplicationV01 : IOuterRecord<UndertakingApplic
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingApplicationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingApplicationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingApplicationV01Document ToDocument()
     {
@@ -142,7 +134,7 @@ public partial record UndertakingApplicationV01 : IOuterRecord<UndertakingApplic
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingApplicationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingApplicationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingApplicationV01Document : IOuterDocument<UndertakingApplicationV01>
@@ -159,7 +151,7 @@ public partial record UndertakingApplicationV01Document : IOuterDocument<Underta
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingApplicationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingApplicationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingApplicationV01 Message { get; init; }

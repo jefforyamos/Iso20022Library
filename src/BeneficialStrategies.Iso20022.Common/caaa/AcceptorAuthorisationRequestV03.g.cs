@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorAuthorisationRequest message is sent by an acceptor (or its agent) to the acquirer (or its agent), to check with the issuer (or its agent) that the account associated to the card has the resources to fund the payment. This checking will include validation of the card data and any additional transaction data provided.")]
 [IsoId("_2czxMS9GEeOlZIh7PImd0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Authorisation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record AcceptorAuthorisationRequestV03 : IOuterRecord<AcceptorAut
     /// Authorisation request message management information.
     /// </summary>
     [IsoId("_2czxMy9GEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header7 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header7 Header { get; init; } 
+    public required Header7 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header7 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record AcceptorAuthorisationRequestV03 : IOuterRecord<AcceptorAut
     /// Information related to the authorisation request.
     /// </summary>
     [IsoId("_2czxNS9GEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorisation Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthstnReq")]
     #endif
+    [IsoXmlTag("AuthstnReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorAuthorisationRequest3 AuthorisationRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorAuthorisationRequest3 AuthorisationRequest { get; init; } 
+    public required AcceptorAuthorisationRequest3 AuthorisationRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorAuthorisationRequest3 AuthorisationRequest { get; init; } 
     #else
@@ -117,16 +113,15 @@ public partial record AcceptorAuthorisationRequestV03 : IOuterRecord<AcceptorAut
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_2czxNy9GEeOlZIh7PImd0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType8 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType8 SecurityTrailer { get; init; } 
+    public required ContentInformationType8 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType8 SecurityTrailer { get; init; } 
     #else
@@ -137,7 +132,7 @@ public partial record AcceptorAuthorisationRequestV03 : IOuterRecord<AcceptorAut
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorAuthorisationRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorAuthorisationRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorAuthorisationRequestV03Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record AcceptorAuthorisationRequestV03 : IOuterRecord<AcceptorAut
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorAuthorisationRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorAuthorisationRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorAuthorisationRequestV03Document : IOuterDocument<AcceptorAuthorisationRequestV03>
@@ -164,7 +159,7 @@ public partial record AcceptorAuthorisationRequestV03Document : IOuterDocument<A
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorAuthorisationRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorAuthorisationRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorAuthorisationRequestV03 Message { get; init; }

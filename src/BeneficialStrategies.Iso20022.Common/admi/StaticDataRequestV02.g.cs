@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.admi;
 /// </summary>
 [Description(@"The StaticDataRequest message is sent by a participant of a central system to the central system to request a static data report.|")]
 [IsoId("_XX0eARnXEeKKXqHkeUjBbw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Static Data Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,19 +75,17 @@ public partial record StaticDataRequestV02 : IOuterRecord<StaticDataRequestV02,S
     /// Unique and unambiguous identifier for the message, as assigned by the sender.
     /// </summary>
     [IsoId("_xkBhxTp8EeKXK8qRvydwAw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageIdentification { get; init; } 
+    public required System.String MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageIdentification { get; init; } 
     #else
@@ -100,15 +96,12 @@ public partial record StaticDataRequestV02 : IOuterRecord<StaticDataRequestV02,S
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
     [IsoId("_u9jYIR3bEeKXIbeXfdPzuw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Session Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSsnIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SttlmSsnIdr")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,16 +114,15 @@ public partial record StaticDataRequestV02 : IOuterRecord<StaticDataRequestV02,S
     /// Details of the request.
     /// </summary>
     [IsoId("_XX0eBxnXEeKKXqHkeUjBbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataReqDtls")]
     #endif
+    [IsoXmlTag("DataReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestDetails3 DataRequestDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestDetails3 DataRequestDetails { get; init; } 
+    public required RequestDetails3 DataRequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestDetails3 DataRequestDetails { get; init; } 
     #else
@@ -141,12 +133,11 @@ public partial record StaticDataRequestV02 : IOuterRecord<StaticDataRequestV02,S
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_EPiaUC53EeKwTrPDLMbLxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,7 +150,7 @@ public partial record StaticDataRequestV02 : IOuterRecord<StaticDataRequestV02,S
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StaticDataRequestV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StaticDataRequestV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StaticDataRequestV02Document ToDocument()
     {
@@ -169,7 +160,7 @@ public partial record StaticDataRequestV02 : IOuterRecord<StaticDataRequestV02,S
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StaticDataRequestV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StaticDataRequestV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StaticDataRequestV02Document : IOuterDocument<StaticDataRequestV02>
@@ -186,7 +177,7 @@ public partial record StaticDataRequestV02Document : IOuterDocument<StaticDataRe
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StaticDataRequestV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StaticDataRequestV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StaticDataRequestV02 Message { get; init; }

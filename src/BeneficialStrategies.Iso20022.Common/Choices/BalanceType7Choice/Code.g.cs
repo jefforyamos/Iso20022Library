@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType7Choice
     /// Balance type expressed in coded form.
     /// </summary>
     [IsoId("_nAhTWPNBEeCuA5Tr22BnwA_218761826")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType7Choice
         /// Specifies balances of assets and other balances.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialAssetBalanceType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialAssetBalanceType1Code Value { get; init; } 
+        public required FinancialAssetBalanceType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialAssetBalanceType1Code Value { get; init; } 
         #else

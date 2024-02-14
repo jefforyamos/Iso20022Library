@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information used to calculate the tax.
 /// </summary>
 [IsoId("_SnOe8Np-Ed-ak6NoX_4Aeg_1829579688")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Calculation Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TaxCalculationInformation7
     /// Calculation basis.
     /// </summary>
     [IsoId("_SnOe8dp-Ed-ak6NoX_4Aeg_566010243")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Calculation Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxClctnBsis")]
     #endif
+    [IsoXmlTag("TaxClctnBsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxCalculationBasisType1Choice_? TaxCalculationBasis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record TaxCalculationInformation7
     /// Amount of money that it is to be taxed.
     /// </summary>
     [IsoId("_SnOe8tp-Ed-ak6NoX_4Aeg_1830499782")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblAmt")]
     #endif
+    [IsoXmlTag("TaxblAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

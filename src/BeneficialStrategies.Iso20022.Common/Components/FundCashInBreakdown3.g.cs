@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Breakdown of cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
 /// </summary>
 [IsoId("_KIxN_QatEeS3lpTattq7hg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Cash In Breakdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,12 @@ public partial record FundCashInBreakdown3
     /// Amount of cash flow in, expressed as an amount of money.
     /// </summary>
     [IsoId("_KigjpwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +68,11 @@ public partial record FundCashInBreakdown3
     /// Amount of the cash flow in, expressed as a number of units.
     /// </summary>
     [IsoId("_KigjqQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitsNb")]
     #endif
+    [IsoXmlTag("UnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +85,12 @@ public partial record FundCashInBreakdown3
     /// Indicates whether the cash flow is an item that did not appear on the previously sent report, for example, because it was received close to cut-off time.
     /// </summary>
     [IsoId("_KigjqwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Amount Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewAmtInd")]
     #endif
+    [IsoXmlTag("NewAmtInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NewAmountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,16 +103,15 @@ public partial record FundCashInBreakdown3
     /// Type of transaction that resulted in the cash-in movement, for example, subscription, switch-in.
     /// </summary>
     [IsoId("_kJo8kQayEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Fund Transaction In Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtFndTxInTp")]
     #endif
+    [IsoXmlTag("InvstmtFndTxInTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentFundTransactionInType1Choice_ InvestmentFundTransactionInType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentFundTransactionInType1Choice_ InvestmentFundTransactionInType { get; init; } 
+    public required InvestmentFundTransactionInType1Choice_ InvestmentFundTransactionInType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentFundTransactionInType1Choice_ InvestmentFundTransactionInType { get; init; } 
     #else
@@ -126,16 +122,15 @@ public partial record FundCashInBreakdown3
     /// Specifies how the original order was expressed that resulted in the cash-in movement, that is cash or units.
     /// </summary>
     [IsoId("_lUBsEQayEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Order Quantity Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlOrdrQtyTp")]
     #endif
+    [IsoXmlTag("OrgnlOrdrQtyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityType1Choice_ OriginalOrderQuantityType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityType1Choice_ OriginalOrderQuantityType { get; init; } 
+    public required QuantityType1Choice_ OriginalOrderQuantityType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityType1Choice_ OriginalOrderQuantityType { get; init; } 
     #else
@@ -146,12 +141,11 @@ public partial record FundCashInBreakdown3
     /// Charge for the placement of an order.
     /// </summary>
     [IsoId("_KigjtQatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgDtls")]
     #endif
+    [IsoXmlTag("ChrgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge26? ChargeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +158,11 @@ public partial record FundCashInBreakdown3
     /// Information related to the commission applied to an order, for example, back-end or front-end commission.
     /// </summary>
     [IsoId("_KigjtwatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commission Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComssnDtls")]
     #endif
+    [IsoXmlTag("ComssnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Commission21? CommissionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +175,11 @@ public partial record FundCashInBreakdown3
     /// Settlement currency for the transaction.
     /// </summary>
     [IsoId("_QYqcRAc9EeSyIPzOZ6VzBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

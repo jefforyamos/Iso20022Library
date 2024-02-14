@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature9Choice
     /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
     [IsoId("_iAf0Qz7KEeq0cMLnAmm7Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Financial Institution")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature9Choice
         /// Indicates that reporting party is a central counterparty.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NFI")]
         #endif
+        [IsoXmlTag("NFI")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NoReasonCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NoReasonCode Value { get; init; } 
+        public required NoReasonCode Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NoReasonCode Value { get; init; } 
         #else
@@ -72,12 +71,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature9Choice
         /// Identifies the non-financial institution.
         /// </summary>
         [IsoId("_VWgswAbWEeqrW7Meu5r3kQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Non Financial Institution Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NFIIdr")]
         #endif
+        [IsoXmlTag("NFIIdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public NonFinancialInstitutionSector2? NonFinancialInstitutionIdentifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

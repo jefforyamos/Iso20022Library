@@ -21,7 +21,7 @@ public enum TransactionReversalReason2Code
 {
     /// <summary>
     /// This message appears to have been duplicated.
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_YuO5dNp-Ed-ak6NoX_4Aeg_1711187306")]

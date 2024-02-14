@@ -21,7 +21,7 @@ public enum AmountConsistencyTypeCode
 {
     /// <summary>
     /// Amount information matches the reference data record.
-    /// Encoded/decoded by serializers as "CONS".
+    /// Encoded/decoded by serializers as &quot;CONS&quot;.
     /// </summary>
     [EnumMember(Value = "CONS")]
     [IsoId("_k5v2UASsEeusZ4O-nsxv_w")]
@@ -30,7 +30,7 @@ public enum AmountConsistencyTypeCode
     
     /// <summary>
     /// Amount information does not match the reference data record.
-    /// Encoded/decoded by serializers as "ICNS".
+    /// Encoded/decoded by serializers as &quot;ICNS&quot;.
     /// </summary>
     [EnumMember(Value = "ICNS")]
     [IsoId("_vMOLsQSsEeusZ4O-nsxv_w")]
@@ -39,7 +39,7 @@ public enum AmountConsistencyTypeCode
     
     /// <summary>
     /// Charges amount information does not match the reference data record.
-    /// Encoded/decoded by serializers as "ICGA".
+    /// Encoded/decoded by serializers as &quot;ICGA&quot;.
     /// </summary>
     [EnumMember(Value = "ICGA")]
     [IsoId("_3F2aYQSsEeusZ4O-nsxv_w")]
@@ -48,7 +48,7 @@ public enum AmountConsistencyTypeCode
     
     /// <summary>
     /// Interbank settlement amount information does not match the reference data record.
-    /// Encoded/decoded by serializers as "IISA".
+    /// Encoded/decoded by serializers as &quot;IISA&quot;.
     /// </summary>
     [EnumMember(Value = "IISA")]
     [IsoId("_3bdeAQSsEeusZ4O-nsxv_w")]
@@ -57,7 +57,7 @@ public enum AmountConsistencyTypeCode
     
     /// <summary>
     /// Amount information confirmed to the creditor does not match the reference data record.
-    /// Encoded/decoded by serializers as "ICFA".
+    /// Encoded/decoded by serializers as &quot;ICFA&quot;.
     /// </summary>
     [EnumMember(Value = "ICFA")]
     [IsoId("_3wpD0QSsEeusZ4O-nsxv_w")]

@@ -21,7 +21,7 @@ public enum Insurance1Code
 {
     /// <summary>
     /// Life insurance.
-    /// Encoded/decoded by serializers as "LIFE".
+    /// Encoded/decoded by serializers as &quot;LIFE&quot;.
     /// </summary>
     [EnumMember(Value = "LIFE")]
     [IsoId("_OdMHYRQbEeKebsB9eKJSkA")]
@@ -30,7 +30,7 @@ public enum Insurance1Code
     
     /// <summary>
     /// Permanent disability insurance.
-    /// Encoded/decoded by serializers as "PDIS".
+    /// Encoded/decoded by serializers as &quot;PDIS&quot;.
     /// </summary>
     [EnumMember(Value = "PDIS")]
     [IsoId("_Ombi8RQbEeKebsB9eKJSkA")]

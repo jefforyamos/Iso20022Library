@@ -21,7 +21,7 @@ public enum DemandStatus1Code
 {
     /// <summary>
     /// Extend undertaking expiry date.
-    /// Encoded/decoded by serializers as "EXTD".
+    /// Encoded/decoded by serializers as &quot;EXTD&quot;.
     /// </summary>
     [EnumMember(Value = "EXTD")]
     [IsoId("_wyDoAdryEeGuxusC7C-WeA")]
@@ -30,7 +30,7 @@ public enum DemandStatus1Code
     
     /// <summary>
     /// Pay undertaking demand.
-    /// Encoded/decoded by serializers as "PAYD".
+    /// Encoded/decoded by serializers as &quot;PAYD&quot;.
     /// </summary>
     [EnumMember(Value = "PAYD")]
     [IsoId("_w7l-gdryEeGuxusC7C-WeA")]

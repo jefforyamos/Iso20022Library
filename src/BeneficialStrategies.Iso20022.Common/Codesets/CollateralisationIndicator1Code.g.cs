@@ -21,7 +21,7 @@ public enum CollateralisationIndicator1Code
 {
     /// <summary>
     /// Transaction is fully collateralised.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_At8bUS5VEeKwTrPDLMbLxA")]
@@ -30,7 +30,7 @@ public enum CollateralisationIndicator1Code
     
     /// <summary>
     /// Transaction is one-way collateralised.
-    /// Encoded/decoded by serializers as "ONEW".
+    /// Encoded/decoded by serializers as &quot;ONEW&quot;.
     /// </summary>
     [EnumMember(Value = "ONEW")]
     [IsoId("_Ax7jcS5VEeKwTrPDLMbLxA")]
@@ -39,7 +39,7 @@ public enum CollateralisationIndicator1Code
     
     /// <summary>
     /// Transaction is partially collateralised.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_A2-bgS5VEeKwTrPDLMbLxA")]
@@ -48,7 +48,7 @@ public enum CollateralisationIndicator1Code
     
     /// <summary>
     /// Transaction is uncollateralised.
-    /// Encoded/decoded by serializers as "UNCO".
+    /// Encoded/decoded by serializers as &quot;UNCO&quot;.
     /// </summary>
     [EnumMember(Value = "UNCO")]
     [IsoId("_A7OpYS5VEeKwTrPDLMbLxA")]

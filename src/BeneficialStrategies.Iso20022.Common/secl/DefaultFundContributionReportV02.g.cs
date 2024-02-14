@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// </summary>
 [Description(@"Scope|The DefaultFundContributionReport message is sent by the central counterparty (CCP) to a Clearing member to report on the calculation of the default fund contribution and the potential net excess or deficit.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|CCPs require participants to post assets in a clearing fund that can be used in the event of a default by a participant, to compensate non-defaulting participants for losses they suffer due to this default. The CCP evaluates each participant risk level based on their positions (monthly or daily) and calculate the excess of deficit of the default fund contribution. The DefaultFundContributionReport is usually sent on a monthly basis.")]
 [IsoId("_-hesiaMOEeCojJW5vEuTEQ_-1558125935")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Default Fund Contribution Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord<DefaultFun
     /// Provides details about the report such as the report identification, the calculation date, the value date.
     /// </summary>
     [IsoId("_-hesiqMOEeCojJW5vEuTEQ_-2028070464")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptParams")]
     #endif
+    [IsoXmlTag("RptParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportParameters2 ReportParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportParameters2 ReportParameters { get; init; } 
+    public required ReportParameters2 ReportParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportParameters2 ReportParameters { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord<DefaultFun
     /// Provides the identification of the account owner, that is the clearing member (individual clearing member or general clearing member).
     /// </summary>
     [IsoId("_-hesi6MOEeCojJW5vEuTEQ_2103498306")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification35Choice_ ClearingMember { get; init; } 
+    public required PartyIdentification35Choice_ ClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification35Choice_ ClearingMember { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord<DefaultFun
     /// Provides details on the default fund report.
     /// </summary>
     [IsoId("_-hodgKMOEeCojJW5vEuTEQ_-78589152")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptDtls")]
     #endif
+    [IsoXmlTag("RptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DefaultFundReport1 ReportDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DefaultFundReport1 ReportDetails { get; init; } 
+    public required DefaultFundReport1 ReportDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DefaultFundReport1 ReportDetails { get; init; } 
     #else
@@ -143,12 +138,11 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord<DefaultFun
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_-hodgaMOEeCojJW5vEuTEQ_-1828123252")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,7 +155,7 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord<DefaultFun
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DefaultFundContributionReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DefaultFundContributionReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DefaultFundContributionReportV02Document ToDocument()
     {
@@ -171,7 +165,7 @@ public partial record DefaultFundContributionReportV02 : IOuterRecord<DefaultFun
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DefaultFundContributionReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DefaultFundContributionReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DefaultFundContributionReportV02Document : IOuterDocument<DefaultFundContributionReportV02>
@@ -188,7 +182,7 @@ public partial record DefaultFundContributionReportV02Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DefaultFundContributionReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DefaultFundContributionReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DefaultFundContributionReportV02 Message { get; init; }

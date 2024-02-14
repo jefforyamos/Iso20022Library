@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat58Choice
     /// Date expressed as a calendar date.
     /// </summary>
     [IsoId("_k8fcsa09EemDtrWpq90Ckg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Or Date Time")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

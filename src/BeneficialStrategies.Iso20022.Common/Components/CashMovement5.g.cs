@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Movements of cash.
 /// </summary>
 [IsoId("_1ahuN5a-EeuPNt5jNVou1A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CashMovement5
     /// Specifies whether the cash amount is to be delivered or received.
     /// </summary>
     [IsoId("_1ahuO5a-EeuPNt5jNVou1A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshMvmnt")]
     #endif
+    [IsoXmlTag("CshMvmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralEntryType1Code CashMovement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralEntryType1Code CashMovement { get; init; } 
+    public required CollateralEntryType1Code CashMovement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralEntryType1Code CashMovement { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record CashMovement5
     /// Amount of the cash movement
     /// </summary>
     [IsoId("_1ahuPZa-EeuPNt5jNVou1A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAmt")]
     #endif
+    [IsoXmlTag("CshAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CashAmount { get; init; } 
+    public required System.Decimal CashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CashAmount { get; init; } 
     #else
@@ -93,16 +90,16 @@ public partial record CashMovement5
     /// Specifies whether the amount is delivered/received as part of collateral or not.
     /// </summary>
     [IsoId("_1ahuPJa-EeuPNt5jNVou1A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollMvmnt")]
     #endif
+    [IsoXmlTag("CollMvmnt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CollateralMovement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CollateralMovement { get; init; } 
+    public required System.String CollateralMovement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CollateralMovement { get; init; } 
     #else
@@ -113,15 +110,13 @@ public partial record CashMovement5
     /// Reference assigned by party A to the cash movement.
     /// </summary>
     [IsoId("_1ahuOpa-EeuPNt5jNVou1A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Cash Movement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntCshMvmntId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntCshMvmntId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientCashMovementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,15 +129,13 @@ public partial record CashMovement5
     /// Reference assigned by the triparty agent to the cash movement.
     /// </summary>
     [IsoId("_1ahuOZa-EeuPNt5jNVou1A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triparty Agent Service Provider Cash Movement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrptyAgtSvcPrvdrCshMvmntId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TrptyAgtSvcPrvdrCshMvmntId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TripartyAgentServiceProviderCashMovementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

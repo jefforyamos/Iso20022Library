@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"SCOPE||An account owner, such as a custodian, central securities depository, international securities depository or transfer agent, sends the SecuritiesBalanceTransparencyReportStatusAdvice message in response to a SecuritiesBalanceTransparencyReport, to accept or reject the statement of holdings as sent in a SecuritiesBalanceTransparencyReport.||USAGE|The SecuritiesBalanceTransparencyReportStatusAdvice is used to accept (Accepted), partially accept (Accepted With Exception) or reject (Rejected) a previously received SecuritiesBalanceTransparencyReport.")]
 [IsoId("_yMxXsbvVEeOgOuxYpBEzKg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Balance Transparency Report Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     /// Unique and unambiguous identification of the status advice message.
     /// </summary>
     [IsoId("_mBk7IU1qEeSvz4A_x0ui8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     /// Identification of the party that is the sender of the status advice message.
     /// </summary>
     [IsoId("_pGGcEk1qEeSvz4A_x0ui8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrId")]
     #endif
+    [IsoXmlTag("SndrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification100 SenderIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification100 SenderIdentification { get; init; } 
+    public required PartyIdentification100 SenderIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification100 SenderIdentification { get; init; } 
     #else
@@ -123,12 +119,11 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     /// Identification of the party that is the receiver of the status advice message.
     /// </summary>
     [IsoId("_pGGcE01qEeSvz4A_x0ui8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrId")]
     #endif
+    [IsoXmlTag("RcvrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification100? ReceiverIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,16 +136,15 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     /// Reference of the statement for which the status advice has been issued.
     /// </summary>
     [IsoId("_x8GCwk4iEeSGlfauTkCKIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Statement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdStmt")]
     #endif
+    [IsoXmlTag("RltdStmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatementReference1 RelatedStatement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatementReference1 RelatedStatement { get; init; } 
+    public required StatementReference1 RelatedStatement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatementReference1 RelatedStatement { get; init; } 
     #else
@@ -161,16 +155,15 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     /// Status of the referenced statement.
     /// </summary>
     [IsoId("_SOA1Ir3PEeO2FLWuu_JIqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportItemStatus1Choice_ Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportItemStatus1Choice_ Status { get; init; } 
+    public required ReportItemStatus1Choice_ Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportItemStatus1Choice_ Status { get; init; } 
     #else
@@ -181,28 +174,24 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     /// Number of items for each identical transaction status.
     /// </summary>
     [IsoId("_2EcUQUioEeSlHoYg_EudVQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Items Per Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfItmsPerSts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NbOfItmsPerSts")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<NumberOfItemsPerStatus1> NumberOfItemsPerStatus { get; init; } = new ValueList<NumberOfItemsPerStatus1>(){};
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_SOA1I73PEeO2FLWuu_JIqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -215,7 +204,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecuritiesBalanceTransparencyReportStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecuritiesBalanceTransparencyReportStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecuritiesBalanceTransparencyReportStatusAdviceV01Document ToDocument()
     {
@@ -225,7 +214,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecuritiesBalanceTransparencyReportStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecuritiesBalanceTransparencyReportStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01Document : IOuterDocument<SecuritiesBalanceTransparencyReportStatusAdviceV01>
@@ -242,7 +231,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01Document
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecuritiesBalanceTransparencyReportStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecuritiesBalanceTransparencyReportStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesBalanceTransparencyReportStatusAdviceV01 Message { get; init; }

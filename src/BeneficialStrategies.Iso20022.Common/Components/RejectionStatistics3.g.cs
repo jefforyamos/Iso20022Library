@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
 /// </summary>
 [IsoId("_MwencVfdEeqZr5K1Woax-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejection Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record RejectionStatistics3
     /// Total number of derivatives submitted by the report submitting entity for the reporting counterparty which failed to pass technical schema validations.
     /// </summary>
     [IsoId("_NHlf4VfdEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Technical Rejections")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTechRjctns")]
     #endif
+    [IsoXmlTag("TtlNbOfTechRjctns")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20PositiveNumber TotalNumberOfTechnicalRejections { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNumberOfTechnicalRejections { get; init; } 
+    public required System.UInt64 TotalNumberOfTechnicalRejections { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNumberOfTechnicalRejections { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record RejectionStatistics3
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass data validations.
     /// </summary>
     [IsoId("_NHlf41fdEeqZr5K1Woax-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivatives Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivsSttstcs")]
     #endif
+    [IsoXmlTag("DerivsSttstcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DerivativesStatistics3 DerivativesStatistics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DerivativesStatistics3 DerivativesStatistics { get; init; } 
+    public required DerivativesStatistics3 DerivativesStatistics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DerivativesStatistics3 DerivativesStatistics { get; init; } 
     #else

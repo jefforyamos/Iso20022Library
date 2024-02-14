@@ -21,7 +21,7 @@ public enum EventSequenceTypeCode
 {
     /// <summary>
     /// Final event in a series of successive events.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_LVpPILXIEeiTob_PrFFUxA")]
@@ -30,7 +30,7 @@ public enum EventSequenceTypeCode
     
     /// <summary>
     /// Interim event in a series of successive events.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_O_xXgLXIEeiTob_PrFFUxA")]

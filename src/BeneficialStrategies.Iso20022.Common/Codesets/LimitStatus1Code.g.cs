@@ -21,7 +21,7 @@ public enum LimitStatus1Code
 {
     /// <summary>
     /// Limit is currently in effect.
-    /// Encoded/decoded by serializers as "ENAB".
+    /// Encoded/decoded by serializers as &quot;ENAB&quot;.
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_zdviUg93EeGeV5vP7Mvdig_372741033")]
@@ -30,7 +30,7 @@ public enum LimitStatus1Code
     
     /// <summary>
     /// Limit is not currently in effect.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_zdviUw93EeGeV5vP7Mvdig_815729525")]
@@ -39,7 +39,7 @@ public enum LimitStatus1Code
     
     /// <summary>
     /// Limit has been deleted or suspended.
-    /// Encoded/decoded by serializers as "DELD".
+    /// Encoded/decoded by serializers as &quot;DELD&quot;.
     /// </summary>
     [EnumMember(Value = "DELD")]
     [IsoId("_zdviVA93EeGeV5vP7Mvdig_1401676551")]
@@ -48,7 +48,7 @@ public enum LimitStatus1Code
     
     /// <summary>
     /// Limit has been asked for and is not yet enabled.
-    /// Encoded/decoded by serializers as "REQD".
+    /// Encoded/decoded by serializers as &quot;REQD&quot;.
     /// </summary>
     [EnumMember(Value = "REQD")]
     [IsoId("_zdviVQ93EeGeV5vP7Mvdig_348111115")]

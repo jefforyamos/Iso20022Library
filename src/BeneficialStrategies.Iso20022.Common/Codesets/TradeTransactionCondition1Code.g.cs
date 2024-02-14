@@ -21,7 +21,7 @@ public enum TradeTransactionCondition1Code
 {
     /// <summary>
     /// Indicates whether the trade is executed cum bonus.
-    /// Encoded/decoded by serializers as "CBNS".
+    /// Encoded/decoded by serializers as &quot;CBNS&quot;.
     /// </summary>
     [EnumMember(Value = "CBNS")]
     [IsoId("_YnO5l9p-Ed-ak6NoX_4Aeg_-704549493")]
@@ -30,7 +30,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex bonus.
-    /// Encoded/decoded by serializers as "XBNS".
+    /// Encoded/decoded by serializers as &quot;XBNS&quot;.
     /// </summary>
     [EnumMember(Value = "XBNS")]
     [IsoId("_YnYDgNp-Ed-ak6NoX_4Aeg_2141408482")]
@@ -39,7 +39,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum coupon.
-    /// Encoded/decoded by serializers as "CCPN".
+    /// Encoded/decoded by serializers as &quot;CCPN&quot;.
     /// </summary>
     [EnumMember(Value = "CCPN")]
     [IsoId("_YnYDgdp-Ed-ak6NoX_4Aeg_-158749591")]
@@ -48,7 +48,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex coupon.
-    /// Encoded/decoded by serializers as "XCPN".
+    /// Encoded/decoded by serializers as &quot;XCPN&quot;.
     /// </summary>
     [EnumMember(Value = "XCPN")]
     [IsoId("_YnYDgtp-Ed-ak6NoX_4Aeg_-733180804")]
@@ -57,7 +57,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum dividend.
-    /// Encoded/decoded by serializers as "CDIV".
+    /// Encoded/decoded by serializers as &quot;CDIV&quot;.
     /// </summary>
     [EnumMember(Value = "CDIV")]
     [IsoId("_YnYDg9p-Ed-ak6NoX_4Aeg_-131045922")]
@@ -66,7 +66,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex dividend.
-    /// Encoded/decoded by serializers as "XDIV".
+    /// Encoded/decoded by serializers as &quot;XDIV&quot;.
     /// </summary>
     [EnumMember(Value = "XDIV")]
     [IsoId("_YnYDhNp-Ed-ak6NoX_4Aeg_-206775274")]
@@ -75,7 +75,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum rights.
-    /// Encoded/decoded by serializers as "CRTS".
+    /// Encoded/decoded by serializers as &quot;CRTS&quot;.
     /// </summary>
     [EnumMember(Value = "CRTS")]
     [IsoId("_YnYDhdp-Ed-ak6NoX_4Aeg_-117190100")]
@@ -84,7 +84,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex rights.
-    /// Encoded/decoded by serializers as "XRTS".
+    /// Encoded/decoded by serializers as &quot;XRTS&quot;.
     /// </summary>
     [EnumMember(Value = "XRTS")]
     [IsoId("_YnYDhtp-Ed-ak6NoX_4Aeg_724133070")]
@@ -93,7 +93,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum warrant.
-    /// Encoded/decoded by serializers as "CWAR".
+    /// Encoded/decoded by serializers as &quot;CWAR&quot;.
     /// </summary>
     [EnumMember(Value = "CWAR")]
     [IsoId("_YnYDh9p-Ed-ak6NoX_4Aeg_1245924860")]
@@ -102,7 +102,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex warrant.
-    /// Encoded/decoded by serializers as "XWAR".
+    /// Encoded/decoded by serializers as &quot;XWAR&quot;.
     /// </summary>
     [EnumMember(Value = "XWAR")]
     [IsoId("_YnYDiNp-Ed-ak6NoX_4Aeg_1573774329")]
@@ -112,7 +112,7 @@ public enum TradeTransactionCondition1Code
     /// <summary>
     /// Indicates whether the trade is executed with a special cum 
     /// dividend, that is, buying after the ex date and getting the dividend.
-    /// Encoded/decoded by serializers as "SPCU".
+    /// Encoded/decoded by serializers as &quot;SPCU&quot;.
     /// </summary>
     [EnumMember(Value = "SPCU")]
     [IsoId("_YnYDidp-Ed-ak6NoX_4Aeg_197729967")]
@@ -122,7 +122,7 @@ public enum TradeTransactionCondition1Code
     /// <summary>
     /// Indicates whether the trade is executed with a special ex 
     /// dividend, that is, selling before the ex date without the coupon.
-    /// Encoded/decoded by serializers as "SPEX".
+    /// Encoded/decoded by serializers as &quot;SPEX&quot;.
     /// </summary>
     [EnumMember(Value = "SPEX")]
     [IsoId("_Ynh0gNp-Ed-ak6NoX_4Aeg_2002285748")]
@@ -131,7 +131,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that the trade is executed cum-dividend or cum-coupon and a due bill is required. |A due bill is a contractual agreement to pay the dividend along with the delivery of |the financial instrument.
-    /// Encoded/decoded by serializers as "DUEB".
+    /// Encoded/decoded by serializers as &quot;DUEB&quot;.
     /// </summary>
     [EnumMember(Value = "DUEB")]
     [IsoId("_Ynh0gdp-Ed-ak6NoX_4Aeg_1202519061")]
@@ -140,7 +140,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is sold short. When the seller does not have the |financial instrument, the delivery is effected by borrowing the financial instrument by or |for the account of the seller.
-    /// Encoded/decoded by serializers as "SSTI".
+    /// Encoded/decoded by serializers as &quot;SSTI&quot;.
     /// </summary>
     [EnumMember(Value = "SSTI")]
     [IsoId("_Ynh0gtp-Ed-ak6NoX_4Aeg_215276027")]
@@ -149,7 +149,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that the trade is executed dirty, ie government tax must be paid on the accrued interest on the bond.
-    /// Encoded/decoded by serializers as "DIRT".
+    /// Encoded/decoded by serializers as &quot;DIRT&quot;.
     /// </summary>
     [EnumMember(Value = "DIRT")]
     [IsoId("_Ynh0g9p-Ed-ak6NoX_4Aeg_259605997")]
@@ -158,7 +158,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that the trade is executed clean, ie government tax must not be paid on the accrued interest on the bond.
-    /// Encoded/decoded by serializers as "CLEN".
+    /// Encoded/decoded by serializers as &quot;CLEN&quot;.
     /// </summary>
     [EnumMember(Value = "CLEN")]
     [IsoId("_Ynh0hNp-Ed-ak6NoX_4Aeg_-946185711")]
@@ -167,7 +167,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is a block trade or not, ie, whether allocation instruction will follow or not.
-    /// Encoded/decoded by serializers as "BLKO".
+    /// Encoded/decoded by serializers as &quot;BLKO&quot;.
     /// </summary>
     [EnumMember(Value = "BLKO")]
     [IsoId("_Ynh0hdp-Ed-ak6NoX_4Aeg_341444021")]
@@ -176,7 +176,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.
-    /// Encoded/decoded by serializers as "GTDL".
+    /// Encoded/decoded by serializers as &quot;GTDL&quot;.
     /// </summary>
     [EnumMember(Value = "GTDL")]
     [IsoId("_Ynh0htp-Ed-ak6NoX_4Aeg_340874857")]
@@ -185,7 +185,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether fractional parts are allowed.
-    /// Encoded/decoded by serializers as "FRAC".
+    /// Encoded/decoded by serializers as &quot;FRAC&quot;.
     /// </summary>
     [EnumMember(Value = "FRAC")]
     [IsoId("_Ynh0h9p-Ed-ak6NoX_4Aeg_1506931675")]
@@ -194,7 +194,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that cross trades are allowed whereby buy and sell orders are offset without recording the trade on the exchange.
-    /// Encoded/decoded by serializers as "CRST".
+    /// Encoded/decoded by serializers as &quot;CRST&quot;.
     /// </summary>
     [EnumMember(Value = "CRST")]
     [IsoId("_Ynh0iNp-Ed-ak6NoX_4Aeg_1513399286")]
@@ -203,7 +203,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that cross trades, whereby buy and sell orders are offset without recording the trade on the exchange, are not allowed.
-    /// Encoded/decoded by serializers as "NCRS".
+    /// Encoded/decoded by serializers as &quot;NCRS&quot;.
     /// </summary>
     [EnumMember(Value = "NCRS")]
     [IsoId("_Ynh0idp-Ed-ak6NoX_4Aeg_-1286814700")]
@@ -212,7 +212,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that the order is to be executed by a trading party other than the trading party to which the |order is sent. In this case, the instructing party has traded with another broker which will |subsequently send an advice of execution to the executing party who received the order |and which is acting as clearing broker.
-    /// Encoded/decoded by serializers as "DORD".
+    /// Encoded/decoded by serializers as &quot;DORD&quot;.
     /// </summary>
     [EnumMember(Value = "DORD")]
     [IsoId("_Ynh0itp-Ed-ak6NoX_4Aeg_1854178870")]
@@ -221,7 +221,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that the order must be executed with a specific trading party.
-    /// Encoded/decoded by serializers as "DIOR".
+    /// Encoded/decoded by serializers as &quot;DIOR&quot;.
     /// </summary>
     [EnumMember(Value = "DIOR")]
     [IsoId("_Ynq-cNp-Ed-ak6NoX_4Aeg_1879112901")]
@@ -230,7 +230,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Warehouse Trade.
-    /// Encoded/decoded by serializers as "WARE".
+    /// Encoded/decoded by serializers as &quot;WARE&quot;.
     /// </summary>
     [EnumMember(Value = "WARE")]
     [IsoId("_Ynq-cdp-Ed-ak6NoX_4Aeg_1273630984")]
@@ -239,7 +239,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// A limit order to buy or a stop order to sell or a stop limit order which is not to be increased in shares on the ex-dividend date as a result of a stock dividend or distribution.
-    /// Encoded/decoded by serializers as "DNIN".
+    /// Encoded/decoded by serializers as &quot;DNIN&quot;.
     /// </summary>
     [EnumMember(Value = "DNIN")]
     [IsoId("_Ynq-ctp-Ed-ak6NoX_4Aeg_1048705364")]
@@ -247,8 +247,8 @@ public enum TradeTransactionCondition1Code
     NotIncrease = TradeTransactionConditionCode.NotIncrease, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// A limit order to buy or a stop order to sell, or a stop-limit order to sell which is not to be reduced in price by the amount of an ordinary cash dividend. Only applies to ordinary stock dividends; it should be reduced for other distributions. e.g. when a stock goes 'ex' stock dividend or rights.
-    /// Encoded/decoded by serializers as "DNRE".
+    /// A limit order to buy or a stop order to sell, or a stop-limit order to sell which is not to be reduced in price by the amount of an ordinary cash dividend. Only applies to ordinary stock dividends; it should be reduced for other distributions. e.g. when a stock goes &apos;ex&apos; stock dividend or rights.
+    /// Encoded/decoded by serializers as &quot;DNRE&quot;.
     /// </summary>
     [EnumMember(Value = "DNRE")]
     [IsoId("_Ynq-c9p-Ed-ak6NoX_4Aeg_1075487335")]
@@ -257,7 +257,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that the order is based on a forward price.
-    /// Encoded/decoded by serializers as "FORW".
+    /// Encoded/decoded by serializers as &quot;FORW&quot;.
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_Yn0vcNp-Ed-ak6NoX_4Aeg_-1385270994")]
@@ -266,7 +266,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates that the order is based on a historic price.
-    /// Encoded/decoded by serializers as "HIST".
+    /// Encoded/decoded by serializers as &quot;HIST&quot;.
     /// </summary>
     [EnumMember(Value = "HIST")]
     [IsoId("_Yn0vcdp-Ed-ak6NoX_4Aeg_-1198720742")]
@@ -275,7 +275,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Result of option when set. (UK specific).
-    /// Encoded/decoded by serializers as "BCRO".
+    /// Encoded/decoded by serializers as &quot;BCRO&quot;.
     /// </summary>
     [EnumMember(Value = "BCRO")]
     [IsoId("_Yn0vctp-Ed-ak6NoX_4Aeg_-954962851")]
@@ -284,7 +284,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Result of repo when set (UK specific).
-    /// Encoded/decoded by serializers as "BCRP".
+    /// Encoded/decoded by serializers as &quot;BCRP&quot;.
     /// </summary>
     [EnumMember(Value = "BCRP")]
     [IsoId("_Yn0vc9p-Ed-ak6NoX_4Aeg_-695452037")]
@@ -293,7 +293,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Place of delivery, in country of incorporation when unset (UK specific).
-    /// Encoded/decoded by serializers as "BCPD".
+    /// Encoded/decoded by serializers as &quot;BCPD&quot;.
     /// </summary>
     [EnumMember(Value = "BCPD")]
     [IsoId("_Yn0vdNp-Ed-ak6NoX_4Aeg_-666825366")]
@@ -302,7 +302,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Form of delivery, not for foreign registration when unset (UK specific).
-    /// Encoded/decoded by serializers as "BCFD".
+    /// Encoded/decoded by serializers as &quot;BCFD&quot;.
     /// </summary>
     [EnumMember(Value = "BCFD")]
     [IsoId("_Yn0vddp-Ed-ak6NoX_4Aeg_-608641063")]
@@ -311,7 +311,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Board lots, not set for odd lots (UK specific).
-    /// Encoded/decoded by serializers as "BCBL".
+    /// Encoded/decoded by serializers as &quot;BCBL&quot;.
     /// </summary>
     [EnumMember(Value = "BCBL")]
     [IsoId("_Yn0vdtp-Ed-ak6NoX_4Aeg_-580937096")]
@@ -320,7 +320,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Bad names, not set for good names (UK specific).
-    /// Encoded/decoded by serializers as "BCBN".
+    /// Encoded/decoded by serializers as &quot;BCBN&quot;.
     /// </summary>
     [EnumMember(Value = "BCBN")]
     [IsoId("_Yn0vd9p-Ed-ak6NoX_4Aeg_-324196110")]
@@ -329,7 +329,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Trade to be executed done at best execution.
-    /// Encoded/decoded by serializers as "BTEX".
+    /// Encoded/decoded by serializers as &quot;BTEX&quot;.
     /// </summary>
     [EnumMember(Value = "BTEX")]
     [IsoId("_Yn0veNp-Ed-ak6NoX_4Aeg_-1830642528")]
@@ -338,7 +338,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Trade to be executed following the exercise of a call option on the security.
-    /// Encoded/decoded by serializers as "CALL".
+    /// Encoded/decoded by serializers as &quot;CALL&quot;.
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_Yn0vedp-Ed-ak6NoX_4Aeg_-1500947484")]
@@ -347,7 +347,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Trade to be executed for closure of a previous position before the rollover of a position (Deferred Settlement Service).
-    /// Encoded/decoded by serializers as "CLBR".
+    /// Encoded/decoded by serializers as &quot;CLBR&quot;.
     /// </summary>
     [EnumMember(Value = "CLBR")]
     [IsoId("_Yn-gcNp-Ed-ak6NoX_4Aeg_-1445535231")]
@@ -356,7 +356,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Trade to be executed for month-end settlement (Deferred Settlement Service).
-    /// Encoded/decoded by serializers as "MONT".
+    /// Encoded/decoded by serializers as &quot;MONT&quot;.
     /// </summary>
     [EnumMember(Value = "MONT")]
     [IsoId("_Yn-gcdp-Ed-ak6NoX_4Aeg_-1282071931")]
@@ -365,7 +365,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Trade to be executed for a new trade position on the next month following the roll-over of a position (Deferred Settlement Service).
-    /// Encoded/decoded by serializers as "NBFR".
+    /// Encoded/decoded by serializers as &quot;NBFR&quot;.
     /// </summary>
     [EnumMember(Value = "NBFR")]
     [IsoId("_Yn-gctp-Ed-ak6NoX_4Aeg_-1042879916")]
@@ -374,7 +374,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Trade to be executed on the next month following the roll-over of positions.
-    /// Encoded/decoded by serializers as "TRFR".
+    /// Encoded/decoded by serializers as &quot;TRFR&quot;.
     /// </summary>
     [EnumMember(Value = "TRFR")]
     [IsoId("_Yn-gc9p-Ed-ak6NoX_4Aeg_-1025330865")]
@@ -383,7 +383,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Trade to be executed following the exercise of a put option on the security.
-    /// Encoded/decoded by serializers as "PUTT".
+    /// Encoded/decoded by serializers as &quot;PUTT&quot;.
     /// </summary>
     [EnumMember(Value = "PUTT")]
     [IsoId("_Yn-gdNp-Ed-ak6NoX_4Aeg_-946834322")]
@@ -392,7 +392,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed with a special cum coupon.
-    /// Encoded/decoded by serializers as "SPCC".
+    /// Encoded/decoded by serializers as &quot;SPCC&quot;.
     /// </summary>
     [EnumMember(Value = "SPCC")]
     [IsoId("_Yn-gddp-Ed-ak6NoX_4Aeg_-929287064")]
@@ -401,7 +401,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed with a special ex coupon.
-    /// Encoded/decoded by serializers as "SECN".
+    /// Encoded/decoded by serializers as &quot;SECN&quot;.
     /// </summary>
     [EnumMember(Value = "SECN")]
     [IsoId("_Yn-gdtp-Ed-ak6NoX_4Aeg_-169229268")]
@@ -410,7 +410,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed special ex bonus.
-    /// Encoded/decoded by serializers as "SEBN".
+    /// Encoded/decoded by serializers as &quot;SEBN&quot;.
     /// </summary>
     [EnumMember(Value = "SEBN")]
     [IsoId("_Yn-gd9p-Ed-ak6NoX_4Aeg_-169229130")]
@@ -419,7 +419,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed special cum bonus.
-    /// Encoded/decoded by serializers as "SCBN".
+    /// Encoded/decoded by serializers as &quot;SCBN&quot;.
     /// </summary>
     [EnumMember(Value = "SCBN")]
     [IsoId("_Yn-geNp-Ed-ak6NoX_4Aeg_-169228793")]
@@ -428,7 +428,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed special cum rights.
-    /// Encoded/decoded by serializers as "SCRT".
+    /// Encoded/decoded by serializers as &quot;SCRT&quot;.
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_Yn-gedp-Ed-ak6NoX_4Aeg_-169228663")]
@@ -437,7 +437,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed special ex rights.
-    /// Encoded/decoded by serializers as "SERT".
+    /// Encoded/decoded by serializers as &quot;SERT&quot;.
     /// </summary>
     [EnumMember(Value = "SERT")]
     [IsoId("_YoHqYNp-Ed-ak6NoX_4Aeg_-169228373")]
@@ -446,7 +446,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed special cum capital repayments.
-    /// Encoded/decoded by serializers as "SCCR".
+    /// Encoded/decoded by serializers as &quot;SCCR&quot;.
     /// </summary>
     [EnumMember(Value = "SCCR")]
     [IsoId("_YoHqYdp-Ed-ak6NoX_4Aeg_-169228320")]
@@ -455,7 +455,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed special ex capital repayments.
-    /// Encoded/decoded by serializers as "SECR".
+    /// Encoded/decoded by serializers as &quot;SECR&quot;.
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_YoHqYtp-Ed-ak6NoX_4Aeg_-169228278")]
@@ -464,7 +464,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed with a cash settlement.
-    /// Encoded/decoded by serializers as "CAST".
+    /// Encoded/decoded by serializers as &quot;CAST&quot;.
     /// </summary>
     [EnumMember(Value = "CAST")]
     [IsoId("_YoHqY9p-Ed-ak6NoX_4Aeg_-169228218")]
@@ -473,7 +473,7 @@ public enum TradeTransactionCondition1Code
     
     /// <summary>
     /// Indicates whether the trade is executed with a special price.
-    /// Encoded/decoded by serializers as "SPPR".
+    /// Encoded/decoded by serializers as &quot;SPPR&quot;.
     /// </summary>
     [EnumMember(Value = "SPPR")]
     [IsoId("_YoHqZNp-Ed-ak6NoX_4Aeg_-169228165")]

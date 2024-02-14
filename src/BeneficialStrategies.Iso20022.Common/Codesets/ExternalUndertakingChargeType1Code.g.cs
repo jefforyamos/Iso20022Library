@@ -22,7 +22,7 @@ public enum ExternalUndertakingChargeType1Code
 {
     /// <summary>
     /// Charge related to the issuance of an amendment.
-    /// Encoded/decoded by serializers as "AMND".
+    /// Encoded/decoded by serializers as &quot;AMND&quot;.
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_uQ7a9fRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Charge related to the processing of a claim.
-    /// Encoded/decoded by serializers as "CLAM".
+    /// Encoded/decoded by serializers as &quot;CLAM&quot;.
     /// </summary>
     [EnumMember(Value = "CLAM")]
     [IsoId("_uQ7a-PRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Commission charge.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_uQ7a-_RYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Charge for confirmation.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uREk4vRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Courier charge.
-    /// Encoded/decoded by serializers as "COUR".
+    /// Encoded/decoded by serializers as &quot;COUR&quot;.
     /// </summary>
     [EnumMember(Value = "COUR")]
     [IsoId("_uREk5fRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Charge related to the issuance of an undertaking.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_uROV4vRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Miscellaneous charge.
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_uROV5fRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Charge related to the payment processing.
-    /// Encoded/decoded by serializers as "PAYM".
+    /// Encoded/decoded by serializers as &quot;PAYM&quot;.
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("_uROV6PRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Postage charge.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_uROV6_RYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalUndertakingChargeType1Code
     
     /// <summary>
     /// Telecommunication charge.
-    /// Encoded/decoded by serializers as "TELE".
+    /// Encoded/decoded by serializers as &quot;TELE&quot;.
     /// </summary>
     [EnumMember(Value = "TELE")]
     [IsoId("_uROV7vRYEeuLhpyIdtJzwg")]

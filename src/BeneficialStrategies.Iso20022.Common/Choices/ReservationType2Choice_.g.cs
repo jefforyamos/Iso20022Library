@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReservationType2Choice.Code))]
     [KnownType(typeof(ReservationType2Choice.Proprietary))]
     [IsoId("_5v7SsRUNEeusI4XK3oQSyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

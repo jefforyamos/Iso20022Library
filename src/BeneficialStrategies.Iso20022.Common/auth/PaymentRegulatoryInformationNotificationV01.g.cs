@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The PaymentRegulatoryInformationNotification message is sent by the reporting party to the registration agent to provide details on the transaction details, when a payment has to be recorded against the registered currency control contract. ||In some cases, the registration agent may also sent this message to the reporting party.")]
 [IsoId("_1xNvwNLgEeSdq5yU2aaSNw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Regulatory Information Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record PaymentRegulatoryInformationNotificationV01 : IOuterRecord
     /// Characteristics shared by all individual items included in the message.
     /// </summary>
     [IsoId("_ChRFYNLiEeSdq5yU2aaSNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlHeader3 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyControlHeader3 GroupHeader { get; init; } 
+    public required CurrencyControlHeader3 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyControlHeader3 GroupHeader { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record PaymentRegulatoryInformationNotificationV01 : IOuterRecord
     /// Notification of information related to a regulatory reporting on a payment.
     /// </summary>
     [IsoId("_GWJFMNLiEeSdq5yU2aaSNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxNtfctn")]
     #endif
+    [IsoXmlTag("TxNtfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RegulatoryReportingNotification1 TransactionNotification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RegulatoryReportingNotification1 TransactionNotification { get; init; } 
+    public required RegulatoryReportingNotification1 TransactionNotification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RegulatoryReportingNotification1 TransactionNotification { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record PaymentRegulatoryInformationNotificationV01 : IOuterRecord
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_HTtxodLrEeSDLevdaFPXHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record PaymentRegulatoryInformationNotificationV01 : IOuterRecord
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PaymentRegulatoryInformationNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PaymentRegulatoryInformationNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PaymentRegulatoryInformationNotificationV01Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record PaymentRegulatoryInformationNotificationV01 : IOuterRecord
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentRegulatoryInformationNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PaymentRegulatoryInformationNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PaymentRegulatoryInformationNotificationV01Document : IOuterDocument<PaymentRegulatoryInformationNotificationV01>
@@ -163,7 +158,7 @@ public partial record PaymentRegulatoryInformationNotificationV01Document : IOut
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PaymentRegulatoryInformationNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PaymentRegulatoryInformationNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentRegulatoryInformationNotificationV01 Message { get; init; }

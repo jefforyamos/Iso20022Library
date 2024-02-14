@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus3Choice
     /// Status of the meeting instruction message or of the individual meeting instruction(s). The message is identified in InstructionType/InstructionIdentification.
     /// </summary>
     [IsoId("_8GFSoa-nEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

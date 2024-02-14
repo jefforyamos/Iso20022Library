@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountTypeFormat1Choice
     /// Standard code to specify the type of discount.
     /// </summary>
     [IsoId("_SumZFgEcEeCQm6a_G2yO_w_1522388026")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountTypeFormat1Choice
         /// Specifies the type of discount, that is, the reason why a discount is granted.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DiscountType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DiscountType1Code Value { get; init; } 
+        public required DiscountType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DiscountType1Code Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the payment terms by means of a code and a period.
 /// </summary>
 [IsoId("_RbrR0Np-Ed-ak6NoX_4Aeg_1806126505")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PaymentPeriod2
     /// Code for the payment.
     /// </summary>
     [IsoId("_RbrR0dp-Ed-ak6NoX_4Aeg_1806126537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentTime2Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentTime2Code Code { get; init; } 
+    public required PaymentTime2Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentTime2Code Code { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record PaymentPeriod2
     /// Number of days after which the payment must be effected.
     /// </summary>
     [IsoId("_RbrR0tp-Ed-ak6NoX_4Aeg_1806126567")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Days")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfDays")]
     #endif
+    [IsoXmlTag("NbOfDays")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfDays { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

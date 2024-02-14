@@ -21,7 +21,7 @@ public enum Identification3Code
 {
     /// <summary>
     /// Driver licence identification.
-    /// Encoded/decoded by serializers as "DRID".
+    /// Encoded/decoded by serializers as &quot;DRID&quot;.
     /// </summary>
     [EnumMember(Value = "DRID")]
     [IsoId("_ljyOsad3EeuEcqP2FGAFaA")]
@@ -30,7 +30,7 @@ public enum Identification3Code
     
     /// <summary>
     /// National identification.
-    /// Encoded/decoded by serializers as "NTID".
+    /// Encoded/decoded by serializers as &quot;NTID&quot;.
     /// </summary>
     [EnumMember(Value = "NTID")]
     [IsoId("_ljyOs6d3EeuEcqP2FGAFaA")]
@@ -39,7 +39,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Passport number.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_ljyOtad3EeuEcqP2FGAFaA")]
@@ -48,7 +48,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Social security number.
-    /// Encoded/decoded by serializers as "SSYN".
+    /// Encoded/decoded by serializers as &quot;SSYN&quot;.
     /// </summary>
     [EnumMember(Value = "SSYN")]
     [IsoId("_ljy1wad3EeuEcqP2FGAFaA")]
@@ -57,7 +57,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Alien registration number.
-    /// Encoded/decoded by serializers as "ARNB".
+    /// Encoded/decoded by serializers as &quot;ARNB&quot;.
     /// </summary>
     [EnumMember(Value = "ARNB")]
     [IsoId("_ljy1w6d3EeuEcqP2FGAFaA")]
@@ -66,7 +66,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Other identification provided at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_ljy1xad3EeuEcqP2FGAFaA")]
@@ -75,7 +75,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Other identification assigned at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_ljy1x6d3EeuEcqP2FGAFaA")]
@@ -84,7 +84,7 @@ public enum Identification3Code
     
     /// <summary>
     /// E-mail.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_ljy1yad3EeuEcqP2FGAFaA")]
@@ -93,7 +93,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Phone number.
-    /// Encoded/decoded by serializers as "PHNB".
+    /// Encoded/decoded by serializers as &quot;PHNB&quot;.
     /// </summary>
     [EnumMember(Value = "PHNB")]
     [IsoId("_ljy1y6d3EeuEcqP2FGAFaA")]
@@ -102,7 +102,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Identification of customer.
-    /// Encoded/decoded by serializers as "CUID".
+    /// Encoded/decoded by serializers as &quot;CUID&quot;.
     /// </summary>
     [EnumMember(Value = "CUID")]
     [IsoId("_wj9Xkad3EeuEcqP2FGAFaA")]
@@ -111,7 +111,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Tax identifier.
-    /// Encoded/decoded by serializers as "TXID".
+    /// Encoded/decoded by serializers as &quot;TXID&quot;.
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_yiSsgad3EeuEcqP2FGAFaA")]
@@ -120,7 +120,7 @@ public enum Identification3Code
     
     /// <summary>
     /// Proxy
-    /// Encoded/decoded by serializers as "PRXY".
+    /// Encoded/decoded by serializers as &quot;PRXY&quot;.
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_0LPnUad3EeuEcqP2FGAFaA")]

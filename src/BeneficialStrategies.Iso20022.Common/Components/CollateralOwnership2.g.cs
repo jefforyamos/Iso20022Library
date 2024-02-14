@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates whether the collateral is proprietarily owned or client owned.
 /// </summary>
 [IsoId("_wCIUQYFvEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Ownership")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CollateralOwnership2
     /// Indicates that the collateral is owned by the clearing member or not.
     /// </summary>
     [IsoId("_wXjxsYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
+    [IsoXmlTag("Prtry")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Proprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Proprietary { get; init; } 
+    public required System.String Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Proprietary { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record CollateralOwnership2
     /// Indicates that the client owns the collateral.
     /// </summary>
     [IsoId("_wXjxs4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntNm")]
     #endif
+    [IsoXmlTag("ClntNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification100Choice_? ClientName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

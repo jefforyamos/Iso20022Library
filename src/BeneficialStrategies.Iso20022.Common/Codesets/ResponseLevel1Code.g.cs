@@ -21,7 +21,7 @@ public enum ResponseLevel1Code
 {
     /// <summary>
     /// No acknowledgement is requested.
-    /// Encoded/decoded by serializers as "NACK".
+    /// Encoded/decoded by serializers as &quot;NACK&quot;.
     /// </summary>
     [EnumMember(Value = "NACK")]
     [IsoId("_ZVH6Utp-Ed-ak6NoX_4Aeg_-1557115638")]
@@ -30,7 +30,7 @@ public enum ResponseLevel1Code
     
     /// <summary>
     /// Acknowledgement of only negative or erroneous messages is requested.
-    /// Encoded/decoded by serializers as "ACNE".
+    /// Encoded/decoded by serializers as &quot;ACNE&quot;.
     /// </summary>
     [EnumMember(Value = "ACNE")]
     [IsoId("_ZVH6U9p-Ed-ak6NoX_4Aeg_-1557115330")]
@@ -39,7 +39,7 @@ public enum ResponseLevel1Code
     
     /// <summary>
     /// Acknowledgement of each message is requested.
-    /// Encoded/decoded by serializers as "ACEA".
+    /// Encoded/decoded by serializers as &quot;ACEA&quot;.
     /// </summary>
     [EnumMember(Value = "ACEA")]
     [IsoId("_ZVH6VNp-Ed-ak6NoX_4Aeg_-1557115288")]

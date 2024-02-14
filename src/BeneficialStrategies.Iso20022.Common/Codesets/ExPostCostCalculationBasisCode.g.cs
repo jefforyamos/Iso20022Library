@@ -21,7 +21,7 @@ public enum ExPostCostCalculationBasisCode
 {
     /// <summary>
     /// Basis for cost calculation is rolling, that is, the last twelve months.
-    /// Encoded/decoded by serializers as "ROLL".
+    /// Encoded/decoded by serializers as &quot;ROLL&quot;.
     /// </summary>
     [EnumMember(Value = "ROLL")]
     [IsoId("_sQ4xkJ9XEeqxTNfi5y7ywQ")]
@@ -30,7 +30,7 @@ public enum ExPostCostCalculationBasisCode
     
     /// <summary>
     /// Basic for cost calculation is fixed, that is calendar year.
-    /// Encoded/decoded by serializers as "FIXB".
+    /// Encoded/decoded by serializers as &quot;FIXB&quot;.
     /// </summary>
     [EnumMember(Value = "FIXB")]
     [IsoId("_xs4gMJ9XEeqxTNfi5y7ywQ")]

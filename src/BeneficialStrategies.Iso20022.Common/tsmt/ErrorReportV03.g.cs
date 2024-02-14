@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The ErrorReport message is sent by the matching application to the party from which it received a message.|This message is used to inform about the inability of the matching application to process a received message.|Usage|The ErrorReport message can be sent to a party from which the matching application received a message to inform about its inability to process the received message because|- the syntax of the message is incorrect,or|- the message content is inconsistent,or|- according to the workflow implemented in the matching application, it did not expect the received message.")]
 [IsoId("_oHDjhdE8Ed-BzquC8wXy7w_-1687018808")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Error Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Identifies the report.
     /// </summary>
     [IsoId("_oHDjhtE8Ed-BzquC8wXy7w_-1686098714")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
+    [IsoXmlTag("RptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 ReportIdentification { get; init; } 
+    public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 ReportIdentification { get; init; } 
     #else
@@ -104,12 +101,11 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
     /// </summary>
     [IsoId("_oHDjh9E8Ed-BzquC8wXy7w_-1686098652")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SimpleIdentificationInformation? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +118,11 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_oHDjiNE8Ed-BzquC8wXy7w_-1686098591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +135,11 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_oHDjidE8Ed-BzquC8wXy7w_-1686098560")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionStatus4? TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +152,11 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Reference to the transaction for the financial institution which is the sender of the rejected message.
     /// </summary>
     [IsoId("_oHDjitE8Ed-BzquC8wXy7w_-1686098745")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
+    [IsoXmlTag("UsrTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification5? UserTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +169,11 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Reference to the identification of the rejected message.
     /// </summary>
     [IsoId("_oHDji9E8Ed-BzquC8wXy7w_-1686098683")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Message Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdMsgRef")]
     #endif
+    [IsoXmlTag("RjctdMsgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageIdentification1? RejectedMessageReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,16 +186,15 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Specifies the total number of errors identified in the rejected message.
     /// </summary>
     [IsoId("_oHNUgNE8Ed-BzquC8wXy7w_-1687018798")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Errors")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfErrs")]
     #endif
+    [IsoXmlTag("NbOfErrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Count1 NumberOfErrors { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Count1 NumberOfErrors { get; init; } 
+    public required Count1 NumberOfErrors { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Count1 NumberOfErrors { get; init; } 
     #else
@@ -214,16 +205,15 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Describes the error that is the cause of the rejection.
     /// </summary>
     [IsoId("_oHNUgdE8Ed-BzquC8wXy7w_-1686098797")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ErrDesc")]
     #endif
+    [IsoXmlTag("ErrDesc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ValidationResult3 ErrorDescription { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ValidationResult3 ErrorDescription { get; init; } 
+    public required ValidationResult3 ErrorDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ValidationResult3 ErrorDescription { get; init; } 
     #else
@@ -234,12 +224,11 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     /// Information on the next processing step required.
     /// </summary>
     [IsoId("_oHNUgtE8Ed-BzquC8wXy7w_-1686098530")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -252,7 +241,7 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ErrorReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ErrorReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ErrorReportV03Document ToDocument()
     {
@@ -262,7 +251,7 @@ public partial record ErrorReportV03 : IOuterRecord<ErrorReportV03,ErrorReportV0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ErrorReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ErrorReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ErrorReportV03Document : IOuterDocument<ErrorReportV03>
@@ -279,7 +268,7 @@ public partial record ErrorReportV03Document : IOuterDocument<ErrorReportV03>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ErrorReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ErrorReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ErrorReportV03 Message { get; init; }

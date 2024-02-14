@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the service details for the creditor enrolment.
 /// </summary>
 [IsoId("_BcQ8kEWOEempSe_3C1a9EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Service Enrolment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CreditorServiceEnrolment1
     /// Start date when the creditor enrolment becomes effective.
     /// </summary>
     [IsoId("_OU4_YEWPEempSe_3C1a9EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enrolment Start Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EnrlmntStartDt")]
     #endif
+    [IsoXmlTag("EnrlmntStartDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EnrolmentStartDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record CreditorServiceEnrolment1
     /// End date when the creditor enrolment becomes effective.
     /// </summary>
     [IsoId("_OBkcwXFrEemaN4ndAVY1ZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enrolment End Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EnrlmntEndDt")]
     #endif
+    [IsoXmlTag("EnrlmntEndDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? EnrolmentEndDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record CreditorServiceEnrolment1
     /// Provides the details of the visibility of the creditor enrolment as shown to the debtors.
     /// </summary>
     [IsoId("_tZRS4EWOEempSe_3C1a9EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Visibility")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vsblty")]
     #endif
+    [IsoXmlTag("Vsblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Visibilty1? Visibility { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +103,16 @@ public partial record CreditorServiceEnrolment1
     /// When false, it is not possible for the debtor to send activation request through servicing messages. The creditor only accepts activation through another way(s).
     /// </summary>
     [IsoId("_JMynsEWQEempSe_3C1a9EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Activation Allowed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcActvtnAllwd")]
     #endif
+    [IsoXmlTag("SvcActvtnAllwd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator ServiceActivationAllowed { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ServiceActivationAllowed { get; init; } 
+    public required System.String ServiceActivationAllowed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ServiceActivationAllowed { get; init; } 
     #else
@@ -128,15 +123,13 @@ public partial record CreditorServiceEnrolment1
     /// Information web page, as provided by the creditor, to which the debtor can be linked for further information (Universal Resource Locator - URL).
     /// </summary>
     [IsoId("_aDISsUWQEempSe_3C1a9EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Description Link")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcDescLk")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SvcDescLk")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? ServiceDescriptionLink { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,15 +142,13 @@ public partial record CreditorServiceEnrolment1
     /// Web page link provided by the Creditor, intended to the Debtors, to proceed to activation when  servicing messages can not be used.
     /// </summary>
     [IsoId("__L-0oUWQEempSe_3C1a9EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Service Activation Link")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrSvcActvtnLk")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CdtrSvcActvtnLk")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? CreditorServiceActivationLink { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

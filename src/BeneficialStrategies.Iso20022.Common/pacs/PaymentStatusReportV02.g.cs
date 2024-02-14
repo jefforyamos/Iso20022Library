@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"Scope|The PaymentStatusReport message is sent by an instructed agent to the previous party in the payment chain. It is used to inform this party about the positive or negative status of an instruction (either single or file). It is also used to report on a pending instruction.|Usage|The PaymentStatusReport message is exchanged between agents to provide status information about instructions previously sent. Its usage will always be governed by a bilateral agreement between the agents.|The PaymentStatusReport message can be used to provide information about the status (e.g. rejection, acceptance) of a credit transfer instruction, a direct debit instruction, as well as other intra-agent instructions (e.g. PaymentCancellationRequest).|The PaymentStatusReport message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|The PaymentStatusReport message can be used in domestic and cross-border scenarios.|The PaymentStatusReport message exchanged between agents is identified in the schema as follows: |urn:iso:std:iso:20022:tech:xsd:pacs.002.001.02|.")]
 [IsoId("_esBU4dEuEd-BzquC8wXy7w_-2138292511")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record PaymentStatusReportV02 : IOuterRecord<PaymentStatusReportV
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_esKewNEuEd-BzquC8wXy7w_727956740")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader5 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader5 GroupHeader { get; init; } 
+    public required GroupHeader5 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader5 GroupHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record PaymentStatusReportV02 : IOuterRecord<PaymentStatusReportV
     /// Original group information concerning the group of transactions, to which the message refers to.
     /// </summary>
     [IsoId("_esKewdEuEd-BzquC8wXy7w_33992")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInfAndSts")]
     #endif
+    [IsoXmlTag("OrgnlGrpInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalGroupInformation1 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalGroupInformation1 OriginalGroupInformationAndStatus { get; init; } 
+    public required OriginalGroupInformation1 OriginalGroupInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalGroupInformation1 OriginalGroupInformationAndStatus { get; init; } 
     #else
@@ -123,12 +119,11 @@ public partial record PaymentStatusReportV02 : IOuterRecord<PaymentStatusReportV
     /// Information concerning the original transactions, to which the status report message refers.
     /// </summary>
     [IsoId("_esKewtEuEd-BzquC8wXy7w_-920593119")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Information And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInfAndSts")]
     #endif
+    [IsoXmlTag("TxInfAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransactionInformation1? TransactionInformationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,7 +136,7 @@ public partial record PaymentStatusReportV02 : IOuterRecord<PaymentStatusReportV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PaymentStatusReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PaymentStatusReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PaymentStatusReportV02Document ToDocument()
     {
@@ -151,7 +146,7 @@ public partial record PaymentStatusReportV02 : IOuterRecord<PaymentStatusReportV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentStatusReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PaymentStatusReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PaymentStatusReportV02Document : IOuterDocument<PaymentStatusReportV02>
@@ -168,7 +163,7 @@ public partial record PaymentStatusReportV02Document : IOuterDocument<PaymentSta
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PaymentStatusReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PaymentStatusReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentStatusReportV02 Message { get; init; }

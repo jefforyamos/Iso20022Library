@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics used to describe a hypothetical scenario designed to test the value of a portfolio of financial instruments under such hypothetical scenario.
 /// </summary>
 [IsoId("_b-6ZMKsrEeayv9XxdmMwKQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Scenario Definition")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ScenarioDefinition1
     /// Identification of the stress scenario.
     /// </summary>
     [IsoId("_ou7vEKsrEeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification165 Identification { get; init; } 
+    public required GenericIdentification165 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification165 Identification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ScenarioDefinition1
     /// Indicates whether the scenario is based on a historical event or a hypothetical scenario.
     /// </summary>
     [IsoId("_xLvt4KssEeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scenario Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScnroTp")]
     #endif
+    [IsoXmlTag("ScnroTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ScenarioType1Code ScenarioType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ScenarioType1Code ScenarioType { get; init; } 
+    public required ScenarioType1Code ScenarioType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ScenarioType1Code ScenarioType { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ScenarioDefinition1
     /// Indicates how the scenario stresses the curve.
     /// </summary>
     [IsoId("_rr6ysKstEeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strategy Stress Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrtgyStrssTp")]
     #endif
+    [IsoXmlTag("StrtgyStrssTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StrategyStressType1Code StrategyStressType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StrategyStressType1Code StrategyStressType { get; init; } 
+    public required StrategyStressType1Code StrategyStressType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StrategyStressType1Code StrategyStressType { get; init; } 
     #else
@@ -113,31 +108,26 @@ public partial record ScenarioDefinition1
     /// Information relating to the one / two major representative product(s).
     /// </summary>
     [IsoId("_2AzGYKsuEeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stress Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrssItm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StrssItm")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<StressItem1> StressItem { get; init; } = new ValueList<StressItem1>(){};
     
     /// <summary>
     /// Long description of the scenario.
     /// </summary>
     [IsoId("_QIx0kMBnEeak3I7j2hsibw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

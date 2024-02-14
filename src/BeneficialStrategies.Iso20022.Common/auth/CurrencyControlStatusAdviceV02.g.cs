@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CurrencyControlStatusAdvice message is sent by either the reporting party (respectively the registration agent) or the registration agent (respectively the reporting party) to provide a status advice on a previously sent currency control message.||Usage: |The message may be sent in response to requests on the registration of the currency control contract, supporting document or on the payment regulatory information notification.")]
 [IsoId("_bf9SA22PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Control Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord<CurrencyCont
     /// Characteristics shared by all individual items included in the message.
     /// </summary>
     [IsoId("_bf9SBW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlHeader6 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyControlHeader6 GroupHeader { get; init; } 
+    public required CurrencyControlHeader6 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyControlHeader6 GroupHeader { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord<CurrencyCont
     /// Provides the group status for the global message.
     /// </summary>
     [IsoId("_bf9SB22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpSts")]
     #endif
+    [IsoXmlTag("GrpSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlGroupStatus2 GroupStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyControlGroupStatus2 GroupStatus { get; init; } 
+    public required CurrencyControlGroupStatus2 GroupStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyControlGroupStatus2 GroupStatus { get; init; } 
     #else
@@ -119,12 +115,11 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord<CurrencyCont
     /// Provides the status of the package in the message, which may contain the individual records.
     /// </summary>
     [IsoId("_bf9SCW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Package Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PackgSts")]
     #endif
+    [IsoXmlTag("PackgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyControlPackageStatus2? PackageStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +132,11 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord<CurrencyCont
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_bf9SC22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,7 +149,7 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord<CurrencyCont
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CurrencyControlStatusAdviceV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CurrencyControlStatusAdviceV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CurrencyControlStatusAdviceV02Document ToDocument()
     {
@@ -165,7 +159,7 @@ public partial record CurrencyControlStatusAdviceV02 : IOuterRecord<CurrencyCont
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CurrencyControlStatusAdviceV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CurrencyControlStatusAdviceV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CurrencyControlStatusAdviceV02Document : IOuterDocument<CurrencyControlStatusAdviceV02>
@@ -182,7 +176,7 @@ public partial record CurrencyControlStatusAdviceV02Document : IOuterDocument<Cu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CurrencyControlStatusAdviceV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CurrencyControlStatusAdviceV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlStatusAdviceV02 Message { get; init; }

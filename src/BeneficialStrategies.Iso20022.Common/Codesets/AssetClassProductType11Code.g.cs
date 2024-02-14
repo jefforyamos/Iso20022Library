@@ -21,7 +21,7 @@ public enum AssetClassProductType11Code
 {
     /// <summary>
     /// Commodity of other type C10.
-    /// Encoded/decoded by serializers as "OTHC".
+    /// Encoded/decoded by serializers as &quot;OTHC&quot;.
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_Xwy0MQ3oEeWc7_0KPiuk6w")]

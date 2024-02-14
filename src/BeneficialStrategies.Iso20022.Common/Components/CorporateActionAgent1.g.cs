@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the agent.
 /// </summary>
 [IsoId("_Pc3bwNp-Ed-ak6NoX_4Aeg_-1605492911")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Agent")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CorporateActionAgent1
     /// Identification of the agent.
     /// </summary>
     [IsoId("_Pc3bwdp-Ed-ak6NoX_4Aeg_637142441")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtId")]
     #endif
+    [IsoXmlTag("AgtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ AgentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification2Choice_ AgentIdentification { get; init; } 
+    public required PartyIdentification2Choice_ AgentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification2Choice_ AgentIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CorporateActionAgent1
     /// Role played by the agent.
     /// </summary>
     [IsoId("_Pc3bwtp-Ed-ak6NoX_4Aeg_762741819")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtRole")]
     #endif
+    [IsoXmlTag("AgtRole")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentRole1FormatChoice_ AgentRole { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgentRole1FormatChoice_ AgentRole { get; init; } 
+    public required AgentRole1FormatChoice_ AgentRole { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgentRole1FormatChoice_ AgentRole { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record CorporateActionAgent1
     /// Contact person at the agent.
     /// </summary>
     [IsoId("_Pc3bw9p-Ed-ak6NoX_4Aeg_518579733")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctPrsn")]
     #endif
+    [IsoXmlTag("CtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress5? ContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

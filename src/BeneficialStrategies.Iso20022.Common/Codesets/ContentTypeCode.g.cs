@@ -21,7 +21,7 @@ public enum ContentTypeCode
 {
     /// <summary>
     /// Generic, non cryptographic, or unqualified data content - (ASN.1 Object Identifier: id-data).
-    /// Encoded/decoded by serializers as "DATA".
+    /// Encoded/decoded by serializers as &quot;DATA&quot;.
     /// </summary>
     [EnumMember(Value = "DATA")]
     [IsoId("_TWii2wEcEeCQm6a_G2yO_w_-1529665547")]
@@ -30,7 +30,7 @@ public enum ContentTypeCode
     
     /// <summary>
     /// Digital signature - (ASN.1 Object Identifier: id-signedData).
-    /// Encoded/decoded by serializers as "SIGN".
+    /// Encoded/decoded by serializers as &quot;SIGN&quot;.
     /// </summary>
     [EnumMember(Value = "SIGN")]
     [IsoId("_TWii3AEcEeCQm6a_G2yO_w_-488041433")]
@@ -39,7 +39,7 @@ public enum ContentTypeCode
     
     /// <summary>
     /// Encrypted data, with encryption key - (ASN.1 Object Identifier: id-envelopedData).
-    /// Encoded/decoded by serializers as "EVLP".
+    /// Encoded/decoded by serializers as &quot;EVLP&quot;.
     /// </summary>
     [EnumMember(Value = "EVLP")]
     [IsoId("_TWii3QEcEeCQm6a_G2yO_w_-1205844644")]
@@ -48,7 +48,7 @@ public enum ContentTypeCode
     
     /// <summary>
     /// Message digest - (ASN.1 Object Identifier: id-digestedData).
-    /// Encoded/decoded by serializers as "DGST".
+    /// Encoded/decoded by serializers as &quot;DGST&quot;.
     /// </summary>
     [EnumMember(Value = "DGST")]
     [IsoId("_TWii3gEcEeCQm6a_G2yO_w_1140582150")]
@@ -57,7 +57,7 @@ public enum ContentTypeCode
     
     /// <summary>
     /// Encrypted data - (ASN.1 Object Identifier: id-encryptedData).
-    /// Encoded/decoded by serializers as "ECRP".
+    /// Encoded/decoded by serializers as &quot;ECRP&quot;.
     /// </summary>
     [EnumMember(Value = "ECRP")]
     [IsoId("_TWii3wEcEeCQm6a_G2yO_w_-1129746596")]
@@ -66,7 +66,7 @@ public enum ContentTypeCode
     
     /// <summary>
     /// MAC (Message Authentication Code), with encryption key - (ASN.1 Object Identifier: id-ct-authData).
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_TWii4AEcEeCQm6a_G2yO_w_332278242")]
@@ -75,7 +75,7 @@ public enum ContentTypeCode
     
     /// <summary>
     /// General data encryption that conforms to the ISO 13492 standard.
-    /// Encoded/decoded by serializers as "IFSE".
+    /// Encoded/decoded by serializers as &quot;IFSE&quot;.
     /// </summary>
     [EnumMember(Value = "IFSE")]
     [IsoId("_wF7KkD6NEeq_lLaSkIVjTQ")]

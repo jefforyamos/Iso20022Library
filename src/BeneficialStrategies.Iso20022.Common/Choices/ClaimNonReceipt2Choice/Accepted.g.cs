@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceipt2Choice
     /// Claim non-receipt is accepted and processed by the agent.
     /// </summary>
     [IsoId("_EhbFMW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceipt2Choice
         /// Specifies the date the original payment instruction was processed.
         /// </summary>
         [IsoId("_EtCfUW4-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Date Processed")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtPrcd")]
         #endif
+        [IsoXmlTag("DtPrcd")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate DateProcessed { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly DateProcessed { get; init; } 
+        public required System.DateOnly DateProcessed { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly DateProcessed { get; init; } 
         #else
@@ -76,12 +74,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceipt2Choice
         /// Specifies the next party the original payment instruction was sent to.
         /// </summary>
         [IsoId("_EtCfU24-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Original Next Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrgnlNxtAgt")]
         #endif
+        [IsoXmlTag("OrgnlNxtAgt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchAndFinancialInstitutionIdentification6? OriginalNextAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ModificationCode
 {
     /// <summary>
     /// Specifies that the item is added.
-    /// Encoded/decoded by serializers as "ADDD".
+    /// Encoded/decoded by serializers as &quot;ADDD&quot;.
     /// </summary>
     [EnumMember(Value = "ADDD")]
     [IsoId("_m-gDEA4SEeKGXqvMN6jpiw")]
@@ -30,7 +30,7 @@ public enum ModificationCode
     
     /// <summary>
     /// Specifies that the item is deleted.
-    /// Encoded/decoded by serializers as "DELE".
+    /// Encoded/decoded by serializers as &quot;DELE&quot;.
     /// </summary>
     [EnumMember(Value = "DELE")]
     [IsoId("_sspRoA4SEeKGXqvMN6jpiw")]
@@ -39,7 +39,7 @@ public enum ModificationCode
     
     /// <summary>
     /// Specifies that the item is modified.
-    /// Encoded/decoded by serializers as "MODI".
+    /// Encoded/decoded by serializers as &quot;MODI&quot;.
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_xaHGUA4SEeKGXqvMN6jpiw")]
@@ -48,7 +48,7 @@ public enum ModificationCode
     
     /// <summary>
     /// Specifies that the item is not changed.
-    /// Encoded/decoded by serializers as "NOCH".
+    /// Encoded/decoded by serializers as &quot;NOCH&quot;.
     /// </summary>
     [EnumMember(Value = "NOCH")]
     [IsoId("_0_AwcA4SEeKGXqvMN6jpiw")]

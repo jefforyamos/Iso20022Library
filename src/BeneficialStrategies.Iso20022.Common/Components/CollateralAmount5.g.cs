@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Collateral and settlement related amounts.
 /// </summary>
 [IsoId("__fRWYOCuEei2UYJ62ws-Fw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CollateralAmount5
     /// Margin amount needed when the instruction reported creates an exposure.
     /// </summary>
     [IsoId("_MMFAMOCvEei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Required Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqrdMrgn")]
     #endif
+    [IsoXmlTag("ReqrdMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? RequiredMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,12 +60,11 @@ public partial record CollateralAmount5
     /// Feedback 
     /// </summary>
     [IsoId("_Vu8dkOCvEei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateralised")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Collsd")]
     #endif
+    [IsoXmlTag("Collsd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? Collateralised { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +77,11 @@ public partial record CollateralAmount5
     /// Outstanding amount to be covered, collateralised.
     /// </summary>
     [IsoId("_eh0ocOCvEei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remaining Collateralised")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmngCollsd")]
     #endif
+    [IsoXmlTag("RmngCollsd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? RemainingCollateralised { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,15 +91,14 @@ public partial record CollateralAmount5
     #endif
     
     /// <summary>
-    /// Amount effectively settled and which will be credited to/debited from the account owner's position.
+    /// Amount effectively settled and which will be credited to/debited from the account owner&apos;s position.
     /// </summary>
     [IsoId("_jsfWgOCvEei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sttld")]
     #endif
+    [IsoXmlTag("Sttld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? Settled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +111,11 @@ public partial record CollateralAmount5
     /// Amount due to be settled.    
     /// </summary>
     [IsoId("_sbiKQOCvEei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remaining Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmngSttlm")]
     #endif
+    [IsoXmlTag("RmngSttlm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection44? RemainingSettlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

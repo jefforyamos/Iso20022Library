@@ -21,7 +21,7 @@ public enum TerminationTypeCode
 {
     /// <summary>
     /// Repo with a term of one day.
-    /// Encoded/decoded by serializers as "OVER".
+    /// Encoded/decoded by serializers as &quot;OVER&quot;.
     /// </summary>
     [EnumMember(Value = "OVER")]
     [IsoId("_YlvExNp-Ed-ak6NoX_4Aeg_-2111318723")]
@@ -30,7 +30,7 @@ public enum TerminationTypeCode
     
     /// <summary>
     /// Repo with a term of more than one day.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_YlvExdp-Ed-ak6NoX_4Aeg_-2097465461")]
@@ -38,8 +38,8 @@ public enum TerminationTypeCode
     Term,
     
     /// <summary>
-    /// Identifies "a classic term repo with the added feature that the cash is repaid to the buyer in installments" (Definition from "Mastering Repo Markets" by Bob Steiner).
-    /// Encoded/decoded by serializers as "FLEX".
+    /// Identifies &quot;a classic term repo with the added feature that the cash is repaid to the buyer in installments&quot; (Definition from &quot;Mastering Repo Markets&quot; by Bob Steiner).
+    /// Encoded/decoded by serializers as &quot;FLEX&quot;.
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_YlvExtp-Ed-ak6NoX_4Aeg_-1882287160")]
@@ -48,7 +48,7 @@ public enum TerminationTypeCode
     
     /// <summary>
     /// Repo which can be terminated by either party at any time, and which has an unspecified repurchase date.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_Yl41wNp-Ed-ak6NoX_4Aeg_-1871202775")]

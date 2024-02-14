@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data pertaining to the approval of the transaction.
 /// </summary>
 [IsoId("_7fkbkEVSEeea-M6VZkEPUw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Approval Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ApprovalData1
     /// Entity that has delivered or declined the card payment authorisation (the party may be unidentified).
     /// </summary>
     [IsoId("_QLClEEVTEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Approval Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApprvlNtty")]
     #endif
+    [IsoXmlTag("ApprvlNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApprovalEntity1? ApprovalEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,15 +60,12 @@ public partial record ApprovalData1
     /// ISO 8583:93/2003 bit 38
     /// </summary>
     [IsoId("_cvMpMEVTEeea-M6VZkEPUw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Approval Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApprvlCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ApprvlCd")]
+    [IsoSimpleType(IsoSimpleType.Exact6AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact6AlphaNumericText? ApprovalCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

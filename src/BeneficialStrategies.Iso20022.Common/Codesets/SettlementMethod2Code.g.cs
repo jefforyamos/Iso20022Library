@@ -21,7 +21,7 @@ public enum SettlementMethod2Code
 {
     /// <summary>
     /// Settlement is done by the agent instructed to execute a payment instruction.
-    /// Encoded/decoded by serializers as "INDA".
+    /// Encoded/decoded by serializers as &quot;INDA&quot;.
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_ZMCPx9p-Ed-ak6NoX_4Aeg_-673388466")]
@@ -30,7 +30,7 @@ public enum SettlementMethod2Code
     
     /// <summary>
     /// Settlement is done by the agent instructing and forwarding the payment to the next party in the payment chain.
-    /// Encoded/decoded by serializers as "INGA".
+    /// Encoded/decoded by serializers as &quot;INGA&quot;.
     /// </summary>
     [EnumMember(Value = "INGA")]
     [IsoId("_ZMCPyNp-Ed-ak6NoX_4Aeg_-673388449")]
@@ -39,7 +39,7 @@ public enum SettlementMethod2Code
     
     /// <summary>
     /// Settlement is done through a payment clearing system.
-    /// Encoded/decoded by serializers as "CLRG".
+    /// Encoded/decoded by serializers as &quot;CLRG&quot;.
     /// </summary>
     [EnumMember(Value = "CLRG")]
     [IsoId("_ZMMAwNp-Ed-ak6NoX_4Aeg_-673388407")]

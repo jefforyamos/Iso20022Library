@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// ISO 8583:1987 bit 90 and ISO 8583 1993/2003 bit 56.
 /// </summary>
 [IsoId("_n6z5AESCEeeb1MmUPTrSMw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Data Elements")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record OriginalDataElements1
     /// Message class of the original message.
     /// </summary>
     [IsoId("_BPlI4ESDEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgClss")]
     #endif
+    [IsoXmlTag("MsgClss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageClass1Code? MessageClass { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,15 +68,12 @@ public partial record OriginalDataElements1
     /// ISO 8583:87/93/2003 bit 3
     /// </summary>
     [IsoId("_dE_8MRs_EeqrvK3udMUsNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("TxTp")]
+    [IsoSimpleType(IsoSimpleType.Exact2AlphaNumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2AlphaNumericText? TransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,15 +87,12 @@ public partial record OriginalDataElements1
     /// ISO 8583 bit 32
     /// </summary>
     [IsoId("_a0c_YESFEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AcqrrId")]
+    [IsoSimpleType(IsoSimpleType.Max11NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax11NumericText? AcquirerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,15 +106,12 @@ public partial record OriginalDataElements1
     /// ISO 8583 bit 33.
     /// </summary>
     [IsoId("_2ME30ESFEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SndrId")]
+    [IsoSimpleType(IsoSimpleType.Max11NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax11NumericText? SenderIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +125,12 @@ public partial record OriginalDataElements1
     /// ISO 8583 bit 12.
     /// </summary>
     [IsoId("_MWoV0ESDEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclDtTm")]
     #endif
+    [IsoXmlTag("LclDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? LocalDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,15 +143,13 @@ public partial record OriginalDataElements1
     /// Time zone name (for example, as defined by IANA - Internet Assigned Numbers Authority) in the time zone data base.
     /// </summary>
     [IsoId("_ZM5doESDEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Zone")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmZone")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TmZone")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? TimeZone { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,15 +162,13 @@ public partial record OriginalDataElements1
     /// Identification of the transaction by the card acceptor. It may appear on the receipt of the cardholder. It remains unchanged throughout the lifetime of the transaction.
     /// </summary>
     [IsoId("_7RwREX7aEeiF_rVYo9MUdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,12 +182,12 @@ public partial record OriginalDataElements1
     /// ISO 8583 bit 7
     /// </summary>
     [IsoId("_oT8VQESDEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transmission Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsmssnDtTm")]
     #endif
+    [IsoXmlTag("TrnsmssnDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TransmissionDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -217,15 +201,12 @@ public partial record OriginalDataElements1
     ///  ISO 8583 bit 11.
     /// </summary>
     [IsoId("_zBbysESDEeeb1MmUPTrSMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Trace Audit Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysTracAudtNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("SysTracAudtNb")]
+    [IsoSimpleType(IsoSimpleType.Max12NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax12NumericText? SystemTraceAuditNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,19 +220,16 @@ public partial record OriginalDataElements1
     /// ISO 8583 bit 37
     /// </summary>
     [IsoId("_OlWosX7bEeiF_rVYo9MUdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Retrieval Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrvlRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("RtrvlRefNb")]
+    [IsoSimpleType(IsoSimpleType.Exact12Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact12Text RetrievalReferenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RetrievalReferenceNumber { get; init; } 
+    public required System.String RetrievalReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RetrievalReferenceNumber { get; init; } 
     #else
@@ -262,12 +240,11 @@ public partial record OriginalDataElements1
     /// Indicate the point in the transaction lifecycle at which the lifecycle identifier was assigned.
     /// </summary>
     [IsoId("_bqO0Rn7bEeiF_rVYo9MUdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Life Cycle Support")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LifeCyclSpprt")]
     #endif
+    [IsoXmlTag("LifeCyclSpprt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LifeCycleSupport1Code? LifeCycleSupport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,12 +258,11 @@ public partial record OriginalDataElements1
     /// ISO 8583:2003 bit 21
     /// </summary>
     [IsoId("_bqO0R37bEeiF_rVYo9MUdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Life Cycle Trace Identification Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LifeCyclTracIdData")]
     #endif
+    [IsoXmlTag("LifeCyclTracIdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionLifeCycleIdentification1? LifeCycleTraceIdentificationData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -299,15 +275,13 @@ public partial record OriginalDataElements1
     /// Reason for not providing a lifecycle trace identification information.
     /// </summary>
     [IsoId("_bqO0SH7bEeiF_rVYo9MUdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Life Cycle Trace Identification Missing")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LifeCyclTracIdMssng")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LifeCyclTracIdMssng")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? LifeCycleTraceIdentificationMissing { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,15 +294,13 @@ public partial record OriginalDataElements1
     /// Data supplied by an acquirer in an authorisation or financial request, advice or notification that may be required to be provided in a subsequent transaction.
     /// </summary>
     [IsoId("_bqO0SX7bEeiF_rVYo9MUdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Reference Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrRefData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcqrrRefData")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? AcquirerReferenceData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -342,15 +314,12 @@ public partial record OriginalDataElements1
     /// ISO 8583:2003 bit 31
     /// </summary>
     [IsoId("_bqO0Sn7bEeiF_rVYo9MUdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acquirer Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcqrrRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AcqrrRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max23NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax23NumericText? AcquirerReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -364,15 +333,13 @@ public partial record OriginalDataElements1
     /// ISO 8583:1993 and ISO 8583:2003 bit 95.
     /// </summary>
     [IsoId("_bqO0S37bEeiF_rVYo9MUdg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Issuer Reference Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardIssrRefData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CardIssrRefData")]
+    [IsoSimpleType(IsoSimpleType.Max1000Text)]
     [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? CardIssuerReferenceData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

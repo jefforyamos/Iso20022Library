@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateDerivative2Choice
     /// Where contract type is different from swaps, swaptions, futures on swaps and forwards on a swap, this field is used.
     /// </summary>
     [IsoId("_xbbEc2lIEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateDerivative2Choice
         /// Specifies the type of an underlying contract for interest rate derivatives.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Othr")]
         #endif
+        [IsoXmlTag("Othr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required UnderlyingInterestRateType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public UnderlyingInterestRateType3Code Value { get; init; } 
+        public required UnderlyingInterestRateType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public UnderlyingInterestRateType3Code Value { get; init; } 
         #else

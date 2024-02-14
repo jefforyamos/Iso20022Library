@@ -21,7 +21,7 @@ public enum NewSecuritiesIssuanceType3Code
 {
     /// <summary>
     /// Funds have been placed in escrow by a trustee or agent to ensure payment on a portion of the outstanding balance of the original security on maturity date. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
-    /// Encoded/decoded by serializers as "DEFE".
+    /// Encoded/decoded by serializers as &quot;DEFE&quot;.
     /// </summary>
     [EnumMember(Value = "DEFE")]
     [IsoId("_NdThQSp5EeO3oOoGGWHH4A")]
@@ -30,7 +30,7 @@ public enum NewSecuritiesIssuanceType3Code
     
     /// <summary>
     /// Funds will not be guaranteed at maturity by the issuer or paying agent for this newly issued non-defeased security. Applicable only in the frame of a Partial Defeasance PDEF corporate action event.
-    /// Encoded/decoded by serializers as "NDEF".
+    /// Encoded/decoded by serializers as &quot;NDEF&quot;.
     /// </summary>
     [EnumMember(Value = "NDEF")]
     [IsoId("_NmX9sSp5EeO3oOoGGWHH4A")]

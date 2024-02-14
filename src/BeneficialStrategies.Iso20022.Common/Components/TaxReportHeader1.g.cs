@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines message level identification, number of individual tax reports and tax authority.
 /// </summary>
 [IsoId("_xtcK0WnzEea5EcY2TpG1mw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Report Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TaxReportHeader1
     /// Unique message identification.
     /// </summary>
     [IsoId("_FdwToGn0Eea5EcY2TpG1mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record TaxReportHeader1
     /// Number of TaxReports in this message. Seller can send all TaxReports in the same file.
     /// </summary>
     [IsoId("_L3NwEGn0Eea5EcY2TpG1mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Tax Reports")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfTaxRpts")]
     #endif
+    [IsoXmlTag("NbOfTaxRpts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfTaxReports { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record TaxReportHeader1
     /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
     /// </summary>
     [IsoId("_VbSuYGn0Eea5EcY2TpG1mw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxAuthrty")]
     #endif
+    [IsoXmlTag("TaxAuthrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxOrganisationIdentification1? TaxAuthority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

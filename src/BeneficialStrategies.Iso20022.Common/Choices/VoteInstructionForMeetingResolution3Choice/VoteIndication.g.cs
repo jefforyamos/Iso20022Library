@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionForMeetingResolut
     /// Vote recommendation for resolutions added during the meeting.
     /// </summary>
     [IsoId("_n0rhA64dEemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Indication")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

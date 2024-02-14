@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the query criteria related to securities.
 /// </summary>
 [IsoId("_GO0zUZNeEeytjZlcgApf6A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Security Identification Query Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TradeSecurityIdentificationQueryCriteria3
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
     [IsoId("_GQzJQ5NeEeytjZlcgApf6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oprtr")]
     #endif
+    [IsoXmlTag("Oprtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Operation3Code Operator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Operation3Code Operator { get; init; } 
+    public required Operation3Code Operator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Operation3Code Operator { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TradeSecurityIdentificationQueryCriteria3
     /// Identification of the product through ISIN or AII.
     /// </summary>
     [IsoId("_GQzJRZNeEeytjZlcgApf6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentificationQueryCriteria1? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record TradeSecurityIdentificationQueryCriteria3
     /// Classification of information according to contract type.
     /// </summary>
     [IsoId("_kgZXkJNiEeytjZlcgApf6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctTp")]
     #endif
+    [IsoXmlTag("CtrctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,15 +99,14 @@ public partial record TradeSecurityIdentificationQueryCriteria3
     #endif
     
     /// <summary>
-    /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
+    /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation&apos;s International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
     [IsoId("_1sYF8JNjEeytjZlcgApf6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ISIN")]
     #endif
+    [IsoXmlTag("ISIN")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISINQueryCriteria1? ISIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record TradeSecurityIdentificationQueryCriteria3
     /// Identification of the product through a unique product identifier.
     /// </summary>
     [IsoId("_567KAJNjEeytjZlcgApf6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Product Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnqPdctIdr")]
     #endif
+    [IsoXmlTag("UnqPdctIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UPIQueryCriteria1? UniqueProductIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +136,11 @@ public partial record TradeSecurityIdentificationQueryCriteria3
     /// Unique identification to identify the direct underlying instrument based on its type. 
     /// </summary>
     [IsoId("_GQzJR5NeEeytjZlcgApf6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygInstrmId")]
     #endif
+    [IsoXmlTag("UndrlygInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentificationQuery4Choice_? UnderlyingInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

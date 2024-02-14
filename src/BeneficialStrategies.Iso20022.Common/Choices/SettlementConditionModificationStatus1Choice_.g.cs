@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementConditionModificationStatus1Choice.Code))]
     [KnownType(typeof(SettlementConditionModificationStatus1Choice.Proprietary))]
     [IsoId("_UYeaItp-Ed-ak6NoX_4Aeg_-936948787")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Condition Modification Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

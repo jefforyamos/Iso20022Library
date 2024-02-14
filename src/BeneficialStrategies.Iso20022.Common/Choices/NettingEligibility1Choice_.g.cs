@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NettingEligibility1Choice.Indicator))]
     [KnownType(typeof(NettingEligibility1Choice.Proprietary))]
     [IsoId("_QvkZwdp-Ed-ak6NoX_4Aeg_-841042953")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Netting Eligibility 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

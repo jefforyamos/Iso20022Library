@@ -21,7 +21,7 @@ public enum PriceValueType10Code
 {
     /// <summary>
     /// Price is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q5RTNWtdEeCY4-KZ9JEyUQ_1587696077")]

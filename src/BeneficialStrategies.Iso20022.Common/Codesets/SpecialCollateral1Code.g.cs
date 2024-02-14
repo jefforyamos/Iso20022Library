@@ -21,7 +21,7 @@ public enum SpecialCollateral1Code
 {
     /// <summary>
     /// Identifies that all repurchase agreements are conducted against general collateral.
-    /// Encoded/decoded by serializers as "GENE".
+    /// Encoded/decoded by serializers as &quot;GENE&quot;.
     /// </summary>
     [EnumMember(Value = "GENE")]
     [IsoId("_gWcacZf_EeSfnc-VXAEapg")]
@@ -30,7 +30,7 @@ public enum SpecialCollateral1Code
     
     /// <summary>
     /// Identifies that all repurchase agreements are conducted against special collateral.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_gb8lgZf_EeSfnc-VXAEapg")]

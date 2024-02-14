@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of characteristics that unambiguously identify the single invoice financing request.
 /// </summary>
 [IsoId("_RYGZZdp-Ed-ak6NoX_4Aeg_909721344")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Request Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record InvoiceRequestInformation1
     /// General information that unambiguously identify the invoice to be financed, such as invoice type, invoice number and issue date.
     /// </summary>
     [IsoId("_RYGZZtp-Ed-ak6NoX_4Aeg_-885319739")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcGnlInf")]
     #endif
+    [IsoXmlTag("InvcGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentGeneralInformation1 InvoiceGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentGeneralInformation1 InvoiceGeneralInformation { get; init; } 
+    public required DocumentGeneralInformation1 InvoiceGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentGeneralInformation1 InvoiceGeneralInformation { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record InvoiceRequestInformation1
     /// Specifies totals related to the invoice, such as total invoice amount and total tax amount.
     /// </summary>
     [IsoId("_RYGZZ9p-Ed-ak6NoX_4Aeg_88226197")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Totals Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcTtlsInf")]
     #endif
+    [IsoXmlTag("InvcTtlsInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceTotals1 InvoiceTotalsInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvoiceTotals1 InvoiceTotalsInformation { get; init; } 
+    public required InvoiceTotals1 InvoiceTotalsInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvoiceTotals1 InvoiceTotalsInformation { get; init; } 
     #else
@@ -95,12 +91,12 @@ public partial record InvoiceRequestInformation1
     /// Amount of credit/debit note related to the invoice to be financed.
     /// </summary>
     [IsoId("_RYGZaNp-Ed-ak6NoX_4Aeg_-1188229274")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Debit Note Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtDbtNoteAmt")]
     #endif
+    [IsoXmlTag("CdtDbtNoteAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? CreditDebitNoteAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record InvoiceRequestInformation1
     /// Details of a single instalment to be financed, related to an invoice settlement (amount, payment due date).
     /// </summary>
     [IsoId("_RYQKYNp-Ed-ak6NoX_4Aeg_-1603772146")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtInf")]
     #endif
+    [IsoXmlTag("InstlmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Instalment1? InstalmentInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record InvoiceRequestInformation1
     /// Amount requested by the requestor party, related to a single invoice to be financed.
     /// </summary>
     [IsoId("_RYQKYdp-Ed-ak6NoX_4Aeg_-1318025183")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdAmt")]
     #endif
+    [IsoXmlTag("ReqdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancingRateOrAmountChoice_? RequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,16 +143,15 @@ public partial record InvoiceRequestInformation1
     /// Person or organization that represents the creditor for the invoice to be financed.
     /// </summary>
     [IsoId("_RYQKYtp-Ed-ak6NoX_4Aeg_475463417")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Spplr")]
     #endif
+    [IsoXmlTag("Spplr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyAndAccountIdentificationAndContactInformation1 Supplier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyAndAccountIdentificationAndContactInformation1 Supplier { get; init; } 
+    public required PartyAndAccountIdentificationAndContactInformation1 Supplier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyAndAccountIdentificationAndContactInformation1 Supplier { get; init; } 
     #else
@@ -169,16 +162,15 @@ public partial record InvoiceRequestInformation1
     /// Person or organization that represents the debtor for the invoice to be financed.
     /// </summary>
     [IsoId("_RYQKY9p-Ed-ak6NoX_4Aeg_1975466452")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentificationAndContactInformation1 Buyer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentificationAndContactInformation1 Buyer { get; init; } 
+    public required PartyIdentificationAndContactInformation1 Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentificationAndContactInformation1 Buyer { get; init; } 
     #else
@@ -189,16 +181,15 @@ public partial record InvoiceRequestInformation1
     /// Specifies payment terms and conditions related to a single invoice to be financed, including identifier of possible account used for payment.
     /// </summary>
     [IsoId("_RYQKZNp-Ed-ak6NoX_4Aeg_-1314868221")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Payment Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcPmtInf")]
     #endif
+    [IsoXmlTag("InvcPmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInformation15 InvoicePaymentInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentInformation15 InvoicePaymentInformation { get; init; } 
+    public required PaymentInformation15 InvoicePaymentInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentInformation15 InvoicePaymentInformation { get; init; } 
     #else
@@ -209,12 +200,11 @@ public partial record InvoiceRequestInformation1
     /// Information about a document related to the invoice to be financed, in structured form.
     /// </summary>
     [IsoId("_RYQKZdp-Ed-ak6NoX_4Aeg_497864820")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrdDoc")]
     #endif
+    [IsoXmlTag("RfrdDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentInformation2? ReferredDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

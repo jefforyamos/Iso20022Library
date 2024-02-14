@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTradeVenueCriteria1Cho
     /// Result of the query should include all trades where this filed was populated with a MIC code (but not the trades with ‘XOFF’ or ‘XXXX’).
     /// </summary>
     [IsoId("_ph_4kB3ZEeWNp95x0ENf8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Any MIC")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,12 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTradeVenueCriteria1Cho
         /// Specifies a market identification code (MIC).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AnyMIC")]
         #endif
+        [IsoXmlTag("AnyMIC")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AnyMIC1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AnyMIC1Code Value { get; init; } 
+        public required AnyMIC1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AnyMIC1Code Value { get; init; } 
         #else

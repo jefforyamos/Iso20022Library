@@ -21,7 +21,7 @@ public enum NetworkTypeCode
 {
     /// <summary>
     /// Protocol of an IP network.
-    /// Encoded/decoded by serializers as "IPNW".
+    /// Encoded/decoded by serializers as &quot;IPNW&quot;.
     /// </summary>
     [EnumMember(Value = "IPNW")]
     [IsoId("_bOwI0GpVEeSR-ZWLvO-1dg")]
@@ -30,7 +30,7 @@ public enum NetworkTypeCode
     
     /// <summary>
     /// Protocol of a Public Switched Telephone Network (PSTN).
-    /// Encoded/decoded by serializers as "PSTN".
+    /// Encoded/decoded by serializers as &quot;PSTN&quot;.
     /// </summary>
     [EnumMember(Value = "PSTN")]
     [IsoId("_iuROYGpVEeSR-ZWLvO-1dg")]
@@ -39,7 +39,7 @@ public enum NetworkTypeCode
     
     /// <summary>
     /// HTTP proxy.
-    /// Encoded/decoded by serializers as "HTTP".
+    /// Encoded/decoded by serializers as &quot;HTTP&quot;.
     /// </summary>
     [EnumMember(Value = "HTTP")]
     [IsoId("_ykyg0I39EeWRwov1g9WL_A")]
@@ -48,7 +48,7 @@ public enum NetworkTypeCode
     
     /// <summary>
     /// Sock4 proxy.
-    /// Encoded/decoded by serializers as "SCK4".
+    /// Encoded/decoded by serializers as &quot;SCK4&quot;.
     /// </summary>
     [EnumMember(Value = "SCK4")]
     [IsoId("_0jHOsI39EeWRwov1g9WL_A")]
@@ -57,7 +57,7 @@ public enum NetworkTypeCode
     
     /// <summary>
     /// Sock5 proxy.
-    /// Encoded/decoded by serializers as "SCK5".
+    /// Encoded/decoded by serializers as &quot;SCK5&quot;.
     /// </summary>
     [EnumMember(Value = "SCK5")]
     [IsoId("_5VfYkI39EeWRwov1g9WL_A")]

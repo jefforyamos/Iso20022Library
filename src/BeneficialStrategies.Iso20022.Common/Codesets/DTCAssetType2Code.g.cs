@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum DTCAssetType2Code
 {
     /// <summary>
-    /// ABS Denomination in "Units" or "Undivided Interest".
-    /// Encoded/decoded by serializers as "S041".
+    /// ABS Denomination in &quot;Units&quot; or &quot;Undivided Interest&quot;.
+    /// Encoded/decoded by serializers as &quot;S041&quot;.
     /// </summary>
     [EnumMember(Value = "S041")]
     [IsoId("_MiAtYZ2MEeW-bsa36JFb9A")]
@@ -30,7 +30,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// American Depositary Receipt (ADR).
-    /// Encoded/decoded by serializers as "S110".
+    /// Encoded/decoded by serializers as &quot;S110&quot;.
     /// </summary>
     [EnumMember(Value = "S110")]
     [IsoId("_MmoHoZ2MEeW-bsa36JFb9A")]
@@ -39,7 +39,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Asset-Backed security (ABS) or global ABS (GABS).
-    /// Encoded/decoded by serializers as "S541".
+    /// Encoded/decoded by serializers as &quot;S541&quot;.
     /// </summary>
     [EnumMember(Value = "S541")]
     [IsoId("_MqpE8Z2MEeW-bsa36JFb9A")]
@@ -48,7 +48,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Auction Rate Preferred Stock (ARPS).
-    /// Encoded/decoded by serializers as "S102".
+    /// Encoded/decoded by serializers as &quot;S102&quot;.
     /// </summary>
     [EnumMember(Value = "S102")]
     [IsoId("_My0wkZ2MEeW-bsa36JFb9A")]
@@ -57,7 +57,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Certificated Money Market Instrument.
-    /// Encoded/decoded by serializers as "S505".
+    /// Encoded/decoded by serializers as &quot;S505&quot;.
     /// </summary>
     [EnumMember(Value = "S505")]
     [IsoId("_M342wZ2MEeW-bsa36JFb9A")]
@@ -66,7 +66,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Bearer, Callable Zero Coupon Bond.
-    /// Encoded/decoded by serializers as "S340".
+    /// Encoded/decoded by serializers as &quot;S340&quot;.
     /// </summary>
     [EnumMember(Value = "S340")]
     [IsoId("_NCvb4Z2MEeW-bsa36JFb9A")]
@@ -75,7 +75,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Certificated Money Market - Periodic Payer.
-    /// Encoded/decoded by serializers as "S506".
+    /// Encoded/decoded by serializers as &quot;S506&quot;.
     /// </summary>
     [EnumMember(Value = "S506")]
     [IsoId("_NNmoEZ2MEeW-bsa36JFb9A")]
@@ -84,7 +84,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Certificates of Deposit.
-    /// Encoded/decoded by serializers as "S507".
+    /// Encoded/decoded by serializers as &quot;S507&quot;.
     /// </summary>
     [EnumMember(Value = "S507")]
     [IsoId("_NSERUZ2MEeW-bsa36JFb9A")]
@@ -93,7 +93,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Closed End Fund.
-    /// Encoded/decoded by serializers as "S761".
+    /// Encoded/decoded by serializers as &quot;S761&quot;.
     /// </summary>
     [EnumMember(Value = "S761")]
     [IsoId("_NVpJwZ2MEeW-bsa36JFb9A")]
@@ -101,8 +101,8 @@ public enum DTCAssetType2Code
     ClosedEndFund = DTCAssetTypeCode.ClosedEndFund, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// CMO Denomination in "Units" or "Undivided Interest".
-    /// Encoded/decoded by serializers as "S040".
+    /// CMO Denomination in &quot;Units&quot; or &quot;Undivided Interest&quot;.
+    /// Encoded/decoded by serializers as &quot;S040&quot;.
     /// </summary>
     [EnumMember(Value = "S040")]
     [IsoId("_NZDqIZ2MEeW-bsa36JFb9A")]
@@ -111,7 +111,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Collateralized Mortgage Obligation or Global CMO.
-    /// Encoded/decoded by serializers as "S540".
+    /// Encoded/decoded by serializers as &quot;S540&quot;.
     /// </summary>
     [EnumMember(Value = "S540")]
     [IsoId("_NeHwUZ2MEeW-bsa36JFb9A")]
@@ -120,7 +120,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Common Stock.
-    /// Encoded/decoded by serializers as "S010".
+    /// Encoded/decoded by serializers as &quot;S010&quot;.
     /// </summary>
     [EnumMember(Value = "S010")]
     [IsoId("_NmJq8Z2MEeW-bsa36JFb9A")]
@@ -129,7 +129,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Common Stock REIT.
-    /// Encoded/decoded by serializers as "S012".
+    /// Encoded/decoded by serializers as &quot;S012&quot;.
     /// </summary>
     [EnumMember(Value = "S012")]
     [IsoId("_NqLPUZ2MEeW-bsa36JFb9A")]
@@ -138,7 +138,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Convertible Common Stock.
-    /// Encoded/decoded by serializers as "S011".
+    /// Encoded/decoded by serializers as &quot;S011&quot;.
     /// </summary>
     [EnumMember(Value = "S011")]
     [IsoId("_NuyCgZ2MEeW-bsa36JFb9A")]
@@ -147,7 +147,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Convertible Corporate Debt.
-    /// Encoded/decoded by serializers as "S572".
+    /// Encoded/decoded by serializers as &quot;S572&quot;.
     /// </summary>
     [EnumMember(Value = "S572")]
     [IsoId("_Nyp14Z2MEeW-bsa36JFb9A")]
@@ -156,7 +156,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Convertible Preferred Stock.
-    /// Encoded/decoded by serializers as "S023".
+    /// Encoded/decoded by serializers as &quot;S023&quot;.
     /// </summary>
     [EnumMember(Value = "S023")]
     [IsoId("_N1xbUZ2MEeW-bsa36JFb9A")]
@@ -165,7 +165,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate debt, subject to 144a, designated investors.
-    /// Encoded/decoded by serializers as "S545".
+    /// Encoded/decoded by serializers as &quot;S545&quot;.
     /// </summary>
     [EnumMember(Value = "S545")]
     [IsoId("_N6Y1kZ2MEeW-bsa36JFb9A")]
@@ -174,7 +174,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate Auction Rate Note.
-    /// Encoded/decoded by serializers as "S571".
+    /// Encoded/decoded by serializers as &quot;S571&quot;.
     /// </summary>
     [EnumMember(Value = "S571")]
     [IsoId("_N-Qo8Z2MEeW-bsa36JFb9A")]
@@ -183,7 +183,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate Bond (CB) or Global Corp Bond (GCB).
-    /// Encoded/decoded by serializers as "S500".
+    /// Encoded/decoded by serializers as &quot;S500&quot;.
     /// </summary>
     [EnumMember(Value = "S500")]
     [IsoId("_OCkhMZ2MEeW-bsa36JFb9A")]
@@ -192,7 +192,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate Debenture.
-    /// Encoded/decoded by serializers as "S575".
+    /// Encoded/decoded by serializers as &quot;S575&quot;.
     /// </summary>
     [EnumMember(Value = "S575")]
     [IsoId("_OPXnEZ2MEeW-bsa36JFb9A")]
@@ -201,7 +201,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate Debt Derivative.
-    /// Encoded/decoded by serializers as "S704".
+    /// Encoded/decoded by serializers as &quot;S704&quot;.
     /// </summary>
     [EnumMember(Value = "S704")]
     [IsoId("_OThuUZ2MEeW-bsa36JFb9A")]
@@ -210,7 +210,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate Insured Custodial Receipt.
-    /// Encoded/decoded by serializers as "S577".
+    /// Encoded/decoded by serializers as &quot;S577&quot;.
     /// </summary>
     [EnumMember(Value = "S577")]
     [IsoId("_OXjSsZ2MEeW-bsa36JFb9A")]
@@ -219,7 +219,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate debt, classified as other, subject to tax exempt.
-    /// Encoded/decoded by serializers as "S546".
+    /// Encoded/decoded by serializers as &quot;S546&quot;.
     /// </summary>
     [EnumMember(Value = "S546")]
     [IsoId("_OdMnsZ2MEeW-bsa36JFb9A")]
@@ -228,7 +228,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate Short-Term Note.
-    /// Encoded/decoded by serializers as "S574".
+    /// Encoded/decoded by serializers as &quot;S574&quot;.
     /// </summary>
     [EnumMember(Value = "S574")]
     [IsoId("_OjdAsZ2MEeW-bsa36JFb9A")]
@@ -237,7 +237,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate Variable Mode Obligation (CVMO).
-    /// Encoded/decoded by serializers as "S573".
+    /// Encoded/decoded by serializers as &quot;S573&quot;.
     /// </summary>
     [EnumMember(Value = "S573")]
     [IsoId("_OnnH8Z2MEeW-bsa36JFb9A")]
@@ -246,7 +246,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Corporate VRDO / Municipal VRDO (MMD).
-    /// Encoded/decoded by serializers as "S576".
+    /// Encoded/decoded by serializers as &quot;S576&quot;.
     /// </summary>
     [EnumMember(Value = "S576")]
     [IsoId("_OrosUZ2MEeW-bsa36JFb9A")]
@@ -255,7 +255,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// CPI Discount Commercial Paper (CP).
-    /// Encoded/decoded by serializers as "S520".
+    /// Encoded/decoded by serializers as &quot;S520&quot;.
     /// </summary>
     [EnumMember(Value = "S520")]
     [IsoId("_OvyzkZ2MEeW-bsa36JFb9A")]
@@ -264,7 +264,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// CPI Interest at Maturity (IAM) Commercial Paper.
-    /// Encoded/decoded by serializers as "S510".
+    /// Encoded/decoded by serializers as &quot;S510&quot;.
     /// </summary>
     [EnumMember(Value = "S510")]
     [IsoId("_O0tIwZ2MEeW-bsa36JFb9A")]
@@ -273,7 +273,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Custody User CUSIP.
-    /// Encoded/decoded by serializers as "S126".
+    /// Encoded/decoded by serializers as &quot;S126&quot;.
     /// </summary>
     [EnumMember(Value = "S126")]
     [IsoId("_P0FiIZ2MEeW-bsa36JFb9A")]
@@ -282,7 +282,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Debt Unit.
-    /// Encoded/decoded by serializers as "S781".
+    /// Encoded/decoded by serializers as &quot;S781&quot;.
     /// </summary>
     [EnumMember(Value = "S781")]
     [IsoId("_P3gpkZ2MEeW-bsa36JFb9A")]
@@ -291,7 +291,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Depositary Share.
-    /// Encoded/decoded by serializers as "S111".
+    /// Encoded/decoded by serializers as &quot;S111&quot;.
     /// </summary>
     [EnumMember(Value = "S111")]
     [IsoId("_P6yAAZ2MEeW-bsa36JFb9A")]
@@ -300,7 +300,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Equity.
-    /// Encoded/decoded by serializers as "S005".
+    /// Encoded/decoded by serializers as &quot;S005&quot;.
     /// </summary>
     [EnumMember(Value = "S005")]
     [IsoId("_P-NHcZ2MEeW-bsa36JFb9A")]
@@ -309,7 +309,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Equity, subject to 144a, designated investors.
-    /// Encoded/decoded by serializers as "S121".
+    /// Encoded/decoded by serializers as &quot;S121&quot;.
     /// </summary>
     [EnumMember(Value = "S121")]
     [IsoId("_QBoO4Z2MEeW-bsa36JFb9A")]
@@ -318,7 +318,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Equity Derivative.
-    /// Encoded/decoded by serializers as "S705".
+    /// Encoded/decoded by serializers as &quot;S705&quot;.
     /// </summary>
     [EnumMember(Value = "S705")]
     [IsoId("_QFCvQZ2MEeW-bsa36JFb9A")]
@@ -327,7 +327,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Exchange Traded Funds.
-    /// Encoded/decoded by serializers as "S117".
+    /// Encoded/decoded by serializers as &quot;S117&quot;.
     /// </summary>
     [EnumMember(Value = "S117")]
     [IsoId("_QOatsZ2MEeW-bsa36JFb9A")]
@@ -336,7 +336,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// GNMA Pass-through securities.
-    /// Encoded/decoded by serializers as "S451".
+    /// Encoded/decoded by serializers as &quot;S451&quot;.
     /// </summary>
     [EnumMember(Value = "S451")]
     [IsoId("_QR_mIZ2MEeW-bsa36JFb9A")]
@@ -344,8 +344,8 @@ public enum DTCAssetType2Code
     GNMAPassThroughSecurities = DTCAssetTypeCode.GNMAPassThroughSecurities, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Government Nat'l Mortgage Association (GNMA).
-    /// Encoded/decoded by serializers as "S650".
+    /// Government Nat&apos;l Mortgage Association (GNMA).
+    /// Encoded/decoded by serializers as &quot;S650&quot;.
     /// </summary>
     [EnumMember(Value = "S650")]
     [IsoId("_Qd5UIZ2MEeW-bsa36JFb9A")]
@@ -354,7 +354,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Government security.
-    /// Encoded/decoded by serializers as "S601".
+    /// Encoded/decoded by serializers as &quot;S601&quot;.
     /// </summary>
     [EnumMember(Value = "S601")]
     [IsoId("_Qgt-oZ2MEeW-bsa36JFb9A")]
@@ -362,8 +362,8 @@ public enum DTCAssetType2Code
     GovernmentSecurity = DTCAssetTypeCode.GovernmentSecurity, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Issue Denomination in "Units" or "Undivided Interest".
-    /// Encoded/decoded by serializers as "S042".
+    /// Issue Denomination in &quot;Units&quot; or &quot;Undivided Interest&quot;.
+    /// Encoded/decoded by serializers as &quot;S042&quot;.
     /// </summary>
     [EnumMember(Value = "S042")]
     [IsoId("_QpzCIZ2MEeW-bsa36JFb9A")]
@@ -372,7 +372,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Equity Unit.
-    /// Encoded/decoded by serializers as "S780".
+    /// Encoded/decoded by serializers as &quot;S780&quot;.
     /// </summary>
     [EnumMember(Value = "S780")]
     [IsoId("_Q40VkZ2MEeW-bsa36JFb9A")]
@@ -381,7 +381,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Global Unit Trust.
-    /// Encoded/decoded by serializers as "S791".
+    /// Encoded/decoded by serializers as &quot;S791&quot;.
     /// </summary>
     [EnumMember(Value = "S791")]
     [IsoId("_RBJyMZ2MEeW-bsa36JFb9A")]
@@ -390,7 +390,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// GNMA Serial note securities.
-    /// Encoded/decoded by serializers as "S452".
+    /// Encoded/decoded by serializers as &quot;S452&quot;.
     /// </summary>
     [EnumMember(Value = "S452")]
     [IsoId("_ROY88Z2MEeW-bsa36JFb9A")]
@@ -399,7 +399,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// GNMA Serial Note.
-    /// Encoded/decoded by serializers as "S652".
+    /// Encoded/decoded by serializers as &quot;S652&quot;.
     /// </summary>
     [EnumMember(Value = "S652")]
     [IsoId("_RTdDIZ2MEeW-bsa36JFb9A")]
@@ -408,7 +408,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// GNMA REMIC securities.
-    /// Encoded/decoded by serializers as "S450".
+    /// Encoded/decoded by serializers as &quot;S450&quot;.
     /// </summary>
     [EnumMember(Value = "S450")]
     [IsoId("_RXUPcZ2MEeW-bsa36JFb9A")]
@@ -417,7 +417,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Government Trust Certificate.
-    /// Encoded/decoded by serializers as "S602".
+    /// Encoded/decoded by serializers as &quot;S602&quot;.
     /// </summary>
     [EnumMember(Value = "S602")]
     [IsoId("_Rok-kZ2MEeW-bsa36JFb9A")]
@@ -426,7 +426,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// (IMMI) Institutional MMI Mutual Fund Shares.
-    /// Encoded/decoded by serializers as "S762".
+    /// Encoded/decoded by serializers as &quot;S762&quot;.
     /// </summary>
     [EnumMember(Value = "S762")]
     [IsoId("_Rsl74Z2MEeW-bsa36JFb9A")]
@@ -435,7 +435,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Junk and Treasury Growth Receipt (JGR).
-    /// Encoded/decoded by serializers as "S603".
+    /// Encoded/decoded by serializers as &quot;S603&quot;.
     /// </summary>
     [EnumMember(Value = "S603")]
     [IsoId("_Rx89AZ2MEeW-bsa36JFb9A")]
@@ -444,7 +444,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Limited Partnership.
-    /// Encoded/decoded by serializers as "S030".
+    /// Encoded/decoded by serializers as &quot;S030&quot;.
     /// </summary>
     [EnumMember(Value = "S030")]
     [IsoId("_R10JUZ2MEeW-bsa36JFb9A")]
@@ -452,8 +452,8 @@ public enum DTCAssetType2Code
     LimitedPartnership = DTCAssetTypeCode.LimitedPartnership, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// MMI Bankers' Acceptance Note (BA).
-    /// Encoded/decoded by serializers as "S502".
+    /// MMI Bankers&apos; Acceptance Note (BA).
+    /// Encoded/decoded by serializers as &quot;S502&quot;.
     /// </summary>
     [EnumMember(Value = "S502")]
     [IsoId("_R6IooZ2MEeW-bsa36JFb9A")]
@@ -462,7 +462,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Corporate Commercial Paper.
-    /// Encoded/decoded by serializers as "S525".
+    /// Encoded/decoded by serializers as &quot;S525&quot;.
     /// </summary>
     [EnumMember(Value = "S525")]
     [IsoId("_R9Z_EZ2MEeW-bsa36JFb9A")]
@@ -471,7 +471,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Corporate VRDO/CP.
-    /// Encoded/decoded by serializers as "S526".
+    /// Encoded/decoded by serializers as &quot;S526&quot;.
     /// </summary>
     [EnumMember(Value = "S526")]
     [IsoId("_SA-QcZ2MEeW-bsa36JFb9A")]
@@ -480,7 +480,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Deposit Note.
-    /// Encoded/decoded by serializers as "S531".
+    /// Encoded/decoded by serializers as &quot;S531&quot;.
     /// </summary>
     [EnumMember(Value = "S531")]
     [IsoId("_SEZX4Z2MEeW-bsa36JFb9A")]
@@ -489,7 +489,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Discount Note.
-    /// Encoded/decoded by serializers as "S560".
+    /// Encoded/decoded by serializers as &quot;S560&quot;.
     /// </summary>
     [EnumMember(Value = "S560")]
     [IsoId("_SI3BIZ2MEeW-bsa36JFb9A")]
@@ -498,7 +498,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Institutional Certificates of Deposit.
-    /// Encoded/decoded by serializers as "S504".
+    /// Encoded/decoded by serializers as &quot;S504&quot;.
     /// </summary>
     [EnumMember(Value = "S504")]
     [IsoId("_SM4lgZ2MEeW-bsa36JFb9A")]
@@ -507,7 +507,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Medium-Term Bank Note.
-    /// Encoded/decoded by serializers as "S532".
+    /// Encoded/decoded by serializers as &quot;S532&quot;.
     /// </summary>
     [EnumMember(Value = "S532")]
     [IsoId("_SRMdwZ2MEeW-bsa36JFb9A")]
@@ -516,7 +516,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Medium Term Note.
-    /// Encoded/decoded by serializers as "S533".
+    /// Encoded/decoded by serializers as &quot;S533&quot;.
     /// </summary>
     [EnumMember(Value = "S533")]
     [IsoId("_Ty79UZ2MEeW-bsa36JFb9A")]
@@ -525,7 +525,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Municipal Commercial Paper.
-    /// Encoded/decoded by serializers as "S330".
+    /// Encoded/decoded by serializers as &quot;S330&quot;.
     /// </summary>
     [EnumMember(Value = "S330")]
     [IsoId("_T32SgZ2MEeW-bsa36JFb9A")]
@@ -534,7 +534,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Municipal VRDO/CP.
-    /// Encoded/decoded by serializers as "S320".
+    /// Encoded/decoded by serializers as &quot;S320&quot;.
     /// </summary>
     [EnumMember(Value = "S320")]
     [IsoId("_T8Kx0Z2MEeW-bsa36JFb9A")]
@@ -543,7 +543,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Preferred Stock (in CP-like mode).
-    /// Encoded/decoded by serializers as "S120".
+    /// Encoded/decoded by serializers as &quot;S120&quot;.
     /// </summary>
     [EnumMember(Value = "S120")]
     [IsoId("_UALvIZ2MEeW-bsa36JFb9A")]
@@ -552,7 +552,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MMI Short-Term Bank Note.
-    /// Encoded/decoded by serializers as "S550".
+    /// Encoded/decoded by serializers as &quot;S550&quot;.
     /// </summary>
     [EnumMember(Value = "S550")]
     [IsoId("_UEWdcZ2MEeW-bsa36JFb9A")]
@@ -561,7 +561,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// MTN Medium Term Note.
-    /// Encoded/decoded by serializers as "S530".
+    /// Encoded/decoded by serializers as &quot;S530&quot;.
     /// </summary>
     [EnumMember(Value = "S530")]
     [IsoId("_UIgksZ2MEeW-bsa36JFb9A")]
@@ -570,7 +570,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Amortized Issue.
-    /// Encoded/decoded by serializers as "S708".
+    /// Encoded/decoded by serializers as &quot;S708&quot;.
     /// </summary>
     [EnumMember(Value = "S708")]
     [IsoId("_UNa54Z2MEeW-bsa36JFb9A")]
@@ -579,7 +579,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Auction Rate Note (ARN).
-    /// Encoded/decoded by serializers as "S312".
+    /// Encoded/decoded by serializers as &quot;S312&quot;.
     /// </summary>
     [EnumMember(Value = "S312")]
     [IsoId("_USLeEZ2MEeW-bsa36JFb9A")]
@@ -588,7 +588,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Bond.
-    /// Encoded/decoded by serializers as "S310".
+    /// Encoded/decoded by serializers as &quot;S310&quot;.
     /// </summary>
     [EnumMember(Value = "S310")]
     [IsoId("_UVdbkZ2MEeW-bsa36JFb9A")]
@@ -597,7 +597,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Derivative.
-    /// Encoded/decoded by serializers as "S706".
+    /// Encoded/decoded by serializers as &quot;S706&quot;.
     /// </summary>
     [EnumMember(Value = "S706")]
     [IsoId("_UZBs8Z2MEeW-bsa36JFb9A")]
@@ -606,7 +606,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Insured Custodial Receipt.
-    /// Encoded/decoded by serializers as "S315".
+    /// Encoded/decoded by serializers as &quot;S315&quot;.
     /// </summary>
     [EnumMember(Value = "S315")]
     [IsoId("_UcvvUZ2MEeW-bsa36JFb9A")]
@@ -615,7 +615,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Note.
-    /// Encoded/decoded by serializers as "S311".
+    /// Encoded/decoded by serializers as &quot;S311&quot;.
     /// </summary>
     [EnumMember(Value = "S311")]
     [IsoId("_UgUAsZ2MEeW-bsa36JFb9A")]
@@ -624,7 +624,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal debt, classified as other, subject to tax exempt.
-    /// Encoded/decoded by serializers as "S346".
+    /// Encoded/decoded by serializers as &quot;S346&quot;.
     /// </summary>
     [EnumMember(Value = "S346")]
     [IsoId("_UkCDEZ2MEeW-bsa36JFb9A")]
@@ -633,7 +633,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Option Call Right.
-    /// Encoded/decoded by serializers as "S112".
+    /// Encoded/decoded by serializers as &quot;S112&quot;.
     /// </summary>
     [EnumMember(Value = "S112")]
     [IsoId("_Up1wIZ2MEeW-bsa36JFb9A")]
@@ -642,7 +642,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Variable Mode Obligation (VMO).
-    /// Encoded/decoded by serializers as "S313".
+    /// Encoded/decoded by serializers as &quot;S313&quot;.
     /// </summary>
     [EnumMember(Value = "S313")]
     [IsoId("_U6gCUZ2MEeW-bsa36JFb9A")]
@@ -651,7 +651,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Municipal Variable Rate Demand Obligation (VRDO).
-    /// Encoded/decoded by serializers as "S314".
+    /// Encoded/decoded by serializers as &quot;S314&quot;.
     /// </summary>
     [EnumMember(Value = "S314")]
     [IsoId("_U-g_oZ2MEeW-bsa36JFb9A")]
@@ -660,7 +660,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Mutual Fund.
-    /// Encoded/decoded by serializers as "S760".
+    /// Encoded/decoded by serializers as &quot;S760&quot;.
     /// </summary>
     [EnumMember(Value = "S760")]
     [IsoId("_VC1e8Z2MEeW-bsa36JFb9A")]
@@ -669,7 +669,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Non-CMO/ABS Amortizing Issue.
-    /// Encoded/decoded by serializers as "S542".
+    /// Encoded/decoded by serializers as &quot;S542&quot;.
     /// </summary>
     [EnumMember(Value = "S542")]
     [IsoId("_VHJXMZ2MEeW-bsa36JFb9A")]
@@ -678,7 +678,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Non standard asset user CUSIP.
-    /// Encoded/decoded by serializers as "S127".
+    /// Encoded/decoded by serializers as &quot;S127&quot;.
     /// </summary>
     [EnumMember(Value = "S127")]
     [IsoId("_VLKUgZ2MEeW-bsa36JFb9A")]
@@ -687,7 +687,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Option Derivative.
-    /// Encoded/decoded by serializers as "S710".
+    /// Encoded/decoded by serializers as &quot;S710&quot;.
     /// </summary>
     [EnumMember(Value = "S710")]
     [IsoId("_VRQ8gZ2MEeW-bsa36JFb9A")]
@@ -696,7 +696,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Package.
-    /// Encoded/decoded by serializers as "S700".
+    /// Encoded/decoded by serializers as &quot;S700&quot;.
     /// </summary>
     [EnumMember(Value = "S700")]
     [IsoId("_VVulwZ2MEeW-bsa36JFb9A")]
@@ -705,7 +705,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Periodic Payment Commercial Paper.
-    /// Encoded/decoded by serializers as "S511".
+    /// Encoded/decoded by serializers as &quot;S511&quot;.
     /// </summary>
     [EnumMember(Value = "S511")]
     [IsoId("_VaCeAZ2MEeW-bsa36JFb9A")]
@@ -714,7 +714,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Preferred Stock.
-    /// Encoded/decoded by serializers as "S020".
+    /// Encoded/decoded by serializers as &quot;S020&quot;.
     /// </summary>
     [EnumMember(Value = "S020")]
     [IsoId("_VeECYZ2MEeW-bsa36JFb9A")]
@@ -723,7 +723,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Preferred Stock REIT.
-    /// Encoded/decoded by serializers as "S022".
+    /// Encoded/decoded by serializers as &quot;S022&quot;.
     /// </summary>
     [EnumMember(Value = "S022")]
     [IsoId("_VjaccZ2MEeW-bsa36JFb9A")]
@@ -732,7 +732,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Real-Estate Investment Trust (REIT).
-    /// Encoded/decoded by serializers as "S130".
+    /// Encoded/decoded by serializers as &quot;S130&quot;.
     /// </summary>
     [EnumMember(Value = "S130")]
     [IsoId("_WCp9MZ2MEeW-bsa36JFb9A")]
@@ -741,7 +741,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// REMIC (Real Estate Mortgage Investment Conduit).
-    /// Encoded/decoded by serializers as "S651".
+    /// Encoded/decoded by serializers as &quot;S651&quot;.
     /// </summary>
     [EnumMember(Value = "S651")]
     [IsoId("_WF7ToZ2MEeW-bsa36JFb9A")]
@@ -750,7 +750,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Right.
-    /// Encoded/decoded by serializers as "S730".
+    /// Encoded/decoded by serializers as &quot;S730&quot;.
     /// </summary>
     [EnumMember(Value = "S730")]
     [IsoId("_WJNRIZ2MEeW-bsa36JFb9A")]
@@ -759,7 +759,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Sealed Envelope.
-    /// Encoded/decoded by serializers as "S125".
+    /// Encoded/decoded by serializers as &quot;S125&quot;.
     /// </summary>
     [EnumMember(Value = "S125")]
     [IsoId("_WN0EUZ2MEeW-bsa36JFb9A")]
@@ -768,7 +768,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Tender Rate Note.
-    /// Encoded/decoded by serializers as "S578".
+    /// Encoded/decoded by serializers as &quot;S578&quot;.
     /// </summary>
     [EnumMember(Value = "S578")]
     [IsoId("_WX7poZ2MEeW-bsa36JFb9A")]
@@ -777,7 +777,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Tender Rate Preferred Stock.
-    /// Encoded/decoded by serializers as "S024".
+    /// Encoded/decoded by serializers as &quot;S024&quot;.
     /// </summary>
     [EnumMember(Value = "S024")]
     [IsoId("_Wb8m8Z2MEeW-bsa36JFb9A")]
@@ -786,7 +786,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Unit Investment Trust (UIT).
-    /// Encoded/decoded by serializers as "S795".
+    /// Encoded/decoded by serializers as &quot;S795&quot;.
     /// </summary>
     [EnumMember(Value = "S795")]
     [IsoId("_WgHVQZ2MEeW-bsa36JFb9A")]
@@ -795,7 +795,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Unit Investment Trust (UIT) - Nuveen Only.
-    /// Encoded/decoded by serializers as "S790".
+    /// Encoded/decoded by serializers as &quot;S790&quot;.
     /// </summary>
     [EnumMember(Value = "S790")]
     [IsoId("_Wj1XoZ2MEeW-bsa36JFb9A")]
@@ -804,7 +804,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// U.S. government agency security.
-    /// Encoded/decoded by serializers as "S620".
+    /// Encoded/decoded by serializers as &quot;S620&quot;.
     /// </summary>
     [EnumMember(Value = "S620")]
     [IsoId("_Wn2U8Z2MEeW-bsa36JFb9A")]
@@ -813,7 +813,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// US Treasury Bill.
-    /// Encoded/decoded by serializers as "S611".
+    /// Encoded/decoded by serializers as &quot;S611&quot;.
     /// </summary>
     [EnumMember(Value = "S611")]
     [IsoId("_WsT-MZ2MEeW-bsa36JFb9A")]
@@ -822,7 +822,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// US Treasury Bond.
-    /// Encoded/decoded by serializers as "S613".
+    /// Encoded/decoded by serializers as &quot;S613&quot;.
     /// </summary>
     [EnumMember(Value = "S613")]
     [IsoId("_WwodgZ2MEeW-bsa36JFb9A")]
@@ -831,7 +831,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// U.S. Treasury security.
-    /// Encoded/decoded by serializers as "S610".
+    /// Encoded/decoded by serializers as &quot;S610&quot;.
     /// </summary>
     [EnumMember(Value = "S610")]
     [IsoId("_W0pa0Z2MEeW-bsa36JFb9A")]
@@ -840,7 +840,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// US Treasury Note.
-    /// Encoded/decoded by serializers as "S612".
+    /// Encoded/decoded by serializers as &quot;S612&quot;.
     /// </summary>
     [EnumMember(Value = "S612")]
     [IsoId("_W6mR0Z2MEeW-bsa36JFb9A")]
@@ -849,7 +849,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Warrant.
-    /// Encoded/decoded by serializers as "S720".
+    /// Encoded/decoded by serializers as &quot;S720&quot;.
     /// </summary>
     [EnumMember(Value = "S720")]
     [IsoId("_W_9S8Z2MEeW-bsa36JFb9A")]
@@ -858,7 +858,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Z CPN Denomination in Initial Principal Amt.
-    /// Encoded/decoded by serializers as "S551".
+    /// Encoded/decoded by serializers as &quot;S551&quot;.
     /// </summary>
     [EnumMember(Value = "S551")]
     [IsoId("_XGDT4Z2MEeW-bsa36JFb9A")]
@@ -867,7 +867,7 @@ public enum DTCAssetType2Code
     
     /// <summary>
     /// Zero Coupon Bond.
-    /// Encoded/decoded by serializers as "S579".
+    /// Encoded/decoded by serializers as &quot;S579&quot;.
     /// </summary>
     [EnumMember(Value = "S579")]
     [IsoId("_XJxWQZ2MEeW-bsa36JFb9A")]

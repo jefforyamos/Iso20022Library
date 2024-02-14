@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the reservation query criteria.
 /// </summary>
 [IsoId("_xW4kEQy_Ee2Wmf2RrXviyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reservation Query")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReservationQuery5
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
     [IsoId("_xghoQQy_Ee2Wmf2RrXviyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryTp")]
     #endif
+    [IsoXmlTag("QryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QueryType2Code? QueryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ReservationQuery5
     /// Defines the reservation query criteria.
     /// </summary>
     [IsoId("_xghoQwy_Ee2Wmf2RrXviyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsvatnCrit")]
     #endif
+    [IsoXmlTag("RsvatnCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReservationCriteria5Choice_? ReservationCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

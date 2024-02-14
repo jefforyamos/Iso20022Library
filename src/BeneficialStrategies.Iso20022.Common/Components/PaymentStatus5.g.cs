@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the payment transaction status and optionally the reason for that status. 
 /// </summary>
 [IsoId("_Gkqk8KXXEeaBtJ1HvhzRtg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PaymentStatus5
     /// Provides more details on the status in process.
     /// </summary>
     [IsoId("_chNUwaXXEeaBtJ1HvhzRtg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIndividualStatus4Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIndividualStatus4Code Status { get; init; } 
+    public required TransactionIndividualStatus4Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIndividualStatus4Code Status { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PaymentStatus5
     /// Contains optionally the reason for the status of a payment transaction.
     /// </summary>
     [IsoId("_7hBb4KXXEeaBtJ1HvhzRtg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentStatusReason2Code? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

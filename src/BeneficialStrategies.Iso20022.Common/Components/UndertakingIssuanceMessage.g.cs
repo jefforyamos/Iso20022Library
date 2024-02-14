@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contents of the related UndertakingIssuance message or of the related issuance document.
 /// </summary>
 [IsoId("_98U8CHltEeG7BsjMvd1mEw_1927881342")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Issuance Message")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record UndertakingIssuanceMessage
     /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be collected on the presentation of documents that comply with its terms and conditions.
     /// </summary>
     [IsoId("_98eF8HltEeG7BsjMvd1mEw_-650001851")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgDtls")]
     #endif
+    [IsoXmlTag("UdrtkgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking3 UndertakingDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Undertaking3 UndertakingDetails { get; init; } 
+    public required Undertaking3 UndertakingDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Undertaking3 UndertakingDetails { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record UndertakingIssuanceMessage
     /// Digital signature of the issued undertaking.
     /// </summary>
     [IsoId("_98eF8XltEeG7BsjMvd1mEw_410132243")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

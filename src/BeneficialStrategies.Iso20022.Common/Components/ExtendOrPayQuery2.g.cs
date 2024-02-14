@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Undertaking extend or pay query details.
 /// </summary>
 [IsoId("_-Dxn0nltEeG7BsjMvd1mEw_1814093000")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Extend Or Pay Query")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ExtendOrPayQuery2
     /// Details related to the identification of the undertaking.
     /// </summary>
     [IsoId("_-Dxn03ltEeG7BsjMvd1mEw_1205315845")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgId")]
     #endif
+    [IsoXmlTag("UdrtkgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking9 UndertakingIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Undertaking9 UndertakingIdentification { get; init; } 
+    public required Undertaking9 UndertakingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Undertaking9 UndertakingIdentification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ExtendOrPayQuery2
     /// Details related to the demand.
     /// </summary>
     [IsoId("_-Dxn1HltEeG7BsjMvd1mEw_812048330")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demand Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmndDtls")]
     #endif
+    [IsoXmlTag("DmndDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Demand4 DemandDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Demand4 DemandDetails { get; init; } 
+    public required Demand4 DemandDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Demand4 DemandDetails { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ExtendOrPayQuery2
     /// Processing status reported by the applicant.
     /// </summary>
     [IsoId("_-Dxn1XltEeG7BsjMvd1mEw_-1345817899")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DemandStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DemandStatus1Code Status { get; init; } 
+    public required DemandStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DemandStatus1Code Status { get; init; } 
     #else

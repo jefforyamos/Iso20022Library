@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PoliticalExposureType1Choice
     /// Type of political exposure expressed as a code.
     /// </summary>
     [IsoId("_rL9LMBRvEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PoliticalExposureType1Choice
         /// Specifies the political exposure type.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PoliticalExposureType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PoliticalExposureType1Code Value { get; init; } 
+        public required PoliticalExposureType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PoliticalExposureType1Code Value { get; init; } 
         #else

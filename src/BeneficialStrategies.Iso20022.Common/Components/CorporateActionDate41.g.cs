@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies corporate action dates.
 /// </summary>
 [IsoId("_UqUT7VhsEeS5jeC8QHrlrg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionDate41
     /// Date/time at which positions are struck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date.
     /// </summary>
     [IsoId("_VF1yQ1hsEeS5jeC8QHrlrg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcrdDt")]
     #endif
+    [IsoXmlTag("RcrdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? RecordDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionDate41
     /// Date/time as from which trading (including exchange and OTC trading) occurs on the underlying security without the benefit.
     /// </summary>
     [IsoId("_VF1yS1hsEeS5jeC8QHrlrg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ex Dividend Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExDvddDt")]
     #endif
+    [IsoXmlTag("ExDvddDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? ExDividendDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +73,14 @@ public partial record CorporateActionDate41
     #endif
     
     /// <summary>
-    /// Date/time on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
+    /// Date/time on which the lottery is run and applied to the holder&apos;s positions. This is also applicable to partial calls.
     /// </summary>
     [IsoId("_Z7AKZFhsEeS5jeC8QHrlrg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lottery Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtryDt")]
     #endif
+    [IsoXmlTag("LtryDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat19Choice_? LotteryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

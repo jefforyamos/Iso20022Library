@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reports either on a member or a business error.
 /// </summary>
 [IsoId("_jmCflXSbEeiH1ZOt2UD8vQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Member Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record MemberReport5
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
     [IsoId("_j3hRIXSbEeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MmbId")]
     #endif
+    [IsoXmlTag("MmbId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MemberIdentification3Choice_ MemberIdentification { get; init; } 
+    public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MemberIdentification3Choice_ MemberIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record MemberReport5
     /// Reports either on a member or a business error.
     /// </summary>
     [IsoId("_j3hRI3SbEeiH1ZOt2UD8vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Member Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MmbOrErr")]
     #endif
+    [IsoXmlTag("MmbOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MemberReportOrError6Choice_ MemberOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MemberReportOrError6Choice_ MemberOrError { get; init; } 
+    public required MemberReportOrError6Choice_ MemberOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MemberReportOrError6Choice_ MemberOrError { get; init; } 
     #else

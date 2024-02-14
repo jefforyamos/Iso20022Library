@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum DeniedReasonCode
 {
     /// <summary>
-    /// Received after the account servicer's deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_avuQENp-Ed-ak6NoX_4Aeg_-249519437")]
@@ -30,7 +30,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Repo call request was denied since another call already applies.
-    /// Encoded/decoded by serializers as "DCAL".
+    /// Encoded/decoded by serializers as &quot;DCAL&quot;.
     /// </summary>
     [EnumMember(Value = "DCAL")]
     [IsoId("_avuQEdp-Ed-ak6NoX_4Aeg_-1424710462")]
@@ -39,7 +39,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Cancellation request was denied since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "DCAN".
+    /// Encoded/decoded by serializers as &quot;DCAN&quot;.
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_avuQEtp-Ed-ak6NoX_4Aeg_-2129825077")]
@@ -48,7 +48,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Repo call request was denied. Call not allowed on the concerned repo, for example, out of delay.
-    /// Encoded/decoded by serializers as "DFOR".
+    /// Encoded/decoded by serializers as &quot;DFOR&quot;.
     /// </summary>
     [EnumMember(Value = "DFOR")]
     [IsoId("_avuQE9p-Ed-ak6NoX_4Aeg_-484557642")]
@@ -57,7 +57,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Cancellation request was denied because the process of settlement is in progress.
-    /// Encoded/decoded by serializers as "DPRG".
+    /// Encoded/decoded by serializers as &quot;DPRG&quot;.
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_avuQFNp-Ed-ak6NoX_4Aeg_1054230800")]
@@ -66,7 +66,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Cancellation request was denied because the repo was cancelled.
-    /// Encoded/decoded by serializers as "DREP".
+    /// Encoded/decoded by serializers as &quot;DREP&quot;.
     /// </summary>
     [EnumMember(Value = "DREP")]
     [IsoId("_avuQFdp-Ed-ak6NoX_4Aeg_-120960225")]
@@ -75,7 +75,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Cancellation request was denied because the instruction was already settled.
-    /// Encoded/decoded by serializers as "DSET".
+    /// Encoded/decoded by serializers as &quot;DSET&quot;.
     /// </summary>
     [EnumMember(Value = "DSET")]
     [IsoId("_avuQFtp-Ed-ak6NoX_4Aeg_-826074840")]
@@ -84,7 +84,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Instruction has been processed and cannot be cancelled.
-    /// Encoded/decoded by serializers as "IPNC".
+    /// Encoded/decoded by serializers as &quot;IPNC&quot;.
     /// </summary>
     [EnumMember(Value = "IPNC")]
     [IsoId("_avuQF9p-Ed-ak6NoX_4Aeg_819192595")]
@@ -93,7 +93,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_avuQGNp-Ed-ak6NoX_4Aeg_-1936986259")]
@@ -102,7 +102,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_av4BENp-Ed-ak6NoX_4Aeg_867114818")]
@@ -111,7 +111,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Execution is denied due to a process linked to the currency of the transaction.
-    /// Encoded/decoded by serializers as "CDCY".
+    /// Encoded/decoded by serializers as &quot;CDCY&quot;.
     /// </summary>
     [EnumMember(Value = "CDCY")]
     [IsoId("_av4BEdp-Ed-ak6NoX_4Aeg_1439058584")]
@@ -120,7 +120,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Execution is denied due to the execution of a process of realignment at the issuer CSD.
-    /// Encoded/decoded by serializers as "CDRE".
+    /// Encoded/decoded by serializers as &quot;CDRE&quot;.
     /// </summary>
     [EnumMember(Value = "CDRE")]
     [IsoId("_av4BEtp-Ed-ak6NoX_4Aeg_150028493")]
@@ -129,7 +129,7 @@ public enum DeniedReasonCode
     
     /// <summary>
     /// Execution is denied due to the execution of a process at the registrar.
-    /// Encoded/decoded by serializers as "CDRG".
+    /// Encoded/decoded by serializers as &quot;CDRG&quot;.
     /// </summary>
     [EnumMember(Value = "CDRG")]
     [IsoId("_av4BE9p-Ed-ak6NoX_4Aeg_-668925188")]

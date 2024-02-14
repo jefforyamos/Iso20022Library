@@ -21,7 +21,7 @@ public enum RegistrationProcessingStatus1Code
 {
     /// <summary>
     /// Registration has been acknowledged/accepted by the issuer/registrar.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZbFYYdp-Ed-ak6NoX_4Aeg_-586829178")]
@@ -30,7 +30,7 @@ public enum RegistrationProcessingStatus1Code
     
     /// <summary>
     /// Registration has been rejected by the issuer/registrar.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_ZbFYYtp-Ed-ak6NoX_4Aeg_-586829177")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice
     /// Details specific for a credit derivative.
     /// </summary>
     [IsoId("_IpSbkWkwEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

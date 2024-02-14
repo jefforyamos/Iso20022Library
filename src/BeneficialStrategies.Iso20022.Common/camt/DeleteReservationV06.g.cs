@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The DeleteReservation message is used to request the deletion of one particular reservation by the member and managed by the transaction administrator.|Usage|The deletion of a reservation in the system, will not only reset the reserved liquidity to zero, but also delete the reservation itself from the system: only the default reservation for the current business day remains in the system.")]
 [IsoId("_ThNXx9b6Eeq_l4BJLVUF2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Delete Reservation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record DeleteReservationV06 : IOuterRecord<DeleteReservationV06,D
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_ThNXzdb6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record DeleteReservationV06 : IOuterRecord<DeleteReservationV06,D
     /// Identifies the current reservation to delete.
     /// </summary>
     [IsoId("_ThNXz9b6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Reservation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurRsvatn")]
     #endif
+    [IsoXmlTag("CurRsvatn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReservationIdentification3? CurrentReservation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record DeleteReservationV06 : IOuterRecord<DeleteReservationV06,D
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_ThNX0db6Eeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record DeleteReservationV06 : IOuterRecord<DeleteReservationV06,D
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DeleteReservationV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DeleteReservationV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DeleteReservationV06Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record DeleteReservationV06 : IOuterRecord<DeleteReservationV06,D
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DeleteReservationV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DeleteReservationV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DeleteReservationV06Document : IOuterDocument<DeleteReservationV06>
@@ -158,7 +153,7 @@ public partial record DeleteReservationV06Document : IOuterDocument<DeleteReserv
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DeleteReservationV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DeleteReservationV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeleteReservationV06 Message { get; init; }

@@ -21,7 +21,7 @@ public enum CardholderVerificationCapability3Code
 {
     /// <summary>
     /// Online PIN (Personal Identification Number).
-    /// Encoded/decoded by serializers as "NPIN".
+    /// Encoded/decoded by serializers as &quot;NPIN&quot;.
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_uI4vAYn7EeShMpas3885ww")]
@@ -30,7 +30,7 @@ public enum CardholderVerificationCapability3Code
     
     /// <summary>
     /// Offline PIN in clear (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FCPN".
+    /// Encoded/decoded by serializers as &quot;FCPN&quot;.
     /// </summary>
     [EnumMember(Value = "FCPN")]
     [IsoId("_v1O8EYn7EeShMpas3885ww")]
@@ -39,7 +39,7 @@ public enum CardholderVerificationCapability3Code
     
     /// <summary>
     /// Offline PIN encrypted (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FEPN".
+    /// Encoded/decoded by serializers as &quot;FEPN&quot;.
     /// </summary>
     [EnumMember(Value = "FEPN")]
     [IsoId("_v7pGEYn7EeShMpas3885ww")]
@@ -48,7 +48,7 @@ public enum CardholderVerificationCapability3Code
     
     /// <summary>
     /// Offline digital signature analysis.
-    /// Encoded/decoded by serializers as "FDSG".
+    /// Encoded/decoded by serializers as &quot;FDSG&quot;.
     /// </summary>
     [EnumMember(Value = "FDSG")]
     [IsoId("_xFjUcYn7EeShMpas3885ww")]
@@ -57,7 +57,7 @@ public enum CardholderVerificationCapability3Code
     
     /// <summary>
     /// Offline biometrics.
-    /// Encoded/decoded by serializers as "FBIO".
+    /// Encoded/decoded by serializers as &quot;FBIO&quot;.
     /// </summary>
     [EnumMember(Value = "FBIO")]
     [IsoId("_x1FT8Yn7EeShMpas3885ww")]
@@ -66,7 +66,7 @@ public enum CardholderVerificationCapability3Code
     
     /// <summary>
     /// Offline biographics.
-    /// Encoded/decoded by serializers as "FBIG".
+    /// Encoded/decoded by serializers as &quot;FBIG&quot;.
     /// </summary>
     [EnumMember(Value = "FBIG")]
     [IsoId("_x6xsQYn7EeShMpas3885ww")]
@@ -75,7 +75,7 @@ public enum CardholderVerificationCapability3Code
     
     /// <summary>
     /// PKI (Public Key Infrastructure) based digital signature.
-    /// Encoded/decoded by serializers as "PKIS".
+    /// Encoded/decoded by serializers as &quot;PKIS&quot;.
     /// </summary>
     [EnumMember(Value = "PKIS")]
     [IsoId("_ylWTQYn7EeShMpas3885ww")]
@@ -84,7 +84,7 @@ public enum CardholderVerificationCapability3Code
     
     /// <summary>
     /// Personal code of the customer for banking services.
-    /// Encoded/decoded by serializers as "PCOD".
+    /// Encoded/decoded by serializers as &quot;PCOD&quot;.
     /// </summary>
     [EnumMember(Value = "PCOD")]
     [IsoId("_zQIVoYn7EeShMpas3885ww")]

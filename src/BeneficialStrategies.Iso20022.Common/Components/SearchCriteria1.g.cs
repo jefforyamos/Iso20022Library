@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Eligibility parameters for a transaction to be part of transaction report.
 /// </summary>
 [IsoId("_5HATgN6PEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SearchCriteria1
     /// List of criteria following the OR logic.
     /// </summary>
     [IsoId("_APMeMN6QEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Or")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchOr")]
     #endif
+    [IsoXmlTag("SchOr")]
     public SearchOr1? SearchOr { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _APMeMN6QEeiwsev40qZGEQ
     

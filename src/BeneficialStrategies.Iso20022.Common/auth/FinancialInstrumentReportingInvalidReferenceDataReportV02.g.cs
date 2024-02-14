@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The FinancialInstrumentReportingInvalidReferenceDataReport message is sent by the trading venue to the national competent authority to report on all records that have become invalid based on updates that have been received or that have passed the termination date original set for the instrument.")]
 [IsoId("_vXohoSdoEei12pGEsJIAeQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Reporting Invalid Reference Data Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     /// Within MiFIR, only the From Date To Date field will be used with the From Date corresponding to the date the first instrument was added to this report while the To Date is the date the last instrument was added to the file.
     /// </summary>
     [IsoId("_vXohoydoEei12pGEsJIAeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtPrd")]
     #endif
+    [IsoXmlTag("DtPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4Choice_ DatePeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Period4Choice_ DatePeriod { get; init; } 
+    public required Period4Choice_ DatePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Period4Choice_ DatePeriod { get; init; } 
     #else
@@ -98,12 +95,12 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     /// Number of invalid records in this message.
     /// </summary>
     [IsoId("_vXohpSdoEei12pGEsJIAeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Records")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfRcrds")]
     #endif
+    [IsoXmlTag("NbOfRcrds")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfRecords { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,16 +113,15 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     /// Provides the details of the financial instruments.
     /// </summary>
     [IsoId("_vXohpydoEei12pGEsJIAeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instruments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrms")]
     #endif
+    [IsoXmlTag("FinInstrms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesInvalidReferenceDataReport4 FinancialInstruments { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesInvalidReferenceDataReport4 FinancialInstruments { get; init; } 
+    public required SecuritiesInvalidReferenceDataReport4 FinancialInstruments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesInvalidReferenceDataReport4 FinancialInstruments { get; init; } 
     #else
@@ -136,12 +132,11 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_vXohqSdoEei12pGEsJIAeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,7 +149,7 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInstrumentReportingInvalidReferenceDataReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInstrumentReportingInvalidReferenceDataReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInstrumentReportingInvalidReferenceDataReportV02Document ToDocument()
     {
@@ -164,7 +159,7 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstrumentReportingInvalidReferenceDataReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInstrumentReportingInvalidReferenceDataReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02Document : IOuterDocument<FinancialInstrumentReportingInvalidReferenceDataReportV02>
@@ -181,7 +176,7 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02D
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInstrumentReportingInvalidReferenceDataReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInstrumentReportingInvalidReferenceDataReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentReportingInvalidReferenceDataReportV02 Message { get; init; }

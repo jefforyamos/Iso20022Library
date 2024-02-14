@@ -21,7 +21,7 @@ public enum CardPaymentServiceType14Code
 {
     /// <summary>
     /// Initial reservation.
-    /// Encoded/decoded by serializers as "IRES".
+    /// Encoded/decoded by serializers as &quot;IRES&quot;.
     /// </summary>
     [EnumMember(Value = "IRES")]
     [IsoId("_dSuycU7DEeyGi9JAv6wq7Q")]
@@ -30,7 +30,7 @@ public enum CardPaymentServiceType14Code
     
     /// <summary>
     /// Update reservation.
-    /// Encoded/decoded by serializers as "URES".
+    /// Encoded/decoded by serializers as &quot;URES&quot;.
     /// </summary>
     [EnumMember(Value = "URES")]
     [IsoId("_dSuyc07DEeyGi9JAv6wq7Q")]
@@ -39,7 +39,7 @@ public enum CardPaymentServiceType14Code
     
     /// <summary>
     /// Payment after reservation.
-    /// Encoded/decoded by serializers as "PRES".
+    /// Encoded/decoded by serializers as &quot;PRES&quot;.
     /// </summary>
     [EnumMember(Value = "PRES")]
     [IsoId("_dSuydU7DEeyGi9JAv6wq7Q")]
@@ -48,7 +48,7 @@ public enum CardPaymentServiceType14Code
     
     /// <summary>
     /// Additional payment after reservation.
-    /// Encoded/decoded by serializers as "ARES".
+    /// Encoded/decoded by serializers as &quot;ARES&quot;.
     /// </summary>
     [EnumMember(Value = "ARES")]
     [IsoId("_dSuyd07DEeyGi9JAv6wq7Q")]
@@ -57,7 +57,7 @@ public enum CardPaymentServiceType14Code
     
     /// <summary>
     /// Initial recurring payment.
-    /// Encoded/decoded by serializers as "FREC".
+    /// Encoded/decoded by serializers as &quot;FREC&quot;.
     /// </summary>
     [EnumMember(Value = "FREC")]
     [IsoId("_dSuyeU7DEeyGi9JAv6wq7Q")]
@@ -66,7 +66,7 @@ public enum CardPaymentServiceType14Code
     
     /// <summary>
     /// Repeat recurring payment.
-    /// Encoded/decoded by serializers as "RREC".
+    /// Encoded/decoded by serializers as &quot;RREC&quot;.
     /// </summary>
     [EnumMember(Value = "RREC")]
     [IsoId("_dSuye07DEeyGi9JAv6wq7Q")]
@@ -75,7 +75,7 @@ public enum CardPaymentServiceType14Code
     
     /// <summary>
     /// Acceptor claims for guarantee of payment.
-    /// Encoded/decoded by serializers as "GOPT".
+    /// Encoded/decoded by serializers as &quot;GOPT&quot;.
     /// </summary>
     [EnumMember(Value = "GOPT")]
     [IsoId("_r4DdEU7DEeyGi9JAv6wq7Q")]

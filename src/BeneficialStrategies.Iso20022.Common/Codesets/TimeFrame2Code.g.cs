@@ -21,7 +21,7 @@ public enum TimeFrame2Code
 {
     /// <summary>
     /// Hold to maturity.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_ft5hQcztEeq1WLK5fVzKiQ")]
@@ -30,7 +30,7 @@ public enum TimeFrame2Code
     
     /// <summary>
     /// Greater than five years.
-    /// Encoded/decoded by serializers as "LONG".
+    /// Encoded/decoded by serializers as &quot;LONG&quot;.
     /// </summary>
     [EnumMember(Value = "LONG")]
     [IsoId("_f1VmAcztEeq1WLK5fVzKiQ")]
@@ -39,7 +39,7 @@ public enum TimeFrame2Code
     
     /// <summary>
     /// Greater than or equal to three years.
-    /// Encoded/decoded by serializers as "MEDM".
+    /// Encoded/decoded by serializers as &quot;MEDM&quot;.
     /// </summary>
     [EnumMember(Value = "MEDM")]
     [IsoId("_f9OWscztEeq1WLK5fVzKiQ")]
@@ -48,7 +48,7 @@ public enum TimeFrame2Code
     
     /// <summary>
     /// Greater than or equal to one year.
-    /// Encoded/decoded by serializers as "SHOR".
+    /// Encoded/decoded by serializers as &quot;SHOR&quot;.
     /// </summary>
     [EnumMember(Value = "SHOR")]
     [IsoId("_gHCaAcztEeq1WLK5fVzKiQ")]
@@ -57,7 +57,7 @@ public enum TimeFrame2Code
     
     /// <summary>
     /// Less than one year.
-    /// Encoded/decoded by serializers as "VSHT".
+    /// Encoded/decoded by serializers as &quot;VSHT&quot;.
     /// </summary>
     [EnumMember(Value = "VSHT")]
     [IsoId("_gM_4EcztEeq1WLK5fVzKiQ")]

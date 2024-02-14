@@ -21,7 +21,7 @@ public enum ISATypeCode
 {
     /// <summary>
     /// Type of ISA that offers a stocks and shares component only (no cash).
-    /// Encoded/decoded by serializers as "MINE".
+    /// Encoded/decoded by serializers as &quot;MINE&quot;.
     /// </summary>
     [EnumMember(Value = "MINE")]
     [IsoId("_adsE4Np-Ed-ak6NoX_4Aeg_391181286")]
@@ -30,7 +30,7 @@ public enum ISATypeCode
     
     /// <summary>
     /// Type of ISA that must offer a stocks and shares component and, optionally, a cash component.
-    /// Encoded/decoded by serializers as "MAXI".
+    /// Encoded/decoded by serializers as &quot;MAXI&quot;.
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_adsE4dp-Ed-ak6NoX_4Aeg_421659448")]
@@ -39,7 +39,7 @@ public enum ISATypeCode
     
     /// <summary>
     /// Type of ISA that offers a cash component only (no stock).
-    /// Encoded/decoded by serializers as "MINC".
+    /// Encoded/decoded by serializers as &quot;MINC&quot;.
     /// </summary>
     [EnumMember(Value = "MINC")]
     [IsoId("_adsE4tp-Ed-ak6NoX_4Aeg_1575662850")]
@@ -48,7 +48,7 @@ public enum ISATypeCode
     
     /// <summary>
     /// Any ISA.
-    /// Encoded/decoded by serializers as "ANYI".
+    /// Encoded/decoded by serializers as &quot;ANYI&quot;.
     /// </summary>
     [EnumMember(Value = "ANYI")]
     [IsoId("_adsE49p-Ed-ak6NoX_4Aeg_749358612")]

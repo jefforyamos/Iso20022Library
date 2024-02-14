@@ -21,7 +21,7 @@ public enum OptionPartyCode
 {
     /// <summary>
     /// Seller in a trade.
-    /// Encoded/decoded by serializers as "SLLR".
+    /// Encoded/decoded by serializers as &quot;SLLR&quot;.
     /// </summary>
     [EnumMember(Value = "SLLR")]
     [IsoId("_aP_AFtp-Ed-ak6NoX_4Aeg_1933638709")]
@@ -30,7 +30,7 @@ public enum OptionPartyCode
     
     /// <summary>
     /// Buyer in a trade.
-    /// Encoded/decoded by serializers as "BYER".
+    /// Encoded/decoded by serializers as &quot;BYER&quot;.
     /// </summary>
     [EnumMember(Value = "BYER")]
     [IsoId("_aP_AF9p-Ed-ak6NoX_4Aeg_1865301081")]
@@ -39,7 +39,7 @@ public enum OptionPartyCode
     
     /// <summary>
     /// Indicates the initiator of the trade.
-    /// Encoded/decoded by serializers as "TAKE".
+    /// Encoded/decoded by serializers as &quot;TAKE&quot;.
     /// </summary>
     [EnumMember(Value = "TAKE")]
     [IsoId("_GvogoDxIEeWZTovCemTvqg")]
@@ -48,7 +48,7 @@ public enum OptionPartyCode
     
     /// <summary>
     /// Indicates the receiver of the trade.
-    /// Encoded/decoded by serializers as "MAKE".
+    /// Encoded/decoded by serializers as &quot;MAKE&quot;.
     /// </summary>
     [EnumMember(Value = "MAKE")]
     [IsoId("_KBoc4DxIEeWZTovCemTvqg")]

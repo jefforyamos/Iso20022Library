@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information on the rejection reason of an individual element.
 /// </summary>
 [IsoId("_RJy3pdp-Ed-ak6NoX_4Aeg_2106998089")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejected Element")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record RejectedElement1
     /// Sequence number that allows to easily identify the element that is rejected.
     /// </summary>
     [IsoId("_RJy3ptp-Ed-ak6NoX_4Aeg_-1803784041")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Element Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElmtSeqNb")]
     #endif
+    [IsoXmlTag("ElmtSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ElementSequenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ElementSequenceNumber { get; init; } 
+    public required System.UInt64 ElementSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ElementSequenceNumber { get; init; } 
     #else
@@ -72,19 +70,17 @@ public partial record RejectedElement1
     /// Reason for rejecting an individual element.
     /// </summary>
     [IsoId("_RJy3p9p-Ed-ak6NoX_4Aeg_1481340627")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvRjctnRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IndvRjctnRsn")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text IndividualRejectionReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IndividualRejectionReason { get; init; } 
+    public required System.String IndividualRejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IndividualRejectionReason { get; init; } 
     #else

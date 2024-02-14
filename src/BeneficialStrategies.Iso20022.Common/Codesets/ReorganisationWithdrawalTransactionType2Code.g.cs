@@ -21,7 +21,7 @@ public enum ReorganisationWithdrawalTransactionType2Code
 {
     /// <summary>
     /// The reorganisation instruction cancellation is a withdrawal protect transaction on behalf of another participant.
-    /// Encoded/decoded by serializers as "PRPW".
+    /// Encoded/decoded by serializers as &quot;PRPW&quot;.
     /// </summary>
     [EnumMember(Value = "PRPW")]
     [IsoId("_Nax0kecpEei5aPS232E3Mw")]

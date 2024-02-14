@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Owner and account number of the guarantee fund.
 /// </summary>
 [IsoId("__ATdACchEeaBPexHR4QTEw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Guarantee Fund Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record GuaranteeFundInformation1
     /// Guarantee fund account identifier.
     /// </summary>
     [IsoId("_iCd_QCciEeaBPexHR4QTEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guarantee Fund Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntFndAcct")]
     #endif
+    [IsoXmlTag("GrntFndAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccount24 GuaranteeFundAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccount24 GuaranteeFundAccount { get; init; } 
+    public required CashAccount24 GuaranteeFundAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccount24 GuaranteeFundAccount { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record GuaranteeFundInformation1
     /// Owner identification of the guarantee fund.
     /// </summary>
     [IsoId("_p7GvcCciEeaBPexHR4QTEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Guarantee Fund Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrntFndAcctOwnr")]
     #endif
+    [IsoXmlTag("GrntFndAcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification9 GuaranteeFundAccountOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstitutionIdentification9 GuaranteeFundAccountOwner { get; init; } 
+    public required FinancialInstitutionIdentification9 GuaranteeFundAccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstitutionIdentification9 GuaranteeFundAccountOwner { get; init; } 
     #else

@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum AcknowledgementReason2Code
 {
     /// <summary>
-    /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_bpGIENp-Ed-ak6NoX_4Aeg_-1187951923")]
@@ -30,7 +30,7 @@ public enum AcknowledgementReason2Code
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process.
-    /// Encoded/decoded by serializers as "SMPG".
+    /// Encoded/decoded by serializers as &quot;SMPG&quot;.
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_bpGIEdp-Ed-ak6NoX_4Aeg_-1187951894")]
@@ -39,7 +39,7 @@ public enum AcknowledgementReason2Code
     
     /// <summary>
     /// Instruction was received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_bpGIEtp-Ed-ak6NoX_4Aeg_-1187951864")]
@@ -48,7 +48,7 @@ public enum AcknowledgementReason2Code
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually.
-    /// Encoded/decoded by serializers as "NSTP".
+    /// Encoded/decoded by serializers as &quot;NSTP&quot;.
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_bpGIE9p-Ed-ak6NoX_4Aeg_-1187951863")]
@@ -57,7 +57,7 @@ public enum AcknowledgementReason2Code
     
     /// <summary>
     /// Instruction registration is accepted but the registration is not in full, that is, not with voting rights.
-    /// Encoded/decoded by serializers as "RQWV".
+    /// Encoded/decoded by serializers as &quot;RQWV&quot;.
     /// </summary>
     [EnumMember(Value = "RQWV")]
     [IsoId("_bpGIFNp-Ed-ak6NoX_4Aeg_-1187951833")]

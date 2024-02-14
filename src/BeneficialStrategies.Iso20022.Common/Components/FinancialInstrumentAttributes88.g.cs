@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Elements characterising a financial instrument.
 /// </summary>
 [IsoId("_qZQIYMhiEeadgvwNGwK05w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record FinancialInstrumentAttributes88
     /// Specifies fixed contract term, or the maximum contract term cleared.
     /// </summary>
     [IsoId("_1U8Z4MhiEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Term")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctTerm")]
     #endif
+    [IsoXmlTag("CtrctTerm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRateContractTerm1? ContractTerm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,32 +66,28 @@ public partial record FinancialInstrumentAttributes88
     /// Indicates whether certain terms of the derivative are defined purely according to exchange specifications or can be user defined.
     /// </summary>
     [IsoId("_4ICzoMhiEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standardisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Stdstn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Stdstn")]
     [MinLength(0)]
     [MaxLength(3)]
-    #endif
     public SimpleValueList<Standardisation1Code> Standardisation { get; init; } = new SimpleValueList<Standardisation1Code>(){};
     
     /// <summary>
     /// Schedule for leg payments.
     /// </summary>
     [IsoId("_aY0VMMhjEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtFrqcy")]
     #endif
+    [IsoXmlTag("PmtFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Frequency11Code PaymentFrequency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Frequency11Code PaymentFrequency { get; init; } 
+    public required Frequency11Code PaymentFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Frequency11Code PaymentFrequency { get; init; } 
     #else

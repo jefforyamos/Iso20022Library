@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TrackerParty2Choice.PrivateIdentification))]
     [KnownType(typeof(TrackerParty2Choice.FinancialInstitutionIdentification))]
     [IsoId("_dWHWv2OTEeq5Ar_w98FvsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Party 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

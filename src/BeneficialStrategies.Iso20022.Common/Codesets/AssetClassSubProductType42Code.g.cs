@@ -21,7 +21,7 @@ public enum AssetClassSubProductType42Code
 {
     /// <summary>
     /// Commodity of type sulphur.
-    /// Encoded/decoded by serializers as "SLPH".
+    /// Encoded/decoded by serializers as &quot;SLPH&quot;.
     /// </summary>
     [EnumMember(Value = "SLPH")]
     [IsoId("_jVdRR1r3EeWN79Bl6BUd3g")]

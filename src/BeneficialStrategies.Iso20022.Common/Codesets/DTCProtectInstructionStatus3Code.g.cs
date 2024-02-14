@@ -21,7 +21,7 @@ public enum DTCProtectInstructionStatus3Code
 {
     /// <summary>
     /// Instruction pending release or delete from approval function.
-    /// Encoded/decoded by serializers as "PENA".
+    /// Encoded/decoded by serializers as &quot;PENA&quot;.
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_DAg5Me2MEeiWtrflKsFqHg")]
@@ -30,7 +30,7 @@ public enum DTCProtectInstructionStatus3Code
     
     /// <summary>
     /// Client instruction withdrawn for events with withdrawal privilege.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_DAg5M-2MEeiWtrflKsFqHg")]

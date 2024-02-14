@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus79Choice.AcknowledgedAccepted))]
     [KnownType(typeof(ProcessingStatus79Choice.Rejected))]
     [IsoId("_Hk0BYZwZEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 79 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

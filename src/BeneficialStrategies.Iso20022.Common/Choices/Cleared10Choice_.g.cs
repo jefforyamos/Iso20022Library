@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Cleared10Choice.Cleared))]
     [KnownType(typeof(Cleared10Choice.NonCleared))]
     [IsoId("_HMdnQbQ0EemI67HK7aviyg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cleared 10 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

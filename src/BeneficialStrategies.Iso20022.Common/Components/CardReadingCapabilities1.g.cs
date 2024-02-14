@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Card reading capability of the terminal performing the transaction.
 /// </summary>
 [IsoId("_V4weYTEuEeyjbpgZW6G1Fg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Reading Capabilities")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardReadingCapabilities1
     /// Card reading capability of the terminal performing the transaction.
     /// </summary>
     [IsoId("_V-xm0TEuEeyjbpgZW6G1Fg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cpblty")]
     #endif
+    [IsoXmlTag("Cpblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardDataReading10Code Capability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardDataReading10Code Capability { get; init; } 
+    public required CardDataReading10Code Capability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardDataReading10Code Capability { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record CardReadingCapabilities1
     /// Other types of card data reading capabilities.
     /// </summary>
     [IsoId("_V-xm0zEuEeyjbpgZW6G1Fg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCpblty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrCpblty")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherCapability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

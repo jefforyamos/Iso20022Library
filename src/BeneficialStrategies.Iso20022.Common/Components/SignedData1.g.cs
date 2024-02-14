@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Digital signature of data, with an asymmetric key.
 /// </summary>
 [IsoId("_SwiSxQEcEeCQm6a_G2yO_w_423305328")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Signed Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record SignedData1
     /// Version of the data structure.
     /// </summary>
     [IsoId("_SwiSxgEcEeCQm6a_G2yO_w_877392597")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record SignedData1
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>
     [IsoId("_SwiSxwEcEeCQm6a_G2yO_w_569453236")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     public AlgorithmIdentification1? DigestAlgorithm { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SwiSxwEcEeCQm6a_G2yO_w_569453236
     
@@ -82,16 +79,15 @@ public partial record SignedData1
     /// Data to sign.
     /// </summary>
     [IsoId("_SwiSyAEcEeCQm6a_G2yO_w_251676575")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encapsulated Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcpsltdCntt")]
     #endif
+    [IsoXmlTag("NcpsltdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EncapsulatedContent1 EncapsulatedContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EncapsulatedContent1 EncapsulatedContent { get; init; } 
+    public required EncapsulatedContent1 EncapsulatedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EncapsulatedContent1 EncapsulatedContent { get; init; } 
     #else
@@ -102,12 +98,12 @@ public partial record SignedData1
     /// Chain of X.509 certificates.
     /// </summary>
     [IsoId("_SwiSyQEcEeCQm6a_G2yO_w_-997515130")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cert")]
     #endif
+    [IsoXmlTag("Cert")]
+    [IsoSimpleType(IsoSimpleType.Max3000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? Certificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,11 @@ public partial record SignedData1
     /// Entity who has signed the data.
     /// </summary>
     [IsoId("_SwiSygEcEeCQm6a_G2yO_w_-1329278332")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgnr")]
     #endif
+    [IsoXmlTag("Sgnr")]
     public Signer1? Signer { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SwiSygEcEeCQm6a_G2yO_w_-1329278332
     

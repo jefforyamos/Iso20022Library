@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement6Choice
     /// Provides the collateral movement direction that is a delivery and optionally a return.
     /// </summary>
     [IsoId("_6gAQYSqREeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Movement Direction")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement6Choice
         /// Provides the collateral movement direction that is a delivery only.
         /// </summary>
         [IsoId("_7nrqISqREeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Deliver")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dlvr")]
         #endif
+        [IsoXmlTag("Dlvr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Collateral55 Deliver { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Collateral55 Deliver { get; init; } 
+        public required Collateral55 Deliver { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Collateral55 Deliver { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement6Choice
         /// Provides the collateral movement direction that is a return only.
         /// </summary>
         [IsoId("_7nrqIyqREeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Return")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rtr")]
         #endif
+        [IsoXmlTag("Rtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Collateral54? Return { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

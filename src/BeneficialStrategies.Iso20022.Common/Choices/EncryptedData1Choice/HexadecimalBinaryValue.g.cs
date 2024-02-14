@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EncryptedData1Choice
     /// Hexadecimal binary encoded encrypted data.
     /// </summary>
     [IsoId("_-on81ekLEemeDPHh-U9b6w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hexadecimal Binary Value")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,15 +56,14 @@ namespace BeneficialStrategies.Iso20022.Choices.EncryptedData1Choice
         /// Used only for hex binary data only, supports only characters A-F and 0-9.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="HexBinryVal")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("HexBinryVal")]
+        [IsoSimpleType(IsoSimpleType.Max9999HexBinaryText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax9999HexBinaryText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

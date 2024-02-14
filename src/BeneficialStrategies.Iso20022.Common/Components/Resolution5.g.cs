@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Resolutions at the agenda of a meeting and type of resolution.
 /// </summary>
 [IsoId("_xJ1FUfM8EeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Resolution")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record Resolution5
     /// Number of the resolution as specified by the issuer or its agent.
     /// </summary>
     [IsoId("_xdeaE_M8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrLabl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IssrLabl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text IssuerLabel { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IssuerLabel { get; init; } 
+    public required System.String IssuerLabel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IssuerLabel { get; init; } 
     #else
@@ -76,12 +72,11 @@ public partial record Resolution5
     /// Language, title and textual description of an agenda resolution. 
     /// </summary>
     [IsoId("_xdeaFfM8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
+    [IsoXmlTag("Desc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ItemDescription1? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,15 +89,13 @@ public partial record Resolution5
     /// Identifies under the same label a group of agenda resolutions for which a vote in favour can be assigned to only one resolution of that group.
     /// </summary>
     [IsoId("_cxQq4PNWEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Listing Group Resolution Label")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ListgGrpRsltnLabl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ListgGrpRsltnLabl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ListingGroupResolutionLabel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +108,11 @@ public partial record Resolution5
     /// Type of resolution.
     /// </summary>
     [IsoId("_xdeaGfM8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResolutionType2Code? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,16 +125,16 @@ public partial record Resolution5
     /// Indicates whether the resolution is listed for information or for voting.
     /// </summary>
     [IsoId("_xdeaG_M8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("For Information Only")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ForInfOnly")]
     #endif
+    [IsoXmlTag("ForInfOnly")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ForInformationOnly { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ForInformationOnly { get; init; } 
+    public required System.String ForInformationOnly { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ForInformationOnly { get; init; } 
     #else
@@ -153,12 +145,11 @@ public partial record Resolution5
     /// Impact of vote results on an agenda resolution.
     /// </summary>
     [IsoId("_xdeaHfM8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteTp")]
     #endif
+    [IsoXmlTag("VoteTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteType1Code? VoteType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,16 +162,15 @@ public partial record Resolution5
     /// Specifies whether the resolution is active or withdrawn.
     /// </summary>
     [IsoId("_xdeaH_M8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResolutionStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResolutionStatus1Code Status { get; init; } 
+    public required ResolutionStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResolutionStatus1Code Status { get; init; } 
     #else
@@ -191,12 +181,12 @@ public partial record Resolution5
     /// Indicates whether the resolution has been submitted by the security holder.
     /// </summary>
     [IsoId("_xdeaIfM8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitted By Security Holder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmittdBySctyHldr")]
     #endif
+    [IsoXmlTag("SubmittdBySctyHldr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SubmittedBySecurityHolder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +199,12 @@ public partial record Resolution5
     /// Indicates whether a client who has not voted in favour of the resolutions which is finally approved, has the right to withdraw from a related corporate action event.
     /// </summary>
     [IsoId("_Y85K8PNiEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Right To Withdraw Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RghtToWdrwInd")]
     #endif
+    [IsoXmlTag("RghtToWdrwInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RightToWithdrawIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +217,11 @@ public partial record Resolution5
     /// Vote options allowed at the resolution level. When specified, it supersedes the vote options given for the meeting.
     /// </summary>
     [IsoId("_xdeaI_M8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteInstrTp")]
     #endif
+    [IsoXmlTag("VoteInstrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteInstructionType1? VoteInstructionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +234,11 @@ public partial record Resolution5
     /// Specifies how the management of the issuing company wishes the security holders to vote.
     /// </summary>
     [IsoId("_xdeaJfM8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Management Recommendation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MgmtRcmmndtn")]
     #endif
+    [IsoXmlTag("MgmtRcmmndtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteInstruction5Code? ManagementRecommendation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +251,11 @@ public partial record Resolution5
     /// Specifies how the notifying party recommends that the security holders vote.
     /// </summary>
     [IsoId("_xdeaJ_M8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notifying Party Recommendation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtifngPtyRcmmndtn")]
     #endif
+    [IsoXmlTag("NtifngPtyRcmmndtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteInstruction5Code? NotifyingPartyRecommendation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,12 +268,11 @@ public partial record Resolution5
     /// Number of votes assigned per resolution to one security.
     /// </summary>
     [IsoId("_xdeaKfM8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Entitlmnt")]
     #endif
+    [IsoXmlTag("Entitlmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Entitlement1Choice_? Entitlement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -299,12 +285,11 @@ public partial record Resolution5
     /// Voting rights threshold required in percentage or in quantity to have the resolution approved.
     /// </summary>
     [IsoId("_xdeaK_M8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Voting Rights Threshold For Approval")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VtngRghtsThrshldForApprvl")]
     #endif
+    [IsoXmlTag("VtngRghtsThrshldForApprvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NumberOrPercentage1Choice_? VotingRightsThresholdForApproval { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -317,15 +302,13 @@ public partial record Resolution5
     /// Address to use over the www (HTTP) service where specific additional information on meeting resolutions may be found.
     /// </summary>
     [IsoId("_xdnkAfM8EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("URL Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="URLAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("URLAdr")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2048Text? URLAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

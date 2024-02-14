@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Message authentication code (MAC), computed on the data to protect with an encryption key.
 /// </summary>
 [IsoId("_SwZI1AEcEeCQm6a_G2yO_w_-35232792")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Authenticated Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,12 @@ public partial record AuthenticatedData1
     /// Version of the data structure.
     /// </summary>
     [IsoId("_SwZI1QEcEeCQm6a_G2yO_w_1890893604")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,12 +69,11 @@ public partial record AuthenticatedData1
     /// Information related to the transport key.
     /// </summary>
     [IsoId("_SwZI1gEcEeCQm6a_G2yO_w_-7087131")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcpt")]
     #endif
+    [IsoXmlTag("Rcpt")]
     public Recipient1Choice_? Recipient { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SwZI1gEcEeCQm6a_G2yO_w_-7087131
     
@@ -84,16 +81,15 @@ public partial record AuthenticatedData1
     /// Algorithm to compute message authentication code (MAC).
     /// </summary>
     [IsoId("_SwZI1wEcEeCQm6a_G2yO_w_187699920")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("MAC Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MACAlgo")]
     #endif
+    [IsoXmlTag("MACAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification1 MACAlgorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AlgorithmIdentification1 MACAlgorithm { get; init; } 
+    public required AlgorithmIdentification1 MACAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AlgorithmIdentification1 MACAlgorithm { get; init; } 
     #else
@@ -104,16 +100,15 @@ public partial record AuthenticatedData1
     /// Data to authenticate.
     /// </summary>
     [IsoId("_SwZI2AEcEeCQm6a_G2yO_w_1240213777")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encapsulated Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcpsltdCntt")]
     #endif
+    [IsoXmlTag("NcpsltdCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EncapsulatedContent1 EncapsulatedContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EncapsulatedContent1 EncapsulatedContent { get; init; } 
+    public required EncapsulatedContent1 EncapsulatedContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EncapsulatedContent1 EncapsulatedContent { get; init; } 
     #else
@@ -124,16 +119,16 @@ public partial record AuthenticatedData1
     /// Encrypted data which authenticates the data.
     /// </summary>
     [IsoId("_SwZI2QEcEeCQm6a_G2yO_w_1355241848")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("MAC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MAC")]
     #endif
+    [IsoXmlTag("MAC")]
+    [IsoSimpleType(IsoSimpleType.Max35Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Binary MAC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] MAC { get; init; } 
+    public required System.Byte[] MAC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] MAC { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum ExposureType6Code
 {
     /// <summary>
     /// Securities buy sell back.
-    /// Encoded/decoded by serializers as "SBSC".
+    /// Encoded/decoded by serializers as &quot;SBSC&quot;.
     /// </summary>
     [EnumMember(Value = "SBSC")]
     [IsoId("_cpr9YXaaEeavseMKyTsJEA")]
@@ -30,7 +30,7 @@ public enum ExposureType6Code
     
     /// <summary>
     /// Margin lending transaction. 
-    /// Encoded/decoded by serializers as "MGLD".
+    /// Encoded/decoded by serializers as &quot;MGLD&quot;.
     /// </summary>
     [EnumMember(Value = "MGLD")]
     [IsoId("_eIA8kXaaEeavseMKyTsJEA")]
@@ -39,7 +39,7 @@ public enum ExposureType6Code
     
     /// <summary>
     /// Relates to repurchase agreement trading.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_fyWXcXaaEeavseMKyTsJEA")]
@@ -48,7 +48,7 @@ public enum ExposureType6Code
     
     /// <summary>
     /// Exposure is linked to a securities lending or borrowing activity.
-    /// Encoded/decoded by serializers as "SLEB".
+    /// Encoded/decoded by serializers as &quot;SLEB&quot;.
     /// </summary>
     [EnumMember(Value = "SLEB")]
     [IsoId("_kB3r4XaaEeavseMKyTsJEA")]

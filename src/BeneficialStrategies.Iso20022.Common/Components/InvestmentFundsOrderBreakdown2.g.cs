@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// An investor's instruction to either subscribe or redeem an amount of money or its equivalent, for example, other assets, into or out of an investment fund.
+/// An investor&apos;s instruction to either subscribe or redeem an amount of money or its equivalent, for example, other assets, into or out of an investment fund.
 /// </summary>
 [IsoId("_Y0VCoThjEeamLZQeccJa7w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Funds Order Breakdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InvestmentFundsOrderBreakdown2
     /// Type of order breakdown.
     /// </summary>
     [IsoId("_ZN6nUzhjEeamLZQeccJa7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Breakdown Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrBrkdwnTp")]
     #endif
+    [IsoXmlTag("OrdrBrkdwnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderBreakdownType1Choice_ OrderBreakdownType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderBreakdownType1Choice_ OrderBreakdownType { get; init; } 
+    public required OrderBreakdownType1Choice_ OrderBreakdownType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderBreakdownType1Choice_ OrderBreakdownType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record InvestmentFundsOrderBreakdown2
     /// Portion of the net amount that is attributed to an order type.
     /// </summary>
     [IsoId("_ZN6nVzhjEeamLZQeccJa7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

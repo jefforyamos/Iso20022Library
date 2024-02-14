@@ -21,7 +21,7 @@ public enum InstructionProcessingStatusCode
 {
     /// <summary>
     /// Pending cancellation; only one side has been input and a cancellation request has been sent.
-    /// Encoded/decoded by serializers as "CAN1".
+    /// Encoded/decoded by serializers as &quot;CAN1&quot;.
     /// </summary>
     [EnumMember(Value = "CAN1")]
     [IsoId("_aYLSwtp-Ed-ak6NoX_4Aeg_-2037415472")]
@@ -30,7 +30,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Pending cancellation; both sides have been input, the trade has not yet been matched, and one side has sent a cancellation request.
-    /// Encoded/decoded by serializers as "CAN2".
+    /// Encoded/decoded by serializers as &quot;CAN2&quot;.
     /// </summary>
     [EnumMember(Value = "CAN2")]
     [IsoId("_aYLSw9p-Ed-ak6NoX_4Aeg_1552437209")]
@@ -39,7 +39,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Pending cancellation; both sides have been input, the trade is matched, and one side has sent a cancellation request.
-    /// Encoded/decoded by serializers as "CAN3".
+    /// Encoded/decoded by serializers as &quot;CAN3&quot;.
     /// </summary>
     [EnumMember(Value = "CAN3")]
     [IsoId("_aYLSxNp-Ed-ak6NoX_4Aeg_-1097262652")]
@@ -48,7 +48,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_aYLSxdp-Ed-ak6NoX_4Aeg_441525790")]
@@ -57,7 +57,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Instruction has been cancelled by another party than the instructing party, for example, market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CANO".
+    /// Encoded/decoded by serializers as &quot;CANO&quot;.
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_aYLSxtp-Ed-ak6NoX_4Aeg_-733665235")]
@@ -66,7 +66,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Cancellation request from yourself for this instruction is pending waiting for further processing.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_aYLSx9p-Ed-ak6NoX_4Aeg_327202593")]
@@ -75,7 +75,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Account servicer or third party created the transaction. It was not instructed directly by the account owner.
-    /// Encoded/decoded by serializers as "CGEN".
+    /// Encoded/decoded by serializers as &quot;CGEN&quot;.
     /// </summary>
     [EnumMember(Value = "CGEN")]
     [IsoId("_aYLSyNp-Ed-ak6NoX_4Aeg_1972470028")]
@@ -84,7 +84,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order is fully executed and the confirmation was sent.
-    /// Encoded/decoded by serializers as "COSE".
+    /// Encoded/decoded by serializers as &quot;COSE&quot;.
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_aYVDwNp-Ed-ak6NoX_4Aeg_-783708826")]
@@ -93,7 +93,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Cancellation request from the counterparty is awaiting for your cancellation request or your consent.
-    /// Encoded/decoded by serializers as "CPRC".
+    /// Encoded/decoded by serializers as &quot;CPRC&quot;.
     /// </summary>
     [EnumMember(Value = "CPRC")]
     [IsoId("_aYVDwdp-Ed-ak6NoX_4Aeg_-1958899851")]
@@ -102,7 +102,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Default action is taken.
-    /// Encoded/decoded by serializers as "DFLA".
+    /// Encoded/decoded by serializers as &quot;DFLA&quot;.
     /// </summary>
     [EnumMember(Value = "DFLA")]
     [IsoId("_aYVDwtp-Ed-ak6NoX_4Aeg_1630952830")]
@@ -111,7 +111,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order is partially filled and no further executions forthcoming for the trading day.
-    /// Encoded/decoded by serializers as "DONE".
+    /// Encoded/decoded by serializers as &quot;DONE&quot;.
     /// </summary>
     [EnumMember(Value = "DONE")]
     [IsoId("_aYVDw9p-Ed-ak6NoX_4Aeg_-1018747031")]
@@ -120,7 +120,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order is partially filled and no further executions will take place.
-    /// Encoded/decoded by serializers as "DONF".
+    /// Encoded/decoded by serializers as &quot;DONF&quot;.
     /// </summary>
     [EnumMember(Value = "DONF")]
     [IsoId("_aYVDxNp-Ed-ak6NoX_4Aeg_520041411")]
@@ -129,7 +129,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order has been received at the stock exchange.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_aYVDxdp-Ed-ak6NoX_4Aeg_-655149614")]
@@ -138,7 +138,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order was fully executed and the execution sent.
-    /// Encoded/decoded by serializers as "EXSE".
+    /// Encoded/decoded by serializers as &quot;EXSE&quot;.
     /// </summary>
     [EnumMember(Value = "EXSE")]
     [IsoId("_aYVDxtp-Ed-ak6NoX_4Aeg_-1360264229")]
@@ -147,7 +147,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Message has been sent automatically by the service provider to notify that settlement will not take place.
-    /// Encoded/decoded by serializers as "FORC".
+    /// Encoded/decoded by serializers as &quot;FORC&quot;.
     /// </summary>
     [EnumMember(Value = "FORC")]
     [IsoId("_aYVDx9p-Ed-ak6NoX_4Aeg_285003206")]
@@ -156,7 +156,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// All checks relative to the instruction (except collateral) are successful.
-    /// Encoded/decoded by serializers as "FUTU".
+    /// Encoded/decoded by serializers as &quot;FUTU&quot;.
     /// </summary>
     [EnumMember(Value = "FUTU")]
     [IsoId("_aYVDyNp-Ed-ak6NoX_4Aeg_1823791648")]
@@ -165,7 +165,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order has been received at the intermediary.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_aYVDydp-Ed-ak6NoX_4Aeg_648600623")]
@@ -174,7 +174,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// No/incomplete instruction was received for the corporate action event. No further processing has been carried out.
-    /// Encoded/decoded by serializers as "NOIN".
+    /// Encoded/decoded by serializers as &quot;NOIN&quot;.
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_aYVDytp-Ed-ak6NoX_4Aeg_-56513992")]
@@ -183,7 +183,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Instruction cannot be cancelled as it has already been matched and affirmed.
-    /// Encoded/decoded by serializers as "NOTC".
+    /// Encoded/decoded by serializers as &quot;NOTC&quot;.
     /// </summary>
     [EnumMember(Value = "NOTC")]
     [IsoId("_aYe0wNp-Ed-ak6NoX_4Aeg_1588753443")]
@@ -192,7 +192,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order is open.
-    /// Encoded/decoded by serializers as "OPOD".
+    /// Encoded/decoded by serializers as &quot;OPOD&quot;.
     /// </summary>
     [EnumMember(Value = "OPOD")]
     [IsoId("_aYe0wdp-Ed-ak6NoX_4Aeg_-1090386710")]
@@ -201,7 +201,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Quantity of financial instrument of the block trade has been overallocated.
-    /// Encoded/decoded by serializers as "OVER".
+    /// Encoded/decoded by serializers as &quot;OVER&quot;.
     /// </summary>
     [EnumMember(Value = "OVER")]
     [IsoId("_aYe0wtp-Ed-ak6NoX_4Aeg_417484520")]
@@ -210,7 +210,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aYe0w9p-Ed-ak6NoX_4Aeg_-287630095")]
@@ -219,7 +219,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order has been partially filled and the remaining quantity is warehoused.
-    /// Encoded/decoded by serializers as "PAFI".
+    /// Encoded/decoded by serializers as &quot;PAFI&quot;.
     /// </summary>
     [EnumMember(Value = "PAFI")]
     [IsoId("_aYe0xNp-Ed-ak6NoX_4Aeg_1357637340")]
@@ -228,7 +228,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Order has been partially cancelled as requested.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_aYe0xdp-Ed-ak6NoX_4Aeg_-1398541514")]
@@ -237,7 +237,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Processing of the instruction is pending.
-    /// Encoded/decoded by serializers as "PPRC".
+    /// Encoded/decoded by serializers as &quot;PPRC&quot;.
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_aYe0xtp-Ed-ak6NoX_4Aeg_1721234757")]
@@ -246,7 +246,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Instruction has been rejected for further processing.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_aYe0x9p-Ed-ak6NoX_4Aeg_1016120142")]
@@ -255,7 +255,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Instruction is accepted but in repair.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_aYe0yNp-Ed-ak6NoX_4Aeg_-1633579719")]
@@ -264,7 +264,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Settlement instruction has been sent to your custodian.
-    /// Encoded/decoded by serializers as "SESE".
+    /// Encoded/decoded by serializers as &quot;SESE&quot;.
     /// </summary>
     [EnumMember(Value = "SESE")]
     [IsoId("_aYe0ydp-Ed-ak6NoX_4Aeg_-94791277")]
@@ -273,7 +273,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Standing instruction has been applied.
-    /// Encoded/decoded by serializers as "STIN".
+    /// Encoded/decoded by serializers as &quot;STIN&quot;.
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_aYn-sNp-Ed-ak6NoX_4Aeg_-1269982302")]
@@ -282,7 +282,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Trading is suspended by the stock exchange.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_aYn-sdp-Ed-ak6NoX_4Aeg_-1975096917")]
@@ -291,7 +291,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Transaction has been treated (triparty collateral status).
-    /// Encoded/decoded by serializers as "TREA".
+    /// Encoded/decoded by serializers as &quot;TREA&quot;.
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_aYn-stp-Ed-ak6NoX_4Aeg_-329829482")]
@@ -300,7 +300,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Quantity of financial instrument of the block trade has been under allocated.
-    /// Encoded/decoded by serializers as "UNDE".
+    /// Encoded/decoded by serializers as &quot;UNDE&quot;.
     /// </summary>
     [EnumMember(Value = "UNDE")]
     [IsoId("_aYn-s9p-Ed-ak6NoX_4Aeg_1208958960")]
@@ -309,7 +309,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Modification request from the counterparty is awaiting for your modification request or your consent.
-    /// Encoded/decoded by serializers as "MPRC".
+    /// Encoded/decoded by serializers as &quot;MPRC&quot;.
     /// </summary>
     [EnumMember(Value = "MPRC")]
     [IsoId("_aYn-tNp-Ed-ak6NoX_4Aeg_-150625715")]
@@ -318,7 +318,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Transaction terms communicated have been acknowledged/accepted for further processing by the account owner.
-    /// Encoded/decoded by serializers as "ACAO".
+    /// Encoded/decoded by serializers as &quot;ACAO&quot;.
     /// </summary>
     [EnumMember(Value = "ACAO")]
     [IsoId("_vAGssdUWEeOpzo6bWCQeYA")]
@@ -327,7 +327,7 @@ public enum InstructionProcessingStatusCode
     
     /// <summary>
     /// Transaction terms communicated have been rejected for further processing by the account owner.
-    /// Encoded/decoded by serializers as "RJAO".
+    /// Encoded/decoded by serializers as &quot;RJAO&quot;.
     /// </summary>
     [EnumMember(Value = "RJAO")]
     [IsoId("_4BgbwdUWEeOpzo6bWCQeYA")]

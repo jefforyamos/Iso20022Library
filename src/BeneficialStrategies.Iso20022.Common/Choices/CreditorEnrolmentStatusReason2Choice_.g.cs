@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CreditorEnrolmentStatusReason2Choice.Code))]
     [KnownType(typeof(CreditorEnrolmentStatusReason2Choice.Proprietary))]
     [IsoId("_fW_fY-IxEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Enrolment Status Reason 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

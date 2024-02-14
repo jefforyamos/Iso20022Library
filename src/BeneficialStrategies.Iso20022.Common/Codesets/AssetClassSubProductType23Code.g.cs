@@ -21,7 +21,7 @@ public enum AssetClassSubProductType23Code
 {
     /// <summary>
     /// Commodity of type seafood.
-    /// Encoded/decoded by serializers as "SEAF".
+    /// Encoded/decoded by serializers as &quot;SEAF&quot;.
     /// </summary>
     [EnumMember(Value = "SEAF")]
     [IsoId("_0hERMVrBEeWN79Bl6BUd3g")]

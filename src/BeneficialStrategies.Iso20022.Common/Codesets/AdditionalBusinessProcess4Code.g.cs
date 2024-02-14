@@ -21,7 +21,7 @@ public enum AdditionalBusinessProcess4Code
 {
     /// <summary>
     /// Relates to a claim on the associated corporate action event.
-    /// Encoded/decoded by serializers as "CLAI".
+    /// Encoded/decoded by serializers as &quot;CLAI&quot;.
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_V_8rhwFpEeGXDp73SgCmsg")]
@@ -30,7 +30,7 @@ public enum AdditionalBusinessProcess4Code
     
     /// <summary>
     /// Relates to a tax refund from the authorities on the associated corporate action event.
-    /// Encoded/decoded by serializers as "TAXR".
+    /// Encoded/decoded by serializers as &quot;TAXR&quot;.
     /// </summary>
     [EnumMember(Value = "TAXR")]
     [IsoId("_V_8riwFpEeGXDp73SgCmsg")]
@@ -39,7 +39,7 @@ public enum AdditionalBusinessProcess4Code
     
     /// <summary>
     /// Will automatically give rise to market claims by the account servicer, for example, a Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "ACLA".
+    /// Encoded/decoded by serializers as &quot;ACLA&quot;.
     /// </summary>
     [EnumMember(Value = "ACLA")]
     [IsoId("_XHoFSgFpEeGXDp73SgCmsg")]
@@ -48,7 +48,7 @@ public enum AdditionalBusinessProcess4Code
     
     /// <summary>
     /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system and replaced with transactions in the outturn resource(s).
-    /// Encoded/decoded by serializers as "ATXF".
+    /// Encoded/decoded by serializers as &quot;ATXF&quot;.
     /// </summary>
     [EnumMember(Value = "ATXF")]
     [IsoId("_XoQtIgFpEeGXDp73SgCmsg")]
@@ -57,7 +57,7 @@ public enum AdditionalBusinessProcess4Code
     
     /// <summary>
     /// As a result of the corporate action, all transactions in the underlying security will be cancelled by the system.
-    /// Encoded/decoded by serializers as "CNTR".
+    /// Encoded/decoded by serializers as &quot;CNTR&quot;.
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_YP578gFpEeGXDp73SgCmsg")]
@@ -66,7 +66,7 @@ public enum AdditionalBusinessProcess4Code
     
     /// <summary>
     /// Relates to a consent within a corporate action event other than a Consent event (: 22F:: CAEV//CONS).
-    /// Encoded/decoded by serializers as "CONS".
+    /// Encoded/decoded by serializers as &quot;CONS&quot;.
     /// </summary>
     [EnumMember(Value = "CONS")]
     [IsoId("_Y-ijkgFpEeGXDp73SgCmsg")]
@@ -75,7 +75,7 @@ public enum AdditionalBusinessProcess4Code
     
     /// <summary>
     /// Event will not automatically give rise to market claims and transformations by the account servicer, for example, a Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "NAMC".
+    /// Encoded/decoded by serializers as &quot;NAMC&quot;.
     /// </summary>
     [EnumMember(Value = "NAMC")]
     [IsoId("_Zcpb6gFpEeGXDp73SgCmsg")]
@@ -84,7 +84,7 @@ public enum AdditionalBusinessProcess4Code
     
     /// <summary>
     /// Issuer only allows a single option to be selected per designated holding.
-    /// Encoded/decoded by serializers as "NPLE".
+    /// Encoded/decoded by serializers as &quot;NPLE&quot;.
     /// </summary>
     [EnumMember(Value = "NPLE")]
     [IsoId("_Z4EMmgFpEeGXDp73SgCmsg")]
@@ -93,7 +93,7 @@ public enum AdditionalBusinessProcess4Code
     
     /// <summary>
     /// Component event of a scheme/plan of arrangement: a reorganisation of a company or a group of companies, and their capital.
-    /// Encoded/decoded by serializers as "SCHM".
+    /// Encoded/decoded by serializers as &quot;SCHM&quot;.
     /// </summary>
     [EnumMember(Value = "SCHM")]
     [IsoId("_afjqYgFpEeGXDp73SgCmsg")]

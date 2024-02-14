@@ -21,7 +21,7 @@ public enum CancellationIndividualStatus2Code
 {
     /// <summary>
     /// Payment is cancelled.
-    /// Encoded/decoded by serializers as "CNCL".
+    /// Encoded/decoded by serializers as &quot;CNCL&quot;.
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_835qkhylEeispO42NVVLrw")]
@@ -30,7 +30,7 @@ public enum CancellationIndividualStatus2Code
     
     /// <summary>
     /// Cancellation request is pending.
-    /// Encoded/decoded by serializers as "PDCR".
+    /// Encoded/decoded by serializers as &quot;PDCR&quot;.
     /// </summary>
     [EnumMember(Value = "PDCR")]
     [IsoId("_-fhIohylEeispO42NVVLrw")]
@@ -39,7 +39,7 @@ public enum CancellationIndividualStatus2Code
     
     /// <summary>
     /// Cancellation request is rejected
-    /// Encoded/decoded by serializers as "RJCR".
+    /// Encoded/decoded by serializers as &quot;RJCR&quot;.
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_cSYZwYZ4EeiMm4lwapNmDA")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment related to elements not reported in dedicated fields.
 /// </summary>
 [IsoId("_KgvEwYjnEeyf7vGW3nM0lg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Payment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,11 @@ public partial record OtherPayment5
     /// Usage: The negative symbol to be used to indicate that the payment was made, not received.
     /// </summary>
     [IsoId("_KiHk0YjnEeyf7vGW3nM0lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtAmt")]
     #endif
+    [IsoXmlTag("PmtAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection106? PaymentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,12 +60,11 @@ public partial record OtherPayment5
     /// Indicates the type of other payment.
     /// </summary>
     [IsoId("_KiHk04jnEeyf7vGW3nM0lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTp")]
     #endif
+    [IsoXmlTag("PmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentType5Choice_? PaymentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,12 +77,12 @@ public partial record OtherPayment5
     /// Indicates the unadjusted date on which the other payment is paid.
     /// </summary>
     [IsoId("_KiHk1YjnEeyf7vGW3nM0lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtDt")]
     #endif
+    [IsoXmlTag("PmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,12 +95,11 @@ public partial record OtherPayment5
     /// Identifies the payer of the other payment amount.
     /// </summary>
     [IsoId("_KiHk14jnEeyf7vGW3nM0lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Payer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtPyer")]
     #endif
+    [IsoXmlTag("PmtPyer")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification236Choice_? PaymentPayer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +112,11 @@ public partial record OtherPayment5
     /// Identifies the receiver of the other payment amount.
     /// </summary>
     [IsoId("_KiHk2YjnEeyf7vGW3nM0lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtRcvr")]
     #endif
+    [IsoXmlTag("PmtRcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification236Choice_? PaymentReceiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

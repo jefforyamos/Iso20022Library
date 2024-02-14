@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConditionallyAcceptedStatusReason1Choice.Proprietary))]
     [KnownType(typeof(ConditionallyAcceptedStatusReason1Choice.NoSpecifiedReason))]
     [IsoId("_RgmOENp-Ed-ak6NoX_4Aeg_-317806410")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conditionally Accepted Status Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

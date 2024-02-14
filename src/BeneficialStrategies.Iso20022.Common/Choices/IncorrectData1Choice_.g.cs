@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IncorrectData1Choice.Code))]
     [KnownType(typeof(IncorrectData1Choice.Proprietary))]
     [IsoId("_Dfigo9jLEeq5MfBBxQig1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incorrect Data 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

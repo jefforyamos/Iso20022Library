@@ -21,7 +21,7 @@ public enum MessageFunction44Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_idxkkUGJEeyZG7AU5fJYtQ")]
@@ -30,7 +30,7 @@ public enum MessageFunction44Code
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_j4yKAUGJEeyZG7AU5fJYtQ")]
@@ -39,7 +39,7 @@ public enum MessageFunction44Code
     
     /// <summary>
     /// Informs of an action to be taken.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_kUU2gUGJEeyZG7AU5fJYtQ")]
@@ -48,7 +48,7 @@ public enum MessageFunction44Code
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_lxafkUGJEeyZG7AU5fJYtQ")]

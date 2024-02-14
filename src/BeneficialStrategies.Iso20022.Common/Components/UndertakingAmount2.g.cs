@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about an amount.
 /// </summary>
 [IsoId("_95C-gXltEeG7BsjMvd1mEw_-215420241")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record UndertakingAmount2
     /// Choice of amounts.
     /// </summary>
     [IsoId("_95C-gnltEeG7BsjMvd1mEw_973191229")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtChc")]
     #endif
+    [IsoXmlTag("AmtChc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount1Choice_ AmountChoice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount1Choice_ AmountChoice { get; init; } 
+    public required Amount1Choice_ AmountChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount1Choice_ AmountChoice { get; init; } 
     #else
@@ -71,19 +68,15 @@ public partial record UndertakingAmount2
     /// Additional information concerning the amended amount.
     /// </summary>
     [IsoId("_95C-g3ltEeG7BsjMvd1mEw_-1235765635")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Report of the breakdown of the components for the capital requirement for central counterparty.
 /// </summary>
 [IsoId("_ltqioLIfEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Capital Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,16 @@ public partial record CapitalRequirement1
     /// Indicates the capital necessary to cover the winding down or restructuring of activities.
     /// </summary>
     [IsoId("_xYZEYLIfEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Winding Down Or Restructuring Risk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WndgDwnOrRstrgRsk")]
     #endif
+    [IsoXmlTag("WndgDwnOrRstrgRsk")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal WindingDownOrRestructuringRisk { get; init; } 
+    public required System.Decimal WindingDownOrRestructuringRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal WindingDownOrRestructuringRisk { get; init; } 
     #else
@@ -76,16 +74,16 @@ public partial record CapitalRequirement1
     /// Indicates the capital necessary to cover the overall operational and legal risks.
     /// </summary>
     [IsoId("_5dimkLIfEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operational And Legal Risk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OprlAndLglRsk")]
     #endif
+    [IsoXmlTag("OprlAndLglRsk")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount OperationalAndLegalRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal OperationalAndLegalRisk { get; init; } 
+    public required System.Decimal OperationalAndLegalRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal OperationalAndLegalRisk { get; init; } 
     #else
@@ -96,16 +94,16 @@ public partial record CapitalRequirement1
     /// Indicates the capital necessary to cover credit risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
     [IsoId("_9K1-wLIfEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Risk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtRsk")]
     #endif
+    [IsoXmlTag("CdtRsk")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CreditRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CreditRisk { get; init; } 
+    public required System.Decimal CreditRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CreditRisk { get; init; } 
     #else
@@ -116,16 +114,16 @@ public partial record CapitalRequirement1
     /// Indicates the capital necessary to cover counterparty credit risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
     [IsoId("_Bn5Y4LIgEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counter Party Risk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CntrPtyRsk")]
     #endif
+    [IsoXmlTag("CntrPtyRsk")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CounterPartyRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CounterPartyRisk { get; init; } 
+    public required System.Decimal CounterPartyRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CounterPartyRisk { get; init; } 
     #else
@@ -136,16 +134,16 @@ public partial record CapitalRequirement1
     /// Indicates the capital necessary to cover counterparty market risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
     [IsoId("_ELG8gLIgEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Risk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktRsk")]
     #endif
+    [IsoXmlTag("MktRsk")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MarketRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MarketRisk { get; init; } 
+    public required System.Decimal MarketRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MarketRisk { get; init; } 
     #else
@@ -156,16 +154,16 @@ public partial record CapitalRequirement1
     /// Indicates the capital necessary to cover business risk.
     /// </summary>
     [IsoId("_GmI0gLIgEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Risk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizRsk")]
     #endif
+    [IsoXmlTag("BizRsk")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount BusinessRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal BusinessRisk { get; init; } 
+    public required System.Decimal BusinessRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal BusinessRisk { get; init; } 
     #else
@@ -176,12 +174,12 @@ public partial record CapitalRequirement1
     /// Indicates the percentage above 100 percent of the CCP’s required capital requiring notification to the CCP’s National Competent Authority threshold.
     /// </summary>
     [IsoId("_bslp0LIgEeaYqc4G3TTwhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Buffer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnBffr")]
     #endif
+    [IsoXmlTag("NtfctnBffr")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? NotificationBuffer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

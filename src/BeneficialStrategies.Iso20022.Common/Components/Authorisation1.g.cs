@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Autorisation of the mandate holder.
 /// </summary>
 [IsoId("_PUrJF9p-Ed-ak6NoX_4Aeg_-504716804")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Authorisation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record Authorisation1
     /// Minimum amount per transaction allowed by the mandate.
     /// </summary>
     [IsoId("_PUrJGNp-Ed-ak6NoX_4Aeg_1206246780")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Amount Per Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinAmtPerTx")]
     #endif
+    [IsoXmlTag("MinAmtPerTx")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MinimumAmountPerTransaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MinimumAmountPerTransaction { get; init; } 
+    public required System.Decimal MinimumAmountPerTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MinimumAmountPerTransaction { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record Authorisation1
     /// Maximum amount per transaction allowed by the mandate.
     /// </summary>
     [IsoId("_PUrJGdp-Ed-ak6NoX_4Aeg_-151006738")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Amount Per Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAmtPerTx")]
     #endif
+    [IsoXmlTag("MaxAmtPerTx")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MaximumAmountPerTransaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MaximumAmountPerTransaction { get; init; } 
+    public required System.Decimal MaximumAmountPerTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MaximumAmountPerTransaction { get; init; } 
     #else
@@ -92,12 +90,11 @@ public partial record Authorisation1
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
     [IsoId("_PUrJGtp-Ed-ak6NoX_4Aeg_-1091239434")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Amount By Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAmtByPrd")]
     #endif
+    [IsoXmlTag("MaxAmtByPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaximumAmountByPeriod1? MaximumAmountByPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

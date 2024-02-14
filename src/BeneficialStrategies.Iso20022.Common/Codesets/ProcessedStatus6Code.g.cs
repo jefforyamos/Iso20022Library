@@ -21,7 +21,7 @@ public enum ProcessedStatus6Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKxI49p-Ed-ak6NoX_4Aeg_-1149003943")]
@@ -30,7 +30,7 @@ public enum ProcessedStatus6Code
     
     /// <summary>
     /// Awaiting the deactivation date.
-    /// Encoded/decoded by serializers as "DEAC".
+    /// Encoded/decoded by serializers as &quot;DEAC&quot;.
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_aKxI5Np-Ed-ak6NoX_4Aeg_-1149003942")]
@@ -39,7 +39,7 @@ public enum ProcessedStatus6Code
     
     /// <summary>
     /// The request has been completed.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aKxI5dp-Ed-ak6NoX_4Aeg_-1149003664")]

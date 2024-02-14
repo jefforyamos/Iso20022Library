@@ -21,7 +21,7 @@ public enum ReportPeriodActivity1Code
 {
     /// <summary>
     /// No transaction has been identified during the period.
-    /// Encoded/decoded by serializers as "NOTX".
+    /// Encoded/decoded by serializers as &quot;NOTX&quot;.
     /// </summary>
     [EnumMember(Value = "NOTX")]
     [IsoId("_Lbu1sZfsEeSfnc-VXAEapg")]

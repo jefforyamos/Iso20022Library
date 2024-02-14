@@ -21,7 +21,7 @@ public enum PriceValueType9Code
 {
     /// <summary>
     /// Price to be specified by account owner.
-    /// Encoded/decoded by serializers as "TBSP".
+    /// Encoded/decoded by serializers as &quot;TBSP&quot;.
     /// </summary>
     [EnumMember(Value = "TBSP")]
     [IsoId("_q5bEM2tdEeCY4-KZ9JEyUQ_-401797513")]
@@ -30,7 +30,7 @@ public enum PriceValueType9Code
     
     /// <summary>
     /// Price is not required to be specified by account owner.
-    /// Encoded/decoded by serializers as "UNSP".
+    /// Encoded/decoded by serializers as &quot;UNSP&quot;.
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_q5bENGtdEeCY4-KZ9JEyUQ_-519195689")]
@@ -39,7 +39,7 @@ public enum PriceValueType9Code
     
     /// <summary>
     /// Price is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q5bENWtdEeCY4-KZ9JEyUQ_-1516268042")]

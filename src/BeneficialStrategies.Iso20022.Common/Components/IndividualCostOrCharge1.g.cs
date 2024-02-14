@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Individual cost or charge associated with the distribution or selling of a financial instrument. It may be one-off or recurring charge. It may be intended (ex ante) or actual (ex post).
 /// </summary>
 [IsoId("_Botp4IwSEeicrr-UkGlMQA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Individual Cost Or Charge")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record IndividualCostOrCharge1
     /// Type of cost or charge.
     /// </summary>
     [IsoId("_Xr07x4wSEeicrr-UkGlMQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cost Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CostTp")]
     #endif
+    [IsoXmlTag("CostTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargeType7Choice_ CostType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargeType7Choice_ CostType { get; init; } 
+    public required ChargeType7Choice_ CostType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargeType7Choice_ CostType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record IndividualCostOrCharge1
     /// Specifies if the cost or charge is ex ante (intended) or post ante (actual).
     /// </summary>
     [IsoId("_Xr07yIwSEeicrr-UkGlMQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ex Ante Or Ex Post")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExAnteOrExPst")]
     #endif
+    [IsoXmlTag("ExAnteOrExPst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IntendedOrActual2Code ExAnteOrExPost { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IntendedOrActual2Code ExAnteOrExPost { get; init; } 
+    public required IntendedOrActual2Code ExAnteOrExPost { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IntendedOrActual2Code ExAnteOrExPost { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record IndividualCostOrCharge1
     /// Amount of the cost or charge.
     /// </summary>
     [IsoId("_Xr07yYwSEeicrr-UkGlMQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,12 @@ public partial record IndividualCostOrCharge1
     /// Rate of the cost or charge.
     /// </summary>
     [IsoId("_Xr07yowSEeicrr-UkGlMQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +124,11 @@ public partial record IndividualCostOrCharge1
     /// Start date and end date of the calculation period for the ex post cost or charge. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08090 and 08100.
     /// </summary>
     [IsoId("_Xr07y4wSEeicrr-UkGlMQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnPrd")]
     #endif
+    [IsoXmlTag("ClctnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period15? CalculationPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +141,11 @@ public partial record IndividualCostOrCharge1
     /// Additional information about the individual cost or charge.
     /// </summary>
     [IsoId("_Xr07zYwSEeicrr-UkGlMQA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

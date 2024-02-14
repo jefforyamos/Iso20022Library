@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"The AccountSwitchNotifyAccountSwitchComplete message is sent by the new account servicer to a central account switch servicer to signal that it has completed the account switch. ")]
 [IsoId("_Vh8wEhMLEeSTk5fcu7tr9w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Switch Notify Account Switch Complete V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
     /// Unique identification for the message.
     /// </summary>
     [IsoId("_sQzJUa5jEee17eDA_q0a9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
     /// Usage: This element is used to communicate confirmation of the account switch.
     /// </summary>
     [IsoId("_vdOCAa5jEee17eDA_q0a9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Switch Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctSwtchDtls")]
     #endif
+    [IsoXmlTag("AcctSwtchDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
+    public required AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountSwitchDetails1 AccountSwitchDetails { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_CksAMA8FEeeJ4ZumUkzG4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountSwitchNotifyAccountSwitchCompleteV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountSwitchNotifyAccountSwitchCompleteV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountSwitchNotifyAccountSwitchCompleteV01Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01 : IOuterRecord
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountSwitchNotifyAccountSwitchCompleteV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountSwitchNotifyAccountSwitchCompleteV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountSwitchNotifyAccountSwitchCompleteV01Document : IOuterDocument<AccountSwitchNotifyAccountSwitchCompleteV01>
@@ -162,7 +157,7 @@ public partial record AccountSwitchNotifyAccountSwitchCompleteV01Document : IOut
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountSwitchNotifyAccountSwitchCompleteV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountSwitchNotifyAccountSwitchCompleteV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountSwitchNotifyAccountSwitchCompleteV01 Message { get; init; }

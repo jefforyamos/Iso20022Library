@@ -21,7 +21,7 @@ public enum DTCAutoOfferProgram1Code
 {
     /// <summary>
     /// No automated interface. Hardcopy reporting required.
-    /// Encoded/decoded by serializers as "OFFL".
+    /// Encoded/decoded by serializers as &quot;OFFL&quot;.
     /// </summary>
     [EnumMember(Value = "OFFL")]
     [IsoId("_1pa8kzL3EeKU9IrkkToqcw_1972857518")]
@@ -30,7 +30,7 @@ public enum DTCAutoOfferProgram1Code
     
     /// <summary>
     /// Automated interface for instruction processing is present.
-    /// Encoded/decoded by serializers as "ONLN".
+    /// Encoded/decoded by serializers as &quot;ONLN&quot;.
     /// </summary>
     [EnumMember(Value = "ONLN")]
     [IsoId("_1pa8lDL3EeKU9IrkkToqcw_-2041250817")]

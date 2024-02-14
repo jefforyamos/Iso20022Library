@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice
     /// Trade is InRepair.
     /// </summary>
     [IsoId("_A4_6A9okEeC60axPepSq7g_-1646438235")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("In Repair")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

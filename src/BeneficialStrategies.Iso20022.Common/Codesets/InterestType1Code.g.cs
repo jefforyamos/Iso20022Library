@@ -21,7 +21,7 @@ public enum InterestType1Code
 {
     /// <summary>
     /// During or within a business day.
-    /// Encoded/decoded by serializers as "INDY".
+    /// Encoded/decoded by serializers as &quot;INDY&quot;.
     /// </summary>
     [EnumMember(Value = "INDY")]
     [IsoId("_zd5TUA93EeGeV5vP7Mvdig_809162901")]
@@ -30,7 +30,7 @@ public enum InterestType1Code
     
     /// <summary>
     /// Period of time between the end of a business day and the start of the next business day (usually the day after).
-    /// Encoded/decoded by serializers as "OVRN".
+    /// Encoded/decoded by serializers as &quot;OVRN&quot;.
     /// </summary>
     [EnumMember(Value = "OVRN")]
     [IsoId("_zd5TUQ93EeGeV5vP7Mvdig_-747638714")]

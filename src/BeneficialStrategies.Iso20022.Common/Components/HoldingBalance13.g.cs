@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
 [IsoId("_vh_0oTUEEe2tRf29bleifQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Holding Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record HoldingBalance13
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
     [IsoId("_v4DkMzUEEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignedQuantityFormat14 Balance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SignedQuantityFormat14 Balance { get; init; } 
+    public required SignedQuantityFormat14 Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SignedQuantityFormat14 Balance { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record HoldingBalance13
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
     [IsoId("_v4DkNTUEEe2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalTp")]
     #endif
+    [IsoXmlTag("BalTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesEntryType3Code BalanceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesEntryType3Code BalanceType { get; init; } 
+    public required SecuritiesEntryType3Code BalanceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesEntryType3Code BalanceType { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the comparison between the currently established baseline elements and the proposed ones.
 /// </summary>
 [IsoId("_70efBVhLEeih3fUfzR38Ig")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Reference Data Change")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PartyReferenceDataChange2
     /// Identifies the party for which the changes are listed in the advice.
     /// </summary>
     [IsoId("_7_fcMVhLEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification8 PartyIdentification { get; init; } 
+    public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification8 PartyIdentification { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record PartyReferenceDataChange2
     /// Provides the party data record for which details of the change are provided.
     /// </summary>
     [IsoId("_E_5woIp8EeiEt5E1WBt_2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcrd")]
     #endif
+    [IsoXmlTag("Rcrd")]
     public UpdateLogPartyRecord1Choice_? Record { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _E_5woIp8EeiEt5E1WBt_2Q
     
@@ -85,16 +81,16 @@ public partial record PartyReferenceDataChange2
     /// Specifies the timestamp of the operation.
     /// </summary>
     [IsoId("_7_fcOVhLEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operation Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OprTmStmp")]
     #endif
+    [IsoXmlTag("OprTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime OperationTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime OperationTimeStamp { get; init; } 
+    public required System.DateTime OperationTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime OperationTimeStamp { get; init; } 
     #else

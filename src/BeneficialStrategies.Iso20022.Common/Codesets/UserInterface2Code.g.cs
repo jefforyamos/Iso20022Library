@@ -21,7 +21,7 @@ public enum UserInterface2Code
 {
     /// <summary>
     /// Merchant display or interface.
-    /// Encoded/decoded by serializers as "MDSP".
+    /// Encoded/decoded by serializers as &quot;MDSP&quot;.
     /// </summary>
     [EnumMember(Value = "MDSP")]
     [IsoId("_TUmCEwEcEeCQm6a_G2yO_w_-1877868390")]
@@ -30,7 +30,7 @@ public enum UserInterface2Code
     
     /// <summary>
     /// Cardholder display or interface.
-    /// Encoded/decoded by serializers as "CDSP".
+    /// Encoded/decoded by serializers as &quot;CDSP&quot;.
     /// </summary>
     [EnumMember(Value = "CDSP")]
     [IsoId("_TUmCFAEcEeCQm6a_G2yO_w_-44704637")]

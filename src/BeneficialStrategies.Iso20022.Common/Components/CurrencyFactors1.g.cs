@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Currency specific Factors.
 /// </summary>
 [IsoId("_SvDFDAEcEeCQm6a_G2yO_w_737045003")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Factors")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record CurrencyFactors1
     /// Currency of the underlying currency specific amounts and ratios used in the pay-in schedule calculation.
     /// </summary>
     [IsoId("_SvDFDQEcEeCQm6a_G2yO_w_-1485086465")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode Currency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Currency { get; init; } 
+    public required string Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Currency { get; init; } 
     #else
@@ -74,16 +71,16 @@ public partial record CurrencyFactors1
     /// Maximum allowed short position in the currency during settlement.
     /// </summary>
     [IsoId("_SvDFDgEcEeCQm6a_G2yO_w_243513360")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Position Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtPosLmt")]
     #endif
+    [IsoXmlTag("ShrtPosLmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount ShortPositionLimit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ShortPositionLimit { get; init; } 
+    public required System.Decimal ShortPositionLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ShortPositionLimit { get; init; } 
     #else
@@ -94,16 +91,16 @@ public partial record CurrencyFactors1
     /// Minimum amount paid in one payment unless the short position is less than the minimum.
     /// </summary>
     [IsoId("_SvDFDwEcEeCQm6a_G2yO_w_151707201")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Pay In Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinPayInAmt")]
     #endif
+    [IsoXmlTag("MinPayInAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount MinimumPayInAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MinimumPayInAmount { get; init; } 
+    public required System.Decimal MinimumPayInAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MinimumPayInAmount { get; init; } 
     #else
@@ -114,16 +111,16 @@ public partial record CurrencyFactors1
     /// Margin used to decrease long positions and increase short positions during the risk calculation.
     /// </summary>
     [IsoId("_SvM2AAEcEeCQm6a_G2yO_w_-1119940583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volatility Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoltlyMrgn")]
     #endif
+    [IsoXmlTag("VoltlyMrgn")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate VolatilityMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal VolatilityMargin { get; init; } 
+    public required System.Decimal VolatilityMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal VolatilityMargin { get; init; } 
     #else
@@ -134,12 +131,11 @@ public partial record CurrencyFactors1
     /// Exchange rate used in the calculation of the pay-in schedule.
     /// </summary>
     [IsoId("_SvM2AQEcEeCQm6a_G2yO_w_948992700")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AgreedRate2? Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

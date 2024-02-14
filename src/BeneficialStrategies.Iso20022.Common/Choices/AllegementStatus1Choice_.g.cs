@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AllegementStatus1Choice.Code))]
     [KnownType(typeof(AllegementStatus1Choice.Proprietary))]
     [IsoId("_UakE0dp-Ed-ak6NoX_4Aeg_618404541")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allegement Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

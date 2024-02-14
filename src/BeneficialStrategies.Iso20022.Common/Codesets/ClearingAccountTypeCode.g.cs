@@ -21,7 +21,7 @@ public enum ClearingAccountTypeCode
 {
     /// <summary>
     /// Specifies that the account is used to register trades executed for either the clearing member or its subsidiaries.
-    /// Encoded/decoded by serializers as "HOUS".
+    /// Encoded/decoded by serializers as &quot;HOUS&quot;.
     /// </summary>
     [EnumMember(Value = "HOUS")]
     [IsoId("_YZhNs9p-Ed-ak6NoX_4Aeg_1631677656")]
@@ -29,8 +29,8 @@ public enum ClearingAccountTypeCode
     House,
     
     /// <summary>
-    /// Specifies that the account is used to register trades executed for the clearing member's customers.
-    /// Encoded/decoded by serializers as "CLIE".
+    /// Specifies that the account is used to register trades executed for the clearing member&apos;s customers.
+    /// Encoded/decoded by serializers as &quot;CLIE&quot;.
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_YZhNtNp-Ed-ak6NoX_4Aeg_2062824443")]
@@ -39,7 +39,7 @@ public enum ClearingAccountTypeCode
     
     /// <summary>
     /// Specifies that the account is used to register trades executed for liquidity providers (also known as market maker) activities.
-    /// Encoded/decoded by serializers as "LIPR".
+    /// Encoded/decoded by serializers as &quot;LIPR&quot;.
     /// </summary>
     [EnumMember(Value = "LIPR")]
     [IsoId("_YZhNtdp-Ed-ak6NoX_4Aeg_124536150")]
@@ -48,7 +48,7 @@ public enum ClearingAccountTypeCode
     
     /// <summary>
     /// Specifies that client position and assets within the associated position and collateral accounts of the clearing account are operationally and legally commingled, however initial margin requirements are calculated on a gross basis for each related margining account.
-    /// Encoded/decoded by serializers as "GOSA".
+    /// Encoded/decoded by serializers as &quot;GOSA&quot;.
     /// </summary>
     [EnumMember(Value = "GOSA")]
     [IsoId("_u-y54HXqEee_qcLXasnA4g")]
@@ -57,7 +57,7 @@ public enum ClearingAccountTypeCode
     
     /// <summary>
     /// Specifies that the client positions and assets within the associated position and collateral accounts of the clearing account are operationally and legally commingled while initial margin requirements are calculated on a net basis across all related margining or position accounts.
-    /// Encoded/decoded by serializers as "NOSA".
+    /// Encoded/decoded by serializers as &quot;NOSA&quot;.
     /// </summary>
     [EnumMember(Value = "NOSA")]
     [IsoId("_N0QyMHXrEee_qcLXasnA4g")]
@@ -66,7 +66,7 @@ public enum ClearingAccountTypeCode
     
     /// <summary>
     /// Specifies that customer positions and assets within the associated position and collateral accounts of the clearing account are operationally and legally segregated.
-    /// Encoded/decoded by serializers as "ISEG".
+    /// Encoded/decoded by serializers as &quot;ISEG&quot;.
     /// </summary>
     [EnumMember(Value = "ISEG")]
     [IsoId("__4cu4HX7Eee_qcLXasnA4g")]

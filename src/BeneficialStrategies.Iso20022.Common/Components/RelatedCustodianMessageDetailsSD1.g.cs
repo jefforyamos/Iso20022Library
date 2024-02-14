@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides selected corporate action events message details extracted from the related custodian messages received.
 /// </summary>
 [IsoId("_1WNFoTL3EeKU9IrkkToqcw_735116614")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Related Custodian Message Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -59,19 +57,17 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// Reference the CAEV value from the received custodian message. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WNFojL3EeKU9IrkkToqcw_1873449067")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvdEvtTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcvdEvtTp")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText ReceivedEventType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReceivedEventType { get; init; } 
+    public required System.String ReceivedEventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReceivedEventType { get; init; } 
     #else
@@ -82,19 +78,17 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// Reference the CAMV value from the received custodian message. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WNFozL3EeKU9IrkkToqcw_-948266421")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received Mandatory Voluntary Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvdMndtryVlntryEvtTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcvdMndtryVlntryEvtTp")]
+    [IsoSimpleType(IsoSimpleType.Max4AlphaNumericText)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax4AlphaNumericText ReceivedMandatoryVoluntaryEventType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReceivedMandatoryVoluntaryEventType { get; init; } 
+    public required System.String ReceivedMandatoryVoluntaryEventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReceivedMandatoryVoluntaryEventType { get; init; } 
     #else
@@ -105,19 +99,17 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// Reference the CORP value from the received custodian message. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WNFpDL3EeKU9IrkkToqcw_1342648125")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received Corporate Action Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvdCorpActnEvtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcvdCorpActnEvtId")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax16Text ReceivedCorporateActionEventIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReceivedCorporateActionEventIdentification { get; init; } 
+    public required System.String ReceivedCorporateActionEventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReceivedCorporateActionEventIdentification { get; init; } 
     #else
@@ -128,16 +120,16 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// Rate that the ISO message was received from the custodian. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WNFpTL3EeKU9IrkkToqcw_1703993481")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvdDt")]
     #endif
+    [IsoXmlTag("RcvdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ReceivedDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ReceivedDate { get; init; } 
+    public required System.DateOnly ReceivedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ReceivedDate { get; init; } 
     #else
@@ -148,12 +140,12 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// Time of day that the ISO message was received from the custodian. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WWPkDL3EeKU9IrkkToqcw_-1439843261")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvdTm")]
     #endif
+    [IsoXmlTag("RcvdTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? ReceivedTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,19 +158,16 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// Reference of the ISO15022 MT message type received from the custodian message. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WWPkTL3EeKU9IrkkToqcw_519445599")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inbound ISO Message Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InbndISOMT")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("InbndISOMT")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact3NumericText InboundISOMessageType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InboundISOMessageType { get; init; } 
+    public required System.String InboundISOMessageType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InboundISOMessageType { get; init; } 
     #else
@@ -189,16 +178,16 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// BIC Code of the recipient of the custodian record on a received message. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WWPkjL3EeKU9IrkkToqcw_1590634510")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inbound ISO Message Receiver BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InbndISOMsgRcvrBIC")]
     #endif
+    [IsoXmlTag("InbndISOMsgRcvrBIC")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier InboundISOMessageReceiverBIC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InboundISOMessageReceiverBIC { get; init; } 
+    public required System.String InboundISOMessageReceiverBIC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InboundISOMessageReceiverBIC { get; init; } 
     #else
@@ -209,19 +198,17 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// Sender related reference from the received custodian message. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WWPkzL3EeKU9IrkkToqcw_-2146269993")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvdRltdRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcvdRltdRef")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax16Text ReceivedRelatedReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReceivedRelatedReference { get; init; } 
+    public required System.String ReceivedRelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReceivedRelatedReference { get; init; } 
     #else
@@ -232,19 +219,17 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// Sender SEME from received custodian message. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WWPlDL3EeKU9IrkkToqcw_-1013529054")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Received Sender Message Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvdSndrMsgRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcvdSndrMsgRef")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax16Text ReceivedSenderMessageReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReceivedSenderMessageReference { get; init; } 
+    public required System.String ReceivedSenderMessageReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReceivedSenderMessageReference { get; init; } 
     #else
@@ -255,16 +240,16 @@ public partial record RelatedCustodianMessageDetailsSD1
     /// BIC Code of the sender of the custodian record on a received message. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1WWPlTL3EeKU9IrkkToqcw_1794390087")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Inbound ISO Message Sender BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InbndISOMsgSndrBIC")]
     #endif
+    [IsoXmlTag("InbndISOMsgSndrBIC")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier InboundISOMessageSenderBIC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InboundISOMessageSenderBIC { get; init; } 
+    public required System.String InboundISOMessageSenderBIC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InboundISOMessageSenderBIC { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum PensionTransferScopeCode
 {
     /// <summary>
     /// Transfer is for the full pension.
-    /// Encoded/decoded by serializers as "FULP".
+    /// Encoded/decoded by serializers as &quot;FULP&quot;.
     /// </summary>
     [EnumMember(Value = "FULP")]
     [IsoId("_iTuBAE4YEeiQHa-q1Uephw")]
@@ -30,7 +30,7 @@ public enum PensionTransferScopeCode
     
     /// <summary>
     /// Transfer is for the uncrystallised portion.
-    /// Encoded/decoded by serializers as "UCRY".
+    /// Encoded/decoded by serializers as &quot;UCRY&quot;.
     /// </summary>
     [EnumMember(Value = "UCRY")]
     [IsoId("_kTXkkE4YEeiQHa-q1Uephw")]
@@ -39,7 +39,7 @@ public enum PensionTransferScopeCode
     
     /// <summary>
     /// Transfer is for the crystallised portion.
-    /// Encoded/decoded by serializers as "CRYS".
+    /// Encoded/decoded by serializers as &quot;CRYS&quot;.
     /// </summary>
     [EnumMember(Value = "CRYS")]
     [IsoId("_n1K3YE4YEeiQHa-q1Uephw")]
@@ -48,7 +48,7 @@ public enum PensionTransferScopeCode
     
     /// <summary>
     /// Transfer is for a specific drawdown tranche.
-    /// Encoded/decoded by serializers as "SDDT".
+    /// Encoded/decoded by serializers as &quot;SDDT&quot;.
     /// </summary>
     [EnumMember(Value = "SDDT")]
     [IsoId("_pY9lYE4YEeiQHa-q1Uephw")]

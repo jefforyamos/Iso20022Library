@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1CodeChoice
     /// Transaction type in a structured format.
     /// </summary>
     [IsoId("_U0V2wtp-Ed-ak6NoX_4Aeg_2144803463")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1CodeChoice
         /// Specifies the type of transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Strd")]
         #endif
+        [IsoXmlTag("Strd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TransactionType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TransactionType2Code Value { get; init; } 
+        public required TransactionType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TransactionType2Code Value { get; init; } 
         #else

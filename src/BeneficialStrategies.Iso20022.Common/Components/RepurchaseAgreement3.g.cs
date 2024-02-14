@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Agreement between two parties to sell a financial instrument or set of financial instruments and repurchase such instruments at an agreed future date.
 /// </summary>
 [IsoId("_aOU-QbcREeabfchHYoktpA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Repurchase Agreement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record RepurchaseAgreement3
     /// Specifies attributes of a derivative based on Final ISDA Taxonomy v1.0 and Final ISDA Taxonomy v2.0.
     /// </summary>
     [IsoId("_EBtPIDXHEemdWfjs3tykFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctClssfctn")]
     #endif
+    [IsoXmlTag("PdctClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProductClassification1 ProductClassification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProductClassification1 ProductClassification { get; init; } 
+    public required ProductClassification1 ProductClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProductClassification1 ProductClassification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record RepurchaseAgreement3
     /// Indicates whether the repo is a general collateral repo or specific repo.
     /// </summary>
     [IsoId("_aYveibcREeabfchHYoktpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Agreement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpAgrmtTp")]
     #endif
+    [IsoXmlTag("RpAgrmtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
+    public required RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record RepurchaseAgreement3
     /// Identifier for triparty agent if applicable.
     /// </summary>
     [IsoId("_aYvei7cREeabfchHYoktpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Triparty Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrptyAgt")]
     #endif
+    [IsoXmlTag("TrptyAgt")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? TripartyAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the derogation related data of settlement fails instructions.
 /// </summary>
 [IsoId("_N2mR1L6ZEemHTLTzJg7M-A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Derogation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record SettlementFailsDerogation1
     /// Defines whether the item is eligible for derogation or not.
     /// </summary>
     [IsoId("_N2mR176ZEemHTLTzJg7M-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligibility Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgbltyInd")]
     #endif
+    [IsoXmlTag("ElgbltyInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator EligibilityIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EligibilityIndicator { get; init; } 
+    public required System.String EligibilityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EligibilityIndicator { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record SettlementFailsDerogation1
     /// Justification for the derogation.
     /// </summary>
     [IsoId("_gDA-8L6ZEemHTLTzJg7M-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Justification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Justfn")]
     #endif
+    [IsoXmlTag("Justfn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementFailsJustification1? Justification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

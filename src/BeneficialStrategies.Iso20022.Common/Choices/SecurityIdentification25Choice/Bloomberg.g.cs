@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification25Choice
     /// Identifier of a security assigned by the Bloomberg organisation.
     /// </summary>
     [IsoId("_cH1L7TnxEeabspMEjqY5TQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bloomberg")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification25Choice
         /// An identifier of a security assigned by the Bloomberg organisation.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Blmbrg")]
         #endif
+        [IsoXmlTag("Blmbrg")]
+        [IsoSimpleType(IsoSimpleType.Bloomberg2Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoBloomberg2Identifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

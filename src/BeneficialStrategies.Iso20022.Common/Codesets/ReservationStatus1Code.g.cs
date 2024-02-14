@@ -21,7 +21,7 @@ public enum ReservationStatus1Code
 {
     /// <summary>
     /// Reservation is currently in effect.
-    /// Encoded/decoded by serializers as "ENAB".
+    /// Encoded/decoded by serializers as &quot;ENAB&quot;.
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_8J5r8aMgEeCJ6YNENx4h-w_312799950")]
@@ -30,7 +30,7 @@ public enum ReservationStatus1Code
     
     /// <summary>
     /// Reservation is not currently in effect.|.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_8J5r8qMgEeCJ6YNENx4h-w_898746976")]
@@ -39,7 +39,7 @@ public enum ReservationStatus1Code
     
     /// <summary>
     /// Reservation has been deleted or suspended.
-    /// Encoded/decoded by serializers as "DELD".
+    /// Encoded/decoded by serializers as &quot;DELD&quot;.
     /// </summary>
     [EnumMember(Value = "DELD")]
     [IsoId("_8J5r86MgEeCJ6YNENx4h-w_-173258083")]
@@ -48,7 +48,7 @@ public enum ReservationStatus1Code
     
     /// <summary>
     /// Reservation has been asked for and is not yet enabled.|.
-    /// Encoded/decoded by serializers as "REQD".
+    /// Encoded/decoded by serializers as &quot;REQD&quot;.
     /// </summary>
     [EnumMember(Value = "REQD")]
     [IsoId("_8J5r9KMgEeCJ6YNENx4h-w_280829186")]
@@ -57,7 +57,7 @@ public enum ReservationStatus1Code
     
     /// <summary>
     /// Reservation is blocked or frozen due to external circumstances such as a court order, death of beneficiary or account owner, or bankruptcy.
-    /// Encoded/decoded by serializers as "BLKD".
+    /// Encoded/decoded by serializers as &quot;BLKD&quot;.
     /// </summary>
     [EnumMember(Value = "BLKD")]
     [IsoId("_8J5r9aMgEeCJ6YNENx4h-w_-1729127672")]

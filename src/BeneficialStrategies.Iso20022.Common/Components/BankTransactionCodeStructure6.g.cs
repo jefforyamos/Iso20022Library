@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify the type or operations code of a transaction entry.
 /// </summary>
 [IsoId("_TVRQu9p-Ed-ak6NoX_4Aeg_1515822708")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Bank Transaction Code Structure")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record BankTransactionCodeStructure6
     /// Specifies the family within a domain.
     /// </summary>
     [IsoId("_TVbBsNp-Ed-ak6NoX_4Aeg_1515822740")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionFamily1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Code { get; init; } 
+    public required string Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Code { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record BankTransactionCodeStructure6
     /// Specifies the sub-product family within a specific family.
     /// </summary>
     [IsoId("_TVbBsdp-Ed-ak6NoX_4Aeg_1515822800")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Family Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubFmlyCd")]
     #endif
+    [IsoXmlTag("SubFmlyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalBankTransactionSubFamily1Code SubFamilyCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string SubFamilyCode { get; init; } 
+    public required string SubFamilyCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string SubFamilyCode { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide detailed information about the security.
 /// </summary>
 [IsoId("_f2gQwTpyEemk2e6qGBk8IQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record SecurityCharacteristics3
     /// Unique identification, as known by the account owner, to unambiguously identify the security.
     /// </summary>
     [IsoId("_gGvsMTpyEemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification19? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +67,11 @@ public partial record SecurityCharacteristics3
     /// Specifies the position for the security.
     /// </summary>
     [IsoId("_gGvsMzpyEemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pos")]
     #endif
+    [IsoXmlTag("Pos")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesPosition1? Position { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,16 +84,15 @@ public partial record SecurityCharacteristics3
     /// Specifies the price of the security for valuation purposes.
     /// </summary>
     [IsoId("_gGvsNTpyEemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnPric")]
     #endif
+    [IsoXmlTag("ValtnPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
+    public required AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
     #else
@@ -108,16 +103,16 @@ public partial record SecurityCharacteristics3
     /// Specifies the value of the security for collateral purposes.
     /// </summary>
     [IsoId("_gGvsNzpyEemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollVal")]
     #endif
+    [IsoXmlTag("CollVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CollateralValue { get; init; } 
+    public required System.Decimal CollateralValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CollateralValue { get; init; } 
     #else

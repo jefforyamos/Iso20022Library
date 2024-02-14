@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StatementBasisCodeAndDSSCodeChoice.StatementBasisAsCode))]
     [KnownType(typeof(StatementBasisCodeAndDSSCodeChoice.StatementBasisAsDSS))]
     [IsoId("_Q7Cp8Np-Ed-ak6NoX_4Aeg_-1357896034")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Basis Code And DSS Code Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

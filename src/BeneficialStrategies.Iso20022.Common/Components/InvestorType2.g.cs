@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Investor for which a financial instrument is targeted.
 /// </summary>
 [IsoId("_Si1WsbSaEeq-6ssAXwSh-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investor Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InvestorType2
     /// Specifies whether the product is aimed at the retail investor. If neutral, the manufacturer estimates that there is neither a negative nor a positive target market. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01010.
     /// </summary>
     [IsoId("_S3OSUbSaEeq-6ssAXwSh-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Type Retail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrTpRtl")]
     #endif
+    [IsoXmlTag("InvstrTpRtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? InvestorTypeRetail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record InvestorType2
     /// Specifies how the product is aimed at the professional investor. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01020.
     /// </summary>
     [IsoId("_S3OSU7SaEeq-6ssAXwSh-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Type Professional")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrTpPrfssnl")]
     #endif
+    [IsoXmlTag("InvstrTpPrfssnl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket5Choice_? InvestorTypeProfessional { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record InvestorType2
     /// Specifies whether the product is aimed at the eligible counterparty. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01030.
     /// </summary>
     [IsoId("_S3OSVbSaEeq-6ssAXwSh-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Type Eligible Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrTpElgblCtrPty")]
     #endif
+    [IsoXmlTag("InvstrTpElgblCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket3Code? InvestorTypeEligibleCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record InvestorType2
     /// Specifies another investor type.
     /// </summary>
     [IsoId("_S3OSV7SaEeq-6ssAXwSh-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherTargetMarketInvestor1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

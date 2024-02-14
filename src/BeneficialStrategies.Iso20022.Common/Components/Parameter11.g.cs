@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters of the RSASSA-PSS digital signature algorithm (RSA signature algorithm with appendix: Probabilistic Signature Scheme).
 /// </summary>
 [IsoId("_AU-_wdtbEee9e6xduATmQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Parameter11
     /// Identification of the digest algorithm.
     /// </summary>
     [IsoId("_AeEDQdtbEee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digest Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstAlgo")]
     #endif
+    [IsoXmlTag("DgstAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Algorithm16Code DigestAlgorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Algorithm16Code DigestAlgorithm { get; init; } 
+    public required Algorithm16Code DigestAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Algorithm16Code DigestAlgorithm { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record Parameter11
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
     [IsoId("_AeEDQ9tbEee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mask Generator Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MskGnrtrAlgo")]
     #endif
+    [IsoXmlTag("MskGnrtrAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
+    public required AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record Parameter11
     /// Length of the salt to include in the signature.
     /// </summary>
     [IsoId("_AeEDRdtbEee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Salt Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaltLngth")]
     #endif
+    [IsoXmlTag("SaltLngth")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber SaltLength { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 SaltLength { get; init; } 
+    public required System.UInt64 SaltLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 SaltLength { get; init; } 
     #else
@@ -113,12 +109,12 @@ public partial record Parameter11
     /// Trailer field number.
     /// </summary>
     [IsoId("_AeEDR9tbEee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trailer Field")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrlrFld")]
     #endif
+    [IsoXmlTag("TrlrFld")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TrailerField { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

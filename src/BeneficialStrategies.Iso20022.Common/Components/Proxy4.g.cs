@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the elements that identify a proxy appointed to represent a party authorised to vote at a shareholders meeting.
 /// </summary>
 [IsoId("_T4cPN9p-Ed-ak6NoX_4Aeg_2145397537")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proxy")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Proxy4
     /// Specifies the type of proxy.
     /// </summary>
     [IsoId("_T4cPONp-Ed-ak6NoX_4Aeg_2145397569")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrxyTp")]
     #endif
+    [IsoXmlTag("PrxyTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProxyType2Code ProxyType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProxyType2Code ProxyType { get; init; } 
+    public required ProxyType2Code ProxyType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProxyType2Code ProxyType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Proxy4
     /// Person, other than the Chairman of the meeting, assigned by the security holder as proxy.
     /// </summary>
     [IsoId("_T4cPOdp-Ed-ak6NoX_4Aeg_2145398147")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Person Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrsnDtls")]
     #endif
+    [IsoXmlTag("PrsnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson17? PersonDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record Proxy4
     /// Indicates the vote instruction for the resolutions which are announced via the meeting agenda in advance of the meeting.
     /// </summary>
     [IsoId("_T4cPOtp-Ed-ak6NoX_4Aeg_2145398085")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction For Agenda Resolution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteInstrForAgndRsltn")]
     #endif
+    [IsoXmlTag("VoteInstrForAgndRsltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vote2Choice_? VoteInstructionForAgendaResolution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

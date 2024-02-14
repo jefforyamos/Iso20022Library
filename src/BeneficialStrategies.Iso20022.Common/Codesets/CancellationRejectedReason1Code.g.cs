@@ -21,7 +21,7 @@ public enum CancellationRejectedReason1Code
 {
     /// <summary>
     /// Instruction has been received after the cut-off time.
-    /// Encoded/decoded by serializers as "CUTO".
+    /// Encoded/decoded by serializers as &quot;CUTO&quot;.
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_bYjKo9p-Ed-ak6NoX_4Aeg_-1041848")]
@@ -30,7 +30,7 @@ public enum CancellationRejectedReason1Code
     
     /// <summary>
     /// Order or transfer has already been executed and confirmation has been sent.
-    /// Encoded/decoded by serializers as "COSE".
+    /// Encoded/decoded by serializers as &quot;COSE&quot;.
     /// </summary>
     [EnumMember(Value = "COSE")]
     [IsoId("_bYjKpNp-Ed-ak6NoX_4Aeg_-2116683787")]

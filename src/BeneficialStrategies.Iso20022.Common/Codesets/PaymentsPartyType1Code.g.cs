@@ -21,7 +21,7 @@ public enum PaymentsPartyType1Code
 {
     /// <summary>
     /// Debtor agent, creditor agent or financial institution between debtor agent and creditor agent.
-    /// Encoded/decoded by serializers as "ALPA".
+    /// Encoded/decoded by serializers as &quot;ALPA&quot;.
     /// </summary>
     [EnumMember(Value = "ALPA")]
     [IsoId("_GZLMYUw4EeeCGO0eMGim8w")]
@@ -30,7 +30,7 @@ public enum PaymentsPartyType1Code
     
     /// <summary>
     /// Creditor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
-    /// Encoded/decoded by serializers as "CACR".
+    /// Encoded/decoded by serializers as &quot;CACR&quot;.
     /// </summary>
     [EnumMember(Value = "CACR")]
     [IsoId("_BVa2UVyZEeewBcMu1EH_Gg")]
@@ -39,7 +39,7 @@ public enum PaymentsPartyType1Code
     
     /// <summary>
     /// Debtor agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
-    /// Encoded/decoded by serializers as "DADE".
+    /// Encoded/decoded by serializers as &quot;DADE&quot;.
     /// </summary>
     [EnumMember(Value = "DADE")]
     [IsoId("_Bbb-wVyZEeewBcMu1EH_Gg")]
@@ -48,7 +48,7 @@ public enum PaymentsPartyType1Code
     
     /// <summary>
     /// Intermediary agent in a financial institution to financial institution customer credit transfer or creditor in a financial institution credit transfer with cover.
-    /// Encoded/decoded by serializers as "INAG".
+    /// Encoded/decoded by serializers as &quot;INAG&quot;.
     /// </summary>
     [EnumMember(Value = "INAG")]
     [IsoId("_BhHwAVyZEeewBcMu1EH_Gg")]

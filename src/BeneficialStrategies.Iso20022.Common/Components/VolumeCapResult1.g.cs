@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of result of a volume capping.
 /// </summary>
 [IsoId("_U7tWsJuJEeaPcol5ibnfBQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Volume Cap Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record VolumeCapResult1
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
     [IsoId("_9ch6AJuJEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINOct2015Identifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -74,16 +72,15 @@ public partial record VolumeCapResult1
     /// Date or date range the report relates to.
     /// </summary>
     [IsoId("_FV0KcJuKEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPrd")]
     #endif
+    [IsoXmlTag("RptgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4Choice_ ReportingPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Period4Choice_ ReportingPeriod { get; init; } 
+    public required Period4Choice_ ReportingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Period4Choice_ ReportingPeriod { get; init; } 
     #else
@@ -94,12 +91,12 @@ public partial record VolumeCapResult1
     /// Last date for which the data was updated for this instrument and reporting period.
     /// </summary>
     [IsoId("_LBukYJuKEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Update Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastUpdDt")]
     #endif
+    [IsoXmlTag("LastUpdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? LastUpdateDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,16 +109,16 @@ public partial record VolumeCapResult1
     /// Total traded volume of the instrument in this specific reporting period.
     /// </summary>
     [IsoId("_V17t0JuKEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Trading Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTradgVol")]
     #endif
+    [IsoXmlTag("TtlTradgVol")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalTradingVolume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalTradingVolume { get; init; } 
+    public required System.Decimal TotalTradingVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalTradingVolume { get; init; } 
     #else
@@ -132,16 +129,16 @@ public partial record VolumeCapResult1
     /// Total percentage of trading under waiver of the instrument in this specific reporting period.
     /// </summary>
     [IsoId("_6AHBAJuKEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Under Waiver Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgUdrWvrPctg")]
     #endif
+    [IsoXmlTag("TradgUdrWvrPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate TradingUnderWaiverPercentage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TradingUnderWaiverPercentage { get; init; } 
+    public required System.Decimal TradingUnderWaiverPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TradingUnderWaiverPercentage { get; init; } 
     #else
@@ -152,12 +149,11 @@ public partial record VolumeCapResult1
     /// Percentage of trading under waiver of the instrument in this specific reporting period broken down by trading venue.
     /// </summary>
     [IsoId("_dyll4JuLEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Under Waiver Breakdown")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgUdrWvrBrkdwn")]
     #endif
+    [IsoXmlTag("TradgUdrWvrBrkdwn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradingUnderWaiversPercentage1? TradingUnderWaiverBreakdown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,15 +166,13 @@ public partial record VolumeCapResult1
     /// Information for interpreting the result.
     /// </summary>
     [IsoId("_JNG6MJuMEeaPcol5ibnfBQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disclaimer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dsclmr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Dsclmr")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? Disclaimer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

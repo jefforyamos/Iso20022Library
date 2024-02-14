@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PairedOrTurnedQuantity5Choice
     /// Quantity of financial instruments of the linked transaction to be paired-off.
     /// </summary>
     [IsoId("_YcjksSqHEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Paired Off Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

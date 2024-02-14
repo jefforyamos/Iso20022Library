@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
     /// Specifies physical address of the meeting.
     /// </summary>
     [IsoId("_RXD3mNp-Ed-ak6NoX_4Aeg_-217471735")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
         /// Identifies the nature of the postal address.
         /// </summary>
         [IsoId("_QG4pKdp-Ed-ak6NoX_4Aeg_-293371907")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Address Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AdrTp")]
         #endif
+        [IsoXmlTag("AdrTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AddressType2Code? AddressType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,34 +71,28 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
         /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
         /// </summary>
         [IsoId("_QG4pKtp-Ed-ak6NoX_4Aeg_-484540115")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Address Line")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AdrLine")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AdrLine")]
+        [IsoSimpleType(IsoSimpleType.Max70Text)]
         [MinLength(0)]
         [MaxLength(5)]
-        #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-        #endif
         public SimpleValueList<System.String> AddressLine { get; init; } = new SimpleValueList<System.String>(){};
         
         /// <summary>
         /// Name of a street or thoroughfare.
         /// </summary>
         [IsoId("_QG4pK9p-Ed-ak6NoX_4Aeg_-1702876782")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Street Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StrtNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("StrtNm")]
+        [IsoSimpleType(IsoSimpleType.Max70Text)]
         [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax70Text? StreetName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,15 +105,13 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
         /// Number that identifies the position of a building on a street.
         /// </summary>
         [IsoId("_QG4pLNp-Ed-ak6NoX_4Aeg_-1628995660")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Building Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BldgNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("BldgNb")]
+        [IsoSimpleType(IsoSimpleType.Max16Text)]
         [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax16Text? BuildingNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,15 +124,13 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
         /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
         /// </summary>
         [IsoId("_QHCaINp-Ed-ak6NoX_4Aeg_-14467862")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Post Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PstCd")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PstCd")]
+        [IsoSimpleType(IsoSimpleType.Max16Text)]
         [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax16Text? PostCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,15 +143,13 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
         /// Name of a built-up area, with defined boundaries, and a local government.
         /// </summary>
         [IsoId("_QHCaIdp-Ed-ak6NoX_4Aeg_15083256")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Town Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TwnNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TwnNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? TownName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -177,15 +162,13 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
         /// Identifies a subdivision of a country for example, state, region, county.
         /// </summary>
         [IsoId("_QHCaItp-Ed-ak6NoX_4Aeg_44636499")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Country Sub Division")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrySubDvsn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("CtrySubDvsn")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? CountrySubDivision { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,16 +181,15 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice
         /// Nation with its own government.
         /// </summary>
         [IsoId("_QHCaI9p-Ed-ak6NoX_4Aeg_-34786848")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Country")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ctry")]
         #endif
+        [IsoXmlTag("Ctry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CountryCode Country { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Country { get; init; } 
+        public required string Country { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Country { get; init; } 
         #else

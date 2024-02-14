@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BPOApplicableRules1Choice.URBPOVersion))]
     [KnownType(typeof(BPOApplicableRules1Choice.OtherRulesAndVersion))]
     [IsoId("_jjfsgNNqEeKdOs2hjJ_3WQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("BPO Applicable Rules 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

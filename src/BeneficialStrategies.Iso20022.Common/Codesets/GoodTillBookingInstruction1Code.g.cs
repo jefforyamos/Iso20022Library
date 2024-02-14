@@ -21,7 +21,7 @@ public enum GoodTillBookingInstruction1Code
 {
     /// <summary>
     /// Book out all trades on day of execution.
-    /// Encoded/decoded by serializers as "BOEX".
+    /// Encoded/decoded by serializers as &quot;BOEX&quot;.
     /// </summary>
     [EnumMember(Value = "BOEX")]
     [IsoId("_auYMQtp-Ed-ak6NoX_4Aeg_659969076")]
@@ -30,7 +30,7 @@ public enum GoodTillBookingInstruction1Code
     
     /// <summary>
     /// Accumulate executions until order is filled or expires.
-    /// Encoded/decoded by serializers as "ACTE".
+    /// Encoded/decoded by serializers as &quot;ACTE&quot;.
     /// </summary>
     [EnumMember(Value = "ACTE")]
     [IsoId("_auYMQ9p-Ed-ak6NoX_4Aeg_659969118")]
@@ -39,7 +39,7 @@ public enum GoodTillBookingInstruction1Code
     
     /// <summary>
     /// Accumulate until verbally notified otherwise.
-    /// Encoded/decoded by serializers as "ACTT".
+    /// Encoded/decoded by serializers as &quot;ACTT&quot;.
     /// </summary>
     [EnumMember(Value = "ACTT")]
     [IsoId("_auYMRNp-Ed-ak6NoX_4Aeg_659969178")]

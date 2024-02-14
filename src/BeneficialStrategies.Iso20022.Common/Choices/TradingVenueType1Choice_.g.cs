@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradingVenueType1Choice.OnVenue))]
     [KnownType(typeof(TradingVenueType1Choice.OffVenue))]
     [IsoId("_MXZ-8Hy7Eeu1BeE84IrnAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Venue Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

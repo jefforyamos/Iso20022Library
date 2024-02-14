@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a blocked account.
 /// </summary>
 [IsoId("_EGbMcSGeEeWKAaDJcYGKLw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Blocked")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record Blocked2
     /// Specifies the order or transaction type for which the account is blocked.
     /// </summary>
     [IsoId("_EjSuoSGeEeWKAaDJcYGKLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrTp")]
     #endif
+    [IsoXmlTag("OrdrTp")]
     public OrderType2Choice_? OrderType { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _EjSuoSGeEeWKAaDJcYGKLw
     
@@ -64,16 +61,16 @@ public partial record Blocked2
     /// Indicates whether the account is blocked.
     /// </summary>
     [IsoId("_EjSuoyGeEeWKAaDJcYGKLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blocked")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Blckd")]
     #endif
+    [IsoXmlTag("Blckd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Blocked { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Blocked { get; init; } 
+    public required System.String Blocked { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Blocked { get; init; } 
     #else
@@ -84,12 +81,11 @@ public partial record Blocked2
     /// Specifies the reason the account is blocked.
     /// </summary>
     [IsoId("_EjSupSGeEeWKAaDJcYGKLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BlockedReason1Choice_? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

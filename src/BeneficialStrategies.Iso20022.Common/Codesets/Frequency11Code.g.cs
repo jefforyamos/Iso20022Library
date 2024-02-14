@@ -21,7 +21,7 @@ public enum Frequency11Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_3AYVEchvEeadgvwNGwK05w")]
@@ -30,7 +30,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_3I1GcchvEeadgvwNGwK05w")]
@@ -39,7 +39,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_36qzEchvEeadgvwNGwK05w")]
@@ -48,7 +48,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event occurs on expiry of a financial contract.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_42kaochvEeadgvwNGwK05w")]
@@ -57,7 +57,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event takes place overnight.
-    /// Encoded/decoded by serializers as "OVNG".
+    /// Encoded/decoded by serializers as &quot;OVNG&quot;.
     /// </summary>
     [EnumMember(Value = "OVNG")]
     [IsoId("_5PZxYchvEeadgvwNGwK05w")]
@@ -66,7 +66,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QURT".
+    /// Encoded/decoded by serializers as &quot;QURT&quot;.
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_5WEaEchvEeadgvwNGwK05w")]
@@ -75,7 +75,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "MIAN".
+    /// Encoded/decoded by serializers as &quot;MIAN&quot;.
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_5y8jUchvEeadgvwNGwK05w")]
@@ -84,7 +84,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event that takes place at the initiation of a trade or agreement.
-    /// Encoded/decoded by serializers as "UPFR".
+    /// Encoded/decoded by serializers as &quot;UPFR&quot;.
     /// </summary>
     [EnumMember(Value = "UPFR")]
     [IsoId("_6EIZ8chvEeadgvwNGwK05w")]
@@ -93,7 +93,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_6Nd8IchvEeadgvwNGwK05w")]
@@ -102,7 +102,7 @@ public enum Frequency11Code
     
     /// <summary>
     /// Event occurs due to a credit event occurring for an issuer.
-    /// Encoded/decoded by serializers as "CRED".
+    /// Encoded/decoded by serializers as &quot;CRED&quot;.
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_6uQ8EchvEeadgvwNGwK05w")]

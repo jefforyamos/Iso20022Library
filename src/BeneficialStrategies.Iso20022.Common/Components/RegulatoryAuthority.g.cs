@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity requiring the regulatory reporting information.
 /// </summary>
 [IsoId("_PbYOANp-Ed-ak6NoX_4Aeg_602491363")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Regulatory Authority")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record RegulatoryAuthority
     /// Name of the entity requiring the regulatory reporting information.
     /// </summary>
     [IsoId("_PbYOAdp-Ed-ak6NoX_4Aeg_1073487607")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authority Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrtyNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AuthrtyNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AuthorityName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record RegulatoryAuthority
     /// Country of the entity requiring the regulatory reporting information.
     /// </summary>
     [IsoId("_PbYOAtp-Ed-ak6NoX_4Aeg_1100271075")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authority Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrtyCtry")]
     #endif
+    [IsoXmlTag("AuthrtyCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? AuthorityCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

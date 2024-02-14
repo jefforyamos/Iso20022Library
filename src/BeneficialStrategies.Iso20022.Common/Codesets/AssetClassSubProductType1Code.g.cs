@@ -21,7 +21,7 @@ public enum AssetClassSubProductType1Code
 {
     /// <summary>
     /// Commodity of type grain oil seeds.
-    /// Encoded/decoded by serializers as "GROS".
+    /// Encoded/decoded by serializers as &quot;GROS&quot;.
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_LOvsMQnzEeWnS-yHF1QhNQ")]

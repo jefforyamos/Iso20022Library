@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The RoleAndBaselineAcceptanceNotification message is sent by the matching application to the primary banks to inform about role and baseline acceptance by a secondary bank.|Usage|The RoleAndBaselineAcceptanceNotification message is used to inform that a secondary bank has accepted the role and baseline. No response is expected.")]
 [IsoId("_s3o9qNE8Ed-BzquC8wXy7w_1220286611")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Role And Baseline Acceptance Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord<Ro
     /// Identifies the notification message.
     /// </summary>
     [IsoId("_s3o9qdE8Ed-BzquC8wXy7w_1220286630")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
+    [IsoXmlTag("NtfctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 NotificationIdentification { get; init; } 
+    public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 NotificationIdentification { get; init; } 
     #else
@@ -101,16 +98,15 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord<Ro
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
     /// </summary>
     [IsoId("_s3yHkNE8Ed-BzquC8wXy7w_1220287199")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -121,12 +117,11 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord<Ro
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_s3yHkdE8Ed-BzquC8wXy7w_1220286725")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,16 +134,15 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord<Ro
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_s3yHktE8Ed-BzquC8wXy7w_-799125810")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 TransactionStatus { get; init; } 
+    public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 TransactionStatus { get; init; } 
     #else
@@ -159,32 +153,28 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord<Ro
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
     [IsoId("_s3yHk9E8Ed-BzquC8wXy7w_1220286880")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Party that has accepted.
     /// </summary>
     [IsoId("_s3yHlNE8Ed-BzquC8wXy7w_-1814999420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Initr")]
     #endif
+    [IsoXmlTag("Initr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 Initiator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 Initiator { get; init; } 
+    public required BICIdentification1 Initiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 Initiator { get; init; } 
     #else
@@ -195,12 +185,11 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord<Ro
     /// Information on the next processing step required.
     /// </summary>
     [IsoId("_s3yHldE8Ed-BzquC8wXy7w_1220287294")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -213,7 +202,7 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord<Ro
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RoleAndBaselineAcceptanceNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RoleAndBaselineAcceptanceNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RoleAndBaselineAcceptanceNotificationV01Document ToDocument()
     {
@@ -223,7 +212,7 @@ public partial record RoleAndBaselineAcceptanceNotificationV01 : IOuterRecord<Ro
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RoleAndBaselineAcceptanceNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RoleAndBaselineAcceptanceNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RoleAndBaselineAcceptanceNotificationV01Document : IOuterDocument<RoleAndBaselineAcceptanceNotificationV01>
@@ -240,7 +229,7 @@ public partial record RoleAndBaselineAcceptanceNotificationV01Document : IOuterD
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RoleAndBaselineAcceptanceNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RoleAndBaselineAcceptanceNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RoleAndBaselineAcceptanceNotificationV01 Message { get; init; }

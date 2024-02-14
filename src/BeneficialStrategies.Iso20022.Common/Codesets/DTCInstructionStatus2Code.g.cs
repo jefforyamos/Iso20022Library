@@ -21,7 +21,7 @@ public enum DTCInstructionStatus2Code
 {
     /// <summary>
     /// Instruction cancelled by client relating to survivor option event.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_q2UwEZIWEeaNbfbSYshZYw")]
@@ -30,7 +30,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Cancellation of conversion instruction upon agent approval only.
-    /// Encoded/decoded by serializers as "CCAN".
+    /// Encoded/decoded by serializers as &quot;CCAN&quot;.
     /// </summary>
     [EnumMember(Value = "CCAN")]
     [IsoId("_rNiWMZIWEeaNbfbSYshZYw")]
@@ -39,7 +39,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Instruction dropped due to insufficient position.
-    /// Encoded/decoded by serializers as "DROP".
+    /// Encoded/decoded by serializers as &quot;DROP&quot;.
     /// </summary>
     [EnumMember(Value = "DROP")]
     [IsoId("_rYZiYZIWEeaNbfbSYshZYw")]
@@ -48,7 +48,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Fully processed instruction.
-    /// Encoded/decoded by serializers as "MADE".
+    /// Encoded/decoded by serializers as &quot;MADE&quot;.
     /// </summary>
     [EnumMember(Value = "MADE")]
     [IsoId("_r82TQZIWEeaNbfbSYshZYw")]
@@ -57,7 +57,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Instruction for CD early redemption awaiting paperwork. Instruction will become MADE when DTC releases instruction upon paperwork.
-    /// Encoded/decoded by serializers as "PDOC".
+    /// Encoded/decoded by serializers as &quot;PDOC&quot;.
     /// </summary>
     [EnumMember(Value = "PDOC")]
     [IsoId("_tCnogZIWEeaNbfbSYshZYw")]
@@ -66,7 +66,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Instruction pending release or delete from approval function.
-    /// Encoded/decoded by serializers as "PENA".
+    /// Encoded/decoded by serializers as &quot;PENA&quot;.
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_tHh9sZIWEeaNbfbSYshZYw")]
@@ -75,7 +75,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Instruction waiting for update after submission.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_tNVDsZIWEeaNbfbSYshZYw")]
@@ -84,7 +84,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Instruction or withdrawal rejected by agent relating to survivor option event.
-    /// Encoded/decoded by serializers as "REJA".
+    /// Encoded/decoded by serializers as &quot;REJA&quot;.
     /// </summary>
     [EnumMember(Value = "REJA")]
     [IsoId("_ua_wsZIWEeaNbfbSYshZYw")]
@@ -93,7 +93,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Instruction did not pass initial validation.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_vAx-UZIWEeaNbfbSYshZYw")]
@@ -102,7 +102,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Previously recycled transactions have been “MADE” and the system is processing the updates.
-    /// Encoded/decoded by serializers as "REMD".
+    /// Encoded/decoded by serializers as &quot;REMD&quot;.
     /// </summary>
     [EnumMember(Value = "REMD")]
     [IsoId("_vsX5AZIWEeaNbfbSYshZYw")]
@@ -111,7 +111,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Rescinded by Issuer.
-    /// Encoded/decoded by serializers as "RESC".
+    /// Encoded/decoded by serializers as &quot;RESC&quot;.
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_xL5LAZIWEeaNbfbSYshZYw")]
@@ -120,7 +120,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Instruction moved from one client account to another for put events.
-    /// Encoded/decoded by serializers as "SWUN".
+    /// Encoded/decoded by serializers as &quot;SWUN&quot;.
     /// </summary>
     [EnumMember(Value = "SWUN")]
     [IsoId("_xzwcQZIWEeaNbfbSYshZYw")]
@@ -129,7 +129,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Client instruction withdrawn for events with withdrawal privilege.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_yOPY0ZIWEeaNbfbSYshZYw")]
@@ -138,7 +138,7 @@ public enum DTCInstructionStatus2Code
     
     /// <summary>
     /// Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.
-    /// Encoded/decoded by serializers as "RECY".
+    /// Encoded/decoded by serializers as &quot;RECY&quot;.
     /// </summary>
     [EnumMember(Value = "RECY")]
     [IsoId("_zz2rwZIWEeaNbfbSYshZYw")]

@@ -21,7 +21,7 @@ public enum SecuritiesBalanceType14Code
 {
     /// <summary>
     /// Balance of financial instruments that are freely available with no specific additional status.
-    /// Encoded/decoded by serializers as "AWAS".
+    /// Encoded/decoded by serializers as &quot;AWAS&quot;.
     /// </summary>
     [EnumMember(Value = "AWAS")]
     [IsoId("_ZRd2cYjtEeONZKAAW4pOaQ")]
@@ -29,8 +29,8 @@ public enum SecuritiesBalanceType14Code
     AvailableWithNoAdditionalStatus = SecuritiesBalanceTypeV3Code.AvailableWithNoAdditionalStatus, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Financial instrument is unavailable as a result of a transfer order, pending movement in the shareholders' register.
-    /// Encoded/decoded by serializers as "BTRA".
+    /// Financial instrument is unavailable as a result of a transfer order, pending movement in the shareholders&apos; register.
+    /// Encoded/decoded by serializers as &quot;BTRA&quot;.
     /// </summary>
     [EnumMember(Value = "BTRA")]
     [IsoId("_ZxKqMYjtEeONZKAAW4pOaQ")]
@@ -39,7 +39,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that are blocked.
-    /// Encoded/decoded by serializers as "BLOK".
+    /// Encoded/decoded by serializers as &quot;BLOK&quot;.
     /// </summary>
     [EnumMember(Value = "BLOK")]
     [IsoId("_Z4yVIYjtEeONZKAAW4pOaQ")]
@@ -48,7 +48,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that are blocked for verification of authenticity.
-    /// Encoded/decoded by serializers as "BLOV".
+    /// Encoded/decoded by serializers as &quot;BLOV&quot;.
     /// </summary>
     [EnumMember(Value = "BLOV")]
     [IsoId("_aCV5wYjtEeONZKAAW4pOaQ")]
@@ -57,7 +57,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instrument blocked following a corporate action, including proxy activities.
-    /// Encoded/decoded by serializers as "BLCA".
+    /// Encoded/decoded by serializers as &quot;BLCA&quot;.
     /// </summary>
     [EnumMember(Value = "BLCA")]
     [IsoId("_aNk5YYjtEeONZKAAW4pOaQ")]
@@ -66,7 +66,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that are blocked for trading.
-    /// Encoded/decoded by serializers as "BLOT".
+    /// Encoded/decoded by serializers as &quot;BLOT&quot;.
     /// </summary>
     [EnumMember(Value = "BLOT")]
     [IsoId("_azY8MYjtEeONZKAAW4pOaQ")]
@@ -75,7 +75,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that have been borrowed from another party.
-    /// Encoded/decoded by serializers as "BORR".
+    /// Encoded/decoded by serializers as &quot;BORR&quot;.
     /// </summary>
     [EnumMember(Value = "BORR")]
     [IsoId("_a7hkgYjtEeONZKAAW4pOaQ")]
@@ -84,7 +84,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Net balance of financial instrument that is traded pending settlement and settlement is overdue.
-    /// Encoded/decoded by serializers as "OPNT".
+    /// Encoded/decoded by serializers as &quot;OPNT&quot;.
     /// </summary>
     [EnumMember(Value = "OPNT")]
     [IsoId("_bI2O0YjtEeONZKAAW4pOaQ")]
@@ -93,7 +93,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Net balance of financial instrument that is traded pending settlement.
-    /// Encoded/decoded by serializers as "PNET".
+    /// Encoded/decoded by serializers as &quot;PNET&quot;.
     /// </summary>
     [EnumMember(Value = "PNET")]
     [IsoId("_bPykUYjtEeONZKAAW4pOaQ")]
@@ -102,7 +102,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of securities that belong to a third party and that are held for the purpose of collateralisation.
-    /// Encoded/decoded by serializers as "COLI".
+    /// Encoded/decoded by serializers as &quot;COLI&quot;.
     /// </summary>
     [EnumMember(Value = "COLI")]
     [IsoId("_bZ4UcYjtEeONZKAAW4pOaQ")]
@@ -111,7 +111,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.
-    /// Encoded/decoded by serializers as "COLO".
+    /// Encoded/decoded by serializers as &quot;COLO&quot;.
     /// </summary>
     [EnumMember(Value = "COLO")]
     [IsoId("_beZoEYjtEeONZKAAW4pOaQ")]
@@ -120,7 +120,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Account is used when financing is by the broker/dealer.
-    /// Encoded/decoded by serializers as "MARG".
+    /// Encoded/decoded by serializers as &quot;MARG&quot;.
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_cfU5kYjtEeONZKAAW4pOaQ")]
@@ -129,7 +129,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Settlement transactions relates to drawn securities.
-    /// Encoded/decoded by serializers as "DRAW".
+    /// Encoded/decoded by serializers as &quot;DRAW&quot;.
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_czX28YjtEeONZKAAW4pOaQ")]
@@ -138,7 +138,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Transaction has been generated due to transformation following a corporate action.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_dFBAkYjtEeONZKAAW4pOaQ")]
@@ -147,7 +147,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Loan for consumption.
-    /// Encoded/decoded by serializers as "LOAN".
+    /// Encoded/decoded by serializers as &quot;LOAN&quot;.
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_eE_24YjtEeONZKAAW4pOaQ")]
@@ -156,7 +156,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
-    /// Encoded/decoded by serializers as "REGO".
+    /// Encoded/decoded by serializers as &quot;REGO&quot;.
     /// </summary>
     [EnumMember(Value = "REGO")]
     [IsoId("_eU7wUYjtEeONZKAAW4pOaQ")]
@@ -165,7 +165,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that are pending delivery in relation to a borrow transaction.
-    /// Encoded/decoded by serializers as "BODE".
+    /// Encoded/decoded by serializers as &quot;BODE&quot;.
     /// </summary>
     [EnumMember(Value = "BODE")]
     [IsoId("_edRM8YjtEeONZKAAW4pOaQ")]
@@ -174,7 +174,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that are pending receipt in relation to a borrow transaction.
-    /// Encoded/decoded by serializers as "BORE".
+    /// Encoded/decoded by serializers as &quot;BORE&quot;.
     /// </summary>
     [EnumMember(Value = "BORE")]
     [IsoId("_fqhDMYjtEeONZKAAW4pOaQ")]
@@ -183,7 +183,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instrument pending delivery following a corporate action.
-    /// Encoded/decoded by serializers as "PEDA".
+    /// Encoded/decoded by serializers as &quot;PEDA&quot;.
     /// </summary>
     [EnumMember(Value = "PEDA")]
     [IsoId("_fzYrUYjtEeONZKAAW4pOaQ")]
@@ -192,7 +192,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instrument pending receipt following a corporate action.
-    /// Encoded/decoded by serializers as "PECA".
+    /// Encoded/decoded by serializers as &quot;PECA&quot;.
     /// </summary>
     [EnumMember(Value = "PECA")]
     [IsoId("_f6RWcYjtEeONZKAAW4pOaQ")]
@@ -201,7 +201,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Processing has not been completed.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_gAdeAYjtEeONZKAAW4pOaQ")]
@@ -210,7 +210,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that are pending delivery in relation to a lending transaction.
-    /// Encoded/decoded by serializers as "LODE".
+    /// Encoded/decoded by serializers as &quot;LODE&quot;.
     /// </summary>
     [EnumMember(Value = "LODE")]
     [IsoId("_ghVWcYjtEeONZKAAW4pOaQ")]
@@ -219,7 +219,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that are pending receipt in relation to a lending transaction.
-    /// Encoded/decoded by serializers as "LORE".
+    /// Encoded/decoded by serializers as &quot;LORE&quot;.
     /// </summary>
     [EnumMember(Value = "LORE")]
     [IsoId("_gms-oYjtEeONZKAAW4pOaQ")]
@@ -228,7 +228,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// The instruction is pending receipt of securities, for example, from a purchase, loan etc.
-    /// Encoded/decoded by serializers as "PENR".
+    /// Encoded/decoded by serializers as &quot;PENR&quot;.
     /// </summary>
     [EnumMember(Value = "PENR")]
     [IsoId("_g5EhAYjtEeONZKAAW4pOaQ")]
@@ -237,7 +237,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of securities that belong to and is kept in the safekeeping account indicated within this message, and that are pledged.
-    /// Encoded/decoded by serializers as "PLED".
+    /// Encoded/decoded by serializers as &quot;PLED&quot;.
     /// </summary>
     [EnumMember(Value = "PLED")]
     [IsoId("_iLwQ4YjtEeONZKAAW4pOaQ")]
@@ -246,7 +246,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Balance of financial instruments that may only be sold under certain conditions or require legal documents.
-    /// Encoded/decoded by serializers as "RSTR".
+    /// Encoded/decoded by serializers as &quot;RSTR&quot;.
     /// </summary>
     [EnumMember(Value = "RSTR")]
     [IsoId("_tVrysYjtEeONZKAAW4pOaQ")]
@@ -255,7 +255,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_t5MIYYjtEeONZKAAW4pOaQ")]
@@ -264,7 +264,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Financial instrument is unavailable due to missing or incomplete documentation pertaining to the account, or due to a missing or incomplete order.
-    /// Encoded/decoded by serializers as "WDOC".
+    /// Encoded/decoded by serializers as &quot;WDOC&quot;.
     /// </summary>
     [EnumMember(Value = "WDOC")]
     [IsoId("_uReskYjtEeONZKAAW4pOaQ")]
@@ -273,7 +273,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Purchased investment fund units that were purchased prior to the last ex-div date.
-    /// Encoded/decoded by serializers as "GRP1".
+    /// Encoded/decoded by serializers as &quot;GRP1&quot;.
     /// </summary>
     [EnumMember(Value = "GRP1")]
     [IsoId("_An14sGK4EeWaPYQgYu-nxQ")]
@@ -282,7 +282,7 @@ public enum SecuritiesBalanceType14Code
     
     /// <summary>
     /// Purchased investment fund units that were purchased since the ex-div date, and that benefit from the tax exemption.
-    /// Encoded/decoded by serializers as "GRP2".
+    /// Encoded/decoded by serializers as &quot;GRP2&quot;.
     /// </summary>
     [EnumMember(Value = "GRP2")]
     [IsoId("_AtqM0WK4EeWaPYQgYu-nxQ")]

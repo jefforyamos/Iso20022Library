@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to an input request.
 /// </summary>
 [IsoId("_iw6rEXGaEe2TbaNWBpRZpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Input Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record InputData5
     /// Type of logical device located on a Sale Terminal or a POI Terminal.
     /// </summary>
     [IsoId("_i3hpYXGaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Device Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvcTp")]
     #endif
+    [IsoXmlTag("DvcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleCapabilities2Code DeviceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SaleCapabilities2Code DeviceType { get; init; } 
+    public required SaleCapabilities2Code DeviceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SaleCapabilities2Code DeviceType { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record InputData5
     /// Qualification of the information to output to the logical device.
     /// </summary>
     [IsoId("_i3hpY3GaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfQlfr")]
     #endif
+    [IsoXmlTag("InfQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InformationQualify1Code InformationQualifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InformationQualify1Code InformationQualifier { get; init; } 
+    public required InformationQualify1Code InformationQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InformationQualify1Code InformationQualifier { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record InputData5
     /// Type of requested input.
     /// </summary>
     [IsoId("_i3hpZXGaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Input Command")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InptCmd")]
     #endif
+    [IsoXmlTag("InptCmd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InputCommand1Code InputCommand { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InputCommand1Code InputCommand { get; init; } 
+    public required InputCommand1Code InputCommand { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InputCommand1Code InputCommand { get; init; } 
     #else
@@ -114,16 +109,16 @@ public partial record InputData5
     /// Flag of notification of card to be entered in the POI card reader.
     /// </summary>
     [IsoId("_i3hpZ3GaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notify Card Input Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfyCardInptFlg")]
     #endif
+    [IsoXmlTag("NtfyCardInptFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator NotifyCardInputFlag { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NotifyCardInputFlag { get; init; } 
+    public required System.String NotifyCardInputFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NotifyCardInputFlag { get; init; } 
     #else
@@ -134,12 +129,12 @@ public partial record InputData5
     /// Maximum input time in seconds.
     /// </summary>
     [IsoId("_i3hpaXGaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Input Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxInptTm")]
     #endif
+    [IsoXmlTag("MaxInptTm")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumInputTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +147,11 @@ public partial record InputData5
     /// Text value set for an input command.
     /// </summary>
     [IsoId("_i3hpa3GaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Input Text")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InptTxt")]
     #endif
+    [IsoXmlTag("InptTxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage10? InputText { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +164,12 @@ public partial record InputData5
     /// Flag to request Immediate response without waiting for the completion of the command.
     /// </summary>
     [IsoId("_i3hpbXGaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Immediate Response Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ImdtRspnFlg")]
     #endif
+    [IsoXmlTag("ImdtRspnFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ImmediateResponseFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +182,12 @@ public partial record InputData5
     /// Flag to confirm by the user the entered characters, when the maximum allowed length is reached.
     /// </summary>
     [IsoId("_i3hpb3GaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wait User Validation Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WaitUsrVldtnFlg")]
     #endif
+    [IsoXmlTag("WaitUsrVldtnFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? WaitUserValidationFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +200,12 @@ public partial record InputData5
     /// Flag to indicate that when the user press a key, a beep has to be generated.
     /// </summary>
     [IsoId("_i3hpcXGaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beep Key Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BeepKeyFlg")]
     #endif
+    [IsoXmlTag("BeepKeyFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BeepKeyFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +218,12 @@ public partial record InputData5
     /// Flag to correct all characters (True) or just the last one (False).
     /// </summary>
     [IsoId("_i3hpc3GaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Correction Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GblCrrctnFlg")]
     #endif
+    [IsoXmlTag("GblCrrctnFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? GlobalCorrectionFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,15 +233,15 @@ public partial record InputData5
     #endif
     
     /// <summary>
-    /// Flag to deactivate the "Cancel" function key.
+    /// Flag to deactivate the &quot;Cancel&quot; function key.
     /// </summary>
     [IsoId("_i3hpdXGaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disable Cancel Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsblCclFlg")]
     #endif
+    [IsoXmlTag("DsblCclFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DisableCancelFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,15 +251,15 @@ public partial record InputData5
     #endif
     
     /// <summary>
-    /// Flag to deactivate the "Correct" function key.
+    /// Flag to deactivate the &quot;Correct&quot; function key.
     /// </summary>
     [IsoId("_i3hpd3GaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disable Correct Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsblCrrctFlg")]
     #endif
+    [IsoXmlTag("DsblCrrctFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DisableCorrectFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,15 +269,15 @@ public partial record InputData5
     #endif
     
     /// <summary>
-    /// Flag to disable the "Valid" function key.
+    /// Flag to disable the &quot;Valid&quot; function key.
     /// </summary>
     [IsoId("_i3hpeXGaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disable Valid Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsblVldFlg")]
     #endif
+    [IsoXmlTag("DsblVldFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? DisableValidFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -293,15 +287,15 @@ public partial record InputData5
     #endif
     
     /// <summary>
-    /// Flag to enable the "Back" function key to go the upper level.
+    /// Flag to enable the &quot;Back&quot; function key to go the upper level.
     /// </summary>
     [IsoId("_i3hpe3GaEe2TbaNWBpRZpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Menu Back Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MenuBckFlg")]
     #endif
+    [IsoXmlTag("MenuBckFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? MenuBackFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

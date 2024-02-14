@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification248Choice.Legal))]
     [KnownType(typeof(PartyIdentification248Choice.Natural))]
     [IsoId("_V_oRsT3YEe2uHKhHp3bXyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification 248 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

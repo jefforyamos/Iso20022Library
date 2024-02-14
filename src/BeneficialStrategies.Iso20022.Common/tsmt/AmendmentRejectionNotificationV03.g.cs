@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The AmendmentRejectionNotification message is sent by the matching application to the requester of an amendment.|This message is used to notify the rejection of an amendment request.|Usage|The AmendmentRejectionNotification message can be sent by the matching application to pass on information about the rejection of an amendment request that it has obtained through the receipt of an AmendmentRejection message.|In order to pass on information about the acceptance of an amendment request the matching application sends an AmendmentAcceptanceNotification message.")]
 [IsoId("_kPGaiNE8Ed-BzquC8wXy7w_-267112267")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amendment Rejection Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -87,16 +85,15 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Identifies the notification message.
     /// </summary>
     [IsoId("_kPGaidE8Ed-BzquC8wXy7w_-266192003")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnId")]
     #endif
+    [IsoXmlTag("NtfctnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 NotificationIdentification { get; init; } 
+    public required MessageIdentification1 NotificationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 NotificationIdentification { get; init; } 
     #else
@@ -107,16 +104,15 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Unique Identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
     /// </summary>
     [IsoId("_kPGaitE8Ed-BzquC8wXy7w_-267112171")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -127,16 +123,15 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_kPQLgNE8Ed-BzquC8wXy7w_-266191475")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
+    public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     #else
@@ -147,16 +142,15 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_kPQLgdE8Ed-BzquC8wXy7w_-266191149")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 TransactionStatus { get; init; } 
+    public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 TransactionStatus { get; init; } 
     #else
@@ -167,32 +161,28 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
     [IsoId("_kPQLgtE8Ed-BzquC8wXy7w_-266191055")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Reference to the identification of the delta report that contained the amendment.
     /// </summary>
     [IsoId("_kPQLg9E8Ed-BzquC8wXy7w_-266192097")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delta Report Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DltaRptRef")]
     #endif
+    [IsoXmlTag("DltaRptRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 DeltaReportReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 DeltaReportReference { get; init; } 
+    public required MessageIdentification1 DeltaReportReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 DeltaReportReference { get; init; } 
     #else
@@ -203,16 +193,15 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Sequence number of the rejected baseline amendment.
     /// </summary>
     [IsoId("_kPQLhNE8Ed-BzquC8wXy7w_-266190976")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Amendment Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdAmdmntNb")]
     #endif
+    [IsoXmlTag("RjctdAmdmntNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Count1 RejectedAmendmentNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Count1 RejectedAmendmentNumber { get; init; } 
+    public required Count1 RejectedAmendmentNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Count1 RejectedAmendmentNumber { get; init; } 
     #else
@@ -223,16 +212,15 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Party that has rejected the amendment.
     /// </summary>
     [IsoId("_kPQLhdE8Ed-BzquC8wXy7w_871587777")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Initr")]
     #endif
+    [IsoXmlTag("Initr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 Initiator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 Initiator { get; init; } 
+    public required BICIdentification1 Initiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 Initiator { get; init; } 
     #else
@@ -243,16 +231,15 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Specifies the reaons for rejecting the amendment.
     /// </summary>
     [IsoId("_kPQLhtE8Ed-BzquC8wXy7w_-267112249")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReason1Choice_ RejectionReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectionReason1Choice_ RejectionReason { get; init; } 
+    public required RejectionReason1Choice_ RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectionReason1Choice_ RejectionReason { get; init; } 
     #else
@@ -263,12 +250,11 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     /// Information on the next processing step required.
     /// </summary>
     [IsoId("_kPQLh9E8Ed-BzquC8wXy7w_-266191570")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqForActn")]
     #endif
+    [IsoXmlTag("ReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? RequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,7 +267,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AmendmentRejectionNotificationV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AmendmentRejectionNotificationV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AmendmentRejectionNotificationV03Document ToDocument()
     {
@@ -291,7 +277,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord<Amendment
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendmentRejectionNotificationV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AmendmentRejectionNotificationV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AmendmentRejectionNotificationV03Document : IOuterDocument<AmendmentRejectionNotificationV03>
@@ -308,7 +294,7 @@ public partial record AmendmentRejectionNotificationV03Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AmendmentRejectionNotificationV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AmendmentRejectionNotificationV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmendmentRejectionNotificationV03 Message { get; init; }

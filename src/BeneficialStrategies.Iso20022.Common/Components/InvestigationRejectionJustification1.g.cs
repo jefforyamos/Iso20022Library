@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the reason for rejecting the case assignment.
 /// </summary>
 [IsoId("_T-ZtQNp-Ed-ak6NoX_4Aeg_947706668")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investigation Rejection Justification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InvestigationRejectionJustification1
     /// Reason for the rejection of a case assignment, in a coded form.
     /// </summary>
     [IsoId("_T-ZtQdp-Ed-ak6NoX_4Aeg_947706699")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigationRejection1Code RejectionReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestigationRejection1Code RejectionReason { get; init; } 
+    public required InvestigationRejection1Code RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestigationRejection1Code RejectionReason { get; init; } 
     #else

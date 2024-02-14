@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
 [IsoId("_Scf1oNp-Ed-ak6NoX_4Aeg_277096217")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record SecurityIdentification1
     /// Identification of a security by an ISIN.
     /// </summary>
     [IsoId("_Scf1odp-Ed-ak6NoX_4Aeg_2092563069")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification7 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification7 Identification { get; init; } 
+    public required SecurityIdentification7 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification7 Identification { get; init; } 
     #else
@@ -74,19 +71,17 @@ public partial record SecurityIdentification1
     /// Name of the financial instrument in free format text.
     /// </summary>
     [IsoId("_Scf1otp-Ed-ak6NoX_4Aeg_159174250")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text Name { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Name { get; init; } 
+    public required System.String Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Name { get; init; } 
     #else
@@ -94,18 +89,16 @@ public partial record SecurityIdentification1
     #endif
     
     /// <summary>
-    /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, 'Class A', 'Class 2'.
+    /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, &apos;Class A&apos;, &apos;Class 2&apos;.
     /// </summary>
     [IsoId("_Scf1o9p-Ed-ak6NoX_4Aeg_159174311")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Class Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClssTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClssTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClassType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,15 +111,13 @@ public partial record SecurityIdentification1
     /// Name of the umbrella fund in which financial instrument is contained.
     /// </summary>
     [IsoId("_Scf1pNp-Ed-ak6NoX_4Aeg_159174342")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Umbrella Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UmbrllNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UmbrllNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? UmbrellaName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,16 +130,15 @@ public partial record SecurityIdentification1
     /// Currency of the investment fund class.
     /// </summary>
     [IsoId("_Scf1pdp-Ed-ak6NoX_4Aeg_159174427")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BaseCcy")]
     #endif
+    [IsoXmlTag("BaseCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode BaseCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string BaseCurrency { get; init; } 
+    public required string BaseCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string BaseCurrency { get; init; } 
     #else
@@ -159,16 +149,15 @@ public partial record SecurityIdentification1
     /// Country where the fund has legal domicile as reflected in the ISIN classification.
     /// </summary>
     [IsoId("_Scf1ptp-Ed-ak6NoX_4Aeg_159175290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Domicile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfDmcl")]
     #endif
+    [IsoXmlTag("CtryOfDmcl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode CountryOfDomicile { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string CountryOfDomicile { get; init; } 
+    public required string CountryOfDomicile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string CountryOfDomicile { get; init; } 
     #else
@@ -179,12 +168,11 @@ public partial record SecurityIdentification1
     /// Countries where the fund is registered for distribution.
     /// </summary>
     [IsoId("_Scf1p9p-Ed-ak6NoX_4Aeg_159174373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registered Distribution Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegdDstrbtnCtry")]
     #endif
+    [IsoXmlTag("RegdDstrbtnCtry")]
     public string? RegisteredDistributionCountry { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Scf1p9p-Ed-ak6NoX_4Aeg_159174373
     

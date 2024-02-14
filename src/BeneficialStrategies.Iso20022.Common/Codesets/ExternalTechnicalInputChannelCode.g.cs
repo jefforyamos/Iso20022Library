@@ -22,7 +22,7 @@ public enum ExternalTechnicalInputChannelCode
 {
     /// <summary>
     /// Technical Input Channel is fax or facsimile
-    /// Encoded/decoded by serializers as "FAXI".
+    /// Encoded/decoded by serializers as &quot;FAXI&quot;.
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("_uG8YgPRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalTechnicalInputChannelCode
     
     /// <summary>
     /// Technical Input Channel is paper
-    /// Encoded/decoded by serializers as "PAPR".
+    /// Encoded/decoded by serializers as &quot;PAPR&quot;.
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_uG8Yg_RYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalTechnicalInputChannelCode
     
     /// <summary>
     /// Technical Input Channel is tape
-    /// Encoded/decoded by serializers as "TAPE".
+    /// Encoded/decoded by serializers as &quot;TAPE&quot;.
     /// </summary>
     [EnumMember(Value = "TAPE")]
     [IsoId("_uG8YhvRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalTechnicalInputChannelCode
     
     /// <summary>
     /// Technical Input Channel is internet
-    /// Encoded/decoded by serializers as "WEBI".
+    /// Encoded/decoded by serializers as &quot;WEBI&quot;.
     /// </summary>
     [EnumMember(Value = "WEBI")]
     [IsoId("_uG8YifRYEeuLhpyIdtJzwg")]

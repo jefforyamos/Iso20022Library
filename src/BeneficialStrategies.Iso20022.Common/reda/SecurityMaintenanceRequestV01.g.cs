@@ -43,9 +43,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"SCOPE|An instructing party sends a SecurityMaintenanceRequest message to an executing/servicing party to request the maintenance of financial instrument details in their system.||The instructing party - executing/servicing party relationship may be:|- Central Securities Depositories (CSD) who would like to publish security static data, or |- a Corporate, or|- a Bank, or|- a Market Infrastructure, or |- a Market Data Provider.||USAGE|The request is sent when the instructing party identified a gap in the security data within the executing/servicing party system. The instructing party needs this security to be updated at the executing /servicing party to perform its activities.||Initiator: instructing party.")]
 [IsoId("_jTvNwR62Eeu31YsWNiv_cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Maintenance Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -89,12 +87,11 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord<SecurityMaint
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_Qqn3IZIxEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,19 +101,18 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord<SecurityMaint
     #endif
     
     /// <summary>
-    /// Request to maintain data's of a security.
+    /// Request to maintain data&apos;s of a security.
     /// </summary>
     [IsoId("_jTvNzx62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdTp")]
     #endif
+    [IsoXmlTag("UpdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UpdateType36Choice_ UpdateType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UpdateType36Choice_ UpdateType { get; init; } 
+    public required UpdateType36Choice_ UpdateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UpdateType36Choice_ UpdateType { get; init; } 
     #else
@@ -127,12 +123,11 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord<SecurityMaint
     /// Reason for the update of a security.
     /// </summary>
     [IsoId("_nwYQwZI8EeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdRsn")]
     #endif
+    [IsoXmlTag("UpdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesUpdateReason1Choice_? UpdateReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -145,16 +140,15 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord<SecurityMaint
     /// Identification of the financial instrument.
     /// </summary>
     [IsoId("_jTvN0R62Eeu31YsWNiv_cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -165,12 +159,11 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord<SecurityMaint
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_wEnt8ZIzEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,7 +176,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord<SecurityMaint
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SecurityMaintenanceRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SecurityMaintenanceRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SecurityMaintenanceRequestV01Document ToDocument()
     {
@@ -193,7 +186,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord<SecurityMaint
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SecurityMaintenanceRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SecurityMaintenanceRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SecurityMaintenanceRequestV01Document : IOuterDocument<SecurityMaintenanceRequestV01>
@@ -210,7 +203,7 @@ public partial record SecurityMaintenanceRequestV01Document : IOuterDocument<Sec
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SecurityMaintenanceRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SecurityMaintenanceRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityMaintenanceRequestV01 Message { get; init; }

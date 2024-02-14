@@ -21,7 +21,7 @@ public enum CardholderVerificationCapability4Code
 {
     /// <summary>
     /// Account based digital signature.
-    /// Encoded/decoded by serializers as "APKI".
+    /// Encoded/decoded by serializers as &quot;APKI&quot;.
     /// </summary>
     [EnumMember(Value = "APKI")]
     [IsoId("_xYoiEZdFEeWhUvuI1bSHSA")]
@@ -30,7 +30,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Cardholder authentication data.
-    /// Encoded/decoded by serializers as "CHDT".
+    /// Encoded/decoded by serializers as &quot;CHDT&quot;.
     /// </summary>
     [EnumMember(Value = "CHDT")]
     [IsoId("_xYoiE5dFEeWhUvuI1bSHSA")]
@@ -39,7 +39,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Manual signature verification.
-    /// Encoded/decoded by serializers as "MNSG".
+    /// Encoded/decoded by serializers as &quot;MNSG&quot;.
     /// </summary>
     [EnumMember(Value = "MNSG")]
     [IsoId("_xYoiFZdFEeWhUvuI1bSHSA")]
@@ -48,7 +48,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Other manual verification, for example passport or drivers license.
-    /// Encoded/decoded by serializers as "MNVR".
+    /// Encoded/decoded by serializers as &quot;MNVR&quot;.
     /// </summary>
     [EnumMember(Value = "MNVR")]
     [IsoId("_xYoiF5dFEeWhUvuI1bSHSA")]
@@ -57,7 +57,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Offline biographics.
-    /// Encoded/decoded by serializers as "FBIG".
+    /// Encoded/decoded by serializers as &quot;FBIG&quot;.
     /// </summary>
     [EnumMember(Value = "FBIG")]
     [IsoId("_xYoiGZdFEeWhUvuI1bSHSA")]
@@ -66,7 +66,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Offline biometrics.
-    /// Encoded/decoded by serializers as "FBIO".
+    /// Encoded/decoded by serializers as &quot;FBIO&quot;.
     /// </summary>
     [EnumMember(Value = "FBIO")]
     [IsoId("_xYoiG5dFEeWhUvuI1bSHSA")]
@@ -75,7 +75,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Offline digital signature analysis.
-    /// Encoded/decoded by serializers as "FDSG".
+    /// Encoded/decoded by serializers as &quot;FDSG&quot;.
     /// </summary>
     [EnumMember(Value = "FDSG")]
     [IsoId("_xYoiHZdFEeWhUvuI1bSHSA")]
@@ -84,7 +84,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Offline PIN in clear (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FCPN".
+    /// Encoded/decoded by serializers as &quot;FCPN&quot;.
     /// </summary>
     [EnumMember(Value = "FCPN")]
     [IsoId("_xYoiH5dFEeWhUvuI1bSHSA")]
@@ -93,7 +93,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Offline PIN encrypted (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FEPN".
+    /// Encoded/decoded by serializers as &quot;FEPN&quot;.
     /// </summary>
     [EnumMember(Value = "FEPN")]
     [IsoId("_xYoiIZdFEeWhUvuI1bSHSA")]
@@ -102,7 +102,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Online PIN (Personal Identification Number).
-    /// Encoded/decoded by serializers as "NPIN".
+    /// Encoded/decoded by serializers as &quot;NPIN&quot;.
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_xYoiI5dFEeWhUvuI1bSHSA")]
@@ -111,7 +111,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// PKI (Public Key Infrastructure) based digital signature.
-    /// Encoded/decoded by serializers as "PKIS".
+    /// Encoded/decoded by serializers as &quot;PKIS&quot;.
     /// </summary>
     [EnumMember(Value = "PKIS")]
     [IsoId("_xYoiJZdFEeWhUvuI1bSHSA")]
@@ -120,7 +120,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Three domain secure (three domain secure authentication of the cardholder).
-    /// Encoded/decoded by serializers as "SCEC".
+    /// Encoded/decoded by serializers as &quot;SCEC&quot;.
     /// </summary>
     [EnumMember(Value = "SCEC")]
     [IsoId("_xYoiJ5dFEeWhUvuI1bSHSA")]
@@ -129,7 +129,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Online biometrics.
-    /// Encoded/decoded by serializers as "NBIO".
+    /// Encoded/decoded by serializers as &quot;NBIO&quot;.
     /// </summary>
     [EnumMember(Value = "NBIO")]
     [IsoId("_xYoiK5dFEeWhUvuI1bSHSA")]
@@ -138,7 +138,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// No cardholder verification capability.
-    /// Encoded/decoded by serializers as "NOVF".
+    /// Encoded/decoded by serializers as &quot;NOVF&quot;.
     /// </summary>
     [EnumMember(Value = "NOVF")]
     [IsoId("_xYoiLZdFEeWhUvuI1bSHSA")]
@@ -147,7 +147,7 @@ public enum CardholderVerificationCapability4Code
     
     /// <summary>
     /// Other cardholder verification capabilities.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_xYoiL5dFEeWhUvuI1bSHSA")]

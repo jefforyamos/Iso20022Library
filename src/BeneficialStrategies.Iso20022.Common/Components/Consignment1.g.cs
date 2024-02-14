@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Physical packaging of goods for transport.
 /// </summary>
 [IsoId("_Tms--9p-Ed-ak6NoX_4Aeg_-1622845025")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Consignment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Consignment1
     /// Total quantity of packaging units, eg number of boxes, containers, pallets, etc.
     /// </summary>
     [IsoId("_Tms-_Np-Ed-ak6NoX_4Aeg_-1580364507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlQty")]
     #endif
+    [IsoXmlTag("TtlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3? TotalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Consignment1
     /// Total volume of goods shipped, eg number of cubic meters.
     /// </summary>
     [IsoId("_Tms-_dp-Ed-ak6NoX_4Aeg_-1580364499")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlVol")]
     #endif
+    [IsoXmlTag("TtlVol")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3? TotalVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Consignment1
     /// Total weight of goods shipped, eg number of kg, tons.
     /// </summary>
     [IsoId("_Tms-_tp-Ed-ak6NoX_4Aeg_-1580364476")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Weight")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlWght")]
     #endif
+    [IsoXmlTag("TtlWght")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3? TotalWeight { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

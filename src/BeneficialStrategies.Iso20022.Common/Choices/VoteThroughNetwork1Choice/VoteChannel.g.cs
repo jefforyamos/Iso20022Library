@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteThroughNetwork1Choice
     /// Voting is performed via message sent through an alternate network channel, that is, either via the chain of intermediaries or via the channel as described in the processing text for next intermediary information field.
     /// </summary>
     [IsoId("_Cph1QDT8Ee2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Channel")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteThroughNetwork1Choice
         /// Specifies the network channel through which the vote should be sent.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VoteChanl")]
         #endif
+        [IsoXmlTag("VoteChanl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required VoteChannel1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public VoteChannel1Code Value { get; init; } 
+        public required VoteChannel1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public VoteChannel1Code Value { get; init; } 
         #else

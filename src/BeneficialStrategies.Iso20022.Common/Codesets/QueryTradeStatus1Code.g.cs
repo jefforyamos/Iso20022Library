@@ -21,7 +21,7 @@ public enum QueryTradeStatus1Code
 {
     /// <summary>
     /// Query for all trades.
-    /// Encoded/decoded by serializers as "QAST".
+    /// Encoded/decoded by serializers as &quot;QAST&quot;.
     /// </summary>
     [EnumMember(Value = "QAST")]
     [IsoId("_vWekwaadEeSR8qifggAitQ")]
@@ -30,7 +30,7 @@ public enum QueryTradeStatus1Code
     
     /// <summary>
     /// Query for trades have been canceled.
-    /// Encoded/decoded by serializers as "QCTR".
+    /// Encoded/decoded by serializers as &quot;QCTR&quot;.
     /// </summary>
     [EnumMember(Value = "QCTR")]
     [IsoId("_vcIg0aadEeSR8qifggAitQ")]
@@ -39,7 +39,7 @@ public enum QueryTradeStatus1Code
     
     /// <summary>
     /// Query for cancelling trades.
-    /// Encoded/decoded by serializers as "QCIR".
+    /// Encoded/decoded by serializers as &quot;QCIR&quot;.
     /// </summary>
     [EnumMember(Value = "QCIR")]
     [IsoId("_vhor4aadEeSR8qifggAitQ")]
@@ -48,7 +48,7 @@ public enum QueryTradeStatus1Code
     
     /// <summary>
     /// Query for emergency trades.
-    /// Encoded/decoded by serializers as "QETR".
+    /// Encoded/decoded by serializers as &quot;QETR&quot;.
     /// </summary>
     [EnumMember(Value = "QETR")]
     [IsoId("_vnI28aadEeSR8qifggAitQ")]
@@ -57,7 +57,7 @@ public enum QueryTradeStatus1Code
     
     /// <summary>
     /// Query for new trades.
-    /// Encoded/decoded by serializers as "QNTR".
+    /// Encoded/decoded by serializers as &quot;QNTR&quot;.
     /// </summary>
     [EnumMember(Value = "QNTR")]
     [IsoId("_vsppEaadEeSR8qifggAitQ")]
@@ -66,7 +66,7 @@ public enum QueryTradeStatus1Code
     
     /// <summary>
     /// Query for trades have been replaced.
-    /// Encoded/decoded by serializers as "QRTR".
+    /// Encoded/decoded by serializers as &quot;QRTR&quot;.
     /// </summary>
     [EnumMember(Value = "QRTR")]
     [IsoId("_vyQh0aadEeSR8qifggAitQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information on the instruction.
 /// </summary>
 [IsoId("_RW6GmNp-Ed-ak6NoX_4Aeg_-1229563854")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record Instruction1
     /// Identifies the detailed instruction.
     /// </summary>
     [IsoId("_RW6Gmdp-Ed-ak6NoX_4Aeg_84667180")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InstructionIdentification { get; init; } 
+    public required System.String InstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InstructionIdentification { get; init; } 
     #else
@@ -76,12 +72,12 @@ public partial record Instruction1
     /// Date at which the instruction must be executed.
     /// </summary>
     [IsoId("_RXD3kNp-Ed-ak6NoX_4Aeg_84667181")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Execution Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdExctnDt")]
     #endif
+    [IsoXmlTag("ReqdExctnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? RequestedExecutionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +90,16 @@ public partial record Instruction1
     /// Indicates that a Vote execution confirmation is requested.
     /// </summary>
     [IsoId("_RXD3kdp-Ed-ak6NoX_4Aeg_84667198")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Execution Confirmation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteExctnConf")]
     #endif
+    [IsoXmlTag("VoteExctnConf")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator VoteExecutionConfirmation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String VoteExecutionConfirmation { get; init; } 
+    public required System.String VoteExecutionConfirmation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String VoteExecutionConfirmation { get; init; } 
     #else
@@ -114,16 +110,15 @@ public partial record Instruction1
     /// Identification of the securities account.
     /// </summary>
     [IsoId("_RXD3ktp-Ed-ak6NoX_4Aeg_1099288385")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SafekeepingAccount3 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SafekeepingAccount3 AccountDetails { get; init; } 
+    public required SafekeepingAccount3 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SafekeepingAccount3 AccountDetails { get; init; } 
     #else
@@ -134,12 +129,11 @@ public partial record Instruction1
     /// Identification of the person appointed by the security holder as proxy.
     /// </summary>
     [IsoId("_RXD3k9p-Ed-ak6NoX_4Aeg_1488769519")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proxy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prxy")]
     #endif
+    [IsoXmlTag("Prxy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Proxy2? Proxy { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +146,11 @@ public partial record Instruction1
     /// Specifies detailed voting instructions.
     /// </summary>
     [IsoId("_RXD3lNp-Ed-ak6NoX_4Aeg_-1182245952")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteDtls")]
     #endif
+    [IsoXmlTag("VoteDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public VoteDetails1? VoteDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +163,11 @@ public partial record Instruction1
     /// Identification of the security holder who will attend and vote at the meeting in person and/or a person assigned by the security holder to attend the meeting without having any voting rights or taking any action.
     /// </summary>
     [IsoId("_RXD3ldp-Ed-ak6NoX_4Aeg_1510934648")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Attendee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtgAttndee")]
     #endif
+    [IsoXmlTag("MtgAttndee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson13? MeetingAttendee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +180,11 @@ public partial record Instruction1
     /// Request to execute specific instructions, such as participation registration, securities registration or blocking of securities.
     /// </summary>
     [IsoId("_RXD3ltp-Ed-ak6NoX_4Aeg_-362500258")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Specific Instruction Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpcfcInstrReq")]
     #endif
+    [IsoXmlTag("SpcfcInstrReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SpecificInstructionRequest1? SpecificInstructionRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

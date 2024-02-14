@@ -21,7 +21,7 @@ public enum StatementBasisCode
 {
     /// <summary>
     /// The statement is based on contractual settlement date irrespective of settled data positions.
-    /// Encoded/decoded by serializers as "CONT".
+    /// Encoded/decoded by serializers as &quot;CONT&quot;.
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_ZQD0I9p-Ed-ak6NoX_4Aeg_1099290177")]
@@ -30,7 +30,7 @@ public enum StatementBasisCode
     
     /// <summary>
     /// The statement is based on settled date positions to the knowledge of the sender at the time of the statement preparation.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_ZQD0JNp-Ed-ak6NoX_4Aeg_1099290194")]
@@ -39,7 +39,7 @@ public enum StatementBasisCode
     
     /// <summary>
     /// The statement is based on trade date positions.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_ZQD0Jdp-Ed-ak6NoX_4Aeg_1099290212")]
@@ -48,7 +48,7 @@ public enum StatementBasisCode
     
     /// <summary>
     /// Mark-to-Market report sent after settlement. All transactions which have been initiated.
-    /// Encoded/decoded by serializers as "EOSP".
+    /// Encoded/decoded by serializers as &quot;EOSP&quot;.
     /// </summary>
     [EnumMember(Value = "EOSP")]
     [IsoId("_KGTm0MRxEeij-rSPpvD-Tw")]
@@ -57,7 +57,7 @@ public enum StatementBasisCode
     
     /// <summary>
     /// Mark-to-market report taking into account collateral management actions which are still pending initiation and initiated transactions.
-    /// Encoded/decoded by serializers as "FUTM".
+    /// Encoded/decoded by serializers as &quot;FUTM&quot;.
     /// </summary>
     [EnumMember(Value = "FUTM")]
     [IsoId("_fhZ2cMRxEeij-rSPpvD-Tw")]

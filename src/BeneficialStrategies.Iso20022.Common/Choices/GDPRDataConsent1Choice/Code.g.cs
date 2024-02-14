@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GDPRDataConsent1Choice
     /// Consent type expressed as a code.
     /// </summary>
     [IsoId("_LyNlkJTTEemC09f0MxYkRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GDPRDataConsent1Choice
         /// Consent type in the context of the General Protection Regulation (GDPR) 2016/679 regulation.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GDPRDataConsent1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GDPRDataConsent1Code Value { get; init; } 
+        public required GDPRDataConsent1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GDPRDataConsent1Code Value { get; init; } 
         #else

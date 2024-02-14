@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlannedQuantity1Choice
     /// Planned quantity of financial instrument or lot of rights/warrants to be purchased.
     /// </summary>
     [IsoId("_1FFw4DF0EeGKkIZzgd38VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum CardDataReading1Code
 {
     /// <summary>
     /// Tag reading capabilities (RFID, etc.).
-    /// Encoded/decoded by serializers as "TAGC".
+    /// Encoded/decoded by serializers as &quot;TAGC&quot;.
     /// </summary>
     [EnumMember(Value = "TAGC")]
     [IsoId("_TSXNcgEcEeCQm6a_G2yO_w_1877381084")]
@@ -30,7 +30,7 @@ public enum CardDataReading1Code
     
     /// <summary>
     /// Keyboard entry or OCR reading of embossing or printed data, either at time of transaction or after the event.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_TSXNcwEcEeCQm6a_G2yO_w_-764781715")]
@@ -39,7 +39,7 @@ public enum CardDataReading1Code
     
     /// <summary>
     /// Bar code.
-    /// Encoded/decoded by serializers as "BRCD".
+    /// Encoded/decoded by serializers as &quot;BRCD&quot;.
     /// </summary>
     [EnumMember(Value = "BRCD")]
     [IsoId("_TSXNdAEcEeCQm6a_G2yO_w_1172443458")]
@@ -48,7 +48,7 @@ public enum CardDataReading1Code
     
     /// <summary>
     /// Magnetic stripe.
-    /// Encoded/decoded by serializers as "MGST".
+    /// Encoded/decoded by serializers as &quot;MGST&quot;.
     /// </summary>
     [EnumMember(Value = "MGST")]
     [IsoId("_TSXNdQEcEeCQm6a_G2yO_w_-439664208")]
@@ -57,7 +57,7 @@ public enum CardDataReading1Code
     
     /// <summary>
     /// ICC (Integrated Circuit Card) with contact containing software applications conform to ISO 7816.
-    /// Encoded/decoded by serializers as "CICC".
+    /// Encoded/decoded by serializers as &quot;CICC&quot;.
     /// </summary>
     [EnumMember(Value = "CICC")]
     [IsoId("_TSXNdgEcEeCQm6a_G2yO_w_-1892344504")]
@@ -66,7 +66,7 @@ public enum CardDataReading1Code
     
     /// <summary>
     /// Account data on file.
-    /// Encoded/decoded by serializers as "DFLE".
+    /// Encoded/decoded by serializers as &quot;DFLE&quot;.
     /// </summary>
     [EnumMember(Value = "DFLE")]
     [IsoId("_TSXNdwEcEeCQm6a_G2yO_w_44880669")]
@@ -75,7 +75,7 @@ public enum CardDataReading1Code
     
     /// <summary>
     /// Contactless proximity reader.
-    /// Encoded/decoded by serializers as "CTLS".
+    /// Encoded/decoded by serializers as &quot;CTLS&quot;.
     /// </summary>
     [EnumMember(Value = "CTLS")]
     [IsoId("_TSXNeAEcEeCQm6a_G2yO_w_1689489202")]
@@ -84,7 +84,7 @@ public enum CardDataReading1Code
     
     /// <summary>
     /// Contactless proximity reader, with application conform to the standard EMV (standard initiated by Europay, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "ECTL".
+    /// Encoded/decoded by serializers as &quot;ECTL&quot;.
     /// </summary>
     [EnumMember(Value = "ECTL")]
     [IsoId("_TSXNeQEcEeCQm6a_G2yO_w_-154379787")]

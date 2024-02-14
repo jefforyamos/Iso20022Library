@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reversal4Choice.Reference))]
     [KnownType(typeof(Reversal4Choice.TransferInConfirmationDetails))]
     [IsoId("_PslE0RX3EeOBE-jZfcm4KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

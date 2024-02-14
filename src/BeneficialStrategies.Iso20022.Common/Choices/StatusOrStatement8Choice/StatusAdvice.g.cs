@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement8Choice
     /// Identify the status advice and the transaction for which the status advice was requested.
     /// </summary>
     [IsoId("_8Rszh5NLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Advice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement8Choice
         /// Number used to identify a message or document.
         /// </summary>
         [IsoId("_8RszkZNLEeWGlc8L7oPDIg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nb")]
         #endif
+        [IsoXmlTag("Nb")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DocumentNumber6Choice_ Number { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DocumentNumber6Choice_ Number { get; init; } 
+        public required DocumentNumber6Choice_ Number { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DocumentNumber6Choice_ Number { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement8Choice
         /// References of transaction for which the status is requested.
         /// </summary>
         [IsoId("_8RszmZNLEeWGlc8L7oPDIg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("References")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Refs")]
         #endif
+        [IsoXmlTag("Refs")]
         public Identification24? References { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _8RszmZNLEeWGlc8L7oPDIg
         

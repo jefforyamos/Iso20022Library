@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Travel agency component provides details of travel agency, airline, or railway transactions. 
 /// </summary>
 [IsoId("_q3BbUcWyEeuhguwJmlgagQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Travel Agency")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TravelAgency3
     /// Information describing the travel agency or party providing travel-related services. 
     /// </summary>
     [IsoId("_q7ZlAcWyEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Company")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cpny")]
     #endif
+    [IsoXmlTag("Cpny")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification261? Company { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TravelAgency3
     /// Provides detailed information about the travel package, excluding specific itinerary data. 
     /// </summary>
     [IsoId("_q7ZlA8WyEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Travel Package")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrvlPackg")]
     #endif
+    [IsoXmlTag("TrvlPackg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TravelAgencyPackage1? TravelPackage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,15 +76,13 @@ public partial record TravelAgency3
     /// Provides additional travel details.
     /// </summary>
     [IsoId("_q7ZlBcWyEeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlData")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

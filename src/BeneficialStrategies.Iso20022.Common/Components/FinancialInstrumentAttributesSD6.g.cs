@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding underlying security details.
 /// </summary>
 [IsoId("_1eZYVDL3EeKU9IrkkToqcw_1099419252")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record FinancialInstrumentAttributesSD6
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1eZYVTL3EeKU9IrkkToqcw_102346899")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record FinancialInstrumentAttributesSD6
     /// Country in which the security was issued.
     /// </summary>
     [IsoId("_1ejJUDL3EeKU9IrkkToqcw_667803525")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Listing")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfListg")]
     #endif
+    [IsoXmlTag("CtryOfListg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CountryOfListing { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record FinancialInstrumentAttributesSD6
     /// Country of source income for the security.
     /// </summary>
     [IsoId("_1ejJUTL3EeKU9IrkkToqcw_1971553762")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Income Source Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IncmSrcCtry")]
     #endif
+    [IsoXmlTag("IncmSrcCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? IncomeSourceCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record FinancialInstrumentAttributesSD6
     /// Classification of instruments into asset classes at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1ejJUjL3EeKU9IrkkToqcw_2025614481")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Asset Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCAsstClss")]
     #endif
+    [IsoXmlTag("DTCAsstClss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClass1Code? DTCAssetClass { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record FinancialInstrumentAttributesSD6
     /// Further classification of instruments into (issue) asset types at DTC (The Depository Trust Corporation).
     /// </summary>
     [IsoId("_1ejJUzL3EeKU9IrkkToqcw_145308841")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Asset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCAsstTp")]
     #endif
+    [IsoXmlTag("DTCAsstTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCAssetType1Code? DTCAssetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +138,12 @@ public partial record FinancialInstrumentAttributesSD6
     /// Indicates whether the security is eligible for holding at DTC.
     /// </summary>
     [IsoId("_1ejJVDL3EeKU9IrkkToqcw_-965602578")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Eligibility Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyElgbltyInd")]
     #endif
+    [IsoXmlTag("SctyElgbltyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SecurityEligibilityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,15 +156,13 @@ public partial record FinancialInstrumentAttributesSD6
     /// Ticket symbol for the event security (underlying security).
     /// </summary>
     [IsoId("_1ejJVTL3EeKU9IrkkToqcw_-1698560148")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ticker Symbol")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TckrSymb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TckrSymb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TickerSymbol { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +175,11 @@ public partial record FinancialInstrumentAttributesSD6
     /// Security whose characteristics mirror the event security for purposes of FCP eligibility and tax relief. Certain derivative securities like HOLDR may have certain events where the source of payments are from an underlying security.
     /// </summary>
     [IsoId("_1ejJVjL3EeKU9IrkkToqcw_-1540829435")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkdScty")]
     #endif
+    [IsoXmlTag("LkdScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification15? LinkedSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

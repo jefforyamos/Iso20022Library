@@ -21,7 +21,7 @@ public enum TradeTransactionCondition4Code
 {
     /// <summary>
     /// Indicates whether the trade is executed cum bonus.
-    /// Encoded/decoded by serializers as "CBNS".
+    /// Encoded/decoded by serializers as &quot;CBNS&quot;.
     /// </summary>
     [EnumMember(Value = "CBNS")]
     [IsoId("_YpBCQNp-Ed-ak6NoX_4Aeg_-166151120")]
@@ -30,7 +30,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex bonus.
-    /// Encoded/decoded by serializers as "XBNS".
+    /// Encoded/decoded by serializers as &quot;XBNS&quot;.
     /// </summary>
     [EnumMember(Value = "XBNS")]
     [IsoId("_YpBCQdp-Ed-ak6NoX_4Aeg_-1227503079")]
@@ -39,7 +39,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum coupon.
-    /// Encoded/decoded by serializers as "CCPN".
+    /// Encoded/decoded by serializers as &quot;CCPN&quot;.
     /// </summary>
     [EnumMember(Value = "CCPN")]
     [IsoId("_YpBCQtp-Ed-ak6NoX_4Aeg_-1049384407")]
@@ -48,7 +48,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex coupon.
-    /// Encoded/decoded by serializers as "XCPN".
+    /// Encoded/decoded by serializers as &quot;XCPN&quot;.
     /// </summary>
     [EnumMember(Value = "XCPN")]
     [IsoId("_YpBCQ9p-Ed-ak6NoX_4Aeg_-1341342145")]
@@ -57,7 +57,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum dividend.
-    /// Encoded/decoded by serializers as "CDIV".
+    /// Encoded/decoded by serializers as &quot;CDIV&quot;.
     /// </summary>
     [EnumMember(Value = "CDIV")]
     [IsoId("_YpBCRNp-Ed-ak6NoX_4Aeg_-1163223473")]
@@ -66,7 +66,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex dividend.
-    /// Encoded/decoded by serializers as "XDIV".
+    /// Encoded/decoded by serializers as &quot;XDIV&quot;.
     /// </summary>
     [EnumMember(Value = "XDIV")]
     [IsoId("_YpBCRdp-Ed-ak6NoX_4Aeg_2070391864")]
@@ -75,7 +75,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum rights.
-    /// Encoded/decoded by serializers as "CRTS".
+    /// Encoded/decoded by serializers as &quot;CRTS&quot;.
     /// </summary>
     [EnumMember(Value = "CRTS")]
     [IsoId("_YpBCRtp-Ed-ak6NoX_4Aeg_-2046456760")]
@@ -84,7 +84,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex rights.
-    /// Encoded/decoded by serializers as "XRTS".
+    /// Encoded/decoded by serializers as &quot;XRTS&quot;.
     /// </summary>
     [EnumMember(Value = "XRTS")]
     [IsoId("_YpBCR9p-Ed-ak6NoX_4Aeg_1956552798")]
@@ -93,7 +93,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum warrant.
-    /// Encoded/decoded by serializers as "CWAR".
+    /// Encoded/decoded by serializers as &quot;CWAR&quot;.
     /// </summary>
     [EnumMember(Value = "CWAR")]
     [IsoId("_YpBCSNp-Ed-ak6NoX_4Aeg_2134671470")]
@@ -102,7 +102,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the trade is executed ex warrant.
-    /// Encoded/decoded by serializers as "XWAR".
+    /// Encoded/decoded by serializers as &quot;XWAR&quot;.
     /// </summary>
     [EnumMember(Value = "XWAR")]
     [IsoId("_YpBCSdp-Ed-ak6NoX_4Aeg_1073319511")]
@@ -112,7 +112,7 @@ public enum TradeTransactionCondition4Code
     /// <summary>
     /// Indicates whether the trade is executed with a special cum 
     /// dividend, that is, buying after the ex date and getting the dividend.
-    /// Encoded/decoded by serializers as "SPCU".
+    /// Encoded/decoded by serializers as &quot;SPCU&quot;.
     /// </summary>
     [EnumMember(Value = "SPCU")]
     [IsoId("_YpKzQNp-Ed-ak6NoX_4Aeg_1251438183")]
@@ -122,7 +122,7 @@ public enum TradeTransactionCondition4Code
     /// <summary>
     /// Indicates whether the trade is executed with a special ex 
     /// dividend, that is, selling before the ex date without the coupon.
-    /// Encoded/decoded by serializers as "SPEX".
+    /// Encoded/decoded by serializers as &quot;SPEX&quot;.
     /// </summary>
     [EnumMember(Value = "SPEX")]
     [IsoId("_YpKzQdp-Ed-ak6NoX_4Aeg_959480445")]
@@ -131,7 +131,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Indicates whether the delivery of the financial instrument on settlement date |is guaranteed.
-    /// Encoded/decoded by serializers as "GTDL".
+    /// Encoded/decoded by serializers as &quot;GTDL&quot;.
     /// </summary>
     [EnumMember(Value = "GTDL")]
     [IsoId("_YpKzQtp-Ed-ak6NoX_4Aeg_-920825195")]
@@ -140,7 +140,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Result of option when set. (UK specific).
-    /// Encoded/decoded by serializers as "BCRO".
+    /// Encoded/decoded by serializers as &quot;BCRO&quot;.
     /// </summary>
     [EnumMember(Value = "BCRO")]
     [IsoId("_YpKzQ9p-Ed-ak6NoX_4Aeg_1444277001")]
@@ -149,7 +149,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Result of repo when set (UK specific).
-    /// Encoded/decoded by serializers as "BCRP".
+    /// Encoded/decoded by serializers as &quot;BCRP&quot;.
     /// </summary>
     [EnumMember(Value = "BCRP")]
     [IsoId("_YpKzRNp-Ed-ak6NoX_4Aeg_382925042")]
@@ -158,7 +158,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Form of delivery, not for foreign registration when unset (UK specific).
-    /// Encoded/decoded by serializers as "BCFD".
+    /// Encoded/decoded by serializers as &quot;BCFD&quot;.
     /// </summary>
     [EnumMember(Value = "BCFD")]
     [IsoId("_YpKzRdp-Ed-ak6NoX_4Aeg_269085976")]
@@ -167,7 +167,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Board lots, not set for odd lots (UK specific).
-    /// Encoded/decoded by serializers as "BCBL".
+    /// Encoded/decoded by serializers as &quot;BCBL&quot;.
     /// </summary>
     [EnumMember(Value = "BCBL")]
     [IsoId("_YpKzRtp-Ed-ak6NoX_4Aeg_447204648")]
@@ -176,7 +176,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Bad names, not set for good names (UK specific).
-    /// Encoded/decoded by serializers as "BCBN".
+    /// Encoded/decoded by serializers as &quot;BCBN&quot;.
     /// </summary>
     [EnumMember(Value = "BCBN")]
     [IsoId("_YpKzR9p-Ed-ak6NoX_4Aeg_-614147311")]
@@ -185,7 +185,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Trade was executed at market price.
-    /// Encoded/decoded by serializers as "MAPR".
+    /// Encoded/decoded by serializers as &quot;MAPR&quot;.
     /// </summary>
     [EnumMember(Value = "MAPR")]
     [IsoId("_YpKzSNp-Ed-ak6NoX_4Aeg_-436028639")]
@@ -194,7 +194,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Trade for which the price is not the one quoted but an improved one, that is, the negotiated price.
-    /// Encoded/decoded by serializers as "NEGO".
+    /// Encoded/decoded by serializers as &quot;NEGO&quot;.
     /// </summary>
     [EnumMember(Value = "NEGO")]
     [IsoId("_YpKzSdp-Ed-ak6NoX_4Aeg_-727986377")]
@@ -203,7 +203,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Trade was executed outside of normal market conditions, for example, in the case of an iceberg order.
-    /// Encoded/decoded by serializers as "NMPR".
+    /// Encoded/decoded by serializers as &quot;NMPR&quot;.
     /// </summary>
     [EnumMember(Value = "NMPR")]
     [IsoId("_YpT9MNp-Ed-ak6NoX_4Aeg_-549867705")]
@@ -212,7 +212,7 @@ public enum TradeTransactionCondition4Code
     
     /// <summary>
     /// Place of delivery, in country of incorporation when unset (UK specific).
-    /// Encoded/decoded by serializers as "BCPD".
+    /// Encoded/decoded by serializers as &quot;BCPD&quot;.
     /// </summary>
     [EnumMember(Value = "BCPD")]
     [IsoId("_YpT9Mdp-Ed-ak6NoX_4Aeg_-427588864")]

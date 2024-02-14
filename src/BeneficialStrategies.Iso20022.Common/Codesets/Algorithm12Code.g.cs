@@ -21,7 +21,7 @@ public enum Algorithm12Code
 {
     /// <summary>
     /// Retail CBC (Chaining Block Cypher) MAC (Message Authentication Code) (cf. ISO 9807, ANSI X9.19) - (ASN.1 Object Identifier: id-retail-cbc-mac).
-    /// Encoded/decoded by serializers as "MACC".
+    /// Encoded/decoded by serializers as &quot;MACC&quot;.
     /// </summary>
     [EnumMember(Value = "MACC")]
     [IsoId("_iHlHIWi7EeS87LmvcA55sg")]
@@ -30,7 +30,7 @@ public enum Algorithm12Code
     
     /// <summary>
     /// Retail-CBC-MAC with SHA-256 (Secure HAsh standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-256).
-    /// Encoded/decoded by serializers as "MCCS".
+    /// Encoded/decoded by serializers as &quot;MCCS&quot;.
     /// </summary>
     [EnumMember(Value = "MCCS")]
     [IsoId("_iHlHI2i7EeS87LmvcA55sg")]
@@ -39,7 +39,7 @@ public enum Algorithm12Code
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 128 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-256 digest of the message.
-    /// Encoded/decoded by serializers as "CMA1".
+    /// Encoded/decoded by serializers as &quot;CMA1&quot;.
     /// </summary>
     [EnumMember(Value = "CMA1")]
     [IsoId("_iHlHJWi7EeS87LmvcA55sg")]
@@ -48,7 +48,7 @@ public enum Algorithm12Code
     
     /// <summary>
     /// The DEPRECATED Retail-CBC-MAC with SHA-1 (Secure Hash standard) - (ASN.1 Object Identifier: id-retail-cbc-mac-sha-1).
-    /// Encoded/decoded by serializers as "MCC1".
+    /// Encoded/decoded by serializers as &quot;MCC1&quot;.
     /// </summary>
     [EnumMember(Value = "MCC1")]
     [IsoId("_BK51QWi8EeS87LmvcA55sg")]
@@ -57,7 +57,7 @@ public enum Algorithm12Code
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 192 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-384 digest of the message.
-    /// Encoded/decoded by serializers as "CMA9".
+    /// Encoded/decoded by serializers as &quot;CMA9&quot;.
     /// </summary>
     [EnumMember(Value = "CMA9")]
     [IsoId("_DoWIEWi8EeS87LmvcA55sg")]
@@ -66,7 +66,7 @@ public enum Algorithm12Code
     
     /// <summary>
     /// CMAC (Cipher based Message Authentication Code) defined by the National Institute of Standards and Technology (NIST 800-38B - May 2005), using the block cipher Advanced Encryption Standard with a 256 bits cryptographic key, approved by the Federal Information Processing Standards (FIPS 197 - November 6, 2001 - Advanced Encryption Standard). The CMAC algorithm is computed on the SHA-512 digest of the message.
-    /// Encoded/decoded by serializers as "CMA5".
+    /// Encoded/decoded by serializers as &quot;CMA5&quot;.
     /// </summary>
     [EnumMember(Value = "CMA5")]
     [IsoId("_Ew-kEWi8EeS87LmvcA55sg")]

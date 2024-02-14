@@ -21,7 +21,7 @@ public enum PriceValueType6Code
 {
     /// <summary>
     /// Price is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aJk2F9p-Ed-ak6NoX_4Aeg_-608123492")]
@@ -30,7 +30,7 @@ public enum PriceValueType6Code
     
     /// <summary>
     /// Price has not been established.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_aJk2GNp-Ed-ak6NoX_4Aeg_-608123463")]
@@ -39,7 +39,7 @@ public enum PriceValueType6Code
     
     /// <summary>
     /// Price is not required to be specified by account owner.
-    /// Encoded/decoded by serializers as "UNSP".
+    /// Encoded/decoded by serializers as &quot;UNSP&quot;.
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_aJunENp-Ed-ak6NoX_4Aeg_-608123462")]
@@ -48,7 +48,7 @@ public enum PriceValueType6Code
     
     /// <summary>
     /// Price to be specified by account owner.
-    /// Encoded/decoded by serializers as "TBSP".
+    /// Encoded/decoded by serializers as &quot;TBSP&quot;.
     /// </summary>
     [EnumMember(Value = "TBSP")]
     [IsoId("_aJunEdp-Ed-ak6NoX_4Aeg_-608123441")]

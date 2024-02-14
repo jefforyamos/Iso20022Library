@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data specific to counterparties of the reported transaction.
 /// </summary>
 [IsoId("_KsC98cifEeilzoC6JPpwAg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Counterparty30
     /// Unique code identifying the reporting counterparty.
     /// </summary>
     [IsoId("_K1SZgcifEeilzoC6JPpwAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCtrPty")]
     #endif
+    [IsoXmlTag("RptgCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Counterparty30
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
     [IsoId("_K1SZg8ifEeilzoC6JPpwAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCtrPty")]
     #endif
+    [IsoXmlTag("OthrCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record Counterparty30
     /// In the case where a financial counterparty is responsible for reporting on behalf of the other counterparty.
     /// </summary>
     [IsoId("_K1SZhcifEeilzoC6JPpwAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entity Responsible For Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NttyRspnsblForRpt")]
     #endif
+    [IsoXmlTag("NttyRspnsblForRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? EntityResponsibleForReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +105,11 @@ public partial record Counterparty30
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
     [IsoId("_K1SZh8ifEeilzoC6JPpwAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Submitting Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSubmitgNtty")]
     #endif
+    [IsoXmlTag("RptSubmitgNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification9Choice_? ReportSubmittingEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
     /// Parameters to be used by the various cryptographic key commands.
     /// </summary>
     [IsoId("_rAZ80ItIEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
         /// Category of the cryptographic key.
         /// </summary>
         [IsoId("_T5qOQItJEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Category")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyCtgy")]
         #endif
+        [IsoXmlTag("KeyCtgy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CryptographicKeyType4Code? KeyCategory { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,12 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
         /// Random value from the host provided during a previous exchange.
         /// </summary>
         [IsoId("_hkcjQItJEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Host Challenge")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="HstChllng")]
         #endif
+        [IsoXmlTag("HstChllng")]
+        [IsoSimpleType(IsoSimpleType.Max140Binary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax140Binary? HostChallenge { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +82,12 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
         /// Ordered certificate chain of the asymmetric key encryption key, starting with the host certificate.
         /// </summary>
         [IsoId("_tNm-wItJEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Certificate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cert")]
         #endif
+        [IsoXmlTag("Cert")]
+        [IsoSimpleType(IsoSimpleType.Max5000Binary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax5000Binary? Certificate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +100,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice
         /// Cryptographic key involved in the security command.
         /// </summary>
         [IsoId("_ABCokItKEeSxlKlAGYErFg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Key Properties")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyProps")]
         #endif
+        [IsoXmlTag("KeyProps")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public KEKIdentifier4? KeyProperties { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

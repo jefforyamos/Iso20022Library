@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Services allowed for the customer's profile.
+/// Services allowed for the customer&apos;s profile.
 /// </summary>
 [IsoId("_IAYH0Yq0EeSIDtZ76p6McQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Service")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ATMService7
     /// Describes the type of inquiry selected by the customer or the ATM.
     /// </summary>
     [IsoId("_INCq1Yq0EeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcTp")]
     #endif
+    [IsoXmlTag("SvcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMServiceType4Code ServiceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMServiceType4Code ServiceType { get; init; } 
+    public required ATMServiceType4Code ServiceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMServiceType4Code ServiceType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ATMService7
     /// Limits of amounts.
     /// </summary>
     [IsoId("_nMR4QIq2EeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lmts")]
     #endif
+    [IsoXmlTag("Lmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTransactionAmounts3? Limits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ATMService7
     /// Preferred withdrawal transaction chosen by the customer.
     /// </summary>
     [IsoId("_vyGCEIq3EeSIDtZ76p6McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Preferred Withdrawal")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrefrdWdrwl")]
     #endif
+    [IsoXmlTag("PrefrdWdrwl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTransaction8? PreferredWithdrawal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

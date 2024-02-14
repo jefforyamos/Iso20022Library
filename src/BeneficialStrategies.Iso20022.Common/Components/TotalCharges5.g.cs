@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Total amount of charges.
 /// </summary>
 [IsoId("_WI09c9p-Ed-ak6NoX_4Aeg_628420775")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Total Charges")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,16 +42,13 @@ public partial record TotalCharges5
     /// Information related to a specific charge.
     /// </summary>
     [IsoId("_WI09dNp-Ed-ak6NoX_4Aeg_628420899")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ChrgDtls")]
     [MinLength(1)]
     [MaxLength(4)]
-    #endif
     public ValueList<Charge23> ChargeDetails { get; init; } = new ValueList<Charge23>(){};
     
     

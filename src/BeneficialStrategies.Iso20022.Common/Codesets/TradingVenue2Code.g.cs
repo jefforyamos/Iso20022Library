@@ -21,7 +21,7 @@ public enum TradingVenue2Code
 {
     /// <summary>
     /// Person authorised under the provisions established in the regulation to provide the service of publishing trade reports on behalf of investment firms.
-    /// Encoded/decoded by serializers as "APPA".
+    /// Encoded/decoded by serializers as &quot;APPA&quot;.
     /// </summary>
     [EnumMember(Value = "APPA")]
     [IsoId("_dy31QV0iEeWErPfQ7BYx8A")]
@@ -30,7 +30,7 @@ public enum TradingVenue2Code
     
     /// <summary>
     /// Provider which will consolidate post-trade information into a continuous electronic data stream and make it publicly available as close to real time as technologically possible on a reasonable commercial basis and free of charge after 15 minutes.
-    /// Encoded/decoded by serializers as "CTPS".
+    /// Encoded/decoded by serializers as &quot;CTPS&quot;.
     /// </summary>
     [EnumMember(Value = "CTPS")]
     [IsoId("_F8rOgb4BEeWvRsMSLyTf-A")]

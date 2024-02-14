@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reports on business day information.
 /// </summary>
 [IsoId("_wq9RhZlcEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Day")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record BusinessDay6
     /// Identification of a particular market infrastructure.
     /// </summary>
     [IsoId("_wy9-A5lcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysId")]
     #endif
+    [IsoXmlTag("SysId")]
     public SystemIdentification2Choice_? SystemIdentification { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _wy9-A5lcEeeE1Ya-LgRsuQ
     
@@ -64,16 +61,15 @@ public partial record BusinessDay6
     /// Requested information on the system availability for a specific business day or business error when information has not been found.
     /// </summary>
     [IsoId("_wy9-BZlcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Day Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizDayOrErr")]
     #endif
+    [IsoXmlTag("BizDayOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BusinessDayReportOrError8Choice_ BusinessDayOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BusinessDayReportOrError8Choice_ BusinessDayOrError { get; init; } 
+    public required BusinessDayReportOrError8Choice_ BusinessDayOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BusinessDayReportOrError8Choice_ BusinessDayOrError { get; init; } 
     #else

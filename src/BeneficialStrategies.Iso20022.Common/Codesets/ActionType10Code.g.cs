@@ -21,7 +21,7 @@ public enum ActionType10Code
 {
     /// <summary>
     /// Activate device or service.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_MS5GAU0uEeea0Mdu1TOzDQ")]
@@ -30,7 +30,7 @@ public enum ActionType10Code
     
     /// <summary>
     /// Deactivate device or service.
-    /// Encoded/decoded by serializers as "DEAC".
+    /// Encoded/decoded by serializers as &quot;DEAC&quot;.
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_NWZxck0uEeea0Mdu1TOzDQ")]
@@ -39,7 +39,7 @@ public enum ActionType10Code
     
     /// <summary>
     /// Message to display, print or log.
-    /// Encoded/decoded by serializers as "DISP".
+    /// Encoded/decoded by serializers as &quot;DISP&quot;.
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_OQieck0uEeea0Mdu1TOzDQ")]
@@ -48,7 +48,7 @@ public enum ActionType10Code
     
     /// <summary>
     /// Update a data file.
-    /// Encoded/decoded by serializers as "FUPD".
+    /// Encoded/decoded by serializers as &quot;FUPD&quot;.
     /// </summary>
     [EnumMember(Value = "FUPD")]
     [IsoId("_PDBEQk0uEeea0Mdu1TOzDQ")]
@@ -57,7 +57,7 @@ public enum ActionType10Code
     
     /// <summary>
     /// Print a message.
-    /// Encoded/decoded by serializers as "PRNT".
+    /// Encoded/decoded by serializers as &quot;PRNT&quot;.
     /// </summary>
     [EnumMember(Value = "PRNT")]
     [IsoId("_QG8mck0uEeea0Mdu1TOzDQ")]
@@ -66,7 +66,7 @@ public enum ActionType10Code
     
     /// <summary>
     /// Send a message.
-    /// Encoded/decoded by serializers as "SNDM".
+    /// Encoded/decoded by serializers as &quot;SNDM&quot;.
     /// </summary>
     [EnumMember(Value = "SNDM")]
     [IsoId("_QxFvok0uEeea0Mdu1TOzDQ")]

@@ -22,7 +22,7 @@ public enum ValidationRuleCode
 {
     /// <summary>
     /// Accepted cancellation request.
-    /// Encoded/decoded by serializers as "ACCR".
+    /// Encoded/decoded by serializers as &quot;ACCR&quot;.
     /// </summary>
     [EnumMember(Value = "ACCR")]
     [IsoId("_h-RVMh-yEeuxStysDTgLiw")]
@@ -31,7 +31,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Accepted customer profile.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_h-RVNB-yEeuxStysDTgLiw")]
@@ -40,7 +40,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Accepted settlement completed.
-    /// Encoded/decoded by serializers as "ACSC".
+    /// Encoded/decoded by serializers as &quot;ACSC&quot;.
     /// </summary>
     [EnumMember(Value = "ACSC")]
     [IsoId("_h-RVNR-yEeuxStysDTgLiw")]
@@ -49,7 +49,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Accepted settlement in process.
-    /// Encoded/decoded by serializers as "ACSP".
+    /// Encoded/decoded by serializers as &quot;ACSP&quot;.
     /// </summary>
     [EnumMember(Value = "ACSP")]
     [IsoId("_h-RVNh-yEeuxStysDTgLiw")]
@@ -58,7 +58,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Accepted technical validation.
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_h-RVNx-yEeuxStysDTgLiw")]
@@ -67,7 +67,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Accepted with change.
-    /// Encoded/decoded by serializers as "ACWC".
+    /// Encoded/decoded by serializers as &quot;ACWC&quot;.
     /// </summary>
     [EnumMember(Value = "ACWC")]
     [IsoId("_h-RVOB-yEeuxStysDTgLiw")]
@@ -76,7 +76,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Pending.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_h-RVPR-yEeuxStysDTgLiw")]
@@ -85,7 +85,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Received.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_h-RVPx-yEeuxStysDTgLiw")]
@@ -94,7 +94,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_h-RVQB-yEeuxStysDTgLiw")]
@@ -103,7 +103,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Narrative.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_9DoG8B-0EeuxStysDTgLiw")]
@@ -112,7 +112,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Pay creditor by cheque.
-    /// Encoded/decoded by serializers as "CHQB".
+    /// Encoded/decoded by serializers as &quot;CHQB&quot;.
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_WWUTMR-1EeuxStysDTgLiw")]
@@ -121,7 +121,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Hold cash for creditor.
-    /// Encoded/decoded by serializers as "HOLD".
+    /// Encoded/decoded by serializers as &quot;HOLD&quot;.
     /// </summary>
     [EnumMember(Value = "HOLD")]
     [IsoId("_jz9loyAZEeuxStysDTgLiw")]
@@ -130,7 +130,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Phone beneficiary.
-    /// Encoded/decoded by serializers as "PHOB".
+    /// Encoded/decoded by serializers as &quot;PHOB&quot;.
     /// </summary>
     [EnumMember(Value = "PHOB")]
     [IsoId("_jz9lpSAZEeuxStysDTgLiw")]
@@ -139,7 +139,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Telecom beneficiary.
-    /// Encoded/decoded by serializers as "TELB".
+    /// Encoded/decoded by serializers as &quot;TELB&quot;.
     /// </summary>
     [EnumMember(Value = "TELB")]
     [IsoId("_prFKASAZEeuxStysDTgLiw")]
@@ -148,7 +148,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Specified address.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_ohocwCBoEeugLNJneiyzbA")]
@@ -157,7 +157,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Any bank.
-    /// Encoded/decoded by serializers as "ANYB".
+    /// Encoded/decoded by serializers as &quot;ANYB&quot;.
     /// </summary>
     [EnumMember(Value = "ANYB")]
     [IsoId("_oraD0CBoEeugLNJneiyzbA")]
@@ -166,7 +166,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Confirmation party in trade.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_ow4ZsCBoEeugLNJneiyzbA")]
@@ -175,7 +175,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Undertaking issued direct.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_h0ouYyBqEeugLNJneiyzbA")]
@@ -184,7 +184,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Undertaking issued via confirming party.
-    /// Encoded/decoded by serializers as "ISCO".
+    /// Encoded/decoded by serializers as &quot;ISCO&quot;.
     /// </summary>
     [EnumMember(Value = "ISCO")]
     [IsoId("_h0ouZCBqEeugLNJneiyzbA")]
@@ -193,7 +193,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Undertaking issued via advising party.
-    /// Encoded/decoded by serializers as "ISAD".
+    /// Encoded/decoded by serializers as &quot;ISAD&quot;.
     /// </summary>
     [EnumMember(Value = "ISAD")]
     [IsoId("_h0ouZSBqEeugLNJneiyzbA")]
@@ -202,7 +202,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// AcceptedCreditSettlementCompleted
-    /// Encoded/decoded by serializers as "ACCC".
+    /// Encoded/decoded by serializers as &quot;ACCC&quot;.
     /// </summary>
     [EnumMember(Value = "ACCC")]
     [IsoId("_aAh30CE5EeuIZ4Hf6difAw")]
@@ -211,7 +211,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Request for Cancellation has been forwarded to the payment processing/last payment processing agent.
-    /// Encoded/decoded by serializers as "S003".
+    /// Encoded/decoded by serializers as &quot;S003&quot;.
     /// </summary>
     [EnumMember(Value = "S003")]
     [IsoId("_TXXz0H-0Ee27G9oJfa4a8Q")]
@@ -220,7 +220,7 @@ public enum ValidationRuleCode
     
     /// <summary>
     /// Request for Cancellation has been acknowledged as delivered to payment processing/last payment processing agent.
-    /// Encoded/decoded by serializers as "S004".
+    /// Encoded/decoded by serializers as &quot;S004&quot;.
     /// </summary>
     [EnumMember(Value = "S004")]
     [IsoId("_lDCkUH-0Ee27G9oJfa4a8Q")]

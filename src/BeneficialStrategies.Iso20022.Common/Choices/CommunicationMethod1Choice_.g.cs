@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CommunicationMethod1Choice.Code))]
     [KnownType(typeof(CommunicationMethod1Choice.Proprietary))]
     [IsoId("_93Z_w3ltEeG7BsjMvd1mEw_1540700249")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Communication Method 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

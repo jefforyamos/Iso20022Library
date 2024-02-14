@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus8Choice
     /// Reason for the rejected status.
     /// </summary>
     [IsoId("_RQy3g9p-Ed-ak6NoX_4Aeg_88630374")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus8Choice
         /// Code and / or description for values that are not yet part of the related code list.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="XtndedRsn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("XtndedRsn")]
+        [IsoSimpleType(IsoSimpleType.Extended350Code)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExtended350Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

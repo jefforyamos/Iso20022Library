@@ -21,7 +21,7 @@ public enum CurrencyDesignation1Code
 {
     /// <summary>
     /// Onshore.
-    /// Encoded/decoded by serializers as "ONSH".
+    /// Encoded/decoded by serializers as &quot;ONSH&quot;.
     /// </summary>
     [EnumMember(Value = "ONSH")]
     [IsoId("_D0dk8Qd2EeSPHJIdUs1USg")]
@@ -30,7 +30,7 @@ public enum CurrencyDesignation1Code
     
     /// <summary>
     /// Offshore.
-    /// Encoded/decoded by serializers as "OFFS".
+    /// Encoded/decoded by serializers as &quot;OFFS&quot;.
     /// </summary>
     [EnumMember(Value = "OFFS")]
     [IsoId("_D8gGoQd2EeSPHJIdUs1USg")]

@@ -21,7 +21,7 @@ public enum VoteInstruction1Code
 {
     /// <summary>
     /// Vote in favour of a meeting resolution.
-    /// Encoded/decoded by serializers as "CFOR".
+    /// Encoded/decoded by serializers as &quot;CFOR&quot;.
     /// </summary>
     [EnumMember(Value = "CFOR")]
     [IsoId("_Y8_HJdp-Ed-ak6NoX_4Aeg_959674352")]
@@ -30,7 +30,7 @@ public enum VoteInstruction1Code
     
     /// <summary>
     /// Vote against a meeting resolution.
-    /// Encoded/decoded by serializers as "CAGS".
+    /// Encoded/decoded by serializers as &quot;CAGS&quot;.
     /// </summary>
     [EnumMember(Value = "CAGS")]
     [IsoId("_Y8_HJtp-Ed-ak6NoX_4Aeg_959674370")]
@@ -39,7 +39,7 @@ public enum VoteInstruction1Code
     
     /// <summary>
     /// Active vote expressed as abstain (no opinion).
-    /// Encoded/decoded by serializers as "ABST".
+    /// Encoded/decoded by serializers as &quot;ABST&quot;.
     /// </summary>
     [EnumMember(Value = "ABST")]
     [IsoId("_Y9IRENp-Ed-ak6NoX_4Aeg_959674395")]
@@ -48,7 +48,7 @@ public enum VoteInstruction1Code
     
     /// <summary>
     /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
-    /// Encoded/decoded by serializers as "WTHH".
+    /// Encoded/decoded by serializers as &quot;WTHH&quot;.
     /// </summary>
     [EnumMember(Value = "WTHH")]
     [IsoId("_Y9IREdp-Ed-ak6NoX_4Aeg_959674412")]
@@ -57,7 +57,7 @@ public enum VoteInstruction1Code
     
     /// <summary>
     /// Indicates a recommendation to take no action.
-    /// Encoded/decoded by serializers as "NOAC".
+    /// Encoded/decoded by serializers as &quot;NOAC&quot;.
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_Y9IREtp-Ed-ak6NoX_4Aeg_1574523341")]

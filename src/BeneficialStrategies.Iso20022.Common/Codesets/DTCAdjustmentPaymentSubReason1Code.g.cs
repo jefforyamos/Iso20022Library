@@ -21,7 +21,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
 {
     /// <summary>
     /// Reorganization related adjustment on user defined date.
-    /// Encoded/decoded by serializers as "S777".
+    /// Encoded/decoded by serializers as &quot;S777&quot;.
     /// </summary>
     [EnumMember(Value = "S777")]
     [IsoId("_pnv8QWjLEeOdXoiw6mfXMw")]
@@ -30,7 +30,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Rep payment/charge.
-    /// Encoded/decoded by serializers as "SRPO".
+    /// Encoded/decoded by serializers as &quot;SRPO&quot;.
     /// </summary>
     [EnumMember(Value = "SRPO")]
     [IsoId("_puL7cWjLEeOdXoiw6mfXMw")]
@@ -39,7 +39,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Reversal of a COD withdrawal related adjustment.
-    /// Encoded/decoded by serializers as "SBRH".
+    /// Encoded/decoded by serializers as &quot;SBRH&quot;.
     /// </summary>
     [EnumMember(Value = "SBRH")]
     [IsoId("_p0pIwWjLEeOdXoiw6mfXMw")]
@@ -48,7 +48,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Reversal of a deposit adjustment.
-    /// Encoded/decoded by serializers as "SDRH".
+    /// Encoded/decoded by serializers as &quot;SDRH&quot;.
     /// </summary>
     [EnumMember(Value = "SDRH")]
     [IsoId("_p7Eg4WjLEeOdXoiw6mfXMw")]
@@ -57,7 +57,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Reversal of an accrual claim payment related to a stock distribution payable on user defined date.
-    /// Encoded/decoded by serializers as "SCRK".
+    /// Encoded/decoded by serializers as &quot;SCRK&quot;.
     /// </summary>
     [EnumMember(Value = "SCRK")]
     [IsoId("_qBi8UWjLEeOdXoiw6mfXMw")]
@@ -66,7 +66,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Reversal of a withdrawal by transfer adjustment.
-    /// Encoded/decoded by serializers as "SWRH".
+    /// Encoded/decoded by serializers as &quot;SWRH&quot;.
     /// </summary>
     [EnumMember(Value = "SWRH")]
     [IsoId("_qDn_8WjLEeOdXoiw6mfXMw")]
@@ -75,7 +75,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Funds previously escheated to ny state, affidavit to follow this is to reverse escheated amount of claim paid on user defined date.
-    /// Encoded/decoded by serializers as "SFAP".
+    /// Encoded/decoded by serializers as &quot;SFAP&quot;.
     /// </summary>
     [EnumMember(Value = "SFAP")]
     [IsoId("_qJ_GoWjLEeOdXoiw6mfXMw")]
@@ -84,7 +84,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Shares escheated to New York state in error; affidavit to follow. This is to reverse.
-    /// Encoded/decoded by serializers as "SETO".
+    /// Encoded/decoded by serializers as &quot;SETO&quot;.
     /// </summary>
     [EnumMember(Value = "SETO")]
     [IsoId("_qMF_cWjLEeOdXoiw6mfXMw")]
@@ -93,7 +93,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Revision of charge for withholding tax.
-    /// Encoded/decoded by serializers as "SAJA".
+    /// Encoded/decoded by serializers as &quot;SAJA&quot;.
     /// </summary>
     [EnumMember(Value = "SAJA")]
     [IsoId("_qau4YWjLEeOdXoiw6mfXMw")]
@@ -102,7 +102,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation of script shares amount to be exited in dollar value.
-    /// Encoded/decoded by serializers as "SASA".
+    /// Encoded/decoded by serializers as &quot;SASA&quot;.
     /// </summary>
     [EnumMember(Value = "SASA")]
     [IsoId("_qhNT0WjLEeOdXoiw6mfXMw")]
@@ -111,7 +111,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Share adjustment resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
-    /// Encoded/decoded by serializers as "SSR4".
+    /// Encoded/decoded by serializers as &quot;SSR4&quot;.
     /// </summary>
     [EnumMember(Value = "SSR4")]
     [IsoId("_qjWB0WjLEeOdXoiw6mfXMw")]
@@ -120,7 +120,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Share adjustment resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
-    /// Encoded/decoded by serializers as "SSR5".
+    /// Encoded/decoded by serializers as &quot;SSR5&quot;.
     /// </summary>
     [EnumMember(Value = "SSR5")]
     [IsoId("_qp5VwWjLEeOdXoiw6mfXMw")]
@@ -129,7 +129,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation of spinoff security.
-    /// Encoded/decoded by serializers as "SSOS".
+    /// Encoded/decoded by serializers as &quot;SSOS&quot;.
     /// </summary>
     [EnumMember(Value = "SSOS")]
     [IsoId("_qwKV0WjLEeOdXoiw6mfXMw")]
@@ -138,7 +138,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Stock loan related payment or charge.
-    /// Encoded/decoded by serializers as "SSLA".
+    /// Encoded/decoded by serializers as &quot;SSLA&quot;.
     /// </summary>
     [EnumMember(Value = "SSLA")]
     [IsoId("_q2lG4WjLEeOdXoiw6mfXMw")]
@@ -147,7 +147,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Stock loan or repo payment order related adjustment.
-    /// Encoded/decoded by serializers as "SSPO".
+    /// Encoded/decoded by serializers as &quot;SSPO&quot;.
     /// </summary>
     [EnumMember(Value = "SSPO")]
     [IsoId("_q4rYoWjLEeOdXoiw6mfXMw")]
@@ -156,7 +156,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Supplemental interim activity related adjustment.
-    /// Encoded/decoded by serializers as "SRPP".
+    /// Encoded/decoded by serializers as &quot;SRPP&quot;.
     /// </summary>
     [EnumMember(Value = "SRPP")]
     [IsoId("_q-4uUWjLEeOdXoiw6mfXMw")]
@@ -165,7 +165,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Supplemental interim activity from midwest (6942).
-    /// Encoded/decoded by serializers as "SSME".
+    /// Encoded/decoded by serializers as &quot;SSME&quot;.
     /// </summary>
     [EnumMember(Value = "SSME")]
     [IsoId("_rBEfoWjLEeOdXoiw6mfXMw")]
@@ -174,7 +174,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Supplemental interim activity from Philadelphia (6070).
-    /// Encoded/decoded by serializers as "SSPE".
+    /// Encoded/decoded by serializers as &quot;SSPE&quot;.
     /// </summary>
     [EnumMember(Value = "SSPE")]
     [IsoId("_rHhs8WjLEeOdXoiw6mfXMw")]
@@ -183,7 +183,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Supplementary interim on user defined date.
-    /// Encoded/decoded by serializers as "SAFA".
+    /// Encoded/decoded by serializers as &quot;SAFA&quot;.
     /// </summary>
     [EnumMember(Value = "SAFA")]
     [IsoId("_rJn-sWjLEeOdXoiw6mfXMw")]
@@ -192,7 +192,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Accrual claim payment related to a stock distribution payable on user defined date.
-    /// Encoded/decoded by serializers as "SCPK".
+    /// Encoded/decoded by serializers as &quot;SCPK&quot;.
     /// </summary>
     [EnumMember(Value = "SCPK")]
     [IsoId("_r2azQWjLEeOdXoiw6mfXMw")]
@@ -201,7 +201,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Accrued interest was not previously paid to you for the redemption in this issue. This adjustment is to pay you for this accrued interest.
-    /// Encoded/decoded by serializers as "SACP".
+    /// Encoded/decoded by serializers as &quot;SACP&quot;.
     /// </summary>
     [EnumMember(Value = "SACP")]
     [IsoId("_r87q8WjLEeOdXoiw6mfXMw")]
@@ -210,7 +210,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// The accrued interest previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.
-    /// Encoded/decoded by serializers as "SACA".
+    /// Encoded/decoded by serializers as &quot;SACA&quot;.
     /// </summary>
     [EnumMember(Value = "SACA")]
     [IsoId("_sDSxoWjLEeOdXoiw6mfXMw")]
@@ -219,7 +219,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Distribution of additional rights for round up of fractions as requested for your beneficial owners.
-    /// Encoded/decoded by serializers as "SRTJ".
+    /// Encoded/decoded by serializers as &quot;SRTJ&quot;.
     /// </summary>
     [EnumMember(Value = "SRTJ")]
     [IsoId("_sJuw0WjLEeOdXoiw6mfXMw")]
@@ -228,7 +228,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment made for a withdrawal by transfer that was not transferred into your clients name by the record date.
-    /// Encoded/decoded by serializers as "SWL1".
+    /// Encoded/decoded by serializers as &quot;SWL1&quot;.
     /// </summary>
     [EnumMember(Value = "SWL1")]
     [IsoId("_sL1CkWjLEeOdXoiw6mfXMw")]
@@ -237,7 +237,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment for cash-in-lieu of fractional shares related adjustment.
-    /// Encoded/decoded by serializers as "SSJJ".
+    /// Encoded/decoded by serializers as &quot;SSJJ&quot;.
     /// </summary>
     [EnumMember(Value = "SSJJ")]
     [IsoId("_sSPMkWjLEeOdXoiw6mfXMw")]
@@ -246,7 +246,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment for cash on increased shares due to a stock distribution payable.
-    /// Encoded/decoded by serializers as "SNNG".
+    /// Encoded/decoded by serializers as &quot;SNNG&quot;.
     /// </summary>
     [EnumMember(Value = "SNNG")]
     [IsoId("_sUU3QWjLEeOdXoiw6mfXMw")]
@@ -255,7 +255,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// This adjustment is in responve to your written inquiry.
-    /// Encoded/decoded by serializers as "SRAH".
+    /// Encoded/decoded by serializers as &quot;SRAH&quot;.
     /// </summary>
     [EnumMember(Value = "SRAH")]
     [IsoId("_z_dW8WjLEeOdXoiw6mfXMw")]
@@ -264,7 +264,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// This adjustment is in response to your inquiry. refer to control number:
-    /// Encoded/decoded by serializers as "SRIH".
+    /// Encoded/decoded by serializers as &quot;SRIH&quot;.
     /// </summary>
     [EnumMember(Value = "SRIH")]
     [IsoId("_0EHNcWjLEeOdXoiw6mfXMw")]
@@ -273,7 +273,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment made for a withdrawal by transfer set up after the cut off date made transfer into your clients name.
-    /// Encoded/decoded by serializers as "SWM1".
+    /// Encoded/decoded by serializers as &quot;SWM1&quot;.
     /// </summary>
     [EnumMember(Value = "SWM1")]
     [IsoId("_0IWNMWjLEeOdXoiw6mfXMw")]
@@ -282,7 +282,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment to avoid fiscal payment.
-    /// Encoded/decoded by serializers as "SAIA".
+    /// Encoded/decoded by serializers as &quot;SAIA&quot;.
     /// </summary>
     [EnumMember(Value = "SAIA")]
     [IsoId("_0MiJoWjLEeOdXoiw6mfXMw")]
@@ -291,7 +291,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment to your dividend reinvestment (DRP) position related adjustment.
-    /// Encoded/decoded by serializers as "SSD6".
+    /// Encoded/decoded by serializers as &quot;SSD6&quot;.
     /// </summary>
     [EnumMember(Value = "SSD6")]
     [IsoId("_0Qs38WjLEeOdXoiw6mfXMw")]
@@ -300,7 +300,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Agent paid DTC based on combined fractions for all public service–new hamp.(new) spinoffs distributed on july 25, 1991.
-    /// Encoded/decoded by serializers as "SSPJ".
+    /// Encoded/decoded by serializers as &quot;SSPJ&quot;.
     /// </summary>
     [EnumMember(Value = "SSPJ")]
     [IsoId("_0U3mQWjLEeOdXoiw6mfXMw")]
@@ -309,7 +309,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation adjustment.
-    /// Encoded/decoded by serializers as "SGLA".
+    /// Encoded/decoded by serializers as &quot;SGLA&quot;.
     /// </summary>
     [EnumMember(Value = "SGLA")]
     [IsoId("_0aQckWjLEeOdXoiw6mfXMw")]
@@ -318,7 +318,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation adjustment due to fractions rounded up by the agent related adjustment.
-    /// Encoded/decoded by serializers as "SSRJ".
+    /// Encoded/decoded by serializers as &quot;SSRJ&quot;.
     /// </summary>
     [EnumMember(Value = "SSRJ")]
     [IsoId("_0ioVcWjLEeOdXoiw6mfXMw")]
@@ -327,7 +327,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation of baby bonds amount to be exited in USD.
-    /// Encoded/decoded by serializers as "SABA".
+    /// Encoded/decoded by serializers as &quot;SABA&quot;.
     /// </summary>
     [EnumMember(Value = "SABA")]
     [IsoId("_0m0R4WjLEeOdXoiw6mfXMw")]
@@ -336,7 +336,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation of dividend reinvestment shares - DRP/TEDS instruction @100%.
-    /// Encoded/decoded by serializers as "SST6".
+    /// Encoded/decoded by serializers as &quot;SST6&quot;.
     /// </summary>
     [EnumMember(Value = "SST6")]
     [IsoId("_0q-ZIWjLEeOdXoiw6mfXMw")]
@@ -345,7 +345,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Announcement deleted for fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFLD".
+    /// Encoded/decoded by serializers as &quot;SFLD&quot;.
     /// </summary>
     [EnumMember(Value = "SFLD")]
     [IsoId("_0vIgYWjLEeOdXoiw6mfXMw")]
@@ -354,7 +354,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation for a Participant position that was assumed by your goodselves paid on - retired Participant number.
-    /// Encoded/decoded by serializers as "SARA".
+    /// Encoded/decoded by serializers as &quot;SARA&quot;.
     /// </summary>
     [EnumMember(Value = "SARA")]
     [IsoId("_0zusgWjLEeOdXoiw6mfXMw")]
@@ -363,7 +363,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Bond pays in baby bonds that are issued in minimum/incre-mental denominations; this is to adjust for the amount of pending unissued bonds.
-    /// Encoded/decoded by serializers as "SSDJ".
+    /// Encoded/decoded by serializers as &quot;SSDJ&quot;.
     /// </summary>
     [EnumMember(Value = "SSDJ")]
     [IsoId("_1WkT0WjLEeOdXoiw6mfXMw")]
@@ -372,7 +372,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Certificates you deposited prior to publication date were subsequently called. the agent paid DTCC the principal redemption proceeds but erroneously paid you the accrued interest.
-    /// Encoded/decoded by serializers as "SAPP".
+    /// Encoded/decoded by serializers as &quot;SAPP&quot;.
     /// </summary>
     [EnumMember(Value = "SAPP")]
     [IsoId("_1asl4WjLEeOdXoiw6mfXMw")]
@@ -381,7 +381,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Certificates you deposited prior to publication date were subsequently called. the agent paid DTCC the principal proceeds via check, but in your customer’s name. we are forwarding the check today. this adjustment is to charge you for the funds.
-    /// Encoded/decoded by serializers as "SCKS".
+    /// Encoded/decoded by serializers as &quot;SCKS&quot;.
     /// </summary>
     [EnumMember(Value = "SCKS")]
     [IsoId("_1e1fAWjLEeOdXoiw6mfXMw")]
@@ -390,7 +390,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment for cash due on an accrued stock payment.
-    /// Encoded/decoded by serializers as "SSBK".
+    /// Encoded/decoded by serializers as &quot;SSBK&quot;.
     /// </summary>
     [EnumMember(Value = "SSBK")]
     [IsoId("_1jJ-UWjLEeOdXoiw6mfXMw")]
@@ -399,7 +399,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// As per agent, this charge is for french avoid fiscal tax credit.
-    /// Encoded/decoded by serializers as "SFAF".
+    /// Encoded/decoded by serializers as &quot;SFAF&quot;.
     /// </summary>
     [EnumMember(Value = "SFAF")]
     [IsoId("_2JAdYWjLEeOdXoiw6mfXMw")]
@@ -408,7 +408,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// As per your authorization, we are charging your account in lieu of receipt of dividend reinvestment related shares related adjustment.
-    /// Encoded/decoded by serializers as "SSR6".
+    /// Encoded/decoded by serializers as &quot;SSR6&quot;.
     /// </summary>
     [EnumMember(Value = "SSR6")]
     [IsoId("_2VdlAWjLEeOdXoiw6mfXMw")]
@@ -417,7 +417,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC COD withdrawal adjustment.
-    /// Encoded/decoded by serializers as "SJCB".
+    /// Encoded/decoded by serializers as &quot;SJCB&quot;.
     /// </summary>
     [EnumMember(Value = "SJCB")]
     [IsoId("_2h9I4WjLEeOdXoiw6mfXMw")]
@@ -426,7 +426,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Company in default related adjustment.
-    /// Encoded/decoded by serializers as "SADA".
+    /// Encoded/decoded by serializers as &quot;SADA&quot;.
     /// </summary>
     [EnumMember(Value = "SADA")]
     [IsoId("_26_T8WjLEeOdXoiw6mfXMw")]
@@ -435,7 +435,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Company never declared dividend adjust allocation on user defined date.
-    /// Encoded/decoded by serializers as "SANA".
+    /// Encoded/decoded by serializers as &quot;SANA&quot;.
     /// </summary>
     [EnumMember(Value = "SANA")]
     [IsoId("_2_R-EWjLEeOdXoiw6mfXMw")]
@@ -444,7 +444,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your nominee.
-    /// Encoded/decoded by serializers as "SBEB".
+    /// Encoded/decoded by serializers as &quot;SBEB&quot;.
     /// </summary>
     [EnumMember(Value = "SBEB")]
     [IsoId("_3Dhk4WjLEeOdXoiw6mfXMw")]
@@ -453,7 +453,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your record date position was adjusted for a COD buy back withdrawal.
-    /// Encoded/decoded by serializers as "SBB1".
+    /// Encoded/decoded by serializers as &quot;SBB1&quot;.
     /// </summary>
     [EnumMember(Value = "SBB1")]
     [IsoId("_3LzXIWjLEeOdXoiw6mfXMw")]
@@ -462,7 +462,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Required lists contained discrepancies or were not forwarded to french paying agent. This charge is at user defined withholding rate.
-    /// Encoded/decoded by serializers as "SFI9".
+    /// Encoded/decoded by serializers as &quot;SFI9&quot;.
     /// </summary>
     [EnumMember(Value = "SFI9")]
     [IsoId("_3QBIwWjLEeOdXoiw6mfXMw")]
@@ -471,7 +471,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Accrued cash due on DRP share allocation.
-    /// Encoded/decoded by serializers as "SSDK".
+    /// Encoded/decoded by serializers as &quot;SSDK&quot;.
     /// </summary>
     [EnumMember(Value = "SSDK")]
     [IsoId("_3lCWgWjLEeOdXoiw6mfXMw")]
@@ -480,7 +480,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Accrued cash due on a stock dividend adjustment made on user defined date.
-    /// Encoded/decoded by serializers as "SSCK".
+    /// Encoded/decoded by serializers as &quot;SSCK&quot;.
     /// </summary>
     [EnumMember(Value = "SSCK")]
     [IsoId("_3tS6oWjLEeOdXoiw6mfXMw")]
@@ -489,7 +489,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation adjustment due to a change in the record date.
-    /// Encoded/decoded by serializers as "SRDA".
+    /// Encoded/decoded by serializers as &quot;SRDA&quot;.
     /// </summary>
     [EnumMember(Value = "SRDA")]
     [IsoId("_396wkWjLEeOdXoiw6mfXMw")]
@@ -498,7 +498,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your COD withdrawal was not delivered, however the certificate(s) were issued and outstanding over the record date in the name of your goodselves.
-    /// Encoded/decoded by serializers as "SBDB".
+    /// Encoded/decoded by serializers as &quot;SBDB&quot;.
     /// </summary>
     [EnumMember(Value = "SBDB")]
     [IsoId("_4YPVEWjLEeOdXoiw6mfXMw")]
@@ -507,7 +507,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Coupon collection service adjustment for coupon deposit.
-    /// Encoded/decoded by serializers as "SCSM".
+    /// Encoded/decoded by serializers as &quot;SCSM&quot;.
     /// </summary>
     [EnumMember(Value = "SCSM")]
     [IsoId("_4gqRQWjLEeOdXoiw6mfXMw")]
@@ -516,7 +516,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// CTF(s) held over record date on which we guarantee to hold you free and harmless of any further claim on this dividend.
-    /// Encoded/decoded by serializers as "SDMT".
+    /// Encoded/decoded by serializers as &quot;SDMT&quot;.
     /// </summary>
     [EnumMember(Value = "SDMT")]
     [IsoId("_4pfdIWjLEeOdXoiw6mfXMw")]
@@ -525,7 +525,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Custody payment.
-    /// Encoded/decoded by serializers as "SCDP".
+    /// Encoded/decoded by serializers as &quot;SCDP&quot;.
     /// </summary>
     [EnumMember(Value = "SCDP")]
     [IsoId("_5K_AoWjLEeOdXoiw6mfXMw")]
@@ -534,7 +534,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Date revision for fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFLN".
+    /// Encoded/decoded by serializers as &quot;SFLN&quot;.
     /// </summary>
     [EnumMember(Value = "SFLN")]
     [IsoId("_5TT2MWjLEeOdXoiw6mfXMw")]
@@ -543,7 +543,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Deletefor fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFL1".
+    /// Encoded/decoded by serializers as &quot;SFL1&quot;.
     /// </summary>
     [EnumMember(Value = "SFL1")]
     [IsoId("_5XhAwWjLEeOdXoiw6mfXMw")]
@@ -552,7 +552,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC deliver order related adjustment.
-    /// Encoded/decoded by serializers as "SJEG".
+    /// Encoded/decoded by serializers as &quot;SJEG&quot;.
     /// </summary>
     [EnumMember(Value = "SJEG")]
     [IsoId("_5bsWIWjLEeOdXoiw6mfXMw")]
@@ -561,7 +561,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your record date position was adjusted for deliver order (DO) activity.
-    /// Encoded/decoded by serializers as "SEEE".
+    /// Encoded/decoded by serializers as &quot;SEEE&quot;.
     /// </summary>
     [EnumMember(Value = "SEEE")]
     [IsoId("_5f3rgWjLEeOdXoiw6mfXMw")]
@@ -570,7 +570,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC deposit related adjustment.
-    /// Encoded/decoded by serializers as "SJDD".
+    /// Encoded/decoded by serializers as &quot;SJDD&quot;.
     /// </summary>
     [EnumMember(Value = "SJDD")]
     [IsoId("_5kCZ0WjLEeOdXoiw6mfXMw")]
@@ -579,7 +579,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment related to the deposit of lost certificate over the record date was registered in the name of your [user defined].
-    /// Encoded/decoded by serializers as "SDAD".
+    /// Encoded/decoded by serializers as &quot;SDAD&quot;.
     /// </summary>
     [EnumMember(Value = "SDAD")]
     [IsoId("_5woEUWjLEeOdXoiw6mfXMw")]
@@ -588,7 +588,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Deposit after cut off date transferred into the name of the CEDE on record date.
-    /// Encoded/decoded by serializers as "SDCD".
+    /// Encoded/decoded by serializers as &quot;SDCD&quot;.
     /// </summary>
     [EnumMember(Value = "SDCD")]
     [IsoId("_50w9cWjLEeOdXoiw6mfXMw")]
@@ -597,7 +597,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Dividend reinvestment allocation why not on normal event.
-    /// Encoded/decoded by serializers as "SSC6".
+    /// Encoded/decoded by serializers as &quot;SSC6&quot;.
     /// </summary>
     [EnumMember(Value = "SSC6")]
     [IsoId("_59I2UWjLEeOdXoiw6mfXMw")]
@@ -606,7 +606,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DRP allocation adjustment due to your sub accounting instructions to the agent.
-    /// Encoded/decoded by serializers as "SSS6".
+    /// Encoded/decoded by serializers as &quot;SSS6&quot;.
     /// </summary>
     [EnumMember(Value = "SSS6")]
     [IsoId("_6BTkoWjLEeOdXoiw6mfXMw")]
@@ -615,7 +615,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Dividend reinvestment (DRP) allocation of cash in lieu of fractions related adjustment.
-    /// Encoded/decoded by serializers as "SSE6".
+    /// Encoded/decoded by serializers as &quot;SSE6&quot;.
     /// </summary>
     [EnumMember(Value = "SSE6")]
     [IsoId("_6Fh9UWjLEeOdXoiw6mfXMw")]
@@ -624,7 +624,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your customer.
-    /// Encoded/decoded by serializers as "SPCP".
+    /// Encoded/decoded by serializers as &quot;SPCP&quot;.
     /// </summary>
     [EnumMember(Value = "SPCP")]
     [IsoId("_6JpoUWjLEeOdXoiw6mfXMw")]
@@ -633,7 +633,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your customer. Late identification of missed transfer by Transfer Agent.
-    /// Encoded/decoded by serializers as "SLCP".
+    /// Encoded/decoded by serializers as &quot;SLCP&quot;.
     /// </summary>
     [EnumMember(Value = "SLCP")]
     [IsoId("_6N52MWjLEeOdXoiw6mfXMw")]
@@ -642,7 +642,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your goodselves.
-    /// Encoded/decoded by serializers as "SPGP".
+    /// Encoded/decoded by serializers as &quot;SPGP&quot;.
     /// </summary>
     [EnumMember(Value = "SPGP")]
     [IsoId("_6SDWYWjLEeOdXoiw6mfXMw")]
@@ -651,7 +651,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your goodselves. Late identification of missed transfer by Transfer Agent.
-    /// Encoded/decoded by serializers as "SLGP".
+    /// Encoded/decoded by serializers as &quot;SLGP&quot;.
     /// </summary>
     [EnumMember(Value = "SLGP")]
     [IsoId("_6aW90WjLEeOdXoiw6mfXMw")]
@@ -660,7 +660,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your nominee. Late identification of missed transfer by Transfer Agent.
-    /// Encoded/decoded by serializers as "SLNP".
+    /// Encoded/decoded by serializers as &quot;SLNP&quot;.
     /// </summary>
     [EnumMember(Value = "SLNP")]
     [IsoId("_6iuPoWjLEeOdXoiw6mfXMw")]
@@ -669,7 +669,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC claim against registered holder in the name of your nominee.
-    /// Encoded/decoded by serializers as "SPNP".
+    /// Encoded/decoded by serializers as &quot;SPNP&quot;.
     /// </summary>
     [EnumMember(Value = "SPNP")]
     [IsoId("_6m4W4WjLEeOdXoiw6mfXMw")]
@@ -678,7 +678,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC claim on registered holder in the name of your customer.
-    /// Encoded/decoded by serializers as "SGLZ".
+    /// Encoded/decoded by serializers as &quot;SGLZ&quot;.
     /// </summary>
     [EnumMember(Value = "SGLZ")]
     [IsoId("_6vMlYWjLEeOdXoiw6mfXMw")]
@@ -687,7 +687,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC claim on registered holder in the name of your goodselves.
-    /// Encoded/decoded by serializers as "SGLQ".
+    /// Encoded/decoded by serializers as &quot;SGLQ&quot;.
     /// </summary>
     [EnumMember(Value = "SGLQ")]
     [IsoId("_7Yxt4WjLEeOdXoiw6mfXMw")]
@@ -696,7 +696,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Due bill for fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFLE".
+    /// Encoded/decoded by serializers as &quot;SFLE&quot;.
     /// </summary>
     [EnumMember(Value = "SFLE")]
     [IsoId("_7dBUsWjLEeOdXoiw6mfXMw")]
@@ -705,7 +705,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Due bill fail tracking.
-    /// Encoded/decoded by serializers as "SSFF".
+    /// Encoded/decoded by serializers as &quot;SSFF&quot;.
     /// </summary>
     [EnumMember(Value = "SSFF")]
     [IsoId("_7hLb8WjLEeOdXoiw6mfXMw")]
@@ -714,7 +714,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Due bill fail tracking reversal.
-    /// Encoded/decoded by serializers as "SSFR".
+    /// Encoded/decoded by serializers as &quot;SSFR&quot;.
     /// </summary>
     [EnumMember(Value = "SSFR")]
     [IsoId("_7pki8WjLEeOdXoiw6mfXMw")]
@@ -723,7 +723,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your record date position was adjusted for a DWAC withdrawal to effect a buy back/treasury purchase.
-    /// Encoded/decoded by serializers as "SBB3".
+    /// Encoded/decoded by serializers as &quot;SBB3&quot;.
     /// </summary>
     [EnumMember(Value = "SBB3")]
     [IsoId("_7txtgWjLEeOdXoiw6mfXMw")]
@@ -732,7 +732,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your record date position was adjusted for a DWAC buy back withdrawal.
-    /// Encoded/decoded by serializers as "SSBB".
+    /// Encoded/decoded by serializers as &quot;SSBB&quot;.
     /// </summary>
     [EnumMember(Value = "SSBB")]
     [IsoId("_72C4sWjLEeOdXoiw6mfXMw")]
@@ -741,7 +741,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Foreign cash dividends/bond interest allocation at exempt rate.
-    /// Encoded/decoded by serializers as "SFE8".
+    /// Encoded/decoded by serializers as &quot;SFE8&quot;.
     /// </summary>
     [EnumMember(Value = "SFE8")]
     [IsoId("_76U7wWjLEeOdXoiw6mfXMw")]
@@ -750,7 +750,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Foreign cash dividends or bond interest allocation at unfavorable rate.
-    /// Encoded/decoded by serializers as "SFU9".
+    /// Encoded/decoded by serializers as &quot;SFU9&quot;.
     /// </summary>
     [EnumMember(Value = "SFU9")]
     [IsoId("_7-d04WjLEeOdXoiw6mfXMw")]
@@ -759,7 +759,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Foreign cash dividends/bonds interest allocation at favorable rate.
-    /// Encoded/decoded by serializers as "SFF8".
+    /// Encoded/decoded by serializers as &quot;SFF8&quot;.
     /// </summary>
     [EnumMember(Value = "SFF8")]
     [IsoId("_8CqYYWjLEeOdXoiw6mfXMw")]
@@ -768,7 +768,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Foreign cash dividends allocation at unfavorable rate.
-    /// Encoded/decoded by serializers as "SFL9".
+    /// Encoded/decoded by serializers as &quot;SFL9&quot;.
     /// </summary>
     [EnumMember(Value = "SFL9")]
     [IsoId("_8G4KAWjLEeOdXoiw6mfXMw")]
@@ -777,7 +777,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation of fractional rights.
-    /// Encoded/decoded by serializers as "SAFR".
+    /// Encoded/decoded by serializers as &quot;SAFR&quot;.
     /// </summary>
     [EnumMember(Value = "SAFR")]
     [IsoId("_8LGisWjLEeOdXoiw6mfXMw")]
@@ -786,7 +786,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Ten percent french withholding tax, based on your revised instructions to reduce favorable tax status to unfavorable.
-    /// Encoded/decoded by serializers as "SFH9".
+    /// Encoded/decoded by serializers as &quot;SFH9&quot;.
     /// </summary>
     [EnumMember(Value = "SFH9")]
     [IsoId("_8PZM0WjLEeOdXoiw6mfXMw")]
@@ -795,7 +795,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Fifteen percent french withholding tax, based on your option election of 100% ADRs at the favorable rate.
-    /// Encoded/decoded by serializers as "SFG8".
+    /// Encoded/decoded by serializers as &quot;SFG8&quot;.
     /// </summary>
     [EnumMember(Value = "SFG8")]
     [IsoId("_8X0JAWjLEeOdXoiw6mfXMw")]
@@ -804,7 +804,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Twenty five percent french withholding tax, based on your option election of 100% ADRs at the unfavorable rate.
-    /// Encoded/decoded by serializers as "SFG9".
+    /// Encoded/decoded by serializers as &quot;SFG9&quot;.
     /// </summary>
     [EnumMember(Value = "SFG9")]
     [IsoId("_8caVIWjLEeOdXoiw6mfXMw")]
@@ -813,7 +813,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// As per memo requesting a frozen letter movement from part number.
-    /// Encoded/decoded by serializers as "SFRO".
+    /// Encoded/decoded by serializers as &quot;SFRO&quot;.
     /// </summary>
     [EnumMember(Value = "SFRO")]
     [IsoId("_8ksHYGjLEeOdXoiw6mfXMw")]
@@ -822,7 +822,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Company is taking 30 day grace period.
-    /// Encoded/decoded by serializers as "SAGA".
+    /// Encoded/decoded by serializers as &quot;SAGA&quot;.
     /// </summary>
     [EnumMember(Value = "SAGA")]
     [IsoId("_8xPVoWjLEeOdXoiw6mfXMw")]
@@ -831,7 +831,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// This adjustment represents credits/debits to your account in lieu of reorg deposit activity.
-    /// Encoded/decoded by serializers as "SPRG".
+    /// Encoded/decoded by serializers as &quot;SPRG&quot;.
     /// </summary>
     [EnumMember(Value = "SPRG")]
     [IsoId("_85jkIWjLEeOdXoiw6mfXMw")]
@@ -840,7 +840,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// In settlement of a trade - DTCC reorg account 428-10271-1-2-039.
-    /// Encoded/decoded by serializers as "SGLT".
+    /// Encoded/decoded by serializers as &quot;SGLT&quot;.
     /// </summary>
     [EnumMember(Value = "SGLT")]
     [IsoId("_89wHoWjLEeOdXoiw6mfXMw")]
@@ -849,7 +849,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Interest adjusted due to early withdrawal (certificate of deposit).
-    /// Encoded/decoded by serializers as "SACB".
+    /// Encoded/decoded by serializers as &quot;SACB&quot;.
     /// </summary>
     [EnumMember(Value = "SACB")]
     [IsoId("_9gj5wWjLEeOdXoiw6mfXMw")]
@@ -857,8 +857,8 @@ public enum DTCAdjustmentPaymentSubReason1Code
     InterestAdjustedDueToEarlyWithdrawal = DTCAdjustmentPaymentSubReasonCode.InterestAdjustedDueToEarlyWithdrawal, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Interest allocated in error first payment on "date user defined".
-    /// Encoded/decoded by serializers as "SAEA".
+    /// Interest allocated in error first payment on &quot;date user defined&quot;.
+    /// Encoded/decoded by serializers as &quot;SAEA&quot;.
     /// </summary>
     [EnumMember(Value = "SAEA")]
     [IsoId("_9kxEUWjLEeOdXoiw6mfXMw")]
@@ -867,7 +867,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// The interest due on the above cusip was erroneously paid to you by the issuer although the certificate of deposit was transferred to CEDE (DTCC) prior to the interest payment date.
-    /// Encoded/decoded by serializers as "S66P".
+    /// Encoded/decoded by serializers as &quot;S66P&quot;.
     /// </summary>
     [EnumMember(Value = "S66P")]
     [IsoId("_9tKLUWjLEeOdXoiw6mfXMw")]
@@ -876,7 +876,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Interest or dividend due on conversion related adjustment.
-    /// Encoded/decoded by serializers as "SAC7".
+    /// Encoded/decoded by serializers as &quot;SAC7&quot;.
     /// </summary>
     [EnumMember(Value = "SAC7")]
     [IsoId("_9xppwWjLEeOdXoiw6mfXMw")]
@@ -885,7 +885,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Interest or dividend due on merger related adjustment.
-    /// Encoded/decoded by serializers as "SAM7".
+    /// Encoded/decoded by serializers as &quot;SAM7&quot;.
     /// </summary>
     [EnumMember(Value = "SAM7")]
     [IsoId("_92Qc8WjLEeOdXoiw6mfXMw")]
@@ -894,7 +894,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Interest or dividend due on redemption.
-    /// Encoded/decoded by serializers as "SAR7".
+    /// Encoded/decoded by serializers as &quot;SAR7&quot;.
     /// </summary>
     [EnumMember(Value = "SAR7")]
     [IsoId("_96e1oWjLEeOdXoiw6mfXMw")]
@@ -903,7 +903,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Interest or dividend due on repayment option.
-    /// Encoded/decoded by serializers as "SAP7".
+    /// Encoded/decoded by serializers as &quot;SAP7&quot;.
     /// </summary>
     [EnumMember(Value = "SAP7")]
     [IsoId("_-CwA0WjLEeOdXoiw6mfXMw")]
@@ -912,7 +912,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Interestor dividend due on tender.
-    /// Encoded/decoded by serializers as "SAT7".
+    /// Encoded/decoded by serializers as &quot;SAT7&quot;.
     /// </summary>
     [EnumMember(Value = "SAT7")]
     [IsoId("_-PZ8wWjLEeOdXoiw6mfXMw")]
@@ -921,7 +921,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Interest pays at maturity. Allocated in error onn user defined date.
-    /// Encoded/decoded by serializers as "SAMA".
+    /// Encoded/decoded by serializers as &quot;SAMA&quot;.
     /// </summary>
     [EnumMember(Value = "SAMA")]
     [IsoId("_-Tjc8WjLEeOdXoiw6mfXMw")]
@@ -930,7 +930,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your interim position was adjusted for deliver orderactivity.
-    /// Encoded/decoded by serializers as "SIGE".
+    /// Encoded/decoded by serializers as &quot;SIGE&quot;.
     /// </summary>
     [EnumMember(Value = "SIGE")]
     [IsoId("_-b0oIWjLEeOdXoiw6mfXMw")]
@@ -939,7 +939,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC investment id related adjustment.
-    /// Encoded/decoded by serializers as "SJIE".
+    /// Encoded/decoded by serializers as &quot;SJIE&quot;.
     /// </summary>
     [EnumMember(Value = "SJIE")]
     [IsoId("_-kSnoWjLEeOdXoiw6mfXMw")]
@@ -948,7 +948,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Issue in default related adjustment.
-    /// Encoded/decoded by serializers as "SADM".
+    /// Encoded/decoded by serializers as &quot;SADM&quot;.
     /// </summary>
     [EnumMember(Value = "SADM")]
     [IsoId("_-szDYWjLEeOdXoiw6mfXMw")]
@@ -957,7 +957,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Fail tracking for fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFLL".
+    /// Encoded/decoded by serializers as &quot;SFLL&quot;.
     /// </summary>
     [EnumMember(Value = "SFLL")]
     [IsoId("_-w-_0WjLEeOdXoiw6mfXMw")]
@@ -966,7 +966,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Late announcement activity due bill activity related adjustment.
-    /// Encoded/decoded by serializers as "SILL".
+    /// Encoded/decoded by serializers as &quot;SILL&quot;.
     /// </summary>
     [EnumMember(Value = "SILL")]
     [IsoId("_-1MxcWjLEeOdXoiw6mfXMw")]
@@ -975,7 +975,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment related to the deposit of lost certificate over the record date was registered in the name of your goodselves.
-    /// Encoded/decoded by serializers as "SDBD".
+    /// Encoded/decoded by serializers as &quot;SDBD&quot;.
     /// </summary>
     [EnumMember(Value = "SDBD")]
     [IsoId("_-5W4sWjLEeOdXoiw6mfXMw")]
@@ -984,7 +984,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Withdrawal by transfer - lost certificate over the record date was registered in the name of your customer.
-    /// Encoded/decoded by serializers as "SWG1".
+    /// Encoded/decoded by serializers as &quot;SWG1&quot;.
     /// </summary>
     [EnumMember(Value = "SWG1")]
     [IsoId("_-9kDQWjLEeOdXoiw6mfXMw")]
@@ -993,7 +993,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment related to the deposit of lost certificate over the record date was registered in the name of your nominee.
-    /// Encoded/decoded by serializers as "SDED".
+    /// Encoded/decoded by serializers as &quot;SDED&quot;.
     /// </summary>
     [EnumMember(Value = "SDED")]
     [IsoId("__F-_cWjLEeOdXoiw6mfXMw")]
@@ -1002,7 +1002,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment made for the Midwest depository (6942).
-    /// Encoded/decoded by serializers as "SCMU".
+    /// Encoded/decoded by serializers as &quot;SCMU&quot;.
     /// </summary>
     [EnumMember(Value = "SCMU")]
     [IsoId("__KMxEWjLEeOdXoiw6mfXMw")]
@@ -1011,7 +1011,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Muni bearer bond coupon adjustment (same as line 118).
-    /// Encoded/decoded by serializers as "SGLM".
+    /// Encoded/decoded by serializers as &quot;SGLM&quot;.
     /// </summary>
     [EnumMember(Value = "SGLM")]
     [IsoId("__0XIYWjLEeOdXoiw6mfXMw")]
@@ -1020,7 +1020,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Muni bearer bond coupon related adjustment.
-    /// Encoded/decoded by serializers as "SMAM".
+    /// Encoded/decoded by serializers as &quot;SMAM&quot;.
     /// </summary>
     [EnumMember(Value = "SMAM")]
     [IsoId("__4okYWjLEeOdXoiw6mfXMw")]
@@ -1029,7 +1029,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Muni bearer bond coupon adjustment excess coupon(s) deposited on user defined date.
-    /// Encoded/decoded by serializers as "SMEM".
+    /// Encoded/decoded by serializers as &quot;SMEM&quot;.
     /// </summary>
     [EnumMember(Value = "SMEM")]
     [IsoId("__8zSsWjLEeOdXoiw6mfXMw")]
@@ -1038,7 +1038,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Muni bearer bond coupon adjustment excess coupon(s) withdrawn on user defined date.
-    /// Encoded/decoded by serializers as "SMDM".
+    /// Encoded/decoded by serializers as &quot;SMDM&quot;.
     /// </summary>
     [EnumMember(Value = "SMDM")]
     [IsoId("_ABBrYWjMEeOdXoiw6mfXMw")]
@@ -1047,7 +1047,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Muni bearer bond coupon adjustment for coupon(s) missing from a deposit related adjustment.
-    /// Encoded/decoded by serializers as "SMBM".
+    /// Encoded/decoded by serializers as &quot;SMBM&quot;.
     /// </summary>
     [EnumMember(Value = "SMBM")]
     [IsoId("_AFTucWjMEeOdXoiw6mfXMw")]
@@ -1056,7 +1056,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Muni bearer bond coupon adjustment for coupon(s) missing from a withdrawal.
-    /// Encoded/decoded by serializers as "SMCM".
+    /// Encoded/decoded by serializers as &quot;SMCM&quot;.
     /// </summary>
     [EnumMember(Value = "SMCM")]
     [IsoId("_AJmYkWjMEeOdXoiw6mfXMw")]
@@ -1065,7 +1065,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Muni bearer bond coupon adjustment your interim position was adjusted for deposit activity.
-    /// Encoded/decoded by serializers as "SMMM".
+    /// Encoded/decoded by serializers as &quot;SMMM&quot;.
     /// </summary>
     [EnumMember(Value = "SMMM")]
     [IsoId("_ANxG4WjMEeOdXoiw6mfXMw")]
@@ -1074,7 +1074,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Non allocation for fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFLS".
+    /// Encoded/decoded by serializers as &quot;SFLS&quot;.
     /// </summary>
     [EnumMember(Value = "SFLS")]
     [IsoId("_AWQUgWjMEeOdXoiw6mfXMw")]
@@ -1083,7 +1083,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Optional dividend (ops) allocation related adjustment.
-    /// Encoded/decoded by serializers as "SOP2".
+    /// Encoded/decoded by serializers as &quot;SOP2&quot;.
     /// </summary>
     [EnumMember(Value = "SOP2")]
     [IsoId("_AaZ0sWjMEeOdXoiw6mfXMw")]
@@ -1092,7 +1092,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Reserved for new user defined reason codes.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Am1uMWjMEeOdXoiw6mfXMw")]
@@ -1101,7 +1101,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment made for the Pacific depository (3097).
-    /// Encoded/decoded by serializers as "SCLU".
+    /// Encoded/decoded by serializers as &quot;SCLU&quot;.
     /// </summary>
     [EnumMember(Value = "SCLU")]
     [IsoId("_ArBDkWjMEeOdXoiw6mfXMw")]
@@ -1110,7 +1110,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Part claim payment.
-    /// Encoded/decoded by serializers as "SCPP".
+    /// Encoded/decoded by serializers as &quot;SCPP&quot;.
     /// </summary>
     [EnumMember(Value = "SCPP")]
     [IsoId("_AvTGoWjMEeOdXoiw6mfXMw")]
@@ -1119,7 +1119,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Part-claim reversal.
-    /// Encoded/decoded by serializers as "SCRP".
+    /// Encoded/decoded by serializers as &quot;SCRP&quot;.
     /// </summary>
     [EnumMember(Value = "SCRP")]
     [IsoId("_AzecAWjMEeOdXoiw6mfXMw")]
@@ -1128,7 +1128,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Payment of full avoid fiscal tax refund (equal to 42.5% of the dividend).
-    /// Encoded/decoded by serializers as "SAHA".
+    /// Encoded/decoded by serializers as &quot;SAHA&quot;.
     /// </summary>
     [EnumMember(Value = "SAHA")]
     [IsoId("_A3ojQWjMEeOdXoiw6mfXMw")]
@@ -1137,7 +1137,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Payment of partial avoid fiscal tax refund (equal to 15% of the dividend).
-    /// Encoded/decoded by serializers as "SAPA".
+    /// Encoded/decoded by serializers as &quot;SAPA&quot;.
     /// </summary>
     [EnumMember(Value = "SAPA")]
     [IsoId("_A7z4oWjMEeOdXoiw6mfXMw")]
@@ -1146,7 +1146,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation of a Pay in Kind distribution.
-    /// Encoded/decoded by serializers as "SSPA".
+    /// Encoded/decoded by serializers as &quot;SSPA&quot;.
     /// </summary>
     [EnumMember(Value = "SSPA")]
     [IsoId("_BACRUWjMEeOdXoiw6mfXMw")]
@@ -1155,7 +1155,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment made for the Philadelphia depository (6070).
-    /// Encoded/decoded by serializers as "SCNU".
+    /// Encoded/decoded by serializers as &quot;SCNU&quot;.
     /// </summary>
     [EnumMember(Value = "SCNU")]
     [IsoId("_BEMYkWjMEeOdXoiw6mfXMw")]
@@ -1164,7 +1164,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC pledge related adjustment.
-    /// Encoded/decoded by serializers as "SJEF".
+    /// Encoded/decoded by serializers as &quot;SJEF&quot;.
     /// </summary>
     [EnumMember(Value = "SJEF")]
     [IsoId("_BIYVAWjMEeOdXoiw6mfXMw")]
@@ -1173,7 +1173,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC pledge release related adjustment.
-    /// Encoded/decoded by serializers as "SJEE".
+    /// Encoded/decoded by serializers as &quot;SJEE&quot;.
     /// </summary>
     [EnumMember(Value = "SJEE")]
     [IsoId("_BqEs0WjMEeOdXoiw6mfXMw")]
@@ -1182,7 +1182,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your record date position was adjusted for deposit activity.
-    /// Encoded/decoded by serializers as "SDDD".
+    /// Encoded/decoded by serializers as &quot;SDDD&quot;.
     /// </summary>
     [EnumMember(Value = "SDDD")]
     [IsoId("_BuONAWjMEeOdXoiw6mfXMw")]
@@ -1191,7 +1191,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your position was reinstated for a withdrawal by transfer. However the certificates(s) were issued and outstanding over the record date in the name of your customer(s).
-    /// Encoded/decoded by serializers as "SWN1".
+    /// Encoded/decoded by serializers as &quot;SWN1&quot;.
     /// </summary>
     [EnumMember(Value = "SWN1")]
     [IsoId("_B2k3wWjMEeOdXoiw6mfXMw")]
@@ -1200,7 +1200,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Post date changefor fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFL3".
+    /// Encoded/decoded by serializers as &quot;SFL3&quot;.
     /// </summary>
     [EnumMember(Value = "SFL3")]
     [IsoId("_B6zQcWjMEeOdXoiw6mfXMw")]
@@ -1209,7 +1209,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// You deposited securities that were previously called. the agent paid DTCC the redemption proceeds. this adjustment is to pass these proceeds on to you. your free account security position will be adjusted (shorted) today for the called quantity.
-    /// Encoded/decoded by serializers as "SDEP".
+    /// Encoded/decoded by serializers as &quot;SDEP&quot;.
     /// </summary>
     [EnumMember(Value = "SDEP")]
     [IsoId("_B--l0WjMEeOdXoiw6mfXMw")]
@@ -1218,7 +1218,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Allocation adjustment for dividend reinvestment due to price correction by the agent.
-    /// Encoded/decoded by serializers as "SSA6".
+    /// Encoded/decoded by serializers as &quot;SSA6&quot;.
     /// </summary>
     [EnumMember(Value = "SSA6")]
     [IsoId("_CDHe8WjMEeOdXoiw6mfXMw")]
@@ -1227,7 +1227,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Proceeds resulting from a (buy) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
-    /// Encoded/decoded by serializers as "SSP4".
+    /// Encoded/decoded by serializers as &quot;SSP4&quot;.
     /// </summary>
     [EnumMember(Value = "SSP4")]
     [IsoId("_CHUpgWjMEeOdXoiw6mfXMw")]
@@ -1236,7 +1236,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Proceeds from sale of.
-    /// Encoded/decoded by serializers as "SPFS".
+    /// Encoded/decoded by serializers as &quot;SPFS&quot;.
     /// </summary>
     [EnumMember(Value = "SPFS")]
     [IsoId("_CLgl8WjMEeOdXoiw6mfXMw")]
@@ -1245,7 +1245,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Proceeds resulting from a (sell) transaction affected in our DTCC/dividend trading account (#428‑10288‑1‑3‑039).
-    /// Encoded/decoded by serializers as "SSS5".
+    /// Encoded/decoded by serializers as &quot;SSS5&quot;.
     /// </summary>
     [EnumMember(Value = "SSS5")]
     [IsoId("_CPwMwWjMEeOdXoiw6mfXMw")]
@@ -1254,7 +1254,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// This allocation was adjusted for a rate change. Please refer to DIVA comment field for additional information.
-    /// Encoded/decoded by serializers as "SRTA".
+    /// Encoded/decoded by serializers as &quot;SRTA&quot;.
     /// </summary>
     [EnumMember(Value = "SRTA")]
     [IsoId("_CT6UAWjMEeOdXoiw6mfXMw")]
@@ -1263,7 +1263,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Rate revisionfor fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFLR".
+    /// Encoded/decoded by serializers as &quot;SFLR&quot;.
     /// </summary>
     [EnumMember(Value = "SFLR")]
     [IsoId("_CYD0MWjMEeOdXoiw6mfXMw")]
@@ -1272,7 +1272,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Rate unknown for fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFL0".
+    /// Encoded/decoded by serializers as &quot;SFL0&quot;.
     /// </summary>
     [EnumMember(Value = "SFL0")]
     [IsoId("_CcNUYWjMEeOdXoiw6mfXMw")]
@@ -1281,7 +1281,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Our record date position was adjusted for a withdrawal by transfer activity.
-    /// Encoded/decoded by serializers as "SWHT".
+    /// Encoded/decoded by serializers as &quot;SWHT&quot;.
     /// </summary>
     [EnumMember(Value = "SWHT")]
     [IsoId("_Cko3oWjMEeOdXoiw6mfXMw")]
@@ -1290,7 +1290,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC redemption related adjustment.
-    /// Encoded/decoded by serializers as "SJE7".
+    /// Encoded/decoded by serializers as &quot;SJE7&quot;.
     /// </summary>
     [EnumMember(Value = "SJE7")]
     [IsoId("_Co5FgWjMEeOdXoiw6mfXMw")]
@@ -1299,7 +1299,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Redemption cash settlement.
-    /// Encoded/decoded by serializers as "SGL7".
+    /// Encoded/decoded by serializers as &quot;SGL7&quot;.
     /// </summary>
     [EnumMember(Value = "SGL7")]
     [IsoId("_CtLIkWjMEeOdXoiw6mfXMw")]
@@ -1308,7 +1308,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Redemption payment due to pledge release.
-    /// Encoded/decoded by serializers as "SGLP".
+    /// Encoded/decoded by serializers as &quot;SGLP&quot;.
     /// </summary>
     [EnumMember(Value = "SGLP")]
     [IsoId("_CxV24WjMEeOdXoiw6mfXMw")]
@@ -1317,7 +1317,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// The 25% french withholding rate has been revised. This adjustment is based on the refunded tax rate.
-    /// Encoded/decoded by serializers as "SFJ9".
+    /// Encoded/decoded by serializers as &quot;SFJ9&quot;.
     /// </summary>
     [EnumMember(Value = "SFJ9")]
     [IsoId("_C1iaYWjMEeOdXoiw6mfXMw")]
@@ -1326,7 +1326,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Refund of french tax based on acceptance of global reclamation for the july 1992 distribution refer to important notice b # 1352‑93.
-    /// Encoded/decoded by serializers as "SFRB".
+    /// Encoded/decoded by serializers as &quot;SFRB&quot;.
     /// </summary>
     [EnumMember(Value = "SFRB")]
     [IsoId("_C5shoWjMEeOdXoiw6mfXMw")]
@@ -1335,7 +1335,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Refund of french tax based on acceptance of global reclamation for the june 1992 distribution refer to important notice b # 1352‑93.
-    /// Encoded/decoded by serializers as "SFRA".
+    /// Encoded/decoded by serializers as &quot;SFRA&quot;.
     /// </summary>
     [EnumMember(Value = "SFRA")]
     [IsoId("_DgpM4WjMEeOdXoiw6mfXMw")]
@@ -1344,7 +1344,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Reinstate for fail tracking related adjustment.
-    /// Encoded/decoded by serializers as "SFL2".
+    /// Encoded/decoded by serializers as &quot;SFL2&quot;.
     /// </summary>
     [EnumMember(Value = "SFL2")]
     [IsoId("_DkzUIWjMEeOdXoiw6mfXMw")]
@@ -1353,7 +1353,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC reorganization related adjustment.
-    /// Encoded/decoded by serializers as "SJR7".
+    /// Encoded/decoded by serializers as &quot;SJR7&quot;.
     /// </summary>
     [EnumMember(Value = "SJR7")]
     [IsoId("_DtL0EWjMEeOdXoiw6mfXMw")]
@@ -1362,7 +1362,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// To adjust allocation at 100% on your tax exempt instructions.
-    /// Encoded/decoded by serializers as "STEA".
+    /// Encoded/decoded by serializers as &quot;STEA&quot;.
     /// </summary>
     [EnumMember(Value = "STEA")]
     [IsoId("_EbENwWjMEeOdXoiw6mfXMw")]
@@ -1371,7 +1371,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Interest adjusted due to tender fee deduction.
-    /// Encoded/decoded by serializers as "SAF7".
+    /// Encoded/decoded by serializers as &quot;SAF7&quot;.
     /// </summary>
     [EnumMember(Value = "SAF7")]
     [IsoId("_EfOVAWjMEeOdXoiw6mfXMw")]
@@ -1380,7 +1380,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your account is being credited at the unfav rate (20%) as a result of the reorg merger pd on 4/2/93 (Armstrong Pharm to Medeva plc, eff 1/15/93; if entitled to fav rate(15%), you must follow attached.
-    /// Encoded/decoded by serializers as "SAA7".
+    /// Encoded/decoded by serializers as &quot;SAA7&quot;.
     /// </summary>
     [EnumMember(Value = "SAA7")]
     [IsoId("_EjXOIWjMEeOdXoiw6mfXMw")]
@@ -1389,7 +1389,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Uninsured interest withheld as per FSLICN.
-    /// Encoded/decoded by serializers as "SAWA".
+    /// Encoded/decoded by serializers as &quot;SAWA&quot;.
     /// </summary>
     [EnumMember(Value = "SAWA")]
     [IsoId("_EnfgMWjMEeOdXoiw6mfXMw")]
@@ -1398,7 +1398,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Option to receive Vodafone Group adrs at 11.354392 for every 100 adrs.
-    /// Encoded/decoded by serializers as "SRRA".
+    /// Encoded/decoded by serializers as &quot;SRRA&quot;.
     /// </summary>
     [EnumMember(Value = "SRRA")]
     [IsoId("_Ert44WjMEeOdXoiw6mfXMw")]
@@ -1407,7 +1407,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// DTCC WT related adjustment.
-    /// Encoded/decoded by serializers as "SJWT".
+    /// Encoded/decoded by serializers as &quot;SJWT&quot;.
     /// </summary>
     [EnumMember(Value = "SJWT")]
     [IsoId("_Ev51UWjMEeOdXoiw6mfXMw")]
@@ -1416,7 +1416,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Your record date position was adjusted for a w/t buy back withdrawal.
-    /// Encoded/decoded by serializers as "SBB2".
+    /// Encoded/decoded by serializers as &quot;SBB2&quot;.
     /// </summary>
     [EnumMember(Value = "SBB2")]
     [IsoId("_E0FxwWjMEeOdXoiw6mfXMw")]
@@ -1425,7 +1425,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Adjustment to allocation to charge (user defined percentage) withholding tax in (user defined) country.
-    /// Encoded/decoded by serializers as "SWTA".
+    /// Encoded/decoded by serializers as &quot;SWTA&quot;.
     /// </summary>
     [EnumMember(Value = "SWTA")]
     [IsoId("_E4QgEWjMEeOdXoiw6mfXMw")]
@@ -1434,7 +1434,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// Write off reorganization related adjustment.
-    /// Encoded/decoded by serializers as "SJEW".
+    /// Encoded/decoded by serializers as &quot;SJEW&quot;.
     /// </summary>
     [EnumMember(Value = "SJEW")]
     [IsoId("_E8bOYWjMEeOdXoiw6mfXMw")]
@@ -1443,7 +1443,7 @@ public enum DTCAdjustmentPaymentSubReason1Code
     
     /// <summary>
     /// The principal previously paid to you was at the wrong rate. This adjustment is to correct that erroneous payment.
-    /// Encoded/decoded by serializers as "SPRA".
+    /// Encoded/decoded by serializers as &quot;SPRA&quot;.
     /// </summary>
     [EnumMember(Value = "SPRA")]
     [IsoId("_FEtnsWjMEeOdXoiw6mfXMw")]

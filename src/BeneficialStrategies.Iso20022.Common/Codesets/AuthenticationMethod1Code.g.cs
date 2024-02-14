@@ -21,7 +21,7 @@ public enum AuthenticationMethod1Code
 {
     /// <summary>
     /// Authentication method is performed unknown.
-    /// Encoded/decoded by serializers as "UKNW".
+    /// Encoded/decoded by serializers as &quot;UKNW&quot;.
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_TSNccQEcEeCQm6a_G2yO_w_1383005329")]
@@ -30,7 +30,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Authentication bypassed by the merchant.
-    /// Encoded/decoded by serializers as "BYPS".
+    /// Encoded/decoded by serializers as &quot;BYPS&quot;.
     /// </summary>
     [EnumMember(Value = "BYPS")]
     [IsoId("_TSNccgEcEeCQm6a_G2yO_w_-487293540")]
@@ -39,7 +39,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// On-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "NPIN".
+    /// Encoded/decoded by serializers as &quot;NPIN&quot;.
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_TSNccwEcEeCQm6a_G2yO_w_-33206271")]
@@ -48,7 +48,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Off-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FPIN".
+    /// Encoded/decoded by serializers as &quot;FPIN&quot;.
     /// </summary>
     [EnumMember(Value = "FPIN")]
     [IsoId("_TSNcdAEcEeCQm6a_G2yO_w_-44305048")]
@@ -57,7 +57,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Electronic signature capture (handwritten signature).
-    /// Encoded/decoded by serializers as "CPSG".
+    /// Encoded/decoded by serializers as &quot;CPSG&quot;.
     /// </summary>
     [EnumMember(Value = "CPSG")]
     [IsoId("_TSNcdQEcEeCQm6a_G2yO_w_877858262")]
@@ -66,7 +66,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Handwritten paper signature.
-    /// Encoded/decoded by serializers as "PPSG".
+    /// Encoded/decoded by serializers as &quot;PPSG&quot;.
     /// </summary>
     [EnumMember(Value = "PPSG")]
     [IsoId("_TSNcdgEcEeCQm6a_G2yO_w_431064513")]
@@ -75,7 +75,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Manual verification, for example passport or drivers license.
-    /// Encoded/decoded by serializers as "MANU".
+    /// Encoded/decoded by serializers as &quot;MANU&quot;.
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_TSNcdwEcEeCQm6a_G2yO_w_-1926677610")]
@@ -84,7 +84,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Merchant-related authentication.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TSNceAEcEeCQm6a_G2yO_w_756182020")]
@@ -93,7 +93,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Electronic commerce transaction secured with the X.509 certificate of a customer.
-    /// Encoded/decoded by serializers as "SCRT".
+    /// Encoded/decoded by serializers as &quot;SCRT&quot;.
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_TSNceQEcEeCQm6a_G2yO_w_-1601560103")]
@@ -102,7 +102,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Secure electronic transaction without cardholder certificate.
-    /// Encoded/decoded by serializers as "SNCT".
+    /// Encoded/decoded by serializers as &quot;SNCT&quot;.
     /// </summary>
     [EnumMember(Value = "SNCT")]
     [IsoId("_TSNcegEcEeCQm6a_G2yO_w_838368064")]
@@ -111,7 +111,7 @@ public enum AuthenticationMethod1Code
     
     /// <summary>
     /// Channel-encrypted transaction.
-    /// Encoded/decoded by serializers as "SCNL".
+    /// Encoded/decoded by serializers as &quot;SCNL&quot;.
     /// </summary>
     [EnumMember(Value = "SCNL")]
     [IsoId("_TSNcewEcEeCQm6a_G2yO_w_1370210617")]

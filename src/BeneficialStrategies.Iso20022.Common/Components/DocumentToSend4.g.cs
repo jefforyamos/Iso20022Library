@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Type of document and the type of communication method to be used to notify a party.
 /// </summary>
 [IsoId("_y2mIcZTFEemqYPWMBuVawg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document To Send")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record DocumentToSend4
     /// Type of document.
     /// </summary>
     [IsoId("_zKhxEZTFEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Type { get; init; } 
+    public required System.String Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Type { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record DocumentToSend4
     /// Party that should receive the document.
     /// </summary>
     [IsoId("_zKhxE5TFEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcpt")]
     #endif
+    [IsoXmlTag("Rcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification125Choice_ Recipient { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification125Choice_ Recipient { get; init; } 
+    public required PartyIdentification125Choice_ Recipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification125Choice_ Recipient { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record DocumentToSend4
     /// Communication method to be used.
     /// </summary>
     [IsoId("_zKhxFZTFEemqYPWMBuVawg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method Of Transmission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtdOfTrnsmssn")]
     #endif
+    [IsoXmlTag("MtdOfTrnsmssn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommunicationMethod3Choice_ MethodOfTransmission { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommunicationMethod3Choice_ MethodOfTransmission { get; init; } 
+    public required CommunicationMethod3Choice_ MethodOfTransmission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommunicationMethod3Choice_ MethodOfTransmission { get; init; } 
     #else

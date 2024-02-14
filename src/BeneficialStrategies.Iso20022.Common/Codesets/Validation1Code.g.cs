@@ -21,7 +21,7 @@ public enum Validation1Code
 {
     /// <summary>
     /// Validation of the signature is successful.
-    /// Encoded/decoded by serializers as "OKAY".
+    /// Encoded/decoded by serializers as &quot;OKAY&quot;.
     /// </summary>
     [EnumMember(Value = "OKAY")]
     [IsoId("_-T5V8smKEeWAGphE2LvqeA")]
@@ -30,7 +30,7 @@ public enum Validation1Code
     
     /// <summary>
     /// Validation of the signature is unknown or not yet executed.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_-VFBscmKEeWAGphE2LvqeA")]
@@ -39,7 +39,7 @@ public enum Validation1Code
     
     /// <summary>
     /// Validation of the signature has failed.
-    /// Encoded/decoded by serializers as "NTOK".
+    /// Encoded/decoded by serializers as &quot;NTOK&quot;.
     /// </summary>
     [EnumMember(Value = "NTOK")]
     [IsoId("_UqKgocnIEeWI4cSIO9foRA")]

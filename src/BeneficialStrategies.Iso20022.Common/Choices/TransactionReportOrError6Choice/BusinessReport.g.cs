@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionReportOrError6Choice
     /// Reports on payment transactions.
     /// </summary>
     [IsoId("_7tkDoQKxEe2rHs6fbn9-0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionReportOrError6Choice
         /// Common detailed payment instruction information.
         /// </summary>
         [IsoId("_8Wpc5wKxEe2rHs6fbn9-0A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Payment Common Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PmtCmonInf")]
         #endif
+        [IsoXmlTag("PmtCmonInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PaymentCommon5? PaymentCommonInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionReportOrError6Choice
         /// Indicates the total number and sum of the transactions.
         /// </summary>
         [IsoId("_8Wpc6QKxEe2rHs6fbn9-0A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transactions Summary")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxsSummry")]
         #endif
+        [IsoXmlTag("TxsSummry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public NumberAndSumOfTransactions2? TransactionsSummary { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionReportOrError6Choice
         /// Reports either on the transaction information or on a business error.
         /// </summary>
         [IsoId("_8Wpc6wKxEe2rHs6fbn9-0A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Report")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxRpt")]
         #endif
+        [IsoXmlTag("TxRpt")]
         public TransactionReport7? TransactionReport { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _8Wpc6wKxEe2rHs6fbn9-0A
         

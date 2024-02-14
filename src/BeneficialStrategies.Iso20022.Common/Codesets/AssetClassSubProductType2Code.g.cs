@@ -21,7 +21,7 @@ public enum AssetClassSubProductType2Code
 {
     /// <summary>
     /// Commodity of type softs.
-    /// Encoded/decoded by serializers as "SOFT".
+    /// Encoded/decoded by serializers as &quot;SOFT&quot;.
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_MkTJ4QnzEeWnS-yHF1QhNQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Login Response message.
 /// </summary>
 [IsoId("_oud7oN6LEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Login Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record LoginResponse1
     /// Date and Time of POI Login.
     /// </summary>
     [IsoId("_v7TVwN6LEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIDtTm")]
     #endif
+    [IsoXmlTag("POIDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime POIDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime POIDateTime { get; init; } 
+    public required System.DateTime POIDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime POIDateTime { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record LoginResponse1
     /// Information related to the software of the POI System which manages the Sale to POI protocol.
     /// </summary>
     [IsoId("_yzUEsN6LEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Software")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POISftwr")]
     #endif
+    [IsoXmlTag("POISftwr")]
     public PointOfInteractionComponent9? POISoftware { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _yzUEsN6LEeiwsev40qZGEQ
     
@@ -84,12 +81,11 @@ public partial record LoginResponse1
     /// Capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
     [IsoId("_14FdQN6LEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Capabilities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POICpblties")]
     #endif
+    [IsoXmlTag("POICpblties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionCapabilities8? POICapabilities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

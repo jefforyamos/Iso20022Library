@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashAvailabilityDate1Choice.NumberOfDays))]
     [KnownType(typeof(CashAvailabilityDate1Choice.ActualDate))]
     [IsoId("_Vf2nGTqwEeWZFYSPlduMhw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Availability Date 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

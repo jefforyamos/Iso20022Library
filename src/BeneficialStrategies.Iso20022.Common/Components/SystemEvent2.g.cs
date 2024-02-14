@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on an event occurring in a system, whether planned or unplanned as stipulated in the specifications of the system.
 /// </summary>
 [IsoId("_8FSRsqMgEeCJ6YNENx4h-w_-140040828")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Event")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SystemEvent2
     /// Nature of the event that has occurred.
     /// </summary>
     [IsoId("_8FSRs6MgEeCJ6YNENx4h-w_-338099461")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemEventType2Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemEventType2Choice_ Type { get; init; } 
+    public required SystemEventType2Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemEventType2Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record SystemEvent2
     /// Date and time at which the event is foreseen to occur.
     /// </summary>
     [IsoId("_8FSRtKMgEeCJ6YNENx4h-w_-2003849778")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scheduled Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchdldTm")]
     #endif
+    [IsoXmlTag("SchdldTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ScheduledTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ScheduledTime { get; init; } 
+    public required System.DateTime ScheduledTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ScheduledTime { get; init; } 
     #else
@@ -92,12 +89,12 @@ public partial record SystemEvent2
     /// Date and time at which the event effectively takes place.
     /// </summary>
     [IsoId("_8FSRtaMgEeCJ6YNENx4h-w_-1560861286")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvTm")]
     #endif
+    [IsoXmlTag("FctvTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? EffectiveTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +107,12 @@ public partial record SystemEvent2
     /// Time at which the event starts.
     /// </summary>
     [IsoId("_8FSRtqMgEeCJ6YNENx4h-w_863262048")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartTm")]
     #endif
+    [IsoXmlTag("StartTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? StartTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +125,12 @@ public partial record SystemEvent2
     /// Time at which the event ends.
     /// </summary>
     [IsoId("_8FSRt6MgEeCJ6YNENx4h-w_-181798605")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndTm")]
     #endif
+    [IsoXmlTag("EndTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? EndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

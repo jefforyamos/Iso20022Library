@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action option cash movement details.
 /// </summary>
 [IsoId("_1lZYNDL3EeKU9IrkkToqcw_-592229774")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Option SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CashOptionSD1
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1lZYNTL3EeKU9IrkkToqcw_1873999229")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -74,12 +70,11 @@ public partial record CashOptionSD1
     /// Income classification of the cash proceeds for dividend reinvestment.
     /// </summary>
     [IsoId("_1lZYNjL3EeKU9IrkkToqcw_-6306411")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvestment Income Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstmtIncmClssfctn")]
     #endif
+    [IsoXmlTag("RinvstmtIncmClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReinvestmentIncomeClassification1Code? ReinvestmentIncomeClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,15 +87,13 @@ public partial record CashOptionSD1
     /// Indicates the type of payment. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
     [IsoId("_1ljJMDL3EeKU9IrkkToqcw_-1006731445")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Pay Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCPayMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DTCPayMtd")]
+    [IsoSimpleType(IsoSimpleType.Max3Text)]
     [StringLength(maximumLength: 3 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? DTCPayMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,15 +106,13 @@ public partial record CashOptionSD1
     /// Indicates the payment order. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
     [IsoId("_1ljJMTL3EeKU9IrkkToqcw_1407930211")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Pay Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCPayOrdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DTCPayOrdr")]
+    [IsoSimpleType(IsoSimpleType.Max3Text)]
     [StringLength(maximumLength: 3 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3Text? DTCPayOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +125,11 @@ public partial record CashOptionSD1
     /// Indicates how the entitlements were calculated optional dividends.
     /// </summary>
     [IsoId("_1ljJMjL3EeKU9IrkkToqcw_297018792")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entitlement Calculation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EntitlmntClctnMtd")]
     #endif
+    [IsoXmlTag("EntitlmntClctnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +142,12 @@ public partial record CashOptionSD1
     /// Denotes whether the rate is approximate.
     /// </summary>
     [IsoId("_1ljJMzL3EeKU9IrkkToqcw_887221562")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Estimated Rate Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstmtdRateFlg")]
     #endif
+    [IsoXmlTag("EstmtdRateFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? EstimatedRateFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +160,12 @@ public partial record CashOptionSD1
     /// Identifies the income events which are subject to withholding tax if paid to a non-U.S. resident alien (NRA).
     /// </summary>
     [IsoId("_1ljJNDL3EeKU9IrkkToqcw_-993084078")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("NRA Tax Reportable Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NRATaxRptblFlg")]
     #endif
+    [IsoXmlTag("NRATaxRptblFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NRATaxReportableFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,15 +175,15 @@ public partial record CashOptionSD1
     #endif
     
     /// <summary>
-    /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to "no" changes are due when protect is covered.
+    /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to &quot;no&quot; changes are due when protect is covered.
     /// </summary>
     [IsoId("_1ljJNTL3EeKU9IrkkToqcw_-2103995497")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Charge Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctChrgFlg")]
     #endif
+    [IsoXmlTag("PrtctChrgFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +196,11 @@ public partial record CashOptionSD1
     /// Cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
     [IsoId("_1ljJNjL3EeKU9IrkkToqcw_-309584778")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Cash Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdCshRate")]
     #endif
+    [IsoXmlTag("DclrdCshRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredCashRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +213,11 @@ public partial record CashOptionSD1
     /// Gross cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
     [IsoId("_1ls6MDL3EeKU9IrkkToqcw_2105076878")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Gross Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdGrssRate")]
     #endif
+    [IsoXmlTag("DclrdGrssRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredGrossRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +230,11 @@ public partial record CashOptionSD1
     /// Net cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
     [IsoId("_1ls6MTL3EeKU9IrkkToqcw_994165459")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Net Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdNetRate")]
     #endif
+    [IsoXmlTag("DclrdNetRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredNetRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +247,11 @@ public partial record CashOptionSD1
     /// Rate at which the fee will be charged to a DTC participant.
     /// </summary>
     [IsoId("_1ls6MjL3EeKU9IrkkToqcw_879842262")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Declared Fee Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DclrdFeeRate")]
     #endif
+    [IsoXmlTag("DclrdFeeRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceFormatSD1Choice_? DeclaredFeeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +264,11 @@ public partial record CashOptionSD1
     /// Indicates the period during which the instructions for DTC (The Depository Trust Corporation) US Tax service will be accepted.
     /// </summary>
     [IsoId("_1ls6MzL3EeKU9IrkkToqcw_-1203916842")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTCUS Tax Instruction Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCUSTaxInstrPrd")]
     #endif
+    [IsoXmlTag("DTCUSTaxInstrPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period3? DTCUSTaxInstructionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

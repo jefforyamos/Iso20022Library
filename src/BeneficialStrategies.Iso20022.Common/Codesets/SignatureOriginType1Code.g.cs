@@ -21,7 +21,7 @@ public enum SignatureOriginType1Code
 {
     /// <summary>
     /// Signature is provided for the value validation of the file.
-    /// Encoded/decoded by serializers as "VLUE".
+    /// Encoded/decoded by serializers as &quot;VLUE&quot;.
     /// </summary>
     [EnumMember(Value = "VLUE")]
     [IsoId("_q_EtIcnIEeWI4cSIO9foRA")]
@@ -30,7 +30,7 @@ public enum SignatureOriginType1Code
     
     /// <summary>
     /// Signature is provided for the technical validation of the file.
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_rD_CUcnIEeWI4cSIO9foRA")]
@@ -39,7 +39,7 @@ public enum SignatureOriginType1Code
     
     /// <summary>
     /// Signature is provided for the contract validation of the file.
-    /// Encoded/decoded by serializers as "CTRC".
+    /// Encoded/decoded by serializers as &quot;CTRC&quot;.
     /// </summary>
     [EnumMember(Value = "CTRC")]
     [IsoId("_rI5XgcnIEeWI4cSIO9foRA")]
@@ -48,7 +48,7 @@ public enum SignatureOriginType1Code
     
     /// <summary>
     /// Signature is provided for the bank validation of the file.
-    /// Encoded/decoded by serializers as "BANK".
+    /// Encoded/decoded by serializers as &quot;BANK&quot;.
     /// </summary>
     [EnumMember(Value = "BANK")]
     [IsoId("_rNgKscnIEeWI4cSIO9foRA")]

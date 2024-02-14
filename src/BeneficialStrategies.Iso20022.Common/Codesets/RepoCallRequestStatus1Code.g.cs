@@ -21,7 +21,7 @@ public enum RepoCallRequestStatus1Code
 {
     /// <summary>
     /// Repurchase agreement call request is acknowledged/accepted.
-    /// Encoded/decoded by serializers as "CACK".
+    /// Encoded/decoded by serializers as &quot;CACK&quot;.
     /// </summary>
     [EnumMember(Value = "CACK")]
     [IsoId("_ZS5Fttp-Ed-ak6NoX_4Aeg_-1000214541")]
@@ -30,7 +30,7 @@ public enum RepoCallRequestStatus1Code
     
     /// <summary>
     /// Repuchase agreement call request is denied.
-    /// Encoded/decoded by serializers as "DEND".
+    /// Encoded/decoded by serializers as &quot;DEND&quot;.
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_ZS5Ft9p-Ed-ak6NoX_4Aeg_-1000214284")]

@@ -21,7 +21,7 @@ public enum ATMNoteType2Code
 {
     /// <summary>
     /// Detected counterfeit notes.
-    /// Encoded/decoded by serializers as "CNTR".
+    /// Encoded/decoded by serializers as &quot;CNTR&quot;.
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_lznowYqhEeS4a4abTJTSSw")]
@@ -30,7 +30,7 @@ public enum ATMNoteType2Code
     
     /// <summary>
     /// Fit bank notes.
-    /// Encoded/decoded by serializers as "FITN".
+    /// Encoded/decoded by serializers as &quot;FITN&quot;.
     /// </summary>
     [EnumMember(Value = "FITN")]
     [IsoId("_l5u30YqhEeS4a4abTJTSSw")]
@@ -39,7 +39,7 @@ public enum ATMNoteType2Code
     
     /// <summary>
     /// Fit and unfit bank notes, if fitness cannot be determined.
-    /// Encoded/decoded by serializers as "FITU".
+    /// Encoded/decoded by serializers as &quot;FITU&quot;.
     /// </summary>
     [EnumMember(Value = "FITU")]
     [IsoId("_mBByoYqhEeS4a4abTJTSSw")]
@@ -48,7 +48,7 @@ public enum ATMNoteType2Code
     
     /// <summary>
     /// Notes stained by dye pack.
-    /// Encoded/decoded by serializers as "NTRL".
+    /// Encoded/decoded by serializers as &quot;NTRL&quot;.
     /// </summary>
     [EnumMember(Value = "NTRL")]
     [IsoId("_m4m64YqhEeS4a4abTJTSSw")]
@@ -57,7 +57,7 @@ public enum ATMNoteType2Code
     
     /// <summary>
     /// Suspect notes.
-    /// Encoded/decoded by serializers as "SPCT".
+    /// Encoded/decoded by serializers as &quot;SPCT&quot;.
     /// </summary>
     [EnumMember(Value = "SPCT")]
     [IsoId("_m_dw0YqhEeS4a4abTJTSSw")]
@@ -66,7 +66,7 @@ public enum ATMNoteType2Code
     
     /// <summary>
     /// Unfit bank notes (unacceptable quality).
-    /// Encoded/decoded by serializers as "UNFT".
+    /// Encoded/decoded by serializers as &quot;UNFT&quot;.
     /// </summary>
     [EnumMember(Value = "UNFT")]
     [IsoId("_nI29YYqhEeS4a4abTJTSSw")]
@@ -75,7 +75,7 @@ public enum ATMNoteType2Code
     
     /// <summary>
     /// Unrecognised notes.
-    /// Encoded/decoded by serializers as "UNRG".
+    /// Encoded/decoded by serializers as &quot;UNRG&quot;.
     /// </summary>
     [EnumMember(Value = "UNRG")]
     [IsoId("_nPaRUYqhEeS4a4abTJTSSw")]

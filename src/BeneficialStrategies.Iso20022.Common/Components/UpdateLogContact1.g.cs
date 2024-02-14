@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the old and new values for the contact details
 /// </summary>
 [IsoId("_YBkCQ2jTEeiRg5NzP0jkQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Update Log Contact")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UpdateLogContact1
     /// Old value before change
     /// </summary>
     [IsoId("_YBkCRGjTEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Od")]
     #endif
+    [IsoXmlTag("Od")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Contact5 Old { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Contact5 Old { get; init; } 
+    public required Contact5 Old { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Contact5 Old { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UpdateLogContact1
     /// New value after change
     /// </summary>
     [IsoId("_YBkCRWjTEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="New")]
     #endif
+    [IsoXmlTag("New")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Contact5 New { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Contact5 New { get; init; } 
+    public required Contact5 New { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Contact5 New { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExerciseDate1Choice
     /// Indicates that price is currently not available, but pending.
     /// </summary>
     [IsoId("_Y7c_swbBEeqrW7Meu5r3kQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Date Applicable")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ExerciseDate1Choice
         /// Status of the price of a financial instrument.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PdgDtAplbl")]
         #endif
+        [IsoXmlTag("PdgDtAplbl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PriceStatus2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PriceStatus2Code Value { get; init; } 
+        public required PriceStatus2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PriceStatus2Code Value { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum TransactionOperationType1Code
 {
     /// <summary>
     /// Transaction amends a previously sent transaction.
-    /// Encoded/decoded by serializers as "AMND".
+    /// Encoded/decoded by serializers as &quot;AMND&quot;.
     /// </summary>
     [EnumMember(Value = "AMND")]
     [IsoId("_MjJJsZfsEeSfnc-VXAEapg")]
@@ -30,7 +30,7 @@ public enum TransactionOperationType1Code
     
     /// <summary>
     /// Transaction requests the deletion/cancellation of a previously sent transaction.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_Mn2DgZfsEeSfnc-VXAEapg")]
@@ -39,7 +39,7 @@ public enum TransactionOperationType1Code
     
     /// <summary>
     /// Transaction corrects errors in a previously sent transaction.
-    /// Encoded/decoded by serializers as "CORR".
+    /// Encoded/decoded by serializers as &quot;CORR&quot;.
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_MwUDAZfsEeSfnc-VXAEapg")]
@@ -48,7 +48,7 @@ public enum TransactionOperationType1Code
     
     /// <summary>
     /// Transaction is a new transaction.
-    /// Encoded/decoded by serializers as "NEWT".
+    /// Encoded/decoded by serializers as &quot;NEWT&quot;.
     /// </summary>
     [EnumMember(Value = "NEWT")]
     [IsoId("_M3ELQZfsEeSfnc-VXAEapg")]

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPAvailableFinancialResourcesReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority of the aggregate quantum of resources available in each default waterfall to absorb losses resulting from the failure of one or more clearing member(s).")]
 [IsoId("_omGWYeUREem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Available Financial Resources Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord<CCP
     /// Construct used by a central counterparty to define the size of the aggregate quantum of resources available from a clearing member.
     /// </summary>
     [IsoId("_omGWaeUREem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Available Financial Resources Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AvlblFinRsrcsAmt")]
     #endif
+    [IsoXmlTag("AvlblFinRsrcsAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AvailableFinancialResourcesAmount1 AvailableFinancialResourcesAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AvailableFinancialResourcesAmount1 AvailableFinancialResourcesAmount { get; init; } 
+    public required AvailableFinancialResourcesAmount1 AvailableFinancialResourcesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AvailableFinancialResourcesAmount1 AvailableFinancialResourcesAmount { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord<CCP
     /// Breakdown of other CCP prefunded resources required as part of the default waterfall.
     /// </summary>
     [IsoId("_omGWa-UREem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Prefunded Resources")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPrfnddRsrcs")]
     #endif
+    [IsoXmlTag("OthrPrfnddRsrcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportingAssetBreakdown1? OtherPrefundedResources { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord<CCP
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_omGWbeUREem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord<CCP
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPAvailableFinancialResourcesReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPAvailableFinancialResourcesReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPAvailableFinancialResourcesReportV01Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record CCPAvailableFinancialResourcesReportV01 : IOuterRecord<CCP
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPAvailableFinancialResourcesReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPAvailableFinancialResourcesReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPAvailableFinancialResourcesReportV01Document : IOuterDocument<CCPAvailableFinancialResourcesReportV01>
@@ -158,7 +153,7 @@ public partial record CCPAvailableFinancialResourcesReportV01Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPAvailableFinancialResourcesReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPAvailableFinancialResourcesReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPAvailableFinancialResourcesReportV01 Message { get; init; }

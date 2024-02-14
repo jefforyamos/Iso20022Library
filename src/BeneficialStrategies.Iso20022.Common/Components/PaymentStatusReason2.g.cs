@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information on the status reason of the transaction.
 /// </summary>
 [IsoId("_XaAcF_WfEemtd4wHZYvFUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PaymentStatusReason2
     /// Specifies the reason for the status report.
     /// </summary>
     [IsoId("_XaAcHfWfEemtd4wHZYvFUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerStatusReason1 Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerStatusReason1 Reason { get; init; } 
+    public required TrackerStatusReason1 Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerStatusReason1 Reason { get; init; } 
     #else

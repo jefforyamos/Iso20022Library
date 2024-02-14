@@ -21,7 +21,7 @@ public enum OptionStyle4Code
 {
     /// <summary>
     /// Option can be exercised before or on expiry date.
-    /// Encoded/decoded by serializers as "AMER".
+    /// Encoded/decoded by serializers as &quot;AMER&quot;.
     /// </summary>
     [EnumMember(Value = "AMER")]
     [IsoId("__viXkdojEeC60axPepSq7g_227459046")]
@@ -30,7 +30,7 @@ public enum OptionStyle4Code
     
     /// <summary>
     /// Option that can be exercised on expiry date only.
-    /// Encoded/decoded by serializers as "EURO".
+    /// Encoded/decoded by serializers as &quot;EURO&quot;.
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("__viXktojEeC60axPepSq7g_552576553")]
@@ -39,7 +39,7 @@ public enum OptionStyle4Code
     
     /// <summary>
     /// Option that can be exercised on multiple discrete dates prior to, or on expiry date.
-    /// Encoded/decoded by serializers as "BERM".
+    /// Encoded/decoded by serializers as &quot;BERM&quot;.
     /// </summary>
     [EnumMember(Value = "BERM")]
     [IsoId("__viXk9ojEeC60axPepSq7g_438737487")]

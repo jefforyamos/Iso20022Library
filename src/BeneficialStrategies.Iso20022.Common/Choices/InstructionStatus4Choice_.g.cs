@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionStatus4Choice.ProcessingStatus))]
     [KnownType(typeof(InstructionStatus4Choice.RejectionStatus))]
     [IsoId("_RCpGxdp-Ed-ak6NoX_4Aeg_-1718693015")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Status 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

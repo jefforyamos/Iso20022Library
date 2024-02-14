@@ -21,7 +21,7 @@ public enum PaymentCancellationRejection2Code
 {
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of regulatory rules.
-    /// Encoded/decoded by serializers as "LEGL".
+    /// Encoded/decoded by serializers as &quot;LEGL&quot;.
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_t8xsUVkyEeGeoaLUQk__nA_904992085")]
@@ -30,7 +30,7 @@ public enum PaymentCancellationRejection2Code
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of an agent refuses to cancel.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_t8xsUlkyEeGeoaLUQk__nA_1782896849")]
@@ -39,7 +39,7 @@ public enum PaymentCancellationRejection2Code
     
     /// <summary>
     /// Reported when the cancellation cannot be accepted because of a customer decision (Creditor).
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_t8xsU1kyEeGeoaLUQk__nA_710891790")]
@@ -48,7 +48,7 @@ public enum PaymentCancellationRejection2Code
     
     /// <summary>
     /// Cancellation not accepted as the transaction has already been returned.
-    /// Encoded/decoded by serializers as "ARDT".
+    /// Encoded/decoded by serializers as &quot;ARDT&quot;.
     /// </summary>
     [EnumMember(Value = "ARDT")]
     [IsoId("_t8xsVFkyEeGeoaLUQk__nA_1164979059")]
@@ -57,7 +57,7 @@ public enum PaymentCancellationRejection2Code
     
     /// <summary>
     /// No response from beneficiary (to the cancellation request).
-    /// Encoded/decoded by serializers as "NOAS".
+    /// Encoded/decoded by serializers as &quot;NOAS&quot;.
     /// </summary>
     [EnumMember(Value = "NOAS")]
     [IsoId("_t862QFkyEeGeoaLUQk__nA_-520965957")]
@@ -66,7 +66,7 @@ public enum PaymentCancellationRejection2Code
     
     /// <summary>
     /// Original transaction (subject to cancellation) never received.
-    /// Encoded/decoded by serializers as "NOOR".
+    /// Encoded/decoded by serializers as &quot;NOOR&quot;.
     /// </summary>
     [EnumMember(Value = "NOOR")]
     [IsoId("_t862QVkyEeGeoaLUQk__nA_-1641009312")]
@@ -75,7 +75,7 @@ public enum PaymentCancellationRejection2Code
     
     /// <summary>
     /// Account number specified has been closed on the receiver’s books.
-    /// Encoded/decoded by serializers as "AC04".
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_t862QlkyEeGeoaLUQk__nA_-538589492")]
@@ -84,7 +84,7 @@ public enum PaymentCancellationRejection2Code
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
-    /// Encoded/decoded by serializers as "AM04".
+    /// Encoded/decoded by serializers as &quot;AM04&quot;.
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_t862Q1kyEeGeoaLUQk__nA_-2038615569")]

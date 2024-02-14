@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension to capture new to old ratio with extra digits.
 /// </summary>
 [IsoId("_gCCBwHcYEeGgn5GmpWx6yw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Rate 19 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record CorporateActionRate19SD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_1TV0hXceEeGgn5GmpWx6yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record CorporateActionRate19SD1
     /// Ratio expressed as a quotient of high precision quantities.
     /// </summary>
     [IsoId("_igkj8HccEeGgn5GmpWx6yw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Long Quantity To Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LngQtyToQty")]
     #endif
+    [IsoXmlTag("LngQtyToQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LongQuantityToQuantityRatio2 LongQuantityToQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LongQuantityToQuantityRatio2 LongQuantityToQuantity { get; init; } 
+    public required LongQuantityToQuantityRatio2 LongQuantityToQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LongQuantityToQuantityRatio2 LongQuantityToQuantity { get; init; } 
     #else

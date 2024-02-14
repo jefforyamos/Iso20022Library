@@ -20,7 +20,7 @@ public enum MergerTypeCode
 {
     /// <summary>
     /// The type of merger is an ordinary merger.
-    /// Encoded/decoded by serializers as "MRGR".
+    /// Encoded/decoded by serializers as &quot;MRGR&quot;.
     /// </summary>
     [EnumMember(Value = "MRGR")]
     [IsoId("_MvsxwFOzEeGs_NnqHXQZkw")]
@@ -29,7 +29,7 @@ public enum MergerTypeCode
     
     /// <summary>
     /// The type of merger is an exchange of shares.
-    /// Encoded/decoded by serializers as "EXSH".
+    /// Encoded/decoded by serializers as &quot;EXSH&quot;.
     /// </summary>
     [EnumMember(Value = "EXSH")]
     [IsoId("_bCyc4FOzEeGs_NnqHXQZkw")]
@@ -38,7 +38,7 @@ public enum MergerTypeCode
     
     /// <summary>
     /// The type of merger is a transfer of shares.
-    /// Encoded/decoded by serializers as "TRSH".
+    /// Encoded/decoded by serializers as &quot;TRSH&quot;.
     /// </summary>
     [EnumMember(Value = "TRSH")]
     [IsoId("_gOo2sFOzEeGs_NnqHXQZkw")]

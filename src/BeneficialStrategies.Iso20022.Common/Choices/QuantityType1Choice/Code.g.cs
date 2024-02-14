@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityType1Choice
     /// Quantity type expressed as a code.
     /// </summary>
     [IsoId("_2-19cQaxEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityType1Choice
         /// Specifies how the order is placed, eg by quantity of units or by amount of money.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OrderQuantityType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OrderQuantityType2Code Value { get; init; } 
+        public required OrderQuantityType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OrderQuantityType2Code Value { get; init; } 
         #else

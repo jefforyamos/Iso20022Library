@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DocumentLineType1Choice.Code))]
     [KnownType(typeof(DocumentLineType1Choice.Proprietary))]
     [IsoId("__hXr4abkEeKvUvwX_r3tzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Line Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

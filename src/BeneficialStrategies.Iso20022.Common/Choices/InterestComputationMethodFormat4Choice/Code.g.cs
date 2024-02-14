@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestComputationMethodFormat4
     /// Standard code to specify the method used to compute accruing interest of a financial instrument.
     /// </summary>
     [IsoId("_bMY-4Tm6EeWV5sr121Fc8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestComputationMethodFormat4
         /// Specifies the method used to compute accruing interest of a financial instrument.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InterestComputationMethod2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InterestComputationMethod2Code Value { get; init; } 
+        public required InterestComputationMethod2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InterestComputationMethod2Code Value { get; init; } 
         #else

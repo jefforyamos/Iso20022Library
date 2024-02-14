@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of collateral agreement between counterparties.
 /// </summary>
 [IsoId("_NACgIPP5EeS_qLctCs2aRQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Collateral Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TradeCollateralReport1
     /// Information indicating the type of collateral agreement existing between counterparties.
     /// </summary>
     [IsoId("_UqGo0PP5EeS_qLctCs2aRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateralisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Collstn")]
     #endif
+    [IsoXmlTag("Collstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralisationType1Code Collateralisation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralisationType1Code Collateralisation { get; init; } 
+    public required CollateralisationType1Code Collateralisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralisationType1Code Collateralisation { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record TradeCollateralReport1
     /// A unique code determined by the reporting counterparty to identify the portfolio if collateral is reported on a portfolio basis.
     /// </summary>
     [IsoId("_YX2F4PP5EeS_qLctCs2aRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Portfolio")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtfl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Prtfl")]
+    [IsoSimpleType(IsoSimpleType.Max52Text)]
     [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax52Text? Portfolio { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +88,12 @@ public partial record TradeCollateralReport1
     /// Usage: Where initial margin is posted on a portfolio basis, this field should include the overall value of initial margin posted for the portfolio.
     /// </summary>
     [IsoId("_6mj8gPP6EeS_qLctCs2aRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Posted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnPstd")]
     #endif
+    [IsoXmlTag("InitlMrgnPstd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd20Amount? InitialMarginPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +107,12 @@ public partial record TradeCollateralReport1
     /// Usage: Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// </summary>
     [IsoId("_GvA8EPP7EeS_qLctCs2aRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Posted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnPstd")]
     #endif
+    [IsoXmlTag("VartnMrgnPstd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd20Amount? VariationMarginPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,12 @@ public partial record TradeCollateralReport1
     /// Usage: Where initial margin is received on a portfolio basis, this field should include the overall value of initial margin received for the portfolio.
     /// </summary>
     [IsoId("_i9s_YvP7EeS_qLctCs2aRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnRcvd")]
     #endif
+    [IsoXmlTag("InitlMrgnRcvd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd20Amount? InitialMarginReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,12 +145,12 @@ public partial record TradeCollateralReport1
     /// Usage: Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// </summary>
     [IsoId("_i9s_Y_P7EeS_qLctCs2aRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnRcvd")]
     #endif
+    [IsoXmlTag("VartnMrgnRcvd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd20Amount? VariationMarginReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +163,12 @@ public partial record TradeCollateralReport1
     /// Value of collateral posted in excess of the required collateral.
     /// </summary>
     [IsoId("_EdKPUAN_EeWs3sTa9Sj6Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Excess Collateral Posted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcssCollPstd")]
     #endif
+    [IsoXmlTag("XcssCollPstd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd20Amount? ExcessCollateralPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -186,12 +181,12 @@ public partial record TradeCollateralReport1
     /// Value of collateral received in excess of the required collateral.
     /// </summary>
     [IsoId("_LBAW0gN_EeWs3sTa9Sj6Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Excess Collateral Received")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcssCollRcvd")]
     #endif
+    [IsoXmlTag("XcssCollRcvd")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd20Amount? ExcessCollateralReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

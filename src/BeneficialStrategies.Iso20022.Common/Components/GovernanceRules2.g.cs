@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies rules governing an undertaking such as a guarantee or standby letter of credit.
 /// </summary>
 [IsoId("_OTgzMjIy-AOSNFX-8224493")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Governance Rules")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record GovernanceRules2
     /// Local identification to be used in IDREFs.
     /// </summary>
     [IsoId("_OTgzMjI5-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.ID)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoID Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record GovernanceRules2
     /// Identification of the governance rules.
     /// </summary>
     [IsoId("_OTgzMjMw-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rule Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RuleId")]
     #endif
+    [IsoXmlTag("RuleId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GovernanceIdentification1Choice_ RuleIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GovernanceIdentification1Choice_ RuleIdentification { get; init; } 
+    public required GovernanceIdentification1Choice_ RuleIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GovernanceIdentification1Choice_ RuleIdentification { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record GovernanceRules2
     /// Law applicable to the undertaking.
     /// </summary>
     [IsoId("_OTgzMjMx-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicable Law")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AplblLaw")]
     #endif
+    [IsoXmlTag("AplblLaw")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Location1? ApplicableLaw { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +103,14 @@ public partial record GovernanceRules2
     #endif
     
     /// <summary>
-    /// Place at or system under which any dispute related to the undertaking is to be resolved, such as court or arbitration. This is also known as 'forum'.
+    /// Place at or system under which any dispute related to the undertaking is to be resolved, such as court or arbitration. This is also known as &apos;forum&apos;.
     /// </summary>
     [IsoId("_OTgzMjMy-AOSNFX-8224493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Jurisdiction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Jursdctn")]
     #endif
+    [IsoXmlTag("Jursdctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Location1? Jurisdiction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

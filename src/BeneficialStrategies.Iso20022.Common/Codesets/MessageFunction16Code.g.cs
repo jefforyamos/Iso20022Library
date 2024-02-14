@@ -22,7 +22,7 @@ public enum MessageFunction16Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_4blWEemrEemNVKPwszFC-A")]
@@ -31,7 +31,7 @@ public enum MessageFunction16Code
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_68aUEemrEemNVKPwszFC-A")]
@@ -40,7 +40,7 @@ public enum MessageFunction16Code
     
     /// <summary>
     /// Advice about the capture of an activity already performed (response expected).
-    /// Encoded/decoded by serializers as "CAAD".
+    /// Encoded/decoded by serializers as &quot;CAAD&quot;.
     /// </summary>
     [EnumMember(Value = "CAAD")]
     [IsoId("_86kp4emrEemNVKPwszFC-A")]
@@ -49,7 +49,7 @@ public enum MessageFunction16Code
     
     /// <summary>
     /// Notification about the capture of an activity already performed (no response expected).
-    /// Encoded/decoded by serializers as "CANO".
+    /// Encoded/decoded by serializers as &quot;CANO&quot;.
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_9CAuoemrEemNVKPwszFC-A")]
@@ -58,7 +58,7 @@ public enum MessageFunction16Code
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_90vMEemrEemNVKPwszFC-A")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details for the adjustment of the mandate.
 /// </summary>
 [IsoId("_PJFAQGVQEeacpJ-gG9kyUQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Adjustment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record MandateAdjustment1
     /// Specifies whether an adjustment is to be applied on pre-agreed collection date or not.
     /// </summary>
     [IsoId("_RgDh4GVUEeacpJ-gG9kyUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Adjustment Rule Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtAdjstmntRuleInd")]
     #endif
+    [IsoXmlTag("DtAdjstmntRuleInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator DateAdjustmentRuleIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DateAdjustmentRuleIndicator { get; init; } 
+    public required System.String DateAdjustmentRuleIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DateAdjustmentRuleIndicator { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record MandateAdjustment1
     /// Defines the category of adjustment.
     /// </summary>
     [IsoId("_uNQtMGVUEeacpJ-gG9kyUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctgy")]
     #endif
+    [IsoXmlTag("Ctgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency37Choice_? Category { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,12 @@ public partial record MandateAdjustment1
     /// Pre-agreed amount to increase or decrease the mandate amount as justified per information in the category.
     /// </summary>
     [IsoId("_njXk5WVQEeacpJ-gG9kyUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,12 @@ public partial record MandateAdjustment1
     /// Pre-agreed increase or decrease rate that will be applied to the collection amount.
     /// </summary>
     [IsoId("_OG1PAGoEEearR-CA7eRZXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rate")]
     #endif
+    [IsoXmlTag("Rate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

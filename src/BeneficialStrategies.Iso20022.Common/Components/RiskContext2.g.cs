@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the risk associated with the transaction.
 /// </summary>
 [IsoId("_VFt7wcStEeuBjv5G5kw00g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Risk Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record RiskContext2
     /// Input data to be considered in a risk assessment.
     /// </summary>
     [IsoId("_VKsiYcStEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Input Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskInptData")]
     #endif
+    [IsoXmlTag("RskInptData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskInputData1? RiskInputData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record RiskContext2
     /// Indicates to the card issuer the level of risk associated with the transaction.
     /// </summary>
     [IsoId("_VKtJccStEeuBjv5G5kw00g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Assessment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskAssmnt")]
     #endif
+    [IsoXmlTag("RskAssmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskAssessment2? RiskAssessment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

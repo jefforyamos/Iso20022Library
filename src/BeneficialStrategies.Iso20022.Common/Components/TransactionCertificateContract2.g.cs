@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Certificate and contract reference of a transaction.
 /// </summary>
 [IsoId("__CcGsbMlEeueudaIbClZbQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Certificate Contract")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TransactionCertificateContract2
     /// Reference of the contract provided as through the date and identification of the contract or through the registered contract identification.
     /// </summary>
     [IsoId("__Da-I7MlEeueudaIbClZbQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctRef")]
     #endif
+    [IsoXmlTag("CtrctRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractRegistrationReference2Choice_? ContractReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record TransactionCertificateContract2
     /// Provides the amount of the transaction in the currency of the registered contract.
     /// </summary>
     [IsoId("__Da-JbMlEeueudaIbClZbQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Amount In Contract Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAmtInCtrctCcy")]
     #endif
+    [IsoXmlTag("TxAmtInCtrctCcy")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TransactionAmountInContractCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record TransactionCertificateContract2
     /// Expected shipment date as per registered contract.
     /// </summary>
     [IsoId("__Da-J7MlEeueudaIbClZbQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Shipment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdShipmntDt")]
     #endif
+    [IsoXmlTag("XpctdShipmntDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpectedShipmentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record TransactionCertificateContract2
     /// Expected advance payment (or prepayment) return date in case counterparty will not deliver the goods/services.
     /// </summary>
     [IsoId("__Da-KbMlEeueudaIbClZbQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Advance Payment Return Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdAdvncPmtRtrDt")]
     #endif
+    [IsoXmlTag("XpctdAdvncPmtRtrDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpectedAdvancePaymentReturnDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,15 +113,13 @@ public partial record TransactionCertificateContract2
     /// Further details on the transaction certificate contract.
     /// </summary>
     [IsoId("__Da-K7MlEeueudaIbClZbQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max1025Text)]
     [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ProcessingType1Code
 {
     /// <summary>
     /// Restriction is the rejection during the settlement instruction validation.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_8JT2IqMgEeCJ6YNENx4h-w_-393464774")]
@@ -30,7 +30,7 @@ public enum ProcessingType1Code
     
     /// <summary>
     /// Restriction is setting the CSD validation automatically to hold when accepting a settlement instruction.
-    /// Encoded/decoded by serializers as "CVHD".
+    /// Encoded/decoded by serializers as &quot;CVHD&quot;.
     /// </summary>
     [EnumMember(Value = "CVHD")]
     [IsoId("_8JdAAKMgEeCJ6YNENx4h-w_-1779488563")]
@@ -39,7 +39,7 @@ public enum ProcessingType1Code
     
     /// <summary>
     /// Restriction is the creation of a reservation of a cash balance or a securities position for a specific purpose.
-    /// Encoded/decoded by serializers as "RSVT".
+    /// Encoded/decoded by serializers as &quot;RSVT&quot;.
     /// </summary>
     [EnumMember(Value = "RSVT")]
     [IsoId("_8JdAAaMgEeCJ6YNENx4h-w_-739454268")]
@@ -48,7 +48,7 @@ public enum ProcessingType1Code
     
     /// <summary>
     /// Restriction is the blocking of a party, securities account, security or cash account from settlement, blocking of securities position or cash balance for a specific purpose.
-    /// Encoded/decoded by serializers as "BLCK".
+    /// Encoded/decoded by serializers as &quot;BLCK&quot;.
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_8JdAAqMgEeCJ6YNENx4h-w_-1357372058")]
@@ -57,7 +57,7 @@ public enum ProcessingType1Code
     
     /// <summary>
     /// Restriction of linked to the balance type that defines and manages position types for securities positions.
-    /// Encoded/decoded by serializers as "EARM".
+    /// Encoded/decoded by serializers as &quot;EARM&quot;.
     /// </summary>
     [EnumMember(Value = "EARM")]
     [IsoId("_8JdAA6MgEeCJ6YNENx4h-w_927638380")]
@@ -66,7 +66,7 @@ public enum ProcessingType1Code
     
     /// <summary>
     /// Restriction of linked to the balance type that defines and manages position types for securities positions for auto-collateralisation.
-    /// Encoded/decoded by serializers as "EFAC".
+    /// Encoded/decoded by serializers as &quot;EFAC&quot;.
     /// </summary>
     [EnumMember(Value = "EFAC")]
     [IsoId("_8JdABKMgEeCJ6YNENx4h-w_-1964191071")]
@@ -75,7 +75,7 @@ public enum ProcessingType1Code
     
     /// <summary>
     /// No restriction has been defined.
-    /// Encoded/decoded by serializers as "DLVR".
+    /// Encoded/decoded by serializers as &quot;DLVR&quot;.
     /// </summary>
     [EnumMember(Value = "DLVR")]
     [IsoId("_8JdABaMgEeCJ6YNENx4h-w_1538040308")]
@@ -84,7 +84,7 @@ public enum ProcessingType1Code
     
     /// <summary>
     /// Restriction is linked to a sub-pledged collateral transaction.
-    /// Encoded/decoded by serializers as "COLD".
+    /// Encoded/decoded by serializers as &quot;COLD&quot;.
     /// </summary>
     [EnumMember(Value = "COLD")]
     [IsoId("_8JdABqMgEeCJ6YNENx4h-w_-779072156")]
@@ -93,7 +93,7 @@ public enum ProcessingType1Code
     
     /// <summary>
     /// Restriction does not support any partial execution.
-    /// Encoded/decoded by serializers as "CSDB".
+    /// Encoded/decoded by serializers as &quot;CSDB&quot;.
     /// </summary>
     [EnumMember(Value = "CSDB")]
     [IsoId("_8JdAB6MgEeCJ6YNENx4h-w_1505938282")]

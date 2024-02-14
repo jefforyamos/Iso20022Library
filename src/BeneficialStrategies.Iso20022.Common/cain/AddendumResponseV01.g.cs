@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The AddendumResponse message is sent by an issuer or an agent to an acquirer in response to an AddendumInitiation message.")]
 [IsoId("_XWt78f5kEeiLerArw36g0w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Addendum Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AddendumResponseV01 : IOuterRecord<AddendumResponseV01,Add
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_XWt78_5kEeiLerArw36g0w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header48 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header48 Header { get; init; } 
+    public required Header48 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header48 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AddendumResponseV01 : IOuterRecord<AddendumResponseV01,Add
     /// Information related to an addendum response.
     /// </summary>
     [IsoId("_XWujAf5kEeiLerArw36g0w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AddendumResponse1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AddendumResponse1 Body { get; init; } 
+    public required AddendumResponse1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AddendumResponse1 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AddendumResponseV01 : IOuterRecord<AddendumResponseV01,Add
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_XWujA_5kEeiLerArw36g0w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AddendumResponseV01 : IOuterRecord<AddendumResponseV01,Add
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AddendumResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AddendumResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AddendumResponseV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AddendumResponseV01 : IOuterRecord<AddendumResponseV01,Add
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AddendumResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AddendumResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AddendumResponseV01Document : IOuterDocument<AddendumResponseV01>
@@ -161,7 +156,7 @@ public partial record AddendumResponseV01Document : IOuterDocument<AddendumRespo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AddendumResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AddendumResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AddendumResponseV01 Message { get; init; }

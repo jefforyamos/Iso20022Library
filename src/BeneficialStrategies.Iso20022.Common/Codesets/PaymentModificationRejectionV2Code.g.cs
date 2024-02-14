@@ -21,7 +21,7 @@ public enum PaymentModificationRejectionV2Code
 {
     /// <summary>
     /// Related transaction reference cannot be modified.
-    /// Encoded/decoded by serializers as "UM01".
+    /// Encoded/decoded by serializers as &quot;UM01&quot;.
     /// </summary>
     [EnumMember(Value = "UM01")]
     [IsoId("_Z4u9sdp-Ed-ak6NoX_4Aeg_-1946716667")]
@@ -30,7 +30,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Service level element of payment type cannot be modified(former UnableToModifyBankOperationCode).
-    /// Encoded/decoded by serializers as "UM02".
+    /// Encoded/decoded by serializers as &quot;UM02&quot;.
     /// </summary>
     [EnumMember(Value = "UM02")]
     [IsoId("_Z4u9stp-Ed-ak6NoX_4Aeg_-1946716666")]
@@ -39,7 +39,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Category purpose element of payment type cannot be modified (former UnableToModifyInstructionCode).
-    /// Encoded/decoded by serializers as "UM03".
+    /// Encoded/decoded by serializers as &quot;UM03&quot;.
     /// </summary>
     [EnumMember(Value = "UM03")]
     [IsoId("_Z4u9s9p-Ed-ak6NoX_4Aeg_-1946716636")]
@@ -48,7 +48,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// RequestedExecutionDate cannot be modified.
-    /// Encoded/decoded by serializers as "UM04".
+    /// Encoded/decoded by serializers as &quot;UM04&quot;.
     /// </summary>
     [EnumMember(Value = "UM04")]
     [IsoId("_Z4u9tNp-Ed-ak6NoX_4Aeg_-1946716635")]
@@ -57,7 +57,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// InterbankSettlementDate cannot be modified (former UnableToModifyValueDate).
-    /// Encoded/decoded by serializers as "UM05".
+    /// Encoded/decoded by serializers as &quot;UM05&quot;.
     /// </summary>
     [EnumMember(Value = "UM05")]
     [IsoId("_Z4u9tdp-Ed-ak6NoX_4Aeg_-1946716606")]
@@ -66,7 +66,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// SettlementAccount cannot be modified (former UnableToModifyInterbankSettlementAccount).
-    /// Encoded/decoded by serializers as "UM06".
+    /// Encoded/decoded by serializers as &quot;UM06&quot;.
     /// </summary>
     [EnumMember(Value = "UM06")]
     [IsoId("_Z4u9ttp-Ed-ak6NoX_4Aeg_-1946716575")]
@@ -75,7 +75,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Debtor cannot be modified.
-    /// Encoded/decoded by serializers as "UM07".
+    /// Encoded/decoded by serializers as &quot;UM07&quot;.
     /// </summary>
     [EnumMember(Value = "UM07")]
     [IsoId("_Z4u9t9p-Ed-ak6NoX_4Aeg_-1946716574")]
@@ -84,7 +84,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// DebtorAccount cannot be modified.
-    /// Encoded/decoded by serializers as "UM08".
+    /// Encoded/decoded by serializers as &quot;UM08&quot;.
     /// </summary>
     [EnumMember(Value = "UM08")]
     [IsoId("_Z4u9uNp-Ed-ak6NoX_4Aeg_-1946716544")]
@@ -93,7 +93,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// InstructedReimbursementAgent cannot be modified (former UnableToModifyReceiverCorrespondent).
-    /// Encoded/decoded by serializers as "UM09".
+    /// Encoded/decoded by serializers as &quot;UM09&quot;.
     /// </summary>
     [EnumMember(Value = "UM09")]
     [IsoId("_Z4u9udp-Ed-ak6NoX_4Aeg_-1946716543")]
@@ -102,7 +102,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// ThirdReimbursementAgent cannot be modified (former UnableToModifyThirdReimbursementInstitution).
-    /// Encoded/decoded by serializers as "UM10".
+    /// Encoded/decoded by serializers as &quot;UM10&quot;.
     /// </summary>
     [EnumMember(Value = "UM10")]
     [IsoId("_Z44usNp-Ed-ak6NoX_4Aeg_-1946716514")]
@@ -111,7 +111,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Clearing Channel element of payment type cannot be modified (former UnableToModifyPaymentScheme).
-    /// Encoded/decoded by serializers as "UM11".
+    /// Encoded/decoded by serializers as &quot;UM11&quot;.
     /// </summary>
     [EnumMember(Value = "UM11")]
     [IsoId("_Z44usdp-Ed-ak6NoX_4Aeg_-1946716513")]
@@ -120,7 +120,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Creditor agent account cannot be modified (former UnableToModifyAccountOfBeneficiaryInstitution).
-    /// Encoded/decoded by serializers as "UM12".
+    /// Encoded/decoded by serializers as &quot;UM12&quot;.
     /// </summary>
     [EnumMember(Value = "UM12")]
     [IsoId("_Z44ustp-Ed-ak6NoX_4Aeg_-1946716483")]
@@ -129,7 +129,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Creditor cannot be modified.
-    /// Encoded/decoded by serializers as "UM13".
+    /// Encoded/decoded by serializers as &quot;UM13&quot;.
     /// </summary>
     [EnumMember(Value = "UM13")]
     [IsoId("_Z44us9p-Ed-ak6NoX_4Aeg_-1946716453")]
@@ -138,7 +138,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Creditor account cannot be modified.
-    /// Encoded/decoded by serializers as "UM14".
+    /// Encoded/decoded by serializers as &quot;UM14&quot;.
     /// </summary>
     [EnumMember(Value = "UM14")]
     [IsoId("_Z44utNp-Ed-ak6NoX_4Aeg_-1946716452")]
@@ -147,7 +147,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Remittance information cannot be modified.
-    /// Encoded/decoded by serializers as "UM15".
+    /// Encoded/decoded by serializers as &quot;UM15&quot;.
     /// </summary>
     [EnumMember(Value = "UM15")]
     [IsoId("_Z44utdp-Ed-ak6NoX_4Aeg_-1946716422")]
@@ -156,7 +156,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// PaymentPurpose cannot be modified.
-    /// Encoded/decoded by serializers as "UM16".
+    /// Encoded/decoded by serializers as &quot;UM16&quot;.
     /// </summary>
     [EnumMember(Value = "UM16")]
     [IsoId("_Z44uttp-Ed-ak6NoX_4Aeg_-1946716421")]
@@ -165,7 +165,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Charge bearer cannot be modified (former UnableToModifyDetailsOfCharges).
-    /// Encoded/decoded by serializers as "UM17".
+    /// Encoded/decoded by serializers as &quot;UM17&quot;.
     /// </summary>
     [EnumMember(Value = "UM17")]
     [IsoId("_Z44ut9p-Ed-ak6NoX_4Aeg_-1946716144")]
@@ -174,7 +174,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Instruction for next agent cannot be modified (former UnableToModifySenderToReceiver).
-    /// Encoded/decoded by serializers as "UM18".
+    /// Encoded/decoded by serializers as &quot;UM18&quot;.
     /// </summary>
     [EnumMember(Value = "UM18")]
     [IsoId("_Z44uuNp-Ed-ak6NoX_4Aeg_-1946716143")]
@@ -183,7 +183,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Instruction for creditor agent cannot be modified. (former UnableToModifyInstructionForFinalAgent).
-    /// Encoded/decoded by serializers as "UM19".
+    /// Encoded/decoded by serializers as &quot;UM19&quot;.
     /// </summary>
     [EnumMember(Value = "UM19")]
     [IsoId("_Z44uudp-Ed-ak6NoX_4Aeg_-1946716113")]
@@ -192,7 +192,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Used to inform of cancellation and request a new payment instruction. This should only be used if an agent does not want to modify a pending payment.
-    /// Encoded/decoded by serializers as "UM20".
+    /// Encoded/decoded by serializers as &quot;UM20&quot;.
     /// </summary>
     [EnumMember(Value = "UM20")]
     [IsoId("_Z5CfsNp-Ed-ak6NoX_4Aeg_-1946716082")]
@@ -201,7 +201,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Modification is not possible and the cancellation is requested.
-    /// Encoded/decoded by serializers as "UM21".
+    /// Encoded/decoded by serializers as &quot;UM21&quot;.
     /// </summary>
     [EnumMember(Value = "UM21")]
     [IsoId("_Z5Cfsdp-Ed-ak6NoX_4Aeg_-1946716081")]
@@ -210,7 +210,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Debtor agent account cannot be modified (applicable for direct debits).
-    /// Encoded/decoded by serializers as "UM22".
+    /// Encoded/decoded by serializers as &quot;UM22&quot;.
     /// </summary>
     [EnumMember(Value = "UM22")]
     [IsoId("_Z5Cfstp-Ed-ak6NoX_4Aeg_-666012404")]
@@ -219,7 +219,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Interbank settlement amount cannot be modified.
-    /// Encoded/decoded by serializers as "UM23".
+    /// Encoded/decoded by serializers as &quot;UM23&quot;.
     /// </summary>
     [EnumMember(Value = "UM23")]
     [IsoId("_Z5Cfs9p-Ed-ak6NoX_4Aeg_-606907289")]
@@ -228,7 +228,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Instruction for debtor agent cannot be modified (applicable for direct debits).
-    /// Encoded/decoded by serializers as "UM24".
+    /// Encoded/decoded by serializers as &quot;UM24&quot;.
     /// </summary>
     [EnumMember(Value = "UM24")]
     [IsoId("_Z5CftNp-Ed-ak6NoX_4Aeg_46948941")]
@@ -237,7 +237,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Requested collection date cannot be modified (applicable for direct debits).
-    /// Encoded/decoded by serializers as "UM25".
+    /// Encoded/decoded by serializers as &quot;UM25&quot;.
     /// </summary>
     [EnumMember(Value = "UM25")]
     [IsoId("_Z5Cftdp-Ed-ak6NoX_4Aeg_1249104693")]
@@ -246,7 +246,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Payment type cannot be modified.
-    /// Encoded/decoded by serializers as "UM26".
+    /// Encoded/decoded by serializers as &quot;UM26&quot;.
     /// </summary>
     [EnumMember(Value = "UM26")]
     [IsoId("_Z5Cfttp-Ed-ak6NoX_4Aeg_1695166859")]
@@ -255,7 +255,7 @@ public enum PaymentModificationRejectionV2Code
     
     /// <summary>
     /// Instructed or equivalent amount cannot be modified.
-    /// Encoded/decoded by serializers as "UM27".
+    /// Encoded/decoded by serializers as &quot;UM27&quot;.
     /// </summary>
     [EnumMember(Value = "UM27")]
     [IsoId("_Z5Cft9p-Ed-ak6NoX_4Aeg_1761659391")]

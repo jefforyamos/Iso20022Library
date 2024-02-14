@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingSubServiceQualifier1Choic
     /// Specifies the contents of the sub service qualifier, in a coded form.
     /// </summary>
     [IsoId("_6PphwZqlEeGSON8vddiWzQ_-1237515416")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingSubServiceQualifier1Choic
         /// Qualifies the content of the subservice code.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BillingSubServiceQualifier1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BillingSubServiceQualifier1Code Value { get; init; } 
+        public required BillingSubServiceQualifier1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BillingSubServiceQualifier1Code Value { get; init; } 
         #else

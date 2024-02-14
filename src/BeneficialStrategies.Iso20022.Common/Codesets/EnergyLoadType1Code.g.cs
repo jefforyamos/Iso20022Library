@@ -21,7 +21,7 @@ public enum EnergyLoadType1Code
 {
     /// <summary>
     /// Base load.
-    /// Encoded/decoded by serializers as "BSLD".
+    /// Encoded/decoded by serializers as &quot;BSLD&quot;.
     /// </summary>
     [EnumMember(Value = "BSLD")]
     [IsoId("_rT4f4RVoEeWXLoZC9OIRgg")]
@@ -30,7 +30,7 @@ public enum EnergyLoadType1Code
     
     /// <summary>
     /// Gas day.
-    /// Encoded/decoded by serializers as "GASD".
+    /// Encoded/decoded by serializers as &quot;GASD&quot;.
     /// </summary>
     [EnumMember(Value = "GASD")]
     [IsoId("_rf7X0RVoEeWXLoZC9OIRgg")]
@@ -39,7 +39,7 @@ public enum EnergyLoadType1Code
     
     /// <summary>
     /// Hour and block hours.
-    /// Encoded/decoded by serializers as "HABH".
+    /// Encoded/decoded by serializers as &quot;HABH&quot;.
     /// </summary>
     [EnumMember(Value = "HABH")]
     [IsoId("_rsRxwRVoEeWXLoZC9OIRgg")]
@@ -48,7 +48,7 @@ public enum EnergyLoadType1Code
     
     /// <summary>
     /// Off-Peak.
-    /// Encoded/decoded by serializers as "OFFP".
+    /// Encoded/decoded by serializers as &quot;OFFP&quot;.
     /// </summary>
     [EnumMember(Value = "OFFP")]
     [IsoId("_r4VQwRVoEeWXLoZC9OIRgg")]
@@ -57,7 +57,7 @@ public enum EnergyLoadType1Code
     
     /// <summary>
     /// Other.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_sEYIsRVoEeWXLoZC9OIRgg")]
@@ -66,7 +66,7 @@ public enum EnergyLoadType1Code
     
     /// <summary>
     /// Peak load.
-    /// Encoded/decoded by serializers as "PKLD".
+    /// Encoded/decoded by serializers as &quot;PKLD&quot;.
     /// </summary>
     [EnumMember(Value = "PKLD")]
     [IsoId("_sQbnsRVoEeWXLoZC9OIRgg")]
@@ -75,7 +75,7 @@ public enum EnergyLoadType1Code
     
     /// <summary>
     /// Shaped.
-    /// Encoded/decoded by serializers as "SHPD".
+    /// Encoded/decoded by serializers as &quot;SHPD&quot;.
     /// </summary>
     [EnumMember(Value = "SHPD")]
     [IsoId("_scVVsRVoEeWXLoZC9OIRgg")]

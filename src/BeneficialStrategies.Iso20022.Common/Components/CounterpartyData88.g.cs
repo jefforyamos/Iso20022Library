@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of information specific to the counterparty.
 /// </summary>
 [IsoId("_zwwsHcg3EeuGrNSsxk3B0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CounterpartyData88
     /// Date and time of submission of the report to the trade repository.
     /// </summary>
     [IsoId("_zyM2gcg3EeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgDtTm")]
     #endif
+    [IsoXmlTag("RptgDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ReportingDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ReportingDateTime { get; init; } 
+    public required System.DateTime ReportingDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ReportingDateTime { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record CounterpartyData88
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
     [IsoId("_zyNdkcg3EeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Submitting Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSubmitgNtty")]
     #endif
+    [IsoXmlTag("RptSubmitgNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification15Choice_ ReportSubmittingEntity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification15Choice_ ReportSubmittingEntity { get; init; } 
+    public required OrganisationIdentification15Choice_ ReportSubmittingEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification15Choice_ ReportSubmittingEntity { get; init; } 
     #else
@@ -92,16 +89,13 @@ public partial record CounterpartyData88
     /// Set of information specific to counterparties.
     /// </summary>
     [IsoId("_zyNdk8g3EeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CtrPty")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<CounterpartyData89> Counterparty { get; init; } = new ValueList<CounterpartyData89>(){};
     
     

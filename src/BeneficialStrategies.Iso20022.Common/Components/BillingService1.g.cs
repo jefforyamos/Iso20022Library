@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the values used for every line item service in the statement.
 /// </summary>
 [IsoId("_6PDr1ZqlEeGSON8vddiWzQ_-1150406183")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Service")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record BillingService1
     /// Specifies further detailed values for this service.
     /// </summary>
     [IsoId("_6PDr1pqlEeGSON8vddiWzQ_-1969359864")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Detail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcDtl")]
     #endif
+    [IsoXmlTag("SvcDtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingServiceParameters1 ServiceDetail { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingServiceParameters1 ServiceDetail { get; init; } 
+    public required BillingServiceParameters1 ServiceDetail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingServiceParameters1 ServiceDetail { get; init; } 
     #else
@@ -74,12 +71,11 @@ public partial record BillingService1
     /// Price applied to the service, expressed in the pricing currency.
     /// </summary>
     [IsoId("_6PDr15qlEeGSON8vddiWzQ_972952151")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pric")]
     #endif
+    [IsoXmlTag("Pric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingPrice1? Price { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,16 +88,15 @@ public partial record BillingService1
     /// Code identifying the disposition of the calculated charge.
     /// </summary>
     [IsoId("_6PDr2JqlEeGSON8vddiWzQ_-322179582")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtMtd")]
     #endif
+    [IsoXmlTag("PmtMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ServicePaymentMethod1Code PaymentMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ServicePaymentMethod1Code PaymentMethod { get; init; } 
+    public required ServicePaymentMethod1Code PaymentMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ServicePaymentMethod1Code PaymentMethod { get; init; } 
     #else
@@ -112,16 +107,15 @@ public partial record BillingService1
     /// Amount of the calculated charge, expressed in the pricing currency. This value does not include any tax on the service.
     /// </summary>
     [IsoId("_6PNc0JqlEeGSON8vddiWzQ_-525586085")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Charge Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlChrgPric")]
     #endif
+    [IsoXmlTag("OrgnlChrgPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 OriginalChargePrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 OriginalChargePrice { get; init; } 
+    public required AmountAndDirection34 OriginalChargePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 OriginalChargePrice { get; init; } 
     #else
@@ -132,12 +126,11 @@ public partial record BillingService1
     /// Amount of the calculated charge, expressed in the settlement currency.
     /// </summary>
     [IsoId("_6PNc0ZqlEeGSON8vddiWzQ_1343532522")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Charge Settlement Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlChrgSttlmAmt")]
     #endif
+    [IsoXmlTag("OrgnlChrgSttlmAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? OriginalChargeSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,12 +143,11 @@ public partial record BillingService1
     /// Average daily collected balance required to offset a balance compensable service charge, exclusive of taxes, expressed in the account currency.
     /// </summary>
     [IsoId("_6PNc0pqlEeGSON8vddiWzQ_-551745174")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Required Account Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalReqrdAcctAmt")]
     #endif
+    [IsoXmlTag("BalReqrdAcctAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? BalanceRequiredAccountAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,16 +160,15 @@ public partial record BillingService1
     /// Provides the details of the taxable status of a service.
     /// </summary>
     [IsoId("_6PNc05qlEeGSON8vddiWzQ_-1099969523")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Designation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDsgnt")]
     #endif
+    [IsoXmlTag("TaxDsgnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ServiceTaxDesignation1 TaxDesignation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ServiceTaxDesignation1 TaxDesignation { get; init; } 
+    public required ServiceTaxDesignation1 TaxDesignation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ServiceTaxDesignation1 TaxDesignation { get; init; } 
     #else
@@ -188,12 +179,11 @@ public partial record BillingService1
     /// Provides tax related values for tax calculation methods A, B or D.
     /// </summary>
     [IsoId("_6PNc1JqlEeGSON8vddiWzQ_-972287511")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Calculation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxClctn")]
     #endif
+    [IsoXmlTag("TaxClctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingMethod1Choice_? TaxCalculation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

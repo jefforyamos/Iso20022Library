@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice
     /// Reason why the payment status is pending (failing settlement).
     /// </summary>
     [IsoId("_QWOzt9EdEei798TPbKJMuw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Failing Settlement")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice
         /// Specifies the reason the transaction/instruction is pending failing settlement, and the settlement at the instruction settlement date is no longer possible.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PdgFlngSttlm")]
         #endif
+        [IsoXmlTag("PdgFlngSttlm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingFailingSettlement1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingFailingSettlement1Code Value { get; init; } 
+        public required PendingFailingSettlement1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingFailingSettlement1Code Value { get; init; } 
         #else

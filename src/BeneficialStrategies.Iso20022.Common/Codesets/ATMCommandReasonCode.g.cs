@@ -21,7 +21,7 @@ public enum ATMCommandReasonCode
 {
     /// <summary>
     /// Request the status of or action from the ATM to perform a diagnostic.
-    /// Encoded/decoded by serializers as "DIAG".
+    /// Encoded/decoded by serializers as &quot;DIAG&quot;.
     /// </summary>
     [EnumMember(Value = "DIAG")]
     [IsoId("_vsp7cItGEeSxlKlAGYErFg")]
@@ -30,7 +30,7 @@ public enum ATMCommandReasonCode
     
     /// <summary>
     /// Supervise the ATM.
-    /// Encoded/decoded by serializers as "MONI".
+    /// Encoded/decoded by serializers as &quot;MONI&quot;.
     /// </summary>
     [EnumMember(Value = "MONI")]
     [IsoId("_yRyxsItGEeSxlKlAGYErFg")]
@@ -39,7 +39,7 @@ public enum ATMCommandReasonCode
     
     /// <summary>
     /// Security error.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_02Aa4ItGEeSxlKlAGYErFg")]
@@ -48,7 +48,7 @@ public enum ATMCommandReasonCode
     
     /// <summary>
     /// Desynchronisation of dialogue between entities.
-    /// Encoded/decoded by serializers as "SYNC".
+    /// Encoded/decoded by serializers as &quot;SYNC&quot;.
     /// </summary>
     [EnumMember(Value = "SYNC")]
     [IsoId("_3S6iMItGEeSxlKlAGYErFg")]
@@ -57,7 +57,7 @@ public enum ATMCommandReasonCode
     
     /// <summary>
     /// Update the ATM.
-    /// Encoded/decoded by serializers as "UPDT".
+    /// Encoded/decoded by serializers as &quot;UPDT&quot;.
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_5ZxhAItGEeSxlKlAGYErFg")]

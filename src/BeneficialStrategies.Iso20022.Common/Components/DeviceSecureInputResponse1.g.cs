@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Response to a secure input request.
 /// </summary>
 [IsoId("_n95jEN7HEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Secure Input Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record DeviceSecureInputResponse1
     /// Cardholder PIN data when needed.
     /// </summary>
     [IsoId("_vjOVsN7HEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder PIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrPIN")]
     #endif
+    [IsoXmlTag("CrdhldrPIN")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OnLinePIN6? CardholderPIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

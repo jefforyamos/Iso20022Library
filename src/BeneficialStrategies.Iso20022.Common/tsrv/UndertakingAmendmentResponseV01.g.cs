@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingAmendmentResponse message is sent by the beneficiary to the party that issued the undertaking, either directly or via one or more advising parties, to indicate acceptance or rejection by the beneficiary of the amendment.")]
 [IsoId("_9iGeInltEeG7BsjMvd1mEw_-1174691593")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amendment Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingAmendmentResponseV01 : IOuterRecord<Undertaking
     /// Details related to the proposed amendment response.
     /// </summary>
     [IsoId("_9iGeI3ltEeG7BsjMvd1mEw_1688211765")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Response Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntRspnDtls")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntRspnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
+    public required Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record UndertakingAmendmentResponseV01 : IOuterRecord<Undertaking
     /// Digital signature of the response.
     /// </summary>
     [IsoId("_9iGeJHltEeG7BsjMvd1mEw_-106555432")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record UndertakingAmendmentResponseV01 : IOuterRecord<Undertaking
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingAmendmentResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingAmendmentResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingAmendmentResponseV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record UndertakingAmendmentResponseV01 : IOuterRecord<Undertaking
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingAmendmentResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingAmendmentResponseV01Document : IOuterDocument<UndertakingAmendmentResponseV01>
@@ -140,7 +136,7 @@ public partial record UndertakingAmendmentResponseV01Document : IOuterDocument<U
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingAmendmentResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingAmendmentResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmendmentResponseV01 Message { get; init; }

@@ -21,7 +21,7 @@ public enum AllOtherCash1Code
 {
     /// <summary>
     /// Remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
-    /// Encoded/decoded by serializers as "LIQU".
+    /// Encoded/decoded by serializers as &quot;LIQU&quot;.
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_Kyg_gSYIEeWJkOUkQWu90g")]
@@ -30,7 +30,7 @@ public enum AllOtherCash1Code
     
     /// <summary>
     /// Remaining assets in a portfolio not listed for transfer should not be liquidated and transferred as cash.
-    /// Encoded/decoded by serializers as "NLIQ".
+    /// Encoded/decoded by serializers as &quot;NLIQ&quot;.
     /// </summary>
     [EnumMember(Value = "NLIQ")]
     [IsoId("_K5qJUSYIEeWJkOUkQWu90g")]

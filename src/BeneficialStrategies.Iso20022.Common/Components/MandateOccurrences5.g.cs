@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides further details related to the duration of the mandate and the occurrence of the underlying transactions.
 /// </summary>
 [IsoId("_VlU0kWZVEeuQ__SOdbf47A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Occurrences")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MandateOccurrences5
     /// Identifies the underlying transaction sequence as either recurring or one-off.
     /// </summary>
     [IsoId("_V7Cl42ZVEeuQ__SOdbf47A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqTp")]
     #endif
+    [IsoXmlTag("SeqTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SequenceType2Code SequenceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SequenceType2Code SequenceType { get; init; } 
+    public required SequenceType2Code SequenceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SequenceType2Code SequenceType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MandateOccurrences5
     /// Regularity with which instructions are to be created and processed.
     /// </summary>
     [IsoId("_V7Cl5WZVEeuQ__SOdbf47A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frqcy")]
     #endif
+    [IsoXmlTag("Frqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency36Choice_? Frequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record MandateOccurrences5
     /// Length of time for which the mandate remains valid.
     /// </summary>
     [IsoId("_V7Cl52ZVEeuQ__SOdbf47A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Duration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Drtn")]
     #endif
+    [IsoXmlTag("Drtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriod3? Duration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,12 @@ public partial record MandateOccurrences5
     /// Date of the first collection of a direct debit as per the mandate.
     /// </summary>
     [IsoId("_V7Cl6WZVEeuQ__SOdbf47A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Collection Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstColltnDt")]
     #endif
+    [IsoXmlTag("FrstColltnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FirstCollectionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,12 @@ public partial record MandateOccurrences5
     /// Date of the final collection of a direct debit as per the mandate.
     /// </summary>
     [IsoId("_V7Cl62ZVEeuQ__SOdbf47A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Collection Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlColltnDt")]
     #endif
+    [IsoXmlTag("FnlColltnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FinalCollectionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

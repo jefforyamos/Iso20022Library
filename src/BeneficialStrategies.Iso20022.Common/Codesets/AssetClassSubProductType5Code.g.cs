@@ -21,7 +21,7 @@ public enum AssetClassSubProductType5Code
 {
     /// <summary>
     /// Commodity of type grain.
-    /// Encoded/decoded by serializers as "GRIN".
+    /// Encoded/decoded by serializers as &quot;GRIN&quot;.
     /// </summary>
     [EnumMember(Value = "GRIN")]
     [IsoId("_5hvpgQnzEeWnS-yHF1QhNQ")]

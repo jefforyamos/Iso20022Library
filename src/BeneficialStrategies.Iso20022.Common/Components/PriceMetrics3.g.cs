@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Numeric variables consisting in interest rates, lending fees or haircuts, calculated as weighted averages.
 /// </summary>
 [IsoId("_rpb5cc-nEeufOvGsyZiDWA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PriceMetrics3
     /// Interest rate of the loan.
     /// </summary>
     [IsoId("_rsBTY8-nEeufOvGsyZiDWA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rates")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rates")]
     #endif
+    [IsoXmlTag("Rates")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Rates3? Rates { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record PriceMetrics3
     /// Fee that the borrower of the security or commodity pays to the lender.
     /// </summary>
     [IsoId("_rsBTZc-nEeufOvGsyZiDWA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lending Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LndgFee")]
     #endif
+    [IsoXmlTag("LndgFee")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? LendingFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GovernanceIdentification1Choice
     /// Governance identification information.
     /// </summary>
     [IsoId("_929T0XltEeG7BsjMvd1mEw_-1110032848")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GovernanceIdentification1Choice
         /// Specifies the identification of the rules and laws governing the undertaking.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GovernanceIdentification1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GovernanceIdentification1Code Value { get; init; } 
+        public required GovernanceIdentification1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GovernanceIdentification1Code Value { get; init; } 
         #else

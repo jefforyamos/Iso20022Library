@@ -21,7 +21,7 @@ public enum EventCompletenessStatus1Code
 {
     /// <summary>
     /// Event details are complete.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ajDtFdp-Ed-ak6NoX_4Aeg_1572153086")]
@@ -30,7 +30,7 @@ public enum EventCompletenessStatus1Code
     
     /// <summary>
     /// Event details are not complete.
-    /// Encoded/decoded by serializers as "INCO".
+    /// Encoded/decoded by serializers as &quot;INCO&quot;.
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_ajDtFtp-Ed-ak6NoX_4Aeg_1572153199")]

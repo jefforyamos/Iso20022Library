@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NotificationCancellationRequestS
     /// Provides information about the rejection status.
     /// </summary>
     [IsoId("_RiYWxdp-Ed-ak6NoX_4Aeg_891409846")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.NotificationCancellationRequestS
         /// The rejection reason.
         /// </summary>
         [IsoId("_RkLGhNp-Ed-ak6NoX_4Aeg_1166618034")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         public RejectionReason11FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _RkLGhNp-Ed-ak6NoX_4Aeg_1166618034
         
@@ -62,15 +59,13 @@ namespace BeneficialStrategies.Iso20022.Choices.NotificationCancellationRequestS
         /// Additional information about the status.
         /// </summary>
         [IsoId("_RkLGhdp-Ed-ak6NoX_4Aeg_1166618064")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

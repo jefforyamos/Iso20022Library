@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument17Choice
     /// Cash account to debit for the payment of a subscription or of a savings plan to an investment fund.
     /// </summary>
     [IsoId("_t7vvERdHEeK5g-3oYI0_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument17Choice
         /// Unique and unambiguous identification for the account between the account owner and the account servicer.
         /// </summary>
         [IsoId("_ar93iRczEeK5g-3oYI0_9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountIdentificationAndName3 Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountIdentificationAndName3 Identification { get; init; } 
+        public required AccountIdentificationAndName3 Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountIdentificationAndName3 Identification { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument17Choice
         /// Party that legally owns the account.
         /// </summary>
         [IsoId("_ar93jRczEeK5g-3oYI0_9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnr")]
         #endif
+        [IsoXmlTag("AcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification2Choice_? AccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument17Choice
         /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
         /// </summary>
         [IsoId("_ar93kRczEeK5g-3oYI0_9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Servicer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctSvcr")]
         #endif
+        [IsoXmlTag("AcctSvcr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification2Choice_? AccountServicer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +107,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument17Choice
         /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
         /// </summary>
         [IsoId("_ar93lRczEeK5g-3oYI0_9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Servicer Branch")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctSvcrBrnch")]
         #endif
+        [IsoXmlTag("AcctSvcrBrnch")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchData? AccountServicerBranch { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +124,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument17Choice
         /// Purpose of the account/source fund type. This is typically linked to an investment product, eg, wrapper, ISA.
         /// </summary>
         [IsoId("_698SoBdKEeK5g-3oYI0_9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Investment Account Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InvstmtAcctTp")]
         #endif
+        [IsoXmlTag("InvstmtAcctTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public InvestmentAccountType1Choice_? InvestmentAccountType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +141,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument17Choice
         /// Other identification such as national registration identification number, passport number.
         /// </summary>
         [IsoId("_xpDeUBczEeK5g-3oYI0_9Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner Other Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnrOthrId")]
         #endif
+        [IsoXmlTag("AcctOwnrOthrId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public GenericIdentification46? AccountOwnerOtherIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

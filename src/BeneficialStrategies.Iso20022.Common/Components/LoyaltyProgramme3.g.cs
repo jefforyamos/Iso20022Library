@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Loyalty programme used for partial payment in loyalty value (debit) and computation of loyalty value gained on the monetary value paid by the customer (credit).
 /// </summary>
 [IsoId("_bMhUgcW2EeuhguwJmlgagQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Loyalty Programme")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -47,12 +45,12 @@ public partial record LoyaltyProgramme3
     /// Default: False.
     /// </summary>
     [IsoId("_bQ4QEcW2EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Programme Eligibility Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrgrmmElgbltyInd")]
     #endif
+    [IsoXmlTag("PrgrmmElgbltyInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ProgrammeEligibilityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,15 +63,13 @@ public partial record LoyaltyProgramme3
     /// Entity issuing the loyalty programme.
     /// </summary>
     [IsoId("_bQ4QE8W2EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Programme Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrgrmmIssr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PrgrmmIssr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ProgrammeIssuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +82,11 @@ public partial record LoyaltyProgramme3
     /// Details about the member of the loyalty programme
     /// </summary>
     [IsoId("_bQ4QFcW2EeuhguwJmlgagQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyMmb")]
     #endif
+    [IsoXmlTag("LltyMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyMember2? LoyaltyMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

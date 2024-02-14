@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AmountPrice1Choice.Amount))]
     [KnownType(typeof(AmountPrice1Choice.UnitPrice))]
     [IsoId("_VMB-CNp-Ed-ak6NoX_4Aeg_834424130")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Price 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

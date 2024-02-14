@@ -21,7 +21,7 @@ public enum SupportDocumentType1Code
 {
     /// <summary>
     /// Document is a letter from the bank.
-    /// Encoded/decoded by serializers as "LFBK".
+    /// Encoded/decoded by serializers as &quot;LFBK&quot;.
     /// </summary>
     [EnumMember(Value = "LFBK")]
     [IsoId("_NckB0dnTEeS--7IJLPC9lw")]
@@ -30,7 +30,7 @@ public enum SupportDocumentType1Code
     
     /// <summary>
     /// Document is a letter to the bank.
-    /// Encoded/decoded by serializers as "LTBK".
+    /// Encoded/decoded by serializers as &quot;LTBK&quot;.
     /// </summary>
     [EnumMember(Value = "LTBK")]
     [IsoId("_NmYsM9nTEeS--7IJLPC9lw")]
@@ -39,7 +39,7 @@ public enum SupportDocumentType1Code
     
     /// <summary>
     /// Document is a supporting document.
-    /// Encoded/decoded by serializers as "SUPP".
+    /// Encoded/decoded by serializers as &quot;SUPP&quot;.
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_NsetI9nTEeS--7IJLPC9lw")]

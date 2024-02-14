@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DiscountOrChargeType1Choice.ChargeType))]
     [KnownType(typeof(DiscountOrChargeType1Choice.DiscountType))]
     [IsoId("_St2yMAEcEeCQm6a_G2yO_w_-1902647807")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Or Charge Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Type of detailed aggregated position set report between a pair of counterparties.
 /// </summary>
 [IsoId("_0nw0hcKwEeuM4pgP8Vixbg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Named Position")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record NamedPosition3
     /// Reference date for statistics collection.
     /// </summary>
     [IsoId("_52PEgMKwEeuM4pgP8Vixbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefDt")]
     #endif
+    [IsoXmlTag("RefDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ReferenceDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ReferenceDate { get; init; } 
+    public required System.DateOnly ReferenceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ReferenceDate { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record NamedPosition3
     /// Report containing aggregation of loan and collateral exposures between counterparties by Securities Financing Transaction type, for a limited number of fields.
     /// </summary>
     [IsoId("_0pQCQ8KwEeuM4pgP8Vixbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GnlInf")]
     #endif
+    [IsoXmlTag("GnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet16? GeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record NamedPosition3
     /// Aggregation of data for all transactions pertaining to the loan side, by Securities Financing Transaction type.
     /// </summary>
     [IsoId("_0pQCRcKwEeuM4pgP8Vixbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ln")]
     #endif
+    [IsoXmlTag("Ln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet17? Loan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record NamedPosition3
     /// Aggregation of data for all submissions pertaining to the collateral side, by Securities Financing Transaction type.
     /// </summary>
     [IsoId("_0pQCR8KwEeuM4pgP8Vixbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Coll")]
     #endif
+    [IsoXmlTag("Coll")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet18? Collateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,11 @@ public partial record NamedPosition3
     /// Aggregation of data related to margin reported for cleared Securities Financing Transactions at the level of each pair of entities and portfolio code.
     /// </summary>
     [IsoId("_0pQCScKwEeuM4pgP8Vixbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mrgn")]
     #endif
+    [IsoXmlTag("Mrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet20? Margin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +137,11 @@ public partial record NamedPosition3
     /// Aggregation of data on collateral reuse transactions, at entity level.
     /// </summary>
     [IsoId("_0pQCS8KwEeuM4pgP8Vixbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reuse")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Reuse")]
     #endif
+    [IsoXmlTag("Reuse")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSet19? Reuse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to multimodal transportation of goods.
 /// </summary>
 [IsoId("_StCMANp-Ed-ak6NoX_4Aeg_1369687043")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Multimodal Transport")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record MultimodalTransport3
     /// Identifies the location where the goods are take in charge for transportation.
     /// </summary>
     [IsoId("_StCMAdp-Ed-ak6NoX_4Aeg_1369687683")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taking In Charge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TakngInChrg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TakngInChrg")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TakingInCharge { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TakingInCharge { get; init; } 
+    public required System.String TakingInCharge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TakingInCharge { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record MultimodalTransport3
     /// Identifies the location of the final destination of the goods.
     /// </summary>
     [IsoId("_StL9ANp-Ed-ak6NoX_4Aeg_1369687605")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Final Destination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfFnlDstn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcOfFnlDstn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PlaceOfFinalDestination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceOfFinalDestination { get; init; } 
+    public required System.String PlaceOfFinalDestination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceOfFinalDestination { get; init; } 
     #else

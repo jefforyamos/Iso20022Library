@@ -21,7 +21,7 @@ public enum FileActionType2Code
 {
     /// <summary>
     /// Add a new record or file.
-    /// Encoded/decoded by serializers as "ADDD".
+    /// Encoded/decoded by serializers as &quot;ADDD&quot;.
     /// </summary>
     [EnumMember(Value = "ADDD")]
     [IsoId("_A7LPoZb7Eeuc6pwKtqbEVQ")]
@@ -30,7 +30,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// Replacing  previously added records.
-    /// Encoded/decoded by serializers as "BRPT".
+    /// Encoded/decoded by serializers as &quot;BRPT&quot;.
     /// </summary>
     [EnumMember(Value = "BRPT")]
     [IsoId("_BDlkwZb7Eeuc6pwKtqbEVQ")]
@@ -39,7 +39,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// Delete an existing record or file.
-    /// Encoded/decoded by serializers as "DELT".
+    /// Encoded/decoded by serializers as &quot;DELT&quot;.
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_BJ62QZb7Eeuc6pwKtqbEVQ")]
@@ -48,7 +48,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// System purge.
-    /// Encoded/decoded by serializers as "DLSP".
+    /// Encoded/decoded by serializers as &quot;DLSP&quot;.
     /// </summary>
     [EnumMember(Value = "DLSP")]
     [IsoId("_BPhvAZb7Eeuc6pwKtqbEVQ")]
@@ -57,7 +57,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// Request the content of an existing record or file.
-    /// Encoded/decoded by serializers as "ENQR".
+    /// Encoded/decoded by serializers as &quot;ENQR&quot;.
     /// </summary>
     [EnumMember(Value = "ENQR")]
     [IsoId("_BV3AgZb7Eeuc6pwKtqbEVQ")]
@@ -66,7 +66,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// Other type of file action defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_BcMSAZb7Eeuc6pwKtqbEVQ")]
@@ -75,7 +75,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// Other type of file action defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_BiAmIZb7Eeuc6pwKtqbEVQ")]
@@ -84,7 +84,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// Add a new record or file if none exists or replace an existing record or file if one exists.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_BnuMkZb7Eeuc6pwKtqbEVQ")]
@@ -93,7 +93,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// Request for a file or record.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_BuMA8Zb7Eeuc6pwKtqbEVQ")]
@@ -102,7 +102,7 @@ public enum FileActionType2Code
     
     /// <summary>
     /// Update an existing record or file.
-    /// Encoded/decoded by serializers as "UPDT".
+    /// Encoded/decoded by serializers as &quot;UPDT&quot;.
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_B0JfAZb7Eeuc6pwKtqbEVQ")]

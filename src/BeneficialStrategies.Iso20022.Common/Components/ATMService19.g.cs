@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Service allowed on the account.
 /// </summary>
 [IsoId("_zjuCEa4ZEeW_TaP-ygI0SQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Service")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ATMService19
     /// Describes the type of inquiry selected by the customer or the ATM.
     /// </summary>
     [IsoId("_zuvmUa4ZEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcTp")]
     #endif
+    [IsoXmlTag("SvcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMServiceType8Code ServiceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMServiceType8Code ServiceType { get; init; } 
+    public required ATMServiceType8Code ServiceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMServiceType8Code ServiceType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ATMService19
     /// Variant of the service.
     /// </summary>
     [IsoId("_zuvmU64ZEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Variant")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcVarnt")]
     #endif
+    [IsoXmlTag("SvcVarnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMService18? ServiceVariant { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ATMService19
     /// Limits of amounts.
     /// </summary>
     [IsoId("_zuvmVa4ZEeW_TaP-ygI0SQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lmts")]
     #endif
+    [IsoXmlTag("Lmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMTransactionAmounts6? Limits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

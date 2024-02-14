@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus3Choice
     /// Processing of the instruction/request is pending.
     /// </summary>
     [IsoId("_UV8Dgdp-Ed-ak6NoX_4Aeg_-1645709928")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Processing")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum RetailerService4Code
 {
     /// <summary>
     /// The Sale System requests a login to the POI System.
-    /// Encoded/decoded by serializers as "SMIQ".
+    /// Encoded/decoded by serializers as &quot;SMIQ&quot;.
     /// </summary>
     [EnumMember(Value = "SMIQ")]
     [IsoId("_vHX7Qd6HEeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum RetailerService4Code
     
     /// <summary>
     /// The Sale System requests a logout to the POI System.
-    /// Encoded/decoded by serializers as "SMOQ".
+    /// Encoded/decoded by serializers as &quot;SMOQ&quot;.
     /// </summary>
     [EnumMember(Value = "SMOQ")]
     [IsoId("_vWt-0d6HEeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum RetailerService4Code
     
     /// <summary>
     /// The Sale System requests a session diagnosis to the POI System.
-    /// Encoded/decoded by serializers as "SMDQ".
+    /// Encoded/decoded by serializers as &quot;SMDQ&quot;.
     /// </summary>
     [EnumMember(Value = "SMDQ")]
     [IsoId("_vzpycd6HEeiwsev40qZGEQ")]

@@ -21,7 +21,7 @@ public enum Holding1Code
 {
     /// <summary>
     /// Certificate.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_HrQ00RKgEeKj15WxqwlXPw")]
@@ -30,7 +30,7 @@ public enum Holding1Code
     
     /// <summary>
     /// Non partial holding.
-    /// Encoded/decoded by serializers as "NPRH".
+    /// Encoded/decoded by serializers as &quot;NPRH&quot;.
     /// </summary>
     [EnumMember(Value = "NPRH")]
     [IsoId("_H08VQRKgEeKj15WxqwlXPw")]
@@ -39,7 +39,7 @@ public enum Holding1Code
     
     /// <summary>
     /// Partial holding.
-    /// Encoded/decoded by serializers as "PRTH".
+    /// Encoded/decoded by serializers as &quot;PRTH&quot;.
     /// </summary>
     [EnumMember(Value = "PRTH")]
     [IsoId("_IBT9URKgEeKj15WxqwlXPw")]

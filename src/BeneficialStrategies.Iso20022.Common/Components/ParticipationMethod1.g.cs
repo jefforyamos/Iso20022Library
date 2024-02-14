@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Method of voting participation to a general meeting.
 /// </summary>
 [IsoId("_N5h4UK32EemG7MmivSuE5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Participation Method")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ParticipationMethod1
     /// Method of voting participation to the general meeting.
     /// </summary>
     [IsoId("_13F9kK32EemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtcptnMtd")]
     #endif
+    [IsoXmlTag("PrtcptnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ParticipationMethod1Choice_ ParticipationMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ParticipationMethod1Choice_ ParticipationMethod { get; init; } 
+    public required ParticipationMethod1Choice_ ParticipationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ParticipationMethod1Choice_ ParticipationMethod { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ParticipationMethod1
     /// Deadline for voting on agenda resolutions at the general meeting.
     /// </summary>
     [IsoId("_J_eoIK33EemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Deadline For Voting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrDdlnForVtng")]
     #endif
+    [IsoXmlTag("IssrDdlnForVtng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
+    public required DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     #else

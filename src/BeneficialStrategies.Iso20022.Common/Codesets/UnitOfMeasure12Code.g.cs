@@ -21,7 +21,7 @@ public enum UnitOfMeasure12Code
 {
     /// <summary>
     /// Unit of measure equal to 4, 840 square yards.
-    /// Encoded/decoded by serializers as "ACRE".
+    /// Encoded/decoded by serializers as &quot;ACRE&quot;.
     /// </summary>
     [EnumMember(Value = "ACRE")]
     [IsoId("_tVQiQexmEemioJdkOVFBdw")]
@@ -30,7 +30,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Amount of money deducted from a price or an amount due.
-    /// Encoded/decoded by serializers as "ALOW".
+    /// Encoded/decoded by serializers as &quot;ALOW&quot;.
     /// </summary>
     [EnumMember(Value = "ALOW")]
     [IsoId("_tdxlEexmEemioJdkOVFBdw")]
@@ -39,7 +39,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Number of monetary units specified in a currency, where the unit of currency is explicit and compliant with ISO 4217.
-    /// Encoded/decoded by serializers as "ACCY".
+    /// Encoded/decoded by serializers as &quot;ACCY&quot;.
     /// </summary>
     [EnumMember(Value = "ACCY")]
     [IsoId("_tjfykexmEemioJdkOVFBdw")]
@@ -48,7 +48,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure equal to a 100 square meters.
-    /// Encoded/decoded by serializers as "ARES".
+    /// Encoded/decoded by serializers as &quot;ARES&quot;.
     /// </summary>
     [EnumMember(Value = "ARES")]
     [IsoId("_tpwLkexmEemioJdkOVFBdw")]
@@ -57,7 +57,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Code for a bag.
-    /// Encoded/decoded by serializers as "BAGG".
+    /// Encoded/decoded by serializers as &quot;BAGG&quot;.
     /// </summary>
     [EnumMember(Value = "BAGG")]
     [IsoId("_tzv1EexmEemioJdkOVFBdw")]
@@ -66,7 +66,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Code for a bale.
-    /// Encoded/decoded by serializers as "BALE".
+    /// Encoded/decoded by serializers as &quot;BALE&quot;.
     /// </summary>
     [EnumMember(Value = "BALE")]
     [IsoId("_t5i7EexmEemioJdkOVFBdw")]
@@ -75,7 +75,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to 42 US gallons.
-    /// Encoded/decoded by serializers as "BARL".
+    /// Encoded/decoded by serializers as &quot;BARL&quot;.
     /// </summary>
     [EnumMember(Value = "BARL")]
     [IsoId("_uAVfkexmEemioJdkOVFBdw")]
@@ -84,7 +84,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure for large volumes of natural gas equivalent to 28316846 cubic meters.
-    /// Encoded/decoded by serializers as "BCUF".
+    /// Encoded/decoded by serializers as &quot;BCUF&quot;.
     /// </summary>
     [EnumMember(Value = "BCUF")]
     [IsoId("_uHbmEexmEemioJdkOVFBdw")]
@@ -93,7 +93,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of length equal to 144 cubic inches.
-    /// Encoded/decoded by serializers as "BDFT".
+    /// Encoded/decoded by serializers as &quot;BDFT&quot;.
     /// </summary>
     [EnumMember(Value = "BDFT")]
     [IsoId("_uPmDkexmEemioJdkOVFBdw")]
@@ -102,7 +102,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Code for a bottle.
-    /// Encoded/decoded by serializers as "BOTL".
+    /// Encoded/decoded by serializers as &quot;BOTL&quot;.
     /// </summary>
     [EnumMember(Value = "BOTL")]
     [IsoId("_uWTvkexmEemioJdkOVFBdw")]
@@ -111,7 +111,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Code for a box.
-    /// Encoded/decoded by serializers as "BOXX".
+    /// Encoded/decoded by serializers as &quot;BOXX&quot;.
     /// </summary>
     [EnumMember(Value = "BOXX")]
     [IsoId("_udLMkexmEemioJdkOVFBdw")]
@@ -120,7 +120,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of heat required to raise the temperature of one pound of water by one degree Fahrenheit.
-    /// Encoded/decoded by serializers as "BRTU".
+    /// Encoded/decoded by serializers as &quot;BRTU&quot;.
     /// </summary>
     [EnumMember(Value = "BRTU")]
     [IsoId("_umaBEexmEemioJdkOVFBdw")]
@@ -129,7 +129,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of weight that is equal to 8 gallons. Mostly used for agricultural products with a specification of weight defined for each commodity differently.
-    /// Encoded/decoded by serializers as "BUSL".
+    /// Encoded/decoded by serializers as &quot;BUSL&quot;.
     /// </summary>
     [EnumMember(Value = "BUSL")]
     [IsoId("_utp4kexmEemioJdkOVFBdw")]
@@ -138,7 +138,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Code for a carton.
-    /// Encoded/decoded by serializers as "CRTN".
+    /// Encoded/decoded by serializers as &quot;CRTN&quot;.
     /// </summary>
     [EnumMember(Value = "CRTN")]
     [IsoId("_uzEkEexmEemioJdkOVFBdw")]
@@ -147,7 +147,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to one hundredth of a litre.
-    /// Encoded/decoded by serializers as "CELI".
+    /// Encoded/decoded by serializers as &quot;CELI&quot;.
     /// </summary>
     [EnumMember(Value = "CELI")]
     [IsoId("_u5euEexmEemioJdkOVFBdw")]
@@ -156,7 +156,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure that is equal to one hundredth of a metre.
-    /// Encoded/decoded by serializers as "CMET".
+    /// Encoded/decoded by serializers as &quot;CMET&quot;.
     /// </summary>
     [EnumMember(Value = "CMET")]
     [IsoId("_vWxuEexmEemioJdkOVFBdw")]
@@ -165,7 +165,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of length equal to 3 feet or 0.9144 metre.
-    /// Encoded/decoded by serializers as "YARD".
+    /// Encoded/decoded by serializers as &quot;YARD&quot;.
     /// </summary>
     [EnumMember(Value = "YARD")]
     [IsoId("_v0ryEexmEemioJdkOVFBdw")]
@@ -174,7 +174,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of weight, in the US 2000 lb (short ton).
-    /// Encoded/decoded by serializers as "USTN".
+    /// Encoded/decoded by serializers as &quot;USTN&quot;.
     /// </summary>
     [EnumMember(Value = "USTN")]
     [IsoId("_v-OIkexmEemioJdkOVFBdw")]
@@ -183,7 +183,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to 2 pints.
-    /// Encoded/decoded by serializers as "USQA".
+    /// Encoded/decoded by serializers as &quot;USQA&quot;.
     /// </summary>
     [EnumMember(Value = "USQA")]
     [IsoId("_wFAtEexmEemioJdkOVFBdw")]
@@ -192,7 +192,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to 473 cubic centimetres.
-    /// Encoded/decoded by serializers as "USPI".
+    /// Encoded/decoded by serializers as &quot;USPI&quot;.
     /// </summary>
     [EnumMember(Value = "USPI")]
     [IsoId("_wM3okexmEemioJdkOVFBdw")]
@@ -201,7 +201,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of weight equal to a sixteenth of a pound.
-    /// Encoded/decoded by serializers as "USOU".
+    /// Encoded/decoded by serializers as &quot;USOU&quot;.
     /// </summary>
     [EnumMember(Value = "USOU")]
     [IsoId("_wT-WIexmEemioJdkOVFBdw")]
@@ -210,7 +210,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of weight or mass of various values in the US Customary System also known as quintal, cental or centum. Equal to 100 lbs.
-    /// Encoded/decoded by serializers as "UCWT".
+    /// Encoded/decoded by serializers as &quot;UCWT&quot;.
     /// </summary>
     [EnumMember(Value = "UCWT")]
     [IsoId("_wdHrEexmEemioJdkOVFBdw")]
@@ -219,7 +219,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to 8 pints.
-    /// Encoded/decoded by serializers as "USGA".
+    /// Encoded/decoded by serializers as &quot;USGA&quot;.
     /// </summary>
     [EnumMember(Value = "USGA")]
     [IsoId("_wm9jkexmEemioJdkOVFBdw")]
@@ -228,7 +228,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume equal to 2, 957353 centilitre.
-    /// Encoded/decoded by serializers as "USFO".
+    /// Encoded/decoded by serializers as &quot;USFO&quot;.
     /// </summary>
     [EnumMember(Value = "USFO")]
     [IsoId("_wvgbkexmEemioJdkOVFBdw")]
@@ -237,7 +237,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume equal to 158, 9873 litre.
-    /// Encoded/decoded by serializers as "USBA".
+    /// Encoded/decoded by serializers as &quot;USBA&quot;.
     /// </summary>
     [EnumMember(Value = "USBA")]
     [IsoId("_w2EWkexmEemioJdkOVFBdw")]
@@ -246,7 +246,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of weight equal to 31.1034768 grams. Used in precious metals.
-    /// Encoded/decoded by serializers as "OZTR".
+    /// Encoded/decoded by serializers as &quot;OZTR&quot;.
     /// </summary>
     [EnumMember(Value = "OZTR")]
     [IsoId("_w-TskexmEemioJdkOVFBdw")]
@@ -255,7 +255,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Tons of carbon dioxide.
-    /// Encoded/decoded by serializers as "TOCD".
+    /// Encoded/decoded by serializers as &quot;TOCD&quot;.
     /// </summary>
     [EnumMember(Value = "TOCD")]
     [IsoId("_xQisEexmEemioJdkOVFBdw")]
@@ -264,7 +264,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to one thousandth of a litre.
-    /// Encoded/decoded by serializers as "MILI".
+    /// Encoded/decoded by serializers as &quot;MILI&quot;.
     /// </summary>
     [EnumMember(Value = "MILI")]
     [IsoId("_xml0kexmEemioJdkOVFBdw")]
@@ -273,7 +273,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure that is a thousandth of one metre.
-    /// Encoded/decoded by serializers as "MMET".
+    /// Encoded/decoded by serializers as &quot;MMET&quot;.
     /// </summary>
     [EnumMember(Value = "MMET")]
     [IsoId("_xrx2kexmEemioJdkOVFBdw")]
@@ -282,7 +282,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to 1 million barrels equivalent to 42.000.000 US gallons.
-    /// Encoded/decoded by serializers as "MIBA".
+    /// Encoded/decoded by serializers as &quot;MIBA&quot;.
     /// </summary>
     [EnumMember(Value = "MIBA")]
     [IsoId("_xw0HkexmEemioJdkOVFBdw")]
@@ -291,7 +291,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of heat equal to one million British thermal unit (BTU).
-    /// Encoded/decoded by serializers as "MBTU".
+    /// Encoded/decoded by serializers as &quot;MBTU&quot;.
     /// </summary>
     [EnumMember(Value = "MBTU")]
     [IsoId("_x36OEexmEemioJdkOVFBdw")]
@@ -300,7 +300,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Standard length of cloth, wallpaper, as an item for sale or amount of a substance.
-    /// Encoded/decoded by serializers as "PIEC".
+    /// Encoded/decoded by serializers as &quot;PIEC&quot;.
     /// </summary>
     [EnumMember(Value = "PIEC")]
     [IsoId("_x-FukexmEemioJdkOVFBdw")]
@@ -309,7 +309,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of weight equal to 0.454 kilograms.
-    /// Encoded/decoded by serializers as "PUND".
+    /// Encoded/decoded by serializers as &quot;PUND&quot;.
     /// </summary>
     [EnumMember(Value = "PUND")]
     [IsoId("_yGLTkexmEemioJdkOVFBdw")]
@@ -318,7 +318,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Amount of money borrowed, or part of that amount which remains unpaid (excluding interest).
-    /// Encoded/decoded by serializers as "PWRD".
+    /// Encoded/decoded by serializers as &quot;PWRD&quot;.
     /// </summary>
     [EnumMember(Value = "PWRD")]
     [IsoId("_yLNkkexmEemioJdkOVFBdw")]
@@ -327,7 +327,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Financial instrument that gives the owner right to dividends paid by a company and the most junior claim on the companies assets in the event of a bankruptcy.
-    /// Encoded/decoded by serializers as "SHAS".
+    /// Encoded/decoded by serializers as &quot;SHAS&quot;.
     /// </summary>
     [EnumMember(Value = "SHAS")]
     [IsoId("_yWp_kexmEemioJdkOVFBdw")]
@@ -336,7 +336,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a surface, one centimetre by one centimetre.
-    /// Encoded/decoded by serializers as "SCMT".
+    /// Encoded/decoded by serializers as &quot;SCMT&quot;.
     /// </summary>
     [EnumMember(Value = "SCMT")]
     [IsoId("_yfz7kexmEemioJdkOVFBdw")]
@@ -345,7 +345,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a surface, one foot by one foot.
-    /// Encoded/decoded by serializers as "SQFO".
+    /// Encoded/decoded by serializers as &quot;SQFO&quot;.
     /// </summary>
     [EnumMember(Value = "SQFO")]
     [IsoId("_ypCwEexmEemioJdkOVFBdw")]
@@ -354,7 +354,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a surface, one inch by one inch.
-    /// Encoded/decoded by serializers as "SQIN".
+    /// Encoded/decoded by serializers as &quot;SQIN&quot;.
     /// </summary>
     [EnumMember(Value = "SQIN")]
     [IsoId("_yyRkkexmEemioJdkOVFBdw")]
@@ -363,7 +363,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a surface, one kilometre by one kilometre.
-    /// Encoded/decoded by serializers as "SQKI".
+    /// Encoded/decoded by serializers as &quot;SQKI&quot;.
     /// </summary>
     [EnumMember(Value = "SQKI")]
     [IsoId("_y5-vEexmEemioJdkOVFBdw")]
@@ -372,7 +372,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a surface, one metre by one metre.
-    /// Encoded/decoded by serializers as "SMET".
+    /// Encoded/decoded by serializers as &quot;SMET&quot;.
     /// </summary>
     [EnumMember(Value = "SMET")]
     [IsoId("_zA7EkexmEemioJdkOVFBdw")]
@@ -381,7 +381,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a surface, one mile by one mile.
-    /// Encoded/decoded by serializers as "SQMI".
+    /// Encoded/decoded by serializers as &quot;SQMI&quot;.
     /// </summary>
     [EnumMember(Value = "SQMI")]
     [IsoId("_zGkZkexmEemioJdkOVFBdw")]
@@ -390,7 +390,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a surface, one millimetre by one millimetre.
-    /// Encoded/decoded by serializers as "SMIL".
+    /// Encoded/decoded by serializers as &quot;SMIL&quot;.
     /// </summary>
     [EnumMember(Value = "SMIL")]
     [IsoId("_zL_FEexmEemioJdkOVFBdw")]
@@ -399,7 +399,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a surface, one yard by one yard.
-    /// Encoded/decoded by serializers as "SQYA".
+    /// Encoded/decoded by serializers as &quot;SQYA&quot;.
     /// </summary>
     [EnumMember(Value = "SQYA")]
     [IsoId("_zSeHkexmEemioJdkOVFBdw")]
@@ -408,7 +408,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of heat, often used a unit of measure for natural gas in the UK.
-    /// Encoded/decoded by serializers as "THMS".
+    /// Encoded/decoded by serializers as &quot;THMS&quot;.
     /// </summary>
     [EnumMember(Value = "THMS")]
     [IsoId("_zZCCkexmEemioJdkOVFBdw")]
@@ -417,7 +417,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of weight, in Britain 2240lb (long ton)and in the US 2000lb (short ton).
-    /// Encoded/decoded by serializers as "TONS".
+    /// Encoded/decoded by serializers as &quot;TONS&quot;.
     /// </summary>
     [EnumMember(Value = "TONS")]
     [IsoId("_zkBKkexmEemioJdkOVFBdw")]
@@ -426,7 +426,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of length equal to 1, 760 yards.
-    /// Encoded/decoded by serializers as "MILE".
+    /// Encoded/decoded by serializers as &quot;MILE&quot;.
     /// </summary>
     [EnumMember(Value = "MILE")]
     [IsoId("_z61IEexmEemioJdkOVFBdw")]
@@ -435,7 +435,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of mass equal to 1000 kilograms; equivalent to approximately 2,204.6 pounds, 1.102 short tons (US) or 0.984 long tons (imperial).
-    /// Encoded/decoded by serializers as "TONE".
+    /// Encoded/decoded by serializers as &quot;TONE&quot;.
     /// </summary>
     [EnumMember(Value = "TONE")]
     [IsoId("_0AjVkexmEemioJdkOVFBdw")]
@@ -444,7 +444,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of length in the metric system, equal to 39.37 inches.
-    /// Encoded/decoded by serializers as "METR".
+    /// Encoded/decoded by serializers as &quot;METR&quot;.
     /// </summary>
     [EnumMember(Value = "METR")]
     [IsoId("_0F5IkexmEemioJdkOVFBdw")]
@@ -453,7 +453,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one year.
-    /// Encoded/decoded by serializers as "MWYC".
+    /// Encoded/decoded by serializers as &quot;MWYC&quot;.
     /// </summary>
     [EnumMember(Value = "MWYC")]
     [IsoId("_0KZOEexmEemioJdkOVFBdw")]
@@ -462,7 +462,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one month.
-    /// Encoded/decoded by serializers as "MMOC".
+    /// Encoded/decoded by serializers as &quot;MMOC&quot;.
     /// </summary>
     [EnumMember(Value = "MMOC")]
     [IsoId("_0V1pEexmEemioJdkOVFBdw")]
@@ -471,7 +471,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one minute.
-    /// Encoded/decoded by serializers as "MWMC".
+    /// Encoded/decoded by serializers as &quot;MWMC&quot;.
     /// </summary>
     [EnumMember(Value = "MWMC")]
     [IsoId("_0aHFEexmEemioJdkOVFBdw")]
@@ -480,7 +480,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one hour.
-    /// Encoded/decoded by serializers as "MWHC".
+    /// Encoded/decoded by serializers as &quot;MWHC&quot;.
     /// </summary>
     [EnumMember(Value = "MWHC")]
     [IsoId("_0fmpEexmEemioJdkOVFBdw")]
@@ -489,7 +489,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure that is equal to the power consumption of one megawatt during one hour.
-    /// Encoded/decoded by serializers as "MWHO".
+    /// Encoded/decoded by serializers as &quot;MWHO&quot;.
     /// </summary>
     [EnumMember(Value = "MWHO")]
     [IsoId("_0kLnEexmEemioJdkOVFBdw")]
@@ -498,7 +498,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000000 watt in one day.
-    /// Encoded/decoded by serializers as "MWDC".
+    /// Encoded/decoded by serializers as &quot;MWDC&quot;.
     /// </summary>
     [EnumMember(Value = "MWDC")]
     [IsoId("_0qSPEexmEemioJdkOVFBdw")]
@@ -507,7 +507,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Indication of the unit of measurement.
-    /// Encoded/decoded by serializers as "LOTS".
+    /// Encoded/decoded by serializers as &quot;LOTS&quot;.
     /// </summary>
     [EnumMember(Value = "LOTS")]
     [IsoId("_0wAckexmEemioJdkOVFBdw")]
@@ -516,7 +516,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to a thousand cubic centimetres.
-    /// Encoded/decoded by serializers as "LITR".
+    /// Encoded/decoded by serializers as &quot;LITR&quot;.
     /// </summary>
     [EnumMember(Value = "LITR")]
     [IsoId("_06nKEexmEemioJdkOVFBdw")]
@@ -525,7 +525,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one year.
-    /// Encoded/decoded by serializers as "KWYC".
+    /// Encoded/decoded by serializers as &quot;KWYC&quot;.
     /// </summary>
     [EnumMember(Value = "KWYC")]
     [IsoId("_1DTzEexmEemioJdkOVFBdw")]
@@ -534,7 +534,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one month.
-    /// Encoded/decoded by serializers as "KWMC".
+    /// Encoded/decoded by serializers as &quot;KWMC&quot;.
     /// </summary>
     [EnumMember(Value = "KWMC")]
     [IsoId("_1KL3IexmEemioJdkOVFBdw")]
@@ -543,7 +543,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one minute.
-    /// Encoded/decoded by serializers as "KMOC".
+    /// Encoded/decoded by serializers as &quot;KMOC&quot;.
     /// </summary>
     [EnumMember(Value = "KMOC")]
     [IsoId("_1TaroexmEemioJdkOVFBdw")]
@@ -552,7 +552,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one hour.
-    /// Encoded/decoded by serializers as "KWHC".
+    /// Encoded/decoded by serializers as &quot;KWHC&quot;.
     /// </summary>
     [EnumMember(Value = "KWHC")]
     [IsoId("_1mf_sexmEemioJdkOVFBdw")]
@@ -561,7 +561,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure of the capacity of production of electric power equal to 1000 watt in one day.
-    /// Encoded/decoded by serializers as "KWDC".
+    /// Encoded/decoded by serializers as &quot;KWDC&quot;.
     /// </summary>
     [EnumMember(Value = "KWDC")]
     [IsoId("_2DPmEexmEemioJdkOVFBdw")]
@@ -570,7 +570,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure that is equal to the power consumption of one kilowatt during one hour.
-    /// Encoded/decoded by serializers as "KWHO".
+    /// Encoded/decoded by serializers as &quot;KWHO&quot;.
     /// </summary>
     [EnumMember(Value = "KWHO")]
     [IsoId("_2OE9EexmEemioJdkOVFBdw")]
@@ -579,7 +579,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure that is equal to 1, 000 meters.
-    /// Encoded/decoded by serializers as "KMET".
+    /// Encoded/decoded by serializers as &quot;KMET&quot;.
     /// </summary>
     [EnumMember(Value = "KMET")]
     [IsoId("_2f3QoexmEemioJdkOVFBdw")]
@@ -588,7 +588,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Basic unit of mass in the SI system, 1000 grams.
-    /// Encoded/decoded by serializers as "KILO".
+    /// Encoded/decoded by serializers as &quot;KILO&quot;.
     /// </summary>
     [EnumMember(Value = "KILO")]
     [IsoId("_2mVsEexmEemioJdkOVFBdw")]
@@ -597,7 +597,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Decimal number used to calculate an amount or a price.
-    /// Encoded/decoded by serializers as "IPNT".
+    /// Encoded/decoded by serializers as &quot;IPNT&quot;.
     /// </summary>
     [EnumMember(Value = "IPNT")]
     [IsoId("_2wBzkexmEemioJdkOVFBdw")]
@@ -606,7 +606,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of length equal to 2.54 cm.
-    /// Encoded/decoded by serializers as "INCH".
+    /// Encoded/decoded by serializers as &quot;INCH&quot;.
     /// </summary>
     [EnumMember(Value = "INCH")]
     [IsoId("_23gUkexmEemioJdkOVFBdw")]
@@ -615,7 +615,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of weight or mass of various values in the Imperial Unit System also known as quintal, cental or centum.
-    /// Encoded/decoded by serializers as "HUWG".
+    /// Encoded/decoded by serializers as &quot;HUWG&quot;.
     /// </summary>
     [EnumMember(Value = "HUWG")]
     [IsoId("_3ADMkexmEemioJdkOVFBdw")]
@@ -624,7 +624,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure that is equal to 10, 000 square meters.
-    /// Encoded/decoded by serializers as "HECT".
+    /// Encoded/decoded by serializers as &quot;HECT&quot;.
     /// </summary>
     [EnumMember(Value = "HECT")]
     [IsoId("_3KbQkexmEemioJdkOVFBdw")]
@@ -633,7 +633,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure that is equal to a 1, 000th of a kilo.
-    /// Encoded/decoded by serializers as "GRAM".
+    /// Encoded/decoded by serializers as &quot;GRAM&quot;.
     /// </summary>
     [EnumMember(Value = "GRAM")]
     [IsoId("_3RcekexmEemioJdkOVFBdw")]
@@ -642,7 +642,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure that is equal to the power consumption of one Gigawatt during one hour.
-    /// Encoded/decoded by serializers as "GWHO".
+    /// Encoded/decoded by serializers as &quot;GWHO&quot;.
     /// </summary>
     [EnumMember(Value = "GWHO")]
     [IsoId("_3awLkexmEemioJdkOVFBdw")]
@@ -651,7 +651,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of weight, in Britain 2240 lb (long ton).
-    /// Encoded/decoded by serializers as "GBTN".
+    /// Encoded/decoded by serializers as &quot;GBTN&quot;.
     /// </summary>
     [EnumMember(Value = "GBTN")]
     [IsoId("_3j1PEexmEemioJdkOVFBdw")]
@@ -660,7 +660,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to 2 pints.
-    /// Encoded/decoded by serializers as "GBQA".
+    /// Encoded/decoded by serializers as &quot;GBQA&quot;.
     /// </summary>
     [EnumMember(Value = "GBQA")]
     [IsoId("_3sc_kexmEemioJdkOVFBdw")]
@@ -669,7 +669,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to 568 cubic centimetres.
-    /// Encoded/decoded by serializers as "GBPI".
+    /// Encoded/decoded by serializers as &quot;GBPI&quot;.
     /// </summary>
     [EnumMember(Value = "GBPI")]
     [IsoId("_4J-pEexmEemioJdkOVFBdw")]
@@ -678,7 +678,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of weight equal to a sixteenth of a pound.
-    /// Encoded/decoded by serializers as "GBOU".
+    /// Encoded/decoded by serializers as &quot;GBOU&quot;.
     /// </summary>
     [EnumMember(Value = "GBOU")]
     [IsoId("_4QYzEexmEemioJdkOVFBdw")]
@@ -687,7 +687,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to 8 pints.
-    /// Encoded/decoded by serializers as "GBGA".
+    /// Encoded/decoded by serializers as &quot;GBGA&quot;.
     /// </summary>
     [EnumMember(Value = "GBGA")]
     [IsoId("_4jYnkexmEemioJdkOVFBdw")]
@@ -696,7 +696,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume equal to 2, 841 306 centilitre.
-    /// Encoded/decoded by serializers as "GBFO".
+    /// Encoded/decoded by serializers as &quot;GBFO&quot;.
     /// </summary>
     [EnumMember(Value = "GBFO")]
     [IsoId("_4pG1EexmEemioJdkOVFBdw")]
@@ -705,7 +705,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Amount of fuel alternative equal to one gallon of gasoline.
-    /// Encoded/decoded by serializers as "GGEU".
+    /// Encoded/decoded by serializers as &quot;GGEU&quot;.
     /// </summary>
     [EnumMember(Value = "GGEU")]
     [IsoId("_4urRkexmEemioJdkOVFBdw")]
@@ -714,7 +714,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Exchange traded contract that defines an agreement to buy specific quantities of a commodity or financial instrument at an agreed time in the future.
-    /// Encoded/decoded by serializers as "FUTU".
+    /// Encoded/decoded by serializers as &quot;FUTU&quot;.
     /// </summary>
     [EnumMember(Value = "FUTU")]
     [IsoId("_44NoEexmEemioJdkOVFBdw")]
@@ -723,7 +723,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of length equal to 1/3 yard.
-    /// Encoded/decoded by serializers as "FOOT".
+    /// Encoded/decoded by serializers as &quot;FOOT&quot;.
     /// </summary>
     [EnumMember(Value = "FOOT")]
     [IsoId("_5AJcEexmEemioJdkOVFBdw")]
@@ -732,7 +732,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure for reduction of carbon dioxide emission (in metric ton) that may result in Environmental Credit.
-    /// Encoded/decoded by serializers as "ENVO".
+    /// Encoded/decoded by serializers as &quot;ENVO&quot;.
     /// </summary>
     [EnumMember(Value = "ENVO")]
     [IsoId("_5FyxEexmEemioJdkOVFBdw")]
@@ -741,7 +741,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of measure for ownership of credit (or allowance) of carbon dioxide emission (in metric ton).
-    /// Encoded/decoded by serializers as "ENVC".
+    /// Encoded/decoded by serializers as &quot;ENVC&quot;.
     /// </summary>
     [EnumMember(Value = "ENVC")]
     [IsoId("_-wC-IexmEemioJdkOVFBdw")]
@@ -750,7 +750,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of weight that is equal to the same mass value as a metric ton excluding moisture.
-    /// Encoded/decoded by serializers as "DMET".
+    /// Encoded/decoded by serializers as &quot;DMET&quot;.
     /// </summary>
     [EnumMember(Value = "DMET")]
     [IsoId("_-4H8EexmEemioJdkOVFBdw")]
@@ -759,7 +759,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Amount of fuel alternative equal to one gallon of diesel.
-    /// Encoded/decoded by serializers as "DGEU".
+    /// Encoded/decoded by serializers as &quot;DGEU&quot;.
     /// </summary>
     [EnumMember(Value = "DGEU")]
     [IsoId("_-9xREexmEemioJdkOVFBdw")]
@@ -768,7 +768,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of time that is equal to 24 hours.
-    /// Encoded/decoded by serializers as "DAYS".
+    /// Encoded/decoded by serializers as &quot;DAYS&quot;.
     /// </summary>
     [EnumMember(Value = "DAYS")]
     [IsoId("__HJ2kexmEemioJdkOVFBdw")]
@@ -777,7 +777,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to one thousandth of a litre.
-    /// Encoded/decoded by serializers as "CBML".
+    /// Encoded/decoded by serializers as &quot;CBML&quot;.
     /// </summary>
     [EnumMember(Value = "CBML")]
     [IsoId("__NaPkexmEemioJdkOVFBdw")]
@@ -786,7 +786,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of volume that is equal to one meter in length, breadth and height or also equal to 1000 liters.
-    /// Encoded/decoded by serializers as "CBME".
+    /// Encoded/decoded by serializers as &quot;CBME&quot;.
     /// </summary>
     [EnumMember(Value = "CBME")]
     [IsoId("__iKXkexmEemioJdkOVFBdw")]
@@ -795,7 +795,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Measure of a volume, one inch by one inch by one inch.
-    /// Encoded/decoded by serializers as "CBIN".
+    /// Encoded/decoded by serializers as &quot;CBIN&quot;.
     /// </summary>
     [EnumMember(Value = "CBIN")]
     [IsoId("__nzskexmEemioJdkOVFBdw")]
@@ -804,7 +804,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Code for a crate.
-    /// Encoded/decoded by serializers as "CRAT".
+    /// Encoded/decoded by serializers as &quot;CRAT&quot;.
     /// </summary>
     [EnumMember(Value = "CRAT")]
     [IsoId("__9BHkexmEemioJdkOVFBdw")]
@@ -813,7 +813,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Code for a container.
-    /// Encoded/decoded by serializers as "CNTR".
+    /// Encoded/decoded by serializers as &quot;CNTR&quot;.
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_AC0NkexnEemioJdkOVFBdw")]
@@ -822,7 +822,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of offset credits used by the Climate Action Reserve. One Climate Reserve Tonne is equal to one metric ton of Greenhouse Gas (GHG) reduced/sequestered.
-    /// Encoded/decoded by serializers as "CLRT".
+    /// Encoded/decoded by serializers as &quot;CLRT&quot;.
     /// </summary>
     [EnumMember(Value = "CLRT")]
     [IsoId("_AJh5kexnEemioJdkOVFBdw")]
@@ -831,7 +831,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Unit of emissions type (or carbon credits) issued by the Clean Development Mechanism (CDM) Executive Board for emission reductions achieved by CDM projects and verified by a DOE (Designated Operational Entity) under the rules of the Kyoto Protocol.
-    /// Encoded/decoded by serializers as "CEER".
+    /// Encoded/decoded by serializers as &quot;CEER&quot;.
     /// </summary>
     [EnumMember(Value = "CEER")]
     [IsoId("_AQe2IexnEemioJdkOVFBdw")]
@@ -840,7 +840,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Cooling degree day
-    /// Encoded/decoded by serializers as "CDDA".
+    /// Encoded/decoded by serializers as &quot;CDDA&quot;.
     /// </summary>
     [EnumMember(Value = "CDDA")]
     [IsoId("_ubU7AVfpEeqfKIw9ojIoIw")]
@@ -849,7 +849,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Critical precipitation day
-    /// Encoded/decoded by serializers as "CPDA".
+    /// Encoded/decoded by serializers as &quot;CPDA&quot;.
     /// </summary>
     [EnumMember(Value = "CPDA")]
     [IsoId("_ukjvgVfpEeqfKIw9ojIoIw")]
@@ -858,7 +858,7 @@ public enum UnitOfMeasure12Code
     
     /// <summary>
     /// Heating degree day
-    /// Encoded/decoded by serializers as "HDDA".
+    /// Encoded/decoded by serializers as &quot;HDDA&quot;.
     /// </summary>
     [EnumMember(Value = "HDDA")]
     [IsoId("_vfUuoVfpEeqfKIw9ojIoIw")]

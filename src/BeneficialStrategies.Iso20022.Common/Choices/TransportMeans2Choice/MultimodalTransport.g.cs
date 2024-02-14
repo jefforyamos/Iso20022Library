@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
     /// Specifies the different movements and places and their role in a multimodal conveyance of goods.
     /// </summary>
     [IsoId("_U7oxk9p-Ed-ak6NoX_4Aeg_205481039")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multimodal Transport")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Place from where the goods must leave.
         /// </summary>
         [IsoId("_U7Mstdp-Ed-ak6NoX_4Aeg_296981374")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Departure Airport")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DprtureAirprt")]
         #endif
+        [IsoXmlTag("DprtureAirprt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AirportName1Choice_? DepartureAirport { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Place where the goods must arrive.
         /// </summary>
         [IsoId("_U7Msttp-Ed-ak6NoX_4Aeg_322836634")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Destination Airport")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DstnAirprt")]
         #endif
+        [IsoXmlTag("DstnAirprt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AirportName1Choice_? DestinationAirport { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,15 +81,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
         /// </summary>
         [IsoId("_U7Mst9p-Ed-ak6NoX_4Aeg_-1343729756")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Air Carrier Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AirCrrierNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AirCrrierNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? AirCarrierName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,15 +100,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the port where the goods are loaded on board the ship.
         /// </summary>
         [IsoId("_U7MsuNp-Ed-ak6NoX_4Aeg_564401895")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Port Of Loading")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PortOfLoadng")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PortOfLoadng")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? PortOfLoading { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,15 +119,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the port where the goods are discharged.
         /// </summary>
         [IsoId("_U7Msudp-Ed-ak6NoX_4Aeg_564401870")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Port Of Discharge")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PortOfDschrge")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PortOfDschrge")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? PortOfDischarge { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,15 +138,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Name of a vessel.
         /// </summary>
         [IsoId("_U7V2oNp-Ed-ak6NoX_4Aeg_-1115621713")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Vessel Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VsslNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("VsslNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? VesselName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,15 +157,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the location where the goods are received for transportation.
         /// </summary>
         [IsoId("_U7V2odp-Ed-ak6NoX_4Aeg_564401852")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Place Of Receipt")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PlcOfRct")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PlcOfRct")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? PlaceOfReceipt { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -190,15 +176,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the location of delivery of the goods.
         /// </summary>
         [IsoId("_U7V2otp-Ed-ak6NoX_4Aeg_564401583")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Place Of Delivery")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PlcOfDlvry")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PlcOfDlvry")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? PlaceOfDelivery { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,15 +195,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the location where the goods are take in charge for transportation.
         /// </summary>
         [IsoId("_U7V2o9p-Ed-ak6NoX_4Aeg_564401912")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Taking In Charge")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TakngInChrg")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TakngInChrg")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? TakingInCharge { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -232,15 +214,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the location of the final destination of the goods.
         /// </summary>
         [IsoId("_U7V2pNp-Ed-ak6NoX_4Aeg_564401600")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Place Of Final Destination")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PlcOfFnlDstn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PlcOfFnlDstn")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? PlaceOfFinalDestination { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -253,15 +233,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Specifies a place in a country.
         /// </summary>
         [IsoId("_U7V2pdp-Ed-ak6NoX_4Aeg_1426049424")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transit Location")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrnstLctn")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TrnstLctn")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? TransitLocation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -274,15 +252,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
         /// </summary>
         [IsoId("_U7V2ptp-Ed-ak6NoX_4Aeg_-1810586494")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Road Carrier Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RoadCrrierNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("RoadCrrierNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? RoadCarrierName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -295,15 +271,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice
         /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
         /// </summary>
         [IsoId("_U7V2p9p-Ed-ak6NoX_4Aeg_-1809659783")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rail Carrier Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RailCrrierNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("RailCrrierNm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? RailCarrierName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

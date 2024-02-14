@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesAccountModification1Choice.SystemRestriction))]
     [KnownType(typeof(SecuritiesAccountModification1Choice.MarketSpecificAttribute))]
     [IsoId("_hjLnamliEeGaMcKyqKNRfQ_-966924713")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account Modification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
     /// Provides the details of the secured market transaction as reported by the reporting agent.
     /// </summary>
     [IsoId("_hAas86idEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -65,16 +63,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Defines the status of the reported transaction, that is details on whether the transaction is a new transaction, an amendment of a previously reported transaction, a cancellation of a previously reported transaction or a correction to a previously reported and rejected transaction.
         /// </summary>
         [IsoId("_hc-tJaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reported Transaction Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RptdTxSts")]
         #endif
+        [IsoXmlTag("RptdTxSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
+        public required TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
         #else
@@ -87,12 +84,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Where the transaction has been booked by the head office or the reporting agent cannot be identified by a unique branch-specific LEI, the reporting agent must provide the LEI of the head office.
         /// </summary>
         [IsoId("_hc-tJ6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Branch Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BrnchId")]
         #endif
+        [IsoXmlTag("BrnchId")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? BranchIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,15 +102,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime.
         /// </summary>
         [IsoId("_hc-tKaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Unique Transaction Identifier")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UnqTxIdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("UnqTxIdr")]
+        [IsoSimpleType(IsoSimpleType.Max105Text)]
         [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax105Text? UniqueTransactionIdentifier { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,19 +121,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Internal unique transaction identifier used by the reporting agent for each transaction.
         /// </summary>
         [IsoId("_hc-tK6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Transaction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryTxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PrtryTxId")]
+        [IsoSimpleType(IsoSimpleType.Max105Text)]
         [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax105Text ProprietaryTransactionIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ProprietaryTransactionIdentification { get; init; } 
+        public required System.String ProprietaryTransactionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ProprietaryTransactionIdentification { get; init; } 
         #else
@@ -149,15 +142,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Internal unique proprietary transaction identifier as assigned by the counterparty of the reporting agent for each transaction.
         /// </summary>
         [IsoId("_hc-tLaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty Proprietary Transaction Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPtyPrtryTxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("CtrPtyPrtryTxId")]
+        [IsoSimpleType(IsoSimpleType.Max105Text)]
         [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax105Text? CounterpartyProprietaryTransactionIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,16 +161,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Identification of the counterparty of the reporting agent for the reported transaction.
         /// </summary>
         [IsoId("_hc-tL6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPtyId")]
         #endif
+        [IsoXmlTag("CtrPtyId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
+        public required CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
         #else
@@ -190,12 +180,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Identification of the tri-party agent, when the transaction has been performed via tri-party agent.
         /// </summary>
         [IsoId("_hc-tMaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Triparty Agent Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrptyAgtId")]
         #endif
+        [IsoXmlTag("TrptyAgtId")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? TripartyAgentIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,16 +201,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
         /// </summary>
         [IsoId("_hc-tM6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Trade Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TradDt")]
         #endif
+        [IsoXmlTag("TradDt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DateAndDateTimeChoice_ TradeDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DateAndDateTimeChoice_ TradeDate { get; init; } 
+        public required DateAndDateTimeChoice_ TradeDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DateAndDateTimeChoice_ TradeDate { get; init; } 
         #else
@@ -234,16 +223,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// In the case of a settlement failure in which settlement takes place on a date different than initially agreed, no transactional amendment needs to be reported.
         /// </summary>
         [IsoId("_hc-tNaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settlement Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttlmDt")]
         #endif
+        [IsoXmlTag("SttlmDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate SettlementDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly SettlementDate { get; init; } 
+        public required System.DateOnly SettlementDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly SettlementDate { get; init; } 
         #else
@@ -254,16 +243,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Date on which the repurchase will be executed, that is the date on which the amount of money is due to be returned or received versus the asset pledged or received as collateral.
         /// </summary>
         [IsoId("_hc-tN6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Maturity Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MtrtyDt")]
         #endif
+        [IsoXmlTag("MtrtyDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate MaturityDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly MaturityDate { get; init; } 
+        public required System.DateOnly MaturityDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly MaturityDate { get; init; } 
         #else
@@ -274,16 +263,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Defines whether the transaction is a cash borrowing or cash lending transaction.
         /// </summary>
         [IsoId("_hc-tOaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxTp")]
         #endif
+        [IsoXmlTag("TxTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required MoneyMarketTransactionType1Code TransactionType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public MoneyMarketTransactionType1Code TransactionType { get; init; } 
+        public required MoneyMarketTransactionType1Code TransactionType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public MoneyMarketTransactionType1Code TransactionType { get; init; } 
         #else
@@ -294,16 +282,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Amount of money initially borrowed or lent to be reported as an absolute value.
         /// </summary>
         [IsoId("_hc-tPaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transaction Nominal Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TxNmnlAmt")]
         #endif
+        [IsoXmlTag("TxNmnlAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal TransactionNominalAmount { get; init; } 
+        public required System.Decimal TransactionNominalAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal TransactionNominalAmount { get; init; } 
         #else
@@ -314,16 +302,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Specifies whether the transaction interest rate of the repurchase agreements is either fixed or floating (variable rate).
         /// </summary>
         [IsoId("_hc-tP6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RateTp")]
         #endif
+        [IsoXmlTag("RateTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InterestRateType1Code RateType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InterestRateType1Code RateType { get; init; } 
+        public required InterestRateType1Code RateType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InterestRateType1Code RateType { get; init; } 
         #else
@@ -338,12 +325,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// This value can be either positive or negative irrespective of whether the cash is borrowed or lent. It represents the contractually agreed remuneration rate on the transaction nominal amount regardless of the transaction sign (that whether the transaction type is reported as borrowed or lent).
         /// </summary>
         [IsoId("_hc-tQaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Deal Rate")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DealRate")]
         #endif
+        [IsoXmlTag("DealRate")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Rate2? DealRate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,12 +342,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Repurchase agreement in which the periodic interest payments are calculated on the basis of the value (that is, fixing of an underlying reference rate such as Euribor) on predefined dates (that is, fixing dates) and which has a maturity of no more than one year.
         /// </summary>
         [IsoId("_hc-tQ6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Floating Rate Repurchase Agreement")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FltgRateRpAgrmt")]
         #endif
+        [IsoXmlTag("FltgRateRpAgrmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FloatingRateNote2? FloatingRateRepurchaseAgreement { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -374,12 +359,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Specifies whether the transaction is arranged via a third party broker or not.
         /// </summary>
         [IsoId("_hc-tRaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Brokered Deal")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BrkrdDeal")]
         #endif
+        [IsoXmlTag("BrkrdDeal")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BrokeredDeal1Code? BrokeredDeal { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -392,16 +376,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Identifies the asset class pledged as collateral.
         /// </summary>
         [IsoId("_hc-tR6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Collateral")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Coll")]
         #endif
+        [IsoXmlTag("Coll")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Collateral14 Collateral { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Collateral14 Collateral { get; init; } 
+        public required Collateral14 Collateral { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Collateral14 Collateral { get; init; } 
         #else
@@ -412,12 +395,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice
         /// Additional information that can not be captured in the structured fields and/or any other specific block.
         /// </summary>
         [IsoId("_hc-tSaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrCurrency1Choice
     /// Currency for the settlement.
     /// </summary>
     [IsoId("_n9oL79QiEeKvJeoOII0e7w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrCurrency1Choice
         
         /// <summary>
         /// Contains the main value for the container.
-        /// A code allocated to a currency by a Maintenance Agency under an international identification scheme as described in the latest edition of the international standard ISO 4217 "Codes for the representation of currencies and funds".
+        /// A code allocated to a currency by a Maintenance Agency under an international identification scheme as described in the latest edition of the international standard ISO 4217 &quot;Codes for the representation of currencies and funds&quot;.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttlmCcy")]
         #endif
+        [IsoXmlTag("SttlmCcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ActiveCurrencyCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Value { get; init; } 
+        public required string Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Value { get; init; } 
         #else

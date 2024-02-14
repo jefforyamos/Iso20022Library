@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Structure for defining asset class specific details of a derivative to be declared.
 /// </summary>
 [IsoId("_Hq0pRX5aEea2k7EBUopqxw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Asset Class")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AssetClass2
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type commodity as underlying.
     /// </summary>
     [IsoId("_HzdA035aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commodity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmmdty")]
     #endif
+    [IsoXmlTag("Cmmdty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DerivativeCommodity2? Commodity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AssetClass2
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type interest rates as underlying.
     /// </summary>
     [IsoId("_HzdA1X5aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Intrst")]
     #endif
+    [IsoXmlTag("Intrst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DerivativeInterest3? Interest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record AssetClass2
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type foreign exchange as underlying.
     /// </summary>
     [IsoId("_HzdA135aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FX")]
     #endif
+    [IsoXmlTag("FX")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DerivativeForeignExchange3? ForeignExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

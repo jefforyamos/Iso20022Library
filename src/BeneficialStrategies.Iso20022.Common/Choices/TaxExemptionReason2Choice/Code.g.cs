@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxExemptionReason2Choice
     /// Tax exemption reason expressed as a code.
     /// </summary>
     [IsoId("_PE3O0SDAEeWPMvNwVtiMsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxExemptionReason2Choice
         /// Specifies the reason a specific tax has not been levied/deducted on a given transaction.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TaxExemptReason3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TaxExemptReason3Code Value { get; init; } 
+        public required TaxExemptReason3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TaxExemptReason3Code Value { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum TypeOfDiscretionPrice1Code
 {
     /// <summary>
     /// Indicates that the offset value is related to displayed price.
-    /// Encoded/decoded by serializers as "DISP".
+    /// Encoded/decoded by serializers as &quot;DISP&quot;.
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_YwUkJ9p-Ed-ak6NoX_4Aeg_-493976446")]
@@ -30,7 +30,7 @@ public enum TypeOfDiscretionPrice1Code
     
     /// <summary>
     /// Indicates that the offset value is related to market price.
-    /// Encoded/decoded by serializers as "MRKT".
+    /// Encoded/decoded by serializers as &quot;MRKT&quot;.
     /// </summary>
     [EnumMember(Value = "MRKT")]
     [IsoId("_YwduENp-Ed-ak6NoX_4Aeg_-493976411")]
@@ -39,7 +39,7 @@ public enum TypeOfDiscretionPrice1Code
     
     /// <summary>
     /// Indicates that the offset value is related to primary price.
-    /// Encoded/decoded by serializers as "PRIM".
+    /// Encoded/decoded by serializers as &quot;PRIM&quot;.
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_YwduEdp-Ed-ak6NoX_4Aeg_-493976369")]
@@ -48,7 +48,7 @@ public enum TypeOfDiscretionPrice1Code
     
     /// <summary>
     /// Indicates that the offset value is related to local primary price.
-    /// Encoded/decoded by serializers as "LPRI".
+    /// Encoded/decoded by serializers as &quot;LPRI&quot;.
     /// </summary>
     [EnumMember(Value = "LPRI")]
     [IsoId("_YwduEtp-Ed-ak6NoX_4Aeg_-493976316")]
@@ -57,7 +57,7 @@ public enum TypeOfDiscretionPrice1Code
     
     /// <summary>
     /// Indicates that the offset value is related to midpoint price.
-    /// Encoded/decoded by serializers as "MIDP".
+    /// Encoded/decoded by serializers as &quot;MIDP&quot;.
     /// </summary>
     [EnumMember(Value = "MIDP")]
     [IsoId("_YwduE9p-Ed-ak6NoX_4Aeg_-493976274")]
@@ -66,7 +66,7 @@ public enum TypeOfDiscretionPrice1Code
     
     /// <summary>
     /// Indicates that the offset value is related to VWAP price.
-    /// Encoded/decoded by serializers as "VWAP".
+    /// Encoded/decoded by serializers as &quot;VWAP&quot;.
     /// </summary>
     [EnumMember(Value = "VWAP")]
     [IsoId("_YwduFNp-Ed-ak6NoX_4Aeg_-493976231")]
@@ -75,7 +75,7 @@ public enum TypeOfDiscretionPrice1Code
     
     /// <summary>
     /// Indicates that the offset value is related to average price guarantee.
-    /// Encoded/decoded by serializers as "AVPG".
+    /// Encoded/decoded by serializers as &quot;AVPG&quot;.
     /// </summary>
     [EnumMember(Value = "AVPG")]
     [IsoId("_YwduFdp-Ed-ak6NoX_4Aeg_-493976196")]

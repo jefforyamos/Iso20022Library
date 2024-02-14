@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the login request message.
 /// </summary>
 [IsoId("_VcsBMXIkEe299ZbWCkdR_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Login Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record LoginRequest5
     /// Date and Time of Login.
     /// </summary>
     [IsoId("_Vj74sXIkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Login Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LgnDtTm")]
     #endif
+    [IsoXmlTag("LgnDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime LoginDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime LoginDateTime { get; init; } 
+    public required System.DateTime LoginDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime LoginDateTime { get; init; } 
     #else
@@ -72,12 +70,11 @@ public partial record LoginRequest5
     /// Information related to the software of the Sale System which manages the Sale to POI protocol.
     /// </summary>
     [IsoId("_Vj74s3IkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Software")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleSftwr")]
     #endif
+    [IsoXmlTag("SaleSftwr")]
     public PointOfInteractionComponent14? SaleSoftware { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Vj74s3IkEe299ZbWCkdR_w
     
@@ -85,12 +82,11 @@ public partial record LoginRequest5
     /// Information related to the software and hardware feature of the Sale Terminal.
     /// </summary>
     [IsoId("_Vj74tXIkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Terminal Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleTermnlData")]
     #endif
+    [IsoXmlTag("SaleTermnlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleTerminalData1? SaleTerminalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +99,12 @@ public partial record LoginRequest5
     /// Training mode.
     /// </summary>
     [IsoId("_Vj74t3IkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Training Mode Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrngMdFlg")]
     #endif
+    [IsoXmlTag("TrngMdFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? TrainingModeFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,15 +117,13 @@ public partial record LoginRequest5
     /// Identification of the cashier.
     /// </summary>
     [IsoId("_Vj74uXIkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cashier Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshrId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CshrId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CashierIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,16 +136,15 @@ public partial record LoginRequest5
     /// Language of the cashier.
     /// </summary>
     [IsoId("_Vj8fwXIkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cashier Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshrLang")]
     #endif
+    [IsoXmlTag("CshrLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LanguageCode CashierLanguage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string CashierLanguage { get; init; } 
+    public required string CashierLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string CashierLanguage { get; init; } 
     #else
@@ -162,15 +155,12 @@ public partial record LoginRequest5
     /// Shift number of the cashier.
     /// </summary>
     [IsoId("_Vj9G0XIkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shift Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShftNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ShftNb")]
+    [IsoSimpleType(IsoSimpleType.Max2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2NumericText? ShiftNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +173,11 @@ public partial record LoginRequest5
     /// Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
     /// </summary>
     [IsoId("_Vj9G03IkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Requested Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknReqdTp")]
     #endif
+    [IsoXmlTag("TknReqdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SaleTokenScope1Code? TokenRequestedType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,12 +190,11 @@ public partial record LoginRequest5
     /// Type of customer orders that must be sent in response message.
     /// </summary>
     [IsoId("_Vj9G1XIkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Order Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrOrdrReq")]
     #endif
+    [IsoXmlTag("CstmrOrdrReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerOrderRequest1Code? CustomerOrderRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -219,12 +207,11 @@ public partial record LoginRequest5
     /// POI Terminal identification.
     /// </summary>
     [IsoId("_Vj9G13IkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PointOfInteractionComponentIdentification2? POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -237,15 +224,13 @@ public partial record LoginRequest5
     /// Default group identification for transaction consolidation (Totals).
     /// </summary>
     [IsoId("_Vj9G2XIkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Totals Group Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlsGrpId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TtlsGrpId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TotalsGroupIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -258,12 +243,11 @@ public partial record LoginRequest5
     /// Message to be displayed.
     /// </summary>
     [IsoId("_Vj9G23IkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Output Display")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutptDisp")]
     #endif
+    [IsoXmlTag("OutptDisp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage10? OutputDisplay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

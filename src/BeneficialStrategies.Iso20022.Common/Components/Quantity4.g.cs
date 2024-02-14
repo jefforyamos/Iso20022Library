@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the quantity of a product in a trade transaction.
 /// </summary>
 [IsoId("_SqpmZdp-Ed-ak6NoX_4Aeg_-972518664")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Quantity4
     /// Specifies the unit of measurement. For example, kilo, tons.
     /// </summary>
     [IsoId("_SqpmZtp-Ed-ak6NoX_4Aeg_-972518572")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Of Measure Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitOfMeasrCd")]
     #endif
+    [IsoXmlTag("UnitOfMeasrCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnitOfMeasure4Code UnitOfMeasureCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnitOfMeasure4Code UnitOfMeasureCode { get; init; } 
+    public required UnitOfMeasure4Code UnitOfMeasureCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnitOfMeasure4Code UnitOfMeasureCode { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record Quantity4
     /// Identifies the unit of measure not present in the code list.
     /// </summary>
     [IsoId("_SqpmZ9p-Ed-ak6NoX_4Aeg_-972518480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Unit Of Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrUnitOfMeasr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrUnitOfMeasr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OtherUnitOfMeasure { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OtherUnitOfMeasure { get; init; } 
+    public required System.String OtherUnitOfMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OtherUnitOfMeasure { get; init; } 
     #else
@@ -96,16 +91,16 @@ public partial record Quantity4
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>
     [IsoId("_SqpmaNp-Ed-ak6NoX_4Aeg_-972518633")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Value { get; init; } 
+    public required System.UInt64 Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Value { get; init; } 
     #else
@@ -116,15 +111,12 @@ public partial record Quantity4
     /// Multiplication factor of measurement values. For example: goods that can be ordered by 36 pieces.
     /// </summary>
     [IsoId("_Sqpmadp-Ed-ak6NoX_4Aeg_-972518541")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fctr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Fctr")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? Factor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

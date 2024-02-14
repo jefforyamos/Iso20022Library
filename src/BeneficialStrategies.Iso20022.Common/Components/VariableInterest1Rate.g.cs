@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the index used to define the rate and optionaly the basis point spread.
 /// </summary>
 [IsoId("_Qkr_dtp-Ed-ak6NoX_4Aeg_1444401531")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Variable Interest 1 Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record VariableInterest1Rate
     /// Specifies the index taken into account to calculate the variable interest rate.
     /// </summary>
     [IsoId("_Qk1wcNp-Ed-ak6NoX_4Aeg_-276733537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Indx")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Indx")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Index { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Index { get; init; } 
+    public required System.String Index { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Index { get; init; } 
     #else
@@ -74,12 +70,12 @@ public partial record VariableInterest1Rate
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
     [IsoId("_Qk1wcdp-Ed-ak6NoX_4Aeg_-1323070567")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis Point Spread")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsisPtSprd")]
     #endif
+    [IsoXmlTag("BsisPtSprd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? BasisPointSpread { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

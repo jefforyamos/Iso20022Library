@@ -21,7 +21,7 @@ public enum PaymentTime4Code
 {
     /// <summary>
     /// Code for payment on receipt of invoice.
-    /// Encoded/decoded by serializers as "IREC".
+    /// Encoded/decoded by serializers as &quot;IREC&quot;.
     /// </summary>
     [EnumMember(Value = "IREC")]
     [IsoId("_w_H1ERVeEeOrY9qSHVspCA")]
@@ -30,7 +30,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Code for payment on delivery.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_xGRl8RVeEeOrY9qSHVspCA")]
@@ -39,7 +39,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Payment at end of period after shipment date.
-    /// Encoded/decoded by serializers as "EPSD".
+    /// Encoded/decoded by serializers as &quot;EPSD&quot;.
     /// </summary>
     [EnumMember(Value = "EPSD")]
     [IsoId("_xPEVkRVeEeOrY9qSHVspCA")]
@@ -48,7 +48,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Code for payment at end of period after receipt of invoice.
-    /// Encoded/decoded by serializers as "EPRR".
+    /// Encoded/decoded by serializers as &quot;EPRR&quot;.
     /// </summary>
     [EnumMember(Value = "EPRR")]
     [IsoId("_xYA2MRVeEeOrY9qSHVspCA")]
@@ -57,7 +57,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Payment at end of period after purchase order date.
-    /// Encoded/decoded by serializers as "EPPO".
+    /// Encoded/decoded by serializers as &quot;EPPO&quot;.
     /// </summary>
     [EnumMember(Value = "EPPO")]
     [IsoId("_xgDX4RVeEeOrY9qSHVspCA")]
@@ -66,7 +66,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Payment at end of period after invoice date.
-    /// Encoded/decoded by serializers as "EPIN".
+    /// Encoded/decoded by serializers as &quot;EPIN&quot;.
     /// </summary>
     [EnumMember(Value = "EPIN")]
     [IsoId("_xqyBMRVeEeOrY9qSHVspCA")]
@@ -75,7 +75,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Code for payment at end of period after end of month of receipt of invoice.
-    /// Encoded/decoded by serializers as "PRMR".
+    /// Encoded/decoded by serializers as &quot;PRMR&quot;.
     /// </summary>
     [EnumMember(Value = "PRMR")]
     [IsoId("_x1EloRVeEeOrY9qSHVspCA")]
@@ -84,7 +84,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Code for payment at end of period after end of month of delivery.
-    /// Encoded/decoded by serializers as "PRMD".
+    /// Encoded/decoded by serializers as &quot;PRMD&quot;.
     /// </summary>
     [EnumMember(Value = "PRMD")]
     [IsoId("_x8OWgRVeEeOrY9qSHVspCA")]
@@ -93,7 +93,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Code for payment at end of period after delivery.
-    /// Encoded/decoded by serializers as "EPRD".
+    /// Encoded/decoded by serializers as &quot;EPRD&quot;.
     /// </summary>
     [EnumMember(Value = "EPRD")]
     [IsoId("_yDYHYRVeEeOrY9qSHVspCA")]
@@ -102,7 +102,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Payment at end of period after baseline establishment date.
-    /// Encoded/decoded by serializers as "EPBE".
+    /// Encoded/decoded by serializers as &quot;EPBE&quot;.
     /// </summary>
     [EnumMember(Value = "EPBE")]
     [IsoId("_yKOWQRVeEeOrY9qSHVspCA")]
@@ -111,7 +111,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Code for payment at end of month of receipt of invoice.
-    /// Encoded/decoded by serializers as "EMTR".
+    /// Encoded/decoded by serializers as &quot;EMTR&quot;.
     /// </summary>
     [EnumMember(Value = "EMTR")]
     [IsoId("_yRO9MRVeEeOrY9qSHVspCA")]
@@ -120,7 +120,7 @@ public enum PaymentTime4Code
     
     /// <summary>
     /// Code for payment at end of month of delivery.
-    /// Encoded/decoded by serializers as "EMTD".
+    /// Encoded/decoded by serializers as &quot;EMTD&quot;.
     /// </summary>
     [EnumMember(Value = "EMTD")]
     [IsoId("_yYFMERVeEeOrY9qSHVspCA")]

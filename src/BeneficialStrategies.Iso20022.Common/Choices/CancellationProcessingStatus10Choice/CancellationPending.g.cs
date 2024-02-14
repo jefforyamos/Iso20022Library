@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationProcessingStatus10Ch
     /// Trade is in cancelation pending.
     /// </summary>
     [IsoId("_l0B_0Qd4Ee2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Pending")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

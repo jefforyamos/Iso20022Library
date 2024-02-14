@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StandingOrderOrAll1Choice.StandingOrder))]
     [KnownType(typeof(StandingOrderOrAll1Choice.AllStandingOrders))]
     [IsoId("_79r04KMgEeCJ6YNENx4h-w_1637966113")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Or All 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

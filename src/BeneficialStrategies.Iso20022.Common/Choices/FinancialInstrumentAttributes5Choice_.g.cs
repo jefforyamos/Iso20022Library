@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentAttributes5Choice.AlternateIdentification))]
     [KnownType(typeof(FinancialInstrumentAttributes5Choice.Other))]
     [IsoId("_6fVwkZicEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Attributes 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -29,13 +29,11 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// Scope
 /// The AmendNonDeliverableForwardOpening message is sent by a participant to a central system or to a counterparty to notify the amendment of the opening of a non deliverable trade previously confirmed by the sender.
 /// Usage
-/// The message is sent from a participant to a central settlement system to advise of the update of a previously sent notification and it contains a "Related Reference" to link it to the previous notification.
+/// The message is sent from a participant to a central settlement system to advise of the update of a previously sent notification and it contains a &quot;Related Reference&quot; to link it to the previous notification.
 /// </summary>
 [Description(@"Scope|The AmendNonDeliverableForwardOpening message is sent by a participant to a central system or to a counterparty to notify the amendment of the opening of a non deliverable trade previously confirmed by the sender.|Usage|The message is sent from a participant to a central settlement system to advise of the update of a previously sent notification and it contains a ""Related Reference"" to link it to the previous notification.")]
 [IsoId("_JB5pZNE8Ed-BzquC8wXy7w_1482836315")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amend Non Deliverable Forward Opening V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendN
     /// Provides references and date of the non deliverable trade which is amended.
     /// </summary>
     [IsoId("_JB5pZdE8Ed-BzquC8wXy7w_993953355")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradInf")]
     #endif
+    [IsoXmlTag("TradInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement2 TradeInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeAgreement2 TradeInformation { get; init; } 
+    public required TradeAgreement2 TradeInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeAgreement2 TradeInformation { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendN
     /// Specifies the trading side of the non deliverable trade which is amended.
     /// </summary>
     [IsoId("_JB5pZtE8Ed-BzquC8wXy7w_305725624")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification3 TradingSideIdentification { get; init; } 
+    public required TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification3 TradingSideIdentification { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendN
     /// Specifies the counterparty of the non deliverable trade which is amended.
     /// </summary>
     [IsoId("_JB5pZ9E8Ed-BzquC8wXy7w_982933420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
+    public required TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradePartyIdentification3 CounterpartySideIdentification { get; init; } 
     #else
@@ -143,16 +138,15 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendN
     /// Specifies the amounts of the non deliverable trade which is amended.
     /// </summary>
     [IsoId("_JB5paNE8Ed-BzquC8wXy7w_639319897")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAmts")]
     #endif
+    [IsoXmlTag("TradAmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountsAndValueDate1 TradeAmounts { get; init; } 
+    public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountsAndValueDate1 TradeAmounts { get; init; } 
     #else
@@ -163,16 +157,15 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendN
     /// Specifies the rate of the non deliverable trade which is amended.
     /// </summary>
     [IsoId("_JB5padE8Ed-BzquC8wXy7w_-781054907")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreed Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrdRate")]
     #endif
+    [IsoXmlTag("AgrdRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate1 AgreedRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate1 AgreedRate { get; init; } 
+    public required AgreedRate1 AgreedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate1 AgreedRate { get; init; } 
     #else
@@ -183,16 +176,15 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendN
     /// Specifies the valuation conditions of the non deliverable trade which is amended.
     /// </summary>
     [IsoId("_JB5patE8Ed-BzquC8wXy7w_-1055579338")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnConds")]
     #endif
+    [IsoXmlTag("ValtnConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
+    public required NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
     #else
@@ -203,7 +195,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendN
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AmendNonDeliverableForwardOpeningV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AmendNonDeliverableForwardOpeningV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AmendNonDeliverableForwardOpeningV02Document ToDocument()
     {
@@ -213,7 +205,7 @@ public partial record AmendNonDeliverableForwardOpeningV02 : IOuterRecord<AmendN
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AmendNonDeliverableForwardOpeningV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AmendNonDeliverableForwardOpeningV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AmendNonDeliverableForwardOpeningV02Document : IOuterDocument<AmendNonDeliverableForwardOpeningV02>
@@ -230,7 +222,7 @@ public partial record AmendNonDeliverableForwardOpeningV02Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AmendNonDeliverableForwardOpeningV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AmendNonDeliverableForwardOpeningV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmendNonDeliverableForwardOpeningV02 Message { get; init; }

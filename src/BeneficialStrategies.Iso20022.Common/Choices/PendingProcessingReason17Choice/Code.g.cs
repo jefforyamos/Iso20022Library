@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason17Choice
     /// Specifies the reason why the instruction has a pending processing status.
     /// </summary>
     [IsoId("_7KKTYQpJEeup4r-PFG2T5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason17Choice
         /// Specifies the reason the transaction/instruction is failing settlement. Settlement on the instructed settlement date is no longer possible.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingProcessingReason4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingProcessingReason4Code Value { get; init; } 
+        public required PendingProcessingReason4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingProcessingReason4Code Value { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Customer involved in a withdrawal transaction.
 /// </summary>
 [IsoId("_RIosoYqPEeSRT5rEzcAHEw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Customer")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ATMCustomer3
     /// Profile of the customer selected to perform the withdrawal.
     /// </summary>
     [IsoId("_RUtZwYqPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prfl")]
     #endif
+    [IsoXmlTag("Prfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCustomerProfile1? Profile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ATMCustomer3
     /// Language selected by the customer at the ATM for the customer session. Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
     [IsoId("_RUtZw4qPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Selected Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SelctdLang")]
     #endif
+    [IsoXmlTag("SelctdLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? SelectedLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record ATMCustomer3
     /// Result of the customer authentication for this transaction.
     /// </summary>
     [IsoId("_RUtZxYqPEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnRslt")]
     #endif
+    [IsoXmlTag("AuthntcnRslt")]
     public TransactionVerificationResult5? AuthenticationResult { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RUtZxYqPEeSRT5rEzcAHEw
     

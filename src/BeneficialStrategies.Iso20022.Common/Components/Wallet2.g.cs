@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Container for tenders used by the customer to perform the payment transaction.
 /// </summary>
 [IsoId("_i-iXYZlYEeu76rs9yGlfEg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Wallet")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Wallet2
     /// Identification of the provider of the wallet.
     /// </summary>
     [IsoId("_jFQqcZlYEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Provider")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prvdr")]
     #endif
+    [IsoXmlTag("Prvdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification258? Provider { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record Wallet2
     /// Number of days that the user’s PAN has been on file for the user.
     /// </summary>
     [IsoId("_JWlQUJlZEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("PAN Age")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PANAge")]
     #endif
+    [IsoXmlTag("PANAge")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? PANAge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record Wallet2
     /// Number of days since the user wallet account for this user exists.
     /// </summary>
     [IsoId("_Oq3_AJlaEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Account Age")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrAcctAge")]
     #endif
+    [IsoXmlTag("UsrAcctAge")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? UserAccountAge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record Wallet2
     /// Number of days since the user created the wallet account or started using the wallet.
     /// </summary>
     [IsoId("_TudNoJlaEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet Account Age")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WlltAcctAge")]
     #endif
+    [IsoXmlTag("WlltAcctAge")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? WalletAccountAge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,12 @@ public partial record Wallet2
     /// Number of days since the last activity on the wallet.
     /// </summary>
     [IsoId("_ZWVcIJlaEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Days Since Last Activity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DaysSncLastActvty")]
     #endif
+    [IsoXmlTag("DaysSncLastActvty")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? DaysSinceLastActivity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +131,12 @@ public partial record Wallet2
     /// Number of transactions on this wallet within an interval.
     /// </summary>
     [IsoId("_fXxaIJlaEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actvty")]
     #endif
+    [IsoXmlTag("Actvty")]
+    [IsoSimpleType(IsoSimpleType.Max10PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10PositiveNumber? Activity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +149,11 @@ public partial record Wallet2
     /// Identifies the interval of the activity.
     /// </summary>
     [IsoId("_IjNAsJlbEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activity Interval")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtyIntrvl")]
     #endif
+    [IsoXmlTag("ActvtyIntrvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency12Code? ActivityInterval { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +166,12 @@ public partial record Wallet2
     /// Number of days since wallet settings were changed.
     /// </summary>
     [IsoId("_fwDh0JlbEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Wallet Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastWlltChng")]
     #endif
+    [IsoXmlTag("LastWlltChng")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? LastWalletChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +184,12 @@ public partial record Wallet2
     /// Number of cards suspended in the wallet.
     /// </summary>
     [IsoId("_laUV8JlbEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspended Cards")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SspdCrds")]
     #endif
+    [IsoXmlTag("SspdCrds")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? SuspendedCards { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +202,11 @@ public partial record Wallet2
     /// Country of the wallet account.
     /// </summary>
     [IsoId("_vOvn8JlcEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet Account Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WlltAcctCtry")]
     #endif
+    [IsoXmlTag("WlltAcctCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ISOMax3ACountryCode? WalletAccountCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +219,11 @@ public partial record Wallet2
     /// Method used to capture the card details for the wallet.
     /// </summary>
     [IsoId("_rkwssJlgEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Data Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardDataNtryMd")]
     #endif
+    [IsoXmlTag("CardDataNtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardDataReading9Code? CardDataEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,15 +236,13 @@ public partial record Wallet2
     /// Other method used to capture the card details.
     /// </summary>
     [IsoId("_1FNIMJlgEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Card Data Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCardDataNtryMd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrCardDataNtryMd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherCardDataEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +255,12 @@ public partial record Wallet2
     /// Number of days the email address has been in the wallet.
     /// </summary>
     [IsoId("_CoEQQJlhEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet Account Email Age")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WlltAcctEmailAge")]
     #endif
+    [IsoXmlTag("WlltAcctEmailAge")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? WalletAccountEmailAge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,12 +273,11 @@ public partial record Wallet2
     /// Wallet Provider Risk Assessment.
     /// </summary>
     [IsoId("_JJjDcJllEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet Provider Risk Assessment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WlltPrvdrRskAssmnt")]
     #endif
+    [IsoXmlTag("WlltPrvdrRskAssmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskAssessment1Code? WalletProviderRiskAssessment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -299,15 +290,13 @@ public partial record Wallet2
     /// Wallet Provider Risk Assessment Model Version used to create scores.
     /// </summary>
     [IsoId("_8LKhcJlkEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet Provider Risk Assessment Model Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WlltPrvdrRskAssmntMdlVrsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("WlltPrvdrRskAssmntMdlVrsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? WalletProviderRiskAssessmentModelVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +309,12 @@ public partial record Wallet2
     /// A value to determine trust level of the phone number.
     /// </summary>
     [IsoId("_Wc6-AJllEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet Provider Phone Score")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WlltPrvdrPhneScore")]
     #endif
+    [IsoXmlTag("WlltPrvdrPhneScore")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? WalletProviderPhoneScore { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +327,12 @@ public partial record Wallet2
     /// A value to determine trust level of the device.
     /// </summary>
     [IsoId("_hZFJkJllEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet Provider Device Score")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WlltPrvdrDvcScore")]
     #endif
+    [IsoXmlTag("WlltPrvdrDvcScore")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? WalletProviderDeviceScore { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -356,12 +345,12 @@ public partial record Wallet2
     /// A value to determine trust level of the account.
     /// </summary>
     [IsoId("_1w3iEJllEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wallet Provider Account Score")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WlltPrvdrAcctScore")]
     #endif
+    [IsoXmlTag("WlltPrvdrAcctScore")]
+    [IsoSimpleType(IsoSimpleType.Max5PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5PositiveNumber? WalletProviderAccountScore { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -374,12 +363,11 @@ public partial record Wallet2
     /// Additional data associated with wallet.
     /// </summary>
     [IsoId("_jFQqc5lYEeu76rs9yGlfEg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

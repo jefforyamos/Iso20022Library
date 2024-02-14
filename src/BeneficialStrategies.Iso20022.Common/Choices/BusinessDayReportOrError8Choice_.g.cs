@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BusinessDayReportOrError8Choice.BusinessDayInformation))]
     [KnownType(typeof(BusinessDayReportOrError8Choice.BusinessError))]
     [IsoId("_wy9-B5lcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Day Report Or Error 8 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

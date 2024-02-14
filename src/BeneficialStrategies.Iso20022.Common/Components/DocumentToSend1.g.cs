@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Determine the type of document and the type of communication method to be used to notify a Party.
 /// </summary>
 [IsoId("_RTCTPtp-Ed-ak6NoX_4Aeg_436078909")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document To Send")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record DocumentToSend1
     /// Type of document.
     /// </summary>
     [IsoId("_RTCTP9p-Ed-ak6NoX_4Aeg_1009585509")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Type { get; init; } 
+    public required System.String Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Type { get; init; } 
     #else
@@ -77,16 +73,15 @@ public partial record DocumentToSend1
     /// Party that should receive the document.
     /// </summary>
     [IsoId("_RTCTQNp-Ed-ak6NoX_4Aeg_1020668296")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcpt")]
     #endif
+    [IsoXmlTag("Rcpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ Recipient { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification2Choice_ Recipient { get; init; } 
+    public required PartyIdentification2Choice_ Recipient { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification2Choice_ Recipient { get; init; } 
     #else
@@ -97,16 +92,15 @@ public partial record DocumentToSend1
     /// Communication method to be used.
     /// </summary>
     [IsoId("_RTCTQdp-Ed-ak6NoX_4Aeg_1018819949")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method Of Transmission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtdOfTrnsmssn")]
     #endif
+    [IsoXmlTag("MtdOfTrnsmssn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommunicationMethod1Code MethodOfTransmission { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommunicationMethod1Code MethodOfTransmission { get; init; } 
+    public required CommunicationMethod1Code MethodOfTransmission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommunicationMethod1Code MethodOfTransmission { get; init; } 
     #else
@@ -117,19 +111,17 @@ public partial record DocumentToSend1
     /// Communication means used to send information.
     /// </summary>
     [IsoId("_RTLdINp-Ed-ak6NoX_4Aeg_-506656279")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Method Of Transmission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedMtdOfTrnsmssn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedMtdOfTrnsmssn")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedMethodOfTransmission { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedMethodOfTransmission { get; init; } 
+    public required System.String ExtendedMethodOfTransmission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedMethodOfTransmission { get; init; } 
     #else

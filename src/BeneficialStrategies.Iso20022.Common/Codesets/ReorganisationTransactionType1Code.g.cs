@@ -21,7 +21,7 @@ public enum ReorganisationTransactionType1Code
 {
     /// <summary>
     /// Reorganisation is a cover on behalf of another participant transaction type.
-    /// Encoded/decoded by serializers as "COVP".
+    /// Encoded/decoded by serializers as &quot;COVP&quot;.
     /// </summary>
     [EnumMember(Value = "COVP")]
     [IsoId("_am1Q0cU_EeeWeZMpNX1JUQ")]
@@ -30,7 +30,7 @@ public enum ReorganisationTransactionType1Code
     
     /// <summary>
     /// Reorganisation is a cover protect directly to agent transaction type.
-    /// Encoded/decoded by serializers as "COVA".
+    /// Encoded/decoded by serializers as &quot;COVA&quot;.
     /// </summary>
     [EnumMember(Value = "COVA")]
     [IsoId("_arcrEcU_EeeWeZMpNX1JUQ")]
@@ -39,7 +39,7 @@ public enum ReorganisationTransactionType1Code
     
     /// <summary>
     /// Reorganisation is a cover protect transaction type.
-    /// Encoded/decoded by serializers as "COVR".
+    /// Encoded/decoded by serializers as &quot;COVR&quot;.
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_avnZYcU_EeeWeZMpNX1JUQ")]
@@ -48,7 +48,7 @@ public enum ReorganisationTransactionType1Code
     
     /// <summary>
     /// Reorganisation is a protect on behalf of another participant transaction type.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_azyHscU_EeeWeZMpNX1JUQ")]
@@ -57,7 +57,7 @@ public enum ReorganisationTransactionType1Code
     
     /// <summary>
     /// Reorganisation is a protect transaction type.
-    /// Encoded/decoded by serializers as "PROT".
+    /// Encoded/decoded by serializers as &quot;PROT&quot;.
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_a3zFAcU_EeeWeZMpNX1JUQ")]
@@ -66,7 +66,7 @@ public enum ReorganisationTransactionType1Code
     
     /// <summary>
     /// Reorganisation is a voluntary offer instruction transaction type.
-    /// Encoded/decoded by serializers as "VOIT".
+    /// Encoded/decoded by serializers as &quot;VOIT&quot;.
     /// </summary>
     [EnumMember(Value = "VOIT")]
     [IsoId("_a8taMcU_EeeWeZMpNX1JUQ")]

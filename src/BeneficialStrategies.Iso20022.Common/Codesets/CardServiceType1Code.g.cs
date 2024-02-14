@@ -21,7 +21,7 @@ public enum CardServiceType1Code
 {
     /// <summary>
     /// Partial reconciliation of the day.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_AFicAXu9EeSLmfFG0DG7zQ")]
@@ -30,7 +30,7 @@ public enum CardServiceType1Code
     
     /// <summary>
     /// Final reconciliation.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_AK5dIXu9EeSLmfFG0DG7zQ")]
@@ -39,7 +39,7 @@ public enum CardServiceType1Code
     
     /// <summary>
     /// Request for totals of a previous reconciliation.
-    /// Encoded/decoded by serializers as "PRVS".
+    /// Encoded/decoded by serializers as &quot;PRVS&quot;.
     /// </summary>
     [EnumMember(Value = "PRVS")]
     [IsoId("_AUbzo3u9EeSLmfFG0DG7zQ")]

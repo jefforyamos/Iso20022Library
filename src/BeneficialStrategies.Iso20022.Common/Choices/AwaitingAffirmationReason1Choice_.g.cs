@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AwaitingAffirmationReason1Choice.Code))]
     [KnownType(typeof(AwaitingAffirmationReason1Choice.Proprietary))]
     [IsoId("_A6MM0NokEeC60axPepSq7g_-1469713993")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Awaiting Affirmation Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

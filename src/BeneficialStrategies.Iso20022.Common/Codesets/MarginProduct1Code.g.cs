@@ -21,7 +21,7 @@ public enum MarginProduct1Code
 {
     /// <summary>
     /// Specifies that the margin is related to equities.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_YZq-tdp-Ed-ak6NoX_4Aeg_1188512534")]
@@ -30,7 +30,7 @@ public enum MarginProduct1Code
     
     /// <summary>
     /// Specifies that the margin is related to fixed income.
-    /// Encoded/decoded by serializers as "FIXI".
+    /// Encoded/decoded by serializers as &quot;FIXI&quot;.
     /// </summary>
     [EnumMember(Value = "FIXI")]
     [IsoId("_YZq-ttp-Ed-ak6NoX_4Aeg_1074673468")]

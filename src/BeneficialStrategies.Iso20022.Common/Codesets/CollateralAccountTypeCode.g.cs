@@ -21,7 +21,7 @@ public enum CollateralAccountTypeCode
 {
     /// <summary>
     /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries.
-    /// Encoded/decoded by serializers as "HOUS".
+    /// Encoded/decoded by serializers as &quot;HOUS&quot;.
     /// </summary>
     [EnumMember(Value = "HOUS")]
     [IsoId("_waUkk6MOEeCojJW5vEuTEQ_1771953380")]
@@ -29,8 +29,8 @@ public enum CollateralAccountTypeCode
     House,
     
     /// <summary>
-    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for the clearing member's customers.
-    /// Encoded/decoded by serializers as "CLIE".
+    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for the clearing member&apos;s customers.
+    /// Encoded/decoded by serializers as &quot;CLIE&quot;.
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_waUklKMOEeCojJW5vEuTEQ_-1755897740")]
@@ -39,7 +39,7 @@ public enum CollateralAccountTypeCode
     
     /// <summary>
     /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for liquidity providers (also known as market maker) activities.
-    /// Encoded/decoded by serializers as "LIPR".
+    /// Encoded/decoded by serializers as &quot;LIPR&quot;.
     /// </summary>
     [EnumMember(Value = "LIPR")]
     [IsoId("_waUklaMOEeCojJW5vEuTEQ_384687960")]
@@ -47,8 +47,8 @@ public enum CollateralAccountTypeCode
     LiquidityProvider,
     
     /// <summary>
-    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member's customers.
-    /// Encoded/decoded by serializers as "MGIN".
+    /// Specifies that the account is used to post collateral that covers the exposure resulting from trades executed for either the clearing member or its subsidiaries, or for the clearing member&apos;s customers.
+    /// Encoded/decoded by serializers as &quot;MGIN&quot;.
     /// </summary>
     [EnumMember(Value = "MGIN")]
     [IsoId("_waUklqMOEeCojJW5vEuTEQ_-470789377")]
@@ -56,8 +56,8 @@ public enum CollateralAccountTypeCode
     Margin,
     
     /// <summary>
-    /// Specifies that the account is used to post collateral that covers clearing member's default risk.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Specifies that the account is used to post collateral that covers clearing member&apos;s default risk.
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_waUkl6MOEeCojJW5vEuTEQ_768200063")]

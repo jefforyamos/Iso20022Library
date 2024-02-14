@@ -21,7 +21,7 @@ public enum RejectedStatusReason4Code
 {
     /// <summary>
     /// Instruction has been received after the cut-off time.
-    /// Encoded/decoded by serializers as "CUTO".
+    /// Encoded/decoded by serializers as &quot;CUTO&quot;.
     /// </summary>
     [EnumMember(Value = "CUTO")]
     [IsoId("_ViiZhtp-Ed-ak6NoX_4Aeg_-640387122")]
@@ -30,7 +30,7 @@ public enum RejectedStatusReason4Code
     
     /// <summary>
     /// Instructing party is not allowed to request a cancellation.
-    /// Encoded/decoded by serializers as "NALC".
+    /// Encoded/decoded by serializers as &quot;NALC&quot;.
     /// </summary>
     [EnumMember(Value = "NALC")]
     [IsoId("_ViiZh9p-Ed-ak6NoX_4Aeg_-640386732")]
@@ -39,7 +39,7 @@ public enum RejectedStatusReason4Code
     
     /// <summary>
     /// Instruction is not compliant with the service level agreement.
-    /// Encoded/decoded by serializers as "NSLA".
+    /// Encoded/decoded by serializers as &quot;NSLA&quot;.
     /// </summary>
     [EnumMember(Value = "NSLA")]
     [IsoId("_ViiZiNp-Ed-ak6NoX_4Aeg_-640386347")]
@@ -48,7 +48,7 @@ public enum RejectedStatusReason4Code
     
     /// <summary>
     /// Legally impossible to cancel.
-    /// Encoded/decoded by serializers as "LEGL".
+    /// Encoded/decoded by serializers as &quot;LEGL&quot;.
     /// </summary>
     [EnumMember(Value = "LEGL")]
     [IsoId("_VirjcNp-Ed-ak6NoX_4Aeg_-640386174")]
@@ -57,7 +57,7 @@ public enum RejectedStatusReason4Code
     
     /// <summary>
     /// Another reason for the status rejected.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Virjcdp-Ed-ak6NoX_4Aeg_277257123")]

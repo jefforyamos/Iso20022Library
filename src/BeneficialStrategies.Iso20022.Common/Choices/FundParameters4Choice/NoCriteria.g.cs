@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters4Choice
     /// Specifies that there is no criteria for the report. The request is a request for all reports, rather than reports attributed to a specific fund manager, date or financial instrument.
     /// </summary>
     [IsoId("_KQCmFWomEeipaMTLlhaKMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Criteria")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters4Choice
         /// Specifies that there is no criteria.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NoCrit")]
         #endif
+        [IsoXmlTag("NoCrit")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NoCriteria1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NoCriteria1Code Value { get; init; } 
+        public required NoCriteria1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NoCriteria1Code Value { get; init; } 
         #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdjustedBalanceTypeSD2Choice.StockLoan))]
     [KnownType(typeof(AdjustedBalanceTypeSD2Choice.Repo))]
     [IsoId("_vSOqAUk9EeK8UrXTVVBVxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjusted Balance Type SD 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

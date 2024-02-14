@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
 [IsoId("_SB0r1Np-Ed-ak6NoX_4Aeg_-865361430")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record PaymentInstrument8
     /// Currency associated with the payment instrument.
     /// </summary>
     [IsoId("_SB0r1dp-Ed-ak6NoX_4Aeg_-865361290")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string SettlementCurrency { get; init; } 
+    public required string SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string SettlementCurrency { get; init; } 
     #else
@@ -75,32 +72,28 @@ public partial record PaymentInstrument8
     /// Cash account to debit for the payment of a subscription or of a savings plan to an investment fund.
     /// </summary>
     [IsoId("_SB0r1tp-Ed-ak6NoX_4Aeg_-865360952")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshAcctDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CshAcctDtls")]
     [MinLength(1)]
     [MaxLength(3)]
-    #endif
     public ValueList<CashAccount4> CashAccountDetails { get; init; } = new ValueList<CashAccount4>(){};
     
     /// <summary>
     /// Settlement instructions for a payment by card.
     /// </summary>
     [IsoId("_SB0r19p-Ed-ak6NoX_4Aeg_-864440809")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Card Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtCardDtls")]
     #endif
+    [IsoXmlTag("PmtCardDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCard2 PaymentCardDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentCard2 PaymentCardDetails { get; init; } 
+    public required PaymentCard2 PaymentCardDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentCard2 PaymentCardDetails { get; init; } 
     #else
@@ -111,16 +104,15 @@ public partial record PaymentInstrument8
     /// Settlement instructions for a payment by direct debit.
     /// </summary>
     [IsoId("_SB0r2Np-Ed-ak6NoX_4Aeg_-865360858")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direct Debit Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrctDbtDtls")]
     #endif
+    [IsoXmlTag("DrctDbtDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DirectDebitMandate4 DirectDebitDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DirectDebitMandate4 DirectDebitDetails { get; init; } 
+    public required DirectDebitMandate4 DirectDebitDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DirectDebitMandate4 DirectDebitDetails { get; init; } 
     #else
@@ -131,16 +123,16 @@ public partial record PaymentInstrument8
     /// Indicates whether the payment is done via cheque.
     /// </summary>
     [IsoId("_SB0r2dp-Ed-ak6NoX_4Aeg_-865361256")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cheque")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chq")]
     #endif
+    [IsoXmlTag("Chq")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Cheque { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Cheque { get; init; } 
+    public required System.String Cheque { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Cheque { get; init; } 
     #else
@@ -151,16 +143,16 @@ public partial record PaymentInstrument8
     /// Indicates whether the payment is done via draft.
     /// </summary>
     [IsoId("_SB0r2tp-Ed-ak6NoX_4Aeg_-816417172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bankers Draft")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkrsDrft")]
     #endif
+    [IsoXmlTag("BkrsDrft")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator BankersDraft { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BankersDraft { get; init; } 
+    public required System.String BankersDraft { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BankersDraft { get; init; } 
     #else

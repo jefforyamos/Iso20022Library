@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnderlyingContract1Choice.Loan))]
     [KnownType(typeof(UnderlyingContract1Choice.Trade))]
     [IsoId("_opBo8NLJEeSdq5yU2aaSNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Contract 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

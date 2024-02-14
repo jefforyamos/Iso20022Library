@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketIdentification2Choice.MarketIdentifierCode))]
     [KnownType(typeof(MarketIdentification2Choice.Description))]
     [IsoId("_XK10ENp-Ed-ak6NoX_4Aeg_-180703514")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Identification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

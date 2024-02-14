@@ -21,7 +21,7 @@ public enum AssetClassCode
 {
     /// <summary>
     /// Debt instrument issued by a corporation.
-    /// Encoded/decoded by serializers as "CRPB".
+    /// Encoded/decoded by serializers as &quot;CRPB&quot;.
     /// </summary>
     [EnumMember(Value = "CRPB")]
     [IsoId("_1mSwFjL3EeKU9IrkkToqcw_-183212475")]
@@ -30,7 +30,7 @@ public enum AssetClassCode
     
     /// <summary>
     /// Equity issued by a corporation.
-    /// Encoded/decoded by serializers as "CRPE".
+    /// Encoded/decoded by serializers as &quot;CRPE&quot;.
     /// </summary>
     [EnumMember(Value = "CRPE")]
     [IsoId("_1mchEDL3EeKU9IrkkToqcw_-1016289594")]
@@ -39,7 +39,7 @@ public enum AssetClassCode
     
     /// <summary>
     /// Debt instrument issued by municipality.
-    /// Encoded/decoded by serializers as "MUNB".
+    /// Encoded/decoded by serializers as &quot;MUNB&quot;.
     /// </summary>
     [EnumMember(Value = "MUNB")]
     [IsoId("_1mchETL3EeKU9IrkkToqcw_-601795221")]

@@ -21,7 +21,7 @@ public enum ReceiveDeliveryCode
 {
     /// <summary>
     /// Financial instruments will be debited from the safekeeping account.
-    /// Encoded/decoded by serializers as "DELI".
+    /// Encoded/decoded by serializers as &quot;DELI&quot;.
     /// </summary>
     [EnumMember(Value = "DELI")]
     [IsoId("_ZafiiNp-Ed-ak6NoX_4Aeg_448211319")]
@@ -30,7 +30,7 @@ public enum ReceiveDeliveryCode
     
     /// <summary>
     /// Financial instruments will be credited to the safekeeping account.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_ZaoscNp-Ed-ak6NoX_4Aeg_448211335")]

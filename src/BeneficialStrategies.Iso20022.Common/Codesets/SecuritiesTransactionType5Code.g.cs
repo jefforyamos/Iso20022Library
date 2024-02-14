@@ -21,7 +21,7 @@ public enum SecuritiesTransactionType5Code
 {
     /// <summary>
     /// Relates to the settlement of a trade.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_ZIwSQdp-Ed-ak6NoX_4Aeg_2040871426")]

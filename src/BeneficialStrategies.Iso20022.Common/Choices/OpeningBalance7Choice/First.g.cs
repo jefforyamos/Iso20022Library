@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OpeningBalance7Choice
     /// Opening balance for the statement period. It always equals the closing balance of the previous statement.
     /// </summary>
     [IsoId("_gJxZ9Ti8Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

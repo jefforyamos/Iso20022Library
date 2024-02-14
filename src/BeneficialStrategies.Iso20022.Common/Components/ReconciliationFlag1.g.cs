@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the process type used for the trade repository reconciliation.
 /// </summary>
 [IsoId("_N6obcNIDEeiG-o-KpBT4-g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Flag")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReconciliationFlag1
     /// Indicates whether both counterparties to the transaction have reported to the same Trade Repository
     /// </summary>
     [IsoId("_giwXsNIEEeiG-o-KpBT4-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptTp")]
     #endif
+    [IsoXmlTag("RptTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeRepositoryReportingType1Code? ReportType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record ReconciliationFlag1
     /// Indicates whether both counterparties are obliged to report the transaction data.
     /// </summary>
     [IsoId("_LZGdYNIEEeiG-o-KpBT4-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Both Counterparties Reporting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BothCtrPtiesRptg")]
     #endif
+    [IsoXmlTag("BothCtrPtiesRptg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BothCounterpartiesReporting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record ReconciliationFlag1
     /// Indicates whether the transaction is paired.
     /// </summary>
     [IsoId("_783_8NIDEeiG-o-KpBT4-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Paired Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PairdSts")]
     #endif
+    [IsoXmlTag("PairdSts")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? PairedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record ReconciliationFlag1
     /// Indicates whether loan data is reconciled.
     /// </summary>
     [IsoId("_S6hgENIHEeiG-o-KpBT4-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loan Reconciliation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LnRcncltnSts")]
     #endif
+    [IsoXmlTag("LnRcncltnSts")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? LoanReconciliationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,12 @@ public partial record ReconciliationFlag1
     /// Indicates whether collateral data is reconciled.
     /// </summary>
     [IsoId("_W-lLYNIHEeiG-o-KpBT4-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Reconciliation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollRcncltnSts")]
     #endif
+    [IsoXmlTag("CollRcncltnSts")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CollateralReconciliationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +131,12 @@ public partial record ReconciliationFlag1
     /// Indicates whether the initially submitted report was further modified using action type modification.
     /// </summary>
     [IsoId("_xL6XwNIDEeiG-o-KpBT4-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModSts")]
     #endif
+    [IsoXmlTag("ModSts")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ModificationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

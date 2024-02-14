@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Non-extension information.
 /// </summary>
 [IsoId("_95ylZXltEeG7BsjMvd1mEw_856781964")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Extension")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record NonExtension1
     /// Minimum number of days prior to the then current expiry date by which notice of non-extension must be sent.
     /// </summary>
     [IsoId("_95ylZnltEeG7BsjMvd1mEw_1991021937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnPrd")]
     #endif
+    [IsoXmlTag("NtfctnPrd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NotificationPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record NonExtension1
     /// Method by which the notice of non-extension is intended to be delivered.
     /// </summary>
     [IsoId("_958WYHltEeG7BsjMvd1mEw_3398820")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnMtd")]
     #endif
+    [IsoXmlTag("NtfctnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationMethod1Choice_? NotificationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record NonExtension1
     /// Type of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
     [IsoId("_958WYXltEeG7BsjMvd1mEw_-431096325")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Recipient Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnRcptTp")]
     #endif
+    [IsoXmlTag("NtfctnRcptTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyType1Choice_? NotificationRecipientType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +94,13 @@ public partial record NonExtension1
     /// Name of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
     [IsoId("_958WYnltEeG7BsjMvd1mEw_829191387")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Recipient Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnRcptNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NtfctnRcptNm")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? NotificationRecipientName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +113,11 @@ public partial record NonExtension1
     /// Address of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
     [IsoId("_958WY3ltEeG7BsjMvd1mEw_-1651018057")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Recipient Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnRcptAdr")]
     #endif
+    [IsoXmlTag("NtfctnRcptAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress6? NotificationRecipientAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

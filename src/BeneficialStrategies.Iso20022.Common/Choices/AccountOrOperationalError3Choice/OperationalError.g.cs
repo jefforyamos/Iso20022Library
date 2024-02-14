@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError3Choice
     /// Indicates that an operational error has been issued during the processing of the related request.
     /// </summary>
     [IsoId("_fSjb85-WEee28J7y9KlTWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operational Error")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError3Choice
         /// Specification of the error, in coded or proprietary form.
         /// </summary>
         [IsoId("_jXcIMxbvEeOy-PlRuFSUzQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Err")]
         #endif
+        [IsoXmlTag("Err")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ErrorHandling2Choice_ Error { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ErrorHandling2Choice_ Error { get; init; } 
+        public required ErrorHandling2Choice_ Error { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ErrorHandling2Choice_ Error { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrOperationalError3Choice
         /// Specification of the error, in free format.
         /// </summary>
         [IsoId("_jXcINRbvEeOy-PlRuFSUzQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Description")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Desc")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Desc")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax140Text? Description { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

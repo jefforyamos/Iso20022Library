@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the parameters of the report.
 /// </summary>
 [IsoId("_QlScaNp-Ed-ak6NoX_4Aeg_1048103905")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,19 +53,17 @@ public partial record ReportParameters3
     /// Unique identification of the report.
     /// </summary>
     [IsoId("_QlcNYNp-Ed-ak6NoX_4Aeg_928215481")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RptId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReportIdentification { get; init; } 
+    public required System.String ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReportIdentification { get; init; } 
     #else
@@ -78,16 +74,15 @@ public partial record ReportParameters3
     /// Date (and time) and time of the report.
     /// </summary>
     [IsoId("_QlcNYdp-Ed-ak6NoX_4Aeg_-419897874")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Date And Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptDtAndTm")]
     #endif
+    [IsoXmlTag("RptDtAndTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
+    public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     #else
@@ -98,16 +93,15 @@ public partial record ReportParameters3
     /// Currency used for the calculation of the margin.
     /// </summary>
     [IsoId("_QlcNYtp-Ed-ak6NoX_4Aeg_-336611287")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptCcy")]
     #endif
+    [IsoXmlTag("RptCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode ReportCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ReportCurrency { get; init; } 
+    public required string ReportCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ReportCurrency { get; init; } 
     #else
@@ -118,16 +112,16 @@ public partial record ReportParameters3
     /// Date of calculation of the margin.
     /// </summary>
     [IsoId("_QlcNY9p-Ed-ak6NoX_4Aeg_-1305521230")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Date And Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnDtAndTm")]
     #endif
+    [IsoXmlTag("ClctnDtAndTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CalculationDateAndTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CalculationDateAndTime { get; init; } 
+    public required System.DateTime CalculationDateAndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CalculationDateAndTime { get; init; } 
     #else
@@ -138,16 +132,15 @@ public partial record ReportParameters3
     /// Frequency of the report.
     /// </summary>
     [IsoId("_QlcNZNp-Ed-ak6NoX_4Aeg_594389524")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frqcy")]
     #endif
+    [IsoXmlTag("Frqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventFrequency6Code Frequency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EventFrequency6Code Frequency { get; init; } 
+    public required EventFrequency6Code Frequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EventFrequency6Code Frequency { get; init; } 
     #else
@@ -158,15 +151,12 @@ public partial record ReportParameters3
     /// Sequential number of the report.
     /// </summary>
     [IsoId("_QlcNZdp-Ed-ak6NoX_4Aeg_-1126454468")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("RptNb")]
+    [IsoSimpleType(IsoSimpleType.Exact5NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact5NumericText? ReportNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics of an investment plan.
 /// </summary>
 [IsoId("_iMh2EF8-Eeicg40_9gK9vQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Plan Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record InvestmentPlanCharacteristics1
     /// Type of investment plan.
     /// </summary>
     [IsoId("_rvZTcF8-Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plan Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlanTp")]
     #endif
+    [IsoXmlTag("PlanTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentFundPlanType1Choice_ PlanType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentFundPlanType1Choice_ PlanType { get; init; } 
+    public required InvestmentFundPlanType1Choice_ PlanType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentFundPlanType1Choice_ PlanType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record InvestmentPlanCharacteristics1
     /// Frequency of the investment plan.
     /// </summary>
     [IsoId("_ucICoF9CEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frqcy")]
     #endif
+    [IsoXmlTag("Frqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency20Choice_? Frequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record InvestmentPlanCharacteristics1
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
     [IsoId("_2xB4EV9CEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Instalments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfInstlmts")]
     #endif
+    [IsoXmlTag("TtlNbOfInstlmts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberOfInstalments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,15 +100,14 @@ public partial record InvestmentPlanCharacteristics1
     #endif
     
     /// <summary>
-    /// Minimum amount of the periodical payments. (If there is no maximum, then '0' must be specified for the Amount or Units.)
+    /// Minimum amount of the periodical payments. (If there is no maximum, then &apos;0&apos; must be specified for the Amount or Units.)
     /// </summary>
     [IsoId("_Ag_WQV9DEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitsOrAmount1Choice_? Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,12 @@ public partial record InvestmentPlanCharacteristics1
     /// Indicates whether it is possible to continue the savings plan after the end date.
     /// </summary>
     [IsoId("_MO0PUF9DEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plan Continuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlanConttn")]
     #endif
+    [IsoXmlTag("PlanConttn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PlanContinuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +138,12 @@ public partial record InvestmentPlanCharacteristics1
     /// Indicates whether it is possible to subscribe to additional instalments over and above that permitted by the savings plan frequency. 
     /// </summary>
     [IsoId("_lmY7kF9DEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Subscription")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlSbcpt")]
     #endif
+    [IsoXmlTag("AddtlSbcpt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AdditionalSubscription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +156,12 @@ public partial record InvestmentPlanCharacteristics1
     /// Indicates whether any additional instalments will reduce the period of the life of the savings investment plan.
     /// </summary>
     [IsoId("_CyIdAF9EEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Subscription Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlSbcptFctn")]
     #endif
+    [IsoXmlTag("AddtlSbcptFctn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AdditionalSubscriptionFunction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +174,11 @@ public partial record InvestmentPlanCharacteristics1
     /// Additional information about the investment plan.
     /// </summary>
     [IsoId("_qpMmsWAKEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

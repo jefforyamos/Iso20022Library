@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the valuation details per counterparty aggregation.
 /// </summary>
 [IsoId("_SZLjaSs_EeySlt9bF77XfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Aggregation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CounterpartyAggregation3
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
     [IsoId("_SwlWxSs_EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType6Choice_? OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record CounterpartyAggregation3
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
     [IsoId("_SwlWxys_EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Termination Option")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermntnOptn")]
     #endif
+    [IsoXmlTag("TermntnOptn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record CounterpartyAggregation3
     /// Provides information on the baskets identification and the Eligiblity Set Profile.
     /// </summary>
     [IsoId("_SwlWySs_EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basket Identification And Eligibility Set Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BsktIdAndElgbltySetPrfl")]
     #endif
+    [IsoXmlTag("BsktIdAndElgbltySetPrfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,16 +100,15 @@ public partial record CounterpartyAggregation3
     /// Provides  the identification of the party or parties associated with the collateral agreement
     /// </summary>
     [IsoId("_SwlWyys_EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPties")]
     #endif
+    [IsoXmlTag("CollPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralParties11 CollateralParties { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralParties11 CollateralParties { get; init; } 
+    public required CollateralParties11 CollateralParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralParties11 CollateralParties { get; init; } 
     #else
@@ -125,12 +119,11 @@ public partial record CounterpartyAggregation3
     /// Provides details on the collateral valuation.
     /// </summary>
     [IsoId("_SwlWzSs_EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnAmts")]
     #endif
+    [IsoXmlTag("ValtnAmts")]
     public CollateralAmount16? ValuationAmounts { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SwlWzSs_EeySlt9bF77XfA
     
@@ -138,12 +131,12 @@ public partial record CounterpartyAggregation3
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
     [IsoId("_SwlWzys_EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnRate")]
     #endif
+    [IsoXmlTag("MrgnRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? MarginRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +149,11 @@ public partial record CounterpartyAggregation3
     /// Provides the status after comparing the total collateral required and the total collateral value of all transactions against counterparty.
     /// </summary>
     [IsoId("_SwlW0Ss_EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Counterparty Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GblCtrPtySts")]
     #endif
+    [IsoXmlTag("GblCtrPtySts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralStatus1Code? GlobalCounterpartyStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

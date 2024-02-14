@@ -21,7 +21,7 @@ public enum DistributionInstructionType1Code
 {
     /// <summary>
     /// Instruction to debit the positions held under all clients accounts in the underlying resouces of the given event and option. This order applies to all clients who are eligible to participate to the CA event.
-    /// Encoded/decoded by serializers as "GDEB".
+    /// Encoded/decoded by serializers as &quot;GDEB&quot;.
     /// </summary>
     [EnumMember(Value = "GDEB")]
     [IsoId("_awnn8Np-Ed-ak6NoX_4Aeg_-1264498767")]
@@ -30,7 +30,7 @@ public enum DistributionInstructionType1Code
     
     /// <summary>
     /// An instruction, on a per client basis, to debit the position held in the underlying resources (securities and/or cash) and/or the credit of the proceeds (securities and/or cash).
-    /// Encoded/decoded by serializers as "IDEB".
+    /// Encoded/decoded by serializers as &quot;IDEB&quot;.
     /// </summary>
     [EnumMember(Value = "IDEB")]
     [IsoId("_awnn8dp-Ed-ak6NoX_4Aeg_-1264498766")]
@@ -39,7 +39,7 @@ public enum DistributionInstructionType1Code
     
     /// <summary>
     /// Instruction to transfer securities from the clients sequestered balances back to the respective available balances.
-    /// Encoded/decoded by serializers as "GRET".
+    /// Encoded/decoded by serializers as &quot;GRET&quot;.
     /// </summary>
     [EnumMember(Value = "GRET")]
     [IsoId("_awnn8tp-Ed-ak6NoX_4Aeg_-1264498737")]
@@ -48,7 +48,7 @@ public enum DistributionInstructionType1Code
     
     /// <summary>
     /// Instruction to transfer the position from one sequestered balance (related to a CA option) to another sequestered balalnce (related to another CA option).
-    /// Encoded/decoded by serializers as "CHAN".
+    /// Encoded/decoded by serializers as &quot;CHAN&quot;.
     /// </summary>
     [EnumMember(Value = "CHAN")]
     [IsoId("_awnn89p-Ed-ak6NoX_4Aeg_-1264498736")]
@@ -57,7 +57,7 @@ public enum DistributionInstructionType1Code
     
     /// <summary>
     /// Instruction to transfer securities from a client sequestered balance back to its available balance.
-    /// Encoded/decoded by serializers as "IRET".
+    /// Encoded/decoded by serializers as &quot;IRET&quot;.
     /// </summary>
     [EnumMember(Value = "IRET")]
     [IsoId("_awnn9Np-Ed-ak6NoX_4Aeg_1772889529")]

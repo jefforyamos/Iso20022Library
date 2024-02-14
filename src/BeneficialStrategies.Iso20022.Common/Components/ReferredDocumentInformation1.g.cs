@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Structured information supplied to fully identify the documents referred to in the remittance information.
 /// </summary>
 [IsoId("_T3sBSNp-Ed-ak6NoX_4Aeg_402190265")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Referred Document Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReferredDocumentInformation1
     /// Provides the type of the referred document.
     /// </summary>
     [IsoId("_T3sBSdp-Ed-ak6NoX_4Aeg_1319309617")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred Document Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrdDocTp")]
     #endif
+    [IsoXmlTag("RfrdDocTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentType1? ReferredDocumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record ReferredDocumentInformation1
     /// Unique and unambiguous identification number of the referred document.
     /// </summary>
     [IsoId("_T31yQNp-Ed-ak6NoX_4Aeg_402190318")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred Document Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrdDocNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RfrdDocNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReferredDocumentNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

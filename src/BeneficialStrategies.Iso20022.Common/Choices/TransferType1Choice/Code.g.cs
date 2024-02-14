@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferType1Choice
     /// Transfer type expressed as a code.
     /// </summary>
     [IsoId("_Yre24E3VEeidB49bWZiS0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferType1Choice
         /// Specifies whether a financial instrument is transferred as an asset or as cash.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TransferType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TransferType3Code Value { get; init; } 
+        public required TransferType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TransferType3Code Value { get; init; } 
         #else

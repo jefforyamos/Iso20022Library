@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General cryptographic message syntax (CMS) containing data. protected by a MAC or a digital signature.
 /// </summary>
 [IsoId("__DJZ4dtZEee9e6xduATmQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Content Information Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ContentInformationType18
     /// Type of data protection.
     /// </summary>
     [IsoId("__MFTcdtZEee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttTp")]
     #endif
+    [IsoXmlTag("CnttTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentType2Code ContentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentType2Code ContentType { get; init; } 
+    public required ContentType2Code ContentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentType2Code ContentType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ContentInformationType18
     /// Data protection by a message authentication code (MAC).
     /// </summary>
     [IsoId("__MFTc9tZEee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authenticated Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcdData")]
     #endif
+    [IsoXmlTag("AuthntcdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthenticatedData5? AuthenticatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ContentInformationType18
     /// Data protected by a digital signatures.
     /// </summary>
     [IsoId("__MFTddtZEee9e6xduATmQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signed Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgndData")]
     #endif
+    [IsoXmlTag("SgndData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedData5? SignedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

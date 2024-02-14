@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the transportation of goods that are part of a commercial trade agreement.
 /// </summary>
 [IsoId("_StVuB9p-Ed-ak6NoX_4Aeg_1434989448")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transport Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record TransportDataSet3
     /// Identifies the submitted transport data set.
     /// </summary>
     [IsoId("_StVuCNp-Ed-ak6NoX_4Aeg_1434989481")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetId")]
     #endif
+    [IsoXmlTag("DataSetId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    public required DocumentIdentification1 DataSetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification1 DataSetIdentification { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record TransportDataSet3
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_Ste38Np-Ed-ak6NoX_4Aeg_1434990214")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,12 +87,11 @@ public partial record TransportDataSet3
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_Ste38dp-Ed-ak6NoX_4Aeg_1434990244")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,16 +104,15 @@ public partial record TransportDataSet3
     /// Party responsible for dispatching the goods.
     /// </summary>
     [IsoId("_Ste38tp-Ed-ak6NoX_4Aeg_-1373071617")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consignor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Consgnr")]
     #endif
+    [IsoXmlTag("Consgnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Consignor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification26 Consignor { get; init; } 
+    public required PartyIdentification26 Consignor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification26 Consignor { get; init; } 
     #else
@@ -129,12 +123,11 @@ public partial record TransportDataSet3
     /// Party to whom the goods must be delivered.
     /// </summary>
     [IsoId("_Ste389p-Ed-ak6NoX_4Aeg_1434989843")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consignee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Consgn")]
     #endif
+    [IsoXmlTag("Consgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? Consignee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +140,11 @@ public partial record TransportDataSet3
     /// Party to whom the goods must be delivered in the end.
     /// </summary>
     [IsoId("_Ste39Np-Ed-ak6NoX_4Aeg_1434989904")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ship To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShipTo")]
     #endif
+    [IsoXmlTag("ShipTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? ShipTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,16 +157,15 @@ public partial record TransportDataSet3
     /// Specifies the shipment date, the charges, the routing and the goods that are described in the transport document.
     /// </summary>
     [IsoId("_Ste39dp-Ed-ak6NoX_4Aeg_1434989758")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsprtInf")]
     #endif
+    [IsoXmlTag("TrnsprtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransportDetails2 TransportInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransportDetails2 TransportInformation { get; init; } 
+    public required TransportDetails2 TransportInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransportDetails2 TransportInformation { get; init; } 
     #else

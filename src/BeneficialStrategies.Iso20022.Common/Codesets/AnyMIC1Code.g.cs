@@ -21,7 +21,7 @@ public enum AnyMIC1Code
 {
     /// <summary>
     /// Any MIC code.
-    /// Encoded/decoded by serializers as "ANYM".
+    /// Encoded/decoded by serializers as &quot;ANYM&quot;.
     /// </summary>
     [EnumMember(Value = "ANYM")]
     [IsoId("_SW4c0R3ZEeWNp95x0ENf8w")]

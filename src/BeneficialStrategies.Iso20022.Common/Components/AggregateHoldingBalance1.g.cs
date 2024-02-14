@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Overall holding position, in a single financial instrument, held in a securities account at a specified place of safekeeping.
 /// </summary>
 [IsoId("_-x81hmZ5EeSPkYKcdPbJxw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Aggregate Holding Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AggregateHoldingBalance1
     /// Identification of the financial instrument for which the balance information is specified.
     /// </summary>
     [IsoId("_-x81iGZ5EeSPkYKcdPbJxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AggregateHoldingBalance1
     /// Form of ownership of the holding.
     /// </summary>
     [IsoId("_-x81iWZ5EeSPkYKcdPbJxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgForm")]
     #endif
+    [IsoXmlTag("HldgForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FormOfSecurity1Code? HoldingForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record AggregateHoldingBalance1
     /// Specifies whether the holding is physically delivered or is a book entry only.
     /// </summary>
     [IsoId("_-x81i2Z5EeSPkYKcdPbJxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Physical Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgPhysTp")]
     #endif
+    [IsoXmlTag("HldgPhysTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PhysicalTransferType1Code? HoldingPhysicalType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record AggregateHoldingBalance1
     /// Balance breakdown on the net position of the financial instrument.
     /// </summary>
     [IsoId("_-x81imZ5EeSPkYKcdPbJxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance For Financial Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalForFinInstrm")]
     #endif
+    [IsoXmlTag("BalForFinInstrm")]
     public FinancialInstrumentAggregateBalance1? BalanceForFinancialInstrument { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _-x81imZ5EeSPkYKcdPbJxw
     
@@ -120,12 +114,11 @@ public partial record AggregateHoldingBalance1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_-x81h2Z5EeSPkYKcdPbJxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

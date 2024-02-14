@@ -21,7 +21,7 @@ public enum KeyUsageCode
 {
     /// <summary>
     /// Key may encrypt.
-    /// Encoded/decoded by serializers as "ENCR".
+    /// Encoded/decoded by serializers as &quot;ENCR&quot;.
     /// </summary>
     [EnumMember(Value = "ENCR")]
     [IsoId("_KSSY6X1DEeCF8NjrBemJWQ_-430910960")]
@@ -30,7 +30,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may decrypt.
-    /// Encoded/decoded by serializers as "DCPT".
+    /// Encoded/decoded by serializers as &quot;DCPT&quot;.
     /// </summary>
     [EnumMember(Value = "DCPT")]
     [IsoId("_KScJ4H1DEeCF8NjrBemJWQ_744280065")]
@@ -39,7 +39,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may encrypt data.
-    /// Encoded/decoded by serializers as "DENC".
+    /// Encoded/decoded by serializers as &quot;DENC&quot;.
     /// </summary>
     [EnumMember(Value = "DENC")]
     [IsoId("_KScJ4X1DEeCF8NjrBemJWQ_858119131")]
@@ -48,7 +48,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may decrypt data.
-    /// Encoded/decoded by serializers as "DDEC".
+    /// Encoded/decoded by serializers as &quot;DDEC&quot;.
     /// </summary>
     [EnumMember(Value = "DDEC")]
     [IsoId("_KScJ4n1DEeCF8NjrBemJWQ_-1427983313")]
@@ -57,7 +57,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may encrypt information after translation.
-    /// Encoded/decoded by serializers as "TRNX".
+    /// Encoded/decoded by serializers as &quot;TRNX&quot;.
     /// </summary>
     [EnumMember(Value = "TRNX")]
     [IsoId("_KScJ431DEeCF8NjrBemJWQ_319261856")]
@@ -66,7 +66,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may encrypt information before translation.
-    /// Encoded/decoded by serializers as "TRNI".
+    /// Encoded/decoded by serializers as &quot;TRNI&quot;.
     /// </summary>
     [EnumMember(Value = "TRNI")]
     [IsoId("_KScJ5H1DEeCF8NjrBemJWQ_-252792288")]
@@ -75,7 +75,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may generate message authentication codes (MAC).
-    /// Encoded/decoded by serializers as "MACG".
+    /// Encoded/decoded by serializers as &quot;MACG&quot;.
     /// </summary>
     [EnumMember(Value = "MACG")]
     [IsoId("_KScJ5X1DEeCF8NjrBemJWQ_-1314144247")]
@@ -84,7 +84,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may verify message authentication codes (MAC).
-    /// Encoded/decoded by serializers as "MACV".
+    /// Encoded/decoded by serializers as &quot;MACV&quot;.
     /// </summary>
     [EnumMember(Value = "MACV")]
     [IsoId("_KScJ5n1DEeCF8NjrBemJWQ_1563233746")]
@@ -93,7 +93,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may generate digital signatures.
-    /// Encoded/decoded by serializers as "SIGG".
+    /// Encoded/decoded by serializers as &quot;SIGG&quot;.
     /// </summary>
     [EnumMember(Value = "SIGG")]
     [IsoId("_KScJ531DEeCF8NjrBemJWQ_566161393")]
@@ -102,7 +102,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may verify digital signatures.
-    /// Encoded/decoded by serializers as "SUGV".
+    /// Encoded/decoded by serializers as &quot;SUGV&quot;.
     /// </summary>
     [EnumMember(Value = "SUGV")]
     [IsoId("_KScJ6H1DEeCF8NjrBemJWQ_1741352418")]
@@ -111,7 +111,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may encrypt personal identification numbers (PIN).
-    /// Encoded/decoded by serializers as "PINE".
+    /// Encoded/decoded by serializers as &quot;PINE&quot;.
     /// </summary>
     [EnumMember(Value = "PINE")]
     [IsoId("_KScJ6X1DEeCF8NjrBemJWQ_-317071894")]
@@ -120,7 +120,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may decrypt personal identification numbers (PIN).
-    /// Encoded/decoded by serializers as "PIND".
+    /// Encoded/decoded by serializers as &quot;PIND&quot;.
     /// </summary>
     [EnumMember(Value = "PIND")]
     [IsoId("_KSlT0H1DEeCF8NjrBemJWQ_1677072812")]
@@ -129,7 +129,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may verify personal identification numbers (PIN).
-    /// Encoded/decoded by serializers as "PINV".
+    /// Encoded/decoded by serializers as &quot;PINV&quot;.
     /// </summary>
     [EnumMember(Value = "PINV")]
     [IsoId("_KSlT0X1DEeCF8NjrBemJWQ_680000459")]
@@ -138,7 +138,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may generate keys.
-    /// Encoded/decoded by serializers as "KEYG".
+    /// Encoded/decoded by serializers as &quot;KEYG&quot;.
     /// </summary>
     [EnumMember(Value = "KEYG")]
     [IsoId("_KSlT0n1DEeCF8NjrBemJWQ_-1136025575")]
@@ -147,7 +147,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may import keys.
-    /// Encoded/decoded by serializers as "KEYI".
+    /// Encoded/decoded by serializers as &quot;KEYI&quot;.
     /// </summary>
     [EnumMember(Value = "KEYI")]
     [IsoId("_KSlT031DEeCF8NjrBemJWQ_-138953222")]
@@ -156,7 +156,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may export keys.
-    /// Encoded/decoded by serializers as "KEYX".
+    /// Encoded/decoded by serializers as &quot;KEYX&quot;.
     /// </summary>
     [EnumMember(Value = "KEYX")]
     [IsoId("_KSlT1H1DEeCF8NjrBemJWQ_497380528")]
@@ -165,7 +165,7 @@ public enum KeyUsageCode
     
     /// <summary>
     /// Key may derive keys.
-    /// Encoded/decoded by serializers as "KEYD".
+    /// Encoded/decoded by serializers as &quot;KEYD&quot;.
     /// </summary>
     [EnumMember(Value = "KEYD")]
     [IsoId("_KSlT1X1DEeCF8NjrBemJWQ_1855191484")]

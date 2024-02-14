@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Obligations of a clearing member with respect to a central counterparty that are calculated based on end of day positions.
 /// </summary>
 [IsoId("_RUSFwKprEeamNLogr5TkIQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("End Of Day Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record EndOfDayRequirement2
     /// Liability and assets that arise for a clearing member with respect to a central counterparty.
     /// </summary>
     [IsoId("_c5B7UKprEeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Requirements")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnRqrmnts")]
     #endif
+    [IsoXmlTag("InitlMrgnRqrmnts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InitialMarginRequirement1 InitialMarginRequirements { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InitialMarginRequirement1 InitialMarginRequirements { get; init; } 
+    public required InitialMarginRequirement1 InitialMarginRequirements { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InitialMarginRequirement1 InitialMarginRequirements { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record EndOfDayRequirement2
     /// Total change in the mark-to-market value of the margin account from the previous day, net of changes in mark-to-market relating to the entry or exit of derivative positions not entered into at zero mark-to-market (such as option premiums and upsettled upfront fees). Indicates whether the variation margin is paid to clearing members.
     /// </summary>
     [IsoId("_lUoOoKprEeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Requirements")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnRqrmnts")]
     #endif
+    [IsoXmlTag("VartnMrgnRqrmnts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 VariationMarginRequirements { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 VariationMarginRequirements { get; init; } 
+    public required AmountAndDirection102 VariationMarginRequirements { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 VariationMarginRequirements { get; init; } 
     #else
@@ -90,19 +86,18 @@ public partial record EndOfDayRequirement2
     #endif
     
     /// <summary>
-    /// Identification of account used to calculate margin requirements. Usage: In the context of a central counterparty, if reported at the client level (expected for gross omnibus and individual segregated accounts), will report the Client ID in the Internal ID field and choose 'ClientID' for the CCP Participant ID Type. If reported at the clearing member account level will report the account ID in the Internal ID field and choose 'AccountID' for the CCP Participant ID Type.
+    /// Identification of account used to calculate margin requirements. Usage: In the context of a central counterparty, if reported at the client level (expected for gross omnibus and individual segregated accounts), will report the Client ID in the Internal ID field and choose &apos;ClientID&apos; for the CCP Participant ID Type. If reported at the clearing member account level will report the account ID in the Internal ID field and choose &apos;AccountID&apos; for the CCP Participant ID Type.
     /// </summary>
     [IsoId("_lQt8gPnfEeaQh_7a05rSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnAcctId")]
     #endif
+    [IsoXmlTag("MrgnAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification165 MarginAccountIdentification { get; init; } 
+    public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification165 MarginAccountIdentification { get; init; } 
     #else

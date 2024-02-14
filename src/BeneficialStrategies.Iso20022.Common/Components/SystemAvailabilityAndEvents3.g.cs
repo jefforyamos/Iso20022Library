@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details about the system availability and the related system events that might impact the availability.
 /// </summary>
 [IsoId("_dk-8wXhkEeidzqjNEfehPg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Availability And Events")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SystemAvailabilityAndEvents3
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
     [IsoId("_dw2Og3hkEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysCcy")]
     #endif
+    [IsoXmlTag("SysCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? SystemCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SystemAvailabilityAndEvents3
     /// Time window of system activity.
     /// </summary>
     [IsoId("_dw2OhXhkEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Session Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SsnPrd")]
     #endif
+    [IsoXmlTag("SsnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimePeriod1? SessionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SystemAvailabilityAndEvents3
     /// Detailed information about an event occurring on a system, whether planned, such as the cut-off time for a specific type of eligible transfer, or unplanned (an unsolicited failure), as stipulated in the specifications of the system.
     /// </summary>
     [IsoId("_dw2Oh3hkEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Evt")]
     #endif
+    [IsoXmlTag("Evt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemEvent3? Event { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record SystemAvailabilityAndEvents3
     /// Information regarding the closure time of a system.
     /// </summary>
     [IsoId("_dw2OiXhkEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Closure Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClsrInf")]
     #endif
+    [IsoXmlTag("ClsrInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemClosure2? ClosureInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

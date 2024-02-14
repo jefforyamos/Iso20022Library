@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError8Choice
     /// Requested system details for a specific business day.
     /// </summary>
     [IsoId("_w64j4ZlcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Day Information")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,12 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError8Choice
         /// Date for which the availability information is provided.
         /// </summary>
         [IsoId("_xCzJwZlcEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("System Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SysDt")]
         #endif
+        [IsoXmlTag("SysDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? SystemDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +65,11 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError8Choice
         /// Status of a system and the period of time during which the status is valid.
         /// </summary>
         [IsoId("_xCzJw5lcEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("System Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SysSts")]
         #endif
+        [IsoXmlTag("SysSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemStatus3? SystemStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +82,11 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError8Choice
         /// Information relating to system operations and foreseen events relating to the operation of the system.
         /// </summary>
         [IsoId("_xCzJxZlcEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("System Information Per Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SysInfPerCcy")]
         #endif
+        [IsoXmlTag("SysInfPerCcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemAvailabilityAndEvents2? SystemInformationPerCurrency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

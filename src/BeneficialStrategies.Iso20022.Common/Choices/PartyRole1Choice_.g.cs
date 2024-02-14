@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyRole1Choice.Code))]
     [KnownType(typeof(PartyRole1Choice.Proprietary))]
     [IsoId("_Q937gdp-Ed-ak6NoX_4Aeg_894093769")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Role 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

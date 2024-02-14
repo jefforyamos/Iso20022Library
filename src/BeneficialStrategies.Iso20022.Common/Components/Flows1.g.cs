@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payments to and from a concentration bank account of a central counterparty.
 /// </summary>
 [IsoId("_1Qaz8LIhEeaYqc4G3TTwhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Flows")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Flows1
     /// Gross value of flows between the concentration bank account and accounts held at payment banks.
     /// </summary>
     [IsoId("_MPHTABXoEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Bank Flows")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtBkFlows")]
     #endif
+    [IsoXmlTag("PmtBkFlows")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 PaymentBankFlows { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 PaymentBankFlows { get; init; } 
+    public required AmountAndDirection102 PaymentBankFlows { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 PaymentBankFlows { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Flows1
     /// Gross value of flows between the concentration bank account and investment counterparties in respect of maturing investments and any other flows in / out of the concentration account.
     /// </summary>
     [IsoId("_YT2QMBXoEeejf-cbr8l5qw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Flows")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtFlows")]
     #endif
+    [IsoXmlTag("InvstmtFlows")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 InvestmentFlows { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 InvestmentFlows { get; init; } 
+    public required AmountAndDirection102 InvestmentFlows { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 InvestmentFlows { get; init; } 
     #else

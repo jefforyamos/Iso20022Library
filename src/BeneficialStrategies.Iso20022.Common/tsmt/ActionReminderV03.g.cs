@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The ActionReminder message is sent by the matching application to a party involved in a transaction that it is expecting to take an action.|This message is used to remind a party of an action that it is expected to take.|Usage|The ActionReminder message can be sent by the matching application to remind a party that it is waiting for|- the submission of a transaction initiation message (BaselineReSubmission message),|or|- the acceptance or rejection of mis-matched data sets (MisMatchAcceptance or MisMatchRejection message),|or|- the acceptance or rejection of an amendment request (AmendmentAcceptance or AmendmentRejection message),|or|- the acceptance or rejection of a status change request (StatusChangeRequestAcceptance or StatusChangeRequestRejection message),|or|- the acceptance or rejection of a status extension request (StatusExtensionAcceptance or StatusExtensionRejection message).|- or|- the acceptance or rejection of a request to accept role and baseline (RoleAndBaselineAcceptance or RoleAndBaselineRejection message).")]
 [IsoId("_hnA9-NE8Ed-BzquC8wXy7w_-2083336927")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Action Reminder V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -94,16 +92,15 @@ public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionR
     /// Identifies the reminder message.
     /// </summary>
     [IsoId("_hnA9-dE8Ed-BzquC8wXy7w_-2083336503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reminder Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmndrId")]
     #endif
+    [IsoXmlTag("RmndrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ReminderIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 ReminderIdentification { get; init; } 
+    public required MessageIdentification1 ReminderIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 ReminderIdentification { get; init; } 
     #else
@@ -114,16 +111,15 @@ public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionR
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_hnA9-tE8Ed-BzquC8wXy7w_-2083336866")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -134,12 +130,11 @@ public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionR
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
     [IsoId("_hnA9-9E8Ed-BzquC8wXy7w_-2083336924")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Established Baseline Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EstblishdBaselnId")]
     #endif
+    [IsoXmlTag("EstblishdBaselnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,16 +147,15 @@ public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionR
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_hnA9_NE8Ed-BzquC8wXy7w_-2083336556")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 TransactionStatus { get; init; } 
+    public required TransactionStatus4 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 TransactionStatus { get; init; } 
     #else
@@ -172,32 +166,28 @@ public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionR
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
     [IsoId("_hnKu8NE8Ed-BzquC8wXy7w_-2083336587")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Identifies the message for which an action is required.
     /// </summary>
     [IsoId("_hnKu8dE8Ed-BzquC8wXy7w_-2083336525")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Requiring Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgReqrngActn")]
     #endif
+    [IsoXmlTag("MsgReqrngActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageRequiringAction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageRequiringAction { get; init; } 
+    public required MessageIdentification1 MessageRequiringAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageRequiringAction { get; init; } 
     #else
@@ -208,16 +198,15 @@ public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionR
     /// Next processing step required.
     /// </summary>
     [IsoId("_hnKu8tE8Ed-BzquC8wXy7w_-2083336834")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgReqForActn")]
     #endif
+    [IsoXmlTag("PdgReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PendingActivity2 PendingRequestForAction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PendingActivity2 PendingRequestForAction { get; init; } 
+    public required PendingActivity2 PendingRequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PendingActivity2 PendingRequestForAction { get; init; } 
     #else
@@ -228,7 +217,7 @@ public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ActionReminderV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ActionReminderV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ActionReminderV03Document ToDocument()
     {
@@ -238,7 +227,7 @@ public partial record ActionReminderV03 : IOuterRecord<ActionReminderV03,ActionR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ActionReminderV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ActionReminderV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ActionReminderV03Document : IOuterDocument<ActionReminderV03>
@@ -255,7 +244,7 @@ public partial record ActionReminderV03Document : IOuterDocument<ActionReminderV
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ActionReminderV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ActionReminderV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActionReminderV03 Message { get; init; }

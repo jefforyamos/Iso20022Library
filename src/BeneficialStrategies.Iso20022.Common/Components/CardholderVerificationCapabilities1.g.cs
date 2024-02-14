@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// ISO 8583:87 bit 22-3, ISO 8583;93 bit 22-2, ISO 8583:2003 bit 27-2
 /// </summary>
 [IsoId("_X8FtUcZSEeiCDcGzDHI_9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cardholder Verification Capabilities")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CardholderVerificationCapabilities1
     /// ISO 8583:93 bit 22-2, ISO 8583:2003-1 bit 27-2
     /// </summary>
     [IsoId("_YIpiocZSEeiCDcGzDHI_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cpblty")]
     #endif
+    [IsoXmlTag("Cpblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardholderVerificationCapability5Code Capability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardholderVerificationCapability5Code Capability { get; init; } 
+    public required CardholderVerificationCapability5Code Capability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardholderVerificationCapability5Code Capability { get; init; } 
     #else
@@ -73,15 +70,13 @@ public partial record CardholderVerificationCapabilities1
     /// Other types of cardholder verification capabilities.
     /// </summary>
     [IsoId("_YIpio8ZSEeiCDcGzDHI_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCpblty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrCpblty")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherCapability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

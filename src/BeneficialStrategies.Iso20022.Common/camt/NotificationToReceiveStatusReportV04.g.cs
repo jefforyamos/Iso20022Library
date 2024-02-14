@@ -27,15 +27,13 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This record is an implementation of the camt.059.001.04 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// The NotificationToReceiveStatusReport message is sent by an account servicing institution to an account owner or to a party acting on the account owner's behalf. It is used to notify the account owner about the status of one or more expected payments that were advised in a previous NotificationToReceive message.
+/// The NotificationToReceiveStatusReport message is sent by an account servicing institution to an account owner or to a party acting on the account owner&apos;s behalf. It is used to notify the account owner about the status of one or more expected payments that were advised in a previous NotificationToReceive message.
 /// Usage
 /// The NotificationToReceiveStatusReport message is sent in response to a NotificationToReceive message and can be used in either a direct or a relay scenario. It is used to advise the account owner of receipt of the funds as expected. It is also used to notify the account owner of non-receipt of funds or of discrepancies in the funds received.
 /// </summary>
 [Description(@"Scope|The NotificationToReceiveStatusReport message is sent by an account servicing institution to an account owner or to a party acting on the account owner's behalf. It is used to notify the account owner about the status of one or more expected payments that were advised in a previous NotificationToReceive message.|Usage|The NotificationToReceiveStatusReport message is sent in response to a NotificationToReceive message and can be used in either a direct or a relay scenario. It is used to advise the account owner of receipt of the funds as expected. It is also used to notify the account owner of non-receipt of funds or of discrepancies in the funds received.")]
 [IsoId("_VJ9wCRPeEeSVo-TFVwFHvA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification To Receive Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record NotificationToReceiveStatusReportV04 : IOuterRecord<Notifi
     /// Set of elements used to provide further details on the message.
     /// </summary>
     [IsoId("_VJ9wCxPeEeSVo-TFVwFHvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader60 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader60 GroupHeader { get; init; } 
+    public required GroupHeader60 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader60 GroupHeader { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record NotificationToReceiveStatusReportV04 : IOuterRecord<Notifi
     /// Set of elements used to identify the original notification and to provide the status.
     /// </summary>
     [IsoId("_VJ9wDRPeEeSVo-TFVwFHvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Notification And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlNtfctnAndSts")]
     #endif
+    [IsoXmlTag("OrgnlNtfctnAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalNotification7 OriginalNotificationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalNotification7 OriginalNotificationAndStatus { get; init; } 
+    public required OriginalNotification7 OriginalNotificationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalNotification7 OriginalNotificationAndStatus { get; init; } 
     #else
@@ -119,12 +115,11 @@ public partial record NotificationToReceiveStatusReportV04 : IOuterRecord<Notifi
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_VJ9wDxPeEeSVo-TFVwFHvA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,7 +132,7 @@ public partial record NotificationToReceiveStatusReportV04 : IOuterRecord<Notifi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NotificationToReceiveStatusReportV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NotificationToReceiveStatusReportV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NotificationToReceiveStatusReportV04Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record NotificationToReceiveStatusReportV04 : IOuterRecord<Notifi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationToReceiveStatusReportV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NotificationToReceiveStatusReportV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NotificationToReceiveStatusReportV04Document : IOuterDocument<NotificationToReceiveStatusReportV04>
@@ -164,7 +159,7 @@ public partial record NotificationToReceiveStatusReportV04Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NotificationToReceiveStatusReportV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NotificationToReceiveStatusReportV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationToReceiveStatusReportV04 Message { get; init; }

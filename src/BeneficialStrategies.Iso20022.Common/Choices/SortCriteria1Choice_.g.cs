@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SortCriteria1Choice.Predefined))]
     [KnownType(typeof(SortCriteria1Choice.UserDefined))]
     [IsoId("_U1-1hNp-Ed-ak6NoX_4Aeg_1941564546")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sort Criteria 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

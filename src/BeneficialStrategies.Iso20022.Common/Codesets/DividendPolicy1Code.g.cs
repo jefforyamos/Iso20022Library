@@ -21,7 +21,7 @@ public enum DividendPolicy1Code
 {
     /// <summary>
     /// Dividend is paid in cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_aw6i5tp-Ed-ak6NoX_4Aeg_119018465")]
@@ -30,7 +30,7 @@ public enum DividendPolicy1Code
     
     /// <summary>
     /// Dividend is paid in units.
-    /// Encoded/decoded by serializers as "UNIT".
+    /// Encoded/decoded by serializers as &quot;UNIT&quot;.
     /// </summary>
     [EnumMember(Value = "UNIT")]
     [IsoId("_aw6i59p-Ed-ak6NoX_4Aeg_119018743")]
@@ -39,7 +39,7 @@ public enum DividendPolicy1Code
     
     /// <summary>
     /// Dividend is paid in both Cash and Units.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_axET4Np-Ed-ak6NoX_4Aeg_119018774")]

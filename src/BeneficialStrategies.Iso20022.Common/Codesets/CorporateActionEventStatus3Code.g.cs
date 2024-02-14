@@ -21,7 +21,7 @@ public enum CorporateActionEventStatus3Code
 {
     /// <summary>
     /// The CA event is cancelled.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_bESK09p-Ed-ak6NoX_4Aeg_2065210908")]
@@ -30,7 +30,7 @@ public enum CorporateActionEventStatus3Code
     
     /// <summary>
     /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, eg, expired option.
-    /// Encoded/decoded by serializers as "INAC".
+    /// Encoded/decoded by serializers as &quot;INAC&quot;.
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_bESK1Np-Ed-ak6NoX_4Aeg_2065210936")]

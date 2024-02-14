@@ -21,7 +21,7 @@ public enum LegalRestrictions2Code
 {
     /// <summary>
     /// Investors outside this jurisdiction can purchase this security, for example, a Reg S security can only be held by an investor outside the US.
-    /// Encoded/decoded by serializers as "JURO".
+    /// Encoded/decoded by serializers as &quot;JURO&quot;.
     /// </summary>
     [EnumMember(Value = "JURO")]
     [IsoId("_haryvmliEeGaMcKyqKNRfQ_-1957716437")]
@@ -30,7 +30,7 @@ public enum LegalRestrictions2Code
     
     /// <summary>
     /// Only investors qualified by the issuer in this jurisdiction may purchase this security.
-    /// Encoded/decoded by serializers as "PPLA".
+    /// Encoded/decoded by serializers as &quot;PPLA&quot;.
     /// </summary>
     [EnumMember(Value = "PPLA")]
     [IsoId("_haryv2liEeGaMcKyqKNRfQ_-599905481")]
@@ -39,7 +39,7 @@ public enum LegalRestrictions2Code
     
     /// <summary>
     /// Only investors qualified by the regulator in this jurisdiction may purchase this security.
-    /// Encoded/decoded by serializers as "ACRI".
+    /// Encoded/decoded by serializers as &quot;ACRI&quot;.
     /// </summary>
     [EnumMember(Value = "ACRI")]
     [IsoId("_harywGliEeGaMcKyqKNRfQ_867243282")]
@@ -48,7 +48,7 @@ public enum LegalRestrictions2Code
     
     /// <summary>
     /// Issuer defines whether the security may be purchased with borrowed money (US and Japan).
-    /// Encoded/decoded by serializers as "MARG".
+    /// Encoded/decoded by serializers as &quot;MARG&quot;.
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_harywWliEeGaMcKyqKNRfQ_1851192826")]
@@ -57,7 +57,7 @@ public enum LegalRestrictions2Code
     
     /// <summary>
     /// Privileges, for example, voting rights, of holding the security may be restricted by the issuer.
-    /// Encoded/decoded by serializers as "PRIV".
+    /// Encoded/decoded by serializers as &quot;PRIV&quot;.
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_harywmliEeGaMcKyqKNRfQ_-976625707")]

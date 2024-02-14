@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification236Choice
     /// Party is a legal person.
     /// </summary>
     [IsoId("_lqGRMMgoEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum InstrumentSubStructureType1Code
 {
     /// <summary>
     /// Sub structured type of the financial instrument is an asset backed security.
-    /// Encoded/decoded by serializers as "ABSE".
+    /// Encoded/decoded by serializers as &quot;ABSE&quot;.
     /// </summary>
     [EnumMember(Value = "ABSE")]
     [IsoId("_hbSPoWliEeGaMcKyqKNRfQ_-1602851951")]
@@ -30,7 +30,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is an airline trust.
-    /// Encoded/decoded by serializers as "AIRT".
+    /// Encoded/decoded by serializers as &quot;AIRT&quot;.
     /// </summary>
     [EnumMember(Value = "AIRT")]
     [IsoId("_hbSPomliEeGaMcKyqKNRfQ_-1552631371")]
@@ -39,7 +39,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is an auto trust.
-    /// Encoded/decoded by serializers as "AUTT".
+    /// Encoded/decoded by serializers as &quot;AUTT&quot;.
     /// </summary>
     [EnumMember(Value = "AUTT")]
     [IsoId("_hbSPo2liEeGaMcKyqKNRfQ_-791866218")]
@@ -48,7 +48,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a collateral bond obligation.
-    /// Encoded/decoded by serializers as "CBOB".
+    /// Encoded/decoded by serializers as &quot;CBOB&quot;.
     /// </summary>
     [EnumMember(Value = "CBOB")]
     [IsoId("_hbSPpGliEeGaMcKyqKNRfQ_675282545")]
@@ -57,7 +57,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a collateral debt obligation.
-    /// Encoded/decoded by serializers as "CDOB".
+    /// Encoded/decoded by serializers as &quot;CDOB&quot;.
     /// </summary>
     [EnumMember(Value = "CDOB")]
     [IsoId("_hbSPpWliEeGaMcKyqKNRfQ_-1109642879")]
@@ -66,7 +66,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub-structured type of the financial instrument is a credit linked note.
-    /// Encoded/decoded by serializers as "CLNO".
+    /// Encoded/decoded by serializers as &quot;CLNO&quot;.
     /// </summary>
     [EnumMember(Value = "CLNO")]
     [IsoId("_hbSPpmliEeGaMcKyqKNRfQ_357505884")]
@@ -75,7 +75,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a collateral loan obligation.
-    /// Encoded/decoded by serializers as "CLOB".
+    /// Encoded/decoded by serializers as &quot;CLOB&quot;.
     /// </summary>
     [EnumMember(Value = "CLOB")]
     [IsoId("_hbSPp2liEeGaMcKyqKNRfQ_248168077")]
@@ -84,7 +84,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a commercial mortgage.
-    /// Encoded/decoded by serializers as "CMBS".
+    /// Encoded/decoded by serializers as &quot;CMBS&quot;.
     /// </summary>
     [EnumMember(Value = "CMBS")]
     [IsoId("_hbSPqGliEeGaMcKyqKNRfQ_1715316840")]
@@ -93,7 +93,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a consumer.
-    /// Encoded/decoded by serializers as "CSMR".
+    /// Encoded/decoded by serializers as &quot;CSMR&quot;.
     /// </summary>
     [EnumMember(Value = "CSMR")]
     [IsoId("_hbSPqWliEeGaMcKyqKNRfQ_1128715103")]
@@ -102,7 +102,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a credit card trust.
-    /// Encoded/decoded by serializers as "CRCT".
+    /// Encoded/decoded by serializers as &quot;CRCT&quot;.
     /// </summary>
     [EnumMember(Value = "CRCT")]
     [IsoId("_hbSPqmliEeGaMcKyqKNRfQ_-1141613643")]
@@ -111,7 +111,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a home equity loan.
-    /// Encoded/decoded by serializers as "HELO".
+    /// Encoded/decoded by serializers as &quot;HELO&quot;.
     /// </summary>
     [EnumMember(Value = "HELO")]
     [IsoId("_hbSPq2liEeGaMcKyqKNRfQ_325535120")]
@@ -120,7 +120,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a loan participation notes.
-    /// Encoded/decoded by serializers as "LPNO".
+    /// Encoded/decoded by serializers as &quot;LPNO&quot;.
     /// </summary>
     [EnumMember(Value = "LPNO")]
     [IsoId("_hbSPrGliEeGaMcKyqKNRfQ_-816496136")]
@@ -129,7 +129,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a covered bond.
-    /// Encoded/decoded by serializers as "PFAB".
+    /// Encoded/decoded by serializers as &quot;PFAB&quot;.
     /// </summary>
     [EnumMember(Value = "PFAB")]
     [IsoId("_hbSPrWliEeGaMcKyqKNRfQ_650652627")]
@@ -138,7 +138,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a payment right.
-    /// Encoded/decoded by serializers as "PYRT".
+    /// Encoded/decoded by serializers as &quot;PYRT&quot;.
     /// </summary>
     [EnumMember(Value = "PYRT")]
     [IsoId("_hbSPrmliEeGaMcKyqKNRfQ_2103546148")]
@@ -147,7 +147,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a repackaging.
-    /// Encoded/decoded by serializers as "REPK".
+    /// Encoded/decoded by serializers as &quot;REPK&quot;.
     /// </summary>
     [EnumMember(Value = "REPK")]
     [IsoId("_hbSPr2liEeGaMcKyqKNRfQ_1468514302")]
@@ -156,7 +156,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a residential mortgage.
-    /// Encoded/decoded by serializers as "RMBS".
+    /// Encoded/decoded by serializers as &quot;RMBS&quot;.
     /// </summary>
     [EnumMember(Value = "RMBS")]
     [IsoId("_hbSPsGliEeGaMcKyqKNRfQ_-1359304231")]
@@ -165,7 +165,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a structured covered bond.
-    /// Encoded/decoded by serializers as "SCBO".
+    /// Encoded/decoded by serializers as &quot;SCBO&quot;.
     /// </summary>
     [EnumMember(Value = "SCBO")]
     [IsoId("_hbSPsWliEeGaMcKyqKNRfQ_-1748432656")]
@@ -174,7 +174,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a straight bond.
-    /// Encoded/decoded by serializers as "STRB".
+    /// Encoded/decoded by serializers as &quot;STRB&quot;.
     /// </summary>
     [EnumMember(Value = "STRB")]
     [IsoId("_hbSPsmliEeGaMcKyqKNRfQ_-281283893")]
@@ -183,7 +183,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a student loan trust.
-    /// Encoded/decoded by serializers as "STUT".
+    /// Encoded/decoded by serializers as &quot;STUT&quot;.
     /// </summary>
     [EnumMember(Value = "STUT")]
     [IsoId("_hbSPs2liEeGaMcKyqKNRfQ_-697299584")]
@@ -192,7 +192,7 @@ public enum InstrumentSubStructureType1Code
     
     /// <summary>
     /// Sub structured type of the financial instrument is a whole business security.
-    /// Encoded/decoded by serializers as "WBSE".
+    /// Encoded/decoded by serializers as &quot;WBSE&quot;.
     /// </summary>
     [EnumMember(Value = "WBSE")]
     [IsoId("_hbSPtGliEeGaMcKyqKNRfQ_769849179")]

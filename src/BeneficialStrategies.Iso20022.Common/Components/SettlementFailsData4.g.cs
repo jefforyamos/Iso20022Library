@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the aggregated data of settlement fails instructions.
 /// </summary>
 [IsoId("_nUbWwSGkEeqlG_HhjTmcZg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record SettlementFailsData4
     /// Total of all types of settlement transactions.
     /// </summary>
     [IsoId("_nWXQcSGkEeqlG_HhjTmcZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ttl")]
     #endif
+    [IsoXmlTag("Ttl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1 Total { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementTotalData1 Total { get; init; } 
+    public required SettlementTotalData1 Total { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementTotalData1 Total { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record SettlementFailsData4
     /// Further details on the reason for the settlement fails.
     /// </summary>
     [IsoId("_nWXQcyGkEeqlG_HhjTmcZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failure Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FailrRsn")]
     #endif
+    [IsoXmlTag("FailrRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailureReason3 FailureReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailureReason3 FailureReason { get; init; } 
+    public required SettlementFailureReason3 FailureReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailureReason3 FailureReason { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record SettlementFailsData4
     /// Eligible for derogation under the local regulation on settlement discipline, including the justification.
     /// </summary>
     [IsoId("_nWXQdSGkEeqlG_HhjTmcZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligible For Derogation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgblForDrgtn")]
     #endif
+    [IsoXmlTag("ElgblForDrgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDerogation1 EligibleForDerogation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDerogation1 EligibleForDerogation { get; init; } 
+    public required SettlementFailsDerogation1 EligibleForDerogation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDerogation1 EligibleForDerogation { get; init; } 
     #else

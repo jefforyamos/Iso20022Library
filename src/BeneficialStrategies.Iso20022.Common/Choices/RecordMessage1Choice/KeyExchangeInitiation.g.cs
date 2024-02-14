@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice
     /// Key exchange initiation message record.
     /// </summary>
     [IsoId("_Ir9G0Rs8EeqrvK3udMUsNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Exchange Initiation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice
         /// Binary data of 2MB maximum.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="KeyXchgInitn")]
         #endif
+        [IsoXmlTag("KeyXchgInitn")]
+        [IsoSimpleType(IsoSimpleType.Max2MBBinary)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax2MBBinary Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Byte[] Value { get; init; } 
+        public required System.Byte[] Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Byte[] Value { get; init; } 
         #else

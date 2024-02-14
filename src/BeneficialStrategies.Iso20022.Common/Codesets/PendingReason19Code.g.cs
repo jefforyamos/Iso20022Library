@@ -21,7 +21,7 @@ public enum PendingReason19Code
 {
     /// <summary>
     /// Financial instruments have not been delivered by the issuer.
-    /// Encoded/decoded by serializers as "NSEC".
+    /// Encoded/decoded by serializers as &quot;NSEC&quot;.
     /// </summary>
     [EnumMember(Value = "NSEC")]
     [IsoId("_j41ie-aEEemtTOaHuc_63w")]
@@ -30,7 +30,7 @@ public enum PendingReason19Code
     
     /// <summary>
     /// Payment has not been made by issuer.
-    /// Encoded/decoded by serializers as "NPAY".
+    /// Encoded/decoded by serializers as &quot;NPAY&quot;.
     /// </summary>
     [EnumMember(Value = "NPAY")]
     [IsoId("_j41ieeaEEemtTOaHuc_63w")]
@@ -39,7 +39,7 @@ public enum PendingReason19Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_j41id-aEEemtTOaHuc_63w")]
@@ -48,7 +48,7 @@ public enum PendingReason19Code
     
     /// <summary>
     /// Tax reclaim has been sent to the tax authorities.
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_j41ieOaEEemtTOaHuc_63w")]
@@ -57,7 +57,7 @@ public enum PendingReason19Code
     
     /// <summary>
     /// For tax reclaim, the event is pending, the tax reclaim is valid for the tax authorities.
-    /// Encoded/decoded by serializers as "VLDA".
+    /// Encoded/decoded by serializers as &quot;VLDA&quot;.
     /// </summary>
     [EnumMember(Value = "VLDA")]
     [IsoId("_j41ieuaEEemtTOaHuc_63w")]
@@ -66,7 +66,7 @@ public enum PendingReason19Code
     
     /// <summary>
     /// Awaiting receipt of adequate certification.
-    /// Encoded/decoded by serializers as "MCER".
+    /// Encoded/decoded by serializers as &quot;MCER&quot;.
     /// </summary>
     [EnumMember(Value = "MCER")]
     [IsoId("_pqsMUeaEEemtTOaHuc_63w")]

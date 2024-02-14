@@ -21,7 +21,7 @@ public enum CustodianRecordCompletenessTypeCode
 {
     /// <summary>
     /// Custodian record is complete.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_11pasDL3EeKU9IrkkToqcw_-85851678")]
@@ -30,7 +30,7 @@ public enum CustodianRecordCompletenessTypeCode
     
     /// <summary>
     /// Custodian record is incomplete.
-    /// Encoded/decoded by serializers as "INCO".
+    /// Encoded/decoded by serializers as &quot;INCO&quot;.
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_11pasTL3EeKU9IrkkToqcw_-167921638")]
@@ -39,7 +39,7 @@ public enum CustodianRecordCompletenessTypeCode
     
     /// <summary>
     /// Custodian record is conditionally complete.
-    /// Encoded/decoded by serializers as "CCOM".
+    /// Encoded/decoded by serializers as &quot;CCOM&quot;.
     /// </summary>
     [EnumMember(Value = "CCOM")]
     [IsoId("_11pasjL3EeKU9IrkkToqcw_-1808310521")]

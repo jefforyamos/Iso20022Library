@@ -21,7 +21,7 @@ public enum PriceStatus2Code
 {
     /// <summary>
     /// Price is pending.
-    /// Encoded/decoded by serializers as "PNDG".
+    /// Encoded/decoded by serializers as &quot;PNDG&quot;.
     /// </summary>
     [EnumMember(Value = "PNDG")]
     [IsoId("_DfTKsQbCEeqrW7Meu5r3kQ")]

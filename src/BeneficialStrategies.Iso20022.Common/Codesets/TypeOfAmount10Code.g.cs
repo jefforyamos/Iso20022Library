@@ -21,7 +21,7 @@ public enum TypeOfAmount10Code
 {
     /// <summary>
     /// Interchange fee.
-    /// Encoded/decoded by serializers as "INTC".
+    /// Encoded/decoded by serializers as &quot;INTC&quot;.
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_jvU-AVKOEeeHVODnW-1ONQ")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount10Code
     
     /// <summary>
     /// Processing fees.
-    /// Encoded/decoded by serializers as "FEEP".
+    /// Encoded/decoded by serializers as &quot;FEEP&quot;.
     /// </summary>
     [EnumMember(Value = "FEEP")]
     [IsoId("_oXifQVKOEeeHVODnW-1ONQ")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount10Code
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_pN11IVKOEeeHVODnW-1ONQ")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount10Code
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_pR2ycVKOEeeHVODnW-1ONQ")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount10Code
     
     /// <summary>
     /// International service assessment fees.
-    /// Encoded/decoded by serializers as "FEEA".
+    /// Encoded/decoded by serializers as &quot;FEEA&quot;.
     /// </summary>
     [EnumMember(Value = "FEEA")]
     [IsoId("_rf7I4X03Eem0U9m89kippg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides for each collateral account the report summary and the valuation of each piece of collateral.
 /// </summary>
 [IsoId("_otPoFAF1EeutW5-TpeYJhA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Collateral43
     /// Provides information about the collateral account, that is the identification, the type and optionally the name.
     /// </summary>
     [IsoId("_otPoFgF1EeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAccount3 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralAccount3 AccountIdentification { get; init; } 
+    public required CollateralAccount3 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralAccount3 AccountIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Collateral43
     /// Summary of the collateral valuation.
     /// </summary>
     [IsoId("_otPoFwF1EeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSummry")]
     #endif
+    [IsoXmlTag("RptSummry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Summary2 ReportSummary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Summary2 ReportSummary { get; init; } 
+    public required Summary2 ReportSummary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Summary2 ReportSummary { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record Collateral43
     /// Additional information about the collateral valuation that has been posted.
     /// </summary>
     [IsoId("_otPoFQF1EeutW5-TpeYJhA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Valuation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollValtn")]
     #endif
+    [IsoXmlTag("CollValtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralValuation12? CollateralValuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

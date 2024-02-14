@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalActivation2Choice
     /// This element must be identical to the debtor identification in the original debtor activation request.
     /// </summary>
     [IsoId("_UPBU8eH7Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Debtor Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

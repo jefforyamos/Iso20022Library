@@ -21,7 +21,7 @@ public enum AssetClassSubProductType29Code
 {
     /// <summary>
     /// Commodity of type carbon related.
-    /// Encoded/decoded by serializers as "CRBR".
+    /// Encoded/decoded by serializers as &quot;CRBR&quot;.
     /// </summary>
     [EnumMember(Value = "CRBR")]
     [IsoId("_ePRMoVrNEeWN79Bl6BUd3g")]

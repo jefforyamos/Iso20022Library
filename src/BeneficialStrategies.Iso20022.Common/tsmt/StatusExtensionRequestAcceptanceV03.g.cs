@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The StatusExtensionRequestAcceptance message is sent by the party requested to accept or reject a request to extend the status of a transaction to the matching application.|This message is used to inform about the acceptance of a request to extend the status of a transaction.|Usage|The StatusExtensionRequestAcceptance message can be sent by the party requested to accept or reject the request to extend the status of a transaction to inform that it accepts the request.|The message can be sent in response to a StatusExtensionRequestNotification message.|The rejection of a request to extend the status of a transaction can be achieved by sending a StatusExtensionRequestRejection message.")]
 [IsoId("_y25KUNE8Ed-BzquC8wXy7w_844950216")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Extension Request Acceptance V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord<StatusE
     /// Identifies the acceptance message.
     /// </summary>
     [IsoId("_y25KUdE8Ed-BzquC8wXy7w_844950227")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acceptance Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AccptncId")]
     #endif
+    [IsoXmlTag("AccptncId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 AcceptanceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 AcceptanceIdentification { get; init; } 
+    public required MessageIdentification1 AcceptanceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 AcceptanceIdentification { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord<StatusE
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.|.
     /// </summary>
     [IsoId("_y25KUtE8Ed-BzquC8wXy7w_844950247")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SimpleIdentificationInformation TransactionIdentification { get; init; } 
+    public required SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SimpleIdentificationInformation TransactionIdentification { get; init; } 
     #else
@@ -123,12 +119,11 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord<StatusE
     /// Reference to the transaction for the requesting financial institution.
     /// </summary>
     [IsoId("_y25KU9E8Ed-BzquC8wXy7w_844950309")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitrTxRef")]
     #endif
+    [IsoXmlTag("SubmitrTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SimpleIdentificationInformation? SubmitterTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,16 +136,15 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord<StatusE
     /// Identifies the status for which the user accepts an extension of the validity period.
     /// </summary>
     [IsoId("_y25KVNE8Ed-BzquC8wXy7w_844950278")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedSts")]
     #endif
+    [IsoXmlTag("XtndedSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionStatus4 ExtendedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionStatus4 ExtendedStatus { get; init; } 
+    public required TransactionStatus4 ExtendedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionStatus4 ExtendedStatus { get; init; } 
     #else
@@ -161,7 +155,7 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord<StatusE
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatusExtensionRequestAcceptanceV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatusExtensionRequestAcceptanceV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatusExtensionRequestAcceptanceV03Document ToDocument()
     {
@@ -171,7 +165,7 @@ public partial record StatusExtensionRequestAcceptanceV03 : IOuterRecord<StatusE
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusExtensionRequestAcceptanceV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatusExtensionRequestAcceptanceV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatusExtensionRequestAcceptanceV03Document : IOuterDocument<StatusExtensionRequestAcceptanceV03>
@@ -188,7 +182,7 @@ public partial record StatusExtensionRequestAcceptanceV03Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatusExtensionRequestAcceptanceV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatusExtensionRequestAcceptanceV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusExtensionRequestAcceptanceV03 Message { get; init; }

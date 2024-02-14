@@ -22,7 +22,7 @@ public enum ValidationRuleAnyBank1Code
 {
     /// <summary>
     /// Any bank.
-    /// Encoded/decoded by serializers as "ANYB".
+    /// Encoded/decoded by serializers as &quot;ANYB&quot;.
     /// </summary>
     [EnumMember(Value = "ANYB")]
     [IsoId("_GAUS4SBqEeugLNJneiyzbA")]

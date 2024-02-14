@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType45Choice
     /// Type of identification expressed as a code.
     /// </summary>
     [IsoId("_ql4v04d6EemJ1cSJJmVYRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType45Choice
         /// Specifies the type of alternate identification which can be used to give an alternate identification of the party identified.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TypeOfIdentification4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TypeOfIdentification4Code Value { get; init; } 
+        public required TypeOfIdentification4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TypeOfIdentification4Code Value { get; init; } 
         #else

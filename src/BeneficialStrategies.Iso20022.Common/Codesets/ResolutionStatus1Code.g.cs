@@ -21,7 +21,7 @@ public enum ResolutionStatus1Code
 {
     /// <summary>
     /// Meeting resolution has to be voted for by the participants to a general meeting.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZU0_Ztp-Ed-ak6NoX_4Aeg_268414544")]
@@ -30,7 +30,7 @@ public enum ResolutionStatus1Code
     
     /// <summary>
     /// Meeting resolution has been withdrawn.
-    /// Encoded/decoded by serializers as "WDRA".
+    /// Encoded/decoded by serializers as &quot;WDRA&quot;.
     /// </summary>
     [EnumMember(Value = "WDRA")]
     [IsoId("_ZU0_Z9p-Ed-ak6NoX_4Aeg_268414545")]

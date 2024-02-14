@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides further details on the list of direct debit mandate elements that have been modified when the amendment indicator has been set.
 /// </summary>
 [IsoId("_nuAWu7TREeeyuKckOGlwuA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amendment Information Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record AmendmentInformationDetails12
     /// Unique identification, as assigned by the creditor, to unambiguously identify the original mandate.
     /// </summary>
     [IsoId("_n2tmsbTREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Mandate Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMndtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlMndtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OriginalMandateIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record AmendmentInformationDetails12
     /// Original creditor scheme identification that has been modified.
     /// </summary>
     [IsoId("_n2tms7TREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Creditor Scheme Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlCdtrSchmeId")]
     #endif
+    [IsoXmlTag("OrgnlCdtrSchmeId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification125? OriginalCreditorSchemeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record AmendmentInformationDetails12
     /// Original creditor agent that has been modified.
     /// </summary>
     [IsoId("_n2tmtbTREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Creditor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlCdtrAgt")]
     #endif
+    [IsoXmlTag("OrgnlCdtrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? OriginalCreditorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,11 @@ public partial record AmendmentInformationDetails12
     /// Original creditor agent account that has been modified.
     /// </summary>
     [IsoId("_n2tmt7TREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Creditor Agent Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlCdtrAgtAcct")]
     #endif
+    [IsoXmlTag("OrgnlCdtrAgtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? OriginalCreditorAgentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +112,11 @@ public partial record AmendmentInformationDetails12
     /// Original debtor that has been modified.
     /// </summary>
     [IsoId("_n2tmubTREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Debtor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlDbtr")]
     #endif
+    [IsoXmlTag("OrgnlDbtr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification125? OriginalDebtor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +129,11 @@ public partial record AmendmentInformationDetails12
     /// Original debtor account that has been modified.
     /// </summary>
     [IsoId("_n2tmu7TREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Debtor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlDbtrAcct")]
     #endif
+    [IsoXmlTag("OrgnlDbtrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? OriginalDebtorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +146,11 @@ public partial record AmendmentInformationDetails12
     /// Original debtor agent that has been modified.
     /// </summary>
     [IsoId("_n2tmvbTREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Debtor Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlDbtrAgt")]
     #endif
+    [IsoXmlTag("OrgnlDbtrAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? OriginalDebtorAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +163,11 @@ public partial record AmendmentInformationDetails12
     /// Original debtor agent account that has been modified.
     /// </summary>
     [IsoId("_n2tmv7TREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Debtor Agent Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlDbtrAgtAcct")]
     #endif
+    [IsoXmlTag("OrgnlDbtrAgtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount24? OriginalDebtorAgentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +180,12 @@ public partial record AmendmentInformationDetails12
     /// Original final collection date that has been modified.
     /// </summary>
     [IsoId("_n2tmwbTREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Final Collection Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlFnlColltnDt")]
     #endif
+    [IsoXmlTag("OrgnlFnlColltnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? OriginalFinalCollectionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +198,11 @@ public partial record AmendmentInformationDetails12
     /// Original frequency that has been modified.
     /// </summary>
     [IsoId("_n2tmw7TREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlFrqcy")]
     #endif
+    [IsoXmlTag("OrgnlFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Frequency36Choice_? OriginalFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +215,11 @@ public partial record AmendmentInformationDetails12
     /// Original reason for the mandate to allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
     [IsoId("_n2tmxbTREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRsn")]
     #endif
+    [IsoXmlTag("OrgnlRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MandateSetupReason1Choice_? OriginalReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,15 +232,12 @@ public partial record AmendmentInformationDetails12
     /// Original number of tracking days that has been modified.
     /// </summary>
     [IsoId("_n2tmx7TREeeyuKckOGlwuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Tracking Days")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlTrckgDays")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OrgnlTrckgDays")]
+    [IsoSimpleType(IsoSimpleType.Exact2NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact2NumericText? OriginalTrackingDays { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

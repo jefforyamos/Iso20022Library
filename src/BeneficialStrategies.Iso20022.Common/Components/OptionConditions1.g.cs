@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Conditions to be met by the holder.
 /// </summary>
 [IsoId("_Y41SoA7zEeuZI5Sr_GAcuA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Option Conditions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record OptionConditions1
     /// Number of the condition.
     /// </summary>
     [IsoId("_ogHwkA7zEeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CondNb")]
     #endif
+    [IsoXmlTag("CondNb")]
+    [IsoSimpleType(IsoSimpleType.Max1Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax1Number ConditionNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ConditionNumber { get; init; } 
+    public required System.UInt64 ConditionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ConditionNumber { get; init; } 
     #else
@@ -73,19 +71,17 @@ public partial record OptionConditions1
     /// Description of the condition.
     /// </summary>
     [IsoId("_Dj-YcA70EeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition Text")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CondTxt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CondTxt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINXMax520Text)]
     [StringLength(maximumLength: 520 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRestrictedFINXMax520Text ConditionText { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ConditionText { get; init; } 
+    public required System.String ConditionText { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ConditionText { get; init; } 
     #else
@@ -93,19 +89,19 @@ public partial record OptionConditions1
     #endif
     
     /// <summary>
-    /// States whether the condition must be acknowledged. Conditions with a No ("false" or "0") do not need acknowledgement.
+    /// States whether the condition must be acknowledged. Conditions with a No (&quot;false&quot; or &quot;0&quot;) do not need acknowledgement.
     /// </summary>
     [IsoId("_NpNjEA70EeuZI5Sr_GAcuA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Condition Required Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CondReqrdFlg")]
     #endif
+    [IsoXmlTag("CondReqrdFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ConditionRequiredFlag { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ConditionRequiredFlag { get; init; } 
+    public required System.String ConditionRequiredFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ConditionRequiredFlag { get; init; } 
     #else

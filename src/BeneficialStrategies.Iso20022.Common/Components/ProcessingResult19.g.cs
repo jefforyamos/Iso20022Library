@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Outcome of the processing of the transaction.
 /// </summary>
 [IsoId("_lsmvER1NEey8XKHwKquEQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Processing Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ProcessingResult19
     /// Information about the entity that provides the response.
     /// </summary>
     [IsoId("_MXGhcCFVEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnSrc")]
     #endif
+    [IsoXmlTag("RspnSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApprovalEntity2? ResponseSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record ProcessingResult19
     /// Result of the processing.
     /// </summary>
     [IsoId("_lyq60R1NEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsltData")]
     #endif
+    [IsoXmlTag("RsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResultData10 ResultData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResultData10 ResultData { get; init; } 
+    public required ResultData10 ResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResultData10 ResultData { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record ProcessingResult19
     /// Error detail information
     /// </summary>
     [IsoId("_R-g14CFVEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error Detail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ErrDtl")]
     #endif
+    [IsoXmlTag("ErrDtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ErrorDetails2? ErrorDetail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record ProcessingResult19
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
     [IsoId("_lyq60x1NEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Result Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlRsltData")]
     #endif
+    [IsoXmlTag("OrgnlRsltData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResultData7? OriginalResultData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +120,11 @@ public partial record ProcessingResult19
     /// ISO 8583 bit 44
     /// </summary>
     [IsoId("_lyq61R1NEey8XKHwKquEQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation30? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

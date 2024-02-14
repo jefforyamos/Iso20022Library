@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NetDividendRate1Choice.Amount))]
     [KnownType(typeof(NetDividendRate1Choice.RateTypeAmount))]
     [IsoId("_UPYvmNp-Ed-ak6NoX_4Aeg_1659440967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Dividend Rate 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

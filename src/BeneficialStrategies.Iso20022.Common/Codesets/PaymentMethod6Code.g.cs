@@ -21,7 +21,7 @@ public enum PaymentMethod6Code
 {
     /// <summary>
     /// Direct method.
-    /// Encoded/decoded by serializers as "DIRE".
+    /// Encoded/decoded by serializers as &quot;DIRE&quot;.
     /// </summary>
     [EnumMember(Value = "DIRE")]
     [IsoId("_Z0kPZ9p-Ed-ak6NoX_4Aeg_1534180343")]
@@ -30,7 +30,7 @@ public enum PaymentMethod6Code
     
     /// <summary>
     /// Classical method.
-    /// Encoded/decoded by serializers as "CLAS".
+    /// Encoded/decoded by serializers as &quot;CLAS&quot;.
     /// </summary>
     [EnumMember(Value = "CLAS")]
     [IsoId("_Z0kPaNp-Ed-ak6NoX_4Aeg_1534180372")]

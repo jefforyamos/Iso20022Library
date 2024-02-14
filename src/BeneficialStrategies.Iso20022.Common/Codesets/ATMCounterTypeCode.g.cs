@@ -21,7 +21,7 @@ public enum ATMCounterTypeCode
 {
     /// <summary>
     /// Counters since the last cut-off.
-    /// Encoded/decoded by serializers as "CTOF".
+    /// Encoded/decoded by serializers as &quot;CTOF&quot;.
     /// </summary>
     [EnumMember(Value = "CTOF")]
     [IsoId("_zjMhsIqiEeS4a4abTJTSSw")]
@@ -30,7 +30,7 @@ public enum ATMCounterTypeCode
     
     /// <summary>
     /// Counters since the last update by an operator on the ATM.
-    /// Encoded/decoded by serializers as "OPER".
+    /// Encoded/decoded by serializers as &quot;OPER&quot;.
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_3CFqcIqiEeS4a4abTJTSSw")]
@@ -39,7 +39,7 @@ public enum ATMCounterTypeCode
     
     /// <summary>
     /// Counters since the last counters inquiry.
-    /// Encoded/decoded by serializers as "INQU".
+    /// Encoded/decoded by serializers as &quot;INQU&quot;.
     /// </summary>
     [EnumMember(Value = "INQU")]
     [IsoId("_iszAsOg2EeSbwP3G-MV9YA")]
@@ -48,7 +48,7 @@ public enum ATMCounterTypeCode
     
     /// <summary>
     /// Counters for a customer transaction.
-    /// Encoded/decoded by serializers as "CTXN".
+    /// Encoded/decoded by serializers as &quot;CTXN&quot;.
     /// </summary>
     [EnumMember(Value = "CTXN")]
     [IsoId("_nIHVcOg2EeSbwP3G-MV9YA")]
@@ -57,7 +57,7 @@ public enum ATMCounterTypeCode
     
     /// <summary>
     /// Counters since the beginning of the business day.
-    /// Encoded/decoded by serializers as "BDAY".
+    /// Encoded/decoded by serializers as &quot;BDAY&quot;.
     /// </summary>
     [EnumMember(Value = "BDAY")]
     [IsoId("_q0zpoOg2EeSbwP3G-MV9YA")]
@@ -66,7 +66,7 @@ public enum ATMCounterTypeCode
     
     /// <summary>
     /// Counters for an operation performed by an operator on the ATM.
-    /// Encoded/decoded by serializers as "PRTN".
+    /// Encoded/decoded by serializers as &quot;PRTN&quot;.
     /// </summary>
     [EnumMember(Value = "PRTN")]
     [IsoId("_uJyBYOg2EeSbwP3G-MV9YA")]

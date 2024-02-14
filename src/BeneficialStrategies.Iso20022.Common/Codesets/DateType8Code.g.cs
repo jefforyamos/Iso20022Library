@@ -21,7 +21,7 @@ public enum DateType8Code
 {
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_q3yFcmtdEeCY4-KZ9JEyUQ_98980666")]
@@ -29,8 +29,8 @@ public enum DateType8Code
     Unknown = DateTypeCode.Unknown, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
-    /// Encoded/decoded by serializers as "ONGO".
+    /// Ongoing basis, which indicates that the date is determined by &quot;ongoing basis&quot; process, for example &quot;au fil de l&apos;eau&quot;.
+    /// Encoded/decoded by serializers as &quot;ONGO&quot;.
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_q3yFc2tdEeCY4-KZ9JEyUQ_-1984793229")]

@@ -21,7 +21,7 @@ public enum ValidationRuleReceived1Code
 {
     /// <summary>
     /// Received.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_Eth3kR-1EeuxStysDTgLiw")]

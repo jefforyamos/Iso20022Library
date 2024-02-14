@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification34Choice
     /// Identification of constituents for a basket of indexes.
     /// </summary>
     [IsoId("_Zlr-pw1HEeqV4s5SpzR1dQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basket Constituents")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

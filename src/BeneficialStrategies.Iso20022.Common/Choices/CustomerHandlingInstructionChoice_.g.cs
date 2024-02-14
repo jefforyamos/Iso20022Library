@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CustomerHandlingInstructionChoice.Code))]
     [KnownType(typeof(CustomerHandlingInstructionChoice.Proprietary))]
     [IsoId("_Q-K2c9p-Ed-ak6NoX_4Aeg_-1612999730")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Handling Instruction Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

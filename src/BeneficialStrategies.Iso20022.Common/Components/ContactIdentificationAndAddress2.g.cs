@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
+/// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an &apos;artificial person&apos;).
 /// </summary>
 [IsoId("_-IRJIXhhEeidzqjNEfehPg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contact Identification And Address")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record ContactIdentificationAndAddress2
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_-U5P4XhhEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Name { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record ContactIdentificationAndAddress2
     /// Role of the party in the payment.
     /// </summary>
     [IsoId("_-U5P43hhEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentRole1Choice_ Role { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentRole1Choice_ Role { get; init; } 
+    public required PaymentRole1Choice_ Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentRole1Choice_ Role { get; init; } 
     #else
@@ -93,16 +88,15 @@ public partial record ContactIdentificationAndAddress2
     /// Number, or virtual address, used for communication.
     /// </summary>
     [IsoId("_-U5P5XhhEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Communication Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComAdr")]
     #endif
+    [IsoXmlTag("ComAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CommunicationAddress10 CommunicationAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CommunicationAddress10 CommunicationAddress { get; init; } 
+    public required CommunicationAddress10 CommunicationAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CommunicationAddress10 CommunicationAddress { get; init; } 
     #else

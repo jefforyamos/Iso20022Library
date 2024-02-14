@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Role2Choice.Proprietary))]
     [KnownType(typeof(Role2Choice.Text))]
     [IsoId("_Qwm7k9p-Ed-ak6NoX_4Aeg_-1001393826")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

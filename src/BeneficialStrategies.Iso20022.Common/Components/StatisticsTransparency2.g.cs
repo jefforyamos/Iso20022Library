@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Statistics for a financial instrument generated as part of transparency calculations.
 /// </summary>
 [IsoId("_D34tONSzEeWG96DaYzntbg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statistics Transparency")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record StatisticsTransparency2
     /// Total number of transactions that have been performed on this market.
     /// </summary>
     [IsoId("_D35UQ9SzEeWG96DaYzntbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of Transactions Executed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfTxsExctd")]
     #endif
+    [IsoXmlTag("TtlNbOfTxsExctd")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber TotalNumberOfTransactionsExecuted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalNumberOfTransactionsExecuted { get; init; } 
+    public required System.UInt64 TotalNumberOfTransactionsExecuted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalNumberOfTransactionsExecuted { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record StatisticsTransparency2
     /// Total volume of transactions that have been performed on this market.
     /// </summary>
     [IsoId("_D35URdSzEeWG96DaYzntbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Volume Of Transactions Executed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlVolOfTxsExctd")]
     #endif
+    [IsoXmlTag("TtlVolOfTxsExctd")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber TotalVolumeOfTransactionsExecuted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TotalVolumeOfTransactionsExecuted { get; init; } 
+    public required System.UInt64 TotalVolumeOfTransactionsExecuted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TotalVolumeOfTransactionsExecuted { get; init; } 
     #else

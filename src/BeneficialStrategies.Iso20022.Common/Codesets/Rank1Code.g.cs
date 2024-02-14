@@ -21,7 +21,7 @@ public enum Rank1Code
 {
     /// <summary>
     /// Element is the primary one.
-    /// Encoded/decoded by serializers as "PRIM".
+    /// Encoded/decoded by serializers as &quot;PRIM&quot;.
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_8Vcd8ZNgEeWSf8tCOKY7Ug")]
@@ -30,7 +30,7 @@ public enum Rank1Code
     
     /// <summary>
     /// Element is the primary one.
-    /// Encoded/decoded by serializers as "SECO".
+    /// Encoded/decoded by serializers as &quot;SECO&quot;.
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("_8dx6kZNgEeWSf8tCOKY7Ug")]

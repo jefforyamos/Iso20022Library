@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data on transaction requiring reconciliation or pairing.
 /// </summary>
 [IsoId("_cIzsx1ovEe23K4GXSpBSeg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReconciliationReport14
     /// Set of information related to transactions that are subject of reconciliation.
     /// </summary>
     [IsoId("_cKa2UVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeTransactionIdentification24 TransactionIdentification { get; init; } 
+    public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReconciliationReport14
     /// Criteria used to match the sides of the contract.
     /// </summary>
     [IsoId("_cKa2U1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchgCrit")]
     #endif
+    [IsoXmlTag("MtchgCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MatchingCriteria16 MatchingCriteria { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MatchingCriteria16 MatchingCriteria { get; init; } 
+    public required MatchingCriteria16 MatchingCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MatchingCriteria16 MatchingCriteria { get; init; } 
     #else

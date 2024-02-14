@@ -21,7 +21,7 @@ public enum DateType5Code
 {
     /// <summary>
     /// Open-dated, which indicates that the date has not been established.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_ayjhoNp-Ed-ak6NoX_4Aeg_957934914")]

@@ -21,7 +21,7 @@ public enum RepurchaseType3Code
 {
     /// <summary>
     /// Relates to a Swap/Substitution.
-    /// Encoded/decoded by serializers as "CADJ".
+    /// Encoded/decoded by serializers as &quot;CADJ&quot;.
     /// </summary>
     [EnumMember(Value = "CADJ")]
     [IsoId("_ZTosltp-Ed-ak6NoX_4Aeg_561015301")]
@@ -30,7 +30,7 @@ public enum RepurchaseType3Code
     
     /// <summary>
     /// Relates to a change in the closing or maturity date.
-    /// Encoded/decoded by serializers as "CALL".
+    /// Encoded/decoded by serializers as &quot;CALL&quot;.
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_ZTosl9p-Ed-ak6NoX_4Aeg_561015330")]
@@ -39,7 +39,7 @@ public enum RepurchaseType3Code
     
     /// <summary>
     /// Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.
-    /// Encoded/decoded by serializers as "PAIR".
+    /// Encoded/decoded by serializers as &quot;PAIR&quot;.
     /// </summary>
     [EnumMember(Value = "PAIR")]
     [IsoId("_ZTosmNp-Ed-ak6NoX_4Aeg_561015331")]
@@ -48,7 +48,7 @@ public enum RepurchaseType3Code
     
     /// <summary>
     /// Is part of a pair-off.
-    /// Encoded/decoded by serializers as "RATE".
+    /// Encoded/decoded by serializers as &quot;RATE&quot;.
     /// </summary>
     [EnumMember(Value = "RATE")]
     [IsoId("_ZTosmdp-Ed-ak6NoX_4Aeg_561015360")]
@@ -57,7 +57,7 @@ public enum RepurchaseType3Code
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "ROLP".
+    /// Encoded/decoded by serializers as &quot;ROLP&quot;.
     /// </summary>
     [EnumMember(Value = "ROLP")]
     [IsoId("_ZTx2gNp-Ed-ak6NoX_4Aeg_561015361")]
@@ -66,7 +66,7 @@ public enum RepurchaseType3Code
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "TOPU".
+    /// Encoded/decoded by serializers as &quot;TOPU&quot;.
     /// </summary>
     [EnumMember(Value = "TOPU")]
     [IsoId("_ZTx2gdp-Ed-ak6NoX_4Aeg_561015362")]
@@ -75,7 +75,7 @@ public enum RepurchaseType3Code
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "WTHD".
+    /// Encoded/decoded by serializers as &quot;WTHD&quot;.
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_ZTx2gtp-Ed-ak6NoX_4Aeg_561015608")]
@@ -84,7 +84,7 @@ public enum RepurchaseType3Code
     
     /// <summary>
     /// Relates to a principal adjustment.
-    /// Encoded/decoded by serializers as "PADJ".
+    /// Encoded/decoded by serializers as &quot;PADJ&quot;.
     /// </summary>
     [EnumMember(Value = "PADJ")]
     [IsoId("_ZTx2g9p-Ed-ak6NoX_4Aeg_777121086")]

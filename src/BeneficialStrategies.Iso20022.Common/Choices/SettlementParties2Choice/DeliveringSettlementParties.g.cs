@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties2Choice
     /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
     /// </summary>
     [IsoId("_-an2lqMOEeCojJW5vEuTEQ_715985560")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivering Settlement Parties")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties2Choice
         /// First party in the settlement chain. In a plain vanilla settlement, it is the Central Securities Depository where the counterparty requests to receive the financial instrument or from where the counterparty delivers the financial instruments.
         /// </summary>
         [IsoId("_-cthSKMOEeCojJW5vEuTEQ_30982141")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Depository")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dpstry")]
         #endif
+        [IsoXmlTag("Dpstry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification34Choice_ Depository { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification34Choice_ Depository { get; init; } 
+        public required PartyIdentification34Choice_ Depository { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification34Choice_ Depository { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties2Choice
         /// Party that, in a settlement chain interacts with the depository.
         /// </summary>
         [IsoId("_-c3SQKMOEeCojJW5vEuTEQ_914215428")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pty1")]
         #endif
+        [IsoXmlTag("Pty1")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentificationAndAccount32 Party1 { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentificationAndAccount32 Party1 { get; init; } 
+        public required PartyIdentificationAndAccount32 Party1 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentificationAndAccount32 Party1 { get; init; } 
         #else
@@ -97,12 +93,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties2Choice
         /// Party that, in a settlement chain interacts with the party 1.
         /// </summary>
         [IsoId("_-c3SQaMOEeCojJW5vEuTEQ_1323699813")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pty2")]
         #endif
+        [IsoXmlTag("Pty2")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentificationAndAccount32? Party2 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,15 +110,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties2Choice
         /// Identifies the securities settlement system to be used.
         /// </summary>
         [IsoId("_-c3SQqMOEeCojJW5vEuTEQ_-966090212")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Settlement System")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesSttlmSys")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("SctiesSttlmSys")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? SecuritiesSettlementSystem { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

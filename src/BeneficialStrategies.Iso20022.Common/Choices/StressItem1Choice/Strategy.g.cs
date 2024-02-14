@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice
     /// Assumed stress move for a set of financial instruments defined by a common trading strategy.
     /// </summary>
     [IsoId("_u_O2MKswEeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strategy")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice
         /// Unique identifier for the strategy.
         /// </summary>
         [IsoId("_y-9zcKs2Eeayv9XxdmMwKQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -80,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice
         /// Assumed stress move of the associated stress item under the scenario.
         /// </summary>
         [IsoId("_2XufAKs2Eeayv9XxdmMwKQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Stress Size")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StrssSz")]
         #endif
+        [IsoXmlTag("StrssSz")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StressSize1Choice_ StressSize { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StressSize1Choice_ StressSize { get; init; } 
+        public required StressSize1Choice_ StressSize { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StressSize1Choice_ StressSize { get; init; } 
         #else

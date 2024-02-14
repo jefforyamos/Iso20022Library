@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature4Choice
     /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
     [IsoId("_6j9NM7sAEea-m5tPqiasmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Financial Institution")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,12 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature4Choice
         /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
         /// </summary>
         [IsoId("_oNJQcIOdEeW2EdhfKzeL1w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sector")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sctr")]
         #endif
+        [IsoXmlTag("Sctr")]
+        [IsoSimpleType(IsoSimpleType.NACEDomainIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoNACEDomainIdentifier? Sector { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +73,16 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature4Choice
         /// Information whether the reporting counterparty is above the clearing threshold referred to the regulation.
         /// </summary>
         [IsoId("_88jHAfP7EeS_qLctCs2aRQa")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Clearing Threshold")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClrThrshld")]
         #endif
+        [IsoXmlTag("ClrThrshld")]
+        [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoTrueFalseIndicator ClearingThreshold { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ClearingThreshold { get; init; } 
+        public required System.String ClearingThreshold { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ClearingThreshold { get; init; } 
         #else
@@ -92,19 +90,19 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature4Choice
         #endif
         
         /// <summary>
-        /// Directly linked to commercial activity or treasury financing: Information on whether the contract is objectively measurable as directly linked to the reporting counterparty's commercial or treasury financing activity.
+        /// Directly linked to commercial activity or treasury financing: Information on whether the contract is objectively measurable as directly linked to the reporting counterparty&apos;s commercial or treasury financing activity.
         /// </summary>
         [IsoId("_HsMfAIOjEeWqmeP8QNJBew")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Directly Linked Activity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrctlyLkdActvty")]
         #endif
+        [IsoXmlTag("DrctlyLkdActvty")]
+        [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoTrueFalseIndicator DirectlyLinkedActivity { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String DirectlyLinkedActivity { get; init; } 
+        public required System.String DirectlyLinkedActivity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String DirectlyLinkedActivity { get; init; } 
         #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specificies all information around an event notification.
 /// </summary>
 [IsoId("_QfRfoXJeEe299ZbWCkdR_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Event Notification Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record EventNotificationData5
     /// Content of the Retailer Event message.
     /// </summary>
     [IsoId("_QlqbgXJeEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Retailer Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtlrEvt")]
     #endif
+    [IsoXmlTag("RtlrEvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RetailerEvent5 RetailerEvent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RetailerEvent5 RetailerEvent { get; init; } 
+    public required RetailerEvent5 RetailerEvent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RetailerEvent5 RetailerEvent { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record EventNotificationData5
     /// Indicates if the occurred event requires maintenance call or action.
     /// </summary>
     [IsoId("_Qlqbg3JeEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maintenance Required Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MntncReqrdFlg")]
     #endif
+    [IsoXmlTag("MntncReqrdFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? MaintenanceRequiredFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +86,11 @@ public partial record EventNotificationData5
     /// Language of the Customer
     /// </summary>
     [IsoId("_QlqbhXJeEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrLang")]
     #endif
+    [IsoXmlTag("CstmrLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? CustomerLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record EventNotificationData5
     /// To display an event message
     /// </summary>
     [IsoId("_Qlqbh3JeEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Output")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispOutpt")]
     #endif
+    [IsoXmlTag("DispOutpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage10? DisplayOutput { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

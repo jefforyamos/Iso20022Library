@@ -21,7 +21,7 @@ public enum ATMTransactionStatus2Code
 {
     /// <summary>
     /// Total presented amount is equal to the amount to dispense.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_-SIj4YqSEeSRT5rEzcAHEw")]
@@ -30,7 +30,7 @@ public enum ATMTransactionStatus2Code
     
     /// <summary>
     /// Total presented amount is lower than the amount to dispense.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_-fsew4qSEeSRT5rEzcAHEw")]
@@ -39,7 +39,7 @@ public enum ATMTransactionStatus2Code
     
     /// <summary>
     /// Total presented amount is equal to zero.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_-szts4qSEeSRT5rEzcAHEw")]

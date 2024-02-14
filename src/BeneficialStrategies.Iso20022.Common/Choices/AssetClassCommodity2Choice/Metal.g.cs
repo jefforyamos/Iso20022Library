@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice
     /// Code list for metal type of commodities.
     /// </summary>
     [IsoId("_BzEmOyYyEeWHeosc_5RQEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Metal")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice
         /// Code list for metal related derivative contracts.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Metl")]
         #endif
+        [IsoXmlTag("Metl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassSubProductMetal1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassSubProductMetal1Code Value { get; init; } 
+        public required AssetClassSubProductMetal1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassSubProductMetal1Code Value { get; init; } 
         #else

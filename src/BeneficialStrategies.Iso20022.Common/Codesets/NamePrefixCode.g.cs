@@ -21,7 +21,7 @@ public enum NamePrefixCode
 {
     /// <summary>
     /// Title of the person is Doctor or Dr.
-    /// Encoded/decoded by serializers as "DOCT".
+    /// Encoded/decoded by serializers as &quot;DOCT&quot;.
     /// </summary>
     [EnumMember(Value = "DOCT")]
     [IsoId("_aM_9hdp-Ed-ak6NoX_4Aeg_1978538845")]
@@ -30,7 +30,7 @@ public enum NamePrefixCode
     
     /// <summary>
     /// Title of the person is Mister or Mr.
-    /// Encoded/decoded by serializers as "MIST".
+    /// Encoded/decoded by serializers as &quot;MIST&quot;.
     /// </summary>
     [EnumMember(Value = "MIST")]
     [IsoId("_aM_9htp-Ed-ak6NoX_4Aeg_2031181497")]
@@ -39,7 +39,7 @@ public enum NamePrefixCode
     
     /// <summary>
     /// Title of the person is Miss.
-    /// Encoded/decoded by serializers as "MISS".
+    /// Encoded/decoded by serializers as &quot;MISS&quot;.
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_aM_9h9p-Ed-ak6NoX_4Aeg_2045957026")]
@@ -48,7 +48,7 @@ public enum NamePrefixCode
     
     /// <summary>
     /// Title of the person is Madam.
-    /// Encoded/decoded by serializers as "MADM".
+    /// Encoded/decoded by serializers as &quot;MADM&quot;.
     /// </summary>
     [EnumMember(Value = "MADM")]
     [IsoId("_aM_9iNp-Ed-ak6NoX_4Aeg_2050576025")]
@@ -57,7 +57,7 @@ public enum NamePrefixCode
     
     /// <summary>
     /// Title of the person is gender neutral (Mx).
-    /// Encoded/decoded by serializers as "MIKS".
+    /// Encoded/decoded by serializers as &quot;MIKS&quot;.
     /// </summary>
     [EnumMember(Value = "MIKS")]
     [IsoId("_dfH0MHRlEeiH1ZOt2UD8vQ")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reversal3Choice.References))]
     [KnownType(typeof(Reversal3Choice.TransferOutConfirmationDetails))]
     [IsoId("_QDN4oRX2EeOBE-jZfcm4KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

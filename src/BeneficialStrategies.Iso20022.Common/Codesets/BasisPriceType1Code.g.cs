@@ -21,7 +21,7 @@ public enum BasisPriceType1Code
 {
     /// <summary>
     /// Closing price at morning session.
-    /// Encoded/decoded by serializers as "MSCP".
+    /// Encoded/decoded by serializers as &quot;MSCP&quot;.
     /// </summary>
     [EnumMember(Value = "MSCP")]
     [IsoId("_bdLL8Np-Ed-ak6NoX_4Aeg_1888032571")]
@@ -30,7 +30,7 @@ public enum BasisPriceType1Code
     
     /// <summary>
     /// Closing price.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_bdLL8dp-Ed-ak6NoX_4Aeg_1888032985")]
@@ -39,7 +39,7 @@ public enum BasisPriceType1Code
     
     /// <summary>
     /// Current price.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_bdLL8tp-Ed-ak6NoX_4Aeg_1888953052")]
@@ -48,7 +48,7 @@ public enum BasisPriceType1Code
     
     /// <summary>
     /// Price computed after a trading halt.
-    /// Encoded/decoded by serializers as "SPQO".
+    /// Encoded/decoded by serializers as &quot;SPQO&quot;.
     /// </summary>
     [EnumMember(Value = "SPQO")]
     [IsoId("_bdLL89p-Ed-ak6NoX_4Aeg_1888953112")]
@@ -57,7 +57,7 @@ public enum BasisPriceType1Code
     
     /// <summary>
     /// Value weighted average price through the day.
-    /// Encoded/decoded by serializers as "VWPD".
+    /// Encoded/decoded by serializers as &quot;VWPD&quot;.
     /// </summary>
     [EnumMember(Value = "VWPD")]
     [IsoId("_bdLL9Np-Ed-ak6NoX_4Aeg_1888953147")]
@@ -66,7 +66,7 @@ public enum BasisPriceType1Code
     
     /// <summary>
     /// Value weighted average price through a morning session.
-    /// Encoded/decoded by serializers as "VWPM".
+    /// Encoded/decoded by serializers as &quot;VWPM&quot;.
     /// </summary>
     [EnumMember(Value = "VWPM")]
     [IsoId("_bdLL9dp-Ed-ak6NoX_4Aeg_1888953189")]
@@ -75,7 +75,7 @@ public enum BasisPriceType1Code
     
     /// <summary>
     /// Value weighted average price through an afternoon session.
-    /// Encoded/decoded by serializers as "VWPA".
+    /// Encoded/decoded by serializers as &quot;VWPA&quot;.
     /// </summary>
     [EnumMember(Value = "VWPA")]
     [IsoId("_bdLL9tp-Ed-ak6NoX_4Aeg_1888953284")]
@@ -84,7 +84,7 @@ public enum BasisPriceType1Code
     
     /// <summary>
     /// Exercise price defined on a derivative product.
-    /// Encoded/decoded by serializers as "STIK".
+    /// Encoded/decoded by serializers as &quot;STIK&quot;.
     /// </summary>
     [EnumMember(Value = "STIK")]
     [IsoId("_bdLL99p-Ed-ak6NoX_4Aeg_1888953561")]
@@ -93,7 +93,7 @@ public enum BasisPriceType1Code
     
     /// <summary>
     /// Price of a trade opening session.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_bdLL-Np-Ed-ak6NoX_4Aeg_1888953640")]

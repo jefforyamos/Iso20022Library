@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentOrigin1Choice.Proprietary))]
     [KnownType(typeof(PaymentOrigin1Choice.Instrument))]
     [IsoId("_RIwV1Np-Ed-ak6NoX_4Aeg_1623377139")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Origin 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

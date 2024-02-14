@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransferCancellationRejectedStatus1Choice.Reason))]
     [KnownType(typeof(TransferCancellationRejectedStatus1Choice.DataSourceScheme))]
     [IsoId("_U0fAstp-Ed-ak6NoX_4Aeg_330240032")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transfer Cancellation Rejected Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

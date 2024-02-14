@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IssuerOrInvestor1Choice
     /// CSD Investor of a security.
     /// </summary>
     [IsoId("_hh_Uo2liEeGaMcKyqKNRfQ_-1028726914")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor CSD")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

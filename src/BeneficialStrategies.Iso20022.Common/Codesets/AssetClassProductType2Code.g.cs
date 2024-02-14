@@ -21,7 +21,7 @@ public enum AssetClassProductType2Code
 {
     /// <summary>
     /// Commodity of type energy.
-    /// Encoded/decoded by serializers as "NRGY".
+    /// Encoded/decoded by serializers as &quot;NRGY&quot;.
     /// </summary>
     [EnumMember(Value = "NRGY")]
     [IsoId("_fVAFQQnyEeWnS-yHF1QhNQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration of the encryption or digital envelope, if the security module is able to perform encryption.
 /// </summary>
 [IsoId("_nKkasYr7EeSvuOJS0mmL0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Security Configuration")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record ATMSecurityConfiguration3
     /// True if the security module is able to perform encryption with an asymmetric key.
     /// </summary>
     [IsoId("_3KR_sIr7EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asymmetric Encryption")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsmmtrcNcrptn")]
     #endif
+    [IsoXmlTag("AsmmtrcNcrptn")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AsymmetricEncryption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record ATMSecurityConfiguration3
     /// True if the security module is able to identify an asymmetric key with certificate issuer X.500 name and certificate serial number. False if a proprietary asymmetric key identifier is required.
     /// </summary>
     [IsoId("_9exckIr7EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asymmetric Key Standard Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsmmtrcKeyStdId")]
     #endif
+    [IsoXmlTag("AsmmtrcKeyStdId")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AsymmetricKeyStandardIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record ATMSecurityConfiguration3
     /// Asymmetric encryption algorithm the security module is able to manage.
     /// </summary>
     [IsoId("_CXeQ4Ir8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asymmetric Encryption Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsmmtrcNcrptnAlgo")]
     #endif
+    [IsoXmlTag("AsmmtrcNcrptnAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm7Code? AsymmetricEncryptionAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record ATMSecurityConfiguration3
     /// True if the security module is able to manage a symmetric transport session key to protect cryptographic keys and data. False if only a previously exchanged symmetric key must be used; a proprietary symmetric key identifier is then used.
     /// </summary>
     [IsoId("_GbL98Ir8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Symmetric Transport Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SmmtrcTrnsprtKey")]
     #endif
+    [IsoXmlTag("SmmtrcTrnsprtKey")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? SymmetricTransportKey { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,11 @@ public partial record ATMSecurityConfiguration3
     /// Symmetric transport session key algorithm the security module is able to manage.
     /// </summary>
     [IsoId("_LToTkIr8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Symmetric Transport Key Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SmmtrcTrnsprtKeyAlgo")]
     #endif
+    [IsoXmlTag("SmmtrcTrnsprtKeyAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm13Code? SymmetricTransportKeyAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,11 @@ public partial record ATMSecurityConfiguration3
     /// Symmetric encryption algorithm the security module is able to manage.
     /// </summary>
     [IsoId("_RIUPAIr8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Symmetric Encryption Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SmmtrcNcrptnAlgo")]
     #endif
+    [IsoXmlTag("SmmtrcNcrptnAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm15Code? SymmetricEncryptionAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +147,11 @@ public partial record ATMSecurityConfiguration3
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
     [IsoId("_WZP9IIr8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encryption Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptnFrmt")]
     #endif
+    [IsoXmlTag("NcrptnFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncryptionFormat1Code? EncryptionFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

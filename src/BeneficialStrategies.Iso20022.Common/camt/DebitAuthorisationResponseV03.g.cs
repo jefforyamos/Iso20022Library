@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Debit Authorisation Response message is sent by an account owner to its account servicing institution. This message is used to approve or reject a debit authorisation request.|Usage|The Debit Authorisation Response message is used to reply to a Debit Authorisation Request message.|The Debit Authorisation Response message covers one and only one payment instruction at a time. If an account owner needs to reply to several Debit Authorisation Request messages, then multiple Debit Authorisation Response messages must be sent.|The Debit Authorisation Response message indicates whether the account owner agrees with the request by means of a code. It also allows further details to be given about the debit authorisation, such as acceptable amount and value date for the debit.|The Debit Authorisation Response message must be used exclusively between the account owner and the account servicing institution. It must not be used in place of a Resolution Of Investigation message between subsequent agents.")]
 [IsoId("_sUT5sFkyEeGeoaLUQk__nA_746714081")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Debit Authorisation Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record DebitAuthorisationResponseV03 : IOuterRecord<DebitAuthoris
     /// Identifies the assignment of an investigation case from an assigner to an assignee.|Usage: The Assigner must be the sender of this confirmation and the Assignee must be the receiver.
     /// </summary>
     [IsoId("_sUT5sVkyEeGeoaLUQk__nA_1480599770")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment3 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment3 Assignment { get; init; } 
+    public required CaseAssignment3 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment3 Assignment { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record DebitAuthorisationResponseV03 : IOuterRecord<DebitAuthoris
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_sUT5slkyEeGeoaLUQk__nA_597366483")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case3 Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case3 Case { get; init; } 
+    public required Case3 Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case3 Case { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record DebitAuthorisationResponseV03 : IOuterRecord<DebitAuthoris
     /// Indicates if the debit authorisation is granted or not.
     /// </summary>
     [IsoId("_sUdqsFkyEeGeoaLUQk__nA_483527417")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Conf")]
     #endif
+    [IsoXmlTag("Conf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DebitAuthorisationConfirmation2 Confirmation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DebitAuthorisationConfirmation2 Confirmation { get; init; } 
+    public required DebitAuthorisationConfirmation2 Confirmation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DebitAuthorisationConfirmation2 Confirmation { get; init; } 
     #else
@@ -143,12 +138,11 @@ public partial record DebitAuthorisationResponseV03 : IOuterRecord<DebitAuthoris
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_sUdqsVkyEeGeoaLUQk__nA_-375801385")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,7 +155,7 @@ public partial record DebitAuthorisationResponseV03 : IOuterRecord<DebitAuthoris
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DebitAuthorisationResponseV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DebitAuthorisationResponseV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DebitAuthorisationResponseV03Document ToDocument()
     {
@@ -171,7 +165,7 @@ public partial record DebitAuthorisationResponseV03 : IOuterRecord<DebitAuthoris
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DebitAuthorisationResponseV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DebitAuthorisationResponseV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DebitAuthorisationResponseV03Document : IOuterDocument<DebitAuthorisationResponseV03>
@@ -188,7 +182,7 @@ public partial record DebitAuthorisationResponseV03Document : IOuterDocument<Deb
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DebitAuthorisationResponseV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DebitAuthorisationResponseV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DebitAuthorisationResponseV03 Message { get; init; }

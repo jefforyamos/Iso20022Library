@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a party.
 /// </summary>
 [IsoId("_Q9aTcz6BEemPvNTzinB5Vw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PartyIdentification218
     /// Role played by the third party.
     /// </summary>
     [IsoId("_5561AI6VEemzmeK8_tPygg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Role")]
     #endif
+    [IsoXmlTag("Role")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyRole6Choice_ Role { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyRole6Choice_ Role { get; init; } 
+    public required PartyRole6Choice_ Role { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyRole6Choice_ Role { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PartyIdentification218
     /// Identification of the third party.
     /// </summary>
     [IsoId("_qSleUI6WEemzmeK8_tPygg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification205Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification205Choice_ Identification { get; init; } 
+    public required PartyIdentification205Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification205Choice_ Identification { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Query criteria on a trade transaction.
 /// </summary>
 [IsoId("_4ae5Vf_lEemm3skPVSMJQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Query Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record TradeQueryCriteria8
     /// If false is selected, the reporting timestamp element must be absent.
     /// </summary>
     [IsoId("_4eqOsf_lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Life Cycle History")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradLifeCyclHstry")]
     #endif
+    [IsoXmlTag("TradLifeCyclHstry")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator TradeLifeCycleHistory { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TradeLifeCycleHistory { get; init; } 
+    public required System.String TradeLifeCycleHistory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TradeLifeCycleHistory { get; init; } 
     #else
@@ -74,16 +72,16 @@ public partial record TradeQueryCriteria8
     /// Indicates whether the response must include all trades  (false) or only the outstanding trades (true).
     /// </summary>
     [IsoId("_4eqOs__lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outstanding Trade Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutsdngTradInd")]
     #endif
+    [IsoXmlTag("OutsdngTradInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator OutstandingTradeIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OutstandingTradeIndicator { get; init; } 
+    public required System.String OutstandingTradeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OutstandingTradeIndicator { get; init; } 
     #else
@@ -94,12 +92,11 @@ public partial record TradeQueryCriteria8
     /// Query criteria related to counterparties.
     /// </summary>
     [IsoId("_4eqOtf_lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Party Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradPtyCrit")]
     #endif
+    [IsoXmlTag("TradPtyCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyQueryCriteria5? TradePartyCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +109,11 @@ public partial record TradeQueryCriteria8
     /// Query criteria related to transaction types.
     /// </summary>
     [IsoId("_4eqOt__lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Type Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradTpCrit")]
     #endif
+    [IsoXmlTag("TradTpCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeTypeQueryCriteria1? TradeTypeCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +126,11 @@ public partial record TradeQueryCriteria8
     /// Query criteria related to time values.
     /// </summary>
     [IsoId("_4eqOuf_lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmCrit")]
     #endif
+    [IsoXmlTag("TmCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeDateTimeQueryCriteria2? TimeCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +143,11 @@ public partial record TradeQueryCriteria8
     /// Query criteria related to other fields.
     /// </summary>
     [IsoId("_4eqOu__lEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCrit")]
     #endif
+    [IsoXmlTag("OthrCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeAdditionalQueryCriteria6? OtherCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

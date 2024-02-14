@@ -21,7 +21,7 @@ public enum FractionalSecurityRule1Code
 {
     /// <summary>
     /// Round Up x and above on the beneficial owner fractions, where x is the rounding factor. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
-    /// Encoded/decoded by serializers as "BORU".
+    /// Encoded/decoded by serializers as &quot;BORU&quot;.
     /// </summary>
     [EnumMember(Value = "BORU")]
     [IsoId("_1rgnRTL3EeKU9IrkkToqcw_1498659018")]
@@ -30,7 +30,7 @@ public enum FractionalSecurityRule1Code
     
     /// <summary>
     /// Cash in Lieu on the beneficial owner fractions.
-    /// Encoded/decoded by serializers as "BCIL".
+    /// Encoded/decoded by serializers as &quot;BCIL&quot;.
     /// </summary>
     [EnumMember(Value = "BCIL")]
     [IsoId("_1rqYQDL3EeKU9IrkkToqcw_1487560241")]
@@ -39,7 +39,7 @@ public enum FractionalSecurityRule1Code
     
     /// <summary>
     /// Round Down x and below beneficial owner fractions, where x is the rounding factor. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
-    /// Encoded/decoded by serializers as "BORD".
+    /// Encoded/decoded by serializers as &quot;BORD&quot;.
     /// </summary>
     [EnumMember(Value = "BORD")]
     [IsoId("_1rqYQTL3EeKU9IrkkToqcw_1373721175")]

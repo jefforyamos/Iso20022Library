@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice between a unique account identification and a set of account selection criteria.
 /// </summary>
 [IsoId("_RRsPZ9p-Ed-ak6NoX_4Aeg_-1532088201")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Account Selection")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record InvestmentAccountSelection2
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_RRsPaNp-Ed-ak6NoX_4Aeg_-1532088182")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification1 AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification1 AccountIdentification { get; init; } 
+    public required AccountIdentification1 AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification1 AccountIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record InvestmentAccountSelection2
     /// Various investment account information used to select a specific account.
     /// </summary>
     [IsoId("_RR2AYNp-Ed-ak6NoX_4Aeg_-1532088147")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Account Selection Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrAcctSelctnData")]
     #endif
+    [IsoXmlTag("OthrAcctSelctnData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount29 OtherAccountSelectionData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount29 OtherAccountSelectionData { get; init; } 
+    public required InvestmentAccount29 OtherAccountSelectionData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount29 OtherAccountSelectionData { get; init; } 
     #else

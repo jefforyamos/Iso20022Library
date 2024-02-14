@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason26Choice
     /// Specifies the reason why the instruction has a pending status.
     /// </summary>
     [IsoId("_lo5zQTp5EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason26Choice
         /// Specifies the reason the transaction/instruction is pending settlement. Settlement on the instructed settlement date is still possible.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingReason10Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingReason10Code Value { get; init; } 
+        public required PendingReason10Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingReason10Code Value { get; init; } 
         #else

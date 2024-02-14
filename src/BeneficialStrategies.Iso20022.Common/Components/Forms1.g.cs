@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Processing characteristics linked to the instrument, that is, not to the market.
 /// </summary>
 [IsoId("_cx-V4TgCEei6RvewLQWEqw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Forms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record Forms1
     /// Indicates whether a physical application form is required.
     /// </summary>
     [IsoId("_dCMjMTgCEei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Application Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplForm")]
     #endif
+    [IsoXmlTag("ApplForm")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ApplicationForm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ApplicationForm { get; init; } 
+    public required System.String ApplicationForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ApplicationForm { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record Forms1
     /// Type of signature.
     /// </summary>
     [IsoId("_dCMjMzgCEei6RvewLQWEqw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgntrTp")]
     #endif
+    [IsoXmlTag("SgntrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignatureType1Code SignatureType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SignatureType1Code SignatureType { get; init; } 
+    public required SignatureType1Code SignatureType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SignatureType1Code SignatureType { get; init; } 
     #else

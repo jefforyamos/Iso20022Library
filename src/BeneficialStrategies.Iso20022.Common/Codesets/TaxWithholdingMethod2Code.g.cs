@@ -21,7 +21,7 @@ public enum TaxWithholdingMethod2Code
 {
     /// <summary>
     /// Withholding tax is applied to a corporate.
-    /// Encoded/decoded by serializers as "WHCO".
+    /// Encoded/decoded by serializers as &quot;WHCO&quot;.
     /// </summary>
     [EnumMember(Value = "WHCO")]
     [IsoId("_hagHQRKtEeKj15WxqwlXPw")]
@@ -30,7 +30,7 @@ public enum TaxWithholdingMethod2Code
     
     /// <summary>
     /// Tax information is reported to the tax authorities and therefore not withheld at source.
-    /// Encoded/decoded by serializers as "REPT".
+    /// Encoded/decoded by serializers as &quot;REPT&quot;.
     /// </summary>
     [EnumMember(Value = "REPT")]
     [IsoId("_hkCdwRKtEeKj15WxqwlXPw")]
@@ -39,7 +39,7 @@ public enum TaxWithholdingMethod2Code
     
     /// <summary>
     /// Tax certificate is provided by the beneficiary from its tax authority in its country of residence. Therefore, the obligation of withholding tax is waived and tax information will be reported to the tax authorities.
-    /// Encoded/decoded by serializers as "CRTF".
+    /// Encoded/decoded by serializers as &quot;CRTF&quot;.
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_hsYhcRKtEeKj15WxqwlXPw")]
@@ -48,7 +48,7 @@ public enum TaxWithholdingMethod2Code
     
     /// <summary>
     /// Tax is withheld at source.
-    /// Encoded/decoded by serializers as "WTHD".
+    /// Encoded/decoded by serializers as &quot;WTHD&quot;.
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_h1CHIRKtEeKj15WxqwlXPw")]
@@ -57,7 +57,7 @@ public enum TaxWithholdingMethod2Code
     
     /// <summary>
     /// Tax is withheld at source and the tax information is also reported to the tax authorities.
-    /// Encoded/decoded by serializers as "WTRE".
+    /// Encoded/decoded by serializers as &quot;WTRE&quot;.
     /// </summary>
     [EnumMember(Value = "WTRE")]
     [IsoId("_h-kdoRKtEeKj15WxqwlXPw")]

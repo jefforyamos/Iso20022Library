@@ -21,7 +21,7 @@ public enum CardPaymentServiceType12Code
 {
     /// <summary>
     /// Balance enquiry.
-    /// Encoded/decoded by serializers as "BALC".
+    /// Encoded/decoded by serializers as &quot;BALC&quot;.
     /// </summary>
     [EnumMember(Value = "BALC")]
     [IsoId("_2V7RkdnZEeeN3v2fup_Shw")]
@@ -30,7 +30,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Card activation.
-    /// Encoded/decoded by serializers as "CACT".
+    /// Encoded/decoded by serializers as &quot;CACT&quot;.
     /// </summary>
     [EnumMember(Value = "CACT")]
     [IsoId("_2V7Rk9nZEeeN3v2fup_Shw")]
@@ -39,7 +39,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Card payment.
-    /// Encoded/decoded by serializers as "CRDP".
+    /// Encoded/decoded by serializers as &quot;CRDP&quot;.
     /// </summary>
     [EnumMember(Value = "CRDP")]
     [IsoId("_2V7RldnZEeeN3v2fup_Shw")]
@@ -48,7 +48,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Transfer of funds to a card or an account.
-    /// Encoded/decoded by serializers as "CAFH".
+    /// Encoded/decoded by serializers as &quot;CAFH&quot;.
     /// </summary>
     [EnumMember(Value = "CAFH")]
     [IsoId("_2V7Rl9nZEeeN3v2fup_Shw")]
@@ -57,7 +57,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Card verification.
-    /// Encoded/decoded by serializers as "CAVR".
+    /// Encoded/decoded by serializers as &quot;CAVR&quot;.
     /// </summary>
     [EnumMember(Value = "CAVR")]
     [IsoId("_2V7RmdnZEeeN3v2fup_Shw")]
@@ -66,7 +66,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Cash advance or withdrawals on a POI (Point Of Interaction), or at a bank counter.
-    /// Encoded/decoded by serializers as "CSHW".
+    /// Encoded/decoded by serializers as &quot;CSHW&quot;.
     /// </summary>
     [EnumMember(Value = "CSHW")]
     [IsoId("_2V7Rm9nZEeeN3v2fup_Shw")]
@@ -75,7 +75,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Cash deposit.
-    /// Encoded/decoded by serializers as "CSHD".
+    /// Encoded/decoded by serializers as &quot;CSHD&quot;.
     /// </summary>
     [EnumMember(Value = "CSHD")]
     [IsoId("_2V7RndnZEeeN3v2fup_Shw")]
@@ -84,7 +84,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Deferred payment.
-    /// Encoded/decoded by serializers as "DEFR".
+    /// Encoded/decoded by serializers as &quot;DEFR&quot;.
     /// </summary>
     [EnumMember(Value = "DEFR")]
     [IsoId("_2V7Rn9nZEeeN3v2fup_Shw")]
@@ -93,7 +93,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Loading or reloading non-financial account.
-    /// Encoded/decoded by serializers as "LOAD".
+    /// Encoded/decoded by serializers as &quot;LOAD&quot;.
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_2V7RodnZEeeN3v2fup_Shw")]
@@ -102,7 +102,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Original credit.
-    /// Encoded/decoded by serializers as "ORCR".
+    /// Encoded/decoded by serializers as &quot;ORCR&quot;.
     /// </summary>
     [EnumMember(Value = "ORCR")]
     [IsoId("_2V7Ro9nZEeeN3v2fup_Shw")]
@@ -111,7 +111,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// PIN (Personal Identification Number) change.
-    /// Encoded/decoded by serializers as "PINC".
+    /// Encoded/decoded by serializers as &quot;PINC&quot;.
     /// </summary>
     [EnumMember(Value = "PINC")]
     [IsoId("_2V7RpdnZEeeN3v2fup_Shw")]
@@ -120,7 +120,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Quasi-cash.
-    /// Encoded/decoded by serializers as "QUCH".
+    /// Encoded/decoded by serializers as &quot;QUCH&quot;.
     /// </summary>
     [EnumMember(Value = "QUCH")]
     [IsoId("_2V7Rp9nZEeeN3v2fup_Shw")]
@@ -129,7 +129,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Refund transaction.
-    /// Encoded/decoded by serializers as "RFND".
+    /// Encoded/decoded by serializers as &quot;RFND&quot;.
     /// </summary>
     [EnumMember(Value = "RFND")]
     [IsoId("_2V7RqdnZEeeN3v2fup_Shw")]
@@ -138,7 +138,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Reservation (pre-authorisation).
-    /// Encoded/decoded by serializers as "RESA".
+    /// Encoded/decoded by serializers as &quot;RESA&quot;.
     /// </summary>
     [EnumMember(Value = "RESA")]
     [IsoId("_2V7Rq9nZEeeN3v2fup_Shw")]
@@ -147,7 +147,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Card validity check.
-    /// Encoded/decoded by serializers as "VALC".
+    /// Encoded/decoded by serializers as &quot;VALC&quot;.
     /// </summary>
     [EnumMember(Value = "VALC")]
     [IsoId("_2V7RrdnZEeeN3v2fup_Shw")]
@@ -156,7 +156,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Unloading non-financial account.
-    /// Encoded/decoded by serializers as "UNLD".
+    /// Encoded/decoded by serializers as &quot;UNLD&quot;.
     /// </summary>
     [EnumMember(Value = "UNLD")]
     [IsoId("_2V7Rr9nZEeeN3v2fup_Shw")]
@@ -165,7 +165,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Transfer of funds to and/or from a card account.
-    /// Encoded/decoded by serializers as "CAFT".
+    /// Encoded/decoded by serializers as &quot;CAFT&quot;.
     /// </summary>
     [EnumMember(Value = "CAFT")]
     [IsoId("_2V7RsdnZEeeN3v2fup_Shw")]
@@ -174,7 +174,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Transfer of funds from a card or an account.
-    /// Encoded/decoded by serializers as "CAFL".
+    /// Encoded/decoded by serializers as &quot;CAFL&quot;.
     /// </summary>
     [EnumMember(Value = "CAFL")]
     [IsoId("_2V7Rs9nZEeeN3v2fup_Shw")]
@@ -183,7 +183,7 @@ public enum CardPaymentServiceType12Code
     
     /// <summary>
     /// Direct Debit initiated by Card.
-    /// Encoded/decoded by serializers as "CIDD".
+    /// Encoded/decoded by serializers as &quot;CIDD&quot;.
     /// </summary>
     [EnumMember(Value = "CIDD")]
     [IsoId("_4jCpYdnZEeeN3v2fup_Shw")]

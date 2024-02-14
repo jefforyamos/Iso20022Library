@@ -21,7 +21,7 @@ public enum RejectionReason13Code
 {
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_Zg5FcNp-Ed-ak6NoX_4Aeg_-1186004164")]
@@ -30,7 +30,7 @@ public enum RejectionReason13Code
     
     /// <summary>
     /// Several message with the same identification.
-    /// Encoded/decoded by serializers as "SAID".
+    /// Encoded/decoded by serializers as &quot;SAID&quot;.
     /// </summary>
     [EnumMember(Value = "SAID")]
     [IsoId("_Zg5Fcdp-Ed-ak6NoX_4Aeg_-1186004134")]
@@ -39,7 +39,7 @@ public enum RejectionReason13Code
     
     /// <summary>
     /// Instruction contains an invalid message identification, identification is unknown.
-    /// Encoded/decoded by serializers as "INID".
+    /// Encoded/decoded by serializers as &quot;INID&quot;.
     /// </summary>
     [EnumMember(Value = "INID")]
     [IsoId("_Zg5Fctp-Ed-ak6NoX_4Aeg_-1186004103")]
@@ -48,7 +48,7 @@ public enum RejectionReason13Code
     
     /// <summary>
     /// Invalid corporate action identification supplied.
-    /// Encoded/decoded by serializers as "REFI".
+    /// Encoded/decoded by serializers as &quot;REFI&quot;.
     /// </summary>
     [EnumMember(Value = "REFI")]
     [IsoId("_Zg5Fc9p-Ed-ak6NoX_4Aeg_-1186004102")]
@@ -57,7 +57,7 @@ public enum RejectionReason13Code
     
     /// <summary>
     /// Issuer CA Identification does not correspond with the Corporate Action Identification supplied.
-    /// Encoded/decoded by serializers as "MICA".
+    /// Encoded/decoded by serializers as &quot;MICA&quot;.
     /// </summary>
     [EnumMember(Value = "MICA")]
     [IsoId("_Zg5FdNp-Ed-ak6NoX_4Aeg_-1186004072")]

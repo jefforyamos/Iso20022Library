@@ -21,7 +21,7 @@ public enum SchemeIdentificationTypeCode
 {
     /// <summary>
     /// Construct under a CCP rulebook where the losses of all positions registered to the account can be used to offset losses of any other position on that account upon the default of the clearing member guaranteeing the performance of such account.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_aEFc0Lh0Eea3PLWeF1tJsQ")]
@@ -30,7 +30,7 @@ public enum SchemeIdentificationTypeCode
     
     /// <summary>
     /// Legal entity that is a participant in a clearing service of a central counterparty, that is the legal counterparty to all novated trades for all the accounts associated with such counterparty.
-    /// Encoded/decoded by serializers as "CLIM".
+    /// Encoded/decoded by serializers as &quot;CLIM&quot;.
     /// </summary>
     [EnumMember(Value = "CLIM")]
     [IsoId("_xccDULh0Eea3PLWeF1tJsQ")]
@@ -39,7 +39,7 @@ public enum SchemeIdentificationTypeCode
     
     /// <summary>
     /// Legal entity that clears trades through a client account of a clearing member of a central counterparty.
-    /// Encoded/decoded by serializers as "CLIE".
+    /// Encoded/decoded by serializers as &quot;CLIE&quot;.
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_8NHXoLh0Eea3PLWeF1tJsQ")]
@@ -48,7 +48,7 @@ public enum SchemeIdentificationTypeCode
     
     /// <summary>
     /// Replay of historical events or other set of hypothetical conditions designed to assess the performance of a portfolio of financial instruments.
-    /// Encoded/decoded by serializers as "SCEN".
+    /// Encoded/decoded by serializers as &quot;SCEN&quot;.
     /// </summary>
     [EnumMember(Value = "SCEN")]
     [IsoId("_CQOJkLh1Eea3PLWeF1tJsQ")]
@@ -57,7 +57,7 @@ public enum SchemeIdentificationTypeCode
     
     /// <summary>
     /// Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.
-    /// Encoded/decoded by serializers as "POSI".
+    /// Encoded/decoded by serializers as &quot;POSI&quot;.
     /// </summary>
     [EnumMember(Value = "POSI")]
     [IsoId("_QHoakHa9Eee2GNSe_4BSzQ")]
@@ -66,7 +66,7 @@ public enum SchemeIdentificationTypeCode
     
     /// <summary>
     /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
-    /// Encoded/decoded by serializers as "COLL".
+    /// Encoded/decoded by serializers as &quot;COLL&quot;.
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_VhKEAHa9Eee2GNSe_4BSzQ")]
@@ -75,7 +75,7 @@ public enum SchemeIdentificationTypeCode
     
     /// <summary>
     /// Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.
-    /// Encoded/decoded by serializers as "MARG".
+    /// Encoded/decoded by serializers as &quot;MARG&quot;.
     /// </summary>
     [EnumMember(Value = "MARG")]
     [IsoId("_Y62jsHa9Eee2GNSe_4BSzQ")]

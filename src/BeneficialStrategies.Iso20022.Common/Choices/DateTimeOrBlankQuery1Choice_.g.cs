@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateTimeOrBlankQuery1Choice.Range))]
     [KnownType(typeof(DateTimeOrBlankQuery1Choice.NotReported))]
     [IsoId("_HY688WE4Ee2S65ml6YCOtA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time Or Blank Query 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

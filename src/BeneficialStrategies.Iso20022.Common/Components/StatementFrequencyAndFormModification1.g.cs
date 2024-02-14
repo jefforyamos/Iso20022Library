@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of change to statement frequency and form.
 /// </summary>
 [IsoId("_5U5pQA4rEeK3IMoVvcTkkg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Statement Frequency And Form Modification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record StatementFrequencyAndFormModification1
     /// Specifies the type of change.
     /// </summary>
     [IsoId("_CBMrAA4sEeK3IMoVvcTkkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModCd")]
     #endif
+    [IsoXmlTag("ModCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Modification1Code? ModificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record StatementFrequencyAndFormModification1
     /// Specifies the statement frequency, format, delivery address.
     /// </summary>
     [IsoId("_H3PRUA4sEeK3IMoVvcTkkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Frequency And Form")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtFrqcyAndForm")]
     #endif
+    [IsoXmlTag("StmtFrqcyAndForm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatementFrequencyAndForm1 StatementFrequencyAndForm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatementFrequencyAndForm1 StatementFrequencyAndForm { get; init; } 
+    public required StatementFrequencyAndForm1 StatementFrequencyAndForm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatementFrequencyAndForm1 StatementFrequencyAndForm { get; init; } 
     #else

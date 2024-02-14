@@ -21,7 +21,7 @@ public enum ProcessedStatus2Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKeN9tp-Ed-ak6NoX_4Aeg_1837333616")]
@@ -30,7 +30,7 @@ public enum ProcessedStatus2Code
     
     /// <summary>
     /// The request has been completed.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aKeN99p-Ed-ak6NoX_4Aeg_1837333617")]

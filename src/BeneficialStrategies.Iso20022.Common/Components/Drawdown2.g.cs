@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of a drawdown tranche.
 /// </summary>
 [IsoId("_Zv-yMZN5EembCsVG-3f_AA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Drawdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record Drawdown2
     /// Identification of the drawdown.
     /// </summary>
     [IsoId("_ufZVUDOPEeqjy7_SkdcoGg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record Drawdown2
     /// Type of drawdown tranche.
     /// </summary>
     [IsoId("_aFHUspN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tranche Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrchTp")]
     #endif
+    [IsoXmlTag("TrchTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DrawdownType2Choice_ TrancheType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DrawdownType2Choice_ TrancheType { get; init; } 
+    public required DrawdownType2Choice_ TrancheType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DrawdownType2Choice_ TrancheType { get; init; } 
     #else
@@ -92,12 +87,11 @@ public partial record Drawdown2
     /// Specifies the rules that are applicable to the drawdown. For example, in the UK market, the pre-A-day rule that was introduced on 6 April 2006.)
     /// </summary>
     [IsoId("_aFHUtJN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicable Rules")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AplblRules")]
     #endif
+    [IsoXmlTag("AplblRules")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ApplicableRules1Choice_? ApplicableRules { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +104,11 @@ public partial record Drawdown2
     /// Identification of the investor as assigned by a tax authority.
     /// </summary>
     [IsoId("_hqaSIJN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Tax Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrTaxRef")]
     #endif
+    [IsoXmlTag("InvstrTaxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReference2? InvestorTaxReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,12 @@ public partial record Drawdown2
     /// Percentage of the total transfer value covered by the drawdown.
     /// </summary>
     [IsoId("_aFHUtpN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Of Total Transfer Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgOfTtlTrfVal")]
     #endif
+    [IsoXmlTag("PctgOfTtlTrfVal")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? PercentageOfTotalTransferValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,12 @@ public partial record Drawdown2
     /// Amount that was originally designated for drawdown.
     /// </summary>
     [IsoId("_aFHUuJN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount Net Drawdown")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtNetDrwdwn")]
     #endif
+    [IsoXmlTag("TtlAmtNetDrwdwn")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountNetDrawdown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +157,12 @@ public partial record Drawdown2
     /// Indicates whether any additional funds have been designated since the original arrangement.
     /// </summary>
     [IsoId("_aFHUupN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Funds Designated")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlFndsDsgntd")]
     #endif
+    [IsoXmlTag("AddtlFndsDsgntd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AdditionalFundsDesignated { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +175,12 @@ public partial record Drawdown2
     /// Amount of the pension commencement lump sum (PCLS) remaining.
     /// </summary>
     [IsoId("_aFHUvpN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pension Commencement Lump Sum Remaining")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PnsnCmcmntLumpSumRmng")]
     #endif
+    [IsoXmlTag("PnsnCmcmntLumpSumRmng")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAnd13DecimalAmount? PensionCommencementLumpSumRemaining { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +193,12 @@ public partial record Drawdown2
     /// Date by which the pension commencement lump sum (PCLS) must be used.
     /// </summary>
     [IsoId("_aFHUwJN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pension Commencement Lump Sum Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PnsnCmcmntLumpSumDt")]
     #endif
+    [IsoXmlTag("PnsnCmcmntLumpSumDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? PensionCommencementLumpSumDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,12 +211,12 @@ public partial record Drawdown2
     /// Indicates there have been multiple pension commencement lump sum (PCLS) payments. 
     /// </summary>
     [IsoId("_aFHUwpN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multiple Pension Commencement Lump Sums")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MltplPnsnCmcmntLumpSums")]
     #endif
+    [IsoXmlTag("MltplPnsnCmcmntLumpSums")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? MultiplePensionCommencementLumpSums { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -236,12 +229,12 @@ public partial record Drawdown2
     /// Percentage of the lifetime allowance (LTA) used.
     /// </summary>
     [IsoId("_aFHUxJN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lifetime Allowance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LftmAllwnc")]
     #endif
+    [IsoXmlTag("LftmAllwnc")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? LifetimeAllowance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -254,12 +247,12 @@ public partial record Drawdown2
     /// Indicates a person other than the original pension holder is the receiver of the drawdown payment.
     /// </summary>
     [IsoId("_aFHUxpN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Of Drawdown Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptOfDrwdwnInd")]
     #endif
+    [IsoXmlTag("RcptOfDrwdwnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RecipientOfDrawdownIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -272,12 +265,11 @@ public partial record Drawdown2
     /// Information about the recipient of the drawdown, when not the original pension holder.
     /// </summary>
     [IsoId("_aFHUyJN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryDtls")]
     #endif
+    [IsoXmlTag("BnfcryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryDrawdown1? BeneficiaryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -290,12 +282,11 @@ public partial record Drawdown2
     /// Limits of the capped drawdown.
     /// </summary>
     [IsoId("_aFHUypN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capped Limits")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CapdLmts")]
     #endif
+    [IsoXmlTag("CapdLmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Capped1? CappedLimits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -308,12 +299,12 @@ public partial record Drawdown2
     /// Date on which the drawdown was triggered when the drawdown type is flexible.
     /// </summary>
     [IsoId("_aFHUzJN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Flexible Drawdown Triggered Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlxblDrwdwnTrggrdDt")]
     #endif
+    [IsoXmlTag("FlxblDrwdwnTrggrdDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FlexibleDrawdownTriggeredDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -326,12 +317,11 @@ public partial record Drawdown2
     /// Additional information about the drawdown.
     /// </summary>
     [IsoId("_aFHUzpN5EembCsVG-3f_AA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

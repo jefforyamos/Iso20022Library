@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the advice for the issuance of an undertaking.
 /// </summary>
 [IsoId("_-AfqUnltEeG7BsjMvd1mEw_27275144")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Advice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record UndertakingAdvice2
     /// Unique and unambiguous identifier assigned by the applicant to the undertaking.
     /// </summary>
     [IsoId("_-AfqU3ltEeG7BsjMvd1mEw_682292746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Applicant Reference Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ApplcntRefNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ApplcntRefNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ApplicantReferenceNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ApplicantReferenceNumber { get; init; } 
+    public required System.String ApplicantReferenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ApplicantReferenceNumber { get; init; } 
     #else
@@ -75,12 +71,11 @@ public partial record UndertakingAdvice2
     /// Party obligated to reimburse the issuer.
     /// </summary>
     [IsoId("_6-mNY4ABEeGOn4dfTT_QdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgr")]
     #endif
+    [IsoXmlTag("Oblgr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? Obligor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +88,15 @@ public partial record UndertakingAdvice2
     /// Contents of the related UndertakingIssuance message.
     /// </summary>
     [IsoId("_-AfqVHltEeG7BsjMvd1mEw_674201231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Issuance Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgIssncMsg")]
     #endif
+    [IsoXmlTag("UdrtkgIssncMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
+    public required UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
     #else
@@ -113,12 +107,11 @@ public partial record UndertakingAdvice2
     /// Medium used to issue the original undertaking.
     /// </summary>
     [IsoId("_-ApbUHltEeG7BsjMvd1mEw_-1209989499")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Issued Medium")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlIssdMdm")]
     #endif
+    [IsoXmlTag("OrgnlIssdMdm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PresentationMedium1Code? OriginalIssuedMedium { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +124,11 @@ public partial record UndertakingAdvice2
     /// Document or template enclosed in the notification.
     /// </summary>
     [IsoId("_-ApbUXltEeG7BsjMvd1mEw_637726234")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enclosed File")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NclsdFile")]
     #endif
+    [IsoXmlTag("NclsdFile")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,19 +141,15 @@ public partial record UndertakingAdvice2
     /// Additional information related to the undertaking notification.
     /// </summary>
     [IsoId("_-ApbUnltEeG7BsjMvd1mEw_776941520")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

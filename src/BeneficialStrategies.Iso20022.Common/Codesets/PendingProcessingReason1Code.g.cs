@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum PendingProcessingReason1Code
 {
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_aAfLhdp-Ed-ak6NoX_4Aeg_1265761433")]
@@ -30,7 +30,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Awaiting financial instruments from a corporate action or other procedure, for example, conversion, dematerialisation, exchange, registration, stamping, splitting.
-    /// Encoded/decoded by serializers as "CAIS".
+    /// Encoded/decoded by serializers as &quot;CAIS&quot;.
     /// </summary>
     [EnumMember(Value = "CAIS")]
     [IsoId("_aAfLhtp-Ed-ak6NoX_4Aeg_1265761468")]
@@ -39,7 +39,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Awaiting documents or endorsements from you.
-    /// Encoded/decoded by serializers as "DOCY".
+    /// Encoded/decoded by serializers as &quot;DOCY&quot;.
     /// </summary>
     [EnumMember(Value = "DOCY")]
     [IsoId("_aAfLh9p-Ed-ak6NoX_4Aeg_1652718235")]
@@ -48,7 +48,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// A foreign exchange instruction from you is missing.
-    /// Encoded/decoded by serializers as "NOFX".
+    /// Encoded/decoded by serializers as &quot;NOFX&quot;.
     /// </summary>
     [EnumMember(Value = "NOFX")]
     [IsoId("_aAfLiNp-Ed-ak6NoX_4Aeg_-1812928688")]
@@ -57,7 +57,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Your account is blocked, no instruction can settle over the account.
-    /// Encoded/decoded by serializers as "BLOC".
+    /// Encoded/decoded by serializers as &quot;BLOC&quot;.
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_aAfLidp-Ed-ak6NoX_4Aeg_1265761529")]
@@ -66,7 +66,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MUNO".
+    /// Encoded/decoded by serializers as &quot;MUNO&quot;.
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_aAo8gNp-Ed-ak6NoX_4Aeg_1265761572")]
@@ -75,7 +75,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Settlement cannot be executed; financial instruments are in global form.
-    /// Encoded/decoded by serializers as "GLOB".
+    /// Encoded/decoded by serializers as &quot;GLOB&quot;.
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_aAo8gdp-Ed-ak6NoX_4Aeg_2078461059")]
@@ -84,7 +84,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Insufficient collateral in your account to execute the instruction.
-    /// Encoded/decoded by serializers as "YCOL".
+    /// Encoded/decoded by serializers as &quot;YCOL&quot;.
     /// </summary>
     [EnumMember(Value = "YCOL")]
     [IsoId("_aAo8gtp-Ed-ak6NoX_4Aeg_1265761649")]
@@ -93,7 +93,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Financial instruments are not deliverable as they are pledged as collateral.
-    /// Encoded/decoded by serializers as "COLL".
+    /// Encoded/decoded by serializers as &quot;COLL&quot;.
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_aAo8g9p-Ed-ak6NoX_4Aeg_1265761666")]
@@ -102,7 +102,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Insufficient deliverable financial instruments in your account as maximum foreign limit has been reached.
-    /// Encoded/decoded by serializers as "FLIM".
+    /// Encoded/decoded by serializers as &quot;FLIM&quot;.
     /// </summary>
     [EnumMember(Value = "FLIM")]
     [IsoId("_aAo8hNp-Ed-ak6NoX_4Aeg_1265761683")]
@@ -111,7 +111,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Next process is launched. No processing pending problems to be reported.
-    /// Encoded/decoded by serializers as "NEXT".
+    /// Encoded/decoded by serializers as &quot;NEXT&quot;.
     /// </summary>
     [EnumMember(Value = "NEXT")]
     [IsoId("_aAo8hdp-Ed-ak6NoX_4Aeg_-2084445306")]
@@ -120,7 +120,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Insufficient financial instruments in your account.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_aAo8htp-Ed-ak6NoX_4Aeg_1265761943")]
@@ -129,7 +129,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Financial instruments are out on loan.
-    /// Encoded/decoded by serializers as "LALO".
+    /// Encoded/decoded by serializers as &quot;LALO&quot;.
     /// </summary>
     [EnumMember(Value = "LALO")]
     [IsoId("_aAo8h9p-Ed-ak6NoX_4Aeg_1265761944")]
@@ -138,7 +138,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Insufficient money in your account.
-    /// Encoded/decoded by serializers as "MONY".
+    /// Encoded/decoded by serializers as &quot;MONY&quot;.
     /// </summary>
     [EnumMember(Value = "MONY")]
     [IsoId("_aAo8iNp-Ed-ak6NoX_4Aeg_1265761945")]
@@ -147,7 +147,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MINO".
+    /// Encoded/decoded by serializers as &quot;MINO&quot;.
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_aAo8idp-Ed-ak6NoX_4Aeg_1265762021")]
@@ -156,7 +156,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_aAyGcNp-Ed-ak6NoX_4Aeg_1265762038")]
@@ -165,7 +165,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.
-    /// Encoded/decoded by serializers as "DENO".
+    /// Encoded/decoded by serializers as &quot;DENO&quot;.
     /// </summary>
     [EnumMember(Value = "DENO")]
     [IsoId("_aAyGcdp-Ed-ak6NoX_4Aeg_1265762074")]
@@ -174,7 +174,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Central bank liquidity is insufficient.
-    /// Encoded/decoded by serializers as "LIQU".
+    /// Encoded/decoded by serializers as &quot;LIQU&quot;.
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_aAyGctp-Ed-ak6NoX_4Aeg_1265762381")]
@@ -183,7 +183,7 @@ public enum PendingProcessingReason1Code
     
     /// <summary>
     /// Certificate number error.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_aAyGc9p-Ed-ak6NoX_4Aeg_1265762441")]

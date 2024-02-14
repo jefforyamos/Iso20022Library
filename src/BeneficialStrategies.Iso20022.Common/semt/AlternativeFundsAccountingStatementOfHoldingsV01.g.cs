@@ -27,7 +27,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// This record is an implementation of the semt.012.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// An account servicer, for example, a transfer agent or administrator, sends the AlternativeFundsAccountingStatementOfHoldings message to the account owner, for example, an investment manager, custodian, fund manager or an account owner's designated agent, to provide detailed holdings of the portfolio at a specified moment in time.
+/// An account servicer, for example, a transfer agent or administrator, sends the AlternativeFundsAccountingStatementOfHoldings message to the account owner, for example, an investment manager, custodian, fund manager or an account owner&apos;s designated agent, to provide detailed holdings of the portfolio at a specified moment in time.
 /// There may be one or more parties between the account servicer and the account owner.
 /// The message provides, at a moment in time, valuations of the portfolio together with details of each financial instrument holding.
 /// Usage
@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// </summary>
 [Description(@"Scope|An account servicer, for example, a transfer agent or administrator, sends the AlternativeFundsAccountingStatementOfHoldings message to the account owner, for example, an investment manager, custodian, fund manager or an account owner's designated agent, to provide detailed holdings of the portfolio at a specified moment in time.|There may be one or more parties between the account servicer and the account owner.|The message provides, at a moment in time, valuations of the portfolio together with details of each financial instrument holding.|Usage|The AlternativeFundsAccountingStatementOfHoldings message is sent by the account servicer to the account owner:|- at a frequency agreed bilaterally between the account servicer and the account owner,|- as a response to a request for statement sent by the account owner.")]
 [IsoId("_MeFaZtFSEd-BzquC8wXy7w_-255037867")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Alternative Funds Accounting Statement Of Holdings V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// Reference that uniquely identifies a message from a technical application standpoint.
     /// </summary>
     [IsoId("_MeFaZ9FSEd-BzquC8wXy7w_-1816902269")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -105,12 +102,11 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_MeFaaNFSEd-BzquC8wXy7w_-1627236244")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference4? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,32 +119,28 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_MeFaadFSEd-BzquC8wXy7w_1666808091")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<AdditionalReference4> RelatedReference { get; init; } = new ValueList<AdditionalReference4>(){};
     
     /// <summary>
     /// Pagination of the message.
     /// </summary>
     [IsoId("_MeFaatFSEd-BzquC8wXy7w_1676967953")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination MessagePagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination MessagePagination { get; init; } 
+    public required Pagination MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination MessagePagination { get; init; } 
     #else
@@ -159,16 +151,15 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// The safekeeping or investment account.
     /// </summary>
     [IsoId("_MeFaa9FSEd-BzquC8wXy7w_792258549")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcctDtls")]
     #endif
+    [IsoXmlTag("InvstmtAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccount30 InvestmentAccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccount30 InvestmentAccountDetails { get; init; } 
+    public required InvestmentAccount30 InvestmentAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccount30 InvestmentAccountDetails { get; init; } 
     #else
@@ -179,16 +170,15 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// General information related to the hedge fund accounting statement of holdings.|.
     /// </summary>
     [IsoId("_MeOkUNFSEd-BzquC8wXy7w_-1677323565")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement General Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtGnlDtls")]
     #endif
+    [IsoXmlTag("StmtGnlDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Statement10 StatementGeneralDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Statement10 StatementGeneralDetails { get; init; } 
+    public required Statement10 StatementGeneralDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Statement10 StatementGeneralDetails { get; init; } 
     #else
@@ -199,28 +189,24 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// Party that provides services to investors relating to financial products.
     /// </summary>
     [IsoId("_MeOkUdFSEd-BzquC8wXy7w_2081162206")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Party Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdPtyDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdPtyDtls")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Intermediary17> RelatedPartyDetails { get; init; } = new ValueList<Intermediary17>(){};
     
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
     [IsoId("_MeOkUtFSEd-BzquC8wXy7w_433316011")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance For Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalForAcct")]
     #endif
+    [IsoXmlTag("BalForAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AggregateBalanceInformation5? BalanceForAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -233,12 +219,11 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// Value of total holdings reported.
     /// </summary>
     [IsoId("_MeOkU9FSEd-BzquC8wXy7w_46360620")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Values")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlVals")]
     #endif
+    [IsoXmlTag("TtlVals")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TotalValueInPageAndStatement? TotalValues { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,12 +236,11 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_MeOkVNFSEd-BzquC8wXy7w_-108817498")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -269,7 +253,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AlternativeFundsAccountingStatementOfHoldingsV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AlternativeFundsAccountingStatementOfHoldingsV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AlternativeFundsAccountingStatementOfHoldingsV01Document ToDocument()
     {
@@ -279,7 +263,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01 : IOuterR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AlternativeFundsAccountingStatementOfHoldingsV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AlternativeFundsAccountingStatementOfHoldingsV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AlternativeFundsAccountingStatementOfHoldingsV01Document : IOuterDocument<AlternativeFundsAccountingStatementOfHoldingsV01>
@@ -296,7 +280,7 @@ public partial record AlternativeFundsAccountingStatementOfHoldingsV01Document :
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AlternativeFundsAccountingStatementOfHoldingsV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AlternativeFundsAccountingStatementOfHoldingsV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlternativeFundsAccountingStatementOfHoldingsV01 Message { get; init; }

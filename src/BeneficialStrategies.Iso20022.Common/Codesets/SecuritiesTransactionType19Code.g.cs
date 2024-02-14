@@ -21,7 +21,7 @@ public enum SecuritiesTransactionType19Code
 {
     /// <summary>
     /// Relates to a buy sell back transaction.
-    /// Encoded/decoded by serializers as "BSBK".
+    /// Encoded/decoded by serializers as &quot;BSBK&quot;.
     /// </summary>
     [EnumMember(Value = "BSBK")]
     [IsoId("_C0LZwaUbEee4_75LDmHZiQ")]
@@ -30,7 +30,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Transaction relates to a buy-in by the market following a delivery transaction failure.
-    /// Encoded/decoded by serializers as "BIYI".
+    /// Encoded/decoded by serializers as &quot;BIYI&quot;.
     /// </summary>
     [EnumMember(Value = "BIYI")]
     [IsoId("_C0LZ26UbEee4_75LDmHZiQ")]
@@ -39,7 +39,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a collateral delivery/receipt to a national central bank for central bank credit operations.
-    /// Encoded/decoded by serializers as "CNCB".
+    /// Encoded/decoded by serializers as &quot;CNCB&quot;.
     /// </summary>
     [EnumMember(Value = "CNCB")]
     [IsoId("_C0LZ5KUbEee4_75LDmHZiQ")]
@@ -48,7 +48,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a collateral transaction, from the point of view of the collateral taker or its agent.
-    /// Encoded/decoded by serializers as "COLI".
+    /// Encoded/decoded by serializers as &quot;COLI&quot;.
     /// </summary>
     [EnumMember(Value = "COLI")]
     [IsoId("_C0LZ0KUbEee4_75LDmHZiQ")]
@@ -57,7 +57,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a collateral transaction, from the point of view of the collateral giver or its agent.
-    /// Encoded/decoded by serializers as "COLO".
+    /// Encoded/decoded by serializers as &quot;COLO&quot;.
     /// </summary>
     [EnumMember(Value = "COLO")]
     [IsoId("_C0Bo66UbEee4_75LDmHZiQ")]
@@ -66,7 +66,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a depository receipt conversion.
-    /// Encoded/decoded by serializers as "CONV".
+    /// Encoded/decoded by serializers as &quot;CONV&quot;.
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_C0LZ2KUbEee4_75LDmHZiQ")]
@@ -75,7 +75,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a factor update.
-    /// Encoded/decoded by serializers as "FCTA".
+    /// Encoded/decoded by serializers as &quot;FCTA&quot;.
     /// </summary>
     [EnumMember(Value = "FCTA")]
     [IsoId("_C0LZzKUbEee4_75LDmHZiQ")]
@@ -84,7 +84,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a movement of shares into or out of a pooled account.
-    /// Encoded/decoded by serializers as "INSP".
+    /// Encoded/decoded by serializers as &quot;INSP&quot;.
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_C0LZzaUbEee4_75LDmHZiQ")]
@@ -93,7 +93,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the issuance of a security such as an equity or a depositary receipt.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_C0LZ3qUbEee4_75LDmHZiQ")]
@@ -102,7 +102,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the decrease of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceed of corp. event realigned).
-    /// Encoded/decoded by serializers as "MKDW".
+    /// Encoded/decoded by serializers as &quot;MKDW&quot;.
     /// </summary>
     [EnumMember(Value = "MKDW")]
     [IsoId("_C0Bo7KUbEee4_75LDmHZiQ")]
@@ -111,7 +111,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the increase of positions held by an International Central Securities Depository (ICSD) at the common depository due to custody operations (repurchase, pre-release, proceed of corporate event realigned).
-    /// Encoded/decoded by serializers as "MKUP".
+    /// Encoded/decoded by serializers as &quot;MKUP&quot;.
     /// </summary>
     [EnumMember(Value = "MKUP")]
     [IsoId("_C0LZ1qUbEee4_75LDmHZiQ")]
@@ -120,7 +120,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the netting of settlement instructions.
-    /// Encoded/decoded by serializers as "NETT".
+    /// Encoded/decoded by serializers as &quot;NETT&quot;.
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_C0LZyqUbEee4_75LDmHZiQ")]
@@ -129,7 +129,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the issue of medium and short term paper (CP, CD, MTN, notes.) under a program and without syndication arrangement.
-    /// Encoded/decoded by serializers as "NSYN".
+    /// Encoded/decoded by serializers as &quot;NSYN&quot;.
     /// </summary>
     [EnumMember(Value = "NSYN")]
     [IsoId("_C0LZ4KUbEee4_75LDmHZiQ")]
@@ -138,7 +138,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to an account transfer involving more than one instructing party (messages sender) and/or account servicer (messages receiver).
-    /// Encoded/decoded by serializers as "OWNE".
+    /// Encoded/decoded by serializers as &quot;OWNE&quot;.
     /// </summary>
     [EnumMember(Value = "OWNE")]
     [IsoId("_C0LZxqUbEee4_75LDmHZiQ")]
@@ -147,7 +147,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to an account transfer involving one instructing party (messages sender) at one account servicer (messages receiver).
-    /// Encoded/decoded by serializers as "OWNI".
+    /// Encoded/decoded by serializers as &quot;OWNI&quot;.
     /// </summary>
     [EnumMember(Value = "OWNI")]
     [IsoId("_C0LZ0qUbEee4_75LDmHZiQ")]
@@ -156,7 +156,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a pair-off: the transaction is paired off and netted against one or more previous transactions.
-    /// Encoded/decoded by serializers as "PAIR".
+    /// Encoded/decoded by serializers as &quot;PAIR&quot;.
     /// </summary>
     [EnumMember(Value = "PAIR")]
     [IsoId("_C0LZ46UbEee4_75LDmHZiQ")]
@@ -165,7 +165,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the placement/new issue of a financial instrument.
-    /// Encoded/decoded by serializers as "PLAC".
+    /// Encoded/decoded by serializers as &quot;PLAC&quot;.
     /// </summary>
     [EnumMember(Value = "PLAC")]
     [IsoId("_C0LZxKUbEee4_75LDmHZiQ")]
@@ -174,7 +174,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a portfolio move from one investment manager to another and/or from an account servicer to another. It is generally charged differently than another account transfer, hence the need to identify this type of transfer as such.
-    /// Encoded/decoded by serializers as "PORT".
+    /// Encoded/decoded by serializers as &quot;PORT&quot;.
     /// </summary>
     [EnumMember(Value = "PORT")]
     [IsoId("_C0LZ0aUbEee4_75LDmHZiQ")]
@@ -183,7 +183,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a realignment of positions.
-    /// Encoded/decoded by serializers as "REAL".
+    /// Encoded/decoded by serializers as &quot;REAL&quot;.
     /// </summary>
     [EnumMember(Value = "REAL")]
     [IsoId("_C0LZ2aUbEee4_75LDmHZiQ")]
@@ -192,7 +192,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the withdrawal of specified amounts from specified subaccounts.
-    /// Encoded/decoded by serializers as "REDI".
+    /// Encoded/decoded by serializers as &quot;REDI&quot;.
     /// </summary>
     [EnumMember(Value = "REDI")]
     [IsoId("_C0LZwqUbEee4_75LDmHZiQ")]
@@ -201,7 +201,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a redemption of funds (funds industry only).
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_C0LZyKUbEee4_75LDmHZiQ")]
@@ -210,7 +210,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a release (into/from local) of depository receipt operation.
-    /// Encoded/decoded by serializers as "RELE".
+    /// Encoded/decoded by serializers as &quot;RELE&quot;.
     /// </summary>
     [EnumMember(Value = "RELE")]
     [IsoId("_C0LZ1KUbEee4_75LDmHZiQ")]
@@ -219,7 +219,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "REPU".
+    /// Encoded/decoded by serializers as &quot;REPU&quot;.
     /// </summary>
     [EnumMember(Value = "REPU")]
     [IsoId("_C0LZ4qUbEee4_75LDmHZiQ")]
@@ -228,7 +228,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the return of financial instruments resulting from a rejected delivery without matching operation.
-    /// Encoded/decoded by serializers as "RODE".
+    /// Encoded/decoded by serializers as &quot;RODE&quot;.
     /// </summary>
     [EnumMember(Value = "RODE")]
     [IsoId("_C0Bo7aUbEee4_75LDmHZiQ")]
@@ -237,7 +237,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a reverse repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "RVPO".
+    /// Encoded/decoded by serializers as &quot;RVPO&quot;.
     /// </summary>
     [EnumMember(Value = "RVPO")]
     [IsoId("_C0LZ5aUbEee4_75LDmHZiQ")]
@@ -246,7 +246,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a sell buy back transaction.
-    /// Encoded/decoded by serializers as "SBBK".
+    /// Encoded/decoded by serializers as &quot;SBBK&quot;.
     /// </summary>
     [EnumMember(Value = "SBBK")]
     [IsoId("_C0LZx6UbEee4_75LDmHZiQ")]
@@ -255,7 +255,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Internal reallocation of a borrowed holding from one safekeeping account to another.
-    /// Encoded/decoded by serializers as "SBRE".
+    /// Encoded/decoded by serializers as &quot;SBRE&quot;.
     /// </summary>
     [EnumMember(Value = "SBRE")]
     [IsoId("_C0LZ4aUbEee4_75LDmHZiQ")]
@@ -264,7 +264,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a securities borrowing operation.
-    /// Encoded/decoded by serializers as "SECB".
+    /// Encoded/decoded by serializers as &quot;SECB&quot;.
     /// </summary>
     [EnumMember(Value = "SECB")]
     [IsoId("_C0LZ1aUbEee4_75LDmHZiQ")]
@@ -273,7 +273,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a securities lending operation.
-    /// Encoded/decoded by serializers as "SECL".
+    /// Encoded/decoded by serializers as &quot;SECL&quot;.
     /// </summary>
     [EnumMember(Value = "SECL")]
     [IsoId("_C0LZy6UbEee4_75LDmHZiQ")]
@@ -282,7 +282,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Internal reallocation of a holding on loan from one safekeeping account to another.
-    /// Encoded/decoded by serializers as "SLRE".
+    /// Encoded/decoded by serializers as &quot;SLRE&quot;.
     /// </summary>
     [EnumMember(Value = "SLRE")]
     [IsoId("_C0LZ2qUbEee4_75LDmHZiQ")]
@@ -291,7 +291,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a subscription to funds (funds industry only).
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_C0LZzqUbEee4_75LDmHZiQ")]
@@ -300,7 +300,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the issue of financial instruments through a syndicate of underwriters and a lead manager.
-    /// Encoded/decoded by serializers as "SYND".
+    /// Encoded/decoded by serializers as &quot;SYND&quot;.
     /// </summary>
     [EnumMember(Value = "SYND")]
     [IsoId("_C0LZ36UbEee4_75LDmHZiQ")]
@@ -309,7 +309,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a To Be Announced (TBA) closing trade.
-    /// Encoded/decoded by serializers as "TBAC".
+    /// Encoded/decoded by serializers as &quot;TBAC&quot;.
     /// </summary>
     [EnumMember(Value = "TBAC")]
     [IsoId("_C0LZwKUbEee4_75LDmHZiQ")]
@@ -318,7 +318,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to the settlement of a trade.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_C0LZyaUbEee4_75LDmHZiQ")]
@@ -327,7 +327,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a triparty repurchase agreement.
-    /// Encoded/decoded by serializers as "TRPO".
+    /// Encoded/decoded by serializers as &quot;TRPO&quot;.
     /// </summary>
     [EnumMember(Value = "TRPO")]
     [IsoId("_C0LZ3KUbEee4_75LDmHZiQ")]
@@ -336,7 +336,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a triparty reverse repurchase agreement.
-    /// Encoded/decoded by serializers as "TRVO".
+    /// Encoded/decoded by serializers as &quot;TRVO&quot;.
     /// </summary>
     [EnumMember(Value = "TRVO")]
     [IsoId("_C0LZxaUbEee4_75LDmHZiQ")]
@@ -345,7 +345,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a turnaround: the same security is bought and sold to settle the same day, to or from different brokers.
-    /// Encoded/decoded by serializers as "TURN".
+    /// Encoded/decoded by serializers as &quot;TURN&quot;.
     /// </summary>
     [EnumMember(Value = "TURN")]
     [IsoId("_C0LZz6UbEee4_75LDmHZiQ")]
@@ -354,7 +354,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a market claim.
-    /// Encoded/decoded by serializers as "CLAI".
+    /// Encoded/decoded by serializers as &quot;CLAI&quot;.
     /// </summary>
     [EnumMember(Value = "CLAI")]
     [IsoId("_C0LZw6UbEee4_75LDmHZiQ")]
@@ -363,7 +363,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to a corporate action.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_C0LZ3aUbEee4_75LDmHZiQ")]
@@ -372,7 +372,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to an auto-collateralisation movement.
-    /// Encoded/decoded by serializers as "AUTO".
+    /// Encoded/decoded by serializers as &quot;AUTO&quot;.
     /// </summary>
     [EnumMember(Value = "AUTO")]
     [IsoId("_C0LZ06UbEee4_75LDmHZiQ")]
@@ -381,7 +381,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Relates to an ETF creation or redemption.
-    /// Encoded/decoded by serializers as "ETFT".
+    /// Encoded/decoded by serializers as &quot;ETFT&quot;.
     /// </summary>
     [EnumMember(Value = "ETFT")]
     [IsoId("_C0LZ16UbEee4_75LDmHZiQ")]
@@ -390,7 +390,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Transaction is a change of an investment from one sub-fund to another sub-fund (redemption-leg).
-    /// Encoded/decoded by serializers as "SWIF".
+    /// Encoded/decoded by serializers as &quot;SWIF&quot;.
     /// </summary>
     [EnumMember(Value = "SWIF")]
     [IsoId("_O6vFcaUnEee4_75LDmHZiQ")]
@@ -399,7 +399,7 @@ public enum SecuritiesTransactionType19Code
     
     /// <summary>
     /// Transaction is a change of an investment from one sub-fund to another sub-fund (subscription-leg).
-    /// Encoded/decoded by serializers as "SWIT".
+    /// Encoded/decoded by serializers as &quot;SWIT&quot;.
     /// </summary>
     [EnumMember(Value = "SWIT")]
     [IsoId("_PGfCcaUnEee4_75LDmHZiQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies a natural person through identification number, name and domicile.
 /// </summary>
 [IsoId("_kLdBwT3ZEe2uHKhHp3bXyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Natural Person Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record NaturalPersonIdentification3
     /// Unique and unambiguous identification of the natural person.
     /// </summary>
     [IsoId("_kMVykT3ZEe2uHKhHp3bXyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NaturalPersonIdentification2 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NaturalPersonIdentification2 Identification { get; init; } 
+    public required NaturalPersonIdentification2 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NaturalPersonIdentification2 Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record NaturalPersonIdentification3
     /// Code of country of residence of a natural person.
     /// </summary>
     [IsoId("_P8TLYD3aEe2uHKhHp3bXyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

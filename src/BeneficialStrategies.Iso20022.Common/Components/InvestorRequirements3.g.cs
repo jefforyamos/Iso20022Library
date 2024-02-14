@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Investor’s investment requirements.
 /// </summary>
 [IsoId("_XtujXc0SEeuAE-cYsQdwHQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investor Requirements")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InvestorRequirements3
     /// Specifies whether the product is compatible with a client who is looking for the preservation of capital. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05010.
     /// </summary>
     [IsoId("_YDn60c0SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Profile Preservation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrPrflPrsrvtn")]
     #endif
+    [IsoXmlTag("RtrPrflPrsrvtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? ReturnProfilePreservation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record InvestorRequirements3
     /// Specifies whether the product is compatible with a client looking for capitalisation growth. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05020.
     /// </summary>
     [IsoId("_YDn6080SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Profile Growth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrPrflGrwth")]
     #endif
+    [IsoXmlTag("RtrPrflGrwth")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? ReturnProfileGrowth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record InvestorRequirements3
     /// Specifies whether the product is compatible with a client who is looking for income. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05030.
     /// </summary>
     [IsoId("_YDn61c0SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Profile Income")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrPrflIncm")]
     #endif
+    [IsoXmlTag("RtrPrflIncm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? ReturnProfileIncome { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,12 +94,11 @@ public partial record InvestorRequirements3
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05040. 
     /// </summary>
     [IsoId("_YDn6180SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Profile Hedging")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrPrflHdgg")]
     #endif
+    [IsoXmlTag("RtrPrflHdgg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? ReturnProfileHedging { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +111,11 @@ public partial record InvestorRequirements3
     /// Level of compatibility of the investor risk profile with the option or leveraged return profile of a structured security product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05050.
     /// </summary>
     [IsoId("_YDn62c0SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Or Leveraged Return Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnOrLvrgdRtrPrfl")]
     #endif
+    [IsoXmlTag("OptnOrLvrgdRtrPrfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? OptionOrLeveragedReturnProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,12 +128,11 @@ public partial record InvestorRequirements3
     /// Level of compatibility of the investor risk profile with the Return Profile Pension Scheme Germany profile of the product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05070.
     /// </summary>
     [IsoId("_YDn6280SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Profile Pension Scheme Germany")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrPrflPnsnSchmeDE")]
     #endif
+    [IsoXmlTag("RtrPrflPnsnSchmeDE")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket1Code? ReturnProfilePensionSchemeGermany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +146,11 @@ public partial record InvestorRequirements3
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05080.
     /// </summary>
     [IsoId("_YDn63c0SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Holding Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinHldgPrd")]
     #endif
+    [IsoXmlTag("MinHldgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeHorizon2Choice_? MinimumHoldingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,12 +163,11 @@ public partial record InvestorRequirements3
     /// Specifies whether the product is compatible with investors that have Environmental, Social and Governance (ESG) preferences. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05105.
     /// </summary>
     [IsoId("_YDn6380SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ESG Preferences")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ESGPrefs")]
     #endif
+    [IsoXmlTag("ESGPrefs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetMarket2Code? ESGPreferences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -190,12 +180,11 @@ public partial record InvestorRequirements3
     /// Specifies whether the product is compatible with investors that have sustainability preferences. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 05105.
     /// </summary>
     [IsoId("_B50VoM0TEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sustainability Preferences")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SstnbltyPrefs")]
     #endif
+    [IsoXmlTag("SstnbltyPrefs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SustainabilityPreferences1Code? SustainabilityPreferences { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -208,12 +197,11 @@ public partial record InvestorRequirements3
     /// Specifies other specific investment needs. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05115.
     /// </summary>
     [IsoId("_YDn64c0SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Specific Investment Need")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrSpcfcInvstmtNeed")]
     #endif
+    [IsoXmlTag("OthrSpcfcInvstmtNeed")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentNeed2Choice_? OtherSpecificInvestmentNeed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -226,12 +214,11 @@ public partial record InvestorRequirements3
     /// Other investment need. 
     /// </summary>
     [IsoId("_YDn6480SEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OtherInvestmentNeed1? Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

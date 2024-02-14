@@ -21,7 +21,7 @@ public enum OptionStyleCode
 {
     /// <summary>
     /// Option can be exercised before or on expiry date.
-    /// Encoded/decoded by serializers as "AMER".
+    /// Encoded/decoded by serializers as &quot;AMER&quot;.
     /// </summary>
     [EnumMember(Value = "AMER")]
     [IsoId("_aQR7Bdp-Ed-ak6NoX_4Aeg_-1399661738")]
@@ -30,7 +30,7 @@ public enum OptionStyleCode
     
     /// <summary>
     /// Option that can be exercised on expiry date only.
-    /// Encoded/decoded by serializers as "EURO".
+    /// Encoded/decoded by serializers as &quot;EURO&quot;.
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_aQR7Btp-Ed-ak6NoX_4Aeg_-1377497386")]
@@ -39,7 +39,7 @@ public enum OptionStyleCode
     
     /// <summary>
     /// Option that can be exercised on multiple discrete dates prior to, or on expiry date.
-    /// Encoded/decoded by serializers as "BERM".
+    /// Encoded/decoded by serializers as &quot;BERM&quot;.
     /// </summary>
     [EnumMember(Value = "BERM")]
     [IsoId("_aQR7B9p-Ed-ak6NoX_4Aeg_-1302692663")]
@@ -48,7 +48,7 @@ public enum OptionStyleCode
     
     /// <summary>
     /// Option where the payoff is not determined by the underlying price at maturity but by the average underlying price over some pre-set period of time.
-    /// Encoded/decoded by serializers as "ASIA".
+    /// Encoded/decoded by serializers as &quot;ASIA&quot;.
     /// </summary>
     [EnumMember(Value = "ASIA")]
     [IsoId("_aQR7CNp-Ed-ak6NoX_4Aeg_-1004275745")]
@@ -57,7 +57,7 @@ public enum OptionStyleCode
     
     /// <summary>
     /// Option whose exercise style lies somewhere between European options and Bermudan options. The holder can exercise the option at quarterly dates, but not before a set time period (typically one year) has elapsed.
-    /// Encoded/decoded by serializers as "CANA".
+    /// Encoded/decoded by serializers as &quot;CANA&quot;.
     /// </summary>
     [EnumMember(Value = "CANA")]
     [IsoId("_aQbsANp-Ed-ak6NoX_4Aeg_-256225948")]
@@ -66,7 +66,7 @@ public enum OptionStyleCode
     
     /// <summary>
     /// Other type of option style.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_YLxWQED8EeW1yage4PQ__A")]

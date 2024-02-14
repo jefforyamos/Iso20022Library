@@ -21,7 +21,7 @@ public enum PendingStatus4Code
 {
     /// <summary>
     /// Transaction has been accepted by the clearing agent.
-    /// Encoded/decoded by serializers as "ACPD".
+    /// Encoded/decoded by serializers as &quot;ACPD&quot;.
     /// </summary>
     [EnumMember(Value = "ACPD")]
     [IsoId("_aGJupNp-Ed-ak6NoX_4Aeg_1263998562")]
@@ -30,7 +30,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction has been validated by the clearing agent.
-    /// Encoded/decoded by serializers as "VALD".
+    /// Encoded/decoded by serializers as &quot;VALD&quot;.
     /// </summary>
     [EnumMember(Value = "VALD")]
     [IsoId("_aGJupdp-Ed-ak6NoX_4Aeg_1263998838")]
@@ -39,7 +39,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction has been matched with a corresponding transaction by the clearing agent.
-    /// Encoded/decoded by serializers as "MATD".
+    /// Encoded/decoded by serializers as &quot;MATD&quot;.
     /// </summary>
     [EnumMember(Value = "MATD")]
     [IsoId("_aGJuptp-Ed-ak6NoX_4Aeg_1263998873")]
@@ -48,7 +48,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction has been authorised by the transaction administrator or authorised party.
-    /// Encoded/decoded by serializers as "AUTD".
+    /// Encoded/decoded by serializers as &quot;AUTD&quot;.
     /// </summary>
     [EnumMember(Value = "AUTD")]
     [IsoId("_aGJup9p-Ed-ak6NoX_4Aeg_1263998915")]
@@ -57,7 +57,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction is invalid.
-    /// Encoded/decoded by serializers as "INVD".
+    /// Encoded/decoded by serializers as &quot;INVD&quot;.
     /// </summary>
     [EnumMember(Value = "INVD")]
     [IsoId("_aGJuqNp-Ed-ak6NoX_4Aeg_1263998933")]
@@ -66,7 +66,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Clearing agent attempted to match the transaction with a corresponding transaction but failed.
-    /// Encoded/decoded by serializers as "UMAC".
+    /// Encoded/decoded by serializers as &quot;UMAC&quot;.
     /// </summary>
     [EnumMember(Value = "UMAC")]
     [IsoId("_aGJuqdp-Ed-ak6NoX_4Aeg_1263998968")]
@@ -75,7 +75,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction is eligible for future settlement.
-    /// Encoded/decoded by serializers as "STLE".
+    /// Encoded/decoded by serializers as &quot;STLE&quot;.
     /// </summary>
     [EnumMember(Value = "STLE")]
     [IsoId("_aGS4kNp-Ed-ak6NoX_4Aeg_1263999258")]
@@ -84,7 +84,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction is eligible for immediate settlement.
-    /// Encoded/decoded by serializers as "STLM".
+    /// Encoded/decoded by serializers as &quot;STLM&quot;.
     /// </summary>
     [EnumMember(Value = "STLM")]
     [IsoId("_aGS4kdp-Ed-ak6NoX_4Aeg_1263999276")]
@@ -93,7 +93,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction has been suspended by the clearing agent.
-    /// Encoded/decoded by serializers as "SSPD".
+    /// Encoded/decoded by serializers as &quot;SSPD&quot;.
     /// </summary>
     [EnumMember(Value = "SSPD")]
     [IsoId("_aGS4ktp-Ed-ak6NoX_4Aeg_1263999318")]
@@ -102,7 +102,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Clearing agent has received a cancellation request for the transaction, and needs either a matching request for cancellation from the counterparty or a confirmation from an authorised party.
-    /// Encoded/decoded by serializers as "PCAN".
+    /// Encoded/decoded by serializers as &quot;PCAN&quot;.
     /// </summary>
     [EnumMember(Value = "PCAN")]
     [IsoId("_aGS4k9p-Ed-ak6NoX_4Aeg_1263999336")]
@@ -111,7 +111,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction is eligible for settlement, but is pending.
-    /// Encoded/decoded by serializers as "PSTL".
+    /// Encoded/decoded by serializers as &quot;PSTL&quot;.
     /// </summary>
     [EnumMember(Value = "PSTL")]
     [IsoId("_aGS4lNp-Ed-ak6NoX_4Aeg_1263999371")]
@@ -120,7 +120,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction eligible for immediate settlement, has failed to settle.
-    /// Encoded/decoded by serializers as "PFST".
+    /// Encoded/decoded by serializers as &quot;PFST&quot;.
     /// </summary>
     [EnumMember(Value = "PFST")]
     [IsoId("_aGS4ldp-Ed-ak6NoX_4Aeg_1263999413")]
@@ -128,8 +128,8 @@ public enum PendingStatus4Code
     PendingFailingSettlement = PaymentInstructionStatusCode.PendingFailingSettlement, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction causes the 'Sender multilateral limit' to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "SMLR".
+    /// Transaction causes the &apos;Sender multilateral limit&apos; to be exceeded and cannot currently be processed.
+    /// Encoded/decoded by serializers as &quot;SMLR&quot;.
     /// </summary>
     [EnumMember(Value = "SMLR")]
     [IsoId("_aGS4ltp-Ed-ak6NoX_4Aeg_1263999431")]
@@ -137,8 +137,8 @@ public enum PendingStatus4Code
     SenderMultilateralLimitRelated = PaymentInstructionStatusCode.SenderMultilateralLimitRelated, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction causes the 'Receiver multilateral limit' to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "RMLR".
+    /// Transaction causes the &apos;Receiver multilateral limit&apos; to be exceeded and cannot currently be processed.
+    /// Encoded/decoded by serializers as &quot;RMLR&quot;.
     /// </summary>
     [EnumMember(Value = "RMLR")]
     [IsoId("_aGS4l9p-Ed-ak6NoX_4Aeg_1263999473")]
@@ -147,7 +147,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction causes the bilateral limit fixed between Sender and Receiver to be exceeded and cannot currently be processed.
-    /// Encoded/decoded by serializers as "SRBL".
+    /// Encoded/decoded by serializers as &quot;SRBL&quot;.
     /// </summary>
     [EnumMember(Value = "SRBL")]
     [IsoId("_aGS4mNp-Ed-ak6NoX_4Aeg_1263999508")]
@@ -156,7 +156,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Specifies that the message is queued to the receiving payment system and is awaiting processing because the receiving payment system is not operational (open) at that point in time.
-    /// Encoded/decoded by serializers as "AVLB".
+    /// Encoded/decoded by serializers as &quot;AVLB&quot;.
     /// </summary>
     [EnumMember(Value = "AVLB")]
     [IsoId("_aGS4mdp-Ed-ak6NoX_4Aeg_1263999526")]
@@ -165,7 +165,7 @@ public enum PendingStatus4Code
     
     /// <summary>
     /// Transaction causes the multilateral limits fixed between Sender and Receiver to be exceeded by the total amount of submitted payments at the end of the day and cannot currently be processed.
-    /// Encoded/decoded by serializers as "SRML".
+    /// Encoded/decoded by serializers as &quot;SRML&quot;.
     /// </summary>
     [EnumMember(Value = "SRML")]
     [IsoId("_aGcpkNp-Ed-ak6NoX_4Aeg_588640614")]

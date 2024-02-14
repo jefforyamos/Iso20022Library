@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The MoneyMarketUnsecuredMarketStatisticalReport message is sent by the reporting agents to the relevant competent authority, to report all relevant unsecured money market transactions.")]
 [IsoId("_IdsB0cEPEea7jLfvGi1PDw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Money Market Unsecured Market Statistical Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV02 : IOuterRec
     /// Provides the elements specific to the report.
     /// </summary>
     [IsoId("_IdsB08EPEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptHdr")]
     #endif
+    [IsoXmlTag("RptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MoneyMarketReportHeader1 ReportHeader { get; init; } 
+    public required MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MoneyMarketReportHeader1 ReportHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV02 : IOuterRec
     /// Provides the reason why no activity is reported or the required list of transactions for the unsecured market segment.
     /// </summary>
     [IsoId("_IdsB1cEPEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unsecured Market Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UscrdMktRpt")]
     #endif
+    [IsoXmlTag("UscrdMktRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnsecuredMarketReport4Choice_ UnsecuredMarketReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnsecuredMarketReport4Choice_ UnsecuredMarketReport { get; init; } 
+    public required UnsecuredMarketReport4Choice_ UnsecuredMarketReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnsecuredMarketReport4Choice_ UnsecuredMarketReport { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV02 : IOuterRec
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_IdsB18EPEea7jLfvGi1PDw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV02 : IOuterRec
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MoneyMarketUnsecuredMarketStatisticalReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MoneyMarketUnsecuredMarketStatisticalReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MoneyMarketUnsecuredMarketStatisticalReportV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV02 : IOuterRec
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MoneyMarketUnsecuredMarketStatisticalReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MoneyMarketUnsecuredMarketStatisticalReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MoneyMarketUnsecuredMarketStatisticalReportV02Document : IOuterDocument<MoneyMarketUnsecuredMarketStatisticalReportV02>
@@ -161,7 +156,7 @@ public partial record MoneyMarketUnsecuredMarketStatisticalReportV02Document : I
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MoneyMarketUnsecuredMarketStatisticalReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MoneyMarketUnsecuredMarketStatisticalReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MoneyMarketUnsecuredMarketStatisticalReportV02 Message { get; init; }

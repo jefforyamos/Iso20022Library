@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Purpose1Choice.Code))]
     [KnownType(typeof(Purpose1Choice.Proprietary))]
     [IsoId("_PrK9gNp-Ed-ak6NoX_4Aeg_-891374754")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Purpose 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

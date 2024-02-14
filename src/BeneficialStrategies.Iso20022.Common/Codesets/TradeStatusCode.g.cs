@@ -21,7 +21,7 @@ public enum TradeStatusCode
 {
     /// <summary>
     /// Trade is validated.
-    /// Encoded/decoded by serializers as "VALI".
+    /// Encoded/decoded by serializers as &quot;VALI&quot;.
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_YnFIktp-Ed-ak6NoX_4Aeg_668271251")]
@@ -30,7 +30,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade passed regulatory check.
-    /// Encoded/decoded by serializers as "REGC".
+    /// Encoded/decoded by serializers as &quot;REGC&quot;.
     /// </summary>
     [EnumMember(Value = "REGC")]
     [IsoId("_YnFIk9p-Ed-ak6NoX_4Aeg_-1009437897")]
@@ -39,7 +39,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade is invalid.
-    /// Encoded/decoded by serializers as "INVA".
+    /// Encoded/decoded by serializers as &quot;INVA&quot;.
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_YnFIlNp-Ed-ak6NoX_4Aeg_-967880102")]
@@ -48,7 +48,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade settlement is rejected.
-    /// Encoded/decoded by serializers as "SRJC".
+    /// Encoded/decoded by serializers as &quot;SRJC&quot;.
     /// </summary>
     [EnumMember(Value = "SRJC")]
     [IsoId("_YnFIldp-Ed-ak6NoX_4Aeg_-966955204")]
@@ -57,7 +57,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade is suspended for regulatory reasons.
-    /// Encoded/decoded by serializers as "REGS".
+    /// Encoded/decoded by serializers as &quot;REGS&quot;.
     /// </summary>
     [EnumMember(Value = "REGS")]
     [IsoId("_YnFIltp-Ed-ak6NoX_4Aeg_-639105106")]
@@ -66,7 +66,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade is unmatched.
-    /// Encoded/decoded by serializers as "UMTC".
+    /// Encoded/decoded by serializers as &quot;UMTC&quot;.
     /// </summary>
     [EnumMember(Value = "UMTC")]
     [IsoId("_YnFIl9p-Ed-ak6NoX_4Aeg_-596623705")]
@@ -75,7 +75,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade is matched.
-    /// Encoded/decoded by serializers as "FMTC".
+    /// Encoded/decoded by serializers as &quot;FMTC&quot;.
     /// </summary>
     [EnumMember(Value = "FMTC")]
     [IsoId("_YnFImNp-Ed-ak6NoX_4Aeg_-504270578")]
@@ -84,7 +84,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade is rescinded.
-    /// Encoded/decoded by serializers as "RSCD".
+    /// Encoded/decoded by serializers as &quot;RSCD&quot;.
     /// </summary>
     [EnumMember(Value = "RSCD")]
     [IsoId("_YnO5kNp-Ed-ak6NoX_4Aeg_-222599234")]
@@ -93,7 +93,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Settlement is complete.
-    /// Encoded/decoded by serializers as "STLD".
+    /// Encoded/decoded by serializers as &quot;STLD&quot;.
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_YnO5kdp-Ed-ak6NoX_4Aeg_-191198402")]
@@ -101,8 +101,8 @@ public enum TradeStatusCode
     Settled,
     
     /// <summary>
-    /// Part, but not all, of a Trade's value has settled, and no further elements of the Trade's value are expected to be settled.
-    /// Encoded/decoded by serializers as "PSTL".
+    /// Part, but not all, of a Trade&apos;s value has settled, and no further elements of the Trade&apos;s value are expected to be settled.
+    /// Encoded/decoded by serializers as &quot;PSTL&quot;.
     /// </summary>
     [EnumMember(Value = "PSTL")]
     [IsoId("_YnO5ktp-Ed-ak6NoX_4Aeg_374918978")]
@@ -110,8 +110,8 @@ public enum TradeStatusCode
     PartiallySettled,
     
     /// <summary>
-    /// Both the Opening and the Valuation details of an NDF trade have been matched with corresponding details of a counterparty's NDF trade.
-    /// Encoded/decoded by serializers as "VMTC".
+    /// Both the Opening and the Valuation details of an NDF trade have been matched with corresponding details of a counterparty&apos;s NDF trade.
+    /// Encoded/decoded by serializers as &quot;VMTC&quot;.
     /// </summary>
     [EnumMember(Value = "VMTC")]
     [IsoId("_YnO5k9p-Ed-ak6NoX_4Aeg_1197286254")]
@@ -120,7 +120,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade is rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_YnO5lNp-Ed-ak6NoX_4Aeg_-364848834")]
@@ -129,7 +129,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Option has matured.
-    /// Encoded/decoded by serializers as "OPMA".
+    /// Encoded/decoded by serializers as &quot;OPMA&quot;.
     /// </summary>
     [EnumMember(Value = "OPMA")]
     [IsoId("_YnO5ldp-Ed-ak6NoX_4Aeg_-2125018890")]
@@ -138,7 +138,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade has been authorised by the settlement member guaranteeing payment.
-    /// Encoded/decoded by serializers as "SMAU".
+    /// Encoded/decoded by serializers as &quot;SMAU&quot;.
     /// </summary>
     [EnumMember(Value = "SMAU")]
     [IsoId("_TXIYsAEcEeCQm6a_G2yO_w_-1476343454")]
@@ -147,7 +147,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade has not been authorised by the settlement member guaranteeing payment.
-    /// Encoded/decoded by serializers as "SMNA".
+    /// Encoded/decoded by serializers as &quot;SMNA&quot;.
     /// </summary>
     [EnumMember(Value = "SMNA")]
     [IsoId("_TXIYsQEcEeCQm6a_G2yO_w_-507682625")]
@@ -156,7 +156,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade has been selected for settlement.
-    /// Encoded/decoded by serializers as "SMAT".
+    /// Encoded/decoded by serializers as &quot;SMAT&quot;.
     /// </summary>
     [EnumMember(Value = "SMAT")]
     [IsoId("_TXIYsgEcEeCQm6a_G2yO_w_-214067986")]
@@ -165,7 +165,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade has been split into subtrades for settlement efficiency.
-    /// Encoded/decoded by serializers as "SPLI".
+    /// Encoded/decoded by serializers as &quot;SPLI&quot;.
     /// </summary>
     [EnumMember(Value = "SPLI")]
     [IsoId("_TXIYswEcEeCQm6a_G2yO_w_1116960621")]
@@ -174,7 +174,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade has been marked not ready for settlement.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_TXIYtAEcEeCQm6a_G2yO_w_1676857510")]
@@ -183,7 +183,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade is not authorised.
-    /// Encoded/decoded by serializers as "NAUT".
+    /// Encoded/decoded by serializers as &quot;NAUT&quot;.
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_TXIYtQEcEeCQm6a_G2yO_w_1108438667")]
@@ -192,7 +192,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade is amended.
-    /// Encoded/decoded by serializers as "AMUI".
+    /// Encoded/decoded by serializers as &quot;AMUI&quot;.
     /// </summary>
     [EnumMember(Value = "AMUI")]
     [IsoId("_xkKnQL74EeKP7-K7N5UExg_-1620147750")]
@@ -201,7 +201,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade has been selected for settlement and is pending.
-    /// Encoded/decoded by serializers as "SMAP".
+    /// Encoded/decoded by serializers as &quot;SMAP&quot;.
     /// </summary>
     [EnumMember(Value = "SMAP")]
     [IsoId("_xkKnQb74EeKP7-K7N5UExg_2039787700")]
@@ -210,7 +210,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// Trade has been netted by the central system.
-    /// Encoded/decoded by serializers as "NETT".
+    /// Encoded/decoded by serializers as &quot;NETT&quot;.
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_21Y18JU-EeaYkf5FCqYMeA")]
@@ -219,7 +219,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// For NDF trades, the trade is marked as open match when both open confirmations from both parties match.
-    /// Encoded/decoded by serializers as "OMTC".
+    /// Encoded/decoded by serializers as &quot;OMTC&quot;.
     /// </summary>
     [EnumMember(Value = "OMTC")]
     [IsoId("_-MaG0JU-EeaYkf5FCqYMeA")]
@@ -228,7 +228,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// For NDF instructions, if a party has submitted both the open and fix confirmations and the counterparty is yet to submit the open and fix confirmation the instruction is updated to ‘Fix Unmatched’ Status.
-    /// Encoded/decoded by serializers as "FUMT".
+    /// Encoded/decoded by serializers as &quot;FUMT&quot;.
     /// </summary>
     [EnumMember(Value = "FUMT")]
     [IsoId("_gZW4UJU_EeaYkf5FCqYMeA")]
@@ -237,7 +237,7 @@ public enum TradeStatusCode
     
     /// <summary>
     /// For NDF instructions, open confirmations are matched and the Fix confirmations are not matched.
-    /// Encoded/decoded by serializers as "PFIX".
+    /// Encoded/decoded by serializers as &quot;PFIX&quot;.
     /// </summary>
     [EnumMember(Value = "PFIX")]
     [IsoId("_0EPHgJU_EeaYkf5FCqYMeA")]

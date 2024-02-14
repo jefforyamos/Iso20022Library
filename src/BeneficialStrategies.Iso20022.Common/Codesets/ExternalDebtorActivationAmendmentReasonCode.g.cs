@@ -22,7 +22,7 @@ public enum ExternalDebtorActivationAmendmentReasonCode
 {
     /// <summary>
     /// Duplication.
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_uuSFWfRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalDebtorActivationAmendmentReasonCode
     
     /// <summary>
     /// Reference is not unique.
-    /// Encoded/decoded by serializers as "RF01".
+    /// Encoded/decoded by serializers as &quot;RF01&quot;.
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_uubPQPRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalDebtorActivationAmendmentReasonCode
     
     /// <summary>
     /// Regulatory Reason.
-    /// Encoded/decoded by serializers as "RR04".
+    /// Encoded/decoded by serializers as &quot;RR04&quot;.
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_uulAQPRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalDebtorActivationAmendmentReasonCode
     
     /// <summary>
     /// Technical rejection.
-    /// Encoded/decoded by serializers as "TRJT".
+    /// Encoded/decoded by serializers as &quot;TRJT&quot;.
     /// </summary>
     [EnumMember(Value = "TRJT")]
     [IsoId("_90jEyfGAEemQ7oqCO5NTQw")]
@@ -58,7 +58,7 @@ public enum ExternalDebtorActivationAmendmentReasonCode
     
     /// <summary>
     /// Unknown creditor.
-    /// Encoded/decoded by serializers as "UCRD".
+    /// Encoded/decoded by serializers as &quot;UCRD&quot;.
     /// </summary>
     [EnumMember(Value = "UCRD")]
     [IsoId("_90jEyvGAEemQ7oqCO5NTQw")]

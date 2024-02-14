@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Calculation of the net asset value for an investment fund/fund class.
 /// </summary>
 [IsoId("_et2_cRl_EeKxsrht2duUcg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Valuation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,15 +53,13 @@ public partial record PriceValuation4
     /// Unique technical identifier for an instance of a price valuation within a price report, as assigned by the issuer of the report.
     /// </summary>
     [IsoId("_fDeDGRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -76,12 +72,11 @@ public partial record PriceValuation4
     /// Date and time of the price valuation for the investment fund/fund class.
     /// </summary>
     [IsoId("_fDeDHRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDtTm")]
     #endif
+    [IsoXmlTag("ValtnDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? ValuationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,16 +89,15 @@ public partial record PriceValuation4
     /// Date and time at which a price is applied, according to the terms stated in the prospectus. The NAV date is also known as the trade date. The NAV date becomes the trade date in an order.
     /// </summary>
     [IsoId("_fDeDIRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("NAV Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NAVDtTm")]
     #endif
+    [IsoXmlTag("NAVDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTimeChoice_ NAVDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTimeChoice_ NAVDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ NAVDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTimeChoice_ NAVDateTime { get; init; } 
     #else
@@ -114,16 +108,15 @@ public partial record PriceValuation4
     /// Investment fund class for which the net asset value is calculated.
     /// </summary>
     [IsoId("_fDeDJRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmDtls")]
     #endif
+    [IsoXmlTag("FinInstrmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument8 FinancialInstrumentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument8 FinancialInstrumentDetails { get; init; } 
+    public required FinancialInstrument8 FinancialInstrumentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument8 FinancialInstrumentDetails { get; init; } 
     #else
@@ -134,12 +127,11 @@ public partial record PriceValuation4
     /// Issuer of the fund.
     /// </summary>
     [IsoId("_fDeDKRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Management Company")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndMgmtCpny")]
     #endif
+    [IsoXmlTag("FndMgmtCpny")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? FundManagementCompany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,15 +141,15 @@ public partial record PriceValuation4
     #endif
     
     /// <summary>
-    /// Value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
+    /// Value of all the holdings, less the fund&apos;s liabilities, attributable to a specific investment fund class.
     /// </summary>
     [IsoId("_fDeDLRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total NAV")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNAV")]
     #endif
+    [IsoXmlTag("TtlNAV")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalNAV { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +162,11 @@ public partial record PriceValuation4
     /// Total number of investment fund class units that have been issued.
     /// </summary>
     [IsoId("_fDeDMRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Units Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlUnitsNb")]
     #endif
+    [IsoXmlTag("TtlUnitsNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1? TotalUnitsNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +179,11 @@ public partial record PriceValuation4
     /// Date and time of the next price valuation for the investment fund/fund class.
     /// </summary>
     [IsoId("_fDeDNRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Next Valuation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NxtValtnDtTm")]
     #endif
+    [IsoXmlTag("NxtValtnDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? NextValuationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +196,11 @@ public partial record PriceValuation4
     /// Date and time of the previous price valuation for the investment fund/fund class.
     /// </summary>
     [IsoId("_fDeDORl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Valuation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsValtnDtTm")]
     #endif
+    [IsoXmlTag("PrvsValtnDtTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTimeChoice_? PreviousValuationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,16 +213,15 @@ public partial record PriceValuation4
     /// Specifies how the valuation is done, based on the schedule stated in the prospectus.
     /// </summary>
     [IsoId("_fDeDPRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnTp")]
     #endif
+    [IsoXmlTag("ValtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ValuationTiming1Code ValuationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ValuationTiming1Code ValuationType { get; init; } 
+    public required ValuationTiming1Code ValuationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ValuationTiming1Code ValuationType { get; init; } 
     #else
@@ -244,12 +232,11 @@ public partial record PriceValuation4
     /// Frequency of the valuation.
     /// </summary>
     [IsoId("_fDeDQRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnFrqcy")]
     #endif
+    [IsoXmlTag("ValtnFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency1Code? ValuationFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -262,16 +249,16 @@ public partial record PriceValuation4
     /// Indicates whether the valuation is an official valuation.
     /// </summary>
     [IsoId("_fDeDRRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Official Valuation Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffclValtnInd")]
     #endif
+    [IsoXmlTag("OffclValtnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator OfficialValuationIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OfficialValuationIndicator { get; init; } 
+    public required System.String OfficialValuationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OfficialValuationIndicator { get; init; } 
     #else
@@ -282,16 +269,16 @@ public partial record PriceValuation4
     /// Indicates whether the valuation of the investment fund class is suspended.
     /// </summary>
     [IsoId("_fDeDSRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspended Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SspdInd")]
     #endif
+    [IsoXmlTag("SspdInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator SuspendedIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SuspendedIndicator { get; init; } 
+    public required System.String SuspendedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SuspendedIndicator { get; init; } 
     #else
@@ -302,12 +289,11 @@ public partial record PriceValuation4
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
     [IsoId("_fDeDTRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricDtls")]
     #endif
+    [IsoXmlTag("PricDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitPrice15? PriceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +306,11 @@ public partial record PriceValuation4
     /// Information related to the price variations of an investment fund class.
     /// </summary>
     [IsoId("_fDeDURl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnSttstcs")]
     #endif
+    [IsoXmlTag("ValtnSttstcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValuationStatistics3? ValuationStatistics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -338,12 +323,11 @@ public partial record PriceValuation4
     /// Factors that give indications about the performance of a fund.
     /// </summary>
     [IsoId("_fDeDVRl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Performance Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrfrmncDtls")]
     #endif
+    [IsoXmlTag("PrfrmncDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PerformanceFactors1? PerformanceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

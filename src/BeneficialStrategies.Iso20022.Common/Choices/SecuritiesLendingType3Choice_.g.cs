@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesLendingType3Choice.Code))]
     [KnownType(typeof(SecuritiesLendingType3Choice.Proprietary))]
     [IsoId("_9FMogMkbEeeiAIB1i4AlQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Lending Type 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

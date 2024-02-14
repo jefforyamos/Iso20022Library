@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DatePeriod1Choice
     /// Time span defined by a month and a year.
     /// </summary>
     [IsoId("_kaGgVZ79EeOieb-y7x0pFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Month")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.DatePeriod1Choice
         /// Month within a particular calendar year represented by YYYY-MM (ISO 8601).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DtMnth")]
         #endif
+        [IsoXmlTag("DtMnth")]
+        [IsoSimpleType(IsoSimpleType.ISOYearMonth)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISOYearMonth Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt16 Value { get; init; } 
+        public required System.UInt16 Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt16 Value { get; init; } 
         #else

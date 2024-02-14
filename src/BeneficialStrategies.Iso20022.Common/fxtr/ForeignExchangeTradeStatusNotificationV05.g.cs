@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// </summary>
 [Description(@"Scope||The ForeignExchangeTradeStatusNotification message is sent by a central system to the participant to notify the current status of a foreign exchange trade in the system.||Usage||This ForeignExchangeTradeStatusNotification message will be sent at specific times agreed upon by the central settlement system and a participant in a central settlement system.")]
 [IsoId("_7QPkkTJzEeOd1OidA-8_VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange Trade Status Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record ForeignExchangeTradeStatusNotificationV05 : IOuterRecord<F
     /// Provides information on the status of a trade in a system.
     /// </summary>
     [IsoId("_7QPkkzJzEeOd1OidA-8_VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradData")]
     #endif
+    [IsoXmlTag("TradData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeData7 TradeData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeData7 TradeData { get; init; } 
+    public required TradeData7 TradeData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeData7 TradeData { get; init; } 
     #else
@@ -98,12 +95,11 @@ public partial record ForeignExchangeTradeStatusNotificationV05 : IOuterRecord<F
     /// Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.
     /// </summary>
     [IsoId("_7QPklTJzEeOd1OidA-8_VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Regulatory Reporting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RgltryRptg")]
     #endif
+    [IsoXmlTag("RgltryRptg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RegulatoryReporting4? RegulatoryReporting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record ForeignExchangeTradeStatusNotificationV05 : IOuterRecord<F
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_7QPklzJzEeOd1OidA-8_VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ForeignExchangeTradeStatusNotificationV05 : IOuterRecord<F
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ForeignExchangeTradeStatusNotificationV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ForeignExchangeTradeStatusNotificationV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ForeignExchangeTradeStatusNotificationV05Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ForeignExchangeTradeStatusNotificationV05 : IOuterRecord<F
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeStatusNotificationV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ForeignExchangeTradeStatusNotificationV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ForeignExchangeTradeStatusNotificationV05Document : IOuterDocument<ForeignExchangeTradeStatusNotificationV05>
@@ -161,7 +156,7 @@ public partial record ForeignExchangeTradeStatusNotificationV05Document : IOuter
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ForeignExchangeTradeStatusNotificationV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ForeignExchangeTradeStatusNotificationV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForeignExchangeTradeStatusNotificationV05 Message { get; init; }

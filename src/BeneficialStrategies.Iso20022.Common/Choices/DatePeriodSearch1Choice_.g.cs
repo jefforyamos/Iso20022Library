@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DatePeriodSearch1Choice.EqualDate))]
     [KnownType(typeof(DatePeriodSearch1Choice.NotEqualDate))]
     [IsoId("_aIDZIYaAEee8r9VKRbnJSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Period Search 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

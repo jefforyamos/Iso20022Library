@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus2Choice
     /// Status applying to the instruction request received. The instruction is identified by the InstructionIdentification.
     /// </summary>
     [IsoId("_rZOb0V6uEeSyc4g_pm5hbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

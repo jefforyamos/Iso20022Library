@@ -21,7 +21,7 @@ public enum AssetClassSubProductType28Code
 {
     /// <summary>
     /// Commodity of type renewable energy.
-    /// Encoded/decoded by serializers as "RNNG".
+    /// Encoded/decoded by serializers as &quot;RNNG&quot;.
     /// </summary>
     [EnumMember(Value = "RNNG")]
     [IsoId("_sQ1KRVrKEeWN79Bl6BUd3g")]

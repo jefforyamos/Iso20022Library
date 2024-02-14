@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the opening and valuation conditions for the non deliverable forward.
 /// </summary>
 [IsoId("_dPfNQaZqEea16Jw8SEVrDQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Deliverable Forward Conditions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record NonDeliverableForwardConditions2
     /// Provides the opening information associated with an NDF trade.
     /// </summary>
     [IsoId("_3xWiYKZqEea16Jw8SEVrDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Opening Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OpngConds")]
     #endif
+    [IsoXmlTag("OpngConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OpeningConditions1 OpeningConditions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OpeningConditions1 OpeningConditions { get; init; } 
+    public required OpeningConditions1 OpeningConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OpeningConditions1 OpeningConditions { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record NonDeliverableForwardConditions2
     /// Provides the additional information for an NDF as supplied on a fixing instruction.
     /// </summary>
     [IsoId("_9vbDUKZqEea16Jw8SEVrDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fixing Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FxgConds")]
     #endif
+    [IsoXmlTag("FxgConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FixingConditions1? FixingConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

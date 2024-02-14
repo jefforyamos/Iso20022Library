@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure5Choice
     /// Specifies unit of quantity of a commodity or financial instrument.
     /// </summary>
     [IsoId("_wR_yAPp2EeaQh_7a05rSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure5Choice
         /// Unit of measure of the item purchased.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required UnitOfMeasure8Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public UnitOfMeasure8Code Value { get; init; } 
+        public required UnitOfMeasure8Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public UnitOfMeasure8Code Value { get; init; } 
         #else

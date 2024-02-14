@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information about mergers.
 /// </summary>
 [IsoId("_IY-XYFPaEeG1qPPaW9KJvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Merger Details Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,12 +43,11 @@ public partial record MergerDetailsType1
     /// 合併/株式交換/株式移転の区分.
     /// </summary>
     [IsoId("_eG0j4FPaEeG1qPPaW9KJvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merger Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgrTp")]
     #endif
+    [IsoXmlTag("MrgrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MergerTypeCode? MergerType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -63,12 +60,11 @@ public partial record MergerDetailsType1
     /// Information about the counterparty in case of [sankaku] gappei: the scenario where a third party is involved as one of the counterparties in the merger but there is no security movement from the third party.
     /// </summary>
     [IsoId("_DPO70GHPEeGknP6xAc4fKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyDtls")]
     #endif
+    [IsoXmlTag("CtrPtyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartyDetailsType1? CounterpartyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -82,12 +78,11 @@ public partial record MergerDetailsType1
     /// 簡易区分.
     /// </summary>
     [IsoId("_tJIsgFPaEeG1qPPaW9KJvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Simplified Merger Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SmplfdMrgrClssfctn")]
     #endif
+    [IsoXmlTag("SmplfdMrgrClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MergerCode? SimplifiedMergerClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +96,11 @@ public partial record MergerDetailsType1
     /// 略式区分.
     /// </summary>
     [IsoId("_WIGg9WzgEeGa9q9Mq4E7uA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Short Form Merger Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrtFormMrgrClssfctn")]
     #endif
+    [IsoXmlTag("ShrtFormMrgrClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MergerCode? ShortFormMergerClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +114,12 @@ public partial record MergerDetailsType1
     /// 新設会社の単元株数.
     /// </summary>
     [IsoId("_2NisQFPaEeG1qPPaW9KJvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Share Unit Quantity Of New Company")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShrUnitQtyOfNewCpny")]
     #endif
+    [IsoXmlTag("ShrUnitQtyOfNewCpny")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? ShareUnitQuantityOfNewCompany { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

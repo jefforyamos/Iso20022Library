@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
     /// Payment instrument between a debtor and a creditor, which flows through one or more financial institutions or systems.
     /// </summary>
     [IsoId("_SBX_6tp-Ed-ak6NoX_4Aeg_1545983660")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Transfer Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,18 +52,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         #nullable enable
         
         /// <summary>
-        /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
+        /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts&apos; receivable system.
         /// </summary>
         [IsoId("_QcynvNp-Ed-ak6NoX_4Aeg_86583379")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ref")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Ref")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Reference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -78,12 +74,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Party that owes an amount of money to the (ultimate) creditor. In the context of the payment model, the debtor is also the debit account owner.
         /// </summary>
         [IsoId("_Qcynvdp-Ed-ak6NoX_4Aeg_1082187783")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dbtr")]
         #endif
+        [IsoXmlTag("Dbtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification2Choice_? Debtor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,12 +91,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
         /// </summary>
         [IsoId("_Qcynvtp-Ed-ak6NoX_4Aeg_1082187817")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrAcct")]
         #endif
+        [IsoXmlTag("DbtrAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AccountIdentificationAndName3? DebtorAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,12 +108,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Financial institution servicing an account for the debtor.
         /// </summary>
         [IsoId("_Qc8YsNp-Ed-ak6NoX_4Aeg_1082187800")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrAgt")]
         #endif
+        [IsoXmlTag("DbtrAgt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstitutionIdentification3Choice_? DebtorAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,15 +122,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         #endif
         
         /// <summary>
-        /// Identifies the account of the debtor's agent.
+        /// Identifies the account of the debtor&apos;s agent.
         /// </summary>
         [IsoId("_Qc8Ysdp-Ed-ak6NoX_4Aeg_1407001793")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Agent Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrAgtAcct")]
         #endif
+        [IsoXmlTag("DbtrAgtAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AccountIdentificationAndName3? DebtorAgentAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,15 +139,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         #endif
         
         /// <summary>
-        /// Agent between the debtor's agent and the creditor's agent.
+        /// Agent between the debtor&apos;s agent and the creditor&apos;s agent.
         /// </summary>
         [IsoId("_Qc8Ystp-Ed-ak6NoX_4Aeg_-1856986758")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intermediary Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IntrmyAgt1")]
         #endif
+        [IsoXmlTag("IntrmyAgt1")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstitutionIdentification3Choice_? IntermediaryAgent1 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,12 +159,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Unambiguous identification of the account of the intermediary agent 1 at its servicing agent in the payment chain.
         /// </summary>
         [IsoId("_Qc8Ys9p-Ed-ak6NoX_4Aeg_-1831128514")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intermediary Agent 1 Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IntrmyAgt1Acct")]
         #endif
+        [IsoXmlTag("IntrmyAgt1Acct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AccountIdentificationAndName3? IntermediaryAgent1Account { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,15 +173,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         #endif
         
         /// <summary>
-        /// Agent between the debtor's agent and the creditor's agent.
+        /// Agent between the debtor&apos;s agent and the creditor&apos;s agent.
         /// </summary>
         [IsoId("_Qc8YtNp-Ed-ak6NoX_4Aeg_-69049453")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intermediary Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IntrmyAgt2")]
         #endif
+        [IsoXmlTag("IntrmyAgt2")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstitutionIdentification3Choice_? IntermediaryAgent2 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -204,12 +193,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Unambiguous identification of the account of the intermediary agent 2 at its servicing agent in the payment chain.
         /// </summary>
         [IsoId("_Qc8Ytdp-Ed-ak6NoX_4Aeg_60241180")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intermediary Agent 2 Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IntrmyAgt2Acct")]
         #endif
+        [IsoXmlTag("IntrmyAgt2Acct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AccountIdentificationAndName3? IntermediaryAgent2Account { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,16 +210,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Financial institution servicing an account for the creditor.
         /// </summary>
         [IsoId("_Qc8Yttp-Ed-ak6NoX_4Aeg_1162659793")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrAgt")]
         #endif
+        [IsoXmlTag("CdtrAgt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FinancialInstitutionIdentification3Choice_ CreditorAgent { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FinancialInstitutionIdentification3Choice_ CreditorAgent { get; init; } 
+        public required FinancialInstitutionIdentification3Choice_ CreditorAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FinancialInstitutionIdentification3Choice_ CreditorAgent { get; init; } 
         #else
@@ -242,12 +229,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
         /// </summary>
         [IsoId("_Qc8Yt9p-Ed-ak6NoX_4Aeg_1562544074")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Agent Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrAgtAcct")]
         #endif
+        [IsoXmlTag("CdtrAgtAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AccountIdentificationAndName3? CreditorAgentAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
         /// </summary>
         [IsoId("_Qc8YuNp-Ed-ak6NoX_4Aeg_1975357297")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cdtr")]
         #endif
+        [IsoXmlTag("Cdtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification2Choice_? Creditor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,16 +263,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument12Choice
         /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
         /// </summary>
         [IsoId("_Qc8Yudp-Ed-ak6NoX_4Aeg_2089876270")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrAcct")]
         #endif
+        [IsoXmlTag("CdtrAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountIdentificationAndName3 CreditorAccount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountIdentificationAndName3 CreditorAccount { get; init; } 
+        public required AccountIdentificationAndName3 CreditorAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountIdentificationAndName3 CreditorAccount { get; init; } 
         #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ShipmentSchedule2Choice.ShipmentDateRange))]
     [KnownType(typeof(ShipmentSchedule2Choice.ShipmentSubSchedule))]
     [IsoId("_z9WAAefHEeKNfc-Rw_dPYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shipment Schedule 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

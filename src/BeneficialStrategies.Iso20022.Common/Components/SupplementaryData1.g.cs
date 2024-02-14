@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information that can not be captured in the structured fields and/or any other specific block.
 /// </summary>
 [IsoId("_Qn0zC9p-Ed-ak6NoX_4Aeg_468227563")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Supplementary Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record SupplementaryData1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_Qn988Np-Ed-ak6NoX_4Aeg_354388497")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,15 @@ public partial record SupplementaryData1
     /// Technical element wrapping the supplementary data.
     /// </summary>
     [IsoId("_Qn988dp-Ed-ak6NoX_4Aeg_-642683856")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Envelope")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envlp")]
     #endif
+    [IsoXmlTag("Envlp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SupplementaryDataEnvelope1 Envelope { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SupplementaryDataEnvelope1 Envelope { get; init; } 
+    public required SupplementaryDataEnvelope1 Envelope { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SupplementaryDataEnvelope1 Envelope { get; init; } 
     #else

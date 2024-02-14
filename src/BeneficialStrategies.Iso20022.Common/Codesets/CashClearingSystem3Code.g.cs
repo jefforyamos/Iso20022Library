@@ -21,7 +21,7 @@ public enum CashClearingSystem3Code
 {
     /// <summary>
     /// Scheme code for EBA Euro1/Step1.
-    /// Encoded/decoded by serializers as "ABE".
+    /// Encoded/decoded by serializers as &quot;ABE&quot;.
     /// </summary>
     [EnumMember(Value = "ABE")]
     [IsoId("_a4qwsNp-Ed-ak6NoX_4Aeg_136709300")]
@@ -30,7 +30,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for AT (Austria) - Austrian RTGS (ARTIS).
-    /// Encoded/decoded by serializers as "ART".
+    /// Encoded/decoded by serializers as &quot;ART&quot;.
     /// </summary>
     [EnumMember(Value = "ART")]
     [IsoId("_a4qwsdp-Ed-ak6NoX_4Aeg_136709324")]
@@ -39,7 +39,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for NZ (New Zealand) - New Zealand Assured Value Payments.
-    /// Encoded/decoded by serializers as "AVP".
+    /// Encoded/decoded by serializers as &quot;AVP&quot;.
     /// </summary>
     [EnumMember(Value = "AVP")]
     [IsoId("_a4qwstp-Ed-ak6NoX_4Aeg_136709341")]
@@ -48,7 +48,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for AZ (Azerbaijan) - Azerbaijan Interbank Payment System (AZIPS).
-    /// Encoded/decoded by serializers as "AZM".
+    /// Encoded/decoded by serializers as &quot;AZM&quot;.
     /// </summary>
     [EnumMember(Value = "AZM")]
     [IsoId("_a4qws9p-Ed-ak6NoX_4Aeg_136709359")]
@@ -57,7 +57,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for BA (Bosnia and Herzegovina).
-    /// Encoded/decoded by serializers as "BAP".
+    /// Encoded/decoded by serializers as &quot;BAP&quot;.
     /// </summary>
     [EnumMember(Value = "BAP")]
     [IsoId("_a4qwtNp-Ed-ak6NoX_4Aeg_136709376")]
@@ -66,7 +66,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for BE (Belgium) - Belgium RTGS (ELLIPS).
-    /// Encoded/decoded by serializers as "BEL".
+    /// Encoded/decoded by serializers as &quot;BEL&quot;.
     /// </summary>
     [EnumMember(Value = "BEL")]
     [IsoId("_a4qwtdp-Ed-ak6NoX_4Aeg_136709394")]
@@ -75,7 +75,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for FI (Finland) - RTGS (BOF).
-    /// Encoded/decoded by serializers as "BOF".
+    /// Encoded/decoded by serializers as &quot;BOF&quot;.
     /// </summary>
     [EnumMember(Value = "BOF")]
     [IsoId("_a4qwttp-Ed-ak6NoX_4Aeg_136709636")]
@@ -84,7 +84,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for IT (Italy) - Italy RTGS (BIREL).
-    /// Encoded/decoded by serializers as "BRL".
+    /// Encoded/decoded by serializers as &quot;BRL&quot;.
     /// </summary>
     [EnumMember(Value = "BRL")]
     [IsoId("_a4qwt9p-Ed-ak6NoX_4Aeg_136709653")]
@@ -93,7 +93,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for CA (Canada) - Canadian Large Value Transfer System (LVTS).
-    /// Encoded/decoded by serializers as "CAD".
+    /// Encoded/decoded by serializers as &quot;CAD&quot;.
     /// </summary>
     [EnumMember(Value = "CAD")]
     [IsoId("_a4qwuNp-Ed-ak6NoX_4Aeg_136709671")]
@@ -102,7 +102,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for ES (Spain).
-    /// Encoded/decoded by serializers as "CAM".
+    /// Encoded/decoded by serializers as &quot;CAM&quot;.
     /// </summary>
     [EnumMember(Value = "CAM")]
     [IsoId("_a4qwudp-Ed-ak6NoX_4Aeg_136709696")]
@@ -111,7 +111,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for IE (Ireland) - Irish RTGS (IRIS).
-    /// Encoded/decoded by serializers as "CBJ".
+    /// Encoded/decoded by serializers as &quot;CBJ&quot;.
     /// </summary>
     [EnumMember(Value = "CBJ")]
     [IsoId("_a4z6oNp-Ed-ak6NoX_4Aeg_136709713")]
@@ -120,7 +120,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for GB (UK) - British Euro RTGS (CHAPS).
-    /// Encoded/decoded by serializers as "CHP".
+    /// Encoded/decoded by serializers as &quot;CHP&quot;.
     /// </summary>
     [EnumMember(Value = "CHP")]
     [IsoId("_a4z6odp-Ed-ak6NoX_4Aeg_136709731")]
@@ -129,7 +129,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for DK (Denmark) - Danish Euro RTGS (KRONOS).
-    /// Encoded/decoded by serializers as "DKC".
+    /// Encoded/decoded by serializers as &quot;DKC&quot;.
     /// </summary>
     [EnumMember(Value = "DKC")]
     [IsoId("_a4z6otp-Ed-ak6NoX_4Aeg_136709766")]
@@ -138,7 +138,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for DE (Germany).
-    /// Encoded/decoded by serializers as "RTP".
+    /// Encoded/decoded by serializers as &quot;RTP&quot;.
     /// </summary>
     [EnumMember(Value = "RTP")]
     [IsoId("_a4z6o9p-Ed-ak6NoX_4Aeg_136709774")]
@@ -147,7 +147,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for EBA Euro1.
-    /// Encoded/decoded by serializers as "EBA".
+    /// Encoded/decoded by serializers as &quot;EBA&quot;.
     /// </summary>
     [EnumMember(Value = "EBA")]
     [IsoId("_a4z6pNp-Ed-ak6NoX_4Aeg_136709791")]
@@ -156,7 +156,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for DE (Germany).
-    /// Encoded/decoded by serializers as "ELS".
+    /// Encoded/decoded by serializers as &quot;ELS&quot;.
     /// </summary>
     [EnumMember(Value = "ELS")]
     [IsoId("_a4z6pdp-Ed-ak6NoX_4Aeg_136709808")]
@@ -165,7 +165,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for EBA step 1 (members).
-    /// Encoded/decoded by serializers as "ERP".
+    /// Encoded/decoded by serializers as &quot;ERP&quot;.
     /// </summary>
     [EnumMember(Value = "ERP")]
     [IsoId("_a4z6ptp-Ed-ak6NoX_4Aeg_136710074")]
@@ -174,7 +174,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for EBA step 2.
-    /// Encoded/decoded by serializers as "XCT".
+    /// Encoded/decoded by serializers as &quot;XCT&quot;.
     /// </summary>
     [EnumMember(Value = "XCT")]
     [IsoId("_a4z6p9p-Ed-ak6NoX_4Aeg_136710099")]
@@ -183,7 +183,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for HR (Croatia) - HSVP.
-    /// Encoded/decoded by serializers as "HRK".
+    /// Encoded/decoded by serializers as &quot;HRK&quot;.
     /// </summary>
     [EnumMember(Value = "HRK")]
     [IsoId("_a4z6qNp-Ed-ak6NoX_4Aeg_136710116")]
@@ -192,7 +192,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for GR (Greece) - Greek RTGS (HERMES).
-    /// Encoded/decoded by serializers as "HRM".
+    /// Encoded/decoded by serializers as &quot;HRM&quot;.
     /// </summary>
     [EnumMember(Value = "HRM")]
     [IsoId("_a4z6qdp-Ed-ak6NoX_4Aeg_136710134")]
@@ -201,7 +201,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for HU (Hungary) - VIBER.
-    /// Encoded/decoded by serializers as "HUF".
+    /// Encoded/decoded by serializers as &quot;HUF&quot;.
     /// </summary>
     [EnumMember(Value = "HUF")]
     [IsoId("_a49roNp-Ed-ak6NoX_4Aeg_136710151")]
@@ -210,7 +210,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for LU (Luxemburg) - Luxembourg RTGS (LIPS).
-    /// Encoded/decoded by serializers as "LGS".
+    /// Encoded/decoded by serializers as &quot;LGS&quot;.
     /// </summary>
     [EnumMember(Value = "LGS")]
     [IsoId("_a49rodp-Ed-ak6NoX_4Aeg_136710169")]
@@ -219,7 +219,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for LV (Latvia).
-    /// Encoded/decoded by serializers as "LVL".
+    /// Encoded/decoded by serializers as &quot;LVL&quot;.
     /// </summary>
     [EnumMember(Value = "LVL")]
     [IsoId("_a49rotp-Ed-ak6NoX_4Aeg_136710194")]
@@ -228,7 +228,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for MU (Mauritius).
-    /// Encoded/decoded by serializers as "MUP".
+    /// Encoded/decoded by serializers as &quot;MUP&quot;.
     /// </summary>
     [EnumMember(Value = "MUP")]
     [IsoId("_a49ro9p-Ed-ak6NoX_4Aeg_136710229")]
@@ -237,7 +237,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for NO (Norway).
-    /// Encoded/decoded by serializers as "NOC".
+    /// Encoded/decoded by serializers as &quot;NOC&quot;.
     /// </summary>
     [EnumMember(Value = "NOC")]
     [IsoId("_a49rpNp-Ed-ak6NoX_4Aeg_136710254")]
@@ -246,7 +246,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for CH (Switzerland).
-    /// Encoded/decoded by serializers as "PCH".
+    /// Encoded/decoded by serializers as &quot;PCH&quot;.
     /// </summary>
     [EnumMember(Value = "PCH")]
     [IsoId("_a49rpdp-Ed-ak6NoX_4Aeg_136710271")]
@@ -255,7 +255,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for AU (Australia).
-    /// Encoded/decoded by serializers as "PDS".
+    /// Encoded/decoded by serializers as &quot;PDS&quot;.
     /// </summary>
     [EnumMember(Value = "PDS")]
     [IsoId("_a49rptp-Ed-ak6NoX_4Aeg_136710289")]
@@ -264,7 +264,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for EG (Egypt).
-    /// Encoded/decoded by serializers as "PEG".
+    /// Encoded/decoded by serializers as &quot;PEG&quot;.
     /// </summary>
     [EnumMember(Value = "PEG")]
     [IsoId("_a49rp9p-Ed-ak6NoX_4Aeg_136710306")]
@@ -273,7 +273,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for FR (France).
-    /// Encoded/decoded by serializers as "PNS".
+    /// Encoded/decoded by serializers as &quot;PNS&quot;.
     /// </summary>
     [EnumMember(Value = "PNS")]
     [IsoId("_a49rqNp-Ed-ak6NoX_4Aeg_136710324")]
@@ -282,7 +282,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for Ve (Venezuela).
-    /// Encoded/decoded by serializers as "PVE".
+    /// Encoded/decoded by serializers as &quot;PVE&quot;.
     /// </summary>
     [EnumMember(Value = "PVE")]
     [IsoId("_a49rqdp-Ed-ak6NoX_4Aeg_136710349")]
@@ -291,7 +291,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for SE (Sweden) - Swedish Euro RTGS (SEC).
-    /// Encoded/decoded by serializers as "SEC".
+    /// Encoded/decoded by serializers as &quot;SEC&quot;.
     /// </summary>
     [EnumMember(Value = "SEC")]
     [IsoId("_a49rqtp-Ed-ak6NoX_4Aeg_136710366")]
@@ -300,7 +300,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for SI (Slovenia).
-    /// Encoded/decoded by serializers as "SIT".
+    /// Encoded/decoded by serializers as &quot;SIT&quot;.
     /// </summary>
     [EnumMember(Value = "SIT")]
     [IsoId("_a5G1kNp-Ed-ak6NoX_4Aeg_136710601")]
@@ -309,7 +309,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for ES (Spain) - Spanish RTGS (SLBE).
-    /// Encoded/decoded by serializers as "SLB".
+    /// Encoded/decoded by serializers as &quot;SLB&quot;.
     /// </summary>
     [EnumMember(Value = "SLB")]
     [IsoId("_a5G1kdp-Ed-ak6NoX_4Aeg_136710626")]
@@ -318,7 +318,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for PT (Portugal) - Portuguese RTGS (SPGT).
-    /// Encoded/decoded by serializers as "SPG".
+    /// Encoded/decoded by serializers as &quot;SPG&quot;.
     /// </summary>
     [EnumMember(Value = "SPG")]
     [IsoId("_a5G1ktp-Ed-ak6NoX_4Aeg_136710643")]
@@ -327,7 +327,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for SE (Sweden) - SEK RTGS (RIX).
-    /// Encoded/decoded by serializers as "SSK".
+    /// Encoded/decoded by serializers as &quot;SSK&quot;.
     /// </summary>
     [EnumMember(Value = "SSK")]
     [IsoId("_a5G1k9p-Ed-ak6NoX_4Aeg_136710662")]
@@ -336,7 +336,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for FR (France) - French RTGS (TBF).
-    /// Encoded/decoded by serializers as "TBF".
+    /// Encoded/decoded by serializers as &quot;TBF&quot;.
     /// </summary>
     [EnumMember(Value = "TBF")]
     [IsoId("_a5G1lNp-Ed-ak6NoX_4Aeg_136710687")]
@@ -345,7 +345,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for Target.
-    /// Encoded/decoded by serializers as "TGT".
+    /// Encoded/decoded by serializers as &quot;TGT&quot;.
     /// </summary>
     [EnumMember(Value = "TGT")]
     [IsoId("_a5G1ldp-Ed-ak6NoX_4Aeg_136710688")]
@@ -354,7 +354,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for NL (Netherlands) - Dutch RTGS (TOP).
-    /// Encoded/decoded by serializers as "TOP".
+    /// Encoded/decoded by serializers as &quot;TOP&quot;.
     /// </summary>
     [EnumMember(Value = "TOP")]
     [IsoId("_a5G1ltp-Ed-ak6NoX_4Aeg_136710704")]
@@ -363,7 +363,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for the US national real time gross settlement system.
-    /// Encoded/decoded by serializers as "FDW".
+    /// Encoded/decoded by serializers as &quot;FDW&quot;.
     /// </summary>
     [EnumMember(Value = "FDW")]
     [IsoId("_a5G1l9p-Ed-ak6NoX_4Aeg_136710722")]
@@ -372,7 +372,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for the Bank of Japan clearing system.
-    /// Encoded/decoded by serializers as "BOJ".
+    /// Encoded/decoded by serializers as &quot;BOJ&quot;.
     /// </summary>
     [EnumMember(Value = "BOJ")]
     [IsoId("_a5G1mNp-Ed-ak6NoX_4Aeg_136710739")]
@@ -381,7 +381,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for the Foreign Exchange Yen Clearing system (FEYCS). It is the Japanese electronic interbank system for sending guaranteed and unconditional yen payments of FX deals for same day settlement from one settlement bank, on behalf of itself or its customers, to another settlement bank.
-    /// Encoded/decoded by serializers as "FEY".
+    /// Encoded/decoded by serializers as &quot;FEY&quot;.
     /// </summary>
     [EnumMember(Value = "FEY")]
     [IsoId("_a5G1mdp-Ed-ak6NoX_4Aeg_136710757")]
@@ -390,7 +390,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for the Zengin system. The electronic payment system for domestic third party transfers managed by the Tokyo Bankers Association.
-    /// Encoded/decoded by serializers as "ZEN".
+    /// Encoded/decoded by serializers as &quot;ZEN&quot;.
     /// </summary>
     [EnumMember(Value = "ZEN")]
     [IsoId("_a5QmkNp-Ed-ak6NoX_4Aeg_136711030")]
@@ -399,7 +399,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for DK (Denmark) - Danish Krone RTGS (KRONOS).
-    /// Encoded/decoded by serializers as "DDK".
+    /// Encoded/decoded by serializers as &quot;DDK&quot;.
     /// </summary>
     [EnumMember(Value = "DDK")]
     [IsoId("_a5Qmkdp-Ed-ak6NoX_4Aeg_-1489579518")]
@@ -408,7 +408,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for AL (Albania) - Albania Interbank Payment System.
-    /// Encoded/decoded by serializers as "AIP".
+    /// Encoded/decoded by serializers as &quot;AIP&quot;.
     /// </summary>
     [EnumMember(Value = "AIP")]
     [IsoId("_a5Qmktp-Ed-ak6NoX_4Aeg_-1488659469")]
@@ -417,7 +417,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for SE (Sweden) - Sweden BGC Clearing CUG.
-    /// Encoded/decoded by serializers as "BCC".
+    /// Encoded/decoded by serializers as &quot;BCC&quot;.
     /// </summary>
     [EnumMember(Value = "BCC")]
     [IsoId("_a5Qmk9p-Ed-ak6NoX_4Aeg_-1488659452")]
@@ -426,7 +426,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for BB (Barbados) - Barbados RTGS (CBRTGS).
-    /// Encoded/decoded by serializers as "BDS".
+    /// Encoded/decoded by serializers as &quot;BDS&quot;.
     /// </summary>
     [EnumMember(Value = "BDS")]
     [IsoId("_a5QmlNp-Ed-ak6NoX_4Aeg_-1488659434")]
@@ -435,7 +435,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for BG (Bulgaria) - Bulgaria RTGS.
-    /// Encoded/decoded by serializers as "BGN".
+    /// Encoded/decoded by serializers as &quot;BGN&quot;.
     /// </summary>
     [EnumMember(Value = "BGN")]
     [IsoId("_a5Qmldp-Ed-ak6NoX_4Aeg_-1488659417")]
@@ -444,7 +444,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for BS (Bahamas) - Bahamas RTGS.
-    /// Encoded/decoded by serializers as "BHS".
+    /// Encoded/decoded by serializers as &quot;BHS&quot;.
     /// </summary>
     [EnumMember(Value = "BHS")]
     [IsoId("_a5Qmltp-Ed-ak6NoX_4Aeg_-1488659374")]
@@ -453,7 +453,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for BW (Botswana) - Botswana Interbank Settlement System.
-    /// Encoded/decoded by serializers as "BIS".
+    /// Encoded/decoded by serializers as &quot;BIS&quot;.
     /// </summary>
     [EnumMember(Value = "BIS")]
     [IsoId("_a5Qml9p-Ed-ak6NoX_4Aeg_-1488659357")]
@@ -462,7 +462,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for PH (Philippines) - Philippines Payment System.
-    /// Encoded/decoded by serializers as "BSP".
+    /// Encoded/decoded by serializers as &quot;BSP&quot;.
     /// </summary>
     [EnumMember(Value = "BSP")]
     [IsoId("_a5QmmNp-Ed-ak6NoX_4Aeg_-1488659339")]
@@ -471,7 +471,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for ECB (European Central Bank) - ECB Payment Mechanism.
-    /// Encoded/decoded by serializers as "EPM".
+    /// Encoded/decoded by serializers as &quot;EPM&quot;.
     /// </summary>
     [EnumMember(Value = "EPM")]
     [IsoId("_a5Qmmdp-Ed-ak6NoX_4Aeg_-1488659314")]
@@ -480,7 +480,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for the US CHIPS-ACH.
-    /// Encoded/decoded by serializers as "EPN".
+    /// Encoded/decoded by serializers as &quot;EPN&quot;.
     /// </summary>
     [EnumMember(Value = "EPN")]
     [IsoId("_a5aXkNp-Ed-ak6NoX_4Aeg_-1488659297")]
@@ -489,7 +489,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for the US FED-ACH.
-    /// Encoded/decoded by serializers as "FDA".
+    /// Encoded/decoded by serializers as &quot;FDA&quot;.
     /// </summary>
     [EnumMember(Value = "FDA")]
     [IsoId("_a5aXkdp-Ed-ak6NoX_4Aeg_-1488659262")]
@@ -498,7 +498,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for GH (Ghana) - Ghana Interbank Settlement System (GISS).
-    /// Encoded/decoded by serializers as "GIS".
+    /// Encoded/decoded by serializers as &quot;GIS&quot;.
     /// </summary>
     [EnumMember(Value = "GIS")]
     [IsoId("_a5aXktp-Ed-ak6NoX_4Aeg_-1488659244")]
@@ -507,7 +507,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for NL (Netherlands) - Netherlands Interpay CUG.
-    /// Encoded/decoded by serializers as "INC".
+    /// Encoded/decoded by serializers as &quot;INC&quot;.
     /// </summary>
     [EnumMember(Value = "INC")]
     [IsoId("_a5aXk9p-Ed-ak6NoX_4Aeg_-1488659002")]
@@ -516,7 +516,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for JO (Jordan) - Jordan RTGS.
-    /// Encoded/decoded by serializers as "JOD".
+    /// Encoded/decoded by serializers as &quot;JOD&quot;.
     /// </summary>
     [EnumMember(Value = "JOD")]
     [IsoId("_a5aXlNp-Ed-ak6NoX_4Aeg_-1488658967")]
@@ -525,7 +525,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for KE (Kenya) - Kenyan Electronic Payment Settlement System.
-    /// Encoded/decoded by serializers as "KPS".
+    /// Encoded/decoded by serializers as &quot;KPS&quot;.
     /// </summary>
     [EnumMember(Value = "KPS")]
     [IsoId("_a5aXldp-Ed-ak6NoX_4Aeg_-1488658907")]
@@ -534,7 +534,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for LK (Sri Lanka) - Sri Lanka (Lankasettle).
-    /// Encoded/decoded by serializers as "LKB".
+    /// Encoded/decoded by serializers as &quot;LKB&quot;.
     /// </summary>
     [EnumMember(Value = "LKB")]
     [IsoId("_a5aXltp-Ed-ak6NoX_4Aeg_-1488658890")]
@@ -543,7 +543,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for SG (Singapore) - Singapore RTGS (MEPS+).
-    /// Encoded/decoded by serializers as "MEP".
+    /// Encoded/decoded by serializers as &quot;MEP&quot;.
     /// </summary>
     [EnumMember(Value = "MEP")]
     [IsoId("_a5aXl9p-Ed-ak6NoX_4Aeg_-1488658872")]
@@ -552,7 +552,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for MT (Malta) - Malta Realtime Interbank Settlement System.
-    /// Encoded/decoded by serializers as "MRS".
+    /// Encoded/decoded by serializers as &quot;MRS&quot;.
     /// </summary>
     [EnumMember(Value = "MRS")]
     [IsoId("_a5aXmNp-Ed-ak6NoX_4Aeg_-1488658539")]
@@ -561,7 +561,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for NA (Namibian) - Namibian Interbank Settlement System.
-    /// Encoded/decoded by serializers as "NAM".
+    /// Encoded/decoded by serializers as &quot;NAM&quot;.
     /// </summary>
     [EnumMember(Value = "NAM")]
     [IsoId("_a5aXmdp-Ed-ak6NoX_4Aeg_-1488658522")]
@@ -570,7 +570,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for AO (Angola) - Angola RTGS.
-    /// Encoded/decoded by serializers as "PTR".
+    /// Encoded/decoded by serializers as &quot;PTR&quot;.
     /// </summary>
     [EnumMember(Value = "PTR")]
     [IsoId("_a5aXmtp-Ed-ak6NoX_4Aeg_-1488658487")]
@@ -579,7 +579,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for RO (Romania) - Romanian Electronic Payment Operations RT.
-    /// Encoded/decoded by serializers as "ROL".
+    /// Encoded/decoded by serializers as &quot;ROL&quot;.
     /// </summary>
     [EnumMember(Value = "ROL")]
     [IsoId("_a5jhgNp-Ed-ak6NoX_4Aeg_-1488658469")]
@@ -588,7 +588,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for RO (Romania) - Romanian GSRS.
-    /// Encoded/decoded by serializers as "ROS".
+    /// Encoded/decoded by serializers as &quot;ROS&quot;.
     /// </summary>
     [EnumMember(Value = "ROS")]
     [IsoId("_a5jhgdp-Ed-ak6NoX_4Aeg_-1488658384")]
@@ -597,7 +597,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for CL (Chile) - Chilean Interbank Payment System.
-    /// Encoded/decoded by serializers as "SCP".
+    /// Encoded/decoded by serializers as &quot;SCP&quot;.
     /// </summary>
     [EnumMember(Value = "SCP")]
     [IsoId("_a5jhgtp-Ed-ak6NoX_4Aeg_-1488658349")]
@@ -606,7 +606,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for UK (United Kingdom) - CHAPS Sterling RTGS.
-    /// Encoded/decoded by serializers as "STG".
+    /// Encoded/decoded by serializers as &quot;STG&quot;.
     /// </summary>
     [EnumMember(Value = "STG")]
     [IsoId("_a5jhg9p-Ed-ak6NoX_4Aeg_-1330056061")]
@@ -615,7 +615,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for TH (Thailand) - Thailand Payment System (Bahtnet/2).
-    /// Encoded/decoded by serializers as "THB".
+    /// Encoded/decoded by serializers as &quot;THB&quot;.
     /// </summary>
     [EnumMember(Value = "THB")]
     [IsoId("_a5jhhNp-Ed-ak6NoX_4Aeg_-1330055683")]
@@ -624,7 +624,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for TZ (Tanzania) - Tanzania Interbank Settlement System (TISS).
-    /// Encoded/decoded by serializers as "TIS".
+    /// Encoded/decoded by serializers as &quot;TIS&quot;.
     /// </summary>
     [EnumMember(Value = "TIS")]
     [IsoId("_a5jhhdp-Ed-ak6NoX_4Aeg_-1330055598")]
@@ -633,7 +633,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for TT (Trinidad and Tobago ) - Trinidad and Tobago SAFE-TT.
-    /// Encoded/decoded by serializers as "TTD".
+    /// Encoded/decoded by serializers as &quot;TTD&quot;.
     /// </summary>
     [EnumMember(Value = "TTD")]
     [IsoId("_a5jhhtp-Ed-ak6NoX_4Aeg_-1330055528")]
@@ -642,7 +642,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for UG (Uganda) - Uganda National Interbank Settlement System.
-    /// Encoded/decoded by serializers as "UIS".
+    /// Encoded/decoded by serializers as &quot;UIS&quot;.
     /// </summary>
     [EnumMember(Value = "UIS")]
     [IsoId("_a5jhh9p-Ed-ak6NoX_4Aeg_-1330055486")]
@@ -651,7 +651,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for ZA (South Africa) - South-African Multiple Option Settlement.
-    /// Encoded/decoded by serializers as "MOS".
+    /// Encoded/decoded by serializers as &quot;MOS&quot;.
     /// </summary>
     [EnumMember(Value = "MOS")]
     [IsoId("_a5jhiNp-Ed-ak6NoX_4Aeg_-1330055391")]
@@ -659,8 +659,8 @@ public enum CashClearingSystem3Code
     SouthAfrica = CashClearingSystemCode.SouthAfrica, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Scheme code for ZW (Zimbabwe) - Zimbabwe Electronic Transfer & Settlement System.
-    /// Encoded/decoded by serializers as "ZET".
+    /// Scheme code for ZW (Zimbabwe) - Zimbabwe Electronic Transfer &amp; Settlement System.
+    /// Encoded/decoded by serializers as &quot;ZET&quot;.
     /// </summary>
     [EnumMember(Value = "ZET")]
     [IsoId("_a5jhidp-Ed-ak6NoX_4Aeg_-1330055071")]
@@ -668,8 +668,8 @@ public enum CashClearingSystem3Code
     Zimbabwe = CashClearingSystemCode.Zimbabwe, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Scheme code for ZM (Zambia) - Zambian Interbank Payment &Settlement System.
-    /// Encoded/decoded by serializers as "ZIS".
+    /// Scheme code for ZM (Zambia) - Zambian Interbank Payment &amp;Settlement System.
+    /// Encoded/decoded by serializers as &quot;ZIS&quot;.
     /// </summary>
     [EnumMember(Value = "ZIS")]
     [IsoId("_a5tSgNp-Ed-ak6NoX_4Aeg_-1330055054")]
@@ -678,7 +678,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// CHIPS is the Clearing House Interbank Payment System in the US.
-    /// Encoded/decoded by serializers as "CHI".
+    /// Encoded/decoded by serializers as &quot;CHI&quot;.
     /// </summary>
     [EnumMember(Value = "CHI")]
     [IsoId("_a5tSgdp-Ed-ak6NoX_4Aeg_1448951502")]
@@ -687,7 +687,7 @@ public enum CashClearingSystem3Code
     
     /// <summary>
     /// Scheme code for Columbia (CO) - Colombian ACH CENIT Central Bank Payment System.
-    /// Encoded/decoded by serializers as "COP".
+    /// Encoded/decoded by serializers as &quot;COP&quot;.
     /// </summary>
     [EnumMember(Value = "COP")]
     [IsoId("_a5tSgtp-Ed-ak6NoX_4Aeg_489129340")]

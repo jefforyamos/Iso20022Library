@@ -21,7 +21,7 @@ public enum Response8Code
 {
     /// <summary>
     /// Advice message is processed.
-    /// Encoded/decoded by serializers as "PRCS".
+    /// Encoded/decoded by serializers as &quot;PRCS&quot;.
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_jM8mwZi4EeefZKJHxQTztg")]
@@ -30,7 +30,7 @@ public enum Response8Code
     
     /// <summary>
     /// Advice message could not be processed.
-    /// Encoded/decoded by serializers as "UNPR".
+    /// Encoded/decoded by serializers as &quot;UNPR&quot;.
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_kcIWspi4EeefZKJHxQTztg")]
@@ -39,7 +39,7 @@ public enum Response8Code
     
     /// <summary>
     /// Service is under review.
-    /// Encoded/decoded by serializers as "UNRV".
+    /// Encoded/decoded by serializers as &quot;UNRV&quot;.
     /// </summary>
     [EnumMember(Value = "UNRV")]
     [IsoId("_pd2kIZi4EeefZKJHxQTztg")]
@@ -48,7 +48,7 @@ public enum Response8Code
     
     /// <summary>
     /// Service was rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_pytZ0pi4EeefZKJHxQTztg")]
@@ -57,7 +57,7 @@ public enum Response8Code
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_tmwTMpi4EeefZKJHxQTztg")]
@@ -66,7 +66,7 @@ public enum Response8Code
     
     /// <summary>
     /// Other type of processing result defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_2vGpgfB1EeelHbulxf2Z9A")]
@@ -75,7 +75,7 @@ public enum Response8Code
     
     /// <summary>
     /// Other type of processing result defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_25X_0fB1EeelHbulxf2Z9A")]

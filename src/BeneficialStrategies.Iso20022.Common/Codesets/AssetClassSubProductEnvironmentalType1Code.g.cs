@@ -21,7 +21,7 @@ public enum AssetClassSubProductEnvironmentalType1Code
 {
     /// <summary>
     /// Commodity of type emission.
-    /// Encoded/decoded by serializers as "EMIS".
+    /// Encoded/decoded by serializers as &quot;EMIS&quot;.
     /// </summary>
     [EnumMember(Value = "EMIS")]
     [IsoId("_mjMYsc5GEeSc85GUbgBycw")]
@@ -30,7 +30,7 @@ public enum AssetClassSubProductEnvironmentalType1Code
     
     /// <summary>
     /// Commodity of type weather.
-    /// Encoded/decoded by serializers as "WTHR".
+    /// Encoded/decoded by serializers as &quot;WTHR&quot;.
     /// </summary>
     [EnumMember(Value = "WTHR")]
     [IsoId("_mzjv8c5GEeSc85GUbgBycw")]
@@ -39,7 +39,7 @@ public enum AssetClassSubProductEnvironmentalType1Code
     
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_jVjxIUDbEeWOL-OsSq2h6w")]

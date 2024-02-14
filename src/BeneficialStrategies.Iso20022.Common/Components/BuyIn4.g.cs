@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies elements related to the notification (or warn) sent by the central counterparty to the clearing member in the context of the buy in process.
 /// </summary>
 [IsoId("_7xh9US9WEeS94oXWDaBauA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Buy In")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record BuyIn4
     /// Indicates whether the message is a warning only or a notification.
     /// </summary>
     [IsoId("_8D9KES9WEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Warning Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WrngInd")]
     #endif
+    [IsoXmlTag("WrngInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? WarningIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,15 @@ public partial record BuyIn4
     /// Provides the date at which the buy-in will occur.
     /// </summary>
     [IsoId("_8D9KEy9WEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Buy In Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdBuyInDt")]
     #endif
+    [IsoXmlTag("XpctdBuyInDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
+    public required DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
     #else
@@ -89,12 +86,12 @@ public partial record BuyIn4
     /// Identifies the latest date by which the buy-in operation can be cancelled.
     /// </summary>
     [IsoId("_VXBUUC9YEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Limit Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlLmtDt")]
     #endif
+    [IsoXmlTag("CxlLmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CancellationLimitDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +104,12 @@ public partial record BuyIn4
     /// Identifies the date by which the buy-in operation is reversed by the CCP.
     /// </summary>
     [IsoId("_T7O2UC9ZEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In Reversion Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInRvrsnDt")]
     #endif
+    [IsoXmlTag("BuyInRvrsnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? BuyInReversionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

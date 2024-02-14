@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentCodeOrOther1Choice
     /// Specifies the payment period in coded form and a number of days.
     /// </summary>
     [IsoId("_uoAOcNP8EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentCodeOrOther1Choice
         /// Code for the payment.
         /// </summary>
         [IsoId("_FlyjYdP-EeK0PPbKncCqzA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PaymentTime3Code Code { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PaymentTime3Code Code { get; init; } 
+        public required PaymentTime3Code Code { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PaymentTime3Code Code { get; init; } 
         #else
@@ -76,12 +73,12 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentCodeOrOther1Choice
         /// Number of days after which the payment must be effected.
         /// </summary>
         [IsoId("_FlyjY9P-EeK0PPbKncCqzA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number Of Days")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NbOfDays")]
         #endif
+        [IsoXmlTag("NbOfDays")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoNumber? NumberOfDays { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

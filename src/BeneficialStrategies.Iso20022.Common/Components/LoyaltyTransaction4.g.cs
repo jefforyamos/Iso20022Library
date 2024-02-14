@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to the Loyalty Transaction.
 /// </summary>
 [IsoId("_kqiHgU30Eey_VecAUE-C9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Loyalty Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record LoyaltyTransaction4
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
     [IsoId("_F2hvQU7aEeyGi9JAv6wq7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleTxId")]
     #endif
+    [IsoXmlTag("SaleTxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record LoyaltyTransaction4
     /// Data related to the loyalty transaction.
     /// </summary>
     [IsoId("_kxN-UU30Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Loyalty Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LltyTxTp")]
     #endif
+    [IsoXmlTag("LltyTxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
+    public required LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
     #else
@@ -89,12 +85,11 @@ public partial record LoyaltyTransaction4
     /// Currency of the loyalty transaction.
     /// </summary>
     [IsoId("_kxN-U030Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,12 @@ public partial record LoyaltyTransaction4
     /// Amount of the payment transaction related to the Loyalty.
     /// </summary>
     [IsoId("_kxN-VU30Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmt")]
     #endif
+    [IsoXmlTag("TtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,11 @@ public partial record LoyaltyTransaction4
     /// Data of a previous POI payment transaction.
     /// </summary>
     [IsoId("_kxN-V030Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original POI Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPOITx")]
     #endif
+    [IsoXmlTag("OrgnlPOITx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction120? OriginalPOITransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +137,11 @@ public partial record LoyaltyTransaction4
     /// Item purchased with the transaction.
     /// </summary>
     [IsoId("_kxN-WU30Eey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sale Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SaleItm")]
     #endif
+    [IsoXmlTag("SaleItm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Product6? SaleItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

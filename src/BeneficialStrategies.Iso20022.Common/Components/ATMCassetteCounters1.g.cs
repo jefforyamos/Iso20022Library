@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// ATM cassette counter per unit value or globally.
 /// </summary>
 [IsoId("_sVeosIqgEeS4a4abTJTSSw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Cassette Counters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record ATMCassetteCounters1
     /// Amount of one media unit, if the media type is valued.
     /// </summary>
     [IsoId("_-kSigIqgEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitVal")]
     #endif
+    [IsoXmlTag("UnitVal")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record ATMCassetteCounters1
     /// Currency of the media, if the media type is valued and different from the currency of the requested amount.
     /// </summary>
     [IsoId("_DeWBsIqhEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +84,11 @@ public partial record ATMCassetteCounters1
     /// Type of notes.
     /// </summary>
     [IsoId("_kdC3YIqhEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmTp")]
     #endif
+    [IsoXmlTag("ItmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMNoteType2Code? ItemType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +101,11 @@ public partial record ATMCassetteCounters1
     /// Counters of media inside the cassette.
     /// </summary>
     [IsoId("_-Ib3gIqhEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cntr")]
     #endif
+    [IsoXmlTag("Cntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCassetteCounters2? Counter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,16 +118,16 @@ public partial record ATMCassetteCounters1
     /// Current number of media present in the cassette.
     /// </summary>
     [IsoId("_u-9sEIqjEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurNb")]
     #endif
+    [IsoXmlTag("CurNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber CurrentNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 CurrentNumber { get; init; } 
+    public required System.UInt64 CurrentNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 CurrentNumber { get; init; } 
     #else
@@ -143,12 +138,12 @@ public partial record ATMCassetteCounters1
     /// Current amount in the cassette.
     /// </summary>
     [IsoId("_zbbQUIqjEeS4a4abTJTSSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurAmt")]
     #endif
+    [IsoXmlTag("CurAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

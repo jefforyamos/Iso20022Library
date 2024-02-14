@@ -21,7 +21,7 @@ public enum TerminalManagementErrorAction1Code
 {
     /// <summary>
     /// Ignore the error.
-    /// Encoded/decoded by serializers as "IGNR".
+    /// Encoded/decoded by serializers as &quot;IGNR&quot;.
     /// </summary>
     [EnumMember(Value = "IGNR")]
     [IsoId("_KUh0l31DEeCF8NjrBemJWQ_-1839509664")]
@@ -30,7 +30,7 @@ public enum TerminalManagementErrorAction1Code
     
     /// <summary>
     /// Send a status report immediately.
-    /// Encoded/decoded by serializers as "SDSR".
+    /// Encoded/decoded by serializers as &quot;SDSR&quot;.
     /// </summary>
     [EnumMember(Value = "SDSR")]
     [IsoId("_KUh0mH1DEeCF8NjrBemJWQ_-1174724220")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Trade settlement details for this invoice which involves the payment of an outstanding debt, account, or charge.
 /// </summary>
 [IsoId("_OFO6gVm5EeOQYsoJizpkVw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Settlement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record TradeSettlement2
     /// Payment or creditor reference.
     /// </summary>
     [IsoId("_RStLoKCpEeSA-fWAnLdNiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtRef")]
     #endif
+    [IsoXmlTag("PmtRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorReferenceInformation2? PaymentReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +67,12 @@ public partial record TradeSettlement2
     /// Date when invoice should be paid.
     /// </summary>
     [IsoId("_JESTsFm6EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Due Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DueDt")]
     #endif
+    [IsoXmlTag("DueDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,16 +85,16 @@ public partial record TradeSettlement2
     /// Payable amount with currency code.
     /// </summary>
     [IsoId("_OSxAMVm5EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Due Payable Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DuePyblAmt")]
     #endif
+    [IsoXmlTag("DuePyblAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount DuePayableAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal DuePayableAmount { get; init; } 
+    public required System.Decimal DuePayableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal DuePayableAmount { get; init; } 
     #else
@@ -108,12 +105,11 @@ public partial record TradeSettlement2
     /// If invoice currency is different from local tax reporting currency, then applied exchange rate is given in this message structure.
     /// </summary>
     [IsoId("_HJg08KuoEeSmE8_WfXaYYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Currency Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcCcyXchg")]
     #endif
+    [IsoXmlTag("InvcCcyXchg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyReference3? InvoiceCurrencyExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +122,12 @@ public partial record TradeSettlement2
     /// Date when goods/services are delivered to buyer.
     /// </summary>
     [IsoId("_fcGEIKtdEeSqWL9DOn1OKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryDt")]
     #endif
+    [IsoXmlTag("DlvryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? DeliveryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,12 +140,11 @@ public partial record TradeSettlement2
     /// Period during which delivery executed or agreed invoicing period.
     /// </summary>
     [IsoId("_LfRuQB-6EeW5Rpfp6VSoCg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Billing Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BllgPrd")]
     #endif
+    [IsoXmlTag("BllgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period2? BillingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,16 +157,16 @@ public partial record TradeSettlement2
     /// Tax total amount with currency code.
     /// </summary>
     [IsoId("_VON58Fm6EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxTtlAmt")]
     #endif
+    [IsoXmlTag("TaxTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount TaxTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TaxTotalAmount { get; init; } 
+    public required System.Decimal TaxTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TaxTotalAmount { get; init; } 
     #else
@@ -182,15 +177,13 @@ public partial record TradeSettlement2
     /// Reason for tax exemption expressed as a code, if invoice or card transaction is out of tax processing.
     /// </summary>
     [IsoId("_p8ZTIKuqEeSmE8_WfXaYYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exemption Reason Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XmptnRsnCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XmptnRsnCd")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? ExemptionReasonCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,15 +196,13 @@ public partial record TradeSettlement2
     /// Reason for a tax exemption, if invoice or card transaction is out of tax processing.
     /// </summary>
     [IsoId("_FU2aQFnKEeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exemption Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XmptnRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XmptnRsn")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? ExemptionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +215,11 @@ public partial record TradeSettlement2
     /// Calculated tax subtotal.
     /// </summary>
     [IsoId("_OSxAbVm5EeOQYsoJizpkVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Total Calculated Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubTtlClctdTax")]
     #endif
+    [IsoXmlTag("SubTtlClctdTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementSubTotalCalculatedTax2? SubTotalCalculatedTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +232,11 @@ public partial record TradeSettlement2
     /// Details of each early payment discount.
     /// </summary>
     [IsoId("_osa_kEWmEeWZBsWfSGYWYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Payments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlyPmts")]
     #endif
+    [IsoXmlTag("EarlyPmts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EarlyPayment1? EarlyPayments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

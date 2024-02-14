@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a party.
 /// </summary>
 [IsoId("_AQe65TqWEemL_ewJY9QP1g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record PartyIdentification214
     /// Identification of the party to which the disclosure response must be sent.
     /// </summary>
     [IsoId("_LVUjYFSXEempisJfoIfvvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification203Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification203Choice_ Identification { get; init; } 
+    public required PartyIdentification203Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification203Choice_ Identification { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record PartyIdentification214
     /// Name of the party to which the disclosure response must be sent.
     /// </summary>
     [IsoId("_rh-REFSXEempisJfoIfvvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcptNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RcptNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text RecipientName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RecipientName { get; init; } 
+    public required System.String RecipientName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RecipientName { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record PartyIdentification214
     /// Address of the party to which the disclosure response must be sent.
     /// </summary>
     [IsoId("_Evtr4FSYEempisJfoIfvvQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Recipient Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnRcptAdr")]
     #endif
+    [IsoXmlTag("RspnRcptAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyAddress1 ResponseRecipientAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyAddress1 ResponseRecipientAddress { get; init; } 
+    public required PartyAddress1 ResponseRecipientAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyAddress1 ResponseRecipientAddress { get; init; } 
     #else

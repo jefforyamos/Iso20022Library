@@ -21,7 +21,7 @@ public enum CorporateActionInformationType1Code
 {
     /// <summary>
     /// Information is about an informal call when an issuer, trustee, agent wishes to talk to note holders to discuss a certain issue or potential change to the notes; nothing said being binding.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_qcrNQSXcEeOFIcNWlDEvdQ")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionMandatoryVoluntary1FormatChoice.Code))]
     [KnownType(typeof(CorporateActionMandatoryVoluntary1FormatChoice.Proprietary))]
     [IsoId("_RmZ7Itp-Ed-ak6NoX_4Aeg_1296355739")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Mandatory Voluntary 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

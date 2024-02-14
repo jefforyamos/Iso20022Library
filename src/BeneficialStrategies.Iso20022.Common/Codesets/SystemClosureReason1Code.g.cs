@@ -21,7 +21,7 @@ public enum SystemClosureReason1Code
 {
     /// <summary>
     /// System is closed due to a bank holiday.
-    /// Encoded/decoded by serializers as "BHOL".
+    /// Encoded/decoded by serializers as &quot;BHOL&quot;.
     /// </summary>
     [EnumMember(Value = "BHOL")]
     [IsoId("_ZRQG89p-Ed-ak6NoX_4Aeg_2007403395")]
@@ -30,7 +30,7 @@ public enum SystemClosureReason1Code
     
     /// <summary>
     /// System is closed for maintenance reasons.
-    /// Encoded/decoded by serializers as "SMTN".
+    /// Encoded/decoded by serializers as &quot;SMTN&quot;.
     /// </summary>
     [EnumMember(Value = "SMTN")]
     [IsoId("_ZRQG9Np-Ed-ak6NoX_4Aeg_2007403396")]
@@ -39,7 +39,7 @@ public enum SystemClosureReason1Code
     
     /// <summary>
     /// System is not processing any operation.
-    /// Encoded/decoded by serializers as "NOOP".
+    /// Encoded/decoded by serializers as &quot;NOOP&quot;.
     /// </summary>
     [EnumMember(Value = "NOOP")]
     [IsoId("_ZRQG9dp-Ed-ak6NoX_4Aeg_2007403397")]
@@ -48,7 +48,7 @@ public enum SystemClosureReason1Code
     
     /// <summary>
     /// System is not operational during recovery operations.
-    /// Encoded/decoded by serializers as "RCVR".
+    /// Encoded/decoded by serializers as &quot;RCVR&quot;.
     /// </summary>
     [EnumMember(Value = "RCVR")]
     [IsoId("_ZRQG9tp-Ed-ak6NoX_4Aeg_2007403398")]
@@ -57,7 +57,7 @@ public enum SystemClosureReason1Code
     
     /// <summary>
     /// System is not operational during allowed downtime windows.
-    /// Encoded/decoded by serializers as "ADTW".
+    /// Encoded/decoded by serializers as &quot;ADTW&quot;.
     /// </summary>
     [EnumMember(Value = "ADTW")]
     [IsoId("_ZRQG99p-Ed-ak6NoX_4Aeg_2007403406")]

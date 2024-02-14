@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension to specify corporate action quantities.
 /// </summary>
 [IsoId("_o9JB5GCXEeK8P92abE6HIA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Quantity 4 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record CorporateActionQuantity4SD2
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_o9JB9WCXEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +63,11 @@ public partial record CorporateActionQuantity4SD2
     ///  買付予定株式数.
     /// </summary>
     [IsoId("_o9JCBmCXEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Planned Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlandQty")]
     #endif
+    [IsoXmlTag("PlandQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlannedQuantity1Choice_? PlannedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +81,11 @@ public partial record CorporateActionQuantity4SD2
     /// 買付超過予定数
     /// </summary>
     [IsoId("_o9JCCWCXEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Planned Excess Purchase Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlandXcssPurchsQty")]
     #endif
+    [IsoXmlTag("PlandXcssPurchsQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PlannedQuantity1Choice_? PlannedExcessPurchaseQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +99,11 @@ public partial record CorporateActionQuantity4SD2
     /// 買付株数に係る下限設定が「下限設定あり」「未定」.
     /// </summary>
     [IsoId("_o9JCA2CXEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Quantity Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinQtyCd")]
     #endif
+    [IsoXmlTag("MinQtyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesQuantity1Code? MinimumQuantityCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +117,11 @@ public partial record CorporateActionQuantity4SD2
     ///  買付株数に係る上限設定が「上限設定あり」「未定」.
     /// </summary>
     [IsoId("_o9JB-GCXEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Quantity Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxQtyCd")]
     #endif
+    [IsoXmlTag("MaxQtyCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesQuantity1Code? MaximumQuantityCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,12 +134,11 @@ public partial record CorporateActionQuantity4SD2
     /// Old share unit quantity.
     /// </summary>
     [IsoId("_o9JB72CXEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old Share Unit Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OdShrUnitQty")]
     #endif
+    [IsoXmlTag("OdShrUnitQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? OldShareUnitQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,12 +151,11 @@ public partial record CorporateActionQuantity4SD2
     /// New share unit quantity.
     /// </summary>
     [IsoId("_o9JB6mCXEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Share Unit Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewShrUnitQty")]
     #endif
+    [IsoXmlTag("NewShrUnitQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? NewShareUnitQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TypeOfIdentificationCode
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "ARNU".
+    /// Encoded/decoded by serializers as &quot;ARNU&quot;.
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("_YwxQFtp-Ed-ak6NoX_4Aeg_905354351")]
@@ -30,7 +30,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// Number assigned by a passport authority.
-    /// Encoded/decoded by serializers as "CCPT".
+    /// Encoded/decoded by serializers as &quot;CCPT&quot;.
     /// </summary>
     [EnumMember(Value = "CCPT")]
     [IsoId("_YwxQF9p-Ed-ak6NoX_4Aeg_905354359")]
@@ -39,7 +39,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// Number assigned to a tax exempt entity.
-    /// Encoded/decoded by serializers as "CHTY".
+    /// Encoded/decoded by serializers as &quot;CHTY&quot;.
     /// </summary>
     [EnumMember(Value = "CHTY")]
     [IsoId("_YwxQGNp-Ed-ak6NoX_4Aeg_905354360")]
@@ -48,7 +48,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// Number assigned to a corporate entity.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_Yw6aANp-Ed-ak6NoX_4Aeg_905354601")]
@@ -56,8 +56,8 @@ public enum TypeOfIdentificationCode
     CorporateIdentification,
     
     /// <summary>
-    /// Number assigned to a driver's license.
-    /// Encoded/decoded by serializers as "DRLC".
+    /// Number assigned to a driver&apos;s license.
+    /// Encoded/decoded by serializers as &quot;DRLC&quot;.
     /// </summary>
     [EnumMember(Value = "DRLC")]
     [IsoId("_Yw6aAdp-Ed-ak6NoX_4Aeg_905354602")]
@@ -66,7 +66,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// Number assigned to a foreign investor (other than the alien number).
-    /// Encoded/decoded by serializers as "FIIN".
+    /// Encoded/decoded by serializers as &quot;FIIN&quot;.
     /// </summary>
     [EnumMember(Value = "FIIN")]
     [IsoId("_Yw6aAtp-Ed-ak6NoX_4Aeg_905354618")]
@@ -75,7 +75,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TXID".
+    /// Encoded/decoded by serializers as &quot;TXID&quot;.
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_Yw6aA9p-Ed-ak6NoX_4Aeg_905354619")]
@@ -84,7 +84,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// Number assigned by a social security agency.
-    /// Encoded/decoded by serializers as "SOCS".
+    /// Encoded/decoded by serializers as &quot;SOCS&quot;.
     /// </summary>
     [EnumMember(Value = "SOCS")]
     [IsoId("_fo6owId2EemJ1cSJJmVYRQ")]
@@ -93,7 +93,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// Number assigned by a national authority to an identity card.
-    /// Encoded/decoded by serializers as "IDCD".
+    /// Encoded/decoded by serializers as &quot;IDCD&quot;.
     /// </summary>
     [EnumMember(Value = "IDCD")]
     [IsoId("_sexg4Id2EemJ1cSJJmVYRQ")]
@@ -102,7 +102,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// Number assigned by an issuer to identify a customer via the concatenation of the birthdate and characters of the first name and surname. 
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_FUN7AId4EemJ1cSJJmVYRQ")]
@@ -111,7 +111,7 @@ public enum TypeOfIdentificationCode
     
     /// <summary>
     /// National registration identification number. In Singapore this is known as the NRIC.
-    /// Encoded/decoded by serializers as "NRIN".
+    /// Encoded/decoded by serializers as &quot;NRIN&quot;.
     /// </summary>
     [EnumMember(Value = "NRIN")]
     [IsoId("__xeOUI6BEemzmeK8_tPygg")]

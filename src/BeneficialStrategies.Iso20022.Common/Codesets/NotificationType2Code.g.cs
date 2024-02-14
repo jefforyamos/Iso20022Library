@@ -21,7 +21,7 @@ public enum NotificationType2Code
 {
     /// <summary>
     /// New notification.
-    /// Encoded/decoded by serializers as "NEWM".
+    /// Encoded/decoded by serializers as &quot;NEWM&quot;.
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_sC4o8a7wEemG7MmivSuE5g")]
@@ -30,7 +30,7 @@ public enum NotificationType2Code
     
     /// <summary>
     /// Notification replacing a previously sent notification.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_sP-pwq7wEemG7MmivSuE5g")]

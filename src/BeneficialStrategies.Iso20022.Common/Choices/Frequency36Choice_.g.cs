@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Frequency36Choice.Period))]
     [KnownType(typeof(Frequency36Choice.PointInTime))]
     [IsoId("_sVM2vWk2Eeanu6HLe77Rkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Frequency 36 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

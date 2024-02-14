@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Action to perform in case of error on the related action in progress.
 /// </summary>
 [IsoId("_KsEK031DEeCF8NjrBemJWQ_1638245776")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Error Action")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record ErrorAction1
     /// List of error action result codes.
     /// </summary>
     [IsoId("_KsEK1H1DEeCF8NjrBemJWQ_-261559042")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnRslt")]
     #endif
+    [IsoXmlTag("ActnRslt")]
     public TerminalManagementActionResult1Code? ActionResult { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _KsEK1H1DEeCF8NjrBemJWQ_-261559042
     
@@ -64,16 +61,15 @@ public partial record ErrorAction1
     /// Action to be processed for the related errors.
     /// </summary>
     [IsoId("_KsEK1X1DEeCF8NjrBemJWQ_-1296611635")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action To Process")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnToPrc")]
     #endif
+    [IsoXmlTag("ActnToPrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TerminalManagementErrorAction1Code ActionToProcess { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TerminalManagementErrorAction1Code ActionToProcess { get; init; } 
+    public required TerminalManagementErrorAction1Code ActionToProcess { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TerminalManagementErrorAction1Code ActionToProcess { get; init; } 
     #else

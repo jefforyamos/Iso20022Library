@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Incoterms4Choice
     /// Specifies the applicable Incoterm by means of a code.
     /// </summary>
     [IsoId("_S5ezYQEcEeCQm6a_G2yO_w_-666365163")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Incoterms4Choice
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalIncoterms1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalIncoterms1Code Value { get; init; } 
+        public required ExternalIncoterms1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalIncoterms1Code Value { get; init; } 
         #else

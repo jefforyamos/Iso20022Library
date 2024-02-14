@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentificati
     /// Identifies the asset class and sub-class of non-equity instruments to which the result relates
     /// </summary>
     [IsoId("_BSnWY6aUEeqZmriXpMtonA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class And Sub Class")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentificati
         /// Asset class of non-equity instruments to which the result relates
         /// </summary>
         [IsoId("_cBU0saaUEeqZmriXpMtonA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Asset Class")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AsstClss")]
         #endif
+        [IsoXmlTag("AsstClss")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NonEquityAssetClass1Code AssetClass { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NonEquityAssetClass1Code AssetClass { get; init; } 
+        public required NonEquityAssetClass1Code AssetClass { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NonEquityAssetClass1Code AssetClass { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentificati
         /// Sub class of non-equity instruments to which the result relates, as defined in the local regulation.
         /// </summary>
         [IsoId("_cBU0s6aUEeqZmriXpMtonA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Derivative Sub Class")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DerivSubClss")]
         #endif
+        [IsoXmlTag("DerivSubClss")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public NonEquitySubClass1? DerivativeSubClass { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentificati
         /// Identification of non-equity financial instruments.
         /// </summary>
         [IsoId("_cBU0taaUEeqZmriXpMtonA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Classification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmClssfctn")]
         #endif
+        [IsoXmlTag("FinInstrmClssfctn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public NonEquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

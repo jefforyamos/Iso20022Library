@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity3Choice
     /// Agricultural commodities.
     /// </summary>
     [IsoId("_lThdYXvyEeanCNPcMT7sSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agricultural")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

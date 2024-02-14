@@ -21,7 +21,7 @@ public enum SafekeepingPlace3Code
 {
     /// <summary>
     /// Used for certain financial instruments, for example, US mutual funds, where settlement is internal only, that is, there is no external movement of securities.
-    /// Encoded/decoded by serializers as "SHHE".
+    /// Encoded/decoded by serializers as &quot;SHHE&quot;.
     /// </summary>
     [EnumMember(Value = "SHHE")]
     [IsoId("_Y-oF6Np-Ed-ak6NoX_4Aeg_-505614155")]

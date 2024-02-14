@@ -21,7 +21,7 @@ public enum SystemSecuritiesAccountTypeCode
 {
     /// <summary>
     /// Account owned by a CSD Participant|.
-    /// Encoded/decoded by serializers as "CSDP".
+    /// Encoded/decoded by serializers as &quot;CSDP&quot;.
     /// </summary>
     [EnumMember(Value = "CSDP")]
     [IsoId("_hjeiU2liEeGaMcKyqKNRfQ_1872191376")]
@@ -30,7 +30,7 @@ public enum SystemSecuritiesAccountTypeCode
     
     /// <summary>
     /// Account operated by CSD for mirroring positions|.
-    /// Encoded/decoded by serializers as "CSDM".
+    /// Encoded/decoded by serializers as &quot;CSDM&quot;.
     /// </summary>
     [EnumMember(Value = "CSDM")]
     [IsoId("_hjeiVGliEeGaMcKyqKNRfQ_1890782340")]
@@ -39,7 +39,7 @@ public enum SystemSecuritiesAccountTypeCode
     
     /// <summary>
     /// Account operated by CSD for settlement of securities legs for instructions involving internal CSD s.
-    /// Encoded/decoded by serializers as "ICSA".
+    /// Encoded/decoded by serializers as &quot;ICSA&quot;.
     /// </summary>
     [EnumMember(Value = "ICSA")]
     [IsoId("_hjeiVWliEeGaMcKyqKNRfQ_1290945656")]
@@ -48,7 +48,7 @@ public enum SystemSecuritiesAccountTypeCode
     
     /// <summary>
     /// Account operated by CSDs in a direct holding market context.
-    /// Encoded/decoded by serializers as "TOFF".
+    /// Encoded/decoded by serializers as &quot;TOFF&quot;.
     /// </summary>
     [EnumMember(Value = "TOFF")]
     [IsoId("_hjeiVmliEeGaMcKyqKNRfQ_1254906660")]
@@ -57,7 +57,7 @@ public enum SystemSecuritiesAccountTypeCode
     
     /// <summary>
     /// Account operated by CSD in cross-CSD settlement context.
-    /// Encoded/decoded by serializers as "CSDO".
+    /// Encoded/decoded by serializers as &quot;CSDO&quot;.
     /// </summary>
     [EnumMember(Value = "CSDO")]
     [IsoId("_hjeiV2liEeGaMcKyqKNRfQ_1755887588")]
@@ -66,7 +66,7 @@ public enum SystemSecuritiesAccountTypeCode
     
     /// <summary>
     /// Account reflecting the holdings of the participants of the issuer CSD for a given financial instrument.
-    /// Encoded/decoded by serializers as "ISSA".
+    /// Encoded/decoded by serializers as &quot;ISSA&quot;.
     /// </summary>
     [EnumMember(Value = "ISSA")]
     [IsoId("_hjeiWGliEeGaMcKyqKNRfQ_2050946548")]

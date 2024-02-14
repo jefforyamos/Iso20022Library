@@ -21,7 +21,7 @@ public enum AssetClassSubProductType33Code
 {
     /// <summary>
     /// Commodity of type construction.
-    /// Encoded/decoded by serializers as "CSTR".
+    /// Encoded/decoded by serializers as &quot;CSTR&quot;.
     /// </summary>
     [EnumMember(Value = "CSTR")]
     [IsoId("_yRs7A1rfEeWN79Bl6BUd3g")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementParties7Choice.DeliveringSettlementParties))]
     [KnownType(typeof(SettlementParties7Choice.ReceivingSettlementParties))]
     [IsoId("_tQ_Rl4pIEeaNTaanBSMWmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parties 7 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

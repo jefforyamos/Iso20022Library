@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to report information about securities account reference data.
 /// </summary>
 [IsoId("_t8qdteGEEeWCAvUNsZ5u6g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Account Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecuritiesAccountReport2
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_uIaaseGEEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesAcctId")]
     #endif
+    [IsoXmlTag("SctiesAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
+    public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SecuritiesAccountReport2
     /// Identifies the returned securities account reference data or error information.
     /// </summary>
     [IsoId("_uIaas-GEEeWCAvUNsZ5u6g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Account Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesAcctOrErr")]
     #endif
+    [IsoXmlTag("SctiesAcctOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccountOrBusinessError2Choice_ SecuritiesAccountOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccountOrBusinessError2Choice_ SecuritiesAccountOrError { get; init; } 
+    public required SecuritiesAccountOrBusinessError2Choice_ SecuritiesAccountOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccountOrBusinessError2Choice_ SecuritiesAccountOrError { get; init; } 
     #else

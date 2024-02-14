@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of transactions to capture, sharing common characteristics.
 /// </summary>
 [IsoId("_ZjQG0WmFEeS7iYydEtv3Ug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CardPaymentDataSet10
     /// Identification of the data set.
     /// </summary>
     [IsoId("_ZxFHcWmFEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetId")]
     #endif
+    [IsoXmlTag("DataSetId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification1 DataSetIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetIdentification1 DataSetIdentification { get; init; } 
+    public required DataSetIdentification1 DataSetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetIdentification1 DataSetIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CardPaymentDataSet10
     /// Identification of partners involved in the data set building.
     /// </summary>
     [IsoId("_ZxFHc2mFEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Traceability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tracblt")]
     #endif
+    [IsoXmlTag("Tracblt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Traceability2? Traceability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record CardPaymentDataSet10
     /// Initiator of the data set.
     /// </summary>
     [IsoId("_ZxFHdWmFEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetInitr")]
     #endif
+    [IsoXmlTag("DataSetInitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification53? DataSetInitiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record CardPaymentDataSet10
     /// Transaction totals of the data set.
     /// </summary>
     [IsoId("_ZxFHd2mFEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTtls")]
     #endif
+    [IsoXmlTag("TxTtls")]
     public TransactionTotals3? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ZxFHd2mFEeS7iYydEtv3Ug
     
@@ -120,12 +114,11 @@ public partial record CardPaymentDataSet10
     /// Data common to all transactions of the data set.
     /// </summary>
     [IsoId("_ZxFHeWmFEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Common Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmonData")]
     #endif
+    [IsoXmlTag("CmonData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommonData4? CommonData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +131,11 @@ public partial record CardPaymentDataSet10
     /// Set of transaction to Process.
     /// </summary>
     [IsoId("_ZxFHe2mFEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     public CardPaymentDataSetTransaction3Choice_? Transaction { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ZxFHe2mFEeS7iYydEtv3Ug
     

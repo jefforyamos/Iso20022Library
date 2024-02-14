@@ -21,7 +21,7 @@ public enum CaseAssignmentRejection1Code
 {
     /// <summary>
     /// Underlying instruction can not be found.
-    /// Encoded/decoded by serializers as "NFND".
+    /// Encoded/decoded by serializers as &quot;NFND&quot;.
     /// </summary>
     [EnumMember(Value = "NFND")]
     [IsoId("_Vm2419p-Ed-ak6NoX_4Aeg_-407386472")]
@@ -30,7 +30,7 @@ public enum CaseAssignmentRejection1Code
     
     /// <summary>
     /// Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).
-    /// Encoded/decoded by serializers as "NAUT".
+    /// Encoded/decoded by serializers as &quot;NAUT&quot;.
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_VnACwNp-Ed-ak6NoX_4Aeg_-48136805")]
@@ -39,7 +39,7 @@ public enum CaseAssignmentRejection1Code
     
     /// <summary>
     /// Case has never been assigned before.
-    /// Encoded/decoded by serializers as "UKNW".
+    /// Encoded/decoded by serializers as &quot;UKNW&quot;.
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_VnACwdp-Ed-ak6NoX_4Aeg_-1993051148")]
@@ -48,7 +48,7 @@ public enum CaseAssignmentRejection1Code
     
     /// <summary>
     /// Used when the payment instruction has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_VnACwtp-Ed-ak6NoX_4Aeg_-1951794735")]
@@ -57,7 +57,7 @@ public enum CaseAssignmentRejection1Code
     
     /// <summary>
     /// Used when the payment instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CNCL".
+    /// Encoded/decoded by serializers as &quot;CNCL&quot;.
     /// </summary>
     [EnumMember(Value = "CNCL")]
     [IsoId("_VnACw9p-Ed-ak6NoX_4Aeg_-1881606195")]

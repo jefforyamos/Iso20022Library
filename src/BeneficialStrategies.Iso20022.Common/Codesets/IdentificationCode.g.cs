@@ -21,7 +21,7 @@ public enum IdentificationCode
 {
     /// <summary>
     /// Identification of customer.
-    /// Encoded/decoded by serializers as "CUID".
+    /// Encoded/decoded by serializers as &quot;CUID&quot;.
     /// </summary>
     [EnumMember(Value = "CUID")]
     [IsoId("_6jmf4MV1Eee3gsS0IxDWIA")]
@@ -30,7 +30,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Social security number.
-    /// Encoded/decoded by serializers as "SSYN".
+    /// Encoded/decoded by serializers as &quot;SSYN&quot;.
     /// </summary>
     [EnumMember(Value = "SSYN")]
     [IsoId("_BbQUMMV2Eee3gsS0IxDWIA")]
@@ -39,7 +39,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// National identification.
-    /// Encoded/decoded by serializers as "NTID".
+    /// Encoded/decoded by serializers as &quot;NTID&quot;.
     /// </summary>
     [EnumMember(Value = "NTID")]
     [IsoId("_HaG4QMV2Eee3gsS0IxDWIA")]
@@ -48,7 +48,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Country issuing national identifier.
-    /// Encoded/decoded by serializers as "NICY".
+    /// Encoded/decoded by serializers as &quot;NICY&quot;.
     /// </summary>
     [EnumMember(Value = "NICY")]
     [IsoId("_MYuuYMV2Eee3gsS0IxDWIA")]
@@ -57,7 +57,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Passport number.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_Wrq90MV2Eee3gsS0IxDWIA")]
@@ -66,7 +66,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Country issuing passport.
-    /// Encoded/decoded by serializers as "PAIC".
+    /// Encoded/decoded by serializers as &quot;PAIC&quot;.
     /// </summary>
     [EnumMember(Value = "PAIC")]
     [IsoId("_fAcQYMV2Eee3gsS0IxDWIA")]
@@ -75,7 +75,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Driver licence identification.
-    /// Encoded/decoded by serializers as "DRID".
+    /// Encoded/decoded by serializers as &quot;DRID&quot;.
     /// </summary>
     [EnumMember(Value = "DRID")]
     [IsoId("_pIFOwMV2Eee3gsS0IxDWIA")]
@@ -84,7 +84,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Country issuing driver licence.
-    /// Encoded/decoded by serializers as "DRIC".
+    /// Encoded/decoded by serializers as &quot;DRIC&quot;.
     /// </summary>
     [EnumMember(Value = "DRIC")]
     [IsoId("_wJVrAMV2Eee3gsS0IxDWIA")]
@@ -93,7 +93,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Employee identification.
-    /// Encoded/decoded by serializers as "EEID".
+    /// Encoded/decoded by serializers as &quot;EEID&quot;.
     /// </summary>
     [EnumMember(Value = "EEID")]
     [IsoId("_2WqI4MV2Eee3gsS0IxDWIA")]
@@ -102,7 +102,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Employer identification.
-    /// Encoded/decoded by serializers as "ERID".
+    /// Encoded/decoded by serializers as &quot;ERID&quot;.
     /// </summary>
     [EnumMember(Value = "ERID")]
     [IsoId("_6-a-MMV2Eee3gsS0IxDWIA")]
@@ -111,7 +111,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Job number.
-    /// Encoded/decoded by serializers as "JBNR".
+    /// Encoded/decoded by serializers as &quot;JBNR&quot;.
     /// </summary>
     [EnumMember(Value = "JBNR")]
     [IsoId("_Akw7oMV3Eee3gsS0IxDWIA")]
@@ -120,7 +120,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Department.
-    /// Encoded/decoded by serializers as "DEPT".
+    /// Encoded/decoded by serializers as &quot;DEPT&quot;.
     /// </summary>
     [EnumMember(Value = "DEPT")]
     [IsoId("_F96xoMV3Eee3gsS0IxDWIA")]
@@ -129,7 +129,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Alien registration number.
-    /// Encoded/decoded by serializers as "ARNB".
+    /// Encoded/decoded by serializers as &quot;ARNB&quot;.
     /// </summary>
     [EnumMember(Value = "ARNB")]
     [IsoId("_IXuhoMV3Eee3gsS0IxDWIA")]
@@ -138,7 +138,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Tax identifier.
-    /// Encoded/decoded by serializers as "TXID".
+    /// Encoded/decoded by serializers as &quot;TXID&quot;.
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("_NZ-TgMV3Eee3gsS0IxDWIA")]
@@ -147,7 +147,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Tax country.
-    /// Encoded/decoded by serializers as "TXCY".
+    /// Encoded/decoded by serializers as &quot;TXCY&quot;.
     /// </summary>
     [EnumMember(Value = "TXCY")]
     [IsoId("_SQ93oMV3Eee3gsS0IxDWIA")]
@@ -156,7 +156,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Date and place of birth.
-    /// Encoded/decoded by serializers as "DTPB".
+    /// Encoded/decoded by serializers as &quot;DTPB&quot;.
     /// </summary>
     [EnumMember(Value = "DTPB")]
     [IsoId("_WjZ9MMV3Eee3gsS0IxDWIA")]
@@ -165,7 +165,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// E-mail.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_e9HaIMV3Eee3gsS0IxDWIA")]
@@ -174,7 +174,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Phone number.
-    /// Encoded/decoded by serializers as "PHNB".
+    /// Encoded/decoded by serializers as &quot;PHNB&quot;.
     /// </summary>
     [EnumMember(Value = "PHNB")]
     [IsoId("_ltjzMMV3Eee3gsS0IxDWIA")]
@@ -183,7 +183,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Other identification assigned at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_B8kK8AwWEeiHgJ0O2VQ-kg")]
@@ -192,7 +192,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Other identification provided at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_IZRIoAwWEeiHgJ0O2VQ-kg")]
@@ -201,7 +201,7 @@ public enum IdentificationCode
     
     /// <summary>
     /// Proxy
-    /// Encoded/decoded by serializers as "PRXY".
+    /// Encoded/decoded by serializers as &quot;PRXY&quot;.
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_NxyZIKd3EeuEcqP2FGAFaA")]

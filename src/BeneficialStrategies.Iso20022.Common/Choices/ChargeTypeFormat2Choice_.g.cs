@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChargeTypeFormat2Choice.Unstructured))]
     [KnownType(typeof(ChargeTypeFormat2Choice.Structured))]
     [IsoId("_UyQMF9p-Ed-ak6NoX_4Aeg_1822769667")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Type Format 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

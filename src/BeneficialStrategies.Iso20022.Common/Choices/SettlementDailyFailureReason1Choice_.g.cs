@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementDailyFailureReason1Choice.DataSetAction))]
     [KnownType(typeof(SettlementDailyFailureReason1Choice.Data))]
     [IsoId("_-7zQ0TOkEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Daily Failure Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

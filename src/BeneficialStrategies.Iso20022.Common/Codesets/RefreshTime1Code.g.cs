@@ -21,7 +21,7 @@ public enum RefreshTime1Code
 {
     /// <summary>
     /// After each fill.
-    /// Encoded/decoded by serializers as "IMME".
+    /// Encoded/decoded by serializers as &quot;IMME&quot;.
     /// </summary>
     [EnumMember(Value = "IMME")]
     [IsoId("_Zayddtp-Ed-ak6NoX_4Aeg_820053979")]
@@ -30,7 +30,7 @@ public enum RefreshTime1Code
     
     /// <summary>
     /// When quantity to be displayed equals 0.
-    /// Encoded/decoded by serializers as "EXHA".
+    /// Encoded/decoded by serializers as &quot;EXHA&quot;.
     /// </summary>
     [EnumMember(Value = "EXHA")]
     [IsoId("_Zaydd9p-Ed-ak6NoX_4Aeg_820054304")]

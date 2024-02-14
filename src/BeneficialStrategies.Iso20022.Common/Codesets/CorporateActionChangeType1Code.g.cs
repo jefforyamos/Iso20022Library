@@ -21,7 +21,7 @@ public enum CorporateActionChangeType1Code
 {
     /// <summary>
     /// Change from bearer into registered form.
-    /// Encoded/decoded by serializers as "BERE".
+    /// Encoded/decoded by serializers as &quot;BERE&quot;.
     /// </summary>
     [EnumMember(Value = "BERE")]
     [IsoId("_bCy9Edp-Ed-ak6NoX_4Aeg_1029236452")]
@@ -30,7 +30,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Change of all instruments into certificates.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_bCy9Etp-Ed-ak6NoX_4Aeg_1029236481")]
@@ -39,7 +39,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Change from dematerialised into physical form.
-    /// Encoded/decoded by serializers as "DEPH".
+    /// Encoded/decoded by serializers as &quot;DEPH&quot;.
     /// </summary>
     [EnumMember(Value = "DEPH")]
     [IsoId("_bCy9E9p-Ed-ak6NoX_4Aeg_1029236482")]
@@ -48,7 +48,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Change from global permanent to physical form.
-    /// Encoded/decoded by serializers as "GPPH".
+    /// Encoded/decoded by serializers as &quot;GPPH&quot;.
     /// </summary>
     [EnumMember(Value = "GPPH")]
     [IsoId("_bCy9FNp-Ed-ak6NoX_4Aeg_1029236483")]
@@ -57,7 +57,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Change from global temporary to global permanent form.
-    /// Encoded/decoded by serializers as "GTGP".
+    /// Encoded/decoded by serializers as &quot;GTGP&quot;.
     /// </summary>
     [EnumMember(Value = "GTGP")]
     [IsoId("_bCy9Fdp-Ed-ak6NoX_4Aeg_1029236504")]
@@ -66,7 +66,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Change from global temporary to physical form.
-    /// Encoded/decoded by serializers as "GTPH".
+    /// Encoded/decoded by serializers as &quot;GTPH&quot;.
     /// </summary>
     [EnumMember(Value = "GTPH")]
     [IsoId("_bCy9Ftp-Ed-ak6NoX_4Aeg_1029236512")]
@@ -75,7 +75,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// The issuing company changes its name. CA event shows the change from old name to new name and may involve surrendering physical shares with the old name to the registrar.
-    /// Encoded/decoded by serializers as "NAME".
+    /// Encoded/decoded by serializers as &quot;NAME&quot;.
     /// </summary>
     [EnumMember(Value = "NAME")]
     [IsoId("_bCy9F9p-Ed-ak6NoX_4Aeg_1029236752")]
@@ -84,7 +84,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Change from physical into dematerialised form.
-    /// Encoded/decoded by serializers as "PHDE".
+    /// Encoded/decoded by serializers as &quot;PHDE&quot;.
     /// </summary>
     [EnumMember(Value = "PHDE")]
     [IsoId("_bC8uENp-Ed-ak6NoX_4Aeg_1029236760")]
@@ -93,7 +93,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Change from registered into bearer form.
-    /// Encoded/decoded by serializers as "REBE".
+    /// Encoded/decoded by serializers as &quot;REBE&quot;.
     /// </summary>
     [EnumMember(Value = "REBE")]
     [IsoId("_bC8uEdp-Ed-ak6NoX_4Aeg_1029236761")]
@@ -102,7 +102,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Change in the terms of the security.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_bC8uEtp-Ed-ak6NoX_4Aeg_1029236783")]
@@ -111,7 +111,7 @@ public enum CorporateActionChangeType1Code
     
     /// <summary>
     /// Process of changing the accounting method of a security, for example, mutual fund, from units to a quantity with decimals.
-    /// Encoded/decoded by serializers as "DECI".
+    /// Encoded/decoded by serializers as &quot;DECI&quot;.
     /// </summary>
     [EnumMember(Value = "DECI")]
     [IsoId("_bC8uE9p-Ed-ak6NoX_4Aeg_1029236791")]

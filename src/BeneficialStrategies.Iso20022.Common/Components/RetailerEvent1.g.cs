@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Retailer Event message.
 /// </summary>
 [IsoId("_TT2PUN6aEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Retailer Event")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record RetailerEvent1
     /// Date and time of the event.
     /// </summary>
     [IsoId("_ZHTbsN6aEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTmStmp")]
     #endif
+    [IsoXmlTag("EvtTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime EventTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime EventTimeStamp { get; init; } 
+    public required System.DateTime EventTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime EventTimeStamp { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record RetailerEvent1
     /// Event the POI notifies to the Sale System.
     /// </summary>
     [IsoId("_bTTZMN6aEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event To Notify")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtToNtfy")]
     #endif
+    [IsoXmlTag("EvtToNtfy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventToNotify1Code EventToNotify { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EventToNotify1Code EventToNotify { get; init; } 
+    public required EventToNotify1Code EventToNotify { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EventToNotify1Code EventToNotify { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record RetailerEvent1
     /// Context of the Event message.
     /// </summary>
     [IsoId("_sl3QsN6bEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtCntxt")]
     #endif
+    [IsoXmlTag("EvtCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventContext1? EventContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,15 +106,13 @@ public partial record RetailerEvent1
     /// Additional Information according to the event type.
     /// </summary>
     [IsoId("_IeTXMN6cEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Event Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlEvtInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlEvtInf")]
+    [IsoSimpleType(IsoSimpleType.Max1025Text)]
     [StringLength(maximumLength: 1025 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1025Text? AdditionalEventInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

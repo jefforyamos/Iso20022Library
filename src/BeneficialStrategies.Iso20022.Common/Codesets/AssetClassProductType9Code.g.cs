@@ -21,7 +21,7 @@ public enum AssetClassProductType9Code
 {
     /// <summary>
     /// Commodity of type polypropylene.
-    /// Encoded/decoded by serializers as "POLY".
+    /// Encoded/decoded by serializers as &quot;POLY&quot;.
     /// </summary>
     [EnumMember(Value = "POLY")]
     [IsoId("_sc03IQnyEeWnS-yHF1QhNQ")]

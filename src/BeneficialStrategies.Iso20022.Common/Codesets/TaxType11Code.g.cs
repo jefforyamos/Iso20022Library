@@ -21,7 +21,7 @@ public enum TaxType11Code
 {
     /// <summary>
     /// Tax is a provincial tax.
-    /// Encoded/decoded by serializers as "PROV".
+    /// Encoded/decoded by serializers as &quot;PROV&quot;.
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_Yj88Fdp-Ed-ak6NoX_4Aeg_7019555")]
@@ -30,7 +30,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax is a national tax.
-    /// Encoded/decoded by serializers as "NATI".
+    /// Encoded/decoded by serializers as &quot;NATI&quot;.
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_Yj88Ftp-Ed-ak6NoX_4Aeg_7019556")]
@@ -39,7 +39,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax is a state tax.
-    /// Encoded/decoded by serializers as "STAT".
+    /// Encoded/decoded by serializers as &quot;STAT&quot;.
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_Yj88F9p-Ed-ak6NoX_4Aeg_7019571")]
@@ -48,7 +48,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_Yj88GNp-Ed-ak6NoX_4Aeg_7019572")]
@@ -57,7 +57,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax is on a capital gain (realised and unrealised), that is, the profit that is gained from the sale of a financial instrument.
-    /// Encoded/decoded by serializers as "KAPA".
+    /// Encoded/decoded by serializers as &quot;KAPA&quot;.
     /// </summary>
     [EnumMember(Value = "KAPA")]
     [IsoId("_Yj88Gdp-Ed-ak6NoX_4Aeg_7019589")]
@@ -66,7 +66,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax is on the sum of all earnings/revenues accrued since the last dividend distribution.
-    /// Encoded/decoded by serializers as "INPO".
+    /// Encoded/decoded by serializers as &quot;INPO&quot;.
     /// </summary>
     [EnumMember(Value = "INPO")]
     [IsoId("_YkGGANp-Ed-ak6NoX_4Aeg_7019590")]
@@ -75,7 +75,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "STAM".
+    /// Encoded/decoded by serializers as &quot;STAM&quot;.
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_YkGGAdp-Ed-ak6NoX_4Aeg_7019614")]
@@ -84,7 +84,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax is a special tax imposed, applicable only when the value of assets or categories of assets owned by an entity are above a given ceiling defined by the tax authority. Wealth tax is not linked to income.
-    /// Encoded/decoded by serializers as "WTAX".
+    /// Encoded/decoded by serializers as &quot;WTAX&quot;.
     /// </summary>
     [EnumMember(Value = "WTAX")]
     [IsoId("_YkGGAtp-Ed-ak6NoX_4Aeg_7019615")]
@@ -93,7 +93,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax that is payable at the time of death on any items (money or otherwise), where ownership changes either upon death or within a legally specified number of years before death.
-    /// Encoded/decoded by serializers as "INHT".
+    /// Encoded/decoded by serializers as &quot;INHT&quot;.
     /// </summary>
     [EnumMember(Value = "INHT")]
     [IsoId("_YkGGA9p-Ed-ak6NoX_4Aeg_7019631")]
@@ -102,7 +102,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax that is levied by legal authorities for solidarity purposes.
-    /// Encoded/decoded by serializers as "SOSU".
+    /// Encoded/decoded by serializers as &quot;SOSU&quot;.
     /// </summary>
     [EnumMember(Value = "SOSU")]
     [IsoId("_YkGGBNp-Ed-ak6NoX_4Aeg_7019649")]
@@ -110,8 +110,8 @@ public enum TaxType11Code
     SolidaritySurcharge = TaxTypeCode.SolidaritySurcharge, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Direct reduction of an individual's tax liability.
-    /// Encoded/decoded by serializers as "CTAX".
+    /// Direct reduction of an individual&apos;s tax liability.
+    /// Encoded/decoded by serializers as &quot;CTAX&quot;.
     /// </summary>
     [EnumMember(Value = "CTAX")]
     [IsoId("_YkGGBdp-Ed-ak6NoX_4Aeg_7019650")]
@@ -120,7 +120,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax that is levied on assets given to individuals prior to the death of the donor. Gift tax is designed to ensure the integrity of the inheritance tax, preventing the pre-death transfer of wealth.
-    /// Encoded/decoded by serializers as "GIFT".
+    /// Encoded/decoded by serializers as &quot;GIFT&quot;.
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_YkGGBtp-Ed-ak6NoX_4Aeg_7019674")]
@@ -129,7 +129,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
-    /// Encoded/decoded by serializers as "COAX".
+    /// Encoded/decoded by serializers as &quot;COAX&quot;.
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_YkGGB9p-Ed-ak6NoX_4Aeg_7019675")]
@@ -138,7 +138,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTR".
+    /// Encoded/decoded by serializers as &quot;EUTR&quot;.
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_YkGGCNp-Ed-ak6NoX_4Aeg_7019691")]
@@ -147,7 +147,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the old Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "AKT1".
+    /// Encoded/decoded by serializers as &quot;AKT1&quot;.
     /// </summary>
     [EnumMember(Value = "AKT1")]
     [IsoId("_YkGGCdp-Ed-ak6NoX_4Aeg_7019692")]
@@ -156,7 +156,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Share-related profit. This is a tax specific to the German market. The share-related-profit gives the fund the opportunity to pass on to the institutional investor redeeming fund units certain tax-free income from equity. The calculation method is based on the new Investment Tax Act (Investmentsteuergesetz).
-    /// Encoded/decoded by serializers as "AKT2".
+    /// Encoded/decoded by serializers as &quot;AKT2&quot;.
     /// </summary>
     [EnumMember(Value = "AKT2")]
     [IsoId("_YkP3ANp-Ed-ak6NoX_4Aeg_7019709")]
@@ -165,7 +165,7 @@ public enum TaxType11Code
     
     /// <summary>
     /// Zwischengewinn.
-    /// Encoded/decoded by serializers as "ZWIS".
+    /// Encoded/decoded by serializers as &quot;ZWIS&quot;.
     /// </summary>
     [EnumMember(Value = "ZWIS")]
     [IsoId("_YkP3Adp-Ed-ak6NoX_4Aeg_7019710")]

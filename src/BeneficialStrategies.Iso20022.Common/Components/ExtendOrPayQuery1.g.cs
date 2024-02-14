@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Undertaking extend or pay query details.
 /// </summary>
 [IsoId("_-Des53ltEeG7BsjMvd1mEw_2002292702")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Extend Or Pay Query")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ExtendOrPayQuery1
     /// Details related to the identification of the undertaking.
     /// </summary>
     [IsoId("_-Des6HltEeG7BsjMvd1mEw_-1747808883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgId")]
     #endif
+    [IsoXmlTag("UdrtkgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Undertaking9 UndertakingIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Undertaking9 UndertakingIdentification { get; init; } 
+    public required Undertaking9 UndertakingIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Undertaking9 UndertakingIdentification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ExtendOrPayQuery1
     /// Details related to the demand.
     /// </summary>
     [IsoId("_-Dn20HltEeG7BsjMvd1mEw_554766845")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Demand Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DmndDtls")]
     #endif
+    [IsoXmlTag("DmndDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Demand2 DemandDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Demand2 DemandDetails { get; init; } 
+    public required Demand2 DemandDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Demand2 DemandDetails { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record ExtendOrPayQuery1
     /// Requested new expiry date as an alternative to payment of the demand.
     /// </summary>
     [IsoId("_-Dn20XltEeG7BsjMvd1mEw_2099672583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdXpryDt")]
     #endif
+    [IsoXmlTag("ReqdXpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate RequestedExpiryDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly RequestedExpiryDate { get; init; } 
+    public required System.DateOnly RequestedExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly RequestedExpiryDate { get; init; } 
     #else
@@ -113,12 +109,11 @@ public partial record ExtendOrPayQuery1
     /// Details of the instructions from the bank.
     /// </summary>
     [IsoId("_-Dn20nltEeG7BsjMvd1mEw_1332855114")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Instructions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkInstrs")]
     #endif
+    [IsoXmlTag("BkInstrs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BankInstructions1? BankInstructions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ExtendOrPayQuery1
     /// Contact at the issuing bank.
     /// </summary>
     [IsoId("_-Dn203ltEeG7BsjMvd1mEw_916958004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Contact")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkCtct")]
     #endif
+    [IsoXmlTag("BkCtct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Contacts3? BankContact { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +143,11 @@ public partial record ExtendOrPayQuery1
     /// Document or template enclosed in the request.
     /// </summary>
     [IsoId("_-Dxn0HltEeG7BsjMvd1mEw_-1682717592")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enclosed File")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NclsdFile")]
     #endif
+    [IsoXmlTag("NclsdFile")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document9? EnclosedFile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,19 +160,15 @@ public partial record ExtendOrPayQuery1
     /// Additional information related to the request.
     /// </summary>
     [IsoId("_-Dxn0XltEeG7BsjMvd1mEw_1306509943")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

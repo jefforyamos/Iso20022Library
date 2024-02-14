@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the beneficiary of a drawdown.
 /// </summary>
 [IsoId("_l8_kcFNgEeijdq8ilaxyOA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Beneficiary Drawdown")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BeneficiaryDrawdown1
     /// Type of beneficiary.
     /// </summary>
     [IsoId("_q0YKIFNgEeijdq8ilaxyOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryTp")]
     #endif
+    [IsoXmlTag("BnfcryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryType1Choice_? BeneficiaryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record BeneficiaryDrawdown1
     /// Indicates whether the original pension holder was under the age limit when deceased. Typically, in the UK this limit is seventy-five.
     /// </summary>
     [IsoId("_salS8FNgEeijdq8ilaxyOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Death Under Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DthUdrLmt")]
     #endif
+    [IsoXmlTag("DthUdrLmt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DeathUnderLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record BeneficiaryDrawdown1
     /// Additional information about the recipient of the drawdown.
     /// </summary>
     [IsoId("_7qdhYZC0EeiQvr1XXv37hw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

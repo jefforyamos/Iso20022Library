@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related for the transportation of goods by sea.
 /// </summary>
 [IsoId("_U8Fdjtp-Ed-ak6NoX_4Aeg_-34963760")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transport By Sea")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record TransportBySea2
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
     [IsoId("_U8POgNp-Ed-ak6NoX_4Aeg_1368791264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Port Of Loading")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PortOfLoadng")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PortOfLoadng")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PortOfLoading { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PortOfLoading { get; init; } 
+    public required System.String PortOfLoading { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PortOfLoading { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record TransportBySea2
     /// Identifies the port where the goods are discharged.
     /// </summary>
     [IsoId("_U8POgdp-Ed-ak6NoX_4Aeg_1368791246")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Port Of Discharge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PortOfDschrge")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PortOfDschrge")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PortOfDischarge { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PortOfDischarge { get; init; } 
+    public required System.String PortOfDischarge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PortOfDischarge { get; init; } 
     #else
@@ -98,15 +92,13 @@ public partial record TransportBySea2
     /// Name of a vessel.
     /// </summary>
     [IsoId("_U8POgtp-Ed-ak6NoX_4Aeg_436035004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vessel Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VsslNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("VsslNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? VesselName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

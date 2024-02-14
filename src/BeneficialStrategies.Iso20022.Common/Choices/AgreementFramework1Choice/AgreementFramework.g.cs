@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreementFramework1Choice
     /// Code to specify the type of collateral agreement.
     /// </summary>
     [IsoId("_UkjHQNp-Ed-ak6NoX_4Aeg_-1888228410")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Framework")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreementFramework1Choice
         /// Specifies the agreement type details for the margin call.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AgrmtFrmwk")]
         #endif
+        [IsoXmlTag("AgrmtFrmwk")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AgreementFramework1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AgreementFramework1Code Value { get; init; } 
+        public required AgreementFramework1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AgreementFramework1Code Value { get; init; } 
         #else

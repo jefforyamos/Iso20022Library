@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines an encapsulated form of an ISO 20022 message and, if present, its associated Business Application Header. The encapsulation guarantees uniqueness of ID/IDREFs though the use of the Prefix element. This element can be added during message preparation to ID/IDREFs. In order to verify the signature in the Hdr element or inside the encapsulated message, for each occurrence of an ID orIDREF that possesses the same value as a prefix, the prefix part is removed before signature verification. This is not done for surrounding signatures.
 /// </summary>
 [IsoId("_OTgzMTky-AOSNFX-8224490")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Encapsulated Business Message")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record EncapsulatedBusinessMessage1
     /// The Business Application Header associated to the encapsulated message if it exists.
     /// </summary>
     [IsoId("_NzE0NzI0-AOSNFX-5096924")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessApplicationHeader1? Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +67,12 @@ public partial record EncapsulatedBusinessMessage1
     /// Prefix of ID/IDREFs in the encapsulated message to be removed before signature verification.
     /// </summary>
     [IsoId("_NzE0NzI1-AOSNFX-5096924")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Prefix")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prfx")]
     #endif
+    [IsoXmlTag("Prfx")]
+    [IsoSimpleType(IsoSimpleType.ID)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoID? Prefix { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,16 +85,16 @@ public partial record EncapsulatedBusinessMessage1
     /// If yes, the Msg element contains only a subset of the original message.
     /// </summary>
     [IsoId("_NzE0NzI2-AOSNFX-5096924")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtl")]
     #endif
+    [IsoXmlTag("Prtl")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Partial { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Partial { get; init; } 
+    public required System.String Partial { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Partial { get; init; } 
     #else
@@ -108,16 +105,15 @@ public partial record EncapsulatedBusinessMessage1
     /// The encapsulated ISO 20022 message.
     /// </summary>
     [IsoId("_NzE0NzI3-AOSNFX-5096924")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Msg")]
     #endif
+    [IsoXmlTag("Msg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StrictPayload Message { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StrictPayload Message { get; init; } 
+    public required StrictPayload Message { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StrictPayload Message { get; init; } 
     #else

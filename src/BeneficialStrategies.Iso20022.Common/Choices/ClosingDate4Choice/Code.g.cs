@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingDate4Choice
     /// Closing date is defined using a code or data source scheme.
     /// </summary>
     [IsoId("_xTU6g8pdEemQ1o-hyeYV5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

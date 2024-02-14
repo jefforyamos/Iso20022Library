@@ -21,7 +21,7 @@ public enum VariationTypeCode
 {
     /// <summary>
     /// Increase to undertaking amount.
-    /// Encoded/decoded by serializers as "INCR".
+    /// Encoded/decoded by serializers as &quot;INCR&quot;.
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_t2XLsHynEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum VariationTypeCode
     
     /// <summary>
     /// Decrease to undertaking amount.
-    /// Encoded/decoded by serializers as "DECR".
+    /// Encoded/decoded by serializers as &quot;DECR&quot;.
     /// </summary>
     [EnumMember(Value = "DECR")]
     [IsoId("_0QpukHynEeGWJuGCfvwOsQ")]

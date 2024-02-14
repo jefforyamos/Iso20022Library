@@ -21,7 +21,7 @@ public enum DemandStatus2Code
 {
     /// <summary>
     /// Demand refused.
-    /// Encoded/decoded by serializers as "REFD".
+    /// Encoded/decoded by serializers as &quot;REFD&quot;.
     /// </summary>
     [EnumMember(Value = "REFD")]
     [IsoId("_kDeoRnyaEeGWJuGCfvwOsQ")]

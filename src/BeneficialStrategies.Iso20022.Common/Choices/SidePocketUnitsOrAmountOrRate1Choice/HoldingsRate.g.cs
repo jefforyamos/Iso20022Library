@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SidePocketUnitsOrAmountOrRate1Ch
     /// Percentage of the financial instrument quantity to be invested or redeemed in the side pocket or lot.
     /// </summary>
     [IsoId("_Rhe-5Np-Ed-ak6NoX_4Aeg_659901338")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holdings Rate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SidePocketUnitsOrAmountOrRate1Ch
         /// Rate expressed as a percentage, that is, in hundredths, for example, 0.7 is 7/10 of a percent, and 7.0 is 7%.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="HldgsRate")]
         #endif
+        [IsoXmlTag("HldgsRate")]
+        [IsoSimpleType(IsoSimpleType.PercentageRate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoPercentageRate Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Value { get; init; } 
+        public required System.Decimal Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Value { get; init; } 
         #else

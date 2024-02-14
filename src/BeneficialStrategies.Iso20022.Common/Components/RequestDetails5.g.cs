@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Report of the requested data.
 /// </summary>
 [IsoId("_SumZGwEcEeCQm6a_G2yO_w_1103821784")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record RequestDetails5
     /// Type of data requested, for example, a sub-member BIC.
     /// </summary>
     [IsoId("_SuwKEAEcEeCQm6a_G2yO_w_1937892344")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Type { get; init; } 
+    public required System.String Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Type { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record RequestDetails5
     /// Reference to the request for which the report is sent.
     /// </summary>
     [IsoId("_SuwKEQEcEeCQm6a_G2yO_w_-179622077")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ReqRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RequestReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RequestReference { get; init; } 
+    public required System.String RequestReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RequestReference { get; init; } 
     #else
@@ -98,12 +92,11 @@ public partial record RequestDetails5
     /// Report key and returned data.
     /// </summary>
     [IsoId("_SuwKEgEcEeCQm6a_G2yO_w_1731831000")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Key")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptKey")]
     #endif
+    [IsoXmlTag("RptKey")]
     public RequestDetails4? ReportKey { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SuwKEgEcEeCQm6a_G2yO_w_1731831000
     

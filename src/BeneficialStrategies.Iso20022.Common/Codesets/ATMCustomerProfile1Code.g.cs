@@ -21,7 +21,7 @@ public enum ATMCustomerProfile1Code
 {
     /// <summary>
     /// Customer profile is deduced from the card data and the local configuration.
-    /// Encoded/decoded by serializers as "CRDF".
+    /// Encoded/decoded by serializers as &quot;CRDF&quot;.
     /// </summary>
     [EnumMember(Value = "CRDF")]
     [IsoId("_kD1O8YoZEeSirOZJBRz_nA")]
@@ -30,7 +30,7 @@ public enum ATMCustomerProfile1Code
     
     /// <summary>
     /// Customer profile is sent via an account enquiry selecting an account.
-    /// Encoded/decoded by serializers as "OREQ".
+    /// Encoded/decoded by serializers as &quot;OREQ&quot;.
     /// </summary>
     [EnumMember(Value = "OREQ")]
     [IsoId("_kMZ8IYoZEeSirOZJBRz_nA")]
@@ -39,7 +39,7 @@ public enum ATMCustomerProfile1Code
     
     /// <summary>
     /// Customer profile is built via a specific profile message exchange.
-    /// Encoded/decoded by serializers as "PREQ".
+    /// Encoded/decoded by serializers as &quot;PREQ&quot;.
     /// </summary>
     [EnumMember(Value = "PREQ")]
     [IsoId("_kUNNQYoZEeSirOZJBRz_nA")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError7Choice
     /// Requested information on the limit.
     /// </summary>
     [IsoId("_T9Cs0ZliEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError7Choice
         /// Amount of money of the limit, expressed in an eligible currency.
         /// </summary>
         [IsoId("_UFVtM5liEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Amount2Choice_ Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Amount2Choice_ Amount { get; init; } 
+        public required Amount2Choice_ Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Amount2Choice_ Amount { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError7Choice
         /// Status of the limit, such as enabled or disabled.
         /// </summary>
         [IsoId("_UFVtNZliEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sts")]
         #endif
+        [IsoXmlTag("Sts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReservationStatus1Choice_? Status { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError7Choice
         /// Date and time at which the reservation becomes effective.
         /// </summary>
         [IsoId("_UFVtN5liEeeE1Ya-LgRsuQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Start Date Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StartDtTm")]
         #endif
+        [IsoXmlTag("StartDtTm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndDateTime2Choice_? StartDateTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

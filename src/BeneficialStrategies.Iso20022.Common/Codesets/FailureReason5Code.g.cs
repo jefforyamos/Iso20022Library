@@ -21,7 +21,7 @@ public enum FailureReason5Code
 {
     /// <summary>
     /// General security error.
-    /// Encoded/decoded by serializers as "SECR".
+    /// Encoded/decoded by serializers as &quot;SECR&quot;.
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_4Y2kQYr-EeSvuOJS0mmL0g")]
@@ -30,7 +30,7 @@ public enum FailureReason5Code
     
     /// <summary>
     /// Hardware error on the device.
-    /// Encoded/decoded by serializers as "HRDW".
+    /// Encoded/decoded by serializers as &quot;HRDW&quot;.
     /// </summary>
     [EnumMember(Value = "HRDW")]
     [IsoId("_-lfssYr-EeSvuOJS0mmL0g")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a message previously sent.
 /// </summary>
 [IsoId("_-Cue8nltEeG7BsjMvd1mEw_1352240882")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Original Message")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,22 +50,20 @@ public partial record OriginalMessage1
     #nullable enable
     
     /// <summary>
-    /// XML schema-instance namespace, for example "tsin.008.001.01".
+    /// XML schema-instance namespace, for example &quot;tsin.008.001.01&quot;.
     /// </summary>
     [IsoId("_-Cue83ltEeG7BsjMvd1mEw_-699317533")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Definition Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgDefIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgDefIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageDefinitionIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageDefinitionIdentifier { get; init; } 
+    public required System.String MessageDefinitionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageDefinitionIdentifier { get; init; } 
     #else
@@ -78,16 +74,15 @@ public partial record OriginalMessage1
     /// Message sender specified in the original message.|
     /// </summary>
     [IsoId("_-Cue9HltEeG7BsjMvd1mEw_-135925947")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fr")]
     #endif
+    [IsoXmlTag("Fr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party9Choice_ From { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party9Choice_ From { get; init; } 
+    public required Party9Choice_ From { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party9Choice_ From { get; init; } 
     #else
@@ -98,16 +93,15 @@ public partial record OriginalMessage1
     /// Message recipient specified in the original message.
     /// </summary>
     [IsoId("_-Cue9XltEeG7BsjMvd1mEw_-844084979")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="To")]
     #endif
+    [IsoXmlTag("To")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party9Choice_ To { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party9Choice_ To { get; init; } 
+    public required Party9Choice_ To { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party9Choice_ To { get; init; } 
     #else
@@ -118,19 +112,17 @@ public partial record OriginalMessage1
     /// Message identification specified in the original message.
     /// </summary>
     [IsoId("_-Cue9nltEeG7BsjMvd1mEw_-2054731857")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Message Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizMsgIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BizMsgIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text BusinessMessageIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BusinessMessageIdentifier { get; init; } 
+    public required System.String BusinessMessageIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BusinessMessageIdentifier { get; init; } 
     #else
@@ -141,16 +133,16 @@ public partial record OriginalMessage1
     /// Message creation date and time specified in the original message.
     /// </summary>
     [IsoId("_-C4P8HltEeG7BsjMvd1mEw_1720315394")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDt")]
     #endif
+    [IsoXmlTag("CreDt")]
+    [IsoSimpleType(IsoSimpleType.ISONormalisedDateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISONormalisedDateTime CreationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDate { get; init; } 
+    public required System.DateTime CreationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDate { get; init; } 
     #else
@@ -161,12 +153,11 @@ public partial record OriginalMessage1
     /// Indicates whether the message is a copy, a duplicate or a copy of a duplicate of a previously sent ISO 20022 message.
     /// </summary>
     [IsoId("_-C4P8XltEeG7BsjMvd1mEw_-1157358019")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Duplicate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDplct")]
     #endif
+    [IsoXmlTag("CpyDplct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

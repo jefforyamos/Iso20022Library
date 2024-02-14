@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ATMCommandParameters1Choice.ExpectedMessageFunction))]
     [KnownType(typeof(ATMCommandParameters1Choice.RequiredConfigurationParameter))]
     [IsoId("_JTG3oIqLEeSRT5rEzcAHEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Command Parameters 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

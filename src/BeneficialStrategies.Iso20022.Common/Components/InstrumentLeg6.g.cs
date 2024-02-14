@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additionnal details related to the leg.
 /// </summary>
 [IsoId("_Na1yQQ8qEeSFHsNYty4C9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instrument Leg")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -64,16 +62,15 @@ public partial record InstrumentLeg6
     /// Coded list to specify the side of the trade leg.
     /// </summary>
     [IsoId("_fSM1YA8qEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegSd")]
     #endif
+    [IsoXmlTag("LegSd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Side1Code LegSide { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Side1Code LegSide { get; init; } 
+    public required Side1Code LegSide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Side1Code LegSide { get; init; } 
     #else
@@ -84,16 +81,15 @@ public partial record InstrumentLeg6
     /// Specifies the date of settlement, in coded form.
     /// </summary>
     [IsoId("__p-20IaQEeSzIqahkBT6cQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Settlement Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegSttlmTp")]
     #endif
+    [IsoXmlTag("LegSttlmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementDateCode LegSettlementType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementDateCode LegSettlementType { get; init; } 
+    public required SettlementDateCode LegSettlementType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementDateCode LegSettlementType { get; init; } 
     #else
@@ -104,16 +100,16 @@ public partial record InstrumentLeg6
     /// Specifies the date and time on which the trade will be settled.
     /// </summary>
     [IsoId("_vY7BUA8qEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegSttlmDt")]
     #endif
+    [IsoXmlTag("LegSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime LegSettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime LegSettlementDate { get; init; } 
+    public required System.DateTime LegSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime LegSettlementDate { get; init; } 
     #else
@@ -124,16 +120,16 @@ public partial record InstrumentLeg6
     /// Execution price of trade leg.
     /// </summary>
     [IsoId("_2PdbUA8qEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Last Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegLastPric")]
     #endif
+    [IsoXmlTag("LegLastPric")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd13DecimalAmount LegLastPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal LegLastPrice { get; init; } 
+    public required System.Decimal LegLastPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal LegLastPrice { get; init; } 
     #else
@@ -144,16 +140,15 @@ public partial record InstrumentLeg6
     /// Settlement currency of trade leg, agreed by both sides of the trade.
     /// </summary>
     [IsoId("__f7hIA8qEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegSttlmCcy")]
     #endif
+    [IsoXmlTag("LegSttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode LegSettlementCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string LegSettlementCurrency { get; init; } 
+    public required string LegSettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string LegSettlementCurrency { get; init; } 
     #else
@@ -164,16 +159,16 @@ public partial record InstrumentLeg6
     /// Amount of trade leg in trading currency.
     /// </summary>
     [IsoId("_CxIzMA8rEeSFHsNYty4C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Order Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegOrdrQty")]
     #endif
+    [IsoXmlTag("LegOrdrQty")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount LegOrderQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal LegOrderQuantity { get; init; } 
+    public required System.Decimal LegOrderQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal LegOrderQuantity { get; init; } 
     #else
@@ -184,16 +179,16 @@ public partial record InstrumentLeg6
     /// Forward points added to last spot rate. May be a negative value. Expressed in decimal form.
     /// </summary>
     [IsoId("_cQ3uABF9EeSahYR-dAI4lQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Forward Points")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegFwdPts")]
     #endif
+    [IsoXmlTag("LegFwdPts")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoDecimalNumber LegForwardPoints { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 LegForwardPoints { get; init; } 
+    public required System.UInt64 LegForwardPoints { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 LegForwardPoints { get; init; } 
     #else
@@ -204,16 +199,16 @@ public partial record InstrumentLeg6
     /// Used for the calculated quantity of the other side of the currency trade. Can be derived from leg order quantity and leg last price.
     /// </summary>
     [IsoId("_k8h2kBF9EeSahYR-dAI4lQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Calculated Counterparty Currency Last Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegClctdCtrPtyCcyLastQty")]
     #endif
+    [IsoXmlTag("LegClctdCtrPtyCcyLastQty")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    public required System.Decimal LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #else
@@ -224,16 +219,16 @@ public partial record InstrumentLeg6
     /// Measurement of the leg trade values in terms of a currency (for example, the amount of trade in US dollars).
     /// </summary>
     [IsoId("_s_18ACKwEeSdYc3boV3myw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Risk Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegRskAmt")]
     #endif
+    [IsoXmlTag("LegRskAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount LegRiskAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal LegRiskAmount { get; init; } 
+    public required System.Decimal LegRiskAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal LegRiskAmount { get; init; } 
     #else
@@ -244,16 +239,15 @@ public partial record InstrumentLeg6
     /// Specifies the valuation rate used for the trade leg.
     /// </summary>
     [IsoId("_IF3X0BF-EeSahYR-dAI4lQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Valuation Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegValtnRate")]
     #endif
+    [IsoXmlTag("LegValtnRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgreedRate3 LegValuationRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AgreedRate3 LegValuationRate { get; init; } 
+    public required AgreedRate3 LegValuationRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AgreedRate3 LegValuationRate { get; init; } 
     #else
@@ -264,16 +258,16 @@ public partial record InstrumentLeg6
     /// Specifies the value date of leg spot transaction.
     /// </summary>
     [IsoId("_ZO4uQBF-EeSahYR-dAI4lQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegValDt")]
     #endif
+    [IsoXmlTag("LegValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate LegValueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly LegValueDate { get; init; } 
+    public required System.DateOnly LegValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly LegValueDate { get; init; } 
     #else
@@ -284,16 +278,15 @@ public partial record InstrumentLeg6
     /// Currency trade is conducted.
     /// </summary>
     [IsoId("_bhg4MBF-EeSahYR-dAI4lQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegCcy")]
     #endif
+    [IsoXmlTag("LegCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyCode LegCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string LegCurrency { get; init; } 
+    public required string LegCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string LegCurrency { get; init; } 
     #else
@@ -304,19 +297,17 @@ public partial record InstrumentLeg6
     /// Symbol of the leg trade.
     /// </summary>
     [IsoId("_0OwKYEeqEeSMv54C-KRx9A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Symbol")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegSymb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LegSymb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text LegSymbol { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LegSymbol { get; init; } 
+    public required System.String LegSymbol { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LegSymbol { get; init; } 
     #else
@@ -327,16 +318,15 @@ public partial record InstrumentLeg6
     /// Security identification of the leg trade.
     /// </summary>
     [IsoId("_Hj3xAID7EeSQoe-8fZQlpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegSctyId")]
     #endif
+    [IsoXmlTag("LegSctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification18 LegSecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification18 LegSecurityIdentification { get; init; } 
+    public required SecurityIdentification18 LegSecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification18 LegSecurityIdentification { get; init; } 
     #else

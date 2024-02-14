@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catp;
 /// </summary>
 [Description(@"The ATMCompletionAdvice message is sent by an ATM to an acquirer or its agent to inform of the result of a transaction performed on the ATM.")]
 [IsoId("_N-kp4a4SEeWZgJQOa6iKCQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Completion Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMCompletionAdviceV02 : IOuterRecord<ATMCompletionAdviceV
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_N-kp464SEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header32 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header32 Header { get; init; } 
+    public required Header32 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header32 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMCompletionAdviceV02 : IOuterRecord<ATMCompletionAdviceV
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_N-kp5a4SEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATM Completion Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMCmpltnAdvc")]
     #endif
+    [IsoXmlTag("PrtctdATMCmpltnAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMCompletionAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMCompletionAdviceV02 : IOuterRecord<ATMCompletionAdviceV
     /// Information related to the completion of an operation on the ATM.
     /// </summary>
     [IsoId("_N-kp564SEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Completion Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMCmpltnAdvc")]
     #endif
+    [IsoXmlTag("ATMCmpltnAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCompletionAdvice2? ATMCompletionAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMCompletionAdviceV02 : IOuterRecord<ATMCompletionAdviceV
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_N-kp6a4SEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMCompletionAdviceV02 : IOuterRecord<ATMCompletionAdviceV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMCompletionAdviceV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMCompletionAdviceV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMCompletionAdviceV02Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMCompletionAdviceV02 : IOuterRecord<ATMCompletionAdviceV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMCompletionAdviceV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMCompletionAdviceV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMCompletionAdviceV02Document : IOuterDocument<ATMCompletionAdviceV02>
@@ -176,7 +170,7 @@ public partial record ATMCompletionAdviceV02Document : IOuterDocument<ATMComplet
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMCompletionAdviceV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMCompletionAdviceV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCompletionAdviceV02 Message { get; init; }

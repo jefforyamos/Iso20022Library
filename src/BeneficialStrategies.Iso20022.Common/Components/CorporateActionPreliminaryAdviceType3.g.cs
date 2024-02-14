@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Type of movement preliminary advice document.
 /// </summary>
 [IsoId("_QE2AMTQSEe2o-K1dwNg8Gg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Preliminary Advice Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CorporateActionPreliminaryAdviceType3
     /// Type of movement preliminary advice, for example. new or replacement.
     /// </summary>
     [IsoId("_Qcr4cTQSEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
+    public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CorporateActionPreliminaryAdviceType3
     /// Specifies whether the message advises about the final eligible balance and entitlements or about an upcoming posting or reversal of securities and/or cash postings.
     /// </summary>
     [IsoId("_97CFsDQSEe2o-K1dwNg8Gg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fctn")]
     #endif
+    [IsoXmlTag("Fctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
+    public required CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
     #else

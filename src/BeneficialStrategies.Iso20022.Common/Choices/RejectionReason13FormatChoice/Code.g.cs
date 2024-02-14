@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason13FormatChoice
     /// Standard code to specify the reason of a rejection of a movement.
     /// </summary>
     [IsoId("_RoMq49p-Ed-ak6NoX_4Aeg_331296664")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason13FormatChoice
         /// Specifies the reason of a rejection of a movement.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RejectionReason13Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RejectionReason13Code Value { get; init; } 
+        public required RejectionReason13Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RejectionReason13Code Value { get; init; } 
         #else

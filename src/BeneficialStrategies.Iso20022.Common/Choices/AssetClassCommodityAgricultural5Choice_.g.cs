@@ -28,9 +28,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityAgricultural5Choice.Grain))]
     [KnownType(typeof(AssetClassCommodityAgricultural5Choice.Other))]
     [IsoId("_Nm1ZsbveEeiLRYqS-r-R-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity Agricultural 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

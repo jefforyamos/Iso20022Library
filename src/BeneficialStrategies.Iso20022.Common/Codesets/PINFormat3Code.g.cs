@@ -21,7 +21,7 @@ public enum PINFormat3Code
 {
     /// <summary>
     /// PIN diversified with the card account number, conforming to the standard ISO 9564-2.
-    /// Encoded/decoded by serializers as "ISO0".
+    /// Encoded/decoded by serializers as &quot;ISO0&quot;.
     /// </summary>
     [EnumMember(Value = "ISO0")]
     [IsoId("_WUeo8S_tEeO4w-IWHJMI9g")]
@@ -30,7 +30,7 @@ public enum PINFormat3Code
     
     /// <summary>
     /// PIN completed with random padding characters, conforming to the standard ISO 9564-2.
-    /// Encoded/decoded by serializers as "ISO1".
+    /// Encoded/decoded by serializers as &quot;ISO1&quot;.
     /// </summary>
     [EnumMember(Value = "ISO1")]
     [IsoId("_WUeo8y_tEeO4w-IWHJMI9g")]
@@ -39,7 +39,7 @@ public enum PINFormat3Code
     
     /// <summary>
     /// PIN without diversification characters, conforming to the standard ISO 9564-2.
-    /// Encoded/decoded by serializers as "ISO2".
+    /// Encoded/decoded by serializers as &quot;ISO2&quot;.
     /// </summary>
     [EnumMember(Value = "ISO2")]
     [IsoId("_WUeo9S_tEeO4w-IWHJMI9g")]
@@ -48,7 +48,7 @@ public enum PINFormat3Code
     
     /// <summary>
     /// PIN diversified with the card account number and random characters, conforming to the standard ISO 9564-2.
-    /// Encoded/decoded by serializers as "ISO3".
+    /// Encoded/decoded by serializers as &quot;ISO3&quot;.
     /// </summary>
     [EnumMember(Value = "ISO3")]
     [IsoId("_WUeo9y_tEeO4w-IWHJMI9g")]
@@ -57,7 +57,7 @@ public enum PINFormat3Code
     
     /// <summary>
     /// PIN format used with AES encryption, conforming to the new ISO SC2 format.
-    /// Encoded/decoded by serializers as "ISO4".
+    /// Encoded/decoded by serializers as &quot;ISO4&quot;.
     /// </summary>
     [EnumMember(Value = "ISO4")]
     [IsoId("_WUeo-S_tEeO4w-IWHJMI9g")]
@@ -66,7 +66,7 @@ public enum PINFormat3Code
     
     /// <summary>
     /// Alternative PIN format used with AES encryption, conforming to the new ISO SC2 format.
-    /// Encoded/decoded by serializers as "ISO5".
+    /// Encoded/decoded by serializers as &quot;ISO5&quot;.
     /// </summary>
     [EnumMember(Value = "ISO5")]
     [IsoId("_X1B1sS_tEeO4w-IWHJMI9g")]

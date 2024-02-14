@@ -21,7 +21,7 @@ public enum OrderRestrictions1Code
 {
     /// <summary>
     /// Purchase or sale of a large number of stocks. Originally called program trading when index funds and other institutional|investors began to embark on large-scale buying and selling campaigns or programs to replicate a target stock index. The|term includes computer aided stock market buying or selling programs, portfolio insurance and index arbitrage.
-    /// Encoded/decoded by serializers as "PROG".
+    /// Encoded/decoded by serializers as &quot;PROG&quot;.
     /// </summary>
     [EnumMember(Value = "PROG")]
     [IsoId("_aReN1Np-Ed-ak6NoX_4Aeg_1960362266")]
@@ -30,7 +30,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Program trade on a stock index. Simultaneous purchase and sale of an index future and the index underlying securities to|profit from intermarket spreads between the future and the index itself.
-    /// Encoded/decoded by serializers as "ARBT".
+    /// Encoded/decoded by serializers as &quot;ARBT&quot;.
     /// </summary>
     [EnumMember(Value = "ARBT")]
     [IsoId("_aReN1dp-Ed-ak6NoX_4Aeg_1960362301")]
@@ -39,7 +39,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Simultaneous purchase and sale of a large number of securities to profit from intermarket spreads between financial|instruments that do not include stock indexes.
-    /// Encoded/decoded by serializers as "NARB".
+    /// Encoded/decoded by serializers as &quot;NARB&quot;.
     /// </summary>
     [EnumMember(Value = "NARB")]
     [IsoId("_aReN1tp-Ed-ak6NoX_4Aeg_1960362319")]
@@ -48,7 +48,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Specialist or market maker registered as such on a registered stock exchange, or a market maker bidding and offering over-the-counter.
-    /// Encoded/decoded by serializers as "CMAR".
+    /// Encoded/decoded by serializers as &quot;CMAR&quot;.
     /// </summary>
     [EnumMember(Value = "CMAR")]
     [IsoId("_aReN19p-Ed-ak6NoX_4Aeg_1960362379")]
@@ -57,7 +57,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Specialist or market maker registered as such on a registered stock exchange, or a market maker acting based on a set of|rules applicable to a defined security.
-    /// Encoded/decoded by serializers as "SSPE".
+    /// Encoded/decoded by serializers as &quot;SSPE&quot;.
     /// </summary>
     [EnumMember(Value = "SSPE")]
     [IsoId("_aReN2Np-Ed-ak6NoX_4Aeg_1960362421")]
@@ -66,7 +66,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Specialist or market maker registered as such on a registered stock exchange, or a market maker acting based on a set of|rules applicable to a defined underlying security of a derivative product.
-    /// Encoded/decoded by serializers as "USPE".
+    /// Encoded/decoded by serializers as &quot;USPE&quot;.
     /// </summary>
     [EnumMember(Value = "USPE")]
     [IsoId("_aRn-0Np-Ed-ak6NoX_4Aeg_1960362456")]
@@ -75,7 +75,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Non domestic business entity, foreign government or regulatory jurisdiction.
-    /// Encoded/decoded by serializers as "FORE".
+    /// Encoded/decoded by serializers as &quot;FORE&quot;.
     /// </summary>
     [EnumMember(Value = "FORE")]
     [IsoId("_aRn-0dp-Ed-ak6NoX_4Aeg_1960362516")]
@@ -84,7 +84,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Participating entity not registered on an exchange.
-    /// Encoded/decoded by serializers as "EXMA".
+    /// Encoded/decoded by serializers as &quot;EXMA&quot;.
     /// </summary>
     [EnumMember(Value = "EXMA")]
     [IsoId("_aRn-0tp-Ed-ak6NoX_4Aeg_1960362776")]
@@ -93,7 +93,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Participating entity linked but not registered on an exchange.
-    /// Encoded/decoded by serializers as "MALI".
+    /// Encoded/decoded by serializers as &quot;MALI&quot;.
     /// </summary>
     [EnumMember(Value = "MALI")]
     [IsoId("_aRn-09p-Ed-ak6NoX_4Aeg_1960362828")]
@@ -102,7 +102,7 @@ public enum OrderRestrictions1Code
     
     /// <summary>
     /// Risk-free transaction consisting of purchasing an asset at one price and simultaneously selling that same asset at a higher|price, generating a profit on the difference.
-    /// Encoded/decoded by serializers as "RARB".
+    /// Encoded/decoded by serializers as &quot;RARB&quot;.
     /// </summary>
     [EnumMember(Value = "RARB")]
     [IsoId("_aRn-1Np-Ed-ak6NoX_4Aeg_1960362888")]

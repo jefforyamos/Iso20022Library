@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum PendingCancellationReason2Code
 {
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Z-Gl5dp-Ed-ak6NoX_4Aeg_608029315")]
@@ -30,7 +30,7 @@ public enum PendingCancellationReason2Code
     
     /// <summary>
     /// Prior payment credited to account based contractual income collection agreement has been collected from issuer.
-    /// Encoded/decoded by serializers as "PCNF".
+    /// Encoded/decoded by serializers as &quot;PCNF&quot;.
     /// </summary>
     [EnumMember(Value = "PCNF")]
     [IsoId("_Z-Gl5tp-Ed-ak6NoX_4Aeg_608031128")]
@@ -39,7 +39,7 @@ public enum PendingCancellationReason2Code
     
     /// <summary>
     /// Quantity of financial instruments does not match.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Z-Gl59p-Ed-ak6NoX_4Aeg_608031188")]

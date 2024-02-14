@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catp;
 /// </summary>
 [Description(@"The ATMCompletionAcknowledgement message is sent by an acquirer or its agent to an ATM to acknowledge the receipt of an ATMCompletionAdvice message.")]
 [IsoId("_x3hNsa4TEeWZgJQOa6iKCQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Completion Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ATMCompletionAcknowledgementV02 : IOuterRecord<ATMCompleti
     /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
     /// </summary>
     [IsoId("_x3hNs64TEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header32 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header32 Header { get; init; } 
+    public required Header32 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header32 Header { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ATMCompletionAcknowledgementV02 : IOuterRecord<ATMCompleti
     /// Encrypted body of the message.
     /// </summary>
     [IsoId("_x3hNta4TEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protected ATM Completion Acknowledgement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctdATMCmpltnAck")]
     #endif
+    [IsoXmlTag("PrtctdATMCmpltnAck")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType10? ProtectedATMCompletionAcknowledgement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ATMCompletionAcknowledgementV02 : IOuterRecord<ATMCompleti
     /// Information related to the acknowledgement of an ATM completion on the ATM. manager.
     /// </summary>
     [IsoId("_x3hNt64TEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Completion Acknowledgement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ATMCmpltnAck")]
     #endif
+    [IsoXmlTag("ATMCmpltnAck")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCompletionAcknowledgement2? ATMCompletionAcknowledgement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record ATMCompletionAcknowledgementV02 : IOuterRecord<ATMCompleti
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_x3hNua4TEeWZgJQOa6iKCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType15? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +143,7 @@ public partial record ATMCompletionAcknowledgementV02 : IOuterRecord<ATMCompleti
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ATMCompletionAcknowledgementV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ATMCompletionAcknowledgementV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ATMCompletionAcknowledgementV02Document ToDocument()
     {
@@ -159,7 +153,7 @@ public partial record ATMCompletionAcknowledgementV02 : IOuterRecord<ATMCompleti
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ATMCompletionAcknowledgementV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ATMCompletionAcknowledgementV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ATMCompletionAcknowledgementV02Document : IOuterDocument<ATMCompletionAcknowledgementV02>
@@ -176,7 +170,7 @@ public partial record ATMCompletionAcknowledgementV02Document : IOuterDocument<A
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ATMCompletionAcknowledgementV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ATMCompletionAcknowledgementV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCompletionAcknowledgementV02 Message { get; init; }

@@ -20,7 +20,7 @@ public enum BookPriorityIndicatorCode
 {
     /// <summary>
     /// Indicates that the book priority is unchanged.
-    /// Encoded/decoded by serializers as "UNCH".
+    /// Encoded/decoded by serializers as &quot;UNCH&quot;.
     /// </summary>
     [EnumMember(Value = "UNCH")]
     [IsoId("_bVIDM9p-Ed-ak6NoX_4Aeg_335335592")]
@@ -29,7 +29,7 @@ public enum BookPriorityIndicatorCode
     
     /// <summary>
     /// Indicates that the book priority is lost as a result of an order change.
-    /// Encoded/decoded by serializers as "LOST".
+    /// Encoded/decoded by serializers as &quot;LOST&quot;.
     /// </summary>
     [EnumMember(Value = "LOST")]
     [IsoId("_bVIDNNp-Ed-ak6NoX_4Aeg_335335601")]

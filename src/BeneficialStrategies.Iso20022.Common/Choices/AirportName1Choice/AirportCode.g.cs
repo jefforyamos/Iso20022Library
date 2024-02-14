@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice
     /// Identifies an airport by means of its IATA identification code. Example: LHR.
     /// </summary>
     [IsoId("_SsSlJNp-Ed-ak6NoX_4Aeg_-939167147")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Airport Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice
         /// Specifies a character string with a maximum length of 6 characters.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AirprtCd")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AirprtCd")]
+        [IsoSimpleType(IsoSimpleType.Max6Text)]
         [StringLength(maximumLength: 6 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax6Text Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

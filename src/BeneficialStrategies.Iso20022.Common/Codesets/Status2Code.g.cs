@@ -21,7 +21,7 @@ public enum Status2Code
 {
     /// <summary>
     /// Processing has been completed.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ZQggENp-Ed-ak6NoX_4Aeg_-539683848")]
@@ -30,7 +30,7 @@ public enum Status2Code
     
     /// <summary>
     /// Instruction is pending.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_ZQggEdp-Ed-ak6NoX_4Aeg_-475958869")]

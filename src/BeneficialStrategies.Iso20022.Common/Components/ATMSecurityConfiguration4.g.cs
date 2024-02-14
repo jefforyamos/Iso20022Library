@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration of the digital signatures if the security module is able to perform digital signatures with an asymmetric key.
 /// </summary>
 [IsoId("_u0cgsYr8EeSvuOJS0mmL0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Security Configuration")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record ATMSecurityConfiguration4
     /// Maximum number of certificates in a certificate path, the security module is able to manage.
     /// </summary>
     [IsoId("_HRDZgIr9EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Certificates")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxCerts")]
     #endif
+    [IsoXmlTag("MaxCerts")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumCertificates { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record ATMSecurityConfiguration4
     /// Maximum number of cosigners, the security module is able to manage in a digital signature.
     /// </summary>
     [IsoId("_LYwOsIr9EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Signatures")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxSgntrs")]
     #endif
+    [IsoXmlTag("MaxSgntrs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumSignatures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record ATMSecurityConfiguration4
     /// Digital signature algorithm the security module is able to manage.
     /// </summary>
     [IsoId("_vBzAOYr8EeSvuOJS0mmL0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntrAlgo")]
     #endif
+    [IsoXmlTag("DgtlSgntrAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Algorithm14Code? DigitalSignatureAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestPaymentSchedule1Choice
     /// Specifies an expected date and a due date for the interest payment.
     /// </summary>
     [IsoId("_u7i5ROFWEeSvv6t4Ka7B7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Range")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,15 +47,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestPaymentSchedule1Choice
         /// Unique and unambiguous identification of the interest payment schedule.
         /// </summary>
         [IsoId("_L71BfdOJEeSQ_-lmj1tzfw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Interest Schedule Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IntrstSchdlId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("IntrstSchdlId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? InterestScheduleIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,12 +66,12 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestPaymentSchedule1Choice
         /// Expected interest payment date.
         /// </summary>
         [IsoId("_L71Be9OJEeSQ_-lmj1tzfw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Expected Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="XpctdDt")]
         #endif
+        [IsoXmlTag("XpctdDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? ExpectedDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -88,12 +84,12 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestPaymentSchedule1Choice
         /// Latest date whereby the interest must be paid.
         /// </summary>
         [IsoId("_L71BfNOJEeSQ_-lmj1tzfw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Due Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DueDt")]
         #endif
+        [IsoXmlTag("DueDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? DueDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

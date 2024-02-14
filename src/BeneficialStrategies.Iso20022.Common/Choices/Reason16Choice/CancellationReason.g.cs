@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason16Choice
     /// Specifies the reason why the related instruction is cancelled, or the related cancellation request is executed.
     /// </summary>
     [IsoId("_kYkAdTnvEeWfSKvvZlhRKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

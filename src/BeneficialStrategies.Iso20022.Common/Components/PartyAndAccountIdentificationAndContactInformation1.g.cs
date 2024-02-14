@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Entity involved in an activity.
 /// </summary>
 [IsoId("_Pb-D4Np-Ed-ak6NoX_4Aeg_1550606090")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party And Account Identification And Contact Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PartyAndAccountIdentificationAndContactInformation1
     /// Identification of the party that legally owns the account.
     /// </summary>
     [IsoId("_Pb-D4dp-Ed-ak6NoX_4Aeg_1550606183")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification8 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification8 PartyIdentification { get; init; } 
+    public required PartyIdentification8 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification8 PartyIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PartyAndAccountIdentificationAndContactInformation1
     /// Identification of the account owned by the party.
     /// </summary>
     [IsoId("_Pb-D4tp-Ed-ak6NoX_4Aeg_1550606461")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,15 +82,14 @@ public partial record PartyAndAccountIdentificationAndContactInformation1
     #endif
     
     /// <summary>
-    /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
+    /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an &apos;artificial person&apos;).
     /// </summary>
     [IsoId("_Pb-D49p-Ed-ak6NoX_4Aeg_-620262996")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctInf")]
     #endif
+    [IsoXmlTag("CtctInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactIdentification1? ContactInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

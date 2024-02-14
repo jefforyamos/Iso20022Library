@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Country and residential status.
 /// </summary>
 [IsoId("_SyG5QNp-Ed-ak6NoX_4Aeg_-1650490428")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Country And Residential Status Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CountryAndResidentialStatusType1
     /// Country to which the residential status is applicable.
     /// </summary>
     [IsoId("_SyG5Qdp-Ed-ak6NoX_4Aeg_-1509192342")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode Country { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string Country { get; init; } 
+    public required string Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string Country { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CountryAndResidentialStatusType1
     /// Residential status of an individual, for example, non-permanent resident.
     /// </summary>
     [IsoId("_SyG5Qtp-Ed-ak6NoX_4Aeg_-1065902149")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Residential Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ResdtlSts")]
     #endif
+    [IsoXmlTag("ResdtlSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResidentialStatus1Code ResidentialStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResidentialStatus1Code ResidentialStatus { get; init; } 
+    public required ResidentialStatus1Code ResidentialStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResidentialStatus1Code ResidentialStatus { get; init; } 
     #else

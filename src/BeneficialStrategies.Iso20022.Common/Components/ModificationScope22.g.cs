@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_MQV_WwgqEeSUG-8hqXsVMQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope22
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
     [IsoId("_MqYP8QgqEeSUG-8hqXsVMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ModificationScopeIndication { get; init; } 
+    public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope22
     /// Identification of information which is part of a service level agreement.
     /// </summary>
     [IsoId("_MqYP8wgqEeSUG-8hqXsVMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Level Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcLvlAgrmt")]
     #endif
+    [IsoXmlTag("SvcLvlAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentToSend2 ServiceLevelAgreement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentToSend2 ServiceLevelAgreement { get; init; } 
+    public required DocumentToSend2 ServiceLevelAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentToSend2 ServiceLevelAgreement { get; init; } 
     #else

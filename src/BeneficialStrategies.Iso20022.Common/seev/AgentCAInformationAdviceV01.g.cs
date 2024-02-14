@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|This message is sent by a CSD to an issuer (or its agent) to provide information about the certification and/or the delivery details to the issuer (or its agent).|Usage|This message can be used in the case of a corporate action event without an election.|This message can also be used in the case of a corporate action event with election when the election details and the additional information cannot be provided in the same message. In this case, the Agent Corporate Action Election Advice Identification must be used to link this message to the election advice for which additional information is provided.")]
 [IsoId("_TODKy9EwEd-BzquC8wXy7w_-190409931")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent CA Information Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformat
     /// Identification assigned by the Sender to unambiguously identify the advice.
     /// </summary>
     [IsoId("_TODKzNEwEd-BzquC8wXy7w_1736726928")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformat
     /// Identification of the linked Agent CA Election Advice Identification.
     /// </summary>
     [IsoId("_TODKzdEwEd-BzquC8wXy7w_1770899654")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Election Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAElctnAdvcId")]
     #endif
+    [IsoXmlTag("AgtCAElctnAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification8? AgentCAElectionAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,16 +116,15 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformat
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TODKztEwEd-BzquC8wXy7w_582576991")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -140,16 +135,15 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformat
     /// Information about the account for which additional information is provided.
     /// </summary>
     [IsoId("_TODKz9EwEd-BzquC8wXy7w_-559361420")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctDtls")]
     #endif
+    [IsoXmlTag("AcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount7 AccountDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount7 AccountDetails { get; init; } 
+    public required SecuritiesAccount7 AccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount7 AccountDetails { get; init; } 
     #else
@@ -160,16 +154,15 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformat
     /// Additional information about the corporate action such as the delivery details.
     /// </summary>
     [IsoId("_TOM7wNEwEd-BzquC8wXy7w_196544282")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnAddtlInf")]
     #endif
+    [IsoXmlTag("CorpActnAddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionAdditionalInformation1 CorporateActionAdditionalInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionAdditionalInformation1 CorporateActionAdditionalInformation { get; init; } 
+    public required CorporateActionAdditionalInformation1 CorporateActionAdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionAdditionalInformation1 CorporateActionAdditionalInformation { get; init; } 
     #else
@@ -180,12 +173,11 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformat
     /// Contact responsible for the transaction identified in the message.
     /// </summary>
     [IsoId("_TOM7wdEwEd-BzquC8wXy7w_485761108")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctDtls")]
     #endif
+    [IsoXmlTag("CtctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContactPerson1? ContactDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,7 +190,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformat
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AgentCAInformationAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AgentCAInformationAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AgentCAInformationAdviceV01Document ToDocument()
     {
@@ -208,7 +200,7 @@ public partial record AgentCAInformationAdviceV01 : IOuterRecord<AgentCAInformat
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAInformationAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AgentCAInformationAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AgentCAInformationAdviceV01Document : IOuterDocument<AgentCAInformationAdviceV01>
@@ -225,7 +217,7 @@ public partial record AgentCAInformationAdviceV01Document : IOuterDocument<Agent
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AgentCAInformationAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AgentCAInformationAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentCAInformationAdviceV01 Message { get; init; }

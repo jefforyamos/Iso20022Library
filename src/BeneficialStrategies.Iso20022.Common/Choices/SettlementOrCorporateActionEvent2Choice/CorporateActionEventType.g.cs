@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementOrCorporateActionEvent
     /// Specifies the type of corporate event.
     /// </summary>
     [IsoId("_QtevFtp-Ed-ak6NoX_4Aeg_-1397096099")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

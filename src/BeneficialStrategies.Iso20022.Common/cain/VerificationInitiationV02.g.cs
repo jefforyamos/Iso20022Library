@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The VerificationInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer). It conveys information to a receiver requiring verification or authentication. ||||Examples of usages are: authentication of certificates, assurance levels of tokens, certificate management, address verification, account verification and cheque verification. It is also used to inform the receiver of a verification that has been completed on its behalf.")]
 [IsoId("_3L3tMYELEeu6D49Gi-ZPwQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Verification Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record VerificationInitiationV02 : IOuterRecord<VerificationIniti
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_3L3tM4ELEeu6D49Gi-ZPwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header60 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header60 Header { get; init; } 
+    public required Header60 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header60 Header { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record VerificationInitiationV02 : IOuterRecord<VerificationIniti
     /// Information related to the verification initiation.
     /// </summary>
     [IsoId("_3L3tNYELEeu6D49Gi-ZPwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VerificationInitiation2 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VerificationInitiation2 Body { get; init; } 
+    public required VerificationInitiation2 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VerificationInitiation2 Body { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record VerificationInitiationV02 : IOuterRecord<VerificationIniti
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_3L3tN4ELEeu6D49Gi-ZPwQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record VerificationInitiationV02 : IOuterRecord<VerificationIniti
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="VerificationInitiationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;VerificationInitiationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public VerificationInitiationV02Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record VerificationInitiationV02 : IOuterRecord<VerificationIniti
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="VerificationInitiationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;VerificationInitiationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record VerificationInitiationV02Document : IOuterDocument<VerificationInitiationV02>
@@ -163,7 +158,7 @@ public partial record VerificationInitiationV02Document : IOuterDocument<Verific
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="VerificationInitiationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;VerificationInitiationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VerificationInitiationV02 Message { get; init; }

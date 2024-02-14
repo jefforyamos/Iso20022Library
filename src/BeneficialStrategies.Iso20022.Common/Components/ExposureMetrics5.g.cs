@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Numeric variables calculated on market exposures.
 /// </summary>
 [IsoId("_e45Eca5QEeuo-IflVgGqiA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exposure Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ExposureMetrics5
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
     [IsoId("_fHfhIa5QEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Collateral Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCollAmt")]
     #endif
+    [IsoXmlTag("CshCollAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? CashCollateralAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ExposureMetrics5
     /// Market value of asset or collateral component.
     /// </summary>
     [IsoId("_fHfhI65QEeuo-IflVgGqiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollMktVal")]
     #endif
+    [IsoXmlTag("CollMktVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection53? CollateralMarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

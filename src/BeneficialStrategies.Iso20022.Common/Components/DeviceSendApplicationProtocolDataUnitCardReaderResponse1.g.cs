@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Card Reader Application Protocol Data Unit Response message.
 /// </summary>
 [IsoId("_W5rM4N6iEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Send Application Protocol Data Unit Card Reader Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderResponse1
     /// Class field of the Application Protocol Data Unit command (CLA).
     /// </summary>
     [IsoId("_yAfMsN6jEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Data")]
     #endif
+    [IsoXmlTag("Data")]
+    [IsoSimpleType(IsoSimpleType.Min1Max256Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMin1Max256Binary? Data { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +67,16 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderResponse1
     /// Status of a smartcard response to a command (SW1-SW2). Reference: ISO 7816-4.
     /// </summary>
     [IsoId("_BQhBMN6kEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardSts")]
     #endif
+    [IsoXmlTag("CardSts")]
+    [IsoSimpleType(IsoSimpleType.Min1Max256Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMin1Max256Binary CardStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] CardStatus { get; init; } 
+    public required System.Byte[] CardStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] CardStatus { get; init; } 
     #else

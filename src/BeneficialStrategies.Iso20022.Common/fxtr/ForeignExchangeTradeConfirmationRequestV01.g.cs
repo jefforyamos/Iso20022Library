@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// </summary>
 [Description(@"Scope| The ForeignExchangeTradeConfirmationRequest message is sent from a market participant to a Central matching utility (CMU) to request a foreign exchange(spot/forward/swap) trade confirmation.||Usage|The confirmation request is sent by the market participants to the CMU after they receiving the capture reports.|Note that a confirmation request could be cancelled or amended.")]
 [IsoId("_2qmO4ESCEeStEe_B2dcrqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange Trade Confirmation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     /// Message management information.
     /// </summary>
     [IsoId("_7SxT4ESCEeStEe_B2dcrqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header23 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header23 Header { get; init; } 
+    public required Header23 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header23 Header { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     /// Identifies the confirm request messge.
     /// </summary>
     [IsoId("_FSjWwESDEeStEe_B2dcrqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqId")]
     #endif
+    [IsoXmlTag("ReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RequestIdentification { get; init; } 
+    public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RequestIdentification { get; init; } 
     #else
@@ -126,16 +122,15 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     /// Details of the treasury trade confirmed.
     /// </summary>
     [IsoId("_IqUj0ESDEeStEe_B2dcrqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Detail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDtl")]
     #endif
+    [IsoXmlTag("TradDtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Trade2 TradeDetail { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Trade2 TradeDetail { get; init; } 
+    public required Trade2 TradeDetail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Trade2 TradeDetail { get; init; } 
     #else
@@ -146,16 +141,15 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     /// Identifies the type of confirmation message being sent.
     /// </summary>
     [IsoId("_x4TUcIsWEeS_1fMypAW06w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfTp")]
     #endif
+    [IsoXmlTag("ConfTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ConfirmationRequest1Code ConfirmationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ConfirmationRequest1Code ConfirmationType { get; init; } 
+    public required ConfirmationRequest1Code ConfirmationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ConfirmationRequest1Code ConfirmationType { get; init; } 
     #else
@@ -166,16 +160,15 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     /// Period of the inquiry.
     /// </summary>
     [IsoId("_11BnEESpEeSTS-T7FO4CUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryPrd")]
     #endif
+    [IsoXmlTag("QryPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Period4 QueryPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Period4 QueryPeriod { get; init; } 
+    public required Period4 QueryPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Period4 QueryPeriod { get; init; } 
     #else
@@ -186,19 +179,16 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     /// Start number in request result.
     /// </summary>
     [IsoId("_WDuD4KaZEeSR8qifggAitQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Start Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryStartNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("QryStartNb")]
+    [IsoSimpleType(IsoSimpleType.Max35NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35NumericText QueryStartNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String QueryStartNumber { get; init; } 
+    public required System.String QueryStartNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String QueryStartNumber { get; init; } 
     #else
@@ -209,16 +199,15 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     /// Specifies the inquiry status of the trade.
     /// </summary>
     [IsoId("_15tBMKadEeSR8qifggAitQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Trade Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryTradSts")]
     #endif
+    [IsoXmlTag("QryTradSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QueryTradeStatus1Code QueryTradeStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QueryTradeStatus1Code QueryTradeStatus { get; init; } 
+    public required QueryTradeStatus1Code QueryTradeStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QueryTradeStatus1Code QueryTradeStatus { get; init; } 
     #else
@@ -229,12 +218,11 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_upa4YKHlEeS69KkQis5bYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,7 +235,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ForeignExchangeTradeConfirmationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ForeignExchangeTradeConfirmationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ForeignExchangeTradeConfirmationRequestV01Document ToDocument()
     {
@@ -257,7 +245,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01 : IOuterRecord<
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeConfirmationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ForeignExchangeTradeConfirmationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ForeignExchangeTradeConfirmationRequestV01Document : IOuterDocument<ForeignExchangeTradeConfirmationRequestV01>
@@ -274,7 +262,7 @@ public partial record ForeignExchangeTradeConfirmationRequestV01Document : IOute
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ForeignExchangeTradeConfirmationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ForeignExchangeTradeConfirmationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForeignExchangeTradeConfirmationRequestV01 Message { get; init; }

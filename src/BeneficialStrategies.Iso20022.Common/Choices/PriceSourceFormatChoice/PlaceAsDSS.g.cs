@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice
     /// Source of a price quotation expressed with a propriety identification scheme.
     /// </summary>
     [IsoId("_RCDQ5tp-Ed-ak6NoX_4Aeg_1174932111")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place As DSS")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice
         /// Entity that assigns the identification.
         /// </summary>
         [IsoId("_P_b9Wtp-Ed-ak6NoX_4Aeg_691069232")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Issr")]
+        [IsoSimpleType(IsoSimpleType.Max8Text)]
         [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax8Text Issuer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Issuer { get; init; } 
+        public required System.String Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Issuer { get; init; } 
         #else
@@ -80,19 +76,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice
         /// Proprietary information, often a code, issued by the data source scheme issuer.
         /// </summary>
         [IsoId("_P_b9W9p-Ed-ak6NoX_4Aeg_691068172")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Inf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("Inf")]
+        [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExact4AlphaNumericText Information { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Information { get; init; } 
+        public required System.String Information { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Information { get; init; } 
         #else
@@ -103,15 +96,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice
         /// Additional information.
         /// </summary>
         [IsoId("_P_luUNp-Ed-ak6NoX_4Aeg_691069664")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Narrative")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nrrtv")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nrrtv")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Narrative { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

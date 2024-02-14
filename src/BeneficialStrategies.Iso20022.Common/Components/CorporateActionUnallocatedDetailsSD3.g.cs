@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding the corporate action event.
 /// </summary>
 [IsoId("_FHN1IaIoEeS6IulNYwkZBg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Unallocated Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionUnallocatedDetailsSD3
     /// Type of Participants positions distribution balance concerned in unallocated payment.
     /// </summary>
     [IsoId("_FRMQgaIoEeS6IulNYwkZBg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Distribution Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdDstrbtnBal")]
     #endif
+    [IsoXmlTag("UallctdDstrbtnBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedBalanceSD2Choice_? UnallocatedDistributionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionUnallocatedDetailsSD3
     /// Type of Participants positions redemption balance concerned in unallocated payment.
     /// </summary>
     [IsoId("_7oZOoKJFEeS6IulNYwkZBg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Redemption Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdRedBal")]
     #endif
+    [IsoXmlTag("UallctdRedBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedBalanceSD1? UnallocatedRedemptionBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionUnallocatedDetailsSD3
     /// Details of the securities transactions concerned in unallocated payment.
     /// </summary>
     [IsoId("_FRMQiaIoEeS6IulNYwkZBg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Securities Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdSctiesTxDtls")]
     #endif
+    [IsoXmlTag("UallctdSctiesTxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedSecuritiesTransactionDetailsSD4? UnallocatedSecuritiesTransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionUnallocatedDetailsSD3
     /// Details of the cash transactions concerned in unallocated payment.
     /// </summary>
     [IsoId("_FRMQkaIoEeS6IulNYwkZBg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unallocated Cash Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UallctdCshTxDtls")]
     #endif
+    [IsoXmlTag("UallctdCshTxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionUnallocatedCashTransactionDetailsSD3? UnallocatedCashTransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

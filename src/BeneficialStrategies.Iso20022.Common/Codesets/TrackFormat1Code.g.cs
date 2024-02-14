@@ -21,7 +21,7 @@ public enum TrackFormat1Code
 {
     /// <summary>
     /// American driver license.
-    /// Encoded/decoded by serializers as "AAMV".
+    /// Encoded/decoded by serializers as &quot;AAMV&quot;.
     /// </summary>
     [EnumMember(Value = "AAMV")]
     [IsoId("_zTyeUdkWEeiojJsa6FYyew")]
@@ -30,7 +30,7 @@ public enum TrackFormat1Code
     
     /// <summary>
     /// Magnetic Ink Character Recognition, using the CMC-7 font - ISO 1004 Line at the bottom of a check containing the bank account and the check number.
-    /// Encoded/decoded by serializers as "CMC7".
+    /// Encoded/decoded by serializers as &quot;CMC7&quot;.
     /// </summary>
     [EnumMember(Value = "CMC7")]
     [IsoId("_zXWvsdkWEeiojJsa6FYyew")]
@@ -39,7 +39,7 @@ public enum TrackFormat1Code
     
     /// <summary>
     /// Magnetic Ink Character Recognition, using the E-13B font) Line at the bottom of a check containing the bank account and the check number.
-    /// Encoded/decoded by serializers as "E13B".
+    /// Encoded/decoded by serializers as &quot;E13B&quot;.
     /// </summary>
     [EnumMember(Value = "E13B")]
     [IsoId("_zap7UdkWEeiojJsa6FYyew")]
@@ -48,7 +48,7 @@ public enum TrackFormat1Code
     
     /// <summary>
     /// ISO card track format - ISO 7813 - ISO 4909.
-    /// Encoded/decoded by serializers as "ISOF".
+    /// Encoded/decoded by serializers as &quot;ISOF&quot;.
     /// </summary>
     [EnumMember(Value = "ISOF")]
     [IsoId("_zfPgYdkWEeiojJsa6FYyew")]
@@ -57,7 +57,7 @@ public enum TrackFormat1Code
     
     /// <summary>
     /// Japanese track format I.
-    /// Encoded/decoded by serializers as "JIS1".
+    /// Encoded/decoded by serializers as &quot;JIS1&quot;.
     /// </summary>
     [EnumMember(Value = "JIS1")]
     [IsoId("_zh8PEdkWEeiojJsa6FYyew")]
@@ -66,7 +66,7 @@ public enum TrackFormat1Code
     
     /// <summary>
     /// Japanese track format II.
-    /// Encoded/decoded by serializers as "JIS2".
+    /// Encoded/decoded by serializers as &quot;JIS2&quot;.
     /// </summary>
     [EnumMember(Value = "JIS2")]
     [IsoId("_zlYkodkWEeiojJsa6FYyew")]

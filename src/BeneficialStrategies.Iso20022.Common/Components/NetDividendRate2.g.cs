@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cash dividend amount per equity after deductions or allowances have been made.
 /// </summary>
 [IsoId("_UPrqgNp-Ed-ak6NoX_4Aeg_2118430595")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Net Dividend Rate")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record NetDividendRate2
     /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
     /// </summary>
     [IsoId("_UPrqgdp-Ed-ak6NoX_4Aeg_-2120201442")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateTp")]
     #endif
+    [IsoXmlTag("RateTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NetDividendRateType1FormatChoice_ RateType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NetDividendRateType1FormatChoice_ RateType { get; init; } 
+    public required NetDividendRateType1FormatChoice_ RateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NetDividendRateType1FormatChoice_ RateType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record NetDividendRate2
     /// Value expressed as an amount.
     /// </summary>
     [IsoId("_UPrqgtp-Ed-ak6NoX_4Aeg_-2120201411")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
 [IsoId("_S0j3MQEcEeCQm6a_G2yO_w_1452898168")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Line Item Tax")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record LineItemTax1
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
     [IsoId("_S0toIAEcEeCQm6a_G2yO_w_525289040")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculated Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctdAmt")]
     #endif
+    [IsoXmlTag("ClctdAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? CalculatedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record LineItemTax1
     /// Type of tax applied.
     /// </summary>
     [IsoId("_S0toIQEcEeCQm6a_G2yO_w_698047193")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TpCd")]
     #endif
+    [IsoXmlTag("TpCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxTypeFormat1Choice_? TypeCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record LineItemTax1
     /// Date of the tax point date when this tax, levy or duty becomes applicable.
     /// </summary>
     [IsoId("_S0toIgEcEeCQm6a_G2yO_w_1128406293")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Point Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxPtDt")]
     #endif
+    [IsoXmlTag("TaxPtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? TaxPointDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record LineItemTax1
     /// Rate used to calculate the amount of this tax, levy or duty.
     /// </summary>
     [IsoId("_S0toIwEcEeCQm6a_G2yO_w_-316336554")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculated Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctdRate")]
     #endif
+    [IsoXmlTag("ClctdRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? CalculatedRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,18 +110,16 @@ public partial record LineItemTax1
     #endif
     
     /// <summary>
-    /// Code specifying the category to which this tax, levy or duty applies, such as codes for 'exempt from tax', 'standard rate', "free export item - tax not charged'.
+    /// Code specifying the category to which this tax, levy or duty applies, such as codes for &apos;exempt from tax&apos;, &apos;standard rate&apos;, &quot;free export item - tax not charged&apos;.
     /// </summary>
     [IsoId("_S0toJAEcEeCQm6a_G2yO_w_-344611001")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Category Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtgyCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CtgyCd")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? CategoryCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,15 +132,13 @@ public partial record LineItemTax1
     /// Category name, expressed as text, of the tax, levy or duty.
     /// </summary>
     [IsoId("_S0toJQEcEeCQm6a_G2yO_w_-1190517937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Category Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtgyNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CtgyNm")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CategoryName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

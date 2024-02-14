@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides corporate action option details about total instructed balance.
 /// </summary>
 [IsoId("_UFP8K9p-Ed-ak6NoX_4Aeg_468448382")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instructed Corporate Action Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,15 +52,12 @@ public partial record InstructedCorporateActionOption1
     /// Number identifying the available corporate action options.
     /// </summary>
     [IsoId("_UFP8LNp-Ed-ak6NoX_4Aeg_759357250")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OptnNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? OptionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +70,15 @@ public partial record InstructedCorporateActionOption1
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
     [IsoId("_UFP8Ldp-Ed-ak6NoX_4Aeg_102350922")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionOption2Choice_ OptionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionOption2Choice_ OptionType { get; init; } 
+    public required CorporateActionOption2Choice_ OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionOption2Choice_ OptionType { get; init; } 
     #else
@@ -95,16 +89,15 @@ public partial record InstructedCorporateActionOption1
     /// Balance of instructed position.
     /// </summary>
     [IsoId("_UFP8Ltp-Ed-ak6NoX_4Aeg_784294036")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdBal")]
     #endif
+    [IsoXmlTag("InstdBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceFormat1Choice_ InstructedBalance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BalanceFormat1Choice_ InstructedBalance { get; init; } 
+    public required BalanceFormat1Choice_ InstructedBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BalanceFormat1Choice_ InstructedBalance { get; init; } 
     #else
@@ -115,12 +108,11 @@ public partial record InstructedCorporateActionOption1
     /// Indicates the default action related to a corporate action event.
     /// </summary>
     [IsoId("_UFP8L9p-Ed-ak6NoX_4Aeg_-2069184583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltActn")]
     #endif
+    [IsoXmlTag("DfltActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DefaultProcessingOrStandingInstruction1Choice_? DefaultAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -133,16 +125,16 @@ public partial record InstructedCorporateActionOption1
     /// Any deadline chosen by the account servicer (service level agreement).
     /// </summary>
     [IsoId("_UFP8MNp-Ed-ak6NoX_4Aeg_-1159962221")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deadline Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DdlnDtTm")]
     #endif
+    [IsoXmlTag("DdlnDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime DeadlineDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime DeadlineDateTime { get; init; } 
+    public required System.DateTime DeadlineDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime DeadlineDateTime { get; init; } 
     #else
@@ -153,16 +145,15 @@ public partial record InstructedCorporateActionOption1
     /// Specifies the type of deadline for instructing.
     /// </summary>
     [IsoId("_UFP8Mdp-Ed-ak6NoX_4Aeg_-1221015600")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deadline Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DdlnTp")]
     #endif
+    [IsoXmlTag("DdlnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DeadlineCode1Choice_ DeadlineType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DeadlineCode1Choice_ DeadlineType { get; init; } 
+    public required DeadlineCode1Choice_ DeadlineType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DeadlineCode1Choice_ DeadlineType { get; init; } 
     #else

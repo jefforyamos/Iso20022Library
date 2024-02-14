@@ -21,7 +21,7 @@ public enum OperationV2Code
 {
     /// <summary>
     /// Indicates that only when all if all of its elements are valid, the whole expression is valid.
-    /// Encoded/decoded by serializers as "ANDD".
+    /// Encoded/decoded by serializers as &quot;ANDD&quot;.
     /// </summary>
     [EnumMember(Value = "ANDD")]
     [IsoId("_gq4MwNGxEeaokquJJ-K6uA")]
@@ -30,7 +30,7 @@ public enum OperationV2Code
     
     /// <summary>
     /// Indicates that when at least one of its elements is valid, the whole expression is valid.
-    /// Encoded/decoded by serializers as "ORRR".
+    /// Encoded/decoded by serializers as &quot;ORRR&quot;.
     /// </summary>
     [EnumMember(Value = "ORRR")]
     [IsoId("_hCk7ENGxEeaokquJJ-K6uA")]
@@ -39,7 +39,7 @@ public enum OperationV2Code
     
     /// <summary>
     /// Indicates that only when both elements differ (one is valid, one is invalid), the whole expression is valid.
-    /// Encoded/decoded by serializers as "XORR".
+    /// Encoded/decoded by serializers as &quot;XORR&quot;.
     /// </summary>
     [EnumMember(Value = "XORR")]
     [IsoId("_hI1UENGxEeaokquJJ-K6uA")]
@@ -48,7 +48,7 @@ public enum OperationV2Code
     
     /// <summary>
     /// Indicates a range delimited by two variables.
-    /// Encoded/decoded by serializers as "TILL".
+    /// Encoded/decoded by serializers as &quot;TILL&quot;.
     /// </summary>
     [EnumMember(Value = "TILL")]
     [IsoId("_hWZO8NGxEeaokquJJ-K6uA")]

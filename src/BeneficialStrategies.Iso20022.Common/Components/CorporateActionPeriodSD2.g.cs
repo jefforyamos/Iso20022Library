@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding corporate action details periods details.
 /// </summary>
 [IsoId("_1hYa5jL3EeKU9IrkkToqcw_-1057782766")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Period SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionPeriodSD2
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1hhk0DL3EeKU9IrkkToqcw_503444309")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -71,15 +67,14 @@ public partial record CorporateActionPeriodSD2
     #endif
     
     /// <summary>
-    /// Period during which the securities can be submitted to reorganisation deposit service at DTC (The Depository Trust Corporation). DTC "first day for reorganisation deposit" (start date) is the day on which security is eligible for reorganisation deposit service at DTC. DTC "last day for reorganisation deposit" is the last day on which securities are eligible to be submitted for reorganisation deposit service at DTC.
+    /// Period during which the securities can be submitted to reorganisation deposit service at DTC (The Depository Trust Corporation). DTC &quot;first day for reorganisation deposit&quot; (start date) is the day on which security is eligible for reorganisation deposit service at DTC. DTC &quot;last day for reorganisation deposit&quot; is the last day on which securities are eligible to be submitted for reorganisation deposit service at DTC.
     /// </summary>
     [IsoId("_1hhk0TL3EeKU9IrkkToqcw_1230639143")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("DTC Reorganisation Deposit Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DTCReorgDpstPrd")]
     #endif
+    [IsoXmlTag("DTCReorgDpstPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period3? DTCReorganisationDepositPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

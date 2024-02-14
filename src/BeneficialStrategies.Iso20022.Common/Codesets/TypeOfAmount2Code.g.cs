@@ -21,7 +21,7 @@ public enum TypeOfAmount2Code
 {
     /// <summary>
     /// Cash-back amount.
-    /// Encoded/decoded by serializers as "CSHB".
+    /// Encoded/decoded by serializers as &quot;CSHB&quot;.
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_TUJ9OgEcEeCQm6a_G2yO_w_1893013307")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount2Code
     
     /// <summary>
     /// Gratuity amount.
-    /// Encoded/decoded by serializers as "GRTY".
+    /// Encoded/decoded by serializers as &quot;GRTY&quot;.
     /// </summary>
     [EnumMember(Value = "GRTY")]
     [IsoId("_TUJ9OwEcEeCQm6a_G2yO_w_1009780020")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount2Code
     
     /// <summary>
     /// Fees.
-    /// Encoded/decoded by serializers as "FEES".
+    /// Encoded/decoded by serializers as &quot;FEES&quot;.
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_TUJ9PAEcEeCQm6a_G2yO_w_-1680238167")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount2Code
     
     /// <summary>
     /// Global rebate of the transaction. This amount is counted as a negative amount.
-    /// Encoded/decoded by serializers as "RBTS".
+    /// Encoded/decoded by serializers as &quot;RBTS&quot;.
     /// </summary>
     [EnumMember(Value = "RBTS")]
     [IsoId("_TUJ9PQEcEeCQm6a_G2yO_w_1239804117")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount2Code
     
     /// <summary>
     /// Value added tax amount.
-    /// Encoded/decoded by serializers as "VATX".
+    /// Encoded/decoded by serializers as &quot;VATX&quot;.
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_TUJ9PgEcEeCQm6a_G2yO_w_1693891386")]

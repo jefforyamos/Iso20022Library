@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the type and amount of the cash reinvestment in a given currency.
 /// </summary>
 [IsoId("_TRivacKzEeuFNp8LZAnorg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reinvested Cash Type And Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReinvestedCashTypeAndAmount2
     /// Provides details on the type of the cash reinvestment in a given currency.
     /// </summary>
     [IsoId("_TS8dgcKzEeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReinvestmentType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReinvestmentType1Code Type { get; init; } 
+    public required ReinvestmentType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReinvestmentType1Code Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReinvestedCashTypeAndAmount2
     /// Medium of exchange of currency.
     /// </summary>
     [IsoId("_TS8dg8KzEeuFNp8LZAnorg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinvested Cash Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinvstdCshCcy")]
     #endif
+    [IsoXmlTag("RinvstdCshCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode ReinvestedCashCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string ReinvestedCashCurrency { get; init; } 
+    public required string ReinvestedCashCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string ReinvestedCashCurrency { get; init; } 
     #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ParticipationMethod1Choice
     /// Method of participation in the general meeting vote expressed as a code.
     /// </summary>
     [IsoId("_vfpIwK31EemG7MmivSuE5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ParticipationMethod1Choice
         /// Specifies a method for participating to the voting of agenda resolutions in a general meeting.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required VotingParticipationMethod1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public VotingParticipationMethod1Code Value { get; init; } 
+        public required VotingParticipationMethod1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public VotingParticipationMethod1Code Value { get; init; } 
         #else

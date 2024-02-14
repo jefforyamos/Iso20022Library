@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus4
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
     [IsoId("_tNku8SXZEeOFIcNWlDEvdQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus4
         /// Indicates whether the details provided about an event are complete or incomplete.
         /// </summary>
         [IsoId("_UKK4Z9p-Ed-ak6NoX_4Aeg_1527495156")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Event Completeness Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EvtCmpltnsSts")]
         #endif
+        [IsoXmlTag("EvtCmpltnsSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EventCompletenessStatus1Code EventCompletenessStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EventCompletenessStatus1Code EventCompletenessStatus { get; init; } 
+        public required EventCompletenessStatus1Code EventCompletenessStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EventCompletenessStatus1Code EventCompletenessStatus { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus4
         /// Indicates the status of the occurrence of an event.
         /// </summary>
         [IsoId("_UKK4aNp-Ed-ak6NoX_4Aeg_1457310397")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Event Confirmation Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EvtConfSts")]
         #endif
+        [IsoXmlTag("EvtConfSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EventConfirmationStatus1Code EventConfirmationStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EventConfirmationStatus1Code EventConfirmationStatus { get; init; } 
+        public required EventConfirmationStatus1Code EventConfirmationStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EventConfirmationStatus1Code EventConfirmationStatus { get; init; } 
         #else

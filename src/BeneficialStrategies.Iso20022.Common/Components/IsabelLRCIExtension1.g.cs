@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the LRCI protocol extension details.
 /// </summary>
 [IsoId("_FMiK8M_cEeWjSMe6YTKHlQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel LRCI Extension")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record IsabelLRCIExtension1
     /// Effective method for calculating the (cryptographic) hash value of each visual representation of a payment file.
     /// </summary>
     [IsoId("_ZZE8wM_cEeWjSMe6YTKHlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Image Hash Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ImgHashAlgo")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ImgHashAlgo")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text ImageHashAlgorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ImageHashAlgorithm { get; init; } 
+    public required System.String ImageHashAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ImageHashAlgorithm { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record IsabelLRCIExtension1
     /// Block of data on which the signature is calculated by the LRCI client.
     /// </summary>
     [IsoId("_o5QGEM_cEeWjSMe6YTKHlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknRspn")]
     #endif
+    [IsoXmlTag("TknRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsabelEpaymentTokenResponse1 TokenResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IsabelEpaymentTokenResponse1 TokenResponse { get; init; } 
+    public required IsabelEpaymentTokenResponse1 TokenResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IsabelEpaymentTokenResponse1 TokenResponse { get; init; } 
     #else
@@ -96,16 +91,16 @@ public partial record IsabelLRCIExtension1
     /// Index of the payment information element containing the hash of the visual representation and the hash of the payment file relevant for this signature.
     /// </summary>
     [IsoId("_4jCeYM_cEeWjSMe6YTKHlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Token Response Payment Information Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TknRspnPmtInfIndx")]
     #endif
+    [IsoXmlTag("TknRspnPmtInfIndx")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPositiveNumber TokenResponsePaymentInformationIndex { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 TokenResponsePaymentInformationIndex { get; init; } 
+    public required System.UInt64 TokenResponsePaymentInformationIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 TokenResponsePaymentInformationIndex { get; init; } 
     #else

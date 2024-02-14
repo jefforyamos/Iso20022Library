@@ -21,7 +21,7 @@ public enum UnableToApplyIncorrectInformation4Code
 {
     /// <summary>
     /// Related transaction reference is incorrect.
-    /// Encoded/decoded by serializers as "IN01".
+    /// Encoded/decoded by serializers as &quot;IN01&quot;.
     /// </summary>
     [EnumMember(Value = "IN01")]
     [IsoId("_hRURIUgsEeaGKYpLDboHPQ")]
@@ -30,7 +30,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment type service level is incorrect (former IncorrectBankOperationCode).
-    /// Encoded/decoded by serializers as "IN02".
+    /// Encoded/decoded by serializers as &quot;IN02&quot;.
     /// </summary>
     [EnumMember(Value = "IN02")]
     [IsoId("_hRURIEgsEeaGKYpLDboHPQ")]
@@ -39,7 +39,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment type category purpose is incorrect (former IncorrectInstructionCode).
-    /// Encoded/decoded by serializers as "IN03".
+    /// Encoded/decoded by serializers as &quot;IN03&quot;.
     /// </summary>
     [EnumMember(Value = "IN03")]
     [IsoId("_hRURCUgsEeaGKYpLDboHPQ")]
@@ -48,7 +48,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// RequestedExecutionDate is incorrect.
-    /// Encoded/decoded by serializers as "IN04".
+    /// Encoded/decoded by serializers as &quot;IN04&quot;.
     /// </summary>
     [EnumMember(Value = "IN04")]
     [IsoId("_hRURGEgsEeaGKYpLDboHPQ")]
@@ -57,7 +57,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Interbank settlement date is incorrect (former IncorrectValueDate).
-    /// Encoded/decoded by serializers as "IN05".
+    /// Encoded/decoded by serializers as &quot;IN05&quot;.
     /// </summary>
     [EnumMember(Value = "IN05")]
     [IsoId("_hRURJkgsEeaGKYpLDboHPQ")]
@@ -66,7 +66,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Interbank settlement amount is incorrect (former IncorrectSettledAmount).
-    /// Encoded/decoded by serializers as "IN06".
+    /// Encoded/decoded by serializers as &quot;IN06&quot;.
     /// </summary>
     [EnumMember(Value = "IN06")]
     [IsoId("_hRURI0gsEeaGKYpLDboHPQ")]
@@ -75,7 +75,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Debtor is incorrect.
-    /// Encoded/decoded by serializers as "IN07".
+    /// Encoded/decoded by serializers as &quot;IN07&quot;.
     /// </summary>
     [EnumMember(Value = "IN07")]
     [IsoId("_hRURJUgsEeaGKYpLDboHPQ")]
@@ -84,7 +84,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// DebtorAccount is incorrect.
-    /// Encoded/decoded by serializers as "IN08".
+    /// Encoded/decoded by serializers as &quot;IN08&quot;.
     /// </summary>
     [EnumMember(Value = "IN08")]
     [IsoId("_hRURLUgsEeaGKYpLDboHPQ")]
@@ -93,7 +93,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// InstructedReimbursementAgent is incorrect (former IncorrectReceiverCorrespondent).
-    /// Encoded/decoded by serializers as "IN09".
+    /// Encoded/decoded by serializers as &quot;IN09&quot;.
     /// </summary>
     [EnumMember(Value = "IN09")]
     [IsoId("_hRURFEgsEeaGKYpLDboHPQ")]
@@ -102,7 +102,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// ThirdReimbursementAgent is incorrect (former IncorrectThirdReimbursementInstitution).
-    /// Encoded/decoded by serializers as "IN10".
+    /// Encoded/decoded by serializers as &quot;IN10&quot;.
     /// </summary>
     [EnumMember(Value = "IN10")]
     [IsoId("_hRURK0gsEeaGKYpLDboHPQ")]
@@ -111,7 +111,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment type clearing channel is incorrect (former PaymentScheme).
-    /// Encoded/decoded by serializers as "IN11".
+    /// Encoded/decoded by serializers as &quot;IN11&quot;.
     /// </summary>
     [EnumMember(Value = "IN11")]
     [IsoId("_hRURLEgsEeaGKYpLDboHPQ")]
@@ -120,7 +120,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// CreditorAgentAccount is incorrect (former IncorrectAccountOfBeneficiaryInstitution).
-    /// Encoded/decoded by serializers as "IN12".
+    /// Encoded/decoded by serializers as &quot;IN12&quot;.
     /// </summary>
     [EnumMember(Value = "IN12")]
     [IsoId("_hRURDUgsEeaGKYpLDboHPQ")]
@@ -129,7 +129,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Creditor is incorrect.
-    /// Encoded/decoded by serializers as "IN13".
+    /// Encoded/decoded by serializers as &quot;IN13&quot;.
     /// </summary>
     [EnumMember(Value = "IN13")]
     [IsoId("_hRURG0gsEeaGKYpLDboHPQ")]
@@ -138,7 +138,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Creditor account is incorrect.
-    /// Encoded/decoded by serializers as "IN14".
+    /// Encoded/decoded by serializers as &quot;IN14&quot;.
     /// </summary>
     [EnumMember(Value = "IN14")]
     [IsoId("_hRURF0gsEeaGKYpLDboHPQ")]
@@ -147,7 +147,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// RemittanceInformation is incorrect.
-    /// Encoded/decoded by serializers as "IN15".
+    /// Encoded/decoded by serializers as &quot;IN15&quot;.
     /// </summary>
     [EnumMember(Value = "IN15")]
     [IsoId("_hRURKUgsEeaGKYpLDboHPQ")]
@@ -156,7 +156,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Transaction payment purpose is incorrect.
-    /// Encoded/decoded by serializers as "IN16".
+    /// Encoded/decoded by serializers as &quot;IN16&quot;.
     /// </summary>
     [EnumMember(Value = "IN16")]
     [IsoId("_hRURCkgsEeaGKYpLDboHPQ")]
@@ -165,7 +165,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// ChargeBearer is incorrect (former IncorrectDetailsOfCharges).
-    /// Encoded/decoded by serializers as "IN17".
+    /// Encoded/decoded by serializers as &quot;IN17&quot;.
     /// </summary>
     [EnumMember(Value = "IN17")]
     [IsoId("_hRURHUgsEeaGKYpLDboHPQ")]
@@ -174,7 +174,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Instruction for next agent is incorrect (former IncorrectSenderToReceiverInformation).
-    /// Encoded/decoded by serializers as "IN18".
+    /// Encoded/decoded by serializers as &quot;IN18&quot;.
     /// </summary>
     [EnumMember(Value = "IN18")]
     [IsoId("_hRURDkgsEeaGKYpLDboHPQ")]
@@ -183,7 +183,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Instruction for creditor agent is incorrect (former IncorrectInstructionForFinalAgent).
-    /// Encoded/decoded by serializers as "IN19".
+    /// Encoded/decoded by serializers as &quot;IN19&quot;.
     /// </summary>
     [EnumMember(Value = "IN19")]
     [IsoId("_hRURE0gsEeaGKYpLDboHPQ")]
@@ -192,7 +192,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Name and account of creditor are not matching.
-    /// Encoded/decoded by serializers as "MM20".
+    /// Encoded/decoded by serializers as &quot;MM20&quot;.
     /// </summary>
     [EnumMember(Value = "MM20")]
     [IsoId("_hRURH0gsEeaGKYpLDboHPQ")]
@@ -201,7 +201,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Name and account of debtor are not matching.
-    /// Encoded/decoded by serializers as "MM21".
+    /// Encoded/decoded by serializers as &quot;MM21&quot;.
     /// </summary>
     [EnumMember(Value = "MM21")]
     [IsoId("_hRURC0gsEeaGKYpLDboHPQ")]
@@ -210,7 +210,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Name and account of creditor agent (former FinalAgent) are not matching.
-    /// Encoded/decoded by serializers as "MM22".
+    /// Encoded/decoded by serializers as &quot;MM22&quot;.
     /// </summary>
     [EnumMember(Value = "MM22")]
     [IsoId("_hRUREEgsEeaGKYpLDboHPQ")]
@@ -219,7 +219,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment is pending execution. For reasons of regulatory requirements we request further information on the account number or unique identification of the debtor.
-    /// Encoded/decoded by serializers as "MM25".
+    /// Encoded/decoded by serializers as &quot;MM25&quot;.
     /// </summary>
     [EnumMember(Value = "MM25")]
     [IsoId("_hRURKkgsEeaGKYpLDboHPQ")]
@@ -228,7 +228,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment is pending execution. For reasons of regulatory requirements we request further information on the name and/or address of the debtor.
-    /// Encoded/decoded by serializers as "MM26".
+    /// Encoded/decoded by serializers as &quot;MM26&quot;.
     /// </summary>
     [EnumMember(Value = "MM26")]
     [IsoId("_hRURD0gsEeaGKYpLDboHPQ")]
@@ -237,7 +237,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment has been executed. For reasons of regulatory requirements we request further information on the account number or unique identification of the debtor.
-    /// Encoded/decoded by serializers as "MM27".
+    /// Encoded/decoded by serializers as &quot;MM27&quot;.
     /// </summary>
     [EnumMember(Value = "MM27")]
     [IsoId("_hRUREkgsEeaGKYpLDboHPQ")]
@@ -246,7 +246,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment has been executed. For reasons of regulatory requirements we request further information on the name and/or address of the debtor.
-    /// Encoded/decoded by serializers as "MM28".
+    /// Encoded/decoded by serializers as &quot;MM28&quot;.
     /// </summary>
     [EnumMember(Value = "MM28")]
     [IsoId("_hRURGkgsEeaGKYpLDboHPQ")]
@@ -255,7 +255,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment is pending execution. For reasons of regulatory requirements we request further information on the account number or unique identification of the creditor.
-    /// Encoded/decoded by serializers as "MM29".
+    /// Encoded/decoded by serializers as &quot;MM29&quot;.
     /// </summary>
     [EnumMember(Value = "MM29")]
     [IsoId("_hRURHEgsEeaGKYpLDboHPQ")]
@@ -264,7 +264,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment is pending execution. For reasons of regulatory requirements we request further information on the name and/or address of the creditor.
-    /// Encoded/decoded by serializers as "MM30".
+    /// Encoded/decoded by serializers as &quot;MM30&quot;.
     /// </summary>
     [EnumMember(Value = "MM30")]
     [IsoId("_hRURJEgsEeaGKYpLDboHPQ")]
@@ -273,7 +273,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment has been executed. For reasons of regulatory requirements we request further information on the account number or unique identification of the creditor.
-    /// Encoded/decoded by serializers as "MM31".
+    /// Encoded/decoded by serializers as &quot;MM31&quot;.
     /// </summary>
     [EnumMember(Value = "MM31")]
     [IsoId("_hRURJ0gsEeaGKYpLDboHPQ")]
@@ -282,7 +282,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment has been executed. For reasons of regulatory requirements we request further information on the name and/or address of the creditor.
-    /// Encoded/decoded by serializers as "MM32".
+    /// Encoded/decoded by serializers as &quot;MM32&quot;.
     /// </summary>
     [EnumMember(Value = "MM32")]
     [IsoId("_hRUREUgsEeaGKYpLDboHPQ")]
@@ -291,7 +291,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Amount in statement entry is incorrect.
-    /// Encoded/decoded by serializers as "IN33".
+    /// Encoded/decoded by serializers as &quot;IN33&quot;.
     /// </summary>
     [EnumMember(Value = "IN33")]
     [IsoId("_hRURGUgsEeaGKYpLDboHPQ")]
@@ -300,7 +300,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Insufficient charges details provided.
-    /// Encoded/decoded by serializers as "MM34".
+    /// Encoded/decoded by serializers as &quot;MM34&quot;.
     /// </summary>
     [EnumMember(Value = "MM34")]
     [IsoId("_hRURFkgsEeaGKYpLDboHPQ")]
@@ -309,7 +309,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Payment purpose needs to be further specified.
-    /// Encoded/decoded by serializers as "MM35".
+    /// Encoded/decoded by serializers as &quot;MM35&quot;.
     /// </summary>
     [EnumMember(Value = "MM35")]
     [IsoId("_hRURKEgsEeaGKYpLDboHPQ")]
@@ -318,7 +318,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// SettlementAccount is incorrect.
-    /// Encoded/decoded by serializers as "IN36".
+    /// Encoded/decoded by serializers as &quot;IN36&quot;.
     /// </summary>
     [EnumMember(Value = "IN36")]
     [IsoId("_hRURDEgsEeaGKYpLDboHPQ")]
@@ -327,7 +327,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// Instructing reimbursement agent is incorrect.
-    /// Encoded/decoded by serializers as "IN37".
+    /// Encoded/decoded by serializers as &quot;IN37&quot;.
     /// </summary>
     [EnumMember(Value = "IN37")]
     [IsoId("_hRURHkgsEeaGKYpLDboHPQ")]
@@ -335,8 +335,8 @@ public enum UnableToApplyIncorrectInformation4Code
     IncorrectInstructingReimbursementAgent = UnableToApplyIncorrectInformationV2Code.IncorrectInstructingReimbursementAgent, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Debtor's address is incorrect.
-    /// Encoded/decoded by serializers as "IN38".
+    /// Debtor&apos;s address is incorrect.
+    /// Encoded/decoded by serializers as &quot;IN38&quot;.
     /// </summary>
     [EnumMember(Value = "IN38")]
     [IsoId("_hRURFUgsEeaGKYpLDboHPQ")]
@@ -344,8 +344,8 @@ public enum UnableToApplyIncorrectInformation4Code
     IncorrectDebtorAddress = UnableToApplyIncorrectInformationV2Code.IncorrectDebtorAddress, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Creditor's address is incorrect.
-    /// Encoded/decoded by serializers as "IN39".
+    /// Creditor&apos;s address is incorrect.
+    /// Encoded/decoded by serializers as &quot;IN39&quot;.
     /// </summary>
     [EnumMember(Value = "IN39")]
     [IsoId("_hRURIkgsEeaGKYpLDboHPQ")]
@@ -354,7 +354,7 @@ public enum UnableToApplyIncorrectInformation4Code
     
     /// <summary>
     /// See narrative field for additional information.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_EY6FoUgtEeaGKYpLDboHPQ")]

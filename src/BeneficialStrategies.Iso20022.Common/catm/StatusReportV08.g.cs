@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.catm;
 /// </summary>
 [Description(@"Informs the master terminal manager (MTM) or the terminal manager (TM) about the status of the acceptor system including the identification of the POI, its components and their installed versions.")]
 [IsoId("_3YeBcfGQEeibbsF9Yi4diw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record StatusReportV08 : IOuterRecord<StatusReportV08,StatusRepor
     /// Set of characteristics related to the transfer of the status report.
     /// </summary>
     [IsoId("_3YeBdfGQEeibbsF9Yi4diw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header27 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header27 Header { get; init; } 
+    public required Header27 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header27 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record StatusReportV08 : IOuterRecord<StatusReportV08,StatusRepor
     /// Status of the point of interaction (POI), its components and their installed versions.
     /// </summary>
     [IsoId("_3YeBd_GQEeibbsF9Yi4diw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRpt")]
     #endif
+    [IsoXmlTag("StsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusReport8 StatusReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatusReport8 StatusReport { get; init; } 
+    public required StatusReport8 StatusReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatusReport8 StatusReport { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record StatusReportV08 : IOuterRecord<StatusReportV08,StatusRepor
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_3YeBefGQEeibbsF9Yi4diw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType18? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record StatusReportV08 : IOuterRecord<StatusReportV08,StatusRepor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatusReportV08Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatusReportV08Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatusReportV08Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record StatusReportV08 : IOuterRecord<StatusReportV08,StatusRepor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusReportV08"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatusReportV08&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatusReportV08Document : IOuterDocument<StatusReportV08>
@@ -161,7 +156,7 @@ public partial record StatusReportV08Document : IOuterDocument<StatusReportV08>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatusReportV08"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatusReportV08&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusReportV08 Message { get; init; }

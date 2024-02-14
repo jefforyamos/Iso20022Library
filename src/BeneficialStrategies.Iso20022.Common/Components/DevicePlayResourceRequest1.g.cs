@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Play Request message.
 /// </summary>
 [IsoId("_3pwzIC8GEeu125Ip9zFcsQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Play Resource Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record DevicePlayResourceRequest1
     /// Message response awaited by the initiator of the Request.
     /// </summary>
     [IsoId("_XQLAMS8HEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnMd")]
     #endif
+    [IsoXmlTag("RspnMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResponseMode2Code? ResponseMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record DevicePlayResourceRequest1
     /// Requested Action: Start to play a media resource, Stop to play a media resource, Set the default volume.
     /// </summary>
     [IsoId("_u_G6sy8HEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resource Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsrcActn")]
     #endif
+    [IsoXmlTag("RsrcActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResourceAction1Code ResourceAction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResourceAction1Code ResourceAction { get; init; } 
+    public required ResourceAction1Code ResourceAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResourceAction1Code ResourceAction { get; init; } 
     #else
@@ -89,12 +85,12 @@ public partial record DevicePlayResourceRequest1
     /// Volume of a sound, either in a percentage of the maximum volume, or 0 to mute.
     /// </summary>
     [IsoId("_u_G6tC8HEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sound Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SoundVol")]
     #endif
+    [IsoXmlTag("SoundVol")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? SoundVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +103,13 @@ public partial record DevicePlayResourceRequest1
     /// Resolution to use.
     /// </summary>
     [IsoId("_JPIR4C8IEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Resolution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispRsltn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DispRsltn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? DisplayResolution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +122,11 @@ public partial record DevicePlayResourceRequest1
     /// Identification of the resource to use.
     /// </summary>
     [IsoId("_u_G6tS8HEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resource")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsrc")]
     #endif
+    [IsoXmlTag("Rsrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ResourceContent1? Resource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +139,11 @@ public partial record DevicePlayResourceRequest1
     /// Identification of the moment to manage the media resource.
     /// </summary>
     [IsoId("_vqtnAC8IEeu125Ip9zFcsQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Timing Slot")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmgSlot")]
     #endif
+    [IsoXmlTag("TmgSlot")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition2Code? TimingSlot { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

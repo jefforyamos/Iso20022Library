@@ -19,9 +19,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(RestrictedProprietaryChoice.Proprietary))]
     [IsoId("_QJa_z9p-Ed-ak6NoX_4Aeg_1495589549")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restricted Proprietary Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

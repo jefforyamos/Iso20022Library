@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the instructions for order handling.
 /// </summary>
 [IsoId("_Tq4UXNp-Ed-ak6NoX_4Aeg_867867766")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Execution Instructions")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Round-lot market or limit-price order that must be executed in its entirety or not at all; unlike Fill or Kill orders, AON orders are not treated as canceled if they are not executed as soon as represented in the Trading Crowd.
     /// </summary>
     [IsoId("_TrBeQNp-Ed-ak6NoX_4Aeg_1554042022")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Or None")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllOrNn")]
     #endif
+    [IsoXmlTag("AllOrNn")]
+    [IsoSimpleType(IsoSimpleType.AllOrNoneIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoAllOrNoneIndicator? AllOrNone { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Refers to the client before trading in order to catch all verbal instructions on trading strategy usually because the strategy is too complex or cannot be represented in the trading application.
     /// </summary>
     [IsoId("_TrBeQdp-Ed-ak6NoX_4Aeg_1554042057")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Call First")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CallFrst")]
     #endif
+    [IsoXmlTag("CallFrst")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CallFirst { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Allow crossing of an order.
     /// </summary>
     [IsoId("_TrBeQtp-Ed-ak6NoX_4Aeg_1554042082")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cross")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cross")]
     #endif
+    [IsoXmlTag("Cross")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Cross { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +96,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Exchange or ECN required by the SEC to display limit orders in the public order book. A customer can choose not to have his limit order displayed to the public.
     /// </summary>
     [IsoId("_TrBeQ9p-Ed-ak6NoX_4Aeg_1554042365")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Display")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrDisp")]
     #endif
+    [IsoXmlTag("CstmrDisp")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CustomerDisplay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +114,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates whether the firm executing the order is held to best execution requirements and may be able to make some discretionary decisions.
     /// </summary>
     [IsoId("_TrBeRNp-Ed-ak6NoX_4Aeg_1554042425")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hold")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hld")]
     #endif
+    [IsoXmlTag("Hld")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Hold { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +132,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates whether the order is to be increased in shares on the ex-dividend date as a result of a stock dividend or distribution.
     /// </summary>
     [IsoId("_TrBeRdp-Ed-ak6NoX_4Aeg_1554042460")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Increase")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Incr")]
     #endif
+    [IsoXmlTag("Incr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Increase { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +150,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Identifies that the broker is restricted to dealing with other buy side firms.
     /// </summary>
     [IsoId("_TrBeRtp-Ed-ak6NoX_4Aeg_1554042503")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Institutions Only")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstnsOnly")]
     #endif
+    [IsoXmlTag("InstnsOnly")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? InstitutionsOnly { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +168,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Qualifies an asset (usually a payment instrument) of which rights cannot be transferred to a party other then the original debtor and creditor.
     /// </summary>
     [IsoId("_TrBeR9p-Ed-ak6NoX_4Aeg_1554042521")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Negotiable")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonNgtbl")]
     #endif
+    [IsoXmlTag("NonNgtbl")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? NonNegotiable { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +186,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates whether to execute parts of the order over the course of the day. Usually done with large block orders.
     /// </summary>
     [IsoId("_TrBeSNp-Ed-ak6NoX_4Aeg_1554042563")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Over The Day")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OverTheDay")]
     #endif
+    [IsoXmlTag("OverTheDay")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? OverTheDay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +204,12 @@ public partial record SecuritiesExecutionInstructions1
     /// An order that may participate in a transaction initiated by another party, but may not initiate a transaction.
     /// </summary>
     [IsoId("_TrBeSdp-Ed-ak6NoX_4Aeg_1554042598")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participate Dont Initiate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcpDontInit")]
     #endif
+    [IsoXmlTag("PtcpDontInit")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ParticipateDontInitiate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +222,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates that the Sender does not want all of the volume on the floor.
     /// </summary>
     [IsoId("_TrLPQNp-Ed-ak6NoX_4Aeg_1554042893")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percent Of Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctOfVol")]
     #endif
+    [IsoXmlTag("PctOfVol")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PercentOfVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +240,12 @@ public partial record SecuritiesExecutionInstructions1
     /// An order to buy (or sell) a financial instrument which specifies the total amount to be bought (or sold) and the amount to be bought (or sold) at specified price variations.
     /// </summary>
     [IsoId("_TrLPQdp-Ed-ak6NoX_4Aeg_1554042935")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scale")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Scale")]
     #endif
+    [IsoXmlTag("Scale")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Scale { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +258,11 @@ public partial record SecuritiesExecutionInstructions1
     /// Specifies the order limit based on the offer/bid at the time of the order submission.
     /// </summary>
     [IsoId("_TrLPQtp-Ed-ak6NoX_4Aeg_1554042970")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Stay On Side")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StayOnSd")]
     #endif
+    [IsoXmlTag("StayOnSd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StayOnSideType1Code? StayOnSide { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +275,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Make the order active until notified.
     /// </summary>
     [IsoId("_TrLPQ9p-Ed-ak6NoX_4Aeg_1554043013")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Work")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Work")]
     #endif
+    [IsoXmlTag("Work")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Work { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +293,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Used for listed equity securities. Buy or sell at prices that randomly occur on the floor, participating in what|trades the specialist and other players will allow.
     /// </summary>
     [IsoId("_TrLPRNp-Ed-ak6NoX_4Aeg_1554043048")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Go Along")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GoAlong")]
     #endif
+    [IsoXmlTag("GoAlong")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? GoAlong { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +311,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Order to buy (sell) a security that specifies the total amount to be bought (sold) and the amount to be bought (sold) at successively decreasing (increasing) price intervals; often placed in order to average the price.
     /// </summary>
     [IsoId("_TrLPRdp-Ed-ak6NoX_4Aeg_1554043373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Try Scale")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TryScale")]
     #endif
+    [IsoXmlTag("TryScale")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TryScale { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -329,15 +326,15 @@ public partial record SecuritiesExecutionInstructions1
     #endif
     
     /// <summary>
-    /// Indicates whether to buy, to stop order to sell, or to stop limit order to sell that is not to be reduced in price by the amount of an ordinary cash dividend on the ex-dividend date. A "do not reduce" order applies only to ordinary cash dividends; it should be reduced for other distributions - such as when a stock goes ex stock dividend or ex rights.
+    /// Indicates whether to buy, to stop order to sell, or to stop limit order to sell that is not to be reduced in price by the amount of an ordinary cash dividend on the ex-dividend date. A &quot;do not reduce&quot; order applies only to ordinary cash dividends; it should be reduced for other distributions - such as when a stock goes ex stock dividend or ex rights.
     /// </summary>
     [IsoId("_TrLPRtp-Ed-ak6NoX_4Aeg_1554043416")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Do Not Reduce")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DoNotRdc")]
     #endif
+    [IsoXmlTag("DoNotRdc")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? DoNotReduce { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -350,12 +347,12 @@ public partial record SecuritiesExecutionInstructions1
     /// If a system failure interrupts trading or order routing, attempt to cancel this order and attempt to reinstate this order, subject to time in force limitations. Note that depending on the type and severity of the failure, this might not be possible.
     /// </summary>
     [IsoId("_TrLPR9p-Ed-ak6NoX_4Aeg_1554043451")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancel On System Failure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CclOnSysFailr")]
     #endif
+    [IsoXmlTag("CclOnSysFailr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CancelOnSystemFailure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -368,12 +365,12 @@ public partial record SecuritiesExecutionInstructions1
     /// If trading in this instrument is halted, cancel this order and reinstate this order when/if trading resumes, subject to time in force limitations.
     /// </summary>
     [IsoId("_TrLPSNp-Ed-ak6NoX_4Aeg_1554043493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancel On Trading Halt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CclOnTradgHalt")]
     #endif
+    [IsoXmlTag("CclOnTradgHalt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CancelOnTradingHalt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -386,12 +383,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates whether the broker has permission to handle and place the order in the market even if the broker already has its own proprietary orders for the same financial instrument placed in the market.
     /// </summary>
     [IsoId("_TrLPSdp-Ed-ak6NoX_4Aeg_1554043588")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Along")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradAlong")]
     #endif
+    [IsoXmlTag("TradAlong")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? TradeAlong { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -404,12 +401,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Limit order that must be traded at the exact limit price specified without any price improvement.
     /// </summary>
     [IsoId("_TrVAQNp-Ed-ak6NoX_4Aeg_2003362450")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strict Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrctLmt")]
     #endif
+    [IsoXmlTag("StrctLmt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? StrictLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -422,12 +419,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Disables validity checking of price fields for an order or change request.
     /// </summary>
     [IsoId("_TrVAQdp-Ed-ak6NoX_4Aeg_2003363104")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ignore Price Validity Checks")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IgnrPricVldtyChcks")]
     #endif
+    [IsoXmlTag("IgnrPricVldtyChcks")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? IgnorePriceValidityChecks { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -440,12 +437,12 @@ public partial record SecuritiesExecutionInstructions1
     /// If a system failure interrupts trading or order routing, attempt to reinstate this order, subject to time in force limitations. Depending on the type and severity of the failure, this might not be possible.
     /// </summary>
     [IsoId("_TrVAQtp-Ed-ak6NoX_4Aeg_2003363476")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinstate On System Failure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinsttOnSysFailr")]
     #endif
+    [IsoXmlTag("RinsttOnSysFailr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ReinstateOnSystemFailure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -458,12 +455,12 @@ public partial record SecuritiesExecutionInstructions1
     /// If trading in this instrument is halted, reinstate this order when/if trading resumes, subject to time in force limitations.
     /// </summary>
     [IsoId("_TrVAQ9p-Ed-ak6NoX_4Aeg_2003363844")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reinstate On Trading Halt")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RinsttOnTradgHalt")]
     #endif
+    [IsoXmlTag("RinsttOnTradgHalt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ReinstateOnTradingHalt { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -476,12 +473,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates that an order should be cancelled if it is no longer the best bid if buying, or the best offer if selling.
     /// </summary>
     [IsoId("_TrVARNp-Ed-ak6NoX_4Aeg_2003364016")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancel If Not Best")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CclIfNotBest")]
     #endif
+    [IsoXmlTag("CclIfNotBest")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CancelIfNotBest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -494,12 +491,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates that an order sent to one market may be routed by that market to other external markets, especially in cases where the order locks or crosses the market and it can be executed against another markets superior price. The absence of this instruction does not imply that an order should not be routed externally; rather, the order receivers default will apply.
     /// </summary>
     [IsoId("_TrVARdp-Ed-ak6NoX_4Aeg_2003364346")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Routing Allowed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRtgAllwd")]
     #endif
+    [IsoXmlTag("XtrnlRtgAllwd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ExternalRoutingAllowed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -512,12 +509,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates that an order sent to one market may never be routed by that market to other external markets. Should the order lock or cross the market but be unable to execute due to price protection reasons, a market may have to take alternate action, which might include rejecting the order, depending on the markets rules.The absence of this instruction does not imply that an order should be routed externally; rather, the order receivers default will apply.
     /// </summary>
     [IsoId("_TrVARtp-Ed-ak6NoX_4Aeg_2003364466")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Routing Not Allowed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlRtgNotAllwd")]
     #endif
+    [IsoXmlTag("XtrnlRtgNotAllwd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ExternalRoutingNotAllowed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -530,12 +527,12 @@ public partial record SecuritiesExecutionInstructions1
     /// Indicates that the order can only hit the imbalance during a call auction. The imbalance is the remaining quantity when other buy and sell orders are matched at the auction clearing price.
     /// </summary>
     [IsoId("_TrVAR9p-Ed-ak6NoX_4Aeg_2003364844")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Imbalance Only")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ImbalOnly")]
     #endif
+    [IsoXmlTag("ImbalOnly")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ImbalanceOnly { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -545,15 +542,15 @@ public partial record SecuritiesExecutionInstructions1
     #endif
     
     /// <summary>
-    /// Indicates that the party sending the order has taken responsibility for price protection, and the recipient of the order should execute it, if possible, without regard to protection of other markets prices. While the term "Intermarket sweep" is specific to the United States, it may be used in other markets, where appropriate, to indicate an order that should be executed without regard to price protection.
+    /// Indicates that the party sending the order has taken responsibility for price protection, and the recipient of the order should execute it, if possible, without regard to protection of other markets prices. While the term &quot;Intermarket sweep&quot; is specific to the United States, it may be used in other markets, where appropriate, to indicate an order that should be executed without regard to price protection.
     /// </summary>
     [IsoId("_TrVASNp-Ed-ak6NoX_4Aeg_2003364964")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermarket Sweep")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrmktSweep")]
     #endif
+    [IsoXmlTag("IntrmktSweep")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? IntermarketSweep { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -563,15 +560,15 @@ public partial record SecuritiesExecutionInstructions1
     #endif
     
     /// <summary>
-    /// Used when sending multiple orders indicating that you would be 'netting' the F/X later.
+    /// Used when sending multiple orders indicating that you would be &apos;netting&apos; the F/X later.
     /// </summary>
     [IsoId("_TrVASdp-Ed-ak6NoX_4Aeg_2003365336")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Netting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Netg")]
     #endif
+    [IsoXmlTag("Netg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? Netting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum QueryDataType1Code
 {
     /// <summary>
     /// Query for tading data of foreign exchange.
-    /// Encoded/decoded by serializers as "QFXT".
+    /// Encoded/decoded by serializers as &quot;QFXT&quot;.
     /// </summary>
     [EnumMember(Value = "QFXT")]
     [IsoId("__WMRUaa_EeSxuMLA5o46jQ")]
@@ -30,7 +30,7 @@ public enum QueryDataType1Code
     
     /// <summary>
     /// Query for tading data of option.
-    /// Encoded/decoded by serializers as "QOTD".
+    /// Encoded/decoded by serializers as &quot;QOTD&quot;.
     /// </summary>
     [EnumMember(Value = "QOTD")]
     [IsoId("__bscYaa_EeSxuMLA5o46jQ")]

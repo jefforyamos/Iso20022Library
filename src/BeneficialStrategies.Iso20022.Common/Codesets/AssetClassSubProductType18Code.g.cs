@@ -21,7 +21,7 @@ public enum AssetClassSubProductType18Code
 {
     /// <summary>
     /// Commodity of type plastic.
-    /// Encoded/decoded by serializers as "PLST".
+    /// Encoded/decoded by serializers as &quot;PLST&quot;.
     /// </summary>
     [EnumMember(Value = "PLST")]
     [IsoId("_AZyv0Q2sEeW72qLtWESimw")]

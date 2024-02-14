@@ -21,7 +21,7 @@ public enum DocumentType4Code
 {
     /// <summary>
     /// Document is an invoice.
-    /// Encoded/decoded by serializers as "CINV".
+    /// Encoded/decoded by serializers as &quot;CINV&quot;.
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_agObh9p-Ed-ak6NoX_4Aeg_1538718054")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reports either on the account information or on a business error.
 /// </summary>
 [IsoId("_fCEawdcZEeqRFcf2R4bPBw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record AccountReport29
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_fDmEwdcZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountIdentification4Choice_ AccountIdentification { get; init; } 
+    public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountIdentification4Choice_ AccountIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record AccountReport29
     /// Requested information on the account or business error when information has not been found.
     /// </summary>
     [IsoId("_fDmEw9cZEeqRFcf2R4bPBw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOrErr")]
     #endif
+    [IsoXmlTag("AcctOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountOrBusinessError5Choice_ AccountOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountOrBusinessError5Choice_ AccountOrError { get; init; } 
+    public required AccountOrBusinessError5Choice_ AccountOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountOrBusinessError5Choice_ AccountOrError { get; init; } 
     #else

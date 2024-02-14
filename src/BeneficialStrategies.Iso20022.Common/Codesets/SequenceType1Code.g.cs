@@ -21,7 +21,7 @@ public enum SequenceType1Code
 {
     /// <summary>
     /// First collection of a series of direct debit instructions.
-    /// Encoded/decoded by serializers as "FRST".
+    /// Encoded/decoded by serializers as &quot;FRST&quot;.
     /// </summary>
     [EnumMember(Value = "FRST")]
     [IsoId("_ZKPgA9p-Ed-ak6NoX_4Aeg_650235429")]
@@ -29,8 +29,8 @@ public enum SequenceType1Code
     First = SequenceTypeCode.First, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Direct debit instruction where the debtor's authorisation is used for regular direct debit transactions initiated by the creditor.
-    /// Encoded/decoded by serializers as "RCUR".
+    /// Direct debit instruction where the debtor&apos;s authorisation is used for regular direct debit transactions initiated by the creditor.
+    /// Encoded/decoded by serializers as &quot;RCUR&quot;.
     /// </summary>
     [EnumMember(Value = "RCUR")]
     [IsoId("_ZKPgBNp-Ed-ak6NoX_4Aeg_650235490")]
@@ -39,7 +39,7 @@ public enum SequenceType1Code
     
     /// <summary>
     /// Final collection of a series of direct debit instructions.
-    /// Encoded/decoded by serializers as "FNAL".
+    /// Encoded/decoded by serializers as &quot;FNAL&quot;.
     /// </summary>
     [EnumMember(Value = "FNAL")]
     [IsoId("_ZKPgBdp-Ed-ak6NoX_4Aeg_650235532")]
@@ -47,8 +47,8 @@ public enum SequenceType1Code
     Final = SequenceTypeCode.Final, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Direct debit instruction where the debtor's authorisation is used to initiate one single direct debit transaction.
-    /// Encoded/decoded by serializers as "OOFF".
+    /// Direct debit instruction where the debtor&apos;s authorisation is used to initiate one single direct debit transaction.
+    /// Encoded/decoded by serializers as &quot;OOFF&quot;.
     /// </summary>
     [EnumMember(Value = "OOFF")]
     [IsoId("_ZKPgBtp-Ed-ak6NoX_4Aeg_650235798")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus9Choice
     /// Trade is unmatched or mismatched.
     /// </summary>
     [IsoId("_A4aEJtokEeC60axPepSq7g_-830174011")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unmatched")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

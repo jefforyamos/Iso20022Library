@@ -21,7 +21,7 @@ public enum LumpSumTypeCode
 {
     /// <summary>
     /// Lump sum is a death benefit lump sum.
-    /// Encoded/decoded by serializers as "DEAB".
+    /// Encoded/decoded by serializers as &quot;DEAB&quot;.
     /// </summary>
     [EnumMember(Value = "DEAB")]
     [IsoId("_V_DSULKdEeiXL6Ccd-oU8g")]
@@ -30,7 +30,7 @@ public enum LumpSumTypeCode
     
     /// <summary>
     /// Lump sum is a pension commencement lump sum.
-    /// Encoded/decoded by serializers as "PCLS".
+    /// Encoded/decoded by serializers as &quot;PCLS&quot;.
     /// </summary>
     [EnumMember(Value = "PCLS")]
     [IsoId("_10zi8LKdEeiXL6Ccd-oU8g")]
@@ -39,7 +39,7 @@ public enum LumpSumTypeCode
     
     /// <summary>
     /// Lump sum is an uncrystallised fund pension lump sum.
-    /// Encoded/decoded by serializers as "UFPL".
+    /// Encoded/decoded by serializers as &quot;UFPL&quot;.
     /// </summary>
     [EnumMember(Value = "UFPL")]
     [IsoId("_E5dN4LKeEeiXL6Ccd-oU8g")]

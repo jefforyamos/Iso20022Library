@@ -21,7 +21,7 @@ public enum TaxationBasis3Code
 {
     /// <summary>
     /// Charge/tax basis is a lump sum.
-    /// Encoded/decoded by serializers as "FLAT".
+    /// Encoded/decoded by serializers as &quot;FLAT&quot;.
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_Vg5awtp-Ed-ak6NoX_4Aeg_1288355632")]
@@ -30,7 +30,7 @@ public enum TaxationBasis3Code
     
     /// <summary>
     /// Charges/tax basis is per unit of financial instrument.
-    /// Encoded/decoded by serializers as "PERU".
+    /// Encoded/decoded by serializers as &quot;PERU&quot;.
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("_Vg5aw9p-Ed-ak6NoX_4Aeg_1297589258")]
@@ -39,7 +39,7 @@ public enum TaxationBasis3Code
     
     /// <summary>
     /// Another type of taxation basis.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vg5axNp-Ed-ak6NoX_4Aeg_1301284529")]

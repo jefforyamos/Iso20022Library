@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies a document by a unique identification and a version together with the submitter of the document.|Also specifies an index for easy referencing.
 /// </summary>
 [IsoId("_RJNBxNp-Ed-ak6NoX_4Aeg_2003796933")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record DocumentIdentification4
     /// Identification of a set of data.
     /// </summary>
     [IsoId("_RJNBxdp-Ed-ak6NoX_4Aeg_2060132147")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else
@@ -77,16 +73,16 @@ public partial record DocumentIdentification4
     /// Unambiguous identification of the version of a set of data. Example: Version 1.0.
     /// </summary>
     [IsoId("_RJNBxtp-Ed-ak6NoX_4Aeg_2060132182")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Vrsn")]
     #endif
+    [IsoXmlTag("Vrsn")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Version { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Version { get; init; } 
+    public required System.UInt64 Version { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Version { get; init; } 
     #else
@@ -97,16 +93,15 @@ public partial record DocumentIdentification4
     /// Uniquely identifies the financial institution which has submitted the set of data by using a BIC.
     /// </summary>
     [IsoId("_RJNBx9p-Ed-ak6NoX_4Aeg_-787526640")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Submitr")]
     #endif
+    [IsoXmlTag("Submitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 Submitter { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 Submitter { get; init; } 
+    public required BICIdentification1 Submitter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 Submitter { get; init; } 
     #else
@@ -117,19 +112,16 @@ public partial record DocumentIdentification4
     /// Index assigned to the document, to allow easy referencing.
     /// </summary>
     [IsoId("_RJWLsNp-Ed-ak6NoX_4Aeg_2060132164")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocIndx")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DocIndx")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3NumericText DocumentIndex { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DocumentIndex { get; init; } 
+    public required System.String DocumentIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DocumentIndex { get; init; } 
     #else

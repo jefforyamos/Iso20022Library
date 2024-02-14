@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variance allowed on a quantity or on a price.
 /// </summary>
 [IsoId("_SsvRF9p-Ed-ak6NoX_4Aeg_964334524")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Percentage Tolerance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record PercentageTolerance1
     /// Variance in percentage allowed over the agreed dimension. For example, plus 10 percent.
     /// </summary>
     [IsoId("_SsvRGNp-Ed-ak6NoX_4Aeg_981883394")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plus Percent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlusPct")]
     #endif
+    [IsoXmlTag("PlusPct")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate PlusPercent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PlusPercent { get; init; } 
+    public required System.Decimal PlusPercent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PlusPercent { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record PercentageTolerance1
     /// Variance in percentage allowed below the agreed dimension. For example, minus 10 percent.
     /// </summary>
     [IsoId("_SsvRGdp-Ed-ak6NoX_4Aeg_1021595225")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minus Percent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MnsPct")]
     #endif
+    [IsoXmlTag("MnsPct")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate MinusPercent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MinusPercent { get; init; } 
+    public required System.Decimal MinusPercent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MinusPercent { get; init; } 
     #else

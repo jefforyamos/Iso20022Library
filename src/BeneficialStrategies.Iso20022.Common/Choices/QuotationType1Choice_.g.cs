@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(QuotationType1Choice.Code))]
     [KnownType(typeof(QuotationType1Choice.Proprietary))]
     [IsoId("_QPU_sNK4EeihtcVwfFPNlg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quotation Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

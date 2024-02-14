@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateStatus1Choice.Code))]
     [KnownType(typeof(RateStatus1Choice.Proprietary))]
     [IsoId("_Q2kZpdp-Ed-ak6NoX_4Aeg_2138194978")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

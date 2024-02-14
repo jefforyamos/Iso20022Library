@@ -22,7 +22,7 @@ public enum ExternalDocumentPurposeCode
 {
     /// <summary>
     /// The document represents a document that has been confirmed, for example an invoice that has been confirmed by the buyer for payment.|
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_uHFidvRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalDocumentPurposeCode
     
     /// <summary>
     /// The document represents an invoice submitted under a factoring arrangment. 
-    /// Encoded/decoded by serializers as "FINV".
+    /// Encoded/decoded by serializers as &quot;FINV&quot;.
     /// </summary>
     [EnumMember(Value = "FINV")]
     [IsoId("_uHPTcPRYEeuLhpyIdtJzwg")]

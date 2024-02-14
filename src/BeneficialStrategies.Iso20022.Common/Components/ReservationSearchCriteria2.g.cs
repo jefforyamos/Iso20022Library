@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defines the criteria used to search for a reservation.
 /// </summary>
 [IsoId("_8IaeM6MgEeCJ6YNENx4h-w_-54648369")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reservation Search Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ReservationSearchCriteria2
     /// Identification of a particular cash clearing system.
     /// </summary>
     [IsoId("_8IaeNKMgEeCJ6YNENx4h-w_-344148107")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysId")]
     #endif
+    [IsoXmlTag("SysId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ReservationSearchCriteria2
     /// Type of reservation as set by default in the system. The default reservation is applicable by the system unless otherwise instructed.
     /// </summary>
     [IsoId("_8IaeNaMgEeCJ6YNENx4h-w_-1264985850")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Default Reservation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfltRsvatnTp")]
     #endif
+    [IsoXmlTag("DfltRsvatnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReservationType1Code? DefaultReservationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record ReservationSearchCriteria2
     /// Type of reservation applied by the system at the present time.
     /// </summary>
     [IsoId("_8IaeNqMgEeCJ6YNENx4h-w_-821997358")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Reservation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurRsvatnTp")]
     #endif
+    [IsoXmlTag("CurRsvatnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReservationType1Code? CurrentReservationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record ReservationSearchCriteria2
     /// Owner of the account which is being queried.
     /// </summary>
     [IsoId("_8IaeN6MgEeCJ6YNENx4h-w_-853968122")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record ReservationSearchCriteria2
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
     [IsoId("_8IjoIKMgEeCJ6YNENx4h-w_-1621016378")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
+    [IsoXmlTag("AcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

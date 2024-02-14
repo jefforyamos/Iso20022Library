@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReservationCriteria5Choice.QueryName))]
     [KnownType(typeof(ReservationCriteria5Choice.NewCriteria))]
     [IsoId("_xgiPUQy_Ee2Wmf2RrXviyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reservation Criteria 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

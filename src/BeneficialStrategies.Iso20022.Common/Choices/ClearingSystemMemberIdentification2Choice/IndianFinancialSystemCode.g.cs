@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// Indian Financial System Code - identifies Indian financial institutions on the Indian local clearing system.
     /// </summary>
     [IsoId("_TDPFgtp-Ed-ak6NoX_4Aeg_2074902177")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indian Financial System Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// Indian Financial System Code Identifier. Identifies Indian financial institutions on the Indian national clearing system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="INIFSC")]
         #endif
+        [IsoXmlTag("INIFSC")]
+        [IsoSimpleType(IsoSimpleType.IndianFinancialSystemCodeIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoIndianFinancialSystemCodeIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

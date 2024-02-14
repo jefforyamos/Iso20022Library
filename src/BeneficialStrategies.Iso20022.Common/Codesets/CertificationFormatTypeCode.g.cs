@@ -21,7 +21,7 @@ public enum CertificationFormatTypeCode
 {
     /// <summary>
     /// Certification must be provided in electronic format.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_a78HJNp-Ed-ak6NoX_4Aeg_-1685487542")]
@@ -30,7 +30,7 @@ public enum CertificationFormatTypeCode
     
     /// <summary>
     /// Certification must be provided in physical format.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_a78HJdp-Ed-ak6NoX_4Aeg_-1647625645")]

@@ -21,7 +21,7 @@ public enum TaxType4Code
 {
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
-    /// Encoded/decoded by serializers as "WITF".
+    /// Encoded/decoded by serializers as &quot;WITF&quot;.
     /// </summary>
     [EnumMember(Value = "WITF")]
     [IsoId("_Yksi8Np-Ed-ak6NoX_4Aeg_-858031567")]
@@ -30,7 +30,7 @@ public enum TaxType4Code
     
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
-    /// Encoded/decoded by serializers as "WITL".
+    /// Encoded/decoded by serializers as &quot;WITL&quot;.
     /// </summary>
     [EnumMember(Value = "WITL")]
     [IsoId("_Yksi8dp-Ed-ak6NoX_4Aeg_-858031464")]

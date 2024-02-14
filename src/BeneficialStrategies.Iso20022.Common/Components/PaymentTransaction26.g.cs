@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
 [IsoId("_Px4Cetp-Ed-ak6NoX_4Aeg_1001233565")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PaymentTransaction26
     /// Choice between cash-in or cash-out.
     /// </summary>
     [IsoId("_PyBzcNp-Ed-ak6NoX_4Aeg_1001234323")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Or Out")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInOrOut")]
     #endif
+    [IsoXmlTag("CshInOrOut")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInOrOut6Choice_? CashInOrOut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

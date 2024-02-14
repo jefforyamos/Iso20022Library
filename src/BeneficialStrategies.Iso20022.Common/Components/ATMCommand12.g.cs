@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Maintenance command which has requested the device report.
 /// </summary>
 [IsoId("_bfXL4V_UEeeD0NpJQPACzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Command")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ATMCommand12
     /// Type of command to be performed by the ATM.
     /// </summary>
     [IsoId("_bnvr0V_UEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCommand6Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMCommand6Code Type { get; init; } 
+    public required ATMCommand6Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMCommand6Code Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ATMCommand12
     /// Identification of the entity issuing the command.
     /// </summary>
     [IsoId("_bnvr01_UEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdId")]
     #endif
+    [IsoXmlTag("CmdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

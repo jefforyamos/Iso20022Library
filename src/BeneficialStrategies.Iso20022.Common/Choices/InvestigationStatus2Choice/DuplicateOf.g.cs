@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus2Choice
     /// Indicates a duplicated case. |Usage: When present, the case identified in the message must be closed. The case identified as duplicated (in this component) will be pursued.
     /// </summary>
     [IsoId("_T-P8R9p-Ed-ak6NoX_4Aeg_523813131")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Duplicate Of")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus2Choice
         /// Uniquely identifies the case.
         /// </summary>
         [IsoId("_SpAnp9p-Ed-ak6NoX_4Aeg_-1565053102")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -80,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus2Choice
         /// Party that created the investigation case.
         /// </summary>
         [IsoId("_SpAnqNp-Ed-ak6NoX_4Aeg_-1667764151")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cretr")]
         #endif
+        [IsoXmlTag("Cretr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Party7Choice_ Creator { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Party7Choice_ Creator { get; init; } 
+        public required Party7Choice_ Creator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Party7Choice_ Creator { get; init; } 
         #else
@@ -100,12 +95,12 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus2Choice
         /// Indicates whether or not the case was previously closed and is now re-opened.
         /// </summary>
         [IsoId("_SpAnqdp-Ed-ak6NoX_4Aeg_-1565052762")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reopen Case Indication")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ReopCaseIndctn")]
         #endif
+        [IsoXmlTag("ReopCaseIndctn")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? ReopenCaseIndication { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

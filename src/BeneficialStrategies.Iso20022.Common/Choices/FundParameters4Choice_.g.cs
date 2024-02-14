@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FundParameters4Choice.NoCriteria))]
     [KnownType(typeof(FundParameters4Choice.Parameters))]
     [IsoId("_J-otAWomEeipaMTLlhaKMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Parameters 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details of the close links as defined in the collateral reference data.
 /// </summary>
 [IsoId("_jAkKE-5NEeCisYr99QEiWA_1304238767")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Close Link")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record CloseLink1
     /// Identification of a security by an ISIN.
     /// </summary>
     [IsoId("_jAkKFO5NEeCisYr99QEiWA_358771106")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
+    [IsoXmlTag("SctyId")]
+    [IsoSimpleType(IsoSimpleType.ISINIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISINIdentifier SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SecurityIdentification { get; init; } 
+    public required System.String SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SecurityIdentification { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record CloseLink1
     /// Identifies the party for which the close link is defined.
     /// </summary>
     [IsoId("_jAtUAO5NEeCisYr99QEiWA_-750399753")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification1Choice_ PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification1Choice_ PartyIdentification { get; init; } 
+    public required SystemPartyIdentification1Choice_ PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification1Choice_ PartyIdentification { get; init; } 
     #else

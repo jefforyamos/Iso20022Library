@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"The SaleToPOIReportRequest message is sent by sale system to request a report service.")]
 [IsoId("_kfKQcS5LEeunNvJlR_vCbg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Report Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOIReportRequestV03 : IOuterRecord<SaleToPOIReportRe
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_kfKQcy5LEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header41 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header41 Header { get; init; } 
+    public required Header41 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header41 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOIReportRequestV03 : IOuterRecord<SaleToPOIReportRe
     /// Information related to the report request.
     /// </summary>
     [IsoId("_kfKQdS5LEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptReq")]
     #endif
+    [IsoXmlTag("RptReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportRequest4 ReportRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportRequest4 ReportRequest { get; init; } 
+    public required ReportRequest4 ReportRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportRequest4 ReportRequest { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SaleToPOIReportRequestV03 : IOuterRecord<SaleToPOIReportRe
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_kfKQdy5LEeunNvJlR_vCbg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType25? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SaleToPOIReportRequestV03 : IOuterRecord<SaleToPOIReportRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOIReportRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOIReportRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOIReportRequestV03Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SaleToPOIReportRequestV03 : IOuterRecord<SaleToPOIReportRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIReportRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOIReportRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOIReportRequestV03Document : IOuterDocument<SaleToPOIReportRequestV03>
@@ -161,7 +156,7 @@ public partial record SaleToPOIReportRequestV03Document : IOuterDocument<SaleToP
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOIReportRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOIReportRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOIReportRequestV03 Message { get; init; }

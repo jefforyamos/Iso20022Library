@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum TransferType1Code
 {
     /// <summary>
-    /// Transfer the security as an asset in specie, that is, 'in its actual form'.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Transfer the security as an asset in specie, that is, &apos;in its actual form&apos;.
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_YvbMSNp-Ed-ak6NoX_4Aeg_-1303244696")]
@@ -30,7 +30,7 @@ public enum TransferType1Code
     
     /// <summary>
     /// Transfer as cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Yvk9QNp-Ed-ak6NoX_4Aeg_-1291238985")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Technique whereby a position in the underlying is traded for a futures position in the physical commodity markets.
 /// </summary>
 [IsoId("_Syi-L9p-Ed-ak6NoX_4Aeg_1763199616")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exchange For Physical Trade Parameters")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record ExchangeForPhysicalTradeParameters1
     /// Unexpected divergence between the price behaviour of an underlying position or portfolio and the price behaviour of a hedging position or benchmark.
     /// </summary>
     [IsoId("_SysvINp-Ed-ak6NoX_4Aeg_2093820213")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Outside Index")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutsdIndx")]
     #endif
+    [IsoXmlTag("OutsdIndx")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? OutsideIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record ExchangeForPhysicalTradeParameters1
     /// Difference between the value of a future and the value of the underlying equities after allowing for the discounted cash flows associated with the underlying stocks.
     /// </summary>
     [IsoId("_SysvIdp-Ed-ak6NoX_4Aeg_2094742650")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fair Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FairVal")]
     #endif
+    [IsoXmlTag("FairVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FairValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record ExchangeForPhysicalTradeParameters1
     /// Value of a futures position involved in an Exchange For Physical trade.
     /// </summary>
     [IsoId("_SysvItp-Ed-ak6NoX_4Aeg_2094742693")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value For Futures")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValForFutrs")]
     #endif
+    [IsoXmlTag("ValForFutrs")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ValueForFutures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

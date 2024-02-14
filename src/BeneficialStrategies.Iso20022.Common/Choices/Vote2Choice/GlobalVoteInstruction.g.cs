@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote2Choice
     /// Instruction specifiying a vote instruction per resolution for the entire entitlement.
     /// </summary>
     [IsoId("_RDPju9p-Ed-ak6NoX_4Aeg_116941435")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Vote Instruction")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote2Choice
         /// Numbering of the resolution as specified by the issuer or its agent.
         /// </summary>
         [IsoId("_TK_TV9p-Ed-ak6NoX_4Aeg_696615862")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer Label")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IssrLabl")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("IssrLabl")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text IssuerLabel { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String IssuerLabel { get; init; } 
+        public required System.String IssuerLabel { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String IssuerLabel { get; init; } 
         #else
@@ -80,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote2Choice
         /// Specifies the different instructions which can be used to vote.
         /// </summary>
         [IsoId("_TK_TWNp-Ed-ak6NoX_4Aeg_1196241389")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Vote Option")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VoteOptn")]
         #endif
+        [IsoXmlTag("VoteOptn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required VoteInstruction2Code VoteOption { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public VoteInstruction2Code VoteOption { get; init; } 
+        public required VoteInstruction2Code VoteOption { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public VoteInstruction2Code VoteOption { get; init; } 
         #else

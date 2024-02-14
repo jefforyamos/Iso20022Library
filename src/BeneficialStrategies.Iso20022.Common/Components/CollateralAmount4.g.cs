@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Securities collateral position valuation amounts.
 /// </summary>
 [IsoId("_6b5HwM4FEeiirviLm7P0IA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CollateralAmount4
     /// Actual market value post valuation factor expressed in the collateral currency (denomination currency of the security). For cash, it is the value post haircut. 
     /// </summary>
     [IsoId("_coNAEM4GEeiirviLm7P0IA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Market Value Post Valuation Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlMktValPstValtnFctr")]
     #endif
+    [IsoXmlTag("ActlMktValPstValtnFctr")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount ActualMarketValuePostValuationFactor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ActualMarketValuePostValuationFactor { get; init; } 
+    public required System.Decimal ActualMarketValuePostValuationFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ActualMarketValuePostValuationFactor { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record CollateralAmount4
     /// Actual market value before valuation factor expressed in the collateral currency (denomination currency of the security). For cash, it is the value before haircut.
     /// </summary>
     [IsoId("_v3K54M4HEeiirviLm7P0IA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Market Value Before Valuation Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlMktValBfrValtnFctr")]
     #endif
+    [IsoXmlTag("ActlMktValBfrValtnFctr")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeValuationFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,12 @@ public partial record CollateralAmount4
     /// Amount of the exposure/collateral in the exposure/collateral currency.
     /// </summary>
     [IsoId("_kZi1cM4GEeiirviLm7P0IA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Collateral In Transaction Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrCollInTxCcy")]
     #endif
+    [IsoXmlTag("XpsrCollInTxCcy")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +105,12 @@ public partial record CollateralAmount4
     /// Amount of the exposure/collateral in the reporting currency.
     /// </summary>
     [IsoId("_u_ECoM4GEeiirviLm7P0IA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Collateral In Reporting Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrCollInRptgCcy")]
     #endif
+    [IsoXmlTag("XpsrCollInRptgCcy")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +123,12 @@ public partial record CollateralAmount4
     /// Market  value post valuation factor expressed in the transaction currency. For cash, it is the value post haircut. 
     /// </summary>
     [IsoId("_GzsVcM4HEeiirviLm7P0IA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value Amount Post Valuation Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktValAmtPstValtnFctr")]
     #endif
+    [IsoXmlTag("MktValAmtPstValtnFctr")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostValuationFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +141,12 @@ public partial record CollateralAmount4
     /// Market value before valuation factor expressed in the transaction currency. For cash, it is the value before haircut.
     /// </summary>
     [IsoId("_TSKBQM4HEeiirviLm7P0IA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value Amount Before Valuation Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktValAmtBfrValtnFctr")]
     #endif
+    [IsoXmlTag("MktValAmtBfrValtnFctr")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeValuationFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +159,12 @@ public partial record CollateralAmount4
     /// Total value of own collateral in the reporting currency.
     /// </summary>
     [IsoId("_qECsga_fEeqMo4JxiuZGSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Value Of Own Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlValOfOwnColl")]
     #endif
+    [IsoXmlTag("TtlValOfOwnColl")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfOwnCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +177,12 @@ public partial record CollateralAmount4
     /// Total value of reused/rehypotheticated collateral in the reporting currency.
     /// </summary>
     [IsoId("_rznzwa_fEeqMo4JxiuZGSw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Value Of Reused Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlValOfReusdColl")]
     #endif
+    [IsoXmlTag("TtlValOfReusdColl")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfReusedCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

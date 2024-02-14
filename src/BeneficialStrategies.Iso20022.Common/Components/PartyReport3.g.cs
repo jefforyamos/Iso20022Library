@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Report information about party reference data.
 /// </summary>
 [IsoId("_7fpehVhLEeih3fUfzR38Ig")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PartyReport3
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
     [IsoId("_7qW5sVhLEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyId")]
     #endif
+    [IsoXmlTag("PtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification8 PartyIdentification { get; init; } 
+    public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification8 PartyIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PartyReport3
     /// Identifies the returned party reference data or error information.
     /// </summary>
     [IsoId("_7qW5s1hLEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyOrErr")]
     #endif
+    [IsoXmlTag("PtyOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyOrBusinessError3Choice_ PartyOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyOrBusinessError3Choice_ PartyOrError { get; init; } 
+    public required PartyOrBusinessError3Choice_ PartyOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyOrBusinessError3Choice_ PartyOrError { get; init; } 
     #else

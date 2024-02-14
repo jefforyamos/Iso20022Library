@@ -21,7 +21,7 @@ public enum MessageFunction9Code
 {
     /// <summary>
     /// Reject of a request or an advice message by an acquirer or an agent.
-    /// Encoded/decoded by serializers as "RJCQ".
+    /// Encoded/decoded by serializers as &quot;RJCQ&quot;.
     /// </summary>
     [EnumMember(Value = "RJCQ")]
     [IsoId("_XdFiUY0OEeWRYffwL7E13A")]
@@ -30,7 +30,7 @@ public enum MessageFunction9Code
     
     /// <summary>
     /// Reject of a response or an advice response message by a card acceptor or an agent.
-    /// Encoded/decoded by serializers as "RJCP".
+    /// Encoded/decoded by serializers as &quot;RJCP&quot;.
     /// </summary>
     [EnumMember(Value = "RJCP")]
     [IsoId("_XmBb4Y0OEeWRYffwL7E13A")]

@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The GetCurrencyExchangeRate message is sent by a member to the transaction administrator.|It is used to request information on static data maintained by the transaction administrator and related to currency exchange details as maintained for the system operations by the transaction administrator.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, i.e., not related to the transactions created into the system. The type of business information available can vary depending on the system.|When a system manages a pool of accounts in various currencies for a member, there is a need to maintain currency exchange details in between the various currencies and the reporting or base currency. The reporting or base currency is used to calculate the actual position of the members in terms of aggregate limits and balances and allow the system to contain risk within the defined and agreed boundaries. The currency exchange details can be fixed for the entire operational day, or regularly updated according to near real time market feeds.|At any point in time during operating hours of the system, the member can query the transaction administrator to get information about the static data related to a currency exchange details.|The member can request information based on the following elements:|- the currency to be converted (source currency)|- the currency into which the amount is converted (target currency)|This message will be replied to by a ReturnCurrencyExchangeRate message.")]
 [IsoId("_jwlbdxbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Get Currency Exchange Rate V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord<GetCurrencyExcha
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlbeRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -105,12 +102,11 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord<GetCurrencyExcha
     /// Definition of the currency exchange query.
     /// </summary>
     [IsoId("_jwlbexbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Query Definition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyQryDef")]
     #endif
+    [IsoXmlTag("CcyQryDef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyQueryDefinition3? CurrencyQueryDefinition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,12 +119,11 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord<GetCurrencyExcha
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlbfRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,7 +136,7 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord<GetCurrencyExcha
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="GetCurrencyExchangeRateV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;GetCurrencyExchangeRateV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public GetCurrencyExchangeRateV04Document ToDocument()
     {
@@ -151,7 +146,7 @@ public partial record GetCurrencyExchangeRateV04 : IOuterRecord<GetCurrencyExcha
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="GetCurrencyExchangeRateV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;GetCurrencyExchangeRateV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record GetCurrencyExchangeRateV04Document : IOuterDocument<GetCurrencyExchangeRateV04>
@@ -168,7 +163,7 @@ public partial record GetCurrencyExchangeRateV04Document : IOuterDocument<GetCur
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="GetCurrencyExchangeRateV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;GetCurrencyExchangeRateV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GetCurrencyExchangeRateV04 Message { get; init; }

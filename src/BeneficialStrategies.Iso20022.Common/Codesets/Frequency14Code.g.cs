@@ -21,7 +21,7 @@ public enum Frequency14Code
 {
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_xwMF8c2FEeq8rujJR5QTKA")]
@@ -30,7 +30,7 @@ public enum Frequency14Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_xwMF-c2FEeq8rujJR5QTKA")]
@@ -39,7 +39,7 @@ public enum Frequency14Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_xwMGB82FEeq8rujJR5QTKA")]
@@ -48,7 +48,7 @@ public enum Frequency14Code
     
     /// <summary>
     /// Event takes place on request or as necessary.
-    /// Encoded/decoded by serializers as "ADHO".
+    /// Encoded/decoded by serializers as &quot;ADHO&quot;.
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_xwMGI82FEeq8rujJR5QTKA")]

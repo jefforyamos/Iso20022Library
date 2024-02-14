@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument48Choice
     /// Index on which the financial instrument is based.
     /// </summary>
     [IsoId("_HYrJVX5aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument48Choice
         /// Identification of the index on which the financial instrument is based.
         /// </summary>
         [IsoId("_HhTg4X5aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("ISIN")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ISIN")]
         #endif
+        [IsoXmlTag("ISIN")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISINOct2015Identifier? ISIN { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +72,15 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument48Choice
         /// Name of the index on which the financial instrument is based.
         /// </summary>
         [IsoId("_HhTg435aEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
+        [IsoXmlTag("Nm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FloatingInterestRate8 Name { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FloatingInterestRate8 Name { get; init; } 
+        public required FloatingInterestRate8 Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FloatingInterestRate8 Name { get; init; } 
         #else

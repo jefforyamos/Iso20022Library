@@ -21,7 +21,7 @@ public enum RoundingMethod1Code
 {
     /// <summary>
     /// Rounds the amount down.
-    /// Encoded/decoded by serializers as "DRDW".
+    /// Encoded/decoded by serializers as &quot;DRDW&quot;.
     /// </summary>
     [EnumMember(Value = "DRDW")]
     [IsoId("_Yf7Xs9p-Ed-ak6NoX_4Aeg_857438224")]
@@ -30,7 +30,7 @@ public enum RoundingMethod1Code
     
     /// <summary>
     /// Rounds the amount up.
-    /// Encoded/decoded by serializers as "DRUP".
+    /// Encoded/decoded by serializers as &quot;DRUP&quot;.
     /// </summary>
     [EnumMember(Value = "DRUP")]
     [IsoId("_Yf7XtNp-Ed-ak6NoX_4Aeg_-1995269424")]
@@ -39,7 +39,7 @@ public enum RoundingMethod1Code
     
     /// <summary>
     /// Do not round.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_Yf7Xtdp-Ed-ak6NoX_4Aeg_718047814")]
@@ -48,7 +48,7 @@ public enum RoundingMethod1Code
     
     /// <summary>
     /// Rounds the amount to the closer integral multiple specified.
-    /// Encoded/decoded by serializers as "CLSR".
+    /// Encoded/decoded by serializers as &quot;CLSR&quot;.
     /// </summary>
     [EnumMember(Value = "CLSR")]
     [IsoId("_Yf7Xttp-Ed-ak6NoX_4Aeg_-1257761254")]

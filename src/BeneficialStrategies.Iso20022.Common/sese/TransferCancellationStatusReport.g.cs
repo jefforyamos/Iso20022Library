@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|The TransferCancellationStatusReport message is sent by an executing party to the instructing party.|The message gives the status of a transfer cancellation instruction that was previously sent by the instructing party.|Usage|The TransferCancellationStatusReport message is sent by an executing party to the instructing party. The message can be used to report that either|- the cancellation has been acted upon or|- the cancellation is rejected.|In both cases, the reason must be specified using either a code or unstructured information.")]
 [IsoId("_HFtUYNE6Ed-BzquC8wXy7w_1729523466")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Cancellation Status Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,32 +81,28 @@ public partial record TransferCancellationStatusReport : IOuterRecord<TransferCa
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_HFtUYdE6Ed-BzquC8wXy7w_1157267444")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRef")]
     [MinLength(1)]
     [MaxLength(2)]
-    #endif
     public ValueList<AdditionalReference2> RelatedReference { get; init; } = new ValueList<AdditionalReference2>(){};
     
     /// <summary>
     /// Reference to the linked message sent in a proprietary way or the reference of a system.
     /// </summary>
     [IsoId("_HFtUYtE6Ed-BzquC8wXy7w_1159114780")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRef")]
     #endif
+    [IsoXmlTag("OthrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference2 OtherReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReference2 OtherReference { get; init; } 
+    public required AdditionalReference2 OtherReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReference2 OtherReference { get; init; } 
     #else
@@ -119,16 +113,15 @@ public partial record TransferCancellationStatusReport : IOuterRecord<TransferCa
     /// Status of the transfer cancellation instruction.
     /// </summary>
     [IsoId("_HFtUY9E6Ed-BzquC8wXy7w_-503487552")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRpt")]
     #endif
+    [IsoXmlTag("StsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationStatusAndReason StatusReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationStatusAndReason StatusReport { get; init; } 
+    public required CancellationStatusAndReason StatusReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationStatusAndReason StatusReport { get; init; } 
     #else
@@ -139,7 +132,7 @@ public partial record TransferCancellationStatusReport : IOuterRecord<TransferCa
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TransferCancellationStatusReportDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TransferCancellationStatusReportDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TransferCancellationStatusReportDocument ToDocument()
     {
@@ -149,7 +142,7 @@ public partial record TransferCancellationStatusReport : IOuterRecord<TransferCa
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferCancellationStatusReport"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TransferCancellationStatusReport&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TransferCancellationStatusReportDocument : IOuterDocument<TransferCancellationStatusReport>
@@ -166,7 +159,7 @@ public partial record TransferCancellationStatusReportDocument : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TransferCancellationStatusReport"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TransferCancellationStatusReport&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferCancellationStatusReport Message { get; init; }

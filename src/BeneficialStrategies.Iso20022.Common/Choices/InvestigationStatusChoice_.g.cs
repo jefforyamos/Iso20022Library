@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestigationStatusChoice.DuplicateOf))]
     [KnownType(typeof(InvestigationStatusChoice.AssignmentCancellationConfirmation))]
     [IsoId("_UuYYstp-Ed-ak6NoX_4Aeg_788596093")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Status Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

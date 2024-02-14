@@ -21,7 +21,7 @@ public enum LoyaltyHandling1Code
 {
     /// <summary>
     /// The loyalty is accepted, but the POI has not to require or ask a loyalty card. The loyalty is involved by the payment card (e.g. an hybrid or linked card). 
-    /// Encoded/decoded by serializers as "ALLO".
+    /// Encoded/decoded by serializers as &quot;ALLO&quot;.
     /// </summary>
     [EnumMember(Value = "ALLO")]
     [IsoId("_WKvCUdt4EeiXqq0XHEoNUA")]
@@ -30,7 +30,7 @@ public enum LoyaltyHandling1Code
     
     /// <summary>
     /// No loyalty card to read and loyalty transaction to process. 	Any attempt to enter a pure loyalty card is rejected.
-    /// Encoded/decoded by serializers as "DENY".
+    /// Encoded/decoded by serializers as &quot;DENY&quot;.
     /// </summary>
     [EnumMember(Value = "DENY")]
     [IsoId("_WO5Jkdt4EeiXqq0XHEoNUA")]
@@ -39,7 +39,7 @@ public enum LoyaltyHandling1Code
     
     /// <summary>
     /// The loyalty transaction is already processed, no loyalty card or loyalty transaction to process.
-    /// Encoded/decoded by serializers as "PRCS".
+    /// Encoded/decoded by serializers as &quot;PRCS&quot;.
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_WS0nUdt4EeiXqq0XHEoNUA")]
@@ -48,7 +48,7 @@ public enum LoyaltyHandling1Code
     
     /// <summary>
     /// The loyalty is accepted, and the POI has to ask a loyalty card. If the Customer does not enter a loyalty card, no loyalty transaction is realised.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_WW-Hgdt4EeiXqq0XHEoNUA")]
@@ -57,7 +57,7 @@ public enum LoyaltyHandling1Code
     
     /// <summary>
     /// The loyalty is required, and the POI refuses the processing 	of the message request if the cardholder does not enter a loyalty card.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_WbW4Qdt4EeiXqq0XHEoNUA")]

@@ -21,7 +21,7 @@ public enum InterestType3Code
 {
     /// <summary>
     /// Indicates that the type of interest is a zero coupon.
-    /// Encoded/decoded by serializers as "ZCPN".
+    /// Encoded/decoded by serializers as &quot;ZCPN&quot;.
     /// </summary>
     [EnumMember(Value = "ZCPN")]
     [IsoId("_ha_UvGliEeGaMcKyqKNRfQ_2005580526")]
@@ -30,7 +30,7 @@ public enum InterestType3Code
     
     /// <summary>
     /// Indicates that the type of interest is fixed.
-    /// Encoded/decoded by serializers as "FIXD".
+    /// Encoded/decoded by serializers as &quot;FIXD&quot;.
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_ha_UvWliEeGaMcKyqKNRfQ_-583192410")]
@@ -39,7 +39,7 @@ public enum InterestType3Code
     
     /// <summary>
     /// Indicates that the type of interest is a floating rate note.
-    /// Encoded/decoded by serializers as "FLRN".
+    /// Encoded/decoded by serializers as &quot;FLRN&quot;.
     /// </summary>
     [EnumMember(Value = "FLRN")]
     [IsoId("_ha_UvmliEeGaMcKyqKNRfQ_-1218224256")]
@@ -48,7 +48,7 @@ public enum InterestType3Code
     
     /// <summary>
     /// Indicates that the type of interest is a dual basis.
-    /// Encoded/decoded by serializers as "DUAL".
+    /// Encoded/decoded by serializers as &quot;DUAL&quot;.
     /// </summary>
     [EnumMember(Value = "DUAL")]
     [IsoId("_ha_Uv2liEeGaMcKyqKNRfQ_1701818028")]
@@ -57,7 +57,7 @@ public enum InterestType3Code
     
     /// <summary>
     /// Indicates that the type of interest is index.
-    /// Encoded/decoded by serializers as "INDE".
+    /// Encoded/decoded by serializers as &quot;INDE&quot;.
     /// </summary>
     [EnumMember(Value = "INDE")]
     [IsoId("_ha_UwGliEeGaMcKyqKNRfQ_1306353277")]
@@ -66,7 +66,7 @@ public enum InterestType3Code
     
     /// <summary>
     /// Indicates that the type of interest is discounted.
-    /// Encoded/decoded by serializers as "DSCO".
+    /// Encoded/decoded by serializers as &quot;DSCO&quot;.
     /// </summary>
     [EnumMember(Value = "DSCO")]
     [IsoId("_ha_UwWliEeGaMcKyqKNRfQ_-1863117043")]

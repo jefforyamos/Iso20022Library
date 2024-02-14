@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status of a transfer cancellation instruction and the reason for the status.
 /// </summary>
 [IsoId("_Uww-Vtp-Ed-ak6NoX_4Aeg_-973620019")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancellation Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CancellationStatusAndReason
     /// Status of the transfer cancellation instruction.
     /// </summary>
     [IsoId("_Uww-V9p-Ed-ak6NoX_4Aeg_698798027")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferCancellationStatus Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferCancellationStatus Status { get; init; } 
+    public required TransferCancellationStatus Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferCancellationStatus Status { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record CancellationStatusAndReason
     /// Status of transfer cancellation is rejected.
     /// </summary>
     [IsoId("_Uww-WNp-Ed-ak6NoX_4Aeg_409661495")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjctd")]
     #endif
+    [IsoXmlTag("Rjctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferCancellationRejectedStatus1Choice_ Rejected { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferCancellationRejectedStatus1Choice_ Rejected { get; init; } 
+    public required TransferCancellationRejectedStatus1Choice_ Rejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferCancellationRejectedStatus1Choice_ Rejected { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record CancellationStatusAndReason
     /// Status of the transfer cancellation is complete. The cancellation instruction has been accepted and processed, the cancellation is complete.
     /// </summary>
     [IsoId("_Uww-Wdp-Ed-ak6NoX_4Aeg_-1596403694")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Complete")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cmplt")]
     #endif
+    [IsoXmlTag("Cmplt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferCancellationCompleteStatusChoice_ Complete { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferCancellationCompleteStatusChoice_ Complete { get; init; } 
+    public required TransferCancellationCompleteStatusChoice_ Complete { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferCancellationCompleteStatusChoice_ Complete { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record CancellationStatusAndReason
     /// Party that initiates the status.
     /// </summary>
     [IsoId("_Uww-Wtp-Ed-ak6NoX_4Aeg_1646242469")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsInitr")]
     #endif
+    [IsoXmlTag("StsInitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification1Choice_? StatusInitiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

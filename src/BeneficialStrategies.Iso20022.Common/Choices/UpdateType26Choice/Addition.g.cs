@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
     /// Addition of information to the securities transaction.
     /// </summary>
     [IsoId("_JfG625w3EeazcsnODTksnQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Addition")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Provides settlement type and identification information.
         /// </summary>
         [IsoId("_JfG65Zw3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settlement Type And Additional Parameters")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttlmTpAndAddtlParams")]
         #endif
+        [IsoXmlTag("SttlmTpAndAddtlParams")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SettlementTypeAndAdditionalParameters17? SettlementTypeAndAdditionalParameters { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Link to another transaction that must be processed after, before or at the same time.
         /// </summary>
         [IsoId("_JfG655w3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Linkages")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Lnkgs")]
         #endif
+        [IsoXmlTag("Lnkgs")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Linkages48? Linkages { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Details of the trade.
         /// </summary>
         [IsoId("_JfG66Zw3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Trade Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TradDtls")]
         #endif
+        [IsoXmlTag("TradDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SecuritiesTradeDetails65? TradeDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +98,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Attributes defining a financial instrument.
         /// </summary>
         [IsoId("_JfG665w3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmAttrbts")]
         #endif
+        [IsoXmlTag("FinInstrmAttrbts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrumentAttributes78? FinancialInstrumentAttributes { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +115,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Details related to the account and quantity involved in the transaction.
         /// </summary>
         [IsoId("_JfG67Zw3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Quantity And Account Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="QtyAndAcctDtls")]
         #endif
+        [IsoXmlTag("QtyAndAcctDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public QuantityAndAccount59? QuantityAndAccountDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +132,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
         /// </summary>
         [IsoId("_JfG675w3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settlement Parameters")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttlmParams")]
         #endif
+        [IsoXmlTag("SttlmParams")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SettlementDetails138? SettlementParameters { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,12 +149,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
         /// </summary>
         [IsoId("_JfG68Zw3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Standing Settlement Instruction Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StgSttlmInstrDtls")]
         #endif
+        [IsoXmlTag("StgSttlmInstrDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public StandingSettlementInstruction12? StandingSettlementInstructionDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +166,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Identifies the chain of delivering settlement parties.
         /// </summary>
         [IsoId("_JfG685w3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Delivering Settlement Parties")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DlvrgSttlmPties")]
         #endif
+        [IsoXmlTag("DlvrgSttlmPties")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SettlementParties58? DeliveringSettlementParties { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +183,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Identifies the chain of receiving settlement parties.
         /// </summary>
         [IsoId("_JfG69Zw3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Receiving Settlement Parties")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RcvgSttlmPties")]
         #endif
+        [IsoXmlTag("RcvgSttlmPties")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SettlementParties58? ReceivingSettlementParties { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,12 +200,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Cash parties involved in the transaction if different for the securities settlement parties.
         /// </summary>
         [IsoId("_JfG695w3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Parties")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshPties")]
         #endif
+        [IsoXmlTag("CshPties")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashParties30? CashParties { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,12 +217,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Total amount of money to be paid or received in exchange for the securities.
         /// </summary>
         [IsoId("_JfG6-Zw3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settlement Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttlmAmt")]
         #endif
+        [IsoXmlTag("SttlmAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AmountAndDirection85? SettlementAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,12 +234,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Other amounts than the settlement amount.
         /// </summary>
         [IsoId("_JfG6-5w3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Amounts")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrAmts")]
         #endif
+        [IsoXmlTag("OthrAmts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public OtherAmounts35? OtherAmounts { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -265,12 +251,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Other business parties relevant to the transaction.
         /// </summary>
         [IsoId("_JfG6_Zw3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Business Parties")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrBizPties")]
         #endif
+        [IsoXmlTag("OthrBizPties")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public OtherParties29? OtherBusinessParties { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -283,12 +268,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Provides information required for the registration or physical settlement.
         /// </summary>
         [IsoId("_JfG6_5w3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Physical Or Registration Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlPhysOrRegnDtls")]
         #endif
+        [IsoXmlTag("AddtlPhysOrRegnDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public RegistrationParameters5? AdditionalPhysicalOrRegistrationDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -301,12 +285,11 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType26Choice
         /// Additional information that cannot be captured in the structured elements and/or any other specific block.
         /// </summary>
         [IsoId("_JfG7AZw3EeazcsnODTksnQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

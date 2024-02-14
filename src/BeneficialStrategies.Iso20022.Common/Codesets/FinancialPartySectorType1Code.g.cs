@@ -21,7 +21,7 @@ public enum FinancialPartySectorType1Code
 {
     /// <summary>
     /// Alternative investment fund managed by an alternative investment fund manager (AIFM).
-    /// Encoded/decoded by serializers as "AIFD".
+    /// Encoded/decoded by serializers as &quot;AIFD&quot;.
     /// </summary>
     [EnumMember(Value = "AIFD")]
     [IsoId("__Xky0RQXEeWSI-Fz8Zwg6g")]
@@ -30,7 +30,7 @@ public enum FinancialPartySectorType1Code
     
     /// <summary>
     /// Assurance undertaking.
-    /// Encoded/decoded by serializers as "ASSU".
+    /// Encoded/decoded by serializers as &quot;ASSU&quot;.
     /// </summary>
     [EnumMember(Value = "ASSU")]
     [IsoId("__e6w8RQXEeWSI-Fz8Zwg6g")]
@@ -39,7 +39,7 @@ public enum FinancialPartySectorType1Code
     
     /// <summary>
     /// Credit institution that takes deposits or other repayable funds from the public and grants credits for its own account.
-    /// Encoded/decoded by serializers as "CDTI".
+    /// Encoded/decoded by serializers as &quot;CDTI&quot;.
     /// </summary>
     [EnumMember(Value = "CDTI")]
     [IsoId("__ko-cRQXEeWSI-Fz8Zwg6g")]
@@ -48,7 +48,7 @@ public enum FinancialPartySectorType1Code
     
     /// <summary>
     /// Insurance undertaking.
-    /// Encoded/decoded by serializers as "INUN".
+    /// Encoded/decoded by serializers as &quot;INUN&quot;.
     /// </summary>
     [EnumMember(Value = "INUN")]
     [IsoId("__q1tERQXEeWSI-Fz8Zwg6g")]
@@ -57,7 +57,7 @@ public enum FinancialPartySectorType1Code
     
     /// <summary>
     /// Investment firm.
-    /// Encoded/decoded by serializers as "INVF".
+    /// Encoded/decoded by serializers as &quot;INVF&quot;.
     /// </summary>
     [EnumMember(Value = "INVF")]
     [IsoId("__zzb0RQXEeWSI-Fz8Zwg6g")]
@@ -66,7 +66,7 @@ public enum FinancialPartySectorType1Code
     
     /// <summary>
     /// Institution for occupational retirement provision established for the purpose of providing retirement benefits in the context of an occupational activity.
-    /// Encoded/decoded by serializers as "ORPI".
+    /// Encoded/decoded by serializers as &quot;ORPI&quot;.
     /// </summary>
     [EnumMember(Value = "ORPI")]
     [IsoId("__6AKcRQXEeWSI-Fz8Zwg6g")]
@@ -75,7 +75,7 @@ public enum FinancialPartySectorType1Code
     
     /// <summary>
     /// Reinsurance undertaking performing the activity of accepting risks ceded by an insurance undertaking or by another reinsurance undertaking.
-    /// Encoded/decoded by serializers as "REIN".
+    /// Encoded/decoded by serializers as &quot;REIN&quot;.
     /// </summary>
     [EnumMember(Value = "REIN")]
     [IsoId("_AAAr0RQYEeWSI-Fz8Zwg6g")]
@@ -84,7 +84,7 @@ public enum FinancialPartySectorType1Code
     
     /// <summary>
     /// Undertaking for collective investment in transferable securities (UCITS) and its management company.
-    /// Encoded/decoded by serializers as "UCIT".
+    /// Encoded/decoded by serializers as &quot;UCIT&quot;.
     /// </summary>
     [EnumMember(Value = "UCIT")]
     [IsoId("_AFu5URQYEeWSI-Fz8Zwg6g")]
@@ -93,7 +93,7 @@ public enum FinancialPartySectorType1Code
     
     /// <summary>
     /// Other type of financial institution.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_FpJ3cQFeEeaDfK-zDSyB6A")]

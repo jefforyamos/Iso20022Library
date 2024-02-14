@@ -21,7 +21,7 @@ public enum FleetPurchaseType1Code
 {
     /// <summary>
     /// Fuel
-    /// Encoded/decoded by serializers as "FUEL".
+    /// Encoded/decoded by serializers as &quot;FUEL&quot;.
     /// </summary>
     [EnumMember(Value = "FUEL")]
     [IsoId("_knUwcTEnEemzCpWiCwK4aQ")]
@@ -30,7 +30,7 @@ public enum FleetPurchaseType1Code
     
     /// <summary>
     /// Non fuel
-    /// Encoded/decoded by serializers as "NONF".
+    /// Encoded/decoded by serializers as &quot;NONF&quot;.
     /// </summary>
     [EnumMember(Value = "NONF")]
     [IsoId("_lSZGsTEnEemzCpWiCwK4aQ")]
@@ -39,7 +39,7 @@ public enum FleetPurchaseType1Code
     
     /// <summary>
     /// Fuel and non fuel
-    /// Encoded/decoded by serializers as "FANF".
+    /// Encoded/decoded by serializers as &quot;FANF&quot;.
     /// </summary>
     [EnumMember(Value = "FANF")]
     [IsoId("_lomAMTEnEemzCpWiCwK4aQ")]

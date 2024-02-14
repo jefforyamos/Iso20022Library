@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a payment instruction by its relative position in a queue of payment transactions managed by the clearing agent.
 /// </summary>
 [IsoId("_Rb1C09p-Ed-ak6NoX_4Aeg_1491461462")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Queue Transaction Identification Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record QueueTransactionIdentificationDetails
     /// Identification of the payment queue where the payment instruction resides.
     /// </summary>
     [IsoId("_Rb1C1Np-Ed-ak6NoX_4Aeg_1491461463")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Queue Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("QId")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax16Text QueueIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String QueueIdentification { get; init; } 
+    public required System.String QueueIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String QueueIdentification { get; init; } 
     #else
@@ -75,19 +71,17 @@ public partial record QueueTransactionIdentificationDetails
     /// Position of the payment instruction within the identified queue.
     /// </summary>
     [IsoId("_Rb1C1dp-Ed-ak6NoX_4Aeg_1491461464")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Position In Queue")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PosInQ")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PosInQ")]
+    [IsoSimpleType(IsoSimpleType.Max16Text)]
     [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax16Text PositionInQueue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PositionInQueue { get; init; } 
+    public required System.String PositionInQueue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PositionInQueue { get; init; } 
     #else

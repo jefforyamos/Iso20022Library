@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError7Choice
     /// Reports either on the business information or on a business error.
     /// </summary>
     [IsoId("_QdJoA3hdEeidzqjNEfehPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,19 +55,17 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError7Choice
         /// Unique and unambiguous identification of a general business information system, as assigned by the system transaction administrator.
         /// </summary>
         [IsoId("_QrMrE3hdEeidzqjNEfehPg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Business Information Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BizInfRef")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("BizInfRef")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text BusinessInformationReference { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String BusinessInformationReference { get; init; } 
+        public required System.String BusinessInformationReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String BusinessInformationReference { get; init; } 
         #else
@@ -80,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError7Choice
         /// Requested business information.
         /// </summary>
         [IsoId("_QrMrFXhdEeidzqjNEfehPg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("General Business Or Error")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="GnlBizOrErr")]
         #endif
+        [IsoXmlTag("GnlBizOrErr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; init; } 
+        public required GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; init; } 
         #else

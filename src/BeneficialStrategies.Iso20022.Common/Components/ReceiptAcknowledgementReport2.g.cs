@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the original request. Identifies the message being acknowledged and its status
 /// </summary>
 [IsoId("_WhpTYZb4Eee4htziCyV8eA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receipt Acknowledgement Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ReceiptAcknowledgementReport2
     /// Reference of the request.
     /// </summary>
     [IsoId("_Wrd9wZb4Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageReference1 RelatedReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageReference1 RelatedReference { get; init; } 
+    public required MessageReference1 RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageReference1 RelatedReference { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ReceiptAcknowledgementReport2
     /// Gives the status of the request.
     /// </summary>
     [IsoId("_Wrd9w5b4Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Handling")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqHdlg")]
     #endif
+    [IsoXmlTag("ReqHdlg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestHandling2 RequestHandling { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestHandling2 RequestHandling { get; init; } 
+    public required RequestHandling2 RequestHandling { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestHandling2 RequestHandling { get; init; } 
     #else

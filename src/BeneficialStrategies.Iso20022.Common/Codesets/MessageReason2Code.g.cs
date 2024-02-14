@@ -21,8 +21,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum MessageReason2Code
 {
     /// <summary>
-    /// Stand-in processing at the acquirer's option.
-    /// Encoded/decoded by serializers as "ASTD".
+    /// Stand-in processing at the acquirer&apos;s option.
+    /// Encoded/decoded by serializers as &quot;ASTD&quot;.
     /// </summary>
     [EnumMember(Value = "ASTD")]
     [IsoId("_oH-a0X0lEemfrNOe0zHQyg")]
@@ -31,7 +31,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Transaction above or under the floor limit.
-    /// Encoded/decoded by serializers as "FLRL".
+    /// Encoded/decoded by serializers as &quot;FLRL&quot;.
     /// </summary>
     [EnumMember(Value = "FLRL")]
     [IsoId("_oH-a030lEemfrNOe0zHQyg")]
@@ -40,7 +40,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Transaction performed offline by the card.
-    /// Encoded/decoded by serializers as "COFF".
+    /// Encoded/decoded by serializers as &quot;COFF&quot;.
     /// </summary>
     [EnumMember(Value = "COFF")]
     [IsoId("_oH-a1X0lEemfrNOe0zHQyg")]
@@ -49,7 +49,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Card acceptor forced to be online.
-    /// Encoded/decoded by serializers as "ASPC".
+    /// Encoded/decoded by serializers as &quot;ASPC&quot;.
     /// </summary>
     [EnumMember(Value = "ASPC")]
     [IsoId("_oH-a130lEemfrNOe0zHQyg")]
@@ -58,7 +58,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Card cannot process offline the transaction.
-    /// Encoded/decoded by serializers as "CUNB".
+    /// Encoded/decoded by serializers as &quot;CUNB&quot;.
     /// </summary>
     [EnumMember(Value = "CUNB")]
     [IsoId("_oH-a2X0lEemfrNOe0zHQyg")]
@@ -67,7 +67,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Random online decided by the card.
-    /// Encoded/decoded by serializers as "CRND".
+    /// Encoded/decoded by serializers as &quot;CRND&quot;.
     /// </summary>
     [EnumMember(Value = "CRND")]
     [IsoId("_oH-a230lEemfrNOe0zHQyg")]
@@ -76,7 +76,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Forced online by card acceptor, terminal, card, or the issuer.
-    /// Encoded/decoded by serializers as "FORC".
+    /// Encoded/decoded by serializers as &quot;FORC&quot;.
     /// </summary>
     [EnumMember(Value = "FORC")]
     [IsoId("_oH-a3X0lEemfrNOe0zHQyg")]
@@ -85,7 +85,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Issuer signed off.
-    /// Encoded/decoded by serializers as "ISGN".
+    /// Encoded/decoded by serializers as &quot;ISGN&quot;.
     /// </summary>
     [EnumMember(Value = "ISGN")]
     [IsoId("_oH-a330lEemfrNOe0zHQyg")]
@@ -94,7 +94,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Issuer timed out on request.
-    /// Encoded/decoded by serializers as "ITIM".
+    /// Encoded/decoded by serializers as &quot;ITIM&quot;.
     /// </summary>
     [EnumMember(Value = "ITIM")]
     [IsoId("_oH-a4X0lEemfrNOe0zHQyg")]
@@ -103,7 +103,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Issuer unavailable.
-    /// Encoded/decoded by serializers as "IUNV".
+    /// Encoded/decoded by serializers as &quot;IUNV&quot;.
     /// </summary>
     [EnumMember(Value = "IUNV")]
     [IsoId("_oH-a430lEemfrNOe0zHQyg")]
@@ -112,7 +112,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Other national type of reason.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_oH-a5X0lEemfrNOe0zHQyg")]
@@ -121,7 +121,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Other private type of reason.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_oH-a530lEemfrNOe0zHQyg")]
@@ -130,7 +130,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Random online decided by the terminal.
-    /// Encoded/decoded by serializers as "TRND".
+    /// Encoded/decoded by serializers as &quot;TRND&quot;.
     /// </summary>
     [EnumMember(Value = "TRND")]
     [IsoId("_oH-a6X0lEemfrNOe0zHQyg")]
@@ -139,7 +139,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Terminal cannot process offline the transaction.
-    /// Encoded/decoded by serializers as "TUNB".
+    /// Encoded/decoded by serializers as &quot;TUNB&quot;.
     /// </summary>
     [EnumMember(Value = "TUNB")]
     [IsoId("_oH-a630lEemfrNOe0zHQyg")]
@@ -147,8 +147,8 @@ public enum MessageReason2Code
     TerminalUnableToProcess = MessageReasonCode.TerminalUnableToProcess, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Stand-in processing at the receiver's option.
-    /// Encoded/decoded by serializers as "RSTD".
+    /// Stand-in processing at the receiver&apos;s option.
+    /// Encoded/decoded by serializers as &quot;RSTD&quot;.
     /// </summary>
     [EnumMember(Value = "RSTD")]
     [IsoId("_oH-a7X0lEemfrNOe0zHQyg")]
@@ -157,7 +157,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Receiver timed out on request.
-    /// Encoded/decoded by serializers as "RTIM".
+    /// Encoded/decoded by serializers as &quot;RTIM&quot;.
     /// </summary>
     [EnumMember(Value = "RTIM")]
     [IsoId("_oH-a730lEemfrNOe0zHQyg")]
@@ -166,7 +166,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Receiver signed off.
-    /// Encoded/decoded by serializers as "RSGN".
+    /// Encoded/decoded by serializers as &quot;RSGN&quot;.
     /// </summary>
     [EnumMember(Value = "RSGN")]
     [IsoId("_oH-a8X0lEemfrNOe0zHQyg")]
@@ -175,7 +175,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Receiver unavailable.
-    /// Encoded/decoded by serializers as "RUNV".
+    /// Encoded/decoded by serializers as &quot;RUNV&quot;.
     /// </summary>
     [EnumMember(Value = "RUNV")]
     [IsoId("_oH-a830lEemfrNOe0zHQyg")]
@@ -184,7 +184,7 @@ public enum MessageReason2Code
     
     /// <summary>
     /// Transaction performed offline by the terminal.
-    /// Encoded/decoded by serializers as "TOFF".
+    /// Encoded/decoded by serializers as &quot;TOFF&quot;.
     /// </summary>
     [EnumMember(Value = "TOFF")]
     [IsoId("_oH-a9X0lEemfrNOe0zHQyg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
 /// </summary>
 [IsoId("_VyQSsdATEeuSBa1PsnseFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Local Market Annex")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record LocalMarketAnnex5
     /// Country of the local fund order desk.
     /// </summary>
     [IsoId("_WHtlUdATEeuSBa1PsnseFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     public string? Country { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _WHtlUdATEeuSBa1PsnseFg
     
@@ -64,16 +61,15 @@ public partial record LocalMarketAnnex5
     /// Local entity appointed by the fund, to which orders should be submitted. 
     /// </summary>
     [IsoId("_WHtlU9ATEeuSBa1PsnseFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Order Desk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclOrdrDsk")]
     #endif
+    [IsoXmlTag("LclOrdrDsk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrderDesk1 LocalOrderDesk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrderDesk1 LocalOrderDesk { get; init; } 
+    public required OrderDesk1 LocalOrderDesk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrderDesk1 LocalOrderDesk { get; init; } 
     #else
@@ -84,12 +80,11 @@ public partial record LocalMarketAnnex5
     /// Processing characteristics linked to a subscription to the investment fund or alternative/hedge fund.
     /// </summary>
     [IsoId("_WHtlVdATEeuSBa1PsnseFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptPrcgChrtcs")]
     #endif
+    [IsoXmlTag("SbcptPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics8? SubscriptionProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,12 +97,11 @@ public partial record LocalMarketAnnex5
     /// Processing characteristics linked to a redemption to the investment fund or alternative/hedge fund.
     /// </summary>
     [IsoId("_WHtlV9ATEeuSBa1PsnseFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedPrcgChrtcs")]
     #endif
+    [IsoXmlTag("RedPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics5? RedemptionProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +114,11 @@ public partial record LocalMarketAnnex5
     /// Processing characteristics linked to a switch of the investment fund or alternative/hedge fund.
     /// </summary>
     [IsoId("_WHtlWdATEeuSBa1PsnseFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchPrcgChrtcs")]
     #endif
+    [IsoXmlTag("SwtchPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingCharacteristics6? SwitchProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +131,11 @@ public partial record LocalMarketAnnex5
     /// Account to be used for cash settlement.
     /// </summary>
     [IsoId("_WHtlW9ATEeuSBa1PsnseFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshSttlmDtls")]
     #endif
+    [IsoXmlTag("CshSttlmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount205? CashSettlementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +148,11 @@ public partial record LocalMarketAnnex5
     /// Additional information about the fund order desk.
     /// </summary>
     [IsoId("_WHtlXdATEeuSBa1PsnseFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

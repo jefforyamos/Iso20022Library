@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EligibilityIdentification2Choice
     /// Issuer CSD identification used to identify the securities to be defined as eligible.
     /// </summary>
     [IsoId("_oOzV9eLXEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer CSD Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

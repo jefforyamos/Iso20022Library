@@ -21,7 +21,7 @@ public enum MessageFunction42Code
 {
     /// <summary>
     /// The initiator requests an authorisation without financial impact to complete the transaction.
-    /// Encoded/decoded by serializers as "AUTQ".
+    /// Encoded/decoded by serializers as &quot;AUTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AUTQ")]
     [IsoId("_Bbd_4S_aEeugIJ3Gvoevmg")]
@@ -30,7 +30,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response for authorisation without financial capture.
-    /// Encoded/decoded by serializers as "AUTP".
+    /// Encoded/decoded by serializers as &quot;AUTP&quot;.
     /// </summary>
     [EnumMember(Value = "AUTP")]
     [IsoId("_Bbd_4y_aEeugIJ3Gvoevmg")]
@@ -39,7 +39,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice for cancellation.
-    /// Encoded/decoded by serializers as "CCAV".
+    /// Encoded/decoded by serializers as &quot;CCAV&quot;.
     /// </summary>
     [EnumMember(Value = "CCAV")]
     [IsoId("_Bbd_5S_aEeugIJ3Gvoevmg")]
@@ -48,7 +48,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice response for cancellation.
-    /// Encoded/decoded by serializers as "CCAK".
+    /// Encoded/decoded by serializers as &quot;CCAK&quot;.
     /// </summary>
     [EnumMember(Value = "CCAK")]
     [IsoId("_Bbd_5y_aEeugIJ3Gvoevmg")]
@@ -57,7 +57,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Request for cancellation.
-    /// Encoded/decoded by serializers as "CCAQ".
+    /// Encoded/decoded by serializers as &quot;CCAQ&quot;.
     /// </summary>
     [EnumMember(Value = "CCAQ")]
     [IsoId("_Bbd_6S_aEeugIJ3Gvoevmg")]
@@ -66,7 +66,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response for cancellation.
-    /// Encoded/decoded by serializers as "CCAP".
+    /// Encoded/decoded by serializers as &quot;CCAP&quot;.
     /// </summary>
     [EnumMember(Value = "CCAP")]
     [IsoId("_Bbd_6y_aEeugIJ3Gvoevmg")]
@@ -75,7 +75,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice for completion without financial capture.
-    /// Encoded/decoded by serializers as "CMPV".
+    /// Encoded/decoded by serializers as &quot;CMPV&quot;.
     /// </summary>
     [EnumMember(Value = "CMPV")]
     [IsoId("_Bbd_7S_aEeugIJ3Gvoevmg")]
@@ -84,7 +84,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice response for completion without financial capture.
-    /// Encoded/decoded by serializers as "CMPK".
+    /// Encoded/decoded by serializers as &quot;CMPK&quot;.
     /// </summary>
     [EnumMember(Value = "CMPK")]
     [IsoId("_Bbd_7y_aEeugIJ3Gvoevmg")]
@@ -93,7 +93,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCAV".
+    /// Encoded/decoded by serializers as &quot;DCAV&quot;.
     /// </summary>
     [EnumMember(Value = "DCAV")]
     [IsoId("_Bbd_8S_aEeugIJ3Gvoevmg")]
@@ -102,7 +102,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice response for the currency conversion from the service provider to the acceptor.
-    /// Encoded/decoded by serializers as "DCRR".
+    /// Encoded/decoded by serializers as &quot;DCRR&quot;.
     /// </summary>
     [EnumMember(Value = "DCRR")]
     [IsoId("_Bbd_8y_aEeugIJ3Gvoevmg")]
@@ -111,7 +111,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Request for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCCQ".
+    /// Encoded/decoded by serializers as &quot;DCCQ&quot;.
     /// </summary>
     [EnumMember(Value = "DCCQ")]
     [IsoId("_Bbd_9S_aEeugIJ3Gvoevmg")]
@@ -120,7 +120,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response from a dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCCP".
+    /// Encoded/decoded by serializers as &quot;DCCP&quot;.
     /// </summary>
     [EnumMember(Value = "DCCP")]
     [IsoId("_Bbd_9y_aEeugIJ3Gvoevmg")]
@@ -129,7 +129,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Request for diagnostic.
-    /// Encoded/decoded by serializers as "DGNP".
+    /// Encoded/decoded by serializers as &quot;DGNP&quot;.
     /// </summary>
     [EnumMember(Value = "DGNP")]
     [IsoId("_Bbd_-S_aEeugIJ3Gvoevmg")]
@@ -138,7 +138,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response for diagnostic.
-    /// Encoded/decoded by serializers as "DGNQ".
+    /// Encoded/decoded by serializers as &quot;DGNQ&quot;.
     /// </summary>
     [EnumMember(Value = "DGNQ")]
     [IsoId("_Bbd_-y_aEeugIJ3Gvoevmg")]
@@ -147,7 +147,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Request for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FAUQ".
+    /// Encoded/decoded by serializers as &quot;FAUQ&quot;.
     /// </summary>
     [EnumMember(Value = "FAUQ")]
     [IsoId("_Bbd__S_aEeugIJ3Gvoevmg")]
@@ -156,7 +156,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FAUP".
+    /// Encoded/decoded by serializers as &quot;FAUP&quot;.
     /// </summary>
     [EnumMember(Value = "FAUP")]
     [IsoId("_Bbd__y_aEeugIJ3Gvoevmg")]
@@ -165,7 +165,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice for completion with financial capture.
-    /// Encoded/decoded by serializers as "FCMV".
+    /// Encoded/decoded by serializers as &quot;FCMV&quot;.
     /// </summary>
     [EnumMember(Value = "FCMV")]
     [IsoId("_BbeAAS_aEeugIJ3Gvoevmg")]
@@ -174,7 +174,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice response for completion with financial capture.
-    /// Encoded/decoded by serializers as "FCMK".
+    /// Encoded/decoded by serializers as &quot;FCMK&quot;.
     /// </summary>
     [EnumMember(Value = "FCMK")]
     [IsoId("_BbeAAy_aEeugIJ3Gvoevmg")]
@@ -183,7 +183,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FRVA".
+    /// Encoded/decoded by serializers as &quot;FRVA&quot;.
     /// </summary>
     [EnumMember(Value = "FRVA")]
     [IsoId("_BbeABS_aEeugIJ3Gvoevmg")]
@@ -192,7 +192,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice response for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FRVR".
+    /// Encoded/decoded by serializers as &quot;FRVR&quot;.
     /// </summary>
     [EnumMember(Value = "FRVR")]
     [IsoId("_BbeABy_aEeugIJ3Gvoevmg")]
@@ -201,7 +201,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Request for reconciliation.
-    /// Encoded/decoded by serializers as "RCLQ".
+    /// Encoded/decoded by serializers as &quot;RCLQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCLQ")]
     [IsoId("_BbeACS_aEeugIJ3Gvoevmg")]
@@ -210,7 +210,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response for reconciliation.
-    /// Encoded/decoded by serializers as "RCLP".
+    /// Encoded/decoded by serializers as &quot;RCLP&quot;.
     /// </summary>
     [EnumMember(Value = "RCLP")]
     [IsoId("_BbeACy_aEeugIJ3Gvoevmg")]
@@ -219,7 +219,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice for reversal without financial capture.
-    /// Encoded/decoded by serializers as "RVRA".
+    /// Encoded/decoded by serializers as &quot;RVRA&quot;.
     /// </summary>
     [EnumMember(Value = "RVRA")]
     [IsoId("_BbeADS_aEeugIJ3Gvoevmg")]
@@ -228,7 +228,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice response for reversal without financial capture.
-    /// Encoded/decoded by serializers as "RVRR".
+    /// Encoded/decoded by serializers as &quot;RVRR&quot;.
     /// </summary>
     [EnumMember(Value = "RVRR")]
     [IsoId("_BbeADy_aEeugIJ3Gvoevmg")]
@@ -237,7 +237,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Advice for a Card Direct Debit.
-    /// Encoded/decoded by serializers as "CDDQ".
+    /// Encoded/decoded by serializers as &quot;CDDQ&quot;.
     /// </summary>
     [EnumMember(Value = "CDDQ")]
     [IsoId("_BbeAES_aEeugIJ3Gvoevmg")]
@@ -246,7 +246,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response to a Card Direct Debit Advice.
-    /// Encoded/decoded by serializers as "CDDK".
+    /// Encoded/decoded by serializers as &quot;CDDK&quot;.
     /// </summary>
     [EnumMember(Value = "CDDK")]
     [IsoId("_BbeAEy_aEeugIJ3Gvoevmg")]
@@ -255,7 +255,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Request to initiate a Card Direct Debit.
-    /// Encoded/decoded by serializers as "CDDR".
+    /// Encoded/decoded by serializers as &quot;CDDR&quot;.
     /// </summary>
     [EnumMember(Value = "CDDR")]
     [IsoId("_BbeAFS_aEeugIJ3Gvoevmg")]
@@ -264,7 +264,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response to a Card Direct Debit Request.
-    /// Encoded/decoded by serializers as "CDDP".
+    /// Encoded/decoded by serializers as &quot;CDDP&quot;.
     /// </summary>
     [EnumMember(Value = "CDDP")]
     [IsoId("_BbeAFy_aEeugIJ3Gvoevmg")]
@@ -273,7 +273,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response to a transaction advice.
-    /// Encoded/decoded by serializers as "TRNR".
+    /// Encoded/decoded by serializers as &quot;TRNR&quot;.
     /// </summary>
     [EnumMember(Value = "TRNR")]
     [IsoId("_BbeAGS_aEeugIJ3Gvoevmg")]
@@ -281,8 +281,8 @@ public enum MessageFunction42Code
     TransactionAdviceResponse = MessageFunctionCode.TransactionAdviceResponse, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Advise of the transaction's processing.
-    /// Encoded/decoded by serializers as "TRNA".
+    /// Advise of the transaction&apos;s processing.
+    /// Encoded/decoded by serializers as &quot;TRNA&quot;.
     /// </summary>
     [EnumMember(Value = "TRNA")]
     [IsoId("_BbeAGy_aEeugIJ3Gvoevmg")]
@@ -291,7 +291,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Initiator of the message requests additional information to the receiver.
-    /// Encoded/decoded by serializers as "NFRQ".
+    /// Encoded/decoded by serializers as &quot;NFRQ&quot;.
     /// </summary>
     [EnumMember(Value = "NFRQ")]
     [IsoId("_JjlWgS_aEeugIJ3Gvoevmg")]
@@ -300,7 +300,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Provision of additional information to the issuer of a NonFinancialRequest.
-    /// Encoded/decoded by serializers as "NFRP".
+    /// Encoded/decoded by serializers as &quot;NFRP&quot;.
     /// </summary>
     [EnumMember(Value = "NFRP")]
     [IsoId("_Jo57YS_aEeugIJ3Gvoevmg")]
@@ -309,7 +309,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Request to receive of a report of transaction from the issuer to the receiver.
-    /// Encoded/decoded by serializers as "TRPQ".
+    /// Encoded/decoded by serializers as &quot;TRPQ&quot;.
     /// </summary>
     [EnumMember(Value = "TRPQ")]
     [IsoId("_KTaQ8S_aEeugIJ3Gvoevmg")]
@@ -318,7 +318,7 @@ public enum MessageFunction42Code
     
     /// <summary>
     /// Response to provide a sanitized report of transactions.
-    /// Encoded/decoded by serializers as "TRPP".
+    /// Encoded/decoded by serializers as &quot;TRPP&quot;.
     /// </summary>
     [EnumMember(Value = "TRPP")]
     [IsoId("_KeBlgS_aEeugIJ3Gvoevmg")]

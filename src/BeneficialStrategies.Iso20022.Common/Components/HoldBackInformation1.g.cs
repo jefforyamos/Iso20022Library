@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about hold back.
 /// </summary>
 [IsoId("_SdsIetp-Ed-ak6NoX_4Aeg_1440751245")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Hold Back Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record HoldBackInformation1
     /// Value of the redemption amount subject to hold back.
     /// </summary>
     [IsoId("_SdsIe9p-Ed-ak6NoX_4Aeg_1820317430")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hold Back Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldBckAmt")]
     #endif
+    [IsoXmlTag("HldBckAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? HoldBackAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record HoldBackInformation1
     /// Date on which the hold back amount is to be released.
     /// </summary>
     [IsoId("_SdsIfNp-Ed-ak6NoX_4Aeg_-2030432920")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hold Back Release Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldBckRlsDt")]
     #endif
+    [IsoXmlTag("HldBckRlsDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? HoldBackReleaseDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginCallResult1Choice.MarginCallResultDetails))]
     [KnownType(typeof(MarginCallResult1Choice.SegregatedIndependentAmount))]
     [IsoId("_QmevNdp-Ed-ak6NoX_4Aeg_98969044")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Call Result 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

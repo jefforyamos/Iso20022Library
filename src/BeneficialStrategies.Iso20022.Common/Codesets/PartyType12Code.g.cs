@@ -21,7 +21,7 @@ public enum PartyType12Code
 {
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_rAuvcYn0EeS9F4Qrq_eaVA")]
@@ -30,7 +30,7 @@ public enum PartyType12Code
     
     /// <summary>
     /// Entity managing the ATM.
-    /// Encoded/decoded by serializers as "ATMG".
+    /// Encoded/decoded by serializers as &quot;ATMG&quot;.
     /// </summary>
     [EnumMember(Value = "ATMG")]
     [IsoId("_rM8mg4n0EeS9F4Qrq_eaVA")]
@@ -39,7 +39,7 @@ public enum PartyType12Code
     
     /// <summary>
     /// Entity providing issuing card payment processing services on behalf on an issuer.
-    /// Encoded/decoded by serializers as "CISP".
+    /// Encoded/decoded by serializers as &quot;CISP&quot;.
     /// </summary>
     [EnumMember(Value = "CISP")]
     [IsoId("_r0egk4n0EeS9F4Qrq_eaVA")]
@@ -48,7 +48,7 @@ public enum PartyType12Code
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DLIS".
+    /// Encoded/decoded by serializers as &quot;DLIS&quot;.
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_sAb484n0EeS9F4Qrq_eaVA")]
@@ -57,7 +57,7 @@ public enum PartyType12Code
     
     /// <summary>
     /// Entity hosting the ATM.
-    /// Encoded/decoded by serializers as "HSTG".
+    /// Encoded/decoded by serializers as &quot;HSTG&quot;.
     /// </summary>
     [EnumMember(Value = "HSTG")]
     [IsoId("_s-0Mw4n0EeS9F4Qrq_eaVA")]
@@ -66,7 +66,7 @@ public enum PartyType12Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_tIgUQ4n0EeS9F4Qrq_eaVA")]
@@ -75,7 +75,7 @@ public enum PartyType12Code
     
     /// <summary>
     /// ATM initiating the transaction.
-    /// Encoded/decoded by serializers as "OATM".
+    /// Encoded/decoded by serializers as &quot;OATM&quot;.
     /// </summary>
     [EnumMember(Value = "OATM")]
     [IsoId("_t-Q3k4n0EeS9F4Qrq_eaVA")]

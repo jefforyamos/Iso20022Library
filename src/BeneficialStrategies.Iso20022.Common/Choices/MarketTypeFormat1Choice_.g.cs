@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketTypeFormat1Choice.Code))]
     [KnownType(typeof(MarketTypeFormat1Choice.Proprietary))]
     [IsoId("_Q4XJYdp-Ed-ak6NoX_4Aeg_472330061")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Type Format 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

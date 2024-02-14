@@ -21,7 +21,7 @@ public enum LegalStructureFinancialInstrument1Code
 {
     /// <summary>
     /// Legal structure is a not an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "NUCI".
+    /// Encoded/decoded by serializers as &quot;NUCI&quot;.
     /// </summary>
     [EnumMember(Value = "NUCI")]
     [IsoId("_X3bEITcVEeiIxKQErQxblg")]
@@ -30,7 +30,7 @@ public enum LegalStructureFinancialInstrument1Code
     
     /// <summary>
     /// Legal structure is a structured fund.
-    /// Encoded/decoded by serializers as "SFUN".
+    /// Encoded/decoded by serializers as &quot;SFUN&quot;.
     /// </summary>
     [EnumMember(Value = "SFUN")]
     [IsoId("_X74tYTcVEeiIxKQErQxblg")]
@@ -39,7 +39,7 @@ public enum LegalStructureFinancialInstrument1Code
     
     /// <summary>
     /// Legal structure is a structured security.
-    /// Encoded/decoded by serializers as "SSEC".
+    /// Encoded/decoded by serializers as &quot;SSEC&quot;.
     /// </summary>
     [EnumMember(Value = "SSEC")]
     [IsoId("_YANMsTcVEeiIxKQErQxblg")]
@@ -48,7 +48,7 @@ public enum LegalStructureFinancialInstrument1Code
     
     /// <summary>
     /// Legal structure is an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "UCIT".
+    /// Encoded/decoded by serializers as &quot;UCIT&quot;.
     /// </summary>
     [EnumMember(Value = "UCIT")]
     [IsoId("_YE9w4TcVEeiIxKQErQxblg")]
@@ -57,7 +57,7 @@ public enum LegalStructureFinancialInstrument1Code
     
     /// <summary>
     /// Legal structure is an exchange traded commodity.
-    /// Encoded/decoded by serializers as "EXTC".
+    /// Encoded/decoded by serializers as &quot;EXTC&quot;.
     /// </summary>
     [EnumMember(Value = "EXTC")]
     [IsoId("_atb8EYBgEei8Q7I_11BpAQ")]
@@ -66,7 +66,7 @@ public enum LegalStructureFinancialInstrument1Code
     
     /// <summary>
     /// Legal structure is an Undertaking for Collective Investment in Transferable Securities (UCITS) money market fund.
-    /// Encoded/decoded by serializers as "UCMM".
+    /// Encoded/decoded by serializers as &quot;UCMM&quot;.
     /// </summary>
     [EnumMember(Value = "UCMM")]
     [IsoId("_azh9AYBgEei8Q7I_11BpAQ")]
@@ -75,7 +75,7 @@ public enum LegalStructureFinancialInstrument1Code
     
     /// <summary>
     /// Legal structure is a money market fund that is not an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "NUMM".
+    /// Encoded/decoded by serializers as &quot;NUMM&quot;.
     /// </summary>
     [EnumMember(Value = "NUMM")]
     [IsoId("_LZpQ4YvwEeicrr-UkGlMQA")]

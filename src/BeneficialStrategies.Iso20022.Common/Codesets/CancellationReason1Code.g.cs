@@ -21,7 +21,7 @@ public enum CancellationReason1Code
 {
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_bX9Uwtp-Ed-ak6NoX_4Aeg_1630644349")]
@@ -30,7 +30,7 @@ public enum CancellationReason1Code
     
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_bX9Uw9p-Ed-ak6NoX_4Aeg_1685131160")]
@@ -39,7 +39,7 @@ public enum CancellationReason1Code
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_bX9UxNp-Ed-ak6NoX_4Aeg_625588821")]
@@ -48,7 +48,7 @@ public enum CancellationReason1Code
     
     /// <summary>
     /// Currency of the payment is incorrect.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_bX9Uxdp-Ed-ak6NoX_4Aeg_53376570")]
@@ -57,7 +57,7 @@ public enum CancellationReason1Code
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_bX9Uxtp-Ed-ak6NoX_4Aeg_-1199151468")]

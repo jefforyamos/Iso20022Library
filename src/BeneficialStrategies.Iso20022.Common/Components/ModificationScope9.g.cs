@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_RRPjftp-Ed-ak6NoX_4Aeg_-1307334017")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope9
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
     [IsoId("_RRZUcNp-Ed-ak6NoX_4Aeg_-1307333774")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ModificationScopeIndication { get; init; } 
+    public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope9
     /// Information about the investment account ownership with respect to new issue allocation for a hedge fund.
     /// </summary>
     [IsoId("_RRZUcdp-Ed-ak6NoX_4Aeg_-1190045534")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issue Allocation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IsseAllcn")]
     #endif
+    [IsoXmlTag("IsseAllcn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NewIssueAllocation1 IssueAllocation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NewIssueAllocation1 IssueAllocation { get; init; } 
+    public required NewIssueAllocation1 IssueAllocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NewIssueAllocation1 IssueAllocation { get; init; } 
     #else

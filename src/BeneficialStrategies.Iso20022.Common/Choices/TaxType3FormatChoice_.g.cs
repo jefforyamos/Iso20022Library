@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxType3FormatChoice.Code))]
     [KnownType(typeof(TaxType3FormatChoice.Proprietary))]
     [IsoId("_RpFbsdp-Ed-ak6NoX_4Aeg_215638433")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Type 3 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

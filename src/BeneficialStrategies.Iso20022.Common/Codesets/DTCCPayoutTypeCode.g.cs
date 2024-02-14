@@ -21,7 +21,7 @@ public enum DTCCPayoutTypeCode
 {
     /// <summary>
     /// Payout consisting of cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_1o-QozL3EeKU9IrkkToqcw_-834385062")]
@@ -30,7 +30,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Payout consisting of securities.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_1o-QpDL3EeKU9IrkkToqcw_702376988")]
@@ -39,7 +39,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by company as dividend.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_1o-QpTL3EeKU9IrkkToqcw_-1870772597")]
@@ -47,8 +47,8 @@ public enum DTCCPayoutTypeCode
     Dividend,
     
     /// <summary>
-    /// Distribution that doesn't represent earnings and is categorised by the company as return of capital.
-    /// Encoded/decoded by serializers as "ROCA".
+    /// Distribution that doesn&apos;t represent earnings and is categorised by the company as return of capital.
+    /// Encoded/decoded by serializers as &quot;ROCA&quot;.
     /// </summary>
     [EnumMember(Value = "ROCA")]
     [IsoId("_1o-QpjL3EeKU9IrkkToqcw_-359228468")]
@@ -57,7 +57,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as short-term capital gains.
-    /// Encoded/decoded by serializers as "STCG".
+    /// Encoded/decoded by serializers as &quot;STCG&quot;.
     /// </summary>
     [EnumMember(Value = "STCG")]
     [IsoId("_1pIBoDL3EeKU9IrkkToqcw_1506061219")]
@@ -66,7 +66,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as long-term capital gains.
-    /// Encoded/decoded by serializers as "LTCG".
+    /// Encoded/decoded by serializers as &quot;LTCG&quot;.
     /// </summary>
     [EnumMember(Value = "LTCG")]
     [IsoId("_1pIBoTL3EeKU9IrkkToqcw_2040405331")]
@@ -75,7 +75,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Distribution of earnings to shareholders categorised by the company as capital gains.
-    /// Encoded/decoded by serializers as "CAPG".
+    /// Encoded/decoded by serializers as &quot;CAPG&quot;.
     /// </summary>
     [EnumMember(Value = "CAPG")]
     [IsoId("_1pIBojL3EeKU9IrkkToqcw_-1084357800")]
@@ -84,7 +84,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Cash payment that is categorised by the issuer as premium, usually offered as incentive for early participation in an offer.
-    /// Encoded/decoded by serializers as "PREM".
+    /// Encoded/decoded by serializers as &quot;PREM&quot;.
     /// </summary>
     [EnumMember(Value = "PREM")]
     [IsoId("_1pIBozL3EeKU9IrkkToqcw_-1747991352")]
@@ -93,7 +93,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Cash payment on a debt instrument that represents a return of principal to the holder.
-    /// Encoded/decoded by serializers as "PRPL".
+    /// Encoded/decoded by serializers as &quot;PRPL&quot;.
     /// </summary>
     [EnumMember(Value = "PRPL")]
     [IsoId("_1pIBpDL3EeKU9IrkkToqcw_-343213628")]
@@ -102,7 +102,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Cash payment on a debt instrument calculated using the coupon rate, principal and period of time.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_1pIBpTL3EeKU9IrkkToqcw_1108680864")]
@@ -110,8 +110,8 @@ public enum DTCCPayoutTypeCode
     Interest,
     
     /// <summary>
-    /// In some markets, companies further categorize dividends as franked or unfranked. "Franked" means that a tax credit is attached to that part of the dividend.
-    /// Encoded/decoded by serializers as "FLFR".
+    /// In some markets, companies further categorize dividends as franked or unfranked. &quot;Franked&quot; means that a tax credit is attached to that part of the dividend.
+    /// Encoded/decoded by serializers as &quot;FLFR&quot;.
     /// </summary>
     [EnumMember(Value = "FLFR")]
     [IsoId("_1pIBpjL3EeKU9IrkkToqcw_-779183644")]
@@ -119,8 +119,8 @@ public enum DTCCPayoutTypeCode
     Franked,
     
     /// <summary>
-    /// In some markets, companies further categorize dividends as franked or unfranked. "Unfranked" means that there is no tax credit attached to the dividend.
-    /// Encoded/decoded by serializers as "UNFR".
+    /// In some markets, companies further categorize dividends as franked or unfranked. &quot;Unfranked&quot; means that there is no tax credit attached to the dividend.
+    /// Encoded/decoded by serializers as &quot;UNFR&quot;.
     /// </summary>
     [EnumMember(Value = "UNFR")]
     [IsoId("_1pRyoDL3EeKU9IrkkToqcw_-1942490306")]
@@ -129,7 +129,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Applies when a specific payout code cannot be used.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_1pRyoTL3EeKU9IrkkToqcw_86152619")]
@@ -138,7 +138,7 @@ public enum DTCCPayoutTypeCode
     
     /// <summary>
     /// Payout consisting of a tax credit.
-    /// Encoded/decoded by serializers as "TXCR".
+    /// Encoded/decoded by serializers as &quot;TXCR&quot;.
     /// </summary>
     [EnumMember(Value = "TXCR")]
     [IsoId("_iGgLQJCMEeaSk9d1hvTrHg")]

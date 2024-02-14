@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ResidenceLocation1Choice.Country))]
     [KnownType(typeof(ResidenceLocation1Choice.Area))]
     [IsoId("_6QsqkpqlEeGSON8vddiWzQ_1947299018")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Residence Location 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

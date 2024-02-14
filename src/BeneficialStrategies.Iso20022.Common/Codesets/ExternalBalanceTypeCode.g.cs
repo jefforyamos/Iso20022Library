@@ -22,7 +22,7 @@ public enum ExternalBalanceTypeCode
 {
     /// <summary>
     /// Closing balance of amount of money that is at the disposal of the account owner on the date specified. 
-    /// Encoded/decoded by serializers as "CLAV".
+    /// Encoded/decoded by serializers as &quot;CLAV&quot;.
     /// </summary>
     [EnumMember(Value = "CLAV")]
     [IsoId("_ua6dY_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalBalanceTypeCode
     
     /// <summary>
     /// Balance of the account at the end of the pre-agreed account reporting period. It is the sum of the opening booked balance at the beginning of the period and all entries booked to the account during the pre-agreed account reporting period. 
-    /// Encoded/decoded by serializers as "CLBD".
+    /// Encoded/decoded by serializers as &quot;CLBD&quot;.
     /// </summary>
     [EnumMember(Value = "CLBD")]
     [IsoId("_ua6dZvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalBalanceTypeCode
     
     /// <summary>
     /// Forward available balance of money that is at the disposal of the account owner on the date specified. 
-    /// Encoded/decoded by serializers as "FWAV".
+    /// Encoded/decoded by serializers as &quot;FWAV&quot;.
     /// </summary>
     [EnumMember(Value = "FWAV")]
     [IsoId("_ua6dafRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalBalanceTypeCode
     
     /// <summary>
     /// Balance for informational purposes. 
-    /// Encoded/decoded by serializers as "INFO".
+    /// Encoded/decoded by serializers as &quot;INFO&quot;.
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_ua6dbPRYEeuLhpyIdtJzwg")]
@@ -57,8 +57,8 @@ public enum ExternalBalanceTypeCode
     Information,
     
     /// <summary>
-    /// Available balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified. 
-    /// Encoded/decoded by serializers as "ITAV".
+    /// Available balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified. 
+    /// Encoded/decoded by serializers as &quot;ITAV&quot;.
     /// </summary>
     [EnumMember(Value = "ITAV")]
     [IsoId("_ubDnUPRYEeuLhpyIdtJzwg")]
@@ -66,8 +66,8 @@ public enum ExternalBalanceTypeCode
     InterimAvailable,
     
     /// <summary>
-    /// Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified. 
-    /// Encoded/decoded by serializers as "ITBD".
+    /// Balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified. 
+    /// Encoded/decoded by serializers as &quot;ITBD&quot;.
     /// </summary>
     [EnumMember(Value = "ITBD")]
     [IsoId("_ubDnU_RYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalBalanceTypeCode
     
     /// <summary>
     /// Opening balance of amount of money that is at the disposal of the account owner on the date specified. 
-    /// Encoded/decoded by serializers as "OPAV".
+    /// Encoded/decoded by serializers as &quot;OPAV&quot;.
     /// </summary>
     [EnumMember(Value = "OPAV")]
     [IsoId("_ubDnVvRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalBalanceTypeCode
     
     /// <summary>
     /// Book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report. 
-    /// Encoded/decoded by serializers as "OPBD".
+    /// Encoded/decoded by serializers as &quot;OPBD&quot;.
     /// </summary>
     [EnumMember(Value = "OPBD")]
     [IsoId("_ubDnWfRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalBalanceTypeCode
     
     /// <summary>
     /// Balance of the account at the previously closed account reporting period. The opening booked balance for the new period has to be equal to this balance.|Usage: the previously booked closing balance should equal (inclusive date) the booked closing balance of the date it references and equal the actual booked opening balance of the current date.
-    /// Encoded/decoded by serializers as "PRCD".
+    /// Encoded/decoded by serializers as &quot;PRCD&quot;.
     /// </summary>
     [EnumMember(Value = "PRCD")]
     [IsoId("_ubNYUPRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalBalanceTypeCode
     
     /// <summary>
     /// Balance, composed of booked entries and pending items known at the time of calculation, which projects the end of day balance if everything is booked on the account and no other entry is posted. 
-    /// Encoded/decoded by serializers as "XPCD".
+    /// Encoded/decoded by serializers as &quot;XPCD&quot;.
     /// </summary>
     [EnumMember(Value = "XPCD")]
     [IsoId("_ubNYU_RYEeuLhpyIdtJzwg")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PoliticalExposureType2Choice.Code))]
     [KnownType(typeof(PoliticalExposureType2Choice.Proprietary))]
     [IsoId("_wSAccZUgEemC09f0MxYkRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Political Exposure Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

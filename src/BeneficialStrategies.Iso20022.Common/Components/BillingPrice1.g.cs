@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the billing price of a service.
 /// </summary>
 [IsoId("_6TrGHJqlEeGSON8vddiWzQ_-1572616191")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BillingPrice1
     /// Currency code in which the unit price and original charge price are expressed.
     /// </summary>
     [IsoId("_6T03EJqlEeGSON8vddiWzQ_-1686455257")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record BillingPrice1
     /// Price per item or unit used to calculate the charge expressed in the pricing currency.
     /// </summary>
     [IsoId("_6T03EZqlEeGSON8vddiWzQ_1611439686")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitPric")]
     #endif
+    [IsoXmlTag("UnitPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection34? UnitPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record BillingPrice1
     /// Identifies how the charge was calculated. ||Usage: The absence of this code assumes that the charge is calculated as the product of (volume x unit price).
     /// </summary>
     [IsoId("_6T03EpqlEeGSON8vddiWzQ_1347426093")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtd")]
     #endif
+    [IsoXmlTag("Mtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingChargeMethod1Code? Method { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,15 +93,13 @@ public partial record BillingPrice1
     /// Indicates that the charge calculation is based on a particular rule. The rule name is carried here and is defined by the trading partners.
     /// </summary>
     [IsoId("_6T03E5qlEeGSON8vddiWzQ_-937813392")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rule")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rule")]
+    [IsoSimpleType(IsoSimpleType.Max20Text)]
     [StringLength(maximumLength: 20 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20Text? Rule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

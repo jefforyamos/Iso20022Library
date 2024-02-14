@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about market identification and market type.
 /// </summary>
 [IsoId("_URxVOdp-Ed-ak6NoX_4Aeg_-1818595308")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Market Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MarketIdentification2
     /// Specifies the type of market.
     /// </summary>
     [IsoId("_URxVOtp-Ed-ak6NoX_4Aeg_-1367916516")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarketTypeFormat1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarketTypeFormat1Choice_ Type { get; init; } 
+    public required MarketTypeFormat1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarketTypeFormat1Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MarketIdentification2
     /// Identifies the market.
     /// </summary>
     [IsoId("_URxVO9p-Ed-ak6NoX_4Aeg_-870756545")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification1Choice_? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

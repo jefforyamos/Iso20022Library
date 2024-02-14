@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Currency control document entry supporting the contract registration.
 /// </summary>
 [IsoId("_l1j-wbGJEeuSTr8k0UEM8A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Supporting Document Entry")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record SupportingDocumentEntry2
     /// Unique and unambiguous identification of the supporting document entry.
     /// </summary>
     [IsoId("_l2d9sbGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entry Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtryId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("NtryId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text EntryIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String EntryIdentification { get; init; } 
+    public required System.String EntryIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String EntryIdentification { get; init; } 
     #else
@@ -77,16 +73,15 @@ public partial record SupportingDocumentEntry2
     /// Identification of the original document for which the supporting documents are provided.
     /// </summary>
     [IsoId("_l2d9s7GJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlDoc")]
     #endif
+    [IsoXmlTag("OrgnlDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification22 OriginalDocument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification22 OriginalDocument { get; init; } 
+    public required DocumentIdentification22 OriginalDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification22 OriginalDocument { get; init; } 
     #else
@@ -95,22 +90,19 @@ public partial record SupportingDocumentEntry2
     
     /// <summary>
     /// Document type in a coded form.
-    /// TBC: Data must support "_".
+    /// TBC: Data must support &quot;_&quot;.
     /// </summary>
     [IsoId("_l2d9tbGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DocTp")]
+    [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericUnderscoreText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact4AlphaNumericUnderscoreText DocumentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DocumentType { get; init; } 
+    public required System.String DocumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DocumentType { get; init; } 
     #else
@@ -121,12 +113,12 @@ public partial record SupportingDocumentEntry2
     /// Total amount of the supporting document entry.
     /// </summary>
     [IsoId("_l2d9t7GJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmt")]
     #endif
+    [IsoXmlTag("TtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +131,12 @@ public partial record SupportingDocumentEntry2
     /// Total amount after shipment of the supporting document entry.
     /// </summary>
     [IsoId("_l2d9ubGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount After Shipment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtAftrShipmnt")]
     #endif
+    [IsoXmlTag("TtlAmtAftrShipmnt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAmountAfterShipment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,12 +149,12 @@ public partial record SupportingDocumentEntry2
     /// Total amount of the supporting document entry in the currency of the contract.
     /// </summary>
     [IsoId("_l2d9u7GJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount In Contract Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtInCtrctCcy")]
     #endif
+    [IsoXmlTag("TtlAmtInCtrctCcy")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAmountInContractCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +167,12 @@ public partial record SupportingDocumentEntry2
     /// Total amount after shipment of the supporting document entry in the currency of the contract.
     /// </summary>
     [IsoId("_l2d9vbGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount After Shipment In Contract Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmtAftrShipmntInCtrctCcy")]
     #endif
+    [IsoXmlTag("TtlAmtAftrShipmntInCtrctCcy")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? TotalAmountAfterShipmentInContractCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,16 +185,15 @@ public partial record SupportingDocumentEntry2
     /// Conditions and attributes related to the shipment.
     /// </summary>
     [IsoId("_l2d9v7GJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shipment Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShipmntAttrbts")]
     #endif
+    [IsoXmlTag("ShipmntAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShipmentAttribute2 ShipmentAttributes { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ShipmentAttribute2 ShipmentAttributes { get; init; } 
+    public required ShipmentAttribute2 ShipmentAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ShipmentAttribute2 ShipmentAttributes { get; init; } 
     #else
@@ -213,12 +204,11 @@ public partial record SupportingDocumentEntry2
     /// Identification of the document entry amendment.
     /// </summary>
     [IsoId("_FnwlELP7Eeud-ZmjZVm7MA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entry Amendment Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtryAmdmntId")]
     #endif
+    [IsoXmlTag("NtryAmdmntId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentEntryAmendment1? EntryAmendmentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -231,15 +221,13 @@ public partial record SupportingDocumentEntry2
     /// Indication of contract obligations execution.
     /// </summary>
     [IsoId("_xqX3ULP_Eeud-ZmjZVm7MA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maturity Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtrtyData")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MtrtyData")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? MaturityData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -252,15 +240,13 @@ public partial record SupportingDocumentEntry2
     /// Further details on the supporting document entry.
     /// </summary>
     [IsoId("_l2d9wbGJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max500Text)]
     [StringLength(maximumLength: 500 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax500Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -273,12 +259,11 @@ public partial record SupportingDocumentEntry2
     /// Documents provided as attachments to the supporting document entry.
     /// </summary>
     [IsoId("_l2d9w7GJEeuSTr8k0UEM8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attachment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Attchmnt")]
     #endif
+    [IsoXmlTag("Attchmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentGeneralInformation5? Attachment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

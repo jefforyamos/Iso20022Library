@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice of formats for the type of charge.
 /// </summary>
 [IsoId("_JVSiqQatEeS3lpTattq7hg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charge")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Charge26
     /// Type of charge.
     /// </summary>
     [IsoId("_eget8AatEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargeType4Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargeType4Choice_ Type { get; init; } 
+    public required ChargeType4Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargeType4Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Charge26
     /// Charge amount or charge rate applied.
     /// </summary>
     [IsoId("_VRW2gQauEeS3lpTattq7hg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Applied")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgApld")]
     #endif
+    [IsoXmlTag("ChrgApld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrRate3Choice_ ChargeApplied { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrRate3Choice_ ChargeApplied { get; init; } 
+    public required AmountOrRate3Choice_ ChargeApplied { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrRate3Choice_ ChargeApplied { get; init; } 
     #else

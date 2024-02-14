@@ -21,7 +21,7 @@ public enum FractionDispositionType10Code
 {
     /// <summary>
     /// Buy securities up to next whole number.
-    /// Encoded/decoded by serializers as "BUYU".
+    /// Encoded/decoded by serializers as &quot;BUYU&quot;.
     /// </summary>
     [EnumMember(Value = "BUYU")]
     [IsoId("_XLY_sWSCEeKFfdK0gKYFLQ")]
@@ -30,7 +30,7 @@ public enum FractionDispositionType10Code
     
     /// <summary>
     /// Fractional part of cash. Take cash in lieu of fractions.
-    /// Encoded/decoded by serializers as "CINL".
+    /// Encoded/decoded by serializers as &quot;CINL&quot;.
     /// </summary>
     [EnumMember(Value = "CINL")]
     [IsoId("_XVO4MWSCEeKFfdK0gKYFLQ")]
@@ -39,7 +39,7 @@ public enum FractionDispositionType10Code
     
     /// <summary>
     /// Let fractions expire worthless.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_XtEwcWSCEeKFfdK0gKYFLQ")]
@@ -48,7 +48,7 @@ public enum FractionDispositionType10Code
     
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_YNHicWSCEeKFfdK0gKYFLQ")]

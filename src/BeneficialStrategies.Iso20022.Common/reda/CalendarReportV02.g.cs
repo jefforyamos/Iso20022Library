@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The CalendarReport message is sent by the system administrator to the system member is to return information on the system status for specific calendar days.")]
 [IsoId("_DRJNLFuDEe29lKnE5APnfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Calendar Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record CalendarReportV02 : IOuterRecord<CalendarReportV02,Calenda
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_DRJNL1uDEe29lKnE5APnfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader11 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader11 MessageHeader { get; init; } 
+    public required MessageHeader11 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader11 MessageHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record CalendarReportV02 : IOuterRecord<CalendarReportV02,Calenda
     /// Reports on the calendar data.
     /// </summary>
     [IsoId("_DRJNLVuDEe29lKnE5APnfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptOrErr")]
     #endif
+    [IsoXmlTag("RptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CalendarReportOrError1Choice_ ReportOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CalendarReportOrError1Choice_ ReportOrError { get; init; } 
+    public required CalendarReportOrError1Choice_ ReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CalendarReportOrError1Choice_ ReportOrError { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record CalendarReportV02 : IOuterRecord<CalendarReportV02,Calenda
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_DRJNLluDEe29lKnE5APnfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record CalendarReportV02 : IOuterRecord<CalendarReportV02,Calenda
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CalendarReportV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CalendarReportV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CalendarReportV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record CalendarReportV02 : IOuterRecord<CalendarReportV02,Calenda
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CalendarReportV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CalendarReportV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CalendarReportV02Document : IOuterDocument<CalendarReportV02>
@@ -161,7 +156,7 @@ public partial record CalendarReportV02Document : IOuterDocument<CalendarReportV
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CalendarReportV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CalendarReportV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CalendarReportV02 Message { get; init; }

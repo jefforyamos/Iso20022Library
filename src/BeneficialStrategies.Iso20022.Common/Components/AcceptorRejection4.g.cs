@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reject of an exchange.
 /// </summary>
 [IsoId("_MZve4YPcEeSgq87JnUGd8A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Rejection")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AcceptorRejection4
     /// Reject reason of the message.
     /// </summary>
     [IsoId("_Mmjy4YPcEeSgq87JnUGd8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reject Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctRsn")]
     #endif
+    [IsoXmlTag("RjctRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectReason1Code RejectReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectReason1Code RejectReason { get; init; } 
+    public required RejectReason1Code RejectReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectReason1Code RejectReason { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AcceptorRejection4
     /// Detailed description of an error that caused the rejection for further analysis.
     /// </summary>
     [IsoId("_q1SJYIPeEeS-ibzJaEIoIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Error Reporting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ErrRptg")]
     #endif
+    [IsoXmlTag("ErrRptg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ErrorReporting1? ErrorReporting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record AcceptorRejection4
     /// Original request that caused the party to reject it.
     /// </summary>
     [IsoId("_Mmjy5YPcEeSgq87JnUGd8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message In Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgInErr")]
     #endif
+    [IsoXmlTag("MsgInErr")]
+    [IsoSimpleType(IsoSimpleType.Max100KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax100KBinary? MessageInError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusType2Choice.RawStatus))]
     [KnownType(typeof(PaymentStatusType2Choice.DetailedStatus))]
     [IsoId("_CuMfQSYMEei7VPGVFTQkxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Status Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

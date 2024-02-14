@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClaimNonReceiptRejectReason1Choice.Code))]
     [KnownType(typeof(ClaimNonReceiptRejectReason1Choice.Proprietary))]
     [IsoId("_LafiE4tuEee-OJ-wXSj3YQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Claim Non Receipt Reject Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

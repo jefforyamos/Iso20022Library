@@ -21,7 +21,7 @@ public enum BaselineStatus2Code
 {
     /// <summary>
     /// State of a baseline, after establishment, when all match instructions have been processed, and no such instruction is allowed anymore.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_bckvBtp-Ed-ak6NoX_4Aeg_-492223407")]
@@ -30,7 +30,7 @@ public enum BaselineStatus2Code
     
     /// <summary>
     /// Final state of a baseline, in which only reporting is allowed.
-    /// Encoded/decoded by serializers as "CLSD".
+    /// Encoded/decoded by serializers as &quot;CLSD&quot;.
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_bcugANp-Ed-ak6NoX_4Aeg_-492223372")]
@@ -39,7 +39,7 @@ public enum BaselineStatus2Code
     
     /// <summary>
     /// State of a baseline, after establishment, when one or more instructions (eg, amendment request, data set submission) have been processed.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_bcugAdp-Ed-ak6NoX_4Aeg_-1284169111")]

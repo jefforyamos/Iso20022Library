@@ -21,7 +21,7 @@ public enum ModificationProcessingStatus1Code
 {
     /// <summary>
     /// Modification request has been acknowledged for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_jQgqku5NEeCisYr99QEiWA_1714788286")]
@@ -30,7 +30,7 @@ public enum ModificationProcessingStatus1Code
     
     /// <summary>
     /// Modification has been rejected for further processing.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_jQgqk-5NEeCisYr99QEiWA_1892906958")]
@@ -39,7 +39,7 @@ public enum ModificationProcessingStatus1Code
     
     /// <summary>
     /// Modification has been completed.
-    /// Encoded/decoded by serializers as "MODC".
+    /// Encoded/decoded by serializers as &quot;MODC&quot;.
     /// </summary>
     [EnumMember(Value = "MODC")]
     [IsoId("_jQgqlO5NEeCisYr99QEiWA_-1404987985")]
@@ -48,7 +48,7 @@ public enum ModificationProcessingStatus1Code
     
     /// <summary>
     /// Modification will not be executed.
-    /// Encoded/decoded by serializers as "DEND".
+    /// Encoded/decoded by serializers as &quot;DEND&quot;.
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_jQp0gO5NEeCisYr99QEiWA_2006746024")]
@@ -57,7 +57,7 @@ public enum ModificationProcessingStatus1Code
     
     /// <summary>
     /// Modification is pending. It is not known at this time whether modified can be executed.
-    /// Encoded/decoded by serializers as "MODP".
+    /// Encoded/decoded by serializers as &quot;MODP&quot;.
     /// </summary>
     [EnumMember(Value = "MODP")]
     [IsoId("_jQp0ge5NEeCisYr99QEiWA_1828627352")]
@@ -66,7 +66,7 @@ public enum ModificationProcessingStatus1Code
     
     /// <summary>
     /// Modification request is in repair.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_jQp0gu5NEeCisYr99QEiWA_831554999")]

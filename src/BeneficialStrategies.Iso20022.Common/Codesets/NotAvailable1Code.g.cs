@@ -21,7 +21,7 @@ public enum NotAvailable1Code
 {
     /// <summary>
     /// Not available (N/A).
-    /// Encoded/decoded by serializers as "NTAV".
+    /// Encoded/decoded by serializers as &quot;NTAV&quot;.
     /// </summary>
     [EnumMember(Value = "NTAV")]
     [IsoId("_n4ZWsRvaEeWeg9zOuV6DZQ")]

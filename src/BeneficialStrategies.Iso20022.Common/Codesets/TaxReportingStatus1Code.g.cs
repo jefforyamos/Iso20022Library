@@ -21,7 +21,7 @@ public enum TaxReportingStatus1Code
 {
     /// <summary>
     /// Transaction or report has been accepted.
-    /// Encoded/decoded by serializers as "ACPT".
+    /// Encoded/decoded by serializers as &quot;ACPT&quot;.
     /// </summary>
     [EnumMember(Value = "ACPT")]
     [IsoId("_rP-DEWueEeaRcazd7EYKFQ")]
@@ -30,7 +30,7 @@ public enum TaxReportingStatus1Code
     
     /// <summary>
     /// Report has been received.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_rP-DGWueEeaRcazd7EYKFQ")]
@@ -39,7 +39,7 @@ public enum TaxReportingStatus1Code
     
     /// <summary>
     /// Transaction or report has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_rP-DG2ueEeaRcazd7EYKFQ")]
@@ -48,7 +48,7 @@ public enum TaxReportingStatus1Code
     
     /// <summary>
     /// File containing the report has an incorrect filename.
-    /// Encoded/decoded by serializers as "INCF".
+    /// Encoded/decoded by serializers as &quot;INCF&quot;.
     /// </summary>
     [EnumMember(Value = "INCF")]
     [IsoId("_rP-DH2ueEeaRcazd7EYKFQ")]
@@ -57,7 +57,7 @@ public enum TaxReportingStatus1Code
     
     /// <summary>
     /// File containing the report is corrupted.
-    /// Encoded/decoded by serializers as "CRPT".
+    /// Encoded/decoded by serializers as &quot;CRPT&quot;.
     /// </summary>
     [EnumMember(Value = "CRPT")]
     [IsoId("_rP-DIWueEeaRcazd7EYKFQ")]
@@ -66,7 +66,7 @@ public enum TaxReportingStatus1Code
     
     /// <summary>
     /// Transaction has been accepted with warnings.
-    /// Encoded/decoded by serializers as "WARN".
+    /// Encoded/decoded by serializers as &quot;WARN&quot;.
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_aOAhcWufEeaRcazd7EYKFQ")]
@@ -75,7 +75,7 @@ public enum TaxReportingStatus1Code
     
     /// <summary>
     /// Transaction or report has passed syntactical and semantical validation.
-    /// Encoded/decoded by serializers as "ACTC".
+    /// Encoded/decoded by serializers as &quot;ACTC&quot;.
     /// </summary>
     [EnumMember(Value = "ACTC")]
     [IsoId("_g3zf8WufEeaRcazd7EYKFQ")]
@@ -84,7 +84,7 @@ public enum TaxReportingStatus1Code
     
     /// <summary>
     /// Report has been partially accepted. A number of transactions have been accepted, whereas another number of transactions have not yet been accepted.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_kACcMWufEeaRcazd7EYKFQ")]

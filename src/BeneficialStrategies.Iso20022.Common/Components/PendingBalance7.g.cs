@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about pending balance and pending transactions.
 /// </summary>
 [IsoId("_P74IcRuyEeyhRdHRjakS2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pending Balance")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PendingBalance7
     /// Signed quantity of balance.
     /// </summary>
     [IsoId("_QQcqQRuyEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SignedQuantityFormat10 Balance { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SignedQuantityFormat10 Balance { get; init; } 
+    public required SignedQuantityFormat10 Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SignedQuantityFormat10 Balance { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PendingBalance7
     /// Overall process covering the trade and settlement transactions of financial instruments.
     /// </summary>
     [IsoId("_QQcqSRuyEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgTxs")]
     #endif
+    [IsoXmlTag("PdgTxs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTypeAndIdentification25? PendingTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

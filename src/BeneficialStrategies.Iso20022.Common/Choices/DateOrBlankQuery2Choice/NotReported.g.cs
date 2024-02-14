@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrBlankQuery2Choice
     /// Field may be queried for not reported value.
     /// </summary>
     [IsoId("_cmD8M9GgEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Not Reported")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrBlankQuery2Choice
         /// Specifies a not reported value code.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NotRptd")]
         #endif
+        [IsoXmlTag("NotRptd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NotReported1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NotReported1Code Value { get; init; } 
+        public required NotReported1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NotReported1Code Value { get; init; } 
         #else

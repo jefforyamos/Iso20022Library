@@ -21,7 +21,7 @@ public enum SecuritiesEntryType3Code
 {
     /// <summary>
     /// Total number of securities eligible for this event.
-    /// Encoded/decoded by serializers as "ELIG".
+    /// Encoded/decoded by serializers as &quot;ELIG&quot;.
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_RmChwTUFEe2tRf29bleifQ")]
@@ -30,7 +30,7 @@ public enum SecuritiesEntryType3Code
     
     /// <summary>
     /// Balance of uninstructed position.
-    /// Encoded/decoded by serializers as "UNBA".
+    /// Encoded/decoded by serializers as &quot;UNBA&quot;.
     /// </summary>
     [EnumMember(Value = "UNBA")]
     [IsoId("_SBw0cTUFEe2tRf29bleifQ")]
@@ -39,7 +39,7 @@ public enum SecuritiesEntryType3Code
     
     /// <summary>
     /// Balance of instructed position.
-    /// Encoded/decoded by serializers as "INBA".
+    /// Encoded/decoded by serializers as &quot;INBA&quot;.
     /// </summary>
     [EnumMember(Value = "INBA")]
     [IsoId("_SrfG4TUFEe2tRf29bleifQ")]

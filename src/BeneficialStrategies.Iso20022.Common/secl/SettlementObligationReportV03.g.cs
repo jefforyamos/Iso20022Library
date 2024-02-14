@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.secl;
 /// </summary>
 [Description(@"Scope|The SettlementObligationReport message is sent by the central counterparty (CCP) to a clearing member to report on the settlement obligation that will be submitted for settlement.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The SettlementObligationReport message may also be sent to a third party processing the settlement obligation(s) on behalf of more than one clearing member.|The Settlement Obligation Report message is provided per delivery account and per instrument. The report can be provided for one specific delivering party or one specific receiving party. It can also be generated per non clearing member.")]
 [IsoId("_suRVUS9dEeS94oXWDaBauA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Obligation Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     /// Provides details about the report such as the report identification, the creation date and time.
     /// </summary>
     [IsoId("_suRVUy9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptParams")]
     #endif
+    [IsoXmlTag("RptParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportParameters4 ReportParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportParameters4 ReportParameters { get; init; } 
+    public required ReportParameters4 ReportParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportParameters4 ReportParameters { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     /// Page number of the message (within a report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
     [IsoId("_suRVVS9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination Pagination { get; init; } 
+    public required Pagination Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination Pagination { get; init; } 
     #else
@@ -124,12 +120,11 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     /// Provides the identification of the clearing member (individual clearing member or general clearing member).
     /// </summary>
     [IsoId("_suRVVy9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification35Choice_? ClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,15 +135,14 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     
     /// <summary>
     /// Clearing organisation that will clear the trade.
-    /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
+    /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty&apos;s clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
     [IsoId("_suRVWS9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Segment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSgmt")]
     #endif
+    [IsoXmlTag("ClrSgmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification35Choice_? ClearingSegment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +155,11 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     /// Provides the identification of the account used for netting. This is an account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
     /// </summary>
     [IsoId("_suRVWy9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryAcct")]
     #endif
+    [IsoXmlTag("DlvryAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesAccount19? DeliveryAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,16 +172,15 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     /// Provides details on the settlement obligation report.
     /// </summary>
     [IsoId("_suRVXS9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptDtls")]
     #endif
+    [IsoXmlTag("RptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Report5 ReportDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Report5 ReportDetails { get; init; } 
+    public required Report5 ReportDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Report5 ReportDetails { get; init; } 
     #else
@@ -199,12 +191,11 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     /// Provides details about the receiving parties involved in the settlement chain.
     /// </summary>
     [IsoId("_suRVXy9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPties")]
     #endif
+    [IsoXmlTag("SttlmPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementParties2Choice_? SettlementParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -217,12 +208,11 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_suRVYS9dEeS94oXWDaBauA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -235,7 +225,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SettlementObligationReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SettlementObligationReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SettlementObligationReportV03Document ToDocument()
     {
@@ -245,7 +235,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord<SettlementObl
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementObligationReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SettlementObligationReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SettlementObligationReportV03Document : IOuterDocument<SettlementObligationReportV03>
@@ -262,7 +252,7 @@ public partial record SettlementObligationReportV03Document : IOuterDocument<Set
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SettlementObligationReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SettlementObligationReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementObligationReportV03 Message { get; init; }

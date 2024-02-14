@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionType1Choice.InstructionIdentification))]
     [KnownType(typeof(InstructionType1Choice.InstructionCancellationIdentification))]
     [IsoId("_RCWL1Np-Ed-ak6NoX_4Aeg_869239445")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

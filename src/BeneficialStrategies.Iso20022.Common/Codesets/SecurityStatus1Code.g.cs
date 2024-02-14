@@ -21,7 +21,7 @@ public enum SecurityStatus1Code
 {
     /// <summary>
     /// The status is active.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_ZKGWENp-Ed-ak6NoX_4Aeg_243065")]
@@ -30,7 +30,7 @@ public enum SecurityStatus1Code
     
     /// <summary>
     /// The status is inactive.
-    /// Encoded/decoded by serializers as "INAC".
+    /// Encoded/decoded by serializers as &quot;INAC&quot;.
     /// </summary>
     [EnumMember(Value = "INAC")]
     [IsoId("_ZKGWEdp-Ed-ak6NoX_4Aeg_243066")]

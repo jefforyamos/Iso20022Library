@@ -21,7 +21,7 @@ public enum RejectionReason8Code
 {
     /// <summary>
     /// Amendment is not allowed.
-    /// Encoded/decoded by serializers as "NAMD".
+    /// Encoded/decoded by serializers as &quot;NAMD&quot;.
     /// </summary>
     [EnumMember(Value = "NAMD")]
     [IsoId("_ZmG8pdp-Ed-ak6NoX_4Aeg_792769687")]
@@ -30,7 +30,7 @@ public enum RejectionReason8Code
     
     /// <summary>
     /// Instruction/Request arrives too late.
-    /// Encoded/decoded by serializers as "LATT".
+    /// Encoded/decoded by serializers as &quot;LATT&quot;.
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_ZmG8ptp-Ed-ak6NoX_4Aeg_792769717")]
@@ -39,7 +39,7 @@ public enum RejectionReason8Code
     
     /// <summary>
     /// The election advice is already cancelled.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_ZmQtoNp-Ed-ak6NoX_4Aeg_792769718")]
@@ -48,7 +48,7 @@ public enum RejectionReason8Code
     
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZmQtodp-Ed-ak6NoX_4Aeg_792769965")]

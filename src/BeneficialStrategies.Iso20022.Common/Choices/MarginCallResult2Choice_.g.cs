@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginCallResult2Choice.MarginCallAmount))]
     [KnownType(typeof(MarginCallResult2Choice.SegregatedIndependentAmount))]
     [IsoId("_9beRS6MPEeCojJW5vEuTEQ_-1338603652")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Call Result 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

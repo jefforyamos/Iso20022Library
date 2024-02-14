@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Product characteristic applicable to this trade product.
 /// </summary>
 [IsoId("_TACHXAEcEeCQm6a_G2yO_w_369739834")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Product Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ProductCharacteristics2
     /// Characteristics of the product.
     /// </summary>
     [IsoId("_TACHXQEcEeCQm6a_G2yO_w_-181031001")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Characteristic")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrtc")]
     #endif
+    [IsoXmlTag("Chrtc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCharacteristics1Choice_? Characteristic { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ProductCharacteristics2
     /// Measurement value for this product characteristic.
     /// </summary>
     [IsoId("_TACHXgEcEeCQm6a_G2yO_w_-285398100")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Measure")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValMeasr")]
     #endif
+    [IsoXmlTag("ValMeasr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Quantity3? ValueMeasure { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

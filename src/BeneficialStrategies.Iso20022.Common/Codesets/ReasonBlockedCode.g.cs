@@ -20,7 +20,7 @@ public enum ReasonBlockedCode
 {
     /// <summary>
     /// Account is part of a bankruptcy action.
-    /// Encoded/decoded by serializers as "BKRP".
+    /// Encoded/decoded by serializers as &quot;BKRP&quot;.
     /// </summary>
     [EnumMember(Value = "BKRP")]
     [IsoId("_cbdYMC15EeKmpfjBm48yhA_-383720373")]
@@ -29,7 +29,7 @@ public enum ReasonBlockedCode
     
     /// <summary>
     /// Account has been given as a warranty.
-    /// Encoded/decoded by serializers as "CMNT".
+    /// Encoded/decoded by serializers as &quot;CMNT&quot;.
     /// </summary>
     [EnumMember(Value = "CMNT")]
     [IsoId("_cbdYMS15EeKmpfjBm48yhA_1396499968")]
@@ -38,7 +38,7 @@ public enum ReasonBlockedCode
     
     /// <summary>
     /// Account is confiscated.
-    /// Encoded/decoded by serializers as "CNFS".
+    /// Encoded/decoded by serializers as &quot;CNFS&quot;.
     /// </summary>
     [EnumMember(Value = "CNFS")]
     [IsoId("_cbdYMi15EeKmpfjBm48yhA_812451577")]
@@ -47,7 +47,7 @@ public enum ReasonBlockedCode
     
     /// <summary>
     /// Account is reserved in contemplation of death.
-    /// Encoded/decoded by serializers as "MORT".
+    /// Encoded/decoded by serializers as &quot;MORT&quot;.
     /// </summary>
     [EnumMember(Value = "MORT")]
     [IsoId("_cbdYMy15EeKmpfjBm48yhA_1444597890")]
@@ -56,7 +56,7 @@ public enum ReasonBlockedCode
     
     /// <summary>
     /// Account has been given as pledge.
-    /// Encoded/decoded by serializers as "PLDG".
+    /// Encoded/decoded by serializers as &quot;PLDG&quot;.
     /// </summary>
     [EnumMember(Value = "PLDG")]
     [IsoId("_cbdYNC15EeKmpfjBm48yhA_873594713")]
@@ -65,7 +65,7 @@ public enum ReasonBlockedCode
     
     /// <summary>
     /// Account is being reregistered.
-    /// Encoded/decoded by serializers as "TRPE".
+    /// Encoded/decoded by serializers as &quot;TRPE&quot;.
     /// </summary>
     [EnumMember(Value = "TRPE")]
     [IsoId("_cbdYNS15EeKmpfjBm48yhA_-1577796035")]
@@ -74,7 +74,7 @@ public enum ReasonBlockedCode
     
     /// <summary>
     /// Account is being transferred.
-    /// Encoded/decoded by serializers as "TRNF".
+    /// Encoded/decoded by serializers as &quot;TRNF&quot;.
     /// </summary>
     [EnumMember(Value = "TRNF")]
     [IsoId("_cbmiIC15EeKmpfjBm48yhA_69837250")]

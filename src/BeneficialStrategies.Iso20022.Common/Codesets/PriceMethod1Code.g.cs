@@ -21,7 +21,7 @@ public enum PriceMethod1Code
 {
     /// <summary>
     /// Price will be calculated after the close of the dealing period. An investor, therefore, does not know the exact buy or sell price.
-    /// Encoded/decoded by serializers as "FORW".
+    /// Encoded/decoded by serializers as &quot;FORW&quot;.
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_aIreMdp-Ed-ak6NoX_4Aeg_-1724055265")]
@@ -30,7 +30,7 @@ public enum PriceMethod1Code
     
     /// <summary>
     /// Price is calculated at an earlier valuation point preceding the dealing period. An investor, therefore, knows the exact buy or sell price.
-    /// Encoded/decoded by serializers as "HIST".
+    /// Encoded/decoded by serializers as &quot;HIST&quot;.
     /// </summary>
     [EnumMember(Value = "HIST")]
     [IsoId("_aIreMtp-Ed-ak6NoX_4Aeg_-1724055264")]

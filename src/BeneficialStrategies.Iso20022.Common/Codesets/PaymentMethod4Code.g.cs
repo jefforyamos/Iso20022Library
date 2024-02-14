@@ -21,7 +21,7 @@ public enum PaymentMethod4Code
 {
     /// <summary>
     /// Written order to a bank to pay a certain amount of money from one person to another person.
-    /// Encoded/decoded by serializers as "CHK".
+    /// Encoded/decoded by serializers as &quot;CHK&quot;.
     /// </summary>
     [EnumMember(Value = "CHK")]
     [IsoId("_Z0kPYtp-Ed-ak6NoX_4Aeg_-2121115778")]
@@ -30,7 +30,7 @@ public enum PaymentMethod4Code
     
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer.
-    /// Encoded/decoded by serializers as "TRF".
+    /// Encoded/decoded by serializers as &quot;TRF&quot;.
     /// </summary>
     [EnumMember(Value = "TRF")]
     [IsoId("_Z0kPY9p-Ed-ak6NoX_4Aeg_-2121115388")]
@@ -38,8 +38,8 @@ public enum PaymentMethod4Code
     CreditTransfer = PaymentMethodCode.CreditTransfer, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Collection of an amount of money from the debtor's bank account by the creditor. The amount of money and dates of collections may vary.
-    /// Encoded/decoded by serializers as "DD".
+    /// Collection of an amount of money from the debtor&apos;s bank account by the creditor. The amount of money and dates of collections may vary.
+    /// Encoded/decoded by serializers as &quot;DD&quot;.
     /// </summary>
     [EnumMember(Value = "DD")]
     [IsoId("_Z0kPZNp-Ed-ak6NoX_4Aeg_-2121115346")]
@@ -48,7 +48,7 @@ public enum PaymentMethod4Code
     
     /// <summary>
     /// Transfer of an amount of money in the books of the account servicer. An advice should be sent back to the account owner.
-    /// Encoded/decoded by serializers as "TRA".
+    /// Encoded/decoded by serializers as &quot;TRA&quot;.
     /// </summary>
     [EnumMember(Value = "TRA")]
     [IsoId("_Z0kPZdp-Ed-ak6NoX_4Aeg_-2121115311")]

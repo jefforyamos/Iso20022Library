@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the old and new values for a restriction.
 /// </summary>
 [IsoId("_rhJnc2jTEeiRg5NzP0jkQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Update Log Restriction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UpdateLogRestriction1
     /// Old value before the update.
     /// </summary>
     [IsoId("_rhJndGjTEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Od")]
     #endif
+    [IsoXmlTag("Od")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Restriction1 Old { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Restriction1 Old { get; init; } 
+    public required Restriction1 Old { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Restriction1 Old { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UpdateLogRestriction1
     /// New value after the update.
     /// </summary>
     [IsoId("_rhJndWjTEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="New")]
     #endif
+    [IsoXmlTag("New")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Restriction1 New { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Restriction1 New { get; init; } 
+    public required Restriction1 New { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Restriction1 New { get; init; } 
     #else

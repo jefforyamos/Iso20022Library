@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the characteristic of a product.
 /// </summary>
 [IsoId("_T5L2FNp-Ed-ak6NoX_4Aeg_1219351972")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Product Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ProductCharacteristics1
     /// Specifies the type of product characteristic by means of a code.
     /// </summary>
     [IsoId("_T5L2Fdp-Ed-ak6NoX_4Aeg_1279381373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProductCharacteristics1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProductCharacteristics1Code Type { get; init; } 
+    public required ProductCharacteristics1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProductCharacteristics1Code Type { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record ProductCharacteristics1
     /// Specifies the characteristic of a product.
     /// </summary>
     [IsoId("_T5L2Ftp-Ed-ak6NoX_4Aeg_1319095231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Chrtcs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Chrtcs")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Characteristics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Characteristics { get; init; } 
+    public required System.String Characteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Characteristics { get; init; } 
     #else

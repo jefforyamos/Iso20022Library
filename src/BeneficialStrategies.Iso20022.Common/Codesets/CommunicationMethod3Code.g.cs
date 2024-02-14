@@ -21,7 +21,7 @@ public enum CommunicationMethod3Code
 {
     /// <summary>
     /// Transmission by e-mail.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_tRC9kRg2EeKnW4lR85q-0A")]
@@ -30,7 +30,7 @@ public enum CommunicationMethod3Code
     
     /// <summary>
     /// Transmission by fax.
-    /// Encoded/decoded by serializers as "FAXI".
+    /// Encoded/decoded by serializers as &quot;FAXI&quot;.
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("_tf8VMRg2EeKnW4lR85q-0A")]
@@ -39,7 +39,7 @@ public enum CommunicationMethod3Code
     
     /// <summary>
     /// Transmission by postal service.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_uOSo8Rg2EeKnW4lR85q-0A")]
@@ -48,7 +48,7 @@ public enum CommunicationMethod3Code
     
     /// <summary>
     /// Transmission by telephone.
-    /// Encoded/decoded by serializers as "PHON".
+    /// Encoded/decoded by serializers as &quot;PHON&quot;.
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_uWC2wRg2EeKnW4lR85q-0A")]
@@ -57,7 +57,7 @@ public enum CommunicationMethod3Code
     
     /// <summary>
     /// Transmission by file transfer.
-    /// Encoded/decoded by serializers as "FILE".
+    /// Encoded/decoded by serializers as &quot;FILE&quot;.
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_xrSUQRg2EeKnW4lR85q-0A")]
@@ -66,7 +66,7 @@ public enum CommunicationMethod3Code
     
     /// <summary>
     /// Transmission on line, for example, in a web portal.
-    /// Encoded/decoded by serializers as "ONLI".
+    /// Encoded/decoded by serializers as &quot;ONLI&quot;.
     /// </summary>
     [EnumMember(Value = "ONLI")]
     [IsoId("_NfzJcUp-EeKw5sECfP82rg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Additional information required for distribution in the French market.
 /// </summary>
 [IsoId("_J8Y8UM3AEeuAE-cYsQdwHQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Product Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AdditionalProductInformation2
     /// Approach of the Autorite des Marches Financiers (AMF) recommendation 2020-03 to which the fund complies. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 01020.
     /// </summary>
     [IsoId("_eNL8AM3AEeuAE-cYsQdwHQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("AMF Doctrine")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AMFDctrn")]
     #endif
+    [IsoXmlTag("AMFDctrn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AMFDoctrine1Code? AMFDoctrine { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

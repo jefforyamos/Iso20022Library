@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides a rejection reason and additional information.
 /// </summary>
 [IsoId("_Unhiw9p-Ed-ak6NoX_4Aeg_-1177122853")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejection Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RejectionStatus2
     /// Provides the rejection reason using a code.
     /// </summary>
     [IsoId("_UnhixNp-Ed-ak6NoX_4Aeg_1294712615")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdRsn")]
     #endif
+    [IsoXmlTag("RjctdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RejectionReasonV021Code RejectedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RejectionReasonV021Code RejectedReason { get; init; } 
+    public required RejectionReasonV021Code RejectedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RejectionReasonV021Code RejectedReason { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record RejectionStatus2
     /// Allows to provides additional information to the rejection reason code.
     /// </summary>
     [IsoId("_Unhixdp-Ed-ak6NoX_4Aeg_-1876425753")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

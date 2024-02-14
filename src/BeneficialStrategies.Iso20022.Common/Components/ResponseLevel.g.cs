@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the level of response requested from the receiver of this message.
 /// </summary>
 [IsoId("_Q78B0dp-Ed-ak6NoX_4Aeg_248528742")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Response Level")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,13 @@ public partial record ResponseLevel
     /// Specifies the level of response requested from the receiver of the message.
     /// </summary>
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnLvl")]
     #endif
+    [IsoXmlTag("RspnLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseLevel1Code Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseLevel1Code Value { get; init; } 
+    public required ResponseLevel1Code Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseLevel1Code Value { get; init; } 
     #else

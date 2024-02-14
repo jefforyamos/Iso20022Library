@@ -21,7 +21,7 @@ public enum BalanceType9Code
 {
     /// <summary>
     /// Book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report.
-    /// Encoded/decoded by serializers as "OPBD".
+    /// Encoded/decoded by serializers as &quot;OPBD&quot;.
     /// </summary>
     [EnumMember(Value = "OPBD")]
     [IsoId("_bao1Udp-Ed-ak6NoX_4Aeg_1033663891")]
@@ -29,8 +29,8 @@ public enum BalanceType9Code
     OpeningBooked = BalanceTypeCode.OpeningBooked, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "ITBD".
+    /// Balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as &quot;ITBD&quot;.
     /// </summary>
     [EnumMember(Value = "ITBD")]
     [IsoId("_bao1Utp-Ed-ak6NoX_4Aeg_1033663909")]
@@ -39,7 +39,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Balance of the account at the end of the pre-agreed account reporting period. It is the sum of the opening booked balance at the beginning of the period and all entries booked to the account during the pre-agreed account reporting period.
-    /// Encoded/decoded by serializers as "CLBD".
+    /// Encoded/decoded by serializers as &quot;CLBD&quot;.
     /// </summary>
     [EnumMember(Value = "CLBD")]
     [IsoId("_bao1U9p-Ed-ak6NoX_4Aeg_1033663934")]
@@ -48,7 +48,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Opening balance of amount of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "OPAV".
+    /// Encoded/decoded by serializers as &quot;OPAV&quot;.
     /// </summary>
     [EnumMember(Value = "OPAV")]
     [IsoId("_bao1VNp-Ed-ak6NoX_4Aeg_1033664004")]
@@ -56,8 +56,8 @@ public enum BalanceType9Code
     OpeningAvailable = BalanceTypeCode.OpeningAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Available balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "ITAV".
+    /// Available balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as &quot;ITAV&quot;.
     /// </summary>
     [EnumMember(Value = "ITAV")]
     [IsoId("_bao1Vdp-Ed-ak6NoX_4Aeg_1033664029")]
@@ -66,7 +66,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Closing balance of amount of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "CLAV".
+    /// Encoded/decoded by serializers as &quot;CLAV&quot;.
     /// </summary>
     [EnumMember(Value = "CLAV")]
     [IsoId("_bao1Vtp-Ed-ak6NoX_4Aeg_1033664064")]
@@ -75,7 +75,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Forward available balance of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "FWAV".
+    /// Encoded/decoded by serializers as &quot;FWAV&quot;.
     /// </summary>
     [EnumMember(Value = "FWAV")]
     [IsoId("_bao1V9p-Ed-ak6NoX_4Aeg_1033664089")]
@@ -84,7 +84,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Balance of the account at the previously closed account reporting period. The opening booked balance for the new period has to be equal to this balance. ||Usage: the previously booked closing balance should equal (inclusive date) the booked closing balance of the date it references and equal the actual booked opening balance of the current date.
-    /// Encoded/decoded by serializers as "PRCD".
+    /// Encoded/decoded by serializers as &quot;PRCD&quot;.
     /// </summary>
     [EnumMember(Value = "PRCD")]
     [IsoId("_bao1WNp-Ed-ak6NoX_4Aeg_138035634")]
@@ -93,7 +93,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Investment opening balance of amount of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "IOPA".
+    /// Encoded/decoded by serializers as &quot;IOPA&quot;.
     /// </summary>
     [EnumMember(Value = "IOPA")]
     [IsoId("_bao1Wdp-Ed-ak6NoX_4Aeg_138035656")]
@@ -101,8 +101,8 @@ public enum BalanceType9Code
     InvestmentOpeningAvailable = BalanceTypeCode.InvestmentOpeningAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Investment available balance for calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "IITA".
+    /// Investment available balance for calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as &quot;IITA&quot;.
     /// </summary>
     [EnumMember(Value = "IITA")]
     [IsoId("_baymUNp-Ed-ak6NoX_4Aeg_138035882")]
@@ -111,7 +111,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Investment closing balance of an amount of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "ICLA".
+    /// Encoded/decoded by serializers as &quot;ICLA&quot;.
     /// </summary>
     [EnumMember(Value = "ICLA")]
     [IsoId("_baymUdp-Ed-ak6NoX_4Aeg_138035904")]
@@ -120,7 +120,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Investment forward available balance of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "IFWA".
+    /// Encoded/decoded by serializers as &quot;IFWA&quot;.
     /// </summary>
     [EnumMember(Value = "IFWA")]
     [IsoId("_baymUtp-Ed-ak6NoX_4Aeg_138035913")]
@@ -129,7 +129,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Investment (mutual funds) balance of the account at the end of the pre-agreed account reporting period. It is the sum of the opening booked balance at the beginning of the period and all entries booked to the account during the pre-agreed account reporting period.
-    /// Encoded/decoded by serializers as "ICLB".
+    /// Encoded/decoded by serializers as &quot;ICLB&quot;.
     /// </summary>
     [EnumMember(Value = "ICLB")]
     [IsoId("_baymU9p-Ed-ak6NoX_4Aeg_138035935")]
@@ -137,8 +137,8 @@ public enum BalanceType9Code
     InvestmentClosingBooked = BalanceTypeCode.InvestmentClosingBooked, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Investment balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "IITB".
+    /// Investment balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as &quot;IITB&quot;.
     /// </summary>
     [EnumMember(Value = "IITB")]
     [IsoId("_baymVNp-Ed-ak6NoX_4Aeg_138035944")]
@@ -147,7 +147,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Investment book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report.
-    /// Encoded/decoded by serializers as "IOPB".
+    /// Encoded/decoded by serializers as &quot;IOPB&quot;.
     /// </summary>
     [EnumMember(Value = "IOPB")]
     [IsoId("_baymVdp-Ed-ak6NoX_4Aeg_138035965")]
@@ -156,7 +156,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Disbursement opening balance of amount of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "DOPA".
+    /// Encoded/decoded by serializers as &quot;DOPA&quot;.
     /// </summary>
     [EnumMember(Value = "DOPA")]
     [IsoId("_baymVtp-Ed-ak6NoX_4Aeg_138035996")]
@@ -164,8 +164,8 @@ public enum BalanceType9Code
     DisbursementOpeningAvailable = BalanceTypeCode.DisbursementOpeningAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Disbursement available balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "DITA".
+    /// Disbursement available balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as &quot;DITA&quot;.
     /// </summary>
     [EnumMember(Value = "DITA")]
     [IsoId("_baymV9p-Ed-ak6NoX_4Aeg_138035997")]
@@ -174,7 +174,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Disbursement closing balance of amount of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "DCLA".
+    /// Encoded/decoded by serializers as &quot;DCLA&quot;.
     /// </summary>
     [EnumMember(Value = "DCLA")]
     [IsoId("_baymWNp-Ed-ak6NoX_4Aeg_138036006")]
@@ -183,7 +183,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Disbursement forward available balance of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "DFWA".
+    /// Encoded/decoded by serializers as &quot;DFWA&quot;.
     /// </summary>
     [EnumMember(Value = "DFWA")]
     [IsoId("_baymWdp-Ed-ak6NoX_4Aeg_138036027")]
@@ -192,7 +192,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Disbursement balance of the account at the end of the pre-agreed account reporting period. It is the sum of the opening booked balance at the beginning of the period and all entries booked to the account during the pre-agreed account reporting period.
-    /// Encoded/decoded by serializers as "DCLB".
+    /// Encoded/decoded by serializers as &quot;DCLB&quot;.
     /// </summary>
     [EnumMember(Value = "DCLB")]
     [IsoId("_ba7wQNp-Ed-ak6NoX_4Aeg_138036028")]
@@ -200,8 +200,8 @@ public enum BalanceType9Code
     DisbursementClosingBooked = BalanceTypeCode.DisbursementClosingBooked, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Disbursement balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "DITB".
+    /// Disbursement balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as &quot;DITB&quot;.
     /// </summary>
     [EnumMember(Value = "DITB")]
     [IsoId("_ba7wQdp-Ed-ak6NoX_4Aeg_138036057")]
@@ -210,7 +210,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Disbursement book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report.
-    /// Encoded/decoded by serializers as "DOPB".
+    /// Encoded/decoded by serializers as &quot;DOPB&quot;.
     /// </summary>
     [EnumMember(Value = "DOPB")]
     [IsoId("_ba7wQtp-Ed-ak6NoX_4Aeg_138036058")]
@@ -219,7 +219,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Collection opening balance of amount of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "COPA".
+    /// Encoded/decoded by serializers as &quot;COPA&quot;.
     /// </summary>
     [EnumMember(Value = "COPA")]
     [IsoId("_ba7wQ9p-Ed-ak6NoX_4Aeg_138036337")]
@@ -227,8 +227,8 @@ public enum BalanceType9Code
     CollectionOpeningAvailable = BalanceTypeCode.CollectionOpeningAvailable, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Collection available balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "CITA".
+    /// Collection available balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as &quot;CITA&quot;.
     /// </summary>
     [EnumMember(Value = "CITA")]
     [IsoId("_ba7wRNp-Ed-ak6NoX_4Aeg_138036366")]
@@ -237,7 +237,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Collection closing balance of amount of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "CCLA".
+    /// Encoded/decoded by serializers as &quot;CCLA&quot;.
     /// </summary>
     [EnumMember(Value = "CCLA")]
     [IsoId("_ba7wRdp-Ed-ak6NoX_4Aeg_138036367")]
@@ -246,7 +246,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Collection forward available balance of money that is at the disposal of the account owner on the date specified.
-    /// Encoded/decoded by serializers as "CFWA".
+    /// Encoded/decoded by serializers as &quot;CFWA&quot;.
     /// </summary>
     [EnumMember(Value = "CFWA")]
     [IsoId("_ba7wRtp-Ed-ak6NoX_4Aeg_138036397")]
@@ -255,7 +255,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Collection balance of the account at the end of the pre-agreed account reporting period. It is the sum of the opening booked balance at the beginning of the period and all entries booked to the account during the pre-agreed account reporting period.
-    /// Encoded/decoded by serializers as "CCLB".
+    /// Encoded/decoded by serializers as &quot;CCLB&quot;.
     /// </summary>
     [EnumMember(Value = "CCLB")]
     [IsoId("_ba7wR9p-Ed-ak6NoX_4Aeg_138036428")]
@@ -263,8 +263,8 @@ public enum BalanceType9Code
     CollectionClosingBooked = BalanceTypeCode.CollectionClosingBooked, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Collection balance calculated in the course of the account servicer's business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
-    /// Encoded/decoded by serializers as "CITB".
+    /// Collection balance calculated in the course of the account servicer&apos;s business day, at the time specified, and subject to further changes during the business day. The interim balance is calculated on the basis of booked credit and debit items during the calculation time/period specified.
+    /// Encoded/decoded by serializers as &quot;CITB&quot;.
     /// </summary>
     [EnumMember(Value = "CITB")]
     [IsoId("_ba7wSNp-Ed-ak6NoX_4Aeg_138036429")]
@@ -273,7 +273,7 @@ public enum BalanceType9Code
     
     /// <summary>
     /// Collection book balance of the account at the beginning of the account reporting period. It always equals the closing book balance from the previous report.
-    /// Encoded/decoded by serializers as "COPB".
+    /// Encoded/decoded by serializers as &quot;COPB&quot;.
     /// </summary>
     [EnumMember(Value = "COPB")]
     [IsoId("_ba7wSdp-Ed-ak6NoX_4Aeg_138036458")]

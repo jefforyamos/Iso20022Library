@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// ISO 8583:87 bit 22-3, ISO 8583;93 bit 22-2, ISO 8583:2003 bit 27-2
 /// </summary>
 [IsoId("_XRvwk2zqEemD24gVaMSpeA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Security Capability")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CardSecurityCapability1
     /// Defines the security capability.
     /// </summary>
     [IsoId("_XRvwlWzqEemD24gVaMSpeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cpblty")]
     #endif
+    [IsoXmlTag("Cpblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardSecurityCapability1Code Capability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardSecurityCapability1Code Capability { get; init; } 
+    public required CardSecurityCapability1Code Capability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardSecurityCapability1Code Capability { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record CardSecurityCapability1
     /// Other type of card security capability defined at national or private level.
     /// </summary>
     [IsoId("_XRvwlGzqEemD24gVaMSpeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Capability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCpblty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrCpblty")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherCapability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

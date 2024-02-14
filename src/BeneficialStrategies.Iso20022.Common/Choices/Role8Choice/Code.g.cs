@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Role8Choice
     /// Role of the party in the activity expressed as a code.
     /// </summary>
     [IsoId("_h6lO0dyREeqKxsvOxFQHKA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Role8Choice
         /// Specifies the role of the party.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestmentFundRole8Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestmentFundRole8Code Value { get; init; } 
+        public required InvestmentFundRole8Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestmentFundRole8Code Value { get; init; } 
         #else

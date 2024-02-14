@@ -21,7 +21,7 @@ public enum MessageProtectionCode
 {
     /// <summary>
     /// Messages contain an encrypted body and a MAC or a digital signature computed on the complete message (header plus body after encryption).
-    /// Encoded/decoded by serializers as "EVLP".
+    /// Encoded/decoded by serializers as &quot;EVLP&quot;.
     /// </summary>
     [EnumMember(Value = "EVLP")]
     [IsoId("_8CumEIrfEeSvuOJS0mmL0g")]
@@ -30,7 +30,7 @@ public enum MessageProtectionCode
     
     /// <summary>
     /// Messages contain a MAC or a digital signature computed on the body only.
-    /// Encoded/decoded by serializers as "MACB".
+    /// Encoded/decoded by serializers as &quot;MACB&quot;.
     /// </summary>
     [EnumMember(Value = "MACB")]
     [IsoId("__NiVMIrfEeSvuOJS0mmL0g")]
@@ -39,7 +39,7 @@ public enum MessageProtectionCode
     
     /// <summary>
     /// Messages contain a MAC or a digital signature computed on the complete message (header plus body).
-    /// Encoded/decoded by serializers as "MACM".
+    /// Encoded/decoded by serializers as &quot;MACM&quot;.
     /// </summary>
     [EnumMember(Value = "MACM")]
     [IsoId("_B1oY0IrgEeSvuOJS0mmL0g")]
@@ -48,7 +48,7 @@ public enum MessageProtectionCode
     
     /// <summary>
     /// Messages are not protected, no encryption and no MAC or digital signature.
-    /// Encoded/decoded by serializers as "UNPR".
+    /// Encoded/decoded by serializers as &quot;UNPR&quot;.
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_EaI88IrgEeSvuOJS0mmL0g")]

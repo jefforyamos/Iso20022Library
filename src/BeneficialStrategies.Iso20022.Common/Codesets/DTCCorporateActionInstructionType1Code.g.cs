@@ -21,7 +21,7 @@ public enum DTCCorporateActionInstructionType1Code
 {
     /// <summary>
     /// Instruction on a option in corporate action.
-    /// Encoded/decoded by serializers as "ELCT".
+    /// Encoded/decoded by serializers as &quot;ELCT&quot;.
     /// </summary>
     [EnumMember(Value = "ELCT")]
     [IsoId("_12iLhDL3EeKU9IrkkToqcw_2002789136")]
@@ -30,7 +30,7 @@ public enum DTCCorporateActionInstructionType1Code
     
     /// <summary>
     /// Instruction for a protect on a corporate action.
-    /// Encoded/decoded by serializers as "PRTC".
+    /// Encoded/decoded by serializers as &quot;PRTC&quot;.
     /// </summary>
     [EnumMember(Value = "PRTC")]
     [IsoId("_12iLhTL3EeKU9IrkkToqcw_1976970213")]
@@ -39,7 +39,7 @@ public enum DTCCorporateActionInstructionType1Code
     
     /// <summary>
     /// Instruction on covering a protect at the service provider.
-    /// Encoded/decoded by serializers as "CPSY".
+    /// Encoded/decoded by serializers as &quot;CPSY&quot;.
     /// </summary>
     [EnumMember(Value = "CPSY")]
     [IsoId("_12iLhjL3EeKU9IrkkToqcw_738877285")]
@@ -48,7 +48,7 @@ public enum DTCCorporateActionInstructionType1Code
     
     /// <summary>
     /// Instruction on covering a protect at the agent.
-    /// Encoded/decoded by serializers as "CPAG".
+    /// Encoded/decoded by serializers as &quot;CPAG&quot;.
     /// </summary>
     [EnumMember(Value = "CPAG")]
     [IsoId("_12r8gDL3EeKU9IrkkToqcw_727778508")]

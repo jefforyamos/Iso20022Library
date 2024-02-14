@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Descriptive fields capturing where no strike price is known.
 /// </summary>
 [IsoId("_M5QB8ZivEe2f7NHvXATP5g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Transaction Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SecuritiesTransactionPrice6
     /// Price is currently not available, but pending.
     /// </summary>
     [IsoId("_M65AsZivEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pdg")]
     #endif
+    [IsoXmlTag("Pdg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceStatus1Code Pending { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceStatus1Code Pending { get; init; } 
+    public required PriceStatus1Code Pending { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceStatus1Code Pending { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SecuritiesTransactionPrice6
     /// Currency that will be used but for which no price is yet known.
     /// </summary>
     [IsoId("_M65As5ivEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record SecuritiesTransactionPrice6
     /// Specifies the digital token when the number of units may not be known.
     /// </summary>
     [IsoId("_NPG9MpivEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Token")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlTkn")]
     #endif
+    [IsoXmlTag("DgtlTkn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DigitalTokenAmount2? DigitalToken { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

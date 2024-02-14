@@ -21,7 +21,7 @@ public enum TradeStatus7Code
 {
     /// <summary>
     /// Trade is invalid.
-    /// Encoded/decoded by serializers as "INVA".
+    /// Encoded/decoded by serializers as &quot;INVA&quot;.
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_23ahIZU8EeaYkf5FCqYMeA")]
@@ -30,7 +30,7 @@ public enum TradeStatus7Code
     
     /// <summary>
     /// Trade is unmatched.
-    /// Encoded/decoded by serializers as "UMTC".
+    /// Encoded/decoded by serializers as &quot;UMTC&quot;.
     /// </summary>
     [EnumMember(Value = "UMTC")]
     [IsoId("_23ahI5U8EeaYkf5FCqYMeA")]
@@ -39,7 +39,7 @@ public enum TradeStatus7Code
     
     /// <summary>
     /// Trade is matched.
-    /// Encoded/decoded by serializers as "FMTC".
+    /// Encoded/decoded by serializers as &quot;FMTC&quot;.
     /// </summary>
     [EnumMember(Value = "FMTC")]
     [IsoId("_23ahKZU8EeaYkf5FCqYMeA")]
@@ -48,7 +48,7 @@ public enum TradeStatus7Code
     
     /// <summary>
     /// Trade has been selected for settlement.
-    /// Encoded/decoded by serializers as "SMAT".
+    /// Encoded/decoded by serializers as &quot;SMAT&quot;.
     /// </summary>
     [EnumMember(Value = "SMAT")]
     [IsoId("_23ahMZU8EeaYkf5FCqYMeA")]
@@ -57,7 +57,7 @@ public enum TradeStatus7Code
     
     /// <summary>
     /// Trade has been marked not ready for settlement.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_23ahNZU8EeaYkf5FCqYMeA")]
@@ -66,7 +66,7 @@ public enum TradeStatus7Code
     
     /// <summary>
     /// Trade has been selected for settlement and is pending.
-    /// Encoded/decoded by serializers as "SMAP".
+    /// Encoded/decoded by serializers as &quot;SMAP&quot;.
     /// </summary>
     [EnumMember(Value = "SMAP")]
     [IsoId("_97ExIZU8EeaYkf5FCqYMeA")]
@@ -75,7 +75,7 @@ public enum TradeStatus7Code
     
     /// <summary>
     /// For NDF instructions, open confirmations are matched and the Fix confirmations are not matched.
-    /// Encoded/decoded by serializers as "PFIX".
+    /// Encoded/decoded by serializers as &quot;PFIX&quot;.
     /// </summary>
     [EnumMember(Value = "PFIX")]
     [IsoId("_pX7gYZVAEeaYkf5FCqYMeA")]
@@ -84,7 +84,7 @@ public enum TradeStatus7Code
     
     /// <summary>
     /// For NDF instructions, if a party has submitted both the open and fix confirmations and the counterparty is yet to submit the open and fix confirmation the instruction is updated to ‘Fix Unmatched’ Status.
-    /// Encoded/decoded by serializers as "FUMT".
+    /// Encoded/decoded by serializers as &quot;FUMT&quot;.
     /// </summary>
     [EnumMember(Value = "FUMT")]
     [IsoId("_sDcrc5VAEeaYkf5FCqYMeA")]

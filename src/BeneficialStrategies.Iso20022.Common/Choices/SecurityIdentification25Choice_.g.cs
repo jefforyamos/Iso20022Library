@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityIdentification25Choice.Common))]
     [KnownType(typeof(SecurityIdentification25Choice.OtherProprietaryIdentification))]
     [IsoId("_buiiIDnxEeabspMEjqY5TQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification 25 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"Scope|The FinancialInstitutionToFinancialInstitutionCustomerDirectDebit message is sent by the creditor agent to the debtor agent, directly or through other agents and/or a payment clearing and settlement system.|It is used to collect funds from a debtor account for a creditor.|Usage|The FItoFICustomerDirectDebit message can contain one or more customer direct debit instructions.|The FIToFICustomerDirectDebit message does not allow for grouping.|The FItoFICustomerDirectDebit message may or may not contain mandate related information, that is extracts from a mandate, such as the MandateIdentification or DateOfSignature. The FIToFICustomerDirectDebit message must not be considered as a mandate.|The FItoFICustomerDirectDebit message can be used in domestic and cross-border scenarios.")]
 [IsoId("_8Pj8MRlUEe2Do_UtrNmb2g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("FI To FI Customer Direct Debit V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record FIToFICustomerDirectDebitV10 : IOuterRecord<FIToFICustomer
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_8Pj8TxlUEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader98 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader98 GroupHeader { get; init; } 
+    public required GroupHeader98 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader98 GroupHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record FIToFICustomerDirectDebitV10 : IOuterRecord<FIToFICustomer
     /// Set of elements providing information specific to the individual direct debit(s).
     /// </summary>
     [IsoId("_8Pj8URlUEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direct Debit Transaction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrctDbtTxInf")]
     #endif
+    [IsoXmlTag("DrctDbtTxInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DirectDebitTransactionInformation30 DirectDebitTransactionInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DirectDebitTransactionInformation30 DirectDebitTransactionInformation { get; init; } 
+    public required DirectDebitTransactionInformation30 DirectDebitTransactionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DirectDebitTransactionInformation30 DirectDebitTransactionInformation { get; init; } 
     #else
@@ -123,12 +119,11 @@ public partial record FIToFICustomerDirectDebitV10 : IOuterRecord<FIToFICustomer
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_8Pj8UxlUEe2Do_UtrNmb2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,7 +136,7 @@ public partial record FIToFICustomerDirectDebitV10 : IOuterRecord<FIToFICustomer
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FIToFICustomerDirectDebitV10Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FIToFICustomerDirectDebitV10Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FIToFICustomerDirectDebitV10Document ToDocument()
     {
@@ -151,7 +146,7 @@ public partial record FIToFICustomerDirectDebitV10 : IOuterRecord<FIToFICustomer
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFICustomerDirectDebitV10"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FIToFICustomerDirectDebitV10&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FIToFICustomerDirectDebitV10Document : IOuterDocument<FIToFICustomerDirectDebitV10>
@@ -168,7 +163,7 @@ public partial record FIToFICustomerDirectDebitV10Document : IOuterDocument<FITo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FIToFICustomerDirectDebitV10"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FIToFICustomerDirectDebitV10&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FIToFICustomerDirectDebitV10 Message { get; init; }

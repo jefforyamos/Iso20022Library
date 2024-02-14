@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to define the balance type and sub-type.
 /// </summary>
 [IsoId("_1zHyMYalEeeUws0ZryHQ2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Balance Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BalanceType13
     /// Coded or proprietary format balance type.
     /// </summary>
     [IsoId("_162x44alEeeUws0ZryHQ2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code Or Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdOrPrtry")]
     #endif
+    [IsoXmlTag("CdOrPrtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BalanceType10Choice_ CodeOrProprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BalanceType10Choice_ CodeOrProprietary { get; init; } 
+    public required BalanceType10Choice_ CodeOrProprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BalanceType10Choice_ CodeOrProprietary { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record BalanceType13
     /// Specifies the balance sub-type.
     /// </summary>
     [IsoId("_162x5YalEeeUws0ZryHQ2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sub Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubTp")]
     #endif
+    [IsoXmlTag("SubTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceSubType1Choice_? SubType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

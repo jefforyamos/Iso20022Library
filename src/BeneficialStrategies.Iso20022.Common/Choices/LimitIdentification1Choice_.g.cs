@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LimitIdentification1Choice.AllCurrent))]
     [KnownType(typeof(LimitIdentification1Choice.AllDefault))]
     [IsoId("_73bb56MgEeCJ6YNENx4h-w_-184786449")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

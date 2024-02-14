@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|The IdentificationModificationAdvice message is sent by an assigner to an assignee. The message is used to advice on the correct party and/or account identification information.|Usage|The IdentificationModificationAdvice message is sent after the receipt of one or several transaction messages that included no longer valid party and/or account identification information.|The IdentificationModificationAdvice message is exchanged between financial institutions and between financial institutions and non financial institutions and can contain one or more modification advises.|There is no time limit on the time between the sending of an IdentificationModificationAdvice message and the receipt of the transaction messages that the IdentificationModificationAdvice refers to.|The IdentificationModificationAdvice includes the correct party and/or account identification information, the IdentificationModificationAdvice or the included information may be forwarded to the initiating party of the transaction messages.")]
 [IsoId("_sSPRRWtdEeCY4-KZ9JEyUQ_219398369")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Identification Modification Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record IdentificationModificationAdviceV01 : IOuterRecord<Identif
     /// Identifies the identification assignment.
     /// </summary>
     [IsoId("_sSPRRmtdEeCY4-KZ9JEyUQ_-1640410798")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationAssignment1 Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationAssignment1 Assignment { get; init; } 
+    public required IdentificationAssignment1 Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationAssignment1 Assignment { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record IdentificationModificationAdviceV01 : IOuterRecord<Identif
     /// Provides reference information on the original message.
     /// </summary>
     [IsoId("_sSPRR2tdEeCY4-KZ9JEyUQ_-1861905124")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlTxRef")]
     #endif
+    [IsoXmlTag("OrgnlTxRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalTransactionReference14? OriginalTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,16 +116,15 @@ public partial record IdentificationModificationAdviceV01 : IOuterRecord<Identif
     /// Information concerning the identification data that is advised to be modified.
     /// </summary>
     [IsoId("_sSPRSGtdEeCY4-KZ9JEyUQ_791312082")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mod")]
     #endif
+    [IsoXmlTag("Mod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationModification1 Modification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationModification1 Modification { get; init; } 
+    public required IdentificationModification1 Modification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationModification1 Modification { get; init; } 
     #else
@@ -140,7 +135,7 @@ public partial record IdentificationModificationAdviceV01 : IOuterRecord<Identif
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="IdentificationModificationAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;IdentificationModificationAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public IdentificationModificationAdviceV01Document ToDocument()
     {
@@ -150,7 +145,7 @@ public partial record IdentificationModificationAdviceV01 : IOuterRecord<Identif
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="IdentificationModificationAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;IdentificationModificationAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record IdentificationModificationAdviceV01Document : IOuterDocument<IdentificationModificationAdviceV01>
@@ -167,7 +162,7 @@ public partial record IdentificationModificationAdviceV01Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="IdentificationModificationAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;IdentificationModificationAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationModificationAdviceV01 Message { get; init; }

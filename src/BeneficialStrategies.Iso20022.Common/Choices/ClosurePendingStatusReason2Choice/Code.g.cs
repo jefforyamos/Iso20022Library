@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosurePendingStatusReason2Choic
     /// Reason for the closure pending status expressed as a code.
     /// </summary>
     [IsoId("_9J7XcWCLEeabZtzjEVWYCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosurePendingStatusReason2Choic
         /// Specifies the reason for the closure pending status.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ClosurePendingStatusReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ClosurePendingStatusReason1Code Value { get; init; } 
+        public required ClosurePendingStatusReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ClosurePendingStatusReason1Code Value { get; init; } 
         #else

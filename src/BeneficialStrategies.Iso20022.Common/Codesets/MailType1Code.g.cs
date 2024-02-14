@@ -21,7 +21,7 @@ public enum MailType1Code
 {
     /// <summary>
     /// Air mail.
-    /// Encoded/decoded by serializers as "AIRM".
+    /// Encoded/decoded by serializers as &quot;AIRM&quot;.
     /// </summary>
     [EnumMember(Value = "AIRM")]
     [IsoId("_jWjjASCXEeWJd9HF2tO7BA")]
@@ -30,7 +30,7 @@ public enum MailType1Code
     
     /// <summary>
     /// Ordinary mail.
-    /// Encoded/decoded by serializers as "ORDM".
+    /// Encoded/decoded by serializers as &quot;ORDM&quot;.
     /// </summary>
     [EnumMember(Value = "ORDM")]
     [IsoId("_jdi70SCXEeWJd9HF2tO7BA")]
@@ -39,7 +39,7 @@ public enum MailType1Code
     
     /// <summary>
     /// Registered Mail.
-    /// Encoded/decoded by serializers as "REGM".
+    /// Encoded/decoded by serializers as &quot;REGM&quot;.
     /// </summary>
     [EnumMember(Value = "REGM")]
     [IsoId("_jkZKsSCXEeWJd9HF2tO7BA")]

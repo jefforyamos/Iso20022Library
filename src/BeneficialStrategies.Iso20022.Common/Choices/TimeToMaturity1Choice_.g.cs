@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeToMaturity1Choice.Period))]
     [KnownType(typeof(TimeToMaturity1Choice.Special))]
     [IsoId("_r8FOkMVaEeiYpLQka876sg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time To Maturity 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The MandateAcceptanceReport message is sent from the agent of the receiver (debtor or creditor) of the MandateRequest message (initiation, amendment or cancellation) to the agent of the initiator of the MandateRequest message (debtor or creditor).|A MandateAcceptanceReport message is used to confirm the acceptance or rejection of a MandateRequest message. Where acceptance is part of the full process flow, a MandateRequest message only becomes valid after a confirmation of acceptance is received through a MandateAcceptanceReport message from the agent of the receiver.|Usage|The MandateAcceptanceReport message can contain one or more confirmation(s) of acceptance or rejection of a specific Mandate Request.|The messages can be exchanged between debtor agent and creditor agent and between debtor agent and debtor and creditor agent and creditor.|The MandateAcceptanceReport message can be used in domestic and cross-border scenarios.")]
 [IsoId("_CAyuQSGnEeKjd4jizyIDGA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Acceptance Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record MandateAcceptanceReportV03 : IOuterRecord<MandateAcceptanc
     /// Set of characteristics to identify the message and parties playing a role in the mandate acceptance, but which are not part of the mandate.
     /// </summary>
     [IsoId("_CAyuQyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader47 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader47 GroupHeader { get; init; } 
+    public required GroupHeader47 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader47 GroupHeader { get; init; } 
     #else
@@ -102,16 +99,15 @@ public partial record MandateAcceptanceReportV03 : IOuterRecord<MandateAcceptanc
     /// Set of elements used to provide information on the acception or rejection of the mandate request.
     /// </summary>
     [IsoId("_CAyuRyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Acceptance Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygAccptncDtls")]
     #endif
+    [IsoXmlTag("UndrlygAccptncDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateAcceptance3 UnderlyingAcceptanceDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateAcceptance3 UnderlyingAcceptanceDetails { get; init; } 
+    public required MandateAcceptance3 UnderlyingAcceptanceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateAcceptance3 UnderlyingAcceptanceDetails { get; init; } 
     #else
@@ -122,12 +118,11 @@ public partial record MandateAcceptanceReportV03 : IOuterRecord<MandateAcceptanc
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_CAyuSyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,7 +135,7 @@ public partial record MandateAcceptanceReportV03 : IOuterRecord<MandateAcceptanc
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MandateAcceptanceReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MandateAcceptanceReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MandateAcceptanceReportV03Document ToDocument()
     {
@@ -150,7 +145,7 @@ public partial record MandateAcceptanceReportV03 : IOuterRecord<MandateAcceptanc
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateAcceptanceReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MandateAcceptanceReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MandateAcceptanceReportV03Document : IOuterDocument<MandateAcceptanceReportV03>
@@ -167,7 +162,7 @@ public partial record MandateAcceptanceReportV03Document : IOuterDocument<Mandat
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MandateAcceptanceReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MandateAcceptanceReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateAcceptanceReportV03 Message { get; init; }

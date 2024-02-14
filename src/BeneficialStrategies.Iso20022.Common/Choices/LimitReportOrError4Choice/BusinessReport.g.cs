@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitReportOrError4Choice
     /// Reports on limits.
     /// </summary>
     [IsoId("_C3LJ4W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitReportOrError4Choice
         /// Report is given for a current risk management type limit.
         /// </summary>
         [IsoId("_DAtgY24-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Current Limit")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CurLmt")]
         #endif
+        [IsoXmlTag("CurLmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public LimitReport7? CurrentLimit { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitReportOrError4Choice
         /// Report is given for a default risk management type limit.
         /// </summary>
         [IsoId("_DAtgZW4-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Default Limit")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DfltLmt")]
         #endif
+        [IsoXmlTag("DfltLmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public LimitReport7? DefaultLimit { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum RepoCallAcknowledgementReasonCode
 {
     /// <summary>
-    /// Received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_ZS5FsNp-Ed-ak6NoX_4Aeg_-859698405")]
@@ -30,7 +30,7 @@ public enum RepoCallAcknowledgementReasonCode
     
     /// <summary>
     /// Repurchase agreement call is in process.
-    /// Encoded/decoded by serializers as "CALD".
+    /// Encoded/decoded by serializers as &quot;CALD&quot;.
     /// </summary>
     [EnumMember(Value = "CALD")]
     [IsoId("_ZS5Fsdp-Ed-ak6NoX_4Aeg_-858775491")]
@@ -39,7 +39,7 @@ public enum RepoCallAcknowledgementReasonCode
     
     /// <summary>
     /// Repurchase agreement call is issued.
-    /// Encoded/decoded by serializers as "CALI".
+    /// Encoded/decoded by serializers as &quot;CALI&quot;.
     /// </summary>
     [EnumMember(Value = "CALI")]
     [IsoId("_ZS5Fstp-Ed-ak6NoX_4Aeg_-857851394")]
@@ -48,7 +48,7 @@ public enum RepoCallAcknowledgementReasonCode
     
     /// <summary>
     /// Repurchase agreement call is processed.
-    /// Encoded/decoded by serializers as "CALP".
+    /// Encoded/decoded by serializers as &quot;CALP&quot;.
     /// </summary>
     [EnumMember(Value = "CALP")]
     [IsoId("_ZS5Fs9p-Ed-ak6NoX_4Aeg_-856002365")]
@@ -57,7 +57,7 @@ public enum RepoCallAcknowledgementReasonCode
     
     /// <summary>
     /// Repurchase agreement call request is being processed.
-    /// Encoded/decoded by serializers as "CALR".
+    /// Encoded/decoded by serializers as &quot;CALR&quot;.
     /// </summary>
     [EnumMember(Value = "CALR")]
     [IsoId("_ZS5FtNp-Ed-ak6NoX_4Aeg_-855078844")]

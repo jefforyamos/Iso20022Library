@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceipt1Choice
     /// Specifies that the claim non receipt has been rejected and provides the reason for the rejection.
     /// </summary>
     [IsoId("_w4YfsIjYEeeDW7_wB-eK_g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

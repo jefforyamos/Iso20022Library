@@ -21,7 +21,7 @@ public enum AuthenticationMethodCode
 {
     /// <summary>
     /// Authentication method is performed unknown.
-    /// Encoded/decoded by serializers as "UKNW".
+    /// Encoded/decoded by serializers as &quot;UKNW&quot;.
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_TV8F4QEcEeCQm6a_G2yO_w_567294757")]
@@ -30,7 +30,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Authentication bypassed by the merchant.
-    /// Encoded/decoded by serializers as "BYPS".
+    /// Encoded/decoded by serializers as &quot;BYPS&quot;.
     /// </summary>
     [EnumMember(Value = "BYPS")]
     [IsoId("_TV8F4gEcEeCQm6a_G2yO_w_-822486963")]
@@ -39,7 +39,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// On-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "NPIN".
+    /// Encoded/decoded by serializers as &quot;NPIN&quot;.
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_TV8F4wEcEeCQm6a_G2yO_w_1462523475")]
@@ -48,7 +48,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Off-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FPIN".
+    /// Encoded/decoded by serializers as &quot;FPIN&quot;.
     /// </summary>
     [EnumMember(Value = "FPIN")]
     [IsoId("_TV8F5AEcEeCQm6a_G2yO_w_-1792409526")]
@@ -57,7 +57,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Electronic signature capture (handwritten signature).
-    /// Encoded/decoded by serializers as "CPSG".
+    /// Encoded/decoded by serializers as &quot;CPSG&quot;.
     /// </summary>
     [EnumMember(Value = "CPSG")]
     [IsoId("_TV8F5QEcEeCQm6a_G2yO_w_2072925403")]
@@ -66,7 +66,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Handwritten paper signature.
-    /// Encoded/decoded by serializers as "PPSG".
+    /// Encoded/decoded by serializers as &quot;PPSG&quot;.
     /// </summary>
     [EnumMember(Value = "PPSG")]
     [IsoId("_TV8F5gEcEeCQm6a_G2yO_w_-2090444660")]
@@ -75,7 +75,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Manual verification, for example passport or drivers license.
-    /// Encoded/decoded by serializers as "MANU".
+    /// Encoded/decoded by serializers as &quot;MANU&quot;.
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_TV8F5wEcEeCQm6a_G2yO_w_-743732481")]
@@ -84,7 +84,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Merchant-related authentication.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TV8F6AEcEeCQm6a_G2yO_w_-2133514201")]
@@ -93,7 +93,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Electronic commerce transaction secured with the X.509 certificate of a customer.
-    /// Encoded/decoded by serializers as "SCRT".
+    /// Encoded/decoded by serializers as &quot;SCRT&quot;.
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_TV8F6QEcEeCQm6a_G2yO_w_151496237")]
@@ -102,7 +102,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Secure electronic transaction without cardholder certificate.
-    /// Encoded/decoded by serializers as "SNCT".
+    /// Encoded/decoded by serializers as &quot;SNCT&quot;.
     /// </summary>
     [EnumMember(Value = "SNCT")]
     [IsoId("_TV8F6gEcEeCQm6a_G2yO_w_1554634082")]
@@ -111,7 +111,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Channel-encrypted transaction.
-    /// Encoded/decoded by serializers as "SCNL".
+    /// Encoded/decoded by serializers as &quot;SCNL&quot;.
     /// </summary>
     [EnumMember(Value = "SCNL")]
     [IsoId("_TV8F6wEcEeCQm6a_G2yO_w_761898165")]
@@ -120,7 +120,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Authentication by a password.
-    /// Encoded/decoded by serializers as "PSWD".
+    /// Encoded/decoded by serializers as &quot;PSWD&quot;.
     /// </summary>
     [EnumMember(Value = "PSWD")]
     [IsoId("_sQJJ8b4pEeKkGaJ0UrThyA_1833629628")]
@@ -129,7 +129,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Cardholder billing address verification.
-    /// Encoded/decoded by serializers as "ADDB".
+    /// Encoded/decoded by serializers as &quot;ADDB&quot;.
     /// </summary>
     [EnumMember(Value = "ADDB")]
     [IsoId("_e8XqMGjNEeSHBr6v3XO0Mg")]
@@ -138,7 +138,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Biometric authentication of the cardholder.
-    /// Encoded/decoded by serializers as "BIOM".
+    /// Encoded/decoded by serializers as &quot;BIOM&quot;.
     /// </summary>
     [EnumMember(Value = "BIOM")]
     [IsoId("_h4zmIGjNEeSHBr6v3XO0Mg")]
@@ -147,7 +147,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Cardholder data provided for verification, for instance social security number, driver license number, passport number.
-    /// Encoded/decoded by serializers as "CDHI".
+    /// Encoded/decoded by serializers as &quot;CDHI&quot;.
     /// </summary>
     [EnumMember(Value = "CDHI")]
     [IsoId("_lJxnoGjNEeSHBr6v3XO0Mg")]
@@ -156,7 +156,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Verification of a cryptogram generated by a chip card or another device, for instance ARQC (Authorisation Request Cryptogram).
-    /// Encoded/decoded by serializers as "CRYP".
+    /// Encoded/decoded by serializers as &quot;CRYP&quot;.
     /// </summary>
     [EnumMember(Value = "CRYP")]
     [IsoId("_vHcKoGjNEeSHBr6v3XO0Mg")]
@@ -165,7 +165,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Verification of Card Security Code.
-    /// Encoded/decoded by serializers as "CSCV".
+    /// Encoded/decoded by serializers as &quot;CSCV&quot;.
     /// </summary>
     [EnumMember(Value = "CSCV")]
     [IsoId("_01RQIGjNEeSHBr6v3XO0Mg")]
@@ -174,7 +174,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Authentication based on statistical cardholder behaviour.
-    /// Encoded/decoded by serializers as "PSVE".
+    /// Encoded/decoded by serializers as &quot;PSVE&quot;.
     /// </summary>
     [EnumMember(Value = "PSVE")]
     [IsoId("_31GeUGjNEeSHBr6v3XO0Mg")]
@@ -183,7 +183,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Authentication performed during a secure electronic commerce transaction.
-    /// Encoded/decoded by serializers as "CSEC".
+    /// Encoded/decoded by serializers as &quot;CSEC&quot;.
     /// </summary>
     [EnumMember(Value = "CSEC")]
     [IsoId("_8Qu8IGjNEeSHBr6v3XO0Mg")]
@@ -192,7 +192,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Cardholder shipping address verification.
-    /// Encoded/decoded by serializers as "ADDS".
+    /// Encoded/decoded by serializers as &quot;ADDS&quot;.
     /// </summary>
     [EnumMember(Value = "ADDS")]
     [IsoId("_ADNIMGjOEeSHBr6v3XO0Mg")]
@@ -201,7 +201,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Cryptogram generated by the token requestor or a customer device to validate the authorised use of a token.
-    /// Encoded/decoded by serializers as "TOKN".
+    /// Encoded/decoded by serializers as &quot;TOKN&quot;.
     /// </summary>
     [EnumMember(Value = "TOKN")]
     [IsoId("_ECBHIGjOEeSHBr6v3XO0Mg")]
@@ -210,7 +210,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Verification or authentication related to the use of a payment token, for instance the validation of the authorised use of a token.
-    /// Encoded/decoded by serializers as "TOKP".
+    /// Encoded/decoded by serializers as &quot;TOKP&quot;.
     /// </summary>
     [EnumMember(Value = "TOKP")]
     [IsoId("_-TkAYIIEEeS7UOLM47txvA")]
@@ -219,7 +219,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// A token is used to verify an already performed authentication.
-    /// Encoded/decoded by serializers as "TOKA".
+    /// Encoded/decoded by serializers as &quot;TOKA&quot;.
     /// </summary>
     [EnumMember(Value = "TOKA")]
     [IsoId("_or5w0IoaEeSirOZJBRz_nA")]
@@ -228,7 +228,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Customer mobile device.
-    /// Encoded/decoded by serializers as "MOBL".
+    /// Encoded/decoded by serializers as &quot;MOBL&quot;.
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_sHfG4IoaEeSirOZJBRz_nA")]
@@ -237,7 +237,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Other customer authentication.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_xzNTkIoaEeSirOZJBRz_nA")]
@@ -246,7 +246,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Digits of the address.
-    /// Encoded/decoded by serializers as "ADVF".
+    /// Encoded/decoded by serializers as &quot;ADVF&quot;.
     /// </summary>
     [EnumMember(Value = "ADVF")]
     [IsoId("_NYJzdHyPEemHsOqJOzMVfg")]
@@ -255,7 +255,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "ARNB".
+    /// Encoded/decoded by serializers as &quot;ARNB&quot;.
     /// </summary>
     [EnumMember(Value = "ARNB")]
     [IsoId("_NYJzdXyPEemHsOqJOzMVfg")]
@@ -264,7 +264,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Verification of a cryptogram generated by a chip card, for instance an ARQC (Authorisation Request Cryptogram).
-    /// Encoded/decoded by serializers as "ARQC".
+    /// Encoded/decoded by serializers as &quot;ARQC&quot;.
     /// </summary>
     [EnumMember(Value = "ARQC")]
     [IsoId("_NYJzdnyPEemHsOqJOzMVfg")]
@@ -273,7 +273,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Date of birth of a person.
-    /// Encoded/decoded by serializers as "BTHD".
+    /// Encoded/decoded by serializers as &quot;BTHD&quot;.
     /// </summary>
     [EnumMember(Value = "BTHD")]
     [IsoId("_NYJzd3yPEemHsOqJOzMVfg")]
@@ -282,7 +282,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Name of cardholder
-    /// Encoded/decoded by serializers as "CHDN".
+    /// Encoded/decoded by serializers as &quot;CHDN&quot;.
     /// </summary>
     [EnumMember(Value = "CHDN")]
     [IsoId("_NYJzeHyPEemHsOqJOzMVfg")]
@@ -291,7 +291,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// City of birth to authenticate a person.
-    /// Encoded/decoded by serializers as "COFB".
+    /// Encoded/decoded by serializers as &quot;COFB&quot;.
     /// </summary>
     [EnumMember(Value = "COFB")]
     [IsoId("_NYJzeXyPEemHsOqJOzMVfg")]
@@ -300,7 +300,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Customer number used as a mechanism of authentication.
-    /// Encoded/decoded by serializers as "CUID".
+    /// Encoded/decoded by serializers as &quot;CUID&quot;.
     /// </summary>
     [EnumMember(Value = "CUID")]
     [IsoId("_NYJzenyPEemHsOqJOzMVfg")]
@@ -309,7 +309,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Identification of a driver in a fleet of vehicles.
-    /// Encoded/decoded by serializers as "DRVI".
+    /// Encoded/decoded by serializers as &quot;DRVI&quot;.
     /// </summary>
     [EnumMember(Value = "DRVI")]
     [IsoId("_NYJze3yPEemHsOqJOzMVfg")]
@@ -318,7 +318,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Number assigned by a driving license authority to a person driving a car.
-    /// Encoded/decoded by serializers as "DRLN".
+    /// Encoded/decoded by serializers as &quot;DRLN&quot;.
     /// </summary>
     [EnumMember(Value = "DRLN")]
     [IsoId("_NYJzfHyPEemHsOqJOzMVfg")]
@@ -327,7 +327,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Electronic mail address
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_NYJzfXyPEemHsOqJOzMVfg")]
@@ -336,7 +336,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Number assigned to an employee by an employer.
-    /// Encoded/decoded by serializers as "EMIN".
+    /// Encoded/decoded by serializers as &quot;EMIN&quot;.
     /// </summary>
     [EnumMember(Value = "EMIN")]
     [IsoId("_NYJzfnyPEemHsOqJOzMVfg")]
@@ -345,7 +345,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Number assigned to an employer by a registration authority.
-    /// Encoded/decoded by serializers as "EMRN".
+    /// Encoded/decoded by serializers as &quot;EMRN&quot;.
     /// </summary>
     [EnumMember(Value = "EMRN")]
     [IsoId("_NYJzf3yPEemHsOqJOzMVfg")]
@@ -354,7 +354,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Number assigned by a national authority to an identity card.
-    /// Encoded/decoded by serializers as "IDCN".
+    /// Encoded/decoded by serializers as &quot;IDCN&quot;.
     /// </summary>
     [EnumMember(Value = "IDCN")]
     [IsoId("_NYJzgHyPEemHsOqJOzMVfg")]
@@ -363,7 +363,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Verification of a one-time password provided by the issuer.
-    /// Encoded/decoded by serializers as "OTPW".
+    /// Encoded/decoded by serializers as &quot;OTPW&quot;.
     /// </summary>
     [EnumMember(Value = "OTPW")]
     [IsoId("_NYJzgXyPEemHsOqJOzMVfg")]
@@ -372,7 +372,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Other cardholder data provided for identification.
-    /// Encoded/decoded by serializers as "OCHI".
+    /// Encoded/decoded by serializers as &quot;OCHI&quot;.
     /// </summary>
     [EnumMember(Value = "OCHI")]
     [IsoId("_NYJzgnyPEemHsOqJOzMVfg")]
@@ -381,7 +381,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Verification of a cryptogram generated by a non-card form factor.
-    /// Encoded/decoded by serializers as "OTHC".
+    /// Encoded/decoded by serializers as &quot;OTHC&quot;.
     /// </summary>
     [EnumMember(Value = "OTHC")]
     [IsoId("_NYJzg3yPEemHsOqJOzMVfg")]
@@ -390,7 +390,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Number assigned by a passport authority to a passport.
-    /// Encoded/decoded by serializers as "PASN".
+    /// Encoded/decoded by serializers as &quot;PASN&quot;.
     /// </summary>
     [EnumMember(Value = "PASN")]
     [IsoId("_NYJzhHyPEemHsOqJOzMVfg")]
@@ -399,7 +399,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Verification based on digits of the postal code.
-    /// Encoded/decoded by serializers as "PCDV".
+    /// Encoded/decoded by serializers as &quot;PCDV&quot;.
     /// </summary>
     [EnumMember(Value = "PCDV")]
     [IsoId("_NYJzhXyPEemHsOqJOzMVfg")]
@@ -408,7 +408,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Shipping address from verification.
-    /// Encoded/decoded by serializers as "SHAF".
+    /// Encoded/decoded by serializers as &quot;SHAF&quot;.
     /// </summary>
     [EnumMember(Value = "SHAF")]
     [IsoId("_NYJzhnyPEemHsOqJOzMVfg")]
@@ -417,7 +417,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Shipping address to verification
-    /// Encoded/decoded by serializers as "SHAT".
+    /// Encoded/decoded by serializers as &quot;SHAT&quot;.
     /// </summary>
     [EnumMember(Value = "SHAT")]
     [IsoId("_NYJzh3yPEemHsOqJOzMVfg")]
@@ -425,8 +425,8 @@ public enum AuthenticationMethodCode
     ShippingAddressTo,
     
     /// <summary>
-    /// Verification whether the address corresponds to the cardholder's one.
-    /// Encoded/decoded by serializers as "CHSA".
+    /// Verification whether the address corresponds to the cardholder&apos;s one.
+    /// Encoded/decoded by serializers as &quot;CHSA&quot;.
     /// </summary>
     [EnumMember(Value = "CHSA")]
     [IsoId("_Wxx1N3yPEemHsOqJOzMVfg")]
@@ -435,7 +435,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Non visible Card Security Code.
-    /// Encoded/decoded by serializers as "NVSC".
+    /// Encoded/decoded by serializers as &quot;NVSC&quot;.
     /// </summary>
     [EnumMember(Value = "NVSC")]
     [IsoId("_Wxx1OHyPEemHsOqJOzMVfg")]
@@ -444,7 +444,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Other type of verification defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_Wxx1OXyPEemHsOqJOzMVfg")]
@@ -453,7 +453,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Other type of verification defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_Wxx1OnyPEemHsOqJOzMVfg")]
@@ -462,7 +462,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Place of birth of a person.
-    /// Encoded/decoded by serializers as "PLOB".
+    /// Encoded/decoded by serializers as &quot;PLOB&quot;.
     /// </summary>
     [EnumMember(Value = "PLOB")]
     [IsoId("_Wxx1O3yPEemHsOqJOzMVfg")]
@@ -471,7 +471,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Number assigned by a social security agency.
-    /// Encoded/decoded by serializers as "SSNB".
+    /// Encoded/decoded by serializers as &quot;SSNB&quot;.
     /// </summary>
     [EnumMember(Value = "SSNB")]
     [IsoId("_Wxx1PHyPEemHsOqJOzMVfg")]
@@ -480,7 +480,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TXIN".
+    /// Encoded/decoded by serializers as &quot;TXIN&quot;.
     /// </summary>
     [EnumMember(Value = "TXIN")]
     [IsoId("_Wxx1PXyPEemHsOqJOzMVfg")]
@@ -489,7 +489,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Account-based digital signature authentication.
-    /// Encoded/decoded by serializers as "APKI".
+    /// Encoded/decoded by serializers as &quot;APKI&quot;.
     /// </summary>
     [EnumMember(Value = "APKI")]
     [IsoId("_wcguD3yPEemHsOqJOzMVfg")]
@@ -498,7 +498,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Response Card Cryptogram (ARPC)  verification.
-    /// Encoded/decoded by serializers as "ARPC".
+    /// Encoded/decoded by serializers as &quot;ARPC&quot;.
     /// </summary>
     [EnumMember(Value = "ARPC")]
     [IsoId("_wcguEHyPEemHsOqJOzMVfg")]
@@ -507,7 +507,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Application Transaction Counter
-    /// Encoded/decoded by serializers as "ATCC".
+    /// Encoded/decoded by serializers as &quot;ATCC&quot;.
     /// </summary>
     [EnumMember(Value = "ATCC")]
     [IsoId("_wcguEXyPEemHsOqJOzMVfg")]
@@ -516,7 +516,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Biographics authentication in an offline mode.
-    /// Encoded/decoded by serializers as "FBIG".
+    /// Encoded/decoded by serializers as &quot;FBIG&quot;.
     /// </summary>
     [EnumMember(Value = "FBIG")]
     [IsoId("_wcguEnyPEemHsOqJOzMVfg")]
@@ -525,7 +525,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Biometrics authentication in an offline mode
-    /// Encoded/decoded by serializers as "FBIO".
+    /// Encoded/decoded by serializers as &quot;FBIO&quot;.
     /// </summary>
     [EnumMember(Value = "FBIO")]
     [IsoId("_wcguE3yPEemHsOqJOzMVfg")]
@@ -534,7 +534,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Authentication of data in an offline mode
-    /// Encoded/decoded by serializers as "OLDA".
+    /// Encoded/decoded by serializers as &quot;OLDA&quot;.
     /// </summary>
     [EnumMember(Value = "OLDA")]
     [IsoId("_wcguFHyPEemHsOqJOzMVfg")]
@@ -543,7 +543,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Analysis of signature transmitted offline
-    /// Encoded/decoded by serializers as "OLDS".
+    /// Encoded/decoded by serializers as &quot;OLDS&quot;.
     /// </summary>
     [EnumMember(Value = "OLDS")]
     [IsoId("_wcguFXyPEemHsOqJOzMVfg")]
@@ -552,7 +552,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// PIN generated offline and transmitted encrypted
-    /// Encoded/decoded by serializers as "OFPE".
+    /// Encoded/decoded by serializers as &quot;OFPE&quot;.
     /// </summary>
     [EnumMember(Value = "OFPE")]
     [IsoId("_wcguFnyPEemHsOqJOzMVfg")]
@@ -561,7 +561,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// PIN generated offline and transmitted in clear
-    /// Encoded/decoded by serializers as "FCPN".
+    /// Encoded/decoded by serializers as &quot;FCPN&quot;.
     /// </summary>
     [EnumMember(Value = "FCPN")]
     [IsoId("_wcguF3yPEemHsOqJOzMVfg")]
@@ -570,7 +570,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Biographics authentication in an online mode.
-    /// Encoded/decoded by serializers as "NBIG".
+    /// Encoded/decoded by serializers as &quot;NBIG&quot;.
     /// </summary>
     [EnumMember(Value = "NBIG")]
     [IsoId("_wcguGHyPEemHsOqJOzMVfg")]
@@ -579,7 +579,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Customer home phone number.
-    /// Encoded/decoded by serializers as "PHOM".
+    /// Encoded/decoded by serializers as &quot;PHOM&quot;.
     /// </summary>
     [EnumMember(Value = "PHOM")]
     [IsoId("_wcguGXyPEemHsOqJOzMVfg")]
@@ -588,7 +588,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Customer work phone number
-    /// Encoded/decoded by serializers as "PWOR".
+    /// Encoded/decoded by serializers as &quot;PWOR&quot;.
     /// </summary>
     [EnumMember(Value = "PWOR")]
     [IsoId("_wcguGnyPEemHsOqJOzMVfg")]
@@ -597,7 +597,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// PKI (Public Key Infrastructure) based digital signature
-    /// Encoded/decoded by serializers as "PKIS".
+    /// Encoded/decoded by serializers as &quot;PKIS&quot;.
     /// </summary>
     [EnumMember(Value = "PKIS")]
     [IsoId("_wcguG3yPEemHsOqJOzMVfg")]
@@ -606,7 +606,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// QualifiedCertificate
-    /// Encoded/decoded by serializers as "QWAC".
+    /// Encoded/decoded by serializers as &quot;QWAC&quot;.
     /// </summary>
     [EnumMember(Value = "QWAC")]
     [IsoId("_wcguHHyPEemHsOqJOzMVfg")]
@@ -615,7 +615,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Authentication performed during a secure electronic commerce transaction.
-    /// Encoded/decoded by serializers as "THDS".
+    /// Encoded/decoded by serializers as &quot;THDS&quot;.
     /// </summary>
     [EnumMember(Value = "THDS")]
     [IsoId("_wcguHXyPEemHsOqJOzMVfg")]
@@ -623,8 +623,8 @@ public enum AuthenticationMethodCode
     ThreeDS,
     
     /// <summary>
-    /// Serial number of the cardholder's certificate.
-    /// Encoded/decoded by serializers as "CHSN".
+    /// Serial number of the cardholder&apos;s certificate.
+    /// Encoded/decoded by serializers as &quot;CHSN&quot;.
     /// </summary>
     [EnumMember(Value = "CHSN")]
     [IsoId("_Zq8WAMVTEeuPIIgba4mCug")]
@@ -632,8 +632,8 @@ public enum AuthenticationMethodCode
     CardholderCertificateSerialNumber,
     
     /// <summary>
-    /// Serial number of the acceptor's certificate.
-    /// Encoded/decoded by serializers as "ACSN".
+    /// Serial number of the acceptor&apos;s certificate.
+    /// Encoded/decoded by serializers as &quot;ACSN&quot;.
     /// </summary>
     [EnumMember(Value = "ACSN")]
     [IsoId("_4mZhkMVTEeuPIIgba4mCug")]
@@ -642,7 +642,7 @@ public enum AuthenticationMethodCode
     
     /// <summary>
     /// Nationally assigned identifier.
-    /// Encoded/decoded by serializers as "NTID".
+    /// Encoded/decoded by serializers as &quot;NTID&quot;.
     /// </summary>
     [EnumMember(Value = "NTID")]
     [IsoId("_JkrAkMVUEeuPIIgba4mCug")]

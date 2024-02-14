@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntermediaryRoleChoice1.Role))]
     [KnownType(typeof(IntermediaryRoleChoice1.Proprietary))]
     [IsoId("_RhC6Btp-Ed-ak6NoX_4Aeg_991190006")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intermediary Role Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

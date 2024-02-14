@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Processing characteristics linked to a switch order for an investment fund or alternative/hedge fund.
 /// </summary>
 [IsoId("_jUZEwV84Eeicg40_9gK9vQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Processing Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ProcessingCharacteristics6
     /// Currency in which a switch is accepted.
     /// </summary>
     [IsoId("_jk5l9V84Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dealing Currency Accepted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealgCcyAccptd")]
     #endif
+    [IsoXmlTag("DealgCcyAccptd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? DealingCurrencyAccepted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ProcessingCharacteristics6
     /// Specifies whether an application form is required for a switch.
     /// </summary>
     [IsoId("_jk5l9184Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Authorisation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchAuthstn")]
     #endif
+    [IsoXmlTag("SwtchAuthstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Forms1? SwitchAuthorisation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,12 @@ public partial record ProcessingCharacteristics6
     /// Indicates whether a switch can be instructed by amount.
     /// </summary>
     [IsoId("_jk5l-V84Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtInd")]
     #endif
+    [IsoXmlTag("AmtInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? AmountIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,12 @@ public partial record ProcessingCharacteristics6
     /// Indicates whether a switch can be instructed as a number of units.
     /// </summary>
     [IsoId("_jk5l-184Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Units Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitsInd")]
     #endif
+    [IsoXmlTag("UnitsInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? UnitsIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record ProcessingCharacteristics6
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
     [IsoId("_fTxzYV9WEeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rounding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rndg")]
     #endif
+    [IsoXmlTag("Rndg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RoundingDirection2Code? Rounding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +129,11 @@ public partial record ProcessingCharacteristics6
     /// Location of the main fund order desk.
     /// </summary>
     [IsoId("_jk5l_V84Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Main Fund Order Desk Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MainFndOrdrDskLctn")]
     #endif
+    [IsoXmlTag("MainFndOrdrDskLctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MainFundOrderDeskLocation1? MainFundOrderDeskLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +146,11 @@ public partial record ProcessingCharacteristics6
     /// Frequency at which the switches are done.
     /// </summary>
     [IsoId("_jk5l_184Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dealing Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealgFrqcy")]
     #endif
+    [IsoXmlTag("DealgFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency5Code? DealingFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,15 +163,13 @@ public partial record ProcessingCharacteristics6
     /// Description of frequency at which the switch is done.
     /// </summary>
     [IsoId("_jk5mAV84Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dealing Frequency Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealgFrqcyDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DealgFrqcyDesc")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? DealingFrequencyDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +182,12 @@ public partial record ProcessingCharacteristics6
     /// Latest time at which an order to switch can be given.
     /// </summary>
     [IsoId("_jk5mA184Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dealing Cut Off Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealgCutOffTm")]
     #endif
+    [IsoXmlTag("DealgCutOffTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? DealingCutOffTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +200,11 @@ public partial record ProcessingCharacteristics6
     /// Dealing cut-off timeframe.
     /// </summary>
     [IsoId("_jk5mBV84Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dealing Cut Off Time Frame")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealgCutOffTmFrame")]
     #endif
+    [IsoXmlTag("DealgCutOffTmFrame")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeFrame4? DealingCutOffTimeFrame { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +217,12 @@ public partial record ProcessingCharacteristics6
     /// Time at which the deal confirmation is issued.
     /// </summary>
     [IsoId("_jk5mB184Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deal Confirmation Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealConfTm")]
     #endif
+    [IsoXmlTag("DealConfTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? DealConfirmationTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +235,11 @@ public partial record ProcessingCharacteristics6
     /// Time frame within which the deal confirmation is issued.
     /// </summary>
     [IsoId("_jk5mCV84Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deal Confirmation Time Frame")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealConfTmFrame")]
     #endif
+    [IsoXmlTag("DealConfTmFrame")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeFrame5? DealConfirmationTimeFrame { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,15 +252,13 @@ public partial record ProcessingCharacteristics6
     /// Specific period, for example, for some guaranteed funds, during which the units/shares may be switched.
     /// </summary>
     [IsoId("_jk5mC184Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limited Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LtdPrd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LtdPrd")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? LimitedPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +271,11 @@ public partial record ProcessingCharacteristics6
     /// Settlement timing.
     /// </summary>
     [IsoId("_jk5mDV84Eeicg40_9gK9vQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Cycle")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCycl")]
     #endif
+    [IsoXmlTag("SttlmCycl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TimeFrame8Choice_? SettlementCycle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +288,11 @@ public partial record ProcessingCharacteristics6
     /// Additional information about the switch processing characteristics.
     /// </summary>
     [IsoId("_mNfQYWAKEeiNMJ262H2pWg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

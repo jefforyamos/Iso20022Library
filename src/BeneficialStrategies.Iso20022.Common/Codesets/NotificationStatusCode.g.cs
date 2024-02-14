@@ -21,7 +21,7 @@ public enum NotificationStatusCode
 {
     /// <summary>
     /// The notification contains all the details.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_aN5VZtp-Ed-ak6NoX_4Aeg_-2057646880")]
@@ -30,7 +30,7 @@ public enum NotificationStatusCode
     
     /// <summary>
     /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
-    /// Encoded/decoded by serializers as "PREC".
+    /// Encoded/decoded by serializers as &quot;PREC&quot;.
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_aN5VZ9p-Ed-ak6NoX_4Aeg_-1569105629")]
@@ -39,7 +39,7 @@ public enum NotificationStatusCode
     
     /// <summary>
     /// Notification may not contain complete details as the occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
-    /// Encoded/decoded by serializers as "PREU".
+    /// Encoded/decoded by serializers as &quot;PREU&quot;.
     /// </summary>
     [EnumMember(Value = "PREU")]
     [IsoId("_aN5VaNp-Ed-ak6NoX_4Aeg_-313114775")]
@@ -48,7 +48,7 @@ public enum NotificationStatusCode
     
     /// <summary>
     /// Notification may not contain complete details, however, the occurrence of the event has been confirmed by the issuer or other official source.
-    /// Encoded/decoded by serializers as "ECON".
+    /// Encoded/decoded by serializers as &quot;ECON&quot;.
     /// </summary>
     [EnumMember(Value = "ECON")]
     [IsoId("_aODGYNp-Ed-ak6NoX_4Aeg_373949805")]
@@ -57,7 +57,7 @@ public enum NotificationStatusCode
     
     /// <summary>
     /// The occurrence of the event has not been confirmed by the issuer or other official source at the time the notification was sent.
-    /// Encoded/decoded by serializers as "EUNC".
+    /// Encoded/decoded by serializers as &quot;EUNC&quot;.
     /// </summary>
     [EnumMember(Value = "EUNC")]
     [IsoId("_aODGYdp-Ed-ak6NoX_4Aeg_377642934")]

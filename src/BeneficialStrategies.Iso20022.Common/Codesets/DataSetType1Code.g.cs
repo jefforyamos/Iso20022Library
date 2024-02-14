@@ -21,7 +21,7 @@ public enum DataSetType1Code
 {
     /// <summary>
     /// Data set is a baseline.
-    /// Encoded/decoded by serializers as "BASE".
+    /// Encoded/decoded by serializers as &quot;BASE&quot;.
     /// </summary>
     [EnumMember(Value = "BASE")]
     [IsoId("_VrxOBNp-Ed-ak6NoX_4Aeg_2126617722")]
@@ -30,7 +30,7 @@ public enum DataSetType1Code
     
     /// <summary>
     /// Data set is a transport data set.
-    /// Encoded/decoded by serializers as "TRDS".
+    /// Encoded/decoded by serializers as &quot;TRDS&quot;.
     /// </summary>
     [EnumMember(Value = "TRDS")]
     [IsoId("_VrxOBdp-Ed-ak6NoX_4Aeg_2126617739")]
@@ -39,7 +39,7 @@ public enum DataSetType1Code
     
     /// <summary>
     /// Data set is a commercial data set.
-    /// Encoded/decoded by serializers as "CODS".
+    /// Encoded/decoded by serializers as &quot;CODS&quot;.
     /// </summary>
     [EnumMember(Value = "CODS")]
     [IsoId("_VrxOBtp-Ed-ak6NoX_4Aeg_2126617757")]

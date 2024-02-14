@@ -21,7 +21,7 @@ public enum CollateralPoolCode
 {
     /// <summary>
     /// Collateral is of pool type.
-    /// Encoded/decoded by serializers as "POOL".
+    /// Encoded/decoded by serializers as &quot;POOL&quot;.
     /// </summary>
     [EnumMember(Value = "POOL")]
     [IsoId("_xpEdAN7FEeSaBeqd_btViQ")]
@@ -30,7 +30,7 @@ public enum CollateralPoolCode
     
     /// <summary>
     /// Collateral is not of pool type.
-    /// Encoded/decoded by serializers as "NOPL".
+    /// Encoded/decoded by serializers as &quot;NOPL&quot;.
     /// </summary>
     [EnumMember(Value = "NOPL")]
     [IsoId("_yTBY8N7FEeSaBeqd_btViQ")]
@@ -39,7 +39,7 @@ public enum CollateralPoolCode
     
     /// <summary>
     /// Transaction was settled using a delivery by value mechanism.
-    /// Encoded/decoded by serializers as "DBVP".
+    /// Encoded/decoded by serializers as &quot;DBVP&quot;.
     /// </summary>
     [EnumMember(Value = "DBVP")]
     [IsoId("_zxVMIHvYEeWrWYBng3OpVw")]

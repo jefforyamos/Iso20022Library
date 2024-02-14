@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Sub-class of non-equity instruments sharing common characteristics according to criteria defined as per local regulation.
 /// </summary>
 [IsoId("_POi7M6aTEeqZmriXpMtonA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Equity Sub Class")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record NonEquitySubClass1
     /// Description of the derivative sub-class.
     /// </summary>
     [IsoId("_MOvhwKcNEeqV1IdfYLo35g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max1000Text)]
     [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record NonEquitySubClass1
     /// Criteria used to segment classes of derivative instruments into sub classes as per local regulation.
     /// </summary>
     [IsoId("_POi7NKaTEeqZmriXpMtonA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segmentation Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgmttnCrit")]
     #endif
+    [IsoXmlTag("SgmttnCrit")]
     public NonEquitySubClassSegmentationCriterion1? SegmentationCriteria { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _POi7NKaTEeqZmriXpMtonA
     

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the registration of a proxy.
 /// </summary>
 [IsoId("_fCkadfM7EeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proxy Appointment Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record ProxyAppointmentInformation5
     /// Specifies how to register the proxy.
     /// </summary>
     [IsoId("_fWW5I_M7EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnMtd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RegnMtd")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? RegistrationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record ProxyAppointmentInformation5
     /// Date by which the information on the proxy assignment must be received by the intermediary.
     /// </summary>
     [IsoId("_fWW5JfM7EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ddln")]
     #endif
+    [IsoXmlTag("Ddln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? Deadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record ProxyAppointmentInformation5
     /// Date by which the information on the proxy assignment must be received by the issuer.
     /// </summary>
     [IsoId("_fWW5J_M7EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktDdln")]
     #endif
+    [IsoXmlTag("MktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? MarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,16 +95,13 @@ public partial record ProxyAppointmentInformation5
     /// Proxy person that is authorised by the issuer.
     /// </summary>
     [IsoId("_fWW5KfM7EeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorised Proxy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrsdPrxy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AuthrsdPrxy")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Proxy9> AuthorisedProxy { get; init; } = new ValueList<Proxy9>(){};
     
     

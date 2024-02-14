@@ -21,7 +21,7 @@ public enum QueryType2Code
 {
     /// <summary>
     /// Specifies that the query requests that all matching items be returned.
-    /// Encoded/decoded by serializers as "ALLL".
+    /// Encoded/decoded by serializers as &quot;ALLL&quot;.
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_ZXqQ8tp-Ed-ak6NoX_4Aeg_-1313851984")]
@@ -30,7 +30,7 @@ public enum QueryType2Code
     
     /// <summary>
     /// Specifies that the query requests that only new matching items since the last similar query be returned.
-    /// Encoded/decoded by serializers as "CHNG".
+    /// Encoded/decoded by serializers as &quot;CHNG&quot;.
     /// </summary>
     [EnumMember(Value = "CHNG")]
     [IsoId("_ZXqQ89p-Ed-ak6NoX_4Aeg_-1313851983")]
@@ -39,7 +39,7 @@ public enum QueryType2Code
     
     /// <summary>
     /// Specifies that the query requests that only items that have changed since the last query be returned.
-    /// Encoded/decoded by serializers as "MODF".
+    /// Encoded/decoded by serializers as &quot;MODF&quot;.
     /// </summary>
     [EnumMember(Value = "MODF")]
     [IsoId("_ZXqQ9Np-Ed-ak6NoX_4Aeg_-1313851982")]
@@ -48,7 +48,7 @@ public enum QueryType2Code
     
     /// <summary>
     /// Specifies that the query requests that items that have been deleted since the last query be returned.
-    /// Encoded/decoded by serializers as "DELD".
+    /// Encoded/decoded by serializers as &quot;DELD&quot;.
     /// </summary>
     [EnumMember(Value = "DELD")]
     [IsoId("_ZXqQ9dp-Ed-ak6NoX_4Aeg_-1313851954")]

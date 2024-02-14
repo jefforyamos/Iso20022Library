@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus5Choice
     /// Status of the transfer is in repair.
     /// </summary>
     [IsoId("_WY1VR-ijEeuLe8v4JEtDDg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("In Repair")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

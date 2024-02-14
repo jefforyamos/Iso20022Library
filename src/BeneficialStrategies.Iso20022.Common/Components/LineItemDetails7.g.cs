@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
 [IsoId("_SqDwgdp-Ed-ak6NoX_4Aeg_-733825048")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Line Item Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record LineItemDetails7
     /// Identification assigned to a line item.
     /// </summary>
     [IsoId("_SqDwgtp-Ed-ak6NoX_4Aeg_-733824910")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Item Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineItmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LineItmId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text LineItemIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LineItemIdentification { get; init; } 
+    public required System.String LineItemIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LineItemIdentification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record LineItemDetails7
     /// Specifies the quantity of goods on a line in a trade transaction.
     /// </summary>
     [IsoId("_SqDwg9p-Ed-ak6NoX_4Aeg_-732903030")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity4 Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity4 Quantity { get; init; } 
+    public required Quantity4 Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity4 Quantity { get; init; } 
     #else
@@ -96,12 +91,11 @@ public partial record LineItemDetails7
     /// Variance allowed in the quantity of goods.
     /// </summary>
     [IsoId("_SqDwhNp-Ed-ak6NoX_4Aeg_-732904297")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity Tolerance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtyTlrnce")]
     #endif
+    [IsoXmlTag("QtyTlrnce")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageTolerance1? QuantityTolerance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,12 +108,11 @@ public partial record LineItemDetails7
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
     [IsoId("_SqDwhdp-Ed-ak6NoX_4Aeg_-732904392")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unit Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnitPric")]
     #endif
+    [IsoXmlTag("UnitPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitPrice9? UnitPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,12 +125,11 @@ public partial record LineItemDetails7
     /// Variance allowed on a price.
     /// </summary>
     [IsoId("_SqDwhtp-Ed-ak6NoX_4Aeg_-732902437")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Tolerance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricTlrnce")]
     #endif
+    [IsoXmlTag("PricTlrnce")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PercentageTolerance1? PriceTolerance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,15 +142,13 @@ public partial record LineItemDetails7
     /// Name of the product detailed in the corresponding line item.
     /// </summary>
     [IsoId("_SqDwh9p-Ed-ak6NoX_4Aeg_-733824581")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PdctNm")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? ProductName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,12 +161,11 @@ public partial record LineItemDetails7
     /// Identifies the product of the corresponding line item.
     /// </summary>
     [IsoId("_SqDwiNp-Ed-ak6NoX_4Aeg_-732903900")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctIdr")]
     #endif
+    [IsoXmlTag("PdctIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductIdentifier2Choice_? ProductIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,12 +178,11 @@ public partial record LineItemDetails7
     /// Identifies the characteristics of a product.
     /// </summary>
     [IsoId("_SqDwidp-Ed-ak6NoX_4Aeg_-732902953")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctChrtcs")]
     #endif
+    [IsoXmlTag("PdctChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCharacteristics1Choice_? ProductCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,12 +195,11 @@ public partial record LineItemDetails7
     /// Identifies the category of product.
     /// </summary>
     [IsoId("_SqM6cNp-Ed-ak6NoX_4Aeg_-732902516")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctCtgy")]
     #endif
+    [IsoXmlTag("PdctCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProductCategory1Choice_? ProductCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -225,12 +212,11 @@ public partial record LineItemDetails7
     /// Country from which the product originates.
     /// </summary>
     [IsoId("_SqM6cdp-Ed-ak6NoX_4Aeg_-733824521")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Origin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctOrgn")]
     #endif
+    [IsoXmlTag("PdctOrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? ProductOrigin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,12 +229,11 @@ public partial record LineItemDetails7
     /// Specifies the shipment schedule for the goods.
     /// </summary>
     [IsoId("_SqM6ctp-Ed-ak6NoX_4Aeg_-314547877")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Shipment Schedule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShipmntSchdl")]
     #endif
+    [IsoXmlTag("ShipmntSchdl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ShipmentSchedule1Choice_? ShipmentSchedule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -261,12 +246,11 @@ public partial record LineItemDetails7
     /// Information related to the conveyance of goods.
     /// </summary>
     [IsoId("_SqM6c9p-Ed-ak6NoX_4Aeg_1596164645")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Routing Summary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtgSummry")]
     #endif
+    [IsoXmlTag("RtgSummry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportMeans1? RoutingSummary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -279,12 +263,11 @@ public partial record LineItemDetails7
     /// Specifies the applicable Incoterms and associated location. Latest version of Incoterms in effect at the date of message creation.
     /// </summary>
     [IsoId("_SqM6dNp-Ed-ak6NoX_4Aeg_-732902858")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Incoterms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Incotrms")]
     #endif
+    [IsoXmlTag("Incotrms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Incoterms1? Incoterms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -297,12 +280,11 @@ public partial record LineItemDetails7
     /// Variance on price for the goods.
     /// </summary>
     [IsoId("_SqM6ddp-Ed-ak6NoX_4Aeg_-732903385")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjustment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Adjstmnt")]
     #endif
+    [IsoXmlTag("Adjstmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Adjustment3? Adjustment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -315,12 +297,11 @@ public partial record LineItemDetails7
     /// Maximum charges related to the conveyance of goods.
     /// </summary>
     [IsoId("_SqM6dtp-Ed-ak6NoX_4Aeg_-732903830")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Freight Charges")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrghtChrgs")]
     #endif
+    [IsoXmlTag("FrghtChrgs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Charge12? FreightCharges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -333,12 +314,11 @@ public partial record LineItemDetails7
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
     [IsoId("_SqM6d9p-Ed-ak6NoX_4Aeg_-732903480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tax")]
     #endif
+    [IsoXmlTag("Tax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax13? Tax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -351,16 +331,16 @@ public partial record LineItemDetails7
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>
     [IsoId("_SqM6eNp-Ed-ak6NoX_4Aeg_-733824858")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlAmt")]
     #endif
+    [IsoXmlTag("TtlAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalAmount { get; init; } 
+    public required System.Decimal TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalAmount { get; init; } 
     #else

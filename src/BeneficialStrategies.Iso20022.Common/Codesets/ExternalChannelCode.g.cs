@@ -22,7 +22,7 @@ public enum ExternalChannelCode
 {
     /// <summary>
     /// Delivery by courier.
-    /// Encoded/decoded by serializers as "COUR".
+    /// Encoded/decoded by serializers as &quot;COUR&quot;.
     /// </summary>
     [EnumMember(Value = "COUR")]
     [IsoId("_uOZEXPRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Transmission by e-mail.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_uOi1UPRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Transmission by fax.
-    /// Encoded/decoded by serializers as "FAXI".
+    /// Encoded/decoded by serializers as &quot;FAXI&quot;.
     /// </summary>
     [EnumMember(Value = "FAXI")]
     [IsoId("_uOi1U_RYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Delivery by messenger.
-    /// Encoded/decoded by serializers as "MESS".
+    /// Encoded/decoded by serializers as &quot;MESS&quot;.
     /// </summary>
     [EnumMember(Value = "MESS")]
     [IsoId("_uOi1VvRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Delivery by postal service.
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_uOi1WfRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Delivery by registered mail services.
-    /// Encoded/decoded by serializers as "REGM".
+    /// Encoded/decoded by serializers as &quot;REGM&quot;.
     /// </summary>
     [EnumMember(Value = "REGM")]
     [IsoId("_uOi1XPRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Transfer via secure e-mail.
-    /// Encoded/decoded by serializers as "SEMA".
+    /// Encoded/decoded by serializers as &quot;SEMA&quot;.
     /// </summary>
     [EnumMember(Value = "SEMA")]
     [IsoId("_uOsmUPRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Transmission by SWIFTNet FileAct.
-    /// Encoded/decoded by serializers as "SWFA".
+    /// Encoded/decoded by serializers as &quot;SWFA&quot;.
     /// </summary>
     [EnumMember(Value = "SWFA")]
     [IsoId("_uOsmU_RYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Transmission by SWIFTNet InterAct. 
-    /// Encoded/decoded by serializers as "SWIA".
+    /// Encoded/decoded by serializers as &quot;SWIA&quot;.
     /// </summary>
     [EnumMember(Value = "SWIA")]
     [IsoId("_uOsmVvRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Transmission by SWIFT (FIN).
-    /// Encoded/decoded by serializers as "SWMT".
+    /// Encoded/decoded by serializers as &quot;SWMT&quot;.
     /// </summary>
     [EnumMember(Value = "SWMT")]
     [IsoId("_uOsmWfRYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Transmission by SWIFTNet.
-    /// Encoded/decoded by serializers as "SWMX".
+    /// Encoded/decoded by serializers as &quot;SWMX&quot;.
     /// </summary>
     [EnumMember(Value = "SWMX")]
     [IsoId("_uO1wQPRYEeuLhpyIdtJzwg")]
@@ -121,7 +121,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Transmission by telecommunications service.
-    /// Encoded/decoded by serializers as "TELE".
+    /// Encoded/decoded by serializers as &quot;TELE&quot;.
     /// </summary>
     [EnumMember(Value = "TELE")]
     [IsoId("_uO1wQ_RYEeuLhpyIdtJzwg")]
@@ -130,7 +130,7 @@ public enum ExternalChannelCode
     
     /// <summary>
     /// Available via Web upload/download
-    /// Encoded/decoded by serializers as "WEBM".
+    /// Encoded/decoded by serializers as &quot;WEBM&quot;.
     /// </summary>
     [EnumMember(Value = "WEBM")]
     [IsoId("_uO_hQPRYEeuLhpyIdtJzwg")]

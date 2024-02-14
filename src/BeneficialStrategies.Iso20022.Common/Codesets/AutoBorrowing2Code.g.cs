@@ -21,7 +21,7 @@ public enum AutoBorrowing2Code
 {
     /// <summary>
     /// Only last resort borrowing should be considered to make settlement occur.
-    /// Encoded/decoded by serializers as "LAMI".
+    /// Encoded/decoded by serializers as &quot;LAMI&quot;.
     /// </summary>
     [EnumMember(Value = "LAMI")]
     [IsoId("_bjuf4dp-Ed-ak6NoX_4Aeg_-875280874")]
@@ -30,7 +30,7 @@ public enum AutoBorrowing2Code
     
     /// <summary>
     /// No automatic borrowing should take place.
-    /// Encoded/decoded by serializers as "NBOR".
+    /// Encoded/decoded by serializers as &quot;NBOR&quot;.
     /// </summary>
     [EnumMember(Value = "NBOR")]
     [IsoId("_bjuf4tp-Ed-ak6NoX_4Aeg_-875280873")]
@@ -39,7 +39,7 @@ public enum AutoBorrowing2Code
     
     /// <summary>
     /// Automatic borrowing should take place.
-    /// Encoded/decoded by serializers as "YBOR".
+    /// Encoded/decoded by serializers as &quot;YBOR&quot;.
     /// </summary>
     [EnumMember(Value = "YBOR")]
     [IsoId("_bjuf49p-Ed-ak6NoX_4Aeg_-875280857")]
@@ -48,7 +48,7 @@ public enum AutoBorrowing2Code
     
     /// <summary>
     /// Return of stocks should take place.
-    /// Encoded/decoded by serializers as "RTRN".
+    /// Encoded/decoded by serializers as &quot;RTRN&quot;.
     /// </summary>
     [EnumMember(Value = "RTRN")]
     [IsoId("_bjuf5Np-Ed-ak6NoX_4Aeg_-871586494")]

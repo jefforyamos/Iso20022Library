@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The MandateSuspensionRequest message is sent by the initiator of the request to its agent. The initiator can either be the debtor, debtor agent, creditor or creditor agent.|A MandateSuspensionRequest message is used to request the suspension of an existing mandate until the suspension is lifted. |Usage|The MandateSuspensionRequest message can contain one or more suspension requests.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The MandateSuspensionRequest message can be used in domestic and cross-border scenarios.|")]
 [IsoId("_rUYOLdcBEeq_l4BJLVUF2Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Suspension Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record MandateSuspensionRequestV03 : IOuterRecord<MandateSuspensi
     /// Set of characteristics to identify the message and parties playing a role in the mandate suspension request, but which are not part of the mandate.
     /// </summary>
     [IsoId("_rUYON9cBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader80 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader80 GroupHeader { get; init; } 
+    public required GroupHeader80 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader80 GroupHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record MandateSuspensionRequestV03 : IOuterRecord<MandateSuspensi
     /// Set of elements used to provide information on the suspension request of the mandate.
     /// </summary>
     [IsoId("_rUYOOdcBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Suspension Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygSspnsnDtls")]
     #endif
+    [IsoXmlTag("UndrlygSspnsnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateSuspension3 UnderlyingSuspensionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateSuspension3 UnderlyingSuspensionDetails { get; init; } 
+    public required MandateSuspension3 UnderlyingSuspensionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateSuspension3 UnderlyingSuspensionDetails { get; init; } 
     #else
@@ -123,12 +119,11 @@ public partial record MandateSuspensionRequestV03 : IOuterRecord<MandateSuspensi
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_rUYOO9cBEeq_l4BJLVUF2Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,7 +136,7 @@ public partial record MandateSuspensionRequestV03 : IOuterRecord<MandateSuspensi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MandateSuspensionRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MandateSuspensionRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MandateSuspensionRequestV03Document ToDocument()
     {
@@ -151,7 +146,7 @@ public partial record MandateSuspensionRequestV03 : IOuterRecord<MandateSuspensi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateSuspensionRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MandateSuspensionRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MandateSuspensionRequestV03Document : IOuterDocument<MandateSuspensionRequestV03>
@@ -168,7 +163,7 @@ public partial record MandateSuspensionRequestV03Document : IOuterDocument<Manda
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MandateSuspensionRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MandateSuspensionRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateSuspensionRequestV03 Message { get; init; }

@@ -45,9 +45,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The ReturnCurrencyExchangeRate message is sent by the transaction administrator to a member of the system.|It is used to provide information on static data and related to currency exchange details as maintained for system operations by the transaction administrator.|The ReturnCurrencyExchangeRate message can be sent as a response to a related GetCurrencyExchangeRate message (pull mode) or initiated by the account servicer (push mode). The push of information can take place either at prearranged times or as a warning or alarm when a problem has occurred.|Usage|The transaction administrator is in charge of providing the members with business information. The term business information covers all information related to the management of the system, that is, not related to the transactions or requests created in the system. The type of business information available can vary depending on the system.|When a system manages a pool of accounts in various currencies for a member, it needs to maintain currency exchange details between the various currencies and the reporting on base currency. The reporting on base currency is used to calculate the actual position of the members in terms of aggregate limits and balances. It also allows the system to contain risk within defined and agreed boundaries.|The currency exchange details can be fixed for the entire operational day or regularly updated according to near real-time market feeds.|The member can request information about a currency exchange operation through a series of criteria, corresponding to the known information stored within the transaction administrator. Based on the criteria received within the request, the transaction administrator will select items that will match with the request and report them to the requestor.|The transaction administrator may also send a Return Currency Exchange Rate message with pre-defined information at times previously agreed with the member or to warn the member about a particular problem that may have arisen and which needs the member(s) attention.|The message from the transaction administrator will contain information based on the following elements:|- the currency to be converted (source currency)|- the currency into which the amount is converted (target currency)|- the exchange rate|- the quotation date and currency|Additional information on the generic design of the Get/Return messages can be found in the MDR Part 1 section How to Use the Cash Management Messages.")]
 [IsoId("_jwlcCRbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Return Currency Exchange Rate V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -91,16 +89,15 @@ public partial record ReturnCurrencyExchangeRateV04 : IOuterRecord<ReturnCurrenc
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlcCxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader7 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader7 MessageHeader { get; init; } 
+    public required MessageHeader7 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader7 MessageHeader { get; init; } 
     #else
@@ -111,16 +108,15 @@ public partial record ReturnCurrencyExchangeRateV04 : IOuterRecord<ReturnCurrenc
     /// Reports on currency exchange information.
     /// </summary>
     [IsoId("_jwlcDRbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptOrErr")]
     #endif
+    [IsoXmlTag("RptOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExchangeRateReportOrError1Choice_ ReportOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExchangeRateReportOrError1Choice_ ReportOrError { get; init; } 
+    public required ExchangeRateReportOrError1Choice_ ReportOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExchangeRateReportOrError1Choice_ ReportOrError { get; init; } 
     #else
@@ -131,12 +127,11 @@ public partial record ReturnCurrencyExchangeRateV04 : IOuterRecord<ReturnCurrenc
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlcDxbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,7 +144,7 @@ public partial record ReturnCurrencyExchangeRateV04 : IOuterRecord<ReturnCurrenc
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReturnCurrencyExchangeRateV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReturnCurrencyExchangeRateV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReturnCurrencyExchangeRateV04Document ToDocument()
     {
@@ -159,7 +154,7 @@ public partial record ReturnCurrencyExchangeRateV04 : IOuterRecord<ReturnCurrenc
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReturnCurrencyExchangeRateV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReturnCurrencyExchangeRateV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReturnCurrencyExchangeRateV04Document : IOuterDocument<ReturnCurrencyExchangeRateV04>
@@ -176,7 +171,7 @@ public partial record ReturnCurrencyExchangeRateV04Document : IOuterDocument<Ret
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReturnCurrencyExchangeRateV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReturnCurrencyExchangeRateV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReturnCurrencyExchangeRateV04 Message { get; init; }

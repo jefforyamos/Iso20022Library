@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the ATM for the key download.
 /// </summary>
 [IsoId("__m9pwYtLEeSxlKlAGYErFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Security Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ATMSecurityContext2
     /// Key exchange security scheme in activation on the ATM for the host manager.
     /// </summary>
     [IsoId("__y4l4YtLEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Security Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurSctySchme")]
     #endif
+    [IsoXmlTag("CurSctySchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMSecurityScheme1Code CurrentSecurityScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMSecurityScheme1Code CurrentSecurityScheme { get; init; } 
+    public required ATMSecurityScheme1Code CurrentSecurityScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMSecurityScheme1Code CurrentSecurityScheme { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ATMSecurityContext2
     /// Hardware security module information, so called EPP for Encrypted PIN Pad.
     /// </summary>
     [IsoId("_rW7poItMEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Device Property")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvcPrprty")]
     #endif
+    [IsoXmlTag("DvcPrprty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMEquipment3? DeviceProperty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ATMSecurityContext2
     /// Configuration parameters in use by the security device.
     /// </summary>
     [IsoId("_9vs7QItNEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Configuration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurCfgtn")]
     #endif
+    [IsoXmlTag("CurCfgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMSecurityConfiguration1? CurrentConfiguration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

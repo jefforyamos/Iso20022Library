@@ -21,7 +21,7 @@ public enum CorporateActionOption5Code
 {
     /// <summary>
     /// Option to choose cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_bMfEk9p-Ed-ak6NoX_4Aeg_160952572")]
@@ -30,7 +30,7 @@ public enum CorporateActionOption5Code
     
     /// <summary>
     /// Distribution of securities to holders.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_bMfElNp-Ed-ak6NoX_4Aeg_720605213")]

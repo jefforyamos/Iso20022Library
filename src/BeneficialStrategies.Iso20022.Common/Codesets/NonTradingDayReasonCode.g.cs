@@ -21,7 +21,7 @@ public enum NonTradingDayReasonCode
 {
     /// <summary>
     /// Other reasons a day is a non-trading day e.g. technical fault, company specific non-trading day not known in advance.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_DG_-MGw5EeWD9e8QDBgUOw")]
@@ -30,7 +30,7 @@ public enum NonTradingDayReasonCode
     
     /// <summary>
     /// The date is a full day trading holiday with no trades performed.
-    /// Encoded/decoded by serializers as "THOL".
+    /// Encoded/decoded by serializers as &quot;THOL&quot;.
     /// </summary>
     [EnumMember(Value = "THOL")]
     [IsoId("_EzKlEGw5EeWD9e8QDBgUOw")]
@@ -39,7 +39,7 @@ public enum NonTradingDayReasonCode
     
     /// <summary>
     /// Trading venue was open for an amount of time, up to half the day.
-    /// Encoded/decoded by serializers as "HALF".
+    /// Encoded/decoded by serializers as &quot;HALF&quot;.
     /// </summary>
     [EnumMember(Value = "HALF")]
     [IsoId("_LNwp8Gw5EeWD9e8QDBgUOw")]
@@ -48,7 +48,7 @@ public enum NonTradingDayReasonCode
     
     /// <summary>
     /// Date is a bank holiday.
-    /// Encoded/decoded by serializers as "BHOL".
+    /// Encoded/decoded by serializers as &quot;BHOL&quot;.
     /// </summary>
     [EnumMember(Value = "BHOL")]
     [IsoId("_AEFxYGw6EeWD9e8QDBgUOw")]
@@ -57,7 +57,7 @@ public enum NonTradingDayReasonCode
     
     /// <summary>
     /// Date is a public holiday.
-    /// Encoded/decoded by serializers as "PHOL".
+    /// Encoded/decoded by serializers as &quot;PHOL&quot;.
     /// </summary>
     [EnumMember(Value = "PHOL")]
     [IsoId("_B2sXcGw6EeWD9e8QDBgUOw")]
@@ -66,7 +66,7 @@ public enum NonTradingDayReasonCode
     
     /// <summary>
     /// Date being reported falls during the weekend.
-    /// Encoded/decoded by serializers as "WKND".
+    /// Encoded/decoded by serializers as &quot;WKND&quot;.
     /// </summary>
     [EnumMember(Value = "WKND")]
     [IsoId("_DhnoMGw6EeWD9e8QDBgUOw")]

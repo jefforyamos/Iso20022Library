@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Performance factors of the investment fund / fund class.
 /// </summary>
 [IsoId("_TTfIAtp-Ed-ak6NoX_4Aeg_1116778698")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Performance Factors")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record PerformanceFactors1
     /// Value of the NAV before all corporate events of the valuation date, divided by the value of the NAV after the corporate event.
     /// </summary>
     [IsoId("_TTfIA9p-Ed-ak6NoX_4Aeg_-359866902")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnFctr")]
     #endif
+    [IsoXmlTag("CorpActnFctr")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? CorporateActionFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record PerformanceFactors1
     /// Value of the NAV before a corporate event, divided by the value of the NAV after the corporate event, accumulated for a number of corporate events over the defined period of time.
     /// </summary>
     [IsoId("_TTfIBNp-Ed-ak6NoX_4Aeg_-358021142")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cumulative Corporate Action Factor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmltvCorpActnFctr")]
     #endif
+    [IsoXmlTag("CmltvCorpActnFctr")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? CumulativeCorporateActionFactor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record PerformanceFactors1
     /// Period of time for the calculation of the cumulative corporate action factor.
     /// </summary>
     [IsoId("_TTfIBdp-Ed-ak6NoX_4Aeg_-1211048401")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accumulation Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcmltnPrd")]
     #endif
+    [IsoXmlTag("AcmltnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodDetails? AccumulationPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record PerformanceFactors1
     /// Normal performance value of the NAV.
     /// </summary>
     [IsoId("_TTfIBtp-Ed-ak6NoX_4Aeg_-357097187")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Normal Performance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NrmlPrfrmnc")]
     #endif
+    [IsoXmlTag("NrmlPrfrmnc")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? NormalPerformance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum TypeOfAmount6Code
 {
     /// <summary>
     /// Commission that the issuer will charge to the cardholder, which should be shown and accepted by the cardholder before the money is disbursed.
-    /// Encoded/decoded by serializers as "ATMF".
+    /// Encoded/decoded by serializers as &quot;ATMF&quot;.
     /// </summary>
     [EnumMember(Value = "ATMF")]
     [IsoId("_ch5l0Xs3EeSTS7uHCe8FPQ")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Transaction amount that has been authorised.
-    /// Encoded/decoded by serializers as "AMTH".
+    /// Encoded/decoded by serializers as &quot;AMTH&quot;.
     /// </summary>
     [EnumMember(Value = "AMTH")]
     [IsoId("_crbVQ3s3EeSTS7uHCe8FPQ")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Remaining allowed amount for this type of transaction with this card, after the transaction, until the end of the card limit period.
-    /// Encoded/decoded by serializers as "CRDB".
+    /// Encoded/decoded by serializers as &quot;CRDB&quot;.
     /// </summary>
     [EnumMember(Value = "CRDB")]
     [IsoId("_dpya83s3EeSTS7uHCe8FPQ")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Discount, rebate or voucher, related to loyalty programs. This amount is counted as a negative amount.
-    /// Encoded/decoded by serializers as "DCNT".
+    /// Encoded/decoded by serializers as &quot;DCNT&quot;.
     /// </summary>
     [EnumMember(Value = "DCNT")]
     [IsoId("_euupw3s3EeSTS7uHCe8FPQ")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Fees.
-    /// Encoded/decoded by serializers as "FEES".
+    /// Encoded/decoded by serializers as &quot;FEES&quot;.
     /// </summary>
     [EnumMember(Value = "FEES")]
     [IsoId("_e8LP43s3EeSTS7uHCe8FPQ")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Maximum amount allowed for the transaction in the transaction amount currency if the transaction amount of the request was declined.
-    /// Encoded/decoded by serializers as "AMTX".
+    /// Encoded/decoded by serializers as &quot;AMTX&quot;.
     /// </summary>
     [EnumMember(Value = "AMTX")]
     [IsoId("_fJJ783s3EeSTS7uHCe8FPQ")]
@@ -75,7 +75,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Minimum amount allowed in the TransactionAmount currency if the transaction amount of the request was declined.
-    /// Encoded/decoded by serializers as "AMTN".
+    /// Encoded/decoded by serializers as &quot;AMTN&quot;.
     /// </summary>
     [EnumMember(Value = "AMTN")]
     [IsoId("_fP3n83s3EeSTS7uHCe8FPQ")]
@@ -84,7 +84,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Transaction amount that has been requested to be authorised.
-    /// Encoded/decoded by serializers as "AMTQ".
+    /// Encoded/decoded by serializers as &quot;AMTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AMTQ")]
     [IsoId("_greqU3s3EeSTS7uHCe8FPQ")]
@@ -93,7 +93,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Extra fee for a purchase or a withdrawal.
-    /// Encoded/decoded by serializers as "SRCH".
+    /// Encoded/decoded by serializers as &quot;SRCH&quot;.
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_g34Hk3s3EeSTS7uHCe8FPQ")]
@@ -102,7 +102,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Value added tax amount.
-    /// Encoded/decoded by serializers as "VATX".
+    /// Encoded/decoded by serializers as &quot;VATX&quot;.
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_hFQcQ3s3EeSTS7uHCe8FPQ")]
@@ -111,7 +111,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Commission from the card issuer.
-    /// Encoded/decoded by serializers as "COMI".
+    /// Encoded/decoded by serializers as &quot;COMI&quot;.
     /// </summary>
     [EnumMember(Value = "COMI")]
     [IsoId("_UJEOkYN6EeSNofOeou9G3A")]
@@ -120,7 +120,7 @@ public enum TypeOfAmount6Code
     
     /// <summary>
     /// Fees amount from the card issuer.
-    /// Encoded/decoded by serializers as "FEEI".
+    /// Encoded/decoded by serializers as &quot;FEEI&quot;.
     /// </summary>
     [EnumMember(Value = "FEEI")]
     [IsoId("_UUHA8YN6EeSNofOeou9G3A")]

@@ -21,7 +21,7 @@ public enum AcknowledgementReason9Code
 {
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_dJBg4ekIEemm4qhb2yFPOw")]

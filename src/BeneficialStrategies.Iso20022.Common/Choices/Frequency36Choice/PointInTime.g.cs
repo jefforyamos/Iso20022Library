@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency36Choice
     /// Specifies a frequency in terms of an exact point in time or moment within a specified period type.
     /// </summary>
     [IsoId("_6IxUQWk2Eeanu6HLe77Rkg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Point In Time")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency36Choice
         /// Period for which the number of instructions are to be created and processed.
         /// </summary>
         [IsoId("_CWY19Wk3Eeanu6HLe77Rkg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Frequency6Code Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Frequency6Code Type { get; init; } 
+        public required Frequency6Code Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Frequency6Code Type { get; init; } 
         #else
@@ -77,15 +74,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency36Choice
         /// Further information on the exact point in time the event should take place.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PtInTm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("PtInTm")]
+        [IsoSimpleType(IsoSimpleType.Exact2NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExact2NumericText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

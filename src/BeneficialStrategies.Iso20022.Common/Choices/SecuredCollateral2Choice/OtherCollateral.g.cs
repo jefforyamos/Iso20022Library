@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
     /// Identifies the collateral when the asset class pledged as collateral does not correspond to an ISIN.
     /// </summary>
     [IsoId("_iZO6B6idEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Collateral")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
         /// Specifies whether the collateral is a pool collateral or not.
         /// </summary>
         [IsoId("_oPGhMaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Pool Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PoolSts")]
         #endif
+        [IsoXmlTag("PoolSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CollateralPool1Code PoolStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CollateralPool1Code PoolStatus { get; init; } 
+        public required CollateralPool1Code PoolStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CollateralPool1Code PoolStatus { get; init; } 
         #else
@@ -78,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
         /// Identifies the asset class pledged as collateral, expressed as an ISO 10962 Classification of Financial Instrument (CFI).
         /// </summary>
         [IsoId("_oPGhM6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
+        [IsoSimpleType(IsoSimpleType.CFIOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoCFIOct2015Identifier Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Type { get; init; } 
+        public required System.String Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Type { get; init; } 
         #else
@@ -98,16 +95,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
         /// Provides the institutional sector, such as central government, central bank, etc. of the issuer of collateral.
         /// </summary>
         [IsoId("_oPGhNaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sector")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Sctr")]
         #endif
+        [IsoXmlTag("Sctr")]
+        [IsoSimpleType(IsoSimpleType.SNA2008SectorIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoSNA2008SectorIdentifier Sector { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Sector { get; init; } 
+        public required System.String Sector { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Sector { get; init; } 
         #else
@@ -118,12 +115,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
         /// Nominal amount of money of the security pledged as collateral, when the collateral cannot be identified through an individual or basket ISIN.
         /// </summary>
         [IsoId("_oPGhN6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Nominal Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NmnlAmt")]
         #endif
+        [IsoXmlTag("NmnlAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoActiveCurrencyAndAmount? NominalAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceRateOrAmount3Choice.Rate))]
     [KnownType(typeof(PriceRateOrAmount3Choice.Amount))]
     [IsoId("_dnG1obQBEee1Ke-6rZgsrA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Rate Or Amount 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorRejection message is sent by the acquirer (or its agent) to reject a message request or advice sent by an acceptor (or its agent), to indicate that the received message could not be processed.")]
 [IsoId("_xrr9MY0OEeWRYffwL7E13A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Rejection V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcceptorRejectionV05 : IOuterRecord<AcceptorRejectionV05,A
     /// Rejection message management information.
     /// </summary>
     [IsoId("_xrr9NY0OEeWRYffwL7E13A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header26 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header26 Header { get; init; } 
+    public required Header26 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header26 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcceptorRejectionV05 : IOuterRecord<AcceptorRejectionV05,A
     /// Information related to the reject.
     /// </summary>
     [IsoId("_xrr9N40OEeWRYffwL7E13A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reject")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjct")]
     #endif
+    [IsoXmlTag("Rjct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorRejection2 Reject { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorRejection2 Reject { get; init; } 
+    public required AcceptorRejection2 Reject { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorRejection2 Reject { get; init; } 
     #else
@@ -116,7 +112,7 @@ public partial record AcceptorRejectionV05 : IOuterRecord<AcceptorRejectionV05,A
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorRejectionV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorRejectionV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorRejectionV05Document ToDocument()
     {
@@ -126,7 +122,7 @@ public partial record AcceptorRejectionV05 : IOuterRecord<AcceptorRejectionV05,A
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorRejectionV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorRejectionV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorRejectionV05Document : IOuterDocument<AcceptorRejectionV05>
@@ -143,7 +139,7 @@ public partial record AcceptorRejectionV05Document : IOuterDocument<AcceptorReje
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorRejectionV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorRejectionV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorRejectionV05 Message { get; init; }

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the related report identification and its status. If the status is rejected, a reason for this status must be given.
 /// </summary>
 [IsoId("_RXWygNp-Ed-ak6NoX_4Aeg_-1224288491")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Status And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ReportStatusAndReason1
     /// Provides the identification of the RegulatoryTransactionReport document that was previously sent by the reporting institution.
     /// </summary>
     [IsoId("_RXWygdp-Ed-ak6NoX_4Aeg_-1224288239")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltdRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text RelatedReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RelatedReference { get; init; } 
+    public required System.String RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RelatedReference { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record ReportStatusAndReason1
     /// Indicates the status of a report message.
     /// </summary>
     [IsoId("_RXWygtp-Ed-ak6NoX_4Aeg_-1224288118")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status2Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status2Code Status { get; init; } 
+    public required Status2Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status2Code Status { get; init; } 
     #else
@@ -95,16 +90,13 @@ public partial record ReportStatusAndReason1
     /// Indicates that the report is rejected and provides a reason why.
     /// </summary>
     [IsoId("_RXWyg9p-Ed-ak6NoX_4Aeg_-1224287697")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjctd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rjctd")]
     [MinLength(1)]
     [MaxLength(100)]
-    #endif
     public ValueList<RejectedStatusReason9Choice_> Rejected { get; init; } = new ValueList<RejectedStatusReason9Choice_>(){};
     
     

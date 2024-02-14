@@ -21,7 +21,7 @@ public enum CollateralDeliveryMethodCode
 {
     /// <summary>
     /// Title transfer collateral arrangement.
-    /// Encoded/decoded by serializers as "TTCA".
+    /// Encoded/decoded by serializers as &quot;TTCA&quot;.
     /// </summary>
     [EnumMember(Value = "TTCA")]
     [IsoId("_FZW7ACDmEeahCJeThTBhHA")]
@@ -30,7 +30,7 @@ public enum CollateralDeliveryMethodCode
     
     /// <summary>
     /// Securities interest collateral arrangement.
-    /// Encoded/decoded by serializers as "SICA".
+    /// Encoded/decoded by serializers as &quot;SICA&quot;.
     /// </summary>
     [EnumMember(Value = "SICA")]
     [IsoId("_LsvkoCDmEeahCJeThTBhHA")]
@@ -39,7 +39,7 @@ public enum CollateralDeliveryMethodCode
     
     /// <summary>
     /// Securities interest with the right of use.
-    /// Encoded/decoded by serializers as "SIUR".
+    /// Encoded/decoded by serializers as &quot;SIUR&quot;.
     /// </summary>
     [EnumMember(Value = "SIUR")]
     [IsoId("_OowCwCDmEeahCJeThTBhHA")]

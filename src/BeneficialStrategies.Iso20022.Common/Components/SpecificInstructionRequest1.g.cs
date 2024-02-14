@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Request to execute specific instructions, such as participation registration, securities registration or blocking of securities.
 /// </summary>
 [IsoId("_RVH95Np-Ed-ak6NoX_4Aeg_-1758177157")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Specific Instruction Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record SpecificInstructionRequest1
     /// Request to register for participation to the meeting.
     /// </summary>
     [IsoId("_RVH95dp-Ed-ak6NoX_4Aeg_-2054390611")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participation Registration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtcptnRegn")]
     #endif
+    [IsoXmlTag("PrtcptnRegn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ParticipationRegistration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record SpecificInstructionRequest1
     /// Request to block the securities.
     /// </summary>
     [IsoId("_RVH95tp-Ed-ak6NoX_4Aeg_-1707147689")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blocking Securities")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckgScties")]
     #endif
+    [IsoXmlTag("BlckgScties")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? BlockingSecurities { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,12 @@ public partial record SpecificInstructionRequest1
     /// Request to register the securities for the meeting.
     /// </summary>
     [IsoId("_RVH959p-Ed-ak6NoX_4Aeg_-1592630247")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Registration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesRegn")]
     #endif
+    [IsoXmlTag("SctiesRegn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SecuritiesRegistration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

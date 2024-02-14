@@ -21,7 +21,7 @@ public enum TypeOfPrice15Code
 {
     /// <summary>
     /// Price is the calculated bid price of a dual-priced fund (offer-bid prices), that is, the selling price of the units for the investor.
-    /// Encoded/decoded by serializers as "BIDE".
+    /// Encoded/decoded by serializers as &quot;BIDE&quot;.
     /// </summary>
     [EnumMember(Value = "BIDE")]
     [IsoId("_WOMlpNp-Ed-ak6NoX_4Aeg_1777611101")]
@@ -30,7 +30,7 @@ public enum TypeOfPrice15Code
     
     /// <summary>
     /// Price is the calculated offer price of a dual-priced investment fund (offer-bid prices), that is, the buying price of the units for an investor.
-    /// Encoded/decoded by serializers as "OFFR".
+    /// Encoded/decoded by serializers as &quot;OFFR&quot;.
     /// </summary>
     [EnumMember(Value = "OFFR")]
     [IsoId("_WOMlpdp-Ed-ak6NoX_4Aeg_1777611123")]
@@ -39,7 +39,7 @@ public enum TypeOfPrice15Code
     
     /// <summary>
     /// Price is the net asset value per unit that is used either as a transacting price for a single-priced investment fund class, or as a notional price for the calculation of other prices.
-    /// Encoded/decoded by serializers as "NAVL".
+    /// Encoded/decoded by serializers as &quot;NAVL&quot;.
     /// </summary>
     [EnumMember(Value = "NAVL")]
     [IsoId("_WOMlptp-Ed-ak6NoX_4Aeg_1777611131")]

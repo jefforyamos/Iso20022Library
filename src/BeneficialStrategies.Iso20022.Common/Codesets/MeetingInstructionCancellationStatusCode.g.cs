@@ -21,7 +21,7 @@ public enum MeetingInstructionCancellationStatusCode
 {
     /// <summary>
     /// Cancellation has been completed.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_VpiZYdp-Ed-ak6NoX_4Aeg_1796054566")]
@@ -30,7 +30,7 @@ public enum MeetingInstructionCancellationStatusCode
     
     /// <summary>
     /// Cancellation is pending. It is not known at this time whether cancellation can be executed.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_VpiZYtp-Ed-ak6NoX_4Aeg_2029705192")]
@@ -39,7 +39,7 @@ public enum MeetingInstructionCancellationStatusCode
     
     /// <summary>
     /// Cancellation will not be executed due to business reasons.
-    /// Encoded/decoded by serializers as "DEND".
+    /// Encoded/decoded by serializers as &quot;DEND&quot;.
     /// </summary>
     [EnumMember(Value = "DEND")]
     [IsoId("_VpiZY9p-Ed-ak6NoX_4Aeg_-1981741169")]
@@ -48,7 +48,7 @@ public enum MeetingInstructionCancellationStatusCode
     
     /// <summary>
     /// Cancellation request has been rejected for further processing due to system (data) reasons.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_VpiZZNp-Ed-ak6NoX_4Aeg_-1596634915")]

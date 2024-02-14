@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AgreementFramework1Choice.AgreementFramework))]
     [KnownType(typeof(AgreementFramework1Choice.ProprietaryIdentification))]
     [IsoId("_UkZWTNp-Ed-ak6NoX_4Aeg_863321778")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agreement Framework 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

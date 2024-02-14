@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data on transaction requiring reconciliation or pairing.
 /// </summary>
 [IsoId("_CtHU1__oEemm3skPVSMJQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,15 +51,13 @@ public partial record ReconciliationReport5
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
     [IsoId("_CxSDIf_oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TechRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +70,15 @@ public partial record ReconciliationReport5
     /// Information related to transactions that are subject of reconciliation.
     /// </summary>
     [IsoId("_CxSDI__oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
+    [IsoXmlTag("TxId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeTransactionIdentification4 TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeTransactionIdentification4 TransactionIdentification { get; init; } 
+    public required TradeTransactionIdentification4 TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeTransactionIdentification4 TransactionIdentification { get; init; } 
     #else
@@ -94,16 +89,16 @@ public partial record ReconciliationReport5
     /// Indication whether information was modified.
     /// </summary>
     [IsoId("_CxSDJf_oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Modfd")]
     #endif
+    [IsoXmlTag("Modfd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator Modified { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Modified { get; init; } 
+    public required System.String Modified { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Modified { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record ReconciliationReport5
     /// Indication whether the reconciliation is required.
     /// </summary>
     [IsoId("_CxSDJ__oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnSts")]
     #endif
+    [IsoXmlTag("RcncltnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationStatus5Choice_ ReconciliationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationStatus5Choice_ ReconciliationStatus { get; init; } 
+    public required ReconciliationStatus5Choice_ ReconciliationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationStatus5Choice_ ReconciliationStatus { get; init; } 
     #else

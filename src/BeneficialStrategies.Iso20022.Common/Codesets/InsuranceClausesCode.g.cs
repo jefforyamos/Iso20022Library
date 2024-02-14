@@ -21,7 +21,7 @@ public enum InsuranceClausesCode
 {
     /// <summary>
     /// Institute Cargo Clause A (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "ICCA".
+    /// Encoded/decoded by serializers as &quot;ICCA&quot;.
     /// </summary>
     [EnumMember(Value = "ICCA")]
     [IsoId("_aZEqo9p-Ed-ak6NoX_4Aeg_-2041099809")]
@@ -30,7 +30,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Institute Cargo Clause B (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "ICCB".
+    /// Encoded/decoded by serializers as &quot;ICCB&quot;.
     /// </summary>
     [EnumMember(Value = "ICCB")]
     [IsoId("_aZEqpNp-Ed-ak6NoX_4Aeg_-2041099808")]
@@ -39,7 +39,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Institute Cargo Clause C (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "ICCC".
+    /// Encoded/decoded by serializers as &quot;ICCC&quot;.
     /// </summary>
     [EnumMember(Value = "ICCC")]
     [IsoId("_aZEqpdp-Ed-ak6NoX_4Aeg_-2041099807")]
@@ -48,7 +48,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Institute Cargo Clause for Air (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "ICAI".
+    /// Encoded/decoded by serializers as &quot;ICAI&quot;.
     /// </summary>
     [EnumMember(Value = "ICAI")]
     [IsoId("_aZEqptp-Ed-ak6NoX_4Aeg_-2041099543")]
@@ -57,7 +57,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Institute War Clause for Cargo (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "IWCC".
+    /// Encoded/decoded by serializers as &quot;IWCC&quot;.
     /// </summary>
     [EnumMember(Value = "IWCC")]
     [IsoId("_aZEqp9p-Ed-ak6NoX_4Aeg_-2041099542")]
@@ -66,7 +66,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Institute Strikes Clause for Cargo (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "ISCC".
+    /// Encoded/decoded by serializers as &quot;ISCC&quot;.
     /// </summary>
     [EnumMember(Value = "ISCC")]
     [IsoId("_aZEqqNp-Ed-ak6NoX_4Aeg_-2041099526")]
@@ -75,7 +75,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Institute Replacement Clause (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "IREC".
+    /// Encoded/decoded by serializers as &quot;IREC&quot;.
     /// </summary>
     [EnumMember(Value = "IREC")]
     [IsoId("_aZOboNp-Ed-ak6NoX_4Aeg_-2041099517")]
@@ -84,7 +84,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Institute Classification Clause (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "ICLC".
+    /// Encoded/decoded by serializers as &quot;ICLC&quot;.
     /// </summary>
     [EnumMember(Value = "ICLC")]
     [IsoId("_aZObodp-Ed-ak6NoX_4Aeg_-2041099508")]
@@ -93,7 +93,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// ISM Code Endorsement (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "ISMC".
+    /// Encoded/decoded by serializers as &quot;ISMC&quot;.
     /// </summary>
     [EnumMember(Value = "ISMC")]
     [IsoId("_aZObotp-Ed-ak6NoX_4Aeg_-2041099500")]
@@ -102,7 +102,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Computer Millenium Clause Cargo (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "CMCC".
+    /// Encoded/decoded by serializers as &quot;CMCC&quot;.
     /// </summary>
     [EnumMember(Value = "CMCC")]
     [IsoId("_aZObo9p-Ed-ak6NoX_4Aeg_-2041099483")]
@@ -111,7 +111,7 @@ public enum InsuranceClausesCode
     
     /// <summary>
     /// Institute Radioactive Contamination Exclusion Clause (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).
-    /// Encoded/decoded by serializers as "IRCE".
+    /// Encoded/decoded by serializers as &quot;IRCE&quot;.
     /// </summary>
     [EnumMember(Value = "IRCE")]
     [IsoId("_aZObpNp-Ed-ak6NoX_4Aeg_-2041099482")]

@@ -21,7 +21,7 @@ public enum ValidationRulePayCreditorByCheque1Code
 {
     /// <summary>
     /// Pay creditor by cheque.
-    /// Encoded/decoded by serializers as "CHQB".
+    /// Encoded/decoded by serializers as &quot;CHQB&quot;.
     /// </summary>
     [EnumMember(Value = "CHQB")]
     [IsoId("_XJzf0SAcEeuxStysDTgLiw")]

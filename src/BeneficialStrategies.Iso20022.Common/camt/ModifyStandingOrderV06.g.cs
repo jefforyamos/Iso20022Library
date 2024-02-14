@@ -44,9 +44,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The ModifyStandingOrder message is sent by a member to the transaction administrator.|It is used to request a change in the features of a permanent order for the transfer of funds between two accounts belonging to the same member and being held at the transaction administrator.|Usage|There should be one standing order per (direct) member and per business day. The ModifyStandingOrder message must not be used to request a transfer of funds between accounts during the working day. The liquidity transfer messages must be used for this purpose. There is no need to have a standing order to empty the settlement account at the end of the day and transfer the funds to the current account. For liquidity savings purposes, systems will effect the necessary transfers automatically when and where relevant.|The ModifyStandingOrder message first identifies the standing order to be modified and then provide the details of the new standing order. The elements that can be modified are:|- amount|- account to be credited|- account to be debited|- account owner (for on behalf scenario)|- frequency of payment|- daytime or overnight processing|- dates when the standing order begins and ceases to be effective|Based on the criteria received within the ModifyStandingOrder message, the transaction administrator will execute or reject the requested modifications.|The transaction administrator may send a Receipt message as a reply to the Modify Standing Order request. To verify the outcome of the request, the member may submit a GetStandingOrder message with the appropriate search criteria.")]
 [IsoId("_jwlb3RbvEeiyVv5j1vf1VQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modify Standing Order V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -91,16 +89,15 @@ public partial record ModifyStandingOrderV06 : IOuterRecord<ModifyStandingOrderV
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jwlb4RbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader1 MessageHeader { get; init; } 
+    public required MessageHeader1 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader1 MessageHeader { get; init; } 
     #else
@@ -111,16 +108,15 @@ public partial record ModifyStandingOrderV06 : IOuterRecord<ModifyStandingOrderV
     /// Identifies the standing order.
     /// </summary>
     [IsoId("_jwlb4xbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StgOrdrId")]
     #endif
+    [IsoXmlTag("StgOrdrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingOrderIdentification4 StandingOrderIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingOrderIdentification4 StandingOrderIdentification { get; init; } 
+    public required StandingOrderIdentification4 StandingOrderIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingOrderIdentification4 StandingOrderIdentification { get; init; } 
     #else
@@ -131,16 +127,15 @@ public partial record ModifyStandingOrderV06 : IOuterRecord<ModifyStandingOrderV
     /// New set of values for the standing order.
     /// </summary>
     [IsoId("_jwlb5RbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Standing Order Value Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewStgOrdrValSet")]
     #endif
+    [IsoXmlTag("NewStgOrdrValSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StandingOrder7 NewStandingOrderValueSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StandingOrder7 NewStandingOrderValueSet { get; init; } 
+    public required StandingOrder7 NewStandingOrderValueSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StandingOrder7 NewStandingOrderValueSet { get; init; } 
     #else
@@ -151,12 +146,11 @@ public partial record ModifyStandingOrderV06 : IOuterRecord<ModifyStandingOrderV
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jwlb5xbvEeiyVv5j1vf1VQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,7 +163,7 @@ public partial record ModifyStandingOrderV06 : IOuterRecord<ModifyStandingOrderV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ModifyStandingOrderV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ModifyStandingOrderV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ModifyStandingOrderV06Document ToDocument()
     {
@@ -179,7 +173,7 @@ public partial record ModifyStandingOrderV06 : IOuterRecord<ModifyStandingOrderV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ModifyStandingOrderV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ModifyStandingOrderV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ModifyStandingOrderV06Document : IOuterDocument<ModifyStandingOrderV06>
@@ -196,7 +190,7 @@ public partial record ModifyStandingOrderV06Document : IOuterDocument<ModifyStan
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ModifyStandingOrderV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ModifyStandingOrderV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ModifyStandingOrderV06 Message { get; init; }

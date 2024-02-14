@@ -21,7 +21,7 @@ public enum InstructionQueryTypeCode
 {
     /// <summary>
     /// Query is performed on settlement transactions.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_jj4Sg-5NEeCisYr99QEiWA_-977223942")]
@@ -30,7 +30,7 @@ public enum InstructionQueryTypeCode
     
     /// <summary>
     /// Query is performed on intra-position movements.
-    /// Encoded/decoded by serializers as "IPOS".
+    /// Encoded/decoded by serializers as &quot;IPOS&quot;.
     /// </summary>
     [EnumMember(Value = "IPOS")]
     [IsoId("_jj4ShO5NEeCisYr99QEiWA_-1633617554")]
@@ -39,7 +39,7 @@ public enum InstructionQueryTypeCode
     
     /// <summary>
     /// Query is performed on both settlement transactions and intra-position movements.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_jkCDgO5NEeCisYr99QEiWA_298522406")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TechnicalInputChannel1Choice.Code))]
     [KnownType(typeof(TechnicalInputChannel1Choice.Proprietary))]
     [IsoId("_Rpr4odp-Ed-ak6NoX_4Aeg_-1373581543")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Input Channel 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

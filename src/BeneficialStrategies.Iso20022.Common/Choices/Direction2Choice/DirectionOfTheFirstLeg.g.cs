@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Direction2Choice
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the first leg as determined at the time of transaction.
     /// </summary>
     [IsoId("_oKFn0Xg-Eeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direction Of The First Leg")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Direction2Choice
         /// Specifies if a trade party is a taker or a maker.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrctnOfTheFrstLeg")]
         #endif
+        [IsoXmlTag("DrctnOfTheFrstLeg")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OptionParty3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OptionParty3Code Value { get; init; } 
+        public required OptionParty3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OptionParty3Code Value { get; init; } 
         #else

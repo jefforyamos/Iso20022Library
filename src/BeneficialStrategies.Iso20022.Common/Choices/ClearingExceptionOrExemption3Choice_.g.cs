@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingExceptionOrExemption3Choice.Reason))]
     [KnownType(typeof(ClearingExceptionOrExemption3Choice.Counterparties))]
     [IsoId("_Ah8Gl5PuEey0rJ3Gl6WZVA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Exception Or Exemption 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum CollateralCode
 {
     /// <summary>
     /// Item is used as collateral.
-    /// Encoded/decoded by serializers as "COLL".
+    /// Encoded/decoded by serializers as &quot;COLL&quot;.
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_Ey4TkCC-EeWPMvNwVtiMsA")]
@@ -30,7 +30,7 @@ public enum CollateralCode
     
     /// <summary>
     /// Item is not used as collateral.
-    /// Encoded/decoded by serializers as "NCOL".
+    /// Encoded/decoded by serializers as &quot;NCOL&quot;.
     /// </summary>
     [EnumMember(Value = "NCOL")]
     [IsoId("_JkxVQCC-EeWPMvNwVtiMsA")]

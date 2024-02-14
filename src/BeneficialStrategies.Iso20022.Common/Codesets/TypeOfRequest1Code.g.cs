@@ -21,7 +21,7 @@ public enum TypeOfRequest1Code
 {
     /// <summary>
     /// Request for information.
-    /// Encoded/decoded by serializers as "INFO".
+    /// Encoded/decoded by serializers as &quot;INFO&quot;.
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_GYj0kdveEeqxGfKJubfhIw")]
@@ -30,7 +30,7 @@ public enum TypeOfRequest1Code
     
     /// <summary>
     /// Request for status.
-    /// Encoded/decoded by serializers as "STAT".
+    /// Encoded/decoded by serializers as &quot;STAT&quot;.
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_GhCbIdveEeqxGfKJubfhIw")]

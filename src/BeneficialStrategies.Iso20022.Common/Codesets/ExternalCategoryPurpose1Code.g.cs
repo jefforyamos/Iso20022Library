@@ -22,7 +22,7 @@ public enum ExternalCategoryPurpose1Code
 {
     /// <summary>
     /// Transaction is the payment of a bonus.
-    /// Encoded/decoded by serializers as "BONU".
+    /// Encoded/decoded by serializers as &quot;BONU&quot;.
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_tjxaAvRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a general cash management instruction.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_tjxaBfRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// A service that is settling money for a bulk of card transactions, while referring to a specific transaction file or other information like terminal ID, card acceptor ID or other transaction details.
-    /// Encoded/decoded by serializers as "CBLK".
+    /// Encoded/decoded by serializers as &quot;CBLK&quot;.
     /// </summary>
     [EnumMember(Value = "CBLK")]
     [IsoId("_tjxaCPRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment of credit card.
-    /// Encoded/decoded by serializers as "CCRD".
+    /// Encoded/decoded by serializers as &quot;CCRD&quot;.
     /// </summary>
     [EnumMember(Value = "CCRD")]
     [IsoId("_tjxaC_RYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to settlement of a trade, eg a foreign exchange deal or a securities transaction.
-    /// Encoded/decoded by serializers as "CORT".
+    /// Encoded/decoded by serializers as &quot;CORT&quot;.
     /// </summary>
     [EnumMember(Value = "CORT")]
     [IsoId("_tjxaDvRYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment of debit card.
-    /// Encoded/decoded by serializers as "DCRD".
+    /// Encoded/decoded by serializers as &quot;DCRD&quot;.
     /// </summary>
     [EnumMember(Value = "DCRD")]
     [IsoId("_tkEU8vRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of dividends.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_tkEU9fRYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Code used to pre-advise the account servicer of a forthcoming deliver against payment instruction.
-    /// Encoded/decoded by serializers as "DVPM".
+    /// Encoded/decoded by serializers as &quot;DVPM&quot;.
     /// </summary>
     [EnumMember(Value = "DVPM")]
     [IsoId("_tkEU-PRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to ePayment.
-    /// Encoded/decoded by serializers as "EPAY".
+    /// Encoded/decoded by serializers as &quot;EPAY&quot;.
     /// </summary>
     [EnumMember(Value = "EPAY")]
     [IsoId("_tkOF8vRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to the payment of a fee and interest.
-    /// Encoded/decoded by serializers as "FCIN".
+    /// Encoded/decoded by serializers as &quot;FCIN&quot;.
     /// </summary>
     [EnumMember(Value = "FCIN")]
     [IsoId("_tkOF9fRYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// A service that is settling card transaction related fees between two parties.
-    /// Encoded/decoded by serializers as "FCOL".
+    /// Encoded/decoded by serializers as &quot;FCOL&quot;.
     /// </summary>
     [EnumMember(Value = "FCOL")]
     [IsoId("_tkOF-PRYEeuLhpyIdtJzwg")]
@@ -121,7 +121,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// General Person-to-Person Payment. Debtor and Creditor are natural persons.
-    /// Encoded/decoded by serializers as "GP2P".
+    /// Encoded/decoded by serializers as &quot;GP2P&quot;.
     /// </summary>
     [EnumMember(Value = "GP2P")]
     [IsoId("_tkX28vRYEeuLhpyIdtJzwg")]
@@ -130,7 +130,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a payment to or from a government department.
-    /// Encoded/decoded by serializers as "GOVT".
+    /// Encoded/decoded by serializers as &quot;GOVT&quot;.
     /// </summary>
     [EnumMember(Value = "GOVT")]
     [IsoId("_tkX29fRYEeuLhpyIdtJzwg")]
@@ -139,7 +139,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to the payment of a hedging operation.
-    /// Encoded/decoded by serializers as "HEDG".
+    /// Encoded/decoded by serializers as &quot;HEDG&quot;.
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_tkX2-PRYEeuLhpyIdtJzwg")]
@@ -148,7 +148,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is reimbursement of credit card payment.
-    /// Encoded/decoded by serializers as "ICCP".
+    /// Encoded/decoded by serializers as &quot;ICCP&quot;.
     /// </summary>
     [EnumMember(Value = "ICCP")]
     [IsoId("_tkhA4vRYEeuLhpyIdtJzwg")]
@@ -157,7 +157,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is reimbursement of debit card payment.
-    /// Encoded/decoded by serializers as "IDCP".
+    /// Encoded/decoded by serializers as &quot;IDCP&quot;.
     /// </summary>
     [EnumMember(Value = "IDCP")]
     [IsoId("_tkhA5fRYEeuLhpyIdtJzwg")]
@@ -166,7 +166,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
-    /// Encoded/decoded by serializers as "INTC".
+    /// Encoded/decoded by serializers as &quot;INTC&quot;.
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_tkhA6PRYEeuLhpyIdtJzwg")]
@@ -175,7 +175,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of interest.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_tkhA6_RYEeuLhpyIdtJzwg")]
@@ -184,7 +184,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to identify cash handling via Night Safe or Lockbox by bank or vendor on behalf of a physical store.
-    /// Encoded/decoded by serializers as "LBOX".
+    /// Encoded/decoded by serializers as &quot;LBOX&quot;.
     /// </summary>
     [EnumMember(Value = "LBOX")]
     [IsoId("_tkhA7vRYEeuLhpyIdtJzwg")]
@@ -193,7 +193,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to the transfer of a loan to a borrower.
-    /// Encoded/decoded by serializers as "LOAN".
+    /// Encoded/decoded by serializers as &quot;LOAN&quot;.
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_tkqx4vRYEeuLhpyIdtJzwg")]
@@ -202,7 +202,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Mobile P2B Payment
-    /// Encoded/decoded by serializers as "MP2B".
+    /// Encoded/decoded by serializers as &quot;MP2B&quot;.
     /// </summary>
     [EnumMember(Value = "MP2B")]
     [IsoId("_tkqx5fRYEeuLhpyIdtJzwg")]
@@ -211,7 +211,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Mobile P2P Payment
-    /// Encoded/decoded by serializers as "MP2P".
+    /// Encoded/decoded by serializers as &quot;MP2P&quot;.
     /// </summary>
     [EnumMember(Value = "MP2P")]
     [IsoId("_tkqx6PRYEeuLhpyIdtJzwg")]
@@ -220,7 +220,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Other payment purpose.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_tk0i4vRYEeuLhpyIdtJzwg")]
@@ -229,7 +229,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of pension.
-    /// Encoded/decoded by serializers as "PENS".
+    /// Encoded/decoded by serializers as &quot;PENS&quot;.
     /// </summary>
     [EnumMember(Value = "PENS")]
     [IsoId("_tk0i5fRYEeuLhpyIdtJzwg")]
@@ -238,7 +238,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Collection used to re-present previously reversed or returned direct debit transactions.
-    /// Encoded/decoded by serializers as "RPRE".
+    /// Encoded/decoded by serializers as &quot;RPRE&quot;.
     /// </summary>
     [EnumMember(Value = "RPRE")]
     [IsoId("_tk0i6PRYEeuLhpyIdtJzwg")]
@@ -247,7 +247,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to a reimbursement for commercial reasons of a correctly received credit transfer.
-    /// Encoded/decoded by serializers as "RRCT".
+    /// Encoded/decoded by serializers as &quot;RRCT&quot;.
     /// </summary>
     [EnumMember(Value = "RRCT")]
     [IsoId("_tk0i6_RYEeuLhpyIdtJzwg")]
@@ -256,7 +256,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Code used to pre-advise the account servicer of a forthcoming receive against payment instruction.
-    /// Encoded/decoded by serializers as "RVPM".
+    /// Encoded/decoded by serializers as &quot;RVPM&quot;.
     /// </summary>
     [EnumMember(Value = "RVPM")]
     [IsoId("_tk0i7vRYEeuLhpyIdtJzwg")]
@@ -265,7 +265,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of salaries.
-    /// Encoded/decoded by serializers as "SALA".
+    /// Encoded/decoded by serializers as &quot;SALA&quot;.
     /// </summary>
     [EnumMember(Value = "SALA")]
     [IsoId("_tk9s0vRYEeuLhpyIdtJzwg")]
@@ -274,7 +274,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of securities.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_tk9s1fRYEeuLhpyIdtJzwg")]
@@ -283,7 +283,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a social security benefit, ie payment made by a government to support individuals.
-    /// Encoded/decoded by serializers as "SSBE".
+    /// Encoded/decoded by serializers as &quot;SSBE&quot;.
     /// </summary>
     [EnumMember(Value = "SSBE")]
     [IsoId("_tk9s2PRYEeuLhpyIdtJzwg")]
@@ -292,7 +292,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment to a supplier.
-    /// Encoded/decoded by serializers as "SUPP".
+    /// Encoded/decoded by serializers as &quot;SUPP&quot;.
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_tk9s2_RYEeuLhpyIdtJzwg")]
@@ -301,7 +301,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of taxes.
-    /// Encoded/decoded by serializers as "TAXS".
+    /// Encoded/decoded by serializers as &quot;TAXS&quot;.
     /// </summary>
     [EnumMember(Value = "TAXS")]
     [IsoId("_tlHd0vRYEeuLhpyIdtJzwg")]
@@ -310,7 +310,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to the payment of a trade finance transaction.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_tlHd1fRYEeuLhpyIdtJzwg")]
@@ -319,7 +319,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is related to treasury operations.  E.g. financial contract settlement.
-    /// Encoded/decoded by serializers as "TREA".
+    /// Encoded/decoded by serializers as &quot;TREA&quot;.
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_tlHd2PRYEeuLhpyIdtJzwg")]
@@ -328,7 +328,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of value added tax.
-    /// Encoded/decoded by serializers as "VATX".
+    /// Encoded/decoded by serializers as &quot;VATX&quot;.
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_tlHd2_RYEeuLhpyIdtJzwg")]
@@ -337,7 +337,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of withholding tax.
-    /// Encoded/decoded by serializers as "WHLD".
+    /// Encoded/decoded by serializers as &quot;WHLD&quot;.
     /// </summary>
     [EnumMember(Value = "WHLD")]
     [IsoId("_tlQnwvRYEeuLhpyIdtJzwg")]
@@ -347,7 +347,7 @@ public enum ExternalCategoryPurpose1Code
     /// <summary>
     /// Classification: Cash Management. Transaction relates to a cash management instruction, requesting a sweep of the account of the Debtor above an agreed floor amount, up to a target or zero balance.
     /// The purpose is to move the funds from multiple accounts to a single bank account. Funds can move domestically or across border and more than one bank can be used.
-    /// Encoded/decoded by serializers as "SWEP".
+    /// Encoded/decoded by serializers as &quot;SWEP&quot;.
     /// </summary>
     [EnumMember(Value = "SWEP")]
     [IsoId("_TAl1QVEpEey6cYDbEubNXg")]
@@ -357,7 +357,7 @@ public enum ExternalCategoryPurpose1Code
     /// <summary>
     /// Classification: Cash Management. Transaction relates to a cash management instruction, requesting to top the account of the Creditor above a certain floor amount, up to a target or zero balance. 
     /// The floor amount, if not pre-agreed by the parties involved, may be specified.
-    /// Encoded/decoded by serializers as "TOPG".
+    /// Encoded/decoded by serializers as &quot;TOPG&quot;.
     /// </summary>
     [EnumMember(Value = "TOPG")]
     [IsoId("_TJ-awVEpEey6cYDbEubNXg")]
@@ -367,7 +367,7 @@ public enum ExternalCategoryPurpose1Code
     /// <summary>
     /// Transaction relates to a cash management instruction, requesting to zero balance the account of the Debtor.
     /// Zero Balance Accounts empty or fill the balances in accounts at the same bank, in the same country into or out of a main account each day.
-    /// Encoded/decoded by serializers as "ZABA".
+    /// Encoded/decoded by serializers as &quot;ZABA&quot;.
     /// </summary>
     [EnumMember(Value = "ZABA")]
     [IsoId("_1y1sMVEpEey6cYDbEubNXg")]
@@ -376,7 +376,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction to be processed as a domestic payment instruction originated from a foreign bank.
-    /// Encoded/decoded by serializers as "VOST".
+    /// Encoded/decoded by serializers as &quot;VOST&quot;.
     /// </summary>
     [EnumMember(Value = "VOST")]
     [IsoId("_CgcksiepEe2VkIu7jTuNaA")]
@@ -385,7 +385,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Foreign Currency Transaction that is processed between two domestic financial institutions.
-    /// Encoded/decoded by serializers as "FCDT".
+    /// Encoded/decoded by serializers as &quot;FCDT&quot;.
     /// </summary>
     [EnumMember(Value = "FCDT")]
     [IsoId("_2MVrYmvbEe2F6NrIyOmXcA")]
@@ -394,7 +394,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a direct debit for a cash order of notes and/or coins.
-    /// Encoded/decoded by serializers as "CIPC".
+    /// Encoded/decoded by serializers as &quot;CIPC&quot;.
     /// </summary>
     [EnumMember(Value = "CIPC")]
     [IsoId("_TiiT4mvdEe2F6NrIyOmXcA")]
@@ -403,7 +403,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a direct debit for a cash order of notes and/or coins.
-    /// Encoded/decoded by serializers as "CONC".
+    /// Encoded/decoded by serializers as &quot;CONC&quot;.
     /// </summary>
     [EnumMember(Value = "CONC")]
     [IsoId("_fXXz4mvdEe2F6NrIyOmXcA")]
@@ -412,7 +412,7 @@ public enum ExternalCategoryPurpose1Code
     
     /// <summary>
     /// Transaction is a payment towards a Party for the collection of cash by the Cash in Transit company.
-    /// Encoded/decoded by serializers as "CGWV".
+    /// Encoded/decoded by serializers as &quot;CGWV&quot;.
     /// </summary>
     [EnumMember(Value = "CGWV")]
     [IsoId("_rF1cAtRdEe2vd-PLFk_9fA")]

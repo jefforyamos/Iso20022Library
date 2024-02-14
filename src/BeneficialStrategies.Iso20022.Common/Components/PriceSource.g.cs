@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Source of a price quotation when it is not the local market.
 /// </summary>
 [IsoId("_Qebmfdp-Ed-ak6NoX_4Aeg_-24723485")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Source")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,13 @@ public partial record PriceSource
     /// Source of the price.
     /// </summary>
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricSrc")]
     #endif
+    [IsoXmlTag("PricSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceSource1Code Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceSource1Code Value { get; init; } 
+    public required PriceSource1Code Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceSource1Code Value { get; init; } 
     #else
@@ -67,15 +66,13 @@ public partial record PriceSource
     /// Additional information about the source of a price.
     /// </summary>
     [IsoId("_QelXcdp-Ed-ak6NoX_4Aeg_404714109")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Narrative")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nrrtv")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Nrrtv")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Narrative { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a record holding the LRCI required data related to a payment file.
 /// </summary>
 [IsoId("_2UOvYM_aEeWjSMe6YTKHlQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel LRCI Payment Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record IsabelLRCIPaymentInformation1
     /// Arbitrary block of data defined as a fixed-size bit string, the (cryptographic) hash value, which allows the detection of an accidental or intentional change to the visual representation of a particular payment file.
     /// </summary>
     [IsoId("_Bz7F0M_bEeWjSMe6YTKHlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Image Hash")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ImgHash")]
     #endif
+    [IsoXmlTag("ImgHash")]
+    [IsoSimpleType(IsoSimpleType.Max50Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax50Binary ImageHash { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] ImageHash { get; init; } 
+    public required System.Byte[] ImageHash { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] ImageHash { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record IsabelLRCIPaymentInformation1
     /// Arbitrary block of data defined as a fixed-size bit string, the (cryptographic) hash value, which allows the detection of an accidental or intentional change to a particular payment file.
     /// </summary>
     [IsoId("_G9JpcM_bEeWjSMe6YTKHlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Hash")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtHash")]
     #endif
+    [IsoXmlTag("PmtHash")]
+    [IsoSimpleType(IsoSimpleType.Max50Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax50Binary PaymentHash { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] PaymentHash { get; init; } 
+    public required System.Byte[] PaymentHash { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] PaymentHash { get; init; } 
     #else

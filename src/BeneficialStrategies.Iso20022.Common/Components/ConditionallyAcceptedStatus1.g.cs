@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status that is accepted under certain conditions.
 /// </summary>
 [IsoId("_UyQMGtp-Ed-ak6NoX_4Aeg_94624297")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Conditionally Accepted Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record ConditionallyAcceptedStatus1
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_UyZ9ENp-Ed-ak6NoX_4Aeg_94624315")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoRsn")]
     #endif
+    [IsoXmlTag("NoRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoReason { get; init; } 
+    public required NoReasonCode NoReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoReason { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record ConditionallyAcceptedStatus1
     /// Reason for a conditionally accepted status in the report.
     /// </summary>
     [IsoId("_UyZ9Edp-Ed-ak6NoX_4Aeg_95544442")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ConditionallyAcceptedStatusReason1 Reason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ConditionallyAcceptedStatusReason1 Reason { get; init; } 
+    public required ConditionallyAcceptedStatusReason1 Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ConditionallyAcceptedStatusReason1 Reason { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record ConditionallyAcceptedStatus1
     /// Proprietary identification of a reason for a conditionally accepted status in the report.
     /// </summary>
     [IsoId("_UyZ9Etp-Ed-ak6NoX_4Aeg_95544382")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Source Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSrcSchme")]
     #endif
+    [IsoXmlTag("DataSrcSchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification1 DataSourceScheme { get; init; } 
+    public required GenericIdentification1 DataSourceScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification1 DataSourceScheme { get; init; } 
     #else

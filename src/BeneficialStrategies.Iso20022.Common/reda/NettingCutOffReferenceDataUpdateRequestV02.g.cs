@@ -26,13 +26,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// <summary>
 /// This record is an implementation of the reda.060.001.02 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
-/// The Netting Cut Off Reference Data Update Request message is sent to a central system by a participant to request an update to a participant's netting cut off held at the central system.
+/// The Netting Cut Off Reference Data Update Request message is sent to a central system by a participant to request an update to a participant&apos;s netting cut off held at the central system.
 /// </summary>
 [Description(@"The Netting Cut Off Reference Data Update Request message is sent to a central system by a participant to request an update to a participant's netting cut off held at the central system.")]
 [IsoId("_mJe8bQM-Ee2nqoJcXIhTdw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Netting Cut Off Reference Data Update Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record NettingCutOffReferenceDataUpdateRequestV02 : IOuterRecord<
     /// Specifies the meta data for the netting cut off update request.
     /// </summary>
     [IsoId("_mJe8bwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqData")]
     #endif
+    [IsoXmlTag("ReqData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestData2 RequestData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestData2 RequestData { get; init; } 
+    public required RequestData2 RequestData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestData2 RequestData { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record NettingCutOffReferenceDataUpdateRequestV02 : IOuterRecord<
     /// Specifies the information regarding the changes to the netting cut off.
     /// </summary>
     [IsoId("_mJe8cQM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Netting Cut Off Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetgCutOffReq")]
     #endif
+    [IsoXmlTag("NetgCutOffReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NettingCutOff2 NettingCutOffRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NettingCutOff2 NettingCutOffRequest { get; init; } 
+    public required NettingCutOff2 NettingCutOffRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NettingCutOff2 NettingCutOffRequest { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record NettingCutOffReferenceDataUpdateRequestV02 : IOuterRecord<
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_mJe8cwM-Ee2nqoJcXIhTdw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record NettingCutOffReferenceDataUpdateRequestV02 : IOuterRecord<
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NettingCutOffReferenceDataUpdateRequestV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NettingCutOffReferenceDataUpdateRequestV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NettingCutOffReferenceDataUpdateRequestV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record NettingCutOffReferenceDataUpdateRequestV02 : IOuterRecord<
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NettingCutOffReferenceDataUpdateRequestV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NettingCutOffReferenceDataUpdateRequestV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NettingCutOffReferenceDataUpdateRequestV02Document : IOuterDocument<NettingCutOffReferenceDataUpdateRequestV02>
@@ -161,7 +156,7 @@ public partial record NettingCutOffReferenceDataUpdateRequestV02Document : IOute
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NettingCutOffReferenceDataUpdateRequestV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NettingCutOffReferenceDataUpdateRequestV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NettingCutOffReferenceDataUpdateRequestV02 Message { get; init; }

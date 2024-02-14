@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice
     /// Identification of another kind of asset in the holding that is not a security or cash.
     /// </summary>
     [IsoId("_mW7mFZNBEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Asset")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice
         /// Type of asset.
         /// </summary>
         [IsoId("_mrKwsZNBEemQB_8XA98K0Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Asset Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrAsstTp")]
         #endif
+        [IsoXmlTag("OthrAsstTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OtherAsset2Choice_ OtherAssetType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OtherAsset2Choice_ OtherAssetType { get; init; } 
+        public required OtherAsset2Choice_ OtherAssetType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OtherAsset2Choice_ OtherAssetType { get; init; } 
         #else
@@ -77,19 +74,17 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice
         /// Technical identification of the asset.
         /// </summary>
         [IsoId("_mrKws5NBEemQB_8XA98K0Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Identification { get; init; } 
+        public required System.String Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Identification { get; init; } 
         #else
@@ -100,15 +95,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice
         /// Name of the asset.
         /// </summary>
         [IsoId("_mrKwtZNBEemQB_8XA98K0Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,15 +114,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice
         /// Description of the asset.
         /// </summary>
         [IsoId("_syYKoP8dEemiJ7i9El0LvQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Description")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Desc")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Desc")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Description { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,31 +133,26 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice
         /// Additional identification of the asset.
         /// </summary>
         [IsoId("_mrKwt5NBEemQB_8XA98K0Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("OthrId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [MinLength(0)]
         [MaxLength(5)]
-        #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         public SimpleValueList<System.String> OtherIdentification { get; init; } = new SimpleValueList<System.String>(){};
         
         /// <summary>
         /// Additional information about the other asset.
         /// </summary>
         [IsoId("_mrKwuZNBEemQB_8XA98K0Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
+        [IsoXmlTag("AddtlInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AdditionalInformation15? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

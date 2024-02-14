@@ -21,7 +21,7 @@ public enum AssetClassSubProductType46Code
 {
     /// <summary>
     /// Commodity of type container ships.
-    /// Encoded/decoded by serializers as "CSHP".
+    /// Encoded/decoded by serializers as &quot;CSHP&quot;.
     /// </summary>
     [EnumMember(Value = "CSHP")]
     [IsoId("_9F9MIfwfEeW4Wthd0Ze_kA")]

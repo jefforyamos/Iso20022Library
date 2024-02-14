@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnableToApplyJustificationChoice.AnyInformation))]
     [KnownType(typeof(UnableToApplyJustificationChoice.MissingOrIncorrectInformation))]
     [IsoId("_VFn0Dtp-Ed-ak6NoX_4Aeg_811633564")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unable To Apply Justification Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

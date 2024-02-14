@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// This is regulatory transaction reporting information from the counterparty side party.
 /// </summary>
 [IsoId("_Q6_ElE4REeOHYs5EqIAeTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Counterparty Side Transaction Reporting")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record CounterpartySideTransactionReporting1
     /// Specifies the supervisory party to which the trade needs to be reported.
     /// </summary>
     [IsoId("_Q6_Elk4REeOHYs5EqIAeTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Jurisdiction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgJursdctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RptgJursdctn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ReportingJurisdiction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record CounterpartySideTransactionReporting1
     /// Identifies the party that is responsible for reporting the trade to the trade repository.
     /// </summary>
     [IsoId("_Q6_El04REeOHYs5EqIAeTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgPty")]
     #endif
+    [IsoXmlTag("RptgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification73Choice_? ReportingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record CounterpartySideTransactionReporting1
     /// Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI). This is the UTI from the Counterparty Side party.
     /// </summary>
     [IsoId("_unM10U4REeOHYs5EqIAeTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Unique Transaction Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdUnqTxIdr")]
     #endif
+    [IsoXmlTag("CtrPtySdUnqTxIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UniqueTransactionIdentifier2? CounterpartySideUniqueTransactionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

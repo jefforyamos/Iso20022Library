@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Elements used to calculate the collateral margin call for the segregated independent amount.
 /// </summary>
 [IsoId("_UnXxwNp-Ed-ak6NoX_4Aeg_-1126124883")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Segregated Independent Amount Margin")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record SegregatedIndependentAmountMargin1
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of segregated independent amount).
     /// </summary>
     [IsoId("_UnXxwdp-Ed-ak6NoX_4Aeg_-1412205814")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Transfer Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinTrfAmt")]
     #endif
+    [IsoXmlTag("MinTrfAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MinimumTransferAmount { get; init; } 
+    public required System.Decimal MinimumTransferAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MinimumTransferAmount { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record SegregatedIndependentAmountMargin1
     /// Amount specified to avoid the need to transfer uneven amounts of independent amount collateral.
     /// </summary>
     [IsoId("_UnXxwtp-Ed-ak6NoX_4Aeg_-756493516")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rounding Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RndgAmt")]
     #endif
+    [IsoXmlTag("RndgAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? RoundingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,11 @@ public partial record SegregatedIndependentAmountMargin1
     /// Defines how the rounding amount was applied in the calculation. For example, should the amount of collateral required be rounded up, down, to the closer integral multiple specified or not rounded.
     /// </summary>
     [IsoId("_UnXxw9p-Ed-ak6NoX_4Aeg_-1527248442")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rounding Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RndgMtd")]
     #endif
+    [IsoXmlTag("RndgMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RoundingMethod1Code? RoundingMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

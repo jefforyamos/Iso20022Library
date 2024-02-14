@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyAuditTrailOrError1Choice.PartyAuditTrailReport))]
     [KnownType(typeof(PartyAuditTrailOrError1Choice.OperationalError))]
     [IsoId("_QgdAwZ9uEee7Qpz45yWJJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Audit Trail Or Error 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

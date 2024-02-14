@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"The SaleToPOIEventNotification message is sent by a POI or a sale terminal to inform the other about the happening of an event.")]
 [IsoId("_3PF2AQ1TEeqjM-rxn3HuXQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Event Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOIEventNotificationV02 : IOuterRecord<SaleToPOIEven
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_3PF2Aw1TEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header41 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header41 Header { get; init; } 
+    public required Header41 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header41 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOIEventNotificationV02 : IOuterRecord<SaleToPOIEven
     /// Information related to the notification of an event.
     /// </summary>
     [IsoId("_3PF2BQ1TEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtNtfctn")]
     #endif
+    [IsoXmlTag("EvtNtfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemEventNotification3 EventNotification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemEventNotification3 EventNotification { get; init; } 
+    public required SystemEventNotification3 EventNotification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemEventNotification3 EventNotification { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SaleToPOIEventNotificationV02 : IOuterRecord<SaleToPOIEven
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_3PF2Bw1TEeqjM-rxn3HuXQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType21? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SaleToPOIEventNotificationV02 : IOuterRecord<SaleToPOIEven
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOIEventNotificationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOIEventNotificationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOIEventNotificationV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SaleToPOIEventNotificationV02 : IOuterRecord<SaleToPOIEven
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIEventNotificationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOIEventNotificationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOIEventNotificationV02Document : IOuterDocument<SaleToPOIEventNotificationV02>
@@ -161,7 +156,7 @@ public partial record SaleToPOIEventNotificationV02Document : IOuterDocument<Sal
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOIEventNotificationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOIEventNotificationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOIEventNotificationV02 Message { get; init; }

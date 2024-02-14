@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason1Choice
     /// Specifies the reason why the modification request is pending.
     /// </summary>
     [IsoId("_UXlCSdp-Ed-ak6NoX_4Aeg_1017077310")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Modification Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

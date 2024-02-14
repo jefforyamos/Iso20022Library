@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingReason3Choice.Reason))]
     [KnownType(typeof(MatchingReason3Choice.NoSpecifiedReason))]
     [IsoId("_Az7z0NokEeC60axPepSq7g_-1866135956")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Reason 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

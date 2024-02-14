@@ -21,7 +21,7 @@ public enum RetailerService5Code
 {
     /// <summary>
     /// The POI System responds to a login request.
-    /// Encoded/decoded by serializers as "SMIP".
+    /// Encoded/decoded by serializers as &quot;SMIP&quot;.
     /// </summary>
     [EnumMember(Value = "SMIP")]
     [IsoId("_fuo54d6LEeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum RetailerService5Code
     
     /// <summary>
     /// The POI System responds to a logout request.
-    /// Encoded/decoded by serializers as "SMOP".
+    /// Encoded/decoded by serializers as &quot;SMOP&quot;.
     /// </summary>
     [EnumMember(Value = "SMOP")]
     [IsoId("_gFTtcd6LEeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum RetailerService5Code
     
     /// <summary>
     /// The POI System responds to a diagnosis request.
-    /// Encoded/decoded by serializers as "SMDP".
+    /// Encoded/decoded by serializers as &quot;SMDP&quot;.
     /// </summary>
     [EnumMember(Value = "SMDP")]
     [IsoId("_guks4d6LEeiwsev40qZGEQ")]

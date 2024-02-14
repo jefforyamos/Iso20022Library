@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify the underlying (group of) transaction(s) to which the investigation applies.
 /// </summary>
 [IsoId("_PmjjStp-Ed-ak6NoX_4Aeg_-1321126765")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Underlying Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record UnderlyingTransaction1
     /// Set of elements used to provide information on the original messsage, to which the cancellation refers.
     /// </summary>
     [IsoId("_PmjjS9p-Ed-ak6NoX_4Aeg_-1321126455")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information And Cancellation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInfAndCxl")]
     #endif
+    [IsoXmlTag("OrgnlGrpInfAndCxl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalGroupInformation23? OriginalGroupInformationAndCancellation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record UnderlyingTransaction1
     /// Set of elements used to provide information on the original (group of) transactions, to which the cancellation request refers.
     /// </summary>
     [IsoId("_PmjjTNp-Ed-ak6NoX_4Aeg_-1321126363")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Payment Information And Cancellation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlPmtInfAndCxl")]
     #endif
+    [IsoXmlTag("OrgnlPmtInfAndCxl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalPaymentInformation4? OriginalPaymentInformationAndCancellation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

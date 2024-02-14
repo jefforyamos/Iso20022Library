@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Container for proprietary information. Business content of this element is not specified.
 /// </summary>
 [IsoId("_pzNDoRXuEeG5vNOLz1X1Ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Proprietary Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ProprietaryData5
     /// Type of the proprietary document.
     /// </summary>
     [IsoId("_pzW0oRXuEeG5vNOLz1X1Ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Type { get; init; } 
+    public required System.String Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Type { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record ProprietaryData5
     /// Technical element wrapping the proprietary message.
     /// </summary>
     [IsoId("_uH-PABXvEeG5vNOLz1X1Ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Data")]
     #endif
+    [IsoXmlTag("Data")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SupplementaryDataEnvelope1 Data { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SupplementaryDataEnvelope1 Data { get; init; } 
+    public required SupplementaryDataEnvelope1 Data { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SupplementaryDataEnvelope1 Data { get; init; } 
     #else

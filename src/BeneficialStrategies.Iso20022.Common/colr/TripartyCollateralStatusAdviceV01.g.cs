@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope:|This message is sent by a triparty agent after the receipt of a collateral instruction from its client.||In this message, the Sender is the triparty agent and the Receiver is either the collateral taker or the collateral giver or their account servicer.||Usage:|This message provides valuation results as well as the status of the  proposed collateral movements (cash and securities).")]
 [IsoId("_2uaM6ys7EeySlt9bF77XfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Triparty Collateral Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Provides unambiguous transaction identification information.
     /// </summary>
     [IsoId("_2uaM8ys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Instruction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInstrId")]
     #endif
+    [IsoXmlTag("TxInstrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionIdentifications46 TransactionInstructionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionIdentifications46 TransactionInstructionIdentification { get; init; } 
+    public required TransactionIdentifications46 TransactionInstructionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionIdentifications46 TransactionInstructionIdentification { get; init; } 
     #else
@@ -106,16 +103,15 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Page number of the message and continuation indicator to indicate that the multi-part preliminary advice is to continue or that the message is the last page of the multi-part preliminary advice.
     /// </summary>
     [IsoId("_2uaM9Ss7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pgntn")]
     #endif
+    [IsoXmlTag("Pgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination1 Pagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination1 Pagination { get; init; } 
+    public required Pagination1 Pagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination1 Pagination { get; init; } 
     #else
@@ -126,12 +122,11 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Provides the status of allocation of collateral to cover the instruction.
     /// </summary>
     [IsoId("_2uaM9ys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Allocation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllcnSts")]
     #endif
+    [IsoXmlTag("AllcnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AllocationStatus1Choice_? AllocationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,12 +139,11 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Provides the status of settlement of the transaction or the instruction.
     /// </summary>
     [IsoId("_2uaM-Ss7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmSts")]
     #endif
+    [IsoXmlTag("SttlmSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementStatus27Choice_? SettlementStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +156,11 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Provides the collateral status of an instruction.
     /// </summary>
     [IsoId("_2uaM-ys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSts")]
     #endif
+    [IsoXmlTag("CollSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralStatus3Choice_? CollateralStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,16 +173,15 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// provides general information about the instruction and collateral transaction the message refers to.
     /// </summary>
     [IsoId("_2uaM_Ss7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("General Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GnlParams")]
     #endif
+    [IsoXmlTag("GnlParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralParameters13 GeneralParameters { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralParameters13 GeneralParameters { get; init; } 
+    public required CollateralParameters13 GeneralParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralParameters13 GeneralParameters { get; init; } 
     #else
@@ -200,16 +192,15 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Identifies the chain of collateral parties.
     /// </summary>
     [IsoId("_2uaM_ys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPties")]
     #endif
+    [IsoXmlTag("CollPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralParties8 CollateralParties { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralParties8 CollateralParties { get; init; } 
+    public required CollateralParties8 CollateralParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralParties8 CollateralParties { get; init; } 
     #else
@@ -220,16 +211,15 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Specifies the information related to the deal.
     /// </summary>
     [IsoId("_2uaNASs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deal Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealTxDtls")]
     #endif
+    [IsoXmlTag("DealTxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DealTransactionDetails7 DealTransactionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DealTransactionDetails7 DealTransactionDetails { get; init; } 
+    public required DealTransactionDetails7 DealTransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DealTransactionDetails7 DealTransactionDetails { get; init; } 
     #else
@@ -240,16 +230,15 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Identifies the dates related to the triparty collateral instruction or transactions.
     /// </summary>
     [IsoId("_2uaNAys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deal Transaction Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealTxDt")]
     #endif
+    [IsoXmlTag("DealTxDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralDate2 DealTransactionDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralDate2 DealTransactionDate { get; init; } 
+    public required CollateralDate2 DealTransactionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralDate2 DealTransactionDate { get; init; } 
     #else
@@ -260,12 +249,11 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Securities movements.
     /// </summary>
     [IsoId("_2uaNBSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesMvmnt")]
     #endif
+    [IsoXmlTag("SctiesMvmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesMovement8? SecuritiesMovement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +266,11 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     ///  Cash movement.
     /// </summary>
     [IsoId("_2uaNBys7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshMvmnt")]
     #endif
+    [IsoXmlTag("CshMvmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashMovement7? CashMovement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +283,11 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_2uaNCSs7EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,7 +300,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TripartyCollateralStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TripartyCollateralStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TripartyCollateralStatusAdviceV01Document ToDocument()
     {
@@ -324,7 +310,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord<TripartyC
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TripartyCollateralStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TripartyCollateralStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TripartyCollateralStatusAdviceV01Document : IOuterDocument<TripartyCollateralStatusAdviceV01>
@@ -341,7 +327,7 @@ public partial record TripartyCollateralStatusAdviceV01Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TripartyCollateralStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TripartyCollateralStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TripartyCollateralStatusAdviceV01 Message { get; init; }

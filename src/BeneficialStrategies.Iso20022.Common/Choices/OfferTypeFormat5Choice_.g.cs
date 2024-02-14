@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OfferTypeFormat5Choice.Code))]
     [KnownType(typeof(OfferTypeFormat5Choice.Proprietary))]
     [IsoId("_P7vtNSHjEeOQ7qT4JUI53A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offer Type Format 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

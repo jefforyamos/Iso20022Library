@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Loan offered by a group of lenders (called a syndicate) who work together to lend an amount of money to a single borrower.
 /// </summary>
 [IsoId("_JtldpW49EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Syndicated Loan")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SyndicatedLoan2
     /// Party which obtains the loan.
     /// </summary>
     [IsoId("_J3au8249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Borrower")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Brrwr")]
     #endif
+    [IsoXmlTag("Brrwr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty5 Borrower { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeParty5 Borrower { get; init; } 
+    public required TradeParty5 Borrower { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeParty5 Borrower { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SyndicatedLoan2
     /// Party which provides an amount of money available to others to borrow.
     /// </summary>
     [IsoId("_J3au9W49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lndr")]
     #endif
+    [IsoXmlTag("Lndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty5? Lender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record SyndicatedLoan2
     /// Amount of the part in the syndicated loan.
     /// </summary>
     [IsoId("_J3au9249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,12 @@ public partial record SyndicatedLoan2
     /// Share of the part in the syndicated loan.
     /// </summary>
     [IsoId("_J3au-W49EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Shr")]
     #endif
+    [IsoXmlTag("Shr")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Share { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +121,11 @@ public partial record SyndicatedLoan2
     /// Provides details on the currency exchange rate and contract.
     /// </summary>
     [IsoId("_J3au-249EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Rate Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgRateInf")]
     #endif
+    [IsoXmlTag("XchgRateInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExchangeRate1? ExchangeRateInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

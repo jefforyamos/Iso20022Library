@@ -21,7 +21,7 @@ public enum AddressTypeCode
 {
     /// <summary>
     /// Address is the home address.
-    /// Encoded/decoded by serializers as "HOME".
+    /// Encoded/decoded by serializers as &quot;HOME&quot;.
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_bnAdYNp-Ed-ak6NoX_4Aeg_-921865024")]
@@ -30,7 +30,7 @@ public enum AddressTypeCode
     
     /// <summary>
     /// Address is the business address.
-    /// Encoded/decoded by serializers as "BIZZ".
+    /// Encoded/decoded by serializers as &quot;BIZZ&quot;.
     /// </summary>
     [EnumMember(Value = "BIZZ")]
     [IsoId("_bnAdYdp-Ed-ak6NoX_4Aeg_-921864479")]
@@ -39,7 +39,7 @@ public enum AddressTypeCode
     
     /// <summary>
     /// Address is the complete postal address.
-    /// Encoded/decoded by serializers as "ADDR".
+    /// Encoded/decoded by serializers as &quot;ADDR&quot;.
     /// </summary>
     [EnumMember(Value = "ADDR")]
     [IsoId("_bnAdYtp-Ed-ak6NoX_4Aeg_-915401727")]
@@ -48,7 +48,7 @@ public enum AddressTypeCode
     
     /// <summary>
     /// Address is a postal office (PO) box.
-    /// Encoded/decoded by serializers as "PBOX".
+    /// Encoded/decoded by serializers as &quot;PBOX&quot;.
     /// </summary>
     [EnumMember(Value = "PBOX")]
     [IsoId("_bnAdY9p-Ed-ak6NoX_4Aeg_-915401692")]
@@ -57,7 +57,7 @@ public enum AddressTypeCode
     
     /// <summary>
     /// Address is the address to which mail is sent.
-    /// Encoded/decoded by serializers as "MLTO".
+    /// Encoded/decoded by serializers as &quot;MLTO&quot;.
     /// </summary>
     [EnumMember(Value = "MLTO")]
     [IsoId("_bnAdZNp-Ed-ak6NoX_4Aeg_-780997656")]
@@ -66,7 +66,7 @@ public enum AddressTypeCode
     
     /// <summary>
     /// Address is the address to which delivery is to take place.
-    /// Encoded/decoded by serializers as "DLVY".
+    /// Encoded/decoded by serializers as &quot;DLVY&quot;.
     /// </summary>
     [EnumMember(Value = "DLVY")]
     [IsoId("_bnAdZdp-Ed-ak6NoX_4Aeg_-780076553")]

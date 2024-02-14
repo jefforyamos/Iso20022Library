@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.casr;
 /// </summary>
 [Description(@"The SettlementReportingResponse message is sent by any party (acquirer, agent or issuer) to an agent in response to a SettlementReportingInitiation message.|")]
 [IsoId("_VxHn5Mr9EeuNe7RtB4qFHw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Reporting Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record SettlementReportingResponseV02 : IOuterRecord<SettlementRe
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_VxHn5cr9EeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header66 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header66 Header { get; init; } 
+    public required Header66 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header66 Header { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record SettlementReportingResponseV02 : IOuterRecord<SettlementRe
     /// ISO 8583:2003 bit 50
     /// </summary>
     [IsoId("_VxHn5sr9EeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementReportingResponse2 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementReportingResponse2 Body { get; init; } 
+    public required SettlementReportingResponse2 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementReportingResponse2 Body { get; init; } 
     #else
@@ -120,12 +116,11 @@ public partial record SettlementReportingResponseV02 : IOuterRecord<SettlementRe
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_VxHn58r9EeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,7 +133,7 @@ public partial record SettlementReportingResponseV02 : IOuterRecord<SettlementRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SettlementReportingResponseV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SettlementReportingResponseV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SettlementReportingResponseV02Document ToDocument()
     {
@@ -148,7 +143,7 @@ public partial record SettlementReportingResponseV02 : IOuterRecord<SettlementRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementReportingResponseV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SettlementReportingResponseV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SettlementReportingResponseV02Document : IOuterDocument<SettlementReportingResponseV02>
@@ -165,7 +160,7 @@ public partial record SettlementReportingResponseV02Document : IOuterDocument<Se
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SettlementReportingResponseV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SettlementReportingResponseV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementReportingResponseV02 Message { get; init; }

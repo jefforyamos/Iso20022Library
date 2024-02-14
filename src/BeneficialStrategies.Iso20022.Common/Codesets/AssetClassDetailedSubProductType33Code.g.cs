@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType33Code
 {
     /// <summary>
     /// Commodity attribute of type dry bulk carrier.
-    /// Encoded/decoded by serializers as "DBCR".
+    /// Encoded/decoded by serializers as &quot;DBCR&quot;.
     /// </summary>
     [EnumMember(Value = "DBCR")]
     [IsoId("_Gov8gbv6EeiLRYqS-r-R-A")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType33Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Ktu04bv6EeiLRYqS-r-R-A")]

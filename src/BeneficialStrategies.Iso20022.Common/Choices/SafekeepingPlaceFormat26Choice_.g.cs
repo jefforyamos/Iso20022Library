@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SafekeepingPlaceFormat26Choice.TypeAndIdentification))]
     [KnownType(typeof(SafekeepingPlaceFormat26Choice.Proprietary))]
     [IsoId("_Vyh4_5qLEeWcAIE4lEkF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place Format 26 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

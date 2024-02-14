@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingDate1Choice
     /// Closing date is defined as a choice between a date or a date and time format.
     /// </summary>
     [IsoId("_j2-tkdopEeCWg-hsBVGrDA_997160684")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

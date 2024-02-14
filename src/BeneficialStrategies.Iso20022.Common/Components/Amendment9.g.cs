@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the amendment.
 /// </summary>
 [IsoId("_9_wDcHltEeG7BsjMvd1mEw_-868509945")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amendment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Amendment9
     /// Contents of the related UndertakingAmendmentResponse message.
     /// </summary>
     [IsoId("_9_wDcXltEeG7BsjMvd1mEw_-1238548049")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Response Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntRspnMsg")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntRspnMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmendmentResponseMessage1 UndertakingAmendmentResponseMessage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingAmendmentResponseMessage1 UndertakingAmendmentResponseMessage { get; init; } 
+    public required UndertakingAmendmentResponseMessage1 UndertakingAmendmentResponseMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingAmendmentResponseMessage1 UndertakingAmendmentResponseMessage { get; init; } 
     #else

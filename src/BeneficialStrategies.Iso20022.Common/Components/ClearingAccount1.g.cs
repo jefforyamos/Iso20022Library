@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Operational construct of a central counterparty that defines the relationship between collateral, margin and position accounts and upon default of a clearing member defines the segregation of losses on positions and assets held in such accounts.
 /// </summary>
 [IsoId("_zZQ3oZXeEeaEh9L5Y0ZaKQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing Account")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ClearingAccount1
     /// Indicates the type of clearing account.
     /// </summary>
     [IsoId("_4qXrUKsbEeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctTp")]
     #endif
+    [IsoXmlTag("AcctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClearingAccountType3Code AccountType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ClearingAccountType3Code AccountType { get; init; } 
+    public required ClearingAccountType3Code AccountType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ClearingAccountType3Code AccountType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ClearingAccount1
     /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
     /// </summary>
     [IsoId("_fXQ-0HX_Eee_qcLXasnA4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollAcctOwnr")]
     #endif
+    [IsoXmlTag("CollAcctOwnr")]
     public CollateralAccount5? CollateralAccountOwner { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _fXQ-0HX_Eee_qcLXasnA4g
     

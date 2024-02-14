@@ -21,7 +21,7 @@ public enum CancellationReason5Code
 {
     /// <summary>
     /// Payment is a duplicate of another payment.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_t9XiMlkyEeGeoaLUQk__nA_866989928")]
@@ -30,7 +30,7 @@ public enum CancellationReason5Code
     
     /// <summary>
     /// Agent in the payment workflow is incorrect.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_t9XiM1kyEeGeoaLUQk__nA_1747536954")]
@@ -39,7 +39,7 @@ public enum CancellationReason5Code
     
     /// <summary>
     /// Currency of the payment is incorrect.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_t9hTMFkyEeGeoaLUQk__nA_437357561")]
@@ -48,7 +48,7 @@ public enum CancellationReason5Code
     
     /// <summary>
     /// Cancellation requested by the Debtor.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_t9hTMVkyEeGeoaLUQk__nA_323518495")]
@@ -57,7 +57,7 @@ public enum CancellationReason5Code
     
     /// <summary>
     /// Payment is not justified.
-    /// Encoded/decoded by serializers as "UPAY".
+    /// Encoded/decoded by serializers as &quot;UPAY&quot;.
     /// </summary>
     [EnumMember(Value = "UPAY")]
     [IsoId("_t9hTMlkyEeGeoaLUQk__nA_-197674285")]
@@ -66,7 +66,7 @@ public enum CancellationReason5Code
     
     /// <summary>
     /// Cancellation requested because an investigation request has been received and no remediation is possible.
-    /// Encoded/decoded by serializers as "CUTA".
+    /// Encoded/decoded by serializers as &quot;CUTA&quot;.
     /// </summary>
     [EnumMember(Value = "CUTA")]
     [IsoId("_t9hTM1kyEeGeoaLUQk__nA_-1129610805")]
@@ -75,7 +75,7 @@ public enum CancellationReason5Code
     
     /// <summary>
     /// Cancellation requested following technical problems resulting in an erroneous transaction.
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_t9hTNFkyEeGeoaLUQk__nA_228200151")]
@@ -84,7 +84,7 @@ public enum CancellationReason5Code
     
     /// <summary>
     /// Cancellation requested following a transaction that was originated fraudulently. The use of the FraudulentOrigin code should be governed by jurisdictions.
-    /// Encoded/decoded by serializers as "FRAD".
+    /// Encoded/decoded by serializers as &quot;FRAD&quot;.
     /// </summary>
     [EnumMember(Value = "FRAD")]
     [IsoId("_t9hTNVkyEeGeoaLUQk__nA_-1922346722")]

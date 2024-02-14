@@ -21,7 +21,7 @@ public enum AttendanceAdmissionConditions2Code
 {
     /// <summary>
     /// Any attendee must be a shareholder themselves.
-    /// Encoded/decoded by serializers as "MASH".
+    /// Encoded/decoded by serializers as &quot;MASH&quot;.
     /// </summary>
     [EnumMember(Value = "MASH")]
     [IsoId("_X7kGQfNhEeqRfth943bvEA")]
@@ -30,7 +30,7 @@ public enum AttendanceAdmissionConditions2Code
     
     /// <summary>
     /// Attendee must be a shareholder registered in company stock ledger book.
-    /// Encoded/decoded by serializers as "MASL".
+    /// Encoded/decoded by serializers as &quot;MASL&quot;.
     /// </summary>
     [EnumMember(Value = "MASL")]
     [IsoId("_YBXMQfNhEeqRfth943bvEA")]
@@ -39,7 +39,7 @@ public enum AttendanceAdmissionConditions2Code
     
     /// <summary>
     /// Attendees acting on behalf of registered holder must have a valid power of attorney (POA) and/or proof of holding.
-    /// Encoded/decoded by serializers as "MAPO".
+    /// Encoded/decoded by serializers as &quot;MAPO&quot;.
     /// </summary>
     [EnumMember(Value = "MAPO")]
     [IsoId("_YGuNYfNhEeqRfth943bvEA")]
@@ -48,7 +48,7 @@ public enum AttendanceAdmissionConditions2Code
     
     /// <summary>
     /// Attendees will be placed on a attendee list and must bring photographic identification with them.
-    /// Encoded/decoded by serializers as "MAAL".
+    /// Encoded/decoded by serializers as &quot;MAAL&quot;.
     /// </summary>
     [EnumMember(Value = "MAAL")]
     [IsoId("_YLn7gfNhEeqRfth943bvEA")]
@@ -57,7 +57,7 @@ public enum AttendanceAdmissionConditions2Code
     
     /// <summary>
     /// Attendees will be placed on a attendee list or issued with a letter of representation, and must bring photographic identification with them.
-    /// Encoded/decoded by serializers as "MALR".
+    /// Encoded/decoded by serializers as &quot;MALR&quot;.
     /// </summary>
     [EnumMember(Value = "MALR")]
     [IsoId("_YRbokfNhEeqRfth943bvEA")]
@@ -66,7 +66,7 @@ public enum AttendanceAdmissionConditions2Code
     
     /// <summary>
     /// Attendees must request proof of holding and register for attendance directly with Issuer.
-    /// Encoded/decoded by serializers as "MAHI".
+    /// Encoded/decoded by serializers as &quot;MAHI&quot;.
     /// </summary>
     [EnumMember(Value = "MAHI")]
     [IsoId("_YWV9wfNhEeqRfth943bvEA")]
@@ -75,7 +75,7 @@ public enum AttendanceAdmissionConditions2Code
     
     /// <summary>
     /// Attendees will be issued an admission ticket and must bring photographic identification with them.
-    /// Encoded/decoded by serializers as "MATK".
+    /// Encoded/decoded by serializers as &quot;MATK&quot;.
     /// </summary>
     [EnumMember(Value = "MATK")]
     [IsoId("_YaNKEfNhEeqRfth943bvEA")]
@@ -84,7 +84,7 @@ public enum AttendanceAdmissionConditions2Code
     
     /// <summary>
     /// Attendee must be a delegate of the shareholder registered in the company stock ledger book.
-    /// Encoded/decoded by serializers as "MADS".
+    /// Encoded/decoded by serializers as &quot;MADS&quot;.
     /// </summary>
     [EnumMember(Value = "MADS")]
     [IsoId("_YeOHYfNhEeqRfth943bvEA")]
@@ -93,7 +93,7 @@ public enum AttendanceAdmissionConditions2Code
     
     /// <summary>
     /// Meeting attendance is not possible.
-    /// Encoded/decoded by serializers as "MANP".
+    /// Encoded/decoded by serializers as &quot;MANP&quot;.
     /// </summary>
     [EnumMember(Value = "MANP")]
     [IsoId("_YhpO0fNhEeqRfth943bvEA")]

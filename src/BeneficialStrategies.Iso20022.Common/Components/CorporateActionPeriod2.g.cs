@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies periods.
 /// </summary>
 [IsoId("_TfjOGdp-Ed-ak6NoX_4Aeg_-1268934712")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionPeriod2
     /// Period during which the assented line is available.
     /// </summary>
     [IsoId("_Tfs_ENp-Ed-ak6NoX_4Aeg_251714713")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assented Line Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssntdLinePrd")]
     #endif
+    [IsoXmlTag("AssntdLinePrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? AssentedLinePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionPeriod2
     /// Period during which the specified option, or all options of the event, remains valid, eg, offer period.
     /// </summary>
     [IsoId("_Tfs_Edp-Ed-ak6NoX_4Aeg_205021481")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Action Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActnPrd")]
     #endif
+    [IsoXmlTag("ActnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? ActionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record CorporateActionPeriod2
     /// Period during which the privilege is not available, eg, this can happen whenever a meeting takes place or whenever a coupon payment is due.
     /// </summary>
     [IsoId("_Tfs_Etp-Ed-ak6NoX_4Aeg_-1027220303")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Privilege Suspension Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvlgSspnsnPrd")]
     #endif
+    [IsoXmlTag("PrvlgSspnsnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? PrivilegeSuspensionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionPeriod2
     /// Period during which both old and new equity may be traded simultaneously, eg, consolidation of equity or splitting of equity.
     /// </summary>
     [IsoId("_Tfs_E9p-Ed-ak6NoX_4Aeg_-954261746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Parallel Trading Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ParllTradgPrd")]
     #endif
+    [IsoXmlTag("ParllTradgPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? ParallelTradingPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionPeriod2
     /// Period (last day included) during which an account owner can surrender or sell securities to the issuer and receive the sale proceeds.
     /// </summary>
     [IsoId("_Tfs_FNp-Ed-ak6NoX_4Aeg_-910856320")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sell Thru Issuer Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellThruIssrPrd")]
     #endif
+    [IsoXmlTag("SellThruIssrPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? SellThruIssuerPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record CorporateActionPeriod2
     /// Period during which the shareholder can revoke, change or withdraw its instruction.
     /// </summary>
     [IsoId("_Tfs_Fdp-Ed-ak6NoX_4Aeg_-868373428")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Revocability Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvcbltyPrd")]
     #endif
+    [IsoXmlTag("RvcbltyPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? RevocabilityPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record CorporateActionPeriod2
     /// Period during which the price of a security is determined (for outturn securities).
     /// </summary>
     [IsoId("_Tfs_Ftp-Ed-ak6NoX_4Aeg_-823779950")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Calculation Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricClctnPrd")]
     #endif
+    [IsoXmlTag("PricClctnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period1? PriceCalculationPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ServiceAdjustmentTypeCode
 {
     /// <summary>
     /// Adjustment applies to a service which is balance compensable. Earnings credits based on average balances maintained in the account can be used to offset the service charge.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_6V6hw5qlEeGSON8vddiWzQ_137368753")]
@@ -30,7 +30,7 @@ public enum ServiceAdjustmentTypeCode
     
     /// <summary>
     /// Adjustment applies to a service which is not balance compensable. Balance based credits cannot be used to offset the service charge.
-    /// Encoded/decoded by serializers as "NCMP".
+    /// Encoded/decoded by serializers as &quot;NCMP&quot;.
     /// </summary>
     [EnumMember(Value = "NCMP")]
     [IsoId("_6V6hxJqlEeGSON8vddiWzQ_-1159790259")]

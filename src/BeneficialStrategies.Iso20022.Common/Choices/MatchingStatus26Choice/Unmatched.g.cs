@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus26Choice
     /// Status is unmatched.
     /// </summary>
     [IsoId("_1bRVRTp4EeWVrPy0StzzSg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unmatched")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

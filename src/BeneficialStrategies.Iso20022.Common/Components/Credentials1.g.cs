@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains credential information.
 /// </summary>
 [IsoId("_AwRLkMV4Eee3gsS0IxDWIA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Credentials")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Credentials1
     /// Identification of the type of credential.
     /// </summary>
     [IsoId("_OEL4sMV4Eee3gsS0IxDWIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IdCd")]
     #endif
+    [IsoXmlTag("IdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Identification2Code IdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Identification2Code IdentificationCode { get; init; } 
+    public required Identification2Code IdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Identification2Code IdentificationCode { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record Credentials1
     /// Used when OtherNational or OtherPrivate value is selected in identification code list. 
     /// </summary>
     [IsoId("_tNXSEJcVEeme5LKU36W8xA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrIdCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrIdCd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,19 +88,17 @@ public partial record Credentials1
     /// Value of identification.
     /// </summary>
     [IsoId("_UR2U0MV4Eee3gsS0IxDWIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IdVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IdVal")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text IdentificationValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IdentificationValue { get; init; } 
+    public required System.String IdentificationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IdentificationValue { get; init; } 
     #else

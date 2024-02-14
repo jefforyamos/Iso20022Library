@@ -21,7 +21,7 @@ public enum AddressType1Code
 {
     /// <summary>
     /// Address is the home address.
-    /// Encoded/decoded by serializers as "HOME".
+    /// Encoded/decoded by serializers as &quot;HOME&quot;.
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_bmtidtp-Ed-ak6NoX_4Aeg_-1758352550")]
@@ -30,7 +30,7 @@ public enum AddressType1Code
     
     /// <summary>
     /// Address is the business address.
-    /// Encoded/decoded by serializers as "BIZZ".
+    /// Encoded/decoded by serializers as &quot;BIZZ&quot;.
     /// </summary>
     [EnumMember(Value = "BIZZ")]
     [IsoId("_bmtid9p-Ed-ak6NoX_4Aeg_-1742653638")]

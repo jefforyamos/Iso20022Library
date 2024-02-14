@@ -21,7 +21,7 @@ public enum IntendedOrActualCode
 {
     /// <summary>
     /// Ex ante (intended).
-    /// Encoded/decoded by serializers as "ANTE".
+    /// Encoded/decoded by serializers as &quot;ANTE&quot;.
     /// </summary>
     [EnumMember(Value = "ANTE")]
     [IsoId("_nCEhADcjEeidBoT_PugKiA")]
@@ -30,7 +30,7 @@ public enum IntendedOrActualCode
     
     /// <summary>
     /// Ex post (actual).
-    /// Encoded/decoded by serializers as "POST".
+    /// Encoded/decoded by serializers as &quot;POST&quot;.
     /// </summary>
     [EnumMember(Value = "POST")]
     [IsoId("_tNzqgDcjEeidBoT_PugKiA")]

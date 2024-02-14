@@ -21,7 +21,7 @@ public enum PartyType4Code
 {
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TTtRQQEcEeCQm6a_G2yO_w_-1410689751")]
@@ -30,7 +30,7 @@ public enum PartyType4Code
     
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_TTtRQgEcEeCQm6a_G2yO_w_-1002861397")]
@@ -39,7 +39,7 @@ public enum PartyType4Code
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_TTtRQwEcEeCQm6a_G2yO_w_1913422956")]
@@ -48,7 +48,7 @@ public enum PartyType4Code
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_TTtRRAEcEeCQm6a_G2yO_w_-444319167")]
@@ -57,7 +57,7 @@ public enum PartyType4Code
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_TTtRRQEcEeCQm6a_G2yO_w_1902324179")]
@@ -66,7 +66,7 @@ public enum PartyType4Code
     
     /// <summary>
     /// Tax authority.
-    /// Encoded/decoded by serializers as "TAXH".
+    /// Encoded/decoded by serializers as &quot;TAXH&quot;.
     /// </summary>
     [EnumMember(Value = "TAXH")]
     [IsoId("_TTtRRgEcEeCQm6a_G2yO_w_-2067525610")]

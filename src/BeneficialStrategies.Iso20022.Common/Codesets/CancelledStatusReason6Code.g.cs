@@ -21,7 +21,7 @@ public enum CancelledStatusReason6Code
 {
     /// <summary>
     /// Transaction is cancelled by yourself.
-    /// Encoded/decoded by serializers as "CANI".
+    /// Encoded/decoded by serializers as &quot;CANI&quot;.
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_a1F4Qdp-Ed-ak6NoX_4Aeg_1095310605")]
@@ -30,7 +30,7 @@ public enum CancelledStatusReason6Code
     
     /// <summary>
     /// Transaction is cancelled by a party other than the instructing party, for example, a market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CANO".
+    /// Encoded/decoded by serializers as &quot;CANO&quot;.
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_a1F4Qtp-Ed-ak6NoX_4Aeg_1161803601")]
@@ -39,7 +39,7 @@ public enum CancelledStatusReason6Code
     
     /// <summary>
     /// Transaction is cancelled by the system.
-    /// Encoded/decoded by serializers as "CANS".
+    /// Encoded/decoded by serializers as &quot;CANS&quot;.
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_a1F4Q9p-Ed-ak6NoX_4Aeg_1193205425")]
@@ -48,7 +48,7 @@ public enum CancelledStatusReason6Code
     
     /// <summary>
     /// Instruction has been cancelled by the agent due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_a1F4RNp-Ed-ak6NoX_4Aeg_1225528362")]
@@ -57,7 +57,7 @@ public enum CancelledStatusReason6Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_a1F4Rdp-Ed-ak6NoX_4Aeg_1272087253")]

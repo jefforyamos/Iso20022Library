@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateAndAmountFormat2Choice.Rate))]
     [KnownType(typeof(RateAndAmountFormat2Choice.Amount))]
     [IsoId("_UPYvldp-Ed-ak6NoX_4Aeg_-1644730391")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate And Amount Format 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

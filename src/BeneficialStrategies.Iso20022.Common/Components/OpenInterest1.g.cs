@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Measure of the current stock of a financial instrument that has been traded on an exchange or cleared via a central counterparty.
 /// </summary>
 [IsoId("_XEpRcLVZEeadLcJesEbkTQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Open Interest")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record OpenInterest1
     /// Gross notional of product cleared, if applicable.
     /// </summary>
     [IsoId("_bzGkoLVZEeadLcJesEbkTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Notional Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssNtnlAmt")]
     #endif
+    [IsoXmlTag("GrssNtnlAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd24Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd24Amount GrossNotionalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal GrossNotionalAmount { get; init; } 
+    public required System.Decimal GrossNotionalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal GrossNotionalAmount { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record OpenInterest1
     /// Open interest in number of lots, if applicable.
     /// </summary>
     [IsoId("_nF1dILVZEeadLcJesEbkTQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Lots")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfLots")]
     #endif
+    [IsoXmlTag("NbOfLots")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? NumberOfLots { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

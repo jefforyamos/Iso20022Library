@@ -21,7 +21,7 @@ public enum GlobalNoteCode
 {
     /// <summary>
     /// Form of global certificate which refers to the books and records of the ICSDs to determine the Issue Outstanding Amount (IOA).
-    /// Encoded/decoded by serializers as "NGNO".
+    /// Encoded/decoded by serializers as &quot;NGNO&quot;.
     /// </summary>
     [EnumMember(Value = "NGNO")]
     [IsoId("_hbcAoWliEeGaMcKyqKNRfQ_1154534279")]
@@ -30,7 +30,7 @@ public enum GlobalNoteCode
     
     /// <summary>
     /// Form of global certificate which requires physical annotation on the attached schedule to reflect changes in the Issue Outstanding Amount (IOA).
-    /// Encoded/decoded by serializers as "CGNO".
+    /// Encoded/decoded by serializers as &quot;CGNO&quot;.
     /// </summary>
     [EnumMember(Value = "CGNO")]
     [IsoId("_hbcAomliEeGaMcKyqKNRfQ_1453098033")]

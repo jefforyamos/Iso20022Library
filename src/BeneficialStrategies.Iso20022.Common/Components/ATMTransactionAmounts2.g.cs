@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Limit of amounts for the customer.
 /// </summary>
 [IsoId("_OR7VUIp7EeS3NqNpgnMh2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Transaction Amounts")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ATMTransactionAmounts2
     /// Currency of the limits, if different from the requested amount.
     /// </summary>
     [IsoId("_dck6kIp7EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ccy")]
     #endif
+    [IsoXmlTag("Ccy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveCurrencyCode? Currency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record ATMTransactionAmounts2
     /// Maximum amount allowed in the authorised currency if the withdrawal was not approved.
     /// </summary>
     [IsoId("_h2EDUIp7EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Authorisable Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAuthsbAmt")]
     #endif
+    [IsoXmlTag("MaxAuthsbAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MaximumAuthorisableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record ATMTransactionAmounts2
     /// Minimum amount allowed for a withdrawal in the authorised currency.
     /// </summary>
     [IsoId("_lZwMgIp7EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Allowed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinAllwdAmt")]
     #endif
+    [IsoXmlTag("MinAllwdAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MinimumAllowedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record ATMTransactionAmounts2
     /// Maximum amount allowed for a withdrawal in the authorised currency.
     /// </summary>
     [IsoId("_oWjU0Ip7EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Allowed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAllwdAmt")]
     #endif
+    [IsoXmlTag("MaxAllwdAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MaximumAllowedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,11 @@ public partial record ATMTransactionAmounts2
     /// Remaining daily amount of the customer totals after the withdrawal.
     /// </summary>
     [IsoId("_q-fncIp7EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Daily Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DalyBal")]
     #endif
+    [IsoXmlTag("DalyBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? DailyBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +130,11 @@ public partial record ATMTransactionAmounts2
     /// Remaining weekly amount of the customer totals after the withdrawal.
     /// </summary>
     [IsoId("_tYRiQIp7EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Weekly Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WklyBal")]
     #endif
+    [IsoXmlTag("WklyBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? WeeklyBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +147,11 @@ public partial record ATMTransactionAmounts2
     /// Remaining monthly amount of the customer totals after the withdrawal.
     /// </summary>
     [IsoId("_vXmVsIp7EeS3NqNpgnMh2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Monthly Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MnthlyBal")]
     #endif
+    [IsoXmlTag("MnthlyBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DetailedAmount4? MonthlyBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Derivative instrument that gives the buyer the right but not the obligation to purchase a set of quantity of a financial instrument at a future date.
 /// </summary>
 [IsoId("_d3DnkchsEeadgvwNGwK05w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,28 +42,24 @@ public partial record Option14
     /// Expiration style of the option.
     /// </summary>
     [IsoId("_d_smOchsEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiration Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XprtnStyle")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XprtnStyle")]
     [MinLength(1)]
     [MaxLength(4)]
-    #endif
     public SimpleValueList<OptionStyle5Code> ExpirationStyle { get; init; } = new SimpleValueList<OptionStyle5Code>(){};
     
     /// <summary>
     /// Specifies how the option can be exercised.
     /// </summary>
     [IsoId("_d_smN8hsEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnStyle")]
     #endif
+    [IsoXmlTag("OptnStyle")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExoticOptionStyle1Code? OptionStyle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -78,12 +72,11 @@ public partial record Option14
     /// Specifies whether the option is a call or a put.
     /// </summary>
     [IsoId("_d_smO8hsEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType1Code? OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -96,12 +89,12 @@ public partial record Option14
     /// Indicates whether the option has a barrier.
     /// </summary>
     [IsoId("_d_smPchsEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Barrier Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrrrInd")]
     #endif
+    [IsoXmlTag("BrrrInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? BarrierIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,12 +107,11 @@ public partial record Option14
     /// Specifies the event in the life of the option.
     /// </summary>
     [IsoId("_d_smQchsEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtTp")]
     #endif
+    [IsoXmlTag("EvtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionEvent2? EventType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

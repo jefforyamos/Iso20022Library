@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
     /// In case of multi-collateral repo, the nominal amount of each collateralised security must be provided.
     /// </summary>
     [IsoId("_iZO6A6idEeWHO_l3hf2rlA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multiple Collateral")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,12 +56,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
         /// Nominal amount of the security pledged as collateral. Except for tri-party repos and any other transaction in which the security pledged is not identified via a single ISIN.
         /// </summary>
         [IsoId("_i2_NAaidEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Nominal Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NmnlAmt")]
         #endif
+        [IsoXmlTag("NmnlAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoActiveCurrencyAndAmount? NominalAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,19 +71,19 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
         #endif
         
         /// <summary>
-        /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
+        /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation&apos;s International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
         /// </summary>
         [IsoId("_i2_NA6idEeWHO_l3hf2rlA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("ISIN")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ISIN")]
         #endif
+        [IsoXmlTag("ISIN")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISINOct2015Identifier ISIN { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ISIN { get; init; } 
+        public required System.String ISIN { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ISIN { get; init; } 
         #else

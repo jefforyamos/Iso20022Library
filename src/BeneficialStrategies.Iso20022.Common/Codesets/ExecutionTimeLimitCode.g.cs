@@ -21,7 +21,7 @@ public enum ExecutionTimeLimitCode
 {
     /// <summary>
     /// A round lot order to be executed at the opening of the market.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_alJXwNp-Ed-ak6NoX_4Aeg_1584923072")]
@@ -30,7 +30,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// An order to buy or sell at the closing price or an odd lot order to buy or sell to be filled at the closing of the round lot offer, plus a differential for a buy order or minus the differential on a sell order.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_alJXwdp-Ed-ak6NoX_4Aeg_1584923073")]
@@ -39,7 +39,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// An order that remains in effect until it is either executed or cancelled.
-    /// Encoded/decoded by serializers as "GTCA".
+    /// Encoded/decoded by serializers as &quot;GTCA&quot;.
     /// </summary>
     [EnumMember(Value = "GTCA")]
     [IsoId("_alJXwtp-Ed-ak6NoX_4Aeg_1584923083")]
@@ -48,7 +48,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// An order that, if not executed, expires at the end of the trading day on which the order is entered.
-    /// Encoded/decoded by serializers as "GDAY".
+    /// Encoded/decoded by serializers as &quot;GDAY&quot;.
     /// </summary>
     [EnumMember(Value = "GDAY")]
     [IsoId("_alJXw9p-Ed-ak6NoX_4Aeg_1584923074")]
@@ -57,7 +57,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// An Order that if not executed, expires at the end of the specified expiry date.
-    /// Encoded/decoded by serializers as "GTHD".
+    /// Encoded/decoded by serializers as &quot;GTHD&quot;.
     /// </summary>
     [EnumMember(Value = "GTHD")]
     [IsoId("_alJXxNp-Ed-ak6NoX_4Aeg_1584923084")]
@@ -66,7 +66,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// An order that, if not executed, expires at the end of the month on which the order is entered.
-    /// Encoded/decoded by serializers as "GTMO".
+    /// Encoded/decoded by serializers as &quot;GTMO&quot;.
     /// </summary>
     [EnumMember(Value = "GTMO")]
     [IsoId("_alJXxdp-Ed-ak6NoX_4Aeg_1584923085")]
@@ -75,7 +75,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// A market or limit order that is to be executed in its entirety as soon as it is submitted; if not so executed, the order is to be cancelled.
-    /// Encoded/decoded by serializers as "FIKI".
+    /// Encoded/decoded by serializers as &quot;FIKI&quot;.
     /// </summary>
     [EnumMember(Value = "FIKI")]
     [IsoId("_alJXxtp-Ed-ak6NoX_4Aeg_1584923086")]
@@ -84,7 +84,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// Indicates an order that is good until the end of next month.
-    /// Encoded/decoded by serializers as "GTNM".
+    /// Encoded/decoded by serializers as &quot;GTNM&quot;.
     /// </summary>
     [EnumMember(Value = "GTNM")]
     [IsoId("_alJXx9p-Ed-ak6NoX_4Aeg_1584923087")]
@@ -93,7 +93,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// Indicates an order that is good till crossed.
-    /// Encoded/decoded by serializers as "GTXO".
+    /// Encoded/decoded by serializers as &quot;GTXO&quot;.
     /// </summary>
     [EnumMember(Value = "GTXO")]
     [IsoId("_alJXyNp-Ed-ak6NoX_4Aeg_1584923088")]
@@ -102,7 +102,7 @@ public enum ExecutionTimeLimitCode
     
     /// <summary>
     /// A market or limit order to be executed in whole or in part as soon as it is submitted; any portion not so executed is to be cancelled.
-    /// Encoded/decoded by serializers as "IOCA".
+    /// Encoded/decoded by serializers as &quot;IOCA&quot;.
     /// </summary>
     [EnumMember(Value = "IOCA")]
     [IsoId("_alShsNp-Ed-ak6NoX_4Aeg_1584923089")]

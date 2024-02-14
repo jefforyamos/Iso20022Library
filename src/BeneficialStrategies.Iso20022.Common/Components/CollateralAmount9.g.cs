@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Securities collateral position valuation amounts.
 /// </summary>
 [IsoId("__gn0GPSgEeicy5Zn42b9bg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CollateralAmount9
     /// Actual market value post haircut expressed in the collateral currency. 
     /// </summary>
     [IsoId("__gn0H_SgEeicy5Zn42b9bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Market Value Post Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlMktValPstHrcut")]
     #endif
+    [IsoXmlTag("ActlMktValPstHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ActualMarketValuePostHaircut { get; init; } 
+    public required System.Decimal ActualMarketValuePostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ActualMarketValuePostHaircut { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record CollateralAmount9
     /// Actual market value before haircut expressed in the collateral currency.
     /// </summary>
     [IsoId("__gn0HfSgEeicy5Zn42b9bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Actual Market Value Before Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActlMktValBfrHrcut")]
     #endif
+    [IsoXmlTag("ActlMktValBfrHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +87,12 @@ public partial record CollateralAmount9
     /// Amount of the exposure/collateral in the exposure/collateral currency.
     /// </summary>
     [IsoId("__gn0HvSgEeicy5Zn42b9bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Collateral In Transaction Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrCollInTxCcy")]
     #endif
+    [IsoXmlTag("XpsrCollInTxCcy")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +105,12 @@ public partial record CollateralAmount9
     /// Amount of the exposure/collateral in the reporting currency.
     /// </summary>
     [IsoId("__gn0G_SgEeicy5Zn42b9bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Collateral In Reporting Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrCollInRptgCcy")]
     #endif
+    [IsoXmlTag("XpsrCollInRptgCcy")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +123,12 @@ public partial record CollateralAmount9
     /// Actual market value post haircut expressed in the transaction currency.
     /// </summary>
     [IsoId("__gn0IPSgEeicy5Zn42b9bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value Amount Post Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktValAmtPstHrcut")]
     #endif
+    [IsoXmlTag("MktValAmtPstHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +141,12 @@ public partial record CollateralAmount9
     /// Actual market value before haircut expressed in the transaction currency. 
     /// </summary>
     [IsoId("__gn0HPSgEeicy5Zn42b9bg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value Amount Before Haircut")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktValAmtBfrHrcut")]
     #endif
+    [IsoXmlTag("MktValAmtBfrHrcut")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum SecuritiesTransactionReasonCode
 {
     /// <summary>
     /// Specifies the reason why the instruction is cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_ZGOisdp-Ed-ak6NoX_4Aeg_-1565978521")]
@@ -30,7 +30,7 @@ public enum SecuritiesTransactionReasonCode
     
     /// <summary>
     /// Specifies the reason why a cancellation request sent for the related instruction is pending.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_ZGOistp-Ed-ak6NoX_4Aeg_-1538271512")]
@@ -39,7 +39,7 @@ public enum SecuritiesTransactionReasonCode
     
     /// <summary>
     /// Specifies the reason why the transaction was generated.
-    /// Encoded/decoded by serializers as "CGEN".
+    /// Encoded/decoded by serializers as &quot;CGEN&quot;.
     /// </summary>
     [EnumMember(Value = "CGEN")]
     [IsoId("_ZGOis9p-Ed-ak6NoX_4Aeg_-1537348292")]
@@ -48,7 +48,7 @@ public enum SecuritiesTransactionReasonCode
     
     /// <summary>
     /// Specifies the reason why the instruction has an unmatched status.
-    /// Encoded/decoded by serializers as "NMAT".
+    /// Encoded/decoded by serializers as &quot;NMAT&quot;.
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_ZGOitNp-Ed-ak6NoX_4Aeg_-1536425172")]
@@ -57,7 +57,7 @@ public enum SecuritiesTransactionReasonCode
     
     /// <summary>
     /// Specifies additional information about the processed instruction.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_ZGOitdp-Ed-ak6NoX_4Aeg_-1535502205")]
@@ -66,7 +66,7 @@ public enum SecuritiesTransactionReasonCode
     
     /// <summary>
     /// Specifies the reason why the instruction has a pending status.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_ZGOittp-Ed-ak6NoX_4Aeg_-1534577760")]
@@ -75,7 +75,7 @@ public enum SecuritiesTransactionReasonCode
     
     /// <summary>
     /// Specifies the reason why the instruction has a failing settlement status.
-    /// Encoded/decoded by serializers as "PENF".
+    /// Encoded/decoded by serializers as &quot;PENF&quot;.
     /// </summary>
     [EnumMember(Value = "PENF")]
     [IsoId("_ZGOit9p-Ed-ak6NoX_4Aeg_-1526266040")]
@@ -84,7 +84,7 @@ public enum SecuritiesTransactionReasonCode
     
     /// <summary>
     /// Specifies the reason why the instruction has a pending processing status.
-    /// Encoded/decoded by serializers as "PPRC".
+    /// Encoded/decoded by serializers as &quot;PPRC&quot;.
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_ZGOiuNp-Ed-ak6NoX_4Aeg_-1525342519")]
@@ -93,7 +93,7 @@ public enum SecuritiesTransactionReasonCode
     
     /// <summary>
     /// Specifies the reason why the instruction is in repair.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_ZGOiudp-Ed-ak6NoX_4Aeg_-1524418998")]

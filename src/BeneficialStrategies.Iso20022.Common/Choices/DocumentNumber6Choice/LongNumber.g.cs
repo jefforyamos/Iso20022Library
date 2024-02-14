@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber6Choice
     /// MX Message identifier of the referenced document.
     /// </summary>
     [IsoId("_celQ3ZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Long Number")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber6Choice
         /// ISO 20022 Message identifier of an MX message.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LngNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("LngNb")]
+        [IsoSimpleType(IsoSimpleType.ISO20022MessageIdentificationText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISO20022MessageIdentificationText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

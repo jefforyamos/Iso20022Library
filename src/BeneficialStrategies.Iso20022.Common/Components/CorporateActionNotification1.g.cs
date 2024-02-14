@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the notification advice.
 /// </summary>
 [IsoId("_UKUpZtp-Ed-ak6NoX_4Aeg_1910542710")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CorporateActionNotification1
     /// Date/time at which the issuer announced that a corporate action event will occur.
     /// </summary>
     [IsoId("_UKUpZ9p-Ed-ak6NoX_4Aeg_1619065277")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Announcement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnncmntDt")]
     #endif
+    [IsoXmlTag("AnncmntDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? AnnouncementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record CorporateActionNotification1
     /// Date/time at which additional information on the event will be announced, eg, exchange ratio announcement date.
     /// </summary>
     [IsoId("_UKUpaNp-Ed-ak6NoX_4Aeg_1630150555")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Further Detailed Announcement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrthrDtldAnncmntDt")]
     #endif
+    [IsoXmlTag("FrthrDtldAnncmntDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? FurtherDetailedAnnouncementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +83,11 @@ public partial record CorporateActionNotification1
     /// Date/time at which the corporate action is legally announced by an official body, eg, publication by a governmental administration.
     /// </summary>
     [IsoId("_UKUpadp-Ed-ak6NoX_4Aeg_-1290955122")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Official Announcement Publication Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffclAnncmntPblctnDt")]
     #endif
+    [IsoXmlTag("OffclAnncmntPblctnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat4Choice_? OfficialAnnouncementPublicationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,16 +100,15 @@ public partial record CorporateActionNotification1
     /// Specifies the status of the details of the event.
     /// </summary>
     [IsoId("_UKUpatp-Ed-ak6NoX_4Aeg_1527353717")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcgSts")]
     #endif
+    [IsoXmlTag("PrcgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingStatus1FormatChoice_ ProcessingStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingStatus1FormatChoice_ ProcessingStatus { get; init; } 
+    public required ProcessingStatus1FormatChoice_ ProcessingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingStatus1FormatChoice_ ProcessingStatus { get; init; } 
     #else

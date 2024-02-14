@@ -21,7 +21,7 @@ public enum ActionType7Code
 {
     /// <summary>
     /// Server busy, try later.
-    /// Encoded/decoded by serializers as "BUSY".
+    /// Encoded/decoded by serializers as &quot;BUSY&quot;.
     /// </summary>
     [EnumMember(Value = "BUSY")]
     [IsoId("_GS6bUaziEeaS8qpTeYtFzA")]
@@ -30,7 +30,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Capture the card.
-    /// Encoded/decoded by serializers as "CPTR".
+    /// Encoded/decoded by serializers as &quot;CPTR&quot;.
     /// </summary>
     [EnumMember(Value = "CPTR")]
     [IsoId("_GS6bU6ziEeaS8qpTeYtFzA")]
@@ -39,7 +39,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Message to display, print or log.
-    /// Encoded/decoded by serializers as "DISP".
+    /// Encoded/decoded by serializers as &quot;DISP&quot;.
     /// </summary>
     [EnumMember(Value = "DISP")]
     [IsoId("_GS6bVaziEeaS8qpTeYtFzA")]
@@ -48,7 +48,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Payment application cannot propose to the merchant an override of the payment transaction.
-    /// Encoded/decoded by serializers as "NOVR".
+    /// Encoded/decoded by serializers as &quot;NOVR&quot;.
     /// </summary>
     [EnumMember(Value = "NOVR")]
     [IsoId("_GS6bV6ziEeaS8qpTeYtFzA")]
@@ -57,7 +57,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Additional identification required (passport, ID card, etc.).
-    /// Encoded/decoded by serializers as "RQID".
+    /// Encoded/decoded by serializers as &quot;RQID&quot;.
     /// </summary>
     [EnumMember(Value = "RQID")]
     [IsoId("_GS6bWaziEeaS8qpTeYtFzA")]
@@ -66,7 +66,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Last PIN (Personal Identification Number) try.
-    /// Encoded/decoded by serializers as "PINL".
+    /// Encoded/decoded by serializers as &quot;PINL&quot;.
     /// </summary>
     [EnumMember(Value = "PINL")]
     [IsoId("_GS6bW6ziEeaS8qpTeYtFzA")]
@@ -75,7 +75,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// PIN (Personal Identification Number) is wrong, retry a PIN verification.
-    /// Encoded/decoded by serializers as "PINR".
+    /// Encoded/decoded by serializers as &quot;PINR&quot;.
     /// </summary>
     [EnumMember(Value = "PINR")]
     [IsoId("_GS6bXaziEeaS8qpTeYtFzA")]
@@ -84,7 +84,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Print a message.
-    /// Encoded/decoded by serializers as "PRNT".
+    /// Encoded/decoded by serializers as &quot;PRNT&quot;.
     /// </summary>
     [EnumMember(Value = "PRNT")]
     [IsoId("_GS6bX6ziEeaS8qpTeYtFzA")]
@@ -93,7 +93,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Referral has to be performed.
-    /// Encoded/decoded by serializers as "RFRL".
+    /// Encoded/decoded by serializers as &quot;RFRL&quot;.
     /// </summary>
     [EnumMember(Value = "RFRL")]
     [IsoId("_GS6bYaziEeaS8qpTeYtFzA")]
@@ -102,7 +102,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Request additional data through a displayed text and request confirmation by an attendant.
-    /// Encoded/decoded by serializers as "RQDT".
+    /// Encoded/decoded by serializers as &quot;RQDT&quot;.
     /// </summary>
     [EnumMember(Value = "RQDT")]
     [IsoId("_GS6bY6ziEeaS8qpTeYtFzA")]
@@ -111,7 +111,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Ask the cardholder to accept the currency conversion.
-    /// Encoded/decoded by serializers as "DCCQ".
+    /// Encoded/decoded by serializers as &quot;DCCQ&quot;.
     /// </summary>
     [EnumMember(Value = "DCCQ")]
     [IsoId("_GS6bZaziEeaS8qpTeYtFzA")]
@@ -120,7 +120,7 @@ public enum ActionType7Code
     
     /// <summary>
     /// Fall-forward from contactless to chip card transaction required.
-    /// Encoded/decoded by serializers as "FLFW".
+    /// Encoded/decoded by serializers as &quot;FLFW&quot;.
     /// </summary>
     [EnumMember(Value = "FLFW")]
     [IsoId("_oxS7EaziEeaS8qpTeYtFzA")]

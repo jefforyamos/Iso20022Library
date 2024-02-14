@@ -21,7 +21,7 @@ public enum LocationCategoryCode
 {
     /// <summary>
     /// Fixed location, for example in a shop.
-    /// Encoded/decoded by serializers as "FIXD".
+    /// Encoded/decoded by serializers as &quot;FIXD&quot;.
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_TUvzEQEcEeCQm6a_G2yO_w_-2072023787")]
@@ -30,7 +30,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Aboard a bus, train, ship, airplane, taxi, etc.
-    /// Encoded/decoded by serializers as "ABRD".
+    /// Encoded/decoded by serializers as &quot;ABRD&quot;.
     /// </summary>
     [EnumMember(Value = "ABRD")]
     [IsoId("_TUvzEgEcEeCQm6a_G2yO_w_-632717979")]
@@ -39,7 +39,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Nomadic location.
-    /// Encoded/decoded by serializers as "NMDC".
+    /// Encoded/decoded by serializers as &quot;NMDC&quot;.
     /// </summary>
     [EnumMember(Value = "NMDC")]
     [IsoId("_TUvzEwEcEeCQm6a_G2yO_w_515385128")]
@@ -48,7 +48,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Mail order or telephone order.
-    /// Encoded/decoded by serializers as "MOTO".
+    /// Encoded/decoded by serializers as &quot;MOTO&quot;.
     /// </summary>
     [EnumMember(Value = "MOTO")]
     [IsoId("_TUvzFAEcEeCQm6a_G2yO_w_1800464399")]
@@ -57,7 +57,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Customer home.
-    /// Encoded/decoded by serializers as "HOME".
+    /// Encoded/decoded by serializers as &quot;HOME&quot;.
     /// </summary>
     [EnumMember(Value = "HOME")]
     [IsoId("_TUvzFQEcEeCQm6a_G2yO_w_-566393141")]
@@ -66,7 +66,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Indoor terminal.
-    /// Encoded/decoded by serializers as "INDR".
+    /// Encoded/decoded by serializers as &quot;INDR&quot;.
     /// </summary>
     [EnumMember(Value = "INDR")]
     [IsoId("_YppBoJX5EeWMQt4mOczoDw")]
@@ -75,7 +75,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Terminal incorporated in the pump dispensing petrol.
-    /// Encoded/decoded by serializers as "IPMP".
+    /// Encoded/decoded by serializers as &quot;IPMP&quot;.
     /// </summary>
     [EnumMember(Value = "IPMP")]
     [IsoId("_bTq-8JX5EeWMQt4mOczoDw")]
@@ -84,7 +84,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Outdoor terminal serving several petrol pumps.
-    /// Encoded/decoded by serializers as "MPMP".
+    /// Encoded/decoded by serializers as &quot;MPMP&quot;.
     /// </summary>
     [EnumMember(Value = "MPMP")]
     [IsoId("_d8s2sJX5EeWMQt4mOczoDw")]
@@ -93,7 +93,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Multiple terminals linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "MPOI".
+    /// Encoded/decoded by serializers as &quot;MPOI&quot;.
     /// </summary>
     [EnumMember(Value = "MPOI")]
     [IsoId("_ifu9AJX5EeWMQt4mOczoDw")]
@@ -102,7 +102,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Terminal serving multiple sale terminals.
-    /// Encoded/decoded by serializers as "MSLE".
+    /// Encoded/decoded by serializers as &quot;MSLE&quot;.
     /// </summary>
     [EnumMember(Value = "MSLE")]
     [IsoId("_kr-yIJX5EeWMQt4mOczoDw")]
@@ -111,7 +111,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Terminal linked to a unique sale terminal.
-    /// Encoded/decoded by serializers as "SSLE".
+    /// Encoded/decoded by serializers as &quot;SSLE&quot;.
     /// </summary>
     [EnumMember(Value = "SSLE")]
     [IsoId("_pI4bQJX5EeWMQt4mOczoDw")]
@@ -120,7 +120,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Terminal integrated in a vending machine.
-    /// Encoded/decoded by serializers as "VNDG".
+    /// Encoded/decoded by serializers as &quot;VNDG&quot;.
     /// </summary>
     [EnumMember(Value = "VNDG")]
     [IsoId("_sdowkJX5EeWMQt4mOczoDw")]
@@ -129,7 +129,7 @@ public enum LocationCategoryCode
     
     /// <summary>
     /// Virtual Shop is used for any ecommerce solution.
-    /// Encoded/decoded by serializers as "VIRT".
+    /// Encoded/decoded by serializers as &quot;VIRT&quot;.
     /// </summary>
     [EnumMember(Value = "VIRT")]
     [IsoId("_7imhYEUJEeuSWeURYeKGvg")]

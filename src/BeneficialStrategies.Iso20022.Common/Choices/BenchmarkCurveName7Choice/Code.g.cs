@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName7Choice
     /// Benchmark curve name expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_HjJ1weLwEeWOD7aAy2fAcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName7Choice
         /// Identifies a benchmark curve name.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BenchmarkCurveName1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BenchmarkCurveName1Code Value { get; init; } 
+        public required BenchmarkCurveName1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BenchmarkCurveName1Code Value { get; init; } 
         #else

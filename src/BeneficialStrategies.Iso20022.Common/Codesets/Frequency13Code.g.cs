@@ -21,7 +21,7 @@ public enum Frequency13Code
 {
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_smU1IVfREeqqKf65rDYWYw")]
@@ -30,7 +30,7 @@ public enum Frequency13Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_tV8UMVfREeqqKf65rDYWYw")]
@@ -39,7 +39,7 @@ public enum Frequency13Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_t7Ir8VfREeqqKf65rDYWYw")]
@@ -48,7 +48,7 @@ public enum Frequency13Code
     
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_vAULUVfREeqqKf65rDYWYw")]
@@ -57,7 +57,7 @@ public enum Frequency13Code
     
     /// <summary>
     /// Event takes place on request or as necessary.
-    /// Encoded/decoded by serializers as "ADHO".
+    /// Encoded/decoded by serializers as &quot;ADHO&quot;.
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_vg5I0VfREeqqKf65rDYWYw")]
@@ -66,7 +66,7 @@ public enum Frequency13Code
     
     /// <summary>
     /// Event occurs on expiry of a financial contract.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_v_1uoVfREeqqKf65rDYWYw")]
@@ -75,7 +75,7 @@ public enum Frequency13Code
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "MIAN".
+    /// Encoded/decoded by serializers as &quot;MIAN&quot;.
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_dvI9UZjeEeqkLZLH6DK3UQ")]
@@ -84,7 +84,7 @@ public enum Frequency13Code
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QURT".
+    /// Encoded/decoded by serializers as &quot;QURT&quot;.
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_ePuh4ZjeEeqkLZLH6DK3UQ")]

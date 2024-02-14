@@ -21,7 +21,7 @@ public enum EnergyQuantityUnit1Code
 {
     /// <summary>
     /// Therm per day.
-    /// Encoded/decoded by serializers as "THMD".
+    /// Encoded/decoded by serializers as &quot;THMD&quot;.
     /// </summary>
     [EnumMember(Value = "THMD")]
     [IsoId("_1m7AcRYtEeWK8am9Oj92Tg")]
@@ -30,7 +30,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Mega Watt hour per hour.
-    /// Encoded/decoded by serializers as "MWHH".
+    /// Encoded/decoded by serializers as &quot;MWHH&quot;.
     /// </summary>
     [EnumMember(Value = "MWHH")]
     [IsoId("_1zjuQRYtEeWK8am9Oj92Tg")]
@@ -39,7 +39,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Mega Watt hour per day.
-    /// Encoded/decoded by serializers as "MWHD".
+    /// Encoded/decoded by serializers as &quot;MWHD&quot;.
     /// </summary>
     [EnumMember(Value = "MWHD")]
     [IsoId("_13uckRYtEeWK8am9Oj92Tg")]
@@ -48,7 +48,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Mega Watt.
-    /// Encoded/decoded by serializers as "MWAT".
+    /// Encoded/decoded by serializers as &quot;MWAT&quot;.
     /// </summary>
     [EnumMember(Value = "MWAT")]
     [IsoId("_2EXxcRYtEeWK8am9Oj92Tg")]
@@ -57,7 +57,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// MTherm per day.
-    /// Encoded/decoded by serializers as "MTMD".
+    /// Encoded/decoded by serializers as &quot;MTMD&quot;.
     /// </summary>
     [EnumMember(Value = "MTMD")]
     [IsoId("_2IifwRYtEeWK8am9Oj92Tg")]
@@ -66,7 +66,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Mcm per day.
-    /// Encoded/decoded by serializers as "MCMD".
+    /// Encoded/decoded by serializers as &quot;MCMD&quot;.
     /// </summary>
     [EnumMember(Value = "MCMD")]
     [IsoId("_2VLNkRYtEeWK8am9Oj92Tg")]
@@ -75,7 +75,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Kilo Watt hour per hour.
-    /// Encoded/decoded by serializers as "KWHH".
+    /// Encoded/decoded by serializers as &quot;KWHH&quot;.
     /// </summary>
     [EnumMember(Value = "KWHH")]
     [IsoId("_2ZV74RYtEeWK8am9Oj92Tg")]
@@ -84,7 +84,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Kilo Watt hour per day.
-    /// Encoded/decoded by serializers as "KWHD".
+    /// Encoded/decoded by serializers as &quot;KWHD&quot;.
     /// </summary>
     [EnumMember(Value = "KWHD")]
     [IsoId("_2l1fwRYtEeWK8am9Oj92Tg")]
@@ -93,7 +93,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Kilo Watt.
-    /// Encoded/decoded by serializers as "KWAT".
+    /// Encoded/decoded by serializers as &quot;KWAT&quot;.
     /// </summary>
     [EnumMember(Value = "KWAT")]
     [IsoId("_2yL5sRYtEeWK8am9Oj92Tg")]
@@ -102,7 +102,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// KTherm per day.
-    /// Encoded/decoded by serializers as "KTMD".
+    /// Encoded/decoded by serializers as &quot;KTMD&quot;.
     /// </summary>
     [EnumMember(Value = "KTMD")]
     [IsoId("_22WoARYtEeWK8am9Oj92Tg")]
@@ -111,7 +111,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Giga Watt hour per hour.
-    /// Encoded/decoded by serializers as "GWHH".
+    /// Encoded/decoded by serializers as &quot;GWHH&quot;.
     /// </summary>
     [EnumMember(Value = "GWHH")]
     [IsoId("_3DJG0RYtEeWK8am9Oj92Tg")]
@@ -120,7 +120,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Giga Watt hour per day.
-    /// Encoded/decoded by serializers as "GWHD".
+    /// Encoded/decoded by serializers as &quot;GWHD&quot;.
     /// </summary>
     [EnumMember(Value = "GWHD")]
     [IsoId("_3HT1IRYtEeWK8am9Oj92Tg")]
@@ -129,7 +129,7 @@ public enum EnergyQuantityUnit1Code
     
     /// <summary>
     /// Giga Watt.
-    /// Encoded/decoded by serializers as "GWAT".
+    /// Encoded/decoded by serializers as &quot;GWAT&quot;.
     /// </summary>
     [EnumMember(Value = "GWAT")]
     [IsoId("_3TgeERYtEeWK8am9Oj92Tg")]

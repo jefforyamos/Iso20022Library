@@ -21,7 +21,7 @@ public enum ChequeDelivery2Code
 {
     /// <summary>
     /// Cheque is to be sent through mail services to creditor agent.
-    /// Encoded/decoded by serializers as "MLFA".
+    /// Encoded/decoded by serializers as &quot;MLFA&quot;.
     /// </summary>
     [EnumMember(Value = "MLFA")]
     [IsoId("_a-oOwdp-Ed-ak6NoX_4Aeg_94504069")]
@@ -30,7 +30,7 @@ public enum ChequeDelivery2Code
     
     /// <summary>
     /// Cheque is to be sent through courier services to creditor agent.
-    /// Encoded/decoded by serializers as "CRFA".
+    /// Encoded/decoded by serializers as &quot;CRFA&quot;.
     /// </summary>
     [EnumMember(Value = "CRFA")]
     [IsoId("_a-oOwtp-Ed-ak6NoX_4Aeg_94504160")]
@@ -39,7 +39,7 @@ public enum ChequeDelivery2Code
     
     /// <summary>
     /// Cheque will be picked up by the creditor agent.
-    /// Encoded/decoded by serializers as "PUFA".
+    /// Encoded/decoded by serializers as &quot;PUFA&quot;.
     /// </summary>
     [EnumMember(Value = "PUFA")]
     [IsoId("_a-oOw9p-Ed-ak6NoX_4Aeg_94504439")]
@@ -48,7 +48,7 @@ public enum ChequeDelivery2Code
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to creditor agent.
-    /// Encoded/decoded by serializers as "RGFA".
+    /// Encoded/decoded by serializers as &quot;RGFA&quot;.
     /// </summary>
     [EnumMember(Value = "RGFA")]
     [IsoId("_a-oOxNp-Ed-ak6NoX_4Aeg_94504499")]

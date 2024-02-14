@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
     [IsoId("_yJhSp4v-Eei289CGNqs21g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Address")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

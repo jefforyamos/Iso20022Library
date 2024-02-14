@@ -21,7 +21,7 @@ public enum Entry2Code
 {
     /// <summary>
     /// Trial pay-in schedule.
-    /// Encoded/decoded by serializers as "TRIA".
+    /// Encoded/decoded by serializers as &quot;TRIA&quot;.
     /// </summary>
     [EnumMember(Value = "TRIA")]
     [IsoId("_ahQ9Vdp-Ed-ak6NoX_4Aeg_-218020347")]
@@ -30,7 +30,7 @@ public enum Entry2Code
     
     /// <summary>
     /// Official pay-in schedule.
-    /// Encoded/decoded by serializers as "OFFI".
+    /// Encoded/decoded by serializers as &quot;OFFI&quot;.
     /// </summary>
     [EnumMember(Value = "OFFI")]
     [IsoId("_ahQ9Vtp-Ed-ak6NoX_4Aeg_-214324853")]
@@ -39,7 +39,7 @@ public enum Entry2Code
     
     /// <summary>
     /// Pay-in schedule on request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_ahQ9V9p-Ed-ak6NoX_4Aeg_-203241624")]

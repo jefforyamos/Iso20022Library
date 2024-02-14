@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Provides details on the overall amount of "not yet executed" predefined liquidity transfer orders or "defined" by a system participant in its sphere of responsibility within the system.
+/// Provides details on the overall amount of &quot;not yet executed&quot; predefined liquidity transfer orders or &quot;defined&quot; by a system participant in its sphere of responsibility within the system.
 /// </summary>
 [IsoId("_73Rq5KMgEeCJ6YNENx4h-w_-307258227")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Standing Order Total Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record StandingOrderTotalAmount1
     /// Total defined amount of predefined liquidity transfer orders.
     /// </summary>
     [IsoId("_73Rq5aMgEeCJ6YNENx4h-w_323473670")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Set Predefined Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SetPrdfndOrdr")]
     #endif
+    [IsoXmlTag("SetPrdfndOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TotalAmountAndCurrency1 SetPredefinedOrder { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TotalAmountAndCurrency1 SetPredefinedOrder { get; init; } 
+    public required TotalAmountAndCurrency1 SetPredefinedOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TotalAmountAndCurrency1 SetPredefinedOrder { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record StandingOrderTotalAmount1
     /// Total amount of not yet executed predefined liquidity transfer orders.
     /// </summary>
     [IsoId("_73Rq5qMgEeCJ6YNENx4h-w_922243288")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Predefined Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgPrdfndOrdr")]
     #endif
+    [IsoXmlTag("PdgPrdfndOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TotalAmountAndCurrency1 PendingPredefinedOrder { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TotalAmountAndCurrency1 PendingPredefinedOrder { get; init; } 
+    public required TotalAmountAndCurrency1 PendingPredefinedOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TotalAmountAndCurrency1 PendingPredefinedOrder { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record StandingOrderTotalAmount1
     /// Total defined amount of standing liquidity transfer orders.
     /// </summary>
     [IsoId("_73Rq56MgEeCJ6YNENx4h-w_-394534474")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Set Standing Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SetStgOrdr")]
     #endif
+    [IsoXmlTag("SetStgOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TotalAmountAndCurrency1 SetStandingOrder { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TotalAmountAndCurrency1 SetStandingOrder { get; init; } 
+    public required TotalAmountAndCurrency1 SetStandingOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TotalAmountAndCurrency1 SetStandingOrder { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record StandingOrderTotalAmount1
     /// Total amount of not yet executed standing liquidity transfer orders.
     /// </summary>
     [IsoId("_73Rq6KMgEeCJ6YNENx4h-w_-369288428")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Standing Order")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgStgOrdr")]
     #endif
+    [IsoXmlTag("PdgStgOrdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TotalAmountAndCurrency1 PendingStandingOrder { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TotalAmountAndCurrency1 PendingStandingOrder { get; init; } 
+    public required TotalAmountAndCurrency1 PendingStandingOrder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TotalAmountAndCurrency1 PendingStandingOrder { get; init; } 
     #else

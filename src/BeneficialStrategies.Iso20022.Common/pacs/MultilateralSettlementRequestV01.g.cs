@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"The MultilateralSettlementRequest message is sent from an instructing agent to a market infrastructure to settle obligations between their participants using accounts held in a settlement service.||Usage: The MultilateralSettlementRequest message can contain one or more settlement instructions with multiple movements between accounts. By default, all movements present in an individual instruction shall be processed as a batch entry rather than a single entry per individual movement.")]
 [IsoId("_vsvOgQcYEeyTDbUIoCmuCw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Multilateral Settlement Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord<Multilater
     /// Set of characteristics shared by all individual instructions included in the message.
     /// </summary>
     [IsoId("_vsvOgwcYEeyTDbUIoCmuCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader104 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader104 GroupHeader { get; init; } 
+    public required GroupHeader104 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader104 GroupHeader { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord<Multilater
     /// Set of elements providing information specific to the individual settlement request(s).
     /// </summary>
     [IsoId("_vsvOhQcYEeyTDbUIoCmuCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmReq")]
     #endif
+    [IsoXmlTag("SttlmReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MultilateralSettlementRequest2 SettlementRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MultilateralSettlementRequest2 SettlementRequest { get; init; } 
+    public required MultilateralSettlementRequest2 SettlementRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MultilateralSettlementRequest2 SettlementRequest { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord<Multilater
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_vsvOhwcYEeyTDbUIoCmuCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord<Multilater
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MultilateralSettlementRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MultilateralSettlementRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MultilateralSettlementRequestV01Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record MultilateralSettlementRequestV01 : IOuterRecord<Multilater
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MultilateralSettlementRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MultilateralSettlementRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MultilateralSettlementRequestV01Document : IOuterDocument<MultilateralSettlementRequestV01>
@@ -163,7 +158,7 @@ public partial record MultilateralSettlementRequestV01Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MultilateralSettlementRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MultilateralSettlementRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MultilateralSettlementRequestV01 Message { get; init; }

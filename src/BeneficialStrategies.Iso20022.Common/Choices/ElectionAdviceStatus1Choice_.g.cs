@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ElectionAdviceStatus1Choice.ProcessedStatus))]
     [KnownType(typeof(ElectionAdviceStatus1Choice.RejectedStatus))]
     [IsoId("_RiYWxtp-Ed-ak6NoX_4Aeg_896505165")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Advice Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

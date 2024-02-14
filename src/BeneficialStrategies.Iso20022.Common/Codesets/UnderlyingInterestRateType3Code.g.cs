@@ -21,7 +21,7 @@ public enum UnderlyingInterestRateType3Code
 {
     /// <summary>
     /// Underlying is a bond.
-    /// Encoded/decoded by serializers as "BOND".
+    /// Encoded/decoded by serializers as &quot;BOND&quot;.
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_UWAiQYCmEea6KOHFXW8q7A")]
@@ -30,7 +30,7 @@ public enum UnderlyingInterestRateType3Code
     
     /// <summary>
     /// Underlying is a bond future.
-    /// Encoded/decoded by serializers as "BNDF".
+    /// Encoded/decoded by serializers as &quot;BNDF&quot;.
     /// </summary>
     [EnumMember(Value = "BNDF")]
     [IsoId("_U0WrIYCmEea6KOHFXW8q7A")]
@@ -39,7 +39,7 @@ public enum UnderlyingInterestRateType3Code
     
     /// <summary>
     /// Underlying is interest rate.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_V2Q0EYCmEea6KOHFXW8q7A")]
@@ -48,7 +48,7 @@ public enum UnderlyingInterestRateType3Code
     
     /// <summary>
     /// Underlying is an interest rate future or a forward rate agreement (FRA).
-    /// Encoded/decoded by serializers as "IFUT".
+    /// Encoded/decoded by serializers as &quot;IFUT&quot;.
     /// </summary>
     [EnumMember(Value = "IFUT")]
     [IsoId("_WVWj0YCmEea6KOHFXW8q7A")]

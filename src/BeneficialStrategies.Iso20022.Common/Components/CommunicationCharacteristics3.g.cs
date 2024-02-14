@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Low level communication of the hardware or software component toward another component or an external entity.
 /// </summary>
 [IsoId("_C4EK8bCZEeapjPTKZHuM2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Communication Characteristics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CommunicationCharacteristics3
     /// Type of low level communication.
     /// </summary>
     [IsoId("_DExKMbCZEeapjPTKZHuM2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Communication Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComTp")]
     #endif
+    [IsoXmlTag("ComTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required POICommunicationType2Code CommunicationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public POICommunicationType2Code CommunicationType { get; init; } 
+    public required POICommunicationType2Code CommunicationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public POICommunicationType2Code CommunicationType { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record CommunicationCharacteristics3
     /// Entity that communicate with the current component, using this communication device.
     /// </summary>
     [IsoId("_DExKM7CZEeapjPTKZHuM2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remote Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmotPty")]
     #endif
+    [IsoXmlTag("RmotPty")]
     public PartyType7Code? RemoteParty { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _DExKM7CZEeapjPTKZHuM2w
     
@@ -85,16 +81,16 @@ public partial record CommunicationCharacteristics3
     /// Communication hardware is activated.
     /// </summary>
     [IsoId("_DExKNbCZEeapjPTKZHuM2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Active")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Actv")]
     #endif
+    [IsoXmlTag("Actv")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator Active { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Active { get; init; } 
+    public required System.String Active { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Active { get; init; } 
     #else

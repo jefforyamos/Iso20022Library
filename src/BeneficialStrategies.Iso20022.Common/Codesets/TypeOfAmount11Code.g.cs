@@ -21,7 +21,7 @@ public enum TypeOfAmount11Code
 {
     /// <summary>
     /// Actual amount.
-    /// Encoded/decoded by serializers as "ACTL".
+    /// Encoded/decoded by serializers as &quot;ACTL&quot;.
     /// </summary>
     [EnumMember(Value = "ACTL")]
     [IsoId("_-phBoVKQEeeFcfYfFkVztg")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount11Code
     
     /// <summary>
     /// Default amount.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("__S4HsVKQEeeFcfYfFkVztg")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount11Code
     
     /// <summary>
     /// Estimated amount (the final amount could be above or below).
-    /// Encoded/decoded by serializers as "ESTM".
+    /// Encoded/decoded by serializers as &quot;ESTM&quot;.
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("__uZmEVKQEeeFcfYfFkVztg")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount11Code
     
     /// <summary>
     /// Maximum amount (the final amount must be less or equal).
-    /// Encoded/decoded by serializers as "MAXI".
+    /// Encoded/decoded by serializers as &quot;MAXI&quot;.
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_BBtoEVKREeeFcfYfFkVztg")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount11Code
     
     /// <summary>
     /// Reserved or updated reserved amount for reservation.
-    /// Encoded/decoded by serializers as "RESD".
+    /// Encoded/decoded by serializers as &quot;RESD&quot;.
     /// </summary>
     [EnumMember(Value = "RESD")]
     [IsoId("_BkrLMVKREeeFcfYfFkVztg")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount11Code
     
     /// <summary>
     /// Substitute for an amount to be authorised.
-    /// Encoded/decoded by serializers as "PRXY".
+    /// Encoded/decoded by serializers as &quot;PRXY&quot;.
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_TiJCwUNGEeiut6dbx3wnBg")]
@@ -75,7 +75,7 @@ public enum TypeOfAmount11Code
     
     /// <summary>
     /// Deposit amount.
-    /// Encoded/decoded by serializers as "DPST".
+    /// Encoded/decoded by serializers as &quot;DPST&quot;.
     /// </summary>
     [EnumMember(Value = "DPST")]
     [IsoId("_jZ-6cbrBEeiRnc958wUXqA")]

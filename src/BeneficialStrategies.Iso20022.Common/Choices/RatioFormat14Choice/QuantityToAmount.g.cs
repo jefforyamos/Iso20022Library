@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat14Choice
     /// Ratio expressed as a quantity to amount ratio.
     /// </summary>
     [IsoId("_ffvb-AgYEeCVlvYcV4HKqQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity To Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat14Choice
         /// Cash amount.
         /// </summary>
         [IsoId("_WPFWdNp-Ed-ak6NoX_4Aeg_-1390119931")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat14Choice
         /// Quantity expressed as number.
         /// </summary>
         [IsoId("_WPFWddp-Ed-ak6NoX_4Aeg_-1103574033")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Qty")]
         #endif
+        [IsoXmlTag("Qty")]
+        [IsoSimpleType(IsoSimpleType.RestrictedFINDecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedFINDecimalNumber Quantity { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Quantity { get; init; } 
+        public required System.UInt64 Quantity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Quantity { get; init; } 
         #else

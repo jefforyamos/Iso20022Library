@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Direction4Choice.Direction))]
     [KnownType(typeof(Direction4Choice.CounterpartySide))]
     [IsoId("_ZdjwgS0WEe2ZUuvBHegNNg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direction 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

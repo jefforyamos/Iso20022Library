@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Maintenance command the ATM must perform.
 /// </summary>
 [IsoId("_j2e5wV_SEeeD0NpJQPACzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("ATM Command")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ATMCommand10
     /// Type of command to be performed by the ATM.
     /// </summary>
     [IsoId("_j_HRUV_SEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ATMCommand6Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ATMCommand6Code Type { get; init; } 
+    public required ATMCommand6Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ATMCommand6Code Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ATMCommand10
     /// Urgency of the command.
     /// </summary>
     [IsoId("_j_HRU1_SEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Urgency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Urgcy")]
     #endif
+    [IsoXmlTag("Urgcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TMSContactLevel2Code Urgency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TMSContactLevel2Code Urgency { get; init; } 
+    public required TMSContactLevel2Code Urgency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TMSContactLevel2Code Urgency { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record ATMCommand10
     /// Date time on which the command must be performed.
     /// </summary>
     [IsoId("_j_HRVV_SEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtTm")]
     #endif
+    [IsoXmlTag("DtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,11 @@ public partial record ATMCommand10
     /// Identification of the entity issuing the command.
     /// </summary>
     [IsoId("_j_HRV1_SEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdId")]
     #endif
+    [IsoXmlTag("CmdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +123,11 @@ public partial record ATMCommand10
     /// Reason for sending the command.
     /// </summary>
     [IsoId("_j_HRWV_SEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandReason1Code? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +140,11 @@ public partial record ATMCommand10
     /// Trace of reasons by the entities in the path from the origin of the command to the ATM.
     /// </summary>
     [IsoId("_j_HRW1_SEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trace Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TracRsn")]
     #endif
+    [IsoXmlTag("TracRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandReason1Code? TraceReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,15 +157,13 @@ public partial record ATMCommand10
     /// Additional information about the reason to request this command.
     /// </summary>
     [IsoId("_j_HRXV_SEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? AdditionalReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +176,11 @@ public partial record ATMCommand10
     /// Specific parameters attached to the command.
     /// </summary>
     [IsoId("_j_HRX1_SEeeD0NpJQPACzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Command Parameters")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmdParams")]
     #endif
+    [IsoXmlTag("CmdParams")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ATMCommandParameters3Choice_? CommandParameters { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

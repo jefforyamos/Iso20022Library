@@ -21,7 +21,7 @@ public enum StatusSubType1Code
 {
     /// <summary>
     /// No flag has been set for the sub status of the trade notification.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_95DRkR3cEeKXIbeXfdPzuw")]
@@ -30,7 +30,7 @@ public enum StatusSubType1Code
     
     /// <summary>
     /// Pending flag has been set to true for the sub status of the trade notification.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_99_b8R3cEeKXIbeXfdPzuw")]
@@ -39,7 +39,7 @@ public enum StatusSubType1Code
     
     /// <summary>
     /// Same day flag has been set to true for the sub status of the trade notification.
-    /// Encoded/decoded by serializers as "SMDY".
+    /// Encoded/decoded by serializers as &quot;SMDY&quot;.
     /// </summary>
     [EnumMember(Value = "SMDY")]
     [IsoId("_-INu8R3cEeKXIbeXfdPzuw")]
@@ -48,7 +48,7 @@ public enum StatusSubType1Code
     
     /// <summary>
     /// Both the same day and pending flags have been set to true for the sub status of the trade notification.
-    /// Encoded/decoded by serializers as "SDPG".
+    /// Encoded/decoded by serializers as &quot;SDPG&quot;.
     /// </summary>
     [EnumMember(Value = "SDPG")]
     [IsoId("_-NepcR3cEeKXIbeXfdPzuw")]

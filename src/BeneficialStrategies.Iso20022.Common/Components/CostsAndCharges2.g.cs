@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Costs and charges associated with the distribution or selling of a financial instrument. These may be one-off or recurring charges. These may be intended (ex ante) or actual (ex post).
 /// </summary>
 [IsoId("_peMCcZ9BEeqxTNfi5y7ywQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Costs And Charges")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record CostsAndCharges2
     /// Reference date applicable to all ex ante cost and charge disclosures. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07160.
     /// </summary>
     [IsoId("_-J7n4cpmEeqy06E9zwBYlQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ex Ante Reference Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExAnteRefDt")]
     #endif
+    [IsoXmlTag("ExAnteRefDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExAnteReferenceDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record CostsAndCharges2
     /// Individual cost or charge associated with the distribution of selling of the financial instrument. This may be one-off or recurring. This may be ex ante (intended) or post ante (actual).
     /// </summary>
     [IsoId("_p37YLZ9BEeqxTNfi5y7ywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Cost Or Charge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvCostOrChrg")]
     #endif
+    [IsoXmlTag("IndvCostOrChrg")]
     public IndividualCostOrCharge2? IndividualCostOrCharge { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _p37YLZ9BEeqxTNfi5y7ywQ
     
@@ -75,12 +72,11 @@ public partial record CostsAndCharges2
     /// Additional information about costs and charges.
     /// </summary>
     [IsoId("_p37YL59BEeqxTNfi5y7ywQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

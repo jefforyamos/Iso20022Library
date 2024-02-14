@@ -21,7 +21,7 @@ public enum GroupCancellationStatus1Code
 {
     /// <summary>
     /// Cancellation is partially accepted.
-    /// Encoded/decoded by serializers as "PACR".
+    /// Encoded/decoded by serializers as &quot;PACR&quot;.
     /// </summary>
     [EnumMember(Value = "PACR")]
     [IsoId("_auruRNp-Ed-ak6NoX_4Aeg_-305868783")]
@@ -30,7 +30,7 @@ public enum GroupCancellationStatus1Code
     
     /// <summary>
     /// Cancellation request is rejected
-    /// Encoded/decoded by serializers as "RJCR".
+    /// Encoded/decoded by serializers as &quot;RJCR&quot;.
     /// </summary>
     [EnumMember(Value = "RJCR")]
     [IsoId("_auruRdp-Ed-ak6NoX_4Aeg_-305868753")]
@@ -39,7 +39,7 @@ public enum GroupCancellationStatus1Code
     
     /// <summary>
     /// Cancellation is accepted.
-    /// Encoded/decoded by serializers as "ACCR".
+    /// Encoded/decoded by serializers as &quot;ACCR&quot;.
     /// </summary>
     [EnumMember(Value = "ACCR")]
     [IsoId("_auruRtp-Ed-ak6NoX_4Aeg_-305868752")]
@@ -48,7 +48,7 @@ public enum GroupCancellationStatus1Code
     
     /// <summary>
     /// Cancellation request is pending.
-    /// Encoded/decoded by serializers as "PDCR".
+    /// Encoded/decoded by serializers as &quot;PDCR&quot;.
     /// </summary>
     [EnumMember(Value = "PDCR")]
     [IsoId("_auruR9p-Ed-ak6NoX_4Aeg_-91612397")]

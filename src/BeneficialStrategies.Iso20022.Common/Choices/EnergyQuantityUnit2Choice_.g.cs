@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EnergyQuantityUnit2Choice.Code))]
     [KnownType(typeof(EnergyQuantityUnit2Choice.Proprietary))]
     [IsoId("_r9qqoSi_EeuKKc2MztSwPw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Energy Quantity Unit 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

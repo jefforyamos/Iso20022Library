@@ -32,13 +32,11 @@ namespace BeneficialStrategies.Iso20022.fxtr;
 /// The report is sent by the trading system to the two trading parties after their trade has been executed. 
 /// The report can also be sent by the trading system to a trading parties to respond their inquiry (TradeCaptureRequest). 
 /// Note that multiple reports can be sent to respond one inquiry message.
-/// The message may contains trade details and trading parties' information.
+/// The message may contains trade details and trading parties&apos; information.
 /// </summary>
 [Description(@"Scope|The ForeignExchangeTradeCaptureReport message is sent by a trading system to a participant for notification and providing details of a treasury trade.|Usage|The report is sent by the trading system to the two trading parties after their trade has been executed. |The report can also be sent by the trading system to a trading parties to respond their inquiry (TradeCaptureRequest). |Note that multiple reports can be sent to respond one inquiry message.|The message may contains trade details and trading parties' information.")]
 [IsoId("_OqvAMkRZEeSWxNI5mwqKGQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Foreign Exchange Trade Capture Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Capture report message management information.
     /// </summary>
     [IsoId("_ZlYv4ERZEeSWxNI5mwqKGQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header23 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header23 Header { get; init; } 
+    public required Header23 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header23 Header { get; init; } 
     #else
@@ -102,12 +99,11 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Identifies the capture report message.
     /// </summary>
     [IsoId("_gWVfQERZEeSWxNI5mwqKGQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
+    [IsoXmlTag("RptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageIdentification1? ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,11 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Specifies the trading side of the treasury trade which is captured.
     /// </summary>
     [IsoId("_kvGPQERZEeSWxNI5mwqKGQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentification7? TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +133,11 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Specifies the counterparty side of the treasury trade which is captured.
     /// </summary>
     [IsoId("_t_XgwERZEeSWxNI5mwqKGQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentification7? CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +150,11 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Details of the treasury trade captured.
     /// </summary>
     [IsoId("_qakFwEU0EeS7YamWDFxbDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Detail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDtl")]
     #endif
+    [IsoXmlTag("TradDtl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Trade1? TradeDetail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +167,11 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Reference of the report.
     /// </summary>
     [IsoId("_yvuZ4EU0EeS7YamWDFxbDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReferences? Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,16 +184,16 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Indicates if this report is for responding to a capture request.
     /// </summary>
     [IsoId("__yMKoEU0EeS7YamWDFxbDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Responder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqRspndr")]
     #endif
+    [IsoXmlTag("ReqRspndr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator RequestResponder { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RequestResponder { get; init; } 
+    public required System.String RequestResponder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RequestResponder { get; init; } 
     #else
@@ -212,12 +204,12 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Indicates if this report is a rejection report for responding to a capture request.
     /// </summary>
     [IsoId("_E2SWoEU1EeS7YamWDFxbDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqRjctd")]
     #endif
+    [IsoXmlTag("ReqRjctd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? RequestRejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,15 +222,13 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Reason of rejection.
     /// </summary>
     [IsoId("_HyozAEU1EeS7YamWDFxbDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Query Reject Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QryRjctRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("QryRjctRsn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? QueryRejectReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -251,12 +241,12 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Indicates the total number of trades.
     /// </summary>
     [IsoId("_4M2w8EU0EeS7YamWDFxbDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Trades")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbTrds")]
     #endif
+    [IsoXmlTag("TtlNbTrds")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? TotalNumberTrades { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -269,12 +259,12 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Indicates if this report is the last report sent for responding to one capture request.
     /// </summary>
     [IsoId("_71d2YEU0EeS7YamWDFxbDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Report Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastRptReqd")]
     #endif
+    [IsoXmlTag("LastRptReqd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? LastReportRequested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -287,12 +277,11 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_IoQyQKHhEeS69KkQis5bYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -305,7 +294,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ForeignExchangeTradeCaptureReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ForeignExchangeTradeCaptureReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ForeignExchangeTradeCaptureReportV01Document ToDocument()
     {
@@ -315,7 +304,7 @@ public partial record ForeignExchangeTradeCaptureReportV01 : IOuterRecord<Foreig
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ForeignExchangeTradeCaptureReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ForeignExchangeTradeCaptureReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ForeignExchangeTradeCaptureReportV01Document : IOuterDocument<ForeignExchangeTradeCaptureReportV01>
@@ -332,7 +321,7 @@ public partial record ForeignExchangeTradeCaptureReportV01Document : IOuterDocum
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ForeignExchangeTradeCaptureReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ForeignExchangeTradeCaptureReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ForeignExchangeTradeCaptureReportV01 Message { get; init; }

@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// </summary>
 [Description(@"The InvoiceAssignmentAcknowledgement message is sent from a trade partner to communicate the status of payment obligations related to financial items. The message can be sent independently or as a response to an InvoiceAssignmentNotification message.|Depending on legal contexts the message may be required as a response to an InvoiceAssignmentNotification message in order for the assignment to become effective.|The trade party may include references to the corresponding items of an InvoiceAssignmentRequest, InvoiceAssignmentStatus or InvoiceAssignmentNotification or other messages and may include referenced data.|The message can carry digital signatures if required by context.")]
 [IsoId("_OTgzNDk4-AOSNFX-8224507")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Assignment Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord<Invoice
     /// Set of characteristics that unambiguously identify the status, common parameters, documents and identifications.
     /// </summary>
     [IsoId("_OTgzNDk5-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BusinessLetter1 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BusinessLetter1 Header { get; init; } 
+    public required BusinessLetter1 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BusinessLetter1 Header { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord<Invoice
     /// List of payment status information.
     /// </summary>
     [IsoId("_OTgzNTAw-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Status List")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtStsList")]
     #endif
+    [IsoXmlTag("PmtStsList")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancingItemList1 PaymentStatusList { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancingItemList1 PaymentStatusList { get; init; } 
+    public required FinancingItemList1 PaymentStatusList { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancingItemList1 PaymentStatusList { get; init; } 
     #else
@@ -119,15 +115,12 @@ public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord<Invoice
     /// Number of payment information lists as control value.
     /// </summary>
     [IsoId("_OTgzNTAx-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Status Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtStsCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("PmtStsCnt")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? PaymentStatusCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,15 +133,12 @@ public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord<Invoice
     /// Total number of individual items in all lists.
     /// </summary>
     [IsoId("_OTgzNTAy-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ItmCnt")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? ItemCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +151,12 @@ public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord<Invoice
     /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
     /// </summary>
     [IsoId("_OTgzNTAz-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Control Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrlSum")]
     #endif
+    [IsoXmlTag("CtrlSum")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ControlSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +169,11 @@ public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord<Invoice
     /// Referenced or related business message.
     /// </summary>
     [IsoId("_OTgzNTA0-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attached Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchdMsg")]
     #endif
+    [IsoXmlTag("AttchdMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncapsulatedBusinessMessage1? AttachedMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -197,7 +186,7 @@ public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord<Invoice
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvoiceAssignmentAcknowledgementV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvoiceAssignmentAcknowledgementV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvoiceAssignmentAcknowledgementV01Document ToDocument()
     {
@@ -207,7 +196,7 @@ public partial record InvoiceAssignmentAcknowledgementV01 : IOuterRecord<Invoice
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceAssignmentAcknowledgementV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvoiceAssignmentAcknowledgementV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvoiceAssignmentAcknowledgementV01Document : IOuterDocument<InvoiceAssignmentAcknowledgementV01>
@@ -224,7 +213,7 @@ public partial record InvoiceAssignmentAcknowledgementV01Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvoiceAssignmentAcknowledgementV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvoiceAssignmentAcknowledgementV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceAssignmentAcknowledgementV01 Message { get; init; }

@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope||An account owner sends a BuyInRegulatoryAdvice to an account servicer to  notify the results of the buy-in transactions executed under CSDR regulatory regime.|||The account owner/servicer relationship may be:|- a central securities depository participant which has an account with a central securities depository.|It could also be, if agreed in a service level agreement:|- a global custodian which has an account with its local agent (sub-custodian), or|- an investment management institution which manage a fund account opened at a custodian, or|- a broker which has an account with a custodian, or|- a central securities depository which has an account with a custodian, another central securities depository or another settlement market infrastructure.|The ultimate receiving party at the end of the settlement chain is a central securities depository or interational central securities depository.||||Usage||The message may also be used to:|- re-send a message previously sent,|- provide a third party with a copy of a message for information,|- re-send to a third party a copy of a message for information using the relevant elements in the Business Application Header.||")]
 [IsoId("_O1mdgZwQEeqtp-LOti013g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Buy In Regulatory Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,12 +79,11 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord<BuyInRegulatoryAdv
     /// Party that legally owns the account.
     /// </summary>
     [IsoId("_O1mdiZwQEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnr")]
     #endif
+    [IsoXmlTag("AcctOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification144? AccountOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -99,16 +96,15 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord<BuyInRegulatoryAdv
     /// Account used in the original failing transaction.
     /// </summary>
     [IsoId("_O1mdi5wQEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgAcct")]
     #endif
+    [IsoXmlTag("SfkpgAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesAccount19 SafekeepingAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesAccount19 SafekeepingAccount { get; init; } 
+    public required SecuritiesAccount19 SafekeepingAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesAccount19 SafekeepingAccount { get; init; } 
     #else
@@ -119,16 +115,15 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord<BuyInRegulatoryAdv
     /// Details of the buy-in.
     /// </summary>
     [IsoId("_O1mdjZwQEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buy In Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyInAttrbts")]
     #endif
+    [IsoXmlTag("BuyInAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BuyInAdviceDetails1 BuyInAttributes { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BuyInAdviceDetails1 BuyInAttributes { get; init; } 
+    public required BuyInAdviceDetails1 BuyInAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BuyInAdviceDetails1 BuyInAttributes { get; init; } 
     #else
@@ -139,12 +134,11 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord<BuyInRegulatoryAdv
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_O1mdkZwQEeqtp-LOti013g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,7 +151,7 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord<BuyInRegulatoryAdv
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BuyInRegulatoryAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BuyInRegulatoryAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BuyInRegulatoryAdviceV01Document ToDocument()
     {
@@ -167,7 +161,7 @@ public partial record BuyInRegulatoryAdviceV01 : IOuterRecord<BuyInRegulatoryAdv
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BuyInRegulatoryAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BuyInRegulatoryAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BuyInRegulatoryAdviceV01Document : IOuterDocument<BuyInRegulatoryAdviceV01>
@@ -184,7 +178,7 @@ public partial record BuyInRegulatoryAdviceV01Document : IOuterDocument<BuyInReg
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BuyInRegulatoryAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BuyInRegulatoryAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BuyInRegulatoryAdviceV01 Message { get; init; }

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeHorizon2Choice
     /// Time frame as a qualitative value.
     /// </summary>
     [IsoId("_VLt3tbVOEeqkjqDuFVh1-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Frame")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

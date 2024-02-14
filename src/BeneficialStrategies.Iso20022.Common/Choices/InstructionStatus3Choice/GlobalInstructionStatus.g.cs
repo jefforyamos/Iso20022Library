@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus3Choice
     /// Status applying globally to the instruction received. The instruction is identified by the InstructionIdentification.
     /// </summary>
     [IsoId("_RCpGw9p-Ed-ak6NoX_4Aeg_1721093163")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Instruction Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

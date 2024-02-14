@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
 /// </summary>
 [IsoId("_Amb4cZJKEeuuktRxxQZoNQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instalment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Instalment4
     /// Indicates the occurrence of a single instalment payment within a series of instalment payments. 
     /// </summary>
     [IsoId("_AsZ9kZJKEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Sequence Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtSeqNb")]
     #endif
+    [IsoXmlTag("PmtSeqNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? PaymentSequenceNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record Instalment4
     /// Attributes of the instalment plan.
     /// </summary>
     [IsoId("_AsZ9k5JKEeuuktRxxQZoNQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Plan")]
     #endif
+    [IsoXmlTag("Plan")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Plan2? Plan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

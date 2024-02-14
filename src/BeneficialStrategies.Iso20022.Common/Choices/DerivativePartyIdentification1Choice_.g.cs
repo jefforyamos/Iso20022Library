@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DerivativePartyIdentification1Choice.CountrySubDivision))]
     [KnownType(typeof(DerivativePartyIdentification1Choice.LEI))]
     [IsoId("_adARgEW8EeWaZZ6gWK8UVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Party Identification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

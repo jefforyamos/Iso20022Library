@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.acmt;
 /// </summary>
 [Description(@"Scope|The AccountModificationInstruction message is sent by an account owner, for example, an investor or its designated agent to the account servicer, for example, a registrar, transfer agent, custodian bank or securities depository to modify, that is, create, update or delete specific details of an existing account.|Usage|The AccountModificationInstruction message is used to modify the details of an existing account.|The AccountModificationInstruction message can be used to:|- maintain/update any of the existing account details, for example, to update the address of the beneficiary or modify the preference to income from distribution to capitalisation, or,|- add/create specific details to the existing account when these details were not yet recorded at the time of account creation, for example, to add a second address or to establish new cash settlement standing instructions, or,|- delete specific account details, for example, delete cash standing instructions, or,|- instruct a change to the status of the account, for example, instruct the closure of the account.|The usage of this message may be subject to service level agreement (SLA) between the counterparties.|Execution of the AccountModificationInstruction is confirmed via an AccountDetailsConfirmation message.")]
 [IsoId("_nayxoZDiEem7fvtoGpNpow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Modification Instruction V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -86,16 +84,15 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_nayxpZDiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -106,12 +103,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_nayxp5DiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference13? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +120,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Information about the modification instruction.
     /// </summary>
     [IsoId("_nayxqZDiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrDtls")]
     #endif
+    [IsoXmlTag("InstrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountModification4? InstructionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,16 +137,15 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Identifies the account for which the information is modified.
     /// </summary>
     [IsoId("_nayxq5DiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account Selection")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcctSelctn")]
     #endif
+    [IsoXmlTag("InvstmtAcctSelctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountSelection3Choice_ InvestmentAccountSelection { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountSelection3Choice_ InvestmentAccountSelection { get; init; } 
+    public required AccountSelection3Choice_ InvestmentAccountSelection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountSelection3Choice_ InvestmentAccountSelection { get; init; } 
     #else
@@ -162,12 +156,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Information related to general characteristics of the account to be inserted, updated or deleted.
     /// </summary>
     [IsoId("_nayxrZDiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Investment Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdInvstmtAcct")]
     #endif
+    [IsoXmlTag("ModfdInvstmtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount75? ModifiedInvestmentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,12 +173,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Information related to an account party to be inserted, updated or deleted.
     /// </summary>
     [IsoId("_nayxr5DiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Account Parties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdAcctPties")]
     #endif
+    [IsoXmlTag("ModfdAcctPties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountParties18? ModifiedAccountParties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,12 +190,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Information related to intermediaries to be inserted, updated or deleted.
     /// </summary>
     [IsoId("_nayxsZDiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Intermediaries")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdIntrmies")]
     #endif
+    [IsoXmlTag("ModfdIntrmies")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationScope40? ModifiedIntermediaries { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -216,12 +207,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Information related to referral information to be inserted, updated or deleted.
     /// </summary>
     [IsoId("_nayxs5DiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Placement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdPlcmnt")]
     #endif
+    [IsoXmlTag("ModfdPlcmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationScope43? ModifiedPlacement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -234,12 +224,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Eligibility conditions related to allocation of new issues to be inserted, updated or deleted.
     /// </summary>
     [IsoId("_nayxtZDiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Issue Allocation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdIsseAllcn")]
     #endif
+    [IsoXmlTag("ModfdIsseAllcn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationScope21? ModifiedIssueAllocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -252,76 +241,63 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Information related to a savings plan to be inserted, updated or deleted.
     /// </summary>
     [IsoId("_nayxt5DiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Savings Investment Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdSvgsInvstmtPlan")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ModfdSvgsInvstmtPlan")]
     [MinLength(0)]
     [MaxLength(50)]
-    #endif
     public ValueList<ModificationScope41> ModifiedSavingsInvestmentPlan { get; init; } = new ValueList<ModificationScope41>(){};
     
     /// <summary>
     /// Information related to a withdrawal plan to be inserted, updated or deleted.
     /// </summary>
     [IsoId("_nayxuZDiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Withdrawal Investment Plan")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdWdrwlInvstmtPlan")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ModfdWdrwlInvstmtPlan")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<ModificationScope41> ModifiedWithdrawalInvestmentPlan { get; init; } = new ValueList<ModificationScope41>(){};
     
     /// <summary>
     /// Cash settlement standing instruction to be either inserted or deleted.
     /// </summary>
     [IsoId("_nayxu5DiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Cash Settlement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdCshSttlm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ModfdCshSttlm")]
     [MinLength(0)]
     [MaxLength(8)]
-    #endif
     public ValueList<CashSettlement4> ModifiedCashSettlement { get; init; } = new ValueList<CashSettlement4>(){};
     
     /// <summary>
     /// Information related to documents to be added, deleted or updated.
     /// </summary>
     [IsoId("_nayxvZDiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Service Level Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdSvcLvlAgrmt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ModfdSvcLvlAgrmt")]
     [MinLength(0)]
     [MaxLength(30)]
-    #endif
     public ValueList<ModificationScope44> ModifiedServiceLevelAgreement { get; init; } = new ValueList<ModificationScope44>(){};
     
     /// <summary>
     /// Information related to additional information to be added, deleted or updated.
     /// </summary>
     [IsoId("_nayxv5DiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modified Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModfdAddtlInf")]
     #endif
+    [IsoXmlTag("ModfdAddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ModificationScope45? ModifiedAdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -334,12 +310,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Identifies the market practice to which the message conforms.
     /// </summary>
     [IsoId("_nayxwZDiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Practice Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktPrctcVrsn")]
     #endif
+    [IsoXmlTag("MktPrctcVrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketPracticeVersion1? MarketPracticeVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -352,12 +327,11 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_nayxw5DiEem7fvtoGpNpow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -370,7 +344,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountModificationInstructionV08Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountModificationInstructionV08Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountModificationInstructionV08Document ToDocument()
     {
@@ -380,7 +354,7 @@ public partial record AccountModificationInstructionV08 : IOuterRecord<AccountMo
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountModificationInstructionV08"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountModificationInstructionV08&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountModificationInstructionV08Document : IOuterDocument<AccountModificationInstructionV08>
@@ -397,7 +371,7 @@ public partial record AccountModificationInstructionV08Document : IOuterDocument
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountModificationInstructionV08"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountModificationInstructionV08&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountModificationInstructionV08 Message { get; init; }

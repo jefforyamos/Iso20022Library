@@ -21,7 +21,7 @@ public enum InvestorProfileStatus1Code
 {
     /// <summary>
     /// Status of the investor profile is disabled.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_vl8EoSDREeWCLu74WLgP4w")]
@@ -30,7 +30,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is in the process of being disabled.
-    /// Encoded/decoded by serializers as "DISG".
+    /// Encoded/decoded by serializers as &quot;DISG&quot;.
     /// </summary>
     [EnumMember(Value = "DISG")]
     [IsoId("_vt9_QSDREeWCLu74WLgP4w")]
@@ -39,7 +39,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is enabled.
-    /// Encoded/decoded by serializers as "ENAB".
+    /// Encoded/decoded by serializers as &quot;ENAB&quot;.
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_v2cl0SDREeWCLu74WLgP4w")]
@@ -48,7 +48,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is in the process of being enabled.
-    /// Encoded/decoded by serializers as "ENBG".
+    /// Encoded/decoded by serializers as &quot;ENBG&quot;.
     /// </summary>
     [EnumMember(Value = "ENBG")]
     [IsoId("_v-yCcSDREeWCLu74WLgP4w")]
@@ -57,7 +57,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is in admission.
-    /// Encoded/decoded by serializers as "ADMI".
+    /// Encoded/decoded by serializers as &quot;ADMI&quot;.
     /// </summary>
     [EnumMember(Value = "ADMI")]
     [IsoId("_wBms8SDREeWCLu74WLgP4w")]
@@ -66,7 +66,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is in analysis.
-    /// Encoded/decoded by serializers as "ANLY".
+    /// Encoded/decoded by serializers as &quot;ANLY&quot;.
     /// </summary>
     [EnumMember(Value = "ANLY")]
     [IsoId("_wJ8JkSDREeWCLu74WLgP4w")]
@@ -75,7 +75,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is not approved.
-    /// Encoded/decoded by serializers as "NAPP".
+    /// Encoded/decoded by serializers as &quot;NAPP&quot;.
     /// </summary>
     [EnumMember(Value = "NAPP")]
     [IsoId("_wTBNESDREeWCLu74WLgP4w")]
@@ -84,7 +84,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is partially suspended.
-    /// Encoded/decoded by serializers as "PSUS".
+    /// Encoded/decoded by serializers as &quot;PSUS&quot;.
     /// </summary>
     [EnumMember(Value = "PSUS")]
     [IsoId("_wV13kSDREeWCLu74WLgP4w")]
@@ -93,7 +93,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is pending approval.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_wd3yMSDREeWCLu74WLgP4w")]
@@ -102,7 +102,7 @@ public enum InvestorProfileStatus1Code
     
     /// <summary>
     /// Status of the investor profile is suspended.
-    /// Encoded/decoded by serializers as "SUPS".
+    /// Encoded/decoded by serializers as &quot;SUPS&quot;.
     /// </summary>
     [EnumMember(Value = "SUPS")]
     [IsoId("_wl6T4SDREeWCLu74WLgP4w")]

@@ -21,7 +21,7 @@ public enum AssetClassSubProductType15Code
 {
     /// <summary>
     /// Commodity of type non precious metals.
-    /// Encoded/decoded by serializers as "NPRM".
+    /// Encoded/decoded by serializers as &quot;NPRM&quot;.
     /// </summary>
     [EnumMember(Value = "NPRM")]
     [IsoId("_lluxkQn0EeWnS-yHF1QhNQ")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Remittance information that provides all remittance address elements, that enables the matching, i.e. reconciliation, of a payment with the items that the transaction in intended to settle.
 /// </summary>
 [IsoId("_QFjMYdp-Ed-ak6NoX_4Aeg_-1561763068")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Remittance Location")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record RemittanceLocation1
     /// Unique and unambiguous identification of the remittance information, e.g. a remittance advice, which is sent separately from the payment instruction.
     /// </summary>
     [IsoId("_QFjMYtp-Ed-ak6NoX_4Aeg_-1560839700")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remittance Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RmtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RemittanceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record RemittanceLocation1
     /// Specifies the method used to deliver the remittance advice information.
     /// </summary>
     [IsoId("_QFjMY9p-Ed-ak6NoX_4Aeg_-1561761112")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remittance Location Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtLctnMtd")]
     #endif
+    [IsoXmlTag("RmtLctnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemittanceLocationMethod1Code? RemittanceLocationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record RemittanceLocation1
     /// Electronic address to which an agent is to send the remittance information.
     /// </summary>
     [IsoId("_QFjMZNp-Ed-ak6NoX_4Aeg_-1561759732")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remittance Location Electronic Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtLctnElctrncAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RmtLctnElctrncAdr")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax256Text? RemittanceLocationElectronicAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +97,11 @@ public partial record RemittanceLocation1
     /// Postal address to which an agent is to send the remittance information.
     /// </summary>
     [IsoId("_QFjMZdp-Ed-ak6NoX_4Aeg_-1560837547")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remittance Location Postal Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtLctnPstlAdr")]
     #endif
+    [IsoXmlTag("RmtLctnPstlAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NameAndAddress3? RemittanceLocationPostalAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Attributes of a position in a financial instrument or financial product.
 /// </summary>
 [IsoId("_hpBo0LC8EeaSl6vJk5Bd8w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record Position1
     /// CCP’s unique internal identifier for product.
     /// </summary>
     [IsoId("_pAx5gLC8EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PdctId")]
+    [IsoSimpleType(IsoSimpleType.Max256Text)]
     [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax256Text ProductIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ProductIdentification { get; init; } 
+    public required System.String ProductIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ProductIdentification { get; init; } 
     #else
@@ -77,12 +73,11 @@ public partial record Position1
     /// Obligations of a clearing member with respect to a central counterparty based on the position at end of day.
     /// </summary>
     [IsoId("_9_UI8LC8EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskRqrmnt")]
     #endif
+    [IsoXmlTag("RskRqrmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EndOfDayRequirement1? RiskRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,16 +90,16 @@ public partial record Position1
     /// Gross notional of positions of the product without netting of long/short positions, or delta equivalent notional for options.
     /// </summary>
     [IsoId("_kmlCQLDAEeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Notional")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssNtnl")]
     #endif
+    [IsoXmlTag("GrssNtnl")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd24Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd24Amount GrossNotional { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal GrossNotional { get; init; } 
+    public required System.Decimal GrossNotional { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal GrossNotional { get; init; } 
     #else
@@ -115,16 +110,15 @@ public partial record Position1
     /// Net notional of positions of the product with netting between long and short positions, or delta equivalent notional for options. Indicates whether net long position is positive.
     /// </summary>
     [IsoId("_tsKGsLDAEeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Notional")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetNtnl")]
     #endif
+    [IsoXmlTag("NetNtnl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection102 NetNotional { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection102 NetNotional { get; init; } 
+    public required AmountAndDirection102 NetNotional { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection102 NetNotional { get; init; } 
     #else
@@ -135,12 +129,12 @@ public partial record Position1
     /// Change in value of position for a unit change in the index. Usage: for interest rate swaps the PV01 of the gross position, for credit default swaps the DV01 of the gross position, for index products with a fixed value per unit move, the total weighted value of a one unit move in the index for the gross contracts in the position, weighted by the delta of the contracts in the position.
     /// </summary>
     [IsoId("_pDrzcOPIEea7_eMQH225xA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Delta Equivalent Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssDltaEqvtVal")]
     #endif
+    [IsoXmlTag("GrssDltaEqvtVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? GrossDeltaEquivalentValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,12 +147,11 @@ public partial record Position1
     /// Change in value of position for a unit change in the index. Usage: for interest rate swaps the PV01 of the net position, for credit default swaps the DV01 of the net position, for index products with a fixed value per unit move, the total weighted value of a one unit move in the index for the net contracts in the position, weighted by the delta of the contracts in the position. Indicates whether net long position is positive.
     /// </summary>
     [IsoId("_sNRakOPIEea7_eMQH225xA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Delta Equivalent Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetDltaEqvtVal")]
     #endif
+    [IsoXmlTag("NetDltaEqvtVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection102? NetDeltaEquivalentValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -171,12 +164,12 @@ public partial record Position1
     /// Gross weighted quantity of the lots in the position weighted by the delta of the contracts in the position.
     /// </summary>
     [IsoId("_v4CcIOPIEea7_eMQH225xA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Delta Equivalent Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssDltaEqvtQty")]
     #endif
+    [IsoXmlTag("GrssDltaEqvtQty")]
+    [IsoSimpleType(IsoSimpleType.NonNegativeFraction5DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNonNegativeFraction5DecimalNumber? GrossDeltaEquivalentQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -189,12 +182,12 @@ public partial record Position1
     /// Net weighted quantity of the lots in the position weighted by the delta of the contracts in the position.
     /// </summary>
     [IsoId("_yafx0OPIEea7_eMQH225xA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Delta Equivalent Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetDltaEqvtQty")]
     #endif
+    [IsoXmlTag("NetDltaEqvtQty")]
+    [IsoSimpleType(IsoSimpleType.Fraction5DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoFraction5DecimalNumber? NetDeltaEquivalentQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -207,16 +200,16 @@ public partial record Position1
     /// Gross market value of the positions of the product without netting of long/short positions.
     /// </summary>
     [IsoId("_Cx7KsDT1EemwtJBLtapBmw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Gross Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrssMktVal")]
     #endif
+    [IsoXmlTag("GrssMktVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount GrossMarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal GrossMarketValue { get; init; } 
+    public required System.Decimal GrossMarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal GrossMarketValue { get; init; } 
     #else

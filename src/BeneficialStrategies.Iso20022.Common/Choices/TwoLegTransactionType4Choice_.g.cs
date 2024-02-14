@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TwoLegTransactionType4Choice.FutureOrOptionDetails))]
     [KnownType(typeof(TwoLegTransactionType4Choice.SecuritiesFinancingDetails))]
     [IsoId("_854_sQhKEe2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Two Leg Transaction Type 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

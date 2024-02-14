@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType72Choice
     /// Standard code to specify the type of gross dividend rate.
     /// </summary>
     [IsoId("_skrJec3wEee5nJBZsW8MFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType72Choice
         /// Specifies the type of dividend rate.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GrossDividendRateType4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GrossDividendRateType4Code Value { get; init; } 
+        public required GrossDividendRateType4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GrossDividendRateType4Code Value { get; init; } 
         #else

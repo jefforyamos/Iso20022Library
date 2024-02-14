@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NetDividendRateFormat32Choice.AmountAndRateStatus))]
     [KnownType(typeof(NetDividendRateFormat32Choice.RateTypeAndAmountAndRateStatus))]
     [IsoId("_S_-xNZb9Eee8S7xwGG7Veg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Dividend Rate Format 32 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum GoodAndServiceDeliveryScheduleCode
 {
     /// <summary>
     /// Same day delivery.
-    /// Encoded/decoded by serializers as "SDDL".
+    /// Encoded/decoded by serializers as &quot;SDDL&quot;.
     /// </summary>
     [EnumMember(Value = "SDDL")]
     [IsoId("_qfb5gD5KEeyHI64WSlzTlg")]
@@ -30,7 +30,7 @@ public enum GoodAndServiceDeliveryScheduleCode
     
     /// <summary>
     /// Overnight delivery.
-    /// Encoded/decoded by serializers as "ONDL".
+    /// Encoded/decoded by serializers as &quot;ONDL&quot;.
     /// </summary>
     [EnumMember(Value = "ONDL")]
     [IsoId("_qn5R8D5KEeyHI64WSlzTlg")]
@@ -39,7 +39,7 @@ public enum GoodAndServiceDeliveryScheduleCode
     
     /// <summary>
     /// Two days or more delivery.
-    /// Encoded/decoded by serializers as "TDDL".
+    /// Encoded/decoded by serializers as &quot;TDDL&quot;.
     /// </summary>
     [EnumMember(Value = "TDDL")]
     [IsoId("_qw9uYD5KEeyHI64WSlzTlg")]
@@ -48,7 +48,7 @@ public enum GoodAndServiceDeliveryScheduleCode
     
     /// <summary>
     /// Other delivery schedule defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_q7pUYD5KEeyHI64WSlzTlg")]
@@ -57,7 +57,7 @@ public enum GoodAndServiceDeliveryScheduleCode
     
     /// <summary>
     /// Other delivery schedule defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_rMSYcD5KEeyHI64WSlzTlg")]

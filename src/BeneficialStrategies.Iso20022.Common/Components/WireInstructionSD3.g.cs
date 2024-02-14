@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment wire instruction details.
 /// </summary>
 [IsoId("_5SM54b5YEeexmbB7KsjCwA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Wire Instruction SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -60,15 +58,13 @@ public partial record WireInstructionSD3
     /// Xpath to the element that is being extended.
     /// </summary>
     [IsoId("_5iuCIb5YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -81,16 +77,15 @@ public partial record WireInstructionSD3
     /// Quantity of securities concerned in this wire.
     /// </summary>
     [IsoId("_5iuCI75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Wire Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WireQty")]
     #endif
+    [IsoXmlTag("WireQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity15Choice_ WireQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity15Choice_ WireQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ WireQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity15Choice_ WireQuantity { get; init; } 
     #else
@@ -101,19 +96,16 @@ public partial record WireInstructionSD3
     /// Name of the recipient bank for the wire.
     /// </summary>
     [IsoId("_5iuCK75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BkNm")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax30Text BankName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BankName { get; init; } 
+    public required System.String BankName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BankName { get; init; } 
     #else
@@ -124,19 +116,16 @@ public partial record WireInstructionSD3
     /// Street address of the recipient bank for the wire.
     /// </summary>
     [IsoId("_5iuCM75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkAdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BkAdr")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax30Text BankAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BankAddress { get; init; } 
+    public required System.String BankAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BankAddress { get; init; } 
     #else
@@ -147,19 +136,16 @@ public partial record WireInstructionSD3
     /// City of the recipient bank for the wire.
     /// </summary>
     [IsoId("_5iuCO75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank City")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkCity")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BkCity")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax30Text BankCity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BankCity { get; init; } 
+    public required System.String BankCity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BankCity { get; init; } 
     #else
@@ -170,16 +156,15 @@ public partial record WireInstructionSD3
     /// Country of the recipient bank for the wire.
     /// </summary>
     [IsoId("_5iuCQ75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkCtry")]
     #endif
+    [IsoXmlTag("BkCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode BankCountry { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string BankCountry { get; init; } 
+    public required string BankCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string BankCountry { get; init; } 
     #else
@@ -190,19 +175,16 @@ public partial record WireInstructionSD3
     /// Responsible person in the recipient back for the wire.
     /// </summary>
     [IsoId("_5iuCS75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Attention To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkAttnTo")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BkAttnTo")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax30Text BankAttentionTo { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BankAttentionTo { get; init; } 
+    public required System.String BankAttentionTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BankAttentionTo { get; init; } 
     #else
@@ -213,19 +195,17 @@ public partial record WireInstructionSD3
     /// Notes or comments for the recipient bank for the wire.
     /// </summary>
     [IsoId("_5iuCU75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Comments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkCmnts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BkCmnts")]
+    [IsoSimpleType(IsoSimpleType.Max60Text)]
     [StringLength(maximumLength: 60 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax60Text BankComments { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BankComments { get; init; } 
+    public required System.String BankComments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BankComments { get; init; } 
     #else
@@ -236,19 +216,16 @@ public partial record WireInstructionSD3
     /// Account type at the recipient bank for the wire.
     /// </summary>
     [IsoId("_5iuCW75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryAcct")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BnfcryAcct")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax30Text BeneficiaryAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BeneficiaryAccount { get; init; } 
+    public required System.String BeneficiaryAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BeneficiaryAccount { get; init; } 
     #else
@@ -259,19 +236,16 @@ public partial record WireInstructionSD3
     /// Account identification at the recipient bank for the wire.
     /// </summary>
     [IsoId("_5iuCY75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryAcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BnfcryAcctId")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax30Text BeneficiaryAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BeneficiaryAccountIdentification { get; init; } 
+    public required System.String BeneficiaryAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BeneficiaryAccountIdentification { get; init; } 
     #else
@@ -282,19 +256,16 @@ public partial record WireInstructionSD3
     /// Notes or comments for the beneficiary account at the recipient bank for the wire.
     /// </summary>
     [IsoId("_5iuCa75YEeexmbB7KsjCwA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Account Comments")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryAcctCmnts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 30 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("BnfcryAcctCmnts")]
+    [IsoSimpleType(IsoSimpleType.Max30Text)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax30Text BeneficiaryAccountComments { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BeneficiaryAccountComments { get; init; } 
+    public required System.String BeneficiaryAccountComments { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BeneficiaryAccountComments { get; init; } 
     #else

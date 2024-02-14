@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment terms and conditions related to a single invoice to be financed.
 /// </summary>
 [IsoId("_PyxaV9p-Ed-ak6NoX_4Aeg_-1837581386")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PaymentInformation15
     /// Payment method that will be used for invoice payment to transfer the funds to the creditor.
     /// </summary>
     [IsoId("_Py7LUNp-Ed-ak6NoX_4Aeg_-1837581384")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtMtd")]
     #endif
+    [IsoXmlTag("PmtMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentMethod4Code PaymentMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentMethod4Code PaymentMethod { get; init; } 
+    public required PaymentMethod4Code PaymentMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentMethod4Code PaymentMethod { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PaymentInformation15
     /// Unambiguous identification of the account used for payment settlement.
     /// </summary>
     [IsoId("_Py7LUdp-Ed-ak6NoX_4Aeg_-102369781")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtAcct")]
     #endif
+    [IsoXmlTag("PmtAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashAccount7? PaymentAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

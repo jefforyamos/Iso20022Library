@@ -21,7 +21,7 @@ public enum SupportedPaymentOption1Code
 {
     /// <summary>
     /// The entity supports a partial approval of the payment transaction.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_Aa2nQTAOEeOqioR9srQH1g")]
@@ -30,7 +30,7 @@ public enum SupportedPaymentOption1Code
     
     /// <summary>
     /// The entity supports the approval of the payment service along with the decline of additional requested services (as cash-back).
-    /// Encoded/decoded by serializers as "MSRV".
+    /// Encoded/decoded by serializers as &quot;MSRV&quot;.
     /// </summary>
     [EnumMember(Value = "MSRV")]
     [IsoId("_Am5fMzAOEeOqioR9srQH1g")]

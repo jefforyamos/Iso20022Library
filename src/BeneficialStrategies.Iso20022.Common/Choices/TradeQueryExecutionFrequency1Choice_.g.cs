@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeQueryExecutionFrequency1Choice.Weekly))]
     [KnownType(typeof(TradeQueryExecutionFrequency1Choice.Monthly))]
     [IsoId("_ZjhR4NGYEeaQk737TH1Fzw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Query Execution Frequency 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

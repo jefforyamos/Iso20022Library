@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat12Choice
     /// Date expressed as an ISO Date.
     /// </summary>
     [IsoId("_T6Em6tp-Ed-ak6NoX_4Aeg_-1991980057")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared16Choice
     /// Indicates that the contract has been cleared.
     /// </summary>
     [IsoId("_gKmIUcg4Eeu4ecZgAYuz5w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cleared")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared16Choice
         /// In the case of a contract that has been cleared, the unique code for the clearing counterparty that has cleared the contract.
         /// </summary>
         [IsoId("_gMBrs8g4Eeu4ecZgAYuz5w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("CCP")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CCP")]
         #endif
+        [IsoXmlTag("CCP")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public OrganisationIdentification15Choice_? CCP { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared16Choice
         /// Time and date when clearing took place.
         /// </summary>
         [IsoId("_gMBrtcg4Eeu4ecZgAYuz5w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Clearing Date Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClrDtTm")]
         #endif
+        [IsoXmlTag("ClrDtTm")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODateTime? ClearingDateTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,15 +82,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared16Choice
         /// Unique number to indicate a group of reports which relate to the same execution.
         /// </summary>
         [IsoId("_gMBrt8g4Eeu4ecZgAYuz5w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Report Tracking Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RptTrckgNb")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("RptTrckgNb")]
+        [IsoSimpleType(IsoSimpleType.Max52Text)]
         [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax52Text? ReportTrackingNumber { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,15 +101,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared16Choice
         /// Unique code determined by the reporting counterparty identifying the portfolio.
         /// </summary>
         [IsoId("_gMBrucg4Eeu4ecZgAYuz5w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Portfolio Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtflCd")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PrtflCd")]
+        [IsoSimpleType(IsoSimpleType.Max52Text)]
         [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax52Text? PortfolioCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

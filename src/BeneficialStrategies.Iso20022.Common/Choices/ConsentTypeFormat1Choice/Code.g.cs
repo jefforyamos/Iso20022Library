@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentTypeFormat1Choice
     /// Standard code to specify the consent type required.
     /// </summary>
     [IsoId("_6VY1sCHnEeOQ7qT4JUI53A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentTypeFormat1Choice
         /// Specifies the type of consent announced.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ConsentType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ConsentType1Code Value { get; init; } 
+        public required ConsentType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ConsentType1Code Value { get; init; } 
         #else

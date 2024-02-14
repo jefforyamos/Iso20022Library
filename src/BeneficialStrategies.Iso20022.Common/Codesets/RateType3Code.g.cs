@@ -21,7 +21,7 @@ public enum RateType3Code
 {
     /// <summary>
     /// Imputed tax.
-    /// Encoded/decoded by serializers as "IMPU".
+    /// Encoded/decoded by serializers as &quot;IMPU&quot;.
     /// </summary>
     [EnumMember(Value = "IMPU")]
     [IsoId("_ZZcZqdp-Ed-ak6NoX_4Aeg_-1424495955")]
@@ -30,7 +30,7 @@ public enum RateType3Code
     
     /// <summary>
     /// Rate is a precompte.
-    /// Encoded/decoded by serializers as "PREC".
+    /// Encoded/decoded by serializers as &quot;PREC&quot;.
     /// </summary>
     [EnumMember(Value = "PREC")]
     [IsoId("_ZZmKoNp-Ed-ak6NoX_4Aeg_-1424495946")]
@@ -39,7 +39,7 @@ public enum RateType3Code
     
     /// <summary>
     /// Rate is a one tier tax.
-    /// Encoded/decoded by serializers as "TIER".
+    /// Encoded/decoded by serializers as &quot;TIER&quot;.
     /// </summary>
     [EnumMember(Value = "TIER")]
     [IsoId("_ZZmKodp-Ed-ak6NoX_4Aeg_-1424495927")]

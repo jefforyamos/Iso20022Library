@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus33Choice
     /// Instruction has not been matched.
     /// </summary>
     [IsoId("_LuVKgOB-Eei2UYJ62ws-Fw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unmatched")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

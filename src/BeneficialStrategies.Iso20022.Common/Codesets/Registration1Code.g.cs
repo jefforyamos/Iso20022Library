@@ -21,7 +21,7 @@ public enum Registration1Code
 {
     /// <summary>
     /// Hold the securities in street name. If there is a standing instruction in place to register on receipt, then this standing instruction is to be ignored.
-    /// Encoded/decoded by serializers as "NREG".
+    /// Encoded/decoded by serializers as &quot;NREG&quot;.
     /// </summary>
     [EnumMember(Value = "NREG")]
     [IsoId("_Za7nZNp-Ed-ak6NoX_4Aeg_-365554140")]
@@ -30,7 +30,7 @@ public enum Registration1Code
     
     /// <summary>
     /// Register on receipt. If there is a standing instruction in place to hold the securities in street name, then this standing instruction is to be ignored.
-    /// Encoded/decoded by serializers as "YREG".
+    /// Encoded/decoded by serializers as &quot;YREG&quot;.
     /// </summary>
     [EnumMember(Value = "YREG")]
     [IsoId("_Za7nZdp-Ed-ak6NoX_4Aeg_-165149890")]

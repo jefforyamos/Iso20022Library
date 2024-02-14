@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Conditions applicable when the investor is not covered by the "de minimis" exemption.
+/// Conditions applicable when the investor is not covered by the &quot;de minimis&quot; exemption.
 /// </summary>
 [IsoId("_RSI7WNp-Ed-ak6NoX_4Aeg_88957855")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("De Minimus Not Applicable")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record DeMinimusNotApplicable1
     /// Reason for the restricted person.
     /// </summary>
     [IsoId("_RSI7Wdp-Ed-ak6NoX_4Aeg_491616181")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restricted Person Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RstrctdPrsnRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RstrctdPrsnRsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text RestrictedPersonReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RestrictedPersonReason { get; init; } 
+    public required System.String RestrictedPersonReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RestrictedPersonReason { get; init; } 
     #else

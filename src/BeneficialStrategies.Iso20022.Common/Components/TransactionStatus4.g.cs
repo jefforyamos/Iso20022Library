@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the status of the transaction by means of a code.
 /// </summary>
 [IsoId("_RbFb-Np-Ed-ak6NoX_4Aeg_1598523783")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TransactionStatus4
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_RbOl4Np-Ed-ak6NoX_4Aeg_1598523785")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BaselineStatus3Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BaselineStatus3Code Status { get; init; } 
+    public required BaselineStatus3Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BaselineStatus3Code Status { get; init; } 
     #else

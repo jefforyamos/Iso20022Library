@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum QuoteStatus2Code
 {
     /// <summary>
-    /// Indicates that all quotes are cancelled for a financial instrument's symbol.
-    /// Encoded/decoded by serializers as "SYMB".
+    /// Indicates that all quotes are cancelled for a financial instrument&apos;s symbol.
+    /// Encoded/decoded by serializers as &quot;SYMB&quot;.
     /// </summary>
     [EnumMember(Value = "SYMB")]
     [IsoId("_ZYjBwNp-Ed-ak6NoX_4Aeg_-1041278909")]
@@ -30,7 +30,7 @@ public enum QuoteStatus2Code
     
     /// <summary>
     /// Indicates that all quotes are cancelled for a specific security.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_ZYjBwdp-Ed-ak6NoX_4Aeg_-1041278866")]
@@ -39,7 +39,7 @@ public enum QuoteStatus2Code
     
     /// <summary>
     /// Indicates that all quotes are cancelled for an underlying financial instrument.
-    /// Encoded/decoded by serializers as "UNSY".
+    /// Encoded/decoded by serializers as &quot;UNSY&quot;.
     /// </summary>
     [EnumMember(Value = "UNSY")]
     [IsoId("_ZYjBwtp-Ed-ak6NoX_4Aeg_-1041278806")]
@@ -48,7 +48,7 @@ public enum QuoteStatus2Code
     
     /// <summary>
     /// Indicates that all quotes are cancelled.
-    /// Encoded/decoded by serializers as "ALLE".
+    /// Encoded/decoded by serializers as &quot;ALLE&quot;.
     /// </summary>
     [EnumMember(Value = "ALLE")]
     [IsoId("_ZYjBw9p-Ed-ak6NoX_4Aeg_-1041278771")]
@@ -57,7 +57,7 @@ public enum QuoteStatus2Code
     
     /// <summary>
     /// Indicates that no quote can be computed or communicated.
-    /// Encoded/decoded by serializers as "NQUO".
+    /// Encoded/decoded by serializers as &quot;NQUO&quot;.
     /// </summary>
     [EnumMember(Value = "NQUO")]
     [IsoId("_ZYjBxNp-Ed-ak6NoX_4Aeg_-799316486")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Value of the public component of a RSA key.
 /// </summary>
 [IsoId("_Ol9RQItPEeSxlKlAGYErFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Public RSA Key")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record PublicRSAKey1
     /// Modulus of the RSA key.
     /// </summary>
     [IsoId("_eGY5QItPEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modulus")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mdlus")]
     #endif
+    [IsoXmlTag("Mdlus")]
+    [IsoSimpleType(IsoSimpleType.Max5000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax5000Binary Modulus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Modulus { get; init; } 
+    public required System.Byte[] Modulus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Modulus { get; init; } 
     #else
@@ -72,16 +70,16 @@ public partial record PublicRSAKey1
     /// Public exponent of the RSA key.
     /// </summary>
     [IsoId("_ifpYgItPEeSxlKlAGYErFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exponent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Expnt")]
     #endif
+    [IsoXmlTag("Expnt")]
+    [IsoSimpleType(IsoSimpleType.Max5000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax5000Binary Exponent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Exponent { get; init; } 
+    public required System.Byte[] Exponent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Exponent { get; init; } 
     #else

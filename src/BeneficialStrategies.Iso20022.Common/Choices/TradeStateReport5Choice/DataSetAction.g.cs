@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeStateReport5Choice
     /// Where no transaction was concluded, this field should be set so that a valid trade data file can be submitted to ESMA as per daily submission requirements.
     /// </summary>
     [IsoId("_x-2JIcK-EeuCIrYISEfoUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Action")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeStateReport5Choice
         /// Specifies the type of report activity for a specific reporting period.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DataSetActn")]
         #endif
+        [IsoXmlTag("DataSetActn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ReportPeriodActivity1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ReportPeriodActivity1Code Value { get; init; } 
+        public required ReportPeriodActivity1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ReportPeriodActivity1Code Value { get; init; } 
         #else

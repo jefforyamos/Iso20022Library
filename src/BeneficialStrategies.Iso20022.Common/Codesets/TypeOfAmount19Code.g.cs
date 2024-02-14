@@ -21,7 +21,7 @@ public enum TypeOfAmount19Code
 {
     /// <summary>
     /// Telephone connection-related charge
-    /// Encoded/decoded by serializers as "CONN".
+    /// Encoded/decoded by serializers as &quot;CONN&quot;.
     /// </summary>
     [EnumMember(Value = "CONN")]
     [IsoId("_d9j_0X0mEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum TypeOfAmount19Code
     
     /// <summary>
     /// Insurance charges 
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_d9j_030mEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum TypeOfAmount19Code
     
     /// <summary>
     /// Charges related to a long distance call. 
-    /// Encoded/decoded by serializers as "LNDS".
+    /// Encoded/decoded by serializers as &quot;LNDS&quot;.
     /// </summary>
     [EnumMember(Value = "LNDS")]
     [IsoId("_d9j_1X0mEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum TypeOfAmount19Code
     
     /// <summary>
     /// Miscellaneous charges not elsewhere defined
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_d9j_130mEemfrNOe0zHQyg")]
@@ -57,7 +57,7 @@ public enum TypeOfAmount19Code
     
     /// <summary>
     /// Other type of amount defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_d9j_2X0mEemfrNOe0zHQyg")]
@@ -66,7 +66,7 @@ public enum TypeOfAmount19Code
     
     /// <summary>
     /// Other type of amount defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_d9j_230mEemfrNOe0zHQyg")]
@@ -75,7 +75,7 @@ public enum TypeOfAmount19Code
     
     /// <summary>
     /// Telephone usage-related charge
-    /// Encoded/decoded by serializers as "USGE".
+    /// Encoded/decoded by serializers as &quot;USGE&quot;.
     /// </summary>
     [EnumMember(Value = "USGE")]
     [IsoId("_d9j_3X0mEemfrNOe0zHQyg")]

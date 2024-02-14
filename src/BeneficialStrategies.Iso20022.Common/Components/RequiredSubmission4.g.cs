@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details relative to the submission of the certificate data set.
 /// </summary>
 [IsoId("_TnmW1tp-Ed-ak6NoX_4Aeg_-1858308306")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Required Submission")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,12 +53,11 @@ public partial record RequiredSubmission4
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
     [IsoId("_TnmW19p-Ed-ak6NoX_4Aeg_-1858308280")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Submitr")]
     #endif
+    [IsoXmlTag("Submitr")]
     public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _TnmW19p-Ed-ak6NoX_4Aeg_-1858308280
     
@@ -68,16 +65,15 @@ public partial record RequiredSubmission4
     /// Specifies the type of the certificate.
     /// </summary>
     [IsoId("_TnmW2Np-Ed-ak6NoX_4Aeg_-150714604")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertTp")]
     #endif
+    [IsoXmlTag("CertTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeCertificateType1Code CertificateType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeCertificateType1Code CertificateType { get; init; } 
+    public required TradeCertificateType1Code CertificateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeCertificateType1Code CertificateType { get; init; } 
     #else
@@ -88,12 +84,11 @@ public partial record RequiredSubmission4
     /// Specifies if the issuer must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_TnwH0Np-Ed-ak6NoX_4Aeg_1034550595")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchIssr")]
     #endif
+    [IsoXmlTag("MtchIssr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification27? MatchIssuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,16 +101,16 @@ public partial record RequiredSubmission4
     /// Specifies if the issue date must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_TnwH0dp-Ed-ak6NoX_4Aeg_-530283967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchIsseDt")]
     #endif
+    [IsoXmlTag("MtchIsseDt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchIssueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MatchIssueDate { get; init; } 
+    public required System.String MatchIssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MatchIssueDate { get; init; } 
     #else
@@ -126,16 +121,16 @@ public partial record RequiredSubmission4
     /// Specifies if the inspection date must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_TnwH0tp-Ed-ak6NoX_4Aeg_-523817028")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Inspection Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchInspctnDt")]
     #endif
+    [IsoXmlTag("MtchInspctnDt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchInspectionDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MatchInspectionDate { get; init; } 
+    public required System.String MatchInspectionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MatchInspectionDate { get; init; } 
     #else
@@ -146,16 +141,16 @@ public partial record RequiredSubmission4
     /// Specifies if the indication of an authorised inspector must be present as part of the validation of the data set.
     /// </summary>
     [IsoId("_TnwH09p-Ed-ak6NoX_4Aeg_-456402441")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authorised Inspector Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthrsdInspctrInd")]
     #endif
+    [IsoXmlTag("AuthrsdInspctrInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator AuthorisedInspectorIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AuthorisedInspectorIndicator { get; init; } 
+    public required System.String AuthorisedInspectorIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AuthorisedInspectorIndicator { get; init; } 
     #else
@@ -166,16 +161,16 @@ public partial record RequiredSubmission4
     /// Specifies if the consignee must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_TnwH1Np-Ed-ak6NoX_4Aeg_-198739488")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Consignee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchConsgn")]
     #endif
+    [IsoXmlTag("MtchConsgn")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchConsignee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MatchConsignee { get; init; } 
+    public required System.String MatchConsignee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MatchConsignee { get; init; } 
     #else
@@ -186,12 +181,11 @@ public partial record RequiredSubmission4
     /// Specifies if the manufacturer must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_TnwH1dp-Ed-ak6NoX_4Aeg_99351627")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Manufacturer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchManfctr")]
     #endif
+    [IsoXmlTag("MtchManfctr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification27? MatchManufacturer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -204,15 +198,13 @@ public partial record RequiredSubmission4
     /// Specifies if the certificate data set is required in relation to specific line items, and which line items.
     /// </summary>
     [IsoId("_TnwH1tp-Ed-ak6NoX_4Aeg_161434273")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Line Item Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LineItmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LineItmId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax70Text? LineItemIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType1Choice
     /// Nature of the event that has occurred.
     /// </summary>
     [IsoId("_RD_Kktp-Ed-ak6NoX_4Aeg_553099190")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType1Choice
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Specifies a type of event related to a system's operation.
+        /// Specifies a type of event related to a system&apos;s operation.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SystemEventType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SystemEventType2Code Value { get; init; } 
+        public required SystemEventType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SystemEventType2Code Value { get; init; } 
         #else

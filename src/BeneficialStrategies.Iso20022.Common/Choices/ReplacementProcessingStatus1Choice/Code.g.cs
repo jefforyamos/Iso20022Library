@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus1Choi
     /// Provides the processing status of the replacement request.
     /// </summary>
     [IsoId("_UXSHUdp-Ed-ak6NoX_4Aeg_-220686661")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus1Choi
         /// Specifies the processing status of the replacement request.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ReplacementProcessingStatus1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ReplacementProcessingStatus1Code Value { get; init; } 
+        public required ReplacementProcessingStatus1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ReplacementProcessingStatus1Code Value { get; init; } 
         #else

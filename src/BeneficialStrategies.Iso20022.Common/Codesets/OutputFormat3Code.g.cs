@@ -21,7 +21,7 @@ public enum OutputFormat3Code
 {
     /// <summary>
     /// Barcode to output in several possible format.
-    /// Encoded/decoded by serializers as "BARC".
+    /// Encoded/decoded by serializers as &quot;BARC&quot;.
     /// </summary>
     [EnumMember(Value = "BARC")]
     [IsoId("_A6E6kduYEeiB5uLfkg9ZJA")]
@@ -30,7 +30,7 @@ public enum OutputFormat3Code
     
     /// <summary>
     /// A text to display as a menu before requesting an input.
-    /// Encoded/decoded by serializers as "MENT".
+    /// Encoded/decoded by serializers as &quot;MENT&quot;.
     /// </summary>
     [EnumMember(Value = "MENT")]
     [IsoId("_A-QP8duYEeiB5uLfkg9ZJA")]
@@ -39,7 +39,7 @@ public enum OutputFormat3Code
     
     /// <summary>
     /// Predefined configured messages, identified by a reference.
-    /// Encoded/decoded by serializers as "MREF".
+    /// Encoded/decoded by serializers as &quot;MREF&quot;.
     /// </summary>
     [EnumMember(Value = "MREF")]
     [IsoId("_BFHF4duYEeiB5uLfkg9ZJA")]
@@ -48,7 +48,7 @@ public enum OutputFormat3Code
     
     /// <summary>
     /// Screen to display identified by a reference.
-    /// Encoded/decoded by serializers as "SREF".
+    /// Encoded/decoded by serializers as &quot;SREF&quot;.
     /// </summary>
     [EnumMember(Value = "SREF")]
     [IsoId("_CYgAYduYEeiB5uLfkg9ZJA")]
@@ -57,7 +57,7 @@ public enum OutputFormat3Code
     
     /// <summary>
     /// Text without format attributes.
-    /// Encoded/decoded by serializers as "TEXT".
+    /// Encoded/decoded by serializers as &quot;TEXT&quot;.
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_CfgAQduYEeiB5uLfkg9ZJA")]
@@ -66,7 +66,7 @@ public enum OutputFormat3Code
     
     /// <summary>
     /// XHTML document which includes a subset of the XHTML output tag.
-    /// Encoded/decoded by serializers as "HTML".
+    /// Encoded/decoded by serializers as &quot;HTML&quot;.
     /// </summary>
     [EnumMember(Value = "HTML")]
     [IsoId("_CmojAduYEeiB5uLfkg9ZJA")]

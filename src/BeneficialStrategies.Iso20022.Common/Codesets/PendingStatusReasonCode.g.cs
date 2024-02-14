@@ -21,7 +21,7 @@ public enum PendingStatusReasonCode
 {
     /// <summary>
     /// Know Your Customer (KYC) document is missing.
-    /// Encoded/decoded by serializers as "KYCM".
+    /// Encoded/decoded by serializers as &quot;KYCM&quot;.
     /// </summary>
     [EnumMember(Value = "KYCM")]
     [IsoId("_kceGYGBjEeaR1OOiVxm3Gg")]
@@ -30,7 +30,7 @@ public enum PendingStatusReasonCode
     
     /// <summary>
     /// FATCA reporting date is missing.
-    /// Encoded/decoded by serializers as "FRDM".
+    /// Encoded/decoded by serializers as &quot;FRDM&quot;.
     /// </summary>
     [EnumMember(Value = "FRDM")]
     [IsoId("_kh1HgGBjEeaR1OOiVxm3Gg")]
@@ -39,7 +39,7 @@ public enum PendingStatusReasonCode
     
     /// <summary>
     /// Rights holder information is missing.
-    /// Encoded/decoded by serializers as "RIGH".
+    /// Encoded/decoded by serializers as &quot;RIGH&quot;.
     /// </summary>
     [EnumMember(Value = "RIGH")]
     [IsoId("_kmvcsGBjEeaR1OOiVxm3Gg")]
@@ -48,7 +48,7 @@ public enum PendingStatusReasonCode
     
     /// <summary>
     /// Modification to the account data is in process.
-    /// Encoded/decoded by serializers as "MODI".
+    /// Encoded/decoded by serializers as &quot;MODI&quot;.
     /// </summary>
     [EnumMember(Value = "MODI")]
     [IsoId("_CXskMGCJEeabZtzjEVWYCQ")]
@@ -57,7 +57,7 @@ public enum PendingStatusReasonCode
     
     /// <summary>
     /// Authorisation is required.
-    /// Encoded/decoded by serializers as "ATHR".
+    /// Encoded/decoded by serializers as &quot;ATHR&quot;.
     /// </summary>
     [EnumMember(Value = "ATHR")]
     [IsoId("_GOhEwGCJEeabZtzjEVWYCQ")]
@@ -66,7 +66,7 @@ public enum PendingStatusReasonCode
     
     /// <summary>
     /// Authorisation is provided but the account change is still pending.
-    /// Encoded/decoded by serializers as "ATHP".
+    /// Encoded/decoded by serializers as &quot;ATHP&quot;.
     /// </summary>
     [EnumMember(Value = "ATHP")]
     [IsoId("_IzzE8GCJEeabZtzjEVWYCQ")]

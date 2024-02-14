@@ -21,7 +21,7 @@ public enum ReferToFundOrderDesk1Code
 {
     /// <summary>
     /// Indicates that the operation is only possible in restricted circumstances.
-    /// Encoded/decoded by serializers as "RFOD".
+    /// Encoded/decoded by serializers as &quot;RFOD&quot;.
     /// </summary>
     [EnumMember(Value = "RFOD")]
     [IsoId("_ZayddNp-Ed-ak6NoX_4Aeg_-805146800")]

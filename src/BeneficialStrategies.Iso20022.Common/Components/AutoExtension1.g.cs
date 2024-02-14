@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Automatic extension information.
 /// </summary>
 [IsoId("_95V5dnltEeG7BsjMvd1mEw_1894661864")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Auto Extension")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AutoExtension1
     /// Indicates that the undertaking is automatically extendable and the period of extension.
     /// </summary>
     [IsoId("_95V5d3ltEeG7BsjMvd1mEw_742198140")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prd")]
     #endif
+    [IsoXmlTag("Prd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AutoExtend1Choice_? Period { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record AutoExtension1
     /// Final expiry date after which the undertaking will no longer be subject to automatic extension.
     /// </summary>
     [IsoId("_95V5eHltEeG7BsjMvd1mEw_-211951579")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlXpryDt")]
     #endif
+    [IsoXmlTag("FnlXpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? FinalExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record AutoExtension1
     /// Details related to the notification of the end of the period for notification of non-extension of the expiry date.
     /// </summary>
     [IsoId("_95V5eXltEeG7BsjMvd1mEw_-1641257680")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Extension Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonXtnsnNtfctn")]
     #endif
+    [IsoXmlTag("NonXtnsnNtfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonExtension1? NonExtensionNotification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

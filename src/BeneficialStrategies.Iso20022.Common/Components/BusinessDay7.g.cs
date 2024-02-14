@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment system operational information, such as opening, closure, session period or events, given per currency.
 /// </summary>
 [IsoId("_w64j5ZlcEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Day")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record BusinessDay7
     /// Date for which the availability information is provided.
     /// </summary>
     [IsoId("_xCzJwZlcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysDt")]
     #endif
+    [IsoXmlTag("SysDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? SystemDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record BusinessDay7
     /// Status of a system and the period of time during which the status is valid.
     /// </summary>
     [IsoId("_xCzJw5lcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysSts")]
     #endif
+    [IsoXmlTag("SysSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemStatus3? SystemStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record BusinessDay7
     /// Information relating to system operations and foreseen events relating to the operation of the system.
     /// </summary>
     [IsoId("_xCzJxZlcEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Information Per Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysInfPerCcy")]
     #endif
+    [IsoXmlTag("SysInfPerCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SystemAvailabilityAndEvents2? SystemInformationPerCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

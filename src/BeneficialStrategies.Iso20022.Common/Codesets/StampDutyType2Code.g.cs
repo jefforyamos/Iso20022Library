@@ -21,7 +21,7 @@ public enum StampDutyType2Code
 {
     /// <summary>
     /// Stamps duty is applicable.
-    /// Encoded/decoded by serializers as "ASTD".
+    /// Encoded/decoded by serializers as &quot;ASTD&quot;.
     /// </summary>
     [EnumMember(Value = "ASTD")]
     [IsoId("_Cd9Nnv8vEeC87tbx-VXRVA")]
@@ -30,7 +30,7 @@ public enum StampDutyType2Code
     
     /// <summary>
     /// Stamp duty not applicable.
-    /// Encoded/decoded by serializers as "SDRN".
+    /// Encoded/decoded by serializers as &quot;SDRN&quot;.
     /// </summary>
     [EnumMember(Value = "SDRN")]
     [IsoId("_CmdCSv8vEeC87tbx-VXRVA")]

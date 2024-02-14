@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the old and new values for a technical address identification.
 /// </summary>
 [IsoId("_pAXiM2jSEeiRg5NzP0jkQg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Update Log Technical Address")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record UpdateLogTechnicalAddress1
     /// Old value before the update.
     /// </summary>
     [IsoId("_pAXiNGjSEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Old")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Od")]
     #endif
+    [IsoXmlTag("Od")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TechnicalIdentification2Choice_ Old { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TechnicalIdentification2Choice_ Old { get; init; } 
+    public required TechnicalIdentification2Choice_ Old { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TechnicalIdentification2Choice_ Old { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record UpdateLogTechnicalAddress1
     /// New value after the update.
     /// </summary>
     [IsoId("_pAXiNWjSEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="New")]
     #endif
+    [IsoXmlTag("New")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TechnicalIdentification2Choice_ New { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TechnicalIdentification2Choice_ New { get; init; } 
+    public required TechnicalIdentification2Choice_ New { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TechnicalIdentification2Choice_ New { get; init; } 
     #else

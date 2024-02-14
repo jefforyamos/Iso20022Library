@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Nature of the amount and currency on a document referred to in the remittance section, typically either the original amount due/payable or the amount actually remitted for the referenced document.
 /// </summary>
 [IsoId("_tcu6UlkyEeGeoaLUQk__nA_1720061544")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Remittance Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record RemittanceAmount2
     /// Amount specified is the exact amount due and payable to the creditor.
     /// </summary>
     [IsoId("_tcu6U1kyEeGeoaLUQk__nA_410413505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Due Payable Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DuePyblAmt")]
     #endif
+    [IsoXmlTag("DuePyblAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? DuePayableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record RemittanceAmount2
     /// Amount specified for the referred document is the amount of discount to be applied to the amount due and payable to the creditor.
     /// </summary>
     [IsoId("_tc4rUFkyEeGeoaLUQk__nA_1468630199")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Discount Applied Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DscntApldAmt")]
     #endif
+    [IsoXmlTag("DscntApldAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DiscountAmountAndType1? DiscountAppliedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record RemittanceAmount2
     /// Amount specified for the referred document is the amount of a credit note.
     /// </summary>
     [IsoId("_tc4rUVkyEeGeoaLUQk__nA_-1624173271")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Note Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtNoteAmt")]
     #endif
+    [IsoXmlTag("CdtNoteAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? CreditNoteAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,11 @@ public partial record RemittanceAmount2
     /// Quantity of cash resulting from the calculation of the tax.
     /// </summary>
     [IsoId("_tc4rUlkyEeGeoaLUQk__nA_-1935934653")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxAmt")]
     #endif
+    [IsoXmlTag("TaxAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxAmountAndType1? TaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +112,11 @@ public partial record RemittanceAmount2
     /// Specifies detailed information on the amount and reason of the document adjustment.
     /// </summary>
     [IsoId("_tc4rU1kyEeGeoaLUQk__nA_41136424")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjustment Amount And Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdjstmntAmtAndRsn")]
     #endif
+    [IsoXmlTag("AdjstmntAmtAndRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentAdjustment1? AdjustmentAmountAndReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +129,12 @@ public partial record RemittanceAmount2
     /// Amount of money remitted for the referred document.
     /// </summary>
     [IsoId("_tc4rVFkyEeGeoaLUQk__nA_802163856")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remitted Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtdAmt")]
     #endif
+    [IsoXmlTag("RmtdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

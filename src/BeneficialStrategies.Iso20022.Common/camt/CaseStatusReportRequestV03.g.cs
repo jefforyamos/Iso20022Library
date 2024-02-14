@@ -42,9 +42,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The CaseStatusReportRequest message is sent by a case creator or case assigner to a case assignee.|This message is used to request the status of a case.|Usage|The Case Status Report Request message must be answered with a Case Status Report message. It can be used to request the status of a:|- request to cancel payment case|- request to modify payment case|- unable to apply case|- claim non receipt case|The Case Status Report Request message covers one and only one case at a time. If a case creator or case assigner needs the status of several cases, then multiple Case Status Report Request messages must be sent.|The Case Status Report Request message may be forwarded to subsequent case assignee(s) in the case processing chain.|The processing of a case generates Notification Of Case Assignment and/or Resolution Of Investigation messages to the case creator/case assigner. They alone should provide collaborating parties sufficient information about the progress of the investigation. The Case Status Report Request must therefore only be used when no information has been received from the case assignee within the expected time frame.|An agent may suspend an investigation by classifying it as overdue if, this agent, after sending the request for the status of the investigation, does not receive any response after a long time. Agents may set their individual threshold wait-time.")]
 [IsoId("_sVWbg1kyEeGeoaLUQk__nA_150838018")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Case Status Report Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record CaseStatusReportRequestV03 : IOuterRecord<CaseStatusReport
     /// Identifies the party requesting the status, the requested party, the identification and the date of the status.
     /// </summary>
     [IsoId("_sVWbhFkyEeGeoaLUQk__nA_1398220389")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqHdr")]
     #endif
+    [IsoXmlTag("ReqHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportHeader4 RequestHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportHeader4 RequestHeader { get; init; } 
+    public required ReportHeader4 RequestHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportHeader4 RequestHeader { get; init; } 
     #else
@@ -108,16 +105,15 @@ public partial record CaseStatusReportRequestV03 : IOuterRecord<CaseStatusReport
     /// Identifies the investigation case.
     /// </summary>
     [IsoId("_sVgMgFkyEeGeoaLUQk__nA_514987102")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case3 Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case3 Case { get; init; } 
+    public required Case3 Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case3 Case { get; init; } 
     #else
@@ -128,12 +124,11 @@ public partial record CaseStatusReportRequestV03 : IOuterRecord<CaseStatusReport
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_sVgMgVkyEeGeoaLUQk__nA_-1985293714")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,7 +141,7 @@ public partial record CaseStatusReportRequestV03 : IOuterRecord<CaseStatusReport
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CaseStatusReportRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CaseStatusReportRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CaseStatusReportRequestV03Document ToDocument()
     {
@@ -156,7 +151,7 @@ public partial record CaseStatusReportRequestV03 : IOuterRecord<CaseStatusReport
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CaseStatusReportRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CaseStatusReportRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CaseStatusReportRequestV03Document : IOuterDocument<CaseStatusReportRequestV03>
@@ -173,7 +168,7 @@ public partial record CaseStatusReportRequestV03Document : IOuterDocument<CaseSt
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CaseStatusReportRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CaseStatusReportRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseStatusReportRequestV03 Message { get; init; }

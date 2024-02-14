@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"SCOPE||A report provider, for example, a transfer agent, fund accountant or market data provider, sends the PriceReport message to the report recipient, for example, a fund management company, transfer agent, market data provider, regulator or any other interested party to provide the net asset value and price information for financial instruments on specific trade dates and, optionally, to quote price variation information.||USAGE||The PriceReport message is sent by the report provider to the report recipient to: |- report prices for one or several different financial instruments for one or several different trade dates,|- report statistical information about the valuation of a financial instrument,|- inform another party that the quotation of a financial instrument is suspended,|- report prices that are used for other purposes than the execution of investment funds orders.|.")]
 [IsoId("_IOkQsRj3EeKxeog5DTmtgg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_IOkQtxj3EeKxeog5DTmtgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -99,12 +96,11 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_IOkQuxj3EeKxeog5DTmtgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +113,11 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_IOkQvxj3EeKxeog5DTmtgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,12 +130,11 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_IOkQwxj3EeKxeog5DTmtgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,16 +147,15 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Pagination of the message.
     /// </summary>
     [IsoId("_IOkQxxj3EeKxeog5DTmtgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination MessagePagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination MessagePagination { get; init; } 
+    public required Pagination MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination MessagePagination { get; init; } 
     #else
@@ -173,19 +166,17 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Unique and unambiguous identifier for the price report, as assigned by the reporting party.
     /// </summary>
     [IsoId("__CwxkBl8EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricRptId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PricRptId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text PriceReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PriceReportIdentification { get; init; } 
+    public required System.String PriceReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PriceReportIdentification { get; init; } 
     #else
@@ -196,16 +187,15 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Function of the price report, that is, whether the price report is a new price report or a replacement of some kind.
     /// </summary>
     [IsoId("_TO56wBl9EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Function")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fctn")]
     #endif
+    [IsoXmlTag("Fctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceReportFunction1Code Function { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceReportFunction1Code Function { get; init; } 
+    public required PriceReportFunction1Code Function { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceReportFunction1Code Function { get; init; } 
     #else
@@ -216,15 +206,13 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Unique and unambiguous identifier for the cancellation of the previous price report, as assigned by the reporting party.
     /// </summary>
     [IsoId("_CDo2sBl_EeKxsrht2duUcg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CxlId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? CancellationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -237,16 +225,15 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Information related to the price valuation of a financial instrument.
     /// </summary>
     [IsoId("_IOkQyxj3EeKxeog5DTmtgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Valuation Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricValtnDtls")]
     #endif
+    [IsoXmlTag("PricValtnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceValuation4 PriceValuationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceValuation4 PriceValuationDetails { get; init; } 
+    public required PriceValuation4 PriceValuationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceValuation4 PriceValuationDetails { get; init; } 
     #else
@@ -257,12 +244,11 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_IOkQzxj3EeKxeog5DTmtgg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,7 +261,7 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PriceReportV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PriceReportV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PriceReportV04Document ToDocument()
     {
@@ -285,7 +271,7 @@ public partial record PriceReportV04 : IOuterRecord<PriceReportV04,PriceReportV0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PriceReportV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PriceReportV04Document : IOuterDocument<PriceReportV04>
@@ -302,7 +288,7 @@ public partial record PriceReportV04Document : IOuterDocument<PriceReportV04>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PriceReportV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PriceReportV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceReportV04 Message { get; init; }

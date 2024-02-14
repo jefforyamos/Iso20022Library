@@ -21,7 +21,7 @@ public enum PensionSchemeType1Code
 {
     /// <summary>
     /// Pension plan is an additional voluntary contribution plan.
-    /// Encoded/decoded by serializers as "AAVC".
+    /// Encoded/decoded by serializers as &quot;AAVC&quot;.
     /// </summary>
     [EnumMember(Value = "AAVC")]
     [IsoId("_Gc6L0U4QEeiQHa-q1Uephw")]
@@ -30,7 +30,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension plan is a defined benefit plan.
-    /// Encoded/decoded by serializers as "DBEN".
+    /// Encoded/decoded by serializers as &quot;DBEN&quot;.
     /// </summary>
     [EnumMember(Value = "DBEN")]
     [IsoId("_GhE6IU4QEeiQHa-q1Uephw")]
@@ -39,7 +39,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension plan is an executive pension plan.
-    /// Encoded/decoded by serializers as "EXPP".
+    /// Encoded/decoded by serializers as &quot;EXPP&quot;.
     /// </summary>
     [EnumMember(Value = "EXPP")]
     [IsoId("_GoES8U4QEeiQHa-q1Uephw")]
@@ -48,7 +48,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension plan is a free standing additional voluntary contribution plan.
-    /// Encoded/decoded by serializers as "FAVC".
+    /// Encoded/decoded by serializers as &quot;FAVC&quot;.
     /// </summary>
     [EnumMember(Value = "FAVC")]
     [IsoId("_GtlFEU4QEeiQHa-q1Uephw")]
@@ -57,7 +57,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension plan is a group-invested pension plan.
-    /// Encoded/decoded by serializers as "SIPG".
+    /// Encoded/decoded by serializers as &quot;SIPG&quot;.
     /// </summary>
     [EnumMember(Value = "SIPG")]
     [IsoId("_Gx49UU4QEeiQHa-q1Uephw")]
@@ -66,7 +66,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension is a group personal pension scheme.
-    /// Encoded/decoded by serializers as "GPPS".
+    /// Encoded/decoded by serializers as &quot;GPPS&quot;.
     /// </summary>
     [EnumMember(Value = "GPPS")]
     [IsoId("_G3_lUU4QEeiQHa-q1Uephw")]
@@ -75,7 +75,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension plan is a group stakeholder pension plan.
-    /// Encoded/decoded by serializers as "STKG".
+    /// Encoded/decoded by serializers as &quot;STKG&quot;.
     /// </summary>
     [EnumMember(Value = "STKG")]
     [IsoId("_G9M1cU4QEeiQHa-q1Uephw")]
@@ -84,7 +84,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension plan is an individual stakeholder pension.
-    /// Encoded/decoded by serializers as "STKI".
+    /// Encoded/decoded by serializers as &quot;STKI&quot;.
     /// </summary>
     [EnumMember(Value = "STKI")]
     [IsoId("_HBW8sU4QEeiQHa-q1Uephw")]
@@ -93,7 +93,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension plan is an occupational direct contribution plan.
-    /// Encoded/decoded by serializers as "OCDC".
+    /// Encoded/decoded by serializers as &quot;OCDC&quot;.
     /// </summary>
     [EnumMember(Value = "OCDC")]
     [IsoId("_HGIH8U4QEeiQHa-q1Uephw")]
@@ -102,7 +102,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension is a personal pension plan.
-    /// Encoded/decoded by serializers as "PPNS".
+    /// Encoded/decoded by serializers as &quot;PPNS&quot;.
     /// </summary>
     [EnumMember(Value = "PPNS")]
     [IsoId("_HMhD0U4QEeiQHa-q1Uephw")]
@@ -111,7 +111,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension plan is a retirement annuity.
-    /// Encoded/decoded by serializers as "REAN".
+    /// Encoded/decoded by serializers as &quot;REAN&quot;.
     /// </summary>
     [EnumMember(Value = "REAN")]
     [IsoId("_HQ-tEU4QEeiQHa-q1Uephw")]
@@ -120,7 +120,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension type covered by section 32.
-    /// Encoded/decoded by serializers as "SC32".
+    /// Encoded/decoded by serializers as &quot;SC32&quot;.
     /// </summary>
     [EnumMember(Value = "SC32")]
     [IsoId("_HVv4UU4QEeiQHa-q1Uephw")]
@@ -129,7 +129,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension type covered by section 32A.
-    /// Encoded/decoded by serializers as "S32A".
+    /// Encoded/decoded by serializers as &quot;S32A&quot;.
     /// </summary>
     [EnumMember(Value = "S32A")]
     [IsoId("_HbZNUU4QEeiQHa-q1Uephw")]
@@ -138,7 +138,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension is a self-invested pension plan.
-    /// Encoded/decoded by serializers as "SIPP".
+    /// Encoded/decoded by serializers as &quot;SIPP&quot;.
     /// </summary>
     [EnumMember(Value = "SIPP")]
     [IsoId("_HhM6YU4QEeiQHa-q1Uephw")]
@@ -147,7 +147,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension is a small self-administered pension schema.
-    /// Encoded/decoded by serializers as "SSAS".
+    /// Encoded/decoded by serializers as &quot;SSAS&quot;.
     /// </summary>
     [EnumMember(Value = "SSAS")]
     [IsoId("_HnS7UU4QEeiQHa-q1Uephw")]
@@ -156,7 +156,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension is an individual pension savings plan with a tax benefit. This is known as an Individual Pension Schema (IPS) in some markets.
-    /// Encoded/decoded by serializers as "IPST".
+    /// Encoded/decoded by serializers as &quot;IPST&quot;.
     /// </summary>
     [EnumMember(Value = "IPST")]
     [IsoId("_wz7H8V23EeiFXdiLi_Nf4A")]
@@ -165,7 +165,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension is a personal pension account. This is known as Employee Pension Kapital (EPK) in some markets.
-    /// Encoded/decoded by serializers as "EPKA".
+    /// Encoded/decoded by serializers as &quot;EPKA&quot;.
     /// </summary>
     [EnumMember(Value = "EPKA")]
     [IsoId("_w79CkV23EeiFXdiLi_Nf4A")]
@@ -174,7 +174,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension is a private occupational pension. This is known as an industrial and trade supplementary pension (ITP) in some markets.
-    /// Encoded/decoded by serializers as "ITPO".
+    /// Encoded/decoded by serializers as &quot;ITPO&quot;.
     /// </summary>
     [EnumMember(Value = "ITPO")]
     [IsoId("_xCfvcV23EeiFXdiLi_Nf4A")]
@@ -183,7 +183,7 @@ public enum PensionSchemeType1Code
     
     /// <summary>
     /// Pension is a mandatory occupational pension. This is known as an Obligatory Occupation Pension (OTP) in some markets.
-    /// Encoded/decoded by serializers as "OTPM".
+    /// Encoded/decoded by serializers as &quot;OTPM&quot;.
     /// </summary>
     [EnumMember(Value = "OTPM")]
     [IsoId("_xVinQV23EeiFXdiLi_Nf4A")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Intention to transfer an ownership of a financial instrument.
 /// </summary>
 [IsoId("_GY0N8TAjEeOUGqA1wUwNLA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Partial Fill")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record PartialFill2
     /// Quantity of financial instrument to be ordered.
     /// </summary>
     [IsoId("_GwK-BTAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmation Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfQty")]
     #endif
+    [IsoXmlTag("ConfQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Quantity6Choice_ ConfirmationQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Quantity6Choice_ ConfirmationQuantity { get; init; } 
+    public required Quantity6Choice_ ConfirmationQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Quantity6Choice_ ConfirmationQuantity { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record PartialFill2
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
     [IsoId("_GwK-DTAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Deal Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DealPric")]
     #endif
+    [IsoXmlTag("DealPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Price4 DealPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Price4 DealPrice { get; init; } 
+    public required Price4 DealPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Price4 DealPrice { get; init; } 
     #else
@@ -95,12 +91,11 @@ public partial record PartialFill2
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
     [IsoId("_GwK-DzAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradDt")]
     #endif
+    [IsoXmlTag("TradDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeDate4Choice_? TradeDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +108,11 @@ public partial record PartialFill2
     /// Market in which a trade transaction is to be or has been executed.
     /// </summary>
     [IsoId("_GwK-FzAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Trade")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcOfTrad")]
     #endif
+    [IsoXmlTag("PlcOfTrad")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification80? PlaceOfTrade { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,16 +125,15 @@ public partial record PartialFill2
     /// Quantity of financial instrument ordered.
     /// </summary>
     [IsoId("_GwK-HzAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Ordered Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlOrdrdQty")]
     #endif
+    [IsoXmlTag("OrgnlOrdrdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityOrAmount1Choice_ OriginalOrderedQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityOrAmount1Choice_ OriginalOrderedQuantity { get; init; } 
+    public required QuantityOrAmount1Choice_ OriginalOrderedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityOrAmount1Choice_ OriginalOrderedQuantity { get; init; } 
     #else
@@ -151,16 +144,15 @@ public partial record PartialFill2
     /// Quantity of financial instrument that has been previously executed.
     /// </summary>
     [IsoId("_GwK-JzAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previously Executed Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrevslyExctdQty")]
     #endif
+    [IsoXmlTag("PrevslyExctdQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityOrAmount1Choice_ PreviouslyExecutedQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityOrAmount1Choice_ PreviouslyExecutedQuantity { get; init; } 
+    public required QuantityOrAmount1Choice_ PreviouslyExecutedQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityOrAmount1Choice_ PreviouslyExecutedQuantity { get; init; } 
     #else
@@ -171,16 +163,15 @@ public partial record PartialFill2
     /// Quantity of financial instrument that is remaining in order.
     /// </summary>
     [IsoId("_GwK-LzAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remaining Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmngQty")]
     #endif
+    [IsoXmlTag("RmngQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QuantityOrAmount1Choice_ RemainingQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QuantityOrAmount1Choice_ RemainingQuantity { get; init; } 
+    public required QuantityOrAmount1Choice_ RemainingQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QuantityOrAmount1Choice_ RemainingQuantity { get; init; } 
     #else
@@ -191,12 +182,11 @@ public partial record PartialFill2
     /// Minimum quantity that applies to every execution. The order may still fill against smaller orders, but the cumulative quantity of the execution must be in multiples of the Match Increment.
     /// </summary>
     [IsoId("_GwK-NzAjEeOUGqA1wUwNLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Increment Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchIncrmtQty")]
     #endif
+    [IsoXmlTag("MtchIncrmtQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QuantityOrAmount1Choice_? MatchIncrementQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

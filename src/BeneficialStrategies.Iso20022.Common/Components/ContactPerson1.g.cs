@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains information about the contact responsible for the transaction identified in the message.
 /// </summary>
 [IsoId("_QDnStdp-Ed-ak6NoX_4Aeg_-2124213178")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contact Person")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ContactPerson1
     /// Provides additional information regarding the party, eg, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
     [IsoId("_QDnSttp-Ed-ak6NoX_4Aeg_946468932")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contact Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtctPrsn")]
     #endif
+    [IsoXmlTag("CtctPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContactIdentification4 ContactPerson { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContactIdentification4 ContactPerson { get; init; } 
+    public required ContactIdentification4 ContactPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContactIdentification4 ContactPerson { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ContactPerson1
     /// Identification of the institution that the contact person represents.
     /// </summary>
     [IsoId("_QDnSt9p-Ed-ak6NoX_4Aeg_-2054025257")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Institution Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstnId")]
     #endif
+    [IsoXmlTag("InstnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? InstitutionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType1Choice
     /// Specifies a type of individual identification.
     /// </summary>
     [IsoId("_QAoQJ9p-Ed-ak6NoX_4Aeg_-1246497918")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType1Choice
         /// Specifies an alternative identification of an individual person, for example, national registration identification number, passport number.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IdTp")]
         #endif
+        [IsoXmlTag("IdTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PersonIdentificationType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PersonIdentificationType2Code Value { get; init; } 
+        public required PersonIdentificationType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PersonIdentificationType2Code Value { get; init; } 
         #else

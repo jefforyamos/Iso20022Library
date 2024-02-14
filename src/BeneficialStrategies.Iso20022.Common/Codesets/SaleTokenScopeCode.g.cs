@@ -21,7 +21,7 @@ public enum SaleTokenScopeCode
 {
     /// <summary>
     /// The token is generated to recognise  a customer during the lifetime of a transaction.
-    /// Encoded/decoded by serializers as "SNGL".
+    /// Encoded/decoded by serializers as &quot;SNGL&quot;.
     /// </summary>
     [EnumMember(Value = "SNGL")]
     [IsoId("_px_wANwsEeioifFt1dhnJA")]
@@ -30,7 +30,7 @@ public enum SaleTokenScopeCode
     
     /// <summary>
     /// The token is generated to recognise a customer for a longer period.
-    /// Encoded/decoded by serializers as "MULT".
+    /// Encoded/decoded by serializers as &quot;MULT&quot;.
     /// </summary>
     [EnumMember(Value = "MULT")]
     [IsoId("_uLv-gNwsEeioifFt1dhnJA")]

@@ -21,7 +21,7 @@ public enum FundCashAccount3Code
 {
     /// <summary>
     /// Cash account.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_asmDltp-Ed-ak6NoX_4Aeg_-525777742")]
@@ -30,7 +30,7 @@ public enum FundCashAccount3Code
     
     /// <summary>
     /// Central Provident Fund (CPF) ordinary account.
-    /// Encoded/decoded by serializers as "CPFO".
+    /// Encoded/decoded by serializers as &quot;CPFO&quot;.
     /// </summary>
     [EnumMember(Value = "CPFO")]
     [IsoId("_asmDl9p-Ed-ak6NoX_4Aeg_-525777682")]
@@ -39,7 +39,7 @@ public enum FundCashAccount3Code
     
     /// <summary>
     /// Central Provident Fund (CPF) special account.
-    /// Encoded/decoded by serializers as "CPFS".
+    /// Encoded/decoded by serializers as &quot;CPFS&quot;.
     /// </summary>
     [EnumMember(Value = "CPFS")]
     [IsoId("_asmDmNp-Ed-ak6NoX_4Aeg_-525777399")]
@@ -48,7 +48,7 @@ public enum FundCashAccount3Code
     
     /// <summary>
     /// Supplementary Retirement Scheme (SRS) account.
-    /// Encoded/decoded by serializers as "SRSA".
+    /// Encoded/decoded by serializers as &quot;SRSA&quot;.
     /// </summary>
     [EnumMember(Value = "SRSA")]
     [IsoId("_asv0kNp-Ed-ak6NoX_4Aeg_-525777321")]
@@ -57,7 +57,7 @@ public enum FundCashAccount3Code
     
     /// <summary>
     /// Hedge fund account.
-    /// Encoded/decoded by serializers as "HEDG".
+    /// Encoded/decoded by serializers as &quot;HEDG&quot;.
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_asv0kdp-Ed-ak6NoX_4Aeg_1643305890")]

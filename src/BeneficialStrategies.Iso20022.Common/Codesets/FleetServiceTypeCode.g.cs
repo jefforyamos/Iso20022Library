@@ -21,7 +21,7 @@ public enum FleetServiceTypeCode
 {
     /// <summary>
     /// Full service
-    /// Encoded/decoded by serializers as "FLSV".
+    /// Encoded/decoded by serializers as &quot;FLSV&quot;.
     /// </summary>
     [EnumMember(Value = "FLSV")]
     [IsoId("_9zEEJfjUEeiM7KpzmLtmTQ")]
@@ -30,7 +30,7 @@ public enum FleetServiceTypeCode
     
     /// <summary>
     /// Self service
-    /// Encoded/decoded by serializers as "SLSV".
+    /// Encoded/decoded by serializers as &quot;SLSV&quot;.
     /// </summary>
     [EnumMember(Value = "SLSV")]
     [IsoId("_9zEEJPjUEeiM7KpzmLtmTQ")]
@@ -39,7 +39,7 @@ public enum FleetServiceTypeCode
     
     /// <summary>
     /// High speed dispenser that may or may not support varying flow rates. 
-    /// Encoded/decoded by serializers as "HSDI".
+    /// Encoded/decoded by serializers as &quot;HSDI&quot;.
     /// </summary>
     [EnumMember(Value = "HSDI")]
     [IsoId("_itg-sP2sEeiS2rs-hXBB5Q")]

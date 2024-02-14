@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Channel2Choice
     /// Specifies a channel by means of a code.
     /// </summary>
     [IsoId("_-FRIsBg2EeKnW4lR85q-0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Channel2Choice
         /// Communication method used for the transmission of documents.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CommunicationMethod3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CommunicationMethod3Code Value { get; init; } 
+        public required CommunicationMethod3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CommunicationMethod3Code Value { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice
     /// Location on the earth specified by the Universal Transverse Mercator coordinate system, using the WGS84 geodesic system.
     /// </summary>
     [IsoId("_uiaUMIn5EeShMpas3885ww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UTM Coordinates")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,19 +56,17 @@ namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice
         /// UTM grid zone combination of the longitude zone (1 to 60) and the latitude band, C to X, excluding I and O (for example Eiffel tower UTM zone is 31U).
         /// </summary>
         [IsoId("_4AW1UIn5EeShMpas3885ww")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("UTM Zone")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UTMZone")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("UTMZone")]
+        [IsoSimpleType(IsoSimpleType.Max16Text)]
         [StringLength(maximumLength: 16 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax16Text UTMZone { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String UTMZone { get; init; } 
+        public required System.String UTMZone { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String UTMZone { get; init; } 
         #else
@@ -81,16 +77,16 @@ namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice
         /// X-coordinate of the Universal Transverse Mercator coordinate system in meters (for example 448 265m for Eiffel Tower X-coordinate).
         /// </summary>
         [IsoId("_7o5CQIn5EeShMpas3885ww")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("UTM Eastward")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UTMEstwrd")]
         #endif
+        [IsoXmlTag("UTMEstwrd")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber UTMEastward { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 UTMEastward { get; init; } 
+        public required System.UInt64 UTMEastward { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 UTMEastward { get; init; } 
         #else
@@ -101,16 +97,16 @@ namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice
         /// Y-coordinate of the Universal Transverse Mercator coordinate system (for example 5 411 920m for Eiffel Tower Y-coordinate).
         /// </summary>
         [IsoId("_--JG0In5EeShMpas3885ww")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("UTM Northward")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UTMNrthwrd")]
         #endif
+        [IsoXmlTag("UTMNrthwrd")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber UTMNorthward { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 UTMNorthward { get; init; } 
+        public required System.UInt64 UTMNorthward { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 UTMNorthward { get; init; } 
         #else

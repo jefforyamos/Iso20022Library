@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDate8Choice
     /// Numeric representation of the day of the month and year.
     /// </summary>
     [IsoId("_AcsYg9okEeC60axPepSq7g_-1449291241")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

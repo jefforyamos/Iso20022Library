@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the implementation specification to which the ISO 20022 message conforms.
 /// </summary>
 [IsoId("_6Pu8gMieEei73Ywzx0CAAg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Implementation Specification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -50,22 +48,20 @@ public partial record ImplementationSpecification1
     
     /// <summary>
     /// Name of the implementation specification registry in which the implementation specification of the ISO 20022 message is maintained.
-    /// For example, "MyStandards".
+    /// For example, &quot;MyStandards&quot;.
     /// </summary>
     [IsoId("_Dr2RoMifEei73Ywzx0CAAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registry")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Regy")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Regy")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text Registry { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Registry { get; init; } 
+    public required System.String Registry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Registry { get; init; } 
     #else
@@ -74,22 +70,20 @@ public partial record ImplementationSpecification1
     
     /// <summary>
     /// Identifier which unambiguously identifies, within the implementation specification registry, the implementation specification to which the ISO 20022 message is compliant. This can be done via a URN. It can also contain a version number or date.
-    /// For instance, "2018-01-01 – Version 2" or "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66".
+    /// For instance, &quot;2018-01-01 – Version 2&quot; or &quot;urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66&quot;.
     /// </summary>
     [IsoId("_GKeQMMifEei73Ywzx0CAAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.Max2048Text)]
     [StringLength(maximumLength: 2048 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax2048Text Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else

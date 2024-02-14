@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details related to the local undertaking.
 /// </summary>
 [IsoId("_PjZ-2379EeGvEbxvurqpIg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Undertaking11
     /// Details related to the requested new amount for the local undertaking.
     /// </summary>
     [IsoId("_PjZ-5X79EeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Undertaking Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewUdrtkgAmt")]
     #endif
+    [IsoXmlTag("NewUdrtkgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingAmount2? NewUndertakingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Undertaking11
     /// Details related to the requested new expiry terms for the local undertaking.
     /// </summary>
     [IsoId("_PjZ-4H79EeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Expiry Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewXpryDtls")]
     #endif
+    [IsoXmlTag("NewXpryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpiryDetails1? NewExpiryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record Undertaking11
     /// Details related to the requested new beneficiary for the local undertaking.
     /// </summary>
     [IsoId("_Z7SjNX7-EeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Beneficiary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewBnfcry")]
     #endif
+    [IsoXmlTag("NewBnfcry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? NewBeneficiary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record Undertaking11
     /// Details related to the requested new terms and conditions for the local undertaking.
     /// </summary>
     [IsoId("_4Bx1oH7-EeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Undertaking Terms And Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewUdrtkgTermsAndConds")]
     #endif
+    [IsoXmlTag("NewUdrtkgTermsAndConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Narrative1? NewUndertakingTermsAndConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record Undertaking11
     /// Details related to the delivery channel for the amended local undertaking.
     /// </summary>
     [IsoId("_KR6lIH7_EeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryChanl")]
     #endif
+    [IsoXmlTag("DlvryChanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

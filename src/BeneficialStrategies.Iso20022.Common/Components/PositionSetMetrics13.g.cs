@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
 [IsoId("_jYQGYc-nEeufOvGsyZiDWA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Metrics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PositionSetMetrics13
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
     [IsoId("_jbN60c-nEeufOvGsyZiDWA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Volume Metrics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VolMtrcs")]
     #endif
+    [IsoXmlTag("VolMtrcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VolumeMetrics5 VolumeMetrics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VolumeMetrics5 VolumeMetrics { get; init; } 
+    public required VolumeMetrics5 VolumeMetrics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VolumeMetrics5 VolumeMetrics { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record PositionSetMetrics13
     /// Numeric variables consisting in interest rates, lending fees or haircuts, calculated as weighted averages.
     /// </summary>
     [IsoId("_jbN608-nEeufOvGsyZiDWA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Metrics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricMtrcs")]
     #endif
+    [IsoXmlTag("PricMtrcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceMetrics3? PriceMetrics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

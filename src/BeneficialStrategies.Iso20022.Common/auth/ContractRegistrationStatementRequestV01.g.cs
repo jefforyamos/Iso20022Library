@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The ContractRegistrationStatementRequest message is sent by the reporting party to the registration agent to request for a statement of the operations related to the registered contract subject to currency control.")]
 [IsoId("_Jk0bkNnQEeS--7IJLPC9lw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Registration Statement Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record ContractRegistrationStatementRequestV01 : IOuterRecord<Con
     /// Characteristics shared by all individual items included in the message.
     /// </summary>
     [IsoId("_SlntsdnQEeS--7IJLPC9lw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlHeader1 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyControlHeader1 GroupHeader { get; init; } 
+    public required CurrencyControlHeader1 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyControlHeader1 GroupHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record ContractRegistrationStatementRequestV01 : IOuterRecord<Con
     /// Details on the information requested for the contract registration statement.
     /// </summary>
     [IsoId("_BWDgAuFHEeStTblywAGIyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtReq")]
     #endif
+    [IsoXmlTag("StmtReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContractRegistrationStatementRequest1 StatementRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContractRegistrationStatementRequest1 StatementRequest { get; init; } 
+    public required ContractRegistrationStatementRequest1 StatementRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContractRegistrationStatementRequest1 StatementRequest { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record ContractRegistrationStatementRequestV01 : IOuterRecord<Con
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_s4EGwdnQEeS--7IJLPC9lw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record ContractRegistrationStatementRequestV01 : IOuterRecord<Con
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ContractRegistrationStatementRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ContractRegistrationStatementRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ContractRegistrationStatementRequestV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record ContractRegistrationStatementRequestV01 : IOuterRecord<Con
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ContractRegistrationStatementRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ContractRegistrationStatementRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ContractRegistrationStatementRequestV01Document : IOuterDocument<ContractRegistrationStatementRequestV01>
@@ -161,7 +156,7 @@ public partial record ContractRegistrationStatementRequestV01Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ContractRegistrationStatementRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ContractRegistrationStatementRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContractRegistrationStatementRequestV01 Message { get; init; }

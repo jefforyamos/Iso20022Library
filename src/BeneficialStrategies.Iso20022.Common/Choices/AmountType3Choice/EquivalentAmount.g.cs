@@ -20,12 +20,10 @@ using System.ComponentModel.DataAnnotations;
 namespace BeneficialStrategies.Iso20022.Choices.AmountType3Choice
 {
     /// <summary>
-    /// Amount of money to be moved between the debtor and creditor, expressed in the currency of the debtor's account, and the currency in which the amount is to be moved.
+    /// Amount of money to be moved between the debtor and creditor, expressed in the currency of the debtor&apos;s account, and the currency in which the amount is to be moved.
     /// </summary>
     [IsoId("_P57LMtp-Ed-ak6NoX_4Aeg_326235198")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equivalent Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,19 +52,19 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType3Choice
         #nullable enable
         
         /// <summary>
-        /// Amount of money to be moved between debtor and creditor, before deduction of charges, expressed in the currency of the debtor's account, and to be moved in a different currency.|Usage: The first agent will convert the equivalent amount into the amount to be moved.
+        /// Amount of money to be moved between debtor and creditor, before deduction of charges, expressed in the currency of the debtor&apos;s account, and to be moved in a different currency.|Usage: The first agent will convert the equivalent amount into the amount to be moved.
         /// </summary>
         [IsoId("_P57LNNp-Ed-ak6NoX_4Aeg_853564730")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else
@@ -74,19 +72,18 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType3Choice
         #endif
         
         /// <summary>
-        /// Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
+        /// Specifies the currency of the to be transferred amount, which is different from the currency of the debtor&apos;s account.
         /// </summary>
         [IsoId("_P57LNdp-Ed-ak6NoX_4Aeg_853564760")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Currency Of Transfer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CcyOfTrf")]
         #endif
+        [IsoXmlTag("CcyOfTrf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ActiveOrHistoricCurrencyCode CurrencyOfTransfer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string CurrencyOfTransfer { get; init; } 
+        public required string CurrencyOfTransfer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string CurrencyOfTransfer { get; init; } 
         #else

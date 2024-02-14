@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CurrencyControlSupportingDocumentDelivery message is sent by either the reporting party (respectively the registration agent) or the registration agent (respectively the reporting party) in response to the supporting document request.")]
 [IsoId("_bf9R822PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Currency Control Supporting Document Delivery V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record CurrencyControlSupportingDocumentDeliveryV02 : IOuterRecor
     /// Characteristics shared by all individual items included in the message.
     /// </summary>
     [IsoId("_bf9R9W2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlHeader5 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyControlHeader5 GroupHeader { get; init; } 
+    public required CurrencyControlHeader5 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyControlHeader5 GroupHeader { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record CurrencyControlSupportingDocumentDeliveryV02 : IOuterRecor
     /// Details of the supporting document provided for the registered contract.
     /// </summary>
     [IsoId("_bf9R922PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supporting Document")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpprtgDoc")]
     #endif
+    [IsoXmlTag("SpprtgDoc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SupportingDocument2 SupportingDocument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SupportingDocument2 SupportingDocument { get; init; } 
+    public required SupportingDocument2 SupportingDocument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SupportingDocument2 SupportingDocument { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record CurrencyControlSupportingDocumentDeliveryV02 : IOuterRecor
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_bf9R-W2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record CurrencyControlSupportingDocumentDeliveryV02 : IOuterRecor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CurrencyControlSupportingDocumentDeliveryV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CurrencyControlSupportingDocumentDeliveryV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CurrencyControlSupportingDocumentDeliveryV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record CurrencyControlSupportingDocumentDeliveryV02 : IOuterRecor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CurrencyControlSupportingDocumentDeliveryV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CurrencyControlSupportingDocumentDeliveryV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CurrencyControlSupportingDocumentDeliveryV02Document : IOuterDocument<CurrencyControlSupportingDocumentDeliveryV02>
@@ -161,7 +156,7 @@ public partial record CurrencyControlSupportingDocumentDeliveryV02Document : IOu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CurrencyControlSupportingDocumentDeliveryV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CurrencyControlSupportingDocumentDeliveryV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyControlSupportingDocumentDeliveryV02 Message { get; init; }

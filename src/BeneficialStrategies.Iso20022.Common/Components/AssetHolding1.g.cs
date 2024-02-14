@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Holding of a financial asset as collateral.
 /// </summary>
 [IsoId("_4DvF8K_5EeaE9YROwd69hA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Asset Holding")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record AssetHolding1
     /// Mark-to-market post-haircut value of the collateral asset holding.
     /// </summary>
     [IsoId("_bH-r0K_6EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Haircut Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstHrcutVal")]
     #endif
+    [IsoXmlTag("PstHrcutVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd24Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAnd24Amount PostHaircutValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PostHaircutValue { get; init; } 
+    public required System.Decimal PostHaircutValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PostHaircutValue { get; init; } 
     #else
@@ -73,16 +71,15 @@ public partial record AssetHolding1
     /// Specifies financial instrument pledged as collateral.
     /// </summary>
     [IsoId("_BrEMkK_6EeaE9YROwd69hA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstTp")]
     #endif
+    [IsoXmlTag("AsstTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AssetHolding1Choice_ AssetType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AssetHolding1Choice_ AssetType { get; init; } 
+    public required AssetHolding1Choice_ AssetType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AssetHolding1Choice_ AssetType { get; init; } 
     #else
@@ -93,16 +90,15 @@ public partial record AssetHolding1
     /// Identifies whether collateral relates to default fund requirements or initial margin requirements.
     /// </summary>
     [IsoId("_6pTkAbbeEeaqL_M7XFD7PQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollRqrmnt")]
     #endif
+    [IsoXmlTag("CollRqrmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralAccountType3Code CollateralRequirement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralAccountType3Code CollateralRequirement { get; init; } 
+    public required CollateralAccountType3Code CollateralRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralAccountType3Code CollateralRequirement { get; init; } 
     #else

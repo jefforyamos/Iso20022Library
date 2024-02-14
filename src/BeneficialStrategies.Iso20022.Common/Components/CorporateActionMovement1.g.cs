@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the movement instruction.
 /// </summary>
 [IsoId("_UIh5p9p-Ed-ak6NoX_4Aeg_378115287")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Movement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CorporateActionMovement1
     /// Type of movement instruction.
     /// </summary>
     [IsoId("_UIh5qNp-Ed-ak6NoX_4Aeg_-2043026968")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrTp")]
     #endif
+    [IsoXmlTag("OrdrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DistributionInstructionType1Code OrderType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DistributionInstructionType1Code OrderType { get; init; } 
+    public required DistributionInstructionType1Code OrderType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DistributionInstructionType1Code OrderType { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record CorporateActionMovement1
     /// Indicates whether the movement is a high priority or not.|Meaning when true: High priority|Meaning when false: Standard.
     /// </summary>
     [IsoId("_UIh5qdp-Ed-ak6NoX_4Aeg_1947921085")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("High Priority Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghPrtyInd")]
     #endif
+    [IsoXmlTag("HghPrtyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator HighPriorityIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String HighPriorityIndicator { get; init; } 
+    public required System.String HighPriorityIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String HighPriorityIndicator { get; init; } 
     #else
@@ -93,15 +90,12 @@ public partial record CorporateActionMovement1
     /// Number identifying the available corporate action options.
     /// </summary>
     [IsoId("_UIh5qtp-Ed-ak6NoX_4Aeg_1390292817")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("OptnNb")]
+    [IsoSimpleType(IsoSimpleType.Exact3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoExact3NumericText? OptionNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,12 +108,11 @@ public partial record CorporateActionMovement1
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
     [IsoId("_UIh5q9p-Ed-ak6NoX_4Aeg_1390292847")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,16 +125,16 @@ public partial record CorporateActionMovement1
     /// Date at which the distribution movement must be executed.
     /// </summary>
     [IsoId("_UIh5rNp-Ed-ak6NoX_4Aeg_1481723517")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Execution Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdExctnDt")]
     #endif
+    [IsoXmlTag("ReqdExctnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate RequestedExecutionDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly RequestedExecutionDate { get; init; } 
+    public required System.DateOnly RequestedExecutionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly RequestedExecutionDate { get; init; } 
     #else
@@ -152,12 +145,11 @@ public partial record CorporateActionMovement1
     /// Identification of the party that owns the account.
     /// </summary>
     [IsoId("_UIrqoNp-Ed-ak6NoX_4Aeg_-780577191")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnrId")]
     #endif
+    [IsoXmlTag("AcctOwnrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,15 +162,13 @@ public partial record CorporateActionMovement1
     /// Identification of the account.
     /// </summary>
     [IsoId("_UIrqodp-Ed-ak6NoX_4Aeg_1208775765")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +181,11 @@ public partial record CorporateActionMovement1
     /// Quantity of securities in the confirmed balance, ie, the balance to which the credit of the outturned resources applies.
     /// </summary>
     [IsoId("_UIrqotp-Ed-ak6NoX_4Aeg_-298927794")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmed Balance Securities Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfdBalSctiesQty")]
     #endif
+    [IsoXmlTag("ConfdBalSctiesQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnitOrFaceAmount1Choice_? ConfirmedBalanceSecuritiesQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

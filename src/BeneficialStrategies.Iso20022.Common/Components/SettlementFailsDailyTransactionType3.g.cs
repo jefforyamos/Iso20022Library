@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the transaction type as defined in the relevant regulation.
 /// </summary>
 [IsoId("_MUG5RTOmEeqX8uoQQ3KffQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Daily Transaction Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record SettlementFailsDailyTransactionType3
     /// Purchase or sale of securities.
     /// </summary>
     [IsoId("_MU7YoTOmEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Buy Or Sell")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesBuyOrSell")]
     #endif
+    [IsoXmlTag("SctiesBuyOrSell")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyCSD1Choice_ SecuritiesBuyOrSell { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyCSD1Choice_ SecuritiesBuyOrSell { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ SecuritiesBuyOrSell { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyCSD1Choice_ SecuritiesBuyOrSell { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record SettlementFailsDailyTransactionType3
     /// Relates to securities transfers aiming to provide or to return collateral.
     /// </summary>
     [IsoId("_MU7YozOmEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Management Operation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollMgmtOpr")]
     #endif
+    [IsoXmlTag("CollMgmtOpr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyCSD1Choice_ CollateralManagementOperation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyCSD1Choice_ CollateralManagementOperation { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ CollateralManagementOperation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyCSD1Choice_ CollateralManagementOperation { get; init; } 
     #else
@@ -95,16 +91,15 @@ public partial record SettlementFailsDailyTransactionType3
     /// Relates to a securities lending or borrowing operation.
     /// </summary>
     [IsoId("_MU7YpTOmEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Lending Or Borrowing")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesLndgOrBrrwg")]
     #endif
+    [IsoXmlTag("SctiesLndgOrBrrwg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyCSD1Choice_ SecuritiesLendingOrBorrowing { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyCSD1Choice_ SecuritiesLendingOrBorrowing { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ SecuritiesLendingOrBorrowing { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyCSD1Choice_ SecuritiesLendingOrBorrowing { get; init; } 
     #else
@@ -115,16 +110,15 @@ public partial record SettlementFailsDailyTransactionType3
     /// Repurchase transactions.
     /// </summary>
     [IsoId("_MU7YpzOmEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repurchase Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpAgrmt")]
     #endif
+    [IsoXmlTag("RpAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyCSD1Choice_ RepurchaseAgreement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyCSD1Choice_ RepurchaseAgreement { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ RepurchaseAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyCSD1Choice_ RepurchaseAgreement { get; init; } 
     #else
@@ -135,16 +129,15 @@ public partial record SettlementFailsDailyTransactionType3
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
     [IsoId("_MU7YqTOmEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
+    [IsoXmlTag("Othr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailsDailyCSD1Choice_ Other { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailsDailyCSD1Choice_ Other { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailsDailyCSD1Choice_ Other { get; init; } 
     #else

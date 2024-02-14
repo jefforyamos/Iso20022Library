@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Narrative information for an undertaking.
 /// </summary>
 [IsoId("_94mSknltEeG7BsjMvd1mEw_1059061696")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Narrative")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Narrative1
     /// Type of term or condition.
     /// </summary>
     [IsoId("_94mSk3ltEeG7BsjMvd1mEw_860460142")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NarrativeType1Choice_? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,19 +59,15 @@ public partial record Narrative1
     /// Narrative text.
     /// </summary>
     [IsoId("_94mSlHltEeG7BsjMvd1mEw_-1855880326")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Text")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Txt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Txt")]
+    [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> Text { get; init; } = new SimpleValueList<System.String>(){};
     
     

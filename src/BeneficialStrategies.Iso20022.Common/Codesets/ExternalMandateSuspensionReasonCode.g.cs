@@ -23,7 +23,7 @@ public enum ExternalMandateSuspensionReasonCode
 {
     /// <summary>
     /// Mandate suspended due to amendment of the contract.
-    /// Encoded/decoded by serializers as "CTAM".
+    /// Encoded/decoded by serializers as &quot;CTAM&quot;.
     /// </summary>
     [EnumMember(Value = "CTAM")]
     [IsoId("_uY0ys_RYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalMandateSuspensionReasonCode
     
     /// <summary>
     /// Mandate suspended due to cancellation of the contract, requested by the debtor.
-    /// Encoded/decoded by serializers as "CTCA".
+    /// Encoded/decoded by serializers as &quot;CTCA&quot;.
     /// </summary>
     [EnumMember(Value = "CTCA")]
     [IsoId("_uY98oPRYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalMandateSuspensionReasonCode
     
     /// <summary>
     /// Mandate suspended due to the contract that expired.
-    /// Encoded/decoded by serializers as "CTEX".
+    /// Encoded/decoded by serializers as &quot;CTEX&quot;.
     /// </summary>
     [EnumMember(Value = "CTEX")]
     [IsoId("_uY98o_RYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalMandateSuspensionReasonCode
     
     /// <summary>
     /// Mandate suspended as final collection took place.
-    /// Encoded/decoded by serializers as "MCFC".
+    /// Encoded/decoded by serializers as &quot;MCFC&quot;.
     /// </summary>
     [EnumMember(Value = "MCFC")]
     [IsoId("_uY98pvRYEeuLhpyIdtJzwg")]
@@ -59,7 +59,7 @@ public enum ExternalMandateSuspensionReasonCode
     
     /// <summary>
     /// Mandate suspended as the once off collection took place.
-    /// Encoded/decoded by serializers as "MCOC".
+    /// Encoded/decoded by serializers as &quot;MCOC&quot;.
     /// </summary>
     [EnumMember(Value = "MCOC")]
     [IsoId("_uY98qfRYEeuLhpyIdtJzwg")]
@@ -68,7 +68,7 @@ public enum ExternalMandateSuspensionReasonCode
     
     /// <summary>
     /// Mandate suspended after 7 consecutive unsuccessful collections.
-    /// Encoded/decoded by serializers as "MSUC".
+    /// Encoded/decoded by serializers as &quot;MSUC&quot;.
     /// </summary>
     [EnumMember(Value = "MSUC")]
     [IsoId("_uY98rPRYEeuLhpyIdtJzwg")]

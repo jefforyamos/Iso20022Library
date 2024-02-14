@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCANOEligibleBalanceSD1 message extends ISO corporate action notification (Eligible Balance market practice) message with DTCC corporate action eligible balance elements not covered in the standard message.")]
 [IsoId("_qA1Lse2PEeiWtrflKsFqHg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCANO Eligible Balance SD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCANOEligibleBalanceSD1V08 : IOuterRecord<DTCCCANOEligi
     /// Information to be extended as supplementary data to general information.
     /// </summary>
     [IsoId("_qA1Ls-2PEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionGeneralInformationSD38? CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCANOEligibleBalanceSD1V08 : IOuterRecord<DTCCCANOEligi
     /// Information to be extended as supplementary data to underlying security details.
     /// </summary>
     [IsoId("_qA1Lte2PEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygScty")]
     #endif
+    [IsoXmlTag("UndrlygScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributesSD17? UnderlyingSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,11 @@ public partial record DTCCCANOEligibleBalanceSD1V08 : IOuterRecord<DTCCCANOEligi
     /// Extension block for the information to be extended as account balance for distribution events.
     /// </summary>
     [IsoId("_qA1Lt-2PEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Distribution Account Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DstrbtnAcctBal")]
     #endif
+    [IsoXmlTag("DstrbtnAcctBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountBalanceSD10? DistributionAccountBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +117,11 @@ public partial record DTCCCANOEligibleBalanceSD1V08 : IOuterRecord<DTCCCANOEligi
     /// Extension block for the information to be extended as account balance for redemptions events.
     /// </summary>
     [IsoId("_qA1Lue2PEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Account Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedAcctBal")]
     #endif
+    [IsoXmlTag("RedAcctBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountBalanceSD11? RedemptionAccountBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +134,11 @@ public partial record DTCCCANOEligibleBalanceSD1V08 : IOuterRecord<DTCCCANOEligi
     /// Extension block for the information to be extended as account balance for reorganisation events.
     /// </summary>
     [IsoId("_qA1Lu-2PEeiWtrflKsFqHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reorganisation Account Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReorgAcctBal")]
     #endif
+    [IsoXmlTag("ReorgAcctBal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountBalanceSD12? ReorganisationAccountBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +151,7 @@ public partial record DTCCCANOEligibleBalanceSD1V08 : IOuterRecord<DTCCCANOEligi
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCANOEligibleBalanceSD1V08Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCANOEligibleBalanceSD1V08Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCANOEligibleBalanceSD1V08Document ToDocument()
     {
@@ -168,7 +161,7 @@ public partial record DTCCCANOEligibleBalanceSD1V08 : IOuterRecord<DTCCCANOEligi
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCANOEligibleBalanceSD1V08"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCANOEligibleBalanceSD1V08&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCANOEligibleBalanceSD1V08Document : IOuterDocument<DTCCCANOEligibleBalanceSD1V08>
@@ -185,7 +178,7 @@ public partial record DTCCCANOEligibleBalanceSD1V08Document : IOuterDocument<DTC
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCANOEligibleBalanceSD1V08"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCANOEligibleBalanceSD1V08&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCANOEligibleBalanceSD1V08 Message { get; init; }

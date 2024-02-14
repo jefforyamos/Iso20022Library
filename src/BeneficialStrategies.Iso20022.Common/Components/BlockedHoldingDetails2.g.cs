@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a blocked holding.
 /// </summary>
 [IsoId("_H0B8ESGdEeWKAaDJcYGKLw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Blocked Holding Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BlockedHoldingDetails2
     /// Specifies how the blocked account holding is defined.
     /// </summary>
     [IsoId("_IQ5eSSGdEeWKAaDJcYGKLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Blocked Holding")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BlckdHldg")]
     #endif
+    [IsoXmlTag("BlckdHldg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Holding1Code BlockedHolding { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Holding1Code BlockedHolding { get; init; } 
+    public required Holding1Code BlockedHolding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Holding1Code BlockedHolding { get; init; } 
     #else
@@ -71,12 +68,12 @@ public partial record BlockedHoldingDetails2
     /// When an account is blocked at the level of fund or security, partially, this is the number of units blocked.
     /// </summary>
     [IsoId("_IQ5eSyGdEeWKAaDJcYGKLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Partial Holding Units")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtlHldgUnits")]
     #endif
+    [IsoXmlTag("PrtlHldgUnits")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? PartialHoldingUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +86,13 @@ public partial record BlockedHoldingDetails2
     /// When an account is blocked at the level of fund or security, this specifies the certificate number of the blocked units.
     /// </summary>
     [IsoId("_IQ5eTSGdEeWKAaDJcYGKLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Certificate Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldgCertNb")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("HldgCertNb")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? HoldingCertificateNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

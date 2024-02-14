@@ -21,7 +21,7 @@ public enum AssetClassProductType4Code
 {
     /// <summary>
     /// Commodity of type freight.
-    /// Encoded/decoded by serializers as "FRGT".
+    /// Encoded/decoded by serializers as &quot;FRGT&quot;.
     /// </summary>
     [EnumMember(Value = "FRGT")]
     [IsoId("_w4AMgQnzEeWnS-yHF1QhNQ")]

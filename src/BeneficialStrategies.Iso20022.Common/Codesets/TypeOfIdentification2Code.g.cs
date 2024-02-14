@@ -21,7 +21,7 @@ public enum TypeOfIdentification2Code
 {
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
-    /// Encoded/decoded by serializers as "ARNU".
+    /// Encoded/decoded by serializers as &quot;ARNU&quot;.
     /// </summary>
     [EnumMember(Value = "ARNU")]
     [IsoId("__ztF5NojEeC60axPepSq7g_1743002948")]
@@ -30,7 +30,7 @@ public enum TypeOfIdentification2Code
     
     /// <summary>
     /// Number assigned to a tax exempt entity.
-    /// Encoded/decoded by serializers as "CHTY".
+    /// Encoded/decoded by serializers as &quot;CHTY&quot;.
     /// </summary>
     [EnumMember(Value = "CHTY")]
     [IsoId("__ztF5dojEeC60axPepSq7g_-721218168")]
@@ -39,7 +39,7 @@ public enum TypeOfIdentification2Code
     
     /// <summary>
     /// Number assigned to a corporate entity.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("__z224NojEeC60axPepSq7g_-1013175906")]
@@ -48,7 +48,7 @@ public enum TypeOfIdentification2Code
     
     /// <summary>
     /// Number assigned to a foreign investor (other than the alien number).
-    /// Encoded/decoded by serializers as "FIIN".
+    /// Encoded/decoded by serializers as &quot;FIIN&quot;.
     /// </summary>
     [EnumMember(Value = "FIIN")]
     [IsoId("__z224dojEeC60axPepSq7g_-1896409193")]
@@ -57,7 +57,7 @@ public enum TypeOfIdentification2Code
     
     /// <summary>
     /// Number assigned by a tax authority to an entity.
-    /// Encoded/decoded by serializers as "TXID".
+    /// Encoded/decoded by serializers as &quot;TXID&quot;.
     /// </summary>
     [EnumMember(Value = "TXID")]
     [IsoId("__z224tojEeC60axPepSq7g_-1718290521")]

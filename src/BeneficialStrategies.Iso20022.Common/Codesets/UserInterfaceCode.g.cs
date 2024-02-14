@@ -21,7 +21,7 @@ public enum UserInterfaceCode
 {
     /// <summary>
     /// Cardholder display or interface.
-    /// Encoded/decoded by serializers as "CDSP".
+    /// Encoded/decoded by serializers as &quot;CDSP&quot;.
     /// </summary>
     [EnumMember(Value = "CDSP")]
     [IsoId("_TVfaAAEcEeCQm6a_G2yO_w_-1891105555")]
@@ -30,7 +30,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Cardholder receipt.
-    /// Encoded/decoded by serializers as "CRCP".
+    /// Encoded/decoded by serializers as &quot;CRCP&quot;.
     /// </summary>
     [EnumMember(Value = "CRCP")]
     [IsoId("_TVfaAQEcEeCQm6a_G2yO_w_-1437018286")]
@@ -39,7 +39,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Merchant display or interface.
-    /// Encoded/decoded by serializers as "MDSP".
+    /// Encoded/decoded by serializers as &quot;MDSP&quot;.
     /// </summary>
     [EnumMember(Value = "MDSP")]
     [IsoId("_TVpK8AEcEeCQm6a_G2yO_w_393904883")]
@@ -48,7 +48,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Merchant receipt.
-    /// Encoded/decoded by serializers as "MRCP".
+    /// Encoded/decoded by serializers as &quot;MRCP&quot;.
     /// </summary>
     [EnumMember(Value = "MRCP")]
     [IsoId("_TVpK8QEcEeCQm6a_G2yO_w_1154670036")]
@@ -57,7 +57,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Acquirer.
-    /// Encoded/decoded by serializers as "ACQU".
+    /// Encoded/decoded by serializers as &quot;ACQU&quot;.
     /// </summary>
     [EnumMember(Value = "ACQU")]
     [IsoId("_9IzrQIO2EeSWSLYdc10LRg")]
@@ -66,7 +66,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Issuer.
-    /// Encoded/decoded by serializers as "ISSR".
+    /// Encoded/decoded by serializers as &quot;ISSR&quot;.
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_W4Ok4IO5EeSWSLYdc10LRg")]
@@ -75,7 +75,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Agent.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_ax3I4IO5EeSWSLYdc10LRg")]
@@ -84,7 +84,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Other interface of the cardholder, for instance e-mail or smartphone message.
-    /// Encoded/decoded by serializers as "CRDO".
+    /// Encoded/decoded by serializers as &quot;CRDO&quot;.
     /// </summary>
     [EnumMember(Value = "CRDO")]
     [IsoId("_tfIHAIO-EeSWSLYdc10LRg")]
@@ -93,7 +93,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Information dedicated to a software application related to a device belonging to the cardholder.
-    /// Encoded/decoded by serializers as "CHAP".
+    /// Encoded/decoded by serializers as &quot;CHAP&quot;.
     /// </summary>
     [EnumMember(Value = "CHAP")]
     [IsoId("_6HCaAHyMEemHsOqJOzMVfg")]
@@ -102,7 +102,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Data dedicated to an application maintained by a clearing agent.
-    /// Encoded/decoded by serializers as "CLRA".
+    /// Encoded/decoded by serializers as &quot;CLRA&quot;.
     /// </summary>
     [EnumMember(Value = "CLRA")]
     [IsoId("_6HCaAXyMEemHsOqJOzMVfg")]
@@ -111,7 +111,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Data dedicated to a log maintained by the clearing agent.
-    /// Encoded/decoded by serializers as "CLRL".
+    /// Encoded/decoded by serializers as &quot;CLRL&quot;.
     /// </summary>
     [EnumMember(Value = "CLRL")]
     [IsoId("_6HCaAnyMEemHsOqJOzMVfg")]
@@ -120,7 +120,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Interface used in case of disputes or chargebacks.
-    /// Encoded/decoded by serializers as "DSPU".
+    /// Encoded/decoded by serializers as &quot;DSPU&quot;.
     /// </summary>
     [EnumMember(Value = "DSPU")]
     [IsoId("_6HCaA3yMEemHsOqJOzMVfg")]
@@ -129,7 +129,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// File used to store the message.
-    /// Encoded/decoded by serializers as "FILE".
+    /// Encoded/decoded by serializers as &quot;FILE&quot;.
     /// </summary>
     [EnumMember(Value = "FILE")]
     [IsoId("_6HCaBHyMEemHsOqJOzMVfg")]
@@ -138,7 +138,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Information dedicated to a log file.
-    /// Encoded/decoded by serializers as "LOGF".
+    /// Encoded/decoded by serializers as &quot;LOGF&quot;.
     /// </summary>
     [EnumMember(Value = "LOGF")]
     [IsoId("_6HCaBXyMEemHsOqJOzMVfg")]
@@ -147,7 +147,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Information dedicated to a software application related to a device belonging to the merchant.
-    /// Encoded/decoded by serializers as "MRAP".
+    /// Encoded/decoded by serializers as &quot;MRAP&quot;.
     /// </summary>
     [EnumMember(Value = "MRAP")]
     [IsoId("_6HCaBnyMEemHsOqJOzMVfg")]
@@ -156,7 +156,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Other type of acquirer interface.
-    /// Encoded/decoded by serializers as "OTAI".
+    /// Encoded/decoded by serializers as &quot;OTAI&quot;.
     /// </summary>
     [EnumMember(Value = "OTAI")]
     [IsoId("_6HCaB3yMEemHsOqJOzMVfg")]
@@ -165,7 +165,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Data dedicated to another interface maintained by the clearing agent.
-    /// Encoded/decoded by serializers as "OCAI".
+    /// Encoded/decoded by serializers as &quot;OCAI&quot;.
     /// </summary>
     [EnumMember(Value = "OCAI")]
     [IsoId("_6HCaCHyMEemHsOqJOzMVfg")]
@@ -174,7 +174,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Other type of issuer interface.
-    /// Encoded/decoded by serializers as "OTII".
+    /// Encoded/decoded by serializers as &quot;OTII&quot;.
     /// </summary>
     [EnumMember(Value = "OTII")]
     [IsoId("_6HCaCXyMEemHsOqJOzMVfg")]
@@ -183,7 +183,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Other interface of the merchant for instance e-mail or smartphone message.
-    /// Encoded/decoded by serializers as "MRIN".
+    /// Encoded/decoded by serializers as &quot;MRIN&quot;.
     /// </summary>
     [EnumMember(Value = "MRIN")]
     [IsoId("_6HCaCnyMEemHsOqJOzMVfg")]
@@ -192,7 +192,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Other type of interface defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_6HCaC3yMEemHsOqJOzMVfg")]
@@ -201,7 +201,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Other type of interface defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_6HCaDHyMEemHsOqJOzMVfg")]
@@ -210,7 +210,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Other settlement agent interface.
-    /// Encoded/decoded by serializers as "OSAI".
+    /// Encoded/decoded by serializers as &quot;OSAI&quot;.
     /// </summary>
     [EnumMember(Value = "OSAI")]
     [IsoId("_6HCaDXyMEemHsOqJOzMVfg")]
@@ -219,7 +219,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Settlement agent interface.
-    /// Encoded/decoded by serializers as "STLI".
+    /// Encoded/decoded by serializers as &quot;STLI&quot;.
     /// </summary>
     [EnumMember(Value = "STLI")]
     [IsoId("_6HCaDnyMEemHsOqJOzMVfg")]
@@ -228,7 +228,7 @@ public enum UserInterfaceCode
     
     /// <summary>
     /// Credit information related to a top-up account.
-    /// Encoded/decoded by serializers as "TUCR".
+    /// Encoded/decoded by serializers as &quot;TUCR&quot;.
     /// </summary>
     [EnumMember(Value = "TUCR")]
     [IsoId("_6HCaD3yMEemHsOqJOzMVfg")]

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPClearingMemberReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about the central counterparties clearing members and their clients, and the related account structures.")]
 [IsoId("_yw5rkeUTEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Clearing Member Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CCPClearingMemberReportV01 : IOuterRecord<CCPClearingMembe
     /// Legal counterpart to trades cleared through a central counterparty.
     /// </summary>
     [IsoId("_yw5rmeUTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ClearingMember1 ClearingMember { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ClearingMember1 ClearingMember { get; init; } 
+    public required ClearingMember1 ClearingMember { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ClearingMember1 ClearingMember { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CCPClearingMemberReportV01 : IOuterRecord<CCPClearingMembe
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_yw5rm-UTEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record CCPClearingMemberReportV01 : IOuterRecord<CCPClearingMembe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPClearingMemberReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPClearingMemberReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPClearingMemberReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record CCPClearingMemberReportV01 : IOuterRecord<CCPClearingMembe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPClearingMemberReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPClearingMemberReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPClearingMemberReportV01Document : IOuterDocument<CCPClearingMemberReportV01>
@@ -140,7 +136,7 @@ public partial record CCPClearingMemberReportV01Document : IOuterDocument<CCPCle
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPClearingMemberReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPClearingMemberReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPClearingMemberReportV01 Message { get; init; }

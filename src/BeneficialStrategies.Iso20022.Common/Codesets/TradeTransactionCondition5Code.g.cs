@@ -21,7 +21,7 @@ public enum TradeTransactionCondition5Code
 {
     /// <summary>
     /// Indicates whether the trade is executed ex coupon.
-    /// Encoded/decoded by serializers as "XCPN".
+    /// Encoded/decoded by serializers as &quot;XCPN&quot;.
     /// </summary>
     [EnumMember(Value = "XCPN")]
     [IsoId("_iNUDEV-mEeavlvCtut5bgg")]
@@ -30,7 +30,7 @@ public enum TradeTransactionCondition5Code
     
     /// <summary>
     /// Indicates whether the trade is executed cum coupon.
-    /// Encoded/decoded by serializers as "CCPN".
+    /// Encoded/decoded by serializers as &quot;CCPN&quot;.
     /// </summary>
     [EnumMember(Value = "CCPN")]
     [IsoId("_iYxsMV-mEeavlvCtut5bgg")]

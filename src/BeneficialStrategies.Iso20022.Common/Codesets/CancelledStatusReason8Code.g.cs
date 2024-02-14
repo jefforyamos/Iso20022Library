@@ -21,7 +21,7 @@ public enum CancelledStatusReason8Code
 {
     /// <summary>
     /// Transaction is cancelled by a party other than the instructing party, eg, a market infrastructure such as a stock exchange.
-    /// Encoded/decoded by serializers as "CANO".
+    /// Encoded/decoded by serializers as &quot;CANO&quot;.
     /// </summary>
     [EnumMember(Value = "CANO")]
     [IsoId("_WOybg9p-Ed-ak6NoX_4Aeg_-1191324296")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
     /// Specifications of a party defined within a system.
     /// </summary>
     [IsoId("_0NEVY4wXEei289CGNqs21g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Party")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Unique identification of the party within the system.
         /// </summary>
         [IsoId("_0XDX24wXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PtyId")]
         #endif
+        [IsoXmlTag("PtyId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemPartyIdentification9? PartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Information that locates and identifies a specific address.
         /// </summary>
         [IsoId("_0XDX34wXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Adr")]
         #endif
+        [IsoXmlTag("Adr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PostalAddress25? Address { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Specifies the options on how to contact the party.
         /// </summary>
         [IsoId("_CiEaI4waEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Contact Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtctDtls")]
         #endif
+        [IsoXmlTag("CtctDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public Contact5? ContactDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +98,12 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Specifies the opening date of the party.
         /// </summary>
         [IsoId("_0XDX0YwXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Opening Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OpngDt")]
         #endif
+        [IsoXmlTag("OpngDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? OpeningDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +116,12 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Specifies the closing date of the party.
         /// </summary>
         [IsoId("_0XDX04wXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Closing Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClsgDt")]
         #endif
+        [IsoXmlTag("ClsgDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISODate? ClosingDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,12 +134,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Specifies the type classification of the party.
         /// </summary>
         [IsoId("_0XDX1YwXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemPartyType1Choice_? Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -157,12 +151,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
         /// </summary>
         [IsoId("_0XDX14wXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Technical Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TechAdr")]
         #endif
+        [IsoXmlTag("TechAdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TechnicalIdentification2Choice_? TechnicalAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -175,12 +168,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Additional attributes defined by a central security depositary for a party.
         /// </summary>
         [IsoId("_0XDX2YwXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Market Specific Attribute")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MktSpcfcAttr")]
         #endif
+        [IsoXmlTag("MktSpcfcAttr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MarketSpecificAttribute1? MarketSpecificAttribute { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,12 +185,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Name by which a party is known and which is usually used to identify that party.
         /// </summary>
         [IsoId("_0XDX3YwXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
+        [IsoXmlTag("Nm")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyName4? Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,12 +202,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Specifies the type of residence where the party has its permanent home or principal establishment.
         /// </summary>
         [IsoId("_CiEaJIwaEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Residence Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ResTp")]
         #endif
+        [IsoXmlTag("ResTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ResidenceType1Code? ResidenceType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -229,12 +219,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Specifies whether the party is locked or not, and the reason for this status, when required.
         /// </summary>
         [IsoId("_CiEaJYwaEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Lock Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LckSts")]
         #endif
+        [IsoXmlTag("LckSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyLockStatus1? LockStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -247,12 +236,11 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError3Choice
         /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
         /// </summary>
         [IsoId("_0XDX4YwXEei289CGNqs21g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Restriction")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rstrctn")]
         #endif
+        [IsoXmlTag("Rstrctn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemRestriction1? Restriction { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

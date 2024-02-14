@@ -21,7 +21,7 @@ public enum AssetClassSubProductType47Code
 {
     /// <summary>
     /// Commodity of type deliverable.
-    /// Encoded/decoded by serializers as "DLVR".
+    /// Encoded/decoded by serializers as &quot;DLVR&quot;.
     /// </summary>
     [EnumMember(Value = "DLVR")]
     [IsoId("_kPWNAfwhEeW4Wthd0Ze_kA")]

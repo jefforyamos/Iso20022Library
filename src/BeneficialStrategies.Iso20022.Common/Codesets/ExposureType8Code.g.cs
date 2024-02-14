@@ -21,7 +21,7 @@ public enum ExposureType8Code
 {
     /// <summary>
     /// Cross currency interest rate swap.
-    /// Encoded/decoded by serializers as "CCIR".
+    /// Encoded/decoded by serializers as &quot;CCIR&quot;.
     /// </summary>
     [EnumMember(Value = "CCIR")]
     [IsoId("_6eBVMQLtEeutW5-TpeYJhA")]
@@ -30,7 +30,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Combination of various types of trades.
-    /// Encoded/decoded by serializers as "CRPR".
+    /// Encoded/decoded by serializers as &quot;CRPR&quot;.
     /// </summary>
     [EnumMember(Value = "CRPR")]
     [IsoId("_6nZTogLtEeutW5-TpeYJhA")]
@@ -39,7 +39,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Trading of equity.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_6swUwgLtEeutW5-TpeYJhA")]
@@ -48,7 +48,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Trading of equity option (also known as stock options).
-    /// Encoded/decoded by serializers as "EQPT".
+    /// Encoded/decoded by serializers as &quot;EQPT&quot;.
     /// </summary>
     [EnumMember(Value = "EQPT")]
     [IsoId("_6z43ggLtEeutW5-TpeYJhA")]
@@ -57,7 +57,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Equity swap trades where the return of an equity is exchanged for either a fixed or a floating rate of interest.
-    /// Encoded/decoded by serializers as "EQUS".
+    /// Encoded/decoded by serializers as &quot;EQUS&quot;.
     /// </summary>
     [EnumMember(Value = "EQUS")]
     [IsoId("_69am8gLtEeutW5-TpeYJhA")]
@@ -66,7 +66,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Trading of exchanged traded derivatives in general.
-    /// Encoded/decoded by serializers as "EXTD".
+    /// Encoded/decoded by serializers as &quot;EXTD&quot;.
     /// </summary>
     [EnumMember(Value = "EXTD")]
     [IsoId("_7DNs8gLtEeutW5-TpeYJhA")]
@@ -75,7 +75,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Trading of exotic option, for example, a non standard option.
-    /// Encoded/decoded by serializers as "EXPT".
+    /// Encoded/decoded by serializers as &quot;EXPT&quot;.
     /// </summary>
     [EnumMember(Value = "EXPT")]
     [IsoId("_7JBaAgLtEeutW5-TpeYJhA")]
@@ -84,7 +84,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Trading of fixed income instruments.
-    /// Encoded/decoded by serializers as "FIXI".
+    /// Encoded/decoded by serializers as &quot;FIXI&quot;.
     /// </summary>
     [EnumMember(Value = "FIXI")]
     [IsoId("_7UBwIgLtEeutW5-TpeYJhA")]
@@ -93,7 +93,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Foreign exchange trades in general.
-    /// Encoded/decoded by serializers as "FORX".
+    /// Encoded/decoded by serializers as &quot;FORX&quot;.
     /// </summary>
     [EnumMember(Value = "FORX")]
     [IsoId("_7abTEgLtEeutW5-TpeYJhA")]
@@ -102,7 +102,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Forward foreign exchange trades.
-    /// Encoded/decoded by serializers as "FORW".
+    /// Encoded/decoded by serializers as &quot;FORW&quot;.
     /// </summary>
     [EnumMember(Value = "FORW")]
     [IsoId("_7grFAgLtEeutW5-TpeYJhA")]
@@ -111,7 +111,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Related to futures trading activity.
-    /// Encoded/decoded by serializers as "FUTR".
+    /// Encoded/decoded by serializers as &quot;FUTR&quot;.
     /// </summary>
     [EnumMember(Value = "FUTR")]
     [IsoId("_7mxtAgLtEeutW5-TpeYJhA")]
@@ -120,7 +120,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Related to options trading activity.
-    /// Encoded/decoded by serializers as "OPTN".
+    /// Encoded/decoded by serializers as &quot;OPTN&quot;.
     /// </summary>
     [EnumMember(Value = "OPTN")]
     [IsoId("_7r-9IgLtEeutW5-TpeYJhA")]
@@ -129,7 +129,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// In support of settlement via an RTGS or other clearing system.
-    /// Encoded/decoded by serializers as "LIQU".
+    /// Encoded/decoded by serializers as &quot;LIQU&quot;.
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_7xoSIgLtEeutW5-TpeYJhA")]
@@ -138,7 +138,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Margin lending transaction. 
-    /// Encoded/decoded by serializers as "MGLD".
+    /// Encoded/decoded by serializers as &quot;MGLD&quot;.
     /// </summary>
     [EnumMember(Value = "MGLD")]
     [IsoId("_73lJIgLtEeutW5-TpeYJhA")]
@@ -147,7 +147,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// OTC derivatives trading.
-    /// Encoded/decoded by serializers as "OTCD".
+    /// Encoded/decoded by serializers as &quot;OTCD&quot;.
     /// </summary>
     [EnumMember(Value = "OTCD")]
     [IsoId("_79rxIgLtEeutW5-TpeYJhA")]
@@ -156,7 +156,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Relates to repurchase agreement trading.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_8EYPAgLtEeutW5-TpeYJhA")]
@@ -165,7 +165,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// In support of a reverse repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "RVPO".
+    /// Encoded/decoded by serializers as &quot;RVPO&quot;.
     /// </summary>
     [EnumMember(Value = "RVPO")]
     [IsoId("_8M21kgLtEeutW5-TpeYJhA")]
@@ -174,7 +174,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Exposure is linked to a secured loan.
-    /// Encoded/decoded by serializers as "SLOA".
+    /// Encoded/decoded by serializers as &quot;SLOA&quot;.
     /// </summary>
     [EnumMember(Value = "SLOA")]
     [IsoId("_8UJwYgLtEeutW5-TpeYJhA")]
@@ -183,7 +183,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Securities buy sell back.
-    /// Encoded/decoded by serializers as "SBSC".
+    /// Encoded/decoded by serializers as &quot;SBSC&quot;.
     /// </summary>
     [EnumMember(Value = "SBSC")]
     [IsoId("_8aisQQLtEeutW5-TpeYJhA")]
@@ -192,7 +192,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Combination of securities related exposure types.
-    /// Encoded/decoded by serializers as "SCRP".
+    /// Encoded/decoded by serializers as &quot;SCRP&quot;.
     /// </summary>
     [EnumMember(Value = "SCRP")]
     [IsoId("_8hisIgLtEeutW5-TpeYJhA")]
@@ -201,7 +201,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Exposure is linked to a securities lending or borrowing activity.
-    /// Encoded/decoded by serializers as "SLEB".
+    /// Encoded/decoded by serializers as &quot;SLEB&quot;.
     /// </summary>
     [EnumMember(Value = "SLEB")]
     [IsoId("_8orO4gLtEeutW5-TpeYJhA")]
@@ -210,7 +210,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Short sale exposure.
-    /// Encoded/decoded by serializers as "SHSL".
+    /// Encoded/decoded by serializers as &quot;SHSL&quot;.
     /// </summary>
     [EnumMember(Value = "SHSL")]
     [IsoId("_8ux24gLtEeutW5-TpeYJhA")]
@@ -219,7 +219,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Single currency interest rate swap.
-    /// Encoded/decoded by serializers as "SCIR".
+    /// Encoded/decoded by serializers as &quot;SCIR&quot;.
     /// </summary>
     [EnumMember(Value = "SCIR")]
     [IsoId("_85WIIgLtEeutW5-TpeYJhA")]
@@ -228,7 +228,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Exotic single currency interest rate swap.
-    /// Encoded/decoded by serializers as "SCIE".
+    /// Encoded/decoded by serializers as &quot;SCIE&quot;.
     /// </summary>
     [EnumMember(Value = "SCIE")]
     [IsoId("_8-siMgLtEeutW5-TpeYJhA")]
@@ -237,7 +237,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Suggested credit line.
-    /// Encoded/decoded by serializers as "ESCL".
+    /// Encoded/decoded by serializers as &quot;ESCL&quot;.
     /// </summary>
     [EnumMember(Value = "ESCL")]
     [IsoId("_9F1sAgLtEeutW5-TpeYJhA")]
@@ -246,7 +246,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Option on interest rate swap.
-    /// Encoded/decoded by serializers as "SWPT".
+    /// Encoded/decoded by serializers as &quot;SWPT&quot;.
     /// </summary>
     [EnumMember(Value = "SWPT")]
     [IsoId("_9MPO8gLtEeutW5-TpeYJhA")]
@@ -255,7 +255,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// To be announced (TBA) related collateral.
-    /// Encoded/decoded by serializers as "TBAS".
+    /// Encoded/decoded by serializers as &quot;TBAS&quot;.
     /// </summary>
     [EnumMember(Value = "TBAS")]
     [IsoId("_9TYYwgLtEeutW5-TpeYJhA")]
@@ -264,7 +264,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Total credit.
-    /// Encoded/decoded by serializers as "ECRT".
+    /// Encoded/decoded by serializers as &quot;ECRT&quot;.
     /// </summary>
     [EnumMember(Value = "ECRT")]
     [IsoId("_9ZxUogLtEeutW5-TpeYJhA")]
@@ -273,7 +273,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Total credit freezing.
-    /// Encoded/decoded by serializers as "ECFR".
+    /// Encoded/decoded by serializers as &quot;ECFR&quot;.
     /// </summary>
     [EnumMember(Value = "ECFR")]
     [IsoId("_9f38ogLtEeutW5-TpeYJhA")]
@@ -282,7 +282,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Total marginal lending.
-    /// Encoded/decoded by serializers as "EMLO".
+    /// Encoded/decoded by serializers as &quot;EMLO&quot;.
     /// </summary>
     [EnumMember(Value = "EMLO")]
     [IsoId("_9sElkgLtEeutW5-TpeYJhA")]
@@ -291,7 +291,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Total marginal lending interest.
-    /// Encoded/decoded by serializers as "EMLI".
+    /// Encoded/decoded by serializers as &quot;EMLI&quot;.
     /// </summary>
     [EnumMember(Value = "EMLI")]
     [IsoId("_943rcgLtEeutW5-TpeYJhA")]
@@ -300,7 +300,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Total initial margin on outstanding liquidity providing open market operations.
-    /// Encoded/decoded by serializers as "EOIM".
+    /// Encoded/decoded by serializers as &quot;EOIM&quot;.
     /// </summary>
     [EnumMember(Value = "EOIM")]
     [IsoId("_-BMhAgLtEeutW5-TpeYJhA")]
@@ -309,7 +309,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Total open market credit operations interest.
-    /// Encoded/decoded by serializers as "EOMI".
+    /// Encoded/decoded by serializers as &quot;EOMI&quot;.
     /// </summary>
     [EnumMember(Value = "EOMI")]
     [IsoId("_-OcS0gLtEeutW5-TpeYJhA")]
@@ -318,7 +318,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Combination of treasury related exposure types.
-    /// Encoded/decoded by serializers as "TRCP".
+    /// Encoded/decoded by serializers as &quot;TRCP&quot;.
     /// </summary>
     [EnumMember(Value = "TRCP")]
     [IsoId("_-wzZAgLtEeutW5-TpeYJhA")]
@@ -327,7 +327,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Trading of treasury bonds.
-    /// Encoded/decoded by serializers as "TRBD".
+    /// Encoded/decoded by serializers as &quot;TRBD&quot;.
     /// </summary>
     [EnumMember(Value = "TRBD")]
     [IsoId("_-4_EogLtEeutW5-TpeYJhA")]
@@ -336,7 +336,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Any securities traded out beyond 3 days which include treasury notes, Japanese Government Bonds (JGBs) and Gilts.
-    /// Encoded/decoded by serializers as "BFWD".
+    /// Encoded/decoded by serializers as &quot;BFWD&quot;.
     /// </summary>
     [EnumMember(Value = "BFWD")]
     [IsoId("__snhAgLtEeutW5-TpeYJhA")]
@@ -345,7 +345,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// In support of any type of cash settlement.
-    /// Encoded/decoded by serializers as "PAYM".
+    /// Encoded/decoded by serializers as &quot;PAYM&quot;.
     /// </summary>
     [EnumMember(Value = "PAYM")]
     [IsoId("__zKN4gLtEeutW5-TpeYJhA")]
@@ -354,7 +354,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Collateral covering the initial margin requirements for OTC trades cleared through a CCP.
-    /// Encoded/decoded by serializers as "CCPC".
+    /// Encoded/decoded by serializers as &quot;CCPC&quot;.
     /// </summary>
     [EnumMember(Value = "CCPC")]
     [IsoId("__5s6wgLtEeutW5-TpeYJhA")]
@@ -363,7 +363,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Trading of exchanged traded commodities.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("___9TwgLtEeutW5-TpeYJhA")]
@@ -372,7 +372,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Trading of credit default swap.
-    /// Encoded/decoded by serializers as "CRDS".
+    /// Encoded/decoded by serializers as &quot;CRDS&quot;.
     /// </summary>
     [EnumMember(Value = "CRDS")]
     [IsoId("_AGDUsgLuEeutW5-TpeYJhA")]
@@ -381,7 +381,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Opening of a credit line before trading.
-    /// Encoded/decoded by serializers as "CRTL".
+    /// Encoded/decoded by serializers as &quot;CRTL&quot;.
     /// </summary>
     [EnumMember(Value = "CRTL")]
     [IsoId("_AMTGogLuEeutW5-TpeYJhA")]
@@ -390,7 +390,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Cash lending/borrowing; letter of credit; signing of master agreement.
-    /// Encoded/decoded by serializers as "CRSP".
+    /// Encoded/decoded by serializers as &quot;CRSP&quot;.
     /// </summary>
     [EnumMember(Value = "CRSP")]
     [IsoId("_AVFPMgLuEeutW5-TpeYJhA")]
@@ -399,7 +399,7 @@ public enum ExposureType8Code
     
     /// <summary>
     /// Total open market credit operations.
-    /// Encoded/decoded by serializers as "EOMO".
+    /// Encoded/decoded by serializers as &quot;EOMO&quot;.
     /// </summary>
     [EnumMember(Value = "EOMO")]
     [IsoId("_AchT8gLuEeutW5-TpeYJhA")]

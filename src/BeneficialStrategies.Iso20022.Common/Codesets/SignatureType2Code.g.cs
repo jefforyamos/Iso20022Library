@@ -21,7 +21,7 @@ public enum SignatureType2Code
 {
     /// <summary>
     /// Technical signature that includes algorithms and private key and public key information. Used to sign and verify the contents of a message.
-    /// Encoded/decoded by serializers as "DIGI".
+    /// Encoded/decoded by serializers as &quot;DIGI&quot;.
     /// </summary>
     [EnumMember(Value = "DIGI")]
     [IsoId("_r15dAV-dEeavlvCtut5bgg")]
@@ -30,7 +30,7 @@ public enum SignatureType2Code
     
     /// <summary>
     /// Copy of a physical or original signature in an electronic format.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_sBDkIV-dEeavlvCtut5bgg")]
@@ -39,7 +39,7 @@ public enum SignatureType2Code
     
     /// <summary>
     /// No signature.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_sEVhoV-dEeavlvCtut5bgg")]
@@ -48,7 +48,7 @@ public enum SignatureType2Code
     
     /// <summary>
     /// Written signature. May also be known as a physical or wet signature.
-    /// Encoded/decoded by serializers as "ORIG".
+    /// Encoded/decoded by serializers as &quot;ORIG&quot;.
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_sJGF0V-dEeavlvCtut5bgg")]

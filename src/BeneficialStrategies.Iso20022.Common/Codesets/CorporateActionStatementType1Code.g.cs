@@ -21,7 +21,7 @@ public enum CorporateActionStatementType1Code
 {
     /// <summary>
     /// Statement contains missing instructions.
-    /// Encoded/decoded by serializers as "MISS".
+    /// Encoded/decoded by serializers as &quot;MISS&quot;.
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_bTMJg9p-Ed-ak6NoX_4Aeg_1348068920")]
@@ -30,7 +30,7 @@ public enum CorporateActionStatementType1Code
     
     /// <summary>
     /// Statement contains all instructions.
-    /// Encoded/decoded by serializers as "ALLL".
+    /// Encoded/decoded by serializers as &quot;ALLL&quot;.
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_bTMJhNp-Ed-ak6NoX_4Aeg_1358228102")]

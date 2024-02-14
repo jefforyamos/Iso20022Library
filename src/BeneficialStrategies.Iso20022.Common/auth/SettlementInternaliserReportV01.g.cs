@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The SettlementInternaliserReport message is sent by the settlement internalisers to the relevant competent authority to report aggregated information on all securities transactions that they settle outside securities settlement systems, on a quarterly basis. The report contains aggregated information on the value and volume of all internalised settlement instructions (settled and failed) that have been performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.||Usage: |This report may be used by settlement internalisers to provide aggregated information (volume and value) on internalised settlement instructions (settled and failed) to their competent authorities.")]
 [IsoId("_m9MVgO3jEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Internaliser Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord<SettlementI
     /// Specifies parameters of the report.
     /// </summary>
     [IsoId("_jW2EcO3kEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptHdr")]
     #endif
+    [IsoXmlTag("RptHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserReportHeader1 ReportHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementInternaliserReportHeader1 ReportHeader { get; init; } 
+    public required SettlementInternaliserReportHeader1 ReportHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementInternaliserReportHeader1 ReportHeader { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord<SettlementI
     /// Identifies the settlement internaliser for which data is reported.
     /// </summary>
     [IsoId("_lNkVgO3kEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Internaliser")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmIntlr")]
     #endif
+    [IsoXmlTag("SttlmIntlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliser1 SettlementInternaliser { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementInternaliser1 SettlementInternaliser { get; init; } 
+    public required SettlementInternaliser1 SettlementInternaliser { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementInternaliser1 SettlementInternaliser { get; init; } 
     #else
@@ -120,16 +116,15 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord<SettlementI
     /// Identifies each issuer CSD (central securities depository) included in the report.
     /// </summary>
     [IsoId("_pgDeYO3kEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer CSD")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrCSD")]
     #endif
+    [IsoXmlTag("IssrCSD")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IssuerCSDReport1 IssuerCSD { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IssuerCSDReport1 IssuerCSD { get; init; } 
+    public required IssuerCSDReport1 IssuerCSD { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IssuerCSDReport1 IssuerCSD { get; init; } 
     #else
@@ -140,12 +135,11 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord<SettlementI
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_D1rv0X9xEeiuTa5SlOUnYg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +152,7 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord<SettlementI
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SettlementInternaliserReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SettlementInternaliserReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SettlementInternaliserReportV01Document ToDocument()
     {
@@ -168,7 +162,7 @@ public partial record SettlementInternaliserReportV01 : IOuterRecord<SettlementI
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SettlementInternaliserReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SettlementInternaliserReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SettlementInternaliserReportV01Document : IOuterDocument<SettlementInternaliserReportV01>
@@ -185,7 +179,7 @@ public partial record SettlementInternaliserReportV01Document : IOuterDocument<S
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SettlementInternaliserReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SettlementInternaliserReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementInternaliserReportV01 Message { get; init; }

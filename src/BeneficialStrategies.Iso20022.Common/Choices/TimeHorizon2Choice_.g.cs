@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeHorizon2Choice.NumberOfYears))]
     [KnownType(typeof(TimeHorizon2Choice.TimeFrame))]
     [IsoId("_U38AEbVOEeqkjqDuFVh1-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Horizon 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

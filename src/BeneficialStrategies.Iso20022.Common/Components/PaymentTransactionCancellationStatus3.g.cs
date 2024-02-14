@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the status of the cancellation of a payment transaction.
 /// </summary>
 [IsoId("_UFAnxYEqEei51tn2YGQhvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Transaction Cancellation Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record PaymentTransactionCancellationStatus3
     /// Specifies the status of a cancellation request.
     /// </summary>
     [IsoId("_UFAnxoEqEei51tn2YGQhvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Cancellation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxCxlSts")]
     #endif
+    [IsoXmlTag("TxCxlSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
+    public required CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record PaymentTransactionCancellationStatus3
     /// Provides status reason with regards to the cancellation of the payment.
     /// </summary>
     [IsoId("_UFAnyYEqEei51tn2YGQhvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlStsRsnInf")]
     #endif
+    [IsoXmlTag("CxlStsRsnInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCancellationStatusReason3Code? CancellationStatusReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,16 @@ public partial record PaymentTransactionCancellationStatus3
     /// Identifies the party that the case is assigned to. This is also the receiver of the message.
     /// </summary>
     [IsoId("_UFAnyIEqEei51tn2YGQhvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgne")]
     #endif
+    [IsoXmlTag("Assgne")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier Assignee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Assignee { get; init; } 
+    public required System.String Assignee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Assignee { get; init; } 
     #else
@@ -111,16 +107,16 @@ public partial record PaymentTransactionCancellationStatus3
     /// Specifies the date and time at which the cancellation response message enters the tracking system and thus on which the status is provided.
     /// </summary>
     [IsoId("_UFAnx4EqEei51tn2YGQhvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Event Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlEvtDtTm")]
     #endif
+    [IsoXmlTag("CxlEvtDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CancellationEventDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CancellationEventDateTime { get; init; } 
+    public required System.DateTime CancellationEventDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CancellationEventDateTime { get; init; } 
     #else

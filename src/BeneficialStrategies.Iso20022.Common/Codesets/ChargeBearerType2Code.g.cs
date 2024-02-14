@@ -21,7 +21,7 @@ public enum ChargeBearerType2Code
 {
     /// <summary>
     /// Charges are to be applied following the rules agreed in the service level and/or scheme.
-    /// Encoded/decoded by serializers as "SLEV".
+    /// Encoded/decoded by serializers as &quot;SLEV&quot;.
     /// </summary>
     [EnumMember(Value = "SLEV")]
     [IsoId("_a8PpJtp-Ed-ak6NoX_4Aeg_-867377749")]

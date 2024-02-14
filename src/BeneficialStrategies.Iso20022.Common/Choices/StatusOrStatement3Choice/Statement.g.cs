@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement3Choice
     /// Identify the statement/report that was requested.
     /// </summary>
     [IsoId("_CEn-0_JlEd-DocZblYEqZw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement3Choice
         /// Number used to identify a message or document.
         /// </summary>
         [IsoId("_Tg5R5tp-Ed-ak6NoX_4Aeg_160411897")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nb")]
         #endif
+        [IsoXmlTag("Nb")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DocumentNumber1Choice_ Number { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DocumentNumber1Choice_ Number { get; init; } 
+        public required DocumentNumber1Choice_ Number { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DocumentNumber1Choice_ Number { get; init; } 
         #else

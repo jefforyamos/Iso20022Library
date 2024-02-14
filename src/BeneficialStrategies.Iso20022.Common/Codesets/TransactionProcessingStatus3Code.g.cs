@@ -21,7 +21,7 @@ public enum TransactionProcessingStatus3Code
 {
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_jWxDkO5NEeCisYr99QEiWA_796529657")]
@@ -30,7 +30,7 @@ public enum TransactionProcessingStatus3Code
     
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_jWxDke5NEeCisYr99QEiWA_-200542696")]
@@ -39,7 +39,7 @@ public enum TransactionProcessingStatus3Code
     
     /// <summary>
     /// Instruction has been rejected for further processing.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_jWxDku5NEeCisYr99QEiWA_-1261894655")]
@@ -48,7 +48,7 @@ public enum TransactionProcessingStatus3Code
     
     /// <summary>
     /// Instruction is accepted but in repair.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_jWxDk-5NEeCisYr99QEiWA_-1083775983")]

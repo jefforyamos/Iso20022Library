@@ -21,7 +21,7 @@ public enum BrokeredDeal1Code
 {
     /// <summary>
     /// Transaction was arranged directly by the reporting agent.
-    /// Encoded/decoded by serializers as "BILA".
+    /// Encoded/decoded by serializers as &quot;BILA&quot;.
     /// </summary>
     [EnumMember(Value = "BILA")]
     [IsoId("_kvdzoXvREeWrWYBng3OpVw")]
@@ -30,7 +30,7 @@ public enum BrokeredDeal1Code
     
     /// <summary>
     /// Transaction was arranged by a third party broking agent.
-    /// Encoded/decoded by serializers as "BROK".
+    /// Encoded/decoded by serializers as &quot;BROK&quot;.
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_k2VQoXvREeWrWYBng3OpVw")]

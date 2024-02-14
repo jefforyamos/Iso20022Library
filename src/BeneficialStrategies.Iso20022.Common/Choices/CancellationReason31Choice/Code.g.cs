@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason31Choice
     /// Confirmation cancellation reason expressed as a code.
     /// </summary>
     [IsoId("_tr9nkVM4Eear4I4mBVNwZg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason31Choice
         /// Specifies the reason why a confirmation is cancelled.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ConfirmationCancellationReason1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ConfirmationCancellationReason1Code Value { get; init; } 
+        public required ConfirmationCancellationReason1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ConfirmationCancellationReason1Code Value { get; init; } 
         #else

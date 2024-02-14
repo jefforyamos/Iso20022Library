@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice
     /// Cash settlement chain parties and accounts.
     /// </summary>
     [IsoId("_yNcsADchEeOA3chqL9a4Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Parties Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice
         /// Party to which the payment amount must be ultimately delivered. In some cases, this may be a fund.
         /// </summary>
         [IsoId("_nszs4DcjEeOKPpUjhHfcCQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cdtr")]
         #endif
+        [IsoXmlTag("Cdtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentificationAndAccount96 Creditor { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentificationAndAccount96 Creditor { get; init; } 
+        public required PartyIdentificationAndAccount96 Creditor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentificationAndAccount96 Creditor { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice
         /// Financial institution that services the cash account of the beneficiary (creditor). In some markets, this is also known as receiving agent. The creditor agent is the party where the payment amount must be ultimately delivered on behalf of the beneficiary (creditor), that is, the party where the beneficiary has its account.
         /// </summary>
         [IsoId("_ns0T_zcjEeOKPpUjhHfcCQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrAgt")]
         #endif
+        [IsoXmlTag("CdtrAgt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
+        public required PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
         #else
@@ -97,12 +93,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice
         /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
         /// </summary>
         [IsoId("_ns0T8DcjEeOKPpUjhHfcCQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intermediary")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Intrmy")]
         #endif
+        [IsoXmlTag("Intrmy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentificationAndAccount97? Intermediary { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,12 +110,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice
         /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
         /// </summary>
         [IsoId("_6CPMETcjEeOKPpUjhHfcCQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Intermediary")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Intrmy2")]
         #endif
+        [IsoXmlTag("Intrmy2")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentificationAndAccount97? Intermediary2 { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

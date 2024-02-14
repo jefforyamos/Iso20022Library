@@ -21,7 +21,7 @@ public enum TradeConfirmationType1Code
 {
     /// <summary>
     /// Electronically confirmed.
-    /// Encoded/decoded by serializers as "ECNF".
+    /// Encoded/decoded by serializers as &quot;ECNF&quot;.
     /// </summary>
     [EnumMember(Value = "ECNF")]
     [IsoId("_5vcZ4Q26EeWmAKKPnqYEVQ")]
@@ -30,7 +30,7 @@ public enum TradeConfirmationType1Code
     
     /// <summary>
     /// Non-electronically confirmed.
-    /// Encoded/decoded by serializers as "YCNF".
+    /// Encoded/decoded by serializers as &quot;YCNF&quot;.
     /// </summary>
     [EnumMember(Value = "YCNF")]
     [IsoId("_5-dtUQ26EeWmAKKPnqYEVQ")]

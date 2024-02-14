@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// German Bankleitzahl - identifies German financial institutions on the German national clearing systems.
     /// </summary>
     [IsoId("_TDF7ktp-Ed-ak6NoX_4Aeg_1989940790")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("German Bankleitzahl Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// German Bankleitzahl. Identifies German financial institutions on the German national clearing systems.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DEBLZ")]
         #endif
+        [IsoXmlTag("DEBLZ")]
+        [IsoSimpleType(IsoSimpleType.GermanBankleitzahlIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoGermanBankleitzahlIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

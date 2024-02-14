@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionActivity1Choice.Code))]
     [KnownType(typeof(TransactionActivity1Choice.Proprietary))]
     [IsoId("_QwUAqNp-Ed-ak6NoX_4Aeg_537035239")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Activity 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

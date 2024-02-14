@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.supl;
 /// </summary>
 [Description(@"The DTCCCAPASD1 messge extends ISO corporate action movement preliminary advice message with DTCC corporate action elements not covered in the standard message.")]
 [IsoId("_1Njf8TL3EeKU9IrkkToqcw_1609512939")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("DTCCCAPASD 1 V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -68,12 +66,11 @@ public partial record DTCCCAPASD1V01 : IOuterRecord<DTCCCAPASD1V01,DTCCCAPASD1V0
     /// Extension block for the information to be extended as corporate action general information.
     /// </summary>
     [IsoId("_1Njf8jL3EeKU9IrkkToqcw_-1573085315")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionGeneralInformationSD1? CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -86,12 +83,11 @@ public partial record DTCCCAPASD1V01 : IOuterRecord<DTCCCAPASD1V01,DTCCCAPASD1V0
     /// Extension block for the information to be extended as corporate action movement securities movement details.
     /// </summary>
     [IsoId("_1Njf8zL3EeKU9IrkkToqcw_1688378389")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Movement Securities Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnMvmntSctiesMvmntDtls")]
     #endif
+    [IsoXmlTag("CorpActnMvmntSctiesMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionMovementSecuritiesMovementDetailsSD1? CorporateActionMovementSecuritiesMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +100,11 @@ public partial record DTCCCAPASD1V01 : IOuterRecord<DTCCCAPASD1V01,DTCCCAPASD1V0
     /// Extension block for the information to be extended as corporate action movement cash movement details.
     /// </summary>
     [IsoId("_1Njf9DL3EeKU9IrkkToqcw_51361216")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Movement Cash Movement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnMvmntCshMvmntDtls")]
     #endif
+    [IsoXmlTag("CorpActnMvmntCshMvmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CorporateActionMovementCashMovementDetailsSD1? CorporateActionMovementCashMovementDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,7 +117,7 @@ public partial record DTCCCAPASD1V01 : IOuterRecord<DTCCCAPASD1V01,DTCCCAPASD1V0
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="DTCCCAPASD1V01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;DTCCCAPASD1V01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public DTCCCAPASD1V01Document ToDocument()
     {
@@ -132,7 +127,7 @@ public partial record DTCCCAPASD1V01 : IOuterRecord<DTCCCAPASD1V01,DTCCCAPASD1V0
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="DTCCCAPASD1V01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;DTCCCAPASD1V01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record DTCCCAPASD1V01Document : IOuterDocument<DTCCCAPASD1V01>
@@ -149,7 +144,7 @@ public partial record DTCCCAPASD1V01Document : IOuterDocument<DTCCCAPASD1V01>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="DTCCCAPASD1V01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;DTCCCAPASD1V01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DTCCCAPASD1V01 Message { get; init; }

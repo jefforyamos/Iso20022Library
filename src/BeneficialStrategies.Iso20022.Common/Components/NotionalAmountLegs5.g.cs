@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the monetary or converted amount for the derivatives transaction.
 /// </summary>
 [IsoId("_k1n04WEfEe2P-L9DBerEgA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notional Amount Legs")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record NotionalAmountLegs5
     /// Notional amount of leg 1 which indicates monetary or converted amount for the derivatives transaction.
     /// </summary>
     [IsoId("_k2hMwWEfEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstLeg")]
     #endif
+    [IsoXmlTag("FrstLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotionalAmount5? FirstLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record NotionalAmountLegs5
     /// Notional amount of leg 2 which indicates monetary or converted amount for the derivatives transaction.
     /// </summary>
     [IsoId("_k2hMw2EfEe2P-L9DBerEgA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Second Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndLeg")]
     #endif
+    [IsoXmlTag("ScndLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NotionalAmount6? SecondLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the applicable Incoterm and associated location.
 /// </summary>
 [IsoId("_Sr_qOdp-Ed-ak6NoX_4Aeg_-76606103")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Incoterms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record Incoterms2
     /// Specifies the applicable Incoterm by means of a code.
     /// </summary>
     [IsoId("_Sr_qOtp-Ed-ak6NoX_4Aeg_-33745991")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Incoterms1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Incoterms1Code Code { get; init; } 
+    public required Incoterms1Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Incoterms1Code Code { get; init; } 
     #else
@@ -73,19 +70,17 @@ public partial record Incoterms2
     /// Specifies Incoterm not present in code list.
     /// </summary>
     [IsoId("_Sr_qO9p-Ed-ak6NoX_4Aeg_-33745913")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Othr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Othr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Other { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Other { get; init; } 
+    public required System.String Other { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Other { get; init; } 
     #else
@@ -96,19 +91,17 @@ public partial record Incoterms2
     /// Location where the Incoterms are actioned.
     /// </summary>
     [IsoId("_SsJbMNp-Ed-ak6NoX_4Aeg_-47973709")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Lctn")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Location { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Location { get; init; } 
+    public required System.String Location { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Location { get; init; } 
     #else

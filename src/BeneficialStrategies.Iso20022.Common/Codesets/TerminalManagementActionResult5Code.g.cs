@@ -21,7 +21,7 @@ public enum TerminalManagementActionResult5Code
 {
     /// <summary>
     /// Access is denied while performing the action.
-    /// Encoded/decoded by serializers as "ACCD".
+    /// Encoded/decoded by serializers as &quot;ACCD&quot;.
     /// </summary>
     [EnumMember(Value = "ACCD")]
     [IsoId("_hPDUsVFNEeyApZmLzm74zA")]
@@ -30,7 +30,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Problem to connect while performing the action.
-    /// Encoded/decoded by serializers as "CNTE".
+    /// Encoded/decoded by serializers as &quot;CNTE&quot;.
     /// </summary>
     [EnumMember(Value = "CNTE")]
     [IsoId("_hPDUs1FNEeyApZmLzm74zA")]
@@ -39,7 +39,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Data transferred has a wrong format.
-    /// Encoded/decoded by serializers as "FMTE".
+    /// Encoded/decoded by serializers as &quot;FMTE&quot;.
     /// </summary>
     [EnumMember(Value = "FMTE")]
     [IsoId("_hPDUtVFNEeyApZmLzm74zA")]
@@ -48,7 +48,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Content of the data is invalid.
-    /// Encoded/decoded by serializers as "INVC".
+    /// Encoded/decoded by serializers as &quot;INVC&quot;.
     /// </summary>
     [EnumMember(Value = "INVC")]
     [IsoId("_hPDUt1FNEeyApZmLzm74zA")]
@@ -57,7 +57,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Data transferred has a wrong length.
-    /// Encoded/decoded by serializers as "LENE".
+    /// Encoded/decoded by serializers as &quot;LENE&quot;.
     /// </summary>
     [EnumMember(Value = "LENE")]
     [IsoId("_hPDUuVFNEeyApZmLzm74zA")]
@@ -66,7 +66,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Memory to store the date exceeded.
-    /// Encoded/decoded by serializers as "OVER".
+    /// Encoded/decoded by serializers as &quot;OVER&quot;.
     /// </summary>
     [EnumMember(Value = "OVER")]
     [IsoId("_hPDUu1FNEeyApZmLzm74zA")]
@@ -75,7 +75,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Data set to be maintained is missing.
-    /// Encoded/decoded by serializers as "MISS".
+    /// Encoded/decoded by serializers as &quot;MISS&quot;.
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_hPDUvVFNEeyApZmLzm74zA")]
@@ -84,7 +84,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Action is not supported.
-    /// Encoded/decoded by serializers as "NSUP".
+    /// Encoded/decoded by serializers as &quot;NSUP&quot;.
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_hPDUv1FNEeyApZmLzm74zA")]
@@ -93,7 +93,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Data transferred has a wrong digital signature.
-    /// Encoded/decoded by serializers as "SIGE".
+    /// Encoded/decoded by serializers as &quot;SIGE&quot;.
     /// </summary>
     [EnumMember(Value = "SIGE")]
     [IsoId("_hPDUwVFNEeyApZmLzm74zA")]
@@ -102,7 +102,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Action was performed but some warnings arose.
-    /// Encoded/decoded by serializers as "WARN".
+    /// Encoded/decoded by serializers as &quot;WARN&quot;.
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_hPDUw1FNEeyApZmLzm74zA")]
@@ -111,7 +111,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Data transferred has a wrong syntax.
-    /// Encoded/decoded by serializers as "SYNE".
+    /// Encoded/decoded by serializers as &quot;SYNE&quot;.
     /// </summary>
     [EnumMember(Value = "SYNE")]
     [IsoId("_hPDUxVFNEeyApZmLzm74zA")]
@@ -120,7 +120,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Timeout expired during the data transfer.
-    /// Encoded/decoded by serializers as "TIMO".
+    /// Encoded/decoded by serializers as &quot;TIMO&quot;.
     /// </summary>
     [EnumMember(Value = "TIMO")]
     [IsoId("_hPDUx1FNEeyApZmLzm74zA")]
@@ -129,7 +129,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Data set identification invalid.
-    /// Encoded/decoded by serializers as "UKDT".
+    /// Encoded/decoded by serializers as &quot;UKDT&quot;.
     /// </summary>
     [EnumMember(Value = "UKDT")]
     [IsoId("_hPDUyVFNEeyApZmLzm74zA")]
@@ -138,7 +138,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Cryptographic key reference used for the data signature is not valid.
-    /// Encoded/decoded by serializers as "UKRF".
+    /// Encoded/decoded by serializers as &quot;UKRF&quot;.
     /// </summary>
     [EnumMember(Value = "UKRF")]
     [IsoId("_hPDUy1FNEeyApZmLzm74zA")]
@@ -147,7 +147,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Delegation Proof transmitted by the delegated TMS is not the one expected.
-    /// Encoded/decoded by serializers as "INDP".
+    /// Encoded/decoded by serializers as &quot;INDP&quot;.
     /// </summary>
     [EnumMember(Value = "INDP")]
     [IsoId("_hPDUzVFNEeyApZmLzm74zA")]
@@ -156,7 +156,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// One action of the AcceptorManagementPlan refers to an update unauthorized by the delegation.
-    /// Encoded/decoded by serializers as "IDMP".
+    /// Encoded/decoded by serializers as &quot;IDMP&quot;.
     /// </summary>
     [EnumMember(Value = "IDMP")]
     [IsoId("_hPDUz1FNEeyApZmLzm74zA")]
@@ -165,7 +165,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// The content analysis of the AcceptorConfigurationUpdate reveals unexpected parameters.
-    /// Encoded/decoded by serializers as "DPRU".
+    /// Encoded/decoded by serializers as &quot;DPRU&quot;.
     /// </summary>
     [EnumMember(Value = "DPRU")]
     [IsoId("_hPDU0VFNEeyApZmLzm74zA")]
@@ -173,8 +173,8 @@ public enum TerminalManagementActionResult5Code
     DelegationParametersReceivedUnauthorized = TerminalManagementActionResultCode.DelegationParametersReceivedUnauthorized, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// This code value means all TerminalManagementActionResultCode except "Any Error" and "Unlisted Error".
-    /// Encoded/decoded by serializers as "AERR".
+    /// This code value means all TerminalManagementActionResultCode except &quot;Any Error&quot; and &quot;Unlisted Error&quot;.
+    /// Encoded/decoded by serializers as &quot;AERR&quot;.
     /// </summary>
     [EnumMember(Value = "AERR")]
     [IsoId("_hPDU01FNEeyApZmLzm74zA")]
@@ -183,7 +183,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Error in communication once the connection has been established.
-    /// Encoded/decoded by serializers as "CMER".
+    /// Encoded/decoded by serializers as &quot;CMER&quot;.
     /// </summary>
     [EnumMember(Value = "CMER")]
     [IsoId("_hPDU1VFNEeyApZmLzm74zA")]
@@ -192,7 +192,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Any error that is not defined by a code value inside the TerminalManagementActionResultCode.
-    /// Encoded/decoded by serializers as "ULER".
+    /// Encoded/decoded by serializers as &quot;ULER&quot;.
     /// </summary>
     [EnumMember(Value = "ULER")]
     [IsoId("_hPDU11FNEeyApZmLzm74zA")]
@@ -201,7 +201,7 @@ public enum TerminalManagementActionResult5Code
     
     /// <summary>
     /// Action was successfully performed.
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_2NuuEVFNEeyApZmLzm74zA")]

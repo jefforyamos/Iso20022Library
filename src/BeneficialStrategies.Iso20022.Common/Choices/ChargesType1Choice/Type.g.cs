@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargesType1Choice
     /// Type of service for which a charge is asked or paid.
     /// </summary>
     [IsoId("_yW81UBrdEeOVR9VN6fAMUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargesType1Choice
         /// Identifies charges linked to the conveyance of goods.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ChargeType8Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ChargeType8Code Value { get; init; } 
+        public required ChargeType8Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ChargeType8Code Value { get; init; } 
         #else

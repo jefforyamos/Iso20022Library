@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionType1CodeChoice.Structured))]
     [KnownType(typeof(TransactionType1CodeChoice.Unstructured))]
     [IsoId("_U0V2wdp-Ed-ak6NoX_4Aeg_1816953757")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Type 1 Code Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

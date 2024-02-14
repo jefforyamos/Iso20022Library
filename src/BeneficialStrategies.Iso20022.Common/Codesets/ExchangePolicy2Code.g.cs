@@ -21,7 +21,7 @@ public enum ExchangePolicy2Code
 {
     /// <summary>
     /// Exchange is performed if requested by the acquirer in a previous exchange, or at any time by the acceptor.
-    /// Encoded/decoded by serializers as "ONDM".
+    /// Encoded/decoded by serializers as &quot;ONDM&quot;.
     /// </summary>
     [EnumMember(Value = "ONDM")]
     [IsoId("_mQNdYQ0vEeqUVL7sB4m7NA")]
@@ -30,7 +30,7 @@ public enum ExchangePolicy2Code
     
     /// <summary>
     /// Exchange is performed just after the transaction completion.
-    /// Encoded/decoded by serializers as "IMMD".
+    /// Encoded/decoded by serializers as &quot;IMMD&quot;.
     /// </summary>
     [EnumMember(Value = "IMMD")]
     [IsoId("_mQNdYw0vEeqUVL7sB4m7NA")]
@@ -39,7 +39,7 @@ public enum ExchangePolicy2Code
     
     /// <summary>
     /// As soon as the acquirer is contacted, for example with the next on-line transaction.
-    /// Encoded/decoded by serializers as "ASAP".
+    /// Encoded/decoded by serializers as &quot;ASAP&quot;.
     /// </summary>
     [EnumMember(Value = "ASAP")]
     [IsoId("_mQNdZQ0vEeqUVL7sB4m7NA")]
@@ -48,7 +48,7 @@ public enum ExchangePolicy2Code
     
     /// <summary>
     /// Exchanges are performed after reaching a maximum number of transaction or time period.
-    /// Encoded/decoded by serializers as "AGRP".
+    /// Encoded/decoded by serializers as &quot;AGRP&quot;.
     /// </summary>
     [EnumMember(Value = "AGRP")]
     [IsoId("_mQNdZw0vEeqUVL7sB4m7NA")]
@@ -57,7 +57,7 @@ public enum ExchangePolicy2Code
     
     /// <summary>
     /// Exchange is performed after reaching a number of transactions without exchanges with the acquirer.
-    /// Encoded/decoded by serializers as "NBLT".
+    /// Encoded/decoded by serializers as &quot;NBLT&quot;.
     /// </summary>
     [EnumMember(Value = "NBLT")]
     [IsoId("_mQNdaQ0vEeqUVL7sB4m7NA")]
@@ -66,7 +66,7 @@ public enum ExchangePolicy2Code
     
     /// <summary>
     /// Exchange is performed after reaching a cumulative amount of transactions without exchanges with the acquirer.
-    /// Encoded/decoded by serializers as "TTLT".
+    /// Encoded/decoded by serializers as &quot;TTLT&quot;.
     /// </summary>
     [EnumMember(Value = "TTLT")]
     [IsoId("_mQNdaw0vEeqUVL7sB4m7NA")]
@@ -75,7 +75,7 @@ public enum ExchangePolicy2Code
     
     /// <summary>
     /// Cyclic exchanges based on the related time conditions.
-    /// Encoded/decoded by serializers as "CYCL".
+    /// Encoded/decoded by serializers as &quot;CYCL&quot;.
     /// </summary>
     [EnumMember(Value = "CYCL")]
     [IsoId("_mQNdbQ0vEeqUVL7sB4m7NA")]
@@ -84,7 +84,7 @@ public enum ExchangePolicy2Code
     
     /// <summary>
     /// No exchange.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_mQNdbw0vEeqUVL7sB4m7NA")]
@@ -93,7 +93,7 @@ public enum ExchangePolicy2Code
     
     /// <summary>
     /// All pending process must be paused until exchange is exclusively performed just after the transaction completion.
-    /// Encoded/decoded by serializers as "BLCK".
+    /// Encoded/decoded by serializers as &quot;BLCK&quot;.
     /// </summary>
     [EnumMember(Value = "BLCK")]
     [IsoId("_Lya6gQ0wEeqUVL7sB4m7NA")]

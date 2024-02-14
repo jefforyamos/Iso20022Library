@@ -21,7 +21,7 @@ public enum CutOffCode
 {
     /// <summary>
     /// Cut-off may change to early.
-    /// Encoded/decoded by serializers as "AERL".
+    /// Encoded/decoded by serializers as &quot;AERL&quot;.
     /// </summary>
     [EnumMember(Value = "AERL")]
     [IsoId("_1oYaxDL3EeKU9IrkkToqcw_-1262434567")]
@@ -30,7 +30,7 @@ public enum CutOffCode
     
     /// <summary>
     /// Cut-off occurs before the DTCC (The Depository Trust and Clearing Corporation) standard settlement cut-off. Early cut-off usually 1: 30 Eastern Standard Time.
-    /// Encoded/decoded by serializers as "EARL".
+    /// Encoded/decoded by serializers as &quot;EARL&quot;.
     /// </summary>
     [EnumMember(Value = "EARL")]
     [IsoId("_1oYaxTL3EeKU9IrkkToqcw_-874706012")]
@@ -39,7 +39,7 @@ public enum CutOffCode
     
     /// <summary>
     /// Cut-off is after settlement at DTCC (The Depository Trust and Clearing Corporation).
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_1oYaxjL3EeKU9IrkkToqcw_804786511")]

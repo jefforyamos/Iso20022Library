@@ -21,7 +21,7 @@ public enum TransactionReturnReason1Code
 {
     /// <summary>
     /// Format of the account number specified is not correct.
-    /// Encoded/decoded by serializers as "AC01".
+    /// Encoded/decoded by serializers as &quot;AC01&quot;.
     /// </summary>
     [EnumMember(Value = "AC01")]
     [IsoId("_Vw_FMtp-Ed-ak6NoX_4Aeg_1585481412")]
@@ -29,8 +29,8 @@ public enum TransactionReturnReason1Code
     IncorrectAccountNumber = TransactionReasonCode.IncorrectAccountNumber, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Account number specified has been closed on the Receiver's books.
-    /// Encoded/decoded by serializers as "AC04".
+    /// Account number specified has been closed on the Receiver&apos;s books.
+    /// Encoded/decoded by serializers as &quot;AC04&quot;.
     /// </summary>
     [EnumMember(Value = "AC04")]
     [IsoId("_Vw_FM9p-Ed-ak6NoX_4Aeg_1585481443")]
@@ -39,7 +39,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Account specified is blocked, prohibiting posting of transactions against it.
-    /// Encoded/decoded by serializers as "AC06".
+    /// Encoded/decoded by serializers as &quot;AC06&quot;.
     /// </summary>
     [EnumMember(Value = "AC06")]
     [IsoId("_Vw_FNNp-Ed-ak6NoX_4Aeg_1585481473")]
@@ -48,7 +48,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Transaction forbidden on this type of account (formerly NoAgreement).
-    /// Encoded/decoded by serializers as "AG01".
+    /// Encoded/decoded by serializers as &quot;AG01&quot;.
     /// </summary>
     [EnumMember(Value = "AG01")]
     [IsoId("_Vw_FNdp-Ed-ak6NoX_4Aeg_1585481504")]
@@ -57,7 +57,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Bank Operation code specified in the message is not valid for receiver.
-    /// Encoded/decoded by serializers as "AG02".
+    /// Encoded/decoded by serializers as &quot;AG02&quot;.
     /// </summary>
     [EnumMember(Value = "AG02")]
     [IsoId("_Vw_FNtp-Ed-ak6NoX_4Aeg_1585481505")]
@@ -66,7 +66,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Amount of funds available to cover specified message amount is insufficient.
-    /// Encoded/decoded by serializers as "AM04".
+    /// Encoded/decoded by serializers as &quot;AM04&quot;.
     /// </summary>
     [EnumMember(Value = "AM04")]
     [IsoId("_Vw_FN9p-Ed-ak6NoX_4Aeg_1585481535")]
@@ -75,7 +75,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// This message appears to have been duplicated.
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_Vw_FONp-Ed-ak6NoX_4Aeg_1585481536")]
@@ -84,7 +84,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Mandate is cancelled or invalid.
-    /// Encoded/decoded by serializers as "MD01".
+    /// Encoded/decoded by serializers as &quot;MD01&quot;.
     /// </summary>
     [EnumMember(Value = "MD01")]
     [IsoId("_VxI2MNp-Ed-ak6NoX_4Aeg_1585481813")]
@@ -92,8 +92,8 @@ public enum TransactionReturnReason1Code
     NoMandate = TransactionReasonCode.NoMandate, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Specification of creditor's address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
-    /// Encoded/decoded by serializers as "BE04".
+    /// Specification of creditor&apos;s address, which is required for payment, is missing/not correct (formerly IncorrectCreditorAddress).
+    /// Encoded/decoded by serializers as &quot;BE04&quot;.
     /// </summary>
     [EnumMember(Value = "BE04")]
     [IsoId("_VxI2Mdp-Ed-ak6NoX_4Aeg_1585481844")]
@@ -102,7 +102,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// File format incomplete or invalid.
-    /// Encoded/decoded by serializers as "MD03".
+    /// Encoded/decoded by serializers as &quot;MD03&quot;.
     /// </summary>
     [EnumMember(Value = "MD03")]
     [IsoId("_VxI2Mtp-Ed-ak6NoX_4Aeg_1585481845")]
@@ -111,7 +111,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Bank identifier code specified in the message has an incorrect format (formerly IncorrectFormatForRoutingCode).
-    /// Encoded/decoded by serializers as "RC01".
+    /// Encoded/decoded by serializers as &quot;RC01&quot;.
     /// </summary>
     [EnumMember(Value = "RC01")]
     [IsoId("_VxI2M9p-Ed-ak6NoX_4Aeg_1585481874")]
@@ -120,7 +120,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Return of funds requested by end customer.
-    /// Encoded/decoded by serializers as "MD06".
+    /// Encoded/decoded by serializers as &quot;MD06&quot;.
     /// </summary>
     [EnumMember(Value = "MD06")]
     [IsoId("_VxI2NNp-Ed-ak6NoX_4Aeg_574444668")]
@@ -129,7 +129,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// End customer is deceased.
-    /// Encoded/decoded by serializers as "MD07".
+    /// Encoded/decoded by serializers as &quot;MD07&quot;.
     /// </summary>
     [EnumMember(Value = "MD07")]
     [IsoId("_VxI2Ndp-Ed-ak6NoX_4Aeg_1585481875")]
@@ -138,7 +138,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Reason has not been specified by end customer.
-    /// Encoded/decoded by serializers as "MS02".
+    /// Encoded/decoded by serializers as &quot;MS02&quot;.
     /// </summary>
     [EnumMember(Value = "MS02")]
     [IsoId("_VxI2Ntp-Ed-ak6NoX_4Aeg_1585481905")]
@@ -147,7 +147,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Reason has not been specified by agent.
-    /// Encoded/decoded by serializers as "MS03".
+    /// Encoded/decoded by serializers as &quot;MS03&quot;.
     /// </summary>
     [EnumMember(Value = "MS03")]
     [IsoId("_VxI2N9p-Ed-ak6NoX_4Aeg_1585481906")]
@@ -156,7 +156,7 @@ public enum TransactionReturnReason1Code
     
     /// <summary>
     /// Associated message was received after agreed processing cut-off time.
-    /// Encoded/decoded by serializers as "TM01".
+    /// Encoded/decoded by serializers as &quot;TM01&quot;.
     /// </summary>
     [EnumMember(Value = "TM01")]
     [IsoId("_VxI2ONp-Ed-ak6NoX_4Aeg_1585481935")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice
     /// Provides the status of settlement of a transaction.
     /// </summary>
     [IsoId("_UVDSudp-Ed-ak6NoX_4Aeg_-136649163")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

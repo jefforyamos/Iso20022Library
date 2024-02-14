@@ -21,7 +21,7 @@ public enum Algorithm7Code
 {
     /// <summary>
     /// RSA encryption algorithm - (ASN.1 Object Identifier: rsaEncryption).
-    /// Encoded/decoded by serializers as "ERSA".
+    /// Encoded/decoded by serializers as &quot;ERSA&quot;.
     /// </summary>
     [EnumMember(Value = "ERSA")]
     [IsoId("_NyQccQmFEeKKaIHo7gv4XA")]
@@ -30,7 +30,7 @@ public enum Algorithm7Code
     
     /// <summary>
     /// RSA encryption scheme based on Optimal Asymmetric Encryption scheme (PKCS #1 version 2.1) - (ASN.1 Object Identifier: id-RSAES-OAEP).
-    /// Encoded/decoded by serializers as "RSAO".
+    /// Encoded/decoded by serializers as &quot;RSAO&quot;.
     /// </summary>
     [EnumMember(Value = "RSAO")]
     [IsoId("_OC6uoQmFEeKKaIHo7gv4XA")]

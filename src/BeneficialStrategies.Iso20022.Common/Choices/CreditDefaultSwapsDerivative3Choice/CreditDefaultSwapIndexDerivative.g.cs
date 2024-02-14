@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
     /// A credit default swap derivative on an index.
     /// </summary>
     [IsoId("_xfbL135eEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Default Swap Index Derivative")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,12 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// Derivative on a credit default swap with the ISIN code of the underlying index.
         /// </summary>
         [IsoId("_x6DSUX5eEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Underlying Index Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UndrlygIndxId")]
         #endif
+        [IsoXmlTag("UndrlygIndxId")]
+        [IsoSimpleType(IsoSimpleType.ISINOct2015Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoISINOct2015Identifier? UnderlyingIndexIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,19 +73,17 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// To be populated for derivatives on a CDS index with the standardized name of the index.
         /// </summary>
         [IsoId("_x6DSU35eEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Index Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="IndxNm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("IndxNm")]
+        [IsoSimpleType(IsoSimpleType.Max25Text)]
         [StringLength(maximumLength: 25 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax25Text IndexName { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String IndexName { get; init; } 
+        public required System.String IndexName { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String IndexName { get; init; } 
         #else
@@ -98,16 +94,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// Describes the Index specific details the derivative is being made on.
         /// </summary>
         [IsoId("_x6DSVX5eEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Index")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Indx")]
         #endif
+        [IsoXmlTag("Indx")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CreditDefaultSwapIndex2 Index { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CreditDefaultSwapIndex2 Index { get; init; } 
+        public required CreditDefaultSwapIndex2 Index { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CreditDefaultSwapIndex2 Index { get; init; } 
         #else

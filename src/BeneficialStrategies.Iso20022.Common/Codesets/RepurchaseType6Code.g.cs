@@ -21,7 +21,7 @@ public enum RepurchaseType6Code
 {
     /// <summary>
     /// Relates to a Swap/Substitution.
-    /// Encoded/decoded by serializers as "CADJ".
+    /// Encoded/decoded by serializers as &quot;CADJ&quot;.
     /// </summary>
     [EnumMember(Value = "CADJ")]
     [IsoId("_q5t_JWtdEeCY4-KZ9JEyUQ_1110886064")]
@@ -30,7 +30,7 @@ public enum RepurchaseType6Code
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "TOPU".
+    /// Encoded/decoded by serializers as &quot;TOPU&quot;.
     /// </summary>
     [EnumMember(Value = "TOPU")]
     [IsoId("_q53wIGtdEeCY4-KZ9JEyUQ_-1569933634")]
@@ -39,7 +39,7 @@ public enum RepurchaseType6Code
     
     /// <summary>
     /// Relates to a repo rollover of a position extending the closing or maturity date.
-    /// Encoded/decoded by serializers as "WTHD".
+    /// Encoded/decoded by serializers as &quot;WTHD&quot;.
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_q53wIWtdEeCY4-KZ9JEyUQ_1727961309")]

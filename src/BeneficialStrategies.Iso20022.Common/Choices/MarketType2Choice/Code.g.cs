@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketType2Choice
     /// Market type expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_Qwwsktp-Ed-ak6NoX_4Aeg_-2098859549")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketType2Choice
         /// Specifies the type of place where a trade was executed, a price was sourced from, an instrument is listed.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required MarketType5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public MarketType5Code Value { get; init; } 
+        public required MarketType5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public MarketType5Code Value { get; init; } 
         #else

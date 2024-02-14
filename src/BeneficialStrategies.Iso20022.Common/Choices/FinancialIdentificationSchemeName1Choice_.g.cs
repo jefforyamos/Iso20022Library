@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialIdentificationSchemeName1Choice.Code))]
     [KnownType(typeof(FinancialIdentificationSchemeName1Choice.Proprietary))]
     [IsoId("_QALkMNp-Ed-ak6NoX_4Aeg_-2021925461")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Identification Scheme Name 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the clearing details.
 /// </summary>
 [IsoId("_j1HYEZBeEeakHoV5BVecAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,26 +42,24 @@ public partial record Clearing5
     /// Provides details about the clearing member identification and account.
     /// </summary>
     [IsoId("_kEl-gZBeEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmb")]
     #endif
+    [IsoXmlTag("ClrMmb")]
     public PartyIdentificationAndAccount149? ClearingMember { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _kEl-gZBeEeakHoV5BVecAQ
     
     /// <summary>
     /// Clearing organisation that will clear the trade.
-    /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
+    /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty&apos;s clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
     [IsoId("_kEl-g5BeEeakHoV5BVecAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Segment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrSgmt")]
     #endif
+    [IsoXmlTag("ClrSgmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification127Choice_? ClearingSegment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

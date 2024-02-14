@@ -21,7 +21,7 @@ public enum WaivingInstructionCode
 {
     /// <summary>
     /// Form of commission waived is cash.
-    /// Encoded/decoded by serializers as "WICA".
+    /// Encoded/decoded by serializers as &quot;WICA&quot;.
     /// </summary>
     [EnumMember(Value = "WICA")]
     [IsoId("_Y9uuAtp-Ed-ak6NoX_4Aeg_165921005")]
@@ -30,7 +30,7 @@ public enum WaivingInstructionCode
     
     /// <summary>
     /// Form of commission waived is additional units of a financial instrument.
-    /// Encoded/decoded by serializers as "WIUN".
+    /// Encoded/decoded by serializers as &quot;WIUN&quot;.
     /// </summary>
     [EnumMember(Value = "WIUN")]
     [IsoId("_Y9uuA9p-Ed-ak6NoX_4Aeg_633220258")]
@@ -39,7 +39,7 @@ public enum WaivingInstructionCode
     
     /// <summary>
     /// Another type of commission waiving.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Y9uuBNp-Ed-ak6NoX_4Aeg_-268156093")]

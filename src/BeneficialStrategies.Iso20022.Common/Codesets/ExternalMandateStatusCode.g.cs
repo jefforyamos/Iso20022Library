@@ -23,7 +23,7 @@ public enum ExternalMandateStatusCode
 {
     /// <summary>
     /// The mandate is active.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_uYrBs_RYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalMandateStatusCode
     
     /// <summary>
     /// The mandate is cancelled.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_uYrBtvRYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalMandateStatusCode
     
     /// <summary>
     /// The mandate has passed the end date.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_uYrBufRYEeuLhpyIdtJzwg")]
@@ -50,7 +50,7 @@ public enum ExternalMandateStatusCode
     
     /// <summary>
     /// The mandate is put on hold.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_uY0ysPRYEeuLhpyIdtJzwg")]

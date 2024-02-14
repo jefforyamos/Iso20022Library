@@ -21,7 +21,7 @@ public enum ReorganisationTransactionType2Code
 {
     /// <summary>
     /// Reorganisation is a cover protect directly to agent transaction type.
-    /// Encoded/decoded by serializers as "COVA".
+    /// Encoded/decoded by serializers as &quot;COVA&quot;.
     /// </summary>
     [EnumMember(Value = "COVA")]
     [IsoId("_uO0ssecZEei5aPS232E3Mw")]

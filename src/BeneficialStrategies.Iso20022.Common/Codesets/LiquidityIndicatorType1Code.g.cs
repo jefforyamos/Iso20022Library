@@ -21,7 +21,7 @@ public enum LiquidityIndicatorType1Code
 {
     /// <summary>
     /// Computation is on the average value of the price of a security over a period of five days.
-    /// Encoded/decoded by serializers as "FIVE".
+    /// Encoded/decoded by serializers as &quot;FIVE&quot;.
     /// </summary>
     [EnumMember(Value = "FIVE")]
     [IsoId("_afCItdp-Ed-ak6NoX_4Aeg_1985065189")]
@@ -30,7 +30,7 @@ public enum LiquidityIndicatorType1Code
     
     /// <summary>
     /// Computation is on the average value of the price of a security over a period of 20 days.
-    /// Encoded/decoded by serializers as "TWEN".
+    /// Encoded/decoded by serializers as &quot;TWEN&quot;.
     /// </summary>
     [EnumMember(Value = "TWEN")]
     [IsoId("_afCIttp-Ed-ak6NoX_4Aeg_1985065206")]
@@ -39,7 +39,7 @@ public enum LiquidityIndicatorType1Code
     
     /// <summary>
     /// Computation is on the standard market conditions and volume.
-    /// Encoded/decoded by serializers as "NORM".
+    /// Encoded/decoded by serializers as &quot;NORM&quot;.
     /// </summary>
     [EnumMember(Value = "NORM")]
     [IsoId("_afCIt9p-Ed-ak6NoX_4Aeg_1985065379")]

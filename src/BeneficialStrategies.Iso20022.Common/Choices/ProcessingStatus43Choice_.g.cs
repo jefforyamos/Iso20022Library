@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus43Choice.Rejected))]
     [KnownType(typeof(ProcessingStatus43Choice.ProprietaryStatus))]
     [IsoId("_ezCkoVhFEeOMYfRGLS0NbA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processing Status 43 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

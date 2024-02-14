@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The StatusReportRequest message is sent by a party involved in a transaction to the matching application.|This message is used to request a report on the status of transactions registered in the matching application.|Usage|The StatusReportRequest message can be sent by either party involved in a transaction to request a report on the status and sub-statuses of all transactions that the requester is involved in.|The application will respond to the request by sending a StatusReport message.")]
 [IsoId("_0n_7mNE8Ed-BzquC8wXy7w_-619721878")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Report Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record StatusReportRequestV03 : IOuterRecord<StatusReportRequestV
     /// Identifies the request message.
     /// </summary>
     [IsoId("_0n_7mdE8Ed-BzquC8wXy7w_-619721785")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqId")]
     #endif
+    [IsoXmlTag("ReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RequestIdentification { get; init; } 
+    public required MessageIdentification1 RequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RequestIdentification { get; init; } 
     #else
@@ -100,12 +97,11 @@ public partial record StatusReportRequestV03 : IOuterRecord<StatusReportRequestV
     /// Specifies the entities of the submitter for which the transactions have to be reported.
     /// </summary>
     [IsoId("_0n_7mtE8Ed-BzquC8wXy7w_-619721446")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entities To Be Reported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NttiesToBeRptd")]
     #endif
+    [IsoXmlTag("NttiesToBeRptd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BICIdentification1? EntitiesToBeReported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,7 +114,7 @@ public partial record StatusReportRequestV03 : IOuterRecord<StatusReportRequestV
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatusReportRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatusReportRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatusReportRequestV03Document ToDocument()
     {
@@ -128,7 +124,7 @@ public partial record StatusReportRequestV03 : IOuterRecord<StatusReportRequestV
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusReportRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatusReportRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatusReportRequestV03Document : IOuterDocument<StatusReportRequestV03>
@@ -145,7 +141,7 @@ public partial record StatusReportRequestV03Document : IOuterDocument<StatusRepo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatusReportRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatusReportRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusReportRequestV03 Message { get; init; }

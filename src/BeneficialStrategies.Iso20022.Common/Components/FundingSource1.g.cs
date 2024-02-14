@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Funding sources used to finance margin loans.
 /// </summary>
 [IsoId("_ispmcMkmEeeiAIB1i4AlQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Funding Source")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FundingSource1
     /// Type of a funding used.
     /// </summary>
     [IsoId("_qdyngMkmEeeiAIB1i4AlQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundingSourceType1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FundingSourceType1Code Type { get; init; } 
+    public required FundingSourceType1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FundingSourceType1Code Type { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record FundingSource1
     /// Market value of funding sources in base currency.
     /// </summary>
     [IsoId("_wcfakMkmEeeiAIB1i4AlQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount MarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MarketValue { get; init; } 
+    public required System.Decimal MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MarketValue { get; init; } 
     #else

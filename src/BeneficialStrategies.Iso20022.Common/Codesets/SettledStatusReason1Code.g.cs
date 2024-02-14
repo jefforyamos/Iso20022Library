@@ -21,7 +21,7 @@ public enum SettledStatusReason1Code
 {
     /// <summary>
     /// Units are partially settled.
-    /// Encoded/decoded by serializers as "UPST".
+    /// Encoded/decoded by serializers as &quot;UPST&quot;.
     /// </summary>
     [EnumMember(Value = "UPST")]
     [IsoId("_ZKsL8tp-Ed-ak6NoX_4Aeg_514877099")]
@@ -30,7 +30,7 @@ public enum SettledStatusReason1Code
     
     /// <summary>
     /// Cash is partially settled.
-    /// Encoded/decoded by serializers as "CPST".
+    /// Encoded/decoded by serializers as &quot;CPST&quot;.
     /// </summary>
     [EnumMember(Value = "CPST")]
     [IsoId("_ZKsL89p-Ed-ak6NoX_4Aeg_514877159")]
@@ -39,7 +39,7 @@ public enum SettledStatusReason1Code
     
     /// <summary>
     /// Units and cash are both partially settled.
-    /// Encoded/decoded by serializers as "UCPS".
+    /// Encoded/decoded by serializers as &quot;UCPS&quot;.
     /// </summary>
     [EnumMember(Value = "UCPS")]
     [IsoId("_ZKsL9Np-Ed-ak6NoX_4Aeg_514878209")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the legs of swap transaction.
 /// </summary>
 [IsoId("_Ky7eRYG-EeaalK9UbuVGFw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Swap Leg Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SwapLegIdentification2
     /// Instrument received by the buyer.
     /// </summary>
     [IsoId("_K9fvgYG-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Swap In")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwpIn")]
     #endif
+    [IsoXmlTag("SwpIn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentIdentification7Choice_? SwapIn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SwapLegIdentification2
     /// Instrument paid by the buyer.
     /// </summary>
     [IsoId("_K9fvg4G-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Swap Out")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwpOut")]
     #endif
+    [IsoXmlTag("SwpOut")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentIdentification7Choice_? SwapOut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

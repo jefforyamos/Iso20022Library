@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModalityOfCounting1Choice
     /// Modality of counting expressed as a code.
     /// </summary>
     [IsoId("_eYiLAK-vEemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ModalityOfCounting1Choice
         /// Specifies the modality through which the votes that have been recorded and counted.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ModalityOfCounting1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ModalityOfCounting1Code Value { get; init; } 
+        public required ModalityOfCounting1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ModalityOfCounting1Code Value { get; init; } 
         #else

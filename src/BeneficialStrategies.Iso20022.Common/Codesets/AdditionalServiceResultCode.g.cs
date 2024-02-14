@@ -21,7 +21,7 @@ public enum AdditionalServiceResultCode
 {
     /// <summary>
     /// The service was performed.
-    /// Encoded/decoded by serializers as "PERF".
+    /// Encoded/decoded by serializers as &quot;PERF&quot;.
     /// </summary>
     [EnumMember(Value = "PERF")]
     [IsoId("_2ed0UJ1JEeublrfU-wN95w")]
@@ -30,7 +30,7 @@ public enum AdditionalServiceResultCode
     
     /// <summary>
     /// The service was not performed.
-    /// Encoded/decoded by serializers as "NOPF".
+    /// Encoded/decoded by serializers as &quot;NOPF&quot;.
     /// </summary>
     [EnumMember(Value = "NOPF")]
     [IsoId("_6ZF20J1JEeublrfU-wN95w")]
@@ -39,7 +39,7 @@ public enum AdditionalServiceResultCode
     
     /// <summary>
     /// The service is not supported and could not be performed.
-    /// Encoded/decoded by serializers as "NOSP".
+    /// Encoded/decoded by serializers as &quot;NOSP&quot;.
     /// </summary>
     [EnumMember(Value = "NOSP")]
     [IsoId("_-u4LUJ1JEeublrfU-wN95w")]
@@ -48,7 +48,7 @@ public enum AdditionalServiceResultCode
     
     /// <summary>
     /// Other nationally defined code.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_Ea8WQJ1KEeublrfU-wN95w")]
@@ -57,7 +57,7 @@ public enum AdditionalServiceResultCode
     
     /// <summary>
     /// Other privately defined code.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_HxzkYJ1KEeublrfU-wN95w")]

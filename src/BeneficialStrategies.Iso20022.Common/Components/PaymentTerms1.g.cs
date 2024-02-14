@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
 [IsoId("_Prd4dNp-Ed-ak6NoX_4Aeg_851180831")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Terms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record PaymentTerms1
     /// Specifies payment terms not present in a code list.
     /// </summary>
     [IsoId("_Prd4ddp-Ed-ak6NoX_4Aeg_1227100069")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Payment Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPmtTerms")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrPmtTerms")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Text OtherPaymentTerms { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OtherPaymentTerms { get; init; } 
+    public required System.String OtherPaymentTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OtherPaymentTerms { get; init; } 
     #else
@@ -77,16 +73,15 @@ public partial record PaymentTerms1
     /// Specifies the payment period in coded form and a number of days.
     /// </summary>
     [IsoId("_Prd4dtp-Ed-ak6NoX_4Aeg_-1773090944")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtCd")]
     #endif
+    [IsoXmlTag("PmtCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentPeriod1 PaymentCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentPeriod1 PaymentCode { get; init; } 
+    public required PaymentPeriod1 PaymentCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentPeriod1 PaymentCode { get; init; } 
     #else
@@ -97,16 +92,16 @@ public partial record PaymentTerms1
     /// Specifies that the payment conditions apply to a percentage of the amount due.
     /// </summary>
     [IsoId("_Prd4d9p-Ed-ak6NoX_4Aeg_791045590")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pctg")]
     #endif
+    [IsoXmlTag("Pctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Percentage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Percentage { get; init; } 
+    public required System.Decimal Percentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Percentage { get; init; } 
     #else
@@ -117,16 +112,16 @@ public partial record PaymentTerms1
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
     [IsoId("_PrnpcNp-Ed-ak6NoX_4Aeg_1065328418")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

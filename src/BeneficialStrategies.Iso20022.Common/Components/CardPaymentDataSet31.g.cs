@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Result of the captured set of transactions.
 /// </summary>
 [IsoId("_M2on0VICEey4xOoMoOPSJQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Payment Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record CardPaymentDataSet31
     /// Identification of the data set.
     /// </summary>
     [IsoId("_M9jIIVICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetId")]
     #endif
+    [IsoXmlTag("DataSetId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataSetIdentification5 DataSetIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataSetIdentification5 DataSetIdentification { get; init; } 
+    public required DataSetIdentification5 DataSetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataSetIdentification5 DataSetIdentification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record CardPaymentDataSet31
     /// Result of the data set capture.
     /// </summary>
     [IsoId("_M9jII1ICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetRslt")]
     #endif
+    [IsoXmlTag("DataSetRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType10 DataSetResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType10 DataSetResult { get; init; } 
+    public required ResponseType10 DataSetResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType10 DataSetResult { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record CardPaymentDataSet31
     /// Indicates if the data set must be removed from the POI (Point Of Interaction).
     /// </summary>
     [IsoId("_M9jIJVICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remove Data Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmvDataSet")]
     #endif
+    [IsoXmlTag("RmvDataSet")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator RemoveDataSet { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RemoveDataSet { get; init; } 
+    public required System.String RemoveDataSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RemoveDataSet { get; init; } 
     #else
@@ -113,12 +109,11 @@ public partial record CardPaymentDataSet31
     /// Initiator of the data set.
     /// </summary>
     [IsoId("_M9jIJ1ICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Initiator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetInitr")]
     #endif
+    [IsoXmlTag("DataSetInitr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification176? DataSetInitiator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record CardPaymentDataSet31
     /// Transaction totals of the batch.
     /// </summary>
     [IsoId("_M9jIKVICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Totals")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxTtls")]
     #endif
+    [IsoXmlTag("TxTtls")]
     public TransactionTotals12? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _M9jIKVICEey4xOoMoOPSJQ
     
@@ -144,12 +138,11 @@ public partial record CardPaymentDataSet31
     /// Transaction in the batch, whose capture has been rejected.
     /// </summary>
     [IsoId("_M9jIK1ICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdTx")]
     #endif
+    [IsoXmlTag("RjctdTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet30? RejectedTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +155,11 @@ public partial record CardPaymentDataSet31
     /// Transaction in the batch, whose capture has been suspended.
     /// </summary>
     [IsoId("_M9jILVICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspended Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SspdTx")]
     #endif
+    [IsoXmlTag("SspdTx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet30? SuspendedTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,12 +172,11 @@ public partial record CardPaymentDataSet31
     /// Transaction in the batch, whose capture has been approved after suspension.
     /// </summary>
     [IsoId("_M9jIL1ICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resumed Approval")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsmdApprvl")]
     #endif
+    [IsoXmlTag("RsmdApprvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet30? ResumedApproval { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -198,12 +189,11 @@ public partial record CardPaymentDataSet31
     /// Transaction in the batch, whose capture has been rejected after suspension.
     /// </summary>
     [IsoId("_M9jIMVICEey4xOoMoOPSJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resumed Rejection")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsmdRjctn")]
     #endif
+    [IsoXmlTag("RsmdRjctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentDataSet30? ResumedRejection { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

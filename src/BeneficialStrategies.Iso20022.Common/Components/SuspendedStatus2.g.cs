@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Status is suspended.
 /// </summary>
 [IsoId("_RGqrINp-Ed-ak6NoX_4Aeg_1793071793")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Suspended Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SuspendedStatus2
     /// Indicates that there is no reason available or to report.
     /// </summary>
     [IsoId("_RGqrIdp-Ed-ak6NoX_4Aeg_1793071810")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Specified Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoSpcfdRsn")]
     #endif
+    [IsoXmlTag("NoSpcfdRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NoReasonCode NoSpecifiedReason { get; init; } 
+    public required NoReasonCode NoSpecifiedReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NoReasonCode NoSpecifiedReason { get; init; } 
     #else
@@ -71,16 +68,13 @@ public partial record SuspendedStatus2
     /// Reason for the suspended status.
     /// </summary>
     [IsoId("_RGqrItp-Ed-ak6NoX_4Aeg_-550374008")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsnDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RsnDtls")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<SuspendedStatusReason2> ReasonDetails { get; init; } = new ValueList<SuspendedStatusReason2>(){};
     
     

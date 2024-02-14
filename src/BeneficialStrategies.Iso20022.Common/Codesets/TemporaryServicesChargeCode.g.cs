@@ -21,7 +21,7 @@ public enum TemporaryServicesChargeCode
 {
     /// <summary>
     /// Holiday
-    /// Encoded/decoded by serializers as "HOLI".
+    /// Encoded/decoded by serializers as &quot;HOLI&quot;.
     /// </summary>
     [EnumMember(Value = "HOLI")]
     [IsoId("_OwYzuvffEei89sMSHxl1ew")]
@@ -30,7 +30,7 @@ public enum TemporaryServicesChargeCode
     
     /// <summary>
     /// On call
-    /// Encoded/decoded by serializers as "ONCL".
+    /// Encoded/decoded by serializers as &quot;ONCL&quot;.
     /// </summary>
     [EnumMember(Value = "ONCL")]
     [IsoId("_OwZawvffEei89sMSHxl1ew")]
@@ -39,7 +39,7 @@ public enum TemporaryServicesChargeCode
     
     /// <summary>
     /// Hazard
-    /// Encoded/decoded by serializers as "HAZD".
+    /// Encoded/decoded by serializers as &quot;HAZD&quot;.
     /// </summary>
     [EnumMember(Value = "HAZD")]
     [IsoId("_OwZawfffEei89sMSHxl1ew")]
@@ -48,7 +48,7 @@ public enum TemporaryServicesChargeCode
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_OwYzufffEei89sMSHxl1ew")]
@@ -57,7 +57,7 @@ public enum TemporaryServicesChargeCode
     
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_OwZawPffEei89sMSHxl1ew")]
@@ -66,7 +66,7 @@ public enum TemporaryServicesChargeCode
     
     /// <summary>
     /// Overtime
-    /// Encoded/decoded by serializers as "OVRT".
+    /// Encoded/decoded by serializers as &quot;OVRT&quot;.
     /// </summary>
     [EnumMember(Value = "OVRT")]
     [IsoId("_5B_YIPffEei89sMSHxl1ew")]
@@ -75,7 +75,7 @@ public enum TemporaryServicesChargeCode
     
     /// <summary>
     /// Night
-    /// Encoded/decoded by serializers as "NITE".
+    /// Encoded/decoded by serializers as &quot;NITE&quot;.
     /// </summary>
     [EnumMember(Value = "NITE")]
     [IsoId("_8YVB0PffEei89sMSHxl1ew")]
@@ -84,7 +84,7 @@ public enum TemporaryServicesChargeCode
     
     /// <summary>
     /// Regular
-    /// Encoded/decoded by serializers as "REGL".
+    /// Encoded/decoded by serializers as &quot;REGL&quot;.
     /// </summary>
     [EnumMember(Value = "REGL")]
     [IsoId("_8a9fEPffEei89sMSHxl1ew")]
@@ -93,7 +93,7 @@ public enum TemporaryServicesChargeCode
     
     /// <summary>
     /// Weekend
-    /// Encoded/decoded by serializers as "WKND".
+    /// Encoded/decoded by serializers as &quot;WKND&quot;.
     /// </summary>
     [EnumMember(Value = "WKND")]
     [IsoId("_8dnxgPffEei89sMSHxl1ew")]

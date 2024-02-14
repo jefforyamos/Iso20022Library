@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the status (that is accept or reject) of the CollateralManagementCancellationRequest message.
 /// </summary>
 [IsoId("_Unhixtp-Ed-ak6NoX_4Aeg_948055066")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Cancellation Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralCancellationStatus1
     /// Allows to provide a cancellation status using a code or a proprietary status.
     /// </summary>
     [IsoId("_Unhix9p-Ed-ak6NoX_4Aeg_-278481504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Status Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollStsCd")]
     #endif
+    [IsoXmlTag("CollStsCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status4Code CollateralStatusCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status4Code CollateralStatusCode { get; init; } 
+    public required Status4Code CollateralStatusCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status4Code CollateralStatusCode { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record CollateralCancellationStatus1
     /// Provides additional information on the status of the CollateralManagementCancellationRequest message.
     /// </summary>
     [IsoId("_UnhiyNp-Ed-ak6NoX_4Aeg_-1364198621")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,11 @@ public partial record CollateralCancellationStatus1
     /// Provides rejection reason and optionaly additional information.
     /// </summary>
     [IsoId("_UnrTwNp-Ed-ak6NoX_4Aeg_330113270")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnDtls")]
     #endif
+    [IsoXmlTag("RjctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RejectionStatus2? RejectionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"Scope:|The FinancialInstitutionDirectDebit message is sent by an exchange or clearing house, or a financial institution, directly or through another agent, to the DebtorAgent. It is used to instruct the DebtorAgent to move funds from one or more debtor(s) account(s) to one or more creditor(s), where both debtor and creditor are financial institutions.||Usage:|The FinancialInstitutionDirectDebit message is exchanged between agents and can contain one or more financial institution direct debit instruction(s) for one or more creditor(s). The FinancialInstitutionDirectDebit message can be used in domestic and cross-border scenarios.|")]
 [IsoId("_CWdYcTttEeWiAsQFICzmOw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Institution Direct Debit V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record FinancialInstitutionDirectDebitV02 : IOuterRecord<Financia
     /// Common characteristics for all individual transactions included in the message.
     /// </summary>
     [IsoId("_CWdYdTttEeWiAsQFICzmOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader63 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader63 GroupHeader { get; init; } 
+    public required GroupHeader63 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader63 GroupHeader { get; init; } 
     #else
@@ -101,16 +98,15 @@ public partial record FinancialInstitutionDirectDebitV02 : IOuterRecord<Financia
     /// Characteristics that apply to the credit side of the payment transaction(s) included in the message.
     /// </summary>
     [IsoId("_CWdYdzttEeWiAsQFICzmOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Credit Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtInstr")]
     #endif
+    [IsoXmlTag("CdtInstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditTransferTransaction9 CreditInstruction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditTransferTransaction9 CreditInstruction { get; init; } 
+    public required CreditTransferTransaction9 CreditInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditTransferTransaction9 CreditInstruction { get; init; } 
     #else
@@ -121,12 +117,11 @@ public partial record FinancialInstitutionDirectDebitV02 : IOuterRecord<Financia
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_CWdYeTttEeWiAsQFICzmOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -139,7 +134,7 @@ public partial record FinancialInstitutionDirectDebitV02 : IOuterRecord<Financia
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialInstitutionDirectDebitV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialInstitutionDirectDebitV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialInstitutionDirectDebitV02Document ToDocument()
     {
@@ -149,7 +144,7 @@ public partial record FinancialInstitutionDirectDebitV02 : IOuterRecord<Financia
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialInstitutionDirectDebitV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialInstitutionDirectDebitV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialInstitutionDirectDebitV02Document : IOuterDocument<FinancialInstitutionDirectDebitV02>
@@ -166,7 +161,7 @@ public partial record FinancialInstitutionDirectDebitV02Document : IOuterDocumen
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialInstitutionDirectDebitV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialInstitutionDirectDebitV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionDirectDebitV02 Message { get; init; }

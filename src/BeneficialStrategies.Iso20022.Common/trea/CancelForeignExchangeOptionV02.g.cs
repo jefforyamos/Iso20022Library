@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.trea;
 /// </summary>
 [Description(@"Scope|The CancelForeignExchangeOption message is sent by a participant to a central system or to a counterparty to notify the cancellation of a foreign currency option contract.|Usage|The message will contain a Related Reference to link it to the previously sent notification. It may contain a reason for cancellation.|This message is only suitable for Simple (i.e. not Barrier) Vanilla (i.e. not Binary, Digital, Notouch) Foreign Exchange Options.")]
 [IsoId("_KP1cKNE8Ed-BzquC8wXy7w_-352671200")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cancel Foreign Exchange Option V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord<CancelForeig
     /// Provides reference and date of the foreign exchange option trade which is cancelled.
     /// </summary>
     [IsoId("_KP1cKdE8Ed-BzquC8wXy7w_1862314429")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradInf")]
     #endif
+    [IsoXmlTag("TradInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeAgreement2 TradeInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeAgreement2 TradeInformation { get; init; } 
+    public required TradeAgreement2 TradeInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeAgreement2 TradeInformation { get; init; } 
     #else
@@ -99,12 +96,11 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord<CancelForeig
     /// Specifies the trading side of the currency option trade which is cancelled.
     /// </summary>
     [IsoId("_KP1cKtE8Ed-BzquC8wXy7w_-332565898")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdId")]
     #endif
+    [IsoXmlTag("TradgSdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentification4? TradingSideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -117,12 +113,11 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord<CancelForeig
     /// Specifies the counterparty of the currency option trade which is cancelled.
     /// </summary>
     [IsoId("_KP1cK9E8Ed-BzquC8wXy7w_-131240239")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Side Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtySdId")]
     #endif
+    [IsoXmlTag("CtrPtySdId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradePartyIdentification4? CounterpartySideIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,12 +130,11 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord<CancelForeig
     /// Specifies the parameters of the currency option which is bought by the trading side.
     /// </summary>
     [IsoId("_KP1cLNE8Ed-BzquC8wXy7w_-743534321")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Optn")]
     #endif
+    [IsoXmlTag("Optn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Option3? Option { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,7 +147,7 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord<CancelForeig
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CancelForeignExchangeOptionV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CancelForeignExchangeOptionV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CancelForeignExchangeOptionV02Document ToDocument()
     {
@@ -163,7 +157,7 @@ public partial record CancelForeignExchangeOptionV02 : IOuterRecord<CancelForeig
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CancelForeignExchangeOptionV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CancelForeignExchangeOptionV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CancelForeignExchangeOptionV02Document : IOuterDocument<CancelForeignExchangeOptionV02>
@@ -180,7 +174,7 @@ public partial record CancelForeignExchangeOptionV02Document : IOuterDocument<Ca
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CancelForeignExchangeOptionV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CancelForeignExchangeOptionV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CancelForeignExchangeOptionV02 Message { get; init; }

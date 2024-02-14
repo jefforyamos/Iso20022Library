@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reason for a conditionally accepted status.
 /// </summary>
 [IsoId("_UyQMEdp-Ed-ak6NoX_4Aeg_524981898")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Conditionally Accepted Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,31 +42,26 @@ public partial record ConditionallyAcceptedStatusReason1
     /// Reason for a conditionally accepted status in structured form.
     /// </summary>
     [IsoId("_UyQMEtp-Ed-ak6NoX_4Aeg_524981907")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Strd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Strd")]
     [MinLength(1)]
     [MaxLength(4)]
-    #endif
     public SimpleValueList<ConditionallyAcceptedStatusReason1Code> Structured { get; init; } = new SimpleValueList<ConditionallyAcceptedStatusReason1Code>(){};
     
     /// <summary>
     /// Reason for a conditionally accepted status in free format text.
     /// </summary>
     [IsoId("_UyQME9p-Ed-ak6NoX_4Aeg_524982157")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

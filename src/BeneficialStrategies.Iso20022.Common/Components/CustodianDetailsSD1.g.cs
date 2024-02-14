@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information regarding custodian service record.
 /// </summary>
 [IsoId("_1Q1ddDL3EeKU9IrkkToqcw_-1224843836")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Custodian Details SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -57,19 +55,17 @@ public partial record CustodianDetailsSD1
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1Q1ddTL3EeKU9IrkkToqcw_-1664439967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -80,19 +76,17 @@ public partial record CustodianDetailsSD1
     /// Unique identifier of a custodian corporate action record. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1Q_OcDL3EeKU9IrkkToqcw_1455084768")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Custodian Corporate Action Record Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtdnCorpActnRcrdId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CtdnCorpActnRcrdId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CustodianCorporateActionRecordIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CustodianCorporateActionRecordIdentification { get; init; } 
+    public required System.String CustodianCorporateActionRecordIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CustodianCorporateActionRecordIdentification { get; init; } 
     #else
@@ -103,16 +97,15 @@ public partial record CustodianDetailsSD1
     /// Indicates the state of the agreement of the custodian record when compared to composite record. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1Q_OcTL3EeKU9IrkkToqcw_751485142")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agree Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgrInd")]
     #endif
+    [IsoXmlTag("AgrInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CustodianRecordAgreementType1Code AgreeIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CustodianRecordAgreementType1Code AgreeIndicator { get; init; } 
+    public required CustodianRecordAgreementType1Code AgreeIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CustodianRecordAgreementType1Code AgreeIndicator { get; init; } 
     #else
@@ -123,16 +116,15 @@ public partial record CustodianDetailsSD1
     /// Indicates state of the details of the custodian record on the system. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1Q_OcjL3EeKU9IrkkToqcw_2043159221")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Completeness Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpltnsInd")]
     #endif
+    [IsoXmlTag("CmpltnsInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CustodianRecordCompletenessType1Code CompletenessIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CustodianRecordCompletenessType1Code CompletenessIndicator { get; init; } 
+    public required CustodianRecordCompletenessType1Code CompletenessIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CustodianRecordCompletenessType1Code CompletenessIndicator { get; init; } 
     #else
@@ -143,12 +135,11 @@ public partial record CustodianDetailsSD1
     /// Represents the status of custodian activity when applicable.
     /// </summary>
     [IsoId("_1Q_OczL3EeKU9IrkkToqcw_1424851471")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Custodian Action Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtdnActnInd")]
     #endif
+    [IsoXmlTag("CtdnActnInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustodianAction1Code? CustodianActionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +152,11 @@ public partial record CustodianDetailsSD1
     /// Indicates what action needs to be taken by the GCA (Global Corporate Action) validation service for this particular record. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1Q_OdDL3EeKU9IrkkToqcw_-356832207")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("GCA Action Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GCAActnInd")]
     #endif
+    [IsoXmlTag("GCAActnInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GCAActionType1Code? GCAActionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,16 +169,16 @@ public partial record CustodianDetailsSD1
     /// BIC which is configured as a recipient of the custodian record. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1Q_OdTL3EeKU9IrkkToqcw_948233771")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiving BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvgBIC")]
     #endif
+    [IsoXmlTag("RcvgBIC")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier ReceivingBIC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ReceivingBIC { get; init; } 
+    public required System.String ReceivingBIC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ReceivingBIC { get; init; } 
     #else
@@ -199,16 +189,16 @@ public partial record CustodianDetailsSD1
     /// BIC which is configured as a sender of the custodian record. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1Q_OdjL3EeKU9IrkkToqcw_-1028930372")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Originating BIC")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgtgBIC")]
     #endif
+    [IsoXmlTag("OrgtgBIC")]
+    [IsoSimpleType(IsoSimpleType.AnyBICIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICIdentifier OriginatingBIC { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginatingBIC { get; init; } 
+    public required System.String OriginatingBIC { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginatingBIC { get; init; } 
     #else
@@ -219,16 +209,16 @@ public partial record CustodianDetailsSD1
     /// Indicates whether the event security of the corresponding composite record is on SOI (security of interest) subscription. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1RIYYDL3EeKU9IrkkToqcw_914356142")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Composite Not In Subscription Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpsitNotInSbcptFlg")]
     #endif
+    [IsoXmlTag("CmpsitNotInSbcptFlg")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CompositeNotInSubscriptionFlag { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CompositeNotInSubscriptionFlag { get; init; } 
+    public required System.String CompositeNotInSubscriptionFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CompositeNotInSubscriptionFlag { get; init; } 
     #else
@@ -239,12 +229,11 @@ public partial record CustodianDetailsSD1
     /// Provides selected corporate action events message details extracted from the related custodian messages received. Applicable to custodian service only.
     /// </summary>
     [IsoId("_1RIYYTL3EeKU9IrkkToqcw_1582463489")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Custodian Message Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdCtdnMsgDtls")]
     #endif
+    [IsoXmlTag("RltdCtdnMsgDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RelatedCustodianMessageDetailsSD1? RelatedCustodianMessageDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

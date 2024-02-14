@@ -21,7 +21,7 @@ public enum ProrationTypeCode
 {
     /// <summary>
     /// Pro ration is not decided.
-    /// Encoded/decoded by serializers as "PRND".
+    /// Encoded/decoded by serializers as &quot;PRND&quot;.
     /// </summary>
     [EnumMember(Value = "PRND")]
     [IsoId("_330GQDFrEeGKkIZzgd38VA")]
@@ -30,7 +30,7 @@ public enum ProrationTypeCode
     
     /// <summary>
     /// Pro ration is not established.
-    /// Encoded/decoded by serializers as "PRNE".
+    /// Encoded/decoded by serializers as &quot;PRNE&quot;.
     /// </summary>
     [EnumMember(Value = "PRNE")]
     [IsoId("_LGBnkDFsEeGKkIZzgd38VA")]
@@ -39,7 +39,7 @@ public enum ProrationTypeCode
     
     /// <summary>
     /// Pro ration is not used.
-    /// Encoded/decoded by serializers as "PRNU".
+    /// Encoded/decoded by serializers as &quot;PRNU&quot;.
     /// </summary>
     [EnumMember(Value = "PRNU")]
     [IsoId("_Xg_9YDVEEeGIoujPqYSZDw")]

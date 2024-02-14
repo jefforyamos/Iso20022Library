@@ -21,7 +21,7 @@ public enum MessageFunction2Code
 {
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_TRnmlgEcEeCQm6a_G2yO_w_-162813602")]
@@ -30,7 +30,7 @@ public enum MessageFunction2Code
     
     /// <summary>
     /// Message function is a response.
-    /// Encoded/decoded by serializers as "RESP".
+    /// Encoded/decoded by serializers as &quot;RESP&quot;.
     /// </summary>
     [EnumMember(Value = "RESP")]
     [IsoId("_TRnmlwEcEeCQm6a_G2yO_w_218407664")]

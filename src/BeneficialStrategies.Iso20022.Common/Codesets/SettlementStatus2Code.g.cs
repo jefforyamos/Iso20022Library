@@ -21,7 +21,7 @@ public enum SettlementStatus2Code
 {
     /// <summary>
     /// Settlement is awaiting authorisation.
-    /// Encoded/decoded by serializers as "AAUT".
+    /// Encoded/decoded by serializers as &quot;AAUT&quot;.
     /// </summary>
     [EnumMember(Value = "AAUT")]
     [IsoId("_waKzmaMOEeCojJW5vEuTEQ_147220499")]
@@ -30,7 +30,7 @@ public enum SettlementStatus2Code
     
     /// <summary>
     /// Settlement is accepted for settlement.
-    /// Encoded/decoded by serializers as "ASTL".
+    /// Encoded/decoded by serializers as &quot;ASTL&quot;.
     /// </summary>
     [EnumMember(Value = "ASTL")]
     [IsoId("_waKzmqMOEeCojJW5vEuTEQ_1225240837")]
@@ -39,7 +39,7 @@ public enum SettlementStatus2Code
     
     /// <summary>
     /// Settlement has been created.
-    /// Encoded/decoded by serializers as "STCR".
+    /// Encoded/decoded by serializers as &quot;STCR&quot;.
     /// </summary>
     [EnumMember(Value = "STCR")]
     [IsoId("_waKzm6MOEeCojJW5vEuTEQ_342007550")]
@@ -48,7 +48,7 @@ public enum SettlementStatus2Code
     
     /// <summary>
     /// Settlement is complete.
-    /// Encoded/decoded by serializers as "STLD".
+    /// Encoded/decoded by serializers as &quot;STLD&quot;.
     /// </summary>
     [EnumMember(Value = "STLD")]
     [IsoId("_waKznKMOEeCojJW5vEuTEQ_-795814798")]
@@ -57,7 +57,7 @@ public enum SettlementStatus2Code
     
     /// <summary>
     /// Settlement is awaiting confirmation of creation.
-    /// Encoded/decoded by serializers as "ACCF".
+    /// Encoded/decoded by serializers as &quot;ACCF&quot;.
     /// </summary>
     [EnumMember(Value = "ACCF")]
     [IsoId("_waUkkKMOEeCojJW5vEuTEQ_-1679048085")]
@@ -66,7 +66,7 @@ public enum SettlementStatus2Code
     
     /// <summary>
     /// Settlement is awaiting confirmation of rescind.
-    /// Encoded/decoded by serializers as "ARCF".
+    /// Encoded/decoded by serializers as &quot;ARCF&quot;.
     /// </summary>
     [EnumMember(Value = "ARCF")]
     [IsoId("_waUkkaMOEeCojJW5vEuTEQ_-341727529")]

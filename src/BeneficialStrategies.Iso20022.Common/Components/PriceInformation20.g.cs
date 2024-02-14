@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
 [IsoId("_-MUIYdLGEeiN28wlpBQScw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record PriceInformation20
     /// Specifies the type of price and information about the price.
     /// </summary>
     [IsoId("_-edoU9LGEeiN28wlpBQScw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfPrice28Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfPrice28Choice_ Type { get; init; } 
+    public required TypeOfPrice28Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfPrice28Choice_ Type { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record PriceInformation20
     /// Value of the price, for example, as a currency and value.
     /// </summary>
     [IsoId("_-edoW9LGEeiN28wlpBQScw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateOrAmountOrUnknown2Choice_ Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceRateOrAmountOrUnknown2Choice_ Value { get; init; } 
+    public required PriceRateOrAmountOrUnknown2Choice_ Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceRateOrAmountOrUnknown2Choice_ Value { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record PriceInformation20
     /// Type of value in which the price is expressed.
     /// </summary>
     [IsoId("_-edoY9LGEeiN28wlpBQScw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValTp")]
     #endif
+    [IsoXmlTag("ValTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required YieldedOrValueType1Choice_ ValueType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public YieldedOrValueType1Choice_ ValueType { get; init; } 
+    public required YieldedOrValueType1Choice_ ValueType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public YieldedOrValueType1Choice_ ValueType { get; init; } 
     #else
@@ -113,12 +108,11 @@ public partial record PriceInformation20
     /// Place from which the price was obtained.
     /// </summary>
     [IsoId("_-edoa9LGEeiN28wlpBQScw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Of Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcOfPric")]
     #endif
+    [IsoXmlTag("SrcOfPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketIdentification89? SourceOfPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +125,11 @@ public partial record PriceInformation20
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
     [IsoId("_-edoc9LGEeiN28wlpBQScw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quotation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QtnDt")]
     #endif
+    [IsoXmlTag("QtnDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? QuotationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Price expressed as a percentage price.
 /// </summary>
 [IsoId("_QaQ4Ktp-Ed-ak6NoX_4Aeg_724274037")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Percentage Price")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PercentagePrice1
     /// Specifies the type of percentage price.
     /// </summary>
     [IsoId("_QaaCENp-Ed-ak6NoX_4Aeg_724274055")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage Price Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PctgPricTp")]
     #endif
+    [IsoXmlTag("PctgPricTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceRateType3Code PercentagePriceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceRateType3Code PercentagePriceType { get; init; } 
+    public required PriceRateType3Code PercentagePriceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceRateType3Code PercentagePriceType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record PercentagePrice1
     /// Specifies the value of price.
     /// </summary>
     [IsoId("_QaaCEdp-Ed-ak6NoX_4Aeg_724274080")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricVal")]
     #endif
+    [IsoXmlTag("PricVal")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate PriceValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PriceValue { get; init; } 
+    public required System.Decimal PriceValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PriceValue { get; init; } 
     #else

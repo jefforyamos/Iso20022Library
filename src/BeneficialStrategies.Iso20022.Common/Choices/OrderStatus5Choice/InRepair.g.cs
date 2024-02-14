@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus5Choice
     /// Status of the individual order is in repair.
     /// </summary>
     [IsoId("_P8YAnEHREeasdbKMiqizqA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("In Repair")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

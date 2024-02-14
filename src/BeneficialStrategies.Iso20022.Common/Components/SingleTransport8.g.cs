@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies individually each leg of a transport of goods.
 /// </summary>
 [IsoId("__F4NETckEeSaC-PiOaz_KQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Single Transport")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SingleTransport8
     /// Information related to the transportation of goods by air.
     /// </summary>
     [IsoId("__bvvYTckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport By Air")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsprtByAir")]
     #endif
+    [IsoXmlTag("TrnsprtByAir")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportByAir4? TransportByAir { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record SingleTransport8
     /// Information related for the transportation of goods by sea.
     /// </summary>
     [IsoId("__bvvYzckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport By Sea")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsprtBySea")]
     #endif
+    [IsoXmlTag("TrnsprtBySea")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportBySea5? TransportBySea { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record SingleTransport8
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
     [IsoId("__bvvZTckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport By Road")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsprtByRoad")]
     #endif
+    [IsoXmlTag("TrnsprtByRoad")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportByRoad4? TransportByRoad { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record SingleTransport8
     /// Information related to the transportation of goods by rail.
     /// </summary>
     [IsoId("__bvvZzckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport By Rail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsprtByRail")]
     #endif
+    [IsoXmlTag("TrnsprtByRail")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransportByRail4? TransportByRail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

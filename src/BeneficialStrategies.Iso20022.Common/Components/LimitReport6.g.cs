@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Reports either on the risk management limit or on a business error.
 /// </summary>
 [IsoId("_RDVxR5lhEeeE1Ya-LgRsuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record LimitReport6
     /// Identification of the limit on which information is requested.
     /// </summary>
     [IsoId("_RRErQ5lhEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtId")]
     #endif
+    [IsoXmlTag("LmtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitIdentification1 LimitIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LimitIdentification1 LimitIdentification { get; init; } 
+    public required LimitIdentification1 LimitIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LimitIdentification1 LimitIdentification { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record LimitReport6
     /// Requested information on the limit or business error report when information has not been found.
     /// </summary>
     [IsoId("_RRErRZlhEeeE1Ya-LgRsuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtOrErr")]
     #endif
+    [IsoXmlTag("LmtOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LimitOrError3Choice_ LimitOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LimitOrError3Choice_ LimitOrError { get; init; } 
+    public required LimitOrError3Choice_ LimitOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LimitOrError3Choice_ LimitOrError { get; init; } 
     #else

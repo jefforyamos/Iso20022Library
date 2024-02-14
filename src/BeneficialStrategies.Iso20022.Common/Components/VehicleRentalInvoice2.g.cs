@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Invoice related to a vehicle rental service.
 /// </summary>
 [IsoId("_lhcpkayfEeuupt0UCH5uiw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vehicle Rental Invoice")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record VehicleRentalInvoice2
     /// Indicates that the cardholder failed to pick up the vehicle and was therefore charged a no-show fee; vehicle was not actually rented. 
     /// </summary>
     [IsoId("_llnX4ayfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Show Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoShowInd")]
     #endif
+    [IsoXmlTag("NoShowInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,12 @@ public partial record VehicleRentalInvoice2
     /// Indicates that an adjustment was made to a vehicle rental charge (for example, additional charges added). 
     /// </summary>
     [IsoId("_llnX46yfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Adjusted Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdjstdInd")]
     #endif
+    [IsoXmlTag("AdjstdInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AdjustedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +78,11 @@ public partial record VehicleRentalInvoice2
     /// Location to which vehicle was returned.
     /// </summary>
     [IsoId("_llnX5ayfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrLctn")]
     #endif
+    [IsoXmlTag("RtrLctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Address2? ReturnLocation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record VehicleRentalInvoice2
     /// Date the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup date.
     /// </summary>
     [IsoId("_llnX56yfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Check Out Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChckOutDt")]
     #endif
+    [IsoXmlTag("ChckOutDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CheckOutDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,12 @@ public partial record VehicleRentalInvoice2
     /// Time the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup time.
     /// </summary>
     [IsoId("_llnX6ayfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Check Out Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChckOutTm")]
     #endif
+    [IsoXmlTag("ChckOutTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? CheckOutTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +131,12 @@ public partial record VehicleRentalInvoice2
     /// Date when the vehicle was returned to the rental agency.
     /// </summary>
     [IsoId("_llnX66yfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Check In Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChckInDt")]
     #endif
+    [IsoXmlTag("ChckInDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CheckInDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +149,12 @@ public partial record VehicleRentalInvoice2
     /// Time when the vehicle was returned to the rental agency.
     /// </summary>
     [IsoId("_llnX7ayfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Check In Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChckInTm")]
     #endif
+    [IsoXmlTag("ChckInTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? CheckInTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,15 +167,12 @@ public partial record VehicleRentalInvoice2
     /// Duration of rental in days.
     /// </summary>
     [IsoId("_llnX76yfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Duration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Drtn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Drtn")]
+    [IsoSimpleType(IsoSimpleType.Max4NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4NumericText? Duration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +185,11 @@ public partial record VehicleRentalInvoice2
     /// Contains the details of the vehicle class invoiced to the renter regardless of the class of vehicle actually provided. 
     /// </summary>
     [IsoId("_llnX8ayfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vehicle Class Invoiced")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VhclClssInvcd")]
     #endif
+    [IsoXmlTag("VhclClssInvcd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vehicle4? VehicleClassInvoiced { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +202,11 @@ public partial record VehicleRentalInvoice2
     /// Contains the details of the vehicle class of the vehicle actually provided to the renter at the time of vehicle pick-up. This may be an upgrade class of vehicle, above that invoiced to the renter. 
     /// </summary>
     [IsoId("_llnX86yfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vehicle Class Provided")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VhclClssPrvdd")]
     #endif
+    [IsoXmlTag("VhclClssPrvdd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Vehicle4? VehicleClassProvided { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +219,11 @@ public partial record VehicleRentalInvoice2
     /// Distance travelled during vehicle rental.
     /// </summary>
     [IsoId("_llnX9ayfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Travel Distance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrvlDstnc")]
     #endif
+    [IsoXmlTag("TrvlDstnc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Distance1? TravelDistance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +236,11 @@ public partial record VehicleRentalInvoice2
     /// Vehicle rental charge.
     /// </summary>
     [IsoId("_llnX96yfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rental Charge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RntlChrg")]
     #endif
+    [IsoXmlTag("RntlChrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RentalRate1? RentalCharge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,15 +253,13 @@ public partial record VehicleRentalInvoice2
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
     [IsoId("_llnX-ayfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary Commodity Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SummryCmmdtyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SummryCmmdtyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +272,12 @@ public partial record VehicleRentalInvoice2
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
     [IsoId("_llnX-6yfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Insurance Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InsrncInd")]
     #endif
+    [IsoXmlTag("InsrncInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -302,12 +290,11 @@ public partial record VehicleRentalInvoice2
     /// Contains the details of additional amount for a specific vehicle rental service type. 
     /// </summary>
     [IsoId("_llnX_ayfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlAmt")]
     #endif
+    [IsoXmlTag("AddtlAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Amount18? AdditionalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -320,12 +307,11 @@ public partial record VehicleRentalInvoice2
     /// Taxes related to the products or services. 
     /// </summary>
     [IsoId("_llnX_6yfEeuupt0UCH5uiw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tax")]
     #endif
+    [IsoXmlTag("Tax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Tax39? Tax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

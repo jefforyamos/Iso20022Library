@@ -21,7 +21,7 @@ public enum POIComponentStatus1Code
 {
     /// <summary>
     /// Component not yet activated.
-    /// Encoded/decoded by serializers as "WAIT".
+    /// Encoded/decoded by serializers as &quot;WAIT&quot;.
     /// </summary>
     [EnumMember(Value = "WAIT")]
     [IsoId("_LHVRYQxxEeKa_56Jbsi1RQ")]
@@ -30,7 +30,7 @@ public enum POIComponentStatus1Code
     
     /// <summary>
     /// Component not working properly.
-    /// Encoded/decoded by serializers as "OUTD".
+    /// Encoded/decoded by serializers as &quot;OUTD&quot;.
     /// </summary>
     [EnumMember(Value = "OUTD")]
     [IsoId("_LO6gEQxxEeKa_56Jbsi1RQ")]
@@ -39,7 +39,7 @@ public enum POIComponentStatus1Code
     
     /// <summary>
     /// Component activated and in operation.
-    /// Encoded/decoded by serializers as "OPER".
+    /// Encoded/decoded by serializers as &quot;OPER&quot;.
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_LUHwMwxxEeKa_56Jbsi1RQ")]
@@ -48,7 +48,7 @@ public enum POIComponentStatus1Code
     
     /// <summary>
     /// Component has been deactivated.
-    /// Encoded/decoded by serializers as "DACT".
+    /// Encoded/decoded by serializers as &quot;DACT&quot;.
     /// </summary>
     [EnumMember(Value = "DACT")]
     [IsoId("_Lbj08QxxEeKa_56Jbsi1RQ")]

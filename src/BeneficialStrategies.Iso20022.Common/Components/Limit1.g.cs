@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the number of occurrences of a particular event and the maximum number of times this event may occur.
 /// </summary>
 [IsoId("_RJpGpNp-Ed-ak6NoX_4Aeg_-234268618")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Limit")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record Limit1
     /// Number of occurrences of a particular event.
     /// </summary>
     [IsoId("_RJpGpdp-Ed-ak6NoX_4Aeg_-195483682")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cur")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Cur")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3NumericText Current { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Current { get; init; } 
+    public required System.String Current { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Current { get; init; } 
     #else
@@ -75,19 +70,16 @@ public partial record Limit1
     /// Specifies the maximum number of times an event may occur.
     /// </summary>
     [IsoId("_RJpGptp-Ed-ak6NoX_4Aeg_78802724")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lmt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Lmt")]
+    [IsoSimpleType(IsoSimpleType.Max3NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax3NumericText Limit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Limit { get; init; } 
+    public required System.String Limit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Limit { get; init; } 
     #else

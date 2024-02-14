@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the kind of modification request for party reference data.
 /// </summary>
 [IsoId("_kpB8sO5NEeCisYr99QEiWA_954294599")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("System Party Modification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SystemPartyModification1
     /// Specifies the type of requested modification.
     /// </summary>
     [IsoId("_kpB8se5NEeCisYr99QEiWA_-981777430")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScpIndctn")]
     #endif
+    [IsoXmlTag("ScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ScopeIndication { get; init; } 
+    public required DataModification1Code ScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record SystemPartyModification1
     /// Specifies the set of elements to be modified for the party reference data.
     /// </summary>
     [IsoId("_kpB8su5NEeCisYr99QEiWA_-589754665")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdMod")]
     #endif
+    [IsoXmlTag("ReqdMod")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyModification1Choice_ RequestedModification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyModification1Choice_ RequestedModification { get; init; } 
+    public required SystemPartyModification1Choice_ RequestedModification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyModification1Choice_ RequestedModification { get; init; } 
     #else

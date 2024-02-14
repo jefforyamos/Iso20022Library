@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The TransactionAdvice message is sent by the Acquirer (or Agent) to provide to the POI the outcome of a transaction processed outside of this protocol. ")]
 [IsoId("_6jZ9cU3iEey_VecAUE-C9Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record TransactionAdviceV03 : IOuterRecord<TransactionAdviceV03,T
     /// Completion advice message management information.
     /// </summary>
     [IsoId("_6jZ9c03iEey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header59 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header59 Header { get; init; } 
+    public required Header59 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header59 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record TransactionAdviceV03 : IOuterRecord<TransactionAdviceV03,T
     /// Information related to the outcome of the transaction.
     /// </summary>
     [IsoId("_6jZ9dU3iEey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAdvc")]
     #endif
+    [IsoXmlTag("TxAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCompletionAdvice11 TransactionAdvice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorCompletionAdvice11 TransactionAdvice { get; init; } 
+    public required AcceptorCompletionAdvice11 TransactionAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorCompletionAdvice11 TransactionAdvice { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record TransactionAdviceV03 : IOuterRecord<TransactionAdviceV03,T
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_6jZ9d03iEey_VecAUE-C9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType31? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record TransactionAdviceV03 : IOuterRecord<TransactionAdviceV03,T
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TransactionAdviceV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TransactionAdviceV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TransactionAdviceV03Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record TransactionAdviceV03 : IOuterRecord<TransactionAdviceV03,T
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransactionAdviceV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TransactionAdviceV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TransactionAdviceV03Document : IOuterDocument<TransactionAdviceV03>
@@ -161,7 +156,7 @@ public partial record TransactionAdviceV03Document : IOuterDocument<TransactionA
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TransactionAdviceV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TransactionAdviceV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionAdviceV03 Message { get; init; }

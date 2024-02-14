@@ -27,15 +27,13 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// This record is an implementation of the camt.058.001.03 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// The NotificationToReceiveCancellationAdvice message is sent by an account owner or by a party acting on the account owner's behalf to one of the account owner's account servicing institutions. It is used to advise the account servicing institution about the cancellation of one or more notifications in a previous NotificationToReceive message.
+/// The NotificationToReceiveCancellationAdvice message is sent by an account owner or by a party acting on the account owner&apos;s behalf to one of the account owner&apos;s account servicing institutions. It is used to advise the account servicing institution about the cancellation of one or more notifications in a previous NotificationToReceive message.
 /// Usage
 /// The NotificationToReceiveCancellationAdvice message is used to advise the account servicing institution that the funds are no longer expected. The message can be used in either a direct or a relay scenario.
 /// </summary>
 [Description(@"Scope|The NotificationToReceiveCancellationAdvice message is sent by an account owner or by a party acting on the account owner's behalf to one of the account owner's account servicing institutions. It is used to advise the account servicing institution about the cancellation of one or more notifications in a previous NotificationToReceive message.|Usage|The NotificationToReceiveCancellationAdvice message is used to advise the account servicing institution that the funds are no longer expected. The message can be used in either a direct or a relay scenario.")]
 [IsoId("_sQSVUFkyEeGeoaLUQk__nA_474784398")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Notification To Receive Cancellation Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record NotificationToReceiveCancellationAdviceV03 : IOuterRecord<
     /// Set of elements used to provide further details on the message.
     /// </summary>
     [IsoId("_sQSVUVkyEeGeoaLUQk__nA_-1899111926")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader59 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader59 GroupHeader { get; init; } 
+    public required GroupHeader59 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader59 GroupHeader { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record NotificationToReceiveCancellationAdviceV03 : IOuterRecord<
     /// Set of elements used to identify the original notification, to which the cancellation advice refers.
     /// </summary>
     [IsoId("_sQSVUlkyEeGeoaLUQk__nA_1398783017")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Notification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlNtfctn")]
     #endif
+    [IsoXmlTag("OrgnlNtfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalNotification6 OriginalNotification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalNotification6 OriginalNotification { get; init; } 
+    public required OriginalNotification6 OriginalNotification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalNotification6 OriginalNotification { get; init; } 
     #else
@@ -119,12 +115,11 @@ public partial record NotificationToReceiveCancellationAdviceV03 : IOuterRecord<
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_sQSVU1kyEeGeoaLUQk__nA_1245716994")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,7 +132,7 @@ public partial record NotificationToReceiveCancellationAdviceV03 : IOuterRecord<
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NotificationToReceiveCancellationAdviceV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NotificationToReceiveCancellationAdviceV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NotificationToReceiveCancellationAdviceV03Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record NotificationToReceiveCancellationAdviceV03 : IOuterRecord<
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NotificationToReceiveCancellationAdviceV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NotificationToReceiveCancellationAdviceV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NotificationToReceiveCancellationAdviceV03Document : IOuterDocument<NotificationToReceiveCancellationAdviceV03>
@@ -164,7 +159,7 @@ public partial record NotificationToReceiveCancellationAdviceV03Document : IOute
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NotificationToReceiveCancellationAdviceV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NotificationToReceiveCancellationAdviceV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NotificationToReceiveCancellationAdviceV03 Message { get; init; }

@@ -21,7 +21,7 @@ public enum SettleStyle1Code
 {
     /// <summary>
     /// Settlement is only allowed on the closing of the future contract.
-    /// Encoded/decoded by serializers as "SETC".
+    /// Encoded/decoded by serializers as &quot;SETC&quot;.
     /// </summary>
     [EnumMember(Value = "SETC")]
     [IsoId("_ZOa1YNp-Ed-ak6NoX_4Aeg_-1439531144")]
@@ -30,7 +30,7 @@ public enum SettleStyle1Code
     
     /// <summary>
     /// Settlement is only allowed on the opening of the future contract.
-    /// Encoded/decoded by serializers as "SETO".
+    /// Encoded/decoded by serializers as &quot;SETO&quot;.
     /// </summary>
     [EnumMember(Value = "SETO")]
     [IsoId("_ZOa1Ydp-Ed-ak6NoX_4Aeg_-1439531109")]

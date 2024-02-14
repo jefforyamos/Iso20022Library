@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice4Choic
     /// Captures where no price is yet known.
     /// </summary>
     [IsoId("_8RdkgOI-EeWWKb0jFHxViQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Price")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice4Choic
         /// Price is currently not available, but pending.
         /// </summary>
         [IsoId("_lr-v8OI_EeWWKb0jFHxViQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Pending")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pdg")]
         #endif
+        [IsoXmlTag("Pdg")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PriceStatus1Code Pending { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PriceStatus1Code Pending { get; init; } 
+        public required PriceStatus1Code Pending { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PriceStatus1Code Pending { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice4Choic
         /// Currency that will be used but for which no price is yet known.
         /// </summary>
         [IsoId("_tbdkIOI_EeWWKb0jFHxViQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ccy")]
         #endif
+        [IsoXmlTag("Ccy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

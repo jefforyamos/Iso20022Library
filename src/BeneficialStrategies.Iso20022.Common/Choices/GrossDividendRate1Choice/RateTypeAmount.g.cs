@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice
     /// Value is expressed as an amount related to an underlying securities, eg, underlying security for which an interest is paid.
     /// </summary>
     [IsoId("_UPYvkdp-Ed-ak6NoX_4Aeg_1388251896")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Type Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice
         /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
         /// </summary>
         [IsoId("_UPh5hNp-Ed-ak6NoX_4Aeg_1284818087")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Rate Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RateTp")]
         #endif
+        [IsoXmlTag("RateTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GrossDividendRateType1FormatChoice_ RateType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GrossDividendRateType1FormatChoice_ RateType { get; init; } 
+        public required GrossDividendRateType1FormatChoice_ RateType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GrossDividendRateType1FormatChoice_ RateType { get; init; } 
         #else
@@ -77,16 +74,16 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice
         /// Value expressed as an amount.
         /// </summary>
         [IsoId("_UPh5hdp-Ed-ak6NoX_4Aeg_1284818088")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Amt")]
         #endif
+        [IsoXmlTag("Amt")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoActiveCurrencyAndAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.Decimal Amount { get; init; } 
+        public required System.Decimal Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.Decimal Amount { get; init; } 
         #else

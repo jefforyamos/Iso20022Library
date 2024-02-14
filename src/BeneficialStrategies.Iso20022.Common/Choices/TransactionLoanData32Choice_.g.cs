@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionLoanData32Choice.BuySellBack))]
     [KnownType(typeof(TransactionLoanData32Choice.SecuritiesLending))]
     [IsoId("_J_G2Acz4EeufhKfUxzsnrQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Loan Data 32 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

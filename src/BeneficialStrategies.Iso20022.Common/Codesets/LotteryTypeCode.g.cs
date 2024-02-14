@@ -21,7 +21,7 @@ public enum LotteryTypeCode
 {
     /// <summary>
     /// Original lottery that has been announced for a specific amount and date.
-    /// Encoded/decoded by serializers as "ORIG".
+    /// Encoded/decoded by serializers as &quot;ORIG&quot;.
     /// </summary>
     [EnumMember(Value = "ORIG")]
     [IsoId("_afolpdp-Ed-ak6NoX_4Aeg_2038993840")]
@@ -30,7 +30,7 @@ public enum LotteryTypeCode
     
     /// <summary>
     /// Supplemental or additional quantity called on a previously announced original lottery.
-    /// Encoded/decoded by serializers as "SUPP".
+    /// Encoded/decoded by serializers as &quot;SUPP&quot;.
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_afolptp-Ed-ak6NoX_4Aeg_2144275992")]

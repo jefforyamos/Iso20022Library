@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Liability a clearing member has to a central counterparty with respect to potential future exposures.
 /// </summary>
 [IsoId("_XCK8BapzEeamNLogr5TkIQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Initial Margin Exposure")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record InitialMarginExposure1
     /// Initial margin requirement for margin account.
     /// </summary>
     [IsoId("_XCK8B6pzEeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amount3 Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amount3 Amount { get; init; } 
+    public required Amount3 Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amount3 Amount { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record InitialMarginExposure1
     /// Classification of component used in the calculation of the total initial margin requirement.
     /// </summary>
     [IsoId("_XCK8CKpzEeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MarginType2Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MarginType2Choice_ Type { get; init; } 
+    public required MarginType2Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MarginType2Choice_ Type { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record InitialMarginExposure1
     /// Indicates whether the component is considered a core part of the margin model. Usage: In the context of European central counterparties, if the component is included in backtesting procedures in order to assess the performance of the initial margin model as required by EMIR RTS Article (49)(1).
     /// </summary>
     [IsoId("_XCK8CapzEeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Core Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CoreInd")]
     #endif
+    [IsoXmlTag("CoreInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator CoreIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CoreIndicator { get; init; } 
+    public required System.String CoreIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CoreIndicator { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the proposal for the variation margin and optionaly the segregated independent amount.
 /// </summary>
 [IsoId("_zeoQX4FvEeWtPe6Crjmeug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Proposal")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralProposal5
     /// Provides details about the proposal for the variation margin.
     /// </summary>
     [IsoId("_z0NewYFvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgn")]
     #endif
+    [IsoXmlTag("VartnMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralMovement7 VariationMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralMovement7 VariationMargin { get; init; } 
+    public required CollateralMovement7 VariationMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralMovement7 VariationMargin { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CollateralProposal5
     /// Provides details about the proposal for the segregated independent amount.
     /// </summary>
     [IsoId("_z0New4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgrtdIndpdntAmt")]
     #endif
+    [IsoXmlTag("SgrtdIndpdntAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralMovement7? SegregatedIndependentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

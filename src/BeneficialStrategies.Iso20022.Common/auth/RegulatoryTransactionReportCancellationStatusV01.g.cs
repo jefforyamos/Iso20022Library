@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"Scope|A regulator or an intermediary sends the RegulatoryTransactionReportCancellationStatus to a reporting institution to provide the status of a RegulatoryTransactionReportCancellationRequest previously sent by the reporting institution.|Usage|The message definition may be used to provide a status for the entire report or to provide a status at the level of individual transactions within the report. One of the following statuses can be reported:|- Completed, or,|- Pending, or,|- Rejected.|If the status is rejected, then reason for the rejection must be specified.")]
 [IsoId("_gJrQAcIFEeGllrOKQRUTYA_-231568037")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Regulatory Transaction Report Cancellation Status V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     /// Identification of the RegulatoryTransactionReportCancellationStatus document.
     /// </summary>
     [IsoId("_gJrQAsIFEeGllrOKQRUTYA_1165719728")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     /// Identification of the firm that executed the transaction.
     /// </summary>
     [IsoId("_gJrQA8IFEeGllrOKQRUTYA_1815879851")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Institution")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgInstn")]
     #endif
+    [IsoXmlTag("RptgInstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification23Choice_ ReportingInstitution { get; init; } 
+    public required PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification23Choice_ ReportingInstitution { get; init; } 
     #else
@@ -125,16 +121,15 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     /// Provides the status of the entire RegulatoryTransactionReportCancellationRequest document that was previously sent by a reporting institution.||.
     /// </summary>
     [IsoId("_gJrQBMIFEeGllrOKQRUTYA_-1473248173")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Cancellation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptCxlSts")]
     #endif
+    [IsoXmlTag("RptCxlSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportStatusAndReason2 ReportCancellationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportStatusAndReason2 ReportCancellationStatus { get; init; } 
+    public required ReportStatusAndReason2 ReportCancellationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportStatusAndReason2 ReportCancellationStatus { get; init; } 
     #else
@@ -145,16 +140,15 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     /// Provides the cancellation status of one or more transactions within a RegulatoryTransactionReportCancellationRequest that was previously sent by a reporting institution.
     /// </summary>
     [IsoId("_gJrQBcIFEeGllrOKQRUTYA_-1483406141")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Transaction Cancellation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndvTxCxlSts")]
     #endif
+    [IsoXmlTag("IndvTxCxlSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeTransactionStatusAndReason2 IndividualTransactionCancellationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeTransactionStatusAndReason2 IndividualTransactionCancellationStatus { get; init; } 
+    public required TradeTransactionStatusAndReason2 IndividualTransactionCancellationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeTransactionStatusAndReason2 IndividualTransactionCancellationStatus { get; init; } 
     #else
@@ -165,7 +159,7 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RegulatoryTransactionReportCancellationStatusV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RegulatoryTransactionReportCancellationStatusV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RegulatoryTransactionReportCancellationStatusV01Document ToDocument()
     {
@@ -175,7 +169,7 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RegulatoryTransactionReportCancellationStatusV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RegulatoryTransactionReportCancellationStatusV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RegulatoryTransactionReportCancellationStatusV01Document : IOuterDocument<RegulatoryTransactionReportCancellationStatusV01>
@@ -192,7 +186,7 @@ public partial record RegulatoryTransactionReportCancellationStatusV01Document :
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RegulatoryTransactionReportCancellationStatusV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RegulatoryTransactionReportCancellationStatusV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RegulatoryTransactionReportCancellationStatusV01 Message { get; init; }

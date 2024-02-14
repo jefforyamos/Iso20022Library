@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the card transaction.
 /// </summary>
 [IsoId("_lK_YgYO8EeSWSLYdc10LRg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CardTransactionContext4
     /// Data used to assign specific condition such as liability shift or preferential interchange fees.
     /// </summary>
     [IsoId("_lXgKlYO8EeSWSLYdc10LRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Special Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpclConds")]
     #endif
+    [IsoXmlTag("SpclConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardTransactionCondition1? SpecialConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IndividualPersonIdentificationChoice.IdentificationNumber))]
     [KnownType(typeof(IndividualPersonIdentificationChoice.PersonName))]
     [IsoId("_REuxfNp-Ed-ak6NoX_4Aeg_-925696504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Individual Person Identification Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

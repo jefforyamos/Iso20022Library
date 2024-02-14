@@ -19,12 +19,10 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
-/// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
+/// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts&apos; receivable system, in a structured form.
 /// </summary>
 [IsoId("_kIBx569UEeeJJK1oRb-jTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Structured Remittance Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record StructuredRemittanceInformation14
     /// Set of elements used to identify the documents referred to in the remittance information.
     /// </summary>
     [IsoId("_kR4Rc69UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred Document Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrdDocInf")]
     #endif
+    [IsoXmlTag("RfrdDocInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReferredDocumentInformation3? ReferredDocumentInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record StructuredRemittanceInformation14
     /// Provides details on the amounts of the referred document.
     /// </summary>
     [IsoId("_kR4Rda9UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Referred Document Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RfrdDocAmt")]
     #endif
+    [IsoXmlTag("RfrdDocAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RemittanceAmount2? ReferredDocumentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record StructuredRemittanceInformation14
     /// Reference information provided by the creditor to allow the identification of the underlying documents.
     /// </summary>
     [IsoId("_kR4Rd69UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Reference Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrRefInf")]
     #endif
+    [IsoXmlTag("CdtrRefInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorReferenceInformation2? CreditorReferenceInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record StructuredRemittanceInformation14
     /// Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor.
     /// </summary>
     [IsoId("_kR4Rea9UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Invcr")]
     #endif
+    [IsoXmlTag("Invcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification125? Invoicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record StructuredRemittanceInformation14
     /// Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
     /// </summary>
     [IsoId("_kR4Re69UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoicee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Invcee")]
     #endif
+    [IsoXmlTag("Invcee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification125? Invoicee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,19 +127,15 @@ public partial record StructuredRemittanceInformation14
     /// Additional information, in free text form, to complement the structured remittance information.
     /// </summary>
     [IsoId("_kR4Rfa9UEeeJJK1oRb-jTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Remittance Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRmtInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRmtInf")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [MinLength(0)]
     [MaxLength(3)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> AdditionalRemittanceInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

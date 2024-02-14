@@ -21,7 +21,7 @@ public enum CalculationBasis1Code
 {
     /// <summary>
     /// Average basis.
-    /// Encoded/decoded by serializers as "AVER".
+    /// Encoded/decoded by serializers as &quot;AVER&quot;.
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("_VjbKV9p-Ed-ak6NoX_4Aeg_-1571364153")]
@@ -30,7 +30,7 @@ public enum CalculationBasis1Code
     
     /// <summary>
     /// Daily basis.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_VjbKWNp-Ed-ak6NoX_4Aeg_-1568592785")]
@@ -39,7 +39,7 @@ public enum CalculationBasis1Code
     
     /// <summary>
     /// Another type of calculation basis.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_Vjk7UNp-Ed-ak6NoX_4Aeg_-855201061")]

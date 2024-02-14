@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_xm55Ee6UEemVDc1WJaqofw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope46
     /// Specifies the type of modification to be applied.
     /// </summary>
     [IsoId("_x8B0ge6UEemVDc1WJaqofw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification1Code ModificationScopeIndication { get; init; } 
+    public required DataModification1Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification1Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope46
     /// Information used to determine fees and types of operations that can be carried out on the account.
     /// </summary>
     [IsoId("_x8B0g-6UEemVDc1WJaqofw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrPrfl")]
     #endif
+    [IsoXmlTag("InvstrPrfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestorProfile2 InvestorProfile { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestorProfile2 InvestorProfile { get; init; } 
+    public required InvestorProfile2 InvestorProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestorProfile2 InvestorProfile { get; init; } 
     #else

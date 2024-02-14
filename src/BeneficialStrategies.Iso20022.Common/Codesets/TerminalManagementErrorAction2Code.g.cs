@@ -21,7 +21,7 @@ public enum TerminalManagementErrorAction2Code
 {
     /// <summary>
     /// Send a status report immediately.
-    /// Encoded/decoded by serializers as "SDSR".
+    /// Encoded/decoded by serializers as &quot;SDSR&quot;.
     /// </summary>
     [EnumMember(Value = "SDSR")]
     [IsoId("_uWdDMx3YEeKKrOIoqWglDw")]
@@ -30,7 +30,7 @@ public enum TerminalManagementErrorAction2Code
     
     /// <summary>
     /// Stop the current sequence of terminal management actions without any action, and do not notice the error with a status report.
-    /// Encoded/decoded by serializers as "STOP".
+    /// Encoded/decoded by serializers as &quot;STOP&quot;.
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_ugRtkx3YEeKKrOIoqWglDw")]

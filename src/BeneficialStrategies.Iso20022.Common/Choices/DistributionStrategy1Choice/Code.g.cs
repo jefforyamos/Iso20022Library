@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DistributionStrategy1Choice
     /// Distribution strategy expressed as a code.
     /// </summary>
     [IsoId("_4p7P4DcgEeidBoT_PugKiA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DistributionStrategy1Choice
         /// Specifies the type of investor.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required InvestorType3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public InvestorType3Code Value { get; init; } 
+        public required InvestorType3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public InvestorType3Code Value { get; init; } 
         #else

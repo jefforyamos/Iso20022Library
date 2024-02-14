@@ -21,7 +21,7 @@ public enum RejectionReason17Code
 {
     /// <summary>
     /// Instruction received after the account servicers specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_ZiY6Rdp-Ed-ak6NoX_4Aeg_-1119238853")]
@@ -30,7 +30,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Option is not valid; it has been cancelled by the market or service provider, and cannot be responded to. Any responses already processed against this option are considered void and new responses will be required.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_ZiY6Rtp-Ed-ak6NoX_4Aeg_-1075834220")]
@@ -39,7 +39,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Cancellation request was rejected since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "DCAN".
+    /// Encoded/decoded by serializers as &quot;DCAN&quot;.
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("_ZiY6R9p-Ed-ak6NoX_4Aeg_-1008417248")]
@@ -48,7 +48,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
-    /// Encoded/decoded by serializers as "DPRG".
+    /// Encoded/decoded by serializers as &quot;DPRG&quot;.
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("_ZiY6SNp-Ed-ak6NoX_4Aeg_-1054709018")]
@@ -57,7 +57,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_ZiY6Sdp-Ed-ak6NoX_4Aeg_-1033467088")]
@@ -66,7 +66,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_ZiiEMNp-Ed-ak6NoX_4Aeg_-1006685257")]
@@ -75,7 +75,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Unrecognised event number or identification (eg corporate action event number, a meeting identification).
-    /// Encoded/decoded by serializers as "EVNM".
+    /// Encoded/decoded by serializers as &quot;EVNM&quot;.
     /// </summary>
     [EnumMember(Value = "EVNM")]
     [IsoId("_ZiiEMdp-Ed-ak6NoX_4Aeg_-635430822")]
@@ -84,7 +84,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// The instruction is irrevocable.
-    /// Encoded/decoded by serializers as "INIR".
+    /// Encoded/decoded by serializers as &quot;INIR&quot;.
     /// </summary>
     [EnumMember(Value = "INIR")]
     [IsoId("_ZiiEMtp-Ed-ak6NoX_4Aeg_-606802064")]
@@ -93,7 +93,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Option is not active and can no longer be responded to. Any responses already processed against this option will remain valid, eg, expired option.
-    /// Encoded/decoded by serializers as "INTV".
+    /// Encoded/decoded by serializers as &quot;INTV&quot;.
     /// </summary>
     [EnumMember(Value = "INTV")]
     [IsoId("_ZiiEM9p-Ed-ak6NoX_4Aeg_-509830463")]
@@ -102,7 +102,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// For tax reclaim, the reclaim is invalid for the tax authorities.
-    /// Encoded/decoded by serializers as "INVA".
+    /// Encoded/decoded by serializers as &quot;INVA&quot;.
     /// </summary>
     [EnumMember(Value = "INVA")]
     [IsoId("_ZiiENNp-Ed-ak6NoX_4Aeg_-250320260")]
@@ -111,7 +111,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Instructed position exceeds the eligible balance.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_ZiiENdp-Ed-ak6NoX_4Aeg_-219845877")]
@@ -120,7 +120,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_ZiiENtp-Ed-ak6NoX_4Aeg_-193984901")]
@@ -129,7 +129,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Other reason.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ZiiEN9p-Ed-ak6NoX_4Aeg_-165357767")]
@@ -138,7 +138,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Mismatch between option number and option type.
-    /// Encoded/decoded by serializers as "NMTY".
+    /// Encoded/decoded by serializers as &quot;NMTY&quot;.
     /// </summary>
     [EnumMember(Value = "NMTY")]
     [IsoId("_ZiiEONp-Ed-ak6NoX_4Aeg_-105329727")]
@@ -147,7 +147,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Unrecognised option number.
-    /// Encoded/decoded by serializers as "OPNM".
+    /// Encoded/decoded by serializers as &quot;OPNM&quot;.
     /// </summary>
     [EnumMember(Value = "OPNM")]
     [IsoId("_ZiiEOdp-Ed-ak6NoX_4Aeg_-80393311")]
@@ -156,7 +156,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Invalid option type.
-    /// Encoded/decoded by serializers as "OPTY".
+    /// Encoded/decoded by serializers as &quot;OPTY&quot;.
     /// </summary>
     [EnumMember(Value = "OPTY")]
     [IsoId("_Zir1MNp-Ed-ak6NoX_4Aeg_-51764992")]
@@ -165,7 +165,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Reclaim is refused by the tax authorities.
-    /// Encoded/decoded by serializers as "REFT".
+    /// Encoded/decoded by serializers as &quot;REFT&quot;.
     /// </summary>
     [EnumMember(Value = "REFT")]
     [IsoId("_Zir1Mdp-Ed-ak6NoX_4Aeg_-20364322")]
@@ -174,7 +174,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Instruction contains an invalid or unrecognised safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_Zir1Mtp-Ed-ak6NoX_4Aeg_278857830")]
@@ -183,7 +183,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Instruction contains an invalid message reference, reference is unknown.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_Zir1M9p-Ed-ak6NoX_4Aeg_306561127")]
@@ -192,7 +192,7 @@ public enum RejectionReason17Code
     
     /// <summary>
     /// Instruction is rejected since the provided certification is incorrect or incomplete.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_Zir1NNp-Ed-ak6NoX_4Aeg_-1228012100")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a financial instrument.
 /// </summary>
 [IsoId("__Z0PQE3dEeidB49bWZiS0g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Conversion")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Conversion1
     /// Identification of the target security.
     /// </summary>
     [IsoId("_LKm8wU3eEeidB49bWZiS0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrgtScty")]
     #endif
+    [IsoXmlTag("TrgtScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentIdentification1 TargetSecurity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentIdentification1 TargetSecurity { get; init; } 
+    public required FinancialInstrumentIdentification1 TargetSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentIdentification1 TargetSecurity { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Conversion1
     /// Additional information about the conversion.
     /// </summary>
     [IsoId("_V7oZ4E3fEeidB49bWZiS0g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

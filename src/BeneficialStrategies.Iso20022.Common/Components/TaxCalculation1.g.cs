@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details for the tax calculation.
 /// </summary>
 [IsoId("_6R49apqlEeGSON8vddiWzQ_163014572")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Calculation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record TaxCalculation1
     /// Currency that all totals for taxable services must be converted to for calculating taxes owed for this tax region. This also is the currency in which the payment of tax obligations is usually submitted to the taxing authority.
     /// </summary>
     [IsoId("_6R49a5qlEeGSON8vddiWzQ_622741619")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Host Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstCcy")]
     #endif
+    [IsoXmlTag("HstCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActiveOrHistoricCurrencyCode HostCurrency { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string HostCurrency { get; init; } 
+    public required string HostCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string HostCurrency { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record TaxCalculation1
     /// Taxable service charge amount conversions to host currency. ||Usage: One occurrence must be present for each different service pricing currency in the statement.
     /// </summary>
     [IsoId("_6R49bJqlEeGSON8vddiWzQ_1186516095")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Taxable Service Charge Conversion")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxblSvcChrgConvs")]
     #endif
+    [IsoXmlTag("TaxblSvcChrgConvs")]
     public BillingServicesAmount3? TaxableServiceChargeConversion { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _6R49bJqlEeGSON8vddiWzQ_1186516095
     
@@ -86,16 +82,15 @@ public partial record TaxCalculation1
     /// Total of all services subject to tax for a specific tax region. ||Usage: |This field will equal the sum of all the separate host tax charge for service equivalent totals for each individual currency. It is expressed in the tax region’s Host currency. This total is used to determine the tax due by calculating using each tax identifications rate.
     /// </summary>
     [IsoId("_6SCHUJqlEeGSON8vddiWzQ_-2016390303")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Taxable Service Charge Host Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTaxblSvcChrgHstAmt")]
     #endif
+    [IsoXmlTag("TtlTaxblSvcChrgHstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 TotalTaxableServiceChargeHostAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 TotalTaxableServiceChargeHostAmount { get; init; } 
+    public required AmountAndDirection34 TotalTaxableServiceChargeHostAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 TotalTaxableServiceChargeHostAmount { get; init; } 
     #else
@@ -106,32 +101,28 @@ public partial record TaxCalculation1
     /// Provides for the specific tax identification within the same tax region. ||Usage: A maximum of three specific tax identifications may be provided. These elements use the total host currency taxable amount as the basis of the calculation. |This element is only valid for method C.
     /// </summary>
     [IsoId("_6SCHUZqlEeGSON8vddiWzQ_603580500")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TaxId")]
     [MinLength(1)]
     [MaxLength(3)]
-    #endif
     public ValueList<BillingServicesTax3> TaxIdentification { get; init; } = new ValueList<BillingServicesTax3>(){};
     
     /// <summary>
     /// Total amount of all taxes for a specific customer within the tax region. This is a sum of all individual total tax amounts for tax identification ’s expressed in the tax region’s host currency.
     /// </summary>
     [IsoId("_6SCHUpqlEeGSON8vddiWzQ_-1201503719")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlTax")]
     #endif
+    [IsoXmlTag("TtlTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 TotalTax { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 TotalTax { get; init; } 
+    public required AmountAndDirection34 TotalTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 TotalTax { get; init; } 
     #else

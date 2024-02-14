@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesOrCash1Choice.SecuritiesDetails))]
     [KnownType(typeof(SecuritiesOrCash1Choice.CashPartiesDetails))]
     [IsoId("_xeOrADcgEeOA3chqL9a4Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Or Cash 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

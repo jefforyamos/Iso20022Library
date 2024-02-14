@@ -22,7 +22,7 @@ public enum ValidationRuleSpecifiedAddress1Code
 {
     /// <summary>
     /// Specified address.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_D9RdESBqEeugLNJneiyzbA")]

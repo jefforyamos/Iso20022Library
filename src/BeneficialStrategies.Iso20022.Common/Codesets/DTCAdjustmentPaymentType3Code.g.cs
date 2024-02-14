@@ -21,7 +21,7 @@ public enum DTCAdjustmentPaymentType3Code
 {
     /// <summary>
     /// FAIL (undelivered securities) transaction.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_dpHh8Z6BEeW1p8WuttdPEw")]
@@ -30,7 +30,7 @@ public enum DTCAdjustmentPaymentType3Code
     
     /// <summary>
     /// Miscellaneous (adjustment) transaction.
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_ecv-UZ6BEeW1p8WuttdPEw")]
@@ -39,7 +39,7 @@ public enum DTCAdjustmentPaymentType3Code
     
     /// <summary>
     /// REPO (repurchase agreement) transaction.
-    /// Encoded/decoded by serializers as "REPO".
+    /// Encoded/decoded by serializers as &quot;REPO&quot;.
     /// </summary>
     [EnumMember(Value = "REPO")]
     [IsoId("_fUYw8Z6BEeW1p8WuttdPEw")]
@@ -48,7 +48,7 @@ public enum DTCAdjustmentPaymentType3Code
     
     /// <summary>
     /// Stock loan transaction.
-    /// Encoded/decoded by serializers as "STOK".
+    /// Encoded/decoded by serializers as &quot;STOK&quot;.
     /// </summary>
     [EnumMember(Value = "STOK")]
     [IsoId("_gEcU4Z6BEeW1p8WuttdPEw")]
@@ -57,7 +57,7 @@ public enum DTCAdjustmentPaymentType3Code
     
     /// <summary>
     /// Participant deposited a security within 10 days after a corporate action event has occurred.
-    /// Encoded/decoded by serializers as "RRD1".
+    /// Encoded/decoded by serializers as &quot;RRD1&quot;.
     /// </summary>
     [EnumMember(Value = "RRD1")]
     [IsoId("_h8zksZ6BEeW1p8WuttdPEw")]
@@ -66,7 +66,7 @@ public enum DTCAdjustmentPaymentType3Code
     
     /// <summary>
     /// Participant deposited a security 10 days after a corporate action event has occurred.
-    /// Encoded/decoded by serializers as "RRD2".
+    /// Encoded/decoded by serializers as &quot;RRD2&quot;.
     /// </summary>
     [EnumMember(Value = "RRD2")]
     [IsoId("_iOXOwZ6BEeW1p8WuttdPEw")]
@@ -75,7 +75,7 @@ public enum DTCAdjustmentPaymentType3Code
     
     /// <summary>
     /// Custody reorganization deposit related adjustment.
-    /// Encoded/decoded by serializers as "RRCD".
+    /// Encoded/decoded by serializers as &quot;RRCD&quot;.
     /// </summary>
     [EnumMember(Value = "RRCD")]
     [IsoId("_lckQIZ6BEeW1p8WuttdPEw")]
@@ -84,7 +84,7 @@ public enum DTCAdjustmentPaymentType3Code
     
     /// <summary>
     /// Dynamic rate change related adjustment.
-    /// Encoded/decoded by serializers as "RRDR".
+    /// Encoded/decoded by serializers as &quot;RRDR&quot;.
     /// </summary>
     [EnumMember(Value = "RRDR")]
     [IsoId("_mp7bIZ6BEeW1p8WuttdPEw")]

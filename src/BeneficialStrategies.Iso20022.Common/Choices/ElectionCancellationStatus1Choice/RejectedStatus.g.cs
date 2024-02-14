@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionCancellationStatus1Choic
     /// Provides information about the rejection status.
     /// </summary>
     [IsoId("_RiiHxNp-Ed-ak6NoX_4Aeg_1829260914")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionCancellationStatus1Choic
         /// The rejection reason.
         /// </summary>
         [IsoId("_RlNoUNp-Ed-ak6NoX_4Aeg_-1877428616")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         public RejectionReason9FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _RlNoUNp-Ed-ak6NoX_4Aeg_-1877428616
         
@@ -62,15 +59,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionCancellationStatus1Choic
         /// Additional information about the status.
         /// </summary>
         [IsoId("_RlNoUdp-Ed-ak6NoX_4Aeg_-1877428585")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax350Text? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

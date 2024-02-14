@@ -21,7 +21,7 @@ public enum VotingParticipationMethod1Code
 {
     /// <summary>
     /// Vote participation is via documents sent through physical post / mail.
-    /// Encoded/decoded by serializers as "MAIL".
+    /// Encoded/decoded by serializers as &quot;MAIL&quot;.
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_gdrTga33EemG7MmivSuE5g")]
@@ -30,7 +30,7 @@ public enum VotingParticipationMethod1Code
     
     /// <summary>
     /// Vote participation is through physical attendance.
-    /// Encoded/decoded by serializers as "PHYS".
+    /// Encoded/decoded by serializers as &quot;PHYS&quot;.
     /// </summary>
     [EnumMember(Value = "PHYS")]
     [IsoId("_givZsa33EemG7MmivSuE5g")]
@@ -39,7 +39,7 @@ public enum VotingParticipationMethod1Code
     
     /// <summary>
     /// Participation to the meeting is in person but the person is not voting.
-    /// Encoded/decoded by serializers as "PHNV".
+    /// Encoded/decoded by serializers as &quot;PHNV&quot;.
     /// </summary>
     [EnumMember(Value = "PHNV")]
     [IsoId("_gqxUUq33EemG7MmivSuE5g")]
@@ -48,7 +48,7 @@ public enum VotingParticipationMethod1Code
     
     /// <summary>
     /// Vote participation is through a proxy person.
-    /// Encoded/decoded by serializers as "PRXY".
+    /// Encoded/decoded by serializers as &quot;PRXY&quot;.
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_gvh4ga33EemG7MmivSuE5g")]
@@ -57,7 +57,7 @@ public enum VotingParticipationMethod1Code
     
     /// <summary>
     /// Vote participation is through virtual meeting attendance method like multimedia and web based video or audio conferencing. 
-    /// Encoded/decoded by serializers as "VIRT".
+    /// Encoded/decoded by serializers as &quot;VIRT&quot;.
     /// </summary>
     [EnumMember(Value = "VIRT")]
     [IsoId("_g5Dn8q33EemG7MmivSuE5g")]
@@ -66,7 +66,7 @@ public enum VotingParticipationMethod1Code
     
     /// <summary>
     /// Vote participation is through electronic means like email or dedicated standards messaging or web based voting applications.
-    /// Encoded/decoded by serializers as "EVOT".
+    /// Encoded/decoded by serializers as &quot;EVOT&quot;.
     /// </summary>
     [EnumMember(Value = "EVOT")]
     [IsoId("__atT0bISEemux5trsZcCpw")]

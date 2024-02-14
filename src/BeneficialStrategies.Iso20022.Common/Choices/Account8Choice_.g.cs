@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Account8Choice.ChargesAccount))]
     [KnownType(typeof(Account8Choice.TaxAccount))]
     [IsoId("_Q4z1Udp-Ed-ak6NoX_4Aeg_-2028069382")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account 8 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

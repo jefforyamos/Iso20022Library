@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractTerm3Choice
     /// Transaction is open term, that is, has no fixed maturity date.
     /// </summary>
     [IsoId("_tKrKca9_EemF0ZVFnxVu4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Open")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractTerm3Choice
         /// Indicates the termination option for a repurchase agreement.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Opn")]
         #endif
+        [IsoXmlTag("Opn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required RepoTerminationOption2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public RepoTerminationOption2Code Value { get; init; } 
+        public required RepoTerminationOption2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public RepoTerminationOption2Code Value { get; init; } 
         #else

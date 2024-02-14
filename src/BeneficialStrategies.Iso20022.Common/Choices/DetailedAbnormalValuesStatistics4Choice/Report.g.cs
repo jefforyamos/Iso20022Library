@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedAbnormalValuesStatistics
     /// Detailed information on statistics per combination of counterparties.
     /// </summary>
     [IsoId("_x4ww41yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedAbnormalValuesStatistics
         /// Number of reported derivatives.
         /// </summary>
         [IsoId("_x5wPYVyGEe24CqbZJK5XxA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number Of Derivatives Reported")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NbOfDerivsRptd")]
         #endif
+        [IsoXmlTag("NbOfDerivsRptd")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber NumberOfDerivativesReported { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 NumberOfDerivativesReported { get; init; } 
+        public required System.UInt64 NumberOfDerivativesReported { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 NumberOfDerivativesReported { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedAbnormalValuesStatistics
         /// Number of reported derivatives with outliers.
         /// </summary>
         [IsoId("_x5wPY1yGEe24CqbZJK5XxA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number Of Derivatives Reported With Outliers")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NbOfDerivsRptdWthOtlrs")]
         #endif
+        [IsoXmlTag("NbOfDerivsRptdWthOtlrs")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber NumberOfDerivativesReportedWithOutliers { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 NumberOfDerivativesReportedWithOutliers { get; init; } 
+        public required System.UInt64 NumberOfDerivativesReportedWithOutliers { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 NumberOfDerivativesReportedWithOutliers { get; init; } 
         #else
@@ -97,12 +95,11 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedAbnormalValuesStatistics
         /// Details of abnormal values.
         /// </summary>
         [IsoId("_x5wPZVyGEe24CqbZJK5XxA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Warnings")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Wrnngs")]
         #endif
+        [IsoXmlTag("Wrnngs")]
         public AbnormalValuesData4? Warnings { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _x5wPZVyGEe24CqbZJK5XxA
         

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the current and market value of the collateral held.
 /// </summary>
 [IsoId("_UmfA-dp-Ed-ak6NoX_4Aeg_1051098621")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record Collateral3
     /// Value of the collateral after deduction of a percentage (the haircut) that reflects the perceived risk associated with holding this collateral.
     /// </summary>
     [IsoId("_UmoK4Np-Ed-ak6NoX_4Aeg_-843597326")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Post Haircut Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PstHrcutVal")]
     #endif
+    [IsoXmlTag("PstHrcutVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PostHaircutValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PostHaircutValue { get; init; } 
+    public required System.Decimal PostHaircutValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PostHaircutValue { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record Collateral3
     /// Value of the underlying collateral (cash, securities, LoC) based on current market prices.
     /// </summary>
     [IsoId("_UmoK4dp-Ed-ak6NoX_4Aeg_347210571")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktVal")]
     #endif
+    [IsoXmlTag("MktVal")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MarketValue { get; init; } 
+    public required System.Decimal MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MarketValue { get; init; } 
     #else
@@ -93,16 +91,15 @@ public partial record Collateral3
     /// Provides the type of collateral, such as securities or cash.
     /// </summary>
     [IsoId("_UmoK4tp-Ed-ak6NoX_4Aeg_2099519852")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollTp")]
     #endif
+    [IsoXmlTag("CollTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralType2Code CollateralType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralType2Code CollateralType { get; init; } 
+    public required CollateralType2Code CollateralType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralType2Code CollateralType { get; init; } 
     #else

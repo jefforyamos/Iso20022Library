@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the aggregated data of settlement fails instructions.
 /// </summary>
 [IsoId("_afLKcR2lEeqF2P5v-Rtejg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SettlementFailsData3
     /// Total of all types of settlement transactions.
     /// </summary>
     [IsoId("_ahZ_ER2lEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ttl")]
     #endif
+    [IsoXmlTag("Ttl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTotalData1 Total { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementTotalData1 Total { get; init; } 
+    public required SettlementTotalData1 Total { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementTotalData1 Total { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record SettlementFailsData3
     /// Further details on the central securities depositories participants with the highest rates of settlement fails.
     /// </summary>
     [IsoId("_ahZ_Ex2lEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant In Fail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcptInFail")]
     #endif
+    [IsoXmlTag("PtcptInFail")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementFailsParticipantRange1? ParticipantInFail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,11 @@ public partial record SettlementFailsData3
     /// Further details on the settlement fails per currency.
     /// </summary>
     [IsoId("_ahZ_FR2lEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fails Per Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlsPerCcy")]
     #endif
+    [IsoXmlTag("FlsPerCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementFailsCurrency2? FailsPerCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +103,11 @@ public partial record SettlementFailsData3
     /// Further details on the settlement fails per financial instrument type.
     /// </summary>
     [IsoId("_ahZ_Fx2lEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fails Per Financial Instrument Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlsPerFinInstrmTp")]
     #endif
+    [IsoXmlTag("FlsPerFinInstrmTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementFailsInstrument2? FailsPerFinancialInstrumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +120,11 @@ public partial record SettlementFailsData3
     /// Further details on the securities with the highest rates of settlement fails.
     /// </summary>
     [IsoId("_ahZ_GR2lEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities In Fail")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesInFail")]
     #endif
+    [IsoXmlTag("SctiesInFail")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementFailsSecuritiesRange1? SecuritiesInFail { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -144,12 +137,11 @@ public partial record SettlementFailsData3
     /// Further details on the settlement fails per transaction type.
     /// </summary>
     [IsoId("_ahZ_Gx2lEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fails Per Transaction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FlsPerTxTp")]
     #endif
+    [IsoXmlTag("FlsPerTxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementFailsTransactionType2? FailsPerTransactionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +154,11 @@ public partial record SettlementFailsData3
     /// Total of all types of settlement penalties (such as total of late matching and settlement fails).
     /// </summary>
     [IsoId("_ahZ_HR2lEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Settlement Penalties")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlSttlmPnlties")]
     #endif
+    [IsoXmlTag("TtlSttlmPnlties")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementDataVolume2? TotalSettlementPenalties { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,16 +171,15 @@ public partial record SettlementFailsData3
     /// Further details on the reason for the settlement fails.
     /// </summary>
     [IsoId("_ahZ_Hx2lEeqF2P5v-Rtejg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failure Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FailrRsn")]
     #endif
+    [IsoXmlTag("FailrRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementFailureReason3 FailureReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementFailureReason3 FailureReason { get; init; } 
+    public required SettlementFailureReason3 FailureReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementFailureReason3 FailureReason { get; init; } 
     #else

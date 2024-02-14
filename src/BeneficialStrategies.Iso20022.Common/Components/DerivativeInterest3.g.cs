@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a multi-leg interest derivative.
 /// </summary>
 [IsoId("_HzdA2X5aEea2k7EBUopqxw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivative Interest")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DerivativeInterest3
     /// Provides the interest rate in number of days, weeks, months or years.
     /// </summary>
     [IsoId("_H7ydcX5aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrstRate")]
     #endif
+    [IsoXmlTag("IntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FloatingInterestRate8 InterestRate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FloatingInterestRate8 InterestRate { get; init; } 
+    public required FloatingInterestRate8 InterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FloatingInterestRate8 InterestRate { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DerivativeInterest3
     /// Interest rate of the notional currency.
     /// </summary>
     [IsoId("_H7ydc35aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Leg Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstLegIntrstRate")]
     #endif
+    [IsoXmlTag("FrstLegIntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRate8Choice_? FirstLegInterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,11 @@ public partial record DerivativeInterest3
     /// Notional currency in which leg 2 of the swap is denominated, in case of swaptions where the underlying swap is multi-currency.
     /// </summary>
     [IsoId("_H7yddX5aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Notional Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrNtnlCcy")]
     #endif
+    [IsoXmlTag("OthrNtnlCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? OtherNotionalCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,12 +103,11 @@ public partial record DerivativeInterest3
     /// Indication of the interest rate used for leg 2, if applicable.
     /// </summary>
     [IsoId("_H7ydd35aEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Leg Interest Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrLegIntrstRate")]
     #endif
+    [IsoXmlTag("OthrLegIntrstRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InterestRate8Choice_? OtherLegInterestRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

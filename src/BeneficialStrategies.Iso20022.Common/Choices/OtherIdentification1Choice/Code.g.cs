@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OtherIdentification1Choice
     /// Other identification expressed as a code.
     /// </summary>
     [IsoId("_5X-cYBc0EeK5g-3oYI0_9Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OtherIdentification1Choice
         /// Specifies an alternative identification of an individual person, for example, national registration identification number, passport number.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PersonIdentificationType5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PersonIdentificationType5Code Value { get; init; } 
+        public required PersonIdentificationType5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PersonIdentificationType5Code Value { get; init; } 
         #else

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice
     /// Tax values are based on tax calculation method D.
     /// </summary>
     [IsoId("_6P9DtJqlEeGSON8vddiWzQ_1766081075")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Method D")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice
         /// Equivalent amount to the service tax host amount but allows the sender to optionally express the value in the pricing currency.
         /// </summary>
         [IsoId("_6QGNoZqlEeGSON8vddiWzQ_-823441647")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Service Tax Price Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SvcTaxPricAmt")]
         #endif
+        [IsoXmlTag("SvcTaxPricAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
+        public required AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
         #else
@@ -77,16 +74,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice
         /// Usage: This element allows for a maximum of three regional taxes on the same service.
         /// </summary>
         [IsoId("_6QGNopqlEeGSON8vddiWzQ_480308590")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tax Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TaxId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TaxId")]
         [MinLength(1)]
         [MaxLength(3)]
-        #endif
         public ValueList<BillingServicesTax2> TaxIdentification { get; init; } = new ValueList<BillingServicesTax2>(){};
         
         

@@ -21,7 +21,7 @@ public enum POIComponentType2Code
 {
     /// <summary>
     /// Payment or other software application.
-    /// Encoded/decoded by serializers as "SOFT".
+    /// Encoded/decoded by serializers as &quot;SOFT&quot;.
     /// </summary>
     [EnumMember(Value = "SOFT")]
     [IsoId("_KTVhxH1DEeCF8NjrBemJWQ_1908221676")]
@@ -30,7 +30,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// EMV application kernel (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVK".
+    /// Encoded/decoded by serializers as &quot;EMVK&quot;.
     /// </summary>
     [EnumMember(Value = "EMVK")]
     [IsoId("_KTVhxX1DEeCF8NjrBemJWQ_-847957178")]
@@ -39,7 +39,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// EMV physical interface (EMV is the chip card specifications initially defined by Eurocard, Mastercard and Visa).
-    /// Encoded/decoded by serializers as "EMVO".
+    /// Encoded/decoded by serializers as &quot;EMVO&quot;.
     /// </summary>
     [EnumMember(Value = "EMVO")]
     [IsoId("_KTVhxn1DEeCF8NjrBemJWQ_-403699691")]
@@ -48,7 +48,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// Merchant interface.
-    /// Encoded/decoded by serializers as "MRIT".
+    /// Encoded/decoded by serializers as &quot;MRIT&quot;.
     /// </summary>
     [EnumMember(Value = "MRIT")]
     [IsoId("_KTVhx31DEeCF8NjrBemJWQ_1135088751")]
@@ -57,7 +57,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// Cardholder Interface.
-    /// Encoded/decoded by serializers as "CHIT".
+    /// Encoded/decoded by serializers as &quot;CHIT&quot;.
     /// </summary>
     [EnumMember(Value = "CHIT")]
     [IsoId("_KTVhyH1DEeCF8NjrBemJWQ_1438145266")]
@@ -66,7 +66,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// Security module.
-    /// Encoded/decoded by serializers as "SECM".
+    /// Encoded/decoded by serializers as &quot;SECM&quot;.
     /// </summary>
     [EnumMember(Value = "SECM")]
     [IsoId("_KTersH1DEeCF8NjrBemJWQ_262954241")]
@@ -75,7 +75,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// Personal identification number (or PIN) entry device (PED).
-    /// Encoded/decoded by serializers as "PEDV".
+    /// Encoded/decoded by serializers as &quot;PEDV&quot;.
     /// </summary>
     [EnumMember(Value = "PEDV")]
     [IsoId("_KTersX1DEeCF8NjrBemJWQ_-2048967126")]
@@ -84,7 +84,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// Acquirer specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "AQPR".
+    /// Encoded/decoded by serializers as &quot;AQPR&quot;.
     /// </summary>
     [EnumMember(Value = "AQPR")]
     [IsoId("_KTersn1DEeCF8NjrBemJWQ_1452865412")]
@@ -93,7 +93,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MRPR".
+    /// Encoded/decoded by serializers as &quot;MRPR&quot;.
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_KTers31DEeCF8NjrBemJWQ_-2037868349")]
@@ -102,7 +102,7 @@ public enum POIComponentType2Code
     
     /// <summary>
     /// Point of interaction parameters defined by the manufacturer for instance the PIN verification capabilities.
-    /// Encoded/decoded by serializers as "VDPR".
+    /// Encoded/decoded by serializers as &quot;VDPR&quot;.
     /// </summary>
     [EnumMember(Value = "VDPR")]
     [IsoId("_KTertH1DEeCF8NjrBemJWQ_-1553071793")]

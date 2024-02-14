@@ -21,7 +21,7 @@ public enum DerivativeExerciseStatus1Code
 {
     /// <summary>
     /// Derivative is exercised.
-    /// Encoded/decoded by serializers as "EXEC".
+    /// Encoded/decoded by serializers as &quot;EXEC&quot;.
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_ULyikYAxEeSUJZYcWGKkkw")]
@@ -30,7 +30,7 @@ public enum DerivativeExerciseStatus1Code
     
     /// <summary>
     /// Derivative is expired and will not be exercised.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_UQXgkYAxEeSUJZYcWGKkkw")]
@@ -39,7 +39,7 @@ public enum DerivativeExerciseStatus1Code
     
     /// <summary>
     /// Derivative is not exercised.
-    /// Encoded/decoded by serializers as "VALI".
+    /// Encoded/decoded by serializers as &quot;VALI&quot;.
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_UU6CUYAxEeSUJZYcWGKkkw")]

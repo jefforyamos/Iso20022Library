@@ -21,7 +21,7 @@ public enum NoticeType1Code
 {
     /// <summary>
     /// Notice is universal.
-    /// Encoded/decoded by serializers as "UNVL".
+    /// Encoded/decoded by serializers as &quot;UNVL&quot;.
     /// </summary>
     [EnumMember(Value = "UNVL")]
     [IsoId("_1tTXBTL3EeKU9IrkkToqcw_1909543367")]
@@ -29,8 +29,8 @@ public enum NoticeType1Code
     Universal = NoticeTypeCode.Universal, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Notice is specific to the securities registered in DTC's (The Depository Trust Company) nominee name.
-    /// Encoded/decoded by serializers as "CEDE".
+    /// Notice is specific to the securities registered in DTC&apos;s (The Depository Trust Company) nominee name.
+    /// Encoded/decoded by serializers as &quot;CEDE&quot;.
     /// </summary>
     [EnumMember(Value = "CEDE")]
     [IsoId("_1tcg8DL3EeKU9IrkkToqcw_-2060306422")]

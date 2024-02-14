@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification2Choice
     /// Identifies the party with the combined identification of both the responsible entity and the party itself.
     /// </summary>
     [IsoId("_w8OZg2c-EemvNLufWGIVOQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Combined Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification2Choice
         /// Unique identification to unambiguously identify the party within the system.
         /// </summary>
         [IsoId("_7VYvQVhLEeih3fUfzR38Ig")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification136 Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification136 Identification { get; init; } 
+        public required PartyIdentification136 Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification136 Identification { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification2Choice
         /// Unique identification of the party responsible for the maintenance of the party reference data.
         /// </summary>
         [IsoId("_7VYvQ1hLEeih3fUfzR38Ig")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Responsible Party Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RspnsblPtyId")]
         #endif
+        [IsoXmlTag("RspnsblPtyId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

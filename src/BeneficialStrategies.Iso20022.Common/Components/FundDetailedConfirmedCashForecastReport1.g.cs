@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a cash forecast report.
 /// </summary>
 [IsoId("_Uu-Omtp-Ed-ak6NoX_4Aeg_1656814301")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fund Detailed Confirmed Cash Forecast Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FundDetailedConfirmedCashForecastReport1
     /// Information related to the cash-in and cash-out flows for a specific trade date as a result of investment fund transactions, for example, subscriptions, redemptions or switches to/from a specified investment fund. The information provided is sorted by pre-defined criteria such as country, institution, currency or user defined criteria.
     /// </summary>
     [IsoId("_UvH_kNp-Ed-ak6NoX_4Aeg_490161983")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Cash Forecast Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndCshFcstDtls")]
     #endif
+    [IsoXmlTag("FndCshFcstDtls")]
     public FundCashForecast2? FundCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _UvH_kNp-Ed-ak6NoX_4Aeg_490161983
     
@@ -57,12 +54,11 @@ public partial record FundDetailedConfirmedCashForecastReport1
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_UvH_kdp-Ed-ak6NoX_4Aeg_556654600")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

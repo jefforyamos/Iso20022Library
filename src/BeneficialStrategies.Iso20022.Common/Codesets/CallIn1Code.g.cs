@@ -21,7 +21,7 @@ public enum CallIn1Code
 {
     /// <summary>
     /// Pay-in call is for account value.
-    /// Encoded/decoded by serializers as "CFAV".
+    /// Encoded/decoded by serializers as &quot;CFAV&quot;.
     /// </summary>
     [EnumMember(Value = "CFAV")]
     [IsoId("_bXNt6dp-Ed-ak6NoX_4Aeg_556310168")]
@@ -30,7 +30,7 @@ public enum CallIn1Code
     
     /// <summary>
     /// Pay-in call is for settlement.
-    /// Encoded/decoded by serializers as "CFST".
+    /// Encoded/decoded by serializers as &quot;CFST&quot;.
     /// </summary>
     [EnumMember(Value = "CFST")]
     [IsoId("_bXW30Np-Ed-ak6NoX_4Aeg_600636833")]
@@ -39,7 +39,7 @@ public enum CallIn1Code
     
     /// <summary>
     /// Pay-in call is for currency close.
-    /// Encoded/decoded by serializers as "CFCC".
+    /// Encoded/decoded by serializers as &quot;CFCC&quot;.
     /// </summary>
     [EnumMember(Value = "CFCC")]
     [IsoId("_bXW30dp-Ed-ak6NoX_4Aeg_628342105")]

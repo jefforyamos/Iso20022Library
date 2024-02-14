@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides for the variation margin, the dispute details like the dispute amount or the dispute date and the resolution type details.
 /// </summary>
 [IsoId("_UllpEdp-Ed-ak6NoX_4Aeg_-1732352034")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Variation Margin Dispute")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record VariationMarginDispute1
     /// Details of the disputed instruction.
     /// </summary>
     [IsoId("_UllpEtp-Ed-ak6NoX_4Aeg_1114938110")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dispute Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsptDtls")]
     #endif
+    [IsoXmlTag("DsptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Dispute1 DisputeDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Dispute1 DisputeDetails { get; init; } 
+    public required Dispute1 DisputeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Dispute1 DisputeDetails { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record VariationMarginDispute1
     /// Specifies the type of dispute that is to be resolved regarding the disputed collateral amount.
     /// </summary>
     [IsoId("_UllpE9p-Ed-ak6NoX_4Aeg_2088365475")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resolution Type Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsltnTpDtls")]
     #endif
+    [IsoXmlTag("RsltnTpDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DisputeResolutionType2Choice_? ResolutionTypeDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

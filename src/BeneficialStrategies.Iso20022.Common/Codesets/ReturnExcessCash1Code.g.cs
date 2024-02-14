@@ -21,7 +21,7 @@ public enum ReturnExcessCash1Code
 {
     /// <summary>
     /// Excess cash in the currency is returned.
-    /// Encoded/decoded by serializers as "RTND".
+    /// Encoded/decoded by serializers as &quot;RTND&quot;.
     /// </summary>
     [EnumMember(Value = "RTND")]
     [IsoId("_u2qp0QLoEeutW5-TpeYJhA")]
@@ -30,7 +30,7 @@ public enum ReturnExcessCash1Code
     
     /// <summary>
     /// Automatic return of excess cash has not been requested for the currency. 
-    /// Encoded/decoded by serializers as "RTDN".
+    /// Encoded/decoded by serializers as &quot;RTDN&quot;.
     /// </summary>
     [EnumMember(Value = "RTDN")]
     [IsoId("_vAVjMgLoEeutW5-TpeYJhA")]
@@ -39,7 +39,7 @@ public enum ReturnExcessCash1Code
     
     /// <summary>
     /// Automatic return of cash is temporarily suspended (for example due to a currency holiday).
-    /// Encoded/decoded by serializers as "SSPD".
+    /// Encoded/decoded by serializers as &quot;SSPD&quot;.
     /// </summary>
     [EnumMember(Value = "SSPD")]
     [IsoId("_vKC40gLoEeutW5-TpeYJhA")]

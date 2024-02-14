@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details relative to the submission of the insurance data set.
 /// </summary>
 [IsoId("_Rax58tp-Ed-ak6NoX_4Aeg_-1897093654")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Required Submission")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record RequiredSubmission3
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
     [IsoId("_Rax589p-Ed-ak6NoX_4Aeg_-1897093637")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Submitr")]
     #endif
+    [IsoXmlTag("Submitr")]
     public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Rax589p-Ed-ak6NoX_4Aeg_-1897093637
     
@@ -66,12 +63,11 @@ public partial record RequiredSubmission3
     /// Specifies if the issuer must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_Rax59Np-Ed-ak6NoX_4Aeg_1704101757")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchIssr")]
     #endif
+    [IsoXmlTag("MtchIssr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification27? MatchIssuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -84,16 +80,16 @@ public partial record RequiredSubmission3
     /// Specifies if the issue date must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_Rax59dp-Ed-ak6NoX_4Aeg_-1540614996")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Issue Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchIsseDt")]
     #endif
+    [IsoXmlTag("MtchIsseDt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchIssueDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MatchIssueDate { get; init; } 
+    public required System.String MatchIssueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MatchIssueDate { get; init; } 
     #else
@@ -104,16 +100,16 @@ public partial record RequiredSubmission3
     /// Specifies if the transport information must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_Rax59tp-Ed-ak6NoX_4Aeg_-1514758562")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Transport")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchTrnsprt")]
     #endif
+    [IsoXmlTag("MtchTrnsprt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchTransport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MatchTransport { get; init; } 
+    public required System.String MatchTransport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MatchTransport { get; init; } 
     #else
@@ -124,16 +120,16 @@ public partial record RequiredSubmission3
     /// Specifies if the insured amount must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_Rax599p-Ed-ak6NoX_4Aeg_-1037296621")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchAmt")]
     #endif
+    [IsoXmlTag("MtchAmt")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MatchAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MatchAmount { get; init; } 
+    public required System.String MatchAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MatchAmount { get; init; } 
     #else
@@ -144,12 +140,11 @@ public partial record RequiredSubmission3
     /// Specifies which clauses are required in the insurance data set.
     /// </summary>
     [IsoId("_Rax5-Np-Ed-ak6NoX_4Aeg_-1000355227")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clauses Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClausesReqrd")]
     #endif
+    [IsoXmlTag("ClausesReqrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InsuranceClauses1Code? ClausesRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -162,12 +157,11 @@ public partial record RequiredSubmission3
     /// Specifies if the assured (insured) party must be matched as part of the validation of the data set.
     /// </summary>
     [IsoId("_Ra7q8Np-Ed-ak6NoX_4Aeg_-711292782")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Match Assured Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtchAssrdPty")]
     #endif
+    [IsoXmlTag("MtchAssrdPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssuredType1Code? MatchAssuredParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

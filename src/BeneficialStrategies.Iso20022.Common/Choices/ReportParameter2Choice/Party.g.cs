@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportParameter2Choice
     /// Party for which the estimated cash flow is being reported.
     /// </summary>
     [IsoId("_U1-1gNp-Ed-ak6NoX_4Aeg_-922147102")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum SpecialCollateral2Code
 {
     /// <summary>
     /// Identifies that all repurchase agreements are conducted against general collateral.
-    /// Encoded/decoded by serializers as "GENE".
+    /// Encoded/decoded by serializers as &quot;GENE&quot;.
     /// </summary>
     [EnumMember(Value = "GENE")]
     [IsoId("_wac01MEaEea7jLfvGi1PDw")]
@@ -30,7 +30,7 @@ public enum SpecialCollateral2Code
     
     /// <summary>
     /// Identifies that all repurchase agreements are conducted against special collateral.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_wac01cEaEea7jLfvGi1PDw")]
@@ -39,7 +39,7 @@ public enum SpecialCollateral2Code
     
     /// <summary>
     /// Identifies that this is a securities lending transaction, made of repurchase agreements and reverse repurchase agreements versus cash.
-    /// Encoded/decoded by serializers as "MRRP".
+    /// Encoded/decoded by serializers as &quot;MRRP&quot;.
     /// </summary>
     [EnumMember(Value = "MRRP")]
     [IsoId("_1CXbIcEaEea7jLfvGi1PDw")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Obligations of a clearing member with respect to a central counterparty that are calculated based on end of day positions.
 /// </summary>
 [IsoId("__p1KALC8EeaSl6vJk5Bd8w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("End Of Day Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record EndOfDayRequirement1
     /// Specifies the initial margin requirement for position.
     /// </summary>
     [IsoId("_TC3bQLC9EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgnRqrmnt")]
     #endif
+    [IsoXmlTag("InitlMrgnRqrmnt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? InitialMarginRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record EndOfDayRequirement1
     /// Daily change in mark-to-market for the associated position. Indicates whether variation margin paid to clearing members (true) or received from clearing members (false).
     /// </summary>
     [IsoId("_VNaAMLC9EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Requirement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnRqrmnt")]
     #endif
+    [IsoXmlTag("VartnMrgnRqrmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndDirection102? VariationMarginRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

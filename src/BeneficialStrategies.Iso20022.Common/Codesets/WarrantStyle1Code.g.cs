@@ -21,7 +21,7 @@ public enum WarrantStyle1Code
 {
     /// <summary>
     /// Option can be exercised before or on expiry date.
-    /// Encoded/decoded by serializers as "AMER".
+    /// Encoded/decoded by serializers as &quot;AMER&quot;.
     /// </summary>
     [EnumMember(Value = "AMER")]
     [IsoId("_Yg0vldp-Ed-ak6NoX_4Aeg_1980293018")]
@@ -30,7 +30,7 @@ public enum WarrantStyle1Code
     
     /// <summary>
     /// Option that can be exercised on expiry date only.
-    /// Encoded/decoded by serializers as "EURO".
+    /// Encoded/decoded by serializers as &quot;EURO&quot;.
     /// </summary>
     [EnumMember(Value = "EURO")]
     [IsoId("_Yg0vltp-Ed-ak6NoX_4Aeg_-1236653940")]
@@ -39,7 +39,7 @@ public enum WarrantStyle1Code
     
     /// <summary>
     /// Option that can be exercised on multiple discrete dates prior to, or on expiry date.
-    /// Encoded/decoded by serializers as "BERM".
+    /// Encoded/decoded by serializers as &quot;BERM&quot;.
     /// </summary>
     [EnumMember(Value = "BERM")]
     [IsoId("_Yg0vl9p-Ed-ak6NoX_4Aeg_230494823")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the failure of the settlement of a movement.
 /// </summary>
 [IsoId("_Rjbfptp-Ed-ak6NoX_4Aeg_-659137401")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Movement Failed Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,17 @@ public partial record CorporateActionMovementFailedStatus1
     /// Identification of the agent account.
     /// </summary>
     [IsoId("_Rjbfp9p-Ed-ak6NoX_4Aeg_-123497061")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtAcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AgtAcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text AgentAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AgentAccountIdentification { get; init; } 
+    public required System.String AgentAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AgentAccountIdentification { get; init; } 
     #else
@@ -74,15 +70,13 @@ public partial record CorporateActionMovementFailedStatus1
     /// Identification of the client account.
     /// </summary>
     [IsoId("_RjbfqNp-Ed-ak6NoX_4Aeg_-158591004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntAcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ClntAcctId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ClientAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,12 +89,11 @@ public partial record CorporateActionMovementFailedStatus1
     /// Identification of the party that owns the client account.
     /// </summary>
     [IsoId("_Rjbfqdp-Ed-ak6NoX_4Aeg_-232960947")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Owner Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctOwnrId")]
     #endif
+    [IsoXmlTag("AcctOwnrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +106,11 @@ public partial record CorporateActionMovementFailedStatus1
     /// Provides information about the resource movement that failed and the reason of the failure.
     /// </summary>
     [IsoId("_Rjbfqtp-Ed-ak6NoX_4Aeg_-1713973917")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Resource Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsrcDtls")]
     #endif
+    [IsoXmlTag("RsrcDtls")]
     public FailedMovement1? ResourceDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Rjbfqtp-Ed-ak6NoX_4Aeg_-1713973917
     

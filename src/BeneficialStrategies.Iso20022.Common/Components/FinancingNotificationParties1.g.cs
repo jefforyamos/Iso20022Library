@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies a party that notifies a financial document, the party to be notified, and whether notified party must send an acknowledgement and to whom.
 /// </summary>
 [IsoId("_OTgzMzMw-AOSNFX-8224500")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financing Notification Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record FinancingNotificationParties1
     /// Party that notifies a third party.
     /// </summary>
     [IsoId("_OTMxOTcy-AOSNFX-0262747")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notifying Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtifngPty")]
     #endif
+    [IsoXmlTag("NtifngPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedPartyIdentification1 NotifyingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QualifiedPartyIdentification1 NotifyingParty { get; init; } 
+    public required QualifiedPartyIdentification1 NotifyingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QualifiedPartyIdentification1 NotifyingParty { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record FinancingNotificationParties1
     /// Party (to be) notified.
     /// </summary>
     [IsoId("_OTMxOTcz-AOSNFX-0262747")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notification Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtfctnRcvr")]
     #endif
+    [IsoXmlTag("NtfctnRcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required QualifiedPartyIdentification1 NotificationReceiver { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public QualifiedPartyIdentification1 NotificationReceiver { get; init; } 
+    public required QualifiedPartyIdentification1 NotificationReceiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public QualifiedPartyIdentification1 NotificationReceiver { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record FinancingNotificationParties1
     /// Party to whom a notification acknowledgement has to be sent by the notification receiver.
     /// </summary>
     [IsoId("_OTMxOTc0-AOSNFX-0262747")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledgement Receiver")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AckRcvr")]
     #endif
+    [IsoXmlTag("AckRcvr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public QualifiedPartyIdentification1? AcknowledgementReceiver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

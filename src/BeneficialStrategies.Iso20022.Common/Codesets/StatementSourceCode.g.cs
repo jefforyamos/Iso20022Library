@@ -21,7 +21,7 @@ public enum StatementSourceCode
 {
     /// <summary>
     /// Accounting.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_m5hTcPNBEeCuA5Tr22BnwA_699577492")]
@@ -30,7 +30,7 @@ public enum StatementSourceCode
     
     /// <summary>
     /// Custody.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_m5hTcfNBEeCuA5Tr22BnwA_710657512")]

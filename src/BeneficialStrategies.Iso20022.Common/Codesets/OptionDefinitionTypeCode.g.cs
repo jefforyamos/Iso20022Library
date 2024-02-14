@@ -21,7 +21,7 @@ public enum OptionDefinitionTypeCode
 {
     /// <summary>
     /// Right to buy a quantity of an asset for an agreed price at exercise date.
-    /// Encoded/decoded by serializers as "CALL".
+    /// Encoded/decoded by serializers as &quot;CALL&quot;.
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_AD7GkLcQEeKuGrOch6U_ZQ_-1963859091")]
@@ -30,7 +30,7 @@ public enum OptionDefinitionTypeCode
     
     /// <summary>
     /// Right to sell a quantity of an asset for an agreed price at exercise date.
-    /// Encoded/decoded by serializers as "PUTO".
+    /// Encoded/decoded by serializers as &quot;PUTO&quot;.
     /// </summary>
     [EnumMember(Value = "PUTO")]
     [IsoId("_AD7GkbcQEeKuGrOch6U_ZQ_1096309774")]
@@ -39,7 +39,7 @@ public enum OptionDefinitionTypeCode
     
     /// <summary>
     /// Right where the holder of the option decides whether the option is put or call.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_q5GEIAjtEeW36pGcc5RpFw")]

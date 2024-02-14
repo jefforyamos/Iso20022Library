@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Underlying financial instrument to which an trade confirmation is related.
 /// </summary>
 [IsoId("_2C-80QhLEe2fOITqoTnSLQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Underlying Financial Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record UnderlyingFinancialInstrument7
     /// Identification of the underlying security by an ISIN.
     /// </summary>
     [IsoId("_2VwH0QhLEe2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification19 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification19 Identification { get; init; } 
+    public required SecurityIdentification19 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification19 Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record UnderlyingFinancialInstrument7
     /// Underlying financial instrument attributes to which an trade confirmation is related.
     /// </summary>
     [IsoId("_2VwH2QhLEe2fOITqoTnSLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Attrbts")]
     #endif
+    [IsoXmlTag("Attrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentAttributes124? Attributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

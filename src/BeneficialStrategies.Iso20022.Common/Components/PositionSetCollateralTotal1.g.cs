@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
 [IsoId("_9h9p58WLEeiRga8tPu1L4Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set Collateral Total")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record PositionSetCollateralTotal1
     /// Refers to the number of reports used for calculating the position set.
     /// </summary>
     [IsoId("_9h9p6sWLEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Reports")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfRpts")]
     #endif
+    [IsoXmlTag("NbOfRpts")]
+    [IsoSimpleType(IsoSimpleType.Max20PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax20PositiveNumber? NumberOfReports { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record PositionSetCollateralTotal1
     /// Values of the initial margin for the portfolio.
     /// </summary>
     [IsoId("_9h9p6MWLEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initial Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitlMrgn")]
     #endif
+    [IsoXmlTag("InitlMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetPostedAndReceived1? InitialMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record PositionSetCollateralTotal1
     /// Values of the variation margin for the portfolio.
     /// </summary>
     [IsoId("_9h9p6cWLEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgn")]
     #endif
+    [IsoXmlTag("VartnMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetPostedAndReceived1? VariationMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record PositionSetCollateralTotal1
     /// Values of the excess cash for the portfolio.
     /// </summary>
     [IsoId("_9drxYcWMEeiRga8tPu1L4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Excess Cash")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcssCsh")]
     #endif
+    [IsoXmlTag("XcssCsh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PositionSetPostedAndReceived1? ExcessCash { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

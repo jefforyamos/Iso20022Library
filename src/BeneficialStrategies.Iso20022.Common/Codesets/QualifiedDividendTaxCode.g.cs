@@ -21,7 +21,7 @@ public enum QualifiedDividendTaxCode
 {
     /// <summary>
     /// Dividend income is potentially qualified (for instance common or preferred stock dividends, income distribution by mutual funds).
-    /// Encoded/decoded by serializers as "FQUD".
+    /// Encoded/decoded by serializers as &quot;FQUD&quot;.
     /// </summary>
     [EnumMember(Value = "FQUD")]
     [IsoId("_1mSwETL3EeKU9IrkkToqcw_1853317281")]
@@ -30,7 +30,7 @@ public enum QualifiedDividendTaxCode
     
     /// <summary>
     /// Part of dividend income is potentially qualified (for instance income form a mutual fund which holds both stocks and bonds).
-    /// Encoded/decoded by serializers as "PQUD".
+    /// Encoded/decoded by serializers as &quot;PQUD&quot;.
     /// </summary>
     [EnumMember(Value = "PQUD")]
     [IsoId("_1mSwEjL3EeKU9IrkkToqcw_1614159460")]
@@ -39,7 +39,7 @@ public enum QualifiedDividendTaxCode
     
     /// <summary>
     /// Dividend is not qualified (for instance UIT dividends, REIT dividends).
-    /// Encoded/decoded by serializers as "NQUD".
+    /// Encoded/decoded by serializers as &quot;NQUD&quot;.
     /// </summary>
     [EnumMember(Value = "NQUD")]
     [IsoId("_1mSwEzL3EeKU9IrkkToqcw_-531915581")]
@@ -48,7 +48,7 @@ public enum QualifiedDividendTaxCode
     
     /// <summary>
     /// Qualified dividend tax status is unknown (for instance if dividend tax status information is unavailable at the time of the dividend update, it will be provided when new information is received).
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_1mSwFDL3EeKU9IrkkToqcw_-1414874880")]

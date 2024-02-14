@@ -15,14 +15,12 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Amount of money to be moved between the debtor and creditor, expressed in debtor's account currency or converted in another currency.
+    /// Amount of money to be moved between the debtor and creditor, expressed in debtor&apos;s account currency or converted in another currency.
     /// </summary>
     [KnownType(typeof(AmountType2Choice.InstructedAmount))]
     [KnownType(typeof(AmountType2Choice.EquivalentAmount))]
     [IsoId("_Pxu4jNp-Ed-ak6NoX_4Aeg_-1148058999")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

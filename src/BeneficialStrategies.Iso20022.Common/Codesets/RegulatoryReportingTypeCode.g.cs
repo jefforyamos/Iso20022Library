@@ -21,7 +21,7 @@ public enum RegulatoryReportingTypeCode
 {
     /// <summary>
     /// Regulatory information applies to the credit side.
-    /// Encoded/decoded by serializers as "CRED".
+    /// Encoded/decoded by serializers as &quot;CRED&quot;.
     /// </summary>
     [EnumMember(Value = "CRED")]
     [IsoId("_ZbPJY9p-Ed-ak6NoX_4Aeg_314621931")]
@@ -30,7 +30,7 @@ public enum RegulatoryReportingTypeCode
     
     /// <summary>
     /// Regulatory information applies to the debit side.
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("_ZbPJZNp-Ed-ak6NoX_4Aeg_413436419")]
@@ -39,7 +39,7 @@ public enum RegulatoryReportingTypeCode
     
     /// <summary>
     /// Regulatory information applies to both credit and debit sides.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_ZbPJZdp-Ed-ak6NoX_4Aeg_-1707234472")]

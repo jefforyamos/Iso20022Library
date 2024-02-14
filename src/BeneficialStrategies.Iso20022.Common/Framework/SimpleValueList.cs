@@ -9,24 +9,22 @@ namespace BeneficialStrategies.Iso20022
     /// <typeparam name="T">The data type of items in the collection.</typeparam>
     public class SimpleValueList<T> : List<T>
     {
-        //private readonly bool _requireMathcingOrder;
+        /// <inheritdoc />
         public SimpleValueList()
         {
         }
 
+        /// <inheritdoc />
         public SimpleValueList(IEnumerable<T> collection) : base(collection)
         {
         }
 
+        /// <inheritdoc />
         public SimpleValueList(int capacity) : base(capacity)
         {
         }
 
-        /// <summary>
-        /// Overridden to do value-based equality.
-        /// </summary>
-        /// <param name="other"></param>
-        /// <returns></returns>
+        /// <inheritdoc />
         public override bool Equals(object? other)
         {
             if (other is null) return false;
@@ -35,6 +33,7 @@ namespace BeneficialStrategies.Iso20022
             return enumerable.SequenceEqual(this);
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             var hashCode = 0;

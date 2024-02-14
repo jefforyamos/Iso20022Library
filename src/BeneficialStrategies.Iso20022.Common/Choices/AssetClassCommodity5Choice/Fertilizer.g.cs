@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity5Choice
     /// Fertilizer commodities.
     /// </summary>
     [IsoId("_owQIN7tIEeiLRYqS-r-R-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fertilizer")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

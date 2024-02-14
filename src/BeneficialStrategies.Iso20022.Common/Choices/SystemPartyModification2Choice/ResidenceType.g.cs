@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice
     /// Specifies the type of residence where the party has its permanent home or principal establishment.
     /// </summary>
     [IsoId("__edeAov_Eei289CGNqs21g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Residence Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice
         /// Specifies the type of residence where the party has its permanent home or principal establishment.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ResTp")]
         #endif
+        [IsoXmlTag("ResTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ResidenceType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ResidenceType1Code Value { get; init; } 
+        public required ResidenceType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ResidenceType1Code Value { get; init; } 
         #else

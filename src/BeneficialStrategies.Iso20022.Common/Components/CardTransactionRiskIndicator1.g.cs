@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates to the issuer the level of risk of the transaction.
 /// </summary>
 [IsoId("_lnDF4HsKEeSR68OJvMfxJQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction Risk Indicator")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record CardTransactionRiskIndicator1
     /// Reason to indicate a certain level of risk for the transaction.
     /// </summary>
     [IsoId("_BJYHkHsNEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardTransactionRiskReason1Code? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,16 @@ public partial record CardTransactionRiskIndicator1
     /// Level of risk, from 1 to 99.
     /// </summary>
     [IsoId("_NUeygHsNEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lvl")]
     #endif
+    [IsoXmlTag("Lvl")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Level { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Level { get; init; } 
+    public required System.UInt64 Level { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Level { get; init; } 
     #else
@@ -89,12 +86,11 @@ public partial record CardTransactionRiskIndicator1
     /// Recommended action for the issuer.
     /// </summary>
     [IsoId("_4l1jwHsNEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recommended Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcmmnddActn")]
     #endif
+    [IsoXmlTag("RcmmnddActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionType4Code? RecommendedAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

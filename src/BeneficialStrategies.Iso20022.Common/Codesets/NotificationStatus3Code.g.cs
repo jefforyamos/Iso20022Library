@@ -21,7 +21,7 @@ public enum NotificationStatus3Code
 {
     /// <summary>
     /// Event(s) as described in the notification to receive occurred but details are different.
-    /// Encoded/decoded by serializers as "RCBD".
+    /// Encoded/decoded by serializers as &quot;RCBD&quot;.
     /// </summary>
     [EnumMember(Value = "RCBD")]
     [IsoId("_aN5VYtp-Ed-ak6NoX_4Aeg_410470248")]
@@ -30,7 +30,7 @@ public enum NotificationStatus3Code
     
     /// <summary>
     /// Event(s) as described in the notification to receive occurred.
-    /// Encoded/decoded by serializers as "RCVD".
+    /// Encoded/decoded by serializers as &quot;RCVD&quot;.
     /// </summary>
     [EnumMember(Value = "RCVD")]
     [IsoId("_aN5VY9p-Ed-ak6NoX_4Aeg_410470266")]
@@ -39,7 +39,7 @@ public enum NotificationStatus3Code
     
     /// <summary>
     /// Event(s) as described in the notification to receive did not occur.
-    /// Encoded/decoded by serializers as "NRCD".
+    /// Encoded/decoded by serializers as &quot;NRCD&quot;.
     /// </summary>
     [EnumMember(Value = "NRCD")]
     [IsoId("_aN5VZNp-Ed-ak6NoX_4Aeg_410470291")]

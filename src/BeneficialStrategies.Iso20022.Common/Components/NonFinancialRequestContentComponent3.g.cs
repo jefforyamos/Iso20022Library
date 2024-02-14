@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Aim of the non financial request.
 /// </summary>
 [IsoId("_pV2jMXJUEe299ZbWCkdR_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Non Financial Request Content Component")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record NonFinancialRequestContentComponent3
     /// Type of non financial request that the Acceptor wants to be processed.
     /// </summary>
     [IsoId("_pdAUEXJUEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Financial Request Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonFinReqTp")]
     #endif
+    [IsoXmlTag("NonFinReqTp")]
     public NonFinancialRequestType2Code? NonFinancialRequestType { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _pdAUEXJUEe299ZbWCkdR_w
     
@@ -57,12 +54,11 @@ public partial record NonFinancialRequestContentComponent3
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
     [IsoId("_pdAUE3JUEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardPaymentTransaction124? Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,16 +71,13 @@ public partial record NonFinancialRequestContentComponent3
     /// Additional elements requested to the ServiceProvider which are not linked to payment.
     /// </summary>
     [IsoId("_1WM6MHJVEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlReq")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlReq")]
     [MinLength(0)]
     [MaxLength(8)]
-    #endif
     public ValueList<ExternallyDefinedData4> AdditionalRequest { get; init; } = new ValueList<ExternallyDefinedData4>(){};
     
     

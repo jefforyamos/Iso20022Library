@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition8Choice
     /// Trade condition expressed as a code.
     /// </summary>
     [IsoId("_P2iDk0c9EeaBWtcfqEyXyw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition8Choice
         /// Specifies the conditions under which the order/trade is to be/was executed.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TradeTransactionCondition5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TradeTransactionCondition5Code Value { get; init; } 
+        public required TradeTransactionCondition5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TradeTransactionCondition5Code Value { get; init; } 
         #else

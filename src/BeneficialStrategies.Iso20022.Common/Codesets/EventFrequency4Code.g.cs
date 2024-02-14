@@ -21,7 +21,7 @@ public enum EventFrequency4Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_ajzT8tp-Ed-ak6NoX_4Aeg_-2118703816")]
@@ -30,7 +30,7 @@ public enum EventFrequency4Code
     
     /// <summary>
     /// Event takes place as necessary.
-    /// Encoded/decoded by serializers as "ADHO".
+    /// Encoded/decoded by serializers as &quot;ADHO&quot;.
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_ajzT89p-Ed-ak6NoX_4Aeg_-2090075609")]
@@ -39,7 +39,7 @@ public enum EventFrequency4Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ajzT9Np-Ed-ak6NoX_4Aeg_-2118703815")]
@@ -48,7 +48,7 @@ public enum EventFrequency4Code
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_ajzT9dp-Ed-ak6NoX_4Aeg_-2118703814")]
@@ -57,7 +57,7 @@ public enum EventFrequency4Code
     
     /// <summary>
     /// Event takes place several times a day.
-    /// Encoded/decoded by serializers as "INDA".
+    /// Encoded/decoded by serializers as &quot;INDA&quot;.
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_ajzT9tp-Ed-ak6NoX_4Aeg_-2118703798")]
@@ -66,7 +66,7 @@ public enum EventFrequency4Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_ajzT99p-Ed-ak6NoX_4Aeg_-2118703797")]

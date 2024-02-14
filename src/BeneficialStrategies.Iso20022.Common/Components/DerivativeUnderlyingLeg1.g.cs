@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the obligations of one of the participants to a derivative contract. The obligations may be conceptual or operational only, with settlement of any obligations arising from the derivative contract taking place on a net basis, after the netting of the obligations arising from each leg of the contract.
 /// </summary>
 [IsoId("_zoVNcMhqEeadgvwNGwK05w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivative Underlying Leg")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DerivativeUnderlyingLeg1
     /// Attributes that relate to the financial instrument (contract) being traded that are common across derivatives.
     /// </summary>
     [IsoId("_-u88kMhqEeadgvwNGwK05w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctAttrbts")]
     #endif
+    [IsoXmlTag("CtrctAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentAttributes88 ContractAttributes { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentAttributes88 ContractAttributes { get; init; } 
+    public required FinancialInstrumentAttributes88 ContractAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentAttributes88 ContractAttributes { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record DerivativeUnderlyingLeg1
     /// Attributes of a derivative that are specific to whether the derivative is a value defined derivative or quantity defined derivative.
     /// </summary>
     [IsoId("_ttQKIOPJEea7_eMQH225xA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Defined Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DfndAttrbts")]
     #endif
+    [IsoXmlTag("DfndAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DefinedAttributes1Choice_? DefinedAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

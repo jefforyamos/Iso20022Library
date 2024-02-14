@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification11Choice.CentralCounterparty))]
     [KnownType(typeof(PartyIdentification11Choice.ProprietaryIdentification))]
     [IsoId("_QReIh9p-Ed-ak6NoX_4Aeg_-60481643")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Identification 11 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

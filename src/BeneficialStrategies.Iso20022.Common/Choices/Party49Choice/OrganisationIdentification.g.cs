@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
     [IsoId("_dbeBY-EpEemRzcIkmUETeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
         /// Business identification code of the organisation.
         /// </summary>
         [IsoId("_gSyz0-EpEemRzcIkmUETeA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Any BIC")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AnyBIC")]
         #endif
+        [IsoXmlTag("AnyBIC")]
+        [IsoSimpleType(IsoSimpleType.AnyBICDec2014Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoAnyBICDec2014Identifier? AnyBIC { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +65,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
         /// Legal entity identification as an alternate identification for a party.
         /// </summary>
         [IsoId("_gSyz1eEpEemRzcIkmUETeA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("LEI")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LEI")]
         #endif
+        [IsoXmlTag("LEI")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? LEI { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,15 +83,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
         /// Address for electronic mail (e-mail).
         /// </summary>
         [IsoId("_hfVfceEpEemRzcIkmUETeA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Email Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EmailAdr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("EmailAdr")]
+        [IsoSimpleType(IsoSimpleType.Max256Text)]
         [StringLength(maximumLength: 256 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax256Text? EmailAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +102,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Party49Choice
         /// Unique identification of an organisation, as assigned by an institution, using an identification scheme.
         /// </summary>
         [IsoId("_gSyz1-EpEemRzcIkmUETeA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Othr")]
         #endif
+        [IsoXmlTag("Othr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public GenericOrganisationIdentification1? Other { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides extra tax details.
 /// </summary>
 [IsoId("_1bBq5m99EeKuY41pq1-dog")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record TaxSD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_1bBrGG99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,12 +62,12 @@ public partial record TaxSD1
     /// Amount of foreign tax credit per security.
     /// </summary>
     [IsoId("_1bBrHW99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Tax Credit Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrgnTaxCdtAmt")]
     #endif
+    [IsoXmlTag("FrgnTaxCdtAmt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? ForeignTaxCreditAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -84,12 +80,12 @@ public partial record TaxSD1
     /// Percent of foreign tax credit per security|.
     /// </summary>
     [IsoId("_1bBrCW99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Tax Credit Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrgnTaxCdtRate")]
     #endif
+    [IsoXmlTag("FrgnTaxCdtRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ForeignTaxCreditRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -102,12 +98,12 @@ public partial record TaxSD1
     /// Amount of the dividend that is being paid out of income earned in a foreign jurisdiction.
     /// </summary>
     [IsoId("_1bBq-m99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Source Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrgnSrcAmt")]
     #endif
+    [IsoXmlTag("FrgnSrcAmt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? ForeignSourceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +116,12 @@ public partial record TaxSD1
     /// Percentage of the dividend that is being paid out of income earned in a foreign jurisdiction.
     /// </summary>
     [IsoId("_1bBrE299EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Foreign Source Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrgnSrcRate")]
     #endif
+    [IsoXmlTag("FrgnSrcRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ForeignSourceRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,12 +134,11 @@ public partial record TaxSD1
     /// Form of tax advantage on the dividend.
     /// </summary>
     [IsoId("_1bBq6299EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Advantage Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxAdvntgTp")]
     #endif
+    [IsoXmlTag("TaxAdvntgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxAdvantageType1Code? TaxAdvantageType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,12 +151,12 @@ public partial record TaxSD1
     /// Amount of the tax advantage on the dividend.
     /// </summary>
     [IsoId("_1bBq9W99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Advantage Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxAdvntgAmt")]
     #endif
+    [IsoXmlTag("TaxAdvntgAmt")]
+    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoRestrictedFINActiveCurrencyAndAmount? TaxAdvantageAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,12 +169,12 @@ public partial record TaxSD1
     /// Percent of the tax advantage on the dividend.
     /// </summary>
     [IsoId("_1bBrBG99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Advantage Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxAdvntgRate")]
     #endif
+    [IsoXmlTag("TaxAdvntgRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxAdvantageRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,12 +187,12 @@ public partial record TaxSD1
     /// Percentage of the amount of money related to taxable income that cannot be categorised.
     /// </summary>
     [IsoId("_1bBrDm99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sundry Or Other Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndryOrOthrRate")]
     #endif
+    [IsoXmlTag("SndryOrOthrRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? SundryOrOtherRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -210,12 +205,12 @@ public partial record TaxSD1
     /// Percentage of the amount of income eligible for deferred taxation.
     /// </summary>
     [IsoId("_1bBq8G99EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Deferred Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxDfrrdRate")]
     #endif
+    [IsoXmlTag("TaxDfrrdRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxDeferredRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -228,12 +223,12 @@ public partial record TaxSD1
     /// Percentage of the amount of money that has not been subject to taxation.
     /// </summary>
     [IsoId("_1bBq_299EeKuY41pq1-dog")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Free Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxFreeRate")]
     #endif
+    [IsoXmlTag("TaxFreeRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? TaxFreeRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

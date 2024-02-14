@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies corporate action event deadlines.
 /// </summary>
 [IsoId("_D3XajffQEeiNZp_PtLohLw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Event Deadlines")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionEventDeadlines4
     /// Date/time that the account servicer has set as the deadline to respond, with instructions, to an outstanding event, giving the holder eligibility to incentives. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// </summary>
     [IsoId("_D3XakffQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Early Response Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EarlyRspnDdln")]
     #endif
+    [IsoXmlTag("EarlyRspnDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? EarlyResponseDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CorporateActionEventDeadlines4
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// </summary>
     [IsoId("_D3XamffQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnDdln")]
     #endif
+    [IsoXmlTag("RspnDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat54Choice_? ResponseDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +73,14 @@ public partial record CorporateActionEventDeadlines4
     #endif
     
     /// <summary>
-    /// Issuer or issuer's agent deadline to respond with an instruction to an outstanding offer or privilege.
+    /// Issuer or issuer&apos;s agent deadline to respond with an instruction to an outstanding offer or privilege.
     /// </summary>
     [IsoId("_D3XaoffQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktDdln")]
     #endif
+    [IsoXmlTag("MktDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? MarketDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record CorporateActionEventDeadlines4
     /// Deadline for protect instructions.
     /// </summary>
     [IsoId("_D3XaqffQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Protect Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtctDdln")]
     #endif
+    [IsoXmlTag("PrtctDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? ProtectDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record CorporateActionEventDeadlines4
     /// Deadline for covering a protect instruction.
     /// </summary>
     [IsoId("_D3Xaq_fQEeiNZp_PtLohLw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cover Protect Deadline")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CoverPrtctDdln")]
     #endif
+    [IsoXmlTag("CoverPrtctDdln")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat49Choice_? CoverProtectDeadline { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

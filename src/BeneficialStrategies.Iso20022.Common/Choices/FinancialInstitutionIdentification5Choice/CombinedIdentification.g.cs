@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
     /// Unique and unambiguous identification of a financial institution, through a combimation of globally recognised or proprietary identification scheme.
     /// </summary>
     [IsoId("_TFnrItp-Ed-ak6NoX_4Aeg_1781480692")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Combined Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -46,15 +44,15 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
         #nullable enable
         
         /// <summary>
-        /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+        /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
         /// </summary>
         [IsoId("_TFehMdp-Ed-ak6NoX_4Aeg_696920663")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("BIC")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BIC")]
         #endif
+        [IsoXmlTag("BIC")]
+        [IsoSimpleType(IsoSimpleType.BICIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoBICIdentifier? BIC { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +65,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
         /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
         /// </summary>
         [IsoId("_TFehMtp-Ed-ak6NoX_4Aeg_696921670")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Clearing System Member Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClrSysMmbId")]
         #endif
+        [IsoXmlTag("ClrSysMmbId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ClearingSystemMemberIdentification3Choice_? ClearingSystemMemberIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,15 +82,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
         /// Name by which a party is known and which is usually used to identify that party.
         /// </summary>
         [IsoId("_TFehM9p-Ed-ak6NoX_4Aeg_696922156")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nm")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nm")]
+        [IsoSimpleType(IsoSimpleType.Max70Text)]
         [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax70Text? Name { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +101,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
         /// Information that locates and identifies a specific address, as defined by postal services.
         /// </summary>
         [IsoId("_TFehNNp-Ed-ak6NoX_4Aeg_696923981")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Postal Address")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PstlAdr")]
         #endif
+        [IsoXmlTag("PstlAdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PostalAddress1? PostalAddress { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -124,12 +118,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
         /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
         /// </summary>
         [IsoId("_TFehNdp-Ed-ak6NoX_4Aeg_-1274464914")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Proprietary Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryId")]
         #endif
+        [IsoXmlTag("PrtryId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public GenericIdentification3? ProprietaryIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

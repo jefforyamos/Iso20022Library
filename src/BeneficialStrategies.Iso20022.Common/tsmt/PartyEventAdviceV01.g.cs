@@ -33,9 +33,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"The PartyEventAdvice message can be sent by any party to any other party. It is used for business letters containing information for which treatment is not formally defined in order to keep partners informed and to maintain business traces, for example confirmations of information exchanged out-of band such as announcing a postal letter, confirming a telephone call or the exchange of contractual information. It can also be sent to verify the technical interoperability of the communicating IT-systems.|The message can reference other message and include data from referenced messages.|The message can report several events.|The message can carry digital signatures if required by context.")]
 [IsoId("_OTgzNTEy-AOSNFX-8224507")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Event Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record PartyEventAdviceV01 : IOuterRecord<PartyEventAdviceV01,Par
     /// Set of characteristics that unambiguously identify the event, common parameters, documents and identifications.
     /// </summary>
     [IsoId("_OTgzNTEz-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BusinessLetter1 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BusinessLetter1 Header { get; init; } 
+    public required BusinessLetter1 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BusinessLetter1 Header { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record PartyEventAdviceV01 : IOuterRecord<PartyEventAdviceV01,Par
     /// Description of the event.
     /// </summary>
     [IsoId("_OTgzNTE0-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Notice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtNtce")]
     #endif
+    [IsoXmlTag("EvtNtce")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EventDescription1 EventNotice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EventDescription1 EventNotice { get; init; } 
+    public required EventDescription1 EventNotice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EventDescription1 EventNotice { get; init; } 
     #else
@@ -119,15 +115,12 @@ public partial record PartyEventAdviceV01 : IOuterRecord<PartyEventAdviceV01,Par
     /// Number of events as control value.
     /// </summary>
     [IsoId("_OTgzNTE1-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("EvtCnt")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? EventCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +133,11 @@ public partial record PartyEventAdviceV01 : IOuterRecord<PartyEventAdviceV01,Par
     /// Referenced or related business message.
     /// </summary>
     [IsoId("_OTgzNTE2-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attached Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchdMsg")]
     #endif
+    [IsoXmlTag("AttchdMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncapsulatedBusinessMessage1? AttachedMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +150,7 @@ public partial record PartyEventAdviceV01 : IOuterRecord<PartyEventAdviceV01,Par
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PartyEventAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PartyEventAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PartyEventAdviceV01Document ToDocument()
     {
@@ -168,7 +160,7 @@ public partial record PartyEventAdviceV01 : IOuterRecord<PartyEventAdviceV01,Par
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyEventAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PartyEventAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PartyEventAdviceV01Document : IOuterDocument<PartyEventAdviceV01>
@@ -185,7 +177,7 @@ public partial record PartyEventAdviceV01Document : IOuterDocument<PartyEventAdv
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PartyEventAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PartyEventAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyEventAdviceV01 Message { get; init; }

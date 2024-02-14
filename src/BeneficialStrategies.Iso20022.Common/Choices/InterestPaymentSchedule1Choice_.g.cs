@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestPaymentSchedule1Choice.DateRange))]
     [KnownType(typeof(InterestPaymentSchedule1Choice.SubSchedule))]
     [IsoId("_u7i5Q-FWEeSvv6t4Ka7B7A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Payment Schedule 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

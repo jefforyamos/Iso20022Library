@@ -21,7 +21,7 @@ public enum VerificationEntity1Code
 {
     /// <summary>
     /// Acceptor (for example signature verification by the attendant).
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_NSJxcRZOEeiXa46FI4OtcQ")]
@@ -30,7 +30,7 @@ public enum VerificationEntity1Code
     
     /// <summary>
     /// Acquirer of the transaction.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_Ne8QQhZOEeiXa46FI4OtcQ")]
@@ -39,7 +39,7 @@ public enum VerificationEntity1Code
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between (or on behalf of) an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_NonJohZOEeiXa46FI4OtcQ")]
@@ -48,7 +48,7 @@ public enum VerificationEntity1Code
     
     /// <summary>
     /// Card issuer.
-    /// Encoded/decoded by serializers as "ISSR".
+    /// Encoded/decoded by serializers as &quot;ISSR&quot;.
     /// </summary>
     [EnumMember(Value = "ISSR")]
     [IsoId("_OG95khZOEeiXa46FI4OtcQ")]
@@ -57,7 +57,7 @@ public enum VerificationEntity1Code
     
     /// <summary>
     /// Other type of authentication entity defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_OVPmIhZOEeiXa46FI4OtcQ")]
@@ -66,7 +66,7 @@ public enum VerificationEntity1Code
     
     /// <summary>
     /// Other type of authentication entity defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_OifX8hZOEeiXa46FI4OtcQ")]

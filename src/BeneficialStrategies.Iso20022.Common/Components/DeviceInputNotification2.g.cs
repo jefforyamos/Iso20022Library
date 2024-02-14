@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Input notification message.
 /// </summary>
 [IsoId("_cLmfgQ0cEeqUVL7sB4m7NA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Input Notification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record DeviceInputNotification2
     /// Message main identifier.
     /// </summary>
     [IsoId("_cW37YQ0cEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XchgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExchangeIdentification { get; init; } 
+    public required System.String ExchangeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExchangeIdentification { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record DeviceInputNotification2
     /// Updated content of the message to display before input.
     /// </summary>
     [IsoId("_cW4icQ0cEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Output Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutptCntt")]
     #endif
+    [IsoXmlTag("OutptCntt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActionMessage7 OutputContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ActionMessage7 OutputContent { get; init; } 
+    public required ActionMessage7 OutputContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ActionMessage7 OutputContent { get; init; } 
     #else

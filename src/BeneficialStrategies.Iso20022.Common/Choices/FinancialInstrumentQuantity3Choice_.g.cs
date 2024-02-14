@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity3Choice.GrossAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity3Choice.HoldingsRedemptionRate))]
     [IsoId("_VOten9p-Ed-ak6NoX_4Aeg_1922478092")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Quantity 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the removal type, the reason, the exclusion period, the extension date and the termination date.
 /// </summary>
 [IsoId("_50I1UPolEeiAfJEqh4xF_Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Removal Type And Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record RemovalTypeAndReason1
     /// Specifies the removal processing change requested.
     /// </summary>
     [IsoId("_FKebcPomEeiAfJEqh4xF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Removal Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmvlTp")]
     #endif
+    [IsoXmlTag("RmvlTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Removal1Choice_ RemovalType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Removal1Choice_ RemovalType { get; init; } 
+    public required Removal1Choice_ RemovalType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Removal1Choice_ RemovalType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record RemovalTypeAndReason1
     /// Identifies the reason for the removal, the extension of the removal or the termination of the removal.
     /// </summary>
     [IsoId("_HcgTAfonEeiAfJEqh4xF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification30? Reason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record RemovalTypeAndReason1
     /// Identifies the period, the start date or the end date of the exclusion period.
     /// </summary>
     [IsoId("_RRHq4forEeiAfJEqh4xF_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exclusion Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExclsnPrd")]
     #endif
+    [IsoXmlTag("ExclsnPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateOrDateTimePeriod3Choice_? ExclusionPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

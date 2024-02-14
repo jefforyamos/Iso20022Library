@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of margin collateral agreement between counterparties.
 /// </summary>
 [IsoId("_1w_vQVosEe23K4GXSpBSeg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Collateral Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record MarginCollateralReport4
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
     [IsoId("_1ywp0VosEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Portfolio Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPrtflCd")]
     #endif
+    [IsoXmlTag("CollPrtflCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; init; } 
+    public required CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralPortfolioCode5Choice_ CollateralPortfolioCode { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record MarginCollateralReport4
     /// Indicates the type of collateral agreement existing between the counterparties.
     /// </summary>
     [IsoId("_1ywp01osEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateralisation Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollstnCtgy")]
     #endif
+    [IsoXmlTag("CollstnCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralisationType3Code CollateralisationCategory { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralisationType3Code CollateralisationCategory { get; init; } 
+    public required CollateralisationType3Code CollateralisationCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralisationType3Code CollateralisationCategory { get; init; } 
     #else
@@ -94,12 +90,12 @@ public partial record MarginCollateralReport4
     /// Indicates the date and time of the last collateral amount determination or calculation.
     /// </summary>
     [IsoId("_1ywp1VosEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmStmp")]
     #endif
+    [IsoXmlTag("TmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? TimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

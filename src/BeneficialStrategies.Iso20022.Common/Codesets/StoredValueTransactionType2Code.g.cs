@@ -21,7 +21,7 @@ public enum StoredValueTransactionType2Code
 {
     /// <summary>
     /// Activate the account or the card.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_pFpYUYYKEemxIqbaFEE8-w")]
@@ -30,7 +30,7 @@ public enum StoredValueTransactionType2Code
     
     /// <summary>
     /// Duplicate the code or number provided by the loading or activation.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_pFpYU4YKEemxIqbaFEE8-w")]
@@ -39,7 +39,7 @@ public enum StoredValueTransactionType2Code
     
     /// <summary>
     /// Load the account or the card with money.
-    /// Encoded/decoded by serializers as "LOAD".
+    /// Encoded/decoded by serializers as &quot;LOAD&quot;.
     /// </summary>
     [EnumMember(Value = "LOAD")]
     [IsoId("_pFpYVYYKEemxIqbaFEE8-w")]
@@ -48,7 +48,7 @@ public enum StoredValueTransactionType2Code
     
     /// <summary>
     /// Reserve the account (e.g. get an activation code).
-    /// Encoded/decoded by serializers as "RESV".
+    /// Encoded/decoded by serializers as &quot;RESV&quot;.
     /// </summary>
     [EnumMember(Value = "RESV")]
     [IsoId("_pFpYV4YKEemxIqbaFEE8-w")]
@@ -57,7 +57,7 @@ public enum StoredValueTransactionType2Code
     
     /// <summary>
     /// Reverse an activation or loading.
-    /// Encoded/decoded by serializers as "REVS".
+    /// Encoded/decoded by serializers as &quot;REVS&quot;.
     /// </summary>
     [EnumMember(Value = "REVS")]
     [IsoId("_pFpYWYYKEemxIqbaFEE8-w")]
@@ -66,7 +66,7 @@ public enum StoredValueTransactionType2Code
     
     /// <summary>
     /// Unload the account.
-    /// Encoded/decoded by serializers as "ULOA".
+    /// Encoded/decoded by serializers as &quot;ULOA&quot;.
     /// </summary>
     [EnumMember(Value = "ULOA")]
     [IsoId("_pFpYW4YKEemxIqbaFEE8-w")]
@@ -75,7 +75,7 @@ public enum StoredValueTransactionType2Code
     
     /// <summary>
     /// Close the account.
-    /// Encoded/decoded by serializers as "CLOS".
+    /// Encoded/decoded by serializers as &quot;CLOS&quot;.
     /// </summary>
     [EnumMember(Value = "CLOS")]
     [IsoId("_ezGTwYa1EemfPtKsRXC1Ag")]
@@ -84,7 +84,7 @@ public enum StoredValueTransactionType2Code
     
     /// <summary>
     /// Deactivate the account or the card.
-    /// Encoded/decoded by serializers as "DCTV".
+    /// Encoded/decoded by serializers as &quot;DCTV&quot;.
     /// </summary>
     [EnumMember(Value = "DCTV")]
     [IsoId("_e6GToYa1EemfPtKsRXC1Ag")]
@@ -93,7 +93,7 @@ public enum StoredValueTransactionType2Code
     
     /// <summary>
     /// Open the account.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_fEp90Ya1EemfPtKsRXC1Ag")]

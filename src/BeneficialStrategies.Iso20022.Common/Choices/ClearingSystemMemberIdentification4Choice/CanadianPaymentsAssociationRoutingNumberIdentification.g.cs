@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
     /// Canadian Payments Association Routing Number - identifies Canadian financial institutions on the Canadian national clearing system.
     /// </summary>
     [IsoId("_VwSCd7NIEeejueAciesPMA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Canadian Payments Association Routing Number Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
         /// Canadian Payments Association Routing Number. Identifies Canadian financial institutions on the Canadian national clearing system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CACPA")]
         #endif
+        [IsoXmlTag("CACPA")]
+        [IsoSimpleType(IsoSimpleType.CanadianPaymentsARNIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoCanadianPaymentsARNIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

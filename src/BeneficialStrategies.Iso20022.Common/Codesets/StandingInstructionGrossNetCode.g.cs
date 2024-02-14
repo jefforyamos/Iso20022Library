@@ -21,7 +21,7 @@ public enum StandingInstructionGrossNetCode
 {
     /// <summary>
     /// Gross payment.
-    /// Encoded/decoded by serializers as "GROS".
+    /// Encoded/decoded by serializers as &quot;GROS&quot;.
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_ZPw5Mtp-Ed-ak6NoX_4Aeg_-42230364")]
@@ -30,7 +30,7 @@ public enum StandingInstructionGrossNetCode
     
     /// <summary>
     /// Net payment.
-    /// Encoded/decoded by serializers as "NETT".
+    /// Encoded/decoded by serializers as &quot;NETT&quot;.
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_ZPw5M9p-Ed-ak6NoX_4Aeg_-42230333")]

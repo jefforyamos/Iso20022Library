@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InRepairStatus2Choice.DataSourceScheme))]
     [KnownType(typeof(InRepairStatus2Choice.NoReason))]
     [IsoId("_Ut7sw9p-Ed-ak6NoX_4Aeg_1209831278")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("In Repair Status 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

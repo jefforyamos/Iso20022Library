@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateOrAbsoluteValue1Choice.RateValue))]
     [KnownType(typeof(RateOrAbsoluteValue1Choice.AbsoluteValue))]
     [IsoId("_RBTC99p-Ed-ak6NoX_4Aeg_955902350")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Or Absolute Value 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

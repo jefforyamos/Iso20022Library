@@ -21,7 +21,7 @@ public enum InternalPartyRole1Code
 {
     /// <summary>
     /// Party acting as an internal agent.
-    /// Encoded/decoded by serializers as "INTC".
+    /// Encoded/decoded by serializers as &quot;INTC&quot;.
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_T0-jUR5ZEeWc9bJOIIhUUw")]

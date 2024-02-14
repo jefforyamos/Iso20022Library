@@ -29,13 +29,11 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// Scope
 /// An executing party, for example, a (old) plan manager (Transferor), sends the AccountHoldingInformation message to the instructing party, for example, a (new) plan manager (Transferee), to provide information about financial instruments held on behalf of a client.
 /// Usage
-/// The AccountHoldingInformation message is used to provide information about one or more ISA or portfolio products held in a client's account.
+/// The AccountHoldingInformation message is used to provide information about one or more ISA or portfolio products held in a client&apos;s account.
 /// </summary>
 [Description(@"Scope|An executing party, for example, a (old) plan manager (Transferor), sends the AccountHoldingInformation message to the instructing party, for example, a (new) plan manager (Transferee), to provide information about financial instruments held on behalf of a client.|Usage|The AccountHoldingInformation message is used to provide information about one or more ISA or portfolio products held in a client's account.")]
 [IsoId("_F5S5wRXfEeOocOqSQt5Jbw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Holding Information V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -81,16 +79,15 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Identifies the message.
     /// </summary>
     [IsoId("_F5S5yxXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgRef")]
     #endif
+    [IsoXmlTag("MsgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageReference { get; init; } 
+    public required MessageIdentification1 MessageReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageReference { get; init; } 
     #else
@@ -101,12 +98,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_F5S5zRXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +115,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_F5S5zxXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +132,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_F5S50RXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,12 +149,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Identifies the business flow direction type (assets to be delivered or received).
     /// </summary>
     [IsoId("_F5S50xXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Flow Direction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizFlowDrctnTp")]
     #endif
+    [IsoXmlTag("BizFlowDrctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessFlowDirectionType1Code? BusinessFlowDirectionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -173,12 +166,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Information identifying the primary individual investor, eg, name, address, social security number and date of birth.
     /// </summary>
     [IsoId("_F5S51RXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Individual Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryIndvInvstr")]
     #endif
+    [IsoXmlTag("PmryIndvInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? PrimaryIndividualInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -191,12 +183,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Information identifying the secondary individual investor, eg, name, address, social security number and date of birth.
     /// </summary>
     [IsoId("_F5S51xXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secondary Individual Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndryIndvInvstr")]
     #endif
+    [IsoXmlTag("ScndryIndvInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? SecondaryIndividualInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -209,12 +200,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Information identifying other individual investors, eg, name, address, social security number and date of birth.
     /// </summary>
     [IsoId("_F5S52RXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Individual Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrIndvInvstr")]
     #endif
+    [IsoXmlTag("OthrIndvInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson8? OtherIndividualInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -227,12 +217,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Information identifying the primary corporate investor, eg, name and address.
     /// </summary>
     [IsoId("_F5S52xXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Corporate Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryCorpInvstr")]
     #endif
+    [IsoXmlTag("PmryCorpInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation4? PrimaryCorporateInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -245,12 +234,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Information identifying the secondary corporate investor, eg, name and address.
     /// </summary>
     [IsoId("_F5S53RXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secondary Corporate Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndryCorpInvstr")]
     #endif
+    [IsoXmlTag("ScndryCorpInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation4? SecondaryCorporateInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,12 +251,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Information identifying the other corporate investors, eg, name and address.
     /// </summary>
     [IsoId("_F5S53xXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Corporate Investor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCorpInvstr")]
     #endif
+    [IsoXmlTag("OthrCorpInvstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation4? OtherCorporateInvestor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -281,16 +268,15 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Identification of an account owned by the investor at the old plan manager (account servicer).
     /// </summary>
     [IsoId("_F5S54RXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transferor Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrfrAcct")]
     #endif
+    [IsoXmlTag("TrfrAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Account15 TransferorAccount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Account15 TransferorAccount { get; init; } 
+    public required Account15 TransferorAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Account15 TransferorAccount { get; init; } 
     #else
@@ -301,12 +287,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
     /// </summary>
     [IsoId("_F5S54xXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nominee Account")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmneeAcct")]
     #endif
+    [IsoXmlTag("NmneeAcct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Account16? NomineeAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -319,16 +304,15 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Information related to the institution to which the financial instrument is to be transferred.
     /// </summary>
     [IsoId("_F5S55RXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transferee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trfee")]
     #endif
+    [IsoXmlTag("Trfee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification2Choice_ Transferee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification2Choice_ Transferee { get; init; } 
+    public required PartyIdentification2Choice_ Transferee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification2Choice_ Transferee { get; init; } 
     #else
@@ -339,16 +323,15 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Provides information related to the asset(s) transferred.
     /// </summary>
     [IsoId("_F5S55xXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctTrf")]
     #endif
+    [IsoXmlTag("PdctTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ISATransfer14 ProductTransfer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ISATransfer14 ProductTransfer { get; init; } 
+    public required ISATransfer14 ProductTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ISATransfer14 ProductTransfer { get; init; } 
     #else
@@ -359,12 +342,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Identifies the market practice to which the message conforms.
     /// </summary>
     [IsoId("_VYsdUBw9EeOIveEnnb_1-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Practice Version")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktPrctcVrsn")]
     #endif
+    [IsoXmlTag("MktPrctcVrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarketPracticeVersion1? MarketPracticeVersion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -377,12 +359,11 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_F5S56RXfEeOocOqSQt5Jbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -395,7 +376,7 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountHoldingInformationV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountHoldingInformationV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountHoldingInformationV04Document ToDocument()
     {
@@ -405,7 +386,7 @@ public partial record AccountHoldingInformationV04 : IOuterRecord<AccountHolding
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountHoldingInformationV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountHoldingInformationV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountHoldingInformationV04Document : IOuterDocument<AccountHoldingInformationV04>
@@ -422,7 +403,7 @@ public partial record AccountHoldingInformationV04Document : IOuterDocument<Acco
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountHoldingInformationV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountHoldingInformationV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountHoldingInformationV04 Message { get; init; }

@@ -21,7 +21,7 @@ public enum Location1Code
 {
     /// <summary>
     /// At another institution
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_MGitsaHoEeagRbKvRt3LnA")]
@@ -30,7 +30,7 @@ public enum Location1Code
     
     /// <summary>
     /// At my institution.
-    /// Encoded/decoded by serializers as "MYIN".
+    /// Encoded/decoded by serializers as &quot;MYIN&quot;.
     /// </summary>
     [EnumMember(Value = "MYIN")]
     [IsoId("_MbH2kqHoEeagRbKvRt3LnA")]

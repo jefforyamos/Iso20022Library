@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
 [IsoId("_L6FU0TckEeSaC-PiOaz_KQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Commercial Data Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record CommercialDataSet5
     /// Identifies the commercial data set.
     /// </summary>
     [IsoId("_MQGoITckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data Set Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DataSetId")]
     #endif
+    [IsoXmlTag("DataSetId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification1 DataSetIdentification { get; init; } 
+    public required DocumentIdentification1 DataSetIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification1 DataSetIdentification { get; init; } 
     #else
@@ -75,16 +72,15 @@ public partial record CommercialDataSet5
     /// Reference to the identification of the underlying commercial document.
     /// </summary>
     [IsoId("_MQGoIzckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Commercial Document Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ComrclDocRef")]
     #endif
+    [IsoXmlTag("ComrclDocRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvoiceIdentification1 CommercialDocumentReference { get; init; } 
+    public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvoiceIdentification1 CommercialDocumentReference { get; init; } 
     #else
@@ -95,16 +91,15 @@ public partial record CommercialDataSet5
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_MQGoJTckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Buyer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification26 Buyer { get; init; } 
+    public required PartyIdentification26 Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification26 Buyer { get; init; } 
     #else
@@ -115,16 +110,15 @@ public partial record CommercialDataSet5
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_MQGoJzckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification26 Seller { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification26 Seller { get; init; } 
+    public required PartyIdentification26 Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification26 Seller { get; init; } 
     #else
@@ -135,12 +129,11 @@ public partial record CommercialDataSet5
     /// Party to be invoiced for the purchase.
     /// </summary>
     [IsoId("_MQGoKTckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bill To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BllTo")]
     #endif
+    [IsoXmlTag("BllTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification26? BillTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -153,12 +146,11 @@ public partial record CommercialDataSet5
     /// Information about the goods and/or services of the underlying transaction.
     /// </summary>
     [IsoId("_MQGoKzckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Goods")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Goods")]
     #endif
+    [IsoXmlTag("Goods")]
     public LineItem15? Goods { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _MQGoKzckEeSaC-PiOaz_KQ
     
@@ -166,12 +158,11 @@ public partial record CommercialDataSet5
     /// Specifies the payment terms by means of a code and a limit in time.
     /// </summary>
     [IsoId("_MQGoLTckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTerms")]
     #endif
+    [IsoXmlTag("PmtTerms")]
     public PaymentTerms4? PaymentTerms { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _MQGoLTckEeSaC-PiOaz_KQ
     
@@ -179,16 +170,15 @@ public partial record CommercialDataSet5
     /// Specifies how the transaction should be settled.
     /// </summary>
     [IsoId("_MQGoLzckEeSaC-PiOaz_KQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTerms")]
     #endif
+    [IsoXmlTag("SttlmTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SettlementTerms3 SettlementTerms { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SettlementTerms3 SettlementTerms { get; init; } 
+    public required SettlementTerms3 SettlementTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SettlementTerms3 SettlementTerms { get; init; } 
     #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityIndustrialProduct1Choice.Construction))]
     [KnownType(typeof(AssetClassCommodityIndustrialProduct1Choice.Manufacturing))]
     [IsoId("_5jkmIFrfEeWN79Bl6BUd3g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Commodity Industrial Product 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

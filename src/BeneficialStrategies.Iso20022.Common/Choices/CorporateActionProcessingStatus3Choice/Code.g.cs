@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus3
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
     [IsoId("_PMH--QuIEeGnWuuxuI2McQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

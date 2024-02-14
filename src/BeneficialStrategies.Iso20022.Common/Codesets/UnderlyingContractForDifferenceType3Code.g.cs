@@ -21,7 +21,7 @@ public enum UnderlyingContractForDifferenceType3Code
 {
     /// <summary>
     /// Underlying is a bond.
-    /// Encoded/decoded by serializers as "BOND".
+    /// Encoded/decoded by serializers as &quot;BOND&quot;.
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_-D6XQYJoEeaStugbHOVOsA")]
@@ -30,7 +30,7 @@ public enum UnderlyingContractForDifferenceType3Code
     
     /// <summary>
     /// Underlying is a commodity.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_-NuakYJoEeaStugbHOVOsA")]
@@ -39,7 +39,7 @@ public enum UnderlyingContractForDifferenceType3Code
     
     /// <summary>
     /// Underlying is a currency.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_-hqDMYJoEeaStugbHOVOsA")]
@@ -48,7 +48,7 @@ public enum UnderlyingContractForDifferenceType3Code
     
     /// <summary>
     /// Underlying is an emission allowance.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_-7ii0YJoEeaStugbHOVOsA")]
@@ -57,7 +57,7 @@ public enum UnderlyingContractForDifferenceType3Code
     
     /// <summary>
     /// Underlying is an equity.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("__UhqkYJoEeaStugbHOVOsA")]
@@ -66,7 +66,7 @@ public enum UnderlyingContractForDifferenceType3Code
     
     /// <summary>
     /// Underlying is a future on equity.
-    /// Encoded/decoded by serializers as "FTEQ".
+    /// Encoded/decoded by serializers as &quot;FTEQ&quot;.
     /// </summary>
     [EnumMember(Value = "FTEQ")]
     [IsoId("_ANMX8YJpEeaStugbHOVOsA")]
@@ -75,7 +75,7 @@ public enum UnderlyingContractForDifferenceType3Code
     
     /// <summary>
     /// Underlying is an option on equity.
-    /// Encoded/decoded by serializers as "OPEQ".
+    /// Encoded/decoded by serializers as &quot;OPEQ&quot;.
     /// </summary>
     [EnumMember(Value = "OPEQ")]
     [IsoId("_BAgEMYJpEeaStugbHOVOsA")]
@@ -84,7 +84,7 @@ public enum UnderlyingContractForDifferenceType3Code
     
     /// <summary>
     /// Underlying is of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_BPhXoYJpEeaStugbHOVOsA")]

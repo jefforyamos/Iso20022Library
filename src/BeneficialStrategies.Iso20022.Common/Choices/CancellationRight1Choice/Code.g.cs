@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationRight1Choice
     /// Cancellation right expressed as a code.
     /// </summary>
     [IsoId("_EJe7UThPEeaTjZWmPo-9OA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationRight1Choice
         /// Specifies if the investor has the right to cancel an instruction or, if not, the reason the investor cannot cancel.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CancellationRight1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CancellationRight1Code Value { get; init; } 
+        public required CancellationRight1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CancellationRight1Code Value { get; init; } 
         #else

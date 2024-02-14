@@ -21,7 +21,7 @@ public enum InterestRate1Code
 {
     /// <summary>
     /// Gross interest rate of the instalment
-    /// Encoded/decoded by serializers as "GSRT".
+    /// Encoded/decoded by serializers as &quot;GSRT&quot;.
     /// </summary>
     [EnumMember(Value = "GSRT")]
     [IsoId("_RBUdYTErEemzCpWiCwK4aQ")]
@@ -30,7 +30,7 @@ public enum InterestRate1Code
     
     /// <summary>
     /// Net interest rate of the instalment
-    /// Encoded/decoded by serializers as "NTRT".
+    /// Encoded/decoded by serializers as &quot;NTRT&quot;.
     /// </summary>
     [EnumMember(Value = "NTRT")]
     [IsoId("_RW7hATErEemzCpWiCwK4aQ")]
@@ -39,7 +39,7 @@ public enum InterestRate1Code
     
     /// <summary>
     /// Other interest rate of the instalment
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_RrpMwTErEemzCpWiCwK4aQ")]
@@ -48,7 +48,7 @@ public enum InterestRate1Code
     
     /// <summary>
     /// Other interest rate of the instalment
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_R9-S4TErEemzCpWiCwK4aQ")]

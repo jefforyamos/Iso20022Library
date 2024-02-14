@@ -21,7 +21,7 @@ public enum OptionTypeCode
 {
     /// <summary>
     /// Right to buy a quantity of an asset for an agreed price at exercise date.
-    /// Encoded/decoded by serializers as "CALL".
+    /// Encoded/decoded by serializers as &quot;CALL&quot;.
     /// </summary>
     [EnumMember(Value = "CALL")]
     [IsoId("_aQbsBdp-Ed-ak6NoX_4Aeg_-17692338")]
@@ -30,7 +30,7 @@ public enum OptionTypeCode
     
     /// <summary>
     /// Right to sell a quantity of an asset for an agreed price at exercise date.
-    /// Encoded/decoded by serializers as "PUTO".
+    /// Encoded/decoded by serializers as &quot;PUTO&quot;.
     /// </summary>
     [EnumMember(Value = "PUTO")]
     [IsoId("_aQbsBtp-Ed-ak6NoX_4Aeg_22019899")]

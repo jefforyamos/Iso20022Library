@@ -21,7 +21,7 @@ public enum AuthenticationMethod2Code
 {
     /// <summary>
     /// Authentication bypassed by the merchant.
-    /// Encoded/decoded by serializers as "BYPS".
+    /// Encoded/decoded by serializers as &quot;BYPS&quot;.
     /// </summary>
     [EnumMember(Value = "BYPS")]
     [IsoId("_iNkFARz3EeK5OKMB21JFBg")]
@@ -30,7 +30,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Manual verification, for example passport or drivers license.
-    /// Encoded/decoded by serializers as "MANU".
+    /// Encoded/decoded by serializers as &quot;MANU&quot;.
     /// </summary>
     [EnumMember(Value = "MANU")]
     [IsoId("_iU2_0xz3EeK5OKMB21JFBg")]
@@ -39,7 +39,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Merchant-related authentication.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_igBG8Rz3EeK5OKMB21JFBg")]
@@ -48,7 +48,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Off-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "FPIN".
+    /// Encoded/decoded by serializers as &quot;FPIN&quot;.
     /// </summary>
     [EnumMember(Value = "FPIN")]
     [IsoId("_ilEmExz3EeK5OKMB21JFBg")]
@@ -57,7 +57,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// On-line PIN authentication (Personal Identification Number).
-    /// Encoded/decoded by serializers as "NPIN".
+    /// Encoded/decoded by serializers as &quot;NPIN&quot;.
     /// </summary>
     [EnumMember(Value = "NPIN")]
     [IsoId("_iq4TIxz3EeK5OKMB21JFBg")]
@@ -66,7 +66,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Handwritten paper signature.
-    /// Encoded/decoded by serializers as "PPSG".
+    /// Encoded/decoded by serializers as &quot;PPSG&quot;.
     /// </summary>
     [EnumMember(Value = "PPSG")]
     [IsoId("_iw1KIRz3EeK5OKMB21JFBg")]
@@ -75,7 +75,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Authentication by a password.
-    /// Encoded/decoded by serializers as "PSWD".
+    /// Encoded/decoded by serializers as &quot;PSWD&quot;.
     /// </summary>
     [EnumMember(Value = "PSWD")]
     [IsoId("_i1u4QRz3EeK5OKMB21JFBg")]
@@ -84,7 +84,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Electronic commerce transaction secured with the X.509 certificate of a customer.
-    /// Encoded/decoded by serializers as "SCRT".
+    /// Encoded/decoded by serializers as &quot;SCRT&quot;.
     /// </summary>
     [EnumMember(Value = "SCRT")]
     [IsoId("_i6y-cRz3EeK5OKMB21JFBg")]
@@ -93,7 +93,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Channel-encrypted transaction.
-    /// Encoded/decoded by serializers as "SCNL".
+    /// Encoded/decoded by serializers as &quot;SCNL&quot;.
     /// </summary>
     [EnumMember(Value = "SCNL")]
     [IsoId("_jAmEcRz3EeK5OKMB21JFBg")]
@@ -102,7 +102,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Secure electronic transaction without cardholder certificate.
-    /// Encoded/decoded by serializers as "SNCT".
+    /// Encoded/decoded by serializers as &quot;SNCT&quot;.
     /// </summary>
     [EnumMember(Value = "SNCT")]
     [IsoId("_jG12YRz3EeK5OKMB21JFBg")]
@@ -111,7 +111,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Electronic signature capture (handwritten signature).
-    /// Encoded/decoded by serializers as "CPSG".
+    /// Encoded/decoded by serializers as &quot;CPSG&quot;.
     /// </summary>
     [EnumMember(Value = "CPSG")]
     [IsoId("_jL58kxz3EeK5OKMB21JFBg")]
@@ -120,7 +120,7 @@ public enum AuthenticationMethod2Code
     
     /// <summary>
     /// Authentication method is performed unknown.
-    /// Encoded/decoded by serializers as "UKNW".
+    /// Encoded/decoded by serializers as &quot;UKNW&quot;.
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_jSTfgxz3EeK5OKMB21JFBg")]

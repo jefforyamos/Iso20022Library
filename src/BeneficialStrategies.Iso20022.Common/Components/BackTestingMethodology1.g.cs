@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the characteristics of a backtesting methodology used to test the performance of a risk model.
 /// </summary>
 [IsoId("_4TLUQLC2EeaSl6vJk5Bd8w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Back Testing Methodology")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record BackTestingMethodology1
     /// Specifies the core model type, excluding any modifications for pro-cyclicality.
     /// </summary>
     [IsoId("_-fqEoLC2EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Model Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskMdlTp")]
     #endif
+    [IsoXmlTag("RskMdlTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ModelType1Choice_ RiskModelType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ModelType1Choice_ RiskModelType { get; init; } 
+    public required ModelType1Choice_ RiskModelType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ModelType1Choice_ RiskModelType { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record BackTestingMethodology1
     /// Specifies the confidence interval used on a daily basis to assess the performance of the model.
     /// </summary>
     [IsoId("_N9vjQLC3EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Model Confidence Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MdlCnfdncLvl")]
     #endif
+    [IsoXmlTag("MdlCnfdncLvl")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoBaseOneRate ModelConfidenceLevel { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ModelConfidenceLevel { get; init; } 
+    public required System.Decimal ModelConfidenceLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ModelConfidenceLevel { get; init; } 
     #else
@@ -93,16 +90,16 @@ public partial record BackTestingMethodology1
     /// Indicates whether the CCP model calculates mark-to-market changes on fixed portfolios when backtesting.
     /// </summary>
     [IsoId("_1WtGoLC3EeaSl6vJk5Bd8w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin Clean Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgnCleanInd")]
     #endif
+    [IsoXmlTag("VartnMrgnCleanInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator VariationMarginCleanIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String VariationMarginCleanIndicator { get; init; } 
+    public required System.String VariationMarginCleanIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String VariationMarginCleanIndicator { get; init; } 
     #else
@@ -113,15 +110,13 @@ public partial record BackTestingMethodology1
     /// Description of backtesting methodology.
     /// </summary>
     [IsoId("_n56ysMBgEeak3I7j2hsibw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax2000Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

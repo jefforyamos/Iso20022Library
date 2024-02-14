@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormatChoice
     /// Place of safekeeping expressed as a code and BIC.
     /// </summary>
     [IsoId("_RB5f5dp-Ed-ak6NoX_4Aeg_-334909529")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormatChoice
         /// Place of safekeeping as a code.
         /// </summary>
         [IsoId("_SfoCJNp-Ed-ak6NoX_4Aeg_-1275917504")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Place Safekeeping")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PlcSfkpg")]
         #endif
+        [IsoXmlTag("PlcSfkpg")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SafekeepingPlace1Code PlaceSafekeeping { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SafekeepingPlace1Code PlaceSafekeeping { get; init; } 
+        public required SafekeepingPlace1Code PlaceSafekeeping { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SafekeepingPlace1Code PlaceSafekeeping { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormatChoice
         /// Additional information about the place of safekeeping.
         /// </summary>
         [IsoId("_SfoCJdp-Ed-ak6NoX_4Aeg_-379437396")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Narrative")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nrrtv")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Nrrtv")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Narrative { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormatChoice
         /// Place of safekeeping.
         /// </summary>
         [IsoId("_SfoCJtp-Ed-ak6NoX_4Aeg_-405959313")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pty")]
         #endif
+        [IsoXmlTag("Pty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification3? Party { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"Scope:|The PartyStatusAdvice message is sent by the executing party to the instructing party to provide details about the processing of a request on party reference data (create or update).||Usage:|When processing information is negative - a failure occurred in applying the changes the message accordingly also delivers information about the reason why the creation or update could not be processed.|When processing is successfully performed, the message includes the related party identification.")]
 [IsoId("_5jHEEZeSEeen_cyMrluY4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,12 +78,11 @@ public partial record PartyStatusAdviceV01 : IOuterRecord<PartyStatusAdviceV01,P
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_eEidoVhGEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader12? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,16 +95,15 @@ public partial record PartyStatusAdviceV01 : IOuterRecord<PartyStatusAdviceV01,P
     /// Status of the party involved in the originating message.
     /// </summary>
     [IsoId("_5jHEG5eSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtySts")]
     #endif
+    [IsoXmlTag("PtySts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyStatus2 PartyStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyStatus2 PartyStatus { get; init; } 
+    public required PartyStatus2 PartyStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyStatus2 PartyStatus { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record PartyStatusAdviceV01 : IOuterRecord<PartyStatusAdviceV01,P
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_5jHEHZeSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record PartyStatusAdviceV01 : IOuterRecord<PartyStatusAdviceV01,P
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PartyStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PartyStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PartyStatusAdviceV01Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record PartyStatusAdviceV01 : IOuterRecord<PartyStatusAdviceV01,P
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PartyStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PartyStatusAdviceV01Document : IOuterDocument<PartyStatusAdviceV01>
@@ -163,7 +158,7 @@ public partial record PartyStatusAdviceV01Document : IOuterDocument<PartyStatusA
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PartyStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PartyStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyStatusAdviceV01 Message { get; init; }

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice
     /// Provides the collateral movement direction that is a return only.
     /// </summary>
     [IsoId("_yckWY4FvEeWtPe6Crjmeug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,19 +54,17 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice
         /// Specifies the reference to the unambiguous identification of the margin call request.
         /// </summary>
         [IsoId("_zIwuAYFvEeWtPe6Crjmeug")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Margin Call Request Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MrgnCallReqId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MrgnCallReqId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text MarginCallRequestIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String MarginCallRequestIdentification { get; init; } 
+        public required System.String MarginCallRequestIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String MarginCallRequestIdentification { get; init; } 
         #else
@@ -79,15 +75,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice
         /// Specifies the reference to the unambiguous identification of the margin call response.
         /// </summary>
         [IsoId("_zIwuA4FvEeWtPe6Crjmeug")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Margin Call Response Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MrgnCallRspnId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MrgnCallRspnId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MarginCallResponseIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -100,15 +94,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice
         /// Specifies the standard settlement instructions.
         /// </summary>
         [IsoId("_zIwuBYFvEeWtPe6Crjmeug")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Standard Settlement Instructions")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StdSttlmInstrs")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("StdSttlmInstrs")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax140Text? StandardSettlementInstructions { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,15 +113,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice
         /// Specifies the reference to the unambiguous identification of the collateral proposal response (in case of counter proposal).
         /// </summary>
         [IsoId("_zIwuB4FvEeWtPe6Crjmeug")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Collateral Proposal Response Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CollPrpslRspnId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("CollPrpslRspnId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? CollateralProposalResponseIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,12 +132,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice
         /// Collateral type is securities.
         /// </summary>
         [IsoId("_zIwuCYFvEeWtPe6Crjmeug")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Collateral")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesColl")]
         #endif
+        [IsoXmlTag("SctiesColl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SecuritiesCollateral5? SecuritiesCollateral { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -160,12 +149,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice
         /// Collateral type is cash.
         /// </summary>
         [IsoId("_zIwuC4FvEeWtPe6Crjmeug")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Collateral")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshColl")]
         #endif
+        [IsoXmlTag("CshColl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashCollateral2? CashCollateral { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,12 +166,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice
         /// Collateral type is other than securities or cash for example letter of credit.
         /// </summary>
         [IsoId("_zIwuDYFvEeWtPe6Crjmeug")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Other Collateral")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OthrColl")]
         #endif
+        [IsoXmlTag("OthrColl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public OtherCollateral5? OtherCollateral { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

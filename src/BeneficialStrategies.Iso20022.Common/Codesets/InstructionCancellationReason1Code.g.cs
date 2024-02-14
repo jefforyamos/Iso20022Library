@@ -21,7 +21,7 @@ public enum InstructionCancellationReason1Code
 {
     /// <summary>
     /// Instruction has been cancelled as per your request.
-    /// Encoded/decoded by serializers as "CANI".
+    /// Encoded/decoded by serializers as &quot;CANI&quot;.
     /// </summary>
     [EnumMember(Value = "CANI")]
     [IsoId("_aXIw8dp-Ed-ak6NoX_4Aeg_-339028661")]
@@ -30,7 +30,7 @@ public enum InstructionCancellationReason1Code
     
     /// <summary>
     /// Instruction has been cancelled by the settlement system.
-    /// Encoded/decoded by serializers as "CANS".
+    /// Encoded/decoded by serializers as &quot;CANS&quot;.
     /// </summary>
     [EnumMember(Value = "CANS")]
     [IsoId("_aXIw8tp-Ed-ak6NoX_4Aeg_-339028630")]
@@ -39,7 +39,7 @@ public enum InstructionCancellationReason1Code
     
     /// <summary>
     /// Instruction has been cancelled by the agent.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_aXIw89p-Ed-ak6NoX_4Aeg_-339028569")]

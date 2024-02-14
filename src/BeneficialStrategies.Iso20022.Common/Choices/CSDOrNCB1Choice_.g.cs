@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CSDOrNCB1Choice.CSDIdentification))]
     [KnownType(typeof(CSDOrNCB1Choice.NCBIdentification))]
     [IsoId("_knY98O5NEeCisYr99QEiWA_761515761")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSD Or NCB 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingStatusReport message is exchanged between parties that have an interest in the referenced undertaking transaction. It notifies the recipient of the status of the transaction, such as acceptance or rejection, withdrawal, or non-conformation. The sender may add additional information, as appropriate.")]
 [IsoId("_9h8tJXltEeG7BsjMvd1mEw_-329334493")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingStatusReportV01 : IOuterRecord<UndertakingStatu
     /// Details of the undertaking status report.
     /// </summary>
     [IsoId("_9h8tJnltEeG7BsjMvd1mEw_-1217857261")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Status Report Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgStsRptDtls")]
     #endif
+    [IsoXmlTag("UdrtkgStsRptDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingStatusAdvice1 UndertakingStatusReportDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingStatusAdvice1 UndertakingStatusReportDetails { get; init; } 
+    public required UndertakingStatusAdvice1 UndertakingStatusReportDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingStatusAdvice1 UndertakingStatusReportDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record UndertakingStatusReportV01 : IOuterRecord<UndertakingStatu
     /// Digital signature of the report.
     /// </summary>
     [IsoId("_9h8tJ3ltEeG7BsjMvd1mEw_1390197264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record UndertakingStatusReportV01 : IOuterRecord<UndertakingStatu
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingStatusReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingStatusReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingStatusReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record UndertakingStatusReportV01 : IOuterRecord<UndertakingStatu
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingStatusReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingStatusReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingStatusReportV01Document : IOuterDocument<UndertakingStatusReportV01>
@@ -140,7 +136,7 @@ public partial record UndertakingStatusReportV01Document : IOuterDocument<Undert
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingStatusReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingStatusReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingStatusReportV01 Message { get; init; }

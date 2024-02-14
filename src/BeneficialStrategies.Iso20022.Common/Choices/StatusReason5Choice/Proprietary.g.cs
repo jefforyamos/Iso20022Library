@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusReason5Choice
     /// Reason for the status not catered for by the available codes.
     /// </summary>
     [IsoId("_V5x00Np-Ed-ak6NoX_4Aeg_1860744830")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusReason5Choice
         /// EPC Technical validation subset restricted RR01 or SL01 code.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Prtry")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("Prtry")]
+        [IsoSimpleType(IsoSimpleType.RestrictedRR01SL01CodeText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoRestrictedRR01SL01CodeText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

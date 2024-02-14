@@ -21,7 +21,7 @@ public enum ChargeType14Code
 {
     /// <summary>
     /// Charge linked to an ADR (American Depositary Receipt).
-    /// Encoded/decoded by serializers as "ADRF".
+    /// Encoded/decoded by serializers as &quot;ADRF&quot;.
     /// </summary>
     [EnumMember(Value = "ADRF")]
     [IsoId("_a9IZ9Np-Ed-ak6NoX_4Aeg_1905396008")]
@@ -30,7 +30,7 @@ public enum ChargeType14Code
     
     /// <summary>
     /// Fee linked to the cancellation of an issuance.
-    /// Encoded/decoded by serializers as "ISSC".
+    /// Encoded/decoded by serializers as &quot;ISSC&quot;.
     /// </summary>
     [EnumMember(Value = "ISSC")]
     [IsoId("_a9IZ9dp-Ed-ak6NoX_4Aeg_1919247879")]
@@ -39,7 +39,7 @@ public enum ChargeType14Code
     
     /// <summary>
     /// Fee paid to a custodian in respect of custodial services.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_a9IZ9tp-Ed-ak6NoX_4Aeg_1935869866")]
@@ -48,7 +48,7 @@ public enum ChargeType14Code
     
     /// <summary>
     /// Fee paid for the provision of financial services.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_a9IZ99p-Ed-ak6NoX_4Aeg_-2057106020")]
@@ -57,7 +57,7 @@ public enum ChargeType14Code
     
     /// <summary>
     /// Miscellaneous fee.
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_a9IZ-Np-Ed-ak6NoX_4Aeg_-2043252398")]
@@ -66,7 +66,7 @@ public enum ChargeType14Code
     
     /// <summary>
     /// Charge linked to the issuance of security.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_a9SK8Np-Ed-ak6NoX_4Aeg_-1972140796")]

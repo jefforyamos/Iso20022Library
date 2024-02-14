@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The RequestToPayDebtorActivationStatusReport message is sent from the recipient of the debtor activation request message (initiation, amendment or cancellation), such as the creditor RTP provider or the creditor, to the initiator of the debtor activation request message (debtor, debtor RTP provider or any of the forwarding agent) to provide the status of the request. |")]
 [IsoId("_rNNB1-HzEeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request To Pay Debtor Activation Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
     /// Set of characteristics to identify the message and parties playing a role in the mandate acceptance, but which are not part of the mandate.
     /// </summary>
     [IsoId("_rNNB2-HzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActivationHeader2 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ActivationHeader2 Header { get; init; } 
+    public required ActivationHeader2 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ActivationHeader2 Header { get; init; } 
     #else
@@ -97,16 +94,15 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
     /// Status of the debtor activation instruction (that is request, amendment or cancellation).
     /// </summary>
     [IsoId("_rNNB3eHzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Activation And Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlActvtnAndSts")]
     #endif
+    [IsoXmlTag("OrgnlActvtnAndSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ActivationStatus2 OriginalActivationAndStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ActivationStatus2 OriginalActivationAndStatus { get; init; } 
+    public required ActivationStatus2 OriginalActivationAndStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ActivationStatus2 OriginalActivationAndStatus { get; init; } 
     #else
@@ -117,12 +113,11 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_rNNB3-HzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -135,7 +130,7 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestToPayDebtorActivationStatusReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestToPayDebtorActivationStatusReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestToPayDebtorActivationStatusReportV01Document ToDocument()
     {
@@ -145,7 +140,7 @@ public partial record RequestToPayDebtorActivationStatusReportV01 : IOuterRecord
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayDebtorActivationStatusReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestToPayDebtorActivationStatusReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestToPayDebtorActivationStatusReportV01Document : IOuterDocument<RequestToPayDebtorActivationStatusReportV01>
@@ -162,7 +157,7 @@ public partial record RequestToPayDebtorActivationStatusReportV01Document : IOut
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestToPayDebtorActivationStatusReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestToPayDebtorActivationStatusReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestToPayDebtorActivationStatusReportV01 Message { get; init; }

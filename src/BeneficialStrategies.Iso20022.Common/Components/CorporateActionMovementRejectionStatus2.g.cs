@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the rejection of a movement cancellation request.
 /// </summary>
 [IsoId("_RlNoVdp-Ed-ak6NoX_4Aeg_1541470017")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Movement Rejection Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionMovementRejectionStatus2
     /// The rejection reason.
     /// </summary>
     [IsoId("_RlNoVtp-Ed-ak6NoX_4Aeg_1616278160")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rsn")]
     #endif
+    [IsoXmlTag("Rsn")]
     public RejectionReason14FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RlNoVtp-Ed-ak6NoX_4Aeg_1616278160
     
@@ -57,15 +54,13 @@ public partial record CorporateActionMovementRejectionStatus2
     /// Additional information about the status.
     /// </summary>
     [IsoId("_RlNoV9p-Ed-ak6NoX_4Aeg_1616278191")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

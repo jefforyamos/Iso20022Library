@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the value date and the amounts traded in a foreign exchange option trade.
 /// </summary>
 [IsoId("_TImtuNp-Ed-ak6NoX_4Aeg_993174808")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amounts And Value Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record AmountsAndValueDate4
     /// Call amount and currency of a foreign exchange option trade.
     /// </summary>
     [IsoId("_TIwesNp-Ed-ak6NoX_4Aeg_993174851")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Call Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CallAmt")]
     #endif
+    [IsoXmlTag("CallAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount CallAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CallAmount { get; init; } 
+    public required System.Decimal CallAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CallAmount { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record AmountsAndValueDate4
     /// Put amount and currency of a foreign exchange option trade.
     /// </summary>
     [IsoId("_TIwesdp-Ed-ak6NoX_4Aeg_993175120")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Put Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PutAmt")]
     #endif
+    [IsoXmlTag("PutAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount PutAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PutAmount { get; init; } 
+    public required System.Decimal PutAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PutAmount { get; init; } 
     #else
@@ -93,12 +91,11 @@ public partial record AmountsAndValueDate4
     /// The single settlement currency for the payment made by the seller to the buyer if the option is exercised in case of a Non Deliverable Option.
     /// </summary>
     [IsoId("_TIwestp-Ed-ak6NoX_4Aeg_-152255063")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnSttlmCcy")]
     #endif
+    [IsoXmlTag("OptnSttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActiveOrHistoricCurrencyCode? OptionSettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -111,16 +108,16 @@ public partial record AmountsAndValueDate4
     /// Date on which the trade is settled, ie, the amounts are due.
     /// </summary>
     [IsoId("_TIwes9p-Ed-ak6NoX_4Aeg_993175103")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Final Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FnlSttlmDt")]
     #endif
+    [IsoXmlTag("FnlSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate FinalSettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly FinalSettlementDate { get; init; } 
+    public required System.DateOnly FinalSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly FinalSettlementDate { get; init; } 
     #else

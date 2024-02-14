@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionStyle4Choice
     /// Option style expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_Q4NYY9p-Ed-ak6NoX_4Aeg_1189669056")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionStyle4Choice
         /// Defines how an option can be exercised.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OptionStyle2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OptionStyle2Code Value { get; init; } 
+        public required OptionStyle2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OptionStyle2Code Value { get; init; } 
         #else

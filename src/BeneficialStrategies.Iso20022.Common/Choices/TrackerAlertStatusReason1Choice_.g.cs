@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TrackerAlertStatusReason1Choice.Code))]
     [KnownType(typeof(TrackerAlertStatusReason1Choice.Proprietary))]
     [IsoId("_mtb_6c79EemEIuVuDudp4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Alert Status Reason 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

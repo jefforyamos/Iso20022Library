@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteThroughNetwork1Choice
     /// Voting is performed by sending a vote message directly to the issuer. 
     /// </summary>
     [IsoId("_LM16IDT8Ee2tRf29bleifQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Directly To Issuer")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,17 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteThroughNetwork1Choice
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362: 2014 - "Banking - Banking telecommunication messages - Business identifier code (BIC)".
+        /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362: 2014 - &quot;Banking - Banking telecommunication messages - Business identifier code (BIC)&quot;.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VoteDrctlyToIssr")]
         #endif
+        [IsoXmlTag("VoteDrctlyToIssr")]
+        [IsoSimpleType(IsoSimpleType.AnyBICDec2014Identifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoAnyBICDec2014Identifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

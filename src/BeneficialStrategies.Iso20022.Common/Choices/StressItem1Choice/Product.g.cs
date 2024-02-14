@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice
     /// Identification and stress size of the major representative product.
     /// </summary>
     [IsoId("_t5WBoKsvEeayv9XxdmMwKQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice
         /// Unique identifier of the product.
         /// </summary>
         [IsoId("_De8CU6s2Eeayv9XxdmMwKQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required GenericIdentification168 Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public GenericIdentification168 Identification { get; init; } 
+        public required GenericIdentification168 Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public GenericIdentification168 Identification { get; init; } 
         #else
@@ -78,16 +75,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice
         /// Maximum move across the curve for the stressed product.
         /// </summary>
         [IsoId("_Je6nwKs2Eeayv9XxdmMwKQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Maximum Stress Size")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MaxStrssSz")]
         #endif
+        [IsoXmlTag("MaxStrssSz")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StressSize1Choice_ MaximumStressSize { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StressSize1Choice_ MaximumStressSize { get; init; } 
+        public required StressSize1Choice_ MaximumStressSize { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StressSize1Choice_ MaximumStressSize { get; init; } 
         #else
@@ -98,16 +94,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice
         /// Minimum move across the curve for the stressed product.
         /// </summary>
         [IsoId("_ect90HeOEee4S4mjz5XBYA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Minimum Stress Size")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MinStrssSz")]
         #endif
+        [IsoXmlTag("MinStrssSz")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required StressSize1Choice_ MinimumStressSize { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public StressSize1Choice_ MinimumStressSize { get; init; } 
+        public required StressSize1Choice_ MinimumStressSize { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public StressSize1Choice_ MinimumStressSize { get; init; } 
         #else

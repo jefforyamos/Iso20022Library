@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7C
     /// Identifies the transactions.
     /// </summary>
     [IsoId("_YDGlITneEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movements")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7C
         /// Account to or from which an entry is made.
         /// </summary>
         [IsoId("_YN1OeTneEem7JZMuWtwtsg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshAcct")]
         #endif
+        [IsoXmlTag("CshAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashAccount38? CashAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7C
         /// Party that owns the account.
         /// </summary>
         [IsoId("_YN1OdzneEem7JZMuWtwtsg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshAcctOwnr")]
         #endif
+        [IsoXmlTag("CshAcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SystemPartyIdentification8? CashAccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7C
         /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
         /// </summary>
         [IsoId("_lqm_kTqBEemJ3KLLPeYl6g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Cash Account Servicer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CshAcctSvcr")]
         #endif
+        [IsoXmlTag("CshAcctSvcr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,12 +98,11 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7C
         /// Status and status reason of the transaction.
         /// </summary>
         [IsoId("_YN1OezneEem7JZMuWtwtsg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Status And Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StsAndRsn")]
         #endif
+        [IsoXmlTag("StsAndRsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IntraBalanceStatusAndReason2? StatusAndReason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -121,12 +115,11 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7C
         /// Further details on the individual intrabalance movement transaction.
         /// </summary>
         [IsoId("_YN1OfTneEem7JZMuWtwtsg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Movement")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Mvmnt")]
         #endif
+        [IsoXmlTag("Mvmnt")]
         public IntraBalanceMovement5? Movement { get; init;  } // Warning: Don't know multiplicity.
         // ID for the above is _YN1OfTneEem7JZMuWtwtsg
         

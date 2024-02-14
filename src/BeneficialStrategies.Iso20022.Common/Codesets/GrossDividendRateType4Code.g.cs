@@ -21,7 +21,7 @@ public enum GrossDividendRateType4Code
 {
     /// <summary>
     /// Rate relating to the underlying security for which capital is distributed.
-    /// Encoded/decoded by serializers as "CAPO".
+    /// Encoded/decoded by serializers as &quot;CAPO&quot;.
     /// </summary>
     [EnumMember(Value = "CAPO")]
     [IsoId("_ghpRZpb7Eee8S7xwGG7Veg")]
@@ -30,7 +30,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate resulting from a fully franked dividend paid by a company; the rate includes tax credit for companies that have made sufficient tax payments during the fiscal period.
-    /// Encoded/decoded by serializers as "FLFR".
+    /// Encoded/decoded by serializers as &quot;FLFR&quot;.
     /// </summary>
     [EnumMember(Value = "FLFR")]
     [IsoId("_ghpRZZb7Eee8S7xwGG7Veg")]
@@ -39,7 +39,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate relating to the underlying security for which income is distributed.
-    /// Encoded/decoded by serializers as "INCO".
+    /// Encoded/decoded by serializers as &quot;INCO&quot;.
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_ghpRZ5b7Eee8S7xwGG7Veg")]
@@ -48,7 +48,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate relating to the underlying security for which interest is paid.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_ghpRX5b7Eee8S7xwGG7Veg")]
@@ -57,7 +57,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Long term capital gain.
-    /// Encoded/decoded by serializers as "LTCG".
+    /// Encoded/decoded by serializers as &quot;LTCG&quot;.
     /// </summary>
     [EnumMember(Value = "LTCG")]
     [IsoId("_ghpRXpb7Eee8S7xwGG7Veg")]
@@ -66,7 +66,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate of income distribution originated by real estate investment.
-    /// Encoded/decoded by serializers as "REES".
+    /// Encoded/decoded by serializers as &quot;REES&quot;.
     /// </summary>
     [EnumMember(Value = "REES")]
     [IsoId("_ghpRYZb7Eee8S7xwGG7Veg")]
@@ -75,7 +75,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Short term capital gain.
-    /// Encoded/decoded by serializers as "STCG".
+    /// Encoded/decoded by serializers as &quot;STCG&quot;.
     /// </summary>
     [EnumMember(Value = "STCG")]
     [IsoId("_ghpRY5b7Eee8S7xwGG7Veg")]
@@ -84,7 +84,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate relating to the underlying security for which other income is paid.
-    /// Encoded/decoded by serializers as "SOIC".
+    /// Encoded/decoded by serializers as &quot;SOIC&quot;.
     /// </summary>
     [EnumMember(Value = "SOIC")]
     [IsoId("_ghpRaZb7Eee8S7xwGG7Veg")]
@@ -93,7 +93,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate relating to the underlying security for which tax is charged.
-    /// Encoded/decoded by serializers as "TXBL".
+    /// Encoded/decoded by serializers as &quot;TXBL&quot;.
     /// </summary>
     [EnumMember(Value = "TXBL")]
     [IsoId("_ghpRZJb7Eee8S7xwGG7Veg")]
@@ -102,7 +102,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate relating to the underlying security for which tax is deferred.
-    /// Encoded/decoded by serializers as "TXDF".
+    /// Encoded/decoded by serializers as &quot;TXDF&quot;.
     /// </summary>
     [EnumMember(Value = "TXDF")]
     [IsoId("_ghpRYJb7Eee8S7xwGG7Veg")]
@@ -111,7 +111,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate relating to the underlying security which is not taxable.
-    /// Encoded/decoded by serializers as "TXFR".
+    /// Encoded/decoded by serializers as &quot;TXFR&quot;.
     /// </summary>
     [EnumMember(Value = "TXFR")]
     [IsoId("_ghpRaJb7Eee8S7xwGG7Veg")]
@@ -120,7 +120,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate resulting from an unfranked dividend paid by a company; the rate does not include tax credit and is subject to withholding tax.
-    /// Encoded/decoded by serializers as "UNFR".
+    /// Encoded/decoded by serializers as &quot;UNFR&quot;.
     /// </summary>
     [EnumMember(Value = "UNFR")]
     [IsoId("_ghpRYpb7Eee8S7xwGG7Veg")]
@@ -129,7 +129,7 @@ public enum GrossDividendRateType4Code
     
     /// <summary>
     /// Rate relating to a conduit foreign income type.
-    /// Encoded/decoded by serializers as "CDFI".
+    /// Encoded/decoded by serializers as &quot;CDFI&quot;.
     /// </summary>
     [EnumMember(Value = "CDFI")]
     [IsoId("_luUKgZb7Eee8S7xwGG7Veg")]

@@ -21,7 +21,7 @@ public enum ATMMediaType3Code
 {
     /// <summary>
     /// Detected counterfeit media.
-    /// Encoded/decoded by serializers as "CNTR".
+    /// Encoded/decoded by serializers as &quot;CNTR&quot;.
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_dBRK0a4DEeWL1uap3dNhCQ")]
@@ -30,7 +30,7 @@ public enum ATMMediaType3Code
     
     /// <summary>
     /// Fit media.
-    /// Encoded/decoded by serializers as "FITN".
+    /// Encoded/decoded by serializers as &quot;FITN&quot;.
     /// </summary>
     [EnumMember(Value = "FITN")]
     [IsoId("_dPbio64DEeWL1uap3dNhCQ")]
@@ -39,7 +39,7 @@ public enum ATMMediaType3Code
     
     /// <summary>
     /// Fit or unfit media, if fitness cannot be determined.
-    /// Encoded/decoded by serializers as "FITU".
+    /// Encoded/decoded by serializers as &quot;FITU&quot;.
     /// </summary>
     [EnumMember(Value = "FITU")]
     [IsoId("_daqiQ64DEeWL1uap3dNhCQ")]
@@ -48,7 +48,7 @@ public enum ATMMediaType3Code
     
     /// <summary>
     /// Suspect media.
-    /// Encoded/decoded by serializers as "SPCT".
+    /// Encoded/decoded by serializers as &quot;SPCT&quot;.
     /// </summary>
     [EnumMember(Value = "SPCT")]
     [IsoId("_ecYd864DEeWL1uap3dNhCQ")]
@@ -57,7 +57,7 @@ public enum ATMMediaType3Code
     
     /// <summary>
     /// Unfit media (unacceptable quality).
-    /// Encoded/decoded by serializers as "UNFT".
+    /// Encoded/decoded by serializers as &quot;UNFT&quot;.
     /// </summary>
     [EnumMember(Value = "UNFT")]
     [IsoId("_euKxg64DEeWL1uap3dNhCQ")]
@@ -66,7 +66,7 @@ public enum ATMMediaType3Code
     
     /// <summary>
     /// Unrecognised media.
-    /// Encoded/decoded by serializers as "UNRG".
+    /// Encoded/decoded by serializers as &quot;UNRG&quot;.
     /// </summary>
     [EnumMember(Value = "UNRG")]
     [IsoId("_e3j-E64DEeWL1uap3dNhCQ")]

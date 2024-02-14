@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount3Choic
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
     [IsoId("_nkqqYdNPEee-r40DhxXRmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Quantity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount3Choic
         /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
         /// </summary>
         [IsoId("_A9VktUGUEeWqy4niLuXETA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Conditional Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CondlQty")]
         #endif
+        [IsoXmlTag("CondlQty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +71,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount3Choic
         /// Quantity of securities to which this instruction applies.
         /// </summary>
         [IsoId("_fHSboWOSEeW4z96Yfj3Wng")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Instructed Quantity")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="InstdQty")]
         #endif
+        [IsoXmlTag("InstdQty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Quantity20Choice_ InstructedQuantity { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Quantity20Choice_ InstructedQuantity { get; init; } 
+        public required Quantity20Choice_ InstructedQuantity { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Quantity20Choice_ InstructedQuantity { get; init; } 
         #else

@@ -21,7 +21,7 @@ public enum PartyType22Code
 {
     /// <summary>
     /// Holder of a payment card.
-    /// Encoded/decoded by serializers as "CRDH".
+    /// Encoded/decoded by serializers as &quot;CRDH&quot;.
     /// </summary>
     [EnumMember(Value = "CRDH")]
     [IsoId("_SVzEQU9KEeeg87n1YQSQ_A")]
@@ -30,7 +30,7 @@ public enum PartyType22Code
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_ToYGcU9KEeeg87n1YQSQ_A")]
@@ -39,7 +39,7 @@ public enum PartyType22Code
     
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_VDFw8U9KEeeg87n1YQSQ_A")]
@@ -48,7 +48,7 @@ public enum PartyType22Code
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_VQLxwU9KEeeg87n1YQSQ_A")]
@@ -57,7 +57,7 @@ public enum PartyType22Code
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_jNLu4ZmKEee_M7tURHTZTQ")]

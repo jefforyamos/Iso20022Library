@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
     /// Identification of the account expressed with a data source scheme, a code used within the data source scheme and the account identification.
     /// </summary>
     [IsoId("_RB5f4dp-Ed-ak6NoX_4Aeg_1770326434")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification As DSS")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,15 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
         /// Unique and unambiguous identification for the account between the account owner and the account servicer.
         /// </summary>
         [IsoId("_PoVr89p-Ed-ak6NoX_4Aeg_1372251027")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AccountIdentification1 Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AccountIdentification1 Identification { get; init; } 
+        public required AccountIdentification1 Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AccountIdentification1 Identification { get; init; } 
         #else
@@ -78,19 +75,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
         /// Entity that assigns the information.
         /// </summary>
         [IsoId("_PoVr9Np-Ed-ak6NoX_4Aeg_2100019973")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Issr")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Issr")]
+        [IsoSimpleType(IsoSimpleType.Max8Text)]
         [StringLength(maximumLength: 8 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax8Text Issuer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Issuer { get; init; } 
+        public required System.String Issuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Issuer { get; init; } 
         #else
@@ -101,19 +96,16 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
         /// Proprietary information, often a code, issued by the data source scheme issuer.
         /// </summary>
         [IsoId("_PoVr9dp-Ed-ak6NoX_4Aeg_2100019938")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Inf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("Inf")]
+        [IsoSimpleType(IsoSimpleType.Exact4AlphaNumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoExact4AlphaNumericText Information { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Information { get; init; } 
+        public required System.String Information { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Information { get; init; } 
         #else

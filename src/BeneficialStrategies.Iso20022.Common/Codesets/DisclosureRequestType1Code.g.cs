@@ -21,7 +21,7 @@ public enum DisclosureRequestType1Code
 {
     /// <summary>
     /// New disclosure request.
-    /// Encoded/decoded by serializers as "NEWM".
+    /// Encoded/decoded by serializers as &quot;NEWM&quot;.
     /// </summary>
     [EnumMember(Value = "NEWM")]
     [IsoId("_SWm1QUV3EemRx7jyevcLwg")]
@@ -30,7 +30,7 @@ public enum DisclosureRequestType1Code
     
     /// <summary>
     /// Disclosure request replacing a previously sent request.
-    /// Encoded/decoded by serializers as "REPL".
+    /// Encoded/decoded by serializers as &quot;REPL&quot;.
     /// </summary>
     [EnumMember(Value = "REPL")]
     [IsoId("_SdTTIUV3EemRx7jyevcLwg")]

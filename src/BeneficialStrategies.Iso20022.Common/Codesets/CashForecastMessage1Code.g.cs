@@ -21,7 +21,7 @@ public enum CashForecastMessage1Code
 {
     /// <summary>
     /// Fund estimated cash forecast report (camt.040).
-    /// Encoded/decoded by serializers as "CF40".
+    /// Encoded/decoded by serializers as &quot;CF40&quot;.
     /// </summary>
     [EnumMember(Value = "CF40")]
     [IsoId("_a65lUdp-Ed-ak6NoX_4Aeg_1040652616")]
@@ -30,7 +30,7 @@ public enum CashForecastMessage1Code
     
     /// <summary>
     /// Fund detailed estimated cash forecast Report (042).
-    /// Encoded/decoded by serializers as "CF42".
+    /// Encoded/decoded by serializers as &quot;CF42&quot;.
     /// </summary>
     [EnumMember(Value = "CF42")]
     [IsoId("_a65lUtp-Ed-ak6NoX_4Aeg_-1588280260")]
@@ -39,7 +39,7 @@ public enum CashForecastMessage1Code
     
     /// <summary>
     /// Fund confirmed cash forecast report (camt.041).
-    /// Encoded/decoded by serializers as "CF41".
+    /// Encoded/decoded by serializers as &quot;CF41&quot;.
     /// </summary>
     [EnumMember(Value = "CF41")]
     [IsoId("_a65lU9p-Ed-ak6NoX_4Aeg_-1557804493")]
@@ -48,7 +48,7 @@ public enum CashForecastMessage1Code
     
     /// <summary>
     /// Fund detailed confirmed cash forecast report (camt.043).
-    /// Encoded/decoded by serializers as "CF43".
+    /// Encoded/decoded by serializers as &quot;CF43&quot;.
     /// </summary>
     [EnumMember(Value = "CF43")]
     [IsoId("_a65lVNp-Ed-ak6NoX_4Aeg_-1535641166")]

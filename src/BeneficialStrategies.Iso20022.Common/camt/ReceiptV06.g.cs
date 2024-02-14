@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Receipt message is sent by the transaction administrator to a member of the system. It is sent to acknowledge the receipt of one or multiple messages sent previously.|The Receipt message is an application receipt acknowledgement and conveys information about the processing of the original message(s).|Usage|The Receipt message is used when the exchange of messages takes place in an asynchronous manner.|This may happen, for instance, when an action is requested from the transaction administrator (a deletion, modification or cancellation). The transaction administrator will first acknowledge the request (with a Receipt message) and then execute it.|The message can contain information based on the following elements: reference of the message(s) it acknowledges, the status code (optional) and further explanation:|- reference of the message it acknowledges|- potentially, a status code and an explanation.")]
 [IsoId("_jx5UwwKxEe2rHs6fbn9-0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Receipt V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record ReceiptV06 : IOuterRecord<ReceiptV06,ReceiptV06Document>
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_jx5UywKxEe2rHs6fbn9-0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader9 MessageHeader { get; init; } 
+    public required MessageHeader9 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader9 MessageHeader { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record ReceiptV06 : IOuterRecord<ReceiptV06,ReceiptV06Document>
     /// Details of the receipt.
     /// </summary>
     [IsoId("_jx5UzQKxEe2rHs6fbn9-0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receipt Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RctDtls")]
     #endif
+    [IsoXmlTag("RctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Receipt4 ReceiptDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Receipt4 ReceiptDetails { get; init; } 
+    public required Receipt4 ReceiptDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Receipt4 ReceiptDetails { get; init; } 
     #else
@@ -124,12 +120,11 @@ public partial record ReceiptV06 : IOuterRecord<ReceiptV06,ReceiptV06Document>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_jx5UzwKxEe2rHs6fbn9-0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,7 +137,7 @@ public partial record ReceiptV06 : IOuterRecord<ReceiptV06,ReceiptV06Document>
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReceiptV06Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReceiptV06Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReceiptV06Document ToDocument()
     {
@@ -152,7 +147,7 @@ public partial record ReceiptV06 : IOuterRecord<ReceiptV06,ReceiptV06Document>
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReceiptV06"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReceiptV06&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReceiptV06Document : IOuterDocument<ReceiptV06>
@@ -169,7 +164,7 @@ public partial record ReceiptV06Document : IOuterDocument<ReceiptV06>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReceiptV06"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReceiptV06&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReceiptV06 Message { get; init; }

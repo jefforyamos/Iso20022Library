@@ -21,7 +21,7 @@ public enum TransactionChannel2Code
 {
     /// <summary>
     /// Financial advisor.
-    /// Encoded/decoded by serializers as "FIAD".
+    /// Encoded/decoded by serializers as &quot;FIAD&quot;.
     /// </summary>
     [EnumMember(Value = "FIAD")]
     [IsoId("_5TAXgRRFEeOKWo1NF21OVw")]
@@ -30,7 +30,7 @@ public enum TransactionChannel2Code
     
     /// <summary>
     /// Home banking.
-    /// Encoded/decoded by serializers as "HOBA".
+    /// Encoded/decoded by serializers as &quot;HOBA&quot;.
     /// </summary>
     [EnumMember(Value = "HOBA")]
     [IsoId("_5fNAcRRFEeOKWo1NF21OVw")]
@@ -39,7 +39,7 @@ public enum TransactionChannel2Code
     
     /// <summary>
     /// Office or branch.
-    /// Encoded/decoded by serializers as "BRAN".
+    /// Encoded/decoded by serializers as &quot;BRAN&quot;.
     /// </summary>
     [EnumMember(Value = "BRAN")]
     [IsoId("_7iH6cRRFEeOKWo1NF21OVw")]

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Track2Data1Choice.TextValue))]
     [KnownType(typeof(Track2Data1Choice.HexadecimalBinaryValue))]
     [IsoId("_NkLQYEbbEeeIjf8aP9KbJA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Track 2 Data 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

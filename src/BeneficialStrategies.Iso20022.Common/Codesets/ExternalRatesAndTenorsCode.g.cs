@@ -23,7 +23,7 @@ public enum ExternalRatesAndTenorsCode
 {
     /// <summary>
     /// Euro short-term rate.
-    /// Encoded/decoded by serializers as "ESTR".
+    /// Encoded/decoded by serializers as &quot;ESTR&quot;.
     /// </summary>
     [EnumMember(Value = "ESTR")]
     [IsoId("_Sbs9wATxEey95qpfbNuEwg")]
@@ -32,7 +32,7 @@ public enum ExternalRatesAndTenorsCode
     
     /// <summary>
     /// Euro Overnight Index Swap (ESTROIS) 1 day, 1 week, other tenors.
-    /// Encoded/decoded by serializers as "ESOI".
+    /// Encoded/decoded by serializers as &quot;ESOI&quot;.
     /// </summary>
     [EnumMember(Value = "ESOI")]
     [IsoId("_s_wEMATxEey95qpfbNuEwg")]
@@ -41,7 +41,7 @@ public enum ExternalRatesAndTenorsCode
     
     /// <summary>
     /// Euro interbank offered rate (3 months, 6 months and other tenors).
-    /// Encoded/decoded by serializers as "EURI".
+    /// Encoded/decoded by serializers as &quot;EURI&quot;.
     /// </summary>
     [EnumMember(Value = "EURI")]
     [IsoId("_6EmakATxEey95qpfbNuEwg")]
@@ -50,7 +50,7 @@ public enum ExternalRatesAndTenorsCode
     
     /// <summary>
     /// Pound sterling London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.
-    /// Encoded/decoded by serializers as "GBPO".
+    /// Encoded/decoded by serializers as &quot;GBPO&quot;.
     /// </summary>
     [EnumMember(Value = "GBPO")]
     [IsoId("_MN2e8ATyEey95qpfbNuEwg")]
@@ -59,7 +59,7 @@ public enum ExternalRatesAndTenorsCode
     
     /// <summary>
     /// Other floating rates and tenors.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_S7c_YATyEey95qpfbNuEwg")]
@@ -68,7 +68,7 @@ public enum ExternalRatesAndTenorsCode
     
     /// <summary>
     /// Secured overnight financing rate (1 months, 3 months, other tenors).
-    /// Encoded/decoded by serializers as "SOFR".
+    /// Encoded/decoded by serializers as &quot;SOFR&quot;.
     /// </summary>
     [EnumMember(Value = "SOFR")]
     [IsoId("_YfSbYATyEey95qpfbNuEwg")]
@@ -77,7 +77,7 @@ public enum ExternalRatesAndTenorsCode
     
     /// <summary>
     /// US dollar London inter-bank offered rate (3 months, 6 months, other tenors) and the respective successor rate.
-    /// Encoded/decoded by serializers as "USPO".
+    /// Encoded/decoded by serializers as &quot;USPO&quot;.
     /// </summary>
     [EnumMember(Value = "USPO")]
     [IsoId("_iDR6IATyEey95qpfbNuEwg")]
@@ -86,7 +86,7 @@ public enum ExternalRatesAndTenorsCode
     
     /// <summary>
     /// US dollar overnight index swap (1 day, 1 week, other tenors), USDOIS.
-    /// Encoded/decoded by serializers as "USOI".
+    /// Encoded/decoded by serializers as &quot;USOI&quot;.
     /// </summary>
     [EnumMember(Value = "USOI")]
     [IsoId("_mno2IATyEey95qpfbNuEwg")]

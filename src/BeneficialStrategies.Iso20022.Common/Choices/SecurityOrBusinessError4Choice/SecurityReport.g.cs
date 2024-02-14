@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityOrBusinessError4Choice
     /// Provides the financial instruments details.
     /// </summary>
     [IsoId("_P7y44ZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityOrBusinessError4Choice
         /// Way(s) of identifying the security.
         /// </summary>
         [IsoId("_QAKbgZJKEeuAlLVx8pyt3w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmId")]
         #endif
+        [IsoXmlTag("FinInstrmId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SecurityIdentification39? FinancialInstrumentIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityOrBusinessError4Choice
         /// Provides additional details about the financial instrument.
         /// </summary>
         [IsoId("_QAKbg5JKEeuAlLVx8pyt3w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmTp")]
         #endif
+        [IsoXmlTag("FinInstrmTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrument97? FinancialInstrumentType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityOrBusinessError4Choice
         /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
         /// </summary>
         [IsoId("_QAKbhZJKEeuAlLVx8pyt3w")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Financial Instrument Attributes")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmAttrbts")]
         #endif
+        [IsoXmlTag("FinInstrmAttrbts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CommonFinancialInstrumentAttributes11? FinancialInstrumentAttributes { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

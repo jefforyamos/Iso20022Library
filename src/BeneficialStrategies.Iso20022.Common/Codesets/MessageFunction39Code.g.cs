@@ -21,7 +21,7 @@ public enum MessageFunction39Code
 {
     /// <summary>
     /// Notification of a rejected message.
-    /// Encoded/decoded by serializers as "RENO".
+    /// Encoded/decoded by serializers as &quot;RENO&quot;.
     /// </summary>
     [EnumMember(Value = "RENO")]
     [IsoId("_XATzEPGrEeiGNursv3uE_g")]
@@ -30,7 +30,7 @@ public enum MessageFunction39Code
     
     /// <summary>
     /// Notification of a message containing errors.
-    /// Encoded/decoded by serializers as "ERNO".
+    /// Encoded/decoded by serializers as &quot;ERNO&quot;.
     /// </summary>
     [EnumMember(Value = "ERNO")]
     [IsoId("_XF6r0fGrEeiGNursv3uE_g")]

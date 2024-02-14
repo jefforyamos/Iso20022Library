@@ -21,7 +21,7 @@ public enum DTCInstructionStatusCode
 {
     /// <summary>
     /// Instruction waiting for position. Instruction will subsequently either become “Made” or “Dropped” by end of day.
-    /// Encoded/decoded by serializers as "RECY".
+    /// Encoded/decoded by serializers as &quot;RECY&quot;.
     /// </summary>
     [EnumMember(Value = "RECY")]
     [IsoId("_121tgDL3EeKU9IrkkToqcw_707396272")]
@@ -30,7 +30,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Fully processed instruction.
-    /// Encoded/decoded by serializers as "MADE".
+    /// Encoded/decoded by serializers as &quot;MADE&quot;.
     /// </summary>
     [EnumMember(Value = "MADE")]
     [IsoId("_121tgTL3EeKU9IrkkToqcw_457866440")]
@@ -39,7 +39,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Instruction dropped due to insufficient position.
-    /// Encoded/decoded by serializers as "DROP".
+    /// Encoded/decoded by serializers as &quot;DROP&quot;.
     /// </summary>
     [EnumMember(Value = "DROP")]
     [IsoId("_121tgjL3EeKU9IrkkToqcw_1942174612")]
@@ -48,7 +48,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Transaction rejected.
-    /// Encoded/decoded by serializers as "EDRJ".
+    /// Encoded/decoded by serializers as &quot;EDRJ&quot;.
     /// </summary>
     [EnumMember(Value = "EDRJ")]
     [IsoId("_121tgzL3EeKU9IrkkToqcw_-860185991")]
@@ -57,7 +57,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Instruction cancelled by client relating to survivor option event.
-    /// Encoded/decoded by serializers as "CANC".
+    /// Encoded/decoded by serializers as &quot;CANC&quot;.
     /// </summary>
     [EnumMember(Value = "CANC")]
     [IsoId("_rxFPgJITEeaNbfbSYshZYw")]
@@ -66,7 +66,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Cancellation of conversion instruction upon agent approval only.
-    /// Encoded/decoded by serializers as "CCAN".
+    /// Encoded/decoded by serializers as &quot;CCAN&quot;.
     /// </summary>
     [EnumMember(Value = "CCAN")]
     [IsoId("_6ZVSUJITEeaNbfbSYshZYw")]
@@ -75,7 +75,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Instruction for CD early redemption awaiting paperwork. Instruction will become MADE when DTC releases instruction upon paperwork.
-    /// Encoded/decoded by serializers as "PDOC".
+    /// Encoded/decoded by serializers as &quot;PDOC&quot;.
     /// </summary>
     [EnumMember(Value = "PDOC")]
     [IsoId("_Cn2L4JIUEeaNbfbSYshZYw")]
@@ -84,7 +84,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Instruction pending release or delete from approval function.
-    /// Encoded/decoded by serializers as "PENA".
+    /// Encoded/decoded by serializers as &quot;PENA&quot;.
     /// </summary>
     [EnumMember(Value = "PENA")]
     [IsoId("_5b_D0JIUEeaNbfbSYshZYw")]
@@ -93,7 +93,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Instruction waiting for update after submission.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("__spJkJIUEeaNbfbSYshZYw")]
@@ -102,7 +102,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Instruction or withdrawal rejected by agent relating to survivor option event.
-    /// Encoded/decoded by serializers as "REJA".
+    /// Encoded/decoded by serializers as &quot;REJA&quot;.
     /// </summary>
     [EnumMember(Value = "REJA")]
     [IsoId("_Z2XrgJIVEeaNbfbSYshZYw")]
@@ -111,7 +111,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Instruction did not pass initial validation.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_muJPMJIVEeaNbfbSYshZYw")]
@@ -120,7 +120,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Previously recycled transactions have been “MADE” and the system is processing the updates.
-    /// Encoded/decoded by serializers as "REMD".
+    /// Encoded/decoded by serializers as &quot;REMD&quot;.
     /// </summary>
     [EnumMember(Value = "REMD")]
     [IsoId("_rwP3IJIVEeaNbfbSYshZYw")]
@@ -129,7 +129,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Rescinded by Issuer.
-    /// Encoded/decoded by serializers as "RESC".
+    /// Encoded/decoded by serializers as &quot;RESC&quot;.
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_xdML0JIVEeaNbfbSYshZYw")]
@@ -138,7 +138,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Instruction moved from one client account to another for put events.
-    /// Encoded/decoded by serializers as "SWUN".
+    /// Encoded/decoded by serializers as &quot;SWUN&quot;.
     /// </summary>
     [EnumMember(Value = "SWUN")]
     [IsoId("_1Nd_gJIVEeaNbfbSYshZYw")]
@@ -147,7 +147,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Client instruction withdrawn for events with withdrawal privilege.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_CDJ4gJIWEeaNbfbSYshZYw")]
@@ -156,7 +156,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Protect instruction has been fully covered.
-    /// Encoded/decoded by serializers as "COVR".
+    /// Encoded/decoded by serializers as &quot;COVR&quot;.
     /// </summary>
     [EnumMember(Value = "COVR")]
     [IsoId("_wsiGwJIcEeaNbfbSYshZYw")]
@@ -165,7 +165,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Protect instruction has expired.
-    /// Encoded/decoded by serializers as "EXPI".
+    /// Encoded/decoded by serializers as &quot;EXPI&quot;.
     /// </summary>
     [EnumMember(Value = "EXPI")]
     [IsoId("_2ksM8JIcEeaNbfbSYshZYw")]
@@ -174,7 +174,7 @@ public enum DTCInstructionStatusCode
     
     /// <summary>
     /// Protect instruction which has not been fully covered. Will include partial covers.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_8N5RIJIcEeaNbfbSYshZYw")]

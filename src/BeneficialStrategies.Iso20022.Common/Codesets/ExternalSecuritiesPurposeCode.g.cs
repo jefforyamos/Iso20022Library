@@ -23,7 +23,7 @@ public enum ExternalSecuritiesPurposeCode
 {
     /// <summary>
     /// Relates to collateral management.
-    /// Encoded/decoded by serializers as "COLL".
+    /// Encoded/decoded by serializers as &quot;COLL&quot;.
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_5eZzrPomEe2ClqPWkEN24A")]
@@ -32,7 +32,7 @@ public enum ExternalSecuritiesPurposeCode
     
     /// <summary>
     /// Relates to securities lending.
-    /// Encoded/decoded by serializers as "SECL".
+    /// Encoded/decoded by serializers as &quot;SECL&quot;.
     /// </summary>
     [EnumMember(Value = "SECL")]
     [IsoId("_5eZztPomEe2ClqPWkEN24A")]
@@ -41,7 +41,7 @@ public enum ExternalSecuritiesPurposeCode
     
     /// <summary>
     /// Relates to settlements.
-    /// Encoded/decoded by serializers as "STMT".
+    /// Encoded/decoded by serializers as &quot;STMT&quot;.
     /// </summary>
     [EnumMember(Value = "STMT")]
     [IsoId("_5eZzqfomEe2ClqPWkEN24A")]

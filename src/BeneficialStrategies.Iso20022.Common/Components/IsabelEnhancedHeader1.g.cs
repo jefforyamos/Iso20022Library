@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the enhanced parameters for an Isabel payment file.
 /// </summary>
 [IsoId("_wsbQIMmJEeWAGphE2LvqeA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel Enhanced Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -60,16 +58,15 @@ public partial record IsabelEnhancedHeader1
     /// Type of debit to be applied to the payment, as provided by the end-user.
     /// </summary>
     [IsoId("_FdV6UMmKEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtTp")]
     #endif
+    [IsoXmlTag("DbtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DebitType1Code DebitType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DebitType1Code DebitType { get; init; } 
+    public required DebitType1Code DebitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DebitType1Code DebitType { get; init; } 
     #else
@@ -81,16 +78,15 @@ public partial record IsabelEnhancedHeader1
     /// This may supersede the debit type provided by the end-user.
     /// </summary>
     [IsoId("_aW14wcmKEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Debit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkDbtTp")]
     #endif
+    [IsoXmlTag("BkDbtTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DebitType1Code BankDebitType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DebitType1Code BankDebitType { get; init; } 
+    public required DebitType1Code BankDebitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DebitType1Code BankDebitType { get; init; } 
     #else
@@ -101,16 +97,16 @@ public partial record IsabelEnhancedHeader1
     /// Contract is defined on a specific account.
     /// </summary>
     [IsoId("_jZtncMmKEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Based Contract")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctBasedCtrct")]
     #endif
+    [IsoXmlTag("AcctBasedCtrct")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator AccountBasedContract { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AccountBasedContract { get; init; } 
+    public required System.String AccountBasedContract { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AccountBasedContract { get; init; } 
     #else
@@ -121,16 +117,15 @@ public partial record IsabelEnhancedHeader1
     /// Results of all validations performed during the processing of a file provided in the payload.
     /// </summary>
     [IsoId("_qAcD0MmKEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Results")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnRslts")]
     #endif
+    [IsoXmlTag("VldtnRslts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Validation1Code ValidationResults { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Validation1Code ValidationResults { get; init; } 
+    public required Validation1Code ValidationResults { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Validation1Code ValidationResults { get; init; } 
     #else
@@ -138,19 +133,18 @@ public partial record IsabelEnhancedHeader1
     #endif
     
     /// <summary>
-    /// Results of the signature validation provided by the 'PowerToSign' user.
+    /// Results of the signature validation provided by the &apos;PowerToSign&apos; user.
     /// </summary>
     [IsoId("_FDlhEMmLEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Power To Sign Validation Results")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PwrToSgnVldtnRslts")]
     #endif
+    [IsoXmlTag("PwrToSgnVldtnRslts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Validation2Code PowerToSignValidationResults { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Validation2Code PowerToSignValidationResults { get; init; } 
+    public required Validation2Code PowerToSignValidationResults { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Validation2Code PowerToSignValidationResults { get; init; } 
     #else
@@ -158,19 +152,19 @@ public partial record IsabelEnhancedHeader1
     #endif
     
     /// <summary>
-    /// Validation of the time stamp provided by the 'PowerToSign' user.
+    /// Validation of the time stamp provided by the &apos;PowerToSign&apos; user.
     /// </summary>
     [IsoId("_LmXRkcmLEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Power To Sign Validation Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PwrToSgnVldtnTmStmp")]
     #endif
+    [IsoXmlTag("PwrToSgnVldtnTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime PowerToSignValidationTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime PowerToSignValidationTimeStamp { get; init; } 
+    public required System.DateTime PowerToSignValidationTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime PowerToSignValidationTimeStamp { get; init; } 
     #else
@@ -181,16 +175,15 @@ public partial record IsabelEnhancedHeader1
     /// Trigger used by the sender to transfer the file.
     /// </summary>
     [IsoId("_W6QnsMmLEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender Trigger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndrTrggr")]
     #endif
+    [IsoXmlTag("SndrTrggr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsabelSenderTrigger1Choice_ SenderTrigger { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IsabelSenderTrigger1Choice_ SenderTrigger { get; init; } 
+    public required IsabelSenderTrigger1Choice_ SenderTrigger { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IsabelSenderTrigger1Choice_ SenderTrigger { get; init; } 
     #else
@@ -201,16 +194,16 @@ public partial record IsabelEnhancedHeader1
     /// Time stamp on when the file is sent.
     /// </summary>
     [IsoId("_AzCccMmMEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Send Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SndTmStmp")]
     #endif
+    [IsoXmlTag("SndTmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime SendTimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime SendTimeStamp { get; init; } 
+    public required System.DateTime SendTimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime SendTimeStamp { get; init; } 
     #else
@@ -221,16 +214,16 @@ public partial record IsabelEnhancedHeader1
     /// Indicates whether extra conditions are applicable and accepted for this file.
     /// </summary>
     [IsoId("_G6yd0MmMEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extra Conditions Accepted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtraCondsAccptd")]
     #endif
+    [IsoXmlTag("XtraCondsAccptd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator ExtraConditionsAccepted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtraConditionsAccepted { get; init; } 
+    public required System.String ExtraConditionsAccepted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtraConditionsAccepted { get; init; } 
     #else
@@ -241,16 +234,15 @@ public partial record IsabelEnhancedHeader1
     /// Input source for the generation of the file.
     /// </summary>
     [IsoId("_M49scMmMEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Src")]
     #endif
+    [IsoXmlTag("Src")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsabelInputSource1Choice_ Source { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IsabelInputSource1Choice_ Source { get; init; } 
+    public required IsabelInputSource1Choice_ Source { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IsabelInputSource1Choice_ Source { get; init; } 
     #else
@@ -261,12 +253,12 @@ public partial record IsabelEnhancedHeader1
     /// Number of signatures required to validate the payments file.
     /// </summary>
     [IsoId("_QCi3EMmNEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number Of Required Signatures")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NbOfReqrdSgntrs")]
     #endif
+    [IsoXmlTag("NbOfReqrdSgntrs")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? NumberOfRequiredSignatures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -279,12 +271,11 @@ public partial record IsabelEnhancedHeader1
     /// Extended parameters for an Isabel payment initiation file.
     /// </summary>
     [IsoId("_VcsLkMmNEeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnded")]
     #endif
+    [IsoXmlTag("Xtnded")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsabelExtendedHeader1? Extended { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

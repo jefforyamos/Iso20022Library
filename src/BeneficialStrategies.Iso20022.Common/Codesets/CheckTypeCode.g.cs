@@ -21,7 +21,7 @@ public enum CheckTypeCode
 {
     /// <summary>
     /// The check belongs to an individual.
-    /// Encoded/decoded by serializers as "PERS".
+    /// Encoded/decoded by serializers as &quot;PERS&quot;.
     /// </summary>
     [EnumMember(Value = "PERS")]
     [IsoId("_OZCGwNtbEeipuvJHTHIw9A")]
@@ -30,7 +30,7 @@ public enum CheckTypeCode
     
     /// <summary>
     /// The check belongs to a Company or a professional entity.
-    /// Encoded/decoded by serializers as "BUSI".
+    /// Encoded/decoded by serializers as &quot;BUSI&quot;.
     /// </summary>
     [EnumMember(Value = "BUSI")]
     [IsoId("_RSSy4NtbEeipuvJHTHIw9A")]
@@ -39,7 +39,7 @@ public enum CheckTypeCode
     
     /// <summary>
     /// The check is guaranteed by a bank.
-    /// Encoded/decoded by serializers as "BANK".
+    /// Encoded/decoded by serializers as &quot;BANK&quot;.
     /// </summary>
     [EnumMember(Value = "BANK")]
     [IsoId("_UmnDUNtbEeipuvJHTHIw9A")]
@@ -48,7 +48,7 @@ public enum CheckTypeCode
     
     /// <summary>
     /// Check issued by a company for the employees.
-    /// Encoded/decoded by serializers as "PAYR".
+    /// Encoded/decoded by serializers as &quot;PAYR&quot;.
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_YQXYQNtbEeipuvJHTHIw9A")]
@@ -57,7 +57,7 @@ public enum CheckTypeCode
     
     /// <summary>
     /// Check issued by Government.
-    /// Encoded/decoded by serializers as "GOVC".
+    /// Encoded/decoded by serializers as &quot;GOVC&quot;.
     /// </summary>
     [EnumMember(Value = "GOVC")]
     [IsoId("_bkxIQNtbEeipuvJHTHIw9A")]

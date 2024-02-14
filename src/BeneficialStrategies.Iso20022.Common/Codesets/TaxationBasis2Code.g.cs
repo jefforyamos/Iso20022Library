@@ -21,7 +21,7 @@ public enum TaxationBasis2Code
 {
     /// <summary>
     /// Charge/tax basis is a lump sum.
-    /// Encoded/decoded by serializers as "FLAT".
+    /// Encoded/decoded by serializers as &quot;FLAT&quot;.
     /// </summary>
     [EnumMember(Value = "FLAT")]
     [IsoId("_ZScZxdp-Ed-ak6NoX_4Aeg_986778433")]
@@ -30,7 +30,7 @@ public enum TaxationBasis2Code
     
     /// <summary>
     /// Charges/tax basis is per unit of financial instrument.
-    /// Encoded/decoded by serializers as "PERU".
+    /// Encoded/decoded by serializers as &quot;PERU&quot;.
     /// </summary>
     [EnumMember(Value = "PERU")]
     [IsoId("_ZScZxtp-Ed-ak6NoX_4Aeg_986778434")]

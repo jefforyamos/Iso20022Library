@@ -21,7 +21,7 @@ public enum CancellationStatus4Code
 {
     /// <summary>
     /// Cancellation instruction / request has been received and has been acknowledged / accepted for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_a0VqUdp-Ed-ak6NoX_4Aeg_-927683854")]
@@ -30,7 +30,7 @@ public enum CancellationStatus4Code
     
     /// <summary>
     /// Cancellation instruction / request has been rejected / denied for further processing.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_a0VqUtp-Ed-ak6NoX_4Aeg_-831637751")]

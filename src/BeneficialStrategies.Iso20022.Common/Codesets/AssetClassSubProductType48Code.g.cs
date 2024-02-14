@@ -21,7 +21,7 @@ public enum AssetClassSubProductType48Code
 {
     /// <summary>
     /// Commodity of type non deliverable.
-    /// Encoded/decoded by serializers as "NDLV".
+    /// Encoded/decoded by serializers as &quot;NDLV&quot;.
     /// </summary>
     [EnumMember(Value = "NDLV")]
     [IsoId("_oS0CcfwhEeW4Wthd0Ze_kA")]

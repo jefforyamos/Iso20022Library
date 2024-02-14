@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Compares information related to both sides of a contract.
 /// </summary>
 [IsoId("_cL1LmVovEe23K4GXSpBSeg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Contract Matching Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the ISINs are matching or not.
     /// </summary>
     [IsoId("_cNVAYVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ISIN")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ISIN")]
     #endif
+    [IsoXmlTag("ISIN")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareISINIdentifier2? ISIN { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the Unique Product Identifiers are matching or not.
     /// </summary>
     [IsoId("_cNVAY1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Unique Product Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UnqPdctIdr")]
     #endif
+    [IsoXmlTag("UnqPdctIdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUniqueProductIdentifier2? UniqueProductIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the AIIs are matching or not.
     /// </summary>
     [IsoId("_aDxZ0FqmEe2in88Nl6zFFQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternative Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrntvInstrmId")]
     #endif
+    [IsoXmlTag("AltrntvInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareText1? AlternativeInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the values defined as CFI (Classification of Financial Instruments-ISO 10962) identifier are matching or not.
     /// </summary>
     [IsoId("_cNVAZVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Product Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdctClssfctn")]
     #endif
+    [IsoXmlTag("PdctClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareCFIIdentifier3? ProductClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the contract types are matching or not.
     /// </summary>
     [IsoId("_cNVAZ1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctTp")]
     #endif
+    [IsoXmlTag("CtrctTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareFinancialInstrumentContractType1? ContractType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the asset classes are matching or not.
     /// </summary>
     [IsoId("_cNVAaVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstClss")]
     #endif
+    [IsoXmlTag("AsstClss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAssetClass1? AssetClass { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the derivatives based on crypto assets are matching or not.
     /// </summary>
     [IsoId("_cNVAa1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Based On Crypto Asset")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivBasedOnCrptAsst")]
     #endif
+    [IsoXmlTag("DerivBasedOnCrptAsst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareTrueFalseIndicator3? DerivativeBasedOnCryptoAsset { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the underlying instruments are matching or not.
     /// </summary>
     [IsoId("_cNVAbVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygInstrm")]
     #endif
+    [IsoXmlTag("UndrlygInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareUnderlyingInstrument3? UnderlyingInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the settlement currency are matching or not.
     /// </summary>
     [IsoId("_cNVAb1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcy")]
     #endif
+    [IsoXmlTag("SttlmCcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareActiveOrHistoricCurrencyCode1? SettlementCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record ContractMatchingCriteria3
     /// Specifies whether the information on the settlement currency second legs are matching or not.
     /// </summary>
     [IsoId("_cNVAcVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Currency Second Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmCcyScndLeg")]
     #endif
+    [IsoXmlTag("SttlmCcyScndLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareActiveOrHistoricCurrencyCode1? SettlementCurrencySecondLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

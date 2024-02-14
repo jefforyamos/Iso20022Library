@@ -21,7 +21,7 @@ public enum ActionCode
 {
     /// <summary>
     /// Request to submit a twin baseline.
-    /// Encoded/decoded by serializers as "SBTW".
+    /// Encoded/decoded by serializers as &quot;SBTW&quot;.
     /// </summary>
     [EnumMember(Value = "SBTW")]
     [IsoId("_bp-449p-Ed-ak6NoX_4Aeg_-1863623745")]
@@ -30,7 +30,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to resubmit a twin baseline.
-    /// Encoded/decoded by serializers as "RSTW".
+    /// Encoded/decoded by serializers as &quot;RSTW&quot;.
     /// </summary>
     [EnumMember(Value = "RSTW")]
     [IsoId("_bp-45Np-Ed-ak6NoX_4Aeg_-1806365973")]
@@ -39,7 +39,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to resubmit a baseline.
-    /// Encoded/decoded by serializers as "RSBS".
+    /// Encoded/decoded by serializers as &quot;RSBS&quot;.
     /// </summary>
     [EnumMember(Value = "RSBS")]
     [IsoId("_bp-45dp-Ed-ak6NoX_4Aeg_-1765731022")]
@@ -48,7 +48,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to accept or reject mismatched data set(s).
-    /// Encoded/decoded by serializers as "ARDM".
+    /// Encoded/decoded by serializers as &quot;ARDM&quot;.
     /// </summary>
     [EnumMember(Value = "ARDM")]
     [IsoId("_bp-45tp-Ed-ak6NoX_4Aeg_-1487752158")]
@@ -57,7 +57,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to accept or reject a request for a change of status of the baseline.
-    /// Encoded/decoded by serializers as "ARCS".
+    /// Encoded/decoded by serializers as &quot;ARCS&quot;.
     /// </summary>
     [EnumMember(Value = "ARCS")]
     [IsoId("_bp-459p-Ed-ak6NoX_4Aeg_-1086943853")]
@@ -66,7 +66,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to accept or reject a request for an extension of the period of validity of the status of the baseline.
-    /// Encoded/decoded by serializers as "ARES".
+    /// Encoded/decoded by serializers as &quot;ARES&quot;.
     /// </summary>
     [EnumMember(Value = "ARES")]
     [IsoId("_bp-46Np-Ed-ak6NoX_4Aeg_-1057389344")]
@@ -75,7 +75,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to wait until the baseline is established.
-    /// Encoded/decoded by serializers as "WAIT".
+    /// Encoded/decoded by serializers as &quot;WAIT&quot;.
     /// </summary>
     [EnumMember(Value = "WAIT")]
     [IsoId("_bqIp4Np-Ed-ak6NoX_4Aeg_-30131670")]
@@ -84,7 +84,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to update and resend.
-    /// Encoded/decoded by serializers as "UPDT".
+    /// Encoded/decoded by serializers as &quot;UPDT&quot;.
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_bqIp4dp-Ed-ak6NoX_4Aeg_-30131189")]
@@ -93,7 +93,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to submit data set(s).
-    /// Encoded/decoded by serializers as "SBDS".
+    /// Encoded/decoded by serializers as &quot;SBDS&quot;.
     /// </summary>
     [EnumMember(Value = "SBDS")]
     [IsoId("_bqIp4tp-Ed-ak6NoX_4Aeg_-1048974781")]
@@ -102,7 +102,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to accept or reject a request for a baseline amendment.
-    /// Encoded/decoded by serializers as "ARBA".
+    /// Encoded/decoded by serializers as &quot;ARBA&quot;.
     /// </summary>
     [EnumMember(Value = "ARBA")]
     [IsoId("_bqIp49p-Ed-ak6NoX_4Aeg_-1730447921")]
@@ -111,7 +111,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to accept or reject a baseline and the role contained in it for the financial institution.
-    /// Encoded/decoded by serializers as "ARRO".
+    /// Encoded/decoded by serializers as &quot;ARRO&quot;.
     /// </summary>
     [EnumMember(Value = "ARRO")]
     [IsoId("_bqIp5Np-Ed-ak6NoX_4Aeg_1290822788")]
@@ -120,7 +120,7 @@ public enum ActionCode
     
     /// <summary>
     /// Request to check invoice number because it was not found.
-    /// Encoded/decoded by serializers as "CINR".
+    /// Encoded/decoded by serializers as &quot;CINR&quot;.
     /// </summary>
     [EnumMember(Value = "CINR")]
     [IsoId("_bqIp5dp-Ed-ak6NoX_4Aeg_1290822819")]

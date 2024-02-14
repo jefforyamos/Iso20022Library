@@ -21,7 +21,7 @@ public enum DeliveryPlace1Code
 {
     /// <summary>
     /// Card needs to be mailed to employers address.
-    /// Encoded/decoded by serializers as "EMPL".
+    /// Encoded/decoded by serializers as &quot;EMPL&quot;.
     /// </summary>
     [EnumMember(Value = "EMPL")]
     [IsoId("_azANkdp-Ed-ak6NoX_4Aeg_-743931467")]
@@ -30,7 +30,7 @@ public enum DeliveryPlace1Code
     
     /// <summary>
     /// Card needs to be mailed to individual specified in PersonDetail.
-    /// Encoded/decoded by serializers as "INDI".
+    /// Encoded/decoded by serializers as &quot;INDI&quot;.
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_azANktp-Ed-ak6NoX_4Aeg_-743931451")]
@@ -39,7 +39,7 @@ public enum DeliveryPlace1Code
     
     /// <summary>
     /// Card needs to be available at the entrance of the meeting.
-    /// Encoded/decoded by serializers as "ENTR".
+    /// Encoded/decoded by serializers as &quot;ENTR&quot;.
     /// </summary>
     [EnumMember(Value = "ENTR")]
     [IsoId("_azANk9p-Ed-ak6NoX_4Aeg_-743931450")]
@@ -48,7 +48,7 @@ public enum DeliveryPlace1Code
     
     /// <summary>
     /// Cards needs to be send to other specified address.
-    /// Encoded/decoded by serializers as "OADR".
+    /// Encoded/decoded by serializers as &quot;OADR&quot;.
     /// </summary>
     [EnumMember(Value = "OADR")]
     [IsoId("_azANlNp-Ed-ak6NoX_4Aeg_1639092662")]

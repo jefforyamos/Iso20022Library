@@ -21,7 +21,7 @@ public enum MarketType6Code
 {
     /// <summary>
     /// The place is over the counter.
-    /// Encoded/decoded by serializers as "OTCO".
+    /// Encoded/decoded by serializers as &quot;OTCO&quot;.
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("__3I0YdojEeC60axPepSq7g_-615099029")]
@@ -30,7 +30,7 @@ public enum MarketType6Code
     
     /// <summary>
     /// Various places.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("__3I0YtojEeC60axPepSq7g_852049734")]
@@ -39,7 +39,7 @@ public enum MarketType6Code
     
     /// <summary>
     /// The place is a stock exchange.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("__3I0Y9ojEeC60axPepSq7g_858735869")]

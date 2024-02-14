@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to identify the underlying transaction(s) and/or batched entries.
 /// </summary>
 [IsoId("_T8wuitp-Ed-ak6NoX_4Aeg_-120854203")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Entry Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record EntryDetails1
     /// Set of elements used to provide details on batched transactions.
     /// </summary>
     [IsoId("_T854cNp-Ed-ak6NoX_4Aeg_-250805702")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Btch")]
     #endif
+    [IsoXmlTag("Btch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BatchInformation2? Batch { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record EntryDetails1
     /// Set of elements used to provide information on the underlying transaction(s).
     /// </summary>
     [IsoId("_T854cdp-Ed-ak6NoX_4Aeg_-250805756")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxDtls")]
     #endif
+    [IsoXmlTag("TxDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EntryTransaction2? TransactionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

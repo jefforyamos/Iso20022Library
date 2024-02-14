@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cain;
 /// </summary>
 [Description(@"The InquiryResponse message is sent by an issuer or an agent to an acquirer in response to an  InquiryInitiation message.")]
 [IsoId("_J4V1pVfjEeeg8PDQoAs78Q")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Inquiry Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record InquiryResponseV01 : IOuterRecord<InquiryResponseV01,Inqui
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_J4V1p1fjEeeg8PDQoAs78Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header39 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header39 Header { get; init; } 
+    public required Header39 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header39 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record InquiryResponseV01 : IOuterRecord<InquiryResponseV01,Inqui
     /// Information related to the inquiry response.
     /// </summary>
     [IsoId("_J4V1qVfjEeeg8PDQoAs78Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InquiryResponse1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InquiryResponse1 Body { get; init; } 
+    public required InquiryResponse1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InquiryResponse1 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record InquiryResponseV01 : IOuterRecord<InquiryResponseV01,Inqui
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_J4V1qFfjEeeg8PDQoAs78Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record InquiryResponseV01 : IOuterRecord<InquiryResponseV01,Inqui
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InquiryResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InquiryResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InquiryResponseV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record InquiryResponseV01 : IOuterRecord<InquiryResponseV01,Inqui
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InquiryResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InquiryResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InquiryResponseV01Document : IOuterDocument<InquiryResponseV01>
@@ -161,7 +156,7 @@ public partial record InquiryResponseV01Document : IOuterDocument<InquiryRespons
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InquiryResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InquiryResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InquiryResponseV01 Message { get; init; }

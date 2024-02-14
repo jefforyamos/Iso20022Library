@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesBalanceType6FormatChoice.Code))]
     [KnownType(typeof(SecuritiesBalanceType6FormatChoice.Proprietary))]
     [IsoId("_Roygxtp-Ed-ak6NoX_4Aeg_758304831")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Balance Type 6 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

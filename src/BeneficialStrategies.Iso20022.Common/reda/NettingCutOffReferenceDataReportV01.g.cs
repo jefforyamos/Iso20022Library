@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The Netting Cut Off Reference Data Report message is sent to a participant by a central system to provide details of scheduled, changed, existing and previous netting cut off data held at a central system.")]
 [IsoId("_v7yFIJXTEeaYkf5FCqYMeA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Netting Cut Off Reference Data Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord<Netting
     /// Specifies the meta data for the netting cut off report including message pagination.
     /// </summary>
     [IsoId("_Eogg8JXWEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptData")]
     #endif
+    [IsoXmlTag("RptData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NettingCutOffReportData1 ReportData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NettingCutOffReportData1 ReportData { get; init; } 
+    public required NettingCutOffReportData1 ReportData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NettingCutOffReportData1 ReportData { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord<Netting
     /// Provides the latest information related to the status of a netting cut off held at a central system.
     /// </summary>
     [IsoId("_pQMvMJXZEeaYkf5FCqYMeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participant Netting Cut Off Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtcptNetgCutOffData")]
     #endif
+    [IsoXmlTag("PtcptNetgCutOffData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CutOffData1 ParticipantNettingCutOffData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CutOffData1 ParticipantNettingCutOffData { get; init; } 
+    public required CutOffData1 ParticipantNettingCutOffData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CutOffData1 ParticipantNettingCutOffData { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord<Netting
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_g5ZZMZnzEeahw7LV9elg3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord<Netting
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="NettingCutOffReferenceDataReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;NettingCutOffReferenceDataReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public NettingCutOffReferenceDataReportV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record NettingCutOffReferenceDataReportV01 : IOuterRecord<Netting
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="NettingCutOffReferenceDataReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;NettingCutOffReferenceDataReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record NettingCutOffReferenceDataReportV01Document : IOuterDocument<NettingCutOffReferenceDataReportV01>
@@ -161,7 +156,7 @@ public partial record NettingCutOffReferenceDataReportV01Document : IOuterDocume
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="NettingCutOffReferenceDataReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;NettingCutOffReferenceDataReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NettingCutOffReferenceDataReportV01 Message { get; init; }

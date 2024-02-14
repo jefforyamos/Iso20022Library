@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice
     /// Status report details of all the individual orders conveyed in a bulk or multiple order message. Can be used if all the individual orders conveyed in a bulk or multiple order message have the same status.
     /// </summary>
     [IsoId("_bpQwY0HPEeazV4RAqPV71g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Details Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,15 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice
         /// Reference assigned to a set of orders or trades in order to link them together.
         /// </summary>
         [IsoId("_7RE7FTbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Master Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MstrRef")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MstrRef")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MasterReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,19 +70,18 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice
         #endif
         
         /// <summary>
-        /// Status of a 'bulk' of orders. Can be used if all the individual orders conveyed in a bulk or multiple order message have the same status.
+        /// Status of a &apos;bulk&apos; of orders. Can be used if all the individual orders conveyed in a bulk or multiple order message have the same status.
         /// </summary>
         [IsoId("_-AO8kEH7EeaV3ab_pHzFIQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Order Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="OrdrSts")]
         #endif
+        [IsoXmlTag("OrdrSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OrderStatus3Choice_ OrderStatus { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OrderStatus3Choice_ OrderStatus { get; init; } 
+        public required OrderStatus3Choice_ OrderStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OrderStatus3Choice_ OrderStatus { get; init; } 
         #else
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice
         /// Party that initiates the status of the order.
         /// </summary>
         [IsoId("_7RE7IzbsEead9bDRE_1DAQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Status Initiator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StsInitr")]
         #endif
+        [IsoXmlTag("StsInitr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification113? StatusInitiator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

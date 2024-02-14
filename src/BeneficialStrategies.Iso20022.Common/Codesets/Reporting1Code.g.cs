@@ -21,7 +21,7 @@ public enum Reporting1Code
 {
     /// <summary>
     /// Trade details are to be reported to a stock exchange.
-    /// Encoded/decoded by serializers as "STEX".
+    /// Encoded/decoded by serializers as &quot;STEX&quot;.
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_ZTMAoNp-Ed-ak6NoX_4Aeg_-1707100866")]
@@ -30,7 +30,7 @@ public enum Reporting1Code
     
     /// <summary>
     /// Trade details are to be reported to a regulatory organisation.
-    /// Encoded/decoded by serializers as "REGU".
+    /// Encoded/decoded by serializers as &quot;REGU&quot;.
     /// </summary>
     [EnumMember(Value = "REGU")]
     [IsoId("_ZTMAodp-Ed-ak6NoX_4Aeg_-1707100823")]

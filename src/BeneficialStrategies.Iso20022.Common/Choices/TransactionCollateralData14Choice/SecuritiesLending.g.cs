@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCollateralData14Choic
     /// Data on collateral used for the securities lending transaction.
     /// </summary>
     [IsoId("_kyCmNf_9Eemefbt-QjTNnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Lending")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

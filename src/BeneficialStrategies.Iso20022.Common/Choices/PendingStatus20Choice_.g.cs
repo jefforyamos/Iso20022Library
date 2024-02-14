@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingStatus20Choice.Forwarded))]
     [KnownType(typeof(PendingStatus20Choice.UnderInvestigation))]
     [IsoId("_0k3gwglIEeGATtfOBToyew_-1102038135")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Status 20 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

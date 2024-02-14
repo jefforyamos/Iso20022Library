@@ -21,7 +21,7 @@ public enum ObligationType1Code
 {
     /// <summary>
     /// Specifies that the obligation is related to a failed trade.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_YZ95odp-Ed-ak6NoX_4Aeg_-590738382")]
@@ -30,7 +30,7 @@ public enum ObligationType1Code
     
     /// <summary>
     /// Specifies that the obligation is related to new a trade.
-    /// Encoded/decoded by serializers as "NEW1".
+    /// Encoded/decoded by serializers as &quot;NEW1&quot;.
     /// </summary>
     [EnumMember(Value = "NEW1")]
     [IsoId("_YZ95otp-Ed-ak6NoX_4Aeg_155306625")]
@@ -39,7 +39,7 @@ public enum ObligationType1Code
     
     /// <summary>
     /// Specifies that the obligation is related to a corporate event.
-    /// Encoded/decoded by serializers as "COEV".
+    /// Encoded/decoded by serializers as &quot;COEV&quot;.
     /// </summary>
     [EnumMember(Value = "COEV")]
     [IsoId("_YZ95o9p-Ed-ak6NoX_4Aeg_-1536873572")]

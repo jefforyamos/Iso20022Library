@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Definition of retry process if activation of an action fails.
 /// </summary>
 [IsoId("_K9D0N31DEeCF8NjrBemJWQ_-2058168701")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Process Retry")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,19 +49,16 @@ public partial record ProcessRetry1
     /// Time period to wait for a retry in months, days, hours and minutes, leading zeros could be omitted.
     /// </summary>
     [IsoId("_K9M-IH1DEeCF8NjrBemJWQ_444551643")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delay")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dely")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("Dely")]
+    [IsoSimpleType(IsoSimpleType.Max9NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax9NumericText Delay { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Delay { get; init; } 
+    public required System.String Delay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Delay { get; init; } 
     #else
@@ -74,12 +69,12 @@ public partial record ProcessRetry1
     /// Maximum number of retries.
     /// </summary>
     [IsoId("_K9M-IX1DEeCF8NjrBemJWQ_-1003849246")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxNb")]
     #endif
+    [IsoXmlTag("MaxNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +87,12 @@ public partial record ProcessRetry1
     /// Time of the last retry.
     /// </summary>
     [IsoId("_K9M-In1DEeCF8NjrBemJWQ_-109160754")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Re Try Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastReTryTm")]
     #endif
+    [IsoXmlTag("LastReTryTm")]
+    [IsoSimpleType(IsoSimpleType.ISOTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOTime? LastReTryTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

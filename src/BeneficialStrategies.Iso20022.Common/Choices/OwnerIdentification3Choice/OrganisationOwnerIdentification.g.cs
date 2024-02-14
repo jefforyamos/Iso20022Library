@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OwnerIdentification3Choice
     /// Identification of an organisation.
     /// </summary>
     [IsoId("_CKjZs5TREemC09f0MxYkRg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Owner Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.OwnerIdentification3Choice
         /// Unique identification of the party.
         /// </summary>
         [IsoId("_ceRXo2pTEeipaMTLlhaKMQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Party")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Pty")]
         #endif
+        [IsoXmlTag("Pty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification125Choice_ Party { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification125Choice_ Party { get; init; } 
+        public required PartyIdentification125Choice_ Party { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification125Choice_ Party { get; init; } 
         #else
@@ -76,12 +73,12 @@ namespace BeneficialStrategies.Iso20022.Choices.OwnerIdentification3Choice
         /// Legal entity identification as an alternate identification for the party.
         /// </summary>
         [IsoId("_ceRXpWpTEeipaMTLlhaKMQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("LEI")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LEI")]
         #endif
+        [IsoXmlTag("LEI")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? LEI { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

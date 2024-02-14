@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReuseDataReport6Choice.Correction))]
     [KnownType(typeof(ReuseDataReport6Choice.CollateralReuseUpdate))]
     [IsoId("_MxqLscK8EeuMhqg3CsEu6Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reuse Data Report 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

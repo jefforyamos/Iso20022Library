@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeCode2Choice
     /// Securities account purpose as an ISO 20022 code.
     /// </summary>
     [IsoId("_Qwdxo9p-Ed-ak6NoX_4Aeg_2094982562")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeCode2Choice
         /// Specifies the purpose of the securities account.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SecuritiesAccountPurposeType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SecuritiesAccountPurposeType1Code Value { get; init; } 
+        public required SecuritiesAccountPurposeType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SecuritiesAccountPurposeType1Code Value { get; init; } 
         #else

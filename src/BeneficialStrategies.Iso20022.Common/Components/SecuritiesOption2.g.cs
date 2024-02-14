@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the security option of a corporate event.
 /// </summary>
 [IsoId("_UGTFC9p-Ed-ak6NoX_4Aeg_1927466067")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Option")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record SecuritiesOption2
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
     [IsoId("_UGcO8Np-Ed-ak6NoX_4Aeg_1927466137")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Conditional Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CondlQty")]
     #endif
+    [IsoXmlTag("CondlQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +66,11 @@ public partial record SecuritiesOption2
     /// Quantity instructed to be received over and above normal ensured entitlement.
     /// </summary>
     [IsoId("_UGcO8dp-Ed-ak6NoX_4Aeg_1927466379")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Over And Above Normal Ensured Entitlement Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OverAndAbovNrmlNsrdEntitlmntQty")]
     #endif
+    [IsoXmlTag("OverAndAbovNrmlNsrdEntitlmntQty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity1Choice_? OverAndAboveNormalEnsuredEntitlementQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,16 +83,15 @@ public partial record SecuritiesOption2
     /// Specifies whether the quantity of financial instrument is a quantity of securities instructed or a quantity to receive.
     /// </summary>
     [IsoId("_UGcO8tp-Ed-ak6NoX_4Aeg_-1537787480")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Or Quantity To Receive")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdOrQtyToRcv")]
     #endif
+    [IsoXmlTag("InstdOrQtyToRcv")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
+    public required InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
     #else

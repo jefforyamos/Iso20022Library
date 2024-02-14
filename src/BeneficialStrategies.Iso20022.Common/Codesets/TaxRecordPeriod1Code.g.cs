@@ -21,7 +21,7 @@ public enum TaxRecordPeriod1Code
 {
     /// <summary>
     /// Tax is related to the second month of the period.
-    /// Encoded/decoded by serializers as "MM01".
+    /// Encoded/decoded by serializers as &quot;MM01&quot;.
     /// </summary>
     [EnumMember(Value = "MM01")]
     [IsoId("_YiT9Vdp-Ed-ak6NoX_4Aeg_-1322025421")]
@@ -30,7 +30,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the first month of the period.
-    /// Encoded/decoded by serializers as "MM02".
+    /// Encoded/decoded by serializers as &quot;MM02&quot;.
     /// </summary>
     [EnumMember(Value = "MM02")]
     [IsoId("_YiT9Vtp-Ed-ak6NoX_4Aeg_-1322025391")]
@@ -39,7 +39,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the third month of the period.
-    /// Encoded/decoded by serializers as "MM03".
+    /// Encoded/decoded by serializers as &quot;MM03&quot;.
     /// </summary>
     [EnumMember(Value = "MM03")]
     [IsoId("_YiT9V9p-Ed-ak6NoX_4Aeg_-1322025390")]
@@ -48,7 +48,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the fourth month of the period.
-    /// Encoded/decoded by serializers as "MM04".
+    /// Encoded/decoded by serializers as &quot;MM04&quot;.
     /// </summary>
     [EnumMember(Value = "MM04")]
     [IsoId("_YiT9WNp-Ed-ak6NoX_4Aeg_-1322025360")]
@@ -57,7 +57,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the fifth month of the period.
-    /// Encoded/decoded by serializers as "MM05".
+    /// Encoded/decoded by serializers as &quot;MM05&quot;.
     /// </summary>
     [EnumMember(Value = "MM05")]
     [IsoId("_YiduUNp-Ed-ak6NoX_4Aeg_-1322025330")]
@@ -66,7 +66,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the sixth month of the period.
-    /// Encoded/decoded by serializers as "MM06".
+    /// Encoded/decoded by serializers as &quot;MM06&quot;.
     /// </summary>
     [EnumMember(Value = "MM06")]
     [IsoId("_YiduUdp-Ed-ak6NoX_4Aeg_-1322025329")]
@@ -75,7 +75,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the seventh month of the period.
-    /// Encoded/decoded by serializers as "MM07".
+    /// Encoded/decoded by serializers as &quot;MM07&quot;.
     /// </summary>
     [EnumMember(Value = "MM07")]
     [IsoId("_YiduUtp-Ed-ak6NoX_4Aeg_-1322025299")]
@@ -84,7 +84,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the eighth month of the period.
-    /// Encoded/decoded by serializers as "MM08".
+    /// Encoded/decoded by serializers as &quot;MM08&quot;.
     /// </summary>
     [EnumMember(Value = "MM08")]
     [IsoId("_YiduU9p-Ed-ak6NoX_4Aeg_-1322025268")]
@@ -93,7 +93,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the ninth month of the period.
-    /// Encoded/decoded by serializers as "MM09".
+    /// Encoded/decoded by serializers as &quot;MM09&quot;.
     /// </summary>
     [EnumMember(Value = "MM09")]
     [IsoId("_YiduVNp-Ed-ak6NoX_4Aeg_-1322024990")]
@@ -102,7 +102,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the tenth month of the period.
-    /// Encoded/decoded by serializers as "MM10".
+    /// Encoded/decoded by serializers as &quot;MM10&quot;.
     /// </summary>
     [EnumMember(Value = "MM10")]
     [IsoId("_YiduVdp-Ed-ak6NoX_4Aeg_-1322024989")]
@@ -111,7 +111,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the eleventh month of the period.
-    /// Encoded/decoded by serializers as "MM11".
+    /// Encoded/decoded by serializers as &quot;MM11&quot;.
     /// </summary>
     [EnumMember(Value = "MM11")]
     [IsoId("_YiduVtp-Ed-ak6NoX_4Aeg_-1322024959")]
@@ -120,7 +120,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the twelfth month of the period.
-    /// Encoded/decoded by serializers as "MM12".
+    /// Encoded/decoded by serializers as &quot;MM12&quot;.
     /// </summary>
     [EnumMember(Value = "MM12")]
     [IsoId("_YiduV9p-Ed-ak6NoX_4Aeg_-1322024929")]
@@ -129,7 +129,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the first quarter of the period.
-    /// Encoded/decoded by serializers as "QTR1".
+    /// Encoded/decoded by serializers as &quot;QTR1&quot;.
     /// </summary>
     [EnumMember(Value = "QTR1")]
     [IsoId("_YiduWNp-Ed-ak6NoX_4Aeg_-1322024928")]
@@ -138,7 +138,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the second quarter of the period.
-    /// Encoded/decoded by serializers as "QTR2".
+    /// Encoded/decoded by serializers as &quot;QTR2&quot;.
     /// </summary>
     [EnumMember(Value = "QTR2")]
     [IsoId("_YiduWdp-Ed-ak6NoX_4Aeg_-1322024898")]
@@ -147,7 +147,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the third quarter of the period.
-    /// Encoded/decoded by serializers as "QTR3".
+    /// Encoded/decoded by serializers as &quot;QTR3&quot;.
     /// </summary>
     [EnumMember(Value = "QTR3")]
     [IsoId("_Yim4QNp-Ed-ak6NoX_4Aeg_-1322024867")]
@@ -156,7 +156,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the forth quarter of the period.
-    /// Encoded/decoded by serializers as "QTR4".
+    /// Encoded/decoded by serializers as &quot;QTR4&quot;.
     /// </summary>
     [EnumMember(Value = "QTR4")]
     [IsoId("_Yim4Qdp-Ed-ak6NoX_4Aeg_-1322024866")]
@@ -165,7 +165,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the first half of the period.
-    /// Encoded/decoded by serializers as "HLF1".
+    /// Encoded/decoded by serializers as &quot;HLF1&quot;.
     /// </summary>
     [EnumMember(Value = "HLF1")]
     [IsoId("_Yim4Qtp-Ed-ak6NoX_4Aeg_-1322024837")]
@@ -174,7 +174,7 @@ public enum TaxRecordPeriod1Code
     
     /// <summary>
     /// Tax is related to the second half of the period.
-    /// Encoded/decoded by serializers as "HLF2".
+    /// Encoded/decoded by serializers as &quot;HLF2&quot;.
     /// </summary>
     [EnumMember(Value = "HLF2")]
     [IsoId("_Yim4Q9p-Ed-ak6NoX_4Aeg_-1322024806")]

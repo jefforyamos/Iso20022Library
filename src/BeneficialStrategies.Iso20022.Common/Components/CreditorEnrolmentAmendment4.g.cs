@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information that serves as a basis to debit an account.
 /// </summary>
 [IsoId("_zxUwC-H5Eeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Creditor Enrolment Amendment")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CreditorEnrolmentAmendment4
     /// Specific attributes of the creditor and service enrolment provided by the creditor for its enrolment.
     /// </summary>
     [IsoId("_zyspAeH5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Enrolment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrEnrlmnt")]
     #endif
+    [IsoXmlTag("CdtrEnrlmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorEnrolment4? CreditorEnrolment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record CreditorEnrolmentAmendment4
     /// Specific attributes requested from the debtor for its activation as specified by the creditor in the creditor enrolment request.
     /// </summary>
     [IsoId("_zyspA-H5Eeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activation Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtnData")]
     #endif
+    [IsoXmlTag("ActvtnData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CreditorInvoice4? ActivationData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

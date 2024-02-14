@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the characteristics for a SEPA formatted payment initiation file.
 /// </summary>
 [IsoId("_XKhX0KA3EeWiJt5KdX5iuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel SEPA File")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record IsabelSEPAFile1
     /// Specifies whether the SEPA formatted file is compliant to the SEPA rulebook.
     /// </summary>
     [IsoId("_VfbZsMmREeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("SEPA Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SEPAInd")]
     #endif
+    [IsoXmlTag("SEPAInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator SEPAIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SEPAIndicator { get; init; } 
+    public required System.String SEPAIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SEPAIndicator { get; init; } 
     #else
@@ -72,19 +70,17 @@ public partial record IsabelSEPAFile1
     /// High level category purpose of the payment initiation messages in the file, based on the SEPA rulebook.
     /// </summary>
     [IsoId("_aSMlIMmREeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Category Purpose")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtgyPurp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CtgyPurp")]
+    [IsoSimpleType(IsoSimpleType.Max6Text)]
     [StringLength(maximumLength: 6 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax6Text CategoryPurpose { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CategoryPurpose { get; init; } 
+    public required System.String CategoryPurpose { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CategoryPurpose { get; init; } 
     #else
@@ -95,19 +91,15 @@ public partial record IsabelSEPAFile1
     /// Local market practices applicable to the SEPA file.
     /// </summary>
     [IsoId("_fdp9YMmREeWAGphE2LvqeA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Practices")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktPrctcs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MktPrctcs")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> MarketPractices { get; init; } = new SimpleValueList<System.String>(){};
     
     

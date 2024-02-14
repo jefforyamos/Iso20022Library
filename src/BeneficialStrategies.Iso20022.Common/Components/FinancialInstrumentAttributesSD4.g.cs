@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information regarding security that will being distributed as part of entitlement.
 /// </summary>
 [IsoId("_1gx98jL3EeKU9IrkkToqcw_762356637")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument Attributes SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record FinancialInstrumentAttributesSD4
     /// Security identification that a CSD (for example in the US - DTC, The Depository Trust Corporation) will distribute as part of the entitlement. This can be the DTC contra CUSIP in cases where the payout security is a contra CUSIP.
     /// </summary>
     [IsoId("_1gx98zL3EeKU9IrkkToqcw_-234715716")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSD Disbursed Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSDDsbrsdSctyId")]
     #endif
+    [IsoXmlTag("CSDDsbrsdSctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification15? CSDDisbursedSecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record FinancialInstrumentAttributesSD4
     /// DTC (The Depository Trust Corporation) disbursed security description.
     /// </summary>
     [IsoId("_1gx99DL3EeKU9IrkkToqcw_-1345627135")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSD Disbursed Security Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSDDsbrsdSctyDesc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CSDDsbrsdSctyDesc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? CSDDisbursedSecurityDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record FinancialInstrumentAttributesSD4
     /// Security identification of the security that will be distributed in fractions by the CSD (for example in the US - DTC, The Depository Trust Corporation) DTC (The Depository Trust Corporation) as a result of a corporate action.
     /// </summary>
     [IsoId("_1g7u8DL3EeKU9IrkkToqcw_1409282724")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CSD Disbursed Fractional Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CSDDsbrsdFrctnlSctyId")]
     #endif
+    [IsoXmlTag("CSDDsbrsdFrctnlSctyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification15? CSDDisbursedFractionalSecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

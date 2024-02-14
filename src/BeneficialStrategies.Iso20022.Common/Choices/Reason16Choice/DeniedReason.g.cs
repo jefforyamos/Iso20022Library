@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason16Choice
     /// Specifies the reason why the request was denied.
     /// </summary>
     [IsoId("_kYkAeznvEeWfSKvvZlhRKg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Denied Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Message in file message identified as a batch record.
 /// </summary>
 [IsoId("_k1mCsFBCEeedyPuM0kK2EQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Record")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record Record1
     /// Sequence counter of the record from 1 to n
     /// </summary>
     [IsoId("_6M0e8FBCEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sequence Counter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SeqCntr")]
     #endif
+    [IsoXmlTag("SeqCntr")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber SequenceCounter { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 SequenceCounter { get; init; } 
+    public required System.UInt64 SequenceCounter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 SequenceCounter { get; init; } 
     #else
@@ -72,12 +70,12 @@ public partial record Record1
     /// Value of the record to use for the computation of the checksum of the batch.
     /// </summary>
     [IsoId("_PDd9sFBDEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Checksum Input Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcrdChcksmInptVal")]
     #endif
+    [IsoXmlTag("RcrdChcksmInptVal")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Binary? RecordChecksumInputValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +88,11 @@ public partial record Record1
     /// Information used with financial type of messages when third-party clearing is involved.
     /// </summary>
     [IsoId("_EKPGIFBKEeedyPuM0kK2EQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Record Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrRcrdData")]
     #endif
+    [IsoXmlTag("ClrRcrdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingRecordData1? ClearingRecordData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,16 +105,15 @@ public partial record Record1
     /// Message to be sent in a batch transfer as a record.
     /// </summary>
     [IsoId("_Eu1NAFZVEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Record Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcrdMsg")]
     #endif
+    [IsoXmlTag("RcrdMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RecordMessage1Choice_ RecordMessage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RecordMessage1Choice_ RecordMessage { get; init; } 
+    public required RecordMessage1Choice_ RecordMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RecordMessage1Choice_ RecordMessage { get; init; } 
     #else

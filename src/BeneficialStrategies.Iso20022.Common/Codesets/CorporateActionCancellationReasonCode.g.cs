@@ -21,7 +21,7 @@ public enum CorporateActionCancellationReasonCode
 {
     /// <summary>
     /// Cancellation due to a processing error.
-    /// Encoded/decoded by serializers as "PROC".
+    /// Encoded/decoded by serializers as &quot;PROC&quot;.
     /// </summary>
     [EnumMember(Value = "PROC")]
     [IsoId("_bCpMF9p-Ed-ak6NoX_4Aeg_401443465")]
@@ -30,7 +30,7 @@ public enum CorporateActionCancellationReasonCode
     
     /// <summary>
     /// Cancellation due to the corporate action event being cancelled by the issuer.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_bCpMGNp-Ed-ak6NoX_4Aeg_779163570")]

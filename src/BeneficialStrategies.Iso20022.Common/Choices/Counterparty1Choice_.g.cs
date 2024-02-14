@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Counterparty1Choice.Seller))]
     [KnownType(typeof(Counterparty1Choice.Buyer))]
     [IsoId("_PYGQidp-Ed-ak6NoX_4Aeg_1620346563")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

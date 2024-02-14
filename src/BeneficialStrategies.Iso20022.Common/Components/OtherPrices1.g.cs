@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of price and information about the price.
 /// </summary>
 [IsoId("_AVY2oNokEeC60axPepSq7g_-1057295935")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Other Prices")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record OtherPrices1
     /// Specifies the maximum price.
     /// </summary>
     [IsoId("_AVY2odokEeC60axPepSq7g_-412748143")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Max")]
     #endif
+    [IsoXmlTag("Max")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? Maximum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record OtherPrices1
     /// Specifies the transaction price.
     /// </summary>
     [IsoId("_AVY2otokEeC60axPepSq7g_-135108701")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,15 +73,14 @@ public partial record OtherPrices1
     #endif
     
     /// <summary>
-    /// Market price including or excluding the broker's commission.
+    /// Market price including or excluding the broker&apos;s commission.
     /// </summary>
     [IsoId("_AVY2o9okEeC60axPepSq7g_970383057")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Broker Commission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktBrkrComssn")]
     #endif
+    [IsoXmlTag("MktBrkrComssn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? MarketBrokerCommission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,15 +90,14 @@ public partial record OtherPrices1
     #endif
     
     /// <summary>
-    /// In case of an order to buy, the price that the broker paid on the market plus the broker's commission.
+    /// In case of an order to buy, the price that the broker paid on the market plus the broker&apos;s commission.
     /// </summary>
     [IsoId("_AViAkNokEeC60axPepSq7g_1236215092")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Marked Up")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrkdUp")]
     #endif
+    [IsoXmlTag("MrkdUp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? MarkedUp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,15 +107,14 @@ public partial record OtherPrices1
     #endif
     
     /// <summary>
-    /// In case of an order to sell, the price the broker receives in the market minus the broker's commission.
+    /// In case of an order to sell, the price the broker receives in the market minus the broker&apos;s commission.
     /// </summary>
     [IsoId("_AViAkdokEeC60axPepSq7g_1920876019")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Marked Down")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrkdDwn")]
     #endif
+    [IsoXmlTag("MrkdDwn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? MarkedDown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record OtherPrices1
     /// Price is net to the disclosed client.
     /// </summary>
     [IsoId("_AViAktokEeC60axPepSq7g_-1534685855")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Disclosed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetDscld")]
     #endif
+    [IsoXmlTag("NetDscld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? NetDisclosed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record OtherPrices1
     /// Price is net to the client undisclosed (used in the UK market).
     /// </summary>
     [IsoId("_AViAk9okEeC60axPepSq7g_-1231512314")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Undisclosed")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetUdscld")]
     #endif
+    [IsoXmlTag("NetUdscld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? NetUndisclosed { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record OtherPrices1
     /// Price is notional gross (used in the UK market).
     /// </summary>
     [IsoId("_AViAlNokEeC60axPepSq7g_-1798499143")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Notional Gross")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NtnlGrss")]
     #endif
+    [IsoXmlTag("NtnlGrss")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? NotionalGross { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record OtherPrices1
     /// Price is weighted average price of the benchmark prices at the time of each partial fill.
     /// </summary>
     [IsoId("_AViAldokEeC60axPepSq7g_-734038973")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Benchmark Weighted Average")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BchmkWghtdAvrg")]
     #endif
+    [IsoXmlTag("BchmkWghtdAvrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? BenchmarkWeightedAverage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record OtherPrices1
     /// Price is weighted average price of all market executions during the completion of the order.
     /// </summary>
     [IsoId("_AViAltokEeC60axPepSq7g_-368908451")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("All Markets Weighted Average")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AllMktsWghtdAvrg")]
     #endif
+    [IsoXmlTag("AllMktsWghtdAvrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? AllMarketsWeightedAverage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record OtherPrices1
     /// Price is a benchmark price relating to the current partial fills (eg, last trade tick from market).
     /// </summary>
     [IsoId("_AVrxkNokEeC60axPepSq7g_-924946064")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Benchmark")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bchmk")]
     #endif
+    [IsoXmlTag("Bchmk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? Benchmark { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +229,11 @@ public partial record OtherPrices1
     /// Type of price that is not defined explicitly.
     /// </summary>
     [IsoId("_AVrxkdokEeC60axPepSq7g_422248478")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPric")]
     #endif
+    [IsoXmlTag("OthrPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? OtherPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ public partial record OtherPrices1
     /// Price of securities representing a particular market or a portion of it.
     /// </summary>
     [IsoId("_AVrxktokEeC60axPepSq7g_2006009430")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Index Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IndxPric")]
     #endif
+    [IsoXmlTag("IndxPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? IndexPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +263,11 @@ public partial record OtherPrices1
     /// Price used to differentiate from price on a confirmation of a marked up or marked down principal trade.
     /// </summary>
     [IsoId("_AVrxk9okEeC60axPepSq7g_-1153816314")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reported Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptdPric")]
     #endif
+    [IsoXmlTag("RptdPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? ReportedPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -296,12 +280,11 @@ public partial record OtherPrices1
     /// Price of reference of the concerned financial instrument.
     /// </summary>
     [IsoId("_AVrxlNokEeC60axPepSq7g_51510680")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RefPric")]
     #endif
+    [IsoXmlTag("RefPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceInformation9? ReferencePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

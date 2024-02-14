@@ -21,7 +21,7 @@ public enum ReinvestmentIncomeClassification1Code
 {
     /// <summary>
     /// Cash proceeds being reinvested is classified as cash dividend.
-    /// Encoded/decoded by serializers as "DVCA".
+    /// Encoded/decoded by serializers as &quot;DVCA&quot;.
     /// </summary>
     [EnumMember(Value = "DVCA")]
     [IsoId("_1qxAYjL3EeKU9IrkkToqcw_-926958499")]
@@ -30,7 +30,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as cash dividend on increased shares.
-    /// Encoded/decoded by serializers as "CDIS".
+    /// Encoded/decoded by serializers as &quot;CDIS&quot;.
     /// </summary>
     [EnumMember(Value = "CDIS")]
     [IsoId("_1qxAYzL3EeKU9IrkkToqcw_-1040797565")]
@@ -39,7 +39,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as cash dividend at the unfavourable rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.
-    /// Encoded/decoded by serializers as "CDUN".
+    /// Encoded/decoded by serializers as &quot;CDUN&quot;.
     /// </summary>
     [EnumMember(Value = "CDUN")]
     [IsoId("_1qxAZDL3EeKU9IrkkToqcw_430852457")]
@@ -48,7 +48,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as cash dividend at the favourable rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.
-    /// Encoded/decoded by serializers as "CDFV".
+    /// Encoded/decoded by serializers as &quot;CDFV&quot;.
     /// </summary>
     [EnumMember(Value = "CDFV")]
     [IsoId("_1qxAZTL3EeKU9IrkkToqcw_-84465823")]
@@ -57,7 +57,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as cash dividend at the exempt rate elected through the DTC (the Depository Trust Company) Foreign Tax Payment service.
-    /// Encoded/decoded by serializers as "CDEX".
+    /// Encoded/decoded by serializers as &quot;CDEX&quot;.
     /// </summary>
     [EnumMember(Value = "CDEX")]
     [IsoId("_1qxAZjL3EeKU9IrkkToqcw_-198304889")]
@@ -66,7 +66,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as special cash dividend.
-    /// Encoded/decoded by serializers as "CDPS".
+    /// Encoded/decoded by serializers as &quot;CDPS&quot;.
     /// </summary>
     [EnumMember(Value = "CDPS")]
     [IsoId("_1q6xYDL3EeKU9IrkkToqcw_369621446")]
@@ -75,7 +75,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as interest.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_1q6xYTL3EeKU9IrkkToqcw_358522669")]
@@ -84,7 +84,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as principal.
-    /// Encoded/decoded by serializers as "PRPL".
+    /// Encoded/decoded by serializers as &quot;PRPL&quot;.
     /// </summary>
     [EnumMember(Value = "PRPL")]
     [IsoId("_1q6xYjL3EeKU9IrkkToqcw_244683603")]
@@ -93,7 +93,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as capital gains.
-    /// Encoded/decoded by serializers as "CAPG".
+    /// Encoded/decoded by serializers as &quot;CAPG&quot;.
     /// </summary>
     [EnumMember(Value = "CAPG")]
     [IsoId("_1q6xYzL3EeKU9IrkkToqcw_-1640335412")]
@@ -102,7 +102,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as long term capital gains.
-    /// Encoded/decoded by serializers as "LTCG".
+    /// Encoded/decoded by serializers as &quot;LTCG&quot;.
     /// </summary>
     [EnumMember(Value = "LTCG")]
     [IsoId("_1q6xZDL3EeKU9IrkkToqcw_-1754174478")]
@@ -111,7 +111,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as short term capital gains.
-    /// Encoded/decoded by serializers as "STCG".
+    /// Encoded/decoded by serializers as &quot;STCG&quot;.
     /// </summary>
     [EnumMember(Value = "STCG")]
     [IsoId("_1q6xZTL3EeKU9IrkkToqcw_-1315217905")]
@@ -120,7 +120,7 @@ public enum ReinvestmentIncomeClassification1Code
     
     /// <summary>
     /// Cash proceeds being reinvested is classified as return of capital.
-    /// Encoded/decoded by serializers as "ROCA".
+    /// Encoded/decoded by serializers as &quot;ROCA&quot;.
     /// </summary>
     [EnumMember(Value = "ROCA")]
     [IsoId("_1q6xZjL3EeKU9IrkkToqcw_-237197567")]

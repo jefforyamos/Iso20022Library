@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio1Choice
     /// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
     /// </summary>
     [IsoId("_Ku_xo_pfEeCLMa5EIHtDrg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Portfolio")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,19 +47,15 @@ namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio1Choice
         /// Additional information related to the portfolio.
         /// </summary>
         [IsoId("_TU0kwNp-Ed-ak6NoX_4Aeg_501703515")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Portfolio Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtflInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PrtflInf")]
+        [IsoSimpleType(IsoSimpleType.Max350Text)]
         [MinLength(0)]
         [MaxLength(5)]
-        #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-        #endif
         public SimpleValueList<System.String> PortfolioInformation { get; init; } = new SimpleValueList<System.String>(){};
         
         

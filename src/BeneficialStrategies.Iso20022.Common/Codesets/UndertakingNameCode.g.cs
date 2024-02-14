@@ -21,7 +21,7 @@ public enum UndertakingNameCode
 {
     /// <summary>
     /// Undertaking is a demand guarantee.
-    /// Encoded/decoded by serializers as "DGAR".
+    /// Encoded/decoded by serializers as &quot;DGAR&quot;.
     /// </summary>
     [EnumMember(Value = "DGAR")]
     [IsoId("_nL0jIHyjEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum UndertakingNameCode
     
     /// <summary>
     /// Undertaking is a standby letter of credit.
-    /// Encoded/decoded by serializers as "STBY".
+    /// Encoded/decoded by serializers as &quot;STBY&quot;.
     /// </summary>
     [EnumMember(Value = "STBY")]
     [IsoId("_tZls8HyjEeGWJuGCfvwOsQ")]

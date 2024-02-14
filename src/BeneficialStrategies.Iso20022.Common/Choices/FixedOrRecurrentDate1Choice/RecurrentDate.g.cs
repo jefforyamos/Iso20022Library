@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedOrRecurrentDate1Choice
     /// Details related to recurrent dates on which the variation is triggered.
     /// </summary>
     [IsoId("_98U8AXltEeG7BsjMvd1mEw_-1677013285")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recurrent Date")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,16 +56,16 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedOrRecurrentDate1Choice
         /// Date on which a recurrent date will commence.
         /// </summary>
         [IsoId("_98LLA3ltEeG7BsjMvd1mEw_-900960723")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Start Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StartDt")]
         #endif
+        [IsoXmlTag("StartDt")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate StartDate { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly StartDate { get; init; } 
+        public required System.DateOnly StartDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly StartDate { get; init; } 
         #else
@@ -78,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedOrRecurrentDate1Choice
         /// Specifies the regularity of the trigger date.
         /// </summary>
         [IsoId("_98LLBHltEeG7BsjMvd1mEw_-1516871632")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Frequency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Frqcy")]
         #endif
+        [IsoXmlTag("Frqcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalDateFrequency1Code Frequency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalDateFrequency1Code Frequency { get; init; } 
+        public required ExternalDateFrequency1Code Frequency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalDateFrequency1Code Frequency { get; init; } 
         #else
@@ -98,16 +95,16 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedOrRecurrentDate1Choice
         /// Maximum number of trigger date occurrence cycles.
         /// </summary>
         [IsoId("_98LLBXltEeG7BsjMvd1mEw_-1181408529")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Number")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nb")]
         #endif
+        [IsoXmlTag("Nb")]
+        [IsoSimpleType(IsoSimpleType.Number)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoNumber Number { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.UInt64 Number { get; init; } 
+        public required System.UInt64 Number { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.UInt64 Number { get; init; } 
         #else

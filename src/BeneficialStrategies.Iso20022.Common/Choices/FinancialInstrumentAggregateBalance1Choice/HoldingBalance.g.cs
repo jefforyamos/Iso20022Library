@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAggregateBala
     /// Balance of holdings.
     /// </summary>
     [IsoId("_oI2KMaCCEeOEyO7fCl8lLA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holding Balance")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAggregateBala
         /// Balance of settled transactions.
         /// </summary>
         [IsoId("_aA5_KqCCEeOEyO7fCl8lLA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Settled Balance")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SttldBal")]
         #endif
+        [IsoXmlTag("SttldBal")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrumentQuantity1Choice_? SettledBalance { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAggregateBala
         /// Balance of settled transactions and transactions pending settlement.
         /// </summary>
         [IsoId("_aA5_KaCCEeOEyO7fCl8lLA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Traded Balance")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TraddBal")]
         #endif
+        [IsoXmlTag("TraddBal")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FinancialInstrumentQuantity1Choice_? TradedBalance { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +81,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAggregateBala
         /// Breakdown of the balances of holdings into sub-balances.
         /// </summary>
         [IsoId("_aA5_K6CCEeOEyO7fCl8lLA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Balance Breakdown")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BalBrkdwn")]
         #endif
+        [IsoXmlTag("BalBrkdwn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SubBalanceBreakdown1? BalanceBreakdown { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

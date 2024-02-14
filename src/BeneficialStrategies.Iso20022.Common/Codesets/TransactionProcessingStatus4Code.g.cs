@@ -21,7 +21,7 @@ public enum TransactionProcessingStatus4Code
 {
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_j3smZu5NEeCisYr99QEiWA_1509485244")]
@@ -30,7 +30,7 @@ public enum TransactionProcessingStatus4Code
     
     /// <summary>
     /// Processing of the instruction is pending.
-    /// Encoded/decoded by serializers as "PPRC".
+    /// Encoded/decoded by serializers as &quot;PPRC&quot;.
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_j3smZ-5NEeCisYr99QEiWA_405378159")]
@@ -39,7 +39,7 @@ public enum TransactionProcessingStatus4Code
     
     /// <summary>
     /// Instruction has been rejected for further processing.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_j32XYO5NEeCisYr99QEiWA_87601498")]
@@ -48,7 +48,7 @@ public enum TransactionProcessingStatus4Code
     
     /// <summary>
     /// Instruction is accepted but in repair.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_j32XYe5NEeCisYr99QEiWA_-398456535")]
@@ -57,7 +57,7 @@ public enum TransactionProcessingStatus4Code
     
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_j32XYu5NEeCisYr99QEiWA_563889893")]
@@ -66,7 +66,7 @@ public enum TransactionProcessingStatus4Code
     
     /// <summary>
     /// Cancellation request from yourself for this instruction is pending waiting for further processing.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_j32XY-5NEeCisYr99QEiWA_826912670")]
@@ -75,7 +75,7 @@ public enum TransactionProcessingStatus4Code
     
     /// <summary>
     /// Cancellation request from the counterparty is awaiting for your cancellation request or your consent.
-    /// Encoded/decoded by serializers as "CPRC".
+    /// Encoded/decoded by serializers as &quot;CPRC&quot;.
     /// </summary>
     [EnumMember(Value = "CPRC")]
     [IsoId("_j32XZO5NEeCisYr99QEiWA_1615433270")]
@@ -84,7 +84,7 @@ public enum TransactionProcessingStatus4Code
     
     /// <summary>
     /// Modification request from the counterparty is awaiting for your modification request or your consent.
-    /// Encoded/decoded by serializers as "MPRC".
+    /// Encoded/decoded by serializers as &quot;MPRC&quot;.
     /// </summary>
     [EnumMember(Value = "MPRC")]
     [IsoId("_j32XZe5NEeCisYr99QEiWA_1449930477")]

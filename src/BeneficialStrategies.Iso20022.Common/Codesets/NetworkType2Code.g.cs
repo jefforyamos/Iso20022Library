@@ -21,7 +21,7 @@ public enum NetworkType2Code
 {
     /// <summary>
     /// Sock5 proxy.
-    /// Encoded/decoded by serializers as "SCK5".
+    /// Encoded/decoded by serializers as &quot;SCK5&quot;.
     /// </summary>
     [EnumMember(Value = "SCK5")]
     [IsoId("_BAFFsY3-EeWRwov1g9WL_A")]
@@ -30,7 +30,7 @@ public enum NetworkType2Code
     
     /// <summary>
     /// Sock4 proxy.
-    /// Encoded/decoded by serializers as "SCK4".
+    /// Encoded/decoded by serializers as &quot;SCK4&quot;.
     /// </summary>
     [EnumMember(Value = "SCK4")]
     [IsoId("_BLtG4Y3-EeWRwov1g9WL_A")]
@@ -39,7 +39,7 @@ public enum NetworkType2Code
     
     /// <summary>
     /// HTTP proxy.
-    /// Encoded/decoded by serializers as "HTTP".
+    /// Encoded/decoded by serializers as &quot;HTTP&quot;.
     /// </summary>
     [EnumMember(Value = "HTTP")]
     [IsoId("_BYqk0Y3-EeWRwov1g9WL_A")]

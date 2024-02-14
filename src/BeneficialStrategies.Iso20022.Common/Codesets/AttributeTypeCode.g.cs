@@ -21,7 +21,7 @@ public enum AttributeTypeCode
 {
     /// <summary>
     /// Common name of the attribute (ASN.1 Object Identifier: id-at-commonName).
-    /// Encoded/decoded by serializers as "CNAT".
+    /// Encoded/decoded by serializers as &quot;CNAT&quot;.
     /// </summary>
     [EnumMember(Value = "CNAT")]
     [IsoId("_TVyU5wEcEeCQm6a_G2yO_w_1569239356")]
@@ -30,7 +30,7 @@ public enum AttributeTypeCode
     
     /// <summary>
     /// Locality of the attribute (ASN.1 Object Identifier: id-at-localityName).
-    /// Encoded/decoded by serializers as "LATT".
+    /// Encoded/decoded by serializers as &quot;LATT&quot;.
     /// </summary>
     [EnumMember(Value = "LATT")]
     [IsoId("_TVyU6AEcEeCQm6a_G2yO_w_672048478")]
@@ -39,7 +39,7 @@ public enum AttributeTypeCode
     
     /// <summary>
     /// Organization name of the attribute (ASN.1 Object Identifier: id-at-organizationName).
-    /// Encoded/decoded by serializers as "OATT".
+    /// Encoded/decoded by serializers as &quot;OATT&quot;.
     /// </summary>
     [EnumMember(Value = "OATT")]
     [IsoId("_TVyU6QEcEeCQm6a_G2yO_w_-706634465")]
@@ -48,7 +48,7 @@ public enum AttributeTypeCode
     
     /// <summary>
     /// Organization unit name of the attribute (ASN.1 Object Identifier: id-at-organizationalUnitName).
-    /// Encoded/decoded by serializers as "OUAT".
+    /// Encoded/decoded by serializers as &quot;OUAT&quot;.
     /// </summary>
     [EnumMember(Value = "OUAT")]
     [IsoId("_TVyU6gEcEeCQm6a_G2yO_w_1301568158")]
@@ -57,7 +57,7 @@ public enum AttributeTypeCode
     
     /// <summary>
     /// Country name of the attribute (ASN.1 Object Identifier: id-at-countryName).
-    /// Encoded/decoded by serializers as "CATT".
+    /// Encoded/decoded by serializers as &quot;CATT&quot;.
     /// </summary>
     [EnumMember(Value = "CATT")]
     [IsoId("_TVyU6wEcEeCQm6a_G2yO_w_-856607476")]
@@ -66,7 +66,7 @@ public enum AttributeTypeCode
     
     /// <summary>
     /// Email address of the certificate subject.
-    /// Encoded/decoded by serializers as "EMAL".
+    /// Encoded/decoded by serializers as &quot;EMAL&quot;.
     /// </summary>
     [EnumMember(Value = "EMAL")]
     [IsoId("_n4c38I4TEeW6h7rGyYlyTg")]
@@ -75,7 +75,7 @@ public enum AttributeTypeCode
     
     /// <summary>
     /// Password by which an entity may request certificate revocation.
-    /// Encoded/decoded by serializers as "CHLG".
+    /// Encoded/decoded by serializers as &quot;CHLG&quot;.
     /// </summary>
     [EnumMember(Value = "CHLG")]
     [IsoId("_q2GU0I4TEeW6h7rGyYlyTg")]

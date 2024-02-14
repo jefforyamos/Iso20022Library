@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of an intention to pay based on purchase orders or commercial invoice.
 /// </summary>
 [IsoId("_9-CfYRVaEeOCqpkCrPgk4g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intent To Pay")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record IntentToPay2
     /// Specifies if breakdown is by purchase order or commercial invoice.
     /// </summary>
     [IsoId("_Hn3ngBrZEeOVR9VN6fAMUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Breakdown")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Brkdwn")]
     #endif
+    [IsoXmlTag("Brkdwn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BreakDown1Choice_ Breakdown { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BreakDown1Choice_ Breakdown { get; init; } 
+    public required BreakDown1Choice_ Breakdown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BreakDown1Choice_ Breakdown { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record IntentToPay2
     /// Date at which the payment would be effected.
     /// </summary>
     [IsoId("_-X0RVxVaEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Payment Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpctdPmtDt")]
     #endif
+    [IsoXmlTag("XpctdPmtDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate ExpectedPaymentDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly ExpectedPaymentDate { get; init; } 
+    public required System.DateOnly ExpectedPaymentDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly ExpectedPaymentDate { get; init; } 
     #else
@@ -89,15 +86,14 @@ public partial record IntentToPay2
     #endif
     
     /// <summary>
-    /// Specifies the beneficiary's account information.
+    /// Specifies the beneficiary&apos;s account information.
     /// </summary>
     [IsoId("_-X0RWRVaEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmTerms")]
     #endif
+    [IsoXmlTag("SttlmTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementTerms3? SettlementTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

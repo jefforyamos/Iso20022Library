@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FATCASource1Choice.Code))]
     [KnownType(typeof(FATCASource1Choice.Proprietary))]
     [IsoId("_jR2x4QjUEeS5F6qHcKOrew")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("FATCA Source 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

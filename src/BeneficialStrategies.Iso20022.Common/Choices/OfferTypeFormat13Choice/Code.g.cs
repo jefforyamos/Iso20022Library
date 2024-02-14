@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OfferTypeFormat13Choice
     /// Standard code to specify the conditions that apply to the offer.
     /// </summary>
     [IsoId("_ptGn6Ti7Eeydid5dcNPKvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OfferTypeFormat13Choice
         /// Specifies the conditions that apply to the offer.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required OfferType4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public OfferType4Code Value { get; init; } 
+        public required OfferType4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public OfferType4Code Value { get; init; } 
         #else

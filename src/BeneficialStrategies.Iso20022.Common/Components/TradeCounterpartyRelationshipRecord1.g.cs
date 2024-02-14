@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the relationship record between two parties.
 /// </summary>
 [IsoId("_XVpN0CR7Ee2VuKUpJ7HXPg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Counterparty Relationship Record")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record TradeCounterpartyRelationshipRecord1
     /// Specifies type of counterparty at the start of a directional relationship.
     /// </summary>
     [IsoId("_iEevECR7Ee2VuKUpJ7HXPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start Relationship Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StartRltshPty")]
     #endif
+    [IsoXmlTag("StartRltshPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeCounterpartyType1Code StartRelationshipParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeCounterpartyType1Code StartRelationshipParty { get; init; } 
+    public required TradeCounterpartyType1Code StartRelationshipParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeCounterpartyType1Code StartRelationshipParty { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record TradeCounterpartyRelationshipRecord1
     /// Specifies type of counterparty at the end of a directional relationship.
     /// </summary>
     [IsoId("_ixzIECR7Ee2VuKUpJ7HXPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End Relationship Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EndRltshPty")]
     #endif
+    [IsoXmlTag("EndRltshPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeCounterpartyType1Code EndRelationshipParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeCounterpartyType1Code EndRelationshipParty { get; init; } 
+    public required TradeCounterpartyType1Code EndRelationshipParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeCounterpartyType1Code EndRelationshipParty { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record TradeCounterpartyRelationshipRecord1
     /// Usage: RelationshipType is always in the direction of the StartRelationshipParty to EndRelationshipParty.
     /// </summary>
     [IsoId("_jcbZcCR7Ee2VuKUpJ7HXPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Relationship Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltshTp")]
     #endif
+    [IsoXmlTag("RltshTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeCounterpartyRelationship1Choice_ RelationshipType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeCounterpartyRelationship1Choice_ RelationshipType { get; init; } 
+    public required TradeCounterpartyRelationship1Choice_ RelationshipType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeCounterpartyRelationship1Choice_ RelationshipType { get; init; } 
     #else
@@ -115,15 +110,13 @@ public partial record TradeCounterpartyRelationshipRecord1
     /// Usage: Description is to be used only when RelationshipType is not precisely indicating the type of relationship between parties to the transaction.
     /// </summary>
     [IsoId("_tdQlMCR7Ee2VuKUpJ7HXPg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max1000Text)]
     [StringLength(maximumLength: 1000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax1000Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

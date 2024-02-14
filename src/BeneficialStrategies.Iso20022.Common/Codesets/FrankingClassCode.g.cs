@@ -21,7 +21,7 @@ public enum FrankingClassCode
 {
     /// <summary>
     /// Franking information applies to ordinary cash dividend.
-    /// Encoded/decoded by serializers as "DVCA".
+    /// Encoded/decoded by serializers as &quot;DVCA&quot;.
     /// </summary>
     [EnumMember(Value = "DVCA")]
     [IsoId("_cSBE4FfuEeOuDtoQo1qilA")]
@@ -30,7 +30,7 @@ public enum FrankingClassCode
     
     /// <summary>
     /// Franking information applies to interest payment.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_hSMaMFfuEeOuDtoQo1qilA")]
@@ -39,7 +39,7 @@ public enum FrankingClassCode
     
     /// <summary>
     /// Franking information applies to NZD Declared dividend/distributions - supplementary dividend/distribution.
-    /// Encoded/decoded by serializers as "NZDD".
+    /// Encoded/decoded by serializers as &quot;NZDD&quot;.
     /// </summary>
     [EnumMember(Value = "NZDD")]
     [IsoId("_k5sFUFfuEeOuDtoQo1qilA")]
@@ -48,7 +48,7 @@ public enum FrankingClassCode
     
     /// <summary>
     /// Franking information applies to scrip dividend.
-    /// Encoded/decoded by serializers as "DVSC".
+    /// Encoded/decoded by serializers as &quot;DVSC&quot;.
     /// </summary>
     [EnumMember(Value = "DVSC")]
     [IsoId("_pFpIYFfuEeOuDtoQo1qilA")]
@@ -57,7 +57,7 @@ public enum FrankingClassCode
     
     /// <summary>
     /// Franking information applies to special dividend.
-    /// Encoded/decoded by serializers as "SPEC".
+    /// Encoded/decoded by serializers as &quot;SPEC&quot;.
     /// </summary>
     [EnumMember(Value = "SPEC")]
     [IsoId("_sgWUsFfuEeOuDtoQo1qilA")]

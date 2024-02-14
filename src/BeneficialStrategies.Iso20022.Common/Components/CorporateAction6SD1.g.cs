@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension for mergers.
 /// </summary>
 [IsoId("_yeONwFPNEeG1_c7AazzqRQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action 6 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record CorporateAction6SD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_9xiVEFPNEeG1_c7AazzqRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -66,12 +62,11 @@ public partial record CorporateAction6SD1
     /// Provides additional information about mergers.
     /// </summary>
     [IsoId("_Cmb7kFPbEeG1qPPaW9KJvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Merger Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgrDtls")]
     #endif
+    [IsoXmlTag("MrgrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MergerDetailsType1? MergerDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +82,11 @@ public partial record CorporateAction6SD1
     /// 公開買付のときのみ。（自己株買付のときは無し）.
     /// </summary>
     [IsoId("_Glt4hWzdEeGa9q9Mq4E7uA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target Company Agreement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrgtCpnyAgrmt")]
     #endif
+    [IsoXmlTag("TrgtCpnyAgrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TargetCompanyAgreementCode? TargetCompanyAgreement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -106,12 +100,11 @@ public partial record CorporateAction6SD1
     /// 発行新株式数.
     /// </summary>
     [IsoId("_KOn45WzdEeGa9q9Mq4E7uA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Number Of New Shares Issued")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlNbOfNewShrsIssd")]
     #endif
+    [IsoXmlTag("TtlNbOfNewShrsIssd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrumentQuantity15Choice_? TotalNumberOfNewSharesIssued { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

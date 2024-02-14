@@ -21,7 +21,7 @@ public enum AccountOwnerTypeCode
 {
     /// <summary>
     /// Owner of the property. The ownership can be split among several owners, and the primary owner is the one giving its address and account details for the registration.
-    /// Encoded/decoded by serializers as "POWN".
+    /// Encoded/decoded by serializers as &quot;POWN&quot;.
     /// </summary>
     [EnumMember(Value = "POWN")]
     [IsoId("_u0xSwY8mEeeBmcwCTnMfBg")]
@@ -30,7 +30,7 @@ public enum AccountOwnerTypeCode
     
     /// <summary>
     /// Legal owners of the property. However, the beneficiary has the equitable or beneficial ownership.
-    /// Encoded/decoded by serializers as "TRUS".
+    /// Encoded/decoded by serializers as &quot;TRUS&quot;.
     /// </summary>
     [EnumMember(Value = "TRUS")]
     [IsoId("_u_et8Y8mEeeBmcwCTnMfBg")]
@@ -39,7 +39,7 @@ public enum AccountOwnerTypeCode
     
     /// <summary>
     /// Entity that holds shares/units on behalf of a legal minor. Although the account is registered under the name of the minor, the custodian retains control of the account.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_up6GkY8mEeeBmcwCTnMfBg")]
@@ -48,7 +48,7 @@ public enum AccountOwnerTypeCode
     
     /// <summary>
     /// Entity named by the beneficial owner to act on its behalf, often to facilitate dealing, or to conceal the identity of the beneficiary.
-    /// Encoded/decoded by serializers as "NOMI".
+    /// Encoded/decoded by serializers as &quot;NOMI&quot;.
     /// </summary>
     [EnumMember(Value = "NOMI")]
     [IsoId("_uv29kY8mEeeBmcwCTnMfBg")]
@@ -57,7 +57,7 @@ public enum AccountOwnerTypeCode
     
     /// <summary>
     /// One of the owners of the property. The ownership can be split among several owners, and only the primary owner gives its address and account details for the registration.
-    /// Encoded/decoded by serializers as "SECO".
+    /// Encoded/decoded by serializers as &quot;SECO&quot;.
     /// </summary>
     [EnumMember(Value = "SECO")]
     [IsoId("_u6IT4Y8mEeeBmcwCTnMfBg")]

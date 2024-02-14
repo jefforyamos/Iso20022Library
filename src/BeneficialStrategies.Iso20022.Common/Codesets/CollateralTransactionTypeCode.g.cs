@@ -21,7 +21,7 @@ public enum CollateralTransactionTypeCode
 {
     /// <summary>
     /// Automatic/manual settlement adjustment to change the allocation mode from manual to automatic or vice  versa.
-    /// Encoded/decoded by serializers as "AADJ".
+    /// Encoded/decoded by serializers as &quot;AADJ&quot;.
     /// </summary>
     [EnumMember(Value = "AADJ")]
     [IsoId("_9-h0ALwdEeivTd4NUfCi2g")]
@@ -30,7 +30,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Change to collateral. Used  when collateral giver manually allocates the securities to the transaction.
-    /// Encoded/decoded by serializers as "CADJ".
+    /// Encoded/decoded by serializers as &quot;CADJ&quot;.
     /// </summary>
     [EnumMember(Value = "CADJ")]
     [IsoId("_Hj6Z4LweEeivTd4NUfCi2g")]
@@ -39,7 +39,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Change of the closing date.
-    /// Encoded/decoded by serializers as "CDTA".
+    /// Encoded/decoded by serializers as &quot;CDTA&quot;.
     /// </summary>
     [EnumMember(Value = "CDTA")]
     [IsoId("_jDmpMLweEeivTd4NUfCi2g")]
@@ -48,7 +48,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Change of other data.
-    /// Encoded/decoded by serializers as "DADJ".
+    /// Encoded/decoded by serializers as &quot;DADJ&quot;.
     /// </summary>
     [EnumMember(Value = "DADJ")]
     [IsoId("_b6ADoLyqEeivTd4NUfCi2g")]
@@ -57,7 +57,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Delivery by value (DBV) transaction. 
-    /// Encoded/decoded by serializers as "DBVT".
+    /// Encoded/decoded by serializers as &quot;DBVT&quot;.
     /// </summary>
     [EnumMember(Value = "DBVT")]
     [IsoId("_hUpHYLyqEeivTd4NUfCi2g")]
@@ -66,7 +66,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Creation of a Collateral Management Transaction.
-    /// Encoded/decoded by serializers as "INIT".
+    /// Encoded/decoded by serializers as &quot;INIT&quot;.
     /// </summary>
     [EnumMember(Value = "INIT")]
     [IsoId("_lhwoELyqEeivTd4NUfCi2g")]
@@ -75,7 +75,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Change to margin. 
-    /// Encoded/decoded by serializers as "MADJ".
+    /// Encoded/decoded by serializers as &quot;MADJ&quot;.
     /// </summary>
     [EnumMember(Value = "MADJ")]
     [IsoId("_oC_OsLyqEeivTd4NUfCi2g")]
@@ -84,7 +84,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Change of principal/exposure adjustment
-    /// Encoded/decoded by serializers as "PADJ".
+    /// Encoded/decoded by serializers as &quot;PADJ&quot;.
     /// </summary>
     [EnumMember(Value = "PADJ")]
     [IsoId("_5YQRYLyqEeivTd4NUfCi2g")]
@@ -93,7 +93,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Change of rate.
-    /// Encoded/decoded by serializers as "RATA".
+    /// Encoded/decoded by serializers as &quot;RATA&quot;.
     /// </summary>
     [EnumMember(Value = "RATA")]
     [IsoId("_BlfYkLyrEeivTd4NUfCi2g")]
@@ -102,7 +102,7 @@ public enum CollateralTransactionTypeCode
     
     /// <summary>
     /// Closing of the Collateral Management Transaction.
-    /// Encoded/decoded by serializers as "TERM".
+    /// Encoded/decoded by serializers as &quot;TERM&quot;.
     /// </summary>
     [EnumMember(Value = "TERM")]
     [IsoId("_GMeKwLyrEeivTd4NUfCi2g")]

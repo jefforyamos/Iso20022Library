@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the beneficial owner.
 /// </summary>
 [IsoId("_TUOu5tp-Ed-ak6NoX_4Aeg_768452995")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Beneficiary Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record BeneficiaryInformation1
     /// Identification of the beneficial owner.
     /// </summary>
     [IsoId("_TUOu59p-Ed-ak6NoX_4Aeg_1370588637")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfcryId")]
     #endif
+    [IsoXmlTag("BnfcryId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IndividualPerson15? BeneficiaryIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,16 +68,15 @@ public partial record BeneficiaryInformation1
     /// Eligibility to federal Employee Retirement Income Security Act.
     /// </summary>
     [IsoId("_TUOu6Np-Ed-ak6NoX_4Aeg_1168339431")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ERISA Eligibility")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ERISAElgblty")]
     #endif
+    [IsoXmlTag("ERISAElgblty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ERISAEligibility1Code ERISAEligibility { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ERISAEligibility1Code ERISAEligibility { get; init; } 
+    public required ERISAEligibility1Code ERISAEligibility { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ERISAEligibility1Code ERISAEligibility { get; init; } 
     #else
@@ -91,12 +87,12 @@ public partial record BeneficiaryInformation1
     /// Federal Employee Retirement Income Security Act (ERISA) rate.
     /// </summary>
     [IsoId("_TUOu6dp-Ed-ak6NoX_4Aeg_1168339462")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ERISA Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ERISARate")]
     #endif
+    [IsoXmlTag("ERISARate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? ERISARate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,16 +105,16 @@ public partial record BeneficiaryInformation1
     /// Indicates whether the investor is a benefit plan investor.
     /// </summary>
     [IsoId("_TUOu6tp-Ed-ak6NoX_4Aeg_1168339492")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Benefit Plan Declaration Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnftPlanDclrtnInd")]
     #endif
+    [IsoXmlTag("BnftPlanDclrtnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator BenefitPlanDeclarationIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BenefitPlanDeclarationIndicator { get; init; } 
+    public required System.String BenefitPlanDeclarationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BenefitPlanDeclarationIndicator { get; init; } 
     #else
@@ -126,19 +122,19 @@ public partial record BeneficiaryInformation1
     #endif
     
     /// <summary>
-    /// Indicates that there has been no change to the beneficiary's details, such as domicile, investor status, etc, as represented in the initial subscription document.
+    /// Indicates that there has been no change to the beneficiary&apos;s details, such as domicile, investor status, etc, as represented in the initial subscription document.
     /// </summary>
     [IsoId("_TUX40Np-Ed-ak6NoX_4Aeg_1168339523")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Change To Beneficiary Details Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NoChngToBnfcryDtlsInd")]
     #endif
+    [IsoXmlTag("NoChngToBnfcryDtlsInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator NoChangeToBeneficiaryDetailsIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String NoChangeToBeneficiaryDetailsIndicator { get; init; } 
+    public required System.String NoChangeToBeneficiaryDetailsIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String NoChangeToBeneficiaryDetailsIndicator { get; init; } 
     #else

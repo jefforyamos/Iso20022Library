@@ -21,7 +21,7 @@ public enum DataSetCategory10Code
 {
     /// <summary>
     /// Acquirer specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "AQPR".
+    /// Encoded/decoded by serializers as &quot;AQPR&quot;.
     /// </summary>
     [EnumMember(Value = "AQPR")]
     [IsoId("_UpxbYY35EeWRwov1g9WL_A")]
@@ -30,7 +30,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// Payment application specific configuration parameters for the point of interaction (POI) system.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_UpxbY435EeWRwov1g9WL_A")]
@@ -39,7 +39,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// The terminal manager is the master.
-    /// Encoded/decoded by serializers as "MTMG".
+    /// Encoded/decoded by serializers as &quot;MTMG&quot;.
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_UpxbZY35EeWRwov1g9WL_A")]
@@ -48,7 +48,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// Merchant configuration parameters for the point of interaction (POI).
-    /// Encoded/decoded by serializers as "MRPR".
+    /// Encoded/decoded by serializers as &quot;MRPR&quot;.
     /// </summary>
     [EnumMember(Value = "MRPR")]
     [IsoId("_UpxbZ435EeWRwov1g9WL_A")]
@@ -57,7 +57,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// Monitoring of the terminal estate.
-    /// Encoded/decoded by serializers as "MTOR".
+    /// Encoded/decoded by serializers as &quot;MTOR&quot;.
     /// </summary>
     [EnumMember(Value = "MTOR")]
     [IsoId("_UpxbaY35EeWRwov1g9WL_A")]
@@ -66,7 +66,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
-    /// Encoded/decoded by serializers as "SCPR".
+    /// Encoded/decoded by serializers as &quot;SCPR&quot;.
     /// </summary>
     [EnumMember(Value = "SCPR")]
     [IsoId("_Upxba435EeWRwov1g9WL_A")]
@@ -75,7 +75,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// Software module.
-    /// Encoded/decoded by serializers as "SWPK".
+    /// Encoded/decoded by serializers as &quot;SWPK&quot;.
     /// </summary>
     [EnumMember(Value = "SWPK")]
     [IsoId("_UpxbbY35EeWRwov1g9WL_A")]
@@ -84,7 +84,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// Point of interaction parameters attached to the terminal as serial number or physical capabilities.
-    /// Encoded/decoded by serializers as "TRPR".
+    /// Encoded/decoded by serializers as &quot;TRPR&quot;.
     /// </summary>
     [EnumMember(Value = "TRPR")]
     [IsoId("_Upxbb435EeWRwov1g9WL_A")]
@@ -93,7 +93,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// Certificate provided by a terminal manager.
-    /// Encoded/decoded by serializers as "CRTF".
+    /// Encoded/decoded by serializers as &quot;CRTF&quot;.
     /// </summary>
     [EnumMember(Value = "CRTF")]
     [IsoId("_YHlmEY35EeWRwov1g9WL_A")]
@@ -102,7 +102,7 @@ public enum DataSetCategory10Code
     
     /// <summary>
     /// Configuration parameters for the TMS protocol.
-    /// Encoded/decoded by serializers as "TMSP".
+    /// Encoded/decoded by serializers as &quot;TMSP&quot;.
     /// </summary>
     [EnumMember(Value = "TMSP")]
     [IsoId("_Yhq6AY35EeWRwov1g9WL_A")]

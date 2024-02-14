@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides additional information about the delivery details, beneficial owner details, etc.
 /// </summary>
 [IsoId("_UMZtCNp-Ed-ak6NoX_4Aeg_302800554")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Additional Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CorporateActionAdditionalInformation1
     /// Provides information about the beneficial owner of the securities.
     /// </summary>
     [IsoId("_UMjeANp-Ed-ak6NoX_4Aeg_-2045712044")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficial Owner Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BnfclOwnrDtls")]
     #endif
+    [IsoXmlTag("BnfclOwnrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficialOwner1? BeneficialOwnerDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +59,13 @@ public partial record CorporateActionAdditionalInformation1
     /// Provides information required for the registration.
     /// </summary>
     [IsoId("_UMjeAdp-Ed-ak6NoX_4Aeg_-1779080684")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnDtls")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RegnDtls")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? RegistrationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,12 +78,11 @@ public partial record CorporateActionAdditionalInformation1
     /// Identification of the receiver of outturned resources (cash/securities) in case the resources need to be delivered outside the CSD.
     /// </summary>
     [IsoId("_UMjeAtp-Ed-ak6NoX_4Aeg_-1632874072")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Receiver Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcvrId")]
     #endif
+    [IsoXmlTag("RcvrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification2Choice_? ReceiverIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -101,12 +95,12 @@ public partial record CorporateActionAdditionalInformation1
     /// Whether or not certification is required from the account owner. |Y: certification required |N: no certification required.
     /// </summary>
     [IsoId("_UMjeA9p-Ed-ak6NoX_4Aeg_-1477351985")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnInd")]
     #endif
+    [IsoXmlTag("CertfctnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -119,12 +113,11 @@ public partial record CorporateActionAdditionalInformation1
     /// Type of certification which is required.
     /// </summary>
     [IsoId("_UMjeBNp-Ed-ak6NoX_4Aeg_-1477351955")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnTp")]
     #endif
+    [IsoXmlTag("CertfctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,12 +130,11 @@ public partial record CorporateActionAdditionalInformation1
     /// Provides information about the delivery details of proceeds.
     /// </summary>
     [IsoId("_UMjeBdp-Ed-ak6NoX_4Aeg_138497699")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryDtls")]
     #endif
+    [IsoXmlTag("DlvryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProceedsDelivery1? DeliveryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -155,15 +147,13 @@ public partial record CorporateActionAdditionalInformation1
     /// Provides additional details pertaining to the corporate action instruction.
     /// </summary>
     [IsoId("_UMjeBtp-Ed-ak6NoX_4Aeg_1410048508")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInstr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInstr")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? AdditionalInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

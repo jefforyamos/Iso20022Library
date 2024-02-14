@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contents of an UndertakingAmendmentResponse message.
 /// </summary>
 [IsoId("_98n283ltEeG7BsjMvd1mEw_1014525589")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amendment Response Message")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record UndertakingAmendmentResponseMessage1
     /// Details of the proposed amendment response.
     /// </summary>
     [IsoId("_98xA4XltEeG7BsjMvd1mEw_-1912411864")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Response Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntRspnDtls")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntRspnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
+    public required Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record UndertakingAmendmentResponseMessage1
     /// Digital signature of the response.
     /// </summary>
     [IsoId("_ASLHQ387EeGx884K2iQOLg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Financial instrument that gives the holder the right to purchase shares or bonds at a given price within a specified time.
 /// </summary>
 [IsoId("_rfndQWf2Eembv_9KtOEw8g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Warrant")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record Warrant4
     /// Specifies the ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
     [IsoId("_rsuFIWf2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Multiplier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mltplr")]
     #endif
+    [IsoXmlTag("Mltplr")]
+    [IsoSimpleType(IsoSimpleType.BaseOneRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoBaseOneRate? Multiplier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record Warrant4
     /// Pre-determined price at which the holder of a warrant is entitled to buy the underlying instrument.
     /// </summary>
     [IsoId("_rsuFI2f2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptPric")]
     #endif
+    [IsoXmlTag("SbcptPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price8? SubscriptionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record Warrant4
     /// Indicates when a warrant can be exercised.
     /// </summary>
     [IsoId("_rsuFJWf2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public WarrantStyle3Choice_? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record Warrant4
     /// Entity appointed by the issuer to process the exercising of warrants, sometimes responsible for the issuance of the warrants into the market.
     /// </summary>
     [IsoId("_rsuFJ2f2Eembv_9KtOEw8g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Warrant Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WarrtAgt")]
     #endif
+    [IsoXmlTag("WarrtAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Organisation38? WarrantAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

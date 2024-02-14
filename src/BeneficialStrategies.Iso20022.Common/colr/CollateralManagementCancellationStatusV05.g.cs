@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope|The CollateralManagementCancellationStatus message is sent by:|- the collateral taker or its collateral manager to the collateral giver or its collateral manager, or|- the collateral giver or its collateral manager to the collateral taker or its collateral manager.|This message is used to provide the status of accepted or rejected for the CollateralManagementCancellationRequest message previously received.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CollateralManagementCancellationStatus message can be sent to provide a status for a previously received CollateralManagementCancellationRequest message.")]
 [IsoId("_J4YkRygrEeyB747fKu7_rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Management Cancellation Status V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -87,19 +85,17 @@ public partial record CollateralManagementCancellationStatusV05 : IOuterRecord<C
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
     [IsoId("_J4YkTSgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -110,16 +106,15 @@ public partial record CollateralManagementCancellationStatusV05 : IOuterRecord<C
     /// Provides reference to the previous received message.
     /// </summary>
     [IsoId("_J4YkTygrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
+    [IsoXmlTag("Ref")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Reference16 Reference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Reference16 Reference { get; init; } 
+    public required Reference16 Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Reference16 Reference { get; init; } 
     #else
@@ -130,16 +125,15 @@ public partial record CollateralManagementCancellationStatusV05 : IOuterRecord<C
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
     /// </summary>
     [IsoId("_J4YkUSgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgtn")]
     #endif
+    [IsoXmlTag("Oblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Obligation9 Obligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Obligation9 Obligation { get; init; } 
+    public required Obligation9 Obligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Obligation9 Obligation { get; init; } 
     #else
@@ -150,16 +144,15 @@ public partial record CollateralManagementCancellationStatusV05 : IOuterRecord<C
     /// Provides status details of the collateral cancellation message.
     /// </summary>
     [IsoId("_J4YkUygrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlSts")]
     #endif
+    [IsoXmlTag("CxlSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralCancellationStatus2 CancellationStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralCancellationStatus2 CancellationStatus { get; init; } 
+    public required CollateralCancellationStatus2 CancellationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralCancellationStatus2 CancellationStatus { get; init; } 
     #else
@@ -170,12 +163,11 @@ public partial record CollateralManagementCancellationStatusV05 : IOuterRecord<C
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_J4YkVSgrEeyB747fKu7_rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,7 +180,7 @@ public partial record CollateralManagementCancellationStatusV05 : IOuterRecord<C
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CollateralManagementCancellationStatusV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CollateralManagementCancellationStatusV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CollateralManagementCancellationStatusV05Document ToDocument()
     {
@@ -198,7 +190,7 @@ public partial record CollateralManagementCancellationStatusV05 : IOuterRecord<C
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralManagementCancellationStatusV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CollateralManagementCancellationStatusV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CollateralManagementCancellationStatusV05Document : IOuterDocument<CollateralManagementCancellationStatusV05>
@@ -215,7 +207,7 @@ public partial record CollateralManagementCancellationStatusV05Document : IOuter
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CollateralManagementCancellationStatusV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CollateralManagementCancellationStatusV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralManagementCancellationStatusV05 Message { get; init; }

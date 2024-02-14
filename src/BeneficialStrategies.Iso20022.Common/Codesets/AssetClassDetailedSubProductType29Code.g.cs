@@ -21,7 +21,7 @@ public enum AssetClassDetailedSubProductType29Code
 {
     /// <summary>
     /// Commodity attribute of type lampante.
-    /// Encoded/decoded by serializers as "LAMP".
+    /// Encoded/decoded by serializers as &quot;LAMP&quot;.
     /// </summary>
     [EnumMember(Value = "LAMP")]
     [IsoId("_9fHl4bv2EeiLRYqS-r-R-A")]
@@ -30,7 +30,7 @@ public enum AssetClassDetailedSubProductType29Code
     
     /// <summary>
     /// Commodity attribute of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("__qqQYbv2EeiLRYqS-r-R-A")]

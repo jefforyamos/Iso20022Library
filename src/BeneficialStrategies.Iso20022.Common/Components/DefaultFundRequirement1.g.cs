@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Requirement for a clearing member to post collateral at a central counterparty with respect to a default fund.
 /// </summary>
 [IsoId("_UvqKAKp3EeamNLogr5TkIQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Default Fund Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record DefaultFundRequirement1
     /// Identification of the clearing member.
     /// </summary>
     [IsoId("_KvDyUKp4EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Member Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrMmbId")]
     #endif
+    [IsoXmlTag("ClrMmbId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 ClearingMemberIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification165 ClearingMemberIdentification { get; init; } 
+    public required GenericIdentification165 ClearingMemberIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification165 ClearingMemberIdentification { get; init; } 
     #else
@@ -69,18 +66,16 @@ public partial record DefaultFundRequirement1
     #endif
     
     /// <summary>
-    /// Central counterparty's identification of the service where default fund contributions are made at the service level.
+    /// Central counterparty&apos;s identification of the service where default fund contributions are made at the service level.
     /// </summary>
     [IsoId("_T0Xt0cBtEeak3I7j2hsibw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SvcId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? ServiceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,19 +85,19 @@ public partial record DefaultFundRequirement1
     #endif
     
     /// <summary>
-    /// Clearing member's pre-funded default fund requirement for the default fund at the central counterparty.
+    /// Clearing member&apos;s pre-funded default fund requirement for the default fund at the central counterparty.
     /// </summary>
     [IsoId("_T0Xt0sBtEeak3I7j2hsibw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else

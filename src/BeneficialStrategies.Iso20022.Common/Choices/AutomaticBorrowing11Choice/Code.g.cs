@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AutomaticBorrowing11Choice
     /// Condition for automatic borrowing expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_6GVvTZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AutomaticBorrowing11Choice
         /// Specifies the condition under which automatic borrowing is allowed.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AutoBorrowing2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AutoBorrowing2Code Value { get; init; } 
+        public required AutoBorrowing2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AutoBorrowing2Code Value { get; init; } 
         #else

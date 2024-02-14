@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Defined variation amount and balance.
 /// </summary>
 [IsoId("_945Ng3ltEeG7BsjMvd1mEw_1350790559")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record UndertakingAmount4
     /// Variation amount and currency.
     /// </summary>
     [IsoId("_945NhHltEeG7BsjMvd1mEw_1236951493")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnAmt")]
     #endif
+    [IsoXmlTag("VartnAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount VariationAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal VariationAmount { get; init; } 
+    public required System.Decimal VariationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal VariationAmount { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record UndertakingAmount4
     /// Calculated undertaking available balance amount resulting from the application of the variation amount.
     /// </summary>
     [IsoId("_95C-gHltEeG7BsjMvd1mEw_1336485232")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalAmt")]
     #endif
+    [IsoXmlTag("BalAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? BalanceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

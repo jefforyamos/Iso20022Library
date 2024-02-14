@@ -21,7 +21,7 @@ public enum Algorithm14Code
 {
     /// <summary>
     /// Signature algorithms with RSA, using SHA-256 digest algorithm - (ASN.1 Object Identifier: sha256WithRSAEncryption).
-    /// Encoded/decoded by serializers as "ERS2".
+    /// Encoded/decoded by serializers as &quot;ERS2&quot;.
     /// </summary>
     [EnumMember(Value = "ERS2")]
     [IsoId("_i_XcAWjBEeSP8Z8nx8HTuQ")]
@@ -30,7 +30,7 @@ public enum Algorithm14Code
     
     /// <summary>
     /// The DEPRECATED Signature algorithms with RSA (PKCS #1 version 2.1), using SHA-1 digest algorithm - (ASN.1 Object Identifier: sha1WithRSAEncryption).
-    /// Encoded/decoded by serializers as "ERS1".
+    /// Encoded/decoded by serializers as &quot;ERS1&quot;.
     /// </summary>
     [EnumMember(Value = "ERS1")]
     [IsoId("_x0rDYWjBEeSP8Z8nx8HTuQ")]
@@ -39,7 +39,7 @@ public enum Algorithm14Code
     
     /// <summary>
     /// Signature algorithm with Appendix, Probabilistic Signature Scheme (PKCS #1 version 2.1), - (ASN.1 Object Identifier: id-RSASSA-PSS).
-    /// Encoded/decoded by serializers as "RPSS".
+    /// Encoded/decoded by serializers as &quot;RPSS&quot;.
     /// </summary>
     [EnumMember(Value = "RPSS")]
     [IsoId("_2ytDoWjBEeSP8Z8nx8HTuQ")]

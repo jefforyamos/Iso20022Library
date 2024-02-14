@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus1Choice
     /// Status applying to the instruction cancellation request received. The instruction cancellation is identified by the InstructionCancellationIdentification.
     /// </summary>
     [IsoId("_RCfVwdp-Ed-ak6NoX_4Aeg_545780069")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

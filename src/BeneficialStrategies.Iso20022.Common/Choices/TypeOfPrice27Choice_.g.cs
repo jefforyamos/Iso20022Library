@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TypeOfPrice27Choice.Code))]
     [KnownType(typeof(TypeOfPrice27Choice.Proprietary))]
     [IsoId("_nAFOc_NBEeCuA5Tr22BnwA_1435844003")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type Of Price 27 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

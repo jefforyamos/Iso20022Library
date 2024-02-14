@@ -21,7 +21,7 @@ public enum VoteInstruction2Code
 {
     /// <summary>
     /// Vote in favour of a meeting resolution.
-    /// Encoded/decoded by serializers as "CFOR".
+    /// Encoded/decoded by serializers as &quot;CFOR&quot;.
     /// </summary>
     [EnumMember(Value = "CFOR")]
     [IsoId("_Y9IRFNp-Ed-ak6NoX_4Aeg_410553327")]
@@ -30,7 +30,7 @@ public enum VoteInstruction2Code
     
     /// <summary>
     /// Vote against a meeting resolution.
-    /// Encoded/decoded by serializers as "CAGS".
+    /// Encoded/decoded by serializers as &quot;CAGS&quot;.
     /// </summary>
     [EnumMember(Value = "CAGS")]
     [IsoId("_Y9IRFdp-Ed-ak6NoX_4Aeg_410553405")]
@@ -39,7 +39,7 @@ public enum VoteInstruction2Code
     
     /// <summary>
     /// Active vote expressed as abstain (no opinion).
-    /// Encoded/decoded by serializers as "ABST".
+    /// Encoded/decoded by serializers as &quot;ABST&quot;.
     /// </summary>
     [EnumMember(Value = "ABST")]
     [IsoId("_Y9IRFtp-Ed-ak6NoX_4Aeg_410553440")]
@@ -48,7 +48,7 @@ public enum VoteInstruction2Code
     
     /// <summary>
     /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
-    /// Encoded/decoded by serializers as "WTHH".
+    /// Encoded/decoded by serializers as &quot;WTHH&quot;.
     /// </summary>
     [EnumMember(Value = "WTHH")]
     [IsoId("_Y9IRF9p-Ed-ak6NoX_4Aeg_410553465")]
@@ -57,7 +57,7 @@ public enum VoteInstruction2Code
     
     /// <summary>
     /// Vote instruction is in line with the voting recommendations of the management.
-    /// Encoded/decoded by serializers as "WMGT".
+    /// Encoded/decoded by serializers as &quot;WMGT&quot;.
     /// </summary>
     [EnumMember(Value = "WMGT")]
     [IsoId("_Y9IRGNp-Ed-ak6NoX_4Aeg_410553500")]
@@ -66,7 +66,7 @@ public enum VoteInstruction2Code
     
     /// <summary>
     /// Vote instruction is in against the voting recommendations of the management.
-    /// Encoded/decoded by serializers as "AMGT".
+    /// Encoded/decoded by serializers as &quot;AMGT&quot;.
     /// </summary>
     [EnumMember(Value = "AMGT")]
     [IsoId("_Y9IRGdp-Ed-ak6NoX_4Aeg_410553777")]
@@ -75,7 +75,7 @@ public enum VoteInstruction2Code
     
     /// <summary>
     /// Indicates a recommendation to take no action.
-    /// Encoded/decoded by serializers as "NOAC".
+    /// Encoded/decoded by serializers as &quot;NOAC&quot;.
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_Y9SCENp-Ed-ak6NoX_4Aeg_779135354")]
@@ -84,7 +84,7 @@ public enum VoteInstruction2Code
     
     /// <summary>
     /// Voting party is assigned discretionary right to vote for one resolution.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_Y9SCEdp-Ed-ak6NoX_4Aeg_1003228809")]

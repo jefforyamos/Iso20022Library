@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationStatus5Choice
     /// Data to be reconciled.
     /// </summary>
     [IsoId("_C1J2g__oEemm3skPVSMJQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

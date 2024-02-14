@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the detailed information as provided by a payment tracking system.
 /// </summary>
 [IsoId("_kOqpAIW2EeiDBOVr6AJAFA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record TrackerData1
     /// This date can be the point in time when an agent provides a pending status update to the tracking system or when the creditor has been credited and can use the amount of money (as confirmed to the tracking system by the creditor agent).
     /// </summary>
     [IsoId("_n9zF0IW5EeiDBOVr6AJAFA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmed Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfdDt")]
     #endif
+    [IsoXmlTag("ConfdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
+    public required DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     #else
@@ -74,16 +71,16 @@ public partial record TrackerData1
     /// Amount of money confirmed to the tracking system by the agent.
     /// </summary>
     [IsoId("_se8VwIW5EeiDBOVr6AJAFA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confirmed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ConfdAmt")]
     #endif
+    [IsoXmlTag("ConfdAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ConfirmedAmount { get; init; } 
+    public required System.Decimal ConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ConfirmedAmount { get; init; } 
     #else
@@ -94,12 +91,11 @@ public partial record TrackerData1
     /// Provides tracker transaction information for a specific agent involved in the transaction chain. 
     /// </summary>
     [IsoId("_x5xmwIW5EeiDBOVr6AJAFA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Record")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckrRcrd")]
     #endif
+    [IsoXmlTag("TrckrRcrd")]
     public TrackerRecord1? TrackerRecord { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _x5xmwIW5EeiDBOVr6AJAFA
     

@@ -37,9 +37,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The PaymentCancellationRequest message is sent by the initiating party or any agent, to the next party in the payment chain. It is used to request the cancellation of an instruction previously sent.|Usage|The PaymentCancellationRequest message is exchanged between non-financial institution customers and agents to request the cancellation of a payment initiation message previously sent (i.e. the CustomerCreditTransferInitiation message and the CustomerDirectDebitInitiation messages).|The PaymentCancellationRequest message can be used to request the cancellation of single instructions or multiple instructions, from one or multiple files.|The PaymentCancellationRequest message can be used in domestic and cross-border scenarios.|The PaymentCancellationRequest message refers to the original instruction(s) by means of references only or by means of references and a set of elements from the original instruction.|The PaymentCancellationRequest message exchanged between non-financial institution customers and agents is identified in the schema as follows: urn:iso:std:iso:20022:tech:xsd:pain.006.001.01.")]
 [IsoId("_GZHVINEvEd-BzquC8wXy7w_162316323")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord<PaymentCancel
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_GZQfENEvEd-BzquC8wXy7w_162316362")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader7 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader7 GroupHeader { get; init; } 
+    public required GroupHeader7 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader7 GroupHeader { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord<PaymentCancel
     /// Information concerning the original group of transactions, to which the message refers.
     /// </summary>
     [IsoId("_GZQfEdEvEd-BzquC8wXy7w_162316385")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInf")]
     #endif
+    [IsoXmlTag("OrgnlGrpInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalGroupInformation4 OriginalGroupInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalGroupInformation4 OriginalGroupInformation { get; init; } 
+    public required OriginalGroupInformation4 OriginalGroupInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalGroupInformation4 OriginalGroupInformation { get; init; } 
     #else
@@ -123,12 +119,11 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord<PaymentCancel
     /// Information concerning the original transactions, to which the cancellation request message refers.
     /// </summary>
     [IsoId("_GZQfEtEvEd-BzquC8wXy7w_162316416")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInf")]
     #endif
+    [IsoXmlTag("TxInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransactionInformation3? TransactionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,7 +136,7 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord<PaymentCancel
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PaymentCancellationRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PaymentCancellationRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PaymentCancellationRequestV01Document ToDocument()
     {
@@ -151,7 +146,7 @@ public partial record PaymentCancellationRequestV01 : IOuterRecord<PaymentCancel
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PaymentCancellationRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PaymentCancellationRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PaymentCancellationRequestV01Document : IOuterDocument<PaymentCancellationRequestV01>
@@ -168,7 +163,7 @@ public partial record PaymentCancellationRequestV01Document : IOuterDocument<Pay
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PaymentCancellationRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PaymentCancellationRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCancellationRequestV01 Message { get; init; }

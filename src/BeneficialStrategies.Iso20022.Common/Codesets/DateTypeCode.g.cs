@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
-/// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
+/// Ongoing basis, which indicates that the date is determined by &quot;ongoing basis&quot; process, for example &quot;au fil de l&apos;eau&quot;.
 /// </summary>
 [DataContract]
 [Serializable]
@@ -21,7 +21,7 @@ public enum DateTypeCode
 {
     /// <summary>
     /// Open-dated, which indicates that the date has not been established.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_aytSoNp-Ed-ak6NoX_4Aeg_-1994292043")]
@@ -30,7 +30,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Date is unknown by the sender or has not been established.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_aytSodp-Ed-ak6NoX_4Aeg_-1981362264")]
@@ -38,8 +38,8 @@ public enum DateTypeCode
     Unknown,
     
     /// <summary>
-    /// Ongoing basis, which indicates that the date is determined by "ongoing basis" process, for example "au fil de l'eau".
-    /// Encoded/decoded by serializers as "ONGO".
+    /// Ongoing basis, which indicates that the date is determined by &quot;ongoing basis&quot; process, for example &quot;au fil de l&apos;eau&quot;.
+    /// Encoded/decoded by serializers as &quot;ONGO&quot;.
     /// </summary>
     [EnumMember(Value = "ONGO")]
     [IsoId("_aytSotp-Ed-ak6NoX_4Aeg_-1968434749")]
@@ -48,7 +48,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Partial trades have occurred over a period of two or more days.
-    /// Encoded/decoded by serializers as "VARI".
+    /// Encoded/decoded by serializers as &quot;VARI&quot;.
     /// </summary>
     [EnumMember(Value = "VARI")]
     [IsoId("_aytSo9p-Ed-ak6NoX_4Aeg_1555566246")]
@@ -57,7 +57,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Blocking occurs until and inclusive of the end of the election period of the option.
-    /// Encoded/decoded by serializers as "PWAL".
+    /// Encoded/decoded by serializers as &quot;PWAL&quot;.
     /// </summary>
     [EnumMember(Value = "PWAL")]
     [IsoId("_JXKel-4EEeqc-LCjwLsUVg")]
@@ -66,7 +66,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Blocking occurs until and inclusive of the market deadline of the option.
-    /// Encoded/decoded by serializers as "MKDT".
+    /// Encoded/decoded by serializers as &quot;MKDT&quot;.
     /// </summary>
     [EnumMember(Value = "MKDT")]
     [IsoId("_JXKemO4EEeqc-LCjwLsUVg")]
@@ -75,7 +75,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Blocking occurs until and inclusive of the meeting date.
-    /// Encoded/decoded by serializers as "MEET".
+    /// Encoded/decoded by serializers as &quot;MEET&quot;.
     /// </summary>
     [EnumMember(Value = "MEET")]
     [IsoId("_JXKeme4EEeqc-LCjwLsUVg")]
@@ -84,7 +84,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Unblocking will occur on payment date of the option.
-    /// Encoded/decoded by serializers as "PAYD".
+    /// Encoded/decoded by serializers as &quot;PAYD&quot;.
     /// </summary>
     [EnumMember(Value = "PAYD")]
     [IsoId("_JXKemu4EEeqc-LCjwLsUVg")]
@@ -93,7 +93,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Blocking occurs until and inclusive of the record date of the event.
-    /// Encoded/decoded by serializers as "RDTE".
+    /// Encoded/decoded by serializers as &quot;RDTE&quot;.
     /// </summary>
     [EnumMember(Value = "RDTE")]
     [IsoId("_JXKem-4EEeqc-LCjwLsUVg")]
@@ -102,7 +102,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Blocking occurs until and inclusive of the account servicer deadline for the option.
-    /// Encoded/decoded by serializers as "RDDT".
+    /// Encoded/decoded by serializers as &quot;RDDT&quot;.
     /// </summary>
     [EnumMember(Value = "RDDT")]
     [IsoId("_JXKenO4EEeqc-LCjwLsUVg")]
@@ -111,7 +111,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Refer to additional information element for the date until when the securities are blocked.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_JXKene4EEeqc-LCjwLsUVg")]
@@ -120,7 +120,7 @@ public enum DateTypeCode
     
     /// <summary>
     /// Unblocking will occur on payment date of the premium.
-    /// Encoded/decoded by serializers as "PPYD".
+    /// Encoded/decoded by serializers as &quot;PPYD&quot;.
     /// </summary>
     [EnumMember(Value = "PPYD")]
     [IsoId("_ctHnEDUJEe2tRf29bleifQ")]

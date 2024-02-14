@@ -21,7 +21,7 @@ public enum TransactionAttribute1Code
 {
     /// <summary>
     /// Payment is an aggregation one.
-    /// Encoded/decoded by serializers as "AGGR".
+    /// Encoded/decoded by serializers as &quot;AGGR&quot;.
     /// </summary>
     [EnumMember(Value = "AGGR")]
     [IsoId("_9DuUcRYgEeiXa46FI4OtcQ")]
@@ -30,7 +30,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Withdrawal is a cardless cash disbursement one.
-    /// Encoded/decoded by serializers as "CADB".
+    /// Encoded/decoded by serializers as &quot;CADB&quot;.
     /// </summary>
     [EnumMember(Value = "CADB")]
     [IsoId("_9PCMkhYgEeiXa46FI4OtcQ")]
@@ -39,7 +39,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Payment is a debt repayment one.
-    /// Encoded/decoded by serializers as "DBRP".
+    /// Encoded/decoded by serializers as &quot;DBRP&quot;.
     /// </summary>
     [EnumMember(Value = "DBRP")]
     [IsoId("_9aoYkhYgEeiXa46FI4OtcQ")]
@@ -48,7 +48,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Payment is a deferred one.
-    /// Encoded/decoded by serializers as "DFRD".
+    /// Encoded/decoded by serializers as &quot;DFRD&quot;.
     /// </summary>
     [EnumMember(Value = "DFRD")]
     [IsoId("_9kmz8hYgEeiXa46FI4OtcQ")]
@@ -57,7 +57,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Payment is an instalment one.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_9ySqohYgEeiXa46FI4OtcQ")]
@@ -66,7 +66,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Attribute defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_99vsshYgEeiXa46FI4OtcQ")]
@@ -75,7 +75,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Attribute defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_-Ojv4hYgEeiXa46FI4OtcQ")]
@@ -84,7 +84,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// An occurrence of a recurring payment..
-    /// Encoded/decoded by serializers as "RCPT".
+    /// Encoded/decoded by serializers as &quot;RCPT&quot;.
     /// </summary>
     [EnumMember(Value = "RCPT")]
     [IsoId("_-du0UhYgEeiXa46FI4OtcQ")]
@@ -93,7 +93,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Service to replenish value in an account (for example, mobile account, prepaid account, etc.).
-    /// Encoded/decoded by serializers as "TPUP".
+    /// Encoded/decoded by serializers as &quot;TPUP&quot;.
     /// </summary>
     [EnumMember(Value = "TPUP")]
     [IsoId("_kgXn4UJpEeiO-KV5ZjnZnQ")]
@@ -102,7 +102,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Payment in advance of receiving goods or services.
-    /// Encoded/decoded by serializers as "PPYT".
+    /// Encoded/decoded by serializers as &quot;PPYT&quot;.
     /// </summary>
     [EnumMember(Value = "PPYT")]
     [IsoId("_kVqacUJuEeiO-KV5ZjnZnQ")]
@@ -111,7 +111,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// To authorise additional amounts for a previously authorised transaction.
-    /// Encoded/decoded by serializers as "INCR".
+    /// Encoded/decoded by serializers as &quot;INCR&quot;.
     /// </summary>
     [EnumMember(Value = "INCR")]
     [IsoId("_r1TngUNNEeiut6dbx3wnBg")]
@@ -120,7 +120,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Preauthorisation for an amount which is unknown at the time when the transaction is initiated and to be cleared within a specified timeframe.
-    /// Encoded/decoded by serializers as "PAUT".
+    /// Encoded/decoded by serializers as &quot;PAUT&quot;.
     /// </summary>
     [EnumMember(Value = "PAUT")]
     [IsoId("_sAduoUNNEeiut6dbx3wnBg")]
@@ -129,7 +129,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Financial completion of a pre-authorised transaction within a specified timeframe.
-    /// Encoded/decoded by serializers as "PACP".
+    /// Encoded/decoded by serializers as &quot;PACP&quot;.
     /// </summary>
     [EnumMember(Value = "PACP")]
     [IsoId("_sMNroUNNEeiut6dbx3wnBg")]
@@ -138,7 +138,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Subsequent occurrence of a recurring payment.
-    /// Encoded/decoded by serializers as "SUBR".
+    /// Encoded/decoded by serializers as &quot;SUBR&quot;.
     /// </summary>
     [EnumMember(Value = "SUBR")]
     [IsoId("_YJdO4dFeEeiOQebAIFZZCQ")]
@@ -147,7 +147,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// First occurence of a recurring payment.
-    /// Encoded/decoded by serializers as "FRCP".
+    /// Encoded/decoded by serializers as &quot;FRCP&quot;.
     /// </summary>
     [EnumMember(Value = "FRCP")]
     [IsoId("_ZBnl8dFeEeiOQebAIFZZCQ")]
@@ -156,7 +156,7 @@ public enum TransactionAttribute1Code
     
     /// <summary>
     /// Transaction previously initiated is completed and contains the actual amount.
-    /// Encoded/decoded by serializers as "CPLT".
+    /// Encoded/decoded by serializers as &quot;CPLT&quot;.
     /// </summary>
     [EnumMember(Value = "CPLT")]
     [IsoId("_AmAxEdagEeigmZxKhkzTEg")]

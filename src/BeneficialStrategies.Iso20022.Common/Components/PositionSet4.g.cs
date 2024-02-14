@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Values either taken directly from the reporting fields as defined in the local regulation or derived from those fields that will be used by trade repositories to calculate positions.
 /// </summary>
 [IsoId("_8sobkeNfEeiTop2HXWk15w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Position Set")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PositionSet4
     /// Variables related to derivatives that are used to group derivatives together into positions.
     /// </summary>
     [IsoId("_83N68eNfEeiTop2HXWk15w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Dimensions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dmnsns")]
     #endif
+    [IsoXmlTag("Dmnsns")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PositionSetCollateralDimensions2 Dimensions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PositionSetCollateralDimensions2 Dimensions { get; init; } 
+    public required PositionSetCollateralDimensions2 Dimensions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PositionSetCollateralDimensions2 Dimensions { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PositionSet4
     /// Variables used to quantify the different calculations.
     /// </summary>
     [IsoId("_83N68-NfEeiTop2HXWk15w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Metrics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mtrcs")]
     #endif
+    [IsoXmlTag("Mtrcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PositionSetCollateralMetrics1 Metrics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PositionSetCollateralMetrics1 Metrics { get; init; } 
+    public required PositionSetCollateralMetrics1 Metrics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PositionSetCollateralMetrics1 Metrics { get; init; } 
     #else

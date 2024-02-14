@@ -21,7 +21,7 @@ public enum VotingParticipationMethod2Code
 {
     /// <summary>
     /// Participation to the meeting is in person but the person is not voting.
-    /// Encoded/decoded by serializers as "PHNV".
+    /// Encoded/decoded by serializers as &quot;PHNV&quot;.
     /// </summary>
     [EnumMember(Value = "PHNV")]
     [IsoId("_F2nkAfNqEeqRfth943bvEA")]

@@ -21,7 +21,7 @@ public enum AssetClassSubProductType41Code
 {
     /// <summary>
     /// Commodity of type potash.
-    /// Encoded/decoded by serializers as "PTSH".
+    /// Encoded/decoded by serializers as &quot;PTSH&quot;.
     /// </summary>
     [EnumMember(Value = "PTSH")]
     [IsoId("_bWeohVr3EeWN79Bl6BUd3g")]

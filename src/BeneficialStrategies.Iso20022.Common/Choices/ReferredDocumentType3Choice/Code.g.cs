@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentType3Choice
     /// Document type in a coded form.
     /// </summary>
     [IsoId("_YCiq4x77EeSxevWRRWxNAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentType3Choice
         /// Specifies a type of financial or commercial document.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required DocumentType6Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public DocumentType6Code Value { get; init; } 
+        public required DocumentType6Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public DocumentType6Code Value { get; init; } 
         #else

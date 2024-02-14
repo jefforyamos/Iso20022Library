@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide details of the credit line.
 /// </summary>
 [IsoId("_SZgzGNp-Ed-ak6NoX_4Aeg_-630126227")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Credit Line")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record CreditLine2
     /// Indicates whether or not the credit line is included in the balance.||Usage: If not present, credit line is not included in the balance amount.
     /// </summary>
     [IsoId("_SZgzGdp-Ed-ak6NoX_4Aeg_-630126197")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Included")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Incl")]
     #endif
+    [IsoXmlTag("Incl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator Included { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Included { get; init; } 
+    public required System.String Included { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Included { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record CreditLine2
     /// Amount of money of the credit line.
     /// </summary>
     [IsoId("_SZgzGtp-Ed-ak6NoX_4Aeg_-630126166")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

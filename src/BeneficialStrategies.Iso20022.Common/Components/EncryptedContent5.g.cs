@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Encrypted data with an encryption key.
 /// </summary>
 [IsoId("_v-VR0aQtEeeWXKXf3KjtmQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Encrypted Content")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record EncryptedContent5
     /// Type of data which have been encrypted.
     /// </summary>
     [IsoId("_wJoi4aQtEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttTp")]
     #endif
+    [IsoXmlTag("CnttTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentType2Code ContentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentType2Code ContentType { get; init; } 
+    public required ContentType2Code ContentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentType2Code ContentType { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record EncryptedContent5
     /// Algorithm used to encrypt the data.
     /// </summary>
     [IsoId("_wJoi46QtEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Encryption Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttNcrptnAlgo")]
     #endif
+    [IsoXmlTag("CnttNcrptnAlgo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AlgorithmIdentification25 ContentEncryptionAlgorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AlgorithmIdentification25 ContentEncryptionAlgorithm { get; init; } 
+    public required AlgorithmIdentification25 ContentEncryptionAlgorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AlgorithmIdentification25 ContentEncryptionAlgorithm { get; init; } 
     #else
@@ -92,12 +88,11 @@ public partial record EncryptedContent5
     /// Encrypted data, result of the content encryption.
     /// </summary>
     [IsoId("_wJoi5aQtEeeWXKXf3KjtmQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Encrypted Data Element")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NcrptdDataElmt")]
     #endif
+    [IsoXmlTag("NcrptdDataElmt")]
     public EncryptedDataElement1? EncryptedDataElement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _wJoi5aQtEeeWXKXf3KjtmQ
     

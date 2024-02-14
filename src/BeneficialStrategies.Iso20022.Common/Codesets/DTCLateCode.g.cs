@@ -21,7 +21,7 @@ public enum DTCLateCode
 {
     /// <summary>
     /// Informs both internal and external users that the announcement was added after the position capture date.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_1puelDL3EeKU9IrkkToqcw_-879956095")]
@@ -30,7 +30,7 @@ public enum DTCLateCode
     
     /// <summary>
     /// Informs both internal and external users that the announcement is late, however, it has not gone through the position capture stage.
-    /// Encoded/decoded by serializers as "LAAS".
+    /// Encoded/decoded by serializers as &quot;LAAS&quot;.
     /// </summary>
     [EnumMember(Value = "LAAS")]
     [IsoId("_1puelTL3EeKU9IrkkToqcw_-742748975")]

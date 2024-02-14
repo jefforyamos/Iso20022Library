@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_FCIRoaDpEeahP9OZs6K4wg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope39
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
     [IsoId("_Fo9oIaDpEeahP9OZs6K4wg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification2Code ModificationScopeIndication { get; init; } 
+    public required DataModification2Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification2Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope39
     /// Nationality and legal status (minor or major).
     /// </summary>
     [IsoId("_Fo9oI6DpEeahP9OZs6K4wg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Citizenship")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctznsh")]
     #endif
+    [IsoXmlTag("Ctznsh")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CitizenshipInformation2 Citizenship { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CitizenshipInformation2 Citizenship { get; init; } 
+    public required CitizenshipInformation2 Citizenship { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CitizenshipInformation2 Citizenship { get; init; } 
     #else

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PensionTransferScope1Choice.Code))]
     [KnownType(typeof(PensionTransferScope1Choice.Proprietary))]
     [IsoId("_REBa0E4YEeiQHa-q1Uephw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pension Transfer Scope 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

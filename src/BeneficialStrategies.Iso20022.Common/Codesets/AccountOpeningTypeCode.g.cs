@@ -21,7 +21,7 @@ public enum AccountOpeningTypeCode
 {
     /// <summary>
     /// Account request is to open a new account.
-    /// Encoded/decoded by serializers as "NEWA".
+    /// Encoded/decoded by serializers as &quot;NEWA&quot;.
     /// </summary>
     [EnumMember(Value = "NEWA")]
     [IsoId("_keyngLcYEeKuGrOch6U_ZQ_1594511368")]
@@ -30,7 +30,7 @@ public enum AccountOpeningTypeCode
     
     /// <summary>
     /// Account request is to open a supplementary account, that is, based on an existing account.
-    /// Encoded/decoded by serializers as "SUPA".
+    /// Encoded/decoded by serializers as &quot;SUPA&quot;.
     /// </summary>
     [EnumMember(Value = "SUPA")]
     [IsoId("_keyngbcYEeKuGrOch6U_ZQ_1388415397")]

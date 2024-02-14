@@ -77,20 +77,20 @@ It is presumed you already have the [latest .NET SDK](https://dotnet.microsoft.c
 mkdir test
 cd test
 dotnet new console
-dotnet add package com.BeneficialStrategies.Iso20022 --prerelease
+dotnet add package com.beneficialstrategies.iso20022.2024.02.09 --prerelease
 ```
 
 You should then open your Program.cs file, and paste the following code into your code:
 
 ```C#
-var myMessage = new CustomerCreditTransferInitiationV11
+var myMessage = new Beneficial.pain.CustomerCreditTransferInitiationV11
 {
     GroupHeader = new()
     {
         MessageIdentification = "ABC/120928/CCT001",
         CreationDateTime = new DateTime(2012, 09, 28, 14, 7, 0),
         NumberOfTransactions = "3",
-        ControlSum = 11500000,
+        ControlSum = 11_500_000,
         InitiatingParty = new()
         {
             Name = "ABC Corporation",
@@ -107,9 +107,9 @@ var myMessage = new CustomerCreditTransferInitiationV11
     PaymentInformation = new()
     {
         PaymentInformationIdentification = "ABC/086",
-        PaymentMethod = Codesets.PaymentMethod3Code.CreditTransfer,
+        PaymentMethod = PaymentMethod3Code.CreditTransfer,
         BatchBooking = "FALSE",
-        RequestedExecutionDate = new Choices.DateAndDateTime2Choice.Date { Value = new DateOnly(2012, 09, 29) },
+        RequestedExecutionDate = new Beneficial.Choices.DateAndDateTime2Choice.Date { Value = new DateOnly(2012, 09, 29) },
         Debtor = new()
         {
             Name = "ABC Corporation",
@@ -121,38 +121,42 @@ var myMessage = new CustomerCreditTransferInitiationV11
                 TownName = "New York",
                 Country = "US"
             },
+            // Optionally add Contact details, other stuff here
         },
         DebtorAccount = new()
         {
-            Identification = new Choices.AccountIdentification4Choice.Other
+            Identification = new Beneficial.Choices.AccountIdentification4Choice.Other
             {
                 Identification = "00125574999",
             },
+            // Lots more info you can add here
         },
         DebtorAgent = new()
         {
-            FinancialInstitutionIdentification = new Components.FinancialInstitutionIdentification18
+            FinancialInstitutionIdentification = new ()
             {
                 BICFI = "BBBBUS33",
+                // Lots more identifying information you can add here
             },
         },
         CreditTransferTransactionInformation =
-        
             new()
             {
-                PaymentIdentification = new Components.PaymentIdentification6
+                PaymentIdentification = new ()
                 {
                     InstructionIdentification = "ABC/120928/CCT001/1",
                     EndToEndIdentification = "ABC/4562/2012-09-08",
                 },
-                Amount = new Choices.AmountType4Choice.InstructedAmount { Value = 10_000_000m },
-                ChargeBearer = Codesets.ChargeBearerType1Code.Shared,
+                Amount = new Beneficial.Choices.AmountType4Choice.InstructedAmount { Value = 10_000_000m },
+                ChargeBearer = ChargeBearerType1Code.Shared,
                 CreditorAgent = new()
                 {
                     FinancialInstitutionIdentification = new()
                     {
                         BICFI = "AAAAGB2L",
+                        // Tons of more identifying information you can optionally add here
                     },
+                    // Optionally add branch information here
                 },
                 Creditor = new()
                 {
@@ -166,17 +170,19 @@ var myMessage = new CustomerCreditTransferInitiationV11
                             "GB"
                             ]
                     },
+                    // Optionally add ContactDetails, CountryOfResidence, Identification here
                 },
                 CreditorAccount = new()
                 {
-                    Identification = new Choices.AccountIdentification4Choice.Other
+                    Identification = new Beneficial.Choices.AccountIdentification4Choice.Other
                     {
                         Identification = "23683707994215",
+                        // Optionally add issuer, schema name here 
                     },
                 },
-                Purpose = new Choices.Purpose2Choice.Code
+                Purpose = new Beneficial.Choices.Purpose2Choice.Code
                 {
-                    Value = Codesets.ExternalPurpose1Code.InstantPaymentsForDonations, // Todo: What should this be??
+                    Value = ExternalPurpose1Code.InstantPaymentsForDonations, 
                 },
                 RemittanceInformation = new()
                 {
@@ -184,35 +190,39 @@ var myMessage = new CustomerCreditTransferInitiationV11
                         new()
                         {
                             ReferredDocumentInformation =
-                            
                                 new()
                                 {
                                     Type = new()
                                     {
-                                        CodeOrProprietary = new Choices.ReferredDocumentType3Choice.Code
+                                        CodeOrProprietary = new Beneficial.Choices.ReferredDocumentType3Choice.Code
                                         {
-                                            Value = Codesets.DocumentType6Code.CommercialInvoice,
+                                            Value = DocumentType6Code.CommercialInvoice,
                                         },
                                     },
                                     Number = "4562",
                                     RelatedDate = new DateOnly(2012,09,08),
+                                    // Optionally add line details here
                                 }
                             ,
+                            // Add more types of remittances here, use shift-spacebar for pop-up help
                         }
                     ,
+                    // Optionally add Unstructured information here
                 },
+                // LOTS more stuff you can add at this level
             },
-            // Last transaction
-        
+            // LOTS more you can add at this level
     },
+    // Optionally add Supplementary data at this level
 };
-Console.WriteLine(myMessage.ToString());
+
 ```
 
 Things to notice:
 
 - The compiler helps you do the right thing. Since it's all strongly-typed, you won't have a problem putting one System.Object instance where a different System.Object is expected.
 - Notice intellisense gives you context about the transaction.
-- Notice that date/time values are strongly typed. No worries about whether some string value is "yyyyMMdd" or "MMddYYY" or whatever.  
+- Notice that date/time values are strongly typed. No worries about whether some string value is "yyyyMMdd" or "MMddYYY" or whatever. 
+- Shift-Spacebar is your friend in finding other types of message content to add at various levels. 
 - Notice if you get bored with this message, there's over 2600 that are just as good, maybe better!
 

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identifies the financial instrument.
 /// </summary>
 [IsoId("_TBTL1dp-Ed-ak6NoX_4Aeg_1946780155")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FinancialInstrument15
     /// Identifies the financial instrument using a choice of either ISIN, local code, or a description of the instrument. ISIN is the preferred format.
     /// </summary>
     [IsoId("_TBTL1tp-Ed-ak6NoX_4Aeg_1946780251")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification6Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification6Choice_ Identification { get; init; } 
+    public required SecurityIdentification6Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification6Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record FinancialInstrument15
     /// Provides the ability to describe the instrument through a description and main characteristics.
     /// </summary>
     [IsoId("_TBc80Np-Ed-ak6NoX_4Aeg_1946780178")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instrument Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrmDesc")]
     #endif
+    [IsoXmlTag("InstrmDesc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityInstrumentDescription2? InstrumentDescription { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record FinancialInstrument15
     /// Provides details of the underlying financial instrument for which the transaction report is being sent. If there is more than one underlying financial instrument then it is the dominant/ultimate instrument that should be identified here.
     /// </summary>
     [IsoId("_TBc80dp-Ed-ak6NoX_4Aeg_1946780234")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygInstrmId")]
     #endif
+    [IsoXmlTag("UndrlygInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecurityIdentification6Choice_? UnderlyingInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

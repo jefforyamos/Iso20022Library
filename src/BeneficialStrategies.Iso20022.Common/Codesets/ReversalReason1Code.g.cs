@@ -21,7 +21,7 @@ public enum ReversalReason1Code
 {
     /// <summary>
     /// Customer cancels the transaction.
-    /// Encoded/decoded by serializers as "CUSC".
+    /// Encoded/decoded by serializers as &quot;CUSC&quot;.
     /// </summary>
     [EnumMember(Value = "CUSC")]
     [IsoId("_FHV08duHEeiB5uLfkg9ZJA")]
@@ -30,7 +30,7 @@ public enum ReversalReason1Code
     
     /// <summary>
     /// Reversal after a suspection of malfunction of the POI system.
-    /// Encoded/decoded by serializers as "MALF".
+    /// Encoded/decoded by serializers as &quot;MALF&quot;.
     /// </summary>
     [EnumMember(Value = "MALF")]
     [IsoId("_FMy8sduHEeiB5uLfkg9ZJA")]
@@ -39,7 +39,7 @@ public enum ReversalReason1Code
     
     /// <summary>
     /// Merchant or Cashier cancels the transaction.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_FQaRYduHEeiB5uLfkg9ZJA")]
@@ -48,7 +48,7 @@ public enum ReversalReason1Code
     
     /// <summary>
     /// POI System unable to complete transaction.
-    /// Encoded/decoded by serializers as "UNAB".
+    /// Encoded/decoded by serializers as &quot;UNAB&quot;.
     /// </summary>
     [EnumMember(Value = "UNAB")]
     [IsoId("_FWSP4duHEeiB5uLfkg9ZJA")]

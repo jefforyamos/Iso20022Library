@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies how the supply chain shipping arrangements and the delivery of products and/or services as well as related documentation.
 /// </summary>
 [IsoId("_2ul9weWhEeevU7McUP3D1w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Delivery")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TradeDelivery3
     /// Actual delivery period of the products and/or services.
     /// </summary>
     [IsoId("_23eM8eWhEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryPrd")]
     #endif
+    [IsoXmlTag("DlvryPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Period14? DeliveryPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record TradeDelivery3
     /// Actual delivery date/time of the products and/or services.
     /// </summary>
     [IsoId("_23eM8-WhEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryDtTm")]
     #endif
+    [IsoXmlTag("DlvryDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? DeliveryDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record TradeDelivery3
     /// Party from whom the goods are dispatched.
     /// </summary>
     [IsoId("_23eM9eWhEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ship From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShipFr")]
     #endif
+    [IsoXmlTag("ShipFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty4? ShipFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +94,11 @@ public partial record TradeDelivery3
     /// Party to whom the goods are dispatched.
     /// </summary>
     [IsoId("_23eM9-WhEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ship To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ShipTo")]
     #endif
+    [IsoXmlTag("ShipTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty4? ShipTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +111,11 @@ public partial record TradeDelivery3
     /// Final party to whom the goods are dispatched.
     /// </summary>
     [IsoId("_23eM-eWhEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Ultimate Ship To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UltmtShipTo")]
     #endif
+    [IsoXmlTag("UltmtShipTo")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TradeParty4? UltimateShipTo { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +128,11 @@ public partial record TradeDelivery3
     /// Delivery note related to the delivery of the products and/or services.
     /// </summary>
     [IsoId("_23eM--WhEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Note")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryNote")]
     #endif
+    [IsoXmlTag("DlvryNote")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentIdentification22? DeliveryNote { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +145,11 @@ public partial record TradeDelivery3
     /// Physical consolidation of goods for transport.
     /// </summary>
     [IsoId("_23eM_eWhEeevU7McUP3D1w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Consgnmt")]
     #endif
+    [IsoXmlTag("Consgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Consignment5? Consignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

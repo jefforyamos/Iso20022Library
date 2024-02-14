@@ -21,7 +21,7 @@ public enum PaymentStatusReason1Code
 {
     /// <summary>
     /// Credit Transfer has been delivered to creditor agent with transaction’s service obligations maintained.
-    /// Encoded/decoded by serializers as "G005".
+    /// Encoded/decoded by serializers as &quot;G005&quot;.
     /// </summary>
     [EnumMember(Value = "G005")]
     [IsoId("_JwolkUleEei_aPHvPJUVuw")]
@@ -30,7 +30,7 @@ public enum PaymentStatusReason1Code
     
     /// <summary>
     /// Credit Transfer has been delivered to creditor agent where the transaction’s service obligations were no longer maintained.
-    /// Encoded/decoded by serializers as "G006".
+    /// Encoded/decoded by serializers as &quot;G006&quot;.
     /// </summary>
     [EnumMember(Value = "G006")]
     [IsoId("_KAQ9AUleEei_aPHvPJUVuw")]
@@ -39,7 +39,7 @@ public enum PaymentStatusReason1Code
     
     /// <summary>
     /// The Status Originator transferred the Credit Transfer to the next Agent or to a Market Infrastructure where the transaction’s service obligations may no longer be guaranteed.
-    /// Encoded/decoded by serializers as "G001".
+    /// Encoded/decoded by serializers as &quot;G001&quot;.
     /// </summary>
     [EnumMember(Value = "G001")]
     [IsoId("_32zh4YN0EeiZB_kIT07yOA")]

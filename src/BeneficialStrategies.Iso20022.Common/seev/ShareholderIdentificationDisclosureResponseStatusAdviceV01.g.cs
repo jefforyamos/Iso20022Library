@@ -26,14 +26,12 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// <summary>
 /// This record is an implementation of the seev.049.001.01 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
-/// The ShareholdersIdentificationDisclosureResponseStatusAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the intermediary in a custody chain in response to a ShareholderIdentificationDisclosureResponse message or in response to a multipart response report (sent with pagination in multiple messages) in order to report about the acceptance status of the received ShareholderIdentificationDisclosureResponse message/report.
+/// The ShareholdersIdentificationDisclosureResponseStatusAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer&apos;s agent) to the intermediary in a custody chain in response to a ShareholderIdentificationDisclosureResponse message or in response to a multipart response report (sent with pagination in multiple messages) in order to report about the acceptance status of the received ShareholderIdentificationDisclosureResponse message/report.
 /// Usage: when the shareholder identification disclosure response is sent in a multipart response report (with several messages), a single response status advice only may be sent for the acceptance status of the whole report.
 /// </summary>
 [Description(@"The ShareholdersIdentificationDisclosureResponseStatusAdvice message is sent by an issuer or by a third party nominated by the issuer (such as an issuer's agent) to the intermediary in a custody chain in response to a ShareholderIdentificationDisclosureResponse message or in response to a multipart response report (sent with pagination in multiple messages) in order to report about the acceptance status of the received ShareholderIdentificationDisclosureResponse message/report.|Usage: when the shareholder identification disclosure response is sent in a multipart response report (with several messages), a single response status advice only may be sent for the acceptance status of the whole report.")]
 [IsoId("_NCNMYHC5EemNhNOCZKENuw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Shareholder Identification Disclosure Response Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,19 +77,17 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
     /// Unique identification of the disclosure response for which the status advice is sent.
     /// </summary>
     [IsoId("_9xsWBYd9EemJ1cSJJmVYRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Disclosure Response Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DsclsrRspnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("DsclsrRspnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text DisclosureResponseIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DisclosureResponseIdentification { get; init; } 
+    public required System.String DisclosureResponseIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DisclosureResponseIdentification { get; init; } 
     #else
@@ -102,16 +98,15 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
     /// Official and unique identification assigned to a shareholders identification disclosure request process by the issuer or third party nominated by it and for which a response is sent.
     /// </summary>
     [IsoId("_Eq5WgbRBEem2T48lBgJbww")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Disclosure Request Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrDsclsrReqRef")]
     #endif
+    [IsoXmlTag("IssrDsclsrReqRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; } 
+    public required DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DisclosureRequestIdentification1 IssuerDisclosureRequestReference { get; init; } 
     #else
@@ -122,16 +117,15 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
     /// Unique identification of the intermediary party responding to the shareholders identification disclosure request.
     /// </summary>
     [IsoId("_9xsWB4d9EemJ1cSJJmVYRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responding Intermediary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspndgIntrmy")]
     #endif
+    [IsoXmlTag("RspndgIntrmy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification215 RespondingIntermediary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification215 RespondingIntermediary { get; init; } 
+    public required PartyIdentification215 RespondingIntermediary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification215 RespondingIntermediary { get; init; } 
     #else
@@ -142,16 +136,15 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
     /// Acceptance status of the shareholder disclosure Identification Response message/report.
     /// </summary>
     [IsoId("_lGAS0IeSEemJ1cSJJmVYRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Reception Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnRcptnSts")]
     #endif
+    [IsoXmlTag("RspnRcptnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseProcessingStatus1Choice_ ResponseReceptionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseProcessingStatus1Choice_ ResponseReceptionStatus { get; init; } 
+    public required ResponseProcessingStatus1Choice_ ResponseReceptionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseProcessingStatus1Choice_ ResponseReceptionStatus { get; init; } 
     #else
@@ -162,12 +155,11 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_-bsZoYebEemJ1cSJJmVYRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -180,7 +172,7 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ShareholderIdentificationDisclosureResponseStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ShareholderIdentificationDisclosureResponseStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ShareholderIdentificationDisclosureResponseStatusAdviceV01Document ToDocument()
     {
@@ -190,7 +182,7 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ShareholderIdentificationDisclosureResponseStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ShareholderIdentificationDisclosureResponseStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01Document : IOuterDocument<ShareholderIdentificationDisclosureResponseStatusAdviceV01>
@@ -207,7 +199,7 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ShareholderIdentificationDisclosureResponseStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ShareholderIdentificationDisclosureResponseStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ShareholderIdentificationDisclosureResponseStatusAdviceV01 Message { get; init; }

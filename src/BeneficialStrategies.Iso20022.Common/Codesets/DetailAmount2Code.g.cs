@@ -21,7 +21,7 @@ public enum DetailAmount2Code
 {
     /// <summary>
     /// Other type of amount defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_ioqzEVjpEeiTlKUpxxSxEw")]
@@ -30,7 +30,7 @@ public enum DetailAmount2Code
     
     /// <summary>
     /// Other type of amount defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_ixNEAVjpEeiTlKUpxxSxEw")]
@@ -39,7 +39,7 @@ public enum DetailAmount2Code
     
     /// <summary>
     /// Fee charged by the acceptor for the transaction.
-    /// Encoded/decoded by serializers as "SRCH".
+    /// Encoded/decoded by serializers as &quot;SRCH&quot;.
     /// </summary>
     [EnumMember(Value = "SRCH")]
     [IsoId("_i-ZLcVjpEeiTlKUpxxSxEw")]

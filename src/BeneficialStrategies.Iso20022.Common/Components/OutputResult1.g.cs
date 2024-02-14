@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the result the output (display, print, input).
 /// </summary>
 [IsoId("_3CNXIN7EEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Output Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record OutputResult1
     /// Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output.
     /// </summary>
     [IsoId("__Gk2MN7EEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Device Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DvcTp")]
     #endif
+    [IsoXmlTag("DvcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UserInterface4Code DeviceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UserInterface4Code DeviceType { get; init; } 
+    public required UserInterface4Code DeviceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UserInterface4Code DeviceType { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record OutputResult1
     /// Qualification of the information to sent to an output logical device.
     /// </summary>
     [IsoId("_Eop-sN7FEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfQlfr")]
     #endif
+    [IsoXmlTag("InfQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InformationQualify1Code InformationQualifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InformationQualify1Code InformationQualifier { get; init; } 
+    public required InformationQualify1Code InformationQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InformationQualify1Code InformationQualifier { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record OutputResult1
     /// Gives response for each peripheral.
     /// </summary>
     [IsoId("_LYGSMN7FEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rspn")]
     #endif
+    [IsoXmlTag("Rspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType9 Response { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType9 Response { get; init; } 
+    public required ResponseType9 Response { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType9 Response { get; init; } 
     #else

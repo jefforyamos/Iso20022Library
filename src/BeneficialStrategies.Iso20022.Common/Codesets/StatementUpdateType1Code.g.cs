@@ -21,7 +21,7 @@ public enum StatementUpdateType1Code
 {
     /// <summary>
     /// Statement is complete.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_ZQM-GNp-Ed-ak6NoX_4Aeg_1368668707")]
@@ -30,7 +30,7 @@ public enum StatementUpdateType1Code
     
     /// <summary>
     /// Statement contains changes only.
-    /// Encoded/decoded by serializers as "DELT".
+    /// Encoded/decoded by serializers as &quot;DELT&quot;.
     /// </summary>
     [EnumMember(Value = "DELT")]
     [IsoId("_ZQWvENp-Ed-ak6NoX_4Aeg_1368668708")]

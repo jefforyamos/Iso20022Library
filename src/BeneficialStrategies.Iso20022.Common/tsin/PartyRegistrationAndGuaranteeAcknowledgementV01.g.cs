@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// </summary>
 [Description(@"The message PartyManagementPaymentAcknowledgement is sent from a trade partner to any partner requested through a PartyManagementPaymentAcknowledgemenNotification message to acknowledge the notified factoring service agreement. Depending on legal contexts, the acknowledgement may be required in order for the financial service agreement to become effective.|The message references related messages and may include referenced data.|The message can carry digital signatures if required by context.")]
 [IsoId("_OTgzNDkx-AOSNFX-8224506")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Registration And Guarantee Acknowledgement V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
     /// Set of characteristics that unambiguously identify the acknowlegement, common parameters, documents and identifications.
     /// </summary>
     [IsoId("_OTgzNDky-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BusinessLetter1 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BusinessLetter1 Header { get; init; } 
+    public required BusinessLetter1 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BusinessLetter1 Header { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
     /// List of party management acknowledgements.
     /// </summary>
     [IsoId("_OTgzNDkz-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledgement List")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AckList")]
     #endif
+    [IsoXmlTag("AckList")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancingAgreementList1 AcknowledgementList { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancingAgreementList1 AcknowledgementList { get; init; } 
+    public required FinancingAgreementList1 AcknowledgementList { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancingAgreementList1 AcknowledgementList { get; init; } 
     #else
@@ -119,19 +115,16 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
     /// Number of acknowledgement lists as control value.
     /// </summary>
     [IsoId("_OTgzNDk0-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Acknowledgement Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AckCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("AckCnt")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText AcknowledgementCount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String AcknowledgementCount { get; init; } 
+    public required System.String AcknowledgementCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String AcknowledgementCount { get; init; } 
     #else
@@ -142,15 +135,12 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
     /// Total number of individual items in all lists.
     /// </summary>
     [IsoId("_OTgzNDk1-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Item Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ItmCnt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("ItmCnt")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax15NumericText? ItemCount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -163,12 +153,12 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
     /// Total of all individual amounts included in all lists, irrespective of currencies or direction.
     /// </summary>
     [IsoId("_OTgzNDk2-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Control Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrlSum")]
     #endif
+    [IsoXmlTag("CtrlSum")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? ControlSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -181,12 +171,11 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
     /// Referenced or related business message.
     /// </summary>
     [IsoId("_OTgzNDk3-AOSNFX-8224507")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attached Message")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttchdMsg")]
     #endif
+    [IsoXmlTag("AttchdMsg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EncapsulatedBusinessMessage1? AttachedMessage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -199,7 +188,7 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PartyRegistrationAndGuaranteeAcknowledgementV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PartyRegistrationAndGuaranteeAcknowledgementV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PartyRegistrationAndGuaranteeAcknowledgementV01Document ToDocument()
     {
@@ -209,7 +198,7 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01 : IOuterRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyRegistrationAndGuaranteeAcknowledgementV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PartyRegistrationAndGuaranteeAcknowledgementV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PartyRegistrationAndGuaranteeAcknowledgementV01Document : IOuterDocument<PartyRegistrationAndGuaranteeAcknowledgementV01>
@@ -226,7 +215,7 @@ public partial record PartyRegistrationAndGuaranteeAcknowledgementV01Document : 
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PartyRegistrationAndGuaranteeAcknowledgementV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PartyRegistrationAndGuaranteeAcknowledgementV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyRegistrationAndGuaranteeAcknowledgementV01 Message { get; init; }

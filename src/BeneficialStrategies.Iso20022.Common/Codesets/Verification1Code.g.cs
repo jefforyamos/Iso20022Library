@@ -21,7 +21,7 @@ public enum Verification1Code
 {
     /// <summary>
     /// Verification failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_xPkEAWjpEeSDR-pyia6Xtg")]
@@ -30,7 +30,7 @@ public enum Verification1Code
     
     /// <summary>
     /// Information required to perform the verification was missing.
-    /// Encoded/decoded by serializers as "MISS".
+    /// Encoded/decoded by serializers as &quot;MISS&quot;.
     /// </summary>
     [EnumMember(Value = "MISS")]
     [IsoId("_xVtvUWjpEeSDR-pyia6Xtg")]
@@ -39,7 +39,7 @@ public enum Verification1Code
     
     /// <summary>
     /// Verification has not been performed.
-    /// Encoded/decoded by serializers as "NOVF".
+    /// Encoded/decoded by serializers as &quot;NOVF&quot;.
     /// </summary>
     [EnumMember(Value = "NOVF")]
     [IsoId("_xdGwwWjpEeSDR-pyia6Xtg")]
@@ -48,7 +48,7 @@ public enum Verification1Code
     
     /// <summary>
     /// Verification was partially successful.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_xib8sWjpEeSDR-pyia6Xtg")]
@@ -57,7 +57,7 @@ public enum Verification1Code
     
     /// <summary>
     /// Verification was successful.
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_xpMsAWjpEeSDR-pyia6Xtg")]
@@ -66,7 +66,7 @@ public enum Verification1Code
     
     /// <summary>
     /// Device or entity to perform the verification was unavailable.
-    /// Encoded/decoded by serializers as "ERRR".
+    /// Encoded/decoded by serializers as &quot;ERRR&quot;.
     /// </summary>
     [EnumMember(Value = "ERRR")]
     [IsoId("_xwe_wWjpEeSDR-pyia6Xtg")]

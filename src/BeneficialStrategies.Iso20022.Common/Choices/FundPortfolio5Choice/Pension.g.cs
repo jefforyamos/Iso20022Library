@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
     /// Portfolio is a pension policy, plan or scheme.
     /// </summary>
     [IsoId("_nxCypZNMEemQB_8XA98K0Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pension")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,12 +54,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Identification of the pension policy, plan or scheme.
         /// </summary>
         [IsoId("_0utOA5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PensionPolicy1? Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +71,15 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Type of pension policy, plan or scheme.
         /// </summary>
         [IsoId("_0utOBZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PensionSchemeType2Choice_ Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PensionSchemeType2Choice_ Type { get; init; } 
+        public required PensionSchemeType2Choice_ Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PensionSchemeType2Choice_ Type { get; init; } 
         #else
@@ -94,12 +90,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Scope of the pension policy, plan or scheme transfer.
         /// </summary>
         [IsoId("_0utOB5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Transfer Scope")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrfScp")]
         #endif
+        [IsoXmlTag("TrfScp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PensionTransferScope1Choice_? TransferScope { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +107,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Tax reference issued to the pension policy, plan or scheme by a central organisation.
         /// </summary>
         [IsoId("_0utOCZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tax Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TaxRef")]
         #endif
+        [IsoXmlTag("TaxRef")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public TaxReference1? TaxReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,15 +124,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Reference of the drawdown.
         /// </summary>
         [IsoId("_0utOC5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Drawdown Tranche Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrwdwnTrchId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("DrwdwnTrchId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? DrawdownTrancheIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -151,12 +143,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Drawdown status of the pension.
         /// </summary>
         [IsoId("_0utODZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Drawdown Status")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrwdwnSts")]
         #endif
+        [IsoXmlTag("DrwdwnSts")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DrawdownStatus1Choice_? DrawdownStatus { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -169,12 +160,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Type of drawdown tranche.
         /// </summary>
         [IsoId("_G6j6cJNwEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Drawdown Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DrwdwnTp")]
         #endif
+        [IsoXmlTag("DrwdwnTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DrawdownType2Choice_? DrawdownType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +177,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Estimated value of the pension policy, plan or scheme.
         /// </summary>
         [IsoId("_0utOD5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Estimated Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EstmtdVal")]
         #endif
+        [IsoXmlTag("EstmtdVal")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndAmount2? EstimatedValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -205,12 +194,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether the transfer forms part of a block transfer.
         /// </summary>
         [IsoId("_0utOEZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Block Transfer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BlckTrf")]
         #endif
+        [IsoXmlTag("BlckTrf")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? BlockTransfer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -223,15 +212,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// When the transfer is part of a block transfer, reference to link several items.
         /// </summary>
         [IsoId("_1FMl8JNwEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Block Transfer Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BlckTrfRef")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("BlckTrfRef")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? BlockTransferReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -244,12 +231,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether the tax-free cash is protected when the pension policy, plan or scheme is transferred.
         /// </summary>
         [IsoId("_0utOE5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tax Free Cash Protection")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TaxFreeCshPrtcn")]
         #endif
+        [IsoXmlTag("TaxFreeCshPrtcn")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? TaxFreeCashProtection { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -262,12 +249,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Amount of cash that is tax free.
         /// </summary>
         [IsoId("_0utOFZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tax Free Cash Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TaxFreeCshAmt")]
         #endif
+        [IsoXmlTag("TaxFreeCshAmt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndAmount2? TaxFreeCashAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -280,12 +266,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Value of the pension policy, plan or scheme.
         /// </summary>
         [IsoId("_0utOF5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Value Of Pension Policy Or Plan Or Scheme")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ValOfPnsnPlcyOrPlanOrSchme")]
         #endif
+        [IsoXmlTag("ValOfPnsnPlcyOrPlanOrSchme")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndAmount2? ValueOfPensionPolicyOrPlanOrScheme { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -298,12 +283,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether the pension policy, plan or scheme has retirement age protection.
         /// </summary>
         [IsoId("_0utOGZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Retirement Age Protection")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RtrmntAgePrtcn")]
         #endif
+        [IsoXmlTag("RtrmntAgePrtcn")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? RetirementAgeProtection { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -316,12 +301,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Age at which the pension policy, plan or scheme holder retires.
         /// </summary>
         [IsoId("_0utOG5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Retirement Age")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RtrmntAge")]
         #endif
+        [IsoXmlTag("RtrmntAge")]
+        [IsoSimpleType(IsoSimpleType.DecimalNumber)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoDecimalNumber? RetirementAge { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -334,12 +319,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether the pension benefits are shared.
         /// </summary>
         [IsoId("_0utOHZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sharing")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Shrg")]
         #endif
+        [IsoXmlTag("Shrg")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? Sharing { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -352,12 +337,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Type of lump sum paid to a member of the pension policy, plan or scheme.
         /// </summary>
         [IsoId("_0utOH5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Lump Sum Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LumpSumTp")]
         #endif
+        [IsoXmlTag("LumpSumTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public LumpSumType1Choice_? LumpSumType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -370,12 +354,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Order attached to the pension policy, plan or scheme.
         /// </summary>
         [IsoId("_0utOIZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Pension Order")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PnsnOrdr")]
         #endif
+        [IsoXmlTag("PnsnOrdr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PensionOrder1? PensionOrder { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -388,12 +371,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether assets held within the pension are ring-fenced into specific tranches.
         /// </summary>
         [IsoId("_0utOI5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Ring Fenced Drawdown Assets")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RingFncdDrwdwnAssts")]
         #endif
+        [IsoXmlTag("RingFncdDrwdwnAssts")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? RingFencedDrawdownAssets { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -406,12 +389,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Money Purchase Annual Allowance (MPAA) details.
         /// </summary>
         [IsoId("_0utOJZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Money Purchase Annual Allowance")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MnyPurchsAnlAllwnc")]
         #endif
+        [IsoXmlTag("MnyPurchsAnlAllwnc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MoneyPurchaseAnnualAllowance1? MoneyPurchaseAnnualAllowance { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -424,12 +406,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether the pension policy, plan or scheme is covered by a safeguard benefit.
         /// </summary>
         [IsoId("_0utOJ5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Safeguard Benefit")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SfgrdBnft")]
         #endif
+        [IsoXmlTag("SfgrdBnft")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? SafeguardBenefit { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -442,12 +424,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether the pension policy, plan or scheme has non-safeguarded guaranteed benefits.
         /// </summary>
         [IsoId("_9vOW0JNwEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Non Safeguarded Guaranteed Benefits")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NonSfgrddGrntedBnfts")]
         #endif
+        [IsoXmlTag("NonSfgrddGrntedBnfts")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? NonSafeguardedGuaranteedBenefits { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -460,12 +442,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether the pension policy, plan or scheme has lifetime allowance protection.
         /// </summary>
         [IsoId("_0utOKZNvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Lifetime Allowance Protection")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LftmAllwncPrtcn")]
         #endif
+        [IsoXmlTag("LftmAllwncPrtcn")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? LifetimeAllowanceProtection { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -478,12 +460,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether the client has any lifetime allowance protection.
         /// </summary>
         [IsoId("_G487cJNxEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Client Lifetime Allowance Protection")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ClntLftmAllwncPrtcn")]
         #endif
+        [IsoXmlTag("ClntLftmAllwncPrtcn")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? ClientLifetimeAllowanceProtection { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -496,12 +478,12 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Indicates whether a benefit crystallisation event (BCE) has occurred. This includes ‘age 75 checks’.
         /// </summary>
         [IsoId("_atF0UJNxEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Benefit Crystallisation Event Occurred")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BnftCrstllstnEvtOcrd")]
         #endif
+        [IsoXmlTag("BnftCrstllstnEvtOcrd")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoYesNoIndicator? BenefitCrystallisationEventOccurred { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -514,12 +496,11 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice
         /// Additional information about the pension policy, plan or scheme.
         /// </summary>
         [IsoId("_0utOK5NvEembCsVG-3f_AA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
+        [IsoXmlTag("AddtlInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AdditionalInformation15? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

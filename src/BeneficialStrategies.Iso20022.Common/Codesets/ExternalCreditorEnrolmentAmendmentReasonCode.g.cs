@@ -22,7 +22,7 @@ public enum ExternalCreditorEnrolmentAmendmentReasonCode
 {
     /// <summary>
     /// Duplication.
-    /// Encoded/decoded by serializers as "AM05".
+    /// Encoded/decoded by serializers as &quot;AM05&quot;.
     /// </summary>
     [EnumMember(Value = "AM05")]
     [IsoId("_uuIUVvRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalCreditorEnrolmentAmendmentReasonCode
     
     /// <summary>
     /// Reference is not unique.
-    /// Encoded/decoded by serializers as "RF01".
+    /// Encoded/decoded by serializers as &quot;RF01&quot;.
     /// </summary>
     [EnumMember(Value = "RF01")]
     [IsoId("_uuIUWfRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalCreditorEnrolmentAmendmentReasonCode
     
     /// <summary>
     /// Regulatory Reason.
-    /// Encoded/decoded by serializers as "RR04".
+    /// Encoded/decoded by serializers as &quot;RR04&quot;.
     /// </summary>
     [EnumMember(Value = "RR04")]
     [IsoId("_uuSFUPRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalCreditorEnrolmentAmendmentReasonCode
     
     /// <summary>
     /// Technical rejection.
-    /// Encoded/decoded by serializers as "TRJT".
+    /// Encoded/decoded by serializers as &quot;TRJT&quot;.
     /// </summary>
     [EnumMember(Value = "TRJT")]
     [IsoId("_E5wqofDWEemsS_0xy2XRug")]
@@ -58,7 +58,7 @@ public enum ExternalCreditorEnrolmentAmendmentReasonCode
     
     /// <summary>
     /// Unknown creditor.
-    /// Encoded/decoded by serializers as "UCRD".
+    /// Encoded/decoded by serializers as &quot;UCRD&quot;.
     /// </summary>
     [EnumMember(Value = "UCRD")]
     [IsoId("_Ci0BYPDWEemsS_0xy2XRug")]

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SuspendedStatusReasonChoice.Proprietary))]
     [KnownType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason))]
     [IsoId("_RfGZSdp-Ed-ak6NoX_4Aeg_1537280901")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Suspended Status Reason Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// List of criteria following the OR logic.
 /// </summary>
 [IsoId("_BBbMYN6QEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Search Or")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SearchOr1
     /// List of criteria following the AND logic.
     /// </summary>
     [IsoId("_InLc0N6QEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search And")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchAnd")]
     #endif
+    [IsoXmlTag("SchAnd")]
     public SearchAnd1? SearchAnd { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _InLc0N6QEeiwsev40qZGEQ
     

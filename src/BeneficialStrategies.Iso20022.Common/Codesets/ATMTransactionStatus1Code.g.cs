@@ -21,7 +21,7 @@ public enum ATMTransactionStatus1Code
 {
     /// <summary>
     /// Undetermined status, for instance possibly forgotten notes.
-    /// Encoded/decoded by serializers as "DOBT".
+    /// Encoded/decoded by serializers as &quot;DOBT&quot;.
     /// </summary>
     [EnumMember(Value = "DOBT")]
     [IsoId("_VAzJoYqSEeSRT5rEzcAHEw")]
@@ -30,7 +30,7 @@ public enum ATMTransactionStatus1Code
     
     /// <summary>
     /// Transaction failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_VE0uAYqSEeSRT5rEzcAHEw")]
@@ -39,7 +39,7 @@ public enum ATMTransactionStatus1Code
     
     /// <summary>
     /// Transaction was successfully completed.
-    /// Encoded/decoded by serializers as "SCSS".
+    /// Encoded/decoded by serializers as &quot;SCSS&quot;.
     /// </summary>
     [EnumMember(Value = "SCSS")]
     [IsoId("_VMHo04qSEeSRT5rEzcAHEw")]

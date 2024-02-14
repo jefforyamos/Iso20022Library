@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about result of a single instalment (financed or not) within an invoice.
 /// </summary>
 [IsoId("_PyxaU9p-Ed-ak6NoX_4Aeg_1394536846")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Instalment Financing Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record InstalmentFinancingInformation1
     /// Progressive number of the single instalment related to an invoice.
     /// </summary>
     [IsoId("_PyxaVNp-Ed-ak6NoX_4Aeg_254515146")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Sequence Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtSeqId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InstlmtSeqId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text InstalmentSequenceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InstalmentSequenceIdentification { get; init; } 
+    public required System.String InstalmentSequenceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InstalmentSequenceIdentification { get; init; } 
     #else
@@ -76,16 +72,16 @@ public partial record InstalmentFinancingInformation1
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
     [IsoId("_PyxaVdp-Ed-ak6NoX_4Aeg_310847975")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Total Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtTtlAmt")]
     #endif
+    [IsoXmlTag("InstlmtTtlAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount InstalmentTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal InstalmentTotalAmount { get; init; } 
+    public required System.Decimal InstalmentTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal InstalmentTotalAmount { get; init; } 
     #else
@@ -96,16 +92,15 @@ public partial record InstalmentFinancingInformation1
     /// Information about the financing result of one instalment.
     /// </summary>
     [IsoId("_PyxaVtp-Ed-ak6NoX_4Aeg_721361782")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instalment Financing Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstlmtFincgRslt")]
     #endif
+    [IsoXmlTag("InstlmtFincgRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancingResult1 InstalmentFinancingResult { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancingResult1 InstalmentFinancingResult { get; init; } 
+    public required FinancingResult1 InstalmentFinancingResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancingResult1 InstalmentFinancingResult { get; init; } 
     #else

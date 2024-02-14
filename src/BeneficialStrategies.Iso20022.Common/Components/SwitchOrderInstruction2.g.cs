@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a switch order.
 /// </summary>
 [IsoId("_RNhhFtp-Ed-ak6NoX_4Aeg_-925024145")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Switch Order Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SwitchOrderInstruction2
     /// Information related to the switch order.
     /// </summary>
     [IsoId("_RNhhF9p-Ed-ak6NoX_4Aeg_-925023776")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Switch Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SwtchOrdrDtls")]
     #endif
+    [IsoXmlTag("SwtchOrdrDtls")]
     public SwitchOrder3? SwitchOrderDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RNhhF9p-Ed-ak6NoX_4Aeg_-925023776
     
@@ -57,12 +54,11 @@ public partial record SwitchOrderInstruction2
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_RNhhGNp-Ed-ak6NoX_4Aeg_-925024109")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Xtnsn")]
     #endif
+    [IsoXmlTag("Xtnsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Extension1? Extension { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

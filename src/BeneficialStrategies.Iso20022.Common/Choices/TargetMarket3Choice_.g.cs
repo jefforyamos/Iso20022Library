@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TargetMarket3Choice.Other))]
     [KnownType(typeof(TargetMarket3Choice.Proprietary))]
     [IsoId("_JK13wDcREeiIxKQErQxblg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Target Market 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

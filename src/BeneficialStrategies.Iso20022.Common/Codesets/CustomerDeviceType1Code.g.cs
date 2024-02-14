@@ -21,7 +21,7 @@ public enum CustomerDeviceType1Code
 {
     /// <summary>
     /// Mobile phone
-    /// Encoded/decoded by serializers as "MOBL".
+    /// Encoded/decoded by serializers as &quot;MOBL&quot;.
     /// </summary>
     [EnumMember(Value = "MOBL")]
     [IsoId("_LGwDQUetEee9r7QjOdsbFw")]
@@ -30,7 +30,7 @@ public enum CustomerDeviceType1Code
     
     /// <summary>
     /// Other device defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_LfTtMketEee9r7QjOdsbFw")]
@@ -39,7 +39,7 @@ public enum CustomerDeviceType1Code
     
     /// <summary>
     /// Other device defined in a private way.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_LtiWcketEee9r7QjOdsbFw")]
@@ -48,7 +48,7 @@ public enum CustomerDeviceType1Code
     
     /// <summary>
     /// Personal computer
-    /// Encoded/decoded by serializers as "PECR".
+    /// Encoded/decoded by serializers as &quot;PECR&quot;.
     /// </summary>
     [EnumMember(Value = "PECR")]
     [IsoId("_L6nwMketEee9r7QjOdsbFw")]
@@ -57,7 +57,7 @@ public enum CustomerDeviceType1Code
     
     /// <summary>
     /// Tablet
-    /// Encoded/decoded by serializers as "TBLT".
+    /// Encoded/decoded by serializers as &quot;TBLT&quot;.
     /// </summary>
     [EnumMember(Value = "TBLT")]
     [IsoId("_MSSpUketEee9r7QjOdsbFw")]
@@ -66,7 +66,7 @@ public enum CustomerDeviceType1Code
     
     /// <summary>
     /// Non-secure card reader attached to the customer device.
-    /// Encoded/decoded by serializers as "NSCR".
+    /// Encoded/decoded by serializers as &quot;NSCR&quot;.
     /// </summary>
     [EnumMember(Value = "NSCR")]
     [IsoId("_MieKIS7TEemIy6A-26wnAg")]
@@ -75,7 +75,7 @@ public enum CustomerDeviceType1Code
     
     /// <summary>
     /// Secure card reader attached to the customer device
-    /// Encoded/decoded by serializers as "SECR".
+    /// Encoded/decoded by serializers as &quot;SECR&quot;.
     /// </summary>
     [EnumMember(Value = "SECR")]
     [IsoId("_Mw-gMS7TEemIy6A-26wnAg")]

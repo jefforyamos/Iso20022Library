@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information which describes the organisation.
 /// </summary>
 [IsoId("_QNJpMNp-Ed-ak6NoX_4Aeg_-756944744")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Organisation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,19 +52,17 @@ public partial record Organisation6
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_QNJpMdp-Ed-ak6NoX_4Aeg_-587014923")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Full Legal Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FullLglNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FullLglNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text FullLegalName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FullLegalName { get; init; } 
+    public required System.String FullLegalName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FullLegalName { get; init; } 
     #else
@@ -77,15 +73,13 @@ public partial record Organisation6
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another.
     /// </summary>
     [IsoId("_QNJpMtp-Ed-ak6NoX_4Aeg_-556537714")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TradgNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? TradingName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,16 +92,15 @@ public partial record Organisation6
     /// Country in which the organisation has its business activity.
     /// </summary>
     [IsoId("_QNJpM9p-Ed-ak6NoX_4Aeg_-214835899")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Of Operation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtryOfOpr")]
     #endif
+    [IsoXmlTag("CtryOfOpr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode CountryOfOperation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string CountryOfOperation { get; init; } 
+    public required string CountryOfOperation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string CountryOfOperation { get; init; } 
     #else
@@ -118,12 +111,12 @@ public partial record Organisation6
     /// Date and time at which a given organisation was officially registered.
     /// </summary>
     [IsoId("_QNJpNNp-Ed-ak6NoX_4Aeg_1988528884")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnDt")]
     #endif
+    [IsoXmlTag("RegnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RegistrationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,12 +129,11 @@ public partial record Organisation6
     /// Is an operational address, for example, of a shared services center.
     /// </summary>
     [IsoId("_QNSzINp-Ed-ak6NoX_4Aeg_1150726427")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Operational Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OprlAdr")]
     #endif
+    [IsoXmlTag("OprlAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress6? OperationalAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,12 +146,11 @@ public partial record Organisation6
     /// Is the address where the business activity is taking place.
     /// </summary>
     [IsoId("_QNSzIdp-Ed-ak6NoX_4Aeg_1182126695")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizAdr")]
     #endif
+    [IsoXmlTag("BizAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PostalAddress6? BusinessAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -172,16 +163,15 @@ public partial record Organisation6
     /// Is the address where the entity resides and is registered. More generically, it is the home address (Residential address).
     /// </summary>
     [IsoId("_QNSzItp-Ed-ak6NoX_4Aeg_1207987610")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglAdr")]
     #endif
+    [IsoXmlTag("LglAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PostalAddress6 LegalAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PostalAddress6 LegalAddress { get; init; } 
+    public required PostalAddress6 LegalAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PostalAddress6 LegalAddress { get; init; } 
     #else
@@ -192,16 +182,15 @@ public partial record Organisation6
     /// Unique and unambiguous way of identifying an organisation.
     /// </summary>
     [IsoId("_QNSzI9p-Ed-ak6NoX_4Aeg_-264362475")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Organisation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgId")]
     #endif
+    [IsoXmlTag("OrgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentification6 OrganisationIdentification { get; init; } 
+    public required OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentification6 OrganisationIdentification { get; init; } 
     #else
@@ -209,15 +198,14 @@ public partial record Organisation6
     #endif
     
     /// <summary>
-    /// Person in the customer's organisation who can be contacted by the account servicer.
+    /// Person in the customer&apos;s organisation who can be contacted by the account servicer.
     /// </summary>
     [IsoId("_QNSzJNp-Ed-ak6NoX_4Aeg_-619061048")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Representative Officer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RprtvOffcr")]
     #endif
+    [IsoXmlTag("RprtvOffcr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification40? RepresentativeOfficer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +218,11 @@ public partial record Organisation6
     /// Identification of the person responsible of the treasury department within an organisation.
     /// </summary>
     [IsoId("_QNSzJdp-Ed-ak6NoX_4Aeg_-604286638")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Treasury Manager")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrsrMgr")]
     #endif
+    [IsoXmlTag("TrsrMgr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification40? TreasuryManager { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,12 +235,11 @@ public partial record Organisation6
     /// Is the main mandate holder that will delegate some authority to other individuals (mandate holders) to perform some specific bank operations on the account.
     /// </summary>
     [IsoId("_QNSzJtp-Ed-ak6NoX_4Aeg_1389190594")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Main Mandate Holder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MainMndtHldr")]
     #endif
+    [IsoXmlTag("MainMndtHldr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification40? MainMandateHolder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +252,11 @@ public partial record Organisation6
     /// Potential sender of a message related to the life cyle of an account.
     /// </summary>
     [IsoId("_QNSzJ9p-Ed-ak6NoX_4Aeg_-1555524863")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Sender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sndr")]
     #endif
+    [IsoXmlTag("Sndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification40? Sender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

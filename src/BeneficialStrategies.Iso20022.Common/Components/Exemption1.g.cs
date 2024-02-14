@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Strong Customer Authentication exemption details.
 /// </summary>
 [IsoId("_7zGJkAMgEeujMs2LsB3mMw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exemption")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Exemption1
     /// Type of the exemption.
     /// </summary>
     [IsoId("_RTwOoAMhEeujMs2LsB3mMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Exemption2Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Exemption2Code Type { get; init; } 
+    public required Exemption2Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Exemption2Code Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Exemption1
     /// Status of the exemption.
     /// </summary>
     [IsoId("_XEEAYAMhEeujMs2LsB3mMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AttestationValue1Code Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AttestationValue1Code Value { get; init; } 
+    public required AttestationValue1Code Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AttestationValue1Code Value { get; init; } 
     #else
@@ -92,15 +88,13 @@ public partial record Exemption1
     /// Reason why the exemption claimed was not honored.
     /// </summary>
     [IsoId("_fNKOcAMhEeujMs2LsB3mMw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason Not Honored")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RsnNotHnrd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RsnNotHnrd")]
+    [IsoSimpleType(IsoSimpleType.Max4Text)]
     [StringLength(maximumLength: 4 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax4Text? ReasonNotHonored { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

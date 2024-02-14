@@ -21,7 +21,7 @@ public enum RiskAssessment1Code
 {
     /// <summary>
     /// Recommended to approve conditionally.
-    /// Encoded/decoded by serializers as "APPC".
+    /// Encoded/decoded by serializers as &quot;APPC&quot;.
     /// </summary>
     [EnumMember(Value = "APPC")]
     [IsoId("_5HcuQZljEeu76rs9yGlfEg")]
@@ -30,7 +30,7 @@ public enum RiskAssessment1Code
     
     /// <summary>
     /// Recommended to approve conditionally; high risk conditions exist.
-    /// Encoded/decoded by serializers as "APPH".
+    /// Encoded/decoded by serializers as &quot;APPH&quot;.
     /// </summary>
     [EnumMember(Value = "APPH")]
     [IsoId("_5PkIcZljEeu76rs9yGlfEg")]
@@ -39,7 +39,7 @@ public enum RiskAssessment1Code
     
     /// <summary>
     /// Recommended to approve unconditionally.
-    /// Encoded/decoded by serializers as "APPU".
+    /// Encoded/decoded by serializers as &quot;APPU&quot;.
     /// </summary>
     [EnumMember(Value = "APPU")]
     [IsoId("_5xslIZljEeu76rs9yGlfEg")]
@@ -48,7 +48,7 @@ public enum RiskAssessment1Code
     
     /// <summary>
     /// Recommended to not approve.
-    /// Encoded/decoded by serializers as "DONT".
+    /// Encoded/decoded by serializers as &quot;DONT&quot;.
     /// </summary>
     [EnumMember(Value = "DONT")]
     [IsoId("_56CBwZljEeu76rs9yGlfEg")]

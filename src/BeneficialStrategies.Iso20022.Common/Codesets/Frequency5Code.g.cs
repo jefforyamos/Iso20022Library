@@ -21,7 +21,7 @@ public enum Frequency5Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_hbu7k2liEeGaMcKyqKNRfQ_-1438179665")]
@@ -30,7 +30,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_hbu7lGliEeGaMcKyqKNRfQ_28969098")]
@@ -39,7 +39,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QURT".
+    /// Encoded/decoded by serializers as &quot;QURT&quot;.
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_hbu7lWliEeGaMcKyqKNRfQ_-387046593")]
@@ -48,7 +48,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "MIAN".
+    /// Encoded/decoded by serializers as &quot;MIAN&quot;.
     /// </summary>
     [EnumMember(Value = "MIAN")]
     [IsoId("_hbu7lmliEeGaMcKyqKNRfQ_2064051714")]
@@ -57,7 +57,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_hbu7l2liEeGaMcKyqKNRfQ_-763766819")]
@@ -66,7 +66,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_hbu7mGliEeGaMcKyqKNRfQ_-1776828313")]
@@ -75,7 +75,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place on request or as necessary.
-    /// Encoded/decoded by serializers as "ADHO".
+    /// Encoded/decoded by serializers as &quot;ADHO&quot;.
     /// </summary>
     [EnumMember(Value = "ADHO")]
     [IsoId("_hbu7mWliEeGaMcKyqKNRfQ_-309679550")]
@@ -84,7 +84,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place several times a day.
-    /// Encoded/decoded by serializers as "INDA".
+    /// Encoded/decoded by serializers as &quot;INDA&quot;.
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_hbu7mmliEeGaMcKyqKNRfQ_-1787927090")]
@@ -93,7 +93,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place overnight.
-    /// Encoded/decoded by serializers as "OVNG".
+    /// Encoded/decoded by serializers as &quot;OVNG&quot;.
     /// </summary>
     [EnumMember(Value = "OVNG")]
     [IsoId("_hbu7m2liEeGaMcKyqKNRfQ_1290212806")]
@@ -102,7 +102,7 @@ public enum Frequency5Code
     
     /// <summary>
     /// Event takes place every ten business days.
-    /// Encoded/decoded by serializers as "TEND".
+    /// Encoded/decoded by serializers as &quot;TEND&quot;.
     /// </summary>
     [EnumMember(Value = "TEND")]
     [IsoId("_hbu7nGliEeGaMcKyqKNRfQ_1176373740")]

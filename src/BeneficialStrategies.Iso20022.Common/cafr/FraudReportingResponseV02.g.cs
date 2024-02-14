@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.cafr;
 /// </summary>
 [Description(@"A FraudReportingResponse message is sent by an agent (processor, agent) to an issuer or acquirer in response to a FraudReportingInitiation message.|")]
 [IsoId("_Rt_mJMr8EeuNe7RtB4qFHw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fraud Reporting Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record FraudReportingResponseV02 : IOuterRecord<FraudReportingRes
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_Rt_mJ8r8EeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header66 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header66 Header { get; init; } 
+    public required Header66 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header66 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record FraudReportingResponseV02 : IOuterRecord<FraudReportingRes
     /// Information related to the initiation of the fraud reporting.
     /// </summary>
     [IsoId("_Rt_mJsr8EeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FraudReportingResponse2 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FraudReportingResponse2 Body { get; init; } 
+    public required FraudReportingResponse2 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FraudReportingResponse2 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record FraudReportingResponseV02 : IOuterRecord<FraudReportingRes
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_Rt_mJcr8EeuNe7RtB4qFHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record FraudReportingResponseV02 : IOuterRecord<FraudReportingRes
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FraudReportingResponseV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FraudReportingResponseV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FraudReportingResponseV02Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record FraudReportingResponseV02 : IOuterRecord<FraudReportingRes
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FraudReportingResponseV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FraudReportingResponseV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FraudReportingResponseV02Document : IOuterDocument<FraudReportingResponseV02>
@@ -161,7 +156,7 @@ public partial record FraudReportingResponseV02Document : IOuterDocument<FraudRe
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FraudReportingResponseV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FraudReportingResponseV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FraudReportingResponseV02 Message { get; init; }

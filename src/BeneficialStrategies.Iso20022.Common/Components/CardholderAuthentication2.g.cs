@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data related to the authentication of the cardholder.
 /// </summary>
 [IsoId("_SqbqyQEcEeCQm6a_G2yO_w_-1688249611")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cardholder Authentication")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CardholderAuthentication2
     /// Method used to authenticate the cardholder.
     /// </summary>
     [IsoId("_SqbqygEcEeCQm6a_G2yO_w_-169558028")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnMtd")]
     #endif
+    [IsoXmlTag("AuthntcnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthenticationMethod1Code AuthenticationMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthenticationMethod1Code AuthenticationMethod { get; init; } 
+    public required AuthenticationMethod1Code AuthenticationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthenticationMethod1Code AuthenticationMethod { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CardholderAuthentication2
     /// Entity or object in charge of verifying the cardholder authenticity.
     /// </summary>
     [IsoId("_SqbqywEcEeCQm6a_G2yO_w_-1371836971")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authentication Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcnNtty")]
     #endif
+    [IsoXmlTag("AuthntcnNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuthenticationEntity1Code AuthenticationEntity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuthenticationEntity1Code AuthenticationEntity { get; init; } 
+    public required AuthenticationEntity1Code AuthenticationEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuthenticationEntity1Code AuthenticationEntity { get; init; } 
     #else

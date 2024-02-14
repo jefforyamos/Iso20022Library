@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|This message is sent by an issuer (or its agent) to the CSD to report the status, or a change in status, of:|- a corporate action election advice;|- an election cancellation request; or|- an election amendment request.|Usage|This message must be sent in response to an:|- Agent Corporation Action Election Advice to provide the status of an election advice in the case of a rejection. However, it may also be used in all other situations, in which case, the building blocks Election Advice Identification and the Election Advice Status must be present.|- Agent Corporation Action Election Cancellation Request to provide the status of the cancellation request, in which case, the building blocks Election Cancellation Request Identification and the Election Cancellation Request Status must be present.|- Agent Corporation Action Election Amendment Request to provide the status of the amendment request, in which case, the building blocks Election Amendment Request Identification and the Election Amendment Request Status must be present.")]
 [IsoId("_TNct0NEwEd-BzquC8wXy7w_1059605864")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Agent CA Election Status Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -91,16 +89,15 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     /// Identification assigned by the Sender to unambiguously identify the status advice.
     /// </summary>
     [IsoId("_TNct0dEwEd-BzquC8wXy7w_790316963")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 Identification { get; init; } 
+    public required DocumentIdentification8 Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 Identification { get; init; } 
     #else
@@ -111,16 +108,15 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     /// Identification of the linked Agent CA Election Advice for which a status is given.
     /// </summary>
     [IsoId("_TNct0tEwEd-BzquC8wXy7w_530213864")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Election Advice Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAElctnAdvcId")]
     #endif
+    [IsoXmlTag("AgtCAElctnAdvcId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCAElectionAdviceIdentification { get; init; } 
     #else
@@ -131,16 +127,15 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     /// Identification of the linked Agent CA Election Cancellation Request for which a status is given.
     /// </summary>
     [IsoId("_TNct09EwEd-BzquC8wXy7w_532984396")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Election Cancellation Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAElctnCxlReqId")]
     #endif
+    [IsoXmlTag("AgtCAElctnCxlReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCAElectionCancellationRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCAElectionCancellationRequestIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCAElectionCancellationRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCAElectionCancellationRequestIdentification { get; init; } 
     #else
@@ -151,16 +146,15 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     /// Identification of the linked Agent CA Election Amendment Request for which a status is given.
     /// </summary>
     [IsoId("_TNct1NEwEd-BzquC8wXy7w_-2098719707")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent CA Election Amendment Request Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AgtCAElctnAmdmntReqId")]
     #endif
+    [IsoXmlTag("AgtCAElctnAmdmntReqId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentIdentification8 AgentCAElectionAmendmentRequestIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentIdentification8 AgentCAElectionAmendmentRequestIdentification { get; init; } 
+    public required DocumentIdentification8 AgentCAElectionAmendmentRequestIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentIdentification8 AgentCAElectionAmendmentRequestIdentification { get; init; } 
     #else
@@ -171,16 +165,15 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     /// General information about the corporate action event.
     /// </summary>
     [IsoId("_TNct1dEwEd-BzquC8wXy7w_276354236")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action General Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CorpActnGnlInf")]
     #endif
+    [IsoXmlTag("CorpActnGnlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
+    public required CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionInformation1 CorporateActionGeneralInformation { get; init; } 
     #else
@@ -191,16 +184,15 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     /// Status of the election advice sent by the CSD.
     /// </summary>
     [IsoId("_TNct1tEwEd-BzquC8wXy7w_995320668")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Advice Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctnAdvcSts")]
     #endif
+    [IsoXmlTag("ElctnAdvcSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ElectionAdviceStatus1Choice_ ElectionAdviceStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ElectionAdviceStatus1Choice_ ElectionAdviceStatus { get; init; } 
+    public required ElectionAdviceStatus1Choice_ ElectionAdviceStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ElectionAdviceStatus1Choice_ ElectionAdviceStatus { get; init; } 
     #else
@@ -211,16 +203,15 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     /// Status of the election cancellation request sent by the CSD.
     /// </summary>
     [IsoId("_TNct19EwEd-BzquC8wXy7w_1701814671")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Cancellation Request Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctnCxlReqSts")]
     #endif
+    [IsoXmlTag("ElctnCxlReqSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ElectionCancellationStatus1Choice_ ElectionCancellationRequestStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ElectionCancellationStatus1Choice_ ElectionCancellationRequestStatus { get; init; } 
+    public required ElectionCancellationStatus1Choice_ ElectionCancellationRequestStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ElectionCancellationStatus1Choice_ ElectionCancellationRequestStatus { get; init; } 
     #else
@@ -231,16 +222,15 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     /// Status of the amendment request sent by the CSD.
     /// </summary>
     [IsoId("_TNme0NEwEd-BzquC8wXy7w_-2039764418")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Amendment Request Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElctnAmdmntReqSts")]
     #endif
+    [IsoXmlTag("ElctnAmdmntReqSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ElectionAmendmentStatus1Choice_ ElectionAmendmentRequestStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ElectionAmendmentStatus1Choice_ ElectionAmendmentRequestStatus { get; init; } 
+    public required ElectionAmendmentStatus1Choice_ ElectionAmendmentRequestStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ElectionAmendmentStatus1Choice_ ElectionAmendmentRequestStatus { get; init; } 
     #else
@@ -251,7 +241,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AgentCAElectionStatusAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AgentCAElectionStatusAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AgentCAElectionStatusAdviceV01Document ToDocument()
     {
@@ -261,7 +251,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord<AgentCAElect
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AgentCAElectionStatusAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AgentCAElectionStatusAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AgentCAElectionStatusAdviceV01Document : IOuterDocument<AgentCAElectionStatusAdviceV01>
@@ -278,7 +268,7 @@ public partial record AgentCAElectionStatusAdviceV01Document : IOuterDocument<Ag
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AgentCAElectionStatusAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AgentCAElectionStatusAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AgentCAElectionStatusAdviceV01 Message { get; init; }

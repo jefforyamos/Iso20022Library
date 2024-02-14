@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FXAmountType1Choice
     /// Specifies a commission or fee type.
     /// </summary>
     [IsoId("_Z-9lhQN2Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FXAmountType1Choice
         /// Specifies the type of amount for foreign exchange commissions or fees.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required FXAmountType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public FXAmountType1Code Value { get; init; } 
+        public required FXAmountType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public FXAmountType1Code Value { get; init; } 
         #else

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"A Message Rejection is sent by one of the parties when it detects a technical or functional error in a previous received message.")]
 [IsoId("_4R49hN6cEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Message Rejection V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOIMessageRejectionV01 : IOuterRecord<SaleToPOIMessa
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_4R49ht6cEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header37 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header37 Header { get; init; } 
+    public required Header37 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header37 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOIMessageRejectionV01 : IOuterRecord<SaleToPOIMessa
     /// Information related to the reject.
     /// </summary>
     [IsoId("_vgCQ4d6dEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reject")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjct")]
     #endif
+    [IsoXmlTag("Rjct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorRejection2 Reject { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorRejection2 Reject { get; init; } 
+    public required AcceptorRejection2 Reject { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorRejection2 Reject { get; init; } 
     #else
@@ -116,7 +112,7 @@ public partial record SaleToPOIMessageRejectionV01 : IOuterRecord<SaleToPOIMessa
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOIMessageRejectionV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOIMessageRejectionV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOIMessageRejectionV01Document ToDocument()
     {
@@ -126,7 +122,7 @@ public partial record SaleToPOIMessageRejectionV01 : IOuterRecord<SaleToPOIMessa
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIMessageRejectionV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOIMessageRejectionV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOIMessageRejectionV01Document : IOuterDocument<SaleToPOIMessageRejectionV01>
@@ -143,7 +139,7 @@ public partial record SaleToPOIMessageRejectionV01Document : IOuterDocument<Sale
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOIMessageRejectionV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOIMessageRejectionV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOIMessageRejectionV01 Message { get; init; }

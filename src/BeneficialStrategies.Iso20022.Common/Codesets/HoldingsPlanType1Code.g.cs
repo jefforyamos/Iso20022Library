@@ -21,7 +21,7 @@ public enum HoldingsPlanType1Code
 {
     /// <summary>
     /// Holding to be transferred belongs to an investment plan.
-    /// Encoded/decoded by serializers as "INVP".
+    /// Encoded/decoded by serializers as &quot;INVP&quot;.
     /// </summary>
     [EnumMember(Value = "INVP")]
     [IsoId("_HrnWjv81EeC-e_lDNJKWcg")]
@@ -30,7 +30,7 @@ public enum HoldingsPlanType1Code
     
     /// <summary>
     /// Holding to be transferred belongs to a switch plan.
-    /// Encoded/decoded by serializers as "SWIP".
+    /// Encoded/decoded by serializers as &quot;SWIP&quot;.
     /// </summary>
     [EnumMember(Value = "SWIP")]
     [IsoId("_H1dPBv81EeC-e_lDNJKWcg")]
@@ -39,7 +39,7 @@ public enum HoldingsPlanType1Code
     
     /// <summary>
     /// Holding to be transferred belongs to a withdrawal plan.
-    /// Encoded/decoded by serializers as "PLAR".
+    /// Encoded/decoded by serializers as &quot;PLAR&quot;.
     /// </summary>
     [EnumMember(Value = "PLAR")]
     [IsoId("_H5LRbv81EeC-e_lDNJKWcg")]

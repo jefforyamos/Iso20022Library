@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice of format for the transfer reason.
 /// </summary>
 [IsoId("_kgcvYPr5EeCu2Z1WwxJVWA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TransferReason1
     /// Transfer reason expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_nUBDQfr5EeCu2Z1WwxJVWA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cd")]
     #endif
+    [IsoXmlTag("Cd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferReason1Code Code { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferReason1Code Code { get; init; } 
+    public required TransferReason1Code Code { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferReason1Code Code { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TransferReason1
     /// Transfer reason expressed as a proprietary code.
     /// </summary>
     [IsoId("_rZ-zEfr5EeCu2Z1WwxJVWA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prtry")]
     #endif
+    [IsoXmlTag("Prtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification27 Proprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification27 Proprietary { get; init; } 
+    public required GenericIdentification27 Proprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification27 Proprietary { get; init; } 
     #else

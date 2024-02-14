@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension for additional information.
 /// </summary>
 [IsoId("_FWA4v2CUEeK8P92abE6HIA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Updated Additional Information 6 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record UpdatedAdditionalInformation6SD3
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_FWA4y2CUEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,15 +63,13 @@ public partial record UpdatedAdditionalInformation6SD3
     /// 会社法制の見直し要綱の、22ページ第３－１－①をご参照ください。.
     /// </summary>
     [IsoId("_lYWXUGCVEeK8P92abE6HIA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Credit Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesCdtAcctId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctiesCdtAcctId")]
+    [IsoSimpleType(IsoSimpleType.Max50Text)]
     [StringLength(maximumLength: 50 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax50Text? SecuritiesCreditAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,15 +79,15 @@ public partial record UpdatedAdditionalInformation6SD3
     #endif
     
     /// <summary>
-    /// ISIN of Offeror's share when the corporate action event type code is TEND.
+    /// ISIN of Offeror&apos;s share when the corporate action event type code is TEND.
     /// </summary>
     [IsoId("_48yLQGxREeK_SqccejsxHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offeror Share")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OfferrShr")]
     #endif
+    [IsoXmlTag("OfferrShr")]
+    [IsoSimpleType(IsoSimpleType.ISINIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISINIdentifier? OfferorShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -103,19 +97,17 @@ public partial record UpdatedAdditionalInformation6SD3
     #endif
     
     /// <summary>
-    /// Local code of Offeror's share when the corporate action event type code is TEND.
+    /// Local code of Offeror&apos;s share when the corporate action event type code is TEND.
     /// 買付者 銘柄コード.
     /// </summary>
     [IsoId("_48yLQ2xREeK_SqccejsxHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offeror Share Local Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OfferrShrLclCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OfferrShrLclCd")]
+    [IsoSimpleType(IsoSimpleType.Max5AlphaNumericText)]
     [StringLength(maximumLength: 5 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax5AlphaNumericText? OfferorShareLocalCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,15 +120,13 @@ public partial record UpdatedAdditionalInformation6SD3
     /// Name in the local language by which a party is known and which is usually used to identify that party.
     /// </summary>
     [IsoId("_48yLRmxREeK_SqccejsxHw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Language Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclLangNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LclLangNm")]
+    [IsoSimpleType(IsoSimpleType.Max240Text)]
     [StringLength(maximumLength: 240 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax240Text? LocalLanguageName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

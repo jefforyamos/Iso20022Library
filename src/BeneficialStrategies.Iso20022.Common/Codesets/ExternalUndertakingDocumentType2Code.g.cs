@@ -22,7 +22,7 @@ public enum ExternalUndertakingDocumentType2Code
 {
     /// <summary>
     /// Document is a beneficiary statement.
-    /// Encoded/decoded by serializers as "BENS".
+    /// Encoded/decoded by serializers as &quot;BENS&quot;.
     /// </summary>
     [EnumMember(Value = "BENS")]
     [IsoId("_uRhQ0vRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalUndertakingDocumentType2Code
     
     /// <summary>
     /// Document is an invoice.
-    /// Encoded/decoded by serializers as "CINV".
+    /// Encoded/decoded by serializers as &quot;CINV&quot;.
     /// </summary>
     [EnumMember(Value = "CINV")]
     [IsoId("_uRhQ1fRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalUndertakingDocumentType2Code
     
     /// <summary>
     /// Document is a transfer form.
-    /// Encoded/decoded by serializers as "TRAF".
+    /// Encoded/decoded by serializers as &quot;TRAF&quot;.
     /// </summary>
     [EnumMember(Value = "TRAF")]
     [IsoId("_uRhQ2PRYEeuLhpyIdtJzwg")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the status of the cancellation of the underlying payments event.
 /// </summary>
 [IsoId("_ro9XFIEmEei51tn2YGQhvg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Underlying Cancellation Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record UnderlyingCancellationDetails2
     /// Provides information from the cancellation request.
     /// </summary>
     [IsoId("_ro9XFYEmEei51tn2YGQhvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Request Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlReqDtls")]
     #endif
+    [IsoXmlTag("CxlReqDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationRequest1? CancellationRequestDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record UnderlyingCancellationDetails2
     /// Provides information from the cancellation response.
     /// </summary>
     [IsoId("_ro9XFoEmEei51tn2YGQhvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Response Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlRspnDtls")]
     #endif
+    [IsoXmlTag("CxlRspnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CancellationResponse1? CancellationResponseDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record UnderlyingCancellationDetails2
     /// Specifies the status of the cancellation request.
     /// </summary>
     [IsoId("_ro9XF4EmEei51tn2YGQhvg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Request Tracking Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlReqTrckgSts")]
     #endif
+    [IsoXmlTag("CxlReqTrckgSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCancellationStatusReason2Code? CancellationRequestTrackingStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

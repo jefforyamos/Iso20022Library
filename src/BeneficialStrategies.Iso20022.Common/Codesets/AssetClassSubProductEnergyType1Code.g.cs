@@ -21,7 +21,7 @@ public enum AssetClassSubProductEnergyType1Code
 {
     /// <summary>
     /// Commodity of type coal.
-    /// Encoded/decoded by serializers as "COAL".
+    /// Encoded/decoded by serializers as &quot;COAL&quot;.
     /// </summary>
     [EnumMember(Value = "COAL")]
     [IsoId("_flKPkc5GEeSc85GUbgBycw")]
@@ -30,7 +30,7 @@ public enum AssetClassSubProductEnergyType1Code
     
     /// <summary>
     /// Commodity of type electricity.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_fuNd4c5GEeSc85GUbgBycw")]
@@ -39,7 +39,7 @@ public enum AssetClassSubProductEnergyType1Code
     
     /// <summary>
     /// Commodity of type oil.
-    /// Encoded/decoded by serializers as "OILP".
+    /// Encoded/decoded by serializers as &quot;OILP&quot;.
     /// </summary>
     [EnumMember(Value = "OILP")]
     [IsoId("_gLvucc5GEeSc85GUbgBycw")]
@@ -48,7 +48,7 @@ public enum AssetClassSubProductEnergyType1Code
     
     /// <summary>
     /// Commodity of type inter energy.
-    /// Encoded/decoded by serializers as "INRG".
+    /// Encoded/decoded by serializers as &quot;INRG&quot;.
     /// </summary>
     [EnumMember(Value = "INRG")]
     [IsoId("_gzJFoc5GEeSc85GUbgBycw")]
@@ -57,7 +57,7 @@ public enum AssetClassSubProductEnergyType1Code
     
     /// <summary>
     /// Commodity of type natural gas.
-    /// Encoded/decoded by serializers as "NGAS".
+    /// Encoded/decoded by serializers as &quot;NGAS&quot;.
     /// </summary>
     [EnumMember(Value = "NGAS")]
     [IsoId("_USGZAUDbEeWOL-OsSq2h6w")]
@@ -66,7 +66,7 @@ public enum AssetClassSubProductEnergyType1Code
     
     /// <summary>
     /// Commodity of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_UhRdcUDbEeWOL-OsSq2h6w")]

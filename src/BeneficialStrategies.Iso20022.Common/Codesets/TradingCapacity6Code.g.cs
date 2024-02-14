@@ -21,7 +21,7 @@ public enum TradingCapacity6Code
 {
     /// <summary>
     /// Trading as Agent on behalf of a customer.
-    /// Encoded/decoded by serializers as "AGEN".
+    /// Encoded/decoded by serializers as &quot;AGEN&quot;.
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("__zaK9dojEeC60axPepSq7g_946389513")]
@@ -30,7 +30,7 @@ public enum TradingCapacity6Code
     
     /// <summary>
     /// Party acting as an agent for both customer and another person.
-    /// Encoded/decoded by serializers as "BAGN".
+    /// Encoded/decoded by serializers as &quot;BAGN&quot;.
     /// </summary>
     [EnumMember(Value = "BAGN")]
     [IsoId("__zaK9tojEeC60axPepSq7g_-729579691")]
@@ -39,7 +39,7 @@ public enum TradingCapacity6Code
     
     /// <summary>
     /// Crossing as an agent.
-    /// Encoded/decoded by serializers as "CAGN".
+    /// Encoded/decoded by serializers as &quot;CAGN&quot;.
     /// </summary>
     [EnumMember(Value = "CAGN")]
     [IsoId("__zj78NojEeC60axPepSq7g_-1990766827")]
@@ -48,7 +48,7 @@ public enum TradingCapacity6Code
     
     /// <summary>
     /// Crossing as a principal.
-    /// Encoded/decoded by serializers as "CPRN".
+    /// Encoded/decoded by serializers as &quot;CPRN&quot;.
     /// </summary>
     [EnumMember(Value = "CPRN")]
     [IsoId("__zj78dojEeC60axPepSq7g_1386150177")]
@@ -57,7 +57,7 @@ public enum TradingCapacity6Code
     
     /// <summary>
     /// Acting as an agent for a party other than a customer.
-    /// Encoded/decoded by serializers as "OAGN".
+    /// Encoded/decoded by serializers as &quot;OAGN&quot;.
     /// </summary>
     [EnumMember(Value = "OAGN")]
     [IsoId("__zj78tojEeC60axPepSq7g_1420967182")]
@@ -66,7 +66,7 @@ public enum TradingCapacity6Code
     
     /// <summary>
     /// Acting as an agent for some executions and principal for others in the same transaction.
-    /// Encoded/decoded by serializers as "PRAG".
+    /// Encoded/decoded by serializers as &quot;PRAG&quot;.
     /// </summary>
     [EnumMember(Value = "PRAG")]
     [IsoId("__zj789ojEeC60axPepSq7g_153653596")]
@@ -75,7 +75,7 @@ public enum TradingCapacity6Code
     
     /// <summary>
     /// Trading as Principal.
-    /// Encoded/decoded by serializers as "PRIN".
+    /// Encoded/decoded by serializers as &quot;PRIN&quot;.
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("__zj79NojEeC60axPepSq7g_-2025583832")]

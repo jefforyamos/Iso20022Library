@@ -21,7 +21,7 @@ public enum ChequeDelivery1Code
 {
     /// <summary>
     /// Cheque is to be sent through mail services to debtor.
-    /// Encoded/decoded by serializers as "MLDB".
+    /// Encoded/decoded by serializers as &quot;MLDB&quot;.
     /// </summary>
     [EnumMember(Value = "MLDB")]
     [IsoId("_a-UsyNp-Ed-ak6NoX_4Aeg_740702059")]
@@ -30,7 +30,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque is to be sent through mail services to creditor.
-    /// Encoded/decoded by serializers as "MLCD".
+    /// Encoded/decoded by serializers as &quot;MLCD&quot;.
     /// </summary>
     [EnumMember(Value = "MLCD")]
     [IsoId("_a-edwNp-Ed-ak6NoX_4Aeg_740702112")]
@@ -39,7 +39,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque is to be sent through mail services to creditor agent.
-    /// Encoded/decoded by serializers as "MLFA".
+    /// Encoded/decoded by serializers as &quot;MLFA&quot;.
     /// </summary>
     [EnumMember(Value = "MLFA")]
     [IsoId("_a-edwdp-Ed-ak6NoX_4Aeg_740702197")]
@@ -48,7 +48,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque is to be sent through courier services to debtor.
-    /// Encoded/decoded by serializers as "CRDB".
+    /// Encoded/decoded by serializers as &quot;CRDB&quot;.
     /// </summary>
     [EnumMember(Value = "CRDB")]
     [IsoId("_a-edwtp-Ed-ak6NoX_4Aeg_740702267")]
@@ -57,7 +57,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque is to be sent through courier services to creditor.
-    /// Encoded/decoded by serializers as "CRCD".
+    /// Encoded/decoded by serializers as &quot;CRCD&quot;.
     /// </summary>
     [EnumMember(Value = "CRCD")]
     [IsoId("_a-edw9p-Ed-ak6NoX_4Aeg_740702569")]
@@ -66,7 +66,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque is to be sent through courier services to creditor agent.
-    /// Encoded/decoded by serializers as "CRFA".
+    /// Encoded/decoded by serializers as &quot;CRFA&quot;.
     /// </summary>
     [EnumMember(Value = "CRFA")]
     [IsoId("_a-edxNp-Ed-ak6NoX_4Aeg_740702664")]
@@ -75,7 +75,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque will be picked up by the debtor.
-    /// Encoded/decoded by serializers as "PUDB".
+    /// Encoded/decoded by serializers as &quot;PUDB&quot;.
     /// </summary>
     [EnumMember(Value = "PUDB")]
     [IsoId("_a-edxdp-Ed-ak6NoX_4Aeg_740702989")]
@@ -84,7 +84,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque will be picked up by the creditor.
-    /// Encoded/decoded by serializers as "PUCD".
+    /// Encoded/decoded by serializers as &quot;PUCD&quot;.
     /// </summary>
     [EnumMember(Value = "PUCD")]
     [IsoId("_a-edxtp-Ed-ak6NoX_4Aeg_740703067")]
@@ -93,7 +93,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque will be picked up by the creditor agent.
-    /// Encoded/decoded by serializers as "PUFA".
+    /// Encoded/decoded by serializers as &quot;PUFA&quot;.
     /// </summary>
     [EnumMember(Value = "PUFA")]
     [IsoId("_a-edx9p-Ed-ak6NoX_4Aeg_740703144")]
@@ -102,7 +102,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to debtor.
-    /// Encoded/decoded by serializers as "RGDB".
+    /// Encoded/decoded by serializers as &quot;RGDB&quot;.
     /// </summary>
     [EnumMember(Value = "RGDB")]
     [IsoId("_a-edyNp-Ed-ak6NoX_4Aeg_740703222")]
@@ -111,7 +111,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to creditor.
-    /// Encoded/decoded by serializers as "RGCD".
+    /// Encoded/decoded by serializers as &quot;RGCD&quot;.
     /// </summary>
     [EnumMember(Value = "RGCD")]
     [IsoId("_a-edydp-Ed-ak6NoX_4Aeg_740703534")]
@@ -120,7 +120,7 @@ public enum ChequeDelivery1Code
     
     /// <summary>
     /// Cheque is to be sent through registered mail services to creditor agent.
-    /// Encoded/decoded by serializers as "RGFA".
+    /// Encoded/decoded by serializers as &quot;RGFA&quot;.
     /// </summary>
     [EnumMember(Value = "RGFA")]
     [IsoId("_a-edytp-Ed-ak6NoX_4Aeg_740703629")]

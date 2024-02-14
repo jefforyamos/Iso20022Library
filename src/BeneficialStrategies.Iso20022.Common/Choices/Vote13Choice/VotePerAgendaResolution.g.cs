@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote13Choice
     /// Vote instruction is provided individually for each agenda resolution.
     /// </summary>
     [IsoId("_x1eVwK-4EemJ1NnLPsTFaw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Per Agenda Resolution")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

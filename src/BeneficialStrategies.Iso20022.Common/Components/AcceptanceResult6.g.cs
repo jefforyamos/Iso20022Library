@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide detailed information on the acceptance result.
 /// </summary>
 [IsoId("_RBvu4dp-Ed-ak6NoX_4Aeg_2046006177")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptance Result")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record AcceptanceResult6
     /// Indicates whether the mandate request was accepted or rejected.
     /// </summary>
     [IsoId("_RBvu4tp-Ed-ak6NoX_4Aeg_1773632231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Accptd")]
     #endif
+    [IsoXmlTag("Accptd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Accepted { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Accepted { get; init; } 
+    public required System.String Accepted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Accepted { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record AcceptanceResult6
     /// Specifies the reason for the rejection of a mandate request.
     /// </summary>
     [IsoId("_RBvu49p-Ed-ak6NoX_4Aeg_1929136883")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reject Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctRsn")]
     #endif
+    [IsoXmlTag("RjctRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MandateReason1Choice_? RejectReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,15 +86,13 @@ public partial record AcceptanceResult6
     /// Further details on the reject reason.
     /// </summary>
     [IsoId("_RBvu5Np-Ed-ak6NoX_4Aeg_-192674430")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Reject Reason Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlRjctRsnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlRjctRsnInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalRejectReasonInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

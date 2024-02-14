@@ -21,7 +21,7 @@ public enum EventConfirmationStatusCode
 {
     /// <summary>
     /// Occurrence of the event has been confirmed.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_ajNeFdp-Ed-ak6NoX_4Aeg_-88336775")]
@@ -30,7 +30,7 @@ public enum EventConfirmationStatusCode
     
     /// <summary>
     /// Occurrence of the event has not been confirmed.
-    /// Encoded/decoded by serializers as "UCON".
+    /// Encoded/decoded by serializers as &quot;UCON&quot;.
     /// </summary>
     [EnumMember(Value = "UCON")]
     [IsoId("_ajNeFtp-Ed-ak6NoX_4Aeg_-88336774")]
@@ -39,7 +39,7 @@ public enum EventConfirmationStatusCode
     
     /// <summary>
     /// Occurrence of the event is pending.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_k_9VoPyhEeq1mLMo4Zt_TQ")]

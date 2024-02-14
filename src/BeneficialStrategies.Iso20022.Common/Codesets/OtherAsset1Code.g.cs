@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum OtherAsset1Code
 {
     /// <summary>
-    /// Property that is not real estate. Also known as 'movable chattels'.
-    /// Encoded/decoded by serializers as "MOVE".
+    /// Property that is not real estate. Also known as &apos;movable chattels&apos;.
+    /// Encoded/decoded by serializers as &quot;MOVE&quot;.
     /// </summary>
     [EnumMember(Value = "MOVE")]
     [IsoId("_rkYRAUyMEeiepssxrmRw1A")]
@@ -30,7 +30,7 @@ public enum OtherAsset1Code
     
     /// <summary>
     /// Property that is real estate.
-    /// Encoded/decoded by serializers as "PROP".
+    /// Encoded/decoded by serializers as &quot;PROP&quot;.
     /// </summary>
     [EnumMember(Value = "PROP")]
     [IsoId("_rqe5AUyMEeiepssxrmRw1A")]

@@ -21,7 +21,7 @@ public enum PaymentPurpose1Code
 {
     /// <summary>
     /// Transaction is the payment of salaries.
-    /// Encoded/decoded by serializers as "SALA".
+    /// Encoded/decoded by serializers as &quot;SALA&quot;.
     /// </summary>
     [EnumMember(Value = "SALA")]
     [IsoId("_Z5Cfudp-Ed-ak6NoX_4Aeg_1037583707")]
@@ -30,7 +30,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to treasury operations.
-    /// Encoded/decoded by serializers as "TREA".
+    /// Encoded/decoded by serializers as &quot;TREA&quot;.
     /// </summary>
     [EnumMember(Value = "TREA")]
     [IsoId("_Z5LpoNp-Ed-ak6NoX_4Aeg_1037583732")]
@@ -39,7 +39,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is an advance payment.
-    /// Encoded/decoded by serializers as "ADVA".
+    /// Encoded/decoded by serializers as &quot;ADVA&quot;.
     /// </summary>
     [EnumMember(Value = "ADVA")]
     [IsoId("_Z5Lpodp-Ed-ak6NoX_4Aeg_1037583904")]
@@ -48,7 +48,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to the agricultural domain.
-    /// Encoded/decoded by serializers as "AGRT".
+    /// Encoded/decoded by serializers as &quot;AGRT&quot;.
     /// </summary>
     [EnumMember(Value = "AGRT")]
     [IsoId("_Z5Lpotp-Ed-ak6NoX_4Aeg_1037584139")]
@@ -57,7 +57,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of alimony.
-    /// Encoded/decoded by serializers as "ALMY".
+    /// Encoded/decoded by serializers as &quot;ALMY&quot;.
     /// </summary>
     [EnumMember(Value = "ALMY")]
     [IsoId("_Z5Lpo9p-Ed-ak6NoX_4Aeg_1037584156")]
@@ -66,7 +66,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment made to assist parent/guardian to maintain child.
-    /// Encoded/decoded by serializers as "BECH".
+    /// Encoded/decoded by serializers as &quot;BECH&quot;.
     /// </summary>
     [EnumMember(Value = "BECH")]
     [IsoId("_Z5LppNp-Ed-ak6NoX_4Aeg_1037584199")]
@@ -75,7 +75,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment to a person who is unemployed/disabled.
-    /// Encoded/decoded by serializers as "BENE".
+    /// Encoded/decoded by serializers as &quot;BENE&quot;.
     /// </summary>
     [EnumMember(Value = "BENE")]
     [IsoId("_Z5Lppdp-Ed-ak6NoX_4Aeg_1037584216")]
@@ -84,7 +84,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to payment of a bonus.
-    /// Encoded/decoded by serializers as "BONU".
+    /// Encoded/decoded by serializers as &quot;BONU&quot;.
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_Z5Lpptp-Ed-ak6NoX_4Aeg_1038504248")]
@@ -93,7 +93,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is a general cash management instruction.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Z5Lpp9p-Ed-ak6NoX_4Aeg_1038504265")]
@@ -102,7 +102,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to capital building fringe fortune, ie capital building for retirement.
-    /// Encoded/decoded by serializers as "CBFF".
+    /// Encoded/decoded by serializers as &quot;CBFF&quot;.
     /// </summary>
     [EnumMember(Value = "CBFF")]
     [IsoId("_Z5LpqNp-Ed-ak6NoX_4Aeg_1038504308")]
@@ -111,7 +111,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is a payment for charity reasons.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_Z5Lpqdp-Ed-ak6NoX_4Aeg_1038504481")]
@@ -120,7 +120,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is a collection of funds initiated via a credit transfer or direct debit.
-    /// Encoded/decoded by serializers as "COLL".
+    /// Encoded/decoded by serializers as &quot;COLL&quot;.
     /// </summary>
     [EnumMember(Value = "COLL")]
     [IsoId("_Z5VaoNp-Ed-ak6NoX_4Aeg_-1075476839")]
@@ -129,7 +129,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is payment of commodities.
-    /// Encoded/decoded by serializers as "CMDT".
+    /// Encoded/decoded by serializers as &quot;CMDT&quot;.
     /// </summary>
     [EnumMember(Value = "CMDT")]
     [IsoId("_Z5Vaodp-Ed-ak6NoX_4Aeg_1038504524")]
@@ -138,7 +138,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment of commercial credit or debit. (formerly CommercialCredit).
-    /// Encoded/decoded by serializers as "COMC".
+    /// Encoded/decoded by serializers as &quot;COMC&quot;.
     /// </summary>
     [EnumMember(Value = "COMC")]
     [IsoId("_Z5Vaotp-Ed-ak6NoX_4Aeg_1038504776")]
@@ -147,7 +147,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is payment of commission.
-    /// Encoded/decoded by serializers as "COMM".
+    /// Encoded/decoded by serializers as &quot;COMM&quot;.
     /// </summary>
     [EnumMember(Value = "COMM")]
     [IsoId("_Z5Vao9p-Ed-ak6NoX_4Aeg_1038504793")]
@@ -156,7 +156,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to payment of costs.
-    /// Encoded/decoded by serializers as "COST".
+    /// Encoded/decoded by serializers as &quot;COST&quot;.
     /// </summary>
     [EnumMember(Value = "COST")]
     [IsoId("_Z5VapNp-Ed-ak6NoX_4Aeg_1038505274")]
@@ -165,7 +165,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is payment of copyright.
-    /// Encoded/decoded by serializers as "CPYR".
+    /// Encoded/decoded by serializers as &quot;CPYR&quot;.
     /// </summary>
     [EnumMember(Value = "CPYR")]
     [IsoId("_Z5Vapdp-Ed-ak6NoX_4Aeg_1038505316")]
@@ -174,7 +174,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is payment of dividends.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_Z5Vaptp-Ed-ak6NoX_4Aeg_1038505334")]
@@ -183,7 +183,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to a foreign exchange operation.
-    /// Encoded/decoded by serializers as "FREX".
+    /// Encoded/decoded by serializers as &quot;FREX&quot;.
     /// </summary>
     [EnumMember(Value = "FREX")]
     [IsoId("_Z5Vap9p-Ed-ak6NoX_4Aeg_1038505411")]
@@ -192,7 +192,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to purchase and sale of goods.
-    /// Encoded/decoded by serializers as "GDDS".
+    /// Encoded/decoded by serializers as &quot;GDDS&quot;.
     /// </summary>
     [EnumMember(Value = "GDDS")]
     [IsoId("_Z5VaqNp-Ed-ak6NoX_4Aeg_1038505471")]
@@ -201,7 +201,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is a payment to or from a government department.
-    /// Encoded/decoded by serializers as "GOVT".
+    /// Encoded/decoded by serializers as &quot;GOVT&quot;.
     /// </summary>
     [EnumMember(Value = "GOVT")]
     [IsoId("_Z5Vaqdp-Ed-ak6NoX_4Aeg_1038505506")]
@@ -210,7 +210,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is payment for an installment/hire-purchase agreement.
-    /// Encoded/decoded by serializers as "IHRP".
+    /// Encoded/decoded by serializers as &quot;IHRP&quot;.
     /// </summary>
     [EnumMember(Value = "IHRP")]
     [IsoId("_Z5fLoNp-Ed-ak6NoX_4Aeg_1038505801")]
@@ -219,7 +219,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is an intra-company payment, ie, a payment between two companies belonging to the same group.
-    /// Encoded/decoded by serializers as "INTC".
+    /// Encoded/decoded by serializers as &quot;INTC&quot;.
     /// </summary>
     [EnumMember(Value = "INTC")]
     [IsoId("_Z5fLodp-Ed-ak6NoX_4Aeg_-1450054943")]
@@ -228,7 +228,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is payment of an insurance premium.
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_Z5fLotp-Ed-ak6NoX_4Aeg_1038505843")]
@@ -237,7 +237,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is payment of interest.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_Z5fLo9p-Ed-ak6NoX_4Aeg_1038505878")]
@@ -246,7 +246,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is payment of a license fee.
-    /// Encoded/decoded by serializers as "LICF".
+    /// Encoded/decoded by serializers as &quot;LICF&quot;.
     /// </summary>
     [EnumMember(Value = "LICF")]
     [IsoId("_Z5fLpNp-Ed-ak6NoX_4Aeg_1038506169")]
@@ -255,7 +255,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to transfer of loan to borrower.
-    /// Encoded/decoded by serializers as "LOAN".
+    /// Encoded/decoded by serializers as &quot;LOAN&quot;.
     /// </summary>
     [EnumMember(Value = "LOAN")]
     [IsoId("_Z5fLpdp-Ed-ak6NoX_4Aeg_1038506229")]
@@ -264,7 +264,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to repayment of loan to lender.
-    /// Encoded/decoded by serializers as "LOAR".
+    /// Encoded/decoded by serializers as &quot;LOAR&quot;.
     /// </summary>
     [EnumMember(Value = "LOAR")]
     [IsoId("_Z5fLptp-Ed-ak6NoX_4Aeg_1038506264")]
@@ -273,7 +273,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to a netting operation.
-    /// Encoded/decoded by serializers as "NETT".
+    /// Encoded/decoded by serializers as &quot;NETT&quot;.
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_Z5fLp9p-Ed-ak6NoX_4Aeg_1038506341")]
@@ -282,7 +282,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to the payment of payroll.
-    /// Encoded/decoded by serializers as "PAYR".
+    /// Encoded/decoded by serializers as &quot;PAYR&quot;.
     /// </summary>
     [EnumMember(Value = "PAYR")]
     [IsoId("_Z5fLqNp-Ed-ak6NoX_4Aeg_685678686")]
@@ -291,7 +291,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of pension.
-    /// Encoded/decoded by serializers as "PENS".
+    /// Encoded/decoded by serializers as &quot;PENS&quot;.
     /// </summary>
     [EnumMember(Value = "PENS")]
     [IsoId("_Z5fLqdp-Ed-ak6NoX_4Aeg_1038506384")]
@@ -300,7 +300,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of a refund.
-    /// Encoded/decoded by serializers as "REFU".
+    /// Encoded/decoded by serializers as &quot;REFU&quot;.
     /// </summary>
     [EnumMember(Value = "REFU")]
     [IsoId("_Z5oVkNp-Ed-ak6NoX_4Aeg_1038506436")]
@@ -309,7 +309,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of rent.
-    /// Encoded/decoded by serializers as "RENT".
+    /// Encoded/decoded by serializers as &quot;RENT&quot;.
     /// </summary>
     [EnumMember(Value = "RENT")]
     [IsoId("_Z5oVkdp-Ed-ak6NoX_4Aeg_1038506696")]
@@ -318,7 +318,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of royalties.
-    /// Encoded/decoded by serializers as "ROYA".
+    /// Encoded/decoded by serializers as &quot;ROYA&quot;.
     /// </summary>
     [EnumMember(Value = "ROYA")]
     [IsoId("_Z5oVktp-Ed-ak6NoX_4Aeg_1038506731")]
@@ -327,7 +327,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to purchase and sale of services.
-    /// Encoded/decoded by serializers as "SCVE".
+    /// Encoded/decoded by serializers as &quot;SCVE&quot;.
     /// </summary>
     [EnumMember(Value = "SCVE")]
     [IsoId("_Z5oVk9p-Ed-ak6NoX_4Aeg_1038506791")]
@@ -336,7 +336,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of securities.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_Z5oVlNp-Ed-ak6NoX_4Aeg_1038507662")]
@@ -345,7 +345,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is a social security benefit, ie payment made by a government to support individuals.
-    /// Encoded/decoded by serializers as "SSBE".
+    /// Encoded/decoded by serializers as &quot;SSBE&quot;.
     /// </summary>
     [EnumMember(Value = "SSBE")]
     [IsoId("_Z5oVldp-Ed-ak6NoX_4Aeg_1038507757")]
@@ -354,7 +354,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment of information or entertainment services either in printed or electronic form.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("_Z5oVltp-Ed-ak6NoX_4Aeg_1039427806")]
@@ -363,7 +363,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of taxes.
-    /// Encoded/decoded by serializers as "TAXS".
+    /// Encoded/decoded by serializers as &quot;TAXS&quot;.
     /// </summary>
     [EnumMember(Value = "TAXS")]
     [IsoId("_Z5oVl9p-Ed-ak6NoX_4Aeg_1039427848")]
@@ -372,7 +372,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is the payment of value added tax.
-    /// Encoded/decoded by serializers as "VATX".
+    /// Encoded/decoded by serializers as &quot;VATX&quot;.
     /// </summary>
     [EnumMember(Value = "VATX")]
     [IsoId("_Z5oVmNp-Ed-ak6NoX_4Aeg_1039427943")]
@@ -381,7 +381,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is a payment used by a third party who can collect funds to pay on behalf of consumers, ie credit counseling or bill payment companies.
-    /// Encoded/decoded by serializers as "COMT".
+    /// Encoded/decoded by serializers as &quot;COMT&quot;.
     /// </summary>
     [EnumMember(Value = "COMT")]
     [IsoId("_Z5oVmdp-Ed-ak6NoX_4Aeg_-613715876")]
@@ -390,7 +390,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Collection of funds initiated via a debit transfer.
-    /// Encoded/decoded by serializers as "DBTC".
+    /// Encoded/decoded by serializers as &quot;DBTC&quot;.
     /// </summary>
     [EnumMember(Value = "DBTC")]
     [IsoId("_Z5oVmtp-Ed-ak6NoX_4Aeg_401232326")]
@@ -399,7 +399,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to a payment to a supplier.
-    /// Encoded/decoded by serializers as "SUPP".
+    /// Encoded/decoded by serializers as &quot;SUPP&quot;.
     /// </summary>
     [EnumMember(Value = "SUPP")]
     [IsoId("_Z5yGkNp-Ed-ak6NoX_4Aeg_755866699")]
@@ -408,7 +408,7 @@ public enum PaymentPurpose1Code
     
     /// <summary>
     /// Transaction is related to a hedging operation.
-    /// Encoded/decoded by serializers as "HEDG".
+    /// Encoded/decoded by serializers as &quot;HEDG&quot;.
     /// </summary>
     [EnumMember(Value = "HEDG")]
     [IsoId("_Z5yGkdp-Ed-ak6NoX_4Aeg_1603098882")]

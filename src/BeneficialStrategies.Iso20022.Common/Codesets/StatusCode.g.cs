@@ -21,7 +21,7 @@ public enum StatusCode
 {
     /// <summary>
     /// Processing of the instruction is pending.
-    /// Encoded/decoded by serializers as "PPRC".
+    /// Encoded/decoded by serializers as &quot;PPRC&quot;.
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_YgOSoNp-Ed-ak6NoX_4Aeg_1500868011")]
@@ -30,7 +30,7 @@ public enum StatusCode
     
     /// <summary>
     /// Instruction has been acknowledged and accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "PAAC".
+    /// Encoded/decoded by serializers as &quot;PAAC&quot;.
     /// </summary>
     [EnumMember(Value = "PAAC")]
     [IsoId("_YgOSodp-Ed-ak6NoX_4Aeg_-446967552")]
@@ -39,7 +39,7 @@ public enum StatusCode
     
     /// <summary>
     /// Instruction has been rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_YgOSotp-Ed-ak6NoX_4Aeg_-698172830")]
@@ -48,7 +48,7 @@ public enum StatusCode
     
     /// <summary>
     /// Instruction has been accepted and is validated for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_YgOSo9p-Ed-ak6NoX_4Aeg_-694479303")]
@@ -57,7 +57,7 @@ public enum StatusCode
     
     /// <summary>
     /// Processing has been completed.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_YgOSpNp-Ed-ak6NoX_4Aeg_-685244451")]
@@ -66,7 +66,7 @@ public enum StatusCode
     
     /// <summary>
     /// No instruction has been received (to be used in a reminder).
-    /// Encoded/decoded by serializers as "NOIN".
+    /// Encoded/decoded by serializers as &quot;NOIN&quot;.
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_YgOSpdp-Ed-ak6NoX_4Aeg_758432688")]
@@ -75,7 +75,7 @@ public enum StatusCode
     
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_YgOSptp-Ed-ak6NoX_4Aeg_1043799155")]
@@ -84,7 +84,7 @@ public enum StatusCode
     
     /// <summary>
     /// Cancel request is being processed.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_YgOSp9p-Ed-ak6NoX_4Aeg_1129688256")]
@@ -93,7 +93,7 @@ public enum StatusCode
     
     /// <summary>
     /// Instruction has been received by Issuer.
-    /// Encoded/decoded by serializers as "RCIS".
+    /// Encoded/decoded by serializers as &quot;RCIS&quot;.
     /// </summary>
     [EnumMember(Value = "RCIS")]
     [IsoId("_YgOSqNp-Ed-ak6NoX_4Aeg_-1954902093")]
@@ -102,7 +102,7 @@ public enum StatusCode
     
     /// <summary>
     /// Instruction is pending.
-    /// Encoded/decoded by serializers as "PDNG".
+    /// Encoded/decoded by serializers as &quot;PDNG&quot;.
     /// </summary>
     [EnumMember(Value = "PDNG")]
     [IsoId("_YgYDoNp-Ed-ak6NoX_4Aeg_794512687")]
@@ -111,7 +111,7 @@ public enum StatusCode
     
     /// <summary>
     /// Standing instruction is applied.
-    /// Encoded/decoded by serializers as "STIN".
+    /// Encoded/decoded by serializers as &quot;STIN&quot;.
     /// </summary>
     [EnumMember(Value = "STIN")]
     [IsoId("_YgYDodp-Ed-ak6NoX_4Aeg_1776839959")]
@@ -120,7 +120,7 @@ public enum StatusCode
     
     /// <summary>
     /// Instruction is queued.
-    /// Encoded/decoded by serializers as "QUED".
+    /// Encoded/decoded by serializers as &quot;QUED&quot;.
     /// </summary>
     [EnumMember(Value = "QUED")]
     [IsoId("_kpnyk-5NEeCisYr99QEiWA_-1012013712")]
@@ -129,7 +129,7 @@ public enum StatusCode
     
     /// <summary>
     /// Instruction has been cancelled by the agent, for example, due to an event deadline extension.
-    /// Encoded/decoded by serializers as "CSUB".
+    /// Encoded/decoded by serializers as &quot;CSUB&quot;.
     /// </summary>
     [EnumMember(Value = "CSUB")]
     [IsoId("_FK-_IF6uEeSyc4g_pm5hbw")]
@@ -138,7 +138,7 @@ public enum StatusCode
     
     /// <summary>
     /// Accepted and sent along the chain.
-    /// Encoded/decoded by serializers as "FRWD".
+    /// Encoded/decoded by serializers as &quot;FRWD&quot;.
     /// </summary>
     [EnumMember(Value = "FRWD")]
     [IsoId("_CRchELUsEem2T48lBgJbww")]

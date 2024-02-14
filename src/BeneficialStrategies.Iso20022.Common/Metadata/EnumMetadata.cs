@@ -3,6 +3,8 @@ using System.Reflection;
 
 namespace BeneficialStrategies.Iso20022.Metadata;
 
+#if DECLARE_INTERNALSERIALIZATION
+
 /// <summary>
 /// Provides implementation of <seealso cref="IDropdownDataSource{T}"/> by gathering information from metadata that adorns the code generated from the ISO20022 specification.
 /// </summary>
@@ -47,3 +49,6 @@ public abstract class EnumMetadataManager<TEnum,TRowInterface,TRowImpl> : IDropd
     /// <returns></returns>
     public TRowInterface Lookup(TEnum itemValue) => _lookup[itemValue];
 }
+
+#endif
+

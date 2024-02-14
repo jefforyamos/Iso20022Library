@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Payment context in which the transaction is performed.
 /// </summary>
 [IsoId("_uMJT4Wl5EeSQMKir9owD5A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record PaymentContext10
     /// Indicates whether the transaction has been initiated by a card physically present or not.
     /// </summary>
     [IsoId("_uZcJAWl5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPres")]
     #endif
+    [IsoXmlTag("CardPres")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,12 @@ public partial record PaymentContext10
     /// Indicates whether the transaction has been initiated in presence of the cardholder or not.
     /// </summary>
     [IsoId("_uZcJA2l5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrPres")]
     #endif
+    [IsoXmlTag("CrdhldrPres")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,12 +85,12 @@ public partial record PaymentContext10
     /// On-line or off-line context of the transaction.
     /// </summary>
     [IsoId("_uZcJBWl5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("On Line Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OnLineCntxt")]
     #endif
+    [IsoXmlTag("OnLineCntxt")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? OnLineContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -105,12 +103,11 @@ public partial record PaymentContext10
     /// Human attendance at the POI location during the transaction.
     /// </summary>
     [IsoId("_uZcJB2l5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncCntxt")]
     #endif
+    [IsoXmlTag("AttndncCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -123,12 +120,11 @@ public partial record PaymentContext10
     /// Indicates the environment of the transaction.
     /// </summary>
     [IsoId("_uZcJCWl5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxEnvt")]
     #endif
+    [IsoXmlTag("TxEnvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionEnvironment1Code? TransactionEnvironment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -141,12 +137,11 @@ public partial record PaymentContext10
     /// Identifies the type of the communication channels used by the cardholder to the acceptor system.
     /// </summary>
     [IsoId("_uZcJC2l5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxChanl")]
     #endif
+    [IsoXmlTag("TxChanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionChannel3Code? TransactionChannel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -159,12 +154,12 @@ public partial record PaymentContext10
     /// Indicates whether a message can be sent or not on an attendant display (attendant display present or not).
     /// </summary>
     [IsoId("_uZcJDWl5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendant Message Capable")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndntMsgCpbl")]
     #endif
+    [IsoXmlTag("AttndntMsgCpbl")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? AttendantMessageCapable { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -178,12 +173,11 @@ public partial record PaymentContext10
     /// Reference: ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
     [IsoId("_uZcJD2l5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendant Language")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndntLang")]
     #endif
+    [IsoXmlTag("AttndntLang")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LanguageCode? AttendantLanguage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -196,16 +190,15 @@ public partial record PaymentContext10
     /// Entry mode of the card data.
     /// </summary>
     [IsoId("_uZcJEWl5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Data Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardDataNtryMd")]
     #endif
+    [IsoXmlTag("CardDataNtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardDataReading1Code CardDataEntryMode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardDataReading1Code CardDataEntryMode { get; init; } 
+    public required CardDataReading1Code CardDataEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardDataReading1Code CardDataEntryMode { get; init; } 
     #else
@@ -216,12 +209,11 @@ public partial record PaymentContext10
     /// Indicator of a card entry mode fallback.
     /// </summary>
     [IsoId("_uZcJE2l5EeSQMKir9owD5A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fallback Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FllbckInd")]
     #endif
+    [IsoXmlTag("FllbckInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardFallback1Code? FallbackIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

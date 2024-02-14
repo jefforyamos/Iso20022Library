@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Report information about securities reference data.
 /// </summary>
 [IsoId("_Ptf-NZJKEeuAlLVx8pyt3w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Audit Trail Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecuritiesAuditTrailReport4
     /// Identifies the returned securities reference data or error information.
     /// </summary>
     [IsoId("_PvjzsZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Audit Trail Or Error")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesAudtTrlOrErr")]
     #endif
+    [IsoXmlTag("SctiesAudtTrlOrErr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AuditTrailOrBusinessError6Choice_ SecuritiesAuditTrailOrError { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AuditTrailOrBusinessError6Choice_ SecuritiesAuditTrailOrError { get; init; } 
+    public required AuditTrailOrBusinessError6Choice_ SecuritiesAuditTrailOrError { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AuditTrailOrBusinessError6Choice_ SecuritiesAuditTrailOrError { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record SecuritiesAuditTrailReport4
     /// Period in dates for which the audit trail is provided.
     /// </summary>
     [IsoId("_Pvjzs5JKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtPrd")]
     #endif
+    [IsoXmlTag("DtPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record SecuritiesAuditTrailReport4
     /// Identifies the securities for which the audit trail is provided.
     /// </summary>
     [IsoId("_PvjztZJKEeuAlLVx8pyt3w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     #else

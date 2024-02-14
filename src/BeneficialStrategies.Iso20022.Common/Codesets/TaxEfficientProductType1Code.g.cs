@@ -21,7 +21,7 @@ public enum TaxEfficientProductType1Code
 {
     /// <summary>
     /// Cash individual savings account. In the UK, this is known as a cash ISA.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_YiM6EU4MEeiQHa-q1Uephw")]
@@ -30,7 +30,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Non-stakeholder child trust fund individual savings account. In the UK, this is known as a non-stakeholder CTF ISA.
-    /// Encoded/decoded by serializers as "CCTF".
+    /// Encoded/decoded by serializers as &quot;CCTF&quot;.
     /// </summary>
     [EnumMember(Value = "CCTF")]
     [IsoId("_YoWlYU4MEeiQHa-q1Uephw")]
@@ -39,7 +39,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Flexible individual savings account. In the UK, this is known as a FISA.
-    /// Encoded/decoded by serializers as "FISA".
+    /// Encoded/decoded by serializers as &quot;FISA&quot;.
     /// </summary>
     [EnumMember(Value = "FISA")]
     [IsoId("_YuGoEU4MEeiQHa-q1Uephw")]
@@ -48,7 +48,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Help to buy individual savings account. In the UK, this is known as a HISA.
-    /// Encoded/decoded by serializers as "HISA".
+    /// Encoded/decoded by serializers as &quot;HISA&quot;.
     /// </summary>
     [EnumMember(Value = "HISA")]
     [IsoId("_Y0QTYU4MEeiQHa-q1Uephw")]
@@ -57,7 +57,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Innovative finance individual savings account. In the UK, this is known as an innovative ISA.
-    /// Encoded/decoded by serializers as "INNF".
+    /// Encoded/decoded by serializers as &quot;INNF&quot;.
     /// </summary>
     [EnumMember(Value = "INNF")]
     [IsoId("_Y41RYU4MEeiQHa-q1Uephw")]
@@ -66,7 +66,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Junior cash individual savings account. In the UK, this is known as a cash JISA.
-    /// Encoded/decoded by serializers as "JCSH".
+    /// Encoded/decoded by serializers as &quot;JCSH&quot;.
     /// </summary>
     [EnumMember(Value = "JCSH")]
     [IsoId("_ZAO54U4MEeiQHa-q1Uephw")]
@@ -75,7 +75,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Junior stocks and shares individual savings account. In the UK, this is known as a stocks and shares  JISA.
-    /// Encoded/decoded by serializers as "JISA".
+    /// Encoded/decoded by serializers as &quot;JISA&quot;.
     /// </summary>
     [EnumMember(Value = "JISA")]
     [IsoId("_ZFB6UU4MEeiQHa-q1Uephw")]
@@ -84,7 +84,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Stocks and shares lifetime individual savings account. In the UK, this is known as a stocks and shares LISA.
-    /// Encoded/decoded by serializers as "LISA".
+    /// Encoded/decoded by serializers as &quot;LISA&quot;.
     /// </summary>
     [EnumMember(Value = "LISA")]
     [IsoId("_ZKgQMU4MEeiQHa-q1Uephw")]
@@ -93,7 +93,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Stakeholder child trust fund individual savings account. In the UK, this is known as a stakeholder CTF ISA.
-    /// Encoded/decoded by serializers as "SCTF".
+    /// Encoded/decoded by serializers as &quot;SCTF&quot;.
     /// </summary>
     [EnumMember(Value = "SCTF")]
     [IsoId("_ZO5oAU4MEeiQHa-q1Uephw")]
@@ -102,7 +102,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// Stocks and shares individual savings account. In the UK, this is known as a stocks and shares ISA.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_ZU_o8U4MEeiQHa-q1Uephw")]
@@ -111,7 +111,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// General investment savings account. (Known as Investeringssparkonto (ISK) in some markets.)
-    /// Encoded/decoded by serializers as "GISK".
+    /// Encoded/decoded by serializers as &quot;GISK&quot;.
     /// </summary>
     [EnumMember(Value = "GISK")]
     [IsoId("_EAWtYaFgEei_VZq-6SQkuQ")]
@@ -120,7 +120,7 @@ public enum TaxEfficientProductType1Code
     
     /// <summary>
     /// General shares or equity savings account. (Known as ASK in some markets.)
-    /// Encoded/decoded by serializers as "GASK".
+    /// Encoded/decoded by serializers as &quot;GASK&quot;.
     /// </summary>
     [EnumMember(Value = "GASK")]
     [IsoId("_0csswaVFEeiYMvosZPzV4g")]

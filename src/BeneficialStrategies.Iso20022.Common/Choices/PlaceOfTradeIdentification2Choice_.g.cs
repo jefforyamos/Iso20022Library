@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PlaceOfTradeIdentification2Choice.MarketIdentification))]
     [KnownType(typeof(PlaceOfTradeIdentification2Choice.OffMarket))]
     [IsoId("_TCfepNp-Ed-ak6NoX_4Aeg_2102299149")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place Of Trade Identification 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

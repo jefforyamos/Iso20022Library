@@ -21,7 +21,7 @@ public enum BalanceCounterparty1Code
 {
     /// <summary>
     /// Balance calculated regarding one member in the system.
-    /// Encoded/decoded by serializers as "BILA".
+    /// Encoded/decoded by serializers as &quot;BILA&quot;.
     /// </summary>
     [EnumMember(Value = "BILA")]
     [IsoId("_bkBa09p-Ed-ak6NoX_4Aeg_678189977")]
@@ -30,7 +30,7 @@ public enum BalanceCounterparty1Code
     
     /// <summary>
     /// Balance calculated regarding all members in the system.
-    /// Encoded/decoded by serializers as "MULT".
+    /// Encoded/decoded by serializers as &quot;MULT&quot;.
     /// </summary>
     [EnumMember(Value = "MULT")]
     [IsoId("_bkBa1Np-Ed-ak6NoX_4Aeg_678189978")]

@@ -21,7 +21,7 @@ public enum SecuritiesFinancingTransactionType1Code
 {
     /// <summary>
     /// Relates to a repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "REPU".
+    /// Encoded/decoded by serializers as &quot;REPU&quot;.
     /// </summary>
     [EnumMember(Value = "REPU")]
     [IsoId("_ZFoFwtp-Ed-ak6NoX_4Aeg_-738371349")]
@@ -30,7 +30,7 @@ public enum SecuritiesFinancingTransactionType1Code
     
     /// <summary>
     /// Relates to a reverse repurchase agreement transaction.
-    /// Encoded/decoded by serializers as "RVPO".
+    /// Encoded/decoded by serializers as &quot;RVPO&quot;.
     /// </summary>
     [EnumMember(Value = "RVPO")]
     [IsoId("_ZFoFw9p-Ed-ak6NoX_4Aeg_-738371331")]
@@ -39,7 +39,7 @@ public enum SecuritiesFinancingTransactionType1Code
     
     /// <summary>
     /// Relates to a securities borrowing operation.
-    /// Encoded/decoded by serializers as "SECB".
+    /// Encoded/decoded by serializers as &quot;SECB&quot;.
     /// </summary>
     [EnumMember(Value = "SECB")]
     [IsoId("_ZFoFxNp-Ed-ak6NoX_4Aeg_-738371296")]
@@ -48,7 +48,7 @@ public enum SecuritiesFinancingTransactionType1Code
     
     /// <summary>
     /// Relates to a securities lending operation.
-    /// Encoded/decoded by serializers as "SECL".
+    /// Encoded/decoded by serializers as &quot;SECL&quot;.
     /// </summary>
     [EnumMember(Value = "SECL")]
     [IsoId("_ZFoFxdp-Ed-ak6NoX_4Aeg_-738371271")]

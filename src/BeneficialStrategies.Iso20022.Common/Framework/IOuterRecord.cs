@@ -10,10 +10,19 @@ namespace BeneficialStrategies.Iso20022.Framework
     }
 
 
+    /// <summary>
+    /// Should adorn the implemenation of the top level record that has the main message data.
+    /// </summary>
+    /// <typeparam name="TSelf">Data type being decorated with the interface.</typeparam>
+    /// <typeparam name="TMessageDocType">Document wrapper type that will be instanced.</typeparam>
     public interface IOuterRecord<TSelf, TMessageDocType> : IOuterRecord
         where TMessageDocType : IOuterDocument<TSelf>
         where TSelf : IOuterRecord
     {
+        /// <summary>
+        /// Envelope this message inside it's serialization wrapper.
+        /// </summary>
+        /// <returns>Returns an outer document with this message as it's message payload.</returns>
         TMessageDocType ToDocument();
 
     }

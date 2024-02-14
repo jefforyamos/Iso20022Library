@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
-/// Specifies the status of exchange's notice of change on a derivative.
+/// Specifies the status of exchange&apos;s notice of change on a derivative.
 /// </summary>
 [DataContract]
 [Serializable]
@@ -21,7 +21,7 @@ public enum DerivativeWorkflowStatus1Code
 {
     /// <summary>
     /// Notice is an advance warning that an adjustment may be applied.
-    /// Encoded/decoded by serializers as "PREL".
+    /// Encoded/decoded by serializers as &quot;PREL&quot;.
     /// </summary>
     [EnumMember(Value = "PREL")]
     [IsoId("_12PQkzL3EeKU9IrkkToqcw_-1279574546")]
@@ -30,7 +30,7 @@ public enum DerivativeWorkflowStatus1Code
     
     /// <summary>
     /// Notice confirms that an adjustment will be applied.
-    /// Encoded/decoded by serializers as "ADJU".
+    /// Encoded/decoded by serializers as &quot;ADJU&quot;.
     /// </summary>
     [EnumMember(Value = "ADJU")]
     [IsoId("_12PQlDL3EeKU9IrkkToqcw_1932288914")]
@@ -39,7 +39,7 @@ public enum DerivativeWorkflowStatus1Code
     
     /// <summary>
     /// Notice confirms that no adjustment will be applied.
-    /// Encoded/decoded by serializers as "NOAC".
+    /// Encoded/decoded by serializers as &quot;NOAC&quot;.
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_12PQlTL3EeKU9IrkkToqcw_-1908591113")]
@@ -48,7 +48,7 @@ public enum DerivativeWorkflowStatus1Code
     
     /// <summary>
     /// GCA VS (Global Corporate Actions Validation Service) is unable to confirm that there is a corporate action corresponding to this notice.
-    /// Encoded/decoded by serializers as "UCON".
+    /// Encoded/decoded by serializers as &quot;UCON&quot;.
     /// </summary>
     [EnumMember(Value = "UCON")]
     [IsoId("_12ZBkDL3EeKU9IrkkToqcw_-77667944")]
@@ -57,7 +57,7 @@ public enum DerivativeWorkflowStatus1Code
     
     /// <summary>
     /// Details were entered in error. All data should be ignored.
-    /// Encoded/decoded by serializers as "DLTD".
+    /// Encoded/decoded by serializers as &quot;DLTD&quot;.
     /// </summary>
     [EnumMember(Value = "DLTD")]
     [IsoId("_12ZBkTL3EeKU9IrkkToqcw_247449563")]

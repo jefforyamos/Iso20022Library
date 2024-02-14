@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Common Reporting Standard (CRS) status information.
 /// </summary>
 [IsoId("_uRVacUNeEeamLdeYEZm56w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CRS Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CRSStatus4
     /// Common Reporting Standard (CRS) status.
     /// </summary>
     [IsoId("_uqe6QUNeEeamLdeYEZm56w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CRSStatus3Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CRSStatus3Choice_ Type { get; init; } 
+    public required CRSStatus3Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CRSStatus3Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CRSStatus4
     /// Source of the Common Reporting Standard (CRS) status.
     /// </summary>
     [IsoId("_uqe6Q0NeEeamLdeYEZm56w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Src")]
     #endif
+    [IsoXmlTag("Src")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CRSSource1Choice_? Source { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record CRSStatus4
     /// Reporting country for the CRS status when there is an exception at the country level.
     /// </summary>
     [IsoId("_xl3u8Hi0EeaRm5xIK6nGuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exceptional Reporting Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XcptnlRptgCtry")]
     #endif
+    [IsoXmlTag("XcptnlRptgCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? ExceptionalReportingCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

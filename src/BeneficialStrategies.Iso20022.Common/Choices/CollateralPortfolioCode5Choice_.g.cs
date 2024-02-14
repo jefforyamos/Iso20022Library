@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralPortfolioCode5Choice.Portfolio))]
     [KnownType(typeof(CollateralPortfolioCode5Choice.MarginPortfolioCode))]
     [IsoId("_YwE-cTIDEe2fXedS_ucFOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Portfolio Code 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

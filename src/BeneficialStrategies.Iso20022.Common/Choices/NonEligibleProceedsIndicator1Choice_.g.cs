@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NonEligibleProceedsIndicator1Choice.Code))]
     [KnownType(typeof(NonEligibleProceedsIndicator1Choice.Proprietary))]
     [IsoId("_Q5GwR9p-Ed-ak6NoX_4Aeg_-1230859873")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Eligible Proceeds Indicator 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

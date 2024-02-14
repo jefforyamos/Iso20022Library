@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Authorisation1Choice
     /// Specifies the authorisation, in a coded form.
     /// </summary>
     [IsoId("_RD1Zl9p-Ed-ak6NoX_4Aeg_-955120142")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Authorisation1Choice
         /// Specifies the level of approval depending on a number of factors, including payment type, threshold amount or local country or operations practice.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Authorisation1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Authorisation1Code Value { get; init; } 
+        public required Authorisation1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Authorisation1Code Value { get; init; } 
         #else

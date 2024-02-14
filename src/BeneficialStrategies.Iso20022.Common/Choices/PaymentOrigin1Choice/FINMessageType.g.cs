@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentOrigin1Choice
     /// Specifies that the payment was included in a SWIFT FIN format message, for example, MT 103.
     /// </summary>
     [IsoId("_RIwV1dp-Ed-ak6NoX_4Aeg_1910593546")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("FIN Message Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,15 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentOrigin1Choice
         /// Specifies a numeric string with a maximum length of 3 digits.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FINMT")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-        #endif
+        [IsoXmlTag("FINMT")]
+        [IsoSimpleType(IsoSimpleType.Max3NumericText)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax3NumericText Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

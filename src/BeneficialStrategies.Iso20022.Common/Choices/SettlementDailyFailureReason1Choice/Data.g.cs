@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDailyFailureReason1Cho
     /// Aggregated data of settlement instructions.
     /// </summary>
     [IsoId("_UCFuEzOlEeqX8uoQQ3KffQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Data")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDailyFailureReason1Cho
         /// Fails due to lack of securities.
         /// </summary>
         [IsoId("_MRbYsTOmEeqX8uoQQ3KffQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Failed Securities")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FaildScties")]
         #endif
+        [IsoXmlTag("FaildScties")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementTotalData1Choice_ FailedSecurities { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementTotalData1Choice_ FailedSecurities { get; init; } 
+        public required SettlementTotalData1Choice_ FailedSecurities { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementTotalData1Choice_ FailedSecurities { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDailyFailureReason1Cho
         /// Fails due to lack of cash.
         /// </summary>
         [IsoId("_MRbYszOmEeqX8uoQQ3KffQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Failed Cash")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FaildCsh")]
         #endif
+        [IsoXmlTag("FaildCsh")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementTotalData1Choice_ FailedCash { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementTotalData1Choice_ FailedCash { get; init; } 
+        public required SettlementTotalData1Choice_ FailedCash { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementTotalData1Choice_ FailedCash { get; init; } 
         #else

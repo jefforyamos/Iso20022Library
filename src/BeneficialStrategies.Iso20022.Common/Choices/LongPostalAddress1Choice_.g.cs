@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LongPostalAddress1Choice.Unstructured))]
     [KnownType(typeof(LongPostalAddress1Choice.Structured))]
     [IsoId("_QG4pJdp-Ed-ak6NoX_4Aeg_-1972571676")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Long Postal Address 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

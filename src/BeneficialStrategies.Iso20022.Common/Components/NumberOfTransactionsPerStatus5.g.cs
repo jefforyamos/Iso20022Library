@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements used to provide detailed information on the number of transactions that are reported with a specific transaction status.
 /// </summary>
 [IsoId("_-qEw2ZRuEeazAtAtDSg0Nw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Number Of Transactions Per Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record NumberOfTransactionsPerStatus5
     /// Number of individual transactions contained in the message, detailed per status.
     /// </summary>
     [IsoId("_-1rj05RuEeazAtAtDSg0Nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Number Of Transactions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldNbOfTxs")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DtldNbOfTxs")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText DetailedNumberOfTransactions { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DetailedNumberOfTransactions { get; init; } 
+    public required System.String DetailedNumberOfTransactions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DetailedNumberOfTransactions { get; init; } 
     #else
@@ -75,16 +70,15 @@ public partial record NumberOfTransactionsPerStatus5
     /// Common transaction status for all individual transactions reported.
     /// </summary>
     [IsoId("_-1rj1ZRuEeazAtAtDSg0Nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldSts")]
     #endif
+    [IsoXmlTag("DtldSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExternalPaymentTransactionStatus1Code DetailedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExternalPaymentTransactionStatus1Code DetailedStatus { get; init; } 
+    public required ExternalPaymentTransactionStatus1Code DetailedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExternalPaymentTransactionStatus1Code DetailedStatus { get; init; } 
     #else
@@ -95,12 +89,12 @@ public partial record NumberOfTransactionsPerStatus5
     /// Total of all individual amounts included in the message, irrespective of currencies, detailed per status.
     /// </summary>
     [IsoId("_-1rj15RuEeazAtAtDSg0Nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Control Sum")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldCtrlSum")]
     #endif
+    [IsoXmlTag("DtldCtrlSum")]
+    [IsoSimpleType(IsoSimpleType.DecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoDecimalNumber? DetailedControlSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

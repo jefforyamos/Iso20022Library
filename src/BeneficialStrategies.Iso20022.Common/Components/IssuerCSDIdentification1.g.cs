@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the identification of the issuer CSD (central securities depository).
 /// </summary>
 [IsoId("_C0Xzk-3rEeaWjpoyrnG6Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Issuer CSD Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -48,15 +46,15 @@ public partial record IssuerCSDIdentification1
     #nullable enable
     
     /// <summary>
-    /// Identification code of the Issuer CSD, using LEI; Legal Entity Identifier (LEI) is a code allocated to a party as described in ISO 17442 'Financial Services - Legal Entity Identifier (LEI)'.
+    /// Identification code of the Issuer CSD, using LEI; Legal Entity Identifier (LEI) is a code allocated to a party as described in ISO 17442 &apos;Financial Services - Legal Entity Identifier (LEI)&apos;.
     /// </summary>
     [IsoId("_mHn68G5BEeeOy4DIG9NBSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("LEI")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LEI")]
     #endif
+    [IsoXmlTag("LEI")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? LEI { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,19 +67,16 @@ public partial record IssuerCSDIdentification1
     /// Identifies the jurisdiction relevant for the financial instrument based on the first two characters of its instrument identification code.
     /// </summary>
     [IsoId("_NkUachJnEeiE15g1wPm3UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("First Two Characters Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrstTwoCharsInstrmId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("FrstTwoCharsInstrmId")]
+    [IsoSimpleType(IsoSimpleType.Exact2UpperCaseAlphaText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExact2UpperCaseAlphaText FirstTwoCharactersInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FirstTwoCharactersInstrumentIdentification { get; init; } 
+    public required System.String FirstTwoCharactersInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FirstTwoCharactersInstrumentIdentification { get; init; } 
     #else
@@ -92,12 +87,11 @@ public partial record IssuerCSDIdentification1
     /// Identifies the country code of the Issuer CSD, using ISO 3166 2-character code. 
     /// </summary>
     [IsoId("_C0XzlO3rEeaWjpoyrnG6Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

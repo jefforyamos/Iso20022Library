@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Other type of party.
 /// </summary>
 [IsoId("_IFp-NQhDEeSUPbC7DbLJpQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Extended Party")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -49,22 +47,20 @@ public partial record ExtendedParty8
     #nullable enable
     
     /// <summary>
-    /// Other type of party's role.
+    /// Other type of party&apos;s role.
     /// </summary>
     [IsoId("_IhLckQhDEeSUPbC7DbLJpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extended Party Role")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtndedPtyRole")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XtndedPtyRole")]
+    [IsoSimpleType(IsoSimpleType.Extended350Code)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoExtended350Code ExtendedPartyRole { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExtendedPartyRole { get; init; } 
+    public required System.String ExtendedPartyRole { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExtendedPartyRole { get; init; } 
     #else
@@ -75,16 +71,15 @@ public partial record ExtendedParty8
     /// Detailed ownership information about a party.
     /// </summary>
     [IsoId("_IhLckwhDEeSUPbC7DbLJpQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Party Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPtyDtls")]
     #endif
+    [IsoXmlTag("OthrPtyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccountOwnershipInformation11 OtherPartyDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccountOwnershipInformation11 OtherPartyDetails { get; init; } 
+    public required InvestmentAccountOwnershipInformation11 OtherPartyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccountOwnershipInformation11 OtherPartyDetails { get; init; } 
     #else

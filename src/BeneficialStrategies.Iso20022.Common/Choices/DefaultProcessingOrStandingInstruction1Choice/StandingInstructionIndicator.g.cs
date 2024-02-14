@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DefaultProcessingOrStandingInstr
     /// Indicates whether an account owner has placed a standing order to select this corporate action option.
     /// </summary>
     [IsoId("_Q0VlBNp-Ed-ak6NoX_4Aeg_-857961387")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Instruction Indicator")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,17 @@ namespace BeneficialStrategies.Iso20022.Choices.DefaultProcessingOrStandingInstr
         
         /// <summary>
         /// Contains the main value for the container.
-        /// Indicates a "Yes" or "No" type of answer for an element.
+        /// Indicates a &quot;Yes&quot; or &quot;No&quot; type of answer for an element.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="StgInstrInd")]
         #endif
+        [IsoXmlTag("StgInstrInd")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoYesNoIndicator Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

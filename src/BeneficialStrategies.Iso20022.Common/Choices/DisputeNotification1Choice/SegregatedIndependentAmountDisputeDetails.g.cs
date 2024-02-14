@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification1Choice
     /// Provides the dispute notification details for the segregated independent amount only.
     /// </summary>
     [IsoId("_QmU-NNp-Ed-ak6NoX_4Aeg_-640077576")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount Dispute Details")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification1Choice
         /// Details of the disputed instruction.
         /// </summary>
         [IsoId("_Ulb4FNp-Ed-ak6NoX_4Aeg_-2146942224")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Dispute Details")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DsptDtls")]
         #endif
+        [IsoXmlTag("DsptDtls")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required Dispute1 DisputeDetails { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public Dispute1 DisputeDetails { get; init; } 
+        public required Dispute1 DisputeDetails { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public Dispute1 DisputeDetails { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification1Choice
         /// Specifies the type of dispute that is to be resolved regarding the disputed collateral amount.
         /// </summary>
         [IsoId("_Ulb4Fdp-Ed-ak6NoX_4Aeg_-432473842")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Dispute Resolution Type 1 Choice")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DsptRsltnTp1Chc")]
         #endif
+        [IsoXmlTag("DsptRsltnTp1Chc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DisputeResolutionType1Choice_? DisputeResolutionType1Choice { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

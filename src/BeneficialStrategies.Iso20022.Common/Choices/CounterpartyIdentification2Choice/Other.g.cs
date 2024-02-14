@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyIdentification2Choic
     /// Other identification of the counterparty through the sector and the location.
     /// </summary>
     [IsoId("_Qveap3vSEeWrWYBng3OpVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyIdentification2Choic
         /// Name or sector of the counterparty of the reporting agent used by the reporting agent.
         /// </summary>
         [IsoId("_ZqzG0YIoEeWA9fc11zJf1Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Name Or Sector")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NmOrSctr")]
         #endif
+        [IsoXmlTag("NmOrSctr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NameOrSector1Choice_ NameOrSector { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NameOrSector1Choice_ NameOrSector { get; init; } 
+        public required NameOrSector1Choice_ NameOrSector { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NameOrSector1Choice_ NameOrSector { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyIdentification2Choic
         /// Location of the country in which the counterparty is incorporated.
         /// </summary>
         [IsoId("_wDEl04InEeWA9fc11zJf1Q")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Location")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Lctn")]
         #endif
+        [IsoXmlTag("Lctn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CountryCode Location { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Location { get; init; } 
+        public required string Location { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Location { get; init; } 
         #else

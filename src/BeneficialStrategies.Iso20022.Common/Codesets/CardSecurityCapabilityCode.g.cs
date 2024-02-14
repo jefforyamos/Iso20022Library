@@ -21,7 +21,7 @@ public enum CardSecurityCapabilityCode
 {
     /// <summary>
     /// Card contains a card security code in the magstripe
-    /// Encoded/decoded by serializers as "MSWS".
+    /// Encoded/decoded by serializers as &quot;MSWS&quot;.
     /// </summary>
     [EnumMember(Value = "MSWS")]
     [IsoId("_5aLe8JitEeefZKJHxQTztg")]
@@ -30,7 +30,7 @@ public enum CardSecurityCapabilityCode
     
     /// <summary>
     /// Card does not contain a card security code in the magstripe
-    /// Encoded/decoded by serializers as "MWOS".
+    /// Encoded/decoded by serializers as &quot;MWOS&quot;.
     /// </summary>
     [EnumMember(Value = "MWOS")]
     [IsoId("_KDR_MJiuEeefZKJHxQTztg")]
@@ -39,7 +39,7 @@ public enum CardSecurityCapabilityCode
     
     /// <summary>
     /// Card contains an integrated circuit card.
-    /// Encoded/decoded by serializers as "ICCD".
+    /// Encoded/decoded by serializers as &quot;ICCD&quot;.
     /// </summary>
     [EnumMember(Value = "ICCD")]
     [IsoId("_TLtjUJiuEeefZKJHxQTztg")]
@@ -48,7 +48,7 @@ public enum CardSecurityCapabilityCode
     
     /// <summary>
     /// Other type of card defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_hSvIYJiuEeefZKJHxQTztg")]
@@ -57,7 +57,7 @@ public enum CardSecurityCapabilityCode
     
     /// <summary>
     /// Other type of card defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_nHPdoJiuEeefZKJHxQTztg")]
@@ -66,7 +66,7 @@ public enum CardSecurityCapabilityCode
     
     /// <summary>
     /// Off line PIN card
-    /// Encoded/decoded by serializers as "OLPN".
+    /// Encoded/decoded by serializers as &quot;OLPN&quot;.
     /// </summary>
     [EnumMember(Value = "OLPN")]
     [IsoId("_lrKEsJivEeefZKJHxQTztg")]

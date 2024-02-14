@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information on the charges related to the payment transaction.
 /// </summary>
 [IsoId("_RtjsAtp-Ed-ak6NoX_4Aeg_-450206740")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charges Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record ChargesInformation1
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
     [IsoId("_RtjsA9p-Ed-ak6NoX_4Aeg_1765318183")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsAmt")]
     #endif
+    [IsoXmlTag("ChrgsAmt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoCurrencyAndAmount ChargesAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ChargesAmount { get; init; } 
+    public required System.Decimal ChargesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ChargesAmount { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record ChargesInformation1
     /// Party that takes the transaction charges or to which the transaction charges are due.
     /// </summary>
     [IsoId("_RtjsBNp-Ed-ak6NoX_4Aeg_1407518272")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsPty")]
     #endif
+    [IsoXmlTag("ChrgsPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BranchAndFinancialInstitutionIdentification3 ChargesParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BranchAndFinancialInstitutionIdentification3 ChargesParty { get; init; } 
+    public required BranchAndFinancialInstitutionIdentification3 ChargesParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BranchAndFinancialInstitutionIdentification3 ChargesParty { get; init; } 
     #else

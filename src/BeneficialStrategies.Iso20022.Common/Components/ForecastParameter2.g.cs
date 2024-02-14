@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parameters used to report cash movements,eg, country code, currency code, BIC or a user defined parameter.
 /// </summary>
 [IsoId("_UuOnttp-Ed-ak6NoX_4Aeg_215969786")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Forecast Parameter")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ForecastParameter2
     /// Type of parameter used for grouping the information in a report, eg, country code, currency code, BIC or a user defined parameter.
     /// </summary>
     [IsoId("_UuOnt9p-Ed-ak6NoX_4Aeg_215969829")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptParam")]
     #endif
+    [IsoXmlTag("RptParam")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportParameter2Choice_ ReportParameter { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportParameter2Choice_ ReportParameter { get; init; } 
+    public required ReportParameter2Choice_ ReportParameter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportParameter2Choice_ ReportParameter { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ForecastParameter2
     /// Cash movement in to of a fund as a result of investment funds transactions, eg, subscriptions or switch-out.
     /// </summary>
     [IsoId("_UuOnuNp-Ed-ak6NoX_4Aeg_215969960")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash In Forecast Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshInFcstDtls")]
     #endif
+    [IsoXmlTag("CshInFcstDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashInForecast1? CashInForecastDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ForecastParameter2
     /// Cash movement out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
     [IsoId("_UuYYsNp-Ed-ak6NoX_4Aeg_215969925")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Out Forecast Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshOutFcstDtls")]
     #endif
+    [IsoXmlTag("CshOutFcstDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CashOutForecast1? CashOutForecastDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record ForecastParameter2
     /// Net cash movements to a fund as a result of investment funds transactions.
     /// </summary>
     [IsoId("_UuYYsdp-Ed-ak6NoX_4Aeg_215969865")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Cash Forecast Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetCshFcstDtls")]
     #endif
+    [IsoXmlTag("NetCshFcstDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NetCashForecast1? NetCashForecastDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

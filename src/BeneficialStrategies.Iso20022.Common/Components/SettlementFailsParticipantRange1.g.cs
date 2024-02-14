@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details of the participants with the highest volume and value ranking for settlement fails.
 /// </summary>
 [IsoId("_VEBnQI0UEemUAO64Q252gQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Settlement Fails Participant Range")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record SettlementFailsParticipantRange1
     /// Participant with the highest volume of settlement fails.
     /// </summary>
     [IsoId("_acReUI0UEemUAO64Q252gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Highest In Volume")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghstInVol")]
     #endif
+    [IsoXmlTag("HghstInVol")]
     public SettlementFailsParticipant1? HighestInVolume { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _acReUI0UEemUAO64Q252gQ
     
@@ -57,12 +54,11 @@ public partial record SettlementFailsParticipantRange1
     /// Participant with the highest value of settlement fails.
     /// </summary>
     [IsoId("_cDRRUI0UEemUAO64Q252gQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Highest In Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HghstInVal")]
     #endif
+    [IsoXmlTag("HghstInVal")]
     public SettlementFailsParticipant1? HighestInValue { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _cDRRUI0UEemUAO64Q252gQ
     

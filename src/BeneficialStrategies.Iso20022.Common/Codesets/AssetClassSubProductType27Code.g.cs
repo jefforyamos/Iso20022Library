@@ -21,7 +21,7 @@ public enum AssetClassSubProductType27Code
 {
     /// <summary>
     /// Commodity of type light ends.
-    /// Encoded/decoded by serializers as "LGHT".
+    /// Encoded/decoded by serializers as &quot;LGHT&quot;.
     /// </summary>
     [EnumMember(Value = "LGHT")]
     [IsoId("_oxn4d1rKEeWN79Bl6BUd3g")]

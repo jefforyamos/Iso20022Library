@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PreferenceToIncome5Choice.Code))]
     [KnownType(typeof(PreferenceToIncome5Choice.Proprietary))]
     [IsoId("_4jwgS-LZEeWFtOV72FbX9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Preference To Income 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum CardServiceTypeCode
 {
     /// <summary>
     /// Partial reconciliation of the day.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_pMYS8Hu8EeSLmfFG0DG7zQ")]
@@ -30,7 +30,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Final reconciliation.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_szGiAHu8EeSLmfFG0DG7zQ")]
@@ -39,7 +39,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Request for totals of a previous reconciliation.
-    /// Encoded/decoded by serializers as "PRVS".
+    /// Encoded/decoded by serializers as &quot;PRVS&quot;.
     /// </summary>
     [EnumMember(Value = "PRVS")]
     [IsoId("_vCKakHu8EeSLmfFG0DG7zQ")]
@@ -48,7 +48,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Close communication at application level to stop store and forward process.
-    /// Encoded/decoded by serializers as "SFDS".
+    /// Encoded/decoded by serializers as &quot;SFDS&quot;.
     /// </summary>
     [EnumMember(Value = "SFDS")]
     [IsoId("_E_NcgHvEEeSKFIcWw3l4Yw")]
@@ -57,7 +57,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Detection whether communication at application level is still active.
-    /// Encoded/decoded by serializers as "ECHO".
+    /// Encoded/decoded by serializers as &quot;ECHO&quot;.
     /// </summary>
     [EnumMember(Value = "ECHO")]
     [IsoId("_IFZKUHvEEeSKFIcWw3l4Yw")]
@@ -66,7 +66,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Establish communication at application level to start store and forward process.
-    /// Encoded/decoded by serializers as "SFEN".
+    /// Encoded/decoded by serializers as &quot;SFEN&quot;.
     /// </summary>
     [EnumMember(Value = "SFEN")]
     [IsoId("_Kdr3YHvEEeSKFIcWw3l4Yw")]
@@ -75,7 +75,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Establish communication at application level.
-    /// Encoded/decoded by serializers as "SGNN".
+    /// Encoded/decoded by serializers as &quot;SGNN&quot;.
     /// </summary>
     [EnumMember(Value = "SGNN")]
     [IsoId("_NhMEoHvEEeSKFIcWw3l4Yw")]
@@ -84,7 +84,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Terminate communication at application level.
-    /// Encoded/decoded by serializers as "SGNF".
+    /// Encoded/decoded by serializers as &quot;SGNF&quot;.
     /// </summary>
     [EnumMember(Value = "SGNF")]
     [IsoId("_RF1QEHvEEeSKFIcWw3l4Yw")]
@@ -93,7 +93,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Request the keys that the receiver must send in the response.
-    /// Encoded/decoded by serializers as "KYCG".
+    /// Encoded/decoded by serializers as &quot;KYCG&quot;.
     /// </summary>
     [EnumMember(Value = "KYCG")]
     [IsoId("_I-HzAHvNEeSCJdwgzb6SFw")]
@@ -102,7 +102,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Convey the key to the receiver.
-    /// Encoded/decoded by serializers as "KYDL".
+    /// Encoded/decoded by serializers as &quot;KYDL&quot;.
     /// </summary>
     [EnumMember(Value = "KYDL")]
     [IsoId("_Lt9dYHvNEeSCJdwgzb6SFw")]
@@ -111,7 +111,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Request the receiver to verify the key check value.
-    /// Encoded/decoded by serializers as "KYVF".
+    /// Encoded/decoded by serializers as &quot;KYVF&quot;.
     /// </summary>
     [EnumMember(Value = "KYVF")]
     [IsoId("_OOzCcHvNEeSCJdwgzb6SFw")]
@@ -120,7 +120,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Initiate cutover
-    /// Encoded/decoded by serializers as "INCU".
+    /// Encoded/decoded by serializers as &quot;INCU&quot;.
     /// </summary>
     [EnumMember(Value = "INCU")]
     [IsoId("_embX5Hx8EemHsOqJOzMVfg")]
@@ -129,7 +129,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// National defined code.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_embX5Xx8EemHsOqJOzMVfg")]
@@ -138,7 +138,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Private defined code.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_embX5nx8EemHsOqJOzMVfg")]
@@ -147,7 +147,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Response received
-    /// Encoded/decoded by serializers as "RERE".
+    /// Encoded/decoded by serializers as &quot;RERE&quot;.
     /// </summary>
     [EnumMember(Value = "RERE")]
     [IsoId("_embX53x8EemHsOqJOzMVfg")]
@@ -156,7 +156,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Deactivate the specified key.
-    /// Encoded/decoded by serializers as "DEKY".
+    /// Encoded/decoded by serializers as &quot;DEKY&quot;.
     /// </summary>
     [EnumMember(Value = "DEKY")]
     [IsoId("_D-IpcJJbEemtzI0l4QED6w")]
@@ -165,7 +165,7 @@ public enum CardServiceTypeCode
     
     /// <summary>
     /// Request new key to be generated and conveyed.
-    /// Encoded/decoded by serializers as "RQKY".
+    /// Encoded/decoded by serializers as &quot;RQKY&quot;.
     /// </summary>
     [EnumMember(Value = "RQKY")]
     [IsoId("_gFYaYK4aEemYtqDpusmLsQ")]

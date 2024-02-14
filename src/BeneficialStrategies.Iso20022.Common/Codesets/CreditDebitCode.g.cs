@@ -21,7 +21,7 @@ public enum CreditDebitCode
 {
     /// <summary>
     /// Operation is an increase.
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("_bTfEd9p-Ed-ak6NoX_4Aeg_-635010261")]
@@ -30,7 +30,7 @@ public enum CreditDebitCode
     
     /// <summary>
     /// Operation is a decrease.
-    /// Encoded/decoded by serializers as "DBIT".
+    /// Encoded/decoded by serializers as &quot;DBIT&quot;.
     /// </summary>
     [EnumMember(Value = "DBIT")]
     [IsoId("_bTfEeNp-Ed-ak6NoX_4Aeg_-610075163")]

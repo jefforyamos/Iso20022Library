@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a high frequency trading profile.
 /// </summary>
 [IsoId("_O87qwCDUEeWCLu74WLgP4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("High Frequency Trading Profile")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record HighFrequencyTradingProfile1
     /// Date on which the investor starts high frequency trading.
     /// </summary>
     [IsoId("_dfZOoCDUEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +60,11 @@ public partial record HighFrequencyTradingProfile1
     /// Frequency of settlement.
     /// </summary>
     [IsoId("_gilS0CDUEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmFrqcy")]
     #endif
+    [IsoXmlTag("SttlmFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SettlementFrequency1Choice_? SettlementFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,11 @@ public partial record HighFrequencyTradingProfile1
     /// Specifies whether consolidation is done generally or at the level of segregated account.
     /// </summary>
     [IsoId("_KtmHECDVEeWCLu74WLgP4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Consolidation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnsldtnTp")]
     #endif
+    [IsoXmlTag("CnsldtnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConsolidationType1Choice_? ConsolidationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestRateFrequency2Choice.Term))]
     [KnownType(typeof(InterestRateFrequency2Choice.Proprietary))]
     [IsoId("_mBwkwfOFEeaS7fYULSI4_Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Interest Rate Frequency 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

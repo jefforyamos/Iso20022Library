@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes the events that occurred for one transaction.
 /// </summary>
 [IsoId("_RZ5JL9p-Ed-ak6NoX_4Aeg_-990880323")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Activity Report Items")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record ActivityReportItems2
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
     [IsoId("_RZ5JMNp-Ed-ak6NoX_4Aeg_-990880292")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -75,32 +71,28 @@ public partial record ActivityReportItems2
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
     [IsoId("_RZ5JMdp-Ed-ak6NoX_4Aeg_-990880200")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("User Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UsrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("UsrTxRef")]
     [MinLength(0)]
     [MaxLength(2)]
-    #endif
     public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = new ValueList<DocumentIdentification5>(){};
     
     /// <summary>
     /// Entity for which the activity is reported.
     /// </summary>
     [IsoId("_RaCTENp-Ed-ak6NoX_4Aeg_-990880230")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reported Entity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptdNtty")]
     #endif
+    [IsoXmlTag("RptdNtty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BICIdentification1 ReportedEntity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BICIdentification1 ReportedEntity { get; init; } 
+    public required BICIdentification1 ReportedEntity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BICIdentification1 ReportedEntity { get; init; } 
     #else
@@ -111,12 +103,11 @@ public partial record ActivityReportItems2
     /// Describes an activity that took place during a period.
     /// </summary>
     [IsoId("_RaCTEdp-Ed-ak6NoX_4Aeg_-990880169")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reported Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptdItm")]
     #endif
+    [IsoXmlTag("RptdItm")]
     public ActivityDetails1? ReportedItem { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _RaCTEdp-Ed-ak6NoX_4Aeg_-990880169
     
@@ -124,12 +115,11 @@ public partial record ActivityReportItems2
     /// Next processing step required.
     /// </summary>
     [IsoId("_RaCTEtp-Ed-ak6NoX_4Aeg_-990880261")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgReqForActn")]
     #endif
+    [IsoXmlTag("PdgReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity2? PendingRequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

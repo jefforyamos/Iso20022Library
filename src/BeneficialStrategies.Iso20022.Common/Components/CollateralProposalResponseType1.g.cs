@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on the response for a collateral proposal.
 /// </summary>
 [IsoId("_Un0dsdp-Ed-ak6NoX_4Aeg_2130391972")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Proposal Response Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record CollateralProposalResponseType1
     /// Unique identifier for a collateral proposal.
     /// </summary>
     [IsoId("_Un0dstp-Ed-ak6NoX_4Aeg_218527511")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Proposal Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollPrpslId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("CollPrpslId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text CollateralProposalIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CollateralProposalIdentification { get; init; } 
+    public required System.String CollateralProposalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CollateralProposalIdentification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record CollateralProposalResponseType1
     /// Indicates whether the collateral proposal is an initial or a counter proposal.
     /// </summary>
     [IsoId("_Un0ds9p-Ed-ak6NoX_4Aeg_-14002491")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralProposalResponse1Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralProposalResponse1Code Type { get; init; } 
+    public required CollateralProposalResponse1Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralProposalResponse1Code Type { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record CollateralProposalResponseType1
     /// Specifies the status of the collateral proposal.
     /// </summary>
     [IsoId("_Un0dtNp-Ed-ak6NoX_4Aeg_901549876")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnTp")]
     #endif
+    [IsoXmlTag("RspnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status4Code ResponseType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status4Code ResponseType { get; init; } 
+    public required Status4Code ResponseType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status4Code ResponseType { get; init; } 
     #else
@@ -116,12 +110,11 @@ public partial record CollateralProposalResponseType1
     /// Specifies the reason why the instruction/cancellation request has a rejected status.
     /// </summary>
     [IsoId("_Un0dtdp-Ed-ak6NoX_4Aeg_-1564918581")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnRsn")]
     #endif
+    [IsoXmlTag("RjctnRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RejectionReasonV021Code? RejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,15 +127,13 @@ public partial record CollateralProposalResponseType1
     /// Additional information regarding why the collateral proposal has a rejected status.
     /// </summary>
     [IsoId("_Un0dttp-Ed-ak6NoX_4Aeg_-1917789059")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejection Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctnInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RjctnInf")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? RejectionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

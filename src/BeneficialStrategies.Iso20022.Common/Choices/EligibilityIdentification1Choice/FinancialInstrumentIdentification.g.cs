@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EligibilityIdentification1Choice
     /// ISIN used to identify the security to be defined as eligible.
     /// </summary>
     [IsoId("_jBJ_9O5NEeCisYr99QEiWA_1649661981")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -54,15 +52,17 @@ namespace BeneficialStrategies.Iso20022.Choices.EligibilityIdentification1Choice
         
         /// <summary>
         /// Contains the main value for the container.
-        /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
+        /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation&apos;s International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FinInstrmId")]
         #endif
+        [IsoXmlTag("FinInstrmId")]
+        [IsoSimpleType(IsoSimpleType.ISINIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISINIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

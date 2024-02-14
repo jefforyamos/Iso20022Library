@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FundPortfolio7Choice.GeneralInvestment))]
     [KnownType(typeof(FundPortfolio7Choice.Pension))]
     [IsoId("_Xn1_oelfEeu9cf4XM82AQQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Portfolio 7 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

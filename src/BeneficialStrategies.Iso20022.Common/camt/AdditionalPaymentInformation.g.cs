@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.camt;
 /// </summary>
 [Description(@"Scope|The Additional Payment Information message is sent by an account servicing institution to an account owner.|This message is used to provide additional or corrected information on a payment instruction or statement entry, in order to allow reconciliation.|Usage|The Additional Payment Information message provides elements which are usually not reported in a statement or advice (such as full remittance information or identification of parties other than the account servicing institution and the account owner.) It complements information about a payment instruction that has already been received, in the form of one or several entries of the original payment instruction.|The Additional Payment Information message covers one and only one original payment instruction. If several payment instructions need further details, multiple Additional Payment Information messages must be used, one for each of the payment instructions.|The AdditionalPaymentInformation message may be used as a result of two investigation processes and in a way outlined below.|- A Claim Non Receipt workflow raised by the creditor or recipient of the payment: This means that the payment instruction has reached the creditor or beneficiary. The account owner needs further details or correct information for its reconciliation processes. The Additional Payment Information can be used to provide the missing information.|- A Request To Modify Payment workflow raised by the debtor or one of the intermediate agents upstream: When the payment instruction has reached its intended recipient and the modification does not affect the accounting at the account servicing institution, this Additional Payment Information message allows the account owner to receive further particulars or correct information about a payment instruction or an entry passed to its account.|The Additional Payment Information message cannot be used to trigger a request for modification of a payment instruction activity. A Request To Modify Payment message must be used. In other words, if a debtor or one of intermediate agent (excluding the account servicing institution of the creditor) realises the some information was missing in the original payment instruction, he should not use an Additional Payment Information but instead a Request To Modify Payment message.|It is assumed that when an account servicing institution sends out an Additional Payment Information message, the institution is fairly confident that this will resolve the case. Therefore it does not need to wait for a Resolution Of Investigation message. Neither does the account owner, or whoever receives the additional information, need to send back a Resolution Of Investigation message. Positive resolution in this case is implicit. Both parties are expected to close the case. In the event that the problem does not go away, a party can re-open the case.")]
 [IsoId("_FNvJVtE-Ed-BzquC8wXy7w_-95467495")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Payment Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record AdditionalPaymentInformation : IOuterRecord<AdditionalPaym
     /// Identifies the assignment.
     /// </summary>
     [IsoId("_FNvJV9E-Ed-BzquC8wXy7w_1337484755")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assignment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Assgnmt")]
     #endif
+    [IsoXmlTag("Assgnmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CaseAssignment Assignment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CaseAssignment Assignment { get; init; } 
+    public required CaseAssignment Assignment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CaseAssignment Assignment { get; init; } 
     #else
@@ -108,16 +105,15 @@ public partial record AdditionalPaymentInformation : IOuterRecord<AdditionalPaym
     /// Identifies the case.
     /// </summary>
     [IsoId("_FNvJWNE-Ed-BzquC8wXy7w_1326400714")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Case")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Case")]
     #endif
+    [IsoXmlTag("Case")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Case Case { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Case Case { get; init; } 
+    public required Case Case { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Case Case { get; init; } 
     #else
@@ -128,16 +124,15 @@ public partial record AdditionalPaymentInformation : IOuterRecord<AdditionalPaym
     /// Identifies the underlying payment instruction.
     /// </summary>
     [IsoId("_FNvJWdE-Ed-BzquC8wXy7w_1723515214")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Undrlyg")]
     #endif
+    [IsoXmlTag("Undrlyg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentInstructionExtract Underlying { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentInstructionExtract Underlying { get; init; } 
+    public required PaymentInstructionExtract Underlying { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentInstructionExtract Underlying { get; init; } 
     #else
@@ -148,16 +143,15 @@ public partial record AdditionalPaymentInformation : IOuterRecord<AdditionalPaym
     /// Additional information to the underlying payment instruction.
     /// </summary>
     [IsoId("_FNvJWtE-Ed-BzquC8wXy7w_-1310325832")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Inf")]
     #endif
+    [IsoXmlTag("Inf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentComplementaryInformation Information { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentComplementaryInformation Information { get; init; } 
+    public required PaymentComplementaryInformation Information { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentComplementaryInformation Information { get; init; } 
     #else
@@ -168,7 +162,7 @@ public partial record AdditionalPaymentInformation : IOuterRecord<AdditionalPaym
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AdditionalPaymentInformationDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AdditionalPaymentInformationDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AdditionalPaymentInformationDocument ToDocument()
     {
@@ -178,7 +172,7 @@ public partial record AdditionalPaymentInformation : IOuterRecord<AdditionalPaym
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AdditionalPaymentInformation"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AdditionalPaymentInformation&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AdditionalPaymentInformationDocument : IOuterDocument<AdditionalPaymentInformation>
@@ -195,7 +189,7 @@ public partial record AdditionalPaymentInformationDocument : IOuterDocument<Addi
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AdditionalPaymentInformation"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AdditionalPaymentInformation&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalPaymentInformation Message { get; init; }

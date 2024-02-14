@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ServiceLevel2Choice.Code))]
     [KnownType(typeof(ServiceLevel2Choice.Proprietary))]
     [IsoId("_QJkwwdp-Ed-ak6NoX_4Aeg_913208063")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Level 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

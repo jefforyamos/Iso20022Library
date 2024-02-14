@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeFrame3Choice.TradeMinus))]
     [KnownType(typeof(TimeFrame3Choice.RenunciationMinus))]
     [IsoId("_UAyS4tp-Ed-ak6NoX_4Aeg_606871558")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Frame 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

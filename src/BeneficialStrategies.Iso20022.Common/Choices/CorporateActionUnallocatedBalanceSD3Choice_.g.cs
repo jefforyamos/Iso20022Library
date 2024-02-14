@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionUnallocatedBalanceSD3Choice.PendingDeliveryBalance))]
     [KnownType(typeof(CorporateActionUnallocatedBalanceSD3Choice.PendingReceiptBalance))]
     [IsoId("_uTU8wcSTEeeRJJtE9TSlkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Unallocated Balance SD 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

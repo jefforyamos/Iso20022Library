@@ -21,7 +21,7 @@ public enum MarketIdentificationCode
 {
     /// <summary>
     /// Market segment code.
-    /// Encoded/decoded by serializers as "SGMT".
+    /// Encoded/decoded by serializers as &quot;SGMT&quot;.
     /// </summary>
     [EnumMember(Value = "SGMT")]
     [IsoId("_rMH-EMObEeWiEtRBUJSIaA")]
@@ -30,7 +30,7 @@ public enum MarketIdentificationCode
     
     /// <summary>
     /// Market operating code.
-    /// Encoded/decoded by serializers as "OPRT".
+    /// Encoded/decoded by serializers as &quot;OPRT&quot;.
     /// </summary>
     [EnumMember(Value = "OPRT")]
     [IsoId("_tbGXEMObEeWiEtRBUJSIaA")]

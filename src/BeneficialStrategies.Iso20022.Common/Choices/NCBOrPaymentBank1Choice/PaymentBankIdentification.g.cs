@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NCBOrPaymentBank1Choice
     /// Unique business identifier code used to identify the payment bank providing the information.
     /// </summary>
     [IsoId("_jA3FAe5NEeCisYr99QEiWA_1180588846")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Bank Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.NCBOrPaymentBank1Choice
         /// Unique identification to unambiguously identify the party within the system.
         /// </summary>
         [IsoId("_knPM8-5NEeCisYr99QEiWA_-2106270244")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Related Party Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RltdPtyId")]
         #endif
+        [IsoXmlTag("RltdPtyId")]
+        [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoBICFIIdentifier RelatedPartyIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String RelatedPartyIdentification { get; init; } 
+        public required System.String RelatedPartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String RelatedPartyIdentification { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.NCBOrPaymentBank1Choice
         /// Unique identification of the party responsible for the maintenance of the party reference data.
         /// </summary>
         [IsoId("_knPM9O5NEeCisYr99QEiWA_1566757500")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Responsible Party Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RspnsblPtyId")]
         #endif
+        [IsoXmlTag("RspnsblPtyId")]
+        [IsoSimpleType(IsoSimpleType.BICFIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoBICFIIdentifier ResponsiblePartyIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String ResponsiblePartyIdentification { get; init; } 
+        public required System.String ResponsiblePartyIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String ResponsiblePartyIdentification { get; init; } 
         #else

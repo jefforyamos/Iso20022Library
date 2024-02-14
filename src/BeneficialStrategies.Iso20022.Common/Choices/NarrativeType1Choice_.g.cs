@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NarrativeType1Choice.Code))]
     [KnownType(typeof(NarrativeType1Choice.Proprietary))]
     [IsoId("_93HE0nltEeG7BsjMvd1mEw_-1199542784")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Narrative Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

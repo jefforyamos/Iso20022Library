@@ -21,7 +21,7 @@ public enum MessageError1Code
 {
     /// <summary>
     /// Invalid data element format
-    /// Encoded/decoded by serializers as "IDEF".
+    /// Encoded/decoded by serializers as &quot;IDEF&quot;.
     /// </summary>
     [EnumMember(Value = "IDEF")]
     [IsoId("_wQpcofGwEeiGNursv3uE_g")]
@@ -30,7 +30,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Invalid data element length
-    /// Encoded/decoded by serializers as "IDEL".
+    /// Encoded/decoded by serializers as &quot;IDEL&quot;.
     /// </summary>
     [EnumMember(Value = "IDEL")]
     [IsoId("_wUmIgfGwEeiGNursv3uE_g")]
@@ -39,7 +39,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Invalid data element value
-    /// Encoded/decoded by serializers as "IDEV".
+    /// Encoded/decoded by serializers as &quot;IDEV&quot;.
     /// </summary>
     [EnumMember(Value = "IDEV")]
     [IsoId("_wYS8wfGwEeiGNursv3uE_g")]
@@ -48,7 +48,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Invalid message
-    /// Encoded/decoded by serializers as "INME".
+    /// Encoded/decoded by serializers as &quot;INME&quot;.
     /// </summary>
     [EnumMember(Value = "INME")]
     [IsoId("_wdMD0fGwEeiGNursv3uE_g")]
@@ -57,7 +57,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Invalid Message Function
-    /// Encoded/decoded by serializers as "INMF".
+    /// Encoded/decoded by serializers as &quot;INMF&quot;.
     /// </summary>
     [EnumMember(Value = "INMF")]
     [IsoId("_whFFUfGwEeiGNursv3uE_g")]
@@ -66,7 +66,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Message Parse Error
-    /// Encoded/decoded by serializers as "MEPE".
+    /// Encoded/decoded by serializers as &quot;MEPE&quot;.
     /// </summary>
     [EnumMember(Value = "MEPE")]
     [IsoId("_wppLcfGwEeiGNursv3uE_g")]
@@ -75,7 +75,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Other reason to reject a message defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_wxHFYfGwEeiGNursv3uE_g")]
@@ -84,7 +84,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Protocol Version
-    /// Encoded/decoded by serializers as "PRVE".
+    /// Encoded/decoded by serializers as &quot;PRVE&quot;.
     /// </summary>
     [EnumMember(Value = "PRVE")]
     [IsoId("_w3BgIfGwEeiGNursv3uE_g")]
@@ -93,7 +93,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Required data element missing
-    /// Encoded/decoded by serializers as "RDEM".
+    /// Encoded/decoded by serializers as &quot;RDEM&quot;.
     /// </summary>
     [EnumMember(Value = "RDEM")]
     [IsoId("_xA0VUfGwEeiGNursv3uE_g")]
@@ -102,7 +102,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Security
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_xF7e0fGwEeiGNursv3uE_g")]
@@ -111,7 +111,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Error that is not defined in the Message type Error and is not OtherNational or OtherPrivate Error 
-    /// Encoded/decoded by serializers as "UDFD".
+    /// Encoded/decoded by serializers as &quot;UDFD&quot;.
     /// </summary>
     [EnumMember(Value = "UDFD")]
     [IsoId("_xLVjQfGwEeiGNursv3uE_g")]
@@ -120,7 +120,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Other reason defined at national level to reject a message.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_xSn3AfGwEeiGNursv3uE_g")]
@@ -129,7 +129,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Iterative data error
-    /// Encoded/decoded by serializers as "ITDE".
+    /// Encoded/decoded by serializers as &quot;ITDE&quot;.
     /// </summary>
     [EnumMember(Value = "ITDE")]
     [IsoId("_xcrx8fGwEeiGNursv3uE_g")]
@@ -138,7 +138,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Duplicate Message
-    /// Encoded/decoded by serializers as "DUME".
+    /// Encoded/decoded by serializers as &quot;DUME&quot;.
     /// </summary>
     [EnumMember(Value = "DUME")]
     [IsoId("_yFe3UfGwEeiGNursv3uE_g")]
@@ -147,7 +147,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Inconsistent data within message
-    /// Encoded/decoded by serializers as "IDWM".
+    /// Encoded/decoded by serializers as &quot;IDWM&quot;.
     /// </summary>
     [EnumMember(Value = "IDWM")]
     [IsoId("_yJnwcfGwEeiGNursv3uE_g")]
@@ -156,7 +156,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Inconsistent data with related message
-    /// Encoded/decoded by serializers as "IDRM".
+    /// Encoded/decoded by serializers as &quot;IDRM&quot;.
     /// </summary>
     [EnumMember(Value = "IDRM")]
     [IsoId("_yNfj0fGwEeiGNursv3uE_g")]
@@ -165,7 +165,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Invalid Batch
-    /// Encoded/decoded by serializers as "IBAT".
+    /// Encoded/decoded by serializers as &quot;IBAT&quot;.
     /// </summary>
     [EnumMember(Value = "IBAT")]
     [IsoId("_yRYlUfGwEeiGNursv3uE_g")]
@@ -174,7 +174,7 @@ public enum MessageError1Code
     
     /// <summary>
     /// Invalid Collection
-    /// Encoded/decoded by serializers as "ICOL".
+    /// Encoded/decoded by serializers as &quot;ICOL&quot;.
     /// </summary>
     [EnumMember(Value = "ICOL")]
     [IsoId("_yWE4EfGwEeiGNursv3uE_g")]

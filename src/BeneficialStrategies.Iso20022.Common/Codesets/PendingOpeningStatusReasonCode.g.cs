@@ -21,7 +21,7 @@ public enum PendingOpeningStatusReasonCode
 {
     /// <summary>
     /// Know Your Customer (KYC) document is missing.
-    /// Encoded/decoded by serializers as "KYCM".
+    /// Encoded/decoded by serializers as &quot;KYCM&quot;.
     /// </summary>
     [EnumMember(Value = "KYCM")]
     [IsoId("_Qr7pYGCKEeabZtzjEVWYCQ")]
@@ -30,7 +30,7 @@ public enum PendingOpeningStatusReasonCode
     
     /// <summary>
     /// FATCA reporting date is missing.
-    /// Encoded/decoded by serializers as "FRDM".
+    /// Encoded/decoded by serializers as &quot;FRDM&quot;.
     /// </summary>
     [EnumMember(Value = "FRDM")]
     [IsoId("_WX-mMGCKEeabZtzjEVWYCQ")]
@@ -39,7 +39,7 @@ public enum PendingOpeningStatusReasonCode
     
     /// <summary>
     /// Rights holder information is missing.
-    /// Encoded/decoded by serializers as "RIGH".
+    /// Encoded/decoded by serializers as &quot;RIGH&quot;.
     /// </summary>
     [EnumMember(Value = "RIGH")]
     [IsoId("_Y_DWIGCKEeabZtzjEVWYCQ")]
@@ -48,7 +48,7 @@ public enum PendingOpeningStatusReasonCode
     
     /// <summary>
     /// Authorisation is required.
-    /// Encoded/decoded by serializers as "ATHR".
+    /// Encoded/decoded by serializers as &quot;ATHR&quot;.
     /// </summary>
     [EnumMember(Value = "ATHR")]
     [IsoId("_b7QokGCKEeabZtzjEVWYCQ")]
@@ -57,7 +57,7 @@ public enum PendingOpeningStatusReasonCode
     
     /// <summary>
     /// Authorisation is provided but account opening is still pending.
-    /// Encoded/decoded by serializers as "ATHP".
+    /// Encoded/decoded by serializers as &quot;ATHP&quot;.
     /// </summary>
     [EnumMember(Value = "ATHP")]
     [IsoId("_ej9wMGCKEeabZtzjEVWYCQ")]
@@ -66,7 +66,7 @@ public enum PendingOpeningStatusReasonCode
     
     /// <summary>
     /// Account is not yet open, even for partial use.
-    /// Encoded/decoded by serializers as "NOTO".
+    /// Encoded/decoded by serializers as &quot;NOTO&quot;.
     /// </summary>
     [EnumMember(Value = "NOTO")]
     [IsoId("_h9epsGCKEeabZtzjEVWYCQ")]
@@ -75,7 +75,7 @@ public enum PendingOpeningStatusReasonCode
     
     /// <summary>
     /// Account will be opened when restrictions are addressed.
-    /// Encoded/decoded by serializers as "REST".
+    /// Encoded/decoded by serializers as &quot;REST&quot;.
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_mxl48GCKEeabZtzjEVWYCQ")]

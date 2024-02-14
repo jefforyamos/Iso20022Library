@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contents of an Undertaking Amendment message.
 /// </summary>
 [IsoId("_98eF8nltEeG7BsjMvd1mEw_1389753684")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amendment Message")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record UndertakingAmendmentMessage1
     /// Details related to the proposed undertaking amendment.
     /// </summary>
     [IsoId("_98eF83ltEeG7BsjMvd1mEw_214562659")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntDtls")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amendment1 UndertakingAmendmentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amendment1 UndertakingAmendmentDetails { get; init; } 
+    public required Amendment1 UndertakingAmendmentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amendment1 UndertakingAmendmentDetails { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record UndertakingAmendmentMessage1
     /// Digital signature of the proposed amendment.
     /// </summary>
     [IsoId("_98eF9HltEeG7BsjMvd1mEw_1737562986")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

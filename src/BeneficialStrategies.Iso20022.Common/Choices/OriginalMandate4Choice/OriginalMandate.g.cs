@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
     /// Provides the original mandate data.
     /// </summary>
     [IsoId("_c4CjZUjwEeaVLL5QKJ4f-A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Mandate")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -60,19 +58,17 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Unique identification, as assigned by the responsible party (such as the creditor) or agent (such as the debtor agent), to unambiguously identify the mandate.
         /// </summary>
         [IsoId("_dBASJ0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Mandate Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MndtId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MndtId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text MandateIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String MandateIdentification { get; init; } 
+        public required System.String MandateIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String MandateIdentification { get; init; } 
         #else
@@ -83,15 +79,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Identification for the mandate request, as assigned by the initiating party.
         /// </summary>
         [IsoId("_dBASKUjwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Mandate Request Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MndtReqId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MndtReqId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MandateRequestIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +98,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Specifies the transport authentication details related to the mandate.
         /// </summary>
         [IsoId("_jArg0WoGEearR-CA7eRZXQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Authentication")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Authntcn")]
         #endif
+        [IsoXmlTag("Authntcn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MandateAuthentication1? Authentication { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +115,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Specifies the type of mandate, such as paper, electronic or scheme.
         /// </summary>
         [IsoId("_dBASK0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MandateTypeInformation2? Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +132,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Provides details of the duration of the mandate and occurrence of the underlying transactions.
         /// </summary>
         [IsoId("_dBASLUjwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Occurrences")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Ocrncs")]
         #endif
+        [IsoXmlTag("Ocrncs")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MandateOccurrences4? Occurrences { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,16 +149,16 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Specifies whether the direct debit instructions should be automatically re-submitted periodically when bilaterally agreed.
         /// </summary>
         [IsoId("_Zx4UIGn0EearR-CA7eRZXQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Tracking Indicator")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TrckgInd")]
         #endif
+        [IsoXmlTag("TrckgInd")]
+        [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoTrueFalseIndicator TrackingIndicator { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String TrackingIndicator { get; init; } 
+        public required System.String TrackingIndicator { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String TrackingIndicator { get; init; } 
         #else
@@ -178,12 +169,12 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Amount different from the collection amount, as it includes the costs associated with the first debited amount.
         /// </summary>
         [IsoId("_eWoD8WnvEearR-CA7eRZXQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("First Collection Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrstColltnAmt")]
         #endif
+        [IsoXmlTag("FrstColltnAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoActiveOrHistoricCurrencyAndAmount? FirstCollectionAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -193,15 +184,15 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         #endif
         
         /// <summary>
-        /// Fixed amount to be collected from the debtor's account.
+        /// Fixed amount to be collected from the debtor&apos;s account.
         /// </summary>
         [IsoId("_dBASL0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Collection Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ColltnAmt")]
         #endif
+        [IsoXmlTag("ColltnAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoActiveOrHistoricCurrencyAndAmount? CollectionAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -211,15 +202,15 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         #endif
         
         /// <summary>
-        /// Maximum amount that may be collected from the debtor's account, per instruction.
+        /// Maximum amount that may be collected from the debtor&apos;s account, per instruction.
         /// </summary>
         [IsoId("_dBASMUjwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Maximum Amount")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MaxAmt")]
         #endif
+        [IsoXmlTag("MaxAmt")]
+        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoActiveOrHistoricCurrencyAndAmount? MaximumAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -232,12 +223,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Specifies the characteristics of the adjustment applied to the collection amount of a direct debit instruction.
         /// </summary>
         [IsoId("_JHq7cWoGEearR-CA7eRZXQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Adjustment")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Adjstmnt")]
         #endif
+        [IsoXmlTag("Adjstmnt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MandateAdjustment1? Adjustment { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -250,12 +240,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Provides the reason for the setup of the mandate.
         /// </summary>
         [IsoId("_dBASM0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public MandateSetupReason1Choice_? Reason { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -268,12 +257,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Credit party that signs the mandate.
         /// </summary>
         [IsoId("_dBASNUjwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Scheme Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrSchmeId")]
         #endif
+        [IsoXmlTag("CdtrSchmeId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification43? CreditorSchemeIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -286,16 +274,15 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Party that signs the mandate and to whom an amount of money is due.
         /// </summary>
         [IsoId("_dBASN0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cdtr")]
         #endif
+        [IsoXmlTag("Cdtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification43 Creditor { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification43 Creditor { get; init; } 
+        public required PartyIdentification43 Creditor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification43 Creditor { get; init; } 
         #else
@@ -306,12 +293,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
         /// </summary>
         [IsoId("_dBASOUjwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrAcct")]
         #endif
+        [IsoXmlTag("CdtrAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashAccount24? CreditorAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -324,12 +310,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Financial institution servicing an account for the creditor.
         /// </summary>
         [IsoId("_dBASO0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Creditor Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CdtrAgt")]
         #endif
+        [IsoXmlTag("CdtrAgt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchAndFinancialInstitutionIdentification5? CreditorAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -342,12 +327,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Ultimate party to which an amount of money is due.
         /// </summary>
         [IsoId("_dBASPUjwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Ultimate Creditor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UltmtCdtr")]
         #endif
+        [IsoXmlTag("UltmtCdtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification43? UltimateCreditor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -360,16 +344,15 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Party that signs the mandate and owes an amount of money to the (ultimate) creditor.
         /// </summary>
         [IsoId("_dBASP0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dbtr")]
         #endif
+        [IsoXmlTag("Dbtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification43 Debtor { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification43 Debtor { get; init; } 
+        public required PartyIdentification43 Debtor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification43 Debtor { get; init; } 
         #else
@@ -380,12 +363,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Unambiguous identification of the account of the debtor, to which a debit entry will be made as a result of the transaction.
         /// </summary>
         [IsoId("_dBASQUjwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrAcct")]
         #endif
+        [IsoXmlTag("DbtrAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CashAccount24? DebtorAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -398,16 +380,15 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Financial institution servicing an account for the debtor.
         /// </summary>
         [IsoId("_dBASQ0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Debtor Agent")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DbtrAgt")]
         #endif
+        [IsoXmlTag("DbtrAgt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
+        public required BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
         #else
@@ -418,12 +399,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Ultimate party that owes an amount of money to the (ultimate) creditor.
         /// </summary>
         [IsoId("_dBASRUjwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Ultimate Debtor")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UltmtDbtr")]
         #endif
+        [IsoXmlTag("UltmtDbtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyIdentification43? UltimateDebtor { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -436,15 +416,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Reference assigned by a creditor or ultimate creditor for internal usage for the mandate.
         /// </summary>
         [IsoId("_OHvTIGnyEearR-CA7eRZXQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Mandate Reference")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="MndtRef")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("MndtRef")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? MandateReference { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -457,12 +435,11 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice
         /// Provides information to identify the underlying documents associated with the mandate.
         /// </summary>
         [IsoId("_dBASR0jwEeaVLL5QKJ4f-A")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Referred Document")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RfrdDoc")]
         #endif
+        [IsoXmlTag("RfrdDoc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReferredMandateDocument1? ReferredDocument { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

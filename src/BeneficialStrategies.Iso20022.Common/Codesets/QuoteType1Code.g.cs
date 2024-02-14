@@ -21,7 +21,7 @@ public enum QuoteType1Code
 {
     /// <summary>
     /// Indicates the type of quote is an indicative quote. ||An indicative quote is used to inform a counterparty of a market. An indicative quote does not result directly in a trade.
-    /// Encoded/decoded by serializers as "INDI".
+    /// Encoded/decoded by serializers as &quot;INDI&quot;.
     /// </summary>
     [EnumMember(Value = "INDI")]
     [IsoId("_ZY2jw9p-Ed-ak6NoX_4Aeg_2117046401")]
@@ -30,7 +30,7 @@ public enum QuoteType1Code
     
     /// <summary>
     /// Indicates the type of quote is a tradeable quote. |A tradeable quote is submitted to a market and will result directly in a trade against other orders and quotes in a market.
-    /// Encoded/decoded by serializers as "TRAD".
+    /// Encoded/decoded by serializers as &quot;TRAD&quot;.
     /// </summary>
     [EnumMember(Value = "TRAD")]
     [IsoId("_ZY2jxNp-Ed-ak6NoX_4Aeg_2117046443")]
@@ -39,7 +39,7 @@ public enum QuoteType1Code
     
     /// <summary>
     /// Indicates the type of quote is a restricted tradeable quote. |A restricted tradeable quote is submitted to a market and within a certain restriction (possibly based upon price or quantity) will automatically trade against orders. Order that do not comply with restrictions are sent to the quote issuer who can choose to accept or decline the order.
-    /// Encoded/decoded by serializers as "REST".
+    /// Encoded/decoded by serializers as &quot;REST&quot;.
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_ZY2jxdp-Ed-ak6NoX_4Aeg_2117046678")]
@@ -48,7 +48,7 @@ public enum QuoteType1Code
     
     /// <summary>
     /// Indicates the type of quote is a counter quote.
-    /// Encoded/decoded by serializers as "COUN".
+    /// Encoded/decoded by serializers as &quot;COUN&quot;.
     /// </summary>
     [EnumMember(Value = "COUN")]
     [IsoId("_ZY2jxtp-Ed-ak6NoX_4Aeg_2117046713")]

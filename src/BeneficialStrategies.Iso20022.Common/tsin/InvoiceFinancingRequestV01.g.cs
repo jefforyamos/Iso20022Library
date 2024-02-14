@@ -44,9 +44,7 @@ namespace BeneficialStrategies.Iso20022.tsin;
 /// </summary>
 [Description(@"Scope|The InvoiceFinancingRequest message is sent by Financing Requestor to the Intermediary Agent or First agent. It is used to request financing of a set of invoices, referenced in the request message itself. If the whole financing request (or a selection of single invoice requests included) is accepted, the amount financed by the First Agent will be credited either to the account specified in the financing request or to another account held by Financing Requestor to First Agent.|Usage|The InvoiceFinancingRequest message is issued by the Financing Requestor and represents a bulk financing request since it can contain one or more single financing requests, each request related to an invoice.|For every invoice it is always possible to identify a supplier and a buyer.|The subject playing the role of supplier can be different from the Financing Requestor; in this case the Financing Requestor is allowed to send the request message on behalf of the supplier itself.|This caters for example in the scenario of a collection agency initiating all requests on behalf of a large corporate.|In instances where an invoice is going to be paid by means of instalments, the Financing Requestor can request financing for one or more instalments related to the invoice payment. In this case, together with the general information related to the invoice, references about instalments to be financed are specified into the request message. The request message must contain information only about the instalments that the Financing Requestor wants to be financed.|The InvoiceFinancingRequest message is used to exchange:|- One instance of general information related to the invoice financing request;|- One instance of information for each single invoice financing request;|- Optionally, one instance of information for each single instalment to be financed.|The message can be used in a direct or a relay scenario:|- In a direct scenario, the message is sent directly to the First Agent. The First Agent is the account servicer of the Financing Requestor;|- In a relay scenario, the message is sent to an Intermediary Agent. The Intermediary Agent acts as an access point that will forward the InvoiceFinancingRequest message to the First Agent.")]
 [IsoId("_BU2DIH1LEeCF8NjrBemJWQ_-1652041162")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Financing Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -90,16 +88,15 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord<InvoiceFinancing
     /// Specifies a set of characteristics that unambiguously identify the invoice financing request, such as group identification, creation date time, number of single invoice financing requests.
     /// </summary>
     [IsoId("_BU2DIX1LEeCF8NjrBemJWQ_-1652041118")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Request Group Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqGrpInf")]
     #endif
+    [IsoXmlTag("ReqGrpInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestGroupInformation1 RequestGroupInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RequestGroupInformation1 RequestGroupInformation { get; init; } 
+    public required RequestGroupInformation1 RequestGroupInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RequestGroupInformation1 RequestGroupInformation { get; init; } 
     #else
@@ -110,16 +107,15 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord<InvoiceFinancing
     /// Set of characteristics that unambiguously identify the single invoice financing request related to the entire invoice or a specific instalment of the invoice settlement, such as actors involved, invoice totals or payment method.
     /// </summary>
     [IsoId("_BU2DIn1LEeCF8NjrBemJWQ_-1651121112")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Invoice Request Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvcReqInf")]
     #endif
+    [IsoXmlTag("InvcReqInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceRequestInformation1 InvoiceRequestInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvoiceRequestInformation1 InvoiceRequestInformation { get; init; } 
+    public required InvoiceRequestInformation1 InvoiceRequestInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvoiceRequestInformation1 InvoiceRequestInformation { get; init; } 
     #else
@@ -130,7 +126,7 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord<InvoiceFinancing
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvoiceFinancingRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvoiceFinancingRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvoiceFinancingRequestV01Document ToDocument()
     {
@@ -140,7 +136,7 @@ public partial record InvoiceFinancingRequestV01 : IOuterRecord<InvoiceFinancing
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvoiceFinancingRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvoiceFinancingRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvoiceFinancingRequestV01Document : IOuterDocument<InvoiceFinancingRequestV01>
@@ -157,7 +153,7 @@ public partial record InvoiceFinancingRequestV01Document : IOuterDocument<Invoic
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvoiceFinancingRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvoiceFinancingRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvoiceFinancingRequestV01 Message { get; init; }

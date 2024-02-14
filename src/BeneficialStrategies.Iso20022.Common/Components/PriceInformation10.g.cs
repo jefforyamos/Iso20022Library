@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
 [IsoId("_m-lZofNBEeCuA5Tr22BnwA_448139482")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record PriceInformation10
     /// Current value of the price, eg, as a currency and value.
     /// </summary>
     [IsoId("_m-lZovNBEeCuA5Tr22BnwA_947656184")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Current Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CurPric")]
     #endif
+    [IsoXmlTag("CurPric")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CurrentPrice { get; init; } 
+    public required System.Decimal CurrentPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CurrentPrice { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record PriceInformation10
     /// Specifies the type of price and information about the price.
     /// </summary>
     [IsoId("_m-lZo_NBEeCuA5Tr22BnwA_334300416")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfPrice27Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfPrice27Choice_ Type { get; init; } 
+    public required TypeOfPrice27Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfPrice27Choice_ Type { get; init; } 
     #else
@@ -92,12 +89,12 @@ public partial record PriceInformation10
     /// Previous value of the price, eg, as a currency and value.
     /// </summary>
     [IsoId("_m-lZpPNBEeCuA5Tr22BnwA_-389486155")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsPric")]
     #endif
+    [IsoXmlTag("PrvsPric")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? PreviousPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +107,11 @@ public partial record PriceInformation10
     /// Difference or change between the previous price value and the current price value.
     /// </summary>
     [IsoId("_m-lZpfNBEeCuA5Tr22BnwA_-662771937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Of Change")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtOfChng")]
     #endif
+    [IsoXmlTag("AmtOfChng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PriceValueAndRate4? AmountOfChange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

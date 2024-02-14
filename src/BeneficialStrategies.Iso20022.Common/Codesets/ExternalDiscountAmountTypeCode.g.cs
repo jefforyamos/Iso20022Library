@@ -23,7 +23,7 @@ public enum ExternalDiscountAmountTypeCode
 {
     /// <summary>
     /// Addition discount based on third-party agreed business promotional activity, i.e., extra 10 percent discount for 15 days)
-    /// Encoded/decoded by serializers as "APDS".
+    /// Encoded/decoded by serializers as &quot;APDS&quot;.
     /// </summary>
     [EnumMember(Value = "APDS")]
     [IsoId("_uMAesPRYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalDiscountAmountTypeCode
     
     /// <summary>
     /// Discount based on volume purchased.
-    /// Encoded/decoded by serializers as "STDS".
+    /// Encoded/decoded by serializers as &quot;STDS&quot;.
     /// </summary>
     [EnumMember(Value = "STDS")]
     [IsoId("_uMAes_RYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalDiscountAmountTypeCode
     
     /// <summary>
     /// Discount based on terms negotiated for payment within a specified time period, i.e., 2/10 Net 30 (2 percent discount if paid in 10 days; otherwise, net amount is due in 30 days).
-    /// Encoded/decoded by serializers as "TMDS".
+    /// Encoded/decoded by serializers as &quot;TMDS&quot;.
     /// </summary>
     [EnumMember(Value = "TMDS")]
     [IsoId("_uMAetvRYEeuLhpyIdtJzwg")]

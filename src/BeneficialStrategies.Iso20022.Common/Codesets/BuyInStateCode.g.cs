@@ -21,7 +21,7 @@ public enum BuyInStateCode
 {
     /// <summary>
     /// Buy-in was successful.
-    /// Encoded/decoded by serializers as "BSSY".
+    /// Encoded/decoded by serializers as &quot;BSSY&quot;.
     /// </summary>
     [EnumMember(Value = "BSSY")]
     [IsoId("_bHt9IJwVEeqtp-LOti013g")]
@@ -30,7 +30,7 @@ public enum BuyInStateCode
     
     /// <summary>
     /// Buy-in was unsuccessful.
-    /// Encoded/decoded by serializers as "BSSN".
+    /// Encoded/decoded by serializers as &quot;BSSN&quot;.
     /// </summary>
     [EnumMember(Value = "BSSN")]
     [IsoId("_bOt9AJwVEeqtp-LOti013g")]
@@ -39,7 +39,7 @@ public enum BuyInStateCode
     
     /// <summary>
     /// Buy-in was partially successful.
-    /// Encoded/decoded by serializers as "BSSP".
+    /// Encoded/decoded by serializers as &quot;BSSP&quot;.
     /// </summary>
     [EnumMember(Value = "BSSP")]
     [IsoId("_bUEXEJwVEeqtp-LOti013g")]

@@ -21,7 +21,7 @@ public enum CollateralisationType2Code
 {
     /// <summary>
     /// The collateral agreement between the counterparties stipulates that both counterparties post initial margin and regularly post variation margin with respect to the derivative transaction.
-    /// Encoded/decoded by serializers as "FLCL".
+    /// Encoded/decoded by serializers as &quot;FLCL&quot;.
     /// </summary>
     [EnumMember(Value = "FLCL")]
     [IsoId("_D1TNcVfjEeqqKf65rDYWYw")]
@@ -30,7 +30,7 @@ public enum CollateralisationType2Code
     
     /// <summary>
     /// The collateral agreement between the counterparties stipulates that the reporting counterparty posts the initial margin and regularly posts variation margin and that the other counterparty does not post any margin with respect to the derivative transaction.
-    /// Encoded/decoded by serializers as "OWC1".
+    /// Encoded/decoded by serializers as &quot;OWC1&quot;.
     /// </summary>
     [EnumMember(Value = "OWC1")]
     [IsoId("_Ehe-AVfjEeqqKf65rDYWYw")]
@@ -39,7 +39,7 @@ public enum CollateralisationType2Code
     
     /// <summary>
     /// The collateral agreement between the counterparties stipulates that the other counterparty posts the initial margin and regularly posts variation margin and that the reporting counterparty does not post any margin with respect to the derivative transaction.
-    /// Encoded/decoded by serializers as "OWC2".
+    /// Encoded/decoded by serializers as &quot;OWC2&quot;.
     /// </summary>
     [EnumMember(Value = "OWC2")]
     [IsoId("_Ep0aoVfjEeqqKf65rDYWYw")]
@@ -48,7 +48,7 @@ public enum CollateralisationType2Code
     
     /// <summary>
     /// The collateral agreement between the counterparties stipulates that the reporting counterparty posts the initial margin and regularly posts variation margin and that the other counterparty regularly posts only variation margin. 
-    /// Encoded/decoded by serializers as "OWP1".
+    /// Encoded/decoded by serializers as &quot;OWP1&quot;.
     /// </summary>
     [EnumMember(Value = "OWP1")]
     [IsoId("_EzpFAVfjEeqqKf65rDYWYw")]
@@ -57,7 +57,7 @@ public enum CollateralisationType2Code
     
     /// <summary>
     /// The collateral agreement between the counterparties stipulates that the other counterparty posts the initial margin and regularly posts variation margin and that the reporting counterparty regularly posts only variation margin.
-    /// Encoded/decoded by serializers as "OWP2".
+    /// Encoded/decoded by serializers as &quot;OWP2&quot;.
     /// </summary>
     [EnumMember(Value = "OWP2")]
     [IsoId("_E-DlQVfjEeqqKf65rDYWYw")]
@@ -66,7 +66,7 @@ public enum CollateralisationType2Code
     
     /// <summary>
     /// The collateral agreement between the counterparties stipulates that both counterparties regularly post only variation margin with respect to the derivative transaction.
-    /// Encoded/decoded by serializers as "PRCL".
+    /// Encoded/decoded by serializers as &quot;PRCL&quot;.
     /// </summary>
     [EnumMember(Value = "PRCL")]
     [IsoId("_FmqdYVfjEeqqKf65rDYWYw")]
@@ -75,7 +75,7 @@ public enum CollateralisationType2Code
     
     /// <summary>
     /// The collateral agreement between the counterparties stipulates that the reporting counterparty regularly  posts only variation margin and that the other counterparty does not post any margin with respect to the derivative transaction.
-    /// Encoded/decoded by serializers as "PRC1".
+    /// Encoded/decoded by serializers as &quot;PRC1&quot;.
     /// </summary>
     [EnumMember(Value = "PRC1")]
     [IsoId("_GISjwVfjEeqqKf65rDYWYw")]
@@ -84,7 +84,7 @@ public enum CollateralisationType2Code
     
     /// <summary>
     /// The collateral agreement between the counterparties stipulates that the other counterparty regularly posts only variation margin and that the reporting counterparty does not post any margin with respect to the derivative transaction.
-    /// Encoded/decoded by serializers as "PRC2".
+    /// Encoded/decoded by serializers as &quot;PRC2&quot;.
     /// </summary>
     [EnumMember(Value = "PRC2")]
     [IsoId("_GREFQVfjEeqqKf65rDYWYw")]
@@ -93,7 +93,7 @@ public enum CollateralisationType2Code
     
     /// <summary>
     /// There is no collateral agreement between the counterparties or the collateral agreement between the counterparties stipulates that no collateral (neither initial margin nor variation margin) has to be posted with respect to the derivative transaction.
-    /// Encoded/decoded by serializers as "UNCL".
+    /// Encoded/decoded by serializers as &quot;UNCL&quot;.
     /// </summary>
     [EnumMember(Value = "UNCL")]
     [IsoId("_GoH6YVfjEeqqKf65rDYWYw")]

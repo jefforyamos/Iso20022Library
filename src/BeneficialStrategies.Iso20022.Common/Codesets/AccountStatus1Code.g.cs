@@ -21,7 +21,7 @@ public enum AccountStatus1Code
 {
     /// <summary>
     /// Account can be used for its intended purpose.
-    /// Encoded/decoded by serializers as "ENAB".
+    /// Encoded/decoded by serializers as &quot;ENAB&quot;.
     /// </summary>
     [EnumMember(Value = "ENAB")]
     [IsoId("_brets9p-Ed-ak6NoX_4Aeg_-910847163")]
@@ -30,7 +30,7 @@ public enum AccountStatus1Code
     
     /// <summary>
     /// Account cannot be used for its intended purpose, either temporarily or permanently.
-    /// Encoded/decoded by serializers as "DISA".
+    /// Encoded/decoded by serializers as &quot;DISA&quot;.
     /// </summary>
     [EnumMember(Value = "DISA")]
     [IsoId("_brettNp-Ed-ak6NoX_4Aeg_-898842246")]
@@ -39,7 +39,7 @@ public enum AccountStatus1Code
     
     /// <summary>
     /// Account cannot be used any longer.
-    /// Encoded/decoded by serializers as "DELE".
+    /// Encoded/decoded by serializers as &quot;DELE&quot;.
     /// </summary>
     [EnumMember(Value = "DELE")]
     [IsoId("_brettdp-Ed-ak6NoX_4Aeg_-885910656")]

@@ -21,7 +21,7 @@ public enum TransactionChannel1Code
 {
     /// <summary>
     /// Mail order.
-    /// Encoded/decoded by serializers as "MAIL".
+    /// Encoded/decoded by serializers as &quot;MAIL&quot;.
     /// </summary>
     [EnumMember(Value = "MAIL")]
     [IsoId("_TUAMOgEcEeCQm6a_G2yO_w_421671046")]
@@ -30,7 +30,7 @@ public enum TransactionChannel1Code
     
     /// <summary>
     /// Telephone order.
-    /// Encoded/decoded by serializers as "TLPH".
+    /// Encoded/decoded by serializers as &quot;TLPH&quot;.
     /// </summary>
     [EnumMember(Value = "TLPH")]
     [IsoId("_TUAMOwEcEeCQm6a_G2yO_w_-391479472")]
@@ -39,7 +39,7 @@ public enum TransactionChannel1Code
     
     /// <summary>
     /// Electronic commerce.
-    /// Encoded/decoded by serializers as "ECOM".
+    /// Encoded/decoded by serializers as &quot;ECOM&quot;.
     /// </summary>
     [EnumMember(Value = "ECOM")]
     [IsoId("_TUAMPAEcEeCQm6a_G2yO_w_-106195051")]
@@ -48,7 +48,7 @@ public enum TransactionChannel1Code
     
     /// <summary>
     /// Payment on television.
-    /// Encoded/decoded by serializers as "TVPY".
+    /// Encoded/decoded by serializers as &quot;TVPY&quot;.
     /// </summary>
     [EnumMember(Value = "TVPY")]
     [IsoId("_TUAMPQEcEeCQm6a_G2yO_w_654570102")]

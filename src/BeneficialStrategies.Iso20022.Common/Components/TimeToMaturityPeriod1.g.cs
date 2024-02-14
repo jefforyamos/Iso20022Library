@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the start and end time for the time to maturity.
 /// </summary>
 [IsoId("_vvHl4MVbEeiYpLQka876sg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Time To Maturity Period")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record TimeToMaturityPeriod1
     /// Specifies the start of the maturity period.
     /// </summary>
     [IsoId("_KfScwMVcEeiYpLQka876sg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Start")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Start")]
     #endif
+    [IsoXmlTag("Start")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaturityTerm2? Start { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record TimeToMaturityPeriod1
     /// Specifies the end of the maturity period.
     /// </summary>
     [IsoId("_LNQ9EcVcEeiYpLQka876sg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("End")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="End")]
     #endif
+    [IsoXmlTag("End")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MaturityTerm2? End { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

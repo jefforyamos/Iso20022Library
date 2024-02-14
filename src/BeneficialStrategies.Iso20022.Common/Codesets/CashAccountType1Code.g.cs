@@ -21,7 +21,7 @@ public enum CashAccountType1Code
 {
     /// <summary>
     /// Account used to post debit and credit entries, as a result of transactions cleared and settled through a specific clearing and settlement system.
-    /// Encoded/decoded by serializers as "SACC".
+    /// Encoded/decoded by serializers as &quot;SACC&quot;.
     /// </summary>
     [EnumMember(Value = "SACC")]
     [IsoId("_a24A8tp-Ed-ak6NoX_4Aeg_2050502103")]
@@ -30,7 +30,7 @@ public enum CashAccountType1Code
     
     /// <summary>
     /// Account used to post debits and credits when no specific account has been nominated.
-    /// Encoded/decoded by serializers as "CACC".
+    /// Encoded/decoded by serializers as &quot;CACC&quot;.
     /// </summary>
     [EnumMember(Value = "CACC")]
     [IsoId("_a24A89p-Ed-ak6NoX_4Aeg_2050502104")]
@@ -39,7 +39,7 @@ public enum CashAccountType1Code
     
     /// <summary>
     /// Account used for savings.
-    /// Encoded/decoded by serializers as "SVGS".
+    /// Encoded/decoded by serializers as &quot;SVGS&quot;.
     /// </summary>
     [EnumMember(Value = "SVGS")]
     [IsoId("_a24A9Np-Ed-ak6NoX_4Aeg_2050502105")]

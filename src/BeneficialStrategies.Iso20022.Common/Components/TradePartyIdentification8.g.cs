@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the trade party.
 /// </summary>
 [IsoId("_CKT6BQN1Ee2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trade Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TradePartyIdentification8
     /// Party that submits the foreign exchange trade to the matching system or to the settlement system or to the counterparty.
     /// </summary>
     [IsoId("_CQNIWwN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitgPty")]
     #endif
+    [IsoXmlTag("SubmitgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification242Choice_ SubmittingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification242Choice_ SubmittingParty { get; init; } 
+    public required PartyIdentification242Choice_ SubmittingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification242Choice_ SubmittingParty { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TradePartyIdentification8
     /// Party that originated the foreign exchange trade. This party may be the same as the submitting party.
     /// </summary>
     [IsoId("_CQNIXQN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradPty")]
     #endif
+    [IsoXmlTag("TradPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification242Choice_? TradeParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record TradePartyIdentification8
     /// Identifies the fund that is one of the parties in the foreign exchange trade.
     /// </summary>
     [IsoId("_CQNIXwN1Ee2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fund Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FndId")]
     #endif
+    [IsoXmlTag("FndId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FundIdentification5? FundIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

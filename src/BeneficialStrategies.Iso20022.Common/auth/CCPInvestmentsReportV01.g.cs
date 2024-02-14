@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"The CCPInvestmentsReport message is sent from the central counterparty to the national competent authority. It is used to inform the national competent authority about how the central counterparty invests the cash balances deposited with it as collateral by its clearing members.")]
 [IsoId("_JJKuEeUUEem3X-64-NKdqg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("CCP Investments Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record CCPInvestmentsReportV01 : IOuterRecord<CCPInvestmentsRepor
     /// Specifies a financial instrument purchased by a central counterparty using clearing member assets.
     /// </summary>
     [IsoId("_JJKuGeUUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Invstmt")]
     #endif
+    [IsoXmlTag("Invstmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Investment1Choice_ Investment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Investment1Choice_ Investment { get; init; } 
+    public required Investment1Choice_ Investment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Investment1Choice_ Investment { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record CCPInvestmentsReportV01 : IOuterRecord<CCPInvestmentsRepor
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_JJKuG-UUEem3X-64-NKdqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record CCPInvestmentsReportV01 : IOuterRecord<CCPInvestmentsRepor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CCPInvestmentsReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CCPInvestmentsReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CCPInvestmentsReportV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record CCPInvestmentsReportV01 : IOuterRecord<CCPInvestmentsRepor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CCPInvestmentsReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CCPInvestmentsReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CCPInvestmentsReportV01Document : IOuterDocument<CCPInvestmentsReportV01>
@@ -140,7 +136,7 @@ public partial record CCPInvestmentsReportV01Document : IOuterDocument<CCPInvest
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CCPInvestmentsReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CCPInvestmentsReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CCPInvestmentsReportV01 Message { get; init; }

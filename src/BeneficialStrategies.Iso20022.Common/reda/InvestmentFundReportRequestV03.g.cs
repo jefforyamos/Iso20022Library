@@ -30,13 +30,11 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// The InvestmentFundReportRequest message is sent by a report user, for example, a professional investor, investment fund distributor, market data provider, regulator or other interested party to the report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider to request a report.
 /// The Investment Fund Report Request message can be used to request one or many fund reference data report messages.
 /// Usage
-/// If the InvestmentFundReportRequest message is used to request a fund reference data report then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund reference data report that is specified as "no criteria" means that the request is a request for a reference data report messages for all funds.
+/// If the InvestmentFundReportRequest message is used to request a fund reference data report then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund reference data report that is specified as &quot;no criteria&quot; means that the request is a request for a reference data report messages for all funds.
 /// </summary>
 [Description(@"Scope|The InvestmentFundReportRequest message is sent by a report user, for example, a professional investor, investment fund distributor, market data provider, regulator or other interested party to the report provider, for example, a fund promoter, fund management company, transfer agent, or market data provider to request a report.|The Investment Fund Report Request message can be used to request one or many fund reference data report messages.|Usage|If the InvestmentFundReportRequest message is used to request a fund reference data report then the request can specify the financial instrument for which the report is requested. Other appropriate parameters can also be included. It is also possible to indicate that the request is an open request, that is, there is no specific criteria for the report requested. For example, a request for a fund reference data report that is specified as ""no criteria"" means that the request is a request for a reference data report messages for all funds.")]
 [IsoId("_qIk6YWolEeipaMTLlhaKMQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investment Fund Report Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord<InvestmentFu
     /// Reference that uniquely identifies the message from a business application standpoint.
     /// </summary>
     [IsoId("_qIk6Y2olEeipaMTLlhaKMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -100,12 +97,11 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord<InvestmentFu
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_qIk6ZWolEeipaMTLlhaKMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference10? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +114,11 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord<InvestmentFu
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_qIk6Z2olEeipaMTLlhaKMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference10? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,16 +131,15 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord<InvestmentFu
     /// Parameters for which the report is requested.
     /// </summary>
     [IsoId("_qIk6aWolEeipaMTLlhaKMQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptReq")]
     #endif
+    [IsoXmlTag("RptReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FundParameters4Choice_ ReportRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FundParameters4Choice_ ReportRequest { get; init; } 
+    public required FundParameters4Choice_ ReportRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FundParameters4Choice_ ReportRequest { get; init; } 
     #else
@@ -156,7 +150,7 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord<InvestmentFu
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InvestmentFundReportRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InvestmentFundReportRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InvestmentFundReportRequestV03Document ToDocument()
     {
@@ -166,7 +160,7 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord<InvestmentFu
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InvestmentFundReportRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InvestmentFundReportRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InvestmentFundReportRequestV03Document : IOuterDocument<InvestmentFundReportRequestV03>
@@ -183,7 +177,7 @@ public partial record InvestmentFundReportRequestV03Document : IOuterDocument<In
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InvestmentFundReportRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InvestmentFundReportRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentFundReportRequestV03 Message { get; init; }

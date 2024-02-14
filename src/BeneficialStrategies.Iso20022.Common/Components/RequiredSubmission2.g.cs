@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the details relative to the submission of a data set.
 /// </summary>
 [IsoId("_Rax58Np-Ed-ak6NoX_4Aeg_1462344534")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Required Submission")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record RequiredSubmission2
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
     [IsoId("_Rax58dp-Ed-ak6NoX_4Aeg_1833600823")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Submitr")]
     #endif
+    [IsoXmlTag("Submitr")]
     public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Rax58dp-Ed-ak6NoX_4Aeg_1833600823
     

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the securities order transmission attributes.
 /// </summary>
 [IsoId("_gW374OqLEeSsk6KxwbYJ9w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Transaction Transmission")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record SecuritiesTransactionTransmission2
     /// Usage: Only applicable when the conditions for transmission are not satisfied.
     /// </summary>
     [IsoId("_N4TSUOqMEeSsk6KxwbYJ9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transmission Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsmssnInd")]
     #endif
+    [IsoXmlTag("TrnsmssnInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator TransmissionIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransmissionIndicator { get; init; } 
+    public required System.String TransmissionIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransmissionIndicator { get; init; } 
     #else
@@ -73,12 +71,12 @@ public partial record SecuritiesTransactionTransmission2
     /// Usage: Only required for reporting firms reporting transactions on behalf of order transmitting firm.
     /// </summary>
     [IsoId("_9VEUEeqMEeSsk6KxwbYJ9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transmitting Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsmttgBuyr")]
     #endif
+    [IsoXmlTag("TrnsmttgBuyr")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? TransmittingBuyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,12 +90,12 @@ public partial record SecuritiesTransactionTransmission2
     /// Usage: Only required for reporting firms reporting transactions on behalf of order transmitting firm.
     /// </summary>
     [IsoId("_1GQfkOqMEeSsk6KxwbYJ9w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transmitting Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrnsmttgSellr")]
     #endif
+    [IsoXmlTag("TrnsmttgSellr")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoLEIIdentifier? TransmittingSeller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

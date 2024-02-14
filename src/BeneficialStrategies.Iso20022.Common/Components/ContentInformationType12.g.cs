@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// General cryptographic message syntax (CMS) containing protected data.
 /// </summary>
 [IsoId("_PwIbYWmPEeS7iYydEtv3Ug")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Content Information Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ContentInformationType12
     /// Type of data protection.
     /// </summary>
     [IsoId("_P9PDQWmPEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Content Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnttTp")]
     #endif
+    [IsoXmlTag("CnttTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentType2Code ContentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentType2Code ContentType { get; init; } 
+    public required ContentType2Code ContentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentType2Code ContentType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ContentInformationType12
     /// Data protection by encryption, with a session key.
     /// </summary>
     [IsoId("_P9PDQ2mPEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Enveloped Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EnvlpdData")]
     #endif
+    [IsoXmlTag("EnvlpdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EnvelopedData4? EnvelopedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ContentInformationType12
     /// Data protection by a message authentication code (MAC).
     /// </summary>
     [IsoId("_P9PDRWmPEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Authenticated Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AuthntcdData")]
     #endif
+    [IsoXmlTag("AuthntcdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AuthenticatedData4? AuthenticatedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,11 @@ public partial record ContentInformationType12
     /// Data protected by a digital signatures.
     /// </summary>
     [IsoId("_P9PDR2mPEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signed Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgndData")]
     #endif
+    [IsoXmlTag("SgndData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignedData4? SignedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +119,11 @@ public partial record ContentInformationType12
     /// Data protected by a digest.
     /// </summary>
     [IsoId("_P9PDSWmPEeS7iYydEtv3Ug")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digested Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgstdData")]
     #endif
+    [IsoXmlTag("DgstdData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DigestedData4? DigestedData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

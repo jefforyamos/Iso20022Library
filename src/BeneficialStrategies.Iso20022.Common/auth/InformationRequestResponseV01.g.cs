@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"This message is sent by the financial institution to the authorities (police, customs, tax authorities, enforcement authorities) to provide a part or all of the requested information.|The financial institution previously received a request for financial information in the scope of a financial investigation.||Depending on whether the response can be provided STP within the authorities financial investigations messages, the requested information may be |•	provided in part or in full within the response message itself, or |•	only referred to in the response message.")]
 [IsoId("_6iqtkDzdEeGl7N0Cd54dlw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Information Request Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,19 +82,17 @@ public partial record InformationRequestResponseV01 : IOuterRecord<InformationRe
     /// Unique identification for the specific investigation as know by the responding party.
     /// </summary>
     [IsoId("_DSEUezzjEeGl7N0Cd54dlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RspnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ResponseIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ResponseIdentification { get; init; } 
+    public required System.String ResponseIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ResponseIdentification { get; init; } 
     #else
@@ -107,19 +103,17 @@ public partial record InformationRequestResponseV01 : IOuterRecord<InformationRe
     /// Unique identification for the specific investigation as known by the requesting party.
     /// </summary>
     [IsoId("_gF8WOzzoEeGl7N0Cd54dlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("InvstgtnId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text InvestigationIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InvestigationIdentification { get; init; } 
+    public required System.String InvestigationIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InvestigationIdentification { get; init; } 
     #else
@@ -130,16 +124,15 @@ public partial record InformationRequestResponseV01 : IOuterRecord<InformationRe
     /// Provides the status of the response.
     /// </summary>
     [IsoId("_t0ETGzzoEeGl7N0Cd54dlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnSts")]
     #endif
+    [IsoXmlTag("RspnSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusResponse1Code ResponseStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public StatusResponse1Code ResponseStatus { get; init; } 
+    public required StatusResponse1Code ResponseStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public StatusResponse1Code ResponseStatus { get; init; } 
     #else
@@ -150,16 +143,15 @@ public partial record InformationRequestResponseV01 : IOuterRecord<InformationRe
     /// Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.
     /// </summary>
     [IsoId("_U4B7wV0zEeGwFY7pvwHH-g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Search Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchCrit")]
     #endif
+    [IsoXmlTag("SchCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SearchCriteria1Choice_ SearchCriteria { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SearchCriteria1Choice_ SearchCriteria { get; init; } 
+    public required SearchCriteria1Choice_ SearchCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SearchCriteria1Choice_ SearchCriteria { get; init; } 
     #else
@@ -170,16 +162,15 @@ public partial record InformationRequestResponseV01 : IOuterRecord<InformationRe
     /// Provides the return indicators and the investigation result.
     /// </summary>
     [IsoId("_UbboITzuEeGl7N0Cd54dlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrInd")]
     #endif
+    [IsoXmlTag("RtrInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReturnIndicator1 ReturnIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReturnIndicator1 ReturnIndicator { get; init; } 
+    public required ReturnIndicator1 ReturnIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReturnIndicator1 ReturnIndicator { get; init; } 
     #else
@@ -190,12 +181,11 @@ public partial record InformationRequestResponseV01 : IOuterRecord<InformationRe
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_ICHsnzzvEeGl7N0Cd54dlw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -208,7 +198,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord<InformationRe
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InformationRequestResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InformationRequestResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InformationRequestResponseV01Document ToDocument()
     {
@@ -218,7 +208,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord<InformationRe
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InformationRequestResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InformationRequestResponseV01Document : IOuterDocument<InformationRequestResponseV01>
@@ -235,7 +225,7 @@ public partial record InformationRequestResponseV01Document : IOuterDocument<Inf
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InformationRequestResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InformationRequestResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InformationRequestResponseV01 Message { get; init; }

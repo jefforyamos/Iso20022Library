@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a security by its symbol.
 /// </summary>
 [IsoId("_el9wcID3EeSQoe-8fZQlpA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SecurityIdentification18
     /// Security identification source of the trade.
     /// </summary>
     [IsoId("_q2VgcID4EeSQoe-8fZQlpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyIdSrc")]
     #endif
+    [IsoXmlTag("SctyIdSrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IdentificationType2Code SecurityIdentificationSource { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IdentificationType2Code SecurityIdentificationSource { get; init; } 
+    public required IdentificationType2Code SecurityIdentificationSource { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IdentificationType2Code SecurityIdentificationSource { get; init; } 
     #else
@@ -72,19 +69,17 @@ public partial record SecurityIdentification18
     /// Security identification of the trade.
     /// </summary>
     [IsoId("_vO8fcID4EeSQoe-8fZQlpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctyId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text SecurityIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SecurityIdentification { get; init; } 
+    public required System.String SecurityIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SecurityIdentification { get; init; } 
     #else

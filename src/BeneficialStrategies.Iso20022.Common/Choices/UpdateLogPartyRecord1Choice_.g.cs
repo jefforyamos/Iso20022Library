@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UpdateLogPartyRecord1Choice.Restriction))]
     [KnownType(typeof(UpdateLogPartyRecord1Choice.Other))]
     [IsoId("_xPtUfWjNEeiRg5NzP0jkQg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Log Party Record 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

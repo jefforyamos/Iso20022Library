@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies categories of statuses of a derivative when there is a reporting requirement for both counterparties.
 /// </summary>
 [IsoId("_IVUQNV55Ee2a_-MvhEjKmA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Reconciliation Category")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,15 @@ public partial record ReconciliationCategory3
     /// Indicator of receiving only one side or both sides of the derivatives.
     /// </summary>
     [IsoId("_IWQrYV55Ee2a_-MvhEjKmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgTp")]
     #endif
+    [IsoXmlTag("RptgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeRepositoryReportingType1Code ReportingType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeRepositoryReportingType1Code ReportingType { get; init; } 
+    public required TradeRepositoryReportingType1Code ReportingType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeRepositoryReportingType1Code ReportingType { get; init; } 
     #else
@@ -76,16 +73,15 @@ public partial record ReconciliationCategory3
     /// Indicator of side identification of the same derivative.
     /// </summary>
     [IsoId("_IWQrY155Ee2a_-MvhEjKmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pairing")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pairg")]
     #endif
+    [IsoXmlTag("Pairg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PairingStatus1Code Pairing { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PairingStatus1Code Pairing { get; init; } 
+    public required PairingStatus1Code Pairing { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PairingStatus1Code Pairing { get; init; } 
     #else
@@ -96,16 +92,15 @@ public partial record ReconciliationCategory3
     /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
     /// </summary>
     [IsoId("_IWQrZV55Ee2a_-MvhEjKmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rcncltn")]
     #endif
+    [IsoXmlTag("Rcncltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationStatus1Code Reconciliation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationStatus1Code Reconciliation { get; init; } 
+    public required ReconciliationStatus1Code Reconciliation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationStatus1Code Reconciliation { get; init; } 
     #else
@@ -116,16 +111,15 @@ public partial record ReconciliationCategory3
     /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
     /// </summary>
     [IsoId("_IWQrZ155Ee2a_-MvhEjKmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Reconciliation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnRcncltn")]
     #endif
+    [IsoXmlTag("ValtnRcncltn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationStatus2Code ValuationReconciliation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationStatus2Code ValuationReconciliation { get; init; } 
+    public required ReconciliationStatus2Code ValuationReconciliation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationStatus2Code ValuationReconciliation { get; init; } 
     #else
@@ -136,16 +130,16 @@ public partial record ReconciliationCategory3
     /// Indicator of derivative reopening, terminated or cancelled by mistake.
     /// </summary>
     [IsoId("_IWQraV55Ee2a_-MvhEjKmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Revived")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rvvd")]
     #endif
+    [IsoXmlTag("Rvvd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator Revived { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Revived { get; init; } 
+    public required System.String Revived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Revived { get; init; } 
     #else
@@ -156,16 +150,16 @@ public partial record ReconciliationCategory3
     /// Indicator of modification to the terms or details of a previously reported derivative, at a trade or position level, but not a correction of a report.
     /// </summary>
     [IsoId("_IWQra155Ee2a_-MvhEjKmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Further Modification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrthrMod")]
     #endif
+    [IsoXmlTag("FrthrMod")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator FurtherModification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FurtherModification { get; init; } 
+    public required System.String FurtherModification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FurtherModification { get; init; } 
     #else

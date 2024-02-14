@@ -21,7 +21,7 @@ public enum ClearingMethodCode
 {
     /// <summary>
     /// Settlement done by netting amounts (for trades in the same currency and for the same value date).
-    /// Encoded/decoded by serializers as "NENE".
+    /// Encoded/decoded by serializers as &quot;NENE&quot;.
     /// </summary>
     [EnumMember(Value = "NENE")]
     [IsoId("_Gp_A8A8TEeSFHsNYty4C9Q")]
@@ -30,7 +30,7 @@ public enum ClearingMethodCode
     
     /// <summary>
     /// Each trade is settled by a single entry to the account of the beneficiary.
-    /// Encoded/decoded by serializers as "GRNE".
+    /// Encoded/decoded by serializers as &quot;GRNE&quot;.
     /// </summary>
     [EnumMember(Value = "GRNE")]
     [IsoId("_NDxNgA8TEeSFHsNYty4C9Q")]
@@ -39,7 +39,7 @@ public enum ClearingMethodCode
     
     /// <summary>
     /// In a foreign exchange transaction, the third party as a central clearing counterparty will settle the transaction for both sides respectively.
-    /// Encoded/decoded by serializers as "NEMA".
+    /// Encoded/decoded by serializers as &quot;NEMA&quot;.
     /// </summary>
     [EnumMember(Value = "NEMA")]
     [IsoId("_Tjg4IA8TEeSFHsNYty4C9Q")]
@@ -48,7 +48,7 @@ public enum ClearingMethodCode
     
     /// <summary>
     /// Day clearing.
-    /// Encoded/decoded by serializers as "DAYC".
+    /// Encoded/decoded by serializers as &quot;DAYC&quot;.
     /// </summary>
     [EnumMember(Value = "DAYC")]
     [IsoId("_sC6yNnx8EemHsOqJOzMVfg")]
@@ -57,7 +57,7 @@ public enum ClearingMethodCode
     
     /// <summary>
     /// Clearing to be deferred in time.
-    /// Encoded/decoded by serializers as "DFRD".
+    /// Encoded/decoded by serializers as &quot;DFRD&quot;.
     /// </summary>
     [EnumMember(Value = "DFRD")]
     [IsoId("_sC6yN3x8EemHsOqJOzMVfg")]
@@ -66,7 +66,7 @@ public enum ClearingMethodCode
     
     /// <summary>
     /// Clearing for instant payments and transfers.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_sC6yOHx8EemHsOqJOzMVfg")]
@@ -75,7 +75,7 @@ public enum ClearingMethodCode
     
     /// <summary>
     /// Other type of clearing method defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_sC6yOXx8EemHsOqJOzMVfg")]
@@ -84,7 +84,7 @@ public enum ClearingMethodCode
     
     /// <summary>
     /// Other type of clearing method defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_sC6yOnx8EemHsOqJOzMVfg")]
@@ -93,7 +93,7 @@ public enum ClearingMethodCode
     
     /// <summary>
     /// Clearing done in real time.
-    /// Encoded/decoded by serializers as "RLTM".
+    /// Encoded/decoded by serializers as &quot;RLTM&quot;.
     /// </summary>
     [EnumMember(Value = "RLTM")]
     [IsoId("_sC6yO3x8EemHsOqJOzMVfg")]

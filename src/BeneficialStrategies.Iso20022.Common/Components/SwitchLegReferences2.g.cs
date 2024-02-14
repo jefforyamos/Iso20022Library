@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a switch leg that is rejected or repaired.
 /// </summary>
 [IsoId("_Fx2LRTbtEead9bDRE_1DAQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Switch Leg References")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SwitchLegReferences2
     /// Identification of a switch leg.
     /// </summary>
     [IsoId("_pWQb0EglEea9YuSvQGoi-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegId")]
     #endif
+    [IsoXmlTag("LegId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required LegIdentification1Choice_ LegIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public LegIdentification1Choice_ LegIdentification { get; init; } 
+    public required LegIdentification1Choice_ LegIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public LegIdentification1Choice_ LegIdentification { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record SwitchLegReferences2
     /// Additional information about the reason for the rejection of the leg.
     /// </summary>
     [IsoId("_GKGTFzbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Leg Rejection Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LegRjctnRsn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LegRjctnRsn")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? LegRejectionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -92,28 +87,24 @@ public partial record SwitchLegReferences2
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
     [IsoId("_KVakgUgmEea9YuSvQGoi-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repaired Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RprdFee")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RprdFee")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<Fee3> RepairedFee { get; init; } = new ValueList<Fee3>(){};
     
     /// <summary>
     /// Account identification of the switch leg that is rejected or repaired.
     /// </summary>
     [IsoId("_GKGTGzbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Account Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtAcctDtls")]
     #endif
+    [IsoXmlTag("InvstmtAcctDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -126,12 +117,11 @@ public partial record SwitchLegReferences2
     /// Financial instrument identification of the switch leg that is rejected or repaired.
     /// </summary>
     [IsoId("_GKGTHTbtEead9bDRE_1DAQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmDtls")]
     #endif
+    [IsoXmlTag("FinInstrmDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FinancialInstrument57? FinancialInstrumentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

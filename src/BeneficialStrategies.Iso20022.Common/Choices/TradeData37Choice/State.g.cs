@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
     /// Information concerning the reporting at transaction level.
     /// </summary>
     [IsoId("_S05rE8K9EeuCIrYISEfoUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("State")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,15 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// Unique identifier of a record in a message used as part of error management and status advice message.
         /// </summary>
         [IsoId("_S2WckcK9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Technical Record Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TechRcrdId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("TechRcrdId")]
+        [IsoSimpleType(IsoSimpleType.Max140Text)]
         [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,16 +76,15 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// Data specific to counterparties and related fields.
         /// </summary>
         [IsoId("_S2Wck8K9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Counterparty")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrPty")]
         #endif
+        [IsoXmlTag("CtrPty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CounterpartyData87 Counterparty { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CounterpartyData87 Counterparty { get; init; } 
+        public required CounterpartyData87 Counterparty { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CounterpartyData87 Counterparty { get; init; } 
         #else
@@ -100,12 +95,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// Provides the details of the security or cash pledged as collateral.
         /// </summary>
         [IsoId("_S2WclcK9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Collateral Component")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CollCmpnt")]
         #endif
+        [IsoXmlTag("CollCmpnt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralType19? CollateralComponent { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,16 +112,16 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
         /// </summary>
         [IsoId("_S2Wcl8K9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Event Day")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="EvtDay")]
         #endif
+        [IsoXmlTag("EvtDay")]
+        [IsoSimpleType(IsoSimpleType.ISODate)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODate EventDay { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateOnly EventDay { get; init; } 
+        public required System.DateOnly EventDay { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateOnly EventDay { get; init; } 
         #else
@@ -138,16 +132,16 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// Date and time of submission of the report to the entitled receiver.
         /// </summary>
         [IsoId("_S2WcmcK9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reporting Date Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RptgDtTm")]
         #endif
+        [IsoXmlTag("RptgDtTm")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODateTime ReportingDateTime { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateTime ReportingDateTime { get; init; } 
+        public required System.DateTime ReportingDateTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateTime ReportingDateTime { get; init; } 
         #else
@@ -158,12 +152,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// Information on funding sources used to finance margin loans.
         /// </summary>
         [IsoId("_S2Wcm8K9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Funding Source")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FndgSrc")]
         #endif
+        [IsoXmlTag("FndgSrc")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public FundingSource3? FundingSource { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +169,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// List of possible values for TRs reconciliation purposes.
         /// </summary>
         [IsoId("_S2WcncK9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reconciliation Flag")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RcncltnFlg")]
         #endif
+        [IsoXmlTag("RcncltnFlg")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public ReconciliationFlag2? ReconciliationFlag { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,16 +186,15 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// Contract modification details expressed as an action type and a reporting level type.
         /// </summary>
         [IsoId("_S2Wcn8K9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Contract Modification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CtrctMod")]
         #endif
+        [IsoXmlTag("CtrctMod")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ContractModification3 ContractModification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ContractModification3 ContractModification { get; init; } 
+        public required ContractModification3 ContractModification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ContractModification3 ContractModification { get; init; } 
         #else
@@ -214,12 +205,11 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData37Choice
         /// Additional information that can not be captured in the structured fields and/or any other specific block.
         /// </summary>
         [IsoId("_S2WcocK9EeuCIrYISEfoUg")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Supplementary Data")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SplmtryData")]
         #endif
+        [IsoXmlTag("SplmtryData")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SupplementaryData1? SupplementaryData { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

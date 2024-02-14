@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of the document line identification.
 /// </summary>
 [IsoId("_cX4kMablEeKvUvwX_r3tzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document Line Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DocumentLineType1
     /// Provides the type details of the referred document line identification.
     /// </summary>
     [IsoId("_ciKhlablEeKvUvwX_r3tzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code Or Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdOrPrtry")]
     #endif
+    [IsoXmlTag("CdOrPrtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentLineType1Choice_ CodeOrProprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentLineType1Choice_ CodeOrProprietary { get; init; } 
+    public required DocumentLineType1Choice_ CodeOrProprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentLineType1Choice_ CodeOrProprietary { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record DocumentLineType1
     /// Identification of the issuer of the reference document line identificationtype.
     /// </summary>
     [IsoId("_ciKhmablEeKvUvwX_r3tzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

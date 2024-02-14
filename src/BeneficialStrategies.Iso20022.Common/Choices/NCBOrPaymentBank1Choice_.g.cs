@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NCBOrPaymentBank1Choice.NCBIdentification))]
     [KnownType(typeof(NCBOrPaymentBank1Choice.PaymentBankIdentification))]
     [IsoId("_jAtUBO5NEeCisYr99QEiWA_-1552282383")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("NCB Or Payment Bank 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

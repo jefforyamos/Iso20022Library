@@ -21,7 +21,7 @@ public enum CardPaymentServiceType9Code
 {
     /// <summary>
     /// Aggregation of low payments.
-    /// Encoded/decoded by serializers as "AGGR".
+    /// Encoded/decoded by serializers as &quot;AGGR&quot;.
     /// </summary>
     [EnumMember(Value = "AGGR")]
     [IsoId("_5aRDYY0XEeWRYffwL7E13A")]
@@ -30,7 +30,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Dynamic currency conversion (DCC).
-    /// Encoded/decoded by serializers as "DCCV".
+    /// Encoded/decoded by serializers as &quot;DCCV&quot;.
     /// </summary>
     [EnumMember(Value = "DCCV")]
     [IsoId("_5aRDY40XEeWRYffwL7E13A")]
@@ -39,7 +39,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Card payment with gratuity.
-    /// Encoded/decoded by serializers as "GRTT".
+    /// Encoded/decoded by serializers as &quot;GRTT&quot;.
     /// </summary>
     [EnumMember(Value = "GRTT")]
     [IsoId("_5aa0YY0XEeWRYffwL7E13A")]
@@ -48,7 +48,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Loyalty services.
-    /// Encoded/decoded by serializers as "LOYT".
+    /// Encoded/decoded by serializers as &quot;LOYT&quot;.
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_5aa0Y40XEeWRYffwL7E13A")]
@@ -57,7 +57,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// No show after reservation.
-    /// Encoded/decoded by serializers as "NRES".
+    /// Encoded/decoded by serializers as &quot;NRES&quot;.
     /// </summary>
     [EnumMember(Value = "NRES")]
     [IsoId("_5aa0ZY0XEeWRYffwL7E13A")]
@@ -66,7 +66,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Purchase and corporate data.
-    /// Encoded/decoded by serializers as "PUCO".
+    /// Encoded/decoded by serializers as &quot;PUCO&quot;.
     /// </summary>
     [EnumMember(Value = "PUCO")]
     [IsoId("_5aa0Z40XEeWRYffwL7E13A")]
@@ -75,7 +75,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Recurring payment.
-    /// Encoded/decoded by serializers as "RECP".
+    /// Encoded/decoded by serializers as &quot;RECP&quot;.
     /// </summary>
     [EnumMember(Value = "RECP")]
     [IsoId("_5aa0aY0XEeWRYffwL7E13A")]
@@ -84,7 +84,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Solicited available funds.
-    /// Encoded/decoded by serializers as "SOAF".
+    /// Encoded/decoded by serializers as &quot;SOAF&quot;.
     /// </summary>
     [EnumMember(Value = "SOAF")]
     [IsoId("_5aa0a40XEeWRYffwL7E13A")]
@@ -93,7 +93,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Voice authorisation.
-    /// Encoded/decoded by serializers as "VCAU".
+    /// Encoded/decoded by serializers as &quot;VCAU&quot;.
     /// </summary>
     [EnumMember(Value = "VCAU")]
     [IsoId("_5aa0bY0XEeWRYffwL7E13A")]
@@ -102,7 +102,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Instalment payment transaction performed by the card issuer.
-    /// Encoded/decoded by serializers as "INSI".
+    /// Encoded/decoded by serializers as &quot;INSI&quot;.
     /// </summary>
     [EnumMember(Value = "INSI")]
     [IsoId("_5aa0b40XEeWRYffwL7E13A")]
@@ -111,7 +111,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Instalment payment transaction performed by the acceptor or the acquirer.
-    /// Encoded/decoded by serializers as "INSA".
+    /// Encoded/decoded by serializers as &quot;INSA&quot;.
     /// </summary>
     [EnumMember(Value = "INSA")]
     [IsoId("_5aa0cY0XEeWRYffwL7E13A")]
@@ -120,7 +120,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Card payment with cash-back.
-    /// Encoded/decoded by serializers as "CSHB".
+    /// Encoded/decoded by serializers as &quot;CSHB&quot;.
     /// </summary>
     [EnumMember(Value = "CSHB")]
     [IsoId("_5aa0c40XEeWRYffwL7E13A")]
@@ -129,7 +129,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Instant transaction.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_-c520Y0XEeWRYffwL7E13A")]
@@ -138,7 +138,7 @@ public enum CardPaymentServiceType9Code
     
     /// <summary>
     /// Payment of goods or services which are not refundable, for instance low cost airline tickets.
-    /// Encoded/decoded by serializers as "NRFD".
+    /// Encoded/decoded by serializers as &quot;NRFD&quot;.
     /// </summary>
     [EnumMember(Value = "NRFD")]
     [IsoId("_-rXJk40XEeWRYffwL7E13A")]

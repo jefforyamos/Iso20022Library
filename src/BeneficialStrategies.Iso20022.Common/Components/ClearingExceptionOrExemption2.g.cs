@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Further details on clearing exceptions or exemptions.
 /// </summary>
 [IsoId("_AjSxdZPuEey0rJ3Gl6WZVA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Clearing Exception Or Exemption")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ClearingExceptionOrExemption2
     /// Identifies the type of clearing exemption or exception that the reporting counterparty has elected.
     /// </summary>
     [IsoId("_Ak0bcZPuEey0rJ3Gl6WZVA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptgCtrPty")]
     #endif
+    [IsoXmlTag("RptgCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NonClearingReason2 ReportingCounterparty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NonClearingReason2 ReportingCounterparty { get; init; } 
+    public required NonClearingReason2 ReportingCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NonClearingReason2 ReportingCounterparty { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ClearingExceptionOrExemption2
     /// Identifies the type of clearing exemption or exception that the other counterparty has elected.
     /// </summary>
     [IsoId("_Ak0bc5PuEey0rJ3Gl6WZVA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrCtrPty")]
     #endif
+    [IsoXmlTag("OthrCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public NonClearingReason2? OtherCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

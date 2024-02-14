@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.colr;
 /// </summary>
 [Description(@"Scope|This CollateralProposalResponse message is sent by the collateral taker or its collateral manager to the collateral giver or its collateral manager to either accept or reject the collateral which has been proposed for the margin call. This message applies to both initial and counter proposals. If the collateral proposal is rejected then a new collateral proposal must be made.||The message definition is intended for use with the ISO20022 Business Application Header.||Usage|The CollateralProposalResponse message can be sent in response to a previously received CollateralProposal message in order to accept or reject the collateral that has been proposed to cover the margin call.")]
 [IsoId("_f5lIsVnMEeSPgY23yCMQSQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Proposal Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,19 +81,17 @@ public partial record CollateralProposalResponseV03 : IOuterRecord<CollateralPro
     /// Unambiguous identification of the transaction as know by the instructing party.
     /// </summary>
     [IsoId("_f5lIs1nMEeSPgY23yCMQSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -106,16 +102,15 @@ public partial record CollateralProposalResponseV03 : IOuterRecord<CollateralPro
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
     /// </summary>
     [IsoId("_f5lItVnMEeSPgY23yCMQSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Oblgtn")]
     #endif
+    [IsoXmlTag("Oblgtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Obligation3 Obligation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Obligation3 Obligation { get; init; } 
+    public required Obligation3 Obligation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Obligation3 Obligation { get; init; } 
     #else
@@ -126,16 +121,15 @@ public partial record CollateralProposalResponseV03 : IOuterRecord<CollateralPro
     /// Details the response to the collateral which has been proposed for the margin call. The proposed collateral can be accepted or rejected.
     /// </summary>
     [IsoId("_f5lIt1nMEeSPgY23yCMQSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proposal Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrpslRspn")]
     #endif
+    [IsoXmlTag("PrpslRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralProposalResponse2Choice_ ProposalResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralProposalResponse2Choice_ ProposalResponse { get; init; } 
+    public required CollateralProposalResponse2Choice_ ProposalResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralProposalResponse2Choice_ ProposalResponse { get; init; } 
     #else
@@ -146,12 +140,11 @@ public partial record CollateralProposalResponseV03 : IOuterRecord<CollateralPro
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_f5lIuVnMEeSPgY23yCMQSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,7 +157,7 @@ public partial record CollateralProposalResponseV03 : IOuterRecord<CollateralPro
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="CollateralProposalResponseV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;CollateralProposalResponseV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public CollateralProposalResponseV03Document ToDocument()
     {
@@ -174,7 +167,7 @@ public partial record CollateralProposalResponseV03 : IOuterRecord<CollateralPro
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="CollateralProposalResponseV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;CollateralProposalResponseV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record CollateralProposalResponseV03Document : IOuterDocument<CollateralProposalResponseV03>
@@ -191,7 +184,7 @@ public partial record CollateralProposalResponseV03Document : IOuterDocument<Col
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="CollateralProposalResponseV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;CollateralProposalResponseV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralProposalResponseV03 Message { get; init; }

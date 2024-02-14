@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionForMeetingResolut
     /// Specifies the vote recommendation for resolutions added during the meeting.
     /// </summary>
     [IsoId("_TK1iUdp-Ed-ak6NoX_4Aeg_853994670")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Indication")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionForMeetingResolut
         /// Identifies the possible types of voting instructions for resolutions proposed at the meeting.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="VoteIndctn")]
         #endif
+        [IsoXmlTag("VoteIndctn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required VoteInstructionAtMeeting1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public VoteInstructionAtMeeting1Code Value { get; init; } 
+        public required VoteInstructionAtMeeting1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public VoteInstructionAtMeeting1Code Value { get; init; } 
         #else

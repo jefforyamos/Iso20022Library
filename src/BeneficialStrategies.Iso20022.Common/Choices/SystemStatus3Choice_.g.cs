@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SystemStatus3Choice.Code))]
     [KnownType(typeof(SystemStatus3Choice.Proprietary))]
     [IsoId("_1Y_TsYpbEeiaB-4Hjqs8aw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Status 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

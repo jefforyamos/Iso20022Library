@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PairedOrTurnedQuantity5Choice.PairedOffQuantity))]
     [KnownType(typeof(PairedOrTurnedQuantity5Choice.TurnedQuantity))]
     [IsoId("_YE22YSqHEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Paired Or Turned Quantity 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

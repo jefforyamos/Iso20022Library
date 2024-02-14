@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Location information.
 /// </summary>
 [IsoId("_-Gm5aHltEeG7BsjMvd1mEw_1246431564")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Location")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Location1
     /// Country of jurisdiction.
     /// </summary>
     [IsoId("_-GwDUHltEeG7BsjMvd1mEw_-533557511")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? Country { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Location1
     /// Codified representation of the jurisdiction as published in ISO 3166-2.
     /// </summary>
     [IsoId("_-GwDUXltEeG7BsjMvd1mEw_-188715898")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country Sub Division")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrySubDvsn")]
     #endif
+    [IsoXmlTag("CtrySubDvsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountrySubdivision1Choice_? CountrySubDivision { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,19 +76,15 @@ public partial record Location1
     /// Name of jurisdiction, for example, Frankfurt.
     /// </summary>
     [IsoId("_-GwDUnltEeG7BsjMvd1mEw_-1526701842")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Text")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Txt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Txt")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> Text { get; init; } = new SimpleValueList<System.String>(){};
     
     

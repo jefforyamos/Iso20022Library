@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Technical component that contains the validated extension information. This technical envelope allows to segregate the extension information from any other information.
 /// </summary>
 [IsoId("_QzJSM9p-Ed-ak6NoX_4Aeg_-1719963560")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Extension Envelope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ExtensionEnvelope1
     /// Technical element that specifies the extension.
     /// </summary>
     [IsoId("_QzJSNNp-Ed-ak6NoX_4Aeg_-2120876746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Extension Contents")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtnsnCnts")]
     #endif
+    [IsoXmlTag("XtnsnCnts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExtensionContents1 ExtensionContents { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExtensionContents1 ExtensionContents { get; init; } 
+    public required ExtensionContents1 ExtensionContents { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExtensionContents1 ExtensionContents { get; init; } 
     #else

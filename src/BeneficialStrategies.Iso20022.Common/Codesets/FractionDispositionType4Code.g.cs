@@ -21,7 +21,7 @@ public enum FractionDispositionType4Code
 {
     /// <summary>
     /// Buy securities up to next whole number.
-    /// Encoded/decoded by serializers as "BUYU".
+    /// Encoded/decoded by serializers as &quot;BUYU&quot;.
     /// </summary>
     [EnumMember(Value = "BUYU")]
     [IsoId("_arjhxtp-Ed-ak6NoX_4Aeg_-1202257973")]
@@ -30,7 +30,7 @@ public enum FractionDispositionType4Code
     
     /// <summary>
     /// Fractional part of cash. Take cash in lieu of fractions.
-    /// Encoded/decoded by serializers as "CINL".
+    /// Encoded/decoded by serializers as &quot;CINL&quot;.
     /// </summary>
     [EnumMember(Value = "CINL")]
     [IsoId("_arjhx9p-Ed-ak6NoX_4Aeg_-1202257957")]
@@ -39,7 +39,7 @@ public enum FractionDispositionType4Code
     
     /// <summary>
     /// Take distribution of fractions in the form of securities.
-    /// Encoded/decoded by serializers as "DIST".
+    /// Encoded/decoded by serializers as &quot;DIST&quot;.
     /// </summary>
     [EnumMember(Value = "DIST")]
     [IsoId("_arjhyNp-Ed-ak6NoX_4Aeg_-1202257956")]
@@ -48,7 +48,7 @@ public enum FractionDispositionType4Code
     
     /// <summary>
     /// Round down to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDDN".
+    /// Encoded/decoded by serializers as &quot;RDDN&quot;.
     /// </summary>
     [EnumMember(Value = "RDDN")]
     [IsoId("_arjhydp-Ed-ak6NoX_4Aeg_-1202257955")]
@@ -57,7 +57,7 @@ public enum FractionDispositionType4Code
     
     /// <summary>
     /// Round up to the nearest whole number.
-    /// Encoded/decoded by serializers as "RDUP".
+    /// Encoded/decoded by serializers as &quot;RDUP&quot;.
     /// </summary>
     [EnumMember(Value = "RDUP")]
     [IsoId("_arsrsNp-Ed-ak6NoX_4Aeg_-1202257940")]
@@ -66,7 +66,7 @@ public enum FractionDispositionType4Code
     
     /// <summary>
     /// If the fraction is greater than or equal to 0.5 of the resulting security then round up, else round down.
-    /// Encoded/decoded by serializers as "STAN".
+    /// Encoded/decoded by serializers as &quot;STAN&quot;.
     /// </summary>
     [EnumMember(Value = "STAN")]
     [IsoId("_arsrsdp-Ed-ak6NoX_4Aeg_-1202257931")]
@@ -75,7 +75,7 @@ public enum FractionDispositionType4Code
     
     /// <summary>
     /// Characteristics of the disposition of fractions are unknown.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_arsrstp-Ed-ak6NoX_4Aeg_-501305688")]

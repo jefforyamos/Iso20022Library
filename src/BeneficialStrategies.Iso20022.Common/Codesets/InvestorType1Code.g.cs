@@ -21,7 +21,7 @@ public enum InvestorType1Code
 {
     /// <summary>
     /// Investor is a retail investor.
-    /// Encoded/decoded by serializers as "RETL".
+    /// Encoded/decoded by serializers as &quot;RETL&quot;.
     /// </summary>
     [EnumMember(Value = "RETL")]
     [IsoId("_haryuWliEeGaMcKyqKNRfQ_-1196008348")]
@@ -30,7 +30,7 @@ public enum InvestorType1Code
     
     /// <summary>
     /// Investor is a professional or institutional investor.
-    /// Encoded/decoded by serializers as "PROF".
+    /// Encoded/decoded by serializers as &quot;PROF&quot;.
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_haryumliEeGaMcKyqKNRfQ_271140415")]
@@ -39,7 +39,7 @@ public enum InvestorType1Code
     
     /// <summary>
     /// Investor is an employee.
-    /// Encoded/decoded by serializers as "STAF".
+    /// Encoded/decoded by serializers as &quot;STAF&quot;.
     /// </summary>
     [EnumMember(Value = "STAF")]
     [IsoId("_haryu2liEeGaMcKyqKNRfQ_-1207107125")]
@@ -48,7 +48,7 @@ public enum InvestorType1Code
     
     /// <summary>
     /// Investor is a physical person.
-    /// Encoded/decoded by serializers as "PPER".
+    /// Encoded/decoded by serializers as &quot;PPER&quot;.
     /// </summary>
     [EnumMember(Value = "PPER")]
     [IsoId("_haryvGliEeGaMcKyqKNRfQ_260041638")]

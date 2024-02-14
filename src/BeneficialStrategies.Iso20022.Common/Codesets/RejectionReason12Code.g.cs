@@ -21,7 +21,7 @@ public enum RejectionReason12Code
 {
     /// <summary>
     /// Rejected as the deactivation of the event is already completed.
-    /// Encoded/decoded by serializers as "DEAC".
+    /// Encoded/decoded by serializers as &quot;DEAC&quot;.
     /// </summary>
     [EnumMember(Value = "DEAC")]
     [IsoId("_ZgmKgtp-Ed-ak6NoX_4Aeg_-843380834")]
@@ -30,7 +30,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// The validation of the advice/instruction/request failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_ZgmKg9p-Ed-ak6NoX_4Aeg_-843380804")]
@@ -39,7 +39,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// An Agent Corporate Action Deactivation Instruction with the same identification already exists.
-    /// Encoded/decoded by serializers as "SAME".
+    /// Encoded/decoded by serializers as &quot;SAME&quot;.
     /// </summary>
     [EnumMember(Value = "SAME")]
     [IsoId("_ZgmKhNp-Ed-ak6NoX_4Aeg_-843380803")]
@@ -48,7 +48,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Invalid corporate action identification supplied.
-    /// Encoded/decoded by serializers as "REFI".
+    /// Encoded/decoded by serializers as &quot;REFI&quot;.
     /// </summary>
     [EnumMember(Value = "REFI")]
     [IsoId("_ZgmKhdp-Ed-ak6NoX_4Aeg_-843380773")]
@@ -57,7 +57,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Invalid agent identification supplied.
-    /// Encoded/decoded by serializers as "AGIN".
+    /// Encoded/decoded by serializers as &quot;AGIN&quot;.
     /// </summary>
     [EnumMember(Value = "AGIN")]
     [IsoId("_ZgmKhtp-Ed-ak6NoX_4Aeg_-843380742")]
@@ -66,7 +66,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Agent Identification specified does not correspond to the main Agent of the relating event.
-    /// Encoded/decoded by serializers as "MAIN".
+    /// Encoded/decoded by serializers as &quot;MAIN&quot;.
     /// </summary>
     [EnumMember(Value = "MAIN")]
     [IsoId("_ZgmKh9p-Ed-ak6NoX_4Aeg_-843380712")]
@@ -75,7 +75,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Invalid combination of CA option code and CA option number.
-    /// Encoded/decoded by serializers as "OPTI".
+    /// Encoded/decoded by serializers as &quot;OPTI&quot;.
     /// </summary>
     [EnumMember(Value = "OPTI")]
     [IsoId("_ZgmKiNp-Ed-ak6NoX_4Aeg_-843380681")]
@@ -84,7 +84,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// The specified Corporate Action option already has a pending deactivation instruction.
-    /// Encoded/decoded by serializers as "PEDA".
+    /// Encoded/decoded by serializers as &quot;PEDA&quot;.
     /// </summary>
     [EnumMember(Value = "PEDA")]
     [IsoId("_Zgv7gNp-Ed-ak6NoX_4Aeg_-843380651")]
@@ -93,7 +93,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Specified Corporate Action has no remaining options to disable.
-    /// Encoded/decoded by serializers as "NORO".
+    /// Encoded/decoded by serializers as &quot;NORO&quot;.
     /// </summary>
     [EnumMember(Value = "NORO")]
     [IsoId("_Zgv7gdp-Ed-ak6NoX_4Aeg_-843380620")]
@@ -102,7 +102,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// CA Event Type does not correspond with the relating Corporate Action.
-    /// Encoded/decoded by serializers as "INET".
+    /// Encoded/decoded by serializers as &quot;INET&quot;.
     /// </summary>
     [EnumMember(Value = "INET")]
     [IsoId("_Zgv7gtp-Ed-ak6NoX_4Aeg_-843380372")]
@@ -111,7 +111,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Underlying Security Identification does not correspond with the Corporate Action Reference supplied.
-    /// Encoded/decoded by serializers as "INUS".
+    /// Encoded/decoded by serializers as &quot;INUS&quot;.
     /// </summary>
     [EnumMember(Value = "INUS")]
     [IsoId("_Zgv7g9p-Ed-ak6NoX_4Aeg_-843380342")]
@@ -120,7 +120,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Event Processing Type does not correspond with the relating Corporate Action.
-    /// Encoded/decoded by serializers as "INPT".
+    /// Encoded/decoded by serializers as &quot;INPT&quot;.
     /// </summary>
     [EnumMember(Value = "INPT")]
     [IsoId("_Zgv7hNp-Ed-ak6NoX_4Aeg_-843380311")]
@@ -129,7 +129,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Mandatory/Voluntary Event Type does not correspond with the relating Corporate Action.
-    /// Encoded/decoded by serializers as "INMV".
+    /// Encoded/decoded by serializers as &quot;INMV&quot;.
     /// </summary>
     [EnumMember(Value = "INMV")]
     [IsoId("_Zgv7hdp-Ed-ak6NoX_4Aeg_-843379917")]
@@ -138,7 +138,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Several message with the same identification.
-    /// Encoded/decoded by serializers as "SAID".
+    /// Encoded/decoded by serializers as &quot;SAID&quot;.
     /// </summary>
     [EnumMember(Value = "SAID")]
     [IsoId("_Zgv7htp-Ed-ak6NoX_4Aeg_-843379886")]
@@ -147,7 +147,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// Issuer CA Identification does not correspond with the Corporate Action Identification supplied.
-    /// Encoded/decoded by serializers as "MICA".
+    /// Encoded/decoded by serializers as &quot;MICA&quot;.
     /// </summary>
     [EnumMember(Value = "MICA")]
     [IsoId("_Zgv7h9p-Ed-ak6NoX_4Aeg_-843379825")]
@@ -156,7 +156,7 @@ public enum RejectionReason12Code
     
     /// <summary>
     /// This instruction type is not applicable for mandatory events.
-    /// Encoded/decoded by serializers as "NOAP".
+    /// Encoded/decoded by serializers as &quot;NOAP&quot;.
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_Zgv7iNp-Ed-ak6NoX_4Aeg_-843379764")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice
     /// Message to send for the send message command.
     /// </summary>
     [IsoId("_htqcM12aEeekzJIz1JxYSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expected Message Function")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice
         /// Identifies the type of process requested by the host to an ATM.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="XpctdMsgFctn")]
         #endif
+        [IsoXmlTag("XpctdMsgFctn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required MessageFunction8Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public MessageFunction8Code Value { get; init; } 
+        public required MessageFunction8Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public MessageFunction8Code Value { get; init; } 
         #else

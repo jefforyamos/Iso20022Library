@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioCode5Choice
     /// Collateralisation was performed on a transaction level basis or if the collateral portfolio code is not known at the time of reporting.
     /// </summary>
     [IsoId("_wnwaszICEe2fXedS_ucFOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Portfolio")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioCode5Choice
         /// Specifies special purpose codes.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NoPrtfl")]
         #endif
+        [IsoXmlTag("NoPrtfl")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required NotApplicable1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public NotApplicable1Code Value { get; init; } 
+        public required NotApplicable1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public NotApplicable1Code Value { get; init; } 
         #else

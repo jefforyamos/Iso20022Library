@@ -21,7 +21,7 @@ public enum ATMStatus3Code
 {
     /// <summary>
     /// Component is activated and in operation.
-    /// Encoded/decoded by serializers as "OPER".
+    /// Encoded/decoded by serializers as &quot;OPER&quot;.
     /// </summary>
     [EnumMember(Value = "OPER")]
     [IsoId("_EcoHQYtDEeSxlKlAGYErFg")]
@@ -30,7 +30,7 @@ public enum ATMStatus3Code
     
     /// <summary>
     /// Component has been stopped.
-    /// Encoded/decoded by serializers as "STOP".
+    /// Encoded/decoded by serializers as &quot;STOP&quot;.
     /// </summary>
     [EnumMember(Value = "STOP")]
     [IsoId("_Esa2wYtDEeSxlKlAGYErFg")]
@@ -39,7 +39,7 @@ public enum ATMStatus3Code
     
     /// <summary>
     /// Component has been loaded, but not yet activated.
-    /// Encoded/decoded by serializers as "WACT".
+    /// Encoded/decoded by serializers as &quot;WACT&quot;.
     /// </summary>
     [EnumMember(Value = "WACT")]
     [IsoId("_Ey1AwYtDEeSxlKlAGYErFg")]

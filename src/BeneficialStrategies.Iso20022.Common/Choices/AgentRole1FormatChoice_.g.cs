@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AgentRole1FormatChoice.Code))]
     [KnownType(typeof(AgentRole1FormatChoice.Proprietary))]
     [IsoId("_RlgjR9p-Ed-ak6NoX_4Aeg_1472150836")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Agent Role 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

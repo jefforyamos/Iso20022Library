@@ -21,7 +21,7 @@ public enum DisputeResolutionType2Code
 {
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the collateral.
-    /// Encoded/decoded by serializers as "RECO".
+    /// Encoded/decoded by serializers as &quot;RECO&quot;.
     /// </summary>
     [EnumMember(Value = "RECO")]
     [IsoId("_YcgQQ9p-Ed-ak6NoX_4Aeg_1772378657")]
@@ -30,7 +30,7 @@ public enum DisputeResolutionType2Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the exposure.
-    /// Encoded/decoded by serializers as "REEX".
+    /// Encoded/decoded by serializers as &quot;REEX&quot;.
     /// </summary>
     [EnumMember(Value = "REEX")]
     [IsoId("_YcgQRNp-Ed-ak6NoX_4Aeg_1658539591")]
@@ -39,7 +39,7 @@ public enum DisputeResolutionType2Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the threshold.
-    /// Encoded/decoded by serializers as "RETH".
+    /// Encoded/decoded by serializers as &quot;RETH&quot;.
     /// </summary>
     [EnumMember(Value = "RETH")]
     [IsoId("_YcgQRdp-Ed-ak6NoX_4Aeg_1939398552")]
@@ -48,7 +48,7 @@ public enum DisputeResolutionType2Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the minimum transfer amount.
-    /// Encoded/decoded by serializers as "RMTA".
+    /// Encoded/decoded by serializers as &quot;RMTA&quot;.
     /// </summary>
     [EnumMember(Value = "RMTA")]
     [IsoId("_YcgQRtp-Ed-ak6NoX_4Aeg_1825559486")]
@@ -57,7 +57,7 @@ public enum DisputeResolutionType2Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the rounding.
-    /// Encoded/decoded by serializers as "RERO".
+    /// Encoded/decoded by serializers as &quot;RERO&quot;.
     /// </summary>
     [EnumMember(Value = "RERO")]
     [IsoId("_YcgQR9p-Ed-ak6NoX_4Aeg_-460290170")]
@@ -66,7 +66,7 @@ public enum DisputeResolutionType2Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the valuation frequency.
-    /// Encoded/decoded by serializers as "REVF".
+    /// Encoded/decoded by serializers as &quot;REVF&quot;.
     /// </summary>
     [EnumMember(Value = "REVF")]
     [IsoId("_YcgQSNp-Ed-ak6NoX_4Aeg_-1215040044")]
@@ -75,7 +75,7 @@ public enum DisputeResolutionType2Code
     
     /// <summary>
     /// Indicates that the disputed collateral amount should be confirmed through reconciliation of the independent amount.
-    /// Encoded/decoded by serializers as "RNIA".
+    /// Encoded/decoded by serializers as &quot;RNIA&quot;.
     /// </summary>
     [EnumMember(Value = "RNIA")]
     [IsoId("_YcpaMNp-Ed-ak6NoX_4Aeg_-1850071890")]

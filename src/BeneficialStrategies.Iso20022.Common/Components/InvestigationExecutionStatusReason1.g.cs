@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the reason for a status on the execution of an investigation.
 /// </summary>
 [IsoId("_L5azsCFhEeicwehH70nfgw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Investigation Execution Status Reason")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record InvestigationExecutionStatusReason1
     /// Provides the reason why the payment cancellation was rejected.
     /// </summary>
     [IsoId("_YeuHUCFhEeicwehH70nfgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rjctd")]
     #endif
+    [IsoXmlTag("Rjctd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentCancellationRejection3Code? Rejected { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record InvestigationExecutionStatusReason1
     /// Provides the reason why the payment cancellation is pending.
     /// </summary>
     [IsoId("_l9vRMCFhEeicwehH70nfgw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pdg")]
     #endif
+    [IsoXmlTag("Pdg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingPaymentCancellationReason1Code? Pending { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

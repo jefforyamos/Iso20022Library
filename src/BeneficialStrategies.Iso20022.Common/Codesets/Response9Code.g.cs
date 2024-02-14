@@ -21,7 +21,7 @@ public enum Response9Code
 {
     /// <summary>
     /// Service has been successfuly provided.
-    /// Encoded/decoded by serializers as "APPR".
+    /// Encoded/decoded by serializers as &quot;APPR&quot;.
     /// </summary>
     [EnumMember(Value = "APPR")]
     [IsoId("_7ORlMQ1PEeqjM-rxn3HuXQ")]
@@ -30,7 +30,7 @@ public enum Response9Code
     
     /// <summary>
     /// Service is declined.
-    /// Encoded/decoded by serializers as "DECL".
+    /// Encoded/decoded by serializers as &quot;DECL&quot;.
     /// </summary>
     [EnumMember(Value = "DECL")]
     [IsoId("_7ORlMw1PEeqjM-rxn3HuXQ")]
@@ -39,7 +39,7 @@ public enum Response9Code
     
     /// <summary>
     /// Service has been partialy provided.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_7ORlNQ1PEeqjM-rxn3HuXQ")]
@@ -47,8 +47,8 @@ public enum Response9Code
     PartialApproved = ResponseCode.PartialApproved, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Transaction has been received but hasn't been processed.
-    /// Encoded/decoded by serializers as "SUSP".
+    /// Transaction has been received but hasn&apos;t been processed.
+    /// Encoded/decoded by serializers as &quot;SUSP&quot;.
     /// </summary>
     [EnumMember(Value = "SUSP")]
     [IsoId("_9uQ1sQ1PEeqjM-rxn3HuXQ")]
@@ -57,7 +57,7 @@ public enum Response9Code
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_92_68Q1PEeqjM-rxn3HuXQ")]

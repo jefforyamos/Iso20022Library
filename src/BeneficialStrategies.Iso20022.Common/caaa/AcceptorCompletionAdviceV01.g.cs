@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"Scope|The AcceptorCompletionAdvice message is sent by a card acceptor to notify an acquirer about the completion and final outcome of a card payment transaction. The message can be sent directly to the acquirer or through an agent.|Usage|The AcceptorCompletionAdvice message is used either to:|- inform the acquirer about the successful end of a transaction;|- reverse a transaction which was not successfully completed (for example, cancellation of transaction by the cardholder), but where an authorisation had been previously given.|The AcceptorCompletionAdvice message may also embed the information required for transferring to the acquirer all data needed to perform the financial settlement of the transaction (capture). Should the acquirer not receive a correct response to an AcceptorCompletionAdvice message; the card acceptor sends back an AcceptorCompletionAdvice message to the acquirer.")]
 [IsoId("_W92GBaMVEeCJ6YNENx4h-w_871403476")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Completion Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -83,16 +81,15 @@ public partial record AcceptorCompletionAdviceV01 : IOuterRecord<AcceptorComplet
     /// Completion advice message management information.
     /// </summary>
     [IsoId("_W9_P8KMVEeCJ6YNENx4h-w_-1929143436")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header2 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header2 Header { get; init; } 
+    public required Header2 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header2 Header { get; init; } 
     #else
@@ -103,16 +100,15 @@ public partial record AcceptorCompletionAdviceV01 : IOuterRecord<AcceptorComplet
     /// Information related to the completion advice.
     /// </summary>
     [IsoId("_W9_P8aMVEeCJ6YNENx4h-w_808377335")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Completion Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpltnAdvc")]
     #endif
+    [IsoXmlTag("CmpltnAdvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCompletionAdvice1 CompletionAdvice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AcceptorCompletionAdvice1 CompletionAdvice { get; init; } 
+    public required AcceptorCompletionAdvice1 CompletionAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AcceptorCompletionAdvice1 CompletionAdvice { get; init; } 
     #else
@@ -123,16 +119,15 @@ public partial record AcceptorCompletionAdviceV01 : IOuterRecord<AcceptorComplet
     /// Trailer of the message containing a MAC.
     /// </summary>
     [IsoId("_W9_P8qMVEeCJ6YNENx4h-w_-83776970")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContentInformationType3 SecurityTrailer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContentInformationType3 SecurityTrailer { get; init; } 
+    public required ContentInformationType3 SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContentInformationType3 SecurityTrailer { get; init; } 
     #else
@@ -143,7 +138,7 @@ public partial record AcceptorCompletionAdviceV01 : IOuterRecord<AcceptorComplet
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorCompletionAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorCompletionAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorCompletionAdviceV01Document ToDocument()
     {
@@ -153,7 +148,7 @@ public partial record AcceptorCompletionAdviceV01 : IOuterRecord<AcceptorComplet
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorCompletionAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorCompletionAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorCompletionAdviceV01Document : IOuterDocument<AcceptorCompletionAdviceV01>
@@ -170,7 +165,7 @@ public partial record AcceptorCompletionAdviceV01Document : IOuterDocument<Accep
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorCompletionAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorCompletionAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorCompletionAdviceV01 Message { get; init; }

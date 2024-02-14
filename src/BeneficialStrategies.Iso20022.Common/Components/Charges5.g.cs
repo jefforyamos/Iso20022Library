@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Charges related to a payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
 [IsoId("_D8zW4dP_EeK0PPbKncCqzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charges")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Charges5
     /// Bank which will pay the charges.
     /// </summary>
     [IsoId("_EaqXm9P_EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Payer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsPyer")]
     #endif
+    [IsoXmlTag("ChrgsPyer")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankRole1Code ChargesPayer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BankRole1Code ChargesPayer { get; init; } 
+    public required BankRole1Code ChargesPayer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BankRole1Code ChargesPayer { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record Charges5
     /// Bank which will receive the charges.
     /// </summary>
     [IsoId("_EaqXndP_EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charges Payee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgsPyee")]
     #endif
+    [IsoXmlTag("ChrgsPyee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BankRole1Code ChargesPayee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BankRole1Code ChargesPayee { get; init; } 
+    public required BankRole1Code ChargesPayee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BankRole1Code ChargesPayee { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record Charges5
     /// Amount of the charges taken by the payer.
     /// </summary>
     [IsoId("_EaqXn9P_EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,12 @@ public partial record Charges5
     /// Amount of the charges expressed as a percentage of the amount paid by the obligor bank.
     /// </summary>
     [IsoId("_EaqXodP_EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pctg")]
     #endif
+    [IsoXmlTag("Pctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? Percentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,15 +124,13 @@ public partial record Charges5
     /// Type of charges. For example: transaction charges, financing charges, deferred payment, interests.
     /// </summary>
     [IsoId("_QeQdoBUsEeOCqpkCrPgk4g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Tp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -28,17 +28,15 @@ namespace BeneficialStrategies.Iso20022.head;
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// The Business Layer deals with Business Messages. The behaviour of the Business Messages is fully described by the Business Transaction and the structure of the Business Messages is fully described by the Message Definitions and related Message Rules, Rules and Market Practices. All of which are registered in the ISO 20022 Repository.
 /// A single new Business Message (with its accompagnying business application header) is created - by the sending MessagingEndpoint - for each business event; that is each interaction in a Business Transaction. A Business Message adheres to the following principles:
-/// " A Business Message (and its business application header) must not contain information about the Message Transport System or the mechanics or mechanism of message sending, transportation, or receipt. 
-/// " A Business Message must be comprehensible outside of the context of the Transport Message. That is the Business Message must not require knowledge of the Transport Message to be understood.
-/// " A Business Message may contain headers, footers, and envelopes that are meaningful for the business. When present, they are treated as any other message content, which means that they are considered part of the Message Definition of the Business Message and as such will be part of the ISO 20022 Repository.
-/// " A Business Message refers to Business Actors by their Name. Each instance of a Business Actor has one Name. The Business Actor must not be referred to in the Transport Layer.
+/// &quot; A Business Message (and its business application header) must not contain information about the Message Transport System or the mechanics or mechanism of message sending, transportation, or receipt. 
+/// &quot; A Business Message must be comprehensible outside of the context of the Transport Message. That is the Business Message must not require knowledge of the Transport Message to be understood.
+/// &quot; A Business Message may contain headers, footers, and envelopes that are meaningful for the business. When present, they are treated as any other message content, which means that they are considered part of the Message Definition of the Business Message and as such will be part of the ISO 20022 Repository.
+/// &quot; A Business Message refers to Business Actors by their Name. Each instance of a Business Actor has one Name. The Business Actor must not be referred to in the Transport Layer.
 /// Specific usage of this BusinessMessageHeader may be defined by the relevant SEG.
 /// </summary>
 [Description(@"The Business Layer deals with Business Messages. The behaviour of the Business Messages is fully described by the Business Transaction and the structure of the Business Messages is fully described by the Message Definitions and related Message Rules, Rules and Market Practices. All of which are registered in the ISO 20022 Repository.|A single new Business Message (with its accompagnying business application header) is created - by the sending MessagingEndpoint - for each business event; that is each interaction in a Business Transaction. A Business Message adheres to the following principles:|"" A Business Message (and its business application header) must not contain information about the Message Transport System or the mechanics or mechanism of message sending, transportation, or receipt. |"" A Business Message must be comprehensible outside of the context of the Transport Message. That is the Business Message must not require knowledge of the Transport Message to be understood.|"" A Business Message may contain headers, footers, and envelopes that are meaningful for the business. When present, they are treated as any other message content, which means that they are considered part of the Message Definition of the Business Message and as such will be part of the ISO 20022 Repository.|"" A Business Message refers to Business Actors by their Name. Each instance of a Business Actor has one Name. The Business Actor must not be referred to in the Transport Layer.|Specific usage of this BusinessMessageHeader may be defined by the relevant SEG.")]
 [IsoId("_qJyPQtFHEd-BzquC8wXy7w_1346744518")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Business Application Header V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,12 +83,11 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// Contains the character set of the text-based elements used in the Business Message.
     /// </summary>
     [IsoId("_qJyPQ9FHEd-BzquC8wXy7w_474795999")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Character Set")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CharSet")]
     #endif
+    [IsoXmlTag("CharSet")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UnicodeChartsCode? CharacterSet { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,16 +101,15 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// Note	the sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
     [IsoId("_qJyPRNFHEd-BzquC8wXy7w_-123343718")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Fr")]
     #endif
+    [IsoXmlTag("Fr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party9Choice_ From { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party9Choice_ From { get; init; } 
+    public required Party9Choice_ From { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party9Choice_ From { get; init; } 
     #else
@@ -125,16 +121,15 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
     [IsoId("_qJyPRdFHEd-BzquC8wXy7w_-148352244")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("To")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="To")]
     #endif
+    [IsoXmlTag("To")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Party9Choice_ To { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Party9Choice_ To { get; init; } 
+    public required Party9Choice_ To { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Party9Choice_ To { get; init; } 
     #else
@@ -145,19 +140,17 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.
     /// </summary>
     [IsoId("_qJyPRtFHEd-BzquC8wXy7w_1978492942")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Message Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizMsgIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BizMsgIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text BusinessMessageIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String BusinessMessageIdentifier { get; init; } 
+    public required System.String BusinessMessageIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String BusinessMessageIdentifier { get; init; } 
     #else
@@ -170,19 +163,17 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// example	camt.001.001.03.
     /// </summary>
     [IsoId("_qJyPR9FHEd-BzquC8wXy7w_-176162321")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Definition Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgDefIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgDefIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text MessageDefinitionIdentifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageDefinitionIdentifier { get; init; } 
+    public required System.String MessageDefinitionIdentifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageDefinitionIdentifier { get; init; } 
     #else
@@ -192,18 +183,16 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.
     ///  To be used when there is a choice of processing services or processing service levels.
-    /// Example: E&I.
+    /// Example: E&amp;I.
     /// </summary>
     [IsoId("_qJ8AQNFHEd-BzquC8wXy7w_-1566891032")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Business Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BizSvc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BizSvc")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? BusinessService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -214,19 +203,19 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     
     /// <summary>
     /// Date and time when this Business Message (header) was created.
-    /// Note Times must be normalized, using the "Z" annotation.
+    /// Note Times must be normalized, using the &quot;Z&quot; annotation.
     /// </summary>
     [IsoId("_qJ8AQdFHEd-BzquC8wXy7w_218642822")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDt")]
     #endif
+    [IsoXmlTag("CreDt")]
+    [IsoSimpleType(IsoSimpleType.ISONormalisedDateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISONormalisedDateTime CreationDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDate { get; init; } 
+    public required System.DateTime CreationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDate { get; init; } 
     #else
@@ -237,12 +226,11 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// Indicates whether the message is a Copy, a Duplicate or a copy of a duplicate of a previously sent ISO 20022 Message.
     /// </summary>
     [IsoId("_qJ8AQtFHEd-BzquC8wXy7w_483261909")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Duplicate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDplct")]
     #endif
+    [IsoXmlTag("CpyDplct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -256,15 +244,15 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// If the receiving MessagingEndpoint did not receive the original, then this Business Message should be processed as if it were the original. 
     /// If the receiving MessagingEndpoint did receive the original, then it should perform necessary actions to avoid processing this Business Message again.
     /// This will guarantee business idempotent behaviour.
-    /// NOTE: this is named "PossResend" in FIX - this is an application level resend not a network level retransmission.
+    /// NOTE: this is named &quot;PossResend&quot; in FIX - this is an application level resend not a network level retransmission.
     /// </summary>
     [IsoId("_qJ8AQ9FHEd-BzquC8wXy7w_-659356211")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Possible Duplicate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PssblDplct")]
     #endif
+    [IsoXmlTag("PssblDplct")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? PossibleDuplicate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -277,12 +265,11 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// Relative indication of the processing precedence of the message over a (set of) Business Messages with assigned priorities.
     /// </summary>
     [IsoId("_qJ8ARNFHEd-BzquC8wXy7w_-797565634")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Priority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Prty")]
     #endif
+    [IsoXmlTag("Prty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessMessagePriorityCode? Priority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -295,12 +282,11 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// Contains the digital signature of the Business Entity authorised to sign this Business Message.
     /// </summary>
     [IsoId("_qJ8ARdFHEd-BzquC8wXy7w_983060799")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sgntr")]
     #endif
+    [IsoXmlTag("Sgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SignatureEnvelope? Signature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -314,12 +300,11 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     /// Can be used when replying to a query; can also be used when canceling or amending.
     /// </summary>
     [IsoId("_qJ8ARtFHEd-BzquC8wXy7w_732677776")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rltd")]
     #endif
+    [IsoXmlTag("Rltd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BusinessApplicationHeader1? Related { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -332,7 +317,7 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BusinessApplicationHeaderV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BusinessApplicationHeaderV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BusinessApplicationHeaderV01Document ToDocument()
     {
@@ -342,7 +327,7 @@ public partial record BusinessApplicationHeaderV01 : IOuterRecord<BusinessApplic
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BusinessApplicationHeaderV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BusinessApplicationHeaderV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BusinessApplicationHeaderV01Document : IOuterDocument<BusinessApplicationHeaderV01>
@@ -359,7 +344,7 @@ public partial record BusinessApplicationHeaderV01Document : IOuterDocument<Busi
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BusinessApplicationHeaderV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BusinessApplicationHeaderV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BusinessApplicationHeaderV01 Message { get; init; }

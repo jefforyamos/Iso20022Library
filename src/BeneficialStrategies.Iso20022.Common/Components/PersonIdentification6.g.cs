@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous way to identify a person.
 /// </summary>
 [IsoId("_QENImdp-Ed-ak6NoX_4Aeg_1939129475")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Person Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,15 +49,13 @@ public partial record PersonIdentification6
     /// Entity that assigns the identifier.
     /// </summary>
     [IsoId("_QENImtp-Ed-ak6NoX_4Aeg_1939130030")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -72,16 +68,15 @@ public partial record PersonIdentification6
     /// Personal identification type.
     /// </summary>
     [IsoId("_QEW5kNp-Ed-ak6NoX_4Aeg_2117937583")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Person Identification Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrsnIdTp")]
     #endif
+    [IsoXmlTag("PrsnIdTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PersonIdentificationType1Choice_ PersonIdentificationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PersonIdentificationType1Choice_ PersonIdentificationType { get; init; } 
+    public required PersonIdentificationType1Choice_ PersonIdentificationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PersonIdentificationType1Choice_ PersonIdentificationType { get; init; } 
     #else

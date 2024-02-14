@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral1Choice
     /// Provides the expected collateral type and direction for the segregated independent amount.
     /// </summary>
     [IsoId("_QmevNNp-Ed-ak6NoX_4Aeg_1398356900")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -49,12 +47,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral1Choice
         /// Type of collateral that will be delivered.
         /// </summary>
         [IsoId("_UmVP9tp-Ed-ak6NoX_4Aeg_759302404")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Delivery")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Dlvry")]
         #endif
+        [IsoXmlTag("Dlvry")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralType1Code? Delivery { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +64,11 @@ namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral1Choice
         /// Type of collateral that will be returned.
         /// </summary>
         [IsoId("_UmVP99p-Ed-ak6NoX_4Aeg_1623020220")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Return")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rtr")]
         #endif
+        [IsoXmlTag("Rtr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public CollateralType1Code? Return { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

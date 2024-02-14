@@ -38,9 +38,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The MandateInitiationRequest message is sent by the initiator of the request to his agent. The initiator can either be the debtor or the creditor.|The MandateInitiationRequest message is forwarded by the agent of the initiator to the agent of the counterparty.|The MandateInitiationRequest message is used to set-up the instruction that allows the debtor agent to accept instructions from the creditor, through the creditor agent, to debit the account of the debtor.|Usage|The MandateInitiationRequest message can contain only one request to set-up one specific mandate.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.|The MandateInitiationRequest message can be used in domestic and cross-border scenarios.")]
 [IsoId("_r1UQkFkyEeGeoaLUQk__nA_-422128939")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Initiation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -84,16 +82,15 @@ public partial record MandateInitiationRequestV02 : IOuterRecord<MandateInitiati
     /// Set of characteristics to identify the message and parties playing a role in the mandate initiation, but which are not part of the mandate.
     /// </summary>
     [IsoId("_r1eBkFkyEeGeoaLUQk__nA_-783756144")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader47 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader47 GroupHeader { get; init; } 
+    public required GroupHeader47 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader47 GroupHeader { get; init; } 
     #else
@@ -104,16 +101,15 @@ public partial record MandateInitiationRequestV02 : IOuterRecord<MandateInitiati
     /// Set of elements used to provide the details of the mandate signed between the (ultimate) creditor and the (ultimate) debtor.
     /// </summary>
     [IsoId("_r1nLgFkyEeGeoaLUQk__nA_-1666989431")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mndt")]
     #endif
+    [IsoXmlTag("Mndt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Mandate2 Mandate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Mandate2 Mandate { get; init; } 
+    public required Mandate2 Mandate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Mandate2 Mandate { get; init; } 
     #else
@@ -124,12 +120,11 @@ public partial record MandateInitiationRequestV02 : IOuterRecord<MandateInitiati
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_r1w8gFkyEeGeoaLUQk__nA_-1209081288")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -142,7 +137,7 @@ public partial record MandateInitiationRequestV02 : IOuterRecord<MandateInitiati
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MandateInitiationRequestV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MandateInitiationRequestV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MandateInitiationRequestV02Document ToDocument()
     {
@@ -152,7 +147,7 @@ public partial record MandateInitiationRequestV02 : IOuterRecord<MandateInitiati
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateInitiationRequestV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MandateInitiationRequestV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MandateInitiationRequestV02Document : IOuterDocument<MandateInitiationRequestV02>
@@ -169,7 +164,7 @@ public partial record MandateInitiationRequestV02Document : IOuterDocument<Manda
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MandateInitiationRequestV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MandateInitiationRequestV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateInitiationRequestV02 Message { get; init; }

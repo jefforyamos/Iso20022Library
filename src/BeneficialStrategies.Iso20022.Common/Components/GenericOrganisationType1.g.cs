@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a generic type of identification requested for an organisation.
 /// </summary>
 [IsoId("_lvDMenFwEemaN4ndAVY1ZQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Generic Organisation Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record GenericOrganisationType1
     /// Type assigned by an institution for the organisation.
     /// </summary>
     [IsoId("_lvDMe3FwEemaN4ndAVY1ZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Reqd")]
     #endif
+    [IsoXmlTag("Reqd")]
+    [IsoSimpleType(IsoSimpleType.RequestedIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoRequestedIndicator Requested { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Requested { get; init; } 
+    public required System.String Requested { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Requested { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record GenericOrganisationType1
     /// Name of the identification scheme.
     /// </summary>
     [IsoId("_lvDMfHFwEemaN4ndAVY1ZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Scheme Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SchmeNm")]
     #endif
+    [IsoXmlTag("SchmeNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OrganisationIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OrganisationIdentificationSchemeName1Choice_ SchemeName { get; init; } 
+    public required OrganisationIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OrganisationIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     #else

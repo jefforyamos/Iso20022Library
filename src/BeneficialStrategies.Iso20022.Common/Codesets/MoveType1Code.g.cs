@@ -21,7 +21,7 @@ public enum MoveType1Code
 {
     /// <summary>
     /// Indicates that the peg is static/fixed.
-    /// Encoded/decoded by serializers as "STAT".
+    /// Encoded/decoded by serializers as &quot;STAT&quot;.
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_aMtCl9p-Ed-ak6NoX_4Aeg_-1360046424")]
@@ -30,7 +30,7 @@ public enum MoveType1Code
     
     /// <summary>
     /// Indicates that peg floats.
-    /// Encoded/decoded by serializers as "FLOA".
+    /// Encoded/decoded by serializers as &quot;FLOA&quot;.
     /// </summary>
     [EnumMember(Value = "FLOA")]
     [IsoId("_aM2zkNp-Ed-ak6NoX_4Aeg_-1360046141")]

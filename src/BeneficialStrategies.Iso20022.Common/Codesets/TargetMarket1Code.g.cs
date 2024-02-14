@@ -21,7 +21,7 @@ public enum TargetMarket1Code
 {
     /// <summary>
     /// Yes, is applicable.
-    /// Encoded/decoded by serializers as "YSCO".
+    /// Encoded/decoded by serializers as &quot;YSCO&quot;.
     /// </summary>
     [EnumMember(Value = "YSCO")]
     [IsoId("_9woHAdddEeibyvRfU9vJ7w")]
@@ -30,7 +30,7 @@ public enum TargetMarket1Code
     
     /// <summary>
     /// Neutral or has no impact.
-    /// Encoded/decoded by serializers as "NEUT".
+    /// Encoded/decoded by serializers as &quot;NEUT&quot;.
     /// </summary>
     [EnumMember(Value = "NEUT")]
     [IsoId("_936awdddEeibyvRfU9vJ7w")]
@@ -39,7 +39,7 @@ public enum TargetMarket1Code
     
     /// <summary>
     /// No, is not applicable.
-    /// Encoded/decoded by serializers as "NSCO".
+    /// Encoded/decoded by serializers as &quot;NSCO&quot;.
     /// </summary>
     [EnumMember(Value = "NSCO")]
     [IsoId("_-SsSQdddEeibyvRfU9vJ7w")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Chunk of a software package.
 /// </summary>
 [IsoId("_flEsIXDUEe2MCaKO5AtGsA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Package Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record PackageType4
     /// Identification of the software packages of which the chunk belongs.
     /// </summary>
     [IsoId("_fsSHYXDUEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Package Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PackgId")]
     #endif
+    [IsoXmlTag("PackgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification176? PackageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,12 @@ public partial record PackageType4
     /// Full length of software package identified through PackageIdentification.
     /// </summary>
     [IsoId("_fsSHY3DUEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Package Length")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PackgLngth")]
     #endif
+    [IsoXmlTag("PackgLngth")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? PackageLength { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +77,12 @@ public partial record PackageType4
     /// Place of the first following PackageBlock, beginning with 0, in the full software package identified through PackageIdentification.
     /// </summary>
     [IsoId("_fsSHZXDUEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offset Start")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffsetStart")]
     #endif
+    [IsoXmlTag("OffsetStart")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? OffsetStart { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +95,12 @@ public partial record PackageType4
     /// Following place of the last following PackageBlock in the full software package identified through PackageIdentification.
     /// </summary>
     [IsoId("_fsSHZ3DUEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Offset End")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OffsetEnd")]
     #endif
+    [IsoXmlTag("OffsetEnd")]
+    [IsoSimpleType(IsoSimpleType.PositiveNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPositiveNumber? OffsetEnd { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +113,11 @@ public partial record PackageType4
     /// Consecutive slices of the full software package identified through PackageIdentification starting with first slice at the place identified with OffsetStart and ending with the last slice at the previous place identified with OffsetEnd.
     /// </summary>
     [IsoId("_fsSucXDUEe2MCaKO5AtGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Package Block")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PackgBlck")]
     #endif
+    [IsoXmlTag("PackgBlck")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternallyDefinedData4? PackageBlock { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ElectionMovementType1FormatChoice.Code))]
     [KnownType(typeof(ElectionMovementType1FormatChoice.Proprietary))]
     [IsoId("_RmZ7KNp-Ed-ak6NoX_4Aeg_-162374366")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Election Movement Type 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

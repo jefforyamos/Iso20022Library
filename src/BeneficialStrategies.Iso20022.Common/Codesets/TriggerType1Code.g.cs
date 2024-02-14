@@ -21,7 +21,7 @@ public enum TriggerType1Code
 {
     /// <summary>
     /// Trigger Instructions come into effect in case of partial execution.
-    /// Encoded/decoded by serializers as "PAEX".
+    /// Encoded/decoded by serializers as &quot;PAEX&quot;.
     /// </summary>
     [EnumMember(Value = "PAEX")]
     [IsoId("_YwKzJtp-Ed-ak6NoX_4Aeg_256297454")]
@@ -30,7 +30,7 @@ public enum TriggerType1Code
     
     /// <summary>
     /// Trigger Instructions come into effect at specified trading session.
-    /// Encoded/decoded by serializers as "SPTS".
+    /// Encoded/decoded by serializers as &quot;SPTS&quot;.
     /// </summary>
     [EnumMember(Value = "SPTS")]
     [IsoId("_YwKzJ9p-Ed-ak6NoX_4Aeg_256297489")]
@@ -39,7 +39,7 @@ public enum TriggerType1Code
     
     /// <summary>
     /// Trigger Instructions come into effect at next auction.
-    /// Encoded/decoded by serializers as "NEAU".
+    /// Encoded/decoded by serializers as &quot;NEAU&quot;.
     /// </summary>
     [EnumMember(Value = "NEAU")]
     [IsoId("_YwKzKNp-Ed-ak6NoX_4Aeg_256297531")]
@@ -48,7 +48,7 @@ public enum TriggerType1Code
     
     /// <summary>
     /// Trigger Instructions come into effect in case of price movement.
-    /// Encoded/decoded by serializers as "PRMO".
+    /// Encoded/decoded by serializers as &quot;PRMO&quot;.
     /// </summary>
     [EnumMember(Value = "PRMO")]
     [IsoId("_YwUkINp-Ed-ak6NoX_4Aeg_256297814")]

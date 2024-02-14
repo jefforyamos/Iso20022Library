@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(QuorumQuantity1Choice.QuorumQuantity))]
     [KnownType(typeof(QuorumQuantity1Choice.QuorumQuantityPercentage))]
     [IsoId("_RDiepdp-Ed-ak6NoX_4Aeg_1841562834")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Quantity 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

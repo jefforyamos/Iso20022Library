@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Total of credit or debit transactions.
 /// </summary>
 [IsoId("_xVxxEXu-EeSLmfFG0DG7zQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction Totals")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -56,16 +54,16 @@ public partial record TransactionTotals5
     /// Cumulative amount of all financial transactions.
     /// </summary>
     [IsoId("_FRyMgHu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -76,16 +74,16 @@ public partial record TransactionTotals5
     /// Number of all financial transactions.
     /// </summary>
     [IsoId("_Jv4vgHu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nb")]
     #endif
+    [IsoXmlTag("Nb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Number { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Number { get; init; } 
+    public required System.UInt64 Number { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Number { get; init; } 
     #else
@@ -96,16 +94,16 @@ public partial record TransactionTotals5
     /// Cumulative amount of all chargeback transactions exclusive of any fees.
     /// </summary>
     [IsoId("_OZXcEHu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Back Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgBckAmt")]
     #endif
+    [IsoXmlTag("ChrgBckAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount ChargeBackAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ChargeBackAmount { get; init; } 
+    public required System.Decimal ChargeBackAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ChargeBackAmount { get; init; } 
     #else
@@ -116,16 +114,16 @@ public partial record TransactionTotals5
     /// Total number of chargeback transactions.
     /// </summary>
     [IsoId("_RTCX4Hu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Charge Back Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChrgBckNb")]
     #endif
+    [IsoXmlTag("ChrgBckNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ChargeBackNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ChargeBackNumber { get; init; } 
+    public required System.UInt64 ChargeBackNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ChargeBackNumber { get; init; } 
     #else
@@ -136,16 +134,16 @@ public partial record TransactionTotals5
     /// Cumulative amount of all reversal transactions exclusive of any fees.
     /// </summary>
     [IsoId("_WkGo4Hu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslAmt")]
     #endif
+    [IsoXmlTag("RvslAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount ReversalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ReversalAmount { get; init; } 
+    public required System.Decimal ReversalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ReversalAmount { get; init; } 
     #else
@@ -156,16 +154,16 @@ public partial record TransactionTotals5
     /// Total number of reversal transactions.
     /// </summary>
     [IsoId("_ZPLIAHu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reversal Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RvslNb")]
     #endif
+    [IsoXmlTag("RvslNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber ReversalNumber { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 ReversalNumber { get; init; } 
+    public required System.UInt64 ReversalNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 ReversalNumber { get; init; } 
     #else
@@ -176,12 +174,12 @@ public partial record TransactionTotals5
     /// Sum amount of all fees.
     /// </summary>
     [IsoId("_efytEHu_EeSLmfFG0DG7zQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fee Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FeeAmts")]
     #endif
+    [IsoXmlTag("FeeAmts")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? FeeAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeTypeFormat2Choice
     /// Specifies the type of charge in a structured form.
     /// </summary>
     [IsoId("_UyQMGdp-Ed-ak6NoX_4Aeg_2129381722")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Structured")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeTypeFormat2Choice
         /// Type of service for which a charge is asked or paid.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Strd")]
         #endif
+        [IsoXmlTag("Strd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ChargeType4Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ChargeType4Code Value { get; init; } 
+        public required ChargeType4Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ChargeType4Code Value { get; init; } 
         #else

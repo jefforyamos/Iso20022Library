@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceType1Choice
     /// Estimated price, for valuation purposes.
     /// </summary>
     [IsoId("_RdnLh9p-Ed-ak6NoX_4Aeg_-352751449")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indicative")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceType1Choice
         /// Specification of the price type.
         /// </summary>
         [IsoId("_QfxqSNp-Ed-ak6NoX_4Aeg_-109280990")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required YieldedOrValueType1Choice_ Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public YieldedOrValueType1Choice_ Type { get; init; } 
+        public required YieldedOrValueType1Choice_ Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public YieldedOrValueType1Choice_ Type { get; init; } 
         #else
@@ -77,16 +74,15 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceType1Choice
         /// Value of the price, for example, as a currency and value.
         /// </summary>
         [IsoId("_QfxqSdp-Ed-ak6NoX_4Aeg_-371294350")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Value")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Val")]
         #endif
+        [IsoXmlTag("Val")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PriceRateOrAmountChoice_ Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PriceRateOrAmountChoice_ Value { get; init; } 
+        public required PriceRateOrAmountChoice_ Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PriceRateOrAmountChoice_ Value { get; init; } 
         #else

@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportingTransactionType3Choice.Cancellation))]
     [KnownType(typeof(ReportingTransactionType3Choice.SupplementaryData))]
     [IsoId("_6c12MZicEe2f7NHvXATP5g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reporting Transaction Type 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

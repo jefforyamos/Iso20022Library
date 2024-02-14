@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestorCapacity3Choice.Code))]
     [KnownType(typeof(InvestorCapacity3Choice.Proprietary))]
     [IsoId("_AeB1QdokEeC60axPepSq7g_986173971")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Capacity 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

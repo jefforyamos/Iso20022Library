@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalBusinessProcessFormat1
     /// Standard code to specify the additional business process linked to a corporate action event.
     /// </summary>
     [IsoId("_M4dnUdD7Eeetfps_dpxRmg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalBusinessProcessFormat1
         /// Specifies the additional business process linked to a corporate action event such as an automatic market claim.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AdditionalBusinessProcess8Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AdditionalBusinessProcess8Code Value { get; init; } 
+        public required AdditionalBusinessProcess8Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AdditionalBusinessProcess8Code Value { get; init; } 
         #else

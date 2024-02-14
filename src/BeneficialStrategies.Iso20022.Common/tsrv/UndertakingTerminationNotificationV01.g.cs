@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingTerminationNotification message is sent to the applicant by the party that issued the undertaking to give notification of the termination or cancelation of the referenced undertaking.")]
 [IsoId("_9gdfZXltEeG7BsjMvd1mEw_-1901363318")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Termination Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record UndertakingTerminationNotificationV01 : IOuterRecord<Under
     /// Details of the termination notification.
     /// </summary>
     [IsoId("_9gdfZnltEeG7BsjMvd1mEw_-908071833")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Termination Notification Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgTermntnNtfctnDtls")]
     #endif
+    [IsoXmlTag("UdrtkgTermntnNtfctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingTerminationNotice1 UndertakingTerminationNotificationDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingTerminationNotice1 UndertakingTerminationNotificationDetails { get; init; } 
+    public required UndertakingTerminationNotice1 UndertakingTerminationNotificationDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingTerminationNotice1 UndertakingTerminationNotificationDetails { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record UndertakingTerminationNotificationV01 : IOuterRecord<Under
     /// Digital signature of the notification.
     /// </summary>
     [IsoId("_9gdfZ3ltEeG7BsjMvd1mEw_-1175318209")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,7 +109,7 @@ public partial record UndertakingTerminationNotificationV01 : IOuterRecord<Under
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingTerminationNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingTerminationNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingTerminationNotificationV01Document ToDocument()
     {
@@ -123,7 +119,7 @@ public partial record UndertakingTerminationNotificationV01 : IOuterRecord<Under
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingTerminationNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingTerminationNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingTerminationNotificationV01Document : IOuterDocument<UndertakingTerminationNotificationV01>
@@ -140,7 +136,7 @@ public partial record UndertakingTerminationNotificationV01Document : IOuterDocu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingTerminationNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingTerminationNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingTerminationNotificationV01 Message { get; init; }

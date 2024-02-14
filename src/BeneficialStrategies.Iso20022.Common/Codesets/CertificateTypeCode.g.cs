@@ -21,7 +21,7 @@ public enum CertificateTypeCode
 {
     /// <summary>
     /// Certification of due formation and organisation.
-    /// Encoded/decoded by serializers as "DFOR".
+    /// Encoded/decoded by serializers as &quot;DFOR&quot;.
     /// </summary>
     [EnumMember(Value = "DFOR")]
     [IsoId("_a7y9Mdp-Ed-ak6NoX_4Aeg_309481135")]
@@ -30,7 +30,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Certificate of good standing.
-    /// Encoded/decoded by serializers as "GOST".
+    /// Encoded/decoded by serializers as &quot;GOST&quot;.
     /// </summary>
     [EnumMember(Value = "GOST")]
     [IsoId("_a7y9Mtp-Ed-ak6NoX_4Aeg_319638733")]
@@ -39,7 +39,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Letter of reference.
-    /// Encoded/decoded by serializers as "LREF".
+    /// Encoded/decoded by serializers as &quot;LREF&quot;.
     /// </summary>
     [EnumMember(Value = "LREF")]
     [IsoId("_a7y9M9p-Ed-ak6NoX_4Aeg_320563756")]
@@ -48,7 +48,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Anti-money laundering certification form.
-    /// Encoded/decoded by serializers as "AMLC".
+    /// Encoded/decoded by serializers as &quot;AMLC&quot;.
     /// </summary>
     [EnumMember(Value = "AMLC")]
     [IsoId("_a7y9NNp-Ed-ak6NoX_4Aeg_322408395")]
@@ -57,7 +57,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Certification of incumbency.
-    /// Encoded/decoded by serializers as "INCU".
+    /// Encoded/decoded by serializers as &quot;INCU&quot;.
     /// </summary>
     [EnumMember(Value = "INCU")]
     [IsoId("_a7y9Ndp-Ed-ak6NoX_4Aeg_324257379")]
@@ -66,7 +66,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Government issued form of picture identification - passport.
-    /// Encoded/decoded by serializers as "PASS".
+    /// Encoded/decoded by serializers as &quot;PASS&quot;.
     /// </summary>
     [EnumMember(Value = "PASS")]
     [IsoId("_a7y9Ntp-Ed-ak6NoX_4Aeg_339032888")]
@@ -75,7 +75,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Government issued form of picture identification - driving license.
-    /// Encoded/decoded by serializers as "DVLC".
+    /// Encoded/decoded by serializers as &quot;DVLC&quot;.
     /// </summary>
     [EnumMember(Value = "DVLC")]
     [IsoId("_a7y9N9p-Ed-ak6NoX_4Aeg_340880828")]
@@ -84,7 +84,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Government issued form of picture identification - identity card.
-    /// Encoded/decoded by serializers as "IDEN".
+    /// Encoded/decoded by serializers as &quot;IDEN&quot;.
     /// </summary>
     [EnumMember(Value = "IDEN")]
     [IsoId("_a7y9ONp-Ed-ak6NoX_4Aeg_349191927")]
@@ -93,7 +93,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Proof of the address, such as a utility bill.
-    /// Encoded/decoded by serializers as "PRAD".
+    /// Encoded/decoded by serializers as &quot;PRAD&quot;.
     /// </summary>
     [EnumMember(Value = "PRAD")]
     [IsoId("_a7y9Odp-Ed-ak6NoX_4Aeg_-1022831792")]
@@ -102,7 +102,7 @@ public enum CertificateTypeCode
     
     /// <summary>
     /// Public key infrastructure certificate.
-    /// Encoded/decoded by serializers as "PKIC".
+    /// Encoded/decoded by serializers as &quot;PKIC&quot;.
     /// </summary>
     [EnumMember(Value = "PKIC")]
     [IsoId("_rxZaQFAREeKdE_ZuDLMHLA_554416812")]

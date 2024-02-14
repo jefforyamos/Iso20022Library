@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Participant profile participant information.
 /// </summary>
 [IsoId("_5On4EB9nEeapDZRA0Hb6ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Participant Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,12 @@ public partial record ParticipantInformation1
     /// Date the profile was deleted.
     /// </summary>
     [IsoId("_Q1cYYB9oEeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Profile Deletion Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrflDeltnDt")]
     #endif
+    [IsoXmlTag("PrflDeltnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? ProfileDeletionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,12 +67,11 @@ public partial record ParticipantInformation1
     /// National BIC identifiers for authorised and central branches.
     /// </summary>
     [IsoId("_oJLIIB9pEeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank Branch")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkBrnch")]
     #endif
+    [IsoXmlTag("BkBrnch")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CentralisedAndAuthorisedBranchIdentification1Choice_? BankBranch { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -87,15 +84,13 @@ public partial record ParticipantInformation1
     /// CBRF identification of the terminal.
     /// </summary>
     [IsoId("_Dx0NMB9sEeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Terminal Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TermnlId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TermnlId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TerminalIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,15 +103,13 @@ public partial record ParticipantInformation1
     /// Intraday restrictions details.
     /// </summary>
     [IsoId("_WauMkB9tEeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Restrictions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rstrctns")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Rstrctns")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Restrictions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +122,11 @@ public partial record ParticipantInformation1
     /// External payment system details.
     /// </summary>
     [IsoId("_XFengB9yEeapDZRA0Hb6ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("External Payment System Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XtrnlPmtSysInf")]
     #endif
+    [IsoXmlTag("XtrnlPmtSysInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalPaymentSystemDetails1? ExternalPaymentSystemInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,16 +139,15 @@ public partial record ParticipantInformation1
     /// Information related for participant migration process.
     /// </summary>
     [IsoId("_gEt3YCG3EeaZx5-Tw7BKeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Migration")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mgrtn")]
     #endif
+    [IsoXmlTag("Mgrtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemMigration1 Migration { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemMigration1 Migration { get; init; } 
+    public required SystemMigration1 Migration { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemMigration1 Migration { get; init; } 
     #else

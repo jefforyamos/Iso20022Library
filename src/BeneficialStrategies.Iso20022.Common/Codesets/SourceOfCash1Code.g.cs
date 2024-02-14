@@ -21,7 +21,7 @@ public enum SourceOfCash1Code
 {
     /// <summary>
     /// Income as a result of alimony.
-    /// Encoded/decoded by serializers as "ALMY".
+    /// Encoded/decoded by serializers as &quot;ALMY&quot;.
     /// </summary>
     [EnumMember(Value = "ALMY")]
     [IsoId("_ml8KwTlHEealR6-8aQ15BA")]
@@ -30,7 +30,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income is cash proceeds from customers.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_mwDwETlHEealR6-8aQ15BA")]
@@ -39,7 +39,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income is from compensation received.
-    /// Encoded/decoded by serializers as "COMP".
+    /// Encoded/decoded by serializers as &quot;COMP&quot;.
     /// </summary>
     [EnumMember(Value = "COMP")]
     [IsoId("_mzLVgTlHEealR6-8aQ15BA")]
@@ -48,7 +48,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Employee income.
-    /// Encoded/decoded by serializers as "EMIN".
+    /// Encoded/decoded by serializers as &quot;EMIN&quot;.
     /// </summary>
     [EnumMember(Value = "EMIN")]
     [IsoId("_m9S60TlHEealR6-8aQ15BA")]
@@ -57,7 +57,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income was a cash gift.
-    /// Encoded/decoded by serializers as "GIFT".
+    /// Encoded/decoded by serializers as &quot;GIFT&quot;.
     /// </summary>
     [EnumMember(Value = "GIFT")]
     [IsoId("_nAbHUTlHEealR6-8aQ15BA")]
@@ -66,7 +66,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Cash from an inheritance.
-    /// Encoded/decoded by serializers as "INHE".
+    /// Encoded/decoded by serializers as &quot;INHE&quot;.
     /// </summary>
     [EnumMember(Value = "INHE")]
     [IsoId("_nKPKoTlHEealR6-8aQ15BA")]
@@ -75,7 +75,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income from the liquidation of an insurance premium.
-    /// Encoded/decoded by serializers as "INLQ".
+    /// Encoded/decoded by serializers as &quot;INLQ&quot;.
     /// </summary>
     [EnumMember(Value = "INLQ")]
     [IsoId("_nNXXITlHEealR6-8aQ15BA")]
@@ -84,7 +84,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income from the sale of real estate.
-    /// Encoded/decoded by serializers as "REST".
+    /// Encoded/decoded by serializers as &quot;REST&quot;.
     /// </summary>
     [EnumMember(Value = "REST")]
     [IsoId("_nXe8cTlHEealR6-8aQ15BA")]
@@ -93,7 +93,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Redemption of an investment fund.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_ngtJ4TlHEealR6-8aQ15BA")]
@@ -102,7 +102,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income from a retirement policy.
-    /// Encoded/decoded by serializers as "REPY".
+    /// Encoded/decoded by serializers as &quot;REPY&quot;.
     /// </summary>
     [EnumMember(Value = "REPY")]
     [IsoId("_np7XUTlHEealR6-8aQ15BA")]
@@ -111,7 +111,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Sale and acquisition of a corporation.
-    /// Encoded/decoded by serializers as "SEAQ".
+    /// Encoded/decoded by serializers as &quot;SEAQ&quot;.
     /// </summary>
     [EnumMember(Value = "SEAQ")]
     [IsoId("_nzJkwTlHEealR6-8aQ15BA")]
@@ -120,7 +120,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Sale of goods.
-    /// Encoded/decoded by serializers as "SALE".
+    /// Encoded/decoded by serializers as &quot;SALE&quot;.
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_n2biQTlHEealR6-8aQ15BA")]
@@ -129,7 +129,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income from a savings plan.
-    /// Encoded/decoded by serializers as "SVGS".
+    /// Encoded/decoded by serializers as &quot;SVGS&quot;.
     /// </summary>
     [EnumMember(Value = "SVGS")]
     [IsoId("_oAiggTlHEealR6-8aQ15BA")]
@@ -138,7 +138,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income from self-employment.
-    /// Encoded/decoded by serializers as "SELF".
+    /// Encoded/decoded by serializers as &quot;SELF&quot;.
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_oDqtATlHEealR6-8aQ15BA")]
@@ -147,7 +147,7 @@ public enum SourceOfCash1Code
     
     /// <summary>
     /// Income from a cash win.
-    /// Encoded/decoded by serializers as "WINS".
+    /// Encoded/decoded by serializers as &quot;WINS&quot;.
     /// </summary>
     [EnumMember(Value = "WINS")]
     [IsoId("_oMvwgTlHEealR6-8aQ15BA")]

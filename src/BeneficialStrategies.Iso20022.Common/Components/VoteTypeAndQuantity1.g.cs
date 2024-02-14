@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Type of vote that can be provided for a resolution in a general meeting.
 /// </summary>
 [IsoId("_X_oUcPNBEeqRfth943bvEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Vote Type And Quantity")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record VoteTypeAndQuantity1
     /// Types of vote instruction allowed for resolutions to be voted on in general meeting.
     /// </summary>
     [IsoId("_joPWUPNBEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Instruction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteInstrTp")]
     #endif
+    [IsoXmlTag("VoteInstrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required VoteInstructionType1Choice_ VoteInstructionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public VoteInstructionType1Choice_ VoteInstructionType { get; init; } 
+    public required VoteInstructionType1Choice_ VoteInstructionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public VoteInstructionType1Choice_ VoteInstructionType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record VoteTypeAndQuantity1
     /// Quantity of vote expressed for the specified type of vote instruction.
     /// </summary>
     [IsoId("_n-JmoPNBEeqRfth943bvEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Vote Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VoteQty")]
     #endif
+    [IsoXmlTag("VoteQty")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber VoteQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 VoteQuantity { get; init; } 
+    public required System.UInt64 VoteQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 VoteQuantity { get; init; } 
     #else

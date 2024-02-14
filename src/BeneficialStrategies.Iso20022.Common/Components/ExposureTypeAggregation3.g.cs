@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the valuation details per exposure type aggregation.
 /// </summary>
 [IsoId("_Ml-goSs9EeySlt9bF77XfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exposure Type Aggregation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ExposureTypeAggregation3
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
     [IsoId("_M90Y0Ss9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrTp")]
     #endif
+    [IsoXmlTag("XpsrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExposureType23Choice_ ExposureType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExposureType23Choice_ ExposureType { get; init; } 
+    public required ExposureType23Choice_ ExposureType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExposureType23Choice_ ExposureType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record ExposureTypeAggregation3
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>
     [IsoId("_M90Y0ys9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Process")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmPrc")]
     #endif
+    [IsoXmlTag("SttlmPrc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification30? SettlementProcess { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record ExposureTypeAggregation3
     /// Provides details on the collateral valuation.
     /// </summary>
     [IsoId("_M90Y1Ss9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Amounts")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnAmts")]
     #endif
+    [IsoXmlTag("ValtnAmts")]
     public CollateralAmount16? ValuationAmounts { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _M90Y1Ss9EeySlt9bF77XfA
     
@@ -102,12 +97,12 @@ public partial record ExposureTypeAggregation3
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
     [IsoId("_M90Y1ys9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnRate")]
     #endif
+    [IsoXmlTag("MrgnRate")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? MarginRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -120,12 +115,11 @@ public partial record ExposureTypeAggregation3
     /// Provides the status after comparing the total collateral required and the total collateral value of all transactions of the same exposure type.
     /// </summary>
     [IsoId("_M90Y2Ss9EeySlt9bF77XfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Global Exposure Type Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GblXpsrTpSts")]
     #endif
+    [IsoXmlTag("GblXpsrTpSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralStatus1Code? GlobalExposureTypeStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

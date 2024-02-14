@@ -21,7 +21,7 @@ public enum ValidationRuleRejected1Code
 {
     /// <summary>
     /// Rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_uY6bcR-zEeuxStysDTgLiw")]

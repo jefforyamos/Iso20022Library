@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details related to the undertaking.
 /// </summary>
 [IsoId("_VAaxMH7pEeGudZE4UaJCHQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Undertaking10
     /// Details related to the requested new amount for the counter-undertaking.
     /// </summary>
     [IsoId("_YWoEwH75EeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Undertaking Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewUdrtkgAmt")]
     #endif
+    [IsoXmlTag("NewUdrtkgAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public UndertakingAmount2? NewUndertakingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Undertaking10
     /// Details related to the requested new expiry terms for the counter-undertaking.
     /// </summary>
     [IsoId("_vndG8H75EeGvEbxvurqpIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("New Expiry Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NewXpryDtls")]
     #endif
+    [IsoXmlTag("NewXpryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExpiryDetails1? NewExpiryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

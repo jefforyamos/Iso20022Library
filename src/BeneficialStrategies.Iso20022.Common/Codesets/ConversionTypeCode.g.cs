@@ -21,7 +21,7 @@ public enum ConversionTypeCode
 {
     /// <summary>
     /// This is a final conversion.
-    /// Encoded/decoded by serializers as "FINL".
+    /// Encoded/decoded by serializers as &quot;FINL&quot;.
     /// </summary>
     [EnumMember(Value = "FINL")]
     [IsoId("_bCWRIdp-Ed-ak6NoX_4Aeg_1809241362")]
@@ -30,7 +30,7 @@ public enum ConversionTypeCode
     
     /// <summary>
     /// This is an interim conversion.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_bCWRItp-Ed-ak6NoX_4Aeg_1809241370")]

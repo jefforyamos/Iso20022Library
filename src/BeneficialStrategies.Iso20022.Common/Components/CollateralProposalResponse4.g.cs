@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the collateral proposal response for the variation margin and optionally the segregated independent amount.
 /// </summary>
 [IsoId("_xPxG_StIEeyOa655cLd-DQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Proposal Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CollateralProposalResponse4
     /// Provides the collateral proposal response for the variation margin.
     /// </summary>
     [IsoId("_xophAStIEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Variation Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VartnMrgn")]
     #endif
+    [IsoXmlTag("VartnMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CollateralProposalResponseType4 VariationMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CollateralProposalResponseType4 VariationMargin { get; init; } 
+    public required CollateralProposalResponseType4 VariationMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CollateralProposalResponseType4 VariationMargin { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CollateralProposalResponse4
     /// Provides the collateral proposal response for the segregated independent amount.
     /// </summary>
     [IsoId("_xophAytIEeyOa655cLd-DQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgrtdIndpdntAmt")]
     #endif
+    [IsoXmlTag("SgrtdIndpdntAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralProposalResponseType4? SegregatedIndependentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

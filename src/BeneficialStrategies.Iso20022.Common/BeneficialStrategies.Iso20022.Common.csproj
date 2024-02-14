@@ -5,11 +5,25 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>BeneficialStrategies.Iso20022</RootNamespace>
-    <PackageId>com.beneficialstrategies.iso20022.2024.02.09</PackageId>
-    <Version>1.0.0-alpha</Version>
-    <Authors>Jeff Ward</Authors>
-    <Company>BeneficialStrategies.com</Company>
-    <DebugType>embedded</DebugType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
- </Project>
+  <PropertyGroup>
+    <PackageId>com.beneficialstrategies.iso20022.2024.02.09</PackageId>
+    <PackageDescription>The entirety of the ISO20022 message domain model. 2,665 B2B financial messages structured as immutable records based on the ISO20022 standard.</PackageDescription>
+    <Version>0.1.1-alpha</Version>
+    <Authors>Jeff Ward,Beneficial Strategies</Authors>
+    <Company>BeneficialStrategies.com</Company>
+    <RepositoryUrl>https://github.com/jefforyamos/Iso20022Library</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Alpha upload</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <DebugType>embedded</DebugType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <None Include="..\..\doc\package\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+</Project>

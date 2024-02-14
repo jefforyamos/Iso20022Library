@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrument63Choice.CashAsset))]
     [KnownType(typeof(FinancialInstrument63Choice.OtherAsset))]
     [IsoId("_nPXaoaPvEemf4IaGqCtquA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument 63 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

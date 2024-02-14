@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum TransactionGroupStatus2Code
 {
     /// <summary>
-    /// A number of transactions have been accepted, whereas another number of transactions have not yet achieved 'accepted' status.
-    /// Encoded/decoded by serializers as "PART".
+    /// A number of transactions have been accepted, whereas another number of transactions have not yet achieved &apos;accepted&apos; status.
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_YrjY5tp-Ed-ak6NoX_4Aeg_14174990")]
@@ -30,7 +30,7 @@ public enum TransactionGroupStatus2Code
     
     /// <summary>
     /// Payment initiation or individual transaction included in the payment initiation has been rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_YrjY59p-Ed-ak6NoX_4Aeg_14175042")]

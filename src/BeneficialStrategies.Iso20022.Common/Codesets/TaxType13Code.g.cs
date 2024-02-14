@@ -21,7 +21,7 @@ public enum TaxType13Code
 {
     /// <summary>
     /// Tax that is levied on goods and services purchased by customers, and is added to the retail price.
-    /// Encoded/decoded by serializers as "COAX".
+    /// Encoded/decoded by serializers as &quot;COAX&quot;.
     /// </summary>
     [EnumMember(Value = "COAX")]
     [IsoId("_YkZoAdp-Ed-ak6NoX_4Aeg_2016560306")]
@@ -30,7 +30,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax withheld at source in the framework of the European Directive on taxation of savings in the form of interest payments.
-    /// Encoded/decoded by serializers as "EUTR".
+    /// Encoded/decoded by serializers as &quot;EUTR&quot;.
     /// </summary>
     [EnumMember(Value = "EUTR")]
     [IsoId("_YkZoAtp-Ed-ak6NoX_4Aeg_2016560703")]
@@ -39,7 +39,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax that is charged by a local settlement system or local jurisdiction.
-    /// Encoded/decoded by serializers as "LOCL".
+    /// Encoded/decoded by serializers as &quot;LOCL&quot;.
     /// </summary>
     [EnumMember(Value = "LOCL")]
     [IsoId("_YkZoA9p-Ed-ak6NoX_4Aeg_2016560720")]
@@ -48,7 +48,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax is a national tax.
-    /// Encoded/decoded by serializers as "NATI".
+    /// Encoded/decoded by serializers as &quot;NATI&quot;.
     /// </summary>
     [EnumMember(Value = "NATI")]
     [IsoId("_YkZoBNp-Ed-ak6NoX_4Aeg_2016560721")]
@@ -57,7 +57,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax levied on a payment.
-    /// Encoded/decoded by serializers as "LEVY".
+    /// Encoded/decoded by serializers as &quot;LEVY&quot;.
     /// </summary>
     [EnumMember(Value = "LEVY")]
     [IsoId("_YkZoBdp-Ed-ak6NoX_4Aeg_2016560738")]
@@ -66,7 +66,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax is a provincial tax.
-    /// Encoded/decoded by serializers as "PROV".
+    /// Encoded/decoded by serializers as &quot;PROV&quot;.
     /// </summary>
     [EnumMember(Value = "PROV")]
     [IsoId("_YkZoBtp-Ed-ak6NoX_4Aeg_2016560763")]
@@ -75,7 +75,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax is on certain documents and transactions.
-    /// Encoded/decoded by serializers as "STAM".
+    /// Encoded/decoded by serializers as &quot;STAM&quot;.
     /// </summary>
     [EnumMember(Value = "STAM")]
     [IsoId("_YkZoB9p-Ed-ak6NoX_4Aeg_2016560780")]
@@ -84,7 +84,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax is a state tax.
-    /// Encoded/decoded by serializers as "STAT".
+    /// Encoded/decoded by serializers as &quot;STAT&quot;.
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_YkZoCNp-Ed-ak6NoX_4Aeg_2016560798")]
@@ -93,7 +93,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax collected by a stock exchange.
-    /// Encoded/decoded by serializers as "STEX".
+    /// Encoded/decoded by serializers as &quot;STEX&quot;.
     /// </summary>
     [EnumMember(Value = "STEX")]
     [IsoId("_YkZoCdp-Ed-ak6NoX_4Aeg_2016560815")]
@@ -101,8 +101,8 @@ public enum TaxType13Code
     StockExchangeTax = TaxTypeCode.StockExchangeTax, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Direct reduction of an individual's tax liability.
-    /// Encoded/decoded by serializers as "CTAX".
+    /// Direct reduction of an individual&apos;s tax liability.
+    /// Encoded/decoded by serializers as &quot;CTAX&quot;.
     /// </summary>
     [EnumMember(Value = "CTAX")]
     [IsoId("_Ykix8Np-Ed-ak6NoX_4Aeg_2016561081")]
@@ -111,7 +111,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax levied on a transaction.
-    /// Encoded/decoded by serializers as "TRAX".
+    /// Encoded/decoded by serializers as &quot;TRAX&quot;.
     /// </summary>
     [EnumMember(Value = "TRAX")]
     [IsoId("_Ykix8dp-Ed-ak6NoX_4Aeg_2016561106")]
@@ -120,7 +120,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax levied on a transfer.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_Ykix8tp-Ed-ak6NoX_4Aeg_2016561123")]
@@ -129,7 +129,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax is a value added tax.
-    /// Encoded/decoded by serializers as "VATA".
+    /// Encoded/decoded by serializers as &quot;VATA&quot;.
     /// </summary>
     [EnumMember(Value = "VATA")]
     [IsoId("_Ykix89p-Ed-ak6NoX_4Aeg_2016561141")]
@@ -138,7 +138,7 @@ public enum TaxType13Code
     
     /// <summary>
     /// Tax is on income deducted at source, which the paying agent is legally obliged to deduct from its payments of interest on deposits and other proceeds of a financial instrument.
-    /// Encoded/decoded by serializers as "WITH".
+    /// Encoded/decoded by serializers as &quot;WITH&quot;.
     /// </summary>
     [EnumMember(Value = "WITH")]
     [IsoId("_Ykix9Np-Ed-ak6NoX_4Aeg_2016561166")]

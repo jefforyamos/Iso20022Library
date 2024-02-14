@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingDenied1Choice.Code))]
     [KnownType(typeof(MatchingDenied1Choice.Proprietary))]
     [IsoId("_UakE1Np-Ed-ak6NoX_4Aeg_-1854020837")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Denied 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

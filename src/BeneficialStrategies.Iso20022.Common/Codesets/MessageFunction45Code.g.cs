@@ -21,7 +21,7 @@ public enum MessageFunction45Code
 {
     /// <summary>
     /// Advice indicates where the sender informs the receiver of an activity that has been taken that requires a response. 
-    /// Encoded/decoded by serializers as "ADVC".
+    /// Encoded/decoded by serializers as &quot;ADVC&quot;.
     /// </summary>
     [EnumMember(Value = "ADVC")]
     [IsoId("_W-cvoUGLEeyZG7AU5fJYtQ")]
@@ -30,7 +30,7 @@ public enum MessageFunction45Code
     
     /// <summary>
     /// Informs of an action to be taken.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_Yc5qoUGLEeyZG7AU5fJYtQ")]
@@ -39,7 +39,7 @@ public enum MessageFunction45Code
     
     /// <summary>
     /// Information about the transaction.
-    /// Encoded/decoded by serializers as "NOTI".
+    /// Encoded/decoded by serializers as &quot;NOTI&quot;.
     /// </summary>
     [EnumMember(Value = "NOTI")]
     [IsoId("_ZC56sUGLEeyZG7AU5fJYtQ")]
@@ -48,7 +48,7 @@ public enum MessageFunction45Code
     
     /// <summary>
     /// Message function is a request.
-    /// Encoded/decoded by serializers as "REQU".
+    /// Encoded/decoded by serializers as &quot;REQU&quot;.
     /// </summary>
     [EnumMember(Value = "REQU")]
     [IsoId("_ZphOwUGLEeyZG7AU5fJYtQ")]
@@ -57,7 +57,7 @@ public enum MessageFunction45Code
     
     /// <summary>
     /// Advice about the status of a transaction.
-    /// Encoded/decoded by serializers as "STAD".
+    /// Encoded/decoded by serializers as &quot;STAD&quot;.
     /// </summary>
     [EnumMember(Value = "STAD")]
     [IsoId("_a0AE4UGLEeyZG7AU5fJYtQ")]
@@ -66,7 +66,7 @@ public enum MessageFunction45Code
     
     /// <summary>
     /// Notification about the status of a transaction.
-    /// Encoded/decoded by serializers as "STNO".
+    /// Encoded/decoded by serializers as &quot;STNO&quot;.
     /// </summary>
     [EnumMember(Value = "STNO")]
     [IsoId("_bOKRUUGLEeyZG7AU5fJYtQ")]
@@ -75,7 +75,7 @@ public enum MessageFunction45Code
     
     /// <summary>
     /// Message function is a status request.
-    /// Encoded/decoded by serializers as "STRQ".
+    /// Encoded/decoded by serializers as &quot;STRQ&quot;.
     /// </summary>
     [EnumMember(Value = "STRQ")]
     [IsoId("_b7BXUUGLEeyZG7AU5fJYtQ")]

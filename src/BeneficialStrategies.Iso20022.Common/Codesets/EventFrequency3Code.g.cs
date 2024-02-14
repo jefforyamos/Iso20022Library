@@ -21,7 +21,7 @@ public enum EventFrequency3Code
 {
     /// <summary>
     /// Event takes place every year or once a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_ajpi8tp-Ed-ak6NoX_4Aeg_1482517787")]
@@ -30,7 +30,7 @@ public enum EventFrequency3Code
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ajpi89p-Ed-ak6NoX_4Aeg_1482517810")]
@@ -39,7 +39,7 @@ public enum EventFrequency3Code
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QUTR".
+    /// Encoded/decoded by serializers as &quot;QUTR&quot;.
     /// </summary>
     [EnumMember(Value = "QUTR")]
     [IsoId("_ajpi9Np-Ed-ak6NoX_4Aeg_1482517811")]
@@ -48,7 +48,7 @@ public enum EventFrequency3Code
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SEMI".
+    /// Encoded/decoded by serializers as &quot;SEMI&quot;.
     /// </summary>
     [EnumMember(Value = "SEMI")]
     [IsoId("_ajpi9dp-Ed-ak6NoX_4Aeg_1482517827")]
@@ -57,7 +57,7 @@ public enum EventFrequency3Code
     
     /// <summary>
     /// Event takes place once a week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_ajzT8Np-Ed-ak6NoX_4Aeg_1482517828")]

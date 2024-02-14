@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous identifier of a financial institution or a branch of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
 /// </summary>
 [IsoId("_TFUwNdp-Ed-ak6NoX_4Aeg_-107465569")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Branch And Financial Institution Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record BranchAndFinancialInstitutionIdentification3
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
     [IsoId("_TFUwNtp-Ed-ak6NoX_4Aeg_-105617941")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Institution Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstnId")]
     #endif
+    [IsoXmlTag("FinInstnId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstitutionIdentification5Choice_ FinancialInstitutionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstitutionIdentification5Choice_ FinancialInstitutionIdentification { get; init; } 
+    public required FinancialInstitutionIdentification5Choice_ FinancialInstitutionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstitutionIdentification5Choice_ FinancialInstitutionIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record BranchAndFinancialInstitutionIdentification3
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
     [IsoId("_TFUwN9p-Ed-ak6NoX_4Aeg_-105616105")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Branch Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrnchId")]
     #endif
+    [IsoXmlTag("BrnchId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchData? BranchIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

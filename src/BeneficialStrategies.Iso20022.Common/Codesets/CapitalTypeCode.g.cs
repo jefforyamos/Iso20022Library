@@ -20,7 +20,7 @@ public enum CapitalTypeCode
 {
     /// <summary>
     /// Approved capital.
-    /// Encoded/decoded by serializers as "APPD".
+    /// Encoded/decoded by serializers as &quot;APPD&quot;.
     /// </summary>
     [EnumMember(Value = "APPD")]
     [IsoId("_a11fItp-Ed-ak6NoX_4Aeg_545560156")]
@@ -29,7 +29,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Issued voting rights.
-    /// Encoded/decoded by serializers as "ISVR".
+    /// Encoded/decoded by serializers as &quot;ISVR&quot;.
     /// </summary>
     [EnumMember(Value = "ISVR")]
     [IsoId("_a11fI9p-Ed-ak6NoX_4Aeg_545563282")]
@@ -38,7 +38,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Maximum amount of increase.
-    /// Encoded/decoded by serializers as "MXIN".
+    /// Encoded/decoded by serializers as &quot;MXIN&quot;.
     /// </summary>
     [EnumMember(Value = "MXIN")]
     [IsoId("_a11fJNp-Ed-ak6NoX_4Aeg_546486650")]
@@ -47,7 +47,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Outstanding capital.
-    /// Encoded/decoded by serializers as "OUTS".
+    /// Encoded/decoded by serializers as &quot;OUTS&quot;.
     /// </summary>
     [EnumMember(Value = "OUTS")]
     [IsoId("_a11fJdp-Ed-ak6NoX_4Aeg_547409678")]
@@ -56,7 +56,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Redeemed capital.
-    /// Encoded/decoded by serializers as "REDE".
+    /// Encoded/decoded by serializers as &quot;REDE&quot;.
     /// </summary>
     [EnumMember(Value = "REDE")]
     [IsoId("_a11fJtp-Ed-ak6NoX_4Aeg_554798278")]
@@ -65,7 +65,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Stated capital.
-    /// Encoded/decoded by serializers as "STCA".
+    /// Encoded/decoded by serializers as &quot;STCA&quot;.
     /// </summary>
     [EnumMember(Value = "STCA")]
     [IsoId("_a11fJ9p-Ed-ak6NoX_4Aeg_555721367")]
@@ -74,7 +74,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Issued reserve capital.
-    /// Encoded/decoded by serializers as "TRSO".
+    /// Encoded/decoded by serializers as &quot;TRSO&quot;.
     /// </summary>
     [EnumMember(Value = "TRSO")]
     [IsoId("_a11fKNp-Ed-ak6NoX_4Aeg_556644310")]
@@ -83,7 +83,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Contingent capital.
-    /// Encoded/decoded by serializers as "UISS".
+    /// Encoded/decoded by serializers as &quot;UISS&quot;.
     /// </summary>
     [EnumMember(Value = "UISS")]
     [IsoId("_a11fKdp-Ed-ak6NoX_4Aeg_557567152")]
@@ -92,7 +92,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Withdrawn capital.
-    /// Encoded/decoded by serializers as "WTHD".
+    /// Encoded/decoded by serializers as &quot;WTHD&quot;.
     /// </summary>
     [EnumMember(Value = "WTHD")]
     [IsoId("_a1-pENp-Ed-ak6NoX_4Aeg_572344351")]
@@ -101,7 +101,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Authorised capital.
-    /// Encoded/decoded by serializers as "AUTD".
+    /// Encoded/decoded by serializers as &quot;AUTD&quot;.
     /// </summary>
     [EnumMember(Value = "AUTD")]
     [IsoId("_a1-pEdp-Ed-ak6NoX_4Aeg_573267379")]
@@ -110,7 +110,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// In circulation.
-    /// Encoded/decoded by serializers as "ICIR".
+    /// Encoded/decoded by serializers as &quot;ICIR&quot;.
     /// </summary>
     [EnumMember(Value = "ICIR")]
     [IsoId("_a1-pEtp-Ed-ak6NoX_4Aeg_574190900")]
@@ -119,7 +119,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Issued capital.
-    /// Encoded/decoded by serializers as "ISUD".
+    /// Encoded/decoded by serializers as &quot;ISUD&quot;.
     /// </summary>
     [EnumMember(Value = "ISUD")]
     [IsoId("_a1-pE9p-Ed-ak6NoX_4Aeg_576037973")]
@@ -128,7 +128,7 @@ public enum CapitalTypeCode
     
     /// <summary>
     /// Issued reserve capital.
-    /// Encoded/decoded by serializers as "IRCA".
+    /// Encoded/decoded by serializers as &quot;IRCA&quot;.
     /// </summary>
     [EnumMember(Value = "IRCA")]
     [IsoId("_a1-pFNp-Ed-ak6NoX_4Aeg_583426997")]

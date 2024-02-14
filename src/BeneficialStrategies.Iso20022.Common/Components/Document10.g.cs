@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about a document.
 /// </summary>
 [IsoId("_96YbSXltEeG7BsjMvd1mEw_-172031402")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Document")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Document10
     /// Type of document.
     /// </summary>
     [IsoId("_96YbSnltEeG7BsjMvd1mEw_-1696622720")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocTp")]
     #endif
+    [IsoXmlTag("DocTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingDocumentType2Choice_ DocumentType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UndertakingDocumentType2Choice_ DocumentType { get; init; } 
+    public required UndertakingDocumentType2Choice_ DocumentType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UndertakingDocumentType2Choice_ DocumentType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Document10
     /// Channel through which the document should be presented.
     /// </summary>
     [IsoId("_96iMQHltEeG7BsjMvd1mEw_1601272223")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Presentation Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PresntnChanl")]
     #endif
+    [IsoXmlTag("PresntnChanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Channel1Choice_? PresentationChannel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record Document10
     /// Format of the document.
     /// </summary>
     [IsoId("_96iMQXltEeG7BsjMvd1mEw_681238571")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocFrmt")]
     #endif
+    [IsoXmlTag("DocFrmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DocumentFormat1Choice_? DocumentFormat { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +102,12 @@ public partial record Document10
     /// Indication whether the document may be a copy of the original document.
     /// </summary>
     [IsoId("_96iMQnltEeG7BsjMvd1mEw_1954061068")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyInd")]
     #endif
+    [IsoXmlTag("CpyInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CopyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +120,12 @@ public partial record Document10
     /// Indication whether the document must be signed.
     /// </summary>
     [IsoId("_96iMQ3ltEeG7BsjMvd1mEw_1042190213")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Signed Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SgndInd")]
     #endif
+    [IsoXmlTag("SgndInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SignedIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

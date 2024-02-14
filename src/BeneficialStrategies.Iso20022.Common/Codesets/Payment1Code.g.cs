@@ -21,7 +21,7 @@ public enum Payment1Code
 {
     /// <summary>
     /// The cash payment occurs or will occur upon receipt of proceeds from the issuer.
-    /// Encoded/decoded by serializers as "ACTU".
+    /// Encoded/decoded by serializers as &quot;ACTU&quot;.
     /// </summary>
     [EnumMember(Value = "ACTU")]
     [IsoId("_Zy7Qp9p-Ed-ak6NoX_4Aeg_1133077747")]
@@ -30,7 +30,7 @@ public enum Payment1Code
     
     /// <summary>
     /// The cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer.
-    /// Encoded/decoded by serializers as "CONT".
+    /// Encoded/decoded by serializers as &quot;CONT&quot;.
     /// </summary>
     [EnumMember(Value = "CONT")]
     [IsoId("_Zy7QqNp-Ed-ak6NoX_4Aeg_1133077769")]

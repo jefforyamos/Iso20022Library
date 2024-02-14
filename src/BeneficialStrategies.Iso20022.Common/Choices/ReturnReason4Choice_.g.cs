@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReturnReason4Choice.Code))]
     [KnownType(typeof(ReturnReason4Choice.Proprietary))]
     [IsoId("_V5oD0dp-Ed-ak6NoX_4Aeg_434826033")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Reason 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

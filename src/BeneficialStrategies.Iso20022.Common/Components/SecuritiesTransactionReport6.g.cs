@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the securities transaction report.
 /// </summary>
 [IsoId("_XM1TF526Eeuwmdq0KtnICg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Transaction Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -61,19 +59,17 @@ public partial record SecuritiesTransactionReport6
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
     [IsoId("_XjVHgZ26Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max52Text)]
     [StringLength(maximumLength: 52 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax52Text TransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String TransactionIdentification { get; init; } 
+    public required System.String TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String TransactionIdentification { get; init; } 
     #else
@@ -84,16 +80,16 @@ public partial record SecuritiesTransactionReport6
     /// Identification of the entity executing the transaction.
     /// </summary>
     [IsoId("_XjVHg526Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Executing Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctgPty")]
     #endif
+    [IsoXmlTag("ExctgPty")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier ExecutingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExecutingParty { get; init; } 
+    public required System.String ExecutingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExecutingParty { get; init; } 
     #else
@@ -104,16 +100,16 @@ public partial record SecuritiesTransactionReport6
     /// Indicates whether the reporting party is defined as an investment firm under the local regulation or not.
     /// </summary>
     [IsoId("_XjVHhZ26Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Party Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtPtyInd")]
     #endif
+    [IsoXmlTag("InvstmtPtyInd")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoTrueFalseIndicator InvestmentPartyIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String InvestmentPartyIndicator { get; init; } 
+    public required System.String InvestmentPartyIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String InvestmentPartyIndicator { get; init; } 
     #else
@@ -124,16 +120,16 @@ public partial record SecuritiesTransactionReport6
     /// Entity submitting the transaction report to the competent authority.
     /// </summary>
     [IsoId("_XjVHjZ26Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitting Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitgPty")]
     #endif
+    [IsoXmlTag("SubmitgPty")]
+    [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoLEIIdentifier SubmittingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String SubmittingParty { get; init; } 
+    public required System.String SubmittingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String SubmittingParty { get; init; } 
     #else
@@ -144,16 +140,15 @@ public partial record SecuritiesTransactionReport6
     /// Identifies the acquirer of the legal title to the financial instrument.
     /// </summary>
     [IsoId("_XjVHj526Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification79 Buyer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification79 Buyer { get; init; } 
+    public required PartyIdentification79 Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification79 Buyer { get; init; } 
     #else
@@ -164,16 +159,15 @@ public partial record SecuritiesTransactionReport6
     /// Identifies the seller of the legal title to the financial instrument.
     /// </summary>
     [IsoId("_XjVHkZ26Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification79 Seller { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification79 Seller { get; init; } 
+    public required PartyIdentification79 Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification79 Seller { get; init; } 
     #else
@@ -185,16 +179,15 @@ public partial record SecuritiesTransactionReport6
     /// Usage: Only applicable when the conditions for transmission are not satisfied.
     /// </summary>
     [IsoId("_XjVHk526Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Order Transmission")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrdrTrnsmssn")]
     #endif
+    [IsoXmlTag("OrdrTrnsmssn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTransactionTransmission2 OrderTransmission { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesTransactionTransmission2 OrderTransmission { get; init; } 
+    public required SecuritiesTransactionTransmission2 OrderTransmission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesTransactionTransmission2 OrderTransmission { get; init; } 
     #else
@@ -205,16 +198,15 @@ public partial record SecuritiesTransactionReport6
     /// Provides the details of the reported transaction.
     /// </summary>
     [IsoId("_XjVHlZ26Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTransaction1 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesTransaction1 Transaction { get; init; } 
+    public required SecuritiesTransaction1 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesTransaction1 Transaction { get; init; } 
     #else
@@ -225,16 +217,15 @@ public partial record SecuritiesTransactionReport6
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
     [IsoId("_XjVHl526Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrm")]
     #endif
+    [IsoXmlTag("FinInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentAttributes4Choice_ FinancialInstrument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentAttributes4Choice_ FinancialInstrument { get; init; } 
+    public required FinancialInstrumentAttributes4Choice_ FinancialInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentAttributes4Choice_ FinancialInstrument { get; init; } 
     #else
@@ -245,12 +236,11 @@ public partial record SecuritiesTransactionReport6
     /// Identifies the person or algorithm which is responsible within the reporting party for the investment decision.
     /// </summary>
     [IsoId("_XjVHm526Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Decision Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstmtDcsnPrsn")]
     #endif
+    [IsoXmlTag("InvstmtDcsnPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentParty1Choice_? InvestmentDecisionPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -263,16 +253,15 @@ public partial record SecuritiesTransactionReport6
     /// Person or algorithm responsible for the execution of the transaction.
     /// </summary>
     [IsoId("_XjVHnZ26Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Executing Person")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctgPrsn")]
     #endif
+    [IsoXmlTag("ExctgPrsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExecutingParty1Choice_ ExecutingPerson { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExecutingParty1Choice_ ExecutingPerson { get; init; } 
+    public required ExecutingParty1Choice_ ExecutingPerson { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExecutingParty1Choice_ ExecutingPerson { get; init; } 
     #else
@@ -283,16 +272,15 @@ public partial record SecuritiesTransactionReport6
     /// Provides additional indicators on the reported transaction.
     /// </summary>
     [IsoId("_XjVHn526Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlAttrbts")]
     #endif
+    [IsoXmlTag("AddtlAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecuritiesTransactionIndicator2 AdditionalAttributes { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecuritiesTransactionIndicator2 AdditionalAttributes { get; init; } 
+    public required SecuritiesTransactionIndicator2 AdditionalAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecuritiesTransactionIndicator2 AdditionalAttributes { get; init; } 
     #else
@@ -303,12 +291,11 @@ public partial record SecuritiesTransactionReport6
     /// Data used for exchanges between national competent authorities, not to be used by reporting entities.
     /// </summary>
     [IsoId("_XjVHoZ26Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Technical Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TechAttrbts")]
     #endif
+    [IsoXmlTag("TechAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RecordTechnicalData5? TechnicalAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -321,12 +308,11 @@ public partial record SecuritiesTransactionReport6
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_XjVHo526Eeuwmdq0KtnICg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

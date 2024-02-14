@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the derivative instrument.
 /// </summary>
 [IsoId("_KeZ_x4G-EeaalK9UbuVGFw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Derivative Instrument")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,12 +53,12 @@ public partial record DerivativeInstrument6
     /// Field applies to derivatives with defined expiry date.
     /// </summary>
     [IsoId("_Ko9p8YG-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpryDt")]
     #endif
+    [IsoXmlTag("XpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -74,16 +72,16 @@ public partial record DerivativeInstrument6
     /// For a future or option on an index, the amount per index point.
     /// </summary>
     [IsoId("_Ko9p84G-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Multiplier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricMltplr")]
     #endif
+    [IsoXmlTag("PricMltplr")]
+    [IsoSimpleType(IsoSimpleType.NonNegativeDecimalNumber)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNonNegativeDecimalNumber PriceMultiplier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 PriceMultiplier { get; init; } 
+    public required System.UInt64 PriceMultiplier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 PriceMultiplier { get; init; } 
     #else
@@ -94,16 +92,15 @@ public partial record DerivativeInstrument6
     /// Choice to specify the type(s) of underlying instrument(s) that make up the financial instrument.
     /// </summary>
     [IsoId("_Ko9p94G-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Instrument")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygInstrm")]
     #endif
+    [IsoXmlTag("UndrlygInstrm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UnderlyingIdentification2Choice_ UnderlyingInstrument { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UnderlyingIdentification2Choice_ UnderlyingInstrument { get; init; } 
+    public required UnderlyingIdentification2Choice_ UnderlyingInstrument { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UnderlyingIdentification2Choice_ UnderlyingInstrument { get; init; } 
     #else
@@ -114,12 +111,11 @@ public partial record DerivativeInstrument6
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
     [IsoId("_Ko9p-YG-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnTp")]
     #endif
+    [IsoXmlTag("OptnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionType2Code? OptionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -132,12 +128,11 @@ public partial record DerivativeInstrument6
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
     [IsoId("_Ko9p-4G-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Strike Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StrkPric")]
     #endif
+    [IsoXmlTag("StrkPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SecuritiesTransactionPrice4Choice_? StrikePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -150,12 +145,11 @@ public partial record DerivativeInstrument6
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
     [IsoId("_Ko9p_4G-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Option Exercise Style")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OptnExrcStyle")]
     #endif
+    [IsoXmlTag("OptnExrcStyle")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionStyle7Code? OptionExerciseStyle { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -168,16 +162,15 @@ public partial record DerivativeInstrument6
     /// Indicates whether the transaction is settled physically or in cash.
     /// </summary>
     [IsoId("_Ko9qAYG-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delivery Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlvryTp")]
     #endif
+    [IsoXmlTag("DlvryTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PhysicalTransferType4Code DeliveryType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PhysicalTransferType4Code DeliveryType { get; init; } 
+    public required PhysicalTransferType4Code DeliveryType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PhysicalTransferType4Code DeliveryType { get; init; } 
     #else
@@ -188,12 +181,11 @@ public partial record DerivativeInstrument6
     /// Specific attributes of the underlying asset class of the financial instrument.
     /// </summary>
     [IsoId("_Ko9qA4G-EeaalK9UbuVGFw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Specific Attributes")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AsstClssSpcfcAttrbts")]
     #endif
+    [IsoXmlTag("AsstClssSpcfcAttrbts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AssetClassAttributes1Choice_? AssetClassSpecificAttributes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

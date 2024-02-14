@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details of the statement reporting the bank services billing.
 /// </summary>
 [IsoId("_Gfoea24-EeiU9cctagi5ow")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Statement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,19 +53,17 @@ public partial record BillingStatement3
     /// Identification of the customer billing statement.
     /// </summary>
     [IsoId("_GouI4W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("StmtId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text StatementIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String StatementIdentification { get; init; } 
+    public required System.String StatementIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String StatementIdentification { get; init; } 
     #else
@@ -78,16 +74,15 @@ public partial record BillingStatement3
     /// Date range between the start date and the end date for which the statement is issued.
     /// </summary>
     [IsoId("_GouI424-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("From To Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrToDt")]
     #endif
+    [IsoXmlTag("FrToDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DatePeriod1 FromToDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DatePeriod1 FromToDate { get; init; } 
+    public required DatePeriod1 FromToDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DatePeriod1 FromToDate { get; init; } 
     #else
@@ -98,16 +93,16 @@ public partial record BillingStatement3
     /// Date the statement message was created.
     /// </summary>
     [IsoId("_GouI5W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CreDtTm")]
     #endif
+    [IsoXmlTag("CreDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime CreationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime CreationDateTime { get; init; } 
+    public required System.DateTime CreationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime CreationDateTime { get; init; } 
     #else
@@ -118,16 +113,15 @@ public partial record BillingStatement3
     /// Defines the status of the statement.
     /// </summary>
     [IsoId("_GouI524-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingStatementStatus1Code Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingStatementStatus1Code Status { get; init; } 
+    public required BillingStatementStatus1Code Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingStatementStatus1Code Status { get; init; } 
     #else
@@ -138,16 +132,15 @@ public partial record BillingStatement3
     /// Specifies the details of the account characteristics.
     /// </summary>
     [IsoId("_GouI6W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Account Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcctChrtcs")]
     #endif
+    [IsoXmlTag("AcctChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashAccountCharacteristics3 AccountCharacteristics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashAccountCharacteristics3 AccountCharacteristics { get; init; } 
+    public required CashAccountCharacteristics3 AccountCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashAccountCharacteristics3 AccountCharacteristics { get; init; } 
     #else
@@ -158,12 +151,11 @@ public partial record BillingStatement3
     /// Identifies the non tax per annum rate and factor values used within the statement along with any time dependent charge basis.
     /// </summary>
     [IsoId("_GouI624-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rate Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RateData")]
     #endif
+    [IsoXmlTag("RateData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingRate1? RateData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +168,11 @@ public partial record BillingStatement3
     /// Specifies details related to currency exchange data.
     /// </summary>
     [IsoId("_GouI7W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Exchange")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyXchg")]
     #endif
+    [IsoXmlTag("CcyXchg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CurrencyExchange6? CurrencyExchange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +185,11 @@ public partial record BillingStatement3
     /// Identifies the average value of balances held within the statement period.
     /// </summary>
     [IsoId("_GouI724-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bal")]
     #endif
+    [IsoXmlTag("Bal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingBalance1? Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +202,11 @@ public partial record BillingStatement3
     /// Identifies the set of values and totals that are used to provide compensation information, service and tax totals.
     /// </summary>
     [IsoId("_GouI8W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Compensation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Compstn")]
     #endif
+    [IsoXmlTag("Compstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingCompensation1? Compensation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +219,11 @@ public partial record BillingStatement3
     /// Specifies the values used for every line item service in the statement.
     /// </summary>
     [IsoId("_GouI824-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Svc")]
     #endif
+    [IsoXmlTag("Svc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingService2? Service { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,12 +236,11 @@ public partial record BillingStatement3
     /// Tax region that levy a tax on the services within this statement.
     /// </summary>
     [IsoId("_GouI9W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Region")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxRgn")]
     #endif
+    [IsoXmlTag("TaxRgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingTaxRegion2? TaxRegion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +253,11 @@ public partial record BillingStatement3
     /// One or more sections that identify balance or float adjustments to the account. They can reflect either adjustments to the current statement or adjustments to statements from prior reporting periods.
     /// </summary>
     [IsoId("_GouI924-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance Adjustment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalAdjstmnt")]
     #endif
+    [IsoXmlTag("BalAdjstmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BalanceAdjustment1? BalanceAdjustment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -284,12 +270,11 @@ public partial record BillingStatement3
     /// One or more sections that identify line item service adjustments to the account. They reflect adjustments to statements from prior reporting periods.
     /// </summary>
     [IsoId("_GouI-W4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Adjustment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcAdjstmnt")]
     #endif
+    [IsoXmlTag("SvcAdjstmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BillingServiceAdjustment1? ServiceAdjustment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

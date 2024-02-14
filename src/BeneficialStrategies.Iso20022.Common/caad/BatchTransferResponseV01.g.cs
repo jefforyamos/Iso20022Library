@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caad;
 /// </summary>
 [Description(@"The BatchTransferResponse message is sent by any party to any party (acquirer, agent or issuer) in response to a BatchTransferInitiation message.")]
 [IsoId("_w_hFlVZbEeen1vB4iz5SyA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Batch Transfer Response V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record BatchTransferResponseV01 : IOuterRecord<BatchTransferRespo
     /// Information related to the management of the protocol.
     /// </summary>
     [IsoId("_w_hFmFZbEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header39 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header39 Header { get; init; } 
+    public required Header39 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header39 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record BatchTransferResponseV01 : IOuterRecord<BatchTransferRespo
     /// Information related to the batch transfer.
     /// </summary>
     [IsoId("_w_hFl1ZbEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BatchTransferResponse1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BatchTransferResponse1 Body { get; init; } 
+    public required BatchTransferResponse1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BatchTransferResponse1 Body { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record BatchTransferResponseV01 : IOuterRecord<BatchTransferRespo
     /// Trailer of the message containing a MAC
     /// </summary>
     [IsoId("_w_hFmVZbEeen1vB4iz5SyA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record BatchTransferResponseV01 : IOuterRecord<BatchTransferRespo
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="BatchTransferResponseV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;BatchTransferResponseV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public BatchTransferResponseV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record BatchTransferResponseV01 : IOuterRecord<BatchTransferRespo
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="BatchTransferResponseV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;BatchTransferResponseV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record BatchTransferResponseV01Document : IOuterDocument<BatchTransferResponseV01>
@@ -161,7 +156,7 @@ public partial record BatchTransferResponseV01Document : IOuterDocument<BatchTra
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="BatchTransferResponseV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;BatchTransferResponseV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BatchTransferResponseV01 Message { get; init; }

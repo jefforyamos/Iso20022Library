@@ -21,7 +21,7 @@ public enum CorporateActionInstructionCancellationProcessingStatus1Code
 {
     /// <summary>
     /// Cancellation request has been completed.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_bKPo4Np-Ed-ak6NoX_4Aeg_-711137955")]
@@ -30,7 +30,7 @@ public enum CorporateActionInstructionCancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation request is pending. It is not known at this time whether cancellation can be affected.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_bKPo4dp-Ed-ak6NoX_4Aeg_-1054212063")]
@@ -39,7 +39,7 @@ public enum CorporateActionInstructionCancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation request has been accepted for further processing.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_bKPo4tp-Ed-ak6NoX_4Aeg_620854078")]
@@ -48,7 +48,7 @@ public enum CorporateActionInstructionCancellationProcessingStatus1Code
     
     /// <summary>
     /// Cancellation request has been rejected for further processing due to system (data) reasons.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_bKPo49p-Ed-ak6NoX_4Aeg_1629502930")]

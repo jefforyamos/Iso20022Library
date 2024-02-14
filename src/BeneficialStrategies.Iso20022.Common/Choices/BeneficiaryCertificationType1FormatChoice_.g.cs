@@ -15,14 +15,12 @@ using System.TimeOnly=System.DateTime; // Same with this data type
 namespace BeneficialStrategies.Iso20022.Choices
 {
     /// <summary>
-    /// Choice of formats to express the type of beneficiary's certification.
+    /// Choice of formats to express the type of beneficiary&apos;s certification.
     /// </summary>
     [KnownType(typeof(BeneficiaryCertificationType1FormatChoice.Code))]
     [KnownType(typeof(BeneficiaryCertificationType1FormatChoice.Proprietary))]
     [IsoId("_RlqUR9p-Ed-ak6NoX_4Aeg_-1197168041")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary Certification Type 1 Format Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

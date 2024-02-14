@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UpdateType4Choice.Code))]
     [KnownType(typeof(UpdateType4Choice.Proprietary))]
     [IsoId("_m_7dcvNBEeCuA5Tr22BnwA_1235220635")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Type 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

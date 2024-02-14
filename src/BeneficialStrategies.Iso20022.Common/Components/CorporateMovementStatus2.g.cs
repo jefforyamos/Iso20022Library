@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides status of the movement.
 /// </summary>
 [IsoId("_Ri-zttp-Ed-ak6NoX_4Aeg_728771721")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Movement Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CorporateMovementStatus2
     /// Provides information about the processing status of the cancellation request.
     /// </summary>
     [IsoId("_Ri-zt9p-Ed-ak6NoX_4Aeg_1547012214")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Processed Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrcdSts")]
     #endif
+    [IsoXmlTag("PrcdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporationActionMovementProcessingStatus2 ProcessedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporationActionMovementProcessingStatus2 ProcessedStatus { get; init; } 
+    public required CorporationActionMovementProcessingStatus2 ProcessedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporationActionMovementProcessingStatus2 ProcessedStatus { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record CorporateMovementStatus2
     /// Provides information about the rejection status.
     /// </summary>
     [IsoId("_Ri-zuNp-Ed-ak6NoX_4Aeg_1559018048")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RjctdSts")]
     #endif
+    [IsoXmlTag("RjctdSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionMovementRejectionStatus2 RejectedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionMovementRejectionStatus2 RejectedStatus { get; init; } 
+    public required CorporateActionMovementRejectionStatus2 RejectedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionMovementRejectionStatus2 RejectedStatus { get; init; } 
     #else

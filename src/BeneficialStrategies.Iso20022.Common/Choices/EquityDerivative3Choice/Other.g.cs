@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EquityDerivative3Choice
     /// Populated when the sub asset class is neither swaps nor portfolio swaps.
     /// </summary>
     [IsoId("_hW-FO2lPEeaLAKoEUNsD9g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.EquityDerivative3Choice
         /// Specifies the type for a contract for equity derivatives.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Othr")]
         #endif
+        [IsoXmlTag("Othr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required UnderlyingEquityType6Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public UnderlyingEquityType6Code Value { get; init; } 
+        public required UnderlyingEquityType6Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public UnderlyingEquityType6Code Value { get; init; } 
         #else

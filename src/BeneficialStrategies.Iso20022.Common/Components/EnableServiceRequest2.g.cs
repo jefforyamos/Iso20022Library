@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data to request to enable a service.
 /// </summary>
 [IsoId("_LIrhUQ0tEeqUVL7sB4m7NA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Enable Service Request")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record EnableServiceRequest2
     /// Action to realise on a transaction.
     /// </summary>
     [IsoId("_LUWl0Q0tEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxActn")]
     #endif
+    [IsoXmlTag("TxActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransactionAction1Code TransactionAction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransactionAction1Code TransactionAction { get; init; } 
+    public required TransactionAction1Code TransactionAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransactionAction1Code TransactionAction { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record EnableServiceRequest2
     /// Services enabled before the start-up of a transaction.
     /// </summary>
     [IsoId("_LUWl0w0tEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Services Enabled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcsNbld")]
     #endif
+    [IsoXmlTag("SvcsNbld")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RetailerService2Code? ServicesEnabled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record EnableServiceRequest2
     /// Prompt or welcome message.
     /// </summary>
     [IsoId("_LUWl1Q0tEeqUVL7sB4m7NA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Display Output")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DispOutpt")]
     #endif
+    [IsoXmlTag("DispOutpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ActionMessage7? DisplayOutput { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

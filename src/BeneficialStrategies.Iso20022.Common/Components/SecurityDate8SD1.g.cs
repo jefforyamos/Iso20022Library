@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension to provide information about the dates related to securities movement.
 /// </summary>
 [IsoId("_2uSBQzE9EeG99IlTgANSrw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Date 8 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -45,15 +43,13 @@ public partial record SecurityDate8SD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_D38hYFPIEeGs_NnqHXQZkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -67,12 +63,11 @@ public partial record SecurityDate8SD1
     /// 発行日決済日程情報/決済日.
     /// </summary>
     [IsoId("_KSEkQDEuEeGHQep4LV7ygg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date Of New Security")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtOfNewScty")]
     #endif
+    [IsoXmlTag("SttlmDtOfNewScty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? SettlementDateOfNewSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -85,12 +80,11 @@ public partial record SecurityDate8SD1
     /// Date/time at which trading of a security is suspended as the result of an event.
     /// </summary>
     [IsoId("_Sd8_kJz-EeKJcPdKDye9aA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Suspended Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSspdDt")]
     #endif
+    [IsoXmlTag("TradgSspdDt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat22Choice_? TradingSuspendedDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Print Response message.
 /// </summary>
 [IsoId("_Ty4bQN7HEeiwsev40qZGEQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Device Print Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DevicePrintResponse1
     /// Qualification of the document printed to the Cashier or the Customer.
     /// </summary>
     [IsoId("_ckZUMN7HEeiwsev40qZGEQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DocQlfr")]
     #endif
+    [IsoXmlTag("DocQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DocumentType7Code DocumentQualifier { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DocumentType7Code DocumentQualifier { get; init; } 
+    public required DocumentType7Code DocumentQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DocumentType7Code DocumentQualifier { get; init; } 
     #else

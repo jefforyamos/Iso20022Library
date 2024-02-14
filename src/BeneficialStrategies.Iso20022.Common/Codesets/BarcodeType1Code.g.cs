@@ -21,7 +21,7 @@ public enum BarcodeType1Code
 {
     /// <summary>
     /// Barcode encoded according to the 2Dimensions Quick Response Code Standard.
-    /// Encoded/decoded by serializers as "COQR".
+    /// Encoded/decoded by serializers as &quot;COQR&quot;.
     /// </summary>
     [EnumMember(Value = "COQR")]
     [IsoId("_0H1FMduZEeiB5uLfkg9ZJA")]
@@ -30,7 +30,7 @@ public enum BarcodeType1Code
     
     /// <summary>
     /// Barcode encoded according to the Code 128 standard.
-    /// Encoded/decoded by serializers as "C128".
+    /// Encoded/decoded by serializers as &quot;C128&quot;.
     /// </summary>
     [EnumMember(Value = "C128")]
     [IsoId("_0L5s4duZEeiB5uLfkg9ZJA")]
@@ -39,7 +39,7 @@ public enum BarcodeType1Code
     
     /// <summary>
     /// Barcode encoded according to the Code 25 standard.
-    /// Encoded/decoded by serializers as "C025".
+    /// Encoded/decoded by serializers as &quot;C025&quot;.
     /// </summary>
     [EnumMember(Value = "C025")]
     [IsoId("_0Pz8gduZEeiB5uLfkg9ZJA")]
@@ -48,7 +48,7 @@ public enum BarcodeType1Code
     
     /// <summary>
     /// Barcode encoded according to the Code 39 standard.
-    /// Encoded/decoded by serializers as "C039".
+    /// Encoded/decoded by serializers as &quot;C039&quot;.
     /// </summary>
     [EnumMember(Value = "C039")]
     [IsoId("_0TuMIduZEeiB5uLfkg9ZJA")]
@@ -57,7 +57,7 @@ public enum BarcodeType1Code
     
     /// <summary>
     /// Barcode encoded according to the EAN13 standard.
-    /// Encoded/decoded by serializers as "EA13".
+    /// Encoded/decoded by serializers as &quot;EA13&quot;.
     /// </summary>
     [EnumMember(Value = "EA13")]
     [IsoId("_0XfR0duZEeiB5uLfkg9ZJA")]
@@ -66,7 +66,7 @@ public enum BarcodeType1Code
     
     /// <summary>
     /// Barcode encoded according to the EAN8 standard.
-    /// Encoded/decoded by serializers as "EAN8".
+    /// Encoded/decoded by serializers as &quot;EAN8&quot;.
     /// </summary>
     [EnumMember(Value = "EAN8")]
     [IsoId("_0d1KYduZEeiB5uLfkg9ZJA")]
@@ -75,7 +75,7 @@ public enum BarcodeType1Code
     
     /// <summary>
     /// Barcode encoded according to the PDF417 standard.
-    /// Encoded/decoded by serializers as "P417".
+    /// Encoded/decoded by serializers as &quot;P417&quot;.
     /// </summary>
     [EnumMember(Value = "P417")]
     [IsoId("_0h0SgduZEeiB5uLfkg9ZJA")]
@@ -84,7 +84,7 @@ public enum BarcodeType1Code
     
     /// <summary>
     /// Barcode encoded according to the UPCA standard.
-    /// Encoded/decoded by serializers as "UPCA".
+    /// Encoded/decoded by serializers as &quot;UPCA&quot;.
     /// </summary>
     [EnumMember(Value = "UPCA")]
     [IsoId("_0mNqUduZEeiB5uLfkg9ZJA")]

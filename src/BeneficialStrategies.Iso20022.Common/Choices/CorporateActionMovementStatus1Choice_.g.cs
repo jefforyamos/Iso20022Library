@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionMovementStatus1Choice.FailedStatus))]
     [KnownType(typeof(CorporateActionMovementStatus1Choice.RejectedStatus))]
     [IsoId("_RiPM1dp-Ed-ak6NoX_4Aeg_-2034263409")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Movement Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

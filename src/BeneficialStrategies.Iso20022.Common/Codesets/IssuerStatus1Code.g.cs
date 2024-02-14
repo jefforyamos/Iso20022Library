@@ -21,7 +21,7 @@ public enum IssuerStatus1Code
 {
     /// <summary>
     /// Event is approved by SEC (Securities and Exchange Commission).
-    /// Encoded/decoded by serializers as "ASEC".
+    /// Encoded/decoded by serializers as &quot;ASEC&quot;.
     /// </summary>
     [EnumMember(Value = "ASEC")]
     [IsoId("_1ss6ETL3EeKU9IrkkToqcw_549706816")]
@@ -30,7 +30,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event is approved by shareholders.
-    /// Encoded/decoded by serializers as "ASHH".
+    /// Encoded/decoded by serializers as &quot;ASHH&quot;.
     /// </summary>
     [EnumMember(Value = "ASHH")]
     [IsoId("_1ss6EjL3EeKU9IrkkToqcw_435867750")]
@@ -39,7 +39,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event is approved by SEC (Securities and Exchange Commission and shareholders.
-    /// Encoded/decoded by serializers as "ASHS".
+    /// Encoded/decoded by serializers as &quot;ASHS&quot;.
     /// </summary>
     [EnumMember(Value = "ASHS")]
     [IsoId("_1ss6EzL3EeKU9IrkkToqcw_1003794085")]
@@ -48,7 +48,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event has approximate rate.
-    /// Encoded/decoded by serializers as "APRT".
+    /// Encoded/decoded by serializers as &quot;APRT&quot;.
     /// </summary>
     [EnumMember(Value = "APRT")]
     [IsoId("_1ss6FDL3EeKU9IrkkToqcw_1328911592")]
@@ -57,7 +57,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Awaiting information from company on the event.
-    /// Encoded/decoded by serializers as "AIFC".
+    /// Encoded/decoded by serializers as &quot;AIFC&quot;.
     /// </summary>
     [EnumMember(Value = "AIFC")]
     [IsoId("_1ss6FTL3EeKU9IrkkToqcw_1215072526")]
@@ -66,7 +66,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event has day grace period.
-    /// Encoded/decoded by serializers as "DGRP".
+    /// Encoded/decoded by serializers as &quot;DGRP&quot;.
     /// </summary>
     [EnumMember(Value = "DGRP")]
     [IsoId("_1s2rEDL3EeKU9IrkkToqcw_-1006162773")]
@@ -75,7 +75,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event distribution was rejected.
-    /// Encoded/decoded by serializers as "DREJ".
+    /// Encoded/decoded by serializers as &quot;DREJ&quot;.
     /// </summary>
     [EnumMember(Value = "DREJ")]
     [IsoId("_1s2rETL3EeKU9IrkkToqcw_-681045266")]
@@ -84,7 +84,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event has free form comments for review.
-    /// Encoded/decoded by serializers as "FFCO".
+    /// Encoded/decoded by serializers as &quot;FFCO&quot;.
     /// </summary>
     [EnumMember(Value = "FFCO")]
     [IsoId("_1s2rEjL3EeKU9IrkkToqcw_-794884332")]
@@ -93,7 +93,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Holiday in country of origin of the event.
-    /// Encoded/decoded by serializers as "HOCO".
+    /// Encoded/decoded by serializers as &quot;HOCO&quot;.
     /// </summary>
     [EnumMember(Value = "HOCO")]
     [IsoId("_1s2rEzL3EeKU9IrkkToqcw_396975072")]
@@ -102,7 +102,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event issue is not funded.
-    /// Encoded/decoded by serializers as "INFN".
+    /// Encoded/decoded by serializers as &quot;INFN&quot;.
     /// </summary>
     [EnumMember(Value = "INFN")]
     [IsoId("_1s2rFDL3EeKU9IrkkToqcw_283136006")]
@@ -111,7 +111,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event issue is trading flat.
-    /// Encoded/decoded by serializers as "ITFL".
+    /// Encoded/decoded by serializers as &quot;ITFL&quot;.
     /// </summary>
     [EnumMember(Value = "ITFL")]
     [IsoId("_1s2rFTL3EeKU9IrkkToqcw_1448108144")]
@@ -120,7 +120,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event is a late announcement with elections.
-    /// Encoded/decoded by serializers as "LAWE".
+    /// Encoded/decoded by serializers as &quot;LAWE&quot;.
     /// </summary>
     [EnumMember(Value = "LAWE")]
     [IsoId("_1s2rFjL3EeKU9IrkkToqcw_-395760845")]
@@ -129,7 +129,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event is a liquidation.
-    /// Encoded/decoded by serializers as "LIQU".
+    /// Encoded/decoded by serializers as &quot;LIQU&quot;.
     /// </summary>
     [EnumMember(Value = "LIQU")]
     [IsoId("_1s2rFzL3EeKU9IrkkToqcw_-509599911")]
@@ -138,7 +138,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event proceeds will be paid upon receipt of funds.
-    /// Encoded/decoded by serializers as "PURF".
+    /// Encoded/decoded by serializers as &quot;PURF&quot;.
     /// </summary>
     [EnumMember(Value = "PURF")]
     [IsoId("_1s_1ADL3EeKU9IrkkToqcw_365004308")]
@@ -147,7 +147,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event processed are pending conversion of funds.
-    /// Encoded/decoded by serializers as "PCOF".
+    /// Encoded/decoded by serializers as &quot;PCOF&quot;.
     /// </summary>
     [EnumMember(Value = "PCOF")]
     [IsoId("_1s_1ATL3EeKU9IrkkToqcw_1582093987")]
@@ -156,7 +156,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event is pending election dividend services elections.
-    /// Encoded/decoded by serializers as "PELE".
+    /// Encoded/decoded by serializers as &quot;PELE&quot;.
     /// </summary>
     [EnumMember(Value = "PELE")]
     [IsoId("_1s_1AjL3EeKU9IrkkToqcw_1468254921")]
@@ -165,7 +165,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event is pending SEC (Securities and Exchange Commission approval.
-    /// Encoded/decoded by serializers as "PSEC".
+    /// Encoded/decoded by serializers as &quot;PSEC&quot;.
     /// </summary>
     [EnumMember(Value = "PSEC")]
     [IsoId("_1s_1AzL3EeKU9IrkkToqcw_-110086210")]
@@ -174,7 +174,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event is pending SEC (Securities and Exchange Commission and shareholders approval.
-    /// Encoded/decoded by serializers as "PSHS".
+    /// Encoded/decoded by serializers as &quot;PSHS&quot;.
     /// </summary>
     [EnumMember(Value = "PSHS")]
     [IsoId("_1s_1BDL3EeKU9IrkkToqcw_344001059")]
@@ -183,7 +183,7 @@ public enum IssuerStatus1Code
     
     /// <summary>
     /// Event is pending shareholder approval.
-    /// Encoded/decoded by serializers as "PSHA".
+    /// Encoded/decoded by serializers as &quot;PSHA&quot;.
     /// </summary>
     [EnumMember(Value = "PSHA")]
     [IsoId("_1s_1BTL3EeKU9IrkkToqcw_230161993")]

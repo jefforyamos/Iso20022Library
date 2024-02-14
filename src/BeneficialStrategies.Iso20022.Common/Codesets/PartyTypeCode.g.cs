@@ -21,7 +21,7 @@ public enum PartyTypeCode
 {
     /// <summary>
     /// Party selling goods and services.
-    /// Encoded/decoded by serializers as "SALE".
+    /// Encoded/decoded by serializers as &quot;SALE&quot;.
     /// </summary>
     [EnumMember(Value = "SALE")]
     [IsoId("_sSrgkL4pEeKkGaJ0UrThyA_-1476346300")]
@@ -30,7 +30,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party component of a POI system or POI terminal (Point of Interaction).
-    /// Encoded/decoded by serializers as "PCPT".
+    /// Encoded/decoded by serializers as &quot;PCPT&quot;.
     /// </summary>
     [EnumMember(Value = "PCPT")]
     [IsoId("_sSrgkb4pEeKkGaJ0UrThyA_-9585713")]
@@ -39,7 +39,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Issuer is the entitled party.
-    /// Encoded/decoded by serializers as "ISUR".
+    /// Encoded/decoded by serializers as &quot;ISUR&quot;.
     /// </summary>
     [EnumMember(Value = "ISUR")]
     [IsoId("_ZyoVtNp-Ed-ak6NoX_4Aeg_-300292214")]
@@ -48,7 +48,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Holder is the entitled party.
-    /// Encoded/decoded by serializers as "HLDR".
+    /// Encoded/decoded by serializers as &quot;HLDR&quot;.
     /// </summary>
     [EnumMember(Value = "HLDR")]
     [IsoId("_ZyoVtdp-Ed-ak6NoX_4Aeg_-292904138")]
@@ -57,7 +57,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_ZyoVttp-Ed-ak6NoX_4Aeg_-1029037842")]
@@ -66,7 +66,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that identifies an executing / give-up broker.
-    /// Encoded/decoded by serializers as "EXEC".
+    /// Encoded/decoded by serializers as &quot;EXEC&quot;.
     /// </summary>
     [EnumMember(Value = "EXEC")]
     [IsoId("_ZyoVt9p-Ed-ak6NoX_4Aeg_-1027191353")]
@@ -75,7 +75,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that receives the trade credit.
-    /// Encoded/decoded by serializers as "BROK".
+    /// Encoded/decoded by serializers as &quot;BROK&quot;.
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_ZyoVuNp-Ed-ak6NoX_4Aeg_-1025346609")]
@@ -84,7 +84,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that is going to carry the position on their books at another clearinghouse (exchanges).
-    /// Encoded/decoded by serializers as "CORR".
+    /// Encoded/decoded by serializers as &quot;CORR&quot;.
     /// </summary>
     [EnumMember(Value = "CORR")]
     [IsoId("_ZyxfoNp-Ed-ak6NoX_4Aeg_-1024423043")]
@@ -93,7 +93,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that is the counterparty in a trade.
-    /// Encoded/decoded by serializers as "COFI".
+    /// Encoded/decoded by serializers as &quot;COFI&quot;.
     /// </summary>
     [EnumMember(Value = "COFI")]
     [IsoId("_Zyxfodp-Ed-ak6NoX_4Aeg_-1024422653")]
@@ -102,7 +102,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that is the clearing firm of the counterparty in a trade.
-    /// Encoded/decoded by serializers as "COCL".
+    /// Encoded/decoded by serializers as &quot;COCL&quot;.
     /// </summary>
     [EnumMember(Value = "COCL")]
     [IsoId("_Zyxfotp-Ed-ak6NoX_4Aeg_-1024422268")]
@@ -111,7 +111,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party (broker or other firm), which is the contra side of the trade for the underlying security.
-    /// Encoded/decoded by serializers as "UNDE".
+    /// Encoded/decoded by serializers as &quot;UNDE&quot;.
     /// </summary>
     [EnumMember(Value = "UNDE")]
     [IsoId("_Zyxfo9p-Ed-ak6NoX_4Aeg_-1024422095")]
@@ -120,7 +120,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party to which the trade is given up (carries the position that results from a trade).
-    /// Encoded/decoded by serializers as "GIVE".
+    /// Encoded/decoded by serializers as &quot;GIVE&quot;.
     /// </summary>
     [EnumMember(Value = "GIVE")]
     [IsoId("_ZyxfpNp-Ed-ak6NoX_4Aeg_-1024421662")]
@@ -129,7 +129,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that originates an order.
-    /// Encoded/decoded by serializers as "ORDE".
+    /// Encoded/decoded by serializers as &quot;ORDE&quot;.
     /// </summary>
     [EnumMember(Value = "ORDE")]
     [IsoId("_Zyxfpdp-Ed-ak6NoX_4Aeg_-1024421147")]
@@ -138,7 +138,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party (member of an exchange)that is sponsoring an entering firm to send orders directly to the exchange.
-    /// Encoded/decoded by serializers as "SPON".
+    /// Encoded/decoded by serializers as &quot;SPON&quot;.
     /// </summary>
     [EnumMember(Value = "SPON")]
     [IsoId("_Zyxfptp-Ed-ak6NoX_4Aeg_-1024420388")]
@@ -147,7 +147,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party (broker) that settles security transactions from another broker for a fee = take up broker.
-    /// Encoded/decoded by serializers as "CLEA".
+    /// Encoded/decoded by serializers as &quot;CLEA&quot;.
     /// </summary>
     [EnumMember(Value = "CLEA")]
     [IsoId("_Zyxfp9p-Ed-ak6NoX_4Aeg_-1023496744")]
@@ -156,7 +156,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that can relay an order directly to the trading floor, or give clients direct access to the floor. The introducing firm delegates the work of the floor operation, trade execution and accounting.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_ZyxfqNp-Ed-ak6NoX_4Aeg_-1023496295")]
@@ -165,7 +165,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that has recorded or reported an execution of a trade. When an entering firm that is not a party to a trade enters the trade into a trade recording system, any inquiries can be directed to the appropriate source.
-    /// Encoded/decoded by serializers as "ENTE".
+    /// Encoded/decoded by serializers as &quot;ENTE&quot;.
     /// </summary>
     [EnumMember(Value = "ENTE")]
     [IsoId("_Zyxfqdp-Ed-ak6NoX_4Aeg_-1021651731")]
@@ -174,7 +174,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// A client is identified in third party-transactions or for investor in intermediary transactions.
-    /// Encoded/decoded by serializers as "CLIE".
+    /// Encoded/decoded by serializers as &quot;CLIE&quot;.
     /// </summary>
     [EnumMember(Value = "CLIE")]
     [IsoId("_Zy7QoNp-Ed-ak6NoX_4Aeg_-1014262432")]
@@ -183,7 +183,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Broker to which the investment manager directs the execution of a portion of the trade.
-    /// Encoded/decoded by serializers as "STEP".
+    /// Encoded/decoded by serializers as &quot;STEP&quot;.
     /// </summary>
     [EnumMember(Value = "STEP")]
     [IsoId("_Zy7Qodp-Ed-ak6NoX_4Aeg_-1014261982")]
@@ -192,7 +192,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.
-    /// Encoded/decoded by serializers as "AFFI".
+    /// Encoded/decoded by serializers as &quot;AFFI&quot;.
     /// </summary>
     [EnumMember(Value = "AFFI")]
     [IsoId("_Zy7Qotp-Ed-ak6NoX_4Aeg_-1014261476")]
@@ -201,7 +201,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party acting as the Electronic Trade Confirmation (ETC) service provider 1.
-    /// Encoded/decoded by serializers as "ETC1".
+    /// Encoded/decoded by serializers as &quot;ETC1&quot;.
     /// </summary>
     [EnumMember(Value = "ETC1")]
     [IsoId("_Zy7Qo9p-Ed-ak6NoX_4Aeg_-1013341055")]
@@ -210,7 +210,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party acting as the Electronic Trade Confirmation (ETC) service provider 2.
-    /// Encoded/decoded by serializers as "ETC2".
+    /// Encoded/decoded by serializers as &quot;ETC2&quot;.
     /// </summary>
     [EnumMember(Value = "ETC2")]
     [IsoId("_Zy7QpNp-Ed-ak6NoX_4Aeg_-1013340924")]
@@ -219,7 +219,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// In a directed order, broker with which the Receiver of the message is requested to execute the order.
-    /// Encoded/decoded by serializers as "RQBR".
+    /// Encoded/decoded by serializers as &quot;RQBR&quot;.
     /// </summary>
     [EnumMember(Value = "RQBR")]
     [IsoId("_Zy7Qpdp-Ed-ak6NoX_4Aeg_-1012416848")]
@@ -228,7 +228,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Tax authority.
-    /// Encoded/decoded by serializers as "TAXH".
+    /// Encoded/decoded by serializers as &quot;TAXH&quot;.
     /// </summary>
     [EnumMember(Value = "TAXH")]
     [IsoId("_TYnmcAEcEeCQm6a_G2yO_w_-621437721")]
@@ -237,7 +237,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party to whom the card issuer delegates to authorise card payment transactions.
-    /// Encoded/decoded by serializers as "DLIS".
+    /// Encoded/decoded by serializers as &quot;DLIS&quot;.
     /// </summary>
     [EnumMember(Value = "DLIS")]
     [IsoId("_TYxXcAEcEeCQm6a_G2yO_w_-1218908115")]
@@ -246,7 +246,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Point Of Interaction initiating the card payment transaction.
-    /// Encoded/decoded by serializers as "OPOI".
+    /// Encoded/decoded by serializers as &quot;OPOI&quot;.
     /// </summary>
     [EnumMember(Value = "OPOI")]
     [IsoId("_TYxXcQEcEeCQm6a_G2yO_w_-916133758")]
@@ -255,7 +255,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party that issues cards.
-    /// Encoded/decoded by serializers as "CISS".
+    /// Encoded/decoded by serializers as &quot;CISS&quot;.
     /// </summary>
     [EnumMember(Value = "CISS")]
     [IsoId("_TYxXcgEcEeCQm6a_G2yO_w_-1776979001")]
@@ -264,7 +264,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Card acceptor, party accepting the card and presenting transaction data to the acquirer.
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_TYxXcwEcEeCQm6a_G2yO_w_117452154")]
@@ -273,7 +273,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Merchant providing goods and service in the card payment transaction.
-    /// Encoded/decoded by serializers as "MERC".
+    /// Encoded/decoded by serializers as &quot;MERC&quot;.
     /// </summary>
     [EnumMember(Value = "MERC")]
     [IsoId("_TYxXdAEcEeCQm6a_G2yO_w_1818753336")]
@@ -282,7 +282,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity acquiring card transactions.
-    /// Encoded/decoded by serializers as "ACQR".
+    /// Encoded/decoded by serializers as &quot;ACQR&quot;.
     /// </summary>
     [EnumMember(Value = "ACQR")]
     [IsoId("_TYxXdQEcEeCQm6a_G2yO_w_1892959120")]
@@ -291,7 +291,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party acting on behalf of other parties to process or forward data to other parties.
-    /// Encoded/decoded by serializers as "ITAG".
+    /// Encoded/decoded by serializers as &quot;ITAG&quot;.
     /// </summary>
     [EnumMember(Value = "ITAG")]
     [IsoId("_TYxXdgEcEeCQm6a_G2yO_w_1528564891")]
@@ -300,7 +300,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Responsible for the maintenance of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "MTMG".
+    /// Encoded/decoded by serializers as &quot;MTMG&quot;.
     /// </summary>
     [EnumMember(Value = "MTMG")]
     [IsoId("_KY_d0H1DEeCF8NjrBemJWQ_1183753602")]
@@ -309,7 +309,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Responsible for one or several maintenance functions of a card payment acceptance terminal.
-    /// Encoded/decoded by serializers as "TMGT".
+    /// Encoded/decoded by serializers as &quot;TMGT&quot;.
     /// </summary>
     [EnumMember(Value = "TMGT")]
     [IsoId("_KY_d0X1DEeCF8NjrBemJWQ_-245946481")]
@@ -318,7 +318,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity providing acquiring card payment processing services on behalf on an acquirer.
-    /// Encoded/decoded by serializers as "ACQP".
+    /// Encoded/decoded by serializers as &quot;ACQP&quot;.
     /// </summary>
     [EnumMember(Value = "ACQP")]
     [IsoId("_fvWXsHrTEeSfJf8ETXpBxg")]
@@ -327,7 +327,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity providing issuing card payment processing services on behalf on an issuer.
-    /// Encoded/decoded by serializers as "CISP".
+    /// Encoded/decoded by serializers as &quot;CISP&quot;.
     /// </summary>
     [EnumMember(Value = "CISP")]
     [IsoId("_kx9V8HrTEeSfJf8ETXpBxg")]
@@ -336,7 +336,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity defining rules and procedures for card payment transactions acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "CSCH".
+    /// Encoded/decoded by serializers as &quot;CSCH&quot;.
     /// </summary>
     [EnumMember(Value = "CSCH")]
     [IsoId("_pRxJIHrTEeSfJf8ETXpBxg")]
@@ -345,7 +345,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity providing card payment processing services acting on behalf of a card scheme.
-    /// Encoded/decoded by serializers as "SCHP".
+    /// Encoded/decoded by serializers as &quot;SCHP&quot;.
     /// </summary>
     [EnumMember(Value = "SCHP")]
     [IsoId("_sMl7gHrTEeSfJf8ETXpBxg")]
@@ -354,7 +354,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity managing the ATM.
-    /// Encoded/decoded by serializers as "ATMG".
+    /// Encoded/decoded by serializers as &quot;ATMG&quot;.
     /// </summary>
     [EnumMember(Value = "ATMG")]
     [IsoId("_Jt4YsHrgEeSlsoBd7x4P6A")]
@@ -363,7 +363,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity hosting the ATM.
-    /// Encoded/decoded by serializers as "HSTG".
+    /// Encoded/decoded by serializers as &quot;HSTG&quot;.
     /// </summary>
     [EnumMember(Value = "HSTG")]
     [IsoId("_M-rbEHrgEeSlsoBd7x4P6A")]
@@ -372,7 +372,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// ATM initiating the transaction.
-    /// Encoded/decoded by serializers as "OATM".
+    /// Encoded/decoded by serializers as &quot;OATM&quot;.
     /// </summary>
     [EnumMember(Value = "OATM")]
     [IsoId("_Rs4PkHrgEeSlsoBd7x4P6A")]
@@ -381,7 +381,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Application on the terminal which has initiated the transaction.
-    /// Encoded/decoded by serializers as "OTRM".
+    /// Encoded/decoded by serializers as &quot;OTRM&quot;.
     /// </summary>
     [EnumMember(Value = "OTRM")]
     [IsoId("_oc6lUHtCEeSTS7uHCe8FPQ")]
@@ -390,7 +390,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Application in the smart card.
-    /// Encoded/decoded by serializers as "ICCA".
+    /// Encoded/decoded by serializers as &quot;ICCA&quot;.
     /// </summary>
     [EnumMember(Value = "ICCA")]
     [IsoId("_KFamcC6vEeWc7f-D6ByqMg")]
@@ -399,7 +399,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Configuration to apply to the whole POI system.
-    /// Encoded/decoded by serializers as "PSYS".
+    /// Encoded/decoded by serializers as &quot;PSYS&quot;.
     /// </summary>
     [EnumMember(Value = "PSYS")]
     [IsoId("_IXjGsI33EeWRwov1g9WL_A")]
@@ -408,7 +408,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Configuration to apply to a subset of the whole POI system.
-    /// Encoded/decoded by serializers as "PGRP".
+    /// Encoded/decoded by serializers as &quot;PGRP&quot;.
     /// </summary>
     [EnumMember(Value = "PGRP")]
     [IsoId("_MFDTMI33EeWRwov1g9WL_A")]
@@ -417,7 +417,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Configuration to apply to a single POI terminal.
-    /// Encoded/decoded by serializers as "PSNG".
+    /// Encoded/decoded by serializers as &quot;PSNG&quot;.
     /// </summary>
     [EnumMember(Value = "PSNG")]
     [IsoId("_PhmSkI33EeWRwov1g9WL_A")]
@@ -426,7 +426,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// The bank of the source account.
-    /// Encoded/decoded by serializers as "BKAF".
+    /// Encoded/decoded by serializers as &quot;BKAF&quot;.
     /// </summary>
     [EnumMember(Value = "BKAF")]
     [IsoId("_6dYsAK1-EeWMg5rOByfExw")]
@@ -435,7 +435,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// The bank of the destination account.
-    /// Encoded/decoded by serializers as "BKAT".
+    /// Encoded/decoded by serializers as &quot;BKAT&quot;.
     /// </summary>
     [EnumMember(Value = "BKAT")]
     [IsoId("_9pfboK1-EeWMg5rOByfExw")]
@@ -444,7 +444,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity providing card payment processing services acting as an intermediary between an acquirer and an issuer.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_dY4eW3yKEemHsOqJOzMVfg")]
@@ -453,7 +453,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Holder of a payment card.
-    /// Encoded/decoded by serializers as "CRDH".
+    /// Encoded/decoded by serializers as &quot;CRDH&quot;.
     /// </summary>
     [EnumMember(Value = "CRDH")]
     [IsoId("_dY4eXHyKEemHsOqJOzMVfg")]
@@ -462,7 +462,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Agent in charge of clearing payment or related transactions.
-    /// Encoded/decoded by serializers as "CLRA".
+    /// Encoded/decoded by serializers as &quot;CLRA&quot;.
     /// </summary>
     [EnumMember(Value = "CLRA")]
     [IsoId("_dY4eXXyKEemHsOqJOzMVfg")]
@@ -471,7 +471,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Government organisation investigation unit. 
-    /// Encoded/decoded by serializers as "GVIU".
+    /// Encoded/decoded by serializers as &quot;GVIU&quot;.
     /// </summary>
     [EnumMember(Value = "GVIU")]
     [IsoId("_dY4eXnyKEemHsOqJOzMVfg")]
@@ -480,7 +480,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Other card payment entity type defined at national level
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_dY4eX3yKEemHsOqJOzMVfg")]
@@ -489,7 +489,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Other card payment entity type defined at private level
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_dY4eYHyKEemHsOqJOzMVfg")]
@@ -498,7 +498,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Payment Initiation Service Provider (PISP)
-    /// Encoded/decoded by serializers as "PISP".
+    /// Encoded/decoded by serializers as &quot;PISP&quot;.
     /// </summary>
     [EnumMember(Value = "PISP")]
     [IsoId("_dY4eYXyKEemHsOqJOzMVfg")]
@@ -507,7 +507,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Entity provding payments services.
-    /// Encoded/decoded by serializers as "PASP".
+    /// Encoded/decoded by serializers as &quot;PASP&quot;.
     /// </summary>
     [EnumMember(Value = "PASP")]
     [IsoId("_dY4eYnyKEemHsOqJOzMVfg")]
@@ -516,7 +516,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Party in charge of controlling or supervising a card acceptance Point of Interaction
-    /// Encoded/decoded by serializers as "POOI".
+    /// Encoded/decoded by serializers as &quot;POOI&quot;.
     /// </summary>
     [EnumMember(Value = "POOI")]
     [IsoId("_dY4eY3yKEemHsOqJOzMVfg")]
@@ -525,7 +525,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Agent in charge of the settlement of a payment or related transaction.
-    /// Encoded/decoded by serializers as "SETA".
+    /// Encoded/decoded by serializers as &quot;SETA&quot;.
     /// </summary>
     [EnumMember(Value = "SETA")]
     [IsoId("_dY4eZHyKEemHsOqJOzMVfg")]
@@ -534,7 +534,7 @@ public enum PartyTypeCode
     
     /// <summary>
     /// Provider of an electronic wallet
-    /// Encoded/decoded by serializers as "WLPR".
+    /// Encoded/decoded by serializers as &quot;WLPR&quot;.
     /// </summary>
     [EnumMember(Value = "WLPR")]
     [IsoId("_dY4eZXyKEemHsOqJOzMVfg")]

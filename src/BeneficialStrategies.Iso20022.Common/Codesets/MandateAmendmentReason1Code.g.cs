@@ -21,7 +21,7 @@ public enum MandateAmendmentReason1Code
 {
     /// <summary>
     /// Agent details are incorrect or have changed.
-    /// Encoded/decoded by serializers as "AGNT".
+    /// Encoded/decoded by serializers as &quot;AGNT&quot;.
     /// </summary>
     [EnumMember(Value = "AGNT")]
     [IsoId("_afolqNp-Ed-ak6NoX_4Aeg_-1007530300")]
@@ -30,7 +30,7 @@ public enum MandateAmendmentReason1Code
     
     /// <summary>
     /// Currency for the mandate is incorrect or has changed.
-    /// Encoded/decoded by serializers as "CURR".
+    /// Encoded/decoded by serializers as &quot;CURR&quot;.
     /// </summary>
     [EnumMember(Value = "CURR")]
     [IsoId("_afxvkNp-Ed-ak6NoX_4Aeg_-909639032")]
@@ -39,7 +39,7 @@ public enum MandateAmendmentReason1Code
     
     /// <summary>
     /// Customer requested the change.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_afxvkdp-Ed-ak6NoX_4Aeg_-883779837")]
@@ -48,7 +48,7 @@ public enum MandateAmendmentReason1Code
     
     /// <summary>
     /// Account details are not correct.
-    /// Encoded/decoded by serializers as "ACCT".
+    /// Encoded/decoded by serializers as &quot;ACCT&quot;.
     /// </summary>
     [EnumMember(Value = "ACCT")]
     [IsoId("_afxvktp-Ed-ak6NoX_4Aeg_-639046895")]

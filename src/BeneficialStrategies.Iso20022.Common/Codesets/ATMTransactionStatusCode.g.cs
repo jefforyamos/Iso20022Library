@@ -21,7 +21,7 @@ public enum ATMTransactionStatusCode
 {
     /// <summary>
     /// Transaction was successfully completed.
-    /// Encoded/decoded by serializers as "SCSS".
+    /// Encoded/decoded by serializers as &quot;SCSS&quot;.
     /// </summary>
     [EnumMember(Value = "SCSS")]
     [IsoId("_H6TNcIqSEeSRT5rEzcAHEw")]
@@ -30,7 +30,7 @@ public enum ATMTransactionStatusCode
     
     /// <summary>
     /// Undetermined status, for instance possibly forgotten notes.
-    /// Encoded/decoded by serializers as "DOBT".
+    /// Encoded/decoded by serializers as &quot;DOBT&quot;.
     /// </summary>
     [EnumMember(Value = "DOBT")]
     [IsoId("_LT2jMIqSEeSRT5rEzcAHEw")]
@@ -39,7 +39,7 @@ public enum ATMTransactionStatusCode
     
     /// <summary>
     /// Transaction failed.
-    /// Encoded/decoded by serializers as "FAIL".
+    /// Encoded/decoded by serializers as &quot;FAIL&quot;.
     /// </summary>
     [EnumMember(Value = "FAIL")]
     [IsoId("_NcpbsIqSEeSRT5rEzcAHEw")]
@@ -48,7 +48,7 @@ public enum ATMTransactionStatusCode
     
     /// <summary>
     /// Total presented amount is equal to the amount to dispense.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_x4MLsIqSEeSRT5rEzcAHEw")]
@@ -57,7 +57,7 @@ public enum ATMTransactionStatusCode
     
     /// <summary>
     /// Total presented amount is lower than the amount to dispense.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_1AKpQIqSEeSRT5rEzcAHEw")]
@@ -66,7 +66,7 @@ public enum ATMTransactionStatusCode
     
     /// <summary>
     /// Total presented amount is equal to zero.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_29fRkIqSEeSRT5rEzcAHEw")]

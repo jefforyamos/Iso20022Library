@@ -21,7 +21,7 @@ public enum RejectionReason1Code
 {
     /// <summary>
     /// Instruction received after the account servicers specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_Zi1mMtp-Ed-ak6NoX_4Aeg_-219351513")]
@@ -30,7 +30,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_Zi1mM9p-Ed-ak6NoX_4Aeg_-192568846")]
@@ -39,7 +39,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_Zi1mNNp-Ed-ak6NoX_4Aeg_-126077469")]
@@ -48,7 +48,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Position is less than required threshold.
-    /// Encoded/decoded by serializers as "IPOS".
+    /// Encoded/decoded by serializers as &quot;IPOS&quot;.
     /// </summary>
     [EnumMember(Value = "IPOS")]
     [IsoId("_Zi1mNdp-Ed-ak6NoX_4Aeg_-106680134")]
@@ -57,7 +57,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Instructed position exceeds the eligible balance.
-    /// Encoded/decoded by serializers as "LACK".
+    /// Encoded/decoded by serializers as &quot;LACK&quot;.
     /// </summary>
     [EnumMember(Value = "LACK")]
     [IsoId("_Zi1mNtp-Ed-ak6NoX_4Aeg_646909701")]
@@ -66,7 +66,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Instruction contains an invalid or unrecognised safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_Zi1mN9p-Ed-ak6NoX_4Aeg_680157992")]
@@ -75,7 +75,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Issuer or Registrar has rejected the instruction.
-    /// Encoded/decoded by serializers as "RBIS".
+    /// Encoded/decoded by serializers as &quot;RBIS&quot;.
     /// </summary>
     [EnumMember(Value = "RBIS")]
     [IsoId("_Zi1mONp-Ed-ak6NoX_4Aeg_705093323")]
@@ -84,7 +84,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Unrecognised event number or identification (eg corporate action event number, a meeting identification).
-    /// Encoded/decoded by serializers as "EVNM".
+    /// Encoded/decoded by serializers as &quot;EVNM&quot;.
     /// </summary>
     [EnumMember(Value = "EVNM")]
     [IsoId("_Zi1mOdp-Ed-ak6NoX_4Aeg_766044307")]
@@ -93,7 +93,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Instruction contains an invalid message reference, reference is unknown.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("_Zi-wINp-Ed-ak6NoX_4Aeg_1032018093")]
@@ -102,7 +102,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Invalid proxy information.
-    /// Encoded/decoded by serializers as "PRXY".
+    /// Encoded/decoded by serializers as &quot;PRXY&quot;.
     /// </summary>
     [EnumMember(Value = "PRXY")]
     [IsoId("_Zi-wIdp-Ed-ak6NoX_4Aeg_1047717799")]
@@ -111,7 +111,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Partial voting is not allowed.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_Zi-wItp-Ed-ak6NoX_4Aeg_1068961790")]
@@ -120,7 +120,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Split voting is not allowed.
-    /// Encoded/decoded by serializers as "SPLT".
+    /// Encoded/decoded by serializers as &quot;SPLT&quot;.
     /// </summary>
     [EnumMember(Value = "SPLT")]
     [IsoId("_Zi-wI9p-Ed-ak6NoX_4Aeg_1080964521")]
@@ -129,7 +129,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Missing or invalid power of attorney.
-    /// Encoded/decoded by serializers as "IPOA".
+    /// Encoded/decoded by serializers as &quot;IPOA&quot;.
     /// </summary>
     [EnumMember(Value = "IPOA")]
     [IsoId("_Zi-wJNp-Ed-ak6NoX_4Aeg_1104977941")]
@@ -138,7 +138,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Invalid registration information.
-    /// Encoded/decoded by serializers as "IREG".
+    /// Encoded/decoded by serializers as &quot;IREG&quot;.
     /// </summary>
     [EnumMember(Value = "IREG")]
     [IsoId("_Zi-wJdp-Ed-ak6NoX_4Aeg_1667403767")]
@@ -147,7 +147,7 @@ public enum RejectionReason1Code
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_Zi-wJtp-Ed-ak6NoX_4Aeg_1926910316")]

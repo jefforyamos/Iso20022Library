@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Foreign Account Tax Compliance Act (FATCA) status information.
 /// </summary>
 [IsoId("_2joGwSCVEeWJd9HF2tO7BA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("FATCA Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record FATCAStatus2
     /// Foreign Account Tax Compliance Act (FATCA) status.
     /// </summary>
     [IsoId("_2_cgESCVEeWJd9HF2tO7BA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FATCAStatus2Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FATCAStatus2Choice_ Type { get; init; } 
+    public required FATCAStatus2Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FATCAStatus2Choice_ Type { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record FATCAStatus2
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status.
     /// </summary>
     [IsoId("_2_cgEyCVEeWJd9HF2tO7BA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Src")]
     #endif
+    [IsoXmlTag("Src")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FATCASource1Choice_? Source { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

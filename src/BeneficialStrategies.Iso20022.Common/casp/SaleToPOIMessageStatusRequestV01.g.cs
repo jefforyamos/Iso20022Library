@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.casp;
 /// </summary>
 [Description(@"A Message Status Request is sent by the Sale system when the sale system wants to know the status of previous message that has not be answered.")]
 [IsoId("_2ol5kYYCEemxIqbaFEE8-w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Sale To POI Message Status Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record SaleToPOIMessageStatusRequestV01 : IOuterRecord<SaleToPOIM
     /// Set of characteristics related to the transfer of the request.
     /// </summary>
     [IsoId("_2ol5k4YCEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header37 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header37 Header { get; init; } 
+    public required Header37 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header37 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record SaleToPOIMessageStatusRequestV01 : IOuterRecord<SaleToPOIM
     /// Information related to a status request.
     /// </summary>
     [IsoId("_2ol5lYYCEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Request")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsReq")]
     #endif
+    [IsoXmlTag("StsReq")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageStatusRequest2 StatusRequest { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageStatusRequest2 StatusRequest { get; init; } 
+    public required MessageStatusRequest2 StatusRequest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageStatusRequest2 StatusRequest { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record SaleToPOIMessageStatusRequestV01 : IOuterRecord<SaleToPOIM
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_2ol5l4YCEemxIqbaFEE8-w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType18? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record SaleToPOIMessageStatusRequestV01 : IOuterRecord<SaleToPOIM
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="SaleToPOIMessageStatusRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;SaleToPOIMessageStatusRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public SaleToPOIMessageStatusRequestV01Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record SaleToPOIMessageStatusRequestV01 : IOuterRecord<SaleToPOIM
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="SaleToPOIMessageStatusRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;SaleToPOIMessageStatusRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record SaleToPOIMessageStatusRequestV01Document : IOuterDocument<SaleToPOIMessageStatusRequestV01>
@@ -161,7 +156,7 @@ public partial record SaleToPOIMessageStatusRequestV01Document : IOuterDocument<
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="SaleToPOIMessageStatusRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;SaleToPOIMessageStatusRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SaleToPOIMessageStatusRequestV01 Message { get; init; }

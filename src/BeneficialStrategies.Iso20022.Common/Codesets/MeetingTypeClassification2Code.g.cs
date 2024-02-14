@@ -21,7 +21,7 @@ public enum MeetingTypeClassification2Code
 {
     /// <summary>
     /// Meeting held periodically to approve the financial statements and to elect the board members and the auditors.
-    /// Encoded/decoded by serializers as "AMET".
+    /// Encoded/decoded by serializers as &quot;AMET&quot;.
     /// </summary>
     [EnumMember(Value = "AMET")]
     [IsoId("_UKTYIa7NEemG7MmivSuE5g")]
@@ -30,7 +30,7 @@ public enum MeetingTypeClassification2Code
     
     /// <summary>
     /// Meeting for holders of a specific type of asset, for example, preferred shares, bonds.
-    /// Encoded/decoded by serializers as "CLAS".
+    /// Encoded/decoded by serializers as &quot;CLAS&quot;.
     /// </summary>
     [EnumMember(Value = "CLAS")]
     [IsoId("_UUa9cq7NEemG7MmivSuE5g")]
@@ -39,7 +39,7 @@ public enum MeetingTypeClassification2Code
     
     /// <summary>
     /// Meeting is the result of an obligation or a decision made by the issuer as opposed to voting rights holder initiated, for example, contested meeting.
-    /// Encoded/decoded by serializers as "ISSU".
+    /// Encoded/decoded by serializers as &quot;ISSU&quot;.
     /// </summary>
     [EnumMember(Value = "ISSU")]
     [IsoId("_UcdfIq7NEemG7MmivSuE5g")]
@@ -48,7 +48,7 @@ public enum MeetingTypeClassification2Code
     
     /// <summary>
     /// Meeting which is planned in the by-laws.
-    /// Encoded/decoded by serializers as "OMET".
+    /// Encoded/decoded by serializers as &quot;OMET&quot;.
     /// </summary>
     [EnumMember(Value = "OMET")]
     [IsoId("_Un6hMq7NEemG7MmivSuE5g")]
@@ -57,7 +57,7 @@ public enum MeetingTypeClassification2Code
     
     /// <summary>
     /// Meeting is the result of a request or an action of a voting right holder(s), for example, contested meeting.
-    /// Encoded/decoded by serializers as "VRHI".
+    /// Encoded/decoded by serializers as &quot;VRHI&quot;.
     /// </summary>
     [EnumMember(Value = "VRHI")]
     [IsoId("_UvzR4q7NEemG7MmivSuE5g")]

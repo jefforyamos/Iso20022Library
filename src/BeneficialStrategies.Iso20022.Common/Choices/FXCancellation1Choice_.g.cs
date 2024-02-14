@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FXCancellation1Choice.Indicator))]
     [KnownType(typeof(FXCancellation1Choice.Proprietary))]
     [IsoId("_QtVlIdp-Ed-ak6NoX_4Aeg_615585032")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("FX Cancellation 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

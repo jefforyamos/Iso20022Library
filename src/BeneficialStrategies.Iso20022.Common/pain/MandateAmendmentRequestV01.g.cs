@@ -39,9 +39,7 @@ namespace BeneficialStrategies.Iso20022.pain;
 /// </summary>
 [Description(@"Scope|The MandateAmendmentRequest message is sent by the initiator of the request to his agent and/or counterparty. The initiator can both be the debtor or the creditor (or where appropriate the debtor agent).|The MandateAmendmentRequest message is forwarded by the agent of the initiator to the agent of the counterparty.|A MandateAmendmentRequest message is used to request the amendment of specific information in an existing mandate. |The MandateAmendmentRequest message must reflect the new data of the element(s) to be amended and at a minimum a unique reference to the existing mandate. If accepted, this MandateAmendmentRequest message together with the MandateAcceptanceReport message confirming the acceptance will be considered as a valid amendment on an existing mandate, agreed upon by all parties. The amended mandate will from then on be considered the valid mandate.|Usage|The MandateAmendmentRequest message can contain only one request to amend one specific mandate.|The messages can be exchanged between creditor and creditor agent or debtor and debtor agent and between creditor agent and debtor agent.|The message can also be used by an initiating party that has authority to send the message on behalf of the creditor or debtor.|The MandateAmendmentRequest message can be used in domestic and cross-border scenarios.|If all elements in the existing Mandate need to be amended or the underlying contract is different, then the MandateAmendmentRequest message should not be used. The existing Mandate has to be cancelled and a new Mandate has to be initiated.")]
 [IsoId("_GX7CXtEvEd-BzquC8wXy7w_-355407990")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Mandate Amendment Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -85,16 +83,15 @@ public partial record MandateAmendmentRequestV01 : IOuterRecord<MandateAmendment
     /// Set of characteristics to identify the message and parties playing a role in the amendment of the mandate, but which are not part of the mandate.
     /// </summary>
     [IsoId("_GX7CX9EvEd-BzquC8wXy7w_65717989")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader31 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader31 GroupHeader { get; init; } 
+    public required GroupHeader31 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader31 GroupHeader { get; init; } 
     #else
@@ -105,16 +102,15 @@ public partial record MandateAmendmentRequestV01 : IOuterRecord<MandateAmendment
     /// Set of elements used to provide details on the amendment request.
     /// </summary>
     [IsoId("_GYEMQNEvEd-BzquC8wXy7w_-389718479")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Underlying Amendment Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UndrlygAmdmntDtls")]
     #endif
+    [IsoXmlTag("UndrlygAmdmntDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateAmendment1 UnderlyingAmendmentDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateAmendment1 UnderlyingAmendmentDetails { get; init; } 
+    public required MandateAmendment1 UnderlyingAmendmentDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateAmendment1 UnderlyingAmendmentDetails { get; init; } 
     #else
@@ -125,7 +121,7 @@ public partial record MandateAmendmentRequestV01 : IOuterRecord<MandateAmendment
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MandateAmendmentRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MandateAmendmentRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MandateAmendmentRequestV01Document ToDocument()
     {
@@ -135,7 +131,7 @@ public partial record MandateAmendmentRequestV01 : IOuterRecord<MandateAmendment
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MandateAmendmentRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MandateAmendmentRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MandateAmendmentRequestV01Document : IOuterDocument<MandateAmendmentRequestV01>
@@ -152,7 +148,7 @@ public partial record MandateAmendmentRequestV01Document : IOuterDocument<Mandat
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MandateAmendmentRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MandateAmendmentRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateAmendmentRequestV01 Message { get; init; }

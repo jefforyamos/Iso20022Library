@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Content of the Message status Response.
 /// </summary>
 [IsoId("_VigGkXIqEe299ZbWCkdR_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Message Status Response Data")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record MessageStatusResponseData7
     /// Identification of the requested previous message.
     /// </summary>
     [IsoId("_Vp02kXIqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("XchgId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ExchangeIdentification { get; init; } 
+    public required System.String ExchangeIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ExchangeIdentification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record MessageStatusResponseData7
     /// Party that has initiated the previous message.
     /// </summary>
     [IsoId("_Vp02k3IqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiating Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitgPty")]
     #endif
+    [IsoXmlTag("InitgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification177 InitiatingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification177 InitiatingParty { get; init; } 
+    public required GenericIdentification177 InitiatingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification177 InitiatingParty { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record MessageStatusResponseData7
     /// Specific response of the Repeated Message sent back by the POI System.
     /// </summary>
     [IsoId("_Vp02lXIqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRspn")]
     #endif
+    [IsoXmlTag("TxRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType11 TransactionResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType11 TransactionResponse { get; init; } 
+    public required ResponseType11 TransactionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType11 TransactionResponse { get; init; } 
     #else
@@ -116,12 +110,11 @@ public partial record MessageStatusResponseData7
     /// Content of the requested Loyalty Message Response.
     /// </summary>
     [IsoId("_Vp02l3IqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repeated Loyalty Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpeatdLltyRspn")]
     #endif
+    [IsoXmlTag("RpeatdLltyRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LoyaltyResponse3? RepeatedLoyaltyResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record MessageStatusResponseData7
     /// Content of the requested Payment Message Response.
     /// </summary>
     [IsoId("_Vp02mXIqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repeated Payment Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpeatdPmtRspn")]
     #endif
+    [IsoXmlTag("RpeatdPmtRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentResponse5? RepeatedPaymentResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record MessageStatusResponseData7
     /// Content of the requested Reversal Message Response.
     /// </summary>
     [IsoId("_Vp02m3IqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repeated Reversal Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpeatdRvslRspn")]
     #endif
+    [IsoXmlTag("RpeatdRvslRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReversalResponse7? RepeatedReversalResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record MessageStatusResponseData7
     /// Content of the requested StoredValue Message Response.
     /// </summary>
     [IsoId("_Vp02nXIqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repeated Stored Value Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpeatdStordValRspn")]
     #endif
+    [IsoXmlTag("RpeatdStordValRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StoredValueResponse6? RepeatedStoredValueResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record MessageStatusResponseData7
     /// Content of the requested CardAcquisition Message Response.
     /// </summary>
     [IsoId("_Vp02n3IqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repeated Card Acquisition Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpeatdCardAcqstnRspn")]
     #endif
+    [IsoXmlTag("RpeatdCardAcqstnRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardAcquisitionResponse3? RepeatedCardAcquisitionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record MessageStatusResponseData7
     /// Content of the requested SendApplicationProtocolDataUnitCardReader Message Response.
     /// </summary>
     [IsoId("_Vp02oXIqEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repeated Send Application Protocol Data Unit Card Reader Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RpeatdSndApplPrtcolDataUnitCardRdrRspn")]
     #endif
+    [IsoXmlTag("RpeatdSndApplPrtcolDataUnitCardRdrRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DeviceSendApplicationProtocolDataUnitCardReaderResponse1? RepeatedSendApplicationProtocolDataUnitCardReaderResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

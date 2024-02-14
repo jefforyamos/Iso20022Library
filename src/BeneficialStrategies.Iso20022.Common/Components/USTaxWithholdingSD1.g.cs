@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// US tax withholding election details.
 /// </summary>
 [IsoId("_1QsThTL3EeKU9IrkkToqcw_-215226807")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("US Tax Withholding SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record USTaxWithholdingSD1
     /// xPath to the element that is being extended.
     /// </summary>
     [IsoId("_1Q1dcDL3EeKU9IrkkToqcw_1602916505")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax350Text PlaceAndName { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String PlaceAndName { get; init; } 
+    public required System.String PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String PlaceAndName { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record USTaxWithholdingSD1
     /// Non resident alien (NRA) tax code. Each U.S. tax withholding eligible distribution must have a determination of the tax liability. This code is relevant to tax withholding and U.S. IRS reporting. Foreign securities also have an applicable tax code, but all foreign issues have one standard code.
     /// </summary>
     [IsoId("_1Q1dcTL3EeKU9IrkkToqcw_376906938")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("NRA Tax Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NRATaxCd")]
     #endif
+    [IsoXmlTag("NRATaxCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NRATax1Code NRATaxCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NRATax1Code NRATaxCode { get; init; } 
+    public required NRATax1Code NRATaxCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NRATax1Code NRATaxCode { get; init; } 
     #else
@@ -96,12 +91,11 @@ public partial record USTaxWithholdingSD1
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
     [IsoId("_1Q1dcjL3EeKU9IrkkToqcw_186825746")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Withholding Tax Rate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="WhldgTaxRate")]
     #endif
+    [IsoXmlTag("WhldgTaxRate")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RateFormat6Choice_? WithholdingTaxRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,16 +108,15 @@ public partial record USTaxWithholdingSD1
     /// Elected quantity per NRA tax code.
     /// </summary>
     [IsoId("_1Q1dczL3EeKU9IrkkToqcw_1269415764")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Qty")]
     #endif
+    [IsoXmlTag("Qty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #else

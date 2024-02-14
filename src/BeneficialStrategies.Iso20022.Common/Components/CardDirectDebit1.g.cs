@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Element containing all information needed for a card initiating direct debit.
 /// </summary>
 [IsoId("_sk2rwNprEeearpaEPXv9UA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Direct Debit")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,11 @@ public partial record CardDirectDebit1
     /// Information related to the debtor.
     /// </summary>
     [IsoId("_8npZ8NprEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Debtor Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DbtrId")]
     #endif
+    [IsoXmlTag("DbtrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Debtor3? DebtorIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -70,16 +67,15 @@ public partial record CardDirectDebit1
     /// Information related to the creditor.
     /// </summary>
     [IsoId("_Gz814NpsEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrId")]
     #endif
+    [IsoXmlTag("CdtrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Creditor3 CreditorIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Creditor3 CreditorIdentification { get; init; } 
+    public required Creditor3 CreditorIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Creditor3 CreditorIdentification { get; init; } 
     #else
@@ -90,16 +86,15 @@ public partial record CardDirectDebit1
     /// Provides further details of the mandate signed between the creditor and the debtor.
     /// </summary>
     [IsoId("_OPR_ANpsEeearpaEPXv9UA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mandate Related Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MndtRltdInf")]
     #endif
+    [IsoXmlTag("MndtRltdInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
+    public required MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
     #else

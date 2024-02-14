@@ -21,7 +21,7 @@ public enum VoteInstructionCode
 {
     /// <summary>
     /// Vote in favour of a meeting resolution.
-    /// Encoded/decoded by serializers as "CFOR".
+    /// Encoded/decoded by serializers as &quot;CFOR&quot;.
     /// </summary>
     [EnumMember(Value = "CFOR")]
     [IsoId("_Y9bzEtp-Ed-ak6NoX_4Aeg_1363718364")]
@@ -30,7 +30,7 @@ public enum VoteInstructionCode
     
     /// <summary>
     /// Vote against a meeting resolution.
-    /// Encoded/decoded by serializers as "CAGS".
+    /// Encoded/decoded by serializers as &quot;CAGS&quot;.
     /// </summary>
     [EnumMember(Value = "CAGS")]
     [IsoId("_Y9bzE9p-Ed-ak6NoX_4Aeg_1366490757")]
@@ -39,7 +39,7 @@ public enum VoteInstructionCode
     
     /// <summary>
     /// Active vote expressed as abstain (no opinion).
-    /// Encoded/decoded by serializers as "ABST".
+    /// Encoded/decoded by serializers as &quot;ABST&quot;.
     /// </summary>
     [EnumMember(Value = "ABST")]
     [IsoId("_Y9bzFNp-Ed-ak6NoX_4Aeg_1606604412")]
@@ -48,7 +48,7 @@ public enum VoteInstructionCode
     
     /// <summary>
     /// Participant to a meeting withholds its vote for a meeting resolution. This action is usually taken in order to indicate a strong disagreement with a resolution (US market).
-    /// Encoded/decoded by serializers as "WTHH".
+    /// Encoded/decoded by serializers as &quot;WTHH&quot;.
     /// </summary>
     [EnumMember(Value = "WTHH")]
     [IsoId("_Y9bzFdp-Ed-ak6NoX_4Aeg_1610301180")]
@@ -57,7 +57,7 @@ public enum VoteInstructionCode
     
     /// <summary>
     /// Vote instruction is in line with the voting recommendations of the management.
-    /// Encoded/decoded by serializers as "WMGT".
+    /// Encoded/decoded by serializers as &quot;WMGT&quot;.
     /// </summary>
     [EnumMember(Value = "WMGT")]
     [IsoId("_Y9bzFtp-Ed-ak6NoX_4Aeg_1613993530")]
@@ -66,7 +66,7 @@ public enum VoteInstructionCode
     
     /// <summary>
     /// Vote instruction is in against the voting recommendations of the management.
-    /// Encoded/decoded by serializers as "AMGT".
+    /// Encoded/decoded by serializers as &quot;AMGT&quot;.
     /// </summary>
     [EnumMember(Value = "AMGT")]
     [IsoId("_Y9bzF9p-Ed-ak6NoX_4Aeg_1623229081")]
@@ -75,7 +75,7 @@ public enum VoteInstructionCode
     
     /// <summary>
     /// Voting party is assigned discretionary right to vote for one resolution.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_Y9bzGNp-Ed-ak6NoX_4Aeg_985657770")]
@@ -84,7 +84,7 @@ public enum VoteInstructionCode
     
     /// <summary>
     /// Indicates a recommendation to take no action.
-    /// Encoded/decoded by serializers as "NOAC".
+    /// Encoded/decoded by serializers as &quot;NOAC&quot;.
     /// </summary>
     [EnumMember(Value = "NOAC")]
     [IsoId("_Y9k9ANp-Ed-ak6NoX_4Aeg_580576107")]
@@ -93,7 +93,7 @@ public enum VoteInstructionCode
     
     /// <summary>
     /// Specifies that the rights holder gives authority to the chairman to vote on his behalf.
-    /// Encoded/decoded by serializers as "CHRM".
+    /// Encoded/decoded by serializers as &quot;CHRM&quot;.
     /// </summary>
     [EnumMember(Value = "CHRM")]
     [IsoId("_Y9k9Adp-Ed-ak6NoX_4Aeg_1528124890")]
@@ -101,8 +101,8 @@ public enum VoteInstructionCode
     Chairman,
     
     /// <summary>
-    /// Vote in favour for one year for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "ONEY".
+    /// Vote in favour for one year for &quot;say on pay&quot; type of resolution.
+    /// Encoded/decoded by serializers as &quot;ONEY&quot;.
     /// </summary>
     [EnumMember(Value = "ONEY")]
     [IsoId("_PAnpsF69EeSjaerr_EM7AQ")]
@@ -110,8 +110,8 @@ public enum VoteInstructionCode
     OneYear,
     
     /// <summary>
-    /// Vote in favour for two years for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "TWOY".
+    /// Vote in favour for two years for &quot;say on pay&quot; type of resolution.
+    /// Encoded/decoded by serializers as &quot;TWOY&quot;.
     /// </summary>
     [EnumMember(Value = "TWOY")]
     [IsoId("_fxC58F69EeSjaerr_EM7AQ")]
@@ -119,8 +119,8 @@ public enum VoteInstructionCode
     TwoYears,
     
     /// <summary>
-    /// Vote in favour for three years for "say on pay" type of resolution.
-    /// Encoded/decoded by serializers as "THRY".
+    /// Vote in favour for three years for &quot;say on pay&quot; type of resolution.
+    /// Encoded/decoded by serializers as &quot;THRY&quot;.
     /// </summary>
     [EnumMember(Value = "THRY")]
     [IsoId("_kovosF69EeSjaerr_EM7AQ")]

@@ -15,6 +15,9 @@ public class DerivedFromAttribute : System.Attribute
 		DerivedFrom = derivedFromType;
 	}
 
+	/// <summary>
+	/// The type the adorned type is derived from.
+	/// </summary>
     public Type DerivedFrom { get; }
 }
 

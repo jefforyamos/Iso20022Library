@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"This FinancialSupervisedPartyIdentityReport message is sent by the competent institution to report parties used for the purpose of the local regulation.|")]
 [IsoId("_EUnq8PH0Eeaz_YGUGLjP6A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Financial Supervised Party Identity Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord<F
     /// Provides appropriate instructions to update or cancel information about a party in the scope of the local regulation.
     /// </summary>
     [IsoId("_DehT8fH1Eeaz_YGUGLjP6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Party Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PtyData")]
     #endif
+    [IsoXmlTag("PtyData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyReport1Choice_ PartyData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyReport1Choice_ PartyData { get; init; } 
+    public required PartyReport1Choice_ PartyData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyReport1Choice_ PartyData { get; init; } 
     #else
@@ -96,12 +93,11 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord<F
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_nAykQTbuEeeYhaZ6bvG1Xg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -114,7 +110,7 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord<F
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FinancialSupervisedPartyIdentityReportV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FinancialSupervisedPartyIdentityReportV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FinancialSupervisedPartyIdentityReportV01Document ToDocument()
     {
@@ -124,7 +120,7 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord<F
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FinancialSupervisedPartyIdentityReportV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FinancialSupervisedPartyIdentityReportV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FinancialSupervisedPartyIdentityReportV01Document : IOuterDocument<FinancialSupervisedPartyIdentityReportV01>
@@ -141,7 +137,7 @@ public partial record FinancialSupervisedPartyIdentityReportV01Document : IOuter
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FinancialSupervisedPartyIdentityReportV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FinancialSupervisedPartyIdentityReportV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialSupervisedPartyIdentityReportV01 Message { get; init; }

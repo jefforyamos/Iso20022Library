@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingRequirement2Choice
     /// Specifies categories of statuses of a derivative when there is no reporting requirement for both counterparties.
     /// </summary>
     [IsoId("_IVUQM155Ee2a_-MvhEjKmA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("No Reporting Requirement")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingRequirement2Choice
         /// Indicator of derivative reopening, terminated or cancelled by mistake.
         /// </summary>
         [IsoId("_yfOdmT6CEe2Z1_pdMHu4SA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Revived")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rvvd")]
         #endif
+        [IsoXmlTag("Rvvd")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoYesNoIndicator Revived { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Revived { get; init; } 
+        public required System.String Revived { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Revived { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingRequirement2Choice
         /// Indicator of modification to the terms or details of a previously reported derivative, at a trade or position level, but not a correction of a report.
         /// </summary>
         [IsoId("_yfOdmz6CEe2Z1_pdMHu4SA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Further Modification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrthrMod")]
         #endif
+        [IsoXmlTag("FrthrMod")]
+        [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoYesNoIndicator FurtherModification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String FurtherModification { get; init; } 
+        public required System.String FurtherModification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String FurtherModification { get; init; } 
         #else

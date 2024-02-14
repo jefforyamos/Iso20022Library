@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ErrorHandling1Choice
     /// Specification of the error, in coded form.
     /// </summary>
     [IsoId("_RZI7Mtp-Ed-ak6NoX_4Aeg_-632950580")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ErrorHandling1Choice
         /// Error codes generated when the response to a query exceeds the maximum size or the data is not available.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ErrorHandling1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ErrorHandling1Code Value { get; init; } 
+        public required ErrorHandling1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ErrorHandling1Code Value { get; init; } 
         #else

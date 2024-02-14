@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the transactions in the report.
 /// </summary>
 [IsoId("_ZMt4zTneEem7JZMuWtwtsg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Balance Posting")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record IntraBalancePosting5
     /// Balance from which the amount of money is moved.
     /// </summary>
     [IsoId("_ZXSw4TneEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Balance From")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BalFr")]
     #endif
+    [IsoXmlTag("BalFr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
+    public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record IntraBalancePosting5
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
     [IsoId("_ZXSw6TneEem7JZMuWtwtsg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Movement")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Mvmnt")]
     #endif
+    [IsoXmlTag("Mvmnt")]
     public IntraBalancePosting6? Movement { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _ZXSw6TneEem7JZMuWtwtsg
     

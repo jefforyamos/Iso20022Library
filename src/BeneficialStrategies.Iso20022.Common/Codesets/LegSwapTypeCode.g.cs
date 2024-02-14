@@ -21,7 +21,7 @@ public enum LegSwapTypeCode
 {
     /// <summary>
     /// Type of leg involved in a swap whose purpose is to exchange principal.
-    /// Encoded/decoded by serializers as "PFPR".
+    /// Encoded/decoded by serializers as &quot;PFPR&quot;.
     /// </summary>
     [EnumMember(Value = "PFPR")]
     [IsoId("_aeSh19p-Ed-ak6NoX_4Aeg_336256660")]
@@ -30,7 +30,7 @@ public enum LegSwapTypeCode
     
     /// <summary>
     /// Type of leg involved in a swap whose purpose is to exchange price volatility.
-    /// Encoded/decoded by serializers as "MODU".
+    /// Encoded/decoded by serializers as &quot;MODU&quot;.
     /// </summary>
     [EnumMember(Value = "MODU")]
     [IsoId("_aeSh2Np-Ed-ak6NoX_4Aeg_336256661")]
@@ -39,7 +39,7 @@ public enum LegSwapTypeCode
     
     /// <summary>
     /// Type of leg involved in a swap whose purpose is to increase the credit quality and reduce the default risk. Also known as quality swap.
-    /// Encoded/decoded by serializers as "RISK".
+    /// Encoded/decoded by serializers as &quot;RISK&quot;.
     /// </summary>
     [EnumMember(Value = "RISK")]
     [IsoId("_aecS0Np-Ed-ak6NoX_4Aeg_336256662")]
@@ -48,7 +48,7 @@ public enum LegSwapTypeCode
     
     /// <summary>
     /// Type of leg involved in a swap structured in the sale of a financial instrument and the simultaneous purchase of another instrument with the proceeds from the sale.
-    /// Encoded/decoded by serializers as "PRCD".
+    /// Encoded/decoded by serializers as &quot;PRCD&quot;.
     /// </summary>
     [EnumMember(Value = "PRCD")]
     [IsoId("_aecS0dp-Ed-ak6NoX_4Aeg_336256663")]

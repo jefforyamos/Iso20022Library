@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketClaimCancellationRequestStatus1Choice.PendingCancellation))]
     [KnownType(typeof(MarketClaimCancellationRequestStatus1Choice.ProprietaryStatus))]
     [IsoId("_1TcqZtx4EeqESbVR5AloZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Claim Cancellation Request Status 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

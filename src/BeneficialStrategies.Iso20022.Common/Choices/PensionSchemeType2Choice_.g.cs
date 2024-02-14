@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PensionSchemeType2Choice.Code))]
     [KnownType(typeof(PensionSchemeType2Choice.Proprietary))]
     [IsoId("_CELmwTOUEeqLMcD_sEa8Xw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pension Scheme Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

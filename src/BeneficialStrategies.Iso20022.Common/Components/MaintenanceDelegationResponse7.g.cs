@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the request of maintenance delegations.
 /// </summary>
 [IsoId("_t9XGkXJkEe299ZbWCkdR_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Maintenance Delegation Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record MaintenanceDelegationResponse7
     /// Terminal manager identification.
     /// </summary>
     [IsoId("_uDx3oXJkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMId")]
     #endif
+    [IsoXmlTag("TMId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification176 TMIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification176 TMIdentification { get; init; } 
+    public required GenericIdentification176 TMIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification176 TMIdentification { get; init; } 
     #else
@@ -73,12 +70,11 @@ public partial record MaintenanceDelegationResponse7
     /// Master terminal manager identification.
     /// </summary>
     [IsoId("_uDx3o3JkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Master TM Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MstrTMId")]
     #endif
+    [IsoXmlTag("MstrTMId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification176? MasterTMIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -91,16 +87,16 @@ public partial record MaintenanceDelegationResponse7
     /// Date and Time of the TMS.
     /// </summary>
     [IsoId("_WZpIIHJlEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMDtTm")]
     #endif
+    [IsoXmlTag("TMDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TMDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TMDateTime { get; init; } 
+    public required System.DateTime TMDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TMDateTime { get; init; } 
     #else
@@ -111,16 +107,16 @@ public partial record MaintenanceDelegationResponse7
     /// Challenge value sends by the POI to be received back in a message response.
     /// </summary>
     [IsoId("_C0kwkHJmEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Challenge Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMChllngVal")]
     #endif
+    [IsoXmlTag("TMChllngVal")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Binary TMChallengeValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] TMChallengeValue { get; init; } 
+    public required System.Byte[] TMChallengeValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] TMChallengeValue { get; init; } 
     #else
@@ -131,12 +127,11 @@ public partial record MaintenanceDelegationResponse7
     /// Information on the delegation of a maintenance action.
     /// </summary>
     [IsoId("_uDx3pXJkEe299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Delegation Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DlgtnRspn")]
     #endif
+    [IsoXmlTag("DlgtnRspn")]
     public MaintenanceDelegation16? DelegationResponse { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _uDx3pXJkEe299ZbWCkdR_w
     

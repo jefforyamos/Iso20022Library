@@ -22,7 +22,7 @@ public enum ExternalInformationTypeCode
 {
     /// <summary>
     /// Instructions used to ease automatic request processing.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_uIbmQPRYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalInformationTypeCode
     
     /// <summary>
     /// Additional information not otherwise specified.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_uIbmQ_RYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalInformationTypeCode
     
     /// <summary>
     /// Instructions used to ease automatic request relay.
-    /// Encoded/decoded by serializers as "RELY".
+    /// Encoded/decoded by serializers as &quot;RELY&quot;.
     /// </summary>
     [EnumMember(Value = "RELY")]
     [IsoId("_uIbmRvRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalInformationTypeCode
     
     /// <summary>
     /// Additional shipping information not otherwise specified.
-    /// Encoded/decoded by serializers as "SHPG".
+    /// Encoded/decoded by serializers as &quot;SHPG&quot;.
     /// </summary>
     [EnumMember(Value = "SHPG")]
     [IsoId("_uIlXQPRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalInformationTypeCode
     
     /// <summary>
     /// Information concerning the letters, numbers or other symbols placed on the outside of cargo to facilitate identification.
-    /// Encoded/decoded by serializers as "SHPM".
+    /// Encoded/decoded by serializers as &quot;SHPM&quot;.
     /// </summary>
     [EnumMember(Value = "SHPM")]
     [IsoId("_uIlXQ_RYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalInformationTypeCode
     
     /// <summary>
     /// Information concerning the domicile location of the seller.
-    /// Encoded/decoded by serializers as "SLDC".
+    /// Encoded/decoded by serializers as &quot;SLDC&quot;.
     /// </summary>
     [EnumMember(Value = "SLDC")]
     [IsoId("_uIlXRvRYEeuLhpyIdtJzwg")]

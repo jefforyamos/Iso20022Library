@@ -21,7 +21,7 @@ public enum TypeOfAmount9Code
 {
     /// <summary>
     /// Actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.
-    /// Encoded/decoded by serializers as "CONF".
+    /// Encoded/decoded by serializers as &quot;CONF&quot;.
     /// </summary>
     [EnumMember(Value = "CONF")]
     [IsoId("_hQXZYaHjEeagRbKvRt3LnA")]
@@ -31,7 +31,7 @@ public enum TypeOfAmount9Code
     /// <summary>
     /// Amount of money to be moved between the debtor (ordering customer) and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_jbtPkqHjEeagRbKvRt3LnA")]

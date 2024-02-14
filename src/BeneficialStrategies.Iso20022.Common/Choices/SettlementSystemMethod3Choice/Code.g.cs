@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementSystemMethod3Choice
     /// Settlement system expressed as an ISO 20022 code.
     /// </summary>
     [IsoId("_AZQqAtokEeC60axPepSq7g_1835562004")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementSystemMethod3Choice
         /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required SettlementSystemMethod1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public SettlementSystemMethod1Code Value { get; init; } 
+        public required SettlementSystemMethod1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public SettlementSystemMethod1Code Value { get; init; } 
         #else

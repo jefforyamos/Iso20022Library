@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information about the collateral valuation such as the collateral amount, the market value.
 /// </summary>
 [IsoId("_vWhlQ6MOEeCojJW5vEuTEQ_1855607436")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Collateral Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,16 @@ public partial record CollateralAmount1
     /// Specifies the total amount of the collateral in the collateral currency.
     /// </summary>
     [IsoId("_vWhlRKMOEeCojJW5vEuTEQ_14047154")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollAmt")]
     #endif
+    [IsoXmlTag("CollAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount CollateralAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal CollateralAmount { get; init; } 
+    public required System.Decimal CollateralAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal CollateralAmount { get; init; } 
     #else
@@ -73,16 +71,16 @@ public partial record CollateralAmount1
     /// Specifies the total amount of the collateral in the reporting currency.
     /// </summary>
     [IsoId("_vWhlRaMOEeCojJW5vEuTEQ_-838505809")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reported Currency And Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptdCcyAndAmt")]
     #endif
+    [IsoXmlTag("RptdCcyAndAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount ReportedCurrencyAndAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal ReportedCurrencyAndAmount { get; init; } 
+    public required System.Decimal ReportedCurrencyAndAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal ReportedCurrencyAndAmount { get; init; } 
     #else
@@ -93,16 +91,16 @@ public partial record CollateralAmount1
     /// Specifies the total market to market value of the collateral in the reporting currency. It is the dirty price, that is, the accrued interest is included if any.
     /// </summary>
     [IsoId("_vWhlRqMOEeCojJW5vEuTEQ_-509144164")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Value Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MktValAmt")]
     #endif
+    [IsoXmlTag("MktValAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount MarketValueAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal MarketValueAmount { get; init; } 
+    public required System.Decimal MarketValueAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal MarketValueAmount { get; init; } 
     #else
@@ -113,12 +111,12 @@ public partial record CollateralAmount1
     /// Specifies the accrued interest on the value of the collateral in the currency of the collateral.
     /// </summary>
     [IsoId("_vWhlR6MOEeCojJW5vEuTEQ_2039101812")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accrued Interest Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AcrdIntrstAmt")]
     #endif
+    [IsoXmlTag("AcrdIntrstAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +129,12 @@ public partial record CollateralAmount1
     /// Specifies the amount of money paid for the provision of financial services.
     /// </summary>
     [IsoId("_vWqvMKMOEeCojJW5vEuTEQ_-1928237919")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fees And Commissions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FeesAndComssns")]
     #endif
+    [IsoXmlTag("FeesAndComssns")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? FeesAndCommissions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

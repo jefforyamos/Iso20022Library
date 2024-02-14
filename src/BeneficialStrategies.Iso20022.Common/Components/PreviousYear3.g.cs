@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
 /// </summary>
 [IsoId("_jl0BAEj2EeG0Lek-7i1x-A_1558311877")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Previous Year")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PreviousYear3
     /// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
     /// </summary>
     [IsoId("_jl0BAUj2EeG0Lek-7i1x-A_-1651304524")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Year")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsYr")]
     #endif
+    [IsoXmlTag("PrvsYr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PreviousYear1Choice_ PreviousYear { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PreviousYear1Choice_ PreviousYear { get; init; } 
+    public required PreviousYear1Choice_ PreviousYear { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PreviousYear1Choice_ PreviousYear { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record PreviousYear3
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
     [IsoId("_jl9yAEj2EeG0Lek-7i1x-A_982439671")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Component Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CshCmpntInd")]
     #endif
+    [IsoXmlTag("CshCmpntInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String CashComponentIndicator { get; init; } 
+    public required System.String CashComponentIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String CashComponentIndicator { get; init; } 
     #else

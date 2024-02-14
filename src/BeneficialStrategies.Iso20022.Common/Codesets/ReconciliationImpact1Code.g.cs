@@ -21,7 +21,7 @@ public enum ReconciliationImpact1Code
 {
     /// <summary>
     /// Debit category
-    /// Encoded/decoded by serializers as "DEBT".
+    /// Encoded/decoded by serializers as &quot;DEBT&quot;.
     /// </summary>
     [EnumMember(Value = "DEBT")]
     [IsoId("__1Z-cS7OEemIy6A-26wnAg")]
@@ -30,7 +30,7 @@ public enum ReconciliationImpact1Code
     
     /// <summary>
     /// Credit category
-    /// Encoded/decoded by serializers as "CRDT".
+    /// Encoded/decoded by serializers as &quot;CRDT&quot;.
     /// </summary>
     [EnumMember(Value = "CRDT")]
     [IsoId("__5E9gS7OEemIy6A-26wnAg")]

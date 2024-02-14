@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains the details on the payment transaction.
 /// </summary>
 [IsoId("_j2uCAIaFEeiMm4lwapNmDA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,16 @@ public partial record PaymentTransaction101
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
     [IsoId("_LXDOIYaFEeiMm4lwapNmDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("UETR")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UETR")]
     #endif
+    [IsoXmlTag("UETR")]
+    [IsoSimpleType(IsoSimpleType.UUIDv4Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoUUIDv4Identifier UETR { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String UETR { get; init; } 
+    public required System.String UETR { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String UETR { get; init; } 
     #else
@@ -74,16 +72,15 @@ public partial record PaymentTransaction101
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
     [IsoId("_LXDOIoaFEeiMm4lwapNmDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentStatus5 TransactionStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentStatus5 TransactionStatus { get; init; } 
+    public required PaymentStatus5 TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentStatus5 TransactionStatus { get; init; } 
     #else
@@ -94,12 +91,11 @@ public partial record PaymentTransaction101
     /// Provides details on the status of the cancellation of a payment transaction.
     /// </summary>
     [IsoId("_LXDOI4aFEeiMm4lwapNmDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlSts")]
     #endif
+    [IsoXmlTag("CxlSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransactionCancellationStatus1? CancellationStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,16 +108,16 @@ public partial record PaymentTransaction101
     /// Specifies date and time at which the message enters the tracking system (for example gpi).
     /// </summary>
     [IsoId("_LXDOJIaFEeiMm4lwapNmDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Initiation Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InitnTm")]
     #endif
+    [IsoXmlTag("InitnTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime InitiationTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime InitiationTime { get; init; } 
+    public required System.DateTime InitiationTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime InitiationTime { get; init; } 
     #else
@@ -134,12 +130,12 @@ public partial record PaymentTransaction101
     /// Date and time based on the creation date of the status confirmation containing a final status ACSC
     /// </summary>
     [IsoId("_LXDOJYaFEeiMm4lwapNmDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Completion Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CmpltnTm")]
     #endif
+    [IsoXmlTag("CmpltnTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODateTime? CompletionTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,16 +148,16 @@ public partial record PaymentTransaction101
     /// Specifies last date and time at which the status of this transaction was updated.
     /// </summary>
     [IsoId("_LXDOJoaFEeiMm4lwapNmDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Last Update Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LastUpdTm")]
     #endif
+    [IsoXmlTag("LastUpdTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime LastUpdateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime LastUpdateTime { get; init; } 
+    public required System.DateTime LastUpdateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime LastUpdateTime { get; init; } 
     #else
@@ -172,12 +168,11 @@ public partial record PaymentTransaction101
     /// Groups the information of an event, namely of a payment message or status confirmation update. It is repeated as many times as there are events to be returned.
     /// </summary>
     [IsoId("_LXDOJ4aFEeiMm4lwapNmDA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtEvt")]
     #endif
+    [IsoXmlTag("PmtEvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentEvent7? PaymentEvent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.seev;
 /// </summary>
 [Description(@"Scope|The Receiver of the MeetingInstruction or MeetingInstructionCancellationRequest sends the MeetingInstructionStatus message to the Sender of these messages.|The message gives the status of a complete message or of one or more specific instructions within the message.|Usage|The MeetingInstructionStatus message is used for four purposes.|First, it provides the status on the processing of a MeetingInstructionCancellationRequest message, for example, whether the request message is rejected or accepted.|Second, it is used to provide a global processing or rejection status of a MeetingInstruction message.|Third, it is used to provide a detailed processing or rejection status of a MeetingInstruction message, for example, for each instruction in the MeetingInstruction message the processing or rejection status is individually reported by using the InstructionIdentification element. This identification allows the receiver of the status message to link the status confirmation to its original instruction.|The blocking of securities should be confirmed via an MT 508 (Intra-Position Advice).|Fourth, it is used as a reminder to request voting instructions. This is done by indicating NONREF in the Identification element of the InstructionIdentification component and by using the status code NotReceived in the ProcessingStatus.|This message definition is intended for use with the Business Application Header.")]
 [IsoId("_xDAOO1tcEeSwKe7KuKvXhg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting Instruction Status V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -88,16 +86,15 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord<MeetingInstruct
     /// Type of instruction.
     /// </summary>
     [IsoId("_xDAORVtcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrTp")]
     #endif
+    [IsoXmlTag("InstrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstructionType1Choice_ InstructionType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstructionType1Choice_ InstructionType { get; init; } 
+    public required InstructionType1Choice_ InstructionType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstructionType1Choice_ InstructionType { get; init; } 
     #else
@@ -108,16 +105,15 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord<MeetingInstruct
     /// Series of elements which allow to identify a meeting.
     /// </summary>
     [IsoId("_xDAOR1tcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MtgRef")]
     #endif
+    [IsoXmlTag("MtgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingReference7 MeetingReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MeetingReference7 MeetingReference { get; init; } 
+    public required MeetingReference7 MeetingReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MeetingReference7 MeetingReference { get; init; } 
     #else
@@ -128,16 +124,15 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord<MeetingInstruct
     /// Identifies the securities for which the meeting is organised.
     /// </summary>
     [IsoId("_xDAOS1tcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
+    public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     #else
@@ -148,16 +143,15 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord<MeetingInstruct
     /// Type of instruction status.
     /// </summary>
     [IsoId("_xDAOTVtcEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instruction Type Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstrTpSts")]
     #endif
+    [IsoXmlTag("InstrTpSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InstructionTypeStatus2Choice_ InstructionTypeStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InstructionTypeStatus2Choice_ InstructionTypeStatus { get; init; } 
+    public required InstructionTypeStatus2Choice_ InstructionTypeStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InstructionTypeStatus2Choice_ InstructionTypeStatus { get; init; } 
     #else
@@ -168,12 +162,11 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord<MeetingInstruct
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_sMzdoVtoEeSwKe7KuKvXhg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -186,7 +179,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord<MeetingInstruct
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="MeetingInstructionStatusV05Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;MeetingInstructionStatusV05Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public MeetingInstructionStatusV05Document ToDocument()
     {
@@ -196,7 +189,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord<MeetingInstruct
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="MeetingInstructionStatusV05"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;MeetingInstructionStatusV05&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record MeetingInstructionStatusV05Document : IOuterDocument<MeetingInstructionStatusV05>
@@ -213,7 +206,7 @@ public partial record MeetingInstructionStatusV05Document : IOuterDocument<Meeti
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="MeetingInstructionStatusV05"/> is required.
+    /// The instance of &lt;seealso cref=&quot;MeetingInstructionStatusV05&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MeetingInstructionStatusV05 Message { get; init; }

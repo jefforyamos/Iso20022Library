@@ -21,7 +21,7 @@ public enum SettlementSystemMethodCode
 {
     /// <summary>
     /// Settle through the default settlement system/method. If there is a standing instruction in place for settlement through the alternate settlement system/method, then this standing instruction is to be ignored.
-    /// Encoded/decoded by serializers as "NSET".
+    /// Encoded/decoded by serializers as &quot;NSET&quot;.
     /// </summary>
     [EnumMember(Value = "NSET")]
     [IsoId("_ZMx2o9p-Ed-ak6NoX_4Aeg_-1474296533")]
@@ -30,7 +30,7 @@ public enum SettlementSystemMethodCode
     
     /// <summary>
     /// Settle through the alternate settlement system/method. If there is a standing instruction in place for settlement through the default settlement system/method, then this standing instruction is to be ignored.
-    /// Encoded/decoded by serializers as "YSET".
+    /// Encoded/decoded by serializers as &quot;YSET&quot;.
     /// </summary>
     [EnumMember(Value = "YSET")]
     [IsoId("_ZMx2pNp-Ed-ak6NoX_4Aeg_-1474296525")]

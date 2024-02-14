@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesBalanceType1Choice.Structured))]
     [KnownType(typeof(SecuritiesBalanceType1Choice.Unstructured))]
     [IsoId("_U11Ehdp-Ed-ak6NoX_4Aeg_-710964651")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Balance Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShareRanking1FormatChoice
     /// Standard code to specify the share ranking.
     /// </summary>
     [IsoId("_Ro8RxNp-Ed-ak6NoX_4Aeg_1569147900")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ShareRanking1FormatChoice
         /// Specifies whether the shares are ranking for dividend or pari passu.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ShareRanking1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ShareRanking1Code Value { get; init; } 
+        public required ShareRanking1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ShareRanking1Code Value { get; init; } 
         #else

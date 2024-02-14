@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the Invoice tax status report header details.
 /// </summary>
 [IsoId("_I_Tr4U52Eeaine-lsNAGsA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Invoice Tax Status Report Header")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record InvoiceTaxStatusReportHeader1
     /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
     /// </summary>
     [IsoId("_6iFdwGqXEea_XZixF5unWQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxAuthrty")]
     #endif
+    [IsoXmlTag("TaxAuthrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxOrganisationIdentification1? TaxAuthority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,16 +68,15 @@ public partial record InvoiceTaxStatusReportHeader1
     /// Identifies the InvoiceTaxReportStatusAdvice message.
     /// </summary>
     [IsoId("_bLfvgE52Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -91,16 +87,15 @@ public partial record InvoiceTaxStatusReportHeader1
     /// Reference to the identification of the InvoiceTaxReport message.
     /// </summary>
     [IsoId("_W1dt8E53Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlMsgId")]
     #endif
+    [IsoXmlTag("OrgnlMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 OriginalMessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 OriginalMessageIdentification { get; init; } 
+    public required MessageIdentification1 OriginalMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 OriginalMessageIdentification { get; init; } 
     #else
@@ -111,16 +106,15 @@ public partial record InvoiceTaxStatusReportHeader1
     /// Provides the status for the full report.
     /// </summary>
     [IsoId("_JIHClU52Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSts")]
     #endif
+    [IsoXmlTag("RptSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxReportingStatus1Code ReportStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxReportingStatus1Code ReportStatus { get; init; } 
+    public required TaxReportingStatus1Code ReportStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxReportingStatus1Code ReportStatus { get; init; } 
     #else
@@ -131,12 +125,11 @@ public partial record InvoiceTaxStatusReportHeader1
     /// Provides the details of the rule which could not be validated.
     /// </summary>
     [IsoId("_JIHCl052Eeaine-lsNAGsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validation Rule")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtnRule")]
     #endif
+    [IsoXmlTag("VldtnRule")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericValidationRuleIdentification1? ValidationRule { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

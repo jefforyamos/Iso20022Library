@@ -21,7 +21,7 @@ public enum MarketClientSideCode
 {
     /// <summary>
     /// Instruction is for a market side transaction.
-    /// Encoded/decoded by serializers as "MAKT".
+    /// Encoded/decoded by serializers as &quot;MAKT&quot;.
     /// </summary>
     [EnumMember(Value = "MAKT")]
     [IsoId("_aUTfYtp-Ed-ak6NoX_4Aeg_263219665")]
@@ -30,7 +30,7 @@ public enum MarketClientSideCode
     
     /// <summary>
     /// Instruction is for a client side transaction.
-    /// Encoded/decoded by serializers as "CLNT".
+    /// Encoded/decoded by serializers as &quot;CLNT&quot;.
     /// </summary>
     [EnumMember(Value = "CLNT")]
     [IsoId("_aUTfY9p-Ed-ak6NoX_4Aeg_550432167")]

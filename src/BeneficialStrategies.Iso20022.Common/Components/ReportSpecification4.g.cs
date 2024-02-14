@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the parameters for which a transaction report must be generated.
 /// </summary>
 [IsoId("_PcRl4dp-Ed-ak6NoX_4Aeg_1375759875")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Specification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,15 +42,13 @@ public partial record ReportSpecification4
     /// Unique identification assigned by the matching application to a transaction, for which the matching application must generate a report.
     /// </summary>
     [IsoId("_PcRl4tp-Ed-ak6NoX_4Aeg_1375759877")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TxId")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? TransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -65,12 +61,11 @@ public partial record ReportSpecification4
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
     [IsoId("_PcRl49p-Ed-ak6NoX_4Aeg_-9261587")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxSts")]
     #endif
+    [IsoXmlTag("TxSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionStatus4? TransactionStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +78,13 @@ public partial record ReportSpecification4
     /// Reference to the identification of a transaction of a user, for which the matching application must generate a report.
     /// </summary>
     [IsoId("_PcRl5Np-Ed-ak6NoX_4Aeg_1375760307")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitter Transaction Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitrTxRef")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SubmitrTxRef")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SubmitterTransactionReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,12 +97,11 @@ public partial record ReportSpecification4
     /// Specifies a list of entities for which the matching application must generate a report.
     /// </summary>
     [IsoId("_PcRl5dp-Ed-ak6NoX_4Aeg_1383145049")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Entities To Be Reported")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NttiesToBeRptd")]
     #endif
+    [IsoXmlTag("NttiesToBeRptd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BICIdentification1? EntitiesToBeReported { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -122,12 +114,11 @@ public partial record ReportSpecification4
     /// Financial institution that is the counterparty to the trade transaction.
     /// </summary>
     [IsoId("_PcRl5tp-Ed-ak6NoX_4Aeg_1383144994")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Correspondent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Crspdt")]
     #endif
+    [IsoXmlTag("Crspdt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BICIdentification1? Correspondent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +131,11 @@ public partial record ReportSpecification4
     /// Financial institution that is a data set submitting bank to the transaction.
     /// </summary>
     [IsoId("_PcRl59p-Ed-ak6NoX_4Aeg_-1521300604")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Submitting Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SubmitgBk")]
     #endif
+    [IsoXmlTag("SubmitgBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BICIdentification1? SubmittingBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,12 +148,11 @@ public partial record ReportSpecification4
     /// Financial institution that is an obligor bank to the transaction.
     /// </summary>
     [IsoId("_PcRl6Np-Ed-ak6NoX_4Aeg_-1689381272")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Obligor Bank")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OblgrBk")]
     #endif
+    [IsoXmlTag("OblgrBk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BICIdentification1? ObligorBank { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -176,12 +165,11 @@ public partial record ReportSpecification4
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_Pcav0Np-Ed-ak6NoX_4Aeg_1383145194")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification28? Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,12 +182,11 @@ public partial record ReportSpecification4
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_Pcav0dp-Ed-ak6NoX_4Aeg_1383145172")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification28? Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +199,11 @@ public partial record ReportSpecification4
     /// Country of the buyer.
     /// </summary>
     [IsoId("_Pcav0tp-Ed-ak6NoX_4Aeg_1375759937")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BuyrCtry")]
     #endif
+    [IsoXmlTag("BuyrCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? BuyerCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +216,11 @@ public partial record ReportSpecification4
     /// Country of the seller.
     /// </summary>
     [IsoId("_Pcav09p-Ed-ak6NoX_4Aeg_1375759967")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SellrCtry")]
     #endif
+    [IsoXmlTag("SellrCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? SellerCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -248,12 +233,11 @@ public partial record ReportSpecification4
     /// Country of the financial institution which is the other party to the trade.
     /// </summary>
     [IsoId("_Pcav1Np-Ed-ak6NoX_4Aeg_1375760245")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Correspondent Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrspdtCtry")]
     #endif
+    [IsoXmlTag("CrspdtCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CountryCode? CorrespondentCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -266,12 +250,11 @@ public partial record ReportSpecification4
     /// Specifies a pending request for action for which the matching application must generate a report.
     /// </summary>
     [IsoId("_Pcav1dp-Ed-ak6NoX_4Aeg_1383145110")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Request For Action")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PdgReqForActn")]
     #endif
+    [IsoXmlTag("PdgReqForActn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PendingActivity1? PendingRequestForAction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

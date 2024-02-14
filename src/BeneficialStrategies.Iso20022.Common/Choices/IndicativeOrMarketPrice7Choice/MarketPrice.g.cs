@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndicativeOrMarketPrice7Choice
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
     [IsoId("_dWrpC0EJEeWVgfuHGaKtRQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Market Price")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

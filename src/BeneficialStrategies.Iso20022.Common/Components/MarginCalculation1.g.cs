@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the total margin amount, the collateral amount on deposit and the total minimum requirement that used to calculate the margin result, either an excess or a deficit.
 /// </summary>
 [IsoId("_-dwqLKMOEeCojJW5vEuTEQ_1443454160")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Margin Calculation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record MarginCalculation1
     /// Total margin requirement (expressed in the reporting currency) that must be provided by the clearing member to the central counterparty. This is the total requirement calculated to cover the initial margin and the variation margin.
     /// </summary>
     [IsoId("_-d50EKMOEeCojJW5vEuTEQ_536108073")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Margin Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlMrgnAmt")]
     #endif
+    [IsoXmlTag("TtlMrgnAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection20 TotalMarginAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection20 TotalMarginAmount { get; init; } 
+    public required AmountAndDirection20 TotalMarginAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection20 TotalMarginAmount { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record MarginCalculation1
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
     [IsoId("_-d50EaMOEeCojJW5vEuTEQ_-1508761602")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral On Deposit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollOnDpst")]
     #endif
+    [IsoXmlTag("CollOnDpst")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Collateral6? CollateralOnDeposit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,12 @@ public partial record MarginCalculation1
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the central counterparty.
     /// </summary>
     [IsoId("_-d50EqMOEeCojJW5vEuTEQ_-2109217986")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Requirement Deposit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinRqrmntDpst")]
     #endif
+    [IsoXmlTag("MinRqrmntDpst")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,12 +103,11 @@ public partial record MarginCalculation1
     /// Provide details on the margin result taking into consideration the total margin amount and the minimum requirements deposit.
     /// </summary>
     [IsoId("_-d50E6MOEeCojJW5vEuTEQ_193184719")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnRslt")]
     #endif
+    [IsoXmlTag("MrgnRslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MarginResult1Choice_? MarginResult { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

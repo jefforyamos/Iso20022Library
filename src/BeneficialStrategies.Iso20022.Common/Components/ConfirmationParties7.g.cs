@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
 [IsoId("_WPktUwasEe2phaVG0lYKTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Confirmation Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ConfirmationParties7
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_WhAbYQasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Buyr")]
     #endif
+    [IsoXmlTag("Buyr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails12? Buyer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ConfirmationParties7
     /// Party that has applied, met specific requirements, and received a monetary or securities loan from a lender. The party initiating the request signs a promissory note agreeing to pay the lien holder back during a specified timeframe for the entire loan amount plus any additional fees. The borrower is legally responsible for repayment of the loan and is subject to any penalties for not repaying the loan back based on the lending terms agreed upon.
     /// </summary>
     [IsoId("_WhAbYwasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Borrower")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Brrwr")]
     #endif
+    [IsoXmlTag("Brrwr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails12? Borrower { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record ConfirmationParties7
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_WhAbZQasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Seller")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sellr")]
     #endif
+    [IsoXmlTag("Sellr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails12? Seller { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record ConfirmationParties7
     /// A private, public or institutional entity which makes funds available to others to borrow.
     /// </summary>
     [IsoId("_WhAbZwasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Lender")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lndr")]
     #endif
+    [IsoXmlTag("Lndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails12? Lender { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record ConfirmationParties7
     /// Brokerage firm which is the commissioned broker in a multi-broker trade.
     /// </summary>
     [IsoId("_WhAbaQasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Broker Of Credit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BrkrOfCdt")]
     #endif
+    [IsoXmlTag("BrkrOfCdt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? BrokerOfCredit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record ConfirmationParties7
     /// Broker or other intermediary with the closest association with the investor.
     /// </summary>
     [IsoId("_WhAbawasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Introducing Firm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntrdcgFirm")]
     #endif
+    [IsoXmlTag("IntrdcgFirm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? IntroducingFirm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record ConfirmationParties7
     /// Brokerage firm assigned to take credit on the trade from the step-out brokerage firm.
     /// </summary>
     [IsoId("_WhAbbQasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Step In Firm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StepInFirm")]
     #endif
+    [IsoXmlTag("StepInFirm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? StepInFirm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record ConfirmationParties7
     /// Brokerage firm that executes an order, but gives other firms credit and some of the commission for the trade.
     /// </summary>
     [IsoId("_WhAbbwasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Step Out Firm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StepOutFirm")]
     #endif
+    [IsoXmlTag("StepOutFirm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? StepOutFirm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record ConfirmationParties7
     /// Party, also know as take up broker, that settles security transactions from another broker for a fee.
     /// </summary>
     [IsoId("_WhAbcQasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Firm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrFirm")]
     #endif
+    [IsoXmlTag("ClrFirm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails13? ClearingFirm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record ConfirmationParties7
     /// Party responsible for executing an order (for example, an executing or give-up broker). Usually a commission is charged to the client for executing an order.
     /// </summary>
     [IsoId("_WhAbcwasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Executing Broker")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExctgBrkr")]
     #endif
+    [IsoXmlTag("ExctgBrkr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails13? ExecutingBroker { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -224,12 +212,11 @@ public partial record ConfirmationParties7
     /// Party sending the message to the CMU (Central Matching Utility) to identify the actual business unit as known to the CMU (Central Matching Utility).
     /// </summary>
     [IsoId("_WhAbdQasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CMU Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CMUPty")]
     #endif
+    [IsoXmlTag("CMUPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? CMUParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -242,12 +229,11 @@ public partial record ConfirmationParties7
     /// Actual business unit of the counterparty to the sender of the message to the CMU (Central Matching Utility) as known to the CMU (Central Matching Utility).
     /// </summary>
     [IsoId("_WhAbdwasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CMU Counterparty")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CMUCtrPty")]
     #endif
+    [IsoXmlTag("CMUCtrPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? CMUCounterparty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -260,12 +246,11 @@ public partial record ConfirmationParties7
     /// Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.
     /// </summary>
     [IsoId("_WhAbeQasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Affirming Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AffrmgPty")]
     #endif
+    [IsoXmlTag("AffrmgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails11? AffirmingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -278,12 +263,11 @@ public partial record ConfirmationParties7
     /// Party involved in a legal proceeding, agreement or other transaction.
     /// </summary>
     [IsoId("_WhAbewasEe2phaVG0lYKTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trade Beneficiary Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradBnfcryPty")]
     #endif
+    [IsoXmlTag("TradBnfcryPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ConfirmationPartyDetails14? TradeBeneficiaryParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

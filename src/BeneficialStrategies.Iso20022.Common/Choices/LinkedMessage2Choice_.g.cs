@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LinkedMessage2Choice.PreviousReference))]
     [KnownType(typeof(LinkedMessage2Choice.OtherReference))]
     [IsoId("_uZ2ecQguEeSy_NqeitQG4Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linked Message 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

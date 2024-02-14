@@ -21,7 +21,7 @@ public enum SafekeepingPlace1Code
 {
     /// <summary>
     /// Financial instruments held at a local custodian.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_Y-oF4Np-Ed-ak6NoX_4Aeg_-532747937")]
@@ -30,7 +30,7 @@ public enum SafekeepingPlace1Code
     
     /// <summary>
     /// Financial instruments held at an International Central Securities Depository.
-    /// Encoded/decoded by serializers as "ICSD".
+    /// Encoded/decoded by serializers as &quot;ICSD&quot;.
     /// </summary>
     [EnumMember(Value = "ICSD")]
     [IsoId("_Y-oF4dp-Ed-ak6NoX_4Aeg_-495806728")]
@@ -39,7 +39,7 @@ public enum SafekeepingPlace1Code
     
     /// <summary>
     /// Financial instruments held at a National Central Securities Depository.
-    /// Encoded/decoded by serializers as "NCSD".
+    /// Encoded/decoded by serializers as &quot;NCSD&quot;.
     /// </summary>
     [EnumMember(Value = "NCSD")]
     [IsoId("_Y-oF4tp-Ed-ak6NoX_4Aeg_279949982")]
@@ -48,7 +48,7 @@ public enum SafekeepingPlace1Code
     
     /// <summary>
     /// Used for certain financial instruments, for example, US mutual funds, where settlement is internal only, that is, there is no external movement of securities.
-    /// Encoded/decoded by serializers as "SHHE".
+    /// Encoded/decoded by serializers as &quot;SHHE&quot;.
     /// </summary>
     [EnumMember(Value = "SHHE")]
     [IsoId("_Y-oF49p-Ed-ak6NoX_4Aeg_-1284489900")]

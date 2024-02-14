@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Tracking1Choice.Indicator))]
     [KnownType(typeof(Tracking1Choice.Proprietary))]
     [IsoId("_Qt7bCNp-Ed-ak6NoX_4Aeg_-1227011207")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracking 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum AmountType2Code
 {
     /// <summary>
     /// The amount represents a fixed value.
-    /// Encoded/decoded by serializers as "FIXD".
+    /// Encoded/decoded by serializers as &quot;FIXD&quot;.
     /// </summary>
     [EnumMember(Value = "FIXD")]
     [IsoId("_aISmtn04EeGlwNeVP9egyg")]
@@ -30,7 +30,7 @@ public enum AmountType2Code
     
     /// <summary>
     /// The amount represents the maximum value.
-    /// Encoded/decoded by serializers as "MAXI".
+    /// Encoded/decoded by serializers as &quot;MAXI&quot;.
     /// </summary>
     [EnumMember(Value = "MAXI")]
     [IsoId("_aXoqRn04EeGlwNeVP9egyg")]
@@ -39,7 +39,7 @@ public enum AmountType2Code
     
     /// <summary>
     /// The amount represents the minimum value.
-    /// Encoded/decoded by serializers as "MINI".
+    /// Encoded/decoded by serializers as &quot;MINI&quot;.
     /// </summary>
     [EnumMember(Value = "MINI")]
     [IsoId("_ahLAxn04EeGlwNeVP9egyg")]

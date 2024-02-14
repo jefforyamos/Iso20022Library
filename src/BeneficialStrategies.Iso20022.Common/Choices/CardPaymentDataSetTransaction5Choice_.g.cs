@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CardPaymentDataSetTransaction5Choice.AuthorisationRequest))]
     [KnownType(typeof(CardPaymentDataSetTransaction5Choice.AuthorisationResponse))]
     [IsoId("_CRbUIap3EeanIZ10Ka8PnA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Payment Data Set Transaction 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

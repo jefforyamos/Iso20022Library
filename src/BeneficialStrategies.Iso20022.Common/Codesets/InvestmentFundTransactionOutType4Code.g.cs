@@ -21,7 +21,7 @@ public enum InvestmentFundTransactionOutType4Code
 {
     /// <summary>
     /// Transaction is a redemption of an investment fund.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("_ViYohdp-Ed-ak6NoX_4Aeg_-1882035565")]
@@ -30,7 +30,7 @@ public enum InvestmentFundTransactionOutType4Code
     
     /// <summary>
     /// Transaction is a subscription leg of a switch order execution.
-    /// Encoded/decoded by serializers as "SWIO".
+    /// Encoded/decoded by serializers as &quot;SWIO&quot;.
     /// </summary>
     [EnumMember(Value = "SWIO")]
     [IsoId("_ViYohtp-Ed-ak6NoX_4Aeg_-1812771225")]
@@ -39,7 +39,7 @@ public enum InvestmentFundTransactionOutType4Code
     
     /// <summary>
     /// Transaction is an InSpecie.
-    /// Encoded/decoded by serializers as "INSP".
+    /// Encoded/decoded by serializers as &quot;INSP&quot;.
     /// </summary>
     [EnumMember(Value = "INSP")]
     [IsoId("_ViYoh9p-Ed-ak6NoX_4Aeg_1824710762")]
@@ -48,7 +48,7 @@ public enum InvestmentFundTransactionOutType4Code
     
     /// <summary>
     /// Transaction is a cross out.
-    /// Encoded/decoded by serializers as "CROO".
+    /// Encoded/decoded by serializers as &quot;CROO&quot;.
     /// </summary>
     [EnumMember(Value = "CROO")]
     [IsoId("_ViYoiNp-Ed-ak6NoX_4Aeg_1843184237")]
@@ -57,7 +57,7 @@ public enum InvestmentFundTransactionOutType4Code
     
     /// <summary>
     /// Transaction is a dividend.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_ViYoidp-Ed-ak6NoX_4Aeg_1864425612")]
@@ -66,7 +66,7 @@ public enum InvestmentFundTransactionOutType4Code
     
     /// <summary>
     /// Transaction is another type of transaction.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_ViiZgNp-Ed-ak6NoX_4Aeg_1870890259")]

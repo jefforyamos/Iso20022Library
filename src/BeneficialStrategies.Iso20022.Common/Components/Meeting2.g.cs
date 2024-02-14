@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the physical parameters of a shareholders meeting. Several dates and places can be defined for a meeting.
 /// </summary>
 [IsoId("_TKY2Y9p-Ed-ak6NoX_4Aeg_795834246")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Meeting")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Meeting2
     /// Date and time at which the meeting will take place.
     /// </summary>
     [IsoId("_TKY2ZNp-Ed-ak6NoX_4Aeg_795834504")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date And Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtAndTm")]
     #endif
+    [IsoXmlTag("DtAndTm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat2Choice_ DateAndTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat2Choice_ DateAndTime { get; init; } 
+    public required DateFormat2Choice_ DateAndTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat2Choice_ DateAndTime { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record Meeting2
     /// Indicates the status of a meeting date.
     /// </summary>
     [IsoId("_TKY2Zdp-Ed-ak6NoX_4Aeg_795834512")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtSts")]
     #endif
+    [IsoXmlTag("DtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MeetingDateStatus1Code? DateStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,16 @@ public partial record Meeting2
     /// Specifies whether a minimum number of security representation is required to hold a meeting.
     /// </summary>
     [IsoId("_TKY2Ztp-Ed-ak6NoX_4Aeg_795834537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Required")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QrmReqrd")]
     #endif
+    [IsoXmlTag("QrmReqrd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator QuorumRequired { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String QuorumRequired { get; init; } 
+    public required System.String QuorumRequired { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String QuorumRequired { get; init; } 
     #else
@@ -110,31 +106,26 @@ public partial record Meeting2
     /// Specifies location where meeting will take place.
     /// </summary>
     [IsoId("_TKY2Z9p-Ed-ak6NoX_4Aeg_205631143")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Lctn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Lctn")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<LocationFormat1Choice_> Location { get; init; } = new ValueList<LocationFormat1Choice_>(){};
     
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
     [IsoId("_TKY2aNp-Ed-ak6NoX_4Aeg_795834554")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Quantity")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QrmQty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("QrmQty")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? QuorumQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +138,12 @@ public partial record Meeting2
     /// Minimum quantity of securities, expressed as a percentage, required to hold a meeting.
     /// </summary>
     [IsoId("_TKY2adp-Ed-ak6NoX_4Aeg_795834597")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Quorum Quantity Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="QrmQtyPctg")]
     #endif
+    [IsoXmlTag("QrmQtyPctg")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoPercentageRate? QuorumQuantityPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

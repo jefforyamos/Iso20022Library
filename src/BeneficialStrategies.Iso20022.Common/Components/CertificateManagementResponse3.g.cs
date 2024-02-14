@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information related to the result of the certificate management request.
 /// </summary>
 [IsoId("_Zacc8XI0Ee299ZbWCkdR_w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Certificate Management Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,15 @@ public partial record CertificateManagementResponse3
     /// Identification of the terminal or system using the certificate management service.
     /// </summary>
     [IsoId("_Zhe5EXI0Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIId")]
     #endif
+    [IsoXmlTag("POIId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification176 POIIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification176 POIIdentification { get; init; } 
+    public required GenericIdentification176 POIIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification176 POIIdentification { get; init; } 
     #else
@@ -75,12 +72,11 @@ public partial record CertificateManagementResponse3
     /// Identification of the TM or the MTM providing the Certificate Authority service.
     /// </summary>
     [IsoId("_Zhe5E3I0Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TM Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMId")]
     #endif
+    [IsoXmlTag("TMId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification176? TMIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,16 +89,15 @@ public partial record CertificateManagementResponse3
     /// Requested certificate management service.
     /// </summary>
     [IsoId("_Zhe5FXI0Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Service")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertSvc")]
     #endif
+    [IsoXmlTag("CertSvc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentServiceType10Code CertificateService { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentServiceType10Code CertificateService { get; init; } 
+    public required CardPaymentServiceType10Code CertificateService { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentServiceType10Code CertificateService { get; init; } 
     #else
@@ -113,16 +108,15 @@ public partial record CertificateManagementResponse3
     /// Outcome of the certificate service processing.
     /// </summary>
     [IsoId("_Zhe5F3I0Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Result")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Rslt")]
     #endif
+    [IsoXmlTag("Rslt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ResponseType6 Result { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ResponseType6 Result { get; init; } 
+    public required ResponseType6 Result { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ResponseType6 Result { get; init; } 
     #else
@@ -133,15 +127,13 @@ public partial record CertificateManagementResponse3
     /// Identification of the security profile, for creation, renewal or revocation of certificate.
     /// </summary>
     [IsoId("_Zhe5GXI0Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyPrfl")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SctyPrfl")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SecurityProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -154,16 +146,16 @@ public partial record CertificateManagementResponse3
     /// Challenge value sends by the POI to be received back in a message response.
     /// </summary>
     [IsoId("_dcdrcHI1Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("POI Challenge Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="POIChllngVal")]
     #endif
+    [IsoXmlTag("POIChllngVal")]
+    [IsoSimpleType(IsoSimpleType.Max140Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax140Binary POIChallengeValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] POIChallengeValue { get; init; } 
+    public required System.Byte[] POIChallengeValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] POIChallengeValue { get; init; } 
     #else
@@ -174,16 +166,16 @@ public partial record CertificateManagementResponse3
     /// Date and Time of the TMS.
     /// </summary>
     [IsoId("_-rifcHI1Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("TMS Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TMSDtTm")]
     #endif
+    [IsoXmlTag("TMSDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TMSDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TMSDateTime { get; init; } 
+    public required System.DateTime TMSDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TMSDateTime { get; init; } 
     #else
@@ -194,12 +186,12 @@ public partial record CertificateManagementResponse3
     /// Created or renewed certificate. The certificate is ASN.1/DER encoded.
     /// </summary>
     [IsoId("_Zhe5G3I0Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Certificate")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntCert")]
     #endif
+    [IsoXmlTag("ClntCert")]
+    [IsoSimpleType(IsoSimpleType.Max3000Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax3000Binary? ClientCertificate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -212,12 +204,12 @@ public partial record CertificateManagementResponse3
     /// Certificate of the client certificate path, from the CA (Certificate Authority) certificate, to the root certificate, for renewal or revocation of certificate.
     /// </summary>
     [IsoId("_ZhhVUXI0Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Client Certificate Path")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClntCertPth")]
     #endif
+    [IsoXmlTag("ClntCertPth")]
+    [IsoSimpleType(IsoSimpleType.Max10KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? ClientCertificatePath { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -230,12 +222,12 @@ public partial record CertificateManagementResponse3
     /// Certificate of the server certificate path, from the CA (Certificate Authority) certificate, to the root certificate, for renewal or revocation of certificate.
     /// </summary>
     [IsoId("_ZhhVU3I0Ee299ZbWCkdR_w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Server Certificate Path")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvrCertPth")]
     #endif
+    [IsoXmlTag("SvrCertPth")]
+    [IsoSimpleType(IsoSimpleType.Max10KBinary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax10KBinary? ServerCertificatePath { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

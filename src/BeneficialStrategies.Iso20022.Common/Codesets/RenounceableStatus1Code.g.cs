@@ -21,7 +21,7 @@ public enum RenounceableStatus1Code
 {
     /// <summary>
     /// Intermediate securities cannot be sold.
-    /// Encoded/decoded by serializers as "NREN".
+    /// Encoded/decoded by serializers as &quot;NREN&quot;.
     /// </summary>
     [EnumMember(Value = "NREN")]
     [IsoId("_Zsq3oNp-Ed-ak6NoX_4Aeg_-603219863")]
@@ -30,7 +30,7 @@ public enum RenounceableStatus1Code
     
     /// <summary>
     /// Intermediate securities can be sold.
-    /// Encoded/decoded by serializers as "RENO".
+    /// Encoded/decoded by serializers as &quot;RENO&quot;.
     /// </summary>
     [EnumMember(Value = "RENO")]
     [IsoId("_Zsq3odp-Ed-ak6NoX_4Aeg_-603219862")]

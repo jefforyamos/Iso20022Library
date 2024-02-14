@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.auth;
 /// </summary>
 [Description(@"This message is sent by the authorities (police, customs, tax authorities, enforcement authorities) to a financial institution to inform the financial institution that the confidentiality status of the investigation has changed.")]
 [IsoId("_fQEyMzz1EeGl7N0Cd54dlw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Information Request Status Change Notification V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,19 +74,17 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     /// Reference of the information request opening message that this message is an update of.
     /// </summary>
     [IsoId("_tqPSWz2QEeGG64_ngBNdUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Business Query")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlBizQry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OrgnlBizQry")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text OriginalBusinessQuery { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String OriginalBusinessQuery { get; init; } 
+    public required System.String OriginalBusinessQuery { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String OriginalBusinessQuery { get; init; } 
     #else
@@ -99,16 +95,16 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     /// Specifies the confidentiality status of the investigation.
     /// </summary>
     [IsoId("_0ikcBT2QEeGG64_ngBNdUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Confidentiality Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CnfdtltySts")]
     #endif
+    [IsoXmlTag("CnfdtltySts")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator ConfidentialityStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String ConfidentialityStatus { get; init; } 
+    public required System.String ConfidentialityStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String ConfidentialityStatus { get; init; } 
     #else
@@ -119,12 +115,11 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
     [IsoId("_2tmJOz2QEeGG64_ngBNdUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -137,7 +132,7 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="InformationRequestStatusChangeNotificationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;InformationRequestStatusChangeNotificationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public InformationRequestStatusChangeNotificationV01Document ToDocument()
     {
@@ -147,7 +142,7 @@ public partial record InformationRequestStatusChangeNotificationV01 : IOuterReco
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="InformationRequestStatusChangeNotificationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;InformationRequestStatusChangeNotificationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record InformationRequestStatusChangeNotificationV01Document : IOuterDocument<InformationRequestStatusChangeNotificationV01>
@@ -164,7 +159,7 @@ public partial record InformationRequestStatusChangeNotificationV01Document : IO
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="InformationRequestStatusChangeNotificationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;InformationRequestStatusChangeNotificationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InformationRequestStatusChangeNotificationV01 Message { get; init; }

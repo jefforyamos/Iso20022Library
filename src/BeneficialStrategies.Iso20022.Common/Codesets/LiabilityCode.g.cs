@@ -21,7 +21,7 @@ public enum LiabilityCode
 {
     /// <summary>
     /// Investor is responsible.
-    /// Encoded/decoded by serializers as "INVE".
+    /// Encoded/decoded by serializers as &quot;INVE&quot;.
     /// </summary>
     [EnumMember(Value = "INVE")]
     [IsoId("_1MIqYCDMEeWPMvNwVtiMsA")]
@@ -30,7 +30,7 @@ public enum LiabilityCode
     
     /// <summary>
     /// Investor is not assumed responsibile.
-    /// Encoded/decoded by serializers as "NINV".
+    /// Encoded/decoded by serializers as &quot;NINV&quot;.
     /// </summary>
     [EnumMember(Value = "NINV")]
     [IsoId("_7hUDwCDMEeWPMvNwVtiMsA")]
@@ -39,7 +39,7 @@ public enum LiabilityCode
     
     /// <summary>
     /// Broker is responsible.
-    /// Encoded/decoded by serializers as "BROK".
+    /// Encoded/decoded by serializers as &quot;BROK&quot;.
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_9TbU4Da1EeWxoIK_IhudJg")]

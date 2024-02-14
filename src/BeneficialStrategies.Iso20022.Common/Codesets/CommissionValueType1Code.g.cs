@@ -21,7 +21,7 @@ public enum CommissionValueType1Code
 {
     /// <summary>
     /// Price expressed per unit.
-    /// Encoded/decoded by serializers as "PEUN".
+    /// Encoded/decoded by serializers as &quot;PEUN&quot;.
     /// </summary>
     [EnumMember(Value = "PEUN")]
     [IsoId("_bAkIctp-Ed-ak6NoX_4Aeg_-559114087")]
@@ -30,7 +30,7 @@ public enum CommissionValueType1Code
     
     /// <summary>
     /// Price is expressed as absolute.
-    /// Encoded/decoded by serializers as "ABSO".
+    /// Encoded/decoded by serializers as &quot;ABSO&quot;.
     /// </summary>
     [EnumMember(Value = "ABSO")]
     [IsoId("_bAkIc9p-Ed-ak6NoX_4Aeg_-555420258")]

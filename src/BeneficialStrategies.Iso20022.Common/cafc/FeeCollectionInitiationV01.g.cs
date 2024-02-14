@@ -32,9 +32,7 @@ namespace BeneficialStrategies.Iso20022.cafc;
 /// </summary>
 [Description(@"The FeeCollectionInitiation message can be initiated by any party and received by any party (acquirer, agent or issuer) to claim or pay a miscellaneous service between financial institutions. Fee collection messages have financial impacts and affect reconciliation totals without affecting a cardholder account.||")]
 [IsoId("_q5bNFFaHEeeFltjJxERUxw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Fee Collection Initiation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -79,16 +77,15 @@ public partial record FeeCollectionInitiationV01 : IOuterRecord<FeeCollectionIni
     /// ISO 8583 MTI
     /// </summary>
     [IsoId("_q5bNFlaHEeeFltjJxERUxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header48 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header48 Header { get; init; } 
+    public required Header48 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header48 Header { get; init; } 
     #else
@@ -99,16 +96,15 @@ public partial record FeeCollectionInitiationV01 : IOuterRecord<FeeCollectionIni
     /// Information related to the initiation of a fee collection.
     /// </summary>
     [IsoId("_q5bNFVaHEeeFltjJxERUxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Body")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Body")]
     #endif
+    [IsoXmlTag("Body")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FeeCollectionInitiation1 Body { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FeeCollectionInitiation1 Body { get; init; } 
+    public required FeeCollectionInitiation1 Body { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FeeCollectionInitiation1 Body { get; init; } 
     #else
@@ -120,12 +116,11 @@ public partial record FeeCollectionInitiationV01 : IOuterRecord<FeeCollectionIni
     /// It corresponds partially to ISO 8583 field number 53, completed by the field number 64 or 128.
     /// </summary>
     [IsoId("_q5bNF1aHEeeFltjJxERUxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType20? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,7 +133,7 @@ public partial record FeeCollectionInitiationV01 : IOuterRecord<FeeCollectionIni
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FeeCollectionInitiationV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FeeCollectionInitiationV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FeeCollectionInitiationV01Document ToDocument()
     {
@@ -148,7 +143,7 @@ public partial record FeeCollectionInitiationV01 : IOuterRecord<FeeCollectionIni
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FeeCollectionInitiationV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FeeCollectionInitiationV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FeeCollectionInitiationV01Document : IOuterDocument<FeeCollectionInitiationV01>
@@ -165,7 +160,7 @@ public partial record FeeCollectionInitiationV01Document : IOuterDocument<FeeCol
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FeeCollectionInitiationV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FeeCollectionInitiationV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FeeCollectionInitiationV01 Message { get; init; }

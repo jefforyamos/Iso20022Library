@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Recipient5Choice.IssuerAndSerialNumber))]
     [KnownType(typeof(Recipient5Choice.KeyIdentifier))]
     [IsoId("_0DRU0Wi0EeS87LmvcA55sg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Recipient 5 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

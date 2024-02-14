@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData19Choice
     /// Reporting of position or transaction for trade lifecycle events.
     /// </summary>
     [IsoId("_nBfoE3g-Eeu3kecHd7QKUQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

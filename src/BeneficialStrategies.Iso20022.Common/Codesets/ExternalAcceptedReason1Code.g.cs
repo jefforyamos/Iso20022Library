@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum ExternalAcceptedReason1Code
 {
     /// <summary>
-    /// Received after the servicer's deadline. Processed on best effort basis
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Received after the servicer&apos;s deadline. Processed on best effort basis
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_uVGJS_RYEeuLhpyIdtJzwg")]
@@ -32,7 +32,7 @@ public enum ExternalAcceptedReason1Code
     
     /// <summary>
     /// Instruction was not straight through processing and had to be processed manually
-    /// Encoded/decoded by serializers as "NSTP".
+    /// Encoded/decoded by serializers as &quot;NSTP&quot;.
     /// </summary>
     [EnumMember(Value = "NSTP")]
     [IsoId("_uVP6QvRYEeuLhpyIdtJzwg")]
@@ -41,7 +41,7 @@ public enum ExternalAcceptedReason1Code
     
     /// <summary>
     /// Instruction is accepted but does not comply with the market practice rule published for the concerned market or process
-    /// Encoded/decoded by serializers as "SMPG".
+    /// Encoded/decoded by serializers as &quot;SMPG&quot;.
     /// </summary>
     [EnumMember(Value = "SMPG")]
     [IsoId("_uVP6RfRYEeuLhpyIdtJzwg")]

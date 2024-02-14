@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
 /// </summary>
 [IsoId("_Q5QhRdp-Ed-ak6NoX_4Aeg_-1175095471")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Local Market Annex")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,11 @@ public partial record LocalMarketAnnex2
     /// Country in which the processing characteristic applies.
     /// </summary>
     [IsoId("_Q5QhRtp-Ed-ak6NoX_4Aeg_-1288934537")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ctry")]
     #endif
+    [IsoXmlTag("Ctry")]
     public string? Country { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Q5QhRtp-Ed-ak6NoX_4Aeg_-1288934537
     
@@ -66,16 +63,15 @@ public partial record LocalMarketAnnex2
     /// Organisation established primarily to provide financial services.
     /// </summary>
     [IsoId("_Q5QhR9p-Ed-ak6NoX_4Aeg_-560669029")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Order Desk")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclOrdrDsk")]
     #endif
+    [IsoXmlTag("LclOrdrDsk")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ContactAttributes1 LocalOrderDesk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ContactAttributes1 LocalOrderDesk { get; init; } 
+    public required ContactAttributes1 LocalOrderDesk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ContactAttributes1 LocalOrderDesk { get; init; } 
     #else
@@ -86,16 +82,15 @@ public partial record LocalMarketAnnex2
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
     [IsoId("_Q5QhSNp-Ed-ak6NoX_4Aeg_-912656733")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Subscription Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SbcptPrcgChrtcs")]
     #endif
+    [IsoXmlTag("SbcptPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
+    public required ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
     #else
@@ -106,16 +101,15 @@ public partial record LocalMarketAnnex2
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
     [IsoId("_Q5ZrMNp-Ed-ak6NoX_4Aeg_928734591")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Processing Characteristics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedPrcgChrtcs")]
     #endif
+    [IsoXmlTag("RedPrcgChrtcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
+    public required ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
     #else
@@ -126,12 +120,11 @@ public partial record LocalMarketAnnex2
     /// Account to or from which a cash entry is made.
     /// </summary>
     [IsoId("_Q5ZrMdp-Ed-ak6NoX_4Aeg_-653648231")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDtls")]
     #endif
+    [IsoXmlTag("SttlmDtls")]
     public CashAccount22? SettlementDetails { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Q5ZrMdp-Ed-ak6NoX_4Aeg_-653648231
     

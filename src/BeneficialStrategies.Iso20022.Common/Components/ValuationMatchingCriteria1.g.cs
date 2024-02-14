@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Compares information related to both sides of a contract valuation.
 /// </summary>
 [IsoId("_L1MIEExTEeywvc16MwOPfw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Valuation Matching Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ValuationMatchingCriteria1
     /// Specifies whether the information on the contract values are matching or not.
     /// </summary>
     [IsoId("_ZiXpwExTEeywvc16MwOPfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctVal")]
     #endif
+    [IsoXmlTag("CtrctVal")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareAmountAndDirection3? ContractValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record ValuationMatchingCriteria1
     /// Specifies whether the information on the valuation methods are matching or not.
     /// </summary>
     [IsoId("_POV_wExUEeywvc16MwOPfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CompareValuationType1? Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

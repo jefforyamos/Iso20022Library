@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum PendingProcessingReason3Code
 {
     /// <summary>
-    /// Instruction was received after the account servicer's deadline. Processed on best effort basis.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Instruction was received after the account servicer&apos;s deadline. Processed on best effort basis.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("_0mzacQlIEeGATtfOBToyew_-1793556465")]
@@ -30,7 +30,7 @@ public enum PendingProcessingReason3Code
     
     /// <summary>
     /// Your account is blocked, no instruction can settle over the account.
-    /// Encoded/decoded by serializers as "BLOC".
+    /// Encoded/decoded by serializers as &quot;BLOC&quot;.
     /// </summary>
     [EnumMember(Value = "BLOC")]
     [IsoId("_0mzacglIEeGATtfOBToyew_1504338478")]
@@ -39,7 +39,7 @@ public enum PendingProcessingReason3Code
     
     /// <summary>
     /// Quantity instructed is not a multiple of an existing settlement quantity lot for the financial instrument.
-    /// Encoded/decoded by serializers as "MUNO".
+    /// Encoded/decoded by serializers as &quot;MUNO&quot;.
     /// </summary>
     [EnumMember(Value = "MUNO")]
     [IsoId("_0mzacwlIEeGATtfOBToyew_442986519")]
@@ -48,7 +48,7 @@ public enum PendingProcessingReason3Code
     
     /// <summary>
     /// Next process is launched. No processing pending problems to be reported.
-    /// Encoded/decoded by serializers as "NEXT".
+    /// Encoded/decoded by serializers as &quot;NEXT&quot;.
     /// </summary>
     [EnumMember(Value = "NEXT")]
     [IsoId("_0mzadAlIEeGATtfOBToyew_-375967162")]
@@ -57,7 +57,7 @@ public enum PendingProcessingReason3Code
     
     /// <summary>
     /// Quantity instructed is lower than the minimum existing settlement quantity for the financial instrument.
-    /// Encoded/decoded by serializers as "MINO".
+    /// Encoded/decoded by serializers as &quot;MINO&quot;.
     /// </summary>
     [EnumMember(Value = "MINO")]
     [IsoId("_0mzadQlIEeGATtfOBToyew_-1373039515")]
@@ -66,7 +66,7 @@ public enum PendingProcessingReason3Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_0m9LcAlIEeGATtfOBToyew_-1664997253")]
@@ -75,7 +75,7 @@ public enum PendingProcessingReason3Code
     
     /// <summary>
     /// Quantity instructed does not match the denomination available/deliverable. Physical securities need to be obtained in deliverable denominated quantities.
-    /// Encoded/decoded by serializers as "DENO".
+    /// Encoded/decoded by serializers as &quot;DENO&quot;.
     /// </summary>
     [EnumMember(Value = "DENO")]
     [IsoId("_0m9LcQlIEeGATtfOBToyew_-1486878581")]
@@ -84,7 +84,7 @@ public enum PendingProcessingReason3Code
     
     /// <summary>
     /// Certificate number error.
-    /// Encoded/decoded by serializers as "CERT".
+    /// Encoded/decoded by serializers as &quot;CERT&quot;.
     /// </summary>
     [EnumMember(Value = "CERT")]
     [IsoId("_0m9LcglIEeGATtfOBToyew_1924855428")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Indicates the independent amount and how it was applied in the calculation. It also provides a description of the amount type.
 /// </summary>
 [IsoId("_UlSuItp-Ed-ak6NoX_4Aeg_36158148")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Independent Amount")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record IndependentAmount2
     /// Description of the other amount used in the calculation of the independent amount.
     /// </summary>
     [IsoId("_UlSuI9p-Ed-ak6NoX_4Aeg_-419090839")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Description")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Desc")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Desc")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? Description { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,16 +69,16 @@ public partial record IndependentAmount2
     /// Provides the independant amount.
     /// </summary>
     [IsoId("_UlSuJNp-Ed-ak6NoX_4Aeg_729114902")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -97,16 +93,15 @@ public partial record IndependentAmount2
     /// - segregated where it is treated independently of variation margin for segregation purposes.
     /// </summary>
     [IsoId("_UlSuJdp-Ed-ak6NoX_4Aeg_186129818")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Convention")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cnvntn")]
     #endif
+    [IsoXmlTag("Cnvntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IndependentAmountConventionType1Code Convention { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public IndependentAmountConventionType1Code Convention { get; init; } 
+    public required IndependentAmountConventionType1Code Convention { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public IndependentAmountConventionType1Code Convention { get; init; } 
     #else

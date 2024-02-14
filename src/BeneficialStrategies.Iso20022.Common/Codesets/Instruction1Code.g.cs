@@ -21,7 +21,7 @@ public enum Instruction1Code
 {
     /// <summary>
     /// (Ultimate) creditor to be paid only after verification of identity.
-    /// Encoded/decoded by serializers as "PBEN".
+    /// Encoded/decoded by serializers as &quot;PBEN&quot;.
     /// </summary>
     [EnumMember(Value = "PBEN")]
     [IsoId("_aW12Atp-Ed-ak6NoX_4Aeg_-499701816")]
@@ -30,7 +30,7 @@ public enum Instruction1Code
     
     /// <summary>
     /// Payment instruction is valid and eligible for execution until the date and time stipulated. Otherwise, the payment instruction will be rejected.
-    /// Encoded/decoded by serializers as "TTIL".
+    /// Encoded/decoded by serializers as &quot;TTIL&quot;.
     /// </summary>
     [EnumMember(Value = "TTIL")]
     [IsoId("_aW12A9p-Ed-ak6NoX_4Aeg_-499701815")]
@@ -39,7 +39,7 @@ public enum Instruction1Code
     
     /// <summary>
     /// Payment instruction will be valid and eligible for execution from the date and time stipulated.
-    /// Encoded/decoded by serializers as "TFRO".
+    /// Encoded/decoded by serializers as &quot;TFRO&quot;.
     /// </summary>
     [EnumMember(Value = "TFRO")]
     [IsoId("_aW12BNp-Ed-ak6NoX_4Aeg_-499701814")]

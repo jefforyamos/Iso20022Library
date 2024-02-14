@@ -21,7 +21,7 @@ public enum GovernanceIdentificationCode
 {
     /// <summary>
     /// The version of the ICC Uniform Rules For Demand Guarantees (URDG) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.
-    /// Encoded/decoded by serializers as "URDG".
+    /// Encoded/decoded by serializers as &quot;URDG&quot;.
     /// </summary>
     [EnumMember(Value = "URDG")]
     [IsoId("_meNv4HybEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum GovernanceIdentificationCode
     
     /// <summary>
     /// The version of the International Standby Practices (ISP) that is in effect on the date of issue of the undertaking.
-    /// Encoded/decoded by serializers as "ISPR".
+    /// Encoded/decoded by serializers as &quot;ISPR&quot;.
     /// </summary>
     [EnumMember(Value = "ISPR")]
     [IsoId("_vWxsAHybEeGWJuGCfvwOsQ")]
@@ -39,7 +39,7 @@ public enum GovernanceIdentificationCode
     
     /// <summary>
     /// The version of the Uniform Customs and Practice for Documentary Credits (UCP) as published by the International Chamber of Commerce (ICC) that is in effect on the date of issue of the undertaking.
-    /// Encoded/decoded by serializers as "UCPR".
+    /// Encoded/decoded by serializers as &quot;UCPR&quot;.
     /// </summary>
     [EnumMember(Value = "UCPR")]
     [IsoId("_6-c5wHybEeGWJuGCfvwOsQ")]
@@ -48,7 +48,7 @@ public enum GovernanceIdentificationCode
     
     /// <summary>
     /// No applicable rule set defined.
-    /// Encoded/decoded by serializers as "NONE".
+    /// Encoded/decoded by serializers as &quot;NONE&quot;.
     /// </summary>
     [EnumMember(Value = "NONE")]
     [IsoId("_GpQUAHycEeGWJuGCfvwOsQ")]

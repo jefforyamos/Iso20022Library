@@ -21,7 +21,7 @@ public enum ProductStructureCode
 {
     /// <summary>
     /// Product is an exchange traded commodity.
-    /// Encoded/decoded by serializers as "EXTC".
+    /// Encoded/decoded by serializers as &quot;EXTC&quot;.
     /// </summary>
     [EnumMember(Value = "EXTC")]
     [IsoId("_tSn6R6DqEequlaOyi6MUhw")]
@@ -30,7 +30,7 @@ public enum ProductStructureCode
     
     /// <summary>
     /// Product is a not an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "NUCI".
+    /// Encoded/decoded by serializers as &quot;NUCI&quot;.
     /// </summary>
     [EnumMember(Value = "NUCI")]
     [IsoId("_tSn6SKDqEequlaOyi6MUhw")]
@@ -39,7 +39,7 @@ public enum ProductStructureCode
     
     /// <summary>
     /// Product is a money market fund that is not an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "NUMM".
+    /// Encoded/decoded by serializers as &quot;NUMM&quot;.
     /// </summary>
     [EnumMember(Value = "NUMM")]
     [IsoId("_tSn6SaDqEequlaOyi6MUhw")]
@@ -48,7 +48,7 @@ public enum ProductStructureCode
     
     /// <summary>
     /// Product is a structured fund.
-    /// Encoded/decoded by serializers as "SFUN".
+    /// Encoded/decoded by serializers as &quot;SFUN&quot;.
     /// </summary>
     [EnumMember(Value = "SFUN")]
     [IsoId("_tSn6SqDqEequlaOyi6MUhw")]
@@ -57,7 +57,7 @@ public enum ProductStructureCode
     
     /// <summary>
     /// Product is a structured security.
-    /// Encoded/decoded by serializers as "SSEC".
+    /// Encoded/decoded by serializers as &quot;SSEC&quot;.
     /// </summary>
     [EnumMember(Value = "SSEC")]
     [IsoId("_tSn6S6DqEequlaOyi6MUhw")]
@@ -66,7 +66,7 @@ public enum ProductStructureCode
     
     /// <summary>
     /// Product is an Undertaking for Collective Investment in Transferable Securities (UCITS).
-    /// Encoded/decoded by serializers as "UCIT".
+    /// Encoded/decoded by serializers as &quot;UCIT&quot;.
     /// </summary>
     [EnumMember(Value = "UCIT")]
     [IsoId("_tSn6TKDqEequlaOyi6MUhw")]
@@ -75,7 +75,7 @@ public enum ProductStructureCode
     
     /// <summary>
     /// Product is an Undertaking for Collective Investment in Transferable Securities (UCITS) money market fund.
-    /// Encoded/decoded by serializers as "UCMM".
+    /// Encoded/decoded by serializers as &quot;UCMM&quot;.
     /// </summary>
     [EnumMember(Value = "UCMM")]
     [IsoId("_tSn6TaDqEequlaOyi6MUhw")]
@@ -84,7 +84,7 @@ public enum ProductStructureCode
     
     /// <summary>
     /// Product is a bond.
-    /// Encoded/decoded by serializers as "BOND".
+    /// Encoded/decoded by serializers as &quot;BOND&quot;.
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_vOGvgKDqEequlaOyi6MUhw")]

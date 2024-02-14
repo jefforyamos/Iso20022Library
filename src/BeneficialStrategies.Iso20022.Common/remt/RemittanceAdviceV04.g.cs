@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.remt;
 /// </summary>
 [Description(@"The RemittanceAdvice message allows the originator to provide remittance details that can be associated with a payment.")]
 [IsoId("_bf9ST22PEei3KuUgpx7Xcw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Remittance Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record RemittanceAdviceV04 : IOuterRecord<RemittanceAdviceV04,Rem
     /// Set of characteristics shared by all remittance information included in the message.
     /// </summary>
     [IsoId("_bf9SU22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader79 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader79 GroupHeader { get; init; } 
+    public required GroupHeader79 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader79 GroupHeader { get; init; } 
     #else
@@ -93,19 +90,18 @@ public partial record RemittanceAdviceV04 : IOuterRecord<RemittanceAdviceV04,Rem
     #endif
     
     /// <summary>
-    /// Provides information to enable the matching of an entry with the items that the associated payment is intended to settle, such as commercial invoices in an accounts' receivable system, tax obligations, or garnishment orders.
+    /// Provides information to enable the matching of an entry with the items that the associated payment is intended to settle, such as commercial invoices in an accounts&apos; receivable system, tax obligations, or garnishment orders.
     /// </summary>
     [IsoId("_bf9SVW2PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Remittance Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RmtInf")]
     #endif
+    [IsoXmlTag("RmtInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RemittanceInformation19 RemittanceInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RemittanceInformation19 RemittanceInformation { get; init; } 
+    public required RemittanceInformation19 RemittanceInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RemittanceInformation19 RemittanceInformation { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record RemittanceAdviceV04 : IOuterRecord<RemittanceAdviceV04,Rem
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_bf9SV22PEei3KuUgpx7Xcw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record RemittanceAdviceV04 : IOuterRecord<RemittanceAdviceV04,Rem
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RemittanceAdviceV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RemittanceAdviceV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RemittanceAdviceV04Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record RemittanceAdviceV04 : IOuterRecord<RemittanceAdviceV04,Rem
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RemittanceAdviceV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RemittanceAdviceV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RemittanceAdviceV04Document : IOuterDocument<RemittanceAdviceV04>
@@ -161,7 +156,7 @@ public partial record RemittanceAdviceV04Document : IOuterDocument<RemittanceAdv
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RemittanceAdviceV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RemittanceAdviceV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RemittanceAdviceV04 Message { get; init; }

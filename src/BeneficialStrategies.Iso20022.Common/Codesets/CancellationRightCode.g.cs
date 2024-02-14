@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum CancellationRightCode
 {
     /// <summary>
-    /// Investor is entitled to a "cooling off" period with cancellation rights under compliance rules.
-    /// Encoded/decoded by serializers as "VALI".
+    /// Investor is entitled to a &quot;cooling off&quot; period with cancellation rights under compliance rules.
+    /// Encoded/decoded by serializers as &quot;VALI&quot;.
     /// </summary>
     [EnumMember(Value = "VALI")]
     [IsoId("_bYs7otp-Ed-ak6NoX_4Aeg_-1019449689")]
@@ -29,8 +29,8 @@ public enum CancellationRightCode
     Entitled,
     
     /// <summary>
-    /// Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution's only client.
-    /// Encoded/decoded by serializers as "NOXO".
+    /// Investor is not entitled to cancellation rights under compliance rules, as the investor is an execution&apos;s only client.
+    /// Encoded/decoded by serializers as &quot;NOXO&quot;.
     /// </summary>
     [EnumMember(Value = "NOXO")]
     [IsoId("_bYs7o9p-Ed-ak6NoX_4Aeg_-1019449688")]
@@ -39,7 +39,7 @@ public enum CancellationRightCode
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules as the investor has agreed to waive those rights.
-    /// Encoded/decoded by serializers as "NOWA".
+    /// Encoded/decoded by serializers as &quot;NOWA&quot;.
     /// </summary>
     [EnumMember(Value = "NOWA")]
     [IsoId("_bYs7pNp-Ed-ak6NoX_4Aeg_-1019449680")]
@@ -48,7 +48,7 @@ public enum CancellationRightCode
     
     /// <summary>
     /// Investor is not entitled to cancellation rights under compliance rules as the investor is a financial institution.
-    /// Encoded/decoded by serializers as "NOIN".
+    /// Encoded/decoded by serializers as &quot;NOIN&quot;.
     /// </summary>
     [EnumMember(Value = "NOIN")]
     [IsoId("_bYs7pdp-Ed-ak6NoX_4Aeg_-1019449679")]
@@ -57,7 +57,7 @@ public enum CancellationRightCode
     
     /// <summary>
     /// Another type of cancellation right.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bYs7ptp-Ed-ak6NoX_4Aeg_567211443")]

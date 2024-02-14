@@ -21,7 +21,7 @@ public enum CompanyLink1Code
 {
     /// <summary>
     /// Autonomous agent accredited by the broker.
-    /// Encoded/decoded by serializers as "AGEN".
+    /// Encoded/decoded by serializers as &quot;AGEN&quot;.
     /// </summary>
     [EnumMember(Value = "AGEN")]
     [IsoId("_4wnUASCbEeWJd9HF2tO7BA")]
@@ -30,7 +30,7 @@ public enum CompanyLink1Code
     
     /// <summary>
     /// Employee, operator or agent of the broker.
-    /// Encoded/decoded by serializers as "BROK".
+    /// Encoded/decoded by serializers as &quot;BROK&quot;.
     /// </summary>
     [EnumMember(Value = "BROK")]
     [IsoId("_43di4SCbEeWJd9HF2tO7BA")]
@@ -39,7 +39,7 @@ public enum CompanyLink1Code
     
     /// <summary>
     /// Brokerage partner or shareholder, individual or entity who holds a direct or an indirect control function and the holder of a management or an administration position.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_4-KAwSCbEeWJd9HF2tO7BA")]
@@ -48,7 +48,7 @@ public enum CompanyLink1Code
     
     /// <summary>
     /// Member broker of a financial conglomerate (person is a board member, director, officer and employee of a member company of the conglomerate).
-    /// Encoded/decoded by serializers as "MEMB".
+    /// Encoded/decoded by serializers as &quot;MEMB&quot;.
     /// </summary>
     [EnumMember(Value = "MEMB")]
     [IsoId("_5E2eoSCbEeWJd9HF2tO7BA")]
@@ -57,7 +57,7 @@ public enum CompanyLink1Code
     
     /// <summary>
     /// Parent company of the broker.
-    /// Encoded/decoded by serializers as "PCOM".
+    /// Encoded/decoded by serializers as &quot;PCOM&quot;.
     /// </summary>
     [EnumMember(Value = "PCOM")]
     [IsoId("_5NL7QSCbEeWJd9HF2tO7BA")]
@@ -66,7 +66,7 @@ public enum CompanyLink1Code
     
     /// <summary>
     /// Spouse or partner and child of an employee, operator or agent of the broker; agent of the broker; brokerage partners or shareholders; individual or entity who holds a direct or an indirect control function and the holder of a management or an administration position.
-    /// Encoded/decoded by serializers as "RELA".
+    /// Encoded/decoded by serializers as &quot;RELA&quot;.
     /// </summary>
     [EnumMember(Value = "RELA")]
     [IsoId("_5U668SCbEeWJd9HF2tO7BA")]

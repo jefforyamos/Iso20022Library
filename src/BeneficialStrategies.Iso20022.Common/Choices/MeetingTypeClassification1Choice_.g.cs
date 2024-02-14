@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MeetingTypeClassification1Choice.Code))]
     [KnownType(typeof(MeetingTypeClassification1Choice.Proprietary))]
     [IsoId("_RDrokNp-Ed-ak6NoX_4Aeg_843703595")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Meeting Type Classification 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

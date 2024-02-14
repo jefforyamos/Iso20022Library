@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndicativeOrMarketPrice1Choice
     /// Estimated price, for example, for valuation purposes.
     /// </summary>
     [IsoId("_UKwuQ9p-Ed-ak6NoX_4Aeg_-1205110584")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Indicative Price")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

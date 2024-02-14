@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of a linked corporate action event.
 /// </summary>
 [IsoId("_n8yzsznYEeWLJsP1cO-amg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Event Reference")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record CorporateActionEventReference3
     /// Identification of the linked corporate action event.
     /// </summary>
     [IsoId("_oI_ckTnYEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Event Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="EvtId")]
     #endif
+    [IsoXmlTag("EvtId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CorporateActionEventReference3Choice_ EventIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CorporateActionEventReference3Choice_ EventIdentification { get; init; } 
+    public required CorporateActionEventReference3Choice_ EventIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CorporateActionEventReference3Choice_ EventIdentification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record CorporateActionEventReference3
     /// Specifies when this corporate action event is to be processed relative to a linked corporate action event.
     /// </summary>
     [IsoId("_oI_cmTnYEeWLJsP1cO-amg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Linkage Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LkgTp")]
     #endif
+    [IsoXmlTag("LkgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessingPosition7Choice_? LinkageType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

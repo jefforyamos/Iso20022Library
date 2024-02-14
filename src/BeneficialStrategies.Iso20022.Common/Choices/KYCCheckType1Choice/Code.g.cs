@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.KYCCheckType1Choice
     /// Type of Know Your Customer (KYC) check type expressed as a code.
     /// </summary>
     [IsoId("_CsmgIBRyEeOKWo1NF21OVw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.KYCCheckType1Choice
         /// Specifies the type of Know Your Customer (KYC) or anti-money laundering due diligence to which the investor has been subjected.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required KnowYourCustomerCheckType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public KnowYourCustomerCheckType1Code Value { get; init; } 
+        public required KnowYourCustomerCheckType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public KnowYourCustomerCheckType1Code Value { get; init; } 
         #else

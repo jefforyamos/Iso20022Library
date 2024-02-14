@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionProcessingStatus6Choice.Code))]
     [KnownType(typeof(CorporateActionProcessingStatus6Choice.Proprietary))]
     [IsoId("_W9mj5ZmtEeWLs7cvLxlyAg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Processing Status 6 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

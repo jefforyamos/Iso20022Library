@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus2Choice
     /// Reason for the pending status.
     /// </summary>
     [IsoId("_QxzOZtp-Ed-ak6NoX_4Aeg_1133108672")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -53,19 +51,18 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus2Choice
         #nullable enable
         
         /// <summary>
-        /// Specifies the reason why the instruction's processing is pending.
+        /// Specifies the reason why the instruction&apos;s processing is pending.
         /// </summary>
         [IsoId("_QxqEetp-Ed-ak6NoX_4Aeg_1903541145")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reason Code")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RsnCd")]
         #endif
+        [IsoXmlTag("RsnCd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingReason4Choice_ ReasonCode { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingReason4Choice_ ReasonCode { get; init; } 
+        public required PendingReason4Choice_ ReasonCode { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingReason4Choice_ ReasonCode { get; init; } 
         #else
@@ -76,15 +73,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus2Choice
         /// Provides additional information about the processed instruction.
         /// </summary>
         [IsoId("_QxzOYNp-Ed-ak6NoX_4Aeg_906468792")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Reason Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlRsnInf")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("AddtlRsnInf")]
+        [IsoSimpleType(IsoSimpleType.Max210Text)]
         [StringLength(maximumLength: 210 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax210Text? AdditionalReasonInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

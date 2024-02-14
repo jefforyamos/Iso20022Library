@@ -21,7 +21,7 @@ public enum UnderlyingEquityType6Code
 {
     /// <summary>
     /// Underlying is a basket.
-    /// Encoded/decoded by serializers as "BSKT".
+    /// Encoded/decoded by serializers as &quot;BSKT&quot;.
     /// </summary>
     [EnumMember(Value = "BSKT")]
     [IsoId("_kVvNUYHCEeaalK9UbuVGFw")]
@@ -30,7 +30,7 @@ public enum UnderlyingEquityType6Code
     
     /// <summary>
     /// Underlying is a dividend index.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_khfKUYHCEeaalK9UbuVGFw")]
@@ -39,7 +39,7 @@ public enum UnderlyingEquityType6Code
     
     /// <summary>
     /// Underlying is an exchange traded fund.
-    /// Encoded/decoded by serializers as "ETFS".
+    /// Encoded/decoded by serializers as &quot;ETFS&quot;.
     /// </summary>
     [EnumMember(Value = "ETFS")]
     [IsoId("_k8RB0YHCEeaalK9UbuVGFw")]
@@ -48,7 +48,7 @@ public enum UnderlyingEquityType6Code
     
     /// <summary>
     /// Underlying is of other type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_lhw7kYHCEeaalK9UbuVGFw")]
@@ -57,7 +57,7 @@ public enum UnderlyingEquityType6Code
     
     /// <summary>
     /// Underlying is a share.
-    /// Encoded/decoded by serializers as "SHRS".
+    /// Encoded/decoded by serializers as &quot;SHRS&quot;.
     /// </summary>
     [EnumMember(Value = "SHRS")]
     [IsoId("_l3es4YHCEeaalK9UbuVGFw")]
@@ -66,7 +66,7 @@ public enum UnderlyingEquityType6Code
     
     /// <summary>
     /// Underlying is a stock dividend.
-    /// Encoded/decoded by serializers as "DVSE".
+    /// Encoded/decoded by serializers as &quot;DVSE&quot;.
     /// </summary>
     [EnumMember(Value = "DVSE")]
     [IsoId("_mUMeEYHCEeaalK9UbuVGFw")]
@@ -75,7 +75,7 @@ public enum UnderlyingEquityType6Code
     
     /// <summary>
     /// Underlying is a stock index.
-    /// Encoded/decoded by serializers as "STIX".
+    /// Encoded/decoded by serializers as &quot;STIX&quot;.
     /// </summary>
     [EnumMember(Value = "STIX")]
     [IsoId("_mnPV4YHCEeaalK9UbuVGFw")]
@@ -84,7 +84,7 @@ public enum UnderlyingEquityType6Code
     
     /// <summary>
     /// Underlying is a volatility index.
-    /// Encoded/decoded by serializers as "VOLI".
+    /// Encoded/decoded by serializers as &quot;VOLI&quot;.
     /// </summary>
     [EnumMember(Value = "VOLI")]
     [IsoId("_mysX8YHCEeaalK9UbuVGFw")]

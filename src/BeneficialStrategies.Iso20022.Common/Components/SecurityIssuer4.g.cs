@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the identification of the issuer of a security.
 /// </summary>
 [IsoId("_F_G3Z8guEeuGrNSsxk3B0A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Security Issuer")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record SecurityIssuer4
     /// Legal entity identification of the issuer of the security.
     /// </summary>
     [IsoId("_GAfXccguEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OrganisationIdentification15Choice_? Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,16 +66,15 @@ public partial record SecurityIssuer4
     /// Jurisdiction of the issuer of the security used as collateral. In case of securities issued by a foreign subsidiary, the jurisdiction of the ultimate parent company shall be reported or, if not known, jurisdiction of the subsidiary.
     /// </summary>
     [IsoId("_GAfXc8guEeuGrNSsxk3B0A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Jurisdiction Country")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="JursdctnCtry")]
     #endif
+    [IsoXmlTag("JursdctnCtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CountryCode JurisdictionCountry { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public string JurisdictionCountry { get; init; } 
+    public required string JurisdictionCountry { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public string JurisdictionCountry { get; init; } 
     #else

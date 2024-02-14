@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Details the non-working days of an entity.
 /// </summary>
 [IsoId("_zms14Gw0EeWD9e8QDBgUOw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Securities Non Trading Day Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SecuritiesNonTradingDayReport1
     /// Identification of the specific venue this relates to - operating MIC, segment MIC, NCA
     /// </summary>
     [IsoId("_zmtc8Ww0EeWD9e8QDBgUOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradingVenueIdentification1Choice_ Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradingVenueIdentification1Choice_ Identification { get; init; } 
+    public required TradingVenueIdentification1Choice_ Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradingVenueIdentification1Choice_ Identification { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SecuritiesNonTradingDayReport1
     /// Provides the non working days of the identified venue. Details on why it is a non working day are also captured.
     /// </summary>
     [IsoId("_BieD0GxOEeWD9e8QDBgUOw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Non Working Day")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NonWorkgDay")]
     #endif
+    [IsoXmlTag("NonWorkgDay")]
     public SecuritiesNonTradingDay1? NonWorkingDay { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _BieD0GxOEeWD9e8QDBgUOw
     

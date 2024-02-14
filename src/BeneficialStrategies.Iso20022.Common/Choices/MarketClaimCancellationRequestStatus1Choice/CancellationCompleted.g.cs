@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClaimCancellationRequestSt
     /// Provides status information related to an instruction cancellation request that is completed.
     /// </summary>
     [IsoId("_1TcqbNx4EeqESbVR5AloZQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation Completed")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

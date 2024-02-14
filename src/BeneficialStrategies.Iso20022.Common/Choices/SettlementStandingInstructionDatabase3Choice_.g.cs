@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementStandingInstructionDatabase3Choice.Code))]
     [KnownType(typeof(SettlementStandingInstructionDatabase3Choice.Proprietary))]
     [IsoId("_AbWUtdokEeC60axPepSq7g_-1066698614")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Standing Instruction Database 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

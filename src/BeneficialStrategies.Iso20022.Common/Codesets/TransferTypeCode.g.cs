@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum TransferTypeCode
 {
     /// <summary>
-    /// Transfer the security as an asset in specie, that is, 'in its actual form'.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Transfer the security as an asset in specie, that is, &apos;in its actual form&apos;.
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_Yvk9Qtp-Ed-ak6NoX_4Aeg_-1137009131")]
@@ -30,7 +30,7 @@ public enum TransferTypeCode
     
     /// <summary>
     /// Transfer as cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_Yvk9Q9p-Ed-ak6NoX_4Aeg_-1137009106")]
@@ -39,7 +39,7 @@ public enum TransferTypeCode
     
     /// <summary>
     /// ISIN is converted to another ISIN and then transferred.
-    /// Encoded/decoded by serializers as "CONV".
+    /// Encoded/decoded by serializers as &quot;CONV&quot;.
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_uSFHgcVYEei2doMlOscgeg")]
@@ -48,7 +48,7 @@ public enum TransferTypeCode
     
     /// <summary>
     /// Asset excluded from transfer.
-    /// Encoded/decoded by serializers as "EXCL".
+    /// Encoded/decoded by serializers as &quot;EXCL&quot;.
     /// </summary>
     [EnumMember(Value = "EXCL")]
     [IsoId("_qbM2EKxWEemRcYBAkJyjkg")]

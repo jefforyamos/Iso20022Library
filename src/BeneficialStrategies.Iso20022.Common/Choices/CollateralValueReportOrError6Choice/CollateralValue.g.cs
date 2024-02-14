@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Cho
     /// Requested information on the value of the position for collateral purposes.
     /// </summary>
     [IsoId("_EP0oozpyEemk2e6qGBk8IQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Value")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,16 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Cho
         /// Date and time when the data was last accessed.
         /// </summary>
         [IsoId("_EbS40TpyEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Data Access Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="DataAccsTm")]
         #endif
+        [IsoXmlTag("DataAccsTm")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODateTime DataAccessTime { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateTime DataAccessTime { get; init; } 
+        public required System.DateTime DataAccessTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateTime DataAccessTime { get; init; } 
         #else
@@ -76,12 +74,12 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Cho
         /// Total value of the collateral valuation.
         /// </summary>
         [IsoId("_EbS40zpyEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Total Collateral Valuation")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="TtlCollValtn")]
         #endif
+        [IsoXmlTag("TtlCollValtn")]
+        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoActiveCurrencyAndAmount? TotalCollateralValuation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Cho
         /// Unique identification, as assigned by the account servicer, to unambiguously identify the securities account.
         /// </summary>
         [IsoId("_EbS41TpyEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SctiesAcct")]
         #endif
+        [IsoXmlTag("SctiesAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SecuritiesAccount19? SecuritiesAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +109,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Cho
         /// Unique identification, as known by the account owner, to unambiguously identify the securities on which the collateral value position is requested.
         /// </summary>
         [IsoId("_EbS41zpyEemk2e6qGBk8IQ")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Securities")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Scties")]
         #endif
+        [IsoXmlTag("Scties")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SecurityCharacteristics3? Securities { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

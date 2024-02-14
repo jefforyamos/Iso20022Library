@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains additional fee reconciliation data.
 /// </summary>
 [IsoId("_LudzZsy0EeiqqJhU2tqK8A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Additional Fee Reconciliation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record AdditionalFeeReconciliation1
     /// Reconciliation credit or debit indicator.
     /// </summary>
     [IsoId("_Ludzasy0EeiqqJhU2tqK8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reconciliation Impact")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RcncltnImpct")]
     #endif
+    [IsoXmlTag("RcncltnImpct")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReconciliationImpact1Code ReconciliationImpact { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReconciliationImpact1Code ReconciliationImpact { get; init; } 
+    public required ReconciliationImpact1Code ReconciliationImpact { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReconciliationImpact1Code ReconciliationImpact { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record AdditionalFeeReconciliation1
     /// contains the list of additional fee types.
     /// </summary>
     [IsoId("_LudzZ8y0EeiqqJhU2tqK8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TypeOfAmount10Code Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TypeOfAmount10Code Type { get; init; } 
+    public required TypeOfAmount10Code Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TypeOfAmount10Code Type { get; init; } 
     #else
@@ -94,15 +90,13 @@ public partial record AdditionalFeeReconciliation1
     /// Other amount type defined at national or private level.
     /// </summary>
     [IsoId("_LudzaMy0EeiqqJhU2tqK8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,20 +107,20 @@ public partial record AdditionalFeeReconciliation1
     
     /// <summary>
     /// Cumulative amount of all financial transactions.
-    /// ISO 8583:87 bit 82, 83, 84 & 85
-    /// ISO 8583:93/2003 bit 109 & 110
+    /// ISO 8583:87 bit 82, 83, 84 &amp; 85
+    /// ISO 8583:93/2003 bit 109 &amp; 110
     /// </summary>
     [IsoId("_Ludza8y0EeiqqJhU2tqK8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Amt")]
     #endif
+    [IsoXmlTag("Amt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Amount { get; init; } 
+    public required System.Decimal Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Amount { get; init; } 
     #else
@@ -137,16 +131,16 @@ public partial record AdditionalFeeReconciliation1
     /// Number of transactions.
     /// </summary>
     [IsoId("_Ludzacy0EeiqqJhU2tqK8A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Count")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Cnt")]
     #endif
+    [IsoXmlTag("Cnt")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoNumber Count { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.UInt64 Count { get; init; } 
+    public required System.UInt64 Count { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.UInt64 Count { get; init; } 
     #else

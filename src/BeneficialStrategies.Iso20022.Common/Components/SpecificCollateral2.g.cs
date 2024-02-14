@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Repurchase agreement where a single, pre defined, financial instrument is sold and repurchased.
 /// </summary>
 [IsoId("_u1WsobcREeabfchHYoktpA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Specific Collateral")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SpecificCollateral2
     /// Identification of collateral placed as security for repo.
     /// </summary>
     [IsoId("_u_BmAbcREeabfchHYoktpA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Financial Instrument Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FinInstrmId")]
     #endif
+    [IsoXmlTag("FinInstrmId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrument59 FinancialInstrumentIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrument59 FinancialInstrumentIdentification { get; init; } 
+    public required FinancialInstrument59 FinancialInstrumentIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrument59 FinancialInstrumentIdentification { get; init; } 
     #else

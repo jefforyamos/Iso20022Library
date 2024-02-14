@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransportMeans1Choice.IndividualTransport))]
     [KnownType(typeof(TransportMeans1Choice.MultimodalTransport))]
     [IsoId("_U7oxlNp-Ed-ak6NoX_4Aeg_1112735251")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transport Means 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

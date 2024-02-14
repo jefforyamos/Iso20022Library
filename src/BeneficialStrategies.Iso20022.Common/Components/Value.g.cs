@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
 [IsoId("_SVDJ0dp-Ed-ak6NoX_4Aeg_-76711377")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Value")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record Value
     /// Specifies the amount in the base currency of the receiver.
     /// </summary>
     [IsoId("_SVDJ0tp-Ed-ak6NoX_4Aeg_-37000375")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Currency Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BaseCcyItm")]
     #endif
+    [IsoXmlTag("BaseCcyItm")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal BaseCurrencyItem { get; init; } 
+    public required System.Decimal BaseCurrencyItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal BaseCurrencyItem { get; init; } 
     #else
@@ -71,12 +69,12 @@ public partial record Value
     /// Specifies the amount in another currency.
     /// </summary>
     [IsoId("_SVDJ09p-Ed-ak6NoX_4Aeg_249291013")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alternate Currency Item")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AltrnCcyItm")]
     #endif
+    [IsoXmlTag("AltrnCcyItm")]
+    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     public System.Decimal? AlternateCurrencyItem { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SVDJ09p-Ed-ak6NoX_4Aeg_249291013
     

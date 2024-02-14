@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification4Choic
     /// Indicates whether or not the referred item is a possible duplicate of a previous instruction or entry.
     /// </summary>
     [IsoId("_7MMKZdjKEeq5MfBBxQig1Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Possible Duplicate Instruction")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification4Choic
         /// A flag indicating a True or False value.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PssblDplctInstr")]
         #endif
+        [IsoXmlTag("PssblDplctInstr")]
+        [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoTrueFalseIndicator Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

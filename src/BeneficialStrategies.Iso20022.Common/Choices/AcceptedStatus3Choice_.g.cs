@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AcceptedStatus3Choice.NoSpecifiedReason))]
     [KnownType(typeof(AcceptedStatus3Choice.Reason))]
     [IsoId("_OM_NkSqAEeO3oOoGGWHH4A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Accepted Status 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

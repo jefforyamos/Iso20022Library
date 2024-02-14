@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information to display, print or store.
 /// </summary>
 [IsoId("_REFPEQuIEeqYM5yH99IYQw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Action Message")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ActionMessage7
     /// Destination of the message.
     /// </summary>
     [IsoId("_ROyqQQuIEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Destination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgDstn")]
     #endif
+    [IsoXmlTag("MsgDstn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UserInterface4Code MessageDestination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public UserInterface4Code MessageDestination { get; init; } 
+    public required UserInterface4Code MessageDestination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public UserInterface4Code MessageDestination { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record ActionMessage7
     /// Qualification of the information to sent to an output logical device.
     /// </summary>
     [IsoId("_ROyqQwuIEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Information Qualifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InfQlfr")]
     #endif
+    [IsoXmlTag("InfQlfr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InformationQualify1Code? InformationQualifier { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +86,11 @@ public partial record ActionMessage7
     /// Message format.
     /// </summary>
     [IsoId("_ROyqRQuIEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Format")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Frmt")]
     #endif
+    [IsoXmlTag("Frmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputFormat3Code? Format { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -108,19 +103,17 @@ public partial record ActionMessage7
     /// Content or reference of the message.
     /// </summary>
     [IsoId("_ROyqRwuIEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Content")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgCntt")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("MsgCntt")]
+    [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax20000Text MessageContent { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MessageContent { get; init; } 
+    public required System.String MessageContent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MessageContent { get; init; } 
     #else
@@ -131,12 +124,11 @@ public partial record ActionMessage7
     /// Digital signature of the message.
     /// </summary>
     [IsoId("_ROyqSQuIEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Content Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgCnttSgntr")]
     #endif
+    [IsoXmlTag("MsgCnttSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType21? MessageContentSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -149,12 +141,11 @@ public partial record ActionMessage7
     /// Content of message displayed or printed as Barcode.
     /// </summary>
     [IsoId("_ROyqSwuIEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Output Barcode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OutptBrcd")]
     #endif
+    [IsoXmlTag("OutptBrcd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OutputBarcode1? OutputBarcode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -167,12 +158,12 @@ public partial record ActionMessage7
     /// Flag to request a message response.
     /// </summary>
     [IsoId("_ROyqTQuIEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Required Flag")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnReqrdFlg")]
     #endif
+    [IsoXmlTag("RspnReqrdFlg")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? ResponseRequiredFlag { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -185,12 +176,12 @@ public partial record ActionMessage7
     /// Number of seconds the message has to be displayed.
     /// </summary>
     [IsoId("_ROyqTwuIEeqYM5yH99IYQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Minimum Display Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MinDispTm")]
     #endif
+    [IsoXmlTag("MinDispTm")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MinimumDisplayTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

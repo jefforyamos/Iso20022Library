@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Amount of money associated with a service.
 /// </summary>
 [IsoId("_fGU5MRrdEeOVR9VN6fAMUg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Charges Details")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ChargesDetails3
     /// Specifies the type of charges as a code or free text.
     /// </summary>
     [IsoId("_Hl77kBreEeOVR9VN6fAMUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tp")]
     #endif
+    [IsoXmlTag("Tp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ChargesType1Choice_ Type { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ChargesType1Choice_ Type { get; init; } 
+    public required ChargesType1Choice_ Type { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ChargesType1Choice_ Type { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ChargesDetails3
     /// Specifies if it is a fixed amount or a percentage.
     /// </summary>
     [IsoId("_UqVmABreEeOVR9VN6fAMUg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Or Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtOrPctg")]
     #endif
+    [IsoXmlTag("AmtOrPctg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
+    public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     #else

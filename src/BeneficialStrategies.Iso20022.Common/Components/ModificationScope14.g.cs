@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
 [IsoId("_fZu8wROGEeKjmvxNCObNeQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Modification Scope")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ModificationScope14
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
     [IsoId("_fuTekROGEeKjmvxNCObNeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Modification Scope Indication")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ModScpIndctn")]
     #endif
+    [IsoXmlTag("ModScpIndctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DataModification2Code ModificationScopeIndication { get; init; } 
+    public required DataModification2Code ModificationScopeIndication { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DataModification2Code ModificationScopeIndication { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ModificationScope14
     /// Detailed information about the party profile information.
     /// </summary>
     [IsoId("_fuTelROGEeKjmvxNCObNeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investor Profile Validation")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstrPrflVldtn")]
     #endif
+    [IsoXmlTag("InvstrPrflVldtn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyProfileInformation2 InvestorProfileValidation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyProfileInformation2 InvestorProfileValidation { get; init; } 
+    public required PartyProfileInformation2 InvestorProfileValidation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyProfileInformation2 InvestorProfileValidation { get; init; } 
     #else

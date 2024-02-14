@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Characteristics and values set for account limits.
 /// </summary>
 [IsoId("_M0i6YBwpEeaSw8_Cr7PTfA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Limits")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,17 @@ public partial record AccountLimits1
     /// Defines type of funds limits.
     /// </summary>
     [IsoId("_1mqMkBwqEeaSw8_Cr7PTfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtTp")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LmtTp")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text LimitType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String LimitType { get; init; } 
+    public required System.String LimitType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String LimitType { get; init; } 
     #else
@@ -75,16 +71,16 @@ public partial record AccountLimits1
     /// Amount of money of the limit.
     /// </summary>
     [IsoId("_sT1O8BwtEeaSw8_Cr7PTfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtAmt")]
     #endif
+    [IsoXmlTag("LmtAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount LimitAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal LimitAmount { get; init; } 
+    public required System.Decimal LimitAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal LimitAmount { get; init; } 
     #else
@@ -95,12 +91,12 @@ public partial record AccountLimits1
     /// Amount of used funds out of defined limit.
     /// </summary>
     [IsoId("_AwVvYBwuEeaSw8_Cr7PTfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Limit Utilisation Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LmtUtlstnAmt")]
     #endif
+    [IsoXmlTag("LmtUtlstnAmt")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? LimitUtilisationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record AccountLimits1
     /// Identification of the system member for which the limit is established.
     /// </summary>
     [IsoId("_l8WTABwuEeaSw8_Cr7PTfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bilateral Limit Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BilLmtCtrPtyId")]
     #endif
+    [IsoXmlTag("BilLmtCtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,12 +126,11 @@ public partial record AccountLimits1
     /// Clearing scheme related to Registry of the Clearing Positions (RCP).
     /// </summary>
     [IsoId("_V6qioBwvEeaSw8_Cr7PTfA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Clearing Circuit Scheme")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClrCrctSchme")]
     #endif
+    [IsoXmlTag("ClrCrctSchme")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ClearingScheme1Choice_? ClearingCircuitScheme { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

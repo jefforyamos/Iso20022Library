@@ -21,7 +21,7 @@ public enum TransferStatusTypeCode
 {
     /// <summary>
     /// Status report is sent in response to an account holding information request.
-    /// Encoded/decoded by serializers as "S019".
+    /// Encoded/decoded by serializers as &quot;S019&quot;.
     /// </summary>
     [EnumMember(Value = "S019")]
     [IsoId("_WVIYYFNYEeijdq8ilaxyOA")]
@@ -30,7 +30,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report is sent in response to a portfolio transfer instruction.
-    /// Encoded/decoded by serializers as "S012".
+    /// Encoded/decoded by serializers as &quot;S012&quot;.
     /// </summary>
     [EnumMember(Value = "S012")]
     [IsoId("_YfySEFNYEeijdq8ilaxyOA")]
@@ -39,7 +39,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report is sent in response to a transfer-out instruction.
-    /// Encoded/decoded by serializers as "S001".
+    /// Encoded/decoded by serializers as &quot;S001&quot;.
     /// </summary>
     [EnumMember(Value = "S001")]
     [IsoId("_geE-UFNYEeijdq8ilaxyOA")]
@@ -48,7 +48,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report is sent in response to a transfer-in instruction.
-    /// Encoded/decoded by serializers as "S005".
+    /// Encoded/decoded by serializers as &quot;S005&quot;.
     /// </summary>
     [EnumMember(Value = "S005")]
     [IsoId("_nru30FNYEeijdq8ilaxyOA")]
@@ -57,7 +57,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report advises one or more drawdowns.
-    /// Encoded/decoded by serializers as "DRAW".
+    /// Encoded/decoded by serializers as &quot;DRAW&quot;.
     /// </summary>
     [EnumMember(Value = "DRAW")]
     [IsoId("_rZUj4FNYEeijdq8ilaxyOA")]
@@ -66,7 +66,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report advises one or more Benefit Crystallisation Events (BCE) have occurred.
-    /// Encoded/decoded by serializers as "BCEV".
+    /// Encoded/decoded by serializers as &quot;BCEV&quot;.
     /// </summary>
     [EnumMember(Value = "BCEV")]
     [IsoId("_tvbfoFNYEeijdq8ilaxyOA")]
@@ -75,7 +75,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report advises cash is or has been instructed.
-    /// Encoded/decoded by serializers as "PAYA".
+    /// Encoded/decoded by serializers as &quot;PAYA&quot;.
     /// </summary>
     [EnumMember(Value = "PAYA")]
     [IsoId("_VzEPYFUUEeiQFOf5GRHqeQ")]
@@ -84,7 +84,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report is sent to provide information required for a CSD or ICSD settlement leg.
-    /// Encoded/decoded by serializers as "SETT".
+    /// Encoded/decoded by serializers as &quot;SETT&quot;.
     /// </summary>
     [EnumMember(Value = "SETT")]
     [IsoId("_HuLkYOi5EeifCsigq7uLaQ")]
@@ -93,7 +93,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report is sent to provide the status of a transfer. May be sent in response to a request for transfer status.
-    /// Encoded/decoded by serializers as "STAT".
+    /// Encoded/decoded by serializers as &quot;STAT&quot;.
     /// </summary>
     [EnumMember(Value = "STAT")]
     [IsoId("_XKONINydEeqzDbuoooxhdw")]
@@ -102,7 +102,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report is sent to provide information pertinent to the transfer. May be sent in response to a request for transfer status.
-    /// Encoded/decoded by serializers as "INFO".
+    /// Encoded/decoded by serializers as &quot;INFO&quot;.
     /// </summary>
     [EnumMember(Value = "INFO")]
     [IsoId("_p16QMNydEeqzDbuoooxhdw")]
@@ -111,7 +111,7 @@ public enum TransferStatusTypeCode
     
     /// <summary>
     /// Status report is sent to provide the number of units following a conversion.
-    /// Encoded/decoded by serializers as "CONV".
+    /// Encoded/decoded by serializers as &quot;CONV&quot;.
     /// </summary>
     [EnumMember(Value = "CONV")]
     [IsoId("_7XAr0G-PEeuEaaCd4BkUFQ")]

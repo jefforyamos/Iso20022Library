@@ -21,7 +21,7 @@ public enum AccountManagementType1Code
 {
     /// <summary>
     /// Refers to an account opening instruction message.
-    /// Encoded/decoded by serializers as "ACCO".
+    /// Encoded/decoded by serializers as &quot;ACCO&quot;.
     /// </summary>
     [EnumMember(Value = "ACCO")]
     [IsoId("_bqvG0Np-Ed-ak6NoX_4Aeg_1776286854")]
@@ -30,7 +30,7 @@ public enum AccountManagementType1Code
     
     /// <summary>
     /// Refers to an account modification instruction message.
-    /// Encoded/decoded by serializers as "ACCM".
+    /// Encoded/decoded by serializers as &quot;ACCM&quot;.
     /// </summary>
     [EnumMember(Value = "ACCM")]
     [IsoId("_bqvG0dp-Ed-ak6NoX_4Aeg_1776286907")]

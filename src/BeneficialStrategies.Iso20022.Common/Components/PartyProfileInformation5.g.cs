@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information to support the Know Your Customer (KYC) processes.
 /// </summary>
 [IsoId("_HEMRASGREeWO8_xZKx-MFg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Profile Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,12 @@ public partial record PartyProfileInformation5
     /// Indicates whether the certificate type has been obtained and verified.
     /// </summary>
     [IsoId("_HgwRMSGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certification Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertfctnInd")]
     #endif
+    [IsoXmlTag("CertfctnInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,15 +60,13 @@ public partial record PartyProfileInformation5
     /// Identification of the person who validated the document.
     /// </summary>
     [IsoId("_HgwRMyGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Validating Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="VldtngPty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("VldtngPty")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? ValidatingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -83,15 +79,13 @@ public partial record PartyProfileInformation5
     /// Identification of the person who checked the document.
     /// </summary>
     [IsoId("_HgwRNSGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Checking Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChckngPty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ChckngPty")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? CheckingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -104,15 +98,13 @@ public partial record PartyProfileInformation5
     /// Identification of the person who is responsible for the document.
     /// </summary>
     [IsoId("_HgwRNyGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Responsible Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnsblPty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RspnsblPty")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? ResponsibleParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -125,12 +117,11 @@ public partial record PartyProfileInformation5
     /// Type of certificate.
     /// </summary>
     [IsoId("_HgwROSGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Certificate Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CertTp")]
     #endif
+    [IsoXmlTag("CertTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CertificationType1Choice_? CertificateType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -143,12 +134,12 @@ public partial record PartyProfileInformation5
     /// Date at which the certification check has been performed.
     /// </summary>
     [IsoId("_HgwROyGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Checking Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChckngDt")]
     #endif
+    [IsoXmlTag("ChckngDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CheckingDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -161,12 +152,11 @@ public partial record PartyProfileInformation5
     /// Specifies how frequently the check is performed.
     /// </summary>
     [IsoId("_HgwRPSGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Checking Frequency")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ChckngFrqcy")]
     #endif
+    [IsoXmlTag("ChckngFrqcy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public EventFrequency1Code? CheckingFrequency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -179,12 +169,12 @@ public partial record PartyProfileInformation5
     /// Specifies the date at which the next certification check will be performed.
     /// </summary>
     [IsoId("_HgwRPyGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Next Revision Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NxtRvsnDt")]
     #endif
+    [IsoXmlTag("NxtRvsnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? NextRevisionDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -194,18 +184,16 @@ public partial record PartyProfileInformation5
     #endif
     
     /// <summary>
-    /// Limits between which a person's salary is estimated.
+    /// Limits between which a person&apos;s salary is estimated.
     /// </summary>
     [IsoId("_HgwRQSGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Salary Range")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SlryRg")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SlryRg")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? SalaryRange { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -218,15 +206,13 @@ public partial record PartyProfileInformation5
     /// Indicates the main source of revenue.
     /// </summary>
     [IsoId("_HgwRQyGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Source Of Wealth")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SrcOfWlth")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SrcOfWlth")]
+    [IsoSimpleType(IsoSimpleType.Max140Text)]
     [StringLength(maximumLength: 140 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax140Text? SourceOfWealth { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -239,12 +225,11 @@ public partial record PartyProfileInformation5
     /// Specifies an assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
     [IsoId("_HgwRRSGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Customer Conduct Classification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CstmrCndctClssfctn")]
     #endif
+    [IsoXmlTag("CstmrCndctClssfctn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -257,12 +242,11 @@ public partial record PartyProfileInformation5
     /// Specifies the customer’s money laundering risk.
     /// </summary>
     [IsoId("_Hg5bISGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Level")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskLvl")]
     #endif
+    [IsoXmlTag("RskLvl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RiskLevel2Choice_? RiskLevel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -275,12 +259,11 @@ public partial record PartyProfileInformation5
     /// Specifies the type of due diligence checks carried out on the investor or account owner. For definitions of ordinary, simple and enhanced know your customer checks, local market regulations should be consulted.
     /// </summary>
     [IsoId("_Hg5bIyGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Know Your Customer Check Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KnowYourCstmrChckTp")]
     #endif
+    [IsoXmlTag("KnowYourCstmrChckTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public KYCCheckType1Choice_? KnowYourCustomerCheckType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -293,12 +276,11 @@ public partial record PartyProfileInformation5
     /// Specifies whether a customer has been checked in a Know Your Customer (KYC) database.
     /// </summary>
     [IsoId("_Hg5bJSGREeWO8_xZKx-MFg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Know Your Customer Database Check")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="KnowYourCstmrDBChck")]
     #endif
+    [IsoXmlTag("KnowYourCstmrDBChck")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DataBaseCheck1? KnowYourCustomerDatabaseCheck { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemRejectionReason1Choice
     /// Status reason expressed as a code.
     /// </summary>
     [IsoId("_hlx-c73REeO2FLWuu_JIqg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemRejectionReason1Choice
         /// Specifies the reason the report item is rejected.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required HoldingRejectionReason41Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public HoldingRejectionReason41Code Value { get; init; } 
+        public required HoldingRejectionReason41Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public HoldingRejectionReason41Code Value { get; init; } 
         #else

@@ -25,9 +25,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Technical note: The sequence of relative identifiers is used to avoid a recursive definition in the catalogue.
 /// </summary>
 [IsoId("_OTgzMjUx-AOSNFX-8224494")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Single Qualified Party Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record SingleQualifiedPartyIdentification1
     /// Party identification recognisable by parties in the trade.
     /// </summary>
     [IsoId("_OTgzMjUy-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Base Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BasePty")]
     #endif
+    [IsoXmlTag("BasePty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TradeParty1 BaseParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TradeParty1 BaseParty { get; init; } 
+    public required TradeParty1 BaseParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TradeParty1 BaseParty { get; init; } 
     #else
@@ -74,19 +71,15 @@ public partial record SingleQualifiedPartyIdentification1
     /// Identifies a party, each identifier is recursively defined relative to the party identified by the base party and the preceding part of the list.
     /// </summary>
     [IsoId("_OTgzMjUz-AOSNFX-8224494")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Relative Identifier")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltvIdr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("RltvIdr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> RelativeIdentifier { get; init; } = new SimpleValueList<System.String>(){};
     
     

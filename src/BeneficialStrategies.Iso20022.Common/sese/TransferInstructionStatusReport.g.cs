@@ -40,9 +40,7 @@ namespace BeneficialStrategies.Iso20022.sese;
 /// </summary>
 [Description(@"Scope|The TransferInstructionStatusReport message is sent by an instructing party to the executing party. The instructing party may be an investor, a transfer agent, or an intermediary, etc. The executing party may be a transfer agent, or an intermediary, etc.|This message gives the status of a transfer instruction, and can be used from the time the executing party receives the transfer instruction until its execution.|Usage|The TransferInstructionStatusReport message is sent by an executing party to the instructing party. The message can be used to report one of the following|- the status of the transfer instruction (using a code)or|- the repair status or|- the unmatched status or|- the rejection status or|- the pending settlement status.|Further information about repair, unmatched, rejected or pending settlement statuses must be specified using either codes or unstructured information.")]
 [IsoId("_K0uj29E6Ed-BzquC8wXy7w_569643185")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transfer Instruction Status Report")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -87,16 +85,15 @@ public partial record TransferInstructionStatusReport : IOuterRecord<TransferIns
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_K0uj3NE6Ed-BzquC8wXy7w_902110432")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference2 RelatedReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReference2 RelatedReference { get; init; } 
+    public required AdditionalReference2 RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReference2 RelatedReference { get; init; } 
     #else
@@ -107,16 +104,15 @@ public partial record TransferInstructionStatusReport : IOuterRecord<TransferIns
     /// Reference to a linked message sent in a proprietary way or the reference of a system.
     /// </summary>
     [IsoId("_K04U0NE6Ed-BzquC8wXy7w_900264708")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrRef")]
     #endif
+    [IsoXmlTag("OthrRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference2 OtherReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReference2 OtherReference { get; init; } 
+    public required AdditionalReference2 OtherReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReference2 OtherReference { get; init; } 
     #else
@@ -127,16 +123,15 @@ public partial record TransferInstructionStatusReport : IOuterRecord<TransferIns
     /// Status of the transfer instruction.
     /// </summary>
     [IsoId("_K04U0dE6Ed-BzquC8wXy7w_2104535600")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Report")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRpt")]
     #endif
+    [IsoXmlTag("StsRpt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferStatusAndReason StatusReport { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TransferStatusAndReason StatusReport { get; init; } 
+    public required TransferStatusAndReason StatusReport { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TransferStatusAndReason StatusReport { get; init; } 
     #else
@@ -147,7 +142,7 @@ public partial record TransferInstructionStatusReport : IOuterRecord<TransferIns
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="TransferInstructionStatusReportDocument"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;TransferInstructionStatusReportDocument&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public TransferInstructionStatusReportDocument ToDocument()
     {
@@ -157,7 +152,7 @@ public partial record TransferInstructionStatusReport : IOuterRecord<TransferIns
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="TransferInstructionStatusReport"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;TransferInstructionStatusReport&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record TransferInstructionStatusReportDocument : IOuterDocument<TransferInstructionStatusReport>
@@ -174,7 +169,7 @@ public partial record TransferInstructionStatusReportDocument : IOuterDocument<T
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="TransferInstructionStatusReport"/> is required.
+    /// The instance of &lt;seealso cref=&quot;TransferInstructionStatusReport&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TransferInstructionStatusReport Message { get; init; }

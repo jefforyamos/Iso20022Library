@@ -21,7 +21,7 @@ public enum AssetClassProductType3Code
 {
     /// <summary>
     /// Commodity of type environmental.
-    /// Encoded/decoded by serializers as "ENVR".
+    /// Encoded/decoded by serializers as &quot;ENVR&quot;.
     /// </summary>
     [EnumMember(Value = "ENVR")]
     [IsoId("_hLbbYQnyEeWnS-yHF1QhNQ")]

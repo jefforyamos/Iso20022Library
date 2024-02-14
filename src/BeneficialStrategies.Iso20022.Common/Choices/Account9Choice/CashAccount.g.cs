@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Account9Choice
     /// Account in which cash is maintained.
     /// </summary>
     [IsoId("_XY2a5Np-Ed-ak6NoX_4Aeg_1986494181")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cash Account")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

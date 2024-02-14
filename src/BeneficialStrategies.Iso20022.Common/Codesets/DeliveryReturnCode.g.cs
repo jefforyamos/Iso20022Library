@@ -21,7 +21,7 @@ public enum DeliveryReturnCode
 {
     /// <summary>
     /// Original delivery is not recognized.
-    /// Encoded/decoded by serializers as "UNRE".
+    /// Encoded/decoded by serializers as &quot;UNRE&quot;.
     /// </summary>
     [EnumMember(Value = "UNRE")]
     [IsoId("_azc5hNp-Ed-ak6NoX_4Aeg_-2045082220")]
@@ -30,7 +30,7 @@ public enum DeliveryReturnCode
     
     /// <summary>
     /// Wrong quantity delivered in the original instruction.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_azc5hdp-Ed-ak6NoX_4Aeg_-2045082197")]
@@ -39,7 +39,7 @@ public enum DeliveryReturnCode
     
     /// <summary>
     /// Wrong settlement amount settled in the original delivery.
-    /// Encoded/decoded by serializers as "DMON".
+    /// Encoded/decoded by serializers as &quot;DMON&quot;.
     /// </summary>
     [EnumMember(Value = "DMON")]
     [IsoId("_azc5htp-Ed-ak6NoX_4Aeg_-2045082196")]
@@ -48,7 +48,7 @@ public enum DeliveryReturnCode
     
     /// <summary>
     /// Only a portion of the original transaction quantity was delivered by the Central Securities Depository (CSD).
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_azmDcNp-Ed-ak6NoX_4Aeg_-2045082180")]
@@ -57,7 +57,7 @@ public enum DeliveryReturnCode
     
     /// <summary>
     /// Account information is missing in the original delivery.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_azmDcdp-Ed-ak6NoX_4Aeg_-2045082179")]
@@ -66,7 +66,7 @@ public enum DeliveryReturnCode
     
     /// <summary>
     /// Due bill information missing in the original delivery.
-    /// Encoded/decoded by serializers as "DUEB".
+    /// Encoded/decoded by serializers as &quot;DUEB&quot;.
     /// </summary>
     [EnumMember(Value = "DUEB")]
     [IsoId("_azmDctp-Ed-ak6NoX_4Aeg_-2045082145")]
@@ -75,7 +75,7 @@ public enum DeliveryReturnCode
     
     /// <summary>
     /// Portion of the original transaction quantity was returned by the receiver.
-    /// Encoded/decoded by serializers as "PARD".
+    /// Encoded/decoded by serializers as &quot;PARD&quot;.
     /// </summary>
     [EnumMember(Value = "PARD")]
     [IsoId("_azmDc9p-Ed-ak6NoX_4Aeg_-2045082136")]

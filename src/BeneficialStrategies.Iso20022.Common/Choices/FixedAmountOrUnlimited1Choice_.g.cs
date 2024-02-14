@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FixedAmountOrUnlimited1Choice.Amount))]
     [KnownType(typeof(FixedAmountOrUnlimited1Choice.NotLimited))]
     [IsoId("_9m4ooEqAEeKw5sECfP82rg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fixed Amount Or Unlimited 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

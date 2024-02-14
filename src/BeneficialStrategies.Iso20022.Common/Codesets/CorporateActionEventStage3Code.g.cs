@@ -21,7 +21,7 @@ public enum CorporateActionEventStage3Code
 {
     /// <summary>
     /// Approved at the relevant meeting, for example, dividend.
-    /// Encoded/decoded by serializers as "APPD".
+    /// Encoded/decoded by serializers as &quot;APPD&quot;.
     /// </summary>
     [EnumMember(Value = "APPD")]
     [IsoId("_JJnNASUfEeOxdNEux54C3Q")]
@@ -30,7 +30,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// Offer is closed for acceptance.
-    /// Encoded/decoded by serializers as "CLDE".
+    /// Encoded/decoded by serializers as &quot;CLDE&quot;.
     /// </summary>
     [EnumMember(Value = "CLDE")]
     [IsoId("_KRBhASUfEeOxdNEux54C3Q")]
@@ -39,7 +39,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// Cancellation and re-run of an original lottery or an original and supplemental lottery. A subsequent lottery will be performed under a new event.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_LD5vcSUfEeOxdNEux54C3Q")]
@@ -48,7 +48,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// Event/offer conditions have not been met and the event/offer is terminated or lapsed.
-    /// Encoded/decoded by serializers as "LAPS".
+    /// Encoded/decoded by serializers as &quot;LAPS&quot;.
     /// </summary>
     [EnumMember(Value = "LAPS")]
     [IsoId("_LiQfYSUfEeOxdNEux54C3Q")]
@@ -57,7 +57,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// Cancellation and re-run of a supplemental lottery only. A subsequent new supplemental lottery will be performed under the original event.
-    /// Encoded/decoded by serializers as "PART".
+    /// Encoded/decoded by serializers as &quot;PART&quot;.
     /// </summary>
     [EnumMember(Value = "PART")]
     [IsoId("_MFz4YSUfEeOxdNEux54C3Q")]
@@ -66,7 +66,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// Open for acceptance until the next specified deadline in the announcement (if any).
-    /// Encoded/decoded by serializers as "PWAL".
+    /// Encoded/decoded by serializers as &quot;PWAL&quot;.
     /// </summary>
     [EnumMember(Value = "PWAL")]
     [IsoId("_MoCbsSUfEeOxdNEux54C3Q")]
@@ -75,7 +75,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// A supplemental lottery is being cancelled by the issuer. No subsequent lottery will be performed.
-    /// Encoded/decoded by serializers as "RESC".
+    /// Encoded/decoded by serializers as &quot;RESC&quot;.
     /// </summary>
     [EnumMember(Value = "RESC")]
     [IsoId("_N53P8SUfEeOxdNEux54C3Q")]
@@ -84,7 +84,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// Subject to approval at the relevant meeting, for example, dividend.
-    /// Encoded/decoded by serializers as "SUAP".
+    /// Encoded/decoded by serializers as &quot;SUAP&quot;.
     /// </summary>
     [EnumMember(Value = "SUAP")]
     [IsoId("_OFeDASUfEeOxdNEux54C3Q")]
@@ -93,7 +93,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// The required level of acceptances specified in the terms of the offer has been achieved but there are still outstanding conditions to fulfil.
-    /// Encoded/decoded by serializers as "UNAC".
+    /// Encoded/decoded by serializers as &quot;UNAC&quot;.
     /// </summary>
     [EnumMember(Value = "UNAC")]
     [IsoId("_OokwESUfEeOxdNEux54C3Q")]
@@ -102,7 +102,7 @@ public enum CorporateActionEventStage3Code
     
     /// <summary>
     /// Wholly unconditional; all conditions specified in the offer document have been satisfied.
-    /// Encoded/decoded by serializers as "WHOU".
+    /// Encoded/decoded by serializers as &quot;WHOU&quot;.
     /// </summary>
     [EnumMember(Value = "WHOU")]
     [IsoId("_O8g_wSUfEeOxdNEux54C3Q")]

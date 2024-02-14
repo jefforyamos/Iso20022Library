@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Obligations of a clearing member with respect to a central counterparty that are calculated based on intraday positions.
 /// </summary>
 [IsoId("_vFk_wKp1EeamNLogr5TkIQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Day Requirement")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -55,16 +53,16 @@ public partial record IntraDayRequirement1
     /// Total aggregate value of collateral called intraday, excluding repayments.
     /// </summary>
     [IsoId("_tJOLUKp2EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Day Margin Call")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraDayMrgnCall")]
     #endif
+    [IsoXmlTag("IntraDayMrgnCall")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount IntraDayMarginCall { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal IntraDayMarginCall { get; init; } 
+    public required System.Decimal IntraDayMarginCall { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal IntraDayMarginCall { get; init; } 
     #else
@@ -75,16 +73,16 @@ public partial record IntraDayRequirement1
     /// Peak increase in initial margin liability for the account during the day.
     /// </summary>
     [IsoId("_y6cjEKp2EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Peak Initial Margin Liability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PeakInitlMrgnLblty")]
     #endif
+    [IsoXmlTag("PeakInitlMrgnLblty")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PeakInitialMarginLiability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PeakInitialMarginLiability { get; init; } 
+    public required System.Decimal PeakInitialMarginLiability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PeakInitialMarginLiability { get; init; } 
     #else
@@ -95,16 +93,16 @@ public partial record IntraDayRequirement1
     /// Peak loss uncollateralised variation margin liability on the margin account during the day.
     /// </summary>
     [IsoId("_4uHK0Kp2EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Peak Variation Margin Liability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PeakVartnMrgnLblty")]
     #endif
+    [IsoXmlTag("PeakVartnMrgnLblty")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount PeakVariationMarginLiability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal PeakVariationMarginLiability { get; init; } 
+    public required System.Decimal PeakVariationMarginLiability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal PeakVariationMarginLiability { get; init; } 
     #else
@@ -115,16 +113,16 @@ public partial record IntraDayRequirement1
     /// Peak intraday liability (sum of increase in initial margin relative to end of day plus sum of decrease in variation margin relative to end of day) for a margin account during the day. Liabilities are shown as positive integers.
     /// </summary>
     [IsoId("_-L_v0Kp2EeamNLogr5TkIQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Aggregate Peak Liability")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AggtPeakLblty")]
     #endif
+    [IsoXmlTag("AggtPeakLblty")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount AggregatePeakLiability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal AggregatePeakLiability { get; init; } 
+    public required System.Decimal AggregatePeakLiability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal AggregatePeakLiability { get; init; } 
     #else
@@ -135,16 +133,15 @@ public partial record IntraDayRequirement1
     /// Identification of the account used to calculate margin requirements and determine intraday calls.
     /// </summary>
     [IsoId("_QtEHsPneEeadN4WGmMtGCQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnAcctId")]
     #endif
+    [IsoXmlTag("MrgnAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification165 MarginAccountIdentification { get; init; } 
+    public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification165 MarginAccountIdentification { get; init; } 
     #else

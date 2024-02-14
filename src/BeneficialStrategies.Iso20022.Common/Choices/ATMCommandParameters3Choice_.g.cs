@@ -24,9 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ATMCommandParameters3Choice.SecurityDevice))]
     [KnownType(typeof(ATMCommandParameters3Choice.Key))]
     [IsoId("_hk_BUV2aEeekzJIz1JxYSQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("ATM Command Parameters 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

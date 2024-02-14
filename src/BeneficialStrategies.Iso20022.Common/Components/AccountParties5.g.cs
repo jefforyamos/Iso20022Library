@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Any party who is related to an investment account.
 /// </summary>
 [IsoId("_RSb2Sdp-Ed-ak6NoX_4Aeg_-1122306786")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Parties")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AccountParties5
     /// Single owner of the investment account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
     /// </summary>
     [IsoId("_RSb2Stp-Ed-ak6NoX_4Aeg_-1120460595")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Primary Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmryOwnr")]
     #endif
+    [IsoXmlTag("PmryOwnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccountOwnershipInformation5 PrimaryOwner { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccountOwnershipInformation5 PrimaryOwner { get; init; } 
+    public required InvestmentAccountOwnershipInformation5 PrimaryOwner { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccountOwnershipInformation5 PrimaryOwner { get; init; } 
     #else
@@ -73,32 +70,28 @@ public partial record AccountParties5
     /// Legal owners of the property. However, the beneficiary has the equitable or beneficial ownership.
     /// </summary>
     [IsoId("_RSb2S9p-Ed-ak6NoX_4Aeg_-1120460019")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trustee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Trstee")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Trstee")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> Trustee { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     /// <summary>
     /// Entity that holds shares/units on behalf of a legal minor. Although the account is registered under the name of the minor, the custodian retains control of the account.
     /// </summary>
     [IsoId("_RSb2TNp-Ed-ak6NoX_4Aeg_-1120459200")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Custodian For Minor")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtdnForMnr")]
     #endif
+    [IsoXmlTag("CtdnForMnr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccountOwnershipInformation5 CustodianForMinor { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccountOwnershipInformation5 CustodianForMinor { get; init; } 
+    public required InvestmentAccountOwnershipInformation5 CustodianForMinor { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccountOwnershipInformation5 CustodianForMinor { get; init; } 
     #else
@@ -109,16 +102,15 @@ public partial record AccountParties5
     /// Entity named by the beneficial owner to act on its behalf, often to facilitate dealing, or to conceal the identity of the beneficiary.
     /// </summary>
     [IsoId("_RSlnQNp-Ed-ak6NoX_4Aeg_-1120459063")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Nominee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Nmnee")]
     #endif
+    [IsoXmlTag("Nmnee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestmentAccountOwnershipInformation5 Nominee { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestmentAccountOwnershipInformation5 Nominee { get; init; } 
+    public required InvestmentAccountOwnershipInformation5 Nominee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestmentAccountOwnershipInformation5 Nominee { get; init; } 
     #else
@@ -129,108 +121,89 @@ public partial record AccountParties5
     /// Co-owner of the investment account when the ownership is assigned to more than one party.
     /// </summary>
     [IsoId("_RSlnQdp-Ed-ak6NoX_4Aeg_-1121381248")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Joint Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="JntOwnr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("JntOwnr")]
     [MinLength(1)]
     [MaxLength(5)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> JointOwner { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
     [IsoId("_RSlnQtp-Ed-ak6NoX_4Aeg_-1120458211")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Secondary Owner")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndryOwnr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("ScndryOwnr")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> SecondaryOwner { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     /// <summary>
     /// Ultimate party that is entitled to either receive the benefits of the ownership of a financial instrument, or to be paid/credited as a result of a transfer.
     /// </summary>
     [IsoId("_RSlnQ9p-Ed-ak6NoX_4Aeg_-1119537652")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Beneficiary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bnfcry")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Bnfcry")]
     [MinLength(0)]
     [MaxLength(10)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> Beneficiary { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     /// <summary>
     /// Entity that was given the authority by another entity to act on its behalf.
     /// </summary>
     [IsoId("_RSlnRNp-Ed-ak6NoX_4Aeg_-1119536566")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Power Of Attorney")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PwrOfAttny")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PwrOfAttny")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> PowerOfAttorney { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// </summary>
     [IsoId("_RSlnRdp-Ed-ak6NoX_4Aeg_-1119535739")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Legal Guardian")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LglGuardn")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("LglGuardn")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> LegalGuardian { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     /// <summary>
-    /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
+    /// Deceased&apos;s estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
     [IsoId("_RSlnRtp-Ed-ak6NoX_4Aeg_-1119535566")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Successor On Death")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SucssrOnDth")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("SucssrOnDth")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> SuccessorOnDeath { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     /// <summary>
     /// Entity that has been appointed by a legal authorithy to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
     [IsoId("_RSlnR9p-Ed-ak6NoX_4Aeg_-1121382569")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Administrator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Admstr")]
     #endif
+    [IsoXmlTag("Admstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentAccountOwnershipInformation5? Administrator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -243,48 +216,39 @@ public partial record AccountParties5
     /// Other type of party.
     /// </summary>
     [IsoId("_RSlnSNp-Ed-ak6NoX_4Aeg_1473925855")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrPty")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrPty")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<ExtendedParty2> OtherParty { get; init; } = new ValueList<ExtendedParty2>(){};
     
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
     [IsoId("_RSlnSdp-Ed-ak6NoX_4Aeg_1444245145")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Granter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Grntr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Grntr")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> Granter { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     /// <summary>
     /// Settler role in the hedge funds industry.
     /// </summary>
     [IsoId("_RSvYQNp-Ed-ak6NoX_4Aeg_1605862687")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settler")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sttlr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Sttlr")]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
     public ValueList<InvestmentAccountOwnershipInformation5> Settler { get; init; } = new ValueList<InvestmentAccountOwnershipInformation5>(){};
     
     

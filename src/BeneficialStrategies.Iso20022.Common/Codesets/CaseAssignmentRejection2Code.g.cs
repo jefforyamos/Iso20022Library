@@ -21,7 +21,7 @@ public enum CaseAssignmentRejection2Code
 {
     /// <summary>
     /// Underlying instruction can not be found.
-    /// Encoded/decoded by serializers as "NFND".
+    /// Encoded/decoded by serializers as &quot;NFND&quot;.
     /// </summary>
     [EnumMember(Value = "NFND")]
     [IsoId("_a2IaEtp-Ed-ak6NoX_4Aeg_-2044862916")]
@@ -30,7 +30,7 @@ public enum CaseAssignmentRejection2Code
     
     /// <summary>
     /// Case Assignee is not allowed to investigate on this instruction (eg. Case Assignee is not the next party in the payment chain).
-    /// Encoded/decoded by serializers as "NAUT".
+    /// Encoded/decoded by serializers as &quot;NAUT&quot;.
     /// </summary>
     [EnumMember(Value = "NAUT")]
     [IsoId("_a2IaE9p-Ed-ak6NoX_4Aeg_-2044862899")]
@@ -39,7 +39,7 @@ public enum CaseAssignmentRejection2Code
     
     /// <summary>
     /// Case has never been assigned before.
-    /// Encoded/decoded by serializers as "UKNW".
+    /// Encoded/decoded by serializers as &quot;UKNW&quot;.
     /// </summary>
     [EnumMember(Value = "UKNW")]
     [IsoId("_a2IaFNp-Ed-ak6NoX_4Aeg_-2044862857")]
@@ -48,7 +48,7 @@ public enum CaseAssignmentRejection2Code
     
     /// <summary>
     /// Used when the payment instruction has previously been cancelled or rejected.
-    /// Encoded/decoded by serializers as "PCOR".
+    /// Encoded/decoded by serializers as &quot;PCOR&quot;.
     /// </summary>
     [EnumMember(Value = "PCOR")]
     [IsoId("_a2IaFdp-Ed-ak6NoX_4Aeg_-2044862530")]

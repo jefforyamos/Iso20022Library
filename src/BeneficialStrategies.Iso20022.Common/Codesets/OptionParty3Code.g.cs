@@ -21,7 +21,7 @@ public enum OptionParty3Code
 {
     /// <summary>
     /// Indicates the receiver of the trade.
-    /// Encoded/decoded by serializers as "MAKE".
+    /// Encoded/decoded by serializers as &quot;MAKE&quot;.
     /// </summary>
     [EnumMember(Value = "MAKE")]
     [IsoId("_g2qdMTzzEeWLuazO9XdCTg")]
@@ -30,7 +30,7 @@ public enum OptionParty3Code
     
     /// <summary>
     /// Indicates the initiator of the trade.
-    /// Encoded/decoded by serializers as "TAKE".
+    /// Encoded/decoded by serializers as &quot;TAKE&quot;.
     /// </summary>
     [EnumMember(Value = "TAKE")]
     [IsoId("_g9k9gTzzEeWLuazO9XdCTg")]

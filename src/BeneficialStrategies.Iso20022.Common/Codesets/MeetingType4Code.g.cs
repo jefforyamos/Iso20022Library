@@ -21,7 +21,7 @@ public enum MeetingType4Code
 {
     /// <summary>
     /// Meeting that takes place as needed, in addition to the general meetings, is extraordinary as per the bylaws. The resolutions are related to the unusual business of the company, for example, approval of takeovers or mergers or spin-offs. These meetings are always issuer initiated.
-    /// Encoded/decoded by serializers as "XMET".
+    /// Encoded/decoded by serializers as &quot;XMET&quot;.
     /// </summary>
     [EnumMember(Value = "XMET")]
     [IsoId("_iaPNIa7DEemG7MmivSuE5g")]
@@ -30,7 +30,7 @@ public enum MeetingType4Code
     
     /// <summary>
     /// Includes annual and ordinary meetings. Statutory meeting(s) usually held at least once a year. The resolutions are related to the usual business of the company, for example, approval of dividends and directors. These meetings are always issuer initiated.
-    /// Encoded/decoded by serializers as "GMET".
+    /// Encoded/decoded by serializers as &quot;GMET&quot;.
     /// </summary>
     [EnumMember(Value = "GMET")]
     [IsoId("_izrn4q7DEemG7MmivSuE5g")]
@@ -39,7 +39,7 @@ public enum MeetingType4Code
     
     /// <summary>
     /// Meeting which contains both ordinary and extraordinary resolutions.
-    /// Encoded/decoded by serializers as "MIXD".
+    /// Encoded/decoded by serializers as &quot;MIXD&quot;.
     /// </summary>
     [EnumMember(Value = "MIXD")]
     [IsoId("_jAxosq7DEemG7MmivSuE5g")]
@@ -48,7 +48,7 @@ public enum MeetingType4Code
     
     /// <summary>
     /// Meeting that takes place as needed that is neither ordinary nor extraordinary.
-    /// Encoded/decoded by serializers as "SPCL".
+    /// Encoded/decoded by serializers as &quot;SPCL&quot;.
     /// </summary>
     [EnumMember(Value = "SPCL")]
     [IsoId("_jYIYwq7DEemG7MmivSuE5g")]
@@ -57,7 +57,7 @@ public enum MeetingType4Code
     
     /// <summary>
     /// Physical meeting of bond holders.
-    /// Encoded/decoded by serializers as "BMET".
+    /// Encoded/decoded by serializers as &quot;BMET&quot;.
     /// </summary>
     [EnumMember(Value = "BMET")]
     [IsoId("_j02J8q7DEemG7MmivSuE5g")]
@@ -66,7 +66,7 @@ public enum MeetingType4Code
     
     /// <summary>
     /// Meeting is the result of a legal proceeding.
-    /// Encoded/decoded by serializers as "CMET".
+    /// Encoded/decoded by serializers as &quot;CMET&quot;.
     /// </summary>
     [EnumMember(Value = "CMET")]
     [IsoId("_kb-bYq7DEemG7MmivSuE5g")]

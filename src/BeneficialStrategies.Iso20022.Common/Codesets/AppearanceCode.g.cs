@@ -21,7 +21,7 @@ public enum AppearanceCode
 {
     /// <summary>
     /// Physical certificates exist.
-    /// Encoded/decoded by serializers as "DELI".
+    /// Encoded/decoded by serializers as &quot;DELI&quot;.
     /// </summary>
     [EnumMember(Value = "DELI")]
     [IsoId("_bfHFo9p-Ed-ak6NoX_4Aeg_-1137977785")]
@@ -30,7 +30,7 @@ public enum AppearanceCode
     
     /// <summary>
     /// Not yet deliverable contract.
-    /// Encoded/decoded by serializers as "NDEL".
+    /// Encoded/decoded by serializers as &quot;NDEL&quot;.
     /// </summary>
     [EnumMember(Value = "NDEL")]
     [IsoId("_bfHFpNp-Ed-ak6NoX_4Aeg_-1137977784")]
@@ -39,7 +39,7 @@ public enum AppearanceCode
     
     /// <summary>
     /// Limited or partial deliverability.
-    /// Encoded/decoded by serializers as "LIMI".
+    /// Encoded/decoded by serializers as &quot;LIMI&quot;.
     /// </summary>
     [EnumMember(Value = "LIMI")]
     [IsoId("_bfHFpdp-Ed-ak6NoX_4Aeg_-1137977783")]
@@ -48,7 +48,7 @@ public enum AppearanceCode
     
     /// <summary>
     /// Security exists only as an electronic record, ie, there are no physical certificates representing the security.
-    /// Encoded/decoded by serializers as "BENT".
+    /// Encoded/decoded by serializers as &quot;BENT&quot;.
     /// </summary>
     [EnumMember(Value = "BENT")]
     [IsoId("_bfHFptp-Ed-ak6NoX_4Aeg_-1137977755")]
@@ -57,7 +57,7 @@ public enum AppearanceCode
     
     /// <summary>
     /// Deferred printing, book entry.
-    /// Encoded/decoded by serializers as "DFBE".
+    /// Encoded/decoded by serializers as &quot;DFBE&quot;.
     /// </summary>
     [EnumMember(Value = "DFBE")]
     [IsoId("_bfHFp9p-Ed-ak6NoX_4Aeg_-1137977754")]
@@ -66,7 +66,7 @@ public enum AppearanceCode
     
     /// <summary>
     /// Deliverable, book entry.
-    /// Encoded/decoded by serializers as "DLBE".
+    /// Encoded/decoded by serializers as &quot;DLBE&quot;.
     /// </summary>
     [EnumMember(Value = "DLBE")]
     [IsoId("_bfQPkNp-Ed-ak6NoX_4Aeg_-1137977753")]
@@ -75,7 +75,7 @@ public enum AppearanceCode
     
     /// <summary>
     /// Deferred printing, global certificate.
-    /// Encoded/decoded by serializers as "TMPG".
+    /// Encoded/decoded by serializers as &quot;TMPG&quot;.
     /// </summary>
     [EnumMember(Value = "TMPG")]
     [IsoId("_bfQPkdp-Ed-ak6NoX_4Aeg_-1137977752")]
@@ -84,7 +84,7 @@ public enum AppearanceCode
     
     /// <summary>
     /// Not deliverable, global certificate.
-    /// Encoded/decoded by serializers as "GLOB".
+    /// Encoded/decoded by serializers as &quot;GLOB&quot;.
     /// </summary>
     [EnumMember(Value = "GLOB")]
     [IsoId("_bfQPktp-Ed-ak6NoX_4Aeg_-1137977725")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
 [IsoId("_QHMLJdp-Ed-ak6NoX_4Aeg_1886908463")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Postal Address")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record PostalAddress3
     /// Type of address.
     /// </summary>
     [IsoId("_QHMLJtp-Ed-ak6NoX_4Aeg_1886909524")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Address Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdrTp")]
     #endif
+    [IsoXmlTag("AdrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AddressType1Code AddressType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AddressType1Code AddressType { get; init; } 
+    public required AddressType1Code AddressType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AddressType1Code AddressType { get; init; } 
     #else
@@ -74,16 +71,16 @@ public partial record PostalAddress3
     /// Indicates whether mail should be sent to an address.
     /// </summary>
     [IsoId("_QHMLJ9p-Ed-ak6NoX_4Aeg_1886909609")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Mailing Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MlngInd")]
     #endif
+    [IsoXmlTag("MlngInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator MailingIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String MailingIndicator { get; init; } 
+    public required System.String MailingIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String MailingIndicator { get; init; } 
     #else
@@ -94,16 +91,16 @@ public partial record PostalAddress3
     /// Indicates whether the address is the official address of the party.
     /// </summary>
     [IsoId("_QHMLKNp-Ed-ak6NoX_4Aeg_1886909661")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Registration Address Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RegnAdrInd")]
     #endif
+    [IsoXmlTag("RegnAdrInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoYesNoIndicator RegistrationAddressIndicator { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String RegistrationAddressIndicator { get; init; } 
+    public required System.String RegistrationAddressIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String RegistrationAddressIndicator { get; init; } 
     #else
@@ -114,16 +111,15 @@ public partial record PostalAddress3
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
     [IsoId("_QHVVENp-Ed-ak6NoX_4Aeg_1886909998")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Name And Address")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NmAndAdr")]
     #endif
+    [IsoXmlTag("NmAndAdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required NameAndAddress4 NameAndAddress { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public NameAndAddress4 NameAndAddress { get; init; } 
+    public required NameAndAddress4 NameAndAddress { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public NameAndAddress4 NameAndAddress { get; init; } 
     #else

@@ -21,7 +21,7 @@ public enum Response6Code
 {
     /// <summary>
     /// Advice message could not be processed.
-    /// Encoded/decoded by serializers as "UNPR".
+    /// Encoded/decoded by serializers as &quot;UNPR&quot;.
     /// </summary>
     [EnumMember(Value = "UNPR")]
     [IsoId("_Q-D1YlAzEeedyPuM0kK2EQ")]
@@ -30,7 +30,7 @@ public enum Response6Code
     
     /// <summary>
     /// Processing of the service has been partially performed.
-    /// Encoded/decoded by serializers as "PPRC".
+    /// Encoded/decoded by serializers as &quot;PPRC&quot;.
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_SUWS4lAzEeedyPuM0kK2EQ")]
@@ -39,7 +39,7 @@ public enum Response6Code
     
     /// <summary>
     /// Advice message is processed.
-    /// Encoded/decoded by serializers as "PRCS".
+    /// Encoded/decoded by serializers as &quot;PRCS&quot;.
     /// </summary>
     [EnumMember(Value = "PRCS")]
     [IsoId("_SoIxklAzEeedyPuM0kK2EQ")]
@@ -48,7 +48,7 @@ public enum Response6Code
     
     /// <summary>
     /// Service was rejected.
-    /// Encoded/decoded by serializers as "REJT".
+    /// Encoded/decoded by serializers as &quot;REJT&quot;.
     /// </summary>
     [EnumMember(Value = "REJT")]
     [IsoId("_S7UzUlAzEeedyPuM0kK2EQ")]
@@ -57,7 +57,7 @@ public enum Response6Code
     
     /// <summary>
     /// Other type of processing result defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_lroQoVAzEeedyPuM0kK2EQ")]
@@ -66,7 +66,7 @@ public enum Response6Code
     
     /// <summary>
     /// Other type of processing result defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_l31golAzEeedyPuM0kK2EQ")]
@@ -75,7 +75,7 @@ public enum Response6Code
     
     /// <summary>
     /// Service cannot be provided for technical reason (eg timeout contacting the Issuer, security problem).
-    /// Encoded/decoded by serializers as "TECH".
+    /// Encoded/decoded by serializers as &quot;TECH&quot;.
     /// </summary>
     [EnumMember(Value = "TECH")]
     [IsoId("_PewkAaY6Eeiva6IOmhpVHw")]
@@ -84,7 +84,7 @@ public enum Response6Code
     
     /// <summary>
     /// Service is under review.
-    /// Encoded/decoded by serializers as "UNRV".
+    /// Encoded/decoded by serializers as &quot;UNRV&quot;.
     /// </summary>
     [EnumMember(Value = "UNRV")]
     [IsoId("_hEBh8WqEEemXfKijhrqa-Q")]

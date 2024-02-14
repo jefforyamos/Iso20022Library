@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason6Choice
     /// Specifies the reason why the cancellation request is pending.
     /// </summary>
     [IsoId("_itAn2kAAEeCaq78Ig8ATcA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pending Cancellation Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

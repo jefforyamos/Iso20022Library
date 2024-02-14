@@ -21,7 +21,7 @@ public enum SettledStatusReasonCode
 {
     /// <summary>
     /// Units are partially settled.
-    /// Encoded/decoded by serializers as "UPST".
+    /// Encoded/decoded by serializers as &quot;UPST&quot;.
     /// </summary>
     [EnumMember(Value = "UPST")]
     [IsoId("_ZKsL9tp-Ed-ak6NoX_4Aeg_606549659")]
@@ -30,7 +30,7 @@ public enum SettledStatusReasonCode
     
     /// <summary>
     /// Cash is partially settled.
-    /// Encoded/decoded by serializers as "CPST".
+    /// Encoded/decoded by serializers as &quot;CPST&quot;.
     /// </summary>
     [EnumMember(Value = "CPST")]
     [IsoId("_ZKsL99p-Ed-ak6NoX_4Aeg_606549702")]
@@ -39,7 +39,7 @@ public enum SettledStatusReasonCode
     
     /// <summary>
     /// Units and cash are both partially settled.
-    /// Encoded/decoded by serializers as "UCPS".
+    /// Encoded/decoded by serializers as &quot;UCPS&quot;.
     /// </summary>
     [EnumMember(Value = "UCPS")]
     [IsoId("_ZKsL-Np-Ed-ak6NoX_4Aeg_606549719")]
@@ -48,7 +48,7 @@ public enum SettledStatusReasonCode
     
     /// <summary>
     /// Redemption has been gated, all settlement will be done at the same price.
-    /// Encoded/decoded by serializers as "GAT1".
+    /// Encoded/decoded by serializers as &quot;GAT1&quot;.
     /// </summary>
     [EnumMember(Value = "GAT1")]
     [IsoId("_1jZr8EgWEea9YuSvQGoi-w")]
@@ -57,7 +57,7 @@ public enum SettledStatusReasonCode
     
     /// <summary>
     /// Redemption has been gated. Multiple redemptions and multiple prices will be required.
-    /// Encoded/decoded by serializers as "GATM".
+    /// Encoded/decoded by serializers as &quot;GATM&quot;.
     /// </summary>
     [EnumMember(Value = "GATM")]
     [IsoId("_4wRQkEgWEea9YuSvQGoi-w")]

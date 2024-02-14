@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details about the collateral substitution response.
 /// </summary>
 [IsoId("_QnhRA9p-Ed-ak6NoX_4Aeg_908779595")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Substitution Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record SubstitutionResponse1
     /// Indicates if the substitution request was accepted or rejected.
     /// </summary>
     [IsoId("_QnhRBNp-Ed-ak6NoX_4Aeg_-1628822565")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnTp")]
     #endif
+    [IsoXmlTag("RspnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Status4Code ResponseType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Status4Code ResponseType { get; init; } 
+    public required Status4Code ResponseType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Status4Code ResponseType { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record SubstitutionResponse1
     /// Provides details about the accepted collateral substitution.
     /// </summary>
     [IsoId("_QnhRBdp-Ed-ak6NoX_4Aeg_-691288487")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Substitution Acceptance Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSbstitnAccptncDtls")]
     #endif
+    [IsoXmlTag("CollSbstitnAccptncDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralSubstitutionResponse1? CollateralSubstitutionAcceptanceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record SubstitutionResponse1
     /// Provides details about the rejected collateral substitution.
     /// </summary>
     [IsoId("_QnhRBtp-Ed-ak6NoX_4Aeg_-417549319")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Substitution Rejection Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CollSbstitnRjctnDtls")]
     #endif
+    [IsoXmlTag("CollSbstitnRjctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CollateralSubstitutionResponse2? CollateralSubstitutionRejectionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -21,7 +21,7 @@ public enum ChargeType4Code
 {
     /// <summary>
     /// In investment funds, a fee charged for the transfer of ownership of an investment fund.
-    /// Encoded/decoded by serializers as "TRAN".
+    /// Encoded/decoded by serializers as &quot;TRAN&quot;.
     /// </summary>
     [EnumMember(Value = "TRAN")]
     [IsoId("_VeXEJ9p-Ed-ak6NoX_4Aeg_313498035")]

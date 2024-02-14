@@ -35,9 +35,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"Scope:|The PartyDeletionRequest message is sent by the instructing party to the executing party to request a deletion of a party defined in the executing system.||Usage:|It aims at instructing the deletion of an existing party by providing its identification.|Processing of the party deletion request message is provided via a party status advice.")]
 [IsoId("_77TqgZeSEeen_cyMrluY4w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Party Deletion Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,12 +78,11 @@ public partial record PartyDeletionRequestV01 : IOuterRecord<PartyDeletionReques
     /// Common business identification for the message.
     /// </summary>
     [IsoId("_Wa5ywVhGEeih3fUfzR38Ig")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public MessageHeader1? MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,16 +95,15 @@ public partial record PartyDeletionRequestV01 : IOuterRecord<PartyDeletionReques
     /// Unique identification, as assigned by the executing system, to unambiguously identify the party to be deleted.
     /// </summary>
     [IsoId("_77TqhZeSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("System Party Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SysPtyId")]
     #endif
+    [IsoXmlTag("SysPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SystemPartyIdentification8 SystemPartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SystemPartyIdentification8 SystemPartyIdentification { get; init; } 
+    public required SystemPartyIdentification8 SystemPartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SystemPartyIdentification8 SystemPartyIdentification { get; init; } 
     #else
@@ -118,12 +114,11 @@ public partial record PartyDeletionRequestV01 : IOuterRecord<PartyDeletionReques
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_77Tqh5eSEeen_cyMrluY4w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,7 +131,7 @@ public partial record PartyDeletionRequestV01 : IOuterRecord<PartyDeletionReques
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PartyDeletionRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PartyDeletionRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PartyDeletionRequestV01Document ToDocument()
     {
@@ -146,7 +141,7 @@ public partial record PartyDeletionRequestV01 : IOuterRecord<PartyDeletionReques
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PartyDeletionRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PartyDeletionRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PartyDeletionRequestV01Document : IOuterDocument<PartyDeletionRequestV01>
@@ -163,7 +158,7 @@ public partial record PartyDeletionRequestV01Document : IOuterDocument<PartyDele
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PartyDeletionRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PartyDeletionRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyDeletionRequestV01 Message { get; init; }

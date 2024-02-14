@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason59Choice
     /// Standard code to specify the reason why the instruction/event has a pending status.
     /// </summary>
     [IsoId("_hB_wsRHpEeuE0Pnt-OcNOA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason59Choice
         /// Specifies the reason why the instruction has a pending status.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PendingReason22Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PendingReason22Code Value { get; init; } 
+        public required PendingReason22Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PendingReason22Code Value { get; init; } 
         #else

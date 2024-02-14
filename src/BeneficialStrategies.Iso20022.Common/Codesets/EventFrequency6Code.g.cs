@@ -21,7 +21,7 @@ public enum EventFrequency6Code
 {
     /// <summary>
     /// Event takes place every day.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_YZq-sdp-Ed-ak6NoX_4Aeg_903765456")]
@@ -30,7 +30,7 @@ public enum EventFrequency6Code
     
     /// <summary>
     /// Event takes place several times a day.
-    /// Encoded/decoded by serializers as "INDA".
+    /// Encoded/decoded by serializers as &quot;INDA&quot;.
     /// </summary>
     [EnumMember(Value = "INDA")]
     [IsoId("_YZq-stp-Ed-ak6NoX_4Aeg_699827861")]
@@ -39,7 +39,7 @@ public enum EventFrequency6Code
     
     /// <summary>
     /// Event takes place on demand.
-    /// Encoded/decoded by serializers as "ONDE".
+    /// Encoded/decoded by serializers as &quot;ONDE&quot;.
     /// </summary>
     [EnumMember(Value = "ONDE")]
     [IsoId("_YZq-s9p-Ed-ak6NoX_4Aeg_-652104133")]

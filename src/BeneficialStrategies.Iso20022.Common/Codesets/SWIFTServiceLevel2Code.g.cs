@@ -21,7 +21,7 @@ public enum SWIFTServiceLevel2Code
 {
     /// <summary>
     /// Credit transfer is to be processed according to the SWIFTPay Service Level.
-    /// Encoded/decoded by serializers as "SPAY".
+    /// Encoded/decoded by serializers as &quot;SPAY&quot;.
     /// </summary>
     [EnumMember(Value = "SPAY")]
     [IsoId("_ZRGV9dp-Ed-ak6NoX_4Aeg_1129333388")]
@@ -30,7 +30,7 @@ public enum SWIFTServiceLevel2Code
     
     /// <summary>
     /// Credit transfer is to be processed according to the Standard Service Level.
-    /// Encoded/decoded by serializers as "SSTD".
+    /// Encoded/decoded by serializers as &quot;SSTD&quot;.
     /// </summary>
     [EnumMember(Value = "SSTD")]
     [IsoId("_ZRGV9tp-Ed-ak6NoX_4Aeg_1129333389")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the type of the document referred in the remittance information.
 /// </summary>
 [IsoId("_T3sBQtp-Ed-ak6NoX_4Aeg_1965243464")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Referred Document Type")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record ReferredDocumentType2
     /// Provides the type details of the referred document.
     /// </summary>
     [IsoId("_T3sBQ9p-Ed-ak6NoX_4Aeg_205404742")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code Or Proprietary")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdOrPrtry")]
     #endif
+    [IsoXmlTag("CdOrPrtry")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReferredDocumentType1Choice_ CodeOrProprietary { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReferredDocumentType1Choice_ CodeOrProprietary { get; init; } 
+    public required ReferredDocumentType1Choice_ CodeOrProprietary { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReferredDocumentType1Choice_ CodeOrProprietary { get; init; } 
     #else
@@ -71,15 +68,13 @@ public partial record ReferredDocumentType2
     /// Identification of the issuer of the reference document type.
     /// </summary>
     [IsoId("_T3sBRNp-Ed-ak6NoX_4Aeg_1965243858")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Issr")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Issr")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? Issuer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

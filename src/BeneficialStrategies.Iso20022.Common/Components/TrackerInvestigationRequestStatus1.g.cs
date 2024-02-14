@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information on the investigation request status from the tracker.
 /// </summary>
 [IsoId("_TPTgYWHNEe2dtcJPyL3-cw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Investigation Request Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TrackerInvestigationRequestStatus1
     /// Status of request.
     /// </summary>
     [IsoId("_TYAJY2HNEe2dtcJPyL3-cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Sts")]
     #endif
+    [IsoXmlTag("Sts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required InvestigationRequestStatus1Choice_ Status { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public InvestigationRequestStatus1Choice_ Status { get; init; } 
+    public required InvestigationRequestStatus1Choice_ Status { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public InvestigationRequestStatus1Choice_ Status { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record TrackerInvestigationRequestStatus1
     /// Provides detailed information on the status reason.
     /// </summary>
     [IsoId("_TYAJZWHNEe2dtcJPyL3-cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestigationRequestStatusReason1Choice_? StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,12 +85,11 @@ public partial record TrackerInvestigationRequestStatus1
     /// Date for the status.
     /// </summary>
     [IsoId("_w5eQ0HbiEe2GR4CRzIB77g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateAndDateTime2Choice_? Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -107,15 +102,13 @@ public partial record TrackerInvestigationRequestStatus1
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
     [IsoId("_TYAJZ2HNEe2dtcJPyL3-cw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("AddtlInf")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax105Text? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +121,11 @@ public partial record TrackerInvestigationRequestStatus1
     /// Party that provides information on the status and related details of the request.
     /// </summary>
     [IsoId("_Jms8gXfIEe2A6pitLvwC_g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Informing Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckrInfrmgPty")]
     #endif
+    [IsoXmlTag("TrckrInfrmgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +138,11 @@ public partial record TrackerInvestigationRequestStatus1
     /// Party that is updated on the status and related details of the request.
     /// </summary>
     [IsoId("_IL9c0XfIEe2A6pitLvwC_g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracker Informed Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckrInfrmdPty")]
     #endif
+    [IsoXmlTag("TrckrInfrmdPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -164,12 +155,11 @@ public partial record TrackerInvestigationRequestStatus1
     /// Provides information on the original request message.
     /// </summary>
     [IsoId("_K9X0gXfIEe2A6pitLvwC_g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tracked Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TrckdMsgId")]
     #endif
+    [IsoXmlTag("TrckdMsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OriginalBusinessInstruction4? TrackedMessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -182,12 +172,11 @@ public partial record TrackerInvestigationRequestStatus1
     /// Includes the entity to which the entity reporting the status has forwarded the case.
     /// </summary>
     [IsoId("_U5M7YmQHEe297MhDQvVHLQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Agent")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAgt")]
     #endif
+    [IsoXmlTag("InstdAgt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public BranchAndFinancialInstitutionIdentification6? InstructedAgent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -200,12 +189,11 @@ public partial record TrackerInvestigationRequestStatus1
     /// Identifies the entity to which the tracking facility has assigned the request.
     /// </summary>
     [IsoId("__6p7kXbjEe2GR4CRzIB77g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investigation Responder")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InvstgtnRspndr")]
     #endif
+    [IsoXmlTag("InvstgtnRspndr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Party40Choice_? InvestigationResponder { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

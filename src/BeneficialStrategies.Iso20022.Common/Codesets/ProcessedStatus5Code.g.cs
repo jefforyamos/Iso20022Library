@@ -21,7 +21,7 @@ public enum ProcessedStatus5Code
 {
     /// <summary>
     /// The instruction/request has been received.
-    /// Encoded/decoded by serializers as "RECE".
+    /// Encoded/decoded by serializers as &quot;RECE&quot;.
     /// </summary>
     [EnumMember(Value = "RECE")]
     [IsoId("_aKxI4Np-Ed-ak6NoX_4Aeg_-1913679382")]
@@ -30,7 +30,7 @@ public enum ProcessedStatus5Code
     
     /// <summary>
     /// The request is accepted.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_aKxI4dp-Ed-ak6NoX_4Aeg_-1913679351")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Pension scheme tax reference.
 /// </summary>
 [IsoId("_jUsPcE4QEeiQHa-q1Uephw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Reference")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,12 +49,11 @@ public partial record TaxReference1
     /// Type of tax reference.
     /// </summary>
     [IsoId("_x0JioE4QEeiQHa-q1Uephw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxTp")]
     #endif
+    [IsoXmlTag("TaxTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReferenceType1Choice_? TaxType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -69,19 +66,17 @@ public partial record TaxReference1
     /// Tax reference.
     /// </summary>
     [IsoId("_1V_RsE4QEeiQHa-q1Uephw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Ref")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Ref")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax35Text Reference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Reference { get; init; } 
+    public required System.String Reference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Reference { get; init; } 
     #else
@@ -89,15 +84,14 @@ public partial record TaxReference1
     #endif
     
     /// <summary>
-    /// Type of reference holder. For example, the transferee's tax reference. The transferee may also be known as the acquiring party.
+    /// Type of reference holder. For example, the transferee&apos;s tax reference. The transferee may also be known as the acquiring party.
     /// </summary>
     [IsoId("_refLoE4REeiQHa-q1Uephw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Holder Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HldrTp")]
     #endif
+    [IsoXmlTag("HldrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TaxReferenceParty1Choice_? HolderType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

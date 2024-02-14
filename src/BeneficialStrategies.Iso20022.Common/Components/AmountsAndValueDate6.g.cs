@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the value date and the amounts traded in a foreign exchange transaction.
 /// </summary>
 [IsoId("_c87_EQNhEe2-vqzwMUAewg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amounts And Value Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record AmountsAndValueDate6
     /// Currency and amount bought in a foreign exchange trade.
     /// </summary>
     [IsoId("_dCcxMQNhEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Buy Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdBuyAmt")]
     #endif
+    [IsoXmlTag("TradgSdBuyAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; init; } 
+    public required CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record AmountsAndValueDate6
     /// Currency and amount sold in a foreign exchange trade.
     /// </summary>
     [IsoId("_dCcxMwNhEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Trading Side Sell Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TradgSdSellAmt")]
     #endif
+    [IsoXmlTag("TradgSdSellAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; init; } 
+    public required CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; init; } 
     #else
@@ -93,16 +89,16 @@ public partial record AmountsAndValueDate6
     /// Date on which the trade is settled, for example, the amounts are due.
     /// </summary>
     [IsoId("_dCcxNQNhEe2-vqzwMUAewg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SttlmDt")]
     #endif
+    [IsoXmlTag("SttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate SettlementDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly SettlementDate { get; init; } 
+    public required System.DateOnly SettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly SettlementDate { get; init; } 
     #else

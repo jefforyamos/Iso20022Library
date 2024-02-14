@@ -21,7 +21,7 @@ public enum DepositaryReceiptProcessingStatus1Code
 {
     /// <summary>
     /// No record of the transaction for which a status is requested.
-    /// Encoded/decoded by serializers as "NORE".
+    /// Encoded/decoded by serializers as &quot;NORE&quot;.
     /// </summary>
     [EnumMember(Value = "NORE")]
     [IsoId("_av4BFdp-Ed-ak6NoX_4Aeg_-1629994249")]
@@ -30,7 +30,7 @@ public enum DepositaryReceiptProcessingStatus1Code
     
     /// <summary>
     /// Depositary receipt is pending completion.
-    /// Encoded/decoded by serializers as "PEND".
+    /// Encoded/decoded by serializers as &quot;PEND&quot;.
     /// </summary>
     [EnumMember(Value = "PEND")]
     [IsoId("_av4BFtp-Ed-ak6NoX_4Aeg_-1629994248")]

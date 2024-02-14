@@ -21,7 +21,7 @@ public enum DurationTypeCode
 {
     /// <summary>
     /// Duration is a year.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_ZymlABVpEeWkV7eOBXXT7Q")]
@@ -30,7 +30,7 @@ public enum DurationTypeCode
     
     /// <summary>
     /// Duration is a day.
-    /// Encoded/decoded by serializers as "DASD".
+    /// Encoded/decoded by serializers as &quot;DASD&quot;.
     /// </summary>
     [EnumMember(Value = "DASD")]
     [IsoId("_ZymlBxVpEeWkV7eOBXXT7Q")]
@@ -39,7 +39,7 @@ public enum DurationTypeCode
     
     /// <summary>
     /// Event takes place every month or once a month.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_ZymlEBVpEeWkV7eOBXXT7Q")]
@@ -48,7 +48,7 @@ public enum DurationTypeCode
     
     /// <summary>
     /// Duration is a minute.
-    /// Encoded/decoded by serializers as "MNUT".
+    /// Encoded/decoded by serializers as &quot;MNUT&quot;.
     /// </summary>
     [EnumMember(Value = "MNUT")]
     [IsoId("_ZymlFxVpEeWkV7eOBXXT7Q")]
@@ -57,7 +57,7 @@ public enum DurationTypeCode
     
     /// <summary>
     /// Event takes place every three months or four times a year.
-    /// Encoded/decoded by serializers as "QURT".
+    /// Encoded/decoded by serializers as &quot;QURT&quot;.
     /// </summary>
     [EnumMember(Value = "QURT")]
     [IsoId("_ZymlGBVpEeWkV7eOBXXT7Q")]
@@ -66,7 +66,7 @@ public enum DurationTypeCode
     
     /// <summary>
     /// Event takes place every six months or two times a year.
-    /// Encoded/decoded by serializers as "SEAS".
+    /// Encoded/decoded by serializers as &quot;SEAS&quot;.
     /// </summary>
     [EnumMember(Value = "SEAS")]
     [IsoId("_ZymlHxVpEeWkV7eOBXXT7Q")]
@@ -75,7 +75,7 @@ public enum DurationTypeCode
     
     /// <summary>
     /// Event takes place every week.
-    /// Encoded/decoded by serializers as "WEEK".
+    /// Encoded/decoded by serializers as &quot;WEEK&quot;.
     /// </summary>
     [EnumMember(Value = "WEEK")]
     [IsoId("_ZymlJRVpEeWkV7eOBXXT7Q")]
@@ -84,7 +84,7 @@ public enum DurationTypeCode
     
     /// <summary>
     /// Duration is an hour.
-    /// Encoded/decoded by serializers as "HOUR".
+    /// Encoded/decoded by serializers as &quot;HOUR&quot;.
     /// </summary>
     [EnumMember(Value = "HOUR")]
     [IsoId("_85z_UBVpEeWkV7eOBXXT7Q")]
@@ -93,7 +93,7 @@ public enum DurationTypeCode
     
     /// <summary>
     /// Duration is expressed in another unit.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_c0MOgEDeEeWt96EosbOZ-w")]

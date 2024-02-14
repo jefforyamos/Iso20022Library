@@ -21,7 +21,7 @@ public enum TransactionProcessingStatus2Code
 {
     /// <summary>
     /// Instruction has been cancelled.
-    /// Encoded/decoded by serializers as "CAND".
+    /// Encoded/decoded by serializers as &quot;CAND&quot;.
     /// </summary>
     [EnumMember(Value = "CAND")]
     [IsoId("_YsJOx9p-Ed-ak6NoX_4Aeg_1783970831")]
@@ -30,7 +30,7 @@ public enum TransactionProcessingStatus2Code
     
     /// <summary>
     /// Cancellation request from yourself for this instruction is pending waiting for further processing.
-    /// Encoded/decoded by serializers as "CANP".
+    /// Encoded/decoded by serializers as &quot;CANP&quot;.
     /// </summary>
     [EnumMember(Value = "CANP")]
     [IsoId("_YsJOyNp-Ed-ak6NoX_4Aeg_1783971358")]
@@ -39,7 +39,7 @@ public enum TransactionProcessingStatus2Code
     
     /// <summary>
     /// Cancellation request from the counterparty is awaiting for your cancellation request or your consent.
-    /// Encoded/decoded by serializers as "CPRC".
+    /// Encoded/decoded by serializers as &quot;CPRC&quot;.
     /// </summary>
     [EnumMember(Value = "CPRC")]
     [IsoId("_YsS_wNp-Ed-ak6NoX_4Aeg_1783971359")]
@@ -48,7 +48,7 @@ public enum TransactionProcessingStatus2Code
     
     /// <summary>
     /// Processing of the instruction is pending.
-    /// Encoded/decoded by serializers as "PPRC".
+    /// Encoded/decoded by serializers as &quot;PPRC&quot;.
     /// </summary>
     [EnumMember(Value = "PPRC")]
     [IsoId("_YsS_wdp-Ed-ak6NoX_4Aeg_1783971393")]
@@ -57,7 +57,7 @@ public enum TransactionProcessingStatus2Code
     
     /// <summary>
     /// Instruction has been acknowledged/accepted for further processing by the account servicer.
-    /// Encoded/decoded by serializers as "PACK".
+    /// Encoded/decoded by serializers as &quot;PACK&quot;.
     /// </summary>
     [EnumMember(Value = "PACK")]
     [IsoId("_YsS_wtp-Ed-ak6NoX_4Aeg_1783971418")]
@@ -66,7 +66,7 @@ public enum TransactionProcessingStatus2Code
     
     /// <summary>
     /// Account servicer or third party created the transaction. It was not instructed directly by the account owner.
-    /// Encoded/decoded by serializers as "CGEN".
+    /// Encoded/decoded by serializers as &quot;CGEN&quot;.
     /// </summary>
     [EnumMember(Value = "CGEN")]
     [IsoId("_YsS_w9p-Ed-ak6NoX_4Aeg_1783971419")]
@@ -75,7 +75,7 @@ public enum TransactionProcessingStatus2Code
     
     /// <summary>
     /// Instruction is accepted but in repair.
-    /// Encoded/decoded by serializers as "REPR".
+    /// Encoded/decoded by serializers as &quot;REPR&quot;.
     /// </summary>
     [EnumMember(Value = "REPR")]
     [IsoId("_YsS_xNp-Ed-ak6NoX_4Aeg_1783971435")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OriginalMandate1Choice.OriginalMandateIdentification))]
     [KnownType(typeof(OriginalMandate1Choice.OriginalMandate))]
     [IsoId("_RD1Zk9p-Ed-ak6NoX_4Aeg_1242303022")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Mandate 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

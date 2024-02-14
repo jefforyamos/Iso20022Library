@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CRSStatus3Choice.Code))]
     [KnownType(typeof(CRSStatus3Choice.Proprietary))]
     [IsoId("_--TuEUNeEeamLdeYEZm56w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("CRS Status 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

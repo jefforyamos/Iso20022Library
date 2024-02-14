@@ -21,7 +21,7 @@ public enum InvestmentNeed1Code
 {
     /// <summary>
     /// Investment need is for environmental social corporate governance.
-    /// Encoded/decoded by serializers as "ESGO".
+    /// Encoded/decoded by serializers as &quot;ESGO&quot;.
     /// </summary>
     [EnumMember(Value = "ESGO")]
     [IsoId("_-DCJ8TcdEeidBoT_PugKiA")]
@@ -30,7 +30,7 @@ public enum InvestmentNeed1Code
     
     /// <summary>
     /// Investment need is for ethical investment.
-    /// Encoded/decoded by serializers as "ETHI".
+    /// Encoded/decoded by serializers as &quot;ETHI&quot;.
     /// </summary>
     [EnumMember(Value = "ETHI")]
     [IsoId("_-IFpETcdEeidBoT_PugKiA")]
@@ -39,7 +39,7 @@ public enum InvestmentNeed1Code
     
     /// <summary>
     /// Investment need is for green investment.
-    /// Encoded/decoded by serializers as "GRIN".
+    /// Encoded/decoded by serializers as &quot;GRIN&quot;.
     /// </summary>
     [EnumMember(Value = "GRIN")]
     [IsoId("_-NJvQTcdEeidBoT_PugKiA")]
@@ -48,7 +48,7 @@ public enum InvestmentNeed1Code
     
     /// <summary>
     /// Investment need is for Islamic banking.
-    /// Encoded/decoded by serializers as "ISLB".
+    /// Encoded/decoded by serializers as &quot;ISLB&quot;.
     /// </summary>
     [EnumMember(Value = "ISLB")]
     [IsoId("_-SgJUTcdEeidBoT_PugKiA")]
@@ -57,7 +57,7 @@ public enum InvestmentNeed1Code
     
     /// <summary>
     /// No specific need.
-    /// Encoded/decoded by serializers as "NSPE".
+    /// Encoded/decoded by serializers as &quot;NSPE&quot;.
     /// </summary>
     [EnumMember(Value = "NSPE")]
     [IsoId("_-US5ETcdEeidBoT_PugKiA")]
@@ -66,7 +66,7 @@ public enum InvestmentNeed1Code
     
     /// <summary>
     /// Other specific need.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_-ZgJMTcdEeidBoT_PugKiA")]
@@ -75,7 +75,7 @@ public enum InvestmentNeed1Code
     
     /// <summary>
     /// Specific investment need.
-    /// Encoded/decoded by serializers as "YSPE".
+    /// Encoded/decoded by serializers as &quot;YSPE&quot;.
     /// </summary>
     [EnumMember(Value = "YSPE")]
     [IsoId("_c_wd0el4Eei6w4V2u1HOBw")]

@@ -21,7 +21,7 @@ public enum AttendanceContextCode
 {
     /// <summary>
     /// Attended payment, with an attendant.
-    /// Encoded/decoded by serializers as "ATTD".
+    /// Encoded/decoded by serializers as &quot;ATTD&quot;.
     /// </summary>
     [EnumMember(Value = "ATTD")]
     [IsoId("_TVyU4wEcEeCQm6a_G2yO_w_446638178")]
@@ -30,7 +30,7 @@ public enum AttendanceContextCode
     
     /// <summary>
     /// Semi-attended, including self checkout. An attendant supervises several payment, and could be called to help the cardholder.
-    /// Encoded/decoded by serializers as "SATT".
+    /// Encoded/decoded by serializers as &quot;SATT&quot;.
     /// </summary>
     [EnumMember(Value = "SATT")]
     [IsoId("_TVyU5AEcEeCQm6a_G2yO_w_569194929")]
@@ -39,7 +39,7 @@ public enum AttendanceContextCode
     
     /// <summary>
     /// Unattended payment, no attendant present.
-    /// Encoded/decoded by serializers as "UATT".
+    /// Encoded/decoded by serializers as &quot;UATT&quot;.
     /// </summary>
     [EnumMember(Value = "UATT")]
     [IsoId("_TVyU5QEcEeCQm6a_G2yO_w_-1522557759")]
@@ -48,7 +48,7 @@ public enum AttendanceContextCode
     
     /// <summary>
     /// Delivery by an attendant.
-    /// Encoded/decoded by serializers as "ATTL".
+    /// Encoded/decoded by serializers as &quot;ATTL&quot;.
     /// </summary>
     [EnumMember(Value = "ATTL")]
     [IsoId("_qutPAJVIEeWu36UkS2TkoQ")]
@@ -57,7 +57,7 @@ public enum AttendanceContextCode
     
     /// <summary>
     /// Delivery by the customer.
-    /// Encoded/decoded by serializers as "CUST".
+    /// Encoded/decoded by serializers as &quot;CUST&quot;.
     /// </summary>
     [EnumMember(Value = "CUST")]
     [IsoId("_vQTx8JVIEeWu36UkS2TkoQ")]
@@ -66,7 +66,7 @@ public enum AttendanceContextCode
     
     /// <summary>
     /// Delivery by a carrier.
-    /// Encoded/decoded by serializers as "CARR".
+    /// Encoded/decoded by serializers as &quot;CARR&quot;.
     /// </summary>
     [EnumMember(Value = "CARR")]
     [IsoId("_yfDl4JVIEeWu36UkS2TkoQ")]
@@ -75,7 +75,7 @@ public enum AttendanceContextCode
     
     /// <summary>
     /// Full service for fuel distribution.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_1uvN8JVIEeWu36UkS2TkoQ")]
@@ -84,7 +84,7 @@ public enum AttendanceContextCode
     
     /// <summary>
     /// Self service for fuel distribution.
-    /// Encoded/decoded by serializers as "SELF".
+    /// Encoded/decoded by serializers as &quot;SELF&quot;.
     /// </summary>
     [EnumMember(Value = "SELF")]
     [IsoId("_4i_eQJVIEeWu36UkS2TkoQ")]

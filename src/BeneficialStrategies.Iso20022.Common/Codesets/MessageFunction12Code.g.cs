@@ -21,7 +21,7 @@ public enum MessageFunction12Code
 {
     /// <summary>
     /// Request for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FAUQ".
+    /// Encoded/decoded by serializers as &quot;FAUQ&quot;.
     /// </summary>
     [EnumMember(Value = "FAUQ")]
     [IsoId("_5vGz0bDDEeamYaqfhG1ZuA")]
@@ -30,7 +30,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Request for cancellation.
-    /// Encoded/decoded by serializers as "CCAQ".
+    /// Encoded/decoded by serializers as &quot;CCAQ&quot;.
     /// </summary>
     [EnumMember(Value = "CCAQ")]
     [IsoId("_5vGz07DDEeamYaqfhG1ZuA")]
@@ -39,7 +39,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Advice for completion without financial capture.
-    /// Encoded/decoded by serializers as "CMPV".
+    /// Encoded/decoded by serializers as &quot;CMPV&quot;.
     /// </summary>
     [EnumMember(Value = "CMPV")]
     [IsoId("_5vGz1bDDEeamYaqfhG1ZuA")]
@@ -48,7 +48,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Request for diagnostic.
-    /// Encoded/decoded by serializers as "DGNP".
+    /// Encoded/decoded by serializers as &quot;DGNP&quot;.
     /// </summary>
     [EnumMember(Value = "DGNP")]
     [IsoId("_5vGz17DDEeamYaqfhG1ZuA")]
@@ -57,7 +57,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Request for reconciliation.
-    /// Encoded/decoded by serializers as "RCLQ".
+    /// Encoded/decoded by serializers as &quot;RCLQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCLQ")]
     [IsoId("_5vGz2bDDEeamYaqfhG1ZuA")]
@@ -66,7 +66,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Advice for cancellation.
-    /// Encoded/decoded by serializers as "CCAV".
+    /// Encoded/decoded by serializers as &quot;CCAV&quot;.
     /// </summary>
     [EnumMember(Value = "CCAV")]
     [IsoId("_5vGz27DDEeamYaqfhG1ZuA")]
@@ -75,7 +75,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Transfer the financial data as a collection of transction.
-    /// Encoded/decoded by serializers as "BTCH".
+    /// Encoded/decoded by serializers as &quot;BTCH&quot;.
     /// </summary>
     [EnumMember(Value = "BTCH")]
     [IsoId("_5vGz3bDDEeamYaqfhG1ZuA")]
@@ -84,7 +84,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Advice for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FRVA".
+    /// Encoded/decoded by serializers as &quot;FRVA&quot;.
     /// </summary>
     [EnumMember(Value = "FRVA")]
     [IsoId("_5vGz37DDEeamYaqfhG1ZuA")]
@@ -93,7 +93,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// The initiator requests an authorisation without financial impact to complete the transaction.
-    /// Encoded/decoded by serializers as "AUTQ".
+    /// Encoded/decoded by serializers as &quot;AUTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AUTQ")]
     [IsoId("_5vGz4bDDEeamYaqfhG1ZuA")]
@@ -102,7 +102,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Advice for completion with financial capture.
-    /// Encoded/decoded by serializers as "FCMV".
+    /// Encoded/decoded by serializers as &quot;FCMV&quot;.
     /// </summary>
     [EnumMember(Value = "FCMV")]
     [IsoId("_5vGz47DDEeamYaqfhG1ZuA")]
@@ -111,7 +111,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Request for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCCQ".
+    /// Encoded/decoded by serializers as &quot;DCCQ&quot;.
     /// </summary>
     [EnumMember(Value = "DCCQ")]
     [IsoId("_5vHa4LDDEeamYaqfhG1ZuA")]
@@ -120,7 +120,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Advice for reversal without financial capture.
-    /// Encoded/decoded by serializers as "RVRA".
+    /// Encoded/decoded by serializers as &quot;RVRA&quot;.
     /// </summary>
     [EnumMember(Value = "RVRA")]
     [IsoId("_Ks8N8bDEEeamYaqfhG1ZuA")]
@@ -129,7 +129,7 @@ public enum MessageFunction12Code
     
     /// <summary>
     /// Advice response for the currency conversion from the service provider to the acceptor.
-    /// Encoded/decoded by serializers as "DCRR".
+    /// Encoded/decoded by serializers as &quot;DCRR&quot;.
     /// </summary>
     [EnumMember(Value = "DCRR")]
     [IsoId("_mPtmcbDEEeamYaqfhG1ZuA")]

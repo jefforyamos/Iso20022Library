@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse2Choic
     /// Provides the collateral proposal response for the segregated independent amount only.
     /// </summary>
     [IsoId("_vslfM2TUEeSSTJlMfOKFsA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Segregated Independent Amount")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -58,19 +56,17 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse2Choic
         /// Unique identifier for a collateral proposal.
         /// </summary>
         [IsoId("_wJv8U2TUEeSSTJlMfOKFsA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Collateral Proposal Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="CollPrpslId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("CollPrpslId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoMax35Text CollateralProposalIdentification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String CollateralProposalIdentification { get; init; } 
+        public required System.String CollateralProposalIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String CollateralProposalIdentification { get; init; } 
         #else
@@ -81,16 +77,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse2Choic
         /// Indicates whether the collateral proposal is an initial or a counter proposal.
         /// </summary>
         [IsoId("_wJv8VWTUEeSSTJlMfOKFsA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CollateralProposalResponse1Code Type { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CollateralProposalResponse1Code Type { get; init; } 
+        public required CollateralProposalResponse1Code Type { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CollateralProposalResponse1Code Type { get; init; } 
         #else
@@ -101,16 +96,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse2Choic
         /// Provides response details for each of the proposed collateral pieces.
         /// </summary>
         [IsoId("_cpnaMGT4EeSnseycwS8fpA")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Response")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rspn")]
         #endif
+        [IsoXmlTag("Rspn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CollateralResponse1 Response { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CollateralResponse1 Response { get; init; } 
+        public required CollateralResponse1 Response { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CollateralResponse1 Response { get; init; } 
         #else

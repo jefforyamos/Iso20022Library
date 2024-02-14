@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace BeneficialStrategies.Iso20022.Codesets;
 
 /// <summary>
-/// Result of the Cardholder verification address checks on the street number and the Postal Code from the Cardholder's Address.
+/// Result of the Cardholder verification address checks on the street number and the Postal Code from the Cardholder&apos;s Address.
 /// </summary>
 [DataContract]
 [Serializable]
@@ -21,7 +21,7 @@ public enum CardholderAddressVerificationResult1Code
 {
     /// <summary>
     /// Address numeric match.
-    /// Encoded/decoded by serializers as "AMCH".
+    /// Encoded/decoded by serializers as &quot;AMCH&quot;.
     /// </summary>
     [EnumMember(Value = "AMCH")]
     [IsoId("_TSXNewEcEeCQm6a_G2yO_w_-1881917421")]
@@ -30,7 +30,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Address numerics do not match.
-    /// Encoded/decoded by serializers as "ANMH".
+    /// Encoded/decoded by serializers as &quot;ANMH&quot;.
     /// </summary>
     [EnumMember(Value = "ANMH")]
     [IsoId("_TSXNfAEcEeCQm6a_G2yO_w_-2071134870")]
@@ -39,7 +39,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Address numeric not processed for technical reason.
-    /// Encoded/decoded by serializers as "ANMT".
+    /// Encoded/decoded by serializers as &quot;ANMT&quot;.
     /// </summary>
     [EnumMember(Value = "ANMT")]
     [IsoId("_TSXNfQEcEeCQm6a_G2yO_w_-133909697")]
@@ -48,7 +48,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Address numeric not processed for non-technical reason.
-    /// Encoded/decoded by serializers as "ANMO".
+    /// Encoded/decoded by serializers as &quot;ANMO&quot;.
     /// </summary>
     [EnumMember(Value = "ANMO")]
     [IsoId("_TSXNfgEcEeCQm6a_G2yO_w_-656898248")]
@@ -57,7 +57,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Address numeric missing in request.
-    /// Encoded/decoded by serializers as "AMSS".
+    /// Encoded/decoded by serializers as &quot;AMSS&quot;.
     /// </summary>
     [EnumMember(Value = "AMSS")]
     [IsoId("_TSXNfwEcEeCQm6a_G2yO_w_1280326925")]
@@ -66,7 +66,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Address numeric not used by issuer.
-    /// Encoded/decoded by serializers as "ANUS".
+    /// Encoded/decoded by serializers as &quot;ANUS&quot;.
     /// </summary>
     [EnumMember(Value = "ANUS")]
     [IsoId("_TSXNgAEcEeCQm6a_G2yO_w_-694884291")]
@@ -75,7 +75,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Postal code matches.
-    /// Encoded/decoded by serializers as "PMCH".
+    /// Encoded/decoded by serializers as &quot;PMCH&quot;.
     /// </summary>
     [EnumMember(Value = "PMCH")]
     [IsoId("_TSXNgQEcEeCQm6a_G2yO_w_1242340882")]
@@ -84,7 +84,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Postal code does not match.
-    /// Encoded/decoded by serializers as "PNMH".
+    /// Encoded/decoded by serializers as &quot;PNMH&quot;.
     /// </summary>
     [EnumMember(Value = "PNMH")]
     [IsoId("_TSXNggEcEeCQm6a_G2yO_w_-1449634165")]
@@ -93,7 +93,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Postal code not processed for technical reason.
-    /// Encoded/decoded by serializers as "PNMT".
+    /// Encoded/decoded by serializers as &quot;PNMT&quot;.
     /// </summary>
     [EnumMember(Value = "PNMT")]
     [IsoId("_TSg-cAEcEeCQm6a_G2yO_w_487591008")]
@@ -102,7 +102,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Postal code not processed for non-technical reason.
-    /// Encoded/decoded by serializers as "PNMO".
+    /// Encoded/decoded by serializers as &quot;PNMO&quot;.
     /// </summary>
     [EnumMember(Value = "PNMO")]
     [IsoId("_TSg-cQEcEeCQm6a_G2yO_w_-2084666011")]
@@ -111,7 +111,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Postal code missing in request.
-    /// Encoded/decoded by serializers as "PMSS".
+    /// Encoded/decoded by serializers as &quot;PMSS&quot;.
     /// </summary>
     [EnumMember(Value = "PMSS")]
     [IsoId("_TSg-cgEcEeCQm6a_G2yO_w_-147440838")]
@@ -120,7 +120,7 @@ public enum CardholderAddressVerificationResult1Code
     
     /// <summary>
     /// Postal code not used by issuer.
-    /// Encoded/decoded by serializers as "PNUS".
+    /// Encoded/decoded by serializers as &quot;PNUS&quot;.
     /// </summary>
     [EnumMember(Value = "PNUS")]
     [IsoId("_TSg-cwEcEeCQm6a_G2yO_w_-1006645673")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CentralCounterPartyEligibility1Choice.Indicator))]
     [KnownType(typeof(CentralCounterPartyEligibility1Choice.Proprietary))]
     [IsoId("_Qvaox9p-Ed-ak6NoX_4Aeg_22450085")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Central Counter Party Eligibility 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

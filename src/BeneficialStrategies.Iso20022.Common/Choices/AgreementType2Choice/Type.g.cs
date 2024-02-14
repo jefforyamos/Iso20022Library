@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreementType2Choice
     /// Name of the identification scheme, in a coded form as published in an external list.
     /// </summary>
     [IsoId("_OI9M0S4yEeuxhbw_aW6haw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Type")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreementType2Choice
         /// Name of the identification scheme, in a coded form as published in an external list.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Tp")]
         #endif
+        [IsoXmlTag("Tp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalAgreementType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalAgreementType1Code Value { get; init; } 
+        public required ExternalAgreementType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalAgreementType1Code Value { get; init; } 
         #else

@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.caaa;
 /// </summary>
 [Description(@"The AcceptorBatchTransfer is sent by an acceptor (or its agent) to transfer the financial data of a collection of transactions to the acquirer (or its agent).")]
 [IsoId("_hUUmMdekEeiJyp_aycJaTw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Batch Transfer V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -76,16 +74,15 @@ public partial record AcceptorBatchTransferV08 : IOuterRecord<AcceptorBatchTrans
     /// Batch capture message management information.
     /// </summary>
     [IsoId("_hUUmNdekEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Header25 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Header25 Header { get; init; } 
+    public required Header25 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Header25 Header { get; init; } 
     #else
@@ -96,16 +93,15 @@ public partial record AcceptorBatchTransferV08 : IOuterRecord<AcceptorBatchTrans
     /// Card payment transactions from one or several data set of transactions.
     /// </summary>
     [IsoId("_hUUmN9ekEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Batch Transfer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BtchTrf")]
     #endif
+    [IsoXmlTag("BtchTrf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentBatchTransfer7 BatchTransfer { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentBatchTransfer7 BatchTransfer { get; init; } 
+    public required CardPaymentBatchTransfer7 BatchTransfer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentBatchTransfer7 BatchTransfer { get; init; } 
     #else
@@ -116,12 +112,11 @@ public partial record AcceptorBatchTransferV08 : IOuterRecord<AcceptorBatchTrans
     /// Trailer of the message containing a MAC or a digital signature.
     /// </summary>
     [IsoId("_hUUmOdekEeiJyp_aycJaTw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Security Trailer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctyTrlr")]
     #endif
+    [IsoXmlTag("SctyTrlr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContentInformationType16? SecurityTrailer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,7 +129,7 @@ public partial record AcceptorBatchTransferV08 : IOuterRecord<AcceptorBatchTrans
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AcceptorBatchTransferV08Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AcceptorBatchTransferV08Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AcceptorBatchTransferV08Document ToDocument()
     {
@@ -144,7 +139,7 @@ public partial record AcceptorBatchTransferV08 : IOuterRecord<AcceptorBatchTrans
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AcceptorBatchTransferV08"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AcceptorBatchTransferV08&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AcceptorBatchTransferV08Document : IOuterDocument<AcceptorBatchTransferV08>
@@ -161,7 +156,7 @@ public partial record AcceptorBatchTransferV08Document : IOuterDocument<Acceptor
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AcceptorBatchTransferV08"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AcceptorBatchTransferV08&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AcceptorBatchTransferV08 Message { get; init; }

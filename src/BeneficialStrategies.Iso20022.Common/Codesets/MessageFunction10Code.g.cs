@@ -21,7 +21,7 @@ public enum MessageFunction10Code
 {
     /// <summary>
     /// The initiator requests an authorisation without financial impact to complete the transaction.
-    /// Encoded/decoded by serializers as "AUTQ".
+    /// Encoded/decoded by serializers as &quot;AUTQ&quot;.
     /// </summary>
     [EnumMember(Value = "AUTQ")]
     [IsoId("_PM9CsY0PEeWRYffwL7E13A")]
@@ -30,7 +30,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Response for authorisation without financial capture.
-    /// Encoded/decoded by serializers as "AUTP".
+    /// Encoded/decoded by serializers as &quot;AUTP&quot;.
     /// </summary>
     [EnumMember(Value = "AUTP")]
     [IsoId("_PM9Cs40PEeWRYffwL7E13A")]
@@ -39,7 +39,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Request for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FAUQ".
+    /// Encoded/decoded by serializers as &quot;FAUQ&quot;.
     /// </summary>
     [EnumMember(Value = "FAUQ")]
     [IsoId("_PM9CtY0PEeWRYffwL7E13A")]
@@ -48,7 +48,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Response for authorisation with financial capture.
-    /// Encoded/decoded by serializers as "FAUP".
+    /// Encoded/decoded by serializers as &quot;FAUP&quot;.
     /// </summary>
     [EnumMember(Value = "FAUP")]
     [IsoId("_PM9Ct40PEeWRYffwL7E13A")]
@@ -57,7 +57,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice for completion without financial capture.
-    /// Encoded/decoded by serializers as "CMPV".
+    /// Encoded/decoded by serializers as &quot;CMPV&quot;.
     /// </summary>
     [EnumMember(Value = "CMPV")]
     [IsoId("_PM9CuY0PEeWRYffwL7E13A")]
@@ -66,7 +66,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice response for completion without financial capture.
-    /// Encoded/decoded by serializers as "CMPK".
+    /// Encoded/decoded by serializers as &quot;CMPK&quot;.
     /// </summary>
     [EnumMember(Value = "CMPK")]
     [IsoId("_PM9Cu40PEeWRYffwL7E13A")]
@@ -75,7 +75,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice for completion with financial capture.
-    /// Encoded/decoded by serializers as "FCMV".
+    /// Encoded/decoded by serializers as &quot;FCMV&quot;.
     /// </summary>
     [EnumMember(Value = "FCMV")]
     [IsoId("_PM9CvY0PEeWRYffwL7E13A")]
@@ -84,7 +84,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice response for completion with financial capture.
-    /// Encoded/decoded by serializers as "FCMK".
+    /// Encoded/decoded by serializers as &quot;FCMK&quot;.
     /// </summary>
     [EnumMember(Value = "FCMK")]
     [IsoId("_PM9Cv40PEeWRYffwL7E13A")]
@@ -93,7 +93,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice for reversal without financial capture.
-    /// Encoded/decoded by serializers as "RVRA".
+    /// Encoded/decoded by serializers as &quot;RVRA&quot;.
     /// </summary>
     [EnumMember(Value = "RVRA")]
     [IsoId("_PM9CwY0PEeWRYffwL7E13A")]
@@ -102,7 +102,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice response for reversal without financial capture.
-    /// Encoded/decoded by serializers as "RVRR".
+    /// Encoded/decoded by serializers as &quot;RVRR&quot;.
     /// </summary>
     [EnumMember(Value = "RVRR")]
     [IsoId("_PM9Cw40PEeWRYffwL7E13A")]
@@ -111,7 +111,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FRVA".
+    /// Encoded/decoded by serializers as &quot;FRVA&quot;.
     /// </summary>
     [EnumMember(Value = "FRVA")]
     [IsoId("_PM9CxY0PEeWRYffwL7E13A")]
@@ -120,7 +120,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice response for reversal with financial capture.
-    /// Encoded/decoded by serializers as "FRVR".
+    /// Encoded/decoded by serializers as &quot;FRVR&quot;.
     /// </summary>
     [EnumMember(Value = "FRVR")]
     [IsoId("_PM9Cx40PEeWRYffwL7E13A")]
@@ -129,7 +129,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Request for cancellation.
-    /// Encoded/decoded by serializers as "CCAQ".
+    /// Encoded/decoded by serializers as &quot;CCAQ&quot;.
     /// </summary>
     [EnumMember(Value = "CCAQ")]
     [IsoId("_PM9CyY0PEeWRYffwL7E13A")]
@@ -138,7 +138,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Response for cancellation.
-    /// Encoded/decoded by serializers as "CCAP".
+    /// Encoded/decoded by serializers as &quot;CCAP&quot;.
     /// </summary>
     [EnumMember(Value = "CCAP")]
     [IsoId("_PM9Cy40PEeWRYffwL7E13A")]
@@ -147,7 +147,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice for cancellation.
-    /// Encoded/decoded by serializers as "CCAV".
+    /// Encoded/decoded by serializers as &quot;CCAV&quot;.
     /// </summary>
     [EnumMember(Value = "CCAV")]
     [IsoId("_PM9CzY0PEeWRYffwL7E13A")]
@@ -156,7 +156,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Advice response for cancellation.
-    /// Encoded/decoded by serializers as "CCAK".
+    /// Encoded/decoded by serializers as &quot;CCAK&quot;.
     /// </summary>
     [EnumMember(Value = "CCAK")]
     [IsoId("_PM9Cz40PEeWRYffwL7E13A")]
@@ -165,7 +165,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Request for diagnostic.
-    /// Encoded/decoded by serializers as "DGNP".
+    /// Encoded/decoded by serializers as &quot;DGNP&quot;.
     /// </summary>
     [EnumMember(Value = "DGNP")]
     [IsoId("_PM9C0Y0PEeWRYffwL7E13A")]
@@ -174,7 +174,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Response for diagnostic.
-    /// Encoded/decoded by serializers as "DGNQ".
+    /// Encoded/decoded by serializers as &quot;DGNQ&quot;.
     /// </summary>
     [EnumMember(Value = "DGNQ")]
     [IsoId("_PM9C040PEeWRYffwL7E13A")]
@@ -183,7 +183,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Request for reconciliation.
-    /// Encoded/decoded by serializers as "RCLQ".
+    /// Encoded/decoded by serializers as &quot;RCLQ&quot;.
     /// </summary>
     [EnumMember(Value = "RCLQ")]
     [IsoId("_PM9C1Y0PEeWRYffwL7E13A")]
@@ -192,7 +192,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Response for reconciliation.
-    /// Encoded/decoded by serializers as "RCLP".
+    /// Encoded/decoded by serializers as &quot;RCLP&quot;.
     /// </summary>
     [EnumMember(Value = "RCLP")]
     [IsoId("_PM9C140PEeWRYffwL7E13A")]
@@ -201,7 +201,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Request for dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCCQ".
+    /// Encoded/decoded by serializers as &quot;DCCQ&quot;.
     /// </summary>
     [EnumMember(Value = "DCCQ")]
     [IsoId("_PM9C240PEeWRYffwL7E13A")]
@@ -210,7 +210,7 @@ public enum MessageFunction10Code
     
     /// <summary>
     /// Response from a dynamic currency conversion.
-    /// Encoded/decoded by serializers as "DCCP".
+    /// Encoded/decoded by serializers as &quot;DCCP&quot;.
     /// </summary>
     [EnumMember(Value = "DCCP")]
     [IsoId("_PM9C3Y0PEeWRYffwL7E13A")]

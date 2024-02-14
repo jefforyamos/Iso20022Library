@@ -21,7 +21,7 @@ public enum BidType1Code
 {
     /// <summary>
     /// Bid type is non disclosed.
-    /// Encoded/decoded by serializers as "NDIS".
+    /// Encoded/decoded by serializers as &quot;NDIS&quot;.
     /// </summary>
     [EnumMember(Value = "NDIS")]
     [IsoId("_beXexdp-Ed-ak6NoX_4Aeg_943753955")]
@@ -30,7 +30,7 @@ public enum BidType1Code
     
     /// <summary>
     /// Bid type is disclosed.
-    /// Encoded/decoded by serializers as "DISC".
+    /// Encoded/decoded by serializers as &quot;DISC&quot;.
     /// </summary>
     [EnumMember(Value = "DISC")]
     [IsoId("_beXextp-Ed-ak6NoX_4Aeg_943753997")]
@@ -39,7 +39,7 @@ public enum BidType1Code
     
     /// <summary>
     /// List order is not related to a bid.
-    /// Encoded/decoded by serializers as "NOBI".
+    /// Encoded/decoded by serializers as &quot;NOBI&quot;.
     /// </summary>
     [EnumMember(Value = "NOBI")]
     [IsoId("_beXex9p-Ed-ak6NoX_4Aeg_943754015")]

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about the pledge and pledger.
 /// </summary>
 [IsoId("_xiaQoPQ9EeqAradXpAelDQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Pledge Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PledgeInformation1
     /// Entity that provide assets to a counterparty as a guarantee.
     /// </summary>
     [IsoId("_C2xUYPQ-EeqAradXpAelDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pledger")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Pldgr")]
     #endif
+    [IsoXmlTag("Pldgr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification232Choice_ Pledger { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification232Choice_ Pledger { get; init; } 
+    public required PartyIdentification232Choice_ Pledger { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification232Choice_ Pledger { get; init; } 
     #else
@@ -72,12 +69,11 @@ public partial record PledgeInformation1
     /// Third party, usually a bank, involved in the pledge.
     /// </summary>
     [IsoId("_FfoNAPQ-EeqAradXpAelDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Third Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ThrdPty")]
     #endif
+    [IsoXmlTag("ThrdPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ThirdPartyIdentification1? ThirdParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,16 +86,15 @@ public partial record PledgeInformation1
     /// Identifies the type of pledge.
     /// </summary>
     [IsoId("_KBvGQPQ-EeqAradXpAelDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pledge Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PldgTp")]
     #endif
+    [IsoXmlTag("PldgTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification36 PledgeType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification36 PledgeType { get; init; } 
+    public required GenericIdentification36 PledgeType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification36 PledgeType { get; init; } 
     #else
@@ -110,12 +105,12 @@ public partial record PledgeInformation1
     /// Indicates whether the pledger is entitled to vote, otherwise the right to vote is with the right holder.
     /// </summary>
     [IsoId("_Q7cJAPQ-EeqAradXpAelDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Return Securities Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RtrSctiesInd")]
     #endif
+    [IsoXmlTag("RtrSctiesInd")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? ReturnSecuritiesIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

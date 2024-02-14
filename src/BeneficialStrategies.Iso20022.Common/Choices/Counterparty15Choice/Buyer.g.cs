@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
     [IsoId("_t9laCyqDEeyR9JrVGfaMKw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Buyer")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
         /// Identification of the party.
         /// </summary>
         [IsoId("_sd6XAyqDEeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
+        [IsoXmlTag("Id")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required PartyIdentification120Choice_ Identification { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public PartyIdentification120Choice_ Identification { get; init; } 
+        public required PartyIdentification120Choice_ Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public PartyIdentification120Choice_ Identification { get; init; } 
         #else
@@ -76,12 +73,12 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
         /// Legal Entity Identification as an alternate identification for a party.
         /// </summary>
         [IsoId("_sd6XCyqDEeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("LEI")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="LEI")]
         #endif
+        [IsoXmlTag("LEI")]
+        [IsoSimpleType(IsoSimpleType.LEIIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoLEIIdentifier? LEI { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -94,12 +91,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
         /// Alternate identification for a party.
         /// </summary>
         [IsoId("_sd6XDSqDEeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Alternate Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AltrnId")]
         #endif
+        [IsoXmlTag("AltrnId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public AlternatePartyIdentification7? AlternateIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -112,12 +108,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
         /// Account to or from which a securities entry is made.
         /// </summary>
         [IsoId("_sd6XFSqDEeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Safekeeping Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SfkpgAcct")]
         #endif
+        [IsoXmlTag("SfkpgAcct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public SecuritiesAccount19? SafekeepingAccount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -130,12 +125,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
         /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
         /// </summary>
         [IsoId("_m5noAyqDEeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Block Chain Address Or Wallet")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="BlckChainAdrOrWllt")]
         #endif
+        [IsoXmlTag("BlckChainAdrOrWllt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -148,12 +142,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
         /// Date/time at which the instruction was processed by the specified party.
         /// </summary>
         [IsoId("_sd6XHSqDEeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Processing Date")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrcgDt")]
         #endif
+        [IsoXmlTag("PrcgDt")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DateAndDateTime2Choice_? ProcessingDate { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -166,15 +159,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
         /// Unambiguous identification of the transaction for the party identified.
         /// </summary>
         [IsoId("_sd6XJSqDEeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Processing Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrcgId")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("PrcgId")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? ProcessingIdentification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -187,12 +178,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty15Choice
         /// Provides additional information to a party identification.
         /// </summary>
         [IsoId("_sd6XLSqDEeyR9JrVGfaMKw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Additional Information")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AddtlInf")]
         #endif
+        [IsoXmlTag("AddtlInf")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public PartyTextInformation1? AdditionalInformation { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

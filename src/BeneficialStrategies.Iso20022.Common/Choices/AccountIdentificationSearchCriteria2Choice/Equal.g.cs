@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationSearchCrite
     /// Search for one or more accounts based on exact identification of the account(s).
     /// </summary>
     [IsoId("_g7QEuWliEeGaMcKyqKNRfQ_-950111322")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equal")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

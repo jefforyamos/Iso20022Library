@@ -21,7 +21,7 @@ public enum CarRentalServiceType2Code
 {
     /// <summary>
     /// Rental amount adjustment
-    /// Encoded/decoded by serializers as "ADJM".
+    /// Encoded/decoded by serializers as &quot;ADJM&quot;.
     /// </summary>
     [EnumMember(Value = "ADJM")]
     [IsoId("_5HU-ofS_Eeife6veM7daYw")]
@@ -30,7 +30,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Authorised amount
-    /// Encoded/decoded by serializers as "AUTH".
+    /// Encoded/decoded by serializers as &quot;AUTH&quot;.
     /// </summary>
     [EnumMember(Value = "AUTH")]
     [IsoId("_5NX8QfS_Eeife6veM7daYw")]
@@ -39,7 +39,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Baby seat.
-    /// Encoded/decoded by serializers as "BAST".
+    /// Encoded/decoded by serializers as &quot;BAST&quot;.
     /// </summary>
     [EnumMember(Value = "BAST")]
     [IsoId("_5ThAgfS_Eeife6veM7daYw")]
@@ -48,7 +48,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Extra charges due to the need to clean the car.
-    /// Encoded/decoded by serializers as "CLEA".
+    /// Encoded/decoded by serializers as &quot;CLEA&quot;.
     /// </summary>
     [EnumMember(Value = "CLEA")]
     [IsoId("_5q_sYfS_Eeife6veM7daYw")]
@@ -57,7 +57,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charge for damages
-    /// Encoded/decoded by serializers as "DMGS".
+    /// Encoded/decoded by serializers as &quot;DMGS&quot;.
     /// </summary>
     [EnumMember(Value = "DMGS")]
     [IsoId("_-lIrIfS_Eeife6veM7daYw")]
@@ -66,7 +66,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charge for delivery of rental vehicle
-    /// Encoded/decoded by serializers as "DLVR".
+    /// Encoded/decoded by serializers as &quot;DLVR&quot;.
     /// </summary>
     [EnumMember(Value = "DLVR")]
     [IsoId("_-rbgYfS_Eeife6veM7daYw")]
@@ -75,7 +75,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Drop off charges
-    /// Encoded/decoded by serializers as "DPOF".
+    /// Encoded/decoded by serializers as &quot;DPOF&quot;.
     /// </summary>
     [EnumMember(Value = "DPOF")]
     [IsoId("_-3p-gfS_Eeife6veM7daYw")]
@@ -84,7 +84,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Entertainment
-    /// Encoded/decoded by serializers as "ENTE".
+    /// Encoded/decoded by serializers as &quot;ENTE&quot;.
     /// </summary>
     [EnumMember(Value = "ENTE")]
     [IsoId("_A288wfTAEeife6veM7daYw")]
@@ -93,7 +93,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Extra charges
-    /// Encoded/decoded by serializers as "EXTC".
+    /// Encoded/decoded by serializers as &quot;EXTC&quot;.
     /// </summary>
     [EnumMember(Value = "EXTC")]
     [IsoId("_A92O8fTAEeife6veM7daYw")]
@@ -102,7 +102,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charges for extra days
-    /// Encoded/decoded by serializers as "EXDY".
+    /// Encoded/decoded by serializers as &quot;EXDY&quot;.
     /// </summary>
     [EnumMember(Value = "EXDY")]
     [IsoId("_BCCycfTAEeife6veM7daYw")]
@@ -111,7 +111,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charges for additional distance
-    /// Encoded/decoded by serializers as "EXDI".
+    /// Encoded/decoded by serializers as &quot;EXDI&quot;.
     /// </summary>
     [EnumMember(Value = "EXDI")]
     [IsoId("_BIfYsfTAEeife6veM7daYw")]
@@ -120,7 +120,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charges for extra hours
-    /// Encoded/decoded by serializers as "EXHR".
+    /// Encoded/decoded by serializers as &quot;EXHR&quot;.
     /// </summary>
     [EnumMember(Value = "EXHR")]
     [IsoId("_BOTs0fTAEeife6veM7daYw")]
@@ -129,7 +129,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Police and related fines or violation fees reinvoiced by vehicle rental company.
-    /// Encoded/decoded by serializers as "FINE".
+    /// Encoded/decoded by serializers as &quot;FINE&quot;.
     /// </summary>
     [EnumMember(Value = "FINE")]
     [IsoId("_CvKbkfTAEeife6veM7daYw")]
@@ -138,7 +138,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Fuel
-    /// Encoded/decoded by serializers as "FUEL".
+    /// Encoded/decoded by serializers as &quot;FUEL&quot;.
     /// </summary>
     [EnumMember(Value = "FUEL")]
     [IsoId("_C3YjcfTAEeife6veM7daYw")]
@@ -147,7 +147,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Garage
-    /// Encoded/decoded by serializers as "GARA".
+    /// Encoded/decoded by serializers as &quot;GARA&quot;.
     /// </summary>
     [EnumMember(Value = "GARA")]
     [IsoId("_FC3jkfTAEeife6veM7daYw")]
@@ -156,7 +156,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Global Positioning System (GPS)
-    /// Encoded/decoded by serializers as "GPSY".
+    /// Encoded/decoded by serializers as &quot;GPSY&quot;.
     /// </summary>
     [EnumMember(Value = "GPSY")]
     [IsoId("_FMhO0fTAEeife6veM7daYw")]
@@ -165,7 +165,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Insurance
-    /// Encoded/decoded by serializers as "INSU".
+    /// Encoded/decoded by serializers as &quot;INSU&quot;.
     /// </summary>
     [EnumMember(Value = "INSU")]
     [IsoId("_GU3W8fTAEeife6veM7daYw")]
@@ -174,7 +174,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Car returned late.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("_GyOoYfTAEeife6veM7daYw")]
@@ -183,7 +183,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charges for liability insurance
-    /// Encoded/decoded by serializers as "LIIN".
+    /// Encoded/decoded by serializers as &quot;LIIN&quot;.
     /// </summary>
     [EnumMember(Value = "LIIN")]
     [IsoId("_G5ixUfTAEeife6veM7daYw")]
@@ -192,7 +192,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charges for Loss Damage Insurance
-    /// Encoded/decoded by serializers as "LDIN".
+    /// Encoded/decoded by serializers as &quot;LDIN&quot;.
     /// </summary>
     [EnumMember(Value = "LDIN")]
     [IsoId("_G9mx8fTAEeife6veM7daYw")]
@@ -201,7 +201,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Miscellaneous charges
-    /// Encoded/decoded by serializers as "MISC".
+    /// Encoded/decoded by serializers as &quot;MISC&quot;.
     /// </summary>
     [EnumMember(Value = "MISC")]
     [IsoId("_IGXw0fTAEeife6veM7daYw")]
@@ -210,7 +210,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charges for navigation system
-    /// Encoded/decoded by serializers as "NAVI".
+    /// Encoded/decoded by serializers as &quot;NAVI&quot;.
     /// </summary>
     [EnumMember(Value = "NAVI")]
     [IsoId("_IP1O0fTAEeife6veM7daYw")]
@@ -219,7 +219,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Customer no-show charges.
-    /// Encoded/decoded by serializers as "NOSH".
+    /// Encoded/decoded by serializers as &quot;NOSH&quot;.
     /// </summary>
     [EnumMember(Value = "NOSH")]
     [IsoId("_ITkfUfTAEeife6veM7daYw")]
@@ -228,7 +228,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Drop-off charges.
-    /// Encoded/decoded by serializers as "ONEW".
+    /// Encoded/decoded by serializers as &quot;ONEW&quot;.
     /// </summary>
     [EnumMember(Value = "ONEW")]
     [IsoId("_ImWRYfTAEeife6veM7daYw")]
@@ -237,7 +237,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Other National
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_I1-o0fTAEeife6veM7daYw")]
@@ -246,7 +246,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Other Private
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_JMtt0fTAEeife6veM7daYw")]
@@ -255,7 +255,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Parking charges.
-    /// Encoded/decoded by serializers as "PARK".
+    /// Encoded/decoded by serializers as &quot;PARK&quot;.
     /// </summary>
     [EnumMember(Value = "PARK")]
     [IsoId("_KW9TYfTAEeife6veM7daYw")]
@@ -264,7 +264,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Personal Accident Insurance
-    /// Encoded/decoded by serializers as "PRIN".
+    /// Encoded/decoded by serializers as &quot;PRIN&quot;.
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_KqSfEfTAEeife6veM7daYw")]
@@ -273,7 +273,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Personal Effects Insurance
-    /// Encoded/decoded by serializers as "PFIN".
+    /// Encoded/decoded by serializers as &quot;PFIN&quot;.
     /// </summary>
     [EnumMember(Value = "PFIN")]
     [IsoId("_K6FOkfTAEeife6veM7daYw")]
@@ -282,7 +282,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// On-board telephone service.
-    /// Encoded/decoded by serializers as "PHON".
+    /// Encoded/decoded by serializers as &quot;PHON&quot;.
     /// </summary>
     [EnumMember(Value = "PHON")]
     [IsoId("_LHLPYfTAEeife6veM7daYw")]
@@ -291,7 +291,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charges for regular distance
-    /// Encoded/decoded by serializers as "REGD".
+    /// Encoded/decoded by serializers as &quot;REGD&quot;.
     /// </summary>
     [EnumMember(Value = "REGD")]
     [IsoId("_LO95cfTAEeife6veM7daYw")]
@@ -300,7 +300,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Extra charges due to smoking in the car.
-    /// Encoded/decoded by serializers as "SMOK".
+    /// Encoded/decoded by serializers as &quot;SMOK&quot;.
     /// </summary>
     [EnumMember(Value = "SMOK")]
     [IsoId("_MQ6eofTAEeife6veM7daYw")]
@@ -309,7 +309,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Charges for tolls
-    /// Encoded/decoded by serializers as "TOLL".
+    /// Encoded/decoded by serializers as &quot;TOLL&quot;.
     /// </summary>
     [EnumMember(Value = "TOLL")]
     [IsoId("_Mrgv8fTAEeife6veM7daYw")]
@@ -318,7 +318,7 @@ public enum CarRentalServiceType2Code
     
     /// <summary>
     /// Extra charges due to car towing.
-    /// Encoded/decoded by serializers as "TOWI".
+    /// Encoded/decoded by serializers as &quot;TOWI&quot;.
     /// </summary>
     [EnumMember(Value = "TOWI")]
     [IsoId("_M3YowfTAEeife6veM7daYw")]

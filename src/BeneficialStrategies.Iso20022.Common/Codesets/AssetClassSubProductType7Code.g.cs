@@ -21,7 +21,7 @@ public enum AssetClassSubProductType7Code
 {
     /// <summary>
     /// Commodity of type natural gas.
-    /// Encoded/decoded by serializers as "NGAS".
+    /// Encoded/decoded by serializers as &quot;NGAS&quot;.
     /// </summary>
     [EnumMember(Value = "NGAS")]
     [IsoId("_8eix0QnzEeWnS-yHF1QhNQ")]

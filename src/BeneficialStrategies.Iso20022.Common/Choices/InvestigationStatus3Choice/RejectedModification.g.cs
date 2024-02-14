@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus3Choice
     /// Reason for the rejection of a modification request, in a coded form.
     /// </summary>
     [IsoId("_tx5SA1kyEeGeoaLUQk__nA_-1756023474")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Rejected Modification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus3Choice
         /// Specifies the reason for rejecting a modification reject.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RjctdMod")]
         #endif
+        [IsoXmlTag("RjctdMod")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ModificationRejection2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ModificationRejection2Code Value { get; init; } 
+        public required ModificationRejection2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ModificationRejection2Code Value { get; init; } 
         #else

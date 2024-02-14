@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides detailed information on an alert notification issued by the tracker.
 /// </summary>
 [IsoId("_k0GOM_Y0Eemf4dJxCjghNw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tracker Alert Notification Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record TrackerAlertNotificationStatus2
     /// Specifies the status of an alert, in a coded form.
     /// </summary>
     [IsoId("_k0GON_Y0Eemf4dJxCjghNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Alert Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AlrtSts")]
     #endif
+    [IsoXmlTag("AlrtSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerAlertStatus1 AlertStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerAlertStatus1 AlertStatus { get; init; } 
+    public required TrackerAlertStatus1 AlertStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerAlertStatus1 AlertStatus { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record TrackerAlertNotificationStatus2
     /// Provides detailed information on the status reason.
     /// </summary>
     [IsoId("_k0GOOfY0Eemf4dJxCjghNw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Status Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StsRsn")]
     #endif
+    [IsoXmlTag("StsRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TrackerAlertStatusReason1 StatusReason { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TrackerAlertStatusReason1 StatusReason { get; init; } 
+    public required TrackerAlertStatusReason1 StatusReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TrackerAlertStatusReason1 StatusReason { get; init; } 
     #else

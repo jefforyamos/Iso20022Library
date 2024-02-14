@@ -21,9 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FailedSettlementStatus2Choice.DataSourceScheme))]
     [KnownType(typeof(FailedSettlementStatus2Choice.NoSpecifiedReason))]
     [IsoId("_DOTJ4SY5EeW_ZNn8gbfY7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Failed Settlement Status 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -46,9 +46,7 @@ namespace BeneficialStrategies.Iso20022.setr;
 /// </summary>
 [Description(@"Scope|An instructing party, for example, an investment manager or its authorised representative, sends the RedemptionBulkOrderCancellationRequest message to the executing party, for example, a transfer agent, to request the cancellation of a previously sent RedemptionBulkOrder instruction.|Usage|The RedemptionBulkOrderCancellationRequest message is used to either:|- request the cancellation of an entire RedemptionBulkOrder message, that is, all the individual orders that it contained, or,|- request the cancellation of one or more individual orders included in a previously sent RedemptionBulkOrder message. There is no amendment, but a cancellation and re-instruct policy.|There are two ways to use the message.|(1) When the RedemptionBulkOrderCancellationRequest message is used to request the cancellation of an entire RedemptionBulkOrder message, this can be done by either:|- quoting the order references of all the individual orders listed in the RedemptionBulkOrder message, or,|- quoting the details of all the individual orders (this includes the OrderReference) listed in RedemptionBulkOrder message, but this is not recommended.|The message identification of the RedemptionBulkOrder message may also be quoted in PreviousReference.|It is also possible to request the cancellation of an entire RedemptionBulkOrder message by quoting its message identification in PreviousReference, but this is not recommended.|(2) When the RedemptionBulkOrderCancellationRequest message is used to request the cancellation of one or more individual orders, this can be done by either:|- quoting the OrderReference of each individual order listed in the RedemptionOrder message, or,|- quoting the details of each individual order (including the OrderReference) listed in RedemptionOrder message, but this is not recommended.|The message identification of the RedemptionBulkOrder message in which the individual order was conveyed may also be quoted in PreviousReference.|The deadline and acceptance of a cancellation request is subject to a service level agreement (SLA). This cancellation message is a cancellation request. There is no automatic acceptance of the cancellation.")]
 [IsoId("_nuu_m9E7Ed-BzquC8wXy7w_-424280902")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Redemption Bulk Order Cancellation Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -91,16 +89,15 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<R
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_nu4wkNE7Ed-BzquC8wXy7w_8328608")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -111,12 +108,11 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<R
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_nu4wkdE7Ed-BzquC8wXy7w_-424280550")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -129,12 +125,11 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<R
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_nu4wktE7Ed-BzquC8wXy7w_-424280515")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +142,11 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<R
     /// References of the orders to be cancelled.
     /// </summary>
     [IsoId("_nu4wk9E7Ed-BzquC8wXy7w_-443474164")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation By Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlByRef")]
     #endif
+    [IsoXmlTag("CxlByRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public InvestmentFundOrder1? CancellationByReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +159,11 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<R
     /// Common information related to all the orders to be cancelled.
     /// </summary>
     [IsoId("_nu4wlNE7Ed-BzquC8wXy7w_-424280858")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cancellation By Order Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CxlByOrdrDtls")]
     #endif
+    [IsoXmlTag("CxlByOrdrDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public RedemptionBulkOrderInstruction2? CancellationByOrderDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -183,12 +176,11 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<R
     /// Message is a copy.
     /// </summary>
     [IsoId("_nu4wldE7Ed-BzquC8wXy7w_-1015929426")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Copy Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CpyDtls")]
     #endif
+    [IsoXmlTag("CpyDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CopyInformation2? CopyDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -201,7 +193,7 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<R
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RedemptionBulkOrderCancellationRequestV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RedemptionBulkOrderCancellationRequestV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RedemptionBulkOrderCancellationRequestV03Document ToDocument()
     {
@@ -211,7 +203,7 @@ public partial record RedemptionBulkOrderCancellationRequestV03 : IOuterRecord<R
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RedemptionBulkOrderCancellationRequestV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RedemptionBulkOrderCancellationRequestV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RedemptionBulkOrderCancellationRequestV03Document : IOuterDocument<RedemptionBulkOrderCancellationRequestV03>
@@ -228,7 +220,7 @@ public partial record RedemptionBulkOrderCancellationRequestV03Document : IOuter
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RedemptionBulkOrderCancellationRequestV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RedemptionBulkOrderCancellationRequestV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RedemptionBulkOrderCancellationRequestV03 Message { get; init; }

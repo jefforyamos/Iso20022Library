@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the hash data for the file signature.
 /// </summary>
 [IsoId("_c4XEYKA3EeWiJt5KdX5iuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Isabel Signature Hash")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record IsabelSignatureHash1
     /// Arbitrary block of data defined as a fixed-size bit string, the (cryptographic) hash value, that allows the detection of an accidental or intentional change to the data.
     /// </summary>
     [IsoId("_t71FoKMaEeWZDvWHgGXs7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hash")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hash")]
     #endif
+    [IsoXmlTag("Hash")]
+    [IsoSimpleType(IsoSimpleType.Max50Binary)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax50Binary Hash { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Byte[] Hash { get; init; } 
+    public required System.Byte[] Hash { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Byte[] Hash { get; init; } 
     #else
@@ -72,19 +70,17 @@ public partial record IsabelSignatureHash1
     /// Effective method for calculating the signature hash using a finite sequence of instructions.
     /// </summary>
     [IsoId("_QFeEcKMbEeWZDvWHgGXs7Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Algorithm")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Algo")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("Algo")]
+    [IsoSimpleType(IsoSimpleType.Max105Text)]
     [StringLength(maximumLength: 105 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax105Text Algorithm { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Algorithm { get; init; } 
+    public required System.String Algorithm { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Algorithm { get; init; } 
     #else

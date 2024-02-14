@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.tsmt;
 /// </summary>
 [Description(@"Scope|The StatusReport message is sent by the matching application to the requester of a status report.|This message is used to report on the status of transactions registered in the matching application.|Usage|The StatusReport message can be sent by the matching application to report on the status and sub-status of all transactions that the requester of the report is involved in. The message can be sent in response to a StatusReportRequest message.")]
 [IsoId("_1C-AWNE8Ed-BzquC8wXy7w_-145028832")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Status Report V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record StatusReportV03 : IOuterRecord<StatusReportV03,StatusRepor
     /// Identifies the report.
     /// </summary>
     [IsoId("_1C-AWdE8Ed-BzquC8wXy7w_-145028770")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptId")]
     #endif
+    [IsoXmlTag("RptId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 ReportIdentification { get; init; } 
+    public required MessageIdentification1 ReportIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 ReportIdentification { get; init; } 
     #else
@@ -100,16 +97,15 @@ public partial record StatusReportV03 : IOuterRecord<StatusReportV03,StatusRepor
     /// Reference to the previous message requesting the report.
     /// </summary>
     [IsoId("_1C-AWtE8Ed-BzquC8wXy7w_-145028740")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Message Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdMsgRef")]
     #endif
+    [IsoXmlTag("RltdMsgRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 RelatedMessageReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 RelatedMessageReference { get; init; } 
+    public required MessageIdentification1 RelatedMessageReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 RelatedMessageReference { get; init; } 
     #else
@@ -120,12 +116,11 @@ public partial record StatusReportV03 : IOuterRecord<StatusReportV03,StatusRepor
     /// Describes a transaction and its status.
     /// </summary>
     [IsoId("_1C-AW9E8Ed-BzquC8wXy7w_-145028829")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reported Items")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptdItms")]
     #endif
+    [IsoXmlTag("RptdItms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public StatusReportItems2? ReportedItems { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -138,7 +133,7 @@ public partial record StatusReportV03 : IOuterRecord<StatusReportV03,StatusRepor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="StatusReportV03Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;StatusReportV03Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public StatusReportV03Document ToDocument()
     {
@@ -148,7 +143,7 @@ public partial record StatusReportV03 : IOuterRecord<StatusReportV03,StatusRepor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="StatusReportV03"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;StatusReportV03&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record StatusReportV03Document : IOuterDocument<StatusReportV03>
@@ -165,7 +160,7 @@ public partial record StatusReportV03Document : IOuterDocument<StatusReportV03>
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="StatusReportV03"/> is required.
+    /// The instance of &lt;seealso cref=&quot;StatusReportV03&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required StatusReportV03 Message { get; init; }

@@ -21,7 +21,7 @@ public enum CivilStatus1Code
 {
     /// <summary>
     /// Person is divorced.
-    /// Encoded/decoded by serializers as "DIVO".
+    /// Encoded/decoded by serializers as &quot;DIVO&quot;.
     /// </summary>
     [EnumMember(Value = "DIVO")]
     [IsoId("_xZ1E8SChEeWJd9HF2tO7BA")]
@@ -30,7 +30,7 @@ public enum CivilStatus1Code
     
     /// <summary>
     /// Person is legally divorced.
-    /// Encoded/decoded by serializers as "LDIV".
+    /// Encoded/decoded by serializers as &quot;LDIV&quot;.
     /// </summary>
     [EnumMember(Value = "LDIV")]
     [IsoId("_xhkEoSChEeWJd9HF2tO7BA")]
@@ -39,7 +39,7 @@ public enum CivilStatus1Code
     
     /// <summary>
     /// Person is married.
-    /// Encoded/decoded by serializers as "MARR".
+    /// Encoded/decoded by serializers as &quot;MARR&quot;.
     /// </summary>
     [EnumMember(Value = "MARR")]
     [IsoId("_xpAJYSChEeWJd9HF2tO7BA")]
@@ -48,7 +48,7 @@ public enum CivilStatus1Code
     
     /// <summary>
     /// Person is separated.
-    /// Encoded/decoded by serializers as "SEPA".
+    /// Encoded/decoded by serializers as &quot;SEPA&quot;.
     /// </summary>
     [EnumMember(Value = "SEPA")]
     [IsoId("_xwl_ISChEeWJd9HF2tO7BA")]
@@ -57,7 +57,7 @@ public enum CivilStatus1Code
     
     /// <summary>
     /// Person is single.
-    /// Encoded/decoded by serializers as "SING".
+    /// Encoded/decoded by serializers as &quot;SING&quot;.
     /// </summary>
     [EnumMember(Value = "SING")]
     [IsoId("_x34S4SChEeWJd9HF2tO7BA")]
@@ -66,7 +66,7 @@ public enum CivilStatus1Code
     
     /// <summary>
     /// Person is in a stable union.
-    /// Encoded/decoded by serializers as "UNIO".
+    /// Encoded/decoded by serializers as &quot;UNIO&quot;.
     /// </summary>
     [EnumMember(Value = "UNIO")]
     [IsoId("_x6tkcSChEeWJd9HF2tO7BA")]
@@ -75,7 +75,7 @@ public enum CivilStatus1Code
     
     /// <summary>
     /// Person is a widower.
-    /// Encoded/decoded by serializers as "WIDO".
+    /// Encoded/decoded by serializers as &quot;WIDO&quot;.
     /// </summary>
     [EnumMember(Value = "WIDO")]
     [IsoId("_yBjMQSChEeWJd9HF2tO7BA")]

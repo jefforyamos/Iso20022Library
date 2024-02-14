@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides details on loan and collateral matching criteria.
 /// </summary>
 [IsoId("_cKa2VVovEe23K4GXSpBSeg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Matching Criteria")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record MatchingCriteria16
     /// Compares information related to both sides of a counterparty.
     /// </summary>
     [IsoId("_cL1LkVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Matching Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyMtchgCrit")]
     #endif
+    [IsoXmlTag("CtrPtyMtchgCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CounterpartyMatchingCriteria6? CounterpartyMatchingCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record MatchingCriteria16
     /// Compares information related to both sides of a contract valuation.
     /// </summary>
     [IsoId("_cL1Lk1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Matching Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnMtchgCrit")]
     #endif
+    [IsoXmlTag("ValtnMtchgCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ValuationMatchingCriteria1? ValuationMatchingCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record MatchingCriteria16
     /// Compares information related to both sides of a contract.
     /// </summary>
     [IsoId("_cL1LlVovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Contract Matching Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrctMtchgCrit")]
     #endif
+    [IsoXmlTag("CtrctMtchgCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ContractMatchingCriteria3? ContractMatchingCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record MatchingCriteria16
     /// Compares information related to both sides of a transaction.
     /// </summary>
     [IsoId("_cL1Ll1ovEe23K4GXSpBSeg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Matching Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxMtchgCrit")]
     #endif
+    [IsoXmlTag("TxMtchgCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionMatchingCriteria6? TransactionMatchingCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

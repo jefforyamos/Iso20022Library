@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll2Choice
     /// Identification of single standing orders defined with specific characteristics.
     /// </summary>
     [IsoId("_Hv82sW4-EeiU9cctagi5ow")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Standing Order")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,15 +54,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll2Choice
         /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
         /// </summary>
         [IsoId("_Cj8r424-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Identification")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Id")]
         #endif
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        [IsoXmlTag("Id")]
+        [IsoSimpleType(IsoSimpleType.Max35Text)]
         [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-        #endif
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public IsoMax35Text? Identification { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -77,16 +73,15 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll2Choice
         /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.|.
         /// </summary>
         [IsoId("_Cj8r5W4-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Acct")]
         #endif
+        [IsoXmlTag("Acct")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CashAccount38 Account { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CashAccount38 Account { get; init; } 
+        public required CashAccount38 Account { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CashAccount38 Account { get; init; } 
         #else
@@ -97,12 +92,11 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll2Choice
         /// Party that legally owns the account.
         /// </summary>
         [IsoId("_Cj8r524-EeiU9cctagi5ow")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Account Owner")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="AcctOwnr")]
         #endif
+        [IsoXmlTag("AcctOwnr")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

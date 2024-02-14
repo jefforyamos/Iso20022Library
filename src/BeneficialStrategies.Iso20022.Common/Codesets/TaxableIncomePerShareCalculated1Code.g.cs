@@ -21,7 +21,7 @@ public enum TaxableIncomePerShareCalculated1Code
 {
     /// <summary>
     /// Fund is calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "TSIY".
+    /// Encoded/decoded by serializers as &quot;TSIY&quot;.
     /// </summary>
     [EnumMember(Value = "TSIY")]
     [IsoId("_VlEJFNp-Ed-ak6NoX_4Aeg_-1901338896")]
@@ -30,7 +30,7 @@ public enum TaxableIncomePerShareCalculated1Code
     
     /// <summary>
     /// Fund is not calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "TSIN".
+    /// Encoded/decoded by serializers as &quot;TSIN&quot;.
     /// </summary>
     [EnumMember(Value = "TSIN")]
     [IsoId("_VlEJFdp-Ed-ak6NoX_4Aeg_-1901338871")]
@@ -39,7 +39,7 @@ public enum TaxableIncomePerShareCalculated1Code
     
     /// <summary>
     /// Unknown whether the fund is calculating the taxable interest per share with the NAV.
-    /// Encoded/decoded by serializers as "UKWN".
+    /// Encoded/decoded by serializers as &quot;UKWN&quot;.
     /// </summary>
     [EnumMember(Value = "UKWN")]
     [IsoId("_VlEJFtp-Ed-ak6NoX_4Aeg_-1901338854")]
@@ -48,7 +48,7 @@ public enum TaxableIncomePerShareCalculated1Code
     
     /// <summary>
     /// Another type of taxable income per share.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_VlEJF9p-Ed-ak6NoX_4Aeg_-721697044")]

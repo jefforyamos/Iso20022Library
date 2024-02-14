@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DividendTypeFormat3Choice
     /// Standard code to specify the frequency of the corporate action event.
     /// </summary>
     [IsoId("_KsR2M93iEd-KAqAOGQOnnw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DividendTypeFormat3Choice
         /// Specifies the frequency of a CA event.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CorporateActionFrequencyType2Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public CorporateActionFrequencyType2Code Value { get; init; } 
+        public required CorporateActionFrequencyType2Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public CorporateActionFrequencyType2Code Value { get; init; } 
         #else

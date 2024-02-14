@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Instruction for a change to an account status and reason for the change.
 /// </summary>
 [IsoId("_et6_QHi5EeaRm5xIK6nGuQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Account Status Update Instruction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record AccountStatusUpdateInstruction1
     /// Type of status change instructed for the account status.
     /// </summary>
     [IsoId("_mJ2lUHi5EeaRm5xIK6nGuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Instruction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdInstr")]
     #endif
+    [IsoXmlTag("UpdInstr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; init; } 
+    public required AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record AccountStatusUpdateInstruction1
     /// Reason for the instruction to change the account status.
     /// </summary>
     [IsoId("_Z0gj0Hi6EeaRm5xIK6nGuQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Update Instruction Reason")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UpdInstrRsn")]
     #endif
+    [IsoXmlTag("UpdInstrRsn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountStatusUpdateInstructionReason1Choice_? UpdateInstructionReason { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

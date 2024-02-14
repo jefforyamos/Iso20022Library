@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Method of voting participation to a general meeting.
 /// </summary>
 [IsoId("_XENzQRrlEeyhRdHRjakS2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Participation Method")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record ParticipationMethod2
     /// Method of voting participation to the general meeting.
     /// </summary>
     [IsoId("_XZhU4RrlEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Participation Method")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtcptnMtd")]
     #endif
+    [IsoXmlTag("PrtcptnMtd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ParticipationMethod3Choice_ ParticipationMethod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ParticipationMethod3Choice_ ParticipationMethod { get; init; } 
+    public required ParticipationMethod3Choice_ ParticipationMethod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ParticipationMethod3Choice_ ParticipationMethod { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record ParticipationMethod2
     /// Deadline for voting on agenda resolutions at the general meeting.
     /// </summary>
     [IsoId("_XZhU4xrlEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Issuer Deadline For Voting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IssrDdlnForVtng")]
     #endif
+    [IsoXmlTag("IssrDdlnForVtng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
+    public required DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     #else
@@ -92,12 +88,12 @@ public partial record ParticipationMethod2
     /// Indicates whether the specific participation method proposed by the issuer is supported by the account servicer.
     /// </summary>
     [IsoId("_X2ut8BroEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supported By Account Servicer")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpprtdByAcctSvcr")]
     #endif
+    [IsoXmlTag("SpprtdByAcctSvcr")]
+    [IsoSimpleType(IsoSimpleType.YesNoIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoYesNoIndicator? SupportedByAccountServicer { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,11 @@ public partial record ParticipationMethod2
     /// Account servicer deadline for voting on agenda resolutions at the general meeting.
     /// </summary>
     [IsoId("_iIeDgBroEeyhRdHRjakS2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Response Deadline For Voting")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RspnDdlnForVtng")]
     #endif
+    [IsoXmlTag("RspnDdlnForVtng")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateFormat58Choice_? ResponseDeadlineForVoting { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

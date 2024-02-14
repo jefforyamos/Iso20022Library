@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.admi;
 /// </summary>
 [Description(@"The ReportQueryRequest message is exchanged between system member and system transaction administrator.|It aims at querying the latest available report data of a specific report type. A report is stored and available for query until the event occurs again report is replaced.")]
 [IsoId("_5Ql0IZb3Eee4htziCyV8eA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Report Query Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -75,16 +73,15 @@ public partial record ReportQueryRequestV01 : IOuterRecord<ReportQueryRequestV01
     /// Set of elements to identify the report query request message.
     /// </summary>
     [IsoId("_5Ql0I5b3Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgHdr")]
     #endif
+    [IsoXmlTag("MsgHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageHeader7 MessageHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageHeader7 MessageHeader { get; init; } 
+    public required MessageHeader7 MessageHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageHeader7 MessageHeader { get; init; } 
     #else
@@ -95,12 +92,11 @@ public partial record ReportQueryRequestV01 : IOuterRecord<ReportQueryRequestV01
     /// Definition of the report query criteria.
     /// </summary>
     [IsoId("_5Ql0JZb3Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Query Criteria")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptQryCrit")]
     #endif
+    [IsoXmlTag("RptQryCrit")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ReportQueryCriteria2? ReportQueryCriteria { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -113,12 +109,11 @@ public partial record ReportQueryRequestV01 : IOuterRecord<ReportQueryRequestV01
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_5Ql0J5b3Eee4htziCyV8eA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -131,7 +126,7 @@ public partial record ReportQueryRequestV01 : IOuterRecord<ReportQueryRequestV01
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="ReportQueryRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;ReportQueryRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public ReportQueryRequestV01Document ToDocument()
     {
@@ -141,7 +136,7 @@ public partial record ReportQueryRequestV01 : IOuterRecord<ReportQueryRequestV01
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="ReportQueryRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;ReportQueryRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record ReportQueryRequestV01Document : IOuterDocument<ReportQueryRequestV01>
@@ -158,7 +153,7 @@ public partial record ReportQueryRequestV01Document : IOuterDocument<ReportQuery
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="ReportQueryRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;ReportQueryRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportQueryRequestV01 Message { get; init; }

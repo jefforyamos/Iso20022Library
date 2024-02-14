@@ -21,7 +21,7 @@ public enum MessageItemCondition1Code
 {
     /// <summary>
     /// Message item must be present.
-    /// Encoded/decoded by serializers as "MNDT".
+    /// Encoded/decoded by serializers as &quot;MNDT&quot;.
     /// </summary>
     [EnumMember(Value = "MNDT")]
     [IsoId("_KS410X1DEeCF8NjrBemJWQ_-1674698087")]
@@ -30,7 +30,7 @@ public enum MessageItemCondition1Code
     
     /// <summary>
     /// Message item must be present with the configured value.
-    /// Encoded/decoded by serializers as "CFVL".
+    /// Encoded/decoded by serializers as &quot;CFVL&quot;.
     /// </summary>
     [EnumMember(Value = "CFVL")]
     [IsoId("_KS410n1DEeCF8NjrBemJWQ_-1280588997")]
@@ -39,7 +39,7 @@ public enum MessageItemCondition1Code
     
     /// <summary>
     /// Message item has the configured value if the item is absent.
-    /// Encoded/decoded by serializers as "DFLT".
+    /// Encoded/decoded by serializers as &quot;DFLT&quot;.
     /// </summary>
     [EnumMember(Value = "DFLT")]
     [IsoId("_KS41031DEeCF8NjrBemJWQ_-510773471")]
@@ -48,7 +48,7 @@ public enum MessageItemCondition1Code
     
     /// <summary>
     /// Message item must have one of the configured values.
-    /// Encoded/decoded by serializers as "ALWV".
+    /// Encoded/decoded by serializers as &quot;ALWV&quot;.
     /// </summary>
     [EnumMember(Value = "ALWV")]
     [IsoId("_KS411H1DEeCF8NjrBemJWQ_1799018238")]
@@ -57,7 +57,7 @@ public enum MessageItemCondition1Code
     
     /// <summary>
     /// Message item has to be present if available.
-    /// Encoded/decoded by serializers as "IFAV".
+    /// Encoded/decoded by serializers as &quot;IFAV&quot;.
     /// </summary>
     [EnumMember(Value = "IFAV")]
     [IsoId("_KS411X1DEeCF8NjrBemJWQ_-1781360870")]
@@ -66,7 +66,7 @@ public enum MessageItemCondition1Code
     
     /// <summary>
     /// Message item is present if it was present in a previous related message with the same value.
-    /// Encoded/decoded by serializers as "COPY".
+    /// Encoded/decoded by serializers as &quot;COPY&quot;.
     /// </summary>
     [EnumMember(Value = "COPY")]
     [IsoId("_KS411n1DEeCF8NjrBemJWQ_-1229199954")]
@@ -75,7 +75,7 @@ public enum MessageItemCondition1Code
     
     /// <summary>
     /// Message item is not supported and has to be absent.
-    /// Encoded/decoded by serializers as "UNSP".
+    /// Encoded/decoded by serializers as &quot;UNSP&quot;.
     /// </summary>
     [EnumMember(Value = "UNSP")]
     [IsoId("_KS41131DEeCF8NjrBemJWQ_1780165628")]

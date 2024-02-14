@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information about tax.
 /// </summary>
 [IsoId("_VpKZIHVYEeiiHo4Gse0d2w")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Tax36
     /// Date or quarter of the tax year on which tax for the financial instrument is based or calculated.
     /// </summary>
     [IsoId("_Zlx_sHVYEeiiHo4Gse0d2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Or Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOrPrd")]
     #endif
+    [IsoXmlTag("DtOrPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateQuarter1Choice_ DateOrPeriod { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateQuarter1Choice_ DateOrPeriod { get; init; } 
+    public required DateQuarter1Choice_ DateOrPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateQuarter1Choice_ DateOrPeriod { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Tax36
     /// Additional information about tax.
     /// </summary>
     [IsoId("_fQMk0HVYEeiiHo4Gse0d2w")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

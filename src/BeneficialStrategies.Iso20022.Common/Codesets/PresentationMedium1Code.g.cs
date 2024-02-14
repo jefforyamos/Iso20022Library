@@ -21,7 +21,7 @@ public enum PresentationMedium1Code
 {
     /// <summary>
     /// Presentation is made on paper and/or electronically.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_nvSZZnyfEeGWJuGCfvwOsQ")]
@@ -30,7 +30,7 @@ public enum PresentationMedium1Code
     
     /// <summary>
     /// Presentation is made electronically.
-    /// Encoded/decoded by serializers as "ELEC".
+    /// Encoded/decoded by serializers as &quot;ELEC&quot;.
     /// </summary>
     [EnumMember(Value = "ELEC")]
     [IsoId("_n3yOFnyfEeGWJuGCfvwOsQ")]
@@ -39,7 +39,7 @@ public enum PresentationMedium1Code
     
     /// <summary>
     /// Presentation is made on paper.
-    /// Encoded/decoded by serializers as "PAPR".
+    /// Encoded/decoded by serializers as &quot;PAPR&quot;.
     /// </summary>
     [EnumMember(Value = "PAPR")]
     [IsoId("_n_Yq5nyfEeGWJuGCfvwOsQ")]

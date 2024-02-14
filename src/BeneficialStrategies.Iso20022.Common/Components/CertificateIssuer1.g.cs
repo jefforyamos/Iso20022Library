@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Certificate issuer name (see X.509).
 /// </summary>
 [IsoId("_Sw--vQEcEeCQm6a_G2yO_w_152932975")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Certificate Issuer")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record CertificateIssuer1
     /// Relative distinguished name inside a X.509 certificate.
     /// </summary>
     [IsoId("_SxIvsAEcEeCQm6a_G2yO_w_1329577257")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Relative Distinguished Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltvDstngshdNm")]
     #endif
+    [IsoXmlTag("RltvDstngshdNm")]
     public RelativeDistinguishedName1? RelativeDistinguishedName { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _SxIvsAEcEeCQm6a_G2yO_w_1329577257
     

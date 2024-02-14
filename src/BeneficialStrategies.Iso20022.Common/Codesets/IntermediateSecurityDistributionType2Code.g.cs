@@ -21,7 +21,7 @@ public enum IntermediateSecurityDistributionType2Code
 {
     /// <summary>
     /// Distribution of reverser rights.
-    /// Encoded/decoded by serializers as "BIDS".
+    /// Encoded/decoded by serializers as &quot;BIDS&quot;.
     /// </summary>
     [EnumMember(Value = "BIDS")]
     [IsoId("_aaQ9ctp-Ed-ak6NoX_4Aeg_-1090801611")]
@@ -30,7 +30,7 @@ public enum IntermediateSecurityDistributionType2Code
     
     /// <summary>
     /// Distribution of bonus rights.
-    /// Encoded/decoded by serializers as "BONU".
+    /// Encoded/decoded by serializers as &quot;BONU&quot;.
     /// </summary>
     [EnumMember(Value = "BONU")]
     [IsoId("_aaQ9c9p-Ed-ak6NoX_4Aeg_-1090801593")]
@@ -39,7 +39,7 @@ public enum IntermediateSecurityDistributionType2Code
     
     /// <summary>
     /// Distribution of dividend reinvestment securities.
-    /// Encoded/decoded by serializers as "DRIP".
+    /// Encoded/decoded by serializers as &quot;DRIP&quot;.
     /// </summary>
     [EnumMember(Value = "DRIP")]
     [IsoId("_aaQ9dNp-Ed-ak6NoX_4Aeg_-1090801568")]
@@ -48,7 +48,7 @@ public enum IntermediateSecurityDistributionType2Code
     
     /// <summary>
     /// Distribution of dividend option.
-    /// Encoded/decoded by serializers as "DVOP".
+    /// Encoded/decoded by serializers as &quot;DVOP&quot;.
     /// </summary>
     [EnumMember(Value = "DVOP")]
     [IsoId("_aaQ9ddp-Ed-ak6NoX_4Aeg_-1090801551")]
@@ -57,7 +57,7 @@ public enum IntermediateSecurityDistributionType2Code
     
     /// <summary>
     /// Distribution of subscription rights.
-    /// Encoded/decoded by serializers as "EXRI".
+    /// Encoded/decoded by serializers as &quot;EXRI&quot;.
     /// </summary>
     [EnumMember(Value = "EXRI")]
     [IsoId("_aaQ9dtp-Ed-ak6NoX_4Aeg_-1090801291")]
@@ -66,7 +66,7 @@ public enum IntermediateSecurityDistributionType2Code
     
     /// <summary>
     /// Distribution of open offer rights.
-    /// Encoded/decoded by serializers as "PRIO".
+    /// Encoded/decoded by serializers as &quot;PRIO&quot;.
     /// </summary>
     [EnumMember(Value = "PRIO")]
     [IsoId("_aaQ9d9p-Ed-ak6NoX_4Aeg_-1090801274")]

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SupervisingAuthorityIdentificati
     /// Unique and unambiguous identifier, as assigned to an institution using an external code list.
     /// </summary>
     [IsoId("_IamycfIAEeaz_YGUGLjP6A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Identification")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -59,12 +57,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SupervisingAuthorityIdentificati
         /// External code sets can be downloaded from www.iso20022.org.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="PrtryId")]
         #endif
+        [IsoXmlTag("PrtryId")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ExternalAuthorityIdentification1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ExternalAuthorityIdentification1Code Value { get; init; } 
+        public required ExternalAuthorityIdentification1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ExternalAuthorityIdentification1Code Value { get; init; } 
         #else

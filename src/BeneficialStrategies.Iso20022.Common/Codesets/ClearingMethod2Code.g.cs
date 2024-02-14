@@ -21,7 +21,7 @@ public enum ClearingMethod2Code
 {
     /// <summary>
     /// Day clearing.
-    /// Encoded/decoded by serializers as "DAYC".
+    /// Encoded/decoded by serializers as &quot;DAYC&quot;.
     /// </summary>
     [EnumMember(Value = "DAYC")]
     [IsoId("_CO0dUX0lEemfrNOe0zHQyg")]
@@ -30,7 +30,7 @@ public enum ClearingMethod2Code
     
     /// <summary>
     /// Clearing to be deferred in time.
-    /// Encoded/decoded by serializers as "DFRD".
+    /// Encoded/decoded by serializers as &quot;DFRD&quot;.
     /// </summary>
     [EnumMember(Value = "DFRD")]
     [IsoId("_CO0dU30lEemfrNOe0zHQyg")]
@@ -39,7 +39,7 @@ public enum ClearingMethod2Code
     
     /// <summary>
     /// Clearing for instant payments and transfers.
-    /// Encoded/decoded by serializers as "INST".
+    /// Encoded/decoded by serializers as &quot;INST&quot;.
     /// </summary>
     [EnumMember(Value = "INST")]
     [IsoId("_CO0dVX0lEemfrNOe0zHQyg")]
@@ -48,7 +48,7 @@ public enum ClearingMethod2Code
     
     /// <summary>
     /// Other type of clearing method defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_CO0dV30lEemfrNOe0zHQyg")]
@@ -57,7 +57,7 @@ public enum ClearingMethod2Code
     
     /// <summary>
     /// Other type of clearing method defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_CO0dWX0lEemfrNOe0zHQyg")]
@@ -66,7 +66,7 @@ public enum ClearingMethod2Code
     
     /// <summary>
     /// Clearing done in real time.
-    /// Encoded/decoded by serializers as "RLTM".
+    /// Encoded/decoded by serializers as &quot;RLTM&quot;.
     /// </summary>
     [EnumMember(Value = "RLTM")]
     [IsoId("_CO0dW30lEemfrNOe0zHQyg")]

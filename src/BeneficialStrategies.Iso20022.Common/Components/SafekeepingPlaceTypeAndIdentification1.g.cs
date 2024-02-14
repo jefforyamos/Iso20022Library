@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Identification of the type of place of safekeeping expressed as a code and a BIC.
 /// </summary>
 [IsoId("_Wjinw7XEEeiTob_PrFFUxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Safekeeping Place Type And Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record SafekeepingPlaceTypeAndIdentification1
     /// Place of safekeeping as a code.
     /// </summary>
     [IsoId("_W1QC0bXEEeiTob_PrFFUxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Safekeeping Place Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SfkpgPlcTp")]
     #endif
+    [IsoXmlTag("SfkpgPlcTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required SafekeepingPlace1Code SafekeepingPlaceType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public SafekeepingPlace1Code SafekeepingPlaceType { get; init; } 
+    public required SafekeepingPlace1Code SafekeepingPlaceType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public SafekeepingPlace1Code SafekeepingPlaceType { get; init; } 
     #else
@@ -72,16 +69,16 @@ public partial record SafekeepingPlaceTypeAndIdentification1
     /// Place of safekeeping.
     /// </summary>
     [IsoId("_W1QC07XEEeiTob_PrFFUxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Id")]
     #endif
+    [IsoXmlTag("Id")]
+    [IsoSimpleType(IsoSimpleType.AnyBICDec2014Identifier)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoAnyBICDec2014Identifier Identification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String Identification { get; init; } 
+    public required System.String Identification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String Identification { get; init; } 
     #else

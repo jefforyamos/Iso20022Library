@@ -21,7 +21,7 @@ public enum FileActionResult1Code
 {
     /// <summary>
     /// Identified record is already present in the file.
-    /// Encoded/decoded by serializers as "DUPR".
+    /// Encoded/decoded by serializers as &quot;DUPR&quot;.
     /// </summary>
     [EnumMember(Value = "DUPR")]
     [IsoId("_1m3kQVECEee94_dUz-hvgw")]
@@ -30,7 +30,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// Invalid record field syntax.
-    /// Encoded/decoded by serializers as "FERD".
+    /// Encoded/decoded by serializers as &quot;FERD&quot;.
     /// </summary>
     [EnumMember(Value = "FERD")]
     [IsoId("_2AgMQlECEee94_dUz-hvgw")]
@@ -39,7 +39,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// Invalid field value in record.
-    /// Encoded/decoded by serializers as "INFD".
+    /// Encoded/decoded by serializers as &quot;INFD&quot;.
     /// </summary>
     [EnumMember(Value = "INFD")]
     [IsoId("_2KX58lECEee94_dUz-hvgw")]
@@ -48,7 +48,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// File is locked and cannot be modified.
-    /// Encoded/decoded by serializers as "FLCK".
+    /// Encoded/decoded by serializers as &quot;FLCK&quot;.
     /// </summary>
     [EnumMember(Value = "FLCK")]
     [IsoId("_2YQk8lECEee94_dUz-hvgw")]
@@ -57,7 +57,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// Invalid record format.
-    /// Encoded/decoded by serializers as "FTER".
+    /// Encoded/decoded by serializers as &quot;FTER&quot;.
     /// </summary>
     [EnumMember(Value = "FTER")]
     [IsoId("_2jasElECEee94_dUz-hvgw")]
@@ -66,7 +66,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// Requested file action not supported.
-    /// Encoded/decoded by serializers as "NSUP".
+    /// Encoded/decoded by serializers as &quot;NSUP&quot;.
     /// </summary>
     [EnumMember(Value = "NSUP")]
     [IsoId("_2tRyslECEee94_dUz-hvgw")]
@@ -75,7 +75,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// Other type of file action result
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_23jJAlECEee94_dUz-hvgw")]
@@ -84,7 +84,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// Action performed successfully
-    /// Encoded/decoded by serializers as "SUCC".
+    /// Encoded/decoded by serializers as &quot;SUCC&quot;.
     /// </summary>
     [EnumMember(Value = "SUCC")]
     [IsoId("_3D14klECEee94_dUz-hvgw")]
@@ -93,7 +93,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// Identified record was not found.
-    /// Encoded/decoded by serializers as "UTLR".
+    /// Encoded/decoded by serializers as &quot;UTLR&quot;.
     /// </summary>
     [EnumMember(Value = "UTLR")]
     [IsoId("_3NXA8lECEee94_dUz-hvgw")]
@@ -102,7 +102,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// File is unknown.
-    /// Encoded/decoded by serializers as "UNKF".
+    /// Encoded/decoded by serializers as &quot;UNKF&quot;.
     /// </summary>
     [EnumMember(Value = "UNKF")]
     [IsoId("_3b2I4lECEee94_dUz-hvgw")]
@@ -111,7 +111,7 @@ public enum FileActionResult1Code
     
     /// <summary>
     /// Action could not be performed.
-    /// Encoded/decoded by serializers as "USUC".
+    /// Encoded/decoded by serializers as &quot;USUC&quot;.
     /// </summary>
     [EnumMember(Value = "USUC")]
     [IsoId("_3nfYMlECEee94_dUz-hvgw")]

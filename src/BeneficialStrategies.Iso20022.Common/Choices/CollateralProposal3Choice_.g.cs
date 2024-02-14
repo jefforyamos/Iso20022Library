@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralProposal3Choice.CollateralProposalDetails))]
     [KnownType(typeof(CollateralProposal3Choice.SegregatedIndependentAmount))]
     [IsoId("_PYHrBV9-EeSMgPeFpRHeJw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Collateral Proposal 3 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

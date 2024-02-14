@@ -27,16 +27,14 @@ namespace BeneficialStrategies.Iso20022.semt;
 /// This record is an implementation of the semt.005.001.02 ISO standard message type.
 /// There are significant differences between different variants of the same message. It is crucial that you select exactly the implementation you intend to send or receive.
 /// Scope
-/// An account servicer, for example, a transfer agent, sends the AccountingStatementofHoldingsCancellation message to the account owner, for example, a fund manager or an account owner's designated agent, to notify the cancellation of a previously sent AccountingStatementOfHoldings message.
+/// An account servicer, for example, a transfer agent, sends the AccountingStatementofHoldingsCancellation message to the account owner, for example, a fund manager or an account owner&apos;s designated agent, to notify the cancellation of a previously sent AccountingStatementOfHoldings message.
 /// Usage
 /// The AccountingStatementOfHoldingsCancellation message is used to cancel a previously sent AccountingStatementOfHoldings message. This message must contain the reference of the message to be cancelled.
 /// This message may also contain all the details of the message to be cancelled, but this is not recommended.
 /// </summary>
 [Description(@"Scope|An account servicer, for example, a transfer agent, sends the AccountingStatementofHoldingsCancellation message to the account owner, for example, a fund manager or an account owner's designated agent, to notify the cancellation of a previously sent AccountingStatementOfHoldings message.|Usage|The AccountingStatementOfHoldingsCancellation message is used to cancel a previously sent AccountingStatementOfHoldings message. This message must contain the reference of the message to be cancelled.|This message may also contain all the details of the message to be cancelled, but this is not recommended.")]
 [IsoId("_McJgvtFSEd-BzquC8wXy7w_-1129601452")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Accounting Statement Of Holdings Cancellation V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,16 +78,15 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
     /// Reference that uniquely identifies a message from a business application standpoint.
     /// </summary>
     [IsoId("_McSqoNFSEd-BzquC8wXy7w_-312284977")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgId")]
     #endif
+    [IsoXmlTag("MsgId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public MessageIdentification1 MessageIdentification { get; init; } 
+    public required MessageIdentification1 MessageIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public MessageIdentification1 MessageIdentification { get; init; } 
     #else
@@ -100,12 +97,11 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_McSqodFSEd-BzquC8wXy7w_-1129601449")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -118,12 +114,11 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
     /// Reference to a linked message that was previously received.
     /// </summary>
     [IsoId("_McSqotFSEd-BzquC8wXy7w_-1129601408")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Related Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RltdRef")]
     #endif
+    [IsoXmlTag("RltdRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference2? RelatedReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -136,16 +131,15 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
     /// Pagination of the message.
     /// </summary>
     [IsoId("_McSqo9FSEd-BzquC8wXy7w_-1129601090")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Message Pagination")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MsgPgntn")]
     #endif
+    [IsoXmlTag("MsgPgntn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Pagination MessagePagination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Pagination MessagePagination { get; init; } 
+    public required Pagination MessagePagination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Pagination MessagePagination { get; init; } 
     #else
@@ -156,12 +150,11 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
     /// The Accounting Statement of Holdings message to cancel.
     /// </summary>
     [IsoId("_McSqpNFSEd-BzquC8wXy7w_-1129601373")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Statement To Be Cancelled")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="StmtToBeCanc")]
     #endif
+    [IsoXmlTag("StmtToBeCanc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AccountingStatementOfHoldings2? StatementToBeCancelled { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -174,7 +167,7 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="AccountingStatementOfHoldingsCancellationV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;AccountingStatementOfHoldingsCancellationV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public AccountingStatementOfHoldingsCancellationV02Document ToDocument()
     {
@@ -184,7 +177,7 @@ public partial record AccountingStatementOfHoldingsCancellationV02 : IOuterRecor
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="AccountingStatementOfHoldingsCancellationV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;AccountingStatementOfHoldingsCancellationV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record AccountingStatementOfHoldingsCancellationV02Document : IOuterDocument<AccountingStatementOfHoldingsCancellationV02>
@@ -201,7 +194,7 @@ public partial record AccountingStatementOfHoldingsCancellationV02Document : IOu
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="AccountingStatementOfHoldingsCancellationV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;AccountingStatementOfHoldingsCancellationV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AccountingStatementOfHoldingsCancellationV02 Message { get; init; }

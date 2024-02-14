@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status38Choice
     /// Provides the matching status of the instruction.
     /// </summary>
     [IsoId("_coFnqSW-EeygjNFjAlVoPA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Matching Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

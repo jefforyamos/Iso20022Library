@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Information used to calculate the tax.
 /// </summary>
 [IsoId("_a-ynQUUVEea21qTBwbMSEA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Tax Calculation Information")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record TaxCalculationInformation9
     /// Form of the rebate, for example, cash.
     /// </summary>
     [IsoId("_bXVqI0UVEea21qTBwbMSEA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Basis")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Bsis")]
     #endif
+    [IsoXmlTag("Bsis")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required TaxBasis1Choice_ Basis { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public TaxBasis1Choice_ Basis { get; init; } 
+    public required TaxBasis1Choice_ Basis { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public TaxBasis1Choice_ Basis { get; init; } 
     #else

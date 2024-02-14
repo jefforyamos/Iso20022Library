@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status22Choice
     /// Provides the status of a corporate action or the status of a payment.
     /// </summary>
     [IsoId("_8QboKZNLEeWGlc8L7oPDIg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Corporate Action Event Processing Status")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

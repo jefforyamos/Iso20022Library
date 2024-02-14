@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains credential information.
 /// </summary>
 [IsoId("_3tXfsad2EeuEcqP2FGAFaA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Credentials")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record Credentials2
     /// Identification of the type of credential.
     /// </summary>
     [IsoId("_3zANoad2EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IdCd")]
     #endif
+    [IsoXmlTag("IdCd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Identification3Code IdentificationCode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Identification3Code IdentificationCode { get; init; } 
+    public required Identification3Code IdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Identification3Code IdentificationCode { get; init; } 
     #else
@@ -72,15 +69,13 @@ public partial record Credentials2
     /// Used when OtherNational or OtherPrivate value is selected in identification code list. 
     /// </summary>
     [IsoId("_3zA0sad2EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Identification Code")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrIdCd")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("OthrIdCd")]
+    [IsoSimpleType(IsoSimpleType.Max35Text)]
     [StringLength(maximumLength: 35 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax35Text? OtherIdentificationCode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,19 +88,17 @@ public partial record Credentials2
     /// Value of identification.
     /// </summary>
     [IsoId("_3zA0s6d2EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IdVal")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("IdVal")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text IdentificationValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String IdentificationValue { get; init; } 
+    public required System.String IdentificationValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String IdentificationValue { get; init; } 
     #else
@@ -116,12 +109,12 @@ public partial record Credentials2
     /// Expiration date of the identification.
     /// </summary>
     [IsoId("_HbqHgCX9Eeym0KcvJF9aDQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Identification Expiry Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IdXpryDt")]
     #endif
+    [IsoXmlTag("IdXpryDt")]
+    [IsoSimpleType(IsoSimpleType.ISOYearMonth)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISOYearMonth? IdentificationExpiryDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record Credentials2
     /// Entity that assigns and manages this type of identification.
     /// </summary>
     [IsoId("_JSH9oKd8EeuEcqP2FGAFaA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Assigner Authority")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AssgnrAuthrty")]
     #endif
+    [IsoXmlTag("AssgnrAuthrty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Authority1? AssignerAuthority { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

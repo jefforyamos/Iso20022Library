@@ -21,7 +21,7 @@ public enum SystemStatus3Code
 {
     /// <summary>
     /// System is functioning normally, that is, operational.
-    /// Encoded/decoded by serializers as "ACTV".
+    /// Encoded/decoded by serializers as &quot;ACTV&quot;.
     /// </summary>
     [EnumMember(Value = "ACTV")]
     [IsoId("_wPvh8YpbEeiaB-4Hjqs8aw")]
@@ -30,7 +30,7 @@ public enum SystemStatus3Code
     
     /// <summary>
     /// System is closed (eg. normal closure of an RTGS).
-    /// Encoded/decoded by serializers as "CLSD".
+    /// Encoded/decoded by serializers as &quot;CLSD&quot;.
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_wYa80YpbEeiaB-4Hjqs8aw")]
@@ -39,7 +39,7 @@ public enum SystemStatus3Code
     
     /// <summary>
     /// System is starting a new maintenance period.
-    /// Encoded/decoded by serializers as "RMPS".
+    /// Encoded/decoded by serializers as &quot;RMPS&quot;.
     /// </summary>
     [EnumMember(Value = "RMPS")]
     [IsoId("_YxOXIYpdEeiaB-4Hjqs8aw")]

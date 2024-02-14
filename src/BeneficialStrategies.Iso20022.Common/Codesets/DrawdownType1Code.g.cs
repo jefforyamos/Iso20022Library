@@ -21,7 +21,7 @@ public enum DrawdownType1Code
 {
     /// <summary>
     /// Drawdown type is capped.
-    /// Encoded/decoded by serializers as "CAPP".
+    /// Encoded/decoded by serializers as &quot;CAPP&quot;.
     /// </summary>
     [EnumMember(Value = "CAPP")]
     [IsoId("_uQaTgVNdEeijdq8ilaxyOA")]
@@ -30,7 +30,7 @@ public enum DrawdownType1Code
     
     /// <summary>
     /// Drawdown type is flexi-access.
-    /// Encoded/decoded by serializers as "FLEX".
+    /// Encoded/decoded by serializers as &quot;FLEX&quot;.
     /// </summary>
     [EnumMember(Value = "FLEX")]
     [IsoId("_uVnjoVNdEeijdq8ilaxyOA")]

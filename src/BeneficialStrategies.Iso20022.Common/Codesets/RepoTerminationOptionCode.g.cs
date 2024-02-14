@@ -21,7 +21,7 @@ public enum RepoTerminationOptionCode
 {
     /// <summary>
     /// Evergreen termination option.
-    /// Encoded/decoded by serializers as "EGRN".
+    /// Encoded/decoded by serializers as &quot;EGRN&quot;.
     /// </summary>
     [EnumMember(Value = "EGRN")]
     [IsoId("_4WluECyzEea35M2x2c9PXw")]
@@ -30,7 +30,7 @@ public enum RepoTerminationOptionCode
     
     /// <summary>
     /// Extendable termination option.
-    /// Encoded/decoded by serializers as "ETSB".
+    /// Encoded/decoded by serializers as &quot;ETSB&quot;.
     /// </summary>
     [EnumMember(Value = "ETSB")]
     [IsoId("_4raukCyzEea35M2x2c9PXw")]
@@ -39,7 +39,7 @@ public enum RepoTerminationOptionCode
     
     /// <summary>
     /// Evergreen and extendable termination option. 
-    /// Encoded/decoded by serializers as "EGAE".
+    /// Encoded/decoded by serializers as &quot;EGAE&quot;.
     /// </summary>
     [EnumMember(Value = "EGAE")]
     [IsoId("_5AF-ECyzEea35M2x2c9PXw")]
@@ -48,7 +48,7 @@ public enum RepoTerminationOptionCode
     
     /// <summary>
     /// Search for requested data not complete yet.
-    /// Encoded/decoded by serializers as "NOAP".
+    /// Encoded/decoded by serializers as &quot;NOAP&quot;.
     /// </summary>
     [EnumMember(Value = "NOAP")]
     [IsoId("_vuqPINX_EeiqhpuDZKadPg")]

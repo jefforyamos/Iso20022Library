@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choic
     /// Identification used where reporting entity is a national competent authority.
     /// </summary>
     [IsoId("_-PXYoAkWEeWGouz230Xp5Q")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("National Competent Authority")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choic
         /// Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NtlCmptntAuthrty")]
         #endif
+        [IsoXmlTag("NtlCmptntAuthrty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required CountryCode Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string Value { get; init; } 
+        public required string Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string Value { get; init; } 
         #else

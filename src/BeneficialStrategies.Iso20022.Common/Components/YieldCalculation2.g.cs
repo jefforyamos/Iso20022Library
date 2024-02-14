@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Return provided by a financial instrument.
 /// </summary>
 [IsoId("_oLtAMNorEeCWg-hsBVGrDA_726632043")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Yield Calculation")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,16 @@ public partial record YieldCalculation2
     /// Result of the yield calculation.
     /// </summary>
     [IsoId("_oLtAMdorEeCWg-hsBVGrDA_612792977")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
+    [IsoSimpleType(IsoSimpleType.PercentageRate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoPercentageRate Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal Value { get; init; } 
+    public required System.Decimal Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal Value { get; init; } 
     #else
@@ -72,16 +70,15 @@ public partial record YieldCalculation2
     /// Specifies the type of calculation.
     /// </summary>
     [IsoId("_oL2KINorEeCWg-hsBVGrDA_-270440310")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnTp")]
     #endif
+    [IsoXmlTag("ClctnTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CalculationType1Code CalculationType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CalculationType1Code CalculationType { get; init; } 
+    public required CalculationType1Code CalculationType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CalculationType1Code CalculationType { get; init; } 
     #else
@@ -92,12 +89,11 @@ public partial record YieldCalculation2
     /// Price to which the yield has been calculated.
     /// </summary>
     [IsoId("_oL2KIdorEeCWg-hsBVGrDA_1339987811")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Redemption Price")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RedPric")]
     #endif
+    [IsoXmlTag("RedPric")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Price4? RedemptionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -110,12 +106,12 @@ public partial record YieldCalculation2
     /// Date/time on which the calculation is based, for example, valuation on October 1 (price date) based on price of September 19 ( value date).
     /// </summary>
     [IsoId("_oL2KItorEeCWg-hsBVGrDA_342915458")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValDt")]
     #endif
+    [IsoXmlTag("ValDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? ValueDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -128,12 +124,11 @@ public partial record YieldCalculation2
     /// Period on which the calculation is based.
     /// </summary>
     [IsoId("_oL2KI9orEeCWg-hsBVGrDA_229076392")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value Period")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValPrd")]
     #endif
+    [IsoXmlTag("ValPrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateTimePeriodChoice_? ValuePeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +141,12 @@ public partial record YieldCalculation2
     /// Included as needed to clarify yield irregularities associated with date, e.g. when it falls on a non-business day.
     /// </summary>
     [IsoId("_oL2KJNorEeCWg-hsBVGrDA_-654156895")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Calculation Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ClctnDt")]
     #endif
+    [IsoXmlTag("ClctnDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? CalculationDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

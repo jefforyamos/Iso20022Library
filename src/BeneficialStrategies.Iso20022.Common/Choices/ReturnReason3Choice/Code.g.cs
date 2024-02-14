@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReturnReason3Choice
     /// Reason for the return in a coded form.
     /// </summary>
     [IsoId("_V86BUdp-Ed-ak6NoX_4Aeg_1314268316")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Code")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReturnReason3Choice
         /// Specifies the reason for a transaction to be rejected or returned by an instructed agent or somebody acting on behalf of an instructed agent.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Cd")]
         #endif
+        [IsoXmlTag("Cd")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required TransactionRejectReason5Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public TransactionRejectReason5Code Value { get; init; } 
+        public required TransactionRejectReason5Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public TransactionRejectReason5Code Value { get; init; } 
         #else

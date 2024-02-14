@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice
     /// Identifier for Swiss securities assigned by Telekurs Financial, the Swiss numbering agency.
     /// </summary>
     [IsoId("_CSq4RyGQEeW7gKYhAMEFCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valoren")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice
         /// Identifier for Swiss securities assigned by Telekurs Financial, the Swiss numbering agency.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Vlrn")]
         #endif
+        [IsoXmlTag("Vlrn")]
+        [IsoSimpleType(IsoSimpleType.ValorenIdentifier)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoValorenIdentifier Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String Value { get; init; } 
+        public required System.String Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String Value { get; init; } 
         #else

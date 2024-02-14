@@ -21,7 +21,7 @@ public enum PegType1Code
 {
     /// <summary>
     /// Order pegged against a fixed amount (local best bid or offer, at time of order).
-    /// Encoded/decoded by serializers as "FIXE".
+    /// Encoded/decoded by serializers as &quot;FIXE&quot;.
     /// </summary>
     [EnumMember(Value = "FIXE")]
     [IsoId("_Z9p5-Np-Ed-ak6NoX_4Aeg_307440399")]
@@ -30,7 +30,7 @@ public enum PegType1Code
     
     /// <summary>
     /// Order pegged against the last price.
-    /// Encoded/decoded by serializers as "LAST".
+    /// Encoded/decoded by serializers as &quot;LAST&quot;.
     /// </summary>
     [EnumMember(Value = "LAST")]
     [IsoId("_Z9p5-dp-Ed-ak6NoX_4Aeg_307440417")]
@@ -39,7 +39,7 @@ public enum PegType1Code
     
     /// <summary>
     /// Order pegged against the current market price. Relative to the offering if buying and relative to the bid if selling.
-    /// Encoded/decoded by serializers as "MARK".
+    /// Encoded/decoded by serializers as &quot;MARK&quot;.
     /// </summary>
     [EnumMember(Value = "MARK")]
     [IsoId("_Z9zq8Np-Ed-ak6NoX_4Aeg_307440434")]
@@ -48,7 +48,7 @@ public enum PegType1Code
     
     /// <summary>
     /// Order pegged against the mid price, which is the average between the offer and bid prices.
-    /// Encoded/decoded by serializers as "MIDP".
+    /// Encoded/decoded by serializers as &quot;MIDP&quot;.
     /// </summary>
     [EnumMember(Value = "MIDP")]
     [IsoId("_Z9zq8dp-Ed-ak6NoX_4Aeg_307440452")]
@@ -57,7 +57,7 @@ public enum PegType1Code
     
     /// <summary>
     /// Order pegged against the opening price.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_Z9zq8tp-Ed-ak6NoX_4Aeg_307440477")]
@@ -66,7 +66,7 @@ public enum PegType1Code
     
     /// <summary>
     /// Order pegged against the primary market where the financial instrument is traded. It is relative to the offering if buying and relative to the bid if selling.
-    /// Encoded/decoded by serializers as "PRIM".
+    /// Encoded/decoded by serializers as &quot;PRIM&quot;.
     /// </summary>
     [EnumMember(Value = "PRIM")]
     [IsoId("_Z9zq89p-Ed-ak6NoX_4Aeg_307440494")]
@@ -75,7 +75,7 @@ public enum PegType1Code
     
     /// <summary>
     /// Order pegged against the volume weighted average price for the day.
-    /// Encoded/decoded by serializers as "VWAP".
+    /// Encoded/decoded by serializers as &quot;VWAP&quot;.
     /// </summary>
     [EnumMember(Value = "VWAP")]
     [IsoId("_Z9zq9Np-Ed-ak6NoX_4Aeg_307440512")]

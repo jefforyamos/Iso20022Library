@@ -21,7 +21,7 @@ public enum FraudReportingActionCode
 {
     /// <summary>
     /// New fraud information not reported yet.
-    /// Encoded/decoded by serializers as "NEWF".
+    /// Encoded/decoded by serializers as &quot;NEWF&quot;.
     /// </summary>
     [EnumMember(Value = "NEWF")]
     [IsoId("_r0wFEHbBEeef9c2nwgY9Xw")]
@@ -30,7 +30,7 @@ public enum FraudReportingActionCode
     
     /// <summary>
     /// Fraud information already reported.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_xA9rQHbBEeef9c2nwgY9Xw")]
@@ -39,7 +39,7 @@ public enum FraudReportingActionCode
     
     /// <summary>
     /// Update information about a fraud already reported.
-    /// Encoded/decoded by serializers as "UPDT".
+    /// Encoded/decoded by serializers as &quot;UPDT&quot;.
     /// </summary>
     [EnumMember(Value = "UPDT")]
     [IsoId("_4nmFcHbBEeef9c2nwgY9Xw")]
@@ -48,7 +48,7 @@ public enum FraudReportingActionCode
     
     /// <summary>
     /// Closing a previously reported fraud.
-    /// Encoded/decoded by serializers as "CLSE".
+    /// Encoded/decoded by serializers as &quot;CLSE&quot;.
     /// </summary>
     [EnumMember(Value = "CLSE")]
     [IsoId("_JaL44HbCEeef9c2nwgY9Xw")]
@@ -57,7 +57,7 @@ public enum FraudReportingActionCode
     
     /// <summary>
     /// Reopen a previously closed reported fraud case
-    /// Encoded/decoded by serializers as "REOP".
+    /// Encoded/decoded by serializers as &quot;REOP&quot;.
     /// </summary>
     [EnumMember(Value = "REOP")]
     [IsoId("_VzYqMHbCEeef9c2nwgY9Xw")]
@@ -66,7 +66,7 @@ public enum FraudReportingActionCode
     
     /// <summary>
     /// Other process about a fraud already reported defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_d5f1sHbCEeef9c2nwgY9Xw")]
@@ -75,7 +75,7 @@ public enum FraudReportingActionCode
     
     /// <summary>
     /// Other process about a fraud already reported defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_meJ-YHbCEeef9c2nwgY9Xw")]

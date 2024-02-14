@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Data specific to cash and related fields used as a collateral.
 /// </summary>
 [IsoId("_kl1m0dMGEem1A4OOmCK97A")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Cash Compare")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record CashCompare1
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
     [IsoId("_qdgk0NMGEem1A4OOmCK97A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Value")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Val")]
     #endif
+    [IsoXmlTag("Val")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CompareAmountAndDirection1 Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CompareAmountAndDirection1 Value { get; init; } 
+    public required CompareAmountAndDirection1 Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CompareAmountAndDirection1 Value { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record CashCompare1
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
     [IsoId("_3kK5ENMGEem1A4OOmCK97A")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Haircut Or Margin")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HrcutOrMrgn")]
     #endif
+    [IsoXmlTag("HrcutOrMrgn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ComparePercentageRate2 HaircutOrMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ComparePercentageRate2 HaircutOrMargin { get; init; } 
+    public required ComparePercentageRate2 HaircutOrMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ComparePercentageRate2 HaircutOrMargin { get; init; } 
     #else

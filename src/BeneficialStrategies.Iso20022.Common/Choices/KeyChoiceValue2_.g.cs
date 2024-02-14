@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(KeyChoiceValue2.EncryptedKeyValue))]
     [KnownType(typeof(KeyChoiceValue2.TRRelatedData))]
     [IsoId("_Fav_cbTqEeeQy4o2AayYHg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Key Choice Value")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice
     /// Code list for energy type of commodities.
     /// </summary>
     [IsoId("_BzEmOiYyEeWHeosc_5RQEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Energy")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice
         /// Code list for energy related derivative contracts.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Nrgy")]
         #endif
+        [IsoXmlTag("Nrgy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassSubProductEnergyType1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassSubProductEnergyType1Code Value { get; init; } 
+        public required AssetClassSubProductEnergyType1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassSubProductEnergyType1Code Value { get; init; } 
         #else

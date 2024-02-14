@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Unique and unambiguous way to identify a person.
 /// </summary>
 [IsoId("_V60Wp9p-Ed-ak6NoX_4Aeg_2101696687")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Person Identification")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record PersonIdentification4
     /// Identifier issued to a person for which no specific identifier has been defined.
     /// </summary>
     [IsoId("_V60WqNp-Ed-ak6NoX_4Aeg_2101697014")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Other Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OthrId")]
     #endif
+    [IsoXmlTag("OthrId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RestrictedIdentification2 OtherIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public RestrictedIdentification2 OtherIdentification { get; init; } 
+    public required RestrictedIdentification2 OtherIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public RestrictedIdentification2 OtherIdentification { get; init; } 
     #else

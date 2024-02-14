@@ -21,7 +21,7 @@ public enum ProductType6Code
 {
     /// <summary>
     /// The asset type is bond.
-    /// Encoded/decoded by serializers as "BOND".
+    /// Encoded/decoded by serializers as &quot;BOND&quot;.
     /// </summary>
     [EnumMember(Value = "BOND")]
     [IsoId("_5QytoTXvEemdWfjs3tykFQ")]
@@ -30,7 +30,7 @@ public enum ProductType6Code
     
     /// <summary>
     /// The asset type is cash.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_5YreUTXvEemdWfjs3tykFQ")]
@@ -39,7 +39,7 @@ public enum ProductType6Code
     
     /// <summary>
     /// Other asset type.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_6Mv_kTXvEemdWfjs3tykFQ")]
@@ -48,7 +48,7 @@ public enum ProductType6Code
     
     /// <summary>
     /// Identifies the nature or type of an equity.
-    /// Encoded/decoded by serializers as "EQUI".
+    /// Encoded/decoded by serializers as &quot;EQUI&quot;.
     /// </summary>
     [EnumMember(Value = "EQUI")]
     [IsoId("_8fJgATXvEemdWfjs3tykFQ")]

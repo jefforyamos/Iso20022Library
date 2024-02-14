@@ -30,9 +30,7 @@ namespace BeneficialStrategies.Iso20022.tsrv;
 /// </summary>
 [Description(@"The UndertakingAmendmentAdvice message is sent by an advising party to the beneficiary, either directly or via one or more other advising parties in the transaction chain, to advise the content of a proposed amendment to an undertaking. Information about the message may also be sent to other interested parties. The proposed undertaking amendment could be to a demand guarantee, standby letter of credit, or counter-undertaking (counter-guarantee or counter-standby). In addition to providing the terms of the proposed amendment and relevant details on proposed changes to the undertaking, the message may provide information from the sender such as confirmation details. It may also be used to advise the proposed termination or cancellation of the undertaking.")]
 [IsoId("_9gJ9ZnltEeG7BsjMvd1mEw_1371399250")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Undertaking Amendment Advice V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -77,16 +75,15 @@ public partial record UndertakingAmendmentAdviceV01 : IOuterRecord<UndertakingAm
     /// Party advising the undertaking to the beneficiary or to another party.
     /// </summary>
     [IsoId("_pUXylT1XEeKWjKfYlNE7jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Advising Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AdvsgPty")]
     #endif
+    [IsoXmlTag("AdvsgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PartyIdentification43 AdvisingParty { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PartyIdentification43 AdvisingParty { get; init; } 
+    public required PartyIdentification43 AdvisingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PartyIdentification43 AdvisingParty { get; init; } 
     #else
@@ -97,12 +94,11 @@ public partial record UndertakingAmendmentAdviceV01 : IOuterRecord<UndertakingAm
     /// Additional party that advises the undertaking.
     /// </summary>
     [IsoId("_rsgupT1XEeKWjKfYlNE7jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Second Advising Party")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ScndAdvsgPty")]
     #endif
+    [IsoXmlTag("ScndAdvsgPty")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyIdentification43? SecondAdvisingParty { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -115,16 +111,16 @@ public partial record UndertakingAmendmentAdviceV01 : IOuterRecord<UndertakingAm
     /// Date on which the undertaking is advised.
     /// </summary>
     [IsoId("_uNTQYz1XEeKWjKfYlNE7jQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Of Advice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtOfAdvc")]
     #endif
+    [IsoXmlTag("DtOfAdvc")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate DateOfAdvice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly DateOfAdvice { get; init; } 
+    public required System.DateOnly DateOfAdvice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly DateOfAdvice { get; init; } 
     #else
@@ -135,16 +131,15 @@ public partial record UndertakingAmendmentAdviceV01 : IOuterRecord<UndertakingAm
     /// Details related to the advice of the proposed amended undertaking.
     /// </summary>
     [IsoId("_9gJ9Z3ltEeG7BsjMvd1mEw_315692948")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Undertaking Amendment Advice Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="UdrtkgAmdmntAdvcDtls")]
     #endif
+    [IsoXmlTag("UdrtkgAmdmntAdvcDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Amendment2 UndertakingAmendmentAdviceDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Amendment2 UndertakingAmendmentAdviceDetails { get; init; } 
+    public required Amendment2 UndertakingAmendmentAdviceDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Amendment2 UndertakingAmendmentAdviceDetails { get; init; } 
     #else
@@ -155,31 +150,26 @@ public partial record UndertakingAmendmentAdviceV01 : IOuterRecord<UndertakingAm
     /// Additional information specific to the bank-to-bank communication.
     /// </summary>
     [IsoId("_EUVqJxWyEeKtPMeuz5Qhfw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Bank To Bank Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="BkToBkInf")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("BkToBkInf")]
+    [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
-    #endif
     public SimpleValueList<System.String> BankToBankInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
     /// Digital signature of the proposed amendment advice.
     /// </summary>
     [IsoId("_9gJ9aHltEeG7BsjMvd1mEw_1348230221")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Digital Signature")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DgtlSgntr")]
     #endif
+    [IsoXmlTag("DgtlSgntr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PartyAndSignature2? DigitalSignature { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -192,7 +182,7 @@ public partial record UndertakingAmendmentAdviceV01 : IOuterRecord<UndertakingAm
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="UndertakingAmendmentAdviceV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;UndertakingAmendmentAdviceV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public UndertakingAmendmentAdviceV01Document ToDocument()
     {
@@ -202,7 +192,7 @@ public partial record UndertakingAmendmentAdviceV01 : IOuterRecord<UndertakingAm
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="UndertakingAmendmentAdviceV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;UndertakingAmendmentAdviceV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record UndertakingAmendmentAdviceV01Document : IOuterDocument<UndertakingAmendmentAdviceV01>
@@ -219,7 +209,7 @@ public partial record UndertakingAmendmentAdviceV01Document : IOuterDocument<Und
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="UndertakingAmendmentAdviceV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;UndertakingAmendmentAdviceV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required UndertakingAmendmentAdviceV01 Message { get; init; }

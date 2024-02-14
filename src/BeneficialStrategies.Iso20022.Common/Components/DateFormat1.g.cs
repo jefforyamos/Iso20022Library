@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Format to express a date and a date mode.
 /// </summary>
 [IsoId("__ZsXMFuSEeSmO6RkXg92Lg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Date Format")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record DateFormat1
     /// Date at which the event occurs.
     /// </summary>
     [IsoId("_KZJuYFuTEeSmO6RkXg92Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Dt")]
     #endif
+    [IsoXmlTag("Dt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DateFormat3Choice_ Date { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DateFormat3Choice_ Date { get; init; } 
+    public required DateFormat3Choice_ Date { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DateFormat3Choice_ Date { get; init; } 
     #else
@@ -68,15 +65,14 @@ public partial record DateFormat1
     #endif
     
     /// <summary>
-    /// Specifies whether an event for which a date is provided occurs typically at the "beginning of day" or at the "end of day".
+    /// Specifies whether an event for which a date is provided occurs typically at the &quot;beginning of day&quot; or at the &quot;end of day&quot;.
     /// </summary>
     [IsoId("_NbPmYFuTEeSmO6RkXg92Lg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtMd")]
     #endif
+    [IsoXmlTag("DtMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public DateMode1Code? DateMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

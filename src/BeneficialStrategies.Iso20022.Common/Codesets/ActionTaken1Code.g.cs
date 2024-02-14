@@ -21,7 +21,7 @@ public enum ActionTaken1Code
 {
     /// <summary>
     /// Reported fraud was accepted
-    /// Encoded/decoded by serializers as "ACCP".
+    /// Encoded/decoded by serializers as &quot;ACCP&quot;.
     /// </summary>
     [EnumMember(Value = "ACCP")]
     [IsoId("_ykWhoXdmEeeKH6vrEwvLHA")]
@@ -30,7 +30,7 @@ public enum ActionTaken1Code
     
     /// <summary>
     /// Reported fraud led to actions defined at national level.
-    /// Encoded/decoded by serializers as "OTHN".
+    /// Encoded/decoded by serializers as &quot;OTHN&quot;.
     /// </summary>
     [EnumMember(Value = "OTHN")]
     [IsoId("_yzE6IndmEeeKH6vrEwvLHA")]
@@ -39,7 +39,7 @@ public enum ActionTaken1Code
     
     /// <summary>
     /// Reported fraud led to actions defined at private level.
-    /// Encoded/decoded by serializers as "OTHP".
+    /// Encoded/decoded by serializers as &quot;OTHP&quot;.
     /// </summary>
     [EnumMember(Value = "OTHP")]
     [IsoId("_y8mpkndmEeeKH6vrEwvLHA")]
@@ -48,7 +48,7 @@ public enum ActionTaken1Code
     
     /// <summary>
     /// Reported fraud was rejected.
-    /// Encoded/decoded by serializers as "RJCT".
+    /// Encoded/decoded by serializers as &quot;RJCT&quot;.
     /// </summary>
     [EnumMember(Value = "RJCT")]
     [IsoId("_zNj2sndmEeeKH6vrEwvLHA")]
@@ -57,7 +57,7 @@ public enum ActionTaken1Code
     
     /// <summary>
     /// Reported fraud was accepted with warnings.
-    /// Encoded/decoded by serializers as "WARN".
+    /// Encoded/decoded by serializers as &quot;WARN&quot;.
     /// </summary>
     [EnumMember(Value = "WARN")]
     [IsoId("_zZUawndmEeeKH6vrEwvLHA")]

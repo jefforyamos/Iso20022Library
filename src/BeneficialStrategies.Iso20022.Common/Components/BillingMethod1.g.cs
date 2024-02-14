@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides the details for the tax calculation method A.
 /// </summary>
 [IsoId("_6PzStJqlEeGSON8vddiWzQ_1375424478")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Billing Method")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record BillingMethod1
     /// Amount of the original charge expressed in the host currency.
     /// </summary>
     [IsoId("_6PzStZqlEeGSON8vddiWzQ_-378796185")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Charge Host Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcChrgHstAmt")]
     #endif
+    [IsoXmlTag("SvcChrgHstAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
+    public required AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountAndDirection34 ServiceChargeHostAmount { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record BillingMethod1
     /// Provides for the regional taxes on the service. Up to three regional taxes may be defined for the same service.
     /// </summary>
     [IsoId("_6PzStpqlEeGSON8vddiWzQ_996223479")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Service Tax")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SvcTax")]
     #endif
+    [IsoXmlTag("SvcTax")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingServicesAmount1 ServiceTax { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingServicesAmount1 ServiceTax { get; init; } 
+    public required BillingServicesAmount1 ServiceTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingServicesAmount1 ServiceTax { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record BillingMethod1
     /// Specifies the total charge for a service (including taxes).
     /// </summary>
     [IsoId("_6PzSt5qlEeGSON8vddiWzQ_451070786")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Charge")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlChrg")]
     #endif
+    [IsoXmlTag("TtlChrg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required BillingServicesAmount2 TotalCharge { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public BillingServicesAmount2 TotalCharge { get; init; } 
+    public required BillingServicesAmount2 TotalCharge { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public BillingServicesAmount2 TotalCharge { get; init; } 
     #else
@@ -114,16 +109,13 @@ public partial record BillingMethod1
     /// Usage: This element allows for a maximum of three regional taxes on the same service.
     /// </summary>
     [IsoId("_6P9DsJqlEeGSON8vddiWzQ_-1164327431")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Tax Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TaxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("TaxId")]
     [MinLength(1)]
     [MaxLength(3)]
-    #endif
     public ValueList<BillingServicesTax1> TaxIdentification { get; init; } = new ValueList<BillingServicesTax1>(){};
     
     

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriodChoice
     /// Period expressed a dates and times.
     /// </summary>
     [IsoId("_T6Em7tp-Ed-ak6NoX_4Aeg_-1583487690")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Time")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriodChoice
         /// Date and time at which the range starts.
         /// </summary>
         [IsoId("_T5xr9dp-Ed-ak6NoX_4Aeg_330596092")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("From Date Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="FrDtTm")]
         #endif
+        [IsoXmlTag("FrDtTm")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODateTime FromDateTime { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateTime FromDateTime { get; init; } 
+        public required System.DateTime FromDateTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateTime FromDateTime { get; init; } 
         #else
@@ -77,16 +75,16 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriodChoice
         /// Date and time at which the range ends.
         /// </summary>
         [IsoId("_T5xr9tp-Ed-ak6NoX_4Aeg_330596093")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("To Date Time")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="ToDtTm")]
         #endif
+        [IsoXmlTag("ToDtTm")]
+        [IsoSimpleType(IsoSimpleType.ISODateTime)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoISODateTime ToDateTime { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.DateTime ToDateTime { get; init; } 
+        public required System.DateTime ToDateTime { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.DateTime ToDateTime { get; init; } 
         #else

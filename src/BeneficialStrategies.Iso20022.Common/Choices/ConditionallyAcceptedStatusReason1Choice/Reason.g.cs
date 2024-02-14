@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatusReaso
     /// Reason for the conditionally accepted status.
     /// </summary>
     [IsoId("_RgmOEdp-Ed-ak6NoX_4Aeg_-317806380")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatusReaso
         /// Specifies the reason for a conditionally accepted status.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Rsn")]
         #endif
+        [IsoXmlTag("Rsn")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ConditionallyAcceptedStatusReason3Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public ConditionallyAcceptedStatusReason3Code Value { get; init; } 
+        public required ConditionallyAcceptedStatusReason3Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public ConditionallyAcceptedStatusReason3Code Value { get; init; } 
         #else

@@ -31,9 +31,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"The RequestToPayCreditorEnrolmentRequest message is sent by the creditor RTP (Request To Pay) provider to an RTP directory provider and optionally by the creditor to a creditor RTP provider to request the creditor registration in the RTP directory. |The message may also be forwarded to any authorised third party, as defined in the local scheme.")]
 [IsoId("_rNNBpeHzEeqbls7Gk4-ckA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Request To Pay Creditor Enrolment Request V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -78,16 +76,15 @@ public partial record RequestToPayCreditorEnrolmentRequestV01 : IOuterRecord<Req
     /// Set of characteristics to identify the message and parties playing a role in the creditor enrolment request.
     /// </summary>
     [IsoId("_rNNBp-HzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Hdr")]
     #endif
+    [IsoXmlTag("Hdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required EnrolmentHeader2 Header { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public EnrolmentHeader2 Header { get; init; } 
+    public required EnrolmentHeader2 Header { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public EnrolmentHeader2 Header { get; init; } 
     #else
@@ -98,16 +95,15 @@ public partial record RequestToPayCreditorEnrolmentRequestV01 : IOuterRecord<Req
     /// Specific attributes of the creditor and service enrolment provided by the creditor for its enrolment.
     /// </summary>
     [IsoId("_rNNBqeHzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Creditor Enrolment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CdtrEnrlmnt")]
     #endif
+    [IsoXmlTag("CdtrEnrlmnt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditorEnrolment3 CreditorEnrolment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditorEnrolment3 CreditorEnrolment { get; init; } 
+    public required CreditorEnrolment3 CreditorEnrolment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditorEnrolment3 CreditorEnrolment { get; init; } 
     #else
@@ -118,16 +114,15 @@ public partial record RequestToPayCreditorEnrolmentRequestV01 : IOuterRecord<Req
     /// Specific attributes requested from the debtor for its activation as specified by the creditor in the creditor enrolment request.
     /// </summary>
     [IsoId("_rNNBq-HzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Activation Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ActvtnData")]
     #endif
+    [IsoXmlTag("ActvtnData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CreditorInvoice3 ActivationData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CreditorInvoice3 ActivationData { get; init; } 
+    public required CreditorInvoice3 ActivationData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CreditorInvoice3 ActivationData { get; init; } 
     #else
@@ -138,12 +133,11 @@ public partial record RequestToPayCreditorEnrolmentRequestV01 : IOuterRecord<Req
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_rNNBreHzEeqbls7Gk4-ckA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -156,7 +150,7 @@ public partial record RequestToPayCreditorEnrolmentRequestV01 : IOuterRecord<Req
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="RequestToPayCreditorEnrolmentRequestV01Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;RequestToPayCreditorEnrolmentRequestV01Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public RequestToPayCreditorEnrolmentRequestV01Document ToDocument()
     {
@@ -166,7 +160,7 @@ public partial record RequestToPayCreditorEnrolmentRequestV01 : IOuterRecord<Req
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="RequestToPayCreditorEnrolmentRequestV01"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;RequestToPayCreditorEnrolmentRequestV01&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record RequestToPayCreditorEnrolmentRequestV01Document : IOuterDocument<RequestToPayCreditorEnrolmentRequestV01>
@@ -183,7 +177,7 @@ public partial record RequestToPayCreditorEnrolmentRequestV01Document : IOuterDo
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="RequestToPayCreditorEnrolmentRequestV01"/> is required.
+    /// The instance of &lt;seealso cref=&quot;RequestToPayCreditorEnrolmentRequestV01&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required RequestToPayCreditorEnrolmentRequestV01 Message { get; init; }

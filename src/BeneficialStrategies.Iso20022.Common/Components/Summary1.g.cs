@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information related to the collateral position, that is, the identification of the exposed party, the total exposure amount and the total collateral amount held by the taker. It also contains the valuation dates and the requested settlement date of collateral if there is a shortage of collateral.
 /// </summary>
 [IsoId("_vV7IVqMOEeCojJW5vEuTEQ_-501666863")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Summary")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,12 +51,12 @@ public partial record Summary1
     /// Sum of the exposures of all transactions which are in the favour of party A. That is, all transactions which would have an amount payable by party B to party A if they were being terminated.
     /// </summary>
     [IsoId("_vV7IV6MOEeCojJW5vEuTEQ_1520216159")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposed Amount Party A")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsdAmtPtyA")]
     #endif
+    [IsoXmlTag("XpsdAmtPtyA")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,12 +69,12 @@ public partial record Summary1
     /// Sum of the exposures of all transactions which are in the favour of party B. That is, all transactions which would have an amount payable by party A to party B if they were being terminated.
     /// </summary>
     [IsoId("_vWE5UKMOEeCojJW5vEuTEQ_-961807729")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposed Amount Party B")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsdAmtPtyB")]
     #endif
+    [IsoXmlTag("XpsdAmtPtyB")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -89,16 +87,15 @@ public partial record Summary1
     /// Specifies the underlying business area/type of trade that triggered the posting of collateral.
     /// </summary>
     [IsoId("_vWE5UaMOEeCojJW5vEuTEQ_653500927")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exposure Type")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XpsrTp")]
     #endif
+    [IsoXmlTag("XpsrTp")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ExposureType1Code ExposureType { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ExposureType1Code ExposureType { get; init; } 
+    public required ExposureType1Code ExposureType { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ExposureType1Code ExposureType { get; init; } 
     #else
@@ -109,16 +106,16 @@ public partial record Summary1
     /// Total value of the collateral (post-haircut) held by the exposed party.
     /// </summary>
     [IsoId("_vWE5UqMOEeCojJW5vEuTEQ_-1909342264")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Total Value Of Collateral")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TtlValOfColl")]
     #endif
+    [IsoXmlTag("TtlValOfColl")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount TotalValueOfCollateral { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal TotalValueOfCollateral { get; init; } 
+    public required System.Decimal TotalValueOfCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal TotalValueOfCollateral { get; init; } 
     #else
@@ -129,12 +126,12 @@ public partial record Summary1
     /// Specifies the amount of collateral in excess or deficit compared to the exposure.
     /// </summary>
     [IsoId("_vWE5U6MOEeCojJW5vEuTEQ_463949589")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Excess Deficit")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetXcssDfcit")]
     #endif
+    [IsoXmlTag("NetXcssDfcit")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoActiveCurrencyAndAmount? NetExcessDeficit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -147,12 +144,11 @@ public partial record Summary1
     /// Indicates whether the collateral actually posted is a long or a short position.
     /// </summary>
     [IsoId("_vWE5VKMOEeCojJW5vEuTEQ_-1224092740")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Net Excess Deficit Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="NetXcssDfcitInd")]
     #endif
+    [IsoXmlTag("NetXcssDfcitInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ShortLong1Code? NetExcessDeficitIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,16 +161,16 @@ public partial record Summary1
     /// Date/time at which the collateral was valued.
     /// </summary>
     [IsoId("_vWODQKMOEeCojJW5vEuTEQ_2025903920")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Valuation Date Time")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ValtnDtTm")]
     #endif
+    [IsoXmlTag("ValtnDtTm")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime ValuationDateTime { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime ValuationDateTime { get; init; } 
+    public required System.DateTime ValuationDateTime { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime ValuationDateTime { get; init; } 
     #else
@@ -185,12 +181,12 @@ public partial record Summary1
     /// Date on which the instructing party requests settlement of the collateral to take place.
     /// </summary>
     [IsoId("_vWODQaMOEeCojJW5vEuTEQ_1010852622")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Requested Settlement Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ReqdSttlmDt")]
     #endif
+    [IsoXmlTag("ReqdSttlmDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoISODate? RequestedSettlementDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -203,12 +199,11 @@ public partial record Summary1
     /// Provides the more details on the valuation of the collateral that is posted.
     /// </summary>
     [IsoId("_vWODQqMOEeCojJW5vEuTEQ_-1728273088")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Summary Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SummryDtls")]
     #endif
+    [IsoXmlTag("SummryDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SummaryAmounts1? SummaryDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

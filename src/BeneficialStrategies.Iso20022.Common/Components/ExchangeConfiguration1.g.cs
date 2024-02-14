@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Configuration parameters of data exchanges.
 /// </summary>
 [IsoId("_Ksg2wH1DEeCF8NjrBemJWQ_-332730472")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Exchange Configuration")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record ExchangeConfiguration1
     /// Exchange policy between parties.
     /// </summary>
     [IsoId("_Ksg2wX1DEeCF8NjrBemJWQ_-515846242")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exchange Policy")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="XchgPlcy")]
     #endif
+    [IsoXmlTag("XchgPlcy")]
     public ExchangePolicy1Code? ExchangePolicy { get; init;  } // Warning: Don't know multiplicity.
     // ID for the above is _Ksg2wX1DEeCF8NjrBemJWQ_-515846242
     
@@ -57,12 +54,12 @@ public partial record ExchangeConfiguration1
     /// Maximum number of transactions without exchange.
     /// </summary>
     [IsoId("_Ksg2wn1DEeCF8NjrBemJWQ_-1174534805")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxNb")]
     #endif
+    [IsoXmlTag("MaxNb")]
+    [IsoSimpleType(IsoSimpleType.Number)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoNumber? MaximumNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -75,12 +72,12 @@ public partial record ExchangeConfiguration1
     /// Maximum cumulative amount of the transactions without exchange.
     /// </summary>
     [IsoId("_Ksg2w31DEeCF8NjrBemJWQ_974800049")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Maximum Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MaxAmt")]
     #endif
+    [IsoXmlTag("MaxAmt")]
+    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -93,12 +90,11 @@ public partial record ExchangeConfiguration1
     /// Timing condition for periodic exchanges.
     /// </summary>
     [IsoId("_Ksg2xH1DEeCF8NjrBemJWQ_-1619309700")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Condition")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmCond")]
     #endif
+    [IsoXmlTag("TmCond")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ProcessTiming1? TimeCondition { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

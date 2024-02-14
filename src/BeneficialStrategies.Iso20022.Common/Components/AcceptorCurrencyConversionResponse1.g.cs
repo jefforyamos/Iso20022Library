@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Currencey conversion outcome from the service provider.
 /// </summary>
 [IsoId("_-NOcMDVqEeOT2JATPlD1fA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Acceptor Currency Conversion Response")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -54,16 +52,15 @@ public partial record AcceptorCurrencyConversionResponse1
     /// Environment of the transaction.
     /// </summary>
     [IsoId("_I3EIsDVrEeOT2JATPlD1fA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Envt")]
     #endif
+    [IsoXmlTag("Envt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentEnvironment21 Environment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentEnvironment21 Environment { get; init; } 
+    public required CardPaymentEnvironment21 Environment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentEnvironment21 Environment { get; init; } 
     #else
@@ -74,16 +71,15 @@ public partial record AcceptorCurrencyConversionResponse1
     /// Currency conversion of a card payment transaction between an acceptor and an acquirer.
     /// </summary>
     [IsoId("_YENBQDVrEeOT2JATPlD1fA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="Tx")]
     #endif
+    [IsoXmlTag("Tx")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardPaymentTransaction23 Transaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardPaymentTransaction23 Transaction { get; init; } 
+    public required CardPaymentTransaction23 Transaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardPaymentTransaction23 Transaction { get; init; } 
     #else
@@ -94,16 +90,15 @@ public partial record AcceptorCurrencyConversionResponse1
     /// Result of the currency conversion.
     /// </summary>
     [IsoId("_Htdm4DVsEeOT2JATPlD1fA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Response")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxRspn")]
     #endif
+    [IsoXmlTag("TxRspn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required Response1Code TransactionResponse { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public Response1Code TransactionResponse { get; init; } 
+    public required Response1Code TransactionResponse { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public Response1Code TransactionResponse { get; init; } 
     #else
@@ -114,16 +109,15 @@ public partial record AcceptorCurrencyConversionResponse1
     /// Details of the currency conversion.
     /// </summary>
     [IsoId("_T0kioDVsEeOT2JATPlD1fA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Currency Conversion")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CcyConvs")]
     #endif
+    [IsoXmlTag("CcyConvs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CurrencyConversion1 CurrencyConversion { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CurrencyConversion1 CurrencyConversion { get; init; } 
+    public required CurrencyConversion1 CurrencyConversion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CurrencyConversion1 CurrencyConversion { get; init; } 
     #else

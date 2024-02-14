@@ -21,7 +21,7 @@ public enum TradePostingCode
 {
     /// <summary>
     /// Trade is maintained as a separate individual position in the clearing account.
-    /// Encoded/decoded by serializers as "GROS".
+    /// Encoded/decoded by serializers as &quot;GROS&quot;.
     /// </summary>
     [EnumMember(Value = "GROS")]
     [IsoId("_-fsj1aMOEeCojJW5vEuTEQ_-309637518")]
@@ -30,7 +30,7 @@ public enum TradePostingCode
     
     /// <summary>
     /// Trade is maintained as a net position in the clearing account.
-    /// Encoded/decoded by serializers as "NETT".
+    /// Encoded/decoded by serializers as &quot;NETT&quot;.
     /// </summary>
     [EnumMember(Value = "NETT")]
     [IsoId("_-fsj1qMOEeCojJW5vEuTEQ_-1574089543")]

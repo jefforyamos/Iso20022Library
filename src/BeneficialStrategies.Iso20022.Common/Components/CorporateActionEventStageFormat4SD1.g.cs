@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Extension to specify the stage in the corporate action event life cycle.
 /// </summary>
 [IsoId("_G3BX4DFpEeGKkIZzgd38VA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Corporate Action Event Stage Format 4 SD")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,15 +50,13 @@ public partial record CorporateActionEventStageFormat4SD1
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
     [IsoId("_qWadUFPGEeGs_NnqHXQZkw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Place And Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PlcAndNm")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("PlcAndNm")]
+    [IsoSimpleType(IsoSimpleType.Max350Text)]
     [StringLength(maximumLength: 350 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoMax350Text? PlaceAndName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -73,19 +69,18 @@ public partial record CorporateActionEventStageFormat4SD1
     /// The number of securities purchased.
     /// The value should be the actual number, or 0 (if, as a result, TEND or BIDS will not take place).
     /// 買付株式数／未定／非設定
-    /// ※買付前の通知において、「非設定」のデータが1件あり。未定との違いは不明。".
+    /// ※買付前の通知において、「非設定」のデータが1件あり。未定との違いは不明。&quot;.
     /// </summary>
     [IsoId("_lJLu0DFpEeGKkIZzgd38VA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Purchased")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SctiesPurchsd")]
     #endif
+    [IsoXmlTag("SctiesPurchsd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FinancialInstrumentQuantity15Choice_ SecuritiesPurchased { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FinancialInstrumentQuantity15Choice_ SecuritiesPurchased { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ SecuritiesPurchased { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FinancialInstrumentQuantity15Choice_ SecuritiesPurchased { get; init; } 
     #else

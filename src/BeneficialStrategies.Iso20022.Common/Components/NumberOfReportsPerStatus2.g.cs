@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Number of reports per status.
 /// </summary>
 [IsoId("_XANm0SmsEeerta_tWXAsWQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Number Of Reports Per Status")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,19 +50,16 @@ public partial record NumberOfReportsPerStatus2
     /// Number of individual reports sent / received, detailed per status.
     /// </summary>
     [IsoId("_XNl7gSmsEeerta_tWXAsWQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Number Of Reports")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldNbOfRpts")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    [StringLength(maximumLength: 0 ,MinimumLength = 0)]
-    #endif
+    [IsoXmlTag("DtldNbOfRpts")]
+    [IsoSimpleType(IsoSimpleType.Max15NumericText)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax15NumericText DetailedNumberOfReports { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String DetailedNumberOfReports { get; init; } 
+    public required System.String DetailedNumberOfReports { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String DetailedNumberOfReports { get; init; } 
     #else
@@ -75,16 +70,15 @@ public partial record NumberOfReportsPerStatus2
     /// Common report status for all individual reports sent / received.
     /// </summary>
     [IsoId("_XNl7gymsEeerta_tWXAsWQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Detailed Status")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtldSts")]
     #endif
+    [IsoXmlTag("DtldSts")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PairedReconciled1Code DetailedStatus { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PairedReconciled1Code DetailedStatus { get; init; } 
+    public required PairedReconciled1Code DetailedStatus { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PairedReconciled1Code DetailedStatus { get; init; } 
     #else

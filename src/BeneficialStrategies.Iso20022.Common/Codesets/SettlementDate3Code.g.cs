@@ -21,7 +21,7 @@ public enum SettlementDate3Code
 {
     /// <summary>
     /// Settlement takes place at the choice/option of the seller.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("_ZLby0Np-Ed-ak6NoX_4Aeg_-219579438")]
@@ -29,8 +29,8 @@ public enum SettlementDate3Code
     SellersOption = SettlementDateCode.SellersOption, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Settlement takes place as a result of a "to be announced" trade.
-    /// Encoded/decoded by serializers as "TBAT".
+    /// Settlement takes place as a result of a &quot;to be announced&quot; trade.
+    /// Encoded/decoded by serializers as &quot;TBAT&quot;.
     /// </summary>
     [EnumMember(Value = "TBAT")]
     [IsoId("_ZLby0dp-Ed-ak6NoX_4Aeg_-73663569")]
@@ -39,7 +39,7 @@ public enum SettlementDate3Code
     
     /// <summary>
     /// Settlement takes place when the financial instrument is distributed.
-    /// Encoded/decoded by serializers as "WDIS".
+    /// Encoded/decoded by serializers as &quot;WDIS&quot;.
     /// </summary>
     [EnumMember(Value = "WDIS")]
     [IsoId("_ZLby0tp-Ed-ak6NoX_4Aeg_341923237")]
@@ -48,7 +48,7 @@ public enum SettlementDate3Code
     
     /// <summary>
     /// Settlement takes place when the financial instrument is issued or distributed.
-    /// Encoded/decoded by serializers as "WHID".
+    /// Encoded/decoded by serializers as &quot;WHID&quot;.
     /// </summary>
     [EnumMember(Value = "WHID")]
     [IsoId("_ZLby09p-Ed-ak6NoX_4Aeg_372397488")]
@@ -57,7 +57,7 @@ public enum SettlementDate3Code
     
     /// <summary>
     /// Settlement is to be done when the security is issued.
-    /// Encoded/decoded by serializers as "WISS".
+    /// Encoded/decoded by serializers as &quot;WISS&quot;.
     /// </summary>
     [EnumMember(Value = "WISS")]
     [IsoId("_ZLby1Np-Ed-ak6NoX_4Aeg_671619815")]

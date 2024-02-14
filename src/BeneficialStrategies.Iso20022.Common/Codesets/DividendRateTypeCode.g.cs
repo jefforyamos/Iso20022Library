@@ -21,7 +21,7 @@ public enum DividendRateTypeCode
 {
     /// <summary>
     /// Rate relating to the underlying security for which capital is distributed.
-    /// Encoded/decoded by serializers as "CAPO".
+    /// Encoded/decoded by serializers as &quot;CAPO&quot;.
     /// </summary>
     [EnumMember(Value = "CAPO")]
     [IsoId("_axET59p-Ed-ak6NoX_4Aeg_-94999049")]
@@ -30,7 +30,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate resulting from a fully franked dividend paid by a company; the rate includes tax credit for companies that have made sufficient tax payments during the fiscal period.
-    /// Encoded/decoded by serializers as "FLFR".
+    /// Encoded/decoded by serializers as &quot;FLFR&quot;.
     /// </summary>
     [EnumMember(Value = "FLFR")]
     [IsoId("_axET6Np-Ed-ak6NoX_4Aeg_-94999018")]
@@ -39,7 +39,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate relating to the underlying security for which income is distributed.
-    /// Encoded/decoded by serializers as "INCO".
+    /// Encoded/decoded by serializers as &quot;INCO&quot;.
     /// </summary>
     [EnumMember(Value = "INCO")]
     [IsoId("_axNd0Np-Ed-ak6NoX_4Aeg_-94999017")]
@@ -48,7 +48,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate relating to the underlying security for which interest is paid.
-    /// Encoded/decoded by serializers as "INTR".
+    /// Encoded/decoded by serializers as &quot;INTR&quot;.
     /// </summary>
     [EnumMember(Value = "INTR")]
     [IsoId("_axNd0dp-Ed-ak6NoX_4Aeg_-94998988")]
@@ -57,7 +57,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate relating to the underlying security for which other income is paid.
-    /// Encoded/decoded by serializers as "SOIC".
+    /// Encoded/decoded by serializers as &quot;SOIC&quot;.
     /// </summary>
     [EnumMember(Value = "SOIC")]
     [IsoId("_axNd0tp-Ed-ak6NoX_4Aeg_-94998957")]
@@ -66,7 +66,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate relating to the underlying security for which tax is charged.
-    /// Encoded/decoded by serializers as "TXBL".
+    /// Encoded/decoded by serializers as &quot;TXBL&quot;.
     /// </summary>
     [EnumMember(Value = "TXBL")]
     [IsoId("_axNd09p-Ed-ak6NoX_4Aeg_-94998710")]
@@ -75,7 +75,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate relating to the underlying security for which tax is deferred.
-    /// Encoded/decoded by serializers as "TXDF".
+    /// Encoded/decoded by serializers as &quot;TXDF&quot;.
     /// </summary>
     [EnumMember(Value = "TXDF")]
     [IsoId("_axNd1Np-Ed-ak6NoX_4Aeg_-94998679")]
@@ -84,7 +84,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate relating to the underlying security which is not taxable.
-    /// Encoded/decoded by serializers as "TXFR".
+    /// Encoded/decoded by serializers as &quot;TXFR&quot;.
     /// </summary>
     [EnumMember(Value = "TXFR")]
     [IsoId("_axNd1dp-Ed-ak6NoX_4Aeg_-94998648")]
@@ -93,7 +93,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate resulting from an unfranked dividend paid by a company; the rate does not include tax credit and is subject to withholding tax.
-    /// Encoded/decoded by serializers as "UNFR".
+    /// Encoded/decoded by serializers as &quot;UNFR&quot;.
     /// </summary>
     [EnumMember(Value = "UNFR")]
     [IsoId("_axNd1tp-Ed-ak6NoX_4Aeg_-94998618")]
@@ -102,7 +102,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Long term capital gain.
-    /// Encoded/decoded by serializers as "LTCG".
+    /// Encoded/decoded by serializers as &quot;LTCG&quot;.
     /// </summary>
     [EnumMember(Value = "LTCG")]
     [IsoId("_axNd19p-Ed-ak6NoX_4Aeg_-94998587")]
@@ -111,7 +111,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Short term capital gain.
-    /// Encoded/decoded by serializers as "STCG".
+    /// Encoded/decoded by serializers as &quot;STCG&quot;.
     /// </summary>
     [EnumMember(Value = "STCG")]
     [IsoId("_axNd2Np-Ed-ak6NoX_4Aeg_-94998556")]
@@ -120,7 +120,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Distribution rate relating to the full period units, for example Group I units in UK.
-    /// Encoded/decoded by serializers as "FUPU".
+    /// Encoded/decoded by serializers as &quot;FUPU&quot;.
     /// </summary>
     [EnumMember(Value = "FUPU")]
     [IsoId("_KiETEDrSEeKNP9OxU1sgfw_-487019510")]
@@ -129,7 +129,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Distribution rate relating to the part way period units, for example Group II units in UK.
-    /// Encoded/decoded by serializers as "PAPU".
+    /// Encoded/decoded by serializers as &quot;PAPU&quot;.
     /// </summary>
     [EnumMember(Value = "PAPU")]
     [IsoId("_KiETETrSEeKNP9OxU1sgfw_-2094234412")]
@@ -138,7 +138,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate of income distribution originated by real estate investment.
-    /// Encoded/decoded by serializers as "REES".
+    /// Encoded/decoded by serializers as &quot;REES&quot;.
     /// </summary>
     [EnumMember(Value = "REES")]
     [IsoId("_KiNdADrSEeKNP9OxU1sgfw_1791653802")]
@@ -147,7 +147,7 @@ public enum DividendRateTypeCode
     
     /// <summary>
     /// Rate relating to a conduit foreign income type.
-    /// Encoded/decoded by serializers as "CDFI".
+    /// Encoded/decoded by serializers as &quot;CDFI&quot;.
     /// </summary>
     [EnumMember(Value = "CDFI")]
     [IsoId("_Z1eUQJb7Eee8S7xwGG7Veg")]

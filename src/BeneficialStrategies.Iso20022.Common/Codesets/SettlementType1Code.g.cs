@@ -21,7 +21,7 @@ public enum SettlementType1Code
 {
     /// <summary>
     /// Option trade is settled as principal.
-    /// Encoded/decoded by serializers as "PRIN".
+    /// Encoded/decoded by serializers as &quot;PRIN&quot;.
     /// </summary>
     [EnumMember(Value = "PRIN")]
     [IsoId("_ZOH6eNp-Ed-ak6NoX_4Aeg_506485993")]
@@ -30,7 +30,7 @@ public enum SettlementType1Code
     
     /// <summary>
     /// Option trade is netted off against another trade.
-    /// Encoded/decoded by serializers as "NETO".
+    /// Encoded/decoded by serializers as &quot;NETO&quot;.
     /// </summary>
     [EnumMember(Value = "NETO")]
     [IsoId("_ZOREYNp-Ed-ak6NoX_4Aeg_506486010")]

@@ -22,7 +22,7 @@ public enum ExternalClearingSystemIdentificationCode
 {
     /// <summary>
     /// Bank Branch code used in Austria
-    /// Encoded/decoded by serializers as "ATBLZ".
+    /// Encoded/decoded by serializers as &quot;ATBLZ&quot;.
     /// </summary>
     [EnumMember(Value = "ATBLZ")]
     [IsoId("_tlQnw_RYEeuLhpyIdtJzwg")]
@@ -31,7 +31,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Australia
-    /// Encoded/decoded by serializers as "AUBSB".
+    /// Encoded/decoded by serializers as &quot;AUBSB&quot;.
     /// </summary>
     [EnumMember(Value = "AUBSB")]
     [IsoId("_tlQnxvRYEeuLhpyIdtJzwg")]
@@ -40,7 +40,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Canada
-    /// Encoded/decoded by serializers as "CACPA".
+    /// Encoded/decoded by serializers as &quot;CACPA&quot;.
     /// </summary>
     [EnumMember(Value = "CACPA")]
     [IsoId("_tlQnyfRYEeuLhpyIdtJzwg")]
@@ -49,7 +49,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Financial Institution Identification (IID) used in Switzerland, without check digit
-    /// Encoded/decoded by serializers as "CHBCC".
+    /// Encoded/decoded by serializers as &quot;CHBCC&quot;.
     /// </summary>
     [EnumMember(Value = "CHBCC")]
     [IsoId("_tlQnzPRYEeuLhpyIdtJzwg")]
@@ -58,7 +58,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Financial Institution Identification (IID) used in Switzerland, including check digit
-    /// Encoded/decoded by serializers as "CHSIC".
+    /// Encoded/decoded by serializers as &quot;CHSIC&quot;.
     /// </summary>
     [EnumMember(Value = "CHSIC")]
     [IsoId("_tlQnz_RYEeuLhpyIdtJzwg")]
@@ -67,7 +67,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in China
-    /// Encoded/decoded by serializers as "CNAPS".
+    /// Encoded/decoded by serializers as &quot;CNAPS&quot;.
     /// </summary>
     [EnumMember(Value = "CNAPS")]
     [IsoId("_tlaYwPRYEeuLhpyIdtJzwg")]
@@ -76,7 +76,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Germany
-    /// Encoded/decoded by serializers as "DEBLZ".
+    /// Encoded/decoded by serializers as &quot;DEBLZ&quot;.
     /// </summary>
     [EnumMember(Value = "DEBLZ")]
     [IsoId("_tlaYw_RYEeuLhpyIdtJzwg")]
@@ -85,7 +85,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Spain
-    /// Encoded/decoded by serializers as "ESNCC".
+    /// Encoded/decoded by serializers as &quot;ESNCC&quot;.
     /// </summary>
     [EnumMember(Value = "ESNCC")]
     [IsoId("_tlaYxvRYEeuLhpyIdtJzwg")]
@@ -94,7 +94,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in the UK
-    /// Encoded/decoded by serializers as "GBDSC".
+    /// Encoded/decoded by serializers as &quot;GBDSC&quot;.
     /// </summary>
     [EnumMember(Value = "GBDSC")]
     [IsoId("_tlaYyfRYEeuLhpyIdtJzwg")]
@@ -103,7 +103,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Greece
-    /// Encoded/decoded by serializers as "GRBIC".
+    /// Encoded/decoded by serializers as &quot;GRBIC&quot;.
     /// </summary>
     [EnumMember(Value = "GRBIC")]
     [IsoId("_tlkJwPRYEeuLhpyIdtJzwg")]
@@ -112,7 +112,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Hong Kong
-    /// Encoded/decoded by serializers as "HKNCC".
+    /// Encoded/decoded by serializers as &quot;HKNCC&quot;.
     /// </summary>
     [EnumMember(Value = "HKNCC")]
     [IsoId("_tlkJw_RYEeuLhpyIdtJzwg")]
@@ -121,7 +121,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Ireland
-    /// Encoded/decoded by serializers as "IENCC".
+    /// Encoded/decoded by serializers as &quot;IENCC&quot;.
     /// </summary>
     [EnumMember(Value = "IENCC")]
     [IsoId("_tlkJxvRYEeuLhpyIdtJzwg")]
@@ -130,7 +130,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in India
-    /// Encoded/decoded by serializers as "INFSC".
+    /// Encoded/decoded by serializers as &quot;INFSC&quot;.
     /// </summary>
     [EnumMember(Value = "INFSC")]
     [IsoId("_tlkJyfRYEeuLhpyIdtJzwg")]
@@ -139,7 +139,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Italy
-    /// Encoded/decoded by serializers as "ITNCC".
+    /// Encoded/decoded by serializers as &quot;ITNCC&quot;.
     /// </summary>
     [EnumMember(Value = "ITNCC")]
     [IsoId("_tlkJzPRYEeuLhpyIdtJzwg")]
@@ -148,7 +148,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Japan
-    /// Encoded/decoded by serializers as "JPZGN".
+    /// Encoded/decoded by serializers as &quot;JPZGN&quot;.
     /// </summary>
     [EnumMember(Value = "JPZGN")]
     [IsoId("_tltTsPRYEeuLhpyIdtJzwg")]
@@ -157,7 +157,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in New Zealand
-    /// Encoded/decoded by serializers as "NZNCC".
+    /// Encoded/decoded by serializers as &quot;NZNCC&quot;.
     /// </summary>
     [EnumMember(Value = "NZNCC")]
     [IsoId("_tltTs_RYEeuLhpyIdtJzwg")]
@@ -166,7 +166,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Poland
-    /// Encoded/decoded by serializers as "PLKNR".
+    /// Encoded/decoded by serializers as &quot;PLKNR&quot;.
     /// </summary>
     [EnumMember(Value = "PLKNR")]
     [IsoId("_tltTtvRYEeuLhpyIdtJzwg")]
@@ -175,7 +175,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Portugal
-    /// Encoded/decoded by serializers as "PTNCC".
+    /// Encoded/decoded by serializers as &quot;PTNCC&quot;.
     /// </summary>
     [EnumMember(Value = "PTNCC")]
     [IsoId("_tltTufRYEeuLhpyIdtJzwg")]
@@ -184,7 +184,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Russia
-    /// Encoded/decoded by serializers as "RUCBC".
+    /// Encoded/decoded by serializers as &quot;RUCBC&quot;.
     /// </summary>
     [EnumMember(Value = "RUCBC")]
     [IsoId("_tltTvPRYEeuLhpyIdtJzwg")]
@@ -193,7 +193,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Sweden
-    /// Encoded/decoded by serializers as "SESBA".
+    /// Encoded/decoded by serializers as &quot;SESBA&quot;.
     /// </summary>
     [EnumMember(Value = "SESBA")]
     [IsoId("_tl3EsPRYEeuLhpyIdtJzwg")]
@@ -202,7 +202,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Singapore
-    /// Encoded/decoded by serializers as "SGIBG".
+    /// Encoded/decoded by serializers as &quot;SGIBG&quot;.
     /// </summary>
     [EnumMember(Value = "SGIBG")]
     [IsoId("_tl3Es_RYEeuLhpyIdtJzwg")]
@@ -211,7 +211,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Identification code used in Thailand
-    /// Encoded/decoded by serializers as "THCBC".
+    /// Encoded/decoded by serializers as &quot;THCBC&quot;.
     /// </summary>
     [EnumMember(Value = "THCBC")]
     [IsoId("_tl3EtvRYEeuLhpyIdtJzwg")]
@@ -220,7 +220,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in Taiwan
-    /// Encoded/decoded by serializers as "TWNCC".
+    /// Encoded/decoded by serializers as &quot;TWNCC&quot;.
     /// </summary>
     [EnumMember(Value = "TWNCC")]
     [IsoId("_tl3EufRYEeuLhpyIdtJzwg")]
@@ -229,7 +229,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Routing Transit number assigned by the ABA for US financial institutons
-    /// Encoded/decoded by serializers as "USABA".
+    /// Encoded/decoded by serializers as &quot;USABA&quot;.
     /// </summary>
     [EnumMember(Value = "USABA")]
     [IsoId("_tl3EvPRYEeuLhpyIdtJzwg")]
@@ -238,7 +238,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank identifier used by CHIPs in the US
-    /// Encoded/decoded by serializers as "USPID".
+    /// Encoded/decoded by serializers as &quot;USPID&quot;.
     /// </summary>
     [EnumMember(Value = "USPID")]
     [IsoId("_tmA1sPRYEeuLhpyIdtJzwg")]
@@ -247,7 +247,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Bank Branch code used in South Africa
-    /// Encoded/decoded by serializers as "ZANCC".
+    /// Encoded/decoded by serializers as &quot;ZANCC&quot;.
     /// </summary>
     [EnumMember(Value = "ZANCC")]
     [IsoId("_tmA1s_RYEeuLhpyIdtJzwg")]
@@ -256,7 +256,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// RTGS settlement account used in New Zealand.
-    /// Encoded/decoded by serializers as "NZRSA".
+    /// Encoded/decoded by serializers as &quot;NZRSA&quot;.
     /// </summary>
     [EnumMember(Value = "NZRSA")]
     [IsoId("_Mv3JMATZEey95qpfbNuEwg")]
@@ -265,7 +265,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Banco de Mocambique RTGS system.
-    /// Encoded/decoded by serializers as "MZBMO".
+    /// Encoded/decoded by serializers as &quot;MZBMO&quot;.
     /// </summary>
     [EnumMember(Value = "MZBMO")]
     [IsoId("_v84qEGvcEe2F6NrIyOmXcA")]
@@ -274,7 +274,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Chinese Cross-border Interbank Payment System (CIPS) Identifier.
-    /// Encoded/decoded by serializers as "CNCIP".
+    /// Encoded/decoded by serializers as &quot;CNCIP&quot;.
     /// </summary>
     [EnumMember(Value = "CNCIP")]
     [IsoId("_LNkXkGveEe2F6NrIyOmXcA")]
@@ -283,7 +283,7 @@ public enum ExternalClearingSystemIdentificationCode
     
     /// <summary>
     /// Participant Institution code used by BOK-Wire+ in South Korea.
-    /// Encoded/decoded by serializers as "KRBOK".
+    /// Encoded/decoded by serializers as &quot;KRBOK&quot;.
     /// </summary>
     [EnumMember(Value = "KRBOK")]
     [IsoId("_BwCmYP7MEe2ORYPQEd-Clg")]

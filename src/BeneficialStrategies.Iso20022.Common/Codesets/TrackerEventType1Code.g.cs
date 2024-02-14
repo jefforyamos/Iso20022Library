@@ -21,7 +21,7 @@ public enum TrackerEventType1Code
 {
     /// <summary>
     /// Indicates a cover payment.
-    /// Encoded/decoded by serializers as "COPT".
+    /// Encoded/decoded by serializers as &quot;COPT&quot;.
     /// </summary>
     [EnumMember(Value = "COPT")]
     [IsoId("_itKQkYaTEeiMm4lwapNmDA")]
@@ -30,7 +30,7 @@ public enum TrackerEventType1Code
     
     /// <summary>
     /// Indicates a customer credit transfer payment.
-    /// Encoded/decoded by serializers as "CTPT".
+    /// Encoded/decoded by serializers as &quot;CTPT&quot;.
     /// </summary>
     [EnumMember(Value = "CTPT")]
     [IsoId("_i4nSoYaTEeiMm4lwapNmDA")]
@@ -39,7 +39,7 @@ public enum TrackerEventType1Code
     
     /// <summary>
     /// Indicates a cancellation request related to a credit transfer payment.
-    /// Encoded/decoded by serializers as "CTCA".
+    /// Encoded/decoded by serializers as &quot;CTCA&quot;.
     /// </summary>
     [EnumMember(Value = "CTCA")]
     [IsoId("_jAWSUYaTEeiMm4lwapNmDA")]
@@ -48,7 +48,7 @@ public enum TrackerEventType1Code
     
     /// <summary>
     /// Indicates the tracking status of a cancellation request related to a credit transfer payment.
-    /// Encoded/decoded by serializers as "CTTS".
+    /// Encoded/decoded by serializers as &quot;CTTS&quot;.
     /// </summary>
     [EnumMember(Value = "CTTS")]
     [IsoId("_jIh98YaTEeiMm4lwapNmDA")]
@@ -57,7 +57,7 @@ public enum TrackerEventType1Code
     
     /// <summary>
     /// Indicates a cancellation response related to a credit transfer payment.
-    /// Encoded/decoded by serializers as "CTCR".
+    /// Encoded/decoded by serializers as &quot;CTCR&quot;.
     /// </summary>
     [EnumMember(Value = "CTCR")]
     [IsoId("_jPrHwYaTEeiMm4lwapNmDA")]
@@ -66,7 +66,7 @@ public enum TrackerEventType1Code
     
     /// <summary>
     /// Indicates a cover payment status update.
-    /// Encoded/decoded by serializers as "COSU".
+    /// Encoded/decoded by serializers as &quot;COSU&quot;.
     /// </summary>
     [EnumMember(Value = "COSU")]
     [IsoId("_jWN0oYaTEeiMm4lwapNmDA")]
@@ -75,7 +75,7 @@ public enum TrackerEventType1Code
     
     /// <summary>
     /// Indicates a customer credit transfer payment status update.
-    /// Encoded/decoded by serializers as "CTSU".
+    /// Encoded/decoded by serializers as &quot;CTSU&quot;.
     /// </summary>
     [EnumMember(Value = "CTSU")]
     [IsoId("_jdzqYYaTEeiMm4lwapNmDA")]

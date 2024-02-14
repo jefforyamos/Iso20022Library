@@ -34,9 +34,7 @@ namespace BeneficialStrategies.Iso20022.reda;
 /// </summary>
 [Description(@"Scope|The PriceReportCorrection message is sent by a report provider, eg, a fund accountant, transfer agent, market data provider, or any other interested party, to a report user, eg, a fund management company, a transfer agent, market data provider, regulator or any other interested party.|The message is used to correct at least one of the prices, of a financial instrument, that was quoted in a previously sent PriceReport message.|Usage|The PriceReportCorrection message is used to correct information in a PriceReport message that was previously sent by the fund accountant. If an entire PriceReport message must be corrected, eg, due to an incorrect trade date, it is recommended that a PriceReportCancellation message is used to cancel the entire PriceReport message and a new PriceReport message is sent.")]
 [IsoId("_Zs3dytEvEd-BzquC8wXy7w_-233980086")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Price Report Correction V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -80,12 +78,11 @@ public partial record PriceReportCorrectionV02 : IOuterRecord<PriceReportCorrect
     /// Collective reference identifying a set of messages.
     /// </summary>
     [IsoId("_Zs3dy9EvEd-BzquC8wXy7w_-1170807267")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Pool Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PoolRef")]
     #endif
+    [IsoXmlTag("PoolRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalReference3? PoolReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,16 +95,15 @@ public partial record PriceReportCorrectionV02 : IOuterRecord<PriceReportCorrect
     /// Reference to a linked message that was previously sent.
     /// </summary>
     [IsoId("_Zs3dzNEvEd-BzquC8wXy7w_-1180041935")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Previous Reference")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrvsRef")]
     #endif
+    [IsoXmlTag("PrvsRef")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AdditionalReference3 PreviousReference { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AdditionalReference3 PreviousReference { get; init; } 
+    public required AdditionalReference3 PreviousReference { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AdditionalReference3 PreviousReference { get; init; } 
     #else
@@ -118,16 +114,15 @@ public partial record PriceReportCorrectionV02 : IOuterRecord<PriceReportCorrect
     /// Information related to the correction of a price of a financial instrument.
     /// </summary>
     [IsoId("_Zs3dzdEvEd-BzquC8wXy7w_292430358")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Price Correction Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PricCrrctnDtls")]
     #endif
+    [IsoXmlTag("PricCrrctnDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceCorrection2 PriceCorrectionDetails { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PriceCorrection2 PriceCorrectionDetails { get; init; } 
+    public required PriceCorrection2 PriceCorrectionDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PriceCorrection2 PriceCorrectionDetails { get; init; } 
     #else
@@ -138,7 +133,7 @@ public partial record PriceReportCorrectionV02 : IOuterRecord<PriceReportCorrect
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="PriceReportCorrectionV02Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;PriceReportCorrectionV02Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public PriceReportCorrectionV02Document ToDocument()
     {
@@ -148,7 +143,7 @@ public partial record PriceReportCorrectionV02 : IOuterRecord<PriceReportCorrect
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="PriceReportCorrectionV02"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;PriceReportCorrectionV02&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record PriceReportCorrectionV02Document : IOuterDocument<PriceReportCorrectionV02>
@@ -165,7 +160,7 @@ public partial record PriceReportCorrectionV02Document : IOuterDocument<PriceRep
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="PriceReportCorrectionV02"/> is required.
+    /// The instance of &lt;seealso cref=&quot;PriceReportCorrectionV02&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PriceReportCorrectionV02 Message { get; init; }

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionPrice2Choice.DealPrice))]
     [KnownType(typeof(TransactionPrice2Choice.Proprietary))]
     [IsoId("_Rp1Cl9p-Ed-ak6NoX_4Aeg_997208296")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Price 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

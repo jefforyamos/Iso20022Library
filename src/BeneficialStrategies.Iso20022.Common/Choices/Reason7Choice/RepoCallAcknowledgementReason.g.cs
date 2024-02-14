@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason7Choice
     /// Specifies additional information on the repurchase agreement call request acknowledgement.
     /// </summary>
     [IsoId("_E2DtQf4hEeCH9dkaY_DhYw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Repo Call Acknowledgement Reason")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

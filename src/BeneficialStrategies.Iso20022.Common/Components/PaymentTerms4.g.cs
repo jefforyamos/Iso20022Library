@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
 [IsoId("_icipEdP6EeK0PPbKncCqzA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Payment Terms")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,16 +50,15 @@ public partial record PaymentTerms4
     /// Specifies the payment terms using a code or other means.
     /// </summary>
     [IsoId("_cXvtsNP9EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Payment Terms")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PmtTerms")]
     #endif
+    [IsoXmlTag("PmtTerms")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required PaymentCodeOrOther1Choice_ PaymentTerms { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public PaymentCodeOrOther1Choice_ PaymentTerms { get; init; } 
+    public required PaymentCodeOrOther1Choice_ PaymentTerms { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public PaymentCodeOrOther1Choice_ PaymentTerms { get; init; } 
     #else
@@ -72,16 +69,15 @@ public partial record PaymentTerms4
     /// Specifies if it is a fixed amount or a percentage.
     /// </summary>
     [IsoId("_YNessNP9EeK0PPbKncCqzA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Amount Or Percentage")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AmtOrPctg")]
     #endif
+    [IsoXmlTag("AmtOrPctg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
+    public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     #else

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
 /// </summary>
 [IsoId("_x9xzwVyGEe24CqbZJK5XxA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Rejection Statistics")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record RejectionStatistics8
     /// Data specific to counterparties and related fields.
     /// </summary>
     [IsoId("_x-ovYVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counterparty Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CtrPtyId")]
     #endif
+    [IsoXmlTag("CtrPtyId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CounterpartyData92 CounterpartyIdentification { get; init; } 
+    public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CounterpartyData92 CounterpartyIdentification { get; init; } 
     #else
@@ -73,16 +70,15 @@ public partial record RejectionStatistics8
     /// Information about accepted and rejected reports and the reasons of rejection.
     /// </summary>
     [IsoId("_x-ovY1yGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Report Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptSttstcs")]
     #endif
+    [IsoXmlTag("RptSttstcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DetailedReportStatistics6 ReportStatistics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DetailedReportStatistics6 ReportStatistics { get; init; } 
+    public required DetailedReportStatistics6 ReportStatistics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DetailedReportStatistics6 ReportStatistics { get; init; } 
     #else
@@ -93,16 +89,15 @@ public partial record RejectionStatistics8
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass data validations.
     /// </summary>
     [IsoId("_x-ovZVyGEe24CqbZJK5XxA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Derivative Statistics")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DerivSttstcs")]
     #endif
+    [IsoXmlTag("DerivSttstcs")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required DetailedTransactionStatistics6Choice_ DerivativeStatistics { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public DetailedTransactionStatistics6Choice_ DerivativeStatistics { get; init; } 
+    public required DetailedTransactionStatistics6Choice_ DerivativeStatistics { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public DetailedTransactionStatistics6Choice_ DerivativeStatistics { get; init; } 
     #else

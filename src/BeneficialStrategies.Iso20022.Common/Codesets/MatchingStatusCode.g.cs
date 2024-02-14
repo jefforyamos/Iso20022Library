@@ -21,7 +21,7 @@ public enum MatchingStatusCode
 {
     /// <summary>
     /// Instruction has been matched.
-    /// Encoded/decoded by serializers as "MACH".
+    /// Encoded/decoded by serializers as &quot;MACH&quot;.
     /// </summary>
     [EnumMember(Value = "MACH")]
     [IsoId("_aVDGR9p-Ed-ak6NoX_4Aeg_162716174")]
@@ -30,7 +30,7 @@ public enum MatchingStatusCode
     
     /// <summary>
     /// Instruction has not been matched.
-    /// Encoded/decoded by serializers as "NMAT".
+    /// Encoded/decoded by serializers as &quot;NMAT&quot;.
     /// </summary>
     [EnumMember(Value = "NMAT")]
     [IsoId("_aVDGSNp-Ed-ak6NoX_4Aeg_162716175")]
@@ -39,7 +39,7 @@ public enum MatchingStatusCode
     
     /// <summary>
     /// Instruction has been alleged matched.
-    /// Encoded/decoded by serializers as "ALGE".
+    /// Encoded/decoded by serializers as &quot;ALGE&quot;.
     /// </summary>
     [EnumMember(Value = "ALGE")]
     [IsoId("_LpX2YdUbEeOpzo6bWCQeYA")]
@@ -48,7 +48,7 @@ public enum MatchingStatusCode
     
     /// <summary>
     /// Instruction has been mis-matched.
-    /// Encoded/decoded by serializers as "MMAT".
+    /// Encoded/decoded by serializers as &quot;MMAT&quot;.
     /// </summary>
     [EnumMember(Value = "MMAT")]
     [IsoId("_OSFlEdUbEeOpzo6bWCQeYA")]

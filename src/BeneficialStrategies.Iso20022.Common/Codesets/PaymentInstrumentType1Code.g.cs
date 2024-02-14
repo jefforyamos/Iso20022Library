@@ -21,7 +21,7 @@ public enum PaymentInstrumentType1Code
 {
     /// <summary>
     /// Payment card (credit or debit).
-    /// Encoded/decoded by serializers as "CARD".
+    /// Encoded/decoded by serializers as &quot;CARD&quot;.
     /// </summary>
     [EnumMember(Value = "CARD")]
     [IsoId("_jjj6MdxgEeioifFt1dhnJA")]
@@ -30,7 +30,7 @@ public enum PaymentInstrumentType1Code
     
     /// <summary>
     /// Cash managed by a cash handling system.
-    /// Encoded/decoded by serializers as "CASH".
+    /// Encoded/decoded by serializers as &quot;CASH&quot;.
     /// </summary>
     [EnumMember(Value = "CASH")]
     [IsoId("_jmi8wdxgEeioifFt1dhnJA")]
@@ -39,7 +39,7 @@ public enum PaymentInstrumentType1Code
     
     /// <summary>
     /// Paper check.
-    /// Encoded/decoded by serializers as "CHCK".
+    /// Encoded/decoded by serializers as &quot;CHCK&quot;.
     /// </summary>
     [EnumMember(Value = "CHCK")]
     [IsoId("_jp2IYdxgEeioifFt1dhnJA")]
@@ -48,7 +48,7 @@ public enum PaymentInstrumentType1Code
     
     /// <summary>
     /// Account using loyalty processing.
-    /// Encoded/decoded by serializers as "LOYT".
+    /// Encoded/decoded by serializers as &quot;LOYT&quot;.
     /// </summary>
     [EnumMember(Value = "LOYT")]
     [IsoId("_jt13kdxgEeioifFt1dhnJA")]
@@ -57,7 +57,7 @@ public enum PaymentInstrumentType1Code
     
     /// <summary>
     /// Account accessed by a stored value instrument such as a card or a certificate.
-    /// Encoded/decoded by serializers as "SVAC".
+    /// Encoded/decoded by serializers as &quot;SVAC&quot;.
     /// </summary>
     [EnumMember(Value = "SVAC")]
     [IsoId("_jxDjodxgEeioifFt1dhnJA")]

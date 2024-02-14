@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice
     /// Code list for freight type of commodities.
     /// </summary>
     [IsoId("_BzEmOSYyEeWHeosc_5RQEw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Freight")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,12 +55,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice
         /// Code list for freight related derivative contracts.
         /// </summary>
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Frght")]
         #endif
+        [IsoXmlTag("Frght")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required AssetClassSubProductFreight1Code Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public AssetClassSubProductFreight1Code Value { get; init; } 
+        public required AssetClassSubProductFreight1Code Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public AssetClassSubProductFreight1Code Value { get; init; } 
         #else

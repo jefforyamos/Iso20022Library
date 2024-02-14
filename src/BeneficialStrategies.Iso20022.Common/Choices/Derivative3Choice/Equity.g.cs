@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice
     /// Details specific for Equity derivatives.
     /// </summary>
     [IsoId("_xH-zZye0Eei12pGEsJIAeQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Equity")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -56,16 +54,15 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice
         /// Underlying type of the equity derivative.
         /// </summary>
         [IsoId("_PeXW0WlNEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Underlying Type")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="UndrlygTp")]
         #endif
+        [IsoXmlTag("UndrlygTp")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required EquityDerivative3Choice_ UnderlyingType { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public EquityDerivative3Choice_ UnderlyingType { get; init; } 
+        public required EquityDerivative3Choice_ UnderlyingType { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public EquityDerivative3Choice_ UnderlyingType { get; init; } 
         #else
@@ -76,12 +73,11 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice
         /// Return parameter for the equity derivative.
         /// </summary>
         [IsoId("_PeXW02lNEeaLAKoEUNsD9g")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Parameter")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="Param")]
         #endif
+        [IsoXmlTag("Param")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public EquityReturnParameter1Code? Parameter { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

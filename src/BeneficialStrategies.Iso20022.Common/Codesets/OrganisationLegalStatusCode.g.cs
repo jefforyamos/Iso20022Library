@@ -21,7 +21,7 @@ public enum OrganisationLegalStatusCode
 {
     /// <summary>
     /// Unlimited trust
-    /// Encoded/decoded by serializers as "UNLT".
+    /// Encoded/decoded by serializers as &quot;UNLT&quot;.
     /// </summary>
     [EnumMember(Value = "UNLT")]
     [IsoId("_T3gXkBE4EeafpqhYGpTDnw")]
@@ -30,7 +30,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Unlimited company
-    /// Encoded/decoded by serializers as "UNLC".
+    /// Encoded/decoded by serializers as &quot;UNLC&quot;.
     /// </summary>
     [EnumMember(Value = "UNLC")]
     [IsoId("_WLVbYBE4EeafpqhYGpTDnw")]
@@ -39,7 +39,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Sole proprietorship/Sole trader
-    /// Encoded/decoded by serializers as "SOLE".
+    /// Encoded/decoded by serializers as &quot;SOLE&quot;.
     /// </summary>
     [EnumMember(Value = "SOLE")]
     [IsoId("_YLFFkBE4EeafpqhYGpTDnw")]
@@ -48,7 +48,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Public limited company (Plc.)
-    /// Encoded/decoded by serializers as "PCLC".
+    /// Encoded/decoded by serializers as &quot;PCLC&quot;.
     /// </summary>
     [EnumMember(Value = "PCLC")]
     [IsoId("_bjMQ4BE4EeafpqhYGpTDnw")]
@@ -57,7 +57,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Private company limited by shares (Ltd.)
-    /// Encoded/decoded by serializers as "PCLS".
+    /// Encoded/decoded by serializers as &quot;PCLS&quot;.
     /// </summary>
     [EnumMember(Value = "PCLS")]
     [IsoId("_eVINABE4EeafpqhYGpTDnw")]
@@ -66,7 +66,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Private company limited by guarantee (Ltd.)
-    /// Encoded/decoded by serializers as "PCLG".
+    /// Encoded/decoded by serializers as &quot;PCLG&quot;.
     /// </summary>
     [EnumMember(Value = "PCLG")]
     [IsoId("_gidAMBE4EeafpqhYGpTDnw")]
@@ -75,7 +75,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Limited partnership (LP)
-    /// Encoded/decoded by serializers as "LIMP".
+    /// Encoded/decoded by serializers as &quot;LIMP&quot;.
     /// </summary>
     [EnumMember(Value = "LIMP")]
     [IsoId("_jHB1wBE4EeafpqhYGpTDnw")]
@@ -84,7 +84,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Limited liability partnership (LLP)
-    /// Encoded/decoded by serializers as "LLPP".
+    /// Encoded/decoded by serializers as &quot;LLPP&quot;.
     /// </summary>
     [EnumMember(Value = "LLPP")]
     [IsoId("_lpZr4BE4EeafpqhYGpTDnw")]
@@ -93,7 +93,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// For example a co-operative, which does include Ltd. or charity.
-    /// Encoded/decoded by serializers as "IAPS".
+    /// Encoded/decoded by serializers as &quot;IAPS&quot;.
     /// </summary>
     [EnumMember(Value = "IAPS")]
     [IsoId("_uHxmYBE4EeafpqhYGpTDnw")]
@@ -102,7 +102,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// General partnership
-    /// Encoded/decoded by serializers as "GENP".
+    /// Encoded/decoded by serializers as &quot;GENP&quot;.
     /// </summary>
     [EnumMember(Value = "GENP")]
     [IsoId("_woAHcBE4EeafpqhYGpTDnw")]
@@ -111,7 +111,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Community Interest Company (CIC)
-    /// Encoded/decoded by serializers as "CICC".
+    /// Encoded/decoded by serializers as &quot;CICC&quot;.
     /// </summary>
     [EnumMember(Value = "CICC")]
     [IsoId("_yyykABE4EeafpqhYGpTDnw")]
@@ -120,7 +120,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Charity
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_4ZcqgBE4EeafpqhYGpTDnw")]
@@ -129,7 +129,7 @@ public enum OrganisationLegalStatusCode
     
     /// <summary>
     /// Charitable incorporated organisation (CIO)
-    /// Encoded/decoded by serializers as "CIOC".
+    /// Encoded/decoded by serializers as &quot;CIOC&quot;.
     /// </summary>
     [EnumMember(Value = "CIOC")]
     [IsoId("_6sK7EBE4EeafpqhYGpTDnw")]

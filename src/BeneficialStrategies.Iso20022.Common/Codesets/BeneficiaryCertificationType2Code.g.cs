@@ -21,7 +21,7 @@ public enum BeneficiaryCertificationType2Code
 {
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is an Accredited Investor as defined in US Securities and Exchange Commission Regulation D.
-    /// Encoded/decoded by serializers as "ACCI".
+    /// Encoded/decoded by serializers as &quot;ACCI&quot;.
     /// </summary>
     [EnumMember(Value = "ACCI")]
     [IsoId("_bd6y0dp-Ed-ak6NoX_4Aeg_-941139863")]
@@ -30,7 +30,7 @@ public enum BeneficiaryCertificationType2Code
     
     /// <summary>
     /// The holder of the security has to certify his domicile.
-    /// Encoded/decoded by serializers as "DOMI".
+    /// Encoded/decoded by serializers as &quot;DOMI&quot;.
     /// </summary>
     [EnumMember(Value = "DOMI")]
     [IsoId("_bd6y0tp-Ed-ak6NoX_4Aeg_-911589219")]
@@ -39,7 +39,7 @@ public enum BeneficiaryCertificationType2Code
     
     /// <summary>
     /// The holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
-    /// Encoded/decoded by serializers as "NDOM".
+    /// Encoded/decoded by serializers as &quot;NDOM&quot;.
     /// </summary>
     [EnumMember(Value = "NDOM")]
     [IsoId("_bd6y09p-Ed-ak6NoX_4Aeg_1124028988")]
@@ -48,7 +48,7 @@ public enum BeneficiaryCertificationType2Code
     
     /// <summary>
     /// The holder of the security has to provide his beneficial owner details for disclosure/instruction purpose.
-    /// Encoded/decoded by serializers as "FULL".
+    /// Encoded/decoded by serializers as &quot;FULL&quot;.
     /// </summary>
     [EnumMember(Value = "FULL")]
     [IsoId("_bd6y1Np-Ed-ak6NoX_4Aeg_-882036050")]
@@ -57,7 +57,7 @@ public enum BeneficiaryCertificationType2Code
     
     /// <summary>
     /// The holder of the security has to certify he is an Non-Company related person.
-    /// Encoded/decoded by serializers as "NCOM".
+    /// Encoded/decoded by serializers as &quot;NCOM&quot;.
     /// </summary>
     [EnumMember(Value = "NCOM")]
     [IsoId("_bd6y1dp-Ed-ak6NoX_4Aeg_-602210666")]
@@ -66,7 +66,7 @@ public enum BeneficiaryCertificationType2Code
     
     /// <summary>
     /// The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.
-    /// Encoded/decoded by serializers as "QIBB".
+    /// Encoded/decoded by serializers as &quot;QIBB&quot;.
     /// </summary>
     [EnumMember(Value = "QIBB")]
     [IsoId("_bd6y1tp-Ed-ak6NoX_4Aeg_-568963910")]
@@ -75,7 +75,7 @@ public enum BeneficiaryCertificationType2Code
     
     /// <summary>
     /// The holder of the security has to provide basic details on nominals and associated tax rate to be used by the account servicer.
-    /// Encoded/decoded by serializers as "TRBD".
+    /// Encoded/decoded by serializers as &quot;TRBD&quot;.
     /// </summary>
     [EnumMember(Value = "TRBD")]
     [IsoId("_bd6y19p-Ed-ak6NoX_4Aeg_-509857541")]
@@ -84,7 +84,7 @@ public enum BeneficiaryCertificationType2Code
     
     /// <summary>
     /// Indicates if the Beneficial Owner is responsible to fill in the paperwork.
-    /// Encoded/decoded by serializers as "PAPW".
+    /// Encoded/decoded by serializers as &quot;PAPW&quot;.
     /// </summary>
     [EnumMember(Value = "PAPW")]
     [IsoId("_bd6y2Np-Ed-ak6NoX_4Aeg_1696566755")]
@@ -92,8 +92,8 @@ public enum BeneficiaryCertificationType2Code
     BeneficialOwnerPaperwork = BeneficiaryCertificationTypeCode.BeneficialOwnerPaperwork, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// The (I)CSD has to provide its participants' details for disclosure purpose to the issuer/issuer’s agent.
-    /// Encoded/decoded by serializers as "PABD".
+    /// The (I)CSD has to provide its participants&apos; details for disclosure purpose to the issuer/issuer’s agent.
+    /// Encoded/decoded by serializers as &quot;PABD&quot;.
     /// </summary>
     [EnumMember(Value = "PABD")]
     [IsoId("_bd6y2dp-Ed-ak6NoX_4Aeg_1414201130")]
@@ -102,7 +102,7 @@ public enum BeneficiaryCertificationType2Code
     
     /// <summary>
     /// See narrative field for certification requirements.
-    /// Encoded/decoded by serializers as "NARR".
+    /// Encoded/decoded by serializers as &quot;NARR&quot;.
     /// </summary>
     [EnumMember(Value = "NARR")]
     [IsoId("_beD8wNp-Ed-ak6NoX_4Aeg_-1388770382")]

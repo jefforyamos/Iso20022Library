@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Context of the card transaction.
 /// </summary>
 [IsoId("_q3WpQHsHEeSR68OJvMfxJQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Card Transaction Context")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -52,12 +50,12 @@ public partial record CardTransactionContext2
     /// It correspond to the ISO 8583: 1993 field number 22-6.
     /// </summary>
     [IsoId("_1Z6pEHsHEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardPres")]
     #endif
+    [IsoXmlTag("CardPres")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -71,12 +69,12 @@ public partial record CardTransactionContext2
     /// It correspond to the ISO 8583: 1993 field number 22-5.
     /// </summary>
     [IsoId("_Cx2TgHsIEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Present")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrPres")]
     #endif
+    [IsoXmlTag("CrdhldrPres")]
+    [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -90,12 +88,11 @@ public partial record CardTransactionContext2
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
     [IsoId("_RHwCEHsIEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Location Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LctnCtgy")]
     #endif
+    [IsoXmlTag("LctnCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocationCategory2Code? LocationCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -109,12 +106,11 @@ public partial record CardTransactionContext2
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
     [IsoId("_Xy5EYHsIEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Attendance Context")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AttndncCntxt")]
     #endif
+    [IsoXmlTag("AttndncCntxt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -127,12 +123,11 @@ public partial record CardTransactionContext2
     /// Indicates the environment of the transaction.
     /// </summary>
     [IsoId("_jdKTIHsIEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Environment")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxEnvt")]
     #endif
+    [IsoXmlTag("TxEnvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionEnvironment2Code? TransactionEnvironment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -146,12 +141,11 @@ public partial record CardTransactionContext2
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
     [IsoId("_PNJhIHsJEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Hosting Category")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="HstgCtgy")]
     #endif
+    [IsoXmlTag("HstgCtgy")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionEnvironment3Code? HostingCategory { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -165,12 +159,11 @@ public partial record CardTransactionContext2
     /// It correspond to the ISO 8583: 1993 field number 22-5.
     /// </summary>
     [IsoId("_aAfu8HsJEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Channel")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxChanl")]
     #endif
+    [IsoXmlTag("TxChanl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public TransactionChannel3Code? TransactionChannel { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -184,16 +177,15 @@ public partial record CardTransactionContext2
     /// It correspond to the ISO 8583 field number 25 for the version 87 (partially), field number 22-7 for the version 93, and field number 22-1 for the version 2003.
     /// </summary>
     [IsoId("_fJ-KMHsJEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Data Entry Mode")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardDataNtryMd")]
     #endif
+    [IsoXmlTag("CardDataNtryMd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required CardDataReading2Code CardDataEntryMode { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public CardDataReading2Code CardDataEntryMode { get; init; } 
+    public required CardDataReading2Code CardDataEntryMode { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public CardDataReading2Code CardDataEntryMode { get; init; } 
     #else
@@ -204,12 +196,11 @@ public partial record CardTransactionContext2
     /// Indicator of a card entry mode fall-back. It correspond to the ISO 8583: 2003 field number 22-1.
     /// </summary>
     [IsoId("_k-fGgHsJEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fallback Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FllbckInd")]
     #endif
+    [IsoXmlTag("FllbckInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardFallback1Code? FallbackIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -222,12 +213,11 @@ public partial record CardTransactionContext2
     /// Payment options the card acceptor can support.
     /// </summary>
     [IsoId("_tOOvIHsJEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supported Option")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpprtdOptn")]
     #endif
+    [IsoXmlTag("SpprtdOptn")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupportedPaymentOption1Code? SupportedOption { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -240,12 +230,11 @@ public partial record CardTransactionContext2
     /// Data used to assign specific condition such as liability shift or preferential interchange fees.
     /// </summary>
     [IsoId("_-BLu8HsJEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Special Conditions")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SpclConds")]
     #endif
+    [IsoXmlTag("SpclConds")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardTransactionCondition1? SpecialConditions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -258,12 +247,11 @@ public partial record CardTransactionContext2
     /// Indicates to the issuer the level of risk of the transaction.
     /// </summary>
     [IsoId("_vLIrQHsKEeSR68OJvMfxJQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Risk Indicator")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RskInd")]
     #endif
+    [IsoXmlTag("RskInd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardTransactionRiskIndicator1? RiskIndicator { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

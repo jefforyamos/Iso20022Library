@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassDetailedSubProductType1Choice.Code))]
     [KnownType(typeof(AssetClassDetailedSubProductType1Choice.Proprietary))]
     [IsoId("_KDl0cI16Eeet3cKIYK84nw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Asset Class Detailed Sub Product Type 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

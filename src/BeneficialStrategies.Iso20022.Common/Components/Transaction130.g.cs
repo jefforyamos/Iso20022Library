@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Fraud reporting transaction.
 /// </summary>
 [IsoId("_S466AYv3EeumSPwlS1PkxQ")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Transaction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,19 +51,17 @@ public partial record Transaction130
     /// Identification of the  transaction reporting the fraud.
     /// </summary>
     [IsoId("_S-Ft4Yv3EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraud Transaction Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrdTxId")]
     #endif
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+    [IsoXmlTag("FrdTxId")]
+    [IsoSimpleType(IsoSimpleType.Max70Text)]
     [StringLength(maximumLength: 70 ,MinimumLength = 1)]
-    #endif
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoMax70Text FraudTransactionIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.String FraudTransactionIdentification { get; init; } 
+    public required System.String FraudTransactionIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.String FraudTransactionIdentification { get; init; } 
     #else
@@ -76,16 +72,15 @@ public partial record Transaction130
     /// Fraud reporting type information.
     /// </summary>
     [IsoId("_S-Ft44v3EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Reported Fraud")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="RptdFrd")]
     #endif
+    [IsoXmlTag("RptdFrd")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required ReportedFraud3 ReportedFraud { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public ReportedFraud3 ReportedFraud { get; init; } 
+    public required ReportedFraud3 ReportedFraud { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public ReportedFraud3 ReportedFraud { get; init; } 
     #else
@@ -96,16 +91,15 @@ public partial record Transaction130
     /// Data pertaining to fraudulent reported transaction.
     /// </summary>
     [IsoId("_S-Ft5Yv3EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fraudulent Transaction Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FrdlntTxData")]
     #endif
+    [IsoXmlTag("FrdlntTxData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FraudulentTransactionData2 FraudulentTransactionData { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public FraudulentTransactionData2 FraudulentTransactionData { get; init; } 
+    public required FraudulentTransactionData2 FraudulentTransactionData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public FraudulentTransactionData2 FraudulentTransactionData { get; init; } 
     #else
@@ -116,12 +110,11 @@ public partial record Transaction130
     /// Details of a not-received card.
     /// </summary>
     [IsoId("_S-Ft54v3EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Card Not Received Details")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CardNotRcvdDtls")]
     #endif
+    [IsoXmlTag("CardNotRcvdDtls")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardNotReceivedDetails2? CardNotReceivedDetails { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -134,12 +127,11 @@ public partial record Transaction130
     /// Cardholder name as it appears on the card.
     /// </summary>
     [IsoId("_S-Ft6Yv3EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Cardholder Name")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CrdhldrNm")]
     #endif
+    [IsoXmlTag("CrdhldrNm")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public CardholderName3? CardholderName { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -152,12 +144,11 @@ public partial record Transaction130
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
     [IsoId("_S-Ft64v3EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Fee")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlFee")]
     #endif
+    [IsoXmlTag("AddtlFee")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalFee2? AdditionalFee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -170,12 +161,11 @@ public partial record Transaction130
     /// Additional information relevant for the settlement report.
     /// </summary>
     [IsoId("_S-Ft7Yv3EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlInf")]
     #endif
+    [IsoXmlTag("AddtlInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalInformation22? AdditionalInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -188,12 +178,11 @@ public partial record Transaction130
     /// Contains additional data.
     /// </summary>
     [IsoId("_S-Ft74v3EeumSPwlS1PkxQ")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Additional Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AddtlData")]
     #endif
+    [IsoXmlTag("AddtlData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AdditionalData1? AdditionalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -206,12 +195,11 @@ public partial record Transaction130
     /// Contains text fields in the local language.
     /// </summary>
     [IsoId("_psRykMXKEeumGdYElfgmbw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Local Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="LclData")]
     #endif
+    [IsoXmlTag("LclData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public LocalData6? LocalData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

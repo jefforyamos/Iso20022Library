@@ -20,8 +20,8 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 public enum RejectionReason79Code
 {
     /// <summary>
-    /// Transaction/instruction received after the account servicer's specified deadline.
-    /// Encoded/decoded by serializers as "ADEA".
+    /// Transaction/instruction received after the account servicer&apos;s specified deadline.
+    /// Encoded/decoded by serializers as &quot;ADEA&quot;.
     /// </summary>
     [EnumMember(Value = "ADEA")]
     [IsoId("__tK04TQWEe2o-K1dwNg8Gg")]
@@ -30,7 +30,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Instruction is irrevocable.
-    /// Encoded/decoded by serializers as "INIR".
+    /// Encoded/decoded by serializers as &quot;INIR&quot;.
     /// </summary>
     [EnumMember(Value = "INIR")]
     [IsoId("__tK04zQWEe2o-K1dwNg8Gg")]
@@ -39,7 +39,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Linked reference is unknown.
-    /// Encoded/decoded by serializers as "ULNK".
+    /// Encoded/decoded by serializers as &quot;ULNK&quot;.
     /// </summary>
     [EnumMember(Value = "ULNK")]
     [IsoId("__tK05TQWEe2o-K1dwNg8Gg")]
@@ -48,7 +48,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Received after market deadline.
-    /// Encoded/decoded by serializers as "LATE".
+    /// Encoded/decoded by serializers as &quot;LATE&quot;.
     /// </summary>
     [EnumMember(Value = "LATE")]
     [IsoId("__tK05zQWEe2o-K1dwNg8Gg")]
@@ -57,7 +57,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Other. See Narrative.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("__tK06TQWEe2o-K1dwNg8Gg")]
@@ -66,7 +66,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Cancellation request was rejected since the instruction has already been cancelled.
-    /// Encoded/decoded by serializers as "DCAN".
+    /// Encoded/decoded by serializers as &quot;DCAN&quot;.
     /// </summary>
     [EnumMember(Value = "DCAN")]
     [IsoId("__tK06zQWEe2o-K1dwNg8Gg")]
@@ -75,7 +75,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Cancellation request has been rejected because the instruction process is in progress or has been processed.
-    /// Encoded/decoded by serializers as "DPRG".
+    /// Encoded/decoded by serializers as &quot;DPRG&quot;.
     /// </summary>
     [EnumMember(Value = "DPRG")]
     [IsoId("__tK07TQWEe2o-K1dwNg8Gg")]
@@ -84,7 +84,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Instruction rejected by the issuer agent.
-    /// Encoded/decoded by serializers as "REJA".
+    /// Encoded/decoded by serializers as &quot;REJA&quot;.
     /// </summary>
     [EnumMember(Value = "REJA")]
     [IsoId("__tK07zQWEe2o-K1dwNg8Gg")]
@@ -93,7 +93,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Contact information is missing.
-    /// Encoded/decoded by serializers as "CTCT".
+    /// Encoded/decoded by serializers as &quot;CTCT&quot;.
     /// </summary>
     [EnumMember(Value = "CTCT")]
     [IsoId("_Jk02gTQXEe2o-K1dwNg8Gg")]
@@ -102,7 +102,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Unrecognised or invalid financial instrument identification.
-    /// Encoded/decoded by serializers as "DSEC".
+    /// Encoded/decoded by serializers as &quot;DSEC&quot;.
     /// </summary>
     [EnumMember(Value = "DSEC")]
     [IsoId("_K1S_4jQXEe2o-K1dwNg8Gg")]
@@ -111,7 +111,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Unrecognised or invalid instructed quantity.
-    /// Encoded/decoded by serializers as "DQUA".
+    /// Encoded/decoded by serializers as &quot;DQUA&quot;.
     /// </summary>
     [EnumMember(Value = "DQUA")]
     [IsoId("_MmQAIjQXEe2o-K1dwNg8Gg")]
@@ -120,7 +120,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Protect date is required for cover protect instructions.
-    /// Encoded/decoded by serializers as "PROT".
+    /// Encoded/decoded by serializers as &quot;PROT&quot;.
     /// </summary>
     [EnumMember(Value = "PROT")]
     [IsoId("_OG894jQXEe2o-K1dwNg8Gg")]
@@ -128,8 +128,8 @@ public enum RejectionReason79Code
     MissingProtectDate = RejectionReasonV3Code.MissingProtectDate, // same ordinal as derivation source for type conversions
     
     /// <summary>
-    /// Unrecognised or invalid message sender's safekeeping account.
-    /// Encoded/decoded by serializers as "SAFE".
+    /// Unrecognised or invalid message sender&apos;s safekeeping account.
+    /// Encoded/decoded by serializers as &quot;SAFE&quot;.
     /// </summary>
     [EnumMember(Value = "SAFE")]
     [IsoId("_S6EHkTQXEe2o-K1dwNg8Gg")]
@@ -138,7 +138,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Protect identification is required for cover protect instructions.
-    /// Encoded/decoded by serializers as "PROI".
+    /// Encoded/decoded by serializers as &quot;PROI&quot;.
     /// </summary>
     [EnumMember(Value = "PROI")]
     [IsoId("_UX8a0jQXEe2o-K1dwNg8Gg")]
@@ -147,7 +147,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Transaction type is missing or invalid for protect or cover protect instructions.
-    /// Encoded/decoded by serializers as "TRTI".
+    /// Encoded/decoded by serializers as &quot;TRTI&quot;.
     /// </summary>
     [EnumMember(Value = "TRTI")]
     [IsoId("_V1YCIjQXEe2o-K1dwNg8Gg")]
@@ -156,7 +156,7 @@ public enum RejectionReason79Code
     
     /// <summary>
     /// Instruction is rejected due to duplicate business message identifier.
-    /// Encoded/decoded by serializers as "DUPL".
+    /// Encoded/decoded by serializers as &quot;DUPL&quot;.
     /// </summary>
     [EnumMember(Value = "DUPL")]
     [IsoId("_XcDFAjQXEe2o-K1dwNg8Gg")]

@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionType2Choice.Code))]
     [KnownType(typeof(SecuritiesTransactionType2Choice.Proprietary))]
     [IsoId("_QtevF9p-Ed-ak6NoX_4Aeg_-529584274")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Securities Transaction Type 2 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum Eligibility1Code
 {
     /// <summary>
     /// Eligible customers are the most sophisticated level of investor, able to opt out of some the protections afforded by conduct of business rules.
-    /// Encoded/decoded by serializers as "ELIG".
+    /// Encoded/decoded by serializers as &quot;ELIG&quot;.
     /// </summary>
     [EnumMember(Value = "ELIG")]
     [IsoId("_ahHzZdp-Ed-ak6NoX_4Aeg_-1307879388")]
@@ -30,7 +30,7 @@ public enum Eligibility1Code
     
     /// <summary>
     /// Retail customers are the least sophisticated level of investor.
-    /// Encoded/decoded by serializers as "RETL".
+    /// Encoded/decoded by serializers as &quot;RETL&quot;.
     /// </summary>
     [EnumMember(Value = "RETL")]
     [IsoId("_ahHzZtp-Ed-ak6NoX_4Aeg_-1307879371")]
@@ -39,7 +39,7 @@ public enum Eligibility1Code
     
     /// <summary>
     /// Professional customers are, for example, investment firms, credit institutions, insurance companies.
-    /// Encoded/decoded by serializers as "PROF".
+    /// Encoded/decoded by serializers as &quot;PROF&quot;.
     /// </summary>
     [EnumMember(Value = "PROF")]
     [IsoId("_ahHzZ9p-Ed-ak6NoX_4Aeg_-1307879327")]

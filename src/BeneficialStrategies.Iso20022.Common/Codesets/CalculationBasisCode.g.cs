@@ -21,7 +21,7 @@ public enum CalculationBasisCode
 {
     /// <summary>
     /// Average basis.
-    /// Encoded/decoded by serializers as "AVER".
+    /// Encoded/decoded by serializers as &quot;AVER&quot;.
     /// </summary>
     [EnumMember(Value = "AVER")]
     [IsoId("_bVa-Idp-Ed-ak6NoX_4Aeg_-1432837646")]
@@ -30,7 +30,7 @@ public enum CalculationBasisCode
     
     /// <summary>
     /// Daily basis.
-    /// Encoded/decoded by serializers as "DAIL".
+    /// Encoded/decoded by serializers as &quot;DAIL&quot;.
     /// </summary>
     [EnumMember(Value = "DAIL")]
     [IsoId("_bVa-Itp-Ed-ak6NoX_4Aeg_-1432837628")]
@@ -39,7 +39,7 @@ public enum CalculationBasisCode
     
     /// <summary>
     /// Another type of calculation basis.
-    /// Encoded/decoded by serializers as "OTHR".
+    /// Encoded/decoded by serializers as &quot;OTHR&quot;.
     /// </summary>
     [EnumMember(Value = "OTHR")]
     [IsoId("_bVa-I9p-Ed-ak6NoX_4Aeg_-797941073")]
@@ -48,7 +48,7 @@ public enum CalculationBasisCode
     
     /// <summary>
     /// Monthly basis.
-    /// Encoded/decoded by serializers as "MNTH".
+    /// Encoded/decoded by serializers as &quot;MNTH&quot;.
     /// </summary>
     [EnumMember(Value = "MNTH")]
     [IsoId("_bVa-JNp-Ed-ak6NoX_4Aeg_-1394980831")]
@@ -57,7 +57,7 @@ public enum CalculationBasisCode
     
     /// <summary>
     /// Yearly basis.
-    /// Encoded/decoded by serializers as "YEAR".
+    /// Encoded/decoded by serializers as &quot;YEAR&quot;.
     /// </summary>
     [EnumMember(Value = "YEAR")]
     [IsoId("_bVa-Jdp-Ed-ak6NoX_4Aeg_-1394980754")]

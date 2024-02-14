@@ -21,7 +21,7 @@ public enum CustomerOrderRequestCode
 {
     /// <summary>
     /// Customer order not completed.
-    /// Encoded/decoded by serializers as "OPEN".
+    /// Encoded/decoded by serializers as &quot;OPEN&quot;.
     /// </summary>
     [EnumMember(Value = "OPEN")]
     [IsoId("_J3KiMN6JEeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum CustomerOrderRequestCode
     
     /// <summary>
     /// Completed customer orders.
-    /// Encoded/decoded by serializers as "CLSD".
+    /// Encoded/decoded by serializers as &quot;CLSD&quot;.
     /// </summary>
     [EnumMember(Value = "CLSD")]
     [IsoId("_J5EmsN6JEeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum CustomerOrderRequestCode
     
     /// <summary>
     /// All types of CustomerOrder should be listed, some are open others closed.
-    /// Encoded/decoded by serializers as "BOTH".
+    /// Encoded/decoded by serializers as &quot;BOTH&quot;.
     /// </summary>
     [EnumMember(Value = "BOTH")]
     [IsoId("_J-B_MN6JEeiwsev40qZGEQ")]

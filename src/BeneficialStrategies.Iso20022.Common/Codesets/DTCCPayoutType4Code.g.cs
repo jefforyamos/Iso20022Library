@@ -21,7 +21,7 @@ public enum DTCCPayoutType4Code
 {
     /// <summary>
     /// Payout consisting of securities.
-    /// Encoded/decoded by serializers as "SECU".
+    /// Encoded/decoded by serializers as &quot;SECU&quot;.
     /// </summary>
     [EnumMember(Value = "SECU")]
     [IsoId("_xKOmgaFcEeSK_vfd3NHBGg")]

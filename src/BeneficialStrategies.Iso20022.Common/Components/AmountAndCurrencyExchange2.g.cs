@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Set of elements providing information on the original amount and currency information.
 /// </summary>
 [IsoId("_SVf1xNp-Ed-ak6NoX_4Aeg_1205555994")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Amount And Currency Exchange")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record AmountAndCurrencyExchange2
     /// Identifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party and provides currency exchange info in case the instructed amount and/or currency is/are different from the entry amount and/or currency.
     /// </summary>
     [IsoId("_SVf1xdp-Ed-ak6NoX_4Aeg_1205556020")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Instructed Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="InstdAmt")]
     #endif
+    [IsoXmlTag("InstdAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndCurrencyExchangeDetails1? InstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record AmountAndCurrencyExchange2
     /// Amount of the underlying transaction.
     /// </summary>
     [IsoId("_SVf1xtp-Ed-ak6NoX_4Aeg_1205556469")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxAmt")]
     #endif
+    [IsoXmlTag("TxAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndCurrencyExchangeDetails1? TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record AmountAndCurrencyExchange2
     /// Identifies the countervalue amount and provides currency exchange information. Either the counter amount quoted in an FX deal, or the result of the currency information applied to an instructed amount, before deduction of charges.
     /// </summary>
     [IsoId("_SVf1x9p-Ed-ak6NoX_4Aeg_1205556132")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Counter Value Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="CntrValAmt")]
     #endif
+    [IsoXmlTag("CntrValAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndCurrencyExchangeDetails1? CounterValueAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record AmountAndCurrencyExchange2
     /// Information on the amount of money, based on terms of corporate action event and balance of underlying securities, entitled to/from the account owner.||Amount of money, based on terms of corporate action event and balance of underlying securities, entitled to/from the account owner.|In those situations, this amount may alternatively be called entitled amount.
     /// </summary>
     [IsoId("_SVf1yNp-Ed-ak6NoX_4Aeg_1205556080")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Announced Posting Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="AnncdPstngAmt")]
     #endif
+    [IsoXmlTag("AnncdPstngAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndCurrencyExchangeDetails1? AnnouncedPostingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -116,12 +110,11 @@ public partial record AmountAndCurrencyExchange2
     /// Provides proprietary amount information.
     /// </summary>
     [IsoId("_SVo_sNp-Ed-ak6NoX_4Aeg_1205556409")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Proprietary Amount")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrtryAmt")]
     #endif
+    [IsoXmlTag("PrtryAmt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public AmountAndCurrencyExchangeDetails2? ProprietaryAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Provides information on the baskets identification and the Eligibility Set Profile.
 /// </summary>
 [IsoId("_rh-hcLzTEeivTd4NUfCi2g")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Basket Identification And Eligibility Set Profile")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record BasketIdentificationAndEligibilitySetProfile1
     /// Number identifying the preferred collateral basket.
     /// </summary>
     [IsoId("_uukj0LzUEeivTd4NUfCi2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Preferential Basket Identification Number")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="PrfrntlBsktIdNb")]
     #endif
+    [IsoXmlTag("PrfrntlBsktIdNb")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? PreferentialBasketIdentificationNumber { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record BasketIdentificationAndEligibilitySetProfile1
     /// Number identifying the fallback starting collateral basket.
     /// </summary>
     [IsoId("_80k1MLzUEeivTd4NUfCi2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Fallback Starting Basket Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FllbckStartgBsktId")]
     #endif
+    [IsoXmlTag("FllbckStartgBsktId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? FallbackStartingBasketIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -80,12 +76,11 @@ public partial record BasketIdentificationAndEligibilitySetProfile1
     /// Number identifying the collateral basket to be excluded.
     /// </summary>
     [IsoId("_Nc55YLzVEeivTd4NUfCi2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Exclusion Basket Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ExclsnBsktId")]
     #endif
+    [IsoXmlTag("ExclsnBsktId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? ExclusionBasketIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -98,12 +93,11 @@ public partial record BasketIdentificationAndEligibilitySetProfile1
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
     [IsoId("_UNrpoLzVEeivTd4NUfCi2g")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Eligibility Set Profile")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="ElgbltySetPrfl")]
     #endif
+    [IsoXmlTag("ElgbltySetPrfl")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public GenericIdentification1? EligibilitySetProfile { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

@@ -23,9 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
     /// A credit default swap on a single name instrument.
     /// </summary>
     [IsoId("_xfbL0X5eEea2k7EBUopqxw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Single Name Credit Default Swap")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif
@@ -57,16 +55,16 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// Reference entity of a single name credit default swap (CDS) or a derivative on single name CDS.
         /// </summary>
         [IsoId("_NvBOEX5fEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Sovereign Issuer")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="SvrgnIssr")]
         #endif
+        [IsoXmlTag("SvrgnIssr")]
+        [IsoSimpleType(IsoSimpleType.TrueFalseIndicator)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required IsoTrueFalseIndicator SovereignIssuer { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public System.String SovereignIssuer { get; init; } 
+        public required System.String SovereignIssuer { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public System.String SovereignIssuer { get; init; } 
         #else
@@ -77,12 +75,11 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// Reference entity of a single name credit default swap (CDS) or a derivative on single name credit default swap (CDS).
         /// </summary>
         [IsoId("_NvBOE35fEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Reference Party")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="RefPty")]
         #endif
+        [IsoXmlTag("RefPty")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -95,16 +92,15 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative3Cho
         /// Currency in which the notional is denominated.
         /// </summary>
         [IsoId("_NvBOFX5fEea2k7EBUopqxw")]
-        #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         [DisplayName("Notional Currency")]
-        #endif
         #if DECLARE_DATACONTRACT
-        [DataMember]
+        [DataMember(Name="NtnlCcy")]
         #endif
+        [IsoXmlTag("NtnlCcy")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
         public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public string NotionalCurrency { get; init; } 
+        public required string NotionalCurrency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
         public string NotionalCurrency { get; init; } 
         #else

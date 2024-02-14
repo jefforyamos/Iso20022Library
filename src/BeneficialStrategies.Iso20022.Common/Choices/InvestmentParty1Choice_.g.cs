@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestmentParty1Choice.Person))]
     [KnownType(typeof(InvestmentParty1Choice.Algorithm))]
     [IsoId("_yM5zQenQEeSsIMG7XCyDQw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Investment Party 1 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

@@ -21,7 +21,7 @@ public enum PaymentScheduleType1Code
 {
     /// <summary>
     /// Payment schedule is defined as per contract.
-    /// Encoded/decoded by serializers as "CNTR".
+    /// Encoded/decoded by serializers as &quot;CNTR&quot;.
     /// </summary>
     [EnumMember(Value = "CNTR")]
     [IsoId("_0Cn1gQqPEeWqX7rjSIiMuQ")]
@@ -30,7 +30,7 @@ public enum PaymentScheduleType1Code
     
     /// <summary>
     /// Payment schedule is estimated.
-    /// Encoded/decoded by serializers as "ESTM".
+    /// Encoded/decoded by serializers as &quot;ESTM&quot;.
     /// </summary>
     [EnumMember(Value = "ESTM")]
     [IsoId("_0H1FoQqPEeWqX7rjSIiMuQ")]

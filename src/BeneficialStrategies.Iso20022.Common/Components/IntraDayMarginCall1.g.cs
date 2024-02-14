@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Describes an instance of an intraday margin call being made against a margin account.
 /// </summary>
 [IsoId("_dC8lAEG6EemxGPEh9hU2Xg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Intra Day Margin Call")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -53,16 +51,15 @@ public partial record IntraDayMarginCall1
     /// Identification of the margin account against which the intraday margin call is being made.
     /// </summary>
     [IsoId("_rCkhkEG6EemxGPEh9hU2Xg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Margin Account Identification")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="MrgnAcctId")]
     #endif
+    [IsoXmlTag("MrgnAcctId")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GenericIdentification165 MarginAccountIdentification { get; init; } 
+    public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GenericIdentification165 MarginAccountIdentification { get; init; } 
     #else
@@ -73,16 +70,16 @@ public partial record IntraDayMarginCall1
     /// Value of the call being made.
     /// </summary>
     [IsoId("_7dvTgEG6EemxGPEh9hU2Xg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Intra Day Call")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="IntraDayCall")]
     #endif
+    [IsoXmlTag("IntraDayCall")]
+    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoActiveCurrencyAndAmount IntraDayCall { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.Decimal IntraDayCall { get; init; } 
+    public required System.Decimal IntraDayCall { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.Decimal IntraDayCall { get; init; } 
     #else
@@ -93,16 +90,16 @@ public partial record IntraDayMarginCall1
     /// Time at which the margin call was made.
     /// </summary>
     [IsoId("_AaCOYEG7EemxGPEh9hU2Xg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Time Stamp")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TmStmp")]
     #endif
+    [IsoXmlTag("TmStmp")]
+    [IsoSimpleType(IsoSimpleType.ISODateTime)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODateTime TimeStamp { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateTime TimeStamp { get; init; } 
+    public required System.DateTime TimeStamp { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateTime TimeStamp { get; init; } 
     #else

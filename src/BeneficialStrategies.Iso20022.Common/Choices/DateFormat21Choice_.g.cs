@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateFormat21Choice.Date))]
     [KnownType(typeof(DateFormat21Choice.NotSpecifiedDate))]
     [IsoId("_5PdBsfZFEd-2Jsl2KtUQCw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Format 21 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

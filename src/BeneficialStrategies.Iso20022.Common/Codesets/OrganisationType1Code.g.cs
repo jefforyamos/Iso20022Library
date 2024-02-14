@@ -21,7 +21,7 @@ public enum OrganisationType1Code
 {
     /// <summary>
     /// Organisation is an investment fund.
-    /// Encoded/decoded by serializers as "IFUN".
+    /// Encoded/decoded by serializers as &quot;IFUN&quot;.
     /// </summary>
     [EnumMember(Value = "IFUN")]
     [IsoId("_jvGFMSCfEeWJd9HF2tO7BA")]
@@ -30,7 +30,7 @@ public enum OrganisationType1Code
     
     /// <summary>
     /// Organisation is a private association.
-    /// Encoded/decoded by serializers as "PRIV".
+    /// Encoded/decoded by serializers as &quot;PRIV&quot;.
     /// </summary>
     [EnumMember(Value = "PRIV")]
     [IsoId("_j2YY8SCfEeWJd9HF2tO7BA")]
@@ -39,7 +39,7 @@ public enum OrganisationType1Code
     
     /// <summary>
     /// Organisation is a public company.
-    /// Encoded/decoded by serializers as "PUBL".
+    /// Encoded/decoded by serializers as &quot;PUBL&quot;.
     /// </summary>
     [EnumMember(Value = "PUBL")]
     [IsoId("_j9rTwSCfEeWJd9HF2tO7BA")]
@@ -48,7 +48,7 @@ public enum OrganisationType1Code
     
     /// <summary>
     /// Organisation is a public fund.
-    /// Encoded/decoded by serializers as "PFUN".
+    /// Encoded/decoded by serializers as &quot;PFUN&quot;.
     /// </summary>
     [EnumMember(Value = "PFUN")]
     [IsoId("_kFHYgSCfEeWJd9HF2tO7BA")]

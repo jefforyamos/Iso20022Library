@@ -21,7 +21,7 @@ public enum CorporateSectorIdentifier1Code
 {
     /// <summary>
     /// Alternative investment fund managed by an Alternative Investment Fund Manager (AIFM) authorised or registered in accordance with European Securities and Markets Authority (ESMA) Directive 2011/61/EU.
-    /// Encoded/decoded by serializers as "L".
+    /// Encoded/decoded by serializers as &quot;L&quot;.
     /// </summary>
     [EnumMember(Value = "L")]
     [IsoId("_h9rJUVBdEeOenoknK_-H2g")]
@@ -30,7 +30,7 @@ public enum CorporateSectorIdentifier1Code
     
     /// <summary>
     /// Assurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2002/83/EC.
-    /// Encoded/decoded by serializers as "A".
+    /// Encoded/decoded by serializers as &quot;A&quot;.
     /// </summary>
     [EnumMember(Value = "A")]
     [IsoId("_iEFTUVBdEeOenoknK_-H2g")]
@@ -39,7 +39,7 @@ public enum CorporateSectorIdentifier1Code
     
     /// <summary>
     /// Credit Institution authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2006/48/EC.
-    /// Encoded/decoded by serializers as "C".
+    /// Encoded/decoded by serializers as &quot;C&quot;.
     /// </summary>
     [EnumMember(Value = "C")]
     [IsoId("_iKonQVBdEeOenoknK_-H2g")]
@@ -48,7 +48,7 @@ public enum CorporateSectorIdentifier1Code
     
     /// <summary>
     /// Insurance undertaking in accordance with European Securities and Markets Authority (ESMA) Directive 73/239/EEC.
-    /// Encoded/decoded by serializers as "I".
+    /// Encoded/decoded by serializers as &quot;I&quot;.
     /// </summary>
     [EnumMember(Value = "I")]
     [IsoId("_iQJZYVBdEeOenoknK_-H2g")]
@@ -57,7 +57,7 @@ public enum CorporateSectorIdentifier1Code
     
     /// <summary>
     /// Investment firm in accordance with European Securities and Markets Authority (ESMA) Directive 2004/39/EC.
-    /// Encoded/decoded by serializers as "F".
+    /// Encoded/decoded by serializers as &quot;F&quot;.
     /// </summary>
     [EnumMember(Value = "F")]
     [IsoId("_iXc7QVBdEeOenoknK_-H2g")]
@@ -66,7 +66,7 @@ public enum CorporateSectorIdentifier1Code
     
     /// <summary>
     /// Institution for occupational retirement provision within the meaning of Article 6(a) of European Securities and Markets Authority (ESMA) Directive 2003/41/EC.
-    /// Encoded/decoded by serializers as "O".
+    /// Encoded/decoded by serializers as &quot;O&quot;.
     /// </summary>
     [EnumMember(Value = "O")]
     [IsoId("_ihSMsVBdEeOenoknK_-H2g")]
@@ -75,7 +75,7 @@ public enum CorporateSectorIdentifier1Code
     
     /// <summary>
     /// Reinsurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2005/68/EC.
-    /// Encoded/decoded by serializers as "R".
+    /// Encoded/decoded by serializers as &quot;R&quot;.
     /// </summary>
     [EnumMember(Value = "R")]
     [IsoId("_inGg0VBdEeOenoknK_-H2g")]
@@ -84,7 +84,7 @@ public enum CorporateSectorIdentifier1Code
     
     /// <summary>
     /// Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2009/95/EC.
-    /// Encoded/decoded by serializers as "U".
+    /// Encoded/decoded by serializers as &quot;U&quot;.
     /// </summary>
     [EnumMember(Value = "U")]
     [IsoId("_itD-4VBdEeOenoknK_-H2g")]

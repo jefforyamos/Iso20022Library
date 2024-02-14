@@ -21,7 +21,7 @@ public enum SettlementInstructionReason1Code
 {
     /// <summary>
     /// Settlement of all credit amounts.
-    /// Encoded/decoded by serializers as "CSHI".
+    /// Encoded/decoded by serializers as &quot;CSHI&quot;.
     /// </summary>
     [EnumMember(Value = "CSHI")]
     [IsoId("_-R0NkSCtEeWJd9HF2tO7BA")]
@@ -30,7 +30,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of all credit and debit amounts.
-    /// Encoded/decoded by serializers as "ALLL".
+    /// Encoded/decoded by serializers as &quot;ALLL&quot;.
     /// </summary>
     [EnumMember(Value = "ALLL")]
     [IsoId("_-ZjNQSCtEeWJd9HF2tO7BA")]
@@ -39,7 +39,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of all debit amounts.
-    /// Encoded/decoded by serializers as "CSHO".
+    /// Encoded/decoded by serializers as &quot;CSHO&quot;.
     /// </summary>
     [EnumMember(Value = "CSHO")]
     [IsoId("_-hlu8SCtEeWJd9HF2tO7BA")]
@@ -48,7 +48,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of charges.
-    /// Encoded/decoded by serializers as "CHAR".
+    /// Encoded/decoded by serializers as &quot;CHAR&quot;.
     /// </summary>
     [EnumMember(Value = "CHAR")]
     [IsoId("_-pnpkSCtEeWJd9HF2tO7BA")]
@@ -57,7 +57,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of dividends.
-    /// Encoded/decoded by serializers as "DIVI".
+    /// Encoded/decoded by serializers as &quot;DIVI&quot;.
     /// </summary>
     [EnumMember(Value = "DIVI")]
     [IsoId("_-xDuUSCtEeWJd9HF2tO7BA")]
@@ -66,7 +66,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of interest.
-    /// Encoded/decoded by serializers as "INTE".
+    /// Encoded/decoded by serializers as &quot;INTE&quot;.
     /// </summary>
     [EnumMember(Value = "INTE")]
     [IsoId("_-5PZ8SCtEeWJd9HF2tO7BA")]
@@ -75,7 +75,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of investments to a savings plan.
-    /// Encoded/decoded by serializers as "SAVP".
+    /// Encoded/decoded by serializers as &quot;SAVP&quot;.
     /// </summary>
     [EnumMember(Value = "SAVP")]
     [IsoId("__A1PsSCtEeWJd9HF2tO7BA")]
@@ -84,7 +84,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of redemptions or redemption legs of a switch transaction.
-    /// Encoded/decoded by serializers as "REDM".
+    /// Encoded/decoded by serializers as &quot;REDM&quot;.
     /// </summary>
     [EnumMember(Value = "REDM")]
     [IsoId("__IaeYSCtEeWJd9HF2tO7BA")]
@@ -93,7 +93,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of investments to a savings plan and withdrawals from a savings plan.
-    /// Encoded/decoded by serializers as "SAVE".
+    /// Encoded/decoded by serializers as &quot;SAVE&quot;.
     /// </summary>
     [EnumMember(Value = "SAVE")]
     [IsoId("__P2jISCtEeWJd9HF2tO7BA")]
@@ -102,7 +102,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of securities purchases.
-    /// Encoded/decoded by serializers as "BUYI".
+    /// Encoded/decoded by serializers as &quot;BUYI&quot;.
     /// </summary>
     [EnumMember(Value = "BUYI")]
     [IsoId("__XcY4SCtEeWJd9HF2tO7BA")]
@@ -111,7 +111,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of securities sales.
-    /// Encoded/decoded by serializers as "SELL".
+    /// Encoded/decoded by serializers as &quot;SELL&quot;.
     /// </summary>
     [EnumMember(Value = "SELL")]
     [IsoId("__fVJkSCtEeWJd9HF2tO7BA")]
@@ -120,7 +120,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of subscriptions or subscription legs of a switch transaction.
-    /// Encoded/decoded by serializers as "SUBS".
+    /// Encoded/decoded by serializers as &quot;SUBS&quot;.
     /// </summary>
     [EnumMember(Value = "SUBS")]
     [IsoId("__mxOUSCtEeWJd9HF2tO7BA")]
@@ -129,7 +129,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of withdrawals from a savings plan.
-    /// Encoded/decoded by serializers as "WTHP".
+    /// Encoded/decoded by serializers as &quot;WTHP&quot;.
     /// </summary>
     [EnumMember(Value = "WTHP")]
     [IsoId("__up_ASCtEeWJd9HF2tO7BA")]
@@ -138,7 +138,7 @@ public enum SettlementInstructionReason1Code
     
     /// <summary>
     /// Settlement of corporate actions.
-    /// Encoded/decoded by serializers as "CORP".
+    /// Encoded/decoded by serializers as &quot;CORP&quot;.
     /// </summary>
     [EnumMember(Value = "CORP")]
     [IsoId("_AuSyMVxmEeW0RaYpOo325g")]

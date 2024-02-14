@@ -36,9 +36,7 @@ namespace BeneficialStrategies.Iso20022.pacs;
 /// </summary>
 [Description(@"Scope|The FinancialInstitutionToFinancialInstitutionPaymentReversal message is sent by an agent to the next party in the payment chain. It is used to reverse a payment previously executed.|Usage|The FIToFIPaymentReversal message is exchanged between agents to reverse a payment message that has been settled. The result will be a credit on the debtor account (when the reversed payment was a Direct Debit) or a debit on the creditor account (when the reversed payment was a Credit Transfer).|The FIToFIPaymentReversal message may or may not be the follow-up of a payment message.|The FIToFIPaymentReversal message refers to the original payment message by means of references only or by means of references and a set of elements from the original instruction.|The FIToFIPaymentReversal message can be used in domestic and cross-border scenarios.")]
 [IsoId("_RjJo4SGnEeKjd4jizyIDGA")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("FI To FI Payment Reversal V")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -82,16 +80,15 @@ public partial record FIToFIPaymentReversalV04 : IOuterRecord<FIToFIPaymentRever
     /// Set of characteristics shared by all individual transactions included in the message.
     /// </summary>
     [IsoId("_RjJpDyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Group Header")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="GrpHdr")]
     #endif
+    [IsoXmlTag("GrpHdr")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required GroupHeader57 GroupHeader { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public GroupHeader57 GroupHeader { get; init; } 
+    public required GroupHeader57 GroupHeader { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public GroupHeader57 GroupHeader { get; init; } 
     #else
@@ -102,16 +99,15 @@ public partial record FIToFIPaymentReversalV04 : IOuterRecord<FIToFIPaymentRever
     /// Information concerning the original group of transactions, to which the message refers.
     /// </summary>
     [IsoId("_RjJpEyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Original Group Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="OrgnlGrpInf")]
     #endif
+    [IsoXmlTag("OrgnlGrpInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OriginalGroupHeader3 OriginalGroupInformation { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OriginalGroupHeader3 OriginalGroupInformation { get; init; } 
+    public required OriginalGroupHeader3 OriginalGroupInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OriginalGroupHeader3 OriginalGroupInformation { get; init; } 
     #else
@@ -122,12 +118,11 @@ public partial record FIToFIPaymentReversalV04 : IOuterRecord<FIToFIPaymentRever
     /// Information concerning the original transactions, to which the reversal message refers.
     /// </summary>
     [IsoId("_RjJpFyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Transaction Information")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="TxInf")]
     #endif
+    [IsoXmlTag("TxInf")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public PaymentTransaction45? TransactionInformation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -140,12 +135,11 @@ public partial record FIToFIPaymentReversalV04 : IOuterRecord<FIToFIPaymentRever
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
     [IsoId("_RjJpHyGnEeKjd4jizyIDGA")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Supplementary Data")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="SplmtryData")]
     #endif
+    [IsoXmlTag("SplmtryData")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public SupplementaryData1? SupplementaryData { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -158,7 +152,7 @@ public partial record FIToFIPaymentReversalV04 : IOuterRecord<FIToFIPaymentRever
     #nullable disable
     
     /// <summary>
-    /// Using the state of this record, returns a populated <seealso cref="FIToFIPaymentReversalV04Document"/>, usually for the purpose of ISO20022 standard serialization.
+    /// Using the state of this record, returns a populated &lt;seealso cref=&quot;FIToFIPaymentReversalV04Document&quot;/&gt;, usually for the purpose of ISO20022 standard serialization.
     /// </summary>
     public FIToFIPaymentReversalV04Document ToDocument()
     {
@@ -168,7 +162,7 @@ public partial record FIToFIPaymentReversalV04 : IOuterRecord<FIToFIPaymentRever
 
 /// <summary>
 /// This is the outer document that contains the XML serialization wrapper and necessary namespaces for proper serialization.
-/// For a more complete description of the business meaning of the message, see the underlying <seealso cref="FIToFIPaymentReversalV04"/>.
+/// For a more complete description of the business meaning of the message, see the underlying &lt;seealso cref=&quot;FIToFIPaymentReversalV04&quot;/&gt;.
 /// </summary>
 [Serializable]
 public partial record FIToFIPaymentReversalV04Document : IOuterDocument<FIToFIPaymentReversalV04>
@@ -185,7 +179,7 @@ public partial record FIToFIPaymentReversalV04Document : IOuterDocument<FIToFIPa
     public const string DocumentElementName = "Document";
     
     /// <summary>
-    /// The instance of <seealso cref="FIToFIPaymentReversalV04"/> is required.
+    /// The instance of &lt;seealso cref=&quot;FIToFIPaymentReversalV04&quot;/&gt; is required.
     /// </summary>
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required FIToFIPaymentReversalV04 Message { get; init; }

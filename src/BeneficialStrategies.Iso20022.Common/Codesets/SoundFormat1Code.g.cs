@@ -21,7 +21,7 @@ public enum SoundFormat1Code
 {
     /// <summary>
     /// Reference of a preloaded text to play.
-    /// Encoded/decoded by serializers as "MSGR".
+    /// Encoded/decoded by serializers as &quot;MSGR&quot;.
     /// </summary>
     [EnumMember(Value = "MSGR")]
     [IsoId("_OeHPod6_Eeiwsev40qZGEQ")]
@@ -30,7 +30,7 @@ public enum SoundFormat1Code
     
     /// <summary>
     /// Preloaded sound File.
-    /// Encoded/decoded by serializers as "SNDR".
+    /// Encoded/decoded by serializers as &quot;SNDR&quot;.
     /// </summary>
     [EnumMember(Value = "SNDR")]
     [IsoId("_OhkMQd6_Eeiwsev40qZGEQ")]
@@ -39,7 +39,7 @@ public enum SoundFormat1Code
     
     /// <summary>
     /// Text to play.
-    /// Encoded/decoded by serializers as "TEXT".
+    /// Encoded/decoded by serializers as &quot;TEXT&quot;.
     /// </summary>
     [EnumMember(Value = "TEXT")]
     [IsoId("_OlZjYd6_Eeiwsev40qZGEQ")]

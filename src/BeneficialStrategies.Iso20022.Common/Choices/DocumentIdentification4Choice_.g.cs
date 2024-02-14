@@ -20,9 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DocumentIdentification4Choice.AccountServicerDocumentIdentification))]
     [KnownType(typeof(DocumentIdentification4Choice.AccountOwnerDocumentIdentification))]
     [IsoId("_celQvZKQEeWHWpTQn1FFVg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Document Identification 4 Choice")]
-    #endif
     #if DECLARE_SERIALIZABLE
     [Serializable]
     #endif

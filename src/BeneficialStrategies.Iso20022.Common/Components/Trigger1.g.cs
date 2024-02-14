@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Trigger parameters.
 /// </summary>
 [IsoId("_99Ns1nltEeG7BsjMvd1mEw_340413416")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Trigger")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -44,12 +42,11 @@ public partial record Trigger1
     /// Details related to the date on which a variation is effective.
     /// </summary>
     [IsoId("_99Ns13ltEeG7BsjMvd1mEw_-1029546391")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Date Choice")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DtChc")]
     #endif
+    [IsoXmlTag("DtChc")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public FixedOrRecurrentDate1Choice_? DateChoice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
@@ -62,12 +59,11 @@ public partial record Trigger1
     /// Details related to the documentary event on which a variation is triggered.
     /// </summary>
     [IsoId("_99Ns2HltEeG7BsjMvd1mEw_-1230694624")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Documentary Event")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DcmntryEvt")]
     #endif
+    [IsoXmlTag("DcmntryEvt")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public Document10? DocumentaryEvent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

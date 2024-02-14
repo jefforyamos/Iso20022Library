@@ -21,7 +21,7 @@ public enum StandingOrderTypeCode
 {
     /// <summary>
     /// Liquidity transfer standing order type, that has been customised or defined to the specific need of the user.
-    /// Encoded/decoded by serializers as "USTO".
+    /// Encoded/decoded by serializers as &quot;USTO&quot;.
     /// </summary>
     [EnumMember(Value = "USTO")]
     [IsoId("_8N7QVKMgEeCJ6YNENx4h-w_-1951616938")]
@@ -30,7 +30,7 @@ public enum StandingOrderTypeCode
     
     /// <summary>
     /// Liquidity transfer standing order type, as predefined in the system.
-    /// Encoded/decoded by serializers as "PSTO".
+    /// Encoded/decoded by serializers as &quot;PSTO&quot;.
     /// </summary>
     [EnumMember(Value = "PSTO")]
     [IsoId("_8N7QVaMgEeCJ6YNENx4h-w_1666330764")]

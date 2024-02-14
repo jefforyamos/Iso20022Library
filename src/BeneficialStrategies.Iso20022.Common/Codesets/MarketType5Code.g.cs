@@ -21,7 +21,7 @@ public enum MarketType5Code
 {
     /// <summary>
     /// The place is over the counter.
-    /// Encoded/decoded by serializers as "OTCO".
+    /// Encoded/decoded by serializers as &quot;OTCO&quot;.
     /// </summary>
     [EnumMember(Value = "OTCO")]
     [IsoId("_aUwLUdp-Ed-ak6NoX_4Aeg_1589066038")]
@@ -30,7 +30,7 @@ public enum MarketType5Code
     
     /// <summary>
     /// The place is a stock exchange.
-    /// Encoded/decoded by serializers as "EXCH".
+    /// Encoded/decoded by serializers as &quot;EXCH&quot;.
     /// </summary>
     [EnumMember(Value = "EXCH")]
     [IsoId("_aUwLUtp-Ed-ak6NoX_4Aeg_-1956234882")]

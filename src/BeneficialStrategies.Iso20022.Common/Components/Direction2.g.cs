@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Elements indicating the direction of the derivative transaction.
 /// </summary>
 [IsoId("_9zN68C0WEe2ZUuvBHegNNg")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Direction")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,15 @@ public partial record Direction2
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the first leg as determined at the time of transaction.
     /// </summary>
     [IsoId("_gC-v4C0XEe2ZUuvBHegNNg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direction Of The First Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrctnOfTheFrstLeg")]
     #endif
+    [IsoXmlTag("DrctnOfTheFrstLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required OptionParty3Code DirectionOfTheFirstLeg { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public OptionParty3Code DirectionOfTheFirstLeg { get; init; } 
+    public required OptionParty3Code DirectionOfTheFirstLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public OptionParty3Code DirectionOfTheFirstLeg { get; init; } 
     #else
@@ -71,12 +68,11 @@ public partial record Direction2
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the second leg as determined at the time of transaction.
     /// </summary>
     [IsoId("_p5uykC0XEe2ZUuvBHegNNg")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Direction Of The Second Leg")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="DrctnOfTheScndLeg")]
     #endif
+    [IsoXmlTag("DrctnOfTheScndLeg")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public OptionParty3Code? DirectionOfTheSecondLeg { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native

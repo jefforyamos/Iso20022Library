@@ -22,9 +22,7 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Date and date parameters.
 /// </summary>
 [IsoId("_oxDxcDceEeOA3chqL9a4Rw")]
-#if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
 [DisplayName("Effective Date")]
-#endif
 #if DECLARE_SERIALIZABLE
 [Serializable]
 #endif
@@ -51,16 +49,16 @@ public partial record EffectiveDate1
     /// Date on which the SSI is effective. If the SSI is effective on a future date, then the date must be provided.
     /// </summary>
     [IsoId("_BjtLsDcfEeOA3chqL9a4Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDt")]
     #endif
+    [IsoXmlTag("FctvDt")]
+    [IsoSimpleType(IsoSimpleType.ISODate)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public required IsoISODate EffectiveDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public System.DateOnly EffectiveDate { get; init; } 
+    public required System.DateOnly EffectiveDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     public System.DateOnly EffectiveDate { get; init; } 
     #else
@@ -71,12 +69,11 @@ public partial record EffectiveDate1
     /// Specifies how the SSI update effective date is to be applied.
     /// </summary>
     [IsoId("_NXDd8DcfEeOA3chqL9a4Rw")]
-    #if NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
     [DisplayName("Effective Date Parameter")]
-    #endif
     #if DECLARE_DATACONTRACT
-    [DataMember]
+    [DataMember(Name="FctvDtParam")]
     #endif
+    [IsoXmlTag("FctvDtParam")]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
     public ExternalEffectiveDateParameter1Code? EffectiveDateParameter { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
